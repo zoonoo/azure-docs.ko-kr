@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: danlep
-ms.openlocfilehash: 672d446fa8dc27612c7b046cac109bfa4ca5fec5
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 4585749c83432c19b6e62f57c1d954b3afc5ee33
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68309368"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608406"
 ---
 # <a name="health-check-error-reference"></a>상태 검사 오류 참조
 
@@ -63,7 +63,7 @@ ms.locfileid: "68309368"
 
 ## <a name="connectivityforbiddenerror"></a>CONNECTIVITY_FORBIDDEN_ERROR
 
-이 오류는 지정 된 레지스트리에 대 한 챌린지 끝점이 403 사용할 수 없음 HTTP 상태로 응답 했음을 의미 합니다. 이 오류는 사용자가 레지스트리에 액세스할 수 없음을 의미 합니다. 가상 네트워크 구성 때문입니다.
+이 오류는 지정 된 레지스트리에 대 한 챌린지 끝점이 403 사용할 수 없음 HTTP 상태로 응답 했음을 의미 합니다. 이 오류는 사용자가 레지스트리에 액세스할 수 없음을 의미 합니다. 가상 네트워크 구성 때문입니다. 현재 구성 된 방화벽 규칙을 보려면를 실행 `az acr show --query networkRuleSet --name <registry>`합니다.
 
 *잠재적 해결 방법*: 가상 네트워크 규칙을 제거 하거나 현재 클라이언트 IP 주소를 허용 목록에 추가 하십시오.
 

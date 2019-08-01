@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/15/2018
 ms.author: ellacroi
-ms.openlocfilehash: c2393b6ea9f1a2c2b35be63272743e081f4ae240
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8d02d942fce7bd51a116cc4c19eac9faca0060ef
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937741"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561491"
 ---
 # <a name="azure-applications-solution-template-offer-publishing-guide"></a>Azure 애플리케이션: 솔루션 템플릿 제품 게시 가이드
 
@@ -31,7 +31,7 @@ ms.locfileid: "64937741"
 |청구 및 계량    |  고객의 Azure 구독에서 리소스를 프로비전합니다. PAYGO(종량제) 가상 머신은 Microsoft를 통해 고객과 거래되고 고객의 Azure 구독(PAYGO)을 통해 청구됩니다.  <br/> BYOL(사용자 라이선스 필요)의 경우 Microsoft가 고객 구독에서 발생하는 인프라 비용을 청구하는 한편, 소프트웨어 라이선스 요금은 고객과 직접 거래합니다.   |
 |Azure 호환 VHD(가상 하드 디스크)  |   VM은 Windows 또는 Linux에서 빌드해야 합니다.  자세한 내용은 [Azure 호환 VHD 만들기](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md)를 참조하세요. |
 | 고객 사용량 특성 | 고객 사용량 특성 활성화는 Azure Marketplace에 게시된 모든 솔루션 템플릿에 필요합니다. 고객 사용량 특성과 활성화 방법에 대한 자세한 내용은 [Azure 파트너 고객 사용량 특성](./azure-partner-customer-usage-attribution.md)을 참조하세요.  |
-|  |  |
+| Managed Disks 사용 | [Managed Disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) 은 Azure에서 IaaS vm의 지속형 디스크에 대 한 기본 옵션입니다. 솔루션 템플릿에서 Managed Disks를 사용 해야 합니다. <br> <br> 1. Azure ARM 템플릿에서 Managed Disks를 사용 하 여 솔루션 템플릿을 업데이트 하는 방법에 대 한 [지침](https://docs.microsoft.com/azure/virtual-machines/windows/using-managed-disks-template-deployments) 과 [예제](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md) 를 따르세요. <br> <br> 2. 다음 지침에 따라 Managed Disks의 기본 VHD를 저장소 계정으로 가져와 Marketplace에 이미지로 VHD를 게시할 수 있습니다. <br> <ul> <li> [PowerShell](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-vhd?toc=%2fpowershell%2fmodule%2ftoc.json) </li> <li> [CLI](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-vhd?toc=%2fcli%2fmodule%2ftoc.json) </li> </ul> |
 
 ## <a name="next-steps"></a>다음 단계
 아직 수행하지 않은 경우 Marketplace에 [등록](https://azuremarketplace.microsoft.com/sell)합니다.

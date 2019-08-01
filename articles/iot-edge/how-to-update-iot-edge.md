@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: b6b4cd38ce5f591d43f27f735a48993cc1a1ab63
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 27f0ebab1fd87eb1870c5a8be21c4f80be4132f1
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414459"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698598"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>IoT Edge 보안 디먼 및 런타임 업데이트
 
@@ -24,14 +24,6 @@ IoT Edge 서비스는 새 버전을 릴리스할 때 최신 기능과 보안 기
 새 버전으로 전환하려면 IoT Edge 디바이스의 두 가지 구성 요소를 업데이트해야 합니다. 첫 번째는 디바이스에서 실행되고 디바이스가 시작될 때 런타임 모듈을 시작하는 보안 디먼입니다. 현재, 보안 디먼은 디바이스 자체에서만 업데이트할 수 있습니다. 두 번째 구성 요소는 런타임으로, IoT Edge 허브 및 IoT Edge 에이전트 모듈로 구성됩니다. 배포 구성 방법에 따라 디바이스에서 또는 원격으로 런타임을 업데이트할 수 있습니다. 
 
 최신 버전의 Azure IoT Edge를 찾으려면 [Azure IoT Edge 릴리스](https://github.com/Azure/azure-iotedge/releases)를 참조하세요.
-
->[!IMPORTANT]
->Windows 디바이스에서 Azure IoT Edge를 실행할 때 다음 중 하나가 디바이스에 적용되는 경우에는 버전 1.0.5로 업데이트하지 마세요. 
->* 디바이스를 Windows 빌드 17763으로 업그레이드하지 않았습니다. IoT Edge 버전 1.0.5는 17763보다 오래된 Windows 빌드를 지원하지 않습니다.
->* Windows 디바이스에서 Java 또는 Node.js 모듈을 실행합니다. Windows 디바이스를 최신 빌드로 업데이트한 경우에도 버전 1.0.5를 건너뜁니다. 
->
->IoT Edge 버전 1.0.5에 대한 자세한 내용은 [1.0.5 릴리스 정보](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5)를 참조하세요. 개발 도구가 최신 버전으로 업데이트 되는 것을 방지 하는 방법에 대 한 자세한 내용은 [IoT 개발자 블로그](https://devblogs.microsoft.com/iotdev/)를 참조 하세요.
-
 
 ## <a name="update-the-security-daemon"></a>보안 디먼 업데이트
 

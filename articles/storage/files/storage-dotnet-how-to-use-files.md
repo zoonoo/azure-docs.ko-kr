@@ -1,7 +1,6 @@
 ---
 title: .NET을 사용하여 Azure Files 개발 | Microsoft Docs
 description: Azure Files를 사용하여 파일 데이터를 저장하는 .NET 애플리케이션 및 서비스를 개발하는 방법을 알아봅니다.
-services: storage
 author: roygara
 ms.service: storage
 ms.devlang: dotnet
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/22/2017
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 38bafdb4753b41a9c8acd599e6b7215e1777c6cd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 35f29e425fc471e4df4a037ef312af0fd041dcd7
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65779473"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699779"
 ---
 # <a name="develop-for-azure-files-with-net"></a>.NET을 사용하여 Azure Files 개발
 
@@ -37,7 +36,7 @@ Azure Files에 대한 자세한 내용은 [Azure Files 소개](storage-files-int
 
 Azure Files는 클라이언트 애플리케이션에 광범위한 두 가지 방법을 제공합니다. SMB(서버 메시지 블록) 및 REST .NET 내에서 `System.IO` 및 `WindowsAzure.Storage` API별로 이러한 접근 방식을 추상화합니다.
 
-API | 사용 시기 | 메모
+API | 사용 시기 | 참고
 ----|-------------|------
 [System.IO](https://docs.microsoft.com/dotnet/api/system.io) | 사용자 애플리케이션의 경우: <ul><li>SMB를 통해 파일을 읽고 써야 합니다.</li><li>포트 445를 통해 Azure Files 계정에 대한 액세스 권한이 있는 디바이스에서 실행됩니다.</li><li>파일 공유의 관리 설정을 관리할 필요가 없습니다.</li></ul> | SMB를 통한 Azure Files를 사용하여 파일 I/O를 코딩하는 작업은 일반적으로 네트워크 파일 공유 또는 로컬 저장소 디바이스를 사용하여 I/O를 코딩하는 작업과 동일합니다. 파일 I/O를 비롯한 다양한 .NET 기능에 대한 소개는 [이 자습서](https://docs.microsoft.com/dotnet/csharp/tutorials/console-teleprompter)를 참조하세요.
 [Microsoft.Azure.Storage.File](https://docs.microsoft.com/dotnet/api/overview/azure/storage#client-library) | 사용자 애플리케이션의 경우: <ul><li>방화벽이나 ISP 제약 조건으로 인해 SMB를 통해 포트 445에서 Azure Files에 액세스할 수 없습니다.</li><li>파일 공유 할당량을 설정하거나 공유 액세스 서명을 만들 수 있는 기능 등 관리 기능이 필요합니다.</li></ul> | 이 문서는 (SMB 대신) REST 및 파일 공유의 관리를 사용하여 파일 I/O에서 `Microsoft.Azure.Storage.File`를 사용하는 방법을 보여줍니다.
@@ -53,16 +52,16 @@ Visual Studio에서 새로운 Windows 콘솔 애플리케이션을 만듭니다.
 
 이 자습서의 모든 코드 예제는 콘솔 애플리케이션에 있는 `Program.cs` 파일의 `Main()` 메서드에 추가될 수 있습니다.
 
-Azure 클라우드 서비스 또는 웹 앱을 포함 한.NET 응용 프로그램 및 데스크톱 및 모바일 응용 프로그램의 모든 형식에서 Azure Storage 클라이언트 라이브러리를 사용할 수 있습니다. 이 가이드에서는 편의상 콘솔 애플리케이션을 사용합니다.
+Azure 클라우드 서비스, 웹 앱, 데스크톱 및 모바일 응용 프로그램을 포함 하 여 모든 유형의 .NET 응용 프로그램에서 Azure Storage 클라이언트 라이브러리를 사용할 수 있습니다. 이 가이드에서는 편의상 콘솔 애플리케이션을 사용합니다.
 
 ## <a name="use-nuget-to-install-the-required-packages"></a>NuGet을 사용하여 필요한 패키지 설치
 이 자습서를 완료하기 위해 프로젝트에서 참조해야 하는 두 개의 패키지가 있습니다.
 
-* [.NET 용 Microsoft Azure Storage 공통 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/): 이 패키지는 저장소 계정에 공통 리소스에 프로그래밍 방식 액세스를 제공합니다.
-* [.NET 용 Microsoft Azure Storage Blob 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/): 이 패키지는 저장소 계정의 Blob 리소스에 프로그래밍 방식 액세스를 제공 합니다.
+* [.Net 용 Microsoft Azure Storage 공용 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/): 이 패키지는 저장소 계정의 공용 리소스에 대 한 프로그래밍 방식의 액세스를 제공 합니다.
+* [.Net 용 Microsoft Azure Storage Blob 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/): 이 패키지는 저장소 계정의 Blob 리소스에 대 한 프로그래밍 방식의 액세스를 제공 합니다.
 * [Microsoft Azure Configuration Manager Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/): 이 패키지는 애플리케이션을 실행하는 위치와 관계없이 구성 파일에서 연결 문자열을 구문 분석하기 위한 클래스를 제공합니다.
 
-NuGet을 사용하여 패키지를 모두 가져올 수 있습니다. 다음 단계를 수행하세요.
+NuGet을 사용하여 패키지를 모두 가져올 수 있습니다. 다음 단계를 수행하십시오.
 
 1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다.
 2. 온라인에서 "WindowsAzure.Storage"를 검색하고 **설치**를 클릭하여 Storage 클라이언트 라이브러리와 종속성을 설치합니다.
@@ -328,7 +327,7 @@ Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
 ## <a name="share-snapshots"></a>공유 스냅샷
 Azure Storage 클라이언트 라이브러리의 버전 8.5부터는 공유 스냅샷을 만들 수 있습니다. 또한 공유 스냅샷을 나열하거나 찾고 삭제할 수도 있습니다. 공유 스냅샷은 읽기 전용이므로 공유 스냅샷에 쓰기 작업이 허용되지 않습니다.
 
-**공유 스냅숏 만들기**
+**공유 스냅샷 만들기**
 
 다음 예제에서는 파일 공유 스냅샷을 만듭니다.
 
@@ -340,7 +339,7 @@ CloudFileShare myShare = fClient.GetShareReference(baseShareName);
 var snapshotShare = myShare.Snapshot();
 
 ```
-**공유 스냅숏 나열**
+**공유 스냅샷 나열**
 
 다음 예제에서는 공유에 공유 스냅샷을 나열합니다.
 
@@ -348,7 +347,7 @@ var snapshotShare = myShare.Snapshot();
 var shares = fClient.ListShares(baseShareName, ShareListingDetails.All);
 ```
 
-**공유 스냅숏 내에서 파일 및 디렉터리 찾아보기**
+**공유 스냅샷 내에서 파일 및 디렉터리 찾아보기**
 
 다음 예제에서는 공유 스냅샷 내에서 파일 및 디렉터리를 찾습니다.
 
@@ -358,7 +357,7 @@ var rootDirectory = mySnapshot.GetRootDirectoryReference();
 var items = rootDirectory.ListFilesAndDirectories();
 ```
 
-**공유 및 공유 스냅숏 나열 및 공유 스냅숏의 파일 공유 또는 파일 복원** 
+**공유 및 공유 스냅샷 나열 및 공유 스냅샷의 파일 공유 또는 파일 복원** 
 
 파일 공유의 스냅샷을 만들면 나중에 개별 파일 또는 전체 파일 공유를 복구할 수 있습니다. 
 
@@ -391,7 +390,7 @@ fileInliveShare.StartCopyAsync(new Uri(sourceUri));
 ```
 
 
-**공유 스냅숏 삭제**
+**공유 스냅샷 삭제**
 
 다음 예제에서는 파일 공유 스냅샷을 삭제합니다.
 
@@ -402,7 +401,7 @@ CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTim
 ## <a name="troubleshooting-azure-files-using-metrics"></a>메트릭을 사용하여 Azure Files 문제 해결
 이제 Azure 저장소 분석은 Azure Files에 대한 메트릭을 지원합니다. 메트릭 데이터를 사용하여 요청을 추적하고 문제를 진단할 수 있습니다.
 
-Azure Files에 대 한 메트릭을 사용할 수 있습니다 합니다 [Azure portal](https://portal.azure.com)합니다. 또한 REST API 또는 저장소 클라이언트 라이브러리의 유사한 기능 중 하나를 통해 파일 서비스 설정 속성을 호출하여 프로그래밍 방식으로 메트릭을 사용하도록 설정할 수도 있습니다.
+[Azure Portal](https://portal.azure.com)에서 Azure Files에 대 한 메트릭을 사용 하도록 설정할 수 있습니다. 또한 REST API 또는 저장소 클라이언트 라이브러리의 유사한 기능 중 하나를 통해 파일 서비스 설정 속성을 호출하여 프로그래밍 방식으로 메트릭을 사용하도록 설정할 수도 있습니다.
 
 다음 코드 예제에서는 .NET용 저장소 클라이언트 라이브러리를 사용하여 Azure Files에 대한 메트릭을 사용하도록 설정하는 방법을 보여 줍니다.
 

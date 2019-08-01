@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: kumud
 ms.reviewer: yagup
-ms.openlocfilehash: ca3174ad69185da88bf89c843f641dd2b20d9ac5
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 03c0106d793fc7b77ccc8a9176f158a9928ab291
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67872483"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68620131"
 ---
 # <a name="traffic-analytics"></a>트래픽 분석
 
@@ -55,7 +55,7 @@ Azure 가상 네트워크에는 NSG 흐름 로그가 있으며, 이 로그는 �
 
 ![NSG 흐름 로그 처리의 데이터 흐름](./media/traffic-analytics/data-flow-for-nsg-flow-log-processing.png)
 
-## <a name="supported-regions"></a>지원되는 지역
+## <a name="supported-regions-nsg"></a>지원 되는 지역: NSG 
 
 지원되는 다음 지역 중 하나에서 NSG용 트래픽 분석을 사용할 수 있습니다.
 
@@ -69,21 +69,23 @@ Azure 가상 네트워크에는 NSG 흐름 로그가 있으며, 이 로그는 �
 * 미국 서부
 * 미국 서부 2
 * 프랑스 중부
-* 서유럽
-* 북유럽
+* 유럽 서부
+* 유럽 북부
 * 브라질 남부
 * 영국 서부
 * 영국 남부
 * 오스트레일리아 동부
 * 오스트레일리아 남동부
-* 동아시아
+* 아시아 동부
 * 동남아시아
 * 한국 중부
 * 인도 중부
 * 인도 남부
 * 일본 동부 
 * 일본 서부
-* 미국 정부 버지니아
+* US Gov 버지니아
+
+## <a name="supported-regions-log-analytics-workspaces"></a>지원 되는 지역: Log Analytics 작업 영역
 
 Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
 * 캐나다 중부
@@ -95,17 +97,17 @@ Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
 * 미국 서부 2
 * 미국 중부
 * 프랑스 중부
-* 북유럽
-* 서유럽
+* 유럽 북부
+* 유럽 서부
 * 영국 남부
 * 오스트레일리아 동부
 * 오스트레일리아 남동부
-* 동아시아
+* 아시아 동부
 * 동남아시아
 * 한국 중부
 * 인도 중부
 * 일본 동부
-* 미국 정부 버지니아
+* US Gov 버지니아
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -115,9 +117,9 @@ Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
 
 |배포 모델   | 역할                   |
 |---------          |---------               |
-|리소스 관리자   | 소유자                  |
+|Resource Manager   | 소유자                  |
 |                   | 참가자            |
-|                   | 판독기                 |
+|                   | 독자                 |
 |                   | 네트워크 참가자    |
 
 계정이 기본 제공 역할 중 하나에 할당되지 않은 경우 구독 수준에서 다음 작업이 할당된 [사용자 지정 역할](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)에 할당되어야 합니다.
@@ -137,7 +139,7 @@ Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
 
 ### <a name="enable-network-watcher"></a>Network Watcher 사용
 
-트래픽을 분석하려면 기존 network watcher가 있거나 트래픽을 분석할 NSG가 있는 각 지역에서 [network watcher를 사용하도록 설정](network-watcher-create.md)해야 합니다. [지원되는 지역](#supported-regions)에 호스트된 NSG에 대해 트래픽 분석을 사용하도록 설정할 수 있습니다.
+트래픽을 분석하려면 기존 network watcher가 있거나 트래픽을 분석할 NSG가 있는 각 지역에서 [network watcher를 사용하도록 설정](network-watcher-create.md)해야 합니다. [지원되는 지역](#supported-regions-nsg)에 호스트된 NSG에 대해 트래픽 분석을 사용하도록 설정할 수 있습니다.
 
 ### <a name="select-a-network-security-group"></a>네트워크 보안 그룹 선택
 
@@ -147,7 +149,7 @@ Azure Portal의 왼쪽에서 **모니터**, **Network Watcher**, **NSG 흐름 �
 
 ![NSG 흐름 로그를 사용하도록 설정해야 하는 NSG 선택](./media/traffic-analytics/selection-of-nsgs-that-require-enablement-of-nsg-flow-logging.png)
 
-[지원되는 지역](#supported-regions)이 아닌 지역에 호스트되는 NSG에 대해 트래픽 분석을 설정하려고 시도하면 "찾을 수 없음" 오류가 발생합니다.
+[지원되는 지역](#supported-regions-nsg)이 아닌 지역에 호스트되는 NSG에 대해 트래픽 분석을 설정하려고 시도하면 "찾을 수 없음" 오류가 발생합니다.
 
 ## <a name="enable-flow-log-settings"></a>흐름 로그 설정 사용
 
@@ -174,17 +176,18 @@ New-AzStorageAccount `
 
 1. *상태*에 대해 **켜기**를 선택합니다.
 2. **흐름 로그 버전**에 대해 *버전 2* 를 선택 합니다. 버전 2에는 흐름 세션 통계(바이트 및 패킷)가 포함됩니다.
-3. 흐름 로그를 저장할 기존 스토리지 계정을 선택합니다. 데이터를 무기한 저장하려면 값을 *0*으로 설정합니다. 저장소 계정에 대한 Azure 저장소 요금이 발생합니다.
+3. 흐름 로그를 저장할 기존 스토리지 계정을 선택합니다. 데이터를 무기한 저장하려면 값을 *0*으로 설정합니다. 저장소 계정에 대한 Azure 저장소 요금이 발생합니다. 저장소에 "Data Lake Storage Gen2 계층 구조 네임 스페이스 사용"이 true로 설정 되어 있지 않은지 확인 합니다. 또한 NSG 흐름 로그는 방화벽이 포함 된 저장소 계정에 저장할 수 없습니다. 
 4. **보존**을 데이터를 저장하려는 일 수로 설정합니다.
 5. **트래픽 분석 상태**를 *켜기*로 선택합니다.
-6. 기존 Log Analytics(OMS) 작업 영역을 선택하거나 **새 작업 영역 만들기**를 클릭하여 새로 만듭니다. Log Analytics 작업 영역은 트래픽 분석에서 집계 및 인덱싱된 데이터를 저장하는 데 사용되며, 이 데이터는 분석을 생성하는 데 사용됩니다. 기존 작업 영역을 선택하는 경우 해당 작업 영역이 [지원되는 지역](#supported-regions) 중 하나에 있어야 하고 새 쿼리 언어로 업그레이드되어야 합니다. 기존 작업 영역을 업그레이드하지 않으려면 또는 지원되는 지역에 작업 영역이 없으면 새로 만듭니다. 쿼리 언어에 대한 자세한 내용은 [새 로그 검색으로 Azure Log Analytics 업그레이드](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)를 참조하세요.
+6. 처리 간격을 선택 합니다. 선택한 내용에 따라 흐름 로그는 저장소 계정에서 수집 되 고 트래픽 분석에 의해 처리 됩니다. 1 시간 마다 또는 10 분 마다 처리 간격을 선택할 수 있습니다.
+7. 기존 Log Analytics(OMS) 작업 영역을 선택하거나 **새 작업 영역 만들기**를 클릭하여 새로 만듭니다. Log Analytics 작업 영역은 트래픽 분석에서 집계 및 인덱싱된 데이터를 저장하는 데 사용되며, 이 데이터는 분석을 생성하는 데 사용됩니다. 기존 작업 영역을 선택하는 경우 해당 작업 영역이 [지원되는 지역](#supported-regions-log-analytics-workspaces) 중 하나에 있어야 하고 새 쿼리 언어로 업그레이드되어야 합니다. 기존 작업 영역을 업그레이드하지 않으려면 또는 지원되는 지역에 작업 영역이 없으면 새로 만듭니다. 쿼리 언어에 대한 자세한 내용은 [새 로그 검색으로 Azure Log Analytics 업그레이드](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)를 참조하세요.
 
     트래픽 분석 솔루션 및 NSG를 호스팅하는 로그 분석 작업 영역이 같은 지역에 있어야 하는 것은 아닙니다. 예를 들어 유럽 서부의 작업 영역에 트래픽 분석이 있고, 미국 동부 및 미국 서부에 NSG가 있을 수 있습니다. 여러 NSG를 동일한 작업 영역에 구성해도 됩니다.
-7.           **저장**을 선택합니다.
+8.           **저장**을 선택합니다.
 
-    ![저장소 계정 선택, Log Analytics 작업 영역 및 트래픽 분석 사용](./media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement-nsg-flowlogs-v2.png)
+    ![저장소 계정 선택, Log Analytics 작업 영역 및 트래픽 분석 사용](./media/traffic-analytics/ta-customprocessinginterval.png)
 
-트래픽 분석을 사용할 다른 NSG에 대해 이전 단계를 반복합니다. 흐름 로그의 데이터는 작업 영역으로 전송 되므로 해당 국가/지역의 지역 법률 및 규정에 따라 작업 영역이 있는 지역에 데이터 저장소가 허용 되는지 확인 합니다.
+트래픽 분석을 사용할 다른 NSG에 대해 이전 단계를 반복합니다. 흐름 로그의 데이터는 작업 영역으로 전송되므로 작업 영역이 있는 지역에 데이터를 저장하는 것을 현지 법률 및 규정에서 허용하는지 확인해야 합니다. 다른 NSGs에 대해 서로 다른 처리 간격을 설정한 경우 데이터는 다른 간격으로 수집 됩니다. 예를 들어: 중요 한 Vnet의 처리 간격을 10 분으로 설정 하 고, 중요 하지 않은 Vnet의 경우 1 시간을 사용 하도록 선택할 수 있습니다.
 
 Azure PowerShell에서 [AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) PowerShell cmdlet을 사용 하 여 트래픽 분석을 구성할 수도 있습니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요.
 

@@ -1,19 +1,20 @@
 ---
 title: 'Azure Backup: Linux VM의 애플리케이션 일치 백업'
 description: Azure에 Linux 가상 머신의 애플리케이션 일치 백업을 만듭니다. 이 문서에서는 Azure 배포 Linux VM을 백업하는 스크립트 프레임워크를 구성하는 내용에 대해 설명합니다. 이 문서에는 문제 해결 정보도 포함되어 있습니다.
-author: anuragmehrotra
-manager: shivamg
+ms.reviewer: anuragm
+author: dcurwin
+manager: carmonm
 keywords: 앱 일치 백업, 애플리케이션 일치 Azure VM 백업, Linux VM 백업, Azure Backup
 ms.service: backup
 ms.topic: conceptual
 ms.date: 1/12/2018
-ms.author: anuragm
-ms.openlocfilehash: adcadf0de2480b0f231dd8808d84cb2907685842
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: dae2268abc3771e43d717c65c19eed37b9f48e8e
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466136"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689249"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Azure Linux VM의 애플리케이션 일치 백업
 

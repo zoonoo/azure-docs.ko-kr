@@ -8,16 +8,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: raynew
-ms.openlocfilehash: 00ca474a6cb32c7ad3e47aef750126e958e43501
-ms.sourcegitcommit: 57a7d4f67635212f5bf0c56e58fd87c8ec366f2c
+ms.openlocfilehash: bbbec680cd2575cc63761c9fbe1335d548ec4d3b
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68372456"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640795"
 ---
 # <a name="support-matrix-for-vmware-assessment-and-migration"></a>VMware 평가 및 마이그레이션 지원 매트릭스
 
-[Azure Migrate 서비스](migrate-overview.md) 를 사용 하 여 컴퓨터를 평가 하 고 Microsoft Azure 클라우드로 마이그레이션할 수 있습니다. 이 문서에서는 온-프레미스 VMware Vm을 평가 하 고 마이그레이션하기 위한 지원 설정 및 제한 사항을 요약 합니다.
+[Azure Migrate](migrate-overview.md) 를 사용 하 여 컴퓨터를 평가 하 고 Microsoft Azure 클라우드로 마이그레이션할 수 있습니다. 이 문서에서는 온-프레미스 VMware Vm을 평가 하 고 마이그레이션하기 위한 지원 설정 및 제한 사항을 요약 합니다.
 
 
 ## <a name="vmware-scenarios"></a>VMware 시나리오
@@ -27,35 +27,32 @@ ms.locfileid: "68372456"
 **배포** | **세부 정보**
 --- | ---
 **온-프레미스 VMware Vm 평가** | 첫 번째 평가를 [설정](tutorial-prepare-vmware.md) 합니다.<br/><br/> 대규모 평가를 [실행](scale-vmware-assessment.md) 합니다.
-**VMware VM 마이그레이션** | 일부 제한 사항이 있는 에이전트 없는 마이그레이션을 사용 하 여 마이그레이션하거나 에이전트 기반 마이그레이션을 사용할 수 있습니다. [자세히 알아보기](server-migrate-overview.md)
+**VMware VM 마이그레이션** | 에이전트 없는 마이그레이션을 사용 하 여 마이그레이션하거나 에이전트 기반 마이그레이션을 사용할 수 있습니다. [자세히 알아보기](server-migrate-overview.md)
 
 
 ## <a name="azure-migrate-projects"></a>Azure Migrate 프로젝트
 
 **지원** | **세부 정보**
 --- | ---
-Azure 권한 | Azure Migrate 프로젝트를 만들려면 구독에 대 한 참가자 또는 소유자 권한이 있어야 합니다.
-VMware 제한 사항  | 단일 프로젝트에서 최대 35000 VMware Vm을 평가 합니다.
+**Azure 사용 권한** | Azure Migrate 프로젝트를 만들려면 구독에 대 한 참가자 또는 소유자 권한이 있어야 합니다.
+**VMware 제한 사항**  | 단일 프로젝트에서 최대 35000 VMware Vm을 평가 합니다. Azure 구독에서 여러 프로젝트를 만들 수 있습니다.
+**프로젝트 제한** | 프로젝트에는 VMware Vm과 Hyper-v Vm이 모두 포함 될 수 있습니다 (평가 제한까지).
+**Geography** | 여러 지역에서 Azure Migrate 프로젝트를 만들 수 있습니다. 이러한 지역에만 프로젝트를 만들 수 있지만 다른 대상 위치의 컴퓨터를 평가 하거나 마이그레이션할 수 있습니다. 프로젝트 지역은 검색된 메타데이터를 저장하는 데만 사용됩니다.
 
-프로젝트에는 VMware Vm과 Hyper-v Vm이 모두 포함 될 수 있습니다 (평가 제한까지).
-
-**요인** Azure Migrate 프로젝트를 만들 수 있는 여러 지리적 지역이 있습니다. 이러한 지역에만 프로젝트를 만들 수 있지만 다른 대상 위치의 컴퓨터를 평가 하거나 마이그레이션할 수는 있습니다. 프로젝트 지역은 검색된 메타데이터를 저장하는 데만 사용됩니다.
-
-
- **Geography** | **메타데이터 스토리지 위치**
- --- | ---
- Azure Government | US Gov 버지니아
- 아시아 태평양 | 동남 아시아 또는 동아시아
- Europe | 남부 유럽 또는 유럽 서부
- 영국 | 영국 남부 또는 영국 서부
- 미국 | 미국 중부 또는 미국 서 부 2
+**Geography** | **메타데이터 스토리지 위치**
+--- | ---
+Azure Government | US Gov 버지니아
+아시아 태평양 | 동남 아시아 또는 동아시아
+Europe | 남부 유럽 또는 유럽 서부
+영국 | 영국 남부 또는 영국 서부
+미국 | 미국 중부 또는 미국 서 부 2
 
 
  > [!NOTE]
  > Azure Government에 대 한 지원은 현재 [이전 버전](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-versions) 의 Azure Migrate 에서만 사용할 수 있습니다.
 
 
-## <a name="assessment-vmware-server-requirements"></a>평가-VMware 서버 요구 사항
+## <a name="assessment-vcenter-server-requirements"></a>평가-vCenter Server 요구 사항
 
 이 표에는 VMware 가상화 서버에 대 한 평가 지원 및 제한이 요약 되어 있습니다.
 
@@ -65,12 +62,15 @@ VMware 제한 사항  | 단일 프로젝트에서 최대 35000 VMware Vm을 평�
 
 ## <a name="assessment-vcenter-server-permissions"></a>평가-vCenter Server 권한
 
-평가만 하는 경우에는 vCenter Server에 대한 읽기 전용 계정이 필요합니다.
+평가의 경우 vCenter Server에 대 한 읽기 전용 계정이 필요 합니다.
 
 ## <a name="assessment-appliance-requirements"></a>평가-어플라이언스 요구 사항
 
+VMware에 대 한 Azure Migrate 어플라이언스는 vCenter Server으로 가져온 OVA 템플릿을 사용 하 여 배포 됩니다.
+
 **지원** | **세부 정보**
 --- | ---
+**vCenter Server** | 32 GB의 메모리, 4 개의 vCPUs 및 외부 가상 스위치를 사용 하 여 VM을 할당 하려면 vCenter Server에 충분 한 리소스가 필요 합니다.<br/><br/> 어플라이언스는 직접 또는 프록시를 통해 인터넷에 액세스 해야 합니다.
 **ESXi** | 어플라이언스 VM은 버전 5.5 이상을 실행 하는 ESXi 호스트에 배포 해야 합니다.
 **Azure Migrate 프로젝트** | 어플라이언스는 단일 프로젝트에 연결할 수 있습니다.
 **vCenter Server** | 어플라이언스는 vCenter Server에서 VMware Vm을 1만 개까지 검색할 수 있습니다.<br/> 어플라이언스는 한 vCenter Server에 연결할 수 있습니다.
@@ -81,7 +81,7 @@ VMware 제한 사항  | 단일 프로젝트에서 최대 35000 VMware Vm을 평�
 Azure Migrate 어플라이언스는 인터넷에 인터넷으로 연결 되어야 합니다.
 
 - 어플라이언스를 배포 하는 경우 Azure Migrate 아래 표에 요약 된 Url에 대 한 연결 확인을 수행 합니다.
-- URL 기반 방화벽. 프록시를 사용 하는 경우 이러한 Url에 대 한 액세스를 허용 하 여 프록시가 Url을 조회 하는 동안 수신 된 CNAME 레코드를 확인 하도록 합니다.
+- URL 기반 프록시를 사용 하 여 인터넷에 연결 하는 경우 이러한 Url에 대 한 액세스를 허용 하 여 프록시가 Url을 조회 하는 동안 수신 된 CNAME 레코드를 확인 하 게 합니다.
 
 **URL** | **세부 정보**  
 --- | --- |
@@ -94,14 +94,14 @@ dc.services.visualstudio.com | 내부 모니터링에 사용 되는 앱 로그�
 \*.servicebus.windows.net | 어플라이언스와 Azure Migrate 서비스 간의 통신.
 *.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com <br/> \*.hypervrecoverymanager.windowsazure.com | Azure Migrate 서비스 Url에 연결 합니다.
 \*.blob.core.windows.net | 저장소 계정에 데이터를 업로드 합니다.
-
+http://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/download | Azure Migrate 어플라이언스 업데이트에 사용 됩니다.
 
 ## <a name="assessment-port-requirements"></a>평가-포트 요구 사항
 
 **장치** | **연결**
 --- | ---
-어플라이언스 | 어플라이언스에 대 한 원격 데스크톱 연결을 허용 하기 위해 TCP 포트 3389에서 인바운드 연결<br/> URL을 사용 하 여 어플라이언스 관리 앱에 원격으로 액세스 하기 위한 포트 44368의 인바운드 연결: https://< 어플라이언스-ip 또는-이름 >: 44368 <br/>Azure Migrate에 검색 및 성능 메타 데이터를 보내기 위한 포트 443의 아웃 바운드 연결
-vCenter Server | 어플라이언스에서 평가를 위한 구성 및 성능 메타 데이터를 수집할 수 있도록 TCP 포트 443에서 인바운드 연결 <br/> 어플라이언스는 기본적으로 포트 443의 vCenter에 연결 됩니다. VCenter 서버가 다른 포트에서 수신 대기 하는 경우 검색을 설정할 때 포트를 수정할 수 있습니다.
+어플라이언스 | 어플라이언스에 대 한 원격 데스크톱 연결을 허용 하기 위해 TCP 포트 3389에서 인바운드 연결<br/><br/> URL을 사용 하 여 어플라이언스 관리 앱에 원격으로 액세스 하기 위해 포트 44368에서 인바운드 연결:```https://<appliance-ip-or-name>:44368``` <br/><br/>Azure Migrate에 검색 및 성능 메타 데이터를 보내기 위한 포트 443의 아웃 바운드 연결
+vCenter Server | 어플라이언스에서 평가를 위한 구성 및 성능 메타 데이터를 수집할 수 있도록 TCP 포트 443에서 인바운드 연결 <br/><br/> 어플라이언스는 기본적으로 포트 443의 vCenter에 연결 됩니다. VCenter 서버가 다른 포트에서 수신 대기 하는 경우 검색을 설정할 때 포트를 수정할 수 있습니다.
 
 
 ## <a name="agentless-migration-vmware-server-requirements"></a>에이전트 없는 마이그레이션-VMware 서버 요구 사항
@@ -110,7 +110,8 @@ vCenter Server | 어플라이언스에서 평가를 위한 구성 및 성능 메
 
 **지원** | **세부 정보**
 --- | ---
-**vCenter 서버** | 에이전트 없는 마이그레이션을 사용 하 여 마이그레이션하는 VMware Vm은 5.5, 6.0, 6.5 또는 6.7을 실행 하는 하나 이상의 vCenter 서버에서 관리 해야 합니다.
+vCenter Server | 버전 5.5, 6.0, 6.5 또는 6.7입니다.
+VMware vSphere | 버전 5.5, 6.0, 6.5 또는 6.7
 
 ## <a name="agentless-migration-vcenter-server-permissions"></a>에이전트 없는 마이그레이션-vCenter Server 권한
 
@@ -134,10 +135,20 @@ VirtualMachine.SnapshotManagement.* | 복제에 대 한 VM 스냅숏 만들기 �
 **Azure에 대 한 필수 변경 내용** | 일부 Vm은 Azure에서 실행할 수 있도록 변경 해야 할 수 있습니다. Azure Migrate는 다음 운영 체제에 대해 이러한 변경을 자동으로 수행 합니다.<br/> - Red Hat Enterprise Linux 6.5+, 7.0+<br/> - CentOS 6.5+, 7.0+</br> -SUSE Linux Enterprise Server 12 SP1 이상<br/> - Ubuntu 14.04LTS, 16.04LTS, 18.04LTS<br/> -Debian 7, 8<br/><br/> 다른 운영 체제의 경우 마이그레이션하기 전에 수동으로 조정 해야 합니다. 관련 문서에는이 작업을 수행 하는 방법에 대 한 지침이 포함 되어 있습니다.
 **Linux 부팅** | /Boot는 전용 파티션에 있는 경우 OS 디스크에 상주해 야 하며 여러 디스크에 분산 되 면 안 됩니다.<br/> /Boot가 루트 (/) 파티션의 일부인 경우 '/' 파티션은 OS 디스크에 있어야 하며 다른 디스크에 걸쳐 있지 않아야 합니다.
 **UEFI 부팅** | UEFI 부팅이 포함 된 Vm은 마이그레이션을 지원 하지 않습니다.
+**디스크 크기** | 2TB OS 디스크 데이터 디스크의 경우 4tb
+**디스크 제한** |  VM 당 최대 60 디스크
 **암호화 된 디스크/볼륨** | 암호화 된 디스크/볼륨이 있는 Vm은 마이그레이션을 지원 하지 않습니다.
+**공유된 디스크 클러스터** | 지원되지 않습니다.
+**독립 디스크** | 지원되지 않습니다.
 **RDM/통과 디스크** | Vm에 RDM 또는 통과 디스크가 있는 경우 이러한 디스크는 Azure에 복제 되지 않습니다.
 **NFS** | Vm에 볼륨으로 탑재 된 NFS 볼륨이 복제 되지 않습니다.
-**대상 디스크** | Vm은 Azure에서 관리 되는 디스크 (표준 HHD, 프리미엄 SSD)로만 마이그레이션할 수 있습니다.
+**iSCSI 대상** | ISCSI 대상을 사용 하는 Vm은 에이전트 없는 마이그레이션에 대해 지원 되지 않습니다.
+**다중 경로 IO** | 지원되지 않습니다.
+**저장소 vMotion** | 지원되지 않습니다. VM에서 저장소 vMotion를 사용 하는 경우 복제가 작동 하지 않습니다.
+**팀 Nic** | 지원되지 않습니다.
+**IPv6** | 지원되지 않습니다.
+**대상 디스크** | Vm은 Azure에서 관리 되는 디스크 (표준 HDD, 프리미엄 SSD)로만 마이그레이션할 수 있습니다.
+**동시 복제** | vCenter Server 당 Vm 100 더 많은 경우 100의 일괄 처리로 마이그레이션합니다.
 
 
 ## <a name="agentless-migration-appliance-requirements"></a>에이전트 없는 마이그레이션-어플라이언스 요구 사항
@@ -148,14 +159,14 @@ VirtualMachine.SnapshotManagement.* | 복제에 대 한 VM 스냅숏 만들기 �
 **ESXi** | 어플라이언스 VM은 버전 5.5 이상을 실행 하는 ESXi 호스트에 배포 해야 합니다.
 **Azure Migrate 프로젝트** | 어플라이언스는 단일 프로젝트에 연결할 수 있습니다.
 **vCenter Server** | 어플라이언스는 vCenter Server에서 VMware Vm을 1만 개까지 검색할 수 있습니다.<br/> 어플라이언스는 한 vCenter Server에 연결할 수 있습니다.
-**VDDK** | Azure Migrate Server Migration을 사용 하 여 에이전트 없는 마이그레이션을 실행 하는 경우 VMware vSphere VDDK (가상 디스크 개발 키트)를 어플라이언스 VM에 설치 해야 합니다.
+**VDDK** | Azure Migrate Server Migration을 사용 하 여 에이전트 없는 마이그레이션을 실행 하는 경우 VMware vSphere VDDK을 어플라이언스 VM에 설치 해야 합니다.
 
 ## <a name="agentless-migration-url-access-requirements"></a>에이전트 없는 마이그레이션-URL 액세스 요구 사항
 
 Azure Migrate 어플라이언스는 인터넷에 인터넷으로 연결 되어야 합니다.
 
 - 어플라이언스를 배포 하는 경우 Azure Migrate 아래 표에 요약 된 Url에 대 한 연결 확인을 수행 합니다.
-- URL 기반 방화벽. 프록시를 사용 하는 경우 이러한 Url에 대 한 액세스를 허용 하 여 프록시가 Url을 조회 하는 동안 수신 된 CNAME 레코드를 확인 하도록 합니다.
+- URL 기반 프록시를 사용 하는 경우 이러한 Url에 대 한 액세스를 허용 하 여 프록시가 Url을 조회 하는 동안 수신 된 CNAME 레코드를 확인 하 게 합니다.
 
 **URL** | **세부 정보**  
 --- | ---
@@ -166,16 +177,17 @@ management.azure.com | 어플라이언스에 대 한 Active Directory 앱을 만
 dc.services.visualstudio.com | 내부 모니터링에 사용 되는 앱 로그를 업로드 합니다.
 *.vault.azure.net | Azure Key Vault에서 비밀을 관리 합니다.
 \*.servicebus.windows.net | 어플라이언스와 Azure Migrate 서비스 간의 통신.
-*.discoverysrv.windowsazure.com<br/> *.migration.windowsazure.com<br/> \*.hypervrecoverymanager.windowsazure.com | Azure Migrate 서비스 Url에 연결 합니다.
+*.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com <br/> \*.hypervrecoverymanager.windowsazure.com | Azure Migrate 서비스 Url에 연결 합니다.
 \*.blob.core.windows.net | 저장소 계정에 데이터를 업로드 합니다.
+http://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/download | Azure Migrate 어플라이언스 업데이트에 사용 됩니다.
 
 
 ## <a name="agentless-migration-port-requirements"></a>에이전트 없는 마이그레이션-포트 요구 사항
 
 **장치** | **연결**
 --- | ---
-어플라이언스 | 아웃 바운드 TCP 포트 3389는 복제 된 데이터를 Azure에 업로드 하 고 복제 및 마이그레이션을 위해 Azure Migrate와 통신 합니다.
-vCenter Server | 어플라이언스에서 복제를 오케스트레이션 할 수 있도록 허용 하는 TCP 포트 443의 인바운드 연결-스냅숏 만들기, 데이터 복사, 릴리스 스냅숏
+어플라이언스 | 포트 443의 아웃 바운드 연결을 사용 하 여 복제 된 데이터를 Azure에 업로드 하 고, 복제 및 오케스트레이션 서비스를 사용 하 여 Azure Migrate 서비스와 통신 합니다.
+vCenter Server | 어플라이언스에서 복제를 오케스트레이션 할 수 있도록 허용 하는 포트 443의 인바운드 연결-스냅숏 만들기, 데이터 복사, 릴리스 스냅숏
 vSphere/EXSI 호스트 | 어플라이언스의 TCP 포트 902에 대 한 인바운드는 스냅숏에서 데이터를 복제 합니다.
 
 
@@ -185,36 +197,12 @@ vSphere/EXSI 호스트 | 어플라이언스의 TCP 포트 902에 대 한 인바�
 
 **지원** | **세부 정보**
 --- | ---
-**vCenter 서버/ESXI** | 마이그레이션하는 VMware Vm은 5.5, 6.0, 6.5 또는 6.7을 실행 하는 하나 이상의 vCenter 서버에서 관리 하거나 vSphere 버전 5.5, 6.0, 6.5 또는 6.7 인 ESXI 호스트에서 실행 해야 합니다.
+vCenter Server | 버전 5.5, 6.0, 6.5 또는 6.7입니다.
+VMware vSphere | 버전 5.5, 6.0, 6.5 또는 6.7.
 
 ### <a name="agent-based-migration-vcenter-server-permissions"></a>에이전트 기반 마이그레이션-vCenter Server 권한
 
-**사용 권한** | **세부 정보**
---- | ---
-Datastore.AllocateSpace | VM, 스냅숏, 복제 또는 가상 디스크에 대 한 데이터 저장소에 공간을 할당할 수 있습니다.
-Datastore.Browse | VM 로그 파일을 검색 하 여 스냅숏 만들기 및 삭제 문제를 해결할 수 있습니다.
-Datastore.LowLevelFileOperations | 데이터 저장소 브라우저에서 읽기, 쓰기, 삭제 및 이름 바꾸기 작업을 허용 하 여 스냅숏 생성/삭제 문제를 해결 합니다.
-Datastore.UpdateVirtualMachineFiles | 데이터 저장소가 resignatured 된 후 데이터 저장소에서 VM 파일에 대 한 경로를 업데이트할 수 있습니다.
-Network.AssignNetwork | VM 리소스에 네트워크를 할당할 수 있습니다.
-AssignVirtualMachineToResourcePool | 리소스 풀에 VM을 할당할 수 있습니다.
-Resource.MigratePoweredOffVirtualMachine | 전원이 꺼진 VM을 다른 리소스 풀 또는 호스트로 마이그레이션할 수 있습니다.
-Resource.MigratePoweredOnVirtualMachine | 전원이 켜진 VM의 vMotion를 사용 하 여 다른 리소스 풀 또는 호스트로 마이그레이션할 수 있습니다.
-Tasks.CreateTask | 확장을 통해 사용자 정의 태스크를 만들 수 있습니다.
-Tasks.UpdateTask | 확장을 통해 사용자 정의 작업을 업데이트할 수 있습니다.
-VirtualMachine.Configuration. | VM 옵션 및 장치를 구성할 수 있습니다.
-가상 컴퓨터 AnswerQuestion | VM 상태 전환 또는 런타임 오류에 대 한 문제를 해결할 수 있습니다.
-가상 컴퓨터 DeviceConnection | VM의 연결 가능 가상 장치의 연결 상태를 변경할 수 있습니다.
-가상 컴퓨터 ConfigureCDMedia | 가상 DVD 또는 CD-ROM 장치의 구성을 허용 합니다.
-가상 컴퓨터 ConfigureFloppyMedia | 가상 플로피 장치를 구성할 수 있습니다.
-가상 컴퓨터 전원 꺼짐 | Azure로 마이그레이션하는 동안 VM의 전원을 끌 수 있습니다.
-가상 컴퓨터. 상호 작용 | 전원이 꺼진 VM의 전원을 켜고 일시 중단 된 VM을 다시 시작할 수 있습니다.
-가상 컴퓨터 VMwareToolsInstall | VMware Tools CD installer를 게스트 운영 체제에 대 한 CD-ROM으로 탑재 및 탑재 해제할 수 있습니다.
-VirtualMachine.Inventory.CreateNew | VM을 생성 하 고 필요한 리소스를 할당할 수 있습니다.
-VirtualMachine.Inventory.Register | VCenter Server 또는 호스트 인벤토리에 기존 VM을 추가할 수 있습니다.
-VirtualMachine.Inventory.Unregister | VCenter Server 또는 호스트 인벤토리에서 Vm 등록을 취소할 수 있습니다.
-VirtualMachine.Provisioning.AllowVirtualMachineFilesUpload | .Vmx, 디스크, 로그 및 nvram을 포함 하 여 VM과 연결 된 파일에 대 한 쓰기 작업을 허용 합니다.
-VirtualMachine.Provisioning.AllowVirtualMachineDownload | VM과 연결 된 파일에 대 한 읽기 작업을 허용 하 여 문제 해결을 위해 로그를 다운로드 합니다.
-VirtualMachine.SnapshotManagement.RemoveSnapshot | 스냅숏 기록에서 스냅숏 제거를 허용 합니다.
+VCenter Server에 대 한 읽기 전용 계정입니다.
 
 ## <a name="agent-based-migration-replication-appliance-requirements"></a>에이전트 기반 마이그레이션-복제 어플라이언스 요구 사항
 
@@ -228,8 +216,8 @@ Azure Migrate 서버 마이그레이션과 함께 VMware Vm 및 물리적 서버
 **구성 요소** | **요구 사항**
 --- | ---
  | **VMware 설정** (VMware VM 어플라이언스)
-**PowerCLI** | VMware VM에서 복제 어플라이언스를 실행 하는 경우에는 [Powercli 버전 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) 을 설치 해야 합니다.
-**NIC 유형** | VMXNET3 (기기가 VMware VM 인 경우)
+PowerCLI | VMware VM에서 복제 어플라이언스를 실행 하는 경우에는 [Powercli 버전 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) 을 설치 해야 합니다.
+NIC 유형 | VMXNET3 (기기가 VMware VM 인 경우)
  | **하드웨어 설정**
 CPU 코어 | 8
 RAM | 16GB
@@ -242,7 +230,7 @@ RAM | 16GB
 TLS | TLS 1.2를 사용 하도록 설정 해야 합니다.
 .NET Framework | .NET Framework 4.6 이상이 컴퓨터에 설치 되어 있어야 합니다 (강력한 암호화를 사용 하도록 설정 됨).
 MySQL | MySQL을 어플라이언스에 설치 해야 합니다.<br/> MySQL을 설치해야 합니다. 수동으로 설치 하거나 어플라이언스를 배포 하는 동안 설치할 수 Site Recovery.
-기타 앱 | 복제 어플라이언스에서 다른 앱을 실행 해서는 안 됩니다.
+기타 앱 | 복제 어플라이언스에서 다른 앱을 실행 하지 마세요.
 Windows Server 역할 | 다음 역할을 사용하지 않도록 설정함: <br> - Active Directory Domain Services <br>- 인터넷 정보 서비스 <br> - Hyper-V
 그룹 정책 | 다음 그룹 정책을 사용하지 않도록 설정함: <br> - 명령 프롬프트에 대한 액세스 방지 <br> - 레지스트리 편집 도구에 대한 액세스 방지 <br> - 파일 첨부를 위한 트러스트 논리 <br> - 스크립트 실행 켜기 <br> [자세히 알아보기](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
 IIS | - 기존의 기본 웹 사이트 없음 <br> - 포트 443에서 수신 대기하는 기존의 웹 사이트/응용 프로그램 없음 <br>- [익명 인증](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) 사용 <br> - [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) 설정 사용
@@ -273,11 +261,11 @@ https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.
 
 이러한 방법 중 하나를 사용 하 여 복제 어플라이언스에 MySQL을 설치할 수 있습니다.
 
-**설치** | **세부 정보**
+**메서드** | **세부 정보**
 --- | ---
 수동으로 다운로드 및 설치 | MySQL 응용 프로그램을 다운로드 하 & C:\Temp\ASRSetup 폴더에 배치한 다음 수동으로 설치 합니다.<br/> 기기를 설정 하는 경우 MySQL은 이미 설치 된 것으로 표시 됩니다.
-온라인으로 다운로드 안 함 | C:\Temp\ASRSetup. 폴더에 MySQL 설치 관리자 응용 프로그램을 추가 합니다. 어플라이언스를 설치 하 고를 클릭 하 여 MySQL을 다운로드 하 고 설치 하면 추가 된 설치 관리자가 사용 됩니다.
-Azure Migrate에서 다운로드 | 어플라이언스를 설치할 때 MySQL을 입력 하 라는 메시지가 표시 되 면 **다운로드 및 설치**를 선택 합니다.
+온라인 다운로드 하지 않음 | C:\Temp\ASRSetup. 폴더에 MySQL 설치 관리자 응용 프로그램을 추가 합니다. 어플라이언스를 설치 하 고를 클릭 하 여 MySQL을 다운로드 하 고 설치 하면 추가 된 설치 관리자가 사용 됩니다.
+Azure Migrate에서 다운로드 및 설치 | 어플라이언스를 설치할 때 MySQL을 입력 하 라는 메시지가 표시 되 면 **다운로드 및 설치**를 선택 합니다.
 
 
 
@@ -291,16 +279,30 @@ Azure Migrate에서 다운로드 | 어플라이언스를 설치할 때 MySQL을 
 **네트워크/저장소** | 최신 정보는 Site Recovery에 대 한 [네트워크](../site-recovery/vmware-physical-azure-support-matrix.md#network) 및 [저장소](../site-recovery/vmware-physical-azure-support-matrix.md#storage) 필수 구성 요소를 검토 하세요. Azure Migrate는 동일한 네트워크/저장소 요구 사항을 제공 합니다.
 **Azure 요구 사항** | 최신 정보는 Site Recovery에 대 한 [Azure 네트워크](../site-recovery/vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [저장소](../site-recovery/vmware-physical-azure-support-matrix.md#azure-storage)및 [계산](../site-recovery/vmware-physical-azure-support-matrix.md#azure-compute) 요구 사항을 검토 하세요. Azure Migrate는 VMware 마이그레이션에 대 한 요구 사항이 동일 합니다.
 **모바일 서비스** | 마이그레이션하려는 각 VM에 모바일 서비스 에이전트를 설치 해야 합니다.
-**대상 디스크** | Vm은 Azure에서 관리 되는 디스크 (표준 HHD, 프리미엄 SSD)로만 마이그레이션할 수 있습니다.
+**UEFI 부팅** | Azure에서 마이그레이션된 VM은 자동으로 BIOS 부팅 VM으로 변환 됩니다.<br/><br/> OS 디스크에는 최대 4 개의 파티션이 있어야 하 고 볼륨은 NTFS로 포맷 되어야 합니다.
+**대상 디스크** | Vm은 Azure에서 관리 되는 디스크 (표준 HDD, 프리미엄 SSD)로만 마이그레이션할 수 있습니다.
+**디스크 크기** | 2TB OS 디스크 데이터 디스크의 경우 8TB입니다.
+**디스크 제한** |  VM 당 최대 63 디스크
+**암호화 된 디스크/볼륨** | 암호화 된 디스크/볼륨이 있는 Vm은 마이그레이션을 지원 하지 않습니다.
+**공유된 디스크 클러스터** | 지원되지 않습니다.
+**독립 디스크** | 지원됩니다.
+**통과 디스크** | 지원됩니다.
+**NFS** | Vm에 볼륨으로 탑재 된 NFS 볼륨이 복제 되지 않습니다.
+iSCSI 대상 | ISCSI 대상을 사용 하는 Vm은 에이전트 없는 마이그레이션에 대해 지원 되지 않습니다.
+**다중 경로 IO** | 지원되지 않습니다.
+**저장소 vMotion** | 지원됨
+**팀 Nic** | 지원되지 않습니다.
+**IPv6** | 지원되지 않습니다.
+
 
 
 
 ## <a name="agent-based-migration-url-access-requirements"></a>에이전트 기반 마이그레이션-URL 액세스 요구 사항
 
-VMware Vm에서 실행 되는 모바일 서비스는 인터넷에 인터넷으로 연결 되어야 합니다.
+VMware Vm에서 실행 되는 모바일 서비스는 인터넷에 연결 되어 있어야 합니다.
 
-- 모바일 서비스를 배포 하는 경우 아래 표에 요약 된 Url에 대 한 연결 확인을 수행 합니다.
-- URL 기반 방화벽. 프록시를 사용 하는 경우 이러한 Url에 대 한 액세스를 허용 하 여 프록시가 Url을 조회 하는 동안 수신 된 CNAME 레코드를 확인 하도록 합니다.
+모바일 서비스를 배포 하는 경우 아래 표에 요약 된 Url에 대 한 연결 확인을 수행 합니다.
+
 
 **URL** | **세부 정보**  
 --- | ---
@@ -318,9 +320,9 @@ dc.services.visualstudio.com | 내부 모니터링에 사용 되는 앱 로그�
 
 **장치** | **연결**
 --- | ---
-VM | Vm에서 실행 되는 모바일 서비스는 복제 관리를 위해 HTTPS 443 인바운드 포트에서 온-프레미스 구성 서버와 통신 합니다.<br/><br/> VM은 HTTPS 9443 인바운드 포트의 프로세스 서버(구성 서버 컴퓨터에서 실행)로 복제 데이터를 전송합니다. 이 포트는 수정할 수 있습니다.
+VM | Vm에서 실행 되는 모바일 서비스는 복제 관리를 위해 HTTPS 443 인바운드 포트의 온-프레미스 복제 어플라이언스 (구성 서버)와 통신 합니다.<br/><br/> VM은 HTTPS 9443 인바운드 포트의 프로세스 서버(구성 서버 컴퓨터에서 실행)로 복제 데이터를 전송합니다. 이 포트는 수정할 수 있습니다.
 복제 어플라이언스 | 복제 어플라이언스는 HTTPS 443 아웃 바운드 포트를 통해 Azure를 사용 하 여 복제를 오케스트레이션 합니다.
-프로세스 서버 | 프로세스 서버는 복제 데이터를 수신하고, 이를 최적화 및 암호화하며, 443 아웃바운드 포트를 통해 Azure Storage로 보냅니다.<br/> 기본적으로 프로세스 서버는 복제 어플라이언스에서 실행 됩니다.
+프로세스 서버 | 프로세스 서버는 복제 데이터를 수신 하 고, 최적화 하 고, 암호화 하 고 포트 443 아웃 바운드를 통해 Azure storage로 보냅니다.<br/> 기본적으로 프로세스 서버는 복제 어플라이언스에서 실행 됩니다.
 
 ## <a name="azure-vm-requirements"></a>Azure VM 요구 사항
 

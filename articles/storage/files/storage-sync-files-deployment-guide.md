@@ -1,31 +1,30 @@
 ---
 title: Azure 파일 동기화 배포 | Microsoft Docs
 description: Azure 파일 동기화를 배포하는 방법을 처음부터 끝까지 알아봅니다.
-services: storage
 author: roygara
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6a41830dcb7f681713db7a7802ab430581dc844f
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: 7b9c9a7639ed7a9938052197758e5796fb9fc879
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371161"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699430"
 ---
 # <a name="deploy-azure-file-sync"></a>Azure 파일 동기화 배포
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
 
 이 문서에 설명된 단계를 완료하기 전에 [Azure Files 배포에 대한 계획](storage-files-planning.md) 및 [Azure 파일 동기화 배포에 대한 계획](storage-sync-files-planning.md)을 읽어보는 것이 좋습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 * Azure File Sync 배포 하려는 동일한 지역에 있는 Azure 파일 공유입니다. 참조 항목:
     - [지역 가용성](storage-sync-files-planning.md#region-availability)에서 Azure 파일 동기화를 참조하세요.
     - [파일 공유 만들기](storage-how-to-create-file-share.md)에서 파일 공유를 만드는 방법에 대한 단계별 설명을 참조하세요.
 * Azure 파일 동기화와 동기화할 Windows Server 또는 Windows Server 클러스터의 지원되는 인스턴스가 하나 이상 있어야 합니다. 지원되는 Windows Server 버전에 대한 자세한 내용은 [Windows Server와의 상호 운용성](storage-sync-files-planning.md#azure-file-sync-system-requirements-and-interoperability)을 참조하세요.
-* Az PowerShell module은 PowerShell 5.1 또는 PowerShell 6 +와 함께 사용할 수 있습니다. Windows 이외의 시스템을 비롯 하 여 지원 되는 모든 시스템에서 Azure File Sync에 대해 Az PowerShell 모듈을 사용할 수 있지만, 서버 등록 cmdlet은 항상 등록 하는 Windows Server 인스턴스에서 실행 해야 합니다 .이 작업은 직접 또는 PowerShell을 통해 수행할 수 있습니다. remoting). Windows Server 2012 r 2에서는 PowerShell 5.1 이상이 실행 되 고 있는지 확인할 수 있습니다. $PSVersionTable 개체의 **PSVersion** 속성 값을 확인 합니다.  \*
+* Az PowerShell module은 PowerShell 5.1 또는 PowerShell 6 +와 함께 사용할 수 있습니다. Windows 이외의 시스템을 비롯 하 여 지원 되는 모든 시스템에서 Azure File Sync에 대해 Az PowerShell 모듈을 사용할 수 있지만, 서버 등록 cmdlet은 항상 등록 하는 Windows Server 인스턴스에서 실행 해야 합니다 .이 작업은 직접 또는 PowerShell을 통해 수행할 수 있습니다. remoting). Windows Server 2012 r 2에서는 PowerShell 5.1 이상이 실행 되 고 있는지 확인할 수 있습니다. $PSVersionTable 개체의 **PSVersion** 속성 값을 확인 합니다. \*
 
     ```powershell
     $PSVersionTable.PSVersion
@@ -38,7 +37,7 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
     > [!Important]  
     > PowerShell에서 직접 등록 하는 대신 서버 등록 UI를 사용할 계획인 경우 PowerShell 5.1을 사용 해야 합니다.
 
-* PowerShell 5.1을 사용 하기로 한 경우 .NET 4.7.2 이상 버전이 설치 되어 있는지 확인 합니다. 시스템의 [.NET Framework 버전 및 종속성](https://docs.microsoft.com/dotnet/framework/migration-guide/versions-and-dependencies) 에 대해 자세히 알아보세요.
+* PowerShell 5.1을 사용 하기로 한 경우 .NET 4.7.2가 설치 되어 있는지 확인 합니다. 시스템의 [.NET Framework 버전 및 종속성](https://docs.microsoft.com/dotnet/framework/migration-guide/versions-and-dependencies) 에 대해 자세히 알아보세요.
 
     > [!Important]  
     > Windows Server Core에 .net 4.7.2 +를 설치 하는 경우 `quiet` 및 `norestart` 플래그를 사용 하 여 설치 해야 합니다. 그렇지 않으면 설치에 실패 합니다. 예를 들어 .NET 4.8을 설치 하는 경우 명령은 다음과 같습니다.

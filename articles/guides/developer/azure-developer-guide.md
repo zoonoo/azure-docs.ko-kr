@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 99e043adeac9a43432fb1eba85527b561c477354
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 665eeb60012d5cec08b8a3ad919d7ddfdadc2d23
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64570559"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609584"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure 개발자를 위한 시작 가이드
 
@@ -154,7 +154,7 @@ Azure는 애플리케이션에서 컨테이너를 사용하는 여러 방법을 
   > 
   > **시작**: [Linux에서 App Service용 사용자 지정 Docker 이미지를 사용](../../app-service/containers/quickstart-docker-go.md)합니다.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>인증
 
 애플리케이션 사용자를 파악하는 것뿐만 아니라 리소스의 무단 액세스를 방지하는 것도 중요합니다. Azure는 앱 클라이언트를 인증하는 여러 방법을 제공합니다.
 
@@ -170,7 +170,7 @@ Azure는 애플리케이션에서 컨테이너를 사용하는 여러 방법을 
   > 
   > **시작**: App Service에서 인증에 대한 자세한 내용은 [Azure App Service에서 인증 및 권한 부여](../../app-service/overview-authentication-authorization.md)를 참조하세요.
 
-Azure의 보안 모범 사례에 대해 알아보려면 [Azure 보안 모범 사례 및 패턴](../../security/security-best-practices-and-patterns.md)을 참조하세요.
+Azure의 보안 모범 사례에 대해 알아보려면 [Azure 보안 모범 사례 및 패턴](../../security/fundamentals/best-practices-and-patterns.md)을 참조하세요.
 
 ### <a name="monitoring"></a>모니터링
 
@@ -199,7 +199,7 @@ Azure는 전 세계 여러 지역에서 일반적으로 사용 가능한 글로�
 
 ### <a name="choose-the-best-region-for-your-application-and-data"></a>애플리케이션 및 데이터에 대한 최상의 지역 선택
 
-Azure를 사용하는 이점 중 하나는 전 세계 여러 데이터 센터에 애플리케이션을 배포할 수 있다는 점입니다. 선택한 지역은 애플리케이션의 성능에 영향을 줄 수 있습니다. 예를 들어 네트워크 요청 대기 시간을 줄이기 위해 고객에게 가장 가까운 지역을 선택하는 것이 좋습니다. 특정 국가/지역에서 앱을 배포 하기 위한 법적 요건을 충족 하는 지역을 선택할 수도 있습니다. 항상 동일한 데이터 센터 또는 애플리케이션을 호스트하는 데이터 센터와 가능한 가까운 데이터 센터에 애플리케이션 데이터를 저장하는 것이 좋습니다.
+Azure를 사용하는 이점 중 하나는 전 세계 여러 데이터 센터에 애플리케이션을 배포할 수 있다는 점입니다. 선택한 지역은 애플리케이션의 성능에 영향을 줄 수 있습니다. 예를 들어 네트워크 요청 대기 시간을 줄이기 위해 고객에게 가장 가까운 지역을 선택하는 것이 좋습니다. 특정 국가/지역에서 앱을 배포 하기 위한 법적 요구 사항을 충족 하기 위해 지역을 선택할 수도 있습니다. 항상 동일한 데이터 센터 또는 애플리케이션을 호스트하는 데이터 센터와 가능한 가까운 데이터 센터에 애플리케이션 데이터를 저장하는 것이 좋습니다.
 
 ### <a name="multi-region-apps"></a>다중 지역 앱
 
@@ -221,7 +221,7 @@ Azure는 Bash, Terminal, 명령 프롬프트 또는 원하는 명령줄 도구�
 
 -   [Azure PowerShell](../../powershell-install-configure.md): Windows PowerShell을 사용하여 Azure 리소스를 관리할 수 있도록 하는 cmdlet이 포함된 모듈 집합을 제공합니다.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
 Azure Portal은 Azure 리소스 및 서비스를 만들고 관리하고 제거하는 데 사용할 수 있는 웹 기반 애플리케이션입니다. Azure Portal은 <https://portal.azure.com>에 있습니다. 사용자 지정 가능한 대시보드, Azure 리소스 관리 도구, 구독 설정 및 대금 청구 정보에 대한 액세스 권한이 포함되어 있습니다. 자세한 내용은 [Azure Portal 개요](../../azure-portal-overview.md)를 참조하세요.
 
@@ -243,7 +243,7 @@ REST API 외에도 여러 Azure 서비스를 사용하여 다음 개발 플랫�
 
 [Mobile Apps](../../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md) 및 [Azure Media Services](../../media-services/previous/media-services-dotnet-how-to-use.md)와 같은 서비스는 웹 및 모바일 클라이언트 앱에서 서비스에 액세스할 수 있도록 해주는 클라이언트 쪽 SDK를 제공합니다.
 
-### <a name="azure-resource-manager"></a>Azure 리소스 관리자 
+### <a name="azure-resource-manager"></a>Azure Resource Manager 
     
 Azure에서 앱 실행에는 여러 Azure 서비스 작업이 포함될 수 있습니다. 이러한 서비스 작업은 모두 같은 수명 주기를 따르고 논리적 단위로 간주될 수 있습니다. 예를 들어 웹앱은 Web Apps, SQL Database, Storage, Azure Cache for Redis 및 Azure Content Delivery Network 서비스를 사용할 수 있습니다. [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)를 사용하면 그룹으로 애플리케이션에서 리소스와 함께 사용할 수 있습니다. 조정된 단일 작업에서 모든 리소스를 배포, 업데이트 또는 삭제할 수 있습니다.
 
@@ -281,7 +281,7 @@ Azure Resource Explorer는 구독에서 이미 만든 리소스를 시각화하�
 
 Azure 리소스에 대한 액세스를 허용하는 경우 항상 사용자에게 지정된 작업을 수행하는 데 필요한 최소 권한을 제공하는 것이 좋습니다.
 
-- **RBAC(역할 기반 액세스 제어)** : Azure에서 지정된 범위(구독, 리소스 그룹 또는 개별 리소스)에서 사용자 계정(주체)에 액세스 권한을 부여할 수 있습니다. RBAC를 사용하면 리소스 그룹에 리소스 집합을 배포하고 특정 사용자 또는 그룹에 권한을 부여할 수 있습니다. 또한 대상 리소스 그룹에 속하는 리소스로 액세스를 제한할 수 있습니다. 가상 머신 또는 가상 네트워크와 같은 단일 리소스에 대한 액세스 권한을 부여할 수 있습니다. 액세스 권한을 부여하려면 사용자, 그룹 또는 서비스 주체에 역할을 할당합니다. 미리 정의된 많은 역할이 있으며 자체 사용자 지정 역할을 정의할 수도 있습니다. 자세히 알아보려면 [RBAC(역할 기반 액세스 제어)란?](../../role-based-access-control/overview.md)을 참조하세요.
+- **RBAC(역할 기반 액세스 제어)** : Azure에서 지정된 범위(구독, 리소스 그룹 또는 개별 리소스)에서 사용자 계정(주체)에 액세스 권한을 부여할 수 있습니다. RBAC를 사용하면 리소스 그룹에 리소스 집합을 배포하고 특정 사용자 또는 그룹에 권한을 부여할 수 있습니다. 또한 대상 리소스 그룹에 속한 리소스로만 액세스를 제한할 수 있습니다. 가상 머신 또는 가상 네트워크와 같은 단일 리소스에 대한 액세스 권한을 부여할 수 있습니다. 액세스 권한을 부여하려면 사용자, 그룹 또는 서비스 주체에 역할을 할당합니다. 미리 정의된 많은 역할이 있으며 자체 사용자 지정 역할을 정의할 수도 있습니다. 자세히 알아보려면 [RBAC(역할 기반 액세스 제어)란?](../../role-based-access-control/overview.md)을 참조하세요.
 
   > **사용 시기**: 사용자와 그룹의 액세스를 세부적으로 관리해야 하거나 특정 사용자를 구독 소유자로 지정해야 하는 경우입니다.
   > 
@@ -291,11 +291,11 @@ Azure 리소스에 대한 액세스를 허용하는 경우 항상 사용자에�
 
   > **사용 시기**: 프로그래밍 방식으로 Azure 리소스를 관리하거나 애플리케이션에 대한 액세스 권한을 부여하는 경우입니다. 자세한 내용은 [Active Directory 애플리케이션 및 서비스 주체 만들기](../../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요.
 
-#### <a name="tags"></a>태그들
+#### <a name="tags"></a>Tags
 
 Azure Resource Manager를 사용하면 개별 리소스에 사용자 지정 태그를 할당할 수 있습니다. 키-값 쌍인 태그는 청구 또는 모니터링에 대한 리소스를 구성해야 하는 경우에 유용할 수 있습니다. 태그는 여러 리소스 그룹에서 리소스를 추적하는 방법을 제공합니다. 포털에서, Azure Resource Manager 템플릿에서 또는 REST API, Azure CLI, PowerShell을 사용하여 프로그래밍 방식으로 태그를 할당할 수 있습니다. 각 리소스에 여러 태그를 할당할 수 있습니다. 자세한 내용은 [태그를 사용하여 Azure 리소스 구성](../../resource-group-using-tags.md)을 참조하세요.
 
-### <a name="billing"></a>결제
+### <a name="billing"></a>대금 청구
 
 온-프레미스 컴퓨팅에서 클라우드에 호스트된 서비스로 이동 시 서비스 사용량 및 관련 비용을 추적하고 예측하는 것은 중요합니다. 월별로 새 리소스 실행 비용을 예측할 수 있는 것이 중요합니다. 또한 현재 지출을 기반으로 특정 월에 어떻게 청구되는지 계획할 수 있어야 합니다.
 

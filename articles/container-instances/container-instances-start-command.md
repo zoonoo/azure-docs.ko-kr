@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: danlep
-ms.openlocfilehash: 99440e22eb736522a25c2ee56bb07ef1d9967e66
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 40d946db48a65452d2da529098c07d0d0c60d472
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325661"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619669"
 ---
 # <a name="set-the-command-line-in-a-container-instance-to-override-the-default-command-line-operation"></a>컨테이너 인스턴스에서 명령줄을 설정 하 여 기본 명령줄 작업을 재정의 합니다.
 
@@ -23,7 +23,7 @@ ms.locfileid: "68325661"
 
 ## <a name="command-line-guidelines"></a>명령줄 지침
 
-* 기본적으로 명령줄은 컨테이너에서 *셸을 제외 하 고 시작 되는 단일 프로세스* 를 지정 합니다. 예를 들어 명령줄에서 Python 스크립트나 실행 파일을 실행할 수 있습니다. 
+* 기본적으로 명령줄은 컨테이너에서 *셸을 제외 하 고 시작 되는 단일 프로세스* 를 지정 합니다. 예를 들어 명령줄에서 Python 스크립트나 실행 파일을 실행할 수 있습니다. 프로세스에서 추가 매개 변수 또는 인수를 지정할 수 있습니다.
 
 * 여러 명령을 실행 하려면 컨테이너 운영 체제에서 지원 되는 셸 환경을 설정 하 여 명령줄을 시작 합니다. 예를 들면 다음과 같습니다.
 
@@ -66,7 +66,7 @@ ms.locfileid: "68325661"
 
 예를 들어 셰익스피어의 *Hamlet* 텍스트를 분석 하 여 가장 자주 발생 하는 단어를 찾는 [microsoft/aci-wordcount][aci-wordcount] 컨테이너 이미지의 동작을 수정 합니다. *Hamlet*을 분석 하는 대신 다른 텍스트 원본을 가리키는 명령줄을 설정할 수 있습니다.
 
-[Microsoft/aci-wordcount][aci-wordcount] container when it analyzes the default text, run it with the following [az container create][az-container-create] 명령의 출력을 볼 수 있습니다. 시작 명령줄이 지정 되지 않았으므로 기본 컨테이너 명령이 실행 됩니다. 설명을 위해이 예제에서는 [환경 변수](container-instances-environment-variables.md) 를 설정 하 여 5 자 이상의 상위 3 개 단어를 찾습니다.
+기본 텍스트를 분석할 때 [microsoft/aci-wordcount][aci-wordcount] 컨테이너의 출력을 보려면 다음 [az container create][az-container-create] 명령을 사용 하 여 실행 합니다. 시작 명령줄이 지정 되지 않았으므로 기본 컨테이너 명령이 실행 됩니다. 설명을 위해이 예제에서는 [환경 변수](container-instances-environment-variables.md) 를 설정 하 여 5 자 이상의 상위 3 개 단어를 찾습니다.
 
 ```azurecli-interactive
 az container create \
@@ -77,7 +77,7 @@ az container create \
     --restart-policy OnFailure
 ```
 
-컨테이너의 상태가 *종료* 됨으로 표시 되 면 ( [az container show][az-container-show] to check state), display the log with [az container logs][az-container-logs] 를 사용 하 여 출력을 표시 합니다.
+컨테이너의 상태가 *종료* 된 것으로 표시 된 후 (상태를 확인 하려면 [az container show][az-container-show] 사용), 출력을 보려면 [az container logs][az-container-logs] 를 사용 하 여 로그를 표시 합니다.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer1

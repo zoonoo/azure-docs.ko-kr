@@ -10,12 +10,12 @@ ms.date: 06/02/2017
 ms.author: tamram
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: ea7e4757aac0fccf60a44c70e9de6a63c1ec9498
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3338bed8cd8067d58eb2600854de6c0d8e34d1a3
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65147000"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68668455"
 ---
 # <a name="using-the-azure-cli-with-azure-storage"></a>Azure Storage에서 Azure CLI 사용
 
@@ -27,7 +27,9 @@ ms.locfileid: "65147000"
 
 [!INCLUDE [storage-cli-versions](../../../includes/storage-cli-versions.md)]
 
-## <a name="prerequisites"></a>필수 조건
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
+
+## <a name="prerequisites"></a>전제 조건
 이 가이드에서는 Azure Storage의 기본 개념을 이해하고 있다고 가정합니다. 또한 Azure와 Storage 서비스에 대해 아래에 지정된 계정 만들기 요구 사항을 충족할 수 있다고 가정합니다.
 
 ### <a name="accounts"></a>계정
@@ -173,7 +175,7 @@ Done
 
 ## <a name="manage-storage-accounts"></a>저장소 계정 관리
 
-### <a name="create-a-new-storage-account"></a>새 저장소 계정 만들기
+### <a name="create-a-new-storage-account"></a>새 스토리지 계정 만들기
 Azure Storage를 사용하려면 스토리지 계정이 필요합니다. 구독에 연결하도록 컴퓨터를 구성한 후에 새 Azure Storage 계정을 만들 수 있습니다.
 
 ```azurecli
@@ -325,6 +327,17 @@ Blob을 삭제하려면 `blob delete` 명령을 사용합니다.
 az storage blob delete --container-name <container_name> --name <blob_name>
 ```
 
+### <a name="set-the-content-type"></a>콘텐츠 형식 설정
+
+콘텐츠 형식((MIME 형식이라고도 함))은 Blob의 데이터 형식을 식별합니다. 브라우저 및 기타 소프트웨어는 콘텐츠 형식을 사용하여 데이터를 처리할 방법을 결정합니다. 예를 들어 PNG 이미지 `image/png`의 콘텐츠 형식은입니다. 콘텐츠 형식을 설정 하려면 명령을 사용 합니다 `blob update` .
+
+```azurecli
+az storage blob update
+    --container-name <container_name> 
+    --name <blob_name>
+    --content-type <content_type>
+```
+
 ## <a name="create-and-manage-file-shares"></a>파일 공유 만들기 및 관리
 Azure Files는 SMB(서버 메시지 블록) 프로토콜을 사용하는 애플리케이션을 위한 공유 스토리지를 제공합니다. Microsoft Azure 가상 머신 및 클라우드 서비스 그리고 온-프레미스 애플리케이션은 탑재된 공유를 통해 파일 데이터를 공유할 수 있습니다. Azure CLI를 통해 파일 공유 및 파일 데이터를 관리할 수 있습니다. Azure Files에 대한 자세한 내용은 [Azure Files 소개](../files/storage-files-introduction.md)를 참조하세요.
 
@@ -383,7 +396,7 @@ az storage file copy start \
 ```
 
 ## <a name="create-share-snapshot"></a>공유 스냅샷 만들기
-`az storage share snapshot` 명령을 사용하면 공유 스냅숏을 만들 수 있습니다.
+`az storage share snapshot` 명령을 사용하여 공유 스냅샷을 만들 수 있습니다.
 
 ```cli
 az storage share snapshot -n <share name>
@@ -405,7 +418,7 @@ az storage share snapshot -n <share name>
 
 ### <a name="list-share-snapshots"></a>공유 스냅샷 나열
 
-`az storage share list --include-snapshots`를 사용하여 특정 공유의 공유 스냅숏을 나열할 수 있습니다.
+`az storage share list --include-snapshots`를 사용하여 특정 공유의 공유 스냅샷을 나열할 수 있습니다.
 
 ```cli
 az storage share list --include-snapshots
@@ -448,7 +461,7 @@ az storage share list --include-snapshots
 ```
 
 ### <a name="browse-share-snapshots"></a>공유 스냅샷 찾아보기
-`az storage file list`를 사용하여 특정 공유 스냅숏을 찾아서 해당 내용을 볼 수도 있습니다. 공유 이름 `--share-name <snare name>` 및 타임스탬프 `--snapshot '2017-10-04T19:45:18.0000000Z'`를 지정해야 합니다.
+`az storage file list`를 사용하여 특정 공유 스냅샷을 찾아서 해당 내용을 볼 수도 있습니다. 공유 이름 `--share-name <snare name>` 및 타임스탬프 `--snapshot '2017-10-04T19:45:18.0000000Z'`를 지정해야 합니다.
 
 ```azurecli-interactive
 az storage file list --share-name sharesnapshotdefs --snapshot '2017-10-04T19:45:18.0000000Z' -otable
@@ -470,7 +483,7 @@ IMG_1635.JPG    974058            file
 ```
 ### <a name="restore-from-share-snapshots"></a>공유 스냅샷에서 복원
 
-`az storage file download` 명령을 사용하여 공유 스냅숏에서 파일을 복사 또는 다운로드하여 파일을 복원할 수 있습니다.
+`az storage file download` 명령을 사용하여 공유 스냅샷에서 파일을 복사 또는 다운로드하여 파일을 복원할 수 있습니다.
 
 ```azurecli-interactive
 az storage file download --path IMG_0966.JPG --share-name sharesnapshotdefs --snapshot '2017-10-04T19:45:18.0000000Z'
@@ -506,7 +519,7 @@ az storage file download --path IMG_0966.JPG --share-name sharesnapshotdefs --sn
 }
 ```
 ## <a name="delete-share-snapshot"></a>공유 스냅샷 삭제
-`--snapshot` 매개 변수에 공유 스냅숏 타임스탬프를 제공하면 `az storage share delete` 명령을 사용하여 공유 스냅숏을 삭제할 수 있습니다.
+`--snapshot` 매개 변수에 공유 스냅샷 타임스탬프를 제공하면 `az storage share delete` 명령을 사용하여 공유 스냅샷을 삭제할 수 있습니다.
 
 ```cli
 az storage share delete -n <share name> --snapshot '2017-10-04T23:28:35.0000000Z' 

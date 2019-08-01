@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 06/26/2019
-ms.openlocfilehash: ac57e873a6948e85e78849bd4e22db85491c4bfb
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 39c19661a71a8b466aa6ff25be9e895189dfbfb3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441551"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566365"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Azure SQL Database의 임시 테이블 시작
 
@@ -109,7 +108,7 @@ WITH (DROP_EXISTING = ON);
 ## <a name="step-2-run-your-workload-regularly"></a>2단계: 정기적으로 워크로드 실행
 임시 테이블의 주요 장점은 변경 내용 추적을 사용하는 방식으로 웹 사이트를 변경하거나 조정할 필요가 없다는 것입니다. 임시 테이블은 한 번 만들면 데이터에 수정 작업을 수행할 때마다 이전 행 버전을 분명하게 유지합니다. 
 
-자동 변경이 특정 시나리오에 대 한 추적을 활용 하기 위해 열을 업데이트 하겠습니다 **PagesVisited** 될 때마다 사용자 웹 사이트에서 해당 세션을 종료 합니다.
+이 특정 시나리오에 대 한 변경 내용 자동 추적을 활용 하기 위해 사용자가 웹 사이트에서 세션을 종료할 때마다 열 작업을 **방문** 하 여 업데이트 해 보겠습니다.
 
 ```
 UPDATE WebsiteUserInfo  SET [PagesVisited] = 5 
@@ -196,6 +195,6 @@ ALTER TABLE dbo.WebsiteUserInfo
 
 ## <a name="next-steps"></a>다음 단계
 
-- Temporal 테이블에 대 한 자세한 내용은 참조 하세요. 체크 아웃 [Temporal 테이블](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables)합니다.
+- Temporal 테이블에 대 한 자세한 내용은 [Temporal 테이블](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables)체크 아웃을 참조 하세요.
 - Channel 9을 방문하여 [실제 고객 임시 구현 성공 사례](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions)를 듣고 [라이브 임시 데모](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016)를 시청합니다.
 

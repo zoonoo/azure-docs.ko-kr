@@ -5,14 +5,14 @@ author: mattwojo
 manager: evansma
 ms.author: parthp
 ms.service: marketplace
-ms.topic: how-to
+ms.topic: guide
 ms.date: 07/05/2019
-ms.openlocfilehash: 24ed03cde967f0fef7abdc4c2df1f8e5d6bdb6ab
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 16ed52aa2b56a97469ae8fc47299f09593b19c45
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327131"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68668337"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>파트너 센터에서 상용 마켓플레이스 계정 만들기
 
@@ -52,7 +52,7 @@ ms.locfileid: "68327131"
 
 #### <a name="agree-to-terms-and-conditions"></a>사용 약관에 동의
 
-[Microsoft 온라인 정기가입 계약](https://go.microsoft.com/fwlink/?LinkId=870457)및 [Microsoft Marketplace 게시자 계약](https://go.microsoft.com/fwlink/?linkid=843476)을 포함 하 여 두 가지 사용 약관 집합에 동의 해야 합니다.
+[Microsoft Marketplace 게시자 계약](http://go.microsoft.com/fwlink/?LinkID=699560)의 사용 약관에 동의 해야 합니다.
 
 #### <a name="provide-your-publisher-profile"></a>게시자 프로필 제공
 

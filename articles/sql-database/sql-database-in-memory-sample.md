@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
-manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 2aa98c3958f1dffeb8adbad5e91a11f397d4a9fd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5f6f4ce4fc77533a4d893472298ef3a20f153136
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61035740"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567992"
 ---
 # <a name="in-memory-sample"></a>메모리 내 샘플
 
@@ -46,13 +45,13 @@ Azure SQL Database에서 메모리 내 기술을 사용하면 애플리케이션
 
 #### <a name="installation-steps"></a>설치 단계
 
-1. [Azure Portal](https://portal.azure.com/)에서 서버에 프리미엄 또는 중요 비즈니스용 데이터베이스를 만듭니다. AdventureWorksLT 샘플 데이터베이스에 **소스**를 설정합니다. 자세한 지침은 [첫 번째 Azure SQL Database 만들기](sql-database-single-database-get-started.md)를 참조하세요.
+1. [Azure Portal](https://portal.azure.com/)에서 서버에 프리미엄 또는 중요 비즈니스용 데이터베이스를 만듭니다. AdventureWorksLT 샘플 데이터베이스에 **소스**를 설정합니다. 자세한 지침은 [첫 번째 Azure SQL 데이터베이스 만들기](sql-database-single-database-get-started.md)를 참조하세요.
 
 2. SQL Server Management Studio [(SSMS.exe)](https://msdn.microsoft.com/library/mt238290.aspx)를 사용하여 데이터베이스에 연결합니다.
 
 3. [메모리 내 OLTP Transact-SQL 스크립트](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_oltp_sample.sql) 를 클립보드에 복사합니다. T-SQL 스크립트는 1단계에서 만든 AdventureWorksLT 샘플 데이터베이스에서 필요한 메모리 내 개체를 만듭니다.
 
-4. SSMS에 T-SQL 스크립트를 붙여 넣고 스크립트를 실행합니다. `MEMORY_OPTIMIZED = ON` 절 CREATE TABLE 문이 중요합니다. 예를 들면 다음과 같습니다.
+4. SSMS에 T-SQL 스크립트를 붙여 넣고 스크립트를 실행합니다. `MEMORY_OPTIMIZED = ON` 절 CREATE TABLE 문이 중요합니다. 예:
 
 
 ```sql
@@ -390,7 +389,7 @@ P2 가격 책정 계층의 데이터베이스에서 클러스터형 columnstore 
 - 메모리 내 OLTP에 대한 [메모리 내 OLTP 저장소 모니터링](sql-database-in-memory-oltp-monitoring.md).
 
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 #### <a name="deeper-information"></a>자세한 정보
 
@@ -412,7 +411,7 @@ P2 가격 책정 계층의 데이터베이스에서 클러스터형 columnstore 
 
 - [기존 Azure SQL 애플리케이션에서 메모리 내 OLTP 사용](sql-database-in-memory-oltp-migration.md)
 
-#### <a name="tools"></a>도구
+#### <a name="tools"></a>Tools
 
 - [Azure Portal](https://portal.azure.com/)
 

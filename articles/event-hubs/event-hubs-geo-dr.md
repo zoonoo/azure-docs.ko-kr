@@ -14,18 +14,18 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: a1dafb8e4c16a59bfed51016ce9ccb0ec3eb7d6c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 460ea15b0827ea307d64d1bd92d9bd14d5919d73
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754755"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704389"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs - 지리적 재해 복구 
 
 ([가용성 영역](../availability-zones/az-overview.md)을 사용하지 않는 경우)전체 Azure 지역 또는 데이터 센터에서 가동 중지 시간이 발생하면 데이터 처리가 다른 지역 또는 데이터 센터에서 계속 작동되는 것이 중요합니다. 따라서 *지리적 재해 복구* 및 *지리적 복제*는 기업에 중요한 기능입니다. Azure Event Hubs는 네임스페이스 수준에서 지리적 재해 복구 및 지리적 복제를 둘 다 지원합니다. 
 
-지리적 재해 복구 기능은 Event Hubs 표준 및 전용 SKU에 대 한 전역적으로 사용할 수 있습니다. SKU의 동일한 계층에서 네임 스페이스 지역 쌍만을 수 있습니다 note 하십시오. 예를 들어 네임 스페이스는 전용 SKU 에서만에서 제공 되는 클러스터에 있는 경우 다른 클러스터에서 네임 스페이스와 연결할만 있습니다. 
+지역 재해 복구 기능은 Event Hubs Standard 및 전용 SKU 둘 다에서 전역적으로 사용할 수 있습니다. 동일한 SKU 계층에서 지역 쌍 네임 스페이스를 사용할 수 있습니다. 예를 들어 전용 SKU 에서만 제공 되는 네임 스페이스가 클러스터에 있는 경우 다른 클러스터의 네임 스페이스와만 쌍으로 연결할 수 있습니다. 
 
 ## <a name="outages-and-disasters"></a>중단 및 재해
 
@@ -59,7 +59,7 @@ Azure Event Hubs의 지역 재해 복구 기능은 재해 복구 솔루션입니
 
 먼저 기존의 기본 네임스페이스 및 새로운 보조 네임스페이스를 만들거나 사용한 다음 둘을 쌍으로 연결합니다. 이 페어링은 연결하는 데 사용할 수 있는 별칭을 제공합니다. 별칭을 사용하므로 연결 문자열을 변경할 필요가 없습니다. 새 네임스페이스에만 장애 조치(Failover) 페어링에 추가할 수 있습니다. 마지막으로 장애 조치가 필요한 경우 감지할 몇 가지 모니터링을 추가해야 합니다. 대부분의 경우에 서비스는 큰 에코시스템의 일부입니다. 따라서 장애 조치가 주로 나머지 하위 시스템 또는 인프라와 동기화되어 수행되어야 하므로 자동 장애 조치는 거의 불가능합니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 이 시나리오의 예로 메시지 또는 이벤트를 내보내는 POS(Point of Sale) 솔루션을 고려합니다. Event Hubs는 일부 매핑 또는 다시 포맷 솔루션에 해당 이벤트를 전달합니다. 그런 다음 추가 처리를 위해 다른 시스템에 매핑된 데이터를 전달합니다. 해당 시점에 이러한 시스템은 모두 같은 Azure 지역에서 호스팅될 수 있습니다. 장애 조치할 시기 및 부분에 대한 결정은 인프라에 있는 데이터 흐름에 따라 달라집니다. 
 
@@ -84,7 +84,7 @@ Azure Event Hubs의 지역 재해 복구 기능은 재해 복구 솔루션입니
 
 ## <a name="samples"></a>샘플
 
-[GitHub의 샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/GeoDRClient)에서는 장애 조치를 설정하고 시작하는 방법을 보여줍니다. 이 샘플은 다음과 같은 개념을 보여줍니다.
+[GitHub의 샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient)에서는 장애 조치를 설정하고 시작하는 방법을 보여줍니다. 이 샘플은 다음과 같은 개념을 보여줍니다.
 
 - Event Hubs에서 Azure Resource Manager를 사용하는 데 필요한 Azure Active Directory의 설정 
 - 샘플 코드를 실행하는 데 필요한 단계 
@@ -115,7 +115,7 @@ Azure Portal을 사용하여 새로운 네임스페이스에서만 가용성 영
 
 ## <a name="next-steps"></a>다음 단계
 
-* [GitHub의 샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/GeoDRClient)은 지리적 페어링을 만들고 재해 복구 시나리오에 대한 장애 조치(Failover)를 시작하는 간단한 워크플로를 진행합니다.
+* [GitHub의 샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient)은 지리적 페어링을 만들고 재해 복구 시나리오에 대한 장애 조치(Failover)를 시작하는 간단한 워크플로를 진행합니다.
 * [REST API 참조](/rest/api/eventhub/disasterrecoveryconfigs)에서는 지리적 재해 복구 구성을 수행하기 위한 API에 대해 설명합니다.
 
 Event Hubs에 대한 자세한 내용은 다음 링크를 방문하세요.

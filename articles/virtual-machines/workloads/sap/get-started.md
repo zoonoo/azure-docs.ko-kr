@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/24/2019
+ms.date: 07/29/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8f4352a1f6a065d1e9be78f01bde95c8f00593a3
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 60474148d1eac6ca9d85fbc1d103ad612787aeae
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479784"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68607873"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Azure를 사용 하 여 SAP 워크 로드 시나리오 호스트 및 실행
 
@@ -43,7 +43,7 @@ Azure에서 SAP 워크 로드 시나리오를 호스트 하는 것도 id 통합 
 - [SAP HANA (대량 인스턴스) 네트워크 아키텍처](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture) 및 관련 문서에서 HANA Large instances에 대 한 Express 경로 빠른 경로 및 Global Reach 소개
 - [Azure Portal를 통한 AZURE HANA Large Instances 제어](hana-li-portal.md) 릴리스
 - [Sap 응용 프로그램용 Azure NetApp Files를 사용 하 SUSE Linux Enterprise Server에서 Azure vm의 Sap NetWeaver에 대 한 고가용성](high-availability-guide-suse-netapp-files.md) 릴리스
-
+- [Azure NetAppFiles (ANF) BETA의 SAP HANA에 대 한 SAP NetWeaver ASCS 설치](lama-installation.md) 릴리스
 
 
 

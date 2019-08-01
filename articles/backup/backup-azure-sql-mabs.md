@@ -1,18 +1,19 @@
 ---
 title: Azure Backup Server를 사용한 SQL Server 워크로드에 대한 Azure 백업
 description: Azure Backup Server를 사용하여 SQL Server 데이터베이스를 백업하는 방법 소개
-author: kasinh
-manager: vvithal
+ms.reviewer: kasinh
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.author: kasinh
-ms.openlocfilehash: 0aff75e37ec8184b6c23ff00cbf61e5cbe045b5f
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 5e91d63f4479d0677c57342cb1b726e33a45bb86
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465448"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689080"
 ---
 # <a name="back-up-sql-server-to-azure-with-azure-backup-server"></a>Azure Backup Server를 사용하여 Azure에 SQL Server 백업
 이 문서는 Microsoft Azure Backup Server(MABS)를 사용한 SQL Server 데이터베이스 백업의 구성 단계를 안내합니다.
