@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 06/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: 99933fa36cc822598ec9c173a470f90264d06d54
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 5b48a41f025ef06c69e6de126e0a64ad359ce09a
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67461222"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68666374"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Azure Portal을 사용하여 Time Series Insights 환경에 대한 참조 데이터 집합 만들기
 
@@ -24,11 +24,11 @@ ms.locfileid: "67461222"
 
 참조 데이터 집합은 이벤트 원본의 이벤트로 확장된 항목의 컬렉션입니다. Time Series Insights 수신 엔진은 이벤트 원본의 각 이벤트와 참조 데이터 집합의 해당 데이터 행을 조인합니다. 이렇게 보강된 이벤트는 쿼리에 사용할 수 있습니다. 이 조인은 참조 데이터 집합에서 정의된 기본 키 열을 기준으로 합니다.
 
-참조 데이터는 소급되어 조인되지 않습니다. 따라서만 현재 및 미래의 수신 데이터 일치 되 고 구성 및 업로드 된 후에 참조 데이터 집합에 가입 합니다.
+참조 데이터는 소급되어 조인되지 않습니다. 따라서 데이터를 구성 하 고 업로드 한 후에는 현재 및 이후의 수신 데이터만 일치 하 고 참조 날짜 집합에 조인 합니다.
 
 ## <a name="video"></a>비디오
 
-### <a name="learn-about-time-series-insights-reference-data-modelbr"></a>Time Series Insight의 참조 데이터 모델에 알아봅니다.</br>
+### <a name="learn-about-time-series-insights-reference-data-modelbr"></a>시계열 정보에 대 한 참조 데이터 모델에 대해 알아봅니다.</br>
 
 > [!VIDEO https://www.youtube.com/embed/Z0NuWQUMv1o]
 
@@ -62,7 +62,7 @@ ms.locfileid: "67461222"
 
    예를 들어 [![붙여넣은 CSV 데이터](media/add-reference-data-set/csv-data-pasted.png)](media/add-reference-data-set/csv-data-pasted.png#lightbox)
 
-   예를 들어 [![JSON 데이터를 붙여 넣습니다.](media/add-reference-data-set/json-data-pasted.png)](media/add-reference-data-set/json-data-pasted.png#lightbox)
+   예를 들어 [![JSON 데이터 붙여넣기](media/add-reference-data-set/json-data-pasted.png)](media/add-reference-data-set/json-data-pasted.png#lightbox)
 
    데이터 값을 구문 분석하는 동안 오류가 발생하면 페이지 하단에 빨간색으로 오류가 표시됩니다(예: `CSV parsing error, no rows extracted`).
 
@@ -72,17 +72,17 @@ ms.locfileid: "67461222"
 
 1. 각 열을 검토하여 예상되는 데이터 형식을 확인한 후, 필요에 따라 데이터 형식을 변경합니다.  열 머리글에서 데이터 형식 기호를 선택합니다. 예를 들어 double(숫자 데이터)의 경우 **#** 을 선택하고, 부울의 경우 **T|F**를 선택하고, 문자열의 경우 **Abc**를 선택합니다.
 
-   [![열 머리글에 대 한 데이터 형식을 선택 합니다.](media/add-reference-data-set/choose-datatypes.png)](media/add-reference-data-set/choose-datatypes.png#lightbox)
+   [![열 머리글에서 데이터 형식을 선택 합니다.](media/add-reference-data-set/choose-datatypes.png)](media/add-reference-data-set/choose-datatypes.png#lightbox)
 
 1. 필요한 경우 열 머리글의 이름을 바꿉니다. 해당 속성을 이벤트 원본에 조인하려면 키 열 이름이 필요합니다. 참조 데이터 키 열 이름이 들어오는 데이터의 이벤트 이름과 정확하게(대/소문자 포함) 일치하는지 확인합니다. 키가 아닌 열 이름은 해당 참조 데이터 값을 사용하여 들어오는 데이터를 확장하는 데 사용됩니다.
 
-1. 선택 **행 추가** 또는 **열 추가** 필요에 따라 더 많은 참조 데이터 값을 추가 합니다.
+1. 필요에 따라 **행 추가** 또는 **열 추가** 를 선택 하 여 참조 데이터 값을 더 추가 합니다.
 
 1. 필요에 따라 특정 행을 검토하려면 **행 필터링...** 필드에 값을 입력합니다. 필터는 데이터를 검토하는 데 유용하지만 데이터를 업로드할 때는 적용되지 않습니다.
 
 1. 데이터 그리드 위의 **데이터 집합 이름** 필드에 입력하여 데이터 집합 이름을 지정합니다.
 
-    [![데이터 집합 이름을 지정 합니다.](media/add-reference-data-set/name-reference-dataset.png)](media/add-reference-data-set/name-reference-dataset.png#lightbox)
+    [![데이터 집합의 이름을로 설정 합니다.](media/add-reference-data-set/name-reference-dataset.png)](media/add-reference-data-set/name-reference-dataset.png#lightbox)
 
 1. 데이터 그리드 위의 드롭다운을 선택하여 데이터 집합에 **기본 키** 열을 제공합니다.
 
@@ -92,7 +92,7 @@ ms.locfileid: "67461222"
 
 1. 데이터를 업로드하려면 **행 업로드** 단추를 선택합니다.
 
-    [![업로드](media/add-reference-data-set/upload-rows.png)](media/add-reference-data-set/upload-rows.png#lightbox)
+    [![업로드할](media/add-reference-data-set/upload-rows.png)](media/add-reference-data-set/upload-rows.png#lightbox)
 
     이 페이지에서는 완료된 업로드를 확인하고 **데이터 세트가 업로드됨** 메시지를 표시합니다.
 
@@ -100,4 +100,4 @@ ms.locfileid: "67461222"
 
 * 프로그래밍 방식으로 [참조 데이터를 관리](time-series-insights-manage-reference-data-csharp.md)합니다.
 
-* 전체 API 참조는 [참조 데이터 API](/rest/api/time-series-insights/ga-reference-data-api) 문서를 참조하세요.
+* 전체 API 참조는 [참조 데이터 API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api) 문서를 참조하세요.

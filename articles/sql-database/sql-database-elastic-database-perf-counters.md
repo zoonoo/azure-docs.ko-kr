@@ -1,5 +1,5 @@
 ---
-title: 분할 된 데이터베이스 맵 관리자의 성과 추적 하는 성능 카운터 만들기
+title: 분할 된 맵 관리자의 성능을 추적 하는 성능 카운터 만들기
 description: ShardMapManager 클래스 및 데이터 종속 라우팅 성능 카운터
 services: sql-database
 ms.service: sql-database
@@ -10,25 +10,24 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 5c6c923c86ea0c5968079188c87ec3988ec30142
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae7666113bd3a4bdb595a8312fdb25007d4ed2c3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61475697"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568672"
 ---
-# <a name="create-performance-counters-to-track-performance-of-shard-map-manager"></a>분할 된 데이터베이스 맵 관리자의 성과 추적 하는 성능 카운터 만들기
+# <a name="create-performance-counters-to-track-performance-of-shard-map-manager"></a>분할 된 맵 관리자의 성능을 추적 하는 성능 카운터 만들기
 
-성능 카운터의 성능을 추적 하 되 [데이터 종속 라우팅](sql-database-elastic-scale-data-dependent-routing.md) 작업 합니다. 이러한 카운터는 "Elastic Database: 분할된 관리" 범주 아래 성능 모니터에서 액세스할 수 있습니다.
+성능 카운터는 [데이터 종속 라우팅](sql-database-elastic-scale-data-dependent-routing.md) 작업의 성능을 추적 하는 데 사용 됩니다. 이러한 카운터는 "Elastic Database: 분할된 관리" 범주 아래 성능 모니터에서 액세스할 수 있습니다.
 
 [분할된 맵 관리자](sql-database-elastic-scale-shard-map-management.md)에 대한 성능은 특히, [데이터 종속 라우팅](sql-database-elastic-scale-data-dependent-routing.md)을 사용하는 경우에 캡처할 수 있습니다. 카운터는 Microsoft.Azure.SqlDatabase.ElasticScale.Client 클래스의 메서드를 사용하여 만들 수 있습니다.  
 
 
 **최신 버전:** [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)로 이동합니다. 참고 항목: [최신 탄력적 데이터베이스 클라이언트 라이브러리를 사용하도록 앱 업그레이드](sql-database-elastic-scale-upgrade-client-library.md).
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 성능 범주 및 카운터를 만들려면, 애플리케이션을 호스트하는 머신의 로컬 **관리자** 그룹에 사용자가 속해야 합니다.  
 * 성능 카운터 인스턴스를 만들고 카운터를 업데이트하려면, **관리자** 또는 **성능 모니터 사용자** 그룹에 사용자가 속해야 합니다.
@@ -51,7 +50,7 @@ ms.locfileid: "61475697"
 
 성능 카운터는 프로세스마다 각각의 캐시된 분할 맵에 생성됩니다.  
 
-## <a name="notes"></a>메모
+## <a name="notes"></a>참고
 
 다음 이벤트는 성능 카운터 생성을 트리거합니다.  
 

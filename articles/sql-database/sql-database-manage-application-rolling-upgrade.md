@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: 47fd6c1e2bb342bc1a31fb16a45a5ebc749dca69
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 55b23b8d8e03a79aa0806a68306017f89c747760
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60702676"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567776"
 ---
 # <a name="manage-rolling-upgrades-of-cloud-applications-by-using-sql-database-active-geo-replication"></a>SQL Database 활성 지역 복제를 사용하여 클라우드 애플리케이션의 롤링 업그레이드 관리
 
@@ -110,7 +109,7 @@ ALTER DATABASE <Prod_DB>
 SET (ALLOW_CONNECTIONS = NO)
 ```
 
-2. 보조 (11) 연결을 끊어 지역에서 복제를 종료 합니다. 이 작업으로 프로덕션 데이터베이스의 완전히 동기화된 독립 복사본이 생성됩니다. 이 데이터베이스가 업그레이드됩니다. 다음 예제에서는 TRANSACT-SQL을 사용 하지만 [PowerShell](/powershell/module/az.sql/remove-azsqldatabasesecondary?view=azps-1.5.0) 도 제공 됩니다. 
+2. 보조 (11)의 연결을 해제 하 여 지역에서 복제를 종료 합니다. 이 작업으로 프로덕션 데이터베이스의 완전히 동기화된 독립 복사본이 생성됩니다. 이 데이터베이스가 업그레이드됩니다. 다음 예에서는 Transact-sql을 사용 하지만 [PowerShell](/powershell/module/az.sql/remove-azsqldatabasesecondary?view=azps-1.5.0) 도 사용할 수 있습니다. 
 
 ```sql
 -- Disconnect the secondary, terminating geo-replication

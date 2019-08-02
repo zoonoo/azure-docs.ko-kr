@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure Cosmos DB의 저장 프로시저, 트리�
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/14/2019
+ms.date: 08/01/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 53ff318dcc034fb11e2d554f9ad8e8814eb32879
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 1c2bf53a610c566ac58df588f6d96389f2206563
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672582"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717542"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>저장 프로시저, 트리거 및 사용자 정의 함수
 
@@ -37,7 +37,7 @@ JavaScript에서 저장 프로시저, 트리거 및 UDF(사용자 정의 함수)
 * **캡슐화:** 저장 프로시저를 사용하여 논리를 단일 장소에 그룹화할 수 있습니다. 캡슐화는 데이터 위에 추상 계층을 추가하므로 데이터와 독립적으로 애플리케이션을 개발할 수 있습니다. 이 추상화 계층은 데이터에 스키마가 없으며 애플리케이션에 직접 논리를 추가할 필요가 없는 경우에 유용합니다. 추상화를 사용하면 스크립트에서 액세스를 간소화하여 데이터를 안전하게 유지할 수 있습니다.
 
 > [!TIP]
-> 저장된 프로시저는 쓰기 작업이 많은 고 파티션 키 값에 걸쳐 트랜잭션 요구 하는 작업에 가장 적합 합니다. 저장된 프로시저를 사용할 것인지를 결정 하는 경우 쓰기 가능한 최대 캡슐화 주위를 최적화 합니다. 일반적으로 저장된 프로시저 많은 읽기 또는 쿼리 작업을 수행 하기 위한 가장 효율적인 방법에 많은 클라이언트에 반환 하는 읽기를 일괄 처리 하는 절차는 원하는 혜택을 주지 않습니다를 사용 하 여 저장 됩니다. 최상의 성능을 위해 이러한 읽기 작업이 많은 작업을 클라이언트 쪽에서 Cosmos SDK를 사용 하 여 수행 되어야 합니다. 
+> 저장 프로시저는 쓰기 작업이 많은 작업에 가장 적합 하며 파티션 키 값에 대해 트랜잭션이 필요 합니다. 저장 프로시저를 사용할지 여부를 결정할 때는 최대한의 쓰기를 캡슐화 하는 것과 관련 하 여 최적화 합니다. 일반적으로 저장 프로시저는 많은 수의 읽기 또는 쿼리 작업을 수행 하는 가장 효율적인 방법이 아니므로 저장 프로시저를 사용 하 여 많은 수의 읽기를 일괄 처리 하는 방법으로 클라이언트에 반환 하는 것은 원하는 이점을 얻지 못합니다. 최상의 성능을 위해 Cosmos SDK를 사용 하 여 클라이언트 쪽에서 이러한 읽기 작업을 수행 해야 합니다. 
 
 ## <a name="transactions"></a>의
 
@@ -75,7 +75,7 @@ JavaScript 함수는 [프로비저된 처리 용량](request-units.md)에도 적
 
 ## <a name="triggers"></a>트리거
 
-Azure Cosmos DB는 두 가지 유형의 트리거를 지원합니다.
+Azure Cosmos DB는 두 가지 유형의 트리거를 지원 합니다.
 
 ### <a name="pre-triggers"></a>사전 트리거
 
@@ -86,7 +86,7 @@ Azure Cosmos DB는 Azure Cosmos DB 항목에 대해 작업을 수행하여 호�
 사전 트리거와 마찬가지로 사후 트리거도 Azure Cosmos DB 항목에 대한 작업과 관련되며 입력 매개 변수가 필요하지 않습니다. 이 트리거는 작업이 완료된 *후에* 실행되며 클라이언트에 전송된 응답 메시지에 액세스할 수 있습니다. 예제를 보려면 [트리거 작성 방법](how-to-write-stored-procedures-triggers-udfs.md#triggers) 문서를 참조하세요.
 
 > [!NOTE]
-> 트리거가 없는 경우 실행 하는 자동으로 등록 된 해당 작업 (만들기 / 삭제 / 교체 / 업데이트) 발생 합니다. 이러한 작업을 실행할 때 명시적으로 호출할 필요가 있습니다. 자세한 내용은 참조 하세요 [트리거를 실행 하는 방법을](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) 문서.
+> 등록 된 트리거는 해당 하는 작업 (만들기/삭제/바꾸기/업데이트)이 발생 하면 자동으로 실행 되지 않습니다. 이러한 작업을 실행할 때 이러한 작업을 명시적으로 호출 해야 합니다. 자세히 알아보려면 [트리거를 실행 하는 방법](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) 문서를 참조 하세요.
 
 ## <a id="udfs"></a>사용자 정의 함수
 

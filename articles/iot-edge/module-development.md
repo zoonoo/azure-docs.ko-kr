@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: dc17cb48f7e06757dacdca5f291ed4604bfc10ee
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 923859fdb0b398d04e710810a96c33fb1c3cd9da
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414412"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698576"
 ---
 # <a name="develop-your-own-iot-edge-modules"></a>사용자 고유의 IoT Edge 모듈 개발
 
@@ -79,7 +79,7 @@ IoT Edge는 요구 사항과 일치 하는 시나리오를 구축할 수 있도�
 | Python | Visual Studio 코드 |
 
 >[!NOTE]
->ARM64 Linux 장치에 대 한 개발 및 디버깅은 [공개 미리 보기로](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)제공 됩니다. 자세한 내용은 [Visual Studio Code (미리 보기)에서 ARM64 IoT Edge 모듈 개발 및 디버그](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview)를 참조 하세요.
+>ARM64 Linux 장치에 대 한 개발 및 디버깅은 [공개 미리 보기로](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)제공 됩니다. 자세한 내용은 [Visual Studio Code(미리 보기)에서 ARM64 IoT Edge 모듈 개발 및 디버그](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview)를 참조하세요.
 
 ### <a name="windows"></a>Windows
 
@@ -98,4 +98,4 @@ IoT Edge는 요구 사항과 일치 하는 시나리오를 구축할 수 있도�
 
 [Visual Studio Code를 사용 하 여 IoT Edge 모듈 개발](how-to-vs-code-develop-module.md)
 
-[Azure IoT Hub Sdk 이해 및 사용](/iot-hub/iot-hub-devguide-sdks.md)
+[Azure IoT Hub Sdk 이해 및 사용](../iot-hub/iot-hub-devguide-sdks.md)

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: zarhoads
-ms.openlocfilehash: 3230d85dfcf57bfd4e2e1684f4f5620600ec4e3a
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
-ms.translationtype: HT
+ms.openlocfilehash: c25bc316a345404c759b346b4fb877de42ee4d13
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68424196"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561548"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>애플리케이션에 대한 AKS(Azure Kubernetes Service)의 크기 조정 옵션
 
@@ -45,9 +45,9 @@ AKS에서 수평 pod autoscaler을 시작 하려면 [AKS에서 자동 크기 조
 
 Horizontal Pod Autoscaler는 30분 간격으로 Metrics API를 확인하므로 다른 확인이 되기 전에 이전 크기 조정 이벤트가 제대로 완료되지 않았을 수 있습니다. 이 동작으로 인해 이전 크기 조정 이벤트가 애플리케이션 워크로드를 수신할 수 있도록 먼저 Horizontal Pod Autoscaler가 복제본 수를 변경하며, 그에 따라 리소스 수요도 조정될 수 있습니다.
 
-이러한 경합 이벤트를 최소화하기 위해 휴지 또는 지연 값을 설정할 수 있습니다. 이러한 값은 다른 크기 조정 이벤트가 트리거되기 위해, Horizontal Pod Autoscaler가 크기 조정 이벤트 이후에 대기해야 하는 기간을 정의합니다. 이 동작을 사용하면 새 복제본 개수가 적용되고 Metrics API에는 분산된 워크로드가 반영됩니다. 기본적으로 규모 확장 이벤트에 따른 지연은 3분이며 규모 축소 이벤트에 따른 지연은 5분입니다.
+이러한 경합 이벤트를 최소화 하기 위해 쿨 또는 delay 값이 설정 됩니다. 이러한 값은 다른 크기 조정 이벤트가 트리거되기 위해, Horizontal Pod Autoscaler가 크기 조정 이벤트 이후에 대기해야 하는 기간을 정의합니다. 이 동작을 사용하면 새 복제본 개수가 적용되고 Metrics API에는 분산된 워크로드가 반영됩니다. 기본적으로 규모 확장 이벤트에 따른 지연은 3분이며 규모 축소 이벤트에 따른 지연은 5분입니다.
 
-이러한 휴지 값을 조정해야 할 수 있습니다. 기본 휴지 값은 Horizontal Pod Autoscaler가 복제본 수를 빠르게 조정하지 않는다는 느낌을 줄 수 있습니다. 예를 들어, 사용 중인 복제본의 수를 좀 더 빠르게 늘리려면 `--horizontal-pod-autoscaler-upscale-delay`를 사용하여 Horizontal Pod Autoscaler 정의를 만들 때 `kubectl`을 줄입니다.
+현재는 이러한 쿨 다운 (기본값) 값을 튜닝할 수 없습니다.
 
 ## <a name="cluster-autoscaler"></a>클러스터 자동 크기 조정기
 
@@ -93,7 +93,7 @@ ACI를 사용하면 추가 인프라 오버헤드 없이 컨테이너 인스턴�
 
 응용 프로그램 크기 조정을 시작 하려면 먼저 빠른 시작을 따라 [Azure CLI를 사용 하 여 AKS 클러스터를 만듭니다][aks-quickstart]. 그런 다음, AKS 클러스터에서 애플리케이션 크기를 수동 또는 자동으로 조정할 수 있습니다.
 
-- 수동으로 [pod][aks-manually-scale-pods] 크기 조정 or [nodes][aks-manually-scale-nodes]
+- 수동으로 [pod][aks-manually-scale-pods] 또는 [노드][aks-manually-scale-nodes] 크기 조정
 - [수평 pod autoscaler][aks-hpa] 사용
 - [클러스터 autoscaler][aks-cluster-autoscaler] 사용
 

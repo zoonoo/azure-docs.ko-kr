@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 03/19/2019
-ms.openlocfilehash: 5681b5aa46acc1192675da0b1cceee596dfa0105
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 325dda3695e796bc0814954d3bd69b9b340133b8
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799897"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567958"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>SQL Database에서 메모리 내 기술을 사용하여 성능 최적화
 
@@ -70,7 +69,7 @@ columnstore 인덱스 및 메모리 내 OLTP는 각각 SQL Server 제품 2012 �
 - 그리고 이러한 기술을 사용하는 데이터베이스를 여러 가격 책정 계층 간에 이동하는 작업을 관리하는 방법도 살펴봅니다.
 - 또한 Azure SQL Database의 columnstore 인덱스뿐만 아니라 메모리 내 OLTP의 사용을 보여 주는 두 개의 샘플입니다.
 
-자세한 내용은 다음을 참조하세요.
+참조 항목:
 
 - [메모리 내 OLTP 개요 및 사용 시나리오](https://msdn.microsoft.com/library/mt774593.aspx)(고객 사례 연구 및 시작 정보에 대한 참조 포함)
 - [메모리 내 OLTP에 대한 설명서](https://msdn.microsoft.com/library/dn133186.aspx)
@@ -83,7 +82,7 @@ columnstore 인덱스 및 메모리 내 OLTP는 각각 SQL Server 제품 2012 �
 
 - **메모리 최적화 rowstore** 형식 여기서 모든 행은 별도 메모리 개체입니다. 이는 고성능 OLTP 워크로드에 대해 최적화된 클래식 메모리 내 OLTP 형식입니다. 메모리 최적화 rowstore 형식에 사용할 수 있는 메모리 최적화 테이블에는 다음과 같은 두 가지 유형이 있습니다.
   - *영구 테이블*(SCHEMA_AND_DATA) 여기서 메모리에 위치한 행은 서버가 다시 시작된 후 유지됩니다. 이 유형의 테이블은 메모리 내 최적화의 추가 혜택을 사용하여 기존의 rowstore 테이블처럼 동작합니다.
-  - *비영구 테이블* (SCHEMA_ONLY) 행 있는 not 유지 다시 시작한 후입니다. 이 유형의 테이블은 임시 데이터(예: 대체 임시 테이블) 또는 일부 지속형 테이블로 이동하기 전에 신속하게 데이터를 로드해야 하는 테이블(따라서 준비 테이블이라고 함)을 위해 설계되었습니다.
+  - *내구성이 없는 테이블* (SCHEMA_ONLY) 다시 시작한 후 행이 유지 되지 않습니다. 이 유형의 테이블은 임시 데이터(예: 대체 임시 테이블) 또는 일부 지속형 테이블로 이동하기 전에 신속하게 데이터를 로드해야 하는 테이블(따라서 준비 테이블이라고 함)을 위해 설계되었습니다.
 - **메모리 최적화 columnstore** 형식 여기서 데이터는 열 형식으로 구성됩니다. 이 구조는 OLTP 워크로드가 실행되고 있는 동일한 데이터 구조에서 분석 쿼리를 실행해야 하는 HTAP 시나리오를 위해 설계되었습니다.
 
 > [!Note]
@@ -170,7 +169,7 @@ columnstore 인덱스는 메모리에 적합할 필요가 없습니다. 따라�
 
 ### <a name="changing-service-tiers-of-databases-containing-columnstore-indexes"></a>Columnstore 인덱스를 포함하는 데이터베이스의 서비스 계층 변경
 
-‘단일 데이터베이스를 기본 또는 표준으로 다운그레이드’하는 것은 대상 계층이 S3 미만인 경우 불가능할 수 있습니다.  columnstore 인덱스는 중요 비즈니스용/프리미엄 가격 책정 계층 및 표준 계층, S3 이상에서만 지원되며 기본 계층에서는 지원되지 않습니다. 데이터베이스를 지원되지 않는 계층 또는 수준으로 다운그레이드하면 columnstore 인덱스를 사용할 수 없게 됩니다. 시스템에서 columnstore 인덱스가 유지는 되지만 사용되지는 않습니다. 나중에 다시 지원되는 계층 또는 수준으로 업그레이드하는 경우 columnstore 인덱스는 즉시 다시 사용 가능한 상태가 됩니다.
+‘단일 데이터베이스를 기본 또는 표준으로 다운그레이드’하는 것은 대상 계층이 S3 미만인 경우 불가능할 수 있습니다. columnstore 인덱스는 중요 비즈니스용/프리미엄 가격 책정 계층 및 표준 계층, S3 이상에서만 지원되며 기본 계층에서는 지원되지 않습니다. 데이터베이스를 지원되지 않는 계층 또는 수준으로 다운그레이드하면 columnstore 인덱스를 사용할 수 없게 됩니다. 시스템에서 columnstore 인덱스가 유지는 되지만 사용되지는 않습니다. 나중에 다시 지원되는 계층 또는 수준으로 업그레이드하는 경우 columnstore 인덱스는 즉시 다시 사용 가능한 상태가 됩니다.
 
 **클러스터형** columnstore 인덱스가 있는 경우에는 다운그레이드 후에 전체 테이블을 사용할 수 없게 됩니다. 그러므로 지원되지 않는 계층 또는 수준으로 데이터베이스를 다운그레이드하기 전에 *클러스터형* columnstore 인덱스를 모두 삭제하는 것이 좋습니다.
 
@@ -186,7 +185,7 @@ columnstore 인덱스는 메모리에 적합할 필요가 없습니다. 따라�
 - 메모리 내 OLTP에 대한 [메모리 내 OLTP 저장소 모니터링](sql-database-in-memory-oltp-monitoring.md).
 - [Azure SQL Database에서 메모리 내 기능 사용해보기](sql-database-in-memory-sample.md)
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 ### <a name="deeper-information"></a>자세한 정보
 
@@ -202,7 +201,7 @@ columnstore 인덱스는 메모리에 적합할 필요가 없습니다. 따라�
 - [메모리 내 OLTP(메모리 내 최적화)](https://msdn.microsoft.com/library/dn133186.aspx)
 - [기존 Azure SQL 애플리케이션에서 메모리 내 OLTP 사용](sql-database-in-memory-oltp-migration.md)
 
-### <a name="tools"></a>도구
+### <a name="tools"></a>Tools
 
 - [Azure Portal](https://portal.azure.com/)
 - [SSMS(SQL Server Management Studio)](https://msdn.microsoft.com/library/mt238290.aspx)

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4332c921af770cb47e9a9a779d0bd148153fcd31
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 6e58762bd5bf4342804767a200c94b432dd152a0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67666139"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562226"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>방법: Azure AD 조인 구현 계획
 
@@ -30,7 +30,7 @@ Azure AD 조인을 사용하면 사용자의 생산성과 보안을 유지하면
 
 ## <a name="plan-your-implementation"></a>구현 계획
 
-Azure AD 조인 구현 하려는 있습니다 잘 이해 해야 합니다.
+Azure AD 조인 구현을 계획 하려면 다음을 숙지 해야 합니다.
 
 |   |   |
 |---|---|
@@ -40,7 +40,7 @@ Azure AD 조인 구현 하려는 있습니다 잘 이해 해야 합니다.
 |![확인][1]|애플리케이션 및 리소스에 대한 고려 사항 이해|
 |![확인][1]|프로비전 옵션 이해|
 |![확인][1]|엔터프라이즈 상태 로밍 구성|
-|![확인][1]|조건부 액세스를 구성 합니다.|
+|![확인][1]|조건부 액세스 구성|
 
 ## <a name="review-your-scenarios"></a>시나리오 검토 
 
@@ -70,7 +70,7 @@ Azure AD 조인은 관리 환경 및 페더레이션 환경 모두에서 작동�
 - **WS-Fed:** 이 프로토콜은 디바이스를 Azure AD에 조인하는 데 필요합니다.
 - **WS-Trust:** 이 프로토콜은 Azure AD 조인 디바이스에 로그인하는 데 필요합니다. 
 
-ID 공급자가 이러한 프로토콜을 지원하지 않는 경우 Azure AD 조인이 기본적으로 작동하지 않습니다. Windows 10 1809부터는 사용자가 [Windows 10의 웹 로그인](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10)을 통해 Azure AD 조인 디바이스에 SAML 기반 ID 공급자로 로그인할 수 있습니다. 현재 로그인 웹 미리 보기 기능 및 프로덕션 배포에 권장 되지 않습니다.
+ID 공급자가 이러한 프로토콜을 지원하지 않는 경우 Azure AD 조인이 기본적으로 작동하지 않습니다. Windows 10 1809부터는 사용자가 [Windows 10의 웹 로그인](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10)을 통해 Azure AD 조인 디바이스에 SAML 기반 ID 공급자로 로그인할 수 있습니다. 현재 웹 로그인은 미리 보기 기능이 며 프로덕션 배포에는 권장 되지 않습니다.
 
 ### <a name="smartcards-and-certificate-based-authentication"></a>스마트 카드 및 인증서 기반 인증
 
@@ -101,10 +101,10 @@ Azure AD 조인:
 
 ### <a name="management-platform"></a>관리 플랫폼
 
-Azure AD 가입 장치에 대 한 장치 관리는 Intune 및 MDM Csp 같은 MDM 플랫폼을 기반으로 합니다. Windows 10에는 모든 호환 MDM 솔루션과 함께 작동하는 MDM 에이전트가 기본적으로 제공됩니다.
+Azure AD 가입 장치에 대 한 장치 관리는 Intune 및 MDM Csp와 같은 MDM 플랫폼을 기반으로 합니다. Windows 10에는 모든 호환 MDM 솔루션과 함께 작동하는 MDM 에이전트가 기본적으로 제공됩니다.
 
 > [!NOTE]
-> 그룹 정책으로 온-프레미스 Active Directory에 연결 되지 않은 Azure AD 가입 장치에서 지원 되지 않습니다. Azure AD 가입 장치를 관리는 MDM을 통한 가능
+> 그룹 정책은 온-프레미스 Active Directory에 연결 되어 있지 않으므로 Azure AD 조인 장치에서 지원 되지 않습니다. MDM을 통해서만 Azure AD 조인 장치를 관리할 수 있습니다.
 
 Azure AD 조인 디바이스를 관리하는 두 가지 방법이 있습니다.
 
@@ -238,7 +238,7 @@ Azure Portal에서 조직의 Azure AD 조인 디바이스 배포를 제어할 �
 1. **애플리케이션 추가**를 클릭합니다.
 1. 목록에서 MDM 공급자를 선택합니다.
 
-   ![애플리케이션 추가](./media/azureadjoin-plan/04.png)
+   ![응용 프로그램 추가](./media/azureadjoin-plan/04.png)
 
 MDM 공급자를 선택하여 관련 설정을 구성합니다. 
 
@@ -261,7 +261,7 @@ MDM 구성과 관련된 세 가지 URL이 있습니다.
 - MDM 검색 URL 
 - MDM 규정 준수 URL
 
-![애플리케이션 추가](./media/azureadjoin-plan/06.png)
+![응용 프로그램 추가](./media/azureadjoin-plan/06.png)
 
 각 URL에는 미리 정의된 기본값이 있습니다. 이러한 필드가 비어 있으면 MDM 공급자에게 자세한 정보를 문의하세요.
 
@@ -271,17 +271,17 @@ MAM은 Azure AD 조인에 적용되지 않습니다.
 
 ## <a name="configure-enterprise-state-roaming"></a>엔터프라이즈 상태 로밍 구성
 
-사용자가 자신의 설정을 디바이스 간에 동기화 할 수 있도록 Azure AD에 상태 로밍을 사용하려면 [Azure Active Directory에서 엔터프라이즈 상태 로밍 사용](https://docs.microsoft.com/azure/active-directory/devices/enterprise-state-roaming-enable)을 참조하세요. 
+사용자가 자신의 설정을 디바이스 간에 동기화 할 수 있도록 Azure AD에 상태 로밍을 사용하려면 [Azure Active Directory에서 엔터프라이즈 상태 로밍 사용](enterprise-state-roaming-enable.md)을 참조하세요. 
 
 **권장 사항**: 하이브리드 Azure AD 조인 디바이스에도 이 설정을 사용하세요.
 
-## <a name="configure-conditional-access"></a>조건부 액세스를 구성 합니다.
+## <a name="configure-conditional-access"></a>조건부 액세스 구성
 
 Azure AD 조인 디바이스에 대한 MDM 공급자가 구성된 경우 공급자는 디바이스 관리가 시작되는 즉시 디바이스에 준수 플래그를 지정합니다. 
 
-![규정 준수 디바이스](./media/azureadjoin-plan/46.png)
+![준수 디바이스](./media/azureadjoin-plan/46.png)
 
-이 구현을 사용할 수 있습니다 [조건부 액세스를 사용 하 여 클라우드 앱 액세스를 위해 관리 되는 장치가](../conditional-access/require-managed-devices.md)합니다.
+이 구현을 사용 하 여 [조건부 액세스를 통해 클라우드 앱 액세스를 위한 관리 되는 장치를 요구할](../conditional-access/require-managed-devices.md)수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -2,14 +2,14 @@
 author: larryfr
 ms.service: machine-learning
 ms.topic: include
-ms.date: 07/19/2019
+ms.date: 07/26/2019
 ms.author: larryfr
-ms.openlocfilehash: e8c0b35f2ac6d3468a5e38a90cc7f4de09d3682b
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
-ms.translationtype: HT
+ms.openlocfilehash: a87773c8f6ddda11b62064758b46d666740a03c2
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348491"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68556925"
 ---
 `deploymentconfig.json` 문서의 항목은 [localwebservice. deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservicedeploymentconfiguration?view=azure-ml-py)에 대 한 매개 변수에 매핑됩니다. 다음 표에서는 JSON 문서의 엔터티 및 메서드에 대 한 매개 변수의 매핑에 대해 설명 합니다.
 

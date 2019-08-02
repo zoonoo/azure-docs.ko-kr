@@ -1,26 +1,26 @@
 ---
-title: 구성, 최적화 및 Azure Storage를 사용 하 여 AzCopy를 문제 해결 | Microsoft Docs
-description: 구성, 최적화 및 AzCopy 문제를 해결 합니다.
+title: Azure Storage를 사용 하 여 AzCopy 구성, 최적화 및 문제 해결 | Microsoft Docs
+description: AzCopy를 구성 하 고 최적화 하 고 문제를 해결 합니다.
 services: storage
 author: normesta
 ms.service: storage
 ms.topic: article
-ms.date: 05/14/2019
+ms.date: 07/25/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 1a67846889b43d582a7a7d477a33f0e2168fd760
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 3773f9a8464dc94436d6d2503b173d4674033ab1
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147861"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565038"
 ---
-# <a name="configure-optimize-and-troubleshoot-azcopy"></a>구성, 최적화 및 AzCopy 문제 해결
+# <a name="configure-optimize-and-troubleshoot-azcopy"></a>AzCopy 구성, 최적화 및 문제 해결
 
-AzCopy는 저장소 계정 간에서 blob 또는 파일을 복사 하는 데 사용할 수 있는 명령줄 유틸리티입니다. 이 문서는 고급 구성 작업을 수행 하는 데 도움이 하 고 AzCopy를 사용 하 여 발생할 수 있는 문제를 해결 하는 데 도움이 됩니다.
+AzCopy는 blob 또는 파일을 저장소 계정에 복사 하는 데 사용할 수 있는 명령줄 유틸리티입니다. 이 문서는 고급 구성 작업을 수행 하는 데 도움이 되며 AzCopy를 사용 하는 경우 발생할 수 있는 문제를 해결 하는 데 도움이 됩니다.
 
 > [!NOTE]
-> AzCopy를 사용 하 여 시작할 수 있도록 하는 콘텐츠를 찾으려는 경우 다음 문서 중 하나를 참조 하세요.
+> AzCopy을 시작 하는 데 도움이 되는 콘텐츠를 찾고 있는 경우 다음 문서를 참조 하세요.
 > - [AzCopy 시작](storage-use-azcopy-v10.md)
 > - [AzCopy 및 Blob 스토리지를 사용하여 데이터 전송](storage-use-azcopy-blobs.md)
 > - [AzCopy 및 파일 스토리지를 사용하여 데이터 전송](storage-use-azcopy-files.md)
@@ -28,19 +28,25 @@ AzCopy는 저장소 계정 간에서 blob 또는 파일을 복사 하는 데 사
 
 ## <a name="configure-proxy-settings"></a>프록시 설정 구성
 
-AzCopy에 대 한 프록시 설정을 구성 하려면 설정의 `https_proxy` 환경 변수입니다.
+AzCopy에 대 한 프록시 설정을 구성 하려면 `https_proxy` 환경 변수를 설정 합니다. Windows에서 AzCopy를 실행 하는 경우 AzCopy에서 프록시 설정을 자동으로 검색 하므로 Windows에서이 설정을 사용할 필요가 없습니다. Windows에서이 설정을 사용 하도록 선택 하면 자동 검색이 재정의 됩니다.
 
 | 운영 체제 | 명령  |
 |--------|-----------|
-| **Windows** | 명령 프롬프트 사용: `set https_proxy=<proxy IP>:<proxy port>`<br> PowerShell 사용: `$env:https_proxy="<proxy IP>:<proxy port>"`|
+| **Windows** | 명령 프롬프트에서 다음을 사용 합니다.`set https_proxy=<proxy IP>:<proxy port>`<br> PowerShell에서 다음을 사용 합니다.`$env:https_proxy="<proxy IP>:<proxy port>"`|
 | **Linux** | `export https_proxy=<proxy IP>:<proxy port>` |
 | **MacOS** | `export https_proxy=<proxy IP>:<proxy port>` |
 
-현재, AzCopy는 NTLM 또는 Kerberos를 사용 하 여 인증이 필요한 프록시를 지원 하지 않습니다.
+현재 AzCopy는 NTLM 또는 Kerberos 인증을 요구 하는 프록시를 지원 하지 않습니다.
 
 ## <a name="optimize-throughput"></a>처리량 최적화
 
-설정 된 `AZCOPY_CONCURRENCY_VALUE` 환경 변수 동시 요청 수를 구성 하 고 처리량 성능 및 리소스 소비를 제어할 수 있습니다. 컴퓨터에 5 개 보다 적은 Cpu 경우이 변수의 값으로 설정 됩니다 `32`합니다. 그렇지 않은 경우 기본값은 Cpu의 수를 곱한 16과 같습니다. 이 변수의 최대 기본값은 `300`를 위 또는 아래로이 값을 수동으로 설정할 수 있습니다.
+이 `cap-mbps` 플래그를 사용 하 여 처리량 데이터 속도를 최대값으로 지정할 수 있습니다. 예를 들어 다음 명령은 초당 처리량을 메가 `10` 비트 (MB)로 제한 합니다.
+
+```azcopy
+azcopy cap-mbps 10
+```
+
+작은 파일을 전송할 때 처리량이 줄어들 수 있습니다. 환경 변수를 `AZCOPY_CONCURRENCY_VALUE` 설정 하 여 처리량을 늘릴 수 있습니다. 이 변수는 발생할 수 있는 동시 요청 수를 지정 합니다.  컴퓨터에 5 개 미만의 Cpu가 있는 경우이 변수의 값은로 `32`설정 됩니다. 그렇지 않으면 기본값은 16에 Cpu 수를 곱한 값과 같습니다. 이 변수의 `300`최대 기본값은 이지만이 값을 더 높거나 낮게 수동으로 설정할 수 있습니다.
 
 | 운영 체제 | 명령  |
 |--------|-----------|
@@ -48,11 +54,11 @@ AzCopy에 대 한 프록시 설정을 구성 하려면 설정의 `https_proxy` �
 | **Linux** | `export AZCOPY_CONCURRENCY_VALUE=<value>` |
 | **MacOS** | `export AZCOPY_CONCURRENCY_VALUE=<value>` |
 
-사용 된 `azcopy env` 이 변수의 현재 값을 확인 합니다.  값을 비어 있는 경우 해당 `AZCOPY_CONCURRENCY_VALUE` 변수를 기본값인으로 `300`합니다.
+을 사용 `azcopy env` 하 여이 변수의 현재 값을 확인 합니다.  값이 비어 있으면 변수는 `AZCOPY_CONCURRENCY_VALUE` 의 `300`기본값으로 설정 됩니다.
 
 ## <a name="change-the-location-of-the-log-files"></a>로그 파일의 위치 변경
 
-기본적으로 로그 파일은 `%USERPROFILE\\.azcopy` Windows, 또는 디렉터리를 `$HOME\\.azcopy` Mac 및 Linux에서 디렉터리입니다. 이러한 명령을 사용 하 여 해야 할 경우이 위치를 변경할 수 있습니다.
+기본적으로 로그 파일은 Windows의 `%USERPROFILE\\.azcopy` 디렉터리 또는 `$HOME\\.azcopy` Mac 및 Linux의 디렉터리에 있습니다. 이러한 명령을 사용 하 여 필요한 경우이 위치를 변경할 수 있습니다.
 
 | 운영 체제 | 명령  |
 |--------|-----------|
@@ -60,30 +66,30 @@ AzCopy에 대 한 프록시 설정을 구성 하려면 설정의 `https_proxy` �
 | **Linux** | `export AZCOPY_LOG_LOCATION=<value>` |
 | **MacOS** | `export AZCOPY_LOG_LOCATION=<value>` |
 
-사용 된 `azcopy env` 이 변수의 현재 값을 확인 합니다. 값이 비어 있으면 로그의 기본 위치에 기록 됩니다.
+을 사용 `azcopy env` 하 여이 변수의 현재 값을 확인 합니다. 값이 비어 있으면 로그가 기본 위치에 기록 됩니다.
 
 ## <a name="change-the-default-log-level"></a>기본 로그 수준 변경
 
-기본적으로 AzCopy 로그 수준 설정 `INFO`합니다. 디스크 공간 절약을 위해 로그의 자세한 정도 줄이기 위해 원하는 경우이 설정을 사용 하 여 덮어쓸는 ``--log-level`` 옵션입니다. 
+기본적으로 AzCopy 로그 수준은로 `INFO`설정 됩니다. 로그의 자세한 정도를 줄여서 디스크 공간을 절약 하려는 경우 ``--log-level`` 옵션을 사용 하 여이 설정을 덮어씁니다. 
 
-사용 가능한 로그 수준은: `DEBUG`, `INFO`, `WARNING`, `ERROR`합니다 `PANIC`, 및 `FATAL`합니다.
+사용 가능한 로그 수준은 `DEBUG`, `INFO`, `WARNING`, `ERROR` ,`PANIC` 및`FATAL`입니다.
 
 ## <a name="troubleshoot-issues"></a>문제 해결
 
-AzCopy는 모든 작업에 대 한 로그 및 계획 파일을 만듭니다. 로그를 사용하여 잠재적 문제를 조사하고 해결할 수 있습니다. 
+AzCopy는 모든 작업에 대해 로그 및 계획 파일을 만듭니다. 로그를 사용하여 잠재적 문제를 조사하고 해결할 수 있습니다. 
 
-로그 실패 상태가 포함 됩니다 (`UPLOADFAILED`, `COPYFAILED`, 및 `DOWNLOADFAILED`), 전체 경로 및 실패의 이유.
+로그에는 실패 상태 (`UPLOADFAILED`, `COPYFAILED`및 `DOWNLOADFAILED`), 전체 경로 및 실패 한 이유가 포함 됩니다.
 
-기본적으로 로그 파일과 계획에 위치한 합니다 `%USERPROFILE\\.azcopy` Windows 디렉터리 또는 `$HOME\\.azcopy` Mac 및 Linux에서 디렉터리입니다.
+기본적으로 로그 및 계획 파일은 Windows의 `%USERPROFILE\\.azcopy` 디렉터리 또는 `$HOME\\.azcopy` Mac 및 Linux의 디렉터리에 있습니다.
 
 > [!IMPORTANT]
-> Microsoft 지원 (또는 제 3 자에 관련 된 문제 해결)에 요청을 제출 하는 경우 실행 하려는 명령의 교정된 버전을 공유 합니다. 그러면 SAS가 모든 사용자와 실수로 공유 되지 않습니다. 수정 버전은 로그 파일의 시작 부분에서 찾을 수 있습니다.
+> Microsoft 지원에 대 한 요청을 제출 하거나, 타사와 관련 된 문제를 해결 하는 경우 실행 하려는 명령의 교정 된 버전을 공유 합니다. 이렇게 하면 SAS를 실수로 공유 하지 않습니다. 수정 버전은 로그 파일의 시작 부분에서 찾을 수 있습니다.
 
 ### <a name="review-the-logs-for-errors"></a>오류에 대한 로그 검토
 
-다음 명령을 사용 하 여 모든 오류를 받습니다 `UPLOADFAILED` 에서 상태를 `04dc9ca9-158f-7945-5933-564021086c79` 로그:
+다음 명령을 사용 `UPLOADFAILED` 하 여 `04dc9ca9-158f-7945-5933-564021086c79` 로그에서 상태의 모든 오류를 가져옵니다.
 
-**Windows**
+**Windows (PowerShell)**
 
 ```
 Select-String UPLOADFAILED .\04dc9ca9-158f-7945-5933-564021086c79.log
@@ -97,7 +103,7 @@ grep UPLOADFAILED .\04dc9ca9-158f-7945-5933-564021086c79.log
 
 ### <a name="view-and-resume-jobs"></a>작업 보기 및 다시 시작
 
-각 전송 작업은 AzCopy 작업을 만듭니다. 작업의 기록을 보려면 다음 명령을 사용 합니다.
+각 전송 작업은 AzCopy 작업을 만듭니다. 다음 명령을 사용 하 여 작업 기록을 확인 합니다.
 
 ```
 azcopy jobs list
@@ -115,11 +121,11 @@ azcopy jobs show <job-id>
 azcopy jobs show <job-id> --with-status=Failed
 ```
 
-다음 명령을 사용 하 여 실패/취소 작업을 다시 시작 합니다. 이 명령은 보안상의 이유로 영구 아니므로 SAS 토큰과 함께 해당 id를 사용 합니다.
+다음 명령을 사용 하 여 실패/취소 된 작업을 다시 시작 합니다. 이 명령은 보안상의 이유로 영구적이 지 않으므로 SAS 토큰과 함께 식별자를 사용 합니다.
 
 ```
 azcopy jobs resume <job-id> --source-sas="<sas-token>"
 azcopy jobs resume <job-id> --destination-sas="<sas-token>"
 ```
 
-작업을 다시 시작 하면 AzCopy 작업 계획 파일을 살펴봅니다. 계획 파일에 모든 파일을 식별 된 작업에서 처음 만들었을 때 처리를 나열 합니다. 작업을 다시 시작 하면 AzCopy는 이미 전송 되지 않은 계획 파일에 나열 된 파일의 모든 전송 하려고 합니다.
+작업을 다시 시작 하면 AzCopy에서 작업 계획 파일을 찾습니다. 계획 파일에는 작업을 처음 만들 때 처리를 위해 식별 된 모든 파일이 나열 됩니다. 작업을 다시 시작 하면 AzCopy는 아직 전송 되지 않은 계획 파일에 나열 된 모든 파일을 전송 하려고 시도 합니다.

@@ -3,16 +3,16 @@ title: Azure 이미지 작성기 템플릿 만들기 (미리 보기)
 description: Azure 이미지 작성기에서 사용할 템플릿을 만드는 방법에 대해 알아봅니다.
 author: cynthn
 ms.author: cynthn
-ms.date: 05/10/2019
+ms.date: 07/31/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 065962614d0b85c4c50f86bef0b610c9b3577e07
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: a623aa98cd26e1636e47cb0e2831eeced17935b9
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68248148"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68695395"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>미리 보기: Azure 이미지 작성기 템플릿 만들기 
 
@@ -185,6 +185,19 @@ az vm image list -l westus -f UbuntuServer -p Canonical --output table –-all
 
 는 `imageVersionId` 이미지 버전의 ResourceId 여야 합니다. [Az sig image-version list](/cli/azure/sig/image-version#az-sig-image-version-list) 를 사용 하 여 이미지 버전을 나열 합니다.
 
+## <a name="properties-buildtimeoutinminutes"></a>속성: buildTimeoutInMinutes
+기본적으로 이미지 작성기는 240 분 동안 실행 됩니다. 그런 다음, 이미지 빌드가 완료 되었는지 여부에 관계 없이 시간 제한이 발생 하 고 중지 됩니다. 제한 시간에 도달 하면 다음과 유사한 오류가 표시 됩니다.
+
+```text
+[ERROR] Failed while waiting for packerizer: Timeout waiting for microservice to
+[ERROR] complete: 'context deadline exceeded'
+```
+
+BuildTimeoutInMinutes 값을 지정 하지 않거나 0으로 설정 하면에서 기본값을 사용 합니다. 최대 960mins (16hrs)까지 값을 늘리거나 줄일 수 있습니다. Windows의 경우 60 분 미만으로 설정 하지 않는 것이 좋습니다. 시간 제한에 도달 하는 경우 [로그](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#collecting-and-reviewing-aib-image-build-logs)를 검토 하 여 사용자 지정 단계가 사용자 입력과 같이 대기 중인지 확인 합니다. 
+
+사용자 지정을 완료 하는 데 시간이 더 필요한 경우 약간의 오버 헤드를 고려 하 여이를 필요한 것으로 설정 합니다. 그러나 오류가 발생 하기 전에 시간이 초과 될 때까지 기다려야 할 수도 있으므로 너무 높게 설정 하지 마십시오. 
+
+
 ## <a name="properties-customize"></a>속성: 사용자 지정
 
 
@@ -194,7 +207,6 @@ az vm image list -l westus -f UbuntuServer -p Canonical --output table –-all
 - 여러 사용자 지정자를 사용할 수 있지만 고유한 `name`가 있어야 합니다.
 - 서식 지정자는 템플릿에 지정 된 순서 대로 실행 됩니다.
 - 한 사용자 지정 자가 실패 하면 전체 사용자 지정 구성 요소가 실패 하 고 오류가 다시 보고 됩니다.
-- 이미지 빌드에 필요한 시간을 고려 하 고 ' buildTimeoutInMinutes ' 속성을 조정 하 여 이미지 작성기를 완료 하는 데 충분 한 시간을 허용 합니다.
 - 템플릿을 사용 하기 전에 스크립트를 철저히 테스트 하는 것이 좋습니다. 사용자 고유의 VM에서 스크립트를 디버깅 하는 것이 더 쉽습니다.
 - 스크립트에 중요 한 데이터를 넣지 마세요. 
 - [MSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage)를 사용 하지 않는 경우 스크립트 위치는 공개적으로 액세스할 수 있어야 합니다.

@@ -7,17 +7,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/13/2018
+ms.date: 08/01/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 80d4fff03422beacccd3aff3cdd8cb1047d5f5af
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1c574578e6ed6ee032be01718eb3e8afd27fdf6f
+ms.sourcegitcommit: 6ad03fa28a0f60cb6dce6144f728c2ceb56ff6e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61344656"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68708019"
 ---
 # <a name="install-paid-or-licensed-custom-components-for-the-azure-ssis-integration-runtime"></a>Azure-SSIS 통합 런타임에 대한 라이선스 사용자 지정 구성 요소 설치
 
@@ -76,7 +76,7 @@ Azure-SSIS Integration Runtime은 기본적으로 사용자 지정 구성 요소
 
 ## <a name="isv-partners"></a>ISV 파트너
 
-이 블로그 게시물, [엔터프라이즈 버전, 사용자 지정 설치 및 ADF에서 SSIS에 대한 타사 확장성](https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/)의 끝에서 Azure SSIS IR에 대한 해당 구성 요소 및 확장을 채택한 ISV 파트너의 목록을 찾을 수 있습니다.
+이 블로그 게시물, [엔터프라이즈 버전, 사용자 지정 설치 및 ADF에서 SSIS에 대한 타사 확장성](https://techcommunity.microsoft.com/t5/SQL-Server-Integration-Services/Enterprise-Edition-Custom-Setup-and-3rd-Party-Extensibility-for/ba-p/388360)의 끝에서 Azure SSIS IR에 대한 해당 구성 요소 및 확장을 채택한 ISV 파트너의 목록을 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

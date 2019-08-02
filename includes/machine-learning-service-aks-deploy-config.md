@@ -2,18 +2,18 @@
 author: larryfr
 ms.service: machine-learning
 ms.topic: include
-ms.date: 07/19/2019
+ms.date: 07/26/2019
 ms.author: larryfr
-ms.openlocfilehash: 31d20f4824b034230bc941858e8ecb20cc00b6b2
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: d59482c04c4875cb6b17ceb405e9d3ab97a741d6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348532"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565144"
 ---
 `deploymentconfig.json` 문서의 항목은 [AksWebservice. deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py)에 대 한 매개 변수에 매핑됩니다. 다음 표에서는 JSON 문서의 엔터티 및 메서드에 대 한 매개 변수의 매핑에 대해 설명 합니다.
 
-| JSON 엔터티 | 메서드 매개 변수 | 설명 |
+| JSON 엔터티 | 메서드 매개 변수 | Description |
 | ----- | ----- | ----- |
 | `computeType` | NA | 컴퓨팅 대상. AKS의 경우이 값은 여야 `aks`합니다. |
 | `autoScaler` | NA | 자동 크기 조정에 대 한 구성 요소를 포함 합니다. Autoscaler 표를 참조 하세요. |

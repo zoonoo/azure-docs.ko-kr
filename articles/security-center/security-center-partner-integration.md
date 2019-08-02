@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: d94567800a9fd020784c9cb07b2c6824cd032509
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 14bf7dc62bb97cb14232660db6d0649e3d77d4fa
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67064285"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662932"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Azure Security Center에서 보안 솔루션 통합
 이 문서를 통해 이미 Azure Security Center에 연결된 보안 솔루션을 관리하고 새로 추가할 수 있습니다.
 
 > [!NOTE]
-> 보안 솔루션의 하위 집합 2019 년 7 월 31 일에 만료 됩니다. 자세한 내용 및 대체 서비스를 참조 하세요 [Security Center의 사용 중지 기능 (2019 년 7 월)](security-center-features-retirement-july2019.md#menu_solutions)합니다.
+> 보안 솔루션의 하위 집합은 2019 년 7 월 31 일에 사용이 중지 되었습니다. 자세한 내용 및 대체 서비스는 [Security Center 기능 사용 중지 (7 월 2019)](security-center-features-retirement-july2019.md#menu_solutions)를 참조 하세요.
 
 ## <a name="integrated-azure-security-solutions"></a>통합된 Azure 보안 솔루션
 Security Center를 사용하면 Azure에서 통합된 보안 솔루션을 쉽게 사용할 수 있습니다. 이점은 다음과 같습니다.
@@ -34,7 +34,7 @@ Security Center를 사용하면 Azure에서 통합된 보안 솔루션을 쉽게
 - **통합된 감지**: 파트너 솔루션의 보안 이벤트는 자동으로 수집, 집계되며 Security Center 알림 및 사고의 일부로 표시됩니다. 또한 이러한 이벤트는 다른 원본의 감지를 결합하여 고급 위협 감지 기능을 제공합니다.
 - **통합 상태 모니터링 및 관리**: 고객은 한 눈에 모든 파트너 솔루션을 모니터링하기 위해 통합 상태 이벤트를 사용할 수 있습니다. 기본 관리는 파트너 솔루션을 사용하여 고급 설정에 쉽게 액세스하여 사용할 수 있습니다.
 
-통합된 보안 솔루션에서 취약성 평가 포함 하는 현재 [Qualys](https://www.qualys.com/public-clouds/microsoft-azure/) 하 고 [Rapid7](https://www.rapid7.com/products/insightvm/) 및 Microsoft 응용 프로그램 게이트웨이에 웹 응용 프로그램 방화벽입니다.
+현재 통합 보안 솔루션은 [Qualys](https://www.qualys.com/public-clouds/microsoft-azure/) 및 [Rapid7](https://www.rapid7.com/products/insightvm/) 및 Microsoft Application Gateway 웹 응용 프로그램 방화벽에의 한 취약성 평가를 포함 합니다.
 
 > [!NOTE]
 > 대부분의 보안 공급업체가 자신들의 어플라이언스에서 외부 에이전트를 실행하는 것을 금지하고 있기 때문에 Security Center는 파트너 가상 어플라이언스에 Microsoft Monitoring Agent를 설치하지 않습니다.
@@ -42,7 +42,7 @@ Security Center를 사용하면 Azure에서 통합된 보안 솔루션을 쉽게
 >
 
 ## <a name="how-security-solutions-are-integrated"></a>보안 솔루션을 통합하는 방법
-Security Center에서 배포된 Azure 보안 솔루션은 자동으로 연결됩니다. 또한 온-프레미스를 실행 하는 컴퓨터를 포함 하 여 다른 보안 데이터 원본에 연결할 수 있습니다 또는 다른 클라우드에서 합니다.
+Security Center에서 배포된 Azure 보안 솔루션은 자동으로 연결됩니다. 온-프레미스 또는 다른 클라우드에서 실행 되는 컴퓨터를 포함 하 여 다른 보안 데이터 원본에 연결할 수도 있습니다.
 
 ![파트너 솔루션 통합](./media/security-center-partner-integration/security-center-partner-integration-fig8.png)
 
@@ -104,7 +104,7 @@ Security Center는 CEF(일반 이벤트 형식) 로그를 전달할 수 있는 �
 
 **데이터 원본 추가** 섹션에는 연결할 수 있는 다른 사용 가능한 데이터 원본이 포함됩니다. 이러한 원본의 데이터를 추가하는 방법에 대한 지침은 **추가**를 클릭합니다.
 
-![데이터 원본](./media/security-center-partner-integration/security-center-partner-integration-fig7.png)
+![데이터 소스](./media/security-center-partner-integration/security-center-partner-integration-fig7.png)
 
 ## <a name="exporting-data-to-a-siem"></a>SIEM으로 데이터 내보내기
 
@@ -142,9 +142,9 @@ Azure Monitor를 사용하여 모니터링 데이터를 이벤트 허브로 라�
 
 경고 데이터를 끌어오기 위해 사용할 수 있는 몇 가지 Splunk 쿼리는 다음과 같습니다.
 
-| **쿼리 설명** | **쿼리** |
+| **쿼리 설명** | **데이터 집합 속성** |
 |----|----|
-| All Alerts| index=main Microsoft.Security/locations/alerts|
+| 모든 경고| index=main Microsoft.Security/locations/alerts|
 | 이름별로 작업 횟수를 요약합니다.| operationName별 index=main sourcetype="amal:security" \| table operationName \| 통계치|
 | 경고 정보 얻기: 시간, 이름, 상태, ID 및 구독 | index=main Microsoft.Security/locations/alerts \| table \_time, properties.eventName, State, properties.operationId, am_subscriptionId |
 

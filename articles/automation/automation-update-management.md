@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4bd0b6f0652f49c16bd67bbca5a89d19e17a8b2c
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 150d30085976c89e9053d4715da98e487684e45c
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68498426"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717252"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure의 업데이트 관리 솔루션
 
@@ -23,7 +23,7 @@ Azure Automation에서 업데이트 관리 솔루션을 사용 하 여 Azure, �
 Azure Automation 계정에서 직접 가상 머신에 업데이트 관리를 사용하도록 설정할 수 있습니다. Automation 계정에서 가상 머신에 업데이트 관리를 사용하는 방법을 알아보려면 [여러 가상 머신에 대한 업데이트 관리](manage-update-multi.md)를 참조하세요. Azure Portal의 가상 머신 페이지에서 가상 머신에 대한 업데이트 관리를 사용할 수도 있습니다. 이 시나리오는 [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) 및 [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management) 가상 머신에서 지원됩니다.
 
 > [!NOTE]
-> 업데이트 관리 솔루션을 사용 하려면 Log Analytics 작업 영역을 Automation 계정에 연결 해야 합니다. 지원 되는 지역에 대 한 명확한 목록은 [./how-to/region-mappings.md]를 참조 하세요. 지역 매핑은 Automation 계정과는 다른 지역에 있는 가상 컴퓨터를 관리 하는 기능에 영향을 주지 않습니다.
+> 업데이트 관리 솔루션을 사용 하려면 Log Analytics 작업 영역을 Automation 계정에 연결 해야 합니다. 지원 되는 지역에 대 한 명확한 목록은 [https://docs.microsoft.com/en-us/azure/automation/how-to/region-mappings ]를 참조 하세요. 지역 매핑은 Automation 계정과는 다른 지역에 있는 가상 컴퓨터를 관리 하는 기능에 영향을 주지 않습니다.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -99,6 +99,11 @@ Azure Automation의 runbook에서 업데이트가 설치됩니다. 이러한 Run
 #### <a name="windows"></a>Windows
 
 Windows 에이전트는 WSUS 서버와 통신하도록 구성되거나 Microsoft 업데이트에 대한 액세스 권한을 가지고 있어야 합니다. System Center Configuration Manager에서 업데이트 관리를 사용할 수 있습니다. 통합 시나리오에 대한 자세한 내용은 [업데이트 관리와 System Center Configuration Manager 통합](oms-solution-updatemgmt-sccmintegration.md#configuration)을 참조하세요. [Windows 에이전트](../azure-monitor/platform/agent-windows.md)가 필요합니다. 이 에이전트는 Azure Virtual Machine을 등록하는 경우 자동으로 설치됩니다.
+
+> [!NOTE]
+> 사용자가 컴퓨터를 다시 부팅 하는 것은 시스템이 아니라 사용자만 수행할 수 있도록 그룹 정책를 수정할 수 있습니다. 업데이트 관리에 사용자의 수동 상호 작용 없이 컴퓨터를 다시 부팅할 수 있는 권한이 없는 경우 관리 컴퓨터가 중지 될 수 있습니다.
+>
+> 자세한 내용은 [자동 업데이트에 대 한 그룹 정책 설정 구성](https://docs.microsoft.com/en-us/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates)을 참조 하세요.
 
 #### <a name="linux"></a>Linux
 

@@ -11,10 +11,10 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 71f5c8ca56bc188c0664604a78c38a05be3c3b01
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68479744"
 ---
 # <a name="connect-to-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 연결
@@ -31,7 +31,7 @@ Azure SQL Data Warehouse에 연결
     ![전체 서버 이름][1]
 
 ## <a name="supported-drivers-and-connection-strings"></a>지원되는 드라이버 및 연결 문자열
-Azure SQL Data Warehouse은 [ADO.NET][ADO.NET], [ODBC][ODBC], [php][php]및 [JDBC][JDBC]를 지원 합니다. 최신 버전 및 설명서를 찾으려면 이전 드라이버 중 하나를 클릭합니다. Azure Portal에서 사용 중인 드라이버에 대한 연결 문자열을 자동으로 생성하려면 앞의 예제에서 **데이터베이스 연결 문자열 표시**를 클릭합니다. 또한 각 드라이버에 대한 연결 문자열의 모양에 대한 몇 가지 예는 다음과 같습니다.
+Azure SQL Data Warehouse은 [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP]및 [JDBC][JDBC]를 지원 합니다. 최신 버전 및 설명서를 찾으려면 이전 드라이버 중 하나를 클릭합니다. Azure Portal에서 사용 중인 드라이버에 대한 연결 문자열을 자동으로 생성하려면 앞의 예제에서 **데이터베이스 연결 문자열 표시**를 클릭합니다. 또한 각 드라이버에 대한 연결 문자열의 모양에 대한 몇 가지 예는 다음과 같습니다.
 
 > [!NOTE]
 > 사용 불가능한 짧은 시간 동안 연결이 효력을 유지하려면 연결 제한 시간을 300초로 설정하는 것이 좋습니다.
@@ -69,7 +69,7 @@ SQL Data Warehouse는 연결 및 개체 생성 중에 몇 가지 설정을 표�
 | [DATEFIRST][DATEFIRST] |7 |
 
 ## <a name="next-steps"></a>다음 단계
-Visual Studio를 사용 하 여 연결 하 고 쿼리하려면 [Visual studio][Query with Visual Studio]. To learn more about authentication options, see [Authentication to Azure SQL Data Warehouse][Authentication to Azure SQL Data Warehouse]를 사용 하 여 쿼리를 참조 하세요.
+Visual Studio를 사용하여 연결하고 쿼리하려면 [Visual Studio를 사용하여 쿼리][Query with Visual Studio]를 참조하세요. 인증 옵션에 대한 자세한 내용은 [Azure SQL Data Warehouse에 인증][Authentication to Azure SQL Data Warehouse]을 참조하세요.
 
 <!--Articles-->
 [Query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md

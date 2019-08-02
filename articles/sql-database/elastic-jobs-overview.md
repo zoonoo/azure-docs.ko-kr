@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: srinia
 ms.author: srinia
 ms.reviewer: sstein
-manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 62efee57f3663f1dad0446da659de16d2800bf75
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 7c5905716c0aada4a5070b9968c330eafaffb741
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61482961"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561338"
 ---
 # <a name="create-configure-and-manage-elastic-jobs"></a>탄력적 작업 만들기, 구성 및 관리
 
@@ -76,7 +75,7 @@ ms.locfileid: "61482961"
 
 SQL 탄력적인 풀에서 데이터베이스에 대해 작업을 실행할 때 리소스에 작업 부하를 주지 않도록 하려면 작업이 동시에 실행될 수 있는 데이터베이스의 수를 제한하도록 작업을 구성할 수 있습니다.
 
-작업에서 설정 하 여 실행 하는 동시 데이터베이스 수를 설정 합니다 `sp_add_jobstep` 저장 프로시저의 `@max_parallelism` T-SQL에서 매개 변수 또는 `Add-AzSqlElasticJobStep -MaxParallelism` PowerShell에서.
+T-sql 또는 `sp_add_jobstep` `@max_parallelism` PowerShell`Add-AzSqlElasticJobStep -MaxParallelism` 에서 저장 프로시저의 매개 변수를 설정 하 여 작업이 실행 되는 동시 데이터베이스의 수를 설정 합니다.
 
 ## <a name="best-practices-for-creating-jobs"></a>작업을 만들기 위한 모범 사례
 

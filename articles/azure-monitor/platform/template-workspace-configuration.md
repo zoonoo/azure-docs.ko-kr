@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.author: magoedte
-ms.openlocfilehash: a55a4b2f3045aac8dfe9e46a50074585ab3ef491
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.openlocfilehash: 2acaba4e82f499ce1ca08a0ce17469ccb0a7e541
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67827787"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698440"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용 하 여 Log Analytics 작업 영역 관리
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-사용할 수 있습니다 [Azure Resource Manager 템플릿](../../azure-resource-manager/resource-group-authoring-templates.md) 만들기 및 Azure Monitor에서 Log Analytics 작업 영역을 구성 합니다. 템플릿을 사용하여 수행할 수 있는 작업의 예:
+[Azure Resource Manager 템플릿을](../../azure-resource-manager/resource-group-authoring-templates.md) 사용 하 여 Azure Monitor에서 Log Analytics 작업 영역을 만들고 구성할 수 있습니다. 템플릿을 사용하여 수행할 수 있는 작업의 예:
 
 * 설정 가격 책정 계층을 포함하는 작업 영역 만들기 
 * 솔루션 추가
@@ -43,16 +43,16 @@ ms.locfileid: "67827787"
 
 다음 표에는 이 예제에서 사용된 리소스의 API 버전이 제공됩니다.
 
-| 리소스 | 리소스 종류 | API 버전 |
+| 리소스 | 리소스 형식 | API 버전 |
 |:---|:---|:---|
-| 작업 영역   | workspaces    | 2017-03-15-preview |
+| 작업 영역   | 작업 영역    | 2017-03-15-preview |
 | 검색      | savedSearches | 2015-03-20 |
 | 데이터 원본 | datasources   | 2015-11-01-preview |
-| 솔루션    | solutions     | 2015-11-01-preview |
+| 솔루션    | 솔루션     | 2015-11-01-preview |
 
 ## <a name="create-a-log-analytics-workspace"></a>Log Analytics 작업 영역 만들기
 
-다음 예제에서는 로컬 컴퓨터에서 템플릿을 사용하여 작업 영역을 만듭니다. JSON 템플릿 이름 및 새 작업 영역에 (다른 작업 영역 등의 매개 변수 가격 책정 계층 및 보존에 대 한 기본 값 사용)의 위치에만 필요 하도록 구성 됩니다.  
+다음 예제에서는 로컬 컴퓨터에서 템플릿을 사용하여 작업 영역을 만듭니다. JSON 템플릿은 새 작업 영역의 이름과 위치만을 요구 하도록 구성 됩니다 (가격 책정 계층 및 보존과 같은 다른 작업 영역 매개 변수의 기본값 사용).  
 
 ### <a name="create-and-deploy-template"></a>템플릿 만들기 및 배포
 
@@ -120,7 +120,7 @@ ms.locfileid: "67827787"
 
 2. 요구 사항을 충족하도록 템플릿을 편집합니다. 지원되는 속성 및 값은 [Microsoft.OperationalInsights/workspaces 템플릿](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) 참조를 검토하세요. 
 3. 이 파일을 로컬 폴더에 **deploylaworkspacetemplate.json**으로 저장합니다.
-4. 이제 이 템플릿을 배포할 수 있습니다. 명령의 일부로 작업 영역 이름 및 위치를 지정 하는 작업 영역을 만들려면 PowerShell 또는 명령줄을 사용 합니다.
+4. 이제 이 템플릿을 배포할 수 있습니다. PowerShell 또는 명령줄을 사용 하 여 작업 영역을 만들고 작업 영역 이름 및 위치를 명령의 일부로 지정 합니다.
 
    * PowerShell의 경우 템플릿이 포함된 폴더에서 다음 명령을 사용합니다.
    
@@ -186,7 +186,6 @@ ms.locfileid: "67827787"
         "description": "Number of days of retention. Workspaces in the legacy Free pricing tier can only have 7 days."
       }
     },
-    {
     "immediatePurgeDataOn30Days": {
       "type": "bool",
       "metadata": {
@@ -549,7 +548,7 @@ ms.locfileid: "67827787"
 New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json
 ```
 
-#### <a name="command-line"></a>명령 줄
+#### <a name="command-line"></a>명령줄
 
 ```cmd
 azure config mode arm

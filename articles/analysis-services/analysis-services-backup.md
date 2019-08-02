@@ -5,17 +5,17 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 07/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 31e8e65b382a3a6bcad2998a0babdf9605dc4968
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 15d2d0a043271da18d7884b684ffe8cf5c1f4dc8
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61023910"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619199"
 ---
-# <a name="backup-and-restore"></a>Backup 및 복원
+# <a name="backup-and-restore"></a>Backup 및 Restore 메서드
 
 Azure Analysis Services에서 테이블 형식 모델 데이터베이스를 백업하는 것은 온-프레미스 Analysis Services의 경우와 매우 유사합니다. 주요 차이점은 백업 파일을 저장하는 위치입니다. Backup 파일은 [Azure Storage 계정](../storage/common/storage-create-storage-account.md)의 컨테이너에 저장해야 합니다. 이미 있는 저장소 계정과 컨테이너를 사용하거나 서버에 대한 저장소 설정을 구성할 때 만들 수 있습니다.
 
@@ -24,7 +24,7 @@ Azure Analysis Services에서 테이블 형식 모델 데이터베이스를 백�
 > 
 > 
 
-백업을은.abf 확장명이 저장 됩니다. 메모리 내 테이블 형식 모델의 경우 모델 데이터와 메타데이터가 모두 저장됩니다. DirectQuery 테이블 형식 모델의 경우 모델 메타데이터만 저장됩니다. Backup은 선택한 옵션에 따라 압축하고 암호화할 수 있습니다.
+백업은. .abf 확장을 사용 하 여 저장 됩니다. 메모리 내 테이블 형식 모델의 경우 모델 데이터와 메타데이터가 모두 저장됩니다. DirectQuery 테이블 형식 모델의 경우 모델 메타데이터만 저장됩니다. Backup은 선택한 옵션에 따라 압축하고 암호화할 수 있습니다.
 
 
 ## <a name="configure-storage-settings"></a>저장소 설정 구성
@@ -50,7 +50,7 @@ Azure Analysis Services에서 테이블 형식 모델 데이터베이스를 백�
 
     ![백업 설정 저장](./media/analysis-services-backup/aas-backup-save.png)
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>백업
 
 ### <a name="to-backup-by-using-ssms"></a>SSMS를 사용하여 백업하려면
 

@@ -1,19 +1,18 @@
 ---
 title: Azure 파일의 공유 스냅샷 개요 | Microsoft Docs
 description: 공유 스냅샷은 공유를 백업하는 방법으로 특정 시점에 생성된 Azure 파일 공유의 읽기 전용 버전입니다.
-services: storage
 author: roygara
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d83cf20c856d37d337f4eb22c30ee9b6823d096b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f3cbf740016a4c162c63343be4cb9cd577f85935
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65235804"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699363"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Azure Files의 공유 스냅샷 개요 
 Azure 파일은 파일 공유의 공유 스냅샷을 생성하는 기능을 제공합니다. 공유 스냅샷은 특정 시점의 공유 상태를 캡처합니다. 이 문서에서는 공유 스냅샷이 제공하는 기능 및 사용자 지정 사용 사례에 이를 용할 수 있는 방법을 설명합니다.
@@ -88,4 +87,4 @@ Azure에서 인프라를 실행할 때 데이터 복구를 위해 가능하면 �
     - [PowerShell](storage-how-to-use-files-powershell.md)
     - [CLI](storage-how-to-use-files-cli.md)
     - [Windows](storage-how-to-use-files-windows.md#accessing-share-snapshots-from-windows)
-    - [공유 스냅숏 FAQ](storage-files-faq.md#share-snapshots)
+    - [공유 스냅샷 FAQ](storage-files-faq.md#share-snapshots)

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 904893d4881de6be2c9055fefa9a8267cb045afd
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: b8b2cad95929d6132a4f0ae52597fb1633874ff1
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849420"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68592118"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -38,7 +38,7 @@ ms.locfileid: "67849420"
 
 **TrustFrameworkPolicy** 요소에는 다음 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| 특성 | 필수 | Description |
 |---------- | -------- | ----------- |
 | PolicySchemaVersion | 예 | 정책을 실행하는 데 사용할 스키마 버전입니다. 값은 `0.3.0.0`이어야 합니다. |
 | TenantObjectId | 아니요 | Azure AD(Azure Active Directory) B2C 테넌트의 고유한 개체 식별자입니다. |
@@ -88,7 +88,7 @@ ms.locfileid: "67849420"
 
 **BasePolicy** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 수 | Description |
+| 요소 | 발생 | Description |
 | ------- | ----------- | --------|
 | TenantId | 1:1 | Azure AD B2C 테넌트의 식별자입니다. |
 | PolicyId | 1:1 | 부모 정책의 식별자입니다. |
@@ -138,7 +138,7 @@ B2C_1A_TrustFrameWorkBase 또는 B2C_1A_TrustFrameworkExtensionPolicy:
 
 사용자 경험은 사용자가 진행하는 과정의 비즈니스 논리를 정의합니다. 각 사용자 경험은 인증 및 정보 수집의 측면에서 순서대로 일련의 작업을 수행하는 오케스트레이션 단계 집합입니다.
 
-[스타터 팩](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom#download-starter-pack-and-modify-policies)의 **SocialAndLocalAccounts** 정책 파일은 SignUpOrSignIn, ProfileEdit, PasswordReset 사용자 경험을 포함합니다. 전자 메일 주소를 변경 하거나 소셜 계정의 연결 및 연결을 해제 하는 등의 다른 시나리오에 더 많은 사용자 경험를 추가할 수 있습니다.
+[스타터 팩](active-directory-b2c-get-started-custom.md#custom-policy-starter-pack)의 **SocialAndLocalAccounts** 정책 파일은 SignUpOrSignIn, ProfileEdit, PasswordReset 사용자 경험을 포함합니다. 전자 메일 주소를 변경 하거나 소셜 계정의 연결 및 연결을 해제 하는 등의 다른 시나리오에 더 많은 사용자 경험를 추가할 수 있습니다.
 
 오케스트레이션 단계는 [기술 프로필](technicalprofiles.md)을 호출할 수 있습니다. 기술 프로필은 다른 유형의 당사자와 통신하기 위한 기본 제공 메커니즘이 있는 프레임워크를 제공합니다. 예를 들어 기술 프로필은 다음 작업을 수행할 수 있습니다.
 

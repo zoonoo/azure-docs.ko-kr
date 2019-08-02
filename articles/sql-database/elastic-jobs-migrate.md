@@ -10,29 +10,28 @@ ms.topic: conceptual
 author: johnpaulkee
 ms.author: joke
 ms.reviewer: sstein
-manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: 627b29018afff2adb57b3b8b5c816bea9c421f68
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9fa3444244cbd51c3f14abcfef5212a366cadbd2
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66236869"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68550563"
 ---
 # <a name="migrate-to-the-new-elastic-database-jobs"></a>새 Elastic Database 작업으로 마이그레이션
 
 업그레이드된 버전의 [Elastic Database 작업](elastic-jobs-overview.md)이 지원됩니다.
 
-있는 경우 기존 고객 Elastic Database 작업을 마이그레이션 cmdlet의 버전 호스팅되고 쉽게 최신 버전으로 마이그레이션하기 위한 스크립트가 제공 됩니다.
+기존 고객이 호스트 하는 Elastic Database 작업 버전이 있는 경우 최신 버전으로 쉽게 마이그레이션하기 위해 마이그레이션 cmdlet 및 스크립트가 제공 됩니다.
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 업그레이드된 버전의 Elastic Database 작업에는 마이그레이션 중에 사용할 새로운 PowerShell cmdlet 집합이 포함됩니다. 이 새로운 cmdlet은 모든 기존 작업 자격 증명, 대상(데이터베이스, 서버, 사용자 지정 컬렉션), 작업 트리거, 작업 예약, 작업 콘텐츠 및 작업을 새로운 탄력적 작업 에이전트로 전환합니다.
 
 ### <a name="install-the-latest-elastic-jobs-cmdlets"></a>최신 탄력적 작업 cmdlet 설치
 
-Azure 구독이 아직 없는 경우 [무료 계정을 만들](https://azure.microsoft.com/free/) 시작 하기 전에 합니다.
+Azure 구독이 아직 없는 경우 시작 하기 전에 [무료 계정을 만듭니다](https://azure.microsoft.com/free/) .
 
 **Az.Sql** 1.1.1-preview 모듈을 설치하여 최신 탄력적 작업 cmdlet을 가져옵니다. 관리자 권한으로 PowerShell에서 다음 명령을 실행합니다.
 

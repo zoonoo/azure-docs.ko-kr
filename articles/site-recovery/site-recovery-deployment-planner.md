@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 04/18/2019
+ms.date: 07/29/2019
 ms.author: mayg
-ms.openlocfilehash: 42ef6087663c48cad965be768f14920efa777a62
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4e1d27d133b2eb4e0d4d45a5de563e119513c79f
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244321"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68620049"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>VMware에서 Azure로의 Azure Site Recovery Deployment Planner 정보
 이 문서는 VMware에서 Azure로의 프로덕션 배포를 위한 Azure Site Recovery의 Deployment Planner 사용자 가이드입니다.
@@ -41,10 +41,9 @@ Azure Site Recovery를 사용하여 VMware VM(가상 머신) 보호를 시작하
 
 **Azure 인프라 요구 사항**
 
-* 각 VM에 대한 스토리지 유형(표준 또는 Premium Storage 계정) 요구 사항
-* 복제를 위해 설정할 표준 및 Premium Storage 계정의 총 수
+* 각 VM에 대 한 저장소 유형 (standard 또는 premium storage) 요구 사항
+* 복제에 대해 설정할 표준 및 프리미엄 저장소 계정의 총 수 (캐시 저장소 계정 포함)
 * Storage 지침에 따른 스토리지 계정 명명 제안
-* 모든 VM에 대한 저장소 계정 배치
 * 구독에 대한 테스트 장애 조치 또는 장애 조치 이전에 설정할 Azure 코어의 수
 * 각 온-프레미스 VM에 대한 Azure VM 권장 크기
 
@@ -52,7 +51,7 @@ Azure Site Recovery를 사용하여 VMware VM(가상 머신) 보호를 시작하
 * 온-프레미스에 배포하는 데 필요한 구성 서버 및 프로세스 서버의 수
 
 **Azure에 대한 예상 재해 복구 비용**
-* Azure로 재해 복구하는 데 예상되는 총 비용: 계산, 스토리지, 네트워크 및 Site Recovery 라이선스 비용
+* Azure로 재해 복구하는 데 예상되는 총 비용: 컴퓨팅, 스토리지, 네트워크 및 Site Recovery 라이선스 비용
 * VM별 자세한 비용 분석
 
 
@@ -65,14 +64,14 @@ Azure Site Recovery를 사용하여 VMware VM(가상 머신) 보호를 시작하
 
 | | **VMware에서 Azure로** |**Hyper-V에서 Azure로**|**Azure 간**|**Hyper-V에서 보조 사이트로**|**VMware에서 보조 사이트로**
 --|--|--|--|--|--
-지원되는 시나리오 |예|예|아닙니다.|예*|아닙니다.
-지원되는 버전 | vCenter 6.7, 6.5, 6.0 또는 5.5| Windows Server 2016, Windows Server 2012 R2 | 해당 없음 |Windows Server 2016, Windows Server 2012 R2|해당 없음
-지원되는 구성|vCenter, ESXi| Hyper-V 클러스터, Hyper-V 호스트|해당 없음|Hyper-V 클러스터, Hyper-V 호스트|해당 없음|
-Site Recovery Deployment Planner의 실행 인스턴스당 프로파일링할 수 있는 서버 수 |한 개(하나의 vCenter Server 또는 하나의 ESXi 서버에 속하는 VM을 한 번에 프로파일링할 수 있습니다.)|여러 개(여러 호스트 또는 호스트 클러스터 간에 VM을 한 번에 프로파일링할 수 있음)| 해당 없음 |여러 개(여러 호스트 또는 호스트 클러스터 간에 VM을 한 번에 프로파일링할 수 있음)| 해당 없음
+지원되는 시나리오 |예|예|아니요|예*|아니요
+지원되는 버전 | vCenter 6.7, 6.5, 6.0 또는 5.5| Windows Server 2016, Windows Server 2012 R2 | NA |Windows Server 2016, Windows Server 2012 R2|NA
+지원되는 구성|vCenter, ESXi| Hyper-V 클러스터, Hyper-V 호스트|NA|Hyper-V 클러스터, Hyper-V 호스트|NA|
+Site Recovery Deployment Planner의 실행 인스턴스당 프로파일링할 수 있는 서버 수 |한 개(하나의 vCenter Server 또는 하나의 ESXi 서버에 속하는 VM을 한 번에 프로파일링할 수 있습니다.)|여러 개(여러 호스트 또는 호스트 클러스터 간에 VM을 한 번에 프로파일링할 수 있음)| NA |여러 개(여러 호스트 또는 호스트 클러스터 간에 VM을 한 번에 프로파일링할 수 있음)| NA
 
 *이 도구는 주로 Hyper-V에서 Azure로 재해 복구 시나리오용입니다. Hyper-V를 보조 사이트 재해 복구에 사용하는 경우, 원본 쪽 권장 사항(예: 필요한 네트워크 대역폭, 원본 Hyper-V 서버 각각에 필요한 사용 가능한 저장소 공간 및 초기 복제 일괄 처리 번호/일괄 처리 정의)을 파악하는 데만 사용할 수 있습니다. 보고서의 Azure 권장 사항 및 비용은 무시하세요. 또한 Hyper-V에서 보조 사이트로의 재해 복구 시나리오에는 처리량 가져오기 작업을 적용할 수 없습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 이 도구에는 두 가지 주요 단계, 즉 프로파일링과 보고서 생성 단계가 있습니다. 또한 처리량만 계산하는 세 번째 옵션도 있습니다. 다음 표에는 프로파일링 및 처리량 측정이 시작되는 서버에 대한 요구 사항이 나와 있습니다.
 
 | 서버 요구 사항 | 설명|
@@ -105,7 +104,7 @@ Site Recovery Deployment Planner의 실행 인스턴스당 프로파일링할 �
 
 ### <a name="update-to-the-latest-version-of-deployment-planner"></a>최신 버전의 Deployment Planner로 업데이트
 
-Deployment Planner의 최신 업데이트를 요약 되어 있습니다 [버전 기록](site-recovery-deployment-planner-history.md)합니다.
+최신 업데이트는 Deployment Planner [버전 기록](site-recovery-deployment-planner-history.md)에 요약 되어 있습니다.
 
 이전 버전의 Deployment Planner가 있는 경우 다음 중 하나를 수행합니다.
  * 최신 버전에 프로파일링 수정 프로그램이 없고 현재 버전의 Planner에서 프로파일링을 이미 진행 중인 경우 프로파일링을 계속합니다.
@@ -120,7 +119,7 @@ Deployment Planner의 최신 업데이트를 요약 되어 있습니다 [버전 
 
 
 ## <a name="version-history"></a>버전 기록
-최신 Site Recovery Deployment Planner 도구 버전은 2.4입니다.
+최신 Site Recovery Deployment Planner 도구 버전은 2.5입니다.
 각 업데이트에 추가된 수정 사항은 [Site Recovery Deployment Planner 버전 기록](https://docs.microsoft.com/azure/site-recovery/site-recovery-deployment-planner-history) 페이지를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계

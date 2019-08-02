@@ -16,12 +16,12 @@ ms.date: 04/19/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 578f78d1853194cad000aa2e54b40d1ac5003544
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 64a81a871d811c68f5e92822ca88446966be4d5c
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489041"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678128"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management-preview"></a>Azure AD 자격 관리 (미리 보기)에서 액세스 패키지에 대 한 액세스 요청
 
@@ -44,7 +44,7 @@ ms.locfileid: "68489041"
 
 1. 내 액세스 포털에 로그인 합니다.
 
-    조직 계정을 사용 해야 합니다. 잘 모르겠으면 프로젝트 또는 비즈니스 관리자에 게 문의 하세요.
+    조직 (회사 또는 학교) 계정을 사용 해야 합니다. 잘 모르겠으면 프로젝트 또는 비즈니스 관리자에 게 문의 하세요.
 
 ## <a name="request-an-access-package"></a>액세스 패키지 요청
 
@@ -52,6 +52,9 @@ ms.locfileid: "68489041"
 
 **필수 역할:** 요청자
 
+1. 목록에서 액세스 패키지를 찾습니다.  필요한 경우 검색 문자열을 입력 하 고 **이름**, **카탈로그**또는 **리소스** 필터를 선택 하 여 검색할 수 있습니다.
+
+    ![내 액세스 포털-리소스 검색](./media/entitlement-management-request-access/elm-myaccess-resource-search.png)
 1. 확인 표시를 클릭 하 여 액세스 패키지를 선택 합니다.
 
     ![내 액세스 포털 - 액세스 패키지](./media/entitlement-management-shared/my-access-access-packages.png)

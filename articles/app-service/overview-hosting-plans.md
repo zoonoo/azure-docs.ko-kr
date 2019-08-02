@@ -16,18 +16,18 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ab04d1288eb3a851774128b8aaaae03868c2ffa7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fef509d705d0b904586a86b7dc58decc54e7023d
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60839014"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716634"
 ---
 # <a name="azure-app-service-plan-overview"></a>Azure App Service 계획 개요
 
-App Service의 앱은 _App Service 계획_에서 실행됩니다. App Service 계획은 실행할 웹앱에 대한 계산 리소스 세트를 정의합니다. 이러한 컴퓨팅 리소스는 기존의 웹 호스팅에 [_서버 팜_](https://wikipedia.org/wiki/Server_farm)과 유사합니다. 하나 이상의 앱은 동일한 컴퓨팅 리소스(또는 동일한 App Service 계획)에서 실행하도록 구성될 수 있습니다.
+App Service의 앱은 _App Service 계획_에서 실행됩니다. App Service 계획은 실행할 웹앱에 대한 컴퓨팅 리소스 세트를 정의합니다. 이러한 컴퓨팅 리소스는 기존의 웹 호스팅에 [_서버 팜_](https://wikipedia.org/wiki/Server_farm)과 유사합니다. 하나 이상의 앱은 동일한 컴퓨팅 리소스(또는 동일한 App Service 계획)에서 실행하도록 구성될 수 있습니다.
 
-특정 영역(예: 서유럽)에서 App Service 계획을 만들 때 해당 지역에서 해당 계획에 대한 계산 리소스 세트를 만듭니다. App Service 계획에 정의된 대로 이 App Service 계획에 추가한 모든 앱은 이러한 컴퓨팅 리소스에서 실행됩니다. 각 App Service 계획은 다음을 정의합니다.
+특정 영역(예: 서유럽)에서 App Service 계획을 만들 때 해당 지역에서 해당 계획에 대한 컴퓨팅 리소스 세트를 만듭니다. App Service 계획에 정의된 대로 이 App Service 계획에 추가한 모든 앱은 이러한 컴퓨팅 리소스에서 실행됩니다. 각 App Service 계획은 다음을 정의합니다.
 
 - 지역(미국 서부, 미국 동부 등)
 - VM 인스턴스 수
@@ -76,7 +76,7 @@ App Service에서 앱을 만드는 경우 App Service 계획에 배치합니다.
 
 이 섹션에서는 App Service 앱의 요금 지불 방법을 설명합니다. 자세한 지역 특정 가격 책정 정보는 [App Service 가격 책정](https://azure.microsoft.com/pricing/details/app-service/)을 참조하세요.
 
-**체험** 계층을 제외하고 App Service 계획이 사용하는 계산 리소스에 대한 시간당 요금을 사용합니다.
+**체험** 계층을 제외하고 App Service 계획이 사용하는 컴퓨팅 리소스에 대한 시간당 요금을 사용합니다.
 
 - **공유** 계층에서 각 앱은 CPU 시간(분)의 할당량을 수신하므로 _각 앱_은 CPU 할당량에 대한 시간당 요금이 부과됩니다.
 - 전용 컴퓨팅 계층(**기본**, **표준**, **프리미엄**, **PremiumV2**)에서 App Service 계획은 앱의 크기를 조정하는 VM 인스턴스의 수를 정의합니다. 따라서 App Service 계획의 _각 VM 인스턴스_는 시간당 요금이 부과됩니다. 이러한 VM 인스턴스는 여기에서 실행되는 앱의 개수에 관계 없이 동일한 요금이 청구됩니다. 예기치 않은 요금을 방지하려면 [App Service 계획 정리](app-service-plan-manage.md#delete)를 참조하세요.
@@ -113,7 +113,7 @@ App Service 계획이 할당하는 리소스를 계산하기 위해 지불하므
 다음의 경우 새 App Service 계획으로 앱을 격리합니다.
 
 - 앱이 리소스를 많이 사용합니다.
-- 기존 계획에서 다른 앱과 독립적으로 앱을 확장하려고 합니다.
+- 기존 계획의 다른 앱과 독립적으로 앱의 크기를 조정 하려고 합니다.
 - 앱에 서로 다른 지역의 리소스가 필요합니다.
 
 이 방식을 사용하면 앱에 새 리소스 집합을 할당하고 앱을 더 잘 제어할 수 있습니다.

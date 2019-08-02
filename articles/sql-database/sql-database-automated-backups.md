@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
 ms.date: 06/27/2019
-ms.openlocfilehash: c75b19fff478c14ff47996cf9159e48f3ff69724
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 1afe8a2e9179c768fd639b4a208de98b0789a53f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68261190"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569453"
 ---
 # <a name="automated-backups"></a>자동화된 백업
 
@@ -40,7 +39,7 @@ SQL Database는 SQL Server 기술을 사용 하 여 매주 [전체 백업](https
 - 복원을 수행하려면 [백업에서 데이터베이스 복원](sql-database-recovery-using-backups.md)을 참조하세요.
 
 > [!NOTE]
-> Azure Storage에서 *복제* 라는 용어는 한 위치에서 다른 위치로 파일을 복사하는 것을 말합니다. SQL의 ‘데이터베이스 복제’는  주 데이터베이스와 동기화된 다수의 보조 데이터베이스를 유지하는 것을 말합니다.
+> Azure Storage에서 *복제* 라는 용어는 한 위치에서 다른 위치로 파일을 복사하는 것을 말합니다. SQL의 ‘데이터베이스 복제’는주 데이터베이스와 동기화된 다수의 보조 데이터베이스를 유지하는 것을 말합니다.
 
 다음 예제를 사용 하 여 이러한 작업 중 일부를 시도할 수 있습니다.
 

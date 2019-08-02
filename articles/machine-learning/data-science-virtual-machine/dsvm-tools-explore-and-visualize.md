@@ -4,7 +4,7 @@ description: 데이터 과학 Virtual Machine용 데이터 탐색 및 시각화 
 keywords: 데이터 과학 도구, 데이터 과학 가상 머신, 데이터 과학용 도구, linux 데이터 과학
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: gokuma
-ms.openlocfilehash: 693be80e493a0ba259d147f432dc9d6c07ba876d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: vijetaj
+ms.openlocfilehash: 31b05ec4fa68c3d4804000caee94b62432bdaed9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427521"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68557773"
 ---
 # <a name="data-exploration-and-visualization-tools-on-the-data-science-virtual-machine"></a>데이터 과학 Virtual Machine용 데이터 탐색 및 시각화 도구
 
-데이터 과학에서 핵심적인 단계는 데이터를 이해하는 것입니다. 시각화 및 데이터 탐색 도구는 데이터 이해를 가속화합니다. DSVM에서 제공이 주요 단계를 쉽게 일부 도구는 다음과 같습니다. 
+데이터 과학에서 핵심적인 단계는 데이터를 이해하는 것입니다. 시각화 및 데이터 탐색 도구는 데이터 이해를 가속화합니다. 다음은이 키의 단계를 용이 하 게 하는 DSVM에 제공 되는 몇 가지 도구입니다. 
 
 ## <a name="apache-drill"></a>Apache Drill
 |    |           |
@@ -39,17 +39,17 @@ ms.locfileid: "66427521"
 ## <a name="weka"></a>Weka
 |    |           |
 | ------------- | ------------- |
-| 무엇인가요?   |  Weka는 데이터 마이닝 작업에 대한 기계 학습 알고리즘 컬렉션입니다. 알고리즘은 데이터 세트에 직접 적용하거나 사용자 고유의 Java 코드에서 호출할 수 있습니다. Weka는 데이터 전처리 작업, 분류, 회귀, 클러스터링, 연결 규칙 및 시각화를 위한 도구를 포함합니다. |
+| 정의   |  Weka는 데이터 마이닝 작업에 대한 기계 학습 알고리즘 컬렉션입니다. 알고리즘은 데이터 세트에 직접 적용하거나 사용자 고유의 Java 코드에서 호출할 수 있습니다. Weka는 데이터 전처리 작업, 분류, 회귀, 클러스터링, 연결 규칙 및 시각화를 위한 도구를 포함합니다. |
 | 지원되는 DSVM 버전     | Windows, Linux     |
 | 일반적인 사용 용도      | 범용 ML 도구     |
-| 사용/실행 방법      | Windows인 경우 Weka를 시작 메뉴에서 검색합니다. Linux에서 X2Go를 사용 하 여 로그인 한 다음 이동할 응용 프로그램-> Development-> Weka 합니다. |
+| 사용/실행 방법      | Windows인 경우 Weka를 시작 메뉴에서 검색합니다. Linux에서 X2Go를 사용 하 여 로그인 한 다음 응용 프로그램-> 개발-> Weka으로 이동 합니다. |
 | 샘플에 대한 링크      | [Weka 샘플](https://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
 | DSVM의 관련 도구      |LightGBM, Rattle, Xgboost   |
 
 ## <a name="rattle"></a>Rattle
 |    |           |
 | ------------- | ------------- |
-| 무엇인가요?   |   R을 사용한 데이터 마이닝에 대한 그래픽 사용자 인터페이스   |
+| 정의   |   R을 사용한 데이터 마이닝에 대한 그래픽 사용자 인터페이스   |
 | 지원되는 DSVM 버전     | Windows, Linux     |
 | 일반적인 사용 용도      | R에 대한 일반 UI 데이터 마이닝 도구    |
 | 사용/실행 방법      | UI 도구. Windows에서 명령 프롬프트를 시작하고, R을 실행한 후, R 내부에서 `rattle()`을 실행합니다. Linux에서 X2Go와 연결하여 터미널을 시작하고, R을 실행한 후, R 내부에서 `rattle()`을 실행합니다. |
@@ -59,7 +59,7 @@ ms.locfileid: "66427521"
 ## <a name="power-bi-desktop"></a>Power BI Desktop 
 |    |           |
 | ------------- | ------------- |
-| 무엇인가요?   | 대화형 데이터 시각화 및 BI 도구    |
+| 정의   | 대화형 데이터 시각화 및 BI 도구    |
 | 지원되는 DSVM 버전      | Windows  |
 | 일반적인 사용 용도      |  데이터 시각화 및 대시보드 작성   |
 | 사용/실행 방법      | 바탕 화면 바로 가기(`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |

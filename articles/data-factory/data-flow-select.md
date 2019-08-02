@@ -6,14 +6,14 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 15c74637a2dc42ec44f582878b5505d94637cd7b
-ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
+ms.openlocfilehash: 974243da07a2570e851b7d44eac2556c201c2782
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314208"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678521"
 ---
-# <a name="azure-data-factory-mapping-data-flow-select-transformation"></a>Azure Data Factory Mapping Data Flow 선택 변환
+# <a name="mapping-data-flow-select-transformation"></a>데이터 흐름 매핑 선택 변환
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
 열 선택도 (열 수 줄이기), 별칭 열 및 스트림 이름 및 열 다시 정렬에 대해이 변환을 사용 합니다.
@@ -27,10 +27,7 @@ ms.locfileid: "68314208"
 
 데이터 흐름에서 열을 선택 취소하는 방법으로 선택을 사용할 수도 있습니다. 예를 들어 싱크에 6개 열이 정의되어 있지만 변환할 특정 열 3개만 선택하고 싱크로 진행하는 경우 선택 변환을 사용하여 해당 3개만 선택할 수 있습니다.
 
-> [!NOTE]
-> 특정 열만 선택하려면 “모두 선택”을 꺼야 합니다.
-
-![선택 변환](media/data-flow/select001.png "선택 별칭")
+![선택 변환](media/data-flow/newselect1.png "선택 별칭")
 
 ## <a name="options"></a>변수
 * “선택”의 기본 설정은 모든 수신 열을 포함하고 원래 이름을 유지하는 것입니다. 선택 변환의 이름을 설정하여 스트림의 별칭을 지정할 수 있습니다.
@@ -38,6 +35,23 @@ ms.locfileid: "68314208"
 * 입력 또는 출력 메타 데이터에서 중복 열을 제거 하려면 중복 건너뛰기를 선택 합니다.
 
 ![중복 항목 건너뛰기](media/data-flow/select-skip-dup.png "중복 항목 건너뛰기")
+
+> [!NOTE]
+> 매핑 규칙을 지우려면 **다시 설정** 단추를 누릅니다.
+
+## <a name="mapping"></a>매핑
+기본적으로 Select 변환은 모든 열을 자동으로 매핑하여 들어오는 모든 열을 출력의 동일한 이름으로 전달 합니다. 선택 설정에서 설정 된 출력 스트림 이름은 스트림의 새 별칭 이름을 정의 합니다. 자동 맵에 대 한 선택 집합을 유지 하는 경우 모든 열을 포함 하 여 전체 스트림의 별칭을 지정할 수 있습니다.
+
+![변환 규칙 선택](media/data-flow/rule2.png "규칙 기반 매핑")
+
+열을 별칭, 제거, 이름 바꾸기 또는 순서를 변경 하려는 경우 먼저 "자동 매핑"을 해제 해야 합니다. 기본적으로 "모든 입력 열" 이라는 기본 규칙이 입력 된 것을 볼 수 있습니다. 들어오는 모든 열이 해당 출력의 동일한 이름에 매핑되도록 항상 허용 하려는 경우이 규칙을 그대로 둘 수 있습니다.
+
+그러나 사용자 지정 규칙을 추가 하려는 경우 "매핑 추가"를 클릭 합니다. 필드 매핑은 맵과 별칭에 들어오는 열 이름 및 나가는 열 이름 목록을 제공 합니다. "규칙 기반 매핑"을 선택 하 여 패턴 일치 규칙을 만듭니다.
+
+## <a name="rule-based-mapping"></a>규칙 기반 매핑
+규칙 기반 매핑을 선택 하면 ADF는 들어오는 패턴 규칙과 일치 하는 일치 하는 식을 평가 하 고 보내는 필드 이름을 정의 합니다. 필드 및 규칙 기반 매핑의 모든 조합을 추가할 수 있습니다. 그런 다음 원본에서 들어오는 메타 데이터를 기반으로 ADF에 의해 런타임에 필드 이름이 생성 됩니다. 디버그 중에 생성 된 필드의 이름과 데이터 미리 보기 창을 사용 하 여 볼 수 있습니다.
+
+패턴 일치에 대 한 자세한 내용은 [열 패턴 설명서](concepts-data-flow-column-pattern.md)에서 확인할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * Select를 사용 하 여 이름을 바꾸고, 순서를 바꾸고, 별칭을 사용 하 여 데이터를 데이터 저장소로 이동 하려면 [싱크 변환을](data-flow-sink.md) 사용 합니다.

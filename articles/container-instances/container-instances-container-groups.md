@@ -10,10 +10,10 @@ ms.date: 03/20/2019
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: b17004e7821bcac61ca98afdbeaf87644da2a441
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68326045"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Azure Container Instances의 컨테이너 그룹
@@ -41,13 +41,13 @@ Azure Container Instances의 최상위 리소스는 *컨테이너 그룹*입니�
 
 ## <a name="deployment"></a>배포
 
-다중 컨테이너 그룹을 배포 하는 일반적인 방법에는 두 가지가 있습니다. [리소스 관리자 템플릿을][resource-manager template] or a [YAML file][yaml-file]사용 합니다. 컨테이너 인스턴스를 배포할 때 추가 Azure 서비스 리소스 (Azure Files 예:[azure 파일] [공유])를 배포 해야 하는 경우 리소스 관리자 템플릿을 권장 합니다. YAML 형식의 보다 간결한 특성으로 인해 배포에 컨테이너 인스턴스만 포함 된 경우에는 YAML 파일이 권장 됩니다.
+다중 컨테이너 그룹을 배포 하는 두 가지 일반적인 방법은 [리소스 관리자 템플릿][resource-manager template] 또는 [yaml 파일][yaml-file]을 사용 하는 것입니다. 컨테이너 인스턴스를 배포할 때 추가 Azure 서비스 리소스 (예: [Azure Files 공유][azure-files])를 배포 해야 하는 경우 리소스 관리자 템플릿을 권장 합니다. YAML 형식의 보다 간결한 특성으로 인해 배포에 컨테이너 인스턴스만 포함 된 경우에는 YAML 파일이 권장 됩니다.
 
 컨테이너 그룹의 구성을 유지 하려면 Azure CLI 명령 [az container export][az-container-export]를 사용 하 여 해당 구성을 yaml 파일로 내보낼 수 있습니다. 내보내기를 사용 하면 컨테이너 그룹 구성을 "코드로 구성"을 위한 버전 제어로 저장할 수 있습니다. 또는 YAML에서 새 구성을 개발할 때 내보낸 파일을 시작점으로 사용할 수 있습니다.
 
 ## <a name="resource-allocation"></a>리소스 할당
 
-Azure Container Instances은 cpu, 메모리 및 그룹에 있는 인스턴스의 [gpu][gpus] (preview) to a container group by adding the [resource requests][resource-requests] 와 같은 리소스를 할당 합니다. CPU 리소스를 예로 들어 두 개의 인스턴스를 사용 하 여 1 개의 CPU를 요청 하는 컨테이너 그룹을 만드는 경우 컨테이너 그룹에 2 개의 cpu가 할당 됩니다.
+Azure Container Instances는 그룹의 인스턴스에 대 한 [리소스 요청][resource-requests] 을 추가 하 여 cpu, 메모리, 선택적으로 [gpu][gpus] (미리 보기) 등의 리소스를 컨테이너 그룹에 할당 합니다. CPU 리소스를 예로 들어 두 개의 인스턴스를 사용 하 여 1 개의 CPU를 요청 하는 컨테이너 그룹을 만드는 경우 컨테이너 그룹에 2 개의 cpu가 할당 됩니다.
 
 컨테이너 그룹에 사용할 수 있는 최대 리소스는 배포에 사용 되는 [Azure 지역][region-availability] 에 따라 달라 집니다.
 

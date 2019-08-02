@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 35759f03d7cf09a4114ca6dca74bd3ee92fdcbfa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 471af9e1bc699ccaa8bc930ab930d6d40bbdc984
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60761695"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568375"
 ---
 # <a name="multi-shard-querying-using-elastic-database-tools"></a>Elastic Database 도구를 사용하여 쿼리 다중 분할
 
@@ -32,7 +31,7 @@ ms.locfileid: "60761695"
 5. **ExecuteQueryAsync 또는 ExecuteReader**([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard.multishardstatement.executeQueryAsync), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand)) 메서드를 호출하여 이 명령을 실행합니다.
 6. **MultiShardResultSet 또는 MultiShardDataReader**([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard.multishardresultset), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.query.multisharddatareader)) 클래스를 사용하여 결과를 확인합니다.
 
-## <a name="example"></a>예
+## <a name="example"></a>예제
 
 다음 코드는 **myShardMap** 이라는 *ShardMap*을 사용하는 다중 분할된 데이터베이스 쿼리를 보여 줍니다.
 

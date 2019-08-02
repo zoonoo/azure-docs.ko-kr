@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: 030259f7773435760c09afd25ca674b63bb1b3ca
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 743f15c13a2e4fe7215229145b49fd87a32a1f18
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073249"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663274"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights의 원격 분석 상관 관계
 
@@ -35,9 +35,9 @@ Application Insights는 분산 원격 분석 상관 관계에 대한 [데이터 
 
 `operation_Id`, `operation_parentId` 및 `request.id`를 `dependency.id`와 함께 사용하여 분산 논리 작업의 보기를 빌드할 수 있습니다. 또한 이러한 필드는 원격 분석 호출의 인과 관계 순서를 정의합니다.
 
-마이크로 서비스 환경에서 구성 요소의 추적은 다른 스토리지 항목으로 이동할 수 있습니다. 모든 구성 요소에는 자체의 계측 키가 Application Insights에 있을 수 있습니다. Application Insights UX 논리 연산에 대 한 원격 분석을 가져오려면 모든 저장소 항목의 데이터를 쿼리 합니다. 스토리지 항목의 수가 많은 경우 다음 항목을 찾을 위치에 대한 힌트가 필요합니다. Application Insights 데이터 모델에서는 이 문제를 해결하기 위해 두 가지 필드, 즉 `request.source` 및 `dependency.target`을 정의합니다. 첫 번째 필드는 종속성 요청을 시작한 구성 요소를 식별하고, 두 번째 필드는 종속성 호출의 응답을 반환한 구성 요소를 식별합니다.
+마이크로 서비스 환경에서 구성 요소의 추적은 다른 스토리지 항목으로 이동할 수 있습니다. 모든 구성 요소에는 자체의 계측 키가 Application Insights에 있을 수 있습니다. 논리 작업에 대 한 원격 분석을 가져오기 위해 Application Insights UX는 모든 저장소 항목의 데이터를 쿼리 합니다. 스토리지 항목의 수가 많은 경우 다음 항목을 찾을 위치에 대한 힌트가 필요합니다. Application Insights 데이터 모델에서는 이 문제를 해결하기 위해 두 가지 필드, 즉 `request.source` 및 `dependency.target`을 정의합니다. 첫 번째 필드는 종속성 요청을 시작한 구성 요소를 식별하고, 두 번째 필드는 종속성 호출의 응답을 반환한 구성 요소를 식별합니다.
 
-## <a name="example"></a>예
+## <a name="example"></a>예제
 
 `Stock`이라는 외부 API를 사용하여 주식의 현재 시가를 보여 주는 '주가(Stock Prices)'라는 애플리케이션의 예제를 살펴보겠습니다. 주가 애플리케이션에는 `GET /Home/Stock`을 사용하여 클라이언트 웹 브라우저에서 열리는 `Stock page` 페이지가 있습니다. 애플리케이션에서 `GET /api/stock/value` HTTP 호출을 사용하여 `Stock` API를 쿼리합니다.
 
@@ -54,8 +54,8 @@ Application Insights는 분산 원격 분석 상관 관계에 대한 [데이터 
 | itemType   | name                      | ID           | operation_ParentId | operation_Id |
 |------------|---------------------------|--------------|--------------------|--------------|
 | pageView   | Stock page                |              | STYz               | STYz         |
-| dependency | GET /Home/Stock           | qJSXU        | STYz               | STYz         |
-| 요청    | GET Home/Stock            | KqKwlrSt9PA= | qJSXU              | STYz         |
+| 종속성 | GET /Home/Stock           | qJSXU        | STYz               | STYz         |
+| request    | GET Home/Stock            | KqKwlrSt9PA= | qJSXU              | STYz         |
 | dependency | GET /api/stock/value      | bBrf2L7mm2g= | KqKwlrSt9PA=       | STYz         |
 
 외부 서비스에 대한 `GET /api/stock/value` 호출이 수행되면 `dependency.target` 필드를 적절하게 설정할 수 있도록 해당 서버의 ID를 알고 있어야 합니다. 외부 서비스에서 모니터링을 지원하지 않는 경우 `target`은 서비스의 호스트 이름으로 설정됩니다(예: `stock-prices-api.com`). 그러나 서비스에서 미리 정의된 HTTP 헤더를 반환하여 해당 서비스 자체를 식별하는 경우 `target`에는 Application Insights에서 해당 서비스의 원격 분석을 쿼리하여 분산 추적을 빌드할 수 있는 서비스 ID가 포함됩니다.
@@ -85,6 +85,14 @@ Application Insights에서는 상관 관계 HTTP 프로토콜에 대한 [extensi
 
 - `RequestTrackingTelemetryModule` 아래에서 `EnableW3CHeadersExtraction` 요소를 추가하고 값을 `true`로 설정합니다.
 - `DependencyTrackingTelemetryModule` 아래에서 `EnableW3CHeadersInjection` 요소를 추가하고 값을 `true`로 설정합니다.
+- 다음과 `W3COperationCorrelationTelemetryInitializer` 유사 하 `TelemetryInitializers` 게 추가 합니다. 
+
+```xml
+<TelemetryInitializers>
+  <Add Type="Microsoft.ApplicationInsights.Extensibility.W3C.W3COperationCorrelationTelemetryInitializer, Microsoft.ApplicationInsights"/>
+   ...
+</TelemetryInitializers> 
+```
 
 #### <a name="enable-w3c-distributed-tracing-support-for-aspnet-core-apps"></a>ASP.NET Core 앱에 W3C 분산 추적 지원을 사용하도록 설정
 
@@ -184,9 +192,9 @@ Application Insights SDK는 버전 2.4.0-beta1부터 `DiagnosticSource` 및 `Act
 
 현재 메시징 기술(예: Kafka, RabbitMQ, Azure Service Bus)을 통한 자동 컨텍스트 전파는 지원되지 않습니다. 그러나 `trackDependency` 및 `trackRequest` API를 사용하여 이러한 시나리오를 수동으로 코딩할 수 있습니다. 이러한 API에서 종속성 원격 분석은 생산자를 통해 큐에 넣는 메시지를 나타내고, 요청은 소비자를 통해 처리하는 메시지를 나타냅니다. 이 경우 `operation_id` 및 `operation_parentId` 둘 다 메시지의 속성에 전파되어야 합니다.
 
-### <a name="telemetry-correlation-in-asynchronous-java-application"></a>비동기 Java 응용 프로그램에서 원격 분석 상관 관계
+### <a name="telemetry-correlation-in-asynchronous-java-application"></a>비동기 Java 응용 프로그램의 원격 분석 상관 관계
 
-비동기 Spring Boot 응용 프로그램에서 원격 분석 상관 관계를 지정 하기 위해 따르세요 [이](https://github.com/Microsoft/ApplicationInsights-Java/wiki/Distributed-Tracing-in-Asynchronous-Java-Applications) 심층 문서. 스프링의 계측에 대 한 지침을 제공 [ThreadPoolTaskExecutor](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/concurrent/ThreadPoolTaskExecutor.html) 뿐만 [ThreadPoolTaskScheduler](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/concurrent/ThreadPoolTaskScheduler.html)합니다. 
+비동기 스프링 부팅 응용 프로그램에서 원격 분석의 상관 관계를 확인 하려면 [이](https://github.com/Microsoft/ApplicationInsights-Java/wiki/Distributed-Tracing-in-Asynchronous-Java-Applications) 심층적인 문서를 참조 하세요. 스프링의 [ThreadPoolTaskExecutor](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/concurrent/ThreadPoolTaskExecutor.html) 및 [ThreadPoolTaskScheduler](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/concurrent/ThreadPoolTaskScheduler.html)를 계측 하는 방법에 대 한 지침을 제공 합니다. 
 
 
 <a name="java-role-name"></a>

@@ -9,12 +9,12 @@ ms.date: 07/15/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 469790660e843816cc431420e7e1407c90a7de05
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 2d0697567bfd2fcf95a1fe6ebf246646af5650c3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249908"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564883"
 ---
 # <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>Azure 리소스에 대 한 Azure Active Directory 및 관리 id를 사용 하 여 blob 및 큐에 대 한 액세스 권한 부여
 
@@ -38,9 +38,9 @@ Blob에 대 한 요청이 나 Azure Storage 응용 프로그램의 관리 되는
 
 RBAC 역할을 할당 하는 방법에 대 한 자세한 내용은 다음 문서 중 하나를 참조 하세요.
 
-- [Azure Portal에서 RBAC를 사용 하 여 Azure blob 및 큐 데이터에 대 한 액세스 권한 부여](storage-auth-aad-rbac-portal.md)
-- [Azure CLI를 사용 하 여 Azure blob에 대 한 액세스 권한 부여 및 RBAC를 사용 하 여 데이터 큐](storage-auth-aad-rbac-cli.md)
-- [PowerShell을 사용 하 여 Azure blob에 대 한 액세스 권한 부여 및 RBAC를 사용 하 여 데이터 큐](storage-auth-aad-rbac-powershell.md)
+- [Azure Portal에서 RBAC를 사용하여 Azure Blob 및 큐 데이터에 대한 액세스 권한 부여](storage-auth-aad-rbac-portal.md)
+- [Azure CLI에서 RBAC를 사용하여 Azure Blob 및 큐 데이터에 대한 액세스 권한 부여](storage-auth-aad-rbac-cli.md)
+- [PowerShell에서 RBAC를 사용하여 Azure Blob 및 큐 데이터에 대한 액세스 권한 부여](storage-auth-aad-rbac-powershell.md)
 
 ## <a name="azure-storage-resource-id"></a>Azure Storage 리소스 ID
 
@@ -100,8 +100,7 @@ const string blobName = "https://storagesamples.blob.core.windows.net/sample-con
 
 // Get the initial access token and the interval at which to refresh it.
 AzureServiceTokenProvider azureServiceTokenProvider = new AzureServiceTokenProvider();
-var tokenAndFrequency = TokenRenewerAsync(azureServiceTokenProvider,
-                                            CancellationToken.None).GetAwaiter().GetResult();
+var tokenAndFrequency = await TokenRenewerAsync(azureServiceTokenProvider,CancellationToken.None);
 
 // Create storage credentials using the initial token, and connect the callback function
 // to renew the token just before it expires
@@ -117,7 +116,7 @@ CloudBlockBlob blob = new CloudBlockBlob(new Uri(blobName),
                                             storageCredentials);
 
 // Upload text to the blob.
-blob.UploadTextAsync(string.Format("This is a blob named {0}", blob.Name));
+await blob.UploadTextAsync(string.Format("This is a blob named {0}", blob.Name));
 
 // Continue to make requests against Azure Storage.
 // The token is automatically refreshed as needed in the background.
@@ -126,7 +125,7 @@ do
     // Read blob contents
     Console.WriteLine("Time accessed: {0} Blob Content: {1}",
                         DateTimeOffset.UtcNow,
-                        blob.DownloadTextAsync().Result);
+                        await blob.DownloadTextAsync());
 
     // Sleep for ten seconds, then read the contents of the blob again.
     Thread.Sleep(TimeSpan.FromSeconds(10));

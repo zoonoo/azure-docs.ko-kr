@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 04/08/2019
-ms.openlocfilehash: 36b1fb96ac1dd89375588a65063ce729f6ac825d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1dc1d2780dcaf27e0c60cfffe84581c0278491dd
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65794398"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566534"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>Azure SQL Database의 단일 데이터베이스란?
 
@@ -30,7 +29,7 @@ ms.locfileid: "65794398"
 
 ## <a name="dynamic-scalability"></a>동적 확장성
 
-(미리 보기) 서버 리스 컴퓨팅 계층에서 저렴 한 비용 또는 프로 비전 된 계산 계층에서 더 작은 계산 크기가 작은, 단일 데이터베이스에서 첫 번째 앱을 빌드할 수 있습니다. 변경한 합니다 [계산 또는 서비스 계층](sql-database-single-database-scale.md) 수동으로 또는 프로그래밍 방식으로 언제 든 지 솔루션의 요구를 충족 하도록 합니다. 앱이나 고객에게 가동 중지 시간 없이 성능을 조정할 수 있습니다. 동적 확장성을 통해 데이터베이스는 급변하는 리소스 요구 사항에 투명하게 대응할 수 있으며, 필요할 때 필요한 리소스에 대해서만 비용을 지불할 수 있습니다.
+서버를 사용 하지 않는 (미리 보기) 계산 계층 또는 프로 비전 된 계산 계층의 작은 계산 크기에서 낮은 비용으로 소규모 단일 데이터베이스에서 첫 번째 앱을 빌드할 수 있습니다. 언제 든 지 수동으로 또는 프로그래밍 방식으로 [계산 또는 서비스 계층](sql-database-single-database-scale.md) 을 변경 하 여 솔루션의 요구 사항을 충족할 수 있습니다. 앱이나 고객에게 가동 중지 시간 없이 성능을 조정할 수 있습니다. 동적 확장성을 통해 데이터베이스는 급변하는 리소스 요구 사항에 투명하게 대응할 수 있으며, 필요할 때 필요한 리소스에 대해서만 비용을 지불할 수 있습니다.
 
 ## <a name="single-databases-and-elastic-pools"></a>단일 데이터베이스 및 탄력적 풀
 
@@ -42,7 +41,7 @@ ms.locfileid: "65794398"
 
 ## <a name="availability-capabilities"></a>가용성 기능
 
-단일 데이터베이스, 탄력적 풀 및 관리 되는 인스턴스 모든 다양 한 가용성 특성을 제공합니다. 자세한 내용은 [가용성 특성](sql-database-technical-overview.md#availability-capabilities)을 참조하세요.
+단일 데이터베이스, 탄력적 풀 및 관리 되는 인스턴스는 모두 다양 한 가용성 특성을 제공 합니다. 자세한 내용은 [가용성 특성](sql-database-technical-overview.md#availability-capabilities)을 참조하세요.
 
 ## <a name="transact-sql-differences"></a>Transact-SQL 차이점
 
@@ -56,7 +55,7 @@ ms.locfileid: "65794398"
 SQL Database는 다양한 [기본 제공 보안 및 규정 준수 기능](sql-database-security-overview.md)을 제공하여 애플리케이션이 다양한 보안 및 규정 준수 요구 사항을 충족할 수 있도록 도와줍니다.
 
 > [!IMPORTANT]
-> Azure SQL Database (모든 배포 옵션)을 여러 규정 준수 표준에 대해 인증 받았습니다. 자세한 내용은 참조는 [Microsoft Azure 보안 센터](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) 있는 SQL Database 규정 준수 인증의 최신 목록을 찾을 수 있습니다.
+> Azure SQL Database (모든 배포 옵션)은 다양 한 규정 준수 표준에 대해 인증 되었습니다. 자세한 내용은 SQL Database 준수 인증의 최신 목록을 찾을 수 있는 [Microsoft Azure 보안 센터](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) 를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

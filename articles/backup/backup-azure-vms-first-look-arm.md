@@ -1,18 +1,18 @@
 ---
 title: Azure Backup 서비스를 사용하여 VM 설정에서 Azure VM 백업
 description: Azure Backup 서비스를 사용하여 Azure VM을 백업하는 방법 알아보기
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.author: raynew
-ms.openlocfilehash: 994762098027f7051591b8bf89bfa5cb7c380373
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 042fa44b8f24bb729b94c7631db9469de8493ba4
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465268"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639777"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>VM 설정에서 Azure VM 백업
 

@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39ec27c75ff5ba9164b44b0524f90a4e28ab20f1
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 420a7079a7961868277a2d78ffbac4adba240d9f
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68488987"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678072"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management-preview"></a>Azure AD 자격 관리 (미리 보기) 문제 해결
 
@@ -41,7 +41,7 @@ ms.locfileid: "68488987"
 
 * 응용 프로그램이 액세스 패키지의 리소스가 되려면 할당 될 수 있는 리소스 역할이 하나 이상 있어야 합니다. 역할은 응용 프로그램 자체에 의해 정의 되며 Azure AD에서 관리 됩니다. Azure Portal는 응용 프로그램으로 선택할 수 없는 서비스에 대 한 서비스 사용자를 표시할 수도 있습니다.  특히 **Exchange online** 및 **SharePoint online** 은 디렉터리에 리소스 역할이 있는 응용 프로그램이 아니라 서비스 이므로 액세스 패키지에 포함 될 수 없습니다.  대신 그룹 기반 라이선스를 사용 하 여 해당 서비스에 액세스 해야 하는 사용자에 게 적절 한 라이선스를 설정 합니다.
 
-* 그룹이 액세스 패키지의 리소스가 되려면 Azure AD에서 수정할 수 있어야 합니다.  Azure AD에서 소유자 또는 멤버 특성을 변경할 수 없으므로 온-프레미스 Active Directory에서 발생 하는 그룹을 리소스로 할당할 수 없습니다.  
+* 그룹이 액세스 패키지의 리소스가 되려면 Azure AD에서 수정할 수 있어야 합니다.  Azure AD에서 소유자 또는 멤버 특성을 변경할 수 없으므로 온-프레미스 Active Directory에서 발생 하는 그룹을 리소스로 할당할 수 없습니다.   Exchange Online에서 배포 그룹으로 시작 된 그룹은 Azure AD에서 수정할 수 없습니다. 
 
 * SharePoint Online 문서 라이브러리와 개별 문서를 리소스로 추가할 수 없습니다.  대신, Azure AD 보안 그룹을 만들고, 해당 그룹과 사이트 역할을 액세스 패키지에 포함 하 고, SharePoint Online에서 해당 그룹을 사용 하 여 문서 라이브러리나 문서에 대 한 액세스를 제어 합니다.
 
@@ -55,9 +55,9 @@ ms.locfileid: "68488987"
 
 ## <a name="checklist-for-request-issues"></a>요청 문제에 대 한 검사 목록
 
-* 사용자가 액세스 패키지에 대 한 액세스를 요청 하려는 경우 액세스 패키지에 대 한 **내 액세스 포털 링크** 를 사용 해야 합니다. 자세한 내용은 [My Access Portal 복사 링크](entitlement-management-access-package-edit.md#copy-my-access-portal-link)를 참조 하세요.
+* 사용자가 액세스 패키지에 대 한 액세스를 요청 하려는 경우 액세스 패키지에 대 한 **내 액세스 포털 링크** 를 사용 해야 합니다. 자세한 내용은 [My Access Portal 복사 링크](entitlement-management-access-package-edit.md#copy-my-access-portal-link)를 참조 하세요.  외부 사용자가 **myaccess.microsoft.com**를 방문 하면 해당 조직에서 사용할 수 있는 액세스 패키지가 표시 됩니다.
 
-* 사용자가 내 액세스 포털에 로그인 하 여 액세스 패키지를 요청 하는 경우 조직 계정을 사용 하 여 인증 해야 합니다. 조직 계정은 리소스 디렉터리의 계정 이거나 액세스 패키지의 정책 중 하나에 포함 된 디렉터리 일 수 있습니다. 사용자 계정이 조직 계정이 아니거나 디렉터리를 정책에 포함 하지 않는 경우 사용자에 게 액세스 패키지가 표시 되지 않습니다. 자세한 내용은 [액세스 패키지에 대 한 액세스 요청](entitlement-management-request-access.md)을 참조 하세요.
+* 디렉터리에 아직 없는 사용자가 액세스 패키지를 요청 하기 위해 내 액세스 포털에 로그인 하는 경우 조직 계정을 사용 하 여 인증 해야 합니다. 조직 계정은 리소스 디렉터리의 계정 이거나 액세스 패키지의 정책 중 하나에 포함 된 디렉터리 일 수 있습니다. 사용자 계정이 조직 계정이 아니거나 인증 된 디렉터리가 정책에 포함 되지 않은 경우 사용자에 게 액세스 패키지가 표시 되지 않습니다. 자세한 내용은 [액세스 패키지에 대 한 액세스 요청](entitlement-management-request-access.md)을 참조 하세요.
 
 * 사용자가 리소스 디렉터리에 로그인 하지 못하도록 차단 된 경우에는 내 액세스 포털에서 액세스를 요청할 수 없습니다. 사용자가 액세스를 요청 하려면 먼저 사용자의 프로필에서 로그인 블록을 제거 해야 합니다. 로그인 블록을 제거 하려면 Azure Portal에서 **Azure Active Directory**를 클릭 하 고 **사용자를 클릭**한 다음 사용자를 클릭 하 고 **프로필**을 클릭 합니다. **설정** 섹션을 편집 하 고 **블록 로그인** 을 **아니요**로 변경 합니다. 자세한 내용은 [Azure Active Directory를 사용 하 여 사용자의 프로필 정보 추가 또는 업데이트](../fundamentals/active-directory-users-profile-azure-portal.md)를 참조 하세요.  [Id 보호 정책](../identity-protection/howto-unblock-user.md)으로 인해 사용자가 차단 되었는지 여부도 확인할 수 있습니다.
 

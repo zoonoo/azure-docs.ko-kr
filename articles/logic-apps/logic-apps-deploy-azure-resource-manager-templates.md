@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 07/26/2019
-ms.openlocfilehash: dbc92502cdab6e76ba6b8730fca7e0aed3966a43
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.date: 08/01/2019
+ms.openlocfilehash: 083c908609ebcf1bdc6dcad5e37ae03daa41758f
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494930"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706499"
 ---
 # <a name="deploy-azure-resource-manager-templates-for-azure-logic-apps"></a>Azure Logic Apps에 대 한 Azure Resource Manager 템플릿 배포
 
@@ -35,7 +35,7 @@ ms.locfileid: "68494930"
 
 [![Azure에 배포](./media/logic-apps-deploy-azure-resource-manager-templates/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
 
-예를 들어 Azure Portal에 로그인 한 후에이 정보를 입력 하 라는 메시지가 표시 됩니다.
+예를 들어 Azure Portal에 로그인 한 후 다음 정보를 입력 하 라는 메시지가 표시 됩니다.
 
 * Azure 구독 이름
 * 사용하려는 리소스 그룹
@@ -59,7 +59,7 @@ Visual Studio를 사용 하 여 만든 Azure 리소스 그룹 프로젝트에서
 
 ## <a name="deploy-with-azure-powershell"></a>Azure PowerShell을 사용하여 배포
 
-특정 Azure 리소스 그룹에 배포 하려면 다음 명령을 사용 합니다.
+특정 *Azure 리소스 그룹*에 배포 하려면 다음 명령을 사용 합니다.
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName <Azure-resource-group-name> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json
@@ -91,10 +91,14 @@ az group deployment create -g <Azure-resource-group-name> --template-uri https:/
 
 논리 앱 템플릿을 배포 하 고 환경을 관리 하기 위해 일반적으로 팀은 [Azure DevOps](https://docs.microsoft.com/azure/devops/user-guide/what-is-azure-devops-services)의 [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/what-is-azure-pipelines) 와 같은 도구를 사용 합니다. Azure Pipelines는 빌드 또는 릴리스 파이프라인에 추가할 수 있는 [Azure 리소스 그룹 배포 작업](https://github.com/Microsoft/azure-pipelines-tasks/tree/master/Tasks/AzureResourceGroupDeploymentV2) 을 제공 합니다. 릴리스 파이프라인을 배포 하 고 생성 하기 위한 권한 부여를 위해 AD (Azure Active Directory) [서비스 사용자](../active-directory/develop/app-objects-and-service-principals.md)도 필요 합니다. [Azure Pipelines에서 서비스 사용자를 사용 하는](https://docs.microsoft.com/azure/devops/pipelines/library/connect-to-azure)방법에 대해 자세히 알아보세요.
 
-Azure Pipelines를 사용 하는 Azure Resource Manager 템플릿의 CI/CD에 대 한 지속적인 통합 및 지속적인 배포에 대 한 자세한 내용은 다음 항목을 참조 하세요.
+Azure Pipelines를 사용 하는 Azure Resource Manager 템플릿의 CI/CD에 대 한 지속적인 통합 및 지속적인 배포에 대 한 자세한 내용은 다음 항목 및 샘플을 참조 하세요.
 
 * [Azure Pipelines와 리소스 관리자 템플릿 통합](../azure-resource-manager/vs-resource-groups-project-devops-pipelines.md)
 * [자습서: Azure Pipelines를 사용 하 Azure Resource Manager 템플릿에 대 한 지속적인 통합](../azure-resource-manager/resource-manager-tutorial-use-azure-pipelines.md)
+* [샘플: Azure Logic Apps에서 Azure Service Bus 큐에 연결 하 고 Azure DevOps에서 Azure Pipelines를 사용 하 여 배포](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [샘플: Azure Logic Apps에서 Azure Storage 계정에 연결 하 고 Azure DevOps에서 Azure Pipelines를 사용 하 여 배포](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [샘플: Azure Logic Apps에 대 한 함수 앱 작업 설정 및 Azure DevOps에서 Azure Pipelines를 사용 하 여 배포](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [샘플: Azure Logic Apps에서 통합 계정에 연결 하 고 Azure DevOps에서 Azure Pipelines를 사용 하 여 배포](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-an-integration-account-from-azure-logic-apps-and-deploy-by-using-azure-devops-pipelines/)
 
 Azure Pipelines 사용에 대 한 일반적인 개략적인 단계는 다음과 같습니다.
 

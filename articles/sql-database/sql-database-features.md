@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
-manager: craigg
 ms.date: 05/10/2019
-ms.openlocfilehash: 5bdbd9bebfb819ae18de884a014c574e12c53ebf
-ms.sourcegitcommit: 83a89c45253b0d432ce8dcd70084c18e9930b1fd
+ms.openlocfilehash: 3f991d90dfdd5d31d1a7cf7119356f40458e7614
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371716"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568235"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>기능 비교: Azure SQL Database 및 SQL Server
 
@@ -89,9 +88,10 @@ Microsoft는 Azure SQL Database에 계속해서 기능을 추가하고 있습니
 | [JSON 데이터 지원](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | [예](sql-database-json-features.md) | [예](sql-database-json-features.md) |
 | [언어 요소](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | 대부분 - 개별 요소 참조 |  예 - [T-SQL 차이점](sql-database-managed-instance-transact-sql-information.md) 참조 |
 | [연결된 서버](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | 아니요 - [탄력적 쿼리](sql-database-elastic-query-horizontal-partitioning.md) 참조 | 예. 분산 트랜잭션이 없는 [SQL Server 및 SQL Database](sql-database-managed-instance-transact-sql-information.md#linked-servers) 에만 사용 됩니다. |
+| 파일에서 읽은 [연결 된 서버](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) (CSV, Excel)| 아니요. CSV 형식 대신 [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file) 또는 [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) 을 사용 합니다. | 아니요. CSV 형식 대신 [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file) 또는 [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) 을 사용 합니다. [Managed Instance 피드백 항목](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources) 에서이 요청 추적|
 | [로그 전달](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server) | [고가용성](sql-database-high-availability.md)은 모든 데이터베이스에 포함됩니다. 재해 복구는 [Azure SQL Database의 비즈니스 연속성 개요](sql-database-business-continuity.md)에서 설명합니다. | DMS 마이그레이션 프로세스의 일부로 기본적으로 제공 됩니다. 고가용성 솔루션으로는 사용할 수 없습니다 [. 다른 고가용성](sql-database-high-availability.md) 방법이 모든 데이터베이스에 포함 되어 있으므로 로그 전달을 HA 대체로 사용 하지 않는 것이 좋습니다. 재해 복구는 [Azure SQL Database의 비즈니스 연속성 개요](sql-database-business-continuity.md)에서 설명 합니다. 데이터베이스 간 복제 메커니즘으로 사용할 수 없음- [중요 비즈니스용 계층](sql-database-service-tier-business-critical.md), [자동 장애 조치 (failover) 그룹](sql-database-auto-failover-group.md)또는 [트랜잭션 복제](sql-database-managed-instance-transactional-replication.md) 에 보조 복제본을 사용 합니다. |
 | [로그인 및 사용자](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine) | 예, 하지만 `CREATE` 및 `ALTER` 로그인 문은 모든 옵션을 제공 하지 않습니다 (Windows 및 서버 수준 Azure Active Directory 로그인). `EXECUTE AS LOGIN`지원 되지 않음-대신 `EXECUTE AS USER` 을 사용 합니다.  | 예, 몇 가지 [차이점이](sql-database-managed-instance-transact-sql-information.md#logins-and-users)있습니다. Windows 로그인은 지원 되지 않으며 Azure Active Directory 로그인으로 바꾸어야 합니다. |
-| [대량 가져오기에서 최소 로깅](https://docs.microsoft.com/sql/relational-databases/import-export/prerequisites-for-minimal-logging-in-bulk-import) | 아니요 | 아니요 |
+| [대량 가져오기에서 최소 로깅](https://docs.microsoft.com/sql/relational-databases/import-export/prerequisites-for-minimal-logging-in-bulk-import) | 아니요, 전체 복구 모델만 지원 됩니다. | 아니요, 전체 복구 모델만 지원 됩니다. |
 | [시스템 데이터 수정](https://docs.microsoft.com/sql/relational-databases/databases/system-databases) | 아니요 | 예 |
 | [OLE 자동화](https://docs.microsoft.com/sql/database-engine/configure-windows/ole-automation-procedures-server-configuration-option) | 아니요 | 아니요 |
 | [온라인 인덱스 작업](https://docs.microsoft.com/sql/relational-databases/indexes/perform-index-operations-online) | 예 | 예 |
@@ -108,6 +108,7 @@ Microsoft는 Azure SQL Database에 계속해서 기능을 추가하고 있습니
 | [조건자](https://docs.microsoft.com/sql/t-sql/queries/predicates) | 예 | 예 |
 | [쿼리 알림](https://docs.microsoft.com/sql/relational-databases/native-client/features/working-with-query-notifications) | 아니요 | 예 |
 | [R 서비스](https://docs.microsoft.com/sql/advanced-analytics/r-services/sql-server-r-services) | 예, [공개 미리 보기 상태](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services)  | 아니요 |
+| [복구 모델](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server) | 고가용성을 보장 하는 전체 복구만 지원 됩니다. 단순 및 대량 로그 복구 모델을 사용할 수 없습니다. | 고가용성을 보장 하는 전체 복구만 지원 됩니다. 단순 및 대량 로그 복구 모델을 사용할 수 없습니다. | 
 | [리소스 관리자](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) | 아니요 | 예 |
 | [RESTORE 문](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-for-restoring-recovering-and-managing-backups-transact-sql) | 아니요 | 예, Azure Blob Storage에 `FROM URL` 배치 된 백업 파일에 대 한 필수 옵션을 사용 합니다. [복원 차이점](sql-database-managed-instance-transact-sql-information.md#restore-statement) 을 참조 하세요. |
 | [백업에서 데이터베이스 복원](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases#restore-data-backups) | 자동 백업에서만 - [SQL Database 복구](sql-database-recovery-using-backups.md) 참조 | 자동화 된 백업에서 [SQL Database 복구](sql-database-recovery-using-backups.md) 및 Azure Blob Storage에 배치 된 전체 백업에서 [백업 차이점](sql-database-managed-instance-transact-sql-information.md#backup) 참조 |
@@ -148,6 +149,7 @@ Azure platform은 표준 데이터베이스 기능에 추가 값으로 추가 �
 | [자동 장애 조치(failover) 그룹](sql-database-auto-failover-group.md) | 예-대규모 이외의 모든 서비스 계층 | 예, [공개 미리 보기 상태](sql-database-auto-failover-group.md)|
 | [Azure Resource Health](/azure/service-health/resource-health-overview) | 예 | 아니요 |
 | [DMS(데이터 마이그레이션 서비스)](https://docs.microsoft.com/sql/dma/dma-overview) | 예 | 예 |
+| 파일 시스템 액세스 | 아니요. [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) 또는 [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) 을 사용 하 여 Azure Blob Storage에서 데이터에 액세스 하 고 해당 데이터를 로드 합니다. | 아니요. [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) 또는 [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) 을 사용 하 여 Azure Blob Storage에서 데이터에 액세스 하 고 해당 데이터를 로드 합니다. |
 | [지역 복원](sql-database-recovery-using-backups.md#geo-restore) | 예-대규모 이외의 모든 서비스 계층 | 예- [Azure PowerShell](https://medium.com/azure-sqldb-managed-instance/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa)를 사용 합니다. |
 | [하이퍼 확장 아키텍처](sql-database-service-tier-hyperscale.md) | 예 | 아니요 |
 | [장기 백업 보존-LTR](sql-database-long-term-retention.md) | 예, 자동으로 최대 10 년 동안 백업을 유지 합니다. | 아직 없습니다. 임시 `COPY_ONLY` 해결 방법으로 [수동 백업을](sql-database-managed-instance-transact-sql-information.md#backup) 사용 합니다. |
@@ -167,7 +169,7 @@ Azure platform은 표준 데이터베이스 기능에 추가 값으로 추가 �
 | [VNet](../virtual-network/virtual-networks-overview.md) | 일부는 [VNet 끝점](sql-database-vnet-service-endpoint-rule-overview.md) 을 사용 하 여 제한 된 액세스를 가능 하 게 합니다. | 예, Managed Instance 고객의 VNet에 삽입 됩니다. [서브넷](sql-database-managed-instance-transact-sql-information.md#subnet) 및 [VNet](sql-database-managed-instance-transact-sql-information.md#vnet) 참조 |
 
 ## <a name="tools"></a>Tools
-Azure SQL database는 데이터를 관리 하는 데 사용할 수 있는 다양 한 데이터 도구를 지원 합니다.
+Azure SQL database는 데이터를 관리 하는 데 도움이 될 수 있는 다양 한 데이터 도구를 지원 합니다.
 
 | **SQL 도구** | **단일 데이터베이스 및 탄력적 풀** | **관리 되는 인스턴스** |
 | --- | --- | --- |

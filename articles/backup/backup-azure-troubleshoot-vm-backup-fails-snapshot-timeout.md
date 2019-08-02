@@ -1,19 +1,20 @@
 ---
 title: 'Azure Backup 오류 문제 해결: 게스트 에이전트 상태를 사용할 수 없음'
 description: 에이전트, 확장명 및 디스크와 관련된 Azure Backup 오류의 증상, 원인 및 해결 방법
-author: saurabhsensharma
-manager: saurabhsensharma
+ms.reviewer: saurse
+author: dcurwin
+manager: carmonm
 keywords: Azure 백업; VM 에이전트; 네트워크 연결;
 ms.service: backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.author: saurse
-ms.openlocfilehash: e4337c9c89ca239bb664cbb7fb953ab9eedd3ac5
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 7fc288ad9e33088b1b5248c1b61ed439ac95a9c4
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465326"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688973"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup 오류 문제 해결: 에이전트 또는 확장 관련 문제
 
@@ -77,9 +78,9 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 **원인 2: [백업 확장을 업데이트 또는 로드할 수 없습니다.](#the-backup-extension-fails-to-update-or-load)**  
 **원인 3: [VM이 인터넷에 액세스할 수 없습니다.](#the-vm-has-no-internet-access)**
 
-## <a name="ExtentionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtentionOperationFailedForManagedDisks - VMSnapshot 확장 작업이 실패했습니다.
+## <a name="ExtensionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtensionOperationFailedForManagedDisks-VMSnapshot 확장 작업이 실패 했습니다.
 
-**오류 코드**: ExtentionOperationFailedForManagedDisks <br>
+**오류 코드**: ExtensionOperationFailedForManagedDisks <br>
 **오류 메시지**: VMSnapshot 확장 작업이 실패했습니다.<br>
 
 Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM 백업 확장과 통신함으로써 작업을 시작하여 지정 시간 스냅샷을 수행합니다. 다음 조건 중 하나라도 충족되지 못하면 스냅샷이 트리거되지 않을 수 있습니다. 스냅샷이 트리거되지 않으면 백업 실패가 발생할 수 있습니다. 다음 문제 해결 단계를 나열된 순서에 완료하고 작업을 다시 시도하세요.  
@@ -106,7 +107,7 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 **오류 코드**: UserErrorUnsupportedDiskSize <br>
 **오류 메시지**: 현재 Azure Backup는 4095GB 보다 큰 디스크 크기를 지원 하지 않습니다. <br>
 
-크기가 4095GB 보다 큰 VM을 백업 하는 경우 백업 작업이 실패할 수 있습니다. 대량 디스크에 대 한 지원이 곧 제공 될 예정입니다.  
+크기가 4095GB 보다 큰 VM을 백업 하는 경우 백업 작업이 실패할 수 있습니다. 4TB 30TB 보다 큰 디스크에 대 한 Azure Backup 큰 디스크 지원의 비공개 미리 보기에 등록 하려면 microsoft AskAzureBackupTeam@microsoft.com에 다시 씁니다.
 
 ## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress - 다른 백업 작업이 현재 진행 중이어서 백업을 시작할 수 없습니다.
 

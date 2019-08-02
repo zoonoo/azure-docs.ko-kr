@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9f854e1771eec1d02fd14e040510688bf33c59c8
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 9465c1991418c7ebef8c4eed825affc7b1d93492
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442441"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68693339"
 ---
 # <a name="set-up-sign-in-with-a-linkedin-account-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 LinkedIn 계정으로 로그인하도록 설정
 
@@ -27,7 +27,7 @@ ms.locfileid: "68442441"
 
 - [Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 시작](active-directory-b2c-get-started-custom.md)의 단계를 완료합니다.
 - LinkedIn 계정-아직 없는 경우 [계정을 만듭니다](https://www.linkedin.com/start/join).
-- LinkedIn 페이지-다음 섹션에서 만든 LinkedIn 응용 프로그램과 연결할 [Linkedin 페이지가](https://www.linkedin.com/company/setup/new/) 필요 합니다.
+- LinkedIn 페이지-다음 섹션에서 만든 LinkedIn 응용 프로그램과 연결할 [Linkedin 페이지가](https://www.linkedin.com/help/linkedin/answer/710/creating-a-linkedin-company-page) 필요 합니다.
 
 ## <a name="create-an-application"></a>애플리케이션 만들기
 

@@ -9,14 +9,14 @@ services: iot-hub
 ms.devlang: javascript
 ms.topic: conceptual
 ms.date: 06/16/2017
-ms.openlocfilehash: b1aa8f2ce7d271187657d57993032069639ca9c7
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: d3e4e0f4e7b1f8d3e100b3f1b3446907cfd587c5
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68404109"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716960"
 ---
-# <a name="send-cloud-to-device-messages-with-iot-hub-node"></a>IoT Hub(노드)를 사용하여 클라우드-장치 메시지 보내기
+# <a name="send-cloud-to-device-messages-with-iot-hub-nodejs"></a>IoT Hub (node.js)를 사용 하 여 클라우드-장치 메시지 보내기
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
@@ -41,7 +41,7 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
 * **SendCloudToDeviceMessage**-IoT Hub를 통해 시뮬레이션 된 장치 앱에 클라우드-장치 메시지를 보낸 다음 배달 승인을 수신 합니다.
 
 > [!NOTE]
-> IoT Hub는 많은 디바이스 플랫폼 및 언어(C, Java 및 Javascript 포함)를 위해 비록 Azure IoT 디바이스 SDK이지만 SDK를 지원합니다. 이 자습서의 코드 및 일반적으로 Azure IoT Hub에 디바이스를 연결하는 방법에 대한 단계별 지침은 [Azure IoT 개발자 센터](https://azure.microsoft.com/develop/iot)를 참조하세요.
+> IoT Hub에는 Azure IoT 장치 Sdk를 통해 많은 장치 플랫폼 및 언어 (C, Java, Python 및 Javascript 포함)에 대 한 SDK 지원이 있습니다. 이 자습서의 코드 및 일반적으로 Azure IoT Hub에 디바이스를 연결하는 방법에 대한 단계별 지침은 [Azure IoT 개발자 센터](https://azure.microsoft.com/develop/iot)를 참조하세요.
 >
 
 이 자습서를 완료하려면 다음이 필요합니다.
@@ -53,33 +53,26 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
 
 이 섹션에서는 IoT hub에서 클라우드-장치 메시지를 수신 하기 위해 [장치에서 iot hub로 원격 분석 전송](quickstart-send-telemetry-node.md) 에서 만든 시뮬레이션 된 장치 앱을 수정 합니다.
 
-1. 텍스트 편집기를 사용하여 SimulatedDevice.js 파일을 엽니다.
+1. 텍스트 편집기를 사용 하 여 **SimulatedDevice** 파일을 엽니다. 이 파일은 [장치에서 iot hub로 원격 분석 전송 빠른 시작](quickstart-send-telemetry-node.md) 에서 다운로드 한 node.js 샘플 코드의 루트 폴더에 있는 **iot-hub\Quickstarts\simulated-device** 폴더에 있습니다.
 
-2. IoT Hub에서 전송된 메시지를 처리하도록 **connectCallback** 함수를 수정합니다. 이 예제에서는 디바이스가 항상 **complete** 함수를 호출하여 메시지를 처리했음을 IoT Hub에 알립니다. **connectCallback** 함수의 새 버전은 다음 코드 조각과 같이 표시됩니다.
+2. IoT Hub에서 보낸 메시지를 수신 하려면 장치 클라이언트에 처리기를 등록 합니다. 다음 코드 조각과 같이 `client.on` 장치 클라이언트를 만드는 줄 바로 뒤에에 대 한 호출을 추가 합니다.
 
     ```javascript
-    var connectCallback = function (err) {
-      if (err) {
-        console.log('Could not connect: ' + err);
-      } else {
-        console.log('Client connected');
-        client.on('message', function (msg) {
-          console.log('Id: ' + msg.messageId + ' Body: ' + msg.data);
-          client.complete(msg, printResultFor('completed'));
-        });
-        // Create a message and send it to the IoT Hub every second
-        setInterval(function(){
-            var temperature = 20 + (Math.random() * 15);
-            var humidity = 60 + (Math.random() * 20);
-            var data = JSON.stringify({ deviceId: 'myFirstNodeDevice', temperature: temperature, humidity: humidity });
-            var message = new Message(data);
-            message.properties.add('temperatureAlert', (temperature > 30) ? 'true' : 'false');
-            console.log("Sending message: " + message.getData());
-            client.sendEvent(message, printResultFor('send'));
-        }, 1000);
-      }
-    };
+    var client = DeviceClient.fromConnectionString(connectionString, Mqtt);
+
+    client.on('message', function (msg) {
+      console.log('Id: ' + msg.messageId + ' Body: ' + msg.data);
+      client.complete(msg, function (err) {
+        if (err) {
+          console.error('complete error: ' + err.toString());
+        } else {
+          console.log('complete sent');
+        }
+      });
+    });
     ```
+
+    이 예제에서 장치는 메시지를 처리 했음을 IoT Hub 알리기 위해 **complete** 함수를 호출 합니다. MQTT 전송을 사용 하 고 생략할 수 있는 경우 **complete** 를 호출 하는 것은 필요 하지 않습니다. HTTPS 및 AMQP에 필요 합니다.
   
    > [!NOTE]
    > 전송으로 MQTT 또는 AMQP 대신 HTTPS를 사용하는 경우 **DeviceClient** 인스턴스는 IoT Hub의 메시지를 자주(25분 미만 간격으로) 확인합니다. MQTT, AMQP 및 HTTPS 지원과 IoT Hub 제한 간의 차이점에 대 한 자세한 내용은 [IoT Hub 개발자 가이드](iot-hub-devguide-messaging.md)를 참조 하세요.
@@ -173,7 +166,7 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
 
 이제 애플리케이션을 실행할 준비가 되었습니다.
 
-1. **simulateddevice** 폴더의 명령 프롬프트에서 다음 명령을 실행하여 IoT Hub에 원격 분석을 보내고 클라우드-장치 메시지를 수신합니다.
+1. **시뮬레이션 된 장치** 폴더의 명령 프롬프트에서 다음 명령을 실행 하 여 IoT Hub에 원격 분석을 보내고 클라우드-장치 메시지를 수신 대기 합니다.
 
     ```shell
     node SimulatedDevice.js

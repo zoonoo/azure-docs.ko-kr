@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: fcc26d0d42576e8d39407f2af5bafe6de24db19f
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
-ms.translationtype: HT
+ms.openlocfilehash: b088b4d0e21819411c7329f3cb1e6ca9761665fd
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154496"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68610192"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure Virtual Network FAQ(질문과 대답)
 
@@ -42,12 +42,12 @@ VNet을 다음에 사용합니다.
 ### <a name="can-i-perform-wan-optimization-between-vnets-or-a-vnet-and-my-on-premises-data-center"></a>VNet 간 또는 VNet과 온-프레미스 데이터 센터 간에 WAN 최적화를 수행할 수 있습니까?
 예. Azure Marketplace를 통해 여러 공급업체에서 [WAN 최적화 네트워크 가상 어플라이언스](https://azure.microsoft.com/marketplace/?term=wan+optimization)를 배포할 수 있습니다.
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 
 ### <a name="what-tools-do-i-use-to-create-a-vnet"></a>VNet을 만들려면 어떤 도구를 사용합니까?
 다음 도구를 사용하여 VNet을 만들거나 구성할 수 있습니다.
 
-* Azure portal
+* Azure Portal
 * PowerShell
 * Azure CLI
 * 네트워크 구성 파일(netcfg - 클래식 VNet 전용) [네트워크 구성 파일을 사용하여 VNet 구성](virtual-networks-using-network-configuration-file.md) 문서를 참조하세요.
@@ -67,9 +67,9 @@ VNet을 다음에 사용합니다.
 예. 자세한 내용은 [Azure 제한](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits)을 참조하세요. 서브넷 주소 공간은 서로 겹칠 수 없습니다.
 
 ### <a name="are-there-any-restrictions-on-using-ip-addresses-within-these-subnets"></a>이러한 서브넷 내에서 IP 주소를 사용하는데 제한 사항이 있습니까?
-예. Azure는 각 서브넷 내에서 5개의 IP 주소를 예약합니다. 이들은 x.x.x.0-x.x.x.3와 서브넷의 마지막 주소입니다.    
-- 프로토콜 적합성 x.x.x.0 및 서브넷의 마지막 주소가 예약 되어 있습니다.
-- Azure 서비스에 대 한 각 서브넷의 x.x.x.1-x.x.x.3 예약 되어 있습니다.
+예. Azure는 각 서브넷 내에서 5개의 IP 주소를 예약합니다. 이것은 x. x. x. x. x. x. 3 및 서브넷의 마지막 주소입니다.    
+- x. x. 0 및 서브넷의 마지막 주소는 프로토콜 규칙을 위해 예약 됩니다.
+- Azure 서비스의 각 서브넷에서 x. x. x. x. x. x. x. 3은 예약 되어 있습니다.
 
 ### <a name="how-small-and-how-large-can-vnets-and-subnets-be"></a>VNet 및 서브넷은 얼마나 크고 얼마나 작을 수 있습니까?
 지원되는 가장 작은 서브넷은 /29이며 가장 큰 서브넷은 /8(CIDR 서브넷 정의 사용)입니다.
@@ -146,7 +146,7 @@ Azure에서 제공하는 DNS를 사용한 테넌트 간 이름 확인에 대한 
 예. 리소스 관리자 배포 모델을 통해 배포된 VM에 연결된 모든 NIC(네트워크 인터페이스)는 VNet에 연결되어야 합니다. 클래식 배포 모델을 통해 배포된 VM은 VNet에 선택적으로 연결할 수 있습니다.
 
 ### <a name="what-are-the-different-types-of-ip-addresses-i-can-assign-to-vms"></a>VM에 지정할 수 있는 IP 주소 유형에는 무엇이 있습니까?
-* **개인:** 각 VM 내에서 각 NIC에 할당됩니다. 주소는 고정 또는 동적 방법을 사용하여 할당됩니다. VNet의 서브넷 설정에 지정한 범위에서 개인 IP 주소가 할당됩니다. VNet에 연결되지 않은 경우에도 클래식 배포 모델을 통해 배포된 리소스에는 개인 IP 주소가 할당됩니다. 할당 메서드의 동작은 리소스가 Resource Manager로 배포되었는지 또는 클래식 배포 모델과 함께 배포되었는지에 따라 다릅니다. 
+* **프라이빗:** 각 VM 내에서 각 NIC에 할당됩니다. 주소는 고정 또는 동적 방법을 사용하여 할당됩니다. VNet의 서브넷 설정에 지정한 범위에서 개인 IP 주소가 할당됩니다. VNet에 연결되지 않은 경우에도 클래식 배포 모델을 통해 배포된 리소스에는 개인 IP 주소가 할당됩니다. 할당 메서드의 동작은 리소스가 Resource Manager로 배포되었는지 또는 클래식 배포 모델과 함께 배포되었는지에 따라 다릅니다. 
 
   - **Resource Manager**: 동적 또는 정적 메서드로 할당된 개인 IP 주소는 리소스가 삭제될 때까지 가상 머신(Resource Manager)에 할당된 상태로 유지됩니다. 차이점은 정적 방법을 사용하면 할당할 주소를 사용자가 선택하고 동적 방법을 사용하면 Azure에서 선택된다는 점입니다. 
   - **클래식**: 가상 머신(클래식) VM이 중지(할당 취소됨)된 상태에서 다시 시작될 때 동적 메서드로 할당된 개인 IP 주소가 변경될 수 있습니다. 클래식 배포 모델을 통해 배포된 리소스의 개인 IP 주소가 절대 변경되지 않도록 하려면 정적 메서드로 개인 IP 주소를 할당합니다.
@@ -180,7 +180,7 @@ Azure에서 제공하는 DNS를 사용한 테넌트 간 이름 확인에 대한 
 ## <a name="azure-services-that-connect-to-vnets"></a>VNet에 연결하는 Azure 서비스
 
 ### <a name="can-i-use-azure-app-service-web-apps-with-a-vnet"></a>VNet에 Azure App Service Web Apps를 사용할 수 있습니까?
-예. ASE (App Service Environment)를 사용 하 여 VNet 내에서 웹 앱 배포, 앱의 백 엔드 서비스 끝점을 사용 하 여 앱에 인바운드 트래픽 잠글 및 VNet 통합을 사용 하 여 Vnet에 연결할 수 있습니다. 자세한 내용은 다음 문서를 참조하세요.
+예. ASE (App Service Environment)를 사용 하 여 VNet 내부에 Web Apps을 배포 하 고, VNet 통합을 사용 하 여 Vnet에 앱 백 엔드를 연결 하 고, 서비스 끝점을 사용 하 여 앱에 대 한 인바운드 트래픽을 잠글 수 있습니다. 자세한 내용은 다음 문서를 참조하세요.
 
 * [App Service 네트워킹 기능](../app-service/networking-features.md)
 * [App Service 환경에서 Web Apps 만들기](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -190,8 +190,8 @@ Azure에서 제공하는 DNS를 사용한 테넌트 간 이름 확인에 대한 
 ### <a name="can-i-deploy-cloud-services-with-web-and-worker-roles-paas-in-a-vnet"></a>VNet에서 웹 및 작업자 역할(PaaS)을 사용하여 Cloud Services를 배포할 수 있습니까?
 예. (선택 사항) VNet 내에서 Cloud Services 역할 인스턴스를 배포할 수 있습니다. 이를 수행하려면 서비스 구성의 네트워크 구성 섹션에서 VNet 이름 및 역할/서브넷 매핑을 지정합니다. 이진 파일을 업데이트할 필요가 없습니다.
 
-### <a name="can-i-connect-a-virtual-machine-scale-set-to-a-vnet"></a>VNet에 설정 하는 가상 머신 확장을 연결할 수 있습니까?
-예. 가상 머신 확장 집합 VNet에 연결 해야 합니다.
+### <a name="can-i-connect-a-virtual-machine-scale-set-to-a-vnet"></a>가상 머신 확장 집합을 VNet에 연결할 수 있나요?
+예. 가상 머신 확장 집합을 VNet에 연결 해야 합니다.
 
 ### <a name="is-there-a-complete-list-of-azure-services-that-can-i-deploy-resources-from-into-a-vnet"></a>VNet에 리소스를 배포할 수 있는 전체 Azure 서비스 목록이 있습니까?
 네, 자세한 내용은 [Azure 서비스에 대한 가상 네트워크 통합](virtual-network-for-azure-services.md)을 참조하세요.
@@ -215,12 +215,12 @@ VNet은 서로 격리되고 Azure 인프라에서 호스팅되는 다른 서비�
 예. Azure Marketplace를 통해 여러 공급업체에서 [방화벽 네트워크 가상 어플라이언스](https://azure.microsoft.com/marketplace/?term=firewall)를 배포할 수 있습니다.
 
 ### <a name="is-there-information-available-about-securing-vnets"></a>VNet 보안에 사용 가능한 정보가 있습니까?
-예. 자세한 내용은 [Azure 네트워크 보안 개요](../security/security-network-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
+예. 자세한 내용은 [Azure 네트워크 보안 개요](../security/fundamentals/network-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 
 ## <a name="apis-schemas-and-tools"></a>API, 스키마 및 도구
 
 ### <a name="can-i-manage-vnets-from-code"></a>코드에서 VNet을 관리할 수 있습니까?
-예. REST Api를 사용 하 여 Vnet에 대 한 합니다 [Azure Resource Manager](/rest/api/virtual-network) 하 고 [클래식](https://go.microsoft.com/fwlink/?LinkId=296833) 배포 모델입니다.
+예. [Azure Resource Manager](/rest/api/virtual-network) 및 [클래식](https://go.microsoft.com/fwlink/?LinkId=296833) 배포 모델에서 Vnet에 대해 REST api를 사용할 수 있습니다.
 
 ### <a name="is-there-tooling-support-for-vnets"></a>VNet에 대한 도구 지원이 있습니까?
 예. 사용에 대한 자세한 정보:
@@ -234,26 +234,26 @@ VNet은 서로 격리되고 Azure 인프라에서 호스팅되는 다른 서비�
 VNet 피어링(또는 가상 네트워크 피어링)을 통해 가상 네트워크에 연결할 수 있습니다. 가상 네트워크 간의 VNet 피어링 연결을 사용하면 IPv4 주소를 통해 개인적으로 가상 네트워크 간의 트래픽을 라우팅할 수 있습니다. 피어링된 VNet에서 가상 머신은 동일한 네트워크 내에 있는 것처럼 서로 통신할 수 있습니다. 이러한 가상 네트워크는 동일한 지역 또는 서로 다른 지역에 있을 수 있습니다(글로벌 VNet 피어링으로도 알려짐). Azure 구독 간에 VNet 피어링 연결을 만들 수도 있습니다.
 
 ### <a name="can-i-create-a-peering-connection-to-a-vnet-in-a-different-region"></a>다른 지역의 VNet에 피어로 연결할 수 있나요?
-예. 글로벌 VNet 피어링을 사용하면 다른 지역의 VNet에 피어로 연결할 수 있습니다. 글로벌 VNet 피어 링은 모든 Azure 공용 지역, 중국 클라우드 지역 및 Government 클라우드 지역에서 사용할 수 있습니다. 전 세계 국가 클라우드 지역에 Azure 공용 지역에서 피어 수 없습니다.
+예. 글로벌 VNet 피어링을 사용하면 다른 지역의 VNet에 피어로 연결할 수 있습니다. 글로벌 VNet 피어 링은 모든 Azure 공용 지역, 중국 클라우드 지역 및 정부 클라우드 지역에서 사용할 수 있습니다. Azure 공용 지역에서 국가 클라우드 지역으로 전역적으로 피어 링 할 수 없습니다.
 
-### <a name="what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers"></a>글로벌 VNet 피어 링 및 부하 분산 장치 관련 된 제약 조건 이란?
-두 가상 네트워크가 다른 지역 (글로벌 VNet 피어 링)에 있는 경우에 기본 Load Balancer를 사용 하는 리소스에 연결할 수 없습니다. 표준 Load Balancer를 사용 하는 리소스에 연결할 수 있습니다.
-다음 리소스는 글로벌 VNet 피어 링에서 통신할 수 없어 해당 의미는 기본 부하 분산 장치를 사용 합니다.
-- 기본 부하 분산 장치 뒤의 Vm
-- 기본 부하 분산 장치를 사용 하 여 가상 머신 확장 집합 
+### <a name="what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers"></a>글로벌 VNet 피어 링 및 부하 분산 장치와 관련 된 제약 조건은 무엇 인가요?
+두 가상 네트워크가 서로 다른 지역 (글로벌 VNet 피어 링)에 있는 경우 기본 Load Balancer를 사용 하는 리소스에 연결할 수 없습니다. 표준 Load Balancer를 사용 하는 리소스에 연결할 수 있습니다.
+다음 리소스는 기본 부하 분산 장치를 사용 하며,이는 글로벌 VNet 피어 링을 통해 통신할 수 없음을 의미 합니다.
+- 기본 부하 분산 장치 뒤에 있는 Vm
+- 기본 부하 분산 장치를 사용 하는 가상 머신 확장 집합 
 - Redis Cache 
 - Application Gateway (v1) SKU
 - Service Fabric
 - SQL MI
-- API Management
+- API 관리
 - Active Directory 도메인 서비스 (추가)
-- Logic Apps
+- 논리 앱
 - HDInsight
 -   Azure Batch
 - AKS
 - App Service Environment
 
-VNet 대 VNet을 통해 VNet 게이트웨이 또는 ExpressRoute를 통해 이러한 리소스에 연결할 수 있습니다.
+VNet 게이트웨이를 통해 Express 경로 또는 VNet 간를 통해 이러한 리소스에 연결할 수 있습니다.
 
 ### <a name="can-i-enable-vnet-peering-if-my-virtual-networks-belong-to-subscriptions-within-different-azure-active-directory-tenants"></a>내 가상 네트워크가 다른 Azure Active Directory 테넌트의 구독에 속한 경우 VNet 피어링을 사용할 수 있나요?
 예. 현재 구독이 다른 Azure Active Directory 테넌트에 속한 경우 로컬 또는 글로벌 VNet 피어링을 설정할 수 없습니다. PowerShell 또는 CLI에서는 피어링을 설정할 수 있습니다. 포털은 아직 지원되지 않습니다.
@@ -285,8 +285,8 @@ VNet 피어링 연결은 한 VNet 연결이 삭제되면 *연결 끊김* 상태�
 ### <a name="are-there-any-bandwidth-limitations-for-peering-connections"></a>피어링 연결에 대역폭 제한이 있나요?
 아니요. 로컬이든 글로벌이든 VNet 피어링에는 대역폭 제한이 없습니다. 대역폭은 VM 또는 컴퓨팅 리소스에 의해서만 제한됩니다.
 
-### <a name="how-can-i-troubleshoot-vnet-peering-issues"></a>VNet 피어 링 하는 문제를 해결 하려면 어떻게 해야 합니까?
-다음은 [문제 해결사 가이드](https://support.microsoft.com/en-us/help/4486956/troubleshooter-for-virtual-network-peering-issues) 시도할 수 있습니다.
+### <a name="how-can-i-troubleshoot-vnet-peering-issues"></a>VNet 피어 링 문제를 어떻게 해결할 수 있나요?
+시도할 수 있는 [문제 해결사 가이드](https://support.microsoft.com/en-us/help/4486956/troubleshooter-for-virtual-network-peering-issues) 는 다음과 같습니다.
 
 ## <a name="virtual-network-tap"></a>가상 네트워크 TAP
 
@@ -304,7 +304,7 @@ VNet 피어링 연결은 한 VNet 연결이 삭제되면 *연결 끊김* 상태�
 
 ### <a name="are-there-any-performance-considerations-on-production-traffic-if-i-enable-a-virtual-network-tap-configuration-on-a-network-interface"></a>네트워크 인터페이스에서 가상 네트워크 TAP 구성을 사용하도록 설정하는 경우 프로덕션 트래픽에 대한 성능 고려 사항이 있나요?
 
-가상 네트워크 탭 미리 보기입니다. 미리 보기 중에는 서비스 수준 계약이 없습니다. 프로덕션 워크 로드에 기능을 사용할 수 없습니다. TAP 구성을 통해 가상 머신 네트워크 인터페이스를 사용하도록 설정하는 경우 Azure 호스트에서 프로덕션 트래픽을 보내기 위해 가상 머신에 할당된 동일한 리소스는 미러링 함수를 수행하고 미러링된 패킷을 보내는 데 사용됩니다. 올바른 [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Windows](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 가상 머신 크기를 선택하여 가상 머신이 프로덕션 트래픽 및 미러링된 트래픽을 보내기 위해 충분한 리소스를 사용할 수 있는지 확인합니다.
+가상 네트워크 탭은 미리 보기로 제공 됩니다. 미리 보기 중에는 서비스 수준 계약이 없습니다. 프로덕션 워크 로드에 기능을 사용할 수 없습니다. TAP 구성을 통해 가상 머신 네트워크 인터페이스를 사용하도록 설정하는 경우 Azure 호스트에서 프로덕션 트래픽을 보내기 위해 가상 머신에 할당된 동일한 리소스는 미러링 함수를 수행하고 미러링된 패킷을 보내는 데 사용됩니다. 올바른 [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Windows](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 가상 머신 크기를 선택하여 가상 머신이 프로덕션 트래픽 및 미러링된 트래픽을 보내기 위해 충분한 리소스를 사용할 수 있는지 확인합니다.
 
 ### <a name="is-accelerated-networking-for-linuxcreate-vm-accelerated-networking-climd-or-windowscreate-vm-accelerated-networking-powershellmd-supported-with-virtual-network-tap"></a>[Linux](create-vm-accelerated-networking-cli.md) 또는 [Windows](create-vm-accelerated-networking-powershell.md)에 대해 가속화된 네트워킹은 가상 네트워크 TAP에서 지원되나요?
 
@@ -376,22 +376,22 @@ Azure 서비스 계정 삭제는 독립적인 작업이며, 네트워크 쪽에�
 가상 네트워크 서비스 엔드포인트를 사용하도록 설정한 경우 가상 네트워크 서브넷에 있는 리소스의 원본 IP 주소가 Azure 서비스로의 트래픽에 대해 공용 IPV4 주소 사용에서 Azure 가상 네트워크의 개인 IP 주소로 전환됩니다. 이로 인해 Azure 서비스에서 이전에 공용 IPV4 주소로 설정된 특정 IP 방화벽이 실패할 수 있습니다. 
 
 ### <a name="does-service-endpoint-route-always-take-precedence"></a>서비스 엔드포인트가 항상 우선 적용되나요?
-서비스 엔드포인트는 BGP 경로보다 우선 적용되는 시스템 경로를 추가하고 서비스 엔드포인트 트래픽에 대해 최적의 라우팅을 제공합니다. 서비스 엔드포인트는 가상 네트워크의 서비스 트래픽을 직접 Microsoft Azure 백본 네트워크의 서비스로 항상 이동합니다. Azure에서 경로 선택 하는 방법에 대 한 자세한 내용은 참조 하세요. [Azure 가상 네트워크 트래픽 라우팅을](virtual-networks-udr-overview.md)합니다.
+서비스 엔드포인트는 BGP 경로보다 우선 적용되는 시스템 경로를 추가하고 서비스 엔드포인트 트래픽에 대해 최적의 라우팅을 제공합니다. 서비스 엔드포인트는 가상 네트워크의 서비스 트래픽을 직접 Microsoft Azure 백본 네트워크의 서비스로 항상 이동합니다. Azure에서 경로를 선택 하는 방법에 대 한 자세한 내용은 [Azure 가상 네트워크 트래픽 라우팅](virtual-networks-udr-overview.md)을 참조 하세요.
  
 ### <a name="how-does-nsg-on-a-subnet-work-with-service-endpoints"></a>서브넷의 NSG는 서비스 엔드포인트에서 어떻게 작동하나요?
 Azure 서비스에 연결하려면 NSG에서 아웃바운드 연결을 허용해야 합니다. NSG가 모든 인터넷 아웃바운드 트래픽에 대해 열려 있는 경우 서비스 엔드포인트 트래픽이 작동합니다. 서비스 태그만 사용하여 아웃바운드 트래픽을 서비스 IP로 제한할 수도 있습니다.  
  
 ### <a name="what-permissions-do-i-need-to-set-up-service-endpoints"></a>서비스 엔드포인트를 설정하는 데 필요한 사용 권한은 무엇인가요?
-가상 네트워크에 대한 쓰기 권한이 있는 사용자는 가상 네트워크에서 독립적으로 서비스 엔드포인트를 구성할 수 있습니다. VNet에 Azure 서비스 리소스를 보호 하려면 사용자 권한이 있어야 합니다 **Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action** 추가 되는 서브넷에 대 한 합니다. 이 권한은 기본적으로 기본 제공 서비스 관리자 역할에 포함되고 사용자 지정 역할을 만들어 수정할 수 있습니다. 기본 제공 역할 및 [사용자 지정 역할](https://docs.microsoft.com/azure/role-based-access-control/custom-roles?toc=%2fazure%2fvirtual-network%2ftoc.json)에 특정 사용 권한을 할당하는 방법에 대해 자세히 알아보세요.
+가상 네트워크에 대한 쓰기 권한이 있는 사용자는 가상 네트워크에서 독립적으로 서비스 엔드포인트를 구성할 수 있습니다. VNet에 대 한 Azure 서비스 리소스를 보호 하려면 사용자는 추가 되는 서브넷에 대해 **Microsoft. Network/virtualNetworks/서브넷/joinViaServiceEndpoint/action** 권한이 있어야 합니다. 이 권한은 기본적으로 기본 제공 서비스 관리자 역할에 포함되고 사용자 지정 역할을 만들어 수정할 수 있습니다. 기본 제공 역할 및 [사용자 지정 역할](https://docs.microsoft.com/azure/role-based-access-control/custom-roles?toc=%2fazure%2fvirtual-network%2ftoc.json)에 특정 사용 권한을 할당하는 방법에 대해 자세히 알아보세요.
  
 
 ### <a name="can-i-filter-virtual-network-traffic-to-azure-services-allowing-only-specific-azure-service-resources-over-vnet-service-endpoints"></a>Azure 서비스에 대한 가상 네트워크 트래픽을 필터링하여 VNet 서비스 엔드포인트를 통해 특정 Azure 서비스 리소스만 허용할 수 있습니다. 
 
 VNet(가상 네트워크) 서비스 엔드포인트 정책을 통해 가상 네트워크 트래픽을 Azure 서비스로 필터링하여 서비스 엔드포인트를 통해 특정 Azure 서비스 리소스만 허용할 수 있습니다. 엔드포인트 정책은 Azure 서비스로 전송되는 가상 네트워크 트래픽에 대한 세부적인 액세스 제어를 제공합니다. [여기서](virtual-network-service-endpoint-policies-overview.md) 서비스 엔드포인트 정책에 대해 자세히 알아볼 수 있습니다.
 
-### <a name="does-azure-active-directory-azure-ad-support-vnet-service-endpoints"></a>Azure Active Directory (Azure AD) VNet 서비스 엔드포인트를 지원 합니까?
+### <a name="does-azure-active-directory-azure-ad-support-vnet-service-endpoints"></a>Azure Active Directory (Azure AD) VNet 서비스 끝점을 지원 하나요?
 
-Azure Active Directory (Azure AD) 서비스 끝점을 고유 하 게 지원 하지 않습니다. VNet 서비스 엔드포인트를 지 원하는 Azure 서비스의 전체 목록을 볼 수 있습니다 [여기](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)합니다. 서비스 끝점을 지 원하는 서비스 아래에 나열 된 "Microsoft.AzureActiveDirectory" 태그는 ADLS Gen 1에 대 한 서비스 끝점을 지 원하는 데 참고 합니다. ADLS Gen 1, Azure Data Lake 저장소 Gen1에 대 한 가상 네트워크 통합은 가상 네트워크와 Azure Active Directory (Azure AD) 간의 가상 네트워크 서비스 끝점 보안의 액세스 토큰에 추가 보안 클레임을 생성 하기 위해 사용 합니다. 그런 다음, 이러한 클레임을 사용하여 Data Lake Storage Gen1 계정에 대해 가상 네트워크를 인증하고 액세스를 허용합니다. [Azure Data Lake Store Gen 1 VNet 통합]에 대해 자세히 알아보기 (... /data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+Azure Active Directory (Azure AD)는 서비스 끝점을 기본적으로 지원 하지 않습니다. VNet 서비스 끝점을 지 원하는 Azure 서비스의 전체 목록은 [여기](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)에서 볼 수 있습니다. 서비스 끝점 지원 서비스에 나열 된 "AzureActiveDirectory" 태그는 서비스 끝점을 ADLS Gen 1로 지 원하는 데 사용 됩니다. ADLS Gen 1에서 Azure Data Lake Storage Gen1에 대 한 가상 네트워크 통합은 가상 네트워크와 Azure Active Directory (Azure AD) 간에 가상 네트워크 서비스 끝점 보안을 사용 하 여 액세스 토큰에 추가 보안 클레임을 생성 합니다. 그런 다음, 이러한 클레임을 사용하여 Data Lake Storage Gen1 계정에 대해 가상 네트워크를 인증하고 액세스를 허용합니다. [Azure Data Lake Store Gen 1 VNet 통합] ()에 대해 자세히 알아보세요. /data-lake-file/data-cke-st-st-st-st-st-st-st-st-st-security-security-st-st-st-st-security-security-security
 
 ### <a name="are-there-any-limits-on-how-many-vnet-service-endpoints-i-can-set-up-from-my-vnet"></a>VNet에서 설정할 수 있는 VNet 서비스 엔드포인트 개수에 대한 제한이 있나요?
 가상 네트워크에서 VNet 서비스 엔드포인트의 총수에 대한 제한은 없습니다. Azure 서비스 리소스(예: Azure Storage 계정)의 경우 서비스는 리소스 보안에 사용되는 서브넷의 수에 제한을 적용할 수 있습니다. 다음 표에서는 몇 가지 제한 예를 보여 줍니다. 
@@ -404,7 +404,7 @@ Azure Active Directory (Azure AD) 서비스 끝점을 고유 하 게 지원 하�
 |Azure SQL Data Warehouse|  128|
 |Azure KeyVault|    127|
 |Azure Cosmos DB|   64|
-|Azure Event Hub|   128|
+|AZURE 이벤트 허브|   128|
 |Azure Service Bus| 128|
 |Azure Data Lake Store V1|  100|
  

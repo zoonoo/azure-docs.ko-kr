@@ -1,18 +1,19 @@
 ---
 title: Azure 인스턴트 복원 기능
 description: VM 백업 스택, Resource Manager 배포 모델에 대한 Azure 인스턴트 복원 기능 및 FAQ
-author: sogup
-manager: vijayts
+ms.reviewer: sogup
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: sogup
-ms.openlocfilehash: 8bbf24fdd05fa0d70bcadae4f21e599dc8bef3a5
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 0f31320a638dd4741d940d0b459575b66149b829
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465105"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698400"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Azure Backup 인스턴트 복원 기능을 사용하여 향상된 백업 및 복원 성능 얻기
 
@@ -25,7 +26,8 @@ ms.locfileid: "68465105"
 * 기본적으로 스냅샷을 로컬에 2일 동안 보존하여 백업 및 복원 시간을 단축합니다. 이 기본 스냅숏 보존 값은 1 일에서 5 일 사이의 값으로 구성할 수 있습니다.
 * 최대 4TB까지 디스크 크기를 지원합니다. Azure Backup에서는 디스크 크기를 조정 하지 않는 것이 좋습니다.
 * 는 표준 HDD 디스크 및 프리미엄 SSD 디스크와 함께 표준 SSD 디스크를 지원 합니다.
-*   복원할 때 비관리형 VM의 원래 스토리지 계정(디스크당)을 사용할 수 있습니다. 이 기능은 VM의 디스크가 저장소 계정에 분산된 경우에도 지원됩니다. 이는 다양한 VM 구성에 대한 복원 작업을 가속화합니다.
+* 복원 시 관리 되지 않는 Vm 원본 저장소 계정 (디스크당)을 사용할 수 있습니다. 이 기능은 VM의 디스크가 저장소 계정에 분산된 경우에도 지원됩니다. 이는 다양한 VM 구성에 대한 복원 작업을 가속화합니다.
+* 즉시 복원을 사용 하 여 premium storage를 사용 하는 Vm 백업의 경우 할당 된 총 저장소 공간 *50%* 의 사용 가능한 공간을 할당 하는 것이 좋습니다 .이는 첫 번째 백업 **에서만** 필요 합니다. 50%의 사용 가능한 공간은 첫 번째 백업이 완료 된 후 백업에 대 한 요구 사항이 아닙니다.
 
 
 ## <a name="whats-new-in-this-feature"></a>이 기능의 새로운 사항
@@ -103,4 +105,4 @@ VM 변동에 따라 다릅니다. 안정된 상태에서는 비용 증가를 스
 새 모델에서는 스냅샷(계층 1)을 삭제하지 않은 경우 복원 지점(계층 2) 삭제를 허용하지 않습니다. 복원 지점(계층 2) 보존 기간을 스냅샷 보존 기간 이상으로 예약하는 것이 좋습니다.
 
 ### <a name="why-is-my-snapshot-existing-even-after-the-set-retention-period-in-backup-policy"></a>백업 정책에 설정된 보존 기간 이후에도 스냅샷이 있는 이유는 무엇인가요?
-복구 지점에 스냅샷이 있고 사용 가능한 최신 RP인 경우 다음에 성공한 백업이 있을 때까지 보존됩니다. 이는 VM의 문제로 인해 모든 백업이 실패하는 경우에도 항상 하나 이상의 최신 RP가 있도록 요구하는 현재 설계된 GC 정책을 따른 것입니다. 정상적인 시나리오에서는 만료 후 최대 24시간 이내에 RP가 정리됩니다.
+복구 지점에 스냅샷이 있고 사용 가능한 최신 RP인 경우 다음에 성공한 백업이 있을 때까지 보존됩니다. 이는 현재 VM의 문제로 인해 모든 백업이 실패 하는 경우에는 항상 하나 이상의 최신 RP를 제공 하는 최신 GC (가비지 수집) 정책을 기준으로 합니다. 정상적인 시나리오에서는 만료 후 최대 24시간 이내에 RP가 정리됩니다.

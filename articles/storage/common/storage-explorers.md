@@ -9,12 +9,12 @@ ms.date: 09/06/2017
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: 6d80bc71c01d0f1c887d9161edee5516d6b0925b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 14cbc076f4c9eebd2647cd667acc856b393e4d93
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443695"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68665743"
 ---
 # <a name="azure-storage-client-tools"></a>Azure Storage 클라이언트 도구
 Azure Storage의 사용자는 Azure Storage 클라이언트 도구를 사용하여 데이터를 보기/상호 작용하려는 경우가 많습니다. 아래 표에는 이 작업을 수행할 수 있게 해 주는 여러 도구가 나와 있습니다. 해당 도구가 데이터 추상화를 열거 및/또는 액세스할 수 있는 기능을 제공하는 경우 각 블록에 “X” 표시를 합니다. 또한 도구가 무료인지 여부도 나와 있습니다. “평가판”은 무료 평가판이 있음을 나타내지만 정품은 무료가 아님을 나타냅니다. “Y/N”는 특정 버전은 무료로 제공되지만 다른 버전은 구매할 수 있는지를 나타냅니다.
@@ -32,11 +32,11 @@ Azure Storage의 사용자는 Azure Storage 클라이언트 도구를 사용하�
     <th rowspan="2">테이블</th>
     <th rowspan="2">큐</th>
     <th rowspan="2">파일</th>
-    <th rowspan="2">무료</th>
+    <th rowspan="2">Free</th>
     <th colspan="4">플랫폼</th>
   </tr>
   <tr>
-    <td>웹</td>
+    <td>Web</td>
     <td>Windows</td>
     <td>OSX</td>
     <td>Linux</td>
@@ -98,11 +98,11 @@ Azure Storage의 사용자는 Azure Storage 클라이언트 도구를 사용하�
     <th rowspan="2">테이블</th>
     <th rowspan="2">큐</th>
     <th rowspan="2">파일</th>
-    <th rowspan="2">무료</th>
+    <th rowspan="2">Free</th>
     <th colspan="4">플랫폼</th>
   </tr>
   <tr>
-    <td>웹</td>
+    <td>Web</td>
     <td>Windows</td>
     <td>OSX</td>
     <td>Linux</td>
@@ -142,10 +142,10 @@ Azure Storage의 사용자는 Azure Storage 클라이언트 도구를 사용하�
     <td></td>
     <td>X</td>
     <td>X</td>
-    <td></td>
-    <td>Y</td>
-    <td></td>
     <td>X</td>
+    <td>Y</td>
+    <td>X</td>
+    <td></td>
     <td></td>
     <td></td>
   </tr>

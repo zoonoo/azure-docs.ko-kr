@@ -1,19 +1,20 @@
 ---
 title: 'Azure Backup: Azure Portal을 사용하여 가상 머신 복원'
 description: Azure Portal을 사용하여 복구 지점에서 Azure Virtual Machine 복원
-author: geethalakshmig
-manager: vijayts
+ms.reviewer: geg
+author: dcurwin
+manager: carmonm
 keywords: 백업 복원; 복원하는 방법; 복구 지점;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.author: geg
-ms.openlocfilehash: 951e42c4eb7a9d897140a7422364cdbfe83e57cc
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 0130dde483db4563926076f9bf9e641c14b1c117
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466895"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688755"
 ---
 # <a name="restore-azure-vms"></a>Azure VM 복원
 

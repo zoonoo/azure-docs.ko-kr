@@ -3,7 +3,7 @@ title: Azure Service Fabric에 기존 실행 파일 배포 | Microsoft Docs
 description: Service Fabric 클러스터에 배포할 수 있도록 기존 애플리케이션을 게스트 실행 파일로 패키징하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: d799c1c6-75eb-4b8a-9f94-bf4f3dadf4c3
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/15/2018
-ms.author: aljo
-ms.openlocfilehash: b7efeb1b4d83f6a6b372f73a7c0a5ca9bffdc052
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: 521c7a198d9085cdc93d325e63ad9d46cc4c7928
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60946674"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599466"
 ---
 # <a name="deploy-an-existing-executable-to-service-fabric"></a>기존 실행 파일을 Service Fabric에 배포
 Azure Service Fabric에서 Node.js, Java 또는 C++과 같은 모든 종류의 코드를 서비스로 실행할 수 있습니다. Service Fabric에서는 이러한 유형의 서비스를 게스트 실행 파일이라고 합니다.
@@ -33,7 +33,7 @@ Service Fabric 클러스터에서 게스트 실행 파일을 실행하면 다음
 * 상태 모니터링. Service Fabric 상태 모니터링은 애플리케이션이 실행 중인지 감지하고 오류가 있으면 진단 정보를 제공합니다.   
 * 애플리케이션 수명 주기 관리. Service Fabric은 가동 중지 시간 없이 업그레이드를 제공할 뿐 아니라 업그레이드 중에 나쁜 상태 이벤트가 보고되면 이전 버전으로 자동 롤백을 제공합니다.    
 * 밀도. 한 클러스터에서 여러 애플리케이션을 실행할 수 있으므로 애플리케이션을 고유의 하드웨어에서 실행할 필요가 없습니다.
-* 검색 기능: REST를 사용 하 여 서비스를 찾는 다른 클러스터의 Service Fabric Naming 서비스를 호출할 수 있습니다. 
+* 검색 기능 REST를 사용 하 여 Service Fabric 명명 서비스를 호출 하 여 클러스터의 다른 서비스를 찾을 수 있습니다. 
 
 ## <a name="samples"></a>샘플
 * [게스트 실행 파일을 패키징 및 배포하는 샘플](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)

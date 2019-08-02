@@ -1,27 +1,18 @@
 ---
 title: Windows VM에 관리되는 데이터 디스크 연결 - Azure | Microsoft Docs
 description: Azure Portal을 사용하여 Windows VM에 관리되는 데이터 디스크를 연결하는 방법입니다.
-services: virtual-machines-windows
-documentationcenter: ''
 author: roygara
-manager: twooley
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: e3641960131d23bf5a8e5b2310a09e7a4dbd70b9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ece7cbe76cd744302362b8c59f100e23f1b74dff
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64680393"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699832"
 ---
 # <a name="attach-a-managed-data-disk-to-a-windows-vm-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Windows VM에 관리되는 데이터 디스크 연결
 
@@ -51,7 +42,7 @@ ms.locfileid: "64680393"
 6. **디스크 관리**를 닫습니다.
 7. 사용하기 전에 새 디스크를 포맷해야 함을 알리는 팝업 창이 나타납니다. **디스크 포맷**을 선택합니다.
 8. **새 디스크 포맷** 창에서 설정을 확인한 후 **시작**을 선택합니다.
-9. 디스크를 포맷하면 모든 데이터가 지워짐을 알리는 경고가 나타납니다. **확인**을 선택합니다.
+9. 디스크를 포맷하면 모든 데이터가 지워짐을 알리는 경고가 나타납니다.           **확인**을 선택합니다.
 10. 포맷이 완료되면 **확인**을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계

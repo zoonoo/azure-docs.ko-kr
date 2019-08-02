@@ -10,19 +10,19 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 48633b195df997f0e9a8f06bd4f5c553ca620e98
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5dd82cbb8370fd4c3ee0dca6a9acd0046c73c0ef
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509387"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716787"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 언어 사용자 지정
 
-Azure AD B2C(Azure Active Directory B2C)의 언어 사용자 지정을 사용하면 고객 요구에 적합하도록 사용자 흐름을 다른 언어로 맞출 수 있습니다.  Microsoft는 [36개 언어](#supported-languages)에 대한 번역을 제공하지만 사용자가 언어에 대한 고유한 번역을 제공할 수 있습니다. 단일 언어로만 환경이 제공되더라도 페이지에 있는 텍스트를 사용자 지정할 수 있습니다.  
+Azure AD B2C(Azure Active Directory B2C)의 언어 사용자 지정을 사용하면 고객 요구에 적합하도록 사용자 흐름을 다른 언어로 맞출 수 있습니다.  Microsoft는 [36개 언어](#supported-languages)에 대한 번역을 제공하지만 사용자가 언어에 대한 고유한 번역을 제공할 수 있습니다. 단일 언어로만 환경이 제공되더라도 페이지에 있는 텍스트를 사용자 지정할 수 있습니다.
 
 ## <a name="how-language-customization-works"></a>언어 사용자 지정이 작동하는 방식
-언어 사용자 지정을 사용하여 사용자 흐름이 제공되는 언어를 선택할 수 있습니다. 기능을 사용하도록 설정하면 사용자 애플리케이션에서 쿼리 문자열 매개 변수 `ui_locales`를 제공할 수 있습니다. Azure AD B2C를 호출하면 페이지가 사용자가 표시한 로캘로 번역됩니다. 이 구성 형식을 통해 사용자 흐름의 언어를 완전히 제어하고 고객의 브라우저 언어 설정을 무시합니다. 
+언어 사용자 지정을 사용하여 사용자 흐름이 제공되는 언어를 선택할 수 있습니다. 기능을 사용하도록 설정하면 사용자 애플리케이션에서 쿼리 문자열 매개 변수 `ui_locales`를 제공할 수 있습니다. Azure AD B2C를 호출하면 페이지가 사용자가 표시한 로캘로 번역됩니다. 이 구성 형식을 통해 사용자 흐름의 언어를 완전히 제어하고 고객의 브라우저 언어 설정을 무시합니다.
 
 고객이 볼 수 있는 언어에 대한 제어 수준이 필요하지 않을 수 있습니다. `ui_locales` 매개 변수를 제공하지 않으면 고객의 환경이 브라우저 설정으로 결정됩니다.  언어를 지원 언어로 추가하여 사용자 흐름이 번역된 언어를 계속 제어할 수 있습니다. 고객의 브라우저가 지원하지 않으려는 언어를 표시하도록 설정된 경우 지원되는 문화에서 기본값으로 선택한 언어가 대신 표시됩니다.
 
@@ -34,20 +34,20 @@ Azure AD B2C(Azure Active Directory B2C)의 언어 사용자 지정을 사용하
 >사용자 지정 사용자 특성을 사용하는 경우 사용자 고유의 번역을 제공해야 합니다. 자세한 내용은 [문자열 사용자 지정](#customize-your-strings)을 참조하세요.
 >
 
-## <a name="support-requested-languages-for-uilocales"></a>ui_locales에 요청된 언어 지원 
-언어 사용자 지정의 일반 공급 전에 만들어진 정책은 가장 먼저 이 기능을 사용하도록 설정해야 합니다. 그 이후에 만들어진 정책 및 사용자 흐름은 기본적으로 언어 사용자 지정을 사용하도록 설정됩니다. 
+## <a name="support-requested-languages-for-uilocales"></a>ui_locales에 요청된 언어 지원
+언어 사용자 지정의 일반 공급 전에 만들어진 정책은 가장 먼저 이 기능을 사용하도록 설정해야 합니다. 그 이후에 만들어진 정책 및 사용자 흐름은 기본적으로 언어 사용자 지정을 사용하도록 설정됩니다.
 
 사용자 흐름에서 언어 사용자 지정을 사용하도록 설정하면 `ui_locales` 매개 변수를 추가하여 사용자 흐름의 언어를 제어할 수 있습니다.
 1. Azure AD B2C 테넌트에서 **사용자 흐름**을 선택합니다.
 2. 번역에 사용할 사용자 흐름을 클릭합니다.
-3. **언어**를 선택합니다.  
+3. **언어**를 선택합니다.
 4. **언어 사용자 지정 사용**을 선택합니다.
 
-## <a name="select-which-languages-in-your-user-flow-are-enabled"></a>사용할 사용자 흐름의 언어를 선택합니다. 
+## <a name="select-which-languages-in-your-user-flow-are-enabled"></a>사용할 사용자 흐름의 언어를 선택합니다.
 `ui_locales` 매개 변수 없이 브라우저에서 신청할 때 사용자 흐름을 번역할 언어 세트를 설정합니다.
 1. 이전 지침에서 사용자 흐름에 언어 사용자 지정이 설정되었는지 확인합니다.
 2. 사용자 흐름에 대한 **언어** 페이지에서 지원하려는 언어를 선택합니다.
-3. 속성 창에서 **사용**을 **예**로 전환합니다.  
+3. 속성 창에서 **사용**을 **예**로 전환합니다.
 4. 속성 창 위에서 **저장**을 선택합니다.
 
 >[!NOTE]
@@ -68,10 +68,10 @@ Azure AD B2C(Azure Active Directory B2C)의 언어 사용자 지정을 사용하
 2. 변경할 요소를 찾습니다.  찾으려는 문자열의 `StringId`를 찾거나 변경할 `Value` 특성을 찾을 수 있습니다.
 3. `Value` 특성을 표시하기를 원하는 항목으로 업데이트합니다.
 4. 변경할 모든 문자열의 `Override`를 `true`로 변경합니다.
-5. 파일을 저장하고 변경 내용을 업로드합니다. (JSON 파일을 다운로드한 곳과 동일한 위치에서 업로드 컨트롤을 찾을 수 있습니다.) 
+5. 파일을 저장하고 변경 내용을 업로드합니다. (JSON 파일을 다운로드한 곳과 동일한 위치에서 업로드 컨트롤을 찾을 수 있습니다.)
 
 >[!IMPORTANT]
->문자열을 재정의해야 하는 경우 `Override` 값을 `true`로 설정해야 합니다.  값이 변경되지 않으면 항목이 무시됩니다. 
+>문자열을 재정의해야 하는 경우 `Override` 값을 `true`로 설정해야 합니다.  값이 변경되지 않으면 항목이 무시됩니다.
 >
 
 ### <a name="change-extension-attributes"></a>확장 특성 변경
@@ -90,7 +90,7 @@ Azure AD B2C(Azure Active Directory B2C)의 언어 사용자 지정을 사용하
 }
 ```
 
-`<ExtensionAttribute>`를 사용자 지정 사용자 특성 이름으로 바꿉니다.  
+`<ExtensionAttribute>`를 사용자 지정 사용자 특성 이름으로 바꿉니다.
 
 `<ExtensionAttributeValue>`를 표시할 새 문자열로 바꿉니다.
 
@@ -101,7 +101,7 @@ Azure AD B2C(Azure Active Directory B2C)의 언어 사용자 지정을 사용하
 {
   "LocalizedStrings": [...],
   "LocalizedCollections": [{
-      "ElementType":"ClaimType", 
+      "ElementType":"ClaimType",
       "ElementId":"<UserAttribute>",
       "TargetCollection":"Restriction",
       "Override": true,
@@ -130,12 +130,12 @@ Azure AD B2C(Azure Active Directory B2C)의 언어 사용자 지정을 사용하
 4. 번역하려는 언어를 선택합니다.
 5. 번역을 제공하려는 페이지를 선택합니다.
 6. 폴더 아이콘을 선택하고 업로드할 JSON 파일을 선택합니다.
- 
+
 변경 내용이 자동으로 사용자 흐름에 저장됩니다.
 
 ## <a name="customize-the-page-ui-by-using-language-customization"></a>언어 사용자 지정을 사용하여 페이지 UI 사용자 지정
 
-HTML 콘텐츠를 지역화하는 방법은 두 가지가 있습니다. 하나는 [언어 사용자 지정](active-directory-b2c-reference-language-customization.md)을 켜는 것입니다. 이 기능을 사용하도록 설정하면 Azure AD B2C가 Open ID Connect 매개 변수 `ui-locales`를 엔드포인트로 전달할 수 있습니다.  콘텐츠 서버는 이 매개 변수를 사용하여 언어 관련 사용자 지정된 HTML 페이지를 제공할 수 있습니다.
+HTML 콘텐츠를 지역화하는 방법은 두 가지가 있습니다. 하나는 [언어 사용자 지정](active-directory-b2c-reference-language-customization.md)을 켜는 것입니다. 이 기능을 사용 하도록 설정 하면 Azure AD B2C openid connect Connect 매개 변수 `ui-locales`를 끝점으로 전달할 수 있습니다.  콘텐츠 서버는 이 매개 변수를 사용하여 언어 관련 사용자 지정된 HTML 페이지를 제공할 수 있습니다.
 
 또는 사용되는 로캘에 따라 다른 위치에서 콘텐츠를 끌어올 수 있습니다. CORS 사용 엔드포인트에서 특정 언어에 대한 콘텐츠를 호스트하도록 폴더 구조를 설정할 수 있습니다. 와일드 카드 값 `{Culture:RFC5646}`을 사용하는 경우 적합한 구조를 호출합니다.  예를 들어 사용자 지정 페이지 URI가 다음과 같다고 가정해 봅시다.
 
@@ -149,7 +149,7 @@ https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
 
 ## <a name="add-custom-languages"></a>사용자 지정 언어 추가
 
-또한 Microsoft가 현재 번역을 제공하지 않는 언어를 추가할 수 있습니다. 사용자 흐름에서 모든 문자열에 대한 번역을 제공해야 합니다.  언어 및 로캘 코드는 ISO 639-1 표준으로 제한됩니다. 
+또한 Microsoft가 현재 번역을 제공하지 않는 언어를 추가할 수 있습니다. 사용자 흐름에서 모든 문자열에 대한 번역을 제공해야 합니다.  언어 및 로캘 코드는 ISO 639-1 표준으로 제한됩니다.
 
 1. Azure AD B2C 테넌트에서 **사용자 흐름**을 선택합니다.
 2. 사용자 지정 언어를 추가하려는 사용자 흐름을 클릭한 다음, **언어**를 클릭합니다.
@@ -173,7 +173,7 @@ Microsoft는 사용자가 사용할 수 있는 가장 최신의 번역을 제공
 ### <a name="support-for-right-to-left-languages"></a>오른쪽에서 왼쪽 언어 지원
 현재 Microsoft는 오른쪽에서 왼쪽 언어에 대한 지원을 제공하지 않습니다. 사용자 지정 로캘을 사용하고 CSS를 사용하여 문자열이 표시되는 방식을 변경하여 지원할 수 있습니다.  이 기능이 필요한 경우 [Azure 피드백](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/19393000-provide-language-support-for-right-to-left-languag)에서 이 기능에 투표해 주세요.
 ### <a name="social-identity-provider-translations"></a>소셜 ID 공급자 변환
-Microsoft는 소셜 로그인에 대한 `ui_locales` OIDC 매개 변수를 제공합니다. 하지만 Facebook과 Google을 포함한 일부 소셜 ID 공급자는 이러한 매개 변수를 인식하지 않습니다. 
+Microsoft는 소셜 로그인에 대한 `ui_locales` OIDC 매개 변수를 제공합니다. 하지만 Facebook과 Google을 포함한 일부 소셜 ID 공급자는 이러한 매개 변수를 인식하지 않습니다.
 ### <a name="browser-behavior"></a>브라우저 동작
 Chrome과 Firefox는 설정된 언어를 요청합니다. 이 언어가 지원되는 언어이면 기본 언어보다 먼저 표시됩니다. Microsoft Edge에서는 현재 언어를 요청하지 않으며 기본 언어로 바로 이동합니다.
 

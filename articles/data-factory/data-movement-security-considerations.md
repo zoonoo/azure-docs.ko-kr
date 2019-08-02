@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 3dab2da2d54efe73b7b782800b190ea8aac2b5cd
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: c42e70efc8543e1d255690070ffb51b865e1754f
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67460680"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608586"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Azure Data Factory에서 데이터 이동을 위한 보안 고려 사항
-> [!div class="op_single_selector" title1="사용 하는 Data Factory 서비스 버전을 선택 합니다."]
+> [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 >
 > * [버전 1](v1/data-factory-data-movement-security-considerations.md)
 > * [현재 버전](data-movement-security-considerations.md)
@@ -59,7 +59,7 @@ Azure 규정 준수 및 Azure의 자체 인프라 보안 방법에 관심이 있
 
 ### <a name="securing-data-store-credentials"></a>데이터 저장소 자격 증명 보안
 
-- **Azure Data Factory 관리 저장소에 암호화된 자격 증명을 저장합니다**. Data Factory는 Microsoft에서 관리하는 인증서로 암호화하여 데이터 저장소 자격 증명을 보호합니다. 이러한 인증서는 2년마다 갱신됩니다(인증서 갱신 및 자격 증명 마이그레이션 포함). 암호화된 자격 증명은 Azure Data Factory 관리 서비스에서 관리하는 Azure Storage 계정에 안전하게 저장됩니다. Azure Storage 보안에 대한 자세한 내용은 [Azure Storage 보안 개요](../security/security-storage-overview.md)를 참조하세요.
+- **Azure Data Factory 관리 저장소에 암호화된 자격 증명을 저장합니다**. Data Factory는 Microsoft에서 관리하는 인증서로 암호화하여 데이터 저장소 자격 증명을 보호합니다. 이러한 인증서는 2년마다 갱신됩니다(인증서 갱신 및 자격 증명 마이그레이션 포함). 암호화된 자격 증명은 Azure Data Factory 관리 서비스에서 관리하는 Azure Storage 계정에 안전하게 저장됩니다. Azure Storage 보안에 대한 자세한 내용은 [Azure Storage 보안 개요](../security/fundamentals/storage-overview.md)를 참조하세요.
 - **Azure Key Vault에 자격 증명을 저장합니다**. 또한 데이터 저장소의 자격 증명을 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)에 저장할 수 있습니다. Data Factory는 활동을 실행하는 동안 자격 증명을 검색합니다. 자세한 내용은 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)을 참조하세요.
 
 ### <a name="data-encryption-in-transit"></a>전송 중 암호화
@@ -112,14 +112,14 @@ Salesforce는 모든 파일, 첨부 파일 및 사용자 정의 필드의 암호
 
 - **자격 증명을 로컬로 저장**합니다. 자체 호스팅 통합 런타임에서 로컬로 자격 증명을 암호화하고 저장하려면 [Azure Data Factory에서 온-프레미스 데이터 저장소에 대한 자격 증명 암호화](encrypt-credentials-self-hosted-integration-runtime.md)의 단계를 따르십시오. 모든 커넥터가 이 옵션을 지원합니다. 자체 호스팅 통합 런타임은 Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx)를 사용하여 중요한 데이터 및 자격 증명 정보를 암호화합니다. 
 
-   사용 된 **새로 만들기-AzDataFactoryV2LinkedServiceEncryptedCredential** 연결 된 서비스 자격 증명 및 연결된 된 서비스의 중요 한 세부 정보를 암호화 하는 cmdlet입니다. 반환 된 JSON을 사용할 수 있습니다 (사용 하 여는 **EncryptedCredential** 연결 문자열의 요소)를 사용 하 여 연결된 된 서비스를 만들려면 합니다 **집합 AzDataFactoryV2LinkedService** cmdlet.  
+   **AzDataFactoryV2LinkedServiceEncryptedCredential** cmdlet을 사용 하 여 연결 된 서비스 자격 증명 및 연결 된 서비스의 중요 한 세부 정보를 암호화할 수 있습니다. 그런 다음 반환 된 JSON (연결 문자열의 **Encryptedcredential** 요소 포함)을 사용 하 여 **AzDataFactoryV2LinkedService** cmdlet을 사용 하 여 연결 된 서비스를 만들 수 있습니다.  
 
-- **Azure Data Factory 관리 저장소에 저장**합니다. 직접 사용 하는 경우는 **집합 AzDataFactoryV2LinkedService** cmdlet은 연결 문자열 및 자격 증명 인라인과 JSON에서, 연결된 된 서비스는 암호화 되며 Azure Data Factory 관리 저장소에 저장 합니다. 중요한 정보는 여전히 인증서로 암호화되며 이러한 인증서는 Microsoft에서 관리합니다.
+- **Azure Data Factory 관리 저장소에 저장**합니다. JSON에서 연결 문자열 및 자격 증명을 사용 하 여 **AzDataFactoryV2LinkedService** cmdlet을 직접 사용 하는 경우 연결 된 서비스는 암호화 되어 Azure Data Factory 관리 저장소에 저장 됩니다. 중요한 정보는 여전히 인증서로 암호화되며 이러한 인증서는 Microsoft에서 관리합니다.
 
 
 
 #### <a name="ports-used-when-encrypting-linked-service-on-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임에서 연결된 서비스를 암호화하는 동안 사용되는 포트
-기본적으로 PowerShell 보안 통신을 위해 자체 호스팅된 통합 런타임 사용 하 여 컴퓨터에서 포트 8060을 사용합니다. 필요한 경우 이 포트를 변경할 수 있습니다.  
+기본적으로 PowerShell은 보안 통신을 위해 자체 호스팅 통합 런타임을 사용 하는 컴퓨터에서 포트 8060을 사용 합니다. 필요한 경우 이 포트를 변경할 수 있습니다.  
 
 ![게이트웨이용 HTTPS 포트](media/data-movement-security-considerations/https-port-for-gateway.png)
 
@@ -135,11 +135,11 @@ Azure Virtual Network는 클라우드의 사용자 네트워크를 논리적으�
 
 다음 표는 하이브리드 데이터 이동을 위한 원본 및 대상 위치의 다양한 조합에 따라 네트워크 및 자체 호스팅 통합 런타임 구성 권장 사항을 요약한 것입니다.
 
-| 원본      | 대상                              | 네트워크 구성                    | 통합 런타임 설정                |
+| Source      | Destination                              | 네트워크 구성                    | 통합 런타임 설정                |
 | ----------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| 온-프레미스 | 가상 네트워크에 배포된 가상 머신 및 클라우드 서비스 | IPSec VPN(지점 및 사이트 간 또는 사이트 간) | 자체 호스팅된 통합 런타임은 가상 네트워크에 Azure 가상 머신에 설치 되어야 합니다.  |
-| 온-프레미스 | 가상 네트워크에 배포된 가상 머신 및 클라우드 서비스 | ExpressRoute(프라이빗 피어링)           | 자체 호스팅된 통합 런타임은 가상 네트워크에 Azure 가상 머신에 설치 되어야 합니다.  |
-| 온-프레미스 | 공개 엔드포인트가 있는 Azure 기반 서비스 | ExpressRoute (Microsoft 피어 링)            | 자체 호스팅된 integration runtime에서 온-프레미스 설치 수 또는 Azure 가상 컴퓨터에 있습니다. |
+| 온-프레미스 | 가상 네트워크에 배포된 가상 머신 및 클라우드 서비스 | IPSec VPN(지점 및 사이트 간 또는 사이트 간) | 자체 호스팅 통합 런타임을 가상 네트워크의 Azure 가상 컴퓨터에 설치 해야 합니다.  |
+| 온-프레미스 | 가상 네트워크에 배포된 가상 머신 및 클라우드 서비스 | ExpressRoute(프라이빗 피어링)           | 자체 호스팅 통합 런타임을 가상 네트워크의 Azure 가상 컴퓨터에 설치 해야 합니다.  |
+| 온-프레미스 | 공개 엔드포인트가 있는 Azure 기반 서비스 | Express 경로 (Microsoft 피어 링)            | 자체 호스팅 통합 런타임을 온-프레미스 또는 Azure 가상 머신에 설치할 수 있습니다. |
 
 다음 이미지는 ExpressRoute 및 IPSec VPN(Azure Virtual Network 사용)을 사용하여 온-프레미스 데이터베이스와 Azure 서비스 간에 데이터를 이동시키기 위한 자체 호스팅 통합 런타임의 사용법을 보여 줍니다.
 
@@ -172,7 +172,7 @@ Azure Virtual Network는 클라우드의 사용자 네트워크를 논리적으�
 
 다음 표에서는 Windows 방화벽에 대한 인바운드 포트 요구 사항을 제공합니다.
 
-| 인바운드 포트 | 설명                              |
+| 인바운드 포트 | Description                              |
 | ------------- | ---------------------------------------- |
 | 8060 (TCP)    | 자체 호스팅 통합 런타임에서 온-프레미스 데이터 저장소에 대한 자격 증명을 안전하게 설정하기 위해 [Azure Data Factory의 온-프레미스 데이터 저장소에 대한 자격 증명 암호화](encrypt-credentials-self-hosted-integration-runtime.md)에 설명된 대로 PowerShell Encryption cmdlet에서, 그리고 자격 증명 관리자 애플리케이션에서 필요합니다. |
 
@@ -197,7 +197,7 @@ Azure Virtual Network는 클라우드의 사용자 네트워크를 논리적으�
 
 **자체 호스팅 통합 런타임 작동에 필요한 포트 요구 사항은 무엇입니까?**
 
-자체 호스팅 통합 런타임은 HTTP 기반 연결을 만들어서 인터넷에 액세스하게 합니다. 자체 호스팅 통합 런타임에서 이 연결을 만들려면 아웃바운드 포트 443이 열려야 합니다. 자격 증명 관리자 응용 프로그램에 대 한 컴퓨터 수준 (회사 방화벽 수준이 아닌) 에서만 인바운드 포트 8060을 엽니다. Azure SQL Database 또는 Azure SQL Data Warehouse가 원본 또는 대상으로 사용되는 경우 포트 1433도 열어야 합니다. 자세한 내용은 [방화벽 구성 및 허용 목록 IP 주소](#firewall-configurations-and-whitelisting-ip-address-of-gateway) 섹션을 참조하세요. 
+자체 호스팅 통합 런타임은 HTTP 기반 연결을 만들어서 인터넷에 액세스하게 합니다. 자체 호스팅 통합 런타임에서 이 연결을 만들려면 아웃바운드 포트 443이 열려야 합니다. 자격 증명 관리자 응용 프로그램에 대 한 컴퓨터 수준 (회사 방화벽 수준이 아님) 에서만 인바운드 포트 8060을 엽니다. Azure SQL Database 또는 Azure SQL Data Warehouse가 원본 또는 대상으로 사용되는 경우 포트 1433도 열어야 합니다. 자세한 내용은 [방화벽 구성 및 허용 목록 IP 주소](#firewall-configurations-and-whitelisting-ip-address-of-gateway) 섹션을 참조하세요. 
 
 
 ## <a name="next-steps"></a>다음 단계

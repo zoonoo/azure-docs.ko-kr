@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 01/04/2019
-ms.openlocfilehash: 54890aef8dabfa019a5181c155b6668b1c07cf2c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8ae264f7da84336d5f786d2ff060aa89bbe75837
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60331924"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568301"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>엔터티 프레임 작업과 함께 Elastic Database 클라이언트 라이브러리
 
@@ -134,7 +133,7 @@ public DbSet<Blog> Blogs { get; set; }
   * 분할된 데이터베이스 맵은 지정된 분할 키용 shardlet을 유지하는 분할된 데이터베이스에 대해 열린 연결을 만듭니다.
   * 이 열린 연결은 DbContext의 기본 클래스 생성자로 다시 전달되어 EF를 통해 새 연결을 자동으로 만드는 대신 이 연결이 EF에서 사용되도록 지정합니다. 이러한 방식으로 분할된 데이터베이스 맵 관리 작업에서 일관성이 보장되도록 탄력적 데이터베이스 클라이언트 API에서 연결 태그를 지정합니다.
 
-코드에서 기본 생성자 대신 DbContext 서브클래스의 새로운 생성자를 사용합니다. 다음은 예제입니다. 
+코드에서 기본 생성자 대신 DbContext 서브클래스의 새로운 생성자를 사용합니다. 다음 예를 참조하세요. 
 
 ```csharp
 // Create and save a new blog.
@@ -191,7 +190,7 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 
 위의 코드 예제는 애플리케이션에서 Entity Framework와 함께 데이터 종속 라우팅을 사용하는 데 필요한 기본 생성자 다시 작성 방법을 보여 줍니다. 다음 표에서는 다른 생성자에 대한 이 접근 방식을 일반화합니다. 
 
-| 현재 생성자 | 데이터에 맞게 다시 작성된 생성자 | 기본 생성자 | 메모 |
+| 현재 생성자 | 데이터에 맞게 다시 작성된 생성자 | 기본 생성자 | 참고 |
 | --- | --- | --- | --- |
 | MyContext() |ElasticScaleContext(ShardMap, TKey) |DbContext(DbConnection, bool) |연결은 분할된 데이터베이스 맵 및 데이터 종속 라우팅 키의 한 기능이어야 합니다. EF를 통한 자동 연결 생성을 무시하고 분할된 데이터베이스 맵을 사용하여 연결을 조정해야 합니다. |
 | MyContext(string) |ElasticScaleContext(ShardMap, TKey) |DbContext(DbConnection, bool) |연결은 분할된 데이터베이스 맵 및 데이터 종속 라우팅 키의 한 기능입니다. 고정 데이터베이스 이름 또는 연결 문자열은 분할된 데이터베이스 맵에 의한 유효성 검사를 무시하므로 작동하지 않습니다. |

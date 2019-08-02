@@ -1,18 +1,18 @@
 ---
 title: Azure Backup를 사용 하 여 Azure에 SAP HANA 데이터베이스 백업 Microsoft Docs
 description: 이 자습서에서는 Azure Backup 서비스를 사용 하 여 Azure에 SAP HANA 데이터베이스를 백업 하는 방법을 설명 합니다.
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.author: raynew
-ms.openlocfilehash: 6ac686484ddafc47410cddebea3f789332f9286a
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: f88555c6a8b3d4122a1a8ef82f58788a46dd5226
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465455"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639833"
 ---
 # <a name="back-up-an-sap-hana-database"></a>SAP HANA 데이터베이스 백업
 
@@ -40,7 +40,7 @@ ms.locfileid: "68465455"
   - 새 정책을 만들려면 자격 증명 모음에서 **정책** > **백업 정책** >  **+**  > **Azure VM에서 SAP HANA**추가를 클릭 하 고 정책 설정을 지정 합니다.
   - 다른 정책을 할당 하려면 데이터베이스를 실행 하는 VM의 속성에서 현재 정책 이름을 클릭 합니다. 그런 다음 **백업 정책** 페이지에서 백업에 사용할 다른 정책을 선택할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 백업을 구성 하기 전에 다음을 수행 해야 합니다.
 

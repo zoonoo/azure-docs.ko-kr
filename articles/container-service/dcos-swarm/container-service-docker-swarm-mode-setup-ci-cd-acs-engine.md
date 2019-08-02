@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/27/2017
 ms.author: dimart
 ms.custom: mvc
-ms.openlocfilehash: fd502a308d6298dc2941461632a2832ac336c45c
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: fe24ab21a9a7d227d58e50c58f9aff2bd91e767f
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849879"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598562"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-azure-devops"></a>(사용되지 않음) Azure DevOps를 사용하여 ACS Engine 및 Docker Swarm Mode를 포함한 Azure Container Service에 있는 다중 컨테이너 애플리케이션을 배포하는 전체 CI/CD 파이프라인
 
@@ -24,7 +24,7 @@ ms.locfileid: "67849879"
 
 요즘 클라우드를 위한 최신 애플리케이션을 개발할 때 어려운 문제 중 하나는 이러한 애플리케이션을 지속적으로 전달할 수 있다는 점입니다. 이 문서에서는 다음을 사용하여 전체 CI/CD(지속적인 통합 및 배포) 파이프라인을 구현하는 방법을 알아봅니다. 
 * Docker Swarm Mode의 Azure Container Service Engine
-* Azure Container Registry
+* Azure 컨테이너 레지스트리
 * Azure DevOps
 
 이 문서는 간단한 애플리케이션을 기반으로 [GitHub](https://github.com/jcorioland/MyShop/tree/docker-linux)에서 사용할 수 있으며 ASP.NET Core를 사용하여 전개됩니다. 애플리케이션은 세 개의 웹 API 및 하나의 웹 프론트 엔드라는 네 개의 다른 서비스로 구성되어 있습니다.
@@ -251,6 +251,6 @@ Azure DevOps를 사용하면 [환경에서 릴리스를 관리](https://www.visu
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure DevOps의 CI/CD에 대한 자세한 내용은 [Azure DevOps Build overview](https://www.visualstudio.com/docs/build/overview)(Azure DevOps 빌드 개요)를 참조하세요.
+* Azure DevOps를 사용 하는 CI/CD에 대 한 자세한 내용은 [Azure Pipelines 설명서](/azure/devops/pipelines/?view=azure-devops) 문서를 참조 하세요.
 * ACS Engine에 대한 자세한 내용은 [ACS Engine GitHub 리포지토리](https://github.com/Azure/acs-engine)를 참조하세요.
 * Docker Swarm Mode에 대한 자세한 내용은 [Docker Swarm Mode 개요](https://docs.docker.com/engine/swarm/)를 참조하세요.

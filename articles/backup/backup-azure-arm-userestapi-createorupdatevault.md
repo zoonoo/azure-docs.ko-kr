@@ -1,20 +1,21 @@
 ---
 title: 'Azure Backup: REST API를 사용하여 Recovery Services 자격 증명 모음 만들기'
 description: REST API를 사용하여 Azure VM Backup의 백업 및 복원 작업 관리
-author: pvrk
-manager: shivamg
+ms.reviewer: pullabhk
+author: dcurwin
+manager: carmonm
 keywords: REST API; Azure VM 백업; Azure VM 복원;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 08/21/2018
-ms.author: pullabhk
+ms.author: dacurwin
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
-ms.openlocfilehash: 0373098dd344df79be79871227f20c8a995958fa
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: f60a675b87d989f12ac3e6181f580b8acffa640b
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466931"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688708"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>REST API를 사용하여 Azure Recovery Services 자격 증명 모음 만들기
 
@@ -32,7 +33,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 다음과 같은 헤더가 필요합니다.
 
-| 요청 헤더   | Description |
+| 요청 헤더   | 설명 |
 |------------------|-----------------|
 | *Content-Type:*  | 필수 요소. `application/json`로 설정합니다. |
 | *Authorization:* | 필수 요소. 유효한 `Bearer` [액세스 토큰](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients)으로 설정합니다. |

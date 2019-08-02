@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: MightyPen, sstein
-manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: a658e2fe32ec95dfabad54684a0c9095af7a341d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b22a9cf8c79530fd931cbe944ef5bfc876a02243
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61485082"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570141"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-sql-data-warehouse-data-factory-and-power-bi"></a>Azure SQL Database, SQL Data Warehouse, Data Factory 및 Power BI를 사용한 SaaS 분석 탐색
 
@@ -65,7 +64,7 @@ SaaS 애플리케이션은 클라우드에서 방대한 양의 테넌트 데이�
 
 ## <a name="setup"></a>설정
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>전제 조건
 
 > [!NOTE]
 > 이 자습서에서는 현재 미리 보기가 제한된 Azure Data Factory의 기능을 사용합니다(연결된 서비스 매개 변수화). 이 자습서를 수행하려는 경우 [여기에](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxrVywox1_tHk9wgd5P8SVJUNlFINjNEOElTVFdMUEREMjVVUlJCUDdIRyQlQCN0PWcu) 구독 ID를 제공합니다. 구독을 사용하도록 설정하는 즉시 확인을 전송합니다.
@@ -94,7 +93,7 @@ Wingtip Tickets 앱에서 테넌트의 트랜잭션 데이터는 많은 데이�
 
 이제 배포한 Azure 리소스를 검토합니다.
 #### <a name="tenant-databases-and-analytics-store"></a>테넌트 데이터베이스 및 분석 저장소
-[SSMS(SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)를 사용하여 **tenants1-dpt-&lt;user&gt;** 및 **catalog-dpt-&lt;user&gt;** 서버에 연결합니다. &lt;user&gt;를 앱을 배포할 때 사용한 값으로 바꿉니다. 로그인을 사용 하 여 = *개발자* 및 암호 = *P\@ssword1*합니다. 자세한 내용은 [입문용 자습서](saas-dbpertenant-wingtip-app-overview.md)를 참조하세요.
+[SSMS(SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)를 사용하여 **tenants1-dpt-&lt;user&gt;** 및 **catalog-dpt-&lt;user&gt;** 서버에 연결합니다. &lt;user&gt;를 앱을 배포할 때 사용한 값으로 바꿉니다. Login = *developer* 및 Password = *P\@ssword1*를 사용 합니다. 자세한 내용은 [입문용 자습서](saas-dbpertenant-wingtip-app-overview.md)를 참조하세요.
 
 ![SSMS에서 SQL Database 서버에 연결](media/saas-tenancy-tenant-analytics/ssmsSignIn.JPG)
 
@@ -110,7 +109,7 @@ Wingtip Tickets 앱에서 테넌트의 트랜잭션 데이터는 많은 데이�
 
 ![DWtables](media/saas-tenancy-tenant-analytics/DWtables.JPG)
 
-#### <a name="blob-storage"></a>Blob 저장소
+#### <a name="blob-storage"></a>Blob 스토리지
 1. [Azure Portal](https://ms.portal.azure.com)에서 애플리케이션을 배포하는 데 사용한 리소스 그룹으로 이동합니다. **wingtipstaging\<user\>** 이라는 저장소 계정이 추가되었는지 확인합니다.
 
    ![DWtables](media/saas-tenancy-tenant-analytics/adf-staging-storage.PNG)
@@ -195,13 +194,13 @@ SCD(Slowly Changing Dimension) 유형 1 차원 테이블을 이 예제에서 사
 
     ![sign-in-to-power-bi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. 선택 **데이터베이스** 왼쪽된 창에서 다음 사용자 이름을 입력 = *개발자*에 암호를 입력 하 고 = *P\@ssword1*합니다. **Connect**를 클릭합니다.  
+5. 왼쪽 창에서 **데이터베이스** 를 선택 하 고 사용자 이름 = *개발자*를 입력 한 다음 password = *P\@ssword1*을 입력 합니다. **연결**을 클릭합니다.  
 
     ![database-sign-in](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 
 6. **탐색기** 패널의 분석 데이터베이스 아래에서 스타 스키마 테이블(**fact_Tickets**, **dim_Events**, **dim_Venues**, **dim_Customers** 및 **dim_Dates**)을 선택합니다. 그런 다음 **로드**를 선택합니다. 
 
-축하합니다! Power BI에 데이터를 성공적으로 로드했습니다. 지금부터 시각화 데이터를 탐색하여 테넌트에 대한 유용한 정보를 얻습니다. 분석을 사용하여 Wingtip Tickets 비즈니스 팀에게 일부 데이터 기반 권장 사항을 제공하는 방법을 살펴보겠습니다. 권장 사항을 바탕으로 비즈니스 모델과 고객 경험을 최적화할 수 있습니다.
+축하합니다. Power BI에 데이터를 성공적으로 로드했습니다. 지금부터 시각화 데이터를 탐색하여 테넌트에 대한 유용한 정보를 얻습니다. 분석을 사용하여 Wingtip Tickets 비즈니스 팀에게 일부 데이터 기반 권장 사항을 제공하는 방법을 살펴보겠습니다. 권장 사항을 바탕으로 비즈니스 모델과 고객 경험을 최적화할 수 있습니다.
 
 먼저 티켓 판매량 데이터를 분석하여 행사장별 판매량의 차이를 확인합니다. Power BI에 있는 옵션을 선택하여 각 행사장에서 판매된 총 티켓 수를 막대형 차트로 표시합니다. (티켓 생성기가 임의로 작동하기 때문에 결과가 그림과 다르게 나타날 수 있습니다.)
  
@@ -249,7 +248,7 @@ Wingtip Tickets 예제에서는 일찌기 티켓 판매량이 예측 가능한 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업을 수행하는 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * 테넌트 분석에 대한 스타 스키마로 채워진 SQL Data Warehouse를 배포합니다.
@@ -258,8 +257,8 @@ Wingtip Tickets 예제에서는 일찌기 티켓 판매량이 예측 가능한 �
 > * 분석 데이터 웨어하우스를 쿼리합니다. 
 > * Power BI를 사용하여 모든 테넌트 간 데이터 추세를 시각화합니다.
 
-축하합니다!
+축하합니다.
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 - [Wingtip SaaS 애플리케이션을 사용하는 또 다른 자습서](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).

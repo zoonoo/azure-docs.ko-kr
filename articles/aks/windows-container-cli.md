@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 06/17/2019
 ms.author: mlearned
 ms.openlocfilehash: 305901007180cfb197cf5c0dfb338800449560a1
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68382039"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>미리 보기-Azure CLI를 사용 하 여 AKS (Azure Kubernetes Service) 클러스터에 Windows Server 컨테이너 만들기
@@ -42,7 +42,7 @@ Windows Server 컨테이너를 실행할 수 있는 클러스터를 만든 후 �
 
 ### <a name="install-aks-preview-cli-extension"></a>aks-preview CLI 확장 설치
 
-Windows Server 컨테이너를 사용 하려면 *aks-preview* CLI extension version 0.4.1 이상이 필요 합니다. [Az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] 명령을 사용 하 여 *aks-preview* Azure CLI 확장을 설치 합니다.
+Windows Server 컨테이너를 사용 하려면 *aks-preview* CLI extension version 0.4.1 이상이 필요 합니다. [Az extension add][az-extension-add] 명령을 사용 하 여 *aks-preview* Azure CLI 확장을 설치한 다음 [az extension update][az-extension-update] 명령을 사용 하 여 사용 가능한 업데이트를 확인 합니다.
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -120,7 +120,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-an-aks-cluster"></a>AKS 클러스터 만들기
 
-Windows Server 컨테이너의 노드 풀을 지 원하는 AKS 클러스터를 실행 하려면 클러스터에서 [Azure CNI][azure-cni-about] (advanced) network plugin. For more detailed information to help plan out the required subnet ranges and network considerations, see [configure Azure CNI networking][use-advanced-networking]를 사용 하는 네트워크 정책을 사용 해야 합니다. [Az aks create][az-aks-create] 명령을 사용 하 여 *myAKSCluster*라는 aks 클러스터를 만듭니다. 이 명령은 필요한 네트워크 리소스 (존재 하지 않는 경우)를 만듭니다.
+Windows Server 컨테이너의 노드 풀을 지 원하는 AKS 클러스터를 실행 하려면 클러스터에서 [Azure CNI][azure-cni-about] (고급) 네트워크 플러그 인을 사용 하는 네트워크 정책을 사용 해야 합니다. 필요한 서브넷 범위 및 네트워크 고려 사항을 계획 하는 데 도움이 되는 자세한 내용은 [Azure CNI 네트워킹 구성][use-advanced-networking]을 참조 하세요. [Az aks create][az-aks-create] 명령을 사용 하 여 *myAKSCluster*라는 aks 클러스터를 만듭니다. 이 명령은 필요한 네트워크 리소스 (존재 하지 않는 경우)를 만듭니다.
   * 클러스터가 하나의 노드로 구성 되어 있습니다.
   * *Windows-admin-password* 및 *windows-admin* 매개 변수는 클러스터에 생성 된 모든 windows Server 컨테이너에 대 한 관리자 자격 증명을 설정 합니다.
 
@@ -194,7 +194,7 @@ aksnpwin987654                      Ready    agent   108s   v1.14.1
 
 ## <a name="run-the-application"></a>애플리케이션 실행
 
-Kubernetes 매니페스트 파일은 어떤 컨테이너 이미지가 실행되는지 등과 같은 클러스터에 대해 원하는 상태를 정의합니다. 이 문서에서는 매니페스트를 사용 하 여 Windows Server 컨테이너에서 ASP.NET 샘플 응용 프로그램을 실행 하는 데 필요한 모든 개체를 만듭니다. 이 매니페스트에는 인터넷에서 응용 프로그램에 액세스 하기 위한 [Kubernetes 배포가][kubernetes-deployment] for the ASP.NET sample application and an external [Kubernetes service][kubernetes-service] 포함 됩니다.
+Kubernetes 매니페스트 파일은 어떤 컨테이너 이미지가 실행되는지 등과 같은 클러스터에 대해 원하는 상태를 정의합니다. 이 문서에서는 매니페스트를 사용 하 여 Windows Server 컨테이너에서 ASP.NET 샘플 응용 프로그램을 실행 하는 데 필요한 모든 개체를 만듭니다. 이 매니페스트에는 ASP.NET 샘플 응용 프로그램에 대 한 [Kubernetes 배포][kubernetes-deployment] 와 인터넷에서 응용 프로그램에 액세스 하는 외부 [Kubernetes 서비스가][kubernetes-service] 포함 되어 있습니다.
 
 ASP.NET 샘플 응용 프로그램은 [.NET Framework 샘플][dotnet-samples] 의 일부로 제공 되며 Windows Server 컨테이너에서 실행 됩니다. AKS windows server *2019* 이상 이미지를 기반으로 하는 windows server 컨테이너를 요구 합니다. Kubernetes 매니페스트 파일은 AKS 클러스터에서 Windows Server 컨테이너를 실행할 수 있는 노드에 ASP.NET 샘플 응용 프로그램의 pod를 실행 하도록 지시 하는 [노드 선택기][node-selector] 도 정의 해야 합니다.
 

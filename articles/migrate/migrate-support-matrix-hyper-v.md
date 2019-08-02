@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: raynew
-ms.openlocfilehash: 507ca6daa30a19b73848d6d3cf253390baf496af
-ms.sourcegitcommit: 57a7d4f67635212f5bf0c56e58fd87c8ec366f2c
+ms.openlocfilehash: 787bcf28a64c98f82deb0725e2362bf8144d6c4e
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68372465"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640856"
 ---
 # <a name="support-matrix-for-hyper-v-assessment-and-migration"></a>Hyper-V 평가 및 마이그레이션 지원 매트릭스
 
@@ -36,20 +36,16 @@ ms.locfileid: "68372465"
 **지원** | **세부 정보**
 --- | ---
 Azure 권한 | Azure Migrate 프로젝트를 만들려면 구독에 대 한 참가자 또는 소유자 권한이 있어야 합니다.
-Hyper-V VM | 단일 프로젝트에서 최대 1만 Hyper-v Vm을 평가 합니다.
+Hyper-V VM | 단일 프로젝트에서 최대 1만 Hyper-v Vm을 평가 합니다. Azure 구독에 여러 프로젝트를 포함할 수 있습니다. 프로젝트에는 VMware Vm과 Hyper-v Vm이 모두 포함 될 수 있습니다 (평가 제한까지).
+지리 | 여러 지역에서 Azure Migrate 프로젝트를 만들 수 있습니다. 특정 ographies 프로젝트를 만들 수 있지만 다른 대상 위치의 컴퓨터를 평가 하거나 마이그레이션할 수 있습니다. 프로젝트 지역은 검색된 메타데이터를 저장하는 데만 사용됩니다.
 
-프로젝트에는 VMware Vm과 Hyper-v Vm이 모두 포함 될 수 있습니다 (평가 제한까지).
-
-**요인** Azure Migrate 프로젝트를 만들 수 있는 여러 지리적 지역이 있습니다. 이러한 지역에만 프로젝트를 만들 수 있지만 다른 대상 위치의 컴퓨터를 평가 하거나 마이그레이션할 수는 있습니다. 프로젝트 지역은 검색된 메타데이터를 저장하는 데만 사용됩니다.
-
-
- **Geography** | **메타데이터 스토리지 위치**
- --- | ---
- Azure Government | US Gov 버지니아
- 아시아 태평양 | 동남 아시아 또는 동아시아
- Europe | 남부 유럽 또는 유럽 서부
- 영국 | 영국 남부 또는 영국 서부
- 미국 | 미국 중부 또는 미국 서 부 2
+  **Geography** | **메타데이터 스토리지 위치**
+  --- | ---
+  Azure Government | US Gov 버지니아
+  아시아 태평양 | 동남 아시아 또는 동아시아
+  Europe | 남부 유럽 또는 유럽 서부
+  영국 | 영국 남부 또는 영국 서부
+  미국 | 미국 중부 또는 미국 서 부 2
 
 
  > [!NOTE]
@@ -74,8 +70,6 @@ Hyper-V VM | 단일 프로젝트에서 최대 1만 Hyper-v Vm을 평가 합니�
 | **운영 체제** | Azure에서 지 원하는 모든 [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) 및 [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) 운영 체제입니다. |
 | **사용 권한**           | 평가 하려는 각 Hyper-v VM에 대 한 관리자 권한이 필요 합니다. |
 | **Integration Services**       | 운영 체제 정보를 캡처하기 위해 평가 하는 Vm에서 [hyper-v Integration Services](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/integration-services) 실행 중 이어야 합니다. |
-| **Azure에 대 한 필수 변경 내용** | 일부 Vm은 Azure에서 실행할 수 있도록 변경 해야 할 수 있습니다. Azure Migrate는 다음 운영 체제에 대해 이러한 변경을 자동으로 수행 합니다.<br/> - Red Hat Enterprise Linux 6.5+, 7.0+<br/> - CentOS 6.5+, 7.0+</br> -SUSE Linux Enterprise Server 12 SP1 이상<br/> - Ubuntu 14.04LTS, 16.04LTS, 18.04LTS<br/> -Debian 7, 8<br/><br/> 다른 운영 체제의 경우 마이그레이션하기 전에 수동으로 조정 해야 합니다. 관련 문서에는이 작업을 수행 하는 방법에 대 한 지침이 포함 되어 있습니다. |
-| **Linux 부팅**                 | /Boot는 전용 파티션에 있는 경우 OS 디스크에 상주해 야 하며 여러 디스크에 분산 되 면 안 됩니다.<br/> /Boot가 루트 (/) 파티션의 일부인 경우 '/' 파티션은 OS 디스크에 있어야 하며 다른 디스크에 걸쳐 있지 않아야 합니다. |
 | **UEFI 부팅**                  | UEFI 부팅이 포함 된 Vm은 마이그레이션을 지원 하지 않습니다. |
 | **암호화 된 디스크/볼륨**    | 암호화 된 디스크/볼륨이 있는 Vm은 마이그레이션을 지원 하지 않습니다. |
 | **RDM/통과 디스크**      | Vm에 RDM 또는 통과 디스크가 있는 경우 이러한 디스크는 Azure에 복제 되지 않습니다. |
@@ -90,17 +84,15 @@ Hyper-V VM | 단일 프로젝트에서 최대 1만 Hyper-v Vm을 평가 합니�
 | **지원**                | **세부 정보**               
 | :-------------------       | :------------------- |
 | **Azure Migrate 프로젝트**  |  어플라이언스는 단일 프로젝트에 연결할 수 있습니다.<br/> 단일 어플라이언스를 사용 하 여 최대 5000 Hyper-v Vm을 검색할 수 있습니다.
-| **Hyper-v 제한 사항**    |  어플라이언스를 Hyper-v VM으로 배포 합니다.<br/> 제공 된 어플라이언스 VM은 Hyper-v VM 버전 5.0입니다.<br/> VM 호스트에서 Windows Server 2012 R2 이상을 실행 해야 합니다.<br/> 이 파일에는 16gb RAM, 4 개의 가상 프로세서 및 어플라이언스 VM에 대 한 외부 스위치 1 개를 할당 하는 데 충분 한 공간이 필요 합니다.<br/> 어플라이언스에는 정적 또는 동적 IP 주소와 인터넷 액세스 권한이 필요 합니다.
-| **Hyper-v 어플라이언스**      |  어플라이언스는 Hyper-v VM으로 설정 됩니다.<br/> 다운로드를 위해 제공 된 VHD는 Hyper-v VM 버전 5.0입니다.
-| **Host**                   | 어플라이언스 VM을 실행 하는 VM 호스트에서 Windows Server 2012 R2 이상을 실행 해야 합니다.<br/> 16gb RAM, 4 개의 가상 프로세서 및 어플라이언스 VM에 대 한 외부 스위치 하나를 할당 하기에 충분 한 공간이 필요 합니다.<br/> 어플라이언스에는 정적 또는 동적 IP 주소와 인터넷 액세스 권한이 필요 합니다. |
-| **마이그레이션 지원**      | 컴퓨터 복제를 시작 하려면 어플라이언스의 마이그레이션 게이트웨이 서비스를 1.18.7141.12919 이상으로 설정 해야 합니다. 어플라이언스 웹 앱에 로그인 하 여 버전을 확인 합니다. |
+| **Hyper-V**    |  어플라이언스를 Hyper-v VM으로 배포 합니다.<br/> 제공 된 어플라이언스 VM은 Hyper-v VM 버전 5.0입니다.<br/> VM 호스트에서 Windows Server 2012 R2 이상을 실행 해야 합니다.<br/> 이 파일에는 16gb RAM, 4 개의 가상 프로세서 및 어플라이언스 VM에 대 한 외부 스위치 1 개를 할당 하는 데 충분 한 공간이 필요 합니다.<br/> 어플라이언스에는 정적 또는 동적 IP 주소와 인터넷 액세스 권한이 필요 합니다.
+
 
 ## <a name="assessment-appliance-url-access"></a>평가-어플라이언스 URL 액세스
 
 Vm을 평가 하려면 Azure Migrate 어플라이언스에서 인터넷에 연결 해야 합니다.
 
 - 어플라이언스를 배포 하는 경우 Azure Migrate 아래 표에 요약 된 Url에 대 한 연결 확인을 수행 합니다.
-- URL 기반 방화벽. 프록시를 사용 하는 경우, 테이블의 Url에 대 한 액세스를 허용 하 여 프록시가 Url을 조회 하는 동안 수신 된 CNAME 레코드를 확인 하는지 확인 합니다.
+- URL 기반 프록시를 사용 하는 경우 테이블의 Url에 대 한 액세스를 허용 하 여 프록시가 Url을 조회 하는 동안 수신 된 CNAME 레코드를 확인 하는지 확인 합니다.
 - 가로채기 프록시가 있는 경우 프록시 서버에서 어플라이언스로 서버 인증서를 가져와야 할 수 있습니다.
 
 
@@ -112,6 +104,9 @@ Vm을 평가 하려면 Azure Migrate 어플라이언스에서 인터넷에 연�
 management.azure.com | 어플라이언스에서 서비스 통신에 대 한 Azure Active Directory 응용 프로그램 만들기
 dc.services.visualstudio.com | 로깅 및 모니터링
 *.vault.azure.net | 어플라이언스와 서비스 간에 통신 하는 경우 Azure Key Vault의 비밀을 관리 합니다.
+aka.ms/* | 즉, 링크에 대 한 액세스를 허용 합니다.
+https://download.microsoft.com/download/* | Microsoft 다운로드 사이트에서 다운로드할 수 있습니다.
+
 
 
 ## <a name="assessment-port-requirements"></a>평가-포트 요구 사항
@@ -120,7 +115,7 @@ dc.services.visualstudio.com | 로깅 및 모니터링
 
 **장치** | **연결**
 --- | ---
-**기기가** | 어플라이언스에 대 한 원격 데스크톱 연결을 허용 하기 위해 TCP 포트 3389에서 인바운드 연결<br/> URL을 사용 하 여 어플라이언스 관리 앱에 원격으로 액세스 하기 위한 포트 44368의 인바운드 연결: https://< 어플라이언스-ip 또는-이름 >: 44368<br/> Azure Migrate에 검색 및 성능 메타 데이터를 보내기 위한 포트 443의 아웃 바운드 연결
+**기기가** | 어플라이언스에 대 한 원격 데스크톱 연결을 허용 하기 위해 TCP 포트 3389에서 인바운드 연결<br/> URL을 사용 하 여 어플라이언스 관리 앱에 원격으로 액세스 하기 위해 포트 44368에서 인바운드 연결:``` https://<appliance-ip-or-name>:44368 ```<br/> Azure Migrate에 검색 및 성능 메타 데이터를 보내기 위한 포트 443의 아웃 바운드 연결
 **Hyper-v 호스트/클러스터** | CIM(Common Information Model) (CIM) 세션을 사용 하 여 Hyper-v Vm의 구성과 성능 메타 데이터를 끌어오기 위해 WinRM 포트 5985 (HTTP) 및 5986 (HTTPS)에서 인바운드 연결
 
 ## <a name="migration-hyper-v-host-requirements"></a>마이그레이션-Hyper-v 호스트 요구 사항
@@ -140,11 +135,19 @@ dc.services.visualstudio.com | 로깅 및 모니터링
 | **Integration Services**       | 운영 체제 정보를 캡처하기 위해 평가 하는 Vm에서 [hyper-v Integration Services](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/integration-services) 실행 중 이어야 합니다. |
 | **Azure에 대 한 필수 변경 내용** | 일부 Vm은 Azure에서 실행할 수 있도록 변경 해야 할 수 있습니다. Azure Migrate는 다음 운영 체제에 대해 이러한 변경을 자동으로 수행 합니다.<br/> - Red Hat Enterprise Linux 6.5+, 7.0+<br/> - CentOS 6.5+, 7.0+</br> -SUSE Linux Enterprise Server 12 SP1 이상<br/> - Ubuntu 14.04LTS, 16.04LTS, 18.04LTS<br/> -Debian 7, 8<br/><br/> 다른 운영 체제의 경우 마이그레이션하기 전에 수동으로 조정 해야 합니다. 관련 문서에는이 작업을 수행 하는 방법에 대 한 지침이 포함 되어 있습니다. |
 | **Linux 부팅**                 | /Boot는 전용 파티션에 있는 경우 OS 디스크에 상주해 야 하며 여러 디스크에 분산 되 면 안 됩니다.<br/> /Boot가 루트 (/) 파티션의 일부인 경우 '/' 파티션은 OS 디스크에 있어야 하며 다른 디스크에 걸쳐 있지 않아야 합니다. |
-| **UEFI 부팅**                  | UEFI 부팅이 포함 된 Vm은 마이그레이션을 지원 하지 않습니다. |
-| **암호화 된 디스크/볼륨**    | 암호화 된 디스크/볼륨이 있는 Vm은 마이그레이션을 지원 하지 않습니다. |
-| **RDM/통과 디스크**      | Vm에 RDM 또는 통과 디스크가 있는 경우 이러한 디스크는 Azure에 복제 되지 않습니다. |
+| **UEFI 부팅**                  | UEFI 부팅이 포함 된 Vm은 마이그레이션을 지원 하지 않습니다.  |
+| **디스크 크기**                  | OS 디스크의 경우 2tb, 데이터 디스크의 경우 4tb
+| **디스크 번호** | VM 당 최대 16 개의 디스크
+| **암호화 된 디스크/볼륨**    | 마이그레이션에 지원 되지 않습니다. |
+| **RDM/통과 디스크**      | 마이그레이션에 지원 되지 않습니다. |
+| **공유 디스크** | 공유 디스크를 사용 하는 Vm은 마이그레이션을 지원 하지 않습니다.
 | **NFS**                        | Vm에 볼륨으로 탑재 된 NFS 볼륨이 복제 되지 않습니다. |
+| **ISCSI**                      | ISCSI 대상을 사용 하는 Vm은 마이그레이션을 지원 하지 않습니다.
 | **대상 디스크**                | 관리 디스크를 사용 하 여 Azure Vm으로 마이그레이션할 수 있습니다. |
+| **IPv6** | 지원되지 않습니다.
+| **NIC 팀** | 지원되지 않습니다.
+| **Azure Site Recovery** | Azure Site Recovery를 사용 하 여 복제에 대해 VM을 사용 하도록 설정한 경우 Azure Migrate 서버 마이그레이션을 사용 하 여 복제할 수 없습니다.
+
 
 
 
@@ -171,11 +174,6 @@ time.windows.com | 시스템 시간과 글로벌 시간 간의 시간 동기화�
 Hyper-v 호스트/V m | Azure Migrate로 VM 복제 데이터를 보내기 위한 HTTPS 포트 443의 아웃 바운드 연결
 
 
-## <a name="migration-vm-disk-support"></a>마이그레이션-VM 디스크 지원
-
-**지원** | **세부 정보**
---- | ---
-마이그레이션된 디스크 | Vm은 Azure에서 관리 되는 디스크 (표준 HHD, 프리미엄 SSD)로만 마이그레이션할 수 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

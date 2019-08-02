@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f3be6cebafb6d0f50b5ac9a9e40e5707202ea643
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: cdb1b49af5d3a85dc1853e5964c1cdfdd5c3a7cd
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849430"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716680"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C 사용자 지정 정책의 기술 프로필 정보
 
@@ -32,9 +32,9 @@ ms.locfileid: "67849430"
 - **Phone Factor 공급자** - 다단계 인증입니다.
 - [OAuth1](oauth1-technical-profile.md) - OAuth 1.0 프로토콜 ID 공급자와 페더레이션됩니다.
 - [OAuth2](oauth2-technical-profile.md) - OAuth 2.0 프로토콜 ID 공급자와 페더레이션됩니다.
-- [OpenIdConnect](openid-connect-technical-profile.md) - OpenId Connect 프로토콜 ID 공급자와 페더레이션됩니다.
+- [Openid connect](openid-connect-technical-profile.md) 를 모든 openid connect connect 프로토콜 id 공급자와 연결 합니다.
 - [클레임 변환](claims-transformation-technical-profile.md) - 출력 클레임 변환을 호출하여 클레임 값을 조작하거나, 클레임의 유효성을 검사하거나, 출력 클레임 집합의 기본값을 설정합니다.
-- [Restful 공급자](restful-technical-profile.md) - 사용자 입력 유효성 검사, 사용자 데이터 다양화 또는 기간 업무 애플리케이션과 통합 등의 REST API 서비스 호출입니다.
+- [RESTful provider](restful-technical-profile.md) -사용자 입력의 유효성을 검사 하거나, 사용자 데이터를 보강 하거나, lob (기간 업무) 응용 프로그램과 통합 하는 등 REST API 서비스에 대 한 호출입니다.
 - [SAML2](saml-technical-profile.md) - SAML 프로토콜 ID 공급자와 페더레이션됩니다.
 - [자체 어설션](self-asserted-technical-profile.md) - 사용자와 상호 작용합니다. 예를 들어, 로그인할 사용자의 자격 증명을 수집하고 등록 페이지 또는 암호 재설정을 렌더링합니다.
 - **WsFed** - WsFed 프로토콜 ID 공급자와 페더레이션됩니다.
