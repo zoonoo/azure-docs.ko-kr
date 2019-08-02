@@ -7,9 +7,7 @@
     - name: PowerShell - 빠른 시작
       href: quickstart-powershell.md
 - name: 기능 및 도구
-  items:
-    - name: 기능 및 도구
-      href: features.md
+  href: features.md
 - name: 자습서
   items:
     - name: Ansible
