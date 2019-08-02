@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 12/20/2018
-ms.openlocfilehash: 0b1e3b98fe5b934b712db2a5549ebdc865523bfb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 01962770c011a0107abd4e035c25d6c0d45fa0a0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61412575"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569375"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>SQL 데이터 동기화의 모범 사례 
 
@@ -117,7 +116,7 @@ SQL 데이터 동기화는 기본 데이터베이스 자동 프로비전을 제�
 
 앞에서 설명한 지침을 엔터프라이즈-클라우드 및 클라우드-클라우드 혼합 시나리오처럼 복잡한 동기화 그룹 구성에 적용합니다.
 
-## <a name="sync"></a>동기화
+## <a name="sync"></a>Sync
 
 ### <a name="avoid-a-slow-and-costly-initial-synchronization"></a> 느리고 비용이 많이 드는 초기 동기화 방지
 
@@ -129,7 +128,7 @@ SQL 데이터 동기화는 기본 데이터베이스 자동 프로비전을 제�
 
 데이터베이스가 여러 데이터 센터에 있는 경우 각 행은 여러 데이터 센터 사이를 이동해야 합니다. 이로 인해 초기 동기화의 비용이 증가합니다.
 
-#### <a name="recommendation"></a>권장 사항
+#### <a name="recommendation"></a>권장
 
 되도록이면 동기화 그룹의 여러 데이터베이스 중 특정 데이터베이스의 데이터부터 시작합니다.
 
@@ -158,7 +157,7 @@ SQL 데이터 동기화는 기본 데이터베이스 자동 프로비전을 제�
 > [!NOTE]
 > 이러한 변경 내용은 전파되지 않습니다. 이 시나리오에서 유일한 복구 방법은 동기화 그룹을 다시 만드는 것입니다.
 
-#### <a name="recommendation"></a>권장 사항
+#### <a name="recommendation"></a>권장
 
 포털 및 로그 인터페이스를 통해 동기화 그룹 및 데이터베이스 상태를 정기적으로 모니터링합니다.
 
@@ -201,7 +200,7 @@ SQL 데이터 동기화는 기본 데이터베이스 자동 프로비전을 제�
 3. 온-프레미스 데이터베이스를 로컬 에이전트 2에서 등록 취소하면 추적/메타 테이블이 온-프레미스 데이터베이스의 동기화 그룹에서 제거됩니다.
 4. “데이터베이스가 동기화에 대해 프로비전되지 않거나 동기화 구성 테이블에 대한 사용 권한이 없으므로 현재 작업을 완료할 수 없습니다.”라는 오류와 함께 동기화 그룹 A 작업에 실패합니다.
 
-#### <a name="solution"></a>해결 방법
+#### <a name="solution"></a>솔루션
 
 이 시나리오를 방지하려면 데이터베이스를 여러 에이전트에 등록하지 마세요.
 
@@ -226,7 +225,7 @@ SQL 데이터 동기화에 대한 자세한 내용은 다음 항목을 참조하
 -   데이터 동기화 설정
     - 포털에서 - [자습서: Azure SQL Database와 SQL Server 온-프레미스 간에 데이터를 동기화하도록 SQL 데이터 동기화 설정](sql-database-get-started-sql-data-sync.md)
     - PowerShell 사용
-        -  [PowerShell을 사용하여 여러 Azure SQL Database 간 동기화](scripts/sql-database-sync-data-between-sql-databases.md)
+        -  [PowerShell을 사용하여 여러 Azure SQL 데이터베이스 간 동기화](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [PowerShell을 사용하여 Azure SQL Database와 SQL Server 온-프레미스 데이터베이스 간 동기화](scripts/sql-database-sync-data-between-azure-onprem.md)
 -   데이터 동기화 에이전트 - [Azure SQL 데이터 동기화용 데이터 동기화 에이전트](sql-database-data-sync-agent.md)
 -   모니터 - [Azure Monitor 로그를 사용하여 SQL 데이터 동기화 모니터링](sql-database-sync-monitor-oms.md)

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/01/2016
 ms.author: yaya
 ms.openlocfilehash: 9dd336ef973b603108aad62c90e4dab385d20317
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67873891"
 ---
 # <a name="download-the-azure-sdk-for-php"></a>PHP용 Azure SDK 다운로드
@@ -45,7 +45,7 @@ PHP용 Azure SDK에는 Azure용 PHP 애플리케이션을 개발, 배포 및 관
 
 Azure용 PHP 클라이언트 라이브러리는 운영 체제에서 Azure 기능(예: 데이터 관리 서비스 및 클라우드 서비스)에 액세스하기 위한 인터페이스를 제공합니다. 이러한 라이브러리는 작성기를 통해 설치할 수 있습니다.
 
-Azure 용 PHP 클라이언트 라이브러리를 사용 하는 방법에 대 한 자세한 내용은 [Blob service][blob-service] , [How to Use the Table Service][table-service] 를 사용 하는 방법 및 [큐 서비스]큐를 사용 하는 방법[-서비스]를 참조 하세요.
+Azure 용 PHP 클라이언트 라이브러리를 사용 하는 방법에 대 한 자세한 내용은 [Blob service를 사용][blob-service]하는 방법, [Table service를 사용][table-service] 하는 방법 및 [큐 서비스를 사용][queue-service]하는 방법을 참조 하세요.
 
 ### <a name="install-via-composer"></a>작성기를 통해 설치
 

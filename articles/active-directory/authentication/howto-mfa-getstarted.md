@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fa2254ff3223be4312f4e9b3db4d9d83da443c0
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 182b9da402e633033411f85eb59b31f76749f3cd
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311336"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68666248"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>클라우드 기반 Azure Multi-factor Authentication 배포 계획
 
@@ -24,7 +24,7 @@ ms.locfileid: "68311336"
 
 [AZURE MFA (Multi-factor Authentication)](concept-mfa-howitworks.md) 는 데이터 및 응용 프로그램에 대 한 액세스를 보호 하는 데 도움이 됩니다. 두 번째 형태의 인증을 사용 하 여 추가 보안 계층을 제공 합니다. 조직에서는 [조건부 액세스](../conditional-access/overview.md) 를 사용 하 여 솔루션을 특정 요구 사항에 맞게 만들 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure Multi-factor Authentication 배포를 시작 하기 전에 고려해 야 하는 필수 조건 항목이 있습니다.
 
@@ -57,7 +57,7 @@ Azure Multi-factor Authentication은 조건부 액세스로 정책을 적용 하
 * 네트워크 위치 또는 지리적으로 배치 되는 IP 주소
 * 클라이언트 애플리케이션
 * 로그인 위험 (Id 보호 필요)
-* 규정 준수 디바이스
+* 준수 디바이스
 * 하이브리드 Azure AD 조인 디바이스
 * 승인 된 클라이언트 응용 프로그램
 
@@ -69,11 +69,11 @@ Multi-factor [authentication 출시 자료](https://www.microsoft.com/download/d
 
 [Azure AD ID 보호](../identity-protection/howto-configure-risk-policies.md) 는 Azure multi-factor Authentication 사례에 대 한 등록 정책 및 자동화 된 위험 검색 및 수정 정책을 모두 제공 합니다. 다음 [이벤트](../reports-monitoring/concept-risk-events.md)에 의해 로그인이 위험한 것으로 간주 되는 경우, 손상 된 id의 위협이 발생 하거나 MFA를 요구 하는 경우 암호 변경을 강제로 적용 하도록 정책을 만들 수 있습니다.
 
-* 유출된 자격 증명
-* 익명 IP 주소에서 로그인
-* 비정상적 위치로 불가능한 이동
-* 알 수 없는 위치에서 로그인
-* 감염된 디바이스에서 로그인
+* 손실된 자격 증명
+* 익명 IP 주소에서의 로그인
+* 비정상적 위치 간 이동 불가능
+* 일반적이지 않은 위치에서의 로그인
+* 감염된 디바이스에서의 로그인
 * 의심 스러운 활동을 포함 하는 IP 주소에서의 로그인
 
 Azure Active Directory Identity Protection에서 검색 되는 일부 위험 이벤트는 실시간으로 발생 하 고 일부는 오프 라인 처리가 필요 합니다. 관리자는 위험한 동작을 수행 하는 사용자를 차단 하거나 수동으로 재구성 하거나, 암호 변경을 요구 하거나, 조건부 액세스 정책의 일부로 multi-factor authentication을 요구 하도록 선택할 수 있습니다.
@@ -95,7 +95,7 @@ Azure Active Directory Identity Protection에서 검색 되는 일부 위험 이
       2. IP 범위 지정
    2. 국가/지역을 사용 하는 경우
       1. 드롭다운 메뉴를 확장 하 고이 명명 된 위치에 대해 정의 하려는 국가 또는 지역을 선택 합니다.
-      2. 알 수 없는 영역을 포함할지 여부를 결정 합니다. 알 수 없는 영역은 국가/지역에 매핑할 수 없는 IP 주소입니다.
+      2. 알 수 없는 영역을 포함할지 여부를 결정 합니다. 알 수 없는 영역은 국가/지역으로 매핑할 수 없는 IP 주소입니다.
 7. **만들기**
 
 ## <a name="plan-authentication-methods"></a>인증 방법 계획
@@ -109,7 +109,7 @@ Azure Active Directory Identity Protection에서 검색 되는 일부 위험 이
 > [!NOTE]
 > 조직에서 근무 하는 직원이 있거나 중국으로 여행 하는 경우 **Android 장치** 에서 **모바일 앱 방법을 통한 알림이** 해당 국가에서 작동 하지 않습니다. 이러한 사용자에 대해 다른 방법을 사용할 수 있습니다.
 
-### <a name="verification-code-from-mobile-app"></a>모바일 앱의 확인 코드
+### <a name="verification-code-from-mobile-app"></a>모바일 앱을 통한 인증 코드
 
 Microsoft Authenticator 앱과 같은 모바일 앱은 30 초 마다 새 OATH 확인 코드를 생성 합니다. 사용자는 로그인 인터페이스에 확인 코드를 입력합니다. 휴대폰에 데이터 또는 셀룰러 신호가 있는지 여부에 관계 없이 모바일 앱 옵션을 사용할 수 있습니다.
 
@@ -360,6 +360,9 @@ Windows 보안 로그 및 AD FS 관리자 로그에 표준 AD FS 2016 및 2019 �
    1. [Id 보호](../identity-protection/howto-mfa-policy.md) 사용
 1. 사용자 통신 보내기 및 사용자가 등록할 수 있도록 합니다.[https://aka.ms/mfasetup](https://aka.ms/mfasetup)
 1. [등록 된 사용자를 추적 합니다.](#identify-non-registered-users)
+
+> [!TIP]
+> 정부 클라우드 사용자가 등록할 수 있는 위치[https://aka.ms/GovtMFASetup](https://aka.ms/GovtMFASetup)
 
 ## <a name="manage-your-solution"></a>솔루션 관리
 

@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
-manager: jroth
 ms.date: 06/19/2019
-ms.openlocfilehash: 6125fd087d40f9ac6ae24d9200fc0cd1e7843f82
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: d11dd72c65ea32fb5a262f325bdcad0b5a8ab863
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444982"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566646"
 ---
 # <a name="tutorial-add-an-azure-sql-database-single-database-to-a-failover-group"></a>자습서: 장애 조치 (failover) 그룹에 Azure SQL Database 단일 데이터베이스 추가
 
@@ -28,7 +27,7 @@ Azure SQL Database 단일 데이터베이스에 대 한 장애 조치 그룹을 
 > - 두 논리 SQL server 간에 단일 데이터베이스에 대 한 [장애 조치 (failover) 그룹](sql-database-auto-failover-group.md) 을 만듭니다.
 > - 테스트 장애 조치 (failover)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 # <a name="azure-portaltabazure-portal"></a>[Azure Portal](#tab/azure-portal)
 이 자습서를 완료하려면 다음이 설치되어 있어야 합니다. 

@@ -10,10 +10,10 @@ ms.topic: conceptual
 description: Azure Dev Spaces에서 Visual Studio Code 작동 하는 방법
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
 ms.openlocfilehash: 0d80643b366b6d7313f24e73258056e492eb56fc
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68297864"
 ---
 # <a name="how-visual-studio-code-works-with-azure-dev-spaces"></a>Azure Dev Spaces에서 Visual Studio Code 작동 하는 방법
@@ -41,7 +41,7 @@ Dockerfile, 투구 차트 및 `azds.yaml` 파일은를 실행할 `azds prep`때 
 
 AKS 클러스터를 만들고 Visual Studio Code 외부에서 클러스터의 Azure Dev Spaces를 사용 하도록 설정 해야 합니다. 예를 들어 Azure CLI 또는 Azure Portal를 사용 하 여이 설치를 수행할 수 있습니다. 을 실행 `azds.yaml` `azds prep`하 여 생성 된 자산과 같이 Visual Studio Code 외부에서 만든 기존 dockerfiles, 투구 차트 및 파일을 다시 사용할 수 있습니다. Visual Studio Code 외부로 생성 된 자산을 다시 사용 하는 `.vscode` 경우에도 디렉터리가 있어야 합니다. 이 `.vscode` 디렉터리는 Visual Studio code 및 Azure Dev Spaces 확장에 의해 다시 생성 될 수 있으며 기존 자산을 덮어쓰지 않습니다.
 
-.Net Core 프로젝트의 경우 Maven를 설치 하 [고][Maven] Visual Studio Code에서 Java 서비스를 실행 하도록 구성 된 [ C# 확장][csharp-extension] installed to run your .NET service from Visual Studio Code. Also for Java projects using Maven, you must have the [Java Debugger for Azure Dev Spaces extension][java-extension] 프로그램이 설치 되어 있어야 합니다.
+.Net Core 프로젝트의 경우 Visual Studio Code에서 .net 서비스를 실행 하려면 [ C# 확장][csharp-extension] 프로그램이 설치 되어 있어야 합니다. 또한 Maven를 사용 하는 Java 프로젝트의 경우 Visual Studio Code에서 Java 서비스를 실행 하도록 설치 [및 구성][maven] 된 [Azure Dev Spaces 확장을 위한 java 디버거가][java-extension] 설치 되어 있어야 합니다.
 
 ## <a name="debug-your-service-in-aks"></a>AKS에서 서비스 디버그
 

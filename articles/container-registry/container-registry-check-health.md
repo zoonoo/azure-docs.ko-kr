@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 07/02/2019
 ms.author: danlep
 ms.openlocfilehash: 3511655d220ee85ce6b5744612e5d6fddafbe877
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68309726"
 ---
 # <a name="check-the-health-of-an-azure-container-registry"></a>Azure container registry의 상태를 확인 합니다.
 
 Azure container registry를 사용 하는 경우 가끔 문제가 발생할 수 있습니다. 예를 들어 로컬 환경의 Docker 문제로 인해 컨테이너 이미지를 끌어올 수 없습니다. 또는 네트워크 문제로 인해 레지스트리에 연결 하지 못할 수 있습니다. 
 
-첫 번째 진단 단계로 [az acr check 상태][az-acr-check-health] command to get information about the health of the environment and optionally access to a target registry. This command is available in Azure CLI version 2.0.67 or later. If you need to install or upgrade, see [Install Azure CLI][azure-cli]를 실행 합니다.
+첫 번째 진단 단계로 [az acr check-health][az-acr-check-health] 명령을 실행 하 여 환경 상태에 대 한 정보를 가져오고 선택적으로 대상 레지스트리에 액세스 합니다. 이 명령은 Azure CLI 버전 2.0.67 이상에서 사용할 수 있습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli]를 참조하세요.
 
 ## <a name="run-az-acr-check-health"></a>실행 az acr check-health
 
@@ -38,7 +38,7 @@ az acr check-health
 
 ### <a name="check-the-environment-and-a-target-registry"></a>환경 및 대상 레지스트리 확인
 
-레지스트리에 대 한 액세스를 확인 하 고 로컬 환경 검사를 수행 하려면 대상 레지스트리의 이름을 전달 합니다. 예:
+레지스트리에 대 한 액세스를 확인 하 고 로컬 환경 검사를 수행 하려면 대상 레지스트리의 이름을 전달 합니다. 예를 들어:
 
 ```azurecli
 az acr check-health --name myregistry

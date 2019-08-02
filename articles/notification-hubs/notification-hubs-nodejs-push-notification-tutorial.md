@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: 129127a2a43cd9a86e0a1e1cf538358b62381257
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67706223"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Azure Notification Hubs 및 Node.js를 사용하여 푸시 알림 보내기
@@ -46,7 +46,7 @@ Azure Notification Hubs는 모바일 디바이스에 푸시 알림을 보내는 
 
 ## <a name="create-a-nodejs-application"></a>Node.js 애플리케이션 만들기
 
-이 자습서의 첫 번째 단계는 새로운 빈 Node.js 애플리케이션을 만드는 것입니다. Node.js 응용 프로그램을 만드는 방법에 대 한 지침을 참조 하세요 [만들기 및 Azure 웹 사이트에 Node.js 응용 프로그램 배포][nodejswebsite] , [Node.js Cloud Service][Node.js Cloud Service] Windows PowerShell을 사용 하 여 또는 [WebMatrix 사용 하 여 웹 사이트] [webmatrix]합니다.
+이 자습서의 첫 번째 단계는 새로운 빈 Node.js 애플리케이션을 만드는 것입니다. Node.js 응용 프로그램을 만드는 방법에 대 한 지침은 [node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포][nodejswebsite], Windows PowerShell을 사용 하는 [node.js 클라우드 서비스][Node.js Cloud Service] 또는 [WebMatrix를][webmatrix]사용 하는 웹 사이트를 참조 하세요.
 
 ## <a name="configure-your-application-to-use-notification-hubs"></a>Notification Hubs를 사용하도록 애플리케이션 구성
 
@@ -80,7 +80,7 @@ var notificationHubService = azure.createNotificationHubService('hubname','conne
 다음 단계를 수행하여 [Azure Portal]에서 `connectionstring` 연결 값을 가져옵니다.
 
 1. 왼쪽 탐색 창에서 **찾아보기**를 클릭합니다.
-2. **Notification Hubs**를 선택한 다음 샘플로 사용하려는 허브를 찾습니다. 참조할 수 있습니다 합니다 [Windows 스토어 시작 자습서](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) 를 새 알림 허브를 만드는 데 도움이 필요한 경우.
+2. **Notification Hubs**를 선택한 다음 샘플로 사용하려는 허브를 찾습니다. 새 알림 허브를 만드는 데 도움이 필요한 경우 [Windows 스토어 시작 자습서](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) 를 참조할 수 있습니다.
 3. **설정**을 선택합니다.
 4. **액세스 정책**을 클릭합니다. 공유 및 전체 액세스 연결 문자열이 모두 표시됩니다.
 
@@ -106,7 +106,7 @@ var notificationHubService = azure.createNotificationHubService('hubname','conne
 - **Payload** - 메시지의 JSON 또는 원시 문자열 페이로드
 - **Callback** - 콜백 함수.
 
-페이로드 형식에 대 한 자세한 내용은 참조는 [페이로드 설명서](https://distriqt.github.io/ANE-PushNotifications/m.FCM-GCM%20Payload)합니다.
+페이로드 형식에 대 한 자세한 내용은 [페이로드 설명서](https://distriqt.github.io/ANE-PushNotifications/m.FCM-GCM%20Payload)를 참조 하세요.
 
 다음 코드는 `NotificationHubService`에서 공개하는 `GcmService` 인스턴스를 사용하여 등록된 모든 클라이언트에 푸시 알림을 보냅니다.
 

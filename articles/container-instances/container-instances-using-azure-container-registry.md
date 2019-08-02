@@ -10,10 +10,10 @@ ms.date: 01/04/2019
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: 502f178b66e7ba233552d7db4e095363c8bb8628
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68325553"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Azure Container Registry에서 Azure Container Instances에 배포
@@ -32,7 +32,7 @@ ms.locfileid: "68325553"
 
 다음 섹션에서는 Azure Key Vault 및 서비스 주체를 만들고, 자격 증명 모음에 서비스 주체의 자격 증명을 저장합니다. 
 
-### <a name="create-key-vault"></a>주요 자격 증명 모음 만들기
+### <a name="create-key-vault"></a>키 자격 증명 모음 만들기
 
 [Azure Key Vault](../key-vault/key-vault-overview.md)에 자격 증명 모음이 아직 없는 경우 Azure CLI에서 다음 명령을 사용하여 만듭니다.
 
@@ -50,7 +50,7 @@ az keyvault create -g $RES_GROUP -n $AKV_NAME
 
 이제 서비스 주체를 만들고 해당 자격 증명을 주요 자격 증명 모음에 저장해야 합니다.
 
-다음 명령은 [az ad sp create-rbac][az-ad-sp-create-for-rbac] to create the service principal, and [az keyvault secret set][az-keyvault-secret-set] 를 사용 하 여 서비스 주체의 **암호** 를 자격 증명 모음에 저장 합니다.
+다음 명령은 [az ad sp create-rbac][az-ad-sp-create-for-rbac] 를 사용 하 여 서비스 주체를 만들고 [az keyvault secret set][az-keyvault-secret-set] 을 사용 하 여 서비스 주체의 **암호** 를 자격 증명 모음에 저장 합니다.
 
 ```azurecli
 # Create service principal, store its password in AKV (the registry *password*)
@@ -94,7 +94,7 @@ Azure Key Vault을 만들고 다음 두 암호를 저장했습니다.
 ACR_LOGIN_SERVER=$(az acr show --name $ACR_NAME --resource-group $RES_GROUP --query "loginServer" --output tsv)
 ```
 
-다음 [az container create][az-container-create] 명령을 실행 하 여 컨테이너 인스턴스를 배포 합니다. 이 명령은 Azure Key Vault에 저장된 서비스 주체의 자격 증명을 사용하여 컨테이너 레지스트리에서 인증을 받고, 사용자가 이전에 [aci-helloworld](container-instances-quickstart.md) 이미지를 레지스트리에 밀어넣었다고 가정합니다. 레지스트리의 다른 이미지를 사용하려는 경우 `--image` 값을 업데이트합니다.
+다음 [az container create][az-container-create] 명령을 실행하여 컨테이너 인스턴스를 배포합니다. 이 명령은 Azure Key Vault에 저장된 서비스 주체의 자격 증명을 사용하여 컨테이너 레지스트리에서 인증을 받고, 사용자가 이전에 [aci-helloworld](container-instances-quickstart.md) 이미지를 레지스트리에 밀어넣었다고 가정합니다. 레지스트리의 다른 이미지를 사용하려는 경우 `--image` 값을 업데이트합니다.
 
 ```azurecli
 az container create \

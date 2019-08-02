@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: danlep
 ms.openlocfilehash: 05c227e7de078c6bb371049f16e191598b9ca4e5
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68310386"
 ---
 # <a name="upgrade-a-classic-container-registry"></a>Classic 컨테이너 레지스트리 업그레이드
@@ -53,7 +53,7 @@ ACR의 이미지 저장소에 대한 자세한 내용은 [Azure Container Regist
 
 ## <a name="how-to-upgrade"></a>업그레이드하는 방법
 
-관리되지 않는 Classic 레지스트리를 관리되는 SKU로 업그레이드하는 방법에는 여러 가지가 있습니다. 다음 섹션에서는 [Azure CLI][azure-cli] and the [Azure portal][azure-portal]를 사용 하는 프로세스에 대해 설명 합니다.
+관리되지 않는 Classic 레지스트리를 관리되는 SKU로 업그레이드하는 방법에는 여러 가지가 있습니다. 다음 섹션에서는 [Azure CLI][azure-cli] 및 [Azure Portal][azure-portal]를 사용 하는 프로세스에 대해 설명 합니다.
 
 ## <a name="upgrade-in-azure-cli"></a>Azure CLI에서 업그레이드
 

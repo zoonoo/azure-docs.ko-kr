@@ -12,20 +12,22 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/27/2017
+ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 5d3525952ec09474d60618c4f99138cef1fce57a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4560ca2b07826e2a071f515f147dfab8cbec3624
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61417310"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516808"
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>StorSimple 가상 배열 배포 – Azure Portal을 통해 iSCSI 서버로 설정
 
 ![iscsi 설정 프로세스 흐름](./media/storsimple-virtual-array-deploy3-iscsi-setup/iscsi4.png)
 
 ## <a name="overview"></a>개요
+
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
 이 배포 자습서는 Microsoft Azure StorSimple 가상 배열에 적용됩니다. 이 자습서는 iSCSI 서버에서 구성된 StorSimple 가상 배열에서 초기 설정을 수행하고, StorSimple iSCSI 서버를 등록하고, 디바이스 설정을 완료하고, StorSimple 가상 디바이스 iSCSI 서버에서 볼륨을 만들고, 탑재하고, 초기화하고, 포맷하는 방법을 설명합니다. 
 
@@ -88,7 +90,7 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
       > iSCSI 서버를 도메인에 연결하는 경우 가상 배열이 Microsoft Azure Active Directory용 자체 OU(조직 구성 단위)에 있으며 GPO(그룹 정책 개체)가 적용되지 않았는지 확인합니다.
       > 
       > 
-   4. 대화 상자가 표시됩니다. 지정된 형식으로 도메인 자격 증명을 입력합니다. 필터 설정 후에 확인 아이콘 ![확인 아이콘](./media/storsimple-virtual-array-deploy3-iscsi-setup/image15.png). 도메인 자격 증명이 확인됩니다. 자격 증명이 올바르지 않으면 오류 메시지가 표시됩니다.
+   4. 대화 상자가 표시됩니다. 지정된 형식으로 도메인 자격 증명을 입력합니다. 필터 설정 후에 확인 아이콘 ![확인 아이콘](./media/storsimple-virtual-array-deploy3-iscsi-setup/image15.png)을 선택합니다. 도메인 자격 증명이 확인됩니다. 자격 증명이 올바르지 않으면 오류 메시지가 표시됩니다.
       
        ![자격 증명](./media/storsimple-virtual-array-deploy3-iscsi-setup/image8.png)
    5. **적용**을 클릭합니다. 디바이스 설정이 적용되고 유효성 검사가 수행됩니다.
@@ -98,7 +100,7 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
    
     **웹 프록시** 페이지에서:
    
-   1. 제공 된 **웹 프록시 URL** 형식으로: *http:\//host-IP 주소* 또는 *fqdn: port 수*입니다. HTTPS URL은 지원되지 않습니다.
+   1. 다음 형식으로 **웹 프록시 URL** 을 제공 합니다. *http\/:/host-ip 주소* 또는 *FQDN: 포트 번호*. HTTPS URL은 지원되지 않습니다.
    2. **인증**은 **기본** 또는 **없음**으로 지정합니다.
    3. 인증을 사용하는 경우에는 **사용자 이름** 및 **암호**도 제공해야 합니다.
    4. **적용**을 클릭합니다. 구성된 웹 프록시 설정의 유효성을 검사하고 적용합니다.
@@ -195,7 +197,7 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
 4. **iSCSI 초기자 속성** 창의 **대상** 탭에서 **검색된 대상**을 찾습니다. (각 볼륨은 검색된 대상이 됩니다.) 디바이스 상태가 **비활성**으로 표시되어야 합니다.
    
     ![검색된 대상](./media/storsimple-virtual-array-deploy3-iscsi-setup/image24.png)
-5. 대상 디바이스를 선택하고 **연결**을 클릭합니다. 디바이스가 연결되면 상태가 **연결됨**으로 변경됩니다. Microsoft iSCSI 초기자 사용에 대한 자세한 내용은 [Microsoft iSCSI 초기자 설치 및 구성][1]을 참조하세요.
+5. 대상 디바이스를 선택하고 **연결**을 클릭합니다. 디바이스가 연결되면 상태가 **연결됨**으로 변경됩니다. Microsoft iSCSI 초기자를 사용 하는 방법에 대 한 자세한 내용은 [Microsoft Iscsi 초기자 설치 및 구성][1]을 참조 하세요.
    
     ![대상 디바이스 선택](./media/storsimple-virtual-array-deploy3-iscsi-setup/image25.png)
 6. Windows 호스트에서 Windows 로고 키 + X를 누르고 **실행**을 클릭합니다.

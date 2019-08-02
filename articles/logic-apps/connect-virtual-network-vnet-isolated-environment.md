@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
-ms.date: 07/24/2019
-ms.openlocfilehash: cd611918b755ac3d5b6088ec6abe1711962921c7
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.date: 07/26/2019
+ms.openlocfilehash: 5991aec681b00583a9c66328aed601593c864c63
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423235"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68517209"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>ISE(통합 서비스 환경)를 사용하여 Azure Logic Apps에서 Azure 가상 네트워크에 연결
 
@@ -31,20 +31,18 @@ ISE는 실행 지속 시간, 저장소 보존, 처리량, HTTP 요청 및 응답
 
 이 문서에서는 다음 작업을 완료하는 방법을 보여줍니다.
 
-* 가상 네트워크의 모든 서브넷에서 ISE (integration service environment)를 통해 트래픽을 이동할 수 있도록 가상 네트워크에서 필요한 포트가 열려 있는지 확인 합니다.
+* 가상 네트워크의 서브넷에서 ISE를 통해 트래픽을 이동할 수 있도록 가상 네트워크에서 필요한 포트가 열려 있는지 확인 합니다.
 
-* ISE(통합 서비스 환경)를 만듭니다.
+* ISE를 만듭니다.
 
-* ISE에서 실행할 수 있는 논리 앱을 만듭니다.
-
-* ISE에서 논리 앱에 대한 통합 계정을 만듭니다.
+* ISE에 추가 용량을 추가 합니다.
 
 > [!IMPORTANT]
 > ISE에서 실행 되는 논리 앱, 기본 제공 트리거, 기본 제공 작업 및 커넥터는 소비 기반 요금제와 다른 가격 책정 계획을 사용 합니다. ISEs에 대 한 가격 책정 및 청구의 작동 방식에 대 한 자세한 [Logic Apps 내용은 가격 책정 모델](../logic-apps/logic-apps-pricing.md#fixed-pricing)을 참조 하세요. 가격 책정 요금은 [Logic Apps 가격 책정](../logic-apps/logic-apps-pricing.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-* Azure 구독. Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다.
+* Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
 * [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)입니다. 가상 네트워크가 없는 경우 [Azure 가상 네트워크를 만드는](../virtual-network/quick-create-portal.md) 방법을 알아봅니다.
 
@@ -61,17 +59,15 @@ ISE는 실행 지속 시간, 저장소 보존, 처리량, HTTP 요청 및 응답
 
 * Azure 가상 네트워크에 사용자 지정 DNS 서버를 사용 하려면 가상 네트워크에 ISE를 배포 하기 전에 다음 단계를 수행 하 [여 해당 서버를 설정](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) 합니다. 설정하지 않으면 DNS 서버를 변경할 때마다 ISE도 다시 시작해야 합니다. 이 기능은 ISE 공개 미리 보기에서 사용할 수 있습니다.
 
-* [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식
-
 <a name="ports"></a>
 
 ## <a name="check-network-ports"></a>네트워크 포트 확인
 
-가상 네트워크에서 ISE (integration service environment)를 사용 하는 경우 일반적인 설치 문제는 하나 이상의 차단 된 포트를 포함 하는 것입니다. ISE와 대상 시스템 간에 연결을 만드는 데 사용 하는 커넥터에도 자체 포트 요구 사항이 있을 수 있습니다. 예를 들어 FTP 커넥터를 사용하여 FTP 시스템과 통신하는 경우 명령 전송을 위한 포트 21과 같이 FTP 시스템에서 사용하는 포트가 사용 가능한지 확인합니다.
+기존 가상 네트워크에서 ISE를 사용 하는 경우 일반적인 설치 문제는 하나 이상의 차단 된 포트를 포함 하는 것입니다. ISE와 대상 시스템 간에 연결을 만드는 데 사용 하는 커넥터에도 자체 포트 요구 사항이 있을 수 있습니다. 예를 들어 FTP 커넥터를 사용하여 FTP 시스템과 통신하는 경우 명령 전송을 위한 포트 21과 같이 FTP 시스템에서 사용하는 포트가 사용 가능한지 확인합니다.
 
-ISE를 배포 하는 가상 네트워크의 서브넷에서 트래픽을 제어 하기 위해 [서브넷 간 네트워크 트래픽을 필터링](../virtual-network/tutorial-filter-network-traffic.md)하 여 가상 네트워크에서 [nsgs (네트워크 보안 그룹)](../virtual-network/security-overview.md) 를 선택적으로 설정할 수 있습니다. 이 경로를 선택 하는 경우 다음 표에 설명 된 대로 NSGs를 사용 하는 가상 네트워크에서 ISE가 특정 포트를 열어 두어야 합니다. 가상 네트워크에 기존 NSGs 또는 방화벽이 있는 경우 이러한 포트를 열어야 합니다. 이런 방식으로 ISE에 액세스할 수 있으며 ise에 대 한 액세스 권한이 손실 되지 않도록 제대로 작동할 수 있습니다. 그렇지 않으면 필요한 포트를 사용할 수 없는 경우 ISE 작동이 중지 됩니다.
+제약 조건 없이 새 가상 네트워크 및 서브넷을 만든 경우 서브넷 간 트래픽을 제어할 수 있도록 가상 네트워크에서 [NSGs (네트워크 보안 그룹)](../virtual-network/security-overview.md) 를 설정할 필요가 없습니다. 기존 가상 네트워크의 경우 [서브넷 간 네트워크 트래픽을 필터링](../virtual-network/tutorial-filter-network-traffic.md)하 여 *필요* 에 따라 nsgs를 설정할 수 있습니다. 이 경로를 선택 하는 경우 다음 표에 설명 된 대로 NSGs가 있는 가상 네트워크에서 ISE가 특정 포트를 열어 두어야 합니다. 따라서 가상 네트워크에 있는 기존 NSGs 또는 방화벽의 경우 이러한 포트를 열어야 합니다. 이런 방식으로 ISE에 액세스할 수 있으며 ise에 대 한 액세스 권한이 손실 되지 않도록 제대로 작동할 수 있습니다. 그렇지 않으면 필요한 포트를 사용할 수 없는 경우 ISE 작동이 중지 됩니다.
 
-이 표에서는 ISE에서 사용하는 가상 네트워크의 포트 및 해당 포트가 사용되는 위치를 설명합니다. [리소스 관리자 서비스 태그](../virtual-network/security-overview.md#service-tags) 는 보안 규칙을 만들 때 복잡성을 최소화 하는 데 도움이 되는 IP 주소 접두사 그룹을 나타냅니다.
+이 표에서는 ISE에서 사용 하는 가상 네트워크의 포트와 이러한 포트가 사용 되는 위치에 대해 설명 합니다. [리소스 관리자 서비스 태그](../virtual-network/security-overview.md#service-tags) 는 보안 규칙을 만들 때 복잡성을 최소화 하는 데 도움이 되는 IP 주소 접두사 그룹을 나타냅니다.
 
 > [!IMPORTANT]
 > 서브넷 내부 통신의 경우 ISE를 사용 하려면 해당 서브넷 내에서 모든 포트를 열어야 합니다.
@@ -82,8 +78,8 @@ ISE를 배포 하는 가상 네트워크의 서브넷에서 트래픽을 제어 
 | Azure Active Directory | 아웃바운드 | 80 및 443 | VirtualNetwork | AzureActiveDirectory | |
 | Azure Storage 종속성 | 아웃바운드 | 80 및 443 | VirtualNetwork | 저장 공간 | |
 | 상호 서브넷 통신 | 인바운드 및 아웃바운드 | 80 및 443 | VirtualNetwork | VirtualNetwork | 서브넷 간 통신 |
-| Azure Logic Apps로 보내는 통신 | 인바운드 | 443 | 인터넷 | VirtualNetwork | 논리 앱에 있는 요청 트리거 또는 webhook를 호출 하는 컴퓨터 또는 서비스의 IP 주소입니다. 이 포트를 닫거나 차단 하면 요청 트리거를 사용 하 여 논리 앱에 대 한 HTTP 호출을 수행할 수 없습니다.  |
-| 논리 앱 실행 기록 | 인바운드 | 443 | 인터넷 | VirtualNetwork | 논리 앱의 실행 기록을 확인 하는 컴퓨터의 IP 주소입니다. 이 포트를 닫거나 차단 해도 실행 기록이 표시 되지 않지만 해당 실행 기록의 각 단계에 대 한 입력 및 출력은 볼 수 없습니다. |
+| Azure Logic Apps로 보내는 통신 | 인바운드 | 443 | 내부 액세스 끝점: <br>VirtualNetwork <p><p>외부 액세스 끝점: <br>인터넷 <p><p>**참고**: 이러한 끝점은 [ISE 생성 시 선택](#create-environment)된 끝점 설정을 참조 합니다. 자세한 내용은 [끝점 액세스](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access)를 참조 하세요. | VirtualNetwork | 논리 앱에 있는 요청 트리거 또는 webhook를 호출 하는 컴퓨터 또는 서비스의 IP 주소입니다. 이 포트를 닫거나 차단 하면 요청 트리거를 사용 하 여 논리 앱에 대 한 HTTP 호출을 수행할 수 없습니다. |
+| 논리 앱 실행 기록 | 인바운드 | 443 | 내부 액세스 끝점: <br>VirtualNetwork <p><p>외부 액세스 끝점: <br>인터넷 <p><p>**참고**: 이러한 끝점은 [ISE 생성 시 선택](#create-environment)된 끝점 설정을 참조 합니다. 자세한 내용은 [끝점 액세스](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access)를 참조 하세요. | VirtualNetwork | 논리 앱의 실행 기록을 확인 하는 컴퓨터의 IP 주소입니다. 이 포트를 닫거나 차단 해도 실행 기록이 표시 되지 않지만 해당 실행 기록의 각 단계에 대 한 입력 및 출력은 볼 수 없습니다. |
 | 연결 관리 | 아웃바운드 | 443 | VirtualNetwork  | 인터넷 | |
 | 진단 로그 및 메트릭 게시 | 아웃바운드 | 443 | VirtualNetwork  | AzureMonitor | |
 | Azure Traffic Manager에서 통신 | 인바운드 | 443 | AzureTrafficManager | VirtualNetwork | |
@@ -91,7 +87,7 @@ ISE를 배포 하는 가상 네트워크의 서브넷에서 트래픽을 제어 
 | App Service 관리 종속성 | 인바운드 | 454 및 455 | AppServiceManagement | VirtualNetwork | |
 | 커넥터 배포 | 인바운드 | 454 & 3443 | 인터넷  | VirtualNetwork | 커넥터를 배포 및 업데이트 하는 데 필요 합니다. 이 포트를 닫거나 차단 하면 ISE 배포가 실패 하 고 커넥터 업데이트 또는 수정이 방지 됩니다. |
 | Azure SQL 종속성 | 아웃바운드 | 1433 | VirtualNetwork | SQL |
-| Azure Resource Health | 아웃바운드 | 1886 | VirtualNetwork | 인터넷 | Resource Health에 상태를 게시 하는 경우 |
+| Azure Resource Health | 아웃바운드 | 1886 | VirtualNetwork | AzureMonitor | Resource Health에 상태를 게시 하는 경우 |
 | API Management - 관리 엔드포인트 | 인바운드 | 3443 | APIManagement  | VirtualNetwork | |
 | 이벤트 허브에 로그 정책 및 모니터링 에이전트의 종속성 | 아웃바운드 | 5672 | VirtualNetwork  | EventHub | |
 | 역할 인스턴스 간의 Azure Cache for Redis 인스턴스 액세스 | 인바운드 <br>아웃바운드 | 6379-6383 | VirtualNetwork  | VirtualNetwork | 또한 ISE가 Redis 용 Azure Cache를 사용 하도록 하려면 [Azure cache For REDIS FAQ에 설명 된 이러한 아웃 바운드 및 인바운드 포트](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements)를 열어야 합니다. |
@@ -117,14 +113,15 @@ ISE(통합 서비스 환경)를 만들려면 다음 단계를 수행합니다.
 
    ![환경 세부 정보 제공](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-details.png)
 
-   | 속성 | 필수 | Value | Description |
+   | 속성 | 필수 | Value | 설명 |
    |----------|----------|-------|-------------|
    | **구독** | 예 | <*Azure-subscription-name*> | 환경에 사용할 Azure 구독 |
    | **리소스 그룹** | 예 | <*Azure-resource-group-name*> | 환경을 만들려는 Azure 리소스 그룹 |
    | **통합 서비스 환경 이름** | 예 | <*environment-name*> | 환경에 부여할 이름 |
    | **위치** | 예 | <*Azure-datacenter-region*> | 환경을 배포할 Azure 데이터 센터 지역 |
-   | **SKU** | 예 | **프리미엄** 또는 **개발자 (SLA 없음)** | 만들고 사용할 ISE SKU입니다. 이러한 Sku 간의 차이점은 [ISE sku](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)를 참조 하세요. |
+   | **SKU** | 예 | **프리미엄** 또는 **개발자 (SLA 없음)** | 만들고 사용할 ISE SKU입니다. 이러한 Sku 간의 차이점은 [ISE sku](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)를 참조 하세요. <p><p>**중요**: 이 옵션은 ISE를 만들 때만 사용할 수 있으며 나중에 변경할 수 없습니다. |
    | **추가 용량** | 프리미엄: <br>예 <p><p>Developer: <br>해당 사항 없음 | 프리미엄: <br>0 ~ 10 <p><p>Developer: <br>해당 사항 없음 | 이 ISE 리소스에 사용할 추가 처리 단위의 수입니다. 만든 후 용량을 추가 하려면 [ISE 용량 추가](#add-capacity)를 참조 하세요. |
+   | **액세스 끝점** | 예 | **내부** 또는 **외부** | Ise에 사용할 액세스 끝점의 유형입니다. ise에서 논리 앱에 대 한 요청 또는 webhook 트리거는 가상 네트워크 외부에서 호출을 받을 수 있는지 여부를 결정 합니다. 끝점 형식은 논리 앱 실행 기록의 입력 및 출력에 대 한 액세스에도 영향을 줍니다. 자세한 내용은 [끝점 액세스](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access)를 참조 하세요. <p><p>**중요**: 이 옵션은 ISE를 만들 때만 사용할 수 있으며 나중에 변경할 수 없습니다. |
    | **가상 네트워크** | 예 | <*Azure-virtual-network-name*> | 해당 환경의 논리 앱이 가상 네트워크에 액세스할 수 있도록 환경을 삽입하려는 Azure 가상 네트워크입니다. 네트워크가 없는 경우 [먼저 Azure virtual network를 만듭니다](../virtual-network/quick-create-portal.md). <p>**중요**: ISE를 만들 때*만* 이 삽입을 수행할 수 있습니다. |
    | **서브넷** | 예 | <*subnet-resource-list*> | ISE에는 사용자 환경에서 리소스를 만들고 배포 하기 위해 네 개의 *빈* 서브넷이 필요 합니다. 각 서브넷을 만들려면 [이 테이블 아래의 단계를 따릅니다](#create-subnet).  |
    |||||
@@ -139,7 +136,7 @@ ISE(통합 서비스 환경)를 만들려면 다음 단계를 수행합니다.
 
    * 는 클래스 없는 [CIDR (도메인 간 라우팅) 형식](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) 및 클래스 B 주소 공간을 사용 합니다.
 
-   * 각 서브넷에 최소한 `/27` 32 *이상의* 주소가 있어야 하므로 주소 공간에 적어도를 사용 *합니다.* 예를 들어:
+   * 각 서브넷에 최소한 `/27` 32 *이상의* 주소가 있어야 하므로 주소 공간에 적어도를 사용 *합니다.* 예:
 
      * `10.0.0.0/27`2<sup>(32-27)</sup> 가 2<sup>5</sup> 또는 32 이기 때문에 32 주소가 있습니다.
 
@@ -177,6 +174,8 @@ ISE(통합 서비스 환경)를 만들려면 다음 단계를 수행합니다.
       > [!NOTE]
       > 만들려고 하는 서브넷이 유효 하지 않은 경우 Azure Portal 메시지를 표시 하지만 진행 상황을 차단 하지는 않습니다.
 
+   서브넷을 만드는 방법에 대 한 자세한 내용은 [가상 네트워크 서브넷 추가](../virtual-network/virtual-network-manage-subnet.md)를 참조 하세요.
+
 1. 예를 들어 Azure에서 성공적으로 ISE 정보의 유효성 검사를 완료하면 **만들기**를 선택합니다.
 
    ![유효성 검사에 성공하면 "만들기" 선택](./media/connect-virtual-network-vnet-isolated-environment/ise-validation-success.png)
@@ -198,61 +197,11 @@ ISE(통합 서비스 환경)를 만들려면 다음 단계를 수행합니다.
    > 가상 네트워크를 삭제 하는 경우 아직 연결 된 리소스가 없는지 확인 합니다. 
    > [가상 네트워크 삭제](../virtual-network/manage-virtual-network.md#delete-a-virtual-network)를 참조 하세요.
 
-1. 배포가 완료된 후에 Azure가 환경으로 자동으로 이동하지 않는 경우 환경을 보려면 **리소스로 이동**을 선택합니다.  
+1. 배포가 완료된 후에 Azure가 환경으로 자동으로 이동하지 않는 경우 환경을 보려면 **리소스로 이동**을 선택합니다.
 
-서브넷을 만드는 방법에 대 한 자세한 내용은 [가상 네트워크 서브넷 추가](../virtual-network/virtual-network-manage-subnet.md)를 참조 하세요.
+1. ISE에 대 한 네트워크 상태를 확인 하려면 [통합 서비스 환경 관리](../logic-apps/ise-manage-integration-service-environment.md#check-network-health)를 참조 하세요.
 
-<a name="create-logic-apps-environment"></a>
-
-## <a name="create-logic-app---ise"></a>논리 앱 만들기 - ISE
-
-ISE (통합 서비스 환경)에서 실행 되는 논리 앱을 만들려면 다음 단계를 수행 합니다.
-
-1. ISE를 찾아 엽니다 (아직 열지 않은 경우). ISE 메뉴의 **설정**에서 **논리 앱** > **추가**를 선택 합니다.
-
-   ![ISE에 새 논리 앱 추가](./media/connect-virtual-network-vnet-isolated-environment/add-logic-app-to-ise.png)
-
-   또는
-
-   Azure 주 메뉴에서 **리소스 만들기** > **통합** > **논리 앱**을 차례로 선택합니다.
-
-1. 논리 앱에 사용할 이름, Azure 구독 및 Azure 리소스 그룹 (신규 또는 기존)을 제공 합니다.
-
-1. **위치** 목록의 **Integration service ENVIRONMENT** 섹션에서 ISE를 선택 합니다. 예를 들면 다음과 같습니다.
-
-   ![통합 서비스 환경 선택](./media/connect-virtual-network-vnet-isolated-environment/create-logic-app-with-ise.png)
-
-   > [!IMPORTANT]
-   > 통합 계정을 사용 하 여 논리 앱을 사용 하려는 경우 해당 논리 앱과 통합 계정은 동일한 ISE를 사용 해야 합니다.
-
-1. [일반적인 방법으로 논리 앱](../logic-apps/quickstart-create-first-logic-app-workflow.md)을 계속 만듭니다.
-
-트리거 및 작업이 작동 하는 방식과 ISE를 사용 하 여 글로벌 Logic Apps 서비스에 표시 되는 방식에 대 한 차이점 [은 ise 개요에서 격리 된 vs global](connect-virtual-network-vnet-isolated-environment-overview.md#difference)을 참조 하세요.
-
-<a name="create-integration-account-environment"></a>
-
-## <a name="create-integration-account---ise"></a>통합 계정 만들기 - ISE
-
-생성 시 선택 된 [ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) 에 따라 ise에 추가 비용 없이 특정 통합 계정 사용이 포함 됩니다. ISE (integration service environment)에 있는 논리 앱은 동일한 ISE에 있는 통합 계정만 참조할 수 있습니다. 따라서 통합 계정이 ISE에서 논리 앱과 작동 하려면 통합 계정 및 논리 앱 모두 해당 위치와 *동일한 환경을* 사용 해야 합니다. 통합 계정 및 ISEs에 대 한 자세한 내용은 ISE [](connect-virtual-network-vnet-isolated-environment-overview.md#create-integration-account-environment
-)와 통합 계정을 참조 하세요.
-
-ISE를 사용 하는 통합 계정을 만들려면 다음 단계를 수행 합니다.
-
-1. ISE를 찾아 엽니다 (아직 열지 않은 경우). ISE 메뉴의 **설정**에서 **통합 계정** > **추가**를 선택 합니다.
-
-   ![ISE에 새 통합 계정 추가](./media/connect-virtual-network-vnet-isolated-environment/add-integration-account-to-ise.png)
-
-   또는
-
-   기본 Azure 메뉴에서 **리소스** > 만들기**통합** > **통합 계정**을 선택 합니다.
-
-1. 통합 계정에 사용할 이름, Azure 구독, Azure 리소스 그룹 (신규 또는 기존) 및 가격 책정 계층을 제공 합니다.
-
-1. **위치** 목록의 **Integration service environment** 섹션에서 논리 앱이 사용 하는 것과 동일한 ISE를 선택 합니다. 예를 들면 다음과 같습니다.
-
-   ![통합 서비스 환경 선택](./media/connect-virtual-network-vnet-isolated-environment/create-integration-account-with-integration-service-environment.png)
-
-1. [일반적인 방법으로 통합 계정 만들기](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)를 계속 합니다.
+1. ISE에서 논리 앱 및 기타 아티팩트 만들기를 시작 하려면 [integration service environment에 아티팩트 추가](../logic-apps/add-artifacts-integration-service-environment-ise.md)를 참조 하세요.
 
 <a name="add-capacity"></a>
 
@@ -279,7 +228,6 @@ ISE를 사용 하는 통합 계정을 만들려면 다음 단계를 수행 합�
    * 메트릭 기반을 선택 하는 경우 다음 단계를 수행 합니다.
 
      1. **규칙** 섹션에서 **규칙 추가**를 선택 합니다.
-
      1. 규칙 **크기 조정** 창에서 규칙을 트리거할 때 사용할 조건 및 작업을 설정 합니다.
 
      1. 완료 되 면 **추가**를 선택 합니다.
@@ -288,5 +236,7 @@ ISE를 사용 하는 통합 계정을 만들려면 다음 단계를 수행 합�
 
 ## <a name="next-steps"></a>다음 단계
 
+* [Integration service environment에 아티팩트 추가](../logic-apps/add-artifacts-integration-service-environment-ise.md)
+* [통합 서비스 환경의 네트워크 상태 확인](../logic-apps/ise-manage-integration-service-environment.md#check-network-health)
 * [Azure Virtual Network](../virtual-network/virtual-networks-overview.md)에 대해 자세히 알아보기
 * [Azure 서비스에 대한 가상 네트워크 통합](../virtual-network/virtual-network-for-azure-services.md)에 대해 알아보기

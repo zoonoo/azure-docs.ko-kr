@@ -1,18 +1,19 @@
 ---
 title: Azure에 워크로드를 백업하도록 DPM 서버 준비
 description: Azure Recovery Services 자격 증명 모음에 DPM 데이터를 백업하는 내용을 소개합니다.
-author: kasinh
-manager: vvithal
+ms.reviewer: kasinh
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.author: kasinh
-ms.openlocfilehash: 09c324fa1c24c56ede431fab8e175b166a52b438
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 0c762054ed0df3a3781dda7057ff8793dbf82565
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466573"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689297"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>System Center DPM을 사용하여 Azure에 워크로드를 백업하도록 준비
 

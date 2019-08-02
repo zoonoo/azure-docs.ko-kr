@@ -1,24 +1,24 @@
 ---
-title: Azure Active Directory 조직을 등록 | Microsoft Docs
+title: 조직 등록-Azure Active Directory | Microsoft Docs
 description: Azure 및 Azure Active Directory를 사용하기 위해 조직을 등록하는 방법에 대한 지침입니다.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bec4385b77ce44e87ed1f947a5a7a3e3d0d52fc6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: eb306e1ecbbdf2142d88b837b9750bbd2166cfda
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60246906"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561627"
 ---
 # <a name="sign-up-your-organization-to-use-azure-active-directory"></a>Azure Active Directory를 사용하기 위해 조직 등록
 다음 중 하나를 사용하여 Azure AD(Azure Active Directory) 또는 새로운 Microsoft Azure 구독을 가입합니다.

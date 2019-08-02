@@ -10,10 +10,10 @@ ms.date: 07/08/2019
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: 25cac6a66baeb1587e4b5ba3f0923ca9c4394706
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68325494"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Azure Container Instances에서 Azure 파일 공유 탑재
@@ -83,13 +83,13 @@ az container create \
 
 ## <a name="manage-files-in-mounted-volume"></a>탑재된 볼륨의 파일 관리
 
-컨테이너가 시작 되 면 Microsoft [aci-aci-hellofiles][aci-hellofiles] image to create small text files in the Azure file share at the mount path you specified. Obtain the web app's fully qualified domain name (FQDN) with the [az container show][az-container-show] 명령을 통해 배포 된 간단한 웹 앱을 사용할 수 있습니다.
+컨테이너가 시작 되 면 Microsoft [aci-aci-hellofiles][aci-hellofiles] 이미지를 통해 배포 된 간단한 웹 앱을 사용 하 여 지정한 탑재 경로에서 Azure 파일 공유에 작은 텍스트 파일을 만들 수 있습니다. [Az container show][az-container-show] 명령을 사용 하 여 웹 앱의 FQDN (정규화 된 도메인 이름)을 가져옵니다.
 
 ```azurecli-interactive
 az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --query ipAddress.fqdn --output tsv
 ```
 
-앱을 사용 하 여 텍스트를 저장 한 후 [Azure Portal][portal] or a tool like the [Microsoft Azure Storage Explorer][storage-explorer] 를 사용 하 여 파일 공유에 작성 된 파일을 검색 하 고 검사할 수 있습니다.
+앱을 사용 하 여 텍스트를 저장 한 후 [Azure Portal][portal] 또는 [Microsoft Azure Storage 탐색기][storage-explorer] 같은 도구를 사용 하 여 파일 공유에 작성 된 파일을 검색 하 고 검사할 수 있습니다.
 
 ## <a name="deploy-container-and-mount-volume---yaml"></a>컨테이너 및 탑재 볼륨 배포-YAML
 

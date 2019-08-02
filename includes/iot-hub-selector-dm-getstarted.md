@@ -4,20 +4,20 @@ ms.author: wesmc
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: 19331f35ea2fa773325ec61e728677e37767ab54
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 60c0c700dde5afda2ca93a92b334cbc4f0134043
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182307"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667973"
 ---
 > [!div class="op_single_selector"]
-> * [장치: Node.js 서비스: Node.js](../articles/iot-hub/iot-hub-node-node-device-management-get-started.md)
-> * [장치: C#서비스: C#](../articles/iot-hub/iot-hub-csharp-csharp-device-management-get-started.md)
-> * [장치: Java Service: Java](../articles/iot-hub/iot-hub-java-java-device-management-getstarted.md)
-> * [장치: Python Service: Python](../articles/iot-hub/iot-hub-python-python-device-management-get-started.md)
+> * [Node.js](../articles/iot-hub/iot-hub-node-node-device-management-get-started.md)
+> * [.NET](../articles/iot-hub/iot-hub-csharp-csharp-device-management-get-started.md)
+> * [Java](../articles/iot-hub/iot-hub-java-java-device-management-getstarted.md)
+> * [Python](../articles/iot-hub/iot-hub-python-python-device-management-get-started.md)
 
-백 엔드 앱은 Azure IoT Hub 기본 형식, 즉 [디바이스 쌍][lnk-devtwin] 및 [직접 메서드][lnk-c2dmethod]를 사용하여 디바이스에서 디바이스 관리 작업을 원격으로 시작하고 모니터링할 수 있습니다. 이 자습서에서는 백 엔드 앱 및 디바이스 앱이 함께 작동하여 IoT Hub를 사용하여 원격 디바이스 다시 부팅을 시작하고 모니터링하는 방법을 보여 줍니다.
+백 엔드 앱은 장치 [쌍 및][lnk-devtwin] [직접 메서드와][lnk-c2dmethod]같은 Azure IoT Hub 기본 형식을 사용 하 여 장치에서 장치 관리 작업을 원격으로 시작 하 고 모니터링할 수 있습니다. 이 자습서에서는 백 엔드 앱 및 디바이스 앱이 함께 작동하여 IoT Hub를 사용하여 원격 디바이스 다시 부팅을 시작하고 모니터링하는 방법을 보여 줍니다.
 
 [!INCLUDE [iot-hub-basic](iot-hub-basic-whole.md)]
 

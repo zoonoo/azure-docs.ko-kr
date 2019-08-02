@@ -1,18 +1,19 @@
 ---
 title: Azure 구독 간에 또는 다른 리소스 그룹으로 Recovery Services 자격 증명 모음 이동
 description: Azure 구독 및 리소스 그룹에서 복구 서비스 자격 증명 모음을 이동하는 지침입니다.
-author: sogup
-manager: vijayts
+ms.reviewer: sogup
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.author: sogup
-ms.openlocfilehash: 0e351a842a303430e66a52a87305cba23f774ef2
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 83c1c19490470ba88837af4c1ced6352c62e36f4
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465810"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689163"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Azure 구독 및 리소스 그룹 간에 Recovery Services 자격 증명 모음 이동
 

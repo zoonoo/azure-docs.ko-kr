@@ -4,7 +4,7 @@ titleSuffix: Azure
 description: Linux 데이터 과학 VM을 사용하여 몇 가지 일반적인 데이터 과학 작업을 수행하는 방법입니다.
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 editor: cgronlun
 ms.custom: seodec18
@@ -16,13 +16,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
-ms.author: gokuma
-ms.openlocfilehash: 6e8883870cc0f035df5122e91449f04203836218
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: vijetaj
+ms.openlocfilehash: df05b2605f3553ce26447a4f8e2440002b75ec3a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60516907"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68557338"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Azure에서 Linux 데이터 과학 Virtual Machine을 사용하여 데이터 과학
 이 연습에서는 Linux 데이터 과학 VM을 사용하여 몇 가지 일반 데이터 과학 작업을 수행하는 방법을 보여 줍니다. Linux DSVM(데이터 과학 Virtual Machine)은 데이터 분석 및 기계 학습에 흔히 사용되는 도구 모음과 함께 미리 설치된, Azure에서 사용 가능한 가상 머신 이미지입니다. 주요 소프트웨어 구성 요소는 [Linux 데이터 과학 Virtual Machine 프로비전](linux-dsvm-intro.md) 항목에 항목별로 나와 있습니다. VM 이미지를 사용하면 각 도구를 개별적으로 설치하고 구성할 필요 없이 몇 분 내에 데이터 과학 작업을 쉽게 시작할 수 있습니다. 필요한 경우 VM을 쉽게 확장하고 사용하지 않을 때 중지할 수 있습니다. 따라서 이 리소스는 탄력적이고 비용 효율적입니다.
@@ -31,13 +31,13 @@ ms.locfileid: "60516907"
 
 이 연습에서는 [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) 데이터 세트를 분석합니다. 이는 스팸 또는 햄(스팸이 아니라는 의미)으로 표시되는 메일 집합이며 메일의 내용에 대한 일부 통계도 포함합니다. 포함되어 있는 통계는 다음 한 섹션에만 설명되어 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 Linux 데이터 과학 Virtual Machine을 사용하려면 먼저 다음이 있어야 합니다.
 
 * **Azure 구독**. 아직 없을 경우 [지금 무료 Azure 계정 만들기](https://azure.microsoft.com/free/)를 참조하세요.
 * [**Linux 데이터 과학 VM**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). 이 VM 프로비전에 대한 자세한 내용은 [Linux 데이터 과학 Virtual Machine 프로비전](linux-dsvm-intro.md)을 참조하세요.
 * [X2Go](https://wiki.x2go.org/doku.php) . **X2Go 클라이언트**설치 및 구성에 대한 자세한 내용은 [X2Go 클라이언트 설치 및 구성](linux-dsvm-intro.md#installing-and-configuring-x2go-client)을 참조하세요.
-* 더 부드러운 스크롤 경험을 원할 경우 VMS FireFox 브라우저의 about:config에서 gfx.xrender.enabled 플래그를 전환합니다. [여기에서 자세한 내용을 알아보세요](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). *mousewheel.enable_pixel_scrolling*을 False로 전환해 보세요. [여기의 지침을 참조하세요.](https://support.mozilla.org/en-US/questions/981140)
+* 더 부드러운 스크롤 경험을 원할 경우 VMS FireFox 브라우저의 about:config에서 gfx.xrender.enabled 플래그를 전환합니다. [여기에서 자세한 내용을 알아보세요](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). *mousewheel.enable_pixel_scrolling*을 False로 전환해 보세요. [여기의 지침을 참조하세요.](https://support.mozilla.org/questions/981140)
 * **AzureML 계정**. 아직 없을 경우 [AzureML 홈 페이지](https://studio.azureml.net/)에서 새 계정을 등록합니다. 시작할 수 있도록 무료 사용 계층을 제공합니다.
 
 ## <a name="download-the-spambase-dataset"></a>spambase 데이터 세트 다운로드
@@ -423,7 +423,7 @@ Rattle의 뛰어난 기능 중 하나는 여러 기계 학습 방법을 실행�
 모델 빌드가 완료된 후 **로그** 탭을 선택하면 세션 동안 Rattle에서 실행한 R 코드를 볼 수 있습니다. **내보내기** 단추를 선택하여 저장할 수 있습니다.
 
 > [!NOTE]
-> 현재 릴리스의 Rattle에 버그가 있습니다. 를 스크립트를 수정 하거나 나중에 단계를 반복 하는 데 사용할 앞에 # 문자를 삽입 해야 *이 로그를 내보내는 중...*  로그의 텍스트에서입니다.
+> 현재 릴리스의 Rattle에 버그가 있습니다. 스크립트를 수정 하거나 나중에 단계를 반복 하는 데 사용 하려면 로그 텍스트에서 *이 로그 내보내기* ... 앞에 # 문자를 삽입 해야 합니다.
 >
 >
 
@@ -495,7 +495,7 @@ PostgreSQL용 대화형 터미널인 psql을 기본 제공 postgres 사용자로
 * *사용자 이름* 및 *암호*를 입력합니다.
 * **확인**을 클릭합니다.
 * **연결** 창을 열려면 별칭 ***스팸 데이터베이스***를 두 번 클릭합니다.
-* **연결**을 선택합니다.
+*           **연결**을 선택합니다.
 
 일부 쿼리를 실행하려면
 

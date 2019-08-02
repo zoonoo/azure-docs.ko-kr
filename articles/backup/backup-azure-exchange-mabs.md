@@ -1,18 +1,19 @@
 ---
 title: Azure Backup Server를 사용하여 Azure 백업에 Exchange 서버 백업
 description: Azure Backup Server를 사용하여 Azure 백업에 Exchange 서버를 백업하는 방법을 알아봅니다.
-author: kasinh
-manager: vvithal
+ms.reviewer: kasinh
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.author: kasinh
-ms.openlocfilehash: 0eacd295e279a3b3bcfbdad2c67cac7160f8dcb3
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 89ad5cac462384e8c688ae9ca68c5ae309249a71
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466387"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689291"
 ---
 # <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>Azure Backup Server를 사용하여 Azure에 Exchange 서버 백업
 이 문서에서는 Microsoft Azure Backup Server(MABS)를 구성하여 Azure에 Microsoft Exchange server를 백업하는 방법을 설명합니다.  
@@ -70,7 +71,7 @@ Exchange 서버에서 MABS 보호 에이전트를 설치하려면 다음 단계�
 14. Azure에 백업하려는 데이터베이스를 선택하고 **다음**을 클릭합니다. 예를 들어:
 
     ![온라인 보호 데이터 지정](./media/backup-azure-backup-exchange-server/specify-online-protection-data.png)
-15. **Azure Backup**에 대한 일정을 정의하고 **다음**을 클릭합니다. 예를 들어:
+15. **Azure Backup**에 대한 일정을 정의하고 **다음**을 클릭합니다. 예:
 
     ![온라인 백업 일정 지정](./media/backup-azure-backup-exchange-server/specify-online-backup-schedule.png)
 

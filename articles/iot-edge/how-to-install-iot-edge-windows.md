@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 7f20e04fa65d0266d9e77b8bbcf2e2c4b1fd9eab
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 1af6ed2743807f75e96bed0ae67d0070aa55c0ef
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227463"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677458"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Windows에 Azure IoT Edge 런타임 설치
 
@@ -39,7 +39,7 @@ Windows 시스템에서 Linux 컨테이너를 사용하는 것은 Azure IoT Edge
 
 최신 버전의 IoT Edge에 포함 된 내용에 대 한 자세한 내용은 [Azure IoT Edge 릴리스](https://github.com/Azure/azure-iotedge/releases)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 이 섹션을 사용하여 Windows 디바이스에서 IoT Edge를 지원할 수 있는지 여부를 검토하고 설치 전에 컨테이너 엔진에 대해 준비합니다. 
 
@@ -142,23 +142,21 @@ PowerShell 스크립트가 Azure IoT Edge 보안 디먼을 다운로드하여 �
 
 1. 이 시점에서 IoT Core 장치가 자동으로 다시 시작 될 수 있습니다. 다른 Windows 10 또는 Windows Server 장치를 다시 시작 하 라는 메시지가 표시 될 수 있습니다. 그렇다면 장치를 지금 다시 시작 하세요. 장치가 준비 되 면 관리자 권한으로 PowerShell을 다시 실행 합니다.
 
-1. **Initialize IoTEdge** 명령은 사용자의 머신에서 IoT Edge 런타임을 구성합니다. 이 명령은 Windows 컨테이너를 통한 수동 프로비저닝으로 기본 설정됩니다. 수동 프로 `-Dps` 비전 대신 장치 프로 비전 서비스를 사용 하려면 플래그를 사용 합니다.
+1. **Initialize IoTEdge** 명령은 사용자의 머신에서 IoT Edge 런타임을 구성합니다. 이 명령은 Windows 컨테이너를 통한 수동 프로비저닝으로 기본 설정됩니다. 수동 프로 `-Dps` 비전 대신 장치 프로 비전 서비스를 사용 하려면 플래그를 사용 합니다. 를 `{scope ID}` 장치 프로 비전 `{registration ID}` 서비스의 범위 ID로 바꾸고,을 장치에서 등록 ID로 바꾸고,이 둘은 1 단계에서 검색 해야 합니다.
 
    TPM 증명을 사용 하 여 DPS를 사용 하는 **Initialize IoTEdge** 명령을 사용 합니다.
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Initialize-IoTEdge -Dps
+   Initialize-IoTEdge -Dps -ScopeId {scope ID} -RegistrationId {registration ID}
    ```
 
    **Initialize-IoTEdge** 명령을 사용 하 여 대칭 키 증명에 DPS를 사용 합니다. 장치 `{symmetric key}` 키로 대체 합니다.
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Initialize-IoTEdge -Dps -SymmetricKey {symmetric key}
+   Initialize-IoTEdge -Dps -ScopeId {scope ID} -RegistrationId {registration ID} -SymmetricKey {symmetric key}
    ```
-
-1. 메시지가 표시 되 면 장치 프로 비전 서비스의 범위 ID 및 장치에서 등록 ID를 제공 합니다 .이 id는 1 단계에서 검색 해야 합니다.
 
 1. [설치 성공 확인](#verify-successful-installation) 의 단계를 사용 하 여 장치에서 IoT Edge 상태를 확인 합니다. 
 
@@ -297,7 +295,7 @@ Initialize IoTEdge 명령은 장치 연결 문자열 및 작업 세부 정보를
 | **Dps** | 없음 | **매개 변수를 전환**합니다. 프로 비전 유형을 지정 하지 않으면 manual이 기본값입니다.<br><br>DPS(Device Provisioning Service) 범위 ID 및 디바이스의 등록 ID를 제공하여 DPS를 통해 프로비전할 것을 선언합니다.  |
 | **DeviceConnectionString** | IoT Hub에 등록된 IoT Edge 디바이스의 연결 문자열을 작은따옴표 안에 표시합니다. | 수동 설치에 **필요**합니다. 스크립트 매개 변수에 연결 문자열을 제공하지 않을 경우 설치 중에 확인 메시지가 표시됩니다. |
 | **ScopeId** | IoT Hub와 연결된 Device Provisioning Service 인스턴스의 범위 ID입니다. | DPS 설치에 **필요**합니다. 스크립트 매개 변수에 범위 ID를 제공하지 않을 경우 설치 중에 확인 메시지가 표시됩니다. |
-| **RegistrationId** | 디바이스에서 생성된 등록 ID입니다. | DPS 설치에 **필요**합니다. 스크립트 매개 변수에 등록 ID를 제공하지 않을 경우 설치 중에 확인 메시지가 표시됩니다. |
+| **RegistrationId** | 디바이스에서 생성된 등록 ID입니다. | DPS 설치에 **필요**합니다. |
 | **SymmetricKey** | DPS를 사용할 때 IoT Edge 장치 id를 프로 비전 하는 데 사용 되는 대칭 키입니다. | 대칭 키 증명을 사용 하는 경우 DPS 설치에 **필요** 합니다. |
 | **ContainerOs** | **Windows** 또는 **Linux** | 컨테이너 운영 체제가 지정 되지 않은 경우 Windows가 기본값입니다.<br><br>Windows 컨테이너의 경우 IoT Edge는 설치에 포함 된 moby 컨테이너 엔진을 사용 합니다. Linux 컨테이너의 경우 설치를 시작하기 전에 컨테이너 엔진을 설치해야 합니다. |
 | **InvokeWebRequestParameters** | 매개 변수 및 값의 해시 테이블입니다. | 설치 중에 여러 개의 웹 요청이 생성됩니다. 이 필드를 사용하여 해당 웹 요청에 대한 매개 변수를 설정합니다. 이 매개 변수는 프록시 서버에 대한 자격 증명을 구성하는 데 유용합니다. 자세한 내용은 [프록시 서버를 통해 통신하도록 IoT Edge 디바이스 구성](how-to-configure-proxy-support.md)을 참조하세요. |

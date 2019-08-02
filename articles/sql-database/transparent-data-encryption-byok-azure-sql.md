@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
-manager: craigg
 ms.date: 07/18/2019
-ms.openlocfilehash: cdd5e29fcc01639c03da70614f53ac648ee6620c
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 6b1b706e68b090090ed4268b70b7c9d254f8b629
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68318574"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596702"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-keys-in-azure-key-vault-bring-your-own-key-support"></a>Azure Key Vault의 고객 관리형 키를 사용하여 Azure SQL 투명한 데이터 암호화: Bring Your Own Key 지원
 
@@ -87,14 +86,14 @@ TDE가 처음으로 Key Vault에서 TDE 보호기를 사용하도록 구성되�
 
 ### <a name="guidelines-for-configuring-the-tde-protector-asymmetric-key"></a>TDE 보호기(비대칭 키) 구성을 위한 지침
 
-- 로컬 HSM 디바이스에 로컬로 암호화 키를 만듭니다. Azure Key Vault에 저장할 수 있도록 비대칭 RSA 2048 키인지 확인합니다.
+- 로컬 HSM 디바이스에 로컬로 암호화 키를 만듭니다. 이는 Azure Key Vault에 저장할 수 있도록 비대칭, RSA 2048 또는 RSA HSM 2048 키 인지 확인 합니다.
 - 키 에스크로 시스템에서 키를 에스크로합니다.  
 - 암호화 키 파일(.pfx, .byok 또는 .backup)을 Azure Key Vault로 가져옵니다.
 
    > [!NOTE]
    > 그러나 테스트를 위해 Azure Key Vault로 키를 만들 수는 있지만 프라이빗 키가 키 자격 증명 모음을 벗어날 수 없으므로 이 키는 에스크로할 수 없습니다.  키가 손실되면(키 자격 증명 모음에서 실수로 인한 삭제, 만료 등) 영구적인 데이터 손실이 발생하므로 프로덕션 데이터를 암호화하는 데 사용되는 키는 항상 백업하고 에스크로합니다.
 
-- 만료 날짜가 포함 된 키를 사용 하는 경우-만료 되기 전에 키를 회전 하는 만료 경고 시스템을 구현 **합니다. 키가 만료 되 면 암호화 된 데이터베이스는 TDE 보호기에 대 한 액세스 권한을 상실 하 고 액세스할 수** 없게 되며 모든 로그온이 거부 됩니다. 키가 새 키로 회전 되었습니다.
+- 만료 날짜가 포함 된 키를 사용 하는 경우-만료 되기 전에 키를 회전 하는 만료 경고 시스템을 구현 **합니다. 키가 만료 되 면 암호화 된 데이터베이스는 TDE 보호기에 대 한 액세스 권한을 상실 하 고 액세스할 수** 없게 되며 모든 로그온이 거부 됩니다. 키가 새 키로 회전 되 고 논리 SQL server에 대 한 새 키 및 기본 TDE 보호기로 선택 됩니다.
 - 키를 사용하도록 설정되어 있고 *가져오기*, *키 래핑* 및 *키 래핑 해제* 작업을 수행할 수 있는 권한이 있는지 확인합니다.
 - Azure Key Vault에서 처음으로 키를 사용하기 전에 Azure Key Vault 키 백업을 만듭니다. [AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey) 명령에 대해 자세히 알아보세요.
 - 키가 변경될 때마다(예: ACL 추가, 태그 추가, 키 특성 추가) 새 백업을 만듭니다.
@@ -107,7 +106,7 @@ TDE가 처음으로 Key Vault에서 TDE 보호기를 사용하도록 구성되�
 
 논리 SQL server가 Azure Key Vault의 고객이 관리 하는 TDE 보호기에 대 한 액세스 권한을 상실 하는 경우 데이터베이스는 모든 연결을 거부 하 고 Azure Portal에 액세스할 수 없는 것으로 표시 합니다.  이에 대 한 가장 일반적인 원인은 다음과 같습니다.
 - 키 자격 증명 모음이 실수로 삭제 되거나 방화벽 뒤에 있는 경우
-- 키 자격 증명 모음 키가 실수로 삭제 되거나 만료 됨
+- 키 자격 증명 모음 키 실수로 삭제, 사용 안 함 또는 만료 됨
 - 논리적 SQL Server 인스턴스 AppId가 실수로 삭제 됨
 - 논리적 SQL Server 인스턴스 AppId의 키 관련 권한 취소
 
@@ -146,7 +145,7 @@ Azure Key Vault를 사용하여 고가용성을 구성하는 방법은 데이터
 
 ### <a name="azure-key-vault-configuration-steps"></a>Azure Key Vault 구성 단계
 
-- [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) 설치
+- [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-az-ps) 설치
 - PowerShell을 사용하여 서로 다른 두 역에 두 개의 Azure Key Vault를 만들어 [키 자격 증명 모음에서 "일시 삭제" 속성을 사용하도록 설정](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell)합니다. 이 옵션은 AKV 포털에서 아직 사용할 수 없지만 SQL에서 필요합니다.
 - 키의 백업 및 복원이 작동하려면 두 개의 Azure Key Vault가 모두 동일한 Azure 지역에서 사용할 수 있는 두 지역에 있어야 합니다.  SQL Geo-DR 요구 사항에 따라 두 개의 Key Vault를 서로 다른 지역에 배치해야 하는 경우 온-프레미스 HSM에서 키를 가져올 수 있는 [BYOK 프로세스](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys)를 따릅니다.
 - 첫 번째 키 자격 증명 모음에 다음과 같은 새 키를 만듭니다.  

@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: ecb2059e529347b7eff72bf6af74b82558a4c251
-ms.sourcegitcommit: 83a89c45253b0d432ce8dcd70084c18e9930b1fd
+ms.openlocfilehash: 4688cf6fb82eb8f726205d54d0c852fd3daf8dfb
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371686"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564784"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Azure Functions 2.x에 대한 host.json 참조  
 
@@ -147,7 +147,10 @@ ms.locfileid: "68371686"
 
 ## <a name="functiontimeout"></a>functionTimeout
 
-모든 함수에 대한 시간 제한 기간을 나타냅니다. 서버리스 사용 계획에서 유효한 범위는 1초에서 10분 사이이고 기본값은 5분입니다. 앱 서비스 계획의 경우 전체 제한은 없으며 기본값은 런타임 버전에 따라 달라집니다. 버전 2.x에서 앱 서비스 계획의 기본값은 30분입니다. 버전 1.x의 기본값은 *null*(시간 제한 없음)입니다. 무한대로 설정할 수 없습니다. 이 값을 명시적으로 설정 하지 않으면 기본 30 분 값이 사용 됩니다.
+모든 함수에 대한 시간 제한 기간을 나타냅니다. Timespan 문자열 형식을 따릅니다. 서버리스 사용 계획에서 유효한 범위는 1초에서 10분 사이이고 기본값은 5분입니다.  
+전용 (App Service) 계획에서는 전체 제한이 없으며 기본값은 런타임 버전에 따라 달라 집니다. 
++ 버전 1.x: 기본값은 시간 제한이 없음을 나타내는 *null*입니다.   
++ 버전 2.x: 기본값은 30 분입니다. 값은 바인딩되지 `-1` 않은 실행을 나타냅니다.
 
 ```json
 {
@@ -171,7 +174,7 @@ ms.locfileid: "68371686"
 }
 ```
 
-|속성  |Default | Description |
+|속성  |Default | 설명 |
 |---------|---------|---------| 
 |enabled|true|기능의 사용 여부를 지정합니다. | 
 |healthCheckInterval|10초|정기적인 백그라운드 상태 검사 사이의 간격 | 
@@ -205,7 +208,7 @@ Application Insights를 포함한 함수 앱의 로깅 동작을 제어합니다
 }
 ```
 
-|속성  |Default | Description |
+|속성  |Default | 설명 |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|활성화할 파일 로깅의 수준을 정의합니다.  옵션은 `never`, `always`, `debugOnly`입니다. |
 |logLevel|n/a|앱의 함수에 대한 로그 범주 필터링을 정의하는 개체입니다. 버전 2.x는 로그 범주 필터링용 ASP.NET Core 레이아웃을 따릅니다. 따라서 특정 함수의 로깅을 필터링할 수 있습니다. 자세한 내용은 ASP.NET Core 설명서의 [로그 필터링](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering)을 참조하세요. |
@@ -228,7 +231,7 @@ Application Insights를 포함한 함수 앱의 로깅 동작을 제어합니다
 }
 ```
 
-|속성  |Default | Description |
+|속성  |Default | 설명 |
 |---------|---------|---------| 
 |isEnabled|false|콘솔 로깅을 사용하거나 사용하지 않도록 설정합니다.| 
 

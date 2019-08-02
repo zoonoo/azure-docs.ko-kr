@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: a53a62a7bc7a5c7f8d9bdabdf411588fdf7bd5e7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7923ce10912ebb6f09c1c3d8390dd51b4f876bea
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257062"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68551995"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Azure Cosmos DB 변경 피드를 사용하여 실시간 데이터 분석 시각화
 
@@ -41,7 +41,7 @@ Azure Cosmos DB 변경 피드는 레코드가 만들어지거나 수정될 때 A
    }
    ```
 
-2. **Cosmos DB:** 생성된 데이터는 Azure Cosmos DB 컬렉션에 저장됩니다.  
+2. **Cosmos DB:** 생성 된 데이터는 Azure Cosmos DB 컬렉션에 저장 됩니다.  
 
 3. **변경 피드:** 변경 피드는 Azure Cosmos DB 컬렉션의 변경 내용을 수신 대기합니다. 새 문서가 컬렉션에 추가될 때마다, 즉 사용자가 항목을 조회하거나 자신의 카트에 항목을 추가하거나 항목을 구입하는 것과 같은 이벤트가 발생하면 변경 피드에서 [Azure Function](../azure-functions/functions-overview.md)을 트리거합니다.  
 
@@ -53,7 +53,7 @@ Azure Cosmos DB 변경 피드는 레코드가 만들어지거나 수정될 때 A
 
 7. **Power BI:** Power BI는 Azure Stream Analytics에서 보낸 데이터를 시각화하는 데 사용됩니다. 메트릭이 실시간으로 변하는 상황을 확인할 수 있는 대시보드를 작성할 수 있습니다.  
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Microsoft.NET Framework 4.7.1 이상
 
@@ -328,7 +328,7 @@ Power BI는 데이터를 분석하고 인사이트를 공유하는 비즈니스 
 
 2. **topItems** 컬렉션을 선택하고 **배율 및 설정** 아래에서 topItems가 매 30초마다 업데이트되도록 **TTL(Time to live)** 을 **30초**로 설정합니다.
 
-   ![TTL(Time to live)](./media/changefeed-ecommerce-solution/time-to-live.png)
+   ![TTL(Time to Live)](./media/changefeed-ecommerce-solution/time-to-live.png)
 
 3. **topItems** 컬렉션을 가장 자주 구입한 항목으로 채우려면 **streamjob1**로 돌아가서 새 **출력**을 추가합니다. **Cosmos DB**를 선택합니다.
 

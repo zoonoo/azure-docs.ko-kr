@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: mbullwin
 ms.openlocfilehash: ea324d616928b0d517c00dc9cab3e282f1e3415e
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67876432"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Application Insights 코드 없는 Attach를 사용 하 여 런타임 시 웹 앱 계측
@@ -64,7 +64,7 @@ IIS 서버에서 앱이 호스트되는 경우 상태 모니터를 사용하여 
 2. Application Insights 상태 모니터가 설치되어 있지 않으면 [설치 관리자를 다운로드하여 실행](#download)합니다.
 3. 상태 모니터에서 모니터링할 설치된 웹 애플리케이션 또는 웹 사이트를 선택합니다. Azure 자격 증명으로 로그인합니다.
 
-    Application Insights 포털에서 결과를 표시할 리소스를 구성합니다. (일반적으로 새 리소스를 만드는 것이 좋습니다. 이 앱에 대 한 [웹 테스트가][availability] or [client monitoring][client] 이미 있는 경우 기존 리소스를 선택 합니다.) 
+    Application Insights 포털에서 결과를 표시할 리소스를 구성합니다. (일반적으로 새 리소스를 만드는 것이 좋습니다. 이 앱에 대 한 [웹 테스트][availability] 또는 [클라이언트 모니터링][client] 이 이미 있는 경우 기존 리소스를 선택 합니다. 
 
     ![앱과 리소스를 선택합니다.](./media/monitor-performance-live-website-now/appinsights-036-configAIC.png)
 
@@ -152,7 +152,7 @@ Application Insights를 사용하도록 설정하면 이 오류가 발생할 수
 
 * 상태 모니터 .NET 응용 프로그램 이므로 [적절 한 진단을 구성 파일에 추가 하 여 .net 추적](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/trace-debug/system-diagnostics-element)을 사용 하도록 설정할 수도 있습니다. 예를 들어 일부 시나리오에서는 [네트워크 추적을 구성](https://docs.microsoft.com/dotnet/framework/network-programming/how-to-configure-network-tracing) 하 여 네트워크 수준에서 발생 하는 상황을 확인 하는 것이 유용할 수 있습니다.
 
-### <a name="insufficient-permissions"></a>권한 부족
+### <a name="insufficient-permissions"></a>사용 권한 부족
   
 * 서버에서 "권한 부족"에 대한 메시지가 표시되는 경우 다음을 시도합니다.
   * IIS 관리자에서 애플리케이션 풀을 선택하고 **고급 설정**을 연 다음 **프로세스 모델**에서 ID를 확인합니다.

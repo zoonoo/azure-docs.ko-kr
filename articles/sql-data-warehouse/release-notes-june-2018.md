@@ -11,10 +11,10 @@ ms.date: 07/23/2018
 ms.author: anjangsh
 ms.reviewer: jrasnick
 ms.openlocfilehash: 4348a634fd5b2b33f36d8e79f28caf659b82ccf4
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67626146"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-june-2018"></a>Azure SQL Data Warehouse의 새로운 기능 2018년 6월
@@ -25,7 +25,7 @@ Azure SQL Data Warehouse는 지속적으로 개선 사항을 수신합니다. �
 ## <a name="user-defined-restore-points"></a>사용자 정의 복원 지점
 SQL Data Warehouse는 8시간 간격으로 데이터 웨어하우스의 스냅샷을 자동으로 만들어 8시간 RPO(복구 지점 목표)를 보장합니다. 이 자동화 스냅샷은 데이터 웨어하우스 실행에 따른 관리 부담을 완화하지만, 비즈니스 필요에 따라 중대한 시간에 스냅샷을 생성할 필요가 있습니다. 예를 들어, 데이터 부하가 아주 높아지기 직전이나 데이터 웨어하우스에 새 스크립트를 배포하기 직전에 스냅샷을 생성하면 해당 작업 바로 직전의 복원 지점을 사용할 수 있습니다. 
 
-SQL Data Warehouse에서 지 원하는 [사용자 정의 복원 지점](https://azure.microsoft.com/blog/quick-recovery-time-with-sql-data-warehouse-using-user-defined-restore-points/) 를 통해 합니다 [새로 만들기-AzSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint) cmdlet.
+SQL Data Warehouse 이제 [AzSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint) cmdlet을 통해 [사용자 정의 복원 지점이](https://azure.microsoft.com/blog/quick-recovery-time-with-sql-data-warehouse-using-user-defined-restore-points/) 지원 됩니다.
 
 ```powershell
 New-AzSqlDatabaseRestorePoint
@@ -111,7 +111,7 @@ start_time                | end_time                | command
 ```
 
 ## <a name="next-steps"></a>다음 단계
-이제 SQL Data Warehouse에 대해 다소 알고 자세히 배울 하는 방법을 신속 하 게 [SQL Data Warehouse 만들기][create a SQL Data Warehouse] . If you are new to Azure, you may find the [Azure glossary][Azure glossary] 새 용어를 발견 하면을 유용 하 게 합니다. 또는 그 밖의 SQL Data Warehouse 리소스를 살펴봅니다.  
+SQL Data Warehouse에 대 한 자세한 내용은 이제 SQL Data Warehouse를 빠르게 [만드는][create a SQL Data Warehouse]방법을 알아봅니다. Azure을 처음 접하는 경우 새 용어를 발견하면 [Azure 용어집][Azure glossary] 을 유용하게 사용할 수 있습니다. 또는 그 밖의 SQL Data Warehouse 리소스를 살펴봅니다.  
 
 * [고객 성공 사례]
 * [Blogs]

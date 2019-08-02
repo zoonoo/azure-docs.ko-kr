@@ -10,12 +10,12 @@ ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 07/24/2019
-ms.openlocfilehash: 520e7fe953256e4c489e4c540493d9f74dda3aef
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: 06194537a0c0cce3a52510e6f426a9c2904387b2
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494349"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68694334"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>GPU를 사용 하 여 유추를 위한 심층 학습 모델 배포
 
@@ -25,6 +25,9 @@ ms.locfileid: "68494349"
 
 > [!TIP]
 > 이 문서의 코드 조각에서는 TensorFlow 모델을 사용할 수 있지만, Gpu를 지 원하는 모든 기계 학습 프레임 워크에 정보를 적용할 수 있습니다.
+
+> [!NOTE]
+> 이 문서의 정보는 [Azure Kubernetes Service에 배포 하는 방법](how-to-deploy-azure-kubernetes-service.md) 문서에 있는 정보를 기반으로 합니다. 이 문서는 일반적으로 AKS에 대 한 배포를 다루는이 문서에서는 GPU 특정 배포에 대해 설명 합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -87,7 +90,7 @@ except ComputeTargetException:
 > [!IMPORTANT]
 > Azure는 AKS 클러스터가 있는 한 요금을 청구 합니다. 작업을 완료 하면 AKS 클러스터를 삭제 해야 합니다.
 
-Azure Machine Learning 서비스에서 Azure Kubernetes Service를 사용 하는 방법에 대 한 자세한 내용은 [배포 방법 및 위치](how-to-deploy-and-where.md#deploy-aks)를 참조 하세요.
+Azure Machine Learning service에서 AKS를 사용 하는 방법에 대 한 자세한 내용은 [Azure Kubernetes service에 배포 하는 방법](how-to-deploy-azure-kubernetes-service.md)을 참조 하세요.
 
 ## <a name="write-the-entry-script"></a>항목 스크립트 작성
 
@@ -162,7 +165,7 @@ gpu_aks_config = AksWebservice.deploy_configuration(autoscale_enabled=False,
                                                     memory_gb=4)
 ```
 
-자세한 내용은 AksService에 대 한 참조 설명서를 참조 하세요 [. deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.akswebservice?view=azure-ml-py#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none-).
+자세한 내용은 AksService에 대 한 참조 설명서를 참조 하세요 [. deploy_configuration](/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none--token-auth-enabled-none-).
 
 ## <a name="define-the-inference-configuration"></a>유추 구성 정의
 

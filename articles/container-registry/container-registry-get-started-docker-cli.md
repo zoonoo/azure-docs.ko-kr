@@ -10,10 +10,10 @@ ms.date: 01/23/2019
 ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017
 ms.openlocfilehash: 6944755619ea5e8e63af04b9b3bca6f7376e29a9
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68309436"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Docker CLI를 사용하여 프라이빗 Docker 컨테이너 레지스트리로 이미지 밀어넣기 및 끌어오기
@@ -25,7 +25,7 @@ Azure Container Registry는 [Docker Hub](https://hub.docker.com/)에서 공개 D
 ## <a name="prerequisites"></a>필수 구성 요소
 
 * **Azure Container Registry** - Azure 구독 내에서 컨테이너 레지스트리를 만듭니다. 예를 들어 [Azure Portal](container-registry-get-started-portal.md) 또는 [Azure CLI](container-registry-get-started-azure-cli.md)를 사용합니다.
-* **Docker CLI** - 또한 Docker가 로컬에 설치되어 있어야 합니다. Docker는 [macos][docker-mac], [Windows][docker-windows]또는 [linux][docker-linux] 시스템에서 docker를 쉽게 구성 하는 패키지를 제공 합니다.
+* **Docker CLI** - 또한 Docker가 로컬에 설치되어 있어야 합니다. Docker는 [Macos][docker-mac], [Windows][docker-windows]또는 [Linux][docker-linux] 시스템에서 docker를 쉽게 구성 하는 패키지를 제공 합니다.
 
 ## <a name="log-in-to-a-registry"></a>레지스트리에 로그인
 
