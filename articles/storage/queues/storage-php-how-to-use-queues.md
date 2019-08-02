@@ -1,21 +1,19 @@
 ---
-title: PHP-Azure Storage에서에서 큐 저장소를 사용 하는 방법
+title: PHP에서 큐 저장소를 사용 하는 방법-Azure Storage
 description: Azure Queue Storage를 사용하여 큐를 작성 및 삭제하고 메시지를 삽입하고 가져오고 삭제하는 방법을 알아봅니다. 샘플은 PHP로 작성되었습니다.
-services: storage
 author: mhopkins-msft
-ms.service: storage
-ms.devlang: php
-ms.topic: article
-ms.date: 01/11/2018
 ms.author: mhopkins
-ms.reviewer: cbrooks
+ms.date: 01/11/2018
+ms.service: storage
 ms.subservice: queues
-ms.openlocfilehash: 4ff54f9ca20c101de55bec2c7acf914c17bd7709
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.topic: conceptual
+ms.reviewer: cbrooks
+ms.openlocfilehash: b175c34f131a7a0f172c7be0dda083fbfda3dc1e
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65951202"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721438"
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>PHP에서 Queue Storage를 사용하는 방법
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -23,14 +21,14 @@ ms.locfileid: "65951202"
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>개요
-이 가이드에서는 Azure Queue Storage 서비스를 사용하여 일반 시나리오를 수행하는 방법을 설명합니다. 샘플은 [PHP용 Azure Storage Client Library][download]의 클래스를 통해 작성되었습니다. 여기서 다루는 시나리오에는 큐 메시지 삽입, 보기, 가져오기 및 삭제와 큐 만들기 및 삭제가 포함됩니다.
+이 가이드에서는 Azure Queue Storage 서비스를 사용하여 일반 시나리오를 수행하는 방법을 설명합니다. 샘플은 [PHP 용 Azure Storage 클라이언트 라이브러리][download]의 클래스를 통해 작성 됩니다. 여기서 다루는 시나리오에는 큐 메시지 삽입, 보기, 가져오기 및 삭제와 큐 만들기 및 삭제가 포함됩니다.
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-php-application"></a>PHP 애플리케이션 만들기
-Azure Queue Storage에 액세스하는 PHP 애플리케이션을 만들기 위한 유일한 요구 사항은 코드 내에서 [PHP용 Azure Storage Client Library][download]의 클래스를 참조하는 것입니다. 애플리케이션을 만드는 데는 메모장을 포함한 어떠한 개발 도구도 사용할 수 있습니다.
+Azure Queue storage에 액세스 하는 PHP 응용 프로그램을 만들기 위한 유일한 요구 사항은 코드 내에서 [php 용 Azure Storage 클라이언트 라이브러리][download] 의 클래스를 참조 하는 것입니다. 애플리케이션을 만드는 데는 메모장을 포함한 어떠한 개발 도구도 사용할 수 있습니다.
 
 이 가이드에서는 PHP 응용 프로그램 내에서 로컬로 또는 Azure 웹 역할, 작업자 역할 또는 웹 사이트 내에서 실행되는 코드에서 호출할 수 있는 Queue Storage 서비스 기능을 사용합니다.
 
@@ -45,14 +43,14 @@ Azure Queue Storage에 액세스하는 PHP 애플리케이션을 만들기 위�
       }
     }
     ```
-2. 프로젝트 루트에 **[composer.phar][composer-phar]** 을 다운로드합니다.
+2. 프로젝트 루트에서 **[작성기. phar][composer-phar]** 를 다운로드 합니다.
 3. 명령 프롬프트를 열고 프로젝트 루트에서 다음 명령을 실행합니다.
    
     ```
     php composer.phar install
     ```
 
-또는 GitHub에서 [Azure Storage PHP 클라이언트 라이브러리][download]로 이동하여 소스 코드를 복제합니다.
+또는 GitHub의 [AZURE STORAGE PHP 클라이언트 라이브러리로][download] 이동 하 여 소스 코드를 복제 합니다.
 
 ## <a name="configure-your-application-to-access-queue-storage"></a>Queue Storage에 액세스하도록 응용 프로그램 구성
 Azure Queue Storage에 대한 API를 사용하려면 다음을 수행해야 합니다.

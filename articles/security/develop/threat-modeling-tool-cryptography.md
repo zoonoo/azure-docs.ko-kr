@@ -8,18 +8,19 @@ manager: jegeib
 editor: jegeib
 ms.assetid: na
 ms.service: security
+ms.subservice: security-develop
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 608792d8389a87bad3521d3a48947b20dd036d67
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: c9116472af5b400ded0fea24f98b07bad9d9039b
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68621339"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68728199"
 ---
 # <a name="security-frame-cryptography--mitigations"></a>보안 프레임: 암호화 | 완화 
 
@@ -51,7 +52,7 @@ ms.locfileid: "68621339"
 | **구성 요소**               | 웹 애플리케이션 | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 제네릭 |
-| **특성**              | 해당 사항 없음  |
+| **특성**              | N/A  |
 | **참조**              | 해당 사항 없음  |
 | **단계** | 모든 대칭 블록 암호화는 승인된 대칭 암호화 모드와 함께 사용해야 합니다. 유일하게 승인된 모드는 CBC 및 CTS입니다. 특히 ECB(Electronic Code Book) 작동 모드는 피해야 합니다. ECB를 사용하려면 조직의 Crypto Board에서 검토해야 합니다. OFB, CFB, CTR, CCM 및 GCM 또는 다른 암호화 모드의 모든 사용은 조직의 Crypto Board에서 검토해야 합니다. 동일한 IV(초기화 벡터)를 "스트리밍 암호화 모드"의 블록 암호화(예: CTR)로 다시 사용하면 암호화된 데이터가 노출될 수 있습니다. 또한 모든 대칭 블록 암호화도 적절한 IV와 함께 사용해야 합니다. 적절한 IV는 암호화된 강력한 난수이며, 절대로 상수 값이 아닙니다. |
 
@@ -62,8 +63,8 @@ ms.locfileid: "68621339"
 | **구성 요소**               | 웹 애플리케이션 | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 제네릭 |
-| **특성**              | 해당 사항 없음  |
-| **참조**              | 해당 사항 없음  |
+| **특성**              | N/A  |
+| **참조**              | N/A  |
 | **단계** | <p>금지된 암호화 알고리즘의 사용은 제품 보안에 상당한 위험을 초래하므로 피해야 합니다. 제품에서는 조직의 Crypto Board에서 명시적으로 승인한 암호화 알고리즘, 관련 키 길이 및 패딩만 사용해야 합니다.</p><ul><li>**RSA -** 암호화, 키 교환 및 서명에 사용할 수 있습니다. RSA 암호화는 OAEP 또는 RSA-KEM 패딩 모드만 사용해야 합니다. 기존 코드는 호환성을 위해서만 PKCS #1 v1.5 패딩 모드를 사용할 수 있습니다. 널 패딩 사용은 명시적으로 금지됩니다. 새 코드에는 2,048비트 이상의 키가 필요합니다. 기존 코드는 조직의 Crypto Board에서 검토한 후 이전 버전과의 호환성을 위해서만 2,048비트 미만의 키를 지원할 수 있습니다. 1,024비트 미만의 키는 이전 데이터의 암호 해독/확인에만 사용할 수 있으며, 암호화 또는 서명 작업에 사용되는 경우 교체해야 합니다.</li><li>**ECDSA -** 서명에만 사용할 수 있습니다. 새 코드에는 256비트 이상의 키가 있는 ECDSA가 필요합니다. ECDSA 기반 서명은 NIST에서 승인한 세 가지 곡선(P-256, P-384 또는 P521) 중 하나를 사용해야 합니다. 철저히 분석된 곡선은 조직의 Crypto Board에서 검토한 후에만 사용할 수 있습니다.</li><li>**ECDH -** 키 교환에만 사용할 수 있습니다. 새 코드에는 256비트 이상의 키가 있는 ECDH가 필요합니다. ECDH 기반 키 교환은 NIST에서 승인한 세 가지 곡선(P-256, P-384 또는 P521) 중 하나를 사용해야 합니다. 철저히 분석된 곡선은 조직의 Crypto Board에서 검토한 후에만 사용할 수 있습니다.</li><li>**DSA -** 조직의 Crypto Board에서 검토하고 승인한 후에 허용될 수 있습니다. 보안 관리자에게 문의하여 조직의 Crypto Board 검토를 예약합니다. DSA 사용이 승인되면 2,048비트 미만의 키 사용을 금지해야 합니다. CNG는 Windows 8부터 2,048비트 이상의 키 길이를 지원합니다.</li><li>**Diffie-Hellman -** 세션 키 관리에만 사용할 수 있습니다. 새 코드에는 2,048비트 이상의 키가 필요합니다. 기존 코드는 조직의 Crypto Board에서 검토한 후 이전 버전과의 호환성을 위해서만 2,048비트 미만의 키를 지원할 수 있습니다. 1,024비트 미만의 키는 사용할 수 없습니다.</li><ul>
 
 ## <a id="numgen"></a>승인된 난수 생성기 사용
@@ -74,7 +75,7 @@ ms.locfileid: "68621339"
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 제네릭 |
 | **특성**              | 해당 사항 없음  |
-| **참조**              | N/A  |
+| **참조**              | 해당 사항 없음  |
 | **단계** | <p>제품에서는 승인된 난수 발생기를 사용해야 합니다. 따라서 의사 난수 함수(예: rand C 런타임 함수, System.Random .NET Framework 클래스 또는 GetTickCount 시스템 함수)는 이러한 코드에 절대로 사용할 수 없습니다. 이중 타원 곡선 난수 생성기(DUAL_EC_DRBG) 알고리즘의 사용은 금지됩니다.</p><ul><li>**CNG -** BCryptGenRandom(호출자가 0보다 큰 IRQL[즉 PASSIVE_LEVEL]에서 실행되지 않는 한 BCRYPT_USE_SYSTEM_PREFERRED_RNG 플래그를 사용하는 것이 좋음)</li><li>**CAPI -** cryptGenRandom</li><li>**Win32/64 -** RtlGenRandom(새 구현에서는 BCryptGenRandom 또는 CryptGenRandom을 사용해야 함) * rand_s * SystemPrng(커널 모드의 경우)</li><li>**.NET -** RNGCryptoServiceProvider 또는 RNGCng</li><li>**Windows 스토어 앱-** Windows.Security.Cryptography.CryptographicBuffer.GenerateRandom 또는 .GenerateRandomNumber</li><li>**Apple OS X(10.7+)/iOS(2.0+)-** int SecRandomCopyBytes(SecRandomRef random, size_t count, uint8_t \*bytes )</li><li>**Apple OS X(<10.7)-** /dev/random을 사용하여 난수를 검색합니다.</li><li>**Java(Google Android Java 코드 포함) -** java.security.SecureRandom 클래스입니다. Android 4.3(Jelly Bean)의 경우 개발자는 Android 권장 해결 방법을 수행하고 /dev/urandom 또는/dev/random에서 엔트로피를 사용하여 명시적으로 PRNG를 초기화하도록 애플리케이션을 업데이트해야 합니다.</li></ul>|
 
 ## <a id="stream-ciphers"></a>대칭 스트림 암호화 사용 금지
@@ -96,7 +97,7 @@ ms.locfileid: "68621339"
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 제네릭 |
 | **특성**              | N/A  |
-| **참조**              | N/A  |
+| **참조**              | 해당 사항 없음  |
 | **단계** | <p>제품에서는 승인된 MAC(메시지 인증 코드) 또는 HMAC(해시 기반 메시지 인증 코드) 알고리즘만 사용해야 합니다.</p><p>MAC는 받는 사람이 비밀 키를 사용하여 보낸 사람의 신뢰성과 메시지 무결성을 모두 확인할 수 있도록 메시지에 연결되는 정보입니다. 모든 기본 해시 또는 대칭 암호화 알고리즘을 사용하도록 승인한 경우에만 해시 기반 MAC([HMAC](https://csrc.nist.gov/publications/nistpubs/800-107-rev1/sp800-107-rev1.pdf)) 또는 [블록 암호화 기반 MAC](https://csrc.nist.gov/publications/nistpubs/800-38B/SP_800-38B.pdf)를 사용할 수 있습니다. 현재 여기에는 HMAC-SHA2 함수(HMAC-SHA256, HMAC-SHA384 및 HMAC-SHA512)과 CMAC/OMAC1 및 OMAC2 블록 암호화 기반 MAC(AES 기반)가 포함됩니다.</p><p>HMAC-SHA1은 플랫폼 호환성을 위해 사용할 수 있지만 이 절차에 대한 예외를 제출하고 조직의 Crypto 검토를 거쳐야 합니다. 128비트 미만으로의 HMAC 잘림은 허용되지 않습니다. 고객의 방법을 사용하여 키와 데이터를 해시하는 것은 승인되지 않으며 사용하기 전에 조직의 Crypto Board 검토를 거쳐야 합니다.</p>|
 
 ## <a id="hash-functions"></a>승인된 암호화 해시 함수만 사용
@@ -106,7 +107,7 @@ ms.locfileid: "68621339"
 | **구성 요소**               | 웹 애플리케이션 | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 제네릭 |
-| **특성**              | 해당 사항 없음  |
+| **특성**              | N/A  |
 | **참조**              | 해당 사항 없음  |
 | **단계** | <p>제품에서는 SHA-2 해시 알고리즘 제품군(SHA256, SHA384 및 SHA512)을 사용해야 합니다. 짧은 MD5 해시를 고려하여 설계된 데이터 구조에 맞추기 위해 128비트 출력 길이와 같이 더 짧은 해시가 필요한 경우 제품 팀이 SHA2 해시 중 하나(일반적으로 SHA256)를 자를 수 있습니다. SHA384는 SHA512의 잘린 버전입니다. 보안을 위해 암호화 해시를 128비트 미만으로 자르는 것은 허용되지 않습니다. 새 코드에서는 MD2, MD4, MD5, SHA-0, SHA-1 또는 RIPEMD 해시 알고리즘을 사용하면 안됩니다. 해시 충돌은 이러한 알고리즘에 대해 컴퓨터를 통해 실행 가능하며 효과적으로 해독할 수 있습니다.</p><p>관리되는 암호화 민첩성을 위해 허용되는 .NET 해시 알고리즘(기본 설정 순서대로)</p><ul><li>SHA512Cng(FIPS 규격)</li><li>SHA384Cng(FIPS 규격)</li><li>SHA256Cng(FIPS 규격)</li><li>SHA512Managed (FIPS 규격) (HashAlgorithm 또는 CryptoConfig에 대 한 호출에서 알고리즘 이름으로 SHA512 사용)</li><li>SHA384Managed (FIPS 규격) (HashAlgorithm 또는 CryptoConfig에 대 한 호출에서 알고리즘 이름으로 SHA384 사용)</li><li>SHA256Managed (FIPS 규격) (HashAlgorithm 또는 CryptoConfig에 대 한 호출에서 SHA256을 알고리즘 이름으로 사용)</li><li>SHA512CryptoServiceProvider(FIPS 규격)</li><li>SHA256CryptoServiceProvider(FIPS 규격)</li><li>SHA384CryptoServiceProvider(FIPS 규격)</li></ul>| 
 
@@ -150,7 +151,7 @@ ms.locfileid: "68621339"
 | **구성 요소**               | 데이터베이스 | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 제네릭 |
-| **특성**              | N/A  |
+| **특성**              | 해당 사항 없음  |
 | **참조**              | [SQL Server EKM(확장 가능 키 관리)](https://msdn.microsoft.com/library/bb895340), [Azure Key Vault(SQL Server)를 사용한 확장 가능 키 관리](https://msdn.microsoft.com/library/dn198405) |
 | **단계** | SQL Server EKM(확장 가능 키 관리)을 사용하면 데이터베이스 파일을 보호하는 암호화 키를 스마트 카드, USB 디바이스 또는 EKM/HSM 모듈과 같은 외부 디바이스에 저장할 수 있습니다. 또한 데이터베이스 관리자(sysadmin 그룹의 멤버 제외)로부터 데이터를 보호할 수 있습니다. 데이터베이스 사용자만 외부 EKM/HSM 모듈에 액세스할 수 있는 암호화 키를 사용하여 데이터를 암호화할 수 있습니다. |
 
@@ -196,7 +197,7 @@ var deviceClient = DeviceClient.Create( hubUri, AuthenticationMethodFactory. Cre
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 제네릭 |
 | **특성**              | 게이트웨이 선택 - Azure IoT Hub |
-| **참조**              | 해당 사항 없음  |
+| **참조**              | N/A  |
 | **단계** | IoT Hub는 디바이스 ID 레지스트리를 포함하고, 디바이스를 프로비전하는 동안 임의 대칭 키를 자동으로 생성합니다. Azure IoT Hub ID 레지스트리의 이 기능을 사용하여 인증에 사용되는 키를 생성하는 것이 좋습니다. 또한 IoT Hub를 사용하면 디바이스를 만드는 동안 키를 지정할 수 있습니다. 디바이스 프로비전 중에 IoT Hub 외부에서 키를 생성하는 경우 임의 대칭 키 또는 256비트 이상의 키를 만드는 것이 좋습니다. |
 
 ## <a id="pin-remote"></a>PIN 사용이 필요하고 원격 지우기를 허용하는 디바이스 관리 정책이 있는지 확인
@@ -207,7 +208,7 @@ var deviceClient = DeviceClient.Create( hubUri, AuthenticationMethodFactory. Cre
 | **SDL 단계**               | 배포 |  
 | **적용 가능한 기술** | 제네릭 |
 | **특성**              | 해당 사항 없음  |
-| **참조**              | 해당 사항 없음  |
+| **참조**              | N/A  |
 | **단계** | PIN 사용이 필요하고 원격 지우기를 허용하는 디바이스 관리 정책이 있는지 확인합니다. |
 
 ## <a id="bitlocker"></a>PIN/암호/자동 잠금이 필요하고 모든 데이터를 암호화(예: BitLocker)하는 디바이스 관리 정책이 있는지 확인합니다.
@@ -218,7 +219,7 @@ var deviceClient = DeviceClient.Create( hubUri, AuthenticationMethodFactory. Cre
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 제네릭 |
 | **특성**              | 해당 사항 없음  |
-| **참조**              | 해당 사항 없음  |
+| **참조**              | N/A  |
 | **단계** | PIN/암호/자동 잠금이 필요하고 모든 데이터를 암호화(예: BitLocker)하는 디바이스 관리 정책이 있는지 확인합니다. |
 
 ## <a id="rolled-server"></a>Identity Server를 사용할 때 서명 키가 롤오버되는지 확인
@@ -228,7 +229,7 @@ var deviceClient = DeviceClient.Create( hubUri, AuthenticationMethodFactory. Cre
 | **구성 요소**               | ID 서버 | 
 | **SDL 단계**               | 배포 |  
 | **적용 가능한 기술** | 제네릭 |
-| **특성**              | N/A  |
+| **특성**              | 해당 사항 없음  |
 | **참조**              | [Id 서버-키, 서명 및 암호화](https://identityserver.github.io/Documentation/docsv2/configuration/crypto.html) |
 | **단계** | Identity Server를 사용할 때 서명 키가 롤오버되는지 확인합니다. 참조 섹션의 링크에서는 Identity Server를 사용하는 애플리케이션을 중단하지 않고도 서명 키를 롤오버하도록 계획하는 방법을 설명합니다. |
 
@@ -239,6 +240,6 @@ var deviceClient = DeviceClient.Create( hubUri, AuthenticationMethodFactory. Cre
 | **구성 요소**               | ID 서버 | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 제네릭 |
-| **특성**              | 해당 사항 없음  |
+| **특성**              | N/A  |
 | **참조**              | N/A  |
 | **단계** | <p>Identity Server에서 암호화된 강력한 클라이언트 ID와 클라이언트 비밀이 사용되는지 확인합니다. 클라이언트 ID와 비밀을 생성하는 동안 다음 지침을 사용해야 합니다.</p><ul><li>클라이언트 ID로 임의 GUID를 생성합니다.</li><li>비밀로 암호화된 임의 256비트 키를 생성합니다.</li></ul>|

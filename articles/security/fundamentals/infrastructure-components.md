@@ -8,18 +8,19 @@ manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
+ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 431f99ad711f464ee45c5db42435c3c8a23f2ad3
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 68535f70507e7a81d217f4148314a3d76ec832ea
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68615461"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68727207"
 ---
 # <a name="azure-information-system-components-and-boundaries"></a>Azure 정보 시스템 구성 요소 및 경계
 이 문서에서는 Azure 아키텍처 및 관리에 대한 일반적인 설명을 제공합니다. Azure 시스템 환경이 구성되는 네트워크는 다음과 같습니다.
@@ -96,7 +97,7 @@ Microsoft의 직원(또는 계약자)은 내부 사용자로 간주됩니다. �
 | Azure 배포 엔지니어 | 내부 | 고객 데이터에 액세스할 수 있음 | Azure를 지원하는 플랫폼 구성 요소, 소프트웨어 및 예약된 구성 변경 내용을 배포 및 업그레이드합니다. | 비고객 시스템에 대한 제한된 지속적 액세스를 사용하여 환경에 JIT(Just-In-Time) 액세스합니다. |
 | Azure 고객 중단 지원(테넌트) | 내부 | 고객 데이터에 액세스할 수 있음 | 개별 컴퓨팅 테넌트 및 Azure 계정에 대한 오류 및 플랫폼 중단을 진단하고 디버그합니다. 오류를 분석합니다. 고객 또는 플랫폼에 중요한 수정 사항 및 지원에 대한 기술 향상을 추진합니다. | 비고객 시스템에 대한 제한된 지속적 액세스를 사용하여 환경에 JIT(Just-In-Time) 액세스합니다. |
 | Azure 라이브 사이트 엔지니어(모니터링 엔지니어) 및 인시던트 | 내부 | 고객 데이터에 액세스할 수 있음 | 진단 도구를 사용하여 플랫폼 상태를 진단하고 완화합니다. 볼륨 드라이버에 대한 수정을 추진하고, 중단으로 발생한 항목을 복구하고, 중단 복원 작업을 지원합니다. | 비고객 시스템에 대한 제한된 지속적 액세스를 사용하여 환경에 JIT(Just-In-Time) 액세스합니다. |
-|Azure 고객 | 외부 | 해당 사항 없음 | 해당 사항 없음 | 해당 사항 없음 |
+|Azure 고객 | 외부 | 해당 사항 없음 | 해당 사항 없음 | N/A |
 
 Azure는 고유 식별자를 사용하여 조직 사용자 및 고객(또는 조직 사용자를 대신하여 작동하는 프로세스)을 인증합니다. 이는 Azure 환경에 포함된 모든 자산 및 디바이스에 적용됩니다.
 

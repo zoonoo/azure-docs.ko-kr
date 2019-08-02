@@ -12,18 +12,29 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/01/2019
 ms.author: cynthn
-ms.openlocfilehash: 260dbaf257a8deebe6292a30c7ae37b6dc41b1f6
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 2482fb4ab74a3c1e032a32890c3dc2c3920b5e6b
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717314"
+ms.locfileid: "68725619"
 ---
 # <a name="preview-deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>미리 보기: Azure PowerShell를 사용 하 여 전용 호스트에 Vm 배포
 
 이 문서에서는 Vm (가상 머신)을 호스트 하는 Azure [전용 호스트](dedicated-hosts.md) 를 만드는 방법을 안내 합니다. 
 
-Azure PowerShell 버전 2.4.2 sections 이상을 설치 했는지 확인 하 고를 사용 하 여 `Connect-AzAccount`의 Azure 계정에 로그인 합니다. 
+Azure PowerShell 버전 2.4.2 sections 이상을 설치 했는지 확인 하 고를 사용 하 여 `Connect-AzAccount`의 Azure 계정에 로그인 합니다. 2\.4.2 sections 버전을 설치 하려면 PowerShell 프롬프트를 열고 다음을 입력 합니다.
+
+```powershell
+Install-Module -Name Az.Compute -Repository PSGallery -RequiredVersion 2.4.2-preview -AllowPrelease
+```
+
+PowerShell에서 미리 보기 모듈 기능을 사용 하려면 PowerShellGet 모듈의 버전 1.6.0 이상이 필요 합니다. 최신 버전의 PowerShell Core는이를 자동으로 기본 제공 하지만 이전 버전의 PowerShell의 경우 다음 명령을 실행 하 여 최신 버전으로 업데이트할 수 있습니다.
+
+```powershell
+Install-Module -Name PowerShellGet -Repository PSGallery -Force
+```
+
 
 > [!IMPORTANT]
 > Azure 전용 호스트는 현재 공개 미리 보기로 제공 됩니다.

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: daperlov
-ms.openlocfilehash: bf8534ce40460637141bea2b9582e63a2a5cd04a
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 6e5e293e9759f091b6537d5efab9884e0a20fabc
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68620936"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725542"
 ---
 # <a name="create-a-tumbling-window-trigger-dependency"></a>연속 창 트리거 종속성 만들기
 
@@ -163,4 +163,4 @@ ms.locfileid: "68620936"
 
 ## <a name="next-steps"></a>다음 단계
 
-[연속 창 트리거를 만드는 방법](how-to-create-tumbling-window-trigger.md)을 검토합니다.
+* [연속 창 트리거를 만드는 방법](how-to-create-tumbling-window-trigger.md) 검토

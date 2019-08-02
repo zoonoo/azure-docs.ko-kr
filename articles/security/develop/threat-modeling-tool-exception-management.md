@@ -8,18 +8,19 @@ manager: jegeib
 editor: jegeib
 ms.assetid: na
 ms.service: security
+ms.subservice: security-develop
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 7d881454eb857080f1178f228a1f7bec36cae178
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: b8fad566b54ab645660011ad3188394b6f8190b0
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68621326"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68728067"
 ---
 # <a name="security-frame-exception-management--mitigations"></a>보안 프레임: 예외 관리 | 조치 
 | 제품/서비스 | 문서 |
@@ -70,7 +71,7 @@ ms.locfileid: "68621326"
 | **구성 요소**               | Web API | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | MVC 5, MVC 6 |
-| **특성**              | 해당 사항 없음  |
+| **특성**              | N/A  |
 | **참조**              | [ASP.NET Web API에서 예외 처리](https://www.asp.net/web-api/overview/error-handling/exception-handling), [ASP.NET Web API의 모델 유효성 검사](https://www.asp.net/web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api) |
 | **단계** | 기본적으로 ASP.NET Web API에서 확인할 수 없는 대부분의 예외는 `500, Internal Server Error` 상태 코드의 HTTP 응답으로 변환됩니다.|
 
@@ -188,7 +189,7 @@ public HttpResponseMessage PostProduct(Product item)
 | **구성 요소**               | 웹 애플리케이션 | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 제네릭 |
-| **특성**              | 해당 사항 없음  |
+| **특성**              | N/A  |
 | **참조**              | N/A  |
 | **단계** | <p>일반 오류 메시지는 중요한 애플리케이션 데이터를 포함하지 않고 사용자에게 직접 제공됩니다. 중요한 데이터의 예는 다음과 같습니다.</p><ul><li>서버 이름</li><li>연결 문자열</li><li>사용자 이름</li><li>암호</li><li>SQL 프로시저</li><li>동적 SQL 오류의 세부 정보</li><li>스택 추적 및 코드 줄</li><li>메모리에 저장된 변수</li><li>드라이브 및 폴더 위치</li><li>애플리케이션 설치 지점</li><li>호스트 구성 설정</li><li>기타 내부 애플리케이션 정보</li></ul><p>애플리케이션 내의 모든 오류를 트래핑하고 일반 오류 메시지를 제공할 뿐 아니라 IIS 내에서 사용자 지정 오류를 사용하도록 설정하면 정보가 공개되지 않도록 하는 데 도움이 됩니다. 다른 오류 처리 아키텍처 중에서 SQL Server Database 및 .NET 예외 처리는 사용자 애플리케이션을 프로파일링하는 악의적인 사용자에게 특히 유용할 수 있습니다. .NET 예외 클래스에서 파생된 클래스의 내용을 직접 표시하지 않도록 하고, 예기치 않은 예외가 사용자에게 실수로 직접 표시되지 않도록 적절한 예외 처리를 진행합니다.</p><ul><li>예외/오류 메시지에서 직접 확인되는 특정 세부 정보를 추상화하는 일반적인 오류 메시지를 사용자에게 제공합니다.</li><li>.NET 예외 클래스의 내용을 사용자에게 직접 표시하지 않습니다.</li><li>모든 오류 메시지를 트래핑하고, 해당하는 경우 애플리케이션 클라이언트에 전송된 일반 오류 메시지를 통해 사용자에게 알립니다.</li><li>예외 클래스의 내용, 특히 `.ToString()`의 반환 값 또는 Message 또는 StackTrace 속성 값을 사용자에게 직접 공개하지 않습니다. 이 정보를 안전하게 기록하고 사용자에게는 좀 더 무해한 메시지를 표시합니다.</li></ul>|
 

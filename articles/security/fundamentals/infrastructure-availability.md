@@ -8,18 +8,19 @@ manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
+ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 7dadd9c56c0ec85843748df741ad2fa8c55720af
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
-ms.translationtype: HT
+ms.openlocfilehash: c50c4faf47caf0a7519d61fdc8989ec9fd809d78
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68613407"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68727224"
 ---
 # <a name="azure-infrastructure-availability"></a>Azure 인프라 가용성
 이 문서에서는 Microsoft가 Azure 인프라를 보호 하 고 고객 데이터의 최대 가용성을 제공 하기 위해 수행 하는 작업에 대 한 정보를 제공 합니다. Azure에서는 가상화 기술을 사용하여 수행된 광범위한 중복성을 기반으로 강력한 가용성을 제공합니다.

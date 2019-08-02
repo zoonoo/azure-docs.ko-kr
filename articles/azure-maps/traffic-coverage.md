@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: ad7d4dceefcaa06effa6b2974b0a8a03ad641372
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f9a3c4875f01c650485034fe46f53bb5aa1fd75b
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60794051"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68722646"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Azure Maps 교통 상황 검사
 
@@ -56,13 +56,15 @@ Azure Maps는 교통 **흐름** 및 **인시던트** 형태로 풍부한 트래�
 |베트남   |✓         |✓         |
 
 
-## <a name="europe"></a>유럽
+## <a name="europe"></a>Europe
 
 |국가/지역   |인시던트  |흐름  |
 |---------|:---------:|:---------:|
 |안도라   |✓         |✓         |
 |오스트리아     |✓         |✓         |
+|벨로루시    |✓         |✓         |
 |벨기에     |✓         |✓         |
+|보스니아 헤르체코비나    |✓         |✓         |
 |불가리아     |✓         |✓         |
 |크로아티아     |✓         |✓         |
 |체코     |✓         |✓         |
@@ -78,6 +80,7 @@ Azure Maps는 교통 **흐름** 및 **인시던트** 형태로 풍부한 트래�
 |아이슬란드     |✓         |✓         |
 |아일랜드     |✓         |✓         |
 |이탈리아     |✓         |✓        |
+|카자흐스탄    |✓         |✓        |
 |라트비아     |✓         |✓         |
 |레소토     |✓         |✓         |
 |리히텐슈타인      |✓         |✓         |
@@ -93,6 +96,7 @@ Azure Maps는 교통 **흐름** 및 **인시던트** 형태로 풍부한 트래�
 |루마니아     |✓         |✓         |
 |러시아     |✓         |✓         |
 |산마리노    |✓         |✓         |
+|세르비아   |✓         |✓         |
 |슬로바키아     |✓         |✓         |
 |슬로베니아     |✓         |✓         |
 |스페인     |✓         |✓         |
@@ -105,9 +109,9 @@ Azure Maps는 교통 **흐름** 및 **인시던트** 형태로 풍부한 트래�
 |우크라이나     |✓         |✓         |
 |영국     |✓         |✓         |
 |+지브롤터     |✓         |✓         |
-|\+ 건지 섬과 & 저지 섬     |✓         |✓         |
+|\+ 건지 & Jersey     |✓         |✓         |
 |\+ 맨 섬     |✓         |✓         |
-|바티칸시   |✓         |✓         |
+|바티칸   |✓         |✓         |
 
 
 ## <a name="middle-east-and-africa"></a>중동 및 아프리카

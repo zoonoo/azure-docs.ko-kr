@@ -8,18 +8,19 @@ manager: barbkess
 editor: TomSh
 ms.assetid: f1d7da18-bfd1-4338-abbb-2c558fb780f9
 ms.service: security
+ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: f06c8ec60831314dad30673fec4d2ea5901e11b6
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: efb73b46c97dc8a59442cc819898ffc70f0110ae
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68612276"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726512"
 ---
 # <a name="azure-security-courses-from-microsoft-virtual-academy"></a>Microsoft Virtual Academy의 Azure 보안 교육 과정
 Microsoft Virtual Academy는 개발자, IT 및 데이터 전문가, 학생들이 최신 기술을 배우고 스킬을 구축하며 경력을 발전시켜 나갈 수 있게 도와 주기 위한 무료 온라인 교육을 제공합니다.

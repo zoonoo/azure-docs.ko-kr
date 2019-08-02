@@ -8,18 +8,19 @@ manager: jegeib
 editor: jegeib
 ms.assetid: na
 ms.service: security
+ms.subservice: security-develop
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 27028903daeaf62a25584300944538341a861c80
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: d482ae375fca3824213b54c2045d114fa2f0bfbe
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68621079"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68727877"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>보안 프레임: 중요한 데이터 | 위험 완화 
 | 제품/서비스 | 문서 |
@@ -43,7 +44,7 @@ ms.locfileid: "68621079"
 | **구성 요소**               | 컴퓨터 신뢰 경계 | 
 | **SDL 단계**               | 배포 |  
 | **적용 가능한 기술** | 제네릭 |
-| **특성**              | N/A  |
+| **특성**              | 해당 사항 없음  |
 | **참조**              | 해당 사항 없음  |
 | **단계** | 이진 파일이 영업 비밀인 뒤바뀌어서는 안되는 중요한 비즈니스 논리와 같은 중요한 정보를 포함하는 경우 난독 처리되어야 합니다. 어셈블리의 리버스 엔지니어링을 중지하는 것입니다. 이 목적을 위해 `CryptoObfuscator`와 같은 도구를 사용할 수 있습니다. |
 
@@ -55,7 +56,7 @@ ms.locfileid: "68621079"
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 제네릭 |
 | **특성**              | 해당 사항 없음  |
-| **참조**              | N/A  |
+| **참조**              | 해당 사항 없음  |
 | **단계** | 컴퓨터에 대한 물리적 액세스를 사용하는 악의적 사용자에게서 비밀 사용자 지정 데이터를 보호하기 위해 EFS(암호화 파일 시스템)를 사용하는 것이 좋습니다. |
 
 ## <a id="filesystem"></a>파일 시스템의 애플리케이션에서 저장한 중요한 데이터가 암호화되었는지 확인
@@ -65,7 +66,7 @@ ms.locfileid: "68621079"
 | **구성 요소**               | 컴퓨터 신뢰 경계 | 
 | **SDL 단계**               | 배포 |  
 | **적용 가능한 기술** | 제네릭 |
-| **특성**              | N/A  |
+| **특성**              | 해당 사항 없음  |
 | **참조**              | N/A  |
 | **단계** | EFS를 적용할 수 없는 경우 파일 시스템의 애플리케이션에서 저장한 중요한 데이터가 암호화되었는지(예: DPAPI 사용) 확인합니다. |
 
@@ -140,7 +141,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **구성 요소**               | 웹 애플리케이션 | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 제네릭 |
-| **특성**              | N/A  |
+| **특성**              | 해당 사항 없음  |
 | **참조**              | [MSDN: 자동 완성 특성](https://msdn.microsoft.com/library/ms533486(VS.85).aspx), [HTML에서 자동 완성 기능 사용](https://msdn.microsoft.com/library/ms533032.aspx), [HTML 삭제 취약점](https://technet.microsoft.com/security/bulletin/MS10-071), [자동 완성., 다시?!](https://blog.mindedsecurity.com/2011/10/autocompleteagain.html) |
 | **단계** | 자동 완성 특성은 양식이 자동 완성을 사용해야 할지 여부를 지정합니다. 자동 완성이 켜져 있으면 브라우저는 사용자가 이전에 입력한 값을 기반으로 값을 자동으로 완성합니다. 예를 들어 양식에 새 이름 및 암호를 입력하고 양식을 제출하면 브라우저는 암호를 저장해야 하는지 묻습니다. 이후로 양식이 표시되면 이름 및 암호가 자동으로 채워지거나 이름을 입력하는 대로 완성합니다. 로컬 액세스 권한이 있는 공격자는 브라우저 캐시에서 일반 텍스트 암호를 얻을 수 있습니다. 기본적으로 자동 완성은 활성화되어 있으므로 명시적으로 비활성화되어야 합니다. |
 
@@ -160,7 +161,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 제네릭 |
 | **특성**              | 해당 사항 없음  |
-| **참조**              | 해당 사항 없음  |
+| **참조**              | N/A  |
 | **단계** | 암호, 신용 카드 번호, SSN과 같은 중요한 데이터가 화면에 표시하는 경우 마스킹되도록 해야 합니다. 그러면 권한 없는 사용자가 데이터에 액세스하지 않도록 방지하게 됩니다(예: 어깨 너머로 알게 된 암호, 사용자의 SSN 숫자를 보는 고객 지원 담당자). 이러한 데이터 요소가 일반 텍스트로 표시되지 않고 적절하게 마스킹되도록 합니다. 이러한 항목은 입력으로 허용(예: 입력 형식="암호")하고 화면에 다시 표시(예: 신용 카드 번호의 마지막 4개 숫자만 표시)하는 동안 처리되어야 합니다. |
 
 ## <a id="dynamic-users"></a>동적 데이터 마스킹을 구현하여 권한 없는 사용자에 대한 중요한 데이터 노출 제한
@@ -181,7 +182,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **구성 요소**               | 데이터베이스 | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 제네릭 |
-| **특성**              | N/A  |
+| **특성**              | 해당 사항 없음  |
 | **참조**              | [.NET Crypto API를 사용하여 암호 해싱](https://docs.asp.net/en/latest/security/data-protection/consumer-apis/password-hashing.html) |
 | **단계** | 암호는 사용자 지정 사용자 저장소 데이터베이스에 저장되어야 합니다. 암호 해시는 대신 솔트 값으로 저장되어야 합니다. 사용자에 대한 솔트는 항상 고유해야 하며 무차별 암호 강제 적용 가능성을 제거하기 위해 암호를 저장하기 전에 150,000번의 루프라는 최소 작업 요소 반복 횟수로 bcrypt, scrypt 또는 PBKDF2를 적용해야 합니다.| 
 
@@ -260,7 +261,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | **구성 요소**               | Azure IaaS VM 트러스트 경계 | 
 | **SDL 단계**               | 배포 |  
 | **적용 가능한 기술** | 제네릭 |
-| **특성**              | 해당 사항 없음  |
+| **특성**              | N/A  |
 | **참조**              | [Azure Disk Encryption를 사용하여 가상 머신에 사용되는 디스크 암호화](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines) |
 | **단계** | <p>Azure 디스크 암호화는 현재 미리 보기에 포함되어 있는 새로운 기능입니다. 이 기능을 사용하면 IaaS Virtual Machine에서 사용되는 OS 디스크 및 데이터 디스크를 암호화할 수 있습니다. Windows의 경우 업계 표준의 BitLocker 암호화 기술을 사용하여 드라이브가 암호화됩니다. Linux의 경우 DM-Crypt 기술을 사용하여 디스크가 암호화됩니다. 이 기술은 Azure Key Vault와 통합되어 디스크 암호화 키를 제어 및 관리할 수 있도록 합니다. Azure 디스크 암호화 솔루션은 다음 3가지 고객 암호화 시나리오를 지원합니다.</p><ul><li>Azure Key Vault에 저장되는 고객 암호화 VHD 파일 및 고객 제공 암호화 키에서 만든 새 IaaS VM에 대해 암호화를 사용하도록 설정합니다.</li><li>Azure Marketplace에서 만든 새 IaaS VM에 대해 암호화를 사용하도록 설정합니다.</li><li>Azure에서 이미 실행 중인 기존 IaaS VM에 대해 암호화를 사용하도록 설정합니다.</li></ul>| 
 
@@ -315,7 +316,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | **구성 요소**               | Dynamics CRM | 
 | **SDL 단계**               | 배포 |  
 | **적용 가능한 기술** | 제네릭 |
-| **특성**              | N/A  |
+| **특성**              | 해당 사항 없음  |
 | **참조**              | N/A  |
 | **단계** | 배포 외부의 예외 관리에서 구성 세부 정보를 표시하는 금지된 개발 표준 규칙을 포함합니다. 코드 검토 또는 정기적 검사의 일부로 이 항목을 테스트합니다.|
 
@@ -337,7 +338,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | **구성 요소**               | Azure Storage | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 제네릭 |
-| **특성**              | 해당 사항 없음  |
+| **특성**              | N/A  |
 | **참조**              | [Microsoft Azure Storage용 클라이언트 쪽 암호화 및 Azure Key Vault](https://azure.microsoft.com/documentation/articles/storage-client-side-encryption/), [자습서: Azure Key Vault를 사용하여 Microsoft Azure Storage에서 Blob 암호화 및 해독](https://azure.microsoft.com/documentation/articles/storage-encrypt-decrypt-blobs-key-vault/), [Azure 암호화 확장을 사용하여 Azure Blob Storage에서 데이터 안전하게 저장](https://blogs.msdn.microsoft.com/partnercatalystteam/2015/06/17/storing-data-securely-in-azure-blob-storage-with-azure-encryption-extensions/) |
 | **단계** | <p>.NET용 Azure Storage 클라이언트 라이브러리 Nuget 패키지는 Azure Storage에 업로드하기 전에 클라이언트 애플리케이션 내에서 데이터를 암호화하고 클라이언트로 다운로드하는 동안 데이터를 해독하는 기능을 지원합니다. 라이브러리 또한 저장소 계정 키 관리를 위해 Azure Key Vault와의 통합을 지원합니다. 클라이언트 쪽 암호화의 작동 원리에 대한 간단한 설명은 다음과 같습니다.</p><ul><li>Azure Storage 클라이언트 SDK는 1회용 대칭 키인 CEK(콘텐츠 암호화 키)를 생성합니다.</li><li>고객 데이터는 이 CEK를 사용하여 암호화됩니다.</li><li>그런 다음 키 암호화 KEK를 사용하여 CEK를 래핑(암호화)합니다. KEK는 키 식별자로 식별되고 비대칭 키 쌍 또는 대칭 키일 수 있으며 로컬로 관리되거나 Azure Key Vault에 저장됩니다. Storage 클라이언트 자체는 KEK에 액세스할 수 없습니다. 단지 키 자격 증명 모음에서 제공되는 키 래핑 알고리즘을 호출할 뿐입니다. 고객은 원하는 경우 키 래핑/래핑 해제를 위해 사용자 지정 공급자를 사용하도록 선택할 수 있습니다.</li><li>그런 다음 암호화된 데이터를 Azure Storage 서비스에 업로드합니다. 자세한 구현 세부 정보는 참조 섹션의 링크를 확인하세요.</li></ul>|
 
@@ -348,7 +349,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | **구성 요소**               | 모바일 클라이언트 | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반, Xamarin  |
-| **특성**              | 해당 사항 없음  |
+| **특성**              | N/A  |
 | **참조**              | [Microsoft Intune 정책을 사용하여 디바이스에서 설정 및 기능 관리](https://docs.microsoft.com/intune/deploy-use/manage-settings-and-features-on-your-devices-with-microsoft-intune-policies), [키 집합 Valet](https://components.xamarin.com/view/square.valet) |
 | **단계** | <p>애플리케이션이 모바일의 파일 시스템에 사용자의 PII(이메일, 전화 번호, 이름, 성, 선호도 등)와 같은 중요한 정보를 기록하는 경우 로컬 파일 시스템에 쓰기 전에 암호화되어야 합니다. 엔터프라이즈 애플리케이션인 애플리케이션을 사용하는 경우 Windows Intune을 사용하여 애플리케이션을 게시하는 가능성을 탐색합니다.</p>|
 
@@ -398,7 +399,7 @@ Allow screen capture
 | **구성 요소**               | 모바일 클라이언트 | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 제네릭 |
-| **특성**              | 해당 사항 없음  |
+| **특성**              | N/A  |
 | **참조**              | [.NET에 대한 암호화 난독 처리](https://www.ssware.com/cryptoobfuscator/obfuscator-net.htm) |
 | **단계** | 생성된 이진 파일(apk 내의 어셈블리)을 난독 처리하여 어셈블리의 리버스 엔지니어링을 중지해야 합니다. 이 목적을 위해 `CryptoObfuscator`와 같은 도구를 사용할 수 있습니다. |
 
@@ -409,7 +410,7 @@ Allow screen capture
 | **구성 요소**               | WCF | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | .NET Framework 3 |
-| **특성**              | N/A  |
+| **특성**              | 해당 사항 없음  |
 | **참조**              | [강화](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_token) |
 | **단계** | 암호화되지 않은 채널을 통해 일반 텍스트 암호를 사용한 UsernameToken를 사용하면 SOAP 메시지를 찾아낼 수 있는 공격자에게 암호를 노출하게 됩니다. UsernameToken를 사용하는 서비스 공급자는 일반 텍스트로 전송된 암호를 허용할 수 있습니다. 암호화되지 않은 채널을 통해 일반 텍스트 암호는 보내면 SOAP 메시지를 찾아낼 수 있는 공격자에게 자격 증명을 노출할 수 있습니다. | 
 

@@ -8,18 +8,19 @@ manager: barbkess
 editor: TomSh
 ms.assetid: 17ba67ad-e5cd-4a8f-b435-5218df753ca4
 ms.service: security
+ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 78f03e495ad8a02599d26a7db7e8950857a39be6
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
-ms.translationtype: HT
+ms.openlocfilehash: 4df024f9ff37121df4d9be51ae1fa540028ddd3d
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68615786"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68727427"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Azure 데이터 보안 및 암호화 모범 사례
 이 문서에서는 데이터 보안 및 암호화에 대 한 모범 사례를 설명 합니다.
@@ -127,7 +128,7 @@ Azure VPN Gateway, SSL/TLS 및 HTTPS를 사용하는 데 관련된 모범 사례
 다음을 수행하는 것이 좋습니다.
 
 - 조직에 대해 [Azure Information Protection 배포](/azure/information-protection/deployment-roadmap)
-- 비즈니스 요구 사항을 반영하는 레이블 적용 예를 들어: 이 데이터를 분류하고 보호하기 위해 일급 비밀 데이터가 포함된 모든 문서 및 이메일에 이름이 "극비"로 지정된 레이블을 적용합니다. 그런 다음, 지정한 제한 사항으로 인해 권한이 있는 사용자만 이 데이터를 액세스할 수 있습니다.
+- 비즈니스 요구 사항을 반영하는 레이블 적용 예: 이 데이터를 분류하고 보호하기 위해 일급 비밀 데이터가 포함된 모든 문서 및 이메일에 이름이 "극비"로 지정된 레이블을 적용합니다. 그런 다음, 지정한 제한 사항으로 인해 권한이 있는 사용자만 이 데이터를 액세스할 수 있습니다.
 - 조직이 보호 서비스를 사용하는 방법을 모니터링할 수 있도록 [Azure RMS에 대한 사용 현황 로깅](/azure/information-protection/log-analyze-usage)을 구성합니다.
 
 [데이터 분류](https://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) 및 파일 보호에 약한 조직은 데이터 유출 및 데이터 남용에 더 취약할 수 있습니다. 적절한 파일 보호를 사용하여 비즈니스에 대한 인사이트를 얻고, 위험한 동작을 검색하고, 수정 조치를 수행하고, 문서에 대한 액세스를 추적하는 등 데이터 흐름을 분석할 수 있습니다.

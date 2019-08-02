@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/05/2019
 ms.author: magoedte
-ms.openlocfilehash: 5e411182a26e370ef82a20e67ee18cedd5d96d86
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 597944d03e685a9a2933a04847f78c9d54f3ea36
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296100"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68722696"
 ---
 # <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Azure Monitor에서 리소스 간 로그 쿼리 수행  
 
@@ -28,9 +28,9 @@ ms.locfileid: "67296100"
 
 ## <a name="cross-resource-query-limits"></a>리소스 간 쿼리 제한 
 
-* Application Insights 리소스와 단일 쿼리에 포함할 수 있는 Log Analytics 작업 영역 수가 100 개로 제한 됩니다.
-* 리소스 간 쿼리 뷰 디자이너에서 지원 되지 않습니다. Log Analytics에서 쿼리를 작성 하 고에 Azure 대시보드에 고정할 수 있습니다 [로그 쿼리를 시각화](../learn/tutorial-logs-dashboards.md)합니다. 
-* 새 로그 경고의 리소스 간 쿼리는 지원 [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)합니다. [레거시 Log Analytics 경고 API](../platform/api-alerts.md)에서 전환하지 않는 한, Azure Monitor는 기본적으로 [레거시 Log Analytics 경고 API](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api)를 사용하여 Azure Portal에서 새 로그 경고 규칙을 만듭니다. 전환 후에는 새 API가 Azure Portal에서 새 경고 규칙의 기본값이 되며, 해당 API를 사용하여 리소스 간 쿼리 로그 경고 규칙을 만들 수 있습니다. 사용 하 여 스위치를 만들지 않고 리소스 간 쿼리 로그 경고 규칙을 만들 수 있습니다 합니다 [scheduledQueryRules API에 대 한 Azure Resource Manager 템플릿을](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) –이 경고 규칙을 통해 관리할 수 있지만 [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) 및 Azure portal에서 없습니다.
+* 단일 쿼리에 포함할 수 있는 Application Insights 리소스 및 Log Analytics 작업 영역의 수는 100 개로 제한 됩니다.
+* 뷰 디자이너에서는 리소스 간 쿼리가 지원 되지 않습니다. Log Analytics에서 쿼리를 작성 하 고 Azure 대시보드에 고정 하 여 [로그 쿼리를 시각화할](../learn/tutorial-logs-dashboards.md)수 있습니다. 
+* 로그 경고의 리소스 간 쿼리는 새 [SCHEDULEDQUERYRULES API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)에서 지원 됩니다. [레거시 Log Analytics 경고 API](../platform/api-alerts.md)에서 전환하지 않는 한, Azure Monitor는 기본적으로 [레거시 Log Analytics 경고 API](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api)를 사용하여 Azure Portal에서 새 로그 경고 규칙을 만듭니다. 전환 후에는 새 API가 Azure Portal에서 새 경고 규칙의 기본값이 되며, 해당 API를 사용하여 리소스 간 쿼리 로그 경고 규칙을 만들 수 있습니다. [SCHEDULEDQUERYRULES api 용 Azure Resource Manager 템플릿을](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) 사용 하 여 스위치를 만들지 않고 리소스 간 쿼리 로그 경고 규칙을 만들 수 있지만이 경고 규칙은 [scheduledQueryRules api](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) 를 통해 관리할 수 있지만 Azure Portal .
 
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Log Analytics 작업 영역 전체 및 Application Insights 쿼리
@@ -44,9 +44,6 @@ ms.locfileid: "67296100"
 * 리소스 이름 - 사람이 읽을 수 있는 작업 영역 이름이며 *구성 요소 이름*이라고도 합니다. 
 
     `workspace("contosoretail-it").Update | count`
- 
-    >[!NOTE]
-    >작업 영역을 이름으로 식별하면 액세스 가능한 모든 구독에서 고유한 것으로 가정합니다. 지정된 이름의 애플리케이션이 여러 개 있으면 모호성으로 인해 쿼리가 실패합니다. 이런 경우 다른 식별자 중 하나를 사용해야 합니다.
 
 * 정규화된 이름 - 구독 이름, 리소스 그룹 및 구성 요소 이름이 *subscriptionName/resourceGroup/componentName* 형식으로 구성된 작업 영역의 "전체 이름"입니다. 
 
@@ -62,7 +59,7 @@ ms.locfileid: "67296100"
 
 * Azure Resource ID – Azure에서 정의한 작업 영역의 고유 ID입니다. 리소스 이름이 모호한 경우 리소스 ID를 사용합니다.  작업 영역의 형: */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft.OperationalInsights/workspaces/componentName*.  
 
-    예를 들면 다음과 같습니다.
+    예를 들어:
     ``` 
     workspace("/subscriptions/e427519-5645-8x4e-1v67-3b84b59a1985/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail-it").Update | count
     ```
@@ -75,6 +72,9 @@ Application Insights에서 애플리케이션 식별은 *app(Identifier)* 식으
 * 리소스 이름 - 사람이 읽을 수 있는 앱의 이름이며 *구성 요소 이름*이라고도 합니다.  
 
     `app("fabrikamapp")`
+
+    >[!NOTE]
+    >이름을 기준으로 응용 프로그램을 식별 하면 액세스 가능한 모든 구독에서 고유성이 가정 됩니다. 지정된 이름의 애플리케이션이 여러 개 있으면 모호성으로 인해 쿼리가 실패합니다. 이런 경우 다른 식별자 중 하나를 사용해야 합니다.
 
 * 정규화된 이름 - 구독 이름, 리소스 그룹 및 구성 요소 이름이 *subscriptionName/resourceGroup/componentName* 형식으로 구성된 앱의 "전체 이름"입니다. 
 
@@ -90,7 +90,7 @@ Application Insights에서 애플리케이션 식별은 *app(Identifier)* 식으
 
 * Azure Resource ID – Azure에서 정의한 앱의 고유 ID입니다. 리소스 이름이 모호한 경우 리소스 ID를 사용합니다. 형식은 */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft.OperationalInsights/components/componentName*입니다.  
 
-    예를 들면 다음과 같습니다.
+    예:
     ```
     app("/subscriptions/b459b4f6-912x-46d5-9cb1-b43069212ab4/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp").requests | count
     ```

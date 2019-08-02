@@ -8,18 +8,19 @@ manager: barbkess
 editor: TomSh
 ms.assetid: ''
 ms.service: security
+ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/31/2019
 ms.author: TomSh
-ms.openlocfilehash: 8d1018f307948ea3ed5551b610c299aaa13e8116
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 688492188bb8a29e33568011c2cf75439ca5f4af
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68614577"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726661"
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure 보안 기술 기능
 이 문서에서는 클라우드에서 데이터, 리소스 및 응용 프로그램을 보호 하 고 비즈니스의 보안 요구를 충족 하는 데 도움이 되는 Azure의 보안 서비스에 대해 소개 합니다.
@@ -193,7 +194,7 @@ RBAC를 사용하면 팀 내에서 업무를 분리하고 사용자에게 해당
 > [!Note]
 > "애플리케이션 데이터" 또는 "PII' 뿐만 아니라 계정 메타데이터(구독 매핑, 계약 정보, PII)를 포함하여 애플리케이션과 관련된 모든 데이터가 열거됩니다.
 
-데이터를 저장하는 데 어떤 저장소를 사용할지 고려하세요. 예:
+데이터를 저장하는 데 어떤 저장소를 사용할지 고려하세요. 예를 들어:
 
 - 외부 저장소(예: SQL Azure, 문서 DB, HDInsight, Data Lake 등)
 

@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 070dd07aa6705e97a532bdc5f53a08a9abe0f83d
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 7799b62b2c330610663e361bbb3930340b1ebdaf
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68361019"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726292"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>웹 서비스로 배포된 Azure Machine Learning 모델 사용
 
@@ -37,8 +37,10 @@ Azure Container Instances, Azure Kubernetes Service 또는 FPGA (필드 프로�
 
 [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) 클래스는 클라이언트를 만드는 데 필요한 정보를 제공합니다. 다음 `Webservice` 속성은 클라이언트 애플리케이션을 만드는 데 유용합니다.
 
-* `auth_enabled` - 인증을 사용하도록 설정한 경우 `True`이고, 그렇지 않으면 `False`입니다.
+* `auth_enabled`키 인증을 `True`사용 하면이 고, `False`그렇지 않으면입니다.
+* `token_auth_enabled`토큰 인증을 `True`사용 하면이 고, `False`그렇지 않으면입니다.
 * `scoring_uri` - REST API 주소입니다.
+
 
 배포된 웹 서비스에 대해 이 정보를 검색하는 세 가지 방법이 있습니다.
 
@@ -67,7 +69,15 @@ Azure Container Instances, Azure Kubernetes Service 또는 FPGA (필드 프로�
     print(service.scoring_uri)
     ```
 
-### <a name="authentication-key"></a>인증 키
+### <a name="authentication-for-services"></a>서비스에 대 한 인증
+
+Azure Machine Learning은 웹 서비스에 대 한 액세스를 제어 하는 두 가지 방법을 제공 합니다. 
+
+|인증 방법|ACI|AKS|
+|---|---|---|
+|Key|기본적으로 사용 안 함| 기본적으로 사용|
+|토큰| 사용할 수 없음| 기본적으로 사용 안 함 |
+#### <a name="authentication-with-keys"></a>키를 사용 하 여 인증
 
 배포에 대해 인증을 사용하도록 설정하면 자동으로 인증 키를 만듭니다.
 
@@ -85,6 +95,26 @@ print(primary)
 
 > [!IMPORTANT]
 > 키를 다시 생성해야 하는 경우 [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py)를 사용합니다.
+
+
+#### <a name="authentication-with-tokens"></a>토큰을 사용한 인증
+
+웹 서비스에 대 한 토큰 인증을 사용 하도록 설정 하는 경우 사용자는 액세스할 수 있도록 웹 서비스에 Azure Machine Learning JWT 토큰을 제공 해야 합니다. 
+
+* 토큰 인증은 Azure Kubernetes Service에 배포할 때 기본적으로 사용 하지 않도록 설정 됩니다.
+* Azure Container Instances에 배포 하는 경우에는 토큰 인증이 지원 되지 않습니다.
+
+토큰 인증을 제어 하려면 배포를 `token_auth_enabled` 만들거나 업데이트할 때 매개 변수를 사용 합니다.
+
+토큰 인증을 사용 하는 경우 `get_token` 메서드를 사용 하 여 전달자 토큰을 검색 하 고 해당 토큰 만료 시간을 지정할 수 있습니다.
+
+```python
+token, refresh_by = service.get_tokens()
+print(token)
+```
+
+> [!IMPORTANT]
+> 토큰의 `refresh_by` 시간 이후에 새 토큰을 요청 해야 합니다. 
 
 ## <a name="request-data"></a>요청 데이터
 

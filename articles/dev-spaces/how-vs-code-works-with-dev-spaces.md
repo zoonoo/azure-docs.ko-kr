@@ -9,12 +9,12 @@ ms.date: 07/08/2019
 ms.topic: conceptual
 description: Azure Dev Spaces에서 Visual Studio Code 작동 하는 방법
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: 0d80643b366b6d7313f24e73258056e492eb56fc
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 7809f0215137b0c473e13143404a031497906ebf
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68297864"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725806"
 ---
 # <a name="how-visual-studio-code-works-with-azure-dev-spaces"></a>Azure Dev Spaces에서 Visual Studio Code 작동 하는 방법
 
@@ -52,9 +52,9 @@ AKS 클러스터를 만들고 Visual Studio Code 외부에서 클러스터의 Az
 
 다음 빠른 시작에서 Azure Dev Spaces 사용 하 Visual Studio Code 및 Azure Dev Spaces 확장을 확인할 수 있습니다.
 
-* [Java를 사용 하 여 개발][quickstart-java]
-* [.NET으로 개발][quickstart-netcore]
-* [Node.js를 사용 하 여 개발][quickstart-node]
+* [Visual Studio Code 및 Java를 사용 하 여 빠르게 반복 하 고 디버그][quickstart-java]
+* [Visual Studio Code 및 .NET을 사용 하 여 빠르게 반복 하 고 디버그][quickstart-netcore]
+* [Visual Studio Code 및 node.js를 사용 하 여 빠르게 반복 하 고 디버그][quickstart-node]
 
 [azds-extension]: https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds
 [azds-yaml]: how-dev-spaces-works.md#prepare-your-code

@@ -8,18 +8,19 @@ manager: jegeib
 editor: jegeib
 ms.assetid: na
 ms.service: security
+ms.subservice: security-develop
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: c922556417ac92cc3667927fc8f846ace960a14a
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 75bbce0f1e9787e55880ccac80dacb5457e1f2c0
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68621417"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68728377"
 ---
 # <a name="security-frame-authorization--mitigations"></a>보안 프레임: 권한 부여 | 완화 
 | 제품/서비스 | 문서 |
@@ -48,8 +49,8 @@ ms.locfileid: "68621417"
 | **구성 요소**               | 컴퓨터 신뢰 경계 | 
 | **SDL 단계**               | 배포 |  
 | **적용 가능한 기술** | 제네릭 |
-| **특성**              | 해당 사항 없음  |
-| **참조**              | 해당 사항 없음  |
+| **특성**              | N/A  |
+| **참조**              | N/A  |
 | **단계** | 적절한 ACL이 디바이스의 데이터에 대한 무단 액세스를 제한하도록 구성되어 있는지 확인합니다.|
 
 ## <a id="sensitive-directory"></a>사용자 고유의 중요한 애플리케이션 콘텐츠가 사용자 프로필 디렉터리에 저장되는지 확인
@@ -59,8 +60,8 @@ ms.locfileid: "68621417"
 | **구성 요소**               | 컴퓨터 신뢰 경계 | 
 | **SDL 단계**               | 배포 |  
 | **적용 가능한 기술** | 제네릭 |
-| **특성**              | 해당 사항 없음  |
-| **참조**              | N/A  |
+| **특성**              | N/A  |
+| **참조**              | 해당 사항 없음  |
 | **단계** | 사용자 고유의 중요한 애플리케이션 콘텐츠가 사용자 프로필 디렉터리에 저장되는지 확인합니다. 이렇게 하면 컴퓨터의 여러 사용자가 다른 사용자의 데이터에 액세스하지 못하도록 방지할 수 있습니다.|
 
 ## <a id="deployed-privileges"></a>배포된 애플리케이션이 최소 권한으로 실행되는지 확인
@@ -71,7 +72,7 @@ ms.locfileid: "68621417"
 | **SDL 단계**               | 배포 |  
 | **적용 가능한 기술** | 제네릭 |
 | **특성**              | N/A  |
-| **참조**              | N/A  |
+| **참조**              | 해당 사항 없음  |
 | **단계** | 배포된 애플리케이션이 최소 권한으로 실행되는지 확인합니다. |
 
 ## <a id="sequential-logic"></a>비즈니스 논리 흐름을 처리할 때 순차적 단계 순서 적용
@@ -81,8 +82,8 @@ ms.locfileid: "68621417"
 | **구성 요소**               | 웹 애플리케이션 | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 제네릭 |
-| **특성**              | N/A  |
-| **참조**              | 해당 사항 없음  |
+| **특성**              | 해당 사항 없음  |
+| **참조**              | N/A  |
 | **단계** | 진정한 사용자가 이 단계를 실행했는지 확인하려면 순서대로 처리되지 않거나 건너뛴 단계, 다른 사용자가 처리한 단계 또는 너무 빨리 제출된 트랜잭션을 처리하지 않고, 현실적인 인간의 시간에서 모든 단계를 처리하는 순차적 단계 순서로만 비즈니스 논리 흐름을 처리하도록 애플리케이션을 적용하려고 합니다.|
 
 ## <a id="rate-enumeration"></a>열거를 방지하는 비율 제한 메커니즘 구현
@@ -92,7 +93,7 @@ ms.locfileid: "68621417"
 | **구성 요소**               | 웹 애플리케이션 | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 제네릭 |
-| **특성**              | 해당 사항 없음  |
+| **특성**              | N/A  |
 | **참조**              | 해당 사항 없음  |
 | **단계** | 중요한 식별자가 임의적인 식별자인지 확인합니다. 익명 페이지에 대해 CAPTCHA 제어를 구현합니다. 오류 및 예외로 인해 특정 데이터가 표시되지 않아야 합니다.|
 
@@ -144,7 +145,7 @@ WHERE userID=:id < - session var
 | **구성 요소**               | 데이터베이스 | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 제네릭 |
-| **특성**              | 해당 사항 없음  |
+| **특성**              | N/A  |
 | **참조**              | [SQL Database 권한 계층](https://msdn.microsoft.com/library/ms191465), [SQL 데이터베이스 보안 개체](https://msdn.microsoft.com/library/ms190401) |
 | **단계** | 최소 권한이 부여된 계정을 사용하여 데이터베이스에 연결해야 합니다. 애플리케이션 로그인은 데이터베이스에서 제한되어야 하며 선택된 저장 프로시저만 실행해야 합니다. 애플리케이션애플리케이션의 로그인에는 직접적인 테이블 액세스가 없어야 합니다. |
 
@@ -168,7 +169,7 @@ WHERE userID=:id < - session var
 | **구성 요소**               | 데이터베이스 | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 제네릭 |
-| **특성**              | N/A  |
+| **특성**              | 해당 사항 없음  |
 | **참조**              | [SQL Database 권한 계층](https://msdn.microsoft.com/library/ms191465), [SQL 데이터베이스 보안 개체](https://msdn.microsoft.com/library/ms190401) |
 | **단계** | SysAdmin 고정 서버 역할의 멤버는 매우 제한적이어야 하며 애플리케이션에서 사용하는 계정을 포함해서는 안됩니다.  역할에 포함된 사용자 목록을 검토하고 불필요한 계정을 제거합니다.|
 
@@ -190,7 +191,7 @@ WHERE userID=:id < - session var
 | **구성 요소**               | AZURE 이벤트 허브 | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 제네릭 |
-| **특성**              | 해당 사항 없음  |
+| **특성**              | N/A  |
 | **참조**              | [Event Hubs 인증 및 보안 모델 개요](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
 | **단계** | SAS 키는 개별 디바이스 토큰을 생성하는 데 사용됩니다. 지정된 게시자의 디바이스 토큰을 생성하는 동안 송신 전용 권한 SAS 키를 사용합니다.|
 
@@ -201,7 +202,7 @@ WHERE userID=:id < - session var
 | **구성 요소**               | AZURE 이벤트 허브 | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 제네릭 |
-| **특성**              | 해당 사항 없음  |
+| **특성**              | N/A  |
 | **참조**              | [Event Hubs 인증 및 보안 모델 개요](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
 | **단계** | 이벤트 허브에 대한 직접 액세스 권한을 부여하는 토큰을 디바이스에 제공하면 안됩니다. 게시자에게만 액세스 권한을 부여하는 디바이스에 최소 권한의 토큰을 사용하면 악의적이거나 손상된 디바이스로 확인되는 경우 이를 식별하여 블랙리스트에 추가할 수 있습니다.|
 
@@ -223,7 +224,7 @@ WHERE userID=:id < - session var
 | **구성 요소**               | Azure Document DB | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 제네릭 |
-| **특성**              | N/A  |
+| **특성**              | 해당 사항 없음  |
 | **참조**              | 해당 사항 없음  |
 | **단계** | 리소스 토큰은 Azure Cosmos DB 권한 리소스와 연관되며, 데이터베이스 사용자와 해당 사용자가 특정 Azure Cosmos DB 애플리케이션 리소스(예: 컬렉션, 문서)에 대해 갖고 있는 권한 사이의 관계를 캡처합니다. 최종 사용자 애플리케이션(예: 모바일 또는 데스크톱 클라이언트)과 같이 클라이언트에서 마스터 또는 읽기 전용 키를 처리하여 신뢰할 수 없는 경우 항상 리소스 토큰을 사용하여 Azure Cosmos DB에 액세스해야 합니다. 이러한 키를 안전하게 저장할 수 있는 백 엔드 애플리케이션에서 마스터 키 또는 읽기 전용 키를 사용합니다.|
 
@@ -257,7 +258,7 @@ WHERE userID=:id < - session var
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 제네릭 |
 | **특성**              | N/A  |
-| **참조**              | N/A  |
+| **참조**              | 해당 사항 없음  |
 | **단계** | 보안 모델링을 수행하고 필요한 경우 필드 수준 보안을 사용합니다.|
 
 ## <a id="portal-security"></a>포털의 보안 모델이 CRM의 나머지 부분과 다르다는 점을 감안하여 포털 계정의 보안 모델링 수행
@@ -268,7 +269,7 @@ WHERE userID=:id < - session var
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 제네릭 |
 | **특성**              | 해당 사항 없음  |
-| **참조**              | N/A  |
+| **참조**              | 해당 사항 없음  |
 | **단계** | 포털의 보안 모델이 CRM의 나머지 부분과 다르다는 점을 감안하여 포털 계정의 보안 모델링을 수행합니다.|
 
 ## <a id="permission-entities"></a>Azure Table Storage의 엔터티 범위에 대해 세분화된 권한 부여
@@ -289,7 +290,7 @@ WHERE userID=:id < - session var
 | **구성 요소**               | Azure Storage | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 제네릭 |
-| **특성**              | 해당 사항 없음  |
+| **특성**              | N/A  |
 | **참조**              | [RBAC(역할 기반 Access Control)를 사용하여 저장소 계정의 보안을 유지하는 방법](https://azure.microsoft.com/documentation/articles/storage-security-guide/#management-plane-security) |
 | **단계** | <p>새 저장소 계정을 만들 때 클래식 배포 모델 또는 Azure Resource Manager 배포 모델 중에서 선택합니다. Azure에서 리소스를 만드는 기본 모델에서만 구독 및 저장소 계정에 대한 완전한 액세스를 허용합니다.</p><p>Azure Resource Manager 모델에서는 Azure Active Directory를 사용하여 리소스 그룹에 저장소 계정을 추가하고 해당 특정 저장소 계정의 관리 평면에 대한 액세스를 제어합니다. 예를 들어 특정 사용자에게는 저장소 계정 키에 액세스할 수 있는 기능을 제공하고 다른 사용자에게는 저장소 계정에 대한 정보는 볼 수 있지만 저장소 계정 키에는 액세스하지 못하게 할 수 있습니다.</p>|
 
@@ -300,7 +301,7 @@ WHERE userID=:id < - session var
 | **구성 요소**               | 모바일 클라이언트 | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 제네릭 |
-| **특성**              | 해당 사항 없음  |
+| **특성**              | N/A  |
 | **참조**              | 해당 사항 없음  |
 | **단계** | <p>휴대폰이 루팅되거나 무단 해제되는 경우 애플리케이션에서 자체 구성 및 사용자 데이터를 보호해야 합니다. 루팅/무단 해제는 일반 사용자가 자신의 휴대폰에서 수행하지 않는 무단 액세스를 의미합니다. 따라서 애플리케이션을 시작할 때 애플리케이션에 암시적 검색 논리가 있어야 휴대폰이 루팅되었는지 감지할 수 있습니다.</p><p>검색 논리는 일반적으로 루트 사용자만 액세스할 수 있는 파일에 간단히 액세스할 수 있습니다. 예를 들면 다음과 같습니다.</p><ul><li>/system/app/Superuser.apk</li><li>/sbin/su</li><li>/system/bin/su</li><li>/system/xbin/su</li><li>/data/local/xbin/su</li><li>/data/local/bin/su</li><li>/system/sd/xbin/su</li><li>/system/bin/failsafe/su</li><li>/data/local/su</li></ul><p>애플리케이션에서 이러한 파일 중 하나에 액세스할 수 있으면 애플리케이션이 루트 사용자로 실행되고 있음을 나타냅니다.</p>|
 
@@ -311,7 +312,7 @@ WHERE userID=:id < - session var
 | **구성 요소**               | WCF | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반, .NET Framework 3 |
-| **특성**              | 해당 사항 없음  |
+| **특성**              | N/A  |
 | **참조**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify, 영국](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference) |
 | **단계** | <p>공격자가 시스템에서 약한 클래스 참조를 사용하여 권한이 없는 코드를 실행할 수 있습니다. 프로그램은 고유하게 식별되지 않은 사용자 정의 클래스를 참조합니다. .NET에서 이처럼 약하게 식별된 클래스를 로드하면 CLR 형식 로더는 지정된 순서대로 다음 위치에 있는 클래스를 검색합니다.</p><ol><li>형식의 어셈블리를 알고 있는 경우 로더는 구성 파일의 리디렉션 위치, GAC, 구성 정보를 사용 중인 현재 어셈블리 및 애플리케이션 기본 디렉터리를 검색합니다.</li><li>어셈블리를 알고 있지 않은 경우 로더는 현재 어셈블리, mscorlib 및 TypeResolve 이벤트 처리기에서 반환한 위치를 검색합니다.</li><li>이 CLR 검색 순서는 형식 전달 메커니즘 및 AppDomain.TypeResolve 이벤트와 같은 후크를 사용하여 수정할 수 있습니다.</li></ol><p>공격자가 CLR 검색 순서를 악용하여 동일한 이름의 대체 클래스를 만들어 CLR에서 먼저 로드할 대체 위치에 배치하는 경우 CLR에서 의도한 것은 아니지만 공격자가 제공한 코드를 실행하게 됩니다.</p>|
 
@@ -348,7 +349,7 @@ WHERE userID=:id < - session var
 | **구성 요소**               | WCF | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반, .NET Framework 3 |
-| **특성**              | 해당 사항 없음  |
+| **특성**              | N/A  |
 | **참조**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify, 영국](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference) |
 | **단계** | <p>이 서비스는 권한 부여 제어를 사용하지 않습니다. 클라이언트에서 특정 WCF 서비스를 호출하면 WCF는 호출자에게 서버에서 서비스 메서드를 실행할 수 있는 권한이 있는지 확인하는 다양한 권한 부여 체계를 제공합니다. WCF 서비스에 대해 권한 부여 제어를 사용할 수 없으면 인증된 사용자가 권한 에스컬레이션을 수행할 수 있습니다.</p>|
 
@@ -448,7 +449,7 @@ public class CustomController : ApiController
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 제네릭 |
 | **특성**              | 해당 사항 없음  |
-| **참조**              | 해당 사항 없음  |
+| **참조**              | N/A  |
 | **단계** | <p>디바이스는 호출자에게 요청된 작업을 수행하는 데 필요한 권한이 있는지 확인할 수 있도록 호출자에게 권한을 부여해야 합니다. 예를 들어 디바이스가 클라우드에서 모니터링할 수 있는 스마트 도어 잠금이며, 원격 도어 잠금과 같은 기능도 제공합니다.</p><p>스마트 도어 잠금은 누군가가 실제로 도어에 가까이 올 때만 카드를 통한 잠금 해제 기능을 제공합니다. 이 경우 원격 명령 및 제어의 구현은 클라우드 게이트웨이에 도어 잠금 해제 명령을 보낼 권한이 없으므로 도어 잠금 해제 기능을 제공하지 않는 방식으로 수행되어야 합니다.</p>|
 
 ## <a id="field-permission"></a>다른 권한 수준이 필요한 다양한 작업을 지원하는 경우 필드 게이트웨이에서 권한 부여 확인 수행
@@ -459,5 +460,5 @@ public class CustomController : ApiController
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 제네릭 |
 | **특성**              | 해당 사항 없음  |
-| **참조**              | N/A  |
+| **참조**              | 해당 사항 없음  |
 | **단계** | 필드 게이트웨이는 호출자에게 요청된 작업을 수행하는 데 필요한 권한이 있는지 확인할 수 있도록 호출자에게 권한을 부여해야 합니다. 예를 들어 연결하는 필드 게이트웨이 v/s 디바이스를 구성하는 데 사용되는 관리자 사용자 인터페이스/API에 대해서는 다른 권한이 있어야 합니다.|
