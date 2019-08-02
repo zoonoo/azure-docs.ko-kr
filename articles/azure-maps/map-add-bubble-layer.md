@@ -3,25 +3,25 @@ title: Azure Maps에 거품형 계층 추가 | Microsoft Docs
 description: Javascript 맵에 거품형 계층을 추가하는 방법
 author: rbrundritt
 ms.author: richbrun
-ms.date: 10/30/2018
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: f2c4c6b8655d5efb993a2dedf536000ac94328c2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 516e4f35c88ae9c0e2d63e8a4ee40eb57c05ac29
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60769688"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639045"
 ---
 # <a name="add-a-bubble-layer-to-a-map"></a>맵에 거품형 계층 추가
 
 이 문서에서는 맵에 거품형 계층으로 데이터 원본에서 요소 데이터를 렌더링할 수 있는 방법을 보여줍니다. 거품형 계층은 고정된 픽셀 반경을 사용하여 요소를 맵에 원으로 렌더링합니다. 
 
 > [!TIP]
-> 기본적으로 거품형 계층은 데이터 원본에 있는 모든 도형의 좌표를 렌더링합니다. 기능 집합을 같은 렌더링 하는 것만 기 하 도형 점 계층을 제한 하는 `filter` 속성은 계층의 `['==', ['geometry-type'], 'Point']` 또는 `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` MultiPoint 기능도 포함 하려는 경우.
+> 기본적으로 거품형 계층은 데이터 원본에 있는 모든 도형의 좌표를 렌더링합니다. 점 기 하 도형 기능만 렌더링 하도록 계층을 제한 하려면 계층의 `filter` 속성을로 `['==', ['geometry-type'], 'Point']` 설정 하 고, `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` 다중 포인트 기능을 포함 하려는 경우로 설정 합니다.
 
 ## <a name="add-a-bubble-layer"></a>거품형 계층 추가
 

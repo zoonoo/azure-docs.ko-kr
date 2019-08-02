@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik
-manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: d09adbfa7cb2782d710ef3116cbd7bc68ee247b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 08def3ac2fd94f01586bc690d867c04758b8856b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61417586"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569527"
 ---
 # <a name="performance-recommendations-for-sql-database"></a>SQL Database에 대한 성능 권장 사항
 
@@ -77,7 +76,7 @@ SQL Server에 대해 실행되는 모든 쿼리는 실행 계획을 생성하기
 
 “스키마 문제 해결” 권장 사항은 Azure SQL Database 서비스가 SQL 데이터베이스에서 발생하는 스키마 관련 SQL 오류 수의 이상을 감지할 때 나타납니다. 다음 표에는 스키마 문제와 관련된 오류가 나와 있습니다.
 
-| SQL 오류 코드 | Message |
+| SQL 오류 코드 | 메시지 |
 | --- | --- |
 | 201 |프로시저 또는 함수 ' *'에서 매개 변수 '* '이(가) 필요하지만 제공되지 않았습니다. |
 | 207 |잘못된 열 이름: '*'. |
@@ -88,7 +87,7 @@ SQL Server에 대해 실행되는 모든 쿼리는 실행 계획을 생성하기
 
 ## <a name="custom-applications"></a>사용자 지정 애플리케이션
 
-개발자는 Azure SQL Database에 대 한 성능 권장 사항을 사용 하 여 사용자 지정 응용 프로그램 개발을 고려할 수 있습니다. 데이터베이스를 통해 액세스할 수에 대 한 포털에 나열 된 모든 권장 사항을 [Get AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction) API.
+개발자는 Azure SQL Database에 대 한 성능 권장 사항을 사용 하 여 사용자 지정 응용 프로그램을 개발할 수 있습니다. 데이터베이스 포털에 나열 된 모든 권장 사항은 [AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction) API를 통해 액세스할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 권장 사항을 모니터링하고 개선된 성능을 계속 적용합니다. 데이터베이스 워크로드는 동적 이며 지속적으로 변경합니다. SQL Database Advisor는 데이터베이스 성능을 향상할 수 있는 권장 사항을 계속 제공하고 모니터링합니다. 

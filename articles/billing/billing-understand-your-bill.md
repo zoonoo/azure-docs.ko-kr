@@ -2,28 +2,28 @@
 title: Azure 청구서 이해
 description: Azure 구독에 대 한 사용량 및 청구를 읽고 이해 하는 방법에 대해 알아봅니다.
 author: bandersmsft
-manager: jureid
+manager: dougeby
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/22/2019
+ms.date: 07/28/2019
 ms.author: banders
-ms.openlocfilehash: 69659e700ee47c8961ec21f0fb23573e13d72588
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 51143644a62a77a61c4540d9f2ad3dce401c496b
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68383638"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68610125"
 ---
 # <a name="understand-your-microsoft-azure-bill"></a>Microsoft Azure 청구서 이해
 Azure 청구서를 이해 하려면 청구서를 자세한 일일 사용 현황 파일 및 비용 관리 보고서와 비교 하 여 Azure Portal 합니다.
 
-이 문서는 기업계약을 체결한 Azure 고객(EA 고객)에게는 적용되지 않습니다. EA 고객 인 경우 [기업계약를 사용 하 여 Azure 고객에 대 한 청구서 이해](billing-understand-your-bill-ea.md)를 참조 하세요.
-
-이 문서는 [Microsoft 고객 계약을 체결](#check-access-to-a-microsoft-customer-agreement)한 Azure 고객에 게는 적용 되지 않습니다. Microsoft 고객 계약이 있는 경우 [Microsoft 고객 계약 청구서의 Azure 요금 이해](billing-mca-understand-your-bill.md)를 참조 하세요.
+이 문서는 다음 고객에 게는 적용 되지 않습니다.
+- 기업계약를 사용 하는 Azure 고객 (EA 고객). EA 고객 인 경우 [기업계약를 사용 하 여 Azure 고객에 대 한 청구서 이해](billing-understand-your-bill-ea.md)를 참조 하세요.
+- [Microsoft 고객 계약을 체결](#check-access-to-a-microsoft-customer-agreement)한 Azure 고객. Microsoft 고객 계약이 있는 경우 [Microsoft 고객 계약 청구서의 Azure 요금 이해](billing-mca-understand-your-bill.md)를 참조 하세요.
 
 청구 주기, 가격 책정 및 사용량을 포함하여 Azure CSP(Azure Cloud Solution Provider) 프로그램에서 청구 작동 방법에 대한 설명은 [Azure CSP 청구 개요](/azure/cloud-solution-provider/billing/azure-csp-billing-overview/)를 참조합니다.
 
@@ -88,7 +88,7 @@ Azure Portal은 요금을 확인하는 데도 도움이 됩니다. 청구서의 
 
 ## <a name="external"></a>별도로 청구되는 외부 서비스
 
-외부 서비스 또는 마켓플레이스 요금은 타사 소프트웨어 공급업체가 만든 리소스에 해당됩니다. 이러한 리소스는 Azure Marketplace에서 사용할 수 있습니다. 예를 들어 Barracuda Firewall은 타사가 제공하는 Azure Marketplace 리소스입니다. 방화벽 및 방화벽에 해당하는 미터의 모든 요금은 외부 서비스 요금으로 표시됩니다.
+외부 서비스 또는 marketplace 요금은 타사 소프트웨어 공급 업체에서 만든 리소스에 대 한 요금입니다. 이러한 리소스는 Azure Marketplace에서 사용할 수 있습니다. 예를 들어 Barracuda 방화벽은 타사에서 제공 하는 Azure Marketplace 리소스입니다. 방화벽 및 방화벽에 해당하는 미터의 모든 요금은 외부 서비스 요금으로 표시됩니다.
 
 외부 서비스 요금은 별도로 청구됩니다. 이 요금은 Azure 청구서에 표시되지 않습니다. 자세한 내용은 [Azure 외부 서비스 요금의 이해](billing-understand-your-azure-marketplace-charges.md)를 참조하세요.
 
@@ -130,7 +130,7 @@ VM을 만들 때 각 미터는 사용 레코드를 내보내기 시작 합니다
   - [Azure 가격 계산기](https://azure.microsoft.com/pricing/calculator/)
   - [총 소유 비용 계산기](https://aka.ms/azure-tco-calculator)
   - [각 서비스에 대한 상세 가격 정보](https://azure.microsoft.com/pricing/)
-- [Azure Portal에서 정기적으로 사용량 및 비용을 검토](billing-getting-started.md#costs)합니다.
+- [Azure Portal에서 정기적으로 사용량 및 비용 검토](billing-getting-started.md#costs)
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대 한 액세스 확인
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]

@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database 및 SQL Data Warehouse 데이터 검색 및 분류 | Microsoft Docs
-description: Azure SQL Database 및 데이터 검색 및 분류
+title: 데이터 검색 & 분류 Azure SQL Database 및 SQL Data Warehouse | Microsoft Docs
+description: Azure SQL Database 및 데이터 검색 & 분류
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -10,16 +10,15 @@ ms.topic: conceptual
 author: vainolo
 ms.author: arib
 ms.reviewer: vanto
-manager: craigg
 ms.date: 03/22/2019
-ms.openlocfilehash: e451b7837a1cff4bbeaecd1573dc860524caf4d3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a606364503172d5cb1ddcf00262eb81b9423b55b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65142648"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569042"
 ---
-# <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>Azure SQL Database 및 SQL Data Warehouse 데이터 검색 및 분류
+# <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>데이터 검색 & 분류 Azure SQL Database 및 SQL Data Warehouse
 
 데이터 검색 및 분류(현재 미리 보기)는 데이터베이스에 있는 중요한 데이터의 **검색**, **분류**, **레이블 지정** & **보호**를 위해 Azure SQL Database에 내장된 고급 기능을 제공합니다.
 가장 중요한 데이터(비즈니스, 재무, 의료, PII(개인 식별 데이터) 등)를 검색하고 분류하는 기능은 조직 정보 보호 평판에 중추적인 역할을 할 수 있습니다. 그것은 다음에 대한 인프라 역할을 할 수 있습니다.
@@ -127,7 +126,7 @@ Information Protection 정책 관리의 일환으로, 사용자 지정 레이블
 
 ![감사 로그](./media/sql-data-discovery-and-classification/11_data_classification_audit_log.png)
 
-## <a id="subheading-4"></a>T-SQL을 사용 하 여 데이터 분류를 관리 합니다.
+## <a id="subheading-4"></a>T-sql을 사용 하 여 데이터 분류 관리
 
 T-SQL을 사용하여 열 분류를 추가/제거하고 전체 데이터베이스에 대한 모든 분류를 검색할 수 있습니다.
 
@@ -144,11 +143,11 @@ T-SQL을 사용하여 열 분류를 추가/제거하고 전체 데이터베이�
 - [삭제](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete) - 지정된 열의 민감도 레이블을 삭제합니다.
 - [가져오기](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get) - 지정된 열의 민감도 레이블을 가져옵니다.
 - [데이터베이스별 최신 목록](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) - 지정된 데이터베이스의 최신 민감도 레이블을 가져옵니다.
-- [데이터베이스에서 권장 되는 목록](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) -지정된 된 데이터베이스의 권장 되는 민감도 레이블을 가져옵니다.
+- [데이터베이스에서 권장 하는 목록](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) -지정 된 데이터베이스의 권장 민감도 레이블을 가져옵니다.
 
-## <a name="manage-data-discovery-and-classification-using-azure-powershell"></a>데이터 검색 및 Azure PowerShell을 사용 하 여 분류 관리
+## <a name="manage-data-discovery-and-classification-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 데이터 검색 및 분류 관리
 
-PowerShell을 사용 하 여 Azure SQL database 관리 되는 인스턴스에 권장 되는 모든 열을 가져올 수 있습니다.
+PowerShell을 사용 하 여 Azure SQL database 및 관리 되는 인스턴스의 모든 권장 열을 가져올 수 있습니다.
 
 ### <a name="powershell-cmdlets-for-azure-sql-database"></a>Azure SQL database에 대 한 PowerShell Cmdlet
 
@@ -157,14 +156,14 @@ PowerShell을 사용 하 여 Azure SQL database 관리 되는 인스턴스에 �
 - [Remove-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasesensitivityclassification)
 - [Get-AzSqlDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasesensitivityrecommendation)
 
-### <a name="powershell-cmdlets-for-managed-instance"></a>관리 되는 인스턴스에 대 한 PowerShell Cmdlet
+### <a name="powershell-cmdlets-for-managed-instance"></a>관리 되는 인스턴스의 PowerShell Cmdlet
 
 - [Get-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabasesensitivityclassification)
 - [Set-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasesensitivityclassification)
 - [Remove-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstancedatabasesensitivityclassification)
 - [Get-AzSqlInstanceDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabasesensitivityrecommendation)
 
-## <a name="permissions"></a>권한
+## <a name="permissions"></a>사용 권한
 
 다음 기본 제공 역할에서 Azure SQL database의 데이터 분류를 읽을 수 있습니다: `Owner`, `Reader`, `Contributor`, `SQL Security Manager`와 `User Access Administrator`
 

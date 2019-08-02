@@ -6,14 +6,14 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 562daa024985a546ffb49c4da11eace3bc81a659
-ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
+ms.openlocfilehash: b5777300f5033569caf3868218e747df3ff83a76
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314818"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640236"
 ---
-# <a name="mapping-data-flow-schema-drift"></a>Mapping Data Flow 스키마 드리프트
+# <a name="mapping-data-flow-schema-drift"></a>데이터 흐름 스키마 드리프트 매핑
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -65,7 +65,7 @@ Azure Data Factory Data Flow 구문은 $$를 사용하여 일치 패턴에서 �
 
 ```round(sum ($$))```
 
-Azure Data Factory Data Flow 샘플 “Taxi Demo”를 사용하여 이 작업을 테스트할 수 있습니다. 결과를 대화형으로 확인할 수 있도록 Data Flow 디자인 화면의 맨 위에 있는 디버그 토글을 사용하여 디버그 세션을 켭니다.
+Azure Data Factory 데이터 흐름 샘플 "Taxi Demo"를 사용 하 여이 스키마 드리프트 기능을 확인할 수 있습니다. 결과를 대화형으로 확인할 수 있도록 Data Flow 디자인 화면의 맨 위에 있는 디버그 토글을 사용하여 디버그 세션을 켭니다.
 
 <img src="media/data-flow/taxidrift2.png" width="800">
 
@@ -75,6 +75,9 @@ Azure Data Factory Data Flow 샘플 “Taxi Demo”를 사용하여 이 작업�
 * "ByPosition"를 사용 하 여 위치 번호를 기준으로 새 열을 식별 합니다.
 * "ByName"를 사용 하 여 이름을 기준으로 새 열을 식별 합니다.
 * 열 패턴에서 "Name", "Stream", "Position" 또는 "Type"을 사용 하거나 새 열과 일치 하는 항목을 조합 하 여 사용 합니다.
+
+## <a name="rule-based-mapping"></a>규칙 기반 매핑
+선택 및 싱크 변환은 규칙 기반 매핑을 통해 패턴 일치를 지원 합니다. 이렇게 하면 데이터베이스가 드리프트 열을 열 별칭에 매핑하고 해당 열을 대상으로 싱크할 수 있는 규칙을 작성할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 [데이터 흐름 식 언어](data-flow-expression-functions.md) 에서 열 패턴에 대 한 추가 기능 및 "byName" 및 "byPosition"를 포함 하는 스키마 드리프트를 찾을 수 있습니다.

@@ -3,18 +3,18 @@ title: Azure Maps로 마우스 이벤트 처리 | Microsoft Docs
 description: 맵 이벤트를 사용하여 대화형 Javascript 맵을 만드는 방법
 author: jingjing-z
 ms.author: jinzh
-ms.date: 11/29/2018
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 4fce8eae25942d098bb3f3277938bfaa3dafa00b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: da6b183155de0fbc370751254a6842343d280874
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60770451"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638977"
 ---
 # <a name="interact-with-the-map---mouse-events"></a>맵과 상호 작용 - 마우스 이벤트
 
@@ -51,7 +51,7 @@ ms.locfileid: "60770451"
 전체 코드 예제는 다음 문서를 참조하세요.
 
 > [!div class="nextstepaction"]
-> [Azure Maps 서비스 모듈을 사용 하 여](./how-to-use-services-module.md)
+> [Azure Maps Services 모듈 사용](./how-to-use-services-module.md)
 
 > [!div class="nextstepaction"]
 > [코드 샘플 페이지](https://aka.ms/AzureMapsSamples)

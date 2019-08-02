@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/14/2018
+ms.date: 07/29/2019
 ms.author: alinast
-ms.openlocfilehash: 35d12d0114f9677905c85a9df94ecd074e5f8f75
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a3a5555bf163aedd9b41a9c9aa363a883deb4cb8
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60926081"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638510"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>디바이스 연결 및 원격 분석 수신
 
@@ -50,7 +50,7 @@ YOUR_MANAGEMENT_API_URL/devices/YOUR_DEVICE_GUID?includes=ConnectionString
 | *YOUR_DEVICE_GUID* | 디바이스 ID |
 
 ```plaintext
-YOUR_MANAGEMENT_API_URL/devices?hardwareIds=YOUR_DEVICE_HARDWARE_ID&includes=ConnectionString
+YOUR_MANAGEMENT_API_URL/devices?HardwareIds=YOUR_DEVICE_HARDWARE_ID&includes=ConnectionString
 ```
 
 | 매개 변수 값 | 다음 항목으로 교체 |
@@ -61,7 +61,7 @@ YOUR_MANAGEMENT_API_URL/devices?hardwareIds=YOUR_DEVICE_HARDWARE_ID&includes=Con
 
 ## <a name="device-to-cloud-message"></a>디바이스-클라우드 메시지
 
-디바이스의 메시지 형식과 페이로드를 솔루션 요구 사항에 맞게 사용자 지정할 수 있습니다. [Azure IoT 디바이스 클라이언트 메시지 클래스 Message(byte[] byteArray)](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.-ctor?view=azure-dotnet#Microsoft_Azure_Devices_Client_Message__ctor_System_Byte___)에서 지원하는 바이트 배열 또는 스트림으로 직렬화할 수 있는 모든 데이터 계약을 사용할 수 있습니다. 해당 사용자 정의 함수에서 데이터 계약을 디코드하는 경우, 메시지는 선택한 사용자 지정 이진 형식일 수 있습니다. 디바이스-클라우드 메시지에 대한 요구 사항은 하나밖에 없습니다. 메시지가 처리 엔진으로 적절하게 라우팅되도록 속성 집합을 유지해야 합니다.
+디바이스의 메시지 형식과 페이로드를 솔루션 요구 사항에 맞게 사용자 지정할 수 있습니다. [Azure IoT 디바이스 클라이언트 메시지 클래스 Message(byte[] byteArray)](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.-ctor?view=azure-dotnet#Microsoft_Azure_Devices_Client_Message__ctor_System_Byte___)에서 지원하는 바이트 배열 또는 스트림으로 직렬화할 수 있는 모든 데이터 계약을 사용할 수 있습니다. 해당 사용자 정의 함수에서 데이터 계약을 디코드하는 경우, 메시지는 선택한 사용자 지정 이진 형식일 수 있습니다. 디바이스-클라우드 메시지에 대한 요구 사항은 하나밖에 없습니다. 메시지를 처리 엔진으로 적절 하 게 라우팅하도록 속성 집합을 유지 관리 합니다.
 
 ### <a name="telemetry-properties"></a>원격 분석 속성
 
@@ -70,9 +70,9 @@ YOUR_MANAGEMENT_API_URL/devices?hardwareIds=YOUR_DEVICE_HARDWARE_ID&includes=Con
 | 속성 이름 | 값 | 필수 | 설명 |
 |---|---|---|---|
 | **DigitalTwins-Telemetry** | 1.0 | 예 | 시스템에 메시지를 식별하는 상수 값입니다. |
-| **DigitalTwins-SensorHardwareId** | `string(72)` | 예 | **Message**를 보내는 센서의 고유 식별자입니다. 이 값은 시스템에서 처리하려면 개체의 **HardwareId** 속성과 일치해야 합니다. 예: `00FF0643BE88-CO2`. |
-| **CreationTimeUtc** | `string` | 아닙니다. | 페이로드의 샘플링 시간을 식별하는 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 형식의 날짜 문자열입니다. 예: `2018-09-20T07:35:00.8587882-07:00`. |
-| **CorrelationId** | `string` | 아닙니다. | 시스템에서 이벤트를 추적하는 데 사용되는 UUID입니다. 예: `cec16751-ab27-405d-8fe6-c68e1412ce1f`.
+| **DigitalTwins-SensorHardwareId** | `string(72)` | 예 | **Message**를 보내는 센서의 고유 식별자입니다. 이 값은 시스템에서 처리하려면 개체의 **HardwareId** 속성과 일치해야 합니다. `00FF0643BE88-CO2` )을 입력합니다. |
+| **CreationTimeUtc** | `string` | 아니요 | 페이로드의 샘플링 시간을 식별하는 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 형식의 날짜 문자열입니다. `2018-09-20T07:35:00.8587882-07:00` )을 입력합니다. |
+| **CorrelationId** | `string` | 아니요 | 시스템에서 이벤트를 추적하는 데 사용되는 UUID입니다. `cec16751-ab27-405d-8fe6-c68e1412ce1f` )을 입력합니다.
 
 ### <a name="send-your-message-to-digital-twins"></a>Digital Twins로 메시지 보내기
 

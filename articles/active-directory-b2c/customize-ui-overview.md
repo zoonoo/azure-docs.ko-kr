@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 13ae1b74acbcab8d623c24d6a7b8d7e1355b80e8
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: bbce41271914df4bb8a75804bc66ae538fe766fa
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227149"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716761"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 인터페이스 사용자 지정 정보
 
@@ -118,13 +118,13 @@ UI를 사용자 지정하려면 다음을 수행합니다.
 | 로컬 계정 등록 | 이메일 주소 또는 사용자 이름을 기준으로 하는 로컬 계정 등록 양식을 포함합니다. 양식은 텍스트 입력 상자, 암호 입력란, 라디오 단추, 단일 선택 드롭다운 상자 및 다중 선택 확인란과 같은 다른 입력 제어를 포함할 수 있습니다. |
 | 소셜 계정 등록 | Facebook 또는 Google과 같은 소셜 ID 공급자의 기존 계정을 사용하여 등록하는 경우 나타날 수 있습니다. 등록 양식을 사용하여 고객으로부터 추가 정보를 수집해야 할 때 사용됩니다. |
 | 통합 등록 또는 로그인 | Facebook, Google 또는 로컬 계정과 같은 소셜 ID 공급자를 사용할 수 있는 고객의 등록과 로그인을 모두 다룹니다. |
-| Multi-Factor Authentication | 고객은 등록 또는 로그인 중에 전화 번호(텍스트 또는 음성 사용)를 확인할 수 있습니다. |
+| 다단계 인증 | 고객은 등록 또는 로그인 중에 전화 번호(텍스트 또는 음성 사용)를 확인할 수 있습니다. |
 | Error | 고객에게 오류 정보를 제공합니다. |
 
 
 ## <a name="how-do-i-localize-content"></a>콘텐츠를 어떻게 지역화하나요?
 
-Azure AD B2C 테넌트에서 [사용자 언어 지정](active-directory-b2c-reference-language-customization.md)을 사용하여 HTML 콘텐츠를 지역화합니다. 이 기능을 사용하도록 설정하면 Azure AD B2C가 Open ID Connect 매개 변수 `ui-locales`를 엔드포인트로 전달할 수 있습니다. 콘텐츠 서버는 이 매개 변수를 사용하여 언어별 HTML 페이지를 제공할 수 있습니다.
+Azure AD B2C 테넌트에서 [사용자 언어 지정](active-directory-b2c-reference-language-customization.md)을 사용하여 HTML 콘텐츠를 지역화합니다. 이 기능을 사용 하도록 설정 하면 Azure AD B2C openid connect Connect 매개 `ui-locales` 변수를 끝점으로 전달할 수 있습니다. 콘텐츠 서버는 이 매개 변수를 사용하여 언어별 HTML 페이지를 제공할 수 있습니다.
 
 사용되는 로캘에 따라 다른 위치에서 콘텐츠를 끌어올 수 있습니다. CORS 사용 엔드포인트에서 특정 언어에 대한 콘텐츠를 호스트하도록 폴더 구조를 설정합니다. 와일드카드 값 {Culture:RFC5646}을 사용하는 경우 적합한 구조를 호출합니다. 예를 들어 사용자 지정 페이지에 URI는 `https://contoso.blob.core.windows.net/{Culture:RFC5646}/myHTML/unified.html`과 같을 수 있습니다. `https://contoso.blob.core.windows.net/fr/myHTML/unified.html`에서 콘텐츠를 끌어서 페이지를 프랑스어로 로드할 수 있습니다.
 

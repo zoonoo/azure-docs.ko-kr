@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/08/2019
-ms.author: aljo
-ms.openlocfilehash: 0302d8950d10d2c606fad0582079ed0c77047fbf
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.author: atsenthi
+ms.openlocfilehash: 569d5fb3d50ac78e69d87906e7391cadba61f4f0
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68295535"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599480"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Windows에서 개발 환경 준비
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.locfileid: "68295535"
 
 Windows 개발 컴퓨터에서 [Azure Service Fabric 응용 프로그램][1] 을 빌드하고 실행 하려면 Service Fabric 런타임, SDK 및 도구를 설치 합니다. 또한 SDK에 포함된 [Windows PowerShell 스크립트의 실행을 사용하도록 설정](#enable-powershell-script-execution)해야 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 ### <a name="supported-operating-system-versions"></a>지원되는 운영 체제 버전
 개발을 위해 다음 운영 체제 버전이 지원됩니다.
 

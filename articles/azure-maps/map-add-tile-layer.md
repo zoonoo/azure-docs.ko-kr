@@ -3,18 +3,18 @@ title: Azure Maps에 타일 계층 추가 | Microsoft Docs
 description: Javascript 맵에 타일 계층을 추가하는 방법
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/3/2018
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 3a773c24993d229f20df698113ff7535fea634ca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e288e03b9e2c02ba963595f192dea7225c6d5762
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60769229"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638993"
 ---
 # <a name="add-a-tile-layer-to-a-map"></a>맵에 타일 계층 추가
 
@@ -73,4 +73,4 @@ ms.locfileid: "60769229"
 맵에 추가할 더 많은 코드 예제를 보려면 다음 문서를 참조하세요.
 
 > [!div class="nextstepaction"]
-> [이미지 레이어를 추가 합니다.](./map-add-image-layer.md)
+> [이미지 계층 추가](./map-add-image-layer.md)

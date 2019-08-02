@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: v-mohabe
 ms.custom: seodec18
-ms.openlocfilehash: 02281a1cad9c7e6f9680441a699fa5d34558b890
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 0504da45cbbd60629954d3e3ca3230e05761c1d6
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501495"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640404"
 ---
 # <a name="advanced-threat-protection-for-azure-cosmos-db"></a>Azure Cosmos DB에 대 한 Advanced Threat Protection
 
@@ -23,7 +23,7 @@ Azure Cosmos DB에 대 한 Advanced Threat Protection은 Azure Cosmos DB 계정�
 > [!NOTE]
 >
 > * Azure Cosmos DB에 대 한 Advanced Threat Protection은 현재 SQL API에 대해서만 사용할 수 있습니다.
-> * Azure Cosmos DB에 대 한 Advanced Threat Protection은 현재 Azure 정부 및 소 버린 클라우드 지역에서 사용할 수 있습니다.
+> * Azure Cosmos DB에 대 한 Advanced Threat Protection은 현재 Azure 정부 및 소 버린 클라우드 지역에서 사용할 수 없습니다.
 
 보안 경고에 대 한 전체 조사 환경을 위해 모든 문서, 컨테이너 및 데이터베이스에 대 한 CRUD 작업을 포함 하 여 데이터베이스 자체에 대 한 작업을 기록 하는 [Azure Cosmos DB에서 진단 로깅을](https://docs.microsoft.com/azure/cosmos-db/logging)사용 하는 것이 좋습니다.
 

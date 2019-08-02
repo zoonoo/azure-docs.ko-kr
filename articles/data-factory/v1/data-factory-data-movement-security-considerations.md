@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 083770c24a6c8939f8d1ff9f0efd5d18aff9dcb0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b425db761375c705d3c810002234a937bac46d78
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60487083"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68610173"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - 데이터 이동을 위한 보안 고려 사항
 
@@ -44,13 +44,13 @@ Azure 규정 준수 및 Azure의 자체 인프라 보안 방법에 관심이 있
 이 문서에서는 다음 두 가지 데이터 이동 시나리오에서 보안 고려 사항을 검토합니다. 
 
 - **클라우드 시나리오** - 이 시나리오에서는 출처와 목적지 모두 인터넷을 통해 공개적으로 액세스할 수 있습니다. 여기에는 Azure Storage, Azure SQL Data Warehouse, Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, Salesforce와 같은 SaaS 서비스, FTP 및 OData와 같은 웹 프로토콜과 같은 관리 클라우드 스토리지 서비스가 포함됩니다. 지원되는 데이터 원본 목록은 [여기](data-factory-data-movement-activities.md#supported-data-stores-and-formats)에 있습니다.
-- **하이브리드 시나리오** - 이 시나리오에서는 원본 또는 대상이 방화벽 뒤에 있거나 회사 내 회사 네트워크 내에 있거나 데이터 저장소가 개인 네트워크/가상 네트워크(주로 원본)에 있으며 공개적으로 액세스할 수 없습니다. 가상 머신에서 호스팅되는 데이터베이스 서버도 이 시나리오에 해당합니다.
+- **하이브리드 시나리오** - 이 시나리오에서는 원본 또는 대상이 방화벽 뒤에 있거나 회사 내 회사 네트워크 내에 있거나 데이터 저장소가 프라이빗 네트워크/가상 네트워크(주로 원본)에 있으며 공개적으로 액세스할 수 없습니다. 가상 머신에서 호스팅되는 데이터베이스 서버도 이 시나리오에 해당합니다.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="cloud-scenarios"></a>클라우드 시나리오
 ### <a name="securing-data-store-credentials"></a>데이터 저장소 자격 증명 보안
-Azure Data Factory는 **Microsoft에서 관리하는 인증서**를 사용하여 **암호화**하여 데이터 저장소 자격 증명을 보호합니다. 이 인증서는 **2년마다** 갱신됩니다(인증서 갱신 및 자격 증명 마이그레이션 포함). 이러한 암호화된 자격 증명은 **Azure Data Factory 관리 서비스에서 관리하는 Azure Storage**에 안전하게 저장됩니다. Azure Storage 보안에 대한 자세한 내용은 [Azure Storage 보안 개요](../../security/security-storage-overview.md)를 참조하세요.
+Azure Data Factory는 **Microsoft에서 관리하는 인증서**를 사용하여 **암호화**하여 데이터 저장소 자격 증명을 보호합니다. 이 인증서는 **2년마다** 갱신됩니다(인증서 갱신 및 자격 증명 마이그레이션 포함). 이러한 암호화된 자격 증명은 **Azure Data Factory 관리 서비스에서 관리하는 Azure Storage**에 안전하게 저장됩니다. Azure Storage 보안에 대한 자세한 내용은 [Azure Storage 보안 개요](../../security/fundamentals/storage-overview.md)를 참조하세요.
 
 ### <a name="data-encryption-in-transit"></a>전송 중 암호화
 클라우드 데이터 저장소가 HTTPS 또는 TLS를 지원하는 경우 Data Factory의 데이터 이동 서비스와 클라우드 데이터 저장소 간의 모든 데이터 전송은 보안 채널 HTTPS 또는 TLS를 통해 이루어집니다.
@@ -95,7 +95,7 @@ Salesforce는 모든 파일, 첨부 파일, 사용자 정의 필드의 암호화
 - Azure Portal/복사 마법사에서 HTTPS를 통해 **일반 텍스트**(보안 수준 낮음)를 사용합니다. 자격 증명은 일반 텍스트로 온-프레미스 게이트웨이에 전달됩니다.
 - **복사 마법사에서 JavaScript 암호화 라이브러리** 사용 중.
 - **한 번 클릭 기반 자격 증명 관리자 앱** 사용. 1회성 애플리케이션은 게이트웨이에 액세스할 수 있는 온-프레미스 시스템에서 실행되며 데이터 저장소에 대한 인증 정보를 설정합니다. 이 옵션과 다음 옵션은 가장 안전한 옵션입니다. 자격 증명 관리자 앱은 기본적으로 보안 통신을 위해 게이트웨이가 있는 컴퓨터에서 포트 8050을 사용합니다.  
-- 사용 하 여 [새로 만들기-AzDataFactoryEncryptValue](/powershell/module/az.datafactory/New-azDataFactoryEncryptValue) PowerShell cmdlet은 자격 증명을 암호화 합니다. Cmdlet은 해당 게이트웨이 구성하는 인증서를 사용하여 자격 증명을 암호화를 사용합니다. 이 cmdlet에서 반환한 암호화 된 자격 증명을 사용 하 고를 추가할 수 있습니다 **EncryptedCredential** 의 요소를 **connectionString** 사용 하는 JSON 파일에는 [ 새 AzDataFactoryLinkedService](/powershell/module/az.datafactory/new-azdatafactorylinkedservice) cmdlet 또는 포털에서 데이터 팩터리 편집기에서 JSON 코드 조각입니다. 이 옵션과 클릭 1회 애플리케이션은 가장 안전한 옵션입니다. 
+- [AzDataFactoryEncryptValue](/powershell/module/az.datafactory/New-azDataFactoryEncryptValue) PowerShell cmdlet을 사용 하 여 자격 증명을 암호화 합니다. Cmdlet은 해당 게이트웨이 구성하는 인증서를 사용하여 자격 증명을 암호화를 사용합니다. 이 cmdlet이 반환 하는 암호화 된 자격 증명을 사용 하 여 [AzDataFactoryLinkedService](/powershell/module/az.datafactory/new-azdatafactorylinkedservice) cmdlet 또는의 json 코드 조각에서 사용 하는 json 파일에서 **ConnectionString** 의 **encryptedcredential** 요소에 추가할 수 있습니다. 포털에서 편집기를 Data Factory 합니다. 이 옵션과 클릭 1회 애플리케이션은 가장 안전한 옵션입니다. 
 
 #### <a name="javascript-cryptography-library-based-encryption"></a>JavaScript 암호화 라이브러리 기반 암호화
 [복사 마법사](data-factory-copy-wizard.md)의 [JavaScript Cryptography 라이브러리](https://www.microsoft.com/download/details.aspx?id=52439)를 사용하여 데이터 저장소 자격 증명을 암호화할 수 있습니다. 이 옵션을 선택하면 복사 마법사가 게이트웨이의 공개 키를 검색하여 이를 사용하여 데이터 저장소 자격 증명을 암호화합니다. 자격 증명은 게이트웨이 컴퓨터에 의해 해독되고 Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx)에 의해 보호됩니다.
@@ -127,7 +127,7 @@ Salesforce는 모든 파일, 첨부 파일, 사용자 정의 필드의 암호화
 
 다음 표는 하이브리드 데이터 이동을 위한 원본 및 대상 위치의 다양한 조합에 따라 네트워크 및 게이트웨이 구성 권장 사항을 요약한 것입니다.
 
-| 원본 | 대상 | 네트워크 구성 | 게이트웨이 설치 |
+| Source | Destination | 네트워크 구성 | 게이트웨이 설치 |
 | ------ | ----------- | --------------------- | ------------- | 
 | 온-프레미스 | 가상 네트워크에 배포된 가상 머신 및 클라우드 서비스 | IPSec VPN(지점 및 사이트 간 또는 사이트 간) | 게이트웨이는 Vnet의 온-프레미스 또는 Azure 가상 머신(VM)에 설치할 수 있습니다. | 
 | 온-프레미스 | 가상 네트워크에 배포된 가상 머신 및 클라우드 서비스 | ExpressRoute(프라이빗 피어링) | 게이트웨이는 VNet의 Azure VM 또는 온-프레미스 환경에 설치할 수 있습니다. | 
@@ -150,7 +150,7 @@ Salesforce는 모든 파일, 첨부 파일, 사용자 정의 필드의 암호화
 
 다음 표는 **아웃바운드 포트** 및 **회사 방화벽**에 대한 도메인 요구 사항을 제공합니다.
 
-| 도메인 이름 | 아웃바운드 포트 | 설명 |
+| 도메인 이름 | 아웃바운드 포트 | Description |
 | ------------ | -------------- | ----------- | 
 | `*.servicebus.windows.net` | 443, 80 | Data Factory에서 데이터 이동 서비스에 연결하기 위해 게이트웨이가 필요합니다. |
 | `*.core.windows.net` | 443 | [복사 준비](data-factory-copy-activity-performance.md#staged-copy) 기능을 사용할 때 게이트웨이가 Azure Storage 계정에 연결하는 데 사용합니다. | 
@@ -163,7 +163,7 @@ Salesforce는 모든 파일, 첨부 파일, 사용자 정의 필드의 암호화
 
 다음 표에서는 **Windows 방화벽**에 대한 **인바운드 포트** 요구 사항을 제공합니다.
 
-| 인바운드 포트 | 설명 | 
+| 인바운드 포트 | Description | 
 | ------------- | ----------- | 
 | 8050(TCP) | 게이트웨이의 온-프레미스 데이터 저장소에 대한 신임을 안전하게 설정하기 위해 신임 관리자 애플리케이션에서 필요합니다. | 
 

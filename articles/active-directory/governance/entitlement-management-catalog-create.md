@@ -16,12 +16,12 @@ ms.date: 07/23/2019
 ms.author: ajburnle
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e563d86abe3817e4c77cc0d5c8df928e41563f8
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 1654e0a8cd11ac1c7a2f4ef0667d0e99187c2374
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489079"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618321"
 ---
 # <a name="create-and-manage-a-catalog-in-azure-ad-entitlement-management-preview"></a>Azure AD 자격 관리에서 카탈로그 만들기 및 관리 (미리 보기)
 
@@ -34,7 +34,7 @@ ms.locfileid: "68489079"
 
 카탈로그는 리소스 및 액세스 패키지의 컨테이너입니다. 관련 리소스를 그룹화 하 고 패키지에 액세스 하려는 경우 카탈로그를 만듭니다. 카탈로그를 만드는 사람은 첫 번째 카탈로그 소유자가 됩니다. 카탈로그 소유자는 카탈로그 소유자를 더 추가할 수 있습니다.
 
-**필수 역할:** 사용자 관리자 또는 카탈로그 작성자
+**필수 역할:** 전역 관리자, 사용자 관리자 또는 카탈로그 작성자
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
@@ -102,7 +102,7 @@ ms.locfileid: "68489079"
 
 카탈로그에 대 한 이름 및 설명을 편집할 수 있습니다. 사용자는 액세스 패키지의 세부 정보에서이 정보를 볼 수 있습니다.
 
-**필수 역할:** 사용자 관리자 또는 카탈로그 소유자
+**필수 역할:** 전역 관리자, 사용자 관리자 또는 카탈로그 소유자
 
 1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
 
@@ -118,7 +118,7 @@ ms.locfileid: "68489079"
 
 액세스 패키지가 없는 경우에만 카탈로그를 삭제할 수 있습니다.
 
-**필수 역할:** 사용자 관리자 또는 카탈로그 소유자
+**필수 역할:** 전역 관리자, 사용자 관리자 또는 카탈로그 소유자
 
 1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
 

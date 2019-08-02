@@ -13,12 +13,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: rclaus
-ms.openlocfilehash: 02ee65020f72fb9c3262db82e035e628f780e2cf
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 86a0633a433623c2b43bb26721e5fcee08d4301f
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709991"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640801"
 ---
 # <a name="sap-hana-azure-backup-on-file-level"></a>파일 수준의 SAP HANA Azure Backup
 
@@ -36,7 +36,7 @@ Azure의 VM 유형에 따라 서로 다른 개수의 VHD를 연결할 수 있습
 
 간단하고 직관적인 선택으로 보이지만 몇 가지 고려 사항이 있습니다. 앞에서 설명한 대로 Azure VM에 연결할 수 있는 데이터 디스크의 수는 제한됩니다. 데이터베이스와 디스크 처리량 요구 사항의 크기에 따라 VM의 파일 시스템에 SAP HANA 백업 파일을 저장할 수 있는 용량이 부족할 수 있으므로 여러 데이터 디스크에서 소프트웨어 스트라이프가 포함될 수 있습니다. 테라바이트 단위의 데이터를 처리할 때 이러한 백업 파일을 이동하고 파일 크기 제한과 성능을 관리하기 위한 다양한 옵션이 이 문서의 뒷부분에 나와 있습니다.
 
-File Storage 공유는 표준 SMB 파일 공유이므로 Azure에서 실행되는 응용 프로그램은 파일 시스템 I/O API를 통해 공유의 데이터에 액세스할 수 있습니다. 단일 Blob은 1TB로 제한되지만, 단일 Blob 컨테이너의 총 용량은 현재 500TB입니다. Azure File Storage 서비스를 사용하면 계정이 허용하는 만큼 많은 디렉터리를 만들 수 있습니다. 참조 [Azure Blob Storage: 핫 및 쿨 저장소 계층](../../../storage/blobs/storage-blob-storage-tiers.md) 쿨 blob storage에 대 한 세부 정보에 대 한 합니다.
+File Storage 공유는 표준 SMB 파일 공유이므로 Azure에서 실행되는 응용 프로그램은 파일 시스템 I/O API를 통해 공유의 데이터에 액세스할 수 있습니다. 단일 Blob은 1TB로 제한되지만, 단일 Blob 컨테이너의 총 용량은 현재 500TB입니다. Azure File Storage 서비스를 사용하면 계정이 허용하는 만큼 많은 디렉터리를 만들 수 있습니다. Azure Blob Storage [를 참조 하세요. 쿨 blob 저장소에 대](../../../storage/blobs/storage-blob-storage-tiers.md) 한 자세한 내용은 핫 및 쿨 저장소 계층을 참조 하세요.
 
 보안을 강화하려면 지리적 복제된 저장소 계정을 사용하여 SAP HANA 백업을 저장합니다. 스토리지 계정 복제에 대한 자세한 내용은 [Azure Storage 복제](../../../storage/common/storage-redundancy.md)를 참조하세요.
 
@@ -50,7 +50,7 @@ Azure 백업은 전체 VM을 백업할 뿐만 아니라 게스트 OS에 설치�
 
 ## <a name="azure-blobxfer-utility-details"></a>Azure blobxfer 유틸리티 정보
 
-Azure 저장소에 디렉터리와 파일을 저장하려면 CLI 또는 PowerShell을 사용하거나 [Azure SDK](https://azure.microsoft.com/downloads/) 중 하나를 사용하여 도구를 개발할 수 있습니다. 또한 Azure 저장소에 데이터를 복사하는 데 즉시 사용할 수 있는 유틸리티인 AzCopy도 있지만, 이는 Windows 전용입니다([AzCopy 명령줄 유틸리티로 데이터 전송](../../../storage/common/storage-use-azcopy.md) 참조).
+Azure 저장소에 디렉터리와 파일을 저장하려면 CLI 또는 PowerShell을 사용하거나 [Azure SDK](https://azure.microsoft.com/downloads/) 중 하나를 사용하여 도구를 개발할 수 있습니다. Azure storage로 데이터를 복사 하는 즉시 사용 가능한 유틸리티인 AzCopy도 있습니다. [AzCopy 명령줄 유틸리티를 사용 하 여 데이터 전송](../../../storage/common/storage-use-azcopy.md)을 참조 하세요.
 
 따라서 blobxfer 유틸리티가 SAP HANA 백업 파일을 복사하는 데 사용되었습니다. 이 유틸리티는 프로덕션 환경에서 많은 고객이 사용하는 오픈 소스이며 [GitHub](https://github.com/Azure/blobxfer)에서 사용할 수 있습니다. Azure File Storage는 클라우드 기반 SMB 파일 공유를 제공하므로 파일 공유에 의존하는 레거시 응용 프로그램을 비경제적인 다시 쓰기 작업 없이 신속하게 Azure로 마이그레이션할 수 있습니다. 또한 여러 파일이 있는 디렉터리를 복사하는 경우 md5 해시 또는 자동 병렬 처리와 같은 유용한 기능을 다양하게 제공합니다.
 
@@ -70,7 +70,7 @@ Azure 저장소에 디렉터리와 파일을 저장하려면 CLI 또는 PowerShe
 
 ## <a name="copy-sap-hana-backup-files-to-azure-blob-storage"></a>File Storage 정의
 
-SAP HANA 백업 파일을 빠르게 저장하는 또 다른 옵션은 Azure Blob Storage입니다. 단일 Blob 컨테이너는 500TB 크기로 제한되지만, 일부 소형 SAP HANA 시스템에 충분한 크기이며 Azure의 M32ts, M32ls, M64ls 및 GS5 VM 유형을 사용하여 SAP HANA 백업을 충분하게 유지할 수 있습니다. 고객 간에 선택할 수 &quot;핫&quot; 하 고 &quot;콜드&quot; blob 저장소 (참조 [Azure Blob Storage: 핫 및 쿨 저장소 계층](../../../storage/blobs/storage-blob-storage-tiers.md)).
+SAP HANA 백업 파일을 빠르게 저장하는 또 다른 옵션은 Azure Blob Storage입니다. 단일 Blob 컨테이너는 500TB 크기로 제한되지만, 일부 소형 SAP HANA 시스템에 충분한 크기이며 Azure의 M32ts, M32ls, M64ls 및 GS5 VM 유형을 사용하여 SAP HANA 백업을 충분하게 유지할 수 있습니다. &quot;핫 [및 콜드 blobstorage중에서선택할수있습니다(AzureBlobStorage을참조하세요.&quot; &quot; &quot; 핫 및 쿨 저장소 계층](../../../storage/blobs/storage-blob-storage-tiers.md)).
 
 Azure File Storage - 일부 HPC 클러스터 솔루션에 필요한 표준 SMB 프로토콜을 사용하여 Azure에 일반적인 파일 및 데이터를 공유합니다.
 

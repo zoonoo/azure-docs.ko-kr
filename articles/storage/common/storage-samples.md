@@ -1,20 +1,18 @@
 ---
 title: Azure Storage 코드 샘플 | Microsoft Docs
 description: Azure Storage에 대한 샘플 코드 및 애플리케이션을 확인하고 다운로드하여 실행합니다. .NET, Java, Node.js 및 C++ 저장소 클라이언트 라이브러리를 사용하여 blob, 큐, 테이블 및 파일에 대한 예제 시작을 검색합니다.
-services: storage
 author: mhopkins-msft
-ms.service: storage
-ms.topic: article
-ms.date: 06/03/2017
 ms.author: mhopkins
-ms.reviewer: seguler
+ms.date: 06/03/2017
+ms.service: storage
 ms.subservice: common
-ms.openlocfilehash: c3bf695527db19513125d9190796c9b5df312aaa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.topic: sample
+ms.openlocfilehash: ad2881221d1c748016ff4f026ac8ffb3ed683f43
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153496"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721762"
 ---
 # <a name="azure-storage-samples"></a>Azure Storage 샘플
 
@@ -48,7 +46,7 @@ Node.js 샘플을 탐색하려면 [Node.js Storage 클라이언트 라이브러�
 * [연속 토큰](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/continuationsample.js)
 * [다시 시도 정책](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/retrypolicysample.js)
 * [공유 액세스 서명](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/sassample.js)
-* [스냅숏](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/snapshotsample.js)
+* [스냅샷](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/snapshotsample.js)
 * [테이블 쿼리](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/tablequerysample.js)
 
 ## <a name="c-samples"></a>C++ 샘플
