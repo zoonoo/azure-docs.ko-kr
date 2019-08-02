@@ -8,18 +8,19 @@ manager: jegeib
 editor: jegeib
 ms.assetid: na
 ms.service: security
+ms.subservice: security-develop
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: e8f3cf3889b3f79e930630ff0e768a0c4875eec6
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: fd7a12dca92a4b84ecd3a2c9644509a1dc705c35
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68621105"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68727847"
 ---
 # <a name="security-frame-session-management"></a>보안 프레임: 세션 관리
 | 제품/서비스 | 문서 |
@@ -74,7 +75,7 @@ Session.Abandon() 메서드를 호출하여 사용자의 세션을 삭제해야 
 | **구성 요소**               | IoT 디바이스 | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 제네릭 |
-| **특성**              | N/A  |
+| **특성**              | 해당 사항 없음  |
 | **참조**              | 해당 사항 없음  |
 | **단계** | Azure IoT Hub를 인증하기 위해 생성된 SaS 토큰은 한정된 만료 기간이 있어야 합니다. 토큰이 손상된 경우에 재생될 수 있는 시간을 제한하려면 SaS 토큰 수명을 최소로 유지합니다.|
 
@@ -85,8 +86,8 @@ Session.Abandon() 메서드를 호출하여 사용자의 세션을 삭제해야 
 | **구성 요소**               | Azure Document DB | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 제네릭 |
-| **특성**              | 해당 사항 없음  |
-| **참조**              | 해당 사항 없음  |
+| **특성**              | N/A  |
+| **참조**              | N/A  |
 | **단계** | 리소스 토큰의 시간 범위를 필요한 최소값으로 줄입니다. 리소스 토큰은 기본 1시간의 유효한 시간을 갖습니다.|
 
 ## <a id="wsfederation-logout"></a>ADFS를 사용하는 경우에 WsFederation 메서드를 사용하여 적절한 로그아웃 구현
@@ -145,7 +146,7 @@ Session.Abandon() 메서드를 호출하여 사용자의 세션을 삭제해야 
 | **구성 요소**               | ID 서버 | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 제네릭 |
-| **특성**              | N/A  |
+| **특성**              | 해당 사항 없음  |
 | **참조**              | [IdentityServer3-페더레이션된 로그아웃](https://identityserver.github.io/Documentation/docsv2/advanced/federated-signout.html) |
 | **단계** | IdentityServer는 외부 ID 공급자를 사용하여 페더레이션하는 기능을 지원합니다. 업스트림 ID 공급자에서 사용자가 로그아웃하는 경우 사용된 프로토콜에 따라 사용자가 로그아웃하는 경우의 알림을 받을 수 있습니다. 또한 사용자가 로그아웃할 수도 있도록 IdentityServer가 해당 클라이언트에 알릴 수 있습니다 구현 세부 정보는 참조 섹션에 있는 설명서를 확인합니다.|
 
@@ -176,7 +177,7 @@ Session.Abandon() 메서드를 호출하여 사용자의 세션을 삭제해야 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 웹 양식, MVC5 |
 | **특성**              | EnvironmentType - OnPrem |
-| **참조**              | N/A  |
+| **참조**              | 해당 사항 없음  |
 | **단계** | 웹 애플리케이션이 신뢰 당사자이고 IdP가 ADFS 서버인 경우 FedAuth 토큰의 보안 특성은 web.config의 `system.identityModel.services` 섹션에서 requireSSL을 true로 설정하여 구성될 수 있습니다.|
 
 ### <a name="example"></a>예제
@@ -197,7 +198,7 @@ Session.Abandon() 메서드를 호출하여 사용자의 세션을 삭제해야 
 | **구성 요소**               | 웹 애플리케이션 | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 제네릭 |
-| **특성**              | 해당 사항 없음  |
+| **특성**              | N/A  |
 | **참조**              | [보안 쿠키 특성](https://en.wikipedia.org/wiki/HTTP_cookie#Secure_cookie) |
 | **단계** | 교차 사이트 스크립팅(XSS) 공격으로 인한 정보 공개의 위험을 완화하려면 새 특성(httpOnly)을 쿠키에 도입하고 모든 주요 브라우저에서 지원합니다. 이 특성은 스크립트를 통해 쿠키에 액세스할 수 없도록 지정합니다. 웹 애플리케이션은 HttpOnly 쿠키를 사용하여 쿠키에 포함된 중요한 정보가 스크립트를 통해 도난당하거나 공격자의 웹 사이트에 전송될 가능성을 줄여 줍니다. |
 
@@ -218,7 +219,7 @@ Session.Abandon() 메서드를 호출하여 사용자의 세션을 삭제해야 
 | **구성 요소**               | 웹 애플리케이션 | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | Web Forms |
-| **특성**              | N/A  |
+| **특성**              | 해당 사항 없음  |
 | **참조**              | [FormsAuthentication.RequireSSL 속성](https://msdn.microsoft.com/library/system.web.security.formsauthentication.requiressl.aspx) |
 | **단계** | RequireSSL 속성 값은 구성 요소의 requireSSL 특성을 사용하여 ASP.NET 애플리케이션의 구성 파일에서 설정됩니다. ASP.NET 애플리케이션에 대한 Web.config 파일에서 SSL(Secure Sockets Layer)이 requireSSL 특성을 설정하여 서버에 양식 인증 쿠키를 반환해야 하는지 여부를 지정할 수 있습니다.|
 
@@ -269,7 +270,7 @@ Session.Abandon() 메서드를 호출하여 사용자의 세션을 삭제해야 
 | **구성 요소**               | 웹 애플리케이션 | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | MVC5, MVC6 |
-| **특성**              | N/A  |
+| **특성**              | 해당 사항 없음  |
 | **참조**              | [ASP.NET MVC 및 웹 페이지에서 XSRF/CSRF 방지](https://www.asp.net/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) |
 | **단계** | CSRF 방지 및 ASP.NET MVC 양식 - 뷰에서 `AntiForgeryToken` 도우미 메서드를 사용합니다. 양식에 `Html.AntiForgeryToken()`을 배치합니다. 예를 들면 다음과 같습니다.|
 
@@ -375,7 +376,7 @@ void Page_Init (object sender, EventArgs e) {
 | **구성 요소**               | 웹 애플리케이션 | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 제네릭 |
-| **특성**              | N/A  |
+| **특성**              | 해당 사항 없음  |
 | **참조**              | [HttpSessionState.Timeout 속성](https://msdn.microsoft.com/library/system.web.sessionstate.httpsessionstate.timeout(v=vs.110).aspx) |
 | **단계** | 세션 제한 시간은 사용자가 웹 서버에서 정의한 간격 동안 웹 사이트에서 작업을 수행 하지 않을 때 발생 하는 이벤트를 나타냅니다. 서버 쪽의 이벤트는 사용자 세션의 상태를 '잘못됨'(즉, "더 이상 사용되지 않는")으로 변경하고 웹 서버가 해당 항목을 삭제하도록 지시합니다(포함된 모든 데이터 삭제). 다음 코드 예제에서는 Web.config 파일에서 시간 제한 세션 특성을 15분으로 설정합니다.|
 
@@ -395,7 +396,7 @@ void Page_Init (object sender, EventArgs e) {
 | **구성 요소**               | 웹 애플리케이션 | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | Web Forms |
-| **특성**              | 해당 사항 없음  |
+| **특성**              | N/A  |
 | **참조**              | [인증용 Forms 요소 (ASP.NET Settings 스키마)](https://msdn.microsoft.com/library/1d3t3c61(v=vs.100).aspx) |
 | **단계** | 양식 인증 티켓 쿠키 시간 제한을 15분으로 설정|
 
@@ -445,7 +446,7 @@ Set-ADFSRelyingPartyTrust -TargetName “<RelyingPartyWebApp>” -ClaimsProvider
 | **구성 요소**               | 웹 애플리케이션 | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 제네릭 |
-| **특성**              | N/A  |
+| **특성**              | 해당 사항 없음  |
 | **참조**              | 해당 사항 없음  |
 | **단계** | 사용자가 로그아웃 단추를 누를 때 애플리케이션에서 적절한 로그아웃을 수행합니다. 로그아웃 시 애플리케이션은 사용자의 세션을 삭제하고 인증 쿠키 값을 다시 설정하고 무효화하는 동시에 세션 쿠키 값을 다시 설정하고 무효화해야 합니다. 또한 여러 세션이 단일 사용자 ID와 연결되는 경우 제한 시간 또는 로그아웃 시 서버 쪽에서 전체적으로 종료되어야 합니다. 마지막으로 로그아웃 기능을 모든 페이지에 사용할 수 있는지 확인합니다. |
 
@@ -457,7 +458,7 @@ Set-ADFSRelyingPartyTrust -TargetName “<RelyingPartyWebApp>” -ClaimsProvider
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 제네릭 |
 | **특성**              | 해당 사항 없음  |
-| **참조**              | N/A  |
+| **참조**              | 해당 사항 없음  |
 | **단계** | 교차 사이트 요청 위조(CSRF 또는 XSRF)는 공격자가 웹 사이트에서 다른 사용자가 설정한 세션의 보안 컨텍스트에서 작업을 수행할 수 있는 공격 유형입니다. 목표는 대상 웹 사이트가 수신된 요청을 인증하기 위해 세션 쿠키에만 배타적으로 의존할 경우 콘텐츠를 수정하거나 삭제하는 것입니다. 공격자는 다른 사용자가 이미 로그인한 취약한 사이트의 명령을 사용하여 URL을 로드한 해당 사용자의 브라우저를 가져와서 이 취약점을 악용할 수 있습니다. 공격자는 취약한 서버에서 리소스를 로드하는 다른 웹 사이트를 호스팅하거나 사용자가 링크를 클릭하도록 하는 등 여러 가지 방법을 사용합니다. 이러한 공격을 방지하려면 서버가 추가 토큰을 클라이언트에 보내고, 클라이언트가 모든 향후 요청에 해당 토큰을 포함하도록 요구하며, 모든 향후 요청에 ASP.NET AntiForgeryToken 또는 ViewState와 같은 현재 세션에 관련된 토큰이 포함되는지 확인해야 합니다. |
 
 | 제목                   | 세부 정보      |
@@ -465,7 +466,7 @@ Set-ADFSRelyingPartyTrust -TargetName “<RelyingPartyWebApp>” -ClaimsProvider
 | **구성 요소**               | Web API | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | MVC5, MVC6 |
-| **특성**              | N/A  |
+| **특성**              | 해당 사항 없음  |
 | **참조**              | [ASP.NET Web API에서 CSRF(교차 사이트 요청 위조) 공격 방지](https://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks) |
 | **단계** | CSRF 및 AJAX 방지: Ajax 요청은 HTML 양식 데이터가 아닌 JSON 데이터를 보낼 수 있기 때문에 폼 토큰은 AJAX 요청에 문제가 될 수 있습니다. 한 가지 솔루션은 사용자 지정 HTTP 헤더에 토큰을 보내는 것입니다. 다음 코드는 Razor 구문을 사용하여 토큰을 생성한 다음 AJAX 요청에 토큰을 추가합니다. |
 
@@ -534,7 +535,7 @@ CSRF 방지 및 ASP.NET MVC 양식 - 뷰에서 AntiForgeryToken 도우미 메서
 ```
 
 ### <a name="example"></a>예제
-동시에 Html.AntiForgeryToken()은 위에 표시된 임의의 숨겨진 값과 동일한 값을 포함하는 __RequestVerificationToken이라는 쿠키를 방문자에게 제공합니다. 다음으로 들어오는 양식 게시의 유효성을 검사하려면 [ValidateAntiForgeryToken] 필터를 대상 작업 메서드에 추가합니다. 예를 들어:
+동시에 Html.AntiForgeryToken()은 위에 표시된 임의의 숨겨진 값과 동일한 값을 포함하는 __RequestVerificationToken이라는 쿠키를 방문자에게 제공합니다. 다음으로 들어오는 양식 게시의 유효성을 검사하려면 [ValidateAntiForgeryToken] 필터를 대상 작업 메서드에 추가합니다. 예:
 ```
 [ValidateAntiForgeryToken]
 public ViewResult SubmitUpdate()

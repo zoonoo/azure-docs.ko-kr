@@ -8,18 +8,19 @@ manager: jegeib
 editor: jegeib
 ms.assetid: na
 ms.service: security
+ms.subservice: security-develop
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 284d0e888b89d340088f770af22c026a861a4685
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
-ms.translationtype: HT
+ms.openlocfilehash: dbe3526444bc35815dd4323a3a5290696619e3f9
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68621378"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68728342"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>보안 프레임: 구성 관리 | 완화 
 | 제품/서비스 | 문서 |
@@ -73,7 +74,7 @@ Example: var str="alert(1)"; eval(str);
 | **구성 요소**               | 웹 애플리케이션 | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 제네릭 |
-| **특성**              | N/A  |
+| **특성**              | 해당 사항 없음  |
 | **참조**              | [XSS 보호 필터](https://www.owasp.org/index.php/List_of_useful_HTTP_headers#X-XSS-Protection)(영문) |
 | **단계** | <p>X-XSS-Protection 응답 헤더 구성은 브라우저의 사이트 간 스크립트 필터를 제어합니다. 이 응답 헤더의 값은 다음과 같습니다.</p><ul><li>`0:` - 필터를 비활성화합니다.</li><li>`1: Filter enabled` - 사이트 간 스크립팅 공격이 감지되면 공격을 중지하도록 브라우저에서 페이지를 삭제합니다.</li><li>`1: mode=block : Filter enabled` - XSS 공격이 감지되면 브라우저에서 페이지를 삭제하는 대신 페이지의 렌더링을 방해합니다.</li><li>`1: report=http://[YOURDOMAIN]/your_report_URI : Filter enabled`. 브라우저에서 페이지를 삭제하고 위반을 보고합니다.</li></ul><p>이는 CSP 위반 보고서를 활용하여 선택한 URI에 세부 정보를 보내는 Chromium 함수입니다. 마지막 두 옵션은 안전한 값으로 간주됩니다.</p>|
 
@@ -84,7 +85,7 @@ Example: var str="alert(1)"; eval(str);
 | **구성 요소**               | 웹 애플리케이션 | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 제네릭 |
-| **특성**              | N/A  |
+| **특성**              | 해당 사항 없음  |
 | **참조**              | [ASP.NET 디버깅 개요](https://msdn.microsoft.com/library/ms227556.aspx), [ASP.NET 추적 개요](https://msdn.microsoft.com/library/bb386420.aspx), [방법: ASP.NET 애플리케이션에 대해 추적 사용](https://msdn.microsoft.com/library/0x5wc973.aspx), [방법: ASP.NET 애플리케이션에 대해 디버깅 사용](https://msdn.microsoft.com/library/e8z01xdh(VS.80).aspx) |
 | **단계** | 페이지에 대한 추적이 사용되는 경우 해당 페이지를 요청하는 모든 브라우저에서 내부 서버 상태 및 워크플로에 대한 데이터가 포함된 추적 정보를 얻습니다. 이 정보는 보안에 중요할 수 있습니다. 페이지에 대한 디버깅이 사용되는 경우 서버에서 발생하는 오류로 인해 전체 스택 추적 데이터가 브라우저에 표시됩니다. 이 데이터는 서버의 워크플로 보안에 중요한 정보를 노출할 수 있습니다. |
 
@@ -96,7 +97,7 @@ Example: var str="alert(1)"; eval(str);
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 제네릭 |
 | **특성**              | 해당 사항 없음  |
-| **참조**              | N/A  |
+| **참조**              | 해당 사항 없음  |
 | **단계** | 타사 JavaScript는 신뢰할 수 있는 원본에서만 참조해야 합니다. 참조 엔드포인트는 항상 SSL에 있어야 합니다. |
 
 ## <a id="ui-defenses"></a>인증된 ASP.NET 페이지에 UI 변조(UI Redressing) 또는 클릭재킹(clickjacking) 방어 기능이 통합되어 있는지 확인
@@ -142,7 +143,7 @@ X-FRAME-OPTIONS 헤더는 IIS web.config를 통해 설정할 수 있습니다. �
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 웹 양식, MVC5 |
 | **특성**              | 해당 사항 없음  |
-| **참조**              | 해당 사항 없음  |
+| **참조**              | N/A  |
 | **단계** | <p>브라우저의 보안 기능은 웹 페이지에서 다른 도메인으로 AJAX 요청을 전송하는 것을 막습니다. 이렇게 제한하는 것을 동일 원본 정책이라고 하며, 악성 사이트에서 다른 사이트의 중요한 데이터를 읽을 수 없도록 합니다. 그러나 때로는 다른 사이트에서 사용할 수 있는 API를 안전하게 노출해야 할 수도 있습니다. CORS(원본 간 리소스 공유)는 서버에서 동일 원본 정책을 완화할 수 있게 하는 W3C 표준입니다. CORS를 사용하면 서버에서 명시적으로 일부 원본 간 요청을 허용하는 한편 다른 요청은 거부할 수 있습니다.</p><p>CORS는 JSONP와 같은 이전 기술보다 더 안전하고 유연합니다. 근본적으로 CORS를 사용하도록 설정하면 몇 가지 HTTP 응답 헤더(Access-Control-*)를 웹 애플리케이션에 추가할 수 있습니다. 이는 몇 가지 방법으로 수행할 수 있습니다.</p>|
 
 ### <a name="example"></a>예제
@@ -172,7 +173,7 @@ HttpContext.Response.AppendHeader("Access-Control-Allow-Origin", "https://exampl
 | **구성 요소**               | 웹 애플리케이션 | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 웹 양식, MVC5 |
-| **특성**              | N/A  |
+| **특성**              | 해당 사항 없음  |
 | **참조**              | [요청 유효성 검사 - 스크립트 공격 방지](https://www.asp.net/whitepapers/request-validation) |
 | **단계** | <p>버전 1.1부터 ASP.NET 기능 중 하나인 요청 유효성 검사는 서버에서 인코딩되지 않은 HTML을 포함한 콘텐츠를 허용하지 않도록 방지합니다. 이 기능은 클라이언트 스크립트 코드 또는 HTML을 무의식적으로 서버에 제출하고 저장한 다음 다른 사용자에게 제공할 수 있는 스크립트 삽입 공격을 방지하도록 설계되었습니다. 모든 입력 데이터의 유효성을 검사하고 적절한 경우 HTML로 인코딩하는 것이 좋습니다.</p><p>요청 유효성 검사는 모든 입력 데이터를 잠재적으로 위험한 값의 목록과 비교함으로써 수행됩니다. 일치하는 경우 ASP.NET에서 `HttpRequestValidationException`을 발생시킵니다. 요청 유효성 검사 기능은 기본적으로 사용하도록 설정됩니다.</p>|
 
@@ -198,8 +199,8 @@ HttpContext.Response.AppendHeader("Access-Control-Allow-Origin", "https://exampl
 | **구성 요소**               | 웹 애플리케이션 | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 제네릭 |
-| **특성**              | N/A  |
-| **참조**              | N/A  |
+| **특성**              | 해당 사항 없음  |
+| **참조**              | 해당 사항 없음  |
 | **단계** | <p>JQuery와 같은 표준 JavaScript 라이브러리를 사용하는 개발자는 알려진 보안 결함이 없는 일반적인 JavaScript 라이브러리의 승인된 버전을 사용해야 합니다. 이전 버전의 알려진 취약성에 대한 보안 픽스가 포함되어 있으므로 최신 버전의 라이브러리를 사용하는 것이 좋습니다.</p><p>호환성 문제로 인해 최신 릴리스를 사용할 수 없는 경우 다음과 같은 최소 버전을 사용해야 합니다.</p><p>허용 가능한 최소 버전:</p><ul><li>**JQuery**<ul><li>JQuery 1.7.1</li><li>JQueryUI 1.10.0</li><li>JQuery Validate 1.9</li><li>JQuery Mobile 1.0.1</li><li>JQuery Cycle 2.99</li><li>JQuery DataTables 1.9.0</li></ul></li><li>**Ajax Control Toolkit**<ul><li>Ajax Control Toolkit 40412</li></ul></li><li>**ASP.NET Web Forms and Ajax**<ul><li>ASP.NET Web Forms and Ajax 4</li><li>ASP.NET Ajax 3.5</li></ul></li><li>**ASP.NET MVC**<ul><li>ASP.NET MVC 3.0</li></ul></li></ul><p>공용 CDN과 같이 외부 사이트의 JavaScript 라이브러리를 로드하면 안됩니다.</p>|
 
 ## <a id="mime-sniff"></a>자동 MIME 스니핑을 사용하지 않도록 설정
@@ -209,7 +210,7 @@ HttpContext.Response.AppendHeader("Access-Control-Allow-Origin", "https://exampl
 | **구성 요소**               | 웹 애플리케이션 | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 제네릭 |
-| **특성**              | 해당 사항 없음  |
+| **특성**              | N/A  |
 | **참조**              | [IE8 보안 5부: 포괄적 보호](https://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx), [MIME 형식](https://en.wikipedia.org/wiki/Mime_type) |
 | **단계** | X-Content-Type-Options 헤더는 개발자가 콘텐츠를 MIME 스니핑하지 않아야 한다고 지정할 수 있는 HTTP 헤더입니다. 이 헤더는 MIME 스니핑 공격을 완화하도록 설계되었습니다. 사용자가 제어할 수 있는 콘텐츠를 포함할 수 있는 각 페이지에 대해 X-Content-Type-Options: nosniff HTTP 헤더를 사용해야 합니다. 애플리케이션의 모든 페이지에 대해 필수 헤더를 전역으로 사용하도록 설정하려면 다음 중 하나를 수행할 수 있습니다.|
 
@@ -296,7 +297,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 | **구성 요소**               | Web API | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | MVC 5 |
-| **특성**              | 해당 사항 없음  |
+| **특성**              | N/A  |
 | **참조**              | [ASP.NET Web API 2에서 원본 간 요청 사용](https://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api)(영문), [ASP.NET Web API - ASP.NET Web API 2에서 CORS 지원](https://msdn.microsoft.com/magazine/dn532203.aspx)(영문) |
 | **단계** | <p>브라우저의 보안 기능은 웹 페이지에서 다른 도메인으로 AJAX 요청을 전송하는 것을 막습니다. 이렇게 제한하는 것을 동일 원본 정책이라고 하며, 악성 사이트에서 다른 사이트의 중요한 데이터를 읽을 수 없도록 합니다. 그러나 때로는 다른 사이트에서 사용할 수 있는 API를 안전하게 노출해야 할 수도 있습니다. CORS(원본 간 리소스 공유)는 서버에서 동일 원본 정책을 완화할 수 있게 하는 W3C 표준입니다.</p><p>CORS를 사용하면 서버에서 명시적으로 일부 원본 간 요청을 허용하는 한편 다른 요청은 거부할 수 있습니다. CORS는 JSONP와 같은 이전 기술보다 더 안전하고 유연합니다.</p>|
 
@@ -392,7 +393,7 @@ public class ResourcesController : ApiController
 | **구성 요소**               | Web API | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | MVC 6 |
-| **특성**              | N/A  |
+| **특성**              | 해당 사항 없음  |
 | **참조**              | [ASP.NET Core 1.0에서 CORS(원본 간 요청) 사용](https://docs.asp.net/en/latest/security/cors.html)(영문) |
 | **단계** | <p>ASP.NET Core 1.0에서 CORS는 미들웨어 또는 MVC를 통해 사용하도록 설정할 수 있습니다. MVC를 통해 CORS를 사용하도록 설정하는 경우 동일한 CORS 서비스를 사용하지만 CORS 미들웨어는 사용하지 않습니다.</p>|
 
@@ -484,7 +485,7 @@ EnableCors 특성의 원본 목록이 유한하고 신뢰할 수 있는 원본 �
 | **구성 요소**               | Web API | 
 | **SDL 단계**               | 배포 |  
 | **적용 가능한 기술** | 제네릭 |
-| **특성**              | N/A  |
+| **특성**              | 해당 사항 없음  |
 | **참조**              | [방법: DPAPI를 사용하여 ASP.NET 2.0에서 구성 섹션 암호화](https://msdn.microsoft.com/library/ff647398.aspx), [보호되는 구성 공급자 지정](https://msdn.microsoft.com/library/68ze1hb2.aspx), [Azure Key Vault를 사용하여 애플리케이션 비밀 보호](https://azure.microsoft.com/documentation/articles/guidance-multitenant-identity-keyvault/) |
 | **단계** | Web.config, appsettings.json과 같은 구성 파일은 사용자 이름, 암호, 데이터베이스 연결 문자열 및 암호화 키를 포함하여 중요한 정보를 저장하는 데 자주 사용됩니다. 이러한 정보를 보호하지 않으면 애플리케이션은 계정 사용자 이름과 암호, 데이터베이스 이름과 서버 이름 등과 같은 중요한 정보를 얻는 공격자 또는 악의적인 사용자에 대해 취약해집니다. 배포 유형(azure/on-prem)에 따라 DPAPI 또는 Azure Key Vault와 같은 서비스를 사용하여 구성 파일의 중요한 섹션을 암호화합니다. |
 
@@ -495,8 +496,8 @@ EnableCors 특성의 원본 목록이 유한하고 신뢰할 수 있는 원본 �
 | **구성 요소**               | IoT 디바이스 | 
 | **SDL 단계**               | 배포 |  
 | **적용 가능한 기술** | 제네릭 |
-| **특성**              | 해당 사항 없음  |
-| **참조**              | N/A  |
+| **특성**              | N/A  |
+| **참조**              | 해당 사항 없음  |
 | **단계** | 디바이스 또는 필드 게이트웨이에서 노출하는 모든 관리 인터페이스는 강력한 자격 증명을 사용하여 보호해야 합니다. 또한 WiFi, SSH, 파일 공유, FTP와 같이 공개된 다른 인터페이스도 모두 강력한 자격 증명으로 보호해야 합니다. 기본적인 약한 암호는 사용하면 안됩니다. |
 
 ## <a id="unknown-exe"></a>디바이스에서 알 수 없는 코드를 실행할 수 없는지 확인
@@ -550,7 +551,7 @@ EnableCors 특성의 원본 목록이 유한하고 신뢰할 수 있는 원본 �
 | **구성 요소**               | IoT 필드 게이트웨이 | 
 | **SDL 단계**               | 배포 |  
 | **적용 가능한 기술** | 제네릭 |
-| **특성**              | N/A  |
+| **특성**              | 해당 사항 없음  |
 | **참조**              | N/A  |
 | **단계** | 설치 중에 필드 게이트웨이의 기본 로그인 자격 증명이 변경되었는지 확인합니다. |
 
@@ -572,8 +573,8 @@ EnableCors 특성의 원본 목록이 유한하고 신뢰할 수 있는 원본 �
 | **구성 요소**               | 컴퓨터 신뢰 경계 | 
 | **SDL 단계**               | 배포 |  
 | **적용 가능한 기술** | 제네릭 |
-| **특성**              | N/A  |
-| **참조**              | 해당 사항 없음  |
+| **특성**              | 해당 사항 없음  |
+| **참조**              | N/A  |
 | **단계** | 디바이스에 디스크 수준 암호화를 위한 bit-locker, 업데이트된 서명이 있는 바이러스 백신, 호스트 기반 방화벽, OS 업그레이드, 그룹 정책 등과 같은 끝점 보안 제어 기능이 조직의 보안 정책에 따라 구성되어 있는지 확인합니다. |
 
 ## <a id="secure-keys"></a>Azure 저장소 액세스 키의 보안 관리 확인
@@ -594,7 +595,7 @@ EnableCors 특성의 원본 목록이 유한하고 신뢰할 수 있는 원본 �
 | **구성 요소**               | Azure Storage | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 제네릭 |
-| **특성**              | 해당 사항 없음  |
+| **특성**              | N/A  |
 | **참조**              | [Azure Storage 서비스에 대한 CORS 지원](https://msdn.microsoft.com/library/azure/dn535601.aspx)(영문) |
 | **단계** | Azure Storage를 사용하면 CORS(크로스 원본 자원 공유)를 사용하도록 설정할 수 있습니다. 각 저장소 계정에 대해 해당 저장소 계정의 리소스에 액세스할 수 있는 도메인을 지정할 수 있습니다. 기본적으로 CORS는 모든 서비스에서 사용되지 않도록 설정되어 있습니다. REST API 또는 저장소 클라이언트 라이브러리를 사용하여 서비스 정책을 설정하는 방법 중 하나를 호출하도록 CORS를 설정할 수 있습니다. |
 

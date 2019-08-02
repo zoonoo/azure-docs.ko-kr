@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: c76e99c2588181a596a2a91ddd138cb9d7ae4a5a
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 1abb0a5f5523032440086932eb9a1621d4cef455
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68610295"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726229"
 ---
 # <a name="apply-disk-encryption-in-azure-security-center"></a>Azure Security Center에서 디스크 암호화 적용
 Azure Security Center는 암호화되지 않은 Windows 또는 Linux VM 디스크가 있는 경우 Azure Disk Encryption을 사용하여 디스크 암호화를 적용하도록 권장합니다. 디스크 암호화를 사용하면 Windows 및 Linux IaaS VM 디스크를 암호화할 수 있습니다.  VM에서 OS 및 데이터 볼륨에 암호화를 사용하는 것이 좋습니다.
@@ -44,7 +44,7 @@ Azure Security Center는 암호화되지 않은 Windows 또는 Linux VM 디스�
 * Azure 디스크 암호화 필수 구성 요소 Azure PowerShell 스크립트를 가져오고 실행합니다.
 * 가상 머신 암호화
 
-[Azure PowerShell을 사용하여 Windows IaaS VM 암호화](../security/fundamentals/quick-encrypt-vm-powershell.md)에서는 이러한 단계를 설명합니다. 이 항목에서는 디스크 암호화를 구성할 Windows 클라이언트 머신을 사용하고 있다고 가정합니다.
+[Azure PowerShell을 사용하여 Windows IaaS VM 암호화](../security/azure-disk-encryption-linux-powershell-quickstart.md)에서는 이러한 단계를 설명합니다. 이 항목에서는 디스크 암호화를 구성할 Windows 클라이언트 머신을 사용하고 있다고 가정합니다.
 
 Azure Virtual Machines에 대해 사용할 수 있는 방법은 여러 가지가 있습니다. 이미 Azure PowerShell 또는 Azure CLI에 대해 잘 알고 있다면 대체 방법을 사용하는 것을 선호할 수 있습니다. 이러한 대체 방법에 대한 자세한 내용은 [Azure Disk Encryption](../security/azure-security-disk-encryption.md)을 참조하세요.
 

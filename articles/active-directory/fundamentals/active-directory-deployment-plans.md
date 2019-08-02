@@ -12,12 +12,12 @@ ms.date: 02/08/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f172151b3b385cf936f7335048e172fa32ffa2ac
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a19c78efb7d81dcdcd3c221f58d4e4cc7be5ccd1
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562011"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68722186"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Azure Active Directory 배포 계획
 Azure AD(Azure Active Directory) 기능을 배포하는 방법에 대한 엔드투엔드 지침을 찾고 계신가요? 다음 배포 계획은 보다 일반적인 Azure AD 기능을 성공적으로 출시하기 위해 필요한 비즈니스 가치, 계획 고려 사항, 디자인 및 운영 절차를 안내합니다. 
@@ -55,7 +55,7 @@ Azure AD(Azure Active Directory) 기능을 배포하는 방법에 대한 엔드�
 
 
 
-|시나리오 |설명 |
+|시나리오 |Description |
 |-|-|
 |[Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)|Azure Multi-factor Authentication(MFA)은 Microsoft의 2단계 인증 솔루션입니다. 관리자가 승인한 인증 방법을 사용하는 Azure MFA는 간단한 로그인 프로세스에 대한 요구를 충족하는 동시에 데이터와 애플리케이션에 대한 액세스를 보호합니다.|
 |[조건부 액세스](https://aka.ms/deploymentplans/ca)|조건부 액세스를 사용 하면 조건에 따라 클라우드 앱에 액세스할 수 있는 사용자에 대 한 자동화 된 액세스 제어 결정을 구현할 수 있습니다.|
@@ -69,3 +69,4 @@ Azure AD(Azure Active Directory) 기능을 배포하는 방법에 대한 엔드�
 |[Azure AD 애플리케이션 프록시](https://aka.ms/deploymentplans/appproxy)|요즈음 직원은 어디서나 언제든지 어느 디바이스에서나 생산성을 높이기를 원합니다. 태블릿, 휴대폰 또는 랩톱을 막론하고 자신의 디바이스에서 일하기를 원합니다. 직원은 해당하는 모든 애플리케이션인 클라우드의 SaaS 앱 및 회사 앱 온-프레미스 모두에도 액세스할 수 있다고 예상합니다. 온-프레미스 애플리케이션에 대한 액세스를 제공하려면 일반적으로 VPN(가상 사설망) 또는 완충 영역(DMZ)이 필요했습니다. 이러한 솔루션은 복잡하고 안전하게 만들기도 어려울 뿐만 아니라 설정과 관리에도 비용이 많이 듭니다. 더 나은 방법이 있습니다! - Azure AD 애플리케이션 프록시|
 |[사용자 프로비전](https://aka.ms/UserProvisioningDPDownload)|Azure AD를 사용하면 Dropbox, Salesforce, ServiceNow 등과 같은 클라우드 애플리케이션(SaaS)에서 사용자 ID 만들기, 유지 관리 및 제거를 자동화할 수 있습니다.|
 |[Workday 기반 인바운드 사용자 프로비저닝](https://aka.ms/WorkdayDeploymentPlan)|Workday 기반 인바운드 사용자를 Active Directory에 프로비전하면 지속적인 ID 거버넌스를 위한 기반을 만들고, 신뢰할 수 있는 ID 데이터를 사용하는 비즈니스 프로세스의 품질을 향상시킬 수 있습니다. 이 기능을 사용하면 연결기-이동기-이탈기(Joiner-Mover-Leaver) 프로세스(예: 새 고용, 해지, 이전)를 IT 프로비전 작업(예: 계정 만들기, 사용, 사용 안 함, 삭제)에 매핑하는 규칙을 구성하여 직원 및 비정규 작업자의 ID 수명 주기를 원활하게 관리할 수 있습니다.|
+|[보고 및 모니터링](https://aka.ms/deploymentplans/reporting)| Azure AD 보고 및 모니터링 솔루션의 디자인은 법적 요구 사항, 보안 및 운영 요구 사항 뿐만 아니라 기존 환경 및 프로세스에 따라 달라 집니다. 이 문서에서는 다양 한 디자인 옵션을 제공 하 고 올바른 배포 전략에 대 한 지침을 제공 합니다.|

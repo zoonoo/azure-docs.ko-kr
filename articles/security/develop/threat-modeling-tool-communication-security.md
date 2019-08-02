@@ -8,18 +8,19 @@ manager: jegeib
 editor: jegeib
 ms.assetid: na
 ms.service: security
+ms.subservice: security-develop
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 3b5dafdd0f0da8edae87e4201d94a5e4ad825b0e
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 9c750522123995685191001988ae0081d9454ccf
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68621404"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68728367"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>보안 프레임: 통신 보안 | 완화 
 | 제품/서비스 | 문서 |
@@ -56,8 +57,8 @@ ms.locfileid: "68621404"
 | **구성 요소**               | Dynamics CRM | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 제네릭 |
-| **특성**              | 해당 사항 없음  |
-| **참조**              | 해당 사항 없음  |
+| **특성**              | N/A  |
+| **참조**              | N/A  |
 | **단계** | 서비스 계정 권한을 확인하고 사용자 지정 서비스 또는 ASP.NET 페이지에서 CRM 보안을 준수하는지 확인합니다. |
 
 ## <a id="sqlserver-factory"></a>온-프레미스 SQL Server Azure Data Factory에 연결 하는 동안 데이터 관리 게이트웨이 사용
@@ -90,7 +91,7 @@ ms.locfileid: "68621404"
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 제네릭 |
 | **특성**              | 해당 사항 없음  |
-| **참조**              | 해당 사항 없음  |
+| **참조**              | N/A  |
 | **단계** | <p>SSL, TLS 또는 DTLS를 사용하는 애플리케이션은 연결하는 엔터티의 X.509 인증서를 완전히 확인해야 합니다. 여기에는 다음에 대한 인증서 확인이 포함됩니다.</p><ul><li>도메인 이름</li><li>유효 날짜(시작 날짜와 만료 날짜 모두)</li><li>해지 상태</li><li>사용 현황(예: 서버에 대한 서버 인증, 클라이언트에 대한 클라이언트 인증)</li><li>신뢰 체인 - 인증서는 플랫폼에서 신뢰할 수 있거나 관리자가 명시적으로 구성한 루트 인증 기관(CA)에 연결되어야 합니다.</li><li>인증서 공개 키의 길이는 2,048비트보다 커야 합니다.</li><li>해싱 알고리즘은 SHA256 이상이어야 합니다. |
 
 ## <a id="ssl-appservice"></a>Azure App Service에서 사용자 지정 도메인에 대한 SSL 인증서 구성
@@ -144,7 +145,7 @@ ms.locfileid: "68621404"
 | **구성 요소**               | 웹 애플리케이션 | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 제네릭 |
-| **특성**              | 해당 사항 없음  |
+| **특성**              | N/A  |
 | **참조**              | [OWASP HSTS(HTTP 엄격한 전송 보안) 참고 자료](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet)(영문) |
 | **단계** | <p>HSTS는 특수 응답 헤더를 사용하여 웹 애플리케이션에서 지정하는 옵트인 보안 고급 기능입니다. 지원되는 브라우저에서 이 헤더를 받으면 브라우저는 HTTP를 통해 지정된 도메인으로 보내는 모든 통신을 차단하고 대신 HTTPS를 통해 모든 통신을 보냅니다. 또한 브라우저에서 프롬프트를 통해 HTTPS를 클릭하지 않도록 방지합니다.</p><p>HSTS를 구현하려면 코드 또는 구성에서 웹 사이트에 대해 다음 응답 헤더를 전역적으로 구성해야 합니다. Strict-Transport-Security: max-age=300; includeSubDomains HSTS는 다음과 같은 위협을 해결합니다.</p><ul><li>사용자가 책갈피를 설정하거나 수동으로 https://example.com 을 입력하고 메시지 가로채기(man-in-the-middle) 공격자의 영향을 받을 수 있습니다. HSTS는 대상 도메인에 대한 HTTP 요청을 HTTPS로 자동으로 리디렉션합니다.</li><li>순전히 HTTPS로 의도된 웹 애플리케이션은 실수로 HTTP 링크를 포함하거나 HTTP를 통해 콘텐츠를 제공합니다. HSTS는 대상 도메인에 대한 HTTP 요청을 HTTPS로 자동으로 리디렉션합니다.</li><li>메시지 가로채기 공격자가 잘못된 인증서를 사용하여 희생자 사용자의 트래픽을 가로채려고 시도하고 사용자가 잘못된 인증서를 받아들이기를 기대합니다. HSTS는 사용자가 잘못된 인증서 메시지를 재정의하도록 허용하지 않습니다.</li></ul>|
 
@@ -177,7 +178,7 @@ ms.locfileid: "68621404"
 | **구성 요소**               | Azure Storage | 
 | **SDL 단계**               | 배포 |  
 | **적용 가능한 기술** | 제네릭 |
-| **특성**              | N/A  |
+| **특성**              | 해당 사항 없음  |
 | **참조**              | [Azure Storage 전송 수준 암호화 - HTTPS 사용](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_encryption-in-transit) |
 | **단계** | 전송 중인 Azure Storage 데이터의 보안을 유지하려면 REST API를 호출하거나 스토리지의 개체에 액세스할 때 항상 HTTPS 프로토콜을 사용합니다. 또한 Azure Storage 개체에 대한 액세스를 위임하는 데 사용할 수 있는 공유 액세스 서명에는 공유 액세스 서명을 사용할 때 HTTPS 프로토콜만 사용할 수 있도록 지정하여 SAS 토큰이 있는 링크를 보내는 사용자는 모두 적절한 프로토콜을 사용할 수 있도록 하는 옵션이 포함되어 있습니다.|
 
@@ -338,7 +339,7 @@ string GetData(int value);
 | **구성 요소**               | Web API | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | MVC5, MVC6 |
-| **특성**              | N/A  |
+| **특성**              | 해당 사항 없음  |
 | **참조**              | [Web API 컨트롤러에서 SSL 적용](https://www.asp.net/web-api/overview/security/working-with-ssl-in-web-api) |
 | **단계** | 애플리케이션에 HTTPS와 HTTP 바인딩이 모두 있는 경우 클라이언트에서 HTTP를 계속 사용하여 사이트에 액세스할 수 있습니다. 이를 방지하려면 작업 필터를 사용하여 보호된 API에 대한 요청이 항상 HTTPS를 통과하도록 합니다.|
 

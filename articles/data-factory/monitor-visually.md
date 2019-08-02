@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: shlo
-ms.openlocfilehash: df684860cd3d1b6a002a300682ca4c6398461ba6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 53ead1caed47ae442670f0b6bcd54cd84956a759
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60717072"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720612"
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Azure Data Factory를 시각적으로 모니터링하는 방법에 대해 알아봅니다
 Azure Data Factory는 데이터 이동 및 데이터 변환을 오케스트레이션하고 자동화하기 위해 클라우드에서 데이터 기반 워크플로를 만들 수 있는 클라우드 기반 데이터 통합 서비스입니다. Azure Data Factory를 사용하여 서로 다른 데이터 저장소에서 데이터를 수집할 수 있는 데이터 기반 워크플로(파이프라인이라고 함)를 만들고 일정을 조정하며, Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics 및 Azure Machine Learning과 같은 컴퓨팅 서비스를 사용하여 데이터를 처리/변환하고, 사용할 BI(비즈니스 인텔리전스) 애플리케이션의 Azure SQL Data Warehouse와 같은 데이터 저장소에 출력 데이터를 게시할 수 있습니다.
@@ -40,13 +40,13 @@ Data Factory v2 파이프라인에 대해 각 파이프라인 실행을 보여�
 | **열 이름** | **설명** |
 | --- | --- |
 | 파이프라인 이름 | 파이프라인의 이름입니다. |
-| 작업 | 활동 실행을 보는 데 사용할 수 있는 단일 작업. |
+| 동작 | 활동 실행을 보는 데 사용할 수 있는 단일 작업. |
 | 실행 시작 | 파이프라인 실행 시작 날짜 시간 (MM/DD/YYYY, HH:MM:SS AM/PM) |
-| 기간 | 실행 기간 (HH:MM:SS) |
+| Duration | 실행 기간 (HH:MM:SS) |
 | 트리거 주체 | 수동 트리거, 트리거 예약 |
-| 상태 | 실패, 성공, 진행 중 |
+| Status | 실패, 성공, 진행 중 |
 | 매개 변수 | 파이프라인 실행 매개 변수 (이름, 값 쌍) |
-| 오류 | 파이프라인 실행 오류 (있는 경우) |
+| Error | 파이프라인 실행 오류 (있는 경우) |
 | 실행 ID | 파이프라인 실행 ID입니다. |
 
 ![파이프라인 실행 모니터링](media/monitor-visually/pipeline-runs.png)
@@ -59,11 +59,11 @@ Data Factory v2 파이프라인에 대해 각 파이프라인 실행을 보여�
 | 작업 이름 | 파이프라인 내 작업의 이름입니다. |
 | 작업 유형 | 작업의 유형(예: Copy, HDInsightSpark, HDInsightHive 등)입니다. |
 | 실행 시작 | 작업 실행 시작 날짜 시간 (MM/DD/YYYY, HH:MM:SS AM/PM) |
-| 기간 | 실행 기간 (HH:MM:SS) |
-| 상태 | 실패, 성공, 진행 중 |
+| Duration | 실행 기간 (HH:MM:SS) |
+| Status | 실패, 성공, 진행 중 |
 | 입력 | 작업 입력에 대해 설명하는 JSON 배열 |
 | 출력 | 작업 출력에 대해 설명하는 JSON 배열 |
-| 오류 | 작업 실행 오류 (있는 경우) |
+| Error | 작업 실행 오류 (있는 경우) |
 
 ![작업 실행 모니터링](media/monitor-visually/activity-runs.png)
 
@@ -134,6 +134,18 @@ Data Factory v2 파이프라인에 대해 각 파이프라인 실행을 보여�
 
 ![파이프라인 실행의 기록 보기](media/monitor-visually/rerun-history-image2.png)
 
+## <a name="gantt-views"></a>Gantt 보기
+
+Gantt 보기를 사용 하 여 파이프라인 및 활동 실행을 빠르게 시각화할 수 있습니다. 파이프라인 별로 Gantt 보기를 표시 하거나 파이프라인에서 만든 주석/태그를 기준으로 그룹을 볼 수 있습니다.
+
+![Gantt 차트](media/monitor-visually/gantt1.png)
+
+![Gantt 차트 주석](media/monitor-visually/gantt2.png)
+
+막대의 길이는 파이프라인의 기간을 알려 줍니다. 막대를 클릭 하 여 자세한 내용을 볼 수도 있습니다.
+
+![Gantt 차트 기간](media/monitor-visually/gantt3.png)
+
 ## <a name="guided-tours"></a>둘러보기
 파이프라인 및 작업 실행을 모니터링하는 방법에 대한 단계별 지침을 확인하려면 왼쪽 하단의 ‘정보 아이콘’을 클릭하고 ‘둘러보기’를 클릭합니다.
 
@@ -144,7 +156,7 @@ Data Factory v2 파이프라인에 대해 각 파이프라인 실행을 보여�
 
 ![사용자 의견](media/monitor-visually/feedback.png)
 
-## <a name="alerts"></a>경고
+## <a name="alerts"></a>,
 
 Data Factory의 지원되는 메트릭에 대해 경고를 발생시킬 수 있습니다. 시작하려면 Data Factory 모니터링 페이지에서 **모니터링 -> 경고 및 메트릭**을 선택합니다.
 

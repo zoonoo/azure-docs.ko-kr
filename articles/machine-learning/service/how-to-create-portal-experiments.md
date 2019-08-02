@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 08/02/2019
-ms.openlocfilehash: 7fdef246e4fcffafa626fa16e3bcecaf480c16ab
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: eb6ae11bb4ffb39d9e9bcc692f17559fa2cde674
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716873"
+ms.locfileid: "68720247"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>Azure Portal에서 자동화 된 machine learning 실험 만들기, 탐색 및 배포 (미리 보기)
 
@@ -100,14 +100,14 @@ ms.locfileid: "68716873"
 
 <a name="profile"></a>
 
-### <a name="data-profiling"></a>데이터 프로 파일링
+## <a name="data-profiling--summary-stats"></a>데이터 프로 파일링 & 요약 통계
 
 데이터 집합에 대 한 다양 한 요약 통계를 가져와서 데이터 집합이 ML 준비 상태 인지 여부를 확인할 수 있습니다. 숫자가 아닌 열의 경우 min, max 및 error count와 같은 기본 통계만 포함 합니다. 숫자 열의 경우 통계 및 예상 변 위치을 검토할 수도 있습니다. 특히 데이터 프로필에는 다음이 포함 됩니다.
 
 >[!NOTE]
 > 관련이 없는 형식의 기능에 대해 빈 항목이 표시 됩니다.
 
-통계|설명
+통계|Description
 ------|------
 기능| 요약 되는 열의 이름입니다.
 프로필| 유추 된 형식을 기반으로 하는 인라인 시각화입니다. 예를 들어 문자열, 부울 및 날짜에는 값이 포함 되 고, decimals (숫자)에는 근사 히스토그램이 있습니다. 이를 통해 데이터 배포를 빠르게 파악할 수 있습니다.
@@ -126,11 +126,11 @@ Variance| 이 열의 데이터에 대 한 분포의 평균 값을 측정 한 값
 
 <a name="preprocess"></a>
 
-### <a name="advanced-preprocessing"></a>고급 전처리
+## <a name="advanced-preprocessing-options"></a>고급 전처리 옵션
 
 실험을 구성할 때 고급 설정을 `Preprocess`사용 하도록 설정할 수 있습니다. 이렇게 하면 다음 데이터 전처리 및 기능화 단계가 자동으로 수행 됩니다.
 
-|전처리&nbsp;단계| 설명 |
+|전처리&nbsp;단계| Description |
 | ------------- | ------------- |
 |높은 카디널리티 또는 분산 없는 기능 삭제|모든 값이 누락 된 기능을 포함 하 여 학습 및 유효성 검사 집합에서이를 삭제 하거나, 모든 행에서 동일한 값을 사용 하거나, 해시, Id 또는 Guid와 같은 매우 높은 카디널리티를 사용 합니다.|
 |누락 값 입력|숫자 기능의 경우 열에 있는 값의 평균을 돌립니다 합니다.<br/><br/>범주 기능의 경우 가장 자주 사용 되는 값을 돌립니다 합니다.|

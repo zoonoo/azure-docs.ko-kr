@@ -1,20 +1,20 @@
 ---
 title: Azure AD 하이브리드 ID 솔루션에 적합한 인증 방법 선택 | Microsoft Docs
 description: 이 가이드는 CEO, CIO, CISO, CIA(Chief Identity Architects), 엔터프라이즈 설계자 그리고 보안 및 IT 의사 결정자 등, 중소 규모 기업 또는 대규모 기업에서 Azure AD 하이브리드 ID 솔루션의 인증 방법 선택을 담당하는 이들에게 유용합니다.
-services: active-directory
 keywords: ''
 author: martincoetzer
 ms.author: martinco
 ms.date: 04/12/2018
 ms.topic: article
-ms.service: active-directory
+ms.service: security
+ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 8b096720bd1f3c4d29b0077a00f887df854cc0af
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: e1910348b53cf147530037283442f453edf2694f
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68613771"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68727539"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Azure Active Directory 하이브리드 ID 솔루션에 적합한 인증 방법 선택 
 

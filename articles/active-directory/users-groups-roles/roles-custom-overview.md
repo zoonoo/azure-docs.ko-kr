@@ -13,18 +13,20 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf6c0c68d13cf179f0635085296fe9953a45a255
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 546abdae5d7c03bb0d4b49f9485fe06b521fdc1d
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/01/2019
-ms.locfileid: "68707696"
+ms.locfileid: "68722207"
 ---
 # <a name="custom-administrator-roles-in-azure-active-directory-preview"></a>Azure Active Directory의 사용자 지정 관리자 역할 (미리 보기)
 
-이 문서에서는 Azure Active Directory (Azure AD)에서 새 사용자 지정 역할을 이해 하는 방법을 설명 합니다. Azure AD를 사용 하면 사용자 지정 된 Azure AD 리소스 범위로 제한 된 관리 권한을 할당할 수 있습니다. 이와 같은 사용자 지정 역할은 Azure AD 역할 기반 액세스 제어 모델의 미리 보기 릴리스에 포함 되어 있습니다. [기본 제공 역할](directory-assign-admin-roles.md) 은 다양 한 상황에 대 한 적절 한 세분성을 제공 하지만 보다 세분화 된 권한을 원하는 경우 사용자 지정 역할을 만들어 역할에 대 한 제어 범위를 단일 Azure AD 리소스 수준으로 줄일 수 있습니다.
+이 문서에서는 Azure Active Directory (Azure AD)에서 새 사용자 지정 RBAC (역할 기반 액세스 제어) 및 리소스 범위를 이해 하는 방법을 설명 합니다. 사용자 지정 RBAC 역할은 [기본 제공 역할](directory-assign-admin-roles.md) 의 기본 사용 권한을 표시 하므로 사용자 지정 역할을 만들고 구성할 수 있습니다. 리소스 범위를 사용 하면 모든 리소스 (모든 응용 프로그램)에 대 한 액세스를 제공 하지 않고 일부 리소스 (예: 응용 프로그램)를 관리 하는 사용자 지정 역할을 할당할 수 있습니다.
 
-Azure AD 역할 기반 액세스 제어의 미리 보기 릴리스는 조직 전체 범위 (조직의 모든 Azure AD 리소스에 대해 허용 되는 작업 허용) 및 응용 프로그램 등록에 대 한 권한이 있는 사용자 지정 범위와 같은 두 가지 범위를 노출 합니다. . 이 사용자 지정 역할에서 앱 등록 권한을 편집할 수 있습니다. 시간이 지남에 따라 엔터프라이즈 응용 프로그램, 사용자, 장치 등의 조직 리소스에 대 한 추가 권한이 추가 됩니다.
+사용자 지정 RBAC 역할을 사용 하 여 권한을 부여 하는 작업은 두 단계로 진행 됩니다. 먼저 사용자 지정 역할 정의를 만들고 기본 설정 목록에서 해당 정의에 대 한 권한을 추가 합니다. 이러한 권한은 기본 제공 역할에 사용 되는 것과 동일한 권한입니다. 역할을 만들었으면 역할 할당을 만들어 사용자에 게 할당 합니다. 이 2 단계 프로세스를 통해 하나의 역할을 만들고 여러 범위에서 여러 번 할당할 수 있습니다. 사용자 지정 역할은 디렉터리 범위에서 할당 하거나 개체 범위에서 할당할 수 있습니다. 개체 범위의 예로는 단일 응용 프로그램이 있습니다. 이렇게 하면 디렉터리의 모든 응용 프로그램에 대해 Sally에 동일한 역할을 할당 한 다음 Contoso Expense Reports 앱만 Naveen 수 있습니다.
+
+사용자 지정 RBAC 역할의 첫 번째 릴리스에는 앱 등록을 관리 하는 권한을 할당 하는 역할을 만들 수 있는 기능이 포함 되어 있습니다. 시간이 지남에 따라 엔터프라이즈 응용 프로그램, 사용자, 장치 등의 조직 리소스에 대 한 추가 권한이 추가 됩니다.
 
 미리 보기 기능:
 

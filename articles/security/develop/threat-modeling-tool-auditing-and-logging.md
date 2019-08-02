@@ -8,18 +8,19 @@ manager: jegeib
 editor: jegeib
 ms.assetid: na
 ms.service: security
+ms.subservice: security-develop
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 4843828c89b04e36b0bcc73dcedf9c5735b73729
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: c9d20b3259cf4ea7af263d5e31145ad372db0c77
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68621495"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68728406"
 ---
 # <a name="security-frame-auditing-and-logging--mitigations"></a>보안 프레임: 감사 및 로깅 | 완화 
 
@@ -42,7 +43,7 @@ ms.locfileid: "68621495"
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 제네릭 |
 | **특성**              | 해당 사항 없음  |
-| **참조**              | N/A  |
+| **참조**              | 해당 사항 없음  |
 | **단계**                   | 솔루션에서 중요한 데이터가 포함된 엔터티를 식별하고 이러한 엔터티 및 필드에 대한 변경 감사 구현 |
 
 ## <a id="auditing"></a>애플리케이션에 감사 및 로깅 적용
@@ -63,8 +64,8 @@ ms.locfileid: "68621495"
 | **구성 요소**               | 웹 애플리케이션 | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 제네릭 |
-| **특성**              | N/A  |
-| **참조**              | N/A  |
+| **특성**              | 해당 사항 없음  |
+| **참조**              | 해당 사항 없음  |
 | **단계**                   | <p>로그 회전은 날짜가 지정된 로그 파일이 보관되는 시스템 관리에 사용되는 자동화 프로세스입니다. 대형 애플리케이션을 실행하는 서버는 모든 요청을 기록하는 경우가 많은데, 대규모 로그가 발생하는 경우 로그 회전은 최근 이벤트의 분석을 계속 허용하면서도 로그의 총 크기를 제한할 수 있습니다. </p><p>로그 분리는 기본적으로 서비스 거부 공격 또는 애플리케이션 성능 저하를 방지하기 위해 OS/애플리케이션 실행되고 있는 여러 파티션에 로그 파일을 저장해야 한다는 의미입니다.</p>|
 
 ## <a id="log-sensitive-data"></a>애플리케이션이 민감한 사용자 데이터를 기록하지 않도록 확인
@@ -96,7 +97,7 @@ ms.locfileid: "68621495"
 | **구성 요소**               | 웹 애플리케이션 | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 제네릭 |
-| **특성**              | N/A  |
+| **특성**              | 해당 사항 없음  |
 | **참조**              | N/A  |
 | **단계**                   | <p>애플리케이션에서 성공 및 실패한 사용자 로그인, 암호 재설정, 암호 변경, 계정 잠금, 사용자 등록 등의 사용자 관리 이벤트를 모니터링하도록 합니다. 이렇게 하면 의심스러운 동작을 감지하고 적절하게 대응할 수 있습니다. 뿐만 아니라 운영 데이터를 수집할 수 있습니다. 예를 들어 누가 애플리케이션에 액세스하는지 추적할 수 있습니다.</p>|
 
@@ -119,7 +120,7 @@ ms.locfileid: "68621495"
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 제네릭 |
 | **특성**              | EnvironmentType - Azure |
-| **참조**              | N/A  |
+| **참조**              | 해당 사항 없음  |
 | **단계** | <p>Azure는 App Service 웹앱을 디버그하는 데 도움이 되는 기본 제공 진단을 제공합니다. API 앱 및 모바일 앱에도 적용됩니다. App Service 웹앱은 웹 서버와 웹 애플리케이션 모두의 정보를 로깅할 수 있도록 진단 기능을 제공합니다.</p><p>이는 논리적으로 웹 서버 진단 및 애플리케이션 진단으로 구분됩니다.</p>|
 
 ## <a id="identify-sensitive-entities"></a>SQL Server에서 로그인 감사를 사용하도록 설정
@@ -129,7 +130,7 @@ ms.locfileid: "68621495"
 | **구성 요소**               | 데이터베이스 | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 제네릭 |
-| **특성**              | 해당 사항 없음  |
+| **특성**              | N/A  |
 | **참조**              | [로그인 감사 구성](https://msdn.microsoft.com/library/ms175850.aspx) |
 | **단계** | <p>암호 추측 공격을 감지/확인할 수 있도록 데이터베이스 서버 로그인 감사를 사용해야 합니다. 실패한 로그인 시도를 캡처하는 것이 중요합니다. 성공한 로그인 시도와 실패한 로그인 시도를 모두 캡처하면 법정 조사 시 추가적인 이점이 있습니다.</p>|
 
@@ -151,7 +152,7 @@ ms.locfileid: "68621495"
 | **구성 요소**               | Azure Storage | 
 | **SDL 단계**               | 배포 |  
 | **적용 가능한 기술** | 제네릭 |
-| **특성**              | N/A |
+| **특성**              | 해당 사항 없음 |
 | **참조**              | [저장소 분석을 사용하여 인증 유형 모니터링](https://azure.microsoft.com/documentation/articles/storage-security-guide/#storage-analytics) |
 | **단계** | <p>각 Storage 계정에 대해 Azure Storage 분석을 사용하도록 설정하여 로깅을 수행하고 메트릭 데이터를 저장할 수 있습니다. 스토리지 분석 로그는 누군가가 스토리지에 액세스할 때 사용한 인증 방법 등의 중요한 정보를 제공합니다.</p><p>저장소에 대한 액세스를 엄격히 관리하는 경우에는 이 방법이 도움이 될 수 있습니다. 예를 들어, Blob Storage에서 모든 컨테이너를 프라이빗으로 설정하고 애플리케이션 전체에서 SAS 서비스를 사용을 구현할 수 있습니다. 그런 다음, 스토리지 계정 키를 사용하여 Blob에 액세스하는지(보안 위반을 의미할 수 있음) 또는 Blob이 공용이지만 공용이면 안 되는지 알아보기 위해 로그를 주기적으로 확인할 수 있습니다.</p>|
 
@@ -162,7 +163,7 @@ ms.locfileid: "68621495"
 | **구성 요소**               | WCF | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | .NET Framework |
-| **특성**              | 해당 사항 없음  |
+| **특성**              | N/A  |
 | **참조**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify, 영국](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_logging) |
 | **단계** | <p>보안 문제가 발생한 후 적절한 감사 내역이 부족하면 범죄 수사가 제한될 수 있습니다. WCF(Windows Communication Foundation)는 성공한/실패한 인증 시도를 기록하는 기능을 제공합니다.</p><p>실패한 인증 시도를 기록하면 관리자에게 무차별 암호 대입 공격 가능성을 경고할 수 있습니다. 마찬가지로, 성공한 인증 이벤트를 기록하면 합법적 계정이 손상될 때 유용한 감사 추적을 제공할 수 있습니다. WCF의 서비스 보안 감사 기능을 사용하도록 설정 |
 
@@ -191,7 +192,7 @@ ms.locfileid: "68621495"
 | **구성 요소**               | WCF | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | .NET Framework |
-| **특성**              | 해당 사항 없음  |
+| **특성**              | N/A  |
 | **참조**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify, 영국](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_audit_failure_handling) |
 | **단계** | <p>개발된 솔루션은 감사 로그에 쓸 수 없는 경우 예외를 생성하지 않도록 구성됩니다. 감사 로그에 쓸 수 없는 경우 예외를 throw하지 않도록 WCF가 구성되면 프로그램에서는 실패에 대한 알림을 받지 못하고 중요한 보안 이벤트의 감사가 발생하지 않을 수 있습니다.</p>|
 
@@ -240,6 +241,6 @@ ms.locfileid: "68621495"
 | **구성 요소**               | IoT 클라우드 게이트웨이 | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 제네릭 |
-| **특성**              | 해당 사항 없음  |
+| **특성**              | N/A  |
 | **참조**              | [IoT Hub 작업 모니터링 소개](https://azure.microsoft.com/documentation/articles/iot-hub-operations-monitoring/) |
 | **단계** | <p>IoT Hub 작업 모니터링을 통해 모은 감사 데이터를 수집하고 저장하도록 설계합니다. 다음 모니터링 범주를 사용하도록 설정합니다.</p><ul><li>디바이스 ID 작업</li><li>디바이스-클라우드 통신</li><li>클라우드-장치 통신</li><li>Connections</li><li>파일 업로드</li></ul>|

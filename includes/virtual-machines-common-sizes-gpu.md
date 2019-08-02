@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/11/2019
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: 0325fc8cabc43988fb27a307921977b9b487c123
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 402379a99be467e9db7fb692d7d532e9d39a54a6
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68286343"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68700796"
 ---
 GPU 최적화 VM 크기는 단일 또는 여러 NVIDIA GPU에서 사용 가능한 특수한 가상 머신입니다. 이러한 크기는 계산 집약적이며 그래픽 집약적인 시각화 워크로드용으로 설계되었습니다. 이 문서에서는 GPU, vCPU, 데이터 디스크 및 NIC의 개수와 종류에 대한 정보를 제공합니다. 이 그룹화의 각 크기에 대해 저장소 처리량 및 네트워크 대역폭도 포함되어 있습니다.
 
@@ -56,7 +56,7 @@ NC24rs v2 구성은 긴밀하게 결합된 병렬 컴퓨팅 작업에 최적화�
 > 이 크기 제품군의 경우 구독의 vCPU(코어) 할당량은 각 지역에서 처음에 0으로 설정됩니다. [사용 가능한 지역](https://azure.microsoft.com/regions/services/)에서 이 제품군에 대한 [vCPU 할당량 증가를 요청](../articles/azure-supportability/resource-manager-core-quotas-request.md)합니다.
 >
 
-| 크기 | vCPU | 메모리: GiB | 임시 저장소(SSD) GiB | GPU | GPU 메모리: GiB | 최대 데이터 디스크 수 | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수 |
+| 크기 | vCPU | 메모리: GiB | 임시 저장소 (SSD): GiB | GPU | GPU 메모리: GiB | 최대 데이터 디스크 수 | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수 |
 | --- | --- | --- | --- | --- | --- | ---  | ---| --- |
 | Standard_NC6s_v2 | 6 |112 | 736 | 1 | 16 | 12 | 20000/ 200 | 4 |
 | Standard_NC12s_v2 | 12 |224 | 1474 | 2 | 32 | 24 | 4만/400 | 8 |
@@ -79,7 +79,7 @@ NCv3 시리즈 VM은 [NVIDIA Tesla V100](https://www.nvidia.com/en-us/data-cente
 > 이 크기 제품군의 경우 구독의 vCPU(코어) 할당량은 각 지역에서 처음에 0으로 설정됩니다. [사용 가능한 지역](https://azure.microsoft.com/regions/services/)에서 이 제품군에 대한 [vCPU 할당량 증가를 요청](../articles/azure-supportability/resource-manager-core-quotas-request.md)합니다.
 >
 
-| 크기 | vCPU | 메모리: GiB | 임시 저장소(SSD) GiB | GPU | GPU 메모리: GiB | 최대 데이터 디스크 수 | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수 |
+| 크기 | vCPU | 메모리: GiB | 임시 저장소 (SSD): GiB | GPU | GPU 메모리: GiB | 최대 데이터 디스크 수 | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_NC6s_v3 | 6 |112 | 736 | 1 | 16 | 12 | 2만/200 | 4 |
 | Standard_NC12s_v3 | 12 |224 | 1474 | 2 | 32 | 24 | 4만/400 | 8 |
@@ -103,9 +103,9 @@ NDv2 시리즈 가상 머신은 HPC, AI 및 기계 학습 워크로드의 요구
 [미리 보기 기간에 이러한 머신에 등록하고 액세스하세요](https://aka.ms/ndv2signup).
 <br>
 
-| 크기 | vCPU | GPU | 메모리 | NIC(최대) | 임시 저장소 (SSD) GiB | 최대 데이터 디스크 | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 네트워크 대역폭 | 
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_ND40s_v2 | 40 | 8 V100 (NVLink) | 672GiB | 8 | 2948 | 32 | 8만/800 | 24000 Mbps |
+| 크기 | vCPU | 메모리: GiB | 임시 저장소 (SSD): GiB | GPU | GPU 메모리: GiB | 최대 데이터 디스크 수 | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 네트워크 대역폭 | 최대 NIC 수 |
+|---|---|---|---|---|---|---|---|---|---|
+| Standard_ND40s_v2 | 40 | 672 | 2948 | 8 V100 (NVLink) | 16 | 32 | 8만/800 | 24000 Mbps | 8 |
 
 ## <a name="nd-series"></a>ND 시리즈
 

@@ -8,18 +8,19 @@ manager: barbkess
 editor: TomSh
 ms.assetid: 0b94f9a3-8648-4860-812c-be689b0b327b
 ms.service: security
+ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 289b9b0cb2532069c01fc9c687c844bd917355f7
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: a9c064e55be718109a34d72a2b95f720ac92fe4f
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68614538"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726519"
 ---
 # <a name="microsoft-trust-center"></a>Microsoft 보안 센터
 Azure.com의 Azure 보안 정보 사이트는 클라우드 솔루션을 안전하게 계획, 설계, 배포, 구성 및 관리하는 데 필요한 정보를 제공합니다. Microsoft 보안 센터를 통해 사용자의 서비스를 실행하는 Azure 플랫폼이 안전하다는 것을 확신하는 데 필요한 정보를 얻게 됩니다.

@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: dacurwin
-ms.openlocfilehash: 0130dde483db4563926076f9bf9e641c14b1c117
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: f961f472c0b00932bf5ee6302af58f39fa8421ed
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688755"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720440"
 ---
 # <a name="restore-azure-vms"></a>Azure VM 복원
 
@@ -112,7 +112,8 @@ Vm을 복원 하려면 (새 VM 만들기) VM 복원 작업에 대 한 올바른 
 
 4. **복원 구성**에서 **확인**을 선택합니다. **복원**에서 **복원**을 클릭하여 복원 작업을 트리거합니다.
 
-VM을 복원 하는 동안 Azure Backup는 저장소 계정을 사용 하지 않습니다. 그러나 **복원 디스크** 및 **인스턴트 복원**의 경우 템플릿 저장에 저장소 계정이 사용 됩니다.
+가상 머신에서 관리 디스크를 사용 하는 경우 **가상 머신 만들기** 옵션을 선택 하면 Azure Backup 지정 된 저장소 계정을 사용 하지 않습니다. **복원 디스크** 및 **인스턴트 복원**의 경우 저장소 계정은 템플릿을 저장 하는 데만 사용 됩니다. 지정 된 리소스 그룹에서 관리 디스크를 만듭니다.
+가상 컴퓨터가 관리 되지 않는 디스크를 사용 하는 경우 저장소 계정에 blob으로 복원 됩니다.
 
 ### <a name="use-templates-to-customize-a-restored-vm"></a>템플릿을 사용하여 복원된 VM 사용자 지정
 
@@ -163,7 +164,7 @@ VM을 복원해야 하는 일반적인 시나리오는 여러 가지가 있습�
 **영역 고정 Vm** | Azure Backup은 고정 된 배열로 영역 설정 Vm의 백업 및 복원을 지원 합니다. [자세히 알아보기](https://azure.microsoft.com/global-infrastructure/availability-zones/)
 
 ## <a name="track-the-restore-operation"></a>복원 작업 추적
-복원 작업이 트리거되면 백업 서비스에서 추적 작업을 만듭니다. Azure Backup에서 작업에 대한 알림을 포털에 표시합니다. 표시되지 않으면 **알림** 기호를 클릭하여 표시합니다.
+복원 작업이 트리거되면 백업 서비스에서 추적 작업을 만듭니다. Azure Backup에서 작업에 대한 알림을 포털에 표시합니다. 표시 되지 않는 경우 **알림** 기호를 선택한 다음 **모든 작업 보기** 를 선택 하 여 복원 프로세스 상태를 확인 합니다.
 
 ![트리거된 복원](./media/backup-azure-arm-restore-vms/restore-notification1.png)
 

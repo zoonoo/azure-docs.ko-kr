@@ -2,18 +2,19 @@
 title: 모든 Azure 관리자에 대한 MFA 활성화
 description: 전역 관리자 활성화에 대한 지침
 ms.service: security
+ms.subservice: security-fundamentals
 author: barclayn
 manager: barbkess
 editor: TomSh
 ms.topic: article
 ms.date: 03/20/2018
 ms.author: barclayn
-ms.openlocfilehash: 7d40b8f0ca05000a51e70d7a124e9cb143aa2dcf
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
-ms.translationtype: HT
+ms.openlocfilehash: 702feded450aed7368836c7eff799e969b9f396b
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68615643"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68727312"
 ---
 # <a name="enforce-multi-factor-authentication-mfa-for-subscription-administrators"></a>구독 관리자에 대해 MFA(Multi-Factor Authentication) 적용
 

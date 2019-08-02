@@ -1,20 +1,18 @@
 ---
 title: 개발 및 테스트에 Azure Storage 에뮬레이터 사용 | Microsoft Docs
 description: Azure Storage 에뮬레이터는 Azure Storage 애플리케이션에 대한 개발 및 테스트에 대해 무료 로컬 개발 환경을 제공합니다. 요청을 인증하는 방법, 애플리케이션에서 에뮬레이터에 연결하는 방법 및 명령줄 도구를 사용하는 방법을 알아봅니다.
-services: storage
 author: mhopkins-msft
-ms.service: storage
-ms.topic: article
-ms.date: 08/10/2018
 ms.author: mhopkins
-ms.reviewer: seguler
+ms.date: 08/10/2018
+ms.service: storage
 ms.subservice: common
-ms.openlocfilehash: 5f55228c80142b2a21af585cb04d16f148460af0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.topic: conceptual
+ms.openlocfilehash: 8737e3b2445f5b89c62cead5fae34b8ad076113a
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65149093"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721739"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>개발 및 테스트에 Azure Storage 에뮬레이터 사용
 
@@ -55,7 +53,7 @@ Azure Storage 에뮬레이터를 시작하려면:
 저장소 에뮬레이터는 기본적으로 `C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator`에 설치됩니다.
 
 > [!TIP]
-> [Microsoft Azure Storage 탐색기](https://storageexplorer.com)를 사용하여 로컬 스토리지 에뮬레이터 리소스를 사용할 수 있습니다. 스토리지 에뮬레이터를 설치 및 시작한 다음, Storage Explorer 리소스 트리의 "Storage 계정"에서 "(개발)"을 찾습니다.
+> [Microsoft Azure Storage Explorer](https://storageexplorer.com)를 사용하여 로컬 스토리지 에뮬레이터 리소스를 사용할 수 있습니다. 스토리지 에뮬레이터를 설치 및 시작한 다음, Storage Explorer 리소스 트리의 "Storage 계정"에서 "(개발)"을 찾습니다.
 >
 
 ### <a name="initialize-the-storage-emulator-to-use-a-different-sql-database"></a>다른 SQL 데이터베이스를 사용하여 저장소 에뮬레이터를 초기화 합니다.
@@ -92,7 +90,7 @@ Azure Storage 에뮬레이터를 시작하려면:
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Xamarin 라이브러리와 같은 일부 Azure 저장소 클라이언트 라이브러리는 공유 액세스 서명 (SAS) 토큰 인증만 지원합니다. [저장소 탐색기](https://storageexplorer.com/) 또는 공유 키 인증을 지원하는 다른 애플리케이션과 같은 도구를 사용하여 SAS 토큰을 만들 수 있습니다.
+Xamarin 라이브러리와 같은 일부 Azure 저장소 클라이언트 라이브러리는 공유 액세스 서명 (SAS) 토큰 인증만 지원합니다. [Storage Explorer](https://storageexplorer.com/) 또는 공유 키 인증을 지원하는 다른 애플리케이션과 같은 도구를 사용하여 SAS 토큰을 만들 수 있습니다.
 
 또한 Azure PowerShell을 사용하여 SAS 토큰을 생성할 수 있습니다. 다음 예제에서는 blob 컨테이너에 대한 모든 권한을 가진 SAS 토큰을 생성합니다.
 
@@ -165,7 +163,7 @@ Azure Storage 계정에 리소스 주소를 지정할 때는 다음 체계를 �
 ### <a name="command-line-syntax"></a>명령줄 구문
 `AzureStorageEmulator.exe [start] [stop] [status] [clear] [init] [help]`
 
-### <a name="options"></a>옵션
+### <a name="options"></a>변수
 옵션 목록을 보려면 명령 프롬프트에 `/help` 을(를) 입력합니다.
 
 | 옵션 | 설명 | 명령 | 인수 |
@@ -282,4 +280,4 @@ Azure Storage 계정에 리소스 주소를 지정할 때는 다음 체계를 �
 
 * 커뮤니티에서 유지 관리하는 플랫폼 간 오픈 소스 저장소 에뮬레이터 [Azurite](https://github.com/arafato/azurite)를 평가합니다. 
 * [.NET을 사용한 Azure Storage 샘플](../storage-samples-dotnet.md)에는 애플리케이션을 개발할 때 사용할 수 있는 몇 가지 코드 샘플에 대한 링크가 있습니다.
-* [Microsoft Azure Storage 탐색기](https://storageexplorer.com)를 사용하여 클라우드 스토리지 계정 및 스토리지 에뮬레이터의 리소스를 사용할 수 있습니다.
+* [Microsoft Azure Storage Explorer](https://storageexplorer.com)를 사용하여 클라우드 스토리지 계정 및 스토리지 에뮬레이터의 리소스를 사용할 수 있습니다.

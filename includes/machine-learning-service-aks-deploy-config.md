@@ -4,16 +4,16 @@ ms.service: machine-learning
 ms.topic: include
 ms.date: 07/26/2019
 ms.author: larryfr
-ms.openlocfilehash: d59482c04c4875cb6b17ceb405e9d3ab97a741d6
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
-ms.translationtype: HT
+ms.openlocfilehash: b8913836baffdad200c198afa11475d617fe5d50
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565144"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68729354"
 ---
 `deploymentconfig.json` 문서의 항목은 [AksWebservice. deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py)에 대 한 매개 변수에 매핑됩니다. 다음 표에서는 JSON 문서의 엔터티 및 메서드에 대 한 매개 변수의 매핑에 대해 설명 합니다.
 
-| JSON 엔터티 | 메서드 매개 변수 | Description |
+| JSON 엔터티 | 메서드 매개 변수 | 설명 |
 | ----- | ----- | ----- |
 | `computeType` | NA | 컴퓨팅 대상. AKS의 경우이 값은 여야 `aks`합니다. |
 | `autoScaler` | NA | 자동 크기 조정에 대 한 구성 요소를 포함 합니다. Autoscaler 표를 참조 하세요. |
@@ -24,7 +24,8 @@ ms.locfileid: "68565144"
 | &emsp;&emsp;`targetUtilization` | `autoscale_target_utilization` | Autoscaler이이 웹 서비스에 대 한 유지 관리를 시도 하는 대상 사용률 (100의 백분율)입니다. 기본값은 `70`입니다. |
 | `dataCollection` | NA | 데이터 컬렉션에 대 한 구성 요소를 포함 합니다. |
 | &emsp;&emsp;`storageEnabled` | `collect_model_data` | 웹 서비스에 대해 모델 데이터 수집을 사용할지 여부입니다. 기본값은 `False`입니다. |
-| `authEnabled` | `auth_enabled` | 웹 서비스에 대 한 인증을 사용할지 여부를 지정 합니다. 기본값은 `True`입니다. |
+| `authEnabled` | `auth_enabled` | 웹 서비스에 대 한 키 인증을 사용할지 여부입니다. `True`및 `tokenAuthEnabled` 는둘다일수없습니다`authEnabled` . 기본값은 `True`입니다. |
+| `tokenAuthEnabled` | `token_auth_enabled` | 웹 서비스에 대 한 토큰 인증을 사용할지 여부입니다. `True`및 `tokenAuthEnabled` 는둘다일수없습니다`authEnabled` . 기본값은 `False`입니다. |
 | `containerResourceRequirements` | NA | CPU 및 메모리 엔터티의 컨테이너입니다. |
 | &emsp;&emsp;`cpu` | `cpu_cores` | 이 웹 서비스에 할당할 CPU 코어 수입니다. 기본값과`0.1` |
 | &emsp;&emsp;`memoryInGB` | `memory_gb` | 이 웹 서비스에 할당할 메모리 양 (GB)입니다. 기본`0.5` |

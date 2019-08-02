@@ -1,21 +1,19 @@
 ---
-title: Java-Azure Storage에서에서 큐 저장소를 사용 하는 방법
+title: Java에서 Queue storage를 사용 하는 방법-Azure Storage
 description: Azure 큐 서비스를 사용하여 큐를 작성 및 삭제하고 메시지를 삽입하고 가져오고 삭제하는 방법을 알아봅니다. 샘플은 Java로 작성되었습니다.
-services: storage
 author: mhopkins-msft
 ms.service: storage
-ms.devlang: java
-ms.topic: article
-ms.date: 12/08/2016
 ms.author: mhopkins
-ms.reviewer: cbrooks
+ms.date: 12/08/2016
 ms.subservice: queues
-ms.openlocfilehash: 3cbd1445640f37cbc63d74d1366c390c774aecd5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.topic: conceptual
+ms.reviewer: cbrooks
+ms.openlocfilehash: 5d2bd94f6b95ff993ae367b99f48746c091f5739
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65151123"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721427"
 ---
 # <a name="how-to-use-queue-storage-from-java"></a>Java에서 Queue Storage를 사용하는 방법
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -393,7 +391,7 @@ catch (Exception e)
 이제 Queue Storage의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 스토리지 작업에 대해 알아보세요.
 
 * [Java용 Azure Storage SDK][Azure Storage SDK for Java]
-* [Azure Storage 클라이언트 SDK 참조][Azure Storage 클라이언트 SDK 참조]
+* [Azure Storage 클라이언트 SDK 참조][Azure Storage Client SDK Reference]
 * [Azure Storage 서비스 REST API][Azure Storage Services REST API]
 * [Azure Storage 팀 블로그][Azure Storage Team Blog]
 

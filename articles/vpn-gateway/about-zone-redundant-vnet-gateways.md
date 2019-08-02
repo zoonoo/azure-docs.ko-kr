@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: cherylmc
-ms.openlocfilehash: 0ba818ef3c24d0e88e662adf87b22cc938fe5fab
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d076e2b0057f0ba666fa47ffd0b3d7d1fcc14631
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60391075"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725593"
 ---
 # <a name="about-zone-redundant-virtual-network-gateways-in-azure-availability-zones"></a>Azure 가용성 영역의 영역 중복 가상 네트워크 게이트웨이 정보
 
@@ -43,7 +43,7 @@ ms.locfileid: "60391075"
 
 새 게이트웨이 SKU는 다음과 같습니다.
 
-### <a name="vpn-gateway"></a>VPN Gateway
+### <a name="vpn-gateway"></a>VPN 게이트웨이
 
 * VpnGw1AZ
 * VpnGw2AZ
@@ -86,7 +86,7 @@ ms.locfileid: "60391075"
 
 ### <a name="what-regions-are-available-for-me-to-use-the-new-skus"></a>새 SKU를 사용할 수 있는 지역은 어디인가요?
 
-Azure 가용성 영역이 있는 Azure 지역(미국 중부, 프랑스 중부, 유럽 북부, 유럽 서부 및 미국 서부 2 지역)에서 새 SKU를 사용할 수 있습니다. 앞으로 다른 Azure 공용 지역에서도 영역 중복 게이트웨이를 사용할 수 있도록 제공할 예정입니다.
+새 Sku는 Azure 가용성 영역 중부, 프랑스 중부, 유럽 서 부, 유럽 서부 및 미국 서 부 2 지역, 미국 동부, 미국 동부 2, 동남 아시아, 일본 동부, 영국 남부 있는 Azure 지역에서 사용할 수 있습니다. 앞으로 다른 Azure 공용 지역에서도 영역 중복 게이트웨이를 사용할 수 있도록 제공할 예정입니다.
 
 ### <a name="can-i-changemigrateupgrade-my-existing-virtual-network-gateways-to-zone-redundant-or-zonal-gateways"></a>내 기존 가상 네트워크 게이트웨이를 영역 중복 또는 영역 게이트웨이로 변경/마이그레이션/업그레이드할 수 있나요?
 

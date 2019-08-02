@@ -8,18 +8,19 @@ manager: barbkess
 editor: tomsh
 ms.assetid: ''
 ms.service: security
+ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.openlocfilehash: c5b5f80a43530fe6d0b90e65c3aef89a815157e4
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
-ms.translationtype: HT
+ms.openlocfilehash: 75888d9da0d8a6e76e787b7d3867e94eefff337e
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68614811"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726584"
 ---
 # <a name="azure-service-fabric-security-overview"></a>Azure Service Fabric 보안 개요
 [Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview)은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스를 관리하는 분산된 시스템 플랫폼입니다. Service Fabric은 클라우드 애플리케이션 개발 및 관리에서 발생하는 과제를 해결합니다. 개발자와 관리자가 복잡한 인프라 문제를 피하고 업무 수행에 필수적인 까다로운 워크로드를 확장 가능하고 신뢰할 수 있도록 구현하는 데 집중할 수 있습니다.
@@ -102,7 +103,7 @@ X.509 디지털 인증서는 클라이언트 및 서버를 인증하는 데 일�
 
 다음 테이블에서는 클러스터 설치에 필요한 인증서를 나열합니다.
 
-|인증서 정보 설정 |Description|
+|인증서 정보 설정 |설명|
 |-------------------------------|-----------|
 |ClusterCertificate|    이 인증서는 클러스터에서 노드 간의 통신을 보호해야 합니다. 기본 인증서 및 보조 인증서 등 두 개의 클러스터 인증서를 사용하여 업그레이드할 수 있습니다.|
 |ServerCertificate| 이 인증서가 클러스터에 연결하려고 시도할 때 클라이언트에 표시됩니다. 기본 인증서 및 보조 인증서 등 두 개의 서버 인증서를 사용하여 업그레이드할 수 있습니다.|

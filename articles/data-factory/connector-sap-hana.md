@@ -10,17 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 08/01/2018
 ms.author: jingwang
-ms.openlocfilehash: cdd83c3ff9d34a5e8b7f2c164136ab82f498ffb5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e9b024fc3c07670201cf72cf80c0b69bf68f1cc8
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60343769"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725995"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SAP HANA에서 데이터 복사
-> [!div class="op_single_selector" title1="사용 하는 Data Factory 서비스 버전을 선택 합니다."]
+> [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](v1/data-factory-sap-hana-connector.md)
 > * [현재 버전](connector-sap-hana.md)
 
@@ -33,13 +33,13 @@ SAP HANA 데이터베이스에서 지원되는 모든 싱크 데이터 저장소
 특히 이 SAP HANA 커넥터는 다음을 지원합니다.
 
 - SAP HANA 데이터베이스의 모든 버전에서 데이터 복사
-- SQL 쿼리를 사용한 **행/열 테이블** 및 **HANA 정보 모델**(예: 분석 및 계산 보기)에서 데이터 복사
+- **HANA 정보 모델** (예: 분석 및 계산 뷰)에서 데이터를 복사 하 고 **행/열 테이블**을 복사 합니다.
 - **Basic** 또는 **Windows** 인증을 사용한 데이터 복사
 
-> [!NOTE]
+> [!TIP]
 > SAP HANA 데이터 저장소**로** 데이터를 복사하려면 일반 ODBC 커넥터를 사용합니다. 자세한 내용은 [SAP HANA 싱크](connector-odbc.md#sap-hana-sink)를 참조하세요. 따라서 형식이 다른 SAP HANA 커넥터 및 ODBC 커넥터에 대한 연결된 서비스는 재사용할 수 없습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 SAP HANA 커넥터를 사용하려면 다음을 수행해야 합니다.
 
@@ -56,14 +56,56 @@ SAP HANA 데이터베이스에서 지원되는 모든 싱크 데이터 저장소
 
 SAP HANA 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성을 다음으로 설정해야 합니다. **SapHana** | 예 |
-| server | SAP HANA 인스턴스가 상주하는 서버의 이름. 서버에서 사용자 지정된 포트를 사용하는 경우 `server:port`를 지정합니다. | 예. |
-| authenticationType | SAP HANA 데이터베이스에 연결하는 데 사용되는 인증 형식입니다.<br/>허용되는 값은 다음과 같습니다. **기본** 및 **Windows** | 예. |
-| userName | SAP 서버에 대한 액세스 권한이 있는 사용자의 이름입니다. | 예. |
-| password | 사용자에 대한 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [필수 조건](#prerequisites)에 설명된 대로 자체 호스팅 Integration Runtime이 필요합니다. |예. |
+| connectionString | **기본 인증** 또는 **Windows 인증**을 사용 하 여 SAP HANA에 연결 하는 데 필요한 정보를 지정 합니다. 다음 샘플을 참조하세요.<br>연결 문자열에서 서버/포트는 필수 (기본 포트는 30015)이 고, 기본 인증을 사용 하는 경우 사용자 이름 및 암호는 필수입니다. 고급 설정에 대 한 자세한 내용은 [SAP HANA ODBC 연결 속성](<https://help.sap.com/viewer/0eec0d68141541d1b07893a39944924e/2.0.02/en-US/7cab593774474f2f8db335710b2f5c50.html>) 을 참조 하세요.<br/>Azure Key Vault에 암호를 입력 하 고 연결 문자열에서 암호 구성을 끌어올 수도 있습니다. 자세한 내용은 [Azure Key Vault 문서의 자격 증명 저장](store-credentials-in-key-vault.md) 을 참조 하세요. | 예 |
+| userName | Windows 인증을 사용 하는 경우 사용자 이름을 지정 합니다. 예: `user@domain.com` | 아니요 |
+| password | 사용자 계정으로 password를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 아니요 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [필수 조건](#prerequisites)에 설명된 대로 자체 호스팅 Integration Runtime이 필요합니다. |예 |
+
+**예: 기본 인증 사용**
+
+```json
+{
+    "name": "SapHanaLinkedService",
+    "properties": {
+        "type": "SapHana",
+        "typeProperties": {
+            "connectionString": "SERVERNODE=<server>:<port (optional)>;UID=<userName>;PWD=<Password>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**예: Windows 인증 사용**
+
+```json
+{
+    "name": "SapHanaLinkedService",
+    "properties": {
+        "type": "SapHana",
+        "typeProperties": {
+            "connectionString": "SERVERNODE=<server>:<port (optional)>;",
+            "userName": "<username>", 
+            "password": { 
+                "type": "SecureString", 
+                "value": "<password>" 
+            } 
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+다음 페이로드를 사용 하 여 SAP HANA 연결 된 서비스를 사용 하는 경우에는 계속 해 서 새 항목을 사용 하는 것이 좋습니다.
 
 **예제:**
 
@@ -93,7 +135,13 @@ SAP HANA 연결된 서비스에 다음 속성이 지원됩니다.
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 데이터 세트 문서를 참조하세요. 이 섹션에는 SAP HANA 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
-SAP HANA에서 데이터를 복사하려면 데이터 세트의 형식 속성을 **RelationalTable**로 설정합니다. RelationalTable 형식의 SAP HANA 데이터 세트에 대해 지원되는 형식별 속성은 없습니다.
+SAP HANA에서 데이터를 복사 하기 위해 지원 되는 속성은 다음과 같습니다.
+
+| 속성 | 설명 | 필수 |
+|:--- |:--- |:--- |
+| type | 데이터 세트의 type 속성을 다음으로 설정해야 합니다. **SapHanaTable** | 예 |
+| 스키마 | SAP HANA 데이터베이스의 스키마 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
+| 테이블 | SAP HANA 데이터베이스에 있는 테이블의 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 **예제:**
 
@@ -101,15 +149,21 @@ SAP HANA에서 데이터를 복사하려면 데이터 세트의 형식 속성을
 {
     "name": "SAPHANADataset",
     "properties": {
-        "type": "RelationalTable",
+        "type": "SapHanaTable",
+        "typeProperties": {
+            "schema": "<schema name>",
+            "table": "<table name>"
+        },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<SAP HANA linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
+
+형식화 된 데이터 집합 `RelationalTable` 을 사용 하는 경우에는 계속 해 서 새 항목을 사용 하는 것이 좋습니다.
 
 ## <a name="copy-activity-properties"></a>복사 작업 속성
 
@@ -117,12 +171,13 @@ SAP HANA에서 데이터를 복사하려면 데이터 세트의 형식 속성을
 
 ### <a name="sap-hana-as-source"></a>SAP HANA를 원본으로
 
-SAP HANA에서 데이터를 복사하려면 복사 작업의 원본 형식을 **RelationalSource**로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
+SAP HANA에서 데이터를 복사 하려면 복사 작업 **원본** 섹션에서 다음 속성을 지원 합니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **RelationalSource** | 예 |
-| 쿼리 | SAP HANA 인스턴스에서 데이터를 읽을 SQL 쿼리를 지정합니다. | 예. |
+| type | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **SapHanaSource** | 예 |
+| query | SAP HANA 인스턴스에서 데이터를 읽을 SQL 쿼리를 지정합니다. | 예 |
+| packetSize | 데이터를 여러 블록으로 분할 하는 네트워크 패킷 크기 (Kb)를 지정 합니다. 복사할 데이터가 많은 경우 패킷 크기를 늘리면 대부분의 경우 SAP HANA에서 읽기 속도를 높일 수 있습니다. 패킷 크기를 조정할 때 성능 테스트를 수행 하는 것이 좋습니다. | 아니요.<br>기본값은 2048 (2MB)입니다. |
 
 **예제:**
 
@@ -145,7 +200,7 @@ SAP HANA에서 데이터를 복사하려면 복사 작업의 원본 형식을 **
         ],
         "typeProperties": {
             "source": {
-                "type": "RelationalSource",
+                "type": "SapHanaSource",
                 "query": "<SQL query for SAP HANA>"
             },
             "sink": {
@@ -156,39 +211,41 @@ SAP HANA에서 데이터를 복사하려면 복사 작업의 원본 형식을 **
 ]
 ```
 
+형식화 된 복사 원본을 `RelationalSource` 사용 하 고 있는 경우에는 계속 해 서 새 항목을 사용 하는 것이 좋습니다.
+
 ## <a name="data-type-mapping-for-sap-hana"></a>SAP HANA에 대한 데이터 형식 매핑
 
 SAP HANA에서 데이터를 복사하는 경우 SAP HANA 데이터 형식에서 Azure Data Factory 중간 데이터 형식으로 다음 매핑이 사용됩니다. 복사 작업에서 원본 스키마 및 데이터 형식을 싱크에 매핑하는 방법에 대한 자세한 내용은 [스키마 및 데이터 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요.
 
 | SAP HANA 데이터 형식 | Data Factory 중간 데이터 형식 |
-|:--- |:--- |
-| ALPHANUM | String |
-| BIGINT | Int64 |
-| BLOB | Byte[] |
-| BOOLEAN | Byte |
-| CLOB | Byte[] |
-| DATE | DateTime |
-| DECIMAL | Decimal |
-| DOUBLE | Single |
-| INT | Int32 |
-| NVARCHAR | String |
-| REAL | Single |
-| SECONDDATE | DateTime |
-| SMALLINT | Int16 |
-| 시간 | TimeSpan |
-| TIMESTAMP | DateTime |
-| TINYINT | Byte |
-| VARCHAR | String |
-
-## <a name="known-limitations"></a>알려진 제한 사항
-
-SAP HANA에서 데이터를 복사하는 경우 몇 가지 알려진 제한 사항이 있습니다.
-
-- NVARCHAR 문자열은 유니코드 문자 최대 길이 4000자에서 잘립니다.
-- SMALLDECIMAL은 지원되지 않습니다.
-- VARBINARY는 지원되지 않습니다.
-- 유효한 날짜는 1899/12/30 ~ 9999/12/31입니다.
-
+| ------------------ | ------------------------------ |
+| ALPHANUM           | 문자열                         |
+| BIGINT             | Int64                          |
+| BINARY             | Byte[]                         |
+| BINTEXT            | String                         |
+| BLOB               | Byte[]                         |
+| BOOL               | Byte                           |
+| CLOB               | String                         |
+| DATE               | DateTime                       |
+| DECIMAL            | Decimal                        |
+| DOUBLE             | DOUBLE                         |
+| FLOAT              | Double                         |
+| INTEGER            | Int32                          |
+| NCLOB              | String                         |
+| NVARCHAR           | String                         |
+| REAL               | Single                         |
+| SECONDDATE         | DateTime                       |
+| SHORTTEXT          | String                         |
+| SMALLDECIMAL       | Decimal                        |
+| SMALLINT           | Int16                          |
+| STGEOMETRYTYPE     | Byte[]                         |
+| STPOINTTYPE        | Byte[]                         |
+| TEXT               | String                         |
+| TIME               | TimeSpan                       |
+| TINYINT            | Byte                           |
+| VARCHAR            | String                         |
+| TIMESTAMP          | DateTime                       |
+| VARBINARY          | Byte[]                         |
 
 ## <a name="next-steps"></a>다음 단계
 Azure Data Factory에서 복사 작업의 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.

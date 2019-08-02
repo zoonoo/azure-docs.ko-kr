@@ -8,18 +8,19 @@ manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
+ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 10e2608b8fb7eca8e3dd45eadb6e8046ee0efbf1
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 7c0748e4ff1531649274834cb1e602c228f102e8
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68614863"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726703"
 ---
 # <a name="the-azure-production-network"></a>Azure 프로덕션 네트워크
 Azure 프로덕션 네트워크의 사용자에는 고유한 Azure 애플리케이션에 액세스하는 외부 고객과 프로덕션 네트워크를 관리하는 내부 Azure 지원 담당자가 포함됩니다. 이 문서에서는 보안 액세스 방법과 Azure 프로덕션 네트워크에 대한 연결을 설정하기 위한 보호 메커니즘을 설명합니다.

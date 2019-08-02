@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: 90388d570d027aea3c897f7306a1714fd7e847b3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0974e2ed78e557168357c51b5c77a94de2f56dc5
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60772418"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68722113"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Azure VM을 위한 재해 복구와 Azure ExpressRoute 통합
 
@@ -32,7 +32,7 @@ ExpressRoute를 사용하면 연결 공급자가 지원하는 프라이빗 연�
 - **Azure 지역 간 장애 조치(failover)** : 중단이 발생한 경우 Azure VM을 기본에서 보조 Azure 하위 지역으로 장애 조치합니다. 보조 하위 지역으로 장애 조치 후 ExpressRoute를 사용하여 보조 하위 지역의 Azure VM에 액세스하려면 여러 단계를 실행해야 합니다.
 
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
 시작하기 전에 다음 개념을 이해해야 합니다.
 
@@ -93,7 +93,7 @@ ExpressRoute를 사용하면 연결 공급자가 지원하는 프라이빗 연�
 - **허브 vNet**. 허브 vNet **원본 허브 vNet**: 10.10.10.0/24가 있습니다.
   - 이 허브 vNet은 게이트키퍼 역할을 합니다.
   - 서브넷 간 통신은 모두 이 허브를 통해 이루어집니다.
-    - **허브 vNet 서브넷**합니다. 허브 vNet에는 두 개의 서브넷에 있습니다.
+    - **허브 vNet 서브넷**. 허브 vNet에는 두 개의 서브넷에 있습니다.
     - **NVA 서브넷**: 10.10.10.0/25. 이 서브넷은 NVA(10.10.10.10)를 포함합니다.
     - **게이트웨이 서브넷**: 10.10.10.128/25. 이 서브넷은 ExpressRoute 연결에 연결된 ExpressRoute 게이트웨이를 포함하며 프라이빗 피어링 라우팅 도메인을 통해 온-프레미스를 라우팅합니다.
 - 온-프레미스 데이터 센터에는 홍콩의 파트너 에지를 통해 ExpressRoute 회로에 연결됩니다.
@@ -104,7 +104,7 @@ ExpressRoute를 사용하면 연결 공급자가 지원하는 프라이빗 연�
 
 #### <a name="spoke-to-hub"></a>스포크-허브
 
-**방향** | **설정** | **State**
+**Direction** | **설정** | **State**
 --- | --- | ---
 스포크-허브 | 가상 네트워크 주소 허용 | Enabled
 스포크-허브 | 전달된 트래픽 허용 | Enabled
@@ -115,7 +115,7 @@ ExpressRoute를 사용하면 연결 공급자가 지원하는 프라이빗 연�
 
 #### <a name="hub-to-spoke"></a>허브-스포크
 
-**방향** | **설정** | **State**
+**Direction** | **설정** | **State**
 --- | --- | ---
 허브-스포크 | 가상 네트워크 주소 허용 | Enabled
 허브-스포크 | 전달된 트래픽 허용 | Enabled
@@ -164,11 +164,11 @@ Site Recovery를 사용하여 대상 Azure 하위 지역에 Azure VM을 장애 �
 
 ### <a name="access-with-a-single-circuit"></a>단일 회로를 사용하여 액세스
 
-이 구성에서는 ExpressRoute 회로가 한 개만 있습니다. 회로에 중복 연결이 있더라도 한 회로가 다운된 경우 피어링 하위 지역이 다운되면 단일 경로 회로가 회복력을 제공하지 않습니다. 다음 사항에 유의하세요.
+이 구성에서는 ExpressRoute 회로가 한 개만 있습니다. 회로에 중복 연결이 있더라도 한 회로가 다운된 경우 피어링 하위 지역이 다운되면 단일 경로 회로가 회복력을 제공하지 않습니다. 다음 사항에 유의합니다.
 
-- [동일한 지리적 위치](azure-to-azure-support-matrix.md#region-support)의 Azure 하위 지역에 Azure VM을 복제할 수 있습니다. 대상 Azure 하위 지역이 원본과 동일한 위치에 있지 않은 경우 단일 ExpressRoute 회로를 사용한다면 ExpressRoute Premium을 사용하도록 설정해야 합니다. [ExpressRoute 위치](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) 및 [ExpressRoute 가격 책정](https://azure.microsoft.com/pricing/details/expressroute/)에 대해 알아보세요.
+- [동일한 지리적 위치](azure-to-azure-support-matrix.md#region-support)의 Azure 하위 지역에 Azure VM을 복제할 수 있습니다. 대상 Azure 하위 지역이 원본과 동일한 위치에 있지 않은 경우 단일 ExpressRoute 회로를 사용한다면 ExpressRoute Premium을 사용하도록 설정해야 합니다. [ExpressRoute 위치](../expressroute/expressroute-locations.md) 및 [ExpressRoute 가격 책정](https://azure.microsoft.com/pricing/details/expressroute/)에 대해 알아보세요.
 - 대상 하위 지역에 동일한 IP 주소 공간을 사용하는 경우 원본과 대상 vNet을 동시에 회로에 연결할 수 없습니다. 이 시나리오에서는    
-    -  원본 쪽 연결을 끊은 다음, 대상 쪽 연결을 설정하세요. 이 연결 변경은 Site Recovery 복구 계획의 일부로 스크립트될 수 있습니다. 다음 사항에 유의하세요.
+    -  원본 쪽 연결을 끊은 다음, 대상 쪽 연결을 설정하세요. 이 연결 변경은 Site Recovery 복구 계획의 일부로 스크립트될 수 있습니다. 다음 사항에 유의합니다.
         - 지역 오류에서 주 지역에 액세스할 수 없으면 연결 끊기 작업에 실패할 수 있습니다. 이는 대상 하위 지역에 대한 연결 생성에 영향을 미칠 수 있습니다.
         - 대상 하위 지역에 연결을 만들고 나중에 기본 하위 지역이 복구되는 경우, 동일한 주소 공간에 연결하려는 두 개의 동시 연결 시도가 있으면 패킷 드롭을 경험할 수 있습니다.
         - 이 현상을 방지하려면 기본 연결을 즉시 종료합니다.
@@ -197,7 +197,7 @@ Site Recovery를 사용하여 대상 Azure 하위 지역에 Azure VM을 장애 �
 
     b. 대상 허브 vNet에서 대상 ExpressRoute 회로에 연결을 만듭니다.
 
-    다. 대상 지역의 허브와 스포크 가상 네트워크 간에 VNet 피어링을 설정합니다. 대상 지역의 피어링 속성은 원본 지역에 있는 속성과 동일합니다.
+    c. 대상 지역의 허브와 스포크 가상 네트워크 간에 VNet 피어링을 설정합니다. 대상 지역의 피어링 속성은 원본 지역에 있는 속성과 동일합니다.
 
     d. 허브 VNet의 UDR 및 두 개의 스포크 VNet을 설정합니다.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 59a97e8a6e34aba8639c7f12b52e42f2c97b7dca
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 93c36ccb244931c12d8b038f448fbda4eff77f16
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/01/2019
-ms.locfileid: "68704464"
+ms.locfileid: "68721719"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Azure Files 배포에 대한 계획
 
@@ -209,7 +209,7 @@ GRS를 사용 하는 저장소 계정의 경우 모든 데이터는 먼저 LRS (
 |-------|---------|---------|---------|
 |오스트레일리아 동부  |LRS|아니요         |예|
 |프랑스 중부  |LRS|아니요         |아직 준비되지 않음|
-|동남 아시아  |LRS|아니요         |LRS only, ZRS-아직|
+|동남 아시아  |LRS, ZRS|아니요         |LRS only, ZRS-아직|
 |유럽 서부     |LRS, ZRS|아니요       |예|
 |미국 서부 2       |LRS, ZRS|아니요         |예|
 

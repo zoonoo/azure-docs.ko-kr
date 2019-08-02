@@ -8,18 +8,19 @@ manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
+ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: d883a9672ce8e33a1c13c96bca727b925bfbd84f
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 74b0fa4643907493904e77ce333d1ec1dba01f49
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68613303"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68727098"
 ---
 # <a name="azure-sql-database-security-features"></a>Azure SQL Database 보안 기능    
 Azure SQL Database는 Azure에서 관계형 데이터베이스 서비스를 제공합니다. 고객 데이터를 보호하고 고객이 관계형 데이터베이스 서비스에서 기대하는 강력한 보안 기능을 제공하기 위해 SQL Database에는 자체의 보안 기능 집합이 있습니다. 이러한 기능은 Azure에서 상속된 제어를 기반으로 합니다.

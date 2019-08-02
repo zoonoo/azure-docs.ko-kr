@@ -8,18 +8,19 @@ manager: barbkess
 editor: TomSh
 ms.assetid: 1473c8dd-8669-48fb-86db-b3c50e2eaf59
 ms.service: security
+ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: db1c2b9c852479b9af3674f6c5e1f1135ee289f1
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 670fcc5e92cdb9937026d91ee85b7e8e856a3025
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68615331"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68727042"
 ---
 # <a name="internet-of-things-security-overview"></a>사물 인터넷 보안 개요
 Azure IoT(사물 인터넷) 서비스는 광범위한 기능을 제공합니다. 이러한 엔터프라이즈급 서비스를 사용하면 다음과 같은 작업을 할 수 있습니다.

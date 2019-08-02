@@ -1,21 +1,19 @@
 ---
-title: Queue storage를 사용 하는 방법 (C++)-Azure Storage
-description: Azure Queue storage 서비스를 사용 하는 방법에 알아봅니다. 샘플은 C++로 작성되었습니다.
-services: storage
+title: Queue storage를 사용 하는C++방법 ()-Azure Storage
+description: Azure에서 Queue storage 서비스를 사용 하는 방법에 대해 알아봅니다. 샘플은 C++로 작성되었습니다.
 author: mhopkins-msft
-ms.service: storage
-ms.devlang: cpp
-ms.topic: article
-ms.date: 05/11/2017
 ms.author: mhopkins
-ms.reviewer: cbrooks
+ms.date: 05/11/2017
+ms.service: storage
 ms.subservice: queues
-ms.openlocfilehash: 440033233bbd60421cc3245a04544cd04caec6f4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.topic: conceptual
+ms.reviewer: cbrooks
+ms.openlocfilehash: e268e30e8f8c512dd6efb5a50da45f173e526b62
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153115"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721648"
 ---
 # <a name="how-to-use-queue-storage-from-c"></a>C++에서 Queue Storage를 사용하는 방법
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]

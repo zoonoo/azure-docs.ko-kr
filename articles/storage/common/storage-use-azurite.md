@@ -1,19 +1,18 @@
 ---
 title: Azurite 오픈 소스 에뮬레이터를 사용 하 여 blob storage 개발 및 테스트 (미리 보기)
 description: Azurite 오픈 소스 에뮬레이터 (미리 보기)는 Azure Blob storage 응용 프로그램을 테스트 하기 위한 무료 로컬 환경을 제공 합니다.
-services: storage
 author: mhopkins-msft
-ms.service: storage
-ms.topic: article
-ms.date: 06/12/2019
 ms.author: mhopkins
+ms.date: 06/12/2019
+ms.service: storage
 ms.subservice: common
-ms.openlocfilehash: 2ccb19253c762bad69875a7b7bba7cd11d46e132
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.topic: conceptual
+ms.openlocfilehash: ebecd6cf9af5395e4da2b395ca9b2ff974a75409
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67869795"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721693"
 ---
 # <a name="use-the-azurite-open-source-emulator-for-blob-storage-development-and-testing-preview"></a>Azurite 오픈 소스 에뮬레이터를 사용 하 여 blob storage 개발 및 테스트 (미리 보기)
 
@@ -228,7 +227,7 @@ azurite -d path/debug.log
 
 ## <a name="authorization-for-tools-and-sdks"></a>도구 및 Sdk에 대 한 권한 부여
 
-인증 전략을 사용 하 여 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)와 같은 Azure Storage sdk 또는 도구에서 Azurite에 연결 합니다. 인증이 필요 합니다. Azurite는 공유 키 및 SAS (공유 액세스 서명)를 사용한 권한 부여를 지원 합니다. Azurite는 공용 컨테이너에 대 한 익명 액세스도 지원 합니다.
+인증 전략을 사용 하 여 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)와 같은 Azure Storage sdk 또는 도구에서 Azurite에 연결 합니다. 인증이 필요합니다. Azurite는 공유 키 및 SAS (공유 액세스 서명)를 사용한 권한 부여를 지원 합니다. Azurite는 공용 컨테이너에 대 한 익명 액세스도 지원 합니다.
 
 ### <a name="well-known-storage-account-and-key"></a>잘 알려진 저장소 계정 및 키
 
@@ -252,7 +251,7 @@ Azurite에서 다음 계정 이름 및 키를 사용할 수 있습니다. 레거
 
 자세한 내용은 [Azure Storage 연결 문자열 구성](storage-configure-connection-string.md)을 참조하세요.
 
-### <a name="storage-explorer"></a>Storage Explorer
+### <a name="storage-explorer"></a>Storage 탐색기
 
 Azure Storage 탐색기에서 **계정 추가** 아이콘을 클릭 하 여 Azurite에 연결한 다음 **로컬 에뮬레이터에** 연결을 선택 하 고 **연결**을 클릭 합니다.
 

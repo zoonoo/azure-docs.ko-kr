@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/02/2019
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 401a2e95c90602e7814353401c290e177ec3ce02
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: ce326d7284e22a8734f6be671a277795ba659522
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640270"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720534"
 ---
 # <a name="copy-data-from-teradata-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Teradata에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -41,7 +41,7 @@ Teradata 데이터베이스에서 지원 되는 모든 싱크 데이터 저장�
 >
 > 자체 호스팅 integration runtime v 3.18의 릴리스 후에는 Teradata 커넥터가 업그레이드 Azure Data Factory. 이전 Teradata 커넥터를 사용 하는 기존 작업은 계속 지원 됩니다. 그러나 새 워크 로드의 경우 새 워크 로드를 사용 하는 것이 좋습니다. 새 경로에는 연결 된 서비스, 데이터 집합 및 복사 원본의 다른 집합이 필요 합니다. 구성 세부 정보는 다음에 나오는 해당 섹션을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 Teradata에 공개적으로 액세스할 수 없는 경우 [자체 호스팅 통합 런타임을](create-self-hosted-integration-runtime.md)설정 해야 합니다. Integration runtime은 버전 3.18에서 시작 하는 기본 제공 Teradata 드라이버를 제공 합니다. 드라이버를 수동으로 설치 하지 않아도 됩니다. 이 드라이버를 사용 하려면 C++ 자체 호스팅 통합 런타임 컴퓨터에 "Visual 재배포할 2012 업데이트 4"가 필요 합니다. 아직 설치 하지 않은 경우 [여기](https://www.microsoft.com/en-sg/download/details.aspx?id=30679)에서 다운로드 합니다.
 
@@ -150,11 +150,12 @@ Teradata에서 데이터를 복사 하려면 다음 속성이 지원 됩니다.
     "name": "TeradataDataset",
     "properties": {
         "type": "TeradataTable",
+        "typeProperties": {},
+        "schema": [],        
         "linkedServiceName": {
             "referenceName": "<Teradata linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -291,7 +292,7 @@ Teradata에서 데이터를 복사 하는 경우 다음 매핑이 적용 됩니�
 | Blob |Byte[] |
 | Byte |Byte[] |
 | ByteInt |Int16 |
-| Char |문자열 |
+| Char |String |
 | Clob |String |
 | 날짜 |DateTime |
 | Decimal |Decimal |
