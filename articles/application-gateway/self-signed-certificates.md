@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: victorh
-ms.openlocfilehash: 0b97f2f6df87255e10faaf58c40ea9136354bff6
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 9966164ec1b6a37538a24d2ef8cb80007e6f6d29
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68386305"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698239"
 ---
 # <a name="generate-an-azure-application-gateway-self-signed-certificate-with-a-custom-root-ca"></a>사용자 지정 루트 CA를 사용 하 여 Azure 애플리케이션 게이트웨이 자체 서명 된 인증서 생성
 
@@ -29,7 +29,7 @@ Application Gateway는 잘 알려진 CA (예: GoDaddy 또는 DigiCert)에 의해
 - 사용자 지정 CA로 서명 된 자체 서명 된 인증서 만들기
 - Application Gateway에 자체 서명 된 루트 인증서를 업로드 하 여 백 엔드 서버 인증
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 - **Windows 또는 Linux를 실행 하는 컴퓨터의 [OpenSSL](https://www.openssl.org/)** 
 
@@ -161,7 +161,7 @@ SSL 바인딩 지침은 [IIS 7에서 ssl을 설정 하는 방법](https://docs.m
    ![신뢰할 수 있는 루트 인증서](media/self-signed-certificates/trusted-root-cert.png)
 
    > [!NOTE]
-   > DNS가 웹 서버 이름 (이 예제에서는 www.fabrikam.com)을 웹 서버의 IP 주소로 가리키도록 구성 된 것으로 가정 합니다. 그렇지 않은 경우 [호스트 파일](https://answers.microsoft.com/windows/forum/windows_10-other_settings-winpc/how-to-edit-host-file-in-windows-10/7696f204-2aaf-4111-913b-09d6917f7f3d) 을 편집 하 여 이름을 확인할 수 있습니다.
+   > DNS가 웹 서버 이름 (이 예제에서는 www.fabrikam.com)을 웹 서버의 IP 주소로 가리키도록 구성 된 것으로 가정 합니다. 그렇지 않은 경우 [호스트 파일](https://answers.microsoft.com/en-us/windows/forum/all/how-to-edit-host-file-in-windows-10/7696f204-2aaf-4111-913b-09d6917f7f3d) 을 편집 하 여 이름을 확인할 수 있습니다.
 1. 웹 사이트로 이동 하 고 브라우저의 주소 상자에서 자물쇠 아이콘을 클릭 하 여 사이트 및 인증서 정보를 확인 합니다.
 
 ## <a name="verify-the-configuration-with-openssl"></a>OpenSSL를 사용 하 여 구성 확인

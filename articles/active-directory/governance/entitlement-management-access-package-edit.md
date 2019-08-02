@@ -16,12 +16,12 @@ ms.date: 07/23/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c07f9dbcc21840bec4b4487225dfb8108586865e
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 17c85d53d05193313f9e166b88beb2a0f82eb197
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489198"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618362"
 ---
 # <a name="edit-and-manage-an-existing-access-package-in-azure-ad-entitlement-management-preview"></a>Azure AD 자격 관리 (미리 보기)에서 기존 액세스 패키지 편집 및 관리
 
@@ -38,7 +38,7 @@ ms.locfileid: "68489198"
 
 리소스 역할은 리소스와 연결 된 사용 권한 컬렉션입니다. 사용자가 리소스를 요청할 수 있도록 하는 방법은 액세스 패키지에 리소스 역할을 추가 하는 것입니다. 그룹, 응용 프로그램 및 SharePoint 사이트에 대 한 리소스 역할을 추가할 수 있습니다.
 
-**필수 역할:** 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
+**필수 역할:** 전역 관리자, 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
 
 1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
 
@@ -62,7 +62,7 @@ ms.locfileid: "68489198"
 모든 Office 365 그룹 또는 Azure AD 보안 그룹을 선택할 수 있습니다.  관리자는 카탈로그에 모든 그룹을 추가할 수 있습니다. 카탈로그 소유자는 그룹의 소유자 인 경우 카탈로그에 모든 그룹을 추가할 수 있습니다. 그룹을 선택할 때 다음 Azure AD 제약 조건을 염두에 두어야 합니다.
 
 - 게스트를 비롯 한 사용자가 그룹에 멤버로 추가 되 면 해당 그룹의 다른 모든 멤버를 볼 수 있습니다.
-- Azure AD는 Azure AD Connect를 사용 하 여 Windows Server Active Directory에서 동기화 된 그룹의 구성원을 변경할 수 없습니다.  
+- Azure AD는 Azure AD Connect를 사용 하 여 Windows Server Active Directory에서 동기화 되었거나 메일 그룹으로 Exchange Online에서 만든 그룹의 구성원을 변경할 수 없습니다.  
 - 동적 그룹의 멤버 자격은 멤버를 추가 하거나 제거 하 여 업데이트할 수 없으므로 동적 그룹 멤버 자격은 자격 관리와 함께 사용 하기에 적합 하지 않습니다.
 
 1. **액세스 패키지에 리소스 역할 추가** 페이지에서 **그룹** 을 클릭 하 여 그룹 선택 창을 엽니다.
@@ -136,7 +136,7 @@ Azure AD는 액세스 패키지에 할당 된 경우 사용자에 게 SharePoint
 
 ## <a name="remove-resource-roles"></a>리소스 역할 제거
 
-**필수 역할:** 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
+**필수 역할:** 전역 관리자, 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
 
 1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
 
@@ -158,7 +158,7 @@ Azure AD는 액세스 패키지에 할당 된 경우 사용자에 게 SharePoint
 
 ![정책 프로세스 만들기](./media/entitlement-management-access-package-edit/policy-process.png)
 
-**필수 역할:** 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
+**필수 역할:** 전역 관리자, 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
 
 1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
 
@@ -178,7 +178,7 @@ Azure AD는 액세스 패키지에 할당 된 경우 사용자에 게 SharePoint
 
 언제 든 지 정책을 편집할 수 있습니다. 정책에 대 한 만료 날짜를 변경 하는 경우 이미 보류 중인 승인 또는 승인 된 상태에 있는 요청에 대 한 만료 날짜는 변경 되지 않습니다.
 
-**필수 역할:** 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
+**필수 역할:** 전역 관리자, 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
 
 1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
 
@@ -200,7 +200,7 @@ Azure AD는 액세스 패키지에 할당 된 경우 사용자에 게 SharePoint
 
 경우에 따라 사용자가 액세스 패키지를 요청 하는 프로세스를 진행할 필요가 없도록 특정 사용자를 액세스 패키지에 직접 할당할 수 있습니다. 사용자를 직접 할당 하려면 액세스 패키지에 관리자 직접 할당을 허용 하는 정책이 있어야 합니다.
 
-**필수 역할:** 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
+**필수 역할:** 전역 관리자, 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
 
 1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
 
@@ -228,7 +228,7 @@ Azure AD는 액세스 패키지에 할당 된 경우 사용자에 게 SharePoint
 
 ## <a name="view-who-has-an-assignment"></a>할당 된 사용자 보기
 
-**필수 역할:** 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
+**필수 역할:** 전역 관리자, 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
 
 1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
 
@@ -248,7 +248,7 @@ Azure AD는 액세스 패키지에 할당 된 경우 사용자에 게 SharePoint
 
 ## <a name="view-requests"></a>요청 보기
 
-**필수 역할:** 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
+**필수 역할:** 전역 관리자, 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
 
 1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
 
@@ -260,7 +260,7 @@ Azure AD는 액세스 패키지에 할당 된 경우 사용자에 게 SharePoint
 
 ## <a name="view-a-requests-delivery-errors"></a>요청의 배달 오류 보기
 
-**필수 역할:** 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
+**필수 역할:** 전역 관리자, 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
 
 1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
 
@@ -280,7 +280,7 @@ Azure AD는 액세스 패키지에 할당 된 경우 사용자에 게 SharePoint
 
 아직 배달 되지 않은 보류 중인 요청만 취소할 수 있습니다.
 
-**필수 역할:** 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
+**필수 역할:** 전역 관리자, 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
 
 1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
 
@@ -296,7 +296,7 @@ Azure AD는 액세스 패키지에 할당 된 경우 사용자에 게 SharePoint
 
 디렉터리의 대부분의 사용자는 내 액세스 포털에 로그인 하 여 요청할 수 있는 액세스 패키지의 목록을 자동으로 볼 수 있습니다. 그러나 디렉터리에 아직 없는 외부 비즈니스 파트너 사용자의 경우 액세스 패키지를 요청 하는 데 사용할 수 있는 링크를 전송 해야 합니다. 외부 사용자가 액세스 패키지를 사용 하도록 설정 하 고 외부 사용자의 디렉터리에 대 한 정책이 있는 경우 외부 사용자는 내 액세스 포털 링크를 사용 하 여 액세스 패키지를 요청할 수 있습니다.
 
-**필수 역할:** 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
+**필수 역할:** 전역 관리자, 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
 
 1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
 
@@ -312,7 +312,7 @@ Azure AD는 액세스 패키지에 할당 된 경우 사용자에 게 SharePoint
 
 액세스 패키지는 기본적으로 검색 가능 합니다. 즉, 정책을 통해 사용자가 액세스 패키지를 요청할 수 있는 경우 내 액세스 포털에 나열 된 액세스 패키지가 자동으로 표시 됩니다.
 
-**필수 역할:** 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
+**필수 역할:** 전역 관리자, 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
 
 1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
 
@@ -330,7 +330,7 @@ Azure AD는 액세스 패키지에 할당 된 경우 사용자에 게 SharePoint
 
 활성 사용자 할당이 없는 경우에만 액세스 패키지를 삭제할 수 있습니다.
 
-**필수 역할:** 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
+**필수 역할:** 전역 관리자, 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
 
 1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
 

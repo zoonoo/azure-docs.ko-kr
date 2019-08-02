@@ -5,7 +5,7 @@ description: Data Science Virtual Machine에 미리 설치된 프로그램 언�
 keywords: 데이터 과학 도구, 데이터 과학 가상 머신, 데이터 과학용 도구, linux 데이터 과학
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
@@ -16,13 +16,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.author: gokuma
-ms.openlocfilehash: 586f37ff972a6102da351794365f719a185857fc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: vijetaj
+ms.openlocfilehash: 1df3c986132de2a3e7ec9547a996abef60ea04ac
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60502252"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68558119"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>데이터 과학 Virtual Machine에서 지원되는 언어 
 
@@ -222,7 +222,7 @@ Jupyter를 열고 `New` 단추를 클릭하여 새 노트북을 만듭니다. �
 터미널을 열고 `julia`를 실행하기만 하면 됩니다. 
 * IDE에서 사용
 
-사용 하 여 `Juno` DSVM에 설치 되 고는 응용 프로그램 메뉴 바로 가기로 사용할 수 있는 Julia IDE.
+Dsvm에 설치 되 고 응용 프로그램 메뉴 바로 가기로 사용할 수 있는 줄리아 IDE를 사용 `Juno` 합니다.
 
 * Jupyter에서 사용
 

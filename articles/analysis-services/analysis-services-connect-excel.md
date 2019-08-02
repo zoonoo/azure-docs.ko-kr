@@ -5,21 +5,21 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 07/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5c46d4e4d23744cf07ccf7857a33990bf405a6a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4e6c73ad465f362a046a339f286cc25b4af508cf
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61023275"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619192"
 ---
 # <a name="connect-with-excel"></a>Excel로 연결
 
 서버를 만들고 테이블 형식의 모델을 배포하면 클라이언트가 데이터에 연결하여 탐색을 시작할 수 있습니다. 
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
 로그인에 사용하는 계정은 읽기 이상의 권한이 있는 모델 데이터베이스 역할에 속해야 합니다. 자세한 내용은 [인증 및 사용자 권한](analysis-services-manage-users.md)을 참조하세요. 
 
@@ -41,7 +41,7 @@ Excel 2016 이상에서 Get Data를 사용하여 Excel에서 서버에 연결합
     ![Excel 선택 모델에서 연결](./media/analysis-services-connect-excel/aas-connect-excel-select.png)
 
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
 [클라이언트 라이브러리](analysis-services-data-providers.md)   
 [서버 관리](analysis-services-manage.md)     

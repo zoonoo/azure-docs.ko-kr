@@ -2,24 +2,19 @@
 title: Service Fabric Azure Files 볼륨 드라이버(미리 보기) | Microsoft Docs
 description: Service Fabric은 컨테이너에서 볼륨을 백업하도록 Azure Files 사용을 지원합니다. 현재 미리 보기로 제공되고 있습니다.
 services: service-fabric
-documentationcenter: other
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
-editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
 ms.service: service-fabric
-ms.devlang: other
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 6/10/2018
-ms.author: aljo, subramar
-ms.openlocfilehash: 09ee729fea952665350aa25c21cdb3d5823b899f
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.author: atsenthi
+ms.openlocfilehash: 36a3bb385064009f25a585ea299558d54714fc27
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489890"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599694"
 ---
 # <a name="service-fabric-azure-files-volume-driver-preview"></a>Service Fabric Azure Files 볼륨 드라이버(미리 보기)
 Azure Files 볼륨 플러그 인은 Docker 컨테이너에 대한 [Azure Files](https:///azure/storage/files/storage-files-introduction) 기반 볼륨을 제공하는 [Docker 볼륨 플러그 인](https://docs.docker.com/engine/extend/plugins_volume/)입니다. 이 Docker 볼륨 플러그 인은 Service Fabric 클러스터에 배포할 수 있는 Service Fabric 애플리케이션으로 패키지됩니다. 이는 클러스터에 배포 되는 다른 Service Fabric 컨테이너 응용 프로그램에 대해 Azure Files 기반 볼륨을 제공 하는 것입니다.

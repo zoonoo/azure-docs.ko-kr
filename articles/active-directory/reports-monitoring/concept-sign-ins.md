@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/18/2019
+ms.date: 07/17/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81b7030d0f45222a1641e34b341885d2ecc051e3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6121ca6c1636c8839110712310a1b94fe7fada49
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67107658"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619214"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 로그인 작업 보고서
 
@@ -37,7 +37,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 이 항목에서는 로그인 보고서에 대한 개요를 제공합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="who-can-access-the-data"></a>데이터에 액세스할 수 있는 사용자는 누구인가요?
 * 보안 관리, 보안 읽기 권한자 및 보고서 읽기 권한자 역할의 사용자
@@ -66,7 +66,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 - 로그인 날짜
 - 관련된 사용자
-- 사용자가 로그인한 애플리케이션
+- 사용자가 로그인 한 응용 프로그램
 - 로그인 상태
 - 위험 검색 상태
 - MFA(Multi-Factor Authentication) 요구 사항 상태
@@ -86,21 +86,14 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 ![로그인 활동](./media/concept-sign-ins/03.png "로그인 활동")
 
 > [!NOTE]
-> 고객에 게 모든 로그인 보고서를 통해 조건부 액세스 정책 문제 해결 이제 수 있습니다. 클릭 하 여 합니다 **조건부 액세스** 탭 로그인 레코드에 대 한 조건부 액세스 상태 및 세부 정보를 로그인 하 고 각 정책에 대 한 결과에 적용 되는 정책에 자세히 알아보기 고객에 게 검토할 수 있습니다.
+> 이제 고객은 모든 로그인 보고서를 통해 조건부 액세스 정책의 문제를 해결할 수 있습니다. 고객은 로그인 레코드에 대 한 **조건부 액세스** 탭을 클릭 하 여 조건부 액세스 상태를 검토 하 고 로그인에 적용 된 정책과 각 정책에 대 한 결과에 대 한 세부 정보를 확인할 수 있습니다.
 > 자세한 내용은 [모든 로그인의 CA 정보에 대한 질문과 대답](reports-faq.md#conditional-access)을 참조하세요.
 
-![로그인 활동](./media/concept-sign-ins/ConditionalAccess.png "로그인 활동")
 
 
 ## <a name="filter-sign-in-activities"></a>로그인 활동 필터링
 
-보고되는 데이터를 자신에게 적합한 수준으로 좁히려면 다음 기본 필드를 사용하여 로그인 데이터를 필터링하면 됩니다.
-
-- 사용자
-- 애플리케이션
-- 로그인 상태
-- 조건부 액세스
-- Date
+보고 된 데이터를 자신에 게 적합 한 수준으로 좁히려면 날짜 필드를 기본 필터로 사용 하 여 로그인 데이터를 필터링 할 수 있습니다. 또한 Azure AD는 설정할 수 있는 광범위 한 추가 필터를 제공 합니다.
 
 ![로그인 활동](./media/concept-sign-ins/04.png "로그인 활동")
 
@@ -111,21 +104,21 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 **로그인 상태** 필터를 사용하면 다음을 선택할 수 있습니다.
 
 - 모두
-- 성공
+- Success
 - 실패
 
 **조건부 액세스** 필터를 사용하면 로그인에 대한 CA 정책 상태를 선택할 수 있습니다.
 
 - 모두
 - 적용되지 않음
-- 성공
+- Success
 - 실패
 
 **날짜** 필터를 사용하면 반환되는 데이터의 시간 범위를 정의할 수 있습니다.  
-가능한 값은 다음과 같습니다.
+가능한 값은
 
 - 1개월
-- 7 일
+- 7일
 - 24시간
 - 사용자 지정 시간 간격
 
@@ -135,28 +128,28 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 ![로그인 활동](./media/concept-sign-ins/12.png "로그인 활동")
 
 - **브라우저**  
-    이 필터는 모든 표시 이벤트는 로그인 시도 브라우저 흐름을 사용 하 여 수행 되었습니다.
+    이 필터는 브라우저 흐름을 사용 하 여 로그인 시도를 수행한 모든 이벤트를 표시 합니다.
 - **Exchange ActiveSync (지원 됨)**  
-    이 필터는 Exchange ActiveSync (EAS) 프로토콜을 시도한 iOS, Android 및 Windows Phone 등의 지원 되는 플랫폼에서 모든 로그인 시도 보여 줍니다.
+    이 필터는 iOS, Android, Windows Phone 등의 지원 되는 플랫폼에서 EAS (Exchange ActiveSync) 프로토콜이 시도 된 모든 로그인 시도를 표시 합니다.
 - **Exchange ActiveSync (지원 되지 않음)**  
-    이 필터는 EAS 프로토콜을 시도한 Linux 배포판 등 지원 되지 않는 플랫폼에서 모든 로그인 시도 보여 줍니다.
-- **모바일 앱 및 데스크톱 클라이언트** 이 필터는 모든 로그인 시도 브라우저 흐름을 사용 하지 않는 표시 합니다. 이 Windows 또는 MacOS에서 Office와 같은 데스크톱 클라이언트 앱 또는 모든 프로토콜을 사용 하 여 모든 플랫폼에서 모바일 앱을 수 있습니다.
+    이 필터는 Linux 배포판과 같은 지원 되지 않는 플랫폼에서 EAS 프로토콜이 시도 된 모든 로그인 시도를 표시 합니다.
+- **Mobile Apps 및 데스크톱 클라이언트** 이 필터는 브라우저 흐름을 사용 하지 않는 모든 로그인 시도를 표시 합니다. 이 앱은 모든 프로토콜을 사용 하는 모든 플랫폼에서 또는 Windows의 Office 또는 MacOS와 같은 데스크톱 클라이언트 앱에서 모바일 앱이 될 수 있습니다.
   
-- **다른 클라이언트**
+- **기타 클라이언트**
     - **IMAP**  
-        IMAP를 사용 하 여 전자 메일을 검색 하는 레거시 메일 클라이언트입니다.
+        전자 메일을 검색 하는 데 IMAP를 사용 하는 레거시 메일 클라이언트입니다.
     - **MAPI**  
-        Office 2013에 ADAL이 사용 되 고은 MAPI를 사용 합니다.
+        ADAL을 사용 하 고 MAPI를 사용 하는 Office 2013.
     - **이전 Office 클라이언트**  
-        Office 2013에 ADAL 해제 되어 없는 기본 구성, MAPI 또는 Office 2016 ADAL에 사용할 수 사용 합니다.
+        ADAL이 사용 하도록 설정 되어 있지 않고 ADAL이 사용 하지 않도록 설정 된 경우 MAPI 또는 Office 2016를 사용 하는 기본 구성의 office 2013입니다.
     - **POP**  
         POP3를 사용 하 여 전자 메일을 검색 하는 레거시 메일 클라이언트입니다.
     - **SMTP**  
-        전자 메일을 보내려면 SMTP를 사용 하 여 레거시 메일 클라이언트입니다.
+        SMTP를 사용 하 여 전자 메일을 보내는 레거시 메일 클라이언트입니다.
 
 ## <a name="download-sign-in-activities"></a>로그인 활동 다운로드
 
-Azure Portal 외부에서 작업하려는 경우 [로그인 데이터를 다운로드](quickstart-download-sign-in-report.md)할 수 있습니다. 클릭 **다운로드** 최신 250,000 레코드의 CSV 또는 JSON 파일을 만드는 옵션을 제공 합니다.  
+Azure Portal 외부에서 작업하려는 경우 [로그인 데이터를 다운로드](quickstart-download-sign-in-report.md)할 수 있습니다. **다운로드** 를 클릭 하면 가장 최근 25만 레코드의 CSV 또는 JSON 파일을 만드는 옵션이 제공 됩니다.  
 
 ![다운로드](./media/concept-sign-ins/71.png "다운로드")
 
@@ -171,11 +164,11 @@ Azure AD 외에도 Azure Portal에서는 로그인 데이터에 대한 추가 �
 - ID 보안 보호 개요
 - 사용자
 - 그룹
-- Enterprise 애플리케이션
+- 엔터프라이즈 응용 프로그램
 
 ### <a name="users-sign-ins-data-in-identity-security-protection"></a>ID 보안 보호에서 사용자 로그인 데이터
 
-사용자 로그인 그래프 합니다 **Id 보안 보호** 개요 페이지에 지정된 된 기간 동안 모든 사용자에 대 한 로그인의 주간 집계를 표시 합니다. 시간에 대한 기본값은 30일입니다.
+**Id 보안 보호** 개요 페이지의 사용자 로그인 그래프에는 지정 된 기간에 모든 사용자에 대 한 로그인의 주간 집계가 표시 됩니다. 시간에 대한 기본값은 30일입니다.
 
 ![로그인 활동](./media/concept-sign-ins/06.png "로그인 활동")
 
@@ -192,14 +185,14 @@ Azure AD 외에도 Azure Portal에서는 로그인 데이터에 대한 추가 �
 
 - User ID
 - 사용자
-- 사용자 이름
-- 애플리케이션 UI
+- Username
+- 애플리케이션 ID
 - 애플리케이션
 - 클라이언트
-- Location
+- 위치
 - IP 주소
-- Date
-- 필요한 MFA
+- 날짜
+- MFA 필요
 - 로그인 상태
 
 > [!NOTE]
@@ -221,7 +214,7 @@ Azure AD 외에도 Azure Portal에서는 로그인 데이터에 대한 추가 �
 
 ![로그인 활동](./media/concept-sign-ins/10.png "로그인 활동")
 
-앱 주간 사용량 그래프 집계에서 지정된 된 기간 동안 상위 3 개 응용 프로그램에 로그인 합니다. 시간에 대한 기본값은 30일입니다.
+앱 사용 그래프는 지정 된 기간 동안 상위 3 개 응용 프로그램에 대 한 로그인의 주간 집계를 집계 합니다. 시간에 대한 기본값은 30일입니다.
 
 ![로그인 활동](./media/concept-sign-ins/47.png "로그인 활동")
 
@@ -237,9 +230,9 @@ Azure AD 외에도 Azure Portal에서는 로그인 데이터에 대한 추가 �
 
 ## <a name="office-365-activity-logs"></a>Office 365 활동 로그
 
-Office 365 활동 로그에서 볼 수 있습니다 합니다 [Microsoft 365 관리 센터](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center)합니다. 경우에 Microsoft 365 관리 센터를만 Office 365 활동 로그의 전체 보기를 제공 Office 365 활동 및 Azure AD 활동 로그가 많은 디렉터리 리소스를 공유 합니다. 
+[Microsoft 365 관리 센터](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center)에서 Office 365 활동 로그를 볼 수 있습니다. Office 365 활동 및 Azure AD 활동 로그가 많은 디렉터리 리소스를 공유 하는 경우에도 Microsoft 365 관리 센터 에서만 Office 365 활동 로그의 전체 보기를 제공 합니다. 
 
-[Office 365 관리 API](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview)를 사용하여 프로그래밍 방식으로 Office 365 활동 로그에 액세스할 수도 있습니다.
+[Office 365 관리 api](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview)를 사용 하 여 프로그래밍 방식으로 office 365 활동 로그에 액세스할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

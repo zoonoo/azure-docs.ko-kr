@@ -101,14 +101,18 @@
       items:
         - name: 애플리케이션 관리
           href: howto-administer.md
+        - name: 사용자 및 역할 관리
+          href: howto-manage-users-roles.md
+        - name: 청구서 보기
+          href: howto-view-bill.md
+        - name: 애플리케이션 UI 사용자 지정
+          href: howto-customize-ui.md
         - name: 이미지 준비 및 업로드
           href: howto-prepare-images.md
         - name: 애플리케이션 대시보드 구성
           href: howto-configure-homepage.md
         - name: 대시보드 타일 사용
           href: howto-use-tiles.md
-        - name: 애플리케이션 UI 사용자 지정
-          href: howto-customize-ui.md
         - name: 애플리케이션 템플릿 사용
           href: howto-use-app-templates.md
         - name: Azure Portal에서 관리

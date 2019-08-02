@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: magoedte
-ms.openlocfilehash: dd4efcd2f1d4cbf497ad1fde6936088513cb5fd0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 407aaf15808d1d1420fd1a3804651d29a407d4b3
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60759953"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68606679"
 ---
 # <a name="log-analytics-data-security"></a>Log Analytics 데이터 보안
-이 문서는 [Azure 보안 센터](../../security/security-microsoft-trust-center.md)의 정보를 보완하기 위해 Azure Monitor의 기능인 Log Analytics에 고유한 정보를 제공합니다.  
+이 문서는 [Azure 보안 센터](../../security/fundamentals/trust-center.md)의 정보를 보완하기 위해 Azure Monitor의 기능인 Log Analytics에 고유한 정보를 제공합니다.  
 
 이 문서에서는 Log Analytics에서 데이터를 수집, 처리 및 보호하는 방법에 대해 설명합니다. 에이전트를 사용하여 웹 서비스에 연결하고 System Center Operations Manager를 사용하여 운영 데이터를 수집하거나 Azure 진단에서 Log Analytics에 사용할 데이터를 검색할 수 있습니다. 
 
@@ -31,7 +31,7 @@ Log Analytics 서비스는 다음 방법을 사용하여 클라우드 기반 데
 * 데이터 보존
 * 물리적 보안
 * 인시던트 관리
-* 준수
+* 호환
 * 보안 표준 인증
 
 보안 정책을 포함하여 다음 정보와 관련된 질문, 제안 사항 또는 문제가 있을 경우 [Azure 지원 옵션](https://azure.microsoft.com/support/options/)에서 문의하세요.
@@ -46,7 +46,7 @@ TLS 1.3 등을 사용할 수 있게 되면 더 안전한 최신 프로토콜을 
 
 ### <a name="platform-specific-guidance"></a>플랫폼별 지침
 
-|플랫폼/언어 | 지원 | 추가 정보 |
+|플랫폼/언어 | Support(지원) | 추가 정보 |
 | --- | --- | --- |
 |Linux | Linux 배포판은 TLS 1.2 지원에 대해 [OpenSSL](https://www.openssl.org)을 사용하는 경향이 있습니다.  | [OpenSSL Changelog](https://www.openssl.org/news/changelog.html)를 확인하여 OpenSSL 버전이 지원되는지 확인합니다.|
 | Windows 8.0 - 10 | 지원됨, 기본적으로 활성화됩니다. | [기본 설정](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings)을 여전히 사용하는지 확인하려면  |
@@ -73,14 +73,14 @@ Log Analytics 서비스에서 데이터를 수집하면 해당 데이터는 서�
 
 다음 표에는 데이터 형식의 예가 나와 있습니다.
 
-| **데이터 형식** | **필드** |
+| **Data type** | **필드** |
 | --- | --- |
-| 경고 |Alert Name, Alert Description, BaseManagedEntityId, Problem ID, IsMonitorAlert, RuleId, ResolutionState, Priority, Severity, Category, Owner, ResolvedBy, TimeRaised, TimeAdded, LastModified, LastModifiedBy, LastModifiedExceptRepeatCount, TimeResolved, TimeResolutionStateLastModified, TimeResolutionStateLastModifiedInDB, RepeatCount |
-| 구성 |CustomerID, AgentID, EntityID, ManagedTypeID, ManagedTypePropertyID, CurrentValue, ChangeDate |
-| 행사 |EventId, EventOriginalID, BaseManagedEntityInternalId, RuleId, PublisherId, PublisherName, FullNumber, Number, Category, ChannelLevel, LoggingComputer, EventData, EventParameters, TimeGenerated, TimeAdded <br>**참고:** 사용자 지정 필드가 있는 이벤트를 Windows 이벤트 로그에 기록하면 Log Analytics에서 해당 이벤트를 수집합니다. |
-| Metadata |BaseManagedEntityId, ObjectStatus, OrganizationalUnit, ActiveDirectoryObjectSid, PhysicalProcessors, NetworkName, IPAddress, ForestDNSName, NetbiosComputerName, VirtualMachineName, LastInventoryDate, HostServerNameIsVirtualMachine, IP Address, NetbiosDomainName, LogicalProcessors, DNSName, DisplayName, DomainDnsName, ActiveDirectorySite, PrincipalName, OffsetInMinuteFromGreenwichTime |
+| 알림 |Alert Name, Alert Description, BaseManagedEntityId, Problem ID, IsMonitorAlert, RuleId, ResolutionState, Priority, Severity, Category, Owner, ResolvedBy, TimeRaised, TimeAdded, LastModified, LastModifiedBy, LastModifiedExceptRepeatCount, TimeResolved, TimeResolutionStateLastModified, TimeResolutionStateLastModifiedInDB, RepeatCount |
+| Configuration |CustomerID, AgentID, EntityID, ManagedTypeID, ManagedTypePropertyID, CurrentValue, ChangeDate |
+| 이벤트 |EventId, EventOriginalID, BaseManagedEntityInternalId, RuleId, PublisherId, PublisherName, FullNumber, Number, Category, ChannelLevel, LoggingComputer, EventData, EventParameters, TimeGenerated, TimeAdded <br>**참고:** 사용자 지정 필드가 있는 이벤트를 Windows 이벤트 로그에 기록하면 Log Analytics에서 해당 이벤트를 수집합니다. |
+| 메타데이터 |BaseManagedEntityId, ObjectStatus, OrganizationalUnit, ActiveDirectoryObjectSid, PhysicalProcessors, NetworkName, IPAddress, ForestDNSName, NetbiosComputerName, VirtualMachineName, LastInventoryDate, HostServerNameIsVirtualMachine, IP Address, NetbiosDomainName, LogicalProcessors, DNSName, DisplayName, DomainDnsName, ActiveDirectorySite, PrincipalName, OffsetInMinuteFromGreenwichTime |
 | 성능 |ObjectName, CounterName, PerfmonInstanceName, PerformanceDataId, PerformanceSourceInternalID, SampleValue, TimeSampled, TimeAdded |
-| 시스템 상태 |StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, BaseManagedEntityId, MonitorId, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
+| State |StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, BaseManagedEntityId, MonitorId, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
 
 ## <a name="physical-security"></a>물리적 보안
 Log Analytics 서비스는 Microsoft 담당자가 관리하며 모든 활동을 기록하여 감사할 수 있습니다. Log Analytics는 Azure 서비스로 작동하며 모든 Azure 준수 및 보안 요구 사항을 충족합니다. Azure 자산의 물리적 보안에 대한 자세한 내용은 [Microsoft Azure 보안 개요](https://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf)의 18페이지에서 확인할 수 있습니다. 더 이상 Log Analytics 서비스에 대한 전송, 종료 등의 책임이 없는 사용자는 영업일 기준 1일 이내에 보안 영역에 대한 물리적 액세스 권한이 변경됩니다. [Microsoft 데이터 센터](https://azure.microsoft.com/global-infrastructure/)에서 사용하는 글로벌 물리적 인프라에 대해 읽을 수 있습니다.
@@ -109,7 +109,7 @@ Log Analytics에는 모든 Microsoft 서비스가 준수하는 인시던트 관�
 
 Microsoft가 보안 인시던트에 대응하는 방법에 대한 자세한 내용은 [클라우드에서 Microsoft Azure의 보안 대응](https://gallery.technet.microsoft.com/Azure-Security-Response-in-dd18c678/file/150826/4/Microsoft%20Azure%20Security%20Response%20in%20the%20cloud.pdf)을 참조하세요.
 
-## <a name="compliance"></a>준수
+## <a name="compliance"></a>호환
 Log Analytics 소프트웨어 개발 및 서비스 팀의 정보 보안 및 거버넌스 프로그램은 비즈니스 요구 사항을 지원하며 [Microsoft Azure 보안 센터](https://azure.microsoft.com/support/trust-center/) 및 [Microsoft 보안 센터 규정 준수](https://www.microsoft.com/en-us/trustcenter/compliance/default.aspx)에 설명된 법률 및 규정을 준수합니다. 여기에는 Log Analytics가 보안 요구 사항을 정하고 보안 컨트롤을 식별하며 위험을 관리 및 모니터링하는 방식도 설명되어 있습니다. 정책, 표준, 절차, 지침을 매년 검토합니다.
 
 각 개발 팀원은 공식적인 애플리케이션 보안 교육을 이수합니다. 내부적으로는 소프트웨어 개발에 대한 버전 관리 시스템을 사용합니다. 각 소프트웨어 프로젝트는 버전 관리 시스템으로 보호됩니다.
@@ -173,7 +173,7 @@ Windows 또는 관리 서버 에이전트에서 캐시한 데이터는 운영 �
 ## <a name="3-the-log-analytics-service-receives-and-processes-data"></a>3. Log Analytics 서비스에서 데이터를 받아서 처리
 Log Analytics 서비스는 Azure 인증을 통해 인증서 및 데이터 무결성의 유효성을 검사하여 들어오는 데이터가 신뢰할 수 있는 출처에서 온 것임을 보장합니다. 처리되지 않은 원시 데이터는 데이터가 미사용 시 저장될 지역의 Azure Event Hub에 저장됩니다. 저장되는 데이터 형식은 데이터를 수집하기 위해 가져와 사용하는 솔루션 유형에 따라 다릅니다. 그런 다음, Log Analytics 서비스가 원시 데이터를 처리해 데이터베이스로 수집합니다.
 
-데이터베이스에 저장된 수집 데이터의 보존 기간은 선택한 가격 책정 계획에 따라 다릅니다. *체험* 계층의 경우 수집된 데이터는 7일 동안 사용할 수 있습니다. *유료* 계층의 경우 수집된 데이터는 기본적으로 31일 동안 사용할 수 있지만 730일까지 사용할 수 있도록 연장 가능합니다. 데이터는 Azure 저장소에 암호화되어 데이터 기밀성을 보장하며 로컬 중복 저장소(LRS)를 사용하여 로컬 영역 내에 데이터가 복제됩니다. 지난 2 주 데이터는 SSD 기반 캐시에도 저장 하 고이 캐시 암호화 됩니다.
+데이터베이스에 저장된 수집 데이터의 보존 기간은 선택한 가격 책정 계획에 따라 다릅니다. *체험* 계층의 경우 수집된 데이터는 7일 동안 사용할 수 있습니다. *유료* 계층의 경우 수집된 데이터는 기본적으로 31일 동안 사용할 수 있지만 730일까지 사용할 수 있도록 연장 가능합니다. 데이터는 Azure 저장소에 암호화되어 데이터 기밀성을 보장하며 로컬 중복 저장소(LRS)를 사용하여 로컬 영역 내에 데이터가 복제됩니다. 마지막 2 주 데이터는 SSD 기반 캐시에도 저장 되 고이 캐시는 암호화 됩니다.
 
 ## <a name="4-use-log-analytics-to-access-the-data"></a>4. Log Analytics를 사용하여 데이터 액세스
 Log Analytics 작업 영역에 액세스하려면 이전에 설정한 Microsoft 계정 또는 조직 계정을 사용하여 Azure Portal에 로그인합니다. 포털과 Log Analytics 서비스 간의 모든 트래픽은 보안 HTTPS 채널을 통해 전송됩니다. 포털을 사용할 때는 사용자 클라이언트(웹 브라우저)에 세션 ID가 생성되며 세션이 종료될 때까지 데이터가 로컬 캐시에 저장됩니다. 세션이 종료되면 캐시가 삭제됩니다. 개인 식별이 가능한 정보가 포함되지 않는 클라이언트 측 쿠키는 자동으로 제거되지 않습니다. 세션 쿠키는 HTTPOnly로 표시되며 보안됩니다. 사전 지정한 유휴 기간이 지나면 Azure Portal 세션이 종료됩니다.

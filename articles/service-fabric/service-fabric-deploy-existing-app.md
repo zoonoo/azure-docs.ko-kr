@@ -3,7 +3,7 @@ title: Azure Service Fabric에 기존 실행 파일 배포 | Microsoft Docs
 description: Service Fabric 클러스터에 배포할 수 있도록 기존 애플리케이션을 게스트 실행 파일로 패키징하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: d799c1c6-75eb-4b8a-9f94-bf4f3dadf4c3
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
-ms.author: aljo
-ms.openlocfilehash: bfac14c598b405a398cad916787aa3312589bfd1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: atsenthi
+ms.openlocfilehash: 575303cc2ec3e880187bac64da06d05721df14e6
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60393574"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599657"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>기존 실행 파일을 Service Fabric으로 패키징 및 배포
 기존 실행 파일을 [게스트 실행 파일](service-fabric-guest-executables-introduction.md)로 패키징할 경우 Visual Studio 프로젝트 템플릿을 사용하거나 [애플리케이션 패키지를 수동으로 만들도록](#manually) 선택할 수 있습니다. Visual Studio를 사용하면 새 프로젝트 템플릿에 의해 애플리케이션 패키지 구조 및 매니페스트 파일이 생성됩니다.
@@ -42,7 +42,7 @@ Visual Studio는 게스트 실행 파일을 서비스 패브릭 클러스터에 
      * `CodePackage`는 작업 디렉터리가 애플리케이션 패키지의 루트에 설정되도록 지정합니다(이전 파일 구조에 표시된 `GuestService1Pkg`).
      * `Work`는 파일이 work라는 하위 디렉터리에 배치되도록 지정합니다.
 4. 서비스에 이름을 지정하고 **확인**을 클릭합니다.
-5. 서비스에서 통신에 엔드포인트가 필요한 경우 이제 프로토콜, 포트, 형식을 ServiceManifest.xml 파일에 추가할 수 있습니다. 예: `<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" UriScheme="http" PathSuffix="myapp/" Type="Input" />`
+5. 서비스에서 통신에 엔드포인트가 필요한 경우 이제 프로토콜, 포트, 형식을 ServiceManifest.xml 파일에 추가할 수 있습니다. 예를 들어 `<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" UriScheme="http" PathSuffix="myapp/" Type="Input" />`을 참조하십시오.
 6. 이제 패키지를 사용하고 Visual Studio에서 솔루션을 디버깅하여 로컬 클러스터에 대해 작업을 게시할 수 있습니다. 준비가 되면 원격 클러스터로 애플리케이션을 게시하거나 원본 제어에 대한 솔루션을 체크 인합니다.
 7. Service Fabric Explorer에서 실행 중인 게스트 실행 파일 서비스를 보는 방법을 보려면 [실행 중인 애플리케이션 확인](#check-your-running-application)을 참조하세요.
 
@@ -73,7 +73,7 @@ Yeoman은 설치 및 제거 스크립트와 함께 해당 애플리케이션과 
 -->
 
 ### <a name="create-the-package-directory-structure"></a>패키지 디렉터리 구조 만들기
-에 설명 된 대로 디렉터리 구조를 만들어서 시작할 수 있습니다 [Azure Service Fabric 응용 프로그램을 패키징할](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps)합니다.
+[Azure Service Fabric 앱 패키지](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps)에 설명 된 대로 디렉터리 구조를 만들어 시작할 수 있습니다.
 
 ### <a name="add-the-applications-code-and-configuration-files"></a>애플리케이션의 코드 및 구성 파일 추가
 디렉터리 구조를 만든 후에 애플리케이션의 코드 및 구성 파일을 코드 및 구성 디렉터리 아래에 추가할 수 있습니다. 코드 또는 구성 디렉터리 아래에 하위 디렉터리 또는 추가 디렉터리를 만들 수도 있습니다.
@@ -170,7 +170,7 @@ SetupEntryPoint가 하나밖에 없으므로 애플리케이션의 설치에 여
 
 서비스 매니페스트 파일의 `EntryPoint` 요소는 서비스를 시작하는 방법을 지정하는 데 사용됩니다.
 
-`ExeHost` 요소는 서비스를 시작하는 데 사용되어야 하는 실행 파일(및 인수)을 지정합니다. 필요에 따라 `IsExternalExecutable="true"` 특성을 `ExeHost`에 추가하여 프로그램이 코드 패키지 외부의 외부 실행 파일임을 나타낼 수 있습니다. 예: `<ExeHost IsExternalExecutable="true">`
+`ExeHost` 요소는 서비스를 시작하는 데 사용되어야 하는 실행 파일(및 인수)을 지정합니다. 필요에 따라 `IsExternalExecutable="true"` 특성을 `ExeHost`에 추가하여 프로그램이 코드 패키지 외부의 외부 실행 파일임을 나타낼 수 있습니다. `<ExeHost IsExternalExecutable="true">` )을 입력합니다.
 
 * `Program`은 서비스를 시작해야 하는 실행 파일의 이름을 지정합니다.
 * `Arguments` 는 실행 파일에 전달되어야 하는 인수를 지정합니다. 인수가 있는 매개 변수 목록이 될 수도 있습니다.

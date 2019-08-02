@@ -2,7 +2,7 @@
 title: 사용자의 암호 다시 설정 - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory를 사용하여 사용자의 암호를 다시 설정하는 방법에 대한 지침입니다.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.assetid: fad5624b-2f13-4abc-b3d4-b347903a8f16
 ms.service: active-directory
@@ -10,16 +10,16 @@ ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/05/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4db6554e86cef61f2fc8e7a466919d2ce723f0e5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 382ffab090613a2b14ce710a45be10b4c36e5222
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60248019"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561747"
 ---
 # <a name="reset-a-users-password-using-azure-active-directory"></a>Azure Active Directory를 사용하여 사용자의 암호 다시 설정
 
@@ -33,7 +33,7 @@ ms.locfileid: "60248019"
 
 ## <a name="to-reset-a-password"></a>암호를 다시 설정하려면
 
-1. 에 로그인 합니다 [Azure portal](https://portal.azure.com/) 암호 관리자 또는 사용자 관리자입니다. 사용 가능한 역할에 대한 자세한 내용은 [Azure Active Directory에서 관리자 역할 할당](../users-groups-roles/directory-assign-admin-roles.md#available-roles)을 참조하세요.
+1. 사용자 관리자 또는 암호 관리자 권한으로 [Azure Portal](https://portal.azure.com/) 에 로그인 합니다. 사용 가능한 역할에 대한 자세한 내용은 [Azure Active Directory에서 관리자 역할 할당](../users-groups-roles/directory-assign-admin-roles.md#available-roles)을 참조하세요.
 
 2. **Azure Active Directory**를 선택하고, **사용자**를 선택하고, 다시 설정할 사용자를 검색하여 선택한 다음, **암호 다시 설정**을 선택합니다.
 

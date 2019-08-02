@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 01/14/2019
-ms.openlocfilehash: 82b85ffd685df52e702db15e5a5b57a53a3b4f64
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 37b8f64360e871236be7a8623460bbe75bd1d8b5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60342178"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568168"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>자습서: Azure SQL Database와 SQL Server 온-프레미스 간에 SQL 데이터 동기화 설정
 
@@ -49,7 +48,7 @@ SQL 데이터 동기화를 구성하는 방법을 보여 주는 PowerShell 예�
 
    **데이터 동기화 그룹 만들기** 페이지에서 다음 설정을 변경합니다.
 
-   | 설정                        | 설명 |
+   | 설정                        | Description |
    | ------------------------------ | ------------------------------------------------- |
    | **동기화 그룹 이름** | 새 동기화 그룹의 이름을 입력합니다. 이 이름은 데이터베이스 자체의 이름과 구분됩니다. |
    | **메타데이터 데이터베이스 동기화** | 데이터베이스를 만들지(권장) 아니면 기존 데이터베이스를 사용할지를 선택합니다.<br/><br/>**새 데이터베이스**를 선택하는 경우 **새 데이터베이스 만들기**를 선택합니다. **SQL 데이터베이스** 페이지에서 새 데이터베이스의 이름을 지정하고 데이터베이스를 구성한 다음 **확인**을 선택합니다.<br/><br/>**기존 데이터베이스 사용**을 선택하는 경우 목록에서 데이터베이스를 선택합니다. |
@@ -77,7 +76,7 @@ SQL 데이터 동기화를 구성하는 방법을 보여 주는 PowerShell 예�
 
   **Azure SQL Database 구성** 페이지에서 다음 설정을 변경합니다.
 
-  | 설정                       | 설명 |
+  | 설정                       | Description |
   | ----------------------------- | ------------------------------------------------- |
   | **동기화 구성원 이름** | 새 동기화 구성원의 이름을 입력합니다. 이 이름은 데이터베이스 자체의 이름과는 달라야 합니다. |
   | **구독** | 대금 청구용으로 연결된 Azure 구독을 선택합니다. |
@@ -158,7 +157,7 @@ SQL 데이터 동기화를 구성하는 방법을 보여 주는 PowerShell 예�
 
 1. 목록에서 동기화할 테이블을 선택합니다. 기본적으로는 모든 열이 선택되므로 동기화하지 않을 열의 확인란 선택은 취소합니다. 선택한 기본 키 열을 남겨 두어야 합니다.
 
-1. **저장**을 선택합니다.
+1.           **저장**을 선택합니다.
 
 1. 데이터베이스는 동기화를 예약하거나 수동으로 실행할 때까지 기본적으로 동기화되지 않습니다. 수동 동기화를 실행하려면 Azure Portal에서 SQL 데이터베이스로 이동하여 **다른 데이터베이스와 동기화**를 선택하고 동기화 그룹을 선택합니다. **데이터 동기화** 페이지가 열립니다. **동기화**를 선택합니다.
 

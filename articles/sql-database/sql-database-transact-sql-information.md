@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: 84b93005941acf625d05a48f0df7b685e1bea0bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0f64642d04504770415c0d2243ec77b44bde05f2
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65785509"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566296"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>SQL Database로의 마이그레이션 중 Transact-SQL 차이점 해결
 
@@ -56,7 +55,7 @@ SQL Database에서 지원되는 기능 및 지원되지 않는 기능 목록은 
 - 고가용성: Microsoft Azure 계정을 통해 관리되는 고가용성과 관련된 구문입니다. 백업, 복원, Alwayson, 데이터베이스 미러링, 로그 전달, 복구 모드에 대한 구문을 포함합니다.
 - 로그 판독기: SQL Database에서 사용할 수 없는 로그 판독기를 사용하는 구문: 밀어넣기 복제, 변경 데이터 캡처입니다. SQL Database는 푸시 복제 문서의 구독자가 될 수 있습니다.
 - 함수: `fn_get_sql`, `fn_virtualfilestats`, `fn_virtualservernodes`
-- 하드웨어: 하드웨어 관련 서버 설정과 관련된 구문: 메모리, 작업자 스레드 수, CPU 선호도, 추적 플래그 등입니다. 대신 서비스 계층 및 컴퓨팅 크기를 사용합니다.
+- 하드웨어: 하드웨어 관련 서버 설정과 관련된 구문: 메모리, 작업자 스레드 수, CPU 선호도, 추적 플래그 등입니다. 그 대신 서비스 계층 및 컴퓨팅 크기를 사용합니다.
 - `KILL STATS JOB`
 - `OPENQUERY`, `OPENROWSET`, `OPENDATASOURCE` 및 네 부분으로 된 이름
 - .NET Framework: CLR과 SQL Server 통합
@@ -85,7 +84,7 @@ Transact-SQL 문법, 사용법 및 예제에 대한 자세한 내용은 SQL Serv
 
 Transact-SQL 참조에는 현재까지 게시된 SQL Server 버전 2008과 관련된 문서가 포함되어 있습니다. 문서 제목 아래에 있는 아이콘 모음에는 SQL Server 플랫폼 4개와 적용 가능 여부가 나타납니다. 예를 들어 가용성 그룹은 SQL Server 2012에서 도입되었습니다.  [CREATE AVAILABILITY GROUP](https://msdn.microsoft.com/library/ff878399.aspx) 문서는 이 명령문이 **SQL Server 2012**부터 적용됨을 나타냅니다. SQL Server 2008, SQL Server 2008 R2, Azure SQL Database, Azure SQL Data Warehouse 또는 병렬 데이터 웨어하우스에는 이 문이 적용되지 않습니다.
 
-경우에 따라 문서의 일반 제목이 제품에 사용할 수 있지만 제품 간에 사소한 차이가 있습니다. 차이점은 문서의 중간에 적절하게 표시됩니다. 경우에 따라 문서의 일반 제목이 제품에 사용할 수 있지만 제품 간에 사소한 차이가 있습니다. 차이점은 문서의 중간에 적절하게 표시됩니다. 예를 들어 CREATE TRIGGER 문서는 SQL Database에서 사용할 수 있습니다. 하지만 서버 수준 트리거에 필요한 **ALL SERVER** 옵션은 SQL Database에서 서버 수준 트리거를 사용할 수 없음을 나타냅니다. 대신 데이터베이스 수준 트리거를 사용합니다.
+경우에 따라 문서에 대 한 일반적인 주제를 제품에서 사용할 수 있지만 제품 간에는 약간의 차이가 있습니다. 차이점은 문서의 중간에 적절하게 표시됩니다. 경우에 따라 문서에 대 한 일반적인 주제를 제품에서 사용할 수 있지만 제품 간에는 약간의 차이가 있습니다. 차이점은 문서의 중간에 적절하게 표시됩니다. 예를 들어 CREATE TRIGGER 문서는 SQL Database에서 사용할 수 있습니다. 하지만 서버 수준 트리거에 필요한 **ALL SERVER** 옵션은 SQL Database에서 서버 수준 트리거를 사용할 수 없음을 나타냅니다. 대신 데이터베이스 수준 트리거를 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

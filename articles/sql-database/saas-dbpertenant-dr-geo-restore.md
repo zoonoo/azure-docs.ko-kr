@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: AyoOlubeko
 ms.author: craigg
 ms.reviewer: sstein
-manager: craigg
 ms.date: 01/14/2019
-ms.openlocfilehash: d6977f9f957aba2c01265f750f82847e16d299ee
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: c8990e5183d09e8f530fdef952a80a09104d3617
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67872032"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570490"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>데이터베이스 백업에서 지역 복원을 사용하여 다중 테넌트 SaaS 애플리케이션 복구
 
