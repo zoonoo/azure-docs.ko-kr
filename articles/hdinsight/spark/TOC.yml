@@ -60,6 +60,12 @@
               href: ./apache-spark-troubleshoot-outofmemory-heap-space.md
             - name: Livy 서버 시작 실패
               href: ./apache-spark-troubleshoot-outofmemory-native-thread.md
+        - name: Apache Spark 작업 실패 - NoClassDefFoundError
+          href: ./apache-spark-troubleshoot-job-fails-noclassdeffounderror.md
+        - name: Apache Spark 작업 실패 - InvalidClassException
+          href: ./apache-spark-troubleshoot-job-fails-invalidclassexception.md
+        - name: 저속 Apache Spark 작업 - listStatus
+          href: ./apache-spark-troubleshoot-job-slowness-liststatus.md
         - name: 저속 Apache Spark 작업 - 스토리지 컨테이너
           href: ./apache-spark-troubleshoot-job-slowness-container.md
         - name: IllegalArgumentException 예외
@@ -72,6 +78,8 @@
           href: ./apache-spark-troubleshoot-blocking-cross-origin.md
         - name: Kryo 직렬화 실패
           href: ./apache-spark-troubleshoot-sparkexception-kryo-serialization-failed.md
+        - name: Apache Spark 이벤트 로그 - RequestBodyTooLarge
+          href: ./apache-spark-troubleshoot-event-log-requestbodytoolarge.md
 - name: 방법
   items:
     - name: 클러스터 저장소 사용

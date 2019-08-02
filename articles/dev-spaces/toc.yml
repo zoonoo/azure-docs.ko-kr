@@ -9,18 +9,18 @@
       items:
         - name: 팀 개발
           href: quickstart-team-development.md
-        - name: 애플리케이션 실행
+        - name: 디버그 및 반복
+          items:
+            - name: Visual Studio Code 및 Java 사용
+              href: quickstart-java.md
+            - name: Visual Studio Code 및 .NET Core 사용
+              href: quickstart-netcore.md
+            - name: Visual Studio Code 및 Node.js 사용
+              href: quickstart-nodejs.md
+            - name: Visual Studio 및 .NET Core 사용
+              href: quickstart-netcore-visualstudio.md
+        - name: CLI를 사용하여 개발
           href: quickstart-cli.md
-        - name: Dockerfile을 사용하여 애플리케이션 실행
-          href: quickstart-cli-dockerfile.md
-        - name: VS Code를 사용하여 Java 실행 및 디버그
-          href: quickstart-java.md
-        - name: VS Code를 사용하여 .NET Core 실행 및 디버그
-          href: quickstart-netcore.md
-        - name: VS Code를 사용하여 Node.js 실행 및 디버그
-          href: quickstart-nodejs.md
-        - name: Visual Studio를 사용하여 .NET Core 실행 및 디버그
-          href: quickstart-netcore-visualstudio.md
     - name: 자습서
       items:
         - name: Java(VS 코드 & CLI)

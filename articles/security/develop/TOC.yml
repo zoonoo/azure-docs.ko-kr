@@ -18,3 +18,17 @@
           href: secure-develop.md
         - name: 보안 앱 배포
           href: secure-deploy.md
+- name: 솔루션
+  expanded: true
+  items:
+    - name: Microsoft 보안 코드 분석
+      expanded: true
+      items:
+        - name: 개요
+          href: security-code-analysis-overview.md
+        - name: 온보딩 및 설치
+          href: security-code-analysis-onboard.md
+        - name: 구성
+          href: security-code-analysis-customize.md
+        - name: FAQ
+          href: security-code-analysis-faq.md

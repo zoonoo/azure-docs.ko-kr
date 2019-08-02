@@ -19,7 +19,7 @@
   items:
     - name: Time Series Insights JavaScript 클라이언트 라이브러리
       href: tutorial-explore-js-client-lib.md
-    - name: Time Series Insights 단일 페이지 웹앱 만들기
+    - name: 단일 페이지 웹앱 만들기
       href: tutorial-create-tsi-sample-spa.md
     - name: Azure Time Series Insights GA
       items:

@@ -579,6 +579,9 @@
         - name: 데이터베이스에서 처리량 프로비전
           displayName: 'request units, RUs, RU, shared throughput, database level'
           href: how-to-provision-database-throughput.md
+        - name: Cosmos Capacity Planner를 사용하여 RU/s 예측
+          displayName: 'request units, RUs, RU, capacity'
+          href: estimate-ru-with-capacity-planner.md
         - name: 요청 단위 요금 찾기
           displayName: 'request units, RUs, RU, charge, consumption'
           href: find-request-unit-charge.md

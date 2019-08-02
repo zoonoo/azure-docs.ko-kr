@@ -95,15 +95,14 @@
       displayName: 'deep learning vs machine learning, deep learning, vs, versus'
       href: concept-deep-learning-vs-machine-learning.md
     - name: 작업 영역
-      displayName: concept definitions architecture
       href: concept-workspace.md
     - name: 컴퓨팅 대상
-      displayName: concept definitions architecture
+      displayName: 'compute, resource, target, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
       href: concept-compute-target.md
     - name: 시각적 인터페이스
-      displayName: concept
+      displayName: studio
       href: ui-concept-visual-interface.md
-    - name: 자동화된 ML
+    - name: 자동화된 기계 학습
       displayName: 'automl, auto ml'
       href: concept-automated-ml.md
     - name: 모델 관리(MLOps)
@@ -114,9 +113,10 @@
     - name: 모델 해석력
       displayName: explainability
       href: machine-learning-interpretability-explainability.md
-    - name: FPGA 개요
+    - name: FPGA 대 CPU GPU ASIC
+      displayName: 'field, programmable, arrays'
       href: concept-accelerate-with-fpgas.md
-    - name: ONNX 및 ONNX 런타임
+    - name: ONNX
       href: concept-onnx.md
     - name: 보안
       items:

@@ -221,6 +221,8 @@
           items:
             - name: 갤러리 앱에 대한 사용자 프로비저닝
               href: application-provisioning-config-how-to.md
+            - name: 다중 테넌트에 대해 자동 사용자 프로비저닝 사용
+              href: isv-automatic-provisioning-multi-tenant-apps.md
             - name: 자동 사용자 프로비저닝 구성
               href: configure-automatic-user-provisioning-portal.md
             - name: 애플리케이션 특성 사용자 지정

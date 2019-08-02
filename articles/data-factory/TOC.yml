@@ -584,6 +584,12 @@
           href: ssis-integration-runtime-management-troubleshoot.md
         - name: Azure-SSIS IR의 패키지 실행 문제 해결
           href: ssis-integration-runtime-ssis-activity-faq.md
+- name: 시나리오
+  items:
+    - name: 데이터 레이크 및 EDW용 데이터 마이그레이션
+      items:
+        - name: Azure Data Factory를 사용해야 하는 이유
+          href: data-migration-guidance-overview.md
 - name: 참고 자료
   items:
     - name: .NET
