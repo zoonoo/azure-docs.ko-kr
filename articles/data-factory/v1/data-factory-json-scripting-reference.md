@@ -4820,7 +4820,7 @@ Salesforce에서 데이터를 복사하는 경우 복사 활동의 **source type
 자세한 내용은 [웹 테이블 커넥터](data-factory-web-table-connector.md#copy-activity-properties) 문서를 참조하세요.
 
 ## <a name="compute-environments"></a>컴퓨팅 환경
-다음 표에서는 Data Factory에서 지원하는 컴퓨팅 환경과 이러한 환경에서 실행할 수 있는 변환 활동을 나열합니다. 관심 있는 계산 링크를 클릭하여 연결된 서비스에서 데이터 팩터리에 연결하기 위한 JSON 스키마를 확인하세요.
+다음 표에서는 Data Factory에서 지원하는 컴퓨팅 환경과 이러한 환경에서 실행할 수 있는 변환 활동을 나열합니다. 관심 있는 컴퓨팅 링크를 클릭하여 연결된 서비스에서 데이터 팩터리에 연결하기 위한 JSON 스키마를 확인하세요.
 
 | 컴퓨팅 환경 | 활동 |
 | --- | --- |

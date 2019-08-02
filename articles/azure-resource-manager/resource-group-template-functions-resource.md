@@ -4,14 +4,14 @@ description: Azure Resource Manager 템플릿에서 리소스에 대한 값을 �
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 07/11/2019
+ms.date: 07/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7d967f0bb0b7a811d4db7836cdbffdad91088a2c
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 7548b75f201c896e3a5248cb9d0154a9a676a86f
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311695"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698192"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿용 리소스 함수
 
@@ -37,7 +37,7 @@ Resource Manager는 리소스 값을 가져오기 위한 다음 함수를 제공
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | Description |
+| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | resourceName 또는 resourceIdentifier |예 |string |리소스에 대한 고유 식별자. |
 | apiVersion |예 |string |리소스 런타임 상태의 API 버전입니다. 일반적으로 **yyyy-mm-dd** 형식입니다. |
@@ -47,7 +47,7 @@ Resource Manager는 리소스 값을 가져오기 위한 다음 함수를 제공
 
 다음 표에 list*의 가능한 용도가 나와 있습니다.
 
-| 리소스 종류 | 함수 이름 |
+| 리소스 형식 | 함수 이름 |
 | ------------- | ------------- |
 | Microsoft.AnalysisServices/servers | [listGatewayStatus](/rest/api/analysisservices/servers/listgatewaystatus) |
 | Microsoft.AppConfiguration/configurationStores | ListKeys |
@@ -525,7 +525,7 @@ SAS 토큰을 가져오려면 만료 시간에 대 한 개체를 전달 합니�
 }
 ```
 
-## <a name="resourcegroup"></a>resourceGroup
+## <a name="resourcegroup"></a>리소스 그룹
 
 `resourceGroup()`
 
@@ -609,7 +609,7 @@ resourceGroup 함수는 일반적으로 리소스 그룹과 동일한 위치에 
 
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | Description |
 |:--- |:--- |:--- |:--- |
-| subscriptionId |아니요 |문자열(GUID 형식) |기본값은 현재 구독입니다. 다른 구독에서 리소스를 검색해야 하는 경우 이 값을 지정합니다. |
+| SubscriptionId |아니요 |문자열(GUID 형식) |기본값은 현재 구독입니다. 다른 구독에서 리소스를 검색해야 하는 경우 이 값을 지정합니다. |
 | resourceGroupName |아니요 |string |기본값은 현재 리소스 그룹입니다. 다른 리소스 그룹에서 리소스를 검색해야 하는 경우 이 값을 지정합니다. |
 | resourceType |예 |string |리소스 공급자 네임스페이스를 포함하는 리소스 유형입니다. |
 | resourceName1 |예 |string |리소스의 이름입니다. |
@@ -735,8 +735,8 @@ resourceGroup 함수는 일반적으로 리소스 그룹과 동일한 위치에 
 
 | 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
-| sameRGOutput | 문자열 | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| differentRGOutput | 문자열 | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| sameRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | differentSubOutput | String | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | nestedResourceOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
 

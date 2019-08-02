@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/11/2018
 ms.author: dekapur
-ms.openlocfilehash: e5fa46930a3be3c85cd76e655fac3164cc45d957
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 78db25fed7c284b31491bdc9e5498493da4c7479
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60544741"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618855"
 ---
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Service Fabric 독립 실행형 클러스터 배포 계획 및 준비
 
@@ -65,7 +65,7 @@ FD 및 UD에 대한 자세한 내용은 [Service Fabric 클러스터 설명](ser
 * 최소 40GB의 사용 가능한 디스크 공간
 * 4 코어 이상의 CPU
 * 모든 컴퓨터에 대해 보안 네트워크 또는 네트워크 연결성
-* 설치된 Windows Server OS(유효한 버전: 2012 R2, 2016, 1709 또는 1803)
+* 설치된 Windows Server OS(유효한 버전: 2012 R2, 2016, 1709, 1803 또는 2019)
 * [.NET Framework 4.5.1 이상](https://www.microsoft.com/download/details.aspx?id=40773), 전체 설치
 * [Windows PowerShell 3.0](https://msdn.microsoft.com/powershell/scripting/setup/installing-windows-powershell)
 * [RemoteRegistry 서비스](https://technet.microsoft.com/library/cc754820)는 모든 컴퓨터에서 실행되어야 함

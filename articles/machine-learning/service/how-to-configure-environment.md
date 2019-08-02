@@ -9,36 +9,34 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
 ms.topic: conceptual
-ms.date: 05/14/2019
+ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3738ffe8b3faedc328bde01173400289403652f4
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 45b28b4d88c670a8b2ec34b93a342f06b80e02d7
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297940"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68668471"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning용 개발 환경 구성
 
-이 문서에서는 Azure Machine Learning Service에서 작동하는 개발 환경을 구성하는 방법을 알아봅니다. Azure Machine Learning Service는 플랫폼에 관계 없이 사용할 수 있습니다.
+이 문서에서는 Azure Machine Learning Service에서 작동하는 개발 환경을 구성하는 방법을 알아봅니다. Azure Machine Learning 서비스는 플랫폼에 독립적입니다. 개발 환경에 대 한 유일한 하드 요구 사항은 Python 3입니다. Anaconda 또는 Virtualenv와 같은 격리 된 환경도 권장 됩니다.
 
-개발 환경에 대 한 유일한 요구 사항은 Python 3, Anaconda (격리 된 환경의 경우) 및 Azure Machine Learning 작업 영역 정보를 포함 하는 구성 파일입니다.
+다음 표에서는이 문서에서 설명 하는 각 개발 환경과 장점 및 단점을 보여 줍니다.
 
-이 문서에서는 다음과 같은 환경 및 도구를 중점적으로 다룹니다.
+| 환경 | 전문가 | 단점 |
+| --- | --- | --- |
+| [클라우드 기반 노트북 VM](#notebookvm) | 시작 하는 가장 쉬운 방법입니다. 전체 SDK는 작업 영역 VM에 이미 설치 되어 있으며, 노트북 자습서는 미리 복제 되어 실행할 준비가 되었습니다. | 개발 환경 및 종속성에 대 한 제어가 부족 합니다. Linux VM에 대해 발생 하는 추가 비용입니다 (요금을 방지 하기 위해 사용 하지 않을 때 VM을 중지할 수 있음). [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)를 참조하세요. |
+| [로컬 환경](#local) | 개발 환경 및 종속성에 대 한 모든 권한 원하는 빌드 도구, 환경 또는 IDE를 사용 하 여를 실행 합니다. | 시작 하는 데 시간이 더 오래 걸립니다. 필요한 SDK 패키지를 설치 해야 하 고, 아직 설치 되어 있지 않은 경우에도 환경을 설치 해야 합니다. |
+| [Azure Databricks](#aml-databricks) | 확장 가능한 Apache Spark 플랫폼에서 대규모의 집약적 기계 학습 워크플로를 실행 하는 데 적합 합니다. | 실험적 기계 학습 또는 작은 규모의 실험 및 워크플로를 위한 과잉. Azure Databricks에 대해 발생 하는 추가 비용입니다. [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/databricks/)를 참조하세요. |
+| [Data Science Virtual Machine (DSVM)](#dsvm) | 클라우드 기반 노트북 VM (Python 및 SDK는 사전 설치 됨)과 유사 하지만 추가 인기 있는 데이터 과학 및 기계 학습 도구가 사전 설치 되어 있습니다. 쉽게 확장 하 고 다른 사용자 지정 도구 및 워크플로와 결합할 수 있습니다. | 클라우드 기반 노트북 VM과 비교 하 여 더 느린 시작 환경을 제공 합니다. |
+| [Azure 노트](#aznotebooks) | Python 및 SDK를 미리 설치 하 여 무료 및 경량 무게 시작 환경을 제공 합니다. | 강력 하지 않은 VM은 클라우드 기반 노트북 VM과 비교 하 여 사용할 수 있습니다. 작업 영역 및 기타 리소스에서 격리 됩니다. |
 
-* 사용자 고유의 [클라우드 기반 노트북 VM](#notebookvm): 워크스테이션에서 계산 리소스를 사용 하 여 Jupyter 노트북을 실행 합니다. Azure Machine Learning SDK가 이미 설치되어 있으므로 시작하기에 가장 쉬운 방법입니다.
-
-* [DSVM(Data Science Virtual Machine)](#dsvm) 데이터 과학 작업용으로 설계되고 CPU 전용 VM 인스턴스 또는 GPU 기반 인스턴스에 배포할 수 있는 Azure 클라우드에 미리 구성된 개발 또는 실험 환경입니다. Python 3, Conda, Jupyter Notebook 및 Azure Machine Learning SDK가 이미 설치되어 있습니다. VM은 기계 학습 솔루션 개발에 자주 사용되는 기계 학습 및 딥 러닝 프레임워크, 도구, 편집기가 함께 제공됩니다. Azure 플랫폼에서 가장 완성도 높은 기계 학습용 개발 환경입니다.
+또한이 문서에서는 다음 도구에 대 한 추가 사용 팁을 제공 합니다.
 
 * [Jupyter Notebooks](#jupyter): 이미 Jupyter Notebook을 사용 중인 경우 SDK를 통해 몇 가지 요소를 추가로 설치해야 합니다.
 
 * [Visual Studio Code](#vscode): Visual Studio Code를 사용하는 경우 몇 가지 유용한 확장 프로그램을 설치할 수 있습니다.
-
-* [Azure Databricks](#aml-databricks): Apache Spark 기반의 인기 있는 데이터 분석 플랫폼입니다. 모델을 배포할 수 있도록 클러스터로 Azure Machine Learning SDK를 가져오는 방법을 알아봅니다.
-
-* [Azure Notebooks](#aznotebooks): Azure 클라우드에 호스트되는 Jupyter Notebook 서비스입니다. Azure Machine Learning SDK가 이미 설치 되어 있기 때문에 시작 하는 쉬운 방법 이기도 합니다.  
-
-이미 Python 3 환경을 갖고 있거나 SDK를 설치하는 데 필요한 기본 단계만 원하는 경우 [로컬 컴퓨터](#local) 섹션을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -57,9 +55,9 @@ Azure Machine Learning 서비스 작업 영역. 작업 영역을 만들려면 [A
 
 ## <a id="notebookvm"></a>사용자 고유의 클라우드 기반 노트북 VM
 
-노트북 가상 머신 (미리 보기)는 Jupyter 노트북 서버, JupyterLab 및 완전히 준비 된 ML 환경을 사용 하 여 데이터 과학자을 제공 하는 안전한 클라우드 기반 Azure 워크스테이션입니다. 
+노트북 가상 머신 (미리 보기)는 Jupyter 노트북 서버, JupyterLab 및 완전히 준비 된 ML 환경을 사용 하 여 데이터 과학자을 제공 하는 안전한 클라우드 기반 Azure 워크스테이션입니다.
 
-노트북 VM은 다음과 같습니다. 
+노트북 VM은 다음과 같습니다.
 
 + **보안**. VM 및 노트북 액세스는 HTTPS를 사용 하 고 기본적으로 Azure Active Directory으로 보안이 유지 되므로 IT 전문가는 single sign-on 및 multi-factor authentication과 같은 기타 보안 기능을 쉽게 적용할 수 있습니다.
 
@@ -68,17 +66,17 @@ Azure Machine Learning 서비스 작업 영역. 작업 영역을 만들려면 [A
   + 작업 영역 작업을 위한 자동 구성
   + Jupyter 노트북 서버
   + JupyterLab 노트북 IDE
-  + 미리 구성 된 GPU 드라이버 
+  + 미리 구성 된 GPU 드라이버
   + 심층 학습 프레임 워크 선택
- 
 
-  코드를 사용 하는 경우 VM에는 Azure Machine Learning 서비스를 사용 하는 방법을 탐색 하 고 학습할 수 있는 자습서와 샘플이 포함 되어 있습니다. 샘플 노트북은 Vm 전체에서 공유할 수 있도록 작업 영역의 Azure Blob Storage 계정에 저장 됩니다. 실행 되 면 작업 영역의 데이터 저장소 및 계산 리소스에 액세스할 수 있습니다. 
+
+  코드를 사용 하는 경우 VM에는 Azure Machine Learning 서비스를 사용 하는 방법을 탐색 하 고 학습할 수 있는 자습서와 샘플이 포함 되어 있습니다. 샘플 노트북은 Vm 전체에서 공유할 수 있도록 작업 영역의 Azure Blob Storage 계정에 저장 됩니다. 실행 되 면 작업 영역의 데이터 저장소 및 계산 리소스에 액세스할 수 있습니다.
 
 + **간단한 설정**: Azure Machine Learning 작업 영역 내에서 언제 든 지 하나를 만듭니다. 이름을 입력 하 고 Azure VM 유형을 지정 합니다. 이 [빠른 시작을 사용 하 여 지금 사용해 보세요. 클라우드 기반 Notebook 서버를 사용하여 Azure Machine Learning 시작](quickstart-run-cloud-notebook.md)을 참조하세요.
 
 + **사용자 지정 가능**. 관리 및 보안 VM을 제공 하는 동안 하드웨어 기능에 대 한 모든 권한을 유지 하 고 원하는 대로 사용자 지정 합니다. 예를 들어 novel 신경망 아키텍처의 단계별 디버깅을 수행 하기 위해 최신 NVidia V100 구동 VM을 신속 하 게 만들 수 있습니다.
 
-노트북 VM 요금이 발생 하지 않도록 하려면 [노트북 vm을 중지](quickstart-run-cloud-notebook.md#stop-the-notebook-vm)합니다. 
+노트북 VM 요금이 발생 하지 않도록 하려면 [노트북 vm을 중지](quickstart-run-cloud-notebook.md#stop-the-notebook-vm)합니다.
 
 ## <a id="dsvm"></a>Data Science Virtual Machine
 
@@ -285,9 +283,9 @@ Visual Studio Code는 크로스 플랫폼 코드 편집기입니다. 로컬 Pyth
 Azure Databricks는 Azure 클라우드의 Apache Spark 기반 환경입니다. CPU 또는 GPU 기반 계산 클러스터가 포함 된 공동 노트북 기반 환경을 제공 합니다.
 
 Azure Machine Learning 서비스와 Azure Databricks 작동 방법:
-+ Spark MLlib를 사용 하 여 모델을 학습 하 고 Azure Databricks 내에서 ACI/AKS에 모델을 배포할 수 있습니다. 
++ Spark MLlib를 사용 하 여 모델을 학습 하 고 Azure Databricks 내에서 ACI/AKS에 모델을 배포할 수 있습니다.
 + Azure Databricks로 특수 한 Azure ML SDK에서 [자동화 된 기계 학습](concept-automated-ml.md) 기능을 사용할 수도 있습니다.
-+ [Azure Machine Learning 파이프라인](concept-ml-pipelines.md)에서 계산 대상으로 Azure Databricks를 사용할 수 있습니다. 
++ [Azure Machine Learning 파이프라인](concept-ml-pipelines.md)에서 계산 대상으로 Azure Databricks를 사용할 수 있습니다.
 
 ### <a name="set-up-your-databricks-cluster"></a>Databricks 클러스터 설정
 
@@ -308,7 +306,7 @@ Azure Machine Learning 서비스와 Azure Databricks 작동 방법:
 계속 진행하기 전에 클러스터가 실행될 때까지 기다립니다.
 
 ### <a name="install-the-correct-sdk-into-a-databricks-library"></a>Databricks 라이브러리에 올바른 SDK 설치
-클러스터가 실행 되 면 [라이브러리를 만들어](https://docs.databricks.com/user-guide/libraries.html#create-a-library) 적절 한 Azure Machine Learning SDK 패키지를 클러스터에 연결 합니다. 
+클러스터가 실행 되 면 [라이브러리를 만들어](https://docs.databricks.com/user-guide/libraries.html#create-a-library) 적절 한 Azure Machine Learning SDK 패키지를 클러스터에 연결 합니다.
 
 1. 옵션을 **하나만** 선택 하십시오. 다른 SDK 설치는 지원 되지 않습니다.
 
@@ -323,21 +321,21 @@ Azure Machine Learning 서비스와 Azure Databricks 작동 방법:
    * **모든 클러스터에 자동으로 연결을**선택 하지 않습니다.
    * 클러스터 이름 옆에 있는 **연결** 을 선택 합니다.
 
-1. 상태가 **연결**됨으로 변경 될 때까지 오류를 모니터링 합니다 .이는 몇 분 정도 걸릴 수 있습니다.  이 단계가 실패 하는 경우 다음을 확인 합니다. 
+1. 상태가 **연결**됨으로 변경 될 때까지 오류를 모니터링 합니다 .이는 몇 분 정도 걸릴 수 있습니다.  이 단계가 실패 하는 경우 다음을 확인 합니다.
 
    다음을 수행 하 여 클러스터를 다시 시작 합니다.
    1. 왼쪽 창에서 **클러스터**를 선택합니다.
    1. 테이블에서 클러스터 이름을 선택합니다.
    1. **라이브러리** 탭에서 **다시 시작**을 선택합니다.
-      
+
    다음 사항도 고려해 야 합니다.
    + Automl config에서 Azure Databricks 사용 하는 경우 다음 매개 변수를 추가 하세요.
-       1. ```max_concurrent_iterations```는 클러스터의 작업자 노드 수를 기반으로 합니다. 
-        2. ```spark_context=sc```는 기본 spark 컨텍스트를 기반으로 합니다. 
+       1. ```max_concurrent_iterations```는 클러스터의 작업자 노드 수를 기반으로 합니다.
+        2. ```spark_context=sc```는 기본 spark 컨텍스트를 기반으로 합니다.
    + 또는 이전 SDK 버전이 있는 경우 클러스터의 설치 된 라이브러리에서 선택을 취소 하 고 휴지통으로 이동 합니다. 새 SDK 버전을 설치하고 클러스터를 다시 시작합니다. 그래도 문제가 있으면 클러스트를 분리했다가 다시 연결합니다.
 
 설치에 성공 하면 가져온 라이브러리는 다음 중 하 나와 같아야 합니다.
-   
+
 Databricks 용 자동화 된 machine learning ![Azure Machine Learning sdk를 사용 **_하지 않는_** Databricks 용 sdk](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
 
 Databricks에 자동화 된 machine learning이 ![설치 된 자동화 된 machine learning sdk를 **사용 하** 는 Databricks 용 sdk](./media/how-to-configure-environment/automlonadb.jpg)
@@ -345,9 +343,9 @@ Databricks에 자동화 된 machine learning이 ![설치 된 자동화 된 machi
 ### <a name="start-exploring"></a>탐색 시작
 
 사용해 보기:
-+ Azure Databricks/Azure Machine Learning SDK 용 [노트북 보관 파일](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks/Databricks_AMLSDK_1-4_6.dbc) 을 다운로드 하 고 Databricks 클러스터에 [보관 파일을 가져옵니다](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-an-archive) .  
++ Azure Databricks/Azure Machine Learning SDK 용 [노트북 보관 파일](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks/Databricks_AMLSDK_1-4_6.dbc) 을 다운로드 하 고 Databricks 클러스터에 [보관 파일을 가져옵니다](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-an-archive) .
   많은 샘플 노트북을 사용할 수 있지만  **[이러한 샘플 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) 만 Azure Databricks 작업을 수행 합니다.**
-  
+
 + [Databricks를 학습 계산으로 사용 하 여 파이프라인을 만드는](how-to-create-your-first-pipeline.md)방법에 대해 알아봅니다.
 
 ## <a id="aznotebooks"></a>Azure Notebooks

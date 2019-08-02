@@ -283,7 +283,7 @@ Azure Automation에서 Runbook을 시작하면 자동화 작업이 만들어집�
 |:--|:--|:--|:--|
 | string   | 값을 큰따옴표로 묶습니다.  | "\"Hello world\"" | "Hello world" |
 | numeric  | 작은따옴표가 있는 숫자 값| "64" | 64 |
-| 부울  | 따옴표로 묶은 **true** 또는 **false**.  이 값은 소문자여야 합니다. | "true" | true |
+| boolean  | 따옴표로 묶은 **true** 또는 **false**.  이 값은 소문자여야 합니다. | "true" | true |
 | datetime | 직렬화된 날짜 값.<br>PowerShell에서 ConvertTo-Json cmdlet을 사용하여 특정 날짜에 대해 이 값을 생성할 수 있습니다.<br>예: get-date "5/24/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
 
 ## <a name="modules"></a>모듈

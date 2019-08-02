@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: cd377e78abe328814795bb1f75465b090a13e456
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 551f140c22677bea363ad5d8f43bf9670f783a1d
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68228358"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725613"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Azure의 SUSE Linux Enterprise Server에서 Pacemaker 설정
 
@@ -35,14 +35,14 @@ ms.locfileid: "68228358"
 
 Azure에서 Pacemaker 클러스터를 설정하는 옵션에는 두 가지가 있습니다. Azure API를 통해 실패한 노드를 다시 시작하는 펜싱 에이전트를 사용하거나 SBD 디바이스를 사용할 수 있습니다.
 
-SBD 디바이스에는 iSCSI 대상 서버 역할을 하고 SBD 디바이스를 제공하는 추가 가상 머신이 하나 이상 필요합니다. 단, 이러한 iSCSI 대상 서버를 다른 Pacemaker 클러스터와 공유할 수 있습니다. SBD 디바이스를 사용하는 이점은 빠른 장애 조치(failover) 시간이며 온-프레미스에서 SBD 디바이스를 사용하는 경우에는 pacemaker 클러스터 작동 방식을 변경할 필요가 없습니다. 예를 들어, iSCSI 대상 서버의 OS 패치 동안 Pacemaker 클러스터에서 SBD 디바이스를 사용할 수 없게 하도록 하려면 최대 3개의 SBD 디바이스를 사용할 수 있습니다. Pacemaker당 2개 이상의 SBD 디바이스를 사용하려는 경우 여러 iSCSI 대상 서버를 배포하고 각 iSCSI 대상 서버에서 하나의 SBD를 연결해야 합니다. SBD 디바이스를 1개 또는 3개 사용하는 것이 좋습니다. SBD 디바이스를 2개만 구성한 상태에서 하나를 사용할 수 없게 되면 Pacemaker는 클러스터 노드를 자동으로 방어할 수 없게 됩니다. 하나의 iSCSI 대상 서버가 다운되었을 때 방어하려면 3개의 SBD 디바이스, 즉 3개의 iSCSI 대상 서버를 사용해야 합니다.
+SBD 디바이스에는 iSCSI 대상 서버 역할을 하고 SBD 디바이스를 제공하는 추가 가상 머신이 하나 이상 필요합니다. 단, 이러한 iSCSI 대상 서버를 다른 Pacemaker 클러스터와 공유할 수 있습니다. SBD 장치를 사용 하면 장애 조치 시간이 단축 되며, 온-프레미스에서 SBD 장치를 사용 하는 경우 pacemaker 클러스터를 작동 하는 방식에 대 한 변경이 필요 하지 않습니다. 예를 들어, iSCSI 대상 서버의 OS 패치 동안 Pacemaker 클러스터에서 SBD 디바이스를 사용할 수 없게 하도록 하려면 최대 3개의 SBD 디바이스를 사용할 수 있습니다. Pacemaker당 2개 이상의 SBD 디바이스를 사용하려는 경우 여러 iSCSI 대상 서버를 배포하고 각 iSCSI 대상 서버에서 하나의 SBD를 연결해야 합니다. SBD 디바이스를 1개 또는 3개 사용하는 것이 좋습니다. SBD 디바이스를 2개만 구성한 상태에서 하나를 사용할 수 없게 되면 Pacemaker는 클러스터 노드를 자동으로 방어할 수 없게 됩니다. 하나의 iSCSI 대상 서버가 다운되었을 때 방어하려면 3개의 SBD 디바이스, 즉 3개의 iSCSI 대상 서버를 사용해야 합니다.
 
-가상 머신 하나를 추가로 투자하지 않으려면 Azure 펜스 에이전트를 사용할 수도 있습니다. 단점은 리소스 중지가 실패하거나 클러스터 노드가 더 이상 서로 통신할 수 없는 경우 장애 조치(failover)에 10~15분이 걸릴 수 있습니다.
+하나 이상의 가상 컴퓨터에 투자 하지 않으려는 경우 Azure 펜스 에이전트를 사용할 수도 있습니다. 단점은 리소스 중지가 실패하거나 클러스터 노드가 더 이상 서로 통신할 수 없는 경우 장애 조치(failover)에 10~15분이 걸릴 수 있습니다.
 
 ![SLES의 Pacemaker 개요](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
 
 >[!IMPORTANT]
-> Linux Pacemaker 클러스터 노드 및 SBD 디바이스를 계획하고 배포할 경우, 전체 클러스터 구성의 전체적인 안정성을 제공하려면 관련된 VM과 SBD 디바이스를 호스트하는 VM 간의 라우팅이 [NVA](https://azure.microsoft.com/solutions/network-appliances/)와 같은 다른 디바이스를 통과하지 않아야 합니다. 그렇지 않으면 NVA에 관련된 문제 및 유지 관리 이벤트가 전체 클러스터 구성의 안정성에 부정적인 영향을 줄 수 있습니다. 이러한 장애가 발생하지 않도록 하려면 Linux Pacemaker 클러스터 노드 및 SBD 디바이스를 계획하고 배포할 때 클러스터 노드와 SBD 디바이스 간의 트래픽을 NVA 및 유사한 디바이스를 통해 라우트하는 NVA 라우팅 규칙 또는 [사용자 정의 라우팅 규칙](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview)을 정의하지 마세요. 
+> Linux Pacemaker 클러스터 노드 및 SBD 디바이스를 계획하고 배포할 경우, 전체 클러스터 구성의 전체적인 안정성을 제공하려면 관련된 VM과 SBD 디바이스를 호스트하는 VM 간의 라우팅이 [NVA](https://azure.microsoft.com/solutions/network-appliances/)와 같은 다른 디바이스를 통과하지 않아야 합니다. 그렇지 않으면 NVA에 관련된 문제 및 유지 관리 이벤트가 전체 클러스터 구성의 안정성에 부정적인 영향을 줄 수 있습니다. 이러한 장애물을 방지 하려면 Linux Pacemaker 클러스터 된 노드를 계획 하 고 배포할 때 Nva 및 유사한 장치를 통해 클러스터 된 노드와 SBD 장치 간에 트래픽을 라우팅하는 라우팅 규칙 Nva 또는 [사용자 정의 라우팅](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) 규칙을 정의 하지 마십시오. SBD 장치. 
 >
 
 ## <a name="sbd-fencing"></a>SBD 펜싱
@@ -398,6 +398,28 @@ o- / ...........................................................................
    <pre><code>sudo zypper install fence-agents
    </code></pre>
 
+   >[!IMPORTANT]
+   > SAP 15 용 Suse Linux Enterprise Server를 사용 하는 경우 추가 모듈을 활성화 하 고 추가 구성 요소를 설치 해야 합니다 .이에 대 한 자세한 내용은 Azure Fence 에이전트 사용에 대 한 필수 구성 요소입니다. SUSE 모듈 및 확장에 대 한 자세한 내용은 [모듈 및 확장](https://www.suse.com/documentation/sles-15/singlehtml/art_modules/art_modules.html)에 대해 설명 합니다. 아래 지침에 따라 Azure Python SDK를 설치 합니다. 
+
+   Azure Python SDK를 설치 하는 방법에 대 한 다음 지침은 SAP **15**용 Suse Enterprise Server에만 적용 됩니다.  
+
+    - 사용자 고유의 구독을 사용 하는 경우 다음 지침을 따르세요.  
+
+    <pre><code>
+    #Activate module PackageHub/15/x86_64
+    sudo SUSEConnect -p PackageHub/15/x86_64
+    #Install Azure Python SDK
+    sudo zypper in python3-azure-sdk
+    </code></pre>
+
+     - 종 량 제 구독을 사용 하는 경우 다음 지침을 따르세요.  
+
+    <pre><code>#Activate module PackageHub/15/x86_64
+    zypper ar https://download.opensuse.org/repositories/openSUSE:/Backports:/SLE-15/standard/ SLE15-PackageHub
+    #Install Azure Python SDK
+    sudo zypper in python3-azure-sdk
+    </code></pre>
+
 1. **[A]** 호스트 이름 확인 설정
 
    DNS 서버를 사용하거나 모든 노드의 /etc/hosts를 수정할 수 있습니다. 이 예에서는 /etc/hosts 파일 사용 방법을 보여줍니다.
@@ -443,7 +465,7 @@ o- / ...........................................................................
    <pre><code>sudo passwd hacluster
    </code></pre>
 
-1. **[A]** 다른 전송을 사용하고 nodelist를 추가하도록 corosync 구성. 그렇지 않으면 클러스터가 작동하지 않습니다.
+1. **[A]** 다른 전송을 사용하고 nodelist를 추가하도록 corosync 구성. 그렇지 않으면 클러스터가 작동 하지 않습니다.
 
    <pre><code>sudo vi /etc/corosync/corosync.conf
    </code></pre>
@@ -510,7 +532,7 @@ STONITH 디바이스에서는 서비스 주체를 사용하여 Microsoft Azure�
 
 ### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]** 펜스 에이전트에 대한 사용자 지정 역할 만들기
 
-서비스 주체에는 기본적으로 Azure 리소스에 액세스할 권한이 없습니다. 서비스 주체에 클러스터의 모든 가상 머신을 시작 및 중지(할당 취소)하기 위한 권한을 제공해야 합니다. 사용자 지정 역할을 아직 만들지 않은 경우 [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell) 또는 [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)를 사용하여 만들 수 있습니다.
+서비스 주체에는 기본적으로 Azure 리소스에 액세스할 수 있는 권한이 없습니다. 서비스 주체에 클러스터의 모든 가상 머신을 시작 및 중지(할당 취소)하기 위한 권한을 제공해야 합니다. 사용자 지정 역할을 아직 만들지 않은 경우 [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell) 또는 [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)를 사용하여 만들 수 있습니다.
 
 입력 파일에 다음 콘텐츠를 사용합니다. 구독에 맞게 콘텐츠를 조정해야 합니다. 즉 c276fc76-9cd4-44c9-99a7-4fd71546436e 및 e91d47c4-76f3-4271-a796-21b4ecfe3624를 구독의 ID로 교체해야 합니다. 구독이 하나만 있는 경우 AssignableScopes에서 두 번째 항목을 제거합니다.
 
@@ -536,7 +558,7 @@ STONITH 디바이스에서는 서비스 주체를 사용하여 Microsoft Azure�
 
 ### <a name="a-assign-the-custom-role-to-the-service-principal"></a>**[A]** 서비스 주체에 사용자 지정 역할 할당
 
-마지막 단원에서 만든 사용자 지정 역할인 "Linux 펜스 에이전트 역할"을 서비스 주체에 할당합니다. 소유자 역할을 더 이상 사용하지 마십시오!
+마지막 단원에서 만든 사용자 지정 역할인 "Linux 펜스 에이전트 역할"을 서비스 주체에 할당합니다. 소유자 역할을 더 이상 사용 하지 마세요.
 
 1. [https://portal.azure.com](https://portal.azure.com)으로 이동
 1. 모든 리소스 블레이드 열기

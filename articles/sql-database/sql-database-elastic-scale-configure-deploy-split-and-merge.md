@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 5aff7e93dcfaa5320be0d6f7d427abcdc88c69e4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a8c50f492c28bf1e009d15d6332e939959190a49
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60585511"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568508"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>분할-병합 서비스를 배포하여 분할된 데이터베이스 간에 데이터 이동
 
@@ -33,7 +32,7 @@ ms.locfileid: "60585511"
 
 파일은 **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x**라는 디렉터리에 저장됩니다. 여기서 *x.x.xxx.x*는 버전 번호를 나타냅니다. **content\splitmerge\service** 하위 디렉터리에서 분할/병합 서비스 파일을 찾고 **content\splitmerge\powershell** 하위 디렉터리에서 분할/병합 PowerShell 스크립트 및 필요한 클라이언트 dll을 찾습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 1. 분할/병합 상태 데이터베이스로 사용할 Azure SQL DB 데이터베이스를 만듭니다. [Azure 포털](https://portal.azure.com)로 이동합니다. 새 **SQL Database**를 만듭니다. 데이터베이스에 이름을 지정하고 새 관리자 및 암호를 만듭니다. 나중에 사용할 수 있도록 이름과 암호를 기록합니다.
 2. Azure SQL DB 서버에서 Azure 서비스의 연결을 허용하는지 확인합니다. 포털의 **방화벽 설정**에서 **Azure 서비스에 대한 액세스 허용** 설정이 **On**으로 설정되었는지 확인합니다. "저장" 아이콘을 클릭합니다.
 3. 진단 출력에 사용할 Azure Storage 계정을 만듭니다.

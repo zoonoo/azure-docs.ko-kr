@@ -4,14 +4,14 @@ description: 배열 및 개체 작업을 위해 Azure Resource Manager 템플릿
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 11/8/2018
+ms.date: 07/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: e093cb65137576a725a7d23676e5b2288bb778a0
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: ec671c8698676b237021352e963ba08e0ddfe47e
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206385"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698215"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿에 대한 배열 및 개체 함수
 
@@ -29,7 +29,7 @@ Resource Manager는 배열 및 개체 작업을 위한 여러 함수를 제공�
 * [last](#last)
 * [length](#length)
 * [max](#max)
-* [min](#min)
+* [분](#min)
 * [range](#range)
 * [skip](#skip)
 * [take](#take)
@@ -41,14 +41,14 @@ Resource Manager는 배열 및 개체 작업을 위한 여러 함수를 제공�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="array"></a>array
+## <a name="array"></a>배열
 `array(convertToArray)`
 
 값을 배열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수를 포함해야 합니다. | 필수 | 형식 | Description |
 |:--- |:--- |:--- |:--- |
 | convertToArray |예 |int, string, array, 또는 object |배열로 변환할 값입니다. |
 
@@ -56,7 +56,7 @@ Resource Manager는 배열 및 개체 작업을 위한 여러 함수를 제공�
 
 배열입니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/array.json)에서는 여러 다른 형식의 배열 함수를 사용하는 방법을 보여줍니다.
 
@@ -99,7 +99,7 @@ Resource Manager는 배열 및 개체 작업을 위한 여러 함수를 제공�
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | type | 값 |
+| 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
 | intOutput | Array | [1] |
 | stringOutput | Array | ["efgh"] |
@@ -129,13 +129,13 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |int, string, array, 또는 object |null인지 테스트할 첫 번째 값입니다. |
-| 추가 인수 |아닙니다. |int, string, array, 또는 object |null인지 테스트할 추가 값입니다. |
+| 추가 인수 |아니요 |int, string, array, 또는 object |null인지 테스트할 추가 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
 문자열, int, 배열 또는 개체일 수 있는 첫 번째 null이 아닌 매개 변수의 값입니다. 모든 매개 변수가 null이면 null입니다. 
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/coalesce.json)에서는 병합을 다르게 사용하여 출력된 결과를 보여줍니다.
 
@@ -185,9 +185,9 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | type | 값 |
+| 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
-| stringOutput | String | 기본값 |
+| stringOutput | 문자열 | 기본 |
 | intOutput | Int | 1 |
 | objectOutput | Object | {"first": "default"} |
 | arrayOutput | Array | [1] |
@@ -217,14 +217,14 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열 또는 문자열 |연결을 위한 첫 번째 배열 또는 문자열입니다. |
-| 추가 인수 |아닙니다. |배열 또는 문자열 |연결 순서로 나타낸 추가 배열 또는 문자열입니다. |
+| 추가 인수 |아니요 |배열 또는 문자열 |연결 순서로 나타낸 추가 배열 또는 문자열입니다. |
 
 이 함수는 인수를 개수에 관계없이 사용할 수 있으며 매개 변수에 대한 문자열이나 배열 중 하나를 사용할 수 있습니다.
 
 ### <a name="return-value"></a>반환 값
 연결된 값의 문자열 또는 배열입니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json)에서는 두 개의 배열을 결합하는 방법을 보여줍니다.
 
@@ -263,7 +263,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | type | 값 |
+| 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
 | return | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
@@ -303,9 +303,9 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | type | 값 |
+| 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
-| concatOutput | 문자열 | prefix-5yj4yjf5mbg72 |
+| concatOutput | String | prefix-5yj4yjf5mbg72 |
 
 Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
@@ -337,7 +337,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 항목이 있으면 **True**이고, 항목이 없으면 **False**입니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/contains.json)에서는 여러 다른 형식의 contains를 사용하는 방법을 보여줍니다.
 
@@ -392,7 +392,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | type | 값 |
+| 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
 | stringTrue | Bool | True |
 | stringFalse | Bool | False |
@@ -425,13 +425,13 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |문자열, 정수, 배열 또는 개체 |배열의 첫 번째 값입니다. |
-| 추가 인수 |아닙니다. |문자열, 정수, 배열 또는 개체 |배열의 추가 값입니다. |
+| 추가 인수 |아니요 |문자열, 정수, 배열 또는 개체 |배열의 추가 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
 배열입니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/createarray.json)에서는 여러 다른 형식의 createArray를 사용하는 방법을 보여줍니다.
 
@@ -474,7 +474,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | type | 값 |
+| 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
 | stringArray | Array | ["a", "b", "c"] |
 | intArray | Array | [1, 2, 3] |
@@ -511,7 +511,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 값이 비어 있으면 **True**를 반환하고 비어 있지 않으면 **False**를 반환합니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/empty.json)에서는 배열, 개체 및 문자열이 비어 있는지 여부를 확인합니다.
 
@@ -554,7 +554,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | type | 값 |
+| 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
 | arrayEmpty | Bool | True |
 | objectEmpty | Bool | True |
@@ -589,7 +589,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 배열의 첫 번째 요소 또는 문자열의 첫 번째 문자에 대한 형식(문자열, int, 배열 또는 개체)입니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/first.json)에서는 배열 및 문자열에 첫 번째 함수를 사용하는 방법을 보여줍니다.
 
@@ -620,10 +620,10 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | type | 값 |
+| 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
-| arrayOutput | 문자열 | one |
-| stringOutput | 문자열 | O |
+| arrayOutput | String | one |
+| stringOutput | String | O |
 
 Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
@@ -650,13 +650,13 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열 또는 개체 |공통 요소를 찾는 데 사용할 첫 번째 값입니다. |
 | arg2 |예 |배열 또는 개체 |공통 요소를 찾는 데 사용할 두 번째 값입니다. |
-| 추가 인수 |아닙니다. |배열 또는 개체 |공통 요소를 찾는 데 사용할 추가 값입니다. |
+| 추가 인수 |아니요 |배열 또는 개체 |공통 요소를 찾는 데 사용할 추가 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
 공통 요소가 있는 배열 또는 개체입니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/intersection.json)에서는 배열 및 개체에 교집합을 사용하는 방법을 보여줍니다.
 
@@ -699,7 +699,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | type | 값 |
+| 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
 | objectOutput | Object | {"one": "a", "three": "c"} |
 | arrayOutput | Array | ["two", "three"] |
@@ -716,7 +716,7 @@ PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/intersection.json
 ```
 
-## <a name="json"></a>json :
+## <a name="json"></a>JSON
 `json(arg1)`
 
 JSON 개체를 반환합니다.
@@ -725,7 +725,7 @@ JSON 개체를 반환합니다.
 
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| arg1 |예 |문자열 |JSON으로 변환할 값입니다. |
+| arg1 |예 |string |JSON으로 변환할 값입니다. |
 
 
 ### <a name="return-value"></a>반환 값
@@ -736,7 +736,7 @@ JSON 개체를 반환합니다.
 
 JSON 개체에 매개 변수 값이나 변수를 포함해야 하는 경우 [concat](resource-group-template-functions-string.md#concat) 함수를 사용하여 함수로 전달할 문자열을 작성합니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/json.json)에서는 배열 및 개체에 json 함수를 사용하는 방법을 보여줍니다.
 
@@ -771,7 +771,7 @@ JSON 개체에 매개 변수 값이나 변수를 포함해야 하는 경우 [con
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | type | 값 |
+| 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
 | jsonOutput | Object | {"a": "b"} |
 | nullOutput | Boolean | True |
@@ -806,7 +806,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 배열의 마지막 요소 또는 문자열의 마지막 문자에 대한 형식(문자열, int, 배열 또는 개체)입니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/last.json)에서는 배열 및 문자열에 최근 함수를 사용하는 방법을 보여줍니다.
 
@@ -837,10 +837,10 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | type | 값 |
+| 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
-| arrayOutput | 문자열 | three |
-| stringOutput | 문자열 | e |
+| arrayOutput | String | three |
+| stringOutput | String | e |
 
 Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
@@ -859,19 +859,19 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 ## <a name="length"></a>length
 `length(arg1)`
 
-배열의 요소 수 또는 문자열의 문자 수를 반환합니다.
+배열의 요소 수, 문자열의 문자 또는 개체의 루트 수준 속성을 반환 합니다.
 
 ### <a name="parameters"></a>매개 변수
 
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| arg1 |예 |배열 또는 문자열 |요소 수를 가져오는 데 사용할 배열 또는 문자 수를 가져오는 데 사용할 문자열입니다. |
+| arg1 |예 |array, string 또는 object |요소 수를 가져오는 데 사용할 배열, 문자 수를 가져오는 데 사용할 문자열 또는 루트 수준 속성의 수를 가져오는 데 사용할 개체입니다. |
 
 ### <a name="return-value"></a>반환 값
 
 int입니다. 
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/length.json)에서는 배열 및 문자열에 length를 사용하는 방법을 보여줍니다.
 
@@ -891,6 +891,18 @@ int입니다.
         "stringToTest": {
             "type": "string",
             "defaultValue": "One Two Three"
+        },
+        "objectToTest": {
+            "type": "object",
+            "defaultValue": {
+                "propA": "one",
+                "propB": "two",
+                "propC": "three",
+                "propD": {
+                    "propD-1": "sub",
+                    "propD-2": "sub"
+                }
+            }
         }
     },
     "resources": [],
@@ -902,6 +914,10 @@ int입니다.
         "stringLength": {
             "type": "int",
             "value": "[length(parameters('stringToTest'))]"
+        },
+        "objectLength": {
+            "type": "int",
+            "value": "[length(parameters('objectToTest'))]"
         }
     }
 }
@@ -909,10 +925,11 @@ int입니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | type | 값 |
+| 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
 | arrayLength | int | 3 |
 | stringLength | int | 13 |
+| objectLength | Int | 4 |
 
 Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
@@ -939,7 +956,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="max" />
 
-## <a name="max"></a>max
+## <a name="max"></a>최대
 `max(arg1)`
 
 정수 배열 또는 쉼표로 구분된 정수 목록 중에서 최대값을 반환합니다.
@@ -954,7 +971,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 최대값을 나타내는 int입니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/max.json)에서는 배열 및 정소 목록에 최대값을 사용하는 방법을 보여줍니다.
 
@@ -984,7 +1001,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | type | 값 |
+| 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | Int | 5 |
 | intOutput | Int | 5 |
@@ -1018,7 +1035,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 최소값을 나타내는 int입니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/min.json)에서는 배열 및 정소 목록에 최소값을 사용하는 방법을 보여줍니다.
 
@@ -1048,7 +1065,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | type | 값 |
+| 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | Int | 0 |
 | intOutput | Int | 0 |
@@ -1076,14 +1093,14 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| startingInteger |예 |int |배열에서 첫 번째 정수입니다. |
-| numberofElements |예 |int |배열에 있는 정수의 수입니다. |
+| startingInteger |예 |ssNoversion |배열에서 첫 번째 정수입니다. |
+| numberofElements |예 |ssNoversion |배열에 있는 정수의 수입니다. |
 
 ### <a name="return-value"></a>반환 값
 
 정수 배열입니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/range.json)에서는 범위 함수를 사용하는 방법을 보여줍니다.
 
@@ -1113,7 +1130,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | type | 값 |
+| 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
 | rangeOutput | Array | [5, 6, 7] |
 
@@ -1131,7 +1148,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="skip" />
 
-## <a name="skip"></a>skip
+## <a name="skip"></a>건너뛰기
 `skip(originalValue, numberToSkip)`
 
 배열에서 지정된 숫자 이후의 모든 요소를 포함하는 배열을 반환하거나 문자열에서 지정된 숫자 이후의 모든 숫자를 포함하는 문자열을 반환합니다.
@@ -1147,7 +1164,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 배열 또는 문자열입니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/skip.json)에서는 배열에서 지정된 요소 수 및 문자열에서 지정된 수의 문자를 건너뜁니다.
 
@@ -1193,10 +1210,10 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | type | 값 |
+| 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["three"] |
-| stringOutput | 문자열 | two three |
+| stringOutput | String | two three |
 
 Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
@@ -1228,7 +1245,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 배열 또는 문자열입니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/take.json)에서는 배열에서 지정된 수의 요소 및 문자열의 문자를 가져옵니다.
 
@@ -1274,10 +1291,10 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | type | 값 |
+| 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["one", "two"] |
-| stringOutput | 문자열 | on |
+| stringOutput | String | on |
 
 Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
@@ -1304,13 +1321,13 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열 또는 개체 |요소를 조인하는 데 사용할 첫 번째 값입니다. |
 | arg2 |예 |배열 또는 개체 |요소를 조인하는 데 사용할 두 번째 값입니다. |
-| 추가 인수 |아닙니다. |배열 또는 개체 |요소를 조인하는 데 사용할 추가 값입니다. |
+| 추가 인수 |아니요 |배열 또는 개체 |요소를 조인하는 데 사용할 추가 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
 배열 또는 개체입니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/union.json)에서는 배열 및 개체에 union을 사용하는 방법을 보여줍니다.
 
@@ -1353,7 +1370,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | type | 값 |
+| 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
 | objectOutput | Object | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
 | arrayOutput | Array | ["one", "two", "three", "four"] |

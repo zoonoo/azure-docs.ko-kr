@@ -11,14 +11,13 @@ ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviwer: ''
-manager: craigg
 ms.date: 03/08/2019
-ms.openlocfilehash: 5226ec05af95cf305008968cf945070532274ee5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e9aaa7cb022d4096ec8a175611d0b4c118007b40
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61420077"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569563"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-the-windows-certificate-store"></a>Always Encrypted: 중요한 데이터 보호 및 Windows 인증서 저장소에 암호화 키 저장
 
@@ -36,7 +35,7 @@ Always Encrypted는 클라이언트와 서버 사이의 이동 중에, 그리고
 * 데이터베이스 테이블을 만들고 열을 암호화합니다.
 * 암호화된 열에서 데이터를 삽입하고 선택하며 표시한 애플리케이션을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에는 다음이 필요합니다.
 

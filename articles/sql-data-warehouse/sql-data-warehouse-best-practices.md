@@ -25,7 +25,7 @@ Azure SQL Data Warehouse를 이제 시작하는 사용자라면 이 문서가 �
 설명서를 로드하려면 [데이터를 로드하기 위한 지침](guidance-for-loading-data.md)을 참조하세요.
 
 ## <a name="reduce-cost-with-pause-and-scale"></a>일시 중지 및 규모 조정으로 비용 절감
-일시 중지 및 크기 조정을 통해 비용을 절감하는 방법에 대한 자세한 내용은 [계산 관리](sql-data-warehouse-manage-compute-overview.md)를 참조하세요. 
+일시 중지 및 크기 조정을 통해 비용을 절감하는 방법에 대한 자세한 내용은 [컴퓨팅 관리](sql-data-warehouse-manage-compute-overview.md)를 참조하세요. 
 
 
 ## <a name="maintain-statistics"></a>통계 유지 관리
@@ -44,7 +44,7 @@ SQL Data Warehouse는 Azure Data Factory, PolyBase, BCP 등의 여러 도구를 
 참고 항목 [데이터 로드][Load data], [Guide for using PolyBase][Guide for using PolyBase]를 [Azure SQL Data Warehouse 로딩 패턴 및 전략][Azure SQL Data Warehouse 로딩 패턴 및 전략]합니다 [ Azure Data Factory를 사용 하 여 데이터 로드][Load Data with Azure Data Factory], [Move data with Azure Data Factory][Move data with Azure Data Factory]를 [CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT], [select (CTAS)으로 새 테이블 만들기][Create table as select (CTAS)]
 
 ## <a name="load-then-query-external-tables"></a>외부 테이블 로드 후 쿼리
-외부 테이블이라고도 하는 Polybase는 데이터를 로드하는 가장 빠른 방법일 수 있지만 쿼리에 적합하지는 않습니다. SQL Data Warehouse Polybase 테이블은 현재 Azure Blob 파일 및 Azure Data Lake 스토리지만을 지원합니다. 이러한 파일에는 지원 계산 리소스가 없습니다.  결과적으로 SQL Data Warehouse가 이 작업을 오프로드할 수 없으므로, 데이터를 읽기 위해서는 tempdb에 로드하여 전체 파일을 읽어야 합니다.  따라서 이 데이터를 쿼리하는 쿼리가 여러 개 있는 경우 이 데이터를 한 번 로드한 후 쿼리에서 로컬 테이블을 사용하는 것이 더 좋습니다.
+외부 테이블이라고도 하는 Polybase는 데이터를 로드하는 가장 빠른 방법일 수 있지만 쿼리에 적합하지는 않습니다. SQL Data Warehouse Polybase 테이블은 현재 Azure Blob 파일 및 Azure Data Lake 스토리지만을 지원합니다. 이러한 파일에는 지원 컴퓨팅 리소스가 없습니다.  결과적으로 SQL Data Warehouse가 이 작업을 오프로드할 수 없으므로, 데이터를 읽기 위해서는 tempdb에 로드하여 전체 파일을 읽어야 합니다.  따라서 이 데이터를 쿼리하는 쿼리가 여러 개 있는 경우 이 데이터를 한 번 로드한 후 쿼리에서 로컬 테이블을 사용하는 것이 더 좋습니다.
 
 참고 항목: [PolyBase 사용 지침][Guide for using PolyBase]
 

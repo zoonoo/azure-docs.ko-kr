@@ -8,18 +8,19 @@ manager: barbkess
 editor: tomsh
 ms.assetid: ''
 ms.service: security
+ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: tomsh
-ms.openlocfilehash: 1940cd3481fbc6ff136e25a2f06fa7152c721c26
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
-ms.translationtype: HT
+ms.openlocfilehash: 7504fe890f9a7c0b282e2c2442307aeab27d6ff4
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68614993"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726856"
 ---
 # <a name="azure-operational-security-overview"></a>Azure 운영 보안 개요
 

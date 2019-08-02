@@ -3,16 +3,17 @@ title: Microsoft Azure에 대 한 고객 Lockbox
 description: Microsoft에서 고객 데이터에 액세스 해야 할 때 클라우드 공급자 액세스에 대 한 제어를 제공 하는 Microsoft Azure에 대 한 고객 Lockbox 기술 개요입니다.
 author: cabailey
 ms.service: security
+ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: cabailey
 manager: barbkess
 ms.date: 06/20/2019
-ms.openlocfilehash: 6aa57e7b53beda4315df2198942dce5e66aa9f09
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 7ca5c890b1f3161923cd808c5ecec0ccf0165d64
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68613953"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68727509"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Microsoft Azure에 대 한 고객 Lockbox
 
@@ -64,7 +65,7 @@ Microsoft Azure 고객 Lockbox는 고객이 고객 데이터 액세스 요청을
     
     ![Azure 고객 Lockbox-보류 중인 요청 보기](./media/customer-lockbox-overview/customer-lockbox-pending-requests.png)
 
-10. 지정 된 승인자는 **서비스 요청 ID** 를 선택 하 여 원래 사용자가 만든 지원 티켓 요청을 볼 수도 있습니다. 이 정보는 Microsoft 지원가 개입 된 이유와 보고 된 문제의 기록에 대 한 컨텍스트를 제공 합니다. 예:
+10. 지정 된 승인자는 **서비스 요청 ID** 를 선택 하 여 원래 사용자가 만든 지원 티켓 요청을 볼 수도 있습니다. 이 정보는 Microsoft 지원가 개입 된 이유와 보고 된 문제의 기록에 대 한 컨텍스트를 제공 합니다. 예를 들어:
     
     ![Azure 고객 Lockbox-지원 티켓 요청 보기](./media/customer-lockbox-overview/customer-lockbox-support-ticket.png)
 

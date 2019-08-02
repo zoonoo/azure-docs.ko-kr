@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 819f61f5391eef0c5f3d314d3b199dfe8e1a3560
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 33704c3392726ccd12ca0fd74f26465a54697e11
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562037"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68722140"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Azure Active Directory에서 유럽 고객에 대한 ID 데이터 스토리지
 Id 데이터는 Office 365 및 Azure와 같은 Microsoft 온라인 서비스를 구독할 때 조직에서 제공 하는 주소에 따라 지리적 위치에 Azure AD에 저장 됩니다. Id 데이터가 저장 되는 위치에 대 한 자세한 내용은 Microsoft 보안 센터의 [어디에 있는 데이터가 어디에 있나요?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) 섹션을 사용할 수 있습니다.
@@ -29,6 +29,8 @@ Id 데이터는 Office 365 및 Azure와 같은 Microsoft 온라인 서비스를 
 - 전화 통화 또는 SMS를 사용 하는 모든 2 단계 인증은 미국 데이터 센터에서 시작 되며 전역 공급자에 의해 라우팅됩니다.
 - Microsoft Authenticator 앱을 사용한 푸시 알림은 미국 데이터 센터에서 시작 됩니다. 또한 장치 공급 업체의 특정 서비스를 재생할 수 있으며 이러한 서비스는 유럽 외부에서 제공 될 수도 있습니다.
 - OATH 코드는 미국에서 항상 유효성이 검사됩니다. 
+
+Azure Multi-factor Authentication 서버 (MFA 서버) 및 클라우드 기반 Azure MFA에서 수집 하는 사용자 정보에 대 한 자세한 내용은 [Azure Multi-factor authentication 사용자 데이터 수집](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-reporting-datacollection)을 참조 하세요.
 
 ## <a name="microsoft-azure-active-directory-b2c-azure-ad-b2c"></a>Microsoft Azure Active Directory B2C (Azure AD B2C)
 

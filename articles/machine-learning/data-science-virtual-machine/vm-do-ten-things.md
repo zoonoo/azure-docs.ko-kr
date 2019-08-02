@@ -4,7 +4,7 @@ titleSuffix: Azure
 description: 데이터 과학 Virtual Machine에서 다양한 데이터 탐색 및 모델링 작업을 수행합니다.
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 editor: cgronlun
 ms.custom: seodec18
@@ -16,13 +16,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: gokuma
-ms.openlocfilehash: e1e59b9a34d075002e8129fe1588c95e207f8273
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: vijetaj
+ms.openlocfilehash: 2af65dbae59774ed718d58f055158e61f15e2198
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359018"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68557500"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Windows 데이터 과학 Virtual Machine으로 할 수 있는 10가지 작업
 
@@ -211,7 +211,7 @@ ans = consume(ep, sleepstudy)$ans
 Azure Machine Learning R 라이브러리에 대한 자세한 정보는 [여기](https://cran.r-project.org/web/packages/AzureML/AzureML.pdf)에서 찾을 수 있습니다.
 
 ## <a name="4-administer-your-azure-resources-using-azure-portal-or-powershell"></a>4. Azure 포털 또는 Powershell을 사용하여 Azure 리소스 관리
-DSVM을 사용하면 가상 컴퓨터에서 로컬로 분석 솔루션을 구축할 수 있을 뿐만 아니라 Microsoft의 Azure 클라우드 서비스에 액세스할 수 있습니다. Azure는 DSVM에서 관리 및 액세스할 수 있는 여러 가지 계산, 스토리지, 데이터 분석 서비스 및 기타 서비스를 제공합니다.
+DSVM을 사용하면 가상 컴퓨터에서 로컬로 분석 솔루션을 구축할 수 있을 뿐만 아니라 Microsoft의 Azure 클라우드 서비스에 액세스할 수 있습니다. Azure는 DSVM에서 관리 및 액세스할 수 있는 여러 가지 컴퓨팅, 스토리지, 데이터 분석 서비스 및 기타 서비스를 제공합니다.
 
 Azure 구독 및 클라우드 리소스를 관리하려는 경우 브라우저에서 [Azure 포털](https://portal.azure.com)로 이동하세요. Azure Powershell을 사용하여 스크립트를 통해 Azure 구독 및 리소스를 관리할 수도 있습니다.
 바탕 화면의 바로 가기 또는 시작 메뉴의 "Microsoft Azure Powershell"을 사용하여 Azure Powershell을 실행할 수 있습니다. Windows Powershell 스크립트를 사용하여 Azure 구독 및 리소스를 관리하는 방법에 대한 자세한 내용은 [Microsoft Azure Powershell 설명서](../../powershell-azure-resource-manager.md) 를 참조하세요.
@@ -888,11 +888,11 @@ in
 프로젝트 요구 사항에 맞게 DSVM을 확장 및 축소할 수 있습니다. 저녁이나 주말에 VM이 필요 없으면 [Azure 포털](https://portal.azure.com)에서 VM을 종료하면 됩니다.
 
 > [!NOTE]
-> VM의 운영 체제만 종료하면 계산 요금이 청구됩니다.  
+> VM의 운영 체제만 종료하면 컴퓨팅 요금이 청구됩니다.  
 > 
 > 
 
-대규모 분석을 처리하고 더 많은 CPU, 메모리 및/또는 디스크 용량이 필요한 경우 CPU 코어, 딥 러닝을 위한 GPU 기반 인스턴스, 메모리 용량 및 디스크 유형(반도체 드라이브 포함)을 기준으로 계산 성능과 예산 조건에 맞는 VM 크기를 선택할 수 있습니다. 시간당 컴퓨팅 가격을 비롯한 전체 VM 목록은 [Azure Virtual Machines 가격 책정](https://azure.microsoft.com/pricing/details/virtual-machines/) 페이지에서 확인할 수 있습니다.
+대규모 분석을 처리하고 더 많은 CPU, 메모리 및/또는 디스크 용량이 필요한 경우 CPU 코어, 딥 러닝을 위한 GPU 기반 인스턴스, 메모리 용량 및 디스크 유형(반도체 드라이브 포함)을 기준으로 컴퓨팅 성능과 예산 조건에 맞는 VM 크기를 선택할 수 있습니다. 시간당 컴퓨팅 가격을 비롯한 전체 VM 목록은 [Azure Virtual Machines 가격 책정](https://azure.microsoft.com/pricing/details/virtual-machines/) 페이지에서 확인할 수 있습니다.
 
 마찬가지로, 필요한 VM 처리 용량이 감소할 경우(예: 주요 워크로드를 Hadoop 또는 Spark 클러스터로 이동) [Azure 포털](https://portal.azure.com) 에서 VM 인스턴스 설정으로 이동하여 클러스터 규모를 축소할 수 있습니다. 다음은 스크린샷입니다.
 

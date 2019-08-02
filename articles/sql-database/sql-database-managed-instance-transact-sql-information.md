@@ -9,15 +9,14 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
-manager: craigg
 ms.date: 07/07/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: c9b481e63ecf7a92af679c0f32d4b3ab71486021
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
-ms.translationtype: HT
+ms.openlocfilehash: fd029c1e7b67d308e3e1fdbedbdc90ea430b4f5b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360801"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567249"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance 및 SQL Server 간의 T-SQL 차이점
 
@@ -382,8 +381,9 @@ MSDTC 및 [탄력적 트랜잭션은](sql-database-elastic-transactions-overview
 
 Managed Instance의 연결된 서버는 제한된 개수의 대상을 지원합니다.
 
-- 지원 되는 대상은 SQL Server 및 SQL Database입니다.
-- 지원 되지 않는 대상은 파일, Analysis Services 및 기타 RDBMS입니다.
+- 지원 되는 대상은 관리 되는 인스턴스, 단일 데이터베이스 및 SQL Server 인스턴스입니다. 
+- 연결 된 서버는 MS DTC (distributed 쓰기 가능 트랜잭션)를 지원 하지 않습니다.
+- 지원 되지 않는 대상은 파일, Analysis Services 및 기타 RDBMS입니다. 파일 가져오기의 대 안으로 또는 `BULK INSERT` `OPENROWSET` 를 사용 하 여 Azure Blob Storage에서 네이티브 CSV 가져오기를 사용해 보세요.
 
 작업
 
@@ -391,6 +391,7 @@ Managed Instance의 연결된 서버는 제한된 개수의 대상을 지원합�
 - `sp_dropserver`는 연결된 서버를 삭제하는 데 지원됩니다. [sp_dropserver](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql)를 참조하세요.
 - 함수 `OPENROWSET` 는 SQL Server 인스턴스에서만 쿼리를 실행 하는 데 사용할 수 있습니다. 관리, 온-프레미스 또는 가상 컴퓨터 중 하나를 사용할 수 있습니다. [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql)를 참조하세요.
 - 함수 `OPENDATASOURCE` 는 SQL Server 인스턴스에서만 쿼리를 실행 하는 데 사용할 수 있습니다. 관리, 온-프레미스 또는 가상 컴퓨터 중 하나를 사용할 수 있습니다. `SQLNCLI`, 및값`SQLOLEDB` 만 공급자로 지원 됩니다. `SQLNCLI11` 예제입니다. `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee` [OPENDATASOURCE](https://docs.microsoft.com/sql/t-sql/functions/opendatasource-transact-sql)를 참조하세요.
+- 연결 된 서버를 사용 하 여 네트워크 공유에서 파일 (Excel, CSV)을 읽을 수 없습니다. Azure Blob Storage에서 CSV 파일을 읽는 [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file) 또는 [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) 을 사용 하십시오. [Managed Instance 피드백 항목](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources) 에서이 요청 추적|
 
 ### <a name="polybase"></a>PolyBase
 

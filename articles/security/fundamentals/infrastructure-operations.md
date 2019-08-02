@@ -8,18 +8,19 @@ manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
+ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2019
 ms.author: terrylan
-ms.openlocfilehash: d01677271f51997064f8f18cba69e4d5f889719b
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: d41fe409b4a44a4c2af3670d76dd3a83a300feae
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68615396"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68727122"
 ---
 # <a name="management-and-operation-of-the-azure-production-network"></a>Azure 프로덕션 네트워크의 관리 및 운영    
 이 문서에서는 Microsoft가 azure 데이터 센터를 보호 하기 위해 Azure 프로덕션 네트워크를 관리 하 고 운영 하는 방법을 설명 합니다.
