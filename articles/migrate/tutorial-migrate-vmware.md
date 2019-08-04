@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 07/08/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 885c877f219f59ab5049cf7b8e01243077d6d3eb
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 7fba9cbbaa15359e7e4dd95e66645dd5f4022431
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348393"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640774"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>VMware VM을 Azure로 마이그레이션(에이전트 없음)
 
@@ -41,7 +41,7 @@ Azure Migrate 서버 마이그레이션 도구를 사용하여 VMware VM을 Azur
 
 에이전트 없는 마이그레이션 또는 에이전트 기반 마이그레이션을 사용할지 여부를 결정하려면 다음 문서를 검토하세요.
 
-- 에이전트 없는 마이그레이션의 [작동 방법을 알아보고](server-migrate-overview.md) [제한 사항을 검토](server-migrate-overview.md#agentless-migration-limitations)합니다.
+- 에이전트 없는 마이그레이션의 작동 [방법을 알아보고](server-migrate-overview.md) [마이그레이션 방법을 비교](server-migrate-overview.md#compare-migration-methods)합니다.
 - 에이전트 기반 방법을 사용하려면 [이 문서](tutorial-migrate-vmware-agent.md)를 참조합니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -93,7 +93,7 @@ Azure Migrate 서버 마이그레이션은 경량 VMware VM 어플라이언스�
 
 Azure Migrate를 사용하려면 VM을 Azure로 마이그레이션할 수 있도록 일부 VM을 변경해야 합니다.
 
-- 일부 [운영 체제](server-migrate-overview.md#agentless-migration-limitations)의 경우 이러한 변경은 Azure Migrate에서 자동으로 수행합니다.
+- 일부 운영 체제의 경우 이러한 변경은 Azure Migrate에서 자동으로 수행합니다. [자세히 알아보기](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements)
 - 이러한 운영 체제 중 하나가 없는 VM을 마이그레이션하는 경우 지침에 따라 VM을 준비합니다.
 - 이러한 변경은 마이그레이션을 시작하기 전에 수행해야 합니다. 변경하기 전에 VM을 마이그레이션하면 Azure에서 해당 VM이 부팅되지 않을 수 있습니다.
 - 온-프레미스 VM에서 수행한 구성 변경 내용은 VM 복제를 사용하도록 설정한 후에 Azure로 복제됩니다. 변경 내용이 복제되도록 하려면 마이그레이션할 복구 지점이 온-프레미스에서 구성이 변경된 시간 이후여야 합니다.

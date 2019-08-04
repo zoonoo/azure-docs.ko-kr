@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7a592a7d0d8c9d32de83c92b258c4678dc3f8166
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2d743b53f5ca74299c865d381f0832729fc956f4
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60188287"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677586"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 가상 머신 확장 집합의 크기를 자동으로 조정
 
@@ -35,7 +35,7 @@ ms.locfileid: "60188287"
 > * VM 인스턴스 스트레스 테스트 및 자동 크기 조정 규칙 트리거
 > * 요구량이 줄면 자동으로 다시 크기 조정
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 Azure Cloud Shell 현재 버전을 포함하여 Azure PowerShell 모듈 버전 6.8.1 이상에 영향을 주는 알려진 문제가 있습니다. 이 자습서는 Azure PowerShell 모듈 6.0.0-6.8.0 버전에서만 실행할 수 있습니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
 
@@ -137,7 +137,7 @@ $myScaleProfile = New-AzureRmAutoscaleProfile `
 ```
 
 
-## <a name="apply-autoscale-rules-to-a-scale-set"></a>확장 집합에 자동 크기 조정 규칙 적용
+## <a name="apply-autoscale-profile-to-a-scale-set"></a>확장 집합에 자동 크기 조정 프로필 적용
 마지막 단계는 확장 집합에 자동 크기 조정 프로필을 적용하는 것입니다. 그러면 확장 집합이 애플리케이션 요구량에 따라 자동으로 확장되거나 축소될 수 있습니다. [Add-AzureRmAutoscaleSetting](/powershell/module/AzureRM.Insights/Add-AzureRmAutoscaleSetting)을 사용하여 자동 크기 조정 프로필을 다음과 같이 적용합니다.
 
 ```azurepowershell-interactive

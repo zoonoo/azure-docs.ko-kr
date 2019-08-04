@@ -1,6 +1,6 @@
 ---
-title: 기술 자료 게시, REST, C#
-titleSuffix: QnA Maker- Azure Cognitive Services
+title: '빠른 시작: 기술 자료, REST, C# - QnA Maker 게시'
+titleSuffix: Azure Cognitive Services
 description: 이 C# REST 기반 빠른 시작에서는 테스트된 최신 버전의 기술 자료를 게시된 기술 자료를 나타내는 Azure Search 인덱스에 푸시하는 방법(KB 게시)을 안내합니다. 또한 애플리케이션 또는 챗봇에서 호출할 수 있는 엔드포인트를 만듭니다.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: 3460424a8d80baef92eb8b29a3be4de5686027c6
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 0ce0f3673a297964932f3b97dfd1d49d7c1e55e5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827582"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559792"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-c"></a>빠른 시작: C#을 사용하여 QnA Maker 기술 자료 게시
 

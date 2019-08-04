@@ -8,13 +8,13 @@ ms.topic: tutorial
 author: MightyPen
 ms.author: genemi
 ms.reviewer: carlrab
-ms.date: 02/08/2019
-ms.openlocfilehash: f6f0160e06ac10a6f1e4e51c93bfa133818117c8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 07/29/2019
+ms.openlocfilehash: 3359c39b21edad72ce0b9d7feb35d442c842f002
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568958"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640105"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-cx23-and-adonet"></a>자습서: Azure SQL Database C&#x23; 및 ADO.NET 내에서 단일 데이터베이스의 관계형 데이터베이스 디자인
 
@@ -29,6 +29,9 @@ Azure SQL 데이터베이스는 Microsoft Cloud(Azure)의 관계형 DBaaS(Databa
 > * ADO.NET 데이터 쿼리
 
 *Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
+
+> [!TIP]
+> 다음 Microsoft Learn 모듈을 사용하면 간단한 데이터베이스 생성을 포함하여 [Azure SQL Database를 쿼리하는 ASP.NET 애플리케이션을 개발하고 구성](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/)하는 방법을 무료로 배울 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

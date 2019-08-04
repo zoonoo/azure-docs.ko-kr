@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Windows에서 Speech Devices SDK 실행 - Speech Services'
+title: '빠른 시작: Windows에서 Speech Devices SDK 실행 - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: Windows Speech Devices SDK를 시작하기 위한 필수 구성 요소 및 지침입니다.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/10/2019
 ms.author: erhopf
-ms.openlocfilehash: ac0ed218aa27a36b3b8cd8ed8123e2baef6948c6
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: ad90a6443cc1c94bcdb730e783b82dfdd4798676
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67723282"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553070"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-windows"></a>빠른 시작: Windows에서 Speech Devices SDK 샘플 앱 실행
 
@@ -36,7 +36,7 @@ ms.locfileid: "67723282"
 * [Eclipse Java IDE](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) 또는 [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)만 해당.
 * [Microsoft Visual C++ 재배포 가능 패키지](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
-* Speech Service에 대한 Azure 구독 키 [무료로 가져올 수 있습니다](get-started.md).
+* Speech Service에 대한 Azure 구독 키. [무료로 가져올 수 있습니다](get-started.md).
 * Java용 [Speech Devices SDK](https://aka.ms/sdsdk-download-JRE)의 최신 버전을 다운로드하고 작업 디렉터리에 .zip을 추출합니다.
    > [!NOTE]
    > JRE-Sample-Release.zip 파일에는 JRE 샘플 앱이 포함되어 있으며 이 빠른 시작에서는 이 앱이 C:\SDSDK\JRE-Sample-Release에 추출되었다고 가정합니다.
@@ -49,7 +49,7 @@ ms.locfileid: "67723282"
 
 1. Eclipse를 시작합니다.
 
-1. **Eclipse IDE Launcher**에서 **작업 영역** 필드에 새 작업 영역 디렉터리의 이름을 입력합니다. 그리고 **시작**을 선택합니다.
+1. **Eclipse IDE Launcher**의 **작업 영역** 필드에 새 작업 영역 디렉터리의 이름을 입력합니다. 그리고 **시작**을 선택합니다.
 
    ![Eclipse Launcher의 스크린샷](media/speech-devices-sdk/eclipse-launcher.png)
 
@@ -94,7 +94,7 @@ ms.locfileid: "67723282"
    > [!TIP]
    > [사용자 지정 절전 모드 해제 단어를 만들](speech-devices-sdk-create-kws.md) 수도 있습니다.
 
-    새로운 절전 모드 해제 단어를 사용하려면 `FunctionsList.java`에서 다음 두 줄을 업데이트하고 절전 모드 해제 단어 패키지를 앱에 복사합니다. 예를 들어 절전 모드 해제 단어 패키지 `kws-machine.zip`에서 절전 모드 해제 단어 ‘머신’을 사용하려면 다음을 수행합니다.
+    새로운 절전 모드 해제 단어를 사용하려면 `FunctionsList.java`에서 다음 두 줄을 업데이트하고 절전 모드 해제 단어 패키지를 앱에 복사합니다. 예를 들어 절전 모드 해제 단어 패키지 `kws-machine.zip`에서 절전 모드 해제 단어 ‘Machine’을 사용하려면 다음을 수행합니다.
 
    * 절전 모드 해제 단어 패키지를 프로젝트 폴더 **target/classes**에 복사합니다.
 
@@ -123,7 +123,7 @@ ms.locfileid: "67723282"
 
 1. **패키지 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭합니다. **내보내기**를 선택합니다. 
 
-1. **내보내기** 창이 나타납니다. **Java**를 확장하고 **실행 가능한 JAR 파일**을 선택한 다음, **다음**을 선택합니다.
+1. **내보내기** 창이 나타납니다. **Java**를 펼치고 **실행 가능한 JAR 파일**을 선택한 후, **다음**을 선택합니다.
 
    ![내보내기 창의 스크린샷](media/speech-devices-sdk/eclipse-export-windows.png) 
 

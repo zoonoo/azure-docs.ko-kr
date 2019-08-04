@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
 manager: femila
-ms.openlocfilehash: 8b1a701beac867c5f331ffa1ee1dee615961c6b3
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 9154bc749f7db337de67f501d5e5049dfd466156
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66416291"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698481"
 ---
 # <a name="quickstart-use-truffle-to-connect-to-an-azure-blockchain-service-network"></a>빠른 시작: Truffle을 사용하여 Azure Blockchain Service 네트워크에 연결
 
@@ -28,6 +28,8 @@ Truffle은 Azure Blockchain Service 노드에 연결할 때 사용할 수 있는
 * [Azure Blockchain 멤버 만들기](create-member.md)
 * [Truffle](https://github.com/trufflesuite/truffle)을 설치합니다. Truffle을 사용하려면 [Node.js](https://nodejs.org), [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)를 포함한 여러 도구를 설치해야 합니다.
 * [Python 2.7.15](https://www.python.org/downloads/release/python-2715/)를 설치합니다. Python은 Web3에 필요합니다.
+* [Visual Studio Code](https://code.visualstudio.com/download)를 설치합니다.
+* [Visual Studio Code Solidity 확장](https://marketplace.visualstudio.com/items?itemName=JuanBlanco.solidity)을 설치합니다.
 
 ## <a name="create-truffle-project"></a>Truffle 프로젝트 만들기
 
@@ -53,38 +55,51 @@ Truffle은 Azure Blockchain Service 노드에 연결할 때 사용할 수 있는
     ```
 
     설치하는 동안 npm 경고가 표시될 수 있습니다.
+    
+## <a name="configure-truffle-project"></a>Truffle 프로젝트 구성
 
-1. Truffle의 대화형 개발 콘솔을 시작합니다.
+Truffle 프로젝트를 구성하려면 Azure Portal의 일부 트랜잭션 노드 정보가 필요합니다.
 
-    ``` bash
-    truffle develop
+### <a name="transaction-node-endpoint-addresses"></a>트랜잭션 노드 엔드포인트 주소
+
+1. Azure Portal에서 각 트랜잭션 노드로 이동하여 **트랜잭션 노드 > 연결 문자열**을 차례로 선택합니다.
+1. 각 트랜잭션 노드에 대한 **HTTPS(액세스 키 1)** 에서 엔드포인트 URL을 복사하여 저장합니다. 자습서의 뒷부분에 있는 스마트 계약 구성 파일에 대한 엔드포인트 주소가 필요합니다.
+
+    ![트랜잭션 엔드포인트 주소](./media/send-transaction/endpoint.png)
+
+### <a name="edit-configuration-file"></a>구성 파일 편집
+
+1. Visual Studio Code를 시작하고, **파일 > 폴더 열기** 메뉴를 사용하여 Truffle 프로젝트 디렉터리 폴더를 엽니다.
+1. `truffle-config.js` Truffle 구성 파일을 엽니다.
+1. 파일의 내용을 다음 구성 정보로 바꿉니다. 엔드포인트 주소를 포함하는 변수를 추가합니다. 꺾쇠 괄호를 이전 섹션에서 수집한 값으로 바꿉니다.
+
+    ``` javascript
+    var defaultnode = "<default transaction node connection string>";   
+    var Web3 = require("web3");
+    
+    module.exports = {
+      networks: {
+        defaultnode: {
+          provider: new Web3.providers.HttpProvider(defaultnode),
+          network_id: "*"
+        }
+      }
+    }
     ```
 
-    Truffle이 로컬 개발 블록체인을 만들고 대화형 콘솔을 제공합니다.
+1. `truffle-config.js`에 변경 내용을 저장합니다.
 
 ## <a name="connect-to-transaction-node"></a>트랜잭션 노드에 연결
 
-*Web3*을 사용하여 트랜잭션 노드에 연결합니다. *Web3* 연결 문자열은 Azure Portal에서 가져올 수 있습니다.
+*Web3*을 사용하여 트랜잭션 노드에 연결합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. Azure Blockchain Service 멤버로 이동합니다. **트랜잭션 노드**와 기본 트랜잭션 노드 링크를 선택합니다.
+1. Truffle 콘솔을 사용하여 기본 트랜잭션 노드에 연결합니다.
 
-    ![기본 트랜잭션 노드 선택](./media/connect-truffle/transaction-nodes.png)
-
-1. **샘플 코드 > Web3**를 선택합니다.
-1. **HTTPS(액세스 키 1)** 에서 JavaScript를 복사합니다. Truffle의 대화형 개발 콘솔에 대한 코드가 필요합니다.
-
-    ![Web3 코드](./media/connect-truffle/web3-code.png)
-
-1. 이전 단계의 JavaScript 코드를 Truffle 대화형 개발 콘솔에 붙여넣습니다. 이 코드는 Azure Blockchain Service 트랜잭션 노드에 연결되는 web3 개체를 만듭니다.
-
-    예제 출력:
-
-    ```bash
-    truffle(develop)> var Web3 = require("Web3");
-    truffle(develop)> var provider = new Web3.providers.HttpProvider("https://myblockchainmember.blockchain.azure.com:3200/hy5FMu5TaPR0Zg8GxiPwned");
-    truffle(develop)> var web3 = new Web3(provider);
+    ``` bash
+    truffle console --network defaultnode
     ```
+
+    Truffle은 기본 트랜잭션 노드에 연결되고 대화형 콘솔을 제공합니다.
 
     **web3** 개체에서 메서드를 호출하여 트랜잭션 노드와 상호 작용할 수 있습니다.
 
@@ -97,7 +112,7 @@ Truffle은 Azure Blockchain Service 노드에 연결할 때 사용할 수 있는
     예제 출력:
 
     ```bash
-    truffle(develop)> web3.eth.getBlockNumber();
+    truffle(defaultnode)> web3.eth.getBlockNumber();
     18567
     ```
 1. Truffle 개발 콘솔을 종료합니다.

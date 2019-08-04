@@ -1,5 +1,5 @@
 ---
-title: Application Insights, Node.js
+title: Application Insights, Node.js - LUIS
 titleSuffix: Azure Cognitive Services
 description: 이 자습서에서는 Application Insights 원격 분석 데이터 스토리지에 봇 및 Language Understanding 정보가 추가됩니다.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 06/16/2019
 ms.author: diberry
-ms.openlocfilehash: cfed5477df75350f24e77786117e85b9c728c49a
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 72ce681b6b0e4109151b987a5f8cc4bc050aafa0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657744"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563294"
 ---
 # <a name="add-luis-results-to-application-insights-from-a-bot-in-nodejs"></a>Node.js의 봇에서 Application Insights에 LUIS 결과 추가
 이 자습서에서는 [Application Insights](https://azure.microsoft.com/services/application-insights/) 원격 분석 데이터 스토리지에 봇 및 Language Understanding 정보가 추가됩니다. 해당 데이터가 있으면 Kusto 언어 또는 Power BI로 데이터를 쿼리하여 발화의 의도 및 엔터티를 실시간으로 분석, 집계 및 보고할 수 있습니다. 이 분석을 통해 LUIS 앱의 의도와 엔터티를 추가하거나 편집해야 할지 결정할 수 있습니다.

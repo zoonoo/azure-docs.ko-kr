@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 642abfb99b40d67802b7194ad225ebcd2872a72b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 24a3424a73fb21530f3cde227aa9f05f16bd6ad0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "67135074"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562429"
 ---
 # <a name="quickstart-create-a-unity-android-app-with-azure-spatial-anchors"></a>빠른 시작: Azure Spatial Anchors를 사용하여 Unity Android 앱 만들기
 
@@ -24,7 +24,6 @@ ms.locfileid: "67135074"
 > [!div class="checklist"]
 > * Spatial Anchors 계정 만들기
 > * Unity 빌드 설정 준비
-> * Unity용 ARCore SDK 다운로드 및 가져오기
 > * Spatial Anchors 계정 식별자 및 계정 키 구성
 > * Android Studio 프로젝트 내보내기
 > * Android 디바이스 배포 및 실행
@@ -35,11 +34,10 @@ ms.locfileid: "67135074"
 
 이 빠른 시작을 완료하려면 다음 항목이 있어야 합니다.
 
-- <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3+</a> 및 <a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.3+</a>가 있는 Windows 또는 macOS 머신.
+- Android 빌드 지원 및 Android SDK & NDK Tools 모듈과 <a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.4 이상</a>을 포함하는 <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.1 이상</a>이 설치된 Windows 또는 macOS 머신입니다.
   - Windows에서 실행하는 경우 <a href="https://git-scm.com/download/win" target="_blank">Git for Windows</a>도 필요합니다.
   - macOS에서 실행하는 경우 HomeBrew를 통해 Git이 설치됩니다. 터미널의 한 줄에 명령 `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`을 입력합니다. 그런 다음, `brew install git`을 실행합니다.
 - <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">개발자 사용</a> 및 <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">ARCore 지원</a> Android 디바이스.
-- 앱은 Unity용 ARCore SDK 버전 **1.7**을 사용해야 합니다.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
@@ -53,7 +51,7 @@ ms.locfileid: "67135074"
 
 ## <a name="configure-account-identifier-and-key"></a>계정 식별자 및 키 구성
 
-**프로젝트** 창에서 `Assets/AzureSpatialAnchorsPlugin/Examples`로 이동하여 `AzureSpatialAnchorsBasicDemo.unity` 장면 파일을 엽니다.
+**프로젝트** 창에서 `Assets/AzureSpatialAnchors.Examples/Scenes`로 이동하여 `AzureSpatialAnchorsBasicDemo.unity` 장면 파일을 엽니다.
 
 [!INCLUDE [Configure Unity Scene](../../../includes/spatial-anchors-unity-configure-scene.md)]
 
@@ -63,12 +61,13 @@ ms.locfileid: "67135074"
 
 [!INCLUDE [Export Unity Project](../../../includes/spatial-anchors-unity-export-project-snip.md)]
 
-**프로젝트 내보내기** 확인란에 확인 표시가 없는지 확인합니다. **빌드 및 실행**을 클릭합니다. `.apk` 파일을 저장하라는 메시지가 표시되면 이름을 선택할 수 있습니다.
+**디바이스 실행**에서 디바이스를 선택하고 **빌드 및 실행**을 클릭합니다. 이름을 선택할 수 있는 `.apk` 파일을 저장하라는 메시지가 표시됩니다.
 
 앱의 지침에 따라 앵커를 배치하고 회수합니다.
 
-> [!NOTE]
-> 앱 실행 시 백그라운드로 카메라가 보이지 않으면(대신 공백, 파랑 또는 기타 질감 등이 보이면) Unity에서 자산을 다시 가져와야 할 가능성이 높습니다. 앱을 중지합니다. Unity의 맨 위 메뉴에서 **자산 -> 모두 다시 가져오기**를 선택합니다. 그런 다음, 앱을 다시 실행합니다.
+## <a name="troubleshooting"></a>문제 해결
+
+앱 실행 시 백그라운드로 카메라가 보이지 않으면(대신 공백, 파랑 또는 기타 질감 등이 보이면) Unity에서 자산을 다시 가져와야 할 가능성이 높습니다. 앱을 중지합니다. Unity의 맨 위 메뉴에서 **자산 -> 모두 다시 가져오기**를 선택합니다. 그런 다음, 앱을 다시 실행합니다.
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 

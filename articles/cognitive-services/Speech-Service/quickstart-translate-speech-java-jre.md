@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 음성 변환, Java(Windows, Linux) - Speech Services'
+title: '빠른 시작: 음성 변환, Java(Windows, Linux) - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 사용자 음성을 캡처하고, 다른 언어로 변환하고, 명령줄에 텍스트를 출력하는 간단한 Java 애플리케이션을 만듭니다. 이 가이드는 Windows 및 Linux 사용자를 위해 설계되었습니다.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 68567e673cf6fb53b8d9b6f7b9ef96aee691ac3a
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: cbb86dd4b24cb325b8ea6708ebc2ffc89a697757
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604962"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553402"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-java"></a>빠른 시작: Java용 Speech SDK를 사용하여 음성 번역
 

@@ -4,7 +4,7 @@ titleSuffix: Azure
 description: 분석 및 기계 학습을 수행하기 위해 Azure에서 Linux 데이터 과학 Virtual Machine을 구성하고 만듭니다.
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
@@ -13,15 +13,15 @@ ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 03/16/2018
-ms.author: gokuma
-ms.openlocfilehash: e7b67905c96495382536555b87772e4eefada250
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: vijetaj
+ms.openlocfilehash: 50dd51cc204a6a22d14873114ba6d98e2a174251
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60502333"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68592003"
 ---
 # <a name="provision-a-linux-centos-data-science-virtual-machine-on-azure"></a>Azure에서 Linux CentOS 데이터 과학 Virtual Machine 프로비전
 
@@ -154,7 +154,7 @@ Python 3.5는 */anaconda/envs/py35/bin*에 설치됩니다.
 
 Python 대화형 세션을 호출하려는 경우 셸에 **python** 만 입력하면 됩니다. 그래픽 인터페이스를 사용 중이거나 X11 전달이 설정된 경우 **pycharm**을 입력하면 PyCharm Python IDE를 시작할 수 있습니다.
 
-추가 Python 라이브러리를 설치하려면 sudo에서 ```conda``` 또는 ```pip``` 명령을 실행하고 Python 패키지 관리자(conda 또는 pip)의 전체 경로를 제공하여 올바른 Python 환경을 설치해야 합니다. 예를 들면 다음과 같습니다.
+추가 Python 라이브러리를 설치하려면 sudo에서 ```conda``` 또는 ```pip``` 명령을 실행하고 Python 패키지 관리자(conda 또는 pip)의 전체 경로를 제공하여 올바른 Python 환경을 설치해야 합니다. 예:
 
     sudo /anaconda/bin/pip install <package> #pip for Python 2.7
     sudo /anaconda/envs/py35/bin/pip install <package> #pip for Python 3.5
@@ -198,7 +198,7 @@ Microsoft R Server에서 Spark 컨텍스트를 실행하기 전에 로컬 단일
     chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
     systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
 
-Hadoop을 중지할 수 있습니다 실행 하 여 필요 하지 않을 때 서비스 관련 ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn``` 개발 및 원격 Spark 컨텍스트 (DSVM의 독립 실행형 Spark 인스턴스)에서 MRS를 테스트 하는 방법을 보여주는 샘플은 제공 되 고 사용 가능한는 `/dsvm/samples/MRS` 디렉터리입니다. 
+필요하지 않을 때 ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```을 실행하여 서비스와 관련된 Hadoop을 중지할 수 있습니다. 원격 Spark 컨텍스트(DSVM의 독립 실행형 Spark 인스턴스)에서 MRS를 개발 및 테스트하는 방법을 보여주는 샘플은 `/dsvm/samples/MRS` 디렉터리에서 제공되고 사용할 수 있습니다. 
 
 ### <a name="ides-and-editors"></a>IDE 및 편집기
 여러 코드 편집기 중에서 선택할 수 있습니다. vi/VIM, Emacs, gEdit, PyCharm, RStudio, Eclipse 및 IntelliJ를 포함합니다. gEdit, Eclipse, IntelliJ, RStudio 및 PyCharm은 그래픽 편집기이며 그래픽 데스크톱에 로그인해야 사용할 수 있습니다. 이러한 편집기는 데스크톱 및 애플리케이션 바로 가기 메뉴를 사용하여 시작할 수 있습니다.
@@ -255,7 +255,7 @@ R 및 Python에는 데이터베이스에 액세스하는 데 사용할 수 있�
 다음 Azure 도구가 VM에 설치됩니다.
 
 * **Azure 명령줄 인터페이스**: Azure CLI를 사용하여 셸 명령을 통해 Azure 리소스를 만들고 관리할 수 있습니다. Azure 도구를 호출하려는 경우 **azure help**만 입력하면 됩니다. 자세한 내용은 [Azure CLI 설명서 페이지](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)를 참조하세요.
-* **Microsoft Azure Storage 탐색기**: Microsoft Azure Storage Explorer는 Azure tmxhflwl 계정에 저장한 개체를 찾아보고, Azure Blob에서 데이터를 업로드 및 다운로드하는 데 사용되는 그래픽 도구입니다. 바탕 화면 바로 가기 아이콘을 사용하여 Storage Explorer에 액세스할 수 있습니다. **StorageExplorer**를 입력하면 셸 프롬프트에서 Storage Explorer를 호출할 수 있습니다. 이렇게 하려면 X2Go 클라이언트에서 로그인하거나 X11 전달을 설정해야 합니다.
+* **Microsoft Azure Storage Explorer**: Microsoft Azure Storage Explorer는 Azure tmxhflwl 계정에 저장한 개체를 찾아보고, Azure Blob에서 데이터를 업로드 및 다운로드하는 데 사용되는 그래픽 도구입니다. 바탕 화면 바로 가기 아이콘을 사용하여 Storage Explorer에 액세스할 수 있습니다. **StorageExplorer**를 입력하면 셸 프롬프트에서 Storage Explorer를 호출할 수 있습니다. 이렇게 하려면 X2Go 클라이언트에서 로그인하거나 X11 전달을 설정해야 합니다.
 * **Azure 라이브러리**: 아래에는 사전 설치된 라이브러리 중 몇 가지가 나와 있습니다.
   
   * **Python**: Python으로 작성된 Azure 관련 라이브러리 **azure**, **azureml**, **pydocumentdb** 및 **pyodbc**가 설치되어 있습니다. 처음 세 개의 라이브러리를 사용하면 Azure Storage 서비스, Azure Machine Learning 및 Azure Cosmos DB(Azure의 NoSQL 데이터베이스)에 액세스할 수 있습니다. 네 번째 라이브러리인 pyodbc를 SQL Serve용 Microsoft ODBC 드라이버와 함께 사용하면 ODBC 인터페이스를 사용하여 Python에서 SQL Server, Azure SQL Database 및 Azure SQL Data Warehouse에 액세스할 수 있습니다. **pip list** 를 입력하면 나열된 라이브러리를 모두 확인할 수 있습니다. Python 2.7 및 3.5 환경 모두에서 이 명령을 실행해야 합니다.
@@ -376,6 +376,6 @@ Rattle을 실행하려면 그래픽 데스크톱 로그인 세션을 사용 중�
 
 * [Linux 데이터 과학 Virtual Machine의 데이터 과학](linux-dsvm-walkthrough.md) 연습은 여기에 프로비전된 Linux 데이터 과학을 사용하여 여러 가지 일반적인 데이터 과학 작업을 수행하는 방법을 보여 줍니다. 
 * 이 문서에 설명된 도구를 사용하여 데이터 과학 VM에서 다양한 데이터 과학 도구를 살펴봅니다. 가상 머신 내의 셸에서 *dsvm-more-info* 를 실행하여 VM에 설치된 도구에 대한 기본 소개 및 자세한 내용을 참조할 수도 있습니다.  
-* [팀 데이터 과학 프로세스](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)를 사용하여 종단 간 분석 솔루션을 체계적으로 구축하는 방법을 알아봅니다.
+* [팀 데이터 과학 프로세스](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)를 사용하여 엔드투엔드 분석 솔루션을 체계적으로 빌드하는 방법을 알아봅니다.
 * [Cortana 분석 갤러리](https://gallery.cortanaanalytics.com) 를 방문하여 Cortana 분석 Suite을 사용하는 기계 학습 및 데이터 분석 샘플을 확인합니다.
 

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
 manager: femila
-ms.openlocfilehash: 9037c7b5498a5e0a37b05e5ee09891bf8066393d
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 3cfbbdc5b95d1607738b132980320d2ff7c99788
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417493"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698393"
 ---
 # <a name="tutorial-send-transactions-using-azure-blockchain-service"></a>자습서: Azure Blockchain Service를 사용하여 트랜잭션 보내기
 
@@ -52,7 +52,7 @@ ms.locfileid: "66417493"
 
     | 설정 | 값 | 설명 |
     |---------|-------|-------------|
-    | 이름 | `alpha` | 트랜잭션 노드 이름입니다. 트랜잭션 노드 엔드포인트에 대한 DNS 주소를 만드는 데 사용됩니다. 예: `alpha-mymanagedledger.blockchain.azure.com` |
+    | Name | `alpha` | 트랜잭션 노드 이름입니다. 트랜잭션 노드 엔드포인트에 대한 DNS 주소를 만드는 데 사용됩니다. 예: `alpha-mymanagedledger.blockchain.azure.com` |
     | 암호 | 강력한 암호 | 기본 인증을 사용 하여 트랜잭션 노드 엔드포인트에 액세스하는 데 사용됩니다.
 
 1. **만들기**를 선택합니다.
@@ -72,30 +72,17 @@ ms.locfileid: "66417493"
     cd truffledemo
     ```
 
-1. Truffle의 대화형 개발 콘솔을 시작합니다.
+1. Truffle 콘솔을 사용하여 기본 트랜잭션 노드에 연결합니다.
 
     ``` bash
-    truffle develop
+    truffle console --network defaultnode
     ```
 
-    Truffle이 로컬 개발 블록체인을 만들고 대화형 콘솔을 제공합니다.
+    Truffle은 기본 트랜잭션 노드에 연결되고 대화형 콘솔을 제공합니다.
 
 ## <a name="create-ethereum-account"></a>Ethereum 계정 만들기
 
-Web3를 사용하여 기본 트랜잭션 노드에 연결하고 Ethereum 계정을 만듭니다. Web3 연결 문자열은 Azure Portal에서 가져올 수 있습니다.
-
-1. Azure Portal에서 기본 트랜잭션 노드로 이동하여 **트랜잭션 노드 > 샘플 코드 > Web3**을 차례로 선택합니다.
-1. **HTTPS(액세스 키 1)** 에서 JavaScript를 복사합니다. ![Web3 샘플 코드](./media/send-transaction/web3-code.png)
-
-1. 기본 트랜잭션 노드에 대한 Web3 JavaScript 코드를 Truffle 대화형 개발 콘솔에 붙여넣습니다. 이 코드는 Azure Blockchain Service 트랜잭션 노드에 연결되는 Web3 개체를 만듭니다.
-
-    ```bash
-    truffle(develop)> var Web3 = require("Web3");
-    truffle(develop)> var provider = new Web3.providers.HttpProvider("https://myblockchainmember.blockchain.azure.com:3200/hy5FMu5TaPR0Zg8GxiPwned");
-    truffle(develop)> var web3 = new Web3(provider);
-    ```
-
-    Web3 개체에서 메서드를 호출하여 트랜잭션 노드와 상호 작용할 수 있습니다.
+Web3를 사용하여 기본 트랜잭션 노드에 연결하고 Ethereum 계정을 만듭니다. Web3 개체에서 메서드를 호출하여 트랜잭션 노드와 상호 작용할 수 있습니다.
 
 1. 새 계정을 기본 트랜잭션 노드에 만듭니다. 암호 매개 변수를 사용자 고유의 강력한 암호로 바꿉니다.
 
@@ -159,21 +146,21 @@ Truffle 프로젝트를 구성하려면 Azure Portal의 일부 트랜잭션 노�
           })(),
     
           network_id: "*",
-          gas: 0,
           gasPrice: 0,
           from: myAccount
         },
         alpha: {
           provider: new Web3.providers.HttpProvider(alpha),
           network_id: "*",
-          gas: 0,
-          gasPrice: 0
         },
         beta: {
           provider: new Web3.providers.HttpProvider(beta),
           network_id: "*",
-          gas: 0,
-          gasPrice: 0
+        }
+      },
+      compilers: {
+        solc: {
+          evmVersion: "byzantium"
         }
       }
     }

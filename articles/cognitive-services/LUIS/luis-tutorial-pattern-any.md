@@ -1,5 +1,5 @@
 ---
-title: Pattern.any 엔터티
+title: Pattern.any 엔터티 - LUIS
 titleSuffix: Azure Cognitive Services
 description: pattern.any 엔터티를 사용하여 발화가 올바른 형식이고 데이터의 끝이 발화의 나머지 단어와 쉽게 혼동될 수 있는 발화에서 데이터를 추출합니다.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 06/12/2019
 ms.author: diberry
-ms.openlocfilehash: 6007f88af4d1049a87851b3808c66693173a648a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 165163d0a889e0bd5f1faef8d7f6a17d28c2b4f7
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67069240"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563272"
 ---
 # <a name="tutorial-extract-free-form-data-with-patternany-entity"></a>자습서: Pattern.any 엔터티를 사용하여 자유 형식 데이터 추출
 
@@ -94,7 +94,7 @@ Pattern.any 엔터티는 다양한 길이의 엔터티를 추출합니다. 패�
 
 1. 왼쪽 탐색에서 **엔터티**를 선택합니다.
 
-1. **새 엔터티 만들기**를 선택하고 이름 `FormName`을 입력한 후 형식으로 **Pattern.any**를 선택합니다. **완료**를 선택합니다. 
+1. **새 엔터티 만들기**를 선택하고 이름 `FormName`을 입력한 후 형식으로 **Pattern.any**를 선택합니다. **완료** 를 선택합니다. 
 
     Pattern.any는 한 패턴에서만 유효하므로 의도적인 예를 표현하여 엔터티에 레이블을 지정할 수 없습니다. 
 

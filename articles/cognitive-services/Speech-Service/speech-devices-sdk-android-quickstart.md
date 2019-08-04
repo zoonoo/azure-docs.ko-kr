@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Android에서 Speech Devices SDK 실행 - Speech Services'
+title: '빠른 시작: Android에서 Speech Devices SDK 실행 - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: Android Speech Devices SDK를 시작하기 위한 필수 구성 요소 및 지침입니다.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 7eea978456ed565f8fc58647dc548d1a7bc76b27
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: f7039b525cf0d52670b8d76a24d8ec3ea5115772
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606374"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559116"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-android"></a>빠른 시작: Android에서 Speech Devices SDK 샘플 앱 실행
 

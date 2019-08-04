@@ -1,6 +1,6 @@
 ---
-title: 변경, 학습 앱, C#
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 변경, 학습 앱, C# - LUIS
+titleSuffix: Azure Cognitive Services
 description: C# 빠른 시작에서는 Home Automation 앱에 예제 발언을 추가하여 앱을 학습시킵니다.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: d44877e35687745ddba51d4d015729e62106c9ca
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 55251a553921e947e7c6522677e51e4eb1d3fa5b
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348441"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619961"
 ---
 # <a name="quickstart-change-model-using-c"></a>빠른 시작: C#을 사용하여 모델 변경
 
@@ -115,7 +115,7 @@ LUIS ID 및 문자열을 **프로그램** 클래스에 추가합니다.
 
 ### <a name="copy-utterancesjson-to-output-directory"></a>utterances.json을 출력 디렉터리에 복사
 
-솔루션 탐색기에서 솔루션 탐색기의 프로젝트 이름을 마우스 오른쪽 단추로 클릭한 다음, **추가**, **기존 항목**을 차례로 선택하여 `utterances.json`을 추가합니다. `utterances.json` 파일을 선택합니다. 해당 파일이 프로젝트에 추가됩니다. 그런 다음, 파일을 출력 방향으로 추가해야 합니다. `utterances.json`을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다. 속성 창에서 `Content`의 **빌드 작업** 및 `Copy Always`의 **출력 디렉터리에 복사**를 표시합니다.  
+솔루션 탐색기에서 솔루션 탐색기의 프로젝트 이름을 마우스 오른쪽 단추로 클릭한 다음, **추가**, **기존 항목**을 차례로 선택하여 `utterances.json`을 추가합니다. `utterances.json` 파일을 선택합니다. 해당 파일이 프로젝트에 추가됩니다. 그런 다음, 파일을 출력 디렉터리에 추가해야 합니다. `utterances.json`을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다. 속성 창에서 `Content`의 **빌드 작업** 및 `Copy Always`의 **출력 디렉터리에 복사**를 표시합니다.  
 
 ![JSON 파일을 콘텐츠로 표시](./media/luis-quickstart-cs-add-utterance/content-properties.png)
 

@@ -16,12 +16,12 @@ ms.date: 03/28/2019
 ms.author: cephalin
 ms.reviewer: astay; kraigb
 ms.custom: seodec18
-ms.openlocfilehash: 95a848ff7d74d35203c7e8377405c709f7fc7bd7
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 222ded620610957e752e2081bda638d78eba4867
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67617386"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619447"
 ---
 # <a name="configure-a-linux-ruby-app-for-azure-app-service"></a>Azure App Service용 Linux Ruby 앱 구성
 

@@ -12,12 +12,12 @@ ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecff60d1a1f808c4021476d136fe014175451672
-ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
+ms.openlocfilehash: c890288539a8abebe688ca4571ffa6c152e992ee
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67723972"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68694052"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>자습서: Azure Active Directory에서 애플리케이션 프록시를 통한 원격 액세스를 위해 온-프레미스 애플리케이션 추가
 
@@ -85,8 +85,6 @@ TLS 1.2를 사용하도록 설정하려면:
    | 443 | 애플리케이션 프록시 서비스와의 모든 아웃바운드 통신 |
 
 방화벽이 원래 사용자에 따라 트래픽에 적용되는 경우 네트워크 서비스로 실행하는 Windows 서비스의 트래픽에 대해 80 및 443 포트를 엽니다.
-
-애플리케이션 프록시를 이미 사용 중인 경우 이전 버전의 커넥터가 설치되었을 수 있습니다. 이 자습서에 따라 최신 버전의 커넥터를 설치합니다. 1\.5.132.0 이전 버전에는 다음 포트가 열려있어야 합니다. 5671, 8080, 9090-9091, 9350, 9352, 10100–10120.
 
 ### <a name="allow-access-to-urls"></a>URL에 대한 액세스 허용
 
@@ -180,7 +178,7 @@ Azure Portal 또는 Windows Server를 사용하여 새 커넥터가 올바르게
 
     | 필드 | 설명 |
     | :---- | :---------- |
-    | **백 엔드 애플리케이션 시간 제한** | 애플리케이션의 인증 및 연결 속도가 느린 경우에만 이 값을 **Long**으로 설정합니다. |
+    | **백 엔드 애플리케이션 시간 제한** | 애플리케이션의 인증 및 연결 속도가 느린 경우에만 이 값을 **Long**으로 설정합니다. 기본적으로 백 엔드 애플리케이션 시간 제한의 길이는 85초입니다. 길게 설정하면 백 엔드 시간 제한이 180초로 증가합니다. |
     | **HTTP 전용 쿠키 사용** | Application Proxy 쿠키가 HTTP 응답 헤더에 HTTPOnly 플래그를 포함하도록 하려면 이 값을 **예**로 설정합니다. 원격 데스크톱 서비스를 사용하는 경우 이 값을 **아니요**로 설정합니다.|
     | **보안 쿠키 사용**| 이 값을 **예**로 설정하여 암호화된 HTTPS 요청과 같이 보안 채널을 통해 쿠키를 전송합니다.
     | **영구적 쿠키 사용**| **아니요**로 설정된 이 값을 유지합니다. 이 설정은 프로세스 간에 쿠키를 공유할 수 없는 애플리케이션에만 사용합니다. 쿠키 설정에 대한 자세한 내용은 [Azure Active Directory에서 온-프레미스 애플리케이션에 액세스하기 위한 쿠키 설정](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-cookie-settings)을 참조하세요.

@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 사용자 지정 음성 우선 가상 도우미(미리 보기), Java(Android) - Speech Services'
+title: '빠른 시작: 사용자 지정 음성 우선 가상 도우미(미리 보기), Java(Android) - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: Speech SDK를 사용하여 Android에서 Java로 음성 우선 가상 도우미 애플리케이션을 만드는 방법을 알아봅니다.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: travisw
-ms.openlocfilehash: c62402faa1995e1e992c8251ed87160a8f33d3a7
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 1c203bb39a90fdb1c77c3a2c844318a748df7c63
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67602740"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559207"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-in-java-on-android-by-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 Android에서 Java로 음성 우선 가상 도우미 만들기
 

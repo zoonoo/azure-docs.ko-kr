@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 텍스트-음성 변환 음성 나열, Python - Speech Services'
+title: '빠른 시작: 텍스트 음성 변환 음성 나열, Python - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Python을 사용하여 지역/엔드포인트에 대한 표준 음성 및 인공신경망 음성의 전체 목록을 가져오는 방법을 알아봅니다. 목록은 JSON으로 반환되며 음성 가용성은 지역에 따라 다릅니다.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 46595cdf665158d019c9b6def19ff6609db803bc
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: ac96c3ce3924b8b2fe834e2b350e95ce23c52e1f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67602983"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559349"
 ---
 # <a name="quickstart-get-the-list-of-text-to-speech-voices-using-python"></a>빠른 시작: Python을 사용하여 텍스트-음성 변환 음성 목록 가져오기
 

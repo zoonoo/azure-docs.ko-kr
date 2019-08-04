@@ -10,20 +10,19 @@ ms.topic: quickstart
 author: sachinpMSFT
 ms.author: ninarn
 ms.reviewer: carlrab, sstein
-manager: craigg
-ms.date: 04/23/2019
-ms.openlocfilehash: 470dca235b9a3212c09052f7535fa90d076fe4d3
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.date: 07/29/2019
+ms.openlocfilehash: f9c2ed77075affdfdf464dbf8a468629fc2e610d
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444432"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640057"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal-powershell-and-azure-cli"></a>빠른 시작: Azure Portal, PowerShell 및 Azure CLI를 사용하여 Azure SQL Database에서 단일 데이터베이스를 만듭니다.
 
 Azure SQL Database에서 데이터베이스를 만드는 가장 쉽고 빠른 방법은 [단일 데이터베이스](sql-database-single-database.md)를 만드는 것입니다. 이 빠른 시작에서는 Azure Portal을 사용하여 단일 데이터베이스를 만들고 쿼리하는 방법을 보여줍니다.
 
-Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azure.microsoft.com/free/).
+Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azure.microsoft.com/free/). 
 
 이 빠른 시작에서 모든 단계의 경우 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
@@ -37,7 +36,7 @@ Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azu
 단일 데이터베이스를 만들 때 지정된 Azure 지역의 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 내에서 데이터베이스를 관리 및 배치하기 위한 [SQL Database 서버](sql-database-servers.md)도 정의합니다.
 
 > [!NOTE]
-> 이 빠른 시작에서는 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)과 [서버리스](sql-database-serverless.md) 컴퓨팅 계층을 사용하지만 [DTU 기반 구매 모델](sql-database-service-tiers-DTU.md)도 사용할 수 있습니다.
+> 이 빠른 시작에서는 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 사용하지만 [DTU 기반 구매 모델](sql-database-service-tiers-DTU.md)도 사용할 수 있습니다.
 
 AdventureWorksLT 샘플 데이터를 포함하는 단일 데이터베이스를 만드는 방법은 다음과 같습니다.
 

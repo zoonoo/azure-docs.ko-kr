@@ -1,21 +1,21 @@
 ---
 title: Azure 빠른 시작 - Azure CLI를 사용하여 VM 백업
 description: Azure CLI를 사용하여 가상 머신을 백업하는 방법을 알아봅니다.
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/31/2019
-ms.author: raynew
+ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 1d431cceee80175710f339e4734972340ed3469d
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 21178c3b8555879f13686164a4eee922997933dd
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467245"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688485"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>CLI를 사용하여 Azure에서 가상 머신 백업
 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure CLI가 사용됩니다. 정기적으로 백업을 수행하여 데이터를 보호할 수 있습니다. Azure Backup은 지역 중복 복구 자격 증명 모음에 저장될 수 있는 복구 지점을 만듭니다. 이 문서에서는 Azure CLI를 사용하여 Azure에서 VM(가상 머신)을 백업하는 방법을 자세히 설명합니다. [Azure PowerShell](quick-backup-vm-powershell.md)을 사용하거나 [Azure Portal](quick-backup-vm-portal.md)에서 이 단계를 수행할 수도 있습니다.
@@ -73,6 +73,9 @@ az backup protection enable-for-vm \
     --vm $(az vm show -g VMResourceGroup -n MyVm --query id | tr -d '"') \
     --policy-name DefaultPolicy
 ```
+
+> [!IMPORTANT]
+> CLI를 사용하여 한 번에 여러 VM에 대한 백업을 사용하도록 설정하는 동안 단일 정책에 100개가 넘는 VM이 연결되어 있지 않은지 확인합니다. 이는 [권장 모범 사례](https://docs.microsoft.com/azure/backup/backup-azure-vm-backup-faq#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-a-same-backup-policy)입니다. VM이 100개를 넘는 경우 지금은 PS 클라이언트가 명시적으로 차단하고 있진 않지만 향후 확인 절차를 추가하고자 합니다.
 
 ## <a name="start-a-backup-job"></a>백업 작업 시작
 예약된 시간에 작업을 실행하는 기본 정책을 대기하지 않고 지금 백업을 시작하려면 [az backup protection backup-now](https://docs.microsoft.com/cli/azure/backup/protection#az-backup-protection-backup-now)를 사용합니다. 이 첫 번째 백업 작업에서 전체 복구 지점이 생성됩니다. 이 초기 백업 후에 각 백업 작업에서 증분 복구 지점이 생성됩니다. 증분 복구 지점은 마지막 백업 이후 변경된 내용만을 전송하기 때문에 저장소 및 시간 효율적입니다.

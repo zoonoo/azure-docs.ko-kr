@@ -4,7 +4,7 @@ titleSuffix: Azure
 description: 분석 및 기계 학습을 수행하기 위해 Azure에서 데이터 과학 Virtual Machine 구성 및 만들기
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
@@ -12,15 +12,15 @@ ms.service: machine-learning
 ms.subservice: data-science-vm
 ms.workload: data-services
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/22/2019
-ms.author: gokuma
-ms.openlocfilehash: 57768fc463f5ea1d2f1ec386f3f0975758220013
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.author: vijetaj
+ms.openlocfilehash: dfb3e9f6390d4c80b8f3c37b87f2659c671fa823
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67626390"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68591830"
 ---
 # <a name="provision-a-windows-data-science-virtual-machine-on-azure"></a>Azure에서 Windows 데이터 과학 Virtual Machine 프로비전
 
@@ -69,7 +69,7 @@ DSVM을 사용하면 분석 프로젝트가 바로 시작됩니다. R, Python, S
 * [Linux CentOS](linux-dsvm-intro.md) 이미지.
 * Data Science Virtual Machine의 [Windows Server 2012 버전](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows)입니다. 몇 가지 도구는 Windows Server 2016 버전에서만 사용할 수 있습니다. 그렇지 않은 경우 이 문서는 Windows Server 2012 버전에도 적용됩니다.
 
-## <a name="prerequisite"></a>필수 조건
+## <a name="prerequisite"></a>필수 요소
 
 Microsoft Data Science Virtual Machine를 만들려면 Azure 구독이 있어야 합니다. [Azure 평가판](https://azure.com/free)을 참조하세요.
 
@@ -106,7 +106,7 @@ DSVM 인스턴스를 만들려면
 
 VM이 만들어지고 프로비전되면 앞의 **기본 사항** 섹션에서 구성한 관리자 계정 자격 증명을 사용하여 원격 데스크톱에 연결할 수 있습니다. VM에 설치되고 구성된 도구를 사용할 준비가 되었습니다. 대부분의 도구에는 시작 메뉴 타일과 바탕 화면 아이콘을 통해 액세스할 수 있습니다.
 
-또한 Azure VM에서 Jupyter notebook을 실행 하 여 무료 서비스 계층의 제한 사항을 무시 하는 Notebook에는 데이터 과학 VM을 연결할 수 있습니다. 자세한 내용은 [관리 Notebook 프로젝트-계산 계층을 구성 하 고](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier)입니다.
+또한 Azure Notebooks에 Data Science VM을 연결하여 VM에서 Jupyter Notebooks를 실행하고 무료 서비스 계층의 제한을 무시할 수 있습니다. 자세한 내용은 [Notebooks 프로젝트 관리 및 구성 - 컴퓨팅 계층](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier)을 참조하세요.
 
 ## <a name="tools-installed-on-the-microsoft-data-science-virtual-machine"></a>Microsoft 데이터 과학 Virtual Machine에 설치된 도구
 

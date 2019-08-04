@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: 9800848b24523a0eb5992e64ce1580cc53b0e3a0
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: a24159a482c55496bb1e6031be951196258a6796
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182751"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565470"
 ---
 이제 Azure Portal에서 데이터 탐색기 도구를 사용하여 그래프 데이터베이스를 만들 수 있습니다. 
 
@@ -28,8 +28,8 @@ ms.locfileid: "67182751"
     설정|제안 값|설명
     ---|---|---
     데이터베이스 ID|sample-database|새 데이터베이스의 이름으로 *sample-database*를 입력합니다. 데이터베이스 이름은 1~255자 사이여야 하며 `/ \ # ?` 또는 후행 공백을 포함할 수 없습니다.
-    그래프 ID|sample-graph|새 컬렉션의 이름으로 *sample-graph*를 입력입니다. 그래프 이름은 데이터베이스 ID와 동일한 문자 요구 사항을 갖습니다.
-    저장소 용량|고정(10GB)|기본값인 **고정(10GB)** 으로 둡니다. 이 값은 데이터베이스의 저장소 용량입니다.
     처리량|400RU|처리량을 400RU/s(초당 요청 단위)로 변경합니다. 대기 시간을 줄이면 나중에 처리량을 늘릴 수 있습니다.
+    그래프 ID|sample-graph|새 컬렉션의 이름으로 *sample-graph*를 입력입니다. 그래프 이름은 데이터베이스 ID와 동일한 문자 요구 사항을 갖습니다.
+    Partition Key| /pk |모든 Cosmos DB 계정에는 수평 확장을 위한 파티션 키가 필요합니다. [그래프 데이터 분할 문서](https://docs.microsoft.com/azure/cosmos-db/graph-partitioning)에서 적절한 파티션 키를 선택하는 방법에 대해 알아봅니다.
 
 3. 양식을 작성한 후 **확인**을 클릭합니다.

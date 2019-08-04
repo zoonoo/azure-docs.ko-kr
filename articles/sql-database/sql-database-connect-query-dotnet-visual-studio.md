@@ -10,14 +10,13 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 7870322746d8cb647547e5c85036579611ac3292
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 4472ff10c42cd9163693e7316b6bdaef50258db6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66303316"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569235"
 ---
 # <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-an-azure-sql-database"></a>빠른 시작: Visual Studio에서 .NET과 C#을 사용하여 Azure SQL 데이터베이스 연결 및 쿼리
 
@@ -143,7 +142,7 @@ Azure SQL 데이터베이스에 연결하는 데 필요한 연결 정보를 가�
 - [명령줄을 사용하여 Windows/Linux/macOS에서 .NET Core를 시작하는 방법](/dotnet/core/tutorials/using-with-xplat-cli)을 알아봅니다.
 - [SSMS를 사용하여 첫 번째 Azure SQL 데이터베이스를 설계하는 방법](sql-database-design-first-database.md) 또는 [.NET을 사용하여 첫 번째 Azure SQL 데이터베이스를 설계하는 방법](sql-database-design-first-database-csharp.md)을 알아봅니다.
 - .NET에 대한 자세한 내용은 [.NET 설명서](https://docs.microsoft.com/dotnet/)를 참조하세요.
-- 재시도 로직 예제: [ADO.NET으로 SQL에 탄력적으로 연결][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+- 재시도 로직 예제: [ADO.NET으로 SQL에 탄력적으로 연결][step-4-connect-resiliently-to-sql-with-ado-net-a78n]합니다.
 
 
 <!-- Link references. -->

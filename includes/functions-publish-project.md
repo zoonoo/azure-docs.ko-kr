@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 48bb91b3b2e9a31de63e515edb857bc2a170ea79
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: fbb537c9584c948af37694b3bfc77a7c345e084d
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67181988"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639140"
 ---
 ## <a name="deploy-the-function-app-project-to-azure"></a>함수 앱 프로젝트를 Azure에 배포
 
@@ -39,4 +39,4 @@ Functions in myfunctionapp:
         Invoke url: https://myfunctionapp.azurewebsites.net/api/httptrigger?code=cCr8sAxfBiow548FBDLS1....
 ```
 
-이제 Azure에서 함수를 테스트하는 데 사용할 수 있는 프로그램 HttpTrigger의 호출 URL 값을 복사합니다. 이 URL에는 함수 키인 `code` 쿼리 문자열 값이 포함되어 있습니다. 이 키는 다른 사람이 Azure에서 HTTP 트리거 엔드포인트를 호출하기 어렵게 만듭니다.
+이제 Azure에서 함수를 테스트하는 데 사용할 수 있는 `HttpTrigger`의 `Invoke url` 값을 복사합니다. 이 URL에는 함수 키인 `code` 쿼리 문자열 값이 포함되어 있습니다. 이 키는 다른 사람이 Azure에서 HTTP 트리거 엔드포인트를 호출하기 어렵게 만듭니다.

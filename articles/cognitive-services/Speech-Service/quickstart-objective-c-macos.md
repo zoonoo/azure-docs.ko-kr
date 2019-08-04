@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 음성 인식, Objective-C - Speech Services'
+title: '빠른 시작: 음성 인식, Objective-C - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: Speech SDK를 사용하여 macOS에서 Objective-C로 음성을 인식하는 방법을 알아봅니다.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 25f341d167cecd765fd89d9286708d0bd8df6dd2
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 45cd1210ee6af3c456171a427729f6e16caf2d58
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603027"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559359"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-macos-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 macOS에서 Objective-C로 음성 인식
 
@@ -67,7 +67,8 @@ Xcode를 시작하고, **파일** > **새로 만들기** > **프로젝트**를 �
 ## <a name="install-the-sdk-as-a-cocoapod"></a>CocoaPod로 SDK 설치
 
 1. 해당 [설치 지침](https://guides.cocoapods.org/using/getting-started.html)에 설명된 대로 CocoaPod 종속성 관리자를 설치합니다.
-1. 샘플 앱이 있는 디렉터리(`helloworld`)로 이동합니다. 해당 디렉터리에 이름이 `Podfile`인 텍스트 파일 및 다음과 같은 콘텐츠를 배치합니다. [!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-macos/helloworld/Podfile)]
+1. 샘플 앱이 있는 디렉터리(`helloworld`)로 이동합니다. 해당 디렉터리에 이름이 `Podfile`인 텍스트 파일 및 다음과 같은 콘텐츠를 배치합니다.  
+   [!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-macos/helloworld/Podfile)]
 1. 터미널에서 `helloworld` 디렉터리로 이동해 `pod install` 명령을 실행합니다. 이렇게 하면 종속성으로 샘플 앱 및 Speech SDK가 모두 포함되는 `helloworld.xcworkspace` Xcode 작업 영역이 생성됩니다. 이 작업 영역은 다음에서 사용됩니다.
 
 ## <a name="add-the-sample-code"></a>샘플 코드 추가

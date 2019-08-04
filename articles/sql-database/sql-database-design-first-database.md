@@ -8,13 +8,13 @@ ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
-ms.date: 02/08/2019
-ms.openlocfilehash: bbd009d127eecc4df357fc1073ba4055d13a8b2c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 07/29/2019
+ms.openlocfilehash: c6ad1cd7af02f281c53ece23a018f8b5ec0c7da9
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569018"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640946"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-using-ssms"></a>자습서: SSMS를 사용하여 Azure SQL Database 내에서 단일 데이터베이스의 관계형 데이터베이스 디자인
 
@@ -30,6 +30,8 @@ Azure SQL 데이터베이스는 Microsoft Cloud(Azure)의 관계형 DBaaS(Databa
 
 *Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
+> [!TIP]
+> 다음 Microsoft Learn 모듈을 사용하면 간단한 데이터베이스 생성을 포함하여 [Azure SQL Database를 쿼리하는 ASP.NET 애플리케이션을 개발하고 구성](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/)하는 방법을 무료로 배울 수 있습니다.
 > [!NOTE]
 > 이 자습서에서는 단일 데이터베이스를 사용하고 있습니다. 탄력적 풀의 풀링된 데이터베이스를 사용하거나 관리되는 인스턴스의 인스턴스 데이터베이스를 사용할 수도 있습니다. 관리되는 인스턴스에 대한 연결은 관리되는 인스턴스 빠른 시작을 참조하세요. [빠른 시작: Azure SQL Database Managed Instance에 연결하도록 Azure VM 구성](sql-database-managed-instance-configure-vm.md) 및 [빠른 시작: 온-프레미스에서 Azure SQL Database Managed Instance로의 지점 및 사이트 간 연결 구성](sql-database-managed-instance-configure-p2s.md)을 참조하세요.
 

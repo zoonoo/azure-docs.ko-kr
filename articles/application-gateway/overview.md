@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 5/31/2019
 ms.author: victorh
-ms.openlocfilehash: e2e29bf0068fae5d6f4987ec5c3f2a52b883e4bd
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 5f7fd47a096ddd57150a466f85fabcfc2f7045d9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66418121"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564874"
 ---
 # <a name="what-is-azure-application-gateway"></a>Azure Application Gateway란?
 
@@ -111,7 +111,7 @@ AKS 클러스터 내에서 Pod로 실행되는 Application Gateway 수신 컨트
 
 Application Gateway를 사용하면 기본 오류 페이지를 표시하는 대신 사용자 지정 오류 페이지를 만들 수 있습니다. 사용자 지정 오류 페이지를 사용하여 자체 브랜딩과 레이아웃을 사용할 수 있습니다.
 
-자세한 내용은 [HTTP 헤더 다시 쓰기](rewrite-http-headers.md)를 참조하세요.
+자세한 내용은 [사용자 지정 오류](custom-error.md)를 참조하세요.
 
 ## <a name="rewrite-http-headers"></a>HTTP 헤더 다시 쓰기
 

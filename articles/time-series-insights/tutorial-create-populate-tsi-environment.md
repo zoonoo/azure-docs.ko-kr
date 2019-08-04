@@ -1,20 +1,20 @@
 ---
 title: '자습서: Azure Time Series Insights 환경 만들기 | Microsoft Docs'
-description: 시뮬레이션된 디바이스의 데이터로 채워진 Time Series Insights 환경을 만드는 방법을 알아봅니다.
+description: 자습서를 통해 시뮬레이션된 디바이스의 데이터로 채워진 Time Series Insights 환경을 만드는 방법을 알아봅니다.
 services: time-series-insights
 author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
-ms.date: 06/18/2019
+ms.date: 07/29/2019
 ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: 06a450c47c7264bdecb663c9f71e3a9753df5e1e
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 921528c50bae03b67800bf3ccab8b5cd9bb704f6
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273437"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677747"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>자습서: Azure Time Series Insights 환경 만들기
 
@@ -27,16 +27,18 @@ ms.locfileid: "67273437"
 > * 디바이스 시뮬레이션을 실행하여 데이터를 Time Series Insights 환경으로 스트림합니다.
 > * 시뮬레이션된 원격 분석 데이터를 확인합니다.
 
+> [!IMPORTANT]
+> 아직 Azure 구독이 없는 경우 [평가판 Azure 구독](https://azure.microsoft.com/free/)에 등록합니다.
+
+## <a name="prerequisites"></a>필수 조건
+
+* 또한 Azure 로그인 계정은 구독에 대한 **소유자** 역할의 멤버여야 합니다. 자세한 내용은 [역할 기반 액세스 제어 및 Azure Portal을 사용하여 액세스 관리](../role-based-access-control/role-assignments-portal.md)를 참조하세요.
+
 ## <a name="video"></a>비디오
 
 ### <a name="learn-how-to-use-an-azure-iot-solution-accelerator-to-generate-data-and-get-started-with-time-series-insights-br"></a>Azure IoT 솔루션 가속기를 사용하여 데이터를 생성하고 Time Series Insights를 시작하는 방법을 알아보세요. </br>
 
 > [!VIDEO https://www.youtube.com/embed/6ehNf6AJkFo]
-
-## <a name="prerequisites"></a>필수 조건
-
-* Azure 구독이 아직 없는 경우 [무료 계정](https://azure.microsoft.com/free/)을 만듭니다.
-* 또한 Azure 로그인 계정은 구독에 대한 **소유자** 역할의 멤버여야 합니다. 자세한 내용은 [역할 기반 액세스 제어 및 Azure Portal을 사용하여 액세스 관리](/azure/role-based-access-control/role-assignments-portal)를 참조하세요.
 
 ## <a name="overview"></a>개요
 

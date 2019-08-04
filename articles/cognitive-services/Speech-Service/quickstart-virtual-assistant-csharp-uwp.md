@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 사용자 지정 음성 우선 가상 도우미(미리 보기), C#(UWP) - Speech Services'
+title: '빠른 시작: 사용자 지정 음성 우선 가상 도우미(미리 보기), C#(UWP) - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: 이 문서에서는 Cognitive Services Speech SDK(소프트웨어 개발 키트)를 사용하여 C# UWP(유니버설 Windows 플랫폼) 애플리케이션을 만듭니다. 이전에 Direct Line Speech 채널을 사용하도록 만들고 구성한 Bot Framework에 클라이언트 애플리케이션을 연결합니다. 이 애플리케이션은 Speech SDK NuGet 패키지 및 Microsoft Visual Studio 2017로 빌드되었습니다.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: travisw
-ms.openlocfilehash: 22c18b573e7107163f858c79956ca6f5380f6834
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 6d88bcc6d9d2c2e46ef3a3cb841c9268a544e37c
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604970"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609695"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-uwp"></a>빠른 시작: Speech SDK UWP를 사용하여 음성 우선 가상 도우미 만들기
 
 빠른 시작은 [음성 텍스트 변환](quickstart-csharp-uwp.md), [텍스트 음성 변환](quickstart-text-to-speech-csharp-uwp.md) 및 [음성 번역](quickstart-translate-speech-uwp.md)에도 사용할 수 있습니다.
 
-이 문서에서는 [Speech SDK](speech-sdk.md)를 사용하여 C# UWP(유니버설 Windows 플랫폼) 애플리케이션을 개발할 것입니다. 이 프로그램은 이전에 클라이언트 애플리케이션의 음성 우선 가상 도우미 환경을 사용하도록 만들고 구성한 봇에 연결됩니다. 이 애플리케이션은 [Speech SDK NuGet 패키지](https://aka.ms/csspeech/nuget) 및 Microsoft Visual Studio 2017(모든 버전)로 빌드되었습니다.
+이 문서에서는 [Speech SDK](speech-sdk.md)를 사용하여 C# UWP(유니버설 Windows 플랫폼) 애플리케이션을 개발할 것입니다. 이 프로그램은 이전에 클라이언트 애플리케이션의 음성 우선 가상 도우미 환경을 사용하도록 만들고 구성한 봇에 연결됩니다. 이 애플리케이션은 [Speech SDK NuGet 패키지](https://aka.ms/csspeech/nuget) 및 Microsoft Visual Studio 2017 이상(모든 버전)으로 빌드되었습니다.
 
 > [!NOTE]
 > 유니버설 Windows 플랫폼을 사용하여 PC, Xbox, Surface Hub 및 기타 디바이스를 비롯하여 Windows 10을 지원하는 모든 디바이스에서 실행되는 앱을 개발할 수 있습니다.
@@ -30,7 +30,7 @@ ms.locfileid: "67604970"
 
 이 빠른 시작에는 다음이 필요합니다.
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) 이상
 * Speech Service에 대한 Azure 구독 키. [Azure Portal](https://portal.azure.com)에서 [무료로 얻거나](get-started.md) 새로 만듭니다.
 * 이전에 [Direct Line Speech 채널](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)을 사용하여 만들고 구성한 봇
 

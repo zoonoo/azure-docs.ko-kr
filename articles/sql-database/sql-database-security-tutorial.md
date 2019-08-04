@@ -8,14 +8,14 @@ ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-ms.date: 02/08/2019
+ms.date: 07/29/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: ce9ba7c197bb604b9d71e2bf501ca67d32865f38
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9850285482db4f5981c183b51152ba1a3ac4975c
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566882"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640135"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>자습서: 단일 또는 풀링된 데이터베이스 보호
 
@@ -38,6 +38,9 @@ Azure SQL Database는 다음과 같은 방법으로 단일 또는 풀링된 데�
 > 관리형 인스턴스의 Azure SQL 데이터베이스는 [Azure SQL 데이터베이스 관리되는 인스턴스](sql-database-managed-instance-index.yml) 및 [연결 아키텍처](sql-database-managed-instance-connectivity-architecture.md)에서 설명한 대로 네트워크 보안 규칙 및 프라이빗 엔드포인트를 사용하여 보호됩니다.
 
 자세한 내용은 [Azure SQL Database 보안 개요](/azure/sql-database/sql-database-security-index) 및 [기능](sql-database-security-overview.md) 문서를 참조하세요.
+
+> [!TIP]
+> 다음 Microsoft Learn 모듈을 사용하면 [Azure SQL Database 보안](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/) 방법에 대해 무료로 배울 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

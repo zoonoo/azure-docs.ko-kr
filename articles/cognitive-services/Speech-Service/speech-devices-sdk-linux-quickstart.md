@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Linux에서 Speech Devices SDK 실행 - Speech Services'
+title: '빠른 시작: Linux에서 Speech Devices SDK 실행 - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: Linux Speech Devices SDK를 시작하기 위한 필수 구성 요소 및 지침입니다.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/10/2019
 ms.author: erhopf
-ms.openlocfilehash: d755f3388466369ee1edc3d9ff1e353173babc10
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 3ee39f4cf0c78850b0128fc5e497f2b2aee57bbc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67723284"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559099"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-linux"></a>빠른 시작: Linux에서 Speech Devices SDK 샘플 앱 실행
 
@@ -35,7 +35,7 @@ ms.locfileid: "67723284"
 * [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)
 * [Eclipse Java IDE](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) 또는 [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)만 해당.
-* Speech Service에 대한 Azure 구독 키 [무료로 가져올 수 있습니다](get-started.md).
+* Speech Service에 대한 Azure 구독 키. [무료로 가져올 수 있습니다](get-started.md).
 * Java용 [Speech Devices SDK](https://aka.ms/sdsdk-download-JRE)의 최신 버전을 다운로드하고 작업 디렉터리에 .zip을 추출합니다.
    > [!NOTE]
    > JRE-Sample-Release.zip 파일에는 JRE 샘플 앱이 포함되어 있으며 이 빠른 시작에서는 이 앱이 /home/wcaltest/JRE-Sample-Release에 추출되었다고 가정합니다.

@@ -4,7 +4,7 @@ description: Windows 및 Linux 데이터 과학 Virtual Machines에 대한 주�
 keywords: 데이터 과학 도구, 데이터 과학 가상 머신, 데이터 과학용 도구, linux 데이터 과학
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.assetid: d4f91270-dbd2-4290-ab2b-b7bfad0b2703
 ms.service: machine-learning
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 02/22/2019
-ms.author: gokuma
-ms.openlocfilehash: 384cb274496670e0b0b5a33e001e78a0babed3f0
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.author: vijetaj
+ms.openlocfilehash: 5816f53115f3ec54cbd9784894a5262b68dd6e95
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66427783"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565180"
 ---
-# <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Linux/Windows용 Azure 데이터 과학 Virtual Machine에 대한 소개
+# <a name="what-is-azure-data-science-virtual-machine-for-linux-and-windows"></a>Linux 및 Windows용 Azure Data Science Virtual Machine이란?
 
 데이터 과학 Virtual Machine(DSVM)은 데이터 과학 수행을 위해 특별히 구축된 Microsoft Azure 클라우드의 사용자 지정 VM 이미지입니다. 여기에는 고급 분석을 위한 지능형 애플리케이션 구축에 바로 뛰어들 수 있도록 다수의 유명한 데이터 과학 및 기타 도구가 미리 설치 및 구성되어 있습니다. Windows Server 및 Linux에서 사용할 수 있습니다. Windows Server 2016 및 2012에서 Windows 버전의 DSVM이 제공됩니다. Ubuntu 16.04 LTS 및 CentOS 7.4에서 DSVM의 Linux 버전을 제공합니다.
 
@@ -48,7 +48,7 @@ DSVM(Data Science Virtual Machine)의 목표는 산업 전반에 걸쳐 모든 �
 
 ### <a name="custom-compute-power-for-azure-notebooks"></a>Azure Notebooks의 사용자 지정 컴퓨팅 능력
 
-[Azure Notebooks](/azure/notebooks/azure-notebooks-overview)는 무료 호스트형 서비스이며 설치 없이 클라우드에서 Jupyter Notebook을 개발, 실행 및 공유합니다. 그러나 무료 서비스 계층은 메모리 4GB, 데이터 1GB로 제한됩니다. 모든 한도를 해제하려면 Data Science VM 또는 Jupyter 서버를 실행 중인 다른 모든 VM에 Notebook 프로젝트를 연결하면 됩니다. Azure Active Directory를 사용하는 계정(예: 회사 계정)으로 Azure Notebooks에 로그인하면 Notebooks가 해당 계정과 연결된 모든 구독의 Data Science VM을 자동으로 보여줍니다. 자세한 내용은 [프로젝트 관리 및 구성 - 컴퓨팅 계층](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier)을 참조하세요.
+[Azure Notebooks](../../notebooks/azure-notebooks-overview.md)는 무료 호스트형 서비스이며 설치 없이 클라우드에서 Jupyter Notebook을 개발, 실행 및 공유합니다. 그러나 무료 서비스 계층은 메모리 4GB, 데이터 1GB로 제한됩니다. 모든 한도를 해제하려면 Data Science VM 또는 Jupyter 서버를 실행 중인 다른 모든 VM에 Notebook 프로젝트를 연결하면 됩니다. Azure Active Directory를 사용하는 계정(예: 회사 계정)으로 Azure Notebooks에 로그인하면 Notebooks가 해당 계정과 연결된 모든 구독의 Data Science VM을 자동으로 보여줍니다. 자세한 내용은 [프로젝트 관리 및 구성 - 컴퓨팅 계층](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier)을 참조하세요.
 
 ### <a name="short-term-experimentation-and-evaluation"></a>단기 실험 및 평가
 데이터 과학 VM은 Microsoft ML Server, SQL Server, Visual Studio Tools, Jupyter, Deep Learning/ML 도구 키트 및 최소한의 설치 업무로 인해 커뮤니티에서 인기를 끌고 있는 새로운 도구를 비롯한 다양한 도구를 평가하거나 학습하는 데 사용할 수 있습니다. Data Science VM은 신속하게 설정할 수 있으므로 다른 단기 사용 시나리오에도 적용할 수 있습니다. 게시된 실험을 복제하고, 데모를 실행하고, 온라인 세션 및 회의 자습서에서 연습을 따라 따라하는 시나리오를 예로 들 수 있습니다.
@@ -64,7 +64,7 @@ Data Science VM은 GPU(그래픽 처리 장치) 기반 하드웨어에서 딥 �
 | :------------------------------------------------------------------ |:-------------------:|:------------------:|
 | 인기 있는 패키지가 사전 설치된 [Microsoft R Open](https://mran.microsoft.com/open/)   |Y                      | Y             |
 | [Microsoft ML Server(R, Python)](https://docs.microsoft.com/machine-learning-server/) Developer Edition은 다음을 포함합니다. <br />  &nbsp;&nbsp;&nbsp;&nbsp;* [RevoScaleR/revoscalepy](https://docs.microsoft.com/machine-learning-server/r/concept-what-is-revoscaler) 병렬 및 분산 고성능 프레임 워크(R 및 Python)<br />  &nbsp;&nbsp;&nbsp;&nbsp;* [MicrosoftML](https://docs.microsoft.com/machine-learning-server/r/concept-what-is-the-microsoftml-package) -Microsoft의 새로운 기계 학습 알고리즘 <br />  &nbsp;&nbsp;&nbsp;&nbsp;* [R 및 Python 연산화](https://docs.microsoft.com/machine-learning-server/what-is-operationalization)                                            |Y                      | Y |
-| [Microsoft Office](https://products.office.com/en-us/business/office-365-proplus-business-software) Pro-Plus(공유 활성화) - Excel, Word 및 PowerPoint   |Y                      |N              |
+| [Microsoft Office](https://products.office.com/business/office-365-proplus-business-software) Pro-Plus(공유 활성화) - Excel, Word 및 PowerPoint   |Y                      |N              |
 | 인기 있는 패키지가 사전 설치된 [Anaconda Python](https://www.continuum.io/) 2.7, 3.5    |Y                      |Y              |
 | Julia 언어에 대해 인기 있는 패키지가 사전 설치된 [JuliaPro](https://juliacomputing.com/products/juliapro.html)                         |Y                      |Y              |
 | 관계형 데이터베이스                                                            | [SQL Server 2017](https://www.microsoft.com/sql-server/sql-server-2017) <br/> Developer Edition| [PostgreSQL](https://www.postgresql.org/)(CentOS),<br/>[SQL Server 2017](https://www.microsoft.com/sql-server/sql-server-2017) <br/> 디벨로퍼 버전(Ubuntu) |

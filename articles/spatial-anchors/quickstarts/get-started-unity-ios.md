@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 37856c0833ecde1478d4bd588b8e3122e8eac0ca
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: be478a3f77996276f248d9b385954af813ac0397
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "67135252"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562494"
 ---
 # <a name="quickstart-create-a-unity-ios-app-with-azure-spatial-anchors"></a>빠른 시작: Azure Spatial Anchors를 사용하여 Unity iOS 앱 만들기
 
@@ -24,7 +24,6 @@ ms.locfileid: "67135252"
 > [!div class="checklist"]
 > * Spatial Anchors 계정 만들기
 > * Unity 빌드 설정 준비
-> * Unity ARKit 플러그인 다운로드 및 가져오기
 > * Spatial Anchors 계정 식별자 및 계정 키 구성
 > * Xcode 프로젝트 내보내기
 > * iOS 디바이스 배포 및 실행
@@ -35,7 +34,7 @@ ms.locfileid: "67135252"
 
 이 빠른 시작을 완료하려면 다음 항목이 있어야 합니다.
 
-- <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3+</a>, <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode 10</a> 및 <a href="https://cocoapods.org" target="_blank">CocoaPods</a>가 설치된 macOS 머신
+- <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.1+</a>, <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode 10</a> 및 <a href="https://cocoapods.org" target="_blank">CocoaPods</a>가 설치된 macOS 머신.
 - HomeBrew를 통해 설치된 Git. 터미널의 한 줄에 `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"` 명령을 입력합니다. 그런 다음, `brew install git`를 실행합니다.
 - 개발자가 사용 가능한 <a href="https://developer.apple.com/documentation/arkit/verifying_device_support_and_user_permission" target="_blank">ARKit 호환</a> iOS 디바이스
 
@@ -51,7 +50,7 @@ ms.locfileid: "67135252"
 
 ## <a name="configure-account-identifier-and-key"></a>계정 식별자 및 키 구성
 
-**프로젝트** 창에서 `Assets/AzureSpatialAnchorsPlugin/Examples`로 이동하여 `AzureSpatialAnchorsBasicDemo.unity` 장면 파일을 엽니다.
+**프로젝트** 창에서 `Assets/AzureSpatialAnchors.Examples/Scenes`로 이동하여 `AzureSpatialAnchorsBasicDemo.unity` 장면 파일을 엽니다.
 
 [!INCLUDE [Configure Unity Scene](../../../includes/spatial-anchors-unity-configure-scene.md)]
 
@@ -65,10 +64,11 @@ ms.locfileid: "67135252"
 
 앱의 지침에 따라 앵커를 배치하고 회수합니다.
 
-> [!NOTE]
-> 앱 실행 시 백그라운드로 카메라가 보이지 않으면(대신 공백, 파랑 또는 기타 질감 등이 보이면) Unity에서 자산을 다시 가져와야 할 가능성이 높습니다. 앱을 중지합니다. Unity의 맨 위 메뉴에서 **자산 -> 모두 다시 가져오기**를 선택합니다. 그런 다음, 앱을 다시 실행합니다.
+완료되면 Xcode에서 **중지**를 눌러 앱을 중지합니다.
 
-Xcode에서 **중지**를 눌러 앱을 중지합니다.
+## <a name="troubleshooting"></a>문제 해결
+
+앱 실행 시 백그라운드로 카메라가 보이지 않으면(대신 공백, 파랑 또는 기타 질감 등이 보이면) Unity에서 자산을 다시 가져와야 할 가능성이 높습니다. 앱을 중지합니다. Unity의 맨 위 메뉴에서 **자산 -> 모두 다시 가져오기**를 선택합니다. 그런 다음, 앱을 다시 실행합니다.
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 

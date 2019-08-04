@@ -1,5 +1,6 @@
 ---
-title: Azure Cognitive Services에서 Text Analytics REST API를 사용하여 감정 분석 | Microsoft Docs
+title: Azure Cognitive Services에서 Text Analytics REST API를 사용하여 감정 분석
+titleSuffix: Azure Cognitive Services
 description: Text Analytics REST API를 사용하여 감정을 감지하는 방법을 알아봅니다.
 services: cognitive-services
 author: aahill
@@ -7,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 02/26/2019
+ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: c3004dd3910dd5fdafc933efa213c9f097310e87
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 19654a4902ae64e5de63ffc93a8d143cc518e254
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68001703"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697740"
 ---
 # <a name="example-detect-sentiment-with-text-analytics"></a>예제: Text Analytics를 사용하여 감정 감지
 
@@ -41,7 +42,7 @@ Text Analytics는 기계 학습 분류 알고리즘을 사용하여 0과1 사이
 
 문서 크기는 문서당 5,120자 미만이어야 합니다. 컬렉션당 최대 1,000개 항목(ID)을 사용할 수 있습니다. 컬렉션은 요청 본문에 제출됩니다. 다음 샘플은 감정 분석을 위해 제출할 수 있는 콘텐츠의 예제입니다.
 
-```
+```json
     {
         "documents": [
             {
@@ -63,7 +64,7 @@ Text Analytics는 기계 학습 분류 알고리즘을 사용하여 0과1 사이
                 "language": "en",
                 "id": "4",
                 "text": "It was foggy so we missed the spectacular views, but the trail was ok. Worth checking out if you are in the area."
-            },                
+            },
             {
                 "language": "en",
                 "id": "5",
@@ -81,7 +82,7 @@ Text Analytics는 기계 학습 분류 알고리즘을 사용하여 0과1 사이
 
 + Azure의 Text Analytics 리소스 또는 인스턴스화된 [Text Analytics 컨테이너](text-analytics-how-to-install-containers.md)를 사용하여 감정 분석을 위한 HTTP 엔드포인트를 설정합니다. `/sentiment` 리소스(`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment`)를 포함해야 합니다.
 
-+ Text Analytics 작업에 대한 액세스 키가 포함되도록 요청 헤더를 설정합니다. 자세한 내용은 [엔드포인트 및 액세스 키 찾기](text-analytics-how-to-access-key.md)를 참조하세요.
++ Text Analytics 작업에 대한 [액세스 키](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)가 포함되도록 요청 헤더를 설정합니다.
 
 + 이 분석을 위해 준비한 JSON 문서 컬렉션을 요청 본문에 제공합니다.
 
@@ -104,41 +105,41 @@ Text Analytics는 기계 학습 분류 알고리즘을 사용하여 0과1 사이
 다음 예제에서는 이 문서의 문서 컬렉션에 대한 응답을 보여 줍니다.
 
 ```json
-{
-    "documents": [
-        {
-            "score": 0.9999237060546875,
-            "id": "1"
-        },
-        {
-            "score": 0.0000540316104888916,
-            "id": "2"
-        },
-        {
-            "score": 0.99990355968475342,
-            "id": "3"
-        },
-        {
-            "score": 0.980544924736023,
-            "id": "4"
-        },
-        {
-            "score": 0.99996328353881836,
-            "id": "5"
-        }
-    ],
-    "errors": []
-}
+    {
+        "documents": [
+            {
+                "score": 0.9999237060546875,
+                "id": "1"
+            },
+            {
+                "score": 0.0000540316104888916,
+                "id": "2"
+            },
+            {
+                "score": 0.99990355968475342,
+                "id": "3"
+            },
+            {
+                "score": 0.980544924736023,
+                "id": "4"
+            },
+            {
+                "score": 0.99996328353881836,
+                "id": "5"
+            }
+        ],
+        "errors": []
+    }
 ```
 
 ## <a name="sentiment-analysis-v3-public-preview"></a>감정 분석 v3 공개 미리 보기
 
-이제 [감정 분석의 다음 버전](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-preview/operations/56f30ceeeda5650db055a3c9)을 공개 미리 보기에서 사용할 수 있습니다. API의 텍스트 분류 및 채점에 대한 정확성과 세부 정보에서 크게 향상된 기능을 제공합니다. 
+이제 [감정 분석의 다음 버전](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-preview/operations/56f30ceeeda5650db055a3c9)을 공개 미리 보기에서 사용할 수 있습니다. API의 텍스트 분류 및 채점에 대한 정확성과 세부 정보에서 크게 향상된 기능을 제공합니다.
 
 > [!NOTE]
 > * 감정 분석 v3 요청 형식 및 [데이터 제한](../overview.md#data-limits)은 이전 버전과 동일합니다.
-> * 현재 감정 분석 v3의 특징: 
->    * 현재는 영어만 지원합니다.  
+> * 현재 감정 분석 v3의 특징:
+>    * 현재는 영어만 지원합니다.
 >    * `Central US`, `Central Canada`, `East Asia` 지역에서 사용할 수 있습니다.
 
 |기능 |설명  |
@@ -164,20 +165,20 @@ Text Analytics는 기계 학습 분류 알고리즘을 사용하여 0과1 사이
 다음 JSON은 새 버전의 감정 분석에 대한 요청의 예입니다. 요청 형식은 이전 버전과 동일합니다.
 
 ```json
-{
-  "documents": [
     {
-      "language": "en",
-      "id": "1",
-      "text": "Hello world. This is some input text that I love."
-    },
-    {
-      "language": "en",
-      "id": "2",
-      "text": "It's incredibly sunny outside! I'm so happy."
+        "documents": [
+        {
+            "language": "en",
+            "id": "1",
+            "text": "Hello world. This is some input text that I love."
+        },
+        {
+            "language": "en",
+            "id": "2",
+            "text": "It's incredibly sunny outside! I'm so happy."
+        }
+        ],
     }
-  ]
-}
 ```
 
 ### <a name="sentiment-analysis-v3-example-response"></a>감정 분석 v3 응답 예제
@@ -185,73 +186,73 @@ Text Analytics는 기계 학습 분류 알고리즘을 사용하여 0과1 사이
 요청 형식은 이전 버전과 동일하지만, 응답 형식은 변경되었습니다. 다음 JSON은 새 버전의 API에서 보낸 응답 예제입니다.
 
 ```json
-{
-    "documents": [
-        {
-            "id": "1",
-            "sentiment": "positive",
-            "documentScores": {
-                "positive": 0.98570585250854492,
-                "neutral": 0.0001625834556762,
-                "negative": 0.0141316400840878
-            },
-            "sentences": [
-                {
-                    "sentiment": "neutral",
-                    "sentenceScores": {
-                        "positive": 0.0785155147314072,
-                        "neutral": 0.89702343940734863,
-                        "negative": 0.0244610067456961
-                    },
-                    "offset": 0,
-                    "length": 12
+    {
+        "documents": [
+            {
+                "id": "1",
+                "sentiment": "positive",
+                "documentScores": {
+                    "positive": 0.98570585250854492,
+                    "neutral": 0.0001625834556762,
+                    "negative": 0.0141316400840878
                 },
-                {
-                    "sentiment": "positive",
-                    "sentenceScores": {
-                        "positive": 0.98570585250854492,
-                        "neutral": 0.0001625834556762,
-                        "negative": 0.0141316400840878
+                "sentences": [
+                    {
+                        "sentiment": "neutral",
+                        "sentenceScores": {
+                            "positive": 0.0785155147314072,
+                            "neutral": 0.89702343940734863,
+                            "negative": 0.0244610067456961
+                        },
+                        "offset": 0,
+                        "length": 12
                     },
-                    "offset": 13,
-                    "length": 36
-                }
-            ]
-        },
-        {
-            "id": "2",
-            "sentiment": "positive",
-            "documentScores": {
-                "positive": 0.89198976755142212,
-                "neutral": 0.103382371366024,
-                "negative": 0.0046278294175863
+                    {
+                        "sentiment": "positive",
+                        "sentenceScores": {
+                            "positive": 0.98570585250854492,
+                            "neutral": 0.0001625834556762,
+                            "negative": 0.0141316400840878
+                        },
+                        "offset": 13,
+                        "length": 36
+                    }
+                ]
             },
-            "sentences": [
-                {
-                    "sentiment": "positive",
-                    "sentenceScores": {
-                        "positive": 0.78401315212249756,
-                        "neutral": 0.2067587077617645,
-                        "negative": 0.0092281140387058
-                    },
-                    "offset": 0,
-                    "length": 30
+            {
+                "id": "2",
+                "sentiment": "positive",
+                "documentScores": {
+                    "positive": 0.89198976755142212,
+                    "neutral": 0.103382371366024,
+                    "negative": 0.0046278294175863
                 },
-                {
-                    "sentiment": "positive",
-                    "sentenceScores": {
-                        "positive": 0.99996638298034668,
-                        "neutral": 0.0000060341349126,
-                        "negative": 0.0000275444017461
+                "sentences": [
+                    {
+                        "sentiment": "positive",
+                        "sentenceScores": {
+                            "positive": 0.78401315212249756,
+                            "neutral": 0.2067587077617645,
+                            "negative": 0.0092281140387058
+                        },
+                        "offset": 0,
+                        "length": 30
                     },
-                    "offset": 31,
-                    "length": 13
-                }
-            ]
-        }
-    ],
-    "errors": []
-}
+                    {
+                        "sentiment": "positive",
+                        "sentenceScores": {
+                            "positive": 0.99996638298034668,
+                            "neutral": 0.0000060341349126,
+                            "negative": 0.0000275444017461
+                        },
+                        "offset": 31,
+                        "length": 13
+                    }
+                ]
+            }
+        ],
+        "errors": []
+    }
 ```
 
 ### <a name="example-c-code"></a>C# 코드 예제
@@ -264,14 +265,13 @@ Text Analytics는 기계 학습 분류 알고리즘을 사용하여 0과1 사이
 
 + [감정 분석 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)는 선택한 언어로 사용할 수 있습니다.
 + 요청 본문의 JSON 문서에는 ID, 텍스트 및 언어 코드가 포함됩니다.
-+ POST 요청은 개인 설정된 [액세스 키와 구독에 유효한 엔드포인트](text-analytics-how-to-access-key.md)를 사용하여 `/sentiment` 엔드포인트에 대해 수행됩니다.
++ POST 요청은 개인 설정된 [액세스 키와 구독에 유효한 엔드포인트](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)를 사용하여 `/sentiment` 엔드포인트에 대해 수행됩니다.
 + 각 문서 ID에 대한 감정 점수로 구성된 응답 출력은 JSON을 허용하는 모든 앱으로 스트리밍할 수 있습니다. 몇 가지만 예를 들면, 예제 앱에는 Excel 및 Power BI가 포함됩니다.
 
-## <a name="see-also"></a>참고 항목 
+## <a name="see-also"></a>참고 항목
 
- [Text Analytics 개요](../overview.md)  
- [FAQ(질문과 대답)](../text-analytics-resource-faq.md)</br>
- [Text Analytics 제품 페이지](//go.microsoft.com/fwlink/?LinkID=759712) 
+ [Text Analytics 개요](../overview.md) [FAQ(질문과 대답)](../text-analytics-resource-faq.md)</br>
+ [Text Analytics 제품 페이지](//go.microsoft.com/fwlink/?LinkID=759712)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -12,17 +12,17 @@ author: garyericson
 ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
-ms.date: 05/17/2019
-ms.openlocfilehash: 12738b63be92420c5f3afea6c133522cbd97f849
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.date: 07/29/2019
+ms.openlocfilehash: 9f16ebc5acff7bbccc9de28e2fab0d223c6e244b
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66420231"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640002"
 ---
 # <a name="tutorial-build-a-clustering-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>자습서: Azure SQL Database Machine Learning Services(미리 보기)를 사용하여 R에서 클러스터링 모델 빌드
 
-3부작 자습서 시리즈의 2부인 이 자습서에서는 Azure SQL Database Machine Learning Services(미리 보기)를 사용하여 R에서 클러스터링을 수행하는 K-평균 모델을 빌드하겠습니다.
+세 부분으로 구성된 이 자습서 시리즈의 2부에서는 R에서 K-평균 모델을 빌드하여 클러스터링을 수행합니다. 이 시리즈의 다음 부분에서는 Azure SQL Database Machine Learning Services(미리 보기)를 사용하여 이 모델을 SQL 데이터베이스에 배포합니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -31,9 +31,9 @@ ms.locfileid: "66420231"
 > * 클러스터링 수행
 > * 결과 분석
 
-[1부](sql-database-tutorial-clustering-model-prepare-data.md)에서는 R에서 클러스터링을 수행할 수 있도록 Azure SQL 데이터베이스의 데이터를 준비하는 방법을 알아보았습니다.
+[1부](sql-database-tutorial-clustering-model-prepare-data.md)에서는 클러스터링을 수행할 수 있도록 Azure SQL 데이터베이스에서 데이터를 준비하는 방법을 알아보았습니다.
 
-[3부](sql-database-tutorial-clustering-model-deploy.md)에서는 Azure SQL 데이터베이스에 새 데이터를 기반으로 클러스터링을 수행할 수 있는 저장 프로시저를 만드는 방법을 알아봅니다.
+[3부](sql-database-tutorial-clustering-model-deploy.md)에서는 새 데이터를 기반으로 R에서 클러스터링을 수행할 수 있는 Azure SQL 데이터베이스에 저장 프로시저를 만드는 방법을 알아봅니다.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 

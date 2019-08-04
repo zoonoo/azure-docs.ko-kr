@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 06/18/2019
+ms.date: 07/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 824d24b97f192583a42192b3bb90eb1818e1aa18
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: b462f0c427020b1422b91fbd7ac34e3023e546b8
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273023"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677873"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-preview-environment"></a>자습서: Azure Time Series Insights 미리 보기 환경 설정
 
@@ -23,14 +23,21 @@ ms.locfileid: "67273023"
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
-* Azure Time Series Insights 미리 보기 환경 만들기
-* Azure Event Hubs에서 이벤트 허브에 Azure Time Series Insights 미리 보기 환경 연결
-* Azure Time Series Insights 미리 보기 환경으로 데이터를 스트리밍하도록 솔루션 가속기 샘플 실행
-* 데이터에 대한 기본 분석을 수행합니다.
-* 시계열 모델 형식 및 계층 구조 정의 및 인스턴스와 연결
+> [!div class="checklist"]
+> * Azure Time Series Insights 미리 보기 환경 만들기
+> * Azure Event Hubs에서 이벤트 허브에 Azure Time Series Insights 미리 보기 환경 연결
+> * Azure Time Series Insights 미리 보기 환경으로 데이터를 스트리밍하도록 솔루션 가속기 샘플 실행
+> * 데이터에 대한 기본 분석을 수행합니다.
+> * 시계열 모델 형식 및 계층 구조 정의 및 인스턴스와 연결
 
 >[!TIP]
 > [IoT 솔루션 가속기](https://www.azureiotsolutions.com/Accelerators)는 사용자 지정 IoT 솔루션의 개발 속도를 높이는 데 사용할 수 있는 미리 구성된 엔터프라이즈급 솔루션을 제공합니다.
+
+아직 Azure 구독이 없는 경우 [평가판 Azure 구독](https://azure.microsoft.com/free/)에 등록합니다.
+
+## <a name="prerequisites"></a>필수 조건
+
+* 또한 Azure 로그인 계정은 구독에 대한 **소유자** 역할의 멤버여야 합니다. 자세한 내용은 [역할 기반 액세스 제어 및 Azure Portal을 사용하여 액세스 관리](../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 
 ## <a name="create-a-device-simulation"></a>디바이스 시뮬레이션 만들기
 
@@ -321,6 +328,14 @@ ms.locfileid: "67273023"
 1. 이벤트 세부 정보를 보려면 지역을 선택한 다음, 마우스 오른쪽 단추로 차트를 클릭합니다.
 
    [![이벤트의 자세한 목록](media/v2-update-provision/define-eighteen.png)](media/v2-update-provision/define-eighteen.png#lightbox)
+
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+이제 자습서를 완료했으므로 만든 리소스를 정리합니다.
+
+1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **모든 리소스**를 선택하고 Azure Time Series Insights 리소스 그룹을 찾습니다.
+1. **삭제**를 선택하여 전체 리소스 그룹(및 그 안에 포함된 모든 리소스)을 삭제하거나 각 리소스를 개별적으로 제거합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

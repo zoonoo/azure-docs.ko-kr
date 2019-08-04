@@ -11,15 +11,15 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: jingwang
-ms.openlocfilehash: 553e87cacf407da2333da3105647719679feaabf
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: a4d5941091c3cf6516380c4d6384951d886e0e7f
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544208"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640332"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>데이터 복사 도구를 사용하여 Azure Blob Storage에서 SQL 데이터베이스로 데이터 복사
-> [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
+> [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스의 버전을 선택합니다."]
 > * [버전 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [현재 버전](tutorial-copy-data-tool.md)
 
@@ -54,7 +54,7 @@ ms.locfileid: "57544208"
     Jane|Doe
     ```
 
-1. **adfv2tutorial**이라는 컨테이너를 만들고, inputEmp.txt 파일을 이 컨테이너에 업로드합니다. [Azure Storage 탐색기](https://storageexplorer.com/)와 같은 다양한 도구를 사용하여 이러한 작업을 수행할 수 있습니다.
+1. **adfv2tutorial**이라는 컨테이너를 만들고, inputEmp.txt 파일을 이 컨테이너에 업로드합니다. [Azure Storage Explorer](https://storageexplorer.com/)와 같은 다양한 도구를 사용하여 이러한 작업을 수행할 수 있습니다.
 
 #### <a name="create-a-sink-sql-table"></a>싱크 SQL 테이블 만들기
 
@@ -72,7 +72,7 @@ ms.locfileid: "57544208"
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-2. Azure 서비스에서 SQL Server에 액세스하도록 허용합니다. SQL Database를 실행하는 서버에 대해 **Azure 서비스에 대한 액세스 허용** 설정을 사용하도록 설정되어 있는지 확인합니다. 이 설정을 사용하면 Data Factory에서 데이터베이스 인스턴스에 데이터를 쓸 수 있습니다. 이 설정을 확인하고 켜려면 Azure SQL Server > **보안** > **방화벽 및 가상 네트워크**로 이동하고 **Azure 서비스에 대한 액세스 허용** 옵션을 **켜기**로 설정합니다.
+2. Azure 서비스에서 SQL Server에 액세스하도록 허용합니다. SQL Database를 실행하는 서버에 대해 **Azure 서비스에 대한 액세스 허용** 설정을 사용하도록 설정되어 있는지 확인합니다. 이 설정을 사용하면 Data Factory에서 데이터베이스 인스턴스에 데이터를 쓸 수 있습니다. 이 설정을 확인하고 켜려면 Azure SQL Server > 개요 > 서버 방화벽 설정>으로 이동하고 **Azure 서비스에 대한 액세스 허용** 옵션을 **켜기**로 설정합니다.
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
 
@@ -87,7 +87,7 @@ ms.locfileid: "57544208"
     
     ![새 데이터 팩터리 오류 메시지](./media/tutorial-copy-data-tool/name-not-available-error.png)
 
-    이름 값에 대한 오류 메시지가 표시되면 데이터 팩터리에 대한 다른 이름을 입력합니다. 예를 들어 _**yourname**_**ADFTutorialDataFactory**를 사용합니다. Data Factory 아티팩트에 대한 명명 규칙은 [Data Factory 명명 규칙](naming-rules.md)을 참조하세요.
+    이름 값에 대한 오류 메시지가 표시되면 데이터 팩터리에 대한 다른 이름을 입력합니다. 예를 들어 _**yourname**_ **ADFTutorialDataFactory**를 사용합니다. Data Factory 아티팩트에 대한 명명 규칙은 [Data Factory 명명 규칙](naming-rules.md)을 참조하세요.
 1. 새 데이터 팩터리를 만들 Azure **구독**을 선택합니다.
 1. **리소스 그룹**에 대해 다음 단계 중 하나를 사용합니다.
     

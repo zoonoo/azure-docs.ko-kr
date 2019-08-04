@@ -1,5 +1,5 @@
 ---
-title: 변경, 학습 앱, Node.js
+title: 변경, 학습 앱, Node.js - LUIS
 titleSuffix: Azure Cognitive Services
 description: Node.js 빠른 시작에서는 Home Automation 앱에 예제 발언을 추가하여 앱을 학습시킵니다.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 05/29/2019
 ms.author: diberry
-ms.openlocfilehash: 13ce1706a2184075155b2bbc4dca5753be391ceb
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: 6f0b19c1ba8d4a72ced19e74a3807c3962989e5d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357114"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560562"
 ---
 # <a name="quickstart-change-model-using-nodejs"></a>빠른 시작: Node.js를 사용하여 모델 변경
 

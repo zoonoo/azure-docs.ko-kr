@@ -1,21 +1,21 @@
 ---
 title: '자습서: 사용자 지정 검색 웹 페이지 만들기 - Bing Custom Search'
 titleSuffix: Azure Cognitive Services
-description: 사용자 지정 검색 인스턴스를 구성하고 웹 페이지에 통합하는 방법을 설명합니다.
+description: 사용자 지정 Bing 검색 인스턴스를 구성하고 웹 페이지에 통합하는 방법을 알아봅니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: tutorial
-ms.date: 03/04/2019
+ms.date: 07/26/2019
 ms.author: aahi
-ms.openlocfilehash: 3a8d6a831adf24212191a103dcf356bbe74d7962
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: aee84a4d9203d80b81f773df30d68c3539e5ec7c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405223"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564699"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>자습서: Custom Search 웹 페이지 빌드
 

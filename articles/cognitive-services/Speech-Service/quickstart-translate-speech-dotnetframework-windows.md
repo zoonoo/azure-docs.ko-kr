@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: b81aac4779570f39fcbacda867fe27d902322bc5
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: e62756ab428135ca3d5d9107f37e61813097d21f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67602819"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553467"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-net-framework"></a>빠른 시작: .NET Framework용 Speech SDK를 사용하여 음성 번역
 
@@ -30,7 +30,7 @@ ms.locfileid: "67602819"
 이 빠른 시작에는 다음이 필요합니다.
 
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
-* Speech Service에 대한 Azure 구독 키 [무료로 가져올 수 있습니다](get-started.md).
+* Speech Service에 대한 Azure 구독 키. [무료로 가져올 수 있습니다](get-started.md).
 
 ## <a name="create-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기
 

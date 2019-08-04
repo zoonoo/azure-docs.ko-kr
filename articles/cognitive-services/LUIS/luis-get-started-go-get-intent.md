@@ -1,6 +1,6 @@
 ---
-title: 의도 가져오기, Go
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 의도 가져오기, Go - LUIS
+titleSuffix: Azure Cognitive Services
 description: 이 Go 빠른 시작에서는 사용 가능한 공용 LUIS 앱을 통해 대화형 텍스트에서 사용자의 의도를 판단합니다.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 6c74e16c55a1b4050ee02c96a1728a07261ff6c3
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: c4c2d94544739b0611d19705a669d124295947d8
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68276122"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563835"
 ---
 # <a name="quickstart-get-intent-using-go"></a>빠른 시작: Go를 사용하여 의도 가져오기
 

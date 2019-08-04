@@ -11,14 +11,14 @@ ms.workload: big-data
 ms.topic: overview
 ms.date: 04/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: b32ff070a1ffa9f83132ecc1d3e43bae398f509d
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 964a010ee2b919ca56c467d3f7ca91b3e78ef590
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67460716"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638850"
 ---
-# <a name="azure-time-series-insights-preview"></a>Azure Time Series Insights 미리 보기
+# <a name="what-is-azure-time-series-insights-preview"></a>Azure Time Series Insights Preview란?
 
 Azure Time Series Insights 미리 보기는 엔드투엔드 PaaS(Platform as a Service) 제품입니다. 고도로 컨텍스트화되고 시계열에 최적화된 IoT 규모 데이터를 수집, 처리, 저장, 분석 및 쿼리하는 데 사용됩니다. Time Series Insights는 임시 데이터 탐색 및 운영 분석에 적합합니다. Time Series Insights는 산업 IoT 배포의 광범위한 요구를 충족하는 고유하게 확장 가능하고 사용자 지정된 서비스 제품입니다.
 

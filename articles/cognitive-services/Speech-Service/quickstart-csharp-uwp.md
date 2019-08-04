@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 음성 인식, C#(UWP) - Speech Services'
+title: '빠른 시작: 음성 인식, C#(UWP) - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: 이 문서에서는 Cognitive Services Speech SDK를 사용하여 C# UWP(유니버설 Windows 플랫폼) 애플리케이션을 만드는 방법을 설명합니다. 디바이스에서 마이크를 사용하여 실시간으로 음성을 텍스트로 기록합니다. 이 애플리케이션은 Speech SDK NuGet 패키지 및 Microsoft Visual Studio 2017로 빌드되었습니다.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 07/23/2019
 ms.author: lisaweixu
 ms.custom: seodec18
-ms.openlocfilehash: 25b3474e33351d6365af37d78f442768aba88625
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: b4c3c0979f3fea491ad8b04285973517423eaeeb
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405921"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68607796"
 ---
 # <a name="quickstart-recognize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 UWP 앱에서 음성 인식
 
@@ -25,7 +25,7 @@ ms.locfileid: "68405921"
 원하는 경우 다른 프로그래밍 언어 및/또는 환경을 선택합니다.<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-이 문서에서는 Cognitive Services [Speech SDK](speech-sdk.md)를 사용하여 C# UWP(유니버설 Windows 플랫폼, Windows version 1709 이상) 애플리케이션을 개발하는 방법을 설명합니다. 프로그램은 디바이스에서 마이크를 사용하여 실시간으로 음성을 텍스트로 변환합니다. 이 애플리케이션은 [Speech SDK NuGet 패키지](https://aka.ms/csspeech/nuget) 및 Microsoft Visual Studio 2017(모든 버전)로 빌드되었습니다.
+이 문서에서는 Cognitive Services [Speech SDK](speech-sdk.md)를 사용하여 C# UWP(유니버설 Windows 플랫폼, Windows version 1709 이상) 애플리케이션을 개발하는 방법을 설명합니다. 프로그램은 디바이스에서 마이크를 사용하여 실시간으로 음성을 텍스트로 변환합니다. 이 애플리케이션은 [Speech SDK NuGet 패키지](https://aka.ms/csspeech/nuget) 및 Microsoft Visual Studio 2017 이상(모든 버전)으로 빌드되었습니다.
 
 > [!NOTE]
 > 유니버설 Windows 플랫폼을 사용하여 PC, Xbox, Surface Hub 및 기타 디바이스를 비롯하여 Windows 10을 지원하는 모든 디바이스에서 실행되는 앱을 개발할 수 있습니다.
@@ -34,7 +34,7 @@ ms.locfileid: "68405921"
 
 이 빠른 시작에는 다음이 필요합니다.
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) 이상
 * Speech Service에 대한 Azure 구독 키. [무료로 가져올 수 있습니다](get-started.md).
 
 ## <a name="create-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기

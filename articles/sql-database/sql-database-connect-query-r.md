@@ -1,7 +1,7 @@
 ---
-title: R을 사용하여 Azure SQL Database 쿼리
+title: Machine Learning Services와 함께 R을 사용하여 Azure SQL Database 쿼리
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
-description: 이 문서에서는 R 스크립트를 사용하여 Azure SQL 데이터베이스에 연결하고, Transact-SQL 문을 사용하여 데이터베이스를 쿼리하는 방법을 보여줍니다.
+description: 이 문서에서는 Azure SQL Database Machine Learning Services와 함께 R 스크립트를 사용하여 Azure SQL 데이터베이스에 연결하고, Transact-SQL 문을 사용하여 쿼리하는 방법을 보여줍니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
@@ -13,16 +13,16 @@ ms.author: garye
 ms.reviewer: davidph, carlrab
 manager: cgronlun
 ms.date: 05/29/2019
-ms.openlocfilehash: 1d4b17cf1e0349bf877c676cb4e591fc20ad4113
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: ff38346a9b3bd14db51383c116240b030d3ee42a
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66416371"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514853"
 ---
-# <a name="quickstart-use-r-to-query-an-azure-sql-database-preview"></a>빠른 시작: R을 사용하여 Azure SQL 데이터베이스 쿼리(미리 보기)
+# <a name="quickstart-use-r-with-machine-learning-services-to-query-an-azure-sql-database-preview"></a>빠른 시작: Machine Learning Services와 함께 R을 사용하여 Azure SQL 데이터베이스 쿼리(미리 보기)
 
- 이 빠른 시작에서는 Machine Learning Services에서 [R](https://www.r-project.org/)을 사용하여 Azure SQL 데이터베이스에 연결하고, Transact-SQL 문을 사용하여 데이터를 쿼리하는 방법을 보여줍니다. Machine Learning Services는 Azure SQL Database의 기능이며, 데이터베이스 내 R 스크립트를 실행하는 데 사용됩니다. 자세한 내용은 [Azure SQL Database Machine Learning Services(R 포함)(미리 보기)](sql-database-machine-learning-services-overview.md)를 참조하세요.
+이 빠른 시작에서는 Machine Learning Services에서 [R](https://www.r-project.org/)을 사용하여 Azure SQL 데이터베이스에 연결하고, Transact-SQL 문을 사용하여 데이터를 쿼리하는 방법을 보여줍니다. Machine Learning Services는 Azure SQL Database의 기능이며, 데이터베이스 내 R 스크립트를 실행하는 데 사용됩니다. 자세한 내용은 [Azure SQL Database Machine Learning Services(R 포함)(미리 보기)](sql-database-machine-learning-services-overview.md)를 참조하세요.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 

@@ -4,9 +4,9 @@ titleSuffix: Azure Machine Learning Studio
 description: Azure Machine Learning Studio는 알고리즘 및 모듈의 사용할 준비가 되어 있는 라이브러리에서 신속하게 모델을 빌드하기 위한 끌어서 놓기 도구입니다.
 services: machine-learning
 documentationcenter: ''
-author: garyericson
+author: xiaoharper
+ms.author: amlstudiodocs
 ms.custom: seodec18
-ms.author: garye
 ms.assetid: e65c8fe1-7991-4a2a-86ef-fd80a7a06269
 ms.service: machine-learning
 ms.subservice: studio
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 04/20/2019
-ms.openlocfilehash: dd1eaa95a23deed0bf2098995be43402c605defc
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 4ec9cff652bf1badf526d490547ad78de31ac5da
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024210"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678009"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Azure Machine Learning Studio란?
 Microsoft Azure Machine Learning Studio는 데이터에 대한 예측 분석 솔루션을 빌드, 테스트, 배포할 수 있는 공동 끌어서 놓기 도구입니다. Machine Learning Studio는 Excel과 같은 BI 도구 또는 사용자 지정 앱에서 쉽게 사용할 수 있는 웹 서비스로 모델을 게시합니다.
@@ -40,11 +40,11 @@ Machine Learning Studio는 데이터 과학, 예측 분석, 클라우드 리소�
 ## <a name="download-the-machine-learning-studio-overview-diagram"></a>Machine Learning Studio 개요 다이어그램 다운로드
 **Microsoft Azure Machine Learning Studio 기능 개요** 다이어그램을 다운로드하여 Machine Learning Studio의 기능을 개략적으로 봅니다. 옆에 두고 보려면, tabloid 크기(11 x 17인치)로 다이어그램을 인쇄하면 됩니다.
 
-**여기서 다이어그램 다운로드: [Microsoft Azure Machine Learning Studio 기능 개요](https://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf)**
+**여기서 다이어그램 다운로드: [Microsoft Azure Machine Learning Studio 기능 개요](https://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf)** 
 ![Microsoft Azure Machine Learning Studio 기능 개요](./media/what-is-ml-studio/ml_studio_overview_v1.1.png)
 
 ## <a name="get-started-with-machine-learning-studio"></a>Machine Learning Studio 시작
-Machine Learning Studio(https://studio.azureml.net)를 처음으로 시작하면 **홈** 페이지가 표시됩니다. 여기에서 설명서, 동영상, 웹 세미나를 보고 다른 유용한 리소스를 찾을 수 있습니다.
+[Machine Learning Studio](https://studio.azureml.net)를 처음 시작하면 **홈** 페이지가 표시됩니다. 여기에서 설명서, 비디오 및 웹 세미나를 보고 다른 유용한 리소스를 찾을 수 있습니다.
 
 왼쪽 위 메뉴를 클릭합니다. ![메뉴](./media/what-is-ml-studio/menu.png) 몇 가지 옵션이 표시됩니다.
 ### <a name="azure-machine-learning-studio"></a>Azure Machine Learning Studio
@@ -123,7 +123,7 @@ Machine Learning Studio에 포함된 샘플 데이터 세트의 목록은 [Azure
 |컴퓨팅 대상 배포| 전용 웹 서비스 형식, 사용자 지정 불가능 | 엔터프라이즈 보안 옵션 및 Azure Kubernetes Service <br/>([다른 컴퓨팅](../service/how-to-deploy-and-where.md)은 SDK에서 지원) |
 |자동화된 모델 학습 및 하이퍼 매개변수 튜닝 | 아니요 | 시각적 인터페이스에서는 아직 미지원 <br/> (SDK 및 Azure Portal에서는 지원) | 
 
-[빠른 시작: 코드를 작성하지 않고 데이터 준비 및 시각화](../service/ui-quickstart-run-experiment.md)를 통해 시각적 인터페이스(미리 보기)를 사용해보세요.
+[자습서: 그래픽 인터페이스를 사용하여 자동차 가격 예측](../service/ui-tutorial-automobile-price-train-score.md)
 
 > [!NOTE]
 > Studio에서 만든 모델은 Azure Machine Learning Service로 배포하거나 관리할 수 없습니다. 하지만 서비스 시각적 인터페이스에서 만든 모델은 Azure Machine Learning Service 작업 영역을 통해 관리할 수 있습니다.

@@ -1,5 +1,5 @@
 ---
-title: 엔드포인트 발화 검토
+title: 엔드포인트 발화 검토 - LUIS
 titleSuffix: Azure Cognitive Services
 description: LUIS에서 알 수 없는 LUIS HTTP 엔드포인트를 통해 수신된 발언을 확인하거나 수정하여 앱 예측을 향상시키는 방법을 학습합니다. 의도를 확인해야 하는 발언도 있고, 엔터티를 확인해야 하는 발언도 있습니다.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 2994f7b19d5a104b129dc4d7aff29dabbc89f0f4
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: dd5c0012bad567623fdfc0a70760f692aafe0e3e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68275999"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563325"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>자습서: 엔드포인트 발언을 검토하여 알 수 없는 예측 수정
 이 자습서에서는 LUIS에서 알 수 없는 LUIS HTTPS 엔드포인트를 통해 수신된 발언을 확인하거나 수정하여 앱 예측을 향상시키는 방법을 학습합니다. 의도를 확인해야 하는 발언도 있고, 엔터티를 확인해야 하는 발언도 있습니다. 예약된 LUIS 유지 관리의 정기적인 과정 형태로 엔드포인트 발언 검토를 진행해야 합니다. 

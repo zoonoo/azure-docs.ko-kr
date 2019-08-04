@@ -1,5 +1,5 @@
 ---
-title: 정보 마이닝 시작 방법(미리 보기) - Azure Search
+title: 지식 저장소 시작 방법(미리 보기) - Azure Search
 description: Azure Search에서 AI 인덱싱 파이프라인을 통해 만들어진 강화된 문서를 Azure 스토리지 계정의 지식 저장소에 보내는 단계에 대해 알아봅니다. 여기서는 Azure Search 및 다른 애플리케이션에서 강화된 문서를 보고, 개조하고, 사용할 수 있습니다.
 manager: cgronlun
 author: HeidiSteen
@@ -8,19 +8,19 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 06/29/2019
 ms.author: heidist
-ms.openlocfilehash: e50dfcdc5ac2fbe2435066546a340874e1b8f682
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: 5794a24931b613bf1bdddd983799367bb02cf44d
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67551064"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68641016"
 ---
-# <a name="how-to-get-started-with-knowledge-mining-in-azure-search"></a>Azure Search에서 정보 마이닝을 시작하는 방법
+# <a name="how-to-get-started-with-knowledge-store-in-azure-search"></a>Azure Search에서 지식 저장소 시작 방법
 
 > [!Note]
 > 지식 저장소는 미리 보기로 제공되며 프로덕션 용도로는 제공되지 않습니다. 이 기능은 [REST API 버전 2019-05-06-미리 보기](search-api-preview.md)에서 제공됩니다. 지금은 .NET SDK 지원이 없습니다.
 >
-[기술 저장소](knowledge-store-concept-intro.md)는 인덱싱 중에 생성된 AI 보강된 문서를 다른 앱의 다운스트림 정보 마이닝을 위해 Azure 스토리지 계정에 저장합니다. 또한 저장된 강화를 사용하여 Azure Search 인덱싱 파이프라인을 이해하고 구체화할 수 있습니다. 
+[기술 저장소](knowledge-store-concept-intro.md)는 인덱싱 중에 생성된 AI 보강된 문서를 다른 앱의 다운스트림 데이터 마이닝을 위해 Azure 스토리지 계정에 저장합니다. 또한 저장된 강화를 사용하여 Azure Search 인덱싱 파이프라인을 이해하고 구체화할 수 있습니다. 
 
 지식 저장소는 *기술 세트*로 정의되며 *인덱서*에 의해 생성됩니다. 지식 저장소의 실제 식은 스토리지의 데이터 구조를 결정하는 *프로젝션*을 통해 지정됩니다. 이 연습을 마칠 때쯤이면 이러한 모든 개체를 만들고 서로 맞는 방식을 알게 됩니다. 
 

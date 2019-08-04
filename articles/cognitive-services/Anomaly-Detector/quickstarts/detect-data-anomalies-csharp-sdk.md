@@ -1,21 +1,21 @@
 ---
-title: '빠른 시작: .NET용 Anomaly Detector SDK를 사용하여 시계열 데이터에서 변칙 검색'
+title: '빠른 시작: .NET용 Anomaly Detector 클라이언트 라이브러리를 사용하여 시계열 데이터에서 변칙 검색'
 titleSuffix: Azure Cognitive Services
-description: Anomaly Detector 서비스를 사용하여 시계열 데이터에서 변칙 검색을 시작합니다.
+description: Anomaly Detector API를 사용하여 일괄 처리로 또는 스트리밍 데이터로 데이터 계열에서 변칙을 검색합니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 07/01/2019
+ms.date: 07/26/2019
 ms.author: aahi
-ms.openlocfilehash: a75196e035585a7501cdd842fb5b80ceff424dcc
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: c65b64608ade76a65dca42b72844d42ddc1b14fd
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721566"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639367"
 ---
 # <a name="quickstart-anomaly-detector-client-library-for-net"></a>빠른 시작: .NET용 Anomaly Detector 클라이언트 라이브러리
 
@@ -23,10 +23,10 @@ ms.locfileid: "67721566"
 
 .NET용 Anomaly Detector 클라이언트 라이브러리를 사용하여 다음을 수행할 수 있습니다.
 
-* 일괄 처리로 변칙 검색
-* 최신 데이터 요소의 변칙 상태 검색
+* 일괄 요청으로 시계열 데이터 세트 전체에서 변칙 검색
+* 시계열에서 최신 데이터 요소의 변칙 상태 검색
 
-[API 참조 설명서](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.AnomalyDetector?view=azure-dotnet-preview) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [패키지(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.AnomalyDetector/) | [샘플](https://github.com/Azure-Samples/anomalydetector)
+[라이브러리 참조 설명서](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.AnomalyDetector?view=azure-dotnet-preview) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [패키지(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.AnomalyDetector/) | [샘플](https://github.com/Azure-Samples/anomalydetector)
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -39,11 +39,13 @@ ms.locfileid: "67721566"
 
 [!INCLUDE [anomaly-detector-resource-creation](../../../../includes/cognitive-services-anomaly-detector-resource-cli.md)]
 
-### <a name="create-a-new-c-app"></a>새 C# 앱 만들기
+평가판 구독 또는 리소스에서 키를 가져온 후 `ANOMALY_DETECTOR_KEY`라는 키에 대해 [환경 변수를 만듭니다](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication).
+
+### <a name="create-a-new-c-application"></a>새 C# 애플리케이션 만들기
 
 선호하는 편집기 또는 IDE에서 .NET Core 애플리케이션을 새로 만듭니다. 
 
-콘솔 창(예: cmd, PowerShell 또는 Bash)에서 dotnet `new` 명령을 사용하여 `anomaly-detector-quickstart`라는 새 콘솔 앱을 만듭니다. 이 명령은 **Program.cs**라는 원본 파일 하나만 들어 있는 간단한 "Hello World" C# 프로젝트를 만듭니다. 
+콘솔 창(예: cmd, PowerShell 또는 Bash)에서 dotnet `new` 명령을 사용하여 `anomaly-detector-quickstart`라는 새 콘솔 앱을 만듭니다. 이 명령은 *Program.cs*라는 원본 파일 하나만 들어 있는 간단한 "Hello World" C# 프로젝트를 만듭니다. 
 
 ```console
 dotnet new console -n anomaly-detector-quickstart
@@ -64,6 +66,14 @@ Build succeeded.
  0 Error(s)
 ...
 ```
+
+선호하는 편집기 또는 IDE에서 프로젝트 디렉터리의 *program.cs* 파일을 엽니다. `directives`를 사용하여 다음을 추가합니다.
+
+[!code-csharp[using statements](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=usingStatements)]
+
+애플리케이션의 `main()` 메서드에서 리소스의 Azure 위치에 대한 변수와 환경 변수인 키를 만듭니다. 애플리케이션이 시작된 후 환경 변수를 만들었다면 애플리케이션을 실행 중인 편집기, IDE 또는 셸을 닫고 다시 로드해야 변수에 액세스할 수 있습니다.
+
+[!code-csharp[Main method](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=mainMethod)]
 
 ### <a name="install-the-client-library"></a>클라이언트 라이브러리 설치
 
@@ -92,22 +102,6 @@ Anomaly Detector 응답은 사용된 메서드에 따라 [EntireDetectResponse](
 * [전체 데이터 세트에서 변칙 검색](#detect-anomalies-in-the-entire-data-set) 
 * [최신 데이터 요소의 변칙 상태 검색](#detect-the-anomaly-status-of-the-latest-data-point)
 
-### <a name="add-the-main-method"></a>기본 메서드 추가
-
-프로젝트 디렉터리에서 다음을 수행합니다.
-
-1. 선호하는 편집기 또는 IDE에서 Program.cs 파일을 엽니다.
-2. 다음 `using` 지시문을 추가합니다.
-
-[!code-csharp[using statements](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=usingStatements)]
-
-> [!NOTE]
-> 이 빠른 시작에서는 `ANOMALY_DETECTOR_KEY`라는 Anomaly Detector 키용 [환경 변수를 생성](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication)했다고 가정합니다.
-
-애플리케이션의 `main()` 메서드에서 리소스의 Azure 위치에 대한 변수와 환경 변수인 키를 만듭니다. 애플리케이션이 시작된 후 환경 변수를 만들었다면 애플리케이션을 실행 중인 편집기, IDE 또는 셸을 닫고 다시 로드해야 변수에 액세스할 수 있습니다.
-
-[!code-csharp[Main method](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=mainMethod)]
-
 ### <a name="authenticate-the-client"></a>클라이언트 인증
 
 새 메서드에서 엔드포인트 및 키를 사용하여 클라이언트를 인스턴스화합니다. 키를 사용하여 [ApiKeyServiceClientCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.apikeyserviceclientcredentials?view=azure-dotnet-preview) 개체를 만들고, 엔드포인트에 이를 사용하여 [AnomalyDetectorClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.anomalydetectorclient?view=azure-dotnet-preview) 개체를 만듭니다. 
@@ -117,7 +111,7 @@ Anomaly Detector 응답은 사용된 메서드에 따라 [EntireDetectResponse](
 ### <a name="load-time-series-data-from-a-file"></a>파일에서 시계열 데이터 로드
 
 [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/example-data/request-data.csv)에서 이 빠른 시작의 예제 데이터를 다운로드합니다.
-1. 브라우저에서 **RAW**를 마우스 오른쪽 단추로 클릭합니다.
+1. 브라우저에서 **Raw**를 마우스 오른쪽 단추로 클릭합니다.
 2. **다른 이름으로 링크 저장**을 클릭합니다.
 3. 해당 파일을 .csv 파일로 애플리케이션 디렉터리에 저장합니다.
 

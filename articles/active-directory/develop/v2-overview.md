@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93e4337f0593933a4e877f391df8132a9b2cd4af
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 12027581ae62588550407c8350f3b74f1e743561
+ms.sourcegitcommit: 15f7b641a67f3d6cf4fb4b4c11eaee18cf335923
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67702691"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68601832"
 ---
 # <a name="microsoft-identity-platform-v20-overview"></a>Microsoft ID 플랫폼(v2.0) 개요
 
@@ -43,7 +43,7 @@ Microsoft ID 플랫폼에서는 코드를 한 번에 작성하여 사용자를 �
 
 ## <a name="getting-started"></a>시작
 
-ID 관련 작업이 어려울 필요는 없습니다. 내게 맞는 시나리오를 선택하면 됩니다. 각 시나리오 경로는 빠른 시작과 개요 페이지로 연결되기 때문에 몇 분 안에 작동과 실행이 가능합니다.
+ID 관련 작업이 어려울 필요는 없습니다. 내게 맞는 [시나리오](authentication-flows-app-scenarios.md)를 선택하면 됩니다. 각 시나리오 경로는 빠른 시작과 개요 페이지로 연결되기 때문에 몇 분 안에 작동과 실행이 가능합니다.
 
 - [단일 페이지 앱 빌드](scenario-spa-overview.md)
 - [사용자가 로그인하는 웹앱 빌드](scenario-web-app-sign-user-overview.md)
@@ -62,6 +62,7 @@ ID 관련 작업이 어려울 필요는 없습니다. 내게 맞는 시나리오
 
 핵심적인 인증 개념에 대해 자세히 알아보려면 다음 항목을 시작하는 것이 좋습니다.
 
+- [인증 흐름 및 애플리케이션 시나리오](authentication-flows-app-scenarios.md)
 - [인증 기본 사항](authentication-scenarios.md)
 - [애플리케이션 및 서비스 주체](app-objects-and-service-principals.md)
 - [대상 그룹](v2-supported-account-types.md)

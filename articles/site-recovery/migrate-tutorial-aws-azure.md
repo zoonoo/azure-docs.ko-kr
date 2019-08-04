@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6d2b9c8dd8fb89e201cff5155b1dec0857204752
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: bb60fa216c10b11b6a47c029fbef3698c6f7bd6d
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66400060"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663491"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>AWS(Amazon Web Services)에서 Azure로 VM 마이그레이션
 
@@ -96,8 +96,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 6. **리소스 그룹**에서 **기존 항목 사용**을 선택한 후 **migrationRG**를 선택합니다.
 7. **위치**로 **유럽 서부**를 선택합니다.
 8. **서브넷**에서 **이름** 및 **IP 범위**의 기본값을 그대로 둡니다.
-9. **서비스 엔드포인트** 옵션을 비활성화합니다.
-10. 완료되면 **만들기**를 선택합니다.
+9. DDoS 보호 설정에 대한 지침을 추가합니다.
+10. **서비스 엔드포인트** 옵션을 비활성화합니다.
+11. 방화벽 설정에 대한 지침을 추가합니다.
+12. 완료되면 **만들기**를 선택합니다.
 
 ## <a name="prepare-the-infrastructure"></a>인프라 준비
 
@@ -157,7 +159,7 @@ Azure Portal의 자격 증명 모음 페이지에 있는 **시작** 섹션에서
 
 복제를 활성화하려면 먼저 복제 정책을 만들어야 합니다.
 
-1. **복제 및 연결**을 선택합니다.
+1. **만들기 및 연결**을 선택합니다.
 2. **이름**에 **myReplicationPolicy**를 입력합니다.
 3. 나머지 기본 설정은 그대로 두고 **확인**을 클릭하여 정책을 만듭니다. 새로 만든 정책은 자동으로 구성 서버에 연결됩니다.
 

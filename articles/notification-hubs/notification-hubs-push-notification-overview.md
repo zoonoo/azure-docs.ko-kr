@@ -15,12 +15,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 04/30/2019
 ms.author: jowargo
-ms.openlocfilehash: 03d4c269f76a89c43dec253367d07f3bf71a06d8
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1ee50603886f76b0a54cee940e7644c401804078
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141203"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68610012"
 ---
 # <a name="what-is-azure-notification-hubs"></a>Azure Notification Hubs란 무엇인가요?
 
@@ -86,7 +86,7 @@ Notification Hubs는 다음과 같은 장점으로 즉시 사용할 수 있는 �
   - 한 곳에서 디바이스 핸들 관리
 - **백 엔드 간**
   - 클라우드 또는 온-프레미스
-  - .NET, Node.js, Java 등
+  - .NET, Node.js, Java, Python 등
 - **다양한 배달 패턴**
   - 하나 이상의 플랫폼에 브로드캐스트: 단일 API 호출로 여러 플랫폼에서 수백만 개의 디바이스로 즉시 브로드캐스트할 수 있습니다.
   - 디바이스에 푸시: 개별 디바이스에 알림을 대상으로 지정할 수 있습니다.

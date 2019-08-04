@@ -1,5 +1,5 @@
 ---
-title: 정확히 일치하는 텍스트
+title: 정확히 일치하는 텍스트 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 미리 정의된 항목 목록과 일치하는 데이터를 가져옵니다. 목록의 각 항목과 정확하게 일치하는 동의어가 있을 수 있음
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: df37e7aad2420d0bc280121634d49675ae29ee5a
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: a5aeeb74d26ce633beb0e9feef20a2315bc0ff1d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236432"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560401"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance"></a>자습서: 발언과 텍스트가 정확히 일치하는 데이터 구하기
 
@@ -102,7 +102,7 @@ ms.locfileid: "65236432"
 
 1. **새 엔터티 만들기**를 선택합니다.
 
-1. 엔터티 팝업 대화 상자에서 엔터티 이름으로 `Department`를 입력하고 엔터티 형식으로 **목록**을 입력합니다. **완료**를 선택합니다.  
+1. 엔터티 팝업 대화 상자에서 엔터티 이름으로 `Department`를 입력하고 엔터티 형식으로 **목록**을 입력합니다. **완료** 를 선택합니다.  
 
     [![새 엔터티 만들기 대화 상자의 스크린샷](media/luis-quickstart-intent-and-list-entity/create-new-list-entity-named-department.png "새 엔터티 만들기 대화 상자의 스크린샷")](media/luis-quickstart-intent-and-list-entity/create-new-list-entity-named-department.png#lightbox)
 

@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Anomaly Detector 라이브러리와 Python을 사용하여 데이터 변칙 검색'
+title: '빠른 시작: Python용 Anomaly Detector 클라이언트 라이브러리를 사용하여 데이터 변칙 검색'
 titleSuffix: Azure Cognitive Services
 description: Anomaly Detector API를 사용하여 일괄 처리로 또는 스트리밍 데이터로 데이터 계열에서 변칙을 검색합니다.
 services: cognitive-services
@@ -8,20 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 07/01/2019
+ms.date: 07/26/2019
 ms.author: aahi
-ms.openlocfilehash: 9176ab84dd3f493604bd655e0498f5ad476776d0
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: b78d19841bdca100211378f71e45a41dd37aad28
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721520"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639324"
 ---
 # <a name="quickstart-anomaly-detector-client-library-for-python"></a>빠른 시작: Python용 Anomaly Detector 클라이언트 라이브러리
 
 .NET용 Anomaly Detector 클라이언트 라이브러리를 시작합니다. 이러한 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다. Anomaly Detector 서비스를 사용하면 업계, 시나리오 또는 데이터 양에 관계없이 가장 적합한 모델을 자동으로 사용하여 시계열 데이터의 변칙을 찾을 수 있습니다.
-
-## <a name="key-concepts"></a>주요 개념
 
 Python용 Anomaly Detector 클라이언트 라이브러리를 사용하여 다음을 수행할 수 있습니다.
 
@@ -42,6 +40,18 @@ Python용 Anomaly Detector 클라이언트 라이브러리를 사용하여 다�
 
 [!INCLUDE [anomaly-detector-resource-creation](../../../../includes/cognitive-services-anomaly-detector-resource-cli.md)]
 
+평가판 구독 또는 리소스에서 키를 가져온 후 `ANOMALY_DETECTOR_KEY`라는 키에 대해 [환경 변수를 만듭니다](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication).
+
+### <a name="create-a-new-python-application"></a>새 Python 애플리케이션 만들기
+
+ 선호하는 편집기 또는 IDE에서 Python 애플리케이션을 새로 만듭니다. 그런 다음, 다음 라이브러리를 가져옵니다.
+
+[!code-python[import declarations](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=imports)]
+
+환경 변수, 시계열 데이터 파일의 경로 및 구독의 Azure 위치로 키에 대한 변수를 만듭니다. 예: `westus2` 
+
+[!code-python[Vars for the key, path location and data path](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=initVars)]
+
 ### <a name="install-the-client-library"></a>클라이언트 라이브러리 설치
 
 Python을 설치한 후, 다음을 사용하여 클라이언트 라이브러리를 설치할 수 있습니다.
@@ -57,19 +67,6 @@ Anomaly Detector 클라이언트는 키를 사용하여 Azure에 인증하는 [A
 시계열 데이터는 [요청](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.request(class)?view=azure-python) 개체에 일련의 [포인트](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.point(class)?view=azure-python)로 전송됩니다. `Request` 개체에는 데이터를 설명하는 속성(예: [Granularity](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.granularity?view=azure-python)) 및 변칙 검색용 매개 변수가 포함됩니다. 
 
 Anomaly Detector 응답은 사용된 메서드에 따라 [LastDetectResponse](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.lastdetectresponse?view=azure-python) 또는 [EntireDetectResponse](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.entiredetectresponse?view=azure-python) 개체입니다. 
-
-## <a name="getting-started"></a>시작
-
-선호하는 편집기 또는 IDE에서 Python 애플리케이션을 새로 만듭니다. 그런 다음, 다음 import 선언을 파일에 추가합니다. 
-
-[!code-python[import declarations](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=imports)]
-
-> [!NOTE]
-> 이 빠른 시작에서는 `ANOMALY_DETECTOR_KEY`라는 Anomaly Detector 키용 [환경 변수를 생성](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication)했다고 가정합니다.
-
-환경 변수, 시계열 데이터 파일의 경로 및 구독의 Azure 위치로 키에 대한 변수를 만듭니다. 예: `westus2` 
-
-[!code-python[Vars for the key, path location and data path](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=initVars)]
 
 ## <a name="code-examples"></a>코드 예제 
 
@@ -89,7 +86,7 @@ Azure 위치 변수를 엔드포인트에 추가하고 키를 사용하여 클�
 ### <a name="load-time-series-data-from-a-file"></a>파일에서 시계열 데이터 로드
 
 [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/example-data/request-data.csv)에서 이 빠른 시작의 예제 데이터를 다운로드합니다.
-1. 브라우저에서 **RAW**를 마우스 오른쪽 단추로 클릭합니다.
+1. 브라우저에서 **Raw**를 마우스 오른쪽 단추로 클릭합니다.
 2. **다른 이름으로 링크 저장**을 클릭합니다.
 3. 해당 파일을 .csv 파일로 애플리케이션 디렉터리에 저장합니다.
 
@@ -125,12 +122,6 @@ Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스
 
 * [포털](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
-
-다음 cloud shell 명령을 실행하여 리소스 그룹 및 모든 관련 리소스를 제거할 수도 있습니다. 이 작업을 완료하는 데 몇 분 정도 걸릴 수 있습니다. 
-
-```azurecli-interactive
-az group delete --name example-anomaly-detector-resource-group
-```
 
 ## <a name="next-steps"></a>다음 단계
 

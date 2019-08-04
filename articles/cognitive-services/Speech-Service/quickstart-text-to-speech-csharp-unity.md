@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 음성 합성, Unity - Speech Services'
+title: '빠른 시작: 음성 합성, Unity - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: 이 가이드를 통해 Unity 및 Unity용 Speech SDK(베타)를 사용하여 텍스트를 음성으로 변환하는 애플리케이션을 만듭니다. 이 과정을 마치면 텍스트를 음성으로 합성하여 디바이스 스피커에서 실시간으로 재생할 수 있습니다.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 6/26/2019
 ms.author: yinhew
-ms.openlocfilehash: 5240ea45097ce3c0ae7ccbc15a7f99b2f5990832
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: 507ab9ef9bb3e482e5a33d2406424dfb9116de54
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67467313"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553613"
 ---
 # <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-unity-beta"></a>빠른 시작: Unity용 Speech SDK(베타)를 사용하여 음성 합성
 

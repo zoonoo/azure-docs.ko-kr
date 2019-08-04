@@ -1,5 +1,5 @@
 ---
-title: 정규식 엔터티
+title: 정규식 엔터티 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 정규식 엔터티를 사용하여 발언에서 일관적인 형식의 데이터를 추출합니다.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 06/03/2019
 ms.author: diberry
-ms.openlocfilehash: 5e79de8dc8b4e81f427925b6e3d662bd4931804d
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 958d880829e9524389a25f029415786231644c04
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66497019"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563604"
 ---
 # <a name="tutorial-get-well-formatted-data-from-the-utterance"></a>자습서: 발언에서 올바른 형식의 데이터 구하기
 이 자습서에서는 **정규식** 엔터티를 사용하여 발언에서 일관된 형식의 데이터를 추출하는 앱을 만듭니다.

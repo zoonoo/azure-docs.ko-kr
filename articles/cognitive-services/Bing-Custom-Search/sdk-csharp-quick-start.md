@@ -1,21 +1,21 @@
 ---
 title: '빠른 시작: C# SDK를 사용하여 Bing Custom Search 엔드포인트 호출 | Microsoft Docs'
 titleSuffix: Azure Cognitive Services
-description: C#용 Bing Custom Search SDK를 사용하여 사용자 지정 검색 인스턴스를 검색합니다.
+description: 이 빠른 시작을 사용하여 C# SDK를 통해 Bing Custom Search 인스턴스의 검색 결과를 요청할 수 있습니다.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 06/18/2019
+ms.date: 07/26/2019
 ms.author: scottwhi
-ms.openlocfilehash: 0381df439d0c0904e8741bb1f31b179566c72ec5
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: c7ac6d051c8333a6329a3c2ed238d78fb9da4a30
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206170"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565724"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-the-c-sdk"></a>빠른 시작: C# SDK를 사용하여 Bing Custom Search 엔드포인트 호출 
 

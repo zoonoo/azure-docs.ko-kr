@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 음성 인식, Unity - Speech Services'
+title: '빠른 시작: 음성 인식, Unity - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: 이 가이드에 따라 Unity 및 Unity용 Speech SDK(베타)를 사용하여 음성을 텍스트로 변환하는 애플리케이션을 만듭니다. 작업을 마치면 컴퓨터의 마이크를 사용하여 실시간으로 음성을 텍스트로 변환할 수 있습니다.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/23/2019
 ms.author: jhakulin
-ms.openlocfilehash: 425cacb22865e64a996c653477120a5f7f410c9a
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 06831fa933c04827c966e8f6e12aa817f5008b88
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405942"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68554144"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-unity-beta"></a>빠른 시작: Unity용 Speech SDK(베타)를 사용하여 음성 인식
 

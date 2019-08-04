@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 사용자 지정 음성 우선 가상 도우미(미리 보기), Java (Windows, Linux) - Speech Services'
+title: '빠른 시작: 사용자 지정 음성 우선 가상 도우미(미리 보기), Java (Windows, Linux) - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Java 콘솔 애플리케이션에서 Cognitive Services Speech SDK(소프트웨어 개발 키트)를 사용하는 방법을 알아봅니다. 이전에 Direct Line Speech 채널을 사용하고 음성 우선 가상 도우미 환경을 사용하도록 만들고 구성한 Bot Framework 봇에 애플리케이션을 연결하는 방법을 알아봅니다.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: bidishac
-ms.openlocfilehash: 78e80b276a13ee6e27fdf0515f2901fdeaa20c5d
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: b1be09a2af712277ccaad827b8e84e24ed9f5c5c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604919"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553254"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-java"></a>빠른 시작: Speech SDK Java를 사용하여 음성 우선 가상 도우미 만들기
 

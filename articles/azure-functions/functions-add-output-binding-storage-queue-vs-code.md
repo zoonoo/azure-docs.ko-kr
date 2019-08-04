@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: mvc
 manager: jeconnoc
-ms.openlocfilehash: b207064f691391af2c180c7a6ab03e42ed79fcb6
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 40a912a94dc61342c04528e902bb0e084546904d
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67451614"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68592774"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio-code"></a>Visual Studio Code를 사용하여 Azure Storage에 함수 연결
 
@@ -118,30 +118,7 @@ Functions에서 각 바인딩 형식의 `direction`, `type` 및 고유한 `name`
 
 ### <a name="c-class-library"></a>C\# 클래스 라이브러리
 
-C# 클래스 라이브러리 프로젝트에서 바인딩은 함수 메서드의 바인딩 특성으로 정의됩니다. 그런 다음, function.json 파일은 이러한 특성을 기반으로 자동으로 생성됩니다.
-
-HttpTrigger.cs 프로젝트 파일을 열고 다음 `using` 문을 추가합니다.
-
-```cs
-using Microsoft.Azure.WebJobs.Extensions.Storage;
-```
-
-다음 매개 변수를 `Run` 메서드 정의에 추가합니다.
-
-```cs
-[Queue("outqueue"),StorageAccount("AzureWebJobsStorage")] ICollector<string> msg
-```
-
-`msg` 매개 변수는 `ICollector<T>` 형식이며, 함수가 완료될 때 출력 바인딩에 작성되는 메시지의 컬렉션을 나타냅니다. 이 경우 출력은 `outqueue`라는 스토리지 큐입니다. 스토리지 계정에 대한 연결 문자열은 `StorageAccountAttribute`로 설정됩니다. 이 특성은 스토리지 계정 연결 문자열을 포함하는 설정을 나타내며 클래스, 메서드 또는 매개 변수 수준에서 적용될 수 있습니다. 이 경우 이미 기본 스토리지 계정을 사용하고 있으므로 `StorageAccountAttribute`를 생략할 수 있습니다.
-
-Run 메서드 정의는 이제 다음과 같이 표시됩니다.  
-
-```cs
-[FunctionName("HttpTrigger")]
-public static async Task<IActionResult> Run(
-    [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req, 
-    [Queue("outqueue"),StorageAccount("AzureWebJobsStorage")] ICollector<string> msg, ILogger log)
-```
+[!INCLUDE [functions-add-storage-binding-csharp-library](../../includes/functions-add-storage-binding-csharp-library.md)]
 
 ## <a name="add-code-that-uses-the-output-binding"></a>출력 바인딩을 사용하는 코드 추가
 
@@ -183,46 +160,11 @@ module.exports = async function (context, req) {
 
 ### <a name="c"></a>C\#
 
-`msg` 출력 바인딩 개체를 사용하여 큐 메시지를 만드는 코드를 추가합니다. 메서드가 반환되기 전에 이 코드를 추가합니다.
-
-```cs
-if (!string.IsNullOrEmpty(name))
-{
-    // Add a message to the output collection.
-    msg.Add(string.Format("Name passed to the function: {0}", name));
-}
-```
-
-이 시점에서 함수는 다음과 같이 표시됩니다.
-
-```cs
-[FunctionName("HttpTrigger")]
-public static async Task<IActionResult> Run(
-    [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req, 
-    [Queue("outqueue"),StorageAccount("AzureWebJobsStorage")] ICollector<string> msg, ILogger log)
-{
-    log.LogInformation("C# HTTP trigger function processed a request.");
-
-    string name = req.Query["name"];
-
-    string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-    dynamic data = JsonConvert.DeserializeObject(requestBody);
-    name = name ?? data?.name;
-
-    if (!string.IsNullOrEmpty(name))
-    {
-        // Add a message to the output collection.
-        msg.Add(string.Format("Name passed to the function: {0}", name));
-    }
-    return name != null
-        ? (ActionResult)new OkObjectResult($"Hello, {name}")
-        : new BadRequestObjectResult("Please pass a name on the query string or in the request body");
-}
-```
+[!INCLUDE [functions-add-storage-binding-csharp-library-code](../../includes/functions-add-storage-binding-csharp-library-code.md)]
 
 [!INCLUDE [functions-run-function-test-local-vs-code](../../includes/functions-run-function-test-local-vs-code.md)]
 
-**outqueue**라는 새 큐는 출력 바인딩이 처음 사용될 때 함수 런타임에 의해 Storage 계정에 만들어집니다. Storage Explorer를 사용하여 새 메시지와 함께 큐가 만들어졌는지 확인합니다.
+**outqueue**라는 새 큐는 출력 바인딩이 처음 사용될 때 함수 런타임에 의해 스토리지 계정에 만들어집니다. Storage Explorer를 사용하여 새 메시지와 함께 큐가 만들어졌는지 확인합니다.
 
 ### <a name="connect-storage-explorer-to-your-account"></a>Storage Explorer를 계정에 연결
 
@@ -252,7 +194,7 @@ Azure Storage Explorer를 이미 설치했고 Azure 계정에 연결한 경우 �
 
 이제 업데이트된 함수 앱을 Azure에 다시 게시할 차례입니다.
 
-## <a name="redeploy-and-test-the-updated-app"></a>업데이트된 앱 재배포 및 테스트
+## <a name="redeploy-and-verify-the-updated-app"></a>업데이트된 앱 재배포 및 확인
 
 1. Visual Studio Code에서 F1 키를 눌러 명령 팔레트를 엽니다. 명령 팔레트에서 `Azure Functions: Deploy to function app...`을 검색하여 선택합니다.
 
@@ -268,7 +210,7 @@ Azure Storage Explorer를 이미 설치했고 Azure 계정에 연결한 경우 �
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-Azure에서 *리소스*란 앱, 함수, 저장소 계정 등을 의미합니다. 리소스는 *리소스 그룹*으로 그룹화되며 그룹을 삭제하면 그룹의 모든 항목을 삭제할 수 있습니다.
+Azure에서 *리소스*란 함수 앱, 함수, 스토리지 계정 등을 의미합니다. 리소스는 *리소스 그룹*으로 그룹화되며 그룹을 삭제하면 그룹의 모든 항목을 삭제할 수 있습니다.
 
 이러한 빠른 시작을 완료하기 위해 리소스를 만들었습니다. [계정 상태](https://azure.microsoft.com/account/) 및 [서비스 가격 책정](https://azure.microsoft.com/pricing/)에 따라 리소스에 대해 요금이 청구될 수 있습니다. 리소스가 더 이상 필요하지 않게 되면 다음과 같이 삭제합니다.
 

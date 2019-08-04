@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: Azure Time Series Insights Preview 데모 환경 탐색 | Microsoft Docs'
-description: Azure Time Series Insights Preview 데모 환경을 파악합니다.
+description: 빠른 시작을 통해 Azure Time Series Insights Preview 데모 환경을 파악합니다.
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
@@ -10,13 +10,13 @@ ms.reviewer: dpalled
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 04/22/2019
-ms.openlocfilehash: 547edb194ffdf52a805f573d338f61edff80623a
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.date: 07/29/2019
+ms.openlocfilehash: 3d098b1806e4fdf5b45030dfebf3dfe5959b7d5c
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164873"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677708"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-preview-demo-environment"></a>빠른 시작: Azure Time Series Insights Preview 데모 환경 탐색
 
@@ -26,11 +26,12 @@ Time Series Insights 미리 보기 데모 환경에 등장하는 가상 기업 C
 
 이 빠른 시작에서는 Time Series Insights를 사용하여 Contoso 데이터에서 실행 가능한 인사이트를 찾는 방법을 알아봅니다. 또한 간단한 근본 원인 분석을 수행하여 중대한 오류를 보다 정확하게 예측하고 유지 관리를 수행합니다.
 
+> [!IMPORTANT]
+> Azure 계정이 없는 경우  [Azure 체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 을 만듭니다.
+
 ## <a name="explore-the-time-series-insights-explorer-in-a-demo-environment"></a>데모 환경에서 Time Series Insights 탐색기 살펴보기
 
 Time Series Insights 미리 보기 탐색기는 기록 데이터 및 근본 원인 분석 과정을 보여 줍니다. 시작하기:
-
-1. Azure 계정이 없는 경우  [Azure 체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 을 만듭니다.
 
 1.  [Contoso 풍력 팜 데모](https://insights.timeseries.azure.com/preview/samples) 환경으로 이동합니다.  
 
@@ -73,10 +74,9 @@ Time Series Insights 미리 보기 탐색기는 기록 데이터 및 근본 원�
 
 Time Series Insights 및 센서 원격 분석을 사용하여 기록 데이터에 숨겨진 문제가 되는 장기적인 추세를 발견했습니다. 이러한 새 인사이트를 사용하여 다음과 같은 작업을 수행할 수 있습니다.
 
-> [!div class="checklist"]
-> * 실제로 발생한 문제를 설명합니다.
-> * 문제를 해결합니다.
-> * 상위 경고 알림 시스템을 가동합니다.
+* 실제로 발생한 문제를 설명합니다.
+* 문제를 해결합니다.
+* 상위 경고 알림 시스템을 가동합니다.
 
 ## <a name="root-cause-analysis"></a>근본 원인 분석
 
@@ -115,6 +115,13 @@ Time Series Insights 및 센서 원격 분석을 사용하여 기록 데이터�
     * 동일한 차트 배율로 모든 **발전기 시스템** 센서를 오버레이하도록 화면 표시를 변경합니다.
 
       [![모든 항목을 포함하도록 화면 표시 변경](media/v2-update-quickstart/quickstart-ten.png)](media/v2-update-quickstart/quickstart-ten.png#lightbox)
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+이제 자습서를 완료했으므로 만든 리소스를 정리합니다.
+
+1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **모든 리소스**를 선택하고 Azure Time Series Insights 리소스 그룹을 찾습니다.
+1. **삭제**를 선택하여 전체 리소스 그룹(및 그 안에 포함된 모든 리소스)을 삭제하거나 각 리소스를 개별적으로 제거합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

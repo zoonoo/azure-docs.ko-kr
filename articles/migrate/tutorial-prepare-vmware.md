@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 10f559295ff0598dea26fb30b089f020e2985889
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 993b0249bdcc8e0e54dbe0c222aa2335c3bf8d4a
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67840336"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68679136"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>평가 후 Azure로 마이그레이션할 VMware VM 준비
 
@@ -102,11 +102,11 @@ VM을 평가하거나 에이전트 없는 마이그레이션을 실행하기 위
 
 ## <a name="prepare-for-vmware-vm-assessment"></a>VMware VM 평가 준비
 
-VMware VM 평가를 준비하려면 Hyper-V 호스트 및 VM 설정을 확인하고 어플라이언스 배포에 대한 설정을 확인해야 합니다.
+VMware VM 평가를 준비하려면 VMware 호스트 및 VM 설정을 확인하고 어플라이언스 배포에 대한 설정을 확인해야 합니다.
 
 ### <a name="verify-vmware-settings"></a>VMware 설정 확인
 
-1. VM 평가에 필요한 VMware 서버 요구 사항을 [확인](migrate-support-matrix-vmware.md#assessment-vmware-server-requirements)합니다.
+1. VM 평가에 필요한 VMware 서버 요구 사항을 [확인](migrate-support-matrix-vmware.md#assessment-vcenter-server-requirements)합니다.
 2. vCenter 서버에서 필요한 포트가 열려 있는지 [확인](migrate-support-matrix-vmware.md#assessment-port-requirements)합니다.
 
 

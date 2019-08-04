@@ -1,5 +1,5 @@
 ---
-title: 패턴
+title: 패턴 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 패턴을 사용하여 의도 및 엔터티 예측을 높이는 한편 발화 예제를 줄입니다. 패턴은 엔터티 및 무시 가능한 텍스트를 식별하는 구문을 포함하는 템플릿 발언 예제를 통해 제공됩니다.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: e559d4a3366c45bd054cbf3a235805e048de3493
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 96c58e18abce85354db0d3bdf579600506cf2d86
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68276040"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563299"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats"></a>자습서: 일반적인 패턴 템플릿 발언 서식 추가
 
@@ -357,7 +357,7 @@ Human Resource 도메인의 특성 때문에 조직에서 직원 관계를 묻�
 
 예제 발언은 다음과 같습니다.
 
-|의도|선택적 텍스트와 미리 작성된 엔터티가 있는 예제 발언|
+|Intent|선택적 텍스트와 미리 작성된 엔터티가 있는 예제 발언|
 |:--|:--|
 |OrgChart-Manager|`Who was Jill Jones manager on March 3?`|
 |OrgChart-Manager|`Who is Jill Jones manager now?`|
@@ -368,7 +368,7 @@ Human Resource 도메인의 특성 때문에 조직에서 직원 관계를 묻�
 
 이 선택적 정보를 허용하는 예제 템플릿 발화: 
 
-|의도|선택적 텍스트와 미리 작성된 엔터티가 있는 예제 발언|
+|Intent|선택적 텍스트와 미리 작성된 엔터티가 있는 예제 발언|
 |:--|:--|
 |OrgChart-Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?`]|
 |OrgChart-Manager|`who is {Employee}['s] manager [[on]{datetimeV2}?]`|
@@ -397,7 +397,7 @@ Human Resource 도메인의 특성 때문에 조직에서 직원 관계를 묻�
 
 1. **빌드**의 **패턴** 섹션에서 몇 가지 패턴 템플릿 발언을 새로 추가합니다. 의도 드롭 다운 메뉴에서 **OrgChart-Manager**를 선택하고 다음 템플릿 발언을 각각 입력합니다.
 
-    |의도|선택적 텍스트와 미리 작성된 엔터티가 있는 예제 발언|
+    |Intent|선택적 텍스트와 미리 작성된 엔터티가 있는 예제 발언|
     |--|--|
     |OrgChart-Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?]`|
     |OrgChart-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
@@ -428,7 +428,7 @@ Human Resource 도메인의 특성 때문에 조직에서 직원 관계를 묻�
 
 다음 2가지 패턴은 group `()` 및 OR `|` 구문을 사용하여 단일 패턴으로 결합할 수 있습니다.
 
-|의도|선택적 텍스트와 미리 작성된 엔터티가 있는 예제 발언|
+|Intent|선택적 텍스트와 미리 작성된 엔터티가 있는 예제 발언|
 |--|--|
 |OrgChart-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
 |OrgChart-Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|

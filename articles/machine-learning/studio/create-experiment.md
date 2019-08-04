@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: quickstart
-author: garyericson
-ms.author: garye
+author: xiaoharper
+ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: 0819c232412e1619f82a25476a8318d26c8087da
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e5c004b69f24b50ed2eb3a10dbd0a7915c0773ce
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58105729"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68515105"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>빠른 시작: Azure Machine Learning Studio에서 첫 번째 데이터 과학 실험 만들기
 
@@ -96,7 +96,7 @@ Studio 계정이 없는 경우 [Studio 홈페이지](https://studio.azureml.net)
 1. [데이터 세트에서 열 선택][select-columns] 모듈을 클릭하고 **속성** 창에서 **열 선택기 시작**을 클릭합니다.
 
    - 왼쪽에서 **규칙으로**
-   - **다음으로 시작**에서 **모든 열**을 클릭합니다. 이러한 규칙은 [데이터 세트에서 열 선택][select-columns]에서 모든 열(제외하려는 열은 예외임)을 통과하도록 지정합니다.
+   - **다음으로 시작**에서 **모든 열**을 클릭합니다. 이 규칙은 [데이터 세트에서 열 선택][select-columns]에서 모든 열(제외하려는 열 제외)을 통과하도록 지정합니다.
    - 다음 드롭다운에서 **제외** 및 **열 이름**을 선택한 후 텍스트 상자 내부를 클릭합니다. 열 목록이 표시됩니다. **normalized-losses**를 선택하면 텍스트 상자에 추가됩니다.
    - 확인 표시(OK) 단추(오른쪽 아래)를 클릭하여 열 선택기를 닫습니다.
 
@@ -107,11 +107,11 @@ Studio 계정이 없는 경우 [Studio 홈페이지](https://studio.azureml.net)
      !["normalized-losses" 열이 제외되었음을 보여 주는 속성 창](./media/create-experiment/showing-excluded-column.png)
 
      > [!TIP] 
-     > 모듈을 두 번 클릭하고 텍스트를 입력하여 모듈에 주석을 추가할 수 있습니다. 그러면 모듈이 실험에서 수행하는 내용을 한눈에 볼 수 있습니다. 이 경우에 [데이터 세트에서 열 선택][select-columns] 모듈을 두 번 클릭하고 "정규화된 손실 제외"라는 주석을 입력합니다.
+     > 모듈을 두 번 클릭하고 텍스트를 입력하여 모듈에 주석을 추가할 수 있습니다. 그러면 모듈이 실험에서 수행하는 내용을 한눈에 볼 수 있습니다. 이 경우 [데이터 세트에서 열 선택][select-columns] 모듈을 두 번 클릭하고 "정규화된 손실 제외"라는 주석을 입력합니다.
 
      ![모듈을 두 번 클릭하여 주석 추가](./media/create-experiment/add-comment.png)
 
-1. [누락된 데이터 정리][clean-missing-data] 모듈을 실험 캔버스로 끌어 놓고 [데이터 세트에서 열 선택][select-columns] 모듈과 연결합니다. **속성** 창에서 **정리 모드** 아래 **전체 열 제거**를 선택합니다. 이러한 옵션은 [누락된 데이터 정리][clean-missing-data]에서 누락 값이 있는 모든 행을 제거하여 데이터를 정리하도록 지정합니다. 모듈을 두 번 클릭하고 주석 "Remove missing value rows"를 입력합니다.
+1. [누락 데이터 정리][clean-missing-data] 모듈을 실험 캔버스로 끌어 놓고 [데이터 세트에서 열 선택][select-columns] 모듈과 연결합니다. **속성** 창에서 **정리 모드** 아래 **전체 열 제거**를 선택합니다. 이 옵션은 [누락 데이터 정리][clean-missing-data]에서 누락된 값이 있는 행을 제거하여 데이터를 정리하도록 지정합니다. 모듈을 두 번 클릭하고 주석 "Remove missing value rows"를 입력합니다.
 
     !["누락된 데이터 정리" 모듈에 대한 정리 모드를 "전체 행 제거"로 설정](./media/create-experiment/set-remove-entire-row.png)
 
@@ -138,7 +138,7 @@ Studio 계정이 없는 경우 [Studio 홈페이지](https://studio.azureml.net)
 
     make, body-style, wheel-base, engine-size, horsepower, peak-rpm, highway-mpg, price
 
-1. 다른 [데이터 세트에서 열 선택][select-columns] 모듈을 실험 캔버스에 끌어 놓습니다. [누락된 데이터 정리][clean-missing-data] 모듈의 왼쪽 출력 포트를 [데이터 세트에서 열 선택][select-columns] 모듈의 입력 포트에 연결합니다.
+1. 다른 [데이터 세트에서 열 선택][select-columns] 모듈을 실험 캔버스에 끌어다 놓습니다. [누락된 데이터 정리][clean-missing-data] 모듈의 왼쪽 출력 포트를 [데이터 세트에서 열 선택][select-columns] 모듈의 입력 포트에 연결합니다.
 
     !["데이터 세트에서 열 선택" 모듈을 "누락된 데이터 정리" 모듈에 연결](./media/create-experiment/connect-clean-to-select.png)
 
@@ -183,11 +183,11 @@ Studio 계정이 없는 경우 [Studio 홈페이지](https://studio.azureml.net)
 
 1. 학습 알고리즘을 선택하려면 캔버스 왼쪽의 모듈 팔레트에서 **Machine Learning** 범주를 확장한 후 **Initialize Model**을 확장합니다. 기계 학습 알고리즘을 초기화하는 데 사용할 수 있는 몇 가지 범주의 모듈이 표시됩니다. 이 예제의 경우 **회귀** 범주 아래 [선형 회귀][linear-regression] 모듈을 선택하고 실험 캔버스로 끌어 놓습니다. (팔레트 검색 상자에 "linear regression"을 입력하여 모듈을 찾을 수도 있습니다.)
 
-1. [모델 학습][train-model] 모듈을 찾아 실험 캔버스로 끌어 놓습니다. [선형 회귀][linear-regression] 모듈의 출력 포트를 [모델 학습][train-model] 모듈의 왼쪽 포트에 연결하고 [분할 데이터][split] 모듈의 데이터 학습 출력(왼쪽 포트)를 [모델 학습][train-model] 모듈의 오른쪽 입력 포트에 연결합니다.
+1. [모델 학습][train-model] 모듈을 찾아서 실험 캔버스로 끌어 놓습니다. [선형 회귀][linear-regression] 모듈의 출력을 [모델 학습][train-model] 모듈의 왼쪽 입력에 연결하고 [데이터 분할][split] 모듈의 학습 데이터 출력(왼쪽 포트)을 [모델 학습][train-model] 모듈의 오른쪽 입력에 연결합니다.
 
     !["모델 학습" 모듈을 "선형 회귀" 및 "데이터 분할" 모듈 모두에 연결](./media/create-experiment/connect-train-model.png)
 
-1. [모델 학습][train-model] 모듈을 선택하고 **속성** 창에서 **열 선택기 시작**을 클릭한 다음 **가격** 열을 선택합니다. **가격**은 모델에서 예측할 값입니다.
+1. [모델 학습][train-model] 모듈을 선택하고 **속성** 창에서 **열 선택기 시작**을 클릭한 다음, **가격** 열을 선택합니다. **가격**은 모델에서 예측할 값입니다.
 
     **사용 가능한 열** 목록에서 가격 열을 **선택한 열** 목록으로 이동하여 열 선택기에서 **가격** 열을 선택합니다.
 
@@ -203,7 +203,7 @@ Studio 계정이 없는 경우 [Studio 홈페이지](https://studio.azureml.net)
 
 데이터의 75%를 사용하여 모델을 학습했으며, 이제 모델을 사용하여 나머지 25% 데이터의 점수를 매겨 모델 기능이 얼마나 좋은지 확인할 수 있습니다.
 
-1. [모델 점수 매기기][score-model] 모듈을 찾아 실험 캔버스로 끌어 놓습니다. [모델 학습][train-model]모듈의 출력 포트를 [모델 점수 매기기][score-model]의 왼쪽 입력 포트에 연결합니다. 오른쪽 입력 포트를 [데이터 분할][split] 모듈의 테스트 데이터 출력(오른쪽 포트)을 [모델 점수 매기기][score-model]의 오른쪽 입력 포트에 연결합니다.
+1. [모델 점수 매기기][score-model] 모듈을 찾아 실험 캔버스로 끌어 놓습니다. [모델 학습][train-model] 모듈의 출력을 [모델 점수 매기기][score-model]의 왼쪽 입력 포트에 연결합니다. [데이터 분할][split] 모듈의 테스트 데이터 출력(오른쪽 포트)을 [모델 점수 매기기][score-model]의 오른쪽 입력 포트에 연결합니다.
 
     !["모델 점수 매기기" 모듈을 "모델 학습" 및 "데이터 분할" 모듈 모두에 연결](./media/create-experiment/connect-score-model.png)
 
@@ -217,13 +217,13 @@ Studio 계정이 없는 경우 [Studio 홈페이지](https://studio.azureml.net)
 
 1. 실험을 실행합니다.
 
-[모델 평가][evaluate-model] 모듈의 출력을 보려면 출력 포트를 클릭한 다음 **시각화**를 선택합니다.
+[모델 평가][evaluate-model] 모듈의 출력을 보려면 출력 포트를 클릭한 다음, **시각화**를 선택합니다.
 
 ![실험 평가 결과](./media/create-experiment/evaluation-results.png)
 
 모델에 대한 다음 통계가 표시됩니다.
 
-- MAE(**절대 평균 오차**): 절대 평균 오차입니다(‘오차’는 예측 값과 실제 값 사이의 차이임).
+- MAE(**절대 평균 오차**): 절대 평균 오차입니다(‘오차’는 예측 값과 실제 값 사이의 차이임). 
 - RMSE(**제곱 평균 오차**): 테스트 데이터 세트에 대해 예측한 제곱 평균 오차의 제곱근입니다.
 - **상대 절대 오차**: 실제 값과 모든 실제 값 평균 사이의 절대값 차에 대해 상대적인 절대 평균 오차입니다.
 - **상대 제곱 오차**: 실제 값과 모든 실제 값 평균 사이의 제곱 차에 대해 상대적인 제곱 평균 오차입니다.

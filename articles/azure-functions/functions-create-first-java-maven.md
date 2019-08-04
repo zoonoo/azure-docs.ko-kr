@@ -1,24 +1,24 @@
 ---
-title: Java 및 Maven을 사용하여 Azure에서 첫 번째 함수 만들기 | Microsoft Docs
+title: Java 및 Maven를 사용하여 함수 게시 - Azure Functions
 description: Java 및 Maven을 사용하여 Azure에 간단한 HTTP 트리거 함수를 만들어 게시합니다.
 services: functions
 documentationcenter: na
 author: rloutlaw
 manager: justhe
-keywords: Azure 함수, 함수, 이벤트 처리, 계산, 서버리스 아키텍처
+keywords: Azure 함수, 함수, 이벤트 처리, 컴퓨팅, 서버리스 아키텍처
 ms.service: azure-functions
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 08/10/2018
 ms.author: routlaw
 ms.reviewer: glenga
-ms.custom: mvc, devcenter
-ms.openlocfilehash: 20327e64080182518fd28b1d367ffe37be5ce9a4
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.custom: mvc, devcenter, seo-java-july2019
+ms.openlocfilehash: 9ed954eaf96196fdaa944778db8ea47dd5e6da9f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68323957"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564797"
 ---
 # <a name="create-your-first-function-with-java-and-maven"></a>Java 및 Maven을 사용하여 첫 번째 함수 만들기
 

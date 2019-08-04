@@ -1,5 +1,6 @@
 ---
-title: LUIS(Language Understanding)란? - Azure Cognitive Services | Microsoft Docs
+title: LUIS(Language Understanding)란?
+titleSuffix: Azure Cognitive Services
 description: LUIS(Language Understanding)는 사용자 지정 기계 학습 인텔리전스를 사용자의 자연스러운 기존 언어 텍스트에 적용하여 전체적인 의미를 예측하고 관련된 자세한 정보를 추출하는 클라우드 기반 API 서비스입니다.
 services: cognitive-services
 author: diberry
@@ -9,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: overview
 ms.date: 06/11/2019
 ms.author: diberry
-ms.openlocfilehash: 569b33d299f52f0da50d8a8992420754aa85b533
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 41c5e2f01678996406c586eb20043516beaf2184
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67062163"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563185"
 ---
 # <a name="what-is-language-understanding-luis"></a>LUIS(Language Understanding)란?
 
@@ -57,7 +58,7 @@ LUIS 앱은 도메인별 자연어 모델을 포함합니다. 미리 작성된 �
 
 LUIS 모델은 **[의도](luis-concept-intent.md)** 라고 하는 사용자 의도 범주로 시작합니다. 각 의도에는 사용자 **[발언](luis-concept-utterance.md)** 예제가 필요합니다. 각 발언은 **[엔터티](luis-concept-entity-types.md)** 를 사용하여 추출해야 하는 다양한 데이터를 제공할 수 있습니다. 
 
-|예제 사용자 발언|의도|엔터티|
+|예제 사용자 발언|Intent|엔터티|
 |-----------|-----------|-----------|
 |"__시애틀__로 가는 항공편을 예약해줄 수 있나요?"|BookFlight|시애틀|
 |"매장은 몇 시에 __문을 여나요__?"|StoreHoursAndLocation|open|
