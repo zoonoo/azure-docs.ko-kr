@@ -305,6 +305,8 @@
           href: logic-apps-enterprise-integration-accounts.md
         - name: 통합 서비스 환경 관리
           href: ise-manage-integration-service-environment.md
+        - name: 논리 앱 리소스 이동
+          href: move-logic-app-resources.md
         - name: 최신 스키마로 마이그레이션
           href: ../connectors/connectors-schema-migration.md
     - name: 테스트

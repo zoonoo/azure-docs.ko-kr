@@ -36,6 +36,26 @@ sections:
           - html: <a href="service/quickstart-run-local-notebook">로컬 Notebook 서버를 사용하여 실험 실행</a>(로컬 SDK 설치)
         style: unordered
         type: list
+      - text: '<b>자습서: Azure Portal에서 자동화된 첫 번째 ML 모델 학습 및 배포:</b>'
+        type: paragraph
+      - items:
+          - html: <a href="service/tutorial-first-experiment-automated-ml">자동화된 기계 학습을 사용하여 첫 번째 분류 모델 학습 및 배포</a>
+        style: unordered
+        type: list
+      - text: '<b>자습서: SDK를 사용하여 첫 번째 ML 모델 학습:</b>'
+        type: paragraph
+      - items:
+          - html: '1부: <a href="service/tutorial-1st-experiment-sdk-setup">환경 및 작업 영역 설정</a>'
+          - html: '2부: <a href="service/tutorial-1st-experiment-sdk-train">첫 번째 모델 학습</a>'
+        style: unordered
+        type: list
+      - text: '<b>자습서: 시각적 인터페이스를 사용하여 첫 번째 실험 학습 및 배포:</b>'
+        type: paragraph
+      - items:
+          - html: '1부: <a href="service/ui-tutorial-automobile-price-train-score">회귀 모델 학습</a>'
+          - html: '2부: <a href="service/ui-tutorial-automobile-price-deploy">모델 배포</a>'
+        style: unordered
+        type: list
       - text: '<b>자습서: SDK를 사용한 MNIST 데이터의 이미지 분류:</b>'
         type: paragraph
       - items:

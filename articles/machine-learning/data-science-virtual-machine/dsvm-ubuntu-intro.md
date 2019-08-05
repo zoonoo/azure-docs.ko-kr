@@ -4,8 +4,8 @@ titleSuffix: Azure
 description: 분석 및 기계 학습을 수행하기 위해 Azure에서 Linux(Ubuntu)용 데이터 과학 Virtual Machine을 구성하고 만듭니다.
 services: machine-learning
 documentationcenter: ''
-author: gopitk
-ms.author: gokuma
+author: vijetajo
+ms.author: vijetaj
 manager: cgronlun
 ms.custom: seodec18
 ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
@@ -14,14 +14,14 @@ ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 03/16/2018
-ms.openlocfilehash: 5a9fdebc8db0c2a1acc20a894f80cfcc87fb89d5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8a19f414f31c307111edad876ed973ff4027d907
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66236485"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68591923"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Azure에서 Linux(Ubuntu)용 데이터 과학 Virtual Machine 프로비전
 
@@ -101,7 +101,7 @@ Linux용 데이터 과학 Virtual Machine의 인스턴스를 만드는 단계는
 
    b. **크기**:
 
-   * 기능 요구 사항과 비용 제약 조건에 부합하는 서버 유형 중 하나를 선택합니다. NC 또는 ND 클래스 VM GPU 기반 VM 인스턴스를 선택 합니다. [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/) 페이지에는 GPU가 있는 영역이 나열됩니다.
+   * 기능 요구 사항과 비용 제약 조건에 부합하는 서버 유형 중 하나를 선택합니다. GPU 기반 VM 인스턴스에 대해 NC 또는 ND 클래스 VM을 선택합니다. [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/) 페이지에는 GPU가 있는 영역이 나열됩니다.
 
    다. **설정**:
 
@@ -121,7 +121,7 @@ Linux용 데이터 과학 Virtual Machine의 인스턴스를 만드는 단계는
 1. 그래픽 세션에 대한 X2Go
 1. Jupyter 노트북에 대한 JupyterHub 및 JupyterLab
 
-또한 Azure VM에서 Jupyter notebook을 실행 하 여 무료 서비스 계층의 제한 사항을 무시 하는 Notebook에는 데이터 과학 VM을 연결할 수 있습니다. 자세한 내용은 [관리 Notebook 프로젝트-계산 계층을 구성 하 고](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier)입니다.
+또한 Data Science VM을 Azure Notebooks에 연결하여 VM에서 Jupyter Notebook을 실행하고 체험 서비스 계층의 제한을 무시할 수 있습니다. 자세한 내용은 [Notebooks 프로젝트 관리 및 구성 - 컴퓨팅 계층](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier)을 참조하세요.
 
 ### <a name="ssh"></a>SSH
 
@@ -148,9 +148,9 @@ X2Go 클라이언트를 통해 XFCE 그래픽 데스크톱 또는 SSH 클라이�
 
 ### <a name="jupyterhub-and-jupyterlab"></a>JupyterHub 및 JupyterLab
 
-Ubuntu DSVM은 [JupyterHub](https://github.com/jupyterhub/jupyterhub), 다중 사용자 Jupyter 서버를 실행합니다. 연결할 https로 찾아보기:\//-vm-ip:8000 랩톱 또는 데스크톱에서 사용자 이름 및 VM을 만들고 로그인에 사용한 암호를 입력 합니다. 다양한 샘플 노트북을 사용하여 찾아보고 체험할 수 있습니다.
+Ubuntu DSVM은 [JupyterHub](https://github.com/jupyterhub/jupyterhub), 다중 사용자 Jupyter 서버를 실행합니다. 연결하려면 랩톱 또는 데스크톱에서 https:\//your-vm-ip:8000으로 이동하고, VM을 만드는 데 사용한 사용자 이름과 암호를 입력하고, 로그인합니다. 다양한 샘플 노트북을 사용하여 찾아보고 체험할 수 있습니다.
 
-Jupyter 노트북의 차세대 JupyterLab 및 JupyterHub도 제공됩니다. 액세스 하려면 JupyterHub에 로그인 한 다음 찾아보기 URL https:\//-vm-ip:8000/사용자/사용자 사용자 이름/랩입니다. 이 줄을 추가 하 여 기본 노트북 서버로 JupyterLab을 설정할 수 있습니다 */etc/jupyterhub/jupyterhub_config.py*:
+Jupyter 노트북의 차세대 JupyterLab 및 JupyterHub도 제공됩니다. 액세스하려면 JupyterHub에 로그인한 다음, https:\//your-vm-ip:8000/user/your-username/lab URL로 이동합니다. 다음 줄을 */etc/jupyterhub/jupyterhub_config.py*에 추가하여 JupyterLab을 기본 Notebook 서버로 설정할 수 있습니다.
 
 ```python
 c.Spawner.default_url = '/lab'
@@ -179,7 +179,7 @@ Caffe는 Berkeley Vision and Learning Center의 심층 학습 프레임워크입
 
 #### <a name="caffe2"></a>Caffe2
 
-Caffe2는 Caffe를 기반으로 제작된 Facebook의 심층 학습 프레임워크입니다. Python 2.7의 Conda 루트 환경에서 Caffe2를 사용할 수 있습니다. 서비스를 활성화 하려면 셸에서 다음 명령을 실행 합니다.
+Caffe2는 Caffe를 기반으로 제작된 Facebook의 심층 학습 프레임워크입니다. Python 2.7의 Conda 루트 환경에서 Caffe2를 사용할 수 있습니다. 이를 활성화하려면 셸에서 다음 명령을 실행합니다.
 
 ```bash
 source /anaconda/bin/activate root
@@ -209,7 +209,7 @@ DIGITS는 Conda 루트 환경에서 Python 모듈로도 설치됩니다.
 
 #### <a name="tensorflow"></a>TensorFlow
 
-TensorFlow는 Google의 심층 학습 라이브러리입니다. 데이터 흐름 그래프를 사용한 수치 계산용 오픈 소스 소프트웨어 라이브러리를 것입니다. TensorFlow는 py35 Python 환경에서 사용할 수 있고, 일부 샘플 노트북이 JupyterHub에 포함되어 있습니다.
+TensorFlow는 Google의 심층 학습 라이브러리입니다. 이는 데이터 흐름 그래프를 사용한 수치 계산을 위한 오픈 소스 소프트웨어 라이브러리입니다. TensorFlow는 py35 Python 환경에서 사용할 수 있고, 일부 샘플 노트북이 JupyterHub에 포함되어 있습니다.
 
 #### <a name="theano"></a>Theano
 
@@ -225,7 +225,7 @@ PyTorch는 루트 Anaconda 환경에서도 사용할 수 있습니다. 예제는
 
 R은 가장 많이 사용되는 데이터 분석 및 Machine Learning 언어 중 하나입니다. 분석에 R을 사용하려는 경우 VM에서 MRO(Microsoft R Open) 및 MKL(Math Kernel Library)이 포함된 MRS(Microsoft R Server)를 사용합니다. MKL은 분석 알고리즘에 공통되는 수학 연산을 최적화합니다. MRO는 CRAN-R과 완벽하게 호환되며 CRAN에 게시된 모든 R 라이브러리를 MRO에 설치할 수 있습니다. MRS는 R 모델의 크기 조정 및 운영을 웹 서비스에 제공합니다. RStudio, vi 또는 Emacs 등의 기본 편집기 중 하나에서 R 프로그램을 편집할 수 있습니다. Emacs 편집기를 사용하려는 사전 설치되어 있으므로 사용할 수 있습니다. Emacs 패키지 ESS(Emacs Speaks Statistics)는 Emacs 편집기 내에서 R 파일을 편리하게 사용할 수 있도록 합니다.
 
-R 콘솔을 시작하려면 셸에서 **R**만 입력하면 됩니다. 이 명령은 대화형 환경으로 이동합니다. R 프로그램을 개발하려면 일반적으로 Emacs, vi 등의 편집기를 사용한 다음 R 내에서 스크립트를 실행합니다. RStudio를 통해 R 프로그램을 개발하기 위한 전체 그래픽 IDE 환경을 사용할 수 있습니다.
+R 콘솔을 시작하려면 셸에서 **R**만 입력하면 됩니다. 이 명령을 사용하면 대화형 환경으로 이동합니다. R 프로그램을 개발하려면 일반적으로 Emacs, vi 등의 편집기를 사용한 다음 R 내에서 스크립트를 실행합니다. RStudio를 통해 R 프로그램을 개발하기 위한 전체 그래픽 IDE 환경을 사용할 수 있습니다.
 
 또한 원하는 경우 [상위 20개 R 패키지](https://www.kdnuggets.com/2015/06/top-20-r-packages.html) 를 설치하기 위해 R 스크립트를 사용할 수도 있습니다. 앞에서 설명한 것처럼 R 대화형 인터페이스를 표시한 다음 셸에 **R** 을 입력하여 이 스크립트를 실행할 수 있습니다.  
 
@@ -286,11 +286,11 @@ Python과 R로 각각 작성된 샘플 노트북이 패키지로 제공됩니다
 
 ### <a name="apache-spark-standalone"></a>Apache Spark 독립 실행형
 
-Apache Spark의 독립 실행형 인스턴스는 Linux DSVM에 미리 설치되어 대형 클러스터에서 테스트 및 배포하기 전에 먼저 Spark 애플리케이션을 로컬로 개발하는 데 도움을 줍니다. Jupyter 커널을 통해 PySpark 프로그램을 실행할 수 있습니다. Jupyter를 열고 **New** 단추를 클릭하면 사용할 수 있는 커널의 목록이 표시됩니다. "Spark - Python"은 Python 언어를 사용하여 Spark 애플리케이션을 빌드할 수 있도록 하는 PySpark 커널입니다. Spark 프로그램을 빌드하 PyCharm 또는 Spyder와 같은 Python IDE를 사용할 수도 있습니다. 이 독립 실행형 인스턴스에서 Spark 스택은 빠르고 쉽게 Spark 클러스터에서 개발에 비해 문제를 해결할 수 있도록 하는 호출 클라이언트 프로그램에서 실행 됩니다.
+Apache Spark의 독립 실행형 인스턴스는 Linux DSVM에 미리 설치되어 대형 클러스터에서 테스트 및 배포하기 전에 먼저 Spark 애플리케이션을 로컬로 개발하는 데 도움을 줍니다. Jupyter 커널을 통해 PySpark 프로그램을 실행할 수 있습니다. Jupyter를 열고 **New** 단추를 클릭하면 사용할 수 있는 커널의 목록이 표시됩니다. "Spark - Python"은 Python 언어를 사용하여 Spark 애플리케이션을 빌드할 수 있도록 하는 PySpark 커널입니다. 또한 PyCharm 또는 Spyder와 같은 Python IDE를 사용하여 Spark 프로그램을 빌드할 수도 있습니다. 이 독립 실행형 인스턴스에서 Spark 스택은 호출 클라이언트 프로그램 내에서 실행되므로 문제를 Spark 클러스터에서 개발하는 것에 비해 더 빠르고 쉽게 해결할 수 있습니다.
 
 샘플 PySpark Notebook은 Jupyter($HOME/notebooks/SparkML/pySpark)의 홈 디렉터리에 있는 "SparkML" 디렉터리에서 찾을 수 있는 Jupyter에서 제공됩니다. 
 
-Spark 용 R에서 프로그래밍 하는 경우에 Microsoft R Server, SparkR, sparklyr을 사용할 수 있습니다. 
+Spark용 R에서 프로그래밍하는 경우 Microsoft R Server, SparkR 또는 sparklyr을 사용할 수 있습니다. 
 
 Microsoft R Server에서 Spark 컨텍스트를 실행하기 전에 로컬 단일 노드 Hadoop HDFS 및 Yarn 인스턴스를 사용하도록 설정하려면 일회성 설정 단계를 수행해야 합니다. 기본적으로 Hadoop 서비스는 설치되지만 DSVM에서 사용하지 않도록 설정됩니다. 활성화하기 위해 처음으로 루트로 다음 명령을 실행해야 합니다.
 
@@ -304,13 +304,13 @@ chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
 systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
 ```
 
-Hadoop을 중지할 수 있습니다 실행 하 여 필요 하지 않을 때 관련 서비스 ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```
+```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```을 실행하여 Hadoop 관련 서비스가 필요하지 않을 때 해당 서비스를 중지할 수 있습니다.
 
-개발 및 원격 Spark 컨텍스트 (DSVM의 독립 실행형 Spark 인스턴스)에서 MRS를 테스트 하는 방법을 보여주는 샘플은 제공 되 고 사용 가능한 합니다 */dsvm/samples/MRS* 디렉터리입니다.
+원격 Spark 컨텍스트(DSVM의 독립 실행형 Spark 인스턴스)에서 MRS를 개발하고 테스트하는 방법을 보여 주는 샘플은 */dsvm/samples/MRS* 디렉터리에서 제공되고 사용할 수 있습니다.
 
 ### <a name="ides-and-editors"></a>IDE 및 편집기
 
-Vi/VIM, Emacs, PyCharm, RStudio 및 IntelliJ를 포함 하 여 여러 코드 편집기 중 선택할을 수 있습니다. IntelliJ, RStudio 및 PyCharm은 그래픽 편집기이며 그래픽 데스크톱에 로그인해야 사용할 수 있습니다. 이러한 편집기는 데스크톱 및 애플리케이션 바로 가기 메뉴를 사용하여 시작할 수 있습니다.
+vi/VIM, Emacs, PyCharm, RStudio 및 IntelliJ를 포함한 몇 가지 코드 편집기를 선택할 수 있습니다. IntelliJ, RStudio 및 PyCharm은 그래픽 편집기이며 그래픽 데스크톱에 로그인해야 사용할 수 있습니다. 이러한 편집기는 데스크톱 및 애플리케이션 바로 가기 메뉴를 사용하여 시작할 수 있습니다.
 
 **VIM** 및 **Emacs**는 텍스트 기반 편집기입니다. Emacs의 경우 Emacs 편집기 내에서 R 작업을 쉽게 수행할 수 있도록 해주는 ESS(Emacs Speaks Statistics)라는 추가 기능 패키지가 설치되어 있습니다. 자세한 내용은 [ESS](https://ess.r-project.org/)를 참조하세요.
 
@@ -320,7 +320,7 @@ Vi/VIM, Emacs, PyCharm, RStudio 및 IntelliJ를 포함 하 여 여러 코드 편
 
 #### <a name="graphical-sql-client"></a>그래픽 SQL 클라이언트
 
-Microsoft SQL Server, MySQL 등의 다양한 데이터베이스에 연결하고 SQL 쿼리를 실행할 수 있도록 그래픽 SQL 클라이언트인 **SQuirrel SQL**이 제공됩니다. SQuirrel SQL은 그래픽 데스크톱 세션 (예: X2Go 클라이언트 사용)에서 실행할 수는 바탕 화면 아이콘을 사용 하 여 또는 셸에서 다음 명령을 사용 합니다.
+Microsoft SQL Server, MySQL 등의 다양한 데이터베이스에 연결하고 SQL 쿼리를 실행할 수 있도록 그래픽 SQL 클라이언트인 **SQuirrel SQL**이 제공됩니다. 바탕 화면 아이콘을 사용하거나 셸에서 다음 명령을 사용하여 그래픽 데스크톱 세션(예: X2Go 클라이언트 사용)에서 SQuirrel SQL을 실행할 수 있습니다.
 
 ```bash
 /usr/local/squirrel-sql-3.7/squirrel-sql.sh
@@ -359,7 +359,7 @@ R 및 Python에는 데이터베이스에 액세스하는 데 사용할 수 있�
 다음 Azure 도구가 VM에 설치됩니다.
 
 * **Azure 명령줄 인터페이스**: Azure CLI를 사용하여 셸 명령을 통해 Azure 리소스를 만들고 관리할 수 있습니다. Azure 도구를 호출하려는 경우 **azure help**만 입력하면 됩니다. 자세한 내용은 [Azure CLI 설명서 페이지](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)를 참조하세요.
-* **Microsoft Azure Storage 탐색기**: Microsoft Azure Storage Explorer는 Azure tmxhflwl 계정에 저장한 개체를 찾아보고, Azure Blob에서 데이터를 업로드 및 다운로드하는 데 사용되는 그래픽 도구입니다. 바탕 화면 바로 가기 아이콘을 사용하여 Storage Explorer에 액세스할 수 있습니다. **StorageExplorer**를 입력하면 셸 프롬프트에서 Storage Explorer를 호출할 수 있습니다. X2Go 클라이언트에서 로그인 하거나 X11 전달을 설정 설치한 있습니다.
+* **Microsoft Azure Storage Explorer**: Microsoft Azure Storage Explorer는 Azure tmxhflwl 계정에 저장한 개체를 찾아보고, Azure Blob에서 데이터를 업로드 및 다운로드하는 데 사용되는 그래픽 도구입니다. 바탕 화면 바로 가기 아이콘을 사용하여 Storage Explorer에 액세스할 수 있습니다. **StorageExplorer**를 입력하면 셸 프롬프트에서 Storage Explorer를 호출할 수 있습니다. X2Go 클라이언트에서 로그인하거나 X11 전달이 설정되어 있어야 합니다.
 * **Azure 라이브러리**: 아래에는 사전 설치된 라이브러리 중 몇 가지가 나와 있습니다.
   
   * **Python**: Python으로 작성된 Azure 관련 라이브러리 **azure**, **azureml**, **pydocumentdb** 및 **pyodbc**가 설치되어 있습니다. 처음 세 개의 라이브러리를 사용하면 Azure Storage 서비스, Azure Machine Learning 및 Azure Cosmos DB(Azure의 NoSQL 데이터베이스)에 액세스할 수 있습니다. 네 번째 라이브러리인 pyodbc를 SQL Serve용 Microsoft ODBC 드라이버와 함께 사용하면 ODBC 인터페이스를 사용하여 Python에서 SQL Server, Azure SQL Database 및 Azure SQL Data Warehouse에 액세스할 수 있습니다. **pip list** 를 입력하면 나열된 라이브러리를 모두 확인할 수 있습니다. Python 2.7 및 3.5 환경 모두에서 이 명령을 실행해야 합니다.
@@ -372,7 +372,7 @@ R 및 Python에는 데이터베이스에 액세스하는 데 사용할 수 있�
 
 Azure Machine Learning은 예측 분석 솔루션을 빌드, 배포 및 공유할 수 있는 완전 관리형 클라우드 서비스입니다. Azure Machine Learning Studio에서 실험 및 모델을 빌드합니다. 데이터 과학 Virtual Machine의 웹 브라우저에서 [Microsoft Azure Machine Learning](https://studio.azureml.net)을 방문하여 액세스할 수도 있습니다.
 
-Azure Machine Learning Studio에 로그인하고 나면 Machine Learning 알고리즘용 논리적 흐름을 빌드할 수 있는 실험 캔버스에 액세스할 수 있습니다. 또한 Azure Machine Learning에서 호스트되는 Jupyter Notebook에도 액세스할 수 있으며, Machine Learning Studio의 실험을 원활하게 진행할 수 있습니다. 빌드한 기계 학습 모델은 웹 서비스 인터페이스에 래핑하여 운용 가능하도록 설정합니다. Machine learning 모델 운영 화 모든 언어로 작성 된 클라이언트를 게 이러한 모델에서 예측을 호출할 수 있습니다. 자세한 내용은 [Machine Learning 설명서](https://azure.microsoft.com/documentation/services/machine-learning/)를 참조하세요.
+Azure Machine Learning Studio에 로그인하고 나면 Machine Learning 알고리즘용 논리적 흐름을 빌드할 수 있는 실험 캔버스에 액세스할 수 있습니다. 또한 Azure Machine Learning에서 호스트되는 Jupyter Notebook에도 액세스할 수 있으며, Machine Learning Studio의 실험을 원활하게 진행할 수 있습니다. 빌드한 기계 학습 모델은 웹 서비스 인터페이스에 래핑하여 운용 가능하도록 설정합니다. 기계 학습 모델을 운용하면 모든 언어로 작성된 클라이언트가 해당 모델에서 예측을 호출할 수 있습니다. 자세한 내용은 [Machine Learning 설명서](https://azure.microsoft.com/documentation/services/machine-learning/)를 참조하세요.
 
 VM에서 R 또는 Python으로 모델을 빌드한 다음 Azure Machine Learning에서 프로덕션 환경으로 배포할 수도 있습니다. R 및 Python에는 이 기능을 사용하는 데 필요한 라이브러리(각각 **AzureML**과 **azureml**)가 설치되어 있습니다.
 
@@ -400,7 +400,7 @@ VM에는 로컬에서 미리 컴파일되어 미리 설치된 몇 가지 기계 
 
 Vowpal Wabbit은 온라인, 해시, allreduce, 축소, learning2search, 활성 및 대화형 학습 등의 기술을 사용하는 기계 학습 시스템입니다.
 
-기본적인 예제에서 도구를 실행 하려면 다음 명령을 사용 합니다.
+기본 예제에서 도구를 실행하려면 다음 명령을 사용합니다.
 
 ```bash
 cp -r /dsvm/tools/VowpalWabbit/demo vwdemo
@@ -455,7 +455,7 @@ library(rattle)
 rattle()
 ```
 
-이제 그래픽 인터페이스가 열리고 일련의 탭이 표시됩니다. 모델을 빌드하고 샘플 날씨 데이터 집합을 사용 하는 데 필요한 Rattle의 빠른 시작 단계는 다음과 같습니다. 아래 일부 단계에서 아직 시스템에 없는 필수 R 패키지를 자동으로 설치 및 로드할 것인지 묻는 메시지가 나타납니다.
+이제 그래픽 인터페이스가 열리고 일련의 탭이 표시됩니다. 다음은 날씨 데이터 세트 샘플을 사용하여 모델을 작성하는 데 필요한 Rattle의 빠른 시작 단계입니다. 아래 일부 단계에서 아직 시스템에 없는 필수 R 패키지를 자동으로 설치 및 로드할 것인지 묻는 메시지가 나타납니다.
 
 > [!NOTE]
 > 시스템 디렉터리(기본값)에서 패키지를 설치하는 액세스 권한이 없는 경우 R 콘솔 창에 패키지를 개인 라이브러리에 설치할지 여부를 묻는 메시지가 나타납니다. 이러한 메시지가 표시되면 *y* 로 응답합니다.
@@ -480,5 +480,5 @@ rattle()
 
 * [Linux용 데이터 과학 Virtual Machine의 데이터 과학](linux-dsvm-walkthrough.md) 연습은 여기에 프로비전된 Linux 데이터 과학을 사용하여 여러 가지 일반적인 데이터 과학 작업을 수행하는 방법을 보여 줍니다. 
 * 이 문서에 설명된 도구를 사용하여 데이터 과학 VM에서 다양한 데이터 과학 도구를 살펴봅니다. 가상 머신 내의 셸에서 *dsvm-more-info* 를 실행하여 VM에 설치된 도구에 대한 기본 소개 및 자세한 내용을 참조할 수도 있습니다.  
-* [팀 데이터 과학 프로세스](https://aka.ms/tdsp)를 사용하여 종단 간 분석 솔루션을 체계적으로 구축하는 방법을 알아봅니다.
+* [팀 데이터 과학 프로세스](https://aka.ms/tdsp)를 사용하여 엔드투엔드 분석 솔루션을 체계적으로 빌드하는 방법을 알아봅니다.
 * Azure AI 서비스를 사용하는 기계 학습 및 데이터 분석 샘플을 보려면 [Azure AI Gallery](https://gallery.azure.ai/)를 방문합니다.

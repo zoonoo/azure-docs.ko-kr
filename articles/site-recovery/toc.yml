@@ -179,7 +179,7 @@
           items:
             - name: Azure VM에 대한 모바일 서비스 업데이트
               href: azure-to-azure-autoupdate.md
-            - name: Azure Site Recovery에 대한 업데이트
+            - name: Site Recovery 업데이트 관리
               href: service-updates-how-to.md
             - name: 서버 제거 및 보호 사용 안 함
               href: site-recovery-manage-registration-and-protection.md
@@ -263,7 +263,7 @@
               href: vmware-azure-manage-process-server.md
             - name: vCenter 서버 관리
               href: vmware-azure-manage-vcenter.md
-            - name: Azure Site Recovery에 대한 업데이트
+            - name: Site Recovery 업데이트 관리
               href: service-updates-how-to.md
             - name: 서버 제거 및 보호 사용 안 함
               href: site-recovery-manage-registration-and-protection.md
@@ -281,6 +281,8 @@
               href: concepts-on-premises-to-azure-networking.md
         - name: 재해 복구 설정
           items:
+            - name: 연습 - 재해 복구 설정
+              href: physical-azure-disaster-recovery.md
             - name: 원본 환경 설정
               href: physical-azure-set-up-source.md
             - name: 대상 환경 설정
@@ -293,8 +295,6 @@
                   href: vmware-azure-install-mobility-service.md
                 - name: System Center Configuration Manager를 사용하여 모바일 서비스 배포
                   href: vmware-azure-mobility-install-configuration-mgr.md
-                - name: 연습 - 재해 복구 설정
-                  href: physical-azure-disaster-recovery.md
         - name: 장애 조치(failover) 및 장애 복구(failback) 실행
           href: physical-to-azure-failover-failback.md
         - name: 관리
@@ -307,7 +307,7 @@
               href: vmware-azure-manage-process-server.md
             - name: 서버 제거 및 보호 사용 안 함
               href: site-recovery-manage-registration-and-protection.md
-            - name: Azure Site Recovery에 대한 업데이트
+            - name: Site Recovery 업데이트 관리
               href: service-updates-how-to.md
             - name: 자격 증명 모음 삭제
               href: delete-vault.md
@@ -361,10 +361,12 @@
               href: upgrade-2012R2-to-2016.md
             - name: 서버 제거 및 보호 사용 안 함
               href: site-recovery-manage-registration-and-protection.md
-            - name: Azure Site Recovery에 대한 업데이트
+            - name: Site Recovery 업데이트 관리
               href: service-updates-how-to.md
             - name: 자격 증명 모음 삭제
               href: delete-vault.md
+            - name: 다른 영역으로 자격 증명 모음 이동
+              href: move-vaults-across-regions.md
     - name: 앱에 대한 재해 복구
       items:
         - name: Azure로 온-프레미스 앱에 대한 재해 복구 설정
@@ -423,39 +425,45 @@
       href: hyper-v-vmm-powershell-resource-manager.md
     - name: 장애 조치(failover)를 오케스트레이션하려면 복구 계획에 Azure Automation Runbook 추가
       href: site-recovery-runbook-automation.md
-- name: 모니터링 및 문제 해결
+- name: 모니터링
   items:
-    - name: Azure Site Recovery 모니터링
+    - name: 모니터링에 대한 일반적인 질문
+      href: monitoring-common-questions.md
+    - name: Site Recovery 모니터링
       href: site-recovery-monitor-and-troubleshoot.md
-    - name: Azure VM
+    - name: Azure Monitor 로그를 사용하여 Site Recovery 모니터링
+      href: monitor-log-analytics.md
+    - name: 프로세스 서버 모니터링
+      href: vmware-physical-azure-monitor-process-server.md
+- name: 문제 해결
+  items:
+    - name: Azure VM 문제 해결
       items:
-        - name: Azure VM에 대한 복제 오류 문제 해결
+        - name: Azure VM 복제 문제 해결
           href: azure-to-azure-troubleshoot-errors.md
-        - name: Azure VM에 대해 진행 중인 복제 문제 해결
+        - name: 진행 중인 복제 문제 해결
           href: azure-to-azure-troubleshoot-replication.md
-        - name: Azure VM에 대한 모바일 서비스 문제 해결
+        - name: Mobility Service 문제 해결
           href: site-recovery-extension-troubleshoot.md
-    - name: VMware/물리적 서버
+    - name: VMware VM/물리적 서버 문제 해결
       items:
-        - name: 프로세스 서버 모니터링
-          href: vmware-physical-azure-monitor-process-server.md
-        - name: VMware에서 Azure로 복제 문제 해결
+        - name: VMware VM/물리적 서버 복제 문제 해결
           href: vmware-azure-troubleshoot-replication.md
         - name: 구성 서버 문제 해결
           href: vmware-azure-troubleshoot-configuration-server.md
         - name: 프로세스 서버 문제 해결
           href: vmware-physical-azure-troubleshoot-process-server.md
-        - name: VMware VM/물리적 서버에 대한 모바일 서비스 푸시 설치 문제 해결
+        - name: Mobility Service의 강제 설치 문제 해결
           href: vmware-azure-troubleshoot-push-install.md
         - name: Azure에 대한 장애 조치(failover) 문제 해결
           href: site-recovery-failover-to-azure-troubleshoot.md
         - name: VMware VM의 장애 복구 및 다시 보호 문제 해결
           href: vmware-azure-troubleshoot-failback-reprotect.md
-        - name: Microsoft Azure Site Recovery 공급 기업 업그레이드 오류 문제 해결
+        - name: 공급자 업그레이드 실패 문제 해결
           href: vmware-azure-troubleshoot-upgrade-failures.md
         - name: vCenter 검색 실패 문제 해결
           href: vmware-azure-troubleshoot-vcenter-discovery-failures.md
-    - name: Hyper-V
+    - name: Hyper-V 문제 해결
       items:
         - name: Hyper-V 복제 문제 해결
           href: hyper-v-azure-troubleshoot.md

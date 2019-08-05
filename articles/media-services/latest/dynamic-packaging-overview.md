@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 06/03/2019
+ms.date: 07/29/2019
 ms.author: juliako
-ms.openlocfilehash: 4836ec4bb66bbf8ced921dd1095665d004f8a28b
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 5979e34e7c186a0484c8db2d432a3c57a5ed1d15
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67542585"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68679165"
 ---
 # <a name="dynamic-packaging"></a>동적 패키징
 
@@ -26,7 +26,7 @@ Microsoft Azure Media Services를 사용하여 많은 미디어 소스 파일 �
 
 Media Services에서 [스트리밍 엔드포인트](streaming-endpoint-concept.md)는 일반적인 스트리밍 미디어 프로토콜(HLS 또는 DASH)을 사용하여 라이브 및 주문형 콘텐츠를 클라이언트 플레이어 애플리케이션에 직접 배달할 수 있는 원본 서비스와 동적(적시) 패키징을 나타냅니다. 동적 패키징은 모든 **스트리밍 엔드포인트**(표준 또는 프리미엄)에 표준으로 제공되는 기능입니다. 
 
-동적 패키징을 활용하려면 Media Services 동적 패키징에 필요한 적응 비트 전송률 MP4 파일 및 스트리밍 구성 파일 세트가 포함된 **자산**이 있어야 합니다. 파일을 얻는 한 가지 방법은 Media Services를 사용하여 mezzanine(원본) 파일을 인코딩하는 것입니다. 인코딩된 자산의 비디오를 재생할 클라이언트에 사용할 수 있게 만들려면 **스트리밍 로케이터**를 만들고 스트리밍 URL을 빌드해야 합니다. 그러면 스트리밍 클라이언트 매니페스트에 지정된 형식에 따라(HLS, DASH 또는 부드러운 스트리밍) 선택한 프로토콜로 스트림을 받게 됩니다.
+동적 패키징을 활용하려면 적응 비트 전송률 MP4 파일 및 스트리밍 구성 파일(.ism, .ismc, .mpi, etc.) 세트가 포함된 [자산](assets-concept.md)이 있어야 합니다. 파일을 얻는 한 가지 방법은 Media Services를 사용하여 mezzanine(원본) 파일을 인코딩하는 것입니다. 인코딩된 자산의 비디오를 클라이언트에서 재생할 수 있게 하려면 [스트리밍 로케이터](streaming-locators-concept.md)를 만들고 스트리밍 URL을 작성해야 합니다. 그러면 스트리밍 클라이언트 매니페스트에 지정된 형식에 따라(HLS, DASH 또는 부드러운 스트리밍) 선택한 프로토콜로 스트림을 받게 됩니다.
 
 따라서 사용자는 단일 저장소 형식으로 파일을 저장하고 해당 파일에 대한 요금을 지불하기만 하면 되며, Media Services 서비스에서 클라이언트의 요청에 따라 적절한 응답을 작성하고 제공합니다. 
 
@@ -41,12 +41,22 @@ Media Services에서는 라이브 또는 주문형 스트리밍 여부에 무관
 
 1. 입력 또는 원본 파일(*mezzanine* 파일이라고 함)을 업로드합니다. MP4, MOV 또는 MXF 파일을 예로 들 수 있습니다. 
 1. mezzanine 파일을 H.264 MP4 적응 비트 전송률 집합으로 인코딩합니다. 
-1. 적응 비트 전송률 MP4 세트가 포함된 자산을 게시합니다. 스트리밍 로케이터를 만들어 게시합니다.
+1. 적응 비트 전송률 MP4 세트가 포함된 출력 자산을 게시합니다. 스트리밍 로케이터를 만들어 게시합니다.
 1. 다양한 형식(HLS, MPEG-DASH 및 부드러운 스트리밍)을 대상으로 하는 URL을 작성합니다. 스트리밍 엔드포인트는 다양한 형식에 대한 정확한 매니페스트 및 요청의 서비스를 담당합니다.
 
 이 다이어그램은 동적 패키징을 사용한 주문형 스트리밍의 워크플로를 보여 줍니다.
 
 ![패키징을 사용한 주문형 스트리밍의 워크플로 다이어그램](./media/dynamic-packaging-overview/media-services-dynamic-packaging.png)
+
+### <a name="encoding-to-adaptive-bitrate-mp4s"></a>적응 비트 전송률 MP4로 인코딩
+
+다음 문서에서는 [Media Services를 사용하여 비디오를 인코딩하는 방법](encoding-concept.md)의 예제를 보여 줍니다.
+
+* [기본 제공 사전 설정을 사용하여 HTTPS URL에서 인코딩](job-input-from-http-how-to.md)
+* [기본 제공 사전 설정을 사용하여 로컬 파일 인코딩](job-input-from-local-file-how-to.md)
+* [특정 시나리오 또는 디바이스 요구 사항을 대상으로 사용자 지정 사전 설정 빌드](customize-encoder-presets-how-to.md)
+
+Media Encoder Standard [형식 및 코덱](media-encoder-standard-formats.md) 목록을 참조하세요.
 
 ## <a name="live-streaming-workflow"></a>라이브 스트리밍 워크플로
 
@@ -83,30 +93,23 @@ Media Services 동적 패키징에서 콘텐츠에 다음 배달 프로토콜을
 |MPEG-DASH CMAF|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` |
 |부드러운 스트리밍| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`|
 
-## <a name="encode-to-adaptive-bitrate-mp4s"></a>적응 비트 전송률 MP4를 인코딩합니다.
+## <a name="delivery-codecs-support"></a>배달 코덱 지원 
 
-다음 문서에서는 [Media Services를 사용하여 비디오를 인코딩하는 방법](encoding-concept.md)의 예제를 보여 줍니다.
-
-* [기본 제공 사전 설정을 사용하여 HTTPS URL에서 인코딩](job-input-from-http-how-to.md)
-* [기본 제공 사전 설정을 사용하여 로컬 파일 인코딩](job-input-from-local-file-how-to.md)
-* [특정 시나리오 또는 디바이스 요구 사항을 대상으로 사용자 지정 사전 설정 빌드](customize-encoder-presets-how-to.md)
-
-Media Encoder Standard [형식 및 코덱](media-encoder-standard-formats.md) 목록을 참조하세요.
-
-## <a name="video-codecs"></a>비디오 코덱
+### <a name="video-codecs"></a>비디오 코덱
 
 동적 패키징에서는 다음 비디오 코덱을 지원합니다.
 * [H.264](https://en.m.wikipedia.org/wiki/H.264/MPEG-4_AVC)(MPEG-4 AVC 또는 AVC1) 또는 [H.265](https://en.m.wikipedia.org/wiki/High_Efficiency_Video_Coding)(HEVC, hev1 또는 hvc1)로 인코딩된 비디오를 포함하는 MP4 파일
 
-## <a name="audio-codecs"></a>오디오 코덱
+### <a name="audio-codecs"></a>오디오 코덱
 
-동적 패키징에서는 다음 오디오 프로토콜을 지원합니다.
+동적 패키징은 아래에서 설명하는 다음 오디오 프로토콜을 지원합니다.
+
 * MP4 파일
 * 다중 오디오 트랙
 
 동적 패키징은 [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital)(AC3) 오디오(레거시 코덱임)를 포함하는 파일을 지원하지 않습니다.
 
-### <a name="mp4-files"></a>MP4 파일
+#### <a name="mp4-files"></a>MP4 파일
 
 동적 패키징에서는 다음 프로토콜을 사용하여 인코딩된 오디오를 포함하는 MP4 파일을 지원합니다. 
 
@@ -123,21 +126,19 @@ Media Encoder Standard [형식 및 코덱](media-encoder-standard-formats.md) �
     * DTS Express(dtse)
     * DTS-HD 무손실(코어 없음) (dtsl)
 
-### <a name="multiple-audio-tracks"></a>다중 오디오 트랙
+#### <a name="multiple-audio-tracks"></a>다중 오디오 트랙
 
 동적 패키징은 여러 코덱 및 언어가 있는 여러 오디오 트랙을 갖는 스트리밍 자산에 대한 HLS 출력(버전 4 이상)에 다중 오디오 트랙을 지원합니다.
 
-## <a name="dynamic-encryption"></a>동적 암호화
-
-*동적 암호화*를 사용하여 AES-128 또는 세 가지 주요 DRM(디지털 권한 관리) 시스템 중 하나에서 라이브 또는 주문형 콘텐츠를 동적으로 암호화할 수 있습니다. 동적 암호화된 라이브 콘텐츠 및 주문형 콘텐츠를 제공할 수 있습니다. 또한 Media Services는 인증된 클라이언트에 AES 키 및 DRM 라이선스를 전달하는 서비스를 제공합니다. 자세한 정보는 [동적 암호화](content-protection-overview.md)를 참조하세요.
-
-## <a name="manifest-examples"></a>매니페스트 예제 
+## <a name="manifests"></a>매니페스트 
  
 Media Services 동적 패키징에서 HLS, MPEG-DASH 및 부드러운 스트리밍에 대한 스트리밍 클라이언트 매니페스트는 URL의 형식 선택기에 따라 동적으로 생성됩니다. 자세한 정보는 [배달 프로토콜](#delivery-protocols)을 참조하세요. 
 
 매니페스트 파일에는 트랙 유형(오디오, 비디오 또는 텍스트), 트랙 이름, 시작 및 종료 시간, 비트 전송률(품질), 트랙 언어, 프레젠테이션 창(고정 기간의 슬라이딩 창), 비디오 코덱(FourCC) 등의 스트리밍 메타 데이터가 포함됩니다. 또한 다음으로 재생할 수 있는 비디오 조각 및 위치에 대한 정보를 제공하여 다음 조각을 검색하도록 플레이어에 지시합니다. 조각(또는 세그먼트)은 비디오 콘텐츠의 실제 “청크”입니다.
 
-### <a name="hls"></a>HLS
+### <a name="examples"></a>예
+
+#### <a name="hls"></a>HLS
 
 HLS 마스터 재생 목록이라고도 하는 HLS 매니페스트 파일의 예제는 다음과 같습니다. 
 
@@ -164,7 +165,7 @@ QualityLevels(3579827)/Manifest(video,format=m3u8-aapl)
 QualityLevels(128041)/Manifest(aac_eng_2_128041_2_1,format=m3u8-aapl)
 ```
 
-### <a name="mpeg-dash"></a>MPEG-DASH
+#### <a name="mpeg-dash"></a>MPEG-DASH
 
 MPD(MPEG-DASH Media Presentation Description)라고도 하는 MPEG-DASH 매니페스트 파일의 예제는 다음과 같습니다.
 
@@ -197,7 +198,7 @@ MPD(MPEG-DASH Media Presentation Description)라고도 하는 MPEG-DASH 매니�
    </Period>
 </MPD>
 ```
-### <a name="smooth-streaming"></a>부드러운 스트리밍
+#### <a name="smooth-streaming"></a>부드러운 스트리밍
 
 부드러운 스트리밍 매니페스트 파일의 예제는 다음과 같습니다.
 
@@ -221,9 +222,37 @@ MPD(MPEG-DASH Media Presentation Description)라고도 하는 MPEG-DASH 매니�
 </SmoothStreamingMedia>
 ```
 
+### <a name="naming-of-tracks-in-the-manifest"></a>매니페스트에서 트랙 이름 지정
+
+오디오 트랙 이름이 .ism 파일에 지정되면 Media Services에서 `Label` 요소를 `AdaptationSet` 내에 추가하여 특정 오디오 트랙에 대한 텍스트 정보를 지정합니다. 출력 DASH 매니페스트의 예제는 다음과 같습니다.
+
+```xml
+<AdaptationSet codecs="mp4a.40.2" contentType="audio" lang="en" mimeType="audio/mp4" subsegmentAlignment="true" subsegmentStartsWithSAP="1">
+  <Label>audio_track_name</Label>
+  <Role schemeIdUri="urn:mpeg:dash:role:2011" value="main"/>
+  <Representation audioSamplingRate="48000" bandwidth="131152" id="German_Forest_Short_Poem_english-en-68s-2-lc-128000bps_seg">
+    <BaseURL>German_Forest_Short_Poem_english-en-68s-2-lc-128000bps_seg.mp4</BaseURL>
+  </Representation>
+</AdaptationSet>
+```
+
+플레이어에서 `Label` 요소를 사용하여 UI에 표시할 수 있습니다.
+
+### <a name="signaling-audio-description-tracks"></a>오디오 설명 트랙 신호 보내기
+
+고객은 매니페스트에서 오디오 트랙을 오디오 설명의 주석으로 추가할 수 있습니다. 이렇게 하려면 "accessibility" 및 "role" 매개 변수를 .ism 파일에 추가합니다. 오디오 트랙에 "description" 값의 "accessibility" 매개 변수와 "alternate" 값의 "role" 매개 변수가 있는 경우 Media Services에서 오디오 설명을 인식합니다. Media Services에서 .ism 파일의 오디오 설명을 검색하면 오디오 설명 정보가 `Accessibility="description"` 및 `Role="alternate"` 특성으로 클라이언트 매니페스트의 `StreamIndex` 요소에 전달됩니다.
+
+.ism 파일에 "accessibility" = "description" 및 "role" = "alternate"의 조합이 설정되면 DASH 매니페스트와 부드러운 매니페스트에서 "accessibility" 및 "role" 매개 변수에 설정된 값을 전달합니다. 고객이 이러한 두 값을 올바르게 설정하고 오디오 트랙을 오디오 설명으로 표시해야 합니다. DASH 사양에 따라 "accessibility" = "description" 및 "role" = "alternate"는 오디오 트랙이 오디오 설명임을 의미합니다.
+
+HLS v7 이상(`format=m3u8-cmaf`)의 경우 "accessibility" = "description" 및 "role" = "alternate"의 조합이 .ism 파일에 설정된 경우에만 해당 재생 목록에서 `CHARACTERISTICS="public.accessibility.describes-video"`를 전달합니다. 
+
 ## <a name="dynamic-manifest"></a>동적 매니페스트
 
 플레이어에 전송되는 트랙 수, 형식, 비트 전송률 및 프레젠테이션 창을 제어하기 위해 Media Services 동적 패키지 작성 도구에서 동적 필터링을 사용할 수 있습니다. 자세한 내용은 [동적 패키지 작성 도구를 사용하여 매니페스트 미리 필터링](filters-dynamic-manifest-overview.md)을 참조하세요.
+
+## <a name="dynamic-encryption"></a>동적 암호화
+
+*동적 암호화*를 사용하여 AES-128 또는 세 가지 주요 DRM(디지털 권한 관리) 시스템 중 하나에서 라이브 또는 주문형 콘텐츠를 동적으로 암호화할 수 있습니다. 동적 암호화된 라이브 콘텐츠 및 주문형 콘텐츠를 제공할 수 있습니다. 또한 Media Services는 인증된 클라이언트에 AES 키 및 DRM 라이선스를 전달하는 서비스를 제공합니다. 자세한 정보는 [동적 암호화](content-protection-overview.md)를 참조하세요.
 
 ## <a name="more-information"></a>자세한 정보
 

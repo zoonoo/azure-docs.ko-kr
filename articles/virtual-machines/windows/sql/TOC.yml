@@ -68,6 +68,8 @@
       items:
         - name: SQL Server 데이터베이스 마이그레이션
           href: virtual-machines-windows-migrate-sql.md
+        - name: 새 Azure 지역으로 VM 마이그레이션
+          href: virtual-machines-windows-sql-move-different-region.md
     - name: 고가용성 구성
       items:
         - name: 백업 및 복원에 Azure Storage 사용

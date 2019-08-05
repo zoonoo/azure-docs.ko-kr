@@ -1,6 +1,6 @@
 ---
-title: IoT용 Azure Security Center 보안 모듈 쌍 만들기 - 미리 보기 | Microsoft Docs
-description: IoT용 Azure Security Center에서 사용할 IoT용 ASC 모듈 쌍을 만드는 방법을 알아봅니다.
+title: IoT용 Azure Security Center 보안 모듈 쌍 만들기 | Microsoft Docs
+description: IoT용 Azure Security Center에서 사용할 IoT용 Azure Security Center 모듈 쌍을 만드는 방법을 알아봅니다.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -15,33 +15,31 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 0e042942be63fdcd97c7cda6003e6d55376ca1a1
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 92bf79aa5ae55bad16d68a26dc13d292285a4d46
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67616667"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597085"
 ---
 # <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>빠른 시작: azureiotsecurity 모듈 쌍 만들기
 
-> [!IMPORTANT]
-> IoT용 Azure Security Center는 현재 공개 미리 보기 상태입니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-
-이 빠른 시작에서는 새 디바이스에 대한 개별 _azureiotsecurity_ 모듈 쌍을 만들거나 IoT Hub의 모든 디바이스에 대한 모듈 쌍을 일괄 처리 방식으로 만드는 방법에 대해 설명합니다.  
+이 빠른 시작에서는 새 디바이스에 대한 개별 _azureiotsecurity_ 모듈 쌍을 만들거나 IoT Hub의 모든 디바이스에 대한 모듈 쌍을 일괄 처리하는 방법에 대해 설명합니다.  
 
 ## <a name="understanding-azureiotsecurity-module-twins"></a>azureiotsecurity 모듈 쌍 이해 
 
 Azure에 구축된 IoT 솔루션의 경우 디바이스 쌍은 디바이스 관리와 프로세스 자동화 모두에서 중요한 역할을 수행합니다. 
 
-IoT용 Azure Security Center(ASC)는 기존 IoT 디바이스 관리 플랫폼과 완벽하게 통합되어 디바이스 보안 상태를 관리하고 기존 디바이스 제어 기능을 활용할 수 있도록 지원합니다.
-IoT용 ASC 통합은 IoT Hub 쌍 메커니즘을 활용함으로써 달성됩니다.  
+IoT용 Azure Security Center는 기존 IoT 디바이스 관리 플랫폼과 완벽하게 통합되어 디바이스 보안 상태를 관리하고 기존 디바이스 제어 기능을 활용할 수 있습니다.
+IoT용 Azure Security Center 통합은 IoT Hub 쌍 메커니즘을 사용하여 수행됩니다.  
 
 Azure IoT Hub에 있는 모듈 쌍의 일반적인 개념에 대한 자세한 내용은 [IoT Hub 모듈 쌍](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins)을 참조하세요. 
  
-IoT용 ASC는 모듈 쌍 메커니즘을 사용하고 각 디바이스에 대한 _azureiotsecurity_라는 보안 모듈 쌍을 유지 관리합니다.
+IoT용 Azure Security Center는 모듈 쌍 메커니즘을 사용하고, 각 디바이스에 대해 _azureiotsecurity_라는 보안 모듈 쌍을 유지 관리합니다.
+
 보안 모듈 쌍에는 각 디바이스에 대한 디바이스 보안과 관련된 모든 정보가 포함되어 있습니다. 
  
-IoT용 ASC 기능을 최대한 활용하려면 서비스 내 모든 디바이스에 대해 이러한 보안 모듈 쌍을 만들고, 구성하고, 사용해야 합니다.  
+IoT용 Azure Security Center 기능을 최대한 활용하려면 서비스의 모든 디바이스에 대해 이러한 보안 모듈 쌍을 만들고, 구성하고, 사용해야 합니다.  
 
 ## <a name="create-azureiotsecurity-module-twin"></a>azureiotsecurity 모듈 쌍 만들기 
 
@@ -54,9 +52,9 @@ _azureiotsecurity_ 모듈 쌍은 두 가지 방법으로 만들 수 있습니다
 
 기존 모듈 쌍의 구성을 수정하거나 변경하는 방법에 대한 자세한 내용은 [에이전트 구성](how-to-agent-configuration.md)을 참조하세요. 
 
-디바이스의 새 _azureiotsecurity_ 모듈 쌍을 수동으로 만들려면 다음 지침을 사용합니다. 
+디바이스에 대한 새 _azureiotsecurity_ 모듈 쌍을 수동으로 만들려면 다음 지침을 사용합니다. 
 
-1. IoT Hub에서 IoT Hub에 사용할 보안 모듈 쌍을 만들려는 디바이스를 찾아서 선택합니다.
+1. IoT Hub에서 만들려는 보안 모듈 쌍의 디바이스를 찾아서 선택합니다.
 1. 디바이스를 클릭한 후 **모듈 ID 추가**를 클릭합니다.
 1. **모듈 ID 이름** 필드에 **azureiotsecurity**를 입력합니다.
 
@@ -74,7 +72,7 @@ _azureiotsecurity_ 모듈 쌍은 두 가지 방법으로 만들 수 있습니다
     ![디바이스에 연결된 모듈](./media/quickstart/verify-security-module-twin-3.png)
 
 
-IoT용 ASC 모듈 쌍의 속성을 사용자 지정하는 방법에 대한 자세한 내용은 [에이전트 구성](how-to-agent-configuration.md)을 참조하세요.
+IoT용 Azure Security Center 모듈 쌍의 속성을 사용자 지정하는 방법에 대한 자세한 내용은 [에이전트 구성](how-to-agent-configuration.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

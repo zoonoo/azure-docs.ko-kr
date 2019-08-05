@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 83567a45980b29931f9b68bd6d60df0d427b09de
-ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
+ms.openlocfilehash: c790667c73adfed061b97b14ebb7df4c68461786
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67813013"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663793"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Azure Migrate 서버 평가를 사용하여 Hyper-V VM 평가
 
@@ -110,15 +110,17 @@ Azure Migrate 서버 평가는 경량 Hyper-V VM 어플라이언스를 실행합
 배포하기 전에 압축된 파일이 안전한지 확인합니다.
 
 1. 파일을 다운로드한 컴퓨터에서 관리자 명령 창을 엽니다.
-2. 다음 명령을 실행하여 VHD에 대한 해시를 생성합니다.
-    - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - 사용 예: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
+
+2. 다음 PowerShell 명령을 실행하여 ZIP 파일에 대한 해시를 생성합니다.
+    - ```C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm]```
+    - 사용 예: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v1.19.06.27.zip -Algorithm SHA256```
+
 3.  1\.19.06.27 어플라이언스 버전의 경우 생성된 해시는 다음 설정과 일치해야 합니다.
 
   **알고리즘** | **해시 값**
   --- | ---
-  MD5 | 3681f745fa2b0a0a6910707d85161ec5
-  SHA256 | e6ca109afab9657bdcfb291c343b3e3abced9a273d25273059171f9954d25832
+  MD5 | 3681F745FA2B0A0A6910707D85161EC5
+  SHA256 | E6CA109AFAB9657BDCFB291C343B3E3ABCED9A273D25273059171F9954D25832
 
 
 
@@ -158,9 +160,9 @@ Azure Migrate 서버 평가는 경량 Hyper-V VM 어플라이언스를 실행합
 1. 웹앱 > **필수 구성 요소 설정**에서 다음을 수행합니다.
     - **라이선스**: 사용 조건에 동의하고 타사 정보를 읽습니다.
     - **연결**: 앱에서 VM이 인터넷에 액세스할 수 있는지 확인합니다. VM에서 프록시를 사용하는 경우:
-        - **프록시 설정**을 클릭하고, 프록시 주소와 수신 포트를 http://ProxyIPAddress 또는 http://ProxyFQDN 형식으로 지정합니다.
-        - 프록시에 인증이 필요한 경우 자격 증명을 지정합니다.
-        - HTTP 프록시만 지원됩니다.
+      - **프록시 설정**을 클릭하고, 프록시 주소와 수신 포트를 http://ProxyIPAddress 또는 http://ProxyFQDN 형식으로 지정합니다.
+      - 프록시에 인증이 필요한 경우 자격 증명을 지정합니다.
+      - HTTP 프록시만 지원됩니다.
     - **시간 동기화**: 시간이 확인됩니다. VM 검색이 제대로 작동하려면 어플라이언스의 시간이 인터넷 시간과 동기화되어야 합니다.
     - **업데이트 설치**: Azure Migrate 서버 평가에서 어플라이언스에 최신 업데이트가 설치되어 있는지 확인합니다.
 
@@ -178,19 +180,31 @@ Azure Migrate 서버 평가는 경량 Hyper-V VM 어플라이언스를 실행합
 
 ### <a name="delegate-credentials-for-smb-vhds"></a>SMB VHD에 대한 자격 증명 위임
 
-SMB에서 VHD를 실행하는 경우 자격 증명을 어플라이언스에서 Hyper-V 호스트로 위임하도록 설정해야 합니다. [이전 자습서](tutorial-prepare-hyper-v.md#enable-credssp-on-hosts)의 각 호스트에서 이 작업을 수행하지 않은 경우 이제 어플라이언스에서 다음을 수행합니다.
+SMB에서 VHD를 실행하는 경우 자격 증명을 어플라이언스에서 Hyper-V 호스트로 위임하도록 설정해야 합니다. 이 작업을 수행하려면 다음이 필요합니다.
 
-1. 어플라이언스 VM에서 다음 명령을 실행합니다. HyperVHost1/HyperVHost2는 예제 호스트 이름입니다.
+- 각 호스트가 어플라이언스에 대한 대리자로 작동하도록 설정합니다. 평가 및 마이그레이션을 위해 Hyper-V를 준비한 경우 이전 자습서에서 이 작업을 수행해야 합니다. 호스트에 대한 CredSSP를 [수동으로](tutorial-prepare-hyper-v.md#enable-credssp-on-hosts) 설정하거나, [Hyper-V 필수 구성 요소 구성 스크립트를 실행](tutorial-prepare-hyper-v.md#hyper-v-prerequisites-configuration-script)하여 설정해야 합니다.
+- Azure Migrate 어플라이언스가 클라이언트로 작동하여 자격 증명을 호스트에 위임할 수 있도록 CredSSP 위임을 사용하도록 설정합니다.
 
-    ```
-    Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force
-    ```
+다음과 같이 어플라이언스에서 사용하도록 설정합니다.
 
-2. 또는 어플라이언스의 로컬 그룹 정책 편집기에서 다음을 수행합니다.
-    - **로컬 컴퓨터 정책** > **컴퓨터구성**에서 **관리 템플릿** > **시스템** > **자격 증명 위임**을 차례로 클릭합니다.
-    - **새로운 자격 증명 위임 허용**을 두 번 클릭하고 **사용**을 선택합니다.
-    - **옵션**에서 **표시**를 클릭하고, **wsman/** 을 접두사로 사용하여 검색하려는 각 Hyper-V 호스트를 목록에 추가합니다.
-    - **자격 증명 위임**에서 **서버 인증이 NTLM 전용일 경우 새로운 자격 증명 허용**을 두 번 클릭합니다. **wsman/** 을 접두사로 사용하여 검색하려는 각 Hyper-V 호스트를 목록에 추가합니다.
+#### <a name="option-1"></a>옵션 1
+
+어플라이언스 VM에서 다음 명령을 실행합니다. HyperVHost1/HyperVHost2는 예제 호스트 이름입니다.
+
+```
+Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force
+```
+
+예제: ` Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force `
+
+#### <a name="option-2"></a>옵션 2
+
+또는 어플라이언스의 로컬 그룹 정책 편집기에서 다음을 수행합니다.
+
+1. **로컬 컴퓨터 정책** > **컴퓨터구성**에서 **관리 템플릿** > **시스템** > **자격 증명 위임**을 차례로 클릭합니다.
+2. **새로운 자격 증명 위임 허용**을 두 번 클릭하고 **사용**을 선택합니다.
+3. **옵션**에서 **표시**를 클릭하고, **wsman/** 을 접두사로 사용하여 검색하려는 각 Hyper-V 호스트를 목록에 추가합니다.
+4. 그런 다음, **자격 증명 위임**에서 **서버 인증이 NTLM 전용일 경우 새로운 자격 증명 허용**을 두 번 클릭합니다. **wsman/** 을 접두사로 사용하여 검색하려는 각 Hyper-V 호스트를 목록에 추가합니다.
 
 ## <a name="start-continuous-discovery"></a>연속 검색 시작
 

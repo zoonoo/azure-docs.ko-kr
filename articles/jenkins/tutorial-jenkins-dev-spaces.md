@@ -6,19 +6,19 @@ ms.author: tarcher
 ms.service: jenkins
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 06/18/2019
-ms.openlocfilehash: f5f74ebeb803a5c493f1dbedb6501adf3a88c215
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.date: 07/31/2019
+ms.openlocfilehash: 10ff8f4645ee1e7023c96174236243a3b85de938
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67785662"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68679116"
 ---
 <!-- GMinchAQ, 06/18/19 -->
 
 # <a name="tutorial-using-the-azure-dev-spaces-plugin-for-jenkins-with-azure-kubenetes-service"></a>자습서: Azure Kubenetes Service에서 Jenkins용 Azure Dev Spaces 플러그 인 사용 
 
-Azure Dev Spaces를 사용하면 종속 요소를 복제하거나 모방할 필요 없이 AKS(Azure Kubernetes Service)에서 실행되는 마이크로서비스 애플리케이션을 테스트하고 반복적으로 개발할 수 있습니다. Jenkins용 Azure Dev Spaces 플러그 인을 사용하면 CI/CD(지속적인 통합 및 업데이트) 파이프라인을 사용할 수 있습니다.
+Azure Dev Spaces를 사용하면 종속 요소를 복제하거나 모방할 필요 없이 AKS(Azure Kubernetes Service)에서 실행되는 마이크로서비스 애플리케이션을 테스트하고 반복적으로 개발할 수 있습니다. Jenkins용 Azure Dev Spaces 플러그 인을 사용하면 CI/CD(지속적인 통합 및 업데이트) 파이프라인에서 Dev Spaces를 사용할 수 있습니다.
 
 이 자습서에서는 ACR(Azure Container Registry)도 사용합니다. ACR은 이미지를 저장하고, ACR 작업은 Docker 및 Helm 아티팩트를 빌드합니다. ACR 및 ACR 작업을 아티팩트 생성에 사용하면 Jenkins 서버에 Docker 같은 추가 소프트웨어를 설치할 필요가 없습니다. 
 
@@ -28,13 +28,13 @@ Azure Dev Spaces를 사용하면 종속 요소를 복제하거나 모방할 필�
 > * Azure Dev Spaces가 설정된 AKS 클러스터 만들기
 > * AKS에 다중 서비스 애플리케이션 배포
 > * Jenkins 서버 준비
-> * Jenkins 파이프라인에 Azure Dev Spaces 플러그 인을 사용하여 변경 내용을 프로젝트에 병합하기 전에 미리 볼 수 있습니다.
+> * Jenkins 파이프라인에서 Azure Dev Spaces 플러그 인을 사용하여 코드 변경 내용을 프로젝트에 병합하기 전에 미리 봅니다.
 
-이 자습서에서는 독자들이 핵심 Azure 서비스, AKS, ACR, Azure Dev Spaces, Jenkins [파이프라인](https://jenkins.io/doc/book/pipeline/) 및 플러그 인 그리고 GitHub에 대한 보통 수준의 지식을 갖고 있다고 가정합니다. kubectl 및 Helm 같은 지원 도구에 대한 기본 지식이 있으면 도움이 됩니다.
+이 자습서에서는 핵심 Azure 서비스, AKS, ACR, Azure Dev Spaces, Jenkins [파이프라인](https://jenkins.io/doc/book/pipeline/) 및 플러그 인, GitHub에 대해 중간 수준의 지식을 갖고 있다고 가정합니다. kubectl 및 Helm 같은 지원 도구에 대한 기본 지식이 있으면 도움이 됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-* Azure 계정. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+* Azure 계정. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 * GitHub 계정. GitHub 계정이 없는 경우 시작하기 전에 [체험 계정](https://github.com/)을 만듭니다.
 
@@ -175,7 +175,7 @@ Azure Dev Spaces 사용 방법 및 Azure Dev Spaces로 다중 서비스 개발�
 * Helm 및 Kubernetes CLI 설치
 * 자격 증명 추가
 
-### <a name="install-plugins"></a>플러그 인 설치
+### <a name="install-plug-ins"></a>플러그 인 설치
 
 1. Jenkins 서버에 로그인합니다. **Jenkins 관리 > 플러그 인 관리**를 선택합니다.
 2. **사용 가능** 탭에서 다음 플러그 인을 선택합니다.
@@ -184,9 +184,9 @@ Azure Dev Spaces 사용 방법 및 Azure Dev Spaces로 다중 서비스 개발�
     * [환경 인젝터](https://plugins.jenkins.io/envinject)
     * [GitHub 통합](https://plugins.jenkins.io/github-pullrequest)
 
-    이러한 플러그 인이 목록에 나타나지 않으면 **설치된 항목** 탭을 확인하여 플러그 인이 설치되어 있는지 확인합니다.
+    이러한 플러그 인이 목록에 표시되지 않으면 **설치됨** 탭을 확인하여 플러그 인이 이미 설치되어 있는지 확인합니다.
 
-3. 플러그 인을 설치하려면 **지금 다운로드하고 다시 시작한 후 설치**를 선택합니다.
+3. 플러그 인을 설치하려면 **지금 다운로드 및 다시 시작한 후 설치**를 선택합니다.
 
 4. Jenkins 서버를 다시 시작하여 설치를 완료합니다.
 
@@ -363,7 +363,7 @@ Jenkins 파이프라인 구성과 Jenkinsfile은 CI 파이프라인의 단계를
 
 끌어오기 요청을 제출하면 Jenkins는 팀의 공유 개발 공간에 따라 자식 개발 공간을 만들고, 해당 자식 개발 공간의 끌어오기 요청에 있는 코드를 실행합니다. 자식 개발 공간의 URL은 `http://$env.azdsprefix.<test_endpoint>` 형식입니다. 
 
-**$env.azdsprefix**는 다음과 같이 Azure Dev Spaces 플러그 인에서 **devSpacesCreate**를 통해 파이프라인을 실행하는 동안 설정됩니다.
+**$env.azdsprefix**는 Azure Dev Spaces 플러그 인의 파이프라인 실행 중에 **devSpacesCreate**를 통해 설정됩니다.
 
 ```Groovy
 stage('create dev space') {
@@ -415,7 +415,7 @@ az group delete -y --no-wait -n MyResourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Jenkins용 Azure Dev Spaces 플러그 인 및 Azure Container Registry 플러그 인을 사용하여 코드를 빌드하고 개발 공간에 배포하는 방법을 알아보았습니다.
+이 문서에서는 Jenkins용 Azure Dev Spaces 플러그 인 및 Azure Container Registry 플러그 인을 사용하여 코드를 작성하고 개발 공간에 배포하는 방법을 알아보았습니다.
 
 다음 리소스 목록은 Azure Dev Spaces, ACR 작업 및 Jenkins와의 CI/CD에 대한 자세한 정보를 제공합니다.
 

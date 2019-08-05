@@ -536,6 +536,8 @@
           href: how-to-schedule-azure-ssis-integration-runtime.md
         - name: Azure-SSIS IR을 가상 네트워크에 조인
           href: join-azure-ssis-integration-runtime-virtual-network.md
+        - name: Azure-SSIS IR에 대한 프록시로 자체 호스팅 IR 구성
+          href: self-hosted-integration-runtime-proxy-ssis.md
         - name: Azure-SSIS IR에 Azure AD 인증 사용
           href: enable-aad-authentication-azure-ssis-ir.md
         - name: Azure-SSIS IR을 위한 Enterprise Edition 프로비전

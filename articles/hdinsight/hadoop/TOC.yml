@@ -56,6 +56,8 @@
       maintainContext: true
     - name: 문제 해결
       items:
+        - name: HDInsight 클러스터에 로그인할 수 없음
+          href: ./hdinsight-troubleshoot-unable-log-in-cluster.md
         - name: HDInsight 클러스터에 노드를 추가할 수 없음
           href: ./hdinsight-troubleshoot-unable-add-nodes.md
         - name: InvalidNetworkSecurityGroupSecurityRules - 클러스터 만들기 실패

@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 07/01/2019
+ms.date: 07/25/2019
 ms.author: pafarley
-ms.openlocfilehash: e064faf3017b95cb3a5f3d9b89f178fb7f846766
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: b07201556f08bde4ef8c7a7904c6619a126d7765
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592611"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68594550"
 ---
 # <a name="what-is-form-recognizer"></a>Form Recognizer란?
 
@@ -26,17 +26,28 @@ Form Recognizer 사용자 지정 모델은 자신의 데이터로 훈련하며, 
 
 자율 학습을 사용하면 수동으로 데이터 레이블을 지정하거나 집중적인 코딩 및 유지 관리 작업 없이도 모델이 필드와 항목 간의 레이아웃 및 관계를 이해할 수 있습니다. 반면, 미리 학습된 기계 학습 모델에는 표준화된 데이터가 필요합니다. 그것들은 산업별 형식과 같이 전통적인 형식에서 벗어나는 입력 자료로 정확도가 떨어집니다.
 
-## <a name="pre-built-receipt-model"></a>사전 구축형 영수증 모델
+## <a name="prebuilt-receipt-model"></a>미리 작성된 영수증 모델
 
-Form Recognizer에는 판매 영수증을 읽기 위한 모델도 포함됩니다. 이 모델은 트랜잭션 시간 및 날짜, 판매자 정보, 세금의 합계 등과 같은 주요 정보를 추출합니다. 또한 사전 구축형 영수증 모델은 영수증에 있는 모든 텍스트를 인식하고 반환하도록 학습됩니다.
+Form Recognizer에는 판매 영수증을 읽기 위한 모델도 포함됩니다. 이 모델은 트랜잭션 시간 및 날짜, 판매자 정보, 세금의 합계 등과 같은 주요 정보를 추출합니다. 또한 미리 작성된 영수증 모델은 영수증의 모든 텍스트를 인식하고 반환하도록 학습됩니다.
 
 ## <a name="what-it-includes"></a>포함되는 항목
 
-Form Recognizer는 REST API로 사용할 수 있습니다. 이러한 API를 호출하여 사용자 지정 모델을 생성, 학습 및 점수 매기기를 수행하거나 사전 구축형 모델에 액세스할 수 있습니다. 원하는 경우 로컬 Docker 컨테이너에서 사용자 지정 모델을 학습하고 실행할 수 있습니다.
+Form Recognizer는 REST API로 사용할 수 있습니다. 이러한 API를 호출하여 사용자 지정 모델을 만들고 학습시키고 점수를 매기거나, 미리 작성된 모델에 액세스할 수 있습니다. 원하는 경우 로컬 Docker 컨테이너에서 사용자 지정 모델을 학습하고 실행할 수 있습니다.
 
-## <a name="input-requirements-custom-model"></a>입력 요구 사항(사용자 지정 모델)
+## <a name="input-requirements"></a>입력 요구 사항
+### <a name="custom-model"></a>사용자 지정 모델
 
 [!INCLUDE [input requirements](./includes/input-requirements.md)]
+
+### <a name="prebuilt-receipt-model"></a>미리 작성된 영수증 모델
+
+영수증 모델에 대한 입력 요구 사항은 약간 다릅니다.
+
+* 형식은 JPEG, PNG, BMP, PDF(텍스트 또는 스캔) 또는 TIFF여야 합니다.
+* 파일 크기는 20MB 미만이어야 합니다.
+* 이미지 크기는 50x50 픽셀에서 10,000x10,000 픽셀 사이여야 합니다. 
+* PDF 크기는 최대 17x17인치(Legal 또는 A3 용지 크기 이하에 해당)여야 합니다.
+* PDF 및 TIFF의 경우 처음 200페이지만 처리됩니다(체험 계층 구독의 경우 처음 2페이지만 처리됨).
 
 ## <a name="request-access"></a>액세스 요청
 

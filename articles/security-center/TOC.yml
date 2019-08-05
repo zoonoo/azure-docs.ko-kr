@@ -43,6 +43,8 @@
       href: security-center-incident.md
     - name: 사고 대응
       href: security-center-incident-response.md
+    - name: 테넌트 간 관리
+      href: security-center-cross-tenant-management.md
 - name: 방법 가이드
   items:
     - name: 보안 점수 향상
@@ -81,6 +83,8 @@
       items:
         - name: 보안 권장 사항이란?
           href: security-center-recommendations.md
+        - name: 추천 수정
+          href: security-center-remediate-recommendations.md
         - name: 보안 상태 강화
           href: security-center-monitoring.md
         - name: 머신 및 응용 프로그램 보호

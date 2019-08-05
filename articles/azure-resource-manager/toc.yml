@@ -87,6 +87,8 @@
       items:
         - name: 템플릿 만들기
           href: how-to-create-template.md
+        - name: 자식 리소스 이름 및 유형
+          href: child-resource-name-type.md
         - name: 구독에서 리소스 그룹 및 리소스 만들기
           displayName: subscription level deployment
           href: deploy-to-subscription.md

@@ -25,6 +25,10 @@
       href: ../hdinsight-component-versioning.md
     - name: HDInsight 4.0
       href: ../hdinsight-version-release.md
+    - name: 문제 해결
+      items:
+        - name: '''hbase hbck'' 명령을 사용하여 시간 제한'
+          href: ./hbase-troubleshoot-timeouts-hbase-hbck.md
 - name: 방법
   items:
     - name: 클러스터 저장소 사용
