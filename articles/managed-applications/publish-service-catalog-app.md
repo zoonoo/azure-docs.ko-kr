@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: dc86943924cd0c47c465e9d3bac4ca91b73a3ff5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bf6ae32a61504dc344e140a0e27c5a17b5422073
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66171564"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609881"
 ---
 # <a name="create-and-publish-a-managed-application-definition"></a>관리되는 응용 프로그램 정의 만들기 및 게시
 
@@ -85,20 +85,20 @@ ms.locfileid: "66171564"
 
 mainTemplate.json 파일을 저장합니다.
 
-## <a name="create-the-user-interface-definition"></a>사용자 인터페이스 정의 만들기
+## <a name="defining-your-create-experience-using-createuidefinitionjson"></a>CreateUiDefinition.json을 사용하여 만들기 환경 정의
 
-Azure Portal은 **createUiDefinition.json** 파일을 사용하여 관리되는 애플리케이션을 만드는 사용자를 위한 사용자 인터페이스를 생성합니다. 사용자가 각 매개 변수에 대한 입력을 제공하는 방법을 정의합니다. 드롭다운 목록, 텍스트 상자, 암호 상자 및 기타 입력 도구와 같은 옵션을 사용할 수 있습니다. 관리형 애플리케이션에 대한 UI 정의 파일을 만드는 방법은 [CreateUiDefinition 시작](create-uidefinition-overview.md)을 참조하세요.
+게시자는 관리형 애플리케이션을 만드는 사용자를 위한 인터페이스를 생성하는 **createUiDefinition.json** 파일을 사용하여 만들기 환경을 정의합니다. 사용자는 드롭다운, 텍스트 상자 및 암호 상자를 포함한 [컨트롤 요소](create-uidefinition-elements.md)를 사용하여 각 매개 변수에 대한 입력을 제공하는 방법을 정의합니다.
 
-이름이 **createUiDefinition.json**인 파일을 만듭니다. 이름은 대/소문자를 구분합니다.
+이름이 **createUiDefinition.json**인 파일을 만듭니다(이 이름은 대/소문자를 구분함).
 
-파일에 다음 JSON을 추가합니다.
+다음 시작 JSON을 파일에 추가하고 저장합니다.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
-    "handler": "Microsoft.Compute.MultiVm",
-    "version": "0.1.2-preview",
-    "parameters": {
+   "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
+   "handler": "Microsoft.Azure.CreateUIDef",
+   "version": "0.1.2-preview",
+   "parameters": {
         "basics": [
             {}
         ],
@@ -139,10 +139,9 @@ Azure Portal은 **createUiDefinition.json** 파일을 사용하여 관리되는 
             "location": "[location()]"
         }
     }
-}
 ```
 
-createUiDefinition.json 파일을 저장합니다.
+자세히 알아보려면 [CreateUiDefinition 시작](create-uidefinition-overview.md)을 참조하세요.
 
 ## <a name="package-the-files"></a>파일을 패키지로 만들기
 

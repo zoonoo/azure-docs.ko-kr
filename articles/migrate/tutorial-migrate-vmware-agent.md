@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/08/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: d222936f93f90573a46cd7f6216fbde8043332c7
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 1ea736b560e2e910ede203e8ce8c0b157ebbce71
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68261406"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640880"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>VMware VM을 Azure로 마이그레이션(에이전트 기반)
 
@@ -56,7 +56,7 @@ Azure Migrate 서버 마이그레이션 도구를 사용하여 VMware VM을 Azur
 에이전트 없는 마이그레이션 또는 에이전트 기반 마이그레이션을 사용할지 여부를 결정하려면 다음 문서를 검토하세요.
 
 - VMware 마이그레이션 옵션에 대해 [알아봅니다](server-migrate-overview.md).
-- 에이전트 없는 마이그레이션에 대한 [제한 사항을 검토합니다](server-migrate-overview.md#agentless-migration-limitations).
+- [마이그레이션 방법을 비교](server-migrate-overview.md#compare-migration-methods)합니다.
 - [이 문서에 따라](tutorial-migrate-vmware.md) 에이전트 없는 마이그레이션을 시도합니다.
 
 
@@ -88,10 +88,10 @@ Azure Migrate 서버 마이그레이션 도구를 사용하여 VMware VM을 Azur
 
 ### <a name="assign-permissions-to-create-project"></a>프로젝트를 만들 수 있는 권한 할당
 
-1. Azure Portal에서 구독을 열고, **액세스 제어(IAM)** 를 선택합니다.
-2. **액세스 권한 확인**에서 관련 계정을 찾아 클릭하여 권한을 확인합니다.
+1. Azure Portal에서 구독을 열고 **액세스 제어(IAM)** 를 선택합니다.
+2. **액세스 확인**에서 관련 계정을 찾아서 클릭하여 권한을 확인합니다.
 3. **기여자** 또는 **소유자** 권한이 있어야 합니다.
-    - Azure 체험 계정을 방금 만들었으면 구독의 소유자가 됩니다.
+    - Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 소유자입니다.
     - 구독 소유자가 아닌 경우 소유자에게 문의하여 역할을 할당받습니다.
 
 ### <a name="assign-permissions-to-register-the-replication-appliance"></a>복제 어플라이언스를 등록할 수 있는 권한 할당
@@ -333,7 +333,7 @@ OVF 템플릿이 다운로드되면 VMware로 가져와서 Windows Server 2016�
 
 12. **컴퓨팅**에서 VM 이름, 크기, OS 디스크 유형 및 가용성 집합을 검토합니다. VM은 [Azure 요구 사항](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements)을 준수해야 합니다.
 
-    - **VM 크기**: 평가 추천 사항을 사용하는 경우 VM 크기 드롭다운에 추천 크기가 포함됩니다. 그렇지 않으면 Azure Migrate는 Azure 구독에서 가장 일치하는 항목을 기준으로 크기를 선택합니다. 또는 **Azure VM 크기**에서 수동 크기를 선택합니다. 
+    - **VM 크기**: 평가 권장 사항을 사용하는 경우 VM 크기 드롭다운에 권장 크기가 포함됩니다. 그렇지 않으면 Azure Migrate는 Azure 구독에서 가장 일치하는 항목을 기준으로 크기를 선택합니다. 또는 **Azure VM 크기**에서 수동 크기를 선택합니다. 
     - **OS 디스크**: VM에 맞는 OS(부팅) 디스크를 지정합니다. OS 디스크는 운영 체제 부팅 로더 및 설치 관리자가 있는 디스크입니다. 
     - **가용성 집합**: 마이그레이션 후에 VM이 Azure 가용성 집합에 있어야 하는 경우 해당 집합을 지정합니다. 이 집합은 마이그레이션을 위해 지정한 대상 리소스 그룹에 있어야 합니다.
 
@@ -360,13 +360,13 @@ OVF 템플릿이 다운로드되면 VMware로 가져와서 Windows Server 2016�
 
 ![작업 추적](./media/tutorial-migrate-vmware-agent/jobs.png)
 
-**Azure Migrate: 서버 마이그레이션**에서 **서버 복제 중**을 클릭하여 복제 상태를 모니터링할 수 있습니다.
+**Azure Migrate: 서버 마이그레이션**에서 클릭하여 복제 상태를 모니터링할 수 있습니다.
 ![복제 모니터링](./media/tutorial-migrate-vmware-agent/replicate-servers.png)
 
 ## <a name="run-a-test-migration"></a>테스트 마이그레이션 실행
 
 
-델타 복제가 시작되면 전체 마이그레이션을 Azure로 실행하기 전에 VM에 대한 테스트 마이그레이션을 실행할 수 있습니다. 이 작업은 마이그레이션하기 전에 각 머신에 대해 한 번 이상 수행하는 것이 좋습니다.
+델타 복제가 시작되면 Azure로 전체 마이그레이션을 실행하기 전에 VM에 대한 테스트 마이그레이션을 실행할 수 있습니다. 이 작업은 마이그레이션하기 전에 각 머신에 대해 한 번 이상 수행하는 것이 좋습니다.
 
 - 테스트 마이그레이션을 실행하면 작동 상태를 유지하고 복제를 계속하는 온-프레미스 머신에 영향을 주지 않고 마이그레이션이 예상대로 작동하는지 확인합니다. 
 - 테스트 마이그레이션은 복제된 데이터를 사용하여 Azure VM을 만들어 마이그레이션을 시뮬레이션합니다(일반적으로 Azure 구독에서 비프로덕션 VNet으로 마이그레이션).
@@ -388,7 +388,7 @@ OVF 템플릿이 다운로드되면 VMware로 가져와서 Windows Server 2016�
 5. 마이그레이션이 완료되면 Azure Portal의 **Virtual Machines**에서 마이그레이션된 Azure VM을 확인합니다. 머신 이름에는 **-Test** 접미사가 있습니다.
 6. 테스트가 완료되면 **머신 복제 중**에서 마우스 오른쪽 단추로 Azure VM을 클릭하고, **테스트 마이그레이션 정리**를 클릭합니다.
 
-    ![테스트 마이그레이션 정리](./media/tutorial-migrate-vmware-agent/clean-up.png)
+    ![마이그레이션 정리](./media/tutorial-migrate-vmware-agent/clean-up.png)
 
 
 ## <a name="migrate-vms"></a>VM 마이그레이션
@@ -417,7 +417,7 @@ OVF 템플릿이 다운로드되면 VMware로 가져와서 Windows Server 2016�
 7. 로컬 백업 작업에서 온-프레미스 VM을 제거합니다.
 8. 내부 문서를 업데이트하여 Azure VM의 새 위치 및 IP 주소를 표시합니다. 
 
-## <a name="post-migration-best-practices"></a>마이그레이션 후 모범 사례
+## <a name="post-migration-best-practices"></a>마이그레이션 후 작업 모범 사례
 
 - 복원력 개선:
     - Azure Backup 서비스를 통해 Azure VM을 백업하여 데이터 보안을 유지합니다. [자세히 알아보기](../backup/quick-backup-vm-portal.md).

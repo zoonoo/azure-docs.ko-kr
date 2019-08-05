@@ -54,8 +54,6 @@
           href: cloudsimple-faq.md
     - name: 자습서
       items:
-        - name: 리소스 공급자 사용
-          href: enable-cloudsimple-service.md
         - name: CloudSimple 서비스 만들기
           href: create-cloudsimple-service.md
         - name: CloudSimple 포털 액세스

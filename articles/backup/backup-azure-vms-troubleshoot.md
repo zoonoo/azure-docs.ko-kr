@@ -1,18 +1,19 @@
 ---
 title: Azure 가상 머신의 백업 오류 문제 해결
 description: Azure 가상 머신의 백업 및 복원 문제 해결
-author: srinathvasireddy
-manager: sivan
+ms.reviewer: srinathv
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/05/2019
-ms.author: srinathv
-ms.openlocfilehash: 4f95192aa2b3c5890a3cafbb442f9f15ebee9280
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
-ms.translationtype: HT
+ms.author: dacurwin
+ms.openlocfilehash: 810484060850400a6af8e5be4cf16164eb8f18cc
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465213"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688919"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure 가상 머신 백업 문제 해결
 아래에 나열 된 정보를 사용 하 여 Azure Backup를 사용 하는 동안 발생 한 오류를 해결할 수 있습니다.
