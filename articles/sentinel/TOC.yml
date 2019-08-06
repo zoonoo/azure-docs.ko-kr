@@ -13,7 +13,7 @@
   items:
     - name: 의심스러운 위협 검색
       href: tutorial-detect-threats.md
-    - name: 사례 조사
+    - name: 인시던트 조사
       href: tutorial-investigate-cases.md
     - name: 위협에 대응
       href: tutorial-respond-threats-playbook.md

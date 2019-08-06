@@ -100,7 +100,7 @@ Batch Transcription API에서 지원하는 형식은 다음과 같습니다.
 
 기록 상태에 대한 폴링은 가장 효율적이거나 최상의 사용자 환경을 제공하지 못할 수 있습니다. 상태를 조사하기 위해, 장기 실행 기록 작업이 완료되었을 때 클라이언트에 알리도록 콜백을 등록할 수 있습니다.
 
-자세한 내용은 [웹 후크](webhooks.md)를 참조 하세요.
+자세한 내용은 [웹 후크](webhooks.md)를 참조하세요.
 
 ## <a name="speaker-separation-diarization"></a>스피커 분리 (Diarization)
 

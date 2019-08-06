@@ -64,6 +64,8 @@
           href: ./hdinsight-troubleshoot-invalidnetworksecuritygroupsecurityrules-cluster-creation-fails.md
         - name: 서비스 주체 인증서 변환
           href: ./hdinsight-troubleshoot-converting-service-principal-certificate.md
+        - name: Apache Ambari 하트비트 이슈
+          href: ./apache-ambari-troubleshoot-heartbeat-issues.md
 - name: 방법
   items:
     - name: Apache Hadoop 샌드박스 사용

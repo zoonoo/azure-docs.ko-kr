@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 06/11/2019
 ms.author: angrobe
-ms.openlocfilehash: d921e529140bc7446e3c9f97b33ba226431d7b91
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: 7c41b09c35de7ef8694f9215b8f3dc271e243de2
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67143506"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780488"
 ---
 # <a name="azure-security-documentation"></a>Azure 보안 설명서
 
@@ -70,7 +70,7 @@ ms.locfileid: "67143506"
         </a>
     </li>
     <li style="list-style: none;">
-        <a href="/azure/security/azure-security-infrastructure">
+        <a href="/azure/security/fundamentals/infrastructure">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
@@ -88,7 +88,7 @@ ms.locfileid: "67143506"
                 <div class="cardPadding">
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
                         <div class="cardText">
-                            <p style="font-size: 1.12rem;">Storage 보안 개요</p>
+                            <p style="font-size: 1.12rem;">스토리지 보안 개요</p>
                         </div>
                     </div>
                 </div>
@@ -135,12 +135,12 @@ ms.locfileid: "67143506"
         </a>
     </li>
     <li style="list-style: none;">
-        <a href="/azure/security/azure-security-encryption-atrest">
+        <a href="/azure/security/fundamentals/encryption-atrest">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
                         <div class="cardText">
-                            <p style="font-size: 1.12rem;">Azure는 미사용 데이터를 어떻게 안전하게 보호합니까?</p>
+                            <p style="font-size: 1.12rem;">Azure는 저장 데이터를 어떻게 보호합니까?</p>
                         </div>
                     </div>
                 </div>
@@ -192,13 +192,13 @@ ms.locfileid: "67143506"
                                 <a class="barLink" href="https://aka.ms/SecurityResponsepaper">클라우드에서 Azure 보안 대응</a>
                             </li>
                             <li style="list-style: none;">
-                                <a class="barLink" href="/azure/security/azure-threat-detection">Azure 지능형 위협 탐지</a>
+                                <a class="barLink" href="/azure/security/fundamentals/threat-detection">Azure 지능형 위협 탐지</a>
                             </li>
                             <li style="list-style: none;">
-                                <a class="barLink" href="/azure/security/abstract-azure-network-security">Azure 네트워크 보안</a>
+                                <a class="barLink" href="/azure/security/fundamentals/abstract-network-security>Azure network security"</a>
                             </li>
                             <li style="list-style: none;">
-                                <a class="barLink" href="/azure/security/abstract-develop-secure-apps">Azure에서 보안 애플리케이션 개발</a>
+                                <a class="barLink" href="/azure/security/fundamentals/abstract-develop-secure-apps">Azure에서 보안 애플리케이션 개발</a>
                             </li>
                         </ul>
                     </div>
@@ -218,25 +218,25 @@ ms.locfileid: "67143506"
                                 <a class="barLink" href="https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions/">Azure 보안 모범 사례</a>
                             </li>
                             <li style="list-style: none;">
-                                <a class="barLink" href="/azure/security/azure-security-network-security-best-practices">네트워크 보안</a>
+                                <a class="barLink" href="/azure/security/fundamentals/network-best-practices">네트워크 보안</a>
                             </li>
                             <li style="list-style: none;">
-                                <a class="barLink" href="/azure/security/azure-security-data-encryption-best-practices">데이터 보안</a>
+                                <a class="barLink" href="/azure/security/fundamentals/data-encryption-best-practices">데이터 보안</a>
                             </li>
                             <li style="list-style: none;">
                                 <a class="barLink" href="/azure/security/azure-security-best-practices-vms">가상 머신 보안</a>
                             </li>
                             <li style="list-style: none;">
-                                <a class="barLink" href="/azure/security/azure-security-identity-management-best-practices">ID 및 액세스</a>
+                                <a class="barLink" href="/azure/security/fundamentals/identity-management-best-practices">ID 및 액세스</a>
                             </li>
                             <li style="list-style: none;">
-                                <a class="barLink" href="/azure/security/azure-security-iaas">IaaS 보안</a>
+                                <a class="barLink" href="/azure/security/fundamentals/iaas">IaaS 보안</a>
                             </li>
                             <li style="list-style: none;">
                                 <a class="barLink" href="/azure/security/security-paas-deployments">PaaS 배포 보안</a>
                             </li>
                             <li style="list-style: none;">
-                                <a class="barLink" href="/azure/security/azure-security-global-admin">Azure 관리자 계정 보안</a>
+                                <a class="barLink" href="/azure/security/fundamentals/global-admin">Azure 관리자 계정 보안</a>
                             </li>
                         </ul>
                     </div>
@@ -324,7 +324,7 @@ ms.locfileid: "67143506"
                 <div class="cardPadding">
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
                         <div class="cardText">
-                            <p style="font-size: 1.12rem;">영국 공식</p>
+                            <p style="font-size: 1.12rem;">UK-OFFICIAL</p>
                         </div>
                     </div>
                 </div>
@@ -380,7 +380,7 @@ ms.locfileid: "67143506"
         </a>
     </li>
     <li style="list-style: none;">
-        <a href="/azure/security/azure-security-cyber-services">
+        <a href="/azure/security/fundamentals/cyber-services">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
@@ -393,7 +393,7 @@ ms.locfileid: "67143506"
         </a>
     </li>
     <li style="list-style: none;">
-        <a href="/azure/security/azure-security-pen-testing">
+        <a href="/azure/security/fundamentals/pen-testing">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">

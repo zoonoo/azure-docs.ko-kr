@@ -50,7 +50,7 @@
         - name: IaaS VM용 디스크 암호화
           items:
             - name: Azure Disk Encryption 정보
-              displayName: 'Bitlocker, bek'
+              displayName: 'BitLocker, bek'
               href: azure-security-disk-encryption-overview.md
             - name: 빠른 시작
               items:
@@ -70,7 +70,7 @@
                   href: azure-security-disk-encryption-windows.md
                 - name: Linux VM용 디스크 암호화
                   href: azure-security-disk-encryption-linux.md
-                - name: VMSS 확장 시퀀싱을 사용하여 디스크 암호화
+                - name: 가상 머신 확장 집합 확장 시퀀싱을 사용하여 디스크 암호화
                   href: azure-security-disk-encryption-extension-sequencing.md
                 - name: 디스크 암호화에 대한 부록
                   href: azure-security-disk-encryption-appendix.md
@@ -332,49 +332,3 @@
     - name: 펜 테스트
       displayName: penetration
       href: ./fundamentals/pen-testing.md
-    - name: Microsoft 위협 모델링 도구
-      displayName: stride
-      href: ./develop/threat-modeling-tool.md
-      items:
-        - name: 시작
-          href: ./develop/threat-modeling-tool-getting-started.md
-        - name: 기능 개요
-          href: ./develop/threat-modeling-tool-feature-overview.md
-        - name: 위협
-          href: ./develop/threat-modeling-tool-threats.md
-        - name: 릴리스
-          href: ./develop/threat-modeling-tool-releases.md
-          items:
-            - name: Threat Modeling Tool GA 릴리스 7.1.5091.2 - 2018년 9월 12일
-              href: ./develop/threat-modeling-tool-releases-71509112.md
-            - name: Threat Modeling Tool 업데이트 릴리스 7.1.51023.1 - 2018년 11월 1일
-              href: ./develop/threat-modeling-tool-releases-71510231.md
-            - name: Threat Modeling Tool 업데이트 릴리스 7.1.60126.1 - 2019년 1월 29일
-              href: ./develop/threat-modeling-tool-releases-71601261.md
-            - name: Threat Modeling Tool 업데이트 릴리스 7.1.60408.1 - 2019년 4월 9일
-              href: ./develop/threat-modeling-tool-releases-71604081.md
-            - name: Threat Modeling Tool 업데이트 릴리스 7.1.60702.1 - 2019/7/02
-              href: ./develop/threat-modeling-tool-releases-71607021.md
-        - name: 해결 방법
-          href: ./develop/threat-modeling-tool-mitigations.md
-          items:
-            - name: 감사 및 로깅
-              href: ./develop/threat-modeling-tool-auditing-and-logging.md
-            - name: 인증
-              href: ./develop/threat-modeling-tool-authentication.md
-            - name: 권한 부여
-              href: ./develop/threat-modeling-tool-authorization.md
-            - name: 통신 보안
-              href: ./develop/threat-modeling-tool-communication-security.md
-            - name: 구성 관리
-              href: ./develop/threat-modeling-tool-configuration-management.md
-            - name: 암호화
-              href: ./develop/threat-modeling-tool-cryptography.md
-            - name: 예외 관리
-              href: ./develop/threat-modeling-tool-exception-management.md
-            - name: 입력 유효성 검사
-              href: ./develop/threat-modeling-tool-input-validation.md
-            - name: 중요한 데이터
-              href: ./develop/threat-modeling-tool-sensitive-data.md
-            - name: 세션 관리
-              href: ./develop/threat-modeling-tool-session-management.md
