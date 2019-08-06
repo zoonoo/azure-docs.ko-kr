@@ -18,7 +18,7 @@ ms.locfileid: "68602131"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Azure로 재해 복구 훈련 실행
 
-이 문서에서는 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 Azure에 온-프레미스 머신에 대한 재해 복구 드릴을 실행하는 방법을 설명합니다. 훈련은 데이터 손실 없이 복제 전략의 유효성을 검사합니다.
+이 문서에서는 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 Azure에 온-프레미스 머신에 대한 재해 복구 훈련을 실행하는 방법을 설명합니다. 훈련은 데이터 손실 없이 복제 전략의 유효성을 검사합니다.
 
 
 이 문서는 온-프레미스 머신에 대한 재해 복구를 Azure에 설정하는 방법을 보여 주는 자습서 시리즈 중 네 번째 자습서입니다.
@@ -31,7 +31,7 @@ ms.locfileid: "68602131"
 > * 단일 머신에 대해 테스트 장애 조치(failover) 실행
 
 > [!NOTE]
-> 자습서는 시나리오의 가장 간단한 배포 경로를 보여줍니다. 가능한 경우 기본 옵션을 사용하고 가능한 모든 설정과 경로를 보여주지 않습니다. 재해 복구 드릴 단계에 대해 자세히 알아보려면 [이 문서를 검토하세요](site-recovery-test-failover-to-azure.md).
+> 자습서는 시나리오의 가장 간단한 배포 경로를 보여줍니다. 가능한 경우 기본 옵션을 사용하고 가능한 모든 설정과 경로를 보여주지 않습니다. 재해 복구 훈련 단계에 대해 자세히 알아보려면 [이 문서를 검토하세요](site-recovery-test-failover-to-azure.md).
 
 ## <a name="before-you-start"></a>시작하기 전에
 
