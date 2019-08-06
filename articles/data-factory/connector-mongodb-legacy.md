@@ -183,7 +183,7 @@ MongoDB에서 데이터를 복사하는 경우 MongoDB 데이터 형식에서 Az
 | NumberInt |Int32 |
 | NumberLong |Int64 |
 | ObjectID |String |
-| 문자열 |String |
+| String |String |
 | UUID |Guid |
 | Object |중첩 구분 기호로 "_"를 사용한 평면화된 열에 다시 정규화 |
 
