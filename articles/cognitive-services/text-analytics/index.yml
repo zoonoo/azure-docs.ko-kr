@@ -29,7 +29,7 @@ sections:
             image:
               src: ../media/index/i_overview.svg
             title: Text Analytics란?
-          - href: /azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-signup
+          - href: /azure/cognitive-services/cognitive-services-apis-create-account
             html: <p>Text Analytics API에 등록하는 방법을 알아봅니다.</p>
             image:
               src: ../media/index/i_get-started.svg

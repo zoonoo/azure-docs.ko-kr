@@ -287,8 +287,6 @@
       items:
         - name: Gen2로 업그레이드
           href: upgrade-to-latest-generation.md
-        - name: 데이터 웨어하우스 복원
-          href: sql-data-warehouse-restore.md
         - name: 워크로드 모니터링 - 포털
           href: sql-data-warehouse-monitor-workload-portal.md
         - name: 워크로드 모니터링 - DMV

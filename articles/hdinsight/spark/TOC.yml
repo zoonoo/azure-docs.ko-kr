@@ -53,13 +53,7 @@
     - name: 문제 해결
       items:
         - name: OutOfMemoryError 예외
-          items:
-            - name: 힙 메모리 부족
-              href: ./apache-spark-troubleshoot-outofmemory-heap.md
-            - name: Java 힙 공간
-              href: ./apache-spark-troubleshoot-outofmemory-heap-space.md
-            - name: Livy 서버 시작 실패
-              href: ./apache-spark-troubleshoot-outofmemory-native-thread.md
+          href: ./apache-spark-troubleshoot-outofmemory.md
         - name: Apache Spark 작업 실패 - NoClassDefFoundError
           href: ./apache-spark-troubleshoot-job-fails-noclassdeffounderror.md
         - name: Apache Spark 작업 실패 - InvalidClassException
