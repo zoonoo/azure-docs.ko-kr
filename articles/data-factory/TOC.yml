@@ -203,7 +203,7 @@
         - name: Azure SQL Database
           href: connector-azure-sql-database.md
         - name: Azure SQL Database Managed Instance
-          href: connector-azure-sql-database-managed-insance.md
+          href: connector-azure-sql-database-managed-instance.md
         - name: Azure SQL Data Warehouse
           href: connector-azure-sql-data-warehouse.md
         - name: Azure Table Storage
@@ -592,6 +592,8 @@
       items:
         - name: Azure Data Factory를 사용해야 하는 이유
           href: data-migration-guidance-overview.md
+        - name: AWS S3에서 Azure로 데이터 마이그레이션
+          href: data-migration-guidance-s3-azure-storage.md
 - name: 참고 자료
   items:
     - name: .NET

@@ -128,8 +128,6 @@
           href: directory-assign-admin-roles.md
         - name: 역할 보기 및 할당
           href: directory-manage-roles-portal.md
-        - name: Graph API에서 사용자 지정 역할 할당
-          href: roles-assign-powershell.md
         - name: 사용자 지정 역할 미리 보기
           items:
             - name: 사용자 지정 역할 미리 보기
@@ -142,6 +140,8 @@
               href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
             - name: Graph API에서 사용자 지정 역할 할당
               href: roles-assign-graph.md
+            - name: PowerShell에서 사용자 지정 역할 할당
+              href: roles-assign-powershell.md
             - name: 사용자 지정 역할 미리 보기 권한
               href: roles-custom-available-permissions.md
             - name: 앱 관리자 권한 위임

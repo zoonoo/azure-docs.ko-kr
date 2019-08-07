@@ -28,6 +28,10 @@
           items:
             - name: GC 오버헤드 제한 초과
               href: ./interactive-query-troubleshoot-outofmemory-overhead-exceeded.md
+        - name: Apache Hive View에 오류 메시지가 표시되지 않음
+          href: ./interactive-query-troubleshoot-error-message-hive-view.md
+        - name: Apache Hive View에 액세스할 수 없음
+          href: ./interactive-query-troubleshoot-inaccessible-hive-view.md
         - name: ZooKeeperHiveClientException - HiveServer2 구성
           href: ./interactive-query-troubleshoot-zookeeperhiveclientexception-hiveserver-configs.md
         - name: Apache Hive LLAP 쿼리 성능

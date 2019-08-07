@@ -7,12 +7,12 @@ ms.service: blueprints
 ms.topic: sample
 ms.date: 06/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: ccee11a9b2e5505073bac9f5cb2e9d3efb8816e1
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: c5541eab6707bab12fb75f4d0eaf8bae1f025ebb
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249616"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816049"
 ---
 # <a name="azure-blueprints-samples"></a>Azure Blueprints 샘플
 
@@ -22,6 +22,7 @@ ms.locfileid: "68249616"
 
 |  |  |
 |---------|---------|
+| [ISO 27001](./iso27001/index.md) | ISO 27001 규정 준수를 위한 가드레일을 제공합니다. |
 | [ISO 27001 Shared Services](./iso27001-shared/index.md) | ISO 27001 증명에 도움이 되는 일련의 호환 인프라 패턴 및 정책 가드 레일을 제공합니다. |
 | [ISO 27001 App Service Environment/SQL Database 워크로드](./iso27001-ase-sql-workload/index.md) | [ISO 27001 Shared Services](./iso27001-shared/index.md) 청사진 샘플에 추가 인프라를 제공합니다. |
 | [NIST SP 800-53 R4](./nist-sp-800-53-rev4/index.md) | NIST SP 800-53 R4 규정 준수를 위한 가드레일을 제공합니다. |

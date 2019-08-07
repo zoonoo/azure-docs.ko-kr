@@ -131,6 +131,8 @@
   items:
     - name: Azure Monitor 관리
       items:
+        - name: 작업 영역 배포 디자인
+          href: platform/design-logs-deployment.md
         - name: 역할 권한 및 보안
           href: platform/roles-permissions-security.md
         - name: IP 주소

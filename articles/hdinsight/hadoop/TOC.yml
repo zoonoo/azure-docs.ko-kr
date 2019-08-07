@@ -56,14 +56,20 @@
       maintainContext: true
     - name: 문제 해결
       items:
+        - name: 소프트 잠금 - CPU
+          href: ./hdinsight-troubleshoot-soft-lockup-cpu.md
+        - name: InvalidNetworkConfigurationErrorCode - 클러스터 만들기 실패
+          href: ./troubleshoot-invalidnetworkconfigurationerrorcode-cluster-creation-fails.md
+        - name: InvalidNetworkSecurityGroupSecurityRules - 클러스터 만들기 실패
+          href: ./hdinsight-troubleshoot-invalidnetworksecuritygroupsecurityrules-cluster-creation-fails.md
         - name: HDInsight 클러스터에 로그인할 수 없음
           href: ./hdinsight-troubleshoot-unable-log-in-cluster.md
         - name: HDInsight 클러스터에 노드를 추가할 수 없음
           href: ./hdinsight-troubleshoot-unable-add-nodes.md
-        - name: InvalidNetworkSecurityGroupSecurityRules - 클러스터 만들기 실패
-          href: ./hdinsight-troubleshoot-invalidnetworksecuritygroupsecurityrules-cluster-creation-fails.md
         - name: 서비스 주체 인증서 변환
           href: ./hdinsight-troubleshoot-converting-service-principal-certificate.md
+        - name: 안전 모드에서 로컬 HDFS 중단
+          href: ./hdinsight-hdfs-troubleshoot-safe-mode.md
         - name: Apache Ambari 하트비트 이슈
           href: ./apache-ambari-troubleshoot-heartbeat-issues.md
 - name: 방법
