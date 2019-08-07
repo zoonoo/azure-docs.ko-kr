@@ -5,14 +5,14 @@ author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 07/19/2019
+ms.date: 08/06/2019
 ms.author: banders
-ms.openlocfilehash: c63447ff0a3329e0cc0dc0605984ae4f26e9c25f
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 2e595fbee90b710ec6b8090a770d93e688a04818
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359222"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839986"
 ---
 # <a name="what-are-azure-reservations"></a>Azure Reservations란?
 
@@ -38,7 +38,7 @@ Windows 가상 머신 및 SQL Database의 경우 [Azure 하이브리드 혜택](
 
 요금제를 구입 하려면 Enterprise (MS-AZR-0017P-0017P 또는 MS-AZR-0017P-Ms-azr-0148p) 또는 종 량 제 구독 (MS-MS-AZR-0017P-0017P 또는 MS-MS-AZR-0017P-0017P)에 구독 소유자 역할이 있어야 합니다. 클라우드 솔루션 공급자는 Azure Portal 또는 [파트너 센터](/partner-center/azure-reservations) 를 사용 하 여 Azure Reservations를 구매할 수 있습니다.
 
-EA (기업계약) 고객은 EA 관리자에 대 한 구매를 제한할 수 있습니다. EA 포털에서 **예약 된 인스턴스 추가** 옵션을 사용 하지 않도록 설정 하 여이 작업을 수행 합니다. 예약을 구매 하려면 EA 관리자가 하나 이상의 EA 구독에 대 한 구독 소유자 여야 합니다. 옵션은 중앙 집중식 팀에서 다양 한 비용 센터에 대 한 예약을 구매 하려는 기업에 유용 합니다. 구매한 후 중앙 집중식 팀은 예약에 비용 센터 소유자를 추가할 수 있습니다. 그러면 소유자는 예약의 범위를 구독으로 지정할 수 있습니다. 중앙 팀은 예약을 구매 하는 구독 소유자 액세스 권한이 필요 하지 않습니다.
+Ea (기업계약) 고객은 EA 포털에서 **예약 된 인스턴스 추가** 옵션을 사용 하지 않도록 설정 하 여 ea 관리자에 대 한 구매를 제한할 수 있습니다. 예약을 구매 하려면 EA 관리자가 하나 이상의 EA 구독에 대 한 구독 소유자 여야 합니다. 옵션은 중앙 집중식 팀에서 다양 한 비용 센터에 대 한 예약을 구매 하려는 기업에 유용 합니다. 구매한 후 중앙 집중식 팀은 예약에 비용 센터 소유자를 추가할 수 있습니다. 그러면 소유자는 예약의 범위를 구독으로 지정할 수 있습니다. 중앙 팀은 예약을 구매 하는 구독 소유자 액세스 권한이 필요 하지 않습니다.
 
 예약 할인은 엔터프라이즈, CSP (클라우드 솔루션 공급자) 및 종 량 제 요금이 있는 개별 요금제를 통해 구매한 구독과 연결 된 리소스에만 적용 됩니다.
 

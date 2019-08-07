@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/05/2019
 ms.author: magoedte
-ms.openlocfilehash: 9350ee1f04ca881584774afcf415480678d5497d
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
-ms.translationtype: HT
+ms.openlocfilehash: d2fadf6d0bf9b7422b6dbf7597a024d22b5d733f
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/06/2019
-ms.locfileid: "68817005"
+ms.locfileid: "68839333"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Azure Monitor 로그 배포 디자인
 
-Azure Monitor는 Azure 리소스 및 데이터를 수집 하 고 집계 하 여 관리 경계 역할을 하는 컨테이너에 해당 하는 Log Analytics 작업 영역에 로그 데이터를 저장 합니다. Azure 구독에 하나 이상의 작업 영역을 배포할 수 있지만 초기 배포에서 비용 효율적이 고 관리 하기 쉽고 확장 가능한 기능을 제공 하기 위한 지침을 준수 하도록 하기 위해 몇 가지 사항을 고려해 야 합니다. 조직에서 요구 하는 배포를 충족 합니다.
+Azure Monitor는 Azure 리소스 및 데이터를 수집 하 고 집계 하 여 관리 경계 역할을 하는 컨테이너에 해당 하는 Log Analytics 작업 영역에 [로그](data-platform-logs.md) 데이터를 저장 합니다. Azure 구독에 하나 이상의 작업 영역을 배포할 수 있지만 초기 배포에서 비용 효율적이 고 관리 하기 쉽고 확장 가능한 기능을 제공 하기 위한 지침을 준수 하도록 하기 위해 몇 가지 사항을 고려해 야 합니다. 조직에서 요구 하는 배포를 충족 합니다.
 
 작업 영역의 데이터는 여러 종류의 데이터를 저장 하 고 데이터를 생성 하는 리소스에 따라 고유한 속성 집합이 있는 테이블로 구성 됩니다. 대부분의 데이터 소스는 Log Analytics 작업 영역에서 자체 테이블에 기록 합니다.
 
@@ -34,7 +34,7 @@ Log Analytics 작업 영역이 제공하는 정보:
 * 권장 되는 디자인 전략 중 하나에 따라 다른 사용자에 게 액세스 권한을 부여 하 여 데이터를 격리 합니다.
 * [가격 책정 계층](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), [보존](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period) 및 [데이터 50,](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#daily-cap)같은 설정의 구성에 대 한 범위입니다.
 
-이 문서에서는 디자인 요소 및 고려 사항에 대 한 자세한 개요를 제공 하 고, 액세스 제어 개요를 제공 하 고, IT 조직에 권장 되는 디자인 구현을 이해 합니다.
+이 문서에서는 디자인 및 마이그레이션 고려 사항, 액세스 제어 개요 및 IT 조직에 권장 되는 디자인 구현을 이해 하는 방법에 대 한 자세한 개요를 제공 합니다.
 
 ## <a name="important-considerations-for-an-access-control-strategy"></a>액세스 제어 전략에 대 한 중요 고려 사항
 

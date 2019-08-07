@@ -10,21 +10,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 08/02/2019
+ms.date: 08/06/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54418fa90e6c16f34647d0fdb5126bb352dbc7ab
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
-ms.translationtype: HT
+ms.openlocfilehash: 074b9ec06818363a97253a587ac451a38999832f
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774854"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68837929"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Office 365 그룹에 대한 만료 정책 구성
 
-이제 Office 365 그룹에 대한 만료 정책을 설정하여 Office 365 그룹의 수명 주기를 관리할 수 있습니다. Azure AD(Azure Active Directory)에서는 Office 365 그룹에 대해서만 만료 정책을 설정할 수 있습니다.
+이 문서에서는 Office 365 그룹에 대 한 만료 정책을 설정 하 여 수명 주기를 관리 하는 방법을 설명 합니다. Azure AD(Azure Active Directory)에서는 Office 365 그룹에 대해서만 만료 정책을 설정할 수 있습니다.
 
 만료할 그룹을 설정한 경우 다음이 적용됩니다.
 
@@ -63,8 +63,8 @@ Azure AD PowerShell cmdlet을 다운로드하여 설치하는 방법에 대한 �
   - 일 단위로 그룹 수명을 설정합니다. 미리 설정된 값 중 하나 또는 사용자 지정 값을 선택할 수 있습니다(31일 이상이어야 함).
   - 그룹에 소유자가 없는 경우 갱신 및 만료 알림이 전송되어야 하는 전자 메일 주소를 지정합니다.
   - 만료되는 Office 365 그룹을 선택합니다. 다음에 대 한 만료를 설정할 수 있습니다.
-    - **모두** Office 365 그룹 및 새 그룹
-    - **선택한** Office 365 그룹 목록 (새 그룹 없음)
+    - **모두** Office 365 그룹
+    - **선택한** Office 365 그룹 목록
     - 모든 그룹에 대 한 만료를 제한 하는 **없음**
   - 완료되면 **저장**을 선택하여 설정을 저장합니다.
 

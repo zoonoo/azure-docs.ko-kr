@@ -61,7 +61,7 @@ Azure에서 사용할 수 있는 로그는 다음과 같습니다.
 
    ![새 경고 규칙을 만들기 위한 선택 항목](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert6.png  "선택")
 
-   ![지점 및 사이트] 간 (./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert6.png  "선택")
+   ![지점 및 사이트 간 ](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert6.png  "선택")
 8. Log Analytics 작업 영역 및 리소스를 선택 합니다.
 
    ![작업 영역 및 리소스에 대 한 선택](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert7.png  "선택")

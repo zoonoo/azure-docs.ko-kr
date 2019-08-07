@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: 69e95a9e6c76da5d502314a7190e99fc10e968f7
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 5f51c1166364a3470a1cc943e66d429c32cdc49b
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639072"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839483"
 ---
 # <a name="clustering-point-data"></a>클러스터링 지점 데이터
 
@@ -35,7 +35,7 @@ var datasource = new atlas.source.DataSource(null, {
 
     //The maximum zoom level in which clustering occurs.
     //If you zoom in more than this, all points are rendered as symbols.
-    clusterMaxZoom: 15 
+    clusterMaxZoom: 15
 });
 ```
 
@@ -84,7 +84,7 @@ var datasource = new atlas.source.DataSource(null, {
 
 클러스터 된 데이터 요소를 포함 하는 계층에서 마우스 이벤트가 발생 하면 클러스터형 데이터 요소가 이벤트에 GeoJSON point 기능 개체로 반환 됩니다. 이 지점 기능에는 다음과 같은 속성이 있습니다.
 
-| 속성 이름 | 형식 | Description |
+| 속성 이름 | 형식 | 설명 |
 |---------------|------|-------------|
 | cluster | boolean | 기능이 클러스터를 나타내는지 여부를 나타냅니다. |
 | cluster_id | string | DataSource `getClusterExpansionZoom`, `getClusterChildren`및 메서드와함께사용할수있는클러스터의고유ID입니다.`getClusterLeaves` |
@@ -107,6 +107,16 @@ var datasource = new atlas.source.DataSource(null, {
 
  <iframe height="500" style="width: 100%;" scrolling="no" title="클러스터 영역 볼록 선체" src="//codepen.io/azuremaps/embed/QoXqWJ/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
 <a href='https://codepen.io'>CodePen</a>의 Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)로 펜 <a href='https://codepen.io/azuremaps/pen/QoXqWJ/'>클러스터 영역 볼록 선체</a> 를 참조 하세요.
+</iframe>
+
+## <a name="aggregating-data-in-clusters"></a>클러스터의 데이터 집계
+
+클러스터에 포함 된 요소 수와 함께 기호를 사용 하 여 클러스터를 표시 하는 경우가 종종 있습니다. 그러나 경우에 따라 클러스터 내 모든 지점의 총 수익과 같은 일부 메트릭에 따라 클러스터 스타일을 추가로 사용자 지정 하는 것이 좋습니다. 클러스터 집계를 사용 하면 [집계 식](data-driven-style-expressions-web-sdk.md#aggregate-expression) 계산을 사용 하 여 사용자 지정 속성을 만들고 채울 수 있습니다.  클러스터 집계는 `DataSource`의 옵션에서 `clusterProperties` 정의할 수 있습니다.
+
+다음 샘플에서는 집계 식을 사용 하 여 클러스터에 있는 각 데이터 요소의 엔터티 형식 속성에 따라 개수를 계산 합니다.
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="클러스터 집계" src="//codepen.io/azuremaps/embed/jgYyRL/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<a href='https://codepen.io'>CodePen</a>의 Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)로 펜 <a href='https://codepen.io/azuremaps/pen/jgYyRL/'>클러스터 집계</a> 를 참조 하세요.
 </iframe>
 
 ## <a name="next-steps"></a>다음 단계

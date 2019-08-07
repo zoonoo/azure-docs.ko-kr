@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 14415b88cd6036642442ef9ae23e8dee301bb908
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 306180d1a0789aff2fc88930178976c342aef9b9
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60741615"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827402"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>InfluxData Telegraf 에이전트를 사용하여 Linux VM에 대한 사용자 지정 메트릭 수집
 
@@ -33,23 +33,23 @@ Azure Monitor를 사용하면 애플리케이션 원격 분석, Azure 리소스�
 
 새 Linux VM을 만듭니다. 
 
-1. 왼쪽 탐색 창에서  **리소스 만들기** 옵션을 선택합니다. 
-1. **가상 머신**을 검색합니다.  
+1. 왼쪽 탐색 창에서 **리소스 만들기** 옵션을 선택 합니다. 
+1. **가상 머신**을 검색합니다.  
 1. **Ubuntu 16.04 LTS**를 선택하고 **만들기**를 선택합니다. 
-1. MyTelegrafVM 과 같은  **VM** 이름을 입력합니다.  
-1. 디스크 유형은 **SSD**로 그대로 둡니다.  **azureuser** 등의 **사용자 이름**을 입력합니다. 
-1.  **인증 형식**에서  **암호**를 선택합니다. 나중에 이 VM에 대해 SSH를 수행할 때 사용할 암호를 입력합니다. 
-1.  **새 리소스 그룹 만들기**를 선택합니다.  **myResourceGroup** 등의 이름을 입력합니다. 사용자  **위치**를 선택합니다.  **확인**을 선택합니다. 
+1. VM 이름 (예: **MyTelegrafVM**)을 제공 합니다.  
+1. 디스크 유형은 **SSD**로 그대로 둡니다. 그런 다음 **azureuser**와 같은 **사용자 이름을**제공 합니다. 
+1. **인증 유형**으로 **암호**를 선택 합니다. 나중에 이 VM에 대해 SSH를 수행할 때 사용할 암호를 입력합니다. 
+1. **새 리소스 그룹을 만들도록**선택 합니다. 그런 다음 **Myresourcegroup**과 같은 이름을 제공 합니다. **위치**를 선택 합니다. 그런 다음 **확인**을 선택합니다. 
 
     ![Ubuntu VM 만들기](./media/collect-custom-metrics-linux-telegraf/create-vm.png)
 
-1. VM의 크기를 선택합니다. 예를 들어,  **컴퓨팅 유형** 또는  **디스크 유형**으로 필터링할 수 있습니다. 
+1. VM의 크기를 선택합니다. 예를 들어 **컴퓨팅 형식** 또는 **디스크 형식**으로 필터링할 수 있습니다. 
 
     ![가상 머신 크기 Telegraph 에이전트 개요](./media/collect-custom-metrics-linux-telegraf/vm-size.png)
 
-1.  **네트워크** > **네트워크 보안 그룹** > **공용 인바운드 포트 선택**의  **설정** 페이지에서  **HTTP** 및 **SSH(22)** 를 선택합니다. 나머지는 기본값으로 두고  **확인**을 선택합니다. 
+1. **네트워크** **네트워크 보안 그룹** 의 > 설정 페이지에서**공용 인바운드 포트를 선택**하 고 HTTP 및 **SSH (22)** 를 선택 합니다. >  나머지는 기본값으로 두고 **확인**을 선택합니다. 
 
-1. 요약 페이지에서  **만들기**를 선택하여 VM 배포를 시작합니다. 
+1. 요약 페이지에서 **만들기**를 선택하여 VM 배포를 시작합니다. 
 
 1. VM이 Azure Portal 대시보드에 고정됩니다. 배포가 완료되면 VM 요약이 자동으로 열립니다. 
 
@@ -59,11 +59,11 @@ Azure Monitor를 사용하면 애플리케이션 원격 분석, Azure 리소스�
  
 ## <a name="connect-to-the-vm"></a>VM에 연결 
 
-VM과의 SSH 연결을 만듭니다. VM의 개요 페이지에서  **연결** 단추를 선택합니다. 
+VM과의 SSH 연결을 만듭니다. VM의 개요 페이지에서 **연결** 단추를 선택합니다. 
 
 ![Telegraf VM 개요 페이지](./media/collect-custom-metrics-linux-telegraf/connect-VM-button2.png)
 
- **가상 머신에 연결** 페이지에서 포트 22를 통해 DNS 이름으로 연결하는 기본 옵션을 유지합니다.  **VM 로컬 계정을 사용하여 로그인**에 연결 명령이 표시됩니다. 명령을 복사하는 단추를 선택합니다. 다음 예제에서는 SSH 연결 명령의 모양을 보여줍니다. 
+**가상 머신에 연결** 페이지에서, 22 포트를 통해 DNS 이름으로 연결하는 기본 옵션을 유지합니다. **VM 로컬 계정을 사용 하 여 로그인**에서 연결 명령이 표시 됩니다. 명령을 복사하는 단추를 선택합니다. 다음 예제에서는 SSH 연결 명령의 모양을 보여줍니다. 
 
 ```cmd
 ssh azureuser@XXXX.XX.XXX 
@@ -108,7 +108,7 @@ sudo systemctl start telegraf
 
 1. [Azure Portal](https://portal.azure.com)을 엽니다. 
 
-1. 새  **모니터** 탭으로 이동합니다.  **메트릭**을 선택합니다.  
+1. 새 **모니터** 탭으로 이동 합니다. 그런 다음 **메트릭**을 선택 합니다.  
 
      ![모니터 - 메트릭(미리 보기)](./media/collect-custom-metrics-linux-telegraf/metrics.png)
 
@@ -128,7 +128,7 @@ sudo systemctl start telegraf
 
 ## <a name="clean-up-resources"></a>리소스 정리 
 
-더 이상 필요 없는 경우 리소스 그룹, 가상 머신 및 모든 관련 리소스를 삭제해도 됩니다. 삭제하려면 가상 머신에 대한 리소스 그룹을 선택하고  **삭제**를 선택합니다. 삭제할 리소스 그룹의 이름을 확인합니다. 
+더 이상 필요 없는 경우 리소스 그룹, 가상 머신 및 모든 관련 리소스를 삭제해도 됩니다. 이렇게 하려면 가상 컴퓨터의 리소스 그룹을 선택 하 고 **삭제**를 선택 합니다. 삭제할 리소스 그룹의 이름을 확인합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 - [사용자 지정 메트릭](metrics-custom-overview.md)에 대해 자세히 알아보세요.
