@@ -138,8 +138,6 @@
               href: roles-view-assignments.md
             - name: Azure AD 관리 센터에서 역할 할당
               href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-            - name: Graph API에서 사용자 지정 역할 할당
-              href: roles-assign-graph.md
             - name: PowerShell에서 사용자 지정 역할 할당
               href: roles-assign-powershell.md
             - name: 사용자 지정 역할 미리 보기 권한
