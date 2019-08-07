@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: mlearned
-ms.openlocfilehash: 6516bbcb4ea879279812d61d9fe31f1ea4268280
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 7dcf962345a2453fca52825c4be33a439d25df54
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67616251"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68740929"
 ---
 # <a name="preview---secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>미리 보기-Azure Kubernetes 서비스 (AKS)에서 권한이 부여 된 IP 주소 범위를 사용 하 여 API 서버에 안전 하 게 액세스할 수 있습니다.
 
@@ -218,13 +218,13 @@ API server 권한 있는 IP 범위를 사용 하도록 설정 하려면 권한 �
 
 [Az aks update][az-aks-update] 명령을 사용 하 여 허용 되는 *--api-version 범위* 를 지정 합니다. 이러한 IP 주소 범위는 일반적으로 온-프레미스 네트워크에서 사용 하는 주소 범위입니다. 이전 단계에서 얻은 Azure 방화벽의 공용 IP 주소를 추가 합니다 (예: *20.42.25.196/32*).
 
-다음 예제에서는 *Myresourcegroup*이라는 리소스 그룹에서 *myAKSCluster* 이라는 클러스터의 API 서버에 권한 있는 IP 범위를 사용 하도록 설정 합니다. 권한을 부여 하는 IP 주소 범위는 *20.42.25.196/32* (Azure 방화벽 공용 IP 주소), *172.0.0.10/16* 및 *168.10.0.10/18*입니다.
+다음 예제에서는 *Myresourcegroup*이라는 리소스 그룹에서 *myAKSCluster* 이라는 클러스터의 API 서버에 권한 있는 IP 범위를 사용 하도록 설정 합니다. 권한을 부여 하는 IP 주소 범위는 *20.42.25.196/32* (Azure 방화벽 공용 IP 주소), *172.0.0.0/16* 및 *168.10.0.0/18*입니다.
 
 ```azurecli-interactive
 az aks update \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --api-server-authorized-ip-ranges 20.42.25.196/32,172.0.0.10/16,168.10.0.10/18
+    --api-server-authorized-ip-ranges 20.42.25.196/32,172.0.0.0/16,168.10.0.0/18
 ```
 
 ## <a name="update-or-disable-authorized-ip-ranges"></a>권한 있는 IP 범위 업데이트 또는 사용 안 함

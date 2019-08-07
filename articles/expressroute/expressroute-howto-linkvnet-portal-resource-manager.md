@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 66c43556e698063b95ce1c3787458e40c9d71504
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1545e2e7eba23b0bedbfe297c292fc94e1659ae3
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60365593"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775276"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>포털을 사용하여 ExpressRoute 회로에 가상 네트워크 연결
 > [!div class="op_single_selector"]
@@ -26,14 +26,14 @@ ms.locfileid: "60365593"
 
 이 문서에서는 Azure Portal을 사용하여 Azure ExpressRoute 회로에 가상 네트워크를 연결하는 연결을 만들 수 있습니다. Azure ExpressRoute 회로에 연결한 가상 네트워크는 같은 구독에 있을 수도 있고 다른 구독의 일부일 수도 있습니다.
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
 * 구성을 시작하기 전에 [필수 조건](expressroute-prerequisites.md), [라우팅 요구 사항](expressroute-routing.md) 및 [워크플로](expressroute-workflows.md)를 검토합니다.
 
 * 활성화된 ExpressRoute 회로가 있어야 합니다.
   * 지침을 수행하여 [ExpressRoute 회로를 만들고](expressroute-howto-circuit-portal-resource-manager.md) 연결 공급자를 통해 회로를 사용하도록 설정합니다.
   * 회로에 구성된 Azure 프라이빗 피어링이 있는지 확인합니다. 라우팅 지침에 대한 문서는 [라우팅 구성](expressroute-howto-routing-portal-resource-manager.md)을 참조하세요.
-  * Azure 프라이빗 피어링이 구성되어 있고 네트워크와 Microsoft 간의 BGP 피어링이 엔드투엔드 연결을 사용하도록 작동 중이어야 합니다.
+  * Azure 개인 피어링이 구성되어 있고 네트워크와 Microsoft 간의 BGP 피어링이 엔드투엔드 연결을 사용하도록 작동 중이어야 합니다.
   * 가상 네트워크 및 가상 네트워크 게이트웨이를 만들어서 완전히 프로비전해야 합니다. 지침에 따라 [ExpressRoute에 대한 가상 네트워크 게이트웨이를 만듭니다](expressroute-howto-add-gateway-resource-manager.md). ExpressRoute의 가상 네트워크 게이트웨이는 GatewayType으로 VPN이 아닌 'ExpressRoute'를 사용합니다.
 
 * 최대 10개의 가상 네트워크를 표준 ExpressRoute 회로에 연결할 수 있습니다. 표준 ExpressRoute 회로를 사용하는 경우 모든 가상 네트워크는 동일한 지역에 있어야 합니다.
@@ -121,7 +121,7 @@ ms.locfileid: "60365593"
 
    ![기본 페이지](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection3.png)
 5. **설정** 페이지에서 **가상 네트워크 게이트웨이**를 선택하고 **권한 부여 사용** 확인란을 선택합니다.
-6. **권한 부여 키** 및 **피어 회로 URI**를 입력한 후 연결 이름을 지정합니다. **확인**을 클릭합니다.
+6. **권한 부여 키** 및 **피어 회로 URI**를 입력한 후 연결 이름을 지정합니다. **확인**을 클릭합니다. **피어 회로 URI** 는 express 경로 회로의 리소스 ID입니다 .이는 Express 경로 회로의 속성 설정 창에서 찾을 수 있습니다.
 
    ![설정 페이지](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection4.png)
 7. **요약** 페이지에서 정보를 검토하고 **확인**을 클릭합니다.

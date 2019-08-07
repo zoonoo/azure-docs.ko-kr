@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: c7c2ba104b4d528cd3f8443e6f5615aa6ab3e672
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
-ms.translationtype: MT
+ms.openlocfilehash: 01ca3e5afc1c837a2789ba23e0b79447cd295fdd
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68720382"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742336"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning Services를 사용하여 모델 배포
 
@@ -130,7 +130,7 @@ Azure Machine Learning 서비스 외부에서 학습 한 모델을 사용 하는
 
 * `run(input_data)`: 이 함수는 모델을 사용하여 입력 데이터를 기반으로 값을 예측합니다. 실행에 대한 입력 및 출력은 일반적으로 serialization 및 deserialization용으로 JSON을 사용합니다. 원시 이진 데이터를 사용할 수도 있습니다. 모델에 보내기 전에 또는 클라이언트에 반환하기 전에 데이터를 변환할 수 있습니다.
 
-#### <a name="what-is-getmodelpath"></a>Get_model_path 란?
+#### <a name="what-is-get_model_path"></a>Get_model_path 란?
 
 모델을 등록할 때 레지스트리에서 모델을 관리 하는 데 사용 되는 모델 이름을 제공 합니다. 이 이름을 Model과 함께 사용 [합니다. get _model_path ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) 를 사용 하 여 로컬 파일 시스템에서 모델 파일의 경로를 검색 합니다. 폴더 또는 파일 컬렉션을 등록 하는 경우이 API는 해당 파일이 포함 된 디렉터리에 대 한 경로를 반환 합니다.
 
@@ -168,12 +168,12 @@ dependencies:
     - inference-schema[numpy-support]
 ```
 
-자동 스키마 생성을 사용 하려면 **항목 스크립트가 패키지** 를 `inference-schema` 가져와야 합니다. 
+자동 스키마 생성을 사용 하려면 항목 스크립트가 패키지를 `inference-schema` 가져와야 합니다. 
 
 `input_sample` 및`output_sample` 변수에서 웹 서비스의 요청 및 응답 형식을 나타내는 입력 및 출력 샘플 형식을 정의 합니다. `run()` 함수에 대 한 입력 및 출력 함수 데코레이터에서 이러한 샘플을 사용 합니다. 아래 scikit 예제에서는 스키마 생성을 사용 합니다.
 
 > [!TIP]
-> 서비스를 배포한 후에는 `swagger_uri` 속성을 사용 하 여 스키마 JSON 문서를 검색 합니다.
+> 서비스를 배포한 후 스키마 JSON 문서를 검색할 수 있습니다. 와`service.swagger_uri`같은 배포 된 웹 서비스의 [swagger_uri 속성](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#swagger-uri) 을 사용 하 여 로컬 웹 서비스의 swagger 파일에 대 한 uri를 가져옵니다.
 
 #### <a name="example-entry-script"></a>예제 항목 스크립트
 
@@ -368,6 +368,9 @@ az ml model deploy -m mymodel:1 -ic inferenceconfig.json -dc deploymentconfig.js
 
 배포 된 모든 웹 서비스는 REST API을 제공 하므로 다양 한 프로그래밍 언어로 클라이언트 응용 프로그램을 만들 수 있습니다. 서비스에 대 한 키 인증을 사용 하는 경우 요청 헤더에 토큰으로 서비스 키를 제공 해야 합니다.
 서비스에 대 한 토큰 인증을 사용 하도록 설정한 경우 요청 헤더에서 전달자 토큰으로 Azure Machine Learning JWT 토큰을 제공 해야 합니다.
+
+> [!TIP]
+> 서비스를 배포한 후 스키마 JSON 문서를 검색할 수 있습니다. 와`service.swagger_uri`같은 배포 된 웹 서비스의 [swagger_uri 속성](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#swagger-uri) 을 사용 하 여 로컬 웹 서비스의 swagger 파일에 대 한 uri를 가져옵니다.
 
 ### <a name="request-response-consumption"></a>요청-응답 소비
 

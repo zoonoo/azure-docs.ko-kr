@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: e815c038cce2e792fe7ea39f1ee43342be0b679f
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 97f061d94209d84b70626f8735d08f89870e7319
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726907"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828715"
 ---
 # <a name="azure-operational-security-best-practices"></a>Azure 운영 보안 모범 사례
 이 문서에서는 Azure에서 데이터, 응용 프로그램 및 기타 자산을 보호 하는 일련의 작업 모범 사례를 제공 합니다.
@@ -118,7 +118,7 @@ Security Center를 사용 하 여 모든 Azure 리소스의 보안 상태를 중
 **세부 정보**: SIEM을 사용 하는 대부분의 조직에서는이를 분석가 응답이 필요한 보안 경고에 대 한 중앙 clearinghouse로 사용 합니다. Security Center에서 생성 된 처리 된 이벤트는 Azure Monitor를 통해 사용할 수 있는 로그 중 하나인 Azure 활동 로그에 게시 됩니다. Azure Monitor는 모니터링 데이터를 SIEM 도구에 라우팅하는 것에 대한 통합된 파이프라인을 제공합니다. 지침은 [Security Center의 보안 솔루션 통합](../../security-center/security-center-partner-integration.md#exporting-data-to-a-siem) 을 참조 하세요. Azure 센티널를 사용 하는 경우 [연결 Azure Security Center](../../sentinel/connect-azure-security-center.md)을 참조 하세요.
 
 **모범 사례**: Azure 로그를 SIEM과 통합 합니다.   
-**세부 정보**: [Azure Monitor를 사용 하 여 데이터를 수집 하 고 내보낼 수](/azure/azure-monitor/overview.md#integrate-and-export-data)있습니다. 이 방법은 보안 인시던트 조사를 사용 하도록 설정 하는 데 중요 하며 온라인 로그 보존은 제한적입니다. Azure 센티널를 사용 하는 경우 [연결 데이터 원본](../../sentinel/connect-data-sources.md)을 참조 하세요.
+**세부 정보**: [Azure Monitor를 사용 하 여 데이터를 수집 하 고 내보낼 수](/azure/azure-monitor/overview#integrate-and-export-data)있습니다. 이 방법은 보안 인시던트 조사를 사용 하도록 설정 하는 데 중요 하며 온라인 로그 보존은 제한적입니다. Azure 센티널를 사용 하는 경우 [연결 데이터 원본](../../sentinel/connect-data-sources.md)을 참조 하세요.
 
 **모범 사례**: EDR (끝점 검색 및 응답) 기능을 공격 조사에 통합 하 여 조사 및 구하기 프로세스를 가속화 하 고 가양성을 줄입니다.   
 **세부 정보**: Security Center 보안 정책을 통해 [Windows DEFENDER ATP 통합을 사용 하도록 설정](../../security-center/security-center-wdatp.md#enable-windows-defender-atp-integration) 합니다. 위협 구하기 및 인시던트 대응을 위해 Azure 센티널을 사용 하는 것이 좋습니다.
@@ -206,7 +206,7 @@ Azure Policy 사용 하 여 조직의 작성 된 정책을 모니터링 하 고 
 
 Azure Policy를 채택 하 고 나면 다음 몇 가지 보안 모범 사례를 따라야 합니다.
 
-**모범 사례**: 정책은 여러 유형의 효과를 지원 합니다. [Azure Policy 정의 구조](../../governance/policy/concepts/definition-structure.md#policy-rule)에서이에 대해 읽을 수 있습니다. 비즈니스 작업은 **거부** 효과 및 **수정 효과에** 의해 부정적인 영향을 받을 수 있으므로 **감사** 효과부터 시작 하 여 정책에서 부정적인 영향을 미치는 위험을 제한할 수 있습니다.   
+**모범 사례**: 정책은 여러 유형의 효과를 지원 합니다. [Azure Policy 정의 구조](../../governance/policy/concepts/definition-structure.md#policy-rule)에서이에 대해 읽을 수 있습니다. 비즈니스 작업은 **거부** 효과 및 수정 효과에 의해 부정적인 영향 을 받을 수 있으므로 **감사** 효과부터 시작 하 여 정책에서 부정적인 영향을 미치는 위험을 제한할 수 있습니다.   
 **세부 정보**: [감사 모드에서 정책 배포를 시작한](../../governance/policy/concepts/definition-structure.md#policy-rule) 후 나중에 **거부** 또는 **재구성**으로 진행 합니다. **거부** 또는 **재구성**으로 이동 하기 전에 감사 효과의 결과를 테스트 하 고 검토 합니다.
 
 자세한 내용은 [규정 준수를 적용 하는 정책 만들기 및 관리](../../governance/policy/tutorials/create-and-manage.md)를 참조 하세요.

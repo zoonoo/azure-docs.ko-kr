@@ -1,6 +1,6 @@
 ---
-title: Azure Cloud Shell에서 Bash의 Terraform을 사용하여 배포 | Microsoft Docs
-description: Azure Cloud Shell에서 Bash의 Terraform을 사용하여 배포
+title: Azure Cloud Shell에서 Terraform을 사용 하 여 배포 Microsoft Docs
+description: Azure Cloud Shell에서 Terraform을 사용 하 여 배포
 services: Azure
 documentationcenter: ''
 author: tomarchermsft
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: tarcher
-ms.openlocfilehash: a08a4e7df6cf0493ab1aa6aced1abf888a61072a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f5939251729905d349b79a94411cf87e3873b279
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62119115"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742073"
 ---
 # <a name="deploy-with-terraform-from-bash-in-azure-cloud-shell"></a>Azure Cloud Shell에서 Bash의 Terraform을 사용하여 배포
 이 문서에서는 Terraform [AzureRM 공급자](https://www.terraform.io/docs/providers/azurerm/index.html)로 리소스 그룹을 만드는 과정을 안내합니다. 

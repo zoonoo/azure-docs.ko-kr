@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: c4a04f55f4f69521f00ed450a2d3d1a80b56761c
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 7b3159b6b963cf422442ee7c04253b8172e8f3e9
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234089"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68773144"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-a-managed-domain"></a>CentOS Linux 가상 컴퓨터를 관리되는 도메인에 가입
 이 문서에서는 Azure에서 CentOS Linux 가상 머신을 Azure AD Domain Services 관리되는 도메인에 가입하는 방법을 보여 줍니다.
@@ -107,6 +107,8 @@ sudo yum install realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir 
 
     > [!TIP]
     > 이전 단계에서 지정한 동일한 사용자 계정을 사용합니다.
+    >
+    > VM이 도메인에 가입할 수 없는 경우 VM의 네트워크 보안 그룹이 TCP + UDP 포트 464의 아웃 바운드 Kerberos 트래픽을 Azure AD DS 관리 되는 도메인에 대 한 가상 네트워크 서브넷으로 허용 하는지 확인 합니다.
 
     ```console
     sudo realm join --verbose CONTOSO100.COM -U 'bob@CONTOSO100.COM'

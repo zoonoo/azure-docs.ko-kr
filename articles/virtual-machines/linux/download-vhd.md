@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: e7325282c6442a927f47df3e50efbfda481754fd
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 5639571739f3eb6263f62444e7ab02186e2ca945
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67667919"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742573"
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Azure에서 Linux VHD 다운로드
 
@@ -69,7 +69,7 @@ VHD를 기존 VM의 새 인스턴스에 대한 디스크 또는 데이터 디스
 VHD 파일을 다운로드하려면 [SAS(공유 액세스 서명)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) URL을 생성해야 합니다. URL이 생성될 때 만료 시간이 URL에 할당됩니다.
 
 1.  VM에 대한 블레이드 메뉴에서 **디스크**를 클릭합니다.
-2.  VM에 대한 운영 체제 디스크를 선택한 다음 **내보내기**를 클릭합니다.
+2.  VM에 대 한 운영 체제 디스크를 선택 하 고 **디스크 내보내기**를 클릭 합니다.
 3.  **URL 생성**을 클릭합니다.
 
     ![URL 생성](./media/download-vhd/export-generate.png)

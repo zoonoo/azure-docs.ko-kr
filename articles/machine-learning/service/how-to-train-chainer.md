@@ -1,7 +1,7 @@
 ---
-title: 체 이너 모델 학습 및 등록
+title: 체 이너로 심층 학습 신경망 학습
 titleSuffix: Azure Machine Learning service
-description: 이 문서에서는 Azure Machine Learning 서비스를 사용 하 여 체 이너 모델을 학습 하 고 등록 하는 방법을 보여 줍니다.
+description: Azure Machine Learning의 체 이너 평가기 클래스를 사용 하 여 엔터프라이즈 규모에서 PyTorch 학습 스크립트를 실행 하는 방법을 알아봅니다.  예제 스크립트는 필기 숫자 이미지를 classifis 하 여 numpy에서 실행 되는 체 이너 Python 라이브러리를 사용 하 여 심층 학습 신경망을 빌드합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,21 +9,21 @@ ms.topic: conceptual
 ms.author: maxluk
 author: maxluk
 ms.reviewer: sdgilley
-ms.date: 06/15/2019
-ms.openlocfilehash: 7cf5650708cd951e872e3df6ea533a62bde0389d
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.date: 08/02/2019
+ms.openlocfilehash: f95a7efd8b9303db0a9ba98c1be32e13d0c5e984
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618334"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780878"
 ---
 # <a name="train-and-register-chainer-models-at-scale-with-azure-machine-learning-service"></a>Azure Machine Learning 서비스를 사용 하 여 대규모로 체 이너 모델 학습 및 등록
 
-이 문서에서는 Azure Machine Learning 서비스를 사용 하 여 체 이너 모델을 학습 하 고 등록 하는 방법을 보여 줍니다. 인기 있는 [Mnist 데이터 집합](http://yann.lecun.com/exdb/mnist/) 을 사용 하 여 [numpy](https://www.numpy.org/)에서 실행 되는 [체 이너 Python 라이브러리](https://Chainer.org) 를 사용 하 여 빌드된 DNN (심층 신경망)를 사용 하 여 필기 된 숫자를 분류 합니다.
+이 문서에서는 Azure Machine Learning의 [체 이너 평가기](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) 클래스를 사용 하 여 엔터프라이즈 규모에서 [체 이너](https://chainer.org/) 교육 스크립트를 실행 하는 방법에 대해 알아봅니다. 이 문서의 예제 학습 스크립트는 인기 있는 [Mnist 데이터 집합](http://yann.lecun.com/exdb/mnist/) 을 사용 하 여 [numpy](https://www.numpy.org/)에서 실행 되는 체 이너 Python 라이브러리를 사용 하 여 빌드된 DNN (심층 신경망)를 사용 하 여 필기 된 숫자를 분류 합니다.
 
-체 이너는 널리 사용 되는 다른 DNN 프레임 워크를 기반으로 개발을 간소화 하는 높은 수준의 신경망 API입니다. Azure Machine Learning 서비스를 사용 하면 탄력적 클라우드 계산 리소스를 사용 하 여 학습 작업을 신속 하 게 확장할 수 있습니다. 또한 학습 실행과 버전 모델을 추적 하 고 모델을 배포할 수 있습니다.
+처음부터 심층 학습 체 이너 모델을 학습 하 고 있거나 기존 모델을 클라우드로 전환 하는 경우에는 Azure Machine Learning를 사용 하 여 탄력적 클라우드 계산 리소스를 사용 하 여 오픈 소스 학습 작업을 확장할 수 있습니다. Azure Machine Learning를 사용 하 여 프로덕션 등급 모델을 빌드, 배포, 버전 및 모니터링할 수 있습니다. 
 
-처음부터 체 이너 모델을 개발 하 든, 기존 모델을 클라우드로 전환 하 든 Azure Machine Learning 서비스를 통해 프로덕션이 준비 된 모델을 빌드할 수 있습니다.
+[심층 학습 vs machine learning](concept-deep-learning-vs-machine-learning.md)에 대해 자세히 알아보세요.
 
 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 지금 사용해 보세요.
 
@@ -33,8 +33,8 @@ Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다.
 
 - Azure Machine Learning 노트북 VM-다운로드 또는 설치 필요 없음
 
-    - [클라우드 기반 노트북 빠른](quickstart-run-cloud-notebook.md) 시작을 완료 하 여 SDK 및 샘플 리포지토리로 미리 로드 된 전용 노트북 서버를 만듭니다.
-    - 노트북 서버의 samples 폴더에 있는 **사용 방법-azureml/학습-하이퍼-심층 학습/학습-hyperparameter 변수-튜닝-배포** -비 체 비트 폴더에서 완료 된 노트북 및 파일을 찾습니다.  노트북에는 지능형 하이퍼 매개 변수 튜닝, 모델 배포 및 노트북 위젯을 다루는 확장 된 섹션이 포함 되어 있습니다.
+    - 이 자습서를 시작하기 전에 [자습서: SDK 및 샘플 리포지토리](tutorial-1st-experiment-sdk-setup.md) 를 사용 하 여 미리 로드 된 전용 노트북 서버를 만들기 위한 환경 및 작업 영역을 설정 합니다.
+    - 노트북 서버의 샘플 심층 학습 폴더에 있는 **사용 방법-azureml/학습-하이퍼-학습/학습-hyperparameter 변수-튜닝-배포** -비 체 비트 폴더에서 완료 된 노트북 및 파일을 찾습니다.  노트북에는 지능형 하이퍼 매개 변수 튜닝, 모델 배포 및 노트북 위젯을 다루는 확장 된 섹션이 포함 되어 있습니다.
 
 - 사용자 고유의 Jupyter Notebook 서버
 
@@ -94,7 +94,7 @@ import shutil
 shutil.copy('chainer_mnist.py', project_folder)
 ```
 
-### <a name="create-an-experiment"></a>실험 만들기
+### <a name="create-a-deep-learning-experiment"></a>심층 학습 실험 만들기
 
 실험을 만듭니다. 이 예에서는 "체 이너-mnist" 라는 실험을 만듭니다.
 
@@ -209,9 +209,7 @@ for f in run.get_file_names():
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Azure Machine Learning 서비스에서 체 이너 모델을 학습 했습니다. 
-
-* 모델을 배포 하는 방법에 대 한 자세한 내용은 [모델 배포](how-to-deploy-and-where.md) 문서를 참조 하세요.
+이 문서에서는 Azure Machine Learning 서비스에서 체 이너를 사용 하 여 심층 학습, 신경망을 학습 하 고 등록 했습니다. 모델을 배포 하는 방법에 대 한 자세한 내용은 [모델 배포](how-to-deploy-and-where.md) 문서를 참조 하세요.
 
 * [하이퍼 매개 변수 조정](how-to-tune-hyperparameters.md)
 

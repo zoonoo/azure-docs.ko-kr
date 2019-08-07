@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 6dc8fcc32d7f05063da15eb6ca6bf7a7d69baebb
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: f4d3a4d9a5785ae350874c400384477da1a6c22e
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663131"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774725"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 로그 경고 만들기, 보기 및 관리
 
@@ -58,7 +58,7 @@ ms.locfileid: "68663131"
 
    > [!NOTE]
    > 
-   > 경고 목록은 위 그림과 같이 분석 쿼리를 신호 유형 - **로그(저장된 쿼리)** 로 가져올 수 있습니다. 따라서 사용자는 분석에서 쿼리를 완벽 하 게 수행한 다음 나중에 사용 하기 위해 저장할 수 있습니다. 자세한 내용은 [application insights 분석의 Azure Monitor 또는 공유 쿼리](../log-query/log-query-overview.md)를 [사용 하 여 로그 쿼리](../log-query/log-query-overview.md) 를 사용 하 여 사용 가능한 쿼리 저장을 참조 하세요.
+   > 경고 목록은 위 그림과 같이 분석 쿼리를 신호 유형 - **로그(저장된 쿼리)** 로 가져올 수 있습니다. 따라서 사용자는 분석에서 쿼리를 완벽 하 게 수행한 다음 나중에 사용 하기 위해 저장할 수 있습니다. 자세한 내용은 [application insights 분석의 Azure Monitor 또는 공유 쿼리](../app/app-insights-overview.md)를 [사용 하 여 로그 쿼리](../log-query/log-query-overview.md) 를 사용 하 여 사용 가능한 쿼리 저장을 참조 하세요.
 
 1. *로그 경고*: 선택한 후에 경고에 대한 쿼리를 **검색 쿼리** 필드에서 정의할 수 있습니다. 쿼리 구문이 올바르지 않을 경우 필드는 빨간색으로 오류를 표시합니다. 쿼리 구문이 올바른 경우 참조를 위해 정의된 쿼리의 기록 데이터가 마지막 6시간에서 지난 주까지 시간 창을 조정하는 옵션과 함께 그래프로 표시됩니다.
 

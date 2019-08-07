@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: c8528ac81f2248e417d7d25d0f3c2650845c3d7d
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 87e6f69c06fb9f8bc03d184cfe160964403e7a2a
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68404313"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780864"
 ---
 # <a name="get-started-with-device-management-java"></a>디바이스 관리 시작(Java)
 
@@ -62,6 +62,8 @@ ms.locfileid: "68404313"
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+
+## <a name="register-a-new-device-in-the-iot-hub"></a>IoT Hub에서 새 디바이스 등록
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
@@ -287,7 +289,7 @@ ms.locfileid: "68404313"
     import java.util.HashSet;
     ```
 
-7. 다음 클래스 수준 변수를 **App** 클래스에 추가합니다. `{yourdeviceconnectionstring}`을 *디바이스 ID 만들기* 섹션에서 기록해 둔 디바이스 연결 문자열로 바꿉니다.
+7. 다음 클래스 수준 변수를 **App** 클래스에 추가합니다. 을 `{yourdeviceconnectionstring}` [IoT hub에서 새 장치 등록](#register-a-new-device-in-the-iot-hub) 섹션에서 기록한 장치 연결 문자열로 바꿉니다.
 
     ```java
     private static final int METHOD_SUCCESS = 200;

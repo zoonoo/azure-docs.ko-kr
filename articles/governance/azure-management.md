@@ -7,12 +7,12 @@ ms.service: governance
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: dacoulte
-ms.openlocfilehash: 520b84722d9434b309d3eb6da0baa3c1e4da33d0
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 958f82ef94a08adaf2bbae1ef8ceefae5db289ea
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608199"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780806"
 ---
 # <a name="overview-of-management-services-in-azure"></a>Azure의 관리 서비스 개요
 
@@ -40,7 +40,7 @@ Azure의 거버넌스는 Azure 관리의 측면 중 하나입니다. 이 문서�
 ## <a name="govern"></a>거버넌스
 
 거버넌스는 Azure에서 애플리케이션 및 리소스에 대한 제어를 유지 관리하는 프로세스와 메커니즘을 제공합니다. 거버넌스에는 이니셔티브 계획과 전략적 우선 순위 설정이 필요합니다.
-Azure에서 거버넌스는 주로 두 서비스를 통해 구현됩니다. [Azure Policy](./policy/overview.md)를 사용하면 정책 정의를 만들고 할당하고 관리하여 리소스에 대 한 규칙을 적용할 수 있습니다. 이 기능은 해당 리소스가 회사 표준을 준수하게 합니다. [Cloudyn에서 개발한 Azure Cost Management](../cost-management/overview.md)를 사용하면 Azure 리소스 및 기타 클라우드 공급 기업에 대한 클라우드 사용량 및 비용을 추적할 수 있습니다.
+Azure에서 거버넌스는 주로 두 서비스를 통해 구현됩니다. [Azure Policy](./policy/overview.md)를 사용하면 정책 정의를 만들고 할당하고 관리하여 리소스에 대 한 규칙을 적용할 수 있습니다. 이 기능은 해당 리소스가 회사 표준을 준수하게 합니다. [Azure Cost Management](../cost-management/overview-cost-mgt.md) 를 사용 하 여 Azure 리소스 및 기타 클라우드 공급자에 대 한 클라우드 사용량 및 비용을 추적할 수 있습니다.
 
 ## <a name="secure"></a>보안
 

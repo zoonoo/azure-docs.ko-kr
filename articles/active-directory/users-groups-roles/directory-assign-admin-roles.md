@@ -9,23 +9,37 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/17/2019
+ms.date: 08/04/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5167ba170181bed6dc76d4ca3df79306f432eaf2
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: e139b274ab8a1f7d91d46ec56171b84db4f5025e
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68722660"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812838"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 사용 권한
 
 Azure Active Directory (Azure AD)를 사용 하 여 제한 된 관리자에 게 권한이 낮은 역할의 id 작업을 관리 하도록 지정할 수 있습니다. 사용자 추가 또는 변경, 관리 역할 할당, 사용자 암호 다시 설정, 사용자 라이선스 관리, 도메인 이름 관리 등을 위해 관리자를 할당할 수 있습니다. 기본 사용자 권한은 Azure AD의 사용자 설정에서만 변경할 수 있습니다.
 
-전역 관리자는 모든 관리 기능에 액세스할 수 있습니다. 기본적으로 Azure 구독에 등록하는 사람에게는 디렉터리에 대한 글로벌 관리자 역할이 할당됩니다. 글로벌 관리자와 권한 있는 역할 관리자만 관리자 역할을 위임할 수 있습니다. 비즈니스 위험을 줄이기 위해 회사의 소수 사람에게만 이 역할을 할당하는 것이 좋습니다.
+## <a name="limit-the-use-of-global-administrator"></a>전역 관리자의 사용 제한
+
+전역 관리자 역할에 할당 된 사용자는 Azure AD 조직의 모든 관리 설정을 읽고 수정할 수 있습니다. 기본적으로 Azure 구독에 등록 하는 사람에 게는 Azure AD 조직에 대 한 전역 관리자 역할이 할당 됩니다. 전역 관리자 및 권한 있는 역할 관리자만 관리자 역할을 위임할 수 있습니다. 비즈니스에 대 한 위험을 줄이려면 조직에서 가능한 최소한의 사용자에 게이 역할을 할당 하는 것이 좋습니다.
+
+## <a name="best-practices"></a>최선의 구현 방법
+
+모범 사례로, 조직에서 5 명 미만의 사용자에 게이 역할을 할당 하는 것이 좋습니다. 조직의 전역 관리자 역할에 할당 된 5 명 이상의 사용자가 있는 경우 사용량을 줄이는 몇 가지 방법은 다음과 같습니다.
+
+### <a name="find-the-role-you-need"></a>필요한 역할 찾기
+
+많은 역할 목록에서 필요한 역할을 찾을 수 없는 경우 Azure AD는 역할 범주에 따라 더 짧은 목록을 제공할 수 있습니다. 선택한 유형의 역할만 표시 하도록 [AZURE AD 역할 및 관리자](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators) 에 대 한 새 **유형** 필터를 확인 합니다.
+
+### <a name="a-role-exists-now-that-didnt-exist-when-you-assigned-the-global-administrator-role"></a>전역 관리자 역할을 할당할 때 존재 하지 않는 역할이 있습니다.
+
+일부 사용자를 전역 관리자로 승격 시킬 때 옵션이 아닌 보다 세분화 된 사용 권한을 제공 하는 Azure AD에 역할 또는 역할을 추가할 수 있습니다. 시간이 지남에 따라 전역 관리자 역할만이 수행할 수 있는 작업을 수행 하는 추가 역할을 배포 합니다. 다음 [사용 가능한 역할](#available-roles)에 이러한 내용이 반영 된 것을 볼 수 있습니다.
 
 ## <a name="assign-or-remove-administrator-roles"></a>관리자 역할 할당 또는 제거
 

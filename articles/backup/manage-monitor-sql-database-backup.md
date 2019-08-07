@@ -1,5 +1,5 @@
 ---
-title: Azure Backup에서 백업 된 Azure VM에서 SQL Server 데이터베이스를 관리 하 고 모니터링 합니다. Microsoft Docs
+title: Azure Backup를 사용 하 여 Azure VM에서 SQL Server 데이터베이스 관리 및 모니터링
 description: 이 문서에서는 Azure VM에서 실행 되는 SQL Server 데이터베이스를 관리 하 고 모니터링 하는 방법을 설명 합니다.
 author: dcurwin
 manager: carmonm
@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: dacurwin
-ms.openlocfilehash: c5f61c778849a57d9143580e0e1041c7fe992d52
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 7cd916c8e52b40dee3ce2d63d43dc88f09001b32
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639577"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827569"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>백업한 SQL Server 데이터베이스 관리 및 모니터링
 
@@ -120,7 +120,7 @@ SQL database에 대 한 보호를 다시 시작 하려면:
 * 차등 백업
 * 로그 백업
 
-복사 전용 전체 백업에 대 한 보존 기간을 지정 해야 하지만 다른 백업 유형에 대 한 보존 범위는 현재 시간부터 30 일로 자동 설정 됩니다. <br/>
+복사 전용 전체 백업에 대 한 보존 기간을 지정 해야 하지만 임시 전체 백업에 대 한 보존 범위는 현재 시간부터 45 일로 자동 설정 됩니다. <br/>
 자세한 내용은 [SQL Server 백업 유형](backup-architecture.md#sql-server-backup-types)을 참조 하세요.
 
 ## <a name="unregister-a-sql-server-instance"></a>SQL Server 인스턴스 등록 취소

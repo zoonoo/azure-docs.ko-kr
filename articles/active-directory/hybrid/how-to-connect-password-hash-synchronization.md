@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d74eb91b5122f63088f3344836eab8decf5c57d2
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 98101973627750f87fd06d3f617a1af764a837ee
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227378"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774244"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect 동기화를 사용하여 암호 해시 동기화 구현
 이 문서에서는 온-프레미스 Active Directory 인스턴스에서 클라우드 기반 Azure Active Directory(Azure AD) 인스턴스로 사용자 암호를 동기화하는 데 필요한 정보를 제공합니다.
@@ -63,9 +63,6 @@ Active Directory 도메인 서비스는 실제 사용자 암호의 해시 값 �
 >[!Note] 
 >원래 MD4 해시는 Azure AD로 전송되지 않습니다. 대신 원래 MD4 해시의 SHA256 해시가 전송됩니다. 결과적으로 Azure AD에 저장된 해시를 습득하더라도 온-프레미스 pass-the-hash 공격에 사용할 수 없습니다.
 
-### <a name="how-password-hash-synchronization-works-with-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에서 암호 해시 동기화 작동 방식
-암호 해시 동기화 기능을 사용하여 온-프레미스 암호를 [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md)에 동기화할 수도 있습니다. 이 시나리오에서는 Azure Active Directory Domain Services 인스턴스가 온-프레미스 Active Directory 인스턴스에서 사용할 수 있는 모든 방법을 사용하여 클라우드에서 사용자를 인증합니다. 이 시나리오의 환경은 온-프레미스 환경에서 ADMT(Active Directory 마이그레이션 도구)를 사용하는 것과 비슷합니다.
-
 ### <a name="security-considerations"></a>보안 고려 사항
 암호를 동기화할 때, 사용자 암호의 일반 텍스트 버전은 암호 해시 동기화 기능, Azure AD 혹은 다른 어떤 관련 서비스에 노출되지 않습니다.
 
@@ -104,6 +101,39 @@ Active Directory 도메인 서비스는 실제 사용자 암호의 해시 값 �
 
 - 일반적으로 암호 해시 동기화는 페더레이션 서비스보다 더 쉽게 구현할 수 있습니다. 추가 서버가 필요 없으며, 사용자를 인증하기 위해 고가용성의 페더레이션 서비스에 의존하지 않아도 됩니다.
 - 페더레이션 외에 암호 해시 동기화를 사용하도록 설정할 수도 있습니다. 페더레이션 서비스에 중단이 발생하는 경우 대체 서비스로 사용될 수 있습니다.
+
+## <a name="password-hash-sync-process-for-azure-ad-domain-services"></a>Azure AD Domain Services에 대 한 암호 해시 동기화 프로세스
+
+Azure AD Domain Services를 사용 하 여 Keberos, LDAP 또는 NTLM을 사용 해야 하는 응용 프로그램 및 서비스에 대 한 레거시 인증을 제공 하는 경우 몇 가지 추가 프로세스는 암호 해시 동기화 흐름의 일부입니다. Azure AD Connect는 다음과 같은 추가 프로세스를 사용 하 여 Azure AD Domain Services에서 사용할 수 있도록 암호 해시를 Azure AD에 동기화 합니다.
+
+> [!IMPORTANT]
+> Azure AD Connect는 azure AD 테 넌 트에 대해 Azure AD DS를 사용 하도록 설정 하는 경우에만 레거시 암호 해시를 동기화 합니다. Azure AD Connect를 사용 하 여 온-프레미스 AD DS 환경을 Azure AD와 동기화 하는 경우에는 다음 단계가 사용 되지 않습니다.
+>
+> 레거시 응용 프로그램이 NTLM 인증 또는 LDAP 단순 바인딩을 사용 하지 않는 경우 Azure AD DS에 대해 NTLM 암호 해시 동기화를 사용 하지 않도록 설정 하는 것이 좋습니다. 자세한 내용은 [약한 암호 그룹 및 NTLM 자격 증명 해시 동기화 사용 안 함](../../active-directory-domain-services/secure-your-domain.md)을 참조 하세요.
+
+1. Azure AD Connect은 테 넌 트의 Azure AD Domain Services 인스턴스에 대 한 공개 키를 검색 합니다.
+1. 사용자가 암호를 변경 하는 경우 온-프레미스 도메인 컨트롤러는 다음과 같은 두 가지 특성에 암호 변경 (해시)의 결과를 저장 합니다.
+    * NTLM 암호 해시에 대 한 *unicodePwd* 입니다.
+    * Kerberos 암호 해시에 대 한 *supplementalCredentials* 입니다.
+1. Azure AD Connect는 디렉터리 복제 채널 (다른 도메인 컨트롤러에 복제 해야 하는 특성 변경)을 통해 암호 변경을 검색 합니다.
+1. 암호가 변경 된 각 사용자에 대해 Azure AD Connect 다음 단계를 수행 합니다.
+    * 임의의 AES 256 비트 대칭 키를 생성 합니다.
+    * 암호화의 첫 번째 라운드에 필요한 임의의 초기화 벡터를 생성 합니다.
+    * *SupplementalCredentials* 특성에서 Kerberos 암호 해시를 추출 합니다.
+    * Azure AD Domain Services 보안 구성 *SyncNtlmPasswords* 설정을 확인 합니다.
+        * 이 설정을 사용 하지 않도록 설정 하면에서 사용자의 암호와 다른 임의의 높은 엔트로피 NTLM 해시를 생성 합니다. 그런 다음이 해시는 *supplementalCrendetials* 특성에서 하나의 데이터 구조로 Exacted 된 Kerberos 암호 해시와 결합 됩니다.
+        * 사용 하도록 설정 하면 *unicodePwd* 특성의 값을 *supplementalCredentials* 특성에서 추출 된 Kerberos 암호 해시와 결합 하 여 하나의 데이터 구조로 결합 합니다.
+    * AES 대칭 키를 사용 하 여 단일 데이터 구조를 암호화 합니다.
+    * 테 넌 트의 Azure AD Domain Services 공개 키를 사용 하 여 AES 대칭 키를 암호화 합니다.
+1. Azure AD Connect는 암호화 된 AES 대칭 키, 암호 해시가 포함 된 암호화 된 데이터 구조 및 Azure AD에 대 한 초기화 벡터를 전송 합니다.
+1. Azure AD는 암호화 된 AES 대칭 키, 암호화 된 데이터 구조 및 사용자에 대 한 초기화 벡터를 저장 합니다.
+1. Azure AD는 암호화 된 AES 대칭 키, 암호화 된 데이터 구조 및 Azure AD Domain Services에 대 한 암호화 된 HTTP 세션을 통해 내부 동기화 메커니즘을 사용 하 여 초기화 벡터를 푸시합니다.
+1. Azure AD Domain Services는 Azure 주요 자격 증명 모음에서 테 넌 트 인스턴스의 개인 키를 검색 합니다.
+1. 암호화 된 각 데이터 집합 (단일 사용자의 암호 변경을 나타냄)에 대해 Azure AD Domain Services 다음 단계를 수행 합니다.
+    * 는 개인 키를 사용 하 여 AES 대칭 키를 해독 합니다.
+    * 는 AES 대칭 키와 초기화 벡터를 사용 하 여 암호 해시가 포함 된 암호화 된 데이터 구조의 암호를 해독 합니다.
+    * 수신 하는 Kerberos 암호 해시를 Azure AD Domain Services 도메인 컨트롤러에 씁니다. 해시는 Azure AD Domain Services 도메인 컨트롤러의 공개 키로 암호화 된 사용자 개체의 *supplementalCredentials* 특성에 저장 됩니다.
+    * Azure AD Domain Services는 받은 NTLM 암호 해시를 Azure AD Domain Services 도메인 컨트롤러에 기록 합니다. 해시는 Azure AD Domain Services 도메인 컨트롤러의 공개 키로 암호화 된 사용자 개체의 *unicodePwd* 특성에 저장 됩니다.
 
 ## <a name="enable-password-hash-synchronization"></a>암호 해시 동기화 사용
 

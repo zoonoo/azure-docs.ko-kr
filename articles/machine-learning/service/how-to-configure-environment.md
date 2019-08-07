@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 45b28b4d88c670a8b2ec34b93a342f06b80e02d7
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: efe5829ffbe4db304f9ffab0a259ab9d10279b27
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668471"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68772698"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning용 개발 환경 구성
 
@@ -72,11 +72,11 @@ Azure Machine Learning 서비스 작업 영역. 작업 영역을 만들려면 [A
 
   코드를 사용 하는 경우 VM에는 Azure Machine Learning 서비스를 사용 하는 방법을 탐색 하 고 학습할 수 있는 자습서와 샘플이 포함 되어 있습니다. 샘플 노트북은 Vm 전체에서 공유할 수 있도록 작업 영역의 Azure Blob Storage 계정에 저장 됩니다. 실행 되 면 작업 영역의 데이터 저장소 및 계산 리소스에 액세스할 수 있습니다.
 
-+ **간단한 설정**: Azure Machine Learning 작업 영역 내에서 언제 든 지 하나를 만듭니다. 이름을 입력 하 고 Azure VM 유형을 지정 합니다. 이 [빠른 시작을 사용 하 여 지금 사용해 보세요. 클라우드 기반 Notebook 서버를 사용하여 Azure Machine Learning 시작](quickstart-run-cloud-notebook.md)을 참조하세요.
++ **간단한 설정**: Azure Machine Learning 작업 영역 내에서 언제 든 지 하나를 만듭니다. 이름을 입력 하 고 Azure VM 유형을 지정 합니다. 이 [자습서를 사용 하 여 지금 사용해 보세요. 설정 환경 및 작업](tutorial-1st-experiment-sdk-setup.md)영역.
 
 + **사용자 지정 가능**. 관리 및 보안 VM을 제공 하는 동안 하드웨어 기능에 대 한 모든 권한을 유지 하 고 원하는 대로 사용자 지정 합니다. 예를 들어 novel 신경망 아키텍처의 단계별 디버깅을 수행 하기 위해 최신 NVidia V100 구동 VM을 신속 하 게 만들 수 있습니다.
 
-노트북 VM 요금이 발생 하지 않도록 하려면 [노트북 vm을 중지](quickstart-run-cloud-notebook.md#stop-the-notebook-vm)합니다.
+노트북 VM 요금이 발생 하지 않도록 하려면 [노트북 vm을 중지](tutorial-1st-experiment-sdk-setup.md#stop-the-notebook-vm)합니다. 
 
 ## <a id="dsvm"></a>Data Science Virtual Machine
 

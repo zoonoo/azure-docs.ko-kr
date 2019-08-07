@@ -1,19 +1,17 @@
 ---
 title: Azure Data Catalog에서 데이터 원본에 연결하는 방법
 description: Azure 데이터 카탈로그를 사용하여 검색된 데이터 원본에 연결하는 방법을 강조 표시한 방법 문서
-services: data-catalog
 author: JasonWHowell
 ms.author: jasonh
-ms.assetid: 4e6b27a5-cf75-4012-b88c-333c1fe638e8
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: c64340491dba11870364610a6c2ff62e25c1328a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/01/2019
+ms.openlocfilehash: c91c09da31e4ecf42257b8f9c86f25c6ec39b9df
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61001834"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68734636"
 ---
 # <a name="how-to-connect-to-data-sources"></a>데이터 원본에 연결하는 방법
 ## <a name="introduction"></a>소개
@@ -61,5 +59,5 @@ Azure Data Catalog 포털에서 데이터 원본에 대한 "열기..." 메뉴를
 ## <a name="summary"></a>요약
 데이터 원본을 **Azure Data Catalog**에 등록하면 구조적 메타데이터 및 설명이 포함된 메타데이터를 데이터 원본에서 카탈로그 서비스로 복사하여 데이터를 검색할 수 있게 합니다. 데이터 원본이 등록되고 검색되면 사용자는 **Azure Data Catalog** 포털 "다음에서 열기..." "메뉴 또는 선택한 자신의 데이터 도구를 사용하여 데이터 원본에 연결할 수 있습니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 * [Azure Data Catalog 시작](data-catalog-get-started.md) 자습서.

@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 67687e217372c17b007982ef99bf1f80c3e6be5f
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: e31db74807b850b3d8cb8fc057e94e98db18fca2
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728709"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780637"
 ---
 # <a name="design-secure-applications-on-azure"></a>Azure에서 보안 응용 프로그램 디자인
 이 문서에서는 클라우드 용 응용 프로그램을 디자인할 때 고려해 야 할 보안 작업 및 제어를 제공 합니다. Microsoft [SDL (보안 개발 수명 주기)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) 의 요구 사항 및 디자인 단계에서 고려해 야 하는 보안 질문 및 개념과 함께 학습 리소스를 다룹니다. 목표는 보다 안전한 응용 프로그램을 디자인 하는 데 사용할 수 있는 활동 및 Azure 서비스를 정의 하는 데 도움을 주는 것입니다.
@@ -156,7 +156,7 @@ Azure는 웹 사이트 및 웹 응용 프로그램을 호스트 하는 데 사�
 | 스푸핑               | 인증        | [HTTPS 연결이 필요](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio)합니다. |
 | 변조              | 무결성             | SSL/TLS 인증서의 유효성을 검사 합니다. SSL/TLS를 사용 하는 응용 프로그램은 연결 하는 엔터티의 x.509 인증서를 완전히 확인 해야 합니다. Azure Key Vault 인증서를 사용 하 여 [x509 인증서를 관리](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)합니다. |
 | 거부            | 부인 방지       | Azure [모니터링 및 진단](https://docs.microsoft.com/azure/architecture/best-practices/monitoring)을 사용하도록 설정합니다.|
-| 정보 공개 | 기밀성       | [미사용](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest) 및 [전송 중](https://docs.microsoft.com/azure/security/azure-security-data-encryption-best-practices#protect-data-in-transit)에 중요 한 데이터를 암호화 합니다. |
+| 정보 공개 | 기밀성       | [미사용](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest) 및 [전송 중](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices#protect-data-in-transit)에 중요 한 데이터를 암호화 합니다. |
 | 서비스 거부      | 가용성          | 잠재적 서비스 거부 조건에 대 한 성능 메트릭을 모니터링 합니다. 연결 필터를 구현합니다. 응용 프로그램 설계 모범 사례와 결합 된 [Azure DDoS protection](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview#next-steps)은 DDoS 공격에 대 한 방어를 제공 합니다.|
 | 권한 상승 | Authorization         | Azure Active Directory <span class="underline"></span> [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure)를 사용 합니다.|
 
@@ -267,7 +267,7 @@ JIT ( *just-in-time* ) 액세스를 구현 하 여 권한 노출 시간을 더 �
 #### <a name="use-encryption"></a>암호화 사용
 
 데이터 보호는 보안 전략의 필수적인 부분입니다.
-데이터가 데이터베이스에 저장 되어 있거나 위치 간에 앞뒤로 이동 하는 경우에는 [미사용 데이터](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest) 암호화 (데이터베이스에 있는 경우) 및 [전송 중인 데이터](https://docs.microsoft.com/azure/security/azure-security-data-encryption-best-practices#protect-data-in-transit) 암호화 (사용자, 데이터베이스, API 또는 서비스 끝점)를 사용 합니다. 항상 SSL/TLS 프로토콜을 사용 하 여 데이터를 교환 하는 것이 좋습니다. 암호화에 최신 버전의 TLS를 사용 하는지 확인 합니다 (현재는 버전 1.2).
+데이터가 데이터베이스에 저장 되어 있거나 위치 간에 앞뒤로 이동 하는 경우에는 [미사용 데이터](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest) 암호화 (데이터베이스에 있는 경우) 및 [전송 중인 데이터](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices#protect-data-in-transit) 암호화 (사용자, 데이터베이스, API 또는 서비스 끝점)를 사용 합니다. 항상 SSL/TLS 프로토콜을 사용 하 여 데이터를 교환 하는 것이 좋습니다. 암호화에 최신 버전의 TLS를 사용 하는지 확인 합니다 (현재는 버전 1.2).
 
 #### <a name="avoid-hard-coding"></a>하드 코딩 방지
 

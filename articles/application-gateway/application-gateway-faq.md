@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 6/1/2019
 ms.author: victorh
-ms.openlocfilehash: dc3b9cceda10ae1ff648306236d5ac4868b5b426
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 5bfb3a093cd101f30daf4439dc8f58b5b4f693ca
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68722151"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68740881"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Application Gateway에 대 한 질문과 대답
 
@@ -101,7 +101,7 @@ Application Gateway는 가상 네트워크에서 전용 배포입니다.
 
 새 Application Gateway v1 SKU 배포 시 프로비전하는 데 최대 20분이 걸릴 수 있습니다. 인스턴스 크기 또는 수에 대 한 변경 내용은 중단 되지 않으며이 시간 동안 게이트웨이가 활성 상태로 유지 됩니다.
 
-V2 SKU를 사용 하는 배포를 프로 비전 하는 데 최대 6 분이 걸릴 수 있습니다.
+V2 SKU를 사용 하는 대부분의 배포는 프로 비전 하는 데 약 6 분이 소요 됩니다. 그러나 배포 유형에 따라 시간이 더 오래 걸릴 수 있습니다. 예를 들어 여러 개의 인스턴스가 있는 여러 가용성 영역에 배포 하는 경우 6 분 넘게 걸릴 수 있습니다. 
 
 ### <a name="can-i-use-exchange-server-as-a-backend-with-application-gateway"></a>Application Gateway를 사용 하 여 백 엔드로 Exchange Server를 사용할 수 있나요?
 
@@ -323,10 +323,6 @@ WAF는 현재 CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229) 
 ### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>V1 SKU에서 v2 SKU로 마이그레이션하는 데 사용할 수 있는 지침이 있나요?
 
 예. 자세한 내용은 v 1 [에서 v 2로 Azure 애플리케이션 게이트웨이 및 웹 응용 프로그램 방화벽 마이그레이션](migrate-v1-v2.md)을 참조 하세요.
-
-### <a name="does-waf-support-non-utf-8-encoding"></a>WAF는 UTF-8 인코딩을 지원 하나요?
-
-아니요. WAF는 현재 UTF-8 인코딩만 지원 합니다.
 
 ## <a name="diagnostics-and-logging"></a>진단 및 로깅
 

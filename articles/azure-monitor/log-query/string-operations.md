@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: f53d3bd64b4f837fe29baa338cd338158d59d95d
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 0dd61deb372822c5c564758d26d4c4a4938c1064
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466964"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741454"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리에서 문자열 작업
 
@@ -30,11 +30,11 @@ ms.locfileid: "68466964"
 
 이 문서에서는 문자열을 편집, 비교, 검색하고 다양한 기타 작업을 수행하는 방법을 설명합니다.
 
-문자열의 각 문자에는 해당 위치에 따라 인덱스 번호가 있습니다. 첫 번째 문자는 인덱스 0에 있고, 다음 문자는 1에 있습니다. 이와 같이 계속 적용됩니다. 다른 문자열 함수는 다음 섹션에 나와 있는 것처럼 인덱스 번호를 사용합니다. 다음 예제 대부분이 특정 데이터 원본을 사용하지 않고 문자열 조작을 보여 주기 위해 **print** 명령을 사용합니다.
+문자열의 각 문자에는 해당 위치에 따라 인덱스 번호가 있습니다. 첫 번째 문자는 인덱스 0에 있고 다음 문자는 1입니다. 다른 문자열 함수는 다음 섹션에 나와 있는 것처럼 인덱스 번호를 사용합니다. 다음 예제 대부분이 특정 데이터 원본을 사용하지 않고 문자열 조작을 보여 주기 위해 **print** 명령을 사용합니다.
 
 
 ## <a name="strings-and-escaping-them"></a>문자열 및 이스케이프
-문자열 값은 작은따옴표 또는 큰따옴표 문자로 래핑됩니다. 백슬래시(\)는 문자를 다음에 나오는 문자에 대해 이스케이프하는 데 사용됩니다. 예를 들어 탭의 경우 \t, 줄 바꿈에 대해 \n, 따옴표 문자에 대해 \"를 사용합니다.
+문자열 값은 작은따옴표 또는 큰따옴표 문자로 래핑됩니다. 백슬래시 (\\)는 문자에 대 한 \t (탭), \n (줄 바꿈) 및 \" 따옴표 문자 자체와 같은 문자를 이스케이프 하는 데 사용 됩니다.
 
 ```Kusto
 print "this is a 'string' literal in double \" quotes"
@@ -53,7 +53,7 @@ print @"C:\backslash\not\escaped\with @ prefix"
 
 ## <a name="string-comparisons"></a>문자열 비교
 
-연산자       |Description                         |대/소문자 구분|예제(`true` 생성)
+연산자       |설명                         |대/소문자 구분|예제(`true` 생성)
 ---------------|------------------------------------|--------------|-----------------------
 `==`           |같음                              |예           |`"aBc" == "aBc"`
 `!=`           |같지 않음                          |예           |`"abc" != "ABC"`
@@ -90,7 +90,7 @@ print @"C:\backslash\not\escaped\with @ prefix"
 
 ## <a name="countof"></a>countof
 
-문자열의 부분 문자열 발생을 계산합니다. 일반 문자열을 일치하거나 정규식을 사용할 수 있습니다. 일반 문자열 일치는 겹칠 수 있지만 정규식 일치는 겹칠 수 없습니다.
+문자열의 부분 문자열 발생을 계산합니다. 일반 문자열을 일치하거나 정규식을 사용할 수 있습니다. 일반 문자열 일치는 겹칠 수 있으며, 정규식 일치는 겹칠 수 없습니다.
 
 ### <a name="syntax"></a>구문
 ```
@@ -129,7 +129,7 @@ print countof("abcabc", "a.c", "regex");  // result: 2
 
 ## <a name="extract"></a>추출
 
-지정된 문자열에서 정규식에 대한 일치 항목을 가져옵니다. 또한 필요에 따라 추출된 부분 문자열을 지정된 형식으로 변환합니다.
+지정된 문자열에서 정규식에 대한 일치 항목을 가져옵니다. 필요에 따라 추출 된 부분 문자열을 지정 된 형식으로 변환 합니다.
 
 ### <a name="syntax"></a>구문
 

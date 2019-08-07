@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/22/2019
+ms.date: 08/05/2019
 ms.author: raynew
-ms.openlocfilehash: 787bcf28a64c98f82deb0725e2362bf8144d6c4e
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: da68c0ae1dc92f5b854c30c90b93856248c43281
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640856"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828343"
 ---
 # <a name="support-matrix-for-hyper-v-assessment-and-migration"></a>Hyper-V 평가 및 마이그레이션 지원 매트릭스
 
@@ -36,14 +36,18 @@ ms.locfileid: "68640856"
 **지원** | **세부 정보**
 --- | ---
 Azure 권한 | Azure Migrate 프로젝트를 만들려면 구독에 대 한 참가자 또는 소유자 권한이 있어야 합니다.
-Hyper-V VM | 단일 프로젝트에서 최대 1만 Hyper-v Vm을 평가 합니다. Azure 구독에 여러 프로젝트를 포함할 수 있습니다. 프로젝트에는 VMware Vm과 Hyper-v Vm이 모두 포함 될 수 있습니다 (평가 제한까지).
+Hyper-V VM | 단일 프로젝트에서 최대 35000 Hyper-v Vm을 평가 합니다. Azure 구독에 여러 프로젝트를 포함할 수 있습니다. 프로젝트에는 VMware Vm과 Hyper-v Vm이 모두 포함 될 수 있습니다 (평가 제한까지).
 지리 | 여러 지역에서 Azure Migrate 프로젝트를 만들 수 있습니다. 특정 ographies 프로젝트를 만들 수 있지만 다른 대상 위치의 컴퓨터를 평가 하거나 마이그레이션할 수 있습니다. 프로젝트 지역은 검색된 메타데이터를 저장하는 데만 사용됩니다.
 
   **Geography** | **메타데이터 스토리지 위치**
   --- | ---
   Azure Government | US Gov 버지니아
-  아시아 태평양 | 동남 아시아 또는 동아시아
-  Europe | 남부 유럽 또는 유럽 서부
+  아시아 태평양 | 동아시아 또는 동남 아시아
+  오스트레일리아 | 오스트레일리아 동부 또는 오스트레일리아 남동쪽
+  캐나다 | 캐나다 중부 또는 캐나다 동부
+  Europe | 북유럽 또는 유럽 서부
+  인도 | 인도 중부 또는 인도 남부
+  일본 |  일본 동부 또는 일본 서 부
   영국 | 영국 남부 또는 영국 서부
   미국 | 미국 중부 또는 미국 서 부 2
 
@@ -84,7 +88,7 @@ Hyper-V VM | 단일 프로젝트에서 최대 1만 Hyper-v Vm을 평가 합니�
 | **지원**                | **세부 정보**               
 | :-------------------       | :------------------- |
 | **Azure Migrate 프로젝트**  |  어플라이언스는 단일 프로젝트에 연결할 수 있습니다.<br/> 단일 어플라이언스를 사용 하 여 최대 5000 Hyper-v Vm을 검색할 수 있습니다.
-| **Hyper-V**    |  어플라이언스를 Hyper-v VM으로 배포 합니다.<br/> 제공 된 어플라이언스 VM은 Hyper-v VM 버전 5.0입니다.<br/> VM 호스트에서 Windows Server 2012 R2 이상을 실행 해야 합니다.<br/> 이 파일에는 16gb RAM, 4 개의 가상 프로세서 및 어플라이언스 VM에 대 한 외부 스위치 1 개를 할당 하는 데 충분 한 공간이 필요 합니다.<br/> 어플라이언스에는 정적 또는 동적 IP 주소와 인터넷 액세스 권한이 필요 합니다.
+| **Hyper-V**    |  어플라이언스를 Hyper-v VM으로 배포 합니다.<br/> 제공 된 어플라이언스 VM은 Hyper-v VM 버전 5.0입니다.<br/> VM 호스트에서 Windows Server 2012 R2 이상을 실행 해야 합니다.<br/> 어플라이언스 VM에 16gb RAM, 8 vCPUs 및 1 개의 외부 스위치를 할당 하는 데 충분 한 공간이 필요 합니다.<br/> 어플라이언스에는 정적 또는 동적 IP 주소와 인터넷 액세스 권한이 필요 합니다.
 
 
 ## <a name="assessment-appliance-url-access"></a>평가-어플라이언스 URL 액세스

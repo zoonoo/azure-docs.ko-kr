@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 1ba5b813843ce2f5d31f337ab4d3d94e521b0e0c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a0458525eaf985ac6b1ff2afde5726bbac45b4f2
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60586137"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68778783"
 ---
 # <a name="azure-security-and-compliance-blueprint-iaas-web-application-for-fedramp"></a>Azure 보안 및 규정 준수 청사진: FedRAMP용 IaaS 웹 애플리케이션
 
@@ -68,11 +68,11 @@ ms.locfileid: "60586137"
 - Azure Storage
     - (7) 지역 중복 저장소 계정
 - Azure 클라우드 감시
-- Recovery Services 자격 증명 모음
+- 복구 서비스 자격 증명 모음
 - Azure Key Vault
 - Azure AD(Azure Active Directory)
-- Azure 리소스 관리자
-- Azure 모니터 (로그)
+- Azure Resource Manager
+- Azure Monitor (로그)
 
 ## <a name="deployment-architecture"></a>배포 아키텍처
 
@@ -96,7 +96,7 @@ ms.locfileid: "60586137"
 
 **서브넷**: 각 서브넷이 해당 NSG에 연결되어야 합니다.
 
-### <a name="data-at-rest"></a>미사용 데이터
+### <a name="data-at-rest"></a>저장 데이터
 
 이 아키텍처는 여러 암호화 방법을 사용하여 미사용 데이터를 보호합니다.
 
@@ -127,7 +127,7 @@ ms.locfileid: "60586137"
 
 **패치 관리**: 이 Azure Security 및 Compliance Blueprint Automation에서 배포한 Windows 가상 머신은 기본적으로 Windows 업데이트 서비스에서 자동 업데이트를 받도록 구성됩니다. 이 솔루션은 필요할 때 Windows 서버에 패치를 배포하기 위해 배포 업데이트를 만들 수 있는 Azure Automation 솔루션도 배포합니다.
 
-**맬웨어 방지**: Virtual Machine용 [Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware)는 보호되는 Virtual Machines에서 악성 또는 원치 않는 소프트웨어가 사용자 시스템에서 스스로의 설치나 실행을 시도할 때 구성 가능한 알림을 통해 바이러스, 스파이웨어 및 기타 악성 소프트웨어를 식별 및 제거하는 데 도움이 되는 실시간 보호 기능을 제공합니다.
+**맬웨어 방지**: Virtual Machine용 [Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware)는 보호되는 Virtual Machines에서 악성 또는 원치 않는 소프트웨어가 사용자 시스템에서 스스로의 설치나 실행을 시도할 때 구성 가능한 알림을 통해 바이러스, 스파이웨어 및 기타 악성 소프트웨어를 식별 및 제거하는 데 도움이 되는 실시간 보호 기능을 제공합니다.
 
 **Application Gateway**: 아키텍처는 WAF(웹 애플리케이션 방화벽)과 OWASP 규칙 집합을 사용하는 Application Gateway를 통해 보안상 위험을 줄입니다. 추가적인 기능은 다음과 같습니다.
 
@@ -147,11 +147,11 @@ ms.locfileid: "60586137"
 
 ### <a name="logging-and-auditing"></a>로깅 및 감사
 
-Azure Monitor 로그는 시스템 상태 뿐만 아니라 시스템 및 사용자 작업에 대 한 광범위 로깅을 제공 합니다. 합니다 [Azure Monitor 로그](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) 솔루션 수집 하 고 Azure 리소스에서 생성 된 데이터를 분석 하 여 온-프레미스 환경입니다.
+Azure Monitor 로그는 시스템 상태 뿐만 아니라 시스템 및 사용자 활동에 대 한 광범위 한 로깅을 제공 합니다. [Azure Monitor 로그](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) 솔루션은 Azure 및 온-프레미스 환경에서 리소스에 의해 생성 된 데이터를 수집 하 고 분석 합니다.
 
 - **활동 로그:** .  [활동 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)는 구독에 있는 리소스에서 수행된 작업에 대한 인사이트를 제공합니다. 활동 로그는 작업의 개시 장치, 발생 시간 및 상태를 결정하는 데 도움이 될 수 있습니다.
 - **진단 로그:**  [진단 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)는 모든 리소스에서 내보낸 모든 로그입니다. 이러한 로그에는 Windows 이벤트 시스템 로그, Azure Storage 로그, Key Vault 감사 로그 및 Application Gateway 액세스 및 방화벽 로그가 포함됩니다.
-- **로그 보관:**  모든 진단 로그는 보관을 위해 암호화된 중앙 집중식 Azure Storage 계정에 기록됩니다. 보존은 조직 특정 보존 요구 사항에 맞게 최대 730일까지 사용자가 구성할 수 있습니다. 이러한 로그는 처리, 저장 및 대시보드 보고에 대 한 Azure Monitor 로그에 연결 합니다.
+- **로그 보관:**  모든 진단 로그는 보관을 위해 암호화된 중앙 집중식 Azure Storage 계정에 기록됩니다. 보존은 조직 특정 보존 요구 사항에 맞게 최대 730일까지 사용자가 구성할 수 있습니다. 이러한 로그는 처리, 저장 및 대시보드 보고를 위해 Azure Monitor 로그에 연결 됩니다.
 
 또한 이 아키텍처의 일부인 다음 모니터링 솔루션이 설치됩니다. 이러한 솔루션을 FedRAMP 보안 컨트롤에 맞게 구성하는 것은 고객의 책임입니다.
 -   [AD 평가](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): Active Directory 상태 확인 솔루션은 표준 간격으로 서버 환경의 위험과 상태를 평가하고 배포된 서버 인프라에 관련된 권장 사항의 우선 순위 목록을 제공합니다.

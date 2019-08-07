@@ -7,14 +7,14 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: dacurwin
-ms.openlocfilehash: 7ee4cffea9c997e5fcd3631594d61e6d5383cb38
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 6b79b34b1db6c201a8f132e4c608e251edb3666a
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639486"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68735415"
 ---
-# <a name="azure-backup-support-matrix"></a>Azure Backup 지원 매트릭스
+# <a name="support-matrix-for-azure-backup"></a>Azure Backup에 대 한 지원 매트릭스
 
 [Azure Backup](backup-overview.md) 를 사용 하 여 Microsoft Azure 클라우드 플랫폼으로 데이터를 백업할 수 있습니다. 이 문서에서는 Azure Backup 시나리오 및 배포에 대 한 일반적인 지원 설정 및 제한 사항을 요약 합니다.
 

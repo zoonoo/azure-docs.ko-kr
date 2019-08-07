@@ -7,12 +7,12 @@ ms.author: nakhanha
 ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 04/29/2019
-ms.openlocfilehash: f3a0fa1ecdb2db94b43a5380f9497b4b1c266e47
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: bf9bb7adfa25ea16498a32b57d4927de7e81c007
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68441937"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68826910"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-the-hive-warehouse-connector"></a>Hive 웨어하우스 커넥터를 사용 하 여 Apache Spark 및 Apache Hive 통합
 
@@ -51,7 +51,7 @@ Azure HDInsight에서 Spark 및 대화형 쿼리 클러스터 간에 Hive 웨어
 
         ![Spark2 Ambari 구성](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark2-ambari.png)
 
-    1. `spark.hadoop.hive.llap.daemon.service.hosts` **고급 hive-대화형-env**에서 **llap 앱 이름** 속성의 값과 동일한 값으로 설정 합니다. 예를 들면 `@llap0`
+    1. `spark.hadoop.hive.llap.daemon.service.hosts` **고급 hive-대화형-env**에서 **llap 앱 이름** 속성의 값과 동일한 값으로 설정 합니다. 예를 들면 `llap0`
 
     1. 대화형 `spark.sql.hive.hiveserver2.jdbc.url` 쿼리 클러스터의 Hiveserver2에 연결 하는 JDBC 연결 문자열로 설정 합니다. 클러스터에 대 한 연결 문자열은 아래 URI 처럼 보입니다. `CLUSTERNAME`는 Spark 클러스터 `user` 의 이름이 고 및 `password` 매개 변수는 클러스터에 대 한 올바른 값으로 설정 됩니다.
 

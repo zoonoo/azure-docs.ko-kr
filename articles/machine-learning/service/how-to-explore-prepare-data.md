@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/23/2019
-ms.openlocfilehash: f680a1cb15edf0141897c74da3b7c7afa01acae0
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 31a367fcde909f393efa4fea65b25716f95c56ee
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699111"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828441"
 ---
 # <a name="explore-and-prepare-data-with-the-dataset-class-preview"></a>데이터 집합 클래스를 사용 하 여 데이터 탐색 및 준비 (미리 보기)
 
@@ -35,7 +35,7 @@ ms.locfileid: "68699111"
 
 * Azureml 데이터 집합 패키지를 포함 하는 Python 용 Azure Machine Learning SDK (버전 1.0.21 이상) 최신 버전의 SDK를 설치 하거나 업데이트 하려면 [Sdk 설치 또는 업데이트](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)를 참조 하세요.
 
-* Azure Machine Learning 데이터 준비 SDK입니다. 최신 버전을 설치 하거나 업데이트 하려면 [데이터 준비 SDK 설치 또는 업데이트](https://docs.microsoft.com/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py#install)를 참조 하세요.
+* Azure Machine Learning 데이터 준비 SDK입니다. 최신 버전을 설치 하거나 업데이트 하려면 [데이터 준비 SDK 설치 또는 업데이트](https://docs.microsoft.com/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py)를 참조 하세요.
 
 * 예제를 사용 하 여 예제 파일을 다운로드 합니다. [범죄](https://dprepdata.blob.core.windows.net/dataset-sample-files/crime.csv) 및 [도시별](https://dprepdata.blob.core.windows.net/dataset-sample-files/city.json).
 
@@ -125,7 +125,7 @@ Case Number|FieldType.STRING|HZ239907|HZ278872|10.0|0.0|10.0|0.0|0.0|0.0||||||||
 블록|FieldType.STRING|004XX S KILBOURN AVE|113XX S PRAIRIE AVE|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 IUCR|FieldType.INTEGER|810|1154|10.0|0.0|10.0|0.0|0.0|0.0|810|850|810|890|1136|1153|1154|1154|1154|1058.5|137.285|18847.2|-0.785501|-1.3543
 Primary Type|FieldType.STRING|거짓 사례|THEFT|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
-Description|FieldType.STRING|가짜 확인|$500 이상|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
+설명|FieldType.STRING|가짜 확인|$500 이상|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 Location Description|FieldType.STRING||학교, 공용, 빌딩|10.0|0.0|10.0|0.0|0.0|1.0||||||||||||||
 Arrest|FieldType|거짓|거짓|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 Domestic|FieldType|거짓|거짓|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||

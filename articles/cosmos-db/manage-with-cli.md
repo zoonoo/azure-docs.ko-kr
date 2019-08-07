@@ -4,18 +4,18 @@ description: Azure CLI를 사용하여 Azure Cosmos DB 계정, 데이터베이�
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 08/05/2019
 ms.author: mjbrown
-ms.openlocfilehash: 82d7cdf0c9519bb8a682445e666d46d6fd7bfbd7
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: 9ec049311fc158b13bba45deb2974d7cdd531f90
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67550946"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815047"
 ---
 # <a name="manage-azure-cosmos-resources-using-azure-cli"></a>Azure CLI를 사용하여 Azure Cosmos 리소스 관리
 
-다음 가이드에서는 Azure Cosmos DB 계정, 데이터베이스 및 Azure CLI를 사용 하 여 컨테이너 관리를 자동화 하는 일반적인 명령 설명 합니다. 모든 Azure Cosmos DB CLI 명령에 대한 참조 페이지는 [Azure CLI 참조](https://docs.microsoft.com/cli/azure/cosmosdb)에서 제공됩니다. 더 많은 예제는 [Azure Cosmos DB에 대한 Azure CLI 샘플](cli-samples.md)에서 확인할 수 있습니다. 여기에는 MongoDB, Gremlin, Cassandra 및 Table API에 대한 Cosmos DB 계정, 데이터베이스 및 컨테이너 만들기 및 관리 방법이 포함되어 있습니다.
+다음 가이드에서는 Azure CLI를 사용 하 여 Azure Cosmos DB 계정, 데이터베이스 및 컨테이너의 관리를 자동화 하는 일반적인 명령을 설명 합니다. 모든 Azure Cosmos DB CLI 명령에 대한 참조 페이지는 [Azure CLI 참조](https://docs.microsoft.com/cli/azure/cosmosdb)에서 제공됩니다. 더 많은 예제는 [Azure Cosmos DB에 대한 Azure CLI 샘플](cli-samples.md)에서 확인할 수 있습니다. 여기에는 MongoDB, Gremlin, Cassandra 및 Table API에 대한 Cosmos DB 계정, 데이터베이스 및 컨테이너 만들기 및 관리 방법이 포함되어 있습니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -23,11 +23,11 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 
 
 ## <a name="create-an-azure-cosmos-db-account"></a>Azure Cosmos DB 계정 만들기
 
-SQL API, 미국 동부 및 미국 서 부 지역에서 세션 일관성을 사용 하 여 Azure Cosmos DB 계정을 만들려면 다음 명령을 실행 합니다.
+SQL API를 사용 하 여 Azure Cosmos DB 계정을 만들려면 미국 동부 및 미국 서 부 지역에서 세션 일관성을 유지 하 고 다음 명령을 실행 합니다.
 
 ```azurecli-interactive
 az cosmosdb create \
-   --name mycosmosdbaccount \
+   --name mycosmosdbaccount # must be lowercase and < 31 characters \
    --resource-group myResourceGroup \
    --kind GlobalDocumentDB \
    --default-consistency-level Session \
@@ -52,7 +52,7 @@ az cosmosdb database create \
 
 ## <a name="create-a-container"></a>컨테이너 만들기
 
-RU/s 400이 고 파티션 키를 사용 하 여 Cosmos DB 컨테이너를 만들려면 다음 명령을 실행 합니다.
+R u/초 400 및 파티션 키를 사용 하 여 Cosmos DB 컨테이너를 만들려면 다음 명령을 실행 합니다.
 
 ```azurecli-interactive
 # Create a container
@@ -67,7 +67,7 @@ az cosmosdb collection create \
 
 ## <a name="change-the-throughput-of-a-container"></a>컨테이너 처리량 변경
 
-Cosmos DB 컨테이너의 처리량 1000 RU/s를으로 변경 하려면 다음 명령을 실행 합니다.
+Cosmos DB 컨테이너의 처리량을 1000 o s/s로 변경 하려면 다음 명령을 실행 합니다.
 
 ```azurecli-interactive
 # Update container throughput
@@ -81,7 +81,7 @@ az cosmosdb collection update \
 
 ## <a name="list-account-keys"></a>계정 키 나열
 
-Cosmos 계정의 키를 가져오려면 다음 명령을 실행 합니다.
+Cosmos 계정에 대 한 키를 가져오려면 다음 명령을 실행 합니다.
 
 ```azurecli-interactive
 # List account keys
@@ -92,7 +92,7 @@ az cosmosdb keys list \
 
 ## <a name="list-connection-strings"></a>연결 문자열 나열
 
-Cosmos 계정의 연결 문자열을 가져오려면 다음 명령을 실행 합니다.
+Cosmos 계정에 대 한 연결 문자열을 가져오려면 다음 명령을 실행 합니다.
 
 ```azurecli-interactive
 # List connection strings
@@ -103,7 +103,7 @@ az cosmosdb list-connection-strings \
 
 ## <a name="regenerate-account-key"></a>계정 키 다시 생성
 
-Cosmos 계정의 새 기본 키를 다시 생성 하려면 다음 명령을 실행 합니다.
+Cosmos 계정에 대 한 새 기본 키를 다시 생성 하려면 다음 명령을 실행 합니다.
 
 ```azurecli-interactive
 # Regenerate account key

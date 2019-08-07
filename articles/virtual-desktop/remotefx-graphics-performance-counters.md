@@ -2,17 +2,17 @@
 title: 원격 데스크톱의 그래픽 성능 문제 진단-Azure
 description: 이 문서에서는 원격 데스크톱 프로토콜 세션에서 RemoteFX 그래픽 카운터를 사용 하 여 Windows 가상 데스크톱의 그래픽에서 성능 문제를 진단 하는 방법을 설명 합니다.
 services: virtual-desktop
-author: ChJenk
+author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 05/23/2019
-ms.author: v-chjenk
-ms.openlocfilehash: 8cd24861b9d7432a582d1b635b8ffcf0d8d2b9e6
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.author: helohr
+ms.openlocfilehash: de849701365438b21244d1e46ae657495d16c307
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68233634"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816395"
 ---
 # <a name="diagnose-graphics-performance-issues-in-remote-desktop"></a>원격 데스크톱의 그래픽 성능 문제 진단
 
@@ -77,7 +77,7 @@ RDP는 33 밀리초의 평균 인코딩 시간을 지원 하므로 초당 최대
 
 프레임 품질 카운터를 사용 하 여 프레임 품질 문제를 진단 합니다. 이 카운터는 출력 프레임의 품질을 원본 프레임의 품질에 대 한 백분율로 나타냅니다. 품질 손실은 RemoteFX 때문 이거나 그래픽 원본에 내재 될 수도 있습니다. RemoteFX가 품질 손실을 야기 하는 경우이 문제는 더 높은 품질의 콘텐츠를 전송 하기 위해 네트워크 또는 서버 리소스가 부족할 수 있습니다.
 
-## <a name="mitigation"></a>해결 방법
+## <a name="mitigation"></a>완화
 
 서버 리소스에서 병목 현상이 발생 하는 경우 다음 방법 중 하나를 수행 하 여 성능을 향상 시킵니다.
 

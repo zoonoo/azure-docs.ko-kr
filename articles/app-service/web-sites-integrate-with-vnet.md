@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/25/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 20ef71f98817a57f884e9c5a3cef4ceeaebe74eb
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 8321a9dd779406b2d1de44bd4c9313e4d855548d
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68498434"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68740906"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Azure Virtual Network에 앱 통합
 이 문서에서는 Azure App Service 가상 네트워크 통합 기능 및 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)에서 앱을 사용 하 여 설정 하는 방법을 설명 합니다. [Azure 가상 네트워크][VNETOverview] (Vnet)를 사용 하 여 인터넷 라우팅할 수 없는 네트워크에 많은 Azure 리소스를 저장할 수 있습니다.  
@@ -136,11 +136,10 @@ VNet 통합이 사용 하도록 설정 되 면 앱은 정상적으로 동일한 
 * App Service 계획에서 최대 5 개의 Vnet를 통합할 수 있습니다. 
 * App Service 계획에서 사용할 수 있는 총 개수에 영향을 주지 않고 App Service 계획의 여러 앱에서 동일한 VNet을 사용할 수 있습니다.  동일한 App Service 계획에서 동일한 VNet을 사용 하는 앱이 6 개 있으면 사용 되는 VNet 1 개로 계산 됩니다. 
 * 지점 및 사이트 간 VPN을 사용 하 여 구성 된 Virtual Network 게이트웨이가 필요 합니다.
-* Linux 앱에서 사용 하도록 지원 되지 않음
 * 게이트웨이의 SLA로 인해 99.9% SLA를 지원 합니다.
 
 이 기능은 다음을 지원 하지 않습니다.
-
+* Linux 앱과 함께 사용
 * ExpressRoute를 통한 리소스 액세스 
 * 서비스 엔드포인트를 통한 리소스 액세스 
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos DB는 대량 실행자 .NET API, SDK & 리소스
-description: 릴리스 날짜, 사용 중지 날짜 및 Azure Cosmos DB Bulk Executor .NET SDK의 각 버전 간 변경 내용을 포함하여 Bulk Executor .NET API 및 SDK에 대한 모든 것을 알아봅니다.
+description: 릴리스 날짜, 사용 중지 날짜 및 Azure Cosmos DB bulk executor .NET SDK의 각 버전 간 변경 내용을 포함하여 bulk executor .NET API 및 SDK에 대한 모든 것을 알아봅니다.
 author: tknandu
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 11/19/2018
 ms.author: ramkris
-ms.openlocfilehash: 098cc3d76fff69b6b213514ac85835e7474b6233
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 989d52e773ed01a8fd1f4d383c42d7628e196a60
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68637734"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68814712"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>.NET 대량 실행자 라이브러리: 정보 다운로드 
 

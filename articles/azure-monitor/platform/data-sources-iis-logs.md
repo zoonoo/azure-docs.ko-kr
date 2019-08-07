@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: 05d9dc8f676589dcb301c19b0a2e80e9fd4c1fa0
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: cc0fcbb2005ce2aaa70c9e1d2a9993d341169209
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249754"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68814230"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>Azure Monitor에서 IIS 로그 수집
 IIS(인터넷 정보 서비스)는 Azure Monitor에서 수집할 수 있고 [로그 데이터](data-platform.md)로 저장되는 로그 파일에 사용자 활동을 저장합니다.
@@ -34,7 +34,7 @@ Azure Monitor는 W3C 형식으로 저장된 IIS 로그 파일만 지원하며 �
 
 
 ## <a name="data-collection"></a>데이터 수집
-Azure Monitor는 로그 타임 스탬프가 변경 되거나 새 파일이 만들어질 때마다 각 에이전트에서 IIS 로그 항목을 수집 합니다. 5 분 마다 로그를 읽습니다. 새 파일 생성 빈도는 IIS 사이트에 대 한 **로그 파일 롤오버 일정** 설정에 의해 제어 되며, 기본적으로 하루에 한 번입니다. 어떤 이유로 든 IIS가 롤오버 시간 이전에 타임 스탬프를 업데이트 하지 않는 경우, 설정이 **매시간**인 경우 Azure Monitor는 매시간 로그를 수집 합니다. 설정이 **매일**이면 Azure Monitor 24 시간 마다 로그를 수집 합니다.
+Azure Monitor는 로그 타임 스탬프가 변경 될 때마다 각 에이전트에서 IIS 로그 항목을 수집 합니다. **5 분**마다 로그를 읽습니다. 어떤 이유로 든 새 파일이 생성 될 때 IIS가 롤오버 시간 전에 타임 스탬프를 업데이트 하지 않으면 새 파일 생성 후에 항목이 수집 됩니다. 새 파일 생성 빈도는 IIS 사이트에 대 한 **로그 파일 롤오버 일정** 설정에 의해 제어 되며, 기본적으로 하루에 한 번입니다. 설정이 **매시간**인 경우 Azure Monitor는 매시간 로그를 수집 합니다. 설정이 **매일**이면 Azure Monitor 24 시간 마다 로그를 수집 합니다.
 
 
 ## <a name="iis-log-record-properties"></a>IIS 로그 레코드 속성
@@ -67,7 +67,7 @@ IIS 로그 레코드는 **W3CIISLog** 형식이며, 다음 표의 속성이 있�
 ## <a name="log-queries-with-iis-logs"></a>IIS 로그를 사용한 로그 쿼리
 다음 표에는 IIS 로그 레코드를 검색하는 로그 쿼리의 여러 예제가 나와 있습니다.
 
-| Query | Description |
+| Query | 설명 |
 |:--- |:--- |
 | W3CIISLog |모든 IIS 로그 레코드 |
 | W3CIISLog &#124; where scStatus==500 |반환 상태가 500인 모든 IIS 로그 레코드입니다. |

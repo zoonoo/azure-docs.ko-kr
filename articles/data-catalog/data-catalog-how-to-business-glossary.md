@@ -1,17 +1,17 @@
 ---
-title: Azure Data Catalog의 비즈니스 용어집 설정
+title: Azure Data Catalog에서 비즈니스 용어집 설정
 description: Azure Data Catalog의 비즈니스 용어집에서 일반적인 비즈니스 어휘를 정의하고 등록된 데이터 자산에 태그를 지정하는 데 사용하는 방법을 안내하는 문서.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 04/05/2019
-ms.openlocfilehash: 649a842c8c8890713bda938c8e11740c5c8be7aa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/01/2019
+ms.openlocfilehash: 6ecb481245484332221e45b8f27c776291ea532d
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61001918"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736403"
 ---
 # <a name="set-up-the-business-glossary-for-governed-tagging"></a>관리 태그 지정을 위한 비즈니스 용어집 설정
 
@@ -32,7 +32,7 @@ Azure Data Catalog는 데이터 원본 검색을 제공하여 사용자가 분�
 
 ## <a name="glossary-availability-and-privileges"></a>용어집 가용성 및 권한
 
-비즈니스 용어집은 Azure Data Catalog 표준 버전에서만 사용할 수 있습니다. 데이터 카탈로그의 무료 버전 용어집을 포함 하지 않습니다 하 고 관리 태그 지정에 대 한 기능을 제공 하지 않습니다.
+비즈니스 용어집은 Azure Data Catalog 표준 버전에서만 사용할 수 있습니다. Data Catalog 무료 버전에는 용어집이 포함 되어 있지 않으며 관리 태그 지정 기능을 제공 하지 않습니다.
 
 데이터 카탈로그 포털의 탐색 메뉴에서 **용어집** 옵션을 통해 비즈니스 용어집에 액세스할 수 있습니다.  
 
@@ -55,7 +55,7 @@ Azure Data Catalog는 데이터 원본 검색을 제공하여 사용자가 분�
 
 데이터 카탈로그 비즈니스 용어집을 사용하여 조직은 용어의 계층 구조로 해당 비즈니스 용어 모음을 설명하고 해당 비즈니스 분류를 보다 잘 나타내는 용어의 분류를 만들 수 있습니다.
 
-용어는 지정된 수준의 계층 구조에서 고유해야 합니다. 중복 이름이 허용 되지 않습니다. 계층 구조 내 수준의 수에는 제한이 없지만, 계층 구조 내의 수준이 3개 이하인 경우에 보다 쉽게 이해할 수 있습니다.
+용어는 지정된 수준의 계층 구조에서 고유해야 합니다. 중복 이름을 사용할 수 없습니다. 계층 구조 내 수준의 수에는 제한이 없지만, 계층 구조 내의 수준이 3개 이하인 경우에 보다 쉽게 이해할 수 있습니다.
 
 비즈니스 용어집에 계층 구조를 사용하는 것은 선택 사항입니다. 용어에 대한 상위 용어 필드를 비워두면 용어집 내에 단순(비계층적인) 용어 목록이 생성됩니다.  
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Cloud Shell 기능 | Microsoft Docs
-description: Azure Cloud Shell의 Bash 기능의 개요
+description: Azure Cloud Shell의 기능 개요
 services: Azure
 documentationcenter: ''
 author: maertendMSFT
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: damaerte
-ms.openlocfilehash: 6b5f0e96b90ee0515c0a86f41c6ee2161d6c54a6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1354f7befd8c38537a555e17733f431dd488cf60
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752721"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742048"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Azure Cloud Shell에 대한 기능 및 도구
 
@@ -51,15 +51,15 @@ Azure Portal에서 또는 Azure PowerShell cmdlet을 통해 직접 만들어진 
 
 ![](media/features-powershell/azure-drive.png)
 
-### <a name="manage-exchange-online"></a>Manage Exchange Online
+### <a name="manage-exchange-online"></a>Exchange Online 관리
 
-Cloud Shell의 PowerShell에는 Exchange Online 모듈의 개인 빌드를 포함합니다.  실행 `Connect-EXOPSSession` Exchange cmdlet을 가져오려고 합니다.
+Cloud Shell PowerShell에는 Exchange Online 모듈의 개인 빌드가 포함 되어 있습니다.  을 `Connect-EXOPSSession` 실행 하 여 Exchange cmdlet을 가져옵니다.
 
 ![](media/features-powershell/exchangeonline.png)
 
- `Get-Command -Module tmp_*` 실행
+ `Get-Command -Module tmp_*`를 실행합니다.
 > [!NOTE]
-> 모듈 이름으로 시작 해야 `tmp_`, 동일한 접두사를 사용 하 여 모듈을 설치한 경우 해당 cmdlet 표시도 됩니다. 
+> 모듈 이름은로 `tmp_`시작 해야 하며, 동일한 접두사를 사용 하 여 모듈을 설치한 경우 해당 cmdlet도 표시 됩니다. 
 
 ![](media/features-powershell/exchangeonlinecmdlets.png)
 
@@ -67,22 +67,22 @@ Cloud Shell의 PowerShell에는 Exchange Online 모듈의 개인 빌드를 포�
 
 Cloud Shell은 Terraform, Ansible, Chef InSpec 같은 오픈 소스 도구를 위해 사전 구성된 인증을 포함하고 있습니다. 예제 연습에서 사용해 보십시오.
 
-## <a name="tools"></a>도구
+## <a name="tools"></a>Tools
 
-|Category   |이름   |
+|범주   |이름   |
 |---|---|
 |Linux 도구            |bash<br> zsh<br> sh<br> tmux<br> dig<br>               |
-|Azure 도구            |[Azure CLI](https://github.com/Azure/azure-cli) 및 [Azure 클래식 CLI](https://github.com/Azure/azure-xplat-cli)<br> [AZCopy](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#writing-your-first-azcopy-command)<br> [Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
+|Azure 도구            |[Azure CLI](https://github.com/Azure/azure-cli) 및 [Azure 클래식 CLI](https://github.com/Azure/azure-xplat-cli)<br> [AZCopy](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#writing-your-first-azcopy-command)<br> [CLI Azure Functions](https://github.com/Azure/azure-functions-core-tools)<br> [Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
 |텍스트 편집기           |코드(Cloud Shell 편집기)<br> vim<br> nano<br> emacs    |
 |소스 제어         |git                    |
 |빌드 도구            |make<br> maven<br> npm<br> pip         |
 |컨테이너             |[Docker 컴퓨터](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [DC/OS CLI](https://github.com/dcos/dcos-cli)         |
 |데이터베이스              |MySQL 클라이언트<br> PostgreSql 클라이언트<br> [sqlcmd 유틸리티](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
-|기타                  |iPython 클라이언트<br> [Cloud Foundry CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)|
+|기타                  |iPython 클라이언트<br> [Cloud Foundry CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)<br> [퍼핏 볼트](https://puppet.com/docs/bolt/latest/bolt.html)<br> [HashiCorp 팩](https://www.packer.io/)|
 
 ## <a name="language-support"></a>언어 지원
 
-|언어   |Version   |
+|언어   |버전   |
 |---|---|
 |.NET Core  |2.0.0       |
 |Go         |1.9        |

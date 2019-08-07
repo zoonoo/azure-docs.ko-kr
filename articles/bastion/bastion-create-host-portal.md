@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 06/25/2019
+ms.date: 08/02/2019
 ms.author: cherylmc
-ms.openlocfilehash: 881d89170c82731fca3f6977da486eac5be772f8
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 4c283e840208ab9f53d084ca17221ea2c835b794
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466988"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68814146"
 ---
 # <a name="create-an-azure-bastion-host-preview"></a>Azure 방호 호스트 만들기 (미리 보기)
 
@@ -54,7 +54,7 @@ ms.locfileid: "68466988"
     * **이름**: 새 요새 리소스의 이름입니다.
     * **지역**: 리소스가 생성 될 Azure 공용 지역입니다.
     * **가상 네트워크**: 에서 방호 리소스를 만들 가상 네트워크입니다. 기존 가상 네트워크를 사용 하지 않거나 사용 하지 않으려는 경우에는이 프로세스 중에 포털에서 새 가상 네트워크를 만들 수 있습니다. 기존 가상 네트워크를 사용 하는 경우 기존 가상 네트워크에 방호 서브넷 요구 사항을 수용 하기에 충분 한 여유 주소 공간이 있는지 확인 합니다.
-    * **서브넷**: 새 요새 호스트 리소스가 배포 될 가상 네트워크의 서브넷입니다. **AzureBastionSubnet**이름 값을 사용 하 여 서브넷을 만들어야 합니다. 이 값을 통해 Azure는 요새 리소스를 배포할 서브넷을 알 수 있습니다. 이는 게이트웨이 서브넷과는 다릅니다. /27 이상의 서브넷 (/27,/26 등)을 사용 하는 것이 좋습니다. 경로 테이블 또는 위임 없이 **AzureBastionSubnet** 를 만듭니다. **AzureBastionSubnet**에서 네트워크 보안 그룹을 사용 하는 경우 [nsgs 작업](bastion-nsg.md)을 참조 하세요.
+    * **서브넷**: 새 요새 호스트 리소스가 배포 될 가상 네트워크의 서브넷입니다. **AzureBastionSubnet**이름 값을 사용 하 여 서브넷을 만들어야 합니다. 이 값을 통해 Azure는 요새 리소스를 배포할 서브넷을 알 수 있습니다. 이는 게이트웨이 서브넷과는 다릅니다. 적어도 a/27 이상의 서브넷 (/27,/26 등)의 서브넷을 사용 해야 합니다. 경로 테이블 또는 위임 없이 **AzureBastionSubnet** 를 만듭니다. **AzureBastionSubnet**에서 네트워크 보안 그룹을 사용 하는 경우 [nsgs 작업](bastion-nsg.md)을 참조 하세요.
     * **공용 IP 주소**: 포트 443을 통해 RDP/SSH를 액세스할 수 있는 방호 리소스의 공용 IP입니다. 새 공용 IP를 만들거나 기존 공용 IP를 사용 합니다. 공용 IP 주소는 만들려는 방호 리소스와 동일한 지역에 있어야 합니다.
     * **공용 IP 주소 이름**: 공용 IP 주소 리소스의 이름입니다.
     * **공용 IP 주소 SKU**: 기본적으로 **표준**으로 미리 채워져 있습니다. Azure 방호는 표준 공용 IP SKU만 사용/지원 합니다.

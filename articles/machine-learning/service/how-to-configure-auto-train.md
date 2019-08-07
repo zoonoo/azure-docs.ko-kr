@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3a316de54600d18f7ab839b8459bfe4eb0ff86e8
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 5dee966f8664bc14d81004e625ad9632066ffcb2
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479790"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742316"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Python에서 자동화 된 ML 실험 구성
 
@@ -40,7 +40,7 @@ ms.locfileid: "68479790"
 
 실험을 시작하기 전에 해결하려는 기계 학습 문제의 종류를 결정해야 합니다. 자동화된 Machine Learning은 작업 유형으로 분류, 회귀 및 예측을 지원합니다.
 
-자동화된 Machine Learning은 자동화 및 튜닝 프로세스 중에 다음 알고리즘을 지원합니다. 사용자는 알고리즘을 지정할 필요가 없습니다. 
+자동화된 Machine Learning은 자동화 및 튜닝 프로세스 중에 다음 알고리즘을 지원합니다. 사용자는 알고리즘을 지정할 필요가 없습니다.
 
 분류 | 회귀 | 시계열 예측
 |-- |-- |--
@@ -104,7 +104,7 @@ automl_config = AutoMLConfig(task="classification")
 ```python
     import pandas as pd
     from sklearn import datasets
-    
+
     data_train = datasets.load_digits()
 
     pd.DataFrame(data_train.data[100:,:]).to_csv("data/X_train.csv", index=False)
@@ -114,7 +114,7 @@ automl_config = AutoMLConfig(task="classification")
     ds.upload(src_dir='./data', target_path='digitsdata', overwrite=True, show_progress=True)
 ```
 
-### <a name="define-deprep-references"></a>Deprep 참조 정의
+### <a name="define-dprep-references"></a>참조 정의
 
 아래와 유사한 자동화 된 machine learning `AutoMLConfig` 개체로 전달 되는 d 및 y를 eprep 참조로 정의 합니다.
 
@@ -122,8 +122,8 @@ automl_config = AutoMLConfig(task="classification")
 
     X = dprep.auto_read_file(path=ds.path('digitsdata/X_train.csv'))
     y = dprep.auto_read_file(path=ds.path('digitsdata/y_train.csv'))
-    
-    
+
+
     automl_config = AutoMLConfig(task = 'classification',
                                  debug_log = 'automl_errors.log',
                                  path = project_folder,
@@ -253,9 +253,60 @@ automl_config = AutoMLConfig(task='forecasting',
                              **time_series_settings)
 ```
 
+### <a name="ensemble"></a>앙상블 구성
+
+앙상블 모델은 기본적으로 사용 하도록 설정 되어 있으며 자동화 된 machine learning 실행에서 최종 실행 반복으로 나타납니다. 현재 지원 되는 앙상블 메서드는 투표 및 누적입니다. 응답은가 중 평균을 사용 하 여 소프트 응답으로 구현 되 고, 스택 구현은 두 계층 구현을 사용 합니다. 여기서 첫 번째 계층은 투표 앙상블와 동일한 모델을 사용 하 고 두 번째 계층 모델은 두 계층 모델을 사용 하 여 첫 번째 계층의 모델입니다. ONNX 모델을 사용 **하거나** explainability를 사용 하는 경우에는 누적이 사용 하지 않도록 설정 되며 투표만 사용 됩니다.
+
+기본 stack 앙상블 동작을 변경 하기 위해 `kwargs` `AutoMLConfig` 개체에서로 제공할 수 있는 여러 기본 인수가 있습니다.
+
+* `stack_meta_learner_type`: 학습자은 개별 다른 유형의 모델의 출력에 대해 학습 된 모델입니다. 기본 메타 학습자는 분류 `LogisticRegression` 작업 `LogisticRegressionCV` (교차 유효성 검사를 사용 하도록 설정 된 경우) 및 `ElasticNet` 회귀/예측 작업 ( `ElasticNetCV` 교차 유효성 검사를 사용 하도록 설정한 경우)에 대 한 것입니다. `LogisticRegression`이 매개 변수는 `LogisticRegressionCV` ,`LinearRegression`, `LightGBMClassifier`, `ElasticNet` ,,`ElasticNetCV`또는 문자열 중 하나일 수 있습니다. `LightGBMRegressor`
+* `stack_meta_learner_train_percentage`: 학습자를 학습 하기 위해 예약할 학습 및 유효성 검사 유형을 선택할 때 학습 집합의 비율을 지정 합니다. 기본값은 `0.2`여야 합니다.
+* `stack_meta_learner_kwargs`: meta 학습자의 이니셜라이저에 전달할 선택적 매개 변수입니다. 이러한 매개 변수 및 매개 변수 형식은 해당 모델 생성자에서 이러한 매개 변수를 미러링 하 고 모델 생성자에 전달 됩니다.
+
+다음 코드에서는 `AutoMLConfig` 개체에서 사용자 지정 앙상블 동작을 지정 하는 예를 보여 줍니다.
+
+```python
+ensemble_settings = {
+    "stack_meta_learner_type": "LogisticRegressionCV",
+    "stack_meta_learner_train_percentage": 0.3,
+    "stack_meta_learner_kwargs": {
+        "refit": True,
+        "fit_intercept": False,
+        "class_weight": "balanced",
+        "multi_class": "auto",
+        "n_jobs": -1
+    }
+}
+
+automl_classifier = AutoMLConfig(
+        task='classification',
+        primary_metric='AUC_weighted',
+        iterations=20,
+        X=X_train,
+        y=y_train,
+        n_cross_validations=5,
+        **ensemble_settings
+        )
+```
+
+앙상블 교육은 기본적으로 사용 하도록 설정 되어 있지만 및 `enable_voting_ensemble` `enable_stack_ensemble` 부울 매개 변수를 사용 하 여 사용 하지 않도록 설정할 수 있습니다.
+
+```python
+automl_classifier = AutoMLConfig(
+        task='classification',
+        primary_metric='AUC_weighted',
+        iterations=20,
+        X=X_train,
+        y=y_train,
+        n_cross_validations=5,
+        enable_voting_ensemble=False,
+        enable_stack_ensemble=False
+        )
+```
+
 ## <a name="run-experiment"></a>실험 실행
 
-자동화 된 ML의 경우 실험을 실행 하 `Experiment` 는 `Workspace` 데 사용 되는의 명명 된 개체인 개체를 만들어야 합니다.
+자동화 된 ML의 경우 실험 `Experiment` 을 실행 하는 `Workspace` 데 사용 되는의 명명 된 개체인 개체를 만듭니다.
 
 ```python
 from azureml.core.experiment import Experiment

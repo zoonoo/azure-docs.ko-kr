@@ -1,6 +1,6 @@
 ---
-title: Azure DevOps 빌드 및 릴리스 파이프라인에서 DevTest Labs 사용 | Microsoft Docs
-description: Azure DevOps 빌드 및 릴리스 파이프라인에서 Azure DevTest Labs를 사용 하는 방법에 대해 알아봅니다.
+title: Azure Pipelines 빌드 및 릴리스 파이프라인에서 DevTest Labs를 사용 합니다. | Microsoft Docs
+description: 파이프라인 빌드 및 릴리스 Azure Pipelines에서 Azure DevTest Labs를 사용 하는 방법에 대해 알아봅니다.
 services: devtest-lab, lab-services
 documentationcenter: na
 author: spelluru
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2019
 ms.author: spelluru
-ms.openlocfilehash: 606563cd7d7adcdd79bf9561876eb0640fb68b21
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 032f598fed765b281d4a6a124f8855abc201ee94
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68620897"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774448"
 ---
-# <a name="use-devtest-labs-in-azure-devops-build-and-release-pipelines"></a>Azure DevOps Services 빌드 및 릴리스 파이프라인에서 DevTest Labs 사용
-이 문서에서는 Azure DevOps 빌드 및 릴리스 파이프라인에서 DevTest Labs를 사용 하는 방법에 대 한 정보를 제공 합니다. 
+# <a name="use-devtest-labs-in-azure-pipelines-build-and-release-pipelines"></a>Azure Pipelines 빌드 및 릴리스 파이프라인에서 DevTest Labs 사용
+이 문서에서는 Azure Pipelines 빌드 및 릴리스 파이프라인에서 DevTest Labs를 사용 하는 방법에 대 한 정보를 제공 합니다. 
 
 ## <a name="overall-flow"></a>전체 흐름
 기본 흐름은 다음 작업을 수행 하는 **빌드 파이프라인** 을 포함 하는 것입니다.
@@ -49,7 +49,7 @@ ms.locfileid: "68620897"
 빌드 파이프라인은 DevTest Labs 환경을 만들고 테스트를 위한 코드를 배포 합니다.
 
 ## <a name="set-up-a-build-pipeline"></a>빌드 파이프라인 설정
-Azure devops에서 [자습서의 코드를 사용 하 여 빌드 파이프라인을 만듭니다. Azure App Service](../app-service/app-service-web-tutorial-dotnetcore-sqldb.md)에서 .net Core 및 SQL Database 웹 앱을 빌드합니다. **ASP.NET Core** 템플릿을 사용 하면 코드를 빌드, 테스트 및 게시 하는 데 필요한 작업을 채울 수 있습니다.
+Azure Pipelines에서 [자습서의 코드를 사용 하 여 빌드 파이프라인을 만듭니다. Azure App Service](../app-service/app-service-web-tutorial-dotnetcore-sqldb.md)에서 .net Core 및 SQL Database 웹 앱을 빌드합니다. **ASP.NET Core** 템플릿을 사용 하면 코드를 빌드, 테스트 및 게시 하는 데 필요한 작업을 채울 수 있습니다.
 
 ![ASP.NET 템플릿 선택](./media/use-devtest-labs-build-release-pipelines/select-asp-net.png)
 
@@ -85,7 +85,7 @@ DevTest Labs에서 환경을 만들고 환경에 배포 하는 세 가지 추가
 
 ![App Service 배포 작업](./media/use-devtest-labs-build-release-pipelines/app-service-deploy.png)
 
-## <a name="setup-release-pipeline"></a>릴리스 파이프라인 설정
+## <a name="set-up-release-pipeline"></a>릴리스 파이프라인 설정
 두 가지 작업을 사용 하 여 릴리스 파이프라인을 만듭니다. **Azure 배포: 리소스 그룹** 을 만들거나 업데이트 하 고 **Azure App Service를 배포**합니다. 
 
 첫 번째 작업의 경우 리소스 그룹의 이름과 위치를 지정 합니다. 템플릿 위치가 연결 된 아티팩트입니다. 리소스 관리자 템플릿에 연결 된 템플릿이 포함 된 경우 사용자 지정 리소스 그룹 배포를 구현 해야 합니다. 템플릿이 게시 된 drop 아티팩트에 있습니다. 리소스 관리자 템플릿에 대 한 템플릿 매개 변수를 재정의 합니다. 나머지 설정은 기본값을 그대로 유지할 수 있습니다. 
@@ -98,5 +98,5 @@ DevTest Labs에서 환경을 만들고 환경에 배포 하는 세 가지 추가
 ## <a name="next-steps"></a>다음 단계
 다음 문서를 참조하세요.
 
-- [Azure DevOps 연속 통합 및 배달 파이프라인에 Azure DevTest Labs 통합](devtest-lab-integrate-ci-cd-vsts.md)
-- [Azure DevOps CI/CD 파이프라인에 환경 통합](integrate-environments-devops-pipeline.md)
+- [Azure Pipelines 연속 통합 및 배달 파이프라인에 Azure DevTest Labs 통합](devtest-lab-integrate-ci-cd-vsts.md)
+- [Azure Pipelines CI/CD 파이프라인에 환경 통합](integrate-environments-devops-pipeline.md)

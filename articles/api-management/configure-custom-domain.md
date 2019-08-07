@@ -9,14 +9,14 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 07/01/2019
+ms.date: 08/01/2019
 ms.author: apimpm
-ms.openlocfilehash: 9eb03be5cd9704c3b124bfb16fd30c5c3466890d
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: b3513ab2583939943ff188b582f57f49530e5ded
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326135"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736252"
 ---
 # <a name="configure-a-custom-domain-name"></a>사용자 지정 도메인 이름 구성
 
@@ -40,17 +40,19 @@ Azure API Management 서비스 인스턴스를 만들면 Azure에서 azure-api.n
 ## <a name="use-the-azure-portal-to-set-a-custom-domain-name"></a>Azure Portal을 사용하여 사용자 지정 도메인 이름 설정
 
 1. [Azure Portal](https://portal.azure.com/)에서 API Management 인스턴스로 이동 합니다.
-1. **사용자 지정 도메인 및 SSL**을 선택합니다.
+1. **사용자 지정 도메인**을 선택 합니다.
 
     사용자 지정 도메인 이름을 할당할 수 있는 끝점은 여러 가지가 있습니다. 현재는 다음 엔드포인트를 사용할 수 있습니다.
 
-    - **프록시**(기본값: `<apim-service-name>.azure-api.net`),
+    - **게이트웨이** (기본값: `<apim-service-name>.azure-api.net`),
     - **포털**(기본값: `<apim-service-name>.portal.azure-api.net`),
     - **관리**(기본값: `<apim-service-name>.management.azure-api.net`),
     - **SCM**(기본값: `<apim-service-name>.scm.azure-api.net`).
 
     > [!NOTE]
-    > 이들 중 일부 또는 모든 엔드포인트를 업데이트할 수 있습니다. 일반적으로 고객이 **프록시**(이 URL은 API Management를 통해 노출된 API를 호출하는 데 사용됨) 및 **포털**(개발자 포털 URL)을 업데이트합니다. **관리** 및 **SCM** 끝점은 API Management 인스턴스 소유자만 내부적으로 사용 되므로 사용자 지정 도메인 이름을 할당 하는 빈도가 낮습니다. 대부분의 경우 지정 된 끝점에 대해 단일 사용자 지정 도메인 이름만 설정할 수 있습니다. 그러나 **프리미엄** 계층은 **프록시** 끝점에 대 한 여러 호스트 이름 설정을 지원 합니다.
+    > 의 **게이트웨이** 끝점만 소비 계층의 구성에 사용할 수 있습니다.
+    > 이들 중 일부 또는 모든 엔드포인트를 업데이트할 수 있습니다. 일반적으로 고객은 **게이트웨이** (이 URL은 API Management를 통해 노출 되는 API를 호출 하는 데 사용 됨) 및 **포털** (개발자 포털 URL)을 업데이트 합니다.
+    > **관리** 및 **SCM** 끝점은 API Management 인스턴스 소유자만 내부적으로 사용 되므로 사용자 지정 도메인 이름을 할당 하는 빈도가 낮습니다. **프리미엄** 계층은 **게이트웨이** 끝점에 대 한 여러 호스트 이름 설정을 지원 합니다.
 
 1. 업데이트하려는 엔드포인트를 선택합니다.
 1. 오른쪽 창에서 **사용자 지정**을 클릭합니다.

@@ -5,18 +5,18 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 04/04/2018
+ms.date: 08/02/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 19ad4e39ca4e402c37b2cfa69c7c306b6e5a2766
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 5149973fe63f867b49e55c970779c005e12536b9
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182056"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780118"
 ---
-1. 가상 네트워크 게이트웨이에 대한 페이지로 이동하여 엽니다. 여러 가지 방법으로 이동할 수 있습니다. **TestVNet1 -> 개요 -> 연결된 장치 -> VNet1GW**로 이동하여 'VNet1GW' 게이트웨이로 이동합니다.
-2. VNet1GW 페이지에서 **연결**을 클릭합니다. 연결 페이지의 맨 위에 있는 **+추가**를 클릭하여 **연결 추가** 페이지를 엽니다.
+1. 가상 네트워크 게이트웨이에 대 한 페이지를 엽니다. 여러 가지 방법으로 이동할 수 있습니다. **VNet의 이름-> 개요-> 연결 된 장치-> 게이트웨이의**이름으로 이동 하 여 게이트웨이로 이동할 수 있습니다.
+2. 게이트웨이 페이지에서 **연결**을 클릭 합니다. 연결 페이지의 맨 위에 있는 **+추가**를 클릭하여 **연결 추가** 페이지를 엽니다.
 
    ![사이트 간 연결 만들기](./media/vpn-gateway-add-site-to-site-connection-portal-include/configure-site-to-site-connection.png)
 3. **연결 추가** 페이지에서 연결에 대한 값을 구성합니다.

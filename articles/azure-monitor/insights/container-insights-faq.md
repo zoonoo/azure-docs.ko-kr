@@ -8,38 +8,42 @@ editor: tysonn
 ms.service: azure-monitor
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 04/17/2019
+ms.date: 08/02/2019
 ms.author: magoedte
-ms.openlocfilehash: afa332b40884a79b5114b3b8093cd27108c39984
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3644b40311c037df800eb89ca26d1285fbf1e082
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65779998"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741515"
 ---
 # <a name="azure-monitor-for-containers-frequently-asked-questions"></a>컨테이너용 Azure Monitor 질문과 대답
 
 Microsoft FAQ는 컨테이너용 Azure Monitor에 대한 질문과 대답 목록입니다. 솔루션에 대한 추가 질문이 있으면 [토론 포럼](https://feedback.azure.com/forums/34192--general-feedback)으로 이동하여 질문을 게시하세요. 자주 묻는 질문일 경우 빠르고 쉽게 찾을 수 있도록 이 문서에 추가하겠습니다.
 
-## <a name="why-dont-i-see-data-in-my-log-analytics-workspace"></a>내 Log Analytics 작업 영역에 데이터가 표시 되지 않습니다는 이유
+## <a name="can-i-monitor-my-aks-engine-cluster-with-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor를 사용 하 여 AKS-engine 클러스터를 모니터링할 수 있나요?
 
-특정 시간 매일에서 Log Analytics 작업 영역에서 모든 데이터를 볼 수 없는 경우 기본 500mb로 제한 또는 매일 수집할 데이터의 크기를 제어 하려면 지정한 일일 한도 초과한 것 같습니다. 하루에 대 한 제한을 충족 되 면 데이터 수집 중지 하 고 날에만 다시 시작 합니다. 데이터 사용량을 검토 하 고 예상 된 사용량 패턴에 따라 다른 가격 책정 계층 업데이트를 참조 하세요 [로그 데이터 사용량 및 비용](../platform/manage-cost-storage.md)합니다. 
+컨테이너 Azure Monitor는 Azure에서 호스트 되는 AKS (이전의 ACS 엔진) 클러스터에 배포 된 컨테이너 작업을 모니터링 하도록 지원 합니다. 이 시나리오에 대 한 모니터링을 사용 하도록 설정 하는 데 필요한 단계에 대 한 자세한 내용과 개요는 [AKS의 컨테이너에 Azure Monitor 사용](https://github.com/microsoft/OMS-docker/tree/aks-engine)을 참조 하세요.
 
-## <a name="what-are-the-container-states-specified-in-the-containerinventory-table"></a>ContainerInventory 표에 지정 된 컨테이너 상태는 무엇입니까?
+## <a name="why-dont-i-see-data-in-my-log-analytics-workspace"></a>내 Log Analytics 작업 영역에 데이터가 표시 되지 않는 이유는 무엇 인가요?
+
+매일 특정 시간에 Log Analytics 작업 영역에서 데이터를 볼 수 없는 경우 매일 수집할 데이터의 양을 제어 하기 위해 지정 된 기본 500 MB 제한 또는 일일 상한에 도달 했을 수 있습니다. 해당 일에 대 한 제한이 충족 되 면 데이터 수집은 다음 날에만 중지 하 고 다시 시작 합니다. 예상 사용 패턴을 기준으로 데이터 사용량을 검토 하 고 다른 가격 책정 계층으로 업데이트 하려면 [로그 데이터 사용량 및 비용](../platform/manage-cost-storage.md)을 참조 하세요. 
+
+## <a name="what-are-the-container-states-specified-in-the-containerinventory-table"></a>ContainerInventory 테이블에 지정 된 컨테이너 상태는 무엇 인가요?
 
 ContainerInventory 테이블에는 중지된 컨테이너와 실행 중인 컨테이너 둘 다에 대한 정보가 포함되어 있습니다. 이 테이블은 Docker에서 모든 컨테이너(실행 중 및 중지)를 쿼리하고 해당 데이터를 Log Analytics 작업 영역에 전달하는 에이전트 내 워크플로로 채워집니다.
  
-## <a name="how-do-i-resolve-missing-subscription-registration-error"></a>어떻게 해결 합니까 **없습니다. 구독 등록** 오류?
+## <a name="how-do-i-resolve-missing-subscription-registration-error"></a>누락 된 **구독 등록** 오류를 해결 어떻게 할까요? 있습니까?
 
-오류가 발생 하는 경우 **Microsoft.OperationsManagement에 대 한 누락 된 구독 등록이**, 리소스 공급자를 등록 하 여 해결할 수 있습니다 **Microsoft.OperationsManagement** 에 작업 영역 정의 되어 있는 구독입니다. 이 작업을 수행하는 방법에 대한 설명서는 [여기](../../azure-resource-manager/resource-manager-register-provider-errors.md)에서 찾을 수 있습니다.
+**Microsoft.operationsmanagement에 대 한 구독 등록 누락**오류가 표시 되 면 작업 영역이 정의 된 구독에서 리소스 공급자 **microsoft.operationsmanagement** 를 등록 하 여 해결할 수 있습니다. 이 작업을 수행하는 방법에 대한 설명서는 [여기](../../azure-resource-manager/resource-manager-register-provider-errors.md)에서 찾을 수 있습니다.
 
-## <a name="is-there-support-for-rbac-enabled-aks-clusters"></a>지원 RBAC AKS 클러스터를 사용할 수 있나요?
+## <a name="is-there-support-for-rbac-enabled-aks-clusters"></a>RBAC 사용 AKS 클러스터에 대 한 지원이 있나요?
 
-컨테이너 모니터링 솔루션에는 RBAC를 지원 하지 않습니다 하지만 컨테이너에 대 한 Azure Monitor를 사용 하 여 지원 됩니다. 솔루션 세부 정보 페이지에 이러한 클러스터에 대한 데이터를 표시하는 블레이드에 올바른 정보가 표시되지 않을 수 있습니다.
+컨테이너 모니터링 솔루션은 RBAC를 지원 하지 않지만 컨테이너에 대 한 Azure Monitor에서 지원 됩니다. 솔루션 세부 정보 페이지에 이러한 클러스터에 대한 데이터를 표시하는 블레이드에 올바른 정보가 표시되지 않을 수 있습니다.
 
 ## <a name="how-do-i-enable-log-collection-for-containers-in-the-kube-system-namespace-through-helm"></a>Helm을 통해 kube-system 네임스페이스의 컨테이너에 대해 로그 수집을 사용하도록 설정하려면 어떻게 하나요?
 
-kube-system 네임스페이스에 포함된 컨테이너의 로그 수집은 기본적으로 사용하지 않도록 설정됩니다. omsagent에 환경 변수를 설정하여 로그 수집을 사용하도록 설정할 수 있습니다. 자세한 내용은 참조는 [컨테이너에 대 한 Azure Monitor](https://github.com/helm/charts/tree/master/incubator/azuremonitor-containers) GitHub 페이지입니다. 
+kube-system 네임스페이스에 포함된 컨테이너의 로그 수집은 기본적으로 사용하지 않도록 설정됩니다. omsagent에 환경 변수를 설정하여 로그 수집을 사용하도록 설정할 수 있습니다. 자세한 내용은 [컨테이너 GitHub에 대 한 Azure Monitor](https://github.com/helm/charts/tree/master/incubator/azuremonitor-containers) 페이지를 참조 하세요. 
 
 ## <a name="how-do-i-update-the-omsagent-to-the-latest-released-version"></a>omsagent를 최신 릴리스 버전으로 업데이트하려면 어떻게 하나요?
 
@@ -60,7 +64,7 @@ console.log(json.stringify({
       }));
 ```
 
-이 데이터에 대 한 쿼리 로그에 대 한 Azure Monitor에서 다음과 같이 표시 됩니다.
+이 데이터는 쿼리를 수행 하는 경우 로그에 대 한 Azure Monitor에서 다음 예제와 같이 표시 됩니다.
 
 ```
 LogEntry : ({“Hello": "This example has multiple lines:","Docker/Moby": "will not break this into multiple lines", "and you will receive":"all of them in log analytics", "as one": "log entry"}
@@ -69,15 +73,15 @@ LogEntry : ({“Hello": "This example has multiple lines:","Docker/Moby": "will 
 
 이 문제를 자세히 살펴보려면 다음 [github 링크](https://github.com/moby/moby/issues/22920)를 검토하세요.
 
-## <a name="how-do-i-resolve-azure-ad-errors-when-i-enable-live-logs"></a>실시간 로그를 활성화 하면 Azure AD 오류를 해결 하는 방법 
+## <a name="how-do-i-resolve-azure-ad-errors-when-i-enable-live-logs"></a>라이브 로그를 사용 하도록 설정할 때 Azure AD 오류를 해결할 어떻게 할까요? 있나요? 
 
-다음 오류가 표시될 수 있습니다. **회신 url 요청에 지정 된 응용 프로그램에 대해 구성 된 회신 url 일치 하지 않습니다. ' < 응용 프로그램 ID\>'** 합니다. 해결 방법 문서에서 찾을 수 있습니다 [컨테이너에 대 한 컨테이너 로그 실시간으로 Azure Monitor를 사용 하 여 보는 방법](container-insights-live-logs.md#configure-aks-with-azure-active-directory)합니다. 
+다음 오류가 표시될 수 있습니다. **요청에 지정 된 회신 url이 ' < 응용 프로그램 ID\>' 응용 프로그램에 대해 구성 된 회신 url과 일치 하지**않습니다. 이 문제를 해결 하는 [방법은 컨테이너에 대 한 Azure Monitor를 사용 하 여 컨테이너 로그를 실시간으로 보는 방법](container-insights-live-logs.md#configure-aks-with-azure-active-directory)문서에서 찾을 수 있습니다. 
 
-## <a name="why-cant-i-upgrade-cluster-after-onboarding"></a>온 보 딩 한 후 클러스터를 업그레이드할 수 없습니다는 이유
+## <a name="why-cant-i-upgrade-cluster-after-onboarding"></a>온 보 딩 후 클러스터를 업그레이드할 수 없는 이유는 무엇입니까?
 
-클러스터에서 데이터를 전송 된 Log Analytics 작업 영역을 삭제 하면 AKS 클러스터에 대 한 컨테이너에 대 한 Azure Monitor를 사용 하도록 설정한 후에 클러스터를 업그레이드 하려고 할 때 실패 합니다. 이 해결 하기 위해 모니터링을 비활성화 및 재 구독의 다른 올바른 작업 영역을 참조 하 고 활성화 해야 합니다. 클러스터 업그레이드를 다시 수행 하려는 경우를 처리 하 고 성공적으로 완료 합니다.  
+AKS 클러스터의 컨테이너에 대 한 Azure Monitor를 사용 하도록 설정한 후 클러스터를 업그레이드 하려고 할 때 클러스터가 데이터를 전송 하는 Log Analytics 작업 영역을 삭제 하면 오류가 발생 합니다. 이 문제를 해결 하려면 모니터링을 사용 하지 않도록 설정한 다음 구독에서 다른 유효한 작업 영역을 참조 하 여 다시 사용 하도록 설정 해야 합니다. 클러스터 업그레이드를 다시 수행 하려고 하면 성공적으로 처리 되 고 완료 됩니다.  
 
-## <a name="which-ports-and-domains-do-i-need-to-openwhitelist-for-the-agent"></a>포트 및 도메인 하나요 오픈/허용 목록에 에이전트에 대 한?
+## <a name="which-ports-and-domains-do-i-need-to-openwhitelist-for-the-agent"></a>에이전트에 대해 열기/허용 목록 해야 하는 포트 및 도메인은 무엇 인가요?
 - *.ods.opinsights.azure.com   443
 - *.oms.opinsights.azure.com   443
 - *.blob.core.windows.net      443

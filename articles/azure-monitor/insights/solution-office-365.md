@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/01/2019
 ms.author: bwren
-ms.openlocfilehash: 3f4b0ad8b7aad01472a76db67f2c07e03e978e41
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: d50b3ab68b406db47a4cc8fec081b2fc076071d1
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67673053"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741669"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Azure에서 Office 365 관리 솔루션(미리 보기)
 
@@ -25,11 +25,11 @@ ms.locfileid: "67673053"
 
 
 > [!NOTE]
-> 설치 하 고 Office 365 솔루션을 구성 하는 것이 좋습니다가 사용 하도록 설정 합니다 [Office 365 커넥터](../../sentinel/connect-office-365.md) 에 [Azure Sentinel](../../sentinel/overview.md) 이 문서의 단계를 사용 하는 대신 합니다. 이 향상 된 구성 환경 사용 하 여 Office 365 솔루션의 업데이트 된 버전입니다. Azure AD 로그에 연결 하려면 사용할 수 있습니다 합니다 [Azure Sentinel Azure AD 커넥터](../../sentinel/connect-azure-active-directory.md) 또는 [Azure AD 진단 설정을 구성할](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md), Office 365 관리 로그 보다 더 다양 한 로그 데이터를 제공 하는 합니다. 
+> Office 365 솔루션을 설치 하 고 구성 하는 권장 방법은이 문서의 단계를 사용 하는 대신 [Azure 센티널](../../sentinel/overview.md) 에서 [office 365 커넥터](../../sentinel/connect-office-365.md) 를 사용 하도록 설정 하는 것입니다. 이는 구성 환경이 개선 된 Office 365 솔루션의 업데이트 된 버전입니다. Azure AD 로그를 연결 하기 위해 azure [센티널 AZURE ad 커넥터](../../sentinel/connect-azure-active-directory.md) 를 사용 하거나 [azure ad 진단 설정을 구성할](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)수 있습니다. 그러면 Office 365 관리 로그 보다 더 다양 한 로그 데이터를 제공 합니다. 
 >
-> 경우 있습니다 [온 보 딩 Azure Sentinel](../../sentinel/quickstart-onboard.md), Log Analytics 작업 영역에 설치 된 Office 365 솔루션을 지정 합니다. 커넥터를 사용 하도록 설정 하면 솔루션 작업 영역에서 사용할 수 있습니다 하 고 설치한 다른 모니터링 솔루션으로 사용 하는 동일 합니다.
+> [Azure 센티널](../../sentinel/quickstart-onboard.md)을 등록 하는 경우 Office 365 솔루션을 설치 하려는 Log Analytics 작업 영역을 지정 합니다. 커넥터를 사용 하도록 설정 하면 솔루션은 작업 영역에서 사용할 수 있고 설치한 다른 모니터링 솔루션과 정확히 동일 하 게 사용 됩니다.
 >
-> 사용자가 Azure government cloud의 Azure Sentinel 아직 사용할 수 없으므로 government 클라우드에서이 문서의 단계를 사용 하 여 Office 365를 설치 해야 합니다.
+> Azure 센티널은 아직 정부 클라우드에서 사용할 수 없으므로 Azure 정부 클라우드의 사용자는이 문서의 단계를 사용 하 여 Office 365를 설치 해야 합니다.
 
 Office 365 관리 솔루션을 사용하면 Azure Monitor에서 Office 365 환경을 모니터링할 수 있습니다.
 
@@ -42,7 +42,7 @@ Office 365 관리 솔루션을 사용하면 Azure Monitor에서 Office 365 환�
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 솔루션을 설치하고 구성하려면 다음 항목이 필요합니다.
 
@@ -86,7 +86,7 @@ Office 365 구독에서 수집할 정보:
 1. **새 애플리케이션 등록**을 클릭합니다.
 
     ![앱 등록 추가](media/solution-office-365/add-app-registration.png)
-1. 애플리케이션 **이름** 및 **로그온 URL**을 입력합니다.  이름은 구체적이어야 합니다.  사용 하 여 `http://localhost` URL을 유지 _웹 앱 / API_ 에 대 한는 **응용 프로그램 유형**
+1. 애플리케이션 **이름** 및 **로그온 URL**을 입력합니다.  이름은 구체적이어야 합니다.  URL `http://localhost` 에 대해를 사용 하 고 **응용 프로그램 형식** 에 대해 _웹 앱/_ a p i를 유지 합니다.
     
     ![애플리케이션 만들기](media/solution-office-365/create-application.png)
 1. **만들기**를 클릭하고 응용 프로그램 정보의 유효성을 검사합니다.
@@ -569,21 +569,21 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 레코드는 Active Directory 사용자가 로그온을 시도할 때 생성됩니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
-| OfficeWorkload | AzureActiveDirectory |
-| RecordType     | AzureActiveDirectoryAccountLogon |
-| 애플리케이션 | Office 15 등의 계정 로그인 이벤트를 트리거하는 애플리케이션입니다. |
-| 클라이언트 | 계정 로그인 이벤트에 사용된 클라이언트 디바이스, 디바이스 OS 및 디바이스 브라우저에 대한 세부 정보입니다. |
-| LoginStatus | OrgIdLogon.LoginStatus에서 직접 생성되는 속성입니다. 알림 알고리즘을 사용하면 로그온 실패를 다양한 방식으로 매핑할 수 있습니다. |
-| UserDomain | TII(테넌트 ID 정보)입니다. | 
+| `OfficeWorkload` | AzureActiveDirectory |
+| `RecordType`     | AzureActiveDirectoryAccountLogon |
+| `Application` | Office 15 등의 계정 로그인 이벤트를 트리거하는 애플리케이션입니다. |
+| `Client` | 계정 로그인 이벤트에 사용된 클라이언트 디바이스, 디바이스 OS 및 디바이스 브라우저에 대한 세부 정보입니다. |
+| `LoginStatus` | OrgIdLogon.LoginStatus에서 직접 생성되는 속성입니다. 알림 알고리즘을 사용하면 로그온 실패를 다양한 방식으로 매핑할 수 있습니다. |
+| `UserDomain` | TII(테넌트 ID 정보)입니다. | 
 
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
 이러한 레코드는 Azure Active Directory 개체를 추가하거나 변경할 때 생성됩니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectory |
@@ -617,7 +617,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 레코드는 Exchange 구성을 변경하면 생성됩니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeAdmin |
@@ -655,7 +655,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 레코드는 사서함 감사 항목을 만들면 생성됩니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeItem |
@@ -740,7 +740,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 테이블은 이 솔루션에 의해 수집된 업데이트 레코드에 대한 샘플 로그 검색을 제공합니다.
 
-| Query | 설명 |
+| Query | Description |
 | --- | --- |
 |Office 365 구독의 모든 작업 수 |OfficeActivity &#124; summarize count() by Operation |
 |SharePoint 사이트 사용량|OfficeActivity &#124; where OfficeWorkload =~ "sharepoint" &#124; summarize count() by SiteUrl \| sort by Count asc|

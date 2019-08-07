@@ -1,6 +1,6 @@
 ---
-title: Azure Cloud Shell의 Bash에 대한 파일 유지 | Microsoft Docs
-description: Azure Cloud Shell의 Bash가 파일을 유지하는 방법에 대한 연습입니다.
+title: Azure Cloud Shell에 파일 보관 | Microsoft Docs
+description: Azure Cloud Shell에서 파일을 유지하는 방법의 연습입니다.
 services: azure
 documentationcenter: ''
 author: maertendMSFT
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: damaerte
-ms.openlocfilehash: 0aa00af543a3d21db9b8ad0ed808a8bff0b534e1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f60125123d019cbfa93bfc1b06da7ac90b54e311
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60200270"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742030"
 ---
 [!INCLUDE [PersistingStorage-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
@@ -70,12 +70,12 @@ clouddrive mount -s mySubscription -g myRG -n storageAccountName -f fileShareNam
 ![‘clouddrive unmount’ 명령 실행](media/persisting-shell-storage/unmount-h.png)
 
 > [!WARNING]
-> 이 명령을 실행해도 리소스가 삭제되는 것은 아니지만 Cloud Shell에 매핑된 리소스 그룹, 저장소 계정 또는 파일 공유를 수동으로 삭제하면 `$Home` 디렉터리 디스크 이미지 및 파일 공유의 모든 파일이 지워집니다. 이 작업은 취소할 수 없습니다.
+> 이 명령을 실행해도 리소스가 삭제되는 것은 아니지만 Cloud Shell에 매핑된 리소스 그룹, 저장소 계정 또는 파일 공유를 수동으로 삭제하면 `$Home` 디렉터리 디스크 이미지 및 파일 공유의 모든 파일이 지워집니다. 이 작업은 실행 취소할 수 없습니다.
 
 ### <a name="list-clouddrive"></a>목록 `clouddrive`
 `clouddrive`로 마운트된 파일 공유를 확인하려면 `df` 명령을 실행합니다. 
 
-clouddrive에 대한 파일 경로는 URL에서 저장소 계정 이름 및 파일 공유를 표시합니다. 예를 들어 `//storageaccountname.file.core.windows.net/filesharename`
+clouddrive에 대한 파일 경로는 URL에서 저장소 계정 이름 및 파일 공유를 표시합니다. 예를 들면 `//storageaccountname.file.core.windows.net/filesharename`
 
 ```
 justin@Azure:~$ df

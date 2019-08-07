@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 974243da07a2570e851b7d44eac2556c201c2782
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 3c81ec5e213364ed6f159fd20e12879a098caad4
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678521"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774982"
 ---
 # <a name="mapping-data-flow-select-transformation"></a>데이터 흐름 매핑 선택 변환
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
@@ -35,6 +35,8 @@ ms.locfileid: "68678521"
 * 입력 또는 출력 메타 데이터에서 중복 열을 제거 하려면 중복 건너뛰기를 선택 합니다.
 
 ![중복 항목 건너뛰기](media/data-flow/select-skip-dup.png "중복 항목 건너뛰기")
+
+* 중복 항목을 건너뛰도록 선택 하면 검사 탭에 결과가 표시 됩니다. ADF는 처음 발견 되는 열을 유지 하 고 동일한 열의 각 후속 항목이 흐름에서 제거 되었음을 알 수 있습니다.
 
 > [!NOTE]
 > 매핑 규칙을 지우려면 **다시 설정** 단추를 누릅니다.

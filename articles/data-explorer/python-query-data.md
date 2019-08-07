@@ -1,26 +1,26 @@
 ---
-title: '빠른 시작: Azure Data Explorer Python 라이브러리를 사용하여 데이터 쿼리'
-description: 이 빠른 시작에서는 Python을 사용하여 Azure 데이터 탐색기에서 데이터를 쿼리하는 방법을 알아봅니다.
+title: Azure Data Explorer Python 라이브러리를 사용하여 데이터 쿼리
+description: 이 문서에서는 Python을 사용 하 여 Azure 데이터 탐색기에서 데이터를 쿼리 하는 방법에 대해 알아봅니다.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 10/16/2018
-ms.openlocfilehash: 253629bab6b0985ab8f540c653f3671c49e6d278
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
-ms.translationtype: HT
+ms.topic: conceptual
+ms.date: 08/05/2019
+ms.openlocfilehash: 2c32e67bb2b47a24036a341ea4e1b83037abbaee
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360227"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827522"
 ---
-# <a name="quickstart-query-data-using-the-azure-data-explorer-python-library"></a>빠른 시작: Azure Data Explorer Python 라이브러리를 사용하여 데이터 쿼리
+# <a name="query-data-using-the-azure-data-explorer-python-library"></a>Azure Data Explorer Python 라이브러리를 사용하여 데이터 쿼리
 
-Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능한 빠르고 확장성이 우수한 데이터 탐색 서비스입니다. Azure 데이터 탐색기는 [Python에 대한 데이터 클라이언트 라이브러리](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data)를 제공합니다. 이 라이브러리를 사용하여 코드에서 데이터를 쿼리할 수 있습니다. 이 빠른 시작에서는 학습을 지원하기 위해 설정한 ‘도움말 클러스터’에 대한 테이블에 연결합니다.  그런 다음, 해당 클러스터에 대한 테이블을 쿼리하고 결과를 반환합니다.
+Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능한 빠르고 확장성이 우수한 데이터 탐색 서비스입니다. Azure 데이터 탐색기는 [Python에 대한 데이터 클라이언트 라이브러리](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data)를 제공합니다. 이 라이브러리를 사용하여 코드에서 데이터를 쿼리할 수 있습니다. 이 문서에서는 학습을 지원 하기 위해 설정한 *도움말 클러스터* 의 테이블에 연결 합니다. 그런 다음, 해당 클러스터에 대한 테이블을 쿼리하고 결과를 반환합니다.
 
-이 빠른 시작은 [Azure Notebook](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueryKusto.ipynb)으로 사용할 수도 있습니다.
+이 문서는 [Azure 노트북](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueryKusto.ipynb)으로도 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * AAD(Azure Active Directory)의 멤버인 조직 메일 계정
 
@@ -75,7 +75,7 @@ KCSB.authority_id = AAD_TENANT_ID
 
 ## <a name="connect-to-azure-data-explorer-and-execute-a-query"></a>Azure 데이터 탐색기에 연결하고 쿼리 실행
 
-클러스터에 대해 쿼리를 실행하고 출력을 데이터 프레임에 저장합니다. 이 코드를 실행하면 다음과 같은 메시지가 반환됩니다. 로그인하려면 웹 브라우저를 사용하여 https://microsoft.com/devicelogin 페이지를 열고 F3W4VWZDM 코드를 입력하여 인증하세요.  단계에 따라 로그인한 후 돌아가서 다음 코드 블록을 실행합니다.
+클러스터에 대해 쿼리를 실행하고 출력을 데이터 프레임에 저장합니다. 이 코드를 실행하면 다음과 같은 메시지가 반환됩니다. 로그인하려면 웹 브라우저를 사용하여 https://microsoft.com/devicelogin 페이지를 열고 F3W4VWZDM 코드를 입력하여 인증하세요. 단계에 따라 로그인한 후 돌아가서 다음 코드 블록을 실행합니다.
 
 ```python
 KUSTO_CLIENT = KustoClient(KCSB)
@@ -98,4 +98,4 @@ StormEvents 테이블의 상위 10개 결과가 표시됩니다.
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [빠른 시작: Azure Data Explorer Python 라이브러리를 사용하여 데이터 수집](python-ingest-data.md)
+> [Azure Data Explorer Python 라이브러리를 사용하여 데이터 수집](python-ingest-data.md)

@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 82d3656e0adc03157de57b700f8f0be6bde1f2ee
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 59ce6719c117db53b02ed6594de219010ee08ee6
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663484"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828223"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning 서비스 작동 방법: 아키텍처 및 개념
 
@@ -40,13 +40,13 @@ Machine learning 모델 워크플로는 일반적으로 다음과 같은 순서�
 
 1. **모니터** -학습 데이터 집합 및 배포 된 모델의 유추 데이터 간의 **데이터 드리프트** 를 모니터링 합니다. 필요한 경우 1 단계를 반복 하 여 새 학습 데이터로 모델을 다시 학습.
 
-## <a name="tools-for-azure-machine-learning"></a>Azure Machine Learning 도구 
+## <a name="tools-for-azure-machine-learning"></a>Azure Machine Learning 도구
 
 Azure Machine Learning 다음 도구를 사용 합니다.
 
 +  [Python 용 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)를 사용 하 여 python 환경에서 서비스와 상호 작용 합니다.
 + [AZURE MACHINE LEARNING CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)를 사용 하 여 기계 학습 작업을 자동화 합니다.
-+ [Azure Machine Learning VS Code 확장](how-to-vscode-tools.md) 을 사용 하 여 Visual Studio Code에 코드 작성 
++ [Azure Machine Learning VS Code 확장](how-to-vscode-tools.md) 을 사용 하 여 Visual Studio Code에 코드 작성
 + [Azure Machine Learning 서비스에 대 한 시각적 인터페이스 (미리 보기)](ui-concept-visual-interface.md) 를 사용 하 여 코드를 작성 하지 않고 워크플로 단계를 수행 합니다.
 
 ## <a name="glossary-of-concepts"></a>개념 용어집
@@ -87,7 +87,7 @@ Azure Machine Learning 다음 도구를 사용 합니다.
 
 실험은 지정된 스크립트의 많은 실행을 그룹화한 것입니다. 실험은 항상 작업 영역에 속합니다. 실행을 제출할 때 실험 이름을 제공합니다. 실행에 대한 정보는 해당 실험 아래에 저장됩니다. 실행을 제출하고 존재하지 않는 실험 이름을 지정하면 새로 지정된 해당 이름을 가진 새 실험이 자동으로 생성됩니다.
 
-실험을 사용하는 예제는 [빠른 시작: Azure Machine Learning Service 시작](quickstart-run-cloud-notebook.md)을 참조하세요.
+실험을 사용 하는 예제를 보려면 [자습서: 첫 번째 모델](tutorial-1st-experiment-sdk-train.md)을 학습 합니다.
 
 ### <a name="models"></a>모델
 
@@ -132,9 +132,9 @@ Azure Machine Learning Service는 프레임워크에 관계없이 사용할 수 
 
 ### <a name="compute-targets"></a>컴퓨팅 대상
 
-[계산 대상을](concept-compute-target.md) 사용 하면 학습 스크립트를 실행 하거나 서비스 배포를 호스트 하는 계산 리소스를 지정할 수 있습니다. 이 위치는 로컬 컴퓨터 또는 클라우드 기반 계산 리소스 일 수 있습니다. 계산 대상을 사용 하면 코드를 변경 하지 않고도 계산 환경을 쉽게 변경할 수 있습니다. 
+[계산 대상을](concept-compute-target.md) 사용 하면 학습 스크립트를 실행 하거나 서비스 배포를 호스트 하는 계산 리소스를 지정할 수 있습니다. 이 위치는 로컬 컴퓨터 또는 클라우드 기반 계산 리소스 일 수 있습니다. 계산 대상을 사용 하면 코드를 변경 하지 않고도 계산 환경을 쉽게 변경할 수 있습니다.
 
-[학습 및 배포에 사용할 수 있는 계산 대상](concept-compute-target.md)에 대해 자세히 알아보세요. 
+[학습 및 배포에 사용할 수 있는 계산 대상](concept-compute-target.md)에 대해 자세히 알아보세요.
 
 ### <a name="training-scripts"></a>교육 스크립트
 
@@ -153,7 +153,6 @@ Azure Machine Learning Service는 프레임워크에 관계없이 사용할 수 
 
 모델을 학습시키기 위해 스크립트를 제출할 때 모델을 생성합니다. 실행에는 0개 이상의 자식 실행이 포함될 수 있습니다. 예를 들어 최상위 실행에는 두 개의 자식 실행이 포함될 수 있고, 각 자식 실행에는 자체 자식 실행이 포함될 수 있습니다.
 
-모델 학습을 통해 생성된 실행 보기 예제는 [빠른 시작: Azure Machine Learning Service 시작](quickstart-run-cloud-notebook.md)을 참조하세요.
 
 ### <a name="github-tracking-and-integration"></a>GitHub 추적 및 통합
 
@@ -222,7 +221,9 @@ Azure IoT Edge는 모듈이 실행 중인지 확인하고 모듈을 호스트 �
 
 ### <a name="ml-pipelines"></a>ML 파이프라인
 
-기계 학습 파이프라인을 사용하여 기계 학습 단계를 연결하는 워크플로를 만들고 관리합니다. 예를 들어 파이프라인에는 데이터 준비, 모델 학습, 모델 배포 및 유추/점수 매기기 단계가 포함 될 수 있습니다. 각 단계(phase)는 각각 다양한 컴퓨팅 대상에서 자동으로 실행될 수 있는 여러 단계(step)를 포함할 수 있습니다.
+기계 학습 파이프라인을 사용하여 기계 학습 단계를 연결하는 워크플로를 만들고 관리합니다. 예를 들어 파이프라인에는 데이터 준비, 모델 학습, 모델 배포 및 유추/점수 매기기 단계가 포함 될 수 있습니다. 각 단계(phase)는 각각 다양한 컴퓨팅 대상에서 자동으로 실행될 수 있는 여러 단계(step)를 포함할 수 있습니다. 
+
+파이프라인 단계는 다시 사용할 수 있으며 해당 단계의 출력이 변경 되지 않은 경우 후속 단계를 다시 실행 하지 않고 실행할 수 있습니다. 예를 들어 데이터가 변경 되지 않은 경우 비용이 많이 드는 데이터 준비 단계를 다시 실행 하지 않고 모델을 다시 학습 수 있습니다. 파이프라인을 사용 하면 기계 학습 워크플로의 개별 영역에서 작업 하는 동안 데이터 과학자 공동 작업을 수행할 수 있습니다.
 
 이 서비스를 사용한 기계 학습 파이프라인에 대한 자세한 내용은 [파이프라인 및 Azure Machine Learning](concept-ml-pipelines.md)를 참조하세요.
 

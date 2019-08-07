@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e58762bd5bf4342804767a200c94b432dd152a0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e5dc1c3fb7ae12c36a8c1fe383290435c03ee0c4
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562226"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741382"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>방법: Azure AD 조인 구현 계획
 
@@ -68,7 +68,11 @@ Azure AD 조인은 관리 환경 및 페더레이션 환경 모두에서 작동�
 페더레이션 환경은 WS-Trust 및 WS-Fed 프로토콜을 지원하는 ID 공급자가 있어야 합니다.
 
 - **WS-Fed:** 이 프로토콜은 디바이스를 Azure AD에 조인하는 데 필요합니다.
-- **WS-Trust:** 이 프로토콜은 Azure AD 조인 디바이스에 로그인하는 데 필요합니다. 
+- **WS-Trust:** 이 프로토콜은 Azure AD 조인 디바이스에 로그인하는 데 필요합니다.
+AD FS를 사용 하는 경우 다음 WS-TRUST 끝점을 사용 하도록 설정 해야 합니다.`/adfs/services/trust/2005/usernamemixed`
+ `/adfs/services/trust/13/usernamemixed`
+ `/adfs/services/trust/2005/certificatemixed`
+ `/adfs/services/trust/13/certificatemixed`
 
 ID 공급자가 이러한 프로토콜을 지원하지 않는 경우 Azure AD 조인이 기본적으로 작동하지 않습니다. Windows 10 1809부터는 사용자가 [Windows 10의 웹 로그인](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10)을 통해 Azure AD 조인 디바이스에 SAML 기반 ID 공급자로 로그인할 수 있습니다. 현재 웹 로그인은 미리 보기 기능이 며 프로덕션 배포에는 권장 되지 않습니다.
 

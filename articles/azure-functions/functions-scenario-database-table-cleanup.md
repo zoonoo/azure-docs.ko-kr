@@ -11,20 +11,20 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: glenga
-ms.openlocfilehash: 19a5fe4c087d477ff15d2237a36d1c4ecaa0e070
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f81337cea3ece822ea05bcc94f4e05d6e177bf93
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65908143"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68735593"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Azure Functions를 사용하여 Azure SQL Database에 연결
 
-이 문서에서는 Azure Functions를 사용하여 Azure SQL Database 인스턴스에 연결되는 예약된 작업을 만드는 방법을 보여줍니다. 함수 코드는 데이터베이스의 테이블에 있는 행을 정리합니다. 새 C# 함수는 Visual Studio 2019에 미리 정의 된 타이머 트리거 템플릿을 기반으로 만들어집니다. 이 시나리오를 지원하려면 함수 앱에서 데이터베이스 연결 문자열을 앱 설정으로 설정해야 합니다. 이 시나리오는 데이터베이스에 대한 대량 작업을 사용합니다. 
+이 문서에서는 Azure Functions를 사용하여 Azure SQL Database 인스턴스에 연결되는 예약된 작업을 만드는 방법을 보여줍니다. 함수 코드는 데이터베이스의 테이블에 있는 행을 정리합니다. 새 C# 함수는 Visual Studio 2019의 미리 정의 된 타이머 트리거 템플릿을 기반으로 생성 됩니다. 이 시나리오를 지원하려면 함수 앱에서 데이터베이스 연결 문자열을 앱 설정으로 설정해야 합니다. 이 시나리오는 데이터베이스에 대한 대량 작업을 사용합니다. 
 
 C# 함수를 처음 사용하는 경우 [Azure Functions C# 개발자 참조](functions-dotnet-class-library.md)를 참고해야 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 + [Visual Studio를 사용하여 첫 번째 함수 만들기](functions-create-your-first-function-visual-studio.md) 문서의 단계를 완료하여 버전 2.x 런타임을 대상으로 하는 로컬 함수 앱을 만듭니다. 또한 프로젝트를 Azure의 함수 앱에 게시했어야 합니다.
 
@@ -64,7 +64,7 @@ C# 함수를 처음 사용하는 경우 [Azure Functions C# 개발자 참조](fu
 
 SqlClient 라이브러리를 포함하는 NuGet 패키지를 추가해야 합니다. 이 데이터 액세스 라이브러리는 SQL 데이터베이스에 연결하는 데 필요합니다.
 
-1. Visual Studio 2019에 로컬 함수 앱 프로젝트를 엽니다.
+1. Visual Studio 2019에서 로컬 함수 앱 프로젝트를 엽니다.
 
 1. 솔루션 탐색기에서 함수 앱 프로젝트를 마우스 오른쪽 단추로 클릭하고, **NuGet 패키지 관리**를 선택합니다.
 
@@ -127,7 +127,7 @@ SqlClient 라이브러리를 포함하는 NuGet 패키지를 추가해야 합니
 
     첫 번째 실행에서 32개 행의 데이터를 업데이트해야 합니다. 다음 실행은 데이터 행을 업데이트하지 않습니다. 따라서 SalesOrderHeader 테이블 데이터를 변경하지 않으면 `UPDATE` 문에 의해 더 많은 행이 선택됩니다.
 
-[이 함수를 게시](functions-develop-vs.md#publish-to-azure)하려는 경우 `TimerTrigger` 특성을 15초 간격보다 적절한 [cron 일정](functions-bindings-timer.md#cron-expressions)으로 변경해야 합니다.
+[이 함수를 게시](functions-develop-vs.md#publish-to-azure)하려는 경우 `TimerTrigger` 특성을 15초 간격보다 적절한 [cron 일정](functions-bindings-timer.md#ncrontab-expressions)으로 변경해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

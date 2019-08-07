@@ -6,14 +6,14 @@ author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 07/16/2019
+ms.date: 08/02/2019
 ms.author: banders
-ms.openlocfilehash: 40ccee7a993ce39a9b4c7a86309b0554daa56026
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: f122ec2474c09cdd6c9ada4ddc59b1adb44f619f
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68298270"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780025"
 ---
 # <a name="prepay-for-azure-app-service-isolated-stamp-fee-with-reserved-capacity"></a>예약 된 용량에 대 한 Azure App Service 격리 된 스탬프 요금 선불
 
@@ -47,7 +47,7 @@ ms.locfileid: "68298270"
 **구입 하려면:**
 
 1. [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22AppService%22%7D)로 이동 합니다.
-1. 구독을 선택합니다. **구독** 목록을 사용 하 여 예약 된 용량에 대 한 비용을 지불 하는 데 사용 되는 구독을 선택 합니다. 구독의 지불 방법에는 예약 된 용량에 대 한 선행 비용이 청구 됩니다. 구독 유형은 기업계약(제안 번호: MS-AZR-0017P 또는 MS-AZR-0148P) 또는 종량제(제안 번호: MS-AZR-0017P-0003P 또는 MS-AZR-0017P-0023P) 또는 CSP 구독.
+1. 구독 선택 **구독** 목록을 사용 하 여 예약 된 용량에 대 한 비용을 지불 하는 데 사용 되는 구독을 선택 합니다. 구독의 지불 방법에는 예약 된 용량에 대 한 선행 비용이 청구 됩니다. 구독 유형은 기업계약(제안 번호: MS-AZR-0017P 또는 MS-AZR-0148P) 또는 종량제(제안 번호: MS-AZR-0017P-0003P 또는 MS-AZR-0017P-0023P) 또는 CSP 구독.
     - Enterprise 구독에 대한 요금은 등록의 금액 약정 잔액에서 차감되거나 초과 비용으로 청구됩니다.
     - 종량제 구독에 대한 요금은 신용 카드 또는 구독 시 선택한 청구서 결제 방법으로 청구됩니다.
 1. **범위** 를 선택 하 여 구독 범위를 선택 합니다.
@@ -62,13 +62,9 @@ ms.locfileid: "68298270"
 
 구매 후에는 [예약](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) 으로 이동 하 여 구매 상태를 확인 하 고 언제 든 지 모니터링할 수 있습니다.
 
-## <a name="cancellations-and-exchanges"></a>취소 및 교환
+## <a name="cancel-exchange-or-refund-reservations"></a>취소, 교환 또는 환불 예약
 
-격리 된 스탬프 예약 용량을 취소 해야 하는 경우 12% 조기 종료 요금이 있을 수 있습니다. 환불은 구매 가격 또는 예약의 현재 가격 중 최저 가격을 기준으로 합니다. 환불은 연간 $50000.00 개로 제한 됩니다. 지불 하는 환불은 남은 비례 잔액에서 12% 조기 종료 요금을 뺀 값입니다. 취소 하려면 Azure Portal 예약으로 이동 하 여 **환불**을 선택 합니다.
-
-격리 된 스탬프 예약 용량을 다른 지역으로 이동 해야 하는 경우 값이 같거나 큰 다른 예약에 대해 교환할 수 있습니다. 새 예약에 대한 기간 시작일은 교환된 예약에서 수행되지 않습니다. 3 년 이라는 용어는 새 예약을 만들 때 시작 됩니다. Exchange로 이동 하려면 Azure Portal로 이동 하 여 exchange에서 사용할 예약을 선택 하 고 **exchange**를 선택 합니다.
-
-예약을 교환 하거나 환불 하는 방법에 대 한 자세한 내용은 [예약 교환 및 환불](billing-azure-reservations-self-service-exchange-and-refund.md)을 참조 하세요.
+특정 제한 사항을 사용 하 여 예약을 취소, 교환 또는 환불 할 수 있습니다. 자세한 내용은 [셀프 서비스 교환 및 Azure Reservations에 대 한 환불](billing-azure-reservations-self-service-exchange-and-refund.md)를 참조 하세요.
 
 ## <a name="discount-application-shown-in-usage-data"></a>사용 현황 데이터에 표시 된 할인 응용 프로그램
 

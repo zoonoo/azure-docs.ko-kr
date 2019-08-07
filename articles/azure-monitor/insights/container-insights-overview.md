@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/22/2019
+ms.date: 08/02/2019
 ms.author: magoedte
-ms.openlocfilehash: 96a312630c92048f36f79e3bec18f83ed5a445ff
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: e1fca1532352c4955f478df70f818ee3151053c1
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414140"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742200"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>컨테이너용 Azure Monitor 개요
 
@@ -40,9 +40,11 @@ ms.locfileid: "68414140"
 * 노드나 컨테이너의 CPU 및 메모리 사용률이 임계값을 초과 하는 경우 사전에 알리도록 경고를 구성 하거나 기록 합니다.
 * [프로메테우스](https://prometheus.io/docs/introduction/overview/) 와 통합 하 여 사용자 지정 경고, 대시보드 및 자세한 분석을 만드는 [쿼리](container-insights-log-search.md) 를 사용 하 여 노드 및 Kubernetes에서 수집한 응용 프로그램 및 워크 로드 메트릭을 볼 수 있습니다.
 
->[!NOTE]
->프로메테우스에 대 한 지원은 현재 공개 미리 보기의 기능입니다.
->
+    >[!NOTE]
+    >프로메테우스에 대 한 지원은 현재 공개 미리 보기의 기능입니다.
+    >
+
+* [AKS에 배포](https://github.com/microsoft/OMS-docker/tree/aks-engine)된 컨테이너 워크 로드를 모니터링 합니다.
 
 컨테이너에 대 한 Azure Monitor를 사용 하 여 AKS 클러스터를 모니터링 하는 방법을 알아보는 데 도움이 되는 중간 수준의 심층 정보를 제공 하는 다음 비디오를 확인 하세요.
 

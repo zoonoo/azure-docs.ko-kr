@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 162857ed1b22edf67b44cb4648607103cf733c7d
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: f4933369f20d7f39cc4718e367552bfe1d7574e8
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671835"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774352"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>포털을 사용하여 데이터 디스크를 Linux VM에 연결 
 이 문서에서는 Azure 포털을 통해 신규 및 기존 디스크를 Linux 가상 머신에 연결하는 방법을 보여줍니다. 또한 [Azure Portal에서 Windows VM에 데이터 디스크를 연결](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)할 수도 있습니다. 
@@ -100,6 +100,9 @@ dmesg | grep SCSI
 
 ### <a name="partition-a-new-disk"></a>새 디스크 분할
 데이터가 포함된 기존 디스크를 사용 중이라면 디스크 탑재 단계로 건너뜁니다. 새 디스크를 연결하는 경우에는 디스크를 분할해야 합니다.
+
+> [!NOTE]
+> 배포판에 사용할 수 있는 최신 버전의 fdisk 또는 parted를 사용 하는 것이 좋습니다.
 
 `fdisk`를 사용하여 디스크를 분할합니다. 디스크 크기가 2테비바이트(TiB) 이상이어서 GPT 분할을 사용해야 하는 경우 `parted`를 사용하여 GPT 분할을 수행할 수 있습니다. 디스크 크기가 2TiB 미만이라면 MBR 또는 GPT 분할을 사용하면 됩니다. 파티션 1에 기본 디스크를 만들고, 나머지는 기본값을 적용합니다. 다음 예제에서는 */dev/sdc*에서 `fdisk` 프로세스를 시작합니다.
 

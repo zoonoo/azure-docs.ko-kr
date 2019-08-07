@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 9d19441b2f2202573086a711c202d4b36bbee5fa
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: b1fa24f919888e4454096e1ef84d2ba2948b865a
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846141"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774287"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Azure Portal에서 Windows SQL Server 가상 머신 프로비전하는 방법
 
@@ -94,11 +94,11 @@ SQL Server 가상 컴퓨터를 구성 하는 여러 탭이 있습니다. 이 가
 * **인스턴스 세부 정보**에서
     1. 고유한 **가상 머신 이름을**입력 합니다.  
     1. **영역**에 위치를 선택합니다. 
-    1. 이 가이드의 목적에 맞게 **가용성 옵션** 을 _인프라 중복성 필요 없음_으로 설정 된 상태로 둡니다. 가용성 옵션에 대 한 자세한 내용은 [availability](../../windows/availability.md)을 참조 하세요. 
+    1. 이 가이드의 목적에 맞게 **가용성 옵션** 을 _인프라 중복성 필요 없음_으로 설정 된 상태로 둡니다. 가용성 옵션에 대한 자세한 내용을 알아보려면 [가용성](../../windows/availability.md)을 참조하세요. 
     1. **이미지** 목록에서 _무료 SQL Server 라이선스: Windows Server 2016의 SQL Server 2017 Developer_ 이미지를 선택합니다.  
     1. 가상 머신의 **크기**에서 **크기 변경**을 선택하고 **A2 Basic** 제품을 선택합니다. 리소스를 다 사용했으면 예기치 않은 요금이 청구되지 않도록 리소스를 삭제하세요. 프로덕션 워크로드의 경우 [Azure Virtual Machines의 SQL Server에 대한 성능 모범 사례](virtual-machines-windows-sql-performance.md)에서 권장하는 컴퓨터 크기 및 구성을 참조하세요.
 
-    ![인스턴스 세부 정보](media/quickstart-sql-vm-create-portal/basics-instance-details.png)
+    ![인스턴스 정보](media/quickstart-sql-vm-create-portal/basics-instance-details.png)
 
 > [!IMPORTANT]
 > **크기 선택** 창에 표시된 월별 예상 비용에는 SQL Server 라이선스 비용이 포함되지 않습니다. 이 예상 비용은 VM만의 비용입니다. SQL Server의 Express 및 개발자 버전의 경우, 이 예상 비용은 총 예상 비용입니다. 다른 버전의 경우 [Windows Virtual Machines 가격 책정 페이지](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)를 참조하여 SQL Server의 대상 버전을 선택하세요. 또한 Azure Vm 및 [가상 컴퓨터 크기](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) [SQL Server에 대 한 가격 책정 지침](virtual-machines-windows-sql-server-pricing-guidance.md) 을 참조 하세요.
@@ -112,11 +112,11 @@ SQL Server 가상 컴퓨터를 구성 하는 여러 탭이 있습니다. 이 가
    ![인바운드 포트 규칙](media/quickstart-sql-vm-create-portal/basics-inbound-port-rules.png)
 
 
-## <a name="2-configure-optional-features"></a>2. 선택적 기능 구성
+## <a name="2-configure-optional-features"></a>2. 옵션 기능 구성
 
 ### <a name="disks"></a>디스크
 
-디스크 탭 **에서** 디스크 옵션을 구성 합니다. 
+디스크 탭 에서 디스크 옵션을 구성 합니다. 
 
 * **Os 디스크 유형**의 드롭다운에서 os에 사용할 디스크 유형을 선택 합니다. 프리미엄은 프로덕션 시스템에 권장 되지만 기본 VM에는 사용할 수 없습니다. 프리미엄 SSD를 활용 하려면 가상 머신 크기를 변경 합니다. 
 * **고급**아래에서 **Managed Disks**사용에서 **예** 를 선택 합니다.
@@ -133,7 +133,7 @@ SQL Server 가상 컴퓨터를 구성 하는 여러 탭이 있습니다. 이 가
 
 * 새 **가상 네트워크**를 만들거나 SQL Server VM에 대 한 기존 vNet을 사용 합니다. **서브넷** 도 지정 합니다. 
 
-* **NIC 보안 그룹**에서 기본 보안 그룹 또는 고급 보안 그룹을 선택 합니다. 기본 옵션을 선택 하면 SQL Server VM에 대해 인바운드 포트를 선택할 수 있습니다 ( **기본** 탭에서 구성 된 것과 같은 값). 고급 옵션을 선택 하면 기존 네트워크 보안 그룹을 선택 하거나 새 그룹을 만들 수 있습니다. 
+* **NIC 네트워크 보안 그룹**에서 기본 보안 그룹 또는 고급 보안 그룹을 선택 합니다. 기본 옵션을 선택 하면 SQL Server VM에 대해 인바운드 포트를 선택할 수 있습니다 ( **기본** 탭에서 구성 된 것과 같은 값). 고급 옵션을 선택 하면 기존 네트워크 보안 그룹을 선택 하거나 새 그룹을 만들 수 있습니다. 
 
 * 네트웨크 설정을 변경해도 되고 기본 값을 그대로 유지해도 됩니다.
 
@@ -143,7 +143,7 @@ SQL Server 가상 컴퓨터를 구성 하는 여러 탭이 있습니다. 이 가
 
 **모니터링** 탭에서 모니터링 및 자동 종료를 구성 합니다. 
 
-* Azure에서는 VM에 대해 지정 된 것과 동일한 저장소 계정으로 **부팅 모니터링** 을 기본적으로 사용 하도록 설정 합니다. 여기에서 이러한 설정을 변경 하 고 **OS 게스트 진단을**사용 하도록 설정할 수 있습니다. 
+* Azure는 VM에 대해 지정 된 것과 동일한 저장소 계정을 사용 하 여 기본적으로 **부트 진단을** 사용 하도록 설정 합니다. 여기에서 이러한 설정을 변경 하 고 **OS 게스트 진단을**사용 하도록 설정할 수 있습니다. 
 * 이 탭에서 **시스템 할당 관리 id** 및 **자동 종료** 를 사용 하도록 설정할 수 있습니다. 
 
 ![SQL VM 관리 설정](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-management.png)
@@ -275,7 +275,7 @@ SQL 자동화된 백업을 사용하도록 설정하면 다음 설정을 구성�
 [SQL Server R Services (고급 분석)](/sql/advanced-analytics/r/sql-server-r-services/)를 사용 하도록 설정 하는 옵션이 있습니다. 이 옵션을 사용하면 SQL Server 2017로 고급 분석을 사용할 수 있습니다. **SQL Server 설정** 창에서 **사용** 을 선택 합니다.
 
 
-## <a name="4-review--create"></a>4. 검토 + 만들기
+## <a name="4-review--create"></a>4. 리뷰 + 만들기
 
 **검토 + 만들기** 탭에서 요약을 검토하고 **만들기**를 선택하여 이 VM에 지정된 SQL Server, 리소스 그룹 및 리소스를 만듭니다.
 

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 4888ea8473c50b8774add7a930612c585fc9cbde
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 19ccd44888d64967baf82568c1cbb2540f3b3f68
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074353"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780335"
 ---
 # <a name="azure-service-fabric-security"></a>Azure Service Fabric 보안 
 
-[Azure 보안 모범 사례](https://docs.microsoft.com/azure/security/)에 대한 자세한 내용은 [Azure Service Fabric 보안 모범 사례](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices)를 참조하세요.
+[Azure 보안 모범 사례](https://docs.microsoft.com/azure/security/)에 대한 자세한 내용은 [Azure Service Fabric 보안 모범 사례](https://docs.microsoft.com/azure/security/fundamentals/service-fabric-best-practices)를 참조하세요.
 
 ## <a name="key-vault"></a>Key Vault
 
@@ -188,7 +188,7 @@ principalid=$(az resource show --id /subscriptions/<YOUR SUBSCRIPTON>/resourceGr
 az role assignment create --assignee $principalid --role 'Contributor' --scope "/subscriptions/<YOUR SUBSCRIPTION>/resourceGroups/<YOUR RG>/providers/<PROVIDER NAME>/<RESOURCE TYPE>/<RESOURCE NAME>"
 ```
 
-Service Fabric 응용 프로그램 코드에서 [액세스 토큰을 가져올](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token#get-a-token-using-http) REST 모든 다음과 유사 하 게 하 여 Azure Resource Manager 용:
+Service Fabric 응용 프로그램 코드에서 나머지를 모두 다음과 비슷하게 만들어 Azure Resource Manager에 대 한 [액세스 토큰을 가져옵니다](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token#get-a-token-using-http) .
 
 ```bash
 access_token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true | python -c "import sys, json; print json.load(sys.stdin)['access_token']")
@@ -202,16 +202,16 @@ access_token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-v
 cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBSCRIPTION>/resourceGroups/<YOUR RG>/providers/Microsoft.DocumentDB/databaseAccounts/<YOUR ACCOUNT>/listKeys?api-version=2016-03-31' -X POST -d "" -H "Authorization: Bearer $access_token" | python -c "import sys, json; print(json.load(sys.stdin)['primaryMasterKey'])")
 ```
 ## <a name="windows-security-baselines"></a>Windows 보안 기준
-[알려진 및 초기 계획을 직접 만드는 대신 Microsoft 보안 기준, 예: 검증 광범위 하 게 되는 업계 표준 구성을 구현 하는 것이 좋습니다](https://docs.microsoft.com/windows/security/threat-protection/windows-security-baselines); 가상 컴퓨터에 이러한 프로 비전을 위한 옵션 확장 집합은 때문에 프로덕션 소프트웨어를 실행 하는 이러한 온라인으로 Vm을 구성 하려면 Azure Desired State Configuration (DSC) 확장 처리기를 사용 하는 것입니다.
+[기준을 직접 만드는 것이 아니라 Microsoft 보안 기준과 같이 널리 알려져 있고 잘 테스트 된 업계 표준 구성을 구현 하는 것이 좋습니다](https://docs.microsoft.com/windows/security/threat-protection/windows-security-baselines). Virtual Machine Scale Sets에서 프로 비전 하는 옵션은 Azure DSC (필요한 상태 구성) 확장 처리기를 사용 하 여 Vm이 온라인 상태가 되 면 프로덕션 소프트웨어를 실행 하는 Vm을 구성 하는 것입니다.
 
 ## <a name="azure-firewall"></a>Azure Firewall
-[Azure 방화벽은 Azure Virtual Network 리소스를 보호 하는 관리 되는 클라우드 기반 네트워크 보안 서비스입니다. 기본 제공 고가용성 및 무제한 클라우드 확장성을 사용 하 여 서비스 as 완벽 하 게 상태 저장 방화벽입니다. ](https://docs.microsoft.com/azure/firewall/overview);이 통해 정규화 된 도메인 이름 (FQDN)이 와일드 카드를 포함 하 여 지정 된 목록에 아웃 바운드 HTTP/S 트래픽을 제한 하는 기능입니다. 이 기능에는 SSL 종료가 필요하지 않습니다. 해당을 활용 하는 것이 좋습니다 [Azure 방화벽 FQDN 태그](https://docs.microsoft.com/azure/firewall/fqdn-tags) 끝점 방화벽을 통해 전달 될 수 있습니다 Windows 업데이트 및 Microsoft Windows Update로 네트워크 트래픽을 사용 하도록 설정 합니다. [템플릿을 사용 하 여 Azure 방화벽 배포](https://docs.microsoft.com/azure/firewall/deploy-template) Microsoft.Network/azureFirewalls 리소스 템플릿 정의 대 한 샘플을 제공 합니다. Service Fabric 응용 프로그램에 공통적으로 적용 하는 방화벽 규칙 클러스터 가상 네트워크에 대해 다음을 허용 하는 것:
+[Azure 방화벽은 Azure Virtual Network 리소스를 보호 하는 관리 되는 클라우드 기반 네트워크 보안 서비스입니다. 기본 제공 되는 고가용성 및 무제한 클라우드 확장성을 갖춘 완전 한 상태 저장 방화벽으로 서의 서비스입니다. ](https://docs.microsoft.com/azure/firewall/overview).이를 통해 와일드 카드를 포함 하 여 지정 된 FQDN (정규화 된 도메인 이름) 목록으로 아웃 바운드 HTTP/S 트래픽을 제한할 수 있습니다. 이 기능에는 SSL 종료가 필요하지 않습니다. Windows 업데이트에 대 한 [Azure 방화벽 FQDN 태그](https://docs.microsoft.com/azure/firewall/fqdn-tags) 를 활용 하 고 Microsoft Windows 업데이트 끝점에 대 한 네트워크 트래픽을 방화벽을 통해 이동할 수 있도록 하는 것이 좋습니다. [템플릿을 사용 하 여 Azure 방화벽 배포](https://docs.microsoft.com/azure/firewall/deploy-template) 리소스 템플릿 정의에 대 한 샘플을 제공 합니다. Service Fabric 응용 프로그램에 공통적인 방화벽 규칙은 클러스터 가상 네트워크에 대해 다음을 허용 하는 것입니다.
 
 - *download.microsoft.com
 - *servicefabric.azure.com
 - *.core.windows.net
 
-이러한 방화벽 규칙에 허용 된 아웃 바운드 네트워크 보안 그룹을 포함 하는 service Fabric 및 저장소, 가상 네트워크에서 허용 된 대상으로 보완 합니다.
+이러한 방화벽 규칙은 가상 네트워크에서 허용 되는 대상으로 ServiceFabric 및 Storage를 포함 하는 허용 되는 아웃 바운드 네트워크 보안 그룹을 보완 합니다.
 
 ## <a name="tls-12"></a>TLS 1.2
 [TSG](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/TLS%20Configuration.md)
@@ -251,7 +251,7 @@ cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBS
 > Windows Defender를 사용하지 않는 경우 구성 규칙에 대한 맬웨어 방지 설명서를 참조하세요. Linux에서는 Windows Defender가 지원되지 않습니다.
 
 ## <a name="platform-isolation"></a>플랫폼 격리
-기본적으로 Service Fabric 응용 프로그램에는 다양 한 형태로 매니페스트 자체 Service Fabric 런타임 자체에 대 한 액세스 부여 됩니다. [환경 변수](service-fabric-environment-variables-reference.md) 응용 프로그램에 해당 하는 호스트의 파일 경로 가리키는 및 Fabric 파일, 응용 프로그램별 요청 및 클라이언트를 허용 하는 프로세스 간 통신 끝점 Fabric 응용 프로그램이 자신을 인증 하는 데 필요한 인증서입니다. 대비 하 여 서비스를 자체 호스팅하는 신뢰할 수 없는 코드를 명시적으로 필요한 경우를 제외 SF 런타임에 대 한이 액세스를 사용 하지 않도록 설정 하는 것이 좋습니다. 런타임에 대 한 액세스는 응용 프로그램 매니페스트의 정책 섹션에서 다음과 같은 선언을 사용 하 여 제거 됩니다. 
+기본적으로 Service Fabric 응용 프로그램에는 Service Fabric 런타임 자체에 대 한 액세스 권한이 부여 됩니다 .이는 다른 형식으로 매니페스트 됩니다. 환경 변수는 응용 프로그램 및 패브릭 파일에 해당 하는 호스트의 파일 경로를 가리키는 [환경 변수](service-fabric-environment-variables-reference.md) 입니다. 응용 프로그램 관련 요청을 수락 하는 프로세스 간 통신 끝점과 패브릭에서 응용 프로그램이 자신을 인증 하는 데 사용 해야 하는 클라이언트 인증서입니다. 서비스에서 신뢰 하지 않는 코드를 대비해 야 하는 경우 명시적으로 필요 하지 않은 경우에는 SF 런타임에 대 한이 액세스를 사용 하지 않도록 설정 하는 것이 좋습니다. 응용 프로그램 매니페스트의 정책 섹션에서 다음 선언을 사용 하 여 런타임에 대 한 액세스를 제거 합니다. 
 
 ```xml
 <ServiceManifestImport>

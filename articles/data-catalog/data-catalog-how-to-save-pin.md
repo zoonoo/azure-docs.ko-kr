@@ -1,19 +1,17 @@
 ---
 title: Azure Data Catalog에서 검색 저장 및 데이터 자산 고정
 description: 데이터 원본을 저장하기 위한 Azure 데이터 카탈로그 및 나중에 사용하기 위한 데이터 자산의 기능을 강조 표시하는 방법 문서입니다.
-services: data-catalog
 author: JasonWHowell
 ms.author: jasonh
-ms.assetid: 6bd00a81-820d-4b7c-91fa-ab09e575474c
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: df3220ddb80ebc329ed6b0024ca4eefd2bdfb321
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/01/2019
+ms.openlocfilehash: 8e2a98748f4fef69b4fd6e3b32d15560641a6336
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61002065"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68737049"
 ---
 # <a name="save-searches-and-pin-data-assets-in-azure-data-catalog"></a>Azure Data Catalog에서 검색 저장 및 데이터 자산 고정
 ## <a name="introduction"></a>소개

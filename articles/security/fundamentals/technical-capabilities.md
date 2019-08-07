@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/31/2019
 ms.author: TomSh
-ms.openlocfilehash: 688492188bb8a29e33568011c2cf75439ca5f4af
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: fbce475e1f783595fb67e62e15d5a503a4c687ed
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726661"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780590"
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure 보안 기술 기능
 이 문서에서는 클라우드에서 데이터, 리소스 및 응용 프로그램을 보호 하 고 비즈니스의 보안 요구를 충족 하는 데 도움이 되는 Azure의 보안 서비스에 대해 소개 합니다.
@@ -331,7 +331,7 @@ Azure가 애플리케이션이 실행되는 인프라 및 플랫폼의 보안을
 
 - [하이브리드 연결을 사용하여 프라이빗 네트워크의 리소스로 안전하게 앱 연결](https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections)
 
-Azure App Service는 Azure Cloud Services 및 Virtual Machines에서 사용하는 것과 동일한 맬웨어 방지 솔루션을 사용합니다. 자세한 내용은 [맬웨어 방지 설명서](https://docs.microsoft.com/azure/security/azure-security-antimalware)
+Azure App Service는 Azure Cloud Services 및 Virtual Machines에서 사용하는 것과 동일한 맬웨어 방지 솔루션을 사용합니다. 자세한 내용은 [맬웨어 방지 설명서](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
 
 ## <a name="secure-your-network"></a>네트워크 보호
 Microsoft Azure에는 사용자의 애플리케이션과 서비스 연결 요구 사항을 지원하기 위한 강력한 네트워킹 인프라가 포함되어 있습니다. 네트워크 연결은 Azure에 위치한 리소스 간, 온-프레미스와 Azure 호스팅 리소스 간, 그리고 인터넷과 Azure 간에 가능합니다.
@@ -352,7 +352,7 @@ Azure는 온-프레미스 네트워크에 대한 전용 WAN 링크 연결과 [Ex
 
 [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/)를 사용하면 다양한 컴퓨팅 솔루션을 민첩하게 배포할 수 있습니다. Microsoft Windows, Linux, Microsoft SQL Server, Oracle, IBM, SAP 및 Azure BizTalk Services 지원을 통해 거의 모든 운영 체제에 모든 작업과 언어를 배포할 수 있습니다.
 
-Azure를 통해 가상 머신을 악성 파일, 애드웨어 및 기타 위협으로부터 보호할 수 있도록 Microsoft, Symantec, Trend Micro 및 Kaspersky 등의 보안 공급업체의 [맬웨어 방지 소프트웨어](https://docs.microsoft.com/azure/security/azure-security-antimalware)를 사용할 수 있습니다.
+Azure를 통해 가상 머신을 악성 파일, 애드웨어 및 기타 위협으로부터 보호할 수 있도록 Microsoft, Symantec, Trend Micro 및 Kaspersky 등의 보안 공급업체의 [맬웨어 방지 소프트웨어](https://docs.microsoft.com/azure/security/fundamentals/antimalware)를 사용할 수 있습니다.
 
 Azure Cloud Services 및 Virtual Machines를 위한 Microsoft 맬웨어 방지 프로그램은 바이러스, 스파이웨어 및 기타 악성 소프트웨어를 식별 및 제거하는 데 도움이 되는 실시간 보호 기능입니다. Microsoft 맬웨어 방지 프로그램은 알려진 악성 또는 원치 않는 소프트웨어가 Azure 시스템에서 스스로의 설치나 실행을 시도할 때 구성 가능한 경고를 제공합니다.
 
@@ -382,7 +382,7 @@ Microsoft는 조직이 클라우드로의 전환을 고려할 때 실사 작업�
 
 ## <a name="azure-infrastructure-and-application-security-validation"></a>Azure 인프라 및 응용 프로그램 보안 유효성 검사
 
-[Azure 운영 보안](https://docs.microsoft.com/azure/security/azure-operational-security)은 사용자가 Microsoft Azure에서 자신의 데이터, 애플리케이션 및 기타 자산을 보호할 수 있는 서비스, 제어 및 기능을 나타냅니다.
+[Azure 운영 보안] 사용자가 Microsoft Azure에서 데이터, 응용 프로그램 및 기타 자산을 보호 하는 데 사용할 수 있는 서비스, 제어 및 기능을나타냅니다. https://docs.microsoft.com/azure/security/fundamentals/operational-security
 
 ![보안 유효성 검사(검색)](./media/technical-capabilities/azure-security-technical-capabilities-fig7.png)
 

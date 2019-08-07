@@ -2,17 +2,17 @@
 title: Windows 가상 데스크톱 테 넌 트 및 호스트 풀 만들기-Azure
 description: Windows 가상 데스크톱 테 넌 트 환경을 설치 하는 동안 테 넌 트 및 호스트 풀 문제를 해결 하는 방법입니다.
 services: virtual-desktop
-author: ChJenk
+author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 07/10/2019
-ms.author: v-chjenk
-ms.openlocfilehash: 9e58c3bfc0e74f9aac61085608a843954b0923c0
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.author: helohr
+ms.openlocfilehash: 7ab8ec9536af74102d2c9384ea3d0d0503f58f63
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249550"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816486"
 ---
 # <a name="tenant-and-host-pool-creation"></a>테넌트 및 호스트 풀 만들기
 
@@ -330,7 +330,7 @@ New-RdsRoleAssignment -TenantName <Windows Virtual Desktop tenant name> -RoleDef
 
 Azure Marketplace 제공을 실행 하는 경우 다음 매개 변수에 대 한 값을 제공 하 여 Windows 가상 데스크톱에 올바르게 인증 합니다.
 
-- Windows 가상 데스크톱 테 넌 트 RDS 소유자: 서비스 주체
+- Windows 가상 데스크톱 테 넌 트 RDS 소유자: 서비스 사용자
 - 애플리케이션 ID: 만든 새 서비스 주체의 응용 프로그램 id
 - 암호/암호 확인: 서비스 사용자에 대해 생성 한 암호 암호입니다.
 - Azure AD 테 넌 트 ID: 만든 서비스 사용자의 Azure AD 테 넌 트 ID

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: article
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 849065460acda36426f8a594a984ad1cc8590c34
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 323470adfe56ee20fe0fb64aeba38b6af4330351
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688828"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827589"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Azure Backup를 사용 하 여 SQL Server 데이터베이스 백업 문제 해결
 
@@ -29,7 +29,7 @@ ms.locfileid: "68688828"
 
 ### <a name="backup-type-unsupported"></a>백업 유형이 지원되지 않습니다
 
-| Severity | Description | 가능한 원인 | 권장 조치 |
+| Severity | 설명 | 가능한 원인 | 권장 조치 |
 |---|---|---|---|
 | 경고 | 이 데이터베이스의 현재 설정은 연결 된 정책에 있는 특정 백업 유형을 지원 하지 않습니다. | <li>Master 데이터베이스에서는 전체 데이터베이스 백업 작업만 수행할 수 있습니다. 차등 백업과 트랜잭션 로그 백업은 모두 사용할 수 없습니다. </li> <li>단순 복구 모델의 모든 데이터베이스는 트랜잭션 로그의 백업을 허용 하지 않습니다.</li> | 정책의 모든 백업 유형이 지원되도록 데이터베이스 설정을 수정합니다. 또는 지원 되는 백업 유형만 포함 하도록 현재 정책을 변경 합니다. 그렇지 않으면 예약 된 백업 중에 지원 되지 않는 백업 유형을 건너뛰지 않으며 임시 백업에 대 한 백업 작업이 실패 합니다.
 
@@ -119,6 +119,19 @@ ms.locfileid: "68688828"
 | 오류 메시지 | 가능한 원인 | 권장 조치 |
 |---|---|---|
 | 자동 보호 의도가 제거되었거나 더 이상 유효하지 않습니다. | SQL Server 인스턴스에서 자동 보호를 사용 하도록 설정 하는 경우 해당 인스턴스의 모든 데이터베이스에 대해 백업 작업을 실행 하도록 **구성** 합니다. 작업을 실행하는 동안 자동 보호를 사용하지 않도록 설정하는 경우 **In-Progress** 작업이 이 오류 코드로 취소됩니다. | 나머지 데이터베이스를 모두 보호 하려면 자동 보호를 다시 사용 하도록 설정 합니다. |
+
+### <a name="clouddosabsolutelimitreached"></a>CloudDosAbsoluteLimitReached
+
+| 오류 메시지 | 가능한 원인 | 권장 조치 |
+|---|---|---|
+24시간 동안 허용되는 작업 수에 대한 제한에 도달하여 작업이 차단되었습니다. | 24 시간 범위의 작업에 허용 되는 최대 제한에 도달 하면이 오류가 발생 합니다. <br> 예를 들어: 매일 트리거할 수 있는 백업 구성 작업 수에 대 한 제한에 도달 하 고 새 항목에 백업을 구성 하려고 하면이 오류가 표시 됩니다. | 일반적으로 24 시간 후에 작업을 다시 시도 하면이 문제가 해결 됩니다. 그러나 문제가 계속 되 면 Microsoft 지원에 문의 하 여 도움을 받을 수 있습니다.
+
+### <a name="clouddosabsolutelimitreachedwithretry"></a>CloudDosAbsoluteLimitReachedWithRetry
+
+| 오류 메시지 | 가능한 원인 | 권장 조치 |
+|---|---|---|
+자격 증명 모음이 24 시간 범위에서 허용 되는 작업의 최대 제한에 도달 하 여 작업이 차단 되었습니다. | 24 시간 범위의 작업에 허용 되는 최대 제한에 도달 하면이 오류가 발생 합니다. 이 오류는 일반적으로 정책 수정 또는 자동 보호와 같은 대규모 작업을 수행 하는 경우에 발생 합니다. CloudDosAbsoluteLimitReached의 경우와 달리이 상태를 해결 하기 위해 수행할 수 있는 작업은 많지 않습니다. 실제로 Azure Backup 서비스는 문제의 모든 항목에 대해 내부적으로 작업을 다시 시도 합니다.<br> 예를 들어: 정책으로 보호 되는 데이터 원본 수가 많은 경우 해당 정책을 수정 하려고 하면 보호 된 각 항목에 대 한 보호 작업 구성이 트리거되고 때로는 매일 이러한 작업에 허용 되는 최대 제한에 도달할 수 있습니다.| Azure Backup 서비스는 24 시간 후에이 작업을 자동으로 다시 시도 합니다. 
+
 
 ## <a name="re-registration-failures"></a>다시 등록 오류
 

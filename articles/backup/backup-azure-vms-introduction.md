@@ -7,14 +7,14 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: dacurwin
-ms.openlocfilehash: 7a470674fa9ccdde2b33bb33bfb52bead1822895
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 07faf03ee9b12d1bf4a200de47d6df714c2248d9
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639735"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68737158"
 ---
-# <a name="about-azure-vm-backup"></a>Azure VM 백업 정보
+# <a name="an-overview-of-azure-vm-backup"></a>Azure VM 백업 개요
 
 이 문서에서는 [Azure Backup 서비스](backup-introduction-to-azure-backup.md) 에서 Azure vm (가상 머신)을 백업 하는 방법을 설명 합니다.
 

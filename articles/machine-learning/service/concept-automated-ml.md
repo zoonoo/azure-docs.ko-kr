@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 06/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: c563278a9d23810a5e6f0adc8082c8cfc5a0510c
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 064fd0e2bf503d917c809aa576bbc332b5b18a77
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358860"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742365"
 ---
 # <a name="what-is-automated-machine-learning"></a>자동화된 Machine Learning이란?
 
@@ -91,15 +91,22 @@ AutoML이 라고도 하는 자동화 된 machine learning은 기계 학습 모�
 
 
 ## <a name="time-series-forecasting"></a>시계열 예측
-예측 빌드는 수익, 재고, 판매 또는 고객 수요에 관계 없이 모든 비즈니스의 필수적인 부분입니다. 자동화 된 ML을 사용 하 여 기법과 접근 방식을 결합 하 고 권장 되는 고품질 시간 계열 예측을 얻을 수 있습니다. 
+예측 빌드는 수익, 재고, 판매 또는 고객 수요에 관계 없이 모든 비즈니스의 필수적인 부분입니다. 자동화 된 ML을 사용 하 여 기법과 접근 방식을 결합 하 고 권장 되는 고품질 시간 계열 예측을 얻을 수 있습니다.
 
-자동화 된 시간 계열 실험은 다중 변형 회귀 문제로 처리 됩니다. 이전 시간 계열 값은 다른 예측 변수와 함께 회귀 변수의 추가 차원이 되도록 "피벗" 됩니다. 클래식 시계열 메서드와 달리이 방법은 학습 중에 여러 상황별 변수와 해당 변수 간의 관계를 자연스럽 게 통합 하는 이점을 제공 합니다. 자동화 된 ML은 데이터 집합 및 예측 horizons의 모든 항목에 대해 종종 내부적으로 분기 된 단일 모델을 학습 합니다. 따라서 모델 매개 변수를 예측 하는 데 더 많은 데이터를 사용할 수 있으며 보이지 않는 시리즈에 대 한 일반화가 가능 합니다. 
+자동화 된 시간 계열 실험은 다중 변형 회귀 문제로 처리 됩니다. 이전 시간 계열 값은 다른 예측 변수와 함께 회귀 변수의 추가 차원이 되도록 "피벗" 됩니다. 클래식 시계열 메서드와 달리이 방법은 학습 중에 여러 상황별 변수와 해당 변수 간의 관계를 자연스럽 게 통합 하는 이점을 제공 합니다. 자동화 된 ML은 데이터 집합 및 예측 horizons의 모든 항목에 대해 종종 내부적으로 분기 된 단일 모델을 학습 합니다. 따라서 모델 매개 변수를 예측 하는 데 더 많은 데이터를 사용할 수 있으며 보이지 않는 시리즈에 대 한 일반화가 가능 합니다.
 
 자세한 정보 및 [시계열 예측에 대 한 자동화 된 기계 학습](how-to-auto-train-forecast.md)예를 참조 하세요.
 
-## <a name="ensemble-models"></a>앙상블 모델
+## <a name="ensemble"></a>앙상블 모델
 
-[Caruana 앙상블 선택 알고리즘이](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf)있는 자동 machine learning을 사용 하 여 앙상블 모델을 학습 하 고 정렬 된 앙상블 초기화할 수 있습니다. 앙상블 learning은 단일 모델 사용과 달리 많은 모델을 결합 함으로써 하 여 기계 학습 결과와 예측 성능을 향상 시킵니다. 앙상블 반복은 실행의 마지막 반복으로 나타납니다.
+자동화 된 machine learning은 기본적으로 사용 되는 앙상블 모델을 지원 합니다. 앙상블 learning은 단일 모델 사용과 반대로 여러 모델을 결합 하 여 기계 학습 결과와 예측 성능을 향상 시킵니다. 앙상블 반복은 실행의 최종 반복으로 나타납니다. 자동화 된 machine learning은 모델 결합을 위해 투표 및 스택 앙상블 메서드를 모두 사용 합니다.
+
+* **투표**: 예측 된 클래스 확률 (분류 작업의 경우) 또는 예측 된 회귀 목표 (회귀 작업의 경우)의 가중치가 적용 된 평균을 기반으로 예측 합니다.
+* **스택**: 스택은 다른 유형의 모델을 결합 하 고 개별 모델의 출력을 기반으로 메타 모델을 학습 합니다. 현재 기본 메타 모델은 분류 작업의 경우 LogisticRegression이 고 회귀/예측 작업의 경우 ElasticNet입니다.
+
+[Caruana 앙상블 선택 알고리즘](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf) 은 정렬 된 앙상블 초기화를 사용 하 여 앙상블 내에서 사용할 모델을 결정 하는 데 사용 됩니다. 높은 수준에서이 알고리즘은 가장 적합 한 개별 점수가 포함 된 최대 5 개의 모델을 사용 하 여 앙상블를 초기화 하 고 이러한 모델이 가장 높은 점수의 5% 임계값을 초과 하 여 초기 앙상블 저하를 방지 하는지 확인 합니다. 그런 다음 각 앙상블 반복에 대해 새 모델이 기존 앙상블에 추가 되 고 결과 점수가 계산 됩니다. 새 모델에서 기존 앙상블 점수가 향상 되 면 새 모델을 포함 하도록 앙상블이 업데이트 됩니다.
+
+자동화 된 machine learning에서 기본 앙상블 설정을 변경 [하는 방법을](how-to-configure-auto-train.md#ensemble) 참조 하세요.
 
 ## <a name="use-with-onnx-in-c-apps"></a>앱에서 C# onnx와 함께 사용
 

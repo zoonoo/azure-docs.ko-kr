@@ -8,14 +8,14 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: dacurwin
-ms.openlocfilehash: bfc9d01284bb5623989676afbdeadc1c91c14ab0
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 025052a5005702232eb9eaf255e6aac2c58fec98
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688392"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68735582"
 ---
-# <a name="manage-azure-vm-backups"></a>Azure VM 백업 관리
+# <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Azure Backup 서비스를 사용 하 여 Azure VM 백업 관리
 
 이 문서에서는 [Azure Backup 서비스](backup-overview.md)를 사용 하 여 백업 된 Azure vm (가상 컴퓨터)을 관리 하는 방법을 설명 합니다. 또한이 문서에서는 자격 증명 모음 대시보드에서 찾을 수 있는 백업 정보를 요약 합니다.
 

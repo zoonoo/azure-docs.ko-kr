@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: mlearned
-ms.openlocfilehash: eb9141d363bdb09b5773f80dfc5a1c4b9b92728f
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: fb15063e41e83b4c9a9f2e01b6ad18c8afed7f5f
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67615803"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741000"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>애플리케이션에 대한 AKS(Azure Kubernetes Service)의 저장소 옵션
 
@@ -34,7 +34,9 @@ AKS(Azure Kubernetes Service)에서 실행되는 애플리케이션은 데이터
 데이터를 저장하고 검색하는 기존 볼륨은 Azure Storage에서 지원하는 Kubernetes 리소스로 만들어집니다. 이러한 데이터 볼륨은 수동으로 만들어 Pod에 직접 할당하거나 Kubernetes에서 자동으로 만들 수 있습니다. 이러한 데이터 볼륨은 Azure Disks 또는 Azure Files를 사용할 수 있습니다.
 
 - *Azure Disks*를 사용하여 *DataDisk* Kubernetes 리소스를 만들 수 있습니다. 디스크는 고성능 SSD를 통해 지원되는 Azure Premium 스토리지 또는 일반 HDD를 통해 지원되는 Azure Standard 스토리지를 사용할 수 있습니다. 대부분의 프로덕션 및 개발 워크로드의 경우 Premium 스토리지를 사용합니다. Azure Disks는 *ReadWriteOnce*로 탑재되므로 단일 노드에서만 사용할 수 있습니다. 여러 노드에서 동시에 액세스할 수 있는 저장소 볼륨의 경우 Azure Files를 사용합니다.
-- *Azure Files*를 사용하여 Azure Storage 계정을 통해 지원되는 SMB 3.0 공유를 Pod에 탑재할 수 있습니다. Files를 사용하면 여러 노드 및 Pod 간에 데이터를 공유할 수 있습니다. 현재 Files는 일반 HDD로 지원되는 Azure Standard 저장소만 사용할 수 있습니다.
+- *Azure Files*를 사용하여 Azure Storage 계정을 통해 지원되는 SMB 3.0 공유를 Pod에 탑재할 수 있습니다. Files를 사용하면 여러 노드 및 Pod 간에 데이터를 공유할 수 있습니다. 파일은 고성능 Ssd에서 지원 되는 regular Hdd 또는 Azure Premium storage에서 지 원하는 Azure Standard storage를 사용할 수 있습니다.
+> [!NOTE] 
+> Azure Files Kubernetes 1.13 이상을 실행 하는 AKS 클러스터의 premium storage를 지원 합니다.
 
 Kubernetes에서 볼륨은 단순히 정보를 저장하고 검색할 수 있는 기존 디스크 이상의 것을 나타낼 수 있습니다. 또한 Kubernetes 볼륨은 컨테이너에서 사용할 수 있도록 데이터를 Pod에 삽입하는 방법으로도 사용할 수 있습니다. Kubernetes의 일반적인 추가 볼륨 유형은 다음과 같습니다.
 
@@ -121,7 +123,7 @@ spec:
 
 ## <a name="next-steps"></a>다음 단계
 
-관련된 모범 사례를 참조 하세요 [저장소 및 백업 AKS에 대 한 유용한][operator-best-practices-storage]합니다.
+관련 모범 사례는 [AKS의 저장소 및 백업에 대 한 모범 사례][operator-best-practices-storage]를 참조 하세요.
 
 Azure Disks 또는 Azure Files를 사용하는 동적 및 정적 볼륨을 만드는 방법을 알아보려면 다음 방법 문서를 참조하세요.
 
@@ -132,11 +134,11 @@ Azure Disks 또는 Azure Files를 사용하는 동적 및 정적 볼륨을 만�
 
 Kubernetes 및 AKS 핵심 개념에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-- [Kubernetes AKS 클러스터 / 및 워크 로드][aks-concepts-clusters-workloads]
-- [Kubernetes / AKS id][aks-concepts-identity]
-- [Kubernetes / AKS 보안][aks-concepts-security]
-- [Kubernetes / AKS 가상 네트워크][aks-concepts-network]
-- [Kubernetes AKS 소수][aks-concepts-scale]
+- [Kubernetes/AKS 클러스터 및 워크 로드][aks-concepts-clusters-workloads]
+- [Kubernetes/AKS id][aks-concepts-identity]
+- [Kubernetes/AKS 보안][aks-concepts-security]
+- [Kubernetes/AKS 가상 네트워크][aks-concepts-network]
+- [Kubernetes/AKS 크기 조정][aks-concepts-scale]
 
 <!-- EXTERNAL LINKS -->
 

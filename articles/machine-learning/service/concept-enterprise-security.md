@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/10/2019
-ms.openlocfilehash: f9fd9f88a0aa6af9cd4160bf5879b9b8f383dca1
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: f0fb6f0d2b2579679ee8a6ec43b3241377701d48
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68720421"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780893"
 ---
 # <a name="enterprise-security-for-azure-machine-learning-service"></a>Azure Machine Learning 서비스에 대 한 엔터프라이즈 보안
 
@@ -161,7 +161,7 @@ Azure Machine Learning 서비스는 Azure Machine Learning 서비스에서 관�
 
 각 계산 노드에 대 한 OS 디스크는 Azure Machine Learning service Storage 계정에서 Microsoft 관리 키를 사용 하 여 암호화 Azure Storage에 저장 됩니다. 이 계산은 임시 이며 대기 중인 실행이 없는 경우 일반적으로 클러스터를 축소 합니다. 기본 가상 머신은 프로 비전 해제 되 고 OS 디스크가 삭제 됩니다. OS 디스크에 대 한 Azure disk encryption은 지원 되지 않습니다.
 또한 각 가상 컴퓨터에는 OS 작업을 위한 로컬 임시 디스크가 있습니다. 이 디스크를 선택적으로 사용 하 여 학습 데이터를 준비할 수도 있습니다. 이 디스크는 암호화 되지 않습니다.
-Azure에서 미사용 암호화가 작동 하는 방식에 대 한 자세한 내용은 [Azure 미사용 데이터 암호화](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)를 참조 하세요.
+Azure에서 미사용 암호화가 작동 하는 방식에 대 한 자세한 내용은 [Azure 미사용 데이터 암호화](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)를 참조 하세요.
 
 ### <a name="encryption-in-transit"></a>전송 중 암호화
 

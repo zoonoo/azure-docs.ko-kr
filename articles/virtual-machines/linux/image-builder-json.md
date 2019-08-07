@@ -7,12 +7,12 @@ ms.date: 07/31/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: a623aa98cd26e1636e47cb0e2831eeced17935b9
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: abaf96b11abee0bf519a276f825b9c47cd333c1b
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68695395"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816315"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>미리 보기: Azure 이미지 작성기 템플릿 만들기 
 
@@ -65,7 +65,11 @@ Azure 이미지 작성기는 json 파일을 사용 하 여 이미지 작성기 �
 ```json
     "location": "<region>",
 ```
-    
+
+## <a name="tags"></a>Tags
+
+이는 생성 된 이미지에 대해 지정할 수 있는 키/값 쌍입니다.
+
 ## <a name="depends-on-optional"></a>다음에 종속 (옵션)
 
 이 선택적 섹션을 사용 하 여 계속 하기 전에 종속성이 완료 되는지 확인할 수 있습니다. 
@@ -344,7 +348,8 @@ Windows 디렉터리 및 Linux 경로에서 지원 되지만 다음과 같은 �
  
 파일을 다운로드 하는 동안 오류가 발생 하거나 지정 된 디렉터리에 파일을 저장 하는 동안 오류가 발생 하면 사용자 지정 단계가 실패 하 고이는 사용자 지정 .log에 있습니다.
 
->> 두고! 파일 사용자 지정자는 < 20MB 작은 파일 다운로드에만 적합 합니다. 큰 파일 다운로드의 경우 스크립트 또는 인라인 명령을 사용 합니다. 여기에는 Linux `wget` 또는 `curl`, Windows, `Invoke-WebRequest`와 같은 파일을 다운로드 하는 코드가 사용 됩니다.
+> [!NOTE]
+> 파일 사용자 지정자는 < 20MB 작은 파일 다운로드에만 적합 합니다. 큰 파일 다운로드의 경우 스크립트 또는 인라인 명령을 사용 합니다. 여기에는 Linux `wget` 또는 `curl`, Windows, `Invoke-WebRequest`와 같은 파일을 다운로드 하는 코드가 사용 됩니다.
 
 파일 사용자 지정자의 파일은 [MSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage)를 사용 하 여 Azure Storage에서 다운로드할 수 있습니다.
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 8ad472b9c92e3bc2164146191a63985fd26becab
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 93392e379cbb03508fefc1877d5d50e04436b79c
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60306382"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68737223"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>Application Insights로 라이브 Azure Cloud Services 프로파일링
 
@@ -29,11 +29,11 @@ ms.locfileid: "60306382"
 Application Insights Profiler는 Azure Diagnostics 확장과 함께 설치됩니다. Profiler를 설치하고 Application Insights 리소스로 프로필을 전송하도록 Azure Diagnostics를 구성하기만 하면 됩니다.
 
 ## <a name="enable-profiler-for-azure-cloud-services"></a>Azure Cloud Services에 대해 Profiler 사용
-1. [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) 이상을 사용하고 있는지 확인합니다. 해당 *ServiceConfiguration.\*.cscfg* 파일에 "5" 이상의 `osFamily` 값이 있는지 확인하는 것으로 충분합니다.
+1. [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) 이상 버전을 사용 하 고 있는지 확인 합니다. OS 제품군 4를 사용 하는 경우 [시작 작업](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-dotnet-install-dotnet)을 사용 하 여 .NET Framework 4.6.1 이상 버전을 설치 해야 합니다. OS 제품군 5에는 기본적으로 .NET Framework 호환 되는 버전이 포함 되어 있습니다. 
 
 1. [Azure Cloud Services에 Application Insights SDK](../../azure-monitor/app/cloudservices.md?toc=/azure/azure-monitor/toc.json)를 추가합니다.
 
-    **Cloud services는 WAD에서 제공 되는 프로파일러 버그 수정 되었습니다.** 최신 버전의 Cloud Services에 대 한 WAD (1.12.2.0) 모든 최신 버전의 App Insights SDK를 사용 하 여 작동합니다. 클라우드 서비스 호스트는 WAD를 자동으로 업그레이드 되지만 바로 실행 되지 않습니다. 업그레이드를 적용 하려면 서비스를 다시 배포할 수도 있고 노드를 다시 부팅 수 있습니다.
+    **Cloud Services에 대 한 WAD에서 제공 되는 프로파일러의 버그가 수정 되었습니다.** Cloud Services에 대 한 최신 버전의 WAD (1.12.2.0)는 최신 버전의 App Insights SDK와 함께 작동 합니다. 클라우드 서비스 호스트는 WAD를 자동으로 업그레이드 하지만 즉시 실행 되지 않습니다. 강제로 업그레이드 하려면 서비스를 다시 배포 하거나 노드를 다시 부팅 하면 됩니다.
 
 1. Application Insights를 사용하여 요청을 추적합니다.
 
@@ -41,9 +41,9 @@ Application Insights Profiler는 Azure Diagnostics 확장과 함께 설치됩니
 
     * 작업자 역할의 경우 [요청을 추적하는 코드를 추가](profiler-trackrequests.md?toc=/azure/azure-monitor/toc.json)합니다.
 
-1. Profiler를 사용 하도록 Azure 진단 확장을 구성 합니다.
+1. Azure 진단 확장을 구성 하 여 프로파일러를 사용 하도록 설정 합니다.
 
-    a. 애플리케이션 역할에 대한 [Azure 진단](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics)*diagnostics.wadcfgx* 파일을 다음과 같이 찾습니다.  
+    a. 애플리케이션 역할에 대한 [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics)*diagnostics.wadcfgx* 파일을 다음과 같이 찾습니다.  
 
       ![진단 구성 파일의 위치](./media/profiler-cloudservice/cloudservice-solutionexplorer.png)  
 

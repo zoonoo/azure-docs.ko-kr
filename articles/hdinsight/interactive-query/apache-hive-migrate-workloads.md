@@ -7,12 +7,12 @@ ms.author: tacox
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.openlocfilehash: b9bf3b41bcd0a79027c5dd9a4f3df979fb0bd9f0
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: eb6b42a88e47e3fcb35700ec542c8ca642e17a6a
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68250160"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815815"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>HDInsight 4.0로 Azure HDInsight 3.6 Hive 워크 로드 마이그레이션
 
@@ -99,9 +99,7 @@ HDInsight 3.6에서 Hive 서버와 상호 작용 하는 GUI 클라이언트는 A
 
 클러스터에 대해 스크립트 작업을 시작 하 고 실행을 위한 노드 형식으로 "헤드 노드"를 사용 합니다. 다음 URI를 "Bash 스크립트 URI"로 표시 된 텍스트 상자에 붙여넣습니다. https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh
 
-Https://\<clustername > URL을 사용 하 여 데이터 분석 스튜디오를 시작할 수 있습니다.
-
-
+5 ~ 10 분 정도 기다렸다가 다음 URL을 사용 하 여 데이터 분석 스튜디오를 시작\<합니다. https://clustername >. azurehdinsight/das/
 
 DAS가 설치 되 면 쿼리 뷰어에서 실행 한 쿼리가 표시 되지 않으면 다음 단계를 수행 합니다.
 

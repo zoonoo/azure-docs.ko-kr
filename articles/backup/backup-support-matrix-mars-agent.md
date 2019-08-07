@@ -1,5 +1,5 @@
 ---
-title: Azure Backup을 통해 MARS(Microsoft Azure Recovery Services) 에이전트를 실행하는 머신의 백업 매트릭스 지원
+title: MARS (Microsoft Azure Recovery Services) 에이전트에 대 한 지원 매트릭스-Azure Backup
 description: 이 문서에서는 MARS (Microsoft Azure Recovery Services) 에이전트를 실행 하는 컴퓨터를 백업할 때 지원 Azure Backup를 요약 합니다.
 author: dcurwin
 ms.service: backup
@@ -7,12 +7,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: dacurwin
 manager: carmonm
-ms.openlocfilehash: 46863b2eed8e5c5c4074a713b50739820a1e5bc9
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 6d05b6ac49b372caff1bdc2f03358598fcc1afba
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639525"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68737079"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>MARS(Microsoft Azure Recovery Services) 에이전트를 통한 백업 매트릭스 지원
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 05/21/2019
 ms.author: shvija
-ms.openlocfilehash: dfdeee9591b5d6ccbadadaef83c6598dd0e850d8
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 117b7d4adb508628ee768bb9531d0bbc52f61121
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448152"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816065"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Active Directory 역할 기반 액세스 제어(미리 보기)
 
@@ -27,19 +27,19 @@ Azure Event Hubs의 경우 Azure Portal 및 Azure 리소스 관리 API를 통한
 Azure AD RBAC를 사용하는 애플리케이션은 SAS 규칙 및 키 또는 특정 Event Hubs에 대한 다른 액세스 토큰을 처리할 필요가 없습니다. 클라이언트 앱은 Azure AD와 상호 작용하여 인증 컨텍스트를 설정하고, Event Hubs에 대한 액세스 토큰을 획득합니다. 대화형 로그인이 필요한 도메인 사용자 계정을 사용하면 애플리케이션은 어떠한 자격 증명도 직접 처리하지 않습니다.
 
 ## <a name="event-hubs-roles-and-permissions"></a>Event Hubs 역할 및 사용 권한
-Azure는 Event Hubs 네임 스페이스에 대 한 액세스 권한을 부여 하는 것에 대 한 다음 기본 제공 RBAC 역할을 제공 합니다.
+Azure는 Event Hubs 네임 스페이스에 대 한 액세스 권한을 부여 하는 다음과 같은 기본 제공 RBAC 역할을 제공 합니다.
 
-합니다 [Azure Event Hubs 데이터 소유자 (미리 보기)](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner-preview) 역할 수는 Event Hubs 네임 스페이스 및 해당 엔터티 (큐, 토픽, 구독 및 필터)에 대 한 데이터 액세스
+[Azure Event Hubs 데이터 소유자 (미리 보기)](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner-preview) 역할은 Event Hubs 네임 스페이스 및 해당 엔터티 (큐, 토픽, 구독 및 필터)에 대 한 데이터 액세스를 가능 하 게 합니다.
 
 >[!IMPORTANT]
-> 에서는 이전에 지원 된 관리 되는 id를 추가 합니다 **소유자** 또는 **참가자** 역할입니다. 그러나 데이터 액세스에 대 한 권한을 **소유자** 하 고 **참가자** 역할은 더 이상 적용 합니다. 사용 중인 경우는 **소유자** 또는 **참가자** 역할을 사용 하도록 전환 합니다 **Azure Event Hubs 데이터 소유자 (미리 보기)** 역할입니다.
+> 이전에는 **소유자** 또는 **참가자** 역할에 관리 id를 추가 하는 것이 지원 되었습니다. 그러나 **소유자** 및 **참여자** 역할에 대 한 데이터 액세스 권한은 더 이상 허용 되지 않습니다. **소유자** 또는 **참가자** 역할을 사용 하는 경우 **Azure Event Hubs 데이터 소유자 (미리 보기)** 역할을 사용 하도록 전환 합니다.
 
 
 ## <a name="use-event-hubs-with-an-azure-ad-domain-user-account"></a>Azure AD 도메인 사용자 계정으로 Event Hubs 사용
 
 다음 섹션에서는 로그인하기 위해 대화형 Azure AD 사용자 로그온을 요구하는 애플리케이션 예제를 만들고 실행하기 위한 단계, Event Hubs에 해당 사용자 계정에 대한 액세스 권한을 부여하는 방법 및 해당 ID를 사용하여 Event Hubs에 액세스하는 방법을 설명합니다. 
 
-이 소개에서는 [GitHub에 있는 코드](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Rbac/EventHubsSenderReceiverRbac/)인 간단한 콘솔 애플리케이션을 설명합니다.
+이 소개에서는 [GitHub에 있는 코드](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/AzureEventHubsSDK)인 간단한 콘솔 애플리케이션을 설명합니다.
 
 ### <a name="create-an-active-directory-user-account"></a>Active Directory 사용자 계정 만들기
 
@@ -49,7 +49,7 @@ Azure는 Event Hubs 네임 스페이스에 대 한 액세스 권한을 부여 �
 
 ### <a name="create-an-event-hubs-namespace"></a>Event Hubs 네임스페이스 만들기
 
-그런 다음, [Event Hubs 네임 스페이스 만들기](event-hubs-create.md)합니다. 
+다음으로 [Event Hubs 네임 스페이스를 만듭니다](event-hubs-create.md). 
 
 네임스페이스를 만들고 나면, 포털의 **액세스 제어(IAM)** 페이지로 이동한 후 **역할 할당 추가**를 클릭하여 Azure AD 사용자 계정을 소유자 역할에 추가합니다. 사용자 고유의 사용자 계정을 사용하고 네임스페이스를 만든 경우 이미 소유자 역할에 있는 것입니다. 다른 계정을 역할에 추가하려면 **권한 추가** 패널의 **선택** 필드에서 웹 애플리케이션의 이름을 검색한 다음, 해당 항목을 클릭합니다. 그런 다음 **Save**를 클릭합니다. 이제 사용자 계정은 Event Hubs 네임스페이스 및 이전에 만든 이벤트 허브에 액세스할 수 있습니다.
  

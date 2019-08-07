@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/12/2018
+ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: 7f6ec1ee65727fb8c3c7d98f696c288e95ec880a
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 4b50b4acf6ea655c40821e7c49824af11aeeb9ab
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876187"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816293"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Azure의 Windows Virtual Machines에서 실행되는 SQL Server에 대한 질문과 대답
 
@@ -122,6 +122,11 @@ ms.locfileid: "67876187"
 
     예. SQL Server를 자체 매체에서 등록하고 SQL IaaS 확장을 설치한 경우에는 SQL Server VM을 리소스 공급자에 등록하여 SQL IaaS 확장에 제공되는 관리 효율성의 이점을 누릴 수 있습니다. 단, 자체 배포된 SQL VM은 종량제로 변환할 수 없습니다.
 
+1. **클래식 모델을 사용 하 여 배포 된 SQL Server VM에서 라이선스 모델을 전환할 수 있나요?**
+
+   아니요. 클래식 VM에서는 라이선스 모델 변경이 지원 되지 않습니다. VM을 리소스 관리자 모델 (ARM)으로 마이그레이션하고 SQL VM 리소스 공급자에 등록할 수 있습니다. VM이 SQL VM 리소스 공급자에 등록 되 면 VM에서 라이선스 모델 변경 내용이 제공 됩니다. 
+   
+
 ## <a name="administration"></a>관리
 
 1. **같은 VM에 SQL Server의 두 번째 인스턴스를 설치할 수 있나요? 기본 인스턴스의 설치된 기능을 변경할 수 있나요?**
@@ -146,9 +151,9 @@ ms.locfileid: "67876187"
    
 ## <a name="updating-and-patching"></a>업데이트 및 패치
 
-1. **Azure VM에서 SQL Server의 다른 버전/버전으로 변경 어떻게 할까요??**
+1. **Azure VM에서 SQL Server의 다른 버전으로 변경하려면 어떻게 하나요?**
 
-   고객은 원하는 버전이 나 SQL Server 버전을 포함 하는 설치 미디어를 사용 하 여 SQL Server 버전/버전을 변경할 수 있습니다. 버전이 변경 되 면 vm에 대 한 청구를 정확 하 게 반영 하도록 Azure Portal를 사용 하 여 VM의 버전 속성을 수정 합니다. 자세한 내용은 [SQL Server VM 버전 변경](virtual-machines-windows-sql-change-edition.md)을 참조 하십시오. 
+   고객은 원하는 SQL Server 버전이 포함된 설치 미디어를 사용하여 SQL Server 버전을 변경할 수 있습니다. 버전이 변경되면 VM에 대한 청구를 정확하게 반영하도록 Azure Portal를 사용하여 VM의 버전 속성을 수정합니다. 자세한 내용은 [SQL Server VM 버전 변경](virtual-machines-windows-sql-change-edition.md)을 참조 하십시오. 
 
 
 1. **업데이트와 서비스 팩은 SQL Server VM에 어떻게 적용됩니까?**

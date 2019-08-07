@@ -7,14 +7,14 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: dacurwin
-ms.openlocfilehash: 44bf85eafe3f5cfa801b6c845a51e3dcd5e1262a
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 3165183d4a5e0dcfecee62b128ee8cfa9d94209b
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466865"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736714"
 ---
-# <a name="azure-backup-architecture"></a>Azure Backup 아키텍처
+# <a name="azure-backup-architecture-and-components"></a>Azure Backup 아키텍처 및 구성 요소
 
 [Azure Backup 서비스](backup-overview.md) 를 사용 하 여 Microsoft Azure 클라우드 플랫폼으로 데이터를 백업할 수 있습니다. 이 문서에는 Azure Backup 아키텍처, 구성 요소 및 프로세스가 요약되어 있습니다. 
 

@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/31/2018
 ms.author: jomolesk
-ms.openlocfilehash: f9773c3b372ab22cbcd99828e147d23c185c4eb6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 101d7b621287972571fb5d3ba9ea02ace2ef1421
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62127330"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780693"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-nist-special-publication-800-171"></a>Azure 보안 및 규정 준수 청사진 - NIST 특별 발행물 800-171용 PaaS 웹 애플리케이션
 
@@ -28,7 +28,7 @@ ms.locfileid: "62127330"
 
 이 Azure 보안 및 규정 준수 청사진은 Azure SQL Database 백 엔드가 있는 PaaS 웹 애플리케이션에 대한 참조 아키텍처를 제공합니다. 웹 애플리케이션은 Azure 데이터 센터의 프라이빗 전용 환경인 격리된 앱 서비스 환경에서 호스팅됩니다. 이 환경에서는 Azure에서 관리되는 VM(가상 머신) 간에 웹 애플리케이션에 대한 트래픽의 부하를 분산합니다. 이 아키텍처에는 NSG(네트워크 보안 그룹), Azure Application Gateway, Azure DNS 및 Azure Load Balancer도 포함됩니다.
 
-향상된 분석 및 보고를 위해 columnstore 인덱스를 사용하여 Azure SQL 데이터베이스를 구성할 수 있습니다. Azure SQL Database는 고객의 사용량에 따라 확장/축소하거나 완전히 종료할 수 있습니다. 모든 SQL 트래픽은 자체 서명된 인증서를 포함하여 SSL로 암호화됩니다. Azure는 강화된 보안을 위해 신뢰할 수 있는 인증 기관을 사용하는 것이 가장 좋습니다.
+향상된 분석 및 보고를 위해 columnstore 인덱스를 사용하여 Azure SQL 데이터베이스를 구성할 수 있습니다. Azure SQL 데이터베이스는 고객의 사용량에 따라 확장/축소하거나 완전히 종료할 수 있습니다. 모든 SQL 트래픽은 자체 서명된 인증서를 포함하여 SSL로 암호화됩니다. Azure는 강화된 보안을 위해 신뢰할 수 있는 인증 기관을 사용하는 것이 가장 좋습니다.
 
 솔루션은 고객이 미사용 데이터의 기밀성을 유지하려면 스토리지 서비스 암호화를 사용하도록 구성할 수 있는 Azure Storage 계정을 사용합니다. Azure는 데이터 복원력을 위해 고객이 선택한 데이터 센터 내에 데이터 복사본 3부를 저장합니다. 이처럼 지역 중복 저장소가 사용되므로 데이터가 매우 멀리 떨어진 보조 데이터 센터에 복제되며, 해당 데이터 센터 내에도 복사본 3부로 다시 저장됩니다. 이러한 방식이 사용되므로 고객의 기본 데이터 센터에서 사고가 발생하더라도 데이터가 손실되지 않습니다.
 
@@ -36,7 +36,7 @@ ms.locfileid: "62127330"
 
 SQL Database는 보통 SQL Server Management Studio를 통해 관리되며, 보안 VPN 또는 Azure ExpressRoute 연결을 통해 SQL 데이터베이스에 액세스하도록 구성된 로컬 컴퓨터에서 실행됩니다.
 
-실시간 응용 프로그램 성능 관리 및 Azure Monitor 로그를 통해 분석을 제공 하는 application Insights *참조로 관리 및 데이터 가져오기에 대 한 VPN 또는 ExpressRoute 연결을 구성 하는 것이 좋습니다 아키텍처 서브넷입니다.*
+Application Insights는 Azure Monitor 로그를 통해 실시간 응용 프로그램 성능 관리 및 분석을 제공 하며, *참조 아키텍처에 대 한 관리 및 데이터 가져오기를 위해 VPN 또는 express 경로 연결을 구성 하는 것이 좋습니다. 서브넷.*
 
 ![NIST SP 800-171 준수 PaaS 웹 애플리케이션 참조 아키텍처 다이어그램](images/nist171-paaswa-architecture.png "NIST SP 800-171 준수 PaaS 웹 애플리케이션 참조 아키텍처 다이어그램")
 
@@ -60,8 +60,8 @@ SQL Database는 보통 SQL Server Management Studio를 통해 관리되며, 보�
 - Azure DNS
 - Azure Key Vault
 - Azure Load Balancer
-- Azure 모니터 (로그)
-- Azure 리소스 관리자
+- Azure Monitor (로그)
+- Azure Resource Manager
 - Azure Security Center
 - Azure SQL Database
 - Azure Storage
@@ -71,27 +71,27 @@ SQL Database는 보통 SQL Server Management Studio를 통해 관리되며, 보�
 ## <a name="deployment-architecture"></a>배포 아키텍처
 다음 섹션에서는 개발 및 구현 요소에 대해 자세히 설명합니다.
 
-**Azure Resource Manager**: [Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 그룹으로 솔루션의 리소스와 작동 하도록 고객이 사용할 수 있습니다. 고객이 조정된 단일 작업에서 솔루션에 대한 모든 리소스를 배포, 업데이트 또는 삭제할 수 있습니다. 고객은 배포에 템플릿을 사용합니다. 템플릿은 테스트, 스테이징 및 프로덕션과 같은 여러 환경에 사용할 수 있습니다. Resource Manager는 보안, 감사 및 태그 지정 기능을 제공하여 고객이 배포 후에 리소스를 관리할 수 있도록 지원합니다.
+**Azure Resource Manager**: [리소스 관리자](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 는 고객이 솔루션의 리소스를 그룹으로 작업 하는 데 사용할 수 있습니다. 고객이 조정된 단일 작업에서 솔루션에 대한 모든 리소스를 배포, 업데이트 또는 삭제할 수 있습니다. 고객은 배포에 템플릿을 사용합니다. 템플릿은 테스트, 스테이징 및 프로덕션과 같은 여러 환경에 사용할 수 있습니다. Resource Manager는 보안, 감사 및 태그 지정 기능을 제공하여 고객이 배포 후에 리소스를 관리할 수 있도록 지원합니다.
 
-**요새 호스트**: 요새 호스트에는 사용자가이 환경에서 배포 된 리소스에 액세스 하는 데 사용할 수 있는 항목의 단일 지점입니다. 배스천 호스트는 수신 허용 목록에 있는 공용 IP 주소의 원격 트래픽만 허용하여 배포된 리소스에 대한 보안 연결을 제공합니다. 원격 데스크톱 트래픽을 허용하려면 NSG에 트래픽의 원본을 정의해야 합니다.
+**요새 호스트**: 요새 호스트는이 환경에서 배포 된 리소스에 액세스 하는 데 사용할 수 있는 단일 진입점입니다. 배스천 호스트는 수신 허용 목록에 있는 공용 IP 주소의 원격 트래픽만 허용하여 배포된 리소스에 대한 보안 연결을 제공합니다. 원격 데스크톱 트래픽을 허용하려면 NSG에 트래픽의 원본을 정의해야 합니다.
 
 이 솔루션은 다음 구성을 사용하여 도메인 조인 배스천 호스트로 VM을 만듭니다.
--   [맬웨어 방지 확장](https://docs.microsoft.com/azure/security/azure-security-antimalware)
+-   [맬웨어 방지 확장](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
 -   [Azure Diagnostics 확장](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template).
 -   Key Vault를 사용하는 [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)
 -   사용하지 않을 때 VM 리소스 사용량을 줄이기 위한 [자동 종료 정책](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/)
 -   자격 증명과 기타 비밀이 실행 중인 운영 체제에서 격리되는 보호된 환경에서 실행되도록 [Windows Defender Credential Guard](https://docs.microsoft.com/windows/access-protection/credential-guard/credential-guard) 사용
 
-**웹 앱**: [웹 앱](https://docs.microsoft.com/azure/app-service/) Azure App Service 기능입니다. 고객은 Web Apps를 사용하여 인프라를 관리할 필요 없이 선택한 프로그래밍 언어로 웹 애플리케이션을 빌드하고 호스팅할 수 있습니다. 자동 확장 기능과 고가용성을 제공하는 Web Apps는 Windows/Linux를 지원하며 GitHub, Azure DevOps 또는 모든 Git 리포지토리에서 자동으로 배포할 수 있습니다.
+**Web Apps**: [Web Apps](https://docs.microsoft.com/azure/app-service/) 은 Azure App Service 기능입니다. 고객은 Web Apps를 사용하여 인프라를 관리할 필요 없이 선택한 프로그래밍 언어로 웹 애플리케이션을 빌드하고 호스팅할 수 있습니다. 자동 확장 기능과 고가용성을 제공하는 Web Apps는 Windows/Linux를 지원하며 GitHub, Azure DevOps 또는 모든 Git 리포지토리에서 자동으로 배포할 수 있습니다.
 
-**App Service Environment**: [App Service Environment](https://docs.microsoft.com/azure/app-service/environment/intro) App Service 기능입니다. App Service 애플리케이션을 대규모로 안전하게 실행할 수 있는 완벽하게 격리된 전용 환경을 제공합니다.
+**App Service Environment**: [App Service Environment](https://docs.microsoft.com/azure/app-service/environment/intro) 은 App Service 기능입니다. App Service 애플리케이션을 대규모로 안전하게 실행할 수 있는 완벽하게 격리된 전용 환경을 제공합니다.
 
 App Service Environment는 단일 애플리케이션만 실행할 수 있도록 격리되며 항상 가상 네트워크에 배포됩니다. 이러한 격리 기능으로 인해 참조 아키텍처에서는 테넌트가 완전하게 격리되며, Azure의 다중 테넌트 환경에서는 참조 아키텍처가 제거됩니다. 고객은 인바운드 및 아웃바운드 애플리케이션 네트워크 트래픽을 모두 세부적으로 제어할 수 있습니다. 애플리케이션은 온-프레미스 회사 리소스에 가상 네트워크를 통한 고속 보안 연결을 설정할 수 있습니다. 고객은 부하 메트릭, 사용 가능한 예산 또는 정의된 일정에 따라 App Service Environment를 사용하여 “자동 크기 조정”을 수행할 수 있습니다.
 
 이 아키텍처에 대해 App Service Environment를 사용하는 경우 다음 컨트롤 및 구성이 제공됩니다.
 
 - 보안 Azure 가상 네트워크의 호스트 및 네트워크 보안 규칙
-- HTTPS 통신을 위해 자체 서명된 내부 부하 분산 장치 인증서. 모범 사례로서 Microsoft는 강화된 보안을 위해 신뢰할 수 있는 인증 기관 사용을 권장합니다.
+- HTTPS 통신을 위해 자체 서명된 내부 부하 분산 장치 인증서. 모범 사례로, Microsoft에서는 보안 강화를 위해 신뢰할 수 있는 인증 기관을 사용하는 것을 권장합니다.
 - [내부 부하 분산 모드](https://docs.microsoft.com/azure/app-service-web/app-service-environment-with-internal-load-balancer)(모드 3)
 - [TLS 1.0](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-custom-settings) 사용 안 함
 - [TLS 암호화](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-custom-settings) 변경
@@ -102,7 +102,7 @@ App Service Environment는 단일 애플리케이션만 실행할 수 있도록 
 ### <a name="virtual-network"></a>가상 네트워크
 아키텍처는 10.200.0.0/16 주소 공간으로 프라이빗 가상 네트워크를 정의합니다.
 
-**네트워크 보안 그룹**: [Nsg](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) 가상 네트워크 내에서 트래픽을 허용 하거나 거부 하는 액세스 제어 목록을 포함 합니다. NSG는 서브넷 또는 개별 VM 수준에서 트래픽을 보호하는 데 사용할 수 있습니다. 다음과 같은 NSG가 있습니다.
+**네트워크 보안 그룹**: [Nsgs](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) 에는 가상 네트워크 내에서 트래픽을 허용 하거나 거부 하는 액세스 제어 목록이 포함 되어 있습니다. NSG는 서브넷 또는 개별 VM 수준에서 트래픽을 보호하는 데 사용할 수 있습니다. 다음과 같은 NSG가 있습니다.
 - Application Gateway용 NSG 1개
 - App Service Environment용 NSG 1개
 - SQL Database용 NSG 1개
@@ -110,18 +110,18 @@ App Service Environment는 단일 애플리케이션만 실행할 수 있도록 
 
 솔루션이 안전하고 올바르게 작동할 수 있도록 각 NSG에서는 특정 포트 및 프로토콜이 열려 있습니다. 또한 각 NSG에 대해 다음과 같은 구성을 사용합니다.
   - [진단 로그 및 이벤트](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)가 사용하도록 설정되며 저장소 계정에 저장됩니다.
-  - Azure Monitor 로그에 연결 합니다 [NSG의 진단](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)합니다.
+  - Azure Monitor 로그는 [Nsg의 진단](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)에 연결 됩니다.
 
 **서브넷**: 각 서브넷이 해당 NSG에 연결되어야 합니다.
 
-**Azure DNS**: 도메인 이름 시스템 (DNS)는 변환 합니다 (또는 확인)를 웹 사이트 또는 서비스 이름을 해당 IP 주소로 합니다. [Azure DNS](https://docs.microsoft.com/azure/dns/dns-overview)는 Azure 인프라를 통한 이름 확인 기능을 제공하는 DNS 도메인용 호스팅 서비스입니다. Azure에서 도메인을 호스팅하는 사용자는 다른 Azure 서비스와 동일한 자격 증명, API, 도구 및 대금 청구 방식을 사용하여 DNS 레코드를 관리할 수 있습니다. Azure DNS는 프라이빗 DNS 도메인도 지원합니다.
+**Azure DNS**: DNS (Domain Name System)는 웹 사이트 또는 서비스 이름을 해당 IP 주소로 변환 (또는 확인) 해야 합니다. [Azure DNS](https://docs.microsoft.com/azure/dns/dns-overview)는 Azure 인프라를 통한 이름 확인 기능을 제공하는 DNS 도메인용 호스팅 서비스입니다. Azure에서 도메인을 호스팅하는 사용자는 다른 Azure 서비스와 동일한 자격 증명, API, 도구 및 대금 청구 방식을 사용하여 DNS 레코드를 관리할 수 있습니다. Azure DNS는 프라이빗 DNS 도메인도 지원합니다.
 
-**Azure Load Balancer**: [부하 분산 장치](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) 응용 프로그램을 확장 하 여 서비스에 대 한 고가용성을 만들 고객이 사용할 수 있습니다. Load Balancer는 인바운드 및 아웃바운드 시나리오를 지원합니다. 또한 Load Balancer를 사용하면 대기 시간은 짧아지고 처리량은 높아지며, 모든 TCP 및 UDP 애플리케이션을 강화하여 흐름을 수백만 개로 늘릴 수 있습니다.
+**Azure Load Balancer**: [Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) 는 고객이 응용 프로그램을 확장 하 고 서비스에 대 한 고가용성을 만들 때 사용할 수 있습니다. Load Balancer는 인바운드 및 아웃바운드 시나리오를 지원합니다. 또한 Load Balancer를 사용하면 대기 시간은 짧아지고 처리량은 높아지며, 모든 TCP 및 UDP 애플리케이션을 강화하여 흐름을 수백만 개로 늘릴 수 있습니다.
 
 ### <a name="data-in-transit"></a>전송 중 데이터
 Azure는 기본적으로 Azure 데이터 센터와의 모든 통신을 암호화합니다. Azure Portal을 통한 Azure Storage에 대한 모든 트랜잭션은 HTTPS를 통해 발생합니다.
 
-### <a name="data-at-rest"></a>미사용 데이터
+### <a name="data-at-rest"></a>저장 데이터
 
 이 아키텍처는 암호화, 데이터베이스 감사 및 다른 방법을 통해 미사용 데이터를 보호합니다.
 
@@ -147,7 +147,7 @@ Azure 환경에서 데이터에 대한 액세스를 관리하는 기능을 제�
 - [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)은 조직 ID에 영향을 주는 잠재적 취약성을 검색하며, 조직 ID와 관련하여 검색된 의심스러운 작업에 대한 자동화된 응답을 구성합니다. 또한 의심스러운 인시던트를 조사하며 해결을 위해 적절한 작업을 수행합니다.
 
 ### <a name="security"></a>보안
-**비밀 관리**: 솔루션 사용 [Key Vault](https://azure.microsoft.com/services/key-vault/) 키 및 비밀 관리에 대 한 합니다. Key Vault를 사용하면 클라우드 애플리케이션 및 서비스에서 사용되는 암호화 키 및 비밀을 보호할 수 있습니다. 고객은 다음 Key Vault 기능을 통해 데이터를 보호할 수 있습니다.
+**비밀 관리**: 이 솔루션은 키와 비밀을 관리 하는 데 [Key Vault](https://azure.microsoft.com/services/key-vault/) 를 사용 합니다. Key Vault를 사용하면 클라우드 애플리케이션 및 서비스에서 사용되는 암호화 키 및 비밀을 보호할 수 있습니다. 고객은 다음 Key Vault 기능을 통해 데이터를 보호할 수 있습니다.
 - 필요에 따라 고급 액세스 정책이 구성됩니다.
 - Key Vault 액세스 정책은 키와 비밀에 대한 최소 필수 권한으로 정의됩니다.
 - Key Vault의 모든 키와 비밀에는 만료 날짜가 있습니다.
@@ -162,7 +162,7 @@ Security Center는 다양한 검색 기능을 사용하여 고객에게 환경�
 
 Security Center는 우선 순위가 지정된 보안 경고 및 인시던트를 제공합니다. 고객은 Security Center를 통해 잠재적 보안 문제를 더 간편하게 검색하고 해결할 수 있습니다. 검색된 각 위협에 대해 [위협 인텔리전스 보고서](https://docs.microsoft.com/azure/security-center/security-center-threat-report)가 생성됩니다. 인시던트 대응 팀은 위협을 조사하고 수정할 때 해당 보고서를 사용할 수 있습니다.
 
-**Azure Application Gateway**: 아키텍처는 웹 응용 프로그램 방화벽 구성 및 사용 하도록 설정 하는 OWASP 규칙 집합을 사용 하 여 응용 프로그램 게이트웨이 사용 하 여 보안 취약성의 위험을 줄입니다. 추가적인 기능은 다음과 같습니다.
+**Azure Application Gateway**: 아키텍처는 웹 응용 프로그램 방화벽이 구성 되 고 OWASP 규칙 집합이 사용 하도록 설정 된 application gateway를 사용 하 여 보안 취약점의 위험을 줄입니다. 추가적인 기능은 다음과 같습니다.
 
 - [종단 간 SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - [SSL 오프로드](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-portal) 사용
@@ -179,9 +179,9 @@ Azure 서비스는 시스템 및 사용자 활동, 시스템 상태를 광범위
 - **활동 로그**: [활동 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)는 구독에 있는 리소스에서 수행된 작업에 대한 인사이트를 제공합니다. 활동 로그는 작업의 개시 장치, 발생 시간 및 상태를 결정하는 데 도움이 될 수 있습니다.
 - **진단 로그**: [진단 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)는 모든 리소스에서 내보낸 모든 로그를 포함합니다. 이러한 로그에는 Windows 이벤트 시스템 로그, Storage 로그, Key Vault 감사 로그, Application Gateway 액세스 및 방화벽 로그가 포함됩니다. 모든 진단 로그는 보관을 위해 암호화된 중앙 집중식 Azure Storage 계정에 기록됩니다. 사용자는 특정 요구 사항에 맞게 보존 기간을 최대 730일까지 구성할 수 있습니다.
 
-**Azure Monitor 로그**: 로그에 통합 됩니다 [Azure Monitor 로그](https://azure.microsoft.com/services/log-analytics/) 처리, 저장 및 대시보드를 보고 합니다. 수집된 데이터는 Log Analytics 작업 영역 내에서 각 데이터 형식용 개별 테이블로 구성됩니다. 이러한 방식으로 인해 원래 원본에 관계없이 모든 데이터를 함께 분석할 수 있습니다. Security Center는 Azure Monitor 로그와 통합 됩니다. 고객에 게 Kusto 쿼리를 사용 하 여 보안 이벤트 데이터를 액세스 하 고 다른 서비스의 데이터와 결합 하 수 있습니다.
+**Azure Monitor 로그**: 로그는 처리, 저장 및 대시보드 보고를 위해 [Azure Monitor 로그](https://azure.microsoft.com/services/log-analytics/) 에 통합 됩니다. 수집된 데이터는 Log Analytics 작업 영역 내에서 각 데이터 형식용 개별 테이블로 구성됩니다. 이러한 방식으로 인해 원래 원본에 관계없이 모든 데이터를 함께 분석할 수 있습니다. Security Center Azure Monitor 로그와 통합 됩니다. 고객은 Kusto 쿼리를 사용 하 여 보안 이벤트 데이터에 액세스 하 고 다른 서비스의 데이터와 결합할 수 있습니다.
 
-다음 Azure [모니터링 솔루션](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) 이 아키텍처의 일부로 포함 됩니다.
+다음 Azure [모니터링 솔루션](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) 은이 아키텍처의 일부로 포함 되어 있습니다.
 -   [Active Directory 평가](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): Active Directory 상태 검사 솔루션은 일정한 간격으로 서버 환경의 위험 및 상태를 평가합니다. 이 솔루션은 배포된 서버 인프라 관련 우선 순위가 지정된 권장 사항 목록을 제공합니다.
 - [SQL 평가](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment): SQL 상태 검사 솔루션은 일정한 간격으로 서버 환경의 위험 및 상태를 평가합니다. 이 솔루션은 배포된 서버 인프라 관련 우선 순위가 지정된 권장 사항 목록을 고객에게 제공합니다.
 - [에이전트 상태](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): 에이전트 상태 솔루션은 배포된 에이전트의 수와 에이전트의 지리적 분산을 보고합니다. 또한 응답하지 않는 에이전트의 수와 작동 데이터를 제출하는 에이전트의 수도 보고합니다.
@@ -191,7 +191,7 @@ Azure 서비스는 시스템 및 사용자 활동, 시스템 상태를 광범위
 
 **Azure Monitor**: 고객은 [Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/)를 통해 성능을 추적하고 보안을 유지하고 추세를 파악할 수 있습니다. 조직에서는 Monitor를 사용하여 감사를 수행하고 경고를 작성하고 데이터를 보관할 수 있습니다. 또한 Azure 리소스의 API 호출을 추적할 수도 있습니다.
 
-**Application Insights**: [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) 는 여러 플랫폼에서 웹 개발자를 위한 확장 가능한 응용 프로그램 성능 관리 서비스입니다. Application Insights는 성능 변칙을 검색합니다. 고객은 Application Insights를 사용하여 라이브 웹 애플리케이션을 모니터링할 수 있습니다. Application Insights에는 고객이 문제를 진단하고 사용자가 앱을 사용하여 수행하는 작업을 파악하는 데 사용할 수 있는 유용한 분석 도구가 포함되어 있습니다. 고객이 성능 및 가용성을 지속적으로 향상할 수 있도록 설계되었습니다.
+**Application Insights**: [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) 는 여러 플랫폼의 웹 개발자를 위한 확장 가능한 응용 프로그램 성능 관리 서비스입니다. Application Insights는 성능 변칙을 검색합니다. 고객은 Application Insights를 사용하여 라이브 웹 애플리케이션을 모니터링할 수 있습니다. Application Insights에는 고객이 문제를 진단하고 사용자가 앱을 사용하여 수행하는 작업을 파악하는 데 사용할 수 있는 유용한 분석 도구가 포함되어 있습니다. 고객이 성능 및 가용성을 지속적으로 향상할 수 있도록 설계되었습니다.
 
 ## <a name="threat-model"></a>위협 모델
 

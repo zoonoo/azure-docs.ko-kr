@@ -4,14 +4,14 @@ description: Azure Resource Manager 템플릿을 사용 하 여 SQL (Core) API�
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/25/2019
+ms.date: 08/05/2019
 ms.author: mjbrown
-ms.openlocfilehash: 4cd66c9da0650c9eb9de5b51ce82b48fe781c6f4
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: b4d121e0628512f7bbd6aedc0a9067b31d46d0ed
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68500515"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68814980"
 ---
 # <a name="manage-azure-cosmos-db-sql-core-api-resources-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용 하 여 Azure Cosmos DB SQL (코어) API 리소스 관리
 
@@ -23,6 +23,7 @@ Azure Resource Manager 템플릿을 사용 하 여 Azure Cosmos DB 리소스를 
 >
 > - 현재 리소스 관리자 템플릿을 사용 하 여 Udf (사용자 정의 함수), 저장 프로시저 및 트리거를 배포할 수 없습니다.
 > - Azure Cosmos 계정에 위치를 동시에 추가 또는 제거 하 고 다른 속성을 수정할 수 없습니다. 이러한 작업은 별도의 작업으로 수행 해야 합니다.
+> - 계정 이름은 소문자 여야 하 고 31 자 < 합니다.
 
 [!code-json[create-cosmosdb-sql](~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json)]
 

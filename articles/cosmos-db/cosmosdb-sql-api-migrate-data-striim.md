@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: b1817b54e16d77c41b5d5e80776c92eedfec7fc6
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: dba29ea2d4d0ad18f021e0271c6131f9473cbe8b
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68600697"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827806"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-sql-api-account-using-striim"></a>Striim를 사용 하 여 SQL API 계정 Azure Cosmos DB으로 데이터 마이그레이션
  
@@ -20,9 +20,9 @@ Azure marketplace의 Striim 이미지는 데이터 웨어하우스 및 데이터
 
 이 문서에서는 Striim를 사용 하 여 **Oracle 데이터베이스** 에서 **Azure Cosmos DB SQL API 계정**으로 데이터를 마이그레이션하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
-* [Azure 구독](/azure/guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
+* [Azure 구독](/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing)이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
 
 * 일부 데이터를 사용 하 여 온-프레미스에서 실행 되는 Oracle 데이터베이스
 
@@ -68,7 +68,7 @@ Azure marketplace의 Striim 이미지는 데이터 웨어하우스 및 데이터
 
 1. Azure Portal를 사용 하 여 [AZURE COSMOS DB SQL API 계정을](create-cosmosdb-resources-portal.md) 만듭니다.
 
-1. Azure Cosmos 계정의 **데이터 탐색기** 창으로 이동 합니다. 새 컨테이너 **를 선택 하** 여 새 컨테이너를 만듭니다. Oracle 데이터베이스에서 Azure Cosmos DB로 *제품* 및 *주문* 데이터를 마이그레이션하는 경우를 가정 합니다. **Orders**라는 컨테이너를 사용 하 여 **StriimDemo** 라는 새 데이터베이스를 만듭니다. **1000 rus** 를 사용 하 여 컨테이너를 프로 비전 합니다 .이 예제에서는 1000 rus를 사용 하지만 작업에 대해 예상 되는 처리량을 사용 해야 합니다. 이러한 값은 원본 데이터에 따라 달라 집니다. 
+1. Azure Cosmos 계정의 **데이터 탐색기** 창으로 이동 합니다. 새 컨테이너를 선택 하 여 새 컨테이너를 만듭니다. Oracle 데이터베이스에서 Azure Cosmos DB로 *제품* 및 *주문* 데이터를 마이그레이션하는 경우를 가정 합니다. **Orders**라는 컨테이너를 사용 하 여 **StriimDemo** 라는 새 데이터베이스를 만듭니다. **1000 rus** 를 사용 하 여 컨테이너를 프로 비전 합니다 .이 예제에서는 1000 rus를 사용 하지만 작업에 대해 예상 되는 처리량을 사용 해야 합니다. 이러한 값은 원본 데이터에 따라 달라 집니다. 
 
    ![SQL API 계정 만들기](./media/cosmosdb-sql-api-migrate-data-striim/create-sql-api-account.png)
 

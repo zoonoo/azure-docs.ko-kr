@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 3f51f23f47cfbd81c71234bc2ce5a0adeeadd3f9
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: bf11d7a9dbaa37db521da67deddbed977cc1d251
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727384"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780544"
 ---
 # <a name="azure-database-security-checklist"></a>Azure 데이터베이스 보안 검사 목록
 
@@ -41,7 +41,7 @@ Azure 데이터베이스에는 보안을 향상시키기 위해 액세스를 제
 클라우드 컴퓨팅에는 다양한 애플리케이션 사용자, 데이터베이스 관리자 및 프로그래머에게 익숙하지 않은 새로운 보안 패러다임이 필요합니다. 그 결과로 일부 조직에서는 인식된 보안 위험으로 인해 데이터 관리를 위한 클라우드 인프라를 구현하는 것을 망설일 수 있습니다. 그러나 Microsoft Azure 및 Microsoft Azure SQL Database에 기본 제공된 보안 기능을 더 잘 이해하면 이러한 문제의 대부분을 완화할 수 있습니다.
 
 ## <a name="checklist"></a>검사 목록
-이 검사 목록을 검토하기 전에 [Azure 데이터베이스 보안 모범 사례](https://docs.microsoft.com/azure/security/azure-database-security-best-practices) 문서를 참조하는 것이 좋습니다. 모범 사례를 이해하면 이 검사 목록을 최대한 활용할 수 있습니다. 따라서 이 검사 목록을 사용하여 Azure 데이터베이스 보안의 중요한 문제를 해결했는지 확인할 수 있습니다.
+이 검사 목록을 검토하기 전에 [Azure 데이터베이스 보안 모범 사례](https://docs.microsoft.com/azure/security/fundamentals/database-best-practices) 문서를 참조하는 것이 좋습니다. 모범 사례를 이해하면 이 검사 목록을 최대한 활용할 수 있습니다. 따라서 이 검사 목록을 사용하여 Azure 데이터베이스 보안의 중요한 문제를 해결했는지 확인할 수 있습니다.
 
 
 |검사 목록 범주| Description|

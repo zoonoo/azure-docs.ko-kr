@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: dacurwin
-ms.openlocfilehash: 8948a620c27311f0371a557c91a971da37111cb9
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 078c8763a08df339b9291807102e2d187d2a882f
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688590"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827577"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>질문과 대답-Azure Vm 백업
 
@@ -64,14 +64,14 @@ Key Vault에 액세스할 수 있는 Azure Backup에 대 한 권한을 제공 �
 ### <a name="can-i-cancel-an-in-progress-backup-job"></a>진행 중인 백업 작업을 취소할 수 있나요?
 예. **스냅샷 만들기** 단계에 있는 백업 작업을 취소할 수 있습니다. 스냅샷에서 데이터 전송이 진행 중인 경우 작업을 취소할 수 없습니다.
 
-### <a name="i-enabled-lock-on-resource-group-created-by-azure-backup-service-ie-azurebackuprggeonumber-will-my-backups-continue-to-work"></a>Azure Backup 서비스에서 만든 리소스 그룹에 대해 잠금을 사용 하도록 설정 했습니다 (즉, `AzureBackupRG_<geo>_<number>`)에서 백업이 계속 작동 하나요?
+### <a name="i-enabled-lock-on-resource-group-created-by-azure-backup-service-ie-azurebackuprg_geo_number-will-my-backups-continue-to-work"></a>Azure Backup 서비스에서 만든 리소스 그룹에 대해 잠금을 사용 하도록 설정 했습니다 (즉, `AzureBackupRG_<geo>_<number>`)에서 백업이 계속 작동 하나요?
 Azure Backup 서비스에 의해 생성 된 리소스 그룹을 잠그면 최대 18 개의 복원 지점이 있으므로 백업이 실패 합니다.
 
 이후 백업을 성공적으로 수행 하려면 사용자가 잠금을 제거 하 고 해당 리소스 그룹에서 복원 지점 수집을 지워야 합니다. 복원 지점 컬렉션을 제거 하려면 [다음 단계를 수행](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) 합니다.
 
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disk"></a>Azure Backup은 표준 SSD 관리 디스크를 지원하나요?
-Azure Backup은 [표준 SSD 관리 디스크](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/)를 지원합니다. SSD 관리 디스크는 Azure Vm에 대해 새로운 유형의 영구 저장소를 제공 합니다. SSD Managed Disks에 대한 지원이 [즉시 복원](backup-instant-restore-capability.md)에서 제공됩니다.
+예, Azure Backup [는 표준 SSD 관리 디스크](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/)를 지원 합니다.
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>WA(쓰기 가속기) 지원 디스크를 사용하여 VM을 백업할 수 있나요?
 WA 지원 디스크에는 스냅샷을 만들 수 없습니다. 그러나 Azure Backup 서비스는 백업에서 WA 지원 디스크를 제외할 수 있습니다.
@@ -119,7 +119,7 @@ PowerShell에서 이 작업을 수행하는 방법을 [자세히 알아보세요
 관리 디스크 Azure VM의 경우 관리 디스크로 복원하는 동안 템플릿에서 옵션을 제공하여 가용성 집합에 복원하는 기능을 설정합니다. 이 템플릿에 **가용성 집합**이라는 입력 매개 변수가 있습니다.
 
 ### <a name="how-do-we-get-faster-restore-performances"></a>복원 성능을 높이려면 어떻게 해야 하나요?
-복원 성능 향상을 위해 [즉시 복원](backup-instant-restore-capability.md) 기능으로 전환합니다.
+[즉시 복원](backup-instant-restore-capability.md) 기능을 사용 하면 스냅숏에서 빠르게 백업 하 고 즉시 복원할 수 있습니다.
 
 ## <a name="manage-vm-backups"></a>VM 백업 관리
 

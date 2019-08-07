@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 805f11d57a635f4e73309d025e185049b511570b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0c2581106466f7d84cc694cd47d4ba02e40bf60b
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427845"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815750"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Key Vault 인증서 시작
 다음과 같은 시나리오는 키 자격 증명 모음에서 첫 번째 인증서를 만드는 데 필요한 추가 단계를 포함하여 몇 가지 Key Vault의 인증서 관리 서비스의 기본 사용을 간략하게 설명합니다.
@@ -39,7 +39,7 @@ ms.locfileid: "66427845"
 -   지정된 회사(예: Contoso)에 대해 IT 관리자, PKI 관리자로 등록하거나 CA로 계정을 관리하는 것은 Key Vault 인증서를 사용하는 필수 구성 요소입니다.  
     다음 CA는 Key Vault와 현재 협력하는 공급자입니다.  
     -   DigiCert - Key Vault는 DigiCert를 통해 OV SSL 인증서를 제공합니다.  
-    -   Globaltrust-Key Vault는 OV SSL Globaltrust 사용 하 여 인증서를 제공합니다.  
+    -   GlobalSign Key Vault는 GlobalSign을 사용 하 여 OV-ES SSL 인증서를 제공 합니다.  
 
 **2단계** - CA 공급자에 대한 계정 관리자는 Key Vault를 통해 SSL 인증서를 등록, 갱신 및 사용하도록 Key Vault에서 사용할 자격 증명을 만듭니다.
 
@@ -97,16 +97,16 @@ ms.locfileid: "66427845"
 
 -   또한 사용자는 가져오기 시 사용할 수 있지만 가져오기 시 정보가 지정되지 않은 기본값을 포함하는 정책을 편집할 수 있습니다. 예: 발급자 정보 없음  
 
-### <a name="formats-of-import-we-support"></a>지원 되는 가져오기 형식
-PEM 파일 형식에 대 한 다음과 같은 유형의 가져오기 지원합니다. PKCS # 8로 인코딩된, 다음에는 암호화 되지 않은 키와 함께 단일 PEM 인코딩 인증서
+### <a name="formats-of-import-we-support"></a>지원 되는 가져오기의 형식
+PEM 파일 형식에 대해 다음과 같은 가져오기 유형을 지원 합니다. 다음을 포함 하는 PKCS # 8로 인코딩된 암호화 되지 않은 키와 함께 단일 PEM 인코딩 인증서
 
------BEGIN CERTIFICATE----- -----END CERTIFICATE-----
+인증서----------끝 인증서를 시작----------
 
----BEGIN PRIVATE KEY------END PRIVATE KEY--
+-----시작 개인 키----------최종 개인 키-----
 
-인증서 병합 2 기반 PEM 형식을 지원합니다. 단일 PKCS # 8로 인코딩된 인증서를 하거나 병합할 수 있습니다 또는 base64로 인코딩된 P7B 파일입니다. -----BEGIN CERTIFICATE----- -----END CERTIFICATE-----
+인증서 병합 시 2 개의 PEM 기반 형식을 지원 합니다. 단일 PKCS # 8로 인코딩된 인증서 또는 b a s e 64로 인코딩된 P7B 파일을 병합할 수 있습니다. 인증서----------끝 인증서를 시작----------
 
-현재 PEM 형식으로 EC 키를 지원 하지 않습니다.
+현재는 PEM 형식의 EC 키를 지원 하지 않습니다.
 
 ## <a name="creating-a-certificate-with-a-ca-not-partnered-with-key-vault"></a>Key Vault와 협력하지 않는 CA를 통해 인증서 만들기  
  이 방법을 통해 Key Vault의 파트너 공급자가 아닌 다른 CA와 작업할 수 있습니다. 즉, 조직은 선택한 CA와 작업할 수 있습니다.  
@@ -125,6 +125,6 @@ PEM 파일 형식에 대 한 다음과 같은 유형의 가져오기 지원합�
 
   (5) - 애플리케이션이 CA에서 X509 인증서를 병합해 새로운 인증서 만들기를 완료합니다.
 
-## <a name="see-also"></a>관련 항목
+## <a name="see-also"></a>참고 항목
 
 - [키, 비밀 및 인증서에 대한 정보](about-keys-secrets-and-certificates.md)

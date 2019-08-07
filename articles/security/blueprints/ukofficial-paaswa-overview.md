@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: e3ee5a0aa22d1231dca7d02a77d39e0a2b569314
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 54bf4512785941ae1d09ae1436deefc032ec0037
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66753819"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780666"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure 보안 및 규정 준수 청사진: UK OFFICIAL 워크로드 준수 PaaS 웹 애플리케이션 호스팅
 
@@ -57,9 +57,9 @@ Azure Blueprint는 승인 또는 규정 준수 요구 사항이 있는 시나리
 - API 앱
 - Azure DNS
 - Key Vault
-- Azure 모니터 (로그)
+- Azure Monitor (로그)
 - Application Insights
-- Azure 리소스 관리자
+- Azure Resource Manager
 - Azure Security Center
 - Azure SQL Database
 - Azure Storage
@@ -95,7 +95,7 @@ Azure Blueprint는 승인 또는 규정 준수 요구 사항이 있는 시나리
 
 [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-overview)는 Azure 배포를 최적화하기 위한 모범 사례를 따르는 데 도움이 되는 개인 설정된 클라우드 컨설턴트입니다. 리소스 구성 및 사용량 원격 분석을 수행하고 Azure 리소스의 경제성, 성능, 고가용성 및 보안을 개선하는 데 도움이 되는 해결 방법을 권장합니다.
 
-[Microsoft 맬웨어 방지 프로그램](https://docs.microsoft.com/azure/security/azure-security-antimalware)은 바이러스, 스파이웨어 및 기타 악성 소프트웨어를 식별하고 제거하는 데 도움이 되는 실시간 보호 기능입니다. 기본적으로이 기본 PaaS 가상 컴퓨터 인프라에 설치 되 고 고객에 게 투명 하 게 Azure 패브릭으로 관리 됩니다.
+[Microsoft 맬웨어 방지 프로그램](https://docs.microsoft.com/azure/security/fundamentals/antimalware)은 바이러스, 스파이웨어 및 기타 악성 소프트웨어를 식별하고 제거하는 데 도움이 되는 실시간 보호 기능입니다. 이는 기본적으로 기본 PaaS 가상 컴퓨터 인프라에 설치 되며 Azure 패브릭에서 고객에 게 투명 하 게 관리 됩니다.
 
 ### <a name="paas-services-in-this-blueprint"></a>이 청사진의 PaaS 서비스
 
@@ -145,7 +145,7 @@ Microsoft [Azure Storage](https://azure.microsoft.com/services/storage/)는 가�
 - [Storage 서비스 암호화](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) 
 - HTTPS 연결만 허용
 
-#### <a name="data-at-rest"></a>미사용 데이터
+#### <a name="data-at-rest"></a>저장 데이터
 
 [SSE(스토리지 서비스 암호화)](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)를 통해 Azure Storage에 쓴 모든 데이터는 사용 가능한 가장 강력한 블록 암호화 중 하나인 256비트 AES 암호화를 통해 암호화됩니다. SSE에서 Microsoft 관리 암호화 키를 사용하거나 [사용자 고유의 암호화 키](https://docs.microsoft.com/azure/storage/common/storage-service-encryption-customer-managed-keys)를 사용할 수 있습니다.
 
@@ -170,9 +170,9 @@ Azure Storage 보안에 대한 자세한 내용은 [보안 가이드](https://do
 
 #### <a name="azure-monitor-logs"></a>Azure Monitor 로그
 
-[Azure Monitor 로그](https://azure.microsoft.com/services/log-analytics/) 는 클라우드 리소스에서 생성 된 데이터 수집 및 분석 하도록 도와주는 Azure의 서비스 및 온-프레미스 환경입니다.
+[Azure Monitor 로그](https://azure.microsoft.com/services/log-analytics/) 는 클라우드 및 온-프레미스 환경에서 리소스에 의해 생성 된 데이터를 수집 하 고 분석 하는 데 도움이 되는 Azure의 서비스입니다.
 
-#### <a name="azure-monitor-logs-in-this-blueprint"></a>이 blueprint에서 azure Monitor 로그
+#### <a name="azure-monitor-logs-in-this-blueprint"></a>이 청사진의 Azure Monitor 로그
 
 - SQL 평가
 - Key Vault 진단
@@ -235,7 +235,7 @@ Crown Commercial Service(영국 정부의 상업 및 조달 활동을 향상시�
 
 ## <a name="guidance-and-recommendations"></a>지침 및 권장 사항
 
-### <a name="api-management"></a>API Management
+### <a name="api-management"></a>API 관리
 
 API App Service 앞에서 [Azure API Management](https://azure.microsoft.com/services/api-management/)를 사용하여 보안 계층, 제한 계층 및 API를 노출, 프록시 및 보호하는 제어 계층을 추가로 제공할 수 있습니다.
 

@@ -5,21 +5,23 @@ services: active-directory
 author: rolyon
 ms.service: active-directory
 ms.topic: include
-ms.date: 05/16/2019
+ms.date: 07/31/2019
 ms.author: rolyon
 ms.custom: include file
-ms.openlocfilehash: da4bc51cdd8cdfad8212ee5a288f03874f673c2c
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: db16a2f122da1bf6c767e0a47c93c22f1882c406
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678213"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68817233"
 ---
 ### <a name="policy-for-users-in-your-directory"></a>정책: 디렉터리의 사용자
 
 이 액세스 패키지를 요청할 수 있는 디렉터리의 사용자에 대 한 정책을 사용 하려는 경우 다음 단계를 수행 합니다.  **사용자의 디렉터리에 있는 사용자** 는 다른 액세스 패키지를 사용 하 여 자격 증명 관리를 요청 하거나 AZURE AD B2B를 사용 하 여 초대 하는 동안 이전에 디렉터리에 초대 된 외부 사용자와 내부 사용자를 모두 나타냅니다. 정책을 정의할 때 개별 사용자 또는 보다 일반적으로 사용자 그룹을 지정할 수 있습니다. 예를 들어 조직에 이미 **모든 직원과**같은 그룹이 있을 수 있습니다.  액세스를 요청할 수 있는 사용자에 대 한 정책에 해당 그룹이 추가 되 면 해당 그룹의 모든 멤버는 액세스를 요청할 수 있습니다.
 
 1. 액세스를 **요청할 수 있는 사용자** 섹션에서 **디렉터리의 사용자**로를 선택 합니다.
+
+    디렉터리 설정의 **사용자에 대 한** 에는 구성원 사용자와 디렉터리에 추가 된 게스트 사용자가 모두 포함 됩니다. 게스트 사용자가 아닌 구성원 사용자만 포함 하려면 **디렉터리의 사용자** 로를 선택한 다음 멤버 사용자 그룹을 선택 합니다. 필요한 경우 멤버 사용자의 동적 그룹 (userType-eq "Member")을 만들 수 있습니다. 자세한 내용은 [Azure Active Directory의 그룹에 대 한 동적 멤버 자격 규칙](../articles/active-directory/users-groups-roles/groups-dynamic-membership.md)을 참조 하세요.
 
 1. **사용자 및 그룹 선택** 섹션에서 **사용자 및 그룹 추가**를 클릭 합니다.
 

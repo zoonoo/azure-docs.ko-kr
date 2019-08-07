@@ -8,14 +8,14 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: dacurwin
-ms.openlocfilehash: 3b116e25635873429dd164288c2764fd76c8f7a7
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 3dcf2188fd4fed211c96d4cc5241044d32ab6577
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688993"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68737165"
 ---
-# <a name="back-up-sql-server-on-stack"></a>Stack에 SQL Server 백업
+# <a name="back-up-sql-server-on-azure-stack"></a>Azure Stack에 SQL Server 백업
 이 문서를 사용하여 Azure Stack에서 SQL Server 데이터베이스를 보호하도록 MABS(Microsoft Azure Backup Server)를 구성할 수 있습니다.
 
 Azure에 SQL Server 데이터베이스를 백업하고 Azure에서 데이터베이스를 복구하는 것을 관리하는 작업에는 세 가지 단계가 포함됩니다.

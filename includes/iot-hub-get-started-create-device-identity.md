@@ -8,32 +8,26 @@ ms.topic: include
 ms.date: 09/07/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: b2bce9788006a564def9bd8c1375a85dc4184b67
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1e919f22d5dd7975f055f262ec9ba69230aebd17
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66814749"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780845"
 ---
-## <a name="create-a-device-identity"></a>디바이스 ID 만들기
+이 섹션에서는 Azure CLI를 사용 하 여이 문서에 대 한 장치 id를 만듭니다. 디바이스 ID는 대/소문자를 구분합니다.
 
-이 섹션에서는 Azure CLI를 사용하여 이 자습서의 디바이스 ID를 만듭니다. Azure CLI에 미리 설치 되는 [Azure Cloud Shell](~/articles/cloud-shell/overview.md), 할 수 있습니다 [Azure CLI를 로컬로 설치](/cli/azure/install-azure-cli)합니다. 디바이스 ID는 대/소문자를 구분합니다.
+1. [Azure Cloud Shell](https://shell.azure.com/)을 엽니다.
 
-1. Azure CLI를 사용하여 IoT 확장을 설치하는 명령줄 환경에서 다음 명령을 실행합니다.
+1. Azure Cloud Shell에서 다음 명령을 실행 하 Azure CLI에 대 한 Microsoft Azure IoT 확장을 설치 합니다.
 
-    ```cmd/sh
+    ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
     ```
 
-1. Azure CLI를 로컬로 실행하는 경우 다음 명령을 사용하여 Azure 계정에 로그인합니다(Cloud Shell을 사용하는 경우 자동으로 로그인되므로 이 명령을 실행할 필요가 없음).
+2. 이라는 `myDeviceId` 새 장치 id를 만들고 다음 명령을 사용 하 여 장치 연결 문자열을 검색 합니다.
 
-    ```cmd/sh
-    az login
-    ```
-
-1. 마지막으로 `myDeviceId`라는 새 디바이스 ID를 만들고 다음 명령으로 디바이스 연결 문자열을 검색합니다.
-
-    ```cmd/sh
+    ```azurecli-interactive
     az iot hub device-identity create --device-id myDeviceId --hub-name {Your IoT Hub name}
     az iot hub device-identity show-connection-string --device-id myDeviceId --hub-name {Your IoT Hub name} -o table
     ```

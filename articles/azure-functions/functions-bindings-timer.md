@@ -5,7 +5,7 @@ services: functions
 documentationcenter: na
 author: craigshoemaker
 manager: gwallace
-keywords: Azure 함수, 함수, 이벤트 처리, 동적 계산, 서버리스 아키텍처
+keywords: Azure 함수, 함수, 이벤트 처리, 동적 컴퓨팅, 서버리스 아키텍처
 ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.service: azure-functions
 ms.devlang: multiple
@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: ef02c8120775aa119aff44ff7a06bccf2bc70a21
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.openlocfilehash: 962c28c8b081980c2715d4d78739662e86748bd1
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377338"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68814440"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure Functions의 타이머 트리거 
 
@@ -125,7 +125,7 @@ let Run(myTimer: TimerInfo, log: ILogger ) =
 ```java
 @FunctionName("keepAlive")
 public void keepAlive(
-  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 *&#47;5 * * * *") String timerInfo,
+  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 */5 * * * *") String timerInfo,
       ExecutionContext context
  ) {
      // timeInfo is a JSON string, you can deserialize it to an object using your favorite JSON library
@@ -166,7 +166,7 @@ module.exports = function (context, myTimer) {
 
 ### <a name="python-example"></a>Python 예제
 
-다음 예제에서는 해당 구성이 *함수인 json* 파일에 설명 된 타이머 트리거 바인딩을 사용 합니다. 바인딩을 사용 하는 실제 [Python 함수](functions-reference-python.md) 는  *py* 파일에 설명 되어 있습니다. 함수에 전달 되는 개체는 [azure. 함수인 request 개체](/python/api/azure-functions/azure.functions.timerrequest)유형입니다. 함수 논리는 현재 호출이 누락 된 일정 발생으로 인 한 것인지 여부를 나타내는 로그에 기록 합니다. 
+다음 예제에서는 해당 구성이 *함수인 json* 파일에 설명 된 타이머 트리거 바인딩을 사용 합니다. 바인딩을 사용 하는 실제 [Python 함수](functions-reference-python.md) 는 *py* 파일에 설명 되어 있습니다. 함수에 전달 되는 개체는 [azure. 함수인 request 개체](/python/api/azure-functions/azure.functions.timerrequest)유형입니다. 함수 논리는 현재 호출이 누락 된 일정 발생으로 인 한 것인지 여부를 나타내는 로그에 기록 합니다. 
 
 *function.json* 파일의 바인딩 데이터는 다음과 같습니다.
 
@@ -220,12 +220,12 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 
 다음 표에서는 *function.json* 파일 및 `TimerTrigger` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
-|function.json 속성 | 특성 속성 |설명|
+|function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
 |**type** | n/a | "timerTrigger"로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다.|
 |**direction** | n/a | "in"으로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. |
 |**name** | n/a | 함수 코드에서 타이머 개체를 나타내는 변수의 이름입니다. | 
-|**schedule**|**ScheduleExpression**|[CRON 식](#cron-expressions) 또는 [TimeSpan](#timespan) 값입니다. App Service 계획에서 함수 앱을 실행 중인 경우에만 `TimeSpan`을 사용할 수 있습니다. "%ScheduleAppSetting%" 예제와 같이 앱 설정에서 일정 식을 배치하고 이 속성을 **%** 기호에서 래핑된 앱 설정 이름으로 설정할 수 있습니다. |
+|**schedule**|**ScheduleExpression**|[CRON 식](#ncrontab-expressions) 또는 [TimeSpan](#timespan) 값입니다. App Service 계획에서 함수 앱을 실행 중인 경우에만 `TimeSpan`을 사용할 수 있습니다. "%ScheduleAppSetting%" 예제와 같이 앱 설정에서 일정 식을 배치하고 이 속성을 **%** 기호에서 래핑된 앱 설정 이름으로 설정할 수 있습니다. |
 |**runOnStartup**|**RunOnStartup**|`true`인 경우 함수는 런타임이 시작될 때 호출됩니다. 예를 들어 비활성으로 인해 유휴 상태로 전환된 후에 함수 앱이 작동될 때 런타임이 시작됩니다. 함수 변경으로 인해 함수 앱을 다시 시작할 때 및 함수 앱이 확장할 때입니다. 따라서 **runOnStartup**은 특히 프로덕션에서 `true`로 설정되는 경우가 거의 없습니다. |
 |**useMonitor**|**UseMonitor**|`true` 또는 `false`로 설정하여 일정을 모니터링해야 하는지를 나타냅니다. 일정 모니터링은 일정 발생을 유지하여 함수 앱 인스턴스가 다시 시작하는 경우에도 일정을 올바르게 유지하도록 지원합니다. 명시적으로 설정하지 않는 경우 되풀이 간격이 1분을 넘는 큰 일정에서 기본값은 `true`입니다. 분당 한 번 넘게 트리거되는 일정에서 기본값은 `false`입니다.
 
@@ -253,9 +253,9 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 
 현재 함수 호출이 일정보다 늦은 경우 `IsPastDue` 속성은 `true`입니다. 예를 들어 함수 앱을 다시 시작하면 호출이 누락될 수 있습니다.
 
-## <a name="cron-expressions"></a>CRON 식 
+## <a name="ncrontab-expressions"></a>NCRONTAB 식 
 
-Azure Functions는 [NCronTab](https://github.com/atifaziz/NCrontab) 라이브러리를 사용하여 CRON 식을 해석합니다. CRON 식에는 6개의 필드가 포함됩니다.
+Azure Functions [NCronTab](https://github.com/atifaziz/NCrontab) 라이브러리를 사용 하 여 NCronTab 식을 해석 합니다. NCRONTAB exppression는 시간 전체 자릿수 (초)에 사용할 시작 부분에 추가 여섯 번째 필드가 포함 된다는 점만 제외 하 고 CRON 식과 비슷합니다.
 
 `{second} {minute} {hour} {day} {month} {day-of-week}`
 
@@ -271,9 +271,9 @@ Azure Functions는 [NCronTab](https://github.com/atifaziz/NCrontab) 라이브러
 
 [!INCLUDE [functions-cron-expressions-months-days](../../includes/functions-cron-expressions-months-days.md)]
 
-### <a name="cron-examples"></a>CRON 예제
+### <a name="ncrontab-examples"></a>NCRONTAB 예제
 
-Azure Functions에서 타이머 트리거를 사용할 수 있는 CRON 식의 몇 가지 예는 다음과 같습니다.
+Azure Functions에서 타이머 트리거에 사용할 수 있는 NCRONTAB 식의 몇 가지 예는 다음과 같습니다.
 
 |예제|트리거될 때  |
 |---------|---------|
@@ -284,25 +284,24 @@ Azure Functions에서 타이머 트리거를 사용할 수 있는 CRON 식의 �
 |`"0 30 9 * * *"`|매일 오전 9시 30분|
 |`"0 30 9 * * 1-5"`|평일 오전 9:30|
 |`"0 30 9 * Jan Mon"`|1월 매주 월요일 오전 9:30|
->[!NOTE]   
->온라인으로 CRON 식 예제를 찾을 수 있지만 그 중 대부분은 `{second}` 필드를 생략합니다. 이들 중 하나를 복사하는 경우 누락된 `{second}` 필드를 추가합니다. 일반적으로 해당 필드에 별표가 아닌 0을 사용합니다.
 
-### <a name="cron-time-zones"></a>CRON 표준 시간대
+
+### <a name="ncrontab-time-zones"></a>NCRONTAB 표준 시간대
 
 CRON 식에 있는 숫자는 시간 범위가 아닌 시간 및 날짜를 가리킵니다. 예를 들어 `hour` 필드에 있는 5는 5시간마다 한 번이 아닌 오전 5시를 가리킵니다.
 
 CRON 식과 함께 사용하는 기본 표준 시간대는 UTC(협정 세계시)입니다. 다른 표준 시간대를 기반으로 하는 CRON 식을 사용하려면 `WEBSITE_TIME_ZONE`이라는 함수 앱에 대한 앱 설정을 만듭니다. [Microsoft 표준 시간대 색인](https://technet.microsoft.com/library/cc749073)에 나온 대로 값을 원하는 표준 시간대의 이름으로 설정합니다. 
 
-예를 들어 *동부 표준시*는 UTC-05:00입니다. 타이머 트리거를 매일 오전 10시 EST에 발생하도록 하려면 UTC 표준 시간대를 반영하는 다음과 같은 CRON 식을 사용합니다.
+예를 들어 *동부 표준시*는 UTC-05:00입니다. 매일 오전 10:00 시에 타이머 트리거가 발생 하도록 하려면 UTC 표준 시간대에 대 한 계정을 나타내는 다음 NCRONTAB 식을 사용 합니다.
 
-```json
-"schedule": "0 0 15 * * *"
+```
+"0 0 15 * * *"
 ``` 
 
-또는 `WEBSITE_TIME_ZONE`이라는 함수 앱에 앱 설정을 만들고, 값을 **동부 표준시**로 설정합니다.  그런 다음, 다음 CRON 식을 사용합니다. 
+또는 `WEBSITE_TIME_ZONE`이라는 함수 앱에 앱 설정을 만들고, 값을 **동부 표준시**로 설정합니다.  그러면는 다음 NCRONTAB 식을 사용 합니다. 
 
-```json
-"schedule": "0 0 10 * * *"
+```
+"0 0 10 * * *"
 ``` 
 
 `WEBSITE_TIME_ZONE`을 사용하는 경우 일광 절약 시간제와 같은 특정 표준 시간대에서 시간 변경에 대해 시간이 조정됩니다. 

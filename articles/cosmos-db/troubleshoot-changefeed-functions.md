@@ -7,12 +7,12 @@ ms.date: 07/17/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: b90986e449df7e81f97f9ef86ce3cf69621c76d6
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 17fa443c3b0113d80a020f2a43c7099cf5a832d2
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335742"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68772895"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Cosmos DB에 대해 Azure Functions 트리거를 사용 하는 경우 문제 진단 및 해결
 
@@ -88,6 +88,15 @@ Azure 함수는 변경 내용을 받으면 자주 처리 하 고, 선택적으�
 또한 실행 중인 Azure 함수 앱 인스턴스 수를 알고 있는 경우 시나리오의 유효성을 검사할 수 있습니다. 임대 컨테이너를 검사 하 고 내에서 임대 항목 수를 계산 하는 경우 해당 `Owner` 속성의 고유 값은 함수 앱 인스턴스의 수와 같아야 합니다. 알려진 Azure 함수 앱 인스턴스에 대 한 소유자가 더 많은 경우 이러한 추가 소유자가 변경 내용을 "도용" 하는 것을 의미 합니다.
 
 이러한 상황을 해결 하는 한 가지 쉬운 방법은 새 값 `LeaseCollectionPrefix/leaseCollectionPrefix` 또는 다른 값을 사용 하 여 함수에를 적용 하거나 새 임대 컨테이너를 사용 하 여 테스트 하는 것입니다.
+
+### <a name="need-to-restart-and-re-process-all-the-items-in-my-container-from-the-beginning"></a>처음부터 내 컨테이너의 모든 항목을 다시 시작 하 고 다시 처리 해야 합니다. 
+컨테이너의 모든 항목을 처음부터 다시 처리 하려면 다음을 수행 합니다.
+1. 현재 실행 중인 Azure 함수를 중지 합니다. 
+1. 임대 컬렉션의 문서를 삭제 합니다 (또는 삭제 하 고 다시 만들어 임대 컬렉션을 삭제 한 후 다시 만들기).
+1. 함수에서 [Startfrombeginning](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) CosmosDBTrigger 특성을 true로 설정 합니다. 
+1. Azure 함수를 다시 시작 합니다. 이제는 처음부터 모든 변경 내용을 읽고 처리 합니다. 
+
+[Startfrombeginning](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) true로 설정 하면 Azure 함수는 현재 시간 대신 컬렉션의 기록 시작 부분에서 변경 내용 읽기를 시작 하도록 지시 합니다. 이는 아직 생성 된 임대가 없는 경우에만 작동 합니다 (즉, 임대 컬렉션에 문서). 이미 생성 된 임대가 있는 경우이 속성을 true로 설정 해도 아무런 효과가 없습니다. 이 시나리오에서는 함수가 중지 되었다가 다시 시작 될 때 임대 컬렉션에 정의 된 대로 마지막 검사점에서 읽기를 시작 합니다. 처음부터 다시 처리 하려면 위의 1-4 단계를 수행 합니다.  
 
 ### <a name="binding-can-only-be-done-with-ireadonlylistdocument-or-jarray"></a>Binding은 IReadOnlyList\<Document > 또는 jarray로만 수행할 수 있습니다.
 

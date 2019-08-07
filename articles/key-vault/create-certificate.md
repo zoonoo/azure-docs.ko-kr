@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 67720256cfac68c350c800291653a4a0c1d7ee46
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 63768b83baafe00348a28c5c9c99e5f16619ac99
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427826"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815930"
 ---
 # <a name="certificate-creation-methods"></a>인증서 생성 방법
 
@@ -31,7 +31,7 @@ ms.locfileid: "66427826"
 1. 위의 다이어그램에서 애플리케이션은 내부적으로 키 자격 증명 모음에서 키를 만드는 작업으로 시작하는 인증서를 만듭니다.
 2. Key Vault는 애플리케이션 CSR(Certificate Signing Request)에 반환됨
 3. 애플리케이션에서 CSR을 선택한 CA에 전달합니다.
-4. X509를 사용 하 여 응답 선택한 CA 인증서입니다.
+4. 선택한 CA는 X509 인증서를 사용 하 여 응답 합니다.
 5. 애플리케이션이 CA에서 X509 인증서를 병합해 인증서 만들기를 완료합니다.
 
 -   **알려진 발급자 공급 기업을 통해 인증서 만들기:** 이 방법을 사용하려면 발급자 개체를 만드는 일회성 작업을 수행해야 합니다. 키 자격 증명 모음에서 발급자 개체를 만든 후에 해당 이름을 KV 인증서 정책에서 참조할 수 있습니다. KV 인증서 같은 인증서 만들기를 요청하면 자격 증명 모음에서 키 쌍을 만들고 x509 인증서를 가져오기 위해 참조된 발급자 개체의 정보를 사용하여 발급자 공급자 서비스와 통신합니다. x509 인증서는 인증서 발급자 서비스에서 검색되며, KV 인증서 생성을 완료하기 위해 키 쌍과 병합됩니다.  
@@ -82,14 +82,14 @@ KV 인증서 만들기 요청이 완료되면 보류 중인 개체의 상태가 
 |공급자|인증서 종류|  
 |--------------|----------------------|  
 |DigiCert|Key Vault가 DigiCert를 통해 OV 또는 EV SSL 인증서 제공|
-|GlobalCert|Key Vault는 Globaltrust 사용 하 여 OV 또는 EV SSL 인증서 제공 |
+|GlobalSign|Key Vault가 GlobalSign을 통해 OV 또는 EV SSL 인증서 제공|
 
  인증서 발급자는 Azure KV(Key Vault)에 CertificateIssuer 리소스로 표시되는 엔터티입니다. KV 인증서의 원본에 대한 정보(발급자 이름, 공급자, 자격 증명 및 기타 관리 세부 정보)를 제공하는 데 사용됩니다.
 
 발급자 공급자에게 주문이 이뤄지면 인증서 종류에 따라 x509 인증서 확장 및 인증서 유효 기간을 존중하거나 재정의할 수 있습니다.  
 
- 권한 부여: 인증서/만들기 권한이 필요합니다.
+ Authorization: 인증서/만들기 권한이 필요합니다.
 
-## <a name="see-also"></a>관련 항목
+## <a name="see-also"></a>참고 항목
  - [키, 비밀 및 인증서에 대한 정보](about-keys-secrets-and-certificates.md)
  - [인증서 생성 모니터링 및 관리](create-certificate-scenarios.md)

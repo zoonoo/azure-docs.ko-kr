@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 8f1fa6f7823c643278e52ffd0faa1c0ce4972ef8
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 41037e0687274d123bea742cee5cf2887548aa0f
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640246"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775219"
 ---
 # <a name="mapping-data-flows-column-patterns"></a>데이터 흐름 매핑 열 패턴
 
@@ -45,6 +45,16 @@ ms.locfileid: "68640246"
 원본에서 열을 매핑하고 변환을 선택할 때 "고정 매핑" 또는 "규칙 기반 매핑"을 선택 하는 옵션이 있습니다. 데이터의 스키마를 알고 있고 특정 정적 이름과 항상 일치 하는 원본 데이터 집합의 특정 열이 있다고 생각 되는 경우 고정 매핑을 사용할 수 있습니다. 그러나 유연한 스키마를 사용 하 여 작업 하는 경우 규칙 기반 매핑을 사용 합니다. 위에서 설명한 규칙을 사용 하 여 패턴 일치를 빌드할 수 있습니다.
 
 ![규칙 기반 매핑](media/data-flow/rule2.png "규칙 기반 매핑")
+
+식 작성기를 사용 하 여 규칙을 작성 합니다. 식에서 열 일치 (true) 또는 열 제외 (false)에 대 한 부울 값을 반환 합니다.
+
+## <a name="pattern-matching-special-columns"></a>특수 열 패턴 일치
+
+* `$$`는 디자인 타임에 디버그 모드에서 그리고 런타임에 실행 될 때 일치 하는 각 항목의 이름으로 변환 합니다.
+* `name`들어오는 각 열의 이름을 나타냅니다.
+* `type`들어오는 각 열의 데이터 형식을 나타냅니다.
+* `stream`흐름의 각 스트림이나 변환에 연결 된 이름을 나타냅니다.
+* `position`데이터 흐름에서 열의 서 수 위치입니다.
 
 ## <a name="next-steps"></a>다음 단계
 * 데이터 변환에 대 한 ADF 매핑 데이터 흐름 [식 언어](http://aka.ms/dataflowexpressions) 에 대 한 자세한 정보

@@ -1,19 +1,17 @@
 ---
 title: Azure Data Catalog에서 '빅 데이터' 데이터 원본으로 작업하는 방법
 description: 방법 문서는 Azure Blob Storage, Azure Data Lake 및 Hadoop HDFS 등 '빅 데이터' 데이터 원본과 함께 Azure Data Catalog를 사용하기 위한 패턴을 강조 표시합니다.
-services: data-catalog
 author: JasonWHowell
 ms.author: jasonh
-ms.assetid: 626d1568-0780-4726-bad1-9c5000c6b31a
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: b6b419d575e2164fc683b8e6b5020572db74d1b4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/01/2019
+ms.openlocfilehash: 5b213ebabc2d849587590ba295498d24737dbde7
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61001744"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68734651"
 ---
 # <a name="how-to-work-with-big-data-sources-in-azure-data-catalog"></a>Azure 데이터 카탈로그의 빅 데이터 소스로 작업하는 방법
 ## <a name="introduction"></a>소개

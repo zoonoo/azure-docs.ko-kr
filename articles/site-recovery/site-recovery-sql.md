@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/30/2019
+ms.date: 08/02/2019
 ms.author: sutalasi
-ms.openlocfilehash: 7ee7d6434058da63883f8db0eae6a3f91c778338
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 14fbca6dea735ed1ee13fca20f19379cc2c4d0a9
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325126"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742332"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>SQL Server에 대한 재해 복구 설정
 
@@ -39,7 +39,7 @@ Azure IaaS VM 또는 온-프레미스에서 SQL Server 합니다.| [장애 조�
 Azure IaaS VM 또는 온-프레미스에서 SQL Server 합니다.| [데이터베이스 미러링 (성능 우선 모드)](https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server?view=sql-server-2017) | 미러 서버를 웜 대기 서버로 사용 하는 서비스를 강제 적용 하는 데 걸린 시간입니다. | 복제는 비동기적이며, 미러 데이터베이스에 주 데이터베이스보다 약간 뒤처질 수 있습니다. 지연 시간은 일반적으로 작습니다. 하지만 주 서버 또는 미러 서버의 시스템 부하가 많은 경우에는 크기가 커질 수 있습니다.<br/><br/>로그 전달은 데이터베이스 미러링을 보완할 수 있습니다. 비동기 데이터베이스 미러링의 좋은 대안입니다.
 SQL as Azure의 PaaS (platform as a service)<br/><br/>이 배포 유형은 탄력적 풀 및 Azure SQL Database 서버를 포함 합니다. | 활성 지역 복제 | 장애 조치 (failover)가 트리거된 후 30 초<br/><br/>보조 데이터베이스 중 하나에 대해 장애 조치 (failover)가 활성화 되 면 다른 모든 보조 데이터베이스는 새 주 데이터베이스에 자동으로 연결 됩니다. | RPO는 5 초입니다.<br/><br/>활성 지역 복제는 SQL Server의 Always On 기술을 사용 합니다. Snapshot 격리를 사용 하 여 주 데이터베이스의 커밋된 트랜잭션을 보조 데이터베이스로 비동기적으로 복제 합니다.<br/><br/>보조 데이터에는 부분적 트랜잭션이 포함 되지 않을 수 있습니다.
 Azure에서 활성 지역 복제를 사용 하 여 구성 된 SQL as PaaS.<br/><br/>이 배포 유형은 SQL Database 관리 되는 인스턴스, 탄력적 풀 및 SQL Database 서버를 포함 합니다. | 자동 장애 조치 그룹 | 1 시간의 RTO | RPO는 5 초입니다.<br/><br/>자동 장애 조치 그룹은 활성 지역 복제의 맨 위에 그룹 의미 체계를 제공 합니다. 하지만 동일한 비동기 복제 메커니즘이 사용 됩니다.
-Azure IaaS VM 또는 온-프레미스에서 SQL Server 합니다.| Azure Site Recovery 복제 | RTO는 일반적으로 15 분 미만입니다. 자세한 내용은 [Site Recovery에서 제공 하는 RTO SLA](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/)를 읽어 보세요. | 응용 프로그램 일관성을 위해 1 시간, 크래시 일관성의 경우 5 분
+Azure IaaS VM 또는 온-프레미스에서 SQL Server 합니다.| Azure Site Recovery 복제 | RTO는 일반적으로 15 분 미만입니다. 자세한 내용은 [Site Recovery에서 제공 하는 RTO SLA](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/)를 읽어 보세요. | 응용 프로그램 일관성을 위해 1 시간, 크래시 일관성의 경우 5 분 더 낮은 RPO를 찾고 있는 경우 다른 BCDR 기술을 사용 합니다.
 
 > [!NOTE]
 > Site Recovery를 사용 하 여 SQL 작업을 보호 하는 데 도움이 되는 몇 가지 중요 한 고려 사항은 다음과 같습니다.

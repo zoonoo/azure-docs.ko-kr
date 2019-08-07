@@ -1,29 +1,32 @@
 ---
-title: Azure Cosmos DB Gremlin API에 대 한 azure Resource Manager 템플릿
-description: Azure Resource Manager 템플릿 만들기 및 Azure Cosmos DB Gremlin API를 구성 하려면 사용 합니다.
+title: Azure Cosmos DB Gremlin API에 대 한 Azure Resource Manager 템플릿
+description: Azure Resource Manager 템플릿을 사용 하 여 Azure Cosmos DB Gremlin API를 만들고 구성 합니다.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 08/05/2019
 ms.author: mjbrown
-ms.openlocfilehash: 9f62399e3a1ef2a4ceaa8bdf64196bdb634fb4b6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 82d15f342e6c0a4f107e8b089be14c0e670a33ca
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65968892"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815066"
 ---
 # <a name="manage-azure-cosmos-db-gremlin-api-resources-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용 하 여 Azure Cosmos DB Gremlin API 리소스 관리
 
-## MongoDB 계정, 데이터베이스 및 컬렉션에 대 한 Azure Cosmos DB API 만들기 <a id="create-resource"></a>
+## MongoDB 계정, 데이터베이스 및 컬렉션에 대 한 Azure Cosmos DB API 만들기<a id="create-resource"></a>
 
-Azure Resource Manager 템플릿을 사용 하는 Azure Cosmos DB 리소스를 만듭니다. 이 템플릿은 데이터베이스 수준에서 400 RU/s 처리량을 공유 하는 두 개의 그래프를 사용 하 여 Gremlin API에 대 한 Azure Cosmos 계정이 만들어집니다. 서식 파일을 복사 하 고 아래와 같이 배포 하거나 방문 [Azure 빠른 시작 갤러리](https://azure.microsoft.com/resources/templates/101-cosmosdb-gremlin/) 및 Azure portal에서 배포 합니다. 있습니다 수 또한 템플릿을 로컬 컴퓨터에 다운로드 또는 새 템플릿 만들기 및 로컬 경로를 지정 합니다 `--template-file` 매개 변수입니다.
+Azure Resource Manager 템플릿을 사용 하 여 Azure Cosmos DB 리소스를 만듭니다. 이 템플릿은 데이터베이스 수준에서 400 r u/s 처리량을 공유 하는 두 개의 그래프가 있는 Gremlin API 용 Azure Cosmos 계정을 만듭니다. 템플릿을 복사 하 고 아래와 같이 배포 하거나 [Azure 빠른 시작 갤러리](https://azure.microsoft.com/resources/templates/101-cosmosdb-gremlin/) 를 방문 하 여 Azure Portal에서 배포 합니다. 템플릿을 로컬 컴퓨터에 다운로드 하거나 새 템플릿을 만들고 `--template-file` 매개 변수를 사용 하 여 로컬 경로를 지정할 수도 있습니다.
+
+> [!NOTE]
+> 계정 이름은 소문자 여야 하 고 31 자 < 합니다.
 
 [!code-json[create-cosmos-gremlin](~/quickstart-templates/101-cosmosdb-gremlin/azuredeploy.json)]
 
 ## <a name="deploy-with-azure-cli"></a>Azure CLI를 사용하여 배포
 
-Azure CLI를 사용 하 여 Resource Manager 템플릿을 배포 하려면 **복사본** 선택한 스크립트 **사용해** 를 Azure Cloud shell을 엽니다. 스크립트를 붙여 넣으려면 셸을 마우스 오른쪽 단추로 클릭 **붙여**:
+Azure CLI를 사용 하 여 리소스 관리자 템플릿을 배포 하려면 스크립트를 **복사** 하 고 **체험** 을 선택 하 여 Azure Cloud shell을 엽니다. 스크립트를 붙여넣으려면 셸을 마우스 오른쪽 단추로 클릭 한 다음 **붙여넣기**를 선택 합니다.
 
 ```azurecli-interactive
 
@@ -45,17 +48,17 @@ az group deployment create --resource-group $resourceGroupName \
 az cosmosdb show --resource-group $resourceGroupName --name accountName --output tsv
 ```
 
-`az cosmosdb show` 명령은 프로 비전 된 후 새로 만든된 Azure Cosmos 계정을 보여 줍니다. Cloud Shell을 사용 하는 대신 로컬에 설치 된 버전의 Azure CLI를 사용 하려는 경우 [Azure 명령줄 인터페이스 (CLI)](/cli/azure/) 문서.
+`az cosmosdb show` 명령은 프로 비전 된 후 새로 만든 Azure Cosmos 계정을 보여 줍니다. CloudShell을 사용 하는 대신 로컬로 설치 된 Azure CLI 버전을 사용 하도록 선택 하는 경우 [AZURE CLI (명령줄 인터페이스)](/cli/azure/) 문서를 참조 하세요.
 
-## 데이터베이스에 대 한 처리량 (RU/s)를 업데이트 합니다. <a id="database-ru-update"></a>
+## 데이터베이스의 업데이트 처리량 (r u/초)<a id="database-ru-update"></a>
 
-다음 템플릿은 데이터베이스의 처리량을 업데이트 합니다. 서식 파일을 복사 하 고 아래와 같이 배포 하거나 방문 [Azure 빠른 시작 갤러리](https://azure.microsoft.com/resources/templates/101-cosmosdb-gremlin-database-ru-update/) 및 Azure portal에서 배포 합니다. 있습니다 수 또한 템플릿을 로컬 컴퓨터에 다운로드 또는 새 템플릿 만들기 및 로컬 경로를 지정 합니다 `--template-file` 매개 변수입니다.
+다음 템플릿은 데이터베이스의 처리량을 업데이트 합니다. 템플릿을 복사 하 고 아래와 같이 배포 하거나 [Azure 빠른 시작 갤러리](https://azure.microsoft.com/resources/templates/101-cosmosdb-gremlin-database-ru-update/) 를 방문 하 여 Azure Portal에서 배포 합니다. 템플릿을 로컬 컴퓨터에 다운로드 하거나 새 템플릿을 만들고 `--template-file` 매개 변수를 사용 하 여 로컬 경로를 지정할 수도 있습니다.
 
 [!code-json[cosmosdb-gremlin-database-ru-update](~/quickstart-templates/101-cosmosdb-gremlin-database-ru-update/azuredeploy.json)]
 
 ### <a name="deploy-database-template-via-azure-cli"></a>Azure CLI를 통해 데이터베이스 템플릿 배포
 
-Azure CLI를 사용 하 여 Resource Manager 템플릿을 배포 하려면 **사용해** 를 Azure Cloud shell을 엽니다. 스크립트를 붙여 넣으려면 셸을 마우스 오른쪽 단추로 클릭 **붙여**:
+Azure CLI를 사용 하 여 리소스 관리자 템플릿을 배포 하려면 **시도** 를 선택 하 여 Azure Cloud shell을 엽니다. 스크립트를 붙여넣으려면 셸을 마우스 오른쪽 단추로 클릭 한 다음 **붙여넣기**를 선택 합니다.
 
 ```azurecli-interactive
 read -p 'Enter the Resource Group name: ' resourceGroupName
@@ -68,15 +71,15 @@ az group deployment create --resource-group $resourceGroupName \
    --parameters accountName=$accountName databaseName=$databaseName throughput=$throughput
 ```
 
-## 그래프의 처리량 (RU/s)를 업데이트 합니다. <a id="graph-ru-update"></a>
+## 그래프의 업데이트 처리량 (r u/초)<a id="graph-ru-update"></a>
 
-다음 템플릿은 그래프의 처리량을 업데이트 합니다. 서식 파일을 복사 하 고 아래와 같이 배포 하거나 방문 [Azure 빠른 시작 갤러리](https://azure.microsoft.com/resources/templates/101-cosmosdb-gremlin-graph-ru-update/) 및 Azure portal에서 배포 합니다. 있습니다 수 또한 템플릿을 로컬 컴퓨터에 다운로드 또는 새 템플릿 만들기 및 로컬 경로를 지정 합니다 `--template-file` 매개 변수입니다.
+다음 템플릿은 그래프의 처리량을 업데이트 합니다. 템플릿을 복사 하 고 아래와 같이 배포 하거나 [Azure 빠른 시작 갤러리](https://azure.microsoft.com/resources/templates/101-cosmosdb-gremlin-graph-ru-update/) 를 방문 하 여 Azure Portal에서 배포 합니다. 템플릿을 로컬 컴퓨터에 다운로드 하거나 새 템플릿을 만들고 `--template-file` 매개 변수를 사용 하 여 로컬 경로를 지정할 수도 있습니다.
 
 [!code-json[cosmosdb-gremlin-graph-ru-update](~/quickstart-templates/101-cosmosdb-gremlin-graph-ru-update/azuredeploy.json)]
 
 ### <a name="deploy-graph-template-via-azure-cli"></a>Azure CLI를 통해 그래프 템플릿 배포
 
-Azure CLI를 사용 하 여 Resource Manager 템플릿을 배포 하려면 **사용해** 를 Azure Cloud shell을 엽니다. 스크립트를 붙여 넣으려면 셸을 마우스 오른쪽 단추로 클릭 **붙여**:
+Azure CLI를 사용 하 여 리소스 관리자 템플릿을 배포 하려면 **시도** 를 선택 하 여 Azure Cloud shell을 엽니다. 스크립트를 붙여넣으려면 셸을 마우스 오른쪽 단추로 클릭 한 다음 **붙여넣기**를 선택 합니다.
 
 ```azurecli-interactive
 read -p 'Enter the Resource Group name: ' resourceGroupName
@@ -97,4 +100,4 @@ az group deployment create --resource-group $resourceGroupName \
 - [Azure Resource Manager 설명서](/azure/azure-resource-manager/)
 - [Azure Cosmos DB 리소스 공급자 스키마](/azure/templates/microsoft.documentdb/allversions)
 - [Azure Cosmos DB 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.DocumentDB&pageNumber=1&sort=Popular)
-- [일반적인 Azure Resource Manager 배포 오류 해결](../azure-resource-manager/resource-manager-common-deployment-errors.md)
+- [일반적인 Azure Resource Manager 배포 오류 문제 해결](../azure-resource-manager/resource-manager-common-deployment-errors.md)

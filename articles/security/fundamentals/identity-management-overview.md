@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: ee9f771483b0478ec4b7d1bf92095d9dd07f45ad
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 1081fa8c9c7cc64418515aabbb755ecf056196ca
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727246"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68826279"
 ---
 # <a name="azure-identity-management-security-overview"></a>Azure ID 관리 보안 개요
 
@@ -164,7 +164,7 @@ Azure AD ID 보호는 조직의 ID에 영향을 주는 위험 이벤트와 잠�
 
 자세한 정보:
 
-* [Azure AD ID 보호](/azure/active-directory/active-directory-identityprotection.md)
+* [Azure AD ID 보호](/azure/active-directory/identity-protection/overview)
 * [Channel 9: Azure AD 및 ID 쇼: ID 보호 미리 보기](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
 ## <a name="hybrid-identity-managementazure-ad-connect"></a>하이브리드 ID 관리/Azure AD Connect

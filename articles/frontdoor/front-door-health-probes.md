@@ -11,16 +11,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 59a3bac39437b91eeee3b005bd23476a34a308b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 289b05a2c50a2b4af50eb2114515a49bb653cf1a
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60736584"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742402"
 ---
 # <a name="health-probes"></a>상태 프로브
 
-각 백 엔드의 상태를 확인하기 위해 각 Front Door 환경은 각각의 구성된 백 엔드로 가상 HTTP/HTTPS 요청을 주기적으로 보냅니다. 그런 다음, Front Door는 이러한 프로브의 응답을 사용하여 실제 클라이언트 요청을 라우팅해야 하는 “최상”의 백 엔드를 확인합니다.
+각 백 엔드의 상태를 확인하기 위해 각 Front Door 환경은 각각의 구성된 백 엔드로 가상 HTTP/HTTPS 요청을 주기적으로 보냅니다. 그런 다음, Front Door는 이러한 프로브의 응답을 사용하여 실제 클라이언트 요청을 라우팅해야 하는 “최상”의 백 엔드를 확인합니다. 프런트 도어는 전역적으로 많은에 지 환경을 보유 하므로 백 엔드에 대 한 상태 프로브 요청 볼륨은 구성 된 상태 프로브 빈도에 따라 초당 요청 수가 두 개 이상일 수 있습니다. 
+
 
 
 ## <a name="supported-protocols"></a>지원되는 프로토콜
@@ -29,7 +30,7 @@ Front Door는 HTTP 또는 HTTPS 프로토콜을 통한 프로브 전송을 지�
 
 ## <a name="health-probe-responses"></a>상태 프로브 응답
 
-| Responses  | 설명 | 
+| Responses  | Description | 
 | ------------- | ------------- |
 | 상태 확인  |  200 정상 상태 코드는 백 엔드가 정상임을 나타냅니다. 그 외 코드는 모두 실패로 간주됩니다. 어떠한 이유로(네트워크 오류를 포함) 유효한 HTTP 응답이 프로브에 대해 수신되지 않으면 프로브가 실패로 계산됩니다.|
 | 대기 시간 측정  | 대기 시간은 응답의 마지막 바이트를 수신하는 순간 프로브 요청을 보내기 직전에 측정된 벽시계 시간입니다. 각 요청에 대한 새 TCP 연결을 사용하므로 이 측정값은 기존 웜 연결을 사용하는 백 엔드에 편향되지 않습니다.  |

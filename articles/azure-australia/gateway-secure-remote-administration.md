@@ -6,12 +6,12 @@ ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: grgale
-ms.openlocfilehash: 827dffc1c7544d9373b5f8d4426ea8c448fa25ab
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1e4c4712312faf2274a4a0737c4fc1f7ce39f98e
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68571602"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68824194"
 ---
 # <a name="secure-remote-administration-of-your-gateway-in-azure-australia"></a>Azure 오스트레일리아에서 게이트웨이의 원격 관리 보안
 
@@ -33,7 +33,6 @@ ms.locfileid: "68571602"
 |로깅 및 감사   |워크스테이션, 서버, 네트워크 장치 및 점프 상자에서 보안 및 관리 관련 이벤트의 자동 생성, 수집 및 분석을 통해 손상 및 손상 된 손상을 검색할 수 있습니다. Automation을 사용 하면 조직에서 더 신속 하 게 응답 하 여 손상의 영향을 줄일 수 있습니다.|
 |네트워크 조각화 및 분리|네트워크를 서로 다른 보안 도메인과 같은 논리 영역으로 분할 하 고, 한 영역에서 다른 영역으로 흐르는 데이터 형식을 제한 하 여 이러한 논리 네트워크를 추가로 분리 하 여 측면 이동을 제한 합니다. 구분은 악의적 사용자가 추가 리소스에 액세스 하지 못하도록 방지 합니다.|
 |점프 상자|점프 상자는 보안이 강화 된 원격 액세스 서버 이며 일반적으로 Microsoft의 SSH (원격 데스크톱 서비스 또는 Secure Shell) 소프트웨어를 utilising 합니다. 점프 상자는 전용 호스트에서 수행 되는 모든 관리 작업을 사용 하 여 중요 한 시스템에 액세스 하는 관리자의 단계별 실행 지점 역할을 합니다.|
-|
 
 이 문서에서는 위의 요소를 Azure에 배포 된 시스템의 보안 관리에 사용할 수 있는 방법에 대 한 참조 아키텍처를 제공 합니다.
 
@@ -69,7 +68,7 @@ Azure에 배포 된 시스템을 관리 하는 것은 azure 구성을 관리 하
 
 ### <a name="azure-configuration-and-azure-portal-access"></a>Azure 구성 및 Azure Portal 액세스
 
-|단계 |설명 |
+|단계 |Description |
 |---|---|
 |권한 있는 워크스테이션 로그인 |관리자는 관리자 자격 증명을 사용 하 여 권한 있는 워크스테이션에서 로그인 합니다. 그룹 정책 관리 되지 않는 계정이 권한 있는 워크스테이션에 인증 되지 않도록 방지 하 고 관리자 계정이 권한이 없는 워크스테이션에 인증 하지 못하도록 합니다. Microsoft Intune은 소프트웨어 패치, 맬웨어 방지 및 기타 규정 준수 요구 사항을 사용 하 여 최신 상태를 유지 하기 위해 권한 있는 워크스테이션의 호환성을 관리 합니다. |
 |Azure Portal 로그인 |관리자는 TLS (전송 계층 보안)를 사용 하 여 암호화 되 고 관리 자격 증명을 사용 하 여 로그인 하는 Azure Portal에 대 한 웹 브라우저를 엽니다. 인증 요청은 Azure Active Directory를 통해 직접 또는 Active Directory Federation Services (AD FS) 또는 통과 인증과 같은 인증 메커니즘을 통해 처리 됩니다. |
@@ -77,13 +76,12 @@ Azure에 배포 된 시스템을 관리 하는 것은 azure 구성을 관리 하
 |조건부 액세스 |조건부 액세스 정책은 인증 시도를 확인 하 여 연결이 들어오는 IP 주소, 권한 있는 계정에 대 한 그룹 멤버 자격 및의 관리 및 준수 상태와 같은 필요한 요구 사항을 충족 하는지 확인 합니다. Intune에서 보고 한 권한 있는 워크스테이션입니다. |
 |PIM(Privileged Identity Management) |Azure Portal를 통해 관리자는 이제 PIM을 통해 권한 부여 된 권한 있는 역할에 대 한 활성화를 활성화 하거나 요청할 수 있습니다. PIM은 권한 있는 계정에 관리 작업을 수행 하는 데 필요한 시간 동안만 권한 있는 계정에 대 한 관리 권한이 없는지 확인 합니다. 또한 PIM은 감사를 위해 모든 요청 및 활성화에 대 한 로깅을 제공 합니다. |
 |ID 및 액세스 관리|권한 있는 계정이 안전 하 게 식별 되 고 역할이 활성화 되 면 관리자는 Id 및 액세스 관리를 통해 권한이 할당 된 Azure 구독 및 리소스에 대 한 액세스를 제공 합니다.|
-|
 
 권한 있는 계정에서 Azure Portal에 대 한 관리 액세스를 얻는 단계를 완료 한 후에는 워크 로드에 대 한 액세스를 구성 하 고 관리 연결을 설정할 수 있습니다.
 
 ### <a name="azure-workload-administration"></a>Azure 워크 로드 관리
 
-|단계 |Description|
+|단계 |설명|
 |---|---|
 |JIT (just-in-time) 액세스|관리자는 가상 컴퓨터에 대 한 액세스 권한을 얻기 위해 JIT를 사용 하 여 RD 게이트웨이 IP 주소와 RDP 또는 SSH를 사용 하 여 점프 서버에서 관련 워크 로드 가상 컴퓨터로 RDP에 대 한 액세스를 요청 합니다.|
 |Azure VPN 게이트웨이|이제 관리자는 권한 있는 워크스테이션에서 Azure VPN Gateway로 지점 및 사이트 간 IPSec VPN 연결을 설정 하 고, 연결을 설정 하기 위해 인증서 인증을 수행 합니다.|
@@ -91,7 +89,6 @@ Azure에 배포 된 시스템을 관리 하는 것은 azure 구성을 관리 하
 |NPS (네트워크 정책 서버)|NPS는 RD 게이트웨이에서 인증 요청을 수신 하 고, Azure MFA 인증 요청을 트리거하기 위해 Azure Active Directory 요청을 보내기 전에 Active Directory에 대 한 사용자 이름과 암호의 유효성을 검사 합니다.|
 |Azure MFA|Azure MFA는 권한 있는 계정의 등록 된 모바일 장치에 인증 요청을 보냅니다. 모바일 장치는 보안 요구 사항 준수를 보장 하기 위해 Intune에서 관리 됩니다. 관리자는 인증 시도를 Azure MFA로 공인 전에 PIN 또는 생체 인식 시스템을 사용 하 여 모바일 장치에 먼저 인증 한 다음 Microsoft Authenticator 앱에 인증 해야 합니다.|
 |점프 서버|성공적으로 인증 된 후에는 TLS (전송 계층 보안)를 사용 하 여 RDP 연결을 암호화 한 다음 암호화 된 IPSec 터널을 통해 RD 게이트웨이 및 점프 서버를 통해 Azure VPN Gateway에 전송 합니다. 이제 점프 서버에서 관리자는 JIT 요청에 지정 된 대로 작업 가상 컴퓨터에 대 한 RDP 또는 SSH 작업을 수행할 수 있습니다.|
-|
 
 ## <a name="general-guidance"></a>일반 지침
 
@@ -133,7 +130,6 @@ Azure에 배포 된 시스템을 관리 하는 것은 azure 구성을 관리 하
 |---|---|
 |권한 있는 액세스 워크스테이션 아키텍처 개요|[https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)|
 |권한 있는 액세스 보안 참조 자료|[https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)|
-|
 
 ### <a name="mobile-device"></a>모바일 장치
 
@@ -143,7 +139,6 @@ Azure에 배포 된 시스템을 관리 하는 것은 azure 구성을 관리 하
 |---|---|
 |Azure AD 인증 메서드|[https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-methods](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-methods)|
 |Microsoft Authenticator 앱을 사용 하는 방법|[https://support.microsoft.com/help/4026727/microsoft-account-how-to-use-the-microsoft-authenticator-app](https://support.microsoft.com/help/4026727/microsoft-account-how-to-use-the-microsoft-authenticator-app)|
-|
 
 ### <a name="microsoft-intune"></a>Microsoft Intune
 
@@ -153,7 +148,6 @@ Intune은 모바일 장치 및 앱을 관리 하는 Enterprise Mobility + Securi
 |---|---|
 |Microsoft Intune 설명서|[https://docs.microsoft.com/intune/](https://docs.microsoft.com/intune/)|
 |Intune에서 장치 준수 시작|[https://docs.microsoft.com/intune/device-compliance-get-started](https://docs.microsoft.com/intune/device-compliance-get-started)|
-|
 
 ### <a name="group-policy"></a>그룹 정책
 
@@ -162,7 +156,6 @@ Intune은 모바일 장치 및 앱을 관리 하는 Enterprise Mobility + Securi
 |리소스|링크|
 |---|---|
 |로컬에서 로그인 그룹 정책 설정 허용|[https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/allow-log-on-locally](https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/allow-log-on-locally)|
-|
 
 ### <a name="jump-server--bastion-host"></a>점프 서버/방호 호스트
 
@@ -171,7 +164,6 @@ Intune은 모바일 장치 및 앱을 관리 하는 Enterprise Mobility + Securi
 |리소스|링크|
 |---|---|
 |보안 관리 호스트 구현|[https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-secure-administrative-hosts](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-secure-administrative-hosts)|
-|
 
 ### <a name="just-in-time-jit-access"></a>JIT (just-in-time) 액세스
 
@@ -181,7 +173,6 @@ JIT는 NSGs (네트워크 보안 그룹)를에서는 하 여 Virtual Machines에
 |---|---|
 |JIT (Just-in-time) 액세스 관리|[https://docs.microsoft.com/azure/security-center/security-center-just-in-time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)|
 |Azure Just-in-time VM 액세스 자동화|[https://blogs.technet.microsoft.com/motiba/2018/06/24/automating-azure-just-in-time-vm-access](https://blogs.technet.microsoft.com/motiba/2018/06/24/automating-azure-just-in-time-vm-access)|
-|
 
 ## <a name="secure-communication"></a>보안 통신
 
@@ -194,7 +185,6 @@ Azure Portal에 대 한 통신은 TLS (Transport Layer Security)를 사용 하 �
 |리소스 |링크 |
 |---|---|
 |Azure 암호화 개요 – 전송 중 암호화|[https://docs.microsoft.com/azure/security/security-azure-encryption-overview#encryption-of-data-in-transit](https://docs.microsoft.com/azure/security/security-azure-encryption-overview#encryption-of-data-in-transit)|
-|
 
 ### <a name="azure-vpn-gateway"></a>Azure VPN 게이트웨이
 
@@ -204,8 +194,7 @@ Azure VPN Gateway는 권한 있는 워크스테이션에서 Azure로 암호화 �
 |---|---|
 |지점 및 사이트 간 연결 정보|[https://docs.microsoft.com/azure/vpn-gateway/point-to-site-about](https://docs.microsoft.com/azure/vpn-gateway/point-to-site-about)|
 |Azure VPN Gateway 암호화 세부 정보|[https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-compliance-crypto](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-compliance-crypto)|
-|Azure VPN Gateway 구성|[https://aka.ms/AzGovAUSecurity](https://aka.ms/AzGovAUSecurity)|
-|
+|Azure VPN Gateway 구성|[Azure VPN Gateway 구성](vpn-gateway.md)|
 
 ### <a name="remote-desktop-rd-gateway"></a>RD (원격 데스크톱) 게이트웨이
 
@@ -214,7 +203,6 @@ RD 게이트웨이는 시스템에 대 한 RDP 연결을 제어 하 고 authoris
 |리소스 |링크 |
 |---|---|
 |원격 데스크톱 서비스 아키텍처|[https://docs.microsoft.com/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture)|
-|
 
 ### <a name="network-security-groups-nsgs"></a>NSG(네트워크 보안 그룹)
 
@@ -224,7 +212,6 @@ NSGs는 서브넷 또는 가상 컴퓨터를 시작 하거나 종료 하는 네�
 |---|---|
 |Azure 보안 그룹 개요|[https://docs.microsoft.com/azure/virtual-network/security-overview](https://docs.microsoft.com/azure/virtual-network/security-overview)|
 |방법: 가상 네트워크 계획|[https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm)|
-|
 
 ## <a name="strong-authentication"></a>강력한 인증
 
@@ -237,7 +224,6 @@ NSGs는 서브넷 또는 가상 컴퓨터를 시작 하거나 종료 하는 네�
 |리소스 |링크 |
 |---|---|
 |Active Directory Domain Services 개요|[https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview)|
-|
 
 ### <a name="azure-active-directory-azure-ad"></a>Azure AD(Azure Active Directory)
 
@@ -249,7 +235,6 @@ id 및는 Azure 환경에 대 한 인증 및 권한 부여을 제공 합니다. 
 |---|---|
 |Azure Active Directory 설명서|[https://docs.microsoft.com/azure/active-directory](https://docs.microsoft.com/azure/active-directory)|
 |하이브리드 Id 설명서|[https://docs.microsoft.com/azure/active-directory/hybrid](https://docs.microsoft.com/azure/active-directory/hybrid)|
-|
 
 ### <a name="network-policy-server-nps"></a>NPS (네트워크 정책 서버)
 
@@ -258,7 +243,6 @@ NPS는 고급 인증과 권한 부여 프로세스를 제공 하는 인증 및 �
 |리소스 |링크 |
 |---|---|
 |네트워크 정책 서버 설명서|[https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top)|
-|
 
 ### <a name="azure-mfa"></a>Azure MFA
 
@@ -268,7 +252,6 @@ Azure MFA는 Azure Portal와 같은 클라우드 리소스에 액세스 하기 �
 |---|---|
 |작동 방법: Azure Multi-Factor Authentication|[https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks)|
 |방법: 클라우드 기반 Azure 다단계 인증 배포|[https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)|
-|
 
 ## <a name="strong-authorisation"></a>강력한 권한 부여
 
@@ -282,7 +265,6 @@ Azure 내에서 권한 있는 작업을 수행 하기 위한 액세스는 해당
 |---|---|
 |Azure 역할 기반 Access Control|[https://docs.microsoft.com/azure/role-based-access-control](https://docs.microsoft.com/azure/role-based-access-control)|
 |역할 정의 이해|[https://docs.microsoft.com/azure/role-based-access-control/role-definitions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions)|
-|
 
 ### <a name="privileged-identity-management-pim"></a>PIM(Privileged Identity Management)
 
@@ -292,7 +274,6 @@ PIM은 권한 있는 역할에 대 한 액세스를 제어 하는 Azure Active D
 |---|---|
 |Privileged Identity Management (PIM) 설명서|[https://docs.microsoft.com/azure/active-directory/privileged-identity-management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management)|
 |PIM 사용|[https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-getting-started](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-getting-started)|
-|
 
 ### <a name="conditional-access"></a>조건부 액세스
 
@@ -302,7 +283,6 @@ PIM은 권한 있는 역할에 대 한 액세스를 제어 하는 Azure Active D
 |---|---|
 |조건부 액세스 설명서|[https://docs.microsoft.com/azure/active-directory/conditional-access](https://docs.microsoft.com/azure/active-directory/conditional-access)|
 |방법: 조건부 액세스를 사용 하는 클라우드 앱 액세스를 위한 관리 되는 장치 필요|[https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|
-|
 
 ## <a name="next-steps"></a>다음 단계
 

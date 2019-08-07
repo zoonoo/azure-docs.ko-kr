@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: d3d4679703f6d98cb2062144cfde7d11fe44130c
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 8aeb32ecddc0ef368b615a201179f17178ececad
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68386923"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68817234"
 ---
 ## <a name="application-performance-indicators"></a>애플리케이션 성과 지표
 
@@ -268,6 +268,9 @@ Premium Storage 데이터 디스크에 ReadOnly 캐싱을 구성하여 짧은 �
 
 *ReadWrite*  
 기본적으로 OS 디스크는 ReadWrite 캐싱을 사용하도록 설정합니다. 최근에 데이터 디스크에 ReadWrite 캐싱에 대한 지원을 추가했습니다. ReadWrite 캐싱을 사용하는 경우 영구 디스크에 캐시의 데이터를 기록하는 적절한 방법이 있어야 합니다. 예를 들어 SQL Server는 자체적으로 영구 저장소 디스크에 캐시된 데이터 쓰기를 처리합니다. 필요한 데이터를 유지하도록 처리하지 않는 애플리케이션에 ReadWrite 캐시를 사용하면 VM이 충돌할 경우 데이터 손실이 발생할 수 있습니다.
+
+*없음*  
+현재는 데이터 디스크 에서만 지원 됩니다. OS 디스크에서 지원 되지 않습니다. OS 디스크에서 **아무것도** 설정 하지 않으면이를 내부적으로 재정의 하 고 **ReadOnly**로 설정 합니다.
 
 한 예로 다음을 수행하여 Premium Storage에서 실행 중인 SQL Server에 이러한 지침을 적용할 수 있습니다
 

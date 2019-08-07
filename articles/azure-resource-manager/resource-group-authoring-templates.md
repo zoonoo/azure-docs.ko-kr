@@ -4,20 +4,20 @@ description: 선언적 JSON 구문을 사용하여 Azure Resource Manager 템플
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/31/2019
+ms.date: 08/02/2019
 ms.author: tomfitz
-ms.openlocfilehash: ab8e4f5f6506f80b62c112298f73f95bc7fedeaf
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 9858e8a52888304edd48893db02faa992b356b3b
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204353"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774913"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿의 구조 및 구문 이해
 
 이 문서에서는 Azure Resource Manager 템플릿의 구조에 대해 설명합니다. 여기서는 템플릿의 다른 섹션 및 해당 섹션에서 사용할 수 있는 속성을 보여 줍니다. 템플릿은 배포에 대한 값을 생성하는 데 사용할 수 있는 식과 JSON으로 구성됩니다.
 
-이 문서에서는 Resource Manager 템플릿 사용 하 여에 대해 알고 있는 사용자를 위한 것입니다. 구조 및 템플릿의 구문에 대 한 자세한 정보를 제공합니다. 템플릿 만들기 소개를 참조 하세요 [첫 번째 Azure Resource Manager 템플릿 만들기](resource-manager-create-first-template.md)합니다.
+이 문서는 리소스 관리자 템플릿에 대해 잘 알고 있는 사용자를 위한 것입니다. 템플릿의 구조 및 구문에 대 한 자세한 정보를 제공 합니다. 템플릿을 만드는 방법에 대 한 소개는 [첫 Azure Resource Manager 템플릿 만들기](resource-manager-create-first-template.md)를 참조 하세요.
 
 ## <a name="template-format"></a>템플릿 형식
 
@@ -36,22 +36,22 @@ ms.locfileid: "67204353"
 }
 ```
 
-| 요소 이름 | 필수 | 설명 |
+| 요소 이름 | 필수 | Description |
 |:--- |:--- |:--- |
 | $schema |예 |템플릿 언어의 버전을 설명하는 JSON 스키마 파일의 위치입니다.<br><br> 리소스 그룹 배포의 경우 `https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`을 사용합니다.<br><br>구독 배포의 경우 `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`을 사용합니다. |
 | contentVersion |예 |템플릿의 버전입니다(예: 1.0.0.0). 이 요소에 값을 제공할 수 있습니다. 이 값을 사용하여 템플릿에서 중요한 변경 내용을 문서화할 수 있습니다. 템플릿을 사용하여 리소스를 배포할 때 이 값을 사용하면 정확한 템플릿이 사용되도록 할 수 있습니다. |
-| apiProfile |아닙니다. | 리소스 종류에 대 한 API 버전 컬렉션으로 사용 되는 API 버전입니다. 템플릿에서 각 리소스에 대 한 API 버전을 지정할 필요가 없도록 하려면이 값을 사용 합니다. API 프로필 버전을 지정 하 고 리소스 형식에 대 한 API 버전을 지정 하지 않는 Resource Manager 프로필에 정의 된 해당 리소스 종류에 대 한 API 버전을 사용 합니다.<br><br>API 프로필 속성이 Azure Stack 및 전역 Azure와 같은 다른 환경에 템플릿을 배포할 때 특히 유용 합니다. 서식 파일에 두 환경 모두에서 지원 되는 버전을 자동으로 사용 하도록 하려면 API 프로필 버전을 사용 합니다. 현재 API 프로필 버전 및 API 버전 프로필에 정의 된 리소스의 목록을 참조 하세요 [API 프로필](https://github.com/Azure/azure-rest-api-specs/tree/master/profile)합니다.<br><br>자세한 내용은 [API 프로필을 사용 하 여 버전 추적](templates-cloud-consistency.md#track-versions-using-api-profiles)합니다. |
-| [parameters](#parameters) |아닙니다. |배포를 실행하여 리소스 배포를 사용자 지정할 때 제공되는 값입니다. |
-| [variables](#variables) |아닙니다. |템플릿에서 템플릿 언어 식을 단순화하는 JSON 조각으로 사용되는 값입니다. |
-| [functions](#functions) |아닙니다. |템플릿 내에서 사용할 수 있는 사용자 정의 함수입니다. |
+| apiProfile |아니요 | 리소스 종류에 대 한 API 버전 컬렉션으로 사용 되는 API 버전입니다. 템플릿의 각 리소스에 대해 API 버전을 지정 하지 않으려면이 값을 사용 합니다. API 프로필 버전을 지정 하 고 리소스 종류에 대 한 API 버전을 지정 하지 않는 경우 리소스 관리자는 프로필에 정의 된 해당 리소스 유형에 대 한 API 버전을 사용 합니다.<br><br>API profile 속성은 Azure Stack, 글로벌 Azure 등의 다양 한 환경에 템플릿을 배포 하는 경우에 특히 유용 합니다. API 프로필 버전을 사용 하 여 템플릿에서 두 환경 모두에서 지원 되는 버전을 자동으로 사용 하는지 확인 합니다. 프로필에 정의 된 현재 API 프로필 버전 및 리소스 API 버전 목록은 [API 프로필](https://github.com/Azure/azure-rest-api-specs/tree/master/profile)을 참조 하세요.<br><br>자세한 내용은 [API 프로필을 사용 하 여 버전 추적](templates-cloud-consistency.md#track-versions-using-api-profiles)을 참조 하세요. |
+| [parameters](#parameters) |아니요 |배포를 실행하여 리소스 배포를 사용자 지정할 때 제공되는 값입니다. |
+| [변수](#variables) |아니요 |템플릿에서 템플릿 언어 식을 단순화하는 JSON 조각으로 사용되는 값입니다. |
+| [functions](#functions) |아니요 |템플릿 내에서 사용할 수 있는 사용자 정의 함수입니다. |
 | [resources](#resources) |예 |리소스 그룹 또는 구독에 배포되거나 업데이트되는 리소스 종류입니다. |
-| [outputs](#outputs) |아닙니다. |배포 후 반환되는 값입니다. |
+| [outputs](#outputs) |아니요 |배포 후 반환되는 값입니다. |
 
 각 요소에는 사용자가 설정할 수 있는 속성이 있습니다. 이 기사에서는 템플릿의 섹션에 대해 자세히 설명합니다.
 
 ## <a name="syntax"></a>구문
 
-템플릿의 기본 구문은 JSON이지만, 그러나 식 템플릿 내에서 사용할 수 있는 JSON 값 확장을 사용할 수 있습니다.  시작 하 고 대괄호를 사용 하 여 종료 하는 식: `[` 고 `]`, 각각. 식의 값은 템플릿을 배포할 때 평가됩니다. 식은 문자열, 정수, 부울, 배열 또는 개체를 반환할 수 있습니다. 다음 예제에서는 매개 변수의 기본 값에는 식을 보여 줍니다.
+템플릿의 기본 구문은 JSON이지만, 그러나 식을 사용 하 여 템플릿 내에서 사용할 수 있는 JSON 값을 확장할 수 있습니다.  식은 각각 `[` 및 `]`로 시작 하 고 종료 됩니다. 식의 값은 템플릿을 배포할 때 평가됩니다. 식은 문자열, 정수, 부울, 배열 또는 개체를 반환할 수 있습니다. 다음 예에서는 매개 변수의 기본값을 나타내는 식을 보여 줍니다.
 
 ```json
 "parameters": {
@@ -62,25 +62,25 @@ ms.locfileid: "67204353"
 },
 ```
 
-식에서 구문 `resourceGroup()` Resource Manager 템플릿 내에서 사용 하기 위해 제공 하는 함수 중 하나를 호출 합니다. JavaScript에서와 마찬가지로 함수 호출은 `functionName(arg1,arg2,arg3)`과 같이 형식이 지정됩니다. 구문을 `.location` 해당 함수에서 반환 되는 개체에서 하나의 속성을 검색 합니다.
+식 내에서 구문은 `resourceGroup()` 템플릿 내에서 사용 하기 위해 리소스 관리자 제공 하는 함수 중 하나를 호출 합니다. JavaScript에서와 마찬가지로 함수 호출은 `functionName(arg1,arg2,arg3)`과 같이 형식이 지정됩니다. 구문은 `.location` 해당 함수에서 반환 하는 개체에서 속성 하나를 검색 합니다.
 
 템플릿 함수 및 해당 매개 변수는 대/소문자를 구분하지 않습니다. 예를 들어 Resource Manager에서 **variables('var1')** 와 **VARIABLES('VAR1')** 는 동일합니다. 계산될 때 함수는 대/소문자를 명시적으로 수정하지 않는 한(toUpper 또는 toLower 등) 대/소문자를 보존합니다. 특정 리소스 유형에는 함수가 계산되는 방식에 관계없이 대/소문자 요구 사항이 있을 수 있습니다.
 
-왼쪽된 괄호를 사용 하 여 시작 리터럴 문자열을 `[` 및 오른쪽 대괄호를 사용 하 여 종료 `]`, 식으로 해석 되지 않습니다 하지만로 시작 하도록 추가 대괄호를 추가 `[[`합니다. 예를 들어, variable:
+리터럴 문자열을 왼쪽 대괄호 `[` 로 시작 하 고 오른쪽 괄호 `]`를 사용 하 여 종료 하지만 식으로 해석 되지 않도록 하려면 추가 대괄호를 추가 하 여 문자열 `[[`을 시작 합니다. 예를 들어 변수는 다음과 같습니다.
 
 ```json
 "demoVar1": "[[test value]"
 ```
 
-확인 `[test value]`합니다.
+는로 `[test value]`확인 됩니다.
 
-그러나 리터럴 문자열을 대괄호를 사용 하 여 종료 하지 않습니다. 첫 번째 중괄호를 이스케이프 하지 마십시오. 예를 들어, variable:
+그러나 리터럴 문자열이 대괄호로 끝나지 않는 경우에는 첫 번째 대괄호가 이스케이프 되지 않습니다. 예를 들어 변수는 다음과 같습니다.
 
 ```json
 "demoVar2": "[test] value"
 ```
 
-확인 `[test] value`합니다.
+는로 `[test] value`확인 됩니다.
 
 문자열 값을 매개 변수로 함수에 전달 하려면 작은따옴표를 사용 합니다.
 
@@ -88,7 +88,7 @@ ms.locfileid: "67204353"
 "name": "[concat('storage', uniqueString(resourceGroup().id))]"
 ```
 
-템플릿에서 JSON 개체를 추가 하는 등 식에서 큰따옴표를 이스케이프 하려면 백슬래시를 사용 합니다.
+템플릿에서 JSON 개체를 추가 하는 것과 같이 식에서 큰따옴표를 이스케이프 하려면 백슬래시를 사용 합니다.
 
 ```json
 "tags": {
@@ -96,7 +96,7 @@ ms.locfileid: "67204353"
 },
 ```
 
-템플릿 식은 24,576 자를 초과할 수 없습니다.
+템플릿 식은 24576 자를 초과할 수 없습니다.
 
 템플릿 함수의 전체 목록을 보려면 [Azure 리소스 관리자 템플릿 함수](resource-group-template-functions.md)를 참조하세요. 
 
@@ -108,7 +108,7 @@ ms.locfileid: "67204353"
 
 ### <a name="available-properties"></a>사용 가능한 속성
 
-매개 변수에 대해 사용 가능한 속성 다음과 같습니다.
+매개 변수에 사용할 수 있는 속성은 다음과 같습니다.
 
 ```json
 "parameters": {
@@ -127,17 +127,17 @@ ms.locfileid: "67204353"
 }
 ```
 
-| 요소 이름 | 필수 | 설명 |
+| 요소 이름 | 필수 | Description |
 |:--- |:--- |:--- |
 | parameterName |예 |매개 변수의 이름입니다. 유효한 JavaScript 식별자여야 합니다. |
-| 형식 |예 |매개 변수 값의 유형입니다. 허용되는 유형 및 값은 **string**, **securestring**, **int**, **bool**, **object**, **secureObject** 및 **array**입니다. |
-| defaultValue |아닙니다. |매개 변수 값을 제공하지 않는 경우 매개 변수의 기본값입니다. |
-| allowedValues |아닙니다. |올바른 값을 제공하도록 매개 변수에 대해 허용되는 값의 배열입니다. |
-| minValue |아닙니다. |Int 형식 매개 변수의 최소값이며, 이 값이 포함됩니다. |
-| maxValue |아닙니다. |Int 형식 매개 변수의 최대값이며, 이 값이 포함됩니다. |
-| minLength |아닙니다. |string, securestring 및 array 형식 매개 변수의 최소 길이이며, 이 값이 포함됩니다. |
-| maxLength |아닙니다. |string, securestring 및 array 형식 매개 변수의 최대 길이이며, 이 값이 포함됩니다. |
-| description |아닙니다. |포털에서 사용자에게 표시되는 매개 변수의 설명입니다. 자세한 내용은 [템플릿의 주석](#comments)을 참조하세요. |
+| type |예 |매개 변수 값의 유형입니다. 허용되는 유형 및 값은 **string**, **securestring**, **int**, **bool**, **object**, **secureObject** 및 **array**입니다. |
+| defaultValue |아니요 |매개 변수 값을 제공하지 않는 경우 매개 변수의 기본값입니다. |
+| allowedValues |아니요 |올바른 값을 제공하도록 매개 변수에 대해 허용되는 값의 배열입니다. |
+| minValue |아니요 |Int 형식 매개 변수의 최소값이며, 이 값이 포함됩니다. |
+| maxValue |아니요 |Int 형식 매개 변수의 최대값이며, 이 값이 포함됩니다. |
+| minLength |아니요 |string, securestring 및 array 형식 매개 변수의 최소 길이이며, 이 값이 포함됩니다. |
+| maxLength |아니요 |string, securestring 및 array 형식 매개 변수의 최대 길이이며, 이 값이 포함됩니다. |
+| description |아니요 |포털에서 사용자에게 표시되는 매개 변수의 설명입니다. 자세한 내용은 [템플릿의 주석](#comments)을 참조하세요. |
 
 ### <a name="define-and-use-a-parameter"></a>매개 변수 정의 및 사용
 
@@ -273,18 +273,18 @@ ms.locfileid: "67204353"
 
 이러한 예제 템플릿은 매개 변수 사용에 대한 일부 시나리오를 보여 줍니다. 다른 시나리오에서 처리되는 방식을 테스트하려면 매개 변수를 배포하세요.
 
-|Template  |설명  |
+|템플릿  |설명  |
 |---------|---------|
 |[parameters with functions for default values](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json)(기본값에 대한 함수가 있는 매개 변수) | 매개 변수의 기본값을 정의할 때 템플릿 함수를 사용하는 방법을 보여 줍니다. 템플릿은 리소스를 배포하지 않으며, 매개 변수 값을 구성하고 해당 값을 반환합니다. |
 |[parameter object](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json)(매개 변수 개체) | 매개 변수에 대한 개체 사용을 보여 줍니다. 템플릿은 리소스를 배포하지 않으며, 매개 변수 값을 구성하고 해당 값을 반환합니다. |
 
-## <a name="variables"></a>variables
+## <a name="variables"></a>변수
 
 변수 섹션에서 템플릿을 통해 사용할 수 있는 값을 생성합니다. 변수를 정의할 필요는 없지만 종종 변수를 통해 복잡한 식을 줄이면 템플릿이 단순화됩니다.
 
 ### <a name="available-definitions"></a>사용 가능한 정의
 
-다음 예에서는 변수를 정의 하기 위한 사용 가능한 옵션을 보여 줍니다.
+다음 예에서는 변수를 정의 하는 데 사용할 수 있는 옵션을 보여 줍니다.
 
 ```json
 "variables": {
@@ -311,11 +311,11 @@ ms.locfileid: "67204353"
 }
 ```
 
-에 대 한 내용은 `copy` 변수에 대 한 여러 값을 만들려면 참조 [변수 반복](resource-group-create-multiple.md#variable-iteration)합니다.
+를 사용 `copy` 하 여 변수에 대 한 여러 값을 만드는 방법에 대 한 자세한 내용은 [변수 반복](resource-group-create-multiple.md#variable-iteration)을 참조 하세요.
 
 ### <a name="define-and-use-a-variable"></a>변수를 정의하고 사용합니다.
 
-다음 예제는 변수 정의를 보여 줍니다. 저장소 계정 이름의 문자열 값을 만듭니다. 매개 변수 값을 가져오는 몇 가지 템플릿 함수를 사용 하 고 고유 문자열에 연결 합니다.
+다음 예제는 변수 정의를 보여 줍니다. 저장소 계정 이름의 문자열 값을 만듭니다. 여러 템플릿 함수를 사용 하 여 매개 변수 값을 가져오고이를 고유한 문자열에 연결 합니다.
 
 ```json
 "variables": {
@@ -376,21 +376,21 @@ ms.locfileid: "67204353"
 
 이러한 예제 템플릿은 변수 사용에 대한 일부 시나리오를 보여 줍니다. 변수가 다른 시나리오에서 처리되는 방식을 테스트하려면 변수를 배포하세요. 
 
-|Template  |설명  |
+|템플릿  |설명  |
 |---------|---------|
 | [변수 정의](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variables.json) | 다양한 변수 형식을 보여 줍니다. 템플릿은 리소스를 배포하지 않으며, 변수 값을 구성하고 해당 값을 반환합니다. |
 | [구성 변수](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variablesconfigurations.json) | 구성 값을 정의하는 변수의 사용을 보여 줍니다. 템플릿은 리소스를 배포하지 않으며, 변수 값을 구성하고 해당 값을 반환합니다. |
 | [네트워크 보안 규칙](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) 및 [매개 변수 파일](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json) | 보안 규칙을 네트워크 보안 그룹에 할당하기 위한 올바른 형식으로 배열을 구성합니다. |
 
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>함수
 
 템플릿 내에서 함수를 직접 만들 수 있습니다. 이러한 함수는 템플릿에서 사용할 수 있습니다. 일반적으로 템플릿 전체에서 반복하지 않으려는 복잡한 식을 정의합니다. 템플릿에서 지원되는 식 및 [함수](resource-group-template-functions.md)에서 사용자 정의 함수를 만듭니다.
 
 사용자 함수를 정의할 때는 다음과 같은 몇 가지 제한 사항이 있습니다.
 
 * 함수는 변수에 액세스할 수 없습니다.
-* 함수는 함수에 정의된 매개 변수만 사용할 수 있습니다. 사용 하는 경우는 [매개 변수 함수](resource-group-template-functions-deployment.md#parameters) 해당 함수에 대 한 매개 변수를 제한 하는 사용자 정의 함수 내에서.
+* 함수는 함수에 정의된 매개 변수만 사용할 수 있습니다. 사용자 정의 함수 내에서 [parameters 함수](resource-group-template-functions-deployment.md#parameters) 를 사용 하면 해당 함수에 대 한 매개 변수로 제한 됩니다.
 * 함수는 다른 사용자 정의 함수를 호출할 수 없습니다.
 * 함수는 [참조 함수](resource-group-template-functions-resource.md#reference)를 사용할 수 없습니다.
 * 함수의 매개 변수는 기본값을 가질 수 없습니다.
@@ -499,26 +499,26 @@ ms.locfileid: "67204353"
 ]
 ```
 
-| 요소 이름 | 필수 | 설명 |
+| 요소 이름 | 필수 | Description |
 |:--- |:--- |:--- |
-| condition | 아닙니다. | 리소스가 이 배포 중 프로비전되는지 여부를 나타내는 부울 값입니다. `true`인 경우 리소스는 배포하는 동안 만들어집니다. `false`인 경우 리소스는 이 배포에 대해 건너뛰어집니다. 참조 [조건을](#condition)합니다. |
-| apiVersion |예 |리소스를 만들 때 사용하는 REST API의 버전입니다. 사용 가능한 값을 확인 하려면 참조 [템플릿 참조](/azure/templates/)합니다. |
-| 형식 |예 |리소스 유형입니다. 이 값은 리소스 공급자의 네임스페이스와 리소스 형식을 조합한 값입니다(예: **Microsoft.Storage/storageAccounts**). 사용 가능한 값을 확인 하려면 참조 [템플릿 참조](/azure/templates/)합니다. 자식 리소스에 대 한 형식의 형식을 부모 리소스 내에 중첩 된 부모 리소스 외부 정의 했거나이 있는지 여부에 따라 달라 집니다. 참조 [자식 리소스](#child-resources)합니다. |
-| name |예 |리소스의 이름입니다. 이 이름은 RFC3986에 정의된 URI 구성 요소 제한을 따라야 합니다. 또한 리소스 이름을 외부에 노출하는 Azure 서비스는 다른 ID를 스푸핑하려는 시도가 아님을 확인하기 위해 이름의 유효성을 검사합니다. 자식 리소스에 대 한 이름 형식은 부모 리소스 내에 중첩 된 부모 리소스 외부 정의 했거나이 있는지 여부에 따라 달라 집니다. 참조 [자식 리소스](#child-resources)합니다. |
-| location |다름 |제공된 리소스의 지역적 위치를 지원합니다. 사용 가능한 위치 중 하나를 선택할 수 있지만 대개는 사용자에게 가까운 하나를 선택하는 것이 좋습니다. 일반적으로 동일한 지역에서 서로 상호 작용하도록 리소스를 배치하는 것도 좋습니다. 대부분의 리소스 종류에는 위치가 필요하지만 일부 종류(예: 역할 할당)에는 위치가 필요하지 않습니다. |
-| tags |아닙니다. |리소스와 연결된 태그입니다. 태그를 적용하여 구독에서 리소스를 논리적으로 구성합니다. |
-| 설명 |아닙니다. |템플릿에서 리소스를 문서화하는 내용에 대한 참고입니다. 자세한 내용은 [템플릿의 주석](resource-group-authoring-templates.md#comments)을 참조하세요. |
-| 복사 |아닙니다. |인스턴스가 둘 이상 필요한 경우 만드는 리소스의 수입니다. 기본 모드는 병렬입니다. 모든 리소스를 동시에 배포하지 않으려면 직렬 모드를 지정합니다. 자세한 내용은 [Azure Resource Manager에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요. |
-| dependsOn |아닙니다. |이 리소스를 배포하기 전에 배포해야 하는 리소스입니다. Resource Manager는 리소스 간의 종속성을 평가한 후 올바른 순서에 따라 리소스를 배포합니다. 리소스는 서로 종속되지 않을 경우, 병렬로 배포됩니다. 이 값은 리소스 이름 또는 리소스 고유 식별자의 쉼표로 구분된 목록입니다. 이 템플릿에 배포된 리소스만 나열합니다. 이 템플릿에 정의되지 않은 리소스는 이미 존재해야 합니다. 불필요한 종속성은 배포 속도를 느리게 만들고 순환 종속성을 만들기 때문에 추가하지 않습니다. 종속성 설정에 대한 지침은 [Azure Resource Manager 템플릿에서 종속성 정의](resource-group-define-dependencies.md)를 참조하세요. |
-| properties |아닙니다. |리소스별 구성 설정입니다. 속성의 값은 리소스를 만들기 위해 REST API 작업(PUT 메서드)에 대한 요청 본문에 제공하는 값과 동일합니다. 복사 배열을 지정하여 속성의 여러 인스턴스를 만들 수도 있습니다. 사용 가능한 값을 확인 하려면 참조 [템플릿 참조](/azure/templates/)합니다. |
-| sku | 아닙니다. | 일부 리소스에서는 SKU를 정의하는 값을 허용합니다. 예를 들어 저장소 계정에 대한 중복 유형을 지정할 수 있습니다. |
-| kind | 아닙니다. | 일부 리소스에서는 배포하는 리소스 종류를 정의하는 값을 허용합니다. 예를 들어 만들 Cosmos DB 종류를 지정할 수 있습니다. |
-| 계획 | 아닙니다. | 일부 리소스에서는 배포할 계획을 정의하는 값을 허용합니다. 예를 들어 가상 머신에 대한 마켓플레이스 이미지를 지정할 수 있습니다. | 
-| 리소스 |아닙니다. |정의 중인 리소스에 종속되는 하위 리소스입니다. 부모 리소스의 스키마에서 허용되는 리소스 유형만 제공합니다. 부모 리소스에 대한 종속성은 암시되지 않습니다. 해당 종속성을 명시적으로 정의해야 합니다. 참조 [자식 리소스](#child-resources)합니다. |
+| 조건 | 아니요 | 리소스가 이 배포 중 프로비전되는지 여부를 나타내는 부울 값입니다. `true`인 경우 리소스는 배포하는 동안 만들어집니다. `false`인 경우 리소스는 이 배포에 대해 건너뛰어집니다. [조건](#condition)을 참조 하세요. |
+| apiVersion |예 |리소스를 만들 때 사용하는 REST API의 버전입니다. 사용 가능한 값을 확인 하려면 [템플릿 참조](/azure/templates/)를 참조 하세요. |
+| type |예 |리소스 유형입니다. 이 값은 리소스 공급자의 네임스페이스와 리소스 형식을 조합한 값입니다(예: **Microsoft.Storage/storageAccounts**). 사용 가능한 값을 확인 하려면 [템플릿 참조](/azure/templates/)를 참조 하세요. 자식 리소스의 경우 형식의 형식은 부모 리소스 내에 중첩 되어 있는지, 부모 리소스 외부에 정의 되는지에 따라 달라 집니다. [자식 리소스의 이름 및 형식 설정](child-resource-name-type.md)을 참조 하세요. |
+| name |예 |리소스의 이름입니다. 이 이름은 RFC3986에 정의된 URI 구성 요소 제한을 따라야 합니다. 또한 리소스 이름을 외부에 노출하는 Azure 서비스는 다른 ID를 스푸핑하려는 시도가 아님을 확인하기 위해 이름의 유효성을 검사합니다. 자식 리소스의 경우 이름의 형식은 부모 리소스 내에 중첩 되어 있는지, 부모 리소스 외부에 정의 되는지에 따라 달라 집니다. [자식 리소스의 이름 및 형식 설정](child-resource-name-type.md)을 참조 하세요. |
+| 위치 |다름 |제공된 리소스의 지역적 위치를 지원합니다. 사용 가능한 위치 중 하나를 선택할 수 있지만 대개는 사용자에게 가까운 하나를 선택하는 것이 좋습니다. 일반적으로 동일한 지역에서 서로 상호 작용하도록 리소스를 배치하는 것도 좋습니다. 대부분의 리소스 종류에는 위치가 필요하지만 일부 종류(예: 역할 할당)에는 위치가 필요하지 않습니다. |
+| tags |아니요 |리소스와 연결된 태그입니다. 태그를 적용하여 구독에서 리소스를 논리적으로 구성합니다. |
+| 설명 |아니요 |템플릿에서 리소스를 문서화하는 내용에 대한 참고입니다. 자세한 내용은 [템플릿의 주석](resource-group-authoring-templates.md#comments)을 참조하세요. |
+| 복사 |아니요 |인스턴스가 둘 이상 필요한 경우 만드는 리소스의 수입니다. 기본 모드는 병렬입니다. 모든 리소스를 동시에 배포하지 않으려면 직렬 모드를 지정합니다. 자세한 내용은 [Azure Resource Manager에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요. |
+| dependsOn |아니요 |이 리소스를 배포하기 전에 배포해야 하는 리소스입니다. Resource Manager는 리소스 간의 종속성을 평가한 후 올바른 순서에 따라 리소스를 배포합니다. 리소스는 서로 종속되지 않을 경우, 병렬로 배포됩니다. 이 값은 리소스 이름 또는 리소스 고유 식별자의 쉼표로 구분된 목록입니다. 이 템플릿에 배포된 리소스만 나열합니다. 이 템플릿에 정의되지 않은 리소스는 이미 존재해야 합니다. 불필요한 종속성은 배포 속도를 느리게 만들고 순환 종속성을 만들기 때문에 추가하지 않습니다. 종속성 설정에 대한 지침은 [Azure Resource Manager 템플릿에서 종속성 정의](resource-group-define-dependencies.md)를 참조하세요. |
+| 속성 |아니요 |리소스별 구성 설정입니다. 속성의 값은 리소스를 만들기 위해 REST API 작업(PUT 메서드)에 대한 요청 본문에 제공하는 값과 동일합니다. 복사 배열을 지정하여 속성의 여러 인스턴스를 만들 수도 있습니다. 사용 가능한 값을 확인 하려면 [템플릿 참조](/azure/templates/)를 참조 하세요. |
+| sku | 아니요 | 일부 리소스에서는 SKU를 정의하는 값을 허용합니다. 예를 들어 저장소 계정에 대한 중복 유형을 지정할 수 있습니다. |
+| kind | 아니요 | 일부 리소스에서는 배포하는 리소스 종류를 정의하는 값을 허용합니다. 예를 들어 만들 Cosmos DB 종류를 지정할 수 있습니다. |
+| 계획 | 아니요 | 일부 리소스에서는 배포할 계획을 정의하는 값을 허용합니다. 예를 들어 가상 머신에 대한 마켓플레이스 이미지를 지정할 수 있습니다. | 
+| 리소스 |아니요 |정의 중인 리소스에 종속되는 하위 리소스입니다. 부모 리소스의 스키마에서 허용되는 리소스 유형만 제공합니다. 부모 리소스에 대한 종속성은 암시되지 않습니다. 해당 종속성을 명시적으로 정의해야 합니다. [자식 리소스의 이름 및 형식 설정](child-resource-name-type.md)을 참조 하세요. |
 
 ### <a name="condition"></a>조건
 
-사용 하 여 리소스를 만들지 여부를 배포 하는 동안 결정 해야 할, 경우를 `condition` 요소입니다. 이 요소 값은 true 또는 false로 확인됩니다. 값이 true이면 리소스가 만들어집니다. 값이 false이면 리소스가 만들어지지 않습니다. 값은 전체 리소스에만 적용할 수 있습니다.
+배포 중에 리소스를 만들지 여부를 결정 해야 하는 경우 `condition` 요소를 사용 합니다. 이 요소 값은 true 또는 false로 확인됩니다. 값이 true이면 리소스가 만들어집니다. 값이 false이면 리소스가 만들어지지 않습니다. 값은 전체 리소스에만 적용할 수 있습니다.
 
 일반적으로 새 리소스를 만들거나 기존 리소스를 사용하려는 경우 이 값을 사용합니다. 예를 들어 새 저장소 계정 배포 여부 또는 기존 저장소 계정 사용 여부를 지정하려면 다음을 사용합니다.
 
@@ -539,7 +539,7 @@ ms.locfileid: "67204353"
 
 `condition` 요소를 사용하는 전체 예제 템플릿은 [신규 또는 기존 가상 네트워크, 저장소 및 공용 IP를 사용하는 VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions)을 참조하세요.
 
-사용 하는 경우는 [참조](resource-group-template-functions-resource.md#reference) 하거나 [목록](resource-group-template-functions-resource.md#list) 리소스 배포 되지 않는 경우에 리소스를 조건부로 배포 되는 함수를 사용 하 여 함수 평가 됩니다. 함수가 존재 하지 않는 리소스를 참조 하면 오류가 발생 합니다. 사용 된 [경우](resource-group-template-functions-logical.md#if) 함수가만 조건에 대 한 계산 리소스를 배포할 때 되도록 함수입니다. 참조를 [하는 경우 함수](resource-group-template-functions-logical.md#if) 경우 사용 하는 샘플 템플릿 및 조건에 따라 배포 된 리소스를 사용 하 여 참조 합니다.
+조건부로 배포 되는 리소스에 [참조](resource-group-template-functions-resource.md#reference) 또는 [목록](resource-group-template-functions-resource.md#list) 함수를 사용 하는 경우 리소스가 배포 되지 않은 경우에도 함수가 평가 됩니다. 함수가 존재 하지 않는 리소스를 참조 하는 경우 오류가 발생 합니다. [If](resource-group-template-functions-logical.md#if) 함수를 사용 하 여 리소스가 배포 될 때 함수가 조건에 대해서만 계산 되도록 합니다. If를 사용 하 고 조건부로 배포 된 리소스를 참조 하는 샘플 템플릿은 [if 함수](resource-group-template-functions-logical.md#if) 를 참조 하세요.
 
 ### <a name="resource-names"></a>리소스 이름
 
@@ -549,7 +549,7 @@ ms.locfileid: "67204353"
 * 고유해야 할 필요는 없지만, 리소스를 식별하는 데 도움이 될 수 있는 이름을 제공하기 위해 선택하는 리소스 이름입니다.
 * 일반적일 수 있는 리소스 이름
 
-제공 된 **고유한 리소스 이름을** 데이터 액세스 끝점이 있는 모든 리소스 유형에 대 한 합니다. 고유 이름이 필요한 일반적인 리소스 유형은 다음과 같습니다.
+데이터 액세스 끝점이 있는 리소스 형식에 대해 **고유한 리소스 이름을** 제공 합니다. 고유 이름이 필요한 일반적인 리소스 유형은 다음과 같습니다.
 
 * Azure Storage<sup>1</sup> 
 * Azure App Service의 Web Apps 기능
@@ -571,7 +571,7 @@ ms.locfileid: "67204353"
 }
 ```
 
-일부 리소스 유형의 경우 제공 하려는 **식별에 대 한 이름**, 하지만 이름을 고유할 필요는 없습니다. 이러한 리소스 유형의 경우 사용 하 여 또는 특징에 설명 하는 이름을 제공 합니다.
+일부 리소스 종류의 경우 **식별 이름을**지정할 수 있지만 이름은 고유 하지 않아도 됩니다. 이러한 리소스 형식에 대해 또는 특성을 사용 하 여 설명 하는 이름을 제공 합니다.
 
 ```json
 "parameters": {
@@ -585,7 +585,7 @@ ms.locfileid: "67204353"
 }
 ```
 
-리소스 형식의 다른 리소스를 통해 대부분 액세스 했는지를 사용할 수는 **일반 이름을** 템플릿에 하드 코드 된입니다. 예를 들어 SQL Server에서 방화벽 규칙에 대해 표준 일반 이름을 설정할 수 있습니다.
+주로 다른 리소스를 통해 액세스 하는 리소스 유형의 경우 템플릿에 하드 코드 된 **일반 이름을** 사용할 수 있습니다. 예를 들어 SQL Server에서 방화벽 규칙에 대해 표준 일반 이름을 설정할 수 있습니다.
 
 ```json
 {
@@ -654,75 +654,7 @@ ms.locfileid: "67204353"
 }
 ```
 
-### <a name="child-resources"></a>자식 리소스
-
-일부 리소스 형식 내에서 자식 리소스의 배열도 정의할 수 있습니다. 자식 리소스는 다른 리소스의 컨텍스트 내에만 존재하는 리소스입니다. 예를 들어, SQL 데이터베이스는 SQL Server 없이 존재할 수 없으므로 데이터베이스가 서버의 자식입니다. 서버에 대한 정의 내에서 데이터베이스를 정의할 수 있습니다.
-
-```json
-{
-  "apiVersion": "2015-05-01-preview",
-  "type": "Microsoft.Sql/servers",
-  "name": "exampleserver",
-  ...
-  "resources": [
-    {
-      "apiVersion": "2017-10-01-preview",
-      "type": "databases",
-      "name": "exampledatabase",
-      ...
-    }
-  ]
-}
-```
-
-그러나 서버 내에서 데이터베이스를 정의할 필요는 없습니다. 최상위 수준에 자식 리소스를 정의할 수 있습니다. 부모 리소스가 동일한 템플릿에서 배포되지 않는 경우 또는 `copy`를 사용하여 둘 이상의 자식 리소스를 만들려는 경우, 이 방법을 사용할 수 있습니다. 이 방법을 사용하는 경우 전체 리소스 유형을 입력하고 자식 리소스 이름에 부모 리소스 이름을 포함해야 합니다.
-
-```json
-{
-  "apiVersion": "2015-05-01-preview",
-  "type": "Microsoft.Sql/servers",
-  "name": "exampleserver",
-  "resources": [ 
-  ],
-  ...
-},
-{
-  "apiVersion": "2017-10-01-preview",
-  "type": "Microsoft.Sql/servers/databases",
-  "name": "exampleserver/exampledatabase",
-  ...
-}
-```
-
-형식 및 이름에 대해 제공한 값을 자식 리소스가 부모 리소스 내에서 또는 부모 리소스 외부에서 정의 되었는지 여부에 따라 다릅니다.
-
-부모 리소스에서 중첩 된 경우 사용 합니다.
-
-```json
-"type": "{child-resource-type}",
-"name": "{child-resource-name}",
-```
-
-부모 리소스 외부에서 정의 하는 경우 사용 합니다.
-
-```json
-"type": "{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}",
-"name": "{parent-resource-name}/{child-resource-name}",
-```
-
-중첩 형식으로 설정 됩니다 `databases` 전체 리소스 형식은 여전히 이지만 `Microsoft.Sql/servers/databases`합니다. `Microsoft.Sql/servers/`는 부모 리소스 종류에서 유추되므로 입력하지 않습니다. 자식 리소스 이름은 `exampledatabase`로 설정되지만 전체 이름에는 부모 이름이 포함됩니다. `exampleserver`는 부모 리소스에서 유추되므로 입력하지 않습니다.
-
-리소스에 대한 정규화된 참조를 생성할 때 형식과 이름의 세그먼트를 결합하는 순서는 단순히 두 세그먼트의 연결이 아닙니다. 대신, 네임스페이스 뒤에 구체성이 낮은 순으로 *형식/이름* 쌍의 시퀀스를 사용합니다.
-
-```json
-{resource-provider-namespace}/{parent-resource-type}/{parent-resource-name}[/{child-resource-type}/{child-resource-name}]*
-```
-
-예를 들면 다음과 같습니다.
-
-`Microsoft.Compute/virtualMachines/myVM/extensions/myExt`는 올바릅니다. `Microsoft.Compute/virtualMachines/extensions/myVM/myExt`는 올바르지 않습니다.
-
-## <a name="outputs"></a>outputs
+## <a name="outputs"></a>출력
 
 Outputs 섹션에서, 배포에서 반환되는 값을 지정합니다. 일반적으로 배포 된 리소스에서 값을 반환 합니다.
 
@@ -743,9 +675,9 @@ Outputs 섹션에서, 배포에서 반환되는 값을 지정합니다. 일반�
 | 요소 이름 | 필수 | 설명 |
 |:--- |:--- |:--- |
 | outputName |예 |출력 값의 이름입니다. 유효한 JavaScript 식별자여야 합니다. |
-| condition |아닙니다. | 이 출력 값의 반환 여부를 나타내는 부울 값입니다. `true`이면 해당 값이 배포의 출력에 포함됩니다. `false`이면 이 배포에 대한 출력 값을 건너뜁니다. 지정하지 않으면 기본값은 `true`입니다. |
-| 형식 |예 |출력 값의 유형입니다. 출력 값은 템플릿 입력 매개 변수와 동일한 유형을 지원합니다. 지정 하는 경우 **securestring** 출력 형식에 대 한 값 배포 기록에서 표시 되지 않으면 및 다른 서식 파일에서 검색할 수 없습니다. 둘 이상의 템플릿에서 비밀 값을 사용 하려면 Key Vault에 비밀을 저장 하 고 매개 변수 파일에서 비밀을 참조할 합니다. 자세한 내용은 [배포 동안 보안 매개 변수 값을 전달 하기 위해 사용 하 여 Azure Key Vault](resource-manager-keyvault-parameter.md)합니다. |
-| 값 |예 |출력 값으로 계산되어 반환되는 템플릿 언어 식입니다. |
+| 조건 |아니요 | 이 출력 값의 반환 여부를 나타내는 부울 값입니다. `true`이면 해당 값이 배포의 출력에 포함됩니다. `false`이면 이 배포에 대한 출력 값을 건너뜁니다. 지정하지 않으면 기본값은 `true`입니다. |
+| type |예 |출력 값의 유형입니다. 출력 값은 템플릿 입력 매개 변수와 동일한 유형을 지원합니다. 출력 유형에 대해 **securestring** 을 지정 하는 경우 값은 배포 기록에 표시 되지 않으며 다른 템플릿에서 검색할 수 없습니다. 둘 이상의 템플릿에서 비밀 값을 사용 하려면 Key Vault에 비밀을 저장 하 고 매개 변수 파일에서 비밀을 참조 합니다. 자세한 내용은 [Azure Key Vault를 사용하여 배포 중에 보안 매개 변수 값 전달](resource-manager-keyvault-parameter.md)을 참조하세요. |
+| value |예 |출력 값으로 계산되어 반환되는 템플릿 언어 식입니다. |
 
 ### <a name="define-and-use-output-values"></a>출력 값 정의 및 사용
 
@@ -772,7 +704,7 @@ Outputs 섹션에서, 배포에서 반환되는 값을 지정합니다. 일반�
 }
 ```
 
-조건부 출력의 간단한 예제를 보려면 [조건부 출력 템플릿](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/conditional-output/azuredeploy.json)합니다.
+조건부 출력의 간단한 예는 [조건부 출력 템플릿](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/conditional-output/azuredeploy.json)을 참조 하세요.
 
 배포 후에 스크립트를 사용하여 값을 검색할 수 있습니다. PowerShell의 경우 다음을 사용합니다.
 
@@ -790,7 +722,7 @@ az group deployment show -g <resource-group-name> -n <deployment-name> --query p
 
 연결된 템플릿에서 출력 속성을 가져올 때 속성 이름에 대시를 포함할 수 없습니다.
 
-다음 예제에서는 연결 된 템플릿에서 값을 검색 하 여 부하 분산 장치의 IP 주소를 설정 하는 방법을 보여 줍니다.
+다음 예제에서는 연결 된 템플릿에서 값을 검색 하 여 부하 분산 장치에서 IP 주소를 설정 하는 방법을 보여 줍니다.
 
 ```json
 "publicIPAddress": {
@@ -802,7 +734,7 @@ az group deployment show -g <resource-group-name> -n <deployment-name> --query p
 
 ### <a name="output-example-templates"></a>출력 예제 템플릿
 
-|Template  |설명  |
+|템플릿  |Description  |
 |---------|---------|
 |[변수 복사](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) | 복잡한 변수를 만들고 해당 값을 출력합니다. 여기서는 리소스를 배포하지 않습니다. |
 |[공용 IP 주소](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) | 공용 IP 주소를 만들고 리소스 ID를 출력합니다. |
