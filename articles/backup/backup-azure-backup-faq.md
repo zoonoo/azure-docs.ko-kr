@@ -1,5 +1,5 @@
 ---
-title: Azure Backup FAQ
+title: Azure Backup 기능에 대 한 일반적인 질문에 대 한 답변
 description: '다음의 일반적인 질문에 대한 답변: Recovery Services 자격 증명 모음, 백업 대상, 작동 방식, 암호화 및 제한 등을 포함하는 Azure Backup 기능 '
 author: dcurwin
 manager: carmonm
@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/07/2019
 ms.author: dacurwin
-ms.openlocfilehash: c60b2bfae0d974d454c03b7eba655cbdacab5943
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: c41381dd3e53c80e74da3dc0d0a08e1ac83daec6
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466684"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827625"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - 질문과 대답
 이 문서에서는 Azure Backup 서비스에 대한 일반적인 질문과 대답을 제공합니다.
@@ -24,6 +24,13 @@ ms.locfileid: "68466684"
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault"></a>각 자격 증명 모음에 대해 등록할 수 있는 서버/컴퓨터 수에 제한이 있나요?
 자격 증명 모음당 최대 1000대의 Azure 가상 머신을 등록할 수 있습니다. Microsoft Azure Backup Agent를 사용하면 자격 증명 모음당 MAB Agent를 50개까지 등록할 수 있습니다. 또한 자격 증명 모음에 50대의 MAB 서버/DPM 서버를 등록할 수 있습니다.
+
+### <a name="how-many-datasourcesitems-can-be-protected-in-a-vault"></a>자격 증명 모음에서 보호할 수 있는 데이터 원본/항목은 몇 개입니까? 
+자격 증명 모음의 모든 워크 로드 (IaaS VM, SQL, AFS 등)에서 최대 2000 개의 데이터 원본/항목을 보호할 수 있습니다.<br>  
+예를 들어 자격 증명 모음에서 500 Vm 및 400 Azure Files 공유를 이미 보호 한 경우에는 SQL database를 최대 1100 개만 보호할 수 있습니다. 
+
+### <a name="how-many-policies-can-i-create-per-vault"></a>자격 증명 모음 당 몇 개의 정책을 만들 수 있나요? 
+자격 증명 모음 당 정책을 최대 200 개만 포함할 수 있습니다.
 
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-data-from-different-servers-in-the-vault-when-restoring-data"></a>내 조직에 하나의 자격 증명 모음이 있는 경우 데이터를 복원할 때 자격 증명 모음의 다른 서버에서 데이터를 어떻게 격리할 수 있나요?
 백업을 설정할 때 함께 복구하려는 서버 데이터는 동일한 암호를 사용해야 합니다. 특정 서버로 복구를 격리하려는 경우 해당 서버에 대해서만 암호를 사용합니다. 예를 들어 인사부 서버가 첫 번째 암호화 암호를 사용하고, 회계 서버가 두 번째, 저장소 서버가 세 번째 암호화 암호를 사용할 수 있습니다.

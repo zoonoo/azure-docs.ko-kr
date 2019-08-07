@@ -10,28 +10,28 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 08/06/2019
 ms.author: jingwang
-ms.openlocfilehash: 8f5a7d3f6300be100feffd23b98bd7dcd8f48148
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae8b2bb7cce545ab9c0aa0c9d4d682089cc482ab
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65150895"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827469"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure Data Factory의 복사 작업
 
 ## <a name="overview"></a>개요
 
-> [!div class="op_single_selector" title1="사용 하는 Data Factory 서비스 버전을 선택 합니다."]
+> [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](v1/data-factory-data-movement-activities.md)
 > * [현재 버전](copy-activity-overview.md)
 
-Azure Data Factory에서는 복사 작업을 사용해 온-프레미스 및 클라우드 간에 데이터를 복사할 수 있습니다. 복사한 데이터는 추가로 변환하고 분석할 수 있습니다. 복사 활동을 통해 BI(비즈니스 인텔리전스) 및 애플리케이션에서 사용할 수 있도록 변환 및 분석 결과를 게시할 수도 있습니다.
+Azure Data Factory에서는 복사 작업을 사용해 온-프레미스 및 클라우드 간에 데이터를 복사할 수 있습니다. 데이터를 복사한 후에는 다른 작업을 사용 하 여 데이터를 추가로 변환 하 고 분석할 수 있습니다. 복사 활동을 통해 BI(비즈니스 인텔리전스) 및 애플리케이션에서 사용할 수 있도록 변환 및 분석 결과를 게시할 수도 있습니다.
 
 ![복사 활동의 역할](media/copy-activity-overview/copy-activity.png)
 
-복사 작업은 [Integration Runtime](concepts-integration-runtime.md)에서 실행됩니다. 다양한 데이터 복사 시나리오에서 Integration Runtime을 다양하게 활용할 수 있습니다.
+복사 작업은 [Integration Runtime](concepts-integration-runtime.md)에서 실행됩니다. 다른 데이터 복사 시나리오의 경우 다양 한 Integration Runtime를 활용할 수 있습니다.
 
 * 공개적으로 액세스할 수 있는 두 데이터 저장소 간에 데이터를 복사할 때는 안전하고 안정적이며 확장 가능하고 [전체적으로 사용 가능한](concepts-integration-runtime.md#integration-runtime-location) **Azure Integration Runtime**이 복사 작업을 제공할 수 있습니다.
 * 액세스 제어가 적용된 온-프레미스나 네트워크(예: Azure Virtual Network)에서 또는 이러한 네트워크로 데이터를 복사할 경우 **자체 호스팅 Integrated Runtime**을 사용하여 데이터 복사를 제공할 수 있습니다.
@@ -54,26 +54,26 @@ Integration Runtime을 각각의 원본 및 싱크 데이터 저장소와 연결
 
 복사 작업을 사용하여 두 파일 기반 데이터 저장소 간에 **있는 그대로 파일을 복사**할 수 있습니다. 이 때 데이터는 직렬화/역직렬화 없이 효율적으로 복사됩니다.
 
-복사 작업은 또한 지정된 형식으로 파일에서 읽기 및 파일에 쓰기를 지원합니다. **텍스트, JSON, Avro, ORC 및 Parquet**, 압축 및 다음 코덱 사용 하 여 파일 압축 풀기: **GZip, Deflate, BZip2 및 ZipDeflate**합니다. 자세한 내용은 [지원되는 파일 및 압축 형식](supported-file-formats-and-compression-codecs.md)을 참조하세요.
+복사 작업은 또한 지정된 형식으로 파일에서 읽기 및 파일에 쓰기를 지원합니다. **텍스트, JSON, Avro, ORC 및 Parquet**를 사용 하 고 다음 코덱을 사용 하 여 파일을 압축 하 고 압축을 푸는 중입니다. **GZip, Deflate, BZip2 및 ZipDeflate**입니다. 자세한 내용은 [지원되는 파일 및 압축 형식](supported-file-formats-and-compression-codecs.md)을 참조하세요.
 
 예를 들어 다음 복사 작업을 수행할 수 있습니다.
 
-* 온-프레미스 SQL Server에서 데이터를 복사 하 고 Parquet 형식에서 Azure 데이터 레이크 저장소 Gen2로 작성 합니다.
+* 온-프레미스 SQL Server에서 데이터를 복사 하 고 Parquet 형식으로 Azure Data Lake Storage Gen2에 씁니다.
 * 온-프레미스 파일 시스템에서 텍스트(CSV) 형식의 파일을 복사하여 Avro 형식으로 Azure Blob에 씁니다.
-* 온-프레미스 파일 시스템에서 압축 된 파일을 복사 하 고 압축 한 다음 Azure Data Lake 저장소 Gen2에 씁니다.
+* 온-프레미스 파일 시스템에서 압축 파일을 복사 하 고 Azure Data Lake Storage Gen2에 압축을 풀고 여기로 이동 합니다.
 * Azure Blob에서 GZip 압축 텍스트(CSV) 형식의 데이터를 복사하여 Azure SQL Database에 씁니다.
-* 및 대부분의 경우는 serialization/deserialization 또는 압축/압축 해제 해야 합니다.
+* Serialization/deserialization 또는 압축/압축 풀기 요구 사항이 있는 많은 사례가 있습니다.
 
 ## <a name="supported-regions"></a>지원되는 지역
 
 복사 작업을 지원하는 서비스는 [Azure Integration Runtime 위치](concepts-integration-runtime.md#integration-runtime-location)에 표시된 지역 및 지리에서 전역적으로 사용할 수 있습니다. 전역적으로 사용 가능한 토폴로지에서는 대개 지역 간 홉이 없는 효율적인 데이터 이동이 가능합니다. 지역별 Data Factory 및 데이터 이동 기능 사용 가능 여부는 [지역별 서비스](https://azure.microsoft.com/regions/#services) 를 참조하세요.
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 
 Azure Data Factory에서 복사 작업을 사용하려면 다음이 필요합니다.
 
 1. **원본 및 싱크 데이터 저장소에 대한 연결된 서비스를 만듭니다.** 구성 방법과 지원되는 속성은 커넥터 문서의 "연결된 서비스 속성" 섹션을 참조하세요. 지원되는 커넥터 목록은 [지원되는 데이터 저장소 및 형식](#supported-data-stores-and-formats) 섹션에 있습니다.
-2. **원본 및 싱크에 대 한 데이터 세트를 만듭니다**. 구성 방법과 지원되는 속성은 원본 및 싱크 커넥터 문서의 "데이터 세트 속성" 섹션을 참조하세요.
+2. **원본 및 싱크에 대 한 데이터 세트를 만듭니다**. 구성 방법 및 지원 되는 속성은 원본 및 싱크 커넥터 문서 ' "데이터 집합 속성" 섹션을 참조 하세요.
 3. **복사 작업을 포함하는 파이프라인을 만듭니다.** 다음 섹션에서 예제를 제공합니다.
 
 ### <a name="syntax"></a>구문
@@ -128,19 +128,19 @@ Azure Data Factory에서 복사 작업을 사용하려면 다음이 필요합니
 
 ### <a name="syntax-details"></a>구문 세부 정보
 
-| 자산 | 설명 | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업의 type 속성은 다음으로 설정해야 합니다. **Copy** | 예 |
-| inputs | 원본 데이터를 가리키는 만든 데이터 세트를 지정합니다. 복사 작업에서는 하나의 입력만 지원합니다. | 예 |
-| outputs | 싱크 데이터를 가리키는 만든 데이터 세트를 지정합니다. 복사 작업에서는 하나의 출력만 지원합니다. | 예 |
+| 입력 | 원본 데이터를 가리키는 만든 데이터 세트를 지정합니다. 복사 작업에서는 하나의 입력만 지원합니다. | 예 |
+| 출력 | 싱크 데이터를 가리키는 만든 데이터 세트를 지정합니다. 복사 작업에서는 하나의 출력만 지원합니다. | 예 |
 | typeProperties | 복사 작업을 구성하는 속성의 그룹입니다. | 예 |
-| source | 데이터 검색 방법에 대한 해당 속성과 복사 원본 유형을 지정합니다.<br/><br/>자세한 내용은 [지원되는 데이터 저장소 및 형식](#supported-data-stores-and-formats)에 열거된 커넥터 문서의 "복사 작업 속성" 섹션을 참조하세요. | 예 |
+| 원본(source) | 데이터 검색 방법에 대한 해당 속성과 복사 원본 유형을 지정합니다.<br/><br/>자세한 내용은 [지원되는 데이터 저장소 및 형식](#supported-data-stores-and-formats)에 열거된 커넥터 문서의 "복사 작업 속성" 섹션을 참조하세요. | 예 |
 | sink | 데이터 쓰기 방법에 대한 해당 속성과 복사 싱크 유형을 지정합니다.<br/><br/>자세한 내용은 [지원되는 데이터 저장소 및 형식](#supported-data-stores-and-formats)에 열거된 커넥터 문서의 "복사 작업 속성" 섹션을 참조하세요. | 예 |
-| translator | 원본에서 싱크로의 명시적 열 매핑을 지정합니다. 기본 복사 동작이 요구를 수행할 수 없는 경우 적용됩니다.<br/><br/>자세한 내용은 [스키마 및 데이터 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요. | 아닙니다. |
-| dataIntegrationUnits | 데이터 복사를 수행할 [Azure Integration Runtime](concepts-integration-runtime.md)의 강도를 지정합니다. 이전의 클라우드 DMU(데이터 이동 단위)입니다. <br/><br/>자세한 내용은 [데이터 통합 단위](copy-activity-performance.md#data-integration-units)를 참조하세요. | 아닙니다. |
-| parallelCopies | 원본에서 데이터를 읽어 싱크에 쓸 때 복사 작업이 사용할 병렬 처리를 지정합니다.<br/><br/>자세한 내용은 [병렬 복사](copy-activity-performance.md#parallel-copy)를 참조하세요. | 아닙니다. |
-| enableStaging<br/>stagingSettings | 원본에서 싱크로 직접 데이터를 복사 하는 대신 blob 저장소의 중간 데이터를 준비 하도록 선택 합니다.<br/><br/>유용한 시나리오 및 구성 상세 정보는 [준비된 복사](copy-activity-performance.md#staged-copy)를 참조하세요. | 아닙니다. |
-| enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| 데이터를 원본에서 싱크로 복사할 때 호환되지 않는 행을 처리하는 방법을 선택합니다.<br/><br/>자세한 내용은 [내결함성](copy-activity-fault-tolerance.md)을 참조하세요. | 아닙니다. |
+| translator | 원본에서 싱크로의 명시적 열 매핑을 지정합니다. 기본 복사 동작이 요구를 수행할 수 없는 경우 적용됩니다.<br/><br/>자세한 내용은 [스키마 및 데이터 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요. | 아니요 |
+| dataIntegrationUnits | 데이터 복사를 수행할 [Azure Integration Runtime](concepts-integration-runtime.md)의 강도를 지정합니다. 이전의 클라우드 DMU(데이터 이동 단위)입니다. <br/><br/>자세한 내용은 [데이터 통합 단위](copy-activity-performance.md#data-integration-units)를 참조하세요. | 아니요 |
+| parallelCopies | 원본에서 데이터를 읽어 싱크에 쓸 때 복사 작업이 사용할 병렬 처리를 지정합니다.<br/><br/>자세한 내용은 [병렬 복사](copy-activity-performance.md#parallel-copy)를 참조하세요. | 아니요 |
+| enableStaging<br/>stagingSettings | 원본에서 싱크로 데이터를 직접 복사 하는 대신 blob 저장소에서 중간 데이터를 준비 하도록 선택 합니다.<br/><br/>유용한 시나리오 및 구성 상세 정보는 [준비된 복사](copy-activity-performance.md#staged-copy)를 참조하세요. | 아니요 |
+| enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| 데이터를 원본에서 싱크로 복사할 때 호환되지 않는 행을 처리하는 방법을 선택합니다.<br/><br/>자세한 내용은 [내결함성](copy-activity-fault-tolerance.md)을 참조하세요. | 아니요 |
 
 ## <a name="monitoring"></a>모니터링
 
@@ -159,7 +159,7 @@ Azure Data Factory "작성자/모니터" UI에서 또는 프로그래밍 방식�
 **동작** 아래의 "**세부 정보**" 링크를 클릭하여 복사 작업의 실행 세부 정보 및 성능 특성을 볼 수 있습니다. 원본에서 복사된 데이터 볼륨/행/파일부터, 싱크, 처리량 및 거쳐 지나가는 단계를 포함하는 정보와 복사 시나리오의 해당 기간 및 사용된 구성이 표시됩니다.
 
 >[!TIP]
->복사 모니터링 페이지 맨 위에 "**성능 튜닝 팁**"이 표시되는 시나리오도 있습니다. 이 팁은 식별된 병목 상태를 알려 주는 동시에 복사 처리량을 높이기 위해 변경해야 하는 항목도 안내합니다. 예제와 자세한 설명은 [여기](#performance-and-tuning)서 확인할 수 있습니다.
+>일부 시나리오의 경우 "**성능 조정 팁**"이 표시 됩니다 .이 페이지에는 병목 상태를 식별 하 고 복사 처리량을 높일 수 있도록 변경 사항을 안내 하는 내용이 포함 되어 있습니다. 자세한 내용은 [여기](#performance-and-tuning)를 참조 하세요.
 
 **예: Amazon S3에서 Azure Data Lake Store로 복사**
 ![작업 실행 세부 정보 모니터링](./media/copy-activity-overview/monitor-activity-run-details-adls.png)
@@ -169,59 +169,73 @@ Azure Data Factory "작성자/모니터" UI에서 또는 프로그래밍 방식�
 
 ### <a name="monitor-programmatically"></a>프로그래밍 방식으로 모니터링
 
-복사 작업 실행 세부 정보와 성능 특징은 복사 작업 실행 결과 -> 출력 섹션에도 반환됩니다. 다음은 전체 목록입니다. 해당 복사 시나리오에 해당되는 항목만 표시됩니다. [퀵 스타트 모니터링 섹션](quickstart-create-data-factory-dot-net.md#monitor-a-pipeline-run)에서 작업 실행을 모니터링하는 방법을 알아봅니다.
+복사 작업 실행 세부 정보 및 성능 특성은 복사 작업 실행 결과-> 출력 섹션에도 반환 됩니다. 다음은 전체 목록입니다. 해당 복사 시나리오에 해당되는 항목만 표시됩니다. [퀵 스타트 모니터링 섹션](quickstart-create-data-factory-dot-net.md#monitor-a-pipeline-run)에서 작업 실행을 모니터링하는 방법을 알아봅니다.
 
-| 속성 이름  | 설명 | 단위 |
+| 속성 이름  | Description | 단위 |
 |:--- |:--- |:--- |
 | dataRead | 원본에서 읽은 데이터 크기 | Int64 값(**바이트**) |
 | dataWritten | 싱크에 쓴 데이터 크기 | Int64 값(**바이트**) |
 | filesRead | 파일 저장소에서 데이터를 복사할 경우 복사되는 파일 수입니다. | Int64 값(단위 없음) |
 | filesWritten | 파일 저장소로 데이터를 복사할 경우 복사되는 파일 수입니다. | Int64 값(단위 없음) |
-| rowsRead | 원본 (이진 복사에는 적용 되지 않음)에서 읽어오는 행 수입니다. | Int64 값(단위 없음) |
-| rowsCopied | 싱크 (이진 복사에는 적용 되지 않음)에 복사 되는 행 수입니다. | Int64 값(단위 없음) |
+| sourcePeakConnections | 복사 작업을 실행 하는 동안 원본 데이터 저장소에 설정 된 최대 동시 연결 수입니다. | Int64 값(단위 없음) |
+| sinkPeakConnections | 복사 작업을 실행 하는 동안 싱크 데이터 저장소에 설정 된 최대 동시 연결 수입니다. | Int64 값(단위 없음) |
+| rowsRead | 원본에서 읽고 있는 행의 수입니다 (이진 복사에는 해당 되지 않음). | Int64 값(단위 없음) |
+| rowsCopied | 싱크로 복사 되는 행의 수입니다 (이진 복사에는 적용 되지 않음). | Int64 값(단위 없음) |
 | rowsSkipped | 생략되는 비호환 행 수. "enableSkipIncompatibleRow"를 true로 설정하여 이 기능을 실행할 수 있습니다. | Int64 값(단위 없음) |
-| throughput | 데이터 전송 되는 비율입니다. | 부동 소수점 숫자(**KB/s**) |
-| copyDuration | 복사본의 기간입니다. | Int32 값(초) |
-| sourcePeakConnections | 복사 중에 원본 데이터 저장소를 설정 하는 동시 연결의 최대 수입니다. | Int32 값 |
-| sinkPeakConnections| 싱크 데이터 저장소로 복사 하는 동안 설정 하는 동시 연결의 최대 수입니다.| Int32 값 |
+| copyDuration | 복사 기간입니다. | Int32 값(초) |
+| throughput | 데이터를 전송 하는 비율입니다. | 부동 소수점 숫자(**KB/s**) |
+| sourcePeakConnections | 복사 중에 원본 데이터 저장소에 설정 된 최대 동시 연결 수입니다. | Int32 값 |
+| sinkPeakConnections| 복사 하는 동안 싱크 데이터 저장소에 설정 된 최대 동시 연결 수입니다.| Int32 값 |
 | sqlDwPolyBase | 데이터를 SQL Data Warehouse에 복사할 때 PolyBase를 사용합니다. | Boolean |
 | redshiftUnload | 데이터를 Redshift로부터 복사할 때 UNLOAD를 사용합니다. | Boolean |
 | hdfsDistcp | 데이터를 HDFS로부터 복사할 때 DistCp를 사용합니다. | Boolean |
 | effectiveIntegrationRuntime | 활동 실행을 제공하는 데 사용할 Integration Runtime을 `<IR name> (<region if it's Azure IR>)` 형식으로 표시합니다. | 텍스트(문자열) |
 | usedDataIntegrationUnits | 복사 중 효율적인 데이터 통합 단위입니다. | Int32 값 |
-| usedParallelCopies | 복사 동안 유효한 parallelCopies입니다. | Int32 값|
+| usedParallelCopies | 복사 동안 유효한 parallelCopies입니다. | Int32 값 |
 | redirectRowPath | "RedirectIncompatibleRowSettings"에서 구성한 Blob Storage에서 생략된 비호환 행의 로그에 대한 경로입니다. 아래 예제를 참조하십시오. | 텍스트(문자열) |
-| executionDetails | 복사 작업이 거치는 단계 및 해당 하위 단계, 기간 및 사용되는 구성 등에 대한 세부 정보입니다. 변경 될 수 있으므로 이 섹션의 구문 분석은 권장되지 않습니다. | 배열 |
+| executionDetails | 복사 작업이 거치는 단계 및 해당 하위 단계, 기간 및 사용되는 구성 등에 대한 세부 정보입니다. 변경 될 수 있으므로 이 섹션의 구문 분석은 권장되지 않습니다.<br/><br/>ADF는의 각 단계 `detailedDurations`에 소요 된 자세한 기간 (초)도 보고 합니다.<br/>- **큐 기간** (`queuingDuration`): 통합 런타임에 복사 작업이 실제로 시작 될 때 까지의 시간입니다. 자체 호스팅 IR을 사용 하는 경우이 값이 크면 IR 용량과 사용량을 확인 하 고 워크 로드에 따라 확장/축소 하는 것이 좋습니다. <br/>- **사전 복사 스크립트 지속 시간** (`preCopyScriptDuration`): 싱크 데이터 저장소에서 사전 복사 스크립트를 실행 하는 데 소요 된 시간입니다. 사전 복사 스크립트를 구성할 때 적용 됩니다. <br/>- **시간 우선 바이트** (`timeToFirstByte`): Integration runtime이 원본 데이터 저장소에서 첫 번째 바이트를 수신 하는 시간입니다. 파일 기반이 아닌 소스에 적용 합니다. 이 값이 크면 쿼리 또는 서버를 확인 하 고 최적화 하는 것이 좋습니다.<br/>- **전송 기간** (`transferDuration`): 첫 번째 바이트를 가져온 후 통합 런타임이 원본에서 싱크로 모든 데이터를 전송 하는 시간입니다. | 배열 |
+| perfRecommendation 사항 | 성능 튜닝 팁을 복사 합니다. 자세한 내용은 [성능 및 튜닝](#performance-and-tuning) 섹션을 참조 하세요. | 배열 |
 
 ```json
 "output": {
-    "dataRead": 107280845500,
-    "dataWritten": 107280845500,
-    "filesRead": 10,
-    "filesWritten": 10,
-    "copyDuration": 224,
-    "throughput": 467707.344,
+    "dataRead": 6198358,
+    "dataWritten": 19169324,
+    "filesRead": 1,
+    "sourcePeakConnections": 1,
+    "sinkPeakConnections": 2,
+    "rowsRead": 39614,
+    "rowsCopied": 39614,
+    "copyDuration": 1325,
+    "throughput": 4.568,
     "errors": [],
-    "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (East US 2)",
-    "usedDataIntegrationUnits": 32,
-    "usedParallelCopies": 8,
+    "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (West US)",
+    "usedDataIntegrationUnits": 4,
+    "usedParallelCopies": 1,
     "executionDetails": [
         {
             "source": {
-                "type": "AmazonS3"
+                "type": "AzureBlobStorage"
             },
             "sink": {
-                "type": "AzureDataLakeStore"
+                "type": "AzureSqlDatabase"
             },
             "status": "Succeeded",
-            "start": "2018-01-17T15:13:00.3515165Z",
-            "duration": 221,
-            "usedDataIntegrationUnits": 32,
-            "usedParallelCopies": 8,
+            "start": "2019-08-06T01:01:36.7778286Z",
+            "duration": 1325,
+            "usedDataIntegrationUnits": 4,
+            "usedParallelCopies": 1,
             "detailedDurations": {
                 "queuingDuration": 2,
-                "transferDuration": 219
+                "preCopyScriptDuration": 12,
+                "transferDuration": 1311
             }
+        }
+    ],
+    "perfRecommendation": [
+        {
+            "Tip": "Sink Azure SQL Database: The DTU utilization was high during the copy activity run. To achieve better performance, you are suggested to scale the database to a higher tier than the current 1600 DTUs.",
+            "ReferUrl": "https://go.microsoft.com/fwlink/?linkid=2043368",
+            "RuleName": "AzureDBTierUpgradePerfRecommendRule"
         }
     ]
 }
@@ -233,7 +247,7 @@ Azure Data Factory "작성자/모니터" UI에서 또는 프로그래밍 방식�
 
 ## <a name="fault-tolerance"></a>내결함성
 
-기본적으로 복사 작업에서 원본과 싱크 간에 비호환 데이터를 발견하면 데이터 복사를 멈추고 실패를 반환합니다. 복사가 성공하도록 비호환 행은 건너 뛰고 로그로 기록하고, 호환되는 데이터만 복사하도록 명시적으로 구성할 수 있습니다. 자세한 내용은 [복사 활동 내결함성](copy-activity-fault-tolerance.md)을 참조하세요.
+기본적으로 복사 작업은 원본 및 싱크 간에 호환 되지 않는 데이터를 발견할 경우 데이터 복사를 중지 하 고 오류를 반환 합니다. 복사가 성공하도록 비호환 행은 건너 뛰고 로그로 기록하고, 호환되는 데이터만 복사하도록 명시적으로 구성할 수 있습니다. 자세한 내용은 [복사 활동 내결함성](copy-activity-fault-tolerance.md)을 참조하세요.
 
 ## <a name="performance-and-tuning"></a>성능 및 튜닝
 
@@ -243,12 +257,12 @@ ADF에서 복사 작업을 실행하면 다음 예제에 나와 있는 것처럼
 
 **예제: 성능 튜닝 팁을 참조하여 Azure SQL DB로 복사**
 
-이 샘플에서는 복사 실행 중에 싱크 Azure SQL DB의 DTU 사용률이 높아져 쓰기 작업의 속도가 느려짐을 ADF가 확인하여 Azure SQL DB 계층의 DTU를 늘리라는 제안을 제공합니다.
+이 샘플에서 복사를 실행 하는 동안 ADF는 싱크 Azure SQL DB가 쓰기 작업의 속도를 높이는 높은 DTU 사용률에 도달 하 여 더 많은 DTU를 사용 하 여 Azure SQL DB 계층을 늘리는 것을 제시 합니다.
 
 ![성능 튜닝 팁을 사용한 복사 모니터링](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
 
 ## <a name="incremental-copy"></a>증분 복사
-Data Factory에서는 원본 데이터 저장소에서 대상 데이터 저장소로 델타 데이터를 증분 방식으로 복사하기 위한 시나리오를 지원합니다. [자습서: 증분 방식으로 데이터 복사](tutorial-incremental-copy-overview.md)를 참조하세요.
+Data Factory은 원본 데이터 저장소에서 싱크 데이터 저장소로 델타 데이터를 증분 복사 하는 시나리오를 지원 합니다. [자습서: 증분 방식으로 데이터 복사](tutorial-incremental-copy-overview.md)를 참조하세요.
 
 ## <a name="read-and-write-partitioned-data"></a>분할된 데이터 읽기 및 쓰기
 버전 1에서 Azure Data Factory는 SliceStart/SliceEnd/WindowStart/WindowEnd 시스템 변수를 사용하여 분할된 데이터 읽기 또는 쓰기를 지원했습니다. 현재 버전에서는 파이프라인 매개 변수와 트리거의 시작 시간/예약된 시간을 매개 변수의 값으로 사용하여 이 동작을 수행할 수 있습니다. 자세한 내용은 [분할된 데이터를 읽거나 쓰는 방법](how-to-read-write-partitioned-data.md)을 참조하세요.

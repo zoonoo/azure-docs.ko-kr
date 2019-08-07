@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/17/2019
 ms.author: danlep
-ms.openlocfilehash: 285d5592ce667f7b4d84f26d67a00af0698c2967
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 88b6da4e9bd2938adadadc1ef0e696399fc3c75e
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68620962"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828011"
 ---
 # <a name="configure-rules-to-access-an-azure-container-registry-behind-a-firewall"></a>방화벽 뒤에 있는 Azure container registry에 액세스 하는 규칙 구성
 
@@ -123,9 +123,9 @@ Azure 가상 네트워크에서 네트워크 보안 규칙을 사용 하 여 가
 
 ## <a name="next-steps"></a>다음 단계
 
-* [네트워크 보안에 대 한 Azure 모범 사례](../security/azure-security-network-security-best-practices.md) 알아보기
+* [네트워크 보안에 대 한 Azure 모범 사례](../security/fundamentals/network-best-practices.md) 알아보기
 
-* Azure virtual network의 [보안 그룹](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview.md) 에 대 한 자세한 정보
+* Azure virtual network의 [보안 그룹](/azure/virtual-network/security-overview) 에 대 한 자세한 정보
 
 
 

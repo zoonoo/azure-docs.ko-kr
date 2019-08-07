@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/29/2019
+ms.date: 08/05/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 60474148d1eac6ca9d85fbc1d103ad612787aeae
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 4af30a24c5913abec1c2c2287e1b0f145470f42c
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68607873"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828367"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Azure를 사용 하 여 SAP 워크 로드 시나리오 호스트 및 실행
 
@@ -34,20 +34,8 @@ Azure for SAP HANA의 고유성은 Azure를 따로 설정 하는 제품입니다
 
 Azure에서 SAP 워크 로드 시나리오를 호스트 하는 것도 id 통합 및 single sign-on의 요구 사항을 만들 수 있습니다. 이 상황은 Azure Active Directory (Azure AD)를 사용 하 여 다양 한 SAP 구성 요소와 SAP SaaS (software as a service) 또는 PaaS (platform as a service) 제품을 연결 하는 경우에 발생할 수 있습니다. Azure AD 및 SAP 엔터티를 사용 하는 이러한 통합 및 single sign-on 시나리오 목록은 "AAD SAP identity integration and single sign-on" 섹션에서 설명 하 고 설명 합니다.
 
-## <a name="change-log"></a>변경 로그
-
-- [Azure의 파일 공유를 사용 하 여 Windows 장애 조치 (failover) 클러스터의 SAP ASCS/SCS 인스턴스가 클러스터](sap-high-availability-guide-wsfc-file-share.md) 에서 변경 되어 Azure Site Recovery 서비스에서 제공 하는 저장소 공간 다이렉트에 대 한 지원이 반영 됩니다.
-- [SAP 응용 프로그램을 사용 하 여 네트워크 대기 시간을 최적화 하기 위해 Azure 근접 배치 그룹](sap-proximity-placement-scenarios.md) 릴리스
-- [Red Hat Enterprise Server에서 IBM DB2 HADR](high-availability-guide-rhel-ibm-db2-luw.md) 에 대 한 새로운 가이드 릴리스
-- Sap [응용 프로그램용 Azure NetApp Files를 사용 하 Red Hat Enterprise Linux의 Sap NetWeaver에 대 한 고가용성](high-availability-guide-rhel-netapp-files.md) 릴리스
-- [SAP HANA (대량 인스턴스) 네트워크 아키텍처](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture) 및 관련 문서에서 HANA Large instances에 대 한 Express 경로 빠른 경로 및 Global Reach 소개
-- [Azure Portal를 통한 AZURE HANA Large Instances 제어](hana-li-portal.md) 릴리스
-- [Sap 응용 프로그램용 Azure NetApp Files를 사용 하 SUSE Linux Enterprise Server에서 Azure vm의 Sap NetWeaver에 대 한 고가용성](high-availability-guide-suse-netapp-files.md) 릴리스
-- [Azure NetAppFiles (ANF) BETA의 SAP HANA에 대 한 SAP NetWeaver ASCS 설치](lama-installation.md) 릴리스
-
-
-
-
+## <a name="changes-to-the-sap-workload-section"></a>SAP 워크 로드 섹션의 변경 내용
+Azure의 SAP 워크 로드 섹션에서 문서에 대 한 변경 내용은이 문서의 끝에 나열 되어 있습니다.
 
 
 ## <a name="sap-hana-on-azure-large-instances"></a>Azure(큰 인스턴스)에서 SAP HANA 사용
@@ -132,5 +120,13 @@ SAP 구성 요소에 Azure 서비스를 통합 하는 방법에 대 한 자세�
 - [Azure Data Factory는 SAP HANA 및 Business Warehouse 데이터 통합을 제공합니다.](https://azure.microsoft.com/blog/azure-data-factory-offer-sap-hana-and-business-warehouse-data-integration)
 
 
+## <a name="change-log"></a>변경 로그
+
+- 08/01/2019: SLES 15 용 변경 사항을 통합 하기 위해 [Azure의 SUSE Linux Enterprise Server Pacemaker 설정](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) 변경 사항 
+- 07/23/2019: [Azure의 파일 공유를 사용 하 여 Windows 장애 조치 (failover) 클러스터의 SAP ASCS/SCS 인스턴스가 클러스터](sap-high-availability-guide-wsfc-file-share.md) 에서 변경 되어 Azure Site Recovery 서비스에서 제공 하는 저장소 공간 다이렉트에 대 한 지원이 반영 됩니다.
+- 07/14/2019: [SAP 응용 프로그램을 사용 하 여 네트워크 대기 시간을 최적화 하기 위해 Azure 근접 배치 그룹](sap-proximity-placement-scenarios.md) 릴리스
+- 07/11/2019: Hana large Instances를 다루는 다양 한 문서의 변경 내용으로 HANA Large Instances의 수정 버전 4 포함
+- 07/09/2019: [Red Hat Enterprise Server에서 IBM DB2 HADR](high-availability-guide-rhel-ibm-db2-luw.md) 에 대 한 새로운 가이드 릴리스
+- 06/13/2019: Sap [응용 프로그램용 Azure NetApp Files를 사용 하 Red Hat Enterprise Linux의 Sap NetWeaver에 대 한 고가용성](high-availability-guide-rhel-netapp-files.md) 릴리스
 
 

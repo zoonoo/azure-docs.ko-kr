@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 7/30/2019
-ms.openlocfilehash: 780b9ae6e4664af86fa655c9136193bed58526d9
-ms.sourcegitcommit: 6ad03fa28a0f60cb6dce6144f728c2ceb56ff6e2
+ms.openlocfilehash: a61ddf57d4f01fcaf4a949add29c677aa94060a9
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68708499"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827852"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-your-data-lake-or-data-warehouse-to-azure"></a>Azure Data Factory를 사용 하 여 data lake 또는 데이터 웨어하우스의 데이터를 Azure로 마이그레이션 
 
@@ -26,7 +26,7 @@ Data lake 또는 EDW (엔터프라이즈 데이터 웨어하우스)를 Azure로 
 - AWS S3, 온-프레미스 Hadoop 파일 시스템에서 Azure로의 빅 데이터 워크 로드 마이그레이션 
 - Oracle Exadata, Netezza, Teradata, AWS Redshift에서 Azure로의 EDW 마이그레이션. 
 
-Azure Data Factory data lake migration의 경우 PBs의 데이터 수준을 이동 하 고 데이터 웨어하우스 마이그레이션에는 수십, TB의 데이터를 이동할 수 있습니다. 
+Data lake migration의 경우 데이터의 PBs를 이동 하 고 데이터 웨어하우스 마이그레이션에는 수십, TB의 데이터를 이동할 수 Azure Data Factory. 
 
 ## <a name="why-azure-data-factory-can-be-used-for-data-migration"></a>데이터 마이그레이션에 Azure Data Factory를 사용할 수 있는 이유 
 
@@ -59,4 +59,4 @@ Azure Data Factory는 네트워크 (인터넷, ER 또는 VPN)를 통해 데이�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Data Factory를 사용 하 여 여러 컨테이너의 파일 복사](solution-template-copy-files-multiple-containers.md)
+- [AWS S3에서 Azure로 데이터 마이그레이션](data-migration-guidance-s3-azure-storage.md)

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: iainfou
-ms.openlocfilehash: 2df1ac6325f692e2d433238ae0b92d8e3f8482b5
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: acb001417b85b8ff45b2617e148e8b1961f3cbfa
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67472294"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68772983"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Azure AD Domain Services - 문제 해결 가이드
 이 문서는 Azure AD(Active Directory) 도메인 서비스를 설치하거나 관리할 때 발생할 수 있는 문제에 대한 문제 해결 힌트를 제공합니다.
@@ -147,6 +147,9 @@ Azure AD 테넌트에서 하나 이상의 사용자가 새로 만든 관리되�
     1. net stop 'Microsoft Azure AD Sync'
     2. net start 'Microsoft Azure AD Sync'
 * **클라우드 전용 계정**: 영향을 받는 사용자 계정이 클라우드 전용 사용자 계정인 경우 Azure AD Domain Services를 사용하도록 설정한 후에 사용자가 암호를 변경했는지 확인합니다. 이 단계를 수행하면 Azure AD 도메인 서비스가 생성되는 데 필요한 자격 증명 해시가 발생합니다.
+* **사용자 계정이 활성 상태 인지 확인 합니다**. 사용자 계정이 잠긴 경우 계정이 다시 활성화 될 때까지 로그인 할 수 없습니다. 관리되는 도메인에서 2분 안에 5차례 암호를 잘못 입력하면 사용자 계정이 30분 동안 잠깁니다. 30분 후 사용자 계정이 자동으로 잠금 해제됩니다.
+  * 관리 되는 도메인에 대 한 잘못 된 암호 시도는 Azure AD에서 사용자 계정을 잠그지 않습니다. 사용자 계정은 Azure AD Domain Services 관리되는 도메인 안에서만 잠깁니다. Azure AD가 아닌 Azure AD DS 관리 되는 도메인에 대해 ADAC (Active Directory 관리 콘솔)를 사용 하 여 사용자 계정 상태를 확인 합니다.
+  * [기본 잠금 임계값 및 기간을 변경 하는 세분화 된 암호 정책을 구성할](https://docs.microsoft.com/azure/active-directory-domain-services/password-policy)수도 있습니다.
 
 ## <a name="there-are-one-or-more-alerts-on-your-managed-domain"></a>관리되는 도메인에서 하나 이상의 경고 발생
 
@@ -160,5 +163,5 @@ Azure AD 디렉터리에서 동일한 UPN을 사용하여 사용자 계정을 �
 관리되는 도메인에서 사용자 계정을 완전히 제거하려면 Azure AD 테넌트에서 사용자를 영구적으로 삭제합니다. 이 [MSDN 문서](/previous-versions/azure/dn194132(v=azure.100))에 설명된 대로 `Remove-MsolUser` PowerShell cmdlet을 `-RemoveFromRecycleBin` 옵션과 함께 사용합니다.
 
 
-## <a name="contact-us"></a>문의처
+## <a name="contact-us"></a>문의
 [지원이 필요하거나 피드백을 공유하려면](contact-us.md)Azure Active Directory Domain Services 제품 팀에 문의하세요.

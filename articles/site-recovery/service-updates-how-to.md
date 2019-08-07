@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: rajanaki
-ms.openlocfilehash: 305ff610c0f8962f2b50789d8af0a5f6e2fbf046
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: e06cd77a1d46208fe0f7aa166be3ccd3b9b7dbb4
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717368"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828604"
 ---
 # <a name="service-updates-in-site-recovery"></a>Site Recovery의 서비스 업데이트
 
@@ -72,7 +72,7 @@ Site Recovery는 전자 메일 (전자 메일 알림을 구독 하는 경우) �
 
 1. 운영 체제/커널 버전을 업그레이드 하기 전에 Site Recovery 대상 버전이 지원 되는지 확인 합니다. 
 
-    - [AZURE VM](/azure-to-azure-support-matrix.md#replicated-machine-operating-systems) 지원.
+    - [AZURE VM](azure-to-azure-support-matrix.md#replicated-machine-operating-systems) 지원.
     - [VMware/물리적 서버](vmware-physical-azure-support-matrix.md#replicated-machines) 지원
     - [Hyper-v](hyper-v-azure-support-matrix.md#replicated-vms) 지원.
 2. 업그레이드 하려는 항목을 확인 하려면 [사용 가능한 업데이트](site-recovery-whats-new.md) 를 검토 하세요.

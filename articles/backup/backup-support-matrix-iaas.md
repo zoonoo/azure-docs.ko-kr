@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: dacurwin
-ms.openlocfilehash: 2556887008ecbe081168d3fc81fa07b45cda4bcb
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 369be73e2884594171419a66b94db64184582e58
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639608"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68813816"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM Backup의 지원 매트릭스
 [Azure Backup 서비스](backup-overview.md) 를 사용 하 여 온-프레미스 컴퓨터 및 워크 로드와 Azure vm (가상 머신)을 백업할 수 있습니다. 이 문서에서는 Azure Backup를 사용 하 여 Azure Vm을 백업할 때 지원 설정 및 제한 사항을 요약 합니다.
@@ -130,7 +130,6 @@ LVM/RAID 배열을 사용하여 Linux VM에서 파일 복원 | 동일한 VM에�
 기존 VM에 복원 | 디스크 바꾸기 옵션을 사용합니다.
 Azure SSE(스토리지 서비스 암호화)가 설정된 스토리지 계정을 사용하여 디스크 복원 | 지원되지 않습니다.<br/><br/> SSE를 사용하도록 설정하지 않은 계정으로 복원합니다.
 혼합된 스토리지 계정으로 복원 | 지원되지 않습니다.<br/><br/> 스토리지 계정 유형에 따라, 복원된 모든 디스크가 프리미엄 또는 표준 중 하나가 되며 혼합되지 않습니다.
-ZRS (영역 중복 저장소)를 사용 하 여 저장소 계정으로 복원 | 지원 됨 (1 월 2019 일 이후에 백업 되는 VM의 경우 [가용성 영역](https://azure.microsoft.com/global-infrastructure/availability-zones/) 을 사용할 수 있는 경우)
 가용성 집합에 VM 직접 복원 | 관리 디스크의 경우 디스크를 복원 하 고 템플릿에서 가용성 집합 옵션을 사용할 수 있습니다.<br/><br/> 비관리형 디스크에서는 지원되지 않습니다. 비관리형 디스크의 경우, 디스크를 복원하고 가용성 집합에 VM을 만듭니다.
 관리 되는 VM으로 업그레이드 한 후 관리 되지 않는 Vm의 백업 복원| 지원됩니다.<br/><br/> 디스크를 복원하고 관리형 VM을 만들 수 있습니다.
 VM이 Managed Disks로 마이그레이션되기 전에 VM을 복원 지점으로 복원 | 지원됩니다.<br/><br/> 비관리형 디스크(기본값)로 복원하고, 복원된 디스크를 Managed Disks로 변환한 후 Managed Disks를 사용하여 VM을 만듭니다.
@@ -151,6 +150,7 @@ VM 크기 |   CPU 코어가 2개 이상이고 1GB 이상의 RAM이 탑재된 모
 Azure로 마이그레이션된 Vm 백업  | 지원됩니다.<br/><br/> VM을 백업하려면 VM 에이전트를 마이그레이션된 컴퓨터에 설치해야 합니다.
 다중 VM 일관성 백업 | Azure Backup는 여러 Vm에서 데이터 및 응용 프로그램 일관성을 제공 하지 않습니다.
 [진단 설정을](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview) 사용 하 여 백업  | 지원 안 됨 <br/><br/> [새로 만들기](backup-azure-arm-restore-vms.md#create-a-vm) 옵션을 사용 하 여 진단 설정을 사용 하는 Azure VM의 복원이 트리거되면 복원에 실패 합니다.
+영역 고정 Vm 복원 | 지원 됨 (1 월 2019 일 이후에 백업 되는 VM의 경우 [가용성 영역](https://azure.microsoft.com/global-infrastructure/availability-zones/) 을 사용할 수 있는 경우).<br/><br/>현재 Vm에 고정 되어 있는 동일한 영역으로 복원을 지원 합니다. 그러나 영역을 사용할 수 없는 경우 복원이 실패 합니다.
 
 
 ## <a name="vm-storage-support"></a>VM 스토리지 지원
@@ -158,8 +158,8 @@ Azure로 마이그레이션된 Vm 백업  | 지원됩니다.<br/><br/> VM을 백
 **구성 요소** | **지원**
 --- | ---
 Azure VM 데이터 디스크 수 | 16개 이하의 데이터 디스크가 있는 VM을 백업합니다. <br/><br/> 최대 4TB까지 디스크 크기를 지원합니다.
-데이터 디스크 크기 | 개별 디스크의 크기는 최대 4,095GB입니다.<br/><br/> 자격 증명 모음이 최신 버전의 Azure Backup (인스턴트 복원 이라고 함)를 실행 하는 경우 최대 2TB의 디스크 크기를 지원 합니다. [자세히 알아보기](backup-instant-restore-capability.md).  
-스토리지 형식 | 표준 HDD, 표준 SSD, 프리미엄 SSD. <br/><br/> 자격 증명 모음이 최신 버전의 Azure VM 백업 (인스턴트 복원 이라고 함)로 업그레이드 된 경우에는 표준 SSD 지원 됩니다. [자세히 알아보기](backup-instant-restore-capability.md).
+데이터 디스크 크기 | 개별 디스크의 크기는 최대 4,095GB입니다.<br/><br/>4TB 30TB 보다 큰 디스크에 대 한 Azure Backup 큰 디스크 지원의 비공개 미리 보기에 등록 하려면 microsoft AskAzureBackupTeam@microsoft.com에 다시 씁니다.  
+스토리지 형식 | 표준 HDD, 표준 SSD, 프리미엄 SSD.
 관리 디스크 | 지원됩니다.
 암호화된 디스크 | 지원됩니다.<br/><br/> Azure Disk Encryption에서 사용 하도록 설정 된 azure Vm은 Azure AD 앱을 사용 하거나 사용 하지 않고 백업할 수 있습니다.<br/><br/> 암호화된 VM은 파일/폴더 수준에서 복구할 수 없습니다. 전체 VM을 복구 해야 합니다.<br/><br/> Azure Backup에서 이미 보호되는 VM에 암호화를 사용하도록 설정할 수 있습니다.
 Write Accelerator가 설정된 디스크 | 지원되지 않습니다.<br/><br/> Azure backup은 백업 하는 동안 쓰기 가속기 사용 하도록 설정 된 디스크를 자동으로 제외 합니다. 이러한 디스크는 백업 되지 않으므로 VM의 복구 점에서 복원할 수 없습니다.
@@ -167,7 +167,6 @@ Write Accelerator가 설정된 디스크 | 지원되지 않습니다.<br/><br/> 
 보호된 VM에 디스크 추가 | 지원됩니다.
 보호된 VM에서 디스크 크기 조정 | 지원됩니다.
 공유 저장소| CSV (클러스터 공유 볼륨) 또는 스케일 아웃 파일 서버를 사용 하 여 Vm을 백업 하는 것은 권장 되지 않습니다. CSV 기록기는 백업 중에 실패할 수 있습니다. 복원 시 CSV 볼륨을 포함 하는 디스크가 제공 되지 않을 수 있습니다.
-
 
 
 ## <a name="vm-network-support"></a>VM 네트워크 지원

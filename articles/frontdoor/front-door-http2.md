@@ -11,14 +11,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 33e738f31be493d5890fc972ec71e7c6cd733bf4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c3c1721454c0b3c96071c685a764f34d4fa540b9
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60736454"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775264"
 ---
 # <a name="http2-support-in-azure-front-door-service"></a>Azure Front Door Service의 HTTP/2 지원
+
+현재, HTTP/2 지원은 모든 Front Door 구성에 대해 활성화되어 있습니다. 고객의 추가적인 조치가 필요하지 않습니다.
+
 HTTP/2는 HTTP/1.1에 대한 주요 수정 버전입니다. 친숙한 HTTP 메서드, 상태 코드 및 의미 체계를 유지하면서 더 빨라진 웹 성능, 응답 시간 단축 및 향상된 사용자 경험을 제공합니다. HTTP/2는 HTTP 및 HTTPS와 함께 작동하도록 설계되었지만 많은 클라이언트 웹 브라우저는 TLS(전송 계층 보안)를 통한 HTTP/2만 지원합니다.
 
 ### <a name="http2-benefits"></a>HTTP/2 이점
@@ -50,15 +53,11 @@ HTTP/2의 이점은 다음과 같습니다.
 |Opera| 32|
 |Safari| 9|
 
-## <a name="enabling-http2-support-in-azure-front-door-service"></a>Azure Front Door Service의 HTTP/2 지원 사용
-
-현재, HTTP/2 지원은 모든 Front Door 구성에 대해 활성화되어 있습니다. 고객의 추가적인 조치가 필요하지 않습니다.
-
 ## <a name="next-steps"></a>다음 단계
 
 HTTP/2에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
 - [HTTP/2 사양 홈 페이지](https://http2.github.io/)
 - [공식 HTTP/2 FAQ](https://http2.github.io/faq/)
-- [Front Door를 만드는 방법](quickstart-create-front-door.md)을 알아봅니다.
+- [Front Door를 만드는](quickstart-create-front-door.md) 방법을 알아봅니다.
 - [Front Door의 작동 원리](front-door-routing-architecture.md)를 알아봅니다.

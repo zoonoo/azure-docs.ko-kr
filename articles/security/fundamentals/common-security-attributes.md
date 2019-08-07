@@ -10,12 +10,12 @@ ms.subservice: security-fundamentals
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: be39a623dc5dac09dcfe47de67e025191b5c7de3
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 43eb7e5c4cab722eb97f9e2fe819c9c79bae45d9
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727492"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828774"
 ---
 # <a name="security-attributes-for-azure-services"></a>Azure 서비스에 대 한 보안 특성
 
@@ -41,7 +41,7 @@ ms.locfileid: "68727492"
 | 미사용 암호화 (서버 쪽 암호화, 고객이 관리 하는 키를 사용 하는 서버 쪽 암호화 및 기타 암호화 기능) | 인증서, 키 및 비밀 이름이 지정 된 값과 같은 중요 한 데이터는 서비스 인스턴스 키 당 서비스 관리로 암호화 됩니다. |
 | 전송 중 암호화 (예: Express 경로 암호화, VNet 암호화 및 VNet-VNet 암호화) | 예 | [Express 경로](/azure/expressroute/index) 및 VNet 암호화는 [Azure 네트워킹](/azure/virtual-network/index)에서 제공 됩니다. |
 | 암호화 키 처리 (CMK, BYOK 등)| 아니요 | 모든 암호화 키는 서비스 인스턴스당 서비스 관리 됩니다. |
-| 열 수준 암호화 (Azure Data Services)| 해당 사항 없음 | |
+| 열 수준 암호화 (Azure Data Services)| N/A | |
 | API 호출 암호화| 예 | 관리 평면 호출은 TLS를 통해 [Azure Resource Manager](/azure/azure-resource-manager/index) 를 통해 수행 됩니다. 유효한 JSON 웹 토큰(JWT)이 필요합니다.  데이터 평면 호출은 TLS를 사용 하 고 지원 되는 인증 메커니즘 (예: 클라이언트 인증서 또는 JWT) 중 하나를 사용 하 여 보안을 설정할 수 있습니다.
  |
 
@@ -85,7 +85,7 @@ ms.locfileid: "68727492"
 
 이 섹션에서는 Azure API Management에 영향을 주지 않는 일반적인 취약성에 대해 설명 합니다.
 
-| 취약점               | 설명                                                                                                                                                                                                                                                                                                               |
+| 취약점               | Description                                                                                                                                                                                                                                                                                                               |
 |-----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Ticketbleed (CVE-2016-9244) | Ticketbleed는 일부 F5 제품에서 발견 된 TLS SessionTicket 확장의 구현에 대 한 취약성입니다. 초기화 되지 않은 메모리에서 최대 31 바이트의 데이터를 누출 ("bleeding") 할 수 있습니다. 이는 TLS 스택이 클라이언트에서 전달 된 세션 ID를 32 비트 길이의 데이터로 전달 하기 때문에 발생 합니다. |
 
@@ -148,7 +148,7 @@ ms.locfileid: "68727492"
 |---|---|--|
 | 미사용 암호화 (서버 쪽 암호화, 고객이 관리 하는 키를 사용 하는 서버 쪽 암호화 및 기타 암호화 기능) | 예 |  |
 | 전송 중 암호화 (예: Express 경로 암호화, VNet 암호화 및 VNet-VNet 암호화) | 예 | HTTPS/TLS. |
-| 암호화 키 처리 (CMK, BYOK 등)| N/A | Azure Resource Manager는 고객 콘텐츠를 저장 하지 않고 데이터를 제어 합니다. |
+| 암호화 키 처리 (CMK, BYOK 등)| 해당 사항 없음 | Azure Resource Manager는 고객 콘텐츠를 저장 하지 않고 데이터를 제어 합니다. |
 | 열 수준 암호화 (Azure Data Services)| 예 | |
 | API 호출 암호화| 예 | |
 
@@ -300,7 +300,7 @@ ms.locfileid: "68727492"
 | 미사용 암호화 (서버 쪽 암호화, 고객이 관리 하는 키를 사용 하는 서버 쪽 암호화 및 기타 암호화 기능) |  예 | |
 | 전송 중 암호화 (예: Express 경로 암호화, VNet 암호화 및 VNet-VNet 암호화) | 예 | |
 | 암호화 키 처리 (CMK, BYOK 등)| 아니요 |  |
-| 열 수준 암호화 (Azure Data Services)| 해당 사항 없음 | |
+| 열 수준 암호화 (Azure Data Services)| N/A | |
 | API 호출 암호화| 예 |  |
 
 ### <a name="network-segmentation"></a>네트워크 구분
@@ -349,7 +349,7 @@ ms.locfileid: "68727492"
 | 미사용 암호화 (서버 쪽 암호화, 고객이 관리 하는 키를 사용 하는 서버 쪽 암호화 및 기타 암호화 기능) |  해당 사항 없음 | Express 경로는 고객 데이터를 저장 하지 않습니다. |
 | 전송 중 암호화 (예: Express 경로 암호화, VNet 암호화 및 VNet-VNet 암호화) | 아니요 | |
 | 암호화 키 처리 (CMK, BYOK 등)| 해당 사항 없음 |  |
-| 열 수준 암호화 (Azure Data Services)| N/A | |
+| 열 수준 암호화 (Azure Data Services)| 해당 사항 없음 | |
 | API 호출 암호화| 예 | [Azure Resource Manager](/azure/azure-resource-manager/index) 및 HTTPS를 통해 |
 
 ### <a name="network-segmentation"></a>네트워크 구분
@@ -359,7 +359,7 @@ ms.locfileid: "68727492"
 | 서비스 엔드포인트 지원| 해당 사항 없음 |  |
 | VNet 삽입 지원| 해당 사항 없음 | |
 | 네트워크 격리 및 방화벽 지원| 예 | 각 고객은 자체 라우팅 도메인에 포함 되 고 자체 VNet으로 터널링 됩니다. |
-| 강제 터널링 지원| N/A | Via Border Gateway Protocol (BGP). |
+| 강제 터널링 지원| 해당 사항 없음 | Via Border Gateway Protocol (BGP). |
 
 ### <a name="detection"></a>감지
 
@@ -398,7 +398,7 @@ ms.locfileid: "68727492"
 | 미사용 암호화 (서버 쪽 암호화, 고객이 관리 하는 키를 사용 하는 서버 쪽 암호화 및 기타 암호화 기능) | 예 | 모든 개체가 암호화됩니다. |
 | 전송 중 암호화 (예: Express 경로 암호화, VNet 암호화 및 VNet-VNet 암호화) | 예 | 모든 통신은 암호화된 API 호출을 통해 수행됩니다. |
 | 암호화 키 처리 (CMK, BYOK 등)| 예 | 고객은 해당 Key Vault의 모든 키를 제어 합니다. HSM (하드웨어 보안 모듈) 지원 키가 지정 된 경우 FIPS 수준 2 HSM은 키, 인증서 또는 암호를 보호 합니다. |
-| 열 수준 암호화 (Azure Data Services)| 해당 사항 없음 |  |
+| 열 수준 암호화 (Azure Data Services)| N/A |  |
 | API 호출 암호화| 예 | HTTPS를 사용합니다. |
 
 ### <a name="network-segmentation"></a>네트워크 구분
@@ -453,10 +453,10 @@ ms.locfileid: "68727492"
 
 | 보안 특성 | 예/아니요 | 참고 |
 |---|---|--|
-| 서비스 엔드포인트 지원| N/A | |
+| 서비스 엔드포인트 지원| 해당 사항 없음 | |
 | VNet 삽입 지원| 해당 사항 없음 | 을 선택합니다. |
-| 네트워크 격리 및 방화벽 지원| 해당 사항 없음 |  |
-| 강제 터널링 지원| N/A | |
+| 네트워크 격리 및 방화벽 지원| N/A |  |
+| 강제 터널링 지원| 해당 사항 없음 | |
 
 ### <a name="detection"></a>감지
 
@@ -468,7 +468,7 @@ ms.locfileid: "68727492"
 
 | 보안 특성 | 예/아니요 | 참고|
 |---|---|--|
-| 인증| N/A |  |
+| 인증| 해당 사항 없음 |  |
 | Authorization| N/A |  |
 
 ### <a name="audit-trail"></a>감사 내역
@@ -539,7 +539,7 @@ ms.locfileid: "68727492"
 
 | 보안 특성 | 예/아니요 | 참고 |
 |---|---|--|
-| 미사용 암호화 (서버 쪽 암호화, 고객이 관리 하는 키를 사용 하는 서버 쪽 암호화 및 기타 암호화 기능) |  N/A | 릴레이는 웹 소켓 이며 데이터를 유지 하지 않습니다. |
+| 미사용 암호화 (서버 쪽 암호화, 고객이 관리 하는 키를 사용 하는 서버 쪽 암호화 및 기타 암호화 기능) |  해당 사항 없음 | 릴레이는 웹 소켓 이며 데이터를 유지 하지 않습니다. |
 | 전송 중 암호화 (예: Express 경로 암호화, VNet 암호화 및 VNet-VNet 암호화) | 예 | 서비스에는 TLS가 필요 합니다. |
 | 암호화 키 처리 (CMK, BYOK 등)| 아니요 | Microsoft TLS 인증서만 사용 합니다.  |
 | 열 수준 암호화 (Azure Data Services)| 해당 사항 없음 | |
@@ -551,7 +551,7 @@ ms.locfileid: "68727492"
 |---|---|--|
 | 서비스 엔드포인트 지원| 아니요 |  |
 | 네트워크 격리 및 방화벽 지원| 아니요 |  |
-| 강제 터널링 지원| N/A | 릴레이가 TLS 터널  |
+| 강제 터널링 지원| 해당 사항 없음 | 릴레이가 TLS 터널  |
 
 ### <a name="detection"></a>감지
 
@@ -646,7 +646,7 @@ SQL Database에는 [단일 데이터베이스](/azure/sql-database/sql-database-
 | 서비스 엔드포인트 지원| 예 | [단일 데이터베이스](/azure/sql-database/sql-database-single-index) 에만 적용 됩니다. |
 | Azure Virtual Network 주입 지원| 예 | [관리 되는 인스턴스에만](/azure/sql-database/sql-database-managed-instance) 적용 됩니다. |
 | 네트워크 격리 및 방화벽 지원| 예 | 데이터베이스 수준 및 서버 수준 모두에서의 방화벽. 네트워크 격리는 관리 되는 [인스턴스에만](/azure/sql-database/sql-database-managed-instance) 해당 됩니다. |
-| 강제 터널링 지원| 예 | [Express](/azure/expressroute/index.yml) 경로 VPN을 통해 [관리 되는 인스턴스입니다](/azure/sql-database/sql-database-managed-instance) . |
+| 강제 터널링 지원| 예 | [Express](/azure/expressroute/index) 경로 VPN을 통해 [관리 되는 인스턴스입니다](/azure/sql-database/sql-database-managed-instance) . |
 
 ### <a name="detection"></a>감지
 
@@ -702,7 +702,7 @@ SQL Database에는 [단일 데이터베이스](/azure/sql-database/sql-database-
 | 서비스 엔드포인트 지원| 예 |  |
 | VNet 삽입 지원| 해당 사항 없음 |  |
 | 네트워크 격리 및 방화벽 지원| 예 | |
-| 강제 터널링 지원| 해당 사항 없음 |  |
+| 강제 터널링 지원| N/A |  |
 
 ### <a name="detection"></a>감지
 
@@ -791,7 +791,7 @@ SQL Database에는 [단일 데이터베이스](/azure/sql-database/sql-database-
 | 미사용 암호화 (서버 쪽 암호화, 고객이 관리 하는 키를 사용 하는 서버 쪽 암호화 및 기타 암호화 기능) | 해당 사항 없음 | VPN gateway에서 고객 데이터를 전송 하 고 고객 데이터를 저장 하지 않음 |
 | 전송 중 암호화 (예: Express 경로 암호화, VNet 암호화 및 VNet-VNet 암호화)| 예 | VPN gateway는 Azure VPN 게이트웨이와 고객 온-프레미스 VPN 장치 (S2S) 또는 VPN 클라이언트 (P2S) 간에 고객 패킷을 암호화 합니다. VPN 게이트웨이는 VNet 간 암호화도 지원 합니다. |
 | 암호화 키 처리 (CMK, BYOK 등)| 아니요 | 사용자가 지정한 미리 공유한 키는 미사용 시 암호화 됩니다. 하지만 CMK와는 아직 통합 되지 않았습니다. |
-| 열 수준 암호화 (Azure Data Services)| N/A | |
+| 열 수준 암호화 (Azure Data Services)| 해당 사항 없음 | |
 | API 호출 암호화| 예 | [Azure Resource Manager](/azure/azure-resource-manager/index) 및 HTTPS를 통해  |
 
 ### <a name="network-segmentation"></a>네트워크 구분
