@@ -10,7 +10,7 @@ ms.assetid: 0c84e7d0-16aa-4897-82f2-f53c6c990fd9
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: overview
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/05/2019
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b35d2e21de3da184496da53fdf46d865fdfdf5c7
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
-ms.translationtype: HT
+ms.openlocfilehash: 7883c32e60a09c6fdfc4146c30472cfcdb57b689
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66734476"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835174"
 ---
 # <a name="what-is-authentication"></a>인증이란?
 
@@ -119,7 +119,7 @@ Microsoft ID 플랫폼에서 발급하는 보안 토큰(액세스 및 ID 토큰)
 | 발급 시간 | 토큰이 발급된 시간을 기록합니다. 종종 토큰 새로 고침에 사용됩니다. |
 | 발급자 | 토큰을 내보낸 STS 및 Azure AD 테넌트를 식별합니다. |
 | 성 | Azure AD에서 설정된 사용자 성을 제공합니다. |
-| 이름 | 토큰의 주체를 식별하는, 사람이 인식할 수 있는 값을 제공합니다. |
+| Name | 토큰의 주체를 식별하는, 사람이 인식할 수 있는 값을 제공합니다. |
 | 개체 ID | Azure AD의 주체에 대한 변경 불가능한 고유 식별자를 포함합니다. |
 | 역할 | 사용자에게 부여된 Azure AD 애플리케이션 역할의 이름을 포함합니다. |
 | 범위 | 클라이언트 애플리케이션에 부여된 권한을 나타냅니다. |
