@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
-ms.date: 07/19/2019
-ms.openlocfilehash: adbc2c8818a3d7eff679dadc2245fb0ff8686fc2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 08/02/2019
+ms.openlocfilehash: 0139b3471eb9117830180088498eb14efd6ab661
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566929"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68781310"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Azure SQL Database 예약 용량을 사용하여 SQL Database 컴퓨팅 리소스 요금 선결제
 
@@ -63,13 +63,9 @@ ms.locfileid: "68566929"
 1. **구매**를 선택합니다.
 1. 구매 상태를 보려면 **이 예약 보기**를 선택합니다.
 
-## <a name="cancellations-and-exchanges"></a>취소 및 교환
+## <a name="cancel-exchange-or-refund-reservations"></a>취소, 교환 또는 환불 예약
 
-SQL Database 예약된 용량 예약을 취소해야 하는 경우 12%의 조기 종료 수수료가 있을 수 있습니다. 환불은 구매 가격 또는 예약의 현재 가격 중 최저 가격을 기준으로 합니다. 환불은 연간 $50,000로 제한됩니다. 받는 환불은 12%의 조기 종료 수수료를 뺀 나머지 비례 배분한 잔액입니다. 취소 하려면 Azure Portal 예약으로 이동 하 여 **환불**을 선택 합니다.
-
-SQL Database 예약된 용량 예약을 다른 지역, 배포 유형, 성능 계층 또는 기간으로 변경해야 하는 경우 같거나 더 큰 값인 다른 예약에 대해 교환할 수 있습니다. 새 예약에 대한 기간 시작일은 교환된 예약에서 수행되지 않습니다. 1 또는 3년 기간은 새 예약을 만들 때 시작합니다. 교환 하려면 Azure Portal의 예약으로 이동한 다음 **exchange**를 선택 합니다.
-
-예약을 교환 하거나 환불 하는 방법에 대 한 자세한 내용은 [예약 교환 및 환불](../billing/billing-azure-reservations-self-service-exchange-and-refund.md)을 참조 하세요.
+특정 제한 사항을 사용 하 여 예약을 취소, 교환 또는 환불 할 수 있습니다. 자세한 내용은 [셀프 서비스 교환 및 Azure Reservations에 대 한 환불](../billing/billing-azure-reservations-self-service-exchange-and-refund.md)를 참조 하세요.
 
 ## <a name="vcore-size-flexibility"></a>vCore 크기 유연성
 

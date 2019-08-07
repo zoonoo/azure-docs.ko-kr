@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 05/30/2019
+ms.date: 08/05/2019
 ms.author: raynew
-ms.openlocfilehash: 11d409f904c43c0df4bbbd44fdb24531f2f989f6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1932221e18241d8a2d921f61375019f969e61912
+ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399590"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68782672"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Azure에 Azure Stack VM 복제
 
@@ -43,7 +43,7 @@ Site Recovery는 BCDR(비즈니스 연속성 및 재해 복구 개선) 전략에
 
 ![아키텍처](./media/azure-stack-site-recovery/architecture.png)
 
-**위치**: | **구성 요소** |**세부 정보**
+**위치** | **구성 요소** |**세부 정보**
 --- | --- | ---
 **구성 서버** | 단일 Azure Stack VM에서 실행됩니다. | 각 구독에서 구성 서버 VM을 설정합니다. 이 VM은 다음 Site Recovery 구성 요소를 실행합니다.<br/><br/> - 구성 서버: 온-프레미스와 Azure 간의 통신을 조정하여 데이터 복제를 관리합니다. - 프로세스 서버: 복제 게이트웨이의 역할을 합니다. 복제 데이터를 수신하고, 캐싱, 압축 및 암호화를 사용하여 최적화하며, Azure Storage로 보냅니다.<br/><br/> 복제하려는 VM이 아래에 설명된 제한을 초과하는 경우 별도의 독립 실행형 프로세스 서버를 설정할 수 있습니다. [자세히 알아보기](https://docs.microsoft.com/azure/site-recovery/vmware-azure-set-up-process-server-scale).
 **모바일 서비스** | 복제하려는 각 VM에 설치됩니다. | 이 문서의 단계에서는 복제가 사용되도록 설정될 경우 VM에 모바일 서비스가 자동으로 설치되도록 계정을 준비합니다. 이 서비스를 자동으로 설치하지 않으려는 경우 다양한 다른 방법을 사용할 수 있습니다. [자세히 알아보기](https://docs.microsoft.com/azure/site-recovery/vmware-azure-install-mobility-service).
@@ -61,14 +61,14 @@ Site Recovery는 BCDR(비즈니스 연속성 및 재해 복구 개선) 전략에
 7. 컴퓨터를 복제하는 작업은 복제 관리를 위해 구성 서버와 통신합니다(포트 HTTPS 443 인바운드). 컴퓨터는 복제 데이터를 프로세스 서버로 전달합니다(포트 HTTPS 9443 인바운드 - 수정 가능).
 8. 트래픽은 인터넷을 통해 Azure Storage 공용 엔드포인트에 복제됩니다. Azure ExpressRoute 공용 피어링을 사용할 수도 있습니다. 온-프레미스 사이트에서 Azure로의 사이트 간 VPN을 통한 트래픽 복제는 지원되지 않습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 이 시나리오 설정을 위해 필요한 사항은 다음과 같습니다.
 
 **요구 사항** | **세부 정보**
 --- | ---
 **Azure 구독 계정** | Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/pricing/free-trial/)을 만듭니다.
-**Azure 계정 권한** | 사용하는 Azure 계정에는 다음 권한이 필요합니다.<br/><br/> - 복구 서비스 자격 증명 모음 만들기<br/><br/> - 시나리오에 사용하는 리소스 그룹 및 가상 네트워크에 가상 머신 만들기<br/><br/> - 지정한 저장소 계정에 쓰기<br/><br/> 다음 사항에 유의하세요.<br/><br/> \- 계정을 만들면 구독 관리자로서 모든 작업을 수행할 수 있습니다.<br/><br/> - 기존 구독을 사용하고 관리자가 아닌 경우 관리자와 협력하여 소유자 또는 기여자 권한을 할당받아야 합니다.<br/><br/> - 보다 세부적인 권한이 필요한 경우 [이 문서](https://docs.microsoft.com/azure/site-recovery/site-recovery-role-based-linked-access-control)를 검토합니다. 
+**Azure 계정 권한** | 사용하는 Azure 계정에는 다음 권한이 필요합니다.<br/><br/> - 복구 서비스 자격 증명 모음 만들기<br/><br/> - 시나리오에 사용하는 리소스 그룹 및 가상 네트워크에 가상 머신 만들기<br/><br/> - 지정한 저장소 계정에 쓰기<br/><br/> 다음 사항에 유의합니다.<br/><br/> \- 계정을 만들면 구독 관리자로서 모든 작업을 수행할 수 있습니다.<br/><br/> - 기존 구독을 사용하고 관리자가 아닌 경우 관리자와 협력하여 소유자 또는 기여자 권한을 할당받아야 합니다.<br/><br/> - 보다 세부적인 권한이 필요한 경우 [이 문서](https://docs.microsoft.com/azure/site-recovery/site-recovery-role-based-linked-access-control)를 검토합니다. 
 **Azure Stack VM** | 테넌트 구독에서 Site Recovery 구성 서버로 배포될 Azure Stack VM이 필요합니다. 
 
 
@@ -212,9 +212,9 @@ VM에서 표에 요약된 운영 체제 중 하나가 실행되고 있는지 확
     - 복제된 데이터에 대한 복구 지점이 시간 설정에 따라 생성됩니다.
     - 이 설정은 연속되는 복제에 영향을 미치지 않습니다. 복구 지점이 생성되지 않은 상태로 임계값 제한에 도달할 경우 경고를 발생하기만 합니다.
 4. **복구 지점 보존**에서 각 복구 지점이 보존되는 기간을 지정합니다. 복제된 VM은 지정된 기간 중 임의의 시점으로 복구될 수 있습니다.
-5. **앱 일치 스냅숏 빈도**에서 애플리케이션 일치 스냅숏이 만들어지는 빈도를 지정합니다.
+5. **앱 일치 스냅샷 빈도**에서 애플리케이션 일치 스냅샷이 만들어지는 빈도를 지정합니다.
 
-    - 앱 일치 스냅숏은 VM 내에서 앱 데이터의 시간에서 스냅숏입니다.
+    - 앱 일치 스냅숏은 VM 내 응용 프로그램 데이터의 지정 시간 스냅숏입니다.
     - VSS(볼륨 섀도 복사본 서비스)는 스냅샷을 만들 때 VM의 앱이 일관된 상태가 되도록 합니다.
 6. **확인**을 선택하여 정책을 만듭니다.
 
@@ -232,7 +232,7 @@ VM에서 표에 요약된 운영 체제 중 하나가 실행되고 있는지 확
 1. **애플리케이션 복제** > **원본**을 선택합니다.
 2. **원본**에서 구성 서버를 선택합니다.
 3. **컴퓨터 형식**에서 **물리적 컴퓨터**를 선택합니다.
-4. 프로세스 서버(구성 서버)를 선택합니다. 그런 후 **OK**를 클릭합니다.
+4. 프로세스 서버(구성 서버)를 선택합니다. 그런 다음 **확인**을 클릭합니다.
 5. **대상**에서 장애 조치(failover) 후 VM을 만들 구독 및 리소스 그룹을 선택합니다. 장애 조치(Failover)된 VM에 사용할 배포 모델을 선택합니다.
 6. 복제된 데이터를 저장할 Azure Storage 계정을 선택합니다.
 7. 장애 조치(failover) 후 Azure VM이 생성될 때 연결될 Azure 네트워크 및 서브넷을 선택합니다.
@@ -265,7 +265,7 @@ VM에서 표에 요약된 운영 체제 중 하나가 실행되고 있는지 확
 
 1. **보호된 항목**에서 **복제된 항목** > VM을 클릭합니다.
 2. **복제된 항목** 창에 VM 정보, 상태 및 최신 사용 가능한 복구 지점의 요약이 제공됩니다. 자세한 내용을 보려면 **속성**을 클릭합니다.
-3. **계산 및 네트워크**에서 필요에 따라 설정을 수정합니다.
+3. **컴퓨팅 및 네트워크**에서 필요에 따라 설정을 수정합니다.
 
     - Azure VM 이름, 리소스 그룹, 대상 크기, [가용성 집합](../virtual-machines/windows/tutorial-availability-sets.md) 및 관리 디스크 설정을 수정할 수 있습니다.
     - 네트워크 설정을 보고 수정할 수도 있습니다. 여기에는 장애 조치(Failover) 후에 Azure VM이 가입되는 네트워크/서브넷과 VM에 할당될 IP 주소가 포함됩니다.

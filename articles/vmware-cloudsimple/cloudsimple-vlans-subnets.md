@@ -1,76 +1,76 @@
 ---
-title: Vlan 및 서브넷 CloudSimple-Azure에서 VMware 솔루션
-description: Vlan 및 서브넷 CloudSimple 사설 클라우드에서 알아보기
+title: CloudSimple로 VMware 솔루션의 Vlan 및 서브넷-Azure
+description: CloudSimple 사설 클라우드의 Vlan 및 서브넷에 대해 알아보기
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 04/10/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 9d29445054848d798476fed8184b89f9b6c1210f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d6659c50b79237907cf596d65e0ba9fb72113246
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66497568"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812470"
 ---
 # <a name="vlans-and-subnets-overview"></a>Vlan 및 서브넷 개요
 
-CloudSimple는 CloudSimple 서비스를 배포할 지역 마다 네트워크를 제공 합니다.  네트워크가 라우팅을 기본적으로 사용할 수 있는 단일 TCP 계층 3 주소 공간입니다.  모든 사설 클라우드 및이 지역에서 생성 하는 서브넷은 추가 구성 없이 서로 통신할 수 있습니다.  Vlan을 사용 하 여 vCenter에서 분산된 포트 그룹을 만들 수 있습니다.
+CloudSimple은 CloudSimple 서비스가 배포 되는 지역 당 네트워크를 제공 합니다.  네트워크는 기본적으로 라우팅이 활성화 된 단일 TCP 계층 3 주소 공간입니다.  이 지역에서 만든 모든 사설 클라우드 및 서브넷은 추가 구성 없이 서로 통신할 수 있습니다.  Vlan을 사용 하 여 vCenter에서 분산 포트 그룹을 만들 수 있습니다.
 
 ![CloudSimple 네트워크 토폴로지](media/cloudsimple-network-topology.png)
 
 ## <a name="vlans"></a>VLAN
 
-Vlan (계층 2 네트워크)는 사설 클라우드 마다 생성 됩니다.  계층 2 트래픽이 사설 클라우드, 사설 클라우드 내에서 로컬 트래픽을 격리할 수 있도록 경계 내에서 유지 됩니다.  사설 클라우드에서 만든 VLAN 해당 사설 클라우드에서 분산된 포트 그룹을 만드는 데 사용할 수 있습니다.  사설 클라우드에서 만든 VLAN은 사설 클라우드의 호스트에 연결 된 모든 스위치에 자동으로 구성 됩니다.
+Vlan (계층 2 네트워크)은 사설 클라우드 당 생성 됩니다.  계층 2 트래픽은 사설 클라우드의 경계 내에 유지 되므로 사설 클라우드 내에서 로컬 트래픽을 격리할 수 있습니다.  사설 클라우드에서 생성 된 VLAN을 사용 하 여 해당 사설 클라우드에서 분산 포트 그룹을 만들 수 있습니다.  사설 클라우드에서 만들어진 VLAN은 사설 클라우드의 호스트에 연결 된 모든 스위치에서 자동으로 구성 됩니다.
 
 ## <a name="subnets"></a>서브넷
 
-서브넷의 주소 공간을 정의 하 여 VLAN을 만들 때 서브넷을 만들 수 있습니다. 게이트웨이 서브넷 주소 공간에서 IP 주소 할당 됩니다. 단일 개인 3 계층 주소 공간 고객 및 지역별로 당 할당 됩니다. 네트워크 지역에서 온-프레미스 네트워크 또는 Azure virtual network를 사용 하 여 모든 RFC 1918 겹치지 않는 주소 공간을 구성할 수 있습니다.
+서브넷의 주소 공간을 정의 하 여 VLAN을 만들 때 서브넷을 만들 수 있습니다. 주소 공간의 IP 주소는 서브넷 게이트웨이로 할당 됩니다. 단일 개인 계층 3 주소 공간은 고객과 지역에 따라 할당 됩니다. 네트워크 지역에서 온-프레미스 네트워크 또는 Azure 가상 네트워크와 겹치지 않는 모든 RFC 1918 주소 공간을 구성할 수 있습니다.
 
-모든 서브넷 구성을 사설 클라우드 간의 라우팅에 대 한 오버 헤드를 줄이고 기본적으로 서로 통신할 수 있습니다. 동일한 지역에는 Pc에서 동-서 데이터가 동일한 3 계층 네트워크에 유지 되 고 지역 내에서 로컬 네트워크 인프라를 통해 전송 합니다. 없는 송신 지역에서 사설 클라우드 간의 통신에 필요합니다. 이렇게 하면 모든 WAN/송신 성능이 다른 사설 클라우드에서 다양 한 워크 로드를 배포 합니다.
+모든 서브넷은 기본적으로 서로 통신할 수 있으므로 사설 클라우드 간의 라우팅에 대 한 구성 오버 헤드를 줄일 수 있습니다. 동일한 지역에 있는 여러 Pc의 동-서 데이터는 동일한 계층 3 네트워크에 유지 되며 지역 내의 로컬 네트워크 인프라를 통해 전송 됩니다. 지역에서 사설 클라우드 간의 통신에는 송신이 필요 하지 않습니다. 이 방법을 사용 하면 다른 사설 클라우드에서 다양 한 워크 로드를 배포할 때 WAN/송신 성능 저하가 발생 하지 않습니다.
 
-## <a name="vspherevsan-subnets-cidr-range"></a>vSphere/vSAN 서브넷 CIDR 범위
+## <a name="vspherevsan-subnets-cidr-range"></a>vSphere/Vsphere 서브넷 CIDR 범위
 
-사설 클라우드는 격리 된 VMware 스택을 (ESXi 호스트, vCenter, vSAN을 및 NSX)으로 만들어집니다. vCenter 서버에서 관리 하는 환경입니다.  관리 구성 요소에 대해 선택한 네트워크에 배포 됩니다 **vSphere/vSAN 서브넷 CIDR**합니다.  네트워크 CIDR 범위는 배포 하는 동안 서로 다른 서브넷으로 구분 됩니다.
+사설 클라우드는 vCenter server에서 관리 하는 격리 된 VMware stack (ESXi 호스트, vCenter, vSAN 및 NSX) 환경으로 만들어집니다.  관리 구성 요소는 **Vsphere/Vsphere 서브넷 CIDR**에 대해 선택 된 네트워크에 배포 됩니다.  네트워크 CIDR 범위는 배포 하는 동안 다른 서브넷으로 나뉩니다.
 
-최소 vSphere/vSAN 서브넷 CIDR 범위 접두사: **/24** 최대 vSphere/vSAN 서브넷 CIDR 범위 접두사: **21 /**
+최소 vSphere/Vsphere 서브넷 CIDR 범위 접두사: **/24** 최대 Vsphere/vsphere 서브넷 cidr 범위 접두사: **/21**
 
 > [!CAUTION]
-> VSphere/vSAN CIDR 범위에서 IP 주소는 사설 클라우드 인프라에서 사용 하기 위해 예약 되어 있습니다. 모든 가상 머신에서이 범위의 IP 주소를 사용 하지 마세요.
+> VSphere/Vsphere CIDR 범위의 IP 주소는 사설 클라우드 인프라에서 사용 하도록 예약 되어 있습니다. 가상 머신에서이 범위의 IP 주소를 사용 하지 마세요.
 
 
-### <a name="vspherevsan-subnets-cidr-range-limits"></a>vSphere/vSAN 서브넷 CIDR 범위 제한
+### <a name="vspherevsan-subnets-cidr-range-limits"></a>vSphere/Vsphere 서브넷 CIDR 범위 제한
 
-사설 클라우드의 크기 vSphere/vSAN 서브넷 CIDR 범위 크기 선택에 영향을 줍니다.  아래 표에서 vSphere/vSAN 서브넷 CIDR의 크기에 기준 하 사용할 수 있는 노드의 최대 수를 보여 줍니다.
+VSphere/Vsphere 서브넷 CIDR 범위 크기를 선택 하면 사설 클라우드의 크기에 영향을 줍니다.  아래 표는 vSphere/Vsphere 서브넷 CIDR의 크기에 따라 가질 수 있는 최대 노드 수를 보여 줍니다.
 
-| 지정 된 vSphere/vSAN 서브넷 CIDR 접두사 길이 | 최대 노드 수 |
+| 지정 된 vSphere/Vsphere 서브넷 CIDR 접두사 길이 | 최대 노드 수 |
 |---------------------------------------------------|-------------------------|
 | /24 | 26 |
 | /23 | 58 |
 | /22 | 118 |
 | /21 | 220 |
 
-### <a name="management-subnets-created-on-a-private-cloud"></a>관리 서브넷에서 사설 클라우드 생성
+### <a name="management-subnets-created-on-a-private-cloud"></a>사설 클라우드에서 만든 관리 서브넷
 
-관리 서브넷에는 사설 클라우드를 만들 때 생성 됩니다. 
+사설 클라우드를 만들 때 다음 관리 서브넷이 생성 됩니다. 
 
-* **시스템 관리** -VLAN 및 서브넷 ESXi 호스트의 관리에 대 한 네트워크 DNS 서버에서 vCenter 서버.
-* **VMotion** -VLAN 및 ESXi 호스트의 vMotion 네트워크의 서브넷입니다.
-* **VSAN** -VLAN 및 ESXi 호스트의 vSAN 네트워크의 서브넷입니다.
-* **NsxtEdgeUplink1** -VLAN 및 서브넷 VLAN 업링크 외부 네트워크에 대 한 합니다.
-* **NsxtEdgeUplink2** -VLAN 및 서브넷 VLAN 업링크 외부 네트워크에 대 한 합니다.
-* **NsxtEdgeTransport** -전송 영역에 대 한 서브넷 및 VLAN NSX T.에서 계층 2 네트워크의 범위 제어
-* **NsxtHostTransport** -VLAN 및 서브넷 호스트에 대 한 영역을 전송 합니다.
+* **시스템 관리** -ESXi 호스트의 관리 네트워크, DNS 서버, vCenter server에 대 한 VLAN 및 서브넷.
+* **VMotion** -VLAN 및 ESXi 호스트의 서브넷 ' VMotion network.
+* **Vsan** -VLAN 및 ESXi 호스트의 vsan 네트워크에 대 한 서브넷입니다.
+* **NsxtEdgeUplink1** -vlan 및 외부 네트워크에 대 한 vlan 업링크 서브넷
+* **NsxtEdgeUplink2** -vlan 및 외부 네트워크에 대 한 vlan 업링크 서브넷
+* **NsxtEdgeTransport** -전송 영역에 대 한 VLAN 및 서브넷은 NSX의 계층 2 네트워크에 대 한 연결을 제어 합니다.
+* **NsxtHostTransport** -VLAN 및 호스트 전송 영역에 대 한 서브넷
 
 ### <a name="management-network-cidr-range-breakdown"></a>관리 네트워크 CIDR 범위 분석
 
-지정 된 vSphere/vSAN 서브넷 CIDR 범위를 여러 서브넷으로 구분 됩니다.  아래 테이블에는 허용 된 접두사에 대 한 분석의 예가 나와 있습니다.  이 예제에서는 사용 **192.168.0.0** CIDR 범위로 합니다.
+지정 된 vSphere/Vsphere 서브넷 CIDR 범위는 여러 서브넷으로 나뉩니다.  다음 표에서는 허용 된 접두사에 대 한 분석의 예를 보여 줍니다.  이 예에서는 CIDR 범위로 **192.168.0.0** 을 사용 합니다.
 
 예제:
 
-| VSphere/vSAN 서브넷 CIDR/접두사를 지정합니다. | 192.168.0.0/21 | 192.168.0.0/22 | 192.168.0.0/23 | 192.168.0.0/24 |
+| 지정 된 vSphere/Vsphere 서브넷 CIDR/접두사 | 192.168.0.0/21 | 192.168.0.0/22 | 192.168.0.0/23 | 192.168.0.0/24 |
 |---------------------------------|----------------|----------------|----------------|----------------|
 | 시스템 관리 | 192.168.0.0/24 | 192.168.0.0/24 | 192.168.0.0/25 | 192.168.0.0/26 |
 | vMotion | 192.168.1.0/24 | 192.168.1.0/25 | 192.168.0.128/26 | 192.168.0.64/27 |

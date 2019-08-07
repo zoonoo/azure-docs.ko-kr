@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7799b62b2c330610663e361bbb3930340b1ebdaf
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: a007e3adb72148cfde1590e996f7df9082159445
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726292"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840505"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>웹 서비스로 배포된 Azure Machine Learning 모델 사용
 
@@ -29,6 +29,9 @@ Azure Container Instances, Azure Kubernetes Service 또는 FPGA (필드 프로�
 1. SDK를 사용하여 연결 정보를 가져옵니다.
 1. 모델에서 사용하는 요청 데이터의 형식을 결정합니다.
 1. 웹 서비스를 호출하는 애플리케이션을 만듭니다.
+
+> [!TIP]
+> 이 문서의 예제는 OpenAPI (Swagger) 사양을 사용 하지 않고 수동으로 생성 됩니다. 배포에 대 한 OpenAPI 사양을 활성화 한 경우 [swagger-codegen](https://github.com/swagger-api/swagger-codegen) 와 같은 도구를 사용 하 여 서비스에 대 한 클라이언트 라이브러리를 만들 수 있습니다.
 
 ## <a name="connection-information"></a>연결 정보
 

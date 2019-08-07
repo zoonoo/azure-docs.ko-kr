@@ -10,13 +10,13 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: cmacdo
-ms.custom: seodec2018
-ms.openlocfilehash: c267d6b2b5a8606c8caaba15c9316a8dbcb989b9
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.subservice: cognitive-search
+ms.openlocfilehash: 1f4ba923cb9698a00c8c7c8be6e1b34f09ea1b72
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698830"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840946"
 ---
 #   <a name="text-translation-cognitive-skill"></a>텍스트 변환 인식 기술
 
@@ -57,7 +57,7 @@ TranslationSkill.
 
 ## <a name="skill-outputs"></a>기술 출력
 
-| 출력 이름    | 설명 |
+| 출력 이름    | Description |
 |--------------------|-------------|
 | translatedText | TranslatedFromLanguageCode에서 translatedToLanguageCode로 텍스트 변환의 문자열 결과입니다.|
 | translatedToLanguageCode  | 텍스트를 번역 한 언어 코드를 나타내는 문자열입니다. 여러 언어로 번역 하 고 어떤 언어가 어떤 언어로 된 텍스트를 추적할 수 있게 하려는 경우에 유용 합니다.|

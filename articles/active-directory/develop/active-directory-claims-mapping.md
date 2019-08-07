@@ -10,17 +10,17 @@ ms.custom: aaddev
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97de45ef94afa9da8a5e928a3d4a8911db052107
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: f9350a30ac6258664b3a8405923467a8468a6758
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381058"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835459"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>방법: 테넌트의 특정 앱용 토큰에 내보내는 클레임 사용자 지정(미리 보기)
 
@@ -286,7 +286,7 @@ ID 요소는 클레임의 값을 제공할 원본의 속성을 식별합니다. 
 
 #### <a name="table-3-valid-id-values-per-source"></a>표 3: 원본별 유효한 ID 값
 
-| Source | ID | Description |
+| Source | ID | 설명 |
 |-----|-----|-----|
 | 사용자 | surname | 성 |
 | 사용자 | givenname | 이름 |
@@ -386,7 +386,7 @@ ID 요소는 클레임의 값을 제공할 원본의 속성을 식별합니다. 
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>표 5: SAML NameID에 대한 데이터 원본으로 허용되는 특성
 
-|Source|ID|설명|
+|Source|ID|Description|
 |-----|-----|-----|
 | 사용자 | 메일|메일 주소|
 | 사용자 | userprincipalname|사용자 계정 이름|
@@ -431,7 +431,7 @@ ID 요소는 클레임의 값을 제공할 원본의 속성을 식별합니다. 
 
 Azure AD에서 특정 서비스 주체에 대해 토큰에 내보내지는 클레임을 사용자 지정할 수 있는 경우 많은 시나리오가 가능합니다. 이 섹션에서는 클레임 매핑 정책 형식을 사용하는 방법을 이해하는 데 도움이 되는 몇 가지 일반적인 시나리오를 설명합니다.
 
-#### <a name="prerequisites"></a>필수 구성 요소
+#### <a name="prerequisites"></a>전제 조건
 
 다음 예제에서는 서비스 주체에 대한 정책을 만들고, 업데이트, 연결 및 삭제합니다. Azure AD를 처음 접하는 분들은 [Azure AD 테넌트를 가져오는 방법](quickstart-create-new-tenant.md)을 살펴본 후 예제를 진행하는 것이 좋습니다.
 

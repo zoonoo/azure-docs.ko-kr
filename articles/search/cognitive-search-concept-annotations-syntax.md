@@ -5,18 +5,19 @@ services: search
 manager: pablocas
 author: luiscabrer
 ms.service: search
+ms.subservice: cognitive-search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 637edc0e45daa37a753fbaa15313b076e8af4d7c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1868e9fd3a7dde5d6302753986019f481a577007
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65023867"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68841305"
 ---
 # <a name="how-to-reference-annotations-in-a-cognitive-search-skillset"></a>인식 검색 기술 집합의 주석 참조하는 방법
 
@@ -28,7 +29,7 @@ ms.locfileid: "65023867"
 
 구문을 검토를 하기 전에 이 문서의 뒷부분에 제공되는 예제를 보다 잘 이해하려면 몇 가지 중요한 개념을 다시 확인하겠습니다.
 
-| 용어 | 설명 |
+| 용어 | Description |
 |------|-------------|
 | 보강된 문서 | 보강된 문서는 문서와 관련된 모든 주석을 유지하기 위해 파이프라인에서 만들고 사용하는 내부 구조입니다. 보강된 문서를 주석의 트리라고 생각합니다. 일반적으로 이전 주석에서 만든 주석은 자식 주석이 됩니다.<p/>보강된 문서는 기술 집항 실행 동안에만 존재합니다. 콘텐츠가 검색 인덱스에 매핑되면 보강된 문서는 더 이상 필요 없습니다. 보강된 문서와 직접 상호 작용하지 않더라도 기술 집합을 만들 경우 문서의 심적 모델을 보유하는 것이 유용합니다. |
 | 보강 컨텍스트 | 요소가 보강된 점에서 보강이 일어난 컨텍스트입니다. 기본적으로 보강 컨텍스트는 `"/document"` 수준에서 개별 문서에 범위가 지정됩니다. 기술을 실행할 때 해당 기술의 출력은 [정의된 컨텍스트의 속성](#example-2)이 됩니다.|
@@ -36,7 +37,7 @@ ms.locfileid: "65023867"
 <a name="example-1"></a>
 ## <a name="example-1-simple-annotation-reference"></a>예제 1: 단순 주석 참조
 
-Azure Blob 저장소에 엔터티 인식 사용 하 여 추출 하려는 사용자의 이름에 대 한 참조를 포함 하는 파일의 다양 한이 있다고 가정 합니다. 아래의 기술 정의에서 `"/document/content"`은 전체 문서의 텍스트 표현이며 "사람"은 사용자로 식별되는 엔터티에 대한 전체 이름의 추출입니다.
+Azure Blob storage에서 엔터티 인식을 사용 하 여 추출할 사용자의 이름에 대 한 참조를 포함 하는 다양 한 파일이 있다고 가정 합니다. 아래의 기술 정의에서 `"/document/content"`은 전체 문서의 텍스트 표현이며 "사람"은 사용자로 식별되는 엔터티에 대한 전체 이름의 추출입니다.
 
 기본 컨텍스트가 `"/document"`이므로 사람의 목록은 이제 `"/document/people"`로서 참조될 수 있습니다. 특정한 경우에 `"/document/people"`은 인덱스의 필드에 매핑되거나 동일 기술 집합의 다른 기술에 사용될 수 있는 주석입니다.
 
@@ -62,7 +63,7 @@ Azure Blob 저장소에 엔터티 인식 사용 하 여 추출 하려는 사용�
 
 <a name="example-2"></a>
 
-## <a name="example-2-reference-an-array-within-a-document"></a>예 2: 문서 내에서 배열 참조
+## <a name="example-2-reference-an-array-within-a-document"></a>예제 2: 문서 내에서 배열 참조
 
 이 예제는 동일 문서에 대해 보강 단계를 여러 번 호출하는 방법을 보여주며 이전 예제를 기반으로 빌드합니다. 이전 예제가 단일 문서에서 10명의 이름을 통해 문자열 배열을 생성했다고 가정합니다. 합리적인 다음 단계는 전체 이름에서 성을 추출하는 두 번째 보강일 수 있습니다. 10개 이름이 있으므로 이 문서에서 이 단계를 한 명당 한 번씩 10번을 호출하고자 합니다. 
 
@@ -94,11 +95,11 @@ Azure Blob 저장소에 엔터티 인식 사용 하 여 추출 하려는 사용�
 
 <a name="example-3"></a>
 
-## <a name="example-3-reference-members-within-an-array"></a>예 3: 배열 내에서 멤버 참조
+## <a name="example-3-reference-members-within-an-array"></a>예제 3: 배열 내에서 멤버 참조
 
 경우에 따라 특정 기술에 전달하는 특정 형식의 모든 주석을 그룹화해야 합니다. 예제 2에서 추출된 모든 성 가운데 가장 일반적인 성을 식별하는 가상의 사용자 지정 기술을 고려합니다. 사용자 지정 기술에 성만 제공하려면 컨텍스트를 `"/document"`로, 입력을 `"/document/people/*/lastname"`로 지정합니다.
 
-카디널리티 `"/document/people/*/lastname"` 문서의 보다 큽니다. 이 문서에 대한 문서 노드가 하나만 있는 반면 성 노드는 10개가 있을 수 있습니다. 이 경우 시스템은 문서의 모든 요소를 포함하는 `"/document/people/*/lastname"`의 배열을 자동으로 만듭니다.
+의 `"/document/people/*/lastname"` 카디널리티는 문서 보다 큽니다. 이 문서에 대한 문서 노드가 하나만 있는 반면 성 노드는 10개가 있을 수 있습니다. 이 경우 시스템은 문서의 모든 요소를 포함하는 `"/document/people/*/lastname"`의 배열을 자동으로 만듭니다.
 
 ```json
   {
@@ -123,7 +124,7 @@ Azure Blob 저장소에 엔터티 인식 사용 하 여 추출 하려는 사용�
 
 
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 + [사용자 지정 기술을 보강 파이프라인으로 통합하는 방법](cognitive-search-custom-skill-interface.md)
 + [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
 + [기술 집합 만들기(REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)

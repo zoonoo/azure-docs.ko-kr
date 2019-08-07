@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/25/2019
+ms.date: 08/02/2019
 ms.author: banders
-ms.openlocfilehash: 20ed2bcf793ab5c3913ccf66d338e71c1a99a003
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 36bc403c4000e58541f22c2cb44f77a28e81cb72
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68478929"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779898"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>Azure 예약 자동화용 API
 
@@ -84,7 +84,7 @@ EA 고객인 경우 조직의 예약이 사용되는 방식을 프로그래밍 �
 - 조직이 만드는 가상 머신이 예약의 VM 크기와 일치하는지 확인합니다.
 - 인스턴스 크기 유연성이 켜져 있는지 확인합니다. 자세한 내용은 [예약 관리 - 예약 VM 인스턴스에 대한 최적화 설정 변경](billing-manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances)을 참조하세요.
 - 보다 광범위하게 적용되도록 예약의 범위를 공유로 변경합니다. 자세한 내용은 [예약 관리 - 예약 범위 변경](billing-manage-reserved-vm-instance.md#change-the-reservation-scope)을 참조하세요.
-- 사용하지 않은 수량을 교환합니다. 자세한 내용은 [예약 관리 - 취소 및 교환](billing-manage-reserved-vm-instance.md#cancellations-and-exchanges)을 참조하세요.
+- 사용하지 않은 수량을 교환합니다. 자세한 내용은 [예약 관리](billing-manage-reserved-vm-instance.md)를 참조 하세요.
 
 ## <a name="give-access-to-reservations"></a>예약에 대한 액세스 권한 부여
 

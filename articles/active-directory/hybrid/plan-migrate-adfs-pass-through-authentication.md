@@ -12,12 +12,12 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba63f9c04e062741eded9c39e44ba64281931387
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 6646217149cec48ca5fcee59b3dd9d850965c602
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311344"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779914"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Azure Active Directory를 페더레이션에서 통과 인증으로 마이그레이션
 
@@ -454,5 +454,5 @@ Azure AD Connect를 실행하는 온-프레미스 서버에서 Seamless SSO Kerb
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure AD Connect 설계 개념](plan-connect-design-concepts.md)에 대해 알아봅니다.
-* [적합한 인증을 선택](https://docs.microsoft.com/azure/security/azure-ad-choose-authn)합니다.
+* [적합한 인증을 선택](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn)합니다.
 * [지원되는 토폴로지](plan-connect-design-concepts.md)에 대해 알아봅니다.

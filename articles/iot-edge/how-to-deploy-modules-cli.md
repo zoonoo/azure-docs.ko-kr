@@ -10,12 +10,12 @@ ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: edcde083934bb454f62ce3dd55c026138ad8fcca
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: fe947dbb7effde7bfa4f0b9824c6af645c85691c
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67797687"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840202"
 ---
 # <a name="deploy-azure-iot-edge-modules-with-azure-cli"></a>Azure CLI를 사용하여 Azure IoT Edge 모듈 배포
 
@@ -25,7 +25,7 @@ ms.locfileid: "67797687"
 
 이 아티클에서는 JSON 배포 매니페스트를 만든 다음, 해당 파일을 사용하여 IoT Edge 디바이스에 배포를 푸시하는 방법을 보여줍니다. 해당 공유 태그에 따라 다중 디바이스를 대상으로 지정하는 배포를 만드는 방법에 대한 정보는 [대규모 IoT Edge 모듈 배포 및 모니터링](how-to-deploy-monitor-cli.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 * Azure 구독의 [IoT Hub](../iot-hub/iot-hub-create-using-cli.md)
 * IoT Edge 런타임이 설치된 [IoT Edge 디바이스](how-to-register-device-cli.md)
@@ -73,7 +73,7 @@ Azure CLI를 사용하여 모듈을 배포하려면 배포 매니페스트를 �
              }
            },
            "modules": {
-             "tempSensor": {
+             "SimulatedTemperatureSensor": {
                "version": "1.0",
                "type": "docker",
                "status": "running",
@@ -97,7 +97,7 @@ Azure CLI를 사용하여 모듈을 배포하려면 배포 매니페스트를 �
            }
          }
        },
-       "tempSensor": {
+       "SimulatedTemperatureSensor": {
          "properties.desired": {}
        }
      }

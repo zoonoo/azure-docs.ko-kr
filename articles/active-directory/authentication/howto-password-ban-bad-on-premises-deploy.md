@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ebeed3636ea6da77e05a9a790e51c7771ebe685
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 596020952fd02a414c050ac7fe7ab37d7137c391
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68666278"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779652"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Azure AD 암호 보호 배포
 
@@ -280,14 +280,31 @@ Azure AD 암호 보호에는 두 가지 필수 설치 관리자가 있습니다.
 
    도메인 컨트롤러가 아닌 컴퓨터에는 DC 에이전트 서비스를 설치할 수 있습니다. 이 경우 서비스가 시작 되어 실행 되지만 컴퓨터가 도메인 컨트롤러로 승격 될 때까지 비활성 상태로 유지 됩니다.
 
-   표준 MSI 절차를 사용 하 여 소프트웨어 설치를 자동화할 수 있습니다. 예를 들어:
+   표준 MSI 절차를 사용 하 여 소프트웨어 설치를 자동화할 수 있습니다. 예:
 
-   `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn`
+   `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart`
 
-   > [!WARNING]
-   > 예제 msiexec 명령에는 즉시 다시 부팅이 발생 합니다. 이를 방지 하려면 `/norestart` 플래그를 사용 합니다.
+   설치 관리자가 컴퓨터 `/norestart` 를 자동으로 다시 부팅 하도록 하려면 플래그를 생략할 수 있습니다.
 
 도메인 컨트롤러에 DC 에이전트 소프트웨어를 설치 하 고 해당 컴퓨터를 다시 부팅 한 후 설치가 완료 됩니다. 다른 구성은 필요하지 않거나 가능하지 않습니다.
+
+## <a name="upgrading-the-proxy-agent"></a>프록시 에이전트 업그레이드
+
+최신 버전의 Azure AD 암호 보호 프록시 소프트웨어를 사용할 수 있는 경우 최신 버전의 `AzureADPasswordProtectionProxySetup.exe` 소프트웨어 설치 관리자를 실행 하 여 업그레이드를 수행 합니다. 최신 버전의 프록시 소프트웨어를 제거할 필요는 없습니다. 설치 관리자에서 전체 업그레이드를 수행 합니다. 프록시 소프트웨어를 업그레이드 하는 경우 다시 부팅할 필요가 없습니다. 소프트웨어 업그레이드는 표준 MSI 절차를 사용 하 여 자동화할 수 있습니다. `AzureADPasswordProtectionProxySetup.exe /quiet`예를 들면와 같습니다.
+
+프록시 에이전트는 자동 업그레이드를 지원 합니다. 자동 업그레이드는 프록시 서비스와 함께 설치 되는 Microsoft Azure AD 연결 에이전트 업데이트 서비스를 사용 합니다. 자동 업그레이드는 기본적으로 설정 되어 있으며 AzureADPasswordProtectionProxyConfiguration cmdlet을 사용 하 여 사용 하거나 사용 하지 않도록 설정할 수 있습니다. AzureADPasswordProtectionProxyConfiguration cmdlet을 사용 하 여 현재 설정을 쿼리할 수 있습니다. 자동 업그레이드를 사용 하도록 설정 하는 것이 좋습니다.
+
+이 `Get-AzureADPasswordProtectionProxy` cmdlet은 포리스트에 현재 설치 되어 있는 모든 프록시 에이전트의 소프트웨어 버전을 쿼리 하는 데 사용할 수 있습니다.
+
+## <a name="upgrading-the-dc-agent"></a>DC 에이전트 업그레이드
+
+최신 버전의 Azure AD 암호 보호 DC 에이전트 소프트웨어를 사용할 수 있는 경우 최신 버전 `AzureADPasswordProtectionDCAgentSetup.msi` 의 소프트웨어 패키지를 실행 하 여 업그레이드를 수행 합니다. 현재 버전의 DC 에이전트 소프트웨어를 제거할 필요는 없습니다. 설치 관리자에서 전체 업그레이드를 수행 합니다. DC 에이전트 소프트웨어를 업그레이드할 때는 항상 다시 부팅 해야 합니다 .이는 핵심 Windows 동작으로 인해 발생 합니다. 
+
+소프트웨어 업그레이드는 표준 MSI 절차를 사용 하 여 자동화할 수 있습니다. `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart`예를 들면와 같습니다.
+
+설치 관리자가 컴퓨터 `/norestart` 를 자동으로 다시 부팅 하도록 하려면 플래그를 생략할 수 있습니다.
+
+Cmdlet `Get-AzureADPasswordProtectionDCAgent` 은 포리스트에 현재 설치 되어 있는 모든 DC 에이전트의 소프트웨어 버전을 쿼리 하는 데 사용할 수 있습니다.
 
 ## <a name="multiple-forest-deployments"></a>다중 포리스트 배포
 
@@ -301,7 +318,7 @@ Azure AD 암호 보호를 여러 포리스트에 배포하기 위한 추가 요�
 
 암호 보호의 주요 가용성은 포리스트의 도메인 컨트롤러가 Azure에서 새로운 정책 또는 기타 데이터를 다운로드 하려고 할 때 프록시 서버를 사용 하는 것입니다. 각 DC 에이전트는 호출할 프록시 서버를 결정할 때 간단한 라운드 로빈 스타일 알고리즘을 사용 합니다. 에이전트에서 응답 하지 않는 프록시 서버를 건너뜁니다. 디렉터리 및 sysvol 폴더 상태 모두의 정상 복제를 사용 하는 완전히 연결 된 Active Directory 배포의 경우 두 프록시 서버는 가용성을 보장 하기에 충분 합니다. 이로 인해 새 정책 및 기타 데이터가 적시에 다운로드 됩니다. 그러나 추가 프록시 서버를 배포할 수 있습니다.
 
-DC 에이전트 소프트웨어의 설계는 고가용성과 관련 된 일반적인 문제를 완화 합니다. DC 에이전트는 가장 최근에 다운로드 한 암호 정책의 로컬 캐시를 유지 관리 합니다. 등록 된 모든 프록시 서버를 사용할 수 없게 되는 경우에도 DC 에이전트는 캐시 된 암호 정책을 계속 적용 합니다. 대량 배포에서 암호 정책에 대 한 적절 한 업데이트 빈도는 일반적으로 몇 시간 이내이 아니라 *며칠*입니다. 따라서 프록시 서버를 잠깐 중단 하면 Azure AD 암호 보호에 크게 영향을 주지 않습니다.
+DC 에이전트 소프트웨어의 설계는 고가용성과 관련 된 일반적인 문제를 완화 합니다. DC 에이전트는 가장 최근에 다운로드 한 암호 정책의 로컬 캐시를 유지 관리 합니다. 등록 된 모든 프록시 서버를 사용할 수 없게 되는 경우에도 DC 에이전트는 캐시 된 암호 정책을 계속 적용 합니다. 대량 배포에서 암호 정책에 대 한 적절 한 업데이트 빈도는 일반적으로 몇 시간 이내이 아니라 며칠입니다. 따라서 프록시 서버를 잠깐 중단 하면 Azure AD 암호 보호에 크게 영향을 주지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

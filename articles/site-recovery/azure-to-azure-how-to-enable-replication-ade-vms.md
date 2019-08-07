@@ -8,19 +8,19 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 25f8c19ad1c574f6a3d84d50d911b4da6b52cfc3
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 5e5ae11a00b2a3656deceeeaf928536238a325fc
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516499"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840640"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Azure Disk Encryption 사용 가능한 가상 컴퓨터를 다른 Azure 지역에 복제
 
 이 문서에서는 한 Azure 지역에서 다른 Azure 지역으로 Azure Disk Encryption 사용 가능한 Vm을 복제 하는 방법을 설명 합니다.
 
 >[!NOTE]
->현재 Azure Site Recovery는 Windows OS를 실행 하 고 [Azure Active Directory (AZURE AD)를 사용 하 여 암호화를 사용 하도록 설정](https://aka.ms/ade-aad-app)된 azure vm만 지원 합니다.
+>현재 Azure Site Recovery는 Windows OS를 실행 하는 Azure Vm만 지원 합니다.
 
 ## <a id="required-user-permissions"></a>필요한 사용자 권한
 Site Recovery를 사용 하려면 사용자에 게 대상 지역에서 키 자격 증명 모음을 만들고 원본 지역 key vault에서 대상 지역 key vault로 키를 복사할 수 있는 권한이 있어야 합니다.
@@ -111,7 +111,7 @@ Site Recovery 기본 대상 설정을 수정 하려면 다음 단계를 수행 �
 2. "리소스 그룹, 네트워크, 저장소 및 가용성 집합" 옆의 **사용자 지정** 을 선택 하 여 다음 기본 설정을 수정 합니다.
     - **대상 리소스 그룹**의 경우 구독 대상 위치의 리소스 그룹 목록에서 리소스 그룹을 선택 합니다.
     - **대상 가상 네트워크**의 경우 대상 위치의 가상 네트워크 목록에서 네트워크를 선택 합니다.
-    - 가용성 **집합의 경우**가용성 집합 설정이 원본 지역의 가용성 집합의 일부인 경우 VM에 해당 설정을 추가할 수 있습니다.
+    - 가용성집합의 경우 가용성 집합 설정이 원본 지역의 가용성 집합의 일부인 경우 VM에 해당 설정을 추가할 수 있습니다.
     - **대상 저장소 계정**에 대해 사용할 계정을 선택 합니다.
 
 2. "암호화 설정" 옆의 **사용자 지정** 을 선택 하 여 다음 기본 설정을 수정 합니다.

@@ -10,7 +10,7 @@ ms.assetid: a242a5ff-7300-40c2-ba83-fb6035707433
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/15/2019
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2e15bb8a069289a695643b3d7dc2e4b81d9b91d
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 4b836810a859805c0f8d8cedc14465a505e06df7
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277859"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835316"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Microsoft id 플랫폼 코드 샘플 (v2.0 끝점)
 
@@ -47,7 +47,7 @@ GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsof
 
 이러한 샘플은 Microsoft id 플랫폼을 사용 하 여 보호 되는 단일 페이지 응용 프로그램을 작성 하는 방법을 보여 줍니다. 이러한 샘플은 MSAL의 특징 중 하나를 사용 합니다.
 
-| 플랫폼 | 설명 | 링크 |
+| 플랫폼 | Description | 링크 |
 | -------- | --------------------- | -------- |
 | ![이 이미지는 javascript 로고](media/sample-v2-code/logo_js.png) [javascript (msal .js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core) 를 보여 줍니다. | Microsoft Graph 호출 |[javascript-graphapi-web-v2](https://github.com/Azure-Samples/active-directory-javascript-graphapi-web-v2) |
 | ![이 이미지는 javascript 로고](media/sample-v2-code/logo_js.png) [javascript (msal .js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core) 를 보여 줍니다. | B2C 호출 |[b2c-javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) |
@@ -55,7 +55,7 @@ GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsof
 | ![이 이미지는](media/sample-v2-code/logo_angular.png) [msal AngularJS (](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs) 각도 JS 로고 JavaScript)를 보여 줍니다.| Microsoft Graph 호출  | [MsalAngularjsDemoApp](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-angularjs/samples/MsalAngularjsDemoApp)
 | ![이 이미지는 각도 로고](media/sample-v2-code/logo_angular.png) [JavaScript (msal 각도)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular) 를 보여 줍니다.| Microsoft Graph 호출  | [MSALAngularDemoApp](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-angular/samples/MSALAngularDemoApp) |
 
-## <a name="web-applications"></a>웹 애플리케이션
+## <a name="web-applications"></a>웹 응용 프로그램
 
 다음 샘플은 사용자를 로그인하는 웹 애플리케이션을 보여 줍니다. 일부 샘플은 사용자 ID를 사용하여 Microsoft Graph 또는 사용자 고유의 웹 API를 호출하는 애플리케이션도 보여 줍니다.
 
@@ -86,7 +86,7 @@ GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsof
 | 클라이언트 애플리케이션 | 플랫폼 | 흐름/권한 부여 | Microsoft Graph 호출 |
 | ------------------ | -------- | ---------- | -------------------- |
 | 콘솔 | ![이 이미지는 .NET Core 로고를 보여줍니다.](media/sample-v2-code/logo_NETcore.png)</p> ASP.NET  | [클라이언트 자격 증명](msal-authentication-flows.md#client-credentials) | [dotnetcore-daemon-v2](https://github.com/azure-samples/active-directory-dotnetcore-daemon-v2) |
-| 웹앱 | ![이 이미지는 ASP.NET 로고를 보여줍니다.](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET  | [클라이언트 자격 증명](msal-authentication-flows.md#client-credentials) | [dotnet-daemon-v2](https://github.com/azure-samples/active-directory-dotnet-daemon-v2) |
+| 웹 앱 | ![이 이미지는 ASP.NET 로고를 보여줍니다.](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET  | [클라이언트 자격 증명](msal-authentication-flows.md#client-credentials) | [dotnet-daemon-v2](https://github.com/azure-samples/active-directory-dotnet-daemon-v2) |
 
 ## <a name="headless-applications"></a>헤드리스 애플리케이션
 

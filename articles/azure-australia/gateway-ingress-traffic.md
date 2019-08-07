@@ -6,12 +6,12 @@ ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: grgale
-ms.openlocfilehash: 808a615885129af1be9b7fdcdb64d5a8c5a25e40
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3885b9fa346047a50a49c7b2f9b96b6a8f95e51f
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68571654"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779361"
 ---
 # <a name="controlling-ingress-traffic-in-azure-australia"></a>Azure 오스트레일리아에서 수신 트래픽 제어
 
@@ -67,7 +67,7 @@ ACSC의 게시에서 확인 되는 다음 주요 요구 사항은 Azure에서 �
 
 ### <a name="iaas-ingress-components"></a>IaaS 수신 구성 요소
 
-|구성 요소 | 설명|
+|구성 요소 | Description|
 |---|---|
 |**네트워크 인터페이스** | 네트워크 인터페이스는 Azure에 존재 하는 리소스입니다. 가상 컴퓨터에 연결 되 고, 연결 된 서브넷에서 인터넷을 통해 라우팅할 수 있는 개인 IP 주소가 할당 됩니다. 이 IP 주소는 Azure Resource Manager을 통해 동적 또는 정적으로 할당 됩니다.|
 |**서브넷** | 서브넷은 VNet 내에 생성 되는 IP 주소 범위입니다. 네트워크 조각화를 위해 VNet 내에서 여러 서브넷을 만들 수 있습니다.|
@@ -146,7 +146,7 @@ Standard는 Azure Virtual Network 리소스에 맞게 특별히 조정 된 기�
 |리소스|링크|
 |---|---|
 |Azure DDoS Protection 개요|[https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview)|
-|Azure DDoS 모범 사례|[https://docs.microsoft.com/azure/security/azure-ddos-best-practices](https://docs.microsoft.com/azure/security/azure-ddos-best-practices)|
+|Azure DDoS 모범 사례|[https://docs.microsoft.com/azure/security/fundamentals/ddos-best-practices](https://docs.microsoft.com/azure/security/fundamentals/ddos-best-practices)|
 |DDoS Protection 관리|[https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection)|
 |
 

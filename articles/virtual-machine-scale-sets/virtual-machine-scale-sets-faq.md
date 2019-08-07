@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/24/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 0674d8c98f4bf37bbf9417de60ff4c60910d802a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 429e201ba1d15103ae130ee2fb767cd1b4fa909a
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66258295"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779421"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure 가상 머신 확장 집합에 대한 FAQ
 
@@ -29,11 +29,11 @@ Azure의 가상 머신 확장 집합에 대한 FAQ(질문과 대답)에 대해 �
 
 ## <a name="top-frequently-asked-questions-for-scale-sets"></a>확장 집합에 대한 상위 질문과 대답
 
-### <a name="how-many-vms-can-i-have-in-a-scale-set"></a>크기 집합에 포함할 수 있는 VM 수는 몇 개인가요?
+### <a name="how-many-vms-can-i-have-in-a-scale-set"></a>확장 집합에 포함할 수 있는 VM 수는 몇 개인가요?
 
 확장 집합에는 플랫폼 이미지에 기반하여 0~1,000대의 VM, 사용자 지정 이미지에 기반하여 0~600대의 VM을 포함할 수 있습니다.
 
-### <a name="are-data-disks-supported-within-scale-sets"></a>크기 집합 내에서 데이터 디스크가 지원되나요?
+### <a name="are-data-disks-supported-within-scale-sets"></a>확장 집합 내에서 데이터 디스크가 지원되나요?
 
 예. 크기 집합은 집합에서 모든 VM에 적용되는 연결된 데이터 디스크 구성을 정의할 수 있습니다. 자세한 내용은 [}Azure 확장 집합 및 연결된 데이터 디스크](virtual-machine-scale-sets-attached-disks.md)를 참조하세요. 데이터를 저장하는 기타 옵션은 다음과 같습니다.
 
@@ -43,15 +43,15 @@ Azure의 가상 머신 확장 집합에 대한 FAQ(질문과 대답)에 대해 �
 * Azure 데이터 서비스(예: Azure 테이블, Azure Blob)
 * 외부 데이터 서비스(예: 원격 데이터베이스)
 
-### <a name="which-azure-regions-support-scale-sets"></a>크기 집합을 지원하는 Azure 지역은 어디인가요?
+### <a name="which-azure-regions-support-scale-sets"></a>확장 집합을 지원하는 Azure 지역은 어디인가요?
 
 모든 지역에서 확장 집합을 지원합니다.
 
-### <a name="how-do-i-create-a-scale-set-by-using-a-custom-image"></a>사용자 지정 이미지를 사용하여 크기 집합을 어떻게 만드나요?
+### <a name="how-do-i-create-a-scale-set-by-using-a-custom-image"></a>사용자 지정 이미지를 사용하여 확장 집합을 어떻게 만드나요?
 
 VM 이미지를 만들고 캡처한 다음, 확장 집합에 대한 원본으로 사용합니다. 사용자 지정 VM 이미지를 만들고 사용하는 방법에 대한 자습서의 경우 [Azure CLI](tutorial-use-custom-image-cli.md) 또는 [Azure PowerShell](tutorial-use-custom-image-powershell.md)을 사용할 수 있습니다.
 
-### <a name="if-i-reduce-my-scale-set-capacity-from-20-to-15-which-vms-are-removed"></a>내 크기 집합 용량을 20에서 15로 줄이면, 어떤 VM이 제거되나요?
+### <a name="if-i-reduce-my-scale-set-capacity-from-20-to-15-which-vms-are-removed"></a>내 확장 집합 용량을 20에서 15로 줄이면, 어떤 VM이 제거되나요?
 
 가용성을 최대화하기 위해 업데이트 도메인과 장애 도메인이 균등하도록 가상 머신이 확장 집합에서 제거됩니다. ID가 가장 높은 VM이 먼저 제거됩니다.
 
@@ -59,20 +59,20 @@ VM 이미지를 만들고 캡처한 다음, 확장 집합에 대한 원본으로
 
 용량을 18로 늘리면 3개의 새로운 VM 생성됩니다. VM 인스턴스 ID는 이전의 가장 큰 값에서 증가합니다(예: 20, 21, 22). VM은 장애 도메인과 업데이트 도메인에 균등하게 분배됩니다.
 
-### <a name="when-im-using-multiple-extensions-in-a-scale-set-can-i-enforce-an-execution-sequence"></a>크기 집합에서 여러 확장을 사용하는 경우, 실행 순서를 강제로 적용할 수 있나요?
+### <a name="when-im-using-multiple-extensions-in-a-scale-set-can-i-enforce-an-execution-sequence"></a>확장 집합에서 여러 확장을 사용하는 경우, 실행 순서를 강제로 적용할 수 있나요?
 
 예, [확장 시퀀싱](virtual-machine-scale-sets-extension-sequencing.md) 확장 집합을 사용할 수 있습니다.
 
-### <a name="do-scale-sets-work-with-azure-availability-sets"></a>크기 집합은 Azure 가용성 집합과 작업이 가능한가요?
+### <a name="do-scale-sets-work-with-azure-availability-sets"></a>확장 집합은 Azure 가용성 집합과 작업이 가능한가요?
 
 지역(비 영역) 확장 집합은 *배치 그룹*을 사용합니다. 5개의 장애 도메인과 5개의 업데이트 도메인이 있는 암시적 가용성 집합으로 역할을 합니다. 100개 이상의 VM 확장 집합은 여러 배치 그룹으로 확장합니다. 배치 그룹에 대한 자세한 내용은 [대규모 가상 머신 크기 집합과 작동](virtual-machine-scale-sets-placement-groups.md)을 참조하세요. VM의 가용성 집합은 동일한 가상 네트워크에 VM의 확장 집합으로 존재할 수 있습니다. 일반적인 구성은 가용성 집합에서 고유한 구성이 필요한 제어 노드 VM을 배치하고 확장 집합에 데이터 노드를 배치하는 것입니다.
 
 ### <a name="do-scale-sets-work-with-azure-availability-zones"></a>확장 집합은 Azure 가용성 영역과 작업이 가능한가요?
 
-예! 자세한 내용은 [확장 집합 영역 문서](./virtual-machine-scale-sets-use-availability-zones.md)를 참조하세요.
+예 자세한 내용은 [확장 집합 영역 문서](./virtual-machine-scale-sets-use-availability-zones.md)를 참조하세요.
 
 
-## <a name="autoscale"></a>자동 크기 조정
+## <a name="autoscale"></a>크기 자동 조정
 
 ### <a name="what-are-best-practices-for-azure-autoscale"></a>Azure 자동 크기 조정에 대한 모범 사례는 무엇인가요?
 
@@ -167,14 +167,14 @@ VM에 인증서를 안전하게 전달하기 위해 고객의 Key Vault에서 Wi
 자세한 내용은 [가상 머신 확장 집합 만들기 또는 업데이트](https://msdn.microsoft.com/library/mt589035.aspx)를 참조하세요.
 
 
-### <a name="how-do-i-use-self-signed-certificates-provisioned-for-azure-service-fabric-clusters"></a>Azure Service Fabric 클러스터에 대 한 프로 비전 하는 자체 서명 된 인증서를 사용 하는 방법
+### <a name="how-do-i-use-self-signed-certificates-provisioned-for-azure-service-fabric-clusters"></a>Azure Service Fabric 클러스터에 대해 프로 비전 된 자체 서명 된 인증서를 사용 어떻게 할까요??
 최신 예제의 경우 azure shell에서 다음 azure CLI 문을 사용하고, stdout으로 출력되는 Service Fabric CLI 모듈 예제 설명서를 읽어보세요.
 
 ```bash
 az sf cluster create -h
 ```
 
-자체 서명 인증서는 인증 기관에서 제공하는 분산 트러스트에 사용할 수 없으며, 엔터프라이즈 프로덕션 솔루션을 호스트하기 위한 어떤 Service Fabric 클러스터에도 사용하지 말아야 합니다. 추가 Service Fabric 보안 지침에 대해서는 [Azure Service Fabric 보안 모범 사례](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices) 및 [Service Fabric 클러스터 보안 시나리오](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/)를 검토하세요.
+자체 서명 인증서는 인증 기관에서 제공하는 분산 트러스트에 사용할 수 없으며, 엔터프라이즈 프로덕션 솔루션을 호스트하기 위한 어떤 Service Fabric 클러스터에도 사용하지 말아야 합니다. 추가 Service Fabric 보안 지침에 대해서는 [Azure Service Fabric 보안 모범 사례](https://docs.microsoft.com/azure/security/fundamentals/service-fabric-best-practices) 및 [Service Fabric 클러스터 보안 시나리오](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/)를 검토하세요.
 
 ### <a name="can-i-specify-an-ssh-key-pair-to-use-for-ssh-authentication-with-a-linux-virtual-machine-scale-set-from-a-resource-manager-template"></a>Resource Manager 템플릿에서 Linux 가상 머신 확장 집합으로 SSH 인증에 사용하려는 SSH 키 쌍을 지정할 수 있나요?
 
@@ -200,7 +200,7 @@ az sf cluster create -h
 }
 ```
 
-이 JSON 블록에 사용 됩니다 [이 Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json)합니다.
+이 JSON 블록은 [이 Azure 빠른 시작 템플릿에서](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json)사용 됩니다.
 
 자세한 내용은 [가상 머신 확장 집합 만들기 또는 업데이트](https://msdn.microsoft.com/library/azure/mt589035.aspx#linuxconfiguration)를 참조하세요.
 
@@ -229,17 +229,17 @@ Linux VM을 만들 때 일반 텍스트로 SSH 공개 키를 제공할 수 있�
 }
 ```
 
-linuxConfiguration 요소 이름 | 필수 | 형식 | 설명
+linuxConfiguration 요소 이름 | 필수 | 형식 | Description
 --- | --- | --- | ---
-ssh | 아닙니다. | 컬렉션 | Linux OS용 SSH 키 구성을 지정합니다.
-경로 | 예 | 문자열 | SSH 키 또는 인증서를 배치해야 하는 Linux 파일 경로를 지정합니다.
+ssh | 아니요 | Collection | Linux OS용 SSH 키 구성을 지정합니다.
+path | 예 | String | SSH 키 또는 인증서를 배치해야 하는 Linux 파일 경로를 지정합니다.
 keyData | 예 | 문자열 | base64로 인코딩된 SSH 공개 키를 지정합니다.
 
 예제는 [101-vm-sshkey GitHub 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json)을 참조하세요.
 
 ### <a name="when-i-run-update-azvmss-after-adding-more-than-one-certificate-from-the-same-key-vault-i-see-the-following-message"></a>동일한 Key Vault에서 둘 이상의 인증서를 추가한 후에 `Update-AzVmss`를 실행하면 다음과 같은 메시지가 나타납니다.
 
->업데이트-AzVmss: 반복 된 인스턴스를 포함 하는 비밀을 나열\<내 구독 id > / resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev 허용 되지 않습니다.
+>업데이트-AzVmss: 목록 암호에는 허용 되지 않는\</subscriptions/>/resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev의 반복 된 인스턴스가 포함 되어 있습니다.
 
 이 기존 원본 자격 증명 모음에 대해 새 자격 증명 모음 인증서를 사용하는 대신, 동일한 자격 증명 모음을 다시 추가하려고 하면 이러한 현상이 발생할 수 있습니다. 다른 비밀을 더 추가하는 경우 `Add-AzVmssSecret` 명령은 제대로 작동하지 않습니다.
 
@@ -311,7 +311,7 @@ VM을 만든 다음 Key Vault에서 비밀을 업데이트하면 새 인증서�
 
 자세한 내용은 [X509Certificate.Export 메서드(X509ContentType, String)](https://msdn.microsoft.com/library/24ww6yzk(v=vs.110.aspx))를 참조하세요.
 
-### <a name="how-do-i-pass-in-certificates-as-base64-strings"></a>Base64 문자열로 인증서에서 전달 어떻게 해야 합니까?
+### <a name="how-do-i-pass-in-certificates-as-base64-strings"></a>인증서를 base64 문자열로 전달 어떻게 할까요??
 
 인증서를 base64 문자열로 전달하는 것을 에뮬레이트하려면 Resource Manager 템플릿에서 최신 버전이 지정된 URL을 추출할 수 있습니다. Resource Manager 템플릿에 다음 JSON 속성을 포함합니다.
 
@@ -341,10 +341,10 @@ VM을 만든 다음 Key Vault에서 비밀을 업데이트하면 새 인증서�
 
 ### <a name="does-managed-identities-for-azure-resourceshttpsdocsmicrosoftcomazureactive-directorymsi-overview-work-with-virtual-machine-scale-sets"></a>[Azure 리소스에 대한 관리 ID](https://docs.microsoft.com/azure/active-directory/msi-overview)는 가상 머신 확장 집합과 함께 작동하나요?
 
-예. 에 대 한 Azure 빠른 시작 템플릿에서 일부 예제 MSI 템플릿을 확인할 수 있습니다 [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi) 하 고 [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi)합니다.
+예. Azure 빠른 시작 템플릿에서 [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi) 및 [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi)에 대 한 몇 가지 예제 MSI 템플릿을 볼 수 있습니다.
 
 
-## <a name="extensions"></a>확장
+## <a name="extensions"></a>확장명
 
 ### <a name="how-do-i-delete-a-virtual-machine-scale-set-extension"></a>가상 머신 확장 집합 확장을 삭제하려면 어떻게 해야 하나요?
 
@@ -360,9 +360,9 @@ Update-AzVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vmssName
 
 `$vmss`에서 extensionName 값을 찾을 수 있습니다.
 
-### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-azure-monitor-logs"></a>가상 머신 확장 집합 Azure Monitor 로그와 통합 되는 템플릿 예제가 있나요?
+### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-azure-monitor-logs"></a>Azure Monitor 로그와 통합 되는 가상 머신 확장 집합 템플릿 예제가 있나요?
 
-가상 머신 확장 집합 템플릿 예제의 Azure Monitor 로그와 통합 되는의 두 번째 예제를 참조 하세요 [Azure Service Fabric 클러스터를 배포 하 고 Azure Monitor 로그를 사용 하 여 모니터링을 사용 하도록 설정](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric)합니다.
+Azure Monitor 로그와 통합 되는 가상 머신 확장 집합 템플릿 예제는 [Azure Service Fabric 클러스터 배포 및 Azure Monitor 로그를 사용 하 여 모니터링 사용](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric)의 두 번째 예제를 참조 하세요.
 
 ### <a name="how-do-i-add-an-extension-to-all-vms-in-my-virtual-machine-scale-set"></a>가상 머신 확장 집합의 모든 VM에 확장을 추가하려면 어떻게 하나요?
 
@@ -374,9 +374,9 @@ Update-AzVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vmssName
 
 가상 머신 확장 집합 모델의 확장 정의가 업데이트되고 upgradePolicy 속성이 **자동**으로 설정되면 VM이 업데이트됩니다. UpgradePolicy 속성을 **수동**으로 설정하면 확장은 모델과 일치하지 않는 것으로 플래그가 지정됩니다.
 
-### <a name="are-extensions-run-again-when-an-existing-machine-is-service-healed-or-reimaged"></a>기존 컴퓨터를 서비스 복구 또는 이미지로 다시 설치 되 면 확장 다시 실행 됩니다.
+### <a name="are-extensions-run-again-when-an-existing-machine-is-service-healed-or-reimaged"></a>기존 컴퓨터가 서비스를 치유 하거나 이미지로 다시 설치 때 확장이 다시 실행 되나요?
 
-기존 VM이 서비스 복구를 다시 부팅으로 표시 하 고 확장 다시 실행 되지 않습니다. VM, 이미지로 다시 설치 하는 경우 프로세스도가 비슷합니다 소스 이미지를 사용 하 여 OS 드라이브를 대체 합니다. 확장과 같은 최신 모델의 모든 특수화는 다시 실행 됩니다.
+기존 VM이 서비스 치유 인 경우 재부팅으로 표시 되 고 확장이 다시 실행 되지 않습니다. VM이 이미지로 다시 설치 경우 프로세스는 OS 드라이브를 원본 이미지로 교체 하는 것과 비슷합니다. 확장 등의 최신 모델의 모든 특수화는 다시 실행 됩니다.
 
 ### <a name="how-do-i-join-a-virtual-machine-scale-set-to-an-active-directory-domain"></a>가상 머신 확장 집합을 Active Directory 도메인에 가입하려면 어떻게 하나요?
 
@@ -432,9 +432,9 @@ Add-AzVmssExtension -VirtualMachineScaleSet $VMSS -Name "IaaSAntimalware" -Publi
 Update-AzVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet $VMSS
 ```
 
-### <a name="how-do-i-execute-a-custom-script-thats-hosted-in-a-private-storage-account"></a>개인 저장소 계정에서 호스트 되는 사용자 지정 스크립트를 어떻게 실행 합니까?
+### <a name="how-do-i-execute-a-custom-script-thats-hosted-in-a-private-storage-account"></a>개인 저장소 계정에서 호스트 되는 사용자 지정 스크립트를 실행할 어떻게 할까요? 있나요?
 
-개인 저장소 계정에 호스트되는 사용자 지정 스크립트를 실행하려면 저장소 계정 키 및 이름을 사용하여 보호 설정을 지정합니다. 자세한 내용은 [사용자 지정 스크립트 확장](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings)합니다.
+프라이빗 스토리지 계정에 호스트되는 사용자 지정 스크립트를 실행하려면 스토리지 계정 키 및 이름을 사용하여 보호 설정을 지정합니다. 자세한 내용은 [사용자 지정 스크립트 확장](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings)을 참조 하세요.
 
 ## <a name="passwords"></a>암호
 
@@ -442,7 +442,7 @@ Update-AzVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet
 
 확장 집합에서 VM의 암호를 변경하는 두 가지 기본 방법이 있습니다.
 
-- 가상 머신 확장 집합 모델을 직접 변경합니다. API 2017-12-01 이상 사용할 수 있습니다.
+- 가상 머신 확장 집합 모델을 직접 변경합니다. API 2017-12-01 이상에서 사용할 수 있습니다.
 
     확장 집합 모델에서(예: Azure Resource Explorer, PowerShell 또는 CLI 사용) 직접 관리 자격 증명을 업데이트합니다. 확장 집합이 업데이트되면 모든 새 VM에 새 자격 증명이 포함됩니다. 기존 VM은 이미지로 다시 설치되는 경우에만 새 자격 증명이 포함됩니다.
 
@@ -521,7 +521,7 @@ IP 주소는 사용자가 지정한 서브넷에서 선택됩니다.
 
 ### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>가속 네트워킹을 포함한 확장 집합을 사용할 수 있나요?
 
-예. 가속된 네트워킹을 사용하려면 확장 집합의 networkInterfaceConfigurations 설정에서 enableAcceleratedNetworking을 true로 설정합니다. 예를 들면 다음과 같습니다.
+예. 가속된 네트워킹을 사용하려면 확장 집합의 networkInterfaceConfigurations 설정에서 enableAcceleratedNetworking을 true로 설정합니다. 예
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
@@ -562,9 +562,9 @@ IP 주소는 사용자가 지정한 서브넷에서 선택됩니다.
 
 ### <a name="can-i-configure-a-scale-set-to-work-with-multiple-application-gateways"></a>여러 Application Gateway를 사용하도록 확장 세트을 구성할 수 있나요?
 
-예. 여러 Application Gateway 백 엔드 주소 풀에 대 한 리소스 Id를 추가할 수 있습니다 합니다 _applicationGatewayBackendAddressPools_ 목록에 _ipConfigurations_ 확장 섹션에는 네트워크 설정 프로필입니다.
+예. 여러 Application Gateway 백 엔드 주소 풀에 대 한 리소스 Id를 확장 집합 네트워크 프로필의 _ipConfigurations_ 섹션에 있는 _applicationGatewayBackendAddressPools_ 목록에 추가할 수 있습니다.
 
-## <a name="scale"></a>확장
+## <a name="scale"></a>소수 자릿수
 
 ### <a name="in-what-case-would-i-create-a-virtual-machine-scale-set-with-fewer-than-two-vms"></a>어떤 경우에 VM이 2개 미만인 가상 머신 확장 집합을 만들어야 하나요?
 
@@ -625,7 +625,7 @@ Azure Portal의 가상 머신 확장 집합에서 VM 수를 변경하려면 가�
 
 예, 기존 리소스 그룹에서 확장 집합을 만들 수 있습니다.
 
-### <a name="can-i-move-a-scale-set-to-another-resource-group"></a>확장 집합을 다른 리소스 그룹을 이동할 수 있나요?
+### <a name="can-i-move-a-scale-set-to-another-resource-group"></a>확장 집합을 다른 리소스 그룹으로 이동할 수 있나요?
 
 예. 확장 집합 리소스를 새 구독 또는 리소스 그룹에 이동할 수 있습니다.
 
@@ -637,16 +637,16 @@ Azure Portal의 가상 머신 확장 집합에서 VM 수를 변경하려면 가�
 
 예. 이미지로 다시 설치 작업을 사용하여 이미지를 변경하지 않고 VM을 다시 설정할 수 있습니다. 그러나 가상 머신 확장 집합이 `version = latest`인 플랫폼 이미지를 참조하면 `reimage`를 호출할 때 VM에서 최신 OS 이미지로 업데이트할 수 있습니다.
 
-### <a name="is-it-possible-to-integrate-scale-sets-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용 하 여 확장 집합을 통합할 수는?
+### <a name="is-it-possible-to-integrate-scale-sets-with-azure-monitor-logs"></a>크기 집합을 Azure Monitor 로그와 통합할 수 있나요?
 
-예, 설정할 수 있습니다 확장에서 Azure 모니터링 확장을 설치 하 여 Vm. Azure CLI 예는 다음과 같습니다.
+예, 확장 집합 Vm에 Azure Monitor 확장을 설치 하 여 수행할 수 있습니다. Azure CLI 예는 다음과 같습니다.
 ```
 az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
 ```
 Azure Portal의 Log Analytics 작업 영역에서 workspaceId 및 workspaceKey를 찾을 수 있습니다. 개요 페이지에서 설정 타일을 클릭합니다. 위쪽에서 연결된 원본 탭을 클릭합니다.
 
 > [!NOTE]
-> 크기 집합이 _upgradePolicy_ 설정할지를 수동으로에 업그레이드를 호출 하 여 확장 집합의 모든 Vm을 적용 해야 합니다. CLI에서는 _az vmss update-instances_입니다.
+> 확장 집합 _Upgradepolicy_ 를 수동으로 설정한 경우에는 업그레이드를 호출 하 여 집합의 모든 vm에 확장을 적용 해야 합니다. CLI에서는 _az vmss update-instances_입니다.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -686,7 +686,7 @@ Azure Portal의 Log Analytics 작업 영역에서 workspaceId 및 workspaceKey�
 
 아니요. 가상 머신 확장 집합의 다른 VM에 다른 확장 인수를 전달할 수 없습니다. 그렇지만 확장은 컴퓨터 이름과 같이 실행 중인 VM의 고유한 속성에 따라 작동할 수 있습니다. 또한 확장은 http://169.254.169.254 에 있는 인스턴스 메타데이터를 쿼리하여 VM에 대한 자세한 정보를 가져올 수 있습니다.
 
-### <a name="why-are-there-gaps-between-my-virtual-machine-scale-set-vm-machine-names-and-vm-ids-for-example-0-1-3"></a>가상 머신 확장 집합 VM 컴퓨터 이름과 VM ID 간에 차이가 발생하는 이유는 무엇인가요? 예를 들면 다음과 같습니다. 0, 1, 3...
+### <a name="why-are-there-gaps-between-my-virtual-machine-scale-set-vm-machine-names-and-vm-ids-for-example-0-1-3"></a>가상 머신 확장 집합 VM 컴퓨터 이름과 VM ID 간에 차이가 발생하는 이유는 무엇인가요? 예를 들어: 0, 1, 3...
 
 가상 머신 확장 집합 **overprovision** 속성은 기본값인 **true**로 설정되어 있으므로 가상 머신 확장 집합 VM 컴퓨터 이름 간에는 차이가 있습니다. 과도 프로비저닝이 **true**로 설정되면 요청된 것보다 더 많은 VM이 생성됩니다. 그런 후에 추가 VM은 삭제됩니다. 이 경우 배포 안정성은 향상되지만 연속된 이름 지정 및 연속된 NAT(Network Address Translation) 규칙은 준수되지 못합니다.
 
@@ -701,8 +701,8 @@ Azure Portal의 Log Analytics 작업 영역에서 workspaceId 및 workspaceKey�
   - 이 시나리오와 관련하여 사용자 고유의 자동 크기 조정 엔진을 만들고 더 빠른 엔드투엔드 확장을 원했을 수 있습니다.
 - 장애 도메인이나 업데이트 도메인 간에 고르게 분산되지 않은 가상 머신 확장 집합이 있습니다. 이러한 상황은 과도한 프로비저닝 후에 선택적으로 VM을 삭제했거나 VM이 삭제되었기 때문에 발생할 수 있습니다. 가상 머신 확장 집합에 대해 `stop deallocate`를 실행한 후 `start`를 실행하면 장애 도메인 또는 업데이트 도메인 간에 VM이 균일하게 분산됩니다.
 
-### <a name="how-do-i-take-a-snapshot-of-a-virtual-machine-scale-set-instance"></a>가상 머신 확장 집합 인스턴스에 대 한 스냅숏을 가져올 방법 있나요?
-가상 머신 확장 집합 인스턴스에서 스냅숏을 만듭니다.
+### <a name="how-do-i-take-a-snapshot-of-a-virtual-machine-scale-set-instance"></a>가상 머신 확장 집합 인스턴스의 스냅숏을 만들 어떻게 할까요? 있나요?
+가상 머신 확장 집합의 인스턴스에서 스냅숏을 만듭니다.
 
 ```azurepowershell-interactive
 $rgname = "myResourceGroup"

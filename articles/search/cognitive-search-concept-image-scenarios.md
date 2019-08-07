@@ -5,18 +5,19 @@ services: search
 manager: pablocas
 author: luiscabrer
 ms.service: search
+ms.subservice: cognitive-search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 589f8c8f11138b4fb5c3c3096229e28c633efb0d
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: e60eeb601a0a5796609b9c38b7394c2de0610cdf
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423014"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68841289"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>인식 검색 시나리오의 이미지에서 정보를 처리하고 추출하는 방법
 
@@ -32,7 +33,7 @@ ms.locfileid: "68423014"
 
 이미지 정규화를 해제할 수 없습니다. 이미지에서 기술을 반복하려면 정규화된 이미지를 사용하는 것이 좋습니다. 인덱서에 대해 이미지 정규화를 사용 하도록 설정 하려면 기술를 해당 인덱서에 연결 해야 합니다.
 
-| 구성 매개 변수 | Description |
+| 구성 매개 변수 | 설명 |
 |--------------------|-------------|
 | imageAction   | 포함된 이미지 또는 이미지 파일이 있을 때 아무 작업도 수행하지 않아야 하는 경우 "없음"으로 설정합니다. <br/>정규화된 이미지의 배열을 문서 해독의 일부로 생성하려 "generateNormalizedImages"로 설정합니다.<br/>정규화된 이미지 배열을 생성하려면 “generateNormalizedImagePerPage”로 설정합니다. 여기서 데이터 원본에 있는 PDF의 경우 각 페이지가 하나의 출력 이미지로 렌더링됩니다.  기능은 비 PDF 파일 형식에 대한 “generateNormalizedImages”와 동일합니다.<br/>“none”이 아닌 옵션의 경우 이미지가 *normalized_images* 필드에 공개됩니다. <br/>기본값은 "없음"입니다. 이 구성은 "dataToExtract"가 "contentAndMetadata"로 설정된 경우 Blob 데이터 원본에만 관련됩니다. <br/>지정 된 문서에서 최대 1000 개의 이미지가 추출 됩니다. 문서에 1000 개가 넘는 이미지가 있으면 첫 번째 1000이 추출 되 고 경고가 생성 됩니다. |
 |  normalizedImageMaxWidth | 정규화된 이미지의 최대 너비(픽셀 단위)가 생성되었습니다. 기본값은 2000입니다.|
@@ -72,7 +73,8 @@ ms.locfileid: "68423014"
 | originalWidth      | 정규화 이전에 이미지의 원래 너비입니다. |
 | originalHeight      | 정규화 이전에 이미지의 원래 높이입니다. |
 | rotationFromOriginal |  정규화된 이미지를 만들기 위해 발생한 시계 반대 방향 회전입니다. 0도에서 360도 사이의 값입니다. 이 단계에서는 카메라 또는 스캐너에서 생성하는 이미지의 메타데이터를 읽습니다. 일반적으로 90도의 배수입니다. |
-| contentOffset |이미지가 추출된 콘텐츠 필드 내의 문자 오프셋입니다. 이 필드는 포함된 이미지가 있는 파일에만 적용됩니다. |
+| contentOffset | 이미지가 추출된 콘텐츠 필드 내의 문자 오프셋입니다. 이 필드는 포함된 이미지가 있는 파일에만 적용됩니다. |
+| pageNumber | 이미지를 추출 하거나 PDF에서 렌더링 하는 경우이 필드에는 1부터 시작 하 여 추출 되거나 렌더링 된 PDF의 페이지 번호가 포함 됩니다.  이미지가 PDF의 이미지가 아닌 경우이 필드는 0이 됩니다.  |
 
  *normalized_images* 샘플 값:
 ```json
@@ -84,7 +86,8 @@ ms.locfileid: "68423014"
     "originalWidth": 5000,  
     "originalHeight": 3000,
     "rotationFromOriginal": 90,
-    "contentOffset": 500  
+    "contentOffset": 500,
+    "pageNumber": 2
   }
 ]
 ```

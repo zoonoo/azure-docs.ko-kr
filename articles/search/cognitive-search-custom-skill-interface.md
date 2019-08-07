@@ -9,31 +9,31 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: e181aab3d92d8111a0a7d1d41bbddac20687a547
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.subservice: cognitive-search
+ms.openlocfilehash: c708cd282e38b5da73915e427485bb8990afd6c2
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67668869"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68841194"
 ---
 # <a name="how-to-add-a-custom-skill-to-a-cognitive-search-pipeline"></a>인식 검색 파이프라인에 사용자 지정 기술을 추가하는 방법
 
 Azure Search의 [인식 검색 인덱싱 파이프라인](cognitive-search-concept-intro.md)은 [미리 정의된 기술](cognitive-search-predefined-skills.md)뿐 아니라 사용자가 개인적으로 만들어서 파이프라인에 추가하는 [사용자 지정 기술](cognitive-search-custom-skill-web-api.md)을 통해 조립할 수 있습니다. 이 문서에서는 인식 검색 파이프라인에 포함될 수 있도록 하는 인터페이스를 노출하는 사용자 지정 기술을 만드는 방법을 알아봅니다. 
 
-사용자 지정 기술을 작성하면 콘텐츠에 고유한 변환을 삽입할 수 있습니다. 사용자 지정 기술은 독립적으로 실행되며 필요한 보강 단계를 적용합니다. 예를 들어, 필드별 사용자 지정 엔터티를 정의하거나, 사용자 지정 분류 모델을 작성하여 비즈니스 및 재무 계약과 문서를 구별하거나, 음성 인식 기술을 추가하여 관련 콘텐츠에 대해 오디오 파일을 더 자세히 조사할 수 있습니다. 단계별 예제를 참조 하세요. [예제: Cognitive search에 대해 사용자 지정 기술을 만들어](cognitive-search-create-custom-skill-example.md)합니다.
+사용자 지정 기술을 작성하면 콘텐츠에 고유한 변환을 삽입할 수 있습니다. 사용자 지정 기술은 독립적으로 실행되며 필요한 보강 단계를 적용합니다. 예를 들어, 필드별 사용자 지정 엔터티를 정의하거나, 사용자 지정 분류 모델을 작성하여 비즈니스 및 재무 계약과 문서를 구별하거나, 음성 인식 기술을 추가하여 관련 콘텐츠에 대해 오디오 파일을 더 자세히 조사할 수 있습니다. 단계별 예제는 다음 예제를 참조 하세요 [. 인지 검색](cognitive-search-create-custom-skill-example.md)에 대 한 사용자 지정 기술 만들기
 
  필요한 사용자 지정 기능이 무엇이든 관계없이, 사용자 지정 기술을 보강 파이프라인의 나머지 부분에 연결하기 위한 간단하고 명확한 인터페이스가 있습니다. [기능](cognitive-search-defining-skillset.md)에 포함하기 위한 유일한 요구 사항은 기능 전체에서 사용할 수 있는 방식으로 입력을 수락하고 출력을 내보내는 것뿐입니다. 이 문서에서는 보강 파이프라인에 필요한 입력 및 출력 형식을 중심으로 설명합니다.
 
 ## <a name="web-api-custom-skill-interface"></a>Web API 사용자 지정 기술 인터페이스
 
-사용자 지정 WebAPI 기술 엔드포인트는 기본적으로 30초 이내에 응답을 반환하지 않으면 시간 제한에 걸립니다. 인덱싱 파이프라인은 동기식이며, 인덱싱을 수행할 경우 해당 기간 내에 응답이 수신되지 않으면 시간 제한 오류가 생성됩니다.  timeout 매개 변수를 설정하여 시간 제한을 90초까지 구성할 수 있습니다.
+사용자 지정 WebAPI 기술 엔드포인트는 기본적으로 30초 이내에 응답을 반환하지 않으면 시간 제한에 걸립니다. 인덱싱 파이프라인은 동기식이며, 인덱싱을 수행할 경우 해당 기간 내에 응답이 수신되지 않으면 시간 제한 오류가 생성됩니다.  Timeout 매개 변수를 설정 하 여 제한 시간을 최대 230 초로 구성할 수 있습니다.
 
 ```json
         "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
-        "description": "This skill has a 90 second timeout",
+        "description": "This skill has a 230 second timeout",
         "uri": "https://[your custom skill uri goes here]",
-        "timeout": "PT90S",
+        "timeout": "PT230S",
 ```
 
 현재, 사용자 지정 기술을 조작하는 유일한 메커니즘은 Web API 인터페이스를 사용하는 것입니다. Web API는 이 섹션에 설명된 요구 사항을 충족해야 합니다.
@@ -156,7 +156,7 @@ Web API 보강자를 만들 때 요청의 일부로 HTTP 헤더 및 매개 변�
 
 ## <a name="next-steps"></a>다음 단계
 
-+ [예제: Cognitive search에 대 한 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md)
++ [예제: 인지 검색에 대한 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md)
 + [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
 + [기능 만들기(REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [보강 필드를 매핑하는 방법](cognitive-search-output-field-mapping.md)

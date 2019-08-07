@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: f950bea4ea32ecc95b1721c6930903c3afaee848
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.subservice: cognitive-search
+ms.openlocfilehash: d4ac762f94f05d165eb157f4cce183055f5fe099
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68347662"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840970"
 ---
 #   <a name="sentiment-cognitive-skill"></a>감성 인식 기술
 
@@ -53,7 +53,7 @@ Microsoft.Skills.Text.SentimentSkill
 
 ## <a name="skill-outputs"></a>기술 출력
 
-| 출력 이름 | Description |
+| 출력 이름 | 설명 |
 |--------------------|-------------|
 | score에 대한 임계값 수준 보기 | 분석된 텍스트의 감성를 나타내는 0과 1 사이의 값입니다. 값 0에 가까우면 부정적 감정이고, 0.5에 가까우면 중립적 감성이고, 1에 가까우면 긍정적인 감성입니다.|
 

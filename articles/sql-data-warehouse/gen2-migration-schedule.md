@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 07/22/2019
-ms.openlocfilehash: d4724672510d6ccbbc819691d621400cb00d8c9a
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: cd55e078e14ec34006df05096f161e7bdef39a03
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405449"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827217"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>데이터 웨어하우스를 Gen2로 업그레이드
 
@@ -88,7 +88,7 @@ Microsoft는 데이터 웨어하우스 실행에 대 한 초급 수준의 비용
 - [현재 위치 업그레이드](upgrade-to-latest-generation.md) - 이 옵션은 기존 Gen1 데이터 웨어하우스를 Gen2로 업그레이드합니다. 업그레이드 프로세스에는 데이터 웨어하우스를 다시 시작 하는 짧은 연결 (약 5 분)이 포함 됩니다.  데이터 웨어하우스를 다시 시작하면 완전히 사용할 수 있게 됩니다. 업그레이드 하는 동안 문제가 발생 하는 경우 [지원 요청](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) 을 열고 가능한 원인으로 "Gen2 upgrade"를 참조 합니다.
 - [복원 지점에서 업그레이드](sql-data-warehouse-restore.md) - 현재 Gen1 데이터 웨어하우스에서 사용자 정의 복원 지점을 만든 후 Gen2 인스턴스로 직접 복원합니다. 기존 Gen1 데이터 웨어하우스는 원본 위치에 그대로 유지됩니다. 복원이 완료되면 Gen2 데이터 웨어하우스를 완전히 사용할 수 있게 됩니다.  복원된 Gen2 인스턴스에서 모든 테스트 및 유효성 검사 프로세스를 실행한 후에는 원래 Gen1 인스턴스를 삭제할 수 있습니다.
 
-   - 1단계: Azure Portal에서 [사용자 정의 복원 지점을 만듭니다](sql-data-warehouse-restore.md#create-a-user-defined-restore-point-using-the-azure-portal).
+   - 1단계: Azure Portal에서 [사용자 정의 복원 지점을 만듭니다](sql-data-warehouse-restore-active-paused-dw.md#restore-an-existing-data-warehouse-through-the-azure-portal).
    - 2단계: 사용자 정의 복원 지점에서 복원할 때 "성능 수준"을 기본 Gen2 계층으로 설정합니다.
 
 업그레이드 프로세스가 백그라운드에서 데이터 파일을 계속 업그레이드하는 동안 일정 기간 동안 성능이 저하될 수 있습니다. 총 성능 저하 시간은 데이터 파일의 크기에 따라 달라집니다.
@@ -155,6 +155,6 @@ Microsoft는 데이터 웨어하우스 실행에 대 한 초급 수준의 비용
 - [Resource Health 모니터링](https://docs.microsoft.com/azure/service-health/resource-health-overview)
 - [마이그레이션 시작 전 검토 사항](upgrade-to-latest-generation.md#before-you-begin)
 - [현재 위치 업그레이드 및 복원 지점에서 업그레이드](upgrade-to-latest-generation.md)
-- [사용자 정의 복원 지점 만들기](sql-data-warehouse-restore.md#restore-through-the-azure-portal)
-- [Gen2로 복원하는 방법 알아보기](sql-data-warehouse-restore.md#restore-an-active-or-paused-database-using-the-azure-portal)
+- [사용자 정의 복원 지점 만들기](sql-data-warehouse-restore-points.md)
+- [Gen2로 복원하는 방법 알아보기](sql-data-warehouse-restore-active-paused-dw.md#restore-an-existing-data-warehouse-through-the-azure-portal)
 - [SQL Data Warehouse 지원 요청 열기](https://go.microsoft.com/fwlink/?linkid=857950)

@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: 9906fe5de9c24f1b1a8c3f713fa772e56ed4e13f
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 135855ee33f783e85b398c7f9716c2c897633de9
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68441953"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779534"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Azure HDInsight에 대 한 가상 네트워크 계획
 
@@ -117,7 +117,7 @@ Azure는 가상 네트워크에 설치된 Azure 서비스에 대한 이름 확�
 
 * 인터넷에서 사용할 수 있는 모든 리소스. 예: microsoft.com, windowsupdate.com.
 
-* 리소스의 __내부 DNS 이름__을 사용하여 동일한 Azure Virtual Network에 있는 모든 리소스. 예를 들어 기본 이름 확인 기능을 사용할 경우, 다음은 HDInsight 작업자 노드에 할당된 내부 DNS 이름에 대한 예입니다.
+* 리소스의 __내부 DNS 이름__을 사용하여 동일한 Azure Virtual Network에 있는 모든 리소스. 예를 들어 기본 이름 확인을 사용 하는 경우 HDInsight worker 노드에 할당 된 내부 DNS 이름의 예는 다음과 같습니다.
 
   * wn0-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
   * wn2-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net

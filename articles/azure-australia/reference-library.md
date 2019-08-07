@@ -6,12 +6,12 @@ ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: grgale
-ms.openlocfilehash: 0c575076439e3405d34fe0ef3beff0242a53a8c5
-ms.sourcegitcommit: 15f7b641a67f3d6cf4fb4b4c11eaee18cf335923
+ms.openlocfilehash: 48b4b71d80bcef1eaf3bf89c0b14c8033748684e
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68601818"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779345"
 ---
 # <a name="additional-documentation-and-resources-by-focus-area"></a>주요 영역별 추가 설명서 및 리소스
 
@@ -22,7 +22,7 @@ ms.locfileid: "68601818"
 * [Microsoft 서비스 신뢰 포털 오스트레일리아 페이지](https://aka.ms/au-irap)
 * [Microsoft 보안 센터 CCSL 페이지](https://www.microsoft.com/trustcenter/compliance/ccsl)
 * [보호를 위한 Azure 보안 및 규정 준수 청사진](https://aka.ms/au-protected)
-* [Microsoft Azure의 테 넌 트 격리](https://docs.microsoft.com/azure/security/azure-isolation)
+* [Microsoft Azure의 테 넌 트 격리](https://docs.microsoft.com/azure/security/fundamentals/isolation-choices)
 * [오스트레일리아 정보 보안 매뉴얼](https://www.cyber.gov.au/ism)
 * [ACSC (오스트레일리아 사이버 Security Center) 인증 된 클라우드 목록](https://www.cyber.gov.au/irap/asd-certified-cloud-services)
 
@@ -32,7 +32,7 @@ ms.locfileid: "68601818"
 * [키, 비밀 및 인증서에 대한 정보](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates)
 * [Azure Key Vault 방화벽 및 가상 네트워크 구성](https://docs.microsoft.com/azure/key-vault/key-vault-network-security)
 * [키 자격 증명 모음에 대 한 보안 액세스](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault)
-* [Azure 미사용 데이터 암호화](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)
+* [Azure 미사용 데이터 암호화](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
 * [.NET에서 Azure Windows Virtual Machines와 함께 Azure Key Vault를 사용 하는 방법](https://docs.microsoft.com/azure/key-vault/tutorial-net-windows-virtual-machine)
 * [Azure Key Vault 관리 저장소 계정-PowerShell](https://docs.microsoft.com/azure/key-vault/tutorial-net-windows-virtual-machine)
 * [키 회전 및 감사 설정](https://docs.microsoft.com/azure/key-vault/key-vault-key-rotation-log-monitoring)
@@ -68,7 +68,7 @@ ms.locfileid: "68601818"
 * [Azure RBAC 개요](https://docs.microsoft.com/azure/role-based-access-control/overview)
 * [Azure 권한 있는 Id 관리 개요](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure)
 * [Azure 관리 그룹 개요](https://docs.microsoft.com/azure/governance/management-groups/)
-* [Azure Id 및 Access Control 모범 사례](https://docs.microsoft.com/azure/security/azure-security-identity-management-best-practices)
+* [Azure Id 및 Access Control 모범 사례](https://docs.microsoft.com/azure/security/fundamentals/identity-management-best-practices)
 * [Azure AD 그룹 관리](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups)
 * [하이브리드 Id](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity)
 * [RBAC 사용자 지정 역할](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)

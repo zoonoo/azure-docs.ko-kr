@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 08/06/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 896bd7f9af3c319ec4190131036d8aa8ee49bb79
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: e15fa8c79663fc2517039124f9be8c1ecd57b8a8
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68705428"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68837885"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Azure Active Directory에서 앱 등록 권한 위임
 
@@ -29,7 +29,7 @@ ms.locfileid: "68705428"
 - [응용 프로그램을 만들고 사용자가](#restrict-who-can-create-applications) 만드는 응용 프로그램을 관리할 수 있는 사용자를 제한 합니다. 기본적으로 Azure AD에서는 모든 사용자가 응용 프로그램 등록을 등록 하 고 자신이 만든 응용 프로그램의 모든 측면을 관리할 수 있습니다. 이는 사용 권한을 가진 사용자만 허용 하도록 제한할 수 있습니다.
 - [하나 이상의 소유자를 응용 프로그램에 할당](#assign-application-owners)합니다. 이 방법은 사용자에 게 특정 응용 프로그램에 대 한 Azure AD 구성의 모든 측면을 관리할 수 있는 기능을 부여 하는 간단한 방법입니다.
 - 모든 응용 프로그램에 대해 Azure AD에서 구성을 관리 하는 액세스 권한을 부여 하는 [기본 제공 관리 역할을 할당](#assign-built-in-application-admin-roles) 합니다. 응용 프로그램 구성과 관련이 없는 Azure AD의 다른 부분을 관리 하기 위한 액세스 권한을 부여 하지 않고 광범위 한 응용 프로그램 구성 권한을 관리 하기 위해 IT 전문가에 게 액세스 권한을 부여 하는 데 권장 되는 방법입니다.
-- 매우 구체적인 사용 권한을 정의 하 고 사용자에 게 단일 응용 프로그램의 범위를 제한 된 소유자로 할당 하거나 디렉터리 범위 (모든 응용 프로그램)에서 제한 된 관리자로 할당 하 [는 사용자 지정 역할을 만듭니다](#create-and-assign-a-custom-role) .
+- 매우 구체적인 사용 권한을 정의 하 고 사용자에 게 단일 응용 프로그램의 범위를 제한 된 소유자로 할당 하거나 디렉터리 범위 (모든 응용 프로그램)에서 제한 된 관리자로 할당 하 [는 사용자 지정 역할을 만듭니다](#create-and-assign-a-custom-role-preview) .
 
 위의 방법 중 하나를 사용 하 여 두 가지 이유 때문에 액세스 권한을 부여 하는 것이 중요 합니다. 먼저 관리 작업을 수행 하는 기능을 위임 하면 전역 관리자 오버 헤드가 줄어듭니다. 둘째, 제한 된 권한을 사용 하 여 보안 상태를 개선 하 고 무단 액세스 가능성을 줄입니다. 위임 문제 및 일반 지침은 [Azure Active Directory의 관리 위임](roles-concept-delegation.md)에서 설명합니다.
 
@@ -86,16 +86,21 @@ Azure AD에는 모든 응용 프로그램에 대해 Azure AD의 구성 관리에
 > 응용 프로그램 관리자와 클라우드 응용 프로그램 관리자는 자격 증명을 응용 프로그램에 추가 하 고 이러한 자격 증명을 사용 하 여 응용 프로그램의 id를 가장할 수 있습니다. 응용 프로그램에는 관리자 역할의 사용 권한에 대 한 권한 상승 권한이 있을 수 있습니다. 이 역할의 관리자는 응용 프로그램의 사용 권한에 따라 응용 프로그램을 가장 하는 동안 사용자 또는 기타 개체를 만들거나 업데이트할 수 있습니다.
 > 두 역할 모두, 조건부 액세스 설정을 관리하는 기능은 부여하지 않습니다.
 
-## <a name="create-and-assign-a-custom-role"></a>사용자 지정 역할 만들기 및 할당
+## <a name="create-and-assign-a-custom-role-preview"></a>사용자 지정 역할 만들기 및 할당 (미리 보기)
 
 사용자 지정 역할을 만들고 사용자 지정 역할을 할당 하는 단계는 다음과 같습니다.
 
 - [사용자 지정 *역할 정의* ](roles-create-custom.md) 를 만들고 [기본 설정 목록에서 해당 정의에 대 한 권한을 추가](roles-custom-available-permissions.md)합니다. 이러한 권한은 기본 제공 역할에 사용 되는 것과 동일한 권한입니다.
-- 사용자 지정 역할을 할당 하 [는 *역할 할당* 을 만듭니다](roles-assign-graph.md) .
+- 사용자 지정 역할을 할당 하 [는 *역할 할당* 을 만듭니다](roles-assign-powershell.md) .
 
 이러한 분리를 통해 단일 역할 정의를 만든 다음 여러 *범위*에서 여러 번 할당할 수 있습니다. 사용자 지정 역할은 조직 전체의 범위에서 할당 되거나 단일 Azure AD 개체의 경우 범위에서 할당 될 수 있습니다. 개체 범위의 예로는 단일 앱 등록이 있습니다. 서로 다른 범위를 사용 하 여 조직의 모든 앱 등록에 대해 Sally에 동일한 역할 정의를 할당 한 후 Contoso Expense Reports 앱 등록만 Naveen 수 있습니다.
 
-사용자 지정 역할의 기본 사항에 대 한 자세한 내용은 사용자 지정 역할 [개요](roles-custom-overview.md)를 참조 하 고 [사용자 지정 역할을 만드는](roles-create-custom.md) 방법 및 역할을 [할당](roles-assign-graph.md)하는 방법을 참조 하세요.
+응용 프로그램 관리 위임에 대 한 사용자 지정 역할을 만들고 사용 하는 경우의 팁:
+- 사용자 지정 역할은 Azure AD 포털의 최신 앱 등록 블레이드에만 액세스 권한을 부여 합니다. 레거시 앱 등록 블레이드에는 액세스 권한을 부여 하지 않습니다.
+- "Azure AD 관리 포털에 대 한 액세스 제한" 사용자 설정이 예로 설정 된 경우 사용자 지정 역할은 Azure AD 포털에 대 한 액세스 권한을 부여 하지 않습니다.
+- 사용자가 역할 할당을 사용 하 여 액세스할 수 있는 앱 등록 앱 등록 페이지의 ' 모든 응용 프로그램 ' 탭에만 표시 됩니다. ' 소유 응용 프로그램 ' 탭에 표시 되지 않습니다.
+
+사용자 지정 역할의 기본 사항에 대 한 자세한 내용은 사용자 지정 역할 [개요](roles-custom-overview.md)를 참조 하 고 [사용자 지정 역할을 만드는](roles-create-custom.md) 방법 및 역할을 [할당](roles-assign-powershell.md)하는 방법을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

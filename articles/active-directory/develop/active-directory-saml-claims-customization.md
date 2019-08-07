@@ -12,18 +12,18 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f5930f2d3db94f615321eda480aed0d4d196911
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 0c0625a233b3b4a949feff2e289361a26fc8dc5a
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68380820"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835349"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>방법: 엔터프라이즈 애플리케이션에 대한 SAML 토큰에 발급된 클레임 사용자 지정
 
@@ -73,7 +73,7 @@ NameIDPolicy 특성에 대해 자세히 알아보려면 [Single SIGN-ON SAML 프
 
 `NameIdentifier`(또는 NameID) 클레임의 원하는 소스를 선택합니다. 다음 옵션 중에서 선택할 수 있습니다.
 
-| 이름 | Description |
+| 이름 | 설명 |
 |------|-------------|
 | EMail | 사용자의 이메일 주소입니다. |
 | userprincipalName | 사용자의 UPN (사용자 계정 이름) |

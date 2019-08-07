@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 96169f8f52ea9d45d8804a7d4fc08827a4f1ea03
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: ed9eb990fff3a0901f3fa26526b30e8cb8a2fe66
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67668408"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779412"
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>가상 머신 또는 VHD의 이미지를 만드는 방법
 
@@ -30,9 +30,9 @@ Azure에서 사용할 VM(가상 머신)의 복사본을 여러 개 만들려면 
 
 백업 또는 디버깅을 위해 기존 Linux VM의 복사본을 만들거나 온-프레미스 VM에서 특수한 Linux VHD를 업로드하려면 [사용자 지정 디스크 이미지에서 Linux VM 업로드 및 만들기](upload-vhd.md)를 참조하세요.  
 
-사용할 수는 **Azure VM 이미지 작성기 (공개 미리 보기)** 모든 도구를 배울 필요가 없습니다 하 여 사용자 지정 이미지를 빌드하고 서비스 또는 설치 단지는 이미지 구성을 제공 하는 파이프라인을 빌드하고 이미지 작성기에서 이미지를 만들 합니다. 자세한 내용은 [Getting Started with Azure VM 이미지 작성기](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview)합니다.
+**AZURE VM 이미지 작성기 (공개 미리 보기)** 서비스를 사용 하 여 사용자 지정 이미지를 작성 하거나, 도구를 배울 필요가 없으며, 빌드 파이프라인을 설정 하 여 이미지 구성을 제공 하기만 하면 이미지 작성기에서 이미지를 만들 수 있습니다. 자세한 내용은 [AZURE VM 이미지 작성기 시작](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview)을 참조 하세요.
 
-또한 사용 하 여 **Packer** 사용자 지정 구성을 만들려면. 자세한 내용은 [Azure에서 Packer를 사용하여 Linux 가상 머신 이미지를 만드는 방법](build-image-with-packer.md)을 참조하세요.
+또한에서 패키지 를 사용 하 여 사용자 지정 구성을 만듭니다. 자세한 내용은 [Azure에서 Packer를 사용하여 Linux 가상 머신 이미지를 만드는 방법](build-image-with-packer.md)을 참조하세요.
 
 이미지를 만들려면 다음 항목이 필요합니다.
 
@@ -63,13 +63,15 @@ Azure VM 에이전트를 사용하여 VM의 프로비전을 해제하여 머신�
 ## <a name="step-2-create-vm-image"></a>2단계: VM 이미지 만들기
 Azure CLI를 사용하여 VM을 일반화된 항목으로 표시하고 이미지를 캡처합니다. 다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에는 *myResourceGroup*, *myVnet*, *myVM*이 포함됩니다.
 
-1. [az vm deallocate](/cli/azure/vm)로 프로비전 해제한 VM의 할당을 취소합니다. 다음 예제에서는 리소스 그룹 *myResourceGroup*에서 *myVM*이라는 VM의 할당을 취소합니다.
+1. [az vm deallocate](/cli/azure/vm)로 프로비전 해제한 VM의 할당을 취소합니다. 다음 예제에서는 리소스 그룹 *myResourceGroup*에서 *myVM*이라는 VM의 할당을 취소합니다.  
    
     ```azurecli
     az vm deallocate \
       --resource-group myResourceGroup \
       --name myVM
     ```
+    
+    이동 하기 전에 VM이 완전히 할당 취소 될 때까지 기다립니다. 이 작업을 완료하는 데 몇 분 정도 걸릴 수 있습니다.
 
 2. [az vm generalize](/cli/azure/vm)를 사용하여 VM을 일반화된 항목으로 표시합니다. 다음 예제에서는 리소스 그룹 *myResourceGroup*에서 *myVM*이라는 VM을 일반화된 항목으로 표시합니다.
    

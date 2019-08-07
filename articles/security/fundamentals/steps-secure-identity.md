@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martinco
-ms.openlocfilehash: 0ccd2ee8b2c9f542eabe7a297f4c99a3993a47e9
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: c5cdd12c3075d48ff32c40d686b32a650ec43d8e
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726749"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779775"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>ID 인프라를 보호하기 위한 5단계
 
@@ -74,7 +74,7 @@ Azure AD에서 직접 ID를 만드는 경우 사용자의 [암호가 만료되�
 조직에서 통과 인증 또는 페더레이션을 사용하는 하이브리드 ID 솔루션을 이용하는 경우 다음과 같은 두 가지 이유로 암호 해시 동기화를 사용하도록 설정해야 합니다.
 
 * Azure AD 관리의 [유출된 자격 증명이 있는 사용자](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events) 보고서는 “다크 웹”에서 노출된 사용자 이름 및 암호 쌍에 대해 경고합니다. 엄청난 양의 암호가 피싱, 맬웨어 및 나중에 위반되는 타사 사이트에서 암호 재사용을 통해 유출됩니다. Microsoft는 이러한 유출된 자격 증명 중 많은 부분을 찾아 조직의 자격 증명과 일치하는 경우 이 보고서를 통해 알립니다. 단, [암호 해시 동기화를 사용하도록 설정](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization)한 경우에만 적용됩니다!
-* 온-프레미스 장애(예: 랜섬웨어 공격)의 경우 [암호 해시 동기화를 사용하여 클라우드 인증](https://docs.microsoft.com/azure/security/azure-ad-choose-authn)으로 전환할 수 있습니다. 이 백업 인증 방법을 사용하면 Office 365를 비롯하여 Azure Active Directory를 통한 인증을 위해 구성된 앱에 계속 액세스할 수 있습니다. 이 경우 IT 직원은 온-프레미스 중단이 해결될 때까지 개인 이메일 계정을 사용하여 데이터를 공유할 필요가 없습니다.
+* 온-프레미스 장애(예: 랜섬웨어 공격)의 경우 [암호 해시 동기화를 사용하여 클라우드 인증](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn)으로 전환할 수 있습니다. 이 백업 인증 방법을 사용하면 Office 365를 비롯하여 Azure Active Directory를 통한 인증을 위해 구성된 앱에 계속 액세스할 수 있습니다. 이 경우 IT 직원은 온-프레미스 중단이 해결될 때까지 개인 이메일 계정을 사용하여 데이터를 공유할 필요가 없습니다.
 
 [암호 해시 동기화](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization) 작동 방식에 대해 자세히 알아보세요.
 
@@ -146,7 +146,7 @@ Azure Active Directory에는 검색 및 응답 사이의 대기 시간을 제거
 
 ### <a name="monitor-azure-ad"></a>Azure AD 모니터링
 
-Microsoft Azure 서비스 및 기능은 구성 가능한 보안 감사 및 로깅 옵션을 제공하여 보안 정책과 메커니즘의 차이를 식별하고 이러한 차이를 해결하여 위반을 방지할 수 있게 합니다. [Azure 로깅 및 감사](https://docs.microsoft.com/azure/security/azure-log-audit)와 [Azure Active Directory 포털의 감사 작업 보고서](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs)를 사용할 수 있습니다.
+Microsoft Azure 서비스 및 기능은 구성 가능한 보안 감사 및 로깅 옵션을 제공하여 보안 정책과 메커니즘의 차이를 식별하고 이러한 차이를 해결하여 위반을 방지할 수 있게 합니다. [Azure 로깅 및 감사](https://docs.microsoft.com/azure/security/fundamentals/log-audit)와 [Azure Active Directory 포털의 감사 작업 보고서](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs)를 사용할 수 있습니다.
 
 ### <a name="monitor-azure-ad-connect-health-in-hybrid-environments"></a>하이브리드 환경에서 Azure AD Connect Health 모니터링
 

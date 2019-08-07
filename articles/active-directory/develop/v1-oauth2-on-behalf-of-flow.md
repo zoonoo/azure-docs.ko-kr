@@ -12,18 +12,18 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7381a0dfb8f780900d8c2c8ba0637dcd232bdb9f
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: bf0c639dd5fb678af7fca9224292218331b10ee6
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68380897"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68834760"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>On-Behalf-Of 흐름에서 위임된 사용자 ID를 사용하는 서비스 간 호출
 
@@ -109,7 +109,7 @@ https://login.microsoftonline.com/<tenant>/oauth2/token
 
 공유 암호를 사용할 경우 서비스 간 액세스 토큰 요청에는 다음 매개 변수가 있습니다.
 
-| 매개 변수 |  | Description |
+| 매개 변수 |  | 설명 |
 | --- | --- | --- |
 | grant_type |필수 | 토큰 요청의 형식입니다. OBO 요청은 JWT(JSON Web Token)을 사용하므로 값은 **urn:ietf:params:oauth:grant-type:jwt-bearer**이어야 합니다. |
 | assertion |필수 | 요청에 사용된 액세스 토큰 값입니다. |

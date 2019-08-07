@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: 903673e2c953328e90029938a9b7446271411646
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.subservice: cognitive-search
+ms.openlocfilehash: 653fbfe8c20150b2aca3e0a45b2877af35e01fff
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68422995"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840999"
 ---
 # <a name="ocr-cognitive-skill"></a>OCR 인식 기술
 
@@ -45,7 +45,7 @@ OCR(광학 문자 인식) 기술은 이미지 파일에서 인쇄 및 필기한 
 
 매개 변수는 대/소문자를 구분합니다.
 
-| 매개 변수 이름     | Description |
+| 매개 변수 이름     | 설명 |
 |--------------------|-------------|
 | detectOrientation | 이미지 방향의 자동 검색을 사용합니다. <br/> 유효한 값: true / false.|
 |defaultLanguageCode | <p>  입력 텍스트의 언어 코드입니다. 지원되는 언어는 다음과 같습니다. <br/> zh-Hans(중국어 간체) <br/> zh-Hant(중국어 번체) <br/>cs(체코어) <br/>da(덴마크어) <br/>nl(네덜란드어) <br/>en(영어) <br/>fi(핀란드어)  <br/>fr(프랑스어) <br/>  de(독일어) <br/>el(그리스어) <br/> hu(헝가리어) <br/> it(이탈리아어) <br/>  ja(일본어) <br/> ko(한국어) <br/> nb(노르웨이어) <br/>   pl(폴란드어) <br/> pt(포르투갈어) <br/>  ru(러시아어) <br/>  es(스페인어) <br/>  sv(스웨덴어) <br/>  tr(터키어) <br/> ar(아랍어) <br/> ro(루마니아어) <br/> sr-Cyrl(세르비아 키릴어) <br/> sr-Latn(세르비아 라틴어) <br/>  sk(슬로바키아어) <br/>  unk(알 수 없음) <br/><br/> 언어 코드가 지정되지 않았거나 null인 경우 언어는 영어로 설정됩니다. 언어가 명시적으로 “unk”로 설정된 경우 언어는 자동으로 검색됩니다. </p> |

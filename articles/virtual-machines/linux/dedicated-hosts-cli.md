@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 07/29/2019
 ms.author: cynthn
-ms.openlocfilehash: 7eda675ed7694e1ad7de90f89282bd7a3cc50ea1
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 0c060e2ab94c0a57d4d4dc897702e115cfabd9a0
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68700419"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827298"
 ---
 # <a name="preview-deploy-vms-to-dedicated-hosts-using-the-azure-cli"></a>미리 보기: Azure CLI를 사용 하 여 전용 호스트에 Vm 배포
  
@@ -53,7 +53,7 @@ az group create --name myDHResourceGroup --location eastus
 
 가용성 영역 및 장애 도메인을 모두 사용 하도록 결정할 수도 있습니다. 
 
-이 예제에서는 [az vm host group create](/cli/azure/vm#az-vm-host-group-create) 를 사용 하 여 가용성 영역 및 장애 도메인을 모두 사용 하는 호스트 그룹을 만듭니다. 
+이 예제에서는 [az vm host group create](/cli/azure/vm/host/group#az-vm-host-group-create) 를 사용 하 여 가용성 영역 및 장애 도메인을 모두 사용 하는 호스트 그룹을 만듭니다. 
 
 ```bash
 az vm host group create \
@@ -65,7 +65,7 @@ az vm host group create \
 
 ### <a name="other-examples"></a>기타 예
 
-[Az vm host group create](/cli/azure/vm#az-vm-host-group-create) 를 사용 하 여 가용성 영역 1에 호스트 그룹을 만들 수도 있습니다 (장애 도메인 없음).
+[Az vm host group create](/cli/azure/vm/host/group#az-vm-host-group-create) 를 사용 하 여 가용성 영역 1에 호스트 그룹을 만들 수도 있습니다 (장애 도메인 없음).
 
 ```bash
 az vm host group create \
@@ -75,7 +75,7 @@ az vm host group create \
    --platform-fault-domain-count 1 
 ```
  
-다음에서는 [az vm host group create](/cli/azure/vm#az-vm-host-group-create) 를 사용 하 여 장애 도메인만 사용 하 여 호스트 그룹을 만듭니다 (가용성 영역이 지원 되지 않는 지역에서 사용 됨). 
+다음에서는 [az vm host group create](/cli/azure/vm/host/group#az-vm-host-group-create) 를 사용 하 여 장애 도메인만 사용 하 여 호스트 그룹을 만듭니다 (가용성 영역이 지원 되지 않는 지역에서 사용 됨). 
 
 ```bash
 az vm host group create \
@@ -91,7 +91,7 @@ az vm host group create \
 
 호스트 Sku 및 가격 책정에 대 한 자세한 내용은 [Azure 전용 호스트 가격](https://aka.ms/ADHPricing)을 참조 하세요.
 
-[Az vm host create](/cli/azure/vm#az-vm-host-create) 를 사용 하 여 호스트를 만듭니다. 호스트 그룹에 대 한 장애 도메인 수를 설정 하는 경우 호스트에 대 한 장애 도메인을 지정 하 라는 메시지가 표시 됩니다.  
+[Az vm host create](/cli/azure/vm/host#az-vm-host-create) 를 사용 하 여 호스트를 만듭니다. 호스트 그룹에 대 한 장애 도메인 수를 설정 하는 경우 호스트에 대 한 장애 도메인을 지정 하 라는 메시지가 표시 됩니다.  
 
 ```bash
 az vm host create \
@@ -126,7 +126,7 @@ az vm create \
 
 ## <a name="check-the-status-of-the-host"></a>호스트의 상태를 확인 합니다.
 
-[Az vm host get instance-view](/cli/azure/vm#az-vm-host-get-instance-view)를 사용 하 여 호스트 상태와 호스트에 배포할 수 있는 가상 컴퓨터 수를 확인할 수 있습니다.
+[Az vm host get instance-view](/cli/azure/vm/host#az-vm-host-get-instance-view)를 사용 하 여 호스트 상태와 호스트에 배포할 수 있는 가상 컴퓨터 수를 확인할 수 있습니다.
 
 ```bash
 az vm host get-instance-view \
@@ -260,13 +260,13 @@ az group deployment create \
 az vm delete -n myVM -g myDHResourceGroup
 ```
 
-Vm을 삭제 한 후 [az vm host delete](/cli/azure/vm#az-vm-host-delete)를 사용 하 여 호스트를 삭제할 수 있습니다.
+Vm을 삭제 한 후 [az vm host delete](/cli/azure/vm/host#az-vm-host-delete)를 사용 하 여 호스트를 삭제할 수 있습니다.
 
 ```bash
 az vm host delete -g myDHResourceGroup --host-group myHostGroup --name myHost 
 ```
  
-모든 호스트를 삭제 한 후에는 [az vm host group delete](/cli/azure/vm#az-vm-host-group-delete)를 사용 하 여 호스트 그룹을 삭제할 수 있습니다.  
+모든 호스트를 삭제 한 후에는 [az vm host group delete](/cli/azure/vm/host/group#az-vm-host-group-delete)를 사용 하 여 호스트 그룹을 삭제할 수 있습니다.  
  
 ```bash
 az vm host group delete -g myDHResourceGroup --host-group myHostGroup  

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d2bad808d0bcbbd5dc8052db0f8fd32fc4c1180a
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 831c771da385ef6faeba194878ca53ede34ccc0a
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699471"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816647"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Windows에서 Azure 파일 공유 사용
 [Azure Files](storage-files-introduction.md)는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다. Azure 파일 공유는 Windows 및 Windows Server에서 매끄럽게 사용할 수 있습니다. 이 문서에서는 Windows 및 Windows Server에서 Azure 파일 공유를 사용할 때의 고려 사항을 설명합니다.
@@ -33,8 +33,8 @@ Azure VM 또는 온-프레미스에서 실행되는 Windows에서 Azure 파일 �
 | Windows 7              | SMB 2.1     | yes                   | 아니요                   |
 | Windows Server 2008 R2 | SMB 2.1     | yes                   | 아니요                   |
 
-<sup>1</sup>Windows 10, 버전 1507, 1607, 1703, 1709, 1803, 1809.  
-<sup>2</sup>Windows Server, 버전 1709 및 1803.
+<sup>1</sup> Windows 10, 버전 1507, 1607, 1703, 1709, 1803, 1809 및 1903입니다.  
+<sup>2</sup> Windows Server, 버전 1803, 1809 및 1903.
 
 > [!Note]  
 > 사용자의 Windows 버전에 대해 가장 최근의 KB를 선택하는 것이 좋습니다.

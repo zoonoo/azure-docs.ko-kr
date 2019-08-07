@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d96f5bb189dfd20c65fc6fc6ddcb8fff66d52ff
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 07c035f4823ea8c8eaa96ca9bda22450246811cd
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68666230"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779619"
 ---
 # <a name="azure-ad-password-protection-troubleshooting"></a>Azure AD 암호 보호 문제 해결
 
@@ -32,7 +32,7 @@ Azure AD 암호 보호를 배포한 후 문제를 해결해야 할 수도 있습
 
 이 문제의 주요 증상은 DC 에이전트 관리자 이벤트 로그에서 30018 이벤트입니다. 이 문제에는 여러 가지 원인이 있을 수 있습니다.
 
-1. DC 에이전트가 등록 된 프록시에 대 한 네트워크 연결을 허용 하지 않는 격리 된 네트워크 부분에 있습니다. 따라서이 문제는 다른 DC 에이전트가 Azure에서 암호 정책을 다운로드 하기 위해 프록시와 통신할 수 있는 한, 즉 sysvol 공유에 있는 정책 파일의 복제를 통해 격리 된 DC에서 얻을 수 있는 경우에는 심각 하지 않을 수 있습니다.
+1. DC 에이전트가 등록 된 프록시에 대 한 네트워크 연결을 허용 하지 않는 격리 된 네트워크 부분에 있습니다. Azure에서 암호 정책을 다운로드 하기 위해 다른 DC 에이전트가 프록시와 통신할 수 있으면이 문제는 심각 하지 않을 수 있습니다. 다운로드 한 후에는 격리 된 DC에서 sysvol 공유의 정책 파일 복제를 통해 해당 정책을 가져옵니다.
 
 1. 프록시 호스트 컴퓨터가 RPC 끝점 매퍼 끝점 (포트 135)에 대 한 액세스를 차단 하 고 있습니다.
 
@@ -70,6 +70,8 @@ KDS 서비스를 시작할 수 없는 가장 일반적인 근본 원인은 Activ
 
 이 문제는 여러 원인이 있을 수 있습니다.
 
+1. DC 에이전트가 만료 된 공개 미리 보기 소프트웨어 버전을 실행 하 고 있습니다. [공개 미리 보기 DC 에이전트 소프트웨어가 만료 되었습니다](howto-password-ban-bad-on-premises-troubleshoot.md#public-preview-dc-agent-software-has-expired).를 참조 하세요.
+
 1. DC 에이전트가 정책을 다운로드할 수 없거나 기존 정책의 암호를 해독할 수 없습니다. 위의 항목에서 가능한 원인을 확인 하십시오.
 
 1. 암호 정책 강제 적용 모드가 여전히 감사로 설정되어 있습니다. 이 구성이 적용 되는 경우 Azure AD 암호 보호 포털을 사용 하 여 적용 하도록 다시 구성 합니다. [암호 보호 사용](howto-password-ban-bad-on-premises-operations.md#enable-password-protection)을 참조 하세요.
@@ -99,7 +101,7 @@ Setting password failed.
         Error Message: Password doesn't meet the requirements of the filter dll's
 ```
 
-Azure AD 암호 보호에서 Active Directory DSRM 암호에 대 한 암호 유효성 검사 이벤트 로그 이벤트를 기록 하는 경우 이벤트 로그 메시지에 사용자 이름이 포함 되지 않습니다. 이는 DSRM 계정이 실제 Active Directory 도메인에 속하지 않는 로컬 계정 이기 때문에 발생 합니다.  
+Azure AD 암호 보호에서 Active Directory DSRM 암호에 대 한 암호 유효성 검사 이벤트 로그 이벤트를 기록 하는 경우 이벤트 로그 메시지에 사용자 이름이 포함 되지 않습니다. 이 동작은 DSRM 계정이 실제 Active Directory 도메인에 속하지 않는 로컬 계정 이기 때문에 발생 합니다.  
 
 ## <a name="domain-controller-replica-promotion-fails-because-of-a-weak-dsrm-password"></a>도메인 컨트롤러 복제본의 승격은 약한 DSRM 암호로 인해 실패 합니다.
 
@@ -119,7 +121,67 @@ Install-ADDSDomainController : Verification of prerequisites for Domain Controll
 
 ## <a name="booting-into-directory-services-repair-mode"></a>디렉터리 서비스 복구 모드로 부팅
 
-도메인 컨트롤러가 디렉터리 서비스 복구 모드로 부팅 되는 경우에는 DC 에이전트 서비스가이 조건을 감지 하 고 현재 활성 정책 구성에 관계 없이 모든 암호 유효성 검사 또는 적용 작업을 사용 하지 않도록 설정 합니다.
+도메인 컨트롤러가 디렉터리 서비스 복구 모드로 부팅 되는 경우 DC 에이전트 암호 필터 dll은이 조건을 감지 하 고 현재 활성 정책에 관계 없이 모든 암호 유효성 검사 또는 적용 작업을 사용 하지 않도록 설정 합니다. 구성. DC 에이전트 암호 필터 dll은 10023 경고 이벤트를 관리자 이벤트 로그에 기록 합니다. 예를 들면 다음과 같습니다.
+
+```text
+The password filter dll is loaded but the machine appears to be a domain controller that has been booted into Directory Services Repair Mode. All password change and set requests will be automatically approved. No further messages will be logged until after the next reboot.
+```
+## <a name="public-preview-dc-agent-software-has-expired"></a>공용 미리 보기 DC 에이전트 소프트웨어가 만료 되었습니다.
+
+Azure AD 암호 보호 공개 미리 보기 기간 동안 DC 에이전트 소프트웨어는 다음 날짜에 대 한 암호 유효성 검사 요청 처리를 중지 하도록 하드 코딩 되었습니다.
+
+* 버전 1.2.65.0는 9 월 1 2019에 대 한 암호 유효성 검사 요청 처리를 중지 합니다.
+* 1 2019 7 월에 대 한 암호 유효성 검사 요청 처리 버전 1.2.25.0 및 이전에 중지 되었습니다.
+
+최종 기한에 따라 시간이 제한 된 모든 DC 에이전트 버전은 부팅 시 DC 에이전트 관리자 이벤트 로그에 10021 이벤트를 내보냅니다. 예를 들면 다음과 같습니다.
+
+```text
+The password filter dll has successfully loaded and initialized.
+
+The allowable trial period is nearing expiration. Once the trial period has expired, the password filter dll will no longer process passwords. Please contact Microsoft for an newer supported version of the software.
+
+Expiration date:  9/01/2019 0:00:00 AM
+
+This message will not be repeated until the next reboot.
+```
+
+최종 기한이 지나면 시간이 제한 된 모든 DC 에이전트 버전은 부팅 시 DC 에이전트 관리자 이벤트 로그에 10022 이벤트를 내보냅니다. 예를 들면 다음과 같습니다.
+
+```text
+The password filter dll is loaded but the allowable trial period has expired. All password change and set requests will be automatically approved. Please contact Microsoft for a newer supported version of the software.
+
+No further messages will be logged until after the next reboot.
+```
+
+최종 기한는 초기 부팅 시에만 확인 되므로 달력 최종 기한이 지난 후에도 이러한 이벤트가 표시 되지 않을 수 있습니다. 최종 기한을 인식 한 후에는 모든 암호가 자동으로 승인 되는 것이 아니라 도메인 컨트롤러나 더 큰 환경에 부정적인 영향을 주지 않습니다.
+
+> [!IMPORTANT]
+> 만료 된 공개 미리 보기 DC 에이전트는 즉시 최신 버전으로 업그레이드 하는 것이 좋습니다.
+
+업그레이드 해야 하는 사용자 환경에서 DC 에이전트를 검색 하는 쉬운 방법은 `Get-AzureADPasswordProtectionDCAgent` cmdlet을 실행 하는 것입니다. 예를 들면 다음과 같습니다.
+
+```powershell
+PS C:\> Get-AzureADPasswordProtectionDCAgent
+
+ServerFQDN            : bpl1.bpl.com
+SoftwareVersion       : 1.2.125.0
+Domain                : bpl.com
+Forest                : bpl.com
+PasswordPolicyDateUTC : 8/1/2019 9:18:05 PM
+HeartbeatUTC          : 8/1/2019 10:00:00 PM
+AzureTenant           : bpltest.onmicrosoft.com
+```
+
+이 항목의 경우, 버전 필드는 분명히 확인할 키 속성입니다. PowerShell 필터링을 사용 하 여 이미 필요한 기준 버전 이상인 DC 에이전트를 필터링 할 수도 있습니다. 예를 들면 다음과 같습니다.
+
+```powershell
+PS C:\> $LatestAzureADPasswordProtectionVersion = "1.2.125.0"
+PS C:\> Get-AzureADPasswordProtectionDCAgent | Where-Object {$_.SoftwareVersion -lt $LatestAzureADPasswordProtectionVersion}
+```
+
+Azure AD 암호 보호 프록시 소프트웨어는 어떤 버전 에서도 시간이 제한 되지 않습니다. DC와 프록시 에이전트는 모두 릴리스 될 때 최신 버전으로 업그레이드 하는 것이 좋습니다. `Get-AzureADPasswordProtectionProxy` Cmdlet을 사용 하 여 DC 에이전트에 대 한 위의 예제와 비슷하게 업그레이드를 필요로 하는 프록시 에이전트를 찾을 수 있습니다.
+
+특정 업그레이드 절차에 대 한 자세한 내용은 [DC 에이전트 업그레이드](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-dc-agent) 및 [프록시 에이전트 업그레이드](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-proxy-agent) 를 참조 하세요.
 
 ## <a name="emergency-remediation"></a>응급 업데이트 관리
 

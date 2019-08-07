@@ -12,24 +12,24 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/28/2018
 ms.author: ryanwi
 ms.reviewer: lenalepa
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec615e1c6229539958f66d0dca15cf7eb788e597
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 357ef290bd24d1d0f48830913511b8cc8944a239
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65546107"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835238"
 ---
 # <a name="app-registration-reference"></a>앱 등록 참조
 이 문서에서는 [Microsoft 앱 등록 포털](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/)에 있는 다양한 기능에 대한 컨텍스트와 설명을 제공합니다.
 
 > [!NOTE]
-> 우리는 더 이상 지원 등록 하 고에서 수렴 형 및 Azure AD 응용 프로그램을 관리 합니다 [응용 프로그램 등록 포털](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/) 2019 년 5 월 시작 합니다. 기존 응용 프로그램 관리를 사용 하 여 새 응용 프로그램을 등록 하는 것이 좋습니다 합니다 [앱 등록](https://aka.ms/appregistrations) Azure portal에서 발생 합니다.
+> 2019 년 5 월부터 [응용 프로그램 등록 포털](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/) 에서 수렴 형 및 Azure AD 응용 프로그램 등록 및 관리를 더 이상 지원 하지 않습니다. Azure Portal에서 [앱 등록](https://aka.ms/appregistrations) 환경을 사용 하 여 기존 응용 프로그램을 관리 하 고 새 응용 프로그램을 등록 하는 것이 좋습니다.
 
 ## <a name="my-applications-or-converged-applications"></a>내 애플리케이션 또는 수렴된 애플리케이션
 이 목록에는 Azure AD v2.0 엔드포인트에서 사용하도록 등록된 모든 애플리케이션이 포함되어 있습니다. 이러한 애플리케이션은 Azure Active Directory에서 개인 Microsoft 계정 및 회사/학교 계정 모두를 사용하는 사용자를 로그인할 수 있습니다. Azure AD v2.0 엔드포인트에 대한 자세한 내용은 [v2.0 개요](active-directory-appmodel-v2-overview.md)를 참조하세요. 이러한 애플리케이션을 사용하여 Microsoft 계정 인증 엔드포인트인 `https://login.live.com`과 통합할 수도 있습니다.
@@ -49,7 +49,7 @@ ms.locfileid: "65546107"
 공개 키가 포함된 인증서를 업로드해야 합니다.
 
 ## <a name="profile"></a>프로필
-앱 등록 포털의 프로필 섹션을 사용하여 애플리케이션에 대한 로그인 페이지를 사용자 지정할 수 있습니다. 현재 로그인 페이지의 애플리케이션 로고, 서비스 약관 URL 및 개인정보처리방침 URL을 변경할 수 있습니다. 로고는 15KB 이하인 GIP, PNG 또는 JPEG 파일로 된 투명한 48 x 48 또는 50 x 50 픽셀 이미지여야 합니다. 값을 변경하고 결과 로그인 페이지를 확인해 보세요!
+앱 등록 포털의 프로필 섹션을 사용하여 애플리케이션에 대한 로그인 페이지를 사용자 지정할 수 있습니다. 현재 로그인 페이지의 애플리케이션 로고, 서비스 약관 URL 및 개인정보처리방침 URL을 변경할 수 있습니다. 로고는 15KB 이하의 GIF, PNG 또는 JPEG 파일로 된 투명한 48 x 48 또는 50 x 50픽셀 이미지여야 합니다. 값을 변경하고 결과 로그인 페이지를 확인해 보세요!
 
 ## <a name="live-sdk-support"></a>Live SDK 지원
 "Live SDK 지원"을 사용하도록 설정하면 만든 애플리케이션 암호 모두가 Azure AD 및 Microsoft 계정 데이터 저장소 모두에 프로비전됩니다. 이렇게 하면 애플리케이션을 Microsoft 계정 서비스(login.live.com)와 직접 통합할 수 있습니다. Azure AD v2.0 엔드포인트를 사용하는 것이 아니라 Microsoft 계정을 직접 사용하여 앱을 빌드하려면 Live SDK 지원을 사용하도록 설정되어 있는지 확인해야 합니다.

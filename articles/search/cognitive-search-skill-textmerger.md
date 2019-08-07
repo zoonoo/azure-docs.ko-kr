@@ -10,13 +10,13 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: bbf2e524d626ac17596ded61746c26f20a6caf1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.subservice: cognitive-search
+ms.openlocfilehash: 312caf2d514d630c5bc1fb7755b7ab7a6a3d443a
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65021833"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840918"
 ---
 #    <a name="text-merge-cognitive-skill"></a>텍스트 병합 인식 기술
 
@@ -32,7 +32,7 @@ Microsoft.Skills.Text.MergeSkill
 
 매개 변수는 대/소문자를 구분합니다.
 
-| 매개 변수 이름     | 설명 |
+| 매개 변수 이름     | Description |
 |--------------------|-------------|
 | insertPreTag  | 모든 삽입 전에 포함될 문자열입니다. 기본값은 `" "`입니다. 공간을 생략하려면 값을 `""`로 설정합니다.  |
 | insertPostTag | 모든 삽입 후에 포함될 문자열입니다. 기본값은 `" "`입니다. 공간을 생략하려면 값을 `""`로 설정합니다.  |
@@ -143,7 +143,7 @@ Microsoft.Skills.Text.MergeSkill
 }
 ```
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
 + [미리 정의된 기술](cognitive-search-predefined-skills.md)
 + [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)

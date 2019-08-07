@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3517f90d97a19740f5be8c2a755532d305522d7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 46abe367c9047616174a1e43dffd57861e6278e8
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65228174"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68811822"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication에 대한 질문과 대답
 
@@ -59,9 +59,9 @@ Multi-Factor Authentication 서버에 선택적 필드를 구성할 수 있습�
    * 759731 
    * 673801
 
-Microsoft는 동일한 번호를 통한 일관적인 SMS 또는 음성 기반 Multi-Factor Authentication 즉시 이행을 보장하지 않습니다. 사용자를 위해, SMS 이행성을 향상하기 위한 조정 작업을 수시로 진행하고 있는 Microsoft는 언제든지 짧은 코드를 추가하거나 제거할 수 있습니다. Microsoft는 미국 및 캐나다 이외 국가/지역에 대 한 짧은 코드를 지원 하지 않습니다.
+Microsoft는 동일한 번호를 통한 일관적인 SMS 또는 음성 기반 Multi-Factor Authentication 즉시 이행을 보장하지 않습니다. 사용자를 위해, SMS 이행성을 향상하기 위한 조정 작업을 수시로 진행하고 있는 Microsoft는 언제든지 짧은 코드를 추가하거나 제거할 수 있습니다. Microsoft는 미국 및 캐나다 외에도 국가/지역에 대 한 간단한 코드를 지원 하지 않습니다.
 
-## <a name="billing"></a>결제
+## <a name="billing"></a>대금 청구
 
 [Multi-Factor Authentication 가격 책정 페이지](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) 또는 [Azure Multi-Factor Authentication 획득 방법](concept-mfa-licensing.md)에 대한 설명서를 참조하여 대부분의 청구 관련 질문에 대답할 수 있습니다.
 
@@ -87,15 +87,13 @@ Azure Multi-Factor Authentication에 대한 구독을 구매하는 경우 조직
 
 일부 경우에 그렇습니다.
 
-Multi-factor Authentication for Azure Administrators 비롯 한 Microsoft online services에 대 한 액세스를 무료로 Azure MFA 기능의 하위 집합을 제공 합니다 [Azure portal](https://portal.azure.com) 고 [Microsoft 365 관리 센터](https://admin.microsoft.com). 이 제품은 MFA 라이선스, 번들 또는 독립 실행형 사용량 기반 공급자를 통해 Azure MFA의 정식 버전을 가지고 있지 않은 Azure Active Directory 인스턴스의 전역 관리자에게만 적용됩니다. 관리자가 무료 버전을 사용하는 경우 사용자가 Azure MFA의 정식 버전을 구입하면 모든 전역 관리자가 유료 버전으로 자동으로 승격됩니다.
+Azure 관리자를 위한 multi-factor Authentication은 [Azure Portal](https://portal.azure.com) 및 [Microsoft 365 관리 센터](https://admin.microsoft.com)를 포함 하 여 Microsoft 온라인 서비스에 대 한 액세스에 무료로 azure MFA 기능의 하위 집합을 제공 합니다. 이 제품은 MFA 라이선스, 번들 또는 독립 실행형 사용량 기반 공급자를 통해 Azure MFA의 정식 버전을 가지고 있지 않은 Azure Active Directory 인스턴스의 전역 관리자에게만 적용됩니다. 관리자가 무료 버전을 사용하는 경우 사용자가 Azure MFA의 정식 버전을 구입하면 모든 전역 관리자가 유료 버전으로 자동으로 승격됩니다.
 
 Office 365 사용자용 Multi-Factor Authentication에서는 비용 없이 Exchange Online, SharePoint Online 등의 Office 365 서비스에 액세스할 수 있는 Azure MFA 기능의 하위 집합을 제공합니다. 이 제품은 Azure Active Directory의 해당 인스턴스가 MFA 라이선스, 번들 또는 독립 실행형 사용량 기반 공급자를 통해 Azure MFA의 정식 버전을 보유하지 않은 경우 Office 365 라이선스가 할당된 사용자에게 적용됩니다.
 
 **Q: 조직에서 사용자당 요금 청구 모델과 인증당 사용량 요금 청구 모델 간을 언제든지 전환할 수 있나요?**
 
-조직에서 사용량 기반 청구를 포함하는 독립 실행형 서비스로 MFA를 구입한 경우 MFA 공급자를 만들 때 청구 모델을 선택합니다. MFA 공급자가 생성된 후에는 청구 모델을 변경할 수 없습니다. 하지만 MFA 공급자를 삭제하고 다른 청구 모델로 새 공급자를 만들 수 있습니다.
-
-MFA 공급자를 만들면 Azure Active Directory 또는 "Azure AD 테 넌 트입니다."에 연결할 수 있습니다. 현재 MFA 공급자가 Azure AD 테 넌 트에 연결 하는 경우 안전 하 게 MFA 공급자를 삭제를 만드는 동일한 Azure AD 테 넌 트에 연결 하는 것입니다. 또는 MFA로 설정된 모든 사용자를 처리할 만큼 충분한 MFA, Azure AD Premium 또는 Enterprise Mobility + Security(EMS) 라이선스를 구입한 경우 MFA 공급자를 모두 삭제할 수 있습니다.
+조직에서 사용량 기반 청구를 포함하는 독립 실행형 서비스로 MFA를 구입한 경우 MFA 공급자를 만들 때 청구 모델을 선택합니다. MFA 공급자가 생성된 후에는 청구 모델을 변경할 수 없습니다. 
 
 하지만 MFA 공급자가 Azure AD 테넌트에 연결되어 있지 *않거나* 새 MFA 공급자를 다른 Azure AD 테넌트에 연결한 경우 사용자 설정 및 구성 옵션이 전송되지 않습니다. 또한 새 MFA 공급자를 통해 생성된 활성화 자격 증명을 사용하여 기존 Azure MFA 서버를 다시 활성화해야 합니다. MFA 서버를 새 MFA 공급자에 연결하기 위해 다시 활성화해도 전화 및 문자 메시지 인증에는 영향을 미치지 않지만 모바일 앱을 다시 활성화할 때까지 모바일 앱 알림이 모든 사용자에 대해 작동 중지됩니다.
 
@@ -142,15 +140,15 @@ MFA 공급자를 만들면 Azure Active Directory 또는 "Azure AD 테 넌 트�
 > [!NOTE]
 > Office 2013 클라이언트에 대한 최신 인증
 >
-> 앱 암호는 최신 인증을 지원하는 않는 앱에만 필요합니다. Office 2013 클라이언트는 최신 인증 프로토콜을 지원하지만 구성되어야 합니다. 이제 최신 인증이 Office 2013 용 2015 이상 년 3 월 업데이트를 실행 하는 모든 고객에 게 사용할 수 있습니다. 자세한 내용은 블로그 게시물을 참조 하세요 [업데이트 된 Office 365 최신 인증](https://www.microsoft.com/microsoft-365/blog/2015/11/19/updated-office-365-modern-authentication-public-preview/)합니다.
+> 앱 암호는 최신 인증을 지원하는 않는 앱에만 필요합니다. Office 2013 클라이언트는 최신 인증 프로토콜을 지원하지만 구성되어야 합니다. 이제 최신 인증은 Office 2013의 3 월 2015 이상 업데이트를 실행 하는 모든 고객에 게 제공 됩니다. 자세한 내용은 블로그 게시물 [업데이트 된 Office 365 최신 인증](https://www.microsoft.com/microsoft-365/blog/2015/11/19/updated-office-365-modern-authentication-public-preview/)을 참조 하세요.
 
 **Q: 사용자가 간혹 문자 메시지를 받지 못하거나 양방향 문자 메시지에 회신했는데 확인 시간이 초과된 것으로 표시된다고 합니다.**
 
-서비스의 안정성에 영향을 줄 수 있는 제어할 수 없는 요소가 있기 때문에 양방향 SMS에서 텍스트 메시지 전달 및 응답 수신이 보장되지 않습니다. 이러한 요소에는 대상 국가, 휴대폰 통신사 및 신호 강도가 포함 됩니다.
+서비스의 안정성에 영향을 줄 수 있는 제어할 수 없는 요소가 있기 때문에 양방향 SMS에서 텍스트 메시지 전달 및 응답 수신이 보장되지 않습니다. 이러한 요인에는 대상 국가/지역, 휴대 전화 통신 회사 및 신호 강도가 포함 됩니다.
 
 사용자에게 문자 메시지를 안정적으로 수신하는 데 문제가 있는 경우 대신 모바일 앱 또는 휴대폰 전화 방법을 사용하도록 지시합니다. 모바일 앱은 셀룰러 및 Wi-Fi 연결 모두를 통해 알림을 받을 수 있습니다. 또한 디바이스에 신호가 전혀 없는 경우에도 모바일 앱은 인증 코드를 생성할 수 있습니다. [Android](https://go.microsoft.com/fwlink/?Linkid=825072), [IOS](https://go.microsoft.com/fwlink/?Linkid=825073) 및 [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071)의 경우 Microsoft Authenticator 앱을 사용할 수 있습니다.
 
-텍스트 메시지를 사용해야 하는 경우 가능하면 양방향 SMS보다는 단방향 SMS를 사용하는 것이 좋습니다. 단방향 SMS 안정적 이며 사용자에서 다른 국가/지역에서 전송 된 문자 메시지에 회신에서 전역 SMS 요금이 부과 되지 않습니다.
+텍스트 메시지를 사용해야 하는 경우 가능하면 양방향 SMS보다는 단방향 SMS를 사용하는 것이 좋습니다. 단방향 SMS는 더 안정적 이며, 사용자가 전역 SMS 요금이 다른 국가/지역에서 전송 된 문자 메시지에 회신 하는 것을 방지 합니다.
 
 **Q: 시스템 시간이 초과되기 전에 사용자가 문자 메시지를 통해 확인 코드를 입력해야 하는 시간을 변경할 수 있나요?**
 

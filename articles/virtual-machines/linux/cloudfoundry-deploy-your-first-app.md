@@ -17,10 +17,10 @@ ms.workload: infrastructure-services
 ms.date: 06/14/2017
 ms.author: seanmck
 ms.openlocfilehash: fe510865e687b6a44538627e4ef9025b41416841
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 08/06/2019
 ms.locfileid: "67668341"
 ---
 # <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>Microsoft Azure의 Cloud Foundry에 첫 번째 앱 배포
@@ -31,16 +31,16 @@ ms.locfileid: "67668341"
 
 Azure에 Cloud Foundry 환경을 만들기 위한 여러 가지 옵션이 있습니다.
 
-- 사용 된 [Pivotal Cloud Foundry 제품][pcf-azuremarketplace] in the Azure Marketplace to create a standard environment that includes PCF Ops Manager and the Azure Service Broker. You can find [complete instructions][pcf-azuremarketplace-pivotaldocs] marketplace 배포용 Pivotal 설명서에서 제공 합니다.
-- 사용자 지정된 환경 만들기 [Pivotal Cloud Foundry를 수동으로 배포][pcf-custom]합니다.
-- [오픈 소스 Cloud Foundry 패키지를 직접 배포할][oss-cf-bosh] 설정 하 여는 [BOSH](https://bosh.io) director, Cloud Foundry 환경의 배포를 조정 하는 VM.
+- Azure Marketplace에서 [Pivotal Cloud Foundry 제품][pcf-azuremarketplace] 을 사용 하 여 PCF Ops Manager와 Azure Service Broker를 포함 하는 표준 환경을 만듭니다. Marketplace 제품을 배포 하는 방법에 대 한 자세한 [지침은][pcf-azuremarketplace-pivotaldocs] Pivotal 설명서에서 확인할 수 있습니다.
+- [Pivotal Cloud Foundry를 수동으로 배포][pcf-custom]하 여 사용자 지정 환경을 만듭니다.
+- Cloud Foundry 환경의 배포를 조정 하는 VM 인 [Bosh](https://bosh.io) director를 설정 하 여 [오픈 소스 Cloud Foundry 패키지를 직접 배포][oss-cf-bosh] 합니다.
 
 > [!IMPORTANT] 
 > Azure Marketplace에서 PCF를 배포하는 경우 Pivotal 앱 관리자에 액세스하는 데 필요한 SYSTEMDOMAINURL 및 관리자 자격 증명을 적어 둡니다. 둘은 마켓플레이스 배포 가이드에 설명되어 있습니다. 이 자습서를 완료하는 데 필요합니다. 마켓플레이스 배포의 경우 SYSTEMDOMAINURL은 https://system.*ip-address*.cf.pcfazure.com 형식입니다.
 
 ## <a name="connect-to-the-cloud-controller"></a>Cloud Controller에 연결
 
-Cloud Controller는 애플리케이션 배포 및 관리를 위한 Cloud Foundry 환경에 대한 기본 진입점입니다. 핵심 CCAPI(Cloud Controller API)는 REST API이지만 다양한 도구를 통해 액세스할 수 있습니다. 이 경우 통해 상호 작용 합니다 [Cloud Foundry CLI][cf-cli]. You can install the CLI on Linux, MacOS, or Windows, but if you'd prefer not to install it at all, it is available pre-installed in the [Azure Cloud Shell][cloudshell-docs]합니다.
+Cloud Controller는 애플리케이션 배포 및 관리를 위한 Cloud Foundry 환경에 대한 기본 진입점입니다. 핵심 CCAPI(Cloud Controller API)는 REST API이지만 다양한 도구를 통해 액세스할 수 있습니다. 이 경우 [CLOUD FOUNDRY CLI][cf-cli]를 통해 상호 작용 합니다. Linux, MacOS 또는 Windows에 CLI를 설치할 수 있지만 설치 하지 않는 것이 좋습니다. [Azure Cloud Shell][cloudshell-docs]에 미리 설치 되어 있습니다.
 
 로그인하려면 마켓플레이스 배포에서 가져온 SYSTEMDOMAINURL 앞에 `api`를 추가합니다. 기본 배포는 자체 서명된 인증서를 사용하므로 `skip-ssl-validation` 스위치를 포함해야 합니다.
 
@@ -73,7 +73,7 @@ cf target -o testorg -s dev
 이제 애플리케이션을 배포할 때 새 조직 및 공간에 자동으로 만들어집니다. 현재 새 조직/공간에 앱이 없는지 확인하려면 `cf apps`를 다시 입력합니다.
 
 > [!NOTE] 
-> 조직과 공간 및 역할 기반 액세스 제어 (RBAC)에 사용할 수 있습니다 하는 방법에 대 한 자세한 내용은 참조는 [Cloud Foundry 설명서][cf-orgs-spaces-docs]합니다.
+> 조직 및 공백과 역할 기반 액세스 제어 (RBAC)에 사용할 수 있는 방법에 대 한 자세한 내용은 [Cloud Foundry 설명서][cf-orgs-spaces-docs]를 참조 하세요.
 
 ## <a name="deploy-an-application"></a>애플리케이션 배포
 
@@ -113,7 +113,7 @@ hello-spring-cloud 애플리케이션을 보려면 브라우저에서 제공된 
 ![Hello Spring Cloud용 기본 UI][hello-spring-cloud-basic]
 
 > [!NOTE] 
-> 과정에 대해 자세히 알아보려면 `cf push`를 참조 하세요 [응용 프로그램 준비 방법][cf-push-docs] Cloud Foundry 설명서에서.
+> 에서 발생 `cf push`하는 상황에 대 한 자세한 내용은 Cloud Foundry 설명서에서 [응용 프로그램을 준비 하는 방법][cf-push-docs] 을 참조 하세요.
 
 ## <a name="view-application-logs"></a>애플리케이션 로그 보기
 
@@ -145,8 +145,8 @@ cf scale -i 2 hello-spring-cloud
 ## <a name="next-steps"></a>다음 단계
 
 - [Cloud Foundry 설명서 읽기][cloudfoundry-docs]
-- [Cloud Foundry 용 Azure DevOps 서비스 플러그 인 설정][vsts-plugin]
-- [Cloud Foundry 용 Microsoft Log Analytics 노즐 구성][loganalytics-nozzle]
+- [Cloud Foundry에 대 한 Azure DevOps Services 플러그 인 설정][vsts-plugin]
+- [Cloud Foundry에 대 한 Microsoft Log Analytics 노즐 구성][loganalytics-nozzle]
 
 <!-- LINKS -->
 

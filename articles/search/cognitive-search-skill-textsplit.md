@@ -10,13 +10,13 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: c7f5fda405ca0e5ba9cf1dd0ed44c47cd3ee74b1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.subservice: cognitive-search
+ms.openlocfilehash: 8fb7ff51507212dfb162c09fcee469d6f154f3c3
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65949864"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840892"
 ---
 #   <a name="text-split-cognitive-skill"></a>텍스트 분할 인식 기술
 
@@ -32,7 +32,7 @@ Microsoft.Skills.Text.SplitSkill
 
 매개 변수는 대/소문자를 구분합니다.
 
-| 매개 변수 이름     | 설명 |
+| 매개 변수 이름     | Description |
 |--------------------|-------------|
 | textSplitMode      | "페이지" 또는 "문장" 중 하나 | 
 | maximumPageLength | TextSplitMode가 "페이지"로 설정되는 경우 이는 `String.Length`에 의해 측정된 대로 최대 페이지 길이를 참조합니다. 최소값은 100입니다.  textSplitMode가 "pages"로 설정된 경우 알고리즘은 텍스트를 최대 "maximumPageLength" 크기의 청크로 분할하려고 합니다. 이 경우 알고리즘은 청크 크기가 "maximumPageLength"보다 약간 더 작을 수 있게 문장 경계에서 문장을 나누기 위해 최선을 다합니다. | 
@@ -41,7 +41,7 @@ Microsoft.Skills.Text.SplitSkill
 
 ## <a name="skill-inputs"></a>기술 입력
 
-| 매개 변수 이름       | 설명      |
+| 매개 변수 이름       | Description      |
 |----------------------|------------------|
 | text  | 하위 문자열로 분할될 텍스트입니다. |
 | languageCode  | (선택 사항) 문서에 대한 언어 코드입니다.  |
@@ -133,7 +133,7 @@ Microsoft.Skills.Text.SplitSkill
 ## <a name="error-cases"></a>오류 사례
 언어가 지원되지 않는 경우 경고가 생성되고 텍스트가 문자를 경계로 분할됩니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
 + [미리 정의된 기술](cognitive-search-predefined-skills.md)
 + [기능을 정의하는 방법](cognitive-search-defining-skillset.md)

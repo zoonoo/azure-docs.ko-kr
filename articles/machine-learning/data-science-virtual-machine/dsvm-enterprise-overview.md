@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: vijetaj
-ms.openlocfilehash: 81aac356f49f7bf8dc57f77054d10aa3e09d473f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 40b8f101d968514ac599b43a79b7e62b7fd837a4
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565261"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779475"
 ---
 # <a name="data-science-virtual-machine-based-team-analytics-and-ai-environment"></a>Data Science Virtual Machine 기반 팀 분석 및 AI 환경 
 DSVM([Data Science Virtual Machine](overview.md))은 Azure 플랫폼에 미리 빌드된 AI(인공 지능) 및 데이터 분석용 소프트웨어를 포함한 풍부한 환경을 제공합니다. 
@@ -43,12 +43,12 @@ DSVM은 Azure 인프라 수준에서 작동하므로, IT 관리자가 엔터프�
 
 이 문서 시리즈에서는 앞의 각 항목에 대한 지침 및 포인터를 제공합니다. 대규모 엔터프라이즈 구성에 DSVM을 배포하는 경우의 모든 고려 사항과 요구를 다루지는 않습니다. 엔터프라이즈에서 DSVM 인스턴스를 구현하는 동안 사용할 수 있는 다른 Azure 설명서는 다음과 같습니다. 
 
-* [네트워크 보안](https://docs.microsoft.com/azure/security/azure-network-security)
+* [네트워크 보안] (https://docs.microsoft.com/azure/security/fundamentals/network-security
 * [모니터링](https://docs.microsoft.com/azure/virtual-machines/windows/monitor) 및 [관리](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates)
-* [로깅 및 감사](https://docs.microsoft.com/azure/security/azure-log-audit)
+* [로깅 및 감사](https://docs.microsoft.com/azure/security/fundamentals/log-audit)
 * [역할 기반 액세스 제어](https://docs.microsoft.com/azure/role-based-access-control/overview)
 * [정책 설정 및 적용](../../governance/policy/overview.md)
-* [맬웨어 방지](https://docs.microsoft.com/azure/security/azure-security-antimalware)
+* [맬웨어 방지](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
 * [암호화](https://docs.microsoft.com/azure/virtual-machines/windows/encrypt-disks)
 * [데이터 검색 및 거버넌스](https://docs.microsoft.com/azure/data-catalog/)
 

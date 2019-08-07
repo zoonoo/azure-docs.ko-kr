@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 07/25/2019
+ms.date: 08/02/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 236d880af780114dfb906021f53d5c09aee75332
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: f33193e3102afca73344fcd640d14d9af9c1d46e
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514884"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775355"
 ---
 # <a name="authorize-access-to-azure-blobs-and-queues-using-azure-active-directory"></a>Azure Active Directory를 사용 하 여 Azure blob 및 큐에 대 한 액세스 권한 부여
 
@@ -22,7 +22,7 @@ Azure Storage는 AD (Azure Active Directory)를 사용 하 여 Blob 및 큐 저�
 
 Azure AD에서 반환 된 OAuth 2.0 토큰을 사용 하 여 사용자 또는 응용 프로그램에 권한을 부여 하면 공유 키 권한 부여 및 SAS (공유 액세스 서명)를 통해 뛰어난 보안과 사용 편의성을 제공 합니다. Azure AD를 사용 하면 계정 액세스 키를 코드와 함께 저장 하 고 잠재적인 보안 취약점을 초래할 필요가 없습니다. 애플리케이션에서 공유 키 인증을 계속 사용할 수 있는 동안 Azure AD를 사용하면 코드에서 계정 액세스 키를 저장하지 않아도 됩니다. SAS(공유 액세스 서명)를 계속 사용하여 저장소 계정의 리소스에 세분화된 액세스 권한을 부여할 수도 있습니다. 하지만 Azure AD에서는 SAS 토큰을 관리하거나 손상된 SAS를 해지하는 방법을 걱정할 필요 없이 유사한 기능을 제공합니다. 가능 하면 Azure Storage 응용 프로그램에 Azure AD 인증을 사용 하는 것이 좋습니다.
 
-Azure AD를 사용한 권한 부여는 모든 공용 지역 및 국가 클라우드의 모든 범용 및 Blob 저장소 계정에 사용할 수 있습니다. Azure Resource Manager 배포 모델로 만든 저장소 계정만 Azure AD 권한 부여를 지원 합니다.
+Azure AD를 사용한 권한 부여는 모든 공용 지역 및 국가 클라우드의 모든 범용 및 Blob 저장소 계정에 사용할 수 있습니다. Azure Resource Manager 배포 모델로 만든 저장소 계정만 Azure AD 권한 부여를 지원 합니다. Azure AD를 사용한 권한 부여는 Azure Table storage에 대해 지원 되지 않습니다.
 
 ## <a name="overview-of-azure-ad-for-blobs-and-queues"></a>Blob 및 큐에 대 한 Azure AD 개요
 

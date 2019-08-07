@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: magoedte
-ms.openlocfilehash: ce1e107c397f791e4863a90b5622c961d42d6aa5
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
-ms.translationtype: HT
+ms.openlocfilehash: 05b022be3bd460809de77945710ed0bdcd275648
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/06/2019
-ms.locfileid: "68814216"
+ms.locfileid: "68839302"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Azure Monitor에서 로그 데이터 및 작업 영역 관리
 
-Azure Monitor는 기본적으로 데이터 및 구성 정보가 포함된 컨테이너 인 Log Analytics 작업 영역에 로그 데이터를 저장합니다. 로그 데이터에 대 한 액세스를 관리 하려면 작업 영역과 관련 된 다양 한 관리 작업을 수행 합니다.
+Azure Monitor은 기본적으로 데이터 및 구성 정보를 포함 하는 컨테이너인 Log Analytics 작업 영역에 [로그](data-platform-logs.md) 데이터를 저장 합니다. 로그 데이터에 대 한 액세스를 관리 하려면 작업 영역과 관련 된 다양 한 관리 작업을 수행 합니다.
 
 이 문서에서는 로그에 대 한 액세스를 관리 하 고 해당 로그를 포함 하는 작업 영역을 관리 하는 방법을 설명 합니다.
 
@@ -136,9 +136,9 @@ Log Analytics 독자 역할에는 다음 Azure 작업이 포함됩니다.
 
 | 형식    | 사용 권한 | Description |
 | ------- | ---------- | ----------- |
-| Action | `*/read`   | 모든 Azure 리소스 및 리소스 구성 보는 기능. 볼 수 있습니다. <br> 가상 머신 확장 상태 <br> 리소스에 대한 Azure 진단 구성 <br> 모든 리소스의 모든 속성 및 설정입니다. <br> 작업 영역의 경우 작업 영역 설정을 읽고 데이터에 대해 쿼리를 수행 하는 데 무제한의 모든 권한을 허용 합니다. 위의 세부적인 옵션을 참조 하세요. |
-| Action | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | 더 이상 사용 되지 않으며 사용자에 게 할당할 필요가 없습니다. |
-| Action | `Microsoft.OperationalInsights/workspaces/search/action` | 더 이상 사용 되지 않으며 사용자에 게 할당할 필요가 없습니다. |
+| 작업 | `*/read`   | 모든 Azure 리소스 및 리소스 구성 보는 기능. 볼 수 있습니다. <br> 가상 머신 확장 상태 <br> 리소스에 대한 Azure 진단 구성 <br> 모든 리소스의 모든 속성 및 설정입니다. <br> 작업 영역의 경우 작업 영역 설정을 읽고 데이터에 대해 쿼리를 수행 하는 데 무제한의 모든 권한을 허용 합니다. 위의 세부적인 옵션을 참조 하세요. |
+| 작업 | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | 더 이상 사용 되지 않으며 사용자에 게 할당할 필요가 없습니다. |
+| 작업 | `Microsoft.OperationalInsights/workspaces/search/action` | 더 이상 사용 되지 않으며 사용자에 게 할당할 필요가 없습니다. |
 | Action | `Microsoft.Support/*` | 지원 사례를 열 수 있습니다. |
 |동작 없음 | `Microsoft.OperationalInsights/workspaces/sharedKeys/read` | 데이터 컬렉션 API를 사용하고 에이전트를 설치하는 데 필요한 작업 영역 키 읽는 것 방지. 사용자가 작업 영역에 새 리소스 추가 방지 |
 

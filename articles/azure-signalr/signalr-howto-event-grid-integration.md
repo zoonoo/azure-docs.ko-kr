@@ -3,16 +3,16 @@ title: Event Grid에 Azure SignalR Service 이벤트를 보내는 방법
 description: SignalR 서비스에 대 한 Event Grid 이벤트를 사용 하도록 설정 하는 방법을 보여 주는 가이드를 표시 한 다음 클라이언트 연결 연결/연결 끊김 이벤트를 샘플 응용 프로그램으로 보냅니다.
 services: signalr
 author: chenyl
-ms.service: azure-signalr
+ms.service: signalr
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: chenyl
-ms.openlocfilehash: 52e4194acd6a3abfed3fabadb892b0de76025b7e
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 100c7120889f88c1bab3418822835e8d4ece9826
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68296856"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839287"
 ---
 # <a name="how-to-send-events-from-azure-signalr-service-to-event-grid"></a>Azure SignalR Service에서 Event Grid로 이벤트를 보내는 방법
 

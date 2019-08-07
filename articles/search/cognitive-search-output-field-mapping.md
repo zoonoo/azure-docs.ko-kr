@@ -9,13 +9,13 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: 506acee6cd9cd3c50e10f1c45768230564eeaaf1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.subservice: cognitive-search
+ms.openlocfilehash: 1fae611c202b77d222436b090f7e0c2f432de1f2
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65022086"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68841162"
 ---
 # <a name="how-to-map-enriched-fields-to-a-searchable-index"></a>검색 가능한 인덱스에 보강된 필드를 매핑하는 방법
 

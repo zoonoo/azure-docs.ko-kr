@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee3309bdd3629057d174866dde58ffd95e9e5ca8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 49f8d0e418f43648665b95f5bf1f672e9f9dae28
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562135"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779449"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>방법: 하이브리드 Azure Active Directory 조인 구현 계획
 
@@ -111,12 +111,18 @@ Windows 10 도메인 조인 디바이스에서 이미 [Azure AD를 테넌트에 
 
 ### <a name="federated-environment"></a>페더레이션 환경
 
-페더레이션된 환경에는 다음 요구 사항을 지 원하는 id 공급자가 있어야 합니다.
+페더레이션된 환경에는 다음 요구 사항을 지 원하는 id 공급자가 있어야 합니다. Active Directory Federation Services (AD FS)를 사용 하는 페더레이션된 환경을 사용 하는 경우에는 아래 요구 사항이 이미 지원 됩니다.
 
-- **WS-TRUST 프로토콜:** 이 프로토콜은 Azure AD에서 Windows 현재 하이브리드 Azure AD 조인 장치를 인증 하는 데 필요 합니다.
 - **WIAORMULTIAUTHN 클레임:** 이 클레임은 Windows 하위 수준 장치에 대 한 하이브리드 Azure AD 조인을 수행 하는 데 필요 합니다.
+- **WS-TRUST 프로토콜:** 이 프로토콜은 Azure AD에서 Windows 현재 하이브리드 Azure AD 조인 장치를 인증 하는 데 필요 합니다. AD FS를 사용 하는 경우 다음 WS-TRUST 끝점을 사용 하도록 설정 해야 합니다.`/adfs/services/trust/2005/windowstransport`  
+`/adfs/services/trust/13/windowstransport`  
+  `/adfs/services/trust/2005/usernamemixed` 
+  `/adfs/services/trust/13/usernamemixed`
+  `/adfs/services/trust/2005/certificatemixed` 
+  `/adfs/services/trust/13/certificatemixed` 
 
-Active Directory Federation Services (AD FS)를 사용 하는 페더레이션된 환경이 있는 경우 위의 요구 사항은 이미 지원 됩니다.
+> [!WARNING] 
+> **Adfs/services/trust/2005/windowstransport** 또는 **adfs/services/trust/13/windowstransport** 은 인트라넷 연결 끝점 으로만 사용 하도록 설정 해야 하며 웹 응용 프로그램 프록시를 통해 엑스트라넷 연결 끝점으로 노출 되어서는 안 됩니다. WS-TRUST WIndows 끝점을 사용 하지 않도록 설정 하는 방법에 대해 자세히 알아보려면 [프록시에서 Ws-trust windows 끝점 사용 안 함](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet)을 참조 하세요. **서비스** > **엔드포인트**에서 AD FS 관리 콘솔을 통해 어떤 엔드포인트가 사용하도록 설정되었는지 확인할 수 있습니다.
 
 > [!NOTE]
 > Azure AD는 관리형 도메인에서 스마트 카드나 인증서를 지원하지 않습니다.
@@ -130,7 +136,7 @@ Id 인프라와 일치 하는 시나리오에 따라 다음을 참조 하세요.
 
 ## <a name="review-on-premises-ad-upn-support-for-hybrid-azure-ad-join"></a>하이브리드 Azure AD 조인에 대 한 온-프레미스 AD UPN 지원 검토
 
-경우에 따라 온-프레미스 AD UPN이 Azure AD UPN과 다를 수 있습니다. 그러한 경우 Windows 10 하이브리드 Azure AD 조인은 [인증 방법](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), 도메인 유형 및 Windows 10 버전을 기반으로 온-프레미스 AD UPN에 대한 제한된 지원을 제공합니다. 사용자 환경에 있을 수 있는 온-프레미스 AD UPN에는 두 가지 유형이 있습니다.
+경우에 따라 온-프레미스 AD UPN이 Azure AD UPN과 다를 수 있습니다. 그러한 경우 Windows 10 하이브리드 Azure AD 조인은 [인증 방법](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn), 도메인 유형 및 Windows 10 버전을 기반으로 온-프레미스 AD UPN에 대한 제한된 지원을 제공합니다. 사용자 환경에 있을 수 있는 온-프레미스 AD UPN에는 두 가지 유형이 있습니다.
 
 - 라우팅 가능 UPN: 라우팅 가능 UPN에는 도메인 등록 기관에 등록되어 유효한 것으로 확인된 도메인이 있습니다. 예를 들어 contoso.com이 Azure AD의 기본 도메인인 경우 contoso.org는 Contoso에서 소유하고 [Azure AD에서 확인](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)된 기본 도메인입니다.
 - 라우팅 불가능 UPN: 라우팅 불가능 UPN에는 확인된 도메인이 없습니다. 조직의 사설망 내에서만 적용됩니다. 예를 들어 contoso.com이 Azure AD의 기본 도메인인 경우 contoso.com은 온-프레미스 AD의 기본 도에미인이지만 인터넷에서 확인할 수 없는 도메인이며 Consoso의 네트워크 내에서만 사용됩니다.

@@ -10,13 +10,13 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: 3685e2f2a212591788c62ba4f0384ae320d89824
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.subservice: cognitive-search
+ms.openlocfilehash: bf683ad54fb75ad666a4635e942d8d0a51f19caf
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68347774"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68841018"
 ---
 #   <a name="language-detection-cognitive-skill"></a>언어 감지 인식 기술
 
@@ -42,7 +42,7 @@ Microsoft.Skills.Text.LanguageDetectionSkill
 
 매개 변수는 대/소문자를 구분합니다.
 
-| 입력     | 설명 |
+| 입력     | Description |
 |--------------------|-------------|
 | text | 분석할 텍스트입니다.|
 

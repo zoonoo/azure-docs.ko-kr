@@ -9,16 +9,16 @@ ms.author: robreed
 ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: dcebb26bdebd52da8c48dbf06815a23ce9d38477
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 32fafaeb6332ca0e76dbc8d72f11872a82ca1cbe
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478451"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779146"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>독립 실행형 Azure Automation 계정 만들기
 
-이 문서에서는 Azure Portal에서 Azure Automation 계정을 만드는 방법을 보여줍니다. 평가 하 여 Azure Monitor 로그를 사용 하 여 추가 관리 솔루션 또는 통합을 사용 하지 않고 Automation에 알아보세요 포털 Automation 계정을 사용할 수 있습니다. 이러한 관리 솔루션 추가 수도 있고 고급 모니터링에 언제 든 지 runbook 작업의 나중에 Azure Monitor 로그를 통합할 수 있습니다.
+이 문서에서는 Azure Portal에서 Azure Automation 계정을 만드는 방법을 보여줍니다. 포털 Automation 계정을 사용 하 여 추가 관리 솔루션 또는 Azure Monitor 로그와의 통합을 사용 하지 않고도 Automation을 평가 하 고 알아볼 수 있습니다. 이후 언제 든 지 runbook 작업의 고급 모니터링을 위해 이러한 관리 솔루션을 추가 하거나 Azure Monitor 로그와 통합할 수 있습니다.
 
 Automation 계정에서는 Azure Resource Manager 또는 클래식 배포 모델에서 리소스를 관리하여 Runbook을 인증할 수 있습니다. 하나의 Automation 계정으로 해당 테넌트의 모든 영역과 구독 전반의 리소스를 관리할 수 있습니다.
 
@@ -37,7 +37,7 @@ Azure Portal에서 Automation 계정을 만드는 경우 이러한 계정이 자
 Automation 계정을 만들거나 업데이트하고 이 문서에서 설명한 작업을 완료하려면 다음과 같은 권한이 있어야 합니다.
 
 * Automation 계정을 만들려면 Azure AD 사용자 계정을 **Microsoft. Automation** 리소스에 대한 소유자 역할과 동일한 권한이 있는 역할에 추가해야 합니다. 자세한 내용은 [Azure Automation의 역할 기반 액세스 제어](automation-role-based-access-control.md)를 참조하세요.
-* Azure Portal의 **Azure Active Directory** > **관리** > **앱 등록**에서 **앱 등록**이 **예**로 설정된 경우, Azure AD 테넌트에서 관리자가 아닌 사용자는 [Active Directory 애플리케이션을 등록](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions)할 수 있습니다. **앱 등록 설정**이 **아니요**로 설정된 경우, 이 작업을 수행하는 사용자는 Azure AD의 전역 관리자여야 합니다.
+* Azure Portal의**사용자 설정** **관리** >  **Azure Active Directory** > 에서 **앱 등록** **예**로 설정 된 경우 Azure AD 테 넌 트의 관리자가 아닌 사용자가 활성으로 등록할 수 있습니다. [ 디렉터리 응용 프로그램](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions). **앱 등록 설정**이 **아니요**로 설정된 경우, 이 작업을 수행하는 사용자는 Azure AD의 전역 관리자여야 합니다.
 
 사용자는 구독의 전역 관리자/공동 관리자 역할에 추가되기 전에 해당 구독의 Active Directory 인스턴스에 속한 멤버가 아닌 경우 Active Directory에 게스트로 추가됩니다. 이 시나리오에서는 **Automation 계정 추가** 페이지에 “만들 수 있는 권한이 없습니다.”라는 메시지가 표시됩니다.
 
@@ -89,7 +89,7 @@ Azure Portal에서 Azure Automation 계정을 만들려면 다음 단계를 완�
 
 Automation 계정이 성공적으로 만들어지면 몇 가지 리소스가 자동으로 만들어집니다. 이러한 Runbook을 만든 후 유지하지 않으려는 경우 안전하게 삭제할 수 있습니다. 실행 계정은 Runbook에서 사용자 계정으로 인증하는 데 사용할 수 있으며 다른 실행 계정을 만들거나 필요 없는 상황이 아니라면 남겨두는 것이 좋습니다. 다음 표에는 실행 계정에 대한 리소스가 요약되어 있습니다.
 
-| Resource | 설명 |
+| 리소스 | Description |
 | --- | --- |
 | AzureAutomationTutorial Runbook |실행 계정을 사용하여 인증하는 방법을 보여주는 예제 그래픽 Runbook입니다. Runbook은 Resource Manager 리소스를 모두 가져옵니다. |
 | AzureAutomationTutorialScript Runbook |실행 계정을 사용하여 인증하는 방법을 보여주는 예제 PowerShell Runbook입니다. Runbook은 Resource Manager 리소스를 모두 가져옵니다. |
@@ -99,7 +99,7 @@ Automation 계정이 성공적으로 만들어지면 몇 가지 리소스가 자
 
 다음 표에는 클래식 실행 계정에 대한 리소스가 요약되어 있습니다.
 
-| Resource | 설명 |
+| 리소스 | 설명 |
 | --- | --- |
 | AzureClassicAutomationTutorial Runbook |예제 그래픽 Runbook Runbook은 클래식 실행 계정(인증서)을 사용하여 구독에 있는 모든 클래식 VM을 가져옵니다. 그런 다음 VM 이름 및 상태가 표시됩니다. |
 | AzureClassicAutomationTutorial Script Runbook |예제 PowerShell Runbook Runbook은 클래식 실행 계정(인증서)을 사용하여 구독에 있는 모든 클래식 VM을 가져옵니다. 그런 다음 VM 이름 및 상태가 표시됩니다. |

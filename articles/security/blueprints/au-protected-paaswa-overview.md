@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: meladie
-ms.openlocfilehash: c17f16ce796c9f296facd69c18de4effc7ff5258
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 294716052869dac03db42feea9ade15d610551e6
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60610152"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68781115"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-australia-protected"></a>Azure 보안 및 규정 준수 청사진 - Australia PROTECTED용 PaaS 웹 애플리케이션
 
@@ -42,7 +42,7 @@ ASD 규정 준수를 구현하려면 정보 보안 등록 평가자가 시스템
 
 이 솔루션에서는 다음과 같은 Azure 서비스를 사용합니다. 자세한 내용은 [배포 아키텍처](#deployment-architecture) 섹션에 나와 있습니다.
 
-- Application Gateway
+- 애플리케이션 게이트웨이
     - 웹 애플리케이션 방화벽
         - 방화벽 모드: 방지
         - 규칙 집합: OWASP
@@ -55,7 +55,7 @@ ASD 규정 준수를 구현하려면 정보 보안 등록 평가자가 시스템
 - Azure Key Vault
 - Azure Load Balancer
 - Azure Monitor
-- Azure 리소스 관리자
+- Azure Resource Manager
 - Azure Security Center
 - Azure SQL Database
 - Azure Storage
@@ -78,8 +78,8 @@ ASD 규정 준수를 구현하려면 정보 보안 등록 평가자가 시스템
 **요새 호스트**: 요새 호스트는 사용자가 이 환경에서 배포된 리소스에 액세스할 수 있도록 하는 단일 진입점입니다. 요새 호스트는 안전한 목록에 있는 공용 IP 주소의 원격 트래픽만 허용하여 배포된 리소스에 대한 보안 연결을 제공합니다. RDP(원격 데스크톱 프로토콜) 트래픽을 허용하려면 트래픽의 원본을 네트워크 보안 그룹에서 정의해야 합니다.
 
 이 솔루션은 다음 구성을 사용하여 가상 머신을 도메인에 조인된 요새 호스트로 만듭니다.
--   [맬웨어 방지 확장](https://docs.microsoft.com/azure/security/azure-security-antimalware)
--   [Azure 진단 확장](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)
+-   [맬웨어 방지 확장](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
+-   [Azure Diagnostics 확장](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)
 -   Azure Key Vault를 사용하는 [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)
 -   사용하지 않을 때 가상 머신 사용을 줄이는 [자동 종료 정책](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/)
 
@@ -114,7 +114,7 @@ App Service Environment는 단일 고객의 애플리케이션만 실행하도�
 각 네트워크 보안 그룹에는 솔루션이 안전하고 올바르게 작동할 수 있도록 특정 포트 및 프로토콜이 열려 있습니다. 또한 각 네트워크 보안 그룹에 대해 다음과 같은 구성을 사용합니다.
 
   - [진단 로그 및 이벤트](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)는 저장소 계정에 사용되고 저장됩니다.
-  - Azure Monitor 로그에 연결 되는 [네트워크 보안 그룹 진단](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
+  - Azure Monitor 로그는 [네트워크 보안 그룹의 진단](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json) 에 연결 됩니다.
 
 **서브넷**: 각 서브넷이 해당 네트워크 보안 그룹에 연결됩니다.
 
@@ -127,9 +127,9 @@ Azure는 기본적으로 Azure 데이터 센터와의 모든 통신을 암호화
 
 이 아키텍처는 고객 소유의 네트워크에서 전송되는 Protected 데이터에 IPSEC가 구성된 VPN Gateway를 사용하는 인터넷 또는 ExpressRoute를 사용합니다.
 
-또한 Azure 관리 포털을 통해 Azure에 대 한 모든 트랜잭션을 TLS v1.2를 활용 하 여 HTTPS를 통해 발생 합니다.
+또한 azure 관리 포털을 통해 Azure에 대 한 모든 트랜잭션은 TLS v 1.2를 활용 하는 HTTPS를 통해 발생 합니다.
 
-### <a name="data-at-rest"></a>미사용 데이터
+### <a name="data-at-rest"></a>저장 데이터
 이 아키텍처는 암호화, 데이터베이스 감사 및 다른 방법을 통해 미사용 데이터를 보호합니다.
 
 **Azure Storage**: 암호화된 미사용 데이터 요구 사항에 부합하기 위해 모든 [Azure Storage](https://azure.microsoft.com/services/storage/)는 [스토리지 서비스 암호화](https://docs.microsoft.com/azure/storage/storage-service-encryption)를 사용합니다. 이렇게 하면 호주 정부 ISM에서 정의한 조직의 보안 약정 및 준수 요구 사항을 지지하는 데이터를 안전하게 보호할 수 있습니다.
@@ -139,7 +139,7 @@ Azure는 기본적으로 Azure 데이터 센터와의 모든 통신을 암호화
 **Azure SQL Database**: Azure SQL Database 인스턴스는 다음 데이터베이스 보안 조치를 사용합니다.
 -   [Active Directory 인증 및 권한 부여](https://docs.microsoft.com/azure/sql-database/sql-database-AAD-authentication)를 사용하면 데이터베이스 사용자 및 기타 Microsoft 서비스의 ID를 중앙의 한 위치에서 집중적으로 관리할 수 있습니다.
 -   [SQL 데이터베이스 감사](https://docs.microsoft.com/azure/sql-database/sql-database-auditing-get-started)는 데이터베이스 이벤트를 추적하고 Azure 저장소 계정의 감사 로그에 기록합니다.
--   Azure SQL Database는 [투명한 데이터 암호화](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)를 사용하여 데이터베이스, 관련 백업 및 트랜잭션 로그 파일의 실시간 암호화 및 해독을 수행하고 미사용 정보를 보호하도록 구성됩니다. 투명한 데이터 암호화는 저장된 데이터가 무단으로 액세스되지 못하게 합니다.
+-   Azure SQL Database는 [투명한 데이터 암호화](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)를 사용하여 데이터베이스, 관련 백업 및 트랜잭션 로그 파일의 실시간 암호화 및 암호 해독을 수행하고 미사용 정보를 보호하도록 구성됩니다. 투명한 데이터 암호화는 저장된 데이터가 무단으로 액세스되지 못하게 합니다.
 -   [방화벽 규칙](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)은 적절한 권한이 부여될 때까지 데이터베이스 서버에 대한 모든 액세스를 차단합니다. 방화벽은 각 요청이 시작된 IP 주소의 데이터베이스에 대한 액세스를 허용합니다.
 -   [SQL 위협 요소 탐지](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-get-started)를 사용하면 의심스러운 데이터베이스 활동, 잠재적 취약성, SQL 삽입 공격 및 비정상 데이터베이스 액세스 패턴에 대한 보안 경고를 제공하여 발생할 수 있는 잠재적 위협을 탐지하고 대응할 수 있습니다. SQL Threat Detection은 의심스러운 활동에 대한 세부 정보와 위협을 조사하고 완화하는 방법에 대한 권장 작업을 포함한 경고를 [Azure Security Center](https://azure.microsoft.com/services/security-center/)와 통합합니다.
 -   [Always Encrypted 열](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault)은 중요한 데이터가 데이터베이스 시스템 내에서 일반 텍스트로 나타나지 않게 합니다. 데이터 암호화를 사용하도록 설정하면 키에 액세스할 수 있는 클라이언트 애플리케이션 또는 애플리케이션 서버만 일반 텍스트 데이터에 액세스할 수 있습니다.
@@ -189,9 +189,9 @@ Azure 서비스는 시스템 및 사용자 활동, 시스템 상태를 광범위
 - **활동 로그**: [활동 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)는 구독에 있는 리소스에서 수행된 작업에 대한 인사이트를 제공합니다. 활동 로그는 작업의 개시 장치, 발생 시간 및 상태를 결정하는 데 도움이 될 수 있습니다.
 - **진단 로그**: [진단 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)는 모든 리소스에서 내보낸 모든 로그를 포함합니다. 이러한 로그에는 Windows 이벤트 시스템 로그, Azure Storage 로그, Key Vault 감사 로그 및 Application Gateway 액세스 및 방화벽 로그가 포함됩니다. 모든 진단 로그는 보관을 위해 암호화된 중앙 집중식 Azure Storage 계정에 기록됩니다. 보존은 조직 특정 보존 요구 사항에 맞게 최대 730일까지 사용자가 구성할 수 있습니다.
 
-**Azure Monitor 로그**: 이러한 로그에 통합 됩니다 [Azure Monitor 로그](https://azure.microsoft.com/services/log-analytics/) 처리, 저장 및 대시보드를 보고 합니다. 수집이 완료되면 데이터는 각 데이터 형식에 대해 별도 테이블로 구성되어 원본에 관계 없이 모든 데이터가 함께 분석되도록 합니다. 또한 Azure Security Center는 Kusto 쿼리를 사용 하 여 보안 이벤트 데이터를 액세스 하 고 다른 서비스의 데이터와 결합 하 여 고객은 Azure Monitor 로그와 통합 됩니다.
+**Azure Monitor 로그**: 이러한 로그는 처리, 저장 및 대시보드 보고를 위해 [Azure Monitor 로그](https://azure.microsoft.com/services/log-analytics/) 에 통합 되어 있습니다. 수집이 완료되면 데이터는 각 데이터 형식에 대해 별도 테이블로 구성되어 원본에 관계 없이 모든 데이터가 함께 분석되도록 합니다. 또한 Azure Security Center는 고객이 Kusto 쿼리를 사용 하 여 보안 이벤트 데이터에 액세스 하 고 다른 서비스의 데이터와 결합할 수 있도록 하는 Azure Monitor 로그와 통합 됩니다.
 
-다음 Azure [모니터링 솔루션](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) 이 아키텍처의 일부로 포함 됩니다.
+다음 Azure [모니터링 솔루션](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) 은이 아키텍처의 일부로 포함 되어 있습니다.
 -   [Active Directory 평가](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): Active Directory 상태 확인 솔루션은 일정한 간격으로 서버 환경의 위험과 상태를 평가하고 배포된 서버 인프라에 관련된 권장 사항의 우선 순위 목록을 제공합니다.
 - [SQL 평가](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment): SQL 상태 확인 솔루션은 일정한 간격으로 서버 환경의 위험과 상태를 평가하고, 배포된 서버 인프라에 관련된 권장 사항의 우선 순위 목록을 고객에게 제공합니다.
 - [에이전트 상태](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): 에이전트 상태 솔루션은 배포되는 에이전트 수와 해당 지리적 분포, 응답이 없는 에이전트 수 및 운영 데이터를 제출하는 에이전트 수를 보고합니다.
@@ -201,7 +201,7 @@ Azure 서비스는 시스템 및 사용자 활동, 시스템 상태를 광범위
 
 **Azure Monitor**: [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/)를 사용하면 사용자의 Azure 리소스에서 API 호출을 추적하는 것을 포함하여 조직에서 감사, 경고 만들기 및 데이터 보관을 수행할 수 있도록 하여 사용자가 성능을 추적하고, 보안을 유지하고, 추세를 식별할 수 있습니다.
 
-Azure Network Watcher: [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)는 Azure 가상 네트워크의 리소스를 모니터링 및 진단하고 메트릭을 확인하고 로그를 활성화 또는 비활성화할 수 있는 도구를 제공합니다.  연방 엔터티는 NSG 및 Virtual Machines에 대한 Network Watcher 흐름 로그를 구현해야 합니다. 이러한 로그는 보안 로그만 저장되는 전용 스토리지 계정에 저장되어야 하며, 스토리지 계정에 대한 액세스는 역할 기반 액세스 제어로 보호되어야 합니다.
+Azure Network Watcher: [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)는 Azure 가상 네트워크의 리소스를 모니터링 및 진단하고 메트릭을 보고 그에 대한 로그를 활성화 또는 비활성화하는 도구를 제공합니다.  연방 엔터티는 NSG 및 Virtual Machines에 대한 Network Watcher 흐름 로그를 구현해야 합니다. 이러한 로그는 보안 로그만 저장되는 전용 스토리지 계정에 저장되어야 하며, 스토리지 계정에 대한 액세스는 역할 기반 액세스 제어로 보호되어야 합니다.
 
 ## <a name="threat-model"></a>위협 모델
 

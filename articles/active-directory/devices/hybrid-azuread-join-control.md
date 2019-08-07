@@ -1,6 +1,6 @@
 ---
-title: 하이브리드 Azure AD 조인-Azure AD의 제어 된 유효성 검사
-description: 한 번에 전체 조직에서 사용 하기 전에 하이브리드 Azure AD join의 제어 된 유효성 검사를 수행 하는 방법에 알아봅니다.
+title: 하이브리드 Azure AD 조인에 대 한 제어 된 유효성 검사-Azure AD
+description: 전체 조직에서 한 번에 사용 하도록 설정 하기 전에 하이브리드 Azure AD 조인에 대 한 제어 된 유효성 검사를 수행 하는 방법을 알아봅니다.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -11,77 +11,80 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d59104bf9c7675fdac2c245fff89ab1483b96b67
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: d5d8cd7799dd23dabc2cbb423e82b8c7203b7bed
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481713"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68834641"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>하이브리드 Azure AD 조인의 제어된 유효성 검사
 
-사전 요구 사항이 적으면 서 모두 준비에서 되 면 Windows 장치를 Azure AD 테 넌 트에서 장치로 자동으로 등록 됩니다. Azure AD에서 이러한 장치 id의 상태를 하이브리드 Azure AD 조인 이라고 합니다. 이 문서에서 설명 된 개념에 대 한 자세한 문서에서 찾을 수 있습니다 [Azure Active Directory의 장치 관리 소개](overview.md) 고 [하이브리드 Azure Active Directory 조인 구현 계획 ](hybrid-azuread-join-plan.md).
+모든 필수 구성 요소가 준비 되 면 Windows 장치가 자동으로 Azure AD 테 넌 트에 장치로 등록 됩니다. Azure AD에서 이러한 장치 id의 상태를 하이브리드 Azure AD 조인 이라고 합니다. 이 문서에서 설명 하는 개념에 대 한 자세한 내용은 [Azure Active Directory의 장치 관리 소개](overview.md) 문서와 [하이브리드 Azure Active Directory 조인 구현 계획](hybrid-azuread-join-plan.md)문서에서 찾을 수 있습니다.
 
-조직이 제어 유효성 검사를 하이브리드 Azure AD 조인 중 한 번에 전체 조직에서 사용 하기 전에 할 수 있습니다. 이 문서에서는 하이브리드 Azure AD join의 제어 된 유효성 검사를 수행 하는 방법을 설명 합니다.
+조직에서는 전체 조직에서 한 번에 사용 하도록 설정 하기 전에 하이브리드 Azure AD 조인에 대 한 제어 된 유효성 검사를 수행할 수 있습니다. 이 문서에서는 하이브리드 Azure AD 조인에 대 한 제어 된 유효성 검사를 수행 하는 방법을 설명 합니다.
 
-## <a name="controlled-validation-of-hybrid-azure-ad-join-on-windows-current-devices"></a>Windows 현재 장치의 하이브리드 Azure AD join의 제어 된 유효성 검사
+## <a name="controlled-validation-of-hybrid-azure-ad-join-on-windows-current-devices"></a>Windows 현재 장치에서 하이브리드 Azure AD 조인의 제어 된 유효성 검사
 
 Windows 데스크톱 운영 체제를 실행하는 디바이스의 경우 지원되는 버전은 Windows 10주년 업데이트(버전 1607) 이상입니다. 가장 좋은 방법은 최신 버전의 Windows 10으로 업그레이드하는 것입니다.
 
-Windows 현재 장치의 하이브리드 Azure AD join의 제어 된 유효성 검사를 수행 하려면을 지정 해야 합니다.
+Windows 현재 장치에서 하이브리드 Azure AD 조인의 유효성을 제어 하는 유효성 검사를 수행 하려면 다음을 수행 해야 합니다.
 
-1. 있는 경우 Active Directory (AD)에서 서비스 연결 지점 (SCP) 항목을 제거 합니다.
-1. 그룹 정책 개체 (GPO)를 사용 하 여 도메인에 가입 된 컴퓨터에 SCP에 대 한 클라이언트 쪽 레지스트리 설정 구성
-1. SCP에 대 한 클라이언트 쪽 레지스트리 설정을 GPO를 사용 하 여 AD FS 서버에도 구성 해야 AD FS를 사용 하는 경우  
-
-
-
-### <a name="clear-the-scp-from-ad"></a>AD에서 SCP를 지우기
-
-(ADSI 편집) Active Directory 서비스 인터페이스 편집기를 사용 하 여의 AD SCP 개체는 수정할 수 있습니다.
-
-1. 시작 합니다 **ADSI 편집** 에서 데스크톱 응용 프로그램 및 관리 워크스테이션 또는 엔터프라이즈 관리자로 도메인 컨트롤러입니다.
-1. 에 연결 합니다 **구성 명명 컨텍스트** 도메인입니다.
-1. 이동할 **CN = Configuration, DC = contoso, DC = com** > **CN = Services** > **CN = Device Registration Configuration**
-1. 아래에 있는 리프 개체를 마우스 오른쪽 단추로 클릭 **CN = Device Registration Configuration** 선택한 **속성**
-   1. 선택 **키워드** 에서 합니다 **특성 편집기** 창과 클릭 **편집**
-   1. 값을 선택할 **azureADId** 하 고 **azureADName** (한 번에 하나씩)를 클릭 하 고 **제거**
-1. 닫기 **ADSI 편집**
+1. Active Directory (AD)에서 SCP (서비스 연결 지점) 항목의 선택을 취소 합니다 (있는 경우).
+1. GPO (그룹 정책 개체)를 사용 하 여 도메인에 가입 된 컴퓨터에서 SCP에 대 한 클라이언트 쪽 레지스트리 설정 구성
+1. AD FS를 사용 하는 경우 GPO를 사용 하 여 AD FS 서버에서 SCP에 대 한 클라이언트 쪽 레지스트리 설정도 구성 해야 합니다.  
 
 
-### <a name="configure-client-side-registry-setting-for-scp"></a>SCP에 대 한 클라이언트 쪽 레지스트리 설정을 구성 합니다.
 
-장치 레지스트리에 SCP 항목 구성 레지스트리 설정을 배포 하려면 그룹 정책 개체 (GPO)를 만들려면 다음 예제를 사용 합니다.
+### <a name="clear-the-scp-from-ad"></a>AD에서 SCP 지우기
 
-1. 그룹 정책 관리 콘솔을 열고 도메인에서 새 그룹 정책 개체를 만듭니다.
-   1. 새로 만든된 GPO 이름 (예를 들어 ClientSideSCP)를 제공 합니다.
-1. GPO를 편집 하 고 다음 경로 찾습니다. **컴퓨터 구성** > **기본 설정** > **Windows 설정** > **레지스트리**
-1. 선택한 레지스트리를 마우스 오른쪽 단추로 클릭 **새로 만들기** > **레지스트리 항목**
-   1. 에 **일반** 탭에서 다음을 구성 합니다.
-      1. 작업: **업데이트**
-      1. Hive: **HKEY_LOCAL_MACHINE**
+ADSI 편집 (Active Directory Services 인터페이스 편집기)을 사용 하 여 AD의 SCP 개체를 수정할 수 있습니다.
+
+1. 및 관리 워크스테이션에서 **ADSI 편집** 데스크톱 응용 프로그램을 시작 하거나 엔터프라이즈 관리자로 도메인 컨트롤러를 시작 합니다.
+1. 도메인의 **구성 명명 컨텍스트에** 연결 합니다.
+1. **CN = Configuration, dc = contoso, dc = com** > **cn = Services** > **CN = 장치 등록 구성** 으로 이동 합니다.
+1. **CN = Device Registration Configuration** 에서 리프 개체를 마우스 오른쪽 단추로 클릭 하 고 **속성** 을 선택 합니다.
+   1. **특성 편집기** 창에서 **키워드** 를 선택 하 고 **편집** 을 클릭 합니다.
+   1. **AzureADId** 및 **azureADName** 값 (한 번에 하나씩)을 선택 하 고 **제거** 를 클릭 합니다.
+1. **ADSI 편집** 닫기
+
+
+### <a name="configure-client-side-registry-setting-for-scp"></a>SCP에 대 한 클라이언트 쪽 레지스트리 설정 구성
+
+다음 예제를 사용 하 여 GPO (그룹 정책 개체)를 만들어 장치의 레지스트리에 SCP 항목을 구성 하는 레지스트리 설정을 배포 합니다.
+
+1. 그룹 정책 Management console을 열고 도메인에 새 그룹 정책 개체를 만듭니다.
+   1. 새로 만든 GPO에 이름 (예: ClientSideSCP)을 제공 합니다.
+1. GPO를 편집 하 고 다음 경로를 찾습니다. **컴퓨터 구성** > **기본**설정 > **Windows 설정** 레지스트리 > 
+1. 레지스트리를 마우스 오른쪽 단추로 클릭 하 고 **새** > **레지스트리 항목** 을 선택 합니다.
+   1. **일반** 탭에서 다음을 구성 합니다.
+      1. 작업: **Update 함수**
+      1. 하이브의 **HKEY_LOCAL_MACHINE**
       1. 키 경로: **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
       1. 값 이름: **TenantId**
-      1. 값 종류: **REG_SZ**
-      1. 방법 2 GUID 또는 **디렉터리 ID** Azure AD 인스턴스 (이 값에서 찾을 수 있습니다 합니다 **Azure portal** > **Azure Active Directory**  >   **속성** > **디렉터리 ID**)
+      1. 값 형식: **REG_SZ**
+      1. 방법 2 Azure AD 인스턴스의 GUID 또는 **디렉터리 id** 입니다 .이 값은 **Azure Portal** > **Azure Active Directory** > **속성** > **디렉터리 id**에서 찾을 수 있습니다.
    1. **확인**을 클릭합니다.
-1. 선택한 레지스트리를 마우스 오른쪽 단추로 클릭 **새로 만들기** > **레지스트리 항목**
-   1. 에 **일반** 탭에서 다음을 구성 합니다.
-      1. 작업: **업데이트**
-      1. Hive: **HKEY_LOCAL_MACHINE**
+1. 레지스트리를 마우스 오른쪽 단추로 클릭 하 고 **새** > **레지스트리 항목** 을 선택 합니다.
+   1. **일반** 탭에서 다음을 구성 합니다.
+      1. 작업: **Update 함수**
+      1. 하이브의 **HKEY_LOCAL_MACHINE**
       1. 키 경로: **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
       1. 값 이름: **TenantName**
-      1. 값 종류: **REG_SZ**
-      1. 방법 2 확인 프로그램 **도메인 이름** Azure AD에서 (예를 들어 `contoso.onmicrosoft.com` 또는 디렉터리에 다른 확인 된 도메인 이름)
+      1. 값 형식: **REG_SZ**
+      1. 방법 2 AD FS와 같은 페더레이션된 환경을 사용 하는 경우 확인 된 **도메인 이름** 입니다. 예를 `contoso.onmicrosoft.com` 들어 관리 되는 환경을 사용 하는 경우 확인 된 * * 도메인 이름 "" 또는 onmicrosoft.com 도메인 이름
    1. **확인**을 클릭합니다.
-1. 새로 만든된 GPO에 대 한 편집기를 닫습니다
-1. 새로 만든된 GPO를 제어 된 롤아웃 인구에 속해 있는 도메인에 가입 된 컴퓨터를 포함 하 여 원하는 OU에 연결
+1. 새로 만든 GPO에 대 한 편집기를 닫습니다.
+1. 사용자가 제어 하는 출시 모집단에 속한 도메인 가입 컴퓨터를 포함 하는 원하는 OU에 새로 만든 GPO를 연결 합니다.
 
-### <a name="configure-ad-fs-settings"></a>AD FS 설정을 구성 합니다.
+### <a name="configure-ad-fs-settings"></a>AD FS 설정 구성
 
-AD FS를 사용 하는 경우에 먼저 AD FS 서버에 GPO를 연결 하지만 위에서 언급 한 지침을 사용 하는 클라이언트 쪽 SCP를 구성 해야 합니다. 이 구성은 AD fs와 Azure AD 장치 id에 대 한 소스를 설정 하려면 필요 합니다.
+AD FS를 사용 하는 경우 먼저 위에서 언급 한 지침을 사용 하 여 클라이언트 쪽 SCP를 구성 해야 하지만, GPO를 AD FS 서버에 연결 해야 합니다. SCP 개체는 장치 개체에 대 한 기관의 원본을 정의 합니다. 온-프레미스 또는 Azure AD 일 수 있습니다. 이를 AD FS에 대해 구성 하면 장치 개체의 소스가 Azure AD로 설정 됩니다.
 
-## <a name="controlled-validation-of-hybrid-azure-ad-join-on-windows-down-level-devices"></a>Windows 하위 수준 장치의 하이브리드 Azure AD join의 제어 된 유효성 검사
+> [!NOTE]
+> AD FS 서버에서 클라이언트 쪽 SCP를 구성 하지 않은 경우 장치 id의 원본은 온-프레미스로 간주 되 고 AD FS는 규정 된 기간 후 온-프레미스 디렉터리에서 장치 개체 삭제를 시작 합니다.
+
+## <a name="controlled-validation-of-hybrid-azure-ad-join-on-windows-down-level-devices"></a>Windows 하위 수준 장치에서 하이브리드 Azure AD 조인에 대 한 제어 된 유효성 검사
 
 Windows 하위 수준 디바이스를 등록하려면 조직에서는 Microsoft Download Center에 제공되는 [비 Windows 10 컴퓨터용 Microsoft Workplace Join](https://www.microsoft.com/download/details.aspx?id=53554)을 설치해야 합니다.
 
@@ -89,13 +92,13 @@ Windows 하위 수준 디바이스를 등록하려면 조직에서는 Microsoft 
 
 설치 관리자는 사용자 컨텍스트에서 실행되는 예약된 작업을 시스템에 만듭니다. 사용자가 Windows에 로그인할 때 이 작업이 트리거됩니다. 이 작업은 Azure AD에서 인증을 받은 후 사용자 자격 증명으로 Azure AD에 디바이스를 자동으로 가입합니다.
 
-장치 등록을 제어 하려면 Windows 하위 수준 장치 선택한 그룹에 Windows Installer 패키지를 배포 해야 합니다.
+장치 등록을 제어 하려면 선택한 Windows 하위 수준 장치 그룹에 Windows Installer 패키지를 배포 해야 합니다.
 
 > [!NOTE]
-> AD에서 SCP를 구성 되지 않은 경우에 설명 된 대로 동일한 접근 방식을 따라야 [SCP에 대 한 클라이언트 쪽 레지스트리 설정을 구성](#configure-client-side-registry-setting-for-scp)) 그룹 정책 개체 (GPO)를 사용 하 여 도메인에 가입 된 컴퓨터.
+> SCP가 AD에서 구성 되지 않은 경우 GPO (그룹 정책 개체)를 사용 하 여 도메인에 가입 된 컴퓨터에서 [scp에 대 한 클라이언트 쪽 레지스트리 설정 구성](#configure-client-side-registry-setting-for-scp)에 설명 된 것과 동일한 방법을 따라야 합니다.
 
 
-Windows 현재 및 하위 수준 장치의 나머지 부분에서 Azure AD를 사용 하 여 자동으로 등록할 수, 모든 항목이 예상 대로 작동 하는지 확인 한 후 [Azure AD Connect를 사용 하 여 SCP를 구성](hybrid-azuread-join-managed-domains.md#configure-hybrid-azure-ad-join)합니다.
+모든 것이 예상 대로 작동 하는지 확인 한 후 [Azure AD Connect를 사용 하 여 SCP를 구성](hybrid-azuread-join-managed-domains.md#configure-hybrid-azure-ad-join)하 여 Windows 현재 및 하위 장치를 Azure AD에 자동으로 등록할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

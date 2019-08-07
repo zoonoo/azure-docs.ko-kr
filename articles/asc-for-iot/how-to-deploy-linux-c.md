@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 3fd4287c6dd1cc42f419cfa6b252c1d276d1d5a5
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 7578811c37cd0bbe47821dadacce5fa5974f56cf
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68597231"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812738"
 ---
 # <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Linux 용 IoT C 기반 보안 에이전트에 대 한 Azure Security Center 배포
 
@@ -48,7 +48,7 @@ ms.locfileid: "68597231"
 
 1. 최신 버전을 [GitHub](https://aka.ms/iot-security-github-c)에서 컴퓨터에 다운로드 합니다.
 
-1. 패키지의 콘텐츠를 추출하고 _/Install_ 폴더로 이동합니다.
+1. 패키지의 콘텐츠를 추출 하 고 _/> 설치_ 폴더로 이동 합니다.
 
 1. 다음 명령을 실행 하 여 **Installsecurityagent 스크립트** 에 실행 권한을 추가 합니다.
     

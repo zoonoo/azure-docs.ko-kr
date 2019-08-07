@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 07/08/2019
+ms.date: 08/06/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 01ca3e5afc1c837a2789ba23e0b79447cd295fdd
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
-ms.translationtype: HT
+ms.openlocfilehash: 7e88b99cf0ecede64d75b36eafdcc88798e2e4a4
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742336"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840453"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning Services를 사용하여 모델 배포
 
@@ -31,7 +31,7 @@ Azure 클라우드에서 machine learning 모델을 웹 서비스로 배포 하�
 
 배포 워크플로에 관련된 개념에 대한 자세한 내용은 [Azure Machine Learning Service를 사용하여 모델 관리, 배포 및 모니터링](concept-model-management-and-deployment.md)을 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 모델. 학습 된 모델이 없는 경우 [이 자습서](https://aka.ms/azml-deploy-cloud)에서 제공 하는 모델 & 종속성 파일을 사용할 수 있습니다.
 
@@ -142,7 +142,7 @@ Azure Machine Learning 서비스 외부에서 학습 한 모델을 사용 하는
 model_path = Model.get_model_path('sklearn_mnist')
 ```
 
-#### <a name="optional-automatic-swagger-schema-generation"></a>필드 자동 Swagger 스키마 생성
+#### <a name="optional-automatic-schema-generation"></a>필드 자동 스키마 생성
 
 웹 서비스에 대 한 스키마를 자동으로 생성 하려면 정의 된 형식 개체 중 하나에 대 한 생성자에서 입력 및/또는 출력의 샘플을 제공 하 고, 형식 및 샘플은 스키마를 자동으로 만드는 데 사용 됩니다. 그런 다음 Azure Machine Learning 서비스는 배포 중에 웹 서비스에 대 한 [Openapi](https://swagger.io/docs/specification/about/) (Swagger) 사양을 만듭니다.
 
@@ -153,9 +153,10 @@ model_path = Model.get_model_path('sklearn_mnist')
 * `pyspark`
 * 표준 Python 개체
 
-스키마 생성을 사용 하려면 conda 환경 `inference-schema` 파일에 패키지를 포함 합니다. 다음 예에서는 항목 `[numpy-support]` 스크립트가 numpy 매개 변수 형식을 사용 하기 때문에를 사용 합니다. 
+스키마 생성을 사용 하려면 conda 환경 `inference-schema` 파일에 패키지를 포함 합니다.
 
-#### <a name="example-dependencies-file"></a>예제 종속성 파일
+##### <a name="example-dependencies-file"></a>예제 종속성 파일
+
 다음 YAML은 유추를 위한 Conda 종속성 파일의 예입니다.
 
 ```YAML
@@ -168,14 +169,11 @@ dependencies:
     - inference-schema[numpy-support]
 ```
 
-자동 스키마 생성을 사용 하려면 항목 스크립트가 패키지를 `inference-schema` 가져와야 합니다. 
+자동 스키마 생성을 사용 하려면 항목 스크립트가 패키지를 `inference-schema` 가져와야 합니다.
 
 `input_sample` 및`output_sample` 변수에서 웹 서비스의 요청 및 응답 형식을 나타내는 입력 및 출력 샘플 형식을 정의 합니다. `run()` 함수에 대 한 입력 및 출력 함수 데코레이터에서 이러한 샘플을 사용 합니다. 아래 scikit 예제에서는 스키마 생성을 사용 합니다.
 
-> [!TIP]
-> 서비스를 배포한 후 스키마 JSON 문서를 검색할 수 있습니다. 와`service.swagger_uri`같은 배포 된 웹 서비스의 [swagger_uri 속성](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#swagger-uri) 을 사용 하 여 로컬 웹 서비스의 swagger 파일에 대 한 uri를 가져옵니다.
-
-#### <a name="example-entry-script"></a>예제 항목 스크립트
+##### <a name="example-entry-script"></a>예제 항목 스크립트
 
 다음 예제에서는 JSON 데이터를 수락 하 고 반환 하는 방법을 보여 줍니다.
 
@@ -216,9 +214,7 @@ def run(data):
         return error
 ```
 
-#### <a name="example-script-with-dictionary-input-support-consumption-from-power-bi"></a>사전 입력을 사용 하는 예제 스크립트 (Power BI 지원)
-
-다음 예제에서는 데이터 프레임를 사용 하 여 입력 데이터를 < key: value > 사전으로 정의 하는 방법을 보여 줍니다. 이 메서드는 Power BI에서 배포 된 웹 서비스를 사용 하는 데 지원 됩니다 ([Power BI에서 웹 서비스를 사용 하는 방법에 대 한 자세한 정보](https://docs.microsoft.com/power-bi/service-machine-learning-integration)).
+다음 예제에서는 데이터 프레임를 사용 하 여 입력 데이터를 `<key: value>` 사전으로 정의 하는 방법을 보여 줍니다. 이 메서드는 Power BI에서 배포 된 웹 서비스를 사용 하는 데 지원 됩니다 ([Power BI에서 웹 서비스를 사용 하는 방법에 대 한 자세한 정보](https://docs.microsoft.com/power-bi/service-machine-learning-integration)).
 
 ```python
 import json
@@ -266,6 +262,7 @@ def run(data):
         error = str(e)
         return error
 ```
+
 예제 스크립트에 대 한 자세한 내용은 다음 예를 참조 하십시오.
 
 * Pytorch: [https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch)
@@ -402,6 +399,147 @@ print(response.json())
 
 자세한 내용은 [웹 서비스를 사용할 클라이언트 애플리케이션 만들기](how-to-consume-web-service.md)를 참조하세요.
 
+### <a name="web-service-schema-openapi-specification"></a>웹 서비스 스키마 (OpenAPI 사양)
+
+배포와 함께 자동 스키마 생성을 사용 하는 경우 [swagger_uri 속성](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#swagger-uri)을 사용 하 여 서비스에 대 한 openapi 사양의 주소를 가져올 수 있습니다. `print(service.swagger_uri)` )을 입력합니다. GET 요청을 사용 하거나 브라우저에서 URI를 열어 사양을 검색 합니다.
+
+다음 JSON 문서는 배포에 대해 생성 된 스키마 (OpenAPI 사양)의 예입니다.
+
+```json
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "myservice",
+        "description": "API specification for the Azure Machine Learning service myservice",
+        "version": "1.0"
+    },
+    "schemes": [
+        "https"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "securityDefinitions": {
+        "Bearer": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header",
+            "description": "For example: Bearer abc123"
+        }
+    },
+    "paths": {
+        "/": {
+            "get": {
+                "operationId": "ServiceHealthCheck",
+                "description": "Simple health check endpoint to ensure the service is up at any given point.",
+                "responses": {
+                    "200": {
+                        "description": "If service is up and running, this response will be returned with the content 'Healthy'",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "examples": {
+                            "application/json": "Healthy"
+                        }
+                    },
+                    "default": {
+                        "description": "The service failed to execute due to an error.",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/score": {
+            "post": {
+                "operationId": "RunMLService",
+                "description": "Run web service's model and get the prediction output",
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "serviceInputPayload",
+                        "in": "body",
+                        "description": "The input payload for executing the real-time machine learning service.",
+                        "schema": {
+                            "$ref": "#/definitions/ServiceInput"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The service processed the input correctly and provided a result prediction, if applicable.",
+                        "schema": {
+                            "$ref": "#/definitions/ServiceOutput"
+                        }
+                    },
+                    "default": {
+                        "description": "The service failed to execute due to an error.",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "ServiceInput": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                }
+            },
+            "example": {
+                "data": [
+                    [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ]
+                ]
+            }
+        },
+        "ServiceOutput": {
+            "type": "array",
+            "items": {
+                "type": "number",
+                "format": "double"
+            },
+            "example": [
+                3726.995
+            ]
+        },
+        "ErrorResponse": {
+            "type": "object",
+            "properties": {
+                "status_code": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
+```
+
+사양에 대 한 자세한 내용은 [OPEN API 사양](https://swagger.io/specification/)을 참조 하십시오.
+
+사양에서 클라이언트 라이브러리를 만들 수 있는 유틸리티는 [swagger-codegen](https://github.com/swagger-api/swagger-codegen)를 참조 하세요.
 
 ### <a id="azuremlcompute"></a>일괄 처리 유추
 Azure Machine Learning 계산 대상은 Azure Machine Learning 서비스에서 만들어지고 관리 됩니다. Azure Machine Learning 파이프라인에서 일괄 처리 예측에 사용할 수 있습니다.

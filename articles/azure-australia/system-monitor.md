@@ -6,12 +6,12 @@ ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: grgale
-ms.openlocfilehash: b68bdb6d1c349df67943889b511eac87c940b531
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f7f78dbde9810c8786e2344555444efabcc989b0
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68571888"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779318"
 ---
 # <a name="system-monitoring-for-security-in-azure-australia"></a>Azure 오스트레일리아의 보안을 위한 시스템 모니터링
 
@@ -108,7 +108,7 @@ Azure에서 수집 된 로그는 다음 세 가지 범주 중 하나에 속합�
 
 Azure 가상 머신 모니터링은 Windows 및 Linux 모두에 대 한 가상 머신 에이전트 배포를 통해 향상 되었습니다. 이 현저히 수집 된 로깅 정보의 범위를 늘립니다. Azure Security Center를 통해 자동으로 수행 되도록이 에이전트의 배포를 구성할 수 있습니다.
 
-Microsoft에서는 Azure 리소스 관련 로그 및 해당 [스키마](https://docs.microsoft.com/azure/security/azure-log-audit)에 대 한 자세한 정보를 제공 합니다.
+Microsoft에서는 Azure 리소스 관련 로그 및 해당 [스키마](https://docs.microsoft.com/azure/security/fundamentals/log-audit)에 대 한 자세한 정보를 제공 합니다.
 
 ### <a name="log-retention-and-protection"></a>로그 보존 및 보호
 

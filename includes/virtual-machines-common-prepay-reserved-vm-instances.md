@@ -3,13 +3,13 @@ author: yashesvi
 ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 07/19/2019
-ms.openlocfilehash: 763d424d9d462c4a9531df84f3e5e26bfc1b0a14
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.date: 08/02/2019
+ms.openlocfilehash: 5c300cb7d5416ada435811872e2cea8865e3c657
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68502309"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68781254"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances-ri"></a>RI (Azure Reserved VM Instances) Virtual Machines 선불
 
@@ -95,7 +95,7 @@ Vm 예약은 VM 배포 뿐만 아니라 여러 서비스에서 내보낸 VM 사�
 1. **추가** 를 선택 하 여 새 예약을 구매 하 고 **가상 머신**을 클릭 합니다.
 1. 필수 필드를 입력 합니다. 사용자가 선택한 특성과 일치하는 VM 인스턴스를 실행하면 예약 할인을 받을 수 있습니다. 할인을 받을 실제 VM 인스턴스 수는 선택한 범위 및 수량에 따라 달라집니다.
 
-| 필드      | 설명|
+| 필드      | Description|
 |------------|--------------|
 |구독|예약에 대해 비용을 지불하는 데 사용하는 구독입니다. 구독 시 지불 방법은 예약에 대해 선불로 비용이 청구됩니다. 구독 유형은 기업계약(제안 번호: MS-AZR-0017P-0017P 또는 MS-AZR-0017P-Ms-azr-0148p) 또는 종 량 제 요금이 있는 개별 구독 (제품 번호: MS-AZR-0003P 또는 MS-AZR-0023P)여야 합니다. Enterprise 구독에 대한 요금은 등록의 금액 약정 잔액에서 차감되거나 초과 비용으로 청구됩니다. 종 량 제 요금이 있는 구독의 경우 요금 청구는 구독에 대 한 신용 카드 또는 청구서 지불 방법으로 청구 됩니다.|    
 |범위       |예약 범위에는 하나 또는 여러 개의 구독(공유 범위)이 포함될 수 있습니다. 다음을 선택하는 경우: <ul><li>**단일 리소스 그룹 범위** -선택한 리소스 그룹의 일치 하는 리소스에만 예약 할인을 적용 합니다.</li><li>**단일 구독 범위** -선택한 구독의 일치 하는 리소스에 예약 할인을 적용 합니다.</li><li>**공유 범위** -청구 컨텍스트에 있는 적격 구독의 일치 하는 리소스에 예약 할인을 적용 합니다. EA 고객의 경우 요금 청구 컨텍스트가 등록입니다. 종 량 제 요금이 있는 개별 구독의 경우 청구 범위는 계정 관리자가 만든 모든 적격 구독입니다.</li></ul>|
@@ -132,13 +132,9 @@ Vm 예약은 VM 배포 뿐만 아니라 여러 서비스에서 내보낸 VM 사�
 
 그러나 변경을 수행 하려는 경우 예약을 *교환할* 수 있습니다.
 
-## <a name="cancellations-and-exchanges"></a>취소 및 교환
+## <a name="cancel-exchange-or-refund-reservations"></a>취소, 교환 또는 환불 예약
 
-예약을 취소해야 하는 경우 12%의 조기 종료 수수료가 있을 수 있습니다. 환불은 구매 가격 또는 예약의 현재 가격 중 최저 가격을 기준으로 합니다. 환불은 연간 $50,000로 제한됩니다. 받는 환불은 12%의 조기 종료 수수료를 뺀 나머지 비례 배분한 잔액입니다. 취소 하려면 Azure Portal 예약으로 이동 하 여 **환불**을 선택 합니다.
-
-예약 된 VM 인스턴스 예약을 다른 지역, VM 크기 그룹 또는 용어로 변경 해야 하는 경우이를 교환할 수 있습니다. 같거나 큰 값이 있는 다른 예약의 경우 교환이 필요 합니다. 새 예약에 대한 기간 시작일은 교환된 예약에서 수행되지 않습니다. 1 년 또는 3 년 기간은 새 예약을 만들 때부터 시작 됩니다. 교환 하려면 Azure Portal의 예약으로 이동한 다음 **exchange**를 선택 합니다.
-
-예약을 교환 하거나 환불 하는 방법에 대 한 자세한 내용은 [예약 교환 및 환불](../articles/billing/billing-azure-reservations-self-service-exchange-and-refund.md)을 참조 하세요.
+특정 제한 사항을 사용 하 여 예약을 취소, 교환 또는 환불 할 수 있습니다. 자세한 내용은 [셀프 서비스 교환 및 Azure Reservations에 대 한 환불](../articles/billing/billing-azure-reservations-self-service-exchange-and-refund.md)를 참조 하세요.
 
 ## <a name="need-help-contact-us"></a>도움이 필요하십니까? 문의하세요.
 

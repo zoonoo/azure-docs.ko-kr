@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 4115964533072e5d8f1760c8c5cdf0f20c9b7625
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 0c07cbd9fef865f3fc7b782210ef44094df9f629
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727131"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779823"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Azure 공용 클라우드에서 격리
 ##  <a name="introduction"></a>소개
@@ -240,7 +240,7 @@ Azure는 다음과 같은 유형의 암호화를 제공하여 데이터를 보�
 -   저장소로 데이터가 전송되기 전에 암호화하고 저장소 외부로 전송된 후에 암호를 해독할 수 있도록 하는 [클라이언트 쪽 암호화](https://docs.microsoft.com/azure/storage/storage-security-guide#using-client-side-encryption-to-secure-data-that-you-send-to-storage)
 
 #### <a name="encryption-at-rest"></a>휴지 상태의 암호화
-여러 조직에서 [미사용 데이터 암호화](https://docs.microsoft.com/azure/security/azure-isolation) 는 데이터 프라이버시, 규정 준수 및 데이터 주권을 위한 필수 단계입니다. “휴지 상태”의 데이터 암호화를 제공하는 세 가지 Azure 기능이 있습니다.
+여러 조직에서 [미사용 데이터 암호화](https://docs.microsoft.com/azure/security/fundamentals/isolation-choices) 는 데이터 프라이버시, 규정 준수 및 데이터 주권을 위한 필수 단계입니다. “휴지 상태”의 데이터 암호화를 제공하는 세 가지 Azure 기능이 있습니다.
 
 -   [Storage 서비스 암호화](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-at-rest) 를 사용하면 Storage 서비스가 Azure Storage에 데이터를 쓸 때 데이터를 자동으로 암호화하도록 요청할 수 있습니다.
 

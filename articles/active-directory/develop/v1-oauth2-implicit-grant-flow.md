@@ -10,7 +10,7 @@ ms.assetid: 90e42ff9-43b0-4b4f-a222-51df847b2a8d
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fe0ee8021ae7e70654a161e37d072195bbc035f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8e30bd940d3312a16f2dd30b175deb6622cb8c01
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545261"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68834736"
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>Azure AD(Active Directory)의 OAuth2 암시적 허용 흐름 이해
 
@@ -62,7 +62,7 @@ JavaScript 기반 접근 방법을 극한까지 확장하는 애플리케이션�
 
 ## <a name="is-the-implicit-grant-suitable-for-my-app"></a>암시적 허용이 내 앱에 적합할까요?
 
-암시적 허용은 다른 허용보다 더 많은 위험을 초래하며, 주의해야 하는 영역은 잘 문서화되어 있습니다(예: [암시적 흐름에서 리소스 소유자를 가장하는 액세스 토큰 오용][OAuth2-Spec-Implicit-Misuse] 및 [OAuth 2.0 위협 모델 및 보안 고려 사항][OAuth2-Threat-Model-And-Security-Implications]). 그러나 더 높은 위험 프로필은 주로 원격 리소스에서 브라우저에 제공한 활성 코드를 실행하는 애플리케이션을 사용하도록 설정하는 것을 의미한다는 사실 때문입니다. SPA 아키텍처를 계획하는 경우 백 엔드 구성 요소가 없거나 JavaScript를 통해 웹 API를 호출하려고 하므로 토큰 획득을 위해 암시적 흐름을 사용하는 것이 좋습니다.
+암시적 권한 부여는 다른 권한 부여 보다 더 많은 위험을 표시 하며 주의 해야 하는 영역 (예: [암시적 흐름에서 리소스 소유자를 가장 하는 액세스 토큰 오용][OAuth2-Spec-Implicit-Misuse] 및 [OAuth 2.0 위협 모델 및 보안)이 잘 문서화 되어 있습니다. 고려 사항][OAuth2-Threat-Model-And-Security-Implications]). 그러나 더 높은 위험 프로필은 주로 원격 리소스에서 브라우저에 제공한 활성 코드를 실행하는 애플리케이션을 사용하도록 설정하는 것을 의미한다는 사실 때문입니다. SPA 아키텍처를 계획하는 경우 백 엔드 구성 요소가 없거나 JavaScript를 통해 웹 API를 호출하려고 하므로 토큰 획득을 위해 암시적 흐름을 사용하는 것이 좋습니다.
 
 애플리케이션이 네이티브 클라이언트인 경우 암시적 흐름은 그다지 적합하지 않습니다. 네이티브 클라이언트 상황에서 Azure AD 세션 쿠키가 없으면 오래 지속되는 세션을 유지 관리하는 수단에서 애플리케이션을 사용하지 않게 됩니다. 즉 애플리케이션은 새 리소스에 대한 액세스 토큰을 가져올 때 사용자에게 반복해서 메시지를 표시합니다.
 
@@ -70,8 +70,8 @@ JavaScript 기반 접근 방법을 극한까지 확장하는 애플리케이션�
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure AD가 지원하는 프로토콜 및 OAuth2 권한 부여 흐름에 대한 참조 정보를 비롯한 개발자 리소스의 전체 목록은 [Azure AD 개발자 가이드][AAD-Developers-Guide] 참조
-* 애플리케이션 통합 프로세스에 대한 추가 심층 정보는 [애플리케이션을 Azure AD와 통합하는 방법][ACOM-How-To-Integrate]을 참조하세요.
+* Azure AD에서 지 원하는 프로토콜 및 OAuth2 권한 부여 흐름에 대 한 참조 정보를 비롯 한 개발자 리소스의 전체 목록은 [AZURE Ad 개발자 가이드][AAD-Developers-Guide] 를 참조 하세요.
+* 응용 프로그램 통합 프로세스에 대 한 추가 깊이는 [응용 프로그램을 AZURE AD와 통합 하는 방법을][ACOM-How-To-Integrate] 참조 하세요.
 
 <!--Image references-->
 

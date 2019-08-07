@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/17/2018
 ms.author: masnider
-ms.openlocfilehash: 085d5e560eec090ab76c263f8f93140786f2d734
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 82672114722db843fcb5d0bdff28cf14cddb1aef
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60543209"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68811935"
 ---
 # <a name="service-fabric-terminology-overview"></a>서비스 패브릭 용어 개요
 Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스를 관리하는 분산된 시스템 플랫폼입니다.  [어디에서나 Service Fabric 클러스터를 호스트](service-fabric-deploy-anywhere.md)할 수 있습니다. Azure, 온-프레미스 데이터 센터, 클라우드 공급자 등을 이용할 수 있습니다.  Service Fabric은 [Azure Service Fabric Mesh](/azure/service-fabric-mesh)를 작동하는 오케스트레이터입니다. 임의 프레임워크를 사용하여 서비스를 작성하고, 여러 환경 선택 항목 중에서 애플리케이션을 실행할 위치를 선택할 수 있습니다. 이 문서에서는 설명서에서 사용되는 용어를 이해할 수 있도록 Service Fabric에서 사용되는 용어에 대해 자세히 설명합니다.
@@ -27,7 +27,7 @@ Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하�
 ## <a name="infrastructure-concepts"></a>인프라 개념
 **클러스터**: 마이크로 서비스가 배포되고 관리되는 네트워크로 연결된 가상 또는 물리적 머신 세트입니다.  클러스터의 규모를 컴퓨터 수천 대로 확장할 수 있습니다.
 
-**노드**: 클러스터의 일부인 머신 또는 VM을 ‘노드’라고 합니다.  각 노드는 노드 이름(문자열)에 할당됩니다. 노드는 배치 속성과 같은 특징이 있습니다. 각 컴퓨터 또는 VM이 Windows 서비스인 `FabricHost.exe`를 자동으로 시작하여 부팅을 실행하기 시작한 다음 `Fabric.exe` 및 `FabricGateway.exe`라는 두 개의 실행 파일을 시작합니다. 이러한 두 실행 파일이 노드를 구성합니다. 테스트 시나리오에서는 `Fabric.exe` 및 `FabricGateway.exe`와 같은 여러 인스턴스를 실행하여 단일 컴퓨터 또는 VM에 여러 노드를 호스트할 수 있습니다.
+**노드**: 클러스터의 일부인 머신 또는 VM을 ‘노드’라고 합니다. 각 노드는 노드 이름(문자열)에 할당됩니다. 노드는 배치 속성과 같은 특징이 있습니다. 각 컴퓨터 또는 VM이 Windows 서비스인 `FabricHost.exe`를 자동으로 시작하여 부팅을 실행하기 시작한 다음 `Fabric.exe` 및 `FabricGateway.exe`라는 두 개의 실행 파일을 시작합니다. 이러한 두 실행 파일이 노드를 구성합니다. 테스트 시나리오에서는 `Fabric.exe` 및 `FabricGateway.exe`와 같은 여러 인스턴스를 실행하여 단일 컴퓨터 또는 VM에 여러 노드를 호스트할 수 있습니다.
 
 ## <a name="application-and-service-concepts"></a>애플리케이션 및 서비스 개념
 
@@ -142,7 +142,7 @@ Service Fabric에서 기존 애플리케이션을 실행할 수도 있습니다.
 
 **컨테이너**:  Service Fabric은 Linux에서 Docker 컨테이너의 배포를 지원하고 Hyper-V 격리 모드에 대한 지원과 함께 Windows Server 2016에서 Windows Server 컨테이너의 배포를 지원합니다. Service Fabric [애플리케이션 모델](service-fabric-application-model.md)에서 컨테이너는 다수의 서비스 복제본이 배치되는 애플리케이션 호스트를 나타냅니다. Service Fabric은 모든 컨테이너를 실행할 수 있으며 시나리오는 컨테이너 내에서 기존 애플리케이션을 패키지하는 게스트 실행 가능한 시나리오와 비슷합니다. 또한 [컨테이너 내에서 Service Fabric 서비스](service-fabric-services-inside-containers.md)를 실행할 수도 있습니다.
 
-**게스트 실행 파일**: Azure Service Fabric에서 Node.js, Java 또는 C++과 같은 모든 종류의 코드를 서비스로 실행할 수 있습니다. Service Fabric에서는 이러한 유형의 서비스를 상태 비저장 서비스로 처리되는 게스트 실행 파일이라고 합니다. Service Fabric 클러스터에서 게스트 실행 파일을 실행하는 이점에는 고가용성, 상태 모니터링, 애플리케이션 수명 주기 관리, 고밀도 및 검색 기능이 있습니다.
+**게스트 실행 파일**: Node.js, Python, Java 또는 C++ Azure Service Fabric와 같은 모든 유형의 코드를 서비스로 실행할 수 있습니다. Service Fabric에서는 이러한 유형의 서비스를 상태 비저장 서비스로 처리되는 게스트 실행 파일이라고 합니다. Service Fabric 클러스터에서 게스트 실행 파일을 실행하는 이점에는 고가용성, 상태 모니터링, 애플리케이션 수명 주기 관리, 고밀도 및 검색 기능이 있습니다.
 
 자세한 내용은 [서비스에 대한 프로그래밍 모델 선택](service-fabric-choose-framework.md) 문서를 참조하세요.
 
@@ -168,7 +168,7 @@ Service Fabric은 여러 서비스 및 제품의 기초가 되는 오픈 소스 
 
 다음 표에서는 다양한 애플리케이션 모델 및 Service Fabric에 대한 애플리케이션 모델의 도구에 대해 설명합니다.
 
-| 애플리케이션 유형 | 설명 방법 | Visual Studio | (예: Eclipse | SFCTL | AZ CLI | PowerShell|
+| 애플리케이션 유형 | 설명 방법 | Visual Studio | (예: Eclipse | SFCTL | AZ CLI | Powershell|
 |---|---|---|---|---|---|---|
 | Service Fabric Mesh 애플리케이션 | 리소스 모델(YAML 및 JSON) | VS 2017 |지원되지 않음 |지원되지 않음 | 지원됨 - Mesh 환경만 | 지원되지 않음|
 |Service Fabric 네이티브 애플리케이션 | 네이티브 애플리케이션 모델(XML) | VS 2017 및 VS 2015| 지원됨|지원됨|지원됨|지원됨|

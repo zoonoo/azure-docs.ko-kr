@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory에 대 한 개발자 (v1.0) 개요
+title: 개발자 용 Azure Active Directory (v1.0) 개요
 description: 이 문서에서는 Azure Active Directory v1.0 엔드포인트 및 플랫폼을 사용하여 Microsoft 회사 및 학교 계정에 로그인하는 방법의 개요를 제공합니다.
 services: active-directory
 author: rwike77
@@ -9,7 +9,7 @@ ms.assetid: 5c872c89-ef04-4f4c-98de-bc0c7460c7c2
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/24/2018
@@ -17,14 +17,14 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13cc5c7ae428f74f2892e6066dfdcd7efb73efbb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 91f406198418571ec0d2c4d488909d3baaa494b1
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545230"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68834675"
 ---
-# <a name="azure-active-directory-for-developers-v10-overview"></a>Azure Active Directory에 대 한 개발자 (v1.0) 개요
+# <a name="azure-active-directory-for-developers-v10-overview"></a>개발자 용 Azure Active Directory (v1.0) 개요
 
 Azure AD(Azure Active Directory)는 개발자가 Microsoft 회사 또는 학교 계정으로 사용자를 안전하게 로그인하는 앱을 빌드할 수 있는 클라우드 ID 서비스입니다. Azure AD는 단일 테넌트 및 기간 업무 앱을 모두 빌드하는 개발자와 다중 테넌트 앱을 개발하는 개발자를 지원합니다. 기본 로그인 외에도, Azure AD는 앱에서 [Microsoft Graph](https://docs.microsoft.com/graph/overview) 같은 Microsoft API와 Azure AD 플랫폼에서 빌드되는 사용자 지정 API를 호출하는 것을 허용합니다. 이 설명서에서는 OAuth2.0 및 OpenID Connect 같은 산업 표준 프로토콜을 사용하여 애플리케이션에 Azure AD 지원을 추가하는 방법을 보여줍니다.
 
@@ -37,7 +37,7 @@ Azure AD(Azure Active Directory)는 개발자가 Microsoft 회사 또는 학교 
 |[애플리케이션 유형](app-types.md) | Azure AD에서 지원하는 인증 시나리오에 대한 개요입니다. |
 | | |
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 
 v1.0 빠른 시작 및 자습서에서는 ADAL(Azure AD 인증 라이브러리) SDK를 사용하여 선호하는 플랫폼에서 앱을 빌드하는 과정을 안내합니다. 시작하려면 [Microsoft ID 플랫폼(개발자용 Azure Active Directory)](index.yml)에서 **v1.0 빠른 시작** 및 **v1.0 자습서**를 참조하세요.
 

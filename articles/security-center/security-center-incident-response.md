@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 99bfab5a5f80fc0a49c7cc6405154394391f43e0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3a55de2d5f47274ea112e52ddbcc0d946db56470
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60908223"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775327"
 ---
 # <a name="using-azure-security-center-for-an-incident-response"></a>사고 대응에 Azure Security Center 사용
 대부분의 조직은 공격을 받은 후에 보안 사고에 대응하는 방법을 알아봅니다. 비용과 손상을 줄이려면 공격이 발생하기 전에 사고 대응 계획을 적절히 수립하는 것이 중요합니다. Azure Security Center는 사고에 대응하는 여러 단계에서 사용할 수 있습니다.
@@ -51,12 +51,12 @@ Contoso는 최근에 일부 가상 머신 기반 LOB(기간 업무) 워크로드
 
 ![사고 대응 수명 주기](./media/security-center-incident-response/security-center-incident-response-fig2.png)
 
-Judy는 보안 운영 업무를 담당하고 있습니다. 그녀의 책임은 다음과 같습니다.
+Judy는 보안 운영 업무를 담당하고 있습니다. 사용자의 책임은 다음과 같습니다.
 
 * 보안 위협에 대한 24시간 항시 모니터링 및 대응
 * 클라우드 워크로드 소유자, 또는 필요한 경우 보안 분석가로 에스컬레이션
 
-Sam은 보안 분석가이며 다음과 같은 업무를 담당합니다.
+Sam은 보안 분석가 이며 책임은 다음과 같습니다.
 
 * 공격 조사
 * 경고 수정
@@ -65,17 +65,17 @@ Sam은 보안 분석가이며 다음과 같은 업무를 담당합니다.
 여기서 볼 수 있듯이 Judy와 Sam은 서로 다른 책임을 맡고 있지만 Security Center 정보를 공유해야 합니다.
 
 ## <a name="recommended-solution"></a>권장된 솔루션
-Judy와 Sam은 서로 다른 책임을 맡고 있지만 Security Center에서 별개의 영역을 사용하여 일상 작업 관련 정보를 획득할 수 있습니다. Judy는 매일 모니터링 작업의 일부로 **보안 경고**를 사용합니다.
+Judy와 Sam은 서로 다른 책임을 맡고 있지만 Security Center에서 별개의 영역을 사용하여 일상 작업 관련 정보를 획득할 수 있습니다. 경우에 따라 일일 모니터링의 일부로 **보안 경고** 를 사용 합니다.
 
 ![보안 경고](./media/security-center-incident-response/security-center-incident-response-fig3.png)
 
-Judy는 감지 및 평가 단계에서 보안 경고를 사용합니다. Judy가 초기 평가를 완료하면 추가 조사가 필요한 경우 Sam에게 문제를 에스컬레이션할 수 있습니다. 이 시점에서 Sam은 Security Center에서 제공한 정보를 사용하며, 때로는 다른 데이터 원본과 함께 진단 단계로 진행합니다.
+Judy는 감지 및 평가 단계에서 보안 경고를 사용합니다. 첫 평가를 완료 한 후에는 추가 조사가 필요한 경우 해당 문제를 Sam으로 확대할 수 있습니다. 이 시점에서 Sam은 Security Center에서 제공한 정보를 사용하며, 때로는 다른 데이터 원본과 함께 진단 단계로 진행합니다.
 
 ## <a name="how-to-implement-this-solution"></a>이 솔루션을 구현하는 방법
 사고 대응 시나리오에서 Azure Security Center를 사용하는 방법을 확인하려면 감지 및 평가 단계에서 Judy의 단계를 따라가고 문제를 진단하기 위해 Sam이 수행하는 작업을 참조하겠습니다.
 
 ### <a name="detect-and-assess-incident-response-stages"></a>감지 및 평가 사고 대응 단계
-Judy는 Azure 포털에 로그인했으며 Security Center 콘솔을 사용하고 있습니다. 그녀는 매일 모니터링 작업의 일부로 다음 단계를 수행하여 우선 순위가 높은 보안 경고를 검토하기 시작합니다.
+Judy는 Azure 포털에 로그인했으며 Security Center 콘솔을 사용하고 있습니다. 일일 모니터링 작업의 일부로 다음 단계를 수행 하 여 우선 순위가 높은 보안 경고를 검토 하기 시작 했습니다.
 
 1. **보안 경고** 타일을 클릭하고 **보안 경고** 블레이드에 액세스합니다.
     ![보안 경고 블레이드](./media/security-center-incident-response/security-center-incident-response-fig4.png)
@@ -89,14 +89,14 @@ Judy는 Azure 포털에 로그인했으며 Security Center 콘솔을 사용하�
     이 블레이드에서 Judy는 공격받은 리소스와 관련하여 공격이 발생한 빈도 및 감지된 시기를 기록할 수 있습니다.
 3. **공격받은 리소스** 를 클릭하여 이 공격에 대한 자세한 정보를 얻을 수 있습니다.
 
-설명을 읽은 후에 이것이 가양성이 아니며 Sam에게 이 경우를 에스컬레이션해야 한다는 점을 Judy는 확신하게 됩니다.
+설명을 읽은 후에는 거짓 긍정이 아니고이 사례를 Sam으로 에스컬레이션 해야 한다는 것을 확신 합니다.
 
 ### <a name="diagnose-incident-response-stage"></a>진단 사고 대응 단계
 Sam은 Judy에게서 상황을 접수한 다음 Security Center에서 제안하는 수정 조치를 검토하기 시작합니다.
 
 ![사고 대응 수명 주기](./media/security-center-incident-response/security-center-incident-response-fig6.png)
 
-### <a name="additional-resources"></a>추가 리소스
+### <a name="additional-resources"></a>추가 자료
 SIEM(보안 정보 및 이벤트 관리) 솔루션을 사용하는 회사의 경우 조사 과정에서 [SIEM 솔루션과 Security Center를 통합](security-center-integrating-alerts-with-log-integration.md)할 수도 있습니다. Azure 감사 로그와 VM 보안 이벤트는 [Azure 로그 통합 도구](https://azure.microsoft.com/blog/introducing-hdinsight-integration-with-azure-log-analytics/)를 통해 통합할 수도 있습니다. 이 정보는 Security Center에서 제공하는 정보와 함께 공격을 조사하는 데 사용할 수 있습니다. Security Center의 [조사](https://docs.microsoft.com/azure/security-center/security-center-investigation) 기능을 사용하여 인시던트의 근본 원인을 확인할 수도 있습니다.
 
 ## <a name="conclusion"></a>결론

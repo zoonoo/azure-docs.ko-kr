@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 08/05/2019
 ms.author: raynew
-ms.openlocfilehash: 9f985260175e5f54a17799ef07b3a280f42b716e
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 2ed93846e0a1ab98b25bdfbe33b34779996da82b
+ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491879"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68782637"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Azure 간 재해 복구 아키텍처
 
@@ -63,10 +63,10 @@ VM의 복제를 활성화하면 Site Recovery는 대상 리소스를 자동으�
 
 Azure VM 복제를 활성화하면 기본적으로 Site Recovery는 표에 요약된 기본 설정을 사용하여 새 복제 정책을 만듭니다.
 
-**정책 설정** | **세부 정보** | **기본값**
+**정책 설정** | **세부 정보** | **Default**
 --- | --- | ---
 **복구 지점 보존** | Site Recovery에서 복구 지점을 유지하는 기간을 지정합니다. | 24시간
-**앱 일치 스냅숏 빈도** | Site Recovery에서 앱 일치 스냅샷을 만드는 주기입니다. | 매 60분
+**앱 일치 스냅샷 빈도** | Site Recovery에서 앱 일치 스냅샷을 만드는 주기입니다. | 매 60분
 
 ### <a name="managing-replication-policies"></a>복제 정책 관리
 
@@ -144,7 +144,7 @@ IP 주소를 사용하여 VM에 대한 아웃바운드 연결을 제어하려면
 
 **규칙** |  **세부 정보** | **Service 태그**
 --- | --- | --- 
-HTTPS 아웃바운드 허용: 포트 443 | 원본 지역의 스토리지 계정에 해당하는 범위를 허용합니다. | 저장소입니다. \<지역 이름 >.
+HTTPS 아웃바운드 허용: 포트 443 | 원본 지역의 스토리지 계정에 해당하는 범위를 허용합니다. | 저장할. \<영역 이름 >입니다.
 HTTPS 아웃바운드 허용: 포트 443 | Azure AD(Azure Active Directory)에 해당하는 범위를 허용합니다.<br/><br/> Azure AD 주소가 나중에 추가되는 경우 새 NSG(네트워크 보안 그룹) 규칙을 만들어야 합니다.  | AzureActiveDirectory
 HTTPS 아웃바운드 허용: 포트 443 | 대상 위치에 해당하는 [Site Recovery 엔드포인트](https://aka.ms/site-recovery-public-ips)에 대한 액세스를 허용합니다. 
 
@@ -152,7 +152,7 @@ HTTPS 아웃바운드 허용: 포트 443 | 대상 위치에 해당하는 [Site R
 
 **규칙** |  **세부 정보** | **Service 태그**
 --- | --- | --- 
-HTTPS 아웃바운드 허용: 포트 443 | 대상 지역의 스토리지 계정에 해당하는 범위를 허용합니다. | 저장소입니다. \<지역 이름 >.
+HTTPS 아웃바운드 허용: 포트 443 | 대상 지역의 스토리지 계정에 해당하는 범위를 허용합니다. | 저장할. \<영역 이름 >입니다.
 HTTPS 아웃바운드 허용: 포트 443 | Azure AD에 해당하는 범위를 허용합니다.<br/><br/> Azure AD 주소가 나중에 추가되는 경우 새 NSG 규칙을 만들어야 합니다.  | AzureActiveDirectory
 HTTPS 아웃바운드 허용: 포트 443 | 원본 위치에 해당하는 [Site Recovery 엔드포인트](https://aka.ms/site-recovery-public-ips)에 대한 액세스를 허용합니다. 
 

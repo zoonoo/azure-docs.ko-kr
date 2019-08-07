@@ -1,45 +1,45 @@
 ---
-title: '예제: Bing Entity Search API-Azure Search를 사용 하 여 cognitive 스킬을 사용자 지정 만들기'
-description: Bing Entity Search 서비스를 사용 하 여 Azure Search에서 cognitive search 인덱싱 파이프라인에 매핑되는 사용자 지정 기술에서 하는 방법을 보여 줍니다.
+title: '예제: Bing Entity Search API-Azure Search를 사용 하 여 사용자 지정 인식 기술 만들기'
+description: Azure Search에서 인지 검색 인덱싱 파이프라인에 매핑된 사용자 지정 기술에 Bing Entity Search 서비스를 사용 하는 방법을 보여 줍니다.
 manager: pablocas
 author: luiscabrer
 services: search
 ms.service: search
+ms.subservice: cognitive-search
 ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: 7d90f46ada9b9453b4c1516a4a898456dc73b8e7
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: a032288338d2d6a53489105790b6862eefadf609
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672139"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68841238"
 ---
 # <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>예제: Bing Entity Search API를 사용 하 여 사용자 지정 기술 만들기
 
-이 예제에서는 웹 API 사용자 지정 기술을 만드는 방법에 알아봅니다. 이 기술 위치, 공용 수치 및 조직에 적용 되며에 대 한 설명을 반환 합니다. 이 예제에서는 사용를 [Azure Function](https://azure.microsoft.com/services/functions/) 래핑할 합니다 [Bing Entity Search API](https://azure.microsoft.com/services/cognitive-services/bing-entity-search-api/) 을 사용자 지정 기술 인터페이스를 구현 합니다.
+이 예제에서는 web API 사용자 지정 기술을 만드는 방법에 대해 알아봅니다. 이 스킬은 위치, 공개, 조직 및 조직에 대 한 설명을 반환 합니다. 이 예제에서는 [Azure 함수](https://azure.microsoft.com/services/functions/) 를 사용 하 여 사용자 지정 기술 인터페이스를 구현 하도록 [Bing Entity Search API](https://azure.microsoft.com/services/cognitive-services/bing-entity-search-api/) 를 래핑합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
-+ 읽어보세요 [사용자 지정 기술 인터페이스](cognitive-search-custom-skill-interface.md) 문서는 사용자 지정 기술 구현 해야 하는 입/출력 인터페이스에 익숙하지 않은 경우.
++ 사용자 지정 기술에서 구현 해야 하는 입력/출력 인터페이스에 익숙하지 않은 경우 [사용자 지정 기술 인터페이스](cognitive-search-custom-skill-interface.md) 문서를 참조 하세요.
 
 + [!INCLUDE [cognitive-services-bing-entity-search-signup-requirements](../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
-+ 설치할 [Visual Studio 2019](https://www.visualstudio.com/vs/) 하거나 나중에 Azure 개발 워크 로드를 포함 합니다.
++ Azure 개발 워크 로드를 포함 하 여 [Visual Studio 2019](https://www.visualstudio.com/vs/) 이상 버전을 설치 합니다.
 
 ## <a name="create-an-azure-function"></a>Azure Function 만들기
 
-이 예제에서는 Azure Function 웹 API를 호스트 하 하지만 필요 하지 않습니다.  [인식 기술에 대한 인터페이스 요구 사항](cognitive-search-custom-skill-interface.md)을 충족하기만 하면, 사용하는 방식은 중요하지 않습니다. 그러나 Azure Functions를 사용하면 사용자 지정 기술을 쉽게 만들 수 있습니다.
+이 예제에서는 Azure 함수를 사용 하 여 web API를 호스트 하지만 반드시 필요한 것은 아닙니다.  [인식 기술에 대한 인터페이스 요구 사항](cognitive-search-custom-skill-interface.md)을 충족하기만 하면, 사용하는 방식은 중요하지 않습니다. 그러나 Azure Functions를 사용하면 사용자 지정 기술을 쉽게 만들 수 있습니다.
 
 ### <a name="create-a-function-app"></a>함수 앱 만들기
 
 1. Visual Studio의 파일 메뉴에서 **새로 만들기** > **프로젝트**를 선택합니다.
 
-1. 새 프로젝트 대화 상자에서 **설치됨**을 선택하고, **Visual C#**  > **클라우드**를 확장하고, **Azure Functions**를 선택하고, 프로젝트의 이름을 입력한 다음, **확인**을 선택합니다. 함수 앱 이름으로 유효 해야는 C# 네임 스페이스에 있으므로 밑줄, 하이픈 또는 기타 영숫자가 아닌 문자를 사용 하지 마세요.
+1. 새 프로젝트 대화 상자에서 **설치됨**을 선택하고, **Visual C#**  > **클라우드**를 확장하고, **Azure Functions**를 선택하고, 프로젝트의 이름을 입력한 다음, **확인**을 선택합니다. 함수 앱 이름은 C# 네임 스페이스로 유효 해야 하므로 밑줄, 하이픈 또는 영숫자가 아닌 문자를 사용 하지 마세요.
 
-1. 선택 **Azure Functions v2 (.NET Core)** 합니다. 버전 1에서도 수행할 수 있지만 아래에 작성된 코드는 v2 템플릿을 기반으로 합니다.
+1. **Azure Functions v2 (.Net Core)** 를 선택 합니다. 버전 1에서도 수행할 수 있지만 아래에 작성된 코드는 v2 템플릿을 기반으로 합니다.
 
 1. 형식을 **HTTP 트리거**로 선택합니다.
 
@@ -47,7 +47,7 @@ ms.locfileid: "67672139"
 
 1. **확인**을 선택하여 함수 프로젝트 및 HTTP 트리거 함수를 만듭니다.
 
-### <a name="modify-the-code-to-call-the-bing-entity-search-service"></a>Bing Entity Search 서비스를 호출 하는 코드를 수정 합니다.
+### <a name="modify-the-code-to-call-the-bing-entity-search-service"></a>Bing Entity Search 서비스를 호출 하는 코드 수정
 
 Visual Studio는 프로젝트를 만들고 그 안에는 선택한 함수 형식에 대한 상용구 코드를 포함하는 클래스를 만듭니다. 메서드의 *FunctionName* 특성은 함수 이름을 설정합니다. *HttpTrigger* 특성은 함수가 HTTP 요청에 의해 트리거되도록 지정합니다.
 
@@ -313,15 +313,15 @@ namespace SampleSkills
 }
 ```
 
-입력 해야 자신의 *키* 값을 `key` Bing 엔터티 검색 API 등록할 때 얻은 키를 기준으로 한 상수입니다.
+Bing entity search API에 등록할 때 가져온 키를 `key` 기반으로 상수에 고유한 키 값을 입력 해야 합니다.
 
-이 샘플의 편의 위해 단일 파일에 필요한 모든 코드를 포함합니다. 동일한 기술에 약간 더 구조화 된 버전을 찾을 수 있습니다 [전원 기술 리포지토리](https://github.com/Azure-Samples/azure-search-power-skills/tree/master/Text/BingEntitySearch)합니다.
+이 샘플에는 편의상 모든 필요한 코드가 단일 파일에 포함 되어 있습니다. [Power skills 리포지토리에서](https://github.com/Azure-Samples/azure-search-power-skills/tree/master/Text/BingEntitySearch)이와 동일한 기술에 대해 약간 더 구조적인 버전을 찾을 수 있습니다.
 
-물론, 파일의 이름을 변경할 수 있습니다 `Function1.cs` 에 `BingEntitySearch.cs`입니다.
+물론 파일의 이름을에서 `Function1.cs` 로 `BingEntitySearch.cs`바꿀 수도 있습니다.
 
 ## <a name="test-the-function-from-visual-studio"></a>Visual Studio에서 함수 테스트
 
-**F5** 키를 눌러 프로그램을 실행하고 함수 동작을 테스트합니다. 이 경우 두 개의 엔터티를 조회 하는 아래 사용 하겠습니다. Postman 또는 Fiddler를 사용하여 아래와 같은 호출을 실행합니다.
+**F5** 키를 눌러 프로그램을 실행하고 함수 동작을 테스트합니다. 이 경우 아래 함수를 사용 하 여 두 엔터티를 조회 합니다. Postman 또는 Fiddler를 사용하여 아래와 같은 호출을 실행합니다.
 
 ```http
 POST https://localhost:7071/api/EntitySearch
@@ -375,17 +375,17 @@ POST https://localhost:7071/api/EntitySearch
 
 ## <a name="publish-the-function-to-azure"></a>Azure에 함수 게시
 
-함수 동작에 만족 하는 경우에이 게시할 수 있습니다.
+함수 동작에 만족 하는 경우에는 게시할 수 있습니다.
 
 1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다. **새로 만들기** > **게시**를 선택합니다.
 
 1. Visual Studio를 Azure 계정에 아직 연결하지 않았으면 **계정 추가...** 를 선택합니다.
 
-1. 화면에 표시되는 메시지를 따릅니다. App service, Azure 구독, 리소스 그룹, 호스팅 계획 및 사용 하려는 저장소 계정에 대 한 고유 이름을 지정 하려면 묻는 메시지가 나타납니다. 아직 없는 경우 새 리소스 그룹, 새 호스팅 플랜 및 저장소 계정을 만들 수 있습니다. 작업을 마쳤으면 **만들기**를 선택합니다.
+1. 화면에 표시되는 메시지를 따릅니다. 앱 서비스, Azure 구독, 리소스 그룹, 호스팅 계획 및 사용 하려는 저장소 계정에 대 한 고유한 이름을 지정 하 라는 메시지가 표시 됩니다. 아직 없는 경우 새 리소스 그룹, 새 호스팅 플랜 및 저장소 계정을 만들 수 있습니다. 작업을 마쳤으면 **만들기**를 선택합니다.
 
-1. 배포가 완료 되 면 사이트 URL을 확인할 수 있습니다. 이 URL은 Azure에서 해당 함수 앱의 주소입니다. 
+1. 배포가 완료 되 면 사이트 URL을 확인 합니다. 이 URL은 Azure에서 해당 함수 앱의 주소입니다. 
 
-1. 에 [Azure portal](https://portal.azure.com), 리소스 그룹으로 이동 하 고 확인을 `EntitySearch` 게시 하는 함수. **관리** 섹션 아래에 호스트 키가 표시됩니다. ‘기본’ 호스트 키의 **복사** 아이콘을 선택합니다.   
+1. [Azure Portal](https://portal.azure.com)에서 리소스 그룹으로 이동 하 고 게시 한 `EntitySearch` 함수를 찾습니다. **관리** 섹션 아래에 호스트 키가 표시됩니다. ‘기본’ 호스트 키의 **복사** 아이콘을 선택합니다.  
 
 ## <a name="test-the-function-in-azure"></a>Azure에서 함수 테스트
 
@@ -417,10 +417,10 @@ POST https://[your-entity-search-app-name].azurewebsites.net/api/EntitySearch?co
 }
 ```
 
-이 예제에서는 로컬 환경에서 함수를 실행 하는 경우 앞서 본 것과 동일한 결과 생성 해야 합니다.
+이 예에서는 로컬 환경에서 함수를 실행할 때 이전에 살펴본 것과 동일한 결과를 생성 해야 합니다.
 
 ## <a name="connect-to-your-pipeline"></a>파이프라인에 연결
-이제 새 사용자 지정 기술이 있으므로 기능에 추가할 수 있습니다. 아래 예제에서는 (이 확장할 수 있습니다 위치 및 사용자에서) 문서에는 조직에 설명을 추가 하려면 기술을 호출 하는 방법을 보여 줍니다. 대체 `[your-entity-search-app-name]` 앱의 이름입니다.
+이제 새 사용자 지정 기술이 있으므로 기능에 추가할 수 있습니다. 아래 예제에서는 기술를 호출 하 여 문서에서 조직에 설명을 추가 하는 방법을 보여 줍니다 .이는 위치 및 사용자에 대해서도 작동 하도록 확장할 수 있습니다. 를 `[your-entity-search-app-name]` 앱의 이름으로 바꿉니다.
 
 ```json
 {
@@ -448,7 +448,7 @@ POST https://[your-entity-search-app-name].azurewebsites.net/api/EntitySearch?co
 }
 ```
 
-여기에 기본 제공 계산 하는 것 [엔터티 인식 기술](cognitive-search-skill-entity-recognition.md) 기술에 있어야 하는 조직 목록으로 문서를 한층 다양해졌습니다. 참조용으로 필요한 데이터를 생성 하는 데 충분 하다는 엔터티 추출 기술 구성을 다음과 같습니다.
+여기서는 기술에 제공 되는 기본 제공 [엔터티 인식 기술](cognitive-search-skill-entity-recognition.md) 에 대해 계산 하 고 조직 목록에 문서 보강을 제공 합니다. 참고로, 필요한 데이터를 생성 하는 데 충분 한 엔터티 추출 기술 구성은 다음과 같습니다.
 
 ```json
 {
@@ -478,7 +478,7 @@ POST https://[your-entity-search-app-name].azurewebsites.net/api/EntitySearch?co
 ```
 
 ## <a name="next-steps"></a>다음 단계
-축하합니다. 첫 번째 사용자 지정 보강 자를 만들었습니다. 이제 동일한 패턴을 따라 고유한 사용자 지정 기능을 추가할 수 있습니다. 
+축하합니다. 첫 번째 사용자 지정 사용자를 만들었습니다. 이제 동일한 패턴을 따라 고유한 사용자 지정 기능을 추가할 수 있습니다. 
 
 + [인식 검색 파이프라인에 사용자 지정 기술 추가](cognitive-search-custom-skill-interface.md)
 + [기능을 정의하는 방법](cognitive-search-defining-skillset.md)

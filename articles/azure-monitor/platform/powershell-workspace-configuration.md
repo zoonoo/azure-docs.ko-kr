@@ -8,12 +8,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 05/19/2019
 ms.author: bwren
-ms.openlocfilehash: 4faa58536d6458b01adbb7dab60bfd10be18275b
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: ec72b0b9f2cdc932c7fb0c8a6fd8daecbc470c09
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234808"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779967"
 ---
 # <a name="manage-log-analytics-workspace-in-azure-monitor-using-powershell"></a>PowerShell을 사용 하 여 Azure Monitor에서 Log Analytics 작업 영역 관리
 
@@ -38,7 +38,7 @@ ms.locfileid: "68234808"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 이러한 예제는 OperationalInsights 모듈의 버전 1.0.0 이상에서 작동 합니다.
 
 
@@ -79,7 +79,7 @@ $ExportedSearches = @"
     {
         "Category":  "My Saved Searches",
         "DisplayName":  "Current Disk Queue Length",
-        "Query":  "Perf | where ObjectName == "LogicalDisk" and CounterName == "Current Disk Queue Length" and InstanceName == "C:",
+        "Query":  "Perf | where ObjectName == "LogicalDisk" and CounterName == "Current Disk Queue Length" and InstanceName == "C:"",
         "Version":  1
     }
 ]
@@ -134,7 +134,7 @@ try {
 New-AzOperationalInsightsWorkspace -Location $Location -Name $WorkspaceName -Sku Standard -ResourceGroupName $ResourceGroup
 
 # List all solutions and their installation status
-Get-AzOperationalInsightsIntelligencePacks -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName
+Get-AzOperationalInsightsIntelligencePack -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName
 
 # Add solutions
 foreach ($solution in $Solutions) {
@@ -142,7 +142,7 @@ foreach ($solution in $Solutions) {
 }
 
 # List enabled solutions
-(Get-AzOperationalInsightsIntelligencePacks -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName).Where({($_.enabled -eq $true)})
+(Get-AzOperationalInsightsIntelligencePack -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName).Where({($_.enabled -eq $true)})
 
 # Import Saved Searches
 foreach ($search in $ExportedSearches) {
@@ -201,7 +201,7 @@ New-AzOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -
 | --- | --- | --- |
 | Application Gateway    | 예 | 예 |
 | Automation 계정     | 예 | |
-| Batch 계정          | 예 | 예 |
+| 배치 계정          | 예 | 예 |
 | Data Lake Analytics     | 예 | |
 | Data Lake Store         | 예 | |
 | 탄력적인 SQL 풀        |     | 예 |
@@ -209,11 +209,11 @@ New-AzOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -
 | IoT Hub                |     | 예 |
 | Key Vault               | 예 | |
 | Load Balancer          | 예 | |
-| Logic Apps              | 예 | 예 |
+| 논리 앱              | 예 | 예 |
 | 네트워크 보안 그룹 | 예 | |
 | Azure Cache for Redis             |     | 예 |
 | Search 서비스         | 예 | 예 |
-| Service Bus 네임스페이스   |     | 예 |
+| 서비스 버스 네임스페이스   |     | 예 |
 | SQL(v12)               |     | 예 |
 | 웹 사이트               |     | 예 |
 | 웹 서버 팜        |     | 예 |

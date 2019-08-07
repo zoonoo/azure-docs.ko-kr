@@ -6,14 +6,14 @@ author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 07/19/2019
+ms.date: 08/02/2019
 ms.author: banders
-ms.openlocfilehash: 08c9f958f5103da9961f4c2d29be97f455cecc4b
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 6ee7a661434bb756c6cf196937229db19d06b373
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359257"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779977"
 ---
 # <a name="prepay-for-sql-data-warehouse-charges-with-reserved-capacity"></a>예약 된 용량을 사용 하는 SQL Data Warehouse 요금에 대 한 선불
 
@@ -61,13 +61,9 @@ SQL Data Warehouse 예약 크기는 사용 하는 총 cDWU (계산 데이터 웨
 8. **구매**를 선택합니다.
 9. **이 예약 보기** 를 선택 하 여 구매 상태를 확인 합니다.
 
-## <a name="cancellations-and-exchanges"></a>취소 및 교환
+## <a name="cancel-exchange-or-refund-reservations"></a>취소, 교환 또는 환불 예약
 
-SQL Data Warehouse 예약 된 용량을 취소 해야 하는 경우 12% 조기 종료 요금이 있을 수 있습니다. 환불은 구매 가격 또는 예약의 현재 가격 중 최저 가격을 기준으로 합니다. 환불은 연간 $50000.00 개로 제한 됩니다. 지불 하는 환불은 남은 비례 잔액에서 12% 조기 종료 요금을 뺀 값입니다. 취소 하려면 Azure Portal 예약으로 이동 하 여 **환불**을 선택 합니다.
-
-SQL Data Warehouse 예약 된 용량을 다른 지역 또는 기간으로 변경 해야 하는 경우 값이 같거나 큰 다른 예약에 대해 교환할 수 있습니다. 새 예약에 대한 기간 시작일은 교환된 예약에서 수행되지 않습니다. 1 년 또는 3 년 이라는 용어는 새 예약을 만들 때 시작 됩니다. Exchange를 열려면 Azure Portal에서 예약을 열고 **exchange**를 선택 합니다.
-
-예약을 교환 하거나 환불 하는 방법에 대 한 자세한 내용은 [예약 교환 및 환불](billing-azure-reservations-self-service-exchange-and-refund.md)을 참조 하세요.
+특정 제한 사항을 사용 하 여 예약을 취소, 교환 또는 환불 할 수 있습니다. 자세한 내용은 [셀프 서비스 교환 및 Azure Reservations에 대 한 환불](billing-azure-reservations-self-service-exchange-and-refund.md)를 참조 하세요.
 
 예약 할인은 SQL Data Warehouse 예약 된 용량 범위 및 영역과 일치 하는 SQL Data Warehouse 인스턴스 수에 자동으로 적용 됩니다. [Azure Portal](https://portal.azure.com/), POWERSHELL, CLI 또는 API를 통해 SQL Data Warehouse 예약 된 용량의 범위를 업데이트할 수 있습니다.
 

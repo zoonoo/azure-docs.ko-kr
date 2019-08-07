@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
-ms.date: 07/30/2019
-ms.openlocfilehash: d97c3d47a277ecd8b1de635e3d835f9ee1f42057
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.date: 08/07/2019
+ms.openlocfilehash: 4b66d015e8a182e305a36dacaa2e082288a3e19e
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68700354"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840531"
 ---
 # <a name="introduction-to-deep-learning-vs-machine-learning"></a>심층 학습 및 기계 학습 소개
 
@@ -43,9 +43,9 @@ ms.locfileid: "68700354"
 
 아래 표에서는 두 가지 기술을 자세히 비교 합니다.
 
-| |Machine Learning |심층 학습|
+| |모든 기계 학습 |심층 학습|
 |---|---|---|
-|  **데이터 요소 수** | 사용자가 제공 하는 작은 데이터 양을 사용할 수 있음 | 간결한 결론을 만들기 위해 레이블이 지정 되지 않은 많은 학습 데이터가 필요 합니다. |
+|  **데이터 요소 수** | 사용자가 제공 하는 작은 데이터 양을 사용할 수 있음 | 간결한 결론을 위해서는 많은 양의 학습 데이터가 필요 합니다. |
 |  **하드웨어 종속성** | 는 저급 컴퓨터에서 작동할 수 있습니다. 계산 전력이 많이 필요 하지 않습니다. | 고성능 컴퓨터에 종속 됩니다. 본질적으로 많은 수의 행렬 곱하기 연산을 수행 합니다. 이러한 작업은 GPU를 사용 하 여 효율적으로 최적화할 수 있습니다. |
 |  **기능화 프로세스** | 사용자가 정확 하 게 식별 하 고 만들어야 하는 기능 필요 | 데이터에서 상위 수준 기능을 학습 하 고 자체적으로 새 기능을 만듭니다. |
 |  **학습 방법** | 작업을 작은 부분으로 나누고 받은 결과를 하나의 결론으로 결합 합니다. | 종단 간 문제를 해결 합니다. |

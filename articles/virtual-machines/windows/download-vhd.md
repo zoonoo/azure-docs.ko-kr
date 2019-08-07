@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: 7128413e48fdeef9b9284bc6db11649016a06153
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: ebcc8301fa3693880974e45b594be218905e8311
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722811"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775402"
 ---
 # <a name="download-a-windows-vhd-from-azure"></a>Azure에서 Windows VHD 다운로드
 
@@ -52,11 +52,11 @@ VHD를 기존 VM의 새 인스턴스에 대한 디스크 또는 데이터 디스
 VHD 파일을 다운로드하려면 [SAS(공유 액세스 서명)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) URL을 생성해야 합니다. URL이 생성될 때 만료 시간이 URL에 할당됩니다.
 
 1.  VM에 대한 블레이드 메뉴에서 **디스크**를 클릭합니다.
-2.  VM에 대한 운영 체제 디스크를 선택한 다음 **내보내기**를 클릭합니다.
+2.  VM에 대 한 운영 체제 디스크를 선택 하 고 **디스크 내보내기**를 클릭 합니다.
 3.  URL의 만료 시간을 *36000*으로 설정합니다.
 4.  **URL 생성**을 클릭합니다.
 
-    ![URL 생성](./media/download-vhd/export-generate.png)
+    ![URL 생성](./media/download-vhd/export-generate-new.png)
 
 > [!NOTE]
 > Windows Server 운영 체제에 대한 큰 VHD 파일을 다운로드하는 데 충분한 시간을 제공하기 위해 만료 시간은 기본 시간에서 증가되었습니다. Windows Server 운영 체제를 포함하는 VHD 파일은 사용자 연결에 따라 다운로드하는 데 몇 시간이 걸릴 수 있습니다. 데이터 디스크에 대한 VHD를 다운로드하는 경우 기본 시간은 충분합니다. 

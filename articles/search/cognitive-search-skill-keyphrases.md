@@ -10,13 +10,13 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: 87f20f1989c70988784b422fc38094ec1fc5a966
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.subservice: cognitive-search
+ms.openlocfilehash: dcd0579482a8292dc848a1d2f6a779c93e7e349c
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68347722"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68841044"
 ---
 #   <a name="key-phrase-extraction-cognitive-skill"></a>핵심 문구 추출 인식 기술
 
@@ -47,7 +47,7 @@ Microsoft.Skills.Text.KeyPhraseExtractionSkill
 
 ## <a name="skill-inputs"></a>기술 입력
 
-| 입력     | 설명 |
+| 입력     | Description |
 |--------------------|-------------|
 | text | 분석할 텍스트입니다.|
 | languageCode  |  레코드의 언어를 나타내는 문자열입니다. 이 매개 변수를 지정하지 않으면 레코드를 분석하는 데 기본 언어 코드가 사용됩니다. <br/>[지원되는 언어 전체 목록](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) 참조|

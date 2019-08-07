@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 93c36ccb244931c12d8b038f448fbda4eff77f16
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 287902c149fd3a8732ce9ce95b05b0d9fa36147b
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721719"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816612"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Azure Files 배포에 대한 계획
 
@@ -62,7 +62,7 @@ Azure Files에는 데이터 보안을 위한 몇 가지 기본 제공 옵션이 
     * 암호화를 사용 하 여 SMB 3.0을 지원 하지 않는 클라이언트는 암호화 되지 않은 smb 2.1 또는 SMB 3.0를 통해 데이터 센터 내에서 통신할 수 있습니다. SMB 클라이언트는 암호화 기능이 없는 SMB 3.0 또는 SMB 2.1을 통해 데이터 센터 내에서 통신할 수 없습니다.
     * 클라이언트는 HTTP 또는 HTTPS를 사용하여 파일 REST를 통해 통신할 수 있습니다.
 * 미사용 데이터 암호화([Azure 스토리지 서비스 암호화](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): 모든 스토리지 계정에 대해 SSE(스토리지 서비스 암호화)가 사용하도록 설정됩니다. 미사용 데이터는 완전히 관리되는 키로 암호화됩니다. 미사용 암호화를 사용할 경우 저장소 비용이 증가하거나 성능이 저하되지 않습니다. 
-* 암호화된 데이터 전송 시 선택적 요구 사항: 이를 선택하면 Azure Files는 암호화되지 않은 채널을 통한 데이터 액세스를 거부합니다. 구체적으로 말하면, 암호화 연결을 통한 HTTPS 및 SMB 3.0만 허용됩니다.
+* 암호화 된 데이터 전송 시 선택적 요구 사항:이 옵션을 선택 하면 암호화 되지 않은 채널을 통해 데이터에 대 한 액세스를 거부 Azure Files. 구체적으로 말하면, 암호화 연결을 통한 HTTPS 및 SMB 3.0만 허용됩니다.
 
     > [!Important]  
     > 데이터의 보안 전송이 필요한 경우 암호화된 SMB 3.0과 통신할 수 없는 이전 버전의 SMB 클라이언트는 실패합니다. 자세한 내용은 [Windows에 탑재](storage-how-to-use-files-windows.md), [Linux에 탑재](storage-how-to-use-files-linux.md) 및 [macOS에 탑재](storage-how-to-use-files-mac.md)를 참조하세요.
@@ -207,11 +207,12 @@ GRS를 사용 하는 저장소 계정의 경우 모든 데이터는 먼저 LRS (
 
 |Region |지원 되는 중복성 |기존 저장소 계정 지원 |포털 지원 *   |
 |-------|---------|---------|---------|
-|오스트레일리아 동부  |LRS|아니요         |예|
-|프랑스 중부  |LRS|아니요         |아직 준비되지 않음|
-|동남 아시아  |LRS, ZRS|아니요         |LRS only, ZRS-아직|
-|유럽 서부     |LRS, ZRS|아니요       |예|
-|미국 서부 2       |LRS, ZRS|아니요         |예|
+|오스트레일리아 동부  |LRS     |아니요    |예|
+|프랑스 중부  |LRS     |아니요    |아직 준비되지 않음|
+|프랑스 남부    |LRS     |아니요    |아직 준비되지 않음|
+|동남 아시아  |LRS, ZRS|아니요    |예|
+|유럽 서부     |LRS, ZRS|아니요    |예|
+|미국 서부 2       |LRS, ZRS|아니요    |예|
 
 \* 포털을 지원 하지 않는 지역의 경우에도 PowerShell 또는 Azure CLI (명령줄 인터페이스)를 사용 하 여 5 개 보다 큰 TiB 공유를 만들 수 있습니다. Altenatively 할당량을 지정 하지 않고 포털을 통해 새 공유를 만듭니다. 그러면 나중에 PowerShell 또는 Azure CLI를 통해 업데이트 될 수 있는 기본 크기인 100 TiB 공유가 생성 됩니다.
 

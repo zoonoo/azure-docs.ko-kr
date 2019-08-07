@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: ce22efd6eccdc067b05697b8389c821c4c01a347
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 58db76401439befd476bc78c1a1a20eeed5c2342
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638600"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779160"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>SQL API에 대한 Azure Cosmos DB .NET Core SDK: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -45,13 +45,18 @@ ms.locfileid: "68638600"
 > [!NOTE]
 > .NET Core를 사용 하는 경우 .NET Standard를 대상으로 하는 [.NET SDK](sql-api-sdk-dotnet-standard.md)의 최신 버전을 참조 하세요. 
 
+### <a name="a-name251251"></a><a name="2.5.1"/>2.5.1
+
+* SDK의 시스템 .Net. Http 버전은 이제 NuGet 패키지에 정의 된 것과 일치 합니다.
+* 원본에 실패 하는 경우 다른 지역에 대 한 쓰기 요청을 허용 합니다.
+* 쓰기 요청에 대 한 세션 다시 시도 정책을 추가 합니다.
+
 ### <a name="a-name241241"></a><a name="2.4.1"/>2.4.1
 
 * 빈 페이지를 발생 시킨 쿼리의 추적 경합 상태를 수정 합니다.
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
 
-* SDK의 시스템 .Net. Http 버전이 NuGet 패키지에 정의 된 내용과 일치 합니다.
 * LINQ 쿼리에 대 한 10 진수 전체 자릿수 크기를 늘립니다.
 * 새 클래스 CompositePath, CompositePathSortOrder, SpatialSpec, SpatialType 및 Keydefinitionversion 추가
 * DocumentCollection에 TimeToLivePropertyPath 추가
@@ -250,6 +255,7 @@ Azure Cosmos DB .NET Core Preview SDK에는 [Azure Cosmos DB .NET SDK](sql-api-s
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [2.5.1](#2.5.1) |2019 년 7 월 02 일 |--- |
 | [2.4.1](#2.4.1) |6 월 20 일, 2019 |--- |
 | [2.4.0](#2.4.0) |5 월 5 일, 2019 |--- |
 | [2.3.0](#2.3.0) |4 월 4 일, 2019 |--- |
@@ -284,6 +290,6 @@ Azure Cosmos DB .NET Core Preview SDK에는 [Azure Cosmos DB .NET SDK](sql-api-s
 | [1.0.0](#1.0.0) |2016년 12월 21일 |--- |
 | [0.1.0-preview](#0.1.0-preview) |2016년 11월 15일 |2015년 12월 31일 |
 
-## <a name="see-also"></a>관련 항목
+## <a name="see-also"></a>참고 항목
 Cosmos DB에 대한 자세한 내용은 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 서비스 페이지를 참조하세요.
 

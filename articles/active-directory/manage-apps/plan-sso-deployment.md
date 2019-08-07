@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0602de13fefbf105e69ba42651216fb479c4c86
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 733b0d7650d68bddae60cf524947590c2b689968
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68477119"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779372"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Single Sign-On 배포 계획
 
@@ -95,7 +95,7 @@ Microsoft는 암호 보관을 위해 웹 응용 프로그램에 대 한 메타 �
 
 따라서 올바른 인증 방법을 선택하는 것은 Azure AD 하이브리드 ID 솔루션 설정에서 매우 중요한 첫 번째 결정입니다. 클라우드에서 사용자를 프로비저닝하기도 하는 Azure AD Connect를 사용하여 구성되는 인증 방법을 구현하세요.
 
-인증 방법을 선택하려면 시간, 기존 인프라, 복잡성 및 선택을 구현하는 데 드는 비용을 고려해야 합니다. 이러한 요소는 조직마다 다르며 시간이 흐름에 따라 변경될 수 있습니다. 특정 시나리오와 가장 일치 하는 항목을 선택 해야 합니다. 자세한 내용은 [Azure Active Directory 하이브리드 id 솔루션에 적합 한 인증 방법 선택](https://docs.microsoft.com/azure/security/azure-ad-choose-authn)을 참조 하세요.
+인증 방법을 선택하려면 시간, 기존 인프라, 복잡성 및 선택을 구현하는 데 드는 비용을 고려해야 합니다. 이러한 요소는 조직마다 다르며 시간이 흐름에 따라 변경될 수 있습니다. 특정 시나리오와 가장 일치 하는 항목을 선택 해야 합니다. 자세한 내용은 [Azure Active Directory 하이브리드 id 솔루션에 적합 한 인증 방법 선택](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn)을 참조 하세요.
 
 ## <a name="plan-your-security-and-governance"></a>보안 및 거 버 넌 스 계획 
 

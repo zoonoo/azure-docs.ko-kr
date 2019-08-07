@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2019
 ms.author: apimpm
-ms.openlocfilehash: d902a65c4e36ff698e486e2af899d055de1afca0
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 2756444db010e23f7114e99f474de9ce6614aaee
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638545"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68837912"
 ---
 # <a name="access-and-customize-the-new-developer-portal-in-azure-api-management"></a>Azure API Management에서 새 개발자 포털 액세스 및 사용자 지정
 
@@ -77,6 +77,10 @@ ms.locfileid: "68638545"
 일반 공급의 목표는 기존 포털에서 시나리오 기반 기능 패리티를 제공 하는 것입니다. 그때 까지는 미리 보기 버전에서 구현 된 기능을 선택 하지 않았을 수 있습니다.
 
 예외는 새 포털에서 사용할 수 없는 이전 포털의 *응용 프로그램* 및 *문제* 입니다. 이전 포털에서 *문제* 를 사용 하 고 새 포털에서이를 사용 하는 경우 [전용 GitHub 문제](https://github.com/Azure/api-management-developer-portal/issues/122)에 대 한 의견을 게시 합니다.
+
+### <a name="ive-found-bugs-andor-id-like-to-request-a-feature"></a>버그를 발견 했거나 기능을 요청 하 고 싶습니다.
+
+잘하셨습니다. 사용자 의견을 제공 하거나 기능 요청을 제출 하거나 [GitHub 리포지토리의 문제 섹션](https://github.com/Azure/api-management-developer-portal/issues)을 통해 버그 보고서를 제출할 수 있습니다. 여기서는 `community` 레이블로 표시 된 문제에 대 한 의견을 보내주셔서 감사 합니다.
 
 ### <a name="i-want-to-move-the-content-of-the-new-portal-between-environments-how-can-i-do-that-and-do-i-need-to-go-with-the-self-hosted-version"></a>환경 간에 새 포털의 콘텐츠를 이동 하려고 합니다. 이 작업을 수행 하는 방법 및 자체 호스팅 버전을 사용 하려면 어떻게 해야 하나요?
 
