@@ -47,7 +47,8 @@
 - name: 방법 가이드
   items:
     - name: 적중 항목 강조 표시 처리
-      href: hit-highlighting.md
+      href: ../Bing-Web-Search/hit-highlighting.md
+      maintainContext: true
     - name: 페이지 소식
       href: paging-news.md
     - name: 크기 조정 및 자르기 썸네일

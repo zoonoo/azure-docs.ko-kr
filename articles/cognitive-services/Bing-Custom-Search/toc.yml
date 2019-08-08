@@ -56,7 +56,8 @@
     - name: 사용자 지정 자동 제안 환경 구성
       href: define-custom-suggestions.md
     - name: 적중 항목 강조 표시 처리
-      href: hit-highlighting.md
+      href: ../Bing-Web-Search/hit-highlighting.md
+      maintainContext: true
     - name: 웹 페이지를 통한 페이지
       href: page-webpages.md
 - name: 참고 자료
