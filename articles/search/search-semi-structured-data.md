@@ -1,5 +1,5 @@
 ---
-title: '자습서: JSON blob - Azure Search에서 반구조적 데이터 인덱싱'
+title: 'REST 자습서: JSON blob - Azure Search에서 반구조적 데이터 인덱싱'
 description: Azure Search REST API 및 Postman을 사용하여 반정형 JSON Blob을 인덱싱하고 검색하는 방법을 알아봅니다.
 author: HeidiSteen
 manager: cgronlun
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3184b839087944d8d4335927810ec31d8876866e
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 6362e3cccd3c306a210f0241214206204b5ee96e
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485331"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840711"
 ---
 # <a name="rest-tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-search"></a>REST 자습서: Azure Search에서 반구조적 데이터(JSON blob) 인덱싱 및 검색
 

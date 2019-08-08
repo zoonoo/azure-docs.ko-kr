@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/24/2019
+ms.date: 07/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f897653442a3e1b2d6098b3be60c85e75ca54f9a
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: f6640708905abc266b07b7b66f5da09aeb890f01
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67551490"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68823885"
 ---
 # <a name="tutorial-integrate-amazon-web-services-aws-with-azure-active-directory"></a>자습서: Azure Active Directory와 AWS(Amazon Web Services) 통합
 
@@ -111,7 +111,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 7. 위에서 언급한 특성 외에도, AWS(Amazon Web Services) 애플리케이션에는 SAML 응답을 통해 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 다음 단계를 수행하여 아래 표와 같은 SAML 토큰 특성을 추가합니다.
 
-    | 이름  | 원본 특성  | 네임스페이스 |
+    | Name  | 원본 특성  | 네임스페이스 |
     | --------------- | --------------- | --------------- |
     | RoleSessionName | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
     | 역할            | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |

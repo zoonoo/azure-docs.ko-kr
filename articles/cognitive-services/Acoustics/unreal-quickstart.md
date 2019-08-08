@@ -10,12 +10,13 @@ ms.subservice: acoustics
 ms.topic: quickstart
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: a78df2d4d84487399da10ca722550639a92e71bf
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ROBOTS: NOINDEX
+ms.openlocfilehash: 06023b2758d09fe8ebe7c1301ef1a03d9c54aa41
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798134"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704763"
 ---
 # <a name="project-acoustics-unrealwwise-quickstart"></a>Project Acoustics Unreal/Wwise 빠른 시작
 이 빠른 시작에서는 Unreal Engine 및 Wwise를 위한 제공된 샘플 콘텐츠를 사용하여 Project Acoustics 디자인 컨트롤을 실험합니다.

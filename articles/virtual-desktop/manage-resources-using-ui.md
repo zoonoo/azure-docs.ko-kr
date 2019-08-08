@@ -2,17 +2,17 @@
 title: 관리 도구 배포 - Azure
 description: Windows Virtual Desktop 미리 보기 리소스를 관리하는 사용자 인터페이스 도구 설치 방법을 설명합니다.
 services: virtual-desktop
-author: ChJenk
+author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 06/04/2019
-ms.author: v-chjenk
-ms.openlocfilehash: 9579db9836ef41706f2c6be09570fa7c1459e14f
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.author: helohr
+ms.openlocfilehash: e0f9dbd9bf6b0c12d3e3f028ab9cd4c80cdb5124
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620449"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816496"
 ---
 # <a name="tutorial-deploy-a-management-tool"></a>자습서: 관리 도구 배포
 

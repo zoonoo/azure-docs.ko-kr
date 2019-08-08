@@ -11,16 +11,16 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 4350cc215c776317d3bde24c7561c317a31fb4c3
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 53f8742df0a03327069da083e6cb46a7c03118c1
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321865"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68773071"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>자습서: .NET API를 사용하여 Azure Batch에서 병렬 워크로드 실행
 
-클라우드에서 Azure Batch를 사용하여 대규모 병렬 및 HPC(고성능 컴퓨팅) 일괄 작업을 Azure에서 효율적으로 실행합니다. 이 자습서는 Batch를 사용하여 병렬 워크로드를 실행하는 C#의 예제를 안내합니다. 일반적인 Batch 애플리케이션 워크플로, 그리고 Batch 및 Storage 리소스와 프로그래밍 방식으로 상호 작용하는 방법을 알아봅니다. 다음 방법에 대해 알아봅니다.
+클라우드에서 Azure Batch를 사용하여 대규모 병렬 및 HPC(고성능 컴퓨팅) 일괄 작업을 Azure에서 효율적으로 실행합니다. 이 자습서는 Batch를 사용하여 병렬 워크로드를 실행하는 C#의 예제를 안내합니다. 일반적인 Batch 애플리케이션 워크플로, 그리고 Batch 및 Storage 리소스와 프로그래밍 방식으로 상호 작용하는 방법을 알아봅니다. 다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Batch 계정에 애플리케이션 패키지 추가
@@ -171,11 +171,11 @@ CreateContainerIfNotExistAsync(blobClient, inputContainerName;
 CreateContainerIfNotExistAsync(blobClient, outputContainerName);
 ```
 
-그러면 파일이 로컬 `InputFiles` 폴더에서 입력 컨테이너로 업로드됩니다. 스토리지의 파일은 Batch가 나중에 계산 노드에 다운로드할 수 있는 Batch [ResourceFile](/dotnet/api/microsoft.azure.batch.resourcefile) 개체로 정의됩니다. 
+그러면 파일이 로컬 `InputFiles` 폴더에서 입력 컨테이너로 업로드됩니다. 스토리지의 파일은 Batch가 나중에 컴퓨팅 노드에 다운로드할 수 있는 Batch [ResourceFile](/dotnet/api/microsoft.azure.batch.resourcefile) 개체로 정의됩니다. 
 
 `Program.cs`의 두 메서드는 파일 업로드에 관여합니다.
 
-* `UploadResourceFilesToContainerAsync`: ResourceFile 개체의 컬렉션을 반환하고 내부적으로 `UploadResourceFileToContainerAsync`을 호출하여 `inputFilePaths` 매개 변수에 전달된 각 파일을 업로드합니다.
+* `UploadFilesToContainerAsync`: ResourceFile 개체의 컬렉션을 반환하고 내부적으로 `UploadResourceFileToContainerAsync`을 호출하여 `inputFilePaths` 매개 변수에 전달된 각 파일을 업로드합니다.
 * `UploadResourceFileToContainerAsync`: 입력 컨테이너에 각 파일을 Blob으로 업로드합니다. 파일 업로드 후 Blob에 대한 SAS(공유 액세스 서명)을 가져오고 이를 나타내는 ResourceFile 개체를 반환합니다.
 
 ```csharp
@@ -184,7 +184,7 @@ string inputPath = Path.Combine(Environment.CurrentDirectory, "InputFiles");
 List<string> inputFilePaths = new List<string>(Directory.GetFileSystemEntries(inputPath, "*.mp4",
     SearchOption.TopDirectoryOnly));
 
-List<ResourceFile> inputFiles = await UploadResourceFilesToContainerAsync(
+List<ResourceFile> inputFiles = await UploadFilesToContainerAsync(
   blobClient,
   inputContainerName,
   inputFilePaths);
@@ -194,7 +194,7 @@ List<ResourceFile> inputFiles = await UploadResourceFilesToContainerAsync(
 
 ### <a name="create-a-pool-of-compute-nodes"></a>컴퓨팅 노드 풀 만들기
 
-다음으로, 샘플이 `CreatePoolIfNotExistAsync`에 대한 호출을 통해 Batch 계정에 계산 노드의 풀을 만듭니다. 이 정의된 메서드는 [BatchClient.PoolOperations.CreatePool](/dotnet/api/microsoft.azure.batch.pooloperations.createpool) 메서드를 사용하여 노드 수, VM 크기 및 풀 구성을 설정합니다. 여기서 [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) 개체는 Azure Marketplace에 게시된 Windows Server 이미지에 대한 [ImageReference](/dotnet/api/microsoft.azure.batch.imagereference)를 지정합니다. Batch는 Azure Marketplace의 광범위한 VM 이미지뿐만 아니라 사용자 지정 VM 이미지도 지원합니다.
+다음으로, 샘플이 `CreatePoolIfNotExistAsync`에 대한 호출을 통해 Batch 계정에 컴퓨팅 노드의 풀을 만듭니다. 이 정의된 메서드는 [BatchClient.PoolOperations.CreatePool](/dotnet/api/microsoft.azure.batch.pooloperations.createpool) 메서드를 사용하여 노드 수, VM 크기 및 풀 구성을 설정합니다. 여기서 [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) 개체는 Azure Marketplace에 게시된 Windows Server 이미지에 대한 [ImageReference](/dotnet/api/microsoft.azure.batch.imagereference)를 지정합니다. Batch는 Azure Marketplace의 광범위한 VM 이미지뿐만 아니라 사용자 지정 VM 이미지도 지원합니다.
 
 노드 수 및 VM 크기는 정의된 상수를 사용하여 설정됩니다. Batch는 전용 노드와 [우선 순위가 낮은](batch-low-pri-vms.md) 노드를 지원하며, 풀에서 하나 또는 둘 다 사용할 수 있습니다. 전용 노드는 풀에 예약되어 있습니다. 우선 순위가 낮은 노드는 Azure의 잔여 VM 용량에서 할인된 가격으로 제공됩니다. Azure에 충분한 용량이 없으면 우선 순위가 낮은 노드는 사용할 수 없게 됩니다. 이 샘플은 기본적으로 *Standard_A1_v2* 크기의 우선 순위가 낮은 노드 5개만 포함된 풀을 만듭니다.
 

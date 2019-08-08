@@ -10,12 +10,13 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 2f0fcdcdf781c86179b67eeef0223d46da0fc65b
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ROBOTS: NOINDEX
+ms.openlocfilehash: 2362b3916d1b1f430350d975dc0b61914a777be2
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916997"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706698"
 ---
 # <a name="project-acoustics-unity-bake-tutorial"></a>Project Acoustics Unity 음향 효과 베이킹 자습서
 이 자습서에서는 Unity에서 Project Acoustics를 사용하는 음향 효과 베이킹에 대해 설명합니다.
@@ -180,7 +181,7 @@ Azure 자격 증명은 로컬 컴퓨터에 안전하게 저장되고 Unity 편�
 
 ### <a name="Estimating-bake-cost"></a> Azure 준비 비용 예측
 
-지정된 준비에 부과될 요금을 예측하려면 기간에 해당하는 **Estimated Compute Cost**(예상 컴퓨팅 비용) 값에 선택한 **VM 노드 유형**의 로컬 통화로 나타낸 시간당 비용을 곱합니다. 결과에는 노드를 계속 작동하는 데 필요한 노드 시간은 포함되지 않습니다. 예를 들어, 노드 유형으로 **Standard_F8s_v2**을 선택했으며(시간당 요금 $0.40), 예상 컴퓨팅 비용이 3시간 57분이면 예상되는 작업 실행 비용은 $0.40 * ~4시간 = ~$1.60가 됩니다. 실제 비용은 노드를 시작하기 위한 추가 시간 때문에 약간 더 높을 것입니다. [Azure Batch 가격 책정](https://azure.microsoft.com/pricing/details/virtual-machines/linux) 페이지에서 시간별 노드 비용을 찾을 수 있습니다(범주로 "컴퓨팅 최적화" 또는 "고성능 계산" 선택).
+지정된 준비에 부과될 요금을 예측하려면 기간에 해당하는 **Estimated Compute Cost**(예상 컴퓨팅 비용) 값에 선택한 **VM 노드 유형**의 로컬 통화로 나타낸 시간당 비용을 곱합니다. 결과에는 노드를 계속 작동하는 데 필요한 노드 시간은 포함되지 않습니다. 예를 들어, 노드 유형으로 **Standard_F8s_v2**을 선택했으며(시간당 요금 $0.40), 예상 컴퓨팅 비용이 3시간 57분이면 예상되는 작업 실행 비용은 $0.40 * ~4시간 = ~$1.60가 됩니다. 실제 비용은 노드를 시작하기 위한 추가 시간 때문에 약간 더 높을 것입니다. [Azure Batch 가격 책정](https://azure.microsoft.com/pricing/details/virtual-machines/linux) 페이지에서 시간별 노드 비용을 찾을 수 있습니다(범주로 "컴퓨팅 최적화" 또는 "고성능 컴퓨팅" 선택).
 
 ## <a name="Local-bake"></a> PC에서 장면 베이킹
 사용자의 PC에서 장면을 베이킹할 수 있습니다. 이는 Azure Batch 계정을 만들기 전에 작은 장면을 사용하여 음향을 실험하는 데 유용할 수 있습니다. 음향 시뮬레이션은 장면의 크기에 따라 시간이 오래 걸릴 수 있습니다.

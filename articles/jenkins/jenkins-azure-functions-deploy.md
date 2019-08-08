@@ -8,16 +8,16 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 02/23/2019
-ms.openlocfilehash: bd8fa10ca0a9809891efc67ff930ab01d502eda9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1ee5a8d5f55422c9f8a0f20f3c6eb039f080dc2d
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58117084"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815742"
 ---
 # <a name="deploy-to-azure-functions-using-the-jenkins-azure-functions-plugin"></a>Jenkins Azure Functions 플러그 인을 사용하여 Azure Functions에 배포
 
-[Azure Functions](/azure/azure-functions/)는 서버를 사용하지 않는 계산 서비스입니다. Azure Functions를 사용하여 프로비저닝하거나 인프라를 관리하지 않고 요청 시 코드를 실행할 수 있습니다. 이 자습서에서는 Azure Functions 플러그 인을 사용하여 Azure Functions에 Java 함수를 배포하는 방법을 보여줍니다.
+[Azure Functions](/azure/azure-functions/)는 서버리스 컴퓨팅 서비스입니다. Azure Functions를 사용하여 프로비저닝하거나 인프라를 관리하지 않고 요청 시 코드를 실행할 수 있습니다. 이 자습서에서는 Azure Functions 플러그 인을 사용하여 Azure Functions에 Java 함수를 배포하는 방법을 보여줍니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -49,12 +49,6 @@ Java 런타임 스택을 사용하여 Java 함수를 만들려면 [Azure Portal]
 
     ```cli
     az functionapp create --resource-group <resource_group> --consumption-plan-location eastus --name <function_app> --storage-account <storage_account>
-    ```
-    
-1. 자리 표시자를 적절한 값으로 바꿔서 버전 2.x 런타임으로 업데이트합니다.
-
-    ```cli
-    az functionapp config appsettings set --name <function_app> --resource-group <resource_group> --settings FUNCTIONS_EXTENSION_VERSION=~2
     ```
 
 ## <a name="prepare-jenkins-server"></a>Jenkins 서버 준비

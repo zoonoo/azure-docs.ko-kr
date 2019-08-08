@@ -10,12 +10,13 @@ ms.subservice: acoustics
 ms.topic: overview
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 73b8980b0ea2d1adbd814026f026358e25dcbb55
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ROBOTS: NOINDEX
+ms.openlocfilehash: a654dd966c40b5b079f92b910ade52f4eda10344
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67502947"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704748"
 ---
 # <a name="what-is-project-acoustics"></a>프로젝트 Acoustics란?
 Project Acoustics는 3D 대화형 환경을 위한 파동 음향 엔진입니다. 수동으로 영역을 표시하지 않고도 복잡한 장면에서 회절, 포털링(portaling) 및 반향 효과와 같은 파동 효과를 모델링합니다. 게임 엔진과 오디오 미들웨어 통합도 포함됩니다. Project Acoustics의 원칙은 정적 조명과 비슷합니다. 즉, 세부적인 물리학을 오프라인으로 베이킹하여 물리적 기준을 제공하며, 의미 있는 디자인 컨트롤이 포함된 간단한 런타임을 사용하여 미적 목표를 충족합니다.

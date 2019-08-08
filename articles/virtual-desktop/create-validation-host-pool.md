@@ -2,17 +2,17 @@
 title: Windows Virtual Desktop 미리 보기 호스트 풀을 만들어 서비스 업데이트 유효성 검사 - Azure
 description: 프로덕션에 업데이트를 출시하기 전에 서비스 업데이트를 모니터링하는 유효성 검사 호스트 풀을 만드는 방법입니다.
 services: virtual-desktop
-author: ChJenk
+author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 05/08/2019
-ms.author: v-chjenk
-ms.openlocfilehash: c9b2a593a6943fe2e9577acc61b1d5a7bcd98607
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: helohr
+ms.openlocfilehash: 732192e481f88c0cd3c78e9dac43970eb5be72e6
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070653"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840524"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>자습서: 서비스 업데이트의 유효성을 검사하기 위한 호스트 풀 만들기
 
@@ -46,7 +46,7 @@ Set-RdsHostPool -TenantName $myTenantName -Name "contosoHostPool" -ValidationEnv
 다음 PowerShell cmdlet을 실행하여 유효성 검사 속성이 설정되어 있는지 확인합니다. 따옴표 안의 값을 세션에 관련된 값으로 바꿉니다.
 
 ```powershell
-Get-RdsHostPool -TenantName $myTenantName -Name "contosoHostPool" -ValidationEnv $true
+Get-RdsHostPool -TenantName $myTenantName -Name "contosoHostPool"
 ```
 
 cmdlet의 결과는 다음 출력과 비슷해야 합니다.

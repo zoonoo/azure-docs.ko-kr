@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
-ms.openlocfilehash: ed8e63a49702e8ba951990f8d7ff19b8f058fa74
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f9ef179c1a93d8b2f97c47eb4c68d0312d55d3d1
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67089399"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68825989"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>자습서: Tableau Server와 Azure Active Directory 통합
 
@@ -120,7 +120,7 @@ Tableau Server에서 Azure AD Single Sign-On을 구성하려면 다음 단계를
 
 6. **사용자 특성 및 클레임** 대화 상자의 **사용자 클레임** 섹션에서 위의 이미지에 표시된 것과 같이 SAML 토큰 특성을 구성하고 다음 단계를 수행합니다.
 
-    | 이름 | 원본 특성 | 네임스페이스 |
+    | Name | 원본 특성 | 네임스페이스 |
     | ---------------| --------------- | ----------- |
     | 사용자 이름 | user.userprincipalname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
     | | |
@@ -186,7 +186,7 @@ Tableau Server에서 Azure AD Single Sign-On을 구성하려면 다음 단계를
     h. 페이지 맨 아래에 있는 **저장**
 
     > [!NOTE]
-    > 고객은 Tableau Server SAML SSO 구성의 모든 인증서를 업로드해야 하며, 인증서는 SSO 흐름에서 무시됩니다. Tableau Server에서 SAML을 구성하는 데 도움이 필요한 경우 [SAML 구성](https://onlinehelp.tableau.com/v2018.2/server/en-us/saml_config_steps_tsm_ui.htm) 문서를 참조하세요.
+    > 고객은 Tableau Server SAML SSO 구성의 모든 인증서를 업로드해야 하며, 인증서는 SSO 흐름에서 무시됩니다. Tableau Server에서 SAML을 구성하는 데 도움이 필요한 경우 [SAML 구성](https://help.tableau.com/current/server/en-gb/saml_config_steps_tsm_ui.htm) 문서를 참조하세요.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 

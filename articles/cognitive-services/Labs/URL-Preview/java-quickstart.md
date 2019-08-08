@@ -10,12 +10,13 @@ ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 04/24/2018
 ms.author: rosh
-ms.openlocfilehash: 29418ec8ce12033dc576c61a73301dec13d457cc
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ROBOTS: NOINDEX
+ms.openlocfilehash: ec9d9757a776601bdf79b796cf6b7b2987411257
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698023"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705181"
 ---
 # <a name="quickstart-url-preview-with-java"></a>빠른 시작: Java를 사용하는 URL 미리 보기
 

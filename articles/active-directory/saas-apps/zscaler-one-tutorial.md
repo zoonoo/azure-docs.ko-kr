@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
-ms.openlocfilehash: 79eae27becf0d2570132b3ad709414879140fd0f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d23fc94fba9a9b750f2977fd9c5d8297e4da8d5c
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67086042"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68825907"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-one"></a>자습서: Zscaler One과 Azure Active Directory 통합
 
@@ -112,13 +112,13 @@ Zscaler One에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
     > [!NOTE]
     > 이 값을 실제 로그온 URL로 업데이트합니다. 이러한 값을 얻으려면 [Zscaler One 클라이언트 지원 팀](https://www.zscaler.com/company/contact)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-5. Zscaler One 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며, SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.  **편집**  아이콘을 클릭하여  **사용자 특성**  대화 상자를 엽니다.
+5. Zscaler One 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며, SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다. **편집** 아이콘을 클릭하여 **사용자 특성** 대화 상자를 엽니다.
 
     ![이미지](common/edit-attribute.png)
 
 6. 위에서 언급한 특성 외에도, Zscaler One 애플리케이션에는 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 다음 단계를 수행하여 아래 표와 같은 SAML 토큰 특성을 추가합니다.
     
-    | 이름 | 원본 특성 |
+    | Name | 원본 특성 |
     | ---------| ------------ |
     | memberOf     | user.assignedroles |
 

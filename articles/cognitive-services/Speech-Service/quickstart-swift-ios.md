@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: c001b10f14167b4c0947c2ef0ae3f27cc4f55657
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e9d17b0bdeb89fc03c0f089b84a89a5203c39566
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68553524"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717420"
 ---
 # <a name="quickstart-recognize-speech-in-swift-on-ios-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 iOS에서 Swift로 음성 인식
 
@@ -61,7 +61,8 @@ Xcode를 시작하고, **파일** > **새로 만들기** > **프로젝트**를 �
 
 ## <a name="add-the-sample-code"></a>샘플 코드 추가
 
-1. 이름이 `MicrosoftCognitiveServicesSpeech-Bridging-Header.h`인 새 헤더 파일을 helloworld 프로젝트 내 `helloworld` 디렉터리에 배치하고 다음 코드를 이 파일에 붙여넣습니다. [!code-swift[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift-ios/helloworld/helloworld/MicrosoftCognitiveServicesSpeech-Bridging-Header.h#code)]
+1. 이름이 `MicrosoftCognitiveServicesSpeech-Bridging-Header.h`인 새 헤더 파일을 helloworld 프로젝트 내 `helloworld` 디렉터리에 배치하고 다음 코드를 이 파일에 붙여넣습니다.  
+   [!code-swift[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift-ios/helloworld/helloworld/MicrosoftCognitiveServicesSpeech-Bridging-Header.h#code)]
 1. *Objective-C 브리징 헤더* 필드 ![헤더 속성](media/sdk/qs-swift-ios-bridging-header.png)에서 helloworld 대상의 Swift 프로젝트 설정에 브리징 헤더에 대한 상대 경로 `helloworld/MicrosoftCognitiveServicesSpeech-Bridging-Header.h`를 추가합니다.
 1. 자동으로 생성된 `AppDelegate.swift` 파일의 콘텐츠를 다음으로 바꿉니다.  
    [!code-swift[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift-ios/helloworld/helloworld/AppDelegate.swift#code)]

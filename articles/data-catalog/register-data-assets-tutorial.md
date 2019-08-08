@@ -5,13 +5,13 @@ author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: tutorial
-ms.date: 04/08/2019
-ms.openlocfilehash: 91f7967915fd19ae47ca207913f979aa56fcd27f
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.date: 08/01/2019
+ms.openlocfilehash: 6dcf29c1bb98d15daf652671f31ed1647d66a81b
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011710"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68734836"
 ---
 # <a name="tutorial-register-data-assets-in-azure-data-catalog"></a>자습서: Azure Data Catalog에서 데이터 자산 등록
 
@@ -75,9 +75,9 @@ ms.locfileid: "60011710"
 
           ![Azure Data Catalog 자습서 - 개체 찾기 및 선택](media/register-data-assets-tutorial/data-catalog-server-hierarchy.png)
 
-    4. **미리 보기 포함** 을 선택하여 데이터의 스냅숏 미리 보기를 포함하도록 합니다. 스냅샷은 각 테이블에서 최대 20개의 레코드를 포함하고 카탈로그에 복사됩니다.
+    4. **미리 보기 포함** 을 선택하여 데이터의 스냅샷 미리 보기를 포함하도록 합니다. 스냅샷은 각 테이블에서 최대 20개의 레코드를 포함하고 카탈로그에 복사됩니다.
 
-    5. **데이터 프로필 포함** 을 선택하여 데이터 프로필에 대한 개체 통계의 스냅숏을 포함합니다(예: 열에 대한 최소값, 최대값 및 평균값, 행수).
+    5. **데이터 프로필 포함** 을 선택하여 데이터 프로필에 대한 개체 통계의 스냅샷을 포함합니다(예: 열에 대한 최소값, 최대값 및 평균값, 행수).
 
     6. **태그 추가** 필드에 **판매, 제품, azure sql**을 입력합니다. 이 작업은 데이터 자산에 대한 검색 태그를 추가합니다. 태그는 사용자가 등록된 데이터 원본을 찾을 수 있는 훌륭한 방법입니다.
 

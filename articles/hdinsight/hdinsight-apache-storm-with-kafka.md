@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: 53a46c6137c3336c405eb62dc7b254ac26c13d9e
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 181d052501b9c418fad10a2069dde928a7ff9f38
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68406007"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840245"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>자습서: HDInsight에서 Apache Storm 및 Apache Kafka 사용
 
@@ -130,7 +130,7 @@ Apache Storm은 Apache Kafka로 작업하기 위한 몇 가지 구성 요소를 
     >
     > 스크립트 작업은 [https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh](https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh)에 있으며, Storm 클러스터의 supervisor 및 nimbus 노드에 적용됩니다. 스크립트 작업 사용에 대한 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md) 문서를 참조하세요.
 
-토폴로지는 [Flux](https://storm.apache.org/releases/1.1.2/flux.html)를 사용하여 정의됩니다. Flux는 Storm 0.10.x에서 소개되었으며, 토폴로지 구성을 코드에서 분리할 수 있습니다. Flux 프레임워크를 사용하는 토폴로지의 경우 토폴로지는 YAML 파일에 정의됩니다. YAML 파일은 토폴로지의 일부로 포함할 수 있습니다. 또는 토폴로지를 전송할 때 독립 실행형 파일로 사용할 수도 있습니다. Flux는 런타임 시 변수 대체도 지원하며, 이 예제에서 사용됩니다.
+토폴로지는 [Flux](https://storm.apache.org/releases/current/flux.html)를 사용하여 정의됩니다. Flux는 Storm 0.10.x에서 소개되었으며, 토폴로지 구성을 코드에서 분리할 수 있습니다. Flux 프레임워크를 사용하는 토폴로지의 경우 토폴로지는 YAML 파일에 정의됩니다. YAML 파일은 토폴로지의 일부로 포함할 수 있습니다. 또는 토폴로지를 전송할 때 독립 실행형 파일로 사용할 수도 있습니다. Flux는 런타임 시 변수 대체도 지원하며, 이 예제에서 사용됩니다.
 
 이러한 토폴로지에 대해 런타임에 다음 매개 변수가 설정됩니다.
 
@@ -144,7 +144,7 @@ Apache Storm은 Apache Kafka로 작업하기 위한 몇 가지 구성 요소를 
 
 * `${hdfs.write.dir}`: 데이터가 기록된 디렉터리입니다.
 
-Flux 토폴로지에 대한 자세한 내용은 [https://storm.apache.org/releases/1.1.2/flux.html](https://storm.apache.org/releases/1.1.2/flux.html)을 참조하세요.
+Flux 토폴로지에 대한 자세한 내용은 [https://storm.apache.org/releases/current/flux.html](https://storm.apache.org/releases/current/flux.html)을 참조하세요.
 
 ### <a name="kafka-writer"></a>Kafka-writer
 
@@ -471,7 +471,9 @@ Azure Virtual Network를 만든 후 그 안에 Kafka 및 Storm 클러스터를 �
 
     반환되는 값은 다음 텍스트와 유사합니다.
 
+        ```output
         wn0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn1-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092
+        ```
 
     > [!IMPORTANT]  
     > 클러스터에 대해 두 개 이상의 브로커 호스트가 있을 수 있습니다. 클라이언트에 대한 모든 호스트의 전체 목록을 제공할 필요는 없습니다. 하나 또는 두 개로도 충분합니다.

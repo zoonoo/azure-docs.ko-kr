@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 1024f0c09d6ab67b412a8f65d8964f3ac9d43254
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 67b4d4842bfa330e51244cee0d9ad8ad0ab6a24f
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67087777"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68825970"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-veracode"></a>자습서: Veracode와 Azure Active Directory 통합
 
@@ -107,13 +107,13 @@ Veracode에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수�
 
     ![Veracode 도메인 및 URL Single Sign-On 정보](common/preintegrated.png)
 
-5. Veracode 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며 이는 SAML 토큰 특성 구성에 사용자 할당 특성 매핑을 추가합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.  **편집**  아이콘을 클릭하여  **사용자 특성**  대화 상자를 엽니다.
+5. Veracode 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며 이는 SAML 토큰 특성 구성에 사용자 할당 특성 매핑을 추가합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다. **편집** 아이콘을 클릭하여 **사용자 특성** 대화 상자를 엽니다.
 
     ![이미지](common/edit-attribute.png)
 
 6. 위에서 언급한 특성 외에도, Veracode 애플리케이션에는 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 다음 단계를 수행하여 아래 표와 같은 SAML 토큰 특성을 추가합니다.
 
-    | 이름 | 원본 특성|
+    | Name | 원본 특성|
     | ---------------| --------------- |
     | firstname |User.givenname |
     | lastname |User.surname |

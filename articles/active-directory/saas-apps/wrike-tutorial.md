@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22421d88d5d0b426b641c04cd8797c26d216c502
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 47af0a43e4d081f50fedf685d46347f0f36233fd
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67086702"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68825630"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wrike"></a>자습서: Wrike와 Azure Active Directory 통합
 
@@ -104,7 +104,7 @@ Wrike에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
     ![기본 SAML 구성 편집](common/edit-urls.png)
 
-4. **기본 SAML 구성** 섹션에서  **IDP**  시작 모드로 애플리케이션을 구성하려는 경우에는 앱이 이미 Azure와 사전 통합되어 있으므로 사용자가 수행해야 하는 단계가 없습니다.
+4. **기본 SAML 구성** 섹션에서 **IDP** 시작 모드로 애플리케이션을 구성하려는 경우에는 앱이 이미 Azure와 사전 통합되어 있으므로 사용자가 수행해야 하는 단계가 없습니다.
 
     ![Wrike 도메인 및 URL Single Sign-On 정보](common/preintegrated.png)
 

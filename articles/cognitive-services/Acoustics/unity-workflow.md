@@ -10,12 +10,13 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 01783aa12f586f61583b1503c796f9b523770104
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ROBOTS: NOINDEX
+ms.openlocfilehash: f9ff4225e7e855ed666d3554631015b8ce51df37
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310628"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706581"
 ---
 # <a name="project-acoustics-unity-design-tutorial"></a>Project Acoustics Unity 디자인 자습서
 이 자습서에서는 Unity의 Project Acoustics 디자인 도구 및 워크플로에 대해 설명합니다.

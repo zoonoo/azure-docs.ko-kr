@@ -3,7 +3,7 @@ title: iOS 시작 - Microsoft ID 플랫폼 | Azure
 description: Microsoft ID 플랫폼을 사용하는 액세스 토큰이 필요한 API를 iOS(Swift) 애플리케이션이 호출하는 방법
 services: active-directory
 documentationcenter: dev-center-name
-author: danieldobalian
+author: tylermsft
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -14,12 +14,12 @@ ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f22cf95fcf13f0038525b2cac282f01959fa7eb6
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 2432d35964134f240904060d2e3c9212905e0394
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335524"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68823833"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-app"></a>iOS 앱에서 사용자를 로그인하고 Microsoft Graph 호출
 

@@ -10,12 +10,13 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: michem
-ms.openlocfilehash: 6b49a6b9e235414cd63eacdbad523bbda8646963
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ROBOTS: NOINDEX
+ms.openlocfilehash: 47946570db305ff3d54dfed9ea6f698e5deb7b72
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304303"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704782"
 ---
 # <a name="project-acoustics-unreal-bake-tutorial"></a>Project Acoustics Unreal 베이킹 자습서
 이 문서에서는 Unreal 편집기 확장을 사용하여 음향 효과 베이킹을 제출하는 프로세스를 설명합니다.
@@ -197,7 +198,7 @@ Azure 자격 증명은 로컬 머신에 안전하게 저장되고 Unreal 편집�
 
 ### <a name="Estimating-bake-cost"></a> Azure 준비 비용 예측
 
-지정된 준비에 부과될 요금을 예측하려면 기간에 해당하는 **Estimated Compute Cost**(예상 컴퓨팅 비용) 값에 선택한 **VM 노드 유형**의 로컬 통화로 나타낸 시간당 비용을 곱합니다. 결과에는 노드를 계속 작동하는 데 필요한 노드 시간은 포함되지 않습니다. 예를 들어, 노드 유형으로 **Standard_F8s_v2**을 선택했으며(시간당 요금 $0.40), 예상 컴퓨팅 비용이 3시간 57분이면 예상되는 작업 실행 비용은 $0.40 * ~4시간 = ~$1.60가 됩니다. 실제 비용은 노드를 시작하기 위한 추가 시간 때문에 약간 더 높을 것입니다. [Azure Batch 가격 책정](https://azure.microsoft.com/pricing/details/virtual-machines/linux) 페이지에서 시간별 노드 비용을 찾을 수 있습니다(범주로 "컴퓨팅 최적화" 또는 "고성능 계산" 선택).
+지정된 준비에 부과될 요금을 예측하려면 기간에 해당하는 **Estimated Compute Cost**(예상 컴퓨팅 비용) 값에 선택한 **VM 노드 유형**의 로컬 통화로 나타낸 시간당 비용을 곱합니다. 결과에는 노드를 계속 작동하는 데 필요한 노드 시간은 포함되지 않습니다. 예를 들어, 노드 유형으로 **Standard_F8s_v2**을 선택했으며(시간당 요금 $0.40), 예상 컴퓨팅 비용이 3시간 57분이면 예상되는 작업 실행 비용은 $0.40 * ~4시간 = ~$1.60가 됩니다. 실제 비용은 노드를 시작하기 위한 추가 시간 때문에 약간 더 높을 것입니다. [Azure Batch 가격 책정](https://azure.microsoft.com/pricing/details/virtual-machines/linux) 페이지에서 시간별 노드 비용을 찾을 수 있습니다(범주로 "컴퓨팅 최적화" 또는 "고성능 컴퓨팅" 선택).
 
 ### <a name="reviewing-the-bake-results"></a>준비 결과 검토
 

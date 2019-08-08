@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 06/24/2019
 ms.author: sngun
-ms.openlocfilehash: 85d9cbe7d0807ca0e7951e1e12d1edbbf7c921db
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b1d8d2539ae89dfdb8feb2e38f00bf4440411d8a
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67985804"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815145"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>자습서: .NET SDK를 사용하여 Azure Cosmos DB를 통해 ASP.NET Core MVC 웹 애플리케이션 개발 
 
@@ -219,24 +219,7 @@ Azure Cosmos 계정을 만들어 보겠습니다. Azure Cosmos DB SQL API 계정
 
 1. 동일한 파일 내에서 구성을 읽고 클라이언트를 초기화하는 **InitializeCosmosClientInstanceAsync** 도우미 메서드를 정의합니다.
 
-    ```csharp
-    private static async Task<CosmosDbService> InitializeCosmosClientInstanceAsync(IConfigurationSection configurationSection)
-    {
-        string databaseName = configurationSection.GetSection("DatabaseName").Value;
-        string containerName = configurationSection.GetSection("ContainerName").Value;
-        string account = configurationSection.GetSection("Account").Value;
-        string key = configurationSection.GetSection("Key").Value;
-        CosmosClientBuilder clientBuilder = new CosmosClientBuilder(account, key);
-        CosmosClient client = clientBuilder
-                            .WithConnectionModeDirect()
-                            .Build();
-        CosmosDbService cosmosDbService = new CosmosDbService(client, databaseName, containerName);
-        Database database = await client.CreateDatabaseIfNotExistsAsync(databaseName);
-        await database.CreateContainerIfNotExistsAsync(containerName, "/id");
-
-        return cosmosDbService;
-    }
-    ```
+    [!code-csharp[](~/samples-cosmosdb-dotnet-core-web-app/src/Startup.cs?name=InitializeCosmosClientInstanceAsync)] 
 
 1. 구성은 프로젝트의 **appsettings.json** 파일에 정의되어 있습니다. 이 파일을 열고, **CosmosDb**라는 섹션을 추가합니다.
 

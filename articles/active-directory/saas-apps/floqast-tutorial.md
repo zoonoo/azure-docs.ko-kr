@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: b26133c64877bcac07d2e8ba10dbee05d4e36d34
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 762e5ae1782ee037b33156e16a0503ed1e7391ff
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67102268"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68823733"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-floqast"></a>자습서: Azure Active Directory와 FloQast 통합
 
@@ -112,13 +112,13 @@ FloQast에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
     **로그온 URL** 텍스트 상자에 `https://go.floqast.com/login/sso` URL을 입력합니다.
 
-6. FloQast 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며, SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.  **편집**  아이콘을 클릭하여 특성을 추가합니다.
+6. FloQast 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며, SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다. **편집** 아이콘을 클릭하여 특성을 추가합니다.
 
     ![이미지](common/edit-attribute.png)
 
 7. 위에서 언급한 특성 외에도, FloQast 애플리케이션에는 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 다음 단계를 수행하여 아래 표와 같은 SAML 토큰 특성을 추가합니다.
 
-    | 이름 | 원본 특성|
+    | Name | 원본 특성|
     | ------------------- | -------------------- |    
     | FirstName           | user.givenname |
     | LastName            | user.surname |
@@ -223,7 +223,7 @@ FloQast에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
 ### <a name="create-floqast-test-user"></a>FloQast 테스트 사용자 만들기
 
-이 섹션에서는 FloQast에서 Britta Simon이라는 사용자를 만듭니다.  [FloQast 지원 팀](mailto:support@floqast.com)과 협력하여 FloQast 플랫폼에서 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 FloQast에서 Britta Simon이라는 사용자를 만듭니다. FloQast 플랫폼에서 사용자를 추가하려면 [FloQast 지원 팀](mailto:support@floqast.com)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트 
 
