@@ -208,6 +208,8 @@
           href: connector-azure-sql-data-warehouse.md
         - name: Azure Table Storage
           href: connector-azure-table-storage.md
+        - name: 이진 형식
+          href: format-binary.md
         - name: Cassandra
           href: connector-cassandra.md
         - name: 앱에 대한 Common Data Service
@@ -253,7 +255,7 @@
         - name: Impala
           href: connector-impala.md
         - name: Informix
-          href: 'connector-odbc.md#ibm-informix-source'
+          href: connector-informix.md
         - name: Jira
           href: connector-jira.md
         - name: Magento
@@ -263,7 +265,7 @@
         - name: Marketo
           href: connector-marketo.md
         - name: Microsoft Access
-          href: 'connector-odbc.md#microsoft-access-source'
+          href: connector-microsoft-access.md
         - name: MongoDB
           href: connector-mongodb.md
           items:
@@ -304,7 +306,7 @@
         - name: Salesforce
           href: connector-salesforce.md
         - name: Salesforce 서비스 클라우드
-          href: connector-salesforce.md
+          href: connector-salesforce-service-cloud.md
         - name: Salesforce 마케팅 클라우드
           href: connector-salesforce-marketing-cloud.md
         - name: SAP Business Warehouse 개방형 허브

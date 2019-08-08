@@ -24,10 +24,10 @@
       maintainContext: true
     - name: 문제 해결
       items:
-        - name: OutOfMemoryError 예외
-          items:
-            - name: GC 오버헤드 제한 초과
-              href: ./interactive-query-troubleshoot-outofmemory-overhead-exceeded.md
+        - name: GC 오버헤드 제한 초과
+          href: ./interactive-query-troubleshoot-outofmemory-overhead-exceeded.md
+        - name: Apache Ambari Tez 보기가 느리게 로드됩니다.
+          href: ./interactive-query-troubleshoot-tez-view-slow.md
         - name: Apache Hive View에 오류 메시지가 표시되지 않음
           href: ./interactive-query-troubleshoot-error-message-hive-view.md
         - name: Apache Hive View에 액세스할 수 없음

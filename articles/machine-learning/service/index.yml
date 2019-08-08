@@ -45,7 +45,7 @@ sections:
         items:
           - html: <a href="tutorial-1st-experiment-sdk-setup">환경을 설정하고 첫 번째 ML 실험을 학습합니다.</a>
           - html: <a href="tutorial-train-models-with-aml">이미지 분류 모델을 학습 및 배포</a>합니다.
-          - html: <a href="tutorial-data-prep">택시 요금을 예측하기 위해 데이터 및 자동화된 ML을 준비합니다</b>).</a>
+          - html: <a href="tutorial-data-prep">데이터 준비 및 자동화된 ML을 사용하여 택시 요금 예측</b>.</a>
   - title: 샘플
     items:
       - type: paragraph

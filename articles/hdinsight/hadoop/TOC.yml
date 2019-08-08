@@ -56,6 +56,8 @@
       maintainContext: true
     - name: 문제 해결
       items:
+        - name: 디스크 공간 부족
+          href: ./hdinsight-troubleshoot-out-disk-space.md
         - name: 소프트 잠금 - CPU
           href: ./hdinsight-troubleshoot-soft-lockup-cpu.md
         - name: InvalidNetworkConfigurationErrorCode - 클러스터 만들기 실패
@@ -72,6 +74,8 @@
           href: ./hdinsight-hdfs-troubleshoot-safe-mode.md
         - name: Apache Ambari 하트비트 이슈
           href: ./apache-ambari-troubleshoot-heartbeat-issues.md
+        - name: Apache Ambari는 호스트와 서비스를 표시합니다.
+          href: ./apache-ambari-troubleshoot-down-hosts-services.md
 - name: 방법
   items:
     - name: Apache Hadoop 샌드박스 사용
