@@ -1,6 +1,6 @@
 ---
-title: Azure Site Recovery를 사용하여 Azure로 온-프레미스 컴퓨터 재해 복구 드릴 실행 | Microsoft Docs
-description: Azure Site Recovery를 사용하여 온-프레미스에서 Azure로 재해 복구 드릴을 실행하는 방법에 대해 알아봅니다.
+title: Azure Site Recovery를 사용하여 Azure로 온-프레미스 컴퓨터 재해 복구 훈련 실행 | Microsoft Docs
+description: Azure Site Recovery를 사용하여 온-프레미스에서 Azure로 재해 복구 훈련을 실행하는 방법에 대해 알아봅니다.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
