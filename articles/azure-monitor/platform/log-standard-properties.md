@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 07/18/2019
 ms.author: bwren
 ms.openlocfilehash: b9a4a0a18e120a2843e23d44b03c0fe53b0d84fc
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
+ms.lasthandoff: 08/08/2019
 ms.locfileid: "68370685"
 ---
 # <a name="standard-properties-in-azure-monitor-logs"></a>Azure Monitor 로그의 표준 속성
@@ -51,7 +51,7 @@ exceptions
 | sort by timestamp asc 
 ```
 
-## <a name="timereceived"></a>\_TimeReceived
+## <a name="_timereceived"></a>\_TimeReceived
 **\_TimeReceived** 속성은 Azure 클라우드의 Azure Monitor 수집 지점에서 레코드를 받은 날짜 및 시간을 포함 합니다. 이는 데이터 원본과 클라우드 간의 대기 시간 문제를 식별 하는 데 유용할 수 있습니다. 예를 들면, 에이전트에서 데이터를 전송 하는 동안 지연이 발생 하는 네트워킹 문제가 발생 합니다. 자세한 내용은 [Azure Monitor의 로그 데이터 수집 시간](data-ingestion-time.md) 을 참조 하세요.
 
 다음 쿼리는 에이전트의 이벤트 레코드에 대 한 시간당 평균 대기 시간을 제공 합니다. 여기에는 에이전트에서 클라우드로의 시간 및 로그 쿼리에 사용할 수 있는 레코드의 총 시간이 포함 됩니다.
@@ -77,11 +77,11 @@ search *
 | summarize count() by Type
 
 ```
-## <a name="itemid"></a>\_ItemId
+## <a name="_itemid"></a>\_ItemId
 ItemId 속성에는 레코드에 대 한 고유 식별자가 포함 됩니다.  **\_**
 
 
-## <a name="resourceid"></a>\_ResourceId
+## <a name="_resourceid"></a>\_ResourceId
 **\_ResourceId** 속성은 레코드가 연결된 리소스의 고유 ID를 포함합니다. 쿼리 범위를 특정 리소스의 레코드로만 제한하거나 여러 테이블의 관련 데이터를 조인하는 데 사용할 표준 속성을 제공합니다.
 
 Azure 리소스의 경우 **_ResourceId** 값은 [Azure 리소스 ID URL](../../azure-resource-manager/resource-group-template-functions-resource.md)입니다. 이 속성은 현재 Azure 리소스로 제한되지만 온-프레미스 컴퓨터와 같은 Azure 외부 리소스로 확장될 예정입니다.
@@ -127,7 +127,7 @@ union withsource = tt *
 
 여러 데이터 형식을 검색할 경우 비용이 많이 들기 때문에 이러한 `union withsource = tt *` 쿼리는 자주 사용하지 않도록 합니다.
 
-## <a name="isbillable"></a>\_IsBillable
+## <a name="_isbillable"></a>\_IsBillable
 **\_IsBillable** 속성은 수집된 데이터의 청구 가능 여부를 지정합니다. **\_IsBillable**이 _false_인 데이터는 무료로 수집되고 Azure 계정에 요금이 청구되지 않습니다.
 
 ### <a name="examples"></a>예
@@ -154,7 +154,7 @@ union withsource = tt *
 | summarize dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc
 ```
 
-## <a name="billedsize"></a>\_BilledSize
+## <a name="_billedsize"></a>\_BilledSize
 **\_BilledSize** 속성은 **\_IsBillable**이 true인 경우 Azure 계정에 비용이 청구되는 데이터의 크기(바이트)를 지정합니다.
 
 
