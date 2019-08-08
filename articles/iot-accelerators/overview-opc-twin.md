@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: d58dc18d5513259d5c01f7ddcc54736796e5c824
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: c0d824e23a98aa14081fbd21bd6a9fbec5d583e0
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603635"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815945"
 ---
 # <a name="what-is-opc-twin"></a>OPC 쌍이란?
 
@@ -42,4 +42,4 @@ OPC 쌍은 REST API를 통해 모든 프로그래밍 언어로 작성한 애플�
 이제 OPC 쌍과 그 용도에 대해 파악했으므로, 권장되는 단계는 다음과 같습니다.
 
 > [!div class="nextstepaction"]
-> [OPC 자격 증명 모음이란?](overview-opc-twin-architecture.md)
+> [OPC 자격 증명 모음이란?](overview-opc-vault.md)

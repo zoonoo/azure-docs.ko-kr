@@ -10,12 +10,13 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 6ffa0881df07e453c8beb175b8580deebbfc1ec9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: f4f3024451696dbd0244d9da39cba67b49447af1
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389886"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68703631"
 ---
 # <a name="how-to-use-branching-and-undo-operations"></a>분기 및 실행 취소 작업을 사용하는 방법
 이 자습서에서는 실행 취소 및 분기 작업을 설명합니다.
@@ -25,7 +26,7 @@ ms.locfileid: "66389886"
 ### <a name="undo"></a>실행 취소
 개발자가 최종 사용자 입력 또는 작업 선택을 "실행 취소"할 수 있습니다. 내부적으로 "실행 취소"는 실제로 새 대화 상자를 만들어 이전 단계까지 재생합니다.  즉, 대화 상자에서 엔터티 검색 콜백 및 API 호출을 다시 호출합니다.
 
-### <a name="branch"></a>Branch
+### <a name="branch"></a>분기
 기존 학습 대화 상자와 같은 방식으로 시작하는 새 학습 대화 상자를 만듭니다. 그러면 대화 상자를 수동으로 다시 입력할 필요가 없습니다. 내부적으로 "분기"는 새 대화 상자를 만들고 선택한 단계까지 기존 학습 대화 상자를 재생합니다.  즉, 대화 상자에서 엔터티 검색 콜백 및 API 호출을 다시 호출합니다.
 
 
@@ -51,7 +52,7 @@ ms.locfileid: "66389886"
 6. `Undo` 단추를 클릭합니다.
     - 마지막 항목이 제거되면서 "어떤 피자를 원하나요?"라는 마지막 봇 응답이 유지됩니다.
 
-## <a name="branch"></a>Branch
+## <a name="branch"></a>분기
 
 이 데모에서는 기존 학습 대화 상자를 열고 분기를 통해 새 학습 대화 상자를 만들겠습니다.
 

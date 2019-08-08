@@ -10,12 +10,13 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: eeed0718a1feb170dbbaa783ec0a840c7829c02e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 656d028082d56b8f094e83363e5189b163581c53
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66390007"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68703956"
 ---
 # <a name="how-to-use-session-callbacks-with-a-conversation-learner-model"></a>Conversation Learner 모델에서 세션 콜백을 사용하는 방법
 
@@ -52,7 +53,7 @@ Conversation Learner에서 세션은 봇과의 중단 없는 쌍방향 교류을
 
 각 콜백은 선택 사항입니다.
 
-### <a name="actions"></a>작업
+### <a name="actions"></a>동작
 
 모델에는 4가지 작업이 정의되어 있습니다. 기존 작업은 "작업"에 대한 그리드 보기에 표시됨
 

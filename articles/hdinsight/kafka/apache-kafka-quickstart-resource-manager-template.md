@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: 5f2a959bcea533174feedb324cecf20ca12bd39b
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: 75b774a59d3a2a94f1f1132a79c26dcca7b4b6f7
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137193"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780776"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-resource-manager-template"></a>빠른 시작: Azure HDInsight에서 Resource Manager 템플릿을 사용하여 Apache Kafka 클러스터 만들기
 
@@ -40,8 +40,8 @@ SSH 클라이언트. 자세한 내용은 [SSH를 사용하여 HDInsight(Apache H
 
     | 자산 | 값 |
     | --- | --- |
-    | 구독 | Azure 구독. |
-    | 리소스 그룹 | 클러스터를 만들어 놓은 리소스 그룹입니다. |
+    | Subscription | Azure 구독. |
+    | Resource group | 클러스터를 만들어 놓은 리소스 그룹입니다. |
     | 위치 | 클러스터를 만들어 놓은 Azure 지역입니다. |
     | 클러스터 이름 | Kafka 클러스터의 이름입니다. |
     | 클러스터 로그인 사용자 이름 | 클러스터에서 호스트되는 HTTP 기반 서비스에 로그인하는 데 사용되는 계정 이름입니다. |
@@ -67,7 +67,7 @@ SSH 클라이언트. 자세한 내용은 [SSH를 사용하여 HDInsight(Apache H
 
     연결되면 다음 텍스트와 유사한 정보가 표시됩니다.
     
-    ```text
+    ```output
     Authorized uses only. All activity may be monitored and reported.
     Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.13.0-1011-azure x86_64)
     
@@ -85,7 +85,6 @@ SSH 클라이언트. 자세한 내용은 [SSH를 사용하여 HDInsight(Apache H
     Welcome to Kafka on HDInsight.
     
     Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
-    ssuhuser@hn0-mykafk:~$
     ```
 
 ## <a id="getkafkainfo"></a>Apache Zookeeper 및 Broker 호스트 정보 가져오기

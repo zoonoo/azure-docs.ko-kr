@@ -1,20 +1,18 @@
 ---
 title: '빠른 시작: Java Storage SDK를 사용하여 Blob 만들기'
 description: 이 빠른 시작에서는 Java Storage SDK를 사용하여 개체(Azure Blob) 스토리지에 컨테이너를 만들고, 파일을 업로드하고, 개체를 나열하고, 다운로드합니다.
-services: storage
 author: mhopkins-msft
-ms.custom: mvc, seo-java-july2019
+ms.author: mhopkins
+ms.date: 11/14/2018
 ms.service: storage
 ms.topic: quickstart
-ms.date: 11/14/2018
-ms.author: mhopkins
-ms.reviewer: seguler
-ms.openlocfilehash: 12507ba87148bef6378542feb4ebde3b1c291a72
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.custom: seo-java-july2019
+ms.openlocfilehash: dcaefc6603221909329925f30bcf7556441b3d8e
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565922"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68722032"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-by-using-the-java-storage-sdk-v10"></a>빠른 시작: Java Storage SDK V10을 사용하여 Blob 업로드, 다운로드 및 나열
 

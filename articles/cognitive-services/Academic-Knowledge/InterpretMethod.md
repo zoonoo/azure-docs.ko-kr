@@ -10,12 +10,13 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: b679f1da0ada3e61fca79cdb985a43dc445877ce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: d960aff109e0eca70cb87463770620093e563f63
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61338455"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706666"
 ---
 # <a name="interpret-method"></a>Interpret 메서드
 
@@ -29,20 +30,20 @@ ms.locfileid: "61338455"
 
 ## <a name="request-parameters"></a>요청 매개 변수
 
-이름     | 값 | Required?  | 설명
+이름     | 값 | 필수 여부  | 설명
 ---------|---------|---------|---------
 **query**    | 텍스트 문자열 | 예 | 사용자가 입력한 쿼리입니다.  complete를 1로 설정하면 쿼리는 쿼리 추천 자동 완성을 생성하기 위한 접두사로 해석됩니다.        
-**model**    | 텍스트 문자열 | 아닙니다.  | 쿼리할 모델의 이름입니다.  현재 기본값은 *최신*입니다.        
-**complete** | 0 또는 1 | 아닙니다.<br>기본값: 0  | 1은 문법 및 그래프 데이터를 기반으로 자동 완성 제안이 생성된다는 의미입니다.         
-**count**    | Number | 아닙니다.<br>기본값:10 | 반환할 최대 해석 수.         
-**offset**   | Number | 아닙니다.<br>기본값: 0  | 반환할 첫 번째 해석의 인덱스입니다. 예를 들어 *count=2&offset=0*은 해석 0 및 1을 반환합니다. *count=2&offset=2*는 해석 2 및 3을 반환합니다.       
-**timeout**  | Number | 아닙니다.<br>기본값: 1000 | 시간 제한(밀리초)입니다. 시간 제한이 경과되기 전에 찾은 해석만 반환됩니다.
+**model**    | 텍스트 문자열 | 아니요  | 쿼리할 모델의 이름입니다.  현재 기본값은 *최신*입니다.        
+**complete** | 0 또는 1 | 아니요<br>기본값: 0  | 1은 문법 및 그래프 데이터를 기반으로 자동 완성 제안이 생성된다는 의미입니다.         
+**count**    | 숫자 | 아니요<br>기본값:10 | 반환할 최대 해석 수.         
+**offset**   | 숫자 | 아니요<br>기본값: 0  | 반환할 첫 번째 해석의 인덱스입니다. 예를 들어 *count=2&offset=0*은 해석 0 및 1을 반환합니다. *count=2&offset=2*는 해석 2 및 3을 반환합니다.       
+**timeout**  | 숫자 | 아니요<br>기본값: 1000 | 시간 제한(밀리초)입니다. 시간 제한이 경과되기 전에 찾은 해석만 반환됩니다.
 
 <br>
   
 ## <a name="response-json"></a>응답(JSON)
 
-Name     | 설명
+이름     | 설명
 ---------|---------
 **query** |요청의 *query* 매개 변수입니다.
 **interpretations** |문법에 따라 사용자 입력을 일치시키는 0개 이상의 서로 다른 방법 배열입니다.

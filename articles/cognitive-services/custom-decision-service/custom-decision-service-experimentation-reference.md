@@ -10,12 +10,13 @@ ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: marossi
-ms.openlocfilehash: b5f8c853218a1db53f4dd23e7254b35990a7132b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: e6e8e7d0d5b969464ba9183ccae9080f58f786a0
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60829177"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707294"
 ---
 # <a name="experimentation"></a>실험
 
@@ -52,7 +53,7 @@ Custom Decision Service는 컨텍스트에서 작업에 매핑할 때 정책을 
 
 위 인수에 대한 자세한 설명은 [Vowpal Wabbit 명령줄 인수](https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 - Vowpal Wabbit: 경로 내에 설치되어 있어야 합니다.
   - Windows: [`.msi` 설치 관리자를 사용](https://github.com/eisber/vowpal_wabbit/releases)합니다.
   - 기타 플랫폼: [소스 코드를 다운로드](https://github.com/JohnLangford/vowpal_wabbit/releases)합니다.
@@ -61,7 +62,7 @@ Custom Decision Service는 컨텍스트에서 작업에 매핑할 때 정책을 
 - *Microsoft/mwt-ds* 리포지토리: [리포지토리를 복제합니다](https://github.com/Microsoft/mwt-ds).
 - Decision Service JSON 로그 파일: 기본 명령에는 입력 데이터 파일의 Decision Service JSON 구문 분석을 수행할 수 있도록 하는 `--dsjson`이 기본적으로 포함됩니다. [이 형식의 예제를 가져옵니다](https://github.com/JohnLangford/vowpal_wabbit/blob/master/test/train-sets/decisionservice.json).
 
-## <a name="usage"></a>사용 현황
+## <a name="usage"></a>사용법
 `mwt-ds/DataScience`로 이동한 후 다음 코드에 설명된 것처럼 관련 인수를 사용해서 `Experimentation.py`를 실행합니다.
 
 ```cmd
@@ -77,7 +78,7 @@ python Experimentation.py [-h] -f FILE_PATH [-b BASE_COMMAND] [-p N_PROC]
 결과 로그가 *mwt-ds/DataScience/experiments.csv* 파일에 추가됩니다.
 
 ### <a name="parameters"></a>매개 변수
-| 입력 | 설명 | 기본값 |
+| 입력 | Description | 기본값 |
 | --- | --- | --- |
 | `-h`, `--help` | 도움말 메시지를 표시하고 종료됩니다. | |
 | `-f FILE_PATH`, `--file_path FILE_PATH` | 데이터 파일 경로(`.json` 또는 `.json.gz` 형식 - 각 줄이 하나의 `dsjson`임)입니다. | 필수 |  

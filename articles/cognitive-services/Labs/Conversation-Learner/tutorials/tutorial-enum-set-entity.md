@@ -10,12 +10,13 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nolachar
-ms.openlocfilehash: ed18d30a0c3f5d51cb3a07b8948863cdda16c1ae
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ROBOTS: NOINDEX
+ms.openlocfilehash: 5443b97febd6bf3831690531bceb540181e7676c
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845958"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706987"
 ---
 # <a name="when-to-use-enum-entities-and-set-entity-actions"></a>열거형 엔터티를 사용 하 고 엔터티 작업을 설정 하는 경우
 
@@ -52,7 +53,7 @@ Boe-bot Azure Cognitive Services 하시 겠어요?
 
 이러한 경우 열거형 엔터티와 SET_ENTITY 작업을 사용 해야 합니다.
 
-## <a name="when-to-use-enums-or-setentity-actions"></a>열거형 또는 SET_ENTITY 작업을 사용 하는 경우
+## <a name="when-to-use-enums-or-set_entity-actions"></a>열거형 또는 SET_ENTITY 작업을 사용 하는 경우
 
 아래 규칙을 사용 하 여 열거형 엔터티와 SET_ENTITY 작업을 사용 하는 시기를 확인할 수 있습니다.
 
@@ -75,7 +76,7 @@ Boe-bot Azure Cognitive Services 하시 겠어요?
 
 이러한 프롬프트는 임의의 값으로 대답할 수 있으므로 열려 있는 것으로 간주 됩니다.
 
-## <a name="what"></a>대상
+## <a name="what"></a>내용:
 
 ### <a name="enum-entities"></a>엔터티 열거
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 031367a8a05defad475ae077f9b38b7294837460
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ac3cb1d637eae1b4ee0a7db59efe631c7eb1ac6f
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559392"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815266"
 ---
 # <a name="language-and-region-support-for-the-speech-services"></a>음성 서비스에 대한 언어 및 지역 지원
 
@@ -31,12 +31,12 @@ Microsoft 음성 인식 SDK와 REST API는 모두 다음 언어 (로캘)를 지�
  ar 예 | 아랍어(이집트), 현대 표준 | 아니요 | 예 | 아니요
  ca-ES | 카탈로니아어 | 아니요 | 아니요 | 아니요
  da-DK | 덴마크어(덴마크) | 아니요 | 아니요 | 아니요
- de-DE | 독일어 (독일) | 예 | 예 | 아니요
- en-AU | 영어(오스트레일리아) | 아니요 | 예 | 예
- en-CA | 영어(캐나다) | 아니요 | 예 | 예
- en-GB | English (United Kingdom) | 아니요 | 예 | 예
- en-IN | 영어(인도) | 예 | 예 | 예
- en-NZ | 영어(뉴질랜드) | 아니요 | 예 | 예  
+ de-DE | 독일어 (독일) | 예 | 예 | 예
+ en-AU | 영어(오스트레일리아) | 아니요 | 예 | 아니요
+ en-CA | 영어(캐나다) | 아니요 | 예 | 아니요
+ en-GB | English (United Kingdom) | 아니요 | 예 | 아니요
+ en-IN | 영어(인도) | 예 | 예 | 아니요
+ en-NZ | 영어(뉴질랜드) | 아니요 | 예 | 아니요 
  ko-KR | 영어 (미국) | 예 | 예 | 예
  es-ES | 스페인어(스페인) | 예 | 예 | 아니요
  es-MX | 스페인어(멕시코) | 아니요 | 예 | 아니요

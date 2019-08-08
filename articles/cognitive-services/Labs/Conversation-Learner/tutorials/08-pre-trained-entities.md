@@ -10,12 +10,13 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: fb70983c2f9fd20368bb8c6803c9568b27141af7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: fceca459b80725e1a9c8b7dbc6a4387ea98dbb7b
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389266"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704129"
 ---
 # <a name="how-to-add-pre-trained-entities"></a>미리 학습된 엔터티를 추가하는 방법
 이 자습서에서는 미리 학습된 엔터티를 Conversation Learner 모델에 추가하는 방법을 보여 줍니다.
@@ -39,42 +40,42 @@ Web UI의 홈페이지에서 시작합니다.
 
 ### <a name="create-the-model"></a>모델 만들기
 
-1. 선택 **새 모델**합니다.
-2. 입력 **PretrainedEntities** 에 대 한 **이름**합니다.
+1. **새 모델**을 선택 합니다.
+2. **이름**에 **PretrainedEntities** 를 입력 합니다.
 3. **만들기**를 선택합니다.
 
 ### <a name="entity-creation"></a>엔터티 생성
 
-1. 선택 **엔터티** 왼쪽된 패널에서 **새 엔터티**합니다.
-2. 선택 **사전 Trained/datetimeV2** 에 대 한 **엔터티 형식**합니다.
-3. 확인할 **다중값** 엔터티를 사용 하도록 설정 하려면 하나 이상의 값을 누적 합니다. 참고로 Pre-Trained 엔터티를 무효화할 수 일 수 없습니다.
+1. 왼쪽 패널에서 **엔터티** 를 선택 하 고 **새 엔터티**를 선택 합니다.
+2. **엔터티 형식**에 대해 **미리 학습 된/datetimeV2** 를 선택 합니다.
+3. **다중** 값을 확인 하 여 엔터티가 하나 이상의 값을 누적 하도록 설정 합니다. 미리 학습 된 엔터티는 negatable 수 없습니다.
 4. **만들기**를 선택합니다.
 
 ![](../media/T08_entity_create.png)
 
-1. 선택 **동작** 왼쪽된 패널에서 **새 작업**합니다.
-2. 입력 **날짜가 $builtin-datetimev2** 에 대 한 **봇의 응답...** .
+1. 왼쪽 패널에서 **동작** 을 선택 하 고 **새 작업**을 선택 합니다.
+2. **봇의 응답**에 대 한 **$builtin-datetimev2 날짜** 를 입력 합니다.
 3. **만들기**를 선택합니다.
 
 ![](../media/T08_action_create_1.png)
 
 ### <a name="create-the-second-action"></a>두 번째 작업 만들기
 
-1. 선택 **동작** 왼쪽된 패널에서 **새 작업**합니다.
-2. 입력 **날짜 이란?** 에 대 한 **봇의 응답...** . 미리 학습 된 엔터티 수 없습니다 **필요한 엔터티** 모든 표현에 대해 기본적으로 인식 되는 대로 합니다.
-3. 입력 **builtin datetimev2** 에 대 한 **우량 엔터티**합니다.
+1. 왼쪽 패널에서 **동작** 을 선택 하 고 **새 작업**을 선택 합니다.
+2. **봇의 응답**에 대 한 **날짜를** 입력 하세요 .... 미리 학습 된 엔터티는 모든 길이 발언에 대해 기본적으로 인식 되므로 **필수 엔터티가** 될 수 없습니다.
+3. **Disqualifying 엔터티에**대해 **builtin-datetimev2** 을 입력 합니다.
 4. **만들기**를 선택합니다.
 
 ![](../media/T08_action_create_2.png)
 
 ### <a name="train-the-model"></a>모델 학습
 
-1. 선택 **학습 대화 상자** 왼쪽된 패널에서 **새 학습 대화**합니다.
-2. 입력 **hello** 채팅 왼쪽된 패널에서 사용자의 utterance에 대 한 합니다.
-3. 선택 **작업의 점수를 매길**합니다.
-4. 선택 **날짜 란?** 작업 목록에서
-5. 입력 **오늘** 채팅 왼쪽된 패널에서 사용자의 utterance에 대 한 합니다.
-    - 합니다 **오늘** utterance LUIS에서 미리 학습 된 모델에서 자동으로 인식 됩니다.
+1. 왼쪽 패널에서 **학습** 대화 상자를 선택 하 고 **새 학습 대화 상자**를 선택 합니다.
+2. 왼쪽 채팅 패널에서 사용자의 utterance에 대 한 **hello** 를 입력 합니다.
+3. **점수 동작**을 선택 합니다.
+4. 작업 목록에서 **날짜를** 선택 합니다.
+5. 왼쪽 채팅 패널에서 사용자의 utterance에 대해 **today** 를 입력 합니다.
+    - **오늘** UTTERANCE는 LUIS의 미리 학습 된 모델에서 자동으로 인식 됩니다.
     - 미리 학습된 엔터티의 값을 마우스로 가리키면 LUIS에서 제공되는 추가 데이터가 표시됩니다.
 
 ![](../media/T08_training.png)

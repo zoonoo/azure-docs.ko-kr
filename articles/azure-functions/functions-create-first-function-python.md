@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: 5ef30fbf647492f79c64508d8306868aa1f6b278
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 58f5cfd3718720cafc922bbd7b974a353e0d9d02
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444573"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68722793"
 ---
 # <a name="create-an-http-triggered-function-in-azure"></a>Azure에서 HTTP 트리거 함수 만들기
 
@@ -42,7 +42,7 @@ ms.locfileid: "67444573"
 
 ## <a name="create-and-activate-a-virtual-environment"></a>가상 환경 만들기 및 활성화
 
-Python 함수를 로컬로 개발하고 테스트하려면 Python 3.6 환경을 사용해야 합니다. 다음 명령을 실행하여 `.env`라는 가상 환경을 만들고 활성화합니다.
+Python 함수를 로컬로 개발하고 테스트하려면 Python 3.6 환경을 사용해야 합니다. 다음 명령을 실행하여 `.venv`라는 가상 환경을 만들고 활성화합니다.
 
 ### <a name="bash"></a>Bash:
 

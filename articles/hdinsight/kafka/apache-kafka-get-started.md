@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: 61ae6cdf7c31c9a6e40860eb1dc4628bb2d37496
-ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.openlocfilehash: 9fa6ad3c52e9b01fe9a62a2de52f62b1b1a95aa8
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67150899"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779517"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure HDInsight에서 Apache Kafka 클러스터 만들기
 
@@ -45,7 +45,7 @@ HDInsight 클러스터에 Apache Kafka를 만들려면 다음 단계를 수행�
     | 설정 | 값 |
     | --- | --- |
     | 클러스터 이름 | HDInsight 클러스터에 사용할 고유한 이름입니다. |
-    | 구독 | 구독을 선택합니다. |
+    | Subscription | 구독을 선택합니다. |
     
    __클러스터 유형__을 선택하여 **클러스터 구성**을 표시합니다.
    
@@ -122,7 +122,7 @@ HDInsight 클러스터에 Apache Kafka를 만들려면 다음 단계를 수행�
 
     연결되면 다음 텍스트와 유사한 정보가 표시됩니다.
     
-    ```text
+    ```output
     Authorized uses only. All activity may be monitored and reported.
     Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.13.0-1011-azure x86_64)
     
@@ -140,7 +140,6 @@ HDInsight 클러스터에 Apache Kafka를 만들려면 다음 단계를 수행�
     Welcome to Apache Kafka on HDInsight.
     
     Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
-    ssuhuser@hn0-mykafk:~$
     ```
 
 ## <a id="getkafkainfo"></a>Apache Zookeeper 및 Broker 호스트 정보 가져오기
