@@ -195,4 +195,4 @@ ms.locfileid: "66418309"
 ## <a name="next-steps"></a>다음 단계
 복제를 설정한 후에는 모든 것이 예상대로 작동하도록 보장하기 위한 훈련을 실행합니다.
 > [!div class="nextstepaction"]
-> [재해 복구 드릴 실행](site-recovery-test-failover-to-azure.md)
+> [재해 복구 훈련 실행](site-recovery-test-failover-to-azure.md)
