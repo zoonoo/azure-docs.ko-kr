@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2019
 ms.author: iainfou
-ms.openlocfilehash: e94cd9ca049cfdfd2321ce046714506ed1f23390
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 923ecae9dc649b8f5cdcfd447b78fdec0805927a
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67483272"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879161"
 ---
 # <a name="secure-your-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리되는 도메인 보호
 이 문서에서는 관리되는 도메인을 보호하는 방법을 설명합니다. 취약한 암호 그룹 사용을 해제하고 NTLM 자격 증명 해시 동기화를 사용하지 않도록 설정할 수 있습니다.
@@ -36,9 +36,12 @@ ms.locfileid: "67483272"
 
 ## <a name="disable-weak-cipher-suites-and-ntlm-credential-hash-synchronization"></a>취약한 암호 그룹 및 NTLM 자격 증명 해시 동기화를 사용하지 않도록 설정
 아래 PowerShell 스크립트를 사용하여 다음과 같은 작업을 수행할 수 있습니다.
+
 1. 관리되는 도메인에 대해 NTLM v1을 지원하지 않도록 설정합니다.
 2. 온-프레미스 AD에서 NTLM 암호 해시 동기화를 사용하지 않도록 설정합니다.
 3. 관리되는 도메인에서 TLS v1을 사용하지 않도록 설정합니다.
+
+*Microsoft. AAD/domainservices* 리소스가 `Get-AzResource` 존재 하지 않는 명령에 오류가 발생 하는 경우 [모든 Azure 구독 및 관리 그룹을 관리 하기 위해 액세스 권한을 승격](../role-based-access-control/elevate-access-global-admin.md)합니다.
 
 ```powershell
 // Login to your Azure AD tenant
@@ -58,7 +61,7 @@ Set-AzResource -Id $DomainServicesResource.ResourceId -Properties $securitySetti
 ```
 
 > [!IMPORTANT]
-> 사용자 (및 서비스 계정)는 Azure AD Domain Services 인스턴스에서 NTLM 암호 해시 동기화를 해제 한 경우 LDAP 단순 바인딩을 수행할 수 없습니다.  NTLM 암호 해시 동기화를 사용 하지 않도록 설정 하는 방법은 읽을 [Azure AD DOmain Services 관리 되는 도메인 보안](secure-your-domain.md)합니다.
+> Azure AD Domain Services 인스턴스에서 NTLM 암호 해시 동기화를 사용 하지 않도록 설정한 경우 사용자 및 서비스 계정에서 LDAP 단순 바인딩을 수행할 수 없습니다.  NTLM 암호 해시 동기화를 사용 하지 않도록 설정 하는 방법에 대 한 자세한 내용은 [AZURE AD Domain Services 관리 되는 도메인 보안](secure-your-domain.md)을 참조 하세요.
 >
 >
 

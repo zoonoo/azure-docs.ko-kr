@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: troubleshooting
 ms.date: 08/01/2019
-ms.openlocfilehash: f37110138ae62272e56b155b7e8a9aac2f80cdf8
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 84bd14f8ae18527b4f6e9d8509a12555baec8771
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68734592"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879548"
 ---
 # <a name="troubleshooting-azure-data-catalog"></a>문제 해결 Azure Data Catalog
 
@@ -21,7 +21,7 @@ ms.locfileid: "68734592"
 
 Azure Data Catalog를 사용 하는 경우 다음 기능이 제한 됩니다.
 
-- **게스트 역할** 유형의 계정은 지원 되지 않습니다. 게스트 계정은 Azure Data Catalog 사용자로 추가할 수 없으며 게스트 사용자는 www.azuredatacatalog.com에서 포털을 사용할 수 없습니다.
+- **게스트 역할** 유형의 계정은 지원 되지 않습니다. 게스트 계정은 Azure Data Catalog 사용자로 추가할 수 없으며 게스트 사용자는에서 [https://www.azuredatacatalog.com](https://www.azuredatacatalog.com)포털을 사용할 수 없습니다.
 
 - Azure Resource Manager 템플릿 또는 Azure PowerShell 명령을 사용 하 여 Azure Data Catalog 리소스를 만드는 것은 지원 되지 않습니다.
 

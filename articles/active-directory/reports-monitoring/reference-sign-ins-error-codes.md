@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 05/08/2019
+ms.date: 08/08/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6972c91a18f9deb240871d8c64a14647474d9d78
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.openlocfilehash: 4cbaa8f22335da083506a76ad1a791576b109a00
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377262"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879778"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>로그인 활동 보고서 오류 코드 
 
@@ -53,7 +53,7 @@ ms.locfileid: "68377262"
 ## <a name="error-codes"></a>오류 코드
 
 
-|Error|설명|
+|Error|Description|
 |---|---|
 |16000|이것은 오류 조건이 아닌 내부 구현 세부 정보입니다. 이 참조를 무시해도 됩니다.|
 |20001|페더레이션 ID 공급자에 문제가 있습니다. 이 문제를 해결하려면 IDP에 문의하세요.|
@@ -127,6 +127,7 @@ ms.locfileid: "68377262"
 |50177|통과 사용자에 대한 외부 과제는 지원하지 않습니다.|
 |50178|통과 사용자에 대한 세션 제어는 지원하지 않습니다.|
 |50180|Windows 통합 인증이 필요합니다. Seamless SSO에 대한 테넌트를 사용하도록 설정합니다.|
+|50201|사용자에 게 추가 정보를 제공 해야 하는 경우 로그인 중에이 메시지 프롬프트 인터럽트가 사용자에 게 표시 됩니다.|
 |51001|도메인 힌트에 온-프레미스 보안 식별자와 온-프레미스 UPN이 없습니다.|
 |51004|사용자 계정이 디렉터리에 없습니다.|
 |51006|Windows 통합 인증이 필요합니다. 사용자가 클레임을 통해 누락 된 세션 토큰을 사용 하 여 로그인 했습니다. 사용자에게 다시 로그인하도록 요청하세요.|
@@ -181,6 +182,9 @@ ms.locfileid: "68377262"
 |500121| 강력한 인증 요청 중에 인증에 실패 했습니다.|
 |500133| 어설션이 유효한 시간 범위 내에 있지 않습니다. 사용자 어설션에 대해 사용하기 전에 액세스 토큰이 만료되지 않았는지 확인하거나 새 토큰을 요청합니다.|
 |530021|응용 프로그램이 조건부 액세스 승인 된 앱 요구 사항을 충족 하지 않습니다.|
+|530032|보안 정책에 의해 차단 되었습니다.| 
+|700016|' {TenantName} ' 디렉터리에서 식별자가 ' {appIdentifier} ' 인 응용 프로그램을 찾을 수 없습니다. 이 오류는 테넌트의 관리자가 애플리케이션을 설치하지 않았거나 테넌트의 사용자가 동의하지 않은 경우에 발생할 수 있습니다. 잘못 된 테 넌 트에 인증 요청을 보냈습니다.|
+|900432|기밀 클라이언트는 클라우드 간 요청에서 지원 되지 않습니다.|
 |7000218|요청 본문은 ' client_assertion ' 또는 ' client_secret ' 매개 변수를 포함 해야 합니다.|
 
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dacurwin
-ms.openlocfilehash: f5367e1ca3e950126766e788323cb1d4749e9b0c
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: d815b471b0a1d7842118c7ac0b5e1665b8fb3c1e
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688395"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879950"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Azure Backup Server 설치 및 업그레이드
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.locfileid: "68688395"
 >
 >
 
-Azure VM에 배포된 MABS는 Azure의 VM을 백업할 수 있지만 백업 작업을 사용하려면 동일한 도메인에 있어야 합니다. Azure VM을 백업 하는 프로세스는 온-프레미스에서 Vm을 백업 하는 것과 동일 하지만 Azure에서 MABS를 배포 하는 경우 몇 가지 제한 사항이 있습니다. 제한 사항에 대한 자세한 내용은 [Azure 가상 머신으로서의 DPM](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)을 참조하세요.
+Azure VM에 배포 된 MABS는 Azure에서 Vm을 백업할 수 있지만 백업 작업을 사용 하려면 동일한 도메인에 있어야 합니다. Azure VM을 백업 하는 프로세스는 온-프레미스에서 Vm을 백업 하는 것과 동일 하지만 Azure에서 MABS를 배포 하는 경우 몇 가지 제한 사항이 있습니다. 제한 사항에 대 한 자세한 내용은 [DPM을 Azure 가상 머신으로](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites) 참조 하세요.
 
 > [!NOTE]
 > Azure에는 리소스를 만들고 작업하기 위한 두 가지 배포 모델인 [Resource Manager와 클래식](../azure-resource-manager/resource-manager-deployment-model.md) 모델이 있습니다. 이 문서에서는 리소스 관리자 모델을 사용하여 배포된 VM을 복원하기 위한 정보 및 절차를 제공합니다.
@@ -42,12 +42,12 @@ Azure Backup 서버는 DPM(Data Protection Manager)에서 대부분의 워크로
 Azure Backup 서버를 작동하고 실행하는 첫 번째 단계는 Windows Server를 설정하는 것입니다. 서버는 Azure 또는 온-프레미스에 있을 수 있습니다.
 
 ### <a name="using-a-server-in-azure"></a>Azure에서 서버 사용
-Azure Backup Server를 실행하기 위한 서버를 선택할 때 Windows Server 2012 R2 Datacenter, Windows Server 2016 Datacenter 또는 Windows Server 2019 Datacenter의 갤러리 이미지로 시작하는 것이 좋습니다. [Azure 포털에서 첫 번째 Windows 가상 머신 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)문서는 Azure를 사용한 경험이 없는 경우 Azure에서 권장된 가상 머신 시작에 대한 자습서를 제공합니다. 서버 VM(가상 머신)에 대한 권장 최소 요구 사항은 4 개 코어와 8gb RAM이 있는 Standard_A4_v2.
+Azure Backup Server를 실행 하기 위한 서버를 선택할 때 Windows Server 2012 R2 Datacenter, Windows Server 2016 Datacenter 또는 Windows Server 2019 Datacenter의 갤러리 이미지로 시작 하는 것이 좋습니다. [Azure 포털에서 첫 번째 Windows 가상 머신 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)문서는 Azure를 사용한 경험이 없는 경우 Azure에서 권장된 가상 머신 시작에 대한 자습서를 제공합니다. 서버 VM(가상 머신)에 대한 권장 최소 요구 사항은 4 개의 코어와 8gb RAM이 있는 Standard_A4_v2.
 
 Azure Backup 서버를 사용하여 워크로드를 보호하는 데는 미묘한 많은 차이가 있습니다. [Azure 가상 머신으로 DPM 설치](https://technet.microsoft.com/library/jj852163.aspx)문서는 이러한 미묘한 차이를 설명하는 데 도움이 됩니다. 컴퓨터를 배포하기 전에 이 문서를 완전히 읽어보세요.
 
 ### <a name="using-an-on-premises-server"></a>온-프레미스 서버 사용
-Azure에서 기본 서버를 실행하지 않을 경우 Hyper-V VM, VMware VM 또는 실제 호스트에서 서버를 실행할 수 있습니다. 서버 하드웨어에 대 한 권장 최소 요구 사항은 2 코어와 8gb RAM입니다. 지원되는 운영 체제는 다음 표에 나열되어 있습니다.
+Azure에서 기본 서버를 실행하지 않을 경우 Hyper-V VM, VMware VM 또는 실제 호스트에서 서버를 실행할 수 있습니다. 서버 하드웨어에 권장 되는 최소 요구 사항은 2 개 코어와 8gb RAM입니다. 지원되는 운영 체제는 다음 표에 나열되어 있습니다.
 
 | 운영 체제 | 플랫폼 | SKU |
 |:--- | --- |:--- |
@@ -78,12 +78,14 @@ Windows Server 중복 제거를 사용하여 DPM 저장소를 중복 제거할 �
 
 저장소 복제 설정을 편집하려면
 
-1. 자격 증명 모음 대시보드 및 설정 메뉴를 열 자격 증명 모음을 선택합니다. **설정** 메뉴가 열리지 않을 경우 자격 증명 모음 대시보드에서 **모든 설정**을 클릭합니다.
-2. **설정** 메뉴에서 **Backup 인프라** > **Backup 구성**을 클릭하여 **Backup 구성** 블레이드를 엽니다. **백업 구성** 메뉴에서 자격 증명 모음에 대한 저장소 복제 옵션을 선택합니다.
+1. **Recovery Services 자격 증명 모음** 블레이드에서 새 자격 증명 모음을 클릭합니다. **설정** 섹션에서 **속성**을 클릭 합니다.
+2. **속성**의 **백업 구성**에서 **업데이트**를 클릭 합니다.
 
-    ![백업 자격 증명 모음 목록](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
+3. 저장소 복제 유형을 선택 하 고 **저장**을 클릭 합니다.
 
-    자격 증명 모음에 대한 저장소 옵션을 선택하면 자격 증명 모음이 있는 VM에 연결할 준비가 됩니다. 연결을 시작하려면 Azure 가상 머신을 검색하고 등록해야 합니다.
+     ![새 자격 증명 모음의 저장소 구성 설정](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
+
+ 
 
 ## <a name="software-package"></a>소프트웨어 패키지
 ### <a name="downloading-the-software-package"></a>소프트웨어 패키지 다운로드
@@ -116,7 +118,7 @@ Windows Server 중복 제거를 사용하여 DPM 저장소를 중복 제거할 �
 
     ![온-프레미스 및 목표 워크로드](./media/backup-azure-microsoft-azure-backup/backup-goals-azure-backup-server.png)
 
-    **무엇을 백업하시겠습니까?** 드롭다운 메뉴에서 Azure Backup Server를 사용하여 보호하려는 작업을 선택하고 **확인**을 클릭합니다.
+    **백업할 항목** 을 선택 하십시오. 드롭다운 메뉴에서 Azure Backup Server 사용 하 여 보호 하려는 작업을 선택 하 고 **확인**을 클릭 합니다.
 
     **백업 시작** 마법사는 **인프라 준비** 옵션으로 전환되어 작업을 Azure로 백업합니다.
 
@@ -135,7 +137,7 @@ Windows Server 중복 제거를 사용하여 DPM 저장소를 중복 제거할 �
 
     ![다운로드 센터 1](./media/backup-azure-microsoft-azure-backup/downloadcenter.png)
 
-    모든 파일의 다운로드 크기가 >3G이기 때문에 10Mbps 다운로드 링크에서 다운로드를 완료하는 데 최대 60분이 걸릴 수 있습니다.
+    모든 파일의 다운로드 크기는 3G > 이므로, 10mbps 다운로드 링크에서 다운로드를 완료 하는 데 최대 60 분이 걸릴 수 있습니다.
 
 ### <a name="extracting-the-software-package"></a>소프트웨어 패키지 추출
 모든 파일을 다운로드한 후에 **MicrosoftAzureBackupInstaller.exe**를 클릭합니다. 사용자가 지정한 위치에 설치 파일을 추출하는 **Microsoft Azure Backup 설정 마법사** 가 시작됩니다. 마법사를 계속 진행하고 **추출** 단추를 클릭하여 추출 프로세스를 시작합니다.
@@ -160,7 +162,7 @@ Windows Server 중복 제거를 사용하여 DPM 저장소를 중복 제거할 �
 
     ![Azure Backup 서버 - SQL 확인](./media/backup-azure-microsoft-azure-backup/sql/01.png)
 
-    컴퓨터를 다시 시작하라는 권장 사항과 함께 실패가 발생한 경우 작업을 수행하고 **다시 확인**을 클릭합니다. SQL 구성 문제가 있는 경우 SQL 지침에 따라 SQL을 다시 구성하고 SQL의 기존 인스턴스를 사용하여 MABS 설치/업그레이드를 다시 시도합니다.
+    컴퓨터를 다시 시작하라는 권장 사항과 함께 실패가 발생한 경우 작업을 수행하고 **다시 확인**을 클릭합니다. SQL 구성 문제가 있는 경우 sql 지침에 따라 SQL을 다시 구성 하 고 기존 SQL 인스턴스를 사용 하 여 MABS 설치/업그레이드를 다시 시도 합니다.
 
    > [!NOTE]
    > Azure Backup 서버는 원격 SQL Server 인스턴스에서 작동하지 않습니다. Azure Backup 서버에서 사용되는 인스턴스는 로컬이어야 합니다. MABS에 대해 기존 SQL 서버를 사용하는 경우 MABS 설정은 SQL 서버의 *명명된 인스턴스* 사용만을 지원합니다.
@@ -201,7 +203,7 @@ Windows Server 중복 제거를 사용하여 DPM 저장소를 중복 제거할 �
 7. *설정 요약* 을 검토하고 **설치**를 클릭합니다.
 
     ![Microsoft Azure Backup PreReq2](./media/backup-azure-microsoft-azure-backup/summary-screen.png)
-8. 설치는 단계적으로 발생합니다. 첫 번째 단계에서 Microsoft Azure Recovery Services 에이전트가 서버에 설치됩니다. 또한 마법사가 인터넷 연결을 확인합니다. 인터넷 연결을 사용할 수 있으면 설치를 계속 진행할 수 있고 그렇지 않으면 프록시 세부 정보를 제공하여 인터넷에 연결해야 합니다.
+8. 설치는 단계적으로 발생합니다. 첫 번째 단계에서는 Microsoft Azure Recovery Services 에이전트가 서버에 설치 됩니다. 또한 마법사가 인터넷 연결을 확인합니다. 인터넷 연결을 사용할 수 있으면 설치를 계속 진행할 수 있고 그렇지 않으면 프록시 세부 정보를 제공하여 인터넷에 연결해야 합니다.
 
     다음 단계는 Microsoft Azure Recovery Services 에이전트를 구성하는 것입니다. 구성의 일부로 복구 서비스 자격 증명 모음에 컴퓨터를 등록하려면 보관 자격 증명을 제공해야 합니다. 또한 Azure 및 프레미스 간에 전송된 데이터를 암호화/암호 해독할 암호를 제공하게 됩니다. 자동으로 암호를 생성하거나 최소 16자인 고유의 암호를 제공할 수 있습니다. 에이전트가 구성될 때까지 마법사를 계속 진행합니다.
 
@@ -251,7 +253,7 @@ MABS에서는 System Center Data Protection Manager 보호 에이전트를 사�
   > - MABS 데이터베이스 (DPMDB)의 백업이 있어야 합니다. 데이터베이스를 복원해야 합니다.
 
 1. 표시 창에서 보호 에이전트를 업데이트할 클라이언트 컴퓨터를 선택합니다.
-2. 원래 Azure Backup Server를 종료하거나 끕니다.
+2. 원래 Azure backup server를 종료 하거나 네트워크를 연결 합니다.
 3. 활성 디렉터리에서 컴퓨터 계정을 다시 설정합니다.
 4. 새 컴퓨터에 Server 2016을 설치하고 원래 Azure Backup Server와 동일한 컴퓨터 이름으로 지정합니다.
 5. 도메인 조인
@@ -295,7 +297,7 @@ Azure에 대 한 액세스를 차단 하는 방화벽이 나 프록시가 있는
 Azure Backup 서버 컴퓨터에 Azure에 대한 연결이 복원되면 수행할 수 있는 작업은 Azure 구독 상태에 따라 결정됩니다. 컴퓨터가 "연결된" 경우 허용되는 작업에 대한 세부 정보가 위의 표에 나와 있습니다.
 
 ### <a name="handling-subscription-states"></a>구독 상태 처리
-Azure 구독을 *만료됨* 또는 *프로비전 해제됨* 상태에서 *활성* 상태로 전환할 수 있습니다. 그러나 이 작업은 *활성*상태가 아닌 동안 제품 동작에 일부 영향을 미칩니다.
+Azure 구독을 *만료됨* 또는 *프로비전 해제됨* 상태에서 *활성* 상태로 전환할 수 있습니다. 그러나이는 상태가 *활성*이 아닌 동안 제품 동작에 몇 가지 영향을 미칩니다.
 
 * *프로비전 해제됨* 구독은 프로비전 해제 기간 동안 기능이 손실됩니다. *활성*으로 전환될 때 제품의 백업/복원 기능을 다시 사용할 수 있습니다. 또한 로컬 디스크의 백업 데이터가 충분한 보존 기간으로 유지되었다면 검색이 가능합니다. 그러나 Azure의 백업 데이터는 구독이 *프로비전 해제됨* 상태로 전환되면 회복할 수 없는 상태로 손실됩니다.
 * *만료됨* 구독은 다시 *활성* 상태로 되기 전까지 기능을 상실합니다. 구독이 *만료됨* 상태인 기간에 예약된 모든 백업은 실행되지 않습니다.

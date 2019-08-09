@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ccefec9e548b7981f696712bb4a983f4b577a9b
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 8ece7f93b5397db16e03c1eab1d2dc1e568113d9
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779638"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879253"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Azure AD 암호 보호 온-프레미스 - 질문과 대답
 
@@ -33,6 +33,8 @@ ms.locfileid: "68779638"
 **Q: 온-프레미스 Azure AD 암호 보호는 비공용 클라우드에서 지원되나요?**
 
 아니요 - 온-프레미스 Azure AD 암호 보호는 공용 클라우드에서만 지원됩니다. 비공용 클라우드가 지원되는 날짜는 발표되지 않았습니다.
+
+Azure AD 포털에서는 공용이 아닌 클라우드에서 온-프레미스 관련 "Windows Server Active Directory에 대 한 암호 보호" 구성을 수정할 수 있습니다. 이러한 변경 내용은 지속 되지만 그렇지 않은 경우에는 적용 되지 않습니다. 공용이 아닌 클라우드 자격 증명을 사용 하는 경우 온-프레미스 프록시 에이전트 또는 포리스트의 등록이 지원 되지 않으므로 이러한 등록 시도는 항상 실패 합니다.
 
 **Q: Azure AD 암호 보호 혜택을 내 온-프레미스 사용자의 하위 집합에 적용하려면 어떻게 해야 할까요?**
 
@@ -64,7 +66,7 @@ Active Directory는 [NetValidatePasswordPolicy](https://docs.microsoft.com/windo
 
 **Q: Active Directory 수준에서 정책의 콘텐츠를 수정하려면 어떻게 해야 하나요?**
 
-지원되지 않습니다. 정책은 Azure AD 관리 포털을 통해서만 관리할 수 있습니다. 이전 질문도 참조하세요.
+지원되지 않습니다. 정책은 Azure AD 포털을 사용 해야만 관리할 수 있습니다. 이전 질문도 참조하세요.
 
 **Q: sysvol 복제에 DFSR이 필요한가요?**
 
@@ -118,15 +120,15 @@ Azure AD 암호 보호 DC 에이전트 서비스는 기존의 정상적인 Activ
 
 **Q: 온-프레미스 Active Directory 환경에 에이전트가 설치 된 후에도 사용자 지정 스마트 잠금이 작동 하지 않는 이유는 무엇 인가요?**
 
-사용자 지정 스마트 잠금은 Azure 에서만 지원 됩니다. Azure 관리 포털에서 사용자 지정 스마트 잠금 설정을 변경 해도 에이전트가 설치 된 경우에도 온-프레미스 Active Directory 환경에는 영향을 주지 않습니다.
+사용자 지정 스마트 잠금은 Azure AD 에서만 지원 됩니다. Azure AD 포털에서 사용자 지정 스마트 잠금 설정을 변경 해도 에이전트가 설치 된 경우에도 온-프레미스 Active Directory 환경에는 영향을 주지 않습니다.
 
 **Q: Azure AD 암호 보호에 System Center Operations Manager 관리 팩을 사용할 수 있나요?**
 
 아니요.
 
-**Q: 감사 모드에서 정책을 구성한 경우에도 Azure에서 취약 한 암호를 거부 하는 이유는 무엇 인가요?**
+**Q: 감사 모드에서 정책을 구성한 경우에도 Azure AD에서 취약 한 암호를 거부 하는 이유는 무엇 인가요?**
 
-감사 모드는 온-프레미스 Active Directory 환경 에서만 지원 됩니다. Azure는 암호를 평가할 때 암시적으로 항상 "적용" 모드로 전환 됩니다.
+감사 모드는 온-프레미스 Active Directory 환경 에서만 지원 됩니다. Azure AD는 암호를 평가할 때 암시적으로 항상 "적용" 모드로 전환 됩니다.
 
 ## <a name="additional-content"></a>추가 콘텐츠
 

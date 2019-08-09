@@ -4,15 +4,15 @@ description: AzCopy은 저장소 계정 간에 데이터를 복사 하거나 저
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/25/2019
+ms.date: 08/08/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 9dc53867cb780b2c40e76cc6f24f7e6cf882b407
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 0c30225e9b5412fe1515e8503d1134dcad44871f
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68844872"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879973"
 ---
 # <a name="get-started-with-azcopy"></a>AzCopy 시작
 
@@ -259,7 +259,9 @@ Id를 인증 하거나 SAS 토큰을 얻은 후 파일 전송을 시작할 수 �
 
 ## <a name="use-azcopy-in-a-script"></a>스크립트에서 AzCopy 사용
 
-시간이 지남에 따라 AzCopy [다운로드 링크](#download-and-install-azcopy) 는 새 버전의 AzCopy를 가리킵니다. 스크립트에서 AzCopy를 다운로드 하는 경우 새 버전의 AzCopy가 스크립트가 종속 된 기능을 수정 하면 스크립트가 작동을 중지할 수 있습니다. 
+### <a name="obtain-a-static-download-link"></a>정적 다운로드 링크 가져오기
+
+시간이 지남에 따라 AzCopy [다운로드 링크](#download-and-install-azcopy) 는 새 버전의 AzCopy를 가리킵니다. 스크립트에서 AzCopy를 다운로드 하는 경우 새 버전의 AzCopy가 스크립트가 종속 된 기능을 수정 하면 스크립트가 작동을 중지할 수 있습니다.
 
 이러한 문제를 방지 하려면 AzCopy의 현재 버전에 대 한 정적 (변경 취소) 링크를 가져옵니다. 이렇게 하면 스크립트는 실행 될 때마다 동일한 버전의 AzCopy를 다운로드 합니다.
 
@@ -280,9 +282,13 @@ URL은이 명령의 출력에 표시 됩니다. 그런 다음 스크립트에서
 | **Linux** | `wget -O azcopyv10.tar https://azcopyvnext.azureedge.net/release20190301/azcopy_linux_amd64_10.0.8.tar.gz tar -xf azcopyv10.tar --strip-components=1 ./azcopy` |
 | **Windows** | `Invoke-WebRequest https://azcopyvnext.azureedge.net/release20190517/azcopy_windows_amd64_10.1.2.zip -OutFile azcopyv10.zip <<Unzip here>>` |
 
+### <a name="escape-special-characters-in-sas-tokens"></a>SAS 토큰의 이스케이프 특수 문자
+
+`.cmd` 확장명이 있는 배치 파일에서 SAS 토큰에 표시 되는 `%` 문자를 이스케이프 해야 합니다. SAS 토큰 문자열의 기존 `%` `%` 문자 옆에 더하기 문자를 추가 하 여이 작업을 수행할 수 있습니다.
+
 ## <a name="use-azcopy-in-storage-explorer"></a>Storage 탐색기에서 AzCopy 사용
 
-AzCopy의 성능 이점을 활용 하려는 경우 명령줄이 아닌 Storage 탐색기를 사용 하 여 파일과 상호 작용 하려면 Storage 탐색기에서 AzCopy를 사용 하도록 설정 하는 것이 좋습니다. 
+AzCopy의 성능 이점을 활용 하려는 경우 명령줄이 아닌 Storage 탐색기를 사용 하 여 파일과 상호 작용 하려면 Storage 탐색기에서 AzCopy를 사용 하도록 설정 하는 것이 좋습니다.
 
 Storage 탐색기에서 **미리 보기**->AzCopy 사용을 선택 하**여 향상 된 Blob 업로드 및 다운로드**를 선택 합니다.
 

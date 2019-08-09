@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2019
 ms.author: iainfou
-ms.openlocfilehash: 8829f16e580d0b926781ce0a3e9f8e6a63cf3110
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 30f4558339bbfddd2296cd1cb918c6ef8999b67e
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68853769"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879187"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>관리되는 도메인의 암호 및 계정 잠금 정책
 이 문서에서는 관리되는 도메인의 기본 암호 정책과 이러한 정책을 구성할 수 있는 방법을 설명합니다.
@@ -38,7 +38,8 @@ FGPP를 사용하여 구성할 수 있는 암호 설정은 다음과 같습니�
     * 계정 잠금 기간
     * 허용되는 로그온 시도 실패 횟수
     * 다음 시간 이후 로그온 시도 실패 횟수 다시 설정
-
+    
+FGPP는 Azure AD DS에서 직접 만든 사용자 에게만 영향을 줍니다. Azure AD에서 Azure AD DS 관리 되는 도메인으로 동기화 되는 클라우드 사용자 및 도메인 사용자는 암호 복잡성 설정의 영향을 받지 않습니다. FGPP는 Azure AD DS 관리 되는 도메인의 그룹 연결을 통해 배포 되 고 변경 내용은 다음 사용자 로그인 시 적용 됩니다. 정책을 변경 하면 이미 잠겨 있는 사용자 계정의 잠금이 해제 되지 않습니다.
 
 ## <a name="default-fine-grained-password-policy-settings-on-a-managed-domain"></a>관리되는 도메인의 기본 세분화된 암호 정책 설정
 아래 스크린샷에는 Azure AD Domain Services 관리되는 도메인에 구성되어 있는 기본 세분화된 암호 정책이 나와 있습니다.

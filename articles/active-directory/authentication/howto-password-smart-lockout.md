@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd03e2b98b1fd1a2a45b5feecc963bcfc7bfe83c
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 489ff1824c4bc45ee7ed31e9c96377975a32baa4
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499887"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879237"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory 스마트 잠금
 
@@ -31,7 +31,7 @@ ms.locfileid: "68499887"
 
 AD FS 2016 및 AF FS 2019을 사용 하는 페더레이션된 배포는 [엑스트라넷 잠금 및 엑스트라넷 스마트 잠금 AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection)를 사용 하 여 비슷한 이점을 제공할 수 있습니다.
 
-스마트 잠금은 보안 및 유용성의 적절한 혼합을 제공하는 기본 설정으로 모든 Azure AD 고객에 대해 항상 활성 상태입니다. 조직에 특수한 값이 있는 스마트 잠금 설정의 사용자 지정에는 Azure AD Basic 또는 사용자에 대한 높은 라이선스가 필요합니다.
+스마트 잠금은 보안 및 유용성의 적절한 혼합을 제공하는 기본 설정으로 모든 Azure AD 고객에 대해 항상 활성 상태입니다. 사용자의 조직에 특정 한 값을 사용 하 여 스마트 잠금 설정의 사용자 지정에는 사용자에 대 한 유료 Azure AD 라이선스가 필요 합니다.
 
 스마트 잠금 기능을 사용해도 진정한 사용자가 절대 잠금되지 않는다고 보장할 수 없습니다. 스마트 잠금 기능이 사용자 계정을 잠글 때 진정한 사용자는 잠기지 않도록 최선을 다해 노력합니다. 잠금 서비스는 악의적인 행위자가 진정한 사용자 계정에 액세스할 수 없도록 합니다.  
 
@@ -63,7 +63,7 @@ AD FS 2016 및 AF FS 2019을 사용 하는 페더레이션된 배포는 [엑스�
 
 ## <a name="manage-azure-ad-smart-lockout-values"></a>Azure AD 스마트 잠금 값 관리
 
-조직의 요구 사항에 따라 스마트 잠금 값은 사용자 지정되어야 할 수 있습니다. 조직에 특수한 값이 있는 스마트 잠금 설정의 사용자 지정에는 Azure AD Basic 또는 사용자에 대한 높은 라이선스가 필요합니다.
+조직의 요구 사항에 따라 스마트 잠금 값은 사용자 지정되어야 할 수 있습니다. 사용자의 조직에 특정 한 값을 사용 하 여 스마트 잠금 설정의 사용자 지정에는 사용자에 대 한 유료 Azure AD 라이선스가 필요 합니다.
 
 조직에 대한 스마트 잠금 값을 확인하거나 수정하려면 다음 단계를 사용합니다.
 
