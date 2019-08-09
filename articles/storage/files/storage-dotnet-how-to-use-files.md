@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/22/2017
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 35f29e425fc471e4df4a037ef312af0fd041dcd7
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: da8e82652b5406cb4e5fe6438f721e3394a4cd96
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699779"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854584"
 ---
 # <a name="develop-for-azure-files-with-net"></a>.NET을 사용하여 Azure Files 개발
 
@@ -55,10 +55,11 @@ Visual Studio에서 새로운 Windows 콘솔 애플리케이션을 만듭니다.
 Azure 클라우드 서비스, 웹 앱, 데스크톱 및 모바일 응용 프로그램을 포함 하 여 모든 유형의 .NET 응용 프로그램에서 Azure Storage 클라이언트 라이브러리를 사용할 수 있습니다. 이 가이드에서는 편의상 콘솔 애플리케이션을 사용합니다.
 
 ## <a name="use-nuget-to-install-the-required-packages"></a>NuGet을 사용하여 필요한 패키지 설치
-이 자습서를 완료하기 위해 프로젝트에서 참조해야 하는 두 개의 패키지가 있습니다.
+이 자습서를 완료 하기 위해 프로젝트에서 참조 해야 하는 패키지는 다음과 같습니다.
 
 * [.Net 용 Microsoft Azure Storage 공용 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/): 이 패키지는 저장소 계정의 공용 리소스에 대 한 프로그래밍 방식의 액세스를 제공 합니다.
 * [.Net 용 Microsoft Azure Storage Blob 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/): 이 패키지는 저장소 계정의 Blob 리소스에 대 한 프로그래밍 방식의 액세스를 제공 합니다.
+* [.Net 용 Microsoft Azure Storage 파일 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Storage.File/): 이 패키지는 저장소 계정의 파일 리소스에 대 한 프로그래밍 방식의 액세스를 제공 합니다.
 * [Microsoft Azure Configuration Manager Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/): 이 패키지는 애플리케이션을 실행하는 위치와 관계없이 구성 파일에서 연결 문자열을 구문 분석하기 위한 클래스를 제공합니다.
 
 NuGet을 사용하여 패키지를 모두 가져올 수 있습니다. 다음 단계를 수행하십시오.

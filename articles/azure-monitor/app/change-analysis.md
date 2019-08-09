@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: cawa
-ms.openlocfilehash: 3efa26a1eaea8f522d9717efb0de0ec8e1682e0e
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: a08fc7d7822b4aeddafb588fdb73e86559ce2b12
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875133"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68849163"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Azure Monitor에서 응용 프로그램 변경 분석 (미리 보기) 사용
 
@@ -49,6 +49,11 @@ ms.locfileid: "67875133"
 ### <a name="dependency-changes"></a>종속성 변경
 
 리소스 종속성이 변경 되 면 웹 앱에서 문제가 발생할 수도 있습니다. 예를 들어 웹 앱이 Redis cache를 호출 하는 경우 Redis cache SKU는 웹 앱 성능에 영향을 줄 수 있습니다. 종속성의 변경 내용을 감지 하기 위해 변경 분석은 웹 앱의 DNS 레코드를 확인 합니다. 이러한 방식으로 문제를 일으킬 수 있는 모든 응용 프로그램 구성 요소의 변경 내용을 식별 합니다.
+현재 지원 되는 종속성은 다음과 같습니다.
+- Web Apps
+- Azure Storage
+- Azure SQL
+
 
 ## <a name="change-analysis-for-the-web-apps-feature"></a>Web Apps 기능에 대 한 변경 분석
 

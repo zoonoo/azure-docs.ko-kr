@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a64bad11f5b83ddd7f6d7236ffed4ff4a6e39c2c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: fb4fa92d8b3c174cdf9b3695f8564cc11c1ad291
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561869"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851755"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Azure Active Directory 테넌트에 Azure 구독 연결 또는 추가
 
@@ -66,7 +66,7 @@ Azure 구독에는 Azure Active Directory (Azure AD)와의 트러스트 관계�
     구독의 디렉터리가 변경되며 성공 메시지가 표시됩니다.
 
     ![디렉터리 변경에 대 한 성공 메시지](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)
-4. **디렉터리 전환기** 를 사용 하 여 새 디렉터리로 이동 합니다. 모든 것이 제대로 표시 되려면 몇 시간이 걸릴 수 있습니다. 너무 오래 걸리면 이동 된 구독의 **전역 구독 필터** 를 확인 하 여 단순히 숨기지 않았는지 확인 합니다.
+4. **디렉터리 전환기** 를 사용 하 여 새 디렉터리로 이동 합니다. 모든 것이 제대로 표시 되려면 몇 시간이 걸릴 수 있습니다. 너무 오래 걸리면 이동 된 구독에 대 한 **전역 구독 필터** 를 확인 하 여 숨겨지지 않았는지 확인 합니다. Azure Portal 로그 아웃 했다가 다시 로그인 하 여 새 디렉터리를 볼 수 있도록 해야 합니다. 
 
     ![예제 정보가 포함 된 디렉터리 전환기 페이지](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
 

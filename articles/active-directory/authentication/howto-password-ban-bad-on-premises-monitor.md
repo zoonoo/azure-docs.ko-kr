@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1bd6d3abc6080c0ab1b6137511af719b23e5bcd4
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: a763f15b57bf7f23eeb52c81dd48de7f02adc5e4
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736831"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853549"
 ---
 # <a name="azure-ad-password-protection-monitoring-and-logging"></a>Azure AD 암호 보호 모니터링 및 로깅
 
@@ -235,7 +235,7 @@ HKLM\System\CurrentControlSet\Services\AzureADPasswordProtectionDCAgent\Paramete
 
 DC 에이전트 서비스 소프트웨어는 **Azure AD 암호 보호**라는 성능 카운터 개체를 설치합니다. 다음 성능 카운터는 현재 사용할 수 있습니다.
 
-|성능 카운터 이름 | Description|
+|성능 카운터 이름 | 설명|
 | --- | --- |
 |처리된 암호 |이 카운터는 마지막 다시 시작한 이후에 (승인 또는 거부) 처리된 암호의 총 수를 표시합니다.|
 |허용된 암호 |이 카운터는 마지막 다시 시작한 이후에 허용된 암호의 총 수를 표시합니다.|
@@ -269,7 +269,7 @@ Cmdlet의 쿼리 범위는 포리스트 또는 도메인 매개 변수 중 하�
 
 HeartbeatUTC 값이 부실해지면 해당 도메인 컨트롤러의 Azure AD 암호 보호 DC 에이전트가 실행되고 있지 않거나, 제거되었거나, 머신이 강등되어 더 이상 도메인 컨트롤러가 아님을 나타낼 수 있습니다.
 
-PasswordPolicyDateUTC 값이 부실해지면 해당 머신의 Azure AD 암호 보호 DC 에이전트가 제대로 작동하지 않음을 나타낼 수 있습니다.
+PasswordPolicyDateUTC 값이 오래 된 경우 해당 컴퓨터의 Azure AD 암호 보호 DC 에이전트가 제대로 작동 하지 않을 수 있습니다.
 
 ## <a name="dc-agent-newer-version-available"></a>DC 에이전트의 최신 버전 사용 가능
 

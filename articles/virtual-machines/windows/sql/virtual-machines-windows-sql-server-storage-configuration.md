@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/05/2017
 ms.author: ninarn
-ms.openlocfilehash: 360ffb3d2c682d6bd2344cb3ae95447ff3df278d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8d197bbf464038918dd083d14a1befa740c8ce0e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67076844"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68846111"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>SQL Server VM에 대한 저장소 구성
 
@@ -29,7 +29,7 @@ Azure에서 SQL Server 가상 머신 이미지를 구성하는 경우 포털에�
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 자동화된 저장소 구성 설정을 사용하려면 가상 머신에는 다음과 같은 특성이 필요합니다.
 
@@ -41,7 +41,7 @@ Azure에서 SQL Server 가상 머신 이미지를 구성하는 경우 포털에�
 
 다음 섹션에서는 새 SQL Server 가상 머신에 대한 저장소를 구성하는 방법을 설명합니다.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
 SQL Server 갤러리 이미지를 사용하여 Azure VM을 프로비전할 경우 새 VM에 대한 저장소를 자동으로 구성하도록 선택할 수 있습니다. 저장소 크기, 성능 제한 및 워크로드 유형을 지정합니다. 다음 스크린샷에서는 SQL VM을 프로비전하는 동안 사용된 저장소 구성 블레이드를 보여 줍니다.
 
@@ -55,7 +55,7 @@ SQL Server 갤러리 이미지를 사용하여 Azure VM을 프로비전할 경�
 * 가상 컴퓨터에 새 드라이브와 저장소 풀을 연결합니다.
 * 지정한 워크로드 유형(데이터 웨어하우징, 트랜잭션 처리 또는 일반)에 따라 새 드라이브를 최적화합니다.
 
-Azure에서 저장소 설정을 구성하는 방법에 대한 자세한 내용은 [저장소 구성 섹션](#storage-configuration)을 참조하세요. Azure portal에서 SQL Server VM을 만드는 방법의 전체 연습을 참조 하세요 [프로 비전 자습서](virtual-machines-windows-portal-sql-server-provision.md)합니다.
+Azure에서 저장소 설정을 구성하는 방법에 대한 자세한 내용은 [저장소 구성 섹션](#storage-configuration)을 참조하세요. Azure Portal에서 SQL Server VM을 만드는 방법에 대 한 전체 연습은 [프로 비전 자습서](virtual-machines-windows-portal-sql-server-provision.md)를 참조 하세요.
 
 ### <a name="resource-manage-templates"></a>Resource Manager 템플릿
 
@@ -69,14 +69,14 @@ Azure에서 저장소 설정을 구성하는 방법에 대한 자세한 내용�
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
-기존 SQL Server VM의 경우 Azure 포털에서 일부 저장소 설정을 수정할 수 있습니다. 오픈 프로그램 [SQL 가상 컴퓨터 리소스](virtual-machines-windows-sql-manage-portal.md#access-sql-virtual-machine-resource), 선택한 **개요**합니다. SQL Server 개요 페이지에서는 VM의 현재 저장소 사용량을 보여 줍니다. VM에 있는 모든 드라이브는 이 차트에 표시됩니다. 각 드라이브의 경우 저장 공간은 네 개의 섹션에 표시됩니다.
+기존 SQL Server VM의 경우 Azure 포털에서 일부 저장소 설정을 수정할 수 있습니다. [SQL 가상 컴퓨터 리소스](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource)를 열고 **개요**를 선택 합니다. SQL Server 개요 페이지에는 VM의 현재 저장소 사용량이 표시 됩니다. VM에 있는 모든 드라이브는 이 차트에 표시됩니다. 각 드라이브의 경우 저장 공간은 네 개의 섹션에 표시됩니다.
 
 * SQL 데이터
 * SQL 로그
 * 기타(비 SQL 저장소)
 * 사용 가능
 
-저장소 설정을 수정 하려면 **구성** 아래에서 **설정**합니다. 
+저장소 설정을 수정 하려면 **설정**아래에서 **구성** 을 선택 합니다. 
 
 ![기존 SQL Server VM에 대한 저장소 구성](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-existing.png)
 
@@ -103,13 +103,13 @@ SQL Server VM에 이미 저장소를 구성한 경우 저장소를 확장하면 
 
 ### <a name="extend-the-drive"></a>드라이브 확장
 
-저장소 확장을 위한 다른 옵션은 기존 드라이브를 확장하는 것입니다. 이 옵션으로 사용자의 드라이브에 사용 가능한 저장소가 증가하지만 성능은 증가하지 않습니다. 저장소 풀을 만든 후에 저장소 풀을 사용해서 열 수를 변경할 수 없습니다. 열 수는 병렬 쓰기 수를 결정하며 이는 데이터 디스크에 걸쳐 스트라이프될 수 있습니다. 따라서 추가 데이터 디스크는 성능을 향상시킬 수 없습니다. 쓰여지는 데이터에 더 많은 저장 공간을 제공할 수 있습니다. 즉, 이 제한으로 드라이브를 확장할 때 열 수는 추가할 수 있는 데이터 디스크의 최소 수를 결정합니다. 따라서 4개의 데이터 디스크가 있는 저장소 풀을 만드는 경우 열 수도 4개가 됩니다. 저장소를 확장 하면 때마다 4 개 이상의 데이터 디스크를 추가 해야 합니다.
+저장소 확장을 위한 다른 옵션은 기존 드라이브를 확장하는 것입니다. 이 옵션으로 사용자의 드라이브에 사용 가능한 저장소가 증가하지만 성능은 증가하지 않습니다. 저장소 풀을 만든 후에 저장소 풀을 사용해서 열 수를 변경할 수 없습니다. 열 수는 병렬 쓰기 수를 결정하며 이는 데이터 디스크에 걸쳐 스트라이프될 수 있습니다. 따라서 추가 데이터 디스크는 성능을 향상시킬 수 없습니다. 쓰여지는 데이터에 더 많은 저장 공간을 제공할 수 있습니다. 즉, 이 제한으로 드라이브를 확장할 때 열 수는 추가할 수 있는 데이터 디스크의 최소 수를 결정합니다. 따라서 4개의 데이터 디스크가 있는 저장소 풀을 만드는 경우 열 수도 4개가 됩니다. 저장소를 확장할 때마다 4 개 이상의 데이터 디스크를 추가 해야 합니다.
 
 ![SQL VM에 대한 드라이브 확장](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-extend-a-drive.png)
 
 ## <a name="storage-configuration"></a>Storage 구성
 
-이 섹션에서는 Azure SQL VM 프로 비전 또는 Azure portal에서 구성 하는 동안 자동으로 수행 하는 저장소 구성 변경에 대 한 참조를 제공 합니다.
+이 섹션에서는 SQL VM을 프로 비전 하는 동안 Azure에서 자동으로 수행 하는 저장소 구성 변경 내용 및 Azure Portal 구성에 대 한 참조를 제공 합니다.
 
 * VM에 대한 2TB 미만의 저장소를 선택한 경우 Azure는 저장소 풀을 만들지 않습니다.
 * VM에 대한 2TB 이상의 저장소를 선택한 경우 Azure는 저장소 풀을 구성합니다. 이 항목의 다음 섹션에서는 저장소 풀 구성의 세부 정보를 제공합니다.
@@ -125,10 +125,10 @@ Azure는 다음 설정을 사용하여 SQL Server VM에 저장소 풀을 만듭�
 | --- | --- |
 | 스트라이프 크기 |256KB(데이터 웨어하우징); 64KB(트랜잭션) |
 | 디스크 크기 |각각 1TB |
-| 캐시 |읽기 |
+| 캐시 |Read |
 | 할당 크기 |64KB NTFS 할당 단위 크기 |
-| 즉시 파일 초기화 |사용 |
-| 메모리 내 페이지 잠금 |사용 |
+| 즉시 파일 초기화 |Enabled |
+| 메모리 내 페이지 잠금 |Enabled |
 | 복구 |단순 복구(복원력 없음) |
 | 열 수 |데이터 디스크 수<sup>1</sup> |
 | TempDB 위치 |데이터 디스크에 저장됨<sup>2</sup> |

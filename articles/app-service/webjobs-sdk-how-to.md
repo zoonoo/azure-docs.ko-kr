@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 3ba8a8e5922c012b93ab19a5859aab5c31d35b2b
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 88664238fa7cf21381ad6f95e77e02ad89103556
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68424160"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68850856"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>이벤트 중심 백그라운드 처리를 위한 Azure WebJobs SDK 사용 방법
 
@@ -128,7 +128,7 @@ static void Main()
 
 ### <a name="jobhost-servicepointmanager-settings"></a>동시 연결 관리 (버전 2 *) x*)
 
-버전 3 기본적으로 연결 제한은 무한 연결로 설정 됩니다. 어떤 이유로이 제한을 변경 해야 하는 경우 [`MaxConnectionsPerServer`](/dotnet/api/system.net.http.winhttphandler.maxconnectionsperserver) [`WinHttpHandler`](/dotnet/api/system.net.http.winhttphandler) 클래스의 속성을 사용할 수 있습니다.
+버전 3기본적으로 연결 제한은 무한 연결로 설정 됩니다. 어떤 이유로이 제한을 변경 해야 하는 경우 [`MaxConnectionsPerServer`](/dotnet/api/system.net.http.winhttphandler.maxconnectionsperserver) [`WinHttpHandler`](/dotnet/api/system.net.http.winhttphandler) 클래스의 속성을 사용할 수 있습니다.
 
 버전 2에서 *x*는 Servicepointmanager를 사용 하 여 호스트에 대 한 동시 연결 수를 제어 합니다 [. defaultconnectionlimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit#System_Net_ServicePointManager_DefaultConnectionLimit) API. 2\. *x*에서는 WebJobs 호스트를 시작 하기 전에이 값을 기본값인 2에서 늘려야 합니다.
 
@@ -970,7 +970,7 @@ static void Main()
 
 #### <a name="version-2x"></a>버전 2. *x*
 
-버전 2에서 WebJobs SDK에 [`TelemetryClient`] 대 한 Application Insights 공급자가 내부적으로 만든는를 사용 [`ServerTelemetryChannel`](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/ServerTelemetryChannel/ServerTelemetryChannel.cs)합니다. Application Insights 엔드포인트를 사용할 수 없거나 들어오는 요청을 제한하는 경우 이 채널은 [웹앱의 파일 시스템에 요청을 저장해 두었다가 나중에 다시 전송](https://apmtips.com/blog/2015/09/03/more-telemetry-channels)합니다.
+버전 2에서WebJobs SDK에 [`TelemetryClient`] 대 한 Application Insights 공급자가 내부적으로 만든는를 사용 [`ServerTelemetryChannel`](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/ServerTelemetryChannel/ServerTelemetryChannel.cs)합니다. Application Insights 엔드포인트를 사용할 수 없거나 들어오는 요청을 제한하는 경우 이 채널은 [웹앱의 파일 시스템에 요청을 저장해 두었다가 나중에 다시 전송](https://apmtips.com/blog/2015/09/03/more-telemetry-channels)합니다.
 
 [`TelemetryClient`]는 `ITelemetryClientFactory`를 구현하는 클래스에서 생성합니다. 기본적으로 [`DefaultTelemetryClientFactory`](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Logging.ApplicationInsights/DefaultTelemetryClientFactory.cs)입니다.
 
@@ -1009,7 +1009,7 @@ config.LoggerFactory = new LoggerFactory()
 
 ## <a id="nextsteps"></a> 다음 단계
 
-이 문서에서는 WebJobs SDK 작업에 대 한 일반적인 시나리오를 처리 하는 방법을 보여 주는 코드 조각을 제공 했습니다. 전체 샘플은 [azure-webjobs-sdk-samples](https://github.com/Azure/azure-webjobs-sdk-samples)를 참조하세요.
+이 문서에서는 WebJobs SDK 작업에 대 한 일반적인 시나리오를 처리 하는 방법을 보여 주는 코드 조각을 제공 했습니다. 전체 샘플은 [azure-webjobs-sdk-samples](https://github.com/Azure/azure-webjobs-sdk/tree/dev/sample/SampleHost)를 참조하세요.
 
 [`ExecutionContext`]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions/Extensions/Core/ExecutionContext.cs
 [`TelemetryClient`]: /dotnet/api/microsoft.applicationinsights.telemetryclient
