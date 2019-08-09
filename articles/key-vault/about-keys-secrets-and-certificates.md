@@ -380,8 +380,8 @@ Key Vault 인증서 개체에는 선택한 인증서 발급자 공급자와 통�
 
 |**공급자 이름**|**위치**|
 |----------|--------|
-|DigiCert|공용 클라우드 및 Azure Government의 모든 키 자격 증명 모음 서비스 위치에서 지원됩니다.|
-|GlobalSign|공용 클라우드 및 Azure Government의 모든 키 자격 증명 모음 서비스 위치에서 지원됩니다.|
+|DigiCert|퍼블릭 클라우드 및 Azure Government의 모든 키 자격 증명 모음 서비스 위치에서 지원됩니다.|
+|GlobalSign|퍼블릭 클라우드 및 Azure Government의 모든 키 자격 증명 모음 서비스 위치에서 지원됩니다.|
 
 Key Vault에 인증서 발급자를 만들려면 먼저 다음 필수 조건 1 및 2의 단계를 수행해야 합니다.  
 

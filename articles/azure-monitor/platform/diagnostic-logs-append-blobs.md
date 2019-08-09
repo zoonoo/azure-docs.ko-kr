@@ -29,7 +29,7 @@ Azure Monitor는 Azure storage 계정, Event Hubs 네임 스페이스 또는 Azu
 * 2018년 11월 1일 목요일 오전 12시(UTC)에 Blob 형식이 [JSON 줄](http://jsonlines.org/)로 변경됩니다. 즉, 각 레코드가 줄 바꿈으로 구분되고 외부 레코드 배열 및 JSON 레코드 사이의 쉼표가 없습니다.
 * 모든 구독의 모든 진단 설정에 대해 Blob 형식이 동시에 변경됩니다. 11월 1일에 내보내는 첫 번째 PT1H.json 파일은 이 새로운 형식을 사용합니다. Blob 및 컨테이너 이름은 동일하게 유지됩니다.
 * 현재와 11월 1일 사이에 진단 설정을 지정해도, 11월 1일까지는 현재 형식으로 데이터를 계속 내보냅니다.
-* 이 변경은 모든 공용 클라우드 지역에서 동시에 적용됩니다. Azure 중국, Azure 독일 또는 Azure Government 클라우드에서는 변경이 아직 적용되지 않습니다.
+* 이 변경은 모든 퍼블릭 클라우드 지역에서 동시에 적용됩니다. Azure 중국, Azure 독일 또는 Azure Government 클라우드에서는 변경이 아직 적용되지 않습니다.
 * 이 변경은 다음 데이터 형식에 영향을 줍니다.
   * [Azure 리소스 진단 로그](./../../azure-monitor/platform/archive-diagnostic-logs.md)([여기서 리소스 목록 확인](./../../azure-monitor/platform/diagnostic-logs-schema.md))
   * [진단 설정을 통해 내보내지는 Azure 리소스 메트릭](./../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings)

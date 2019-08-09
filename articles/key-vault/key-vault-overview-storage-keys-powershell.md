@@ -48,7 +48,7 @@ Key Vault 관리 스토리지 계정 기능은 사용자를 대신하여 다양�
 > [!IMPORTANT]
 > Azure AD 테넌트는 등록된 각 애플리케이션에 애플리케이션의 ID 역할을 하는 **[서비스 주체](/azure/active-directory/develop/developer-glossary#service-principal-object)** 를 제공합니다. 서비스 주체의 애플리케이션 ID는 RBAC(역할 기반 액세스 제어)를 통해 다른 Azure 리소스에 액세스할 수 있는 권한을 부여할 때 사용됩니다. Key Vault는 Microsoft 애플리케이션이므로 각 Azure 클라우드 내에서 동일한 애플리케이션 ID에 속한 모든 Azure AD 테넌트에 사전 등록되어 있습니다.
 > - Azure Government 클라우드의 Azure AD 테넌트는 애플리케이션 ID `7e7c393b-45d0-48b1-a35e-2905ddf8183c`를 사용합니다.
-> - Azure 공용 클라우드 및 그 외 모든 클라우드의 Azure AD 테넌트는 애플리케이션 ID `cfa8b339-82a2-471a-a3c9-0fc0be7a4093`을 사용합니다.
+> - Azure 퍼블릭 클라우드 및 그 외 모든 클라우드의 Azure AD 테넌트는 애플리케이션 ID `cfa8b339-82a2-471a-a3c9-0fc0be7a4093`을 사용합니다.
 
 Key Vault가 스토리지 계정 키에 액세스하여 관리하려면 사용자가 스토리지 계정에 액세스 권한을 부여해야 합니다. Key Vault 애플리케이션은 스토리지 계정의 키를 *나열*하고 *다시 생성*할 수 있는 권한이 필요합니다. 이러한 권한은 기본 제공된 RBAC 역할 [스토리지 계정 키 운영자 서비스 역할](/azure/role-based-access-control/built-in-roles#storage-account-key-operator-service-role)을 통해 사용 설정되어 있습니다. 
 

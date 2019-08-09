@@ -23,7 +23,7 @@ ms.lasthandoff: 07/09/2019
 ms.locfileid: "67671052"
 ---
 # <a name="azure-and-linux"></a>Azure와 Linux
-Microsoft Azure는 분석, 가상 머신, 데이터베이스, 모바일, 네트워킹, 저장소 및 웹을 포함하여 성장하고 있는 통합된 공용 클라우드 서비스 모음이며, 솔루션 호스팅에 적합합니다.  Microsoft Azure는 온-프레미스 하드웨어 없이도 확장할 수 있는 컴퓨팅 플랫폼을 제공하며, 필요한 때, 사용한 만큼 비용을 지불하면 됩니다.  Azure는 솔루션을 강화하고 클라이언트의 요구를 맞추기 위해 필요한 규모에 준비되어 있습니다.
+Microsoft Azure는 분석, 가상 머신, 데이터베이스, 모바일, 네트워킹, 저장소 및 웹을 포함하여 성장하고 있는 통합된 퍼블릭 클라우드 서비스 모음이며, 솔루션 호스팅에 적합합니다.  Microsoft Azure는 온-프레미스 하드웨어 없이도 확장할 수 있는 컴퓨팅 플랫폼을 제공하며, 필요한 때, 사용한 만큼 비용을 지불하면 됩니다.  Azure는 솔루션을 강화하고 클라이언트의 요구를 맞추기 위해 필요한 규모에 준비되어 있습니다.
 
 Amazon의 AWS의 다양한 기능에 익숙한 경우 Azure과 AWS 비교 [정의 매핑 문서](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/)를 검토할 수 있습니다.
 

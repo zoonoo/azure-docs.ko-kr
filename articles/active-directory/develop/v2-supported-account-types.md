@@ -32,7 +32,7 @@ ms.locfileid: "68852035"
 
 ## <a name="supported-accounts-types-in-microsoft-identity-platform-applications"></a>Microsoft ID 플랫폼 애플리케이션에서 지원하는 계정 유형
 
-Microsoft Azure 공용 클라우드에서는 대부분의 앱 유형이 모든 대상 그룹을 사용하여 사용자를 로그인할 수 있습니다.
+Microsoft Azure 퍼블릭 클라우드에서는 대부분의 앱 유형이 모든 대상 그룹을 사용하여 사용자를 로그인할 수 있습니다.
 
 - LOB(기간 업무) 애플리케이션을 작성하는 경우 사용자를 조직 내에 로그인할 수 있습니다. 이러한 애플리케이션을 **단일 테넌트**라고도 합니다.
 - ISV는 사용자를 다음 항목에 로그인하는 애플리케이션을 작성할 수 있습니다.

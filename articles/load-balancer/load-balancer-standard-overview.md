@@ -206,7 +206,7 @@ SKU는 변경할 수 없습니다. 이 섹션의 단계에 따라 리소스 SKU 
 
 ## <a name="region-availability"></a>지역 가용성
 
-표준 Load Balancer는 현재 모든 공용 클라우드 지역에서 사용 가능합니다.
+표준 Load Balancer는 현재 모든 퍼블릭 클라우드 지역에서 사용 가능합니다.
 
 ## <a name="sla"></a>SLA
 

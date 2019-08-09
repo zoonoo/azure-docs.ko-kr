@@ -22,7 +22,7 @@ ms.locfileid: "68609979"
 ![VNet 서비스 엔드포인트 작동 방식 예제](media/concepts-data-access-and-security-vnet/vnet-concept.png)
 
 > [!NOTE]
-> 이 기능은 범용 및 메모리 최적화 서버에 대해 Azure Database for PostgreSQL이 배포된 모든 Azure 공용 클라우드 지역에서 사용할 수 있습니다.
+> 이 기능은 범용 및 메모리 최적화 서버에 대해 Azure Database for PostgreSQL이 배포된 모든 Azure 퍼블릭 클라우드 지역에서 사용할 수 있습니다.
 > VNet 피어링의 경우 서비스 엔드포인트가 있는 공통 VNet 게이트웨이를 통해 트래픽이 이동하며 피어로 이동되어야 하는 경우 게이트웨이 VNet의 Azure VM(가상 머신)이 Azure Database for PostgreSQL 서버에 액세스할 수 있도록 허용하는 ACL/VNet 규칙을 만드세요.
 
 <a name="anch-terminology-and-description-82f" />

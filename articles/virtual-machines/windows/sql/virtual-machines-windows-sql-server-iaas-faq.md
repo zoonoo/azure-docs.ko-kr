@@ -94,7 +94,7 @@ ms.locfileid: "68882364"
 
 1. **종량제 갤러리 이미지 중 하나에서 만들어진 경우 사용자 고유의 SQL Server 라이선스를 사용하도록 VM을 변경할 수 있나요?**
 
-   예. [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/faq/)를 사용 하도록 설정 하 여 PAYG (종 량 제) 갤러리 이미지를 사용자 라이선스 (byol)로 쉽게 전환할 수 있습니다.  자세한 내용은 [SQL Server VM의 라이선스 모델을 변경하는 방법](virtual-machines-windows-sql-ahb.md)을 참조하세요. 현재 이 기능은 공용 클라우드 고객만 사용할 수 있습니다.
+   예. [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/faq/)를 사용 하도록 설정 하 여 PAYG (종 량 제) 갤러리 이미지를 사용자 라이선스 (byol)로 쉽게 전환할 수 있습니다.  자세한 내용은 [SQL Server VM의 라이선스 모델을 변경하는 방법](virtual-machines-windows-sql-ahb.md)을 참조하세요. 현재 이 기능은 퍼블릭 클라우드 고객만 사용할 수 있습니다.
 
 1. **라이선싱 모델을 전환할 때 SQL Server 가동 중지 시간이 필요한가요?**
 

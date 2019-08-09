@@ -70,7 +70,7 @@ Azure Migrate 서버 평가 도구는 Azure로의 마이그레이션에 대해 �
 
 ## <a name="azure-migrate-server-migration"></a>Azure Migrate 서버 마이그레이션
 
-Azure Migrate 서버 마이그레이션을 사용하면 온-프레미스 VMware VM, Hyper-V VM, 물리적 서버, 기타 가상화된 머신 및 공용 클라우드 VM을 Azure로 손쉽게 마이그레이션할 수 있습니다. 평가 후에 또는 평가 없이 머신을 마이그레이션할 수 있습니다. 
+Azure Migrate 서버 마이그레이션을 사용하면 온-프레미스 VMware VM, Hyper-V VM, 물리적 서버, 기타 가상화된 머신 및 퍼블릭 클라우드 VM을 Azure로 손쉽게 마이그레이션할 수 있습니다. 평가 후에 또는 평가 없이 머신을 마이그레이션할 수 있습니다. 
 
 ## <a name="azure-migrate-database-assessment"></a>Azure Migrate 데이터베이스 평가
 

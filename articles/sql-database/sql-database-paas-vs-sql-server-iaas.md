@@ -42,7 +42,7 @@ Azure에서 SQL Server 워크로드가 호스트된 인프라(IaaS)에서 실행
 
 ## <a name="microsofts-sql-data-platform"></a>Microsoft SQL 데이터 플랫폼
 
-Azure와 온-프레미스 SQL Server 데이터베이스를 비교 논의할 때 우선 이 둘을 모두 사용할 수 있다는 점을 이해해야 합니다. Microsoft의 데이터 플랫폼에서는 SQL Server 기술을 활용하며 물리적 온-프레미스 머신, 프라이빗 클라우드 환경, 타사 호스팅 프라이빗 클라우드 환경 및 공용 클라우드 전반에서 이 기술을 사용할 수 있습니다. Azure 가상 머신에서 SQL Server를 사용하면 온-프레미스 배포와 클라우드에 호스트된 배포를 조합하여 고유하고 다양한 비즈니스 요구 사항을 충족하고, 이러한 환경 전반에서 일련의 서버 제품, 개발 도구 및 전문 지식을 동일하게 사용할 수 있습니다.
+Azure와 온-프레미스 SQL Server 데이터베이스를 비교 논의할 때 우선 이 둘을 모두 사용할 수 있다는 점을 이해해야 합니다. Microsoft의 데이터 플랫폼에서는 SQL Server 기술을 활용하며 물리적 온-프레미스 머신, 프라이빗 클라우드 환경, 타사 호스팅 프라이빗 클라우드 환경 및 퍼블릭 클라우드 전반에서 이 기술을 사용할 수 있습니다. Azure 가상 머신에서 SQL Server를 사용하면 온-프레미스 배포와 클라우드에 호스트된 배포를 조합하여 고유하고 다양한 비즈니스 요구 사항을 충족하고, 이러한 환경 전반에서 일련의 서버 제품, 개발 도구 및 전문 지식을 동일하게 사용할 수 있습니다.
 
    ![클라우드 SQL Server 옵션: IaaS의 SQL Server 또는 클라우드의 SaaS SQL Database입니다.](./media/sql-database-paas-vs-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png)
 
@@ -52,10 +52,10 @@ Azure와 온-프레미스 SQL Server 데이터베이스를 비교 논의할 때 
 
 - 가상화되지 않은 물리적 컴퓨터의 SQL Server
 - 온-프레미스 가상화 머신의 SQL Server(프라이빗 클라우드)
-- Azure Virtual Machine의 SQL Server(Microsoft 공용 클라우드)
-- Azure SQL Database(Microsoft 공용 클라우드)
+- Azure Virtual Machine의 SQL Server(Microsoft 퍼블릭 클라우드)
+- Azure SQL Database(Microsoft 퍼블릭 클라우드)
 
-다음 섹션에서는 Microsoft 공용 클라우드의 SQL Server인 Azure VM의 SQL Server 및 Azure SQL Database. 또한 애플리케이션에 가장 적합한 옵션을 결정하는 데 영향을 미치는 일반적인 비즈니스 동인도 살펴봅니다.
+다음 섹션에서는 Microsoft 퍼블릭 클라우드의 SQL Server인 Azure VM의 SQL Server 및 Azure SQL Database. 또한 애플리케이션에 가장 적합한 옵션을 결정하는 데 영향을 미치는 일반적인 비즈니스 동인도 살펴봅니다.
 
 ## <a name="a-closer-look-at-azure-sql-database-and-sql-server-on-azure-vms"></a>Azure SQL Database 및 Azure VM의 SQL Server에서 자세히 보기
 
@@ -116,7 +116,7 @@ PaaS 또는 IaaS 중에서 SQL Database의 호스트를 결정할 때 영향을 
 
 #### <a name="calculating-the-total-application-cost"></a>총 애플리케이션 비용 계산
 
-클라우드 플랫폼을 사용하기 시작하면 애플리케이션을 실행하는 비용에는 새 개발 및 진행 중인 관리 비용과 공용 클라우드 플랫폼 서비스 비용이 포함됩니다.
+클라우드 플랫폼을 사용하기 시작하면 애플리케이션을 실행하는 비용에는 새 개발 및 진행 중인 관리 비용과 퍼블릭 클라우드 플랫폼 서비스 비용이 포함됩니다.
 
 **Azure SQL Database를 사용하는 경우:**
 

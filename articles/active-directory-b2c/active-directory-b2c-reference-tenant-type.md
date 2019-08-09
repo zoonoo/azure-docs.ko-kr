@@ -28,7 +28,7 @@ Azure AD B2C는 **미국 또는 유럽의 데이터 상주**에 대한 옵션을
 * **데이터 상주**는 사용자 데이터가 저장된 위치를 나타냅니다.
 
 ## <a name="region-availability"></a>지역 가용성
-Azure AD B2C는 Azure 공용 클라우드를 통해 전 세계에서 사용할 수 있습니다. 
+Azure AD B2C는 Azure 퍼블릭 클라우드를 통해 전 세계에서 사용할 수 있습니다. 
 
 이것은 가용성과 데이터 상주를 결합하는 대부분의 다른 Azure 서비스가 따르는 모델과 다릅니다. Azure의 [지역별 사용 가능한 제품](https://azure.microsoft.com/regions/services/) 페이지 및 [Azure Active Directory B2C 가격](https://azure.microsoft.com/pricing/details/active-directory-b2c/)에서 이와 같은 예제를 확인할 수 있습니다.
 

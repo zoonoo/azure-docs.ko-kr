@@ -28,7 +28,7 @@ ms.locfileid: "68663729"
 
 * Operations Manager를 사용하여 IT 서비스의 상태 모니터링
 * 인시던트 및 문제 관리를 지원하는 ITSM 솔루션과 통합 유지 관리
-* 온-프레미스 및 Operations Manager로 모니터링하는 공용 클라우드 IaaS 가상 머신에 배포된 에이전트의 수명 주기 관리
+* 온-프레미스 및 Operations Manager로 모니터링하는 퍼블릭 클라우드 IaaS 가상 머신에 배포된 에이전트의 수명 주기 관리
 
 System Center Operations Manager와 통합 하면 Operations Manager에서 로그 데이터를 수집, 저장 및 분석 하는 Azure Monitor의 속도 및 효율성을 사용 하 여 서비스 작업 전략에 값이 추가 됩니다. Azure Monitor 로그 쿼리를 사용 하 여 문제에 대 한 오류를 식별 하 고 기존 문제 관리 프로세스를 지원 하기 위해이를 식별 하는 데 도움이 됩니다. 다양 한 대시보드 및 보고 기능으로 성능, 이벤트 및 경고 데이터를 검사 하 여 의미 있는 방식으로이 데이터를 표시 하는 쿼리 엔진의 유연성은 강점을 Operations Manager에 제공 되는 Azure Monitor 수준을 보여 줍니다.
 

@@ -43,7 +43,7 @@ StorSimple Device Manager 서비스는 현재 12개 공용 지역 및 2개의 Az
 
 StorSimple Device Manager 서비스를 처음 만들 때 지역 또는 위치를 정의합니다. 일반적으로 디바이스를 배포하려는 지리적 지역에 가장 가까운 위치를 선택합니다. 하지만 디바이스와 서비스를 서로 다른 위치에 배포할 수도 있습니다.
 
-Azure 공용 클라우드에서 StorSimple Device Manager 서비스를 사용할 수 있으며 배포 가능한 지역 목록은 다음과 같습니다.
+Azure 퍼블릭 클라우드에서 StorSimple Device Manager 서비스를 사용할 수 있으며 배포 가능한 지역 목록은 다음과 같습니다.
 
 ![storsimple-device-manager-service-regions](./media/storsimple-region/storsimple-device-manager-service-regions.png)
 

@@ -27,7 +27,7 @@ ms.locfileid: "68882400"
 
 ## <a name="overview"></a>개요
 
-이 문서에서는 Microsoft Azure Virtual Machine의 SQL Server 성능을 최적화하기 위한 지침을 제공합니다. Azure Virtual Machines에서 SQL Server를 실행하는 동안 온-프레미스 서버 환경의 SQL Server에 적용할 수 있는 동일한 데이터베이스 성능 튜닝 옵션을 계속 사용하는 것이 좋습니다. 그러나 공용 클라우드의 관계형 데이터베이스 성능은 가상 머신의 크기 및 데이터 디스크의 구성과 같은 많은 요인에 따라 달라집니다.
+이 문서에서는 Microsoft Azure Virtual Machine의 SQL Server 성능을 최적화하기 위한 지침을 제공합니다. Azure Virtual Machines에서 SQL Server를 실행하는 동안 온-프레미스 서버 환경의 SQL Server에 적용할 수 있는 동일한 데이터베이스 성능 튜닝 옵션을 계속 사용하는 것이 좋습니다. 그러나 퍼블릭 클라우드의 관계형 데이터베이스 성능은 가상 머신의 크기 및 데이터 디스크의 구성과 같은 많은 요인에 따라 달라집니다.
 
 [Azure Portal에서 프로비전된 SQL Server 이미지](quickstart-sql-vm-create-portal.md)는 일반 저장소 구성 모범 사례를 따릅니다(저장소가 구성되는 방법에 대한 자세한 내용은 [SQL Server VM에 대한 저장소 구성](virtual-machines-windows-sql-server-storage-configuration.md) 참조). 프로비전 후에는 이 문서에서 설명하는 다른 최적화를 적용해 보는 방안을 고려해 봅니다. 워크로드에 따라 선택하고 테스트를 통해 확인합니다.
 

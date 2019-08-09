@@ -3791,7 +3791,7 @@ ms.locfileid: "68501238"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Service Bus</h3>
-                                                    <p>사설 및 공용 클라우드 환경 간 연결</p>
+                                                    <p>프라이빗 및 퍼블릭 클라우드 환경 간 연결</p>
                                                 </div>
                                             </div>
                                         </div>

@@ -163,7 +163,7 @@ stunnel 설정 또는 `redis-benchmark.exe`와 같은 Redis 도구 다운로드�
 Azure Cache for Redis 가격은 [여기](https://azure.microsoft.com/pricing/details/cache/)서 책정합니다. 가격 책정 페이지에는 시간 단위로 가격이 나와 있습니다. 캐시는 캐시가 만들어지는 시간부터 삭제되는 시간까지 분 단위로 요금이 청구됩니다. 캐시 요금 청구를 중지 또는 일시 중지하는 옵션은 없습니다.
 
 ### <a name="can-i-use-azure-cache-for-redis-with-azure-government-cloud-azure-china-cloud-or-microsoft-azure-germany"></a>Azure Government 클라우드, Azure 중국 클라우드 또는 Microsoft Azure 독일에서 Azure Cache for Redis를 사용할 수 있나요?
-예, Azure Redis 캐시는 Azure Government 클라우드, Azure 중국 21Vianet 클라우드 및 Microsoft Azure Germany에서 사용할 수 있습니다. Azure 공용 클라우드와 비교할 때 이러한 클라우드에서 Azure Cache for Redis에 액세스하고 관리하기 위한 URL은 다릅니다.
+예, Azure Redis 캐시는 Azure Government 클라우드, Azure 중국 21Vianet 클라우드 및 Microsoft Azure Germany에서 사용할 수 있습니다. Azure 퍼블릭 클라우드와 비교할 때 이러한 클라우드에서 Azure Cache for Redis에 액세스하고 관리하기 위한 URL은 다릅니다.
 
 | 클라우드   | Redis에 대한 Dns 접미사            |
 |---------|---------------------------------|

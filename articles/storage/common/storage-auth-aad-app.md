@@ -84,7 +84,7 @@ Azure AD를 사용하여 보안 주체를 인증하려면 코드에서 잘 알�
 
 ### <a name="azure-ad-authority"></a>Azure AD 권한
 
-Microsoft 공용 클라우드의 경우 기본 Azure AD 권한은 다음과 같습니다. 여기서 *tenant-id*는 Active Directory 테넌트 ID(또는 디렉터리 ID)입니다.
+Microsoft 퍼블릭 클라우드의 경우 기본 Azure AD 권한은 다음과 같습니다. 여기서 *tenant-id*는 Active Directory 테넌트 ID(또는 디렉터리 ID)입니다.
 
 `https://login.microsoftonline.com/<tenant-id>/`
 

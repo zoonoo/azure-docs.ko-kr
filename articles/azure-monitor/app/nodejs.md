@@ -21,7 +21,7 @@ ms.locfileid: "66255277"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Application Insights를 사용하여 Node.js 서비스 및 앱 모니터링
 
-[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 검색 하 고 성능 및 기타 문제를 신속 하 게 진단할 수 있도록 배포 후에 백 엔드 서비스 및 구성 요소를 모니터링 합니다. 데이터 센터, Azure VM 및 웹앱, 다른 공용 클라우드에서도 호스팅되는 Node.js 서비스에 대한 Application Insights를 사용할 수 있습니다.
+[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 검색 하 고 성능 및 기타 문제를 신속 하 게 진단할 수 있도록 배포 후에 백 엔드 서비스 및 구성 요소를 모니터링 합니다. 데이터 센터, Azure VM 및 웹앱, 다른 퍼블릭 클라우드에서도 호스팅되는 Node.js 서비스에 대한 Application Insights를 사용할 수 있습니다.
 
 모니터링 데이터를 수신, 저장 및 탐색하려면 코드에 SDK를 포함하고 Azure에서 해당 Application Insights 리소스를 설정합니다. SDK는 추가 분석 및 탐색을 위해 해당 리소스로 데이터를 보냅니다.
 

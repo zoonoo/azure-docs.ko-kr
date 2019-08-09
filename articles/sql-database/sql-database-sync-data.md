@@ -185,7 +185,7 @@ SQL 데이터 동기화는 모든 지역에서 사용할 수 있습니다.
 - 구독이 동일한 테넌트에 속하며 모든 구독에 대해 사용 권한이 있는 경우, Azure Portal에서 동기화 그룹을 구성할 수 있습니다.
 - 그렇지 않으면 PowerShell을 사용하여 서로 다른 구독에 속하는 동기화 멤버를 추가해야 합니다.
 
-### <a name="can-i-use-data-sync-to-sync-between-sql-databases-that-belong-to-different-clouds-like-azure-public-cloud-and-azure-china"></a>데이터 동기화를 사용해서 서로 다른 클라우드(예: Azure 공용 클라우드 및 Azure 중국)에 속해 있는 SQL Database 간에 동기화를 수행할 수 있나요?
+### <a name="can-i-use-data-sync-to-sync-between-sql-databases-that-belong-to-different-clouds-like-azure-public-cloud-and-azure-china"></a>데이터 동기화를 사용해서 서로 다른 클라우드(예: Azure 퍼블릭 클라우드 및 Azure 중국)에 속해 있는 SQL Database 간에 동기화를 수행할 수 있나요?
 
 예. 다른 클라우드에 속해 있는 SQL Database 간에 동기화할 수 있으며, PowerShell을 사용하여 다른 구독에 속하는 동기화 멤버를 추가해야 합니다.
 

@@ -8,43 +8,46 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 52936b14264bd4fe1846ae365e1de447d594b612
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: eb667c398be0bd51e05a6b65d416d5bce54e4386
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639049"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881976"
 ---
 # <a name="choose-a-map-style-in-azure-maps"></a>Azure Maps에서 지도 스타일 선택
 
-Azure Maps에서는 네 가지 다른 지도 스타일 중에서 선택할 수 있습니다. 지도 스타일에 대한 자세한 내용은 [Azure Maps의 지원되는 지도 스타일](./supported-map-styles.md)을 참조하세요. 이 문서에서는 스타일 관련 기능을 사용하여 지도 로드 시 스타일을 설정하고, 새 스타일을 설정하고, 스타일 선택 컨트롤을 사용하는 방법을 보여 줍니다.
+[Azure Maps에서 지원](./supported-map-styles.md) 되는 다양 한 지도 스타일은 웹 SDK에서 사용할 수 있습니다. 이 문서에서는 스타일 관련 기능을 사용하여 지도 로드 시 스타일을 설정하고, 새 스타일을 설정하고, 스타일 선택 컨트롤을 사용하는 방법을 보여 줍니다.
 
 ## <a name="set-style-on-map-load"></a>지도 로드 시 스타일 설정
+
+다음 코드 `style` 에서 map의 옵션은 초기화 시로 `grayscale_dark` 설정 됩니다.
+
+<br/>
 
 <iframe height='500' scrolling='no' title='지도 로드 시 스타일 설정' src='//codepen.io/azuremaps/embed/WKOQRq/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)로 펜 <a href='https://codepen.io/azuremaps/pen/WKOQRq/'>지도 로드 시 스타일 설정</a>을 참조하세요.
 </iframe>
 
-위의 코드 블록은 스타일을 grayscale_dark로 설정하여 구독 키를 설정하고 지도 개체를 만듭니다. 지도 만드는 방법에 대한 지침은 [지도 만들기](./map-create.md)를 참조하세요.
-
 ## <a name="update-the-style"></a>스타일 업데이트
+
+다음 코드에서 map 인스턴스가 로드 된 후 지도의 [system.windows.forms.control.setstyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) 함수를 사용 하 여 지도 스타일이 `road` 에서 `satellite` 로 업데이트 됩니다.
+
+<br/>
 
 <iframe height='500' scrolling='no' title='스타일 업데이트' src='//codepen.io/azuremaps/embed/yqXYzY/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)로 펜 <a href='https://codepen.io/azuremaps/pen/yqXYzY/'>스타일 업데이트</a>를 참조하세요.
 </iframe>
 
-위의 코드 블록은 스타일을 미리 설정하지 않고 구독 키를 설정하고 지도 개체를 만듭니다. 지도 만드는 방법에 대한 지침은 [지도 만들기](./map-create.md)를 참조하세요.
-
-두 번째 코드 블록은 지도의 [setStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) 메서드를 사용하여 지도 스타일을 위성으로 설정합니다.
-
 ## <a name="add-the-style-picker"></a>스타일 선택 추가
+
+다음 코드는 사용자가 다양 한 지도 스타일 사이를 쉽게 전환할 수 있도록 맵에 [StyleControl](/javascript/api/azure-maps-control/atlas.control.stylecontrol) 를 추가 합니다. 
+
+<br/>
 
 <iframe height='500' scrolling='no' title='스타일 선택 추가' src='//codepen.io/azuremaps/embed/OwgyvG/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)로 펜 <a href='https://codepen.io/azuremaps/pen/OwgyvG/'>스타일 선택 추가</a>를 참조하세요.
 </iframe>
 
-위 코드의 첫 번째 코드 블록은 스타일을 grayscale_dark로 미리 설정하여 구독 키를 설정하고 지도 개체를 만듭니다. 지도 만드는 방법에 대한 지침은 [지도 만들기](./map-create.md)를 참조하세요.
-
-두 번째 코드 블록은 atlas [StyleControl](/javascript/api/azure-maps-control/atlas.control.stylecontrol) 생성자를 사용하여 스타일 선택을 생성합니다.
-
-스타일 선택을 사용하여 지도의 스타일을 선택할 수 있습니다. 세 번째 코드 블록은 지도의 [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) 메서드를 사용하여 지도에 스타일 선택을 추가합니다. 스타일 선택기는 지도가 완전히 로드된 후에 로드되도록 지도 **이벤트 수신기** 내에 포함됩니다.
+> [!TIP]
+> 기본적으로 스타일 선택 컨트롤은 기본적으로 Azure Maps의 S0 가격 책정 계층을 사용할 때 사용할 수 있는 모든 스타일을 나열 합니다. 이 목록에 있는 스타일의 수를 줄이려면 목록에 표시할 스타일의 배열을 스타일 선택기의 `mapStyle` 옵션에 전달 합니다. S1을 사용 중이 고 사용 가능한 모든 스타일을 표시 하려는 경우 스타일 선택기 `mapStyles` 의 옵션을로 `"all"`설정 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -53,12 +56,10 @@ Azure Maps에서는 네 가지 다른 지도 스타일 중에서 선택할 수 �
 > [!div class="nextstepaction"]
 > [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
 
-지도에 컨트롤 추가:
+지도에 컨트롤을 추가 합니다.
 
 > [!div class="nextstepaction"]
-> [맵 컨트롤 추가](./map-add-controls.md)
-
-지도 핀을 추가:
+> [맵 컨트롤 추가](map-add-controls.md)
 
 > [!div class="nextstepaction"]
-> [핀 추가](./map-add-pin.md)
+> [핀 추가](map-add-pin.md)

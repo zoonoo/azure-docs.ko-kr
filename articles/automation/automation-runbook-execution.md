@@ -26,7 +26,7 @@ Azure Automation에서 Runbook을 시작하면 작업이 생성됩니다. 작업
 
 ![작업 상태 - PowerShell 워크플로](./media/automation-runbook-execution/job-statuses.png)
 
-Azure 구독에 연결하면 작업에서 Azure 리소스에 액세스할 수 있습니다. 단, 공용 클라우드에서 액세스할 수 있는 데이터 센터의 리소스에만 액세스할 수 있습니다.
+Azure 구독에 연결하면 작업에서 Azure 리소스에 액세스할 수 있습니다. 단, 퍼블릭 클라우드에서 액세스할 수 있는 데이터 센터의 리소스에만 액세스할 수 있습니다.
 
 ## <a name="where-to-run-your-runbooks"></a>Runbook을 실행하는 위치
 

@@ -29,7 +29,7 @@ ms.locfileid: "67724113"
 
 Azure는 VM이 상주하는 클라우드 영역에 따라 KMS 정품 인증에 다양한 엔드포인트를 사용합니다. 이 문제 해결 가이드를 사용하는 경우 사용자의 지역에 해당하는 적절한 KMS 엔드포인트를 사용합니다.
 
-* Azure 공용 클라우드 지역: kms.core.windows.net:1688
+* Azure 퍼블릭 클라우드 지역: kms.core.windows.net:1688
 * Azure 중국 21Viant 국가 클라우드 지역: kms.core.chinacloudapi.cn:1688
 * Azure 독일 국가 클라우드 지역: kms.core.cloudapi.de:1688
 * Azure 미국 정부 국가 클라우드 지역: kms.core.usgovcloudapi.net:1688
