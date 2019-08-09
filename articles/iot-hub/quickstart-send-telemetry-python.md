@@ -53,7 +53,7 @@ python3 - -version
 az extension add --name azure-cli-iot-ext
 ```
 
-https://github.com/Azure-Samples/azure-iot-samples-python/archive/master.zip 에서 샘플 Python 프로젝트를 다운로드하고 ZIP 보관 파일을 추출합니다.
+[https://github.com/Azure-Samples/azure-iot-samples-python/archive/master.zip](https://github.com/Azure-Samples/azure-iot-samples-python/archive/master.zip ) 에서 샘플 Python 프로젝트를 다운로드하고 ZIP 보관 파일을 추출합니다.
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
@@ -113,7 +113,7 @@ https://github.com/Azure-Samples/azure-iot-samples-python/archive/master.zip 에
 
     ![시뮬레이션된 디바이스 실행](media/quickstart-send-telemetry-python/SimulatedDevice.png)
     
-### <a name="to-avoid-the-import-iothubclient-error"></a>iothub_client 가져오기 오류를 방지하려면
+### <a name="to-avoid-the-import-iothub_client-error"></a>iothub_client 가져오기 오류를 방지하려면
 Python용 Azure IoT SDK의 현재 버전은 [C SDK](https://github.com/azure/azure-iot-sdk-c)에 대한 래퍼입니다. 이 버전은 [Boost](https://www.boost.org/) 라이브러리를 사용하여 생성됩니다. 따라서 몇 가지 중요한 제한 사항과 함께 제공됩니다. 자세한 내용은 [여기](https://github.com/Azure/azure-iot-sdk-python#important-installation-notes---dealing-with-importerror-issues)를 참조하세요.
 
 1. 올바른 [Python](https://github.com/Azure/azure-iot-sdk-python#important-installation-notes---dealing-with-importerror-issues) 버전이 있는지 확인합니다. 이 샘플의 경우 특정 버전만 제대로 작동합니다. 
