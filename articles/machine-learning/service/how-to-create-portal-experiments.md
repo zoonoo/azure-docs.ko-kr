@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: cgronlun
+ms.author: nibaccam
 author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 08/02/2019
-ms.openlocfilehash: eb6ae11bb4ffb39d9e9bcc692f17559fa2cde674
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: a5db2c1c40c9c6f5c05205b9b2c652d2e23cf229
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68720247"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848253"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>Azure Portal에서 자동화 된 machine learning 실험 만들기, 탐색 및 배포 (미리 보기)
 
@@ -28,7 +28,7 @@ ms.locfileid: "68720247"
 
 * Azure 구독. Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 지금 사용해 보세요.
 
-* Azure Machine Learning 서비스 작업 영역. [Azure Machine Learning 서비스 작업 영역 만들기를](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace)참조 하세요.
+* Azure Machine Learning 서비스 작업 영역. [Azure Machine Learning 서비스 작업 영역 만들기를](how-to-manage-workspace.md)참조 하세요.
 
 ## <a name="get-started"></a>시작
 
@@ -38,7 +38,7 @@ ms.locfileid: "68720247"
 
  처음으로 실험을 수행 하는 경우 **자동화 된 Machine Learning 시작** 화면이 표시 됩니다. 
 
-그렇지 않으면 자동화 된 machine learning **대시보드가 SDK** 를 사용 하 여 만든 실험을 포함 하 여 자동화 된 모든 기계 학습 실험의 개요를 볼 수 있습니다. 여기에서 날짜, 실험 이름 및 실행 상태별로 실행을 필터링 하 고 탐색할 수 있습니다.
+그렇지 않으면 자동화 된 machine learning 대시보드가 SDK를 사용 하 여 만든 실험을 포함 하 여 자동화 된 모든 기계 학습 실험의 개요를 볼 수 있습니다. 여기에서 날짜, 실험 이름 및 실행 상태별로 실행을 필터링 하 고 탐색할 수 있습니다.
 
 ## <a name="create-an-experiment"></a>실험 만들기
 
@@ -89,7 +89,7 @@ ms.locfileid: "68720247"
 
 1. 필드 고급 설정: 학습 작업을 보다 효율적으로 제어 하는 데 사용할 수 있는 추가 설정입니다.
 
-    고급 설정|Description
+    고급 설정|설명
     ------|------
     기본 메트릭| 모델의 점수를 매기는 데 사용 되는 기본 메트릭입니다. [모델 메트릭에 대해 자세히 알아보세요](how-to-configure-auto-train.md#explore-model-metrics).
     종료 조건| 이러한 조건 중 하나라도 충족 되 면 학습 작업은 전체 완료 전에 종료 됩니다. <br> *학습 작업 시간 (분)* : 학습 작업을 실행할 수 있는 기간입니다.  <br> *최대 반복 횟수*: 학습 작업에서 테스트할 최대 파이프라인 (반복) 수입니다. 작업은 지정 된 반복 횟수를 초과 하 여 실행 되지 않습니다. <br> *메트릭 점수 임계값*:  모든 파이프라인에 대 한 최소 메트릭 점수입니다. 이렇게 하면 정의 된 대상 메트릭이 있는 경우 필요한 것 보다 학습 작업에 더 많은 시간이 걸리지 않습니다.

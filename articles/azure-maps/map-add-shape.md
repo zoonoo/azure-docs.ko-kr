@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 0696eba4f3cca7beedc2efcda0182ab82b3d69d9
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 377cfbf93e45872e34242f9cd2432195b6ba6f92
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638701"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68849112"
 ---
 # <a name="add-a-shape-to-a-map"></a>맵에 도형 추가
 
@@ -46,6 +46,9 @@ ms.locfileid: "68638701"
 <iframe height="500" style="width: 100%;" scrolling="no" title="선을 따라 화살표 표시" src="//codepen.io/azuremaps/embed/drBJwX/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
 <a href='https://codepen.io'>CodePen</a>의 Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)에 <a href='https://codepen.io/azuremaps/pen/drBJwX/'>따라 펜 표시 화살표</a> 를 참조 하세요.
 </iframe>
+
+> [!TIP]
+> Azure Maps 웹 SDK는 기호 계층과 함께 사용할 수 있는 몇 가지 사용자 지정 가능 이미지 템플릿을 제공 합니다. 자세한 내용은 [이미지 템플릿 사용 방법](how-to-use-image-templates-web-sdk.md) 문서를 참조 하세요.
 
 ### <a name="line-stroke-gradient"></a>선에 선 그라데이션 추가
 
@@ -113,6 +116,10 @@ ms.locfileid: "68638701"
 <a href='https://codepen.io'>CodePen</a>의 Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)로 펜 <a href='https://codepen.io/azuremaps/pen/JzQpYX/'>Polygon 채우기 패턴</a> 을 참조 하세요.
 </iframe>
 
+
+> [!TIP]
+> Azure Maps 웹 SDK는 채우기 패턴으로 사용할 수 있는 몇 가지 사용자 지정 가능 이미지 템플릿을 제공 합니다. 자세한 내용은 [이미지 템플릿 사용 방법](how-to-use-image-templates-web-sdk.md) 문서를 참조 하세요.
+
 ### <a name="customize-a-polygon-layer"></a>다각형 계층 사용자 지정
 
 다각형 계층에는 몇 가지 스타일 지정 옵션만 있습니다. 시도해볼 수 있는 도구는 다음과 같습니다.
@@ -179,3 +186,6 @@ Azure Maps 웹 SDK는 이러한 `Point` 기능을 내부적으로 기능으로 `
 
 > [!div class="nextstepaction"]
 > [데이터 기반 스타일 식 사용](data-driven-style-expressions-web-sdk.md)
+
+> [!div class="nextstepaction"]
+> [이미지 템플릿을 사용 하는 방법](how-to-use-image-templates-web-sdk.md)

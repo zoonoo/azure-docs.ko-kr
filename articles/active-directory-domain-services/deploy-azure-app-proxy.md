@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: iainfou
-ms.openlocfilehash: eca421697081310b1bf245172b3ff125e11c8728
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: b3fb5d665380bc15b61d3b4b7913a992915f9afb
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234166"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853850"
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리되는 도메인에서 Azure AD 애플리케이션 프록시 배포
 Azure AD(Active Directory) 애플리케이션 프록시를 사용하면 인터넷을 통해 액세스할 수 있는 온-프레미스 애플리케이션을 게시하여 원격 작업자를 지원할 수 있습니다. 이제 Azure AD Domain Services를 통해 온-프레미스를 운영 중인 레거시 애플리케이션을 Azure Infrastructure Services로 전환할 수 있습니다. 그러면 Azure AD 애플리케이션 프록시를 사용하는 이러한 애플리케이션을 게시하여 조직 내 사용자에게 안전한 원격 액세스를 제공할 수 있습니다.
@@ -46,13 +46,10 @@ Azure AD 애플리케이션 프록시를 처음 사용하는 경우 다음에 �
 
 2. **Azure Active Directory**를 클릭하여 디렉터리 개요를 표시합니다. **엔터프라이즈 애플리케이션**을 클릭합니다.
 
-    ![Azure AD Directory 선택](./media/app-proxy/app-proxy-enable-start.png)
-3. **애플리케이션 프록시**를 클릭합니다. Azure AD Basic 또는 Azure AD Premium 구독이 없을 경우 평가판을 사용하도록 설정하는 옵션이 표시됩니다. **애플리케이션 프록시 사용?** 을 **사용**으로 설정/해제하고 **저장**을 클릭합니다.
+3. **애플리케이션 프록시**를 클릭합니다.
 
-    ![앱 프록시 사용](./media/app-proxy/app-proxy-enable-proxy-blade.png)
 4. 커넥터를 다운로드하려면 **커넥터** 단추를 클릭합니다.
 
-    ![커넥터 다운로드](./media/app-proxy/app-proxy-enabled-download-connector.png)
 5. 다운로드 페이지에서 사용 약관 및 개인 정보 보호 계약에 동의하고 **다운로드** 단추를 클릭합니다.
 
     ![다운로드 확인](./media/app-proxy/app-proxy-enabled-confirm-download.png)
@@ -75,7 +72,7 @@ Azure AD Domain Services 관리되는 도메인을 사용할 수 있는 동일�
 
     ![설치 조건에 동의](./media/app-proxy/app-proxy-install-connector-terms.png)
 3. 설치하는 동안 Azure AD Directory의 애플리케이션 프록시를 사용하여 커넥터를 등록하라는 메시지가 표시됩니다.
-   * **Azure AD 전역 관리자 자격 증명**을 제공합니다. 전역 관리자 테넌트는 Microsoft Azure 자격 증명과 다를 수 있습니다.
+   * **AZURE AD 응용 프로그램 관리자 자격 증명**을 제공 합니다. 응용 프로그램 관리자 테 넌 트가 Microsoft Azure 자격 증명과 다를 수 있습니다.
    * 커넥터를 등록하는 데 사용되는 관리자 계정은 애플리케이션 프록시 서비스를 사용할 수 있는 동일한 디렉터리에 있어야 합니다. 예를 들어, 테넌트 도메인이 contoso.com이면 관리자는 admin@contoso.com 또는 해당 도메인에 있는 다른 유효한 별칭이어야 합니다.
    * 커넥터를 설치하는 서버에 IE 보안 강화 구성이 켜져 있으면 등록 화면이 차단될 수 있습니다. 액세스를 허용하려면 오류 메시지의 지침에 따릅니다. Internet Explorer 보안 강화가 해제되어 있는지 확인하세요.
    * 커넥터 등록에 실패한 경우 [애플리케이션 프록시 문제 해결](../active-directory/manage-apps/application-proxy-troubleshoot.md)을 참조하세요.

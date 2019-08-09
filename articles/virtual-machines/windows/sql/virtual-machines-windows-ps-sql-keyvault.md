@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/30/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 13d698cfbc0241248a77fd5f3b148a9393320c64
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e7de54f7da8cef5942a8d8f41031eaf3e2565580
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075983"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68846242"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-resource-manager"></a>Azure Virtual Machines에서 SQL Server에 대한 Azure Key Vault 통합 구성(Resource Manager)
 
@@ -50,20 +50,20 @@ Resource Manager와 함께 새 SQL Server 가상 머신을 프로비저닝하는
 
 ![SQL Azure Key Vault 통합](./media/virtual-machines-windows-ps-sql-keyvault/azure-sql-arm-akv.png)
 
-프로 비전의 자세한 연습을 참조 하세요 [Azure portal에서 SQL Server 가상 컴퓨터를 프로 비전](virtual-machines-windows-portal-sql-server-provision.md)합니다.
+프로 비전에 대 한 자세한 연습은 [Azure Portal에서 SQL Server 가상 머신 프로 비전](virtual-machines-windows-portal-sql-server-provision.md)을 참조 하세요.
 
 ### <a name="existing-vms"></a>기존 VM
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
-기존 SQL Server virtual machines에 대 한 열에 [SQL 가상 컴퓨터 리소스](virtual-machines-windows-sql-manage-portal.md#access-sql-virtual-machine-resource) 선택한 **보안** 아래의 **설정**합니다. 선택 **사용** Azure Key Vault 통합을 사용 하도록 합니다. 
+기존 SQL Server 가상 컴퓨터의 경우 [SQL 가상 컴퓨터 리소스](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource) 를 열고 **설정**에서 **보안** 을 선택 합니다. Azure Key Vault 통합을 사용 하려면 **사용** 을 선택 합니다. 
 
 ![기존 VM에 대한 SQL AKV 통합](./media/virtual-machines-windows-ps-sql-keyvault/azure-sql-rm-akv-existing-vms.png)
 
-완료 되 면 선택 합니다 **적용** 아래쪽에 단추를 **보안** 변경 내용을 저장 하려면 페이지입니다.
+완료 되 면 **보안** 페이지의 아래쪽에서 **적용** 단추를 선택 하 여 변경 내용을 저장 합니다.
 
 > [!NOTE]
-> 여기서 만든 자격 증명 이름이 나중에 SQL 로그인에 매핑할 수 됩니다. 이렇게 하면 SQL 로그인이 키 자격 증명 모음에 액세스할 수 있습다. 
+> 여기에서 만든 자격 증명 이름은 나중에 SQL 로그인에 매핑됩니다. 이렇게 하면 SQL 로그인이 키 자격 증명 모음에 액세스할 수 있습다. 
 
 
 > [!NOTE]

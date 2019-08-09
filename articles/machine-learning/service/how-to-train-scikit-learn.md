@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.date: 08/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 98c04c50bc4a52e9b2e4e267895fdd94888885f5
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: e76a747f7e1d7ca7056edf5b69df0677aeff96a1
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68775157"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856008"
 ---
 # <a name="build-scikit-learn-models-at-scale-with-azure-machine-learning-service"></a>빌드 scikit-Azure Machine Learning 서비스를 사용 하 여 대규모로 모델 학습
 
@@ -25,7 +25,7 @@ ms.locfileid: "68775157"
 
 처음부터 machine learning scikit 모델을 학습 하 고 있거나 기존 모델을 클라우드로 가져오는 경우에는 Azure Machine Learning를 사용 하 여 탄력적 클라우드 계산 리소스를 사용 하 여 오픈 소스 학습 작업을 확장할 수 있습니다. Azure Machine Learning를 사용 하 여 프로덕션 등급 모델을 빌드, 배포, 버전 및 모니터링할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 이러한 환경 중 하나에서이 코드를 실행 합니다.
  - Azure Machine Learning 노트북 VM-다운로드 또는 설치 필요 없음
@@ -35,8 +35,8 @@ ms.locfileid: "68775157"
 
  - 사용자 고유의 Jupyter Notebook 서버
 
-    - [Python 용 Azure Machine Learning SDK 설치](setup-create-workspace.md#sdk)
-    - [작업 영역 구성 파일 만들기](setup-create-workspace.md#write-a-configuration-file)
+    - [AZURE MACHINE LEARNING SDK를 설치](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)합니다.
+    - [작업 영역 구성 파일을 만듭니다](how-to-configure-environment.md#workspace).
     - 데이터 집합 및 샘플 스크립트 파일 다운로드 
         - [iri 데이터 집합](https://archive.ics.uci.edu/ml/datasets/iris)
         - [`train_iris.py`](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/train-hyperparameter-tune-deploy-with-sklearn)
@@ -133,7 +133,7 @@ except ComputeTargetException:
 
 ## <a name="create-a-scikit-learn-estimator"></a>Scikit 만들기-배우기 평가기
 
-[Scikit-배우기 평가기](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.sklearn?view=azure-ml-py) 는 계산 대상에서 scikit 학습 작업을 시작 하는 간단한 방법을 제공 합니다. 단일 노드 CPU 교육을 [`SKLearn`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) 지 원하는 데 사용할 수 있는 클래스를 통해 구현 됩니다.
+[Scikit-배우기 평가기](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn?view=azure-ml-py) 는 계산 대상에서 scikit 학습 작업을 시작 하는 간단한 방법을 제공 합니다. 단일 노드 CPU 교육을 [`SKLearn`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) 지 원하는 데 사용할 수 있는 클래스를 통해 구현 됩니다.
 
 학습 스크립트에 추가 pip 또는 conda 패키지를 실행 해야 하는 경우 및 `pip_packages` `conda_packages` 인수를 통해 해당 이름을 전달 하 여 결과 docker 이미지에 패키지를 설치할 수 있습니다.
 

@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 06/20/2019
-ms.openlocfilehash: 34902aa23339b62920f918ae19b410a99e226a0e
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 793474495f3ab3ef06a17b48d15c2f91d0677365
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358803"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848156"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>시계열 예측 모델 자동 학습
 
@@ -27,17 +27,17 @@ ms.locfileid: "68358803"
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GW]
 
-자동화 된 ML을 사용 하 여 기법과 접근 방식을 결합 하 고 권장 되는 고품질 시간 계열 예측을 얻을 수 있습니다. 자동화 된 시간 계열 실험은 다중 변형 회귀 문제로 처리 됩니다. 이전 시간 계열 값은 다른 예측 변수와 함께 회귀 변수의 추가 차원이 되도록 "피벗" 됩니다. 
+자동화 된 ML을 사용 하 여 기법과 접근 방식을 결합 하 고 권장 되는 고품질 시간 계열 예측을 얻을 수 있습니다. 자동화 된 시간 계열 실험은 다중 변형 회귀 문제로 처리 됩니다. 이전 시간 계열 값은 다른 예측 변수와 함께 회귀 변수의 추가 차원이 되도록 "피벗" 됩니다.
 
 클래식 시계열 메서드와 달리이 방법은 학습 중에 여러 상황별 변수와 해당 변수 간의 관계를 자연스럽 게 통합 하는 이점을 제공 합니다. 실제 예측 응용 프로그램에서 여러 요인이 예측에 영향을 줄 수 있습니다. 예를 들어 판매를 예측 하는 경우 기록 추세의 상호 작용, 환율 및 가격은 모두 공동으로 판매 결과물을 구동 합니다. 추가 혜택은 회귀 모델의 모든 최신 혁신을 즉시 예측에 적용 하는 것입니다.
 
-예측을 확장 하는 미래 (예측 마감일) 뿐만 아니라 지연 등을 [구성할](#config) 수 있습니다. 자동화 된 ML은 데이터 집합 및 예측 horizons의 모든 항목에 대해 종종 내부적으로 분기 된 단일 모델을 학습 합니다. 따라서 모델 매개 변수를 예측 하는 데 더 많은 데이터를 사용할 수 있으며 보이지 않는 시리즈에 대 한 일반화가 가능 합니다. 
+예측을 확장 하는 미래 (예측 마감일) 뿐만 아니라 지연 등을 [구성할](#config) 수 있습니다. 자동화 된 ML은 데이터 집합 및 예측 horizons의 모든 항목에 대해 종종 내부적으로 분기 된 단일 모델을 학습 합니다. 따라서 모델 매개 변수를 예측 하는 데 더 많은 데이터를 사용할 수 있으며 보이지 않는 시리즈에 대 한 일반화가 가능 합니다.
 
-학습 데이터에서 추출 된 기능은 중요 한 역할을 합니다. 그리고 자동화 된 ML은 표준 전처리 단계를 수행 하 고, 계절 효과를 캡처하고 예측 정확도를 최대화 하기 위한 추가 시계열 기능을 생성 합니다. 
+학습 데이터에서 추출 된 기능은 중요 한 역할을 합니다. 그리고 자동화 된 ML은 표준 전처리 단계를 수행 하 고, 계절 효과를 캡처하고 예측 정확도를 최대화 하기 위한 추가 시계열 기능을 생성 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-* Azure Machine Learning 서비스 작업 영역. 작업 영역을 만들려면 [Azure Machine Learning 서비스 작업 영역 만들기](setup-create-workspace.md)를 참조 하세요.
+* Azure Machine Learning 서비스 작업 영역. 작업 영역을 만들려면 [Azure Machine Learning 서비스 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
 * 이 문서에서는 자동화 된 machine learning 실험을 설정 하는 방법에 대 한 기본 지식이 있다고 가정 합니다. [자습서](tutorial-auto-train-models.md) 또는 [방법에](how-to-configure-auto-train.md) 따라 기본적인 자동화 된 기계 학습 실험 디자인 패턴을 볼 수 있습니다.
 
 ## <a name="preparing-data"></a>데이터 준비
@@ -96,7 +96,7 @@ y_test = X_test.pop("sales_quantity").values
 |`grain_column_names`|입력 데이터에서 개별 계열 그룹을 정의 하는 이름입니다. 그레인을 정의 하지 않으면 데이터 집합은 하나의 시계열으로 간주 됩니다.||
 |`max_horizon`|시계열 빈도 단위로 원하는 최대 예측 구간을 정의 합니다. 단위는 학습 데이터의 시간 간격 (예: 매월, 매주 forecaster)을 기반으로 합니다.|✓|
 |`target_lags`|*n* 모델 학습 전에 지연 대상 값에 대 한 기간입니다.||
-|`target_rolling_window_size`|예측 값을 생성 하는 데 사용할 수 *있는 기록 기간* < = 학습 집합 크기입니다. 생략 하는 경우 *n* 은 전체 학습 집합 크기입니다.||
+|`target_rolling_window_size`|예측 값을 생성 하는 데 사용할 수 있는 기록 기간 < = 학습 집합 크기입니다. 생략 하는 경우 *n* 은 전체 학습 집합 크기입니다.||
 
 시간 계열 설정을 사전 개체로 만듭니다. `time_column_name` 을`day_datetime` 데이터 집합의 필드로 설정 합니다. 매개 변수 `grain_column_names` 를 정의 하 여 데이터에 대해 **두 개의 개별 시계열 그룹이** 생성 되도록 합니다. 즉, 매장 A와 B에 대해 하나씩, `max_horizon` 마지막으로 전체 테스트 집합에 대해 예측 하려면를 50로 설정 합니다. 를 사용 `target_rolling_window_size`하 여 예측 기간을 10 개로 설정 하 고 `target_lags` 매개 변수를 사용 하 여 대상 값 2 기간을 앞으로 지연 합니다.
 
@@ -106,9 +106,13 @@ time_series_settings = {
     "grain_column_names": ["store"],
     "max_horizon": 50,
     "target_lags": 2,
-    "target_rolling_window_size": 10
+    "target_rolling_window_size": 10,
+    "preprocess": True,
 }
 ```
+
+> [!NOTE]
+> 자동화 된 기계 학습 사전 처리 단계 (기능 정규화, 누락 된 데이터 처리, 텍스트를 숫자로 변환 등)는 기본 모델의 일부가 됩니다. 예측에 모델을 사용 하는 경우 학습 중에 적용 되는 동일한 전처리 단계는 입력 데이터에 자동으로 적용 됩니다.
 
 이제 `forecasting` 작업 유형을 지정 `AutoMLConfig` 하 고 실험을 제출 하는 표준 개체를 만듭니다. 모델이 완료 된 후 최상의 실행 반복을 검색 합니다.
 

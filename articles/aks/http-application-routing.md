@@ -6,34 +6,34 @@ author: lachie83
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 04/25/2018
+ms.date: 08/06/2019
 ms.author: laevenso
-ms.openlocfilehash: d6e1cc033416c90e27b5caf4bba310400e55b3a5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f0975d0a60081b66d3d5a513954deb0c4fa1b978
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60466311"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851542"
 ---
-# <a name="http-application-routing"></a>HTTP 애플리케이션 라우팅
+# <a name="http-application-routing"></a>http 애플리케이션 라우팅
 
-HTTP 애플리케이션 라우팅 솔루션을 사용하면 AKS(Azure Kubernetes Service) 클러스터에 배포된 애플리케이션에 쉽게 액세스할 수 있습니다. 솔루션이 사용하도록 설정되면 AKS 클러스터에 수신 컨트롤러를 구성합니다. 응용 프로그램이 배포되면 솔루션에서 응용 프로그램 엔드포인트에 대해 공개적으로 액세스할 수 있는 DNS 이름도 만듭니다.
+HTTP 애플리케이션 라우팅 솔루션을 사용하면 AKS(Azure Kubernetes Service) 클러스터에 배포된 애플리케이션에 쉽게 액세스할 수 있습니다. 솔루션을 사용 하도록 설정 하면 AKS 클러스터에서 [수신 컨트롤러](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) 를 구성 합니다. 애플리케이션이 배포되면 솔루션에서 애플리케이션 엔드포인트에 대해 공개적으로 액세스할 수 있는 DNS 이름도 만듭니다.
 
-추가 기능이 사용하도록 설정되면 구독에 DNS 영역을 만듭니다. DNS 비용에 대한 자세한 내용은 [DNS 가격 책정][dns-pricing]을 참조하세요.
+추가 기능이 사용하도록 설정되면 구독에 DNS 영역을 만듭니다. DNS 비용에 대 한 자세한 내용은 [dns 가격 책정][dns-pricing]을 참조 하세요.
 
 > [!CAUTION]
-> HTTP 응용 프로그램 라우팅 추가 기능은 수신 컨트롤러를 빠르게 만들고 응용 프로그램에 액세스할 수 있도록 설계되었습니다. 이 추가 기능은 프로덕션 용도로 사용하지 않는 것이 좋습니다. 여러 복제본 및 TLS 지원을 포함하는 프로덕션 준비 수신 배포에 대해서는 [HTTPS 수신 컨트롤러 만들기](https://docs.microsoft.com/azure/aks/ingress-tls)를 참조하세요.
+> HTTP 애플리케이션 라우팅 추가 기능은 수신 컨트롤러를 빠르게 만들고 애플리케이션에 액세스할 수 있도록 설계되었습니다. 이 추가 기능은 프로덕션 용도로 사용하지 않는 것이 좋습니다. 여러 복제본 및 TLS 지원을 포함하는 프로덕션 준비 수신 배포에 대해서는 [HTTPS 수신 컨트롤러 만들기](https://docs.microsoft.com/azure/aks/ingress-tls)를 참조하세요.
 
 ## <a name="http-routing-solution-overview"></a>HTTP 라우팅 솔루션 개요
 
-추가 기능은 [Kubernetes 수신 컨트롤러][ingress] 및 [외부 DNS][external-dns] 컨트롤러라는 두 구성 요소를 배포합니다.
+추가 기능에서는 [Kubernetes 수신 컨트롤러][ingress] 와 [외부 DNS][external-dns] 컨트롤러의 두 구성 요소를 배포 합니다.
 
-- **수신 컨트롤러**: 수신 컨트롤러가 LoadBalancer 유형의 Kubernetes 서비스를 사용하여 인터넷에 노출됩니다. 수신 컨트롤러는 애플리케이션 엔드포인트에 대한 경로를 만드는 [Kubernetes 수신 리소스][ingress-resource]를 감시하고 구현합니다.
+- **수신 컨트롤러**: 수신 컨트롤러가 LoadBalancer 유형의 Kubernetes 서비스를 사용하여 인터넷에 노출됩니다. 수신 컨트롤러는 응용 프로그램 끝점에 대 한 경로를 만드는 [Kubernetes 수신 리소스][ingress-resource]를 감시 하 고 구현 합니다.
 - **외부 DNS 컨트롤러**: Kubernetes 수신 리소스를 감시하고 클러스터 특정 DNS 영역에 DNS A 레코드를 만듭니다.
 
 ## <a name="deploy-http-routing-cli"></a>HTTP 라우팅 배포: CLI
 
-AKS 클러스터를 배포할 때 Azure CLI를 통해 HTTP 애플리케이션 라우팅 추가 기능을 사용하도록 설정할 수 있습니다. [az aks create][az-aks-create] 명령에 `--enable-addons` 인수를 사용하면 됩니다.
+AKS 클러스터를 배포할 때 Azure CLI를 통해 HTTP 애플리케이션 라우팅 추가 기능을 사용하도록 설정할 수 있습니다. 이렇게 하려면 `--enable-addons` 인수를 사용 하 여 [az aks create][az-aks-create] 명령을 사용 합니다.
 
 ```azurecli
 az aks create --resource-group myResourceGroup --name myAKSCluster --enable-addons http_application_routing
@@ -42,13 +42,13 @@ az aks create --resource-group myResourceGroup --name myAKSCluster --enable-addo
 > [!TIP]
 > 여러 개의 추가 기능을 사용하려는 경우 쉼표로 구분된 목록으로 제공합니다. 예를 들어 HTTP 애플리케이션 라우팅 및 모니터링을 사용하려면 `--enable-addons http_application_routing,monitoring` 형식을 사용합니다.
 
-[az aks enable-addons][az-aks-enable-addons] 명령을 사용하여 기존 AKS 클러스터에서 HTTP 라우팅을 활성화할 수도 있습니다. 기존 클러스터에서 HTTP 라우팅을 활성화하려면 `--addons` 매개 변수를 추가하고 다음 예제에서와 같이 *http_application_routing*을 지정합니다.
+[Az AKS addons][az-aks-enable-addons] 명령을 사용 하 여 기존 AKS 클러스터에서 HTTP 라우팅을 사용 하도록 설정할 수도 있습니다. 기존 클러스터에서 HTTP 라우팅을 활성화하려면 `--addons` 매개 변수를 추가하고 다음 예제에서와 같이 *http_application_routing*을 지정합니다.
 
 ```azurecli
 az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing
 ```
 
-클러스터가 배포되거나 업데이트된 후 [az aks show][az-aks-show] 명령을 사용하여 DNS 영역 이름을 검색합니다. 이 이름은 애플리케이션을 AKS 클러스터에 배포하는 데 필요합니다.
+클러스터를 배포 하거나 업데이트 한 후에는 [az aks show][az-aks-show] 명령을 사용 하 여 DNS 영역 이름을 검색 합니다. 이 이름은 애플리케이션을 AKS 클러스터에 배포하는 데 필요합니다.
 
 ```azurecli
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName -o table
@@ -136,7 +136,7 @@ spec:
         path: /
 ```
 
-[kubectl apply][kubectl-apply] 명령을 사용하여 리소스를 만듭니다.
+[Kubectl apply][kubectl-apply] 명령을 사용 하 여 리소스를 만듭니다.
 
 ```bash
 $ kubectl apply -f samples-http-application-routing.yaml
@@ -179,7 +179,7 @@ az aks disable-addons --addons http_application_routing --name myAKSCluster --re
 
 HTTP 애플리케이션 라우팅 추가 기능을 비활성화하면 일부 Kubernetes 리소스는 클러스터에서 남아 있을 수 있습니다. 이러한 리소스는 *configMaps* 및 *secrets*를 포함하며 *kube 시스템* 네임스페이스에서 만들어집니다. 정리 클러스터를 유지하려면 이러한 리소스를 제거하는 것이 좋습니다.
 
-다음 [kubectl get][kubectl-get] 명령을 사용하여 *addon-http-application-routing* 리소스를 찾습니다.
+다음 [kubectl get][kubectl-get] 명령을 사용 하 여 *추가 기능-http-응용 프로그램 라우팅* 리소스를 찾습니다.
 
 ```console
 kubectl get deployments --namespace kube-system
@@ -199,7 +199,7 @@ kube-system   addon-http-application-routing-tcp-services                0      
 kube-system   addon-http-application-routing-udp-services                0      9m7s
 ```
 
-리소스를 삭제하려면 [kubectl delete][kubectl-delete] 명령을 사용합니다. 리소스 종류, 리소스 이름 및 네임스페이스를 지정합니다. 다음 예제에서는 이전 configmaps 중 하나를 삭제합니다.
+리소스를 삭제 하려면 [kubectl delete][kubectl-delete] 명령을 사용 합니다. 리소스 종류, 리소스 이름 및 네임스페이스를 지정합니다. 다음 예제에서는 이전 configmaps 중 하나를 삭제합니다.
 
 ```console
 kubectl delete configmaps addon-http-application-routing-nginx-configuration --namespace kube-system
@@ -209,7 +209,7 @@ kubectl delete configmaps addon-http-application-routing-nginx-configuration --n
 
 ## <a name="troubleshoot"></a>문제 해결
 
-외부 DNS 애플리케이션의 애플리케이션 로그를 보려면 [kubectl logs][kubectl-logs] 명령을 사용합니다. 로그에서 A 및 TXT DNS 레코드가 성공적으로 만들어졌음을 확인합니다.
+[Kubectl logs][kubectl-logs] 명령을 사용 하 여 외부 DNS 응용 프로그램의 응용 프로그램 로그를 볼 수 있습니다. 로그에서 A 및 TXT DNS 레코드가 성공적으로 만들어졌음을 확인합니다.
 
 ```
 $ kubectl logs -f deploy/addon-http-application-routing-external-dns -n kube-system
@@ -222,7 +222,7 @@ Azure Portal의 DNS 영역 리소스에서 이러한 레코드를 볼 수도 있
 
 ![DNS 레코드 가져오기](media/http-routing/clippy.png)
 
-[kubectl logs][kubectl-logs] 명령을 사용하여 Nginx 수신 컨트롤러에 대한 애플리케이션 로그를 봅니다. 로그에서 수신 리소스 `CREATE` 및 컨트롤러 다시 로드를 확인합니다. 모든 HTTP 작업이 기록됩니다.
+[Kubectl logs][kubectl-logs] 명령을 사용 하 여 Nginx 수신 컨트롤러에 대 한 응용 프로그램 로그를 확인 합니다. 로그에서 수신 리소스 `CREATE` 및 컨트롤러 다시 로드를 확인합니다. 모든 HTTP 작업이 기록됩니다.
 
 ```bash
 $ kubectl logs -f deploy/addon-http-application-routing-nginx-ingress-controller -n kube-system
@@ -275,7 +275,7 @@ ingress "party-clippy" deleted
 
 ## <a name="next-steps"></a>다음 단계
 
-AKS에 HTTPS 보안 수신 컨트롤러를 설치하는 방법에 대한 자세한 내용은 [AKS(Azure Kubernetes Service)의 HTTPS 수신][ingress-https]을 참조하세요.
+AKS에서 HTTPS 보안 수신 컨트롤러를 설치 하는 방법에 대 한 자세한 내용은 [AKS (Azure Kubernetes Service)에서 Https 수신][ingress-https]을 참조 하세요.
 
 <!-- LINKS - internal -->
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create

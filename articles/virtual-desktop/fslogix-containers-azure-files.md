@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 05/16/2019
+ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: c01e138c8afcdd59fcb0c87f189d98bec10e16d7
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 13f80b42ef6dfd0c70067a3ecf5f3e172527a63f
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828148"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68846539"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>FSLogix 프로필 컨테이너 및 Azure Files
 
@@ -75,13 +75,13 @@ S2D 클러스터에는 보안 상태에서 패치, 업데이트 및 유지 관�
 
 취득 한 후 Microsoft는 UPD와 같은 기존 사용자 프로필 솔루션을 FSLogix 프로필 컨테이너와 바꾸기 시작 했습니다.
 
-## <a name="azure-files-integration-with-azure-active-directory"></a>Azure Active Directory와 Azure Files 통합
+## <a name="azure-files-integration-with-azure-active-directory-domain-service"></a>Azure Files Azure Active Directory 도메인 서비스와 통합
 
-FSLogix 프로필 컨테이너 성능 및 기능은 클라우드를 활용 합니다. 9 월 24 일, 2018 Microsoft Azure 파일은 [Azure Active Directory 인증을 지 원하는 Azure Files](https://azure.microsoft.com/blog/azure-active-directory-integration-for-smb-access-now-in-public-preview/)의 공개 미리 보기를 발표 했습니다. 비용 및 관리 오버 헤드를 모두 해결 하는 Azure Files Azure Active Directory 인증을 사용 하 여 새 Windows 가상 데스크톱 서비스의 사용자 프로필에 대 한 프리미엄 솔루션입니다.
+FSLogix 프로필 컨테이너의 성능 및 기능은 클라우드를 활용 합니다. 2019 7 월 7 일에 Microsoft Azure 파일은 [AD DS (Azure Active Directory 도메인 서비스)를 사용 하 여 Azure Files 인증](/articles/storage/files/storage-files-active-directory-overview.md)의 일반 공급을 발표 했습니다. 비용 및 관리 오버 헤드를 모두 해결 함으로써 Azure AD DS 인증을 사용 하는 Azure Files Windows 가상 데스크톱 서비스의 사용자 프로필에 대 한 프리미엄 솔루션입니다.
 
 ## <a name="best-practices-for-windows-virtual-desktop"></a>Windows 가상 데스크톱에 대 한 모범 사례
 
-Windows 가상 데스크톱은 고객이 사용 중인 Vm의 크기, 유형 및 수에 대 한 모든 권한을 제공 합니다. 자세한 내용은 [Windows 가상 데스크톱 미리 보기용 이란?](https://docs.microsoft.com/azure/virtual-desktop/overview)을 참조 하세요.
+Windows 가상 데스크톱은 고객이 사용 중인 Vm의 크기, 유형 및 수에 대 한 모든 권한을 제공 합니다. 자세한 내용은 [Windows 가상 데스크톱 미리 보기용 이란?](overview.md)을 참조 하세요.
 
 Windows 가상 데스크톱 환경이 모범 사례를 따르는지 확인 하려면 다음을 수행 합니다.
 
@@ -94,11 +94,11 @@ Windows 가상 데스크톱 환경이 모범 사례를 따르는지 확인 하�
 
 ## <a name="next-steps"></a>다음 단계
 
-Windows 가상 데스크톱 환경을 설정 하려면 다음 지침을 따르십시오.
+다음 가이드를 사용 하 여 Windows 가상 데스크톱 환경을 설정 합니다.
 
-- 데스크톱 가상화 솔루션 빌드를 시작 하려면 [Windows 가상 데스크톱에서 테 넌 트 만들기](https://docs.microsoft.com/azure/virtual-desktop/tenant-setup-azure-active-directory)를 참조 하세요.
-- Windows 가상 데스크톱 테 넌 트 내에서 호스트 풀을 만들려면 [Azure Marketplace를 사용 하 여 호스트 풀 만들기](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-azure-marketplace)를 참조 하세요.
-- 클라우드에서 완전히 관리 되는 파일 공유를 설정 하려면 [Azure Files 공유 설정](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-enable)을 참조 하세요.
-- FSLogix 프로필 컨테이너를 구성 하려면 [호스트 풀의 사용자 프로필 공유 설정](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-user-profile)을 참조 하세요.
-- 호스트 풀에 사용자를 할당 하려면 [Windows 가상 데스크톱에 대 한 앱 그룹 관리](https://docs.microsoft.com/azure/virtual-desktop/manage-app-groups)를 참조 하세요.
-- 웹 브라우저에서 Windows 가상 데스크톱 리소스에 액세스 하려면 [Windows 가상 데스크톱에 연결](https://docs.microsoft.com/azure/virtual-desktop/connect-web)을 참조 하세요.
+- 데스크톱 가상화 솔루션 빌드를 시작 하려면 [Windows 가상 데스크톱에서 테 넌 트 만들기](tenant-setup-azure-active-directory.md)를 참조 하세요.
+- Windows 가상 데스크톱 테 넌 트 내에서 호스트 풀을 만들려면 [Azure Marketplace를 사용 하 여 호스트 풀 만들기](create-host-pools-azure-marketplace.md)를 참조 하세요.
+- 클라우드에서 완전히 관리 되는 파일 공유를 설정 하려면 [Azure Files 공유 설정](/articles/storage/files/storage-files-active-directory-enable.md)을 참조 하세요.
+- FSLogix 프로필 컨테이너를 구성 하려면 [호스트 풀의 사용자 프로필 공유 설정](create-host-pools-user-profile.md)을 참조 하세요.
+- 호스트 풀에 사용자를 할당 하려면 [Windows 가상 데스크톱에 대 한 앱 그룹 관리](manage-app-groups.md)를 참조 하세요.
+- 웹 브라우저에서 Windows 가상 데스크톱 리소스에 액세스 하려면 [Windows 가상 데스크톱에 연결](connect-web.md)을 참조 하세요.

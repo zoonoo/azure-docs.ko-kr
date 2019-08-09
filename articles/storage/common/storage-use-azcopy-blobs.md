@@ -1,19 +1,19 @@
 ---
 title: AzCopy v10를 사용 하 여 Azure Blob storage 간 데이터 전송 Microsoft Docs
 description: 이 문서에는 컨테이너를 만들고, 파일을 복사 하 고, 로컬 파일 시스템과 컨테이너 간에 디렉터리를 동기화 하는 데 도움이 되는 AzCopy 예제 명령의 컬렉션이 포함 되어 있습니다.
-services: storage
 author: normesta
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 2ab561c387467086a40aa6676af347a107c2c452
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.reviewer: dineshm
+ms.openlocfilehash: d488189596fac4ae8fada3899d0b9c1bbe7900c6
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68641106"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855305"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>AzCopy 및 Blob 저장소를 사용 하 여 데이터 전송
 

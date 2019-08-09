@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 08/05/2019
 ms.author: tomfitz
-ms.openlocfilehash: 0e8df116a82f73af2348651a91aee3c34a595c45
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 452230a263e623f53346fcdb8cf310e73f171aee
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68814088"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848602"
 ---
 # <a name="tag-support-for-azure-resources"></a>Azure 리소스에 대한 태그 지원
 이 문서에서는 리소스 종류가 [태그](resource-group-using-tags.md)를 지원하는지 여부를 설명합니다. **태그 지원** 이라는 열은 리소스 형식에 태그에 대 한 속성이 있는지 여부를 나타냅니다. **비용 보고서에서 태그** 레이블이 지정 된 열은 리소스 종류가 태그를 비용 보고서에 전달 하는지 여부를 나타냅니다.
@@ -857,9 +857,8 @@ ms.locfileid: "68814088"
 > [!div class="mx-tableFixed"]
 > | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | services | 예 |예 |
-> | services/projects | 예 |예 |
-> | slots | 예 |예 |
+> | services | 아니요 |아니요 |
+> | services/projects | 아니요 |아니요 |
 
 ## <a name="microsoftdatashare"></a>DataShare
 

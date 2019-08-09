@@ -3,16 +3,16 @@ title: Azure Files에 대한 FAQ(질문과 대답) | Microsoft Docs
 description: Azure Files에 대한 질문과 대답을 확인합니다.
 author: roygara
 ms.service: storage
-ms.date: 01/02/2019
+ms.date: 07/30/2019
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 622a033b73ace93e98cfa0d5179002c78ec49b35
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: e14fcbd81a562b8d6451bb89a479c6675569403a
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68704478"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854547"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Azure Files에 대한 FAQ(질문과 대답)
 [Azure Files](storage-files-introduction.md)는 산업 표준 [SMB(서버 메시지 블록) 프로토콜](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유를 제공합니다. Azure 파일 공유를 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포에 동시에 탑재할 수 있습니다. 데이터가 사용되는 위치 가까이에 대한 빠른 액세스를 위해 Azure 파일 동기화를 사용하여 Windows Server 컴퓨터에서 Azure 파일 공유를 캐시할 수도 있습니다.
@@ -151,7 +151,7 @@ ms.locfileid: "68704478"
     Azure 파일 동기화 에이전트 버전 3 이전에 Azure 파일 동기화는 서버 엔드포인트인 동일한 볼륨이 아닌 서버 엔드포인트 외부에서 계층화된 파일의 이동을 차단합니다. 복사 작업, 계층화되지 않은 파일의 이동 및 다른 볼륨에 계층화된 파일의 이동은 영향을 받지 않았습니다. 이 동작의 이유는 파일 탐색기 및 다른 Windows API에서 동일한 볼륨에서의 이동 작업이 거의 순간적인 이름 바꾸기 작업이라는 암시적 가정 때문이었습니다. 즉, 이동하면 Azure 파일 동기화가 클라우드의 데이터를 다시 호출하는 동안 파일 탐색기 또는 다른 이동 방법(예: 명령줄 또는 PowerShell)이 응답하지 않는다고 표시됩니다. [Azure 파일 동기화 에이전트 버전 3.0.12.0](storage-files-release-notes.md#supported-versions)부터 Azure 파일 동기화를 사용하면 외부 서버 엔드포인트에서 계층화된 파일을 이동할 수 있습니다. 계층화된 파일을 서버 엔드포인트 외부에서 계층화된 파일로 유지한 다음, 백그라운드에서 파일을 회수하여 앞에서 언급한 부정적인 영향을 방지합니다. 즉, 동일한 볼륨에서의 이동은 즉각적이고, 이동이 완료되면 파일을 디스크로 회수하는 모든 작업을 수행합니다. 
 
 * <a id="afs-do-not-delete-server-endpoint"></a>
-  **서버의 Azure 파일 동기화에 문제가 발생했습니다(동기화, 클라우드 계층화 등). 서버 엔드포인트를 제거하고 다시 만들어야 하나요?**  
+  **내 서버 (동기화, 클라우드 계층화 등)에서 Azure File Sync 하는 데 문제가 있습니다. 서버 엔드포인트를 제거하고 다시 만들어야 하나요?**  
     [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
     
 * <a id="afs-resource-move"></a>
@@ -168,35 +168,27 @@ ms.locfileid: "68704478"
     
 ## <a name="security-authentication-and-access-control"></a>보안, 인증 및 액세스 제어
 * <a id="ad-support"></a>
-**Azure Files에서 Active Directory 기반 인증 및 액세스 제어를 지원하나요?**  
+**Azure Files에서 id 기반 인증 및 액세스 제어를 지원 하나요?**  
     
-    예. Azure Files는 Azure AD(Azure Active Directory)(미리 보기)를 통한 ID 기반 인증 및 액세스 제어를 지원합니다. Azure Files에 대한 SMB를 통한 Azure AD 인증을 사용하면 Azure Active Directory Domain Services를 통해 도메인 가입 VM이 Azure AD 자격 증명으로 공유, 디렉터리 및 파일에 액세스할 수 있습니다. 자세한 내용은 [Azure Files(미리 보기)에 대한 SMB를 통한 Azure Active Directory 인증 개요](storage-files-active-directory-overview.md)를 참조하세요. 
+    예, Azure Files는 azure AD 도메인 서비스 (Azure AD DS)를 활용 하는 id 기반 인증 및 액세스 제어를 지원 합니다. Azure Files SMB를 통한 azure AD DS 인증을 사용 하면 azure AD DS 도메인에 가입 된 Windows Vm에서 Azure AD 자격 증명을 사용 하 여 공유, 디렉터리 및 파일에 액세스할 수 있습니다. 자세한 내용은 [SMB 액세스를 위한 Azure AD DS (Azure Files Azure Active Directory 도메인 서비스) 인증 지원 개요](storage-files-active-directory-overview.md)를 참조 하세요. 
 
     Azure Files는 액세스 제어를 관리하기 위한 두 가지 방법을 추가로 제공합니다.
 
     - SAS(공유 액세스 서명)를 사용하여 특정 사용 권한을 가지며, 지정된 시간 간격에 유효한 토큰을 생성할 수 있습니다. 예를 들어, 만료 시간으로 10분이 있는 특정 파일에 대한 읽기 전용 액세스 권한이 있는 토큰을 생성할 수 있습니다. 토큰이 유효한 동안 토큰을 소유한 사람은 해당 10분 동안 해당 파일에 대한 읽기 전용 액세스 권한을 가집니다. 현재, 공유 액세스 서명 키는 REST API를 통해 또는 클라이언트 라이브러리에서만 지원됩니다. 저장소 계정 키를 사용하여 SMB를 통해 Azure 파일 공유를 탑재해야 합니다.
 
     - Azure 파일 동기화는 동기화하는 모든 서버 엔드포인트에 대한 모든 임의 ACL 또는 DACL(Active Directory 기반 또는 로컬 여부)을 유지합니다. Windows Server는 Active Directory에서 이미 인증을 받을 수 있으므로 Azure 파일 동기화는 Active Directory 기반 인증 및 ACL의 전체 지원이 제공될 때까지 효과적인 일시적 옵션입니다.
-
-* <a id="ad-support-regions"></a>
-**Azure Files에 대한 SMB를 통한 Azure AD의 미리 보기는 모든 Azure 지역에서 사용할 수 있나요?**
-
-    이 미리 보기는 모든 공용 지역에서 사용할 수 있습니다.
-
-* <a id="ad-support-on-premises"></a>
-**Azure Files(미리 보기)에 대한 SMB를 통한 Azure AD 인증은 온-프레미스 컴퓨터에서 Azure AD를 사용한 인증을 지원하나요?**
-
-    아니요. Azure Files는 미리 보기 릴리스에서는 온-프레미스 컴퓨터에서 Azure AD를 사용한 인증을 지원하지 않습니다.
+    
+    Azure Storage에 대 한 [액세스 권한을 부여](https://docs.microsoft.com/azure/storage/common/storage-auth?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 하 여 Azure Storage 서비스에서 지원 되는 모든 프로토콜의 포괄적인 표현을 참조할 수 있습니다. 
 
 * <a id="ad-support-devices"></a>
-**Azure Files(미리 보기)에 대한 SMB를 통한 Azure AD 인증은 Azure AD에 가입되거나 등록된 디바이스에서 Azure AD 자격 증명을 사용한 SMB 액세스를 지원하나요?**
+**Azure AD DS 인증 Azure Files azure ad 자격 증명을 사용 하 여 azure ad에 연결 되었거나 Azure AD에 등록 된 장치에서 SMB 액세스를 지원 하나요?**
 
     아니요. 이 시나리오는 지원되지 않습니다.
 
 * <a id="ad-support-rest-apis"></a>
 **디렉터리/파일 NTFS ACL 가져오기/설정/복사를 지원하는 REST API가 있나요?**
 
-    미리 보기 릴리스에서는 디렉터리 또는 파일에 대한 NTFS ACL을 가져오거나, 설정하거나, 복사하는 REST API를 지원하지 않습니다.
+    지금은 디렉터리 또는 파일의 NTFS Acl을 가져오거나 설정 하거나 복사 하는 REST Api를 지원 하지 않습니다.
 
 * <a id="ad-vm-subscription"></a>
 **다른 구독으로 VM에서 Azure AD 자격 증명을 사용하여 Azure Files에 액세스할 수 있나요?**
@@ -204,17 +196,17 @@ ms.locfileid: "68704478"
     파일 공유가 배포된 구독과 VM이 도메인에 조인된 Azure AD Domain Services 배포와 동일한 Azure AD 테넌트가 연결되어 있는 경우 동일한 Azure AD 자격 증명을 사용하여 Azure Files에 액세스할 수 있습니다. 제한 사항은 연결된 Azure AD 테넌트가 아닌 구독에만 적용됩니다.    
     
 * <a id="ad-support-subscription"></a>
-**파일 공유가 연결된 기본 테넌트와는 다른 Azure AD 테넌트를 사용하여 Azure Files에 대한 SMB를 통한 Azure AD 인증을 사용하도록 설정할 수 있나요?**
+**파일 공유와 연결 된 기본 테 넌 트와 다른 Azure AD 테 넌 트를 사용 하 여 Azure AD DS 인증 Azure Files을 사용 하도록 설정할 수 있나요?**
 
-    아니요. Azure Files는 파일 공유와 동일한 구독에 있는 Azure AD 테넌트와의 Azure AD 통합만 지원합니다. 하나의 구독만 Azure AD 테넌트와 연결할 수 있습니다.
+    아니요, Azure Files는 azure AD 테 넌 트와 파일 공유와 동일한 구독에 있는 azure AD DS 통합만 지원 합니다. 하나의 구독만 Azure AD 테넌트와 연결할 수 있습니다.
 
 * <a id="ad-linux-vms"></a>
-**Azure Files(미리 보기)에 대한 SMB를 통한 Azure AD 인증은 Linux VM을 지원하나요?**
+**Azure AD DS 인증 Azure Files Linux Vm을 지원 하나요?**
 
-    아니요. 미리 보기 릴리스에서는 Linux VM의 인증을 지원하지 않습니다.
+    아니요, Linux Vm에서의 인증은 지원 되지 않습니다.
 
 * <a id="ad-aad-smb-afs"></a>
-**Azure 파일 동기화에서 관리되는 파일 공유에서 SMB 기능을 통한 Azure AD 인증을 이용할 수 있나요?**
+**Azure File Sync에서 관리 하는 파일 공유에서 Azure AD DS 인증 Azure Files 활용할 수 있나요?**
 
     아니요. Azure Files는 Azure 파일 동기화에서 관리되는 파일 공유에서 NTFS ACL 보존을 지원하지 않습니다. 온-프레미스 파일 서버에서 수행된 파일 ACL은 Azure 파일 동기화를 통해 지속됩니다. Azure Files에 대해 기본적으로 구성된 NTFS ACL은 Azure 파일 동기화 서비스가 덮어씁니다. 또한 Azure Files는 Azure 파일 동기화 서비스에서 관리되는 파일 공유에 액세스하기 위한 Azure AD 자격 증명을 통한 인증을 지원하지 않습니다.
 
@@ -289,7 +281,7 @@ ms.locfileid: "68704478"
     표준 트랜잭션 및 표준 저장소 비용이 스냅샷에 적용됩니다. 스냅샷은 기본적으로 증분식입니다. 기본 스냅샷은 공유 자체입니다. 모든 후속 스냅샷은 증분이며, 이전 스냅샷과의 차이만 저장합니다. 즉, 청구서에 표시되는 델타 변경 내용은 워크로드 변동이 적은 경우 최소화됩니다. 표준 Azure 파일 가격 정보는 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/files/)를 참조하세요. 현재 공유 스냅샷으로 소비되는 크기를 보는 방법은 청구된 용량과 사용된 용량을 비교하는 것입니다. 보고를 개선하기 위한 도구를 개발 중입니다.
 
 * <a id="ntfs-acls-snaphsots"></a>
-**디렉터리 및 파일에 대한 NTFS ACL은 공유 스냅샷에서 지속되나요?**
+**디렉터리 및 파일에 대한 NTFS ACL은 공유 스냅샷에서 지속되나요?**  
     디렉터리 및 파일에 대한 NTFS ACL은 공유 스냅샷에서 지속됩니다.
 
 ### <a name="create-share-snapshots"></a>공유 스냅샷 만들기

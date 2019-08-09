@@ -1,19 +1,19 @@
 ---
 title: Azure Data Lake Storage Gen2와 관련된 데이터 시나리오 | Microsoft Docs
 description: Data Lake Storage Gen2(이전의 Azure Data Lake Store)에서 수집, 처리, 다운로드 및 시각화될 수 있는 데이터를 사용하는 다양한 시나리오와 도구를 알아봅니다.
-services: storage
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: normesta
-ms.openlocfilehash: 010b7bc38caf83c12dd0d8b8e731fdbad6e45256
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.reviewer: stewu
+ms.openlocfilehash: cafe761d2b566a7bddce503765c11bf9f8e00f2a
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68422870"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847448"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>빅 데이터 요구 사항을 위한 Azure Data Lake Storage Gen2 사용
 

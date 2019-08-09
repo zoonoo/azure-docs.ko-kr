@@ -16,14 +16,14 @@ ms.workload: identity
 ms.date: 04/05/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, sureshja, hirsin
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7883c32e60a09c6fdfc4146c30472cfcdb57b689
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: cedfead26bd2a82792729853a2b8d038278b75f6
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835174"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853292"
 ---
 # <a name="what-is-authentication"></a>인증이란?
 
@@ -62,7 +62,7 @@ ID가 필요한 가장 기본적인 시나리오를 가정하겠습니다. 예�
 
 이제 기본 사항을 간략히 살펴보았으므로 ID 앱 모델 및 API 이해, Microsoft ID 플랫폼에서 프로비전이 작동하는 방법 및 Microsoft ID 플랫폼에서 지원하는 일반적인 시나리오에 대한 자세한 정보 링크를 살펴보세요.
 
-## <a name="application-model"></a>애플리케이션 모델
+## <a name="application-model"></a>응용 프로그램 모델
 
 Microsoft ID 플랫폼은 두 가지 주요 기능을 충족하도록 설계된 특정 모델을 따르는 애플리케이션을 나타냅니다.
 
@@ -106,20 +106,20 @@ Microsoft ID 플랫폼에서 발급하는 보안 토큰(액세스 및 ID 토큰)
 
 아래 표에서는 Microsoft ID 플랫폼에서 내보내는 각 클레임 유형에 대해 간략하게 설명합니다. 자세한 내용은 Microsoft ID 플랫폼에서 발급한 [액세스 토큰](access-tokens.md) 및 [ID 토큰](id-tokens.md)을 참조하세요.
 
-| 클레임 | 설명 |
+| 클레임 | Description |
 | --- | --- |
-| 애플리케이션 UI | 토큰을 사용 중인 애플리케이션을 식별합니다. |
-| 대상 | 토큰의 의도된 받는 사람 리소스를 식별합니다. |
+| 애플리케이션 ID | 토큰을 사용 중인 애플리케이션을 식별합니다. |
+| 대상 사용자 | 토큰의 의도된 받는 사람 리소스를 식별합니다. |
 | 애플리케이션 인증 컨텍스트 클래스 참조 | 클라이언트가 인증된 방법을 나타냅니다(공용 클라이언트 또는 기밀 클라이언트). |
 | 인증 인스턴트 | 인증이 발생한 날짜 및 시간을 기록합니다. |
 | 인증 방법 | 토큰의 주체가 인증된 방법을 나타냅니다(예: 암호, 인증서 등). |
-| 이름 | Azure AD에서 설정된 사용자 이름을 제공합니다. |
+| First Name | Azure AD에서 설정된 사용자 이름을 제공합니다. |
 | 그룹 | 사용자가 속한 Azure AD 그룹의 개체 ID를 포함합니다. |
 | ID 공급자 | 토큰의 주체를 인증한 ID 공급자를 기록합니다. |
 | 발급 시간 | 토큰이 발급된 시간을 기록합니다. 종종 토큰 새로 고침에 사용됩니다. |
 | 발급자 | 토큰을 내보낸 STS 및 Azure AD 테넌트를 식별합니다. |
-| 성 | Azure AD에서 설정된 사용자 성을 제공합니다. |
-| Name | 토큰의 주체를 식별하는, 사람이 인식할 수 있는 값을 제공합니다. |
+| Last Name | Azure AD에서 설정된 사용자 성을 제공합니다. |
+| 이름 | 토큰의 주체를 식별하는, 사람이 인식할 수 있는 값을 제공합니다. |
 | 개체 ID | Azure AD의 주체에 대한 변경 불가능한 고유 식별자를 포함합니다. |
 | 역할 | 사용자에게 부여된 Azure AD 애플리케이션 역할의 이름을 포함합니다. |
 | 범위 | 클라이언트 애플리케이션에 부여된 권한을 나타냅니다. |

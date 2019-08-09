@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/11/2019
-ms.openlocfilehash: f51c6bdc6cb2e381d5d5b855bf2f87b07d7fc180
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 0025f488f6a9b0af4e05a8bdf3ddf36c089d4d9f
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638432"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856115"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-image"></a>사용자 지정 Docker 이미지를 사용 하 여 모델 배포
 
@@ -40,8 +40,8 @@ Azure Machine Learning 서비스는 기본 Docker 이미지를 제공 하므로 
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* Azure Machine Learning 서비스 작업 그룹입니다. 자세한 내용은 [작업 영역 만들기](setup-create-workspace.md) 문서를 참조 하세요.
-* Azure Machine Learning SDK입니다. 자세한 내용은 [작업 영역 만들기](setup-create-workspace.md#sdk) 문서의 Python SDK 섹션을 참조 하세요.
+* Azure Machine Learning 서비스 작업 그룹입니다. 자세한 내용은 [작업 영역 만들기](how-to-manage-workspace.md) 문서를 참조 하세요.
+* [AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)입니다. 
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * [Azure Machine Learning에 대 한 CLI 확장](reference-azure-machine-learning-cli.md)입니다.
 * 인터넷에서 액세스할 수 있는 [Azure Container Registry](/azure/container-registry) 또는 기타 Docker 레지스트리
@@ -176,7 +176,7 @@ Azure Container Registry에 기존 이미지를 업로드 하는 방법에 대 �
 
 Microsoft는 공개적으로 액세스할 수 있는 리포지토리에 여러 docker 이미지를 제공 하며,이는이 섹션의 단계에서 사용할 수 있습니다.
 
-| 이미지 | 설명 |
+| 이미지 | Description |
 | ----- | ----- |
 | `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` | Azure Machine Learning 서비스에 대 한 기본 이미지 |
 | `mcr.microsoft.com/azureml/onnxruntime:v0.4.0` | ONNX 런타임을 포함 합니다. |

@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 07/08/2019
-ms.openlocfilehash: 9852ec450b6da3814a3bd2bfc6aae7d19acaf584
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: c5484c37d89cc9ae880bbe17987bb47f3114b8a4
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68370394"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847888"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>AKS (Azure Kubernetes Service)에 배포 된 모델에서 데이터 드리프트 (미리 보기) 검색
 
@@ -46,12 +46,14 @@ Azure Machine Learning 서비스를 사용 하 여 AKS에 배포 된 모델에 �
 
 - Azure 구독. 계정이 없는 경우 시작 하기 전에 무료 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 지금 사용해 보세요.
 
-- Azure Machine Learning 서비스 작업 영역 및 Python용 Azure Machine Learning SDK가 설치되어 있어야 합니다. [Azure Machine Learning Service 작업 영역 만들기](setup-create-workspace.md#sdk)의 지침에 따라 다음 작업을 수행합니다.
+- Python 용 Azure Machine Learning SDK가 설치 되어 있습니다. [AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) 의 지침을 사용 하 여 다음을 수행할 수 있습니다.
 
     - Miniconda 환경 만들기
     - Python용 Azure Machine Learning SDK 설치
-    - 작업 영역 만들기
-    - 작업 영역 구성 파일 (aml_config/.config)을 작성 합니다.
+
+- [Azure Machine Learning 서비스 작업 영역](how-to-manage-workspace.md)입니다.
+
+- 작업 영역 [구성 파일](how-to-configure-environment.md#workspace)입니다.
 
 - 다음 명령을 사용 하 여 데이터 드리프트 SDK를 설치 합니다.
 
@@ -120,7 +122,7 @@ RunDetails(dd_run).show()
 DataDriftDetector 실행을 제출한 후에는 데이터 드리프트 태스크에 대 한 각 실행 반복에 저장 된 드리프트 메트릭을 볼 수 있습니다.
 
 
-|메트릭|설명|
+|메트릭|Description|
 --|--|
 wasserstein_distance|1 차원 숫자 분포에 대해 정의 된 통계 거리입니다.|
 energy_distance|1 차원 숫자 분포에 대해 정의 된 통계 거리입니다.|
@@ -195,6 +197,6 @@ old_training_dataset.diff(new_training_dataset)
 
 ## <a name="next-steps"></a>다음 단계
 
-* 데이터 드리프트 사용에 대 한 전체 예제는 [AZURE ML 데이터 드리프트 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/data-drift/azure-ml-datadrift.ipynb)을 참조 하세요. 이 Jupyter Notebook는 [Azure Open 데이터 집합](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets) 을 사용 하 여 날씨를 예측 하 고, AKS에 배포 하 고, 데이터 드리프트를 모니터링 하는 모델을 학습 하는 방법을 보여 줍니다. 
+* 데이터 드리프트 사용에 대 한 전체 예제는 [AZURE ML 데이터 드리프트 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/monitor-models/data-drift/azure-ml-datadrift.ipynb)을 참조 하세요. 이 Jupyter Notebook는 [Azure Open 데이터 집합](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets) 을 사용 하 여 날씨를 예측 하 고, AKS에 배포 하 고, 데이터 드리프트를 모니터링 하는 모델을 학습 하는 방법을 보여 줍니다. 
 
 * 데이터 드리프트가 일반 공급으로 전환 될 때 질문, 설명 또는 제안을 크게 감사 합니다. 아래의 제품 사용자 의견 단추를 사용 하세요. 

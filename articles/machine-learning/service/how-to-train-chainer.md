@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.reviewer: sdgilley
 ms.date: 08/02/2019
-ms.openlocfilehash: f95a7efd8b9303db0a9ba98c1be32e13d0c5e984
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 91ac8b596373963aeba00c1932dfde5d76f27bd0
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780878"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856038"
 ---
 # <a name="train-and-register-chainer-models-at-scale-with-azure-machine-learning-service"></a>Azure Machine Learning 서비스를 사용 하 여 대규모로 체 이너 모델 학습 및 등록
 
@@ -27,7 +27,7 @@ ms.locfileid: "68780878"
 
 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 지금 사용해 보세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 이러한 환경 중 하나에서이 코드를 실행 합니다.
 
@@ -38,9 +38,9 @@ Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다.
 
 - 사용자 고유의 Jupyter Notebook 서버
 
-    - [Python 용 Azure Machine Learning SDK 설치](setup-create-workspace.md#sdk)
-    - [작업 영역 구성 파일 만들기](setup-create-workspace.md#write-a-configuration-file)
-    - 샘플 스크립트 파일 [chainer_mnist. py를 다운로드 합니다.](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-chainer/chainer_mnist.py)
+    - [AZURE MACHINE LEARNING SDK를 설치](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)합니다.
+    - [작업 영역 구성 파일을 만듭니다](how-to-configure-environment.md#workspace).
+    - 샘플 스크립트 파일 [chainer_mnist. py](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-chainer/chainer_mnist.py)를 다운로드 합니다.
      - GitHub 샘플 페이지에서이 가이드의 전체 [Jupyter Notebook 버전](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-chainer/train-hyperparameter-tune-deploy-with-chainer.ipynb) 을 찾을 수도 있습니다. 노트북에는 지능형 하이퍼 매개 변수 튜닝, 모델 배포 및 노트북 위젯을 다루는 확장 된 섹션이 포함 되어 있습니다.
 
 ## <a name="set-up-the-experiment"></a>실험 설정

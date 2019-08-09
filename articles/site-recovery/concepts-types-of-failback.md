@@ -1,21 +1,20 @@
 ---
 title: Azure Site Recovery를 사용하여 재해 복구 중 장애 복구(failback) | Microsoft Docs
 description: 이 문서에서는 Azure Site Recovery 서비스를 사용하여 재해 복구 중 온-프레미스로 장애 복구(failback)하는 동안 고려해야 할 주의 사항과 다양한 장애 복구(failback) 유형에 대해 간략하게 설명합니다.
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/19/2019
+ms.date: 08/07/2019
 ms.author: raynew
-ms.openlocfilehash: 1e5dc91018df822c72381e4a162c5af5d74ed83c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c0eaf28f9aeb4050fd35a6036a53e3e91d00f3eb
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399481"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847480"
 ---
-# <a name="failback-after-disaster-recovery-of-vmware-vms"></a>VMware Vm의 재해 복구 후 장애 복구
+# <a name="failback-of-vmware-vms-after-disaster-recovery-to-azure"></a>Azure로 재해 복구 후 VMware Vm 장애 복구 (Failback)
 
 재해 복구 프로세스의 일부로 Azure로 장애 조치(failover)한 후 온-프레미스 사이트로 장애 복구(failback)할 수 있습니다. Azure Site Recovery에서 가능한 두 가지 유형의 장애 복구(failback)가 있습니다. 
 
@@ -25,7 +24,7 @@ ms.locfileid: "66399481"
 VMware 가상 머신을 장애 조치했는데 원본 온-프레미스 가상 머신이 여전히 남아 있는 경우 동일한 원본 온-프레미스 가상 머신으로 장애 복구할 수 있습니다. 이 시나리오에서는 변경 내용만 다시 복제됩니다. 이 시나리오를 **원래 위치 복구**라고 합니다. 온-프레미스 가상 머신이 없는 경우에는 **대체 위치 복구** 시나리오라고 합니다.
 
 > [!NOTE]
-> 원래 vCenter 및 구성 서버에 다시만 조치할 수 있습니다. 새 구성 서버를 배포한 후 이 서버를 사용하여 장애 복구(failback)할 수 없습니다. 기존 구성 서버에 새 vCenter를 추가한 후 새 vCenter로 장애 복구(failback)할 수도 없습니다.
+> 원래 vCenter 및 구성 서버로만 장애 복구 (failback) 할 수 있습니다. 새 구성 서버를 배포한 후 이 서버를 사용하여 장애 복구(failback)할 수 없습니다. 기존 구성 서버에 새 vCenter를 추가한 후 새 vCenter로 장애 복구(failback)할 수도 없습니다.
 
 ## <a name="original-location-recovery-olr"></a>OLR(원래 위치 복구)
 원래 가상 머신으로 장애 복구(failback)하도록 선택하는 경우 다음 조건을 충족해야 합니다.

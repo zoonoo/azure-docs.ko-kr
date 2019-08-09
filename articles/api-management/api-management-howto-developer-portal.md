@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2019
 ms.author: apimpm
-ms.openlocfilehash: 2756444db010e23f7114e99f474de9ce6614aaee
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 27d5dcc99db040036ba296911aa33d8a312bb23f
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68837912"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851518"
 ---
 # <a name="access-and-customize-the-new-developer-portal-in-azure-api-management"></a>Azure API Management에서 새 개발자 포털 액세스 및 사용자 지정
 
@@ -95,10 +95,6 @@ API Management DevOps resource kit를 사용 하 여이 프로세스를 정렬 �
 ### <a name="why-doesnt-the-interactive-developer-console-work"></a>대화형 개발자 콘솔이 작동 하지 않는 이유는 무엇 인가요?
 
 CORS와 관련 된 것일 수 있습니다. 대화형 콘솔은 브라우저에서 클라이언트 쪽 API 요청을 만듭니다. API에 [cors 정책을](https://docs.microsoft.com/azure/api-management/api-management-cross-domain-policies#CORS) 추가 하 여 cors 문제를 해결할 수 있습니다. 모든 매개 변수를 수동으로 지정할 수 있습니다 (예: 다른 이름으로 https://contoso.com) 원본 사용 또는 와일드 `*` 카드 값 사용).
-
-### <a name="where-can-i-file-bugs"></a>어디에서 버그를 파일에 저장할 수 있나요?
-
-[GitHub 리포지토리에서](http://aka.ms/apimdevportal).
 
 ## <a name="next-steps"></a>다음 단계
 

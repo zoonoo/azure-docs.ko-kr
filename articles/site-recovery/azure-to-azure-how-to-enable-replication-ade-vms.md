@@ -8,19 +8,19 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 5e5ae11a00b2a3656deceeeaf928536238a325fc
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: f00ad898ea45700b75607f89bc2c8e71288357c2
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840640"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847561"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Azure Disk Encryption 사용 가능한 가상 컴퓨터를 다른 Azure 지역에 복제
 
 이 문서에서는 한 Azure 지역에서 다른 Azure 지역으로 Azure Disk Encryption 사용 가능한 Vm을 복제 하는 방법을 설명 합니다.
 
 >[!NOTE]
->현재 Azure Site Recovery는 Windows OS를 실행 하는 Azure Vm만 지원 합니다.
+>현재 Azure Site Recovery는 Windows OS를 실행 하는 Azure Disk Encryption 지원 Vm만 지원 합니다.
 
 ## <a id="required-user-permissions"></a>필요한 사용자 권한
 Site Recovery를 사용 하려면 사용자에 게 대상 지역에서 키 자격 증명 모음을 만들고 원본 지역 key vault에서 대상 지역 key vault로 키를 복사할 수 있는 권한이 있어야 합니다.

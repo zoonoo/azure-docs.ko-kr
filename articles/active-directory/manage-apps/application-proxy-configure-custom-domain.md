@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d721e750ddb77ba293643ad978cecf4bd2dbac0
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 82b8dcfa02d21183a06fa510adb774338e72cb4e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618817"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851718"
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시에서 사용자 지정 도메인 작업
 
@@ -36,7 +36,7 @@ Azure Active Directory 애플리케이션 프록시를 통해 애플리케이션
 
 ## <a name="configure-a-custom-domain"></a>사용자 지정 도메인 구성
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>필수 구성 요소
 
 사용자 지정 도메인을 구성하기 전에 다음 요구 사항이 준비되어 있는지 확인합니다. 
 - [Azure Active Directory에 추가된 확인된 도메인](../fundamentals/add-custom-domain.md).
@@ -87,7 +87,7 @@ Azure Active Directory 애플리케이션 프록시를 통해 애플리케이션
 
 ## <a name="next-steps"></a>다음 단계
 * Azure AD 인증을 사용하여 게시된 앱에 대해 [Single Sign-On 사용](application-proxy-configure-single-sign-on-with-kcd.md)
-* 게시 된 앱에 대 한 [조건부 액세스를 사용 하도록 설정](application-proxy-integrate-with-sharepoint-server.md) 합니다.
+* 게시 된 앱에 대 한 [조건부 액세스를 사용 하도록 설정](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/technical-reference#cloud-apps-assignments) 합니다.
 * [Azure AD에 사용자 지정 도메인 이름 추가](../fundamentals/add-custom-domain.md)
 
 

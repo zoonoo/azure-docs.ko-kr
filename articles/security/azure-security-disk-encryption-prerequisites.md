@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 423fad943190232d9e5e674b98b62f4f0dffb8ae
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 2f7ad49fc56fc82955f79155838c69ff714aba2f
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728760"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845867"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Azure Disk Encryption 필수 구성 요소
 
@@ -28,7 +28,7 @@ ms.locfileid: "68728760"
 
 ## <a name="supported-vm-sizes"></a>지원되는 VM 크기
 
-이러한 최소 메모리 요구 사항을 충족 하는 가상 컴퓨터에서 Azure Disk Encryption를 사용할 수 있습니다.
+Azure Disk Encryption는 [기본, A 시리즈 vm](/pricing/details/virtual-machines/series/)에서 사용할 수 없습니다. Azure Disk Encryption는 다음과 같은 최소 메모리 요구 사항을 충족 하는 다른 가상 머신에서 사용할 수 있습니다.
 
 | 가상 머신 | 최소 메모리 요구 사항 |
 |--|--|

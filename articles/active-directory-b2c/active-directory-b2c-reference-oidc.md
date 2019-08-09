@@ -11,12 +11,12 @@ ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: c5626e2ddfc24eeaeed562f3eaf73d16626eb458
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 6b5157a71ce15d4dfd199b6826be22235e61df97
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278030"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848540"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 OpenID Connect로 웹 로그인
 
@@ -32,7 +32,7 @@ Azure AD B2C는 단순한 인증 및 권한 부여 보다 더 많은 작업으�
 
 웹 응용 프로그램이 사용자를 인증 하 고 사용자 흐름을 실행 해야 하는 경우 사용자를 `/authorize` 끝점으로 보낼 수 있습니다. 사용자가 사용자 흐름에 따라 동작을 수행 합니다.
 
-이 요청에서 클라이언트는 매개 변수에서 `scope` 사용자 로부터 획득 해야 하는 사용 권한과 `p` 매개 변수에서 실행할 사용자 흐름이 표시 됩니다. 각각 서로 다른 사용자 흐름을 사용하는 세 가지 예제가 다음 섹션에서 제공됩니다(쉽게 읽을 수 있도록 줄 바꿈 적용). 각 요청의 작동 방식에 대해 이해하려면 요청을 브라우저에 붙여 넣고 실행합니다. 가 있고 사용자 `fabrikamb2c` 흐름을 만든 테 넌 트의 이름으로 바꿀 수 있습니다.
+이 요청에서 클라이언트는 매개 변수에서 `scope` 사용자 로부터 획득 해야 하는 사용 권한과 `p` 매개 변수에서 실행할 사용자 흐름이 표시 됩니다. 각각 서로 다른 사용자 흐름을 사용하는 세 가지 예제가 다음 섹션에서 제공됩니다(쉽게 읽을 수 있도록 줄 바꿈 적용). 각 요청의 작동 방식에 대해 이해하려면 요청을 브라우저에 붙여 넣고 실행합니다. 가 있고 사용자 `fabrikamb2c` 흐름을 만든 테 넌 트의 이름으로 바꿀 수 있습니다. 또한을 (를) 대체 `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6`해야 합니다. 이 클라이언트 ID를 만든 응용 프로그램 등록의 앱 ID로 바꿉니다. 또한 테 넌 트에 `b2c_1_sign_in` 있는 정책 이름으로 정책 이름을 변경 합니다. 
 
 #### <a name="use-a-sign-in-user-flow"></a>로그인 사용자 흐름 사용
 ```
@@ -115,7 +115,7 @@ error=access_denied
 
 | 매개 변수 | Description |
 | --------- | ----------- |
-| error | 발생 한 오류 유형을 분류 하는 데 사용할 수 있는 코드입니다. |
+| 오류 | 발생 한 오류 유형을 분류 하는 데 사용할 수 있는 코드입니다. |
 | error_description | 인증 오류의 근본 원인을 식별 하는 데 도움이 될 수 있는 특정 오류 메시지입니다. |
 | state | 요청에 `state` 매개 변수가 포함되어 있으면 동일한 값이 응답에도 나타나야 합니다. 응용 프로그램은 요청 및 응답 `state` 의 값이 동일한 지 확인 해야 합니다. |
 
@@ -167,7 +167,7 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob&client_secret=<your-application-secret>
 ```
 
-| 매개 변수 | 필수 | Description |
+| 매개 변수 | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | p | 예 | 권한 부여 코드를 획득하는 데 사용된 사용자 흐름입니다. 이 요청에서는 다른 사용자 흐름을 사용할 수 없습니다. 이 매개 변수를 POST 본문이 아니라 쿼리 문자열에 추가 합니다. |
 | client_id | 예 | [Azure Portal](https://portal.azure.com/) 응용 프로그램에 할당 된 응용 프로그램 ID입니다. |
@@ -189,7 +189,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
     "refresh_token": "AAQfQmvuDy8WtUv-sd0TBwWVQs1rC-Lfxa_NDkLqpg50Cxp5Dxj0VPF1mx2Z...",
 }
 ```
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | --------- | ----------- |
 | not_before | epoch 시간에서 토큰은 유효한 것으로 간주되는 시간입니다. |
 | token_type | 토큰 형식 값입니다. `Bearer`는 유일 하 게 지원 되는 유형입니다. |
@@ -207,9 +207,9 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 }
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | --------- | ----------- |
-| error | 발생 한 오류 유형을 분류 하는 데 사용할 수 있는 코드입니다. |
+| 오류 | 발생 한 오류 유형을 분류 하는 데 사용할 수 있는 코드입니다. |
 | error_description | 인증 오류의 근본 원인을 식별 하는 데 도움이 될 수 있는 메시지입니다. |
 
 ## <a name="use-the-token"></a>토큰 사용
@@ -256,7 +256,7 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
     "refresh_token": "AAQfQmvuDy8WtUv-sd0TBwWVQs1rC-Lfxa_NDkLqpg50Cxp5Dxj0VPF1mx2Z...",
 }
 ```
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | --------- | ----------- |
 | not_before | epoch 시간에서 토큰은 유효한 것으로 간주되는 시간입니다. |
 | token_type | 토큰 형식 값입니다. `Bearer`는 유일 하 게 지원 되는 유형입니다. |
@@ -276,7 +276,7 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
 
 | 매개 변수 | Description |
 | --------- | ----------- |
-| error | 발생 한 오류 유형을 분류 하는 데 사용할 수 있는 코드입니다. |
+| 오류 | 발생 한 오류 유형을 분류 하는 데 사용할 수 있는 코드입니다. |
 | error_description | 인증 오류의 근본 원인을 식별 하는 데 도움이 될 수 있는 메시지입니다. |
 
 ## <a name="send-a-sign-out-request"></a>로그아웃 요청 보내기
@@ -291,7 +291,7 @@ p=b2c_1_sign_in
 &post_logout_redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
 ```
 
-| 매개 변수 | 필수 | 설명 |
+| 매개 변수 | 필수 | Description |
 | --------- | -------- | ----------- |
 | p | 예 | 애플리케이션에서 사용자를 로그아웃하는 데 사용하려는 사용자 흐름입니다. |
 | post_logout_redirect_uri | 아니요 | 성공적으로 로그 아웃 한 후에 사용자가 리디렉션되는 URL입니다. 포함 되어 있지 않으면 Azure AD B2C 사용자에 게 일반 메시지를 표시 합니다. |

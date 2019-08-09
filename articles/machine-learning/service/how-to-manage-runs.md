@@ -11,12 +11,12 @@ author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/12/2019
-ms.openlocfilehash: a33ed7e5584e216fac07c5ad6b38d3754b9bca0f
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 701c266705c16198f35cddc36cdf1d431331c2d2
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868857"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847949"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Python에서 학습 실행 시작, 모니터링 및 취소
 
@@ -35,7 +35,7 @@ Python 및 [MACHINE LEARNING CLI](reference-azure-machine-learning-cli.md) [용 
 
 * Azure 구독. Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 지금 사용해 보세요.
 
-* [Azure Machine Learning 서비스 작업 영역](setup-create-workspace.md)입니다.
+* [Azure Machine Learning 서비스 작업 영역](how-to-manage-workspace.md)입니다.
 
 * Python 용 Azure Machine Learning SDK (버전 1.0.21 이상) 최신 버전의 SDK를 설치 하거나 업데이트 하려면 [Sdk 설치 또는 업데이트](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)를 참조 하세요.
 

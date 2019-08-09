@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 08/05/2019
-ms.openlocfilehash: 7c4c4ff611b35cac9aa8be1a9697a0d11bc4dc8b
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 9bd56984f088ab16fc5d80c588afce2cdc31240b
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815958"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848109"
 ---
 # <a name="securely-run-experiments-and-inference-inside-an-azure-virtual-network"></a>Azure virtual network 내에서 실험 및 유추를 안전 하 게 실행
 
@@ -27,7 +27,7 @@ Azure Machine Learning Service는 다른 Azure 서비스를 통해 컴퓨팅 리
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-아직 없는 경우 Azure Machine Learning 서비스 [작업 영역](setup-create-workspace.md) 을 만듭니다. 이 문서에서는 사용자가 Azure 가상 네트워크 및 일반적으로 IP 네트워킹에 대해 잘 알고 있다고 가정 합니다. 또한이 문서에서는 계산 리소스에 사용할 가상 네트워크 및 서브넷을 만들었다고 가정 합니다. Azure Virtual Network에 익숙하지 않은 경우 다음 문서를 참조 하 여 서비스에 대해 알아보세요.
+아직 없는 경우 Azure Machine Learning 서비스 [작업 영역](how-to-manage-workspace.md) 을 만듭니다. 이 문서에서는 사용자가 Azure 가상 네트워크 및 일반적으로 IP 네트워킹에 대해 잘 알고 있다고 가정 합니다. 또한이 문서에서는 계산 리소스에 사용할 가상 네트워크 및 서브넷을 만들었다고 가정 합니다. Azure Virtual Network에 익숙하지 않은 경우 다음 문서를 참조 하 여 서비스에 대해 알아보세요.
 
 * [IP 주소 지정](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm)
 * [보안 그룹](https://docs.microsoft.com/azure/virtual-network/security-overview)
@@ -36,7 +36,7 @@ Azure Machine Learning Service는 다른 Azure 서비스를 통해 컴퓨팅 리
 
 ## <a name="storage-account-for-your-workspace"></a>작업 영역에 대한 스토리지 계정
 
-가상 네트워크의 작업 영역에 대 한 기본 Azure Storage 계정을 사용 하려면 다음 단계를 사용 합니다.
+가상 네트워크의 작업 영역에 대 한 Azure Storage 계정을 사용 하려면 다음 단계를 사용 합니다.
 
 1. 실험 계산 예를 만듭니다. 가상 네트워크 뒤에 Machine Learning 컴퓨팅 실험 계산을 작업 영역에 연결 합니다 (예:). HDInsight 클러스터 또는 가상 컴퓨터. 자세한 내용은이 문서에서 [Machine Learning 컴퓨팅 사용](#use-machine-learning-compute) 및 [가상 컴퓨터 또는 HDInsight 클러스터 사용](#use-a-virtual-machine-or-hdinsight-cluster) 섹션을 참조 하세요.
 2. 작업 영역에 연결 된 저장소로 이동 합니다. ![Azure Machine Learning 서비스 작업 영역에 연결 된 Azure Storage를 보여 주는 Azure Portal 이미지](./media/how-to-enable-virtual-network/workspace-storage.png)
@@ -55,7 +55,9 @@ Azure Machine Learning Service는 다른 Azure 서비스를 통해 컴퓨팅 리
 > [!IMPORTANT]
 > Azure Machine Learning 서비스에 대 한 __기본 저장소 계정은__ __실험을 수행 하는 동안에만__가상 네트워크에 배치할 수 있습니다.
 >
-> __실험에 대 한 기본이 아닌 저장소__계정이 나 __유추__를 위해 저장소 계정을 사용 하는 경우 __저장소 계정에 대 한 무제한 액세스__권한이 있어야 합니다.
+> __기본이 아닌 저장소 계정은__ 가상 네트워크에 배치할 수도 있지만 __실험을 위해서만__사용할 수 있습니다.
+>
+> __유추__ 에 사용 되는 기본 또는 기본이 아닌 저장소 계정에는 __저장소 계정에 대 한 무제한 액세스__권한이 있어야 합니다.
 >
 > 관련 설정을 수정했는지 여부를 잘 모르는 경우 [Azure Storage 방화벽 및 가상 네트워크 구성](https://docs.microsoft.com/azure/storage/common/storage-network-security)에서 __기본 네트워크 액세스 규칙 변경__을 참조하세요. 유추 중에 모든 네트워크에서 액세스를 허용 하거나 모델 점수를 매기는 단계를 사용 합니다.
 

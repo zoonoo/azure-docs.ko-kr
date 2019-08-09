@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e139b274ab8a1f7d91d46ec56171b84db4f5025e
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: a4d692110a304cbfbbfda69bb2b10e3a065b2450
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812838"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851535"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 사용 권한
 
@@ -200,9 +200,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
   > [!NOTE]
   > Microsoft Graph API, Azure AD Graph API 및 Azure AD PowerShell에서 이 역할은 “Power BI 서비스 관리자”로 식별됩니다. [Azure Portal](https://portal.azure.com)에서 이 역할은 "Power BI 관리자"입니다.
 
-* **[권한 있는 인증 관리자](#privileged-authentication-administrator)** : 이 역할을 가진 사용자는 전역 관리자를 비롯 한 모든 사용자에 대해 암호 이외의 자격 증명을 설정 하거나 다시 설정할 수 있으며 모든 사용자에 대 한 암호를 업데이트할 수 있습니다. 권한 있는 인증 관리자는 사용자가 기존 비 암호 자격 증명 (예: MFA, FIDO)에 다시 등록 하 고 ' 장치에서 MFA 기억을 기억을 ' 하 여 모든 사용자의 다음 로그인에 MFA를 묻는 메시지를 표시 하도록 할 수 있습니다. 권한 있는 인증 관리자는 다음을 수행할 수 있습니다.
-  * 사용자가 기존의 암호 없는 자격 증명 (예: MFA, FIDO)에 다시 등록 하도록 합니다.
-  * 다음 로그인 시 MFA를 묻는 메시지를 표시 하 고 ' 장치에서 MFA를 잊지 마세요. '를 취소 합니다.
+* **[권한 있는 인증 관리자](#privileged-authentication-administrator)** : 이 역할을 가진 사용자는 전역 관리자를 비롯 한 모든 사용자에 대해 암호 이외의 자격 증명을 설정 하거나 다시 설정할 수 있으며 모든 사용자에 대 한 암호를 업데이트할 수 있습니다. 권한 있는 인증 관리자는 사용자가 기존 비 암호 자격 증명 (예: MFA, FIDO)에 다시 등록 하 고 ' 장치에서 MFA 기억을 기억을 ' 하 여 모든 사용자의 다음 로그인에 MFA를 묻는 메시지를 표시 하도록 할 수 있습니다.
 
 * **[권한 있는 역할 관리자](#privileged-role-administrator)** : 이 역할을 가진 사용자는 Azure Active Directory 및 Azure AD Privileged Identity Management에서 역할 할당을 관리할 수 있습니다. 또한이 역할을 통해 Privileged Identity Management 및 관리 단위의 모든 측면을 관리할 수 있습니다.
 
@@ -288,7 +286,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
   |<p>모든 관리자를 포함한 모든 사용자에게</p>|<p>라이선스 관리</p><p>사용자 계정 이름을 제외한 모든 사용자 속성 관리</p>
   |비관리자 또는 다음의 제한된 관리자 역할의 사용자에만 적용:<ul><li>디렉터리 읽기 권한자<li>게스트 초대자<li>기술 지원팀 관리자<li>메시지 센터 읽기 권한자<li>보고서 읽기 권한자<li>사용자 관리자|<p>삭제 및 복원</p><p>사용 안 함 및 사용</p><p>새로 고침 토큰 무효화</p><p>사용자 계정 이름을 포함한 모든 사용자 속성 관리</p><p>암호 다시 설정</p><p>(FIDO) 디바이스 키 업데이트</p>
   
-  <b>중요</b>: 이 역할의 사용자는 Azure Active Directory 내부 및 외부에 있는 중요한 프라이빗 정보 또는 중요한 구성에 대한 액세스 권한이 있을 수 있는 사용자의 암호를 변경할 수 있습니다. 사용자의 암호를 변경한다는 것은 사용자의 ID 및 권한을 가정할 수 있다는 것을 의미합니다. 예:
+  <b>중요</b>: 이 역할의 사용자는 Azure Active Directory 내부 및 외부에 있는 중요한 프라이빗 정보 또는 중요한 구성에 대한 액세스 권한이 있을 수 있는 사용자의 암호를 변경할 수 있습니다. 사용자의 암호를 변경한다는 것은 사용자의 ID 및 권한을 가정할 수 있다는 것을 의미합니다. 예를 들어:
   * 애플리케이션 등록 및 엔터프라이즈 애플리케이션 소유자: 소유한 앱의 자격 증명을 관리할 수 있습니다. 이러한 앱은 Azure AD에서 권한이 부여되었을 수 있으며, 다른 위치에서는 사용자 관리자에게 권한이 부여되지 않습니다. 이 경로를 통해 사용자 관리자는 애플리케이션 소유자의 ID를 가정하고, 애플리케이션의 자격 증명을 업데이트하여 권한 있는 애플리케이션의 ID를 추가로 가정할 수 있습니다.
   * Azure 구독 소유자: Azure에서 중요한 프라이빗 정보 또는 중요한 구성에 액세스할 수 있습니다.
   * 보안 그룹 및 Office 365 그룹 소유자: 그룹 멤버 자격을 관리할 수 있습니다. 해당 그룹은 중요한 프라이빗 정보 또는 Azure AD 및 다른 위치의 중요한 구성에 대한 액세스 권한을 부여할 수 있습니다.

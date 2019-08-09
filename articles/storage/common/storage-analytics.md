@@ -1,21 +1,19 @@
 ---
 title: Azure Storage 분석을 사용하여 로그 및 메트릭 데이터 수집 | Microsoft Docs
 description: 스토리지 분석을 사용하면 모든 Storage 서비스에 대한 메트릭 데이터를 추적하고 Blob, 큐 및 Table Storage에 대한 로그를 수집할 수 있습니다.
-services: storage
 author: normesta
 ms.service: storage
-ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/03/2017
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: e812bf03bf2adb852becf56954e7039aa3eb0633
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 04206a45a3322a1b0d28e3dfeed65225773e9038
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565905"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68844851"
 ---
 # <a name="storage-analytics"></a>저장소 분석
 

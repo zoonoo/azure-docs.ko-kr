@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: b993b34f81298b40c8849084380b2d1770708351
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 21fe92bf4a33dc44545f1bd54c718db6c0a38532
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66482340"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68843269"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Azure IaaS VM 디스크와 관리 및 관리되지 않는 프리미엄 디스크에 대한 질문과 대답
 
@@ -57,7 +57,7 @@ Managed Disks는 저장소 계정 관리를 처리하여 Azure IaaS VM을 위한
 
 Managed Disks는 저장소 계정과 관련된 한도를 없앱니다. 그러나 최대 한도는 하나의 구독에 대해 지역당 및 디스크 형식당 50,000개의 관리 디스크입니다.
 
-**관리 디스크의 증분 스냅숏을 가져올 수 있나요?**
+**관리 디스크의 증분 스냅샷을 가져올 수 있나요?**
 
 아니요. 현재 스냅샷 기능은 관리 디스크의 전체 복사본을 만듭니다.
 
@@ -89,7 +89,7 @@ Managed Disks에서는 세 가지 주요 기본 역할을 지원합니다.
 * Contributor: 액세스를 제외한 모든 것을 관리할 수 있음
 * 읽기 권한자: 모든 항목을 볼 수 있지만 변경할 수는 없음
 
-**개인 저장소 계정에 Managed Disk를 복사하거나 내보낼 수 있는 방법이 있나요?**
+**프라이빗 스토리지 계정에 Managed Disk를 복사하거나 내보낼 수 있는 방법이 있나요?**
 
 관리 디스크에 대한 읽기 전용 SAS(공유 액세스 서명) URI를 생성한 후 이를 사용하여 프라이빗 스토리지 계정 또는 온-프레미스 스토리지에 콘텐츠를 복사할 수 있습니다. Azure Portal, Azure PowerShell, Azure CLI 또는 [AzCopy](../articles/storage/common/storage-use-azcopy.md)에서 SAS URI를 사용할 수 있습니다.
 
@@ -105,7 +105,7 @@ Managed Disks에서는 세 가지 주요 기본 역할을 지원합니다.
 
 아니요.
 
-**128GB 디스크를 만들고 130 기가바이트로 (GiB) 하 고 크기를 늘립니다, 요금이 청구 다음 디스크 크기 (GiB 256)?**
+**128-GB 디스크를 만든 후이 크기를 130 gid bibytes (GiB)로 늘리는 경우 다음 디스크 크기 (256 GiB)에 대 한 요금이 청구 되나요?**
 
 예.
 
@@ -141,9 +141,9 @@ Azure Managed Disks에서는 현재 로컬 중복 저장소 Managed Disks만 지
 
 GPT 분할은 OS 디스크가 아닌 데이터 디스크에서만 사용할 수 있습니다. OS 디스크는 MBR 파티션 스타일을 사용해야 합니다.
 
-**디스크 유형의 스냅숏을 지원 하나요?**
+**스냅숏을 지 원하는 디스크 유형은 무엇입니까?**
 
-Premium SSD, 표준 SSD 및 HDD 표준 스냅숏을 지원합니다. 이러한 세 가지 디스크 유형의 스냅숏은 모든 디스크 크기 (32 TiB 최대 디스크 크기가 포함)에 대해 지원 됩니다. Ultra Ssd 스냅숏을 지원 하지 않습니다.
+프리미엄 SSD, 표준 SSD 및 표준 HDD 지원 스냅숏이 있습니다. 이러한 세 가지 디스크 유형에 대해 스냅숏은 모든 디스크 크기 (최대 32 TiB 크기의 디스크 포함)에 대해 지원 됩니다. Ultra Ssd는 스냅숏을 지원 하지 않습니다.
 
 ## <a name="standard-ssd-disks"></a>표준 SSD 디스크
 
@@ -183,7 +183,7 @@ Azure Resource Manager 템플릿, SDK, PowerShell 또는 CLI를 사용 하 여 �
 -AccountType StandardSSD_LRS
 
 **HDD 대신 표준 SSD 디스크를 사용할 경우의 이점은 무엇입니까?**
-표준 SSD 디스크 대기 시간, 일관성, 가용성 및 안정성 HDD 디스크에 비해 더 나은 제공 합니다. 따라서 애플리케이션 워크로드가 표준 SSD에서 훨씬 더 원활하게 실행됩니다. 프리미엄 SSD 디스크는 가장 IO 사용량이 많은 프로덕션 워크로드에 권장되는 솔루션입니다.
+표준 SSD 디스크는 HDD 디스크에 비해 더 나은 대기 시간, 일관성, 가용성 및 안정성을 제공 합니다. 따라서 애플리케이션 워크로드가 표준 SSD에서 훨씬 더 원활하게 실행됩니다. 프리미엄 SSD 디스크는 가장 IO 사용량이 많은 프로덕션 워크로드에 권장되는 솔루션입니다.
 
 **표준 SSD를 관리되지 않는 디스크로 사용할 수 있나요?**
 아니요. 표준 SSD 디스크는 Managed Disks로만 사용할 수 있습니다.
@@ -195,7 +195,7 @@ Azure Resource Manager 템플릿, SDK, PowerShell 또는 CLI를 사용 하 여 �
 
 **마이그레이션이 Managed Disks 성능에 영향을 주나요?**
 
-마이그레이션에는 스토리지 위치 간 디스크 이동이 포함됩니다. 이 24 미만 일반적으로 완료 하는 데 몇 시간이 걸릴 수 있는 데이터의 배경 복사본을 통해 조정 디스크에서 데이터의 양에 따라 시간입니다. 이 기간 동안 일부 읽기가 원래 위치로 리디렉션될 수 있어 완료하는 데 더 오래 걸릴 수 있으므로 애플리케이션의 읽기 대기 시간이 일반적인 읽기 대기 시간보다 길어질 수 있습니다. 이 기간 동안 쓰기 대기 시간에는 영향이 없습니다.  
+마이그레이션에는 스토리지 위치 간 디스크 이동이 포함됩니다. 데이터의 배경 복사를 통해 오케스트레이션, 일반적으로 디스크의 데이터 양에 따라 24 시간 이내에 완료 하는 데 몇 시간이 걸릴 수 있습니다. 이 기간 동안 일부 읽기가 원래 위치로 리디렉션될 수 있어 완료하는 데 더 오래 걸릴 수 있으므로 애플리케이션의 읽기 대기 시간이 일반적인 읽기 대기 시간보다 길어질 수 있습니다. 이 기간 동안 쓰기 대기 시간에는 영향이 없습니다.  
 
 **Managed Disks로 마이그레이션하기 전/후에 기존 Azure Backup 서비스 구성에 어떤 변경이 필요한가요?**
 
@@ -209,11 +209,11 @@ Azure Resource Manager 템플릿, SDK, PowerShell 또는 CLI를 사용 하 여 �
 
 변경할 필요가 없습니다.
 
-**기존 가상 머신 확장의 자동화 된 마이그레이션 설정 되어 관리 되지 않는 디스크에서 지원 되는 Managed Disks로 있습니까?**
+**관리 되지 않는 디스크에서 Managed Disks 지원 되는 기존 가상 컴퓨터 확장 집합의 자동 마이그레이션이 지원 되나요?**
 
 아니요. 관리되지 않는 디스크에서 이전 확장 집합의 이미지를 사용하여 Managed Disks로 새 확장 집합을 만들 수 있습니다.
 
-**Managed Disks로 마이그레이션하기 전에 페이지 Blob 스냅숏에서 Managed Disks를 만들 수 있나요?**
+**Managed Disks로 마이그레이션하기 전에 페이지 Blob 스냅샷에서 Managed Disks를 만들 수 있나요?**
 
 아니요. 페이지 blob 스냅샷을 페이지 blob으로 내보내고 내보낸 페이지 blob에서 Managed Disks를 만들 수 있습니다.
 
@@ -223,7 +223,7 @@ Azure Resource Manager 템플릿, SDK, PowerShell 또는 CLI를 사용 하 여 �
 
 **마이그레이션을 수행할 경우 Azure 간 복제를 통해 Azure Site Recovery에 의해 보호되는 Azure VM에 영향을 미치나요?**
 
-예. 현재 Azure 사이트 복구 Azure Managed Disks를 사용 하 여 Vm에 대 한 Azure 보호에는 GA 서비스로 사용할 수 있습니다.
+아니요. Managed Disks를 사용 하는 Vm에 대해 Azure와 Azure 간 보호를 Azure Site Recovery 합니다.
 
 **Managed Disks에 이전에 암호화된 저장소 계정에 있는 관리되지 않는 디스크가 있는 VM을 마이그레이션할 수 있나요?**
 
@@ -258,7 +258,7 @@ Azure Portal, Azure CLI 및 PowerShell에서 Managed Disk를 만든 시간을 �
 * [Azure CLI를 사용하여 Managed Disks 복사](../articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json)
 * [PowerShell을 사용하여 Managed Disks 복사](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json)
 
-**관리되는 스냅숏 및 이미지가 암호화되나요?**
+**관리되는 스냅샷 및 이미지가 암호화되나요?**
 
 예. 2017년 6월 9일 이후에 만든 모든 관리되는 스냅샷 및 이미지는 자동으로 암호화됩니다. 
 
@@ -266,7 +266,7 @@ Azure Portal, Azure CLI 및 PowerShell에서 Managed Disk를 만든 시간을 �
 
 예
 
-**Managed Disk 또는 스냅숏에서 내보낸 VHD도 암호화되나요?**
+**Managed Disk 또는 스냅샷에서 내보낸 VHD도 암호화되나요?**
 
 아니요. 하지만 암호화된 Managed Disk 또는 스냅샷의 암호화된 저장소 계정에 VHD를 내보낼 경우 암호화됩니다. 
 
@@ -304,7 +304,7 @@ DS 시리즈의 캐시 및 로컬 SSD에 대한 결합 제한은 코어당 4,000
 
 **운영 체제 및 데이터 디스크에 지원되는 가장 큰 관리 디스크 크기는 어떻게 되나요?**
 
-Azure에서 운영 체제 디스크에 지원하는 파티션 형식은 MBR(마스터 부트 레코드)입니다. MBR 형식은 최대 2TiB의 디스크 크기를 지원합니다. Azure에서 운영 체제 디스크에 지원하는 최대 크기는 2TiB입니다. Azure는 글로벌 Azure, Azure sovereign cloud에서 4 TiB의에서 관리 되는 데이터 디스크에 대 한 32 TiB까지 지원합니다.
+Azure에서 운영 체제 디스크에 지원하는 파티션 형식은 MBR(마스터 부트 레코드)입니다. MBR 형식은 최대 2TiB의 디스크 크기를 지원합니다. Azure에서 운영 체제 디스크에 지원하는 최대 크기는 2TiB입니다. Azure는 Azure 소 버린 클라우드의 글로벌 Azure, 4 TiB에서 관리 되는 데이터 디스크에 대해 최대 32 TiB을 지원 합니다.
 
 **운영 체제 및 데이터 디스크에 지원되는 가장 큰 관리되지 않는 디스크 크기는 어떻게 되나요?**
 
@@ -337,29 +337,29 @@ P4(32GiB) 및 P6(64GiB) 디스크 크기는 관리되지 않는 디스크 및 �
 
 작은 디스크의 스냅샷을 찍고 디스크를 만들어서 프로비전된 크기에 따라 P4 또는 P6으로 가격 책정 계층을 자동으로 전환할 수 있습니다.
 
-**수 있습니다에서 크기를 조정할 기존 Managed Disks 크기 (TiB) 4 개 미만의 tebibytes 32 TiB 최대 새 새로 도입된 된 디스크 크기?**
+**TiB (4) 보다 작은 크기의 기존 Managed Disks 크기를 새로 도입 된 새 디스크 크기 (32 TiB)로 크기를 조정할 수 있나요?**
 
 예.
 
-**Azure Backup 및 Azure Site Recovery 서비스에서 지 원하는 최대 디스크 크기는 무엇입니까?**
+**Azure Backup 및 Azure Site Recovery 서비스에서 지원 되는 가장 큰 디스크 크기는 무엇 인가요?**
 
-Azure Backup 및 Azure Site Recovery 서비스에서 지원하는 최대 디스크 크기는 4TiB입니다. 최대 32 TiB 더 큰 디스크에 대 한 지원은 아직 사용할 수 없습니다.
+Azure Backup 및 Azure Site Recovery 서비스에서 지원하는 최대 디스크 크기는 4TiB입니다. 최대 32 TiB의 더 큰 디스크에 대 한 지원은 아직 제공 되지 않습니다.
 
-**더 큰 디스크 크기에 대 한 크기 권장 되는 VM은 무엇입니까 (> 4 TiB)를 달성 하려면 표준 SSD와 HDD를 표준 디스크 액세스에 최적화 된 디스크 IOPS 및 대역폭?**
+**디스크 크기 (> 4 TiB)에 대해 권장 되는 VM 크기는 디스크 IOPS 및 대역폭 최적화를 위해 표준 SSD 및 표준 HDD 디스크에 대해 권장 되는 VM 크기는 무엇 인가요?**
 
-표준 SSD 및 HDD 표준 대용량 디스크 크기의 디스크 처리량을 달성 하려면 (> 4 TiB) 프로그램 성능을 최적화 하기 위해 다음 VM 크기 중 하나에서 새 VM을 배포한 좋습니다 500 IOPS 및 60 초를 초과 합니다. B 시리즈, DSv2 시리즈, Dsv3 시리즈, ESv3 시리즈, Fs 시리즈 Fsv2 시리즈, M 시리즈, GS 시리즈 NCv2 시리즈, Ls 시리즈 Vm 또는 NCv3 시리즈입니다. 기존 Vm 또는 Vm 위의 권장된 크기를 사용 하지 않는 대용량 디스크를 연결 성능 저하를 발생할 수 있습니다.
+표준 SSD의 디스크 처리량을 확보 하 고 표준 HDD 큰 디스크 크기 (> 4 TiB)를 500 IOPS 및 60 MiB/s 이상으로 유지 하려면 다음 VM 크기 중 하나에서 새 VM을 배포 하 여 성능을 최적화 하는 것이 좋습니다. B 시리즈, DSv2 시리즈, Dsv3 시리즈, ESv3 시리즈, Fs 시리즈, Fsv2 시리즈, M 시리즈, GS 시리즈, NCv2 시리즈, NCv3 시리즈 또는 Ls 시리즈 Vm입니다. 위의 권장 크기를 사용 하지 않는 기존 Vm 또는 Vm에 많은 디스크를 연결 하면 성능이 저하 될 수 있습니다.
 
-**내 디스크를 업그레이드할 수는 어떻게 (> 4 TiB) GA에서 더 높은 IOPS 및 대역폭을 얻기 위해 더 큰 디스크 크기 미리 보기 기간 동안 배포 된는?**
+**더 큰 디스크 크기 미리 보기 중에 배포 된 내 디스크 (> 4 TiB)를 업그레이드 하 여 GA에서 더 높은 IOPS & 대역폭을 확보 하려면 어떻게 해야 하나요?**
 
-중 하나를 중지 하 고 디스크에 연결 된 VM을 시작, 분리 고 다시 디스크를 연결 합니다. Premium Ssd와 조지아에서 표준 SSDs에 대 한 성능 목표 보다 큰 디스크 크기 증가 되었습니다.
+디스크가 연결 된 VM을 중지 하 고 시작 하거나 디스크를 분리 하 고 다시 연결할 수 있습니다. 더 큰 디스크 크기의 성능 목표는 GA의 premium Ssd와 표준 Ssd 둘 다에 대해 늘어났습니다.
 
-**지역 이란 TiB 8, 16 TiB 및에서 지원 되는 32 TiB의 관리 되는 디스크 크기**
+**에서 지원 되는 8 개의 TiB, 16 TiB 및 32 TiB의 관리 디스크 크기는 무엇 인가요?**
 
-8 TiB, 16 TiB 및 32 TiB 디스크 Sku는 전역 Azure, Microsoft Azure Government 및 Azure 중국 21Vianet에서 모든 지역에서 지원 됩니다.
+8 TiB, 16 TiB 및 32 TiB disk Sku는 글로벌 Azure, Microsoft Azure Government 및 Azure 중국 21Vianet의 모든 지역에서 지원 됩니다.
 
-**호스트 캐싱을 사용 하도록 설정 모든 디스크 크기를 지원 하나요?**
+**모든 디스크 크기에서 호스트 캐싱을 사용 하도록 지원 하나요?**
 
-지원 ReadOnly 호스트 캐싱 및 읽기/쓰기 디스크 크기에 4 개 미만이 TiB 합니다. 4TiB 초과 디스크 크기에 대해서는 없음 이외의 캐싱 옵션 설정은 지원하지 않습니다. VM에 캐시된 데이터를 사용하여 성능 향상을 확인할 수 있을 수 있는 더 작은 디스크 크기에 대한 캐싱을 활용하는 것이 좋습니다.
+읽기 전용 및 읽기/쓰기의 호스트 캐싱은 4 TiB 미만의 디스크 크기에서 지원 됩니다. 4TiB 초과 디스크 크기에 대해서는 없음 이외의 캐싱 옵션 설정은 지원하지 않습니다. VM에 캐시된 데이터를 사용하여 성능 향상을 확인할 수 있을 수 있는 더 작은 디스크 크기에 대한 캐싱을 활용하는 것이 좋습니다.
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>여기서 내 질문에 대답하지 않으면 어떻게 하나요?
 

@@ -10,12 +10,12 @@ ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 07/24/2019
-ms.openlocfilehash: 06194537a0c0cce3a52510e6f426a9c2904387b2
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 9cf39230d6a2c615925222b6545a091a4be941ac
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68694334"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847977"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>GPU를 사용 하 여 유추를 위한 심층 학습 모델 배포
 
@@ -31,9 +31,9 @@ ms.locfileid: "68694334"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* Azure Machine Learning 서비스 작업 영역. 자세한 내용은 [Azure Machine Learning 서비스 작업 영역 만들기](setup-create-workspace.md)를 참조 하세요.
+* Azure Machine Learning 서비스 작업 영역. 자세한 내용은 [Azure Machine Learning 서비스 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
 
-* Azure Machine Learning SDK가 설치 된 Python 개발 환경. 자세한 내용은 작업 영역 만들기 문서의 [PYTHON SDK](setup-create-workspace.md#sdk) 섹션을 참조 하세요.
+* Azure Machine Learning SDK가 설치 된 Python 개발 환경. 자세한 내용은 [AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)를 참조 하세요.  
 
 * GPU를 사용 하는 등록 된 모델입니다.
 
@@ -48,7 +48,7 @@ ms.locfileid: "68694334"
 기존 작업 영역에 연결 하려면 다음 코드를 사용 합니다.
 
 > [!IMPORTANT]
-> 이 코드 조각에서는 작업 영역 구성을 현재 디렉터리 또는 부모에 저장할 것으로 예상 합니다. 작업 영역을 만들고 구성을 파일에 저장 하는 방법에 대 한 자세한 내용은 [Azure Machine Learning 서비스 작업 영역 만들기](setup-create-workspace.md)를 참조 하세요.
+> 이 코드 조각에서는 작업 영역 구성을 현재 디렉터리 또는 부모에 저장할 것으로 예상 합니다. 작업 영역을 만드는 방법에 대 한 자세한 내용은 [Azure Machine Learning 서비스 작업 영역 만들기 및 관리](how-to-manage-workspace.md)를 참조 하세요.   구성을 파일에 저장 하는 방법에 대 한 자세한 내용은 [작업 영역 구성 파일 만들기](how-to-configure-environment.md#workspace)를 참조 하세요.
 
 ```python
 from azureml.core import Workspace

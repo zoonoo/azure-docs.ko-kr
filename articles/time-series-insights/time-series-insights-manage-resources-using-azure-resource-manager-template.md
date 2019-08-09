@@ -9,14 +9,14 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 05/08/2019
+ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5b861ef17648f3efbe1f378f2bf253d5bf3ece44
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: eaa169714006ec948a5790ed5841f9dcf52c2a23
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68677805"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68846658"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 Time Series Insights 리소스 만들기
 
@@ -24,7 +24,7 @@ ms.locfileid: "68677805"
 
 Time Series Insights은 다음 리소스를 지원합니다.
 
-   | 리소스 | 설명 |
+   | 리소스 | Description |
    | --- | --- |
    | 환경 | Time Series Insights 환경은 이벤트 브로커에서 읽고, 저장 하 고, 쿼리에 사용할 수 있는 이벤트의 논리적 그룹입니다. 자세한 내용은 [Azure Time Series Insights 환경 계획](time-series-insights-environment-planning.md) 을 참조 하세요. |
    | 이벤트 원본 | 이벤트 원본은 Time Series Insights가 이벤트를 읽고 환경에 수집하는 이벤트 broker에 대한 연결입니다. 현재 지원되는 이벤트 원본은 IoT Hub 및 Event Hub입니다. |

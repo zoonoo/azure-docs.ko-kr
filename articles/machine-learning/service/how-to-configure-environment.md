@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: efe5829ffbe4db304f9ffab0a259ab9d10279b27
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: d2f60b496594946e9175ecf5c1948b08c9065b1b
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68772698"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848192"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning용 개발 환경 구성
 
@@ -38,9 +38,9 @@ ms.locfileid: "68772698"
 
 * [Visual Studio Code](#vscode): Visual Studio Code를 사용하는 경우 몇 가지 유용한 확장 프로그램을 설치할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
-Azure Machine Learning 서비스 작업 영역. 작업 영역을 만들려면 [Azure Machine Learning 서비스 작업 영역 만들기](setup-create-workspace.md)를 참조 하세요. [클라우드 기반 노트북 서버](#notebookvm), [dsvm](#dsvm), [Azure Databricks](#aml-databricks)또는 [Azure Notebooks](#aznotebooks)를 사용 하 여 작업 영역을 시작 하기만 하면 됩니다.
+Azure Machine Learning 서비스 작업 영역. 작업 영역을 만들려면 [Azure Machine Learning 서비스 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요. [클라우드 기반 노트북 서버](#notebookvm), [dsvm](#dsvm), [Azure Databricks](#aml-databricks)또는 [Azure Notebooks](#aznotebooks)를 사용 하 여 작업 영역을 시작 하기만 하면 됩니다.
 
 [로컬 컴퓨터](#local)에 대 한 SDK 환경을 설치 하려면 [Jupyter Notebook 서버](#jupyter) 또는 [Visual Studio Code](#vscode) 도 필요 합니다.
 
@@ -377,7 +377,7 @@ Databricks에 자동화 된 machine learning이 ![설치 된 자동화 된 machi
 
 다음과 같은 세 가지 방법으로 구성 파일을 만들 수 있습니다.
 
-* **[Azure Machine Learning 서비스 작업 영역 만들기](setup-create-workspace.md#sdk)의 단계를 수행 합니다**. *config.json* 파일은 Azure Notebooks 라이브러리에 만들어집니다. 이 파일은 작업 영역에 대한 구성 정보를 포함합니다. *config.json* 파일을 다른 개발 환경으로 다운로드 또는 복사할 수 있습니다.
+* **[Write_config](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)를 사용**하 여 *config.xml* 파일을 작성 합니다. 이 파일은 작업 영역에 대한 구성 정보를 포함합니다. *config.json* 파일을 다른 개발 환경으로 다운로드 또는 복사할 수 있습니다.
 
 * **파일 다운로드**: [Azure Portal](https://ms.portal.azure.com)에서, 해당 작업 영역의 **개요** 섹션에서 **config.json 다운로드** 를 선택합니다.
 

@@ -1,20 +1,19 @@
 ---
 title: Azure Storage 계정을 모니터링하는 방법 | Microsoft Docs
 description: Azure 포털을 사용하여 Azure에서 저장소 계정을 모니터링하는 방법에 대해 알아봅니다.
-services: storage
 author: normesta
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/31/2018
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 5a28d69ae5ba9f3b7eeb28b6824ad9a458832bb3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 912c1c3403191f40dac054f99f29ac60ba84ce8f
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153625"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68844910"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Azure 포털에서 저장소 계정 모니터링
 
@@ -42,7 +41,7 @@ ms.locfileid: "65153625"
    데이터 보존 정책을 설정하려면 1-365일 중에서 **보존(일)** 슬라이더를 이동하거나 데이터 보존 기간(일)을 입력합니다. 새 저장소 계정의 기본값은 7일입니다. 보존 정책을 설정하지 않으려면 0을 입력합니다. 보존 정책이 없는 경우 언제든 모니터링 데이터를 삭제할 수 있습니다.
 
    > [!WARNING]
-   > 메트릭 데이터를 수동으로 삭제하는 경우 요금이 부과되지만, 오래된 분석 데이터(보존 정책보다 오래된 데이터)는 무료로 시스템에서 삭제됩니다. 따라서 계정에 대한 저장소 분석 데이터를 보존할 기간에 따라 보존 정책을 설정하는 것이 좋습니다. 참조 [저장소 메트릭에 대 한 청구](storage-analytics-metrics.md#billing-on-storage-metrics) 자세한 내용은 합니다.
+   > 메트릭 데이터를 수동으로 삭제하는 경우 요금이 부과되지만, 오래된 분석 데이터(보존 정책보다 오래된 데이터)는 무료로 시스템에서 삭제됩니다. 따라서 계정에 대한 저장소 분석 데이터를 보존할 기간에 따라 보존 정책을 설정하는 것이 좋습니다. 자세한 내용은 [저장소 메트릭에 대 한 요금 청구](storage-analytics-metrics.md#billing-on-storage-metrics) 를 참조 하세요.
    >
 
 1. 모니터링 구성을 완료하면 **저장**을 선택합니다.
@@ -135,11 +134,11 @@ Azure Storage에서 Blob, 테이블 및 큐 서비스에 대한 읽기, 쓰기 �
 1. **상태**가 **사용**(On)으로 설정되어 있는지 확인하고, 로깅을 사용하도록 설정하려는 **서비스**를 선택합니다.
 
     ![Azure Portal에서 로깅 구성](./media/storage-monitor-storage-account/enable-diagnostics.png)
-1. **저장**을 클릭합니다.
+1. **Save**을 클릭합니다.
 
-진단 로그는 스토리지 계정의 이름이 *$logs*인 Blob 컨테이너에 저장됩니다. [Microsoft 스토리지 탐색기](https://storageexplorer.com)와 같은 스토리지 탐색기를 사용하거나 Storage 클라이언트 라이브러리 또는 PowerShell을 프로그래밍 방식으로 사용하여 로그 데이터를 볼 수 있습니다.
+진단 로그는 스토리지 계정의 이름이 *$logs*인 Blob 컨테이너에 저장됩니다. [Microsoft Storage Explorer](https://storageexplorer.com)와 같은 스토리지 탐색기를 사용하거나 Storage 클라이언트 라이브러리 또는 PowerShell을 프로그래밍 방식으로 사용하여 로그 데이터를 볼 수 있습니다.
 
-$Logs 컨테이너 액세스에 대 한 자세한 내용은 [저장소 분석 로깅](storage-analytics-logging.md)합니다.
+$Logs 컨테이너에 액세스 하는 방법에 대 한 자세한 내용은 [저장소 분석 로깅](storage-analytics-logging.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

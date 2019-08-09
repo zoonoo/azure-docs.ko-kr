@@ -1,20 +1,19 @@
 ---
 title: Azure Storage 모니터링, 진단 및 문제 해결 | Microsoft Docs
 description: 스토리지 분석, 클라이언트 쪽 로깅 기타 타사 도구 등의 기능을 사용하여 Azure Storage 관련 문제를 파악, 진단 및 해결합니다.
-services: storage
 author: normesta
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/11/2017
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: ccafa3431e12b036346c4fd654b2978dc9021471
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 08c19daa0af226834ea70db8847e1637c2373351
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65912446"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855361"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Microsoft Azure Storage 모니터링, 진단 및 문제 해결
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -247,7 +246,7 @@ Azure SDK에는 개발 워크스테이션에서 실행할 수 있는 저장소 �
 >
 
 ### <a name="server-request-id"></a>서버 요청 ID
-저장소 서비스 서버 요청 Id를 자동으로 생성합니다.
+저장소 서비스에서 서버 요청 Id를 자동으로 생성 합니다.
 
 * 서버 쪽 저장소 로깅 로그에서 서버 요청 ID는 **요청 ID 헤더** 열에 표시됩니다.
 * Fiddler에서 캡처하는 것과 같은 네트워크 추적에서 서버 요청 ID는 응답 메시지에 **x-ms-request-id** HTTP 헤더 값으로 표시됩니다.
@@ -426,7 +425,7 @@ Blob 다운로드 요청에 대해 **AverageServerLatency**가 높게 표시되�
 **PercentThrottlingError**는 저장소 요청 수가 증가할 때 함께 증가하거나, 처음으로 애플리케이션의 부하를 테스트할 때 증가하는 경우가 많습니다. 또한 이 오류는 저장소 작업에서 "503 서버 사용 중" 또는 "500 작업 시간 초과" HTTP 상태 메시지로 클라이언트에 표시될 수도 있습니다.
 
 #### <a name="transient-increase-in-PercentThrottlingError"></a>일시적인 PercentThrottlingError 증가
-애플리케이션의 작업량이 많은 기간에 **PercentThrottlingError** 값도 급증하는 경우에는 클라이언트의 다시 시도에 지수(선형이 아닌) 백오프 전략을 구현합니다. 백오프 재시도는 파티션의 순간적인 부하를 줄이고 애플리케이션에서 트래픽 급증을 완화시키는 데 도움이 됩니다. 저장소 클라이언트 라이브러리를 사용 하 여 다시 시도 정책을 구현 하는 방법에 대 한 자세한 내용은 참조는 [Microsoft.Azure.Storage.RetryPolicies 네임 스페이스](/dotnet/api/microsoft.azure.storage.retrypolicies)합니다.
+애플리케이션의 작업량이 많은 기간에 **PercentThrottlingError** 값도 급증하는 경우에는 클라이언트의 다시 시도에 지수(선형이 아닌) 백오프 전략을 구현합니다. 백오프 재시도는 파티션의 순간적인 부하를 줄이고 애플리케이션에서 트래픽 급증을 완화시키는 데 도움이 됩니다. 저장소 클라이언트 라이브러리를 사용 하 여 다시 시도 정책을 구현 하는 방법에 대 한 자세한 내용은 [microsoft.windowsazure.storage.retrypolicies 네임 스페이스](/dotnet/api/microsoft.azure.storage.retrypolicies)를 참조 하세요.
 
 > [!NOTE]
 > 애플리케이션의 작업량이 많지 않은 기간에도 **PercentThrottlingError** 값이 급증할 수 있습니다. 이러한 현상이 발생하는 경우 부하 분산을 개선하기 위해 저장소 서비스가 파티션을 이동 중일 가능성이 높습니다.
@@ -470,7 +469,7 @@ Blob 다운로드 요청에 대해 **AverageServerLatency**가 높게 표시되�
 | 원본 | 자세한 정도 | 자세한 정도 | 클라이언트 요청 ID | 작업 텍스트 |
 | --- | --- | --- | --- | --- |
 | Microsoft.Azure.Storage |정보 |3 |85d077ab-… |위치 모드 PrimaryOnly에 대해 위치 Primary로 작업을 시작하는 중입니다. |
-| Microsoft.Azure.Storage |정보 |3 |85d077ab -… |동기 요청을 시작합니다. <https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14> |
+| Microsoft.Azure.Storage |정보 |3 |85d077ab -… |동기 요청을 시작 하는 중<https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14> |
 | Microsoft.Azure.Storage |정보 |3 |85d077ab -… |응답을 기다리는 중입니다. |
 | Microsoft.Azure.Storage |Warning |2 |85d077ab -… |응답을 기다리는 동안 예외를 throw함: 원격 서버에서 오류를 반환했습니다. (403) 사용 권한 없음 |
 | Microsoft.Azure.Storage |정보 |3 |85d077ab -… |응답을 받았습니다. 상태 코드 = 403, 요청 ID = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = , ETag = . |
@@ -810,7 +809,7 @@ Blob Storage에서 다운로드한 스토리지 로깅 데이터를 Excel로 가
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Storage에서 분석에 대 한 자세한 내용은 다음이 리소스를 참조 합니다.
+Azure Storage 분석에 대 한 자세한 내용은 다음 리소스를 참조 하세요.
 
 * [Azure Portal에서 저장소 계정 모니터링](storage-monitor-storage-account.md)
 * [저장소 분석](storage-analytics.md)

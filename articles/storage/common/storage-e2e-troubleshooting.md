@@ -1,21 +1,19 @@
 ---
 title: 진단 및 메시지 분석기를 사용한 Azure Storage 문제 해결 | Microsoft Docs
 description: Azure Storage 분석, AzCopy 및 Microsoft Message Analyzer를 사용한 엔드투엔드종 문제 해결을 보여 주는 자습서
-services: storage
 author: normesta
 ms.service: storage
-ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/15/2017
 ms.author: normesta
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 2707081adafa74237e3fb7730837f581e0c8b790
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2ca81280bed52508c606a5a693fe0162837ac117
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65154234"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854619"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Azure Storage 메트릭 및 로깅, AzCopy 및 Message Analyzer를 사용한 엔드투엔드 문제 해결
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -80,7 +78,7 @@ Blob 또는 컨테이너를 찾을 수 없어서 컨테이너 또는 Blob에 대
 * **HTTP 네트워크 추적 로그**, Azure Storage에 대한 작업을 비롯하여 HTTP/HTTPS 요청 및 응답 데이터에 대한 데이터를 수집합니다. 이 자습서에서는 Message Analyzer를 통해 네트워크 추적을 생성합니다.
 
 ### <a name="configure-server-side-logging-and-metrics"></a>서버 쪽 로깅 및 메트릭 구성
-먼저 해야 Azure Storage 로깅 및 메트릭을 구성 하려면 데이터를 분석 하는 서비스 쪽에서 할 수 있도록 합니다. [Azure Portal](https://portal.azure.com)을 통해, PowerShell을 사용하여 또는 프로그래밍 방식 등의 다양한 방법으로 로깅 및 메트릭을 구성할 수 있습니다. 참조 [메트릭을 사용 하도록 설정할](storage-analytics-metrics.md#enable-metrics-using-the-azure-portal) 하 고 [로깅을 사용 하도록 설정](storage-analytics-logging.md#enable-storage-logging) 로깅 및 메트릭을 구성 하는 방법에 대 한 세부 정보에 대 한 합니다.
+먼저 분석을 위해 서비스 측의 데이터를 포함 하도록 Azure Storage 로깅 및 메트릭을 구성 해야 합니다. [Azure Portal](https://portal.azure.com)을 통해, PowerShell을 사용하여 또는 프로그래밍 방식 등의 다양한 방법으로 로깅 및 메트릭을 구성할 수 있습니다. 로깅 및 메트릭 구성에 대 한 자세한 내용은 [메트릭 사용](storage-analytics-metrics.md#enable-metrics-using-the-azure-portal) 및 [로깅 사용](storage-analytics-logging.md#enable-storage-logging) 을 참조 하세요.
 
 ### <a name="configure-net-client-side-logging"></a>.NET 클라이언트 쪽 로깅 구성
 .NET 애플리케이션에 대해 클라이언트 쪽 로깅을 구성하려면 애플리케이션의 구성 파일(web.config 또는 app.config)에서 .NET 진단을 사용하도록 설정합니다. 자세한 내용은 MSDN에서 [.NET 스토리지 클라이언트 라이브러리를 사용한 클라이언트 쪽 로깅](https://msdn.microsoft.com/library/azure/dn782839.aspx) 및 [Microsoft Azure Storage SDK for Java를 사용한 클라이언트 쪽 로깅](https://msdn.microsoft.com/library/azure/dn782844.aspx)을 참조하세요.

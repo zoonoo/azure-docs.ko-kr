@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: d5d10562a70b7d37908bc272bf555fd967831009
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5def34b4e3e7227daf96d952457869658bbce61e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67076989"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855266"
 ---
 # <a name="security-considerations-for-sql-server-in-azure-virtual-machines"></a>Azure Virtual Machines의 SQL Server에 대한 보안 고려 사항
 
@@ -66,7 +66,7 @@ SQL Server 가상 컴퓨터를 만들 때는 컴퓨터 및 SQL Server에 대한 
 
 프로비전한 후 이를 구성할 때 다음과 같은 두 가지 옵션이 있습니다.
 
-- Resource Manager vm을 선택할 수 있습니다 **Security** 에서 합니다 [SQL 가상 머신 리소스](virtual-machines-windows-sql-manage-portal.md#access-sql-virtual-machine-resource)합니다. 그러면 포트를 변경하는 옵션이 제공됩니다.
+- 리소스 관리자 Vm의 경우 [SQL 가상 머신 리소스](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource)에서 **보안** 을 선택할 수 있습니다. 그러면 포트를 변경하는 옵션이 제공됩니다.
 
   ![포털에서 TCP 포트 변경](./media/virtual-machines-windows-sql-security/sql-vm-change-tcp-port.png)
 

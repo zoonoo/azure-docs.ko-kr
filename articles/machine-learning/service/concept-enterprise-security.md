@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 07/10/2019
-ms.openlocfilehash: f0fb6f0d2b2579679ee8a6ec43b3241377701d48
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.date: 08/07/2019
+ms.openlocfilehash: d1ad89943f6acfec6e42199ef399643be12e2b8b
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780893"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856233"
 ---
 # <a name="enterprise-security-for-azure-machine-learning-service"></a>Azure Machine Learning 서비스에 대 한 엔터프라이즈 보안
 
@@ -176,12 +176,24 @@ Azure에서 미사용 암호화가 작동 하는 방식에 대 한 자세한 내
 * Azure 컨테이너 리포지토리 인스턴스에 대 한 암호
 * 데이터 저장소에 대 한 연결 문자열입니다.
 
-HDI HDInsight 및 VM과 같은 대상 계산에 대 한 SSH 암호 및 키는 Microsoft 구독과 연결 된 별도의 Key Vault에 저장 됩니다. Azure Machine Learning 서비스는 사용자가 제공 하는 모든 암호나 키를 저장 합니다. 대신 사용자가 제공 하는 모든 암호나 키를 사용 하 여 VM/HDInsight에 연결 하 여 실험을 실행 합니다.
+HDI HDInsight 및 VM과 같은 대상 계산에 대 한 SSH 암호 및 키는 Microsoft 구독과 연결 된 별도의 Key Vault에 저장 됩니다. Azure Machine Learning 서비스는 사용자가 제공 하는 암호나 키를 저장 하지 않고, 사용자가 제공 하는 사용자가 직접 SSH 키를 생성, 권한 부여 및 저장 하 여 실험을 실행 하기 위해 VM/HDInsight에 연결 합니다.
 각 작업 영역에는 Key Vault의 모든 키, 암호 및 인증서에 대 한 액세스 권한이 있는 연결 된 시스템 할당 관리 Id (작업 영역과 동일한 이름)가 있습니다.
 
 ## <a name="monitoring"></a>모니터링
 
-사용자는 작업 영역에서 활동 로그를 확인 하 여 작업 영역에서 수행 되는 다양 한 작업을 확인 하 고 작업 이름, 이벤트 시작 시간, 타임 스탬프 등의 기본 정보를 얻을 수 있습니다.
+### <a name="metrics"></a>metrics
+
+Azure Monitor 메트릭은 Azure Machine Learning 서비스 작업 영역에 대 한 메트릭을 확인 하 고 모니터링 하는 데 사용할 수 있습니다. [Azure Portal](https://portal.azure.com)에서 작업 영역을 선택한 다음 __메트릭__ 링크를 사용 합니다.
+
+![작업 영역에 대 한 예제 메트릭을 보여 주는 스크린샷](./media/enterprise-readiness/workspace-metrics.png)
+
+메트릭은 실행, 배포 및 등록에 대 한 정보를 포함 합니다.
+
+자세한 내용은 [Azure Monitor의 메트릭](/azure/azure-monitor/platform/data-platform-metrics)을 참조 하세요.
+
+### <a name="activity-log"></a>활동 로그
+
+작업 영역에서 활동 로그를 확인 하 여 작업 영역에서 수행 되는 다양 한 작업을 확인 하 고 작업 이름, 이벤트 시작 시간, 타임 스탬프 등의 기본 정보를 가져올 수 있습니다.
 
 다음 스크린샷은 작업 영역에 대 한 활동 로그를 보여 줍니다.
 

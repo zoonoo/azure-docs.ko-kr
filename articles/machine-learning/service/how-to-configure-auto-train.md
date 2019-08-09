@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5dee966f8664bc14d81004e625ad9632066ffcb2
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: adca67152c33f4c6a3ec272b63c4c8157a777f36
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742316"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856183"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Python에서 자동화 된 ML 실험 구성
 
@@ -215,6 +215,9 @@ Azure Databricks 있는 노트북 예는 [GitHub 사이트](https://github.com/A
 자동화 된 모든 기계 학습 실험에서 데이터의 [크기를 자동으로 조정 하 고](concept-automated-ml.md#preprocess) 알고리즘을 통해 알고리즘을 효율적으로 수행할 수 있습니다.  그러나 누락 값 대체, 인코딩 및 변환과 같은 추가 전처리/기능화을 사용할 수도 있습니다. [기능화 포함 된 항목에 대해 자세히 알아보세요](how-to-create-portal-experiments.md#preprocess).
 
 이 기능화를 사용 하도록 설정 `"preprocess": True` 하려면 [ `AutoMLConfig` 클래스](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py)에 대해를 지정 합니다.
+
+> [!NOTE]
+> 자동화 된 기계 학습 사전 처리 단계 (기능 정규화, 누락 된 데이터 처리, 텍스트를 숫자로 변환 등)는 기본 모델의 일부가 됩니다. 예측에 모델을 사용 하는 경우 학습 중에 적용 되는 동일한 전처리 단계는 입력 데이터에 자동으로 적용 됩니다.
 
 ### <a name="time-series-forecasting"></a>시계열 예측
 시계열 예측 작업 유형에는 정의할 추가 매개 변수가 있습니다.

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/06/2019
-ms.openlocfilehash: 70ba6c5507cf31732d679a61c3e185a520b4c5f3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 94894126be98f0d3d4d404d97d0a4a39fff2e665
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566665"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847403"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Azure SQL 하이퍼스케일 데이터베이스에 대한 FAQ
 
@@ -44,18 +44,18 @@ VCore 기반 서비스 계층은 기본적으로 가용성, 저장소 유형 및
 - 중요 비즈니스용 서비스 계층은 IO 대기 시간이 최우선인 비즈니스 워크로드에 적합합니다.
 
 | | 리소스 형식 | 범용 |  하이퍼스케일 | 중요 비즈니스용 |
-|:---|:---:|:---:|:---:|:---:|:---:|
+|:---:|:---:|:---:|:---:|:---:|
 | **적합한 대상** |모두|  대부분의 비즈니스 워크로드. 예산 중심의 균형 잡힌 컴퓨팅 및 스토리지 옵션을 제공합니다. | 대용량 데이터 요구 사항 및 유동적인 스토리지 크기 자동 조정 및 컴퓨팅 규모 조정 기능이 있는 데이터 애플리케이션. | 트랜잭션 속도가 높고 지연 시간이 적은 OLTP 애플리케이션. 다수의 격리된 복제본을 사용하여 장애에 대해 최고의 복원력을 제공합니다.|
 |  **리소스 종류** ||단일 데이터베이스/탄력적 풀/관리되는 인스턴스 | 단일 데이터베이스 | 단일 데이터베이스/탄력적 풀/관리되는 인스턴스 |
 | **컴퓨팅 크기**|단일 데이터베이스/탄력적 풀* | vCore 1~80개 | vCore 1~80개* | vCore 1~80개 |
-| |Managed Instance | vCore 8, 16, 24, 32, 40, 64, 80개 | 해당 사항 없음 | vCore 8, 16, 24, 32, 40, 64, 80개 |
+| |Managed Instance | vCore 8, 16, 24, 32, 40, 64, 80개 | N/A | vCore 8, 16, 24, 32, 40, 64, 80개 |
 | **저장소 유형** | 모두 |프리미엄 원격 저장소(인스턴스별) | 로컬 SSD 캐시를 사용한 분리형 저장소(인스턴스별) | 초고속 로컬 SSD 저장소(인스턴스별) |
 | **저장소 크기** | 단일 데이터베이스/탄력적 풀 | 5GB~4TB | 최대 100TB | 5GB~4TB |
 | | Managed Instance  | 32GB~8TB | 해당 사항 없음 | 32GB~4TB |
 | **IO 처리량** | 단일 데이터베이스** | vCore당 500 IOPS(최대 7,000 IOPS) | Hyperscale은 여러 수준에서 캐싱을 사용 하는 다중 계층 아키텍처입니다. 유효 IOPs는 워크 로드에 따라 달라 집니다. | 5000 IOPS(최대 200,000 IOPS)|
-| | Managed Instance | 파일의 크기에 따라 다름 | N/A | Managed Instance: 파일의 크기에 따라 다름|
+| | Managed Instance | 파일의 크기에 따라 다름 | 해당 사항 없음 | Managed Instance: 파일의 크기에 따라 다름|
 |**가용성**|모두|복제본 1개, 읽기 확장 없음, 로컬 캐시 없음 | 복제본 여러 개, 읽기 확장 최대 15, 부분 로컬 캐시 | 복제본 3개, 읽기 확장 1개, 영역 중복 HA, 전체 로컬 캐시 |
-|**백업**|모두|RA-GRS, 7-35일(기본값: 7일)| RA-GRS, 7-35 일 (기본적으로 7 일), 상수 시간 지정 시간 복구 (PITR) | RA-GRS, 7-35일(기본값: 7일) |
+|**백업**|모두|RA-GRS, 7-35일(기본값: 7일)| RA-GRS, 7 일, 상수 시간 지정 시간 복구 (PITR) | RA-GRS, 7-35일(기본값: 7일) |
 
 \* 하이퍼스케일 서비스 계층에는 탄력적 풀이 지원되지 않습니다.
 

@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2019
-ms.openlocfilehash: 1bf8c22c2c7c8e8aaab35a4663652300a341c99c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 04c77a82d08e2559d4ce29d49d56d6b7a5edfca5
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68571050"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856137"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Azure Container Instances에 모델 배포
 
@@ -28,7 +28,7 @@ ACI의 할당량 및 지역 가용성에 대 한 자세한 내용은 [Azure Cont
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-- Azure Machine Learning 서비스 작업 영역. 자세한 내용은 [Azure Machine Learning 서비스 작업 영역 만들기](setup-create-workspace.md)를 참조 하세요.
+- Azure Machine Learning 서비스 작업 영역. 자세한 내용은 [Azure Machine Learning 서비스 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
 
 - 작업 영역에 등록 된 machine learning 모델입니다. 등록 된 모델이 없는 경우 모델을 배포 하 [는 방법 및 위치](how-to-deploy-and-where.md)를 참조 하세요.
 

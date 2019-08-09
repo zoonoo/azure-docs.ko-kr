@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: ba5d5d3aaa6a83dbcc5e5072872bca0fcd22bbf9
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 3bce4922a33648f5d7c0d211dba126f35603239b
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638714"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68849294"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>맵에 기호 계층 추가
 
@@ -30,7 +30,7 @@ ms.locfileid: "68638714"
 
 위에서 첫 번째 코드 블록은 지도 개체를 생성합니다. 지침은 [지도 만들기](./map-create.md)를 참조하세요.
 
-두 번째 코드 블록에서는 데이터 원본 개체가 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 클래스를 사용하여 생성됩니다. [Point](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) 기하 도형을 포함하는 [Feature]는 보다 쉽게 업데이트하기 위해 [Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) 클래스로 래핑된 후 만들어 데이터 원본에 추가합니다.
+두 번째 코드 블록에서는 데이터 원본 개체가 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 클래스를 사용하여 생성됩니다. [점](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) 기 하 도형을 포함 하는 GeoJSON [기능은](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature) [셰이프](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) 클래스에 의해 래핑되어 더 쉽게 업데이트 하 고 데이터 원본에 추가할 수 있습니다.
 
 세 번째 코드 블록은 [이벤트 수신기](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events)를 만들고 마우스 클릭 시 shape 클래스 [setCoordinates](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) 메서드를 사용하여 점의 좌표를 업데이트합니다.
 
@@ -47,6 +47,9 @@ ms.locfileid: "68638714"
 
 <iframe height='500' scrolling='no' title='사용자 지정 기호 이미지 아이콘' src='//codepen.io/azuremaps/embed/WYWRWZ/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/WYWRWZ/'>사용자 지정 기호 이미지 아이콘</a>을 참조하세요.
 </iframe>
+
+> [!TIP]
+> Azure Maps 웹 SDK는 기호 계층과 함께 사용할 수 있는 몇 가지 사용자 지정 가능 이미지 템플릿을 제공 합니다. 자세한 내용은 [이미지 템플릿 사용 방법](how-to-use-image-templates-web-sdk.md) 문서를 참조 하세요.
 
 ## <a name="customize-a-symbol-layer"></a>기호 계층 사용자 지정 
 
@@ -80,6 +83,9 @@ ms.locfileid: "68638714"
 
 > [!div class="nextstepaction"]
 > [데이터 기반 스타일 식 사용](data-driven-style-expressions-web-sdk.md)
+
+> [!div class="nextstepaction"]
+> [이미지 템플릿을 사용 하는 방법](how-to-use-image-templates-web-sdk.md)
 
 > [!div class="nextstepaction"]
 > [도형 추가](map-add-shape.md)

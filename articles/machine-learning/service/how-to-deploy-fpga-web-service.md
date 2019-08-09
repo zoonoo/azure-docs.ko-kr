@@ -11,12 +11,12 @@ ms.author: tedway
 author: tedway
 ms.date: 07/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: cec1a74938690a4f781ea7850fdd6d649550b3eb
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: 5e780c1a1d18954d0b3e9413e26f478e4ea3a8b1
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494923"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856099"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning-service"></a>Azure Machine Learning 서비스를 사용하여 FPGA에 웹 서비스로 모델 배포
 
@@ -38,7 +38,7 @@ FPGAs는 다음 Azure 지역에서 사용할 수 있습니다.
 > [!IMPORTANT]
 > 대기 시간 및 처리량을 최적화 하기 위해 FPGA 모델에 데이터를 보내는 클라이언트는 위의 영역 중 하나 (모델을 배포한 항목)에 있어야 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독.  계정이 없는 경우 시작 하기 전에 무료 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 지금 사용해 보세요.
 
@@ -63,7 +63,7 @@ FPGAs는 다음 Azure 지역에서 사용할 수 있습니다.
 
     할당량이 없는 경우에서 [https://aka.ms/accelerateAI](https://aka.ms/accelerateAI)요청을 제출 합니다.
 
-- Azure Machine Learning 서비스 작업 영역 및 Python용 Azure Machine Learning SDK가 설치되어 있어야 합니다. 자세한 내용은 [작업 영역 만들기](setup-create-workspace.md)를 참조 하세요.
+- Azure Machine Learning 서비스 작업 영역 및 Python용 Azure Machine Learning SDK가 설치되어 있어야 합니다. 자세한 내용은 [작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
  
 - 하드웨어 가속 모델용 Python SDK:
 

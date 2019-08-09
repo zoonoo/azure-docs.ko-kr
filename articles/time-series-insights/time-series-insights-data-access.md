@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 05/01/2019
+ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 69180e17714b7d7004e63dce0de82a50e1f0b3af
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 4455d499ab4c52a27a7d9cf878e8130ff38b1c62
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164633"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68846955"
 ---
 # <a name="grant-data-access-to-an-environment"></a>환경에 대한 데이터 액세스 권한 부여
 
@@ -36,7 +36,7 @@ ms.locfileid: "67164633"
 
     [![Data-access-one](media/data-access/data-access-one.png)](media/data-access/data-access-one.png#lightbox)
 
-1. **사용자 선택**을 선택합니다. 사용자 이름 또는 메일 주소를 검색하여 추가할 사용자를 찾습니다. 선택 **선택** 선택 확인 합니다.
+1. **사용자 선택**을 선택합니다. 사용자 이름 또는 메일 주소를 검색하여 추가할 사용자를 찾습니다. 선택 을 선택 하 여 선택 내용을 확인 합니다.
 
     [![Data-access-two](media/data-access/data-access-two.png)](media/data-access/data-access-two.png#lightbox)
 
@@ -58,7 +58,7 @@ ms.locfileid: "67164633"
 
     [![Data-access-five](media/data-access/data-access-five.png)](media/data-access/data-access-five.png#lightbox)
 
-## <a name="provide-guest-access-from-another-aad-tenant"></a>다른 AAD 테 넌 트에서 게스트 액세스를 제공 합니다.
+## <a name="provide-guest-access-from-another-aad-tenant"></a>다른 AAD 테 넌 트에서 게스트 액세스 제공
 
 `Guest`는 관리 역할이 아니라 특정 테넌트에서 다른 테넌트로 초대된 계정에 사용되는 용어입니다. 게스트 계정을 테넌트의 디렉터리에 초대한 후에는 다른 계정과 동일한 액세스 제어가 적용될 수 있습니다. 액세스 제어(IAM) 블레이드를 사용하여 Time Series Insights 환경에 대한 관리 액세스 권한을 부여할 수 있습니다. 또는 데이터 액세스 정책 블레이드를 통해 환경의 데이터에 대한 액세스 권한을 부여할 수 있습니다. Azure AD(Azure Active Directory) 테넌트 게스트 액세스에 대한 자세한 내용은 [Azure Portal에서 Azure Active Directory B2B 협업 사용자 추가](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator)를 참조하세요.
 
@@ -76,7 +76,7 @@ ms.locfileid: "67164633"
 
     [![Data-access-eight](media/data-access/data-access-eight.png)](media/data-access/data-access-eight.png#lightbox)
 
-1. **사용자 선택**을 선택합니다. 초대한 게스트 사용자의 메일 주소를 검색하여 추가할 사용자를 찾습니다. 차례로 **선택** 선택 확인 합니다.
+1. **사용자 선택**을 선택합니다. 초대한 게스트 사용자의 메일 주소를 검색하여 추가할 사용자를 찾습니다. 그런 다음 **선택** 항목을 확인 하려면 선택 합니다.
 
     [![Data-access-nine](media/data-access/data-access-nine.png)](media/data-access/data-access-nine.png#lightbox)
 
@@ -106,13 +106,13 @@ ms.locfileid: "67164633"
 
 1. 초대하는 데 사용된 메일 주소에 게스트 사용자가 로그인하고 초대를 수락하면 insights.azure.com으로 이동됩니다. 이 페이지에서 화면 오른쪽 위의 메일 주소 옆에 있는 아바타를 선택합니다.
 
-    [![Data-access-fourteen](media/data-access/data-access-fourteen.png)](media/data-access/data-access-fourteen.png#lightbox)
+    [![데이터 액세스-14](media/data-access/data-access-fourteen.png)](media/data-access/data-access-fourteen.png#lightbox)
 
 1. 다음으로, 게스트 사용자가 디렉터리 드롭다운 메뉴에서 Azure 테넌트를 선택합니다. 이 테넌트는 초대 받은 테넌트입니다.
 
     [![Data-access-fifteen](media/data-access/data-access-fifteen.png)](media/data-access/data-access-fifteen.png#lightbox)
 
-게스트 사용자가 테넌트를 선택하면 액세스 권한이 부여된 Time Series Insights 환경이 표시됩니다. 이제 사용자가 제공한에 사용 하 여 역할에 연결 된 모든 기능을 갖습니다 **5 단계**합니다.
+게스트 사용자가 테넌트를 선택하면 액세스 권한이 부여된 Time Series Insights 환경이 표시됩니다. 이제 **5 단계**에서 제공 하는 역할과 관련 된 모든 기능을 제공 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,7 +1,6 @@
 ---
 title: Azure Data Lake Storage Gen2의 액세스 제어에 대한 개요 | Microsoft Docs
 description: Azure Data Lake Storage Gen2에서 액세스 제어가 작동하는 방식을 알아봅니다.
-services: storage
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 112d3b18df8205aac173eafb8f8e30ed6c32e048
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: aa2cfbee6feeacf46003fdc244f0aeea5df0f41a
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249090"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847356"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2의 액세스 제어
 
@@ -102,7 +101,7 @@ SAS 토큰에는 토큰의 일부로 허용된 권한이 포함됩니다. SAS �
 | 7            | `RWX`        | 읽기 + 쓰기 + 실행 |
 | 5            | `R-X`        | 읽기 + 실행         |
 | 4            | `R--`        | Read                   |
-| 0            | `---`        | 사용 권한 없음         |
+| 0            | `---`        | 권한 없음         |
 
 #### <a name="permissions-inheritance"></a>권한 상속
 

@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/04/2019
 ms.author: ryanwi
-ms.custom: aaddev, annaba
+ms.custom: aaddev, annaba, identityplatformtop40
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23ddb4db501808a2866e3697064e6527b8bf62bb
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 1f6aa209b6e99be406634e01be47c6dd9572d62a
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835436"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853429"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Azure Active Directory에서 구성 가능한 토큰 수명(미리 보기)
 
@@ -426,7 +426,7 @@ Get-AzureADPolicyAppliedObject -Id <ObjectId of Policy>
 Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
 ```
 
-| 매개 변수 | Description | 예제 |
+| 매개 변수 | 설명 | 예제 |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |원하는 정책의 **ObjectId (ID)** 입니다. |`-Id <ObjectId of Policy>` |
 | <code>&#8209;DisplayName</code> |정책 이름의 문자열입니다. |`-DisplayName "MyTokenPolicy"` |
@@ -444,7 +444,7 @@ Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
  Remove-AzureADPolicy -Id <ObjectId of Policy>
 ```
 
-| 매개 변수 | 설명 | 예제 |
+| 매개 변수 | Description | 예제 |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |원하는 정책의 **ObjectId (ID)** 입니다. | `-Id <ObjectId of Policy>` |
 
@@ -474,7 +474,7 @@ Add-AzureADApplicationPolicy -Id <ObjectId of Application> -RefObjectId <ObjectI
 Get-AzureADApplicationPolicy -Id <ObjectId of Application>
 ```
 
-| 매개 변수 | Description | 예제 |
+| 매개 변수 | 설명 | 예제 |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |응용 프로그램의 **ObjectId (ID)** 입니다. | `-Id <ObjectId of Application>` |
 
@@ -531,7 +531,7 @@ Get-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>
 Remove-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>  -PolicyId <ObjectId of Policy>
 ```
 
-| 매개 변수 | 설명 | 예제 |
+| 매개 변수 | Description | 예제 |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |응용 프로그램의 **ObjectId (ID)** 입니다. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |정책의 **ObjectId**입니다. | `-PolicyId <ObjectId of Policy>` |

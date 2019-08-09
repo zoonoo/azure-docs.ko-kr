@@ -12,12 +12,12 @@ ms.date: 04/11/2019
 ms.author: mimart
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 249dfeeb231c61b05af2e89f0dc02822cc18e627
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 15f7e830079c224e9e15dd45d14c1741376f8762
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67702180"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851707"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Azure Active Directory에서 엔터프라이즈 앱에 사용자 또는 그룹 할당
 
@@ -31,16 +31,16 @@ ms.locfileid: "67702180"
 1. 디렉터리에 대한 전역 관리자인 계정으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. **모든 서비스**를 선택하고 텍스트 상자에 Azure Active Directory를 입력한 다음, **입력**을 선택합니다.
 1. **Enterprise 애플리케이션**을 선택합니다.
-1. 에 **엔터프라이즈 응용 프로그램-모든 응용 프로그램** 창 관리할 수 있는 앱 목록을 표시 합니다. 앱을 선택 합니다.
-1. 에 ***appname*** 창 (즉, 창 제목에서 선택된 된 앱의 이름)을 선택 **사용자 및 그룹**합니다.
-1. 에 ***appname*** **-사용자 및 그룹** 창 **추가 사용자**합니다.
-1. 에 **할당 추가** 창 **사용자 및 그룹**합니다.
+1. **엔터프라이즈 응용 프로그램-모든 응용 프로그램** 창에서 관리할 수 있는 앱 목록이 표시 됩니다. 앱을 선택 합니다.
+1. ***Appname*** 창 (즉, 제목에서 선택한 앱의 이름이 있는 창)에서 **사용자 & 그룹**을 선택 합니다.
+1. ***Appname*** **-사용자 및 그룹** 창에서 **사용자 추가**를 선택 합니다.
+1. **할당 추가** 창에서 **사용자 및 그룹**을 선택 합니다.
 
    ![앱에 사용자 또는 그룹 할당](./media/assign-user-or-group-access-portal/assign-users.png)
 
-1. 에 **사용자 및 그룹** 창 목록에서 하나 이상의 사용자 또는 그룹을 선택 하 고 선택한 합니다 **선택** 창의 맨 아래에 있는 단추입니다.
-1. 에 **할당 추가** 창 **역할**입니다. 그런 다음 합니다 **역할 선택** 선택 창에서 선택한 사용자 또는 그룹에 적용할 역할을 선택 **확인** 창의 맨 아래에 있습니다.
-1. 에 **할당 추가** 창 합니다 **할당** 창의 맨 아래에 있는 단추입니다. 할당된 사용자 또는 그룹은 이 엔터프라이즈 앱에 대한 선택된 역할로 정의된 사용 권한을 갖습니다.
+1. **사용자 및 그룹** 창의 목록에서 하나 이상의 사용자 또는 그룹을 선택 하 고 창 맨 아래에 있는 **선택** 단추를 선택 합니다.
+1. **할당 추가** 창에서 **역할**을 선택 합니다. 그런 다음 **역할 선택** 창에서 선택한 사용자 또는 그룹에 적용할 역할을 선택 하 고 창 맨 아래에서 **확인** 을 선택 합니다.
+1. **할당 추가** 창의 아래쪽에 있는 **할당** 단추를 선택 합니다. 할당된 사용자 또는 그룹은 이 엔터프라이즈 앱에 대한 선택된 역할로 정의된 사용 권한을 갖습니다.
 
 ## <a name="allow-all-users-to-access-an-app---portal"></a>모든 사용자가 앱에 액세스하도록 허용 - 포털
 
@@ -49,14 +49,16 @@ ms.locfileid: "67702180"
 1. **Enterprise 애플리케이션**을 선택합니다.
 1. **엔터프라이즈 애플리케이션** 창에서 **모든 애플리케이션**을 선택합니다. 그러면 관리할 수 있는 앱이 표시됩니다.
 1. **엔터프라이즈 애플리케이션 - 모든 애플리케이션** 창에서 앱을 선택합니다.
-1. 에 ***appname*** 창 **속성**합니다.
-1. 에  ***appname* -속성** 창 설정 합니다 **사용자 할당 필요?** 로 설정 **아니요**합니다.
+1. ***Appname*** 창에서 **속성**을 선택 합니다.
+1. ***Appname* -속성** 창에서 **사용자 할당 필요?** 를 **아니요**로 설정 합니다.
 
 **사용자 할당 필요?** 옵션:
 
-- 응용 프로그램 액세스 패널에 응용 프로그램 표시 여부를 바꾸지는지 않습니다. 애플리케이션을 액세스 패널에 표시하려면 애플리케이션에 적절한 사용자 또는 그룹을 할당해야 합니다.
-- SAML Single Sign-On에 대해 구성된 클라우드 애플리케이션 및 애플리케이션 프록시로 구성된 온-프레미스 애플리케이션으로만 작동합니다. [애플리케이션에 대한 Single Sign-On](what-is-single-sign-on.md)을 참조하세요.
-- 사용자는 애플리케이션에 동의해야 합니다. 관리자는 모든 사용자에 대한 동의를 부여할 수 있습니다.  [최종 사용자가 애플리케이션에 동의하는 방법 구성](configure-user-consent.md)을 참조하세요.
+- 이 옵션을 예로 설정 하면 사용자가 먼저이 응용 프로그램에 할당 되어야 액세스할 수 있습니다.
+- 이 옵션을 아니요로 설정 하면 응용 프로그램 심층 링크 URL 또는 응용 프로그램 URL로 직접 이동 하는 모든 사용자에 게 액세스 권한이 부여 됩니다.
+- 응용 프로그램 액세스 패널에 응용 프로그램이 표시 되는지 여부에는 영향을 주지 않습니다. 애플리케이션을 액세스 패널에 표시하려면 애플리케이션에 적절한 사용자 또는 그룹을 할당해야 합니다.
+- SAML single sign-on에 대해 구성 된 클라우드 응용 프로그램 에서만 작동 하며, Azure Active Directory 사전 인증을 사용 하는 응용 프로그램 프록시 응용 프로그램 또는 OAuth 2.0/를 사용 하는 Azure AD 응용 프로그램 플랫폼에 직접 빌드된 응용 프로그램을 사용 합니다. 사용자 또는 관리자가 해당 응용 프로그램에 동의한 한 후에 Openid connect Connect 인증을 사용 합니다. [애플리케이션에 대한 Single Sign-On](what-is-single-sign-on.md)을 참조하세요. [최종 사용자가 애플리케이션에 동의하는 방법 구성](configure-user-consent.md)을 참조하세요.
+- 응용 프로그램이 다른 Single Sign-on 모드로 구성 된 경우에는이 옵션이 적용 되지 않습니다.
 
 ## <a name="assign-a-user-to-an-app---powershell"></a>앱에 사용자 할당 - PowerShell
 
@@ -109,7 +111,7 @@ ms.locfileid: "67702180"
 
 1. 명령 `$sp.AppRoles`를 실행하여 Workplace Analytics 애플리케이션에 대해 사용할 수 있는 역할을 표시합니다. 이 예제에서는 Britta Simon을 Analyst(제한된 액세스) 역할에 할당하려고 합니다.
 
-   ![Workplace Analytics 역할을 사용 하 여 사용자에 게 사용할 수 있는 역할을 보여 줍니다.](./media/assign-user-or-group-access-portal/workplace-analytics-role.png)
+   ![작업 공간 분석 역할을 사용 하 여 사용자가 사용할 수 있는 역할을 표시 합니다.](./media/assign-user-or-group-access-portal/workplace-analytics-role.png)
 
 1. 역할 이름을 `$app_role_name` 변수에 할당합니다.
 

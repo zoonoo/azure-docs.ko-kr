@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 06/18/2019
-ms.openlocfilehash: e33f195ea821b34147c748e9c0aa64cb63b58fdc
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: a35e0496c7e36d42e28a64fef438fe56713d3c78
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249992"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854994"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>일반적인 Azure Database Migration Service 문제 및 오류 해결
 
@@ -54,11 +54,11 @@ Azure Database Migration Service를 사용 하 여 MySQL에서 Azure Database fo
 
 Azure Database Migration Service 인스턴스를 중지 하면 다음과 같은 오류가 표시 됩니다.
 
-* **오류**: 서비스를 중지 하지 못했습니다. 오류: {' error ': {' code ': ' InvalidRequest ', ' message ': ' 하나 이상의 작업이 현재 실행 중입니다. 서비스를 중지 하려면 작업이 완료 될 때까지 기다리거나 해당 작업을 수동으로 중지 한 후 다시 시도 하십시오. '}}
+* **오류**: 서비스를 중지 하지 못했습니다. 오류: {'error':{'code':'InvalidRequest','message':'하나 이상의 작업이 현재 실행 중입니다. 서비스를 중지 하려면 작업이 완료 될 때까지 기다리거나 해당 작업을 수동으로 중지 한 후 다시 시도 하십시오. '}}
 
 | 원인         | 해결 방법 |
 | ------------- | ------------- |
-| 이 오류는 중지 하려는 서비스 인스턴스에 마이그레이션 프로젝트에 아직 실행 중이거나 있는 작업이 포함 되어 있을 때 표시 됩니다. <br><br><br><br><br><br> | 중지 하려는 Azure Database Migration Service 인스턴스에서 실행 중인 작업이 없는지 확인 합니다. 서비스를 중지 하기 전에 활동이 나 프로젝트를 삭제할 수도 있습니다. 다음 단계에서는 실행 중인 모든 태스크를 삭제 하 여 마이그레이션 서비스 인스턴스를 정리 하는 프로젝트를 제거 하는 방법을 보여 줍니다.<br>1. AzureRM-Name Microsoft.datamigration <br>2. Login-AzureRmAccount <br>3. Get-azurermsubscription-SubscriptionName "\<>" <br> 4. AzureRmDataMigrationProject-Name \<projectName >-ResourceGroupName \<rgName >-servicename \<servicename >-DeleteRunningTask |
+| 이 오류는 중지 하려는 서비스 인스턴스에 마이그레이션 프로젝트에 아직 실행 중이거나 있는 작업이 포함 되어 있을 때 표시 됩니다. <br><br><br><br><br><br> | 중지 하려는 Azure Database Migration Service 인스턴스에서 실행 중인 작업이 없는지 확인 합니다. 서비스를 중지 하기 전에 활동이 나 프로젝트를 삭제할 수도 있습니다. 다음 단계에서는 실행 중인 모든 태스크를 삭제 하 여 마이그레이션 서비스 인스턴스를 정리 하는 프로젝트를 제거 하는 방법을 보여 줍니다.<br>1. Install-Module -Name AzureRM.DataMigration <br>2. Login-AzureRmAccount <br>3. Get-azurermsubscription-SubscriptionName "\<>" <br> 4. AzureRmDataMigrationProject-Name \<projectName >-ResourceGroupName \<rgName >-servicename \<servicename >-DeleteRunningTask |
 
 ## <a name="error-when-attempting-to-start-azure-database-migration-service"></a>Azure Database Migration Service를 시작 하는 동안 오류 발생
 
@@ -98,7 +98,7 @@ Azure Database Migration 서비스 프로젝트 마법사에서 원본에 연결
 | ------------- | ------------- |
 | [Express](https://azure.microsoft.com/services/expressroute/)경로를 사용 하는 경우 서비스와 연결 된 Virtual Network 서브넷에서 3 개의 서비스 끝점을 프로 비전 [해야](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) Azure Database Migration Service.<br> --Service Bus 끝점<br> --저장소 끝점<br> --대상 데이터베이스 끝점 (예: SQL 끝점, Cosmos DB 끝점)<br><br><br><br><br> | 원본 및 Azure Database Migration Service 간 Express 경로 연결에 필요한 서비스 끝점을 [사용 하도록 설정](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) 합니다. <br><br><br><br><br><br><br><br> |
 
-## <a name="timeout-error-when-migrating-a-mysql-database-to-azure-mysql"></a>MySQL 데이터베이스를 Azure MySQL으로 마이그레이션하는 동안 시간 초과 오류가 발생 했습니다.
+## <a name="timeout-error-when-migrating-a-mysql-database-to-azure-db-for-mysql"></a>Mysql 용 Azure DB로 MySQL 데이터베이스를 마이그레이션하는 동안 시간 초과 오류가 발생 했습니다.
 
 Azure Database Migration Service를 통해 MySQL 데이터베이스를 Azure Database for MySQL 인스턴스로 마이그레이션하면 다음 시간 초과 오류가 발생 하 여 마이그레이션이 실패 합니다.
 

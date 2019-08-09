@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6fe08c15de7ea388a5194054791eb394dc2f6e01
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: de0eb685e212b59705d8d659cbe9627338697e9d
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840611"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854515"
 ---
 # <a name="deploy-azure-file-sync"></a>Azure 파일 동기화 배포
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -94,7 +94,7 @@ if ($installType -ne "Server Core") {
 Azure 파일 동기화 배포에서 가장 먼저 할 일은 선택한 그룹의 리소스 그룹에 **저장소 동기화 서비스** 리소스를 배치하는 것입니다. 되도록이면 최소한으로 프로비전하는 것이 좋습니다. 서버와 이 리소스 사이에 트러스트 관계를 만들 것이므로 서버를 한 저장소 동기화 서비스에만 등록할 수 있습니다. 결과적으로, 서버 그룹을 분리하는 데 필요한 만큼 저장소 동기화 서비스를 배포하는 것이 좋습니다. 서로 다른 저장소 동기화 서비스의 서버를 서로 동기화할 수 없다는 점을 기억해야 합니다.
 
 > [!Note]
-> 저장소 동기화 서비스는 배포된 구독 및 리소스 그룹에서 액세스 권한을 상속합니다. 누가 액세스 권한을 갖고 있는지 신중하게 확인하는 것이 좋습니다. 쓰기 액세스 권한이 있는 엔터티는 등록된 서버에서 이 저장소 동기화 서비스로 새 파일 집합의 동기화를 시작하고, 파일에 액세스할 수 있는 Azure 저장소로 데이터가 흐르도록 만들 수 있습니다.
+> 저장소 동기화 서비스는 배포 된 구독 및 리소스 그룹의 액세스 권한을 상속 합니다. 누가 액세스 권한을 갖고 있는지 신중하게 확인하는 것이 좋습니다. 쓰기 액세스 권한이 있는 엔터티는 등록된 서버에서 이 저장소 동기화 서비스로 새 파일 집합의 동기화를 시작하고, 파일에 액세스할 수 있는 Azure 저장소로 데이터가 흐르도록 만들 수 있습니다.
 
 # <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 저장소 동기화 서비스를 배포 하려면 [Azure Portal](https://portal.azure.com/)으로 이동 하 여 *리소스 만들기* 를 클릭 한 다음 Azure File Sync를 검색 합니다. 검색 결과에서 **Azure 파일 동기화**를 선택한 후 **만들기**를 선택하여 **저장소 동기화 배포** 탭을 엽니다.
@@ -164,7 +164,7 @@ Azure 파일 동기화 에이전트는 Windows Server가 Azure 파일 공유와 
 [Microsoft 다운로드 센터](https://go.microsoft.com/fwlink/?linkid=858257)에서 에이전트를 다운로드할 수 있습니다. 다운로드가 완료되면 MSI 패키지를 두 번 클릭하여 Azure 파일 동기화 에이전트 설치를 시작합니다.
 
 > [!Important]  
-> 장애 조치(Failover) 클러스터에서 Azure 파일 동기화를 사용하려는 경우 Azure 파일 동기화 에이전트를 클러스터의 모든 노드에 설치해야 합니다. Azure 파일 동기화에서 작동하도록 클러스터의 각 노드를 등록해야 합니다.
+> 장애 조치(Failover) 클러스터에서 Azure 파일 동기화를 사용하려는 경우 Azure 파일 동기화 에이전트를 클러스터의 모든 노드에 설치해야 합니다. Azure File Sync를 사용 하려면 클러스터의 각 노드를 등록 해야 합니다.
 
 다음을 수행하는 것이 좋습니다.
 - 문제 해결 및 서버 유지 관리를 간소화하려면 기본 설치 경로(C:\Program Files\Azure\StorageSyncAgent)를 유지하세요.

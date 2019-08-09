@@ -17,14 +17,14 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: sureshja
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2ae83b655bfe607b1061168649ec74f02ab4064
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 85c3a1953ce34ab6bf60111715d9d8972a4682ba
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67483173"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853379"
 ---
 # <a name="how-to-use-the-azure-ad-graph-api"></a>방법: Azure AD Graph API 사용
 
@@ -65,7 +65,7 @@ Azure AD Graph API용 Azure AD Graph Explorer를 사용하여 애플리케이션
 
 다음 스크린샷은 Azure AD Graph Explorer로 이동하고, 로그인한 다음, `https://graph.windows.net/GraphDir1.OnMicrosoft.com/users?api-version=1.6`을 입력하여 로그인한 사용자의 디렉터리에 있는 모든 사용자를 표시하는 경우 나타나는 출력입니다.
 
-![Azure AD Graph API Explorer의 예제 출력](./media/active-directory-graph-api-quickstart/graph_explorer.png)
+![Azure AD Graph API 탐색기의 예제 출력](./media/active-directory-graph-api-quickstart/graph_explorer.png)
 
 **Azure AD Graph Explorer 로드**: 도구를 로드하려면 [https://graphexplorer.azurewebsites.net/](https://graphexplorer.azurewebsites.net/)으로 이동합니다. **로그인**을 클릭하고 Azure AD 계정 자격 증명으로 로그인하여 테넌트에 대해 Azure AD Graph Explorer를 실행합니다. 고유한 테넌트에 대해 Azure AD Graph Explorer를 실행하는 경우 사용자 또는 관리자가 로그인 중에 동의해야 합니다. Office 365 구독이 있는 경우 Azure AD 테넌트를 자동으로 보유합니다. Office 365에 로그인하는 데 사용하는 자격 증명은 실제로 Azure AD 계정이며, Azure AD Graph Explorer에서 이러한 자격 증명을 사용할 수 있습니다.
 

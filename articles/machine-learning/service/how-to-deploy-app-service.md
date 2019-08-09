@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/01/2019
-ms.openlocfilehash: 11e8b26c81d3a8f672abbeafc153df73d063cb6e
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 84de9d53b19f5aa9b73570aa0d115d204e8b6596
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68612237"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848210"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Azure App Service에 machine learning 모델 배포 (미리 보기)
 
@@ -34,7 +34,7 @@ Azure App Service에서 제공 하는 기능에 대 한 자세한 내용은 [App
 
 ## <a name="prerequisites"></a>전제 조건
 
-* Azure Machine Learning 서비스 작업 영역. 자세한 내용은 [작업 영역 만들기](setup-create-workspace.md) 문서를 참조 하세요.
+* Azure Machine Learning 서비스 작업 영역. 자세한 내용은 [작업 영역 만들기](how-to-manage-workspace.md) 문서를 참조 하세요.
 * 작업 영역에 등록 된 학습 된 기계 학습 모델입니다. 모델이 없는 경우 [이미지 분류 자습서: 학습 모델 학습](tutorial-train-models-with-aml.md) 및 등록을 사용 합니다.
 * 모델에서 만든 Docker 이미지입니다. 이미지가 없는 경우 [이미지 분류: 모델 배포](tutorial-deploy-models-with-aml.md) 를 사용 하 여 모델을 만듭니다.
 

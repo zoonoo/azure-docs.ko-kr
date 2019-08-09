@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/21/2019
-ms.openlocfilehash: 473bf87e1961c3c7687b0867885adef40c14d71f
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: c5b423fca3e0ec116fceefb6867189f4f8413b96
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68694322"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856079"
 ---
 # <a name="create-and-access-datasets-preview-in-azure-machine-learning"></a>Azure Machine Learning에서 데이터 집합 만들기 및 액세스 (미리 보기)
 
@@ -32,13 +32,13 @@ Azure Machine Learning 데이터 집합을 사용 하 여 다음을 수행할 �
 
 * 다른 사용자와 **공동으로 데이터 & 공유**
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 데이터 집합을 만들고 작업 하려면 다음이 필요 합니다.
 
 * Azure 구독. Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 지금 사용해 보세요.
 
-* [Azure Machine Learning 서비스 작업 영역](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace)
+* [Azure Machine Learning 서비스 작업 영역](how-to-manage-workspace.md)
 
 * Azureml 데이터 집합 패키지가 포함 된 [Python 용 AZURE MACHINE LEARNING SDK가 설치 되어](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)있습니다.
 

@@ -1,20 +1,19 @@
 ---
 title: Azure 스토리지 분석 로깅
 description: Azure Storage에 대해 수행 된 요청에 대 한 세부 정보를 기록 하는 방법에 대해 알아봅니다.
-services: storage
 author: normesta
 ms.service: storage
-ms.topic: article
+ms.subservice: common
+ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: fryu
-ms.subservice: common
-ms.openlocfilehash: e46064076fb5d38fbde94bd4bb7e5dfbcff7e3b4
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 36c6c914c96048825c82a8d1f590a7e805373c08
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68556164"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854610"
 ---
 # <a name="azure-storage-analytics-logging"></a>Azure Storage 분석 로깅
 
@@ -113,7 +112,7 @@ ms.locfileid: "68556164"
 
  모든 로그 Blob는 해당 Blob에 포함된 로깅 데이터를 식별하는 데 사용할 수 있는 메타데이터와 함께 저장됩니다. 다음 표에서는 각 메타 데이터 특성에 대해 설명 합니다.
 
-|특성|설명|
+|특성|Description|
 |---------------|-----------------|
 |`LogType`|로그에 읽기, 쓰기 또는 삭제 작업과 관련된 정보가 포함되는지 여부를 설명합니다. 이 값에는 한 가지 형식이 포함될 수도 있고 3개 형식이 모두 조합(쉼표로 구분)되어 포함될 수도 있습니다.<br /><br /> 예 1: `write`<br /><br /> 예 2: `read,write`<br /><br /> 예 3:`read,write,delete`|
 |`StartTime`|로그에서 항목의 가장 이른 시간 (형식 `YYYY-MM-DDThh:mm:ssZ`)입니다. 예: `2011-07-31T18:21:46Z`|

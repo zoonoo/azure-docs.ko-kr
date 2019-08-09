@@ -4,23 +4,22 @@ description: Visual Studio Code에서 C#, Python, Node.js, Java 또는 C를 사�
 services: iot-edge
 keywords: ''
 author: shizn
-manager: philmea
 ms.author: xshi
-ms.date: 07/23/2019
+ms.date: 08/07/2019
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 39b8485ac3f98cb7ca6739fe31378726bea3452b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2efda0e506cf0525b1a8ea868acca48a929f8f41
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565342"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848305"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Visual Studio Code를 사용하여 Azure IoT Edge용 모듈 개발 및 디버그
 
 비즈니스 논리를 Azure IoT Edge용 모듈로 전환할 수 있습니다. 이 문서에서는 Visual Studio Code를 기본 도구로 사용하여 모듈을 개발하고 디버그하는 방법을 보여 줍니다.
 
-C#, Node.js 또는 Java로 작성된 모듈의 경우 Visual Studio Code에서 모듈을 디버그하는 두 가지 방법이 있습니다. 모듈 컨테이너에서 프로세스를 연결하거나 디버그 모드에서 모듈 코드를 시작할 수 있습니다. Python 또는 C로 작성된 모듈의 경우 Linux amd64 컨테이너에서 프로세스에 연결해야 디버그할 수 있습니다.
+Visual Studio Code에서 작성 C#한 모듈을 디버그 하는 방법에는 두 가지가 있습니다. 모듈 컨테이너에서 프로세스를 연결하거나 디버그 모드에서 모듈 코드를 시작할 수 있습니다. Python 또는 C로 작성 된 모듈을 디버그 하려면 Linux amd64 컨테이너의 프로세스에만 연결할 수 있습니다.
 
 Visual Studio Code의 디버깅 기능에 익숙하지 않은 경우, [디버깅](https://code.visualstudio.com/Docs/editor/debugging)에 대해 읽어 보시기 바랍니다.
 
@@ -43,7 +42,7 @@ Windows, macOS 또는 Linux를 실행하는 컴퓨터 또는 가상 머신을 �
   - Java: [Visual Studio Code용 Java 확장 팩](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
   - C: [C/C++ 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
 
-또한 모듈을 개발하기 위해 몇 가지 추가적인 언어 특정 도구를 설치해야 합니다.
+또한 모듈을 개발 하는 데 몇 가지 언어 관련 도구를 추가로 설치 해야 합니다.
 
 - Azure Functions를 포함한 C#: [.NET Core 2.1 SDK](https://www.microsoft.com/net/download)
 
@@ -53,7 +52,7 @@ Windows, macOS 또는 Linux를 실행하는 컴퓨터 또는 가상 머신을 �
 
 - Java: [Java SE Development Kit 10](https://aka.ms/azure-jdks) 및 [Maven](https://maven.apache.org/). JDK 설치를 가리키려면 [`JAVA_HOME` 환경 변수를 설정](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/)해야 합니다.
 
-모듈 이미지를 빌드하고 배포하려면 모듈 이미지를 빌드하기 위한 Docker와 모듈 이미지를 저장하기 위한 컨테이너 레지스트리가 필요합니다.
+모듈 이미지를 빌드하고 배포 하려면 모듈 이미지와 모듈 이미지를 보관할 컨테이너 레지스트리를 빌드하기 위한 Docker가 필요 합니다.
 
 - 개발 머신의 [Docker Community Edition](https://docs.docker.com/install/)
 
@@ -107,7 +106,7 @@ Visual Studio Code는 입력한 정보를 사용하여 IoT Edge 솔루션을 만
   > [!NOTE]
   > 환경 파일은 모듈에 대한 이미지 리포지토리를 제공하는 경우에만 생성됩니다. localhost 기본값을 로컬로 테스트하고 디버그하도록 수락하는 경우 환경 변수를 선언할 필요가 없습니다.
 
-- **deployment.template.json** 파일은 테스트에 사용할 수 있는 데이터를 시뮬레이션하는 샘플 **tempSensor** 모듈과 함께 새 모듈을 나열합니다. 배포 매니페스트 작동 방식에 대한 자세한 내용은 [배포 매니페스트를 사용하여 모듈을 배포하고 경로를 설정하는 방법 알아보기](module-composition.md)를 참조하세요.
+- SimulatedTemperatureSensor 파일에는 테스트에 사용할 수 있는 데이터를 시뮬레이트하는 샘플 모듈과 함께 새 모듈이 나열 됩니다. 배포 매니페스트 작동 방식에 대한 자세한 내용은 [배포 매니페스트를 사용하여 모듈을 배포하고 경로를 설정하는 방법 알아보기](module-composition.md)를 참조하세요.
 
 ## <a name="add-additional-modules"></a>모듈 더 추가
 
@@ -124,7 +123,7 @@ Visual Studio Code는 입력한 정보를 사용하여 IoT Edge 솔루션을 만
 - Java: **modules > ‘&lt;모듈 이름&gt;’ > src > main > java > com > edgemodulemodules > App.java**
 - C: **modules > ‘&lt;모듈 이름&gt;’ > main.c**
 
-모듈 및 deployment.template.json 파일은 솔루션을 빌드하고, 컨테이너 레지스트리에 푸시하고, 디바이스에 배포하여 코드를 변경하지 않고 테스트를 시작하도록 설정됩니다. 모듈은 단순히 원본에서 입력을 가져오고(이 경우에 데이터를 시뮬레이션하는 tempSensor 모듈) IoT Hub로 파이핑하도록 빌드됩니다.
+모듈 및 deployment.template.json 파일은 솔루션을 빌드하고, 컨테이너 레지스트리에 푸시하고, 디바이스에 배포하여 코드를 변경하지 않고 테스트를 시작하도록 설정됩니다. 이 모듈은 원본 (이 경우 데이터를 시뮬레이트하는 SimulatedTemperatureSensor 모듈)에서 입력을 가져와 IoT Hub로 파이프 하는 것으로 빌드됩니다.
 
 고유한 코드를 사용하여 템플릿을 사용자 지정할 준비가 된 경우 [Azure IoT Hub SDK](../iot-hub/iot-hub-devguide-sdks.md)를 사용하여 보안, 디바이스 관리 및 안정성 등 IoT 솔루션에 대한 주요 요구 사항을 해결하는 모듈을 빌드합니다.
 
@@ -227,7 +226,7 @@ C#, Node.js 또는 Java에서 개발하는 모듈은 기본 모듈 코드에서 
 
 1. Visual Studio Code Explorer 보기에서 솔루션의 `deployment.debug.template.json` 파일을 마우스 오른쪽 단추로 클릭한 후 **Build and Run IoT Edge solution in Simulator**(시뮬레이터에서 IoT Edge 솔루션 빌드 및 실행)를 선택합니다. 같은 창에서 모든 모듈 컨테이너 로그를 볼 수 있습니다. Docker 보기로 이동하여 컨테이너 상태를 확인할 수도 있습니다.
 
-   ![변수 보기](media/how-to-develop-csharp-module/view-log.png)
+   ![변수 보기](media/how-to-vs-code-develop-module/view-log.png)
 
 1. Visual Studio Code 디버그 보기로 이동하고 모듈의 디버그 구성 파일을 선택합니다. 디버그 옵션 이름은 **‘&lt;모듈 이름&gt;’ 원격 디버그(Java)** 와 비슷해야 합니다.
 

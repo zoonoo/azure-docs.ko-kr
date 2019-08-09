@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5d8cd7799dd23dabc2cbb423e82b8c7203b7bed
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: c897d52c10efdb8824f676d7640dcc7275915a9e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834641"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851788"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>하이브리드 Azure AD 조인의 제어된 유효성 검사
 
@@ -72,7 +72,7 @@ ADSI 편집 (Active Directory Services 인터페이스 편집기)을 사용 하 
       1. 키 경로: **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
       1. 값 이름: **TenantName**
       1. 값 형식: **REG_SZ**
-      1. 방법 2 AD FS와 같은 페더레이션된 환경을 사용 하는 경우 확인 된 **도메인 이름** 입니다. 예를 `contoso.onmicrosoft.com` 들어 관리 되는 환경을 사용 하는 경우 확인 된 * * 도메인 이름 "" 또는 onmicrosoft.com 도메인 이름
+      1. 방법 2 AD FS와 같은 페더레이션된 환경을 사용 하는 경우 확인 된 **도메인 이름** 입니다. 예를 `contoso.onmicrosoft.com` 들어 관리 되는 환경을 사용 하는 경우 확인 된 **도메인 이름** 또는 onmicrosoft.com 도메인 이름
    1. **확인**을 클릭합니다.
 1. 새로 만든 GPO에 대 한 편집기를 닫습니다.
 1. 사용자가 제어 하는 출시 모집단에 속한 도메인 가입 컴퓨터를 포함 하는 원하는 OU에 새로 만든 GPO를 연결 합니다.

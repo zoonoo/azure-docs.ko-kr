@@ -4,12 +4,12 @@ ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 11-20-2018
-ms.openlocfilehash: 05820cc5f7b7d61d83f73ea5b62b05f8712e0997
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 790fb39c3d8964c053ffe1d7ee04418fcbc0913c
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182169"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68857437"
 ---
 # <a name="virtual-machine-size-flexibility-with-reserved-vm-instances"></a>Reserved VM Instances에서 가상 머신 크기 유연성
 
@@ -131,6 +131,14 @@ ms.locfileid: "67182169"
 
 자세한 내용은 [이전 세대의 가상 머신 크기](../articles/virtual-machines/windows/sizes-previous-gen.md)를 참조하세요.
 
+## <a name="dsv2-high-memory-isolated-series"></a>DSv2 High Memory 격리 시리즈
+
+| 크기 | 비율|
+|---|---|
+|Standard_DS15i_v2|1|
+
+자세한 내용은 [이전 세대의 가상 머신 크기](../articles/virtual-machines/windows/sizes-previous-gen.md)를 참조하세요.
+
 ## <a name="dsv3-series"></a>DSv3 시리즈
 
 | 크기 | 비율|
@@ -168,6 +176,15 @@ ms.locfileid: "67182169"
 
 자세한 내용은 [이전 세대의 가상 머신 크기](../articles/virtual-machines/windows/sizes-previous-gen.md)를 참조하세요.
 
+## <a name="dv2--high-memory-isolated-series"></a>Dv2 High Memory 격리 시리즈
+
+| 크기 | 비율|
+|---|---|
+|Standard_D15i_v2|1|
+
+자세한 내용은 [이전 세대의 가상 머신 크기](../articles/virtual-machines/windows/sizes-previous-gen.md)를 참조하세요.
+
+
 ## <a name="dv3-series"></a>Dv3 시리즈
 
 | 크기 | 비율|
@@ -204,17 +221,31 @@ ms.locfileid: "67182169"
 
 자세한 내용은 [메모리 최적화 가상 머신 크기](../articles/virtual-machines/windows/sizes-memory.md#esv3-series)를 참조하세요.
 
+## <a name="esv3-series-isolated-series"></a>ESv3 시리즈 격리 시리즈
+
+| 크기 | 비율|
+|---|---|
+|Standard_E64is_v3|1|
+
 ## <a name="ev3-series"></a>Ev3 시리즈
 
 | 크기 | 비율|
 |---|---|
-| Standard_E2_v3|1|
+|Standard_E2_v3|1|
 |Standard_E4_v3|2|
 |Standard_E8_v3|4|
 |Standard_E16_v3|8|
 |Standard_E20_v3|10|
 |Standard_E32_v3|16|
 |Standard_E64_v3|32|
+
+자세한 내용은 [메모리 최적화 가상 머신 크기](../articles/virtual-machines/windows/sizes-memory.md#ev3-series)를 참조하세요.
+
+## <a name="ev3-series-isolated-series"></a>Ev3 시리즈 격리 시리즈
+
+| 크기 | 비율|
+|---|---|
+|Standard_E64i_v3|1|
 
 자세한 내용은 [메모리 최적화 가상 머신 크기](../articles/virtual-machines/windows/sizes-memory.md#ev3-series)를 참조하세요.
 
@@ -274,16 +305,69 @@ Standard_F16|16|
 
 자세한 내용은 [고성능 컴퓨팅 VM 크기](../articles/virtual-machines/windows/sizes-hpc.md)를 참조하세요.
 
-## <a name="ls-series"></a>Ls 시리즈
+
+## <a name="hcs-series"></a>HCS 시리즈
 
 | 크기 | 비율|
 |---|---|
-| Standard_L4s|1|
-|Standard_L8s|2|
-|Standard_L16s|4|
-|Standard_L32s|8|
+|Standard_HC44rs|1|
+
+자세한 내용은 [고성능 컴퓨팅 VM 크기](../articles/virtual-machines/windows/sizes-hpc.md)를 참조하세요.
+
+## <a name="hbs-series"></a>HBS 시리즈
+
+| 크기 | 비율|
+|---|---|
+|Standard_HB60rs|1|
+
+자세한 내용은 [고성능 컴퓨팅 VM 크기](../articles/virtual-machines/windows/sizes-hpc.md)를 참조하세요.
+
+## <a name="hbs-series"></a>HBS 시리즈
+
+| 크기 | 비율|
+|---|---|
+|Standard_HB60rs|1|
+
+자세한 내용은 [고성능 컴퓨팅 VM 크기](../articles/virtual-machines/windows/sizes-hpc.md)를 참조하세요.
+
+## <a name="h-series-low-latency-series"></a>H 시리즈 낮은 대기 시간-시리즈
+
+| 크기 | 비율|
+|---|---|
+|Standard_H16r|1|
 
 자세한 내용은 [저장소 최적화 가상 머신 크기](../articles/virtual-machines/windows/sizes-storage.md)를 참조하세요.
+
+## <a name="h-series-high-memory-low-latency-series"></a>H 시리즈 높은 메모리 낮은 대기 시간-시리즈
+
+| 크기 | 비율|
+|---|---|
+|Standard_H16mr|1|
+
+자세한 내용은 [저장소 최적화 가상 머신 크기](../articles/virtual-machines/windows/sizes-storage.md)를 참조하세요.
+
+## <a name="h-series"></a>H 시리즈
+
+| 크기 | 비율|
+|---|---|
+|Standard_H8|1|
+|Standard_H16|2|
+
+자세한 내용은 [저장소 최적화 가상 머신 크기](../articles/virtual-machines/windows/sizes-storage.md)를 참조하세요.
+
+## <a name="lsv2-series-series"></a>LSv2 시리즈 시리즈
+
+| 크기 | 비율|
+|---|---|
+|Standard_L8s_v2|1|
+|Standard_L16s_v2|2|
+|Standard_L32s_v2|4|
+|Standard_L48s_v2|6|
+|Standard_L64s_v2|8|
+|Standard_L80s_v2|10|
+|Standard_L96s_v2|12|
+
+자세한 내용은 [저장소 최적화 가상 머신 크기](../articles/virtual-machines/windows//sizes-storage.md#lsv2-series)를 참조하세요.
 
 ## <a name="m-series"></a>M 시리즈
 
@@ -323,7 +407,7 @@ Standard_F16|16|
 
 | 크기 | 비율|
 |---|---|
-| Standard_M32ls|1|
+|Standard_M32ls|1|
 |Standard_M64ls|2|
 
 자세한 내용은 [메모리 최적화 가상 머신 크기](../articles/virtual-machines/windows/sizes-memory.md#m-series)를 참조하세요.
@@ -332,7 +416,7 @@ Standard_F16|16|
 
 | 크기 | 비율|
 |---|---|
-| Standard_M64ms|1|
+|Standard_M64ms|1|
 |Standard_M64-16ms|1|
 |Standard_M64-32ms|1|
 |Standard_M128ms|2|
@@ -341,11 +425,37 @@ Standard_F16|16|
 
 자세한 내용은 [메모리 최적화 가상 머신 크기](../articles/virtual-machines/windows/sizes-memory.md#m-series)를 참조하세요.
 
+## <a name="ms-series-fractional-tiny"></a>MS 시리즈 부분 아주 작음
+
+| 크기 | 비율|
+|---|---|
+|Standard_M32ls|1|
+
+자세한 내용은 [메모리 최적화 가상 머신 크기](../articles/virtual-machines/windows/sizes-memory.md#m-series)를 참조하세요.
+
+## <a name="msv2-series-high-memory-series"></a>MSv2 시리즈 높은 메모리 시리즈
+
+| 크기 | 비율|
+|---|---|
+|Standard_M208ms_v2|1|
+|Standard_M416ms_v2|2|
+
+자세한 내용은 [메모리 최적화 가상 머신 크기](../articles/virtual-machines/windows/sizes-memory.md#m-series)를 참조하세요.
+
+## <a name="msv2-series"></a>MSv2 시리즈
+
+| 크기 | 비율|
+|---|---|
+|Standard_M208s_v2|1|
+|Standard_M416s_v2|2|
+
+자세한 내용은 [메모리 최적화 가상 머신 크기](../articles/virtual-machines/windows/sizes-memory.md#m-series)를 참조하세요.
+
 ## <a name="nc-series"></a>NC 시리즈
 
 | 크기 | 비율|
 |---|---|
-| Standard_NC6|1|
+|Standard_NC6|1|
 |Standard_NC12|2|
 |Standard_NC24|4|
 
@@ -389,6 +499,45 @@ Standard_F16|16|
 |Standard_NV12|2|
 |Standard_NV24|4|
 
-자세한 내용은 [GPU 최적화 가상 머신 크기](../articles/virtual-machines/windows//sizes-gpu.md#nv-series)를 참조하세요.
+## <a name="nvsv3-series"></a>NVSv3 시리즈
+
+| 크기 | 비율|
+|---|---|
+|Standard_NV12s_v3|1|
+|Standard_NV24s_v3|2|
+|Standard_NV48s_v3|4|
+
+## <a name="nds-series-low-latency-series"></a>NDS 시리즈 낮은 대기 시간-시리즈
+
+| 크기 | 비율|
+|---|---|
+|Standard_ND24rs|1|
+
+## <a name="ncsv3-series-low-latency-series"></a>NCSv3 시리즈 낮은 대기 시간-시리즈
+
+| 크기 | 비율|
+|---|---|
+|Standard_NC24rs_v3|1|
+
+자세한 내용은 [GPU 최적화 가상 머신 크기](../articles/virtual-machines/windows//sizes-gpu.md#ncv3-series)를 참조하세요.
+
+## <a name="ncsv2-series-low-latency-series"></a>NCSv2 시리즈 낮은 대기 시간-시리즈
+
+| 크기 | 비율|
+|---|---|
+|Standard_NC24rs_v2|1|
+
+자세한 내용은 [GPU 최적화 가상 머신 크기](../articles/virtual-machines/windows//sizes-gpu.md#ncv2-series)를 참조하세요.
+
+## <a name="nc-series-low-latency-series"></a>NC 시리즈 낮은 대기 시간-시리즈
+
+| 크기 | 비율|
+|---|---|
+|Standard_NC24r|1|
+
+자세한 내용은 [GPU 최적화 가상 머신 크기](../articles/virtual-machines/windows//sizes-gpu.md#ncv2-series)를 참조하세요.
+
+
+
 
 

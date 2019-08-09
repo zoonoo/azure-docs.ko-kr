@@ -16,14 +16,14 @@ ms.topic: conceptual
 ms.date: 04/12/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be7d4164bd1a412c69c3b5adfe20cf83d699d2b4
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 69aa2da29e18f99e75e09d8f21814b71cc95ef72
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304801"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68852137"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Microsoft id 플랫폼 및 Openid connect Connect 프로토콜
 
@@ -166,7 +166,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 다음 테이블은 오류 응답의 `error` 매개 변수에 반환될 수 있는 오류 코드를 설명합니다.
 
-| 오류 코드 | Description | 클라이언트 작업 |
+| 오류 코드 | 설명 | 클라이언트 작업 |
 | --- | --- | --- |
 | `invalid_request` | 프로토콜 오류(예: 필수 매개 변수 누락)입니다. |요청을 수정하여 다시 제출하십시오. 일반적으로 초기 설정 중에 발견되는 개발 오류입니다. |
 | `unauthorized_client` | 클라이언트 응용 프로그램에서 권한 부여 코드를 요청할 수 없습니다. |이는 일반적으로 클라이언트 응용 프로그램이 Azure AD에 등록 되지 않았거나 사용자의 Azure AD 테 넌 트에 추가 되지 않은 경우에 발생 합니다. 애플리케이션이 사용자에게 애플리케이션을 설치하고 Azure AD에 추가하기 위한 지침이 포함된 메시지를 표시할 수 있습니다. |
@@ -271,7 +271,7 @@ Content-Type: application/x-www-form-urlencoded
 error=access_denied&error_description=the+user+canceled+the+authentication
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | --- | --- |
 | `error` | 발생한 오류 유형을 분류하고 오류에 대응하는 데 사용할 수 있는 오류 코드 문자열입니다. |
 | `error_description` | 인증 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. |

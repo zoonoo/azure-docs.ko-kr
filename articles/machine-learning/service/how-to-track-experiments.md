@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: edc0da77fc1c2813c2485fca18d50952e3060db8
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: f7cd0125de886eed4b3e5c31503fdd4b7cbb76dd
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68370478"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847814"
 ---
 # <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Azure Machine Learning에서 학습 실행 중의 로그 메트릭
 
@@ -49,7 +49,7 @@ ms.locfileid: "68370478"
 ## <a name="set-up-the-workspace"></a>작업 영역 설정
 로깅을 추가하고 실험을 제출하기 전에 작업 영역을 설정해야 합니다.
 
-1. 작업 영역을 로드합니다. 작업 영역 구성 설정에 대 한 자세한 내용을 보려면 [Azure Machine Learning 서비스 작업 영역 만들기](setup-create-workspace.md#sdk)의 단계를 따르세요.
+1. 작업 영역을 로드합니다. 작업 영역 구성을 설정 하는 방법에 대해 자세히 알아보려면 [작업 영역 구성 파일](how-to-configure-environment.md#workspace)을 참조 하세요.
 
    ```python
    from azureml.core import Experiment, Run, Workspace
@@ -58,7 +58,7 @@ ms.locfileid: "68370478"
    ws = Workspace.from_config()
    ```
   
-## <a name="option-1-use-startlogging"></a>옵션 1: start_logging 사용
+## <a name="option-1-use-start_logging"></a>옵션 1: start_logging 사용
 
 **start_logging**은 노트북과 같은 시나리오에서 사용할 대화형 실행을 만듭니다. 세션 중에 기록된 모든 메트릭이 실험의 실행 기록에 추가됩니다.
 

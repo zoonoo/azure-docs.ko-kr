@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2019
 ms.author: iainfou
-ms.openlocfilehash: ecf38543b2c4e5187aa5c6593c3bccf6668b8a8a
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 8829f16e580d0b926781ce0a3e9f8e6a63cf3110
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67472756"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853769"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>관리되는 도메인의 암호 및 계정 잠금 정책
 이 문서에서는 관리되는 도메인의 기본 암호 정책과 이러한 정책을 구성할 수 있는 방법을 설명합니다.
@@ -80,7 +80,7 @@ FGPP를 사용하여 구성할 수 있는 암호 설정은 다음과 같습니�
 * 관리되는 도메인의 기본 암호 수명 설정을 구성하려는 경우
 
 관리되는 도메인에서 사용자 지정 FGPP를 만들려면 다음 단계를 수행합니다.
-1. 관리되는 도메인을 관리하는 데 사용하는 Windows VM에 로그인합니다. 계정이 없는, 지침에 따라 [는 Azure AD Domain Services 도메인 관리](manage-domain.md)합니다.
+1. 관리 되는 도메인을 관리 하는 데 사용 하는 Windows VM에 로그인 합니다 (최소 Windows Server 2012 R2 이상 이어야 함). [Azure AD Domain Services 도메인을 관리](manage-domain.md)하는 방법에 대 한 지침을 따릅니다.
 2. VM에서 **Active Directory 관리 센터**를 시작합니다.
 3. 'contoso100.com' 등의 도메인 이름을 클릭합니다.
 4. **시스템**을 두 번 클릭하여 시스템 컨테이너를 엽니다.

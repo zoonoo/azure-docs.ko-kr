@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 06/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 064fd0e2bf503d917c809aa576bbc332b5b18a77
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 3fb4d953f575dcf6582f9f1c8c2a725971134159
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742365"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856251"
 ---
 # <a name="what-is-automated-machine-learning"></a>자동화된 Machine Learning이란?
 
@@ -66,6 +66,9 @@ AutoML이 라고도 하는 자동화 된 machine learning은 기계 학습 모�
 ## <a name="preprocessing"></a>바꾸면
 
 자동화 된 모든 기계 학습 실험에서 데이터는 기본 메서드를 사용 하 여 전처리 되 고 선택적으로 고급 전처리를 통해 전처리 됩니다.
+
+> [!NOTE]
+> 자동화 된 기계 학습 사전 처리 단계 (기능 정규화, 누락 된 데이터 처리, 텍스트를 숫자로 변환 등)는 기본 모델의 일부가 됩니다. 예측에 모델을 사용 하는 경우 학습 중에 적용 되는 동일한 전처리 단계는 입력 데이터에 자동으로 적용 됩니다.
 
 ### <a name="automatic-preprocessing-standard"></a>자동 전처리 (표준)
 

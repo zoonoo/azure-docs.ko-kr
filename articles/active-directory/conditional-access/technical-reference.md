@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 316c5b6b52c30b51fb2f177a0ae2bd9758fc91d9
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 390c961eaa692e6ca5bf26e2954c0764207fc210
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442470"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853667"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory 조건부 액세스 설정 참조
 
@@ -116,19 +116,20 @@ Microsoft 클라우드 앱 외에도 다음과 같은 유형의 클라우드 앱
 
 이 설정은 모든 브라우저에서 작동합니다. 하지만 호환 디바이스 요구 사항과 같은 디바이스 정책을 충족하기 위해 다음 운영 체제와 브라우저가 지원됩니다.
 
-| OS                     | 브라우저                                      |
-| :--                    | :--                                           |
-| Windows 10             | Internet Explorer, Microsoft Edge, Chrome     |
-| Windows 8 / 8.1        | Internet Explorer, Chrome                     |
-| Windows 7              | Internet Explorer, Chrome                     |
-| iOS                    | Safari, Microsoft Edge, Intune Managed Browser |
-| Android                | Chrome, Microsoft Edge, Intune Managed Browser |
-| Windows Phone          | Internet Explorer, Microsoft Edge             |
-| Windows Server 2016    | Internet Explorer, Microsoft Edge             |
-| Windows Server 2016    | Chrome                                        |
-| Windows Server 2012 R2 | Internet Explorer, Chrome                     |
-| Windows Server 2008 R2 | Internet Explorer, Chrome                     |
-| macOS                  | Chrome, Safari                                |
+| OS                     | 브라우저                                        |
+| :--                    | :--                                             |
+| Windows 10             | Microsoft Edge, Internet Explorer, Chrome       |
+| Windows 8 / 8.1        | Internet Explorer, Chrome                       |
+| Windows 7              | Internet Explorer, Chrome                       |
+| iOS                    | Microsoft Edge, Intune Managed Browser, Safari  |
+| Android                | Microsoft Edge, Intune Managed Browser, Chrome  |
+| Windows Phone          | Microsoft Edge, Internet Explorer               |
+| Windows Server 2019    | Microsoft Edge, Internet Explorer, Chrome       |
+| Windows Server 2016    | Microsoft Edge, Internet Explorer               |
+| Windows Server 2012 R2 | Internet Explorer                       |
+| Windows Server 2008 R2 | Internet Explorer                       |
+| macOS                  | Chrome, Safari                                  |
+
 
 #### <a name="why-do-i-see-a-certificate-prompt-in-the-browser"></a>브라우저에 인증서 프롬프트가 표시 되는 이유는 무엇 인가요?
 

@@ -12,12 +12,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 07/22/2019
 ms.author: juliako
-ms.openlocfilehash: fd67e867b5eac58838551ac29e1fca5e860b15ff
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: b627a78edef1c0b0fe6b3ed011678145aea397ae
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414223"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845892"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Azure Media Services Video Indexer 릴리스 정보
 
@@ -27,6 +27,16 @@ ms.locfileid: "68414223"
 * 알려진 문제
 * 버그 수정
 * 사용되지 않는 기능
+
+## <a name="july-2019"></a>7 월 2019
+
+### <a name="editor-as-a-widget"></a>Widget 편집기
+
+이제는 Video Indexer AI 편집기를 고객 응용 프로그램에 포함 시킬 수 있는 위젯로 사용할 수 있습니다.
+
+### <a name="update-custom-language-model-from-closed-caption-file-from-the-portal"></a>포털에서 자막 파일의 사용자 지정 언어 모델 업데이트
+
+고객은 포털의 사용자 지정 페이지에서 VTT, SRT 및 TTML 파일 형식을 언어 모델에 대 한 입력으로 제공할 수 있습니다.
 
 ## <a name="june-2019"></a>2019년 6월
 

@@ -4,14 +4,14 @@ description: Azure Migrate에 대한 질문과 대답 해결
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 08/07/2019
 ms.author: snehaa
-ms.openlocfilehash: 0708502087ae6880d9559cf17f0ba9982b2ba040
-ms.sourcegitcommit: 57a7d4f67635212f5bf0c56e58fd87c8ec366f2c
+ms.openlocfilehash: bf591306220b2c8c1e6c8166686836d96432fc7d
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68372476"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856269"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - FAQ(질문과 대답)
 
@@ -71,7 +71,8 @@ Azure Migrate로 전송 되는 데이터의 볼륨은 여러 매개 변수에 �
 
 ### <a name="can-i-connect-the-same-appliance-to-multiple-vcenter-servers"></a>동일한 어플라이언스를 여러 vCenter 서버에 연결할 수 있나요?
 
-예, 단일 Azure Migrate 어플라이언스를 사용 하 여 여러 vCenter 서버를 검색할 수는 있지만 동시에는 불가능 합니다. 검색을 실행 해야 합니다.
+아니요. 어플라이언스와 vCenter Server 사이에 일대일 매핑이 있습니다. 여러 vCenter 서버에서 Vm을 검색 해야 하는 경우 여러 어플라이언스를 배포 해야 합니다. 
+
 
 ### <a name="i-changed-my-machine-size-can-i-rerun-an-assessment"></a>내 컴퓨터 크기를 변경했습니다. 평가를 다시 실행할 수 있나요?
 

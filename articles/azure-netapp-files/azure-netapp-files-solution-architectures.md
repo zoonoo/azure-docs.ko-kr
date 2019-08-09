@@ -12,17 +12,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/24/2019
+ms.date: 08/07/2019
 ms.author: b-juche
-ms.openlocfilehash: d4682ed375453cee4e5aa107d69c288e66cd11a7
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 03a9f61d8840149419eac2b4cf5f8d9f50ed6546
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67867415"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848770"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Azure NetApp Files를 사용하는 솔루션 아키텍처
 이 문서에서는 Azure NetApp Files 사용을 위한 솔루션 아키텍처를 이해 하는 데 도움이 되는 모범 사례에 대 한 참조를 제공 합니다.  
+
+## <a name="solutions-for-azure-kubernetes-service-aks"></a>Azure Kubernetes Service에 대 한 솔루션 (AKS)
+
+[AKS와 Azure NetApp Files 통합](https://github.com/andyzhangx/demo/tree/master/linux/nfs)
 
 ## <a name="solutions-for-oracle-database"></a>Oracle 데이터베이스에 대 한 솔루션
 

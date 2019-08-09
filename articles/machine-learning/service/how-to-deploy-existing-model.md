@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/19/2019
-ms.openlocfilehash: 4534f7e5bba2e34316be3376e2627c15c20ba81f
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: cbbfd5f7beb7270bf55e952c818b4802d9d9ecab
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68694378"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848001"
 ---
 # <a name="use-an-existing-model-with-azure-machine-learning-service"></a>Azure Machine Learning 서비스에서 기존 모델 사용
 
@@ -30,16 +30,16 @@ Azure Machine Learning 서비스 외부에서 학습 된 machine learning 모델
 >
 > 배포 프로세스에 대 한 일반 정보는 [Azure Machine Learning 서비스를 사용 하 여 모델 배포](how-to-deploy-and-where.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
-* Azure Machine Learning 서비스 작업 영역. 자세한 내용은 [작업 영역 만들기](setup-create-workspace.md)를 참조 하세요.
+* Azure Machine Learning 서비스 작업 영역. 자세한 내용은 [작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
 
     > [!TIP]
     > 이 문서의 Python 예제에서는 `ws` 변수가 Azure Machine Learning 서비스 작업 영역으로 설정 되어 있다고 가정 합니다.
     >
     > CLI 예제에서는 및 `myworkspace` `myresourcegroup`의 자리 표시자를 사용 합니다. 이를 작업 영역 이름 및이를 포함 하는 리소스 그룹으로 바꿉니다.
 
-* Azure Machine Learning SDK입니다. 자세한 내용은 [작업 영역 만들기](setup-create-workspace.md#sdk)의 Python SDK 섹션을 참조 하세요.
+* [AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)입니다.  
 
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 및 [Machine Learning CLI 확장](reference-azure-machine-learning-cli.md)입니다.
 

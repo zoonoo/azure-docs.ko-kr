@@ -9,18 +9,18 @@ ms.author: robreed
 ms.date: 03/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8d90f1c03a9ed892a9dc8a4fecbeb9815c2dd376
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: e655e286c3aebe28bcb09c8723516c2ff52ad20e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476896"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68850350"
 ---
 # <a name="azure-automation-runbook-types"></a>Azure Automation Runbook 형식
 
 Azure Automation는 여러 가지 유형의 Runbook을 지원합니다. 아래 테이블에서는 각 유형에 대해 간략하게 설명합니다.  아래 섹션은 각각을 사용할 경우에 대한 고려 사항을 포함하여 각 형식에 대해 자세한 정보를 제공합니다.
 
-| Type | 설명 |
+| 형식 | 설명 |
 |:--- |:--- |
 | [그래픽](#graphical-runbooks)|Windows PowerShell을 기반으로 하며 Azure 포털의 그래픽 편집기로 완전하게 생성 및 편집됩니다. |
 | [그래픽 PowerShell 워크플로](#graphical-runbooks)|Windows PowerShell 워크플로를 기반으로 하며 Azure 포털의 그래픽 편집기로 완전하게 생성 및 편집됩니다. |
@@ -34,11 +34,11 @@ Azure Automation는 여러 가지 유형의 Runbook을 지원합니다. 아래 �
 
 ### <a name="advantages"></a>장점
 
-* 시각적 삽입-링크-구성 제작 모델  
-* 프로세스를 통해 데이터가 흐르는 방식에 집중  
-* 관리 프로세스를 시각적으로 표시  
-* 다른 Runbook을 자식 Runbook으로 포함시켜 고급 워크플로 만들기  
-* 모듈식 프로그래밍 장려  
+* 시각적 삽입-링크-구성 제작 모델
+* 프로세스를 통해 데이터가 흐르는 방식에 집중
+* 관리 프로세스를 시각적으로 표시
+* 다른 Runbook을 자식 Runbook으로 포함시켜 고급 워크플로 만들기
+* 모듈식 프로그래밍 장려
 
 ### <a name="limitations"></a>제한 사항
 
@@ -55,7 +55,7 @@ PowerShell Runbook은 Windows PowerShell을 기반으로 합니다.  Azure 포�
 
 * PowerShell 워크플로의 부가적인 복잡성 없이 PowerShell 코드로 모든 복잡한 로직을 구현합니다.
 * Runbook은 실행 전에 컴파일이 필요 없기 때문에 PowerShell 워크플로 Runbook보다 빨리 시작됩니다.
-* Azure에서 또는 Linux와 Windows Hybrid Runbook Worker에서 실행할 수 있습니다.
+* Azure에서 실행 하거나 Linux 및 Windows Hybrid Runbook Worker에서 실행할 수 있습니다.
 
 ### <a name="limitations"></a>제한 사항
 
@@ -99,7 +99,7 @@ Python Runbook은 Python 2에서 컴파일됩니다.  Azure Portal의 텍스트 
 ### <a name="advantages"></a>장점
 
 * 유용한 Python 라이브러리를 활용할 수 있습니다.
-* Azure에서 또는 모두 Linux Hybrid Runbook Worker에서 실행할 수 있습니다. Windows Hybrid Runbook Worker를 사용 하 여 지 [python2.7](https://www.python.org/downloads/release/latest/python2) 설치 합니다.
+* Azure 또는 Linux Hybrid Runbook Worker에서 실행할 수 있습니다. Windows Hybrid Runbook Worker는 [python 2.7](https://www.python.org/downloads/release/latest/python2) 이 설치 된 상태에서 지원 됩니다.
 
 ### <a name="limitations"></a>제한 사항
 
@@ -119,4 +119,4 @@ Python Runbook은 Python 2에서 컴파일됩니다.  Azure Portal의 텍스트 
 * 그래픽 Runbook 작성에 대해 자세히 알아보려면 [Azure Automation에서 그래픽 작성](automation-graphical-authoring-intro.md)
 * Runbook용 PowerShell 및 PowerShell 워크플로 간의 차이점을 이해하려면 [Windows PowerShell 워크플로 학습](automation-powershell-workflow.md)
 * Runbook을 만들거나 가져오는 방법에 대한 자세한 내용은 [Runbook 만들기 또는 가져오기](manage-runbooks.md)
-
+* 언어 참조 및 학습 모듈을 비롯 한 PowerShell에 대 한 자세한 내용은 [Powershell 문서](https://docs.microsoft.com/en-us/powershell/scripting/overview)를 참조 하세요.

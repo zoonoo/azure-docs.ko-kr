@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 88e3c0514861da0bd11acffd26cced54717e4418
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 6f41263bfb930d3aab41fd8ace86cd6afb0ace26
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478499"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68850578"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Hybrid Runbook Worker에서 Runbook 실행
 
@@ -271,7 +271,7 @@ sudo gpg --generate-key
 
 GPG는 키 쌍을 만드는 단계를 안내합니다. 이름, 이메일 주소, 만료 시간, 암호를 제공하고 키가 생성될 때까지 머신에서 충분한 엔트로피를 기다려야 합니다.
 
-GPG 디렉터리가 sudo를 사용하여 생성되었으므로 소유자를 `nxautomation`으로 변경해야 합니다. 
+GPG 디렉터리가 sudo를 사용하여 생성되었으므로 소유자를 `nxautomation`으로 변경해야 합니다.
 
 다음 명령을 실행하여 소유자를 변경합니다.
 
@@ -312,3 +312,4 @@ gpg –-clear-sign <runbook name>
 * Runbook을 시작하는 데 사용할 수 있는 여러 가지 방법에 대해 자세히 알아보려면 [Azure Automation에서 Runbook 시작](automation-starting-a-runbook.md)을 참조하세요.
 * 텍스트 편집기를 사용하여 Azure Automation에서 PowerShell Runbook을 작업하기 위한 여러 가지 방법을 알아보려면 [Azure Automation에서 Runbook 편집](automation-edit-textual-runbook.md)을 참조하세요.
 * Runbook이 성공적으로 완료되지 않으면 [Runbook 실행 실패](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails)에 대한 문제 해결 가이드를 검토하세요.
+* 언어 참조 및 학습 모듈을 비롯 한 PowerShell에 대 한 자세한 내용은 [Powershell 문서](https://docs.microsoft.com/en-us/powershell/scripting/overview)를 참조 하세요.

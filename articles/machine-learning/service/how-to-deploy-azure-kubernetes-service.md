@@ -10,19 +10,19 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2019
-ms.openlocfilehash: deb6482c0419a5872ccf86f0014adbecc7be6c9d
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 4a0aab2ca2f0bbcee07f09124e68c3623d16004d
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68694400"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848141"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Azure Kubernetes Service 클러스터에 모델 배포
 
 Azure Machine Learning 서비스를 사용 하 여 AKS (Azure Kubernetes Service)에 웹 서비스로 모델을 배포 하는 방법에 대해 알아봅니다. Azure Kubernetes 서비스는 대규모 프로덕션 배포에 적합 합니다. 다음 기능이 하나 이상 필요한 경우 Azure Kubernetes service를 사용 합니다.
 
 - __빠른 응답 시간__.
-- 배포 된 __서비스의 자동__ 크기 조정.
+- 배포 된 서비스의 자동 크기 조정.
 - GPU 및 필드 프로그래밍 가능 게이트 배열 (FPGA)과 같은 __하드웨어 가속__ 옵션입니다.
 
 > [!IMPORTANT]
@@ -36,9 +36,9 @@ Azure Kubernetes Service에 배포 하는 경우 __작업 영역에 연결__된 
 > [!IMPORTANT]
 > 생성 또는 첨부 파일 프로세스는 일회성 작업입니다. AKS 클러스터가 작업 영역에 연결 되 면 배포에 사용할 수 있습니다. 더 이상 필요 하지 않은 경우 AKS 클러스터를 분리 하거나 삭제할 수 있습니다. Detatched 또는 삭제 된 후에는 더 이상 클러스터에 배포할 수 없습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
-- Azure Machine Learning 서비스 작업 영역. 자세한 내용은 [Azure Machine Learning 서비스 작업 영역 만들기](setup-create-workspace.md)를 참조 하세요.
+- Azure Machine Learning 서비스 작업 영역. 자세한 내용은 [Azure Machine Learning 서비스 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
 
 - 작업 영역에 등록 된 machine learning 모델입니다. 등록 된 모델이 없는 경우 모델을 배포 하 [는 방법 및 위치](how-to-deploy-and-where.md)를 참조 하세요.
 
@@ -61,6 +61,9 @@ Azure Kubernetes Service에 배포 하는 경우 __작업 영역에 연결__된 
 작업 영역에 대 한 일회성 프로세스는 AKS 클러스터를 만들거나 연결 하는 것입니다. 이 클러스터를 여러 배포에 재사용할 수 있습니다. 클러스터 또는 클러스터를 포함 하는 리소스 그룹을 삭제 하는 경우 다음에를 배포 해야 할 때 새 클러스터를 만들어야 합니다. 여러 AKS 클러스터를 작업 영역에 연결할 수 있습니다.
 
 프로덕션 대신 __개발__, __유효성 검사__및 __테스트__ 를 위해 AKS 클러스터를 만들려는 경우 개발 __테스트__에 대 한 __클러스터 목적__ 을 지정할 수 있습니다.
+
+> [!WARNING]
+> 를 설정 `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`하는 경우 생성 된 클러스터는 프로덕션 수준 트래픽에 적합 하지 않으며 유추 시간이 늘어날 수 있습니다. 또한 개발/테스트 클러스터는 내결함성을 보장 하지 않습니다. 개발/테스트 클러스터에 2 개 이상의 가상 Cpu를 권장 합니다.
 
 다음 예에서는 SDK 및 CLI를 사용 하 여 새 AKS 클러스터를 만드는 방법을 보여 줍니다.
 
@@ -85,7 +88,7 @@ aks_target.wait_for_completion(show_output = True)
 ```
 
 > [!IMPORTANT]
-> [`provisioning_configuration()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py)의 경우, agent_count 및 vm_size에 대한 사용자 지정 값을 선택하는 경우 agent_count와 vm_size를 곱한 값이 12개 가상 CPU보다 크거나 같아야 합니다. 예를 들어, 4개의 가상 CPU가 있는 "Standard_D3_v2"의 vm_size를 사용하는 경우는 3 이상의 agent_count를 선택해야 합니다.
+> `agent_count` `agent_count` `cluster_purpose` `DEV_TEST`에서 및 에`vm_size`대 한 사용자 지정 값을 선택 하 고`vm_size` 가이 아닌 경우를 곱한 값이 12 개의 가상 cpu 보다 크거나 같은지 확인 해야 합니다. [`provisioning_configuration()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py) 예를 들어 가상 cpu가 4 `vm_size` 개 있는 "Standard_D3_v2"를 사용 하는 경우 3 이상의를 `agent_count` 선택 해야 합니다.
 >
 > Azure Machine Learning SDK는 AKS 클러스터의 크기 조정을 지원 하지 않습니다. 클러스터의 노드 크기를 조정 하려면 Azure Portal에서 AKS 클러스터에 대 한 UI를 사용 합니다. 클러스터의 VM 크기가 아니라 노드 수만 변경할 수 있습니다.
 
@@ -118,7 +121,7 @@ Azure 구독에 AKS 클러스터가 이미 있고 버전 1.12. # # 인 경우 �
 >
 > `cluster_purpose` 매개 변수를 설정 하지 않거나를 설정 `cluster_purpose = AksCompute.ClusterPurpose.FAST_PROD`하지 않은 경우 클러스터에는 사용 가능한 가상 cpu가 12 개 이상 있어야 합니다.
 >
-> 를 설정 `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`하는 경우 클러스터에는 12 개의 가상 cpu가 필요 하지 않습니다. 그러나 개발/테스트용으로 구성 된 클러스터는 프로덕션 수준 트래픽에 적합 하지 않으며 유추 시간이 늘어날 수 있습니다.
+> 를 설정 `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`하는 경우 클러스터에는 12 개의 가상 cpu가 필요 하지 않습니다. 개발/테스트에 2 개 이상의 가상 Cpu를 권장 합니다. 그러나 개발/테스트용으로 구성 된 클러스터는 프로덕션 수준 트래픽에 적합 하지 않으며 유추 시간이 늘어날 수 있습니다. 또한 개발/테스트 클러스터는 내결함성을 보장 하지 않습니다.
 
 Azure CLI 또는 포털을 사용 하 여 AKS 클러스터를 만드는 방법에 대 한 자세한 내용은 다음 문서를 참조 하세요.
 

@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 59ce6719c117db53b02ed6594de219010ee08ee6
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: e6f6c41e5de4f4a053748dfb08dc57e8acac32e5
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828223"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848234"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning 서비스 작동 방법: 아키텍처 및 개념
 
@@ -236,5 +236,5 @@ Azure IoT Edge는 모듈이 실행 중인지 확인하고 모듈을 호스트 �
 Azure Machine Learning Service를 시작하려면 다음을 참조하세요.
 
 * [Azure Machine Learning Service란?](overview-what-is-azure-ml.md)
-* [Azure Machine Learning 서비스 작업 영역 만들기](setup-create-workspace.md)
+* [Azure Machine Learning 서비스 작업 영역 만들기](how-to-manage-workspace.md)
 * [자습서(1부): 모델 학습](tutorial-train-models-with-aml.md)

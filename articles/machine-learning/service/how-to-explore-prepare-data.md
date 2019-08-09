@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/23/2019
-ms.openlocfilehash: 31a367fcde909f393efa4fea65b25716f95c56ee
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: dbdd088e5a78a4f78eec27b5ee74856c6aecc209
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828441"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847914"
 ---
 # <a name="explore-and-prepare-data-with-the-dataset-class-preview"></a>데이터 집합 클래스를 사용 하 여 데이터 탐색 및 준비 (미리 보기)
 
@@ -25,13 +25,13 @@ ms.locfileid: "68828441"
 > [!Important]
 > 일부 데이터 집합 클래스 (미리 보기)에는 [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) 패키지 (GA)에 대 한 종속성이 있습니다. GA'ed [Data Prep 함수](how-to-transform-data.md)를 사용 하 여 변환 함수를 직접 수행할 수 있지만 새 솔루션을 빌드하는 경우이 문서에서 설명 하는 데이터 집합 패키지 래퍼를 사용 하는 것이 좋습니다. 데이터 집합 (미리 보기)을 사용 하면 데이터를 변환할 뿐만 아니라 [스냅숏 데이터](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_snapshot.datasetsnapshot?view=azure-ml-py) 및 저장 된 데이터 [집합 정의](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset?view=azure-ml-py)를 저장할 수도 있습니다. Azure Machine Learning 데이터 집합은 AI 솔루션의 데이터 집합 관리를 위해 확장 된 기능을 제공 하는 다음 버전의 데이터 준비 SDK입니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 데이터를 탐색 하 고 준비 하려면 다음이 필요 합니다.
 
 * Azure 구독. Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 지금 사용해 보세요.
 
-* Azure Machine Learning 서비스 작업 영역. [Azure Machine Learning 서비스 작업 영역 만들기를](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace)참조 하세요.
+* Azure Machine Learning 서비스 작업 영역. [Azure Machine Learning 서비스 작업 영역 만들기를](how-to-manage-workspace.md)참조 하세요.
 
 * Azureml 데이터 집합 패키지를 포함 하는 Python 용 Azure Machine Learning SDK (버전 1.0.21 이상) 최신 버전의 SDK를 설치 하거나 업데이트 하려면 [Sdk 설치 또는 업데이트](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)를 참조 하세요.
 
@@ -125,7 +125,7 @@ Case Number|FieldType.STRING|HZ239907|HZ278872|10.0|0.0|10.0|0.0|0.0|0.0||||||||
 블록|FieldType.STRING|004XX S KILBOURN AVE|113XX S PRAIRIE AVE|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 IUCR|FieldType.INTEGER|810|1154|10.0|0.0|10.0|0.0|0.0|0.0|810|850|810|890|1136|1153|1154|1154|1154|1058.5|137.285|18847.2|-0.785501|-1.3543
 Primary Type|FieldType.STRING|거짓 사례|THEFT|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
-설명|FieldType.STRING|가짜 확인|$500 이상|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
+Description|FieldType.STRING|가짜 확인|$500 이상|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 Location Description|FieldType.STRING||학교, 공용, 빌딩|10.0|0.0|10.0|0.0|0.0|1.0||||||||||||||
 Arrest|FieldType|거짓|거짓|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 Domestic|FieldType|거짓|거짓|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||

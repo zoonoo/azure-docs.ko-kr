@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 596020952fd02a414c050ac7fe7ab37d7137c391
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 4a745648f1b7abac7267d51cac9e1fe642ae13d8
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779652"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853697"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Azure AD 암호 보호 배포
 
@@ -280,7 +280,7 @@ Azure AD 암호 보호에는 두 가지 필수 설치 관리자가 있습니다.
 
    도메인 컨트롤러가 아닌 컴퓨터에는 DC 에이전트 서비스를 설치할 수 있습니다. 이 경우 서비스가 시작 되어 실행 되지만 컴퓨터가 도메인 컨트롤러로 승격 될 때까지 비활성 상태로 유지 됩니다.
 
-   표준 MSI 절차를 사용 하 여 소프트웨어 설치를 자동화할 수 있습니다. 예:
+   표준 MSI 절차를 사용 하 여 소프트웨어 설치를 자동화할 수 있습니다. 예를 들어:
 
    `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart`
 
@@ -290,7 +290,9 @@ Azure AD 암호 보호에는 두 가지 필수 설치 관리자가 있습니다.
 
 ## <a name="upgrading-the-proxy-agent"></a>프록시 에이전트 업그레이드
 
-최신 버전의 Azure AD 암호 보호 프록시 소프트웨어를 사용할 수 있는 경우 최신 버전의 `AzureADPasswordProtectionProxySetup.exe` 소프트웨어 설치 관리자를 실행 하 여 업그레이드를 수행 합니다. 최신 버전의 프록시 소프트웨어를 제거할 필요는 없습니다. 설치 관리자에서 전체 업그레이드를 수행 합니다. 프록시 소프트웨어를 업그레이드 하는 경우 다시 부팅할 필요가 없습니다. 소프트웨어 업그레이드는 표준 MSI 절차를 사용 하 여 자동화할 수 있습니다. `AzureADPasswordProtectionProxySetup.exe /quiet`예를 들면와 같습니다.
+최신 버전의 Azure AD 암호 보호 프록시 소프트웨어를 사용할 수 있는 경우 최신 버전의 `AzureADPasswordProtectionProxySetup.exe` 소프트웨어 설치 관리자를 실행 하 여 업그레이드를 수행 합니다. 최신 버전의 소프트웨어는 [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=57071)에서 다운로드할 수 있습니다.
+
+최신 버전의 프록시 소프트웨어를 제거할 필요는 없습니다. 설치 관리자에서 전체 업그레이드를 수행 합니다. 프록시 소프트웨어를 업그레이드 하는 경우 다시 부팅할 필요가 없습니다. 소프트웨어 업그레이드는 표준 MSI 절차를 사용 하 여 자동화할 수 있습니다. `AzureADPasswordProtectionProxySetup.exe /quiet`예를 들면와 같습니다.
 
 프록시 에이전트는 자동 업그레이드를 지원 합니다. 자동 업그레이드는 프록시 서비스와 함께 설치 되는 Microsoft Azure AD 연결 에이전트 업데이트 서비스를 사용 합니다. 자동 업그레이드는 기본적으로 설정 되어 있으며 AzureADPasswordProtectionProxyConfiguration cmdlet을 사용 하 여 사용 하거나 사용 하지 않도록 설정할 수 있습니다. AzureADPasswordProtectionProxyConfiguration cmdlet을 사용 하 여 현재 설정을 쿼리할 수 있습니다. 자동 업그레이드를 사용 하도록 설정 하는 것이 좋습니다.
 
@@ -298,7 +300,9 @@ Azure AD 암호 보호에는 두 가지 필수 설치 관리자가 있습니다.
 
 ## <a name="upgrading-the-dc-agent"></a>DC 에이전트 업그레이드
 
-최신 버전의 Azure AD 암호 보호 DC 에이전트 소프트웨어를 사용할 수 있는 경우 최신 버전 `AzureADPasswordProtectionDCAgentSetup.msi` 의 소프트웨어 패키지를 실행 하 여 업그레이드를 수행 합니다. 현재 버전의 DC 에이전트 소프트웨어를 제거할 필요는 없습니다. 설치 관리자에서 전체 업그레이드를 수행 합니다. DC 에이전트 소프트웨어를 업그레이드할 때는 항상 다시 부팅 해야 합니다 .이는 핵심 Windows 동작으로 인해 발생 합니다. 
+최신 버전의 Azure AD 암호 보호 DC 에이전트 소프트웨어를 사용할 수 있는 경우 최신 버전 `AzureADPasswordProtectionDCAgentSetup.msi` 의 소프트웨어 패키지를 실행 하 여 업그레이드를 수행 합니다. 최신 버전의 소프트웨어는 [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=57071)에서 다운로드할 수 있습니다.
+
+현재 버전의 DC 에이전트 소프트웨어를 제거할 필요는 없습니다. 설치 관리자에서 전체 업그레이드를 수행 합니다. DC 에이전트 소프트웨어를 업그레이드할 때는 항상 다시 부팅 해야 합니다 .이는 핵심 Windows 동작으로 인해 발생 합니다. 
 
 소프트웨어 업그레이드는 표준 MSI 절차를 사용 하 여 자동화할 수 있습니다. `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart`예를 들면와 같습니다.
 

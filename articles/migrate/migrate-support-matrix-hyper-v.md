@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: raynew
-ms.openlocfilehash: da68c0ae1dc92f5b854c30c90b93856248c43281
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 105cbf173a9abe1adf0999f63740d47b3da51a29
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828343"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856297"
 ---
 # <a name="support-matrix-for-hyper-v-assessment-and-migration"></a>Hyper-V 평가 및 마이그레이션 지원 매트릭스
 
@@ -27,9 +27,9 @@ ms.locfileid: "68828343"
 **배포** | **대해***
 --- | ---
 **온-프레미스 Hyper-v Vm 평가** | 첫 번째 평가를 [설정](tutorial-prepare-hyper-v.md) 합니다.<br/><br/> 대규모 평가를 [실행](scale-hyper-v-assessment.md) 합니다.
-**Hyper-V VM을 Azure로 마이그레이션** | Azure로의 마이그레이션을 [시도](tutorial-migrate-hyper-v.md) 합니다.
+**Hyper-V VM을 Azure로 마이그레이션** | Azure로의 마이그레이션을 [시도](tutorial-migrate-hyper-v.md) 합니다. 
 
-
+System Center Virtual Machine Manager (VMM)로 관리 되는 Hyper-v 서버의 마이그레이션은 Azure Migrate Server Migration에서 지원 되지 않습니다. 
 
 ## <a name="azure-migrate-projects"></a>Azure Migrate 프로젝트
 

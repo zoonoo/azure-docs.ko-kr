@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 1c12007e04ff8cd08ddb7afdf9a3c2add9638de3
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: d8e80594e0c56f57527d1703b0cf1323571cf351
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277440"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855717"
 ---
 # <a name="monitor-performance-and-storage-metrics-in-azure-cosmos-db"></a>Azure Cosmos DB에서 성능 및 스토리지 메트릭 모니터링
 
@@ -50,7 +50,7 @@ ms.locfileid: "68277440"
 ## <a name="set-up-alerts-in-the-portal"></a>포털에서 경고 설정
 
 > [!NOTE]
-> Azure Monitor의 클래식 경고는 2019 년 8 월 31 일에 사용 중지 됩니다. Azure Portal는 기존 경고 규칙을 마이그레이션하는 [마이그레이션 도구](../azure-monitor/platform/alerts-using-migration-tool.md) 를 제공 합니다. 그러나 Azure Cosmos DB 메트릭에 대 한 모든 클래식 경고를 마이그레이션할 수 있는 것은 아닙니다. 몇 가지 예외가 있습니다. 마이그레이션할 수 없는 클래식 경고 목록은 [Azure monitor](../azure-monitor/platform/alerts-understand-migration.md#cosmos-db-metrics) 문서를 참조 하세요. 
+> Azure Monitor의 클래식 경고는 곧 사용이 중지 될 예정입니다. Azure Portal는 기존 경고 규칙을 마이그레이션하는 [마이그레이션 도구](../azure-monitor/platform/alerts-using-migration-tool.md) 를 제공 합니다. 그러나 Azure Cosmos DB 메트릭에 대 한 모든 클래식 경고를 마이그레이션할 수 있는 것은 아닙니다. 몇 가지 예외가 있습니다. 마이그레이션할 수 없는 클래식 경고 목록은 [Azure monitor](../azure-monitor/platform/alerts-understand-migration.md#cosmos-db-metrics) 문서를 참조 하세요. 
 
 1. [Azure Portal](https://portal.azure.com/)에서 **모든 서비스** 및 **Azure Cosmos DB**를 차례로 클릭하고 성능 메트릭 경고를 설정할 Azure Cosmos DB 계정의 이름을 클릭합니다.
 2. 리소스 메뉴에서 **경고 규칙**을 클릭하여 경고 규칙 페이지를 엽니다.  

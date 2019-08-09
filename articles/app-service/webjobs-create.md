@@ -16,12 +16,12 @@ ms.date: 10/16/2018
 ms.author: glenga
 ms.reviewer: msangapu;david.ebbo;suwatch;pbatum;naren.soni
 ms.custom: seodec18
-ms.openlocfilehash: 47a068ac6a7941c8ce71cf5c6745d2958c75fe74
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 55d040e96b92f73a632fd415220f9cf135335736
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736586"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68850998"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Azure App Service에서 WebJobs로 백그라운드 작업 실행
 
@@ -159,7 +159,7 @@ when making changes in one don't forget the other two.
 
    ![WebJob 페이지 추가](./media/web-sites-create-web-jobs/addwjscheduled.png)
 
-   | 설정      | 샘플 값   | Description  |
+   | 설정      | 샘플 값   | 설명  |
    | ------------ | ----------------- | ------------ |
    | **Name** | myScheduledWebJob | App Service 앱 내에서 고유한 이름입니다. 문자 또는 숫자로 시작해야 하며 "-" 및 "_"을 제외한 다른 특수 문자를 포함할 수 없습니다. |
    | **파일 업로드** | ConsoleApp.zip | 실행 파일 또는 스크립트 파일뿐만 아니라 프로그램 또는 스크립트를 실행하는 데 필요한 지원 파일이 포함되는 *.zip* 파일입니다. 지원되는 실행 파일 또는 스크립트 파일 형식은 [지원되는 파일 형식](#acceptablefiles) 섹션에 나열됩니다. |
@@ -173,9 +173,9 @@ when making changes in one don't forget the other two.
 
    ![WebJobs 목록](./media/web-sites-create-web-jobs/listallwebjobs.png)
 
-## <a name="cron-expressions"></a>CRON 식
+## <a name="ncrontab-expressions"></a>NCRONTAB 식
 
-다음 예제와 같이 포털에 [CRON 식](../azure-functions/functions-bindings-timer.md#ncrontab-expressions)을 입력하거나 WebJob *.zip* 파일의 루트에 `settings.job` 파일을 포함할 수 있습니다.
+다음 예제와 같이 포털에 [NCRONRAB 식을](../azure-functions/functions-bindings-timer.md#ncrontab-expressions) 입력 하거나 WebJob `settings.job` *.zip* 파일의 루트에 파일을 포함할 수 있습니다.
 
 ```json
 {

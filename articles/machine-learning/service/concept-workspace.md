@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 05/21/2019
-ms.openlocfilehash: fc3f88e627e0ce19195f6df947d4f11f5f8a73ae
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.date: 08/06/2019
+ms.openlocfilehash: cb1fd8e98a5eba350774ff6ccb8f86dcd3e4d734
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68772748"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856208"
 ---
 # <a name="what-is-an-azure-machine-learning-service-workspace"></a>Azure Machine Learning 서비스 작업 영역 이란 무엇 인가요?
 
@@ -65,6 +65,9 @@ Machine learning 작업은 작업 영역에 대 한 아티팩트를 읽고 씁�
 + 실험, 파이프라인, 모델, 배포 등 기계 학습 아티팩트를 봅니다.
 + 모델 추적 및 모니터링
 
+
+
+
 ## <a name="workspace-management"></a>작업 영역 관리
 
 또한 다음 작업 영역 관리 작업을 수행할 수 있습니다.
@@ -76,7 +79,14 @@ Machine learning 작업은 작업 영역에 대 한 아티팩트를 읽고 씁�
 | 작업 영역 액세스 관리    | **&check;**   | |  **&check;**    |
 | Notebook VM을 만듭니다. | **&check;**   | |     |
 
-[작업 영역을 만들어](setup-create-workspace.md)서비스를 시작 하세요.
+### <a name='create-workspace'></a>작업 영역 만들기
+
+여러 가지 방법으로 작업 영역을 만들 수 있습니다.
+
+* 지점 및 클릭 인터페이스에 대 한 [Azure Portal](how-to-manage-workspace.md) 를 사용 하 여 각 단계를 안내 합니다.
+* [Python 용 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#workspace) 를 사용 하 여 python 스크립트 또는 Jupiter 노트북에서 즉시 작업 영역 만들기
+* 회사 보안 표준을 사용 하 여 만들기를 자동화 하거나 사용자 지정 해야 하는 경우 [Azure Resource Manager 템플릿](how-to-create-workspace-template.md) 또는 [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md) 를 사용 합니다.
+* Visual Studio Code에서 작업 하는 경우 [VS Code 확장](how-to-vscode-tools.md#get-started-with-azure-machine-learning)을 사용 합니다.
 
 ## <a name="resources"></a>연결 된 리소스
 
@@ -95,6 +105,6 @@ Machine learning 작업은 작업 영역에 대 한 아티팩트를 읽고 씁�
 Azure Machine Learning Service를 시작하려면 다음을 참조하세요.
 
 + [Azure Machine Learning 서비스 개요](overview-what-is-azure-ml.md)
-+ [작업 영역 만들기](setup-create-workspace.md)
++ [작업 영역 만들기](how-to-manage-workspace.md)
 + [작업 영역 관리](how-to-manage-workspace.md)
 + [자습서: 모델 학습시키기](tutorial-train-models-with-aml.md)

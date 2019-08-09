@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 65777a87cd042a4d8b3b14255dbf99241cd42e18
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: f8777a3d0eb9b97fff6f492f181a432d98d9341c
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638759"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68849300"
 ---
 # <a name="add-html-markers-to-the-map"></a>맵에 HTML 표식 추가
 
@@ -47,6 +47,9 @@ Html 표식의 기본값 `htmlContent`는 위치 폴더 `{color}` 및 `{text}`�
 
 <iframe height='500' scrolling='no' title='사용자 지정 SVG 템플릿을 사용하는 HTML 표식' src='//codepen.io/azuremaps/embed/LXqMWx/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/LXqMWx/'>사용자 지정 SVG 템플릿을 사용하는 HTML 표식</a>을 참조하세요.
 </iframe>
+
+> [!TIP]
+> Azure Maps 웹 SDK는 HTML 표식과 함께 사용할 수 있는 여러 SVG 이미지 템플릿을 제공 합니다. 자세한 내용은 [이미지 템플릿 사용 방법](how-to-use-image-templates-web-sdk.md) 문서를 참조 하세요.
 
 ## <a name="add-a-css-styled-html-marker"></a>CSS 스타일 HTML 표식 추가
 
@@ -89,6 +92,9 @@ HTML 표식의 이점 중 하나는 CSS를 사용하여 얻을 수 있는 여러
 > [HtmlMarkerManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkermanager?view=azure-iot-typescript-latest)
 
 맵에 추가할 더 많은 코드 예제를 보려면 다음 문서를 참조하세요.
+
+> [!div class="nextstepaction"]
+> [이미지 템플릿을 사용 하는 방법](how-to-use-image-templates-web-sdk.md)
 
 > [!div class="nextstepaction"]
 > [기호 계층 추가](./map-add-pin.md)

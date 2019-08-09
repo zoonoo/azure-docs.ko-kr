@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/31/2019
+ms.date: 08/07/2019
 ms.author: cherylmc
-ms.openlocfilehash: 721f4038090021c526a8878f15c07874074effd5
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 371de877d266af19eebdbd886ada6fed842cb15c
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68725956"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848453"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 파트너 및 피어링 위치
 
@@ -93,7 +93,7 @@ Express 경로 위치 (예를 들어 피어 링 위치 또는 위치 면)는 MSE
 | **CDC** | 지원됨 | 지원됨 | 캔버라, 캔버라2 |
 | **[CenturyLink Cloud Connect](https://www.centurylink.com/cloudconnect)** |지원됨 |지원됨 |Amsterdam2, 시카고, 홍콩, Las Vegas, 뉴욕, 파리, San Antonio, 실리콘 계곡, 도쿄,, 워싱턴 DC |
 | **Chief Telecom** |지원됨 |지원됨 |홍콩, 타이베이 |
-| **China Telecom Global** |지원됨 |지원되지 않음 |홍콩 특별 행정구 |
+| **China Telecom Global** |지원됨 |지원됨 |홍콩 특별 행정구 |
 | **[Cologix](https://www.cologix.com/hyperscale/microsoft-azure/)** |지원됨 |지원됨 |시카고, 댈러스, 몬트리올, 토론토, 워싱턴 DC |
 | **[Colt](https://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |지원됨 |지원됨 |암스테르담, 더블린, 런던, Newport, 오사카, 파리, 싱가포르 2, 도쿄 |
 | **[Comcast](https://business.comcast.com/landingpage/microsoft-azure)** |지원됨 |지원됨 |시카고, 실리콘밸리, 워싱턴 DC |

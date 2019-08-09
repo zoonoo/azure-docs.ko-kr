@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 06/07/2019
 ms.author: juliako
-ms.openlocfilehash: c730f41d1dbc48c6622d0a2ba43c32dd1a96c24c
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: f4a859f1e63866a50167031569dca05de3e9af27
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311801"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856303"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 릴리스 정보
 
@@ -33,6 +33,14 @@ ms.locfileid: "68311801"
 > 현재는 Azure Portal을 사용하여 v3 리소스를 관리할 수 없습니다. [REST API](https://aka.ms/ams-v3-rest-sdk), CLI 또는 지원되는 SDK 중 하나를 사용하세요.
 
 자세한 내용은 [Media Services v2에서 v3로 이동하기 위한 마이그레이션 지침](migrate-from-v2-to-v3.md#known-issues)을 참조하세요.
+
+## <a name="august-2019"></a>8 월 2019
+
+### <a name="south-africa-regional-pair-is-open-for-media-services"></a>Media Services에 대 한 동남 공화국 지역 쌍이 열려 있습니다. 
+
+현재 남아프리카 북부와 남아프리카 공화국 지역에서 Media Services를 사용할 수 있습니다.
+
+자세한 내용은 [Media Services v3이 존재 하는 클라우드 및 지역](azure-clouds-regions.md)을 참조 하세요.
 
 ## <a name="july-2019"></a>7 월 2019
 
@@ -224,7 +232,7 @@ Media Services v3에 지원되는 언어: .NET Core, Java, Node.js, Ruby, Typesc
 
 CMAF를 지원하는 Apple HLS(iOS 11+) 및 MPEG-DASH 플레이어에 대해 CMAF 및 'cbcs' 암호화가 지원됩니다.
 
-### <a name="video-indexer"></a>비디오 인덱서
+### <a name="video-indexer"></a>Video Indexer
 
 Video Indexer GA 릴리스가 8월에 발표되었습니다. 현재 지원되는 기능에 대한 자세한 내용은 [Video Indexer란?](../../cognitive-services/video-indexer/video-indexer-overview.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json)을 참조하세요. 
 

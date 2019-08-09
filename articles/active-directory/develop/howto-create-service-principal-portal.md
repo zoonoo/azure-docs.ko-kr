@@ -14,14 +14,14 @@ ms.workload: na
 ms.date: 05/17/2019
 ms.author: ryanwi
 ms.reviewer: tomfitz
-ms.custom: aaddev, seoapril2019
+ms.custom: aaddev, seoapril2019, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 825966fbb0db537aad8de39e69e17418e6432b44
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: a28354f54978e8ba776d8b0da294652ff462a05f
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68324671"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853448"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기
 
@@ -78,11 +78,11 @@ Azure AD 애플리케이션 및 서비스 주체를 만들었습니다.
 1. Azure AD의 **앱 등록**에서 애플리케이션을 선택합니다.
 1. 디렉터리 (테 넌 트) ID를 복사 하 여 응용 프로그램 코드에 저장 합니다.
 
-    ![디렉터리 (테 넌 트 ID)를 복사 하 고 앱 코드에 저장 합니다.](./media/howto-create-service-principal-portal/copy-tenant-id.png)
+    ![디렉터리(테넌트 ID)를 복사하여 앱 코드에 저장](./media/howto-create-service-principal-portal/copy-tenant-id.png)
 
 1. **애플리케이션 ID**를 복사하고 애플리케이션 코드에 저장합니다.
 
-   ![응용 프로그램 (클라이언트) ID 복사](./media/howto-create-service-principal-portal/copy-app-id.png)
+   ![애플리케이션(클라이언트) ID 복사](./media/howto-create-service-principal-portal/copy-app-id.png)
 
 ## <a name="certificates-and-secrets"></a>인증서 및 비밀
 디먼 응용 프로그램은 인증서 및 응용 프로그램 비밀 이라는 두 가지 형식의 자격 증명을 사용 하 여 Azure AD에 인증할 수 있습니다.  인증서를 사용 하는 것이 좋지만 새 응용 프로그램 암호를 만들 수도 있습니다.
@@ -93,7 +93,7 @@ Azure AD 애플리케이션 및 서비스 주체를 만들었습니다.
 
 인증서를 업로드 하려면:
 
-1. **인증서 & 암호**를 선택 합니다.
+1. **인증서 및 비밀**을 선택합니다.
 1. **인증서 업로드** 를 선택 하 고 인증서 (기존 인증서 또는 내보낸 자체 서명 된 인증서)를 선택 합니다.
 
     ![인증서 업로드를 선택 하 고 추가 하려는 인증서를 선택 합니다.](./media/howto-create-service-principal-portal/upload-cert.png)
@@ -106,15 +106,15 @@ Azure AD 애플리케이션 및 서비스 주체를 만들었습니다.
 
 인증서를 사용 하지 않도록 선택 하는 경우 새 응용 프로그램 암호를 만들 수 있습니다.
 
-1. **인증서 & 암호**를 선택 합니다.
-1. **클라이언트 암호-새 클라이언트 암호 >** 선택 합니다.
-1. 비밀에 대 한 설명과 기간을 제공 합니다. 완료 되 면 **추가**를 선택 합니다.
+1. **인증서 및 비밀**을 선택합니다.
+1. **클라이언트 비밀 -> 새 클라이언트 비밀**을 차례로 선택합니다.
+1. 비밀에 대한 설명과 기간을 제공합니다. 완료되면 **추가**를 선택합니다.
 
-   클라이언트 암호를 저장 한 후 클라이언트 암호 값이 표시 됩니다. 나중에 키를 검색할 수 없으므로 이 값을 복사해둡니다. 애플리케이션으로 로그인하려면 애플리케이션 ID와 함께 키 값을 제공합니다. 애플리케이션에서 검색할 수 있는 위치에 키 값을 저장합니다.
+   클라이언트 비밀이 저장되면 클라이언트 비밀의 값이 표시됩니다. 나중에 키를 검색할 수 없으므로 이 값을 복사해둡니다. 애플리케이션으로 로그인하려면 애플리케이션 ID와 함께 키 값을 제공합니다. 애플리케이션에서 검색할 수 있는 위치에 키 값을 저장합니다.
 
-   ![나중에 검색할 수 없기 때문에 비밀 값을 복사 합니다.](./media/howto-create-service-principal-portal/copy-secret.png)
+   ![나중에 이 키를 검색할 수 없으므로 비밀 값 복사](./media/howto-create-service-principal-portal/copy-secret.png)
 
-## <a name="required-permissions"></a>필요한 사용 권한
+## <a name="required-permissions"></a>필요한 권한
 
 Azure AD 테넌트에 애플리케이션을 등록하고 Azure 구독의 역할에 애플리케이션을 할당하기 위한 충분한 권한이 있어야 합니다.
 

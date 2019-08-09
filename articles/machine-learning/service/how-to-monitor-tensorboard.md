@@ -5,16 +5,16 @@ description: TensorBoard를 시작 하 여 실험 실행 기록을 시각화 하
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: article
+ms.topic: conceptual
 author: maxluk
 ms.author: maxluk
 ms.date: 06/28/2019
-ms.openlocfilehash: f65882cb851f8e35bb1d6c319d52fcfadb36ae91
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 2e4527ba167076935505b668a7879e5f1446b25e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68772705"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856064"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>TensorBoard 및 Azure Machine Learning를 사용 하 여 실험 실행 및 메트릭 시각화
 
@@ -27,7 +27,7 @@ Azure Machine Learning 실험을 통해 TensorBoard를 시작 하는 방법은 �
 
 + TensorBoard 사용 파일을 기본적으로 출력 하지 않는 실험 (예: Scikit-학습 또는 Azure Machine Learning 실험)의 [경우 `export_to_tensorboard()` 메서드](#export) 를 사용 하 여 실행 기록을 TensorBoard logs로 내보내고 여기에서 TensorBoard를 실행 합니다. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * TensorBoard을 시작 하 고 실험 실행 기록을 보려면 실험에서 이전에 로깅을 사용 하도록 설정 하 여 해당 메트릭과 성능을 추적 해야 합니다.  
 
@@ -42,9 +42,9 @@ Azure Machine Learning 실험을 통해 TensorBoard를 시작 하는 방법은 �
         * tensorboard.ipynb
 
     * 사용자 고유의 Juptyer 노트북 서버
-      * [작업 영역 만들기 문서](setup-create-workspace.md) 사용
           * `tensorboard` 추가를 사용 하 여 [Azure Machine Learning SDK를 설치 합니다](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) .
-          * 작업 영역 및 해당 구성 파일 (app.config) 만들기
+          * [Azure Machine Learning Service 작업 영역을 만듭니다](how-to-manage-workspace.md).  
+          * [작업 영역 구성 파일을 만듭니다](how-to-configure-environment.md#workspace).
   
 <a name="direct"></a>
 ## <a name="option-1-directly-view-run-history-in-tensorboard"></a>옵션 1: TensorBoard에서 실행 기록 직접 보기

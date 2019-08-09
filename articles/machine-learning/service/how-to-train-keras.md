@@ -11,12 +11,12 @@ author: maxluk
 ms.reviewer: peterlu
 ms.date: 08/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: bfe7f975539c76c1d369d111729820f4d0ada470
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: b4f2bf5c762b6f93c2d23714d860e8261f6756d1
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68775074"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847685"
 ---
 # <a name="train-and-register-a-keras-classification-model-with-azure-machine-learning-service"></a>Azure Machine Learning 서비스를 사용 하 여 Keras 분류 모델 학습 및 등록
 
@@ -28,7 +28,7 @@ Keras는 기타 인기 있는 DNN 프레임 워크를 실행 하 여 개발을 �
 
 기계 학습 및 심층 학습 간의 차이점에 대 한 자세한 내용은 [개념 문서](concept-deep-learning-vs-machine-learning.md) 를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 이러한 환경 중 하나에서이 코드를 실행 합니다.
 
@@ -39,8 +39,8 @@ Keras는 기타 인기 있는 DNN 프레임 워크를 실행 하 여 개발을 �
 
  - 사용자 고유의 Jupyter Notebook 서버
 
-     - [Python 용 Azure Machine Learning SDK 설치](setup-create-workspace.md#sdk)
-    - [작업 영역 구성 파일 만들기](setup-create-workspace.md#write-a-configuration-file)
+    - [AZURE MACHINE LEARNING SDK를 설치](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)합니다.
+    - [작업 영역 구성 파일을 만듭니다](how-to-configure-environment.md#workspace).
     - [샘플 스크립트 파일 다운로드](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras) `mnist-keras.py` 및`utils.py`
 
     GitHub 샘플 페이지에서이 가이드의 전체 [Jupyter Notebook 버전](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb) 을 찾을 수도 있습니다. 노트북에는 지능형 하이퍼 매개 변수 튜닝, 모델 배포 및 노트북 위젯을 다루는 확장 된 섹션이 포함 되어 있습니다.

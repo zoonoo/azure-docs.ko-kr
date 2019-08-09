@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6de348a19081eba685deafebd8a7c9b9d6556444
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 67e5364996be2945d67aa1a95cbc3ab8137e077e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688107"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68850249"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>DSC(필요한 상태 구성) 문제 해결
 
@@ -24,16 +24,17 @@ ms.locfileid: "68688107"
 
 Azure 상태 구성에서 구성을 컴파일하거나 배포 하는 동안 오류가 발생 하는 경우 문제를 진단 하는 데 도움이 되는 몇 가지 단계가 있습니다.
 
-1. **로컬 컴퓨터에서 구성이 성공적으로 컴파일되는지 확인 합니다.**  Azure 상태 구성은 PowerShell DSC를 기반으로 빌드됩니다. [POWERSHELL Dsc 문서](/powershell/dsc/overview/overview)에서 dsc 언어 및 구문에 대 한 설명서를 찾을 수 있습니다.
+1. **로컬 컴퓨터에서 구성이 성공적으로 컴파일되는지 확인 합니다.**  Azure 상태 구성은 PowerShell DSC를 기반으로 빌드됩니다. [POWERSHELL Dsc 문서](https://docs.microsoft.com/en-us/powershell/scripting/overview)에서 dsc 언어 및 구문에 대 한 설명서를 찾을 수 있습니다.
 
    로컬 컴퓨터에서 DSC 구성을 컴파일하면 다음과 같은 일반적인 오류를 검색 하 고 해결할 수 있습니다.
 
    - **누락 된 모듈**
    - **구문 오류**
    - **논리 오류**
+
 2. **노드의 DSC 로그를 봅니다.** 구성이 성공적으로 컴파일되지만 노드에 적용 될 때 실패 하는 경우 로그에서 자세한 정보를 찾을 수 있습니다. DSC 로그를 찾을 수 있는 위치에 대 한 자세한 내용은 [Dsc 이벤트 로그 위치](/powershell/dsc/troubleshooting/troubleshooting#where-are-dsc-event-logs)를 참조 하세요.
 
-   Futhermore, [Xdscdiagnostics](https://github.com/PowerShell/xDscDiagnostics) 는 DSC 로그에서 자세한 정보를 구문 분석 하는 데 도움이 될 수 있습니다. 지원 서비스에 문의 하는 경우 문제를 해결 하기 위해 이러한 로그가 필요 합니다.
+   또한 [Xdscdiagnostics](https://github.com/PowerShell/xDscDiagnostics) 는 DSC 로그에서 자세한 정보를 구문 분석 하는 데 도움이 될 수 있습니다. 지원 서비스에 문의 하는 경우 문제를 진단 하려면 이러한 로그가 필요 합니다.
 
    [안정적인 버전 모듈 설치](https://github.com/PowerShell/xDscDiagnostics#install-the-stable-version-module)에 나와 있는 지침을 사용 하 여 로컬 컴퓨터에 **xdscdiagnostics** 를 설치할 수 있습니다.
 
@@ -130,7 +131,7 @@ DSC 구성에서 **Node** 키워드 다음에 오는 식이 `$null`로 평가되
 다음 해결 방법 중 하나를 사용하여 문제를 해결합니다.
 
 * 구성 정의에서 **Node** 키워드 옆의 식이 $null를 평가 하 고 있지 않은지 확인 합니다.
-* 구성을 컴파일할 때 ConfigurationData를 전달하는 경우 [ConfigurationData](../automation-dsc-compile.md#configurationdata)에서 구성에 필요한 값을 전달해야 합니다.
+* 구성을 컴파일할 때 ConfigurationData를 전달하는 경우 [ConfigurationData](../automation-dsc-compile.md)에서 구성에 필요한 값을 전달해야 합니다.
 
 ### <a name="dsc-in-progress"></a>시나리오: DSC 노드 보고서가 "진행 중" 상태로 중단됨
 
@@ -166,7 +167,7 @@ System.InvalidOperationException error processing property 'Credential' of type 
 
 #### <a name="resolution"></a>해결 방법
 
-* 구성에 설명 된 각 노드 구성에 대해 적절 한 **ConfigurationData** 를 전달 하 여 **PSDscAllowPlainTextPassword** 를 true로 설정 해야 합니다. 자세한 내용은 [Azure Automation DSC의 자산](../automation-dsc-compile.md#assets)을 참조하세요.
+* 구성에 설명 된 각 노드 구성에 대해 적절 한 **ConfigurationData** 를 전달 하 여 **PSDscAllowPlainTextPassword** 를 true로 설정 해야 합니다. 자세한 내용은 [Azure Automation DSC의 자산](../automation-dsc-compile.md#working-with-assets-in-azure-automation-during-compilation)을 참조하세요.
 
 ### <a name="failure-processing-extension"></a>시나리오: Dsc 확장에서 온 보 딩, "오류 처리 확장" 오류
 
@@ -199,11 +200,27 @@ This event indicates that failure happens when LCM is processing the configurati
 
 #### <a name="cause"></a>원인
 
-고객은/tmp 위치가 noexec로 설정 된 경우 현재 버전의 DSC에서 구성을 적용 하지 못할 것으로 확인 했습니다.
+`/tmp` 위치가 로`noexec`설정 된 경우 현재 버전의 DSC에서 구성을 적용 하지 못하는 것으로 확인 되었습니다.
 
 #### <a name="resolution"></a>해결 방법
 
-* /Tmp 위치에서 noexec 옵션을 제거 합니다.
+* 위치에서 옵션을 `noexec` 제거 합니다. `/tmp`
+
+### <a name="compilation-node-name-overlap"></a>시나리오: 중복 되는 노드 구성 이름으로 인해 잘못 된 릴리스가 발생할 수 있음
+
+#### <a name="issue"></a>문제점
+
+단일 구성 스크립트를 사용 하 여 여러 노드 구성을 생성 하 고 일부 노드 구성의 이름이 다른 하위 집합인 경우 컴파일 서비스의 문제로 인해 잘못 된 구성이 할당 될 수 있습니다.  이는 단일 스크립트를 사용 하 여 노드당 구성 데이터를 사용 하 여 구성을 생성 하는 경우에만 발생 하며, 문자열의 시작 부분에서 이름이 겹치는 경우에만 발생 합니다.
+
+예를 들어 cmdlet을 사용 하 여 hashtable로 전달 된 노드 데이터를 기반으로 구성을 생성 하는 단일 구성 스크립트를 사용 하는 경우 노드 데이터에는 "server" 및 "1server" 라는 서버가 포함 됩니다.
+
+#### <a name="cause"></a>원인
+
+컴파일 서비스의 알려진 문제입니다.
+
+#### <a name="resolution"></a>해결 방법
+
+가장 좋은 해결 방법은 로컬로 또는 CI/CD 파이프라인에서 컴파일하고 MOF 파일을 서비스에 직접 업로드 하는 것입니다.  서비스의 컴파일이 요구 사항인 경우 다음으로 가장 좋은 해결 방법은 이름에 겹치지 않도록 컴파일 작업을 분할 하는 것입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -8,14 +8,30 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: f732ab6ceb17dcd013c6d032ef3943f6ad9bef71
-ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
+ms.openlocfilehash: 759422ea8c327ae67278354217dac4c60b32f7a9
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68782323"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68850330"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Runbook으로 오류 해결
+
+이 문서에서는 runbook과 관련 된 일반적인 문제 및 해결 방법에 대해 자세히 설명 합니다.
+
+## <a name="steps-to-troubleshoot-runbooks"></a>Runbook 문제를 해결 하는 단계
+
+Azure Automation에서 runbook을 실행 하는 동안 오류가 발생 하는 경우 다음 단계를 사용 하 여 문제를 진단할 수 있습니다.
+
+1. **로컬 컴퓨터에서 runbook 스크립트가 성공적으로 실행 되는지 확인 합니다.**  언어 참조 및 학습 모듈은 [PowerShell 문서](/powershell/scripting/overview) 또는 [Python 문서](https://docs.python.org/3/) 를 참조 하세요.
+
+   스크립트를 로컬로 실행 하면 다음과 같은 일반적인 오류를 검색 하 고 해결할 수 있습니다.
+
+   - **누락 된 모듈**
+   - **구문 오류**
+   - **논리 오류**
+
+2. **노드 및 자동화 작업 영역에 필요한 모듈이 있는지 확인 합니다.** Runbook이 모듈을 가져오는 경우 모듈 [가져오기](../shared-resources/modules.md#import-modules)에 나열 된 단계를 사용 하 여 automation 계정으로 사용할 수 있는지 확인 합니다. 자세한 내용은 [모듈 문제 해결](shared-resources.md#modules)을 참조 하세요.
 
 ## <a name="authentication-errors-when-working-with-azure-automation-runbooks"></a>Azure Automation Runbook을 사용할 때 인증 오류
 

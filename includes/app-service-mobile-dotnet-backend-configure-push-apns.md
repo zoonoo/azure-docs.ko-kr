@@ -4,12 +4,12 @@ ms.author: crdun
 ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
-ms.openlocfilehash: 83a0adf98298225b52d3b4fdfa2ca861ebb70bb9
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 346f63109e673692d425ede6bdbcb6f633af80bb
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182889"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68857445"
 ---
 **.NET 백 엔드(C#)** :
   
@@ -67,7 +67,7 @@ ms.locfileid: "67182889"
 
 **Node.js 백 엔드**:
 
-1. 아직 수행하지 않은 경우 [빠른 시작 프로젝트를 다운로드](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart)하거나 [Azure 포털에서 온라인 편집기](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor)를 사용합니다.    
+1. 백 엔드 프로젝트를 설정 합니다.    
 
 2. todoitem.js 테이블 스크립트를 다음 코드로 바꿉니다.
 

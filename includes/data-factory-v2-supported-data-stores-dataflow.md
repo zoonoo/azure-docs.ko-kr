@@ -2,16 +2,16 @@
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 05/24/2019
+ms.date: 08/06/2019
 ms.author: jingwang
-ms.openlocfilehash: 70ffc91477d4a77619ba7df3b2ab121fea5f8bac
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: a2815961f6afb0032aa6011cce5d59ab37f81303
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509887"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68843273"
 ---
-| Category | 데이터 저장소 | 지원 되는 한 [복사 작업](../articles/data-factory/copy-activity-overview.md) 원본 | 지원 되는 한 [복사 작업](../articles/data-factory/copy-activity-overview.md) 싱크 | [Azure IR](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime)에서 지원 | [자체 호스팅 IR](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime)에서 지원 | 지 원하는 [데이터 흐름](../articles/data-factory/concepts-data-flow-overview.md)
+| 범주 | 데이터 저장소 | [복사 활동](../articles/data-factory/copy-activity-overview.md) 원본으로 지원 됨 | [복사 작업](../articles/data-factory/copy-activity-overview.md) 싱크로 지원 됨 | [Azure IR](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime)에서 지원 | [자체 호스팅 IR](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime)에서 지원 | [데이터 흐름](../articles/data-factory/concepts-data-flow-overview.md) 에서 지원
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **Azure** |[Azure Blob Storage](../articles/data-factory/connector-azure-blob-storage.md) |✓ |✓ |✓ |✓  | ✓ <br> <small>지원 되는 형식: 구분 기호로 분리 된 텍스트, Parquet</small> |
 | &nbsp; |[Azure Cosmos DB(SQL API)](../articles/data-factory/connector-azure-cosmos-db.md) |✓ |✓ |✓ |✓  ||
@@ -24,11 +24,11 @@ ms.locfileid: "67509887"
 | &nbsp; |[Azure Database for PostgreSQL](../articles/data-factory/connector-azure-database-for-postgresql.md) |✓ | |✓ |✓  ||
 | &nbsp; |[Azure File Storage](../articles/data-factory/connector-azure-file-storage.md) |✓ |✓ |✓ |✓  ||
 | &nbsp; |[Azure SQL Database](../articles/data-factory/connector-azure-sql-database.md) |✓ |✓ |✓ |✓  |✓  |
-| &nbsp; |[Azure SQL Database Managed Instance](../articles/data-factory/connector-azure-sql-database-managed-insance.md) |✓ |✓ |✓ |✓  ||
+| &nbsp; |[Azure SQL Database Managed Instance](../articles/data-factory/connector-azure-sql-database-managed-instance.md) |✓ |✓ |✓ |✓  ||
 | &nbsp; |[Azure SQL Data Warehouse](../articles/data-factory/connector-azure-sql-data-warehouse.md) |✓ |✓ |✓ |✓  |✓  |
 | &nbsp; |[Azure Search 인덱스](../articles/data-factory/connector-azure-search.md) | |✓ |✓ |✓  ||
 | &nbsp; |[Azure Table Storage](../articles/data-factory/connector-azure-table-storage.md) |✓ |✓ |✓ |✓  ||
-| **데이터베이스** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |✓ | |✓ |✓  ||
+| **데이터베이스 백업** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |✓ | |✓ |✓  ||
 | &nbsp; |[DB2](../articles/data-factory/connector-db2.md) |✓ | |✓ |✓  ||
 | &nbsp; |[드릴(미리 보기)](../articles/data-factory/connector-drill.md) |✓ | |✓ |✓  ||
 | &nbsp; |[Google BigQuery](../articles/data-factory/connector-google-bigquery.md) |✓ | |✓ |✓  ||
@@ -36,9 +36,9 @@ ms.locfileid: "67509887"
 | &nbsp; |[HBase](../articles/data-factory/connector-hbase.md) |✓ | |✓ |✓  ||
 | &nbsp; |[Hive](../articles/data-factory/connector-hive.md) |✓ | |✓ |✓  ||
 | &nbsp; |[Apache Impala(미리 보기)](../articles/data-factory/connector-impala.md) |✓ | |✓ |✓  ||
-| &nbsp; |[Informix](../articles/data-factory/connector-odbc.md#ibm-informix-source) |✓ | | |✓  ||
+| &nbsp; |[Informix](../articles/data-factory/connector-informix.md) |✓ | | |✓  ||
 | &nbsp; |[MariaDB](../articles/data-factory/connector-mariadb.md) |✓ | |✓ |✓  ||
-| &nbsp; |[Microsoft Access](../articles/data-factory/connector-odbc.md#microsoft-access-source) |✓ | | |✓  ||
+| &nbsp; |[Microsoft Access](../articles/data-factory/connector-microsoft-access.md) |✓ | | |✓  ||
 | &nbsp; |[MySQL](../articles/data-factory/connector-mysql.md) |✓ | |✓ |✓  ||
 | &nbsp; |[Netezza](../articles/data-factory/connector-netezza.md) |✓ | |✓ |✓  ||
 | &nbsp; |[Oracle](../articles/data-factory/connector-oracle.md) |✓ |✓ |✓ |✓  ||
@@ -85,7 +85,7 @@ ms.locfileid: "67509887"
 | &nbsp; |[Paypal(미리 보기)](../articles/data-factory/connector-paypal.md) |✓ | |✓ |✓  ||
 | &nbsp; |[QuickBooks(미리 보기)](../articles/data-factory/connector-quickbooks.md) |✓ | |✓ |✓  ||
 | &nbsp; |[Salesforce](../articles/data-factory/connector-salesforce.md) |✓ |✓ |✓ |✓  ||
-| &nbsp; |[Salesforce 서비스 클라우드](../articles/data-factory/connector-salesforce.md) |✓ |✓ |✓ |✓  ||
+| &nbsp; |[Salesforce 서비스 클라우드](../articles/data-factory/connector-salesforce-service-cloud.md) |✓ |✓ |✓ |✓  ||
 | &nbsp; |[Salesforce 마케팅 클라우드(미리 보기)](../articles/data-factory/connector-salesforce-marketing-cloud.md) |✓ | |✓ |✓  ||
 | &nbsp; |[SAP Cloud for Customer(C4C)](../articles/data-factory/connector-sap-cloud-for-customer.md) |✓ |✓ |✓ |✓  ||
 | &nbsp; |[SAP ECC](../articles/data-factory/connector-sap-ecc.md) |✓ | |✓ |✓ ||

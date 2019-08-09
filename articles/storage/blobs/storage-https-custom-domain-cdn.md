@@ -1,20 +1,19 @@
 ---
 title: Azure CDN을 사용하여 HTTP를 통한 사용자 지정 도메인으로 Blob 액세스
 description: Azure CDN을 Blob Storage와 통합하여 HTTPS를 통한 사용자 지정 도메인으로 Blob에 액세스하는 하는 방법 알아보기
-services: storage
 author: normesta
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: normesta
-ms.reviewer: seguler
+ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: da3a6dcb0d125ac4666bc375e843c57cf12fb2fc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3ad599182191e41ea43d38260692a7ab46e1af6f
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148398"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845010"
 ---
 # <a name="use-azure-cdn-to-access-blobs-with-custom-domains-over-https"></a>Azure CDN을 사용하여 HTTP를 통한 사용자 지정 도메인으로 Blob 액세스
 
