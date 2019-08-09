@@ -65,13 +65,19 @@
       href: detailed-troubleshoot-ssh-connection.md
 - name: 일반적인 오류 메시지
   href: error-messages.md
-- name: Windows VM 관련 성능 문제
+- name: VM 관련 성능 문제
   href: performance-diagnostics.md
   items:
-    - name: PerfInsights를 사용하는 방법
-      href: how-to-use-perfInsights.md
-    - name: 성능 진단 확장
-      href: performance-diagnostics-vm-extension.md
+    - name: Windows
+      items:
+        - name: PerfInsights를 사용하는 방법
+          href: how-to-use-perfinsights.md
+        - name: 성능 진단 확장
+          href: performance-diagnostics-vm-extension.md
+    - name: Linux
+      items:
+        - name: PerfInsights를 사용하는 방법
+          href: how-to-use-perfinsights-linux.md
 - name: Windows VM 에이전트 오프라인 설치
   href: install-vm-agent-offline.md
 - name: VM 재배포
