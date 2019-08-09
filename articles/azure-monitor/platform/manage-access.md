@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: magoedte
-ms.openlocfilehash: 05b022be3bd460809de77945710ed0bdcd275648
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: c6fa4df1fb2fc7559f706d81621ea198f5ca7cdc
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839302"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881419"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Azure Monitor에서 로그 데이터 및 작업 영역 관리
 
@@ -32,7 +32,17 @@ Azure Monitor은 기본적으로 데이터 및 구성 정보를 포함 하는 �
 
 * Azure RBAC를 사용 하 여 작업 영역의 특정 테이블에 있는 로그 데이터에 액세스 해야 하는 사용자에 게 액세스 권한을 부여 하는 방법입니다.
 
-## <a name="define-access-control-mode-in-azure-portal"></a>Azure Portal에서 액세스 제어 모드를 정의 합니다.
+## <a name="define-access-control-mode"></a>액세스 제어 모드 정의
+
+Azure Portal 또는 Azure PowerShell에서 작업 영역에 구성 된 액세스 제어 모드를 볼 수 있습니다.  다음 지원 되는 방법 중 하나를 사용 하 여이 설정을 변경할 수 있습니다.
+
+* Azure Portal
+
+* Azure PowerShell
+
+* Azure Resource Manager 템플릿
+
+### <a name="configure-from-the-azure-portal"></a>Azure Portal에서 구성
 
 **Log Analytics 작업** 영역 메뉴의 작업 영역에 대 한 **개요** 페이지에서 현재 작업 영역 액세스 제어 모드를 볼 수 있습니다. 
 
@@ -45,7 +55,7 @@ Azure Monitor은 기본적으로 데이터 및 구성 정보를 포함 하는 �
 
 ![작업 영역 액세스 모드 변경](media/manage-access/change-access-control-mode.png)
 
-## <a name="define-access-control-mode-using-powershell"></a>PowerShell을 사용 하 여 액세스 제어 모드 정의
+### <a name="configure-using-powershell"></a>PowerShell을 사용 하 여 구성
 
 다음 명령을 사용 하 여 구독의 모든 작업 영역에 대 한 액세스 제어 모드를 검사 합니다.
 
@@ -89,7 +99,7 @@ else
 Set-AzResource -ResourceId $_.ResourceId -Properties $_.Properties -Force
 ```
 
-## <a name="define-access-mode-using-resource-manager-template"></a>리소스 관리자 템플릿을 사용 하 여 액세스 모드 정의
+### <a name="configure-using-a-resource-manager-template"></a>리소스 관리자 템플릿을 사용 하 여 구성
 
 Azure Resource Manager 템플릿에서 액세스 모드를 구성 하려면 작업 영역의 **enableLogAccessUsingOnlyResourcePermissions** 기능 플래그를 다음 값 중 하나로 설정 합니다.
 
@@ -137,9 +147,9 @@ Log Analytics 독자 역할에는 다음 Azure 작업이 포함됩니다.
 | 형식    | 사용 권한 | Description |
 | ------- | ---------- | ----------- |
 | 작업 | `*/read`   | 모든 Azure 리소스 및 리소스 구성 보는 기능. 볼 수 있습니다. <br> 가상 머신 확장 상태 <br> 리소스에 대한 Azure 진단 구성 <br> 모든 리소스의 모든 속성 및 설정입니다. <br> 작업 영역의 경우 작업 영역 설정을 읽고 데이터에 대해 쿼리를 수행 하는 데 무제한의 모든 권한을 허용 합니다. 위의 세부적인 옵션을 참조 하세요. |
-| 작업 | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | 더 이상 사용 되지 않으며 사용자에 게 할당할 필요가 없습니다. |
+| Action | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | 더 이상 사용 되지 않으며 사용자에 게 할당할 필요가 없습니다. |
 | 작업 | `Microsoft.OperationalInsights/workspaces/search/action` | 더 이상 사용 되지 않으며 사용자에 게 할당할 필요가 없습니다. |
-| Action | `Microsoft.Support/*` | 지원 사례를 열 수 있습니다. |
+| 작업 | `Microsoft.Support/*` | 지원 사례를 열 수 있습니다. |
 |동작 없음 | `Microsoft.OperationalInsights/workspaces/sharedKeys/read` | 데이터 컬렉션 API를 사용하고 에이전트를 설치하는 데 필요한 작업 영역 키 읽는 것 방지. 사용자가 작업 영역에 새 리소스 추가 방지 |
 
 *Log Analytics 참가자* 역할의 멤버는 다음을 수행할 수 있습니다.

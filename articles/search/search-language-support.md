@@ -6,15 +6,14 @@ manager: jlembicz
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 07/11/2019
+ms.date: 08/08/2019
 ms.author: jlembicz
-ms.custom: seodec2018
-ms.openlocfilehash: 403febfcb54194602051aaebe2952265c0675e9d
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 5383ad44f665ce809772143e23817932c3e2b7e6
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854411"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883880"
 ---
 # <a name="how-to-create-an-index-for-multiple-languages-in-azure-search"></a>Azure Search에서 여러 언어에 대 한 인덱스를 만드는 방법
 
@@ -35,7 +34,7 @@ Azure Search는 Lucene 및 Microsoft에서 Analyzer 속성을 사용 하 여 개
 
 ![필드 정의 중 언어 분석기 할당](media/search-language-support/select-analyzer.png "필드 정의 중 언어 분석기 할당")
 
-기본적으로 검색 가능한 모든 필드는 언어와 무관 한 [표준 Lucene 분석기](https://lucene.apache.org/core/4_10_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) 를 사용 합니다. 지원 되는 분석기의 전체 목록을 보려면 [Azure Search 인덱스에 언어 분석기 추가](index-add-language-analyzers.md)를 참조 하세요.
+기본적으로 검색 가능한 모든 필드는 언어와 무관 한 [표준 Lucene 분석기](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) 를 사용 합니다. 지원 되는 분석기의 전체 목록을 보려면 [Azure Search 인덱스에 언어 분석기 추가](index-add-language-analyzers.md)를 참조 하세요.
 
 포털에서 분석기는 그대로 사용 하기 위한 것입니다. 사용자 지정 또는 필터 및 토크 나이저의 특정 구성이 필요한 경우 코드에서 [사용자 지정 분석기를 만들어야](index-add-custom-analyzers.md) 합니다. 포털에서 사용자 지정 분석기를 선택 하거나 구성 하는 기능을 지원 하지 않습니다.
 

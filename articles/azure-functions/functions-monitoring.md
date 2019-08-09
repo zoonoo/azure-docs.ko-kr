@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
-ms.openlocfilehash: cfdc28486cf254c4dd808824ab167489818376ab
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 582e4d81851d570f99d25d626a1db8a9f5e98231
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619604"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881357"
 ---
 # <a name="monitor-azure-functions"></a>Azure Functions 모니터링
 
@@ -124,7 +124,7 @@ requests
 
 사용할 수 있는 테이블이 왼쪽의 **스키마** 탭에 표시 됩니다. 다음 테이블에서 함수 호출에 의해 생성된 데이터를 찾을 수 있습니다.
 
-| Table | 설명 |
+| Table | Description |
 | ----- | ----------- |
 | **traces** | 런타임과 함수 코드에 의해 생성 된 로그입니다. |
 | **requests** | 각 함수 호출에 대해 하나의 요청 |
@@ -607,14 +607,21 @@ Application Insights의 Functions 통합 문제를 보고하거나 제안 사항
 
 ## <a name="streaming-logs"></a>스트리밍 로그
 
-애플리케이션을 개발하는 동안 거의 실시간의 로깅 정보를 보는 것이 종종 유용합니다. Azure Portal 또는 로컬 컴퓨터의 명령줄 세션에서 함수에 의해 생성 되는 로그 파일 스트림을 볼 수 있습니다.
+응용 프로그램을 개발 하는 동안 Azure에서 실행할 때 거의 실시간으로 로그에 기록 되는 것이 좋습니다.
 
-[로컬 개발](functions-develop-local.md)중에 함수를 디버그할 때 표시 되는 출력과 같습니다. 자세한 내용은 [로그를 스트리밍하는 방법](../app-service/troubleshoot-diagnostic-logs.md#streamlogs)을 참조하세요.
+함수 실행에 의해 생성 되는 로그 파일의 스트림을 보는 방법에는 두 가지가 있습니다.
 
-> [!NOTE]
-> 스트리밍 로그는 함수 호스트의 단일 인스턴스만 지원 합니다. 함수를 여러 인스턴스로 확장 하는 경우 다른 인스턴스의 데이터가 로그 스트림에 표시 되지 않습니다. Application Insights의 [라이브 메트릭 스트림](../azure-monitor/app/live-stream.md) 는 여러 인스턴스를 지원 합니다. 또한 거의 실시간으로 스트리밍 분석도 [샘플링 된 데이터](#configure-sampling)를 기반으로 합니다.
+* **기본 제공 로그 스트리밍**: App Service 플랫폼을 사용 하면 응용 프로그램 로그 파일의 스트림을 볼 수 있습니다. 이는 [로컬 개발](functions-develop-local.md) 중에 또는 포털에서 **테스트** 탭을 사용할 때 표시 되는 출력과 동일 합니다. 모든 로그 기반 정보가 표시 됩니다. 자세한 내용은 [로그를 스트리밍하는 방법](../app-service/troubleshoot-diagnostic-logs.md#streamlogs)을 참조하세요. 이 스트리밍 방법은 단일 인스턴스만 지원 하며 소비 계획에서 Linux에서 실행 되는 앱과 함께 사용할 수 없습니다.
+
+* **라이브 메트릭 스트림**: 함수 앱이 [Application Insights에 연결](#enable-application-insights-integration)된 경우 [라이브 메트릭 스트림](../azure-monitor/app/live-stream.md)를 사용 하 여 Azure Portal에서 거의 실시간으로 로그 데이터 및 기타 메트릭을 볼 수 있습니다. 소비 계획의 여러 인스턴스 또는 Linux에서 실행 되는 함수를 모니터링 하는 경우이 방법을 사용 합니다. 이 메서드는 [샘플링 된 데이터](#configure-sampling)를 사용 합니다.
+
+로그 스트림은 포털 및 대부분의 로컬 개발 환경에서 볼 수 있습니다. 
 
 ### <a name="portal"></a>포털
+
+포털에서 두 유형의 로그 스트림을 모두 볼 수 있습니다.
+
+#### <a name="built-in-log-streaming"></a>기본 제공 로그 스트리밍
 
 포털에서 스트리밍 로그를 보려면 함수 앱에서 **플랫폼 기능** 탭을 선택 합니다. 그런 다음 **모니터링**에서 **스트리밍 로그**를 선택 합니다.
 
@@ -624,9 +631,21 @@ Application Insights의 Functions 통합 문제를 보고하거나 제안 사항
 
 ![포털에서 스트리밍 로그 보기](./media/functions-monitoring/streaming-logs-window.png)
 
+#### <a name="live-metrics-stream"></a>라이브 메트릭 스트림
+
+앱에 대 한 라이브 메트릭 스트림를 보려면 함수 앱의 **개요** 탭을 선택 합니다. Application Insights 사용 하도록 설정 하면 **구성 된 기능**아래에 **Application Insights** 링크가 표시 됩니다. 이 링크를 누르면 앱에 대 한 Application Insights 페이지로 이동 합니다.
+
+Application Insights에서 **라이브 메트릭 스트림**를 선택 합니다. [샘플링 된 로그 항목](#configure-sampling) 은 **샘플 원격 분석**아래에 표시 됩니다.
+
+![포털에서 라이브 메트릭 스트림 보기](./media/functions-monitoring/live-metrics-stream.png) 
+
 ### <a name="visual-studio-code"></a>Visual Studio 코드
 
 [!INCLUDE [functions-enable-log-stream-vs-code](../../includes/functions-enable-log-stream-vs-code.md)]
+
+### <a name="core-tools"></a>핵심 도구
+
+[!INCLUDE [functions-streaming-logs-core-tools](../../includes/functions-streaming-logs-core-tools.md)]
 
 ### <a name="azure-cli"></a>Azure CLI
 

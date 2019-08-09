@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: b2670ec844df192bb73e8b1e76b1ebf611b2539e
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: ab573d1d9ca9d9db39135ea76e555bb0720d7b68
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619381"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878784"
 ---
 # <a name="supported-languages"></a>지원되는 언어
 
@@ -57,4 +57,4 @@ ms.locfileid: "68619381"
 * [Stream Analytics](../../azure-monitor/app/export-power-bi.md)
 
 ## <a name="unsupported-sdks"></a>지원 되지 않는 Sdk
-커뮤니티에서 지 원하는 여러 Sdk가 있으며, 그 중 일부는 여기에도 기여 했습니다. 그러나 Azure Monitor은이 페이지에 나열 된 지원 되는 Sdk를 사용할 때만 지원 합니다. 다른 언어에 대 한 지원을 확장 하는 기회를 지속적으로 평가 하 고 있으므로 [GitHub 발표](https://github.com/microsoft/ApplicationInsights-Announcements/issues) 페이지에 따라 최신 SDK 뉴스를 받을 수 있습니다.
+커뮤니티에서 지 원하는 여러 Sdk가 있습니다. 그러나 Azure Monitor은이 페이지에 나열 된 지원 되는 Sdk를 사용할 때만 지원 합니다. 다른 언어에 대 한 지원을 확장 하는 기회를 지속적으로 평가 하 고 있으므로 [GitHub 발표](https://github.com/microsoft/ApplicationInsights-Announcements/issues) 페이지에 따라 최신 SDK 뉴스를 받을 수 있습니다. 

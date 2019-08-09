@@ -7,15 +7,14 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 08/08/2019
 ms.author: jlembicz
-ms.custom: seodec2018
-ms.openlocfilehash: bc183cb8ac2155b8dd31dc603d70506ad3d5e20a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e54bc91ff60ce4f3c2340282410923225601df4
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65797473"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883902"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Azure Search에서 전체 텍스트 검색의 작동 방식
 
@@ -281,17 +280,17 @@ Spacious,||air-condition*+"Ocean view"
 | north | 2
 | ocean | 1, 2, 3
 | of | 2
-| 날짜 |2
+| On |2
 | quiet | 4
 | rooms  | 1, 3
 | secluded | 4
 | shore | 2
 | spacious | 1
 | the | 1, 2
-| to | 1
+| 다음으로 변경: | 1
 | view | 1, 2, 3
 | walking | 1
-| 포함 문자열 | 3
+| 다음 문자열로 바꾸세요. | 3
 
 
 **쿼리 용어를 인덱싱된 용어와 연결**
@@ -351,7 +350,7 @@ search=Spacious, air-condition* +"Ocean view"
 }
 ~~~~
 
-문서 1이 쿼리와 가장 정확하게 일치했습니다. *spacious*라는 용어와 *ocean view*라는 필수 구가 설명 필드에서 모두 발생했기 때문입니다. 그 다음 두 문서는 *ocean view*라는 구만 일치합니다. 문서 2와 3이 동일한 방식으로 쿼리와 일치하는데 관련성 점수는 서로 다르다는 점에 놀라실 수도 있습니다. 이는 점수 매기기 공식에 TF/IDF 외에도 여러 구성 요소가 더 있기 때문입니다. 이 예에서는 문서 3에 약간 더 높은 점수가 할당되었는데, 설명이 좀 더 짧기 때문입니다. 필드 길이 및 기타 요소가 관련성 점수에 미치는 영향에 대해 자세히 알아보려면 [Lucene의 실제 점수 매기기 공식](https://lucene.apache.org/core/4_0_0/core/org/apache/lucene/search/similarities/TFIDFSimilarity.html)을 살펴보세요.
+문서 1이 쿼리와 가장 정확하게 일치했습니다. *spacious*라는 용어와 *ocean view*라는 필수 구가 설명 필드에서 모두 발생했기 때문입니다. 그 다음 두 문서는 *ocean view*라는 구만 일치합니다. 문서 2와 3이 동일한 방식으로 쿼리와 일치하는데 관련성 점수는 서로 다르다는 점에 놀라실 수도 있습니다. 이는 점수 매기기 공식에 TF/IDF 외에도 여러 구성 요소가 더 있기 때문입니다. 이 예에서는 문서 3에 약간 더 높은 점수가 할당되었는데, 설명이 좀 더 짧기 때문입니다. 필드 길이 및 기타 요소가 관련성 점수에 미치는 영향에 대해 자세히 알아보려면 [Lucene의 실제 점수 매기기 공식](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/search/similarities/TFIDFSimilarity.html)을 살펴보세요.
 
 일부 쿼리 유형(와일드카드, 접두사, regex)은 전체적인 문서 점수에 항상 상수 점수를 부여합니다. 따라서 쿼리 확장을 통해 검색된 일치 항목이 결과에는 포함되지만 순위에는 영향을 주지 않습니다. 
 
@@ -393,7 +392,7 @@ Azure Search의 모든 인덱스는 여러 분할 영역으로 자동 분할되�
 
 + 특정 필드에 대해 최소한의 처리 또는 특수한 처리를 수행하려면 [사용자 지정 분석기를 구성](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)하세요.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
 [문서 검색 REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
 

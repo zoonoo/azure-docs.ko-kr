@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: 382f43156ab450600ff0d2e5e2db763cd6bd94df
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: fe71f4e89fb7e1b6ff3e4f59894a933fbb011692
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875045"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881410"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>ApplicationInsights.config 또는 .xml로 Application Insights SDK 구성
 Application Insights .NET SDK는 NuGet 패키지의 숫자로 구성됩니다. [코어 패키지](https://www.nuget.org/packages/Microsoft.ApplicationInsights) Application Insights에 원격 분석을 보내는 경우에 API를 제공합니다. [추가 패키지](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights)는 해당 컨텍스트 및 애플리케이션에서 원격 분석을 자동으로 추적하기 위해 원격 분석 *모듈* 및 *이니셜라이저*를 제공합니다. 구성 파일을 조정 하 여 원격 분석 모듈 및 이니셜라이저를 사용 하거나 사용 하지 않도록 설정 하 고 그 중 일부에 대 한 매개 변수를 설정할 수 있습니다.
 
-구성 파일의 이름은 애플리케이션 유형에 따라 `ApplicationInsights.config` 또는 `ApplicationInsights.xml`입니다. [대부분의 SDK 버전을 설치할][start]때 프로젝트에 자동으로 추가 됩니다. 또한 [IIS 서버에서 상태 모니터][redfield]하 여 웹 앱에 추가 됩니다. Azure [웹 사이트](azure-web-apps.md) 또는 [azure VM 및 가상 머신 확장 집합에](azure-vm-vmss-apps.md) 대 한 확장이 사용 되는 경우 구성 파일은 무시 됩니다.
+구성 파일의 이름은 애플리케이션 유형에 따라 `ApplicationInsights.config` 또는 `ApplicationInsights.xml`입니다. [대부분의 SDK 버전을 설치할][start]때 프로젝트에 자동으로 추가 됩니다. SDK는 프로젝트 루트 `ApplicationInsights.config` 폴더에 파일을 만들고, 컴파일 된 경우 bin 폴더에 복사 합니다. 또한 [IIS 서버에서 상태 모니터][redfield]하 여 웹 앱에 추가 됩니다. Azure [웹 사이트](azure-web-apps.md) 또는 [azure VM 및 가상 머신 확장 집합에](azure-vm-vmss-apps.md) 대 한 확장이 사용 되는 경우 구성 파일은 무시 됩니다.
 
 [웹 페이지에서 SDK][client]를 제어 하는 것과 동일한 파일이 없습니다.
 
@@ -45,7 +45,7 @@ Application Insights .NET SDK는 NuGet 패키지의 숫자로 구성됩니다. [
 * `Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule`
 * [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) NuGet 패키지.
 
-에이전트 기반 (코드 없는) 연결을 사용 하 여 코드를 수정 하지 않고 종속성을 자동으로 수집할 수 있습니다. Azure web apps에서이를 사용 하려면 [Application Insights 확장](azure-web-apps.md)을 사용 하도록 설정 합니다. Azure VM 또는 Azure virtual machine scale set에서 사용 하려면 [VM 및 가상 머신 확장 집합에 대 한 응용 프로그램 모니터링 확장](azure-vm-vmss-apps.md)을 사용 하도록 설정 합니다.
+에이전트 기반 (코드 없는) 연결을 사용 하 여 코드를 수정 하지 않고 종속성을 자동으로 수집할 수 있습니다. Azure 웹 앱에서 사용 하려면 [Application Insights 확장](azure-web-apps.md)을 사용 하도록 설정 합니다. Azure VM 또는 Azure virtual machine scale set에서 사용 하려면 [VM 및 가상 머신 확장 집합에 대 한 응용 프로그램 모니터링 확장](azure-vm-vmss-apps.md)을 사용 하도록 설정 합니다.
 
 ### <a name="performance-collector"></a>성능 수집기
 IIS 설치에서 CPU, 메모리 및 네트워크 부하와 같은 [시스템 성능 카운터를 수집](../../azure-monitor/app/performance-counters.md)합니다. 사용자가 직접 설정한 성능 카운터를 포함하여 어떤 카운터를 수집할지 지정할 수 있습니다.

@@ -3,17 +3,17 @@ title: Azure IoT Central에 지원되는 브라우저 | Microsoft Docs
 description: Azure IoT Central은 최신 데스크톱, 태블릿 및 브라우저를 통해 액세스할 수 있습니다. 이 문서에서는 지원되는 브라우저 목록을 설명합니다.
 author: lmasieri
 ms.author: lmasieri
-ms.date: 04/24/2109
+ms.date: 04/24/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 66bff6dfbb355bd0cb62f2e68b2805b5ccebfe8b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7d9429507e39d975c5534e33052c56d77eeb3eb7
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64720091"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880021"
 ---
 # <a name="supported-browsers-for-azure-iot-central"></a>Azure IoT Central에 지원되는 브라우저
 

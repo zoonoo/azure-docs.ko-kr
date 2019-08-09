@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/16/2019
+ms.date: 08/08/2019
 ms.author: jonbeck
-ms.openlocfilehash: fdcfe2f78177dba7810c668d280f4f3f5127deb7
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 1ca122a9a160901aa27c53faa2ab1da7a1c740dd
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708819"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881594"
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>메모리 최적화 가상 머신 크기
 
@@ -36,11 +36,11 @@ ms.locfileid: "67708819"
 - [컴퓨팅 최적화](sizes-compute.md)
 - [Storage에 최적화](sizes-storage.md)
 - [GPU](../windows/sizes-gpu.md)
-- [고성능 계산](sizes-hpc.md)
+- [고성능 컴퓨팅](sizes-hpc.md)
 - [이전 세대](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>다음 단계
 
 * [ACU(Azure 컴퓨팅 단위)](acu.md)가 Azure SKU 간의 Compute 성능을 비교하는 데 어떻게 도움을 줄 수 있는지 알아봅니다.
 
-* 자세한 방법 [Azure CLI 사용 하 여 Linux Vm 만들기 및 관리](tutorial-manage-vm.md)
+* [Azure CLI를 사용 하 여 Linux vm을 만들고 관리](tutorial-manage-vm.md) 하는 방법을 알아봅니다.

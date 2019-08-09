@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 4/3/2019
 ms.author: dacurwin
-ms.openlocfilehash: 71a33b7263cd7a3b2f5e39ce9d24df11a7d6283c
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 5c6e3ef74ea2d77ba03526e05145fe6faa61c050
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688613"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882049"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>암호화 된 Azure VM 백업 및 복원
 
@@ -130,7 +130,7 @@ Azure VM에는 연결 된 Vm과 함께 키와 암호를 백업 하기 위한 읽
 2. 백업 중인 암호화 된 VM과 연결 된 key vault를 선택 합니다.
 3. **액세스 정책** > **새로 추가**를 선택 합니다.
 4. **보안 주체 선택**을 선택 하 고 **백업 관리**를 입력 합니다.
-5. **백업 관리 서비스** > **선택을 선택**합니다.
+5. **백업 관리 서비스** > 선택을 선택 합니다.
 
     ![백업 서비스 선택](./media/backup-azure-vms-encryption/select-backup-service.png)
 
@@ -153,11 +153,12 @@ Azure VM에는 연결 된 Vm과 함께 키와 암호를 백업 하기 위한 읽
 1. [VM 디스크를 복원](backup-azure-arm-restore-vms.md#restore-disks)합니다.
 2. 다음 중 하나를 수행 합니다.
     - 복원 작업 중에 생성 된 템플릿을 사용 하 여 VM 설정을 사용자 지정 하 고 VM 배포를 트리거합니다. [자세히 알아보기](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm).
-    - Powershell을 사용 하 여 복원 된 디스크에서 새 VM을 만듭니다. [자세히 알아보기](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
+    - PowerShell을 사용 하 여 복원 된 디스크에서 새 VM을 만듭니다. [자세히 알아보기](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
+    - Linux Vm의 경우 데이터 디스크가 열리고 탑재 되도록 ADE 확장을 다시 설정 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
-문제가 발생 하는 경우 다음을 검토 하십시오.
+문제가 발생 하는 경우 다음 문서를 검토 하세요.
 
 - 암호화 된 Azure Vm을 백업 하 고 복원할 때 발생 하는 [일반적인 오류](backup-azure-vms-troubleshoot.md) 입니다.
 - [AZURE VM 에이전트/백업 확장](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) 문제

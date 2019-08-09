@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 07/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 7b9a24161c76f9fbb0993ffb6719c1ea1b51dc55
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 846b4d95c7eb32af7c1c0ff42c2526612075a033
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68775709"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882404"
 ---
 # <a name="move-sql-server-vm-to-another-region-within-azure-with-azure-site-recovery-services"></a>Azure Site Recovery 서비스를 사용 하 여 Azure 내의 다른 지역으로 SQL Server VM 이동
 
@@ -54,7 +54,7 @@ SQL Server VM을 다른 지역으로 이동 하려면 다음을 수행 해야 �
 - Linux VM의 경우 Linux 배포자가 제공한 지침에 따라 신뢰할 수 있는 최신 루트 인증서 및 인증서 해지 목록을 VM에 가져옵니다. 
 - 이동 하려는 Vm에 대 한 네트워크 연결을 제어 하기 위해 인증 프록시를 사용 하 고 있지 않은지 확인 합니다. 
 - 이동 하려는 VM이 인터넷에 액세스할 수 없거나 방화벽 프록시를 사용 하 여 아웃 바운드 액세스를 제어 하는 경우에는 요구 사항을 확인 하세요. 
-- 원본 네트워킹 레이아웃 및 현재 your'e 하는 모든 리소스를 확인 합니다. 여기에는 부하 분산 장치, 네트워크 보안 그룹(NSG) 및 공용 IP를 포함하되 국한되지 않습니다. 
+- 현재 사용하고 있는 모든 리소스와 원본 네트워킹 레이아웃을 식별합니다. 여기에는 부하 분산 장치, 네트워크 보안 그룹(NSG) 및 공용 IP를 포함하되 국한되지 않습니다. 
 
 ### <a name="prepare-the-target-region"></a>대상 Azure 지역 준비
 

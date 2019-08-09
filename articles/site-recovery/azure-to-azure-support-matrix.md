@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/06/2019
 ms.author: raynew
-ms.openlocfilehash: d0e24d7621218ccac23842072a5f08be94c80d9d
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 92bd53fd0426f896eff8dc63b690167db3ee700b
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840595"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884115"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>한 지역에서 다른 지역으로 Azure VM 복제를 위한 지원 매트릭스
 
@@ -197,7 +197,7 @@ Managed Disk - Premium | Azure Site Recovery가 지원되는 Azure 지역에서 
 콜드 및 핫 저장소 | 지원되지 않음 | VM 디스크는 콜드 및 핫 저장소에서 지원되지 않습니다.
 저장소 공간 | 지원됨 |
 미사용 암호화(SSE) | 지원됨 | SSE은 저장소 계정의 기본 설정입니다.   
-Windows OS용 ADE(Azure Disk Encryption) | 지원됨 |
+Windows OS용 ADE(Azure Disk Encryption) | 관리 디스크가 있는 Vm에 대해 지원 됩니다. 관리 되지 않는 디스크를 사용 하는 Vm은 지원 되지 않습니다. |
 Linux OS용 ADE(Azure Disk Encryption) | 지원되지 않음 |
 핫 추가 | 지원됨 | 복제 된 Azure VM에 추가 하는 데이터 디스크에 대 한 복제를 사용 하도록 설정 하는 것은 managed disks를 사용 하는 Vm에 대해 지원 됩니다.
 디스크 핫 제거 | 지원되지 않음 | VM에서 데이터 디스크를 제거 하는 경우 복제를 사용 하지 않도록 설정 하 고 VM에 대해 복제를 다시 사용 하도록 설정 해야 합니다.
@@ -253,7 +253,7 @@ Azure DNS | 지원됨 |
 온-프레미스에 대 한 VPN 사이트 간 연결<br/><br/>(Express 경로 유무에 관계 없음)| 지원됨 | Site Recovery 트래픽이 온-프레미스로 라우팅되지 않도록 UDRs와 NSGs가 구성 되어 있는지 확인 합니다. [자세히 알아보기](site-recovery-azure-to-azure-networking-guidance.md)    
 VNet 간 연결 | 지원됨 | [자세히 알아보기](site-recovery-azure-to-azure-networking-guidance.md)  
 Virtual Network 서비스 엔드포인트 | 지원됨 | 스토리지 계정에 대한 가상 네트워크 액세스를 제한하는 경우 신뢰할 수 있는 Microsoft 서비스가 스토리지 계정에 액세스할 수 있는지 확인합니다.
-가속된 네트워킹 | 지원됨 | 원본 VM에서 가속 네트워킹을 사용하도록 설정해야 합니다. [자세히 알아보기](azure-vm-disaster-recovery-with-accelerated-networking.md).
+가속화된 네트워킹 | 지원됨 | 원본 VM에서 가속 네트워킹을 사용하도록 설정해야 합니다. [자세히 알아보기](azure-vm-disaster-recovery-with-accelerated-networking.md).
 
 
 

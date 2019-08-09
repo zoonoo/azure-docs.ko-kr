@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: dacurwin
-ms.openlocfilehash: 3165183d4a5e0dcfecee62b128ee8cfa9d94209b
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 9e67e063ed37c706ba172703f0a5483d8d4f68ca
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736714"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881864"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure Backup 아키텍처 및 구성 요소
 
@@ -120,7 +120,7 @@ DPM/MABS 디스크에 백업한 다음 Azure에 백업 | | | ![예][green]
     - 마지막 백업 이후에 변경 된 데이터 블록만 복사 됩니다.
     - 데이터가 암호화되지 않습니다. Azure Backup Azure Disk Encryption를 사용 하 여 암호화 된 Azure Vm을 백업할 수 있습니다.
     - 스냅샷 데이터가 자격 증명 모음에 즉시 복사되지 않을 수 있습니다. 사용량이 많은 시간에 백업은 약간의 시간이 걸릴 수 있습니다. 일별 백업 정책에서 VM의 총 백업 시간은 24 시간 미만입니다.
-1. 자격 증명 모음에 데이터를 보내면 스냅숏이 제거 되 고 복구 지점이 생성 됩니다.
+1. 자격 증명 모음에 데이터가 전송 된 후에는 복구 지점이 생성 됩니다. 기본적으로 스냅숏은 삭제 되기 2 일 동안 보존 됩니다. 이 기능을 통해 이러한 스냅숏에서 복원 작업을 수행할 수 있으므로 복원 시간이 줄어듭니다. 자격 증명 모음에서 데이터를 다시 변환 하 고 복사 하는 데 필요한 시간을 줄일 수 있습니다. [Azure Backup 인스턴트 복원 기능](https://docs.microsoft.com/en-us/azure/backup/backup-instant-restore-capability)을 참조 하세요.
 
 Azure Vm은 제어 명령에 대 한 인터넷 액세스가 필요 합니다. VM 내에서 워크 로드를 백업 하는 경우 (예: SQL Server 데이터베이스 백업), 백 엔드 데이터도 인터넷에 액세스할 수 있어야 합니다. 
 

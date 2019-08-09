@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4148d8a3b44336677ba028807aadbae424b7223
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: ba99001159277d9d221910cafa4f5165ae2bd812
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382514"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880766"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱을 사용하여 계정 자격 증명 백업 및 복구
 
@@ -93,6 +93,8 @@ Microsoft Authenticator 앱은 계정 자격 증명과 계정 순서 같은 관�
     ![QR 코드를 검사할 수 있는 Microsoft Authenticator 앱](./media/user-help-auth-app-backup-recovery/backup-and-recovery-scan-qr-code.png)
 
     >[!NOTE]
+    >Microsoft Authenticator 앱을 처음으로 설정 하는 경우 앱에서 카메라에 액세스할 수 있도록 허용할지 (iOS) 아니면 앱이 사진을 촬영 하 고 비디오를 녹화 (Android) 할 수 있도록 허용할지 묻는 메시지가 표시 될 수 있습니다. **허용** 을 선택 하 여 인증자 앱이 카메라에 액세스 하 여 다음 단계에서 QR 코드를 그림으로 이동할 수 있도록 해야 합니다. 카메라를 허용 하지 않는 경우에도 인증자 앱을 설정할 수 있지만 코드 정보를 수동으로 추가 해야 합니다. 수동으로 코드를 추가 하는 방법에 대 한 자세한 내용은 [앱에 수동으로 계정 추가](user-help-auth-app-add-account-manual.md)를 참조 하세요.
+    >
     >QR 코드를 가져오는 방법에 대한 자세한 내용은 관리자가 보안 정보를 켰는지 여부에 따라 [Microsoft Authenticator 앱 시작](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install) 또는 [Authenticator 앱을 사용하도록 보안 정보 설정](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app)을 참조하세요.
 
 ## <a name="troubleshooting-backup-and-recovery-problems"></a>백업 및 복구 문제 해결

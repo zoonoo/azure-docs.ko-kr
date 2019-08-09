@@ -1,18 +1,18 @@
 ---
 title: Azure IoT 디바이스 SDK 플랫폼 지원 | Microsoft Docs
 description: 개념 - Azure IoT 디바이스 SDK에서 지원하는 플랫폼 목록
-author: yzhong94
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.author: yizhon
-ms.openlocfilehash: 7bcc1bf6b734abe202c5fec5d515604f4bf8e4a7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: robinsh
+ms.openlocfilehash: 356962c76bf942c56ace0798ac3cca3d815bc507
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60398708"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883113"
 ---
 # <a name="azure-iot-sdks-platform-support"></a>Azure IoT SDK 플랫폼 지원
 
@@ -32,7 +32,7 @@ Microsoft는 다양한 운영 체제/플랫폼/프레임워크를 지원하며, 
 * .NET Standard 1.3(.NET Core 2.1 및 .NET Framework 4.7 포함)
 * Xamarin iOS, Android, UWP
 
-## <a name="supported-platforms"></a>지원되는 플랫폼
+## <a name="supported-platforms"></a>지원 플랫폼
 
 다양한 플랫폼이 지원됩니다.
 
@@ -44,7 +44,7 @@ Microsoft는 다양한 운영 체제/플랫폼/프레임워크를 지원하며, 
 | Ubuntu 18.04 LTS    | X64  | gcc-7.3              | WolfSSL – 1.13    |
 | Ubuntu 18.04 LTS    | X64  | Clang 6.0.X          | Openssl – 1.1.0g  |
 | OSX 10.13.4         | x64  | XCode 9.4.1          | 네이티브 OSX        |
-| Windows Server 2016 | x64  | Visual Studio 14.0.X | SChannel          |
+| Windows Server 2016 | X64  | Visual Studio 14.0.X | SChannel          |
 | Windows Server 2016 | x86  | Visual Studio 14.0.X | SChannel          |
 | Debian 9 Stretch    | x64  | gcc-7.3              | Openssl – 1.1.0f  |
 
@@ -53,16 +53,16 @@ Microsoft는 다양한 운영 체제/플랫폼/프레임워크를 지원하며, 
 | OS                  | 아키텍처 | 컴파일러   | TLS 라이브러리 |
 |---------------------|------|------------|-------------|
 | Windows Server 2016 | x86  | Python 2.7 | openssl     |
-| Windows Server 2016 | x64  | Python 2.7 | openssl     |
+| Windows Server 2016 | X64  | Python 2.7 | openssl     |
 | Windows Server 2016 | x86  | Python 3.5 | openssl     |
-| Windows Server 2016 | x64  | Python 3.5 | openssl     |
+| Windows Server 2016 | X64  | Python 3.5 | openssl     |
 | Ubuntu 18.04 LTS    | x86  | Python 2.7 | openssl     |
 | Ubuntu 18.04 LTS    | x86  | Python 3.4 | openssl     |
-| MacOS High Sierra   | x64  | Python 2.7 | openssl     |
+| MacOS High Sierra   | X64  | Python 2.7 | openssl     |
 
 ### <a name="net-sdk"></a>.NET SDK
 
-| OS                  | 아키텍처 | 프레임워크            | Standard          |
+| OS                  | 아키텍처 | 프레임워크            | 표준          |
 |---------------------|------|----------------------|-------------------|
 | Ubuntu 16.04 LTS    | X64  | .NET Core 2.1        | .NET Standard 2.0 |
 | Windows Server 2016 | X64  | .NET Core 2.1        | .NET Standard 2.0 |
@@ -83,13 +83,13 @@ Microsoft는 다양한 운영 체제/플랫폼/프레임워크를 지원하며, 
 | Ubuntu 16.04 LTS    | X64  | Java 8       |
 | Windows Server 2016 | X64  | Java 8       |
 | Android API 28 | X64  | Java 8       |
-| Android 작업 | X64  | Java 8      |
+| Android 사물 | X64  | Java 8      |
 
 ## <a name="partner-supported-platforms"></a>파트너 지원 플랫폼
 
 고객은 Azure IoT C SDK를 이식하여, 특히 SDK의 PAL(플랫폼 추상화 계층)을 만들어서 플랫폼 지원을 확장할 수 있습니다. Microsoft는 파트너와 협력하여 확장된 지원을 제공합니다. 파트너 목록은 C SDK를 더 많은 플랫폼에 이식하고 PAL을 유지 관리합니다.
 
-| 파트너             | 디바이스                            | 연결                     | 지원 |
+| 파트너             | 장치                            | 링크                     | Support(지원) |
 |---------------------|------------------------------------|--------------------------|---------|
 | Espressif           | ESP32 <br/> ESP8266                              | [Esp-azure](https://github.com/espressif/esp-azure)                | [GitHub](https://github.com/espressif/esp-azure)  
 | OPC 클래식            | Qualcomm MDM9206 LTE IoT 모뎀     | [IoT SDK용 Qualcomm LTE](https://developer.qualcomm.com/software/lte-iot-sdk) | [포럼](https://developer.qualcomm.com/forums/software/lte-iot-sdk)   |

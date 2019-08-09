@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: 3f22da9eabc6f539ef37009f565f073b9de89319
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 8227aa366c8f5149d4212e6cdd00e2745db84814
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706735"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881947"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Linux용 가상 머신 확장 및 기능
 
@@ -86,7 +86,7 @@ Azure VM 확장은 기존 VM에서 실행됩니다. 이러한 기능은 이미 �
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Azure VM 확장은 [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) 명령을 사용하여 기존 VM에 대해 실행할 수 있습니다. 다음 예에서는 *myResourceGroup*이라는 리소스 그룹의 *myVM*이라는 VM에 대해 사용자 지정 스크립트 확장을 실행합니다.
+Azure VM 확장은 [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) 명령을 사용하여 기존 VM에 대해 실행할 수 있습니다. 다음 예제에서는 *Myvm*이라는 리소스 그룹에서 *MYVM* 이라는 Vm에 대해 사용자 지정 스크립트 확장을 실행 합니다. 사용자 고유의 정보를 https://raw.githubusercontent.com/me/project/hello.sh) 사용 하 여 예제 리소스 그룹 이름, VM 이름 및 스크립트를 바꿉니다. 
 
 ```azurecli
 az vm extension set `
@@ -222,7 +222,7 @@ VM 확장을 실행하는 경우 자격 증명, 저장소 계정 이름 및 저�
 업데이트를 사용할 수 있는 경우 확장에 대한 변경 내용이 있는 경우에만 VM에 설치되고 다른 VM 모델이 변경됩니다.
 
 - 데이터 디스크
-- 확장
+- 확장명
 - 부팅 진단 컨테이너
 - 게스트 OS 암호
 - VM 크기
@@ -337,7 +337,7 @@ INFO [Microsoft.OSTCExtensions.LinuxDiagnostic-2.3.9027] Launch command:diagnost
 
 1. Linux 에이전트 로그를 확인하려면 */var/log/waagent.log*에서 확장이 프로비전되었을 때 작업을 확인합니다.
 
-2. 자세한 내용은 실제 확장 로그를 확인 하세요 */var/로그/azure/\<extensionName >*
+2. */Var/log/azure/\<extensionName* 에 대 한 자세한 내용은 실제 확장 로그를 확인 하세요 >
 
 3. 오류 코드, 알려진 문제 등에 대한 확장 관련 설명서 문제 해결 섹션을 확인합니다.
 

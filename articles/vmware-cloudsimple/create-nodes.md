@@ -8,18 +8,23 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 9eb02f04b5873e5906782a27ce833a724ceecfe3
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 898b07d05abf3bfad644fb590d90c7a90c5a1c0d
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812371"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883218"
 ---
 # <a name="provision-nodes-for-vmware-solution-by-cloudsimple---azure"></a>CloudSimple로 VMware 솔루션에 대 한 노드 프로 비전-Azure
 
 Azure Portal에서 노드를 프로 비전 합니다. 그런 다음 CloudSimple 사설 클라우드 환경에 대 한 종 량 제 용량을 설정할 수 있습니다.
 
-## <a name="add-a-provisioned-node-to-your-cloudsimple-private-cloud"></a>CloudSimple 사설 클라우드에 프로 비전 된 노드 추가
+## <a name="sign-in-to-azure"></a>Azure에 로그인
+
+[https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
+
+
+## <a name="add-a-node-to-your-cloudsimple-private-cloud"></a>CloudSimple 사설 클라우드에 노드 추가
 
 1. **모든 서비스**를 선택합니다.
 2. **Cloudsimple 노드**를 검색 합니다.
@@ -44,4 +49,4 @@ Azure Portal에서 노드를 프로 비전 합니다. 그런 다음 CloudSimple 
 
 ## <a name="next-steps"></a>다음 단계
 
-* [사설 클라우드 만들기](https://docs.azure.cloudsimple.com/create-private-cloud/)
+* [사설 클라우드 만들기](create-private-cloud.md)

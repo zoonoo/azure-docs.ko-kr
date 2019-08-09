@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: jingwang
-ms.openlocfilehash: 0a71c7ffe9040c3002b1f5378ce298a047554b15
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 079a0721e77174215c7256eecbe9bc522256f0b8
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640199"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881473"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Oracle 간 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -345,9 +345,9 @@ Oracle에서 Oracle로 데이터를 복사 하는 경우 다음 매핑이 적용
 | DATE |DateTime |
 | FLOAT |Decimal, 문자열(전체 자릿수의 경우 > 28) |
 | INTEGER |Decimal, 문자열(전체 자릿수의 경우 > 28) |
-| LONG |문자열 |
+| LONG |String |
 | LONG RAW |Byte[] |
-| NCHAR |String |
+| NCHAR |문자열 |
 | NCLOB |문자열 |
 | NUMBER |Decimal, 문자열(전체 자릿수의 경우 > 28) |
 | NVARCHAR2 |String |
@@ -358,7 +358,7 @@ Oracle에서 Oracle로 데이터를 복사 하는 경우 다음 매핑이 적용
 | TIMESTAMP WITH TIME ZONE |String |
 | UNSIGNED INTEGER |NUMBER |
 | VARCHAR2 |String |
-| XML |String |
+| XML |문자열 |
 
 > [!NOTE]
 > 데이터 형식 INTERVAL YEAR TO MONTH 및 INTERVAL DAY TO SECOND는 지원되지 않습니다.

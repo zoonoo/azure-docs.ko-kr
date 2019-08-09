@@ -11,10 +11,10 @@ ms.date: 07/23/2018
 ms.author: anjangsh
 ms.reviewer: jrasnick
 ms.openlocfilehash: 4348a634fd5b2b33f36d8e79f28caf659b82ccf4
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
+ms.lasthandoff: 08/09/2019
 ms.locfileid: "67626146"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-june-2018"></a>Azure SQL Data Warehouse의 새로운 기능 2018년 6월
@@ -51,7 +51,7 @@ Msg 230, Level 14, State 1, Line 12
 The SELECT permission was denied on the column 'SSN' of the object 'Membership', database 'CLS_TestDW', schema 'dbo'.
 ```
 
-## <a name="objectschemaname"></a>OBJECT_SCHEMA_NAME
+## <a name="object_schema_name"></a>OBJECT_SCHEMA_NAME
 [OBJECT_SCHEMA_NAME()](https://docs.microsoft.com/sql/t-sql/functions/object-schema-name-transact-sql) 함수는 스키마 범위 개체에 대한 데이터베이스 스키마 이름을 반환합니다. 이 함수는 개체 스키마 유효성 검사를 수행할 때 ETL 도구에서 일반적인 함수입니다. 
 
 ```sql
@@ -72,7 +72,7 @@ dbo               nation
 dbo               orders
 ```
 
-## <a name="support-for-the-systimezoneinfo-view"></a>sys.time_zone_info 보기 지원
+## <a name="support-for-the-systime_zone_info-view"></a>sys.time_zone_info 보기 지원
 [sys.time_zone_info](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql) 보기는 Azure SQL Data Warehouse에서 지원되는 표준 시간대에 대한 정보를 반환합니다.
 
 ```sql
@@ -89,7 +89,7 @@ Mountain Standard Time (Mexico)   -06:00               1
 Central Standard Time             -05:00               1
 ```
 
-## <a name="auto-stats-operations-appear-in-sysdmpdwexecrequests-behavior-change"></a>자동 통계 작업이 sys.dm_pdw_exec_requests에 나타남(동작 변경 내용)
+## <a name="auto-stats-operations-appear-in-sysdm_pdw_exec_requests-behavior-change"></a>자동 통계 작업이 sys.dm_pdw_exec_requests에 나타남(동작 변경 내용)
 
 [통계 자동 작성](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistic)이 도입되면서, Azure SQL Data Warehouse는 쿼리 실행을 최적화하기 위해 통계를 생성합니다. 2018년 6월 릴리스에는 [CREATE STATISTICS](https://docs.microsoft.com/sql/t-sql/statements/create-statistics-transact-sql) 작업이 실행될 때마다 [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) 보기에 레코드를 추가하여 통계가 자동 생성되는 시점을 모니터링하는 기능이 추가되어 있습니다.
 

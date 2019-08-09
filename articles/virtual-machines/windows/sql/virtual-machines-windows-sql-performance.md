@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 09/26/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 3fda34e46ddb7ea17c98795ad6632841b79764eb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d81c1941f114efbfd4ede559152317e907edeaea
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67076922"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882400"
 ---
 # <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server의 성능 지침
 
@@ -41,8 +41,8 @@ ms.locfileid: "67076922"
 | 영역 | 최적화 |
 | --- | --- |
 | [VM 크기](#vm-size-guidance) | SQL Enterprise Edition - [DS3_v2](../sizes-general.md) 이상<br/><br/> SQL Standard 및 Web Edition - [DS2_v2](../sizes-general.md) 이상 |
-| [Storage](#storage-guidance) | - [프리미엄 SSD](../disks-types.md)를 사용합니다. 표준 저장소는 개발/테스트에만 권장됩니다.<br/><br/> - [스토리지 계정](../../../storage/common/storage-create-storage-account.md)과 SQL Server VM을 동일한 Azure 지역에 유지합니다.<br/><br/> * 스토리지 계정에서 Azure [GRS](../../../storage/common/storage-redundancy.md)(지역 복제)를 사용하지 않도록 설정합니다. |
-| [디스크](#disks-guidance) | - 최소 2개의 [P30 디스크](../disks-types.md#premium-ssd)를 사용합니다(로그 파일용 1개, TempDB를 포함한 데이터 파일용 1개). ~50,000 IOPS가 필요한 워크로드의 경우 울트라 SSD를 고려해 보세요. <br/><br/> - 운영 체제 또는 임시 디스크를 데이터베이스 저장 또는 로깅에 사용하지 마세요.<br/><br/> - 데이터 파일 및 TempDB 데이터 파일을 호스팅하는 디스크에서 읽기 캐싱을 사용하도록 설정합니다.<br/><br/> - 로그 파일을 호스팅하는 디스크에서 캐싱을 사용하지 마세요.  **중요**: Azure VM 디스크에 대한 캐시 설정을 변경하는 경우 SQL Server 서비스를 중지합니다.<br/><br/> - IO 처리량이 증가하도록 여러 Azure 데이터 디스크를 스트라이프합니다.<br/><br/> - 문서화된 할당 크기로 포맷합니다. <br/><br/> - TempDB는 중요 업무를 위한 SQL Server 워크로드용 로컬 SSD에 배치합니다(올바른 VM 크기를 선택한 후). |
+| [저장소](#storage-guidance) | - [프리미엄 SSD](../disks-types.md)를 사용합니다. 표준 저장소는 개발/테스트에만 권장됩니다.<br/><br/> - [스토리지 계정](../../../storage/common/storage-create-storage-account.md)과 SQL Server VM을 동일한 Azure 지역에 유지합니다.<br/><br/> * 스토리지 계정에서 Azure [GRS](../../../storage/common/storage-redundancy.md)(지역 복제)를 사용하지 않도록 설정합니다. |
+| [디스크](#disks-guidance) | - 최소 2개의 [P30 디스크](../disks-types.md#premium-ssd)를 사용합니다(로그 파일용 1개, TempDB를 포함한 데이터 파일용 1개). ~50,000 IOPS가 필요한 워크로드의 경우 울트라 SSD를 고려해 보세요. <br/><br/> - 운영 체제 또는 임시 디스크를 데이터베이스 저장 또는 로깅에 사용하지 마세요.<br/><br/> - 데이터 파일 및 TempDB 데이터 파일을 호스팅하는 디스크에서 읽기 캐싱을 사용하도록 설정합니다.<br/><br/> - 로그 파일을 호스팅하는 디스크에서 캐싱을 사용하지 마세요.  **중요**: Azure VM 디스크에 대한 캐시 설정을 변경하는 경우 SQL Server 서비스를 중지합니다.<br/><br/> - IO 처리량이 증가하도록 여러 Azure 데이터 디스크를 스트라이프합니다.<br/><br/> - 문서화된 할당 크기로 포맷합니다. <br/><br/> -중요 업무용 SQL Server 작업 (올바른 `D:\` VM 크기를 선택한 후)을 위해 로컬 SSD 드라이브에 TempDB를 넣습니다. [Ssd를 사용 하 여 TempDB를 저장](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/)하는 블로그에 추가 정보가 있습니다.  |
 | [I/O](#io-guidance) |- 데이터베이스 페이지 압축을 사용하도록 설정합니다.<br/><br/> - 데이터 파일에 즉시 파일 초기화를 사용하도록 설정합니다.<br/><br/> - 데이터베이스의 자동 확장을 제한합니다.<br/><br/> - 데이터베이스의 자동 축소를 해제합니다.<br/><br/> - 시스템 데이터베이스를 포함하여 모든 데이터베이스를 데이터 디스크로 이동합니다.<br/><br/> - SQL Server 오류 로그 및 추적 파일 디렉터리를 데이터 디스크로 이동합니다.<br/><br/> - 기본 백업 및 데이터베이스 파일 위치를 설정합니다.<br/><br/> - 잠긴 페이지를 사용하도록 설정합니다.<br/><br/> - SQL Server 성능 픽스를 적용합니다. |
 | [기능별](#feature-specific-guidance) | - Blob 스토리지에 직접 백업합니다. |
 
@@ -90,11 +90,11 @@ D 시리즈, Dv2 시리즈 및 G 시리즈 VM의 경우 이러한 VM의 임시 �
 
 프리미엄 SSD를 지원하는 VM(DS 시리즈, DSv2 시리즈 및 GS 시리즈)의 경우 읽기 캐싱이 사용되는 프리미엄 SSD를 지원하는 디스크에 TempDB를 저장하는 것이 좋습니다.
 
-이 권장 사항에는 다음과 같은 한 가지 예외가 있습니다. _TempDB가 주로 쓰기에 사용되는 경우 로컬 **D** 드라이브에 TempDB를 저장하면 더 높은 성능을 얻을 수 있으며, 이 정도 머신 크기에서는 SSD를 사용하기도 합니다._
+이 권장 사항에는 다음과 같은 한 가지 예외가 있습니다. _TempDB가 주로 쓰기에 사용되는 경우 로컬 **D** 드라이브에 TempDB를 저장하면 더 높은 성능을 얻을 수 있으며, 이 정도 머신 크기에서는 SSD를 사용하기도 합니다._ 자세한 내용은 [TempDB를 사용 하 여 Ssd 사용](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/) 블로그를 검토 하세요. 
 
 ### <a name="data-disks"></a>데이터 디스크
 
-* **데이터 및 로그 파일에 데이터 디스크 사용**: 디스크 스트라이프를 사용하지 않는 경우 프리미엄 SSD P30 디스크 2개(로그 파일용 1개, 데이터 및 TempDB 파일용 1개)를 사용합니다. 각 프리미엄 SSD는 [디스크 유형 선택](../disks-types.md) 문서에 설명된 대로 해당 크기에 따라 여러 IOP 및 대역폭(MB/초)을 제공합니다. 저장소 공간과 같은 디스크 스트라이프 기술을 사용하는 경우 로그 파일 및 데이터 파일에 대한 다른 두 개의 풀을 소유함으로써 최적의 성능을 얻습니다. 그러나 SQL Server FCI(장애 조치 클러스터 인스턴스)를 사용하려는 경우 하나의 풀을 구성해야 합니다.
+* **데이터 및 로그 파일에 데이터 디스크 사용**: 디스크 스트라이프를 사용 하지 않는 경우 두 개의 프리미엄 SSD P30 디스크를 사용 합니다. 단, 한 디스크에는 로그 파일이 포함 되 고 다른 디스크에는 데이터 및 TempDB (위에서 언급 한 것 처럼 중요 한 중요 한 작업 및 쓰기 작업이 필요 하지 않음)가 포함 됩니다. 각 프리미엄 SSD는 [디스크 유형 선택](../disks-types.md) 문서에 설명된 대로 해당 크기에 따라 여러 IOP 및 대역폭(MB/초)을 제공합니다. 저장소 공간과 같은 디스크 스트라이프 기술을 사용하는 경우 로그 파일 및 데이터 파일에 대한 다른 두 개의 풀을 소유함으로써 최적의 성능을 얻습니다. 그러나 SQL Server FCI(장애 조치 클러스터 인스턴스)를 사용하려는 경우 하나의 풀을 구성해야 합니다.
 
    > [!TIP]
    > - 다양한 디스크 및 워크로드 구성의 테스트 결과는 다음 블로그 게시물을 참조하세요. [Azure VM의 SQL Server에 대한 스토리지 구성 지침](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/).
@@ -184,15 +184,15 @@ Azure 가상 머신에서 실행 중인 SQL Server에 대해 백업을 수행하
 
 SQL Server 2012 이전 버전에서는 [Azure에 SQL Server Backup 도구](https://www.microsoft.com/download/details.aspx?id=40740)를 사용할 수 있습니다. 이 도구는 여러 백업 스트라이프 대상을 사용하여 백업 처리량을 늘릴 수 있습니다.
 
-### <a name="sql-server-data-files-in-azure"></a>Azure의 SQL Server 데이터 파일
+### <a name="sql-server-data-files-in-azure"></a>Azure에서 데이터 파일 SQL Server
 
 SQL Server 2014부터 새로운 기능인 [Azure의 SQL Server 데이터 파일](https://msdn.microsoft.com/library/dn385720.aspx)을 사용할 수 있습니다. Azure에서 데이터 파일로 SQL Server를 실행하면 Azure 데이터 디스크를 사용하는 것과 견줄 만한 성능 특성을 보여 줍니다.
 
-### <a name="failover-cluster-instance-and-storage-spaces"></a>저장소 공간 및 장애 조치 클러스터 인스턴스
+### <a name="failover-cluster-instance-and-storage-spaces"></a>장애 조치 (Failover) 클러스터 인스턴스 및 저장소 공간
 
-클러스터에 노드를 추가 하는 경우에 저장소 공간을를 사용 하는 경우는 **확인** 페이지에서 확인란의 선택을 취소 **클러스터에 사용할 수 있는 모든 저장소를 추가**합니다. 
+저장소 공간을 사용 하는 경우 **확인** 페이지에서 클러스터에 노드를 추가 하는 경우 **클러스터에 사용할 수 있는 모든 저장소를 추가**하세요. 확인란의 선택을 취소 합니다. 
 
-![사용할 수 있는 저장소를 선택 취소](media/virtual-machines-windows-sql-performance/uncheck-eligible-cluster-storage.png)
+![적격 저장소 선택 취소](media/virtual-machines-windows-sql-performance/uncheck-eligible-cluster-storage.png)
 
 만약 저장소 공간을 사용하면서 **클러스터에 사용할 수 있는 모든 저장소를 추가하세요.** 확인란을 선택 취소하지 않으면 Windows에서 클러스터링 프로세스 도중 가상 디스크를 분리합니다. 그 결과, 저장소 공간이 클러스터에서 제거되고 PowerShell을 사용하여 다시 연결할 때까지 디스크 관리자 또는 탐색기에 표시되지 않습니다. 저장소 공간은 여러 디스크를 저장소 풀로 그룹화합니다. 자세한 내용은 [저장소 공간](/windows-server/storage/storage-spaces/overview)을 참조하세요.
 

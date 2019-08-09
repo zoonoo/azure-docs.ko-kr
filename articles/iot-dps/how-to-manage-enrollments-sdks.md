@@ -1,24 +1,23 @@
 ---
 title: Azure 디바이스 프로비전 서비스 SDK를 사용하여 디바이스 등록 관리 | Microsoft Docs
 description: IoT Hub Device Provisioning 서비스에서 서비스 SDK를 사용하여 디바이스 등록을 관리하는 방법
-author: yzhong94
-ms.author: yizhon
+author: robinsh
+ms.author: robinsh
 ms.date: 04/04/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: arjmands
-ms.openlocfilehash: c73a40e46d86632732454ae16ea4f83e3ffa0281
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 438cb579180458fcdeb75516a7c98b3ab2886366
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60627272"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883372"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Azure Device Provisioning Service SDK로 디바이스 등록을 관리하는 방법
 *디바이스 등록*은 특정 시점에 Device Provisioning Service에 등록할 수 있는 단일 디바이스 또는 디바이스 그룹의 레코드를 만듭니다. 등록 레코드에는 원하는 IoT Hub를 포함하여 해당 등록의 일부로 해당 디바이스에 대한 초기 원하는 구성을 포함합니다. 이 문서에서는 Azure IoT 프로비전 서비스 SDK를 사용하여 프로그래밍 방식으로 프로비전 서비스에 대한 디바이스 등록을 관리하는 방법을 보여줍니다.  SDK는 Azure IoT SDK와 같은 리포지토리의 GitHub에서 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 * 디바이스 프로비전 서비스 인스턴스의 연결 문자열 가져오기
 * 사용되는 [증명 메커니즘](concepts-security.md#attestation-mechanism)에 대한 디바이스 보안 아티팩트를 가져옵니다.
     * [**TPM(신뢰할 수 있는 플랫폼 모듈)** ](/azure/iot-dps/concepts-security#trusted-platform-module):

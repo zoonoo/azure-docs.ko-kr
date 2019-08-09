@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/25/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 150c41dce06c81f2e9e07605ab6d5afa9e424453
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: a836e4cf66bf1e957f7b3779e21ec6a0296f7abe
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494493"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881437"
 ---
 # <a name="multi-step-web-tests"></a>다단계 웹 테스트
 
@@ -48,7 +48,7 @@ ms.locfileid: "68494493"
 
 Visual Studio Enterprise를 사용하여 웹 세션을 기록합니다.
 
-1. 웹 성능 및 부하 테스트 프로젝트를 만듭니다. **파일** **새로 만들기**프로젝트Visual >   **Test C#**  >  >   > 
+1. 웹 성능 및 부하 테스트 프로젝트를 만듭니다. **파일** **새로 만들기**프로젝트Visual >  **Test C#**  >  >   > 
 
     ![Visual Studio 새 프로젝트 UI](./media/availability-multistep/vs-web-performance-and-load-test.png)
 
@@ -136,7 +136,18 @@ Visual Studio Enterprise를 사용하여 웹 세션을 기록합니다.
 
 **간단한 사용자 이름 및 암호** 일반적인 방법으로 웹 테스트를 기록 합니다. 우선 쿠키를 삭제합니다.
 
-**SAML 인증** 웹 테스트에 사용할 수 있는 SAML 플러그 인을 사용 합니다. 플러그 인에 액세스 합니다.
+**SAML 인증**
+
+|속성 이름| Description|
+|----|-----|
+| 대상 Uri | SAML 토큰에 대 한 대상 URI입니다.  Acs 네임 스페이스 및 호스트 이름을 포함 하 여 ACS (Access Control Service)에 대 한 URI입니다. |
+| 인증서 암호 | 포함 된 개인 키에 대 한 액세스 권한을 부여 하는 클라이언트 인증서의 암호입니다. |
+| 클라이언트 인증서  | Base64 인코딩 형식의 개인 키가 있는 클라이언트 인증서 값입니다. |
+| 이름 식별자 | 토큰에 대 한 이름 식별자입니다. |
+| 다음 날짜까지 | 토큰을 사용할 timespan입니다.  기본값은 5분입니다. |
+| 다음 날짜부터 | 이전에 만든 토큰이 유효 하 게 되는 시간 범위는 시간을 기울입니다.  기본값은 (음수) 5 분입니다. |
+| 대상 컨텍스트 매개 변수 이름 | 생성 된 어설션을 수신 하는 컨텍스트 매개 변수입니다. |
+
 
 **클라이언트 암호** 앱에 클라이언트 암호를 포함 하는 로그인 경로가 있는 경우 해당 경로를 사용 합니다. AAD(Azure Active Directory)는 클라이언트 암호 로그인을 제공하는 서비스의 예입니다. AAD에서 클라이언트 암호는 앱 키입니다.
 

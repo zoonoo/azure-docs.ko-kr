@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/01/2018
+ms.date: 08/08/2019
 ms.author: jonbeck
-ms.openlocfilehash: 47b651d9fa3134a5fec7e42cc17c8612cd8f98c3
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 283786706747b1ceebdc1618861f8c8eaa4380b2
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708851"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881649"
 ---
 # <a name="general-purpose-virtual-machine-sizes"></a>범용 가상 머신 크기
 
@@ -35,7 +35,7 @@ ms.locfileid: "67708851"
 - [메모리에 최적화](sizes-memory.md)
 - [Storage에 최적화](sizes-storage.md)
 - [GPU](sizes-gpu.md)
-- [고성능 계산](sizes-hpc.md)
+- [고성능 컴퓨팅](sizes-hpc.md)
 - [이전 세대](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>다음 단계

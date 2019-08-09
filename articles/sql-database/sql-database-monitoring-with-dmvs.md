@@ -11,12 +11,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: 5bddcb89d26566bd2024cbde086b6e35ddaf94ef
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a630ceb1748f38dc169a4ebabcbb4e021de4273c
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567184"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881569"
 ---
 # <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>동적 관리 뷰를 사용하여 Azure SQL Database 성능모니터링
 
@@ -28,7 +28,7 @@ SQL Database는 세 가지 범주의 동적 관리 뷰를 부분적으로 지원
 - 실행 관련 동적 관리 뷰.
 - 트랜잭션 관련 동적 관리 뷰
 
-동적 관리 뷰에 대한 자세한 내용은 SQL Server 온라인 설명서의 [동적 관리 뷰 및 함수(Transact-SQL)](https://msdn.microsoft.com/library/ms188754.aspx) 를 참조하세요.
+동적 관리 뷰에 대한 자세한 내용은 SQL Server 온라인 설명서의 [동적 관리 뷰 및 함수(Transact-SQL)](https://msdn.microsoft.com/library/ms188754.aspx) 를 참조하세요. 
 
 ## <a name="permissions"></a>사용 권한
 
@@ -237,13 +237,13 @@ GO
 
 ## <a name="identify-tempdb-performance-issues"></a>`tempdb` 성능 문제 식별
 
-IO 성능 문제를 식별할 때 `tempdb` 문제와 관련된 상위 대기 유형은 `PAGELATCH_*`입니다(`PAGEIOLATCH_*` 아님). 그러나 `PAGELATCH_*` 대기는 항상 `tempdb` 경합이 있다는 의미가 아닙니다.  이 대기는 동일한 데이터 페이지를 대상으로 하는 동시 요청으로 인해 사용자 개체 데이터 페이지 경합이 있다는 의미일 수도 있습니다. `tempdb` 경합을 추가로 확인하려면 [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql)를 사용하여 `2:x:y`로 시작하는 wait_resource 값을 확인합니다. 여기서 2는 `tempdb` 데이터베이스 ID, `x`는 파일 ID, `y`는 페이지 ID입니다.  
+IO 성능 문제를 식별할 때 `tempdb` 문제와 관련된 상위 대기 유형은 `PAGELATCH_*`입니다(`PAGEIOLATCH_*` 아님). 그러나 `PAGELATCH_*` 대기는 항상 `tempdb` 경합이 있다는 의미가 아닙니다.  이 대기는 동일한 데이터 페이지를 대상으로 하는 동시 요청으로 인해 사용자 개체 데이터 페이지 경합이 있다는 의미일 수도 있습니다. 경합을 추가로 `tempdb` 확인 하려면 [_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) 를 사용 하 여 wait_resource 값이로 `2:x:y` 시작 하는지 확인 합니다. 여기서 2는 `tempdb` 데이터베이스 id이 고 `x` ,는 파일 id `y` 이며,는 페이지 id입니다.  
 
 tempdb 경합의 경우 `tempdb`를 사용하는 애플리케이션 코드를 줄이거나 다시 작성하는 것이 일반적인 방법입니다.  일반적인 `tempdb` 사용량 영역에는 다음이 포함됩니다.
 
 - 임시 테이블
 - 테이블 변수
-- 테이블 값 매개 변수
+- 테이블 반환 매개 변수
 - 버전 저장소 사용량(특히 장기 실행 트랜잭션과 연결된)
 - 정렬, 해시 조인 및 스풀을 사용하는 쿼리 계획이 있는 쿼리
 
@@ -334,7 +334,7 @@ ORDER BY start_time ASC;
 
 상위 대기 유형이 `RESOURCE_SEMAHPORE`이고 높은 CPU 사용량 문제가 없는 경우 메모리 부여 대기 문제일 가능성이 있습니다.
 
-### <a name="determine-if-a-resourcesemahpore-wait-is-a-top-wait"></a>`RESOURCE_SEMAHPORE` 대기가 상위 대기인지 확인
+### <a name="determine-if-a-resource_semahpore-wait-is-a-top-wait"></a>`RESOURCE_SEMAHPORE` 대기가 상위 대기인지 확인
 
 `RESOURCE_SEMAHPORE` 대기가 상위 대기인지 확인하려면 다음 쿼리를 사용합니다.
 
@@ -512,7 +512,7 @@ WHERE c.session_id = @@SPID;
 - [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)
 - [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
 
-### <a name="sysdmdbresourcestats"></a>sys.dm_db_resource_stats
+### <a name="sysdm_db_resource_stats"></a>sys.dm_db_resource_stats
 
 모든 SQL Database에 [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) 뷰를 사용할 수 있습니다. **sys.dm_db_resource_stats** 뷰는 서비스 계층과 관련된 최근 리소스 사용 데이터를 보여 줍니다. CPU, 데이터 IO, 로그 쓰기 및 메모리의 평균 백분율을 15초마다 기록되고 1시간 동안 유지됩니다.
 
@@ -533,7 +533,7 @@ FROM sys.dm_db_resource_stats;
 
 다른 쿼리는 [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)의 예를 참조하세요.
 
-### <a name="sysresourcestats"></a>sys.resource_stats
+### <a name="sysresource_stats"></a>sys.resource_stats
 
 **마스터** 데이터베이스의 [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) 뷰에는 특정 서비스 계층 및 컴퓨팅 크기에서 SQL 데이터베이스의 성능 수준을 모니터링할 수 있는 추가 정보가 포함되어 있습니다. 데이터는 5분마다 수집되어 약 14일 동안 보관됩니다. 이 뷰는 SQL Database가 리소스를 사용하는 방법에 대한 장기적인 기록 분석에 유용합니다.
 

@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 08/08/2019
 ms.author: juliako
-ms.openlocfilehash: cb5d6474a0c830933c712e1008015b5220617c96
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 64bf8f5c8de5f56ee1140e91d0472a33b35570cf
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60996167"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878793"
 ---
 # <a name="handling-event-grid-events"></a>Event Grid 이벤트 처리
 
@@ -24,7 +24,7 @@ Media Services 이벤트를 사용하면 애플리케이션이 최신 서버리�
 
 Media Services 이벤트의 가용성은 Event Grid [가용성](../../event-grid/overview.md)과 연관되어 있으며, Event Grid가 사용 가능하면 다른 지역에서도 사용 가능해집니다.  
 
-## <a name="media-services-events-and-schemas"></a>Media Services 이벤트 및 스키마
+## <a name="media-services-events-and-schemas"></a>이벤트 및 스키마 Media Services
 
 Event Grid는 [이벤트 구독](../../event-grid/concepts.md#event-subscriptions)을 사용하여 이벤트 메시지를 구독자에게 라우팅합니다. Media Services 이벤트에는 데이터 변경에 대응하는 데 필요한 모든 정보가 포함되어 있습니다. Media Services 이벤트는 eventType 속성이 "Microsoft.Media"로 시작하는 것으로 식별할 수 있습니다.
 
@@ -41,4 +41,5 @@ Media Services 이벤트를 처리하는 애플리케이션은 아래 권장되�
 
 ## <a name="next-steps"></a>다음 단계
 
-[작업 상태 이벤트 가져오기](job-state-events-cli-how-to.md)
+* [이벤트 모니터링-포털](monitor-events-portal-how-to.md)
+* [이벤트 모니터링-CLI](job-state-events-cli-how-to.md)

@@ -1,19 +1,19 @@
 ---
 title: C용 Azure IoT 디바이스 SDK – IoTHubClient | Microsoft Docs
 description: C용 Azure IoT 디바이스 SDK에서 IoTHubClient 라이브러리를 사용하여 IoT Hub와 통신하는 디바이스 앱을 만드는 방법입니다.
-author: yzhong94
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: c
 ms.topic: conceptual
 ms.date: 08/29/2017
-ms.author: yizhon
-ms.openlocfilehash: ff766375dd9ad7cb3bbdf1ef686abb77d1206099
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.author: robinsh
+ms.openlocfilehash: fd3e02101f206ebdb183da87089eadcbc9619b33
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67797863"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883168"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>C용 Azure IoT 디바이스 SDK – IoTHubClient에 대한 자세한 정보
 
@@ -235,7 +235,7 @@ iotHubClientHandle = IoTHubClient_CreateFromConnectionString(connectionString, A
 HostName=IOTHUBNAME.IOTHUBSUFFIX;DeviceId=DEVICEID;SharedAccessKey=SHAREDACCESSKEY
 ```
 
-이 문자열의 내용은 다음 4 가지 가지가 있습니다. IoT Hub 이름, IoT Hub 접미사, 장치 ID 및 공유 액세스 키입니다. Azure 포털에서 IoT Hub 인스턴스를 만들 때 IoT Hub의 정규화된 도메인 이름(FQDN)을 가져옵니다. 여기서 IoT Hub 이름(FQDN의 첫 번째 부분) 및 IoT Hub 접미사(FQDN의 나머지 부분)가 제공됩니다. 디바이스를 IoT Hub에 등록할 때 디바이스 ID 및 공유 액세스 키를 가져옵니다([이전 문서](iot-hub-device-sdk-c-intro.md)에서 설명).
+이 문자열에는 다음 네 가지 정보가 있습니다. IoT Hub 이름, IoT Hub 접미사, 장치 ID 및 공유 액세스 키가 있습니다. Azure 포털에서 IoT Hub 인스턴스를 만들 때 IoT Hub의 정규화된 도메인 이름(FQDN)을 가져옵니다. 여기서 IoT Hub 이름(FQDN의 첫 번째 부분) 및 IoT Hub 접미사(FQDN의 나머지 부분)가 제공됩니다. 디바이스를 IoT Hub에 등록할 때 디바이스 ID 및 공유 액세스 키를 가져옵니다([이전 문서](iot-hub-device-sdk-c-intro.md)에서 설명).
 
 **IoTHubClient\_CreateFromConnectionString**은 라이브러리를 초기화하는 한 가지 방법을 제공합니다. 원하는 경우 디바이스 연결 문자열 대신 개별 매개 변수를 사용하여 새 **IOTHUB\_CLIENT\_HANDLE**을 만들 수 있습니다. 이 작업은 다음 코드를 사용 하 여 수행 됩니다.
 
@@ -264,7 +264,7 @@ IoTHubClient_LL_SetOption(iotHubClientHandle, "timeout", &timeout);
 
 일반적으로 사용되는 몇 가지 옵션이 있습니다.
 
-* **SetBatching**(bool) – **true**이면 IoT Hub로 전송된 데이터가 일괄 처리로 전송됩니다. **false**이면 메시지가 개별적으로 전송됩니다. 기본값은 **false**입니다. AMQP를 통해 일괄 처리 D2C 메시지 시스템 속성을 추가할 뿐 아니라 AMQP WS, 지원 됩니다.
+* **SetBatching**(bool) – **true**이면 IoT Hub로 전송된 데이터가 일괄 처리로 전송됩니다. **false**이면 메시지가 개별적으로 전송됩니다. 기본값은 **false**입니다. D2C 메시지에 시스템 속성을 추가 하는 것은 물론 AMQP/AMQP-WS를 통한 일괄 처리가 지원 됩니다.
 
 * **Timeout** (unsigned int) – 이 값은 밀리초 단위로 표시됩니다. HTTPS 요청을 전송하고 응답을 수신하는 경우 이 시간보다 오래 걸리면 연결이 시간 초과됩니다.
 

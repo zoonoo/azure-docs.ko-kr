@@ -2,17 +2,17 @@
 title: Azure IoT Hub 디바이스 SDK를 사용하여 연결 및 신뢰할 수 있는 메시징을 관리하는 방법
 description: Azure IoT Hub 디바이스 SDK를 사용할 때 디바이스 연결 및 메시지를 개선하는 방법을 알아봅니다.
 services: iot-hub
-author: yzhong94
-ms.author: yizhon
+author: robinsh
+ms.author: robinsh
 ms.date: 07/07/2018
 ms.topic: article
 ms.service: iot-hub
-ms.openlocfilehash: 838d0cd4f40666bc3fced22a607b9f94f27b08d3
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: e881dffbd1f286047ffcff226eb3dede7a138a0c
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67535505"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884354"
 ---
 # <a name="manage-connectivity-and-reliable-messaging-by-using-azure-iot-hub-device-sdks"></a>Azure IoT Hub 디바이스 SDK를 사용하여 연결 및 신뢰할 수 있는 메시징 관리
 
@@ -28,7 +28,7 @@ ms.locfileid: "67535505"
 
 * [C/Python/iOS SDK](https://github.com/azure/azure-iot-sdk-c)
 
-* [.NET SDK](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/devdoc/requirements/retrypolicy.md)
+* [.NET SDK](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/devdoc/retrypolicy.md)
 
 * [Java SDK](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/devdoc/requirement_docs/com/microsoft/azure/iothub/retryPolicy.md)
 
@@ -36,7 +36,7 @@ ms.locfileid: "67535505"
 
 ## <a name="designing-for-resiliency"></a>복원력을 위한 디자인
 
-IoT 디바이스는 주로 불연속 네트워크 연결 또는 불안정한 네트워크 연결(예: GSM 또는 위성)을 사용합니다. 일시적인 서비스 가용성 및 인프라 수준 또는 일시적 오류 때문에 디바이스가 클라우드 기반 서비스와 상호 작용할 때 오류가 발생할 수 있습니다. 장치에서 실행 되는 응용 프로그램 연결, 다시 연결 및 메시지 송수신에 대 한 재시도 논리에 대 한 메커니즘을 관리 해야 합니다. 또한 다시 시도 전략 요구 사항은 디바이스의 IoT 시나리오, 컨텍스트, 기능에 따라 크게 달라집니다.
+IoT 디바이스는 주로 불연속 네트워크 연결 또는 불안정한 네트워크 연결(예: GSM 또는 위성)을 사용합니다. 일시적인 서비스 가용성 및 인프라 수준 또는 일시적 오류 때문에 디바이스가 클라우드 기반 서비스와 상호 작용할 때 오류가 발생할 수 있습니다. 장치에서 실행 되는 응용 프로그램은 메시지를 보내고 받기 위한 연결, 다시 연결 및 재시도 논리에 대 한 메커니즘을 관리 해야 합니다. 또한 다시 시도 전략 요구 사항은 디바이스의 IoT 시나리오, 컨텍스트, 기능에 따라 크게 달라집니다.
 
 Azure IoT Hub 디바이스 SDK의 목적은 클라우드-디바이스 및 디바이스-클라우드에서 연결 및 통신을 간소화하는 데 있습니다. 이러한 SDK는 Azure IoT Hub에 연결하는 강력한 방법 및 메시지 송신 및 수신에 대한 포괄적인 옵션 세트를 제공합니다. 개발자가 기존 구현을 수정하여 지정된 시나리오에 대한 향상된 재시도 전략을 사용자 지정할 수도 있습니다.
 
@@ -44,7 +44,7 @@ Azure IoT Hub 디바이스 SDK의 목적은 클라우드-디바이스 및 디바
 
 ## <a name="connection-and-retry"></a>연결 및 재시도
 
-이 섹션에서는 연결을 관리할 때 사용할 수 있는 다시 연결 하 고 다시 시도 패턴의 개요를 제공 합니다. 또한 디바이스 애플리케이션에서 서로 다른 재시도 정책을 사용하기 위한 구현 지침에 대해 자세히 설명하고 디바이스 SDK에서 관련 API를 나열합니다.
+이 섹션에서는 연결을 관리할 때 사용할 수 있는 다시 연결 및 다시 시도 패턴에 대 한 개요를 제공 합니다. 또한 디바이스 애플리케이션에서 서로 다른 재시도 정책을 사용하기 위한 구현 지침에 대해 자세히 설명하고 디바이스 SDK에서 관련 API를 나열합니다.
 
 ### <a name="error-patterns"></a>오류 패턴
 
@@ -83,7 +83,7 @@ SDK는 다음 세 가지 재시도 정책을 제공합니다.
 
 ### <a name="retry-policy-apis"></a>재시도 정책 API
 
-   | SDK) | SetRetryPolicy 메서드 | 정책 구현 | 구현 지침 |
+   | SDK | SetRetryPolicy 메서드 | 정책 구현 | 구현 지침 |
    |-----|----------------------|--|--|
    |  C/Python/iOS  | [IOTHUB_CLIENT_RESULT IoTHubClient_SetRetryPolicy](https://github.com/Azure/azure-iot-sdk-c/blob/2018-05-04/iothub_client/inc/iothub_client.h#L188)        | **기본값**: [IOTHUB_CLIENT_RETRY_EXPONENTIAL_BACKOFF](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#connection-retry-policies)<BR>**사용자 지정:** 사용 가능한 [retryPolicy](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#connection-retry-policies) 사용<BR>**재시도 안 함**: [IOTHUB_CLIENT_RETRY_NONE](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#connection-retry-policies)  | [C/Python/iOS 구현](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#)  |
    | Java| [SetRetryPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.deviceclientconfig.setretrypolicy?view=azure-java-stable)        | **기본값**: [ExponentialBackoffWithJitter 클래스](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/NoRetry.java)<BR>**사용자 지정:** [RetryPolicy 인터페이스](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/RetryPolicy.java) 구현<BR>**재시도 안 함**: [NoRetry 클래스](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/NoRetry.java)  | [Java 구현](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/devdoc/requirement_docs/com/microsoft/azure/iothub/retryPolicy.md) |

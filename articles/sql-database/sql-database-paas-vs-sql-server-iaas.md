@@ -12,14 +12,14 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/11/2019
-ms.openlocfilehash: e4b61920868c4a33fb3db552fd63cef5e44c864b
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: fc0204e774e66e9304887f47377a102df1b828cb
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855636"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884322"
 ---
-# <a name="choose-the-right-sql-server-option-in-azure"></a>Azure에서 적절한 SQL Server 옵션 선택
+# <a name="choose-the-right-deployment-option-in-azure-sql"></a>Azure SQL에서 적절 한 배포 옵션 선택
 
 Azure에서 SQL Server 워크로드가 호스트된 인프라(IaaS)에서 실행 중이거나 호스트된 서비스([PaaS](https://azure.microsoft.com/overview/what-is-paas/))로 실행 중일 수 있습니다. PaaS 내에는 여러 배포 옵션이 있고 각 배포 옵션 내에는 여러 서비스 계층이 있습니다. IaaS 또는 PaaS 중에서 결정할 때 물어보아야 하는 핵심 질문은 직접 데이터베이스를 관리하거나, 패치를 적용하거나, 백업을 수행할 것인지 아니면 이러한 작업을 Azure에 위임할 것인가입니다.
 대답에 따라 다음 옵션을 사용할 수 있습니다.
@@ -29,7 +29,7 @@ Azure에서 SQL Server 워크로드가 호스트된 인프라(IaaS)에서 실행
   - SQL Database 서버를 통해 관리되고 고유한 리소스 세트가 있는 [단일 데이터베이스](sql-database-single-database.md). 단일 데이터베이스는 SQL Server의 [포함된 데이터베이스](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases)와 유사합니다. 이 옵션은 새로운 클라우드 기반 애플리케이션의 최신 애플리케이션 개발에 맞게 최적화되어 있습니다.
   - SQL Database 서버를 통해 관리되는 공유 리소스 세트가 있는 데이터베이스 컬렉션인 [탄력적 풀](sql-database-elastic-pool.md). 단일 데이터베이스를 탄력적 풀로 이동하거나 탄력적 풀에서 제거할 수 있습니다. 이 옵션은 다중 테넌트 SaaS 애플리케이션을 사용하여 새로운 클라우드 기반 애플리케이션의 최신 애플리케이션 개발에 맞게 최적화되어 있습니다.
   - 공유 리소스 세트가 있는 시스템 및 사용자 데이터베이스 컬렉션인 [관리되는 인스턴스](sql-database-managed-instance.md). 관리되는 인스턴스는 데이터베이스를 위한 공유 리소스와 추가적인 인스턴스 범위 기능을 제공하는 [Microsoft SQL Server 데이터베이스 엔진] 인스턴스와 비슷합니다. 관리되는 인스턴스는 데이터베이스 변경 없이 또는 최소한의 변경으로 온-프레미스에서 데이터베이스를 마이그레이션할 수 있도록 지원합니다. 이 옵션은 Azure SQL Database의 모든 PaaS 혜택을 제공하지만 이전에 SQL VM에서만 사용할 수 있었던 기능을 추가합니다. 여기에는 기본 가상 네트워크(VNet) 및 온-프레미스 SQL Server와의 거의 100% 호환성이 포함됩니다.
-- [Azure Virtual Machines의 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/) 는 업계 범주에 속하는 *IaaS(Infrastructure as a service)* 산업 부분으로 분류되며 Azure 클라우드의 완전 관리형 가상 머신 내에서 SQL Server를 실행할 수 있도록 지원합니다. [SQL Server 가상 머신](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)은 Microsoft에서 소유, 호스팅 및 유지 관리하는 표준화된 하드웨어에서도 실행됩니다. VM에서 SQL Server를 사용하는 경우 SQL Server 이미지에 이미 포함된 SQL Server 라이선스에 종량제를 사용하거나 기존 라이선스를 쉽게 사용할 수 있습니다. VM을 필요에 따라 중지하거나 재개할 수도 있습니다. Azure에서 실행 중인 Windows Server 또는 Linux VM(Virtual Machines)의 클라우드에 설치되고 호스트된 SQL Server로, IaaS(infrastructure as a service)라고도 합니다. Azure Virtual Machines의 SQL Server는 데이터베이스 변경 없이 온-프레미스 SQL Server 데이터베이스 및 애플리케이션을 마이그레이션하는 좋은 옵션입니다. 모든 최신 버전의 SQL Server를 IaaS 가상 머신에 설치할 수 있습니다. SQL Database와의 가장 중요한 차이점은 SQL Server VM에서는 데이터베이스 엔진을 완전히 제어할 수 있다는 것입니다. 유지 관리/패치가 시작되는 시기를 선택하고, 더 적은 로그로 더 빠르게 로드되도록 복구 모델을 단순 또는 대량 로그로 변경하고, 필요한 경우, 엔진을 일시 중지 또는 시작하고, SQL Server 데이터베이스 엔진을 완전히 사용자 지정할 수 있습니다. 이러한 추가 제어 기능과 더불어 가상 머신을 관리해야 하는 책임도 추가됩니다.
+- [Azure Virtual Machines의 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/) 는 업계 범주에 속하는 *IaaS(Infrastructure as a service)* 산업 부분으로 분류되며 Azure 클라우드의 완전 관리형 가상 머신 내에서 SQL Server를 실행할 수 있도록 지원합니다. [SQL Server 가상 머신](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)은 Microsoft에서 소유, 호스팅 및 유지 관리하는 표준화된 하드웨어에서도 실행됩니다. VM에서 SQL Server를 사용하는 경우 SQL Server 이미지에 이미 포함된 SQL Server 라이선스에 종량제를 사용하거나 기존 라이선스를 쉽게 사용할 수 있습니다. VM을 필요에 따라 중지하거나 재개할 수도 있습니다. Azure에서 실행 중인 Windows Server 또는 Linux VM(Virtual Machines)의 클라우드에 설치되고 호스트된 SQL Server로, IaaS(infrastructure as a service)라고도 합니다. Azure Virtual Machines의 SQL Server는 데이터베이스 변경 없이 온-프레미스 SQL Server 데이터베이스 및 애플리케이션을 마이그레이션하는 좋은 옵션입니다. 모든 최신 버전의 SQL Server를 IaaS 가상 머신에 설치할 수 있습니다. SQL Database와의 가장 중요한 차이점은 SQL Server VM에서는 데이터베이스 엔진을 완전히 제어할 수 있다는 것입니다. 유지 관리/패치를 시작할 시기를 선택 하 고, 복구 모델을 단순 또는 대량 로그로 변경 하거나, 필요에 따라 서비스를 일시 중지 하거나 시작 하 고, SQL Server 데이터베이스 엔진을 완벽 하 게 사용자 지정할 수 있습니다. 이 추가 컨트롤을 사용 하면 가상 머신을 관리 하는 추가 책임이 있습니다.
 
 이러한 옵션들의 주요 차이점은 다음 표에 나와 있습니다.
 

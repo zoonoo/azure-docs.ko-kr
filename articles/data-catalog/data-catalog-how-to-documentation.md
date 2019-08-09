@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 46e3780c7fc6e6a2481e774b89bfb69510865db3
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 5c0bc97e5a5b362ea78f82ea99bb967a9607093a
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68734625"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882500"
 ---
 # <a name="document-data-sources"></a>데이터 원본 문서화
 ## <a name="introduction"></a>소개
@@ -23,7 +23,7 @@ ms.locfileid: "68734625"
 
 태그와 설명은 간단한 주석에 유용합니다. 그러나 데이터 원본의 사용, 데이터 원본에 대한 비즈니스 시나리오를 더 잘 이해하도록 데이터 소비자를 돕기 위해 전문가는 자세한 전체 설명서를 제공할 수 있습니다. 데이터 원본을 문서화하는 것이 쉽습니다. 데이터 자산 또는 컨테이너를 선택하고 **설명서**를 선택합니다.
 
-![](media/data-catalog-documentation/data-catalog-documentation.png)
+![Data Catalog의 설명서 탭](media/data-catalog-documentation/data-catalog-documentation.png)
 
 ## <a name="documenting-data-assets"></a>데이터 자산 문서화
 **Azure Data Catalog** 설명서를 사용하는 장점은 데이터 카탈로그를 콘텐츠 리포지토리로 사용하여 데이터 자산의 전체 설명을 만들 수 있다는 점입니다. 컨테이너 및 테이블을 설명하는 자세한 내용을 둘러볼 수 있습니다. SharePoint 또는 파일 공유 등의 다른 콘텐츠 리포지토리의 내용이 이미 있는 경우 이 기존 콘텐츠를 참조하는 자산 설명서 링크를 추가할 수 있습니다. 이 기능을 사용해 기존 문서를 더 쉽게 검색할 수 있습니다.
@@ -31,9 +31,8 @@ ms.locfileid: "68734625"
 > [!NOTE]
 > 설명서는 검색 인덱스에 포함되지 않습니다.
 >
->
 
-![](media/data-catalog-documentation/data-catalog-documentation2.png)
+![웹 링크에 대 한 설명서 탭 및 하이퍼링크](media/data-catalog-documentation/data-catalog-documentation2.png)
 
 설명서의 수준은 데이터 자산 컨테이너의 특성 및 값을 설명하는 정도에서 컨테이너 내의 테이블 스키마에 대한 자세한 설명의 범위까지 다양합니다. 제공된 설명서의 수준은 비즈니스 요구 사항에 따라 결정되어야 합니다. 하지만 데이터 자산을 문서화하는 일반적인 몇 가지 장단점은 다음과 같습니다.
 

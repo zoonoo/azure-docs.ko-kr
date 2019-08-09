@@ -15,14 +15,14 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: bddc83d55c8909412f7f935a4324a6f316a82cd7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9751ae97f96d2041a4106a41bb782a80dd9c8ba9
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62129556"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884394"
 ---
-# <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>Always On 가용성 그룹에서 Azure Virtual Machines을 자동으로 구성 합니다. Resource Manager
+# <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>Azure Virtual Machines에서 Always On 가용성 그룹를 자동으로 구성: Resource Manager
 
 이 자습서에서는 Azure Resource Manager 가상 머신을 사용하는 SQL Server 가용성 그룹을 만드는 방법을 보여 줍니다. 자습서에서는 Azure 블레이드를 사용하여 템플릿을 구성합니다. 이 자습서를 살펴보면서 기본 설정을 검토하고 필요한 설정을 입력하며 포털에서 블레이드를 업데이트할 수 있습니다.
 
@@ -44,10 +44,10 @@ ms.locfileid: "62129556"
 
 * Azure 계정이 있습니다. 계정이 없는 경우 [평가판 계정에 등록](https://azure.microsoft.com/pricing/free-trial/)합니다.
 * GUI를 사용하여 가상 머신 갤러리에서 SQL Server 가상 머신을 프로비전하는 방법을 이미 알고 있습니다. 자세한 내용은 [Azure에서 SQL Server 가상 머신 프로비전](virtual-machines-windows-portal-sql-server-provision.md)을 참조하세요.
-* 가용성 그룹을 확실하게 이해하고 있습니다. 자세한 내용은 [Always On 가용성 그룹(SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx)을 참조하세요.
+* 가용성 그룹을 확실하게 이해하고 있습니다. 자세한 내용은 [Always On 가용성 그룹(SQL Server)](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)을 참조하세요.
 
 > [!NOTE]
-> SharePoint와 가용성 그룹을 사용하는 것에 관심이 있는 경우 [SharePoint 2013에 대해 SQL Server 2012 Always On 가용성 그룹 구성](https://technet.microsoft.com/library/jj715261.aspx)을 참조하세요.
+> SharePoint와 가용성 그룹을 사용하는 것에 관심이 있는 경우 [SharePoint 2013에 대해 SQL Server 2012 Always On 가용성 그룹 구성](/SharePoint/administration/configure-an-alwayson-availability-group)을 참조하세요.
 >
 >
 
@@ -181,7 +181,7 @@ SQL Server 구성 모범 사례에 대한 자세한 내용은 [Azure 가상 머�
 >
 >
 
-![SQL 서버 설정](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/5-sql.png)
+![SQL Server 설정](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/5-sql.png)
 
 설정을 검토한 다음 **확인**을 클릭합니다.
 
@@ -207,7 +207,7 @@ SQL Server에 RDP하려면 다음 단계를 수행합니다.
 2. **리소스**를 클릭합니다.
 3. **리소스** 블레이드에서 SQL Server를 실행하는 가상 머신 중 한 컴퓨터 이름인 **sqlserver-0**을 클릭합니다.
 4. **sqlserver-0**에 대한 블레이드에서 **연결**을 클릭합니다. 브라우저에서 원격 연결 개체를 열거나 저장할지 여부를 묻습니다. **열기**를 클릭합니다.
-5. **원격 데스크톱 연결**에서 이 원격 연결의 게시자를 식별할 수 없다고 경고할 수 있습니다. **Connect**를 클릭합니다.
+5. **원격 데스크톱 연결**에서 이 원격 연결의 게시자를 식별할 수 없다고 경고할 수 있습니다. **연결**을 클릭합니다.
 6. Windows 보안은 기본 도메인 컨트롤러의 IP 주소에 연결할 자격 증명을 입력하라는 메시지를 표시합니다. **다른 계정 사용**을 클릭합니다. **사용자 이름**에 **contoso\DomainAdmin**을 입력합니다. 템플릿에서 관리자 사용자 이름을 설정할 때 이 계정을 구성했습니다. 템플릿을 구성할 때 선택한 복잡한 암호를 사용합니다.
 7. **원격 데스크톱**에서 원격 컴퓨터의 보안 인증서의 문제로 인해 원격 컴퓨터를 인증할 수 없다고 경고할 수 있습니다. 보안 인증서 이름이 표시됩니다. 이 자습서를 따른 경우 이름은 **sqlserver-0.contoso.com**이 됩니다. **예**를 클릭합니다.
 

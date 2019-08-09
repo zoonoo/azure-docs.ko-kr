@@ -5,26 +5,27 @@ author: arduppal
 manager: mchad
 ms.author: arduppal
 ms.reviewer: arduppal
-ms.date: 06/19/2019
+ms.date: 08/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 5932d51ecaca3c827ae6de268711c7f4d1b28d0a
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: a40389ca378826aef1b6aa136f8f5d69783c638e
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640662"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881229"
 ---
-# <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>IoT Edge(미리 보기)에서 Azure Blob Storage를 사용하여 에지에 데이터 저장
+# <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>IoT Edge에서 Azure Blob Storage를 사용 하 여에 지에 데이터 저장
 
 IoT Edge의 Azure Blog Storage는 에지에 [블록 Blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) 스토리지 솔루션을 제공합니다. IoT Edge 장치의 blob storage 모듈은 블록 blob이 IoT Edge 장치에 로컬로 저장 된다는 점을 제외 하 고 Azure block blob service 처럼 동작 합니다. 동일한 Azure 저장소 SDK 메서드 또는 이미 익숙한 블록 Blob API 호출을 사용하여 Blob에 액세스할 수 있습니다. 이 문서에서는 IoT Edge 장치에서 Blob 서비스를 실행 하는 IoT Edge 컨테이너의 Azure Blob Storage 관련 된 개념을 설명 합니다.
 
-이 모듈은 데이터를 처리 하거나 클라우드로 전송할 수 있을 때까지 데이터를 로컬로 저장 해야 하는 시나리오에서 유용 합니다. 이 데이터는 비디오, 이미지, 재무 데이터, 병원 데이터 또는 기타 구조화 되지 않은 데이터 일 수 있습니다.
-
-> [!NOTE]
-> IoT Edge의 Azure Blob Storage는 현재 [공개 미리 보기](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)입니다.
+이 모듈은 시나리오에서 유용 합니다.
+* 데이터를 처리 하거나 클라우드로 전송할 수 있을 때까지 로컬로 저장 해야 하는 경우 이 데이터는 비디오, 이미지, 재무 데이터, 병원 데이터 또는 기타 구조화 되지 않은 데이터 일 수 있습니다.
+* 장치가 연결을 제한 하는 위치에 있는 경우
+* 데이터를 로컬에서 효율적으로 처리 하 여 데이터에 대 한 대기 시간이 짧고 emergencies에 최대한 빠르게 대응할 수 있도록 하려는 경우
+* 대역폭 비용을 절감 하 고 tb의 데이터를 클라우드로 전송 하지 않으려는 경우 데이터를 로컬로 처리 하 고 처리 된 데이터만 클라우드에 보낼 수 있습니다.
 
 비디오에서 빠른 소개 보기
 > [!VIDEO https://www.youtube.com/embed/QhCYCvu3tiM]
@@ -54,22 +55,17 @@ Blob을 업로드 하는 동안 예기치 않은 프로세스 종료 (예: 전�
 - DeleteAfterMinutes 값이 만료 되는 경우 업로드 하는 동안 blob을 유지 하는 기능을 선택 합니다.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 Azure IoT Edge 디바이스:
 
 - [Linux](quickstart-linux.md) 또는 [Windows 장치](quickstart.md)에 대 한 빠른 시작의 단계를 수행 하 여 개발 컴퓨터 또는 가상 컴퓨터를 IoT Edge 장치로 사용할 수 있습니다.
 
-- IoT Edge 모듈의 Azure Blob Storage는 다음 디바이스 구성을 지원합니다.
-
-  | 운영 체제 | AMD64 | ARM32v7 | ARM64 |
-  | ---------------- | ----- | ----- | ---- |
-  | Raspbian-stretch | 아니요 | 예 | 아니요 |  
-  | Ubuntu Server 16.04 | 예 | 아니요 | 예 |
-  | Ubuntu Server 18.04 | 예 | 아니요 | 예 |
-  | Windows 10 IoT Enterprise, 빌드 17763 | 예 | 아니오 | 아니요 |
-  | Windows Server 2019, 빌드 17763 | 예 | 아니오 | 아니요 |
-  
+- 지원 되는 운영 체제 및 아키텍처 목록은 [지원 되는 Azure IoT Edge 시스템](support.md#operating-systems) 을 참조 하세요. IoT Edge 모듈의 Azure Blob Storage는 다음 아키텍처를 지원 합니다.
+    - Windows AMD64
+    - Linux AMD64
+    - Linux ARM32
+    - Linux ARM64 (미리 보기)
 
 클라우드 리소스:
 
@@ -103,8 +99,11 @@ Azure의 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md).
 | retainWhileUploading | true, false | 기본적으로로 `true`설정 되며, deleteAfterMinutes가 만료 되는 경우 클라우드 저장소에 업로드 하는 동안 blob을 유지 합니다. 로 `false` 설정할 수 있으며, deleteAfterMinutes 만료 되는 즉시 데이터를 삭제 합니다. 참고: 이 속성을 work로 설정 하려면 uploadOn를 true로 설정 해야 합니다.| `deviceAutoDeleteProperties__retainWhileUploading={false,true}` |
 
 ## <a name="using-smb-share-as-your-local-storage"></a>로컬 저장소로 SMB 공유 사용
-Windows 호스트에서이 모듈의 windows 컨테이너를 배포할 때 로컬 저장소 경로로 SMB 공유를 제공할 수 있습니다.
-PowerShell 명령을 실행 `New-SmbGlobalMapping` 하 여 Windows를 실행 하는 IoT 장치에서 로컬로 SMB 공유를 매핑할 수 있습니다. IoT 장치가 원격 SMB 공유에 대 한 읽기/쓰기를 수행할 수 있는지 확인 합니다.
+Windows 호스트에서이 모듈의 Windows 컨테이너를 배포할 때 로컬 저장소 경로로 SMB 공유를 제공할 수 있습니다.
+
+SMB 공유 및 IoT 장치가 상호 트러스트 된 도메인에 있는지 확인 합니다.
+
+PowerShell 명령을 실행 `New-SmbGlobalMapping` 하 여 Windows를 실행 하는 IoT 장치에서 로컬로 SMB 공유를 매핑할 수 있습니다.
 
 구성 단계는 다음과 같습니다.
 ```PowerShell
@@ -112,12 +111,44 @@ $creds = Get-Credential
 New-SmbGlobalMapping -RemotePath <remote SMB path> -Credential $creds -LocalPath <Any available drive letter>
 ```
 예제: <br>
-`$creds = Get-Credentials` <br>
+`$creds = Get-Credential` <br>
 `New-SmbGlobalMapping -RemotePath \\contosofileserver\share1 -Credential $creds -LocalPath G: `
 
 이 명령은 자격 증명을 사용 하 여 원격 SMB 서버에 인증 합니다. 그런 다음 원격 공유 경로를 G: 드라이브 문자 (사용할 수 있는 다른 드라이브 문자 일 수 있음)에 매핑합니다. 이제 IoT 장치에는 G: 드라이브의 경로에 매핑된 데이터 볼륨이 있습니다. 
 
-배포의 경우 값 `<storage directory bind>` 은 **G:/ContainerData: C:/BlobRoot**일 수 있습니다.
+IoT 장치의 사용자가 원격 SMB 공유에 대 한 읽기/쓰기를 수행할 수 있는지 확인 합니다.
+
+배포의 경우 값 `<storage mount>` 은 **G:/ContainerData: C:/BlobRoot**일 수 있습니다. 
+
+## <a name="granting-directory-access-to-container-user-on-linux"></a>Linux에서 컨테이너 사용자에 게 디렉터리 액세스 권한 부여
+Linux 컨테이너에 대 한 만들기 옵션에서 저장소에 [볼륨 탑재](https://docs.docker.com/storage/volumes/) 를 사용한 경우 추가 단계를 수행 하지 않아도 되지만, [bind 탑재](https://docs.docker.com/storage/bind-mounts/) 를 사용 하는 경우 이러한 단계는 서비스를 올바르게 실행 하는 데 필요 합니다.
+
+최소 권한의 원칙에 따라 사용자가 작업을 수행 하는 데 필요한 최소 권한으로 사용자의 액세스 권한을 제한 합니다 .이 모듈에는 사용자 (이름: absie, ID: 11000) 및 사용자 그룹 (이름: absie, ID: 11000). 컨테이너가 **root** (기본 사용자 **루트**)로 시작 되는 경우 서비스는 낮은 권한 **absie** 사용자로 시작 됩니다. 
+
+이 동작은 서비스가 올바르게 작동 하는 데 매우 중요 한 호스트 경로 바인딩에 대 한 권한을 구성 합니다. 그렇지 않으면 서비스가 액세스 거부 오류로 인해 중단 됩니다. 디렉터리 바인딩에 사용 되는 경로는 컨테이너 사용자가 액세스할 수 있어야 합니다 (예: absie 11000). 호스트에서 아래 명령을 실행 하 여 컨테이너 사용자에 게 디렉터리에 대 한 액세스 권한을 부여할 수 있습니다.
+
+```terminal
+sudo chown -R 11000:11000 <blob-dir> 
+sudo chmod -R 700 <blob-dir> 
+```
+
+예제:<br>
+`sudo chown -R 11000:11000 /srv/containerdata` <br>
+`sudo chmod -R 700 /srv/containerdata `
+
+
+**Absie**이외의 사용자로 서비스를 실행 해야 하는 경우 배포 매니페스트의 "user" 속성 아래에서 createoptions에 사용자 지정 사용자 ID를 지정할 수 있습니다. 이러한 경우에는 기본 또는 루트 그룹 ID `0`를 사용 해야 합니다.
+
+```json
+“createOptions”: { 
+  “User”: “<custom user ID>:0” 
+} 
+```
+이제 컨테이너 사용자에 게 디렉터리에 대 한 액세스 권한을 부여 합니다.
+```terminal
+sudo chown -R <user ID>:<group ID> <blob-dir> 
+sudo chmod -R 700 <blob-dir> 
+```
 
 ## <a name="configure-log-files"></a>로그 파일 구성
 
@@ -142,9 +173,9 @@ Azure Blob Storage 설명서에는 여러 언어의 빠른 시작 샘플 코드�
 다음 퀵 스타트 샘플에서는 IoT Edge 에서도 지원 되는 언어를 사용 하므로 blob storage 모듈과 함께 IoT Edge 모듈로 배포할 수 있습니다.
 
 - [.NET](../storage/blobs/storage-quickstart-blobs-dotnet.md)
-- [Java](../storage/blobs/storage-quickstart-blobs-java.md)
+- [Java](../storage/blobs/storage-quickstart-blobs-java-v10.md)
 - [Python](../storage/blobs/storage-quickstart-blobs-python.md)
-- [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs.md)
+- [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs-v10.md)
 
 ## <a name="connect-to-your-local-storage-with-azure-storage-explorer"></a>Azure Storage 탐색기를 사용 하 여 로컬 저장소에 연결
 
@@ -239,3 +270,5 @@ IoT Edge Azure Blob Storage에서 모든 Azure Blob Storage 작업을 지원 하
 ## <a name="next-steps"></a>다음 단계
 
 [IoT Edge에서 Azure Blob Storage를 배포](how-to-deploy-blob.md) 하는 방법을 알아봅니다.
+
+[IoT Edge 블로그의 Azure Blob Storage](https://aka.ms/abs-iot-blogpost) 에서 최신 업데이트 및 공지를 최신 상태로 유지

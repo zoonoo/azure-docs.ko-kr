@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/03/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 02d993d760338356fa29ee58a03215e14d6583f1
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 7cd1d451b49faf2f8e3ad38f4ff780256ef2dc5d
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68295596"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883594"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Azure Security Center에서 지원하는 기능 및 플랫폼
 
@@ -78,7 +78,7 @@ ms.locfileid: "68295596"
 > [!div class="mx-tableFixed"]
 > 
 
-|서버|Windows|||Linux|||가격|
+|서버|Windows|||Linux|||가격 책정|
 |----|----|----|----|----|----|----|----|
 |**환경**|**Azure**||**Non-Azure**|**Azure**||**Non-Azure**||
 ||**Virtual Machine**|**Virtual Machine Scale Set**||**Virtual Machine**|**Virtual Machine Scale Set**|
@@ -108,15 +108,17 @@ ms.locfileid: "68295596"
 
 이러한 각 보호에 대 한 권장 사항이 생성 되는 경우에 대 한 자세한 내용은 [Endpoint Protection 평가 및 권장 사항](security-center-endpoint-protection.md)을 참조 하세요.
 
-| 엔드포인트 보호| 플랫폼 | Security Center 설치 | Security Center 검색 |
+| Endpoint Protection| 플랫폼 | Security Center 설치 | Security Center 검색 |
 |------|------|-----|-----|
 | Windows Defender(Microsoft 맬웨어 방지 프로그램)| Windows Server 2016| 아니오, OS에 기본 제공| 예 |
 | System Center Endpoint Protection(Microsoft 맬웨어 방지 프로그램) | Windows Server 2012 R2, 2012, 2008 R2(아래 참고 참조) | 확장을 통해 | 예 |
 | Trend Micro - 모든 버전 | Windows Server 제품군  | 아니요 | 예 |
 | Symantec v12.1.1100+| Windows Server 제품군  | 아니요 | 예 |
 | McAfee v10+ | Windows Server 제품군  | 아니요 | 예 |
-| Kaspersky| Windows Server 제품군  | 아니요 | 아니요  |
-| Sophos| Windows Server 제품군  | 아니요 | 아니요  |
+| McAfee v10+ | Linux 서버 제품군  | 아니요 | 예로 **\*** |
+| Sophos V9 +| Linux 서버 제품군  | 아니요 | 예로 **\***  |
+
+ **\*** 검사 상태 및 지원 데이터는 현재 보호 된 구독과 연결 된 Log Analytics 작업 영역 에서만 사용할 수 있으며 Azure Security Center 포털에는 반영 되지 않습니다.
 
 > [!NOTE]
 > - Windows Server 2008 R2 가상 머신에서 SCEP(System Center Endpoint Protection)의 검색을 위해서는 PowerShell 3.0(또는 상위 버전)이 설치된 후 SCEP가 설치되어야 합니다.
@@ -131,7 +133,7 @@ ms.locfileid: "68295596"
 |MySQL*|✔| ✔|
 |Azure Blob storage 계정|✔| ✔|
 |앱 서비스|✔| ✔|
-|Cloud Services|✔| X|
+|클라우드 서비스|✔| X|
 |VNet|✔| NA|
 |서브넷|✔| NA|
 |NIC|✔| NA|
@@ -144,12 +146,12 @@ ms.locfileid: "68295596"
 |검색|✔| NA|
 |Service Bus|✔| NA|
 |Stream Analytics|✔| NA|
-|이벤트 허브|✔| NA|
-|논리 앱|✔| NA|
+|Event Hubs|✔| NA|
+|Logic Apps|✔| NA|
 |Storage 계정|✔| NA|
 |Redis|✔| NA|
 |Data Lake Analytics|✔| NA|
-|주요 자격 증명 모음|✔| NA|
+|키 자격 증명 모음|✔| NA|
 
 
 

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 08/07/2019
 ms.author: b-juche
-ms.openlocfilehash: fe8d46c897ef68563f2e0e5a1da106174ae504c5
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 763b3961bfd621f05ab5cd021526b0d6d109c020
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68424077"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881717"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Azure NetApp Files에 대한 리소스 제한
 
@@ -42,6 +42,7 @@ Azure NetApp Files에 대한 리소스 제한을 이해하면 볼륨을 관리�
 |  단일 볼륨의 최소 크기    |    100GiB    |    아니요    |
 |  단일 볼륨에 할당 된 최대 할당량 *   |   92 TiB   |    아니요   |
 |  단일 볼륨의 최대 크기 *     |    100 TiB    |    아니요       |
+|  볼륨당 최대 파일 수 (inode)     |    5000만    |    아니요    |    
 
 \* 볼륨을 수동으로 만들거나 크기를 최대 92 TiB로 조정할 수 있습니다. 그러나 초과분 시나리오에서는 볼륨이 최대 100 TiB 증가할 수 있습니다. 용량 초과분에 대 한 자세한 내용은 [Azure NetApp Files에 대 한 비용 모델](azure-netapp-files-cost-model.md) 을 참조 하세요. 
 

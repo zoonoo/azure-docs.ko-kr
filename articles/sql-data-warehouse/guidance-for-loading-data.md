@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: load-data
-ms.date: 05/31/2019
+ms.date: 08/08/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seoapril2019
-ms.openlocfilehash: bb170b53946a014d4aa69ce628c2e4bef7459b93
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: a1433139695eb59fa3fd721852fae3181b8f892b
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595579"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882471"
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 데이터를 로드하는 모범 사례
 
@@ -38,7 +38,7 @@ PolyBase는 1,000,000바이트 이상의 데이터를 포함하는 행을 로드
 
 로드 속도를 가장 빠르게 하려면 로드 작업을 한 번에 하나만 실행합니다. 이것이 가능하지 않은 경우 동시에 실행하는 로드 수를 최소화합니다. 대량의 로드 작업이 예상되는 경우 로드 전에 데이터 웨어하우스 확장을 고려하는 것이 좋습니다.
 
-적절한 컴퓨팅 리소스가 포함된 로드를 실행하려면 부하를 실행하기 위해 지정된 로드 사용자를 만듭니다. 특정 리소스 클래스에 각 로드 사용자를 할당합니다. 로드를 실행 하려면 로드 사용자 중 하나로 로그인 하 고 고 부하를 실행 합니다. 사용자의 리소스 클래스를 사용하여 부하를 실행합니다.  이 메서드는 현재 리소스 클래스 요구 사항에 맞게 사용자의 리소스 클래스를 변경하는 것보다 더 간단합니다.
+적절한 컴퓨팅 리소스가 포함된 로드를 실행하려면 부하를 실행하기 위해 지정된 로드 사용자를 만듭니다. 특정 리소스 클래스에 각 로드 사용자를 할당합니다. 부하를 실행 하려면 로드 하는 사용자 중 하나로 로그인 한 후 로드를 실행 합니다. 사용자의 리소스 클래스를 사용하여 부하를 실행합니다.  이 메서드는 현재 리소스 클래스 요구 사항에 맞게 사용자의 리소스 클래스를 변경하는 것보다 더 간단합니다.
 
 ### <a name="example-of-creating-a-loading-user"></a>로드 사용자를 만드는 예제
 
@@ -58,7 +58,7 @@ PolyBase는 1,000,000바이트 이상의 데이터를 포함하는 행을 로드
    EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
 ```
 
-StaticRC20 리소스 클래스에 대 한 리소스를 사용 하 여 부하를 실행 하려면 loaderrc20 권한으로 로그인 하 고 부하를 실행 합니다.
+StaticRC20 리소스 클래스에 대 한 리소스를 사용 하 여 부하를 실행 하려면 LoaderRC20로 로그인 하 고 부하를 실행 합니다.
 
 동적 리소스 클래스가 아닌 고정 리소스 클래스에서 로드를 실행합니다. 고정 리소스 클래스를 사용하면 [데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-cdwu.md)에 관계 없이 동일한 리소스를 사용하도록 보장합니다. 동적 리소스 클래스를 사용하는 경우 리소스는 서비스 수준에 따라 달라집니다. 동적 클래스의 경우 서비스 수준이 낮으면 로드 사용자에 대해 큰 리소스 클래스를 사용해야 합니다.
 
@@ -69,8 +69,8 @@ StaticRC20 리소스 클래스에 대 한 리소스를 사용 하 여 부하를 
 예를 들어, 데이터베이스 스키마, 부서 A에 대한 스키마_A 및 부서 B에 대한 스키마_B를 가정합니다. 데이터베이스 사용자, 사용자_A 및 사용자_B가 부서 A와 B 각각에서 PolyBase 로드에 대한 사용자가 되도록 합니다. 둘 모두 데이터베이스 CONTROL 권한을 부여 받습니다. 스키마 A와 B의 작성자는 이제 DENY를 사용하여 해당 스키마를 잠급니다.
 
 ```sql
-   DENY CONTROL ON SCHEMA :: schema_A TO user_B;
-   DENY CONTROL ON SCHEMA :: schema_B TO user_A;
+   DENY CONTROL ON SCHEMA :: schema_A TO user_B;
+   DENY CONTROL ON SCHEMA :: schema_B TO user_A;
 ```
 
 사용자_A 및 사용자_B는 이제 다른 부서의 스키마에서 차단되었습니다.
@@ -88,6 +88,9 @@ columnstore 인덱스는 고품질 행 그룹으로 데이터를 압축하기 �
 - 로드 사용자가 메모리를 최대 압축률을 충분히 달성할 수 있도록 하려면 중간 규모 또는 대규모 리소스 클래스의 멤버인 로드 사용자를 사용합니다. 
 - 새로운 행 그룹을 완전히 채울 수 있는 충분한 행을 로드합니다. 대량 로드 중에는 행 수가 1,048,576이 될 때마다 전체 열 그룹으로 직접 columnstore에 압축됩니다. 로드하는 행 수가 102,400 미만인 경우에는 B-트리 인덱스에 행이 보유되는 deltastore에 행을 보냅니다. 너무 적은 행을 로드한 경우 모두 deltastore로 이동하여 columnstore 형식으로 즉시 압축되지 않을 수 있습니다.
 
+## <a name="increase-batch-size-when-using-sqlbulkcopy-api-or-bcp"></a>SQLBulkCopy API 또는 BCP를 사용 하는 경우 일괄 처리 크기 늘리기
+앞서 설명한 것 처럼 PolyBase를 사용 하 여 로드 하면 SQL Data Warehouse를 통해 가장 높은 처리량이 제공 됩니다. PolyBase를 사용 하 여 로드 하 고 SQLBulkCopy API (또는 BCP)를 사용 해야 하는 경우 처리량 향상을 위해 일괄 처리 크기를 늘려야 합니다. 
+
 ## <a name="handling-loading-failures"></a>로드 처리 실패
 
 외부 테이블을 사용하는 로드가 *"쿼리가 중단되었습니다. 외부 소스에서 읽는 동안 최대 거부 임계값에 도달했습니다."* 오류로 인해 실패할 수 있습니다. 이 메시지는 외부 데이터에 더티 레코드가 포함되어 있음을 나타냅니다. 열의 수와 데이터 형식이 외부 테이블의 열 정의와 일치하지 않거나 데이터가 지정된 외부 파일 형식을 준수하지 않는 경우 데이터 레코드가 더티한 것으로 간주됩니다. 
@@ -102,9 +105,9 @@ columnstore 인덱스는 고품질 행 그룹으로 데이터를 압축하기 �
 
 ## <a name="creating-statistics-after-the-load"></a>로드 후 통계 만들기
 
-쿼리 성능을 개선하려면 데이터를 처음 로드하거나 데이터 내에 상당한 변화가 생긴 후에, 모든 테이블의 모든 열에서 통계를 만드는 것이 중요합니다.  수동으로 수행할 수 있습니다 또는 설정할 수 있습니다 [통계 자동 작성](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistic)합니다.
+쿼리 성능을 개선하려면 데이터를 처음 로드하거나 데이터 내에 상당한 변화가 생긴 후에, 모든 테이블의 모든 열에서 통계를 만드는 것이 중요합니다.  수동으로이 작업을 수행 하거나 [자동 생성 통계](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistic)를 사용 하도록 설정할 수 있습니다.
 
-통계에 대한 자세한 설명은 [통계](sql-data-warehouse-tables-statistics.md)를 참조하세요. 다음 예제에서는 Customer_Speed 테이블에 있는 5 개의 열에 통계를 수동으로 만드는 방법을 보여 줍니다.
+통계에 대한 자세한 설명은 [통계](sql-data-warehouse-tables-statistics.md)를 참조하세요. 다음 예에서는 Customer_Speed 테이블의 5 개 열에 대 한 통계를 수동으로 만드는 방법을 보여 줍니다.
 
 ```sql
 create statistics [SensorKey] on [Customer_Speed] ([SensorKey]);
@@ -128,7 +131,7 @@ Azure Storage 계정 키를 회전하려면:
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key1'
-``` 
+```
 
 키 1에서 키 2로 키를 회전하는 경우
 
@@ -143,6 +146,3 @@ ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SE
 - PolyBase 및 ELT(추출, 로드 및 변환) 프로세스를 디자인하는 방법을 자세히 알아보려면 [SQL Data Warehouse에 대한 ELT 디자인](design-elt-data-loading.md)을 참조하세요.
 - 로드 자습서는 [PolyBase를 사용하여 Azure Blob Storage에서 Azure SQL Data Warehouse로 데이터 로드](load-data-from-azure-blob-storage-using-polybase.md)를 참조하세요.
 - 데이터 로드를 모니터링하려면 [DMV를 사용하여 워크로드 모니터링](sql-data-warehouse-manage-monitor.md)을 참조하세요.
-
-
-

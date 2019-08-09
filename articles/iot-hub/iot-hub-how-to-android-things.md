@@ -1,18 +1,18 @@
 ---
 title: Azure IoT SDK를 사용하여 Android Things 플랫폼 개발 | Microsoft Docs
 description: 개발자 가이드 - Azure IoT Hub SDK를 사용하여 Android Things에서 솔루션을 개발하는 방법을 알아봅니다.
-author: yzhong94
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.author: yizhon
-ms.openlocfilehash: 8e36cee9857c00fcb618a8491595432fb0fd60fd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: robinsh
+ms.openlocfilehash: 82f6da54aec7aee94c19fd75a06d2850ca0db8b6
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64571271"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883124"
 ---
 # <a name="develop-for-android-things-platform-using-azure-iot-sdks"></a>Azure IoT SDK를 사용하여 Android Things 플랫폼 개발
 
@@ -20,7 +20,7 @@ ms.locfileid: "64571271"
 
 이 자습서에서는 Azure IoT Java SDK를 사용하여 Android Things에서 디바이스 쪽 애플리케이션을 빌드하는 단계를 설명합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 * Android Things는 Android Things OS를 실행하는 하드웨어를 지원합니다.  Android Things OS를 플래시하는 방법은 [Android Things 설명서](https://developer.android.com/things/get-started/kits#flash-at)를 참조하세요.  키보드, 디스플레이 및 마우스 등과 같은 필수 주변 장치가 연결된 상태에서 Android Things 디바이스가 인터넷에 연결되었는지 확인합니다.  이 자습서에서는 Raspberry Pi 3을 사용합니다.
 
@@ -49,7 +49,7 @@ ms.locfileid: "64571271"
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyAndroidThingsDevice
     ```
 
-2. 가져오려는 Azure Cloud Shell에서 다음 명령을 실행 합니다 *장치 연결 문자열* 방금 등록 한 장치에 대 한 합니다. 대체 `YourIoTHubName` IoT hub에 대해 선택한 이름을 사용 하 여 아래.
+2. Azure Cloud Shell에서 다음 명령을 실행 하 여 방금 등록 한 장치에 대 한 *장치 연결 문자열* 을 가져옵니다. 아래 `YourIoTHubName` 를 IoT hub에 대해 선택한 이름으로 바꿉니다.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyAndroidThingsDevice --output table
@@ -65,7 +65,7 @@ ms.locfileid: "64571271"
 
 1. Android Things 애플리케이션을 빌드하는 첫 번째 단계는 Android Things 디바이스에 연결하는 것입니다. Android Things 디바이스를 디스플레이에 연결하고 인터넷에 연결합니다. Android Things는 WiFi에 연결하는 방법에 관한 [설명서](https://developer.android.com/things/get-started/kits)를 제공합니다. 인터넷에 연결한 후 네트워크 아래에 나열된 IP 주소를 기록해 둡니다.
 
-2. [adb](https://developer.android.com/studio/command-line/adb) 도구를 사용하여 위에서 기록한 IP 주소로 Android Things 디바이스에 연결합니다. 터미널에서 이 명령을 사용하여 연결을 다시 한 번 확인합니다. "연결 됨"으로 나열 된 장치가 표시 됩니다.
+2. [adb](https://developer.android.com/studio/command-line/adb) 도구를 사용하여 위에서 기록한 IP 주소로 Android Things 디바이스에 연결합니다. 터미널에서 이 명령을 사용하여 연결을 다시 한 번 확인합니다. 장치가 "연결 됨"으로 표시 되어야 합니다.
 
    ```
    adb devices

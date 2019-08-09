@@ -14,31 +14,31 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2019
 ms.author: rogirdh
-ms.openlocfilehash: 3b901f7aba40f3548a259d36b83fedca0ff2a5c2
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 18dbc60c1a29fbc26f4bbc73faa58aeafc66c32f
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68781298"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880106"
 ---
 # <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>Azure와 Oracle 클라우드 인프라 간의 직접 상호 관계 설정  
 
 [통합 다중 클라우드 환경](oracle-oci-overview.md) (미리 보기)을 만들기 위해 Microsoft와 Oracle은 [Express](../../../expressroute/expressroute-introduction.md) 경로 및 [FASTCONNECT](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnectoverview.htm)를 통해 Azure와 OCI (oracle cloud Infrastructure) 간에 직접 연결을 제공 합니다. Express 경로 및 FastConnect 연결을 통해 고객은 두 클라우드 간에 짧은 대기 시간, 높은 처리량, 개인 직접 연결을 경험할 수 있습니다.
 
 > [!IMPORTANT]
-> Microsoft Azure와 OCI 간의 연결은 미리 보기 단계에 있습니다. Azure와 OCI 사이에 짧은 대기 시간 연결을 사용 하려면 먼저 Azure 구독을이 기능에 대해 허용 목록 해야 합니다.
+> Microsoft Azure와 OCI 간의 연결은 미리 보기 단계에 있습니다. Azure와 OCI 사이에 짧은 대기 시간 연결을 사용 하려면 먼저 Azure 구독을이 기능에 대해 허용 목록 해야 합니다. 구독 ID를 사용 하 여에 전자 메일을 oracleconnect@microsoft.com 전송 하 여 미리 보기에 등록 해야 합니다. 구독이 등록되면 이메일 회신을 받게 됩니다. 확인 이메일을 받을 때까지는 기능을 사용할 수 없습니다. 이 미리 보기를 사용 하도록 설정 하려면 Microsoft 담당자에 게 문의할 수도 있습니다. 이 미리 보기는 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에 사용할 수 없습니다. 특정 기능은 지원되지 않을 수 있거나, 기능이 제한될 수 있거나 모든 Azure 위치에서 사용하지는 못할 수 있습니다. 자세한 내용은 Microsoft Azure 미리 보기에 대 한 [추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 을 참조 하세요.
 
 다음 이미지는 상호 교차 수준 개요를 보여 줍니다.
 
 ![클라우드 간 네트워크 연결](media/configure-azure-oci-networking/azure-oci-connect.png)
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure와 OCI 간에 연결을 설정 하려면 활성 Azure 구독 및 활성 OCI 테 넌 트가 있어야 합니다.
 
 * Azure Express 경로 피어 링 위치가 OCI FastConnect와 동일한 피어 링 위치에 있는 경우에만 연결을 사용할 수 있습니다. [미리 보기 제한 사항](oracle-oci-overview.md#preview-limitations)을 참조 하세요.
 
-* 이 미리 보기 기능을 위해서는 Azure 구독을 허용 목록 해야 합니다. 구독에서이 기능을 사용 하도록 설정 하려면 Microsoft 담당자에 게 문의 하세요.
+* 이 미리 보기 기능을 위해서는 Azure 구독을 허용 목록 해야 합니다.
 
 ## <a name="configure-direct-connectivity-between-expressroute-and-fastconnect"></a>Express 경로와 FastConnect 간의 직접 연결 구성
 
@@ -46,7 +46,7 @@ ms.locfileid: "68781298"
     * Express 경로를 만드는 동안 서비스 공급자로 **Oracle Cloud FastConnect** 를 선택 합니다. Express 경로 회로를 만들려면 단계별 [가이드](../../../expressroute/expressroute-howto-circuit-portal-resource-manager.md)를 참조 하세요.
     * Azure Express 경로 회로는 세분화 된 대역폭 옵션을 제공 하는 반면 FastConnect는 1, 2, 5 또는 10gbps를 지원 합니다. 따라서 Express 경로 아래에서 이러한 일치 하는 대역폭 옵션 중 하나를 선택 하는 것이 좋습니다.
 
-    ![Express 경로 회로 만들기](media/configure-azure-oci-networking/exr-create-new.png)
+    ![ExpressRoute 회로 만들기](media/configure-azure-oci-networking/exr-create-new.png)
 1. Express 경로 **서비스 키**를 적어둡니다. FastConnect 회로를 구성 하는 동안 키를 제공 해야 합니다.
 
     ![Express 경로 서비스 키](media/configure-azure-oci-networking/exr-service-key.png)

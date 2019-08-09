@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: ebb1723a9a2b2d069a1766d4f78151f2b684c5b9
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 797caae3caaca14c10481cb58654c45b4bed55ae
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68464670"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884308"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>클러스터 구성에 대한 세밀한 역할 기반 액세스로 마이그레이션
 
@@ -28,7 +28,7 @@ ms.locfileid: "68464670"
 | 역할                                  | 앞서                                                                                       | 앞으로 이동       |
 |---------------------------------------|--------------------------------------------------------------------------------------------------|-----------|
 | 독자                                | -암호를 비롯 한 읽기 액세스                                                                   | -읽기 액세스, 비밀 **제외** |           |   |   |
-| HDInsight 클러스터 운영자<br>(새 역할) | 해당 사항 없음                                                                                              | -읽기/쓰기 액세스 (암호 포함)         |   |   |
+| HDInsight 클러스터 운영자<br>(새 역할) | N/A                                                                                              | -읽기/쓰기 액세스 (암호 포함)         |   |   |
 | 기여자                           | -읽기/쓰기 액세스 (암호 포함)<br>-모든 유형의 Azure 리소스를 만들고 관리 합니다.     | 변경 안 함 |
 | 소유자                                 | -암호를 포함 하는 읽기/쓰기 액세스<br>-모든 리소스에 대 한 모든 권한<br>-다른 사용자에 대 한 액세스 위임 | 변경 안 함 |
 
@@ -155,14 +155,14 @@ Go 용 HDInsight SDK [버전 27.1.0](https://github.com/Azure/azure-sdk-for-go/t
 
 ## <a name="add-the-hdinsight-cluster-operator-role-assignment-to-a-user"></a>사용자에 게 HDInsight 클러스터 운영자 역할 할당 추가
 
-[참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) 또는 [소유자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) 역할을 가진 사용자는 중요 한 hdinsight 클러스터 구성 값 (예: 클러스터 게이트웨이 자격 증명)에 대 한 읽기/쓰기 권한을 부여 하려는 사용자에 게 [HDInsight 클러스터 운영자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) 역할을 할당할 수 있습니다. 및 저장소 계정 키).
+[소유자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) 역할을 가진 사용자는 중요 한 hdinsight 클러스터 구성 값 (예: 클러스터 게이트웨이 자격 증명 및 저장소 계정 키)에 대 한 읽기/쓰기 권한을 부여 하려는 사용자에 게 [HDInsight 클러스터 운영자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) 역할을 할당할 수 있습니다.
 
 ### <a name="using-the-azure-cli"></a>Azure CLI 사용
 
 이 역할 할당을 추가 하는 가장 간단한 방법은 Azure CLI의 `az role assignment create` 명령을 사용 하는 것입니다.
 
 > [!NOTE]
-> 이 명령은 참여자 또는 소유자 역할이 있는 사용자가 이러한 권한을 부여할 수 있는 경우에만 실행 해야 합니다. 는 `--assignee` HDInsight 클러스터 운영자 역할을 할당 하려는 사용자의 이메일 주소입니다.
+> 이 명령은 소유자 역할을 가진 사용자만이 사용 권한을 부여할 수 있으므로 실행 해야 합니다. 는 `--assignee` HDInsight 클러스터 운영자 역할을 할당 하려는 사용자의 서비스 사용자 또는 전자 메일 주소의 이름입니다. 권한 부족 오류가 표시 되 면 아래 FAQ를 참조 하세요.
 
 #### <a name="grant-role-at-the-resource-cluster-level"></a>리소스 (클러스터) 수준에서 역할을 부여 합니다.
 
@@ -185,3 +185,23 @@ az role assignment create --role "HDInsight Cluster Operator" --assignee user@do
 ### <a name="using-the-azure-portal"></a>Azure Portal 사용
 
 또는 Azure Portal를 사용 하 여 사용자에 게 HDInsight 클러스터 운영자 역할 할당을 추가할 수 있습니다. [RBAC를 사용 하 여 Azure 리소스에 대 한 액세스 관리 및 Azure Portal 역할 할당 추가](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment)문서를 참조 하세요.
+
+## <a name="faq"></a>FAQ
+
+### <a name="why-am-i-seeing-a-403-forbidden-response-after-updating-my-api-requests-andor-tool"></a>API 요청 및/또는 도구를 업데이트 한 후 403 (금지) 응답이 표시 되는 이유는 무엇 인가요?
+
+클러스터 구성은 이제 세분화 된 역할 기반 액세스 제어를 `Microsoft.HDInsight/clusters/configurations/*` 사용 하 고 있으며이를 액세스할 수 있는 권한이 필요 합니다. 이 사용 권한을 얻으려면 구성에 액세스 하려는 사용자 또는 서비스 사용자에 게 HDInsight 클러스터 운영자, 참가자 또는 소유자 역할을 할당 합니다.
+
+### <a name="why-do-i-see-insufficient-privileges-to-complete-the-operation-when-running-the-azure-cli-command-to-assign-the-hdinsight-cluster-operator-role-to-another-user-or-service-principal"></a>Azure CLI 명령을 실행 하 여 다른 사용자 또는 서비스 주체에 HDInsight 클러스터 운영자 역할을 할당 하는 경우 "작업을 완료할 수 있는 권한이 부족 합니다."가 표시 되는 이유는 무엇 인가요?
+
+이 명령을 실행 하는 사용자 또는 서비스 주체에 게 소유자 역할을 보유 하는 것 외에도 작업 담당자의 개체 Id를 조회할 수 있는 충분 한 AAD 권한이 있어야 합니다. 이 메시지는 AAD 권한이 부족 함을 나타냅니다. 인수를 `-–assignee` 로 `–assignee-object-id` 바꾸고, 담당자의 개체 id를 이름 대신 매개 변수로 제공 합니다 (또는 관리 id의 경우 보안 주체 id). 자세한 정보는 [az role 대입문 create 설명서](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) 의 선택적 매개 변수 섹션을 참조 하세요.
+
+그래도 작동 하지 않으면 AAD 관리자에 게 문의 하 여 올바른 사용 권한을 획득 합니다.
+
+### <a name="what-will-happen-if-i-take-no-action"></a>작업을 수행 하지 않으면 어떻게 되나요?
+
+`GET /configurations/{configurationName}` 및 `GET /configurations` 는`POST /configurations/gateway` 더 이상 정보를 반환 하지 않으며,이 호출은 저장소 계정 키 또는 클러스터 암호와 같은 중요 한 매개 변수를 더 이상 반환 하지 않습니다. 해당 SDK 메서드 및 PowerShell cmdlet의 경우에도 마찬가지입니다.
+
+이전 버전의 도구 중 하나를 사용 하는 경우에는 위에서 언급 한 것 처럼 이전 버전의 도구를 사용 하는 경우를 업데이트할 때까지 더 이상 작동 하지 않습니다.
+
+자세한 내용은 시나리오에 대 한이 문서의 해당 섹션을 참조 하세요.

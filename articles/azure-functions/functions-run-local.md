@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 16e12021a65a09376293f28efe9a6e9ef74ef5c2
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: f0f00745f2f7781bda0e636167b1cf1a4045f7cd
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839559"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881368"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Azure Functions 핵심 도구 작업
 
@@ -156,7 +156,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 
 별도의 설명이 없으면 `func init`는 다음 옵션(버전 2.x 전용)을 지원합니다.
 
-| 옵션     | Description                            |
+| 옵션     | 설명                            |
 | ------------ | -------------------------------------- |
 | **`--csx`** | C# 스크립트(.csx) 프로젝트를 초기화합니다. 후속 명령에서 `--csx`를 지정해야 합니다. |
 | **`--docker`** | 선택한 `--worker-runtime`을 기반으로 하는 기본 이미지를 사용하여 컨테이너용 Docker 파일을 만듭니다. 사용자 지정 Linux 컨테이너에 게시하려는 경우 이 옵션을 사용합니다. |
@@ -371,7 +371,7 @@ curl --request POST -H "Content-Type:application/json" --data '{"input":"sample 
 
 `func run`은 다음 옵션을 지원합니다.
 
-| 옵션     | Description                            |
+| 옵션     | 설명                            |
 | ------------ | -------------------------------------- |
 | **`--content -c`** | 인라인 콘텐츠입니다. |
 | **`--debug -d`** | 함수를 실행하기 전에 호스트 프로세스에 디버거를 연결합니다.|
@@ -446,11 +446,25 @@ func deploy
 
 ## <a name="monitoring-functions"></a>함수 모니터링
 
-함수 실행을 모니터링 하는 권장 방법은 Azure 애플리케이션 Insights와 통합 하는 것입니다. Azure Portal에서 함수 앱을 만들 때는 이 통합이 기본적으로 자동 수행됩니다. 그러나 Azure CLI를 사용하여 함수 앱을 만드는 경우 Azure에서 함수 앱 통합이 수행되지 않습니다.
+함수 실행을 모니터링 하는 권장 방법은 Azure 애플리케이션 Insights와 통합 하는 것입니다. 실행 로그를 로컬 컴퓨터로 스트리밍할 수도 있습니다. 자세히 알아보려면 [Azure Functions 모니터링](functions-monitoring.md)을 참조하세요.
+
+### <a name="enable-application-insights-integration"></a>Application Insights 통합 사용
+
+Azure Portal에서 함수 앱을 만들 때 기본적으로 Application Insights 통합이 수행 됩니다. 그러나 Azure CLI를 사용하여 함수 앱을 만드는 경우 Azure에서 함수 앱 통합이 수행되지 않습니다.
 
 [!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 
-자세히 알아보려면 [Azure Functions 모니터링](functions-monitoring.md)을 참조하세요.
+### <a name="enable-streaming-logs"></a>스트리밍 로그 사용
+
+로컬 컴퓨터의 명령줄 세션에서 함수에 의해 생성 되는 로그 파일의 스트림을 볼 수 있습니다. 
+
+#### <a name="native-streaming-logs"></a>네이티브 스트리밍 로그
+
+[!INCLUDE [functions-streaming-logs-core-tools](../../includes/functions-streaming-logs-core-tools.md)]
+
+이 유형의 스트리밍 로그에는 함수 앱에 대 한 [Application Insights 통합을 사용 하도록 설정](#enable-application-insights-integration) 해야 합니다.   
+
+
 ## <a name="next-steps"></a>다음 단계
 
 Azure Functions 핵심 도구는 [오픈 소스이며 GitHub에서 호스팅](https://github.com/azure/azure-functions-cli)됩니다.  

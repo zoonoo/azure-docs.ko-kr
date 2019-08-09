@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/22/2018
+ms.date: 08/07/2019
 ms.author: chkuhtz
-ms.openlocfilehash: b9a140314b8eba6386c37bdbcf2bb3de58589335
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b109e87a8fcbef0bfca356c83716509ebc6cecd4
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60594167"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884205"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Azure Load Balancer의 다중 프런트 엔드
 
@@ -70,7 +70,7 @@ DIP는 인바운드 흐름의 대상입니다. 백 엔드 풀에서 각 VM은 DI
 
 Azure Load Balancer에서 전체 매핑은 이제 다음과 같습니다.
 
-| 규칙 | 프런트 엔드 IP 주소 | protocol | port | 대상 | port |
+| 규칙 | 프런트 엔드 IP 주소 | protocol | port | Destination | port |
 | --- | --- | --- | --- | --- | --- |
 | ![녹색 규칙](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |DIP IP 주소 |80 |
 | ![자주색 규칙](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |65.52.0.2 |TCP |80 |DIP IP 주소 |81 |
@@ -118,7 +118,7 @@ Azure Load Balancer는 사용된 규칙 유형에 관계없이 여러 프런트 
 
 다음 표는 부하 분산 장치에서의 전체 매핑을 보여 줍니다.
 
-| 규칙 | 프런트 엔드 IP 주소 | protocol | port | 대상 | port |
+| 규칙 | 프런트 엔드 IP 주소 | protocol | port | Destination | port |
 | --- | --- | --- | --- | --- | --- |
 | ![녹색 규칙](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |프런트 엔드와 동일(65.52.0.1) |프런트 엔드와 동일(80) |
 | ![자주색 규칙](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |65.52.0.2 |TCP |80 |프런트 엔드와 동일(65.52.0.2) |프런트 엔드와 동일(80) |
@@ -132,7 +132,7 @@ Azure Load Balancer는 사용된 규칙 유형에 관계없이 여러 프런트 
 ## <a name="limitations"></a>제한 사항
 
 * 다중 프런트 엔드 구성은 IaaS VM에서만 지원됩니다.
-* 부동 IP 규칙을 사용하면 애플리케이션은 아웃바운드 흐름에 대해 기본 IP 구성을 사용해야 합니다. 애플리케이션이 게스트 OS에서 루프백 인터페이스에 구성된 프런트 엔드 IP 주소에 바인딩하는 경우 아웃바운드 흐름을 다시 작성하는 데 Azure의 SNAT를 사용할 수 없으며 흐름이 실패합니다.
+* 부동 IP 규칙을 사용 하는 경우 응용 프로그램은 아웃 바운드 SNAT 흐름에 기본 IP 구성을 사용 해야 합니다. 응용 프로그램이 게스트 OS에서 루프백 인터페이스에 구성 된 프런트 엔드 IP 주소에 바인딩하는 경우 아웃 바운드 흐름을 다시 작성 하는 데 Azure의 아웃 바운드 SNAT를 사용할 수 없으며 흐름이 실패 합니다.  [아웃 바운드 시나리오](load-balancer-outbound-connections.md)를 검토 합니다.
 * 공용 IP 주소는 대금 청구에 영향을 미칩니다. 자세한 내용은 [IP 주소 가격 책정](https://azure.microsoft.com/pricing/details/ip-addresses/)
 * 구독 제한이 적용됩니다. 자세한 내용은 [서비스 제한](../azure-subscription-service-limits.md#networking-limits) 을 참조하세요.
 

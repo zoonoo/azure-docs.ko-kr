@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/02/2019
+ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 833d0d0b17f7cc22b2ab37b4e225c1a8cce9c592
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 9dcc5fa201c08ca4b1e65b8aae88118731eba427
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385553"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881063"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure에서 아웃바운드 연결
 
@@ -40,7 +40,7 @@ Azure에서는 SNAT(원본 네트워크 주소 변환)를 사용하여 이 기�
 
 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)를 사용하는 경우 Azure Load Balancer 및 관련 리소스가 명시적으로 정의됩니다.  현재 Azure는 Azure Resource Manager 리소스에 대한 아웃바운드 연결을 달성할 수 있는 세 가지 방법을 제공합니다. 
 
-| SKU | 시나리오 | 메서드 | IP 프로토콜 | Description |
+| SKU | 시나리오 | 메서드 | IP 프로토콜 | 설명 |
 | --- | --- | --- | --- | --- |
 | 표준, 기본 | [1. 공용 IP 주소가 있는 VM (Load Balancer 포함 또는 포함 안 함)](#ilpip) | SNAT, 포트 가장 사용 안 함 | TCP, UDP, ICMP, ESP | Azure는 인스턴스 NIC의 IP 구성에 할당된 공용 IP를 사용합니다. 인스턴스에 있는 모든 삭제 포트를 사용할 수 있습니다. 표준 Load Balancer를 사용하는 경우 아웃바운드 연결을 명시적으로 정의하려면 [아웃바운드 규칙](load-balancer-outbound-rules-overview.md)을 사용해야 합니다. |
 | 표준, 기본 | [2. VM과 연결 된 공용 Load Balancer (인스턴스에 공용 IP 주소 없음)](#lb) | Load Balancer 프런트 엔드를 사용하여 포트를 가장하는(PAT) SNAT | TCP, UDP |Azure는 공용 Load Balancer 프런트 엔드의 공용 IP 주소를 여러 개인 IP 주소와 공유합니다. Azure는 프런트 엔드의 삭제 포트를 PAT에 사용합니다. |
@@ -133,6 +133,10 @@ SNAT 포트는 [SNAT 및 PAT 이해](#snat) 섹션에 설명된 대로 미리 �
 
 UDP SNAT 포트는 TCP SNAT 포트와는 다른 알고리즘을 통해 관리됩니다.  부하 분산 장치는 UDP에 "포트 제한 원뿔형 NAT"이라고 하는 알고리즘을 사용합니다.  대상 IP 주소, 포트에 관계없이 각 흐름당 하나의 SNAT 포트가 사용됩니다.
 
+#### <a name="snat-port-reuse"></a>SNAT 포트 다시 사용
+
+포트를 해제 한 후에는 필요에 따라 포트를 재사용할 수 있습니다.  SNAT 포트는 지정 된 시나리오에서 사용 가능한 최하위에서 가장 높은 시퀀스로 간주할 수 있으며, 첫 번째 사용 가능한 SNAT 포트는 새 연결에 사용 됩니다. 
+ 
 #### <a name="exhaustion"></a>고갈
 
 SNAT 포트 리소스가 고갈되면 기존 흐름에서 SNAT 포트를 릴리스할 때까지 아웃바운드 흐름이 실패합니다. Load Balancer는 흐름이 닫히면 SNAT 포트를 회수하고 유휴 흐름에서 SNAT 포트를 회수하기 위해 [4분 유휴 시간 제한](#idletimeout)을 사용합니다.

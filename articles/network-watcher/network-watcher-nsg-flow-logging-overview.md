@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 5c156e30f4fa0270082cd1108958c3472130a460
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 1401e378daa0c0a9258858840653899e76c9421c
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640825"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881785"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>네트워크 보안 그룹에 대한 흐름 로깅 소개
 
@@ -57,7 +57,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
             * **흐름** - 흐름의 컬렉션
                 * **mac** - 흐름이 수집된 VM에 대한 NIC의 MAC 주소
                 * **flowTuples** - 쉼표로 구분된 형식에서 흐름 튜플에 대한 여러 속성을 포함하는 문자열
-                    * **타임스탬프** - 이 값은 흐름이 UNIX EPOCH 형식에서 발생하는 경우의 타임스탬프입니다.
+                    * **타임 스탬프** -이 값은 흐름이 UNIX epoch 형식으로 발생 했을 때의 타임 스탬프입니다.
                     * **원본 IP** - 원본 IP
                     * **대상 IP** - 대상 IP
                     * **원본 포트** - 원본 포트

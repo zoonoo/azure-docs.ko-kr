@@ -11,16 +11,20 @@ ms.author: sanpil
 author: sanpil
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3f0b764b16c1b550c9afa4107449c1b02815e8d1
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 497c4d9708a7b67bf0b5433c455d90dd277297d7
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668491"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68873602"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Azure Machine Learning SDK를 사용하여 기계 학습 파이프라인 만들기 및 실행
 
-이 문서에서는 [Azure Machine Learning SDK](https://aka.ms/aml-sdk)를 사용하여 [기계 학습 파이프라인](concept-ml-pipelines.md)을 만들고 게시, 실행 및 추적하는 방법을 알아봅니다.  이 파이프라인은 다양한 기계 학습 단계를 연결하는 워크플로를 만들고 관리하는 데 도움이 됩니다. 데이터 준비 및 모델 학습과 같은 파이프라인의 각 단계(phase)에 하나 이상의 단계(step)를 포함할 수 있습니다.
+이 문서에서는 [Azure Machine Learning SDK](https://aka.ms/aml-sdk)를 사용하여 [기계 학습 파이프라인](concept-ml-pipelines.md)을 만들고 게시, 실행 및 추적하는 방법을 알아봅니다.  **Ml 파이프라인** 을 사용 하 여 다양 한 ml 단계를 함께 연결 하는 워크플로를 만든 후 나중에 액세스 하기 위해 해당 파이프라인을 Azure Machine Learning 작업 영역에 게시 하거나 다른와 공유할 수 있습니다.  
+
+[Azure 파이프라인](https://docs.microsoft.com/en-us/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2Fmachine-learning%2Fservice%2Fcontext%2Fml-context&view=azure-devops&tabs=yaml) 을 사용 하 여 (CI/CD) ml 작업을 자동화할 수 있지만이 유형의 파이프라인은 작업 영역 내에 저장 되지 않습니다. [이러한 유형의 파이프라인을 비교](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use)합니다.
+
+데이터 준비 및 모델 학습과 같은 파이프라인의 각 단계(phase)에 하나 이상의 단계(step)를 포함할 수 있습니다.
 
 만든 파이프라인은 Azure Machine Learning Service [작업 영역](how-to-manage-workspace.md)의 멤버에게 표시됩니다. 
 
@@ -28,7 +32,7 @@ ms.locfileid: "68668491"
 
 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 * [개발 환경을 구성](how-to-configure-environment.md)하여 Azure Machine Learning SDK를 설치합니다.
 

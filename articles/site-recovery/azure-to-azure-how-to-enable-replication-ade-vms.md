@@ -6,21 +6,24 @@ author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 08/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: f00ad898ea45700b75607f89bc2c8e71288357c2
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 1bb94b70510be30d676ad707ab2fbfbbcbf50833
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847561"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884122"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Azure Disk Encryption 사용 가능한 가상 컴퓨터를 다른 Azure 지역에 복제
 
 이 문서에서는 한 Azure 지역에서 다른 Azure 지역으로 Azure Disk Encryption 사용 가능한 Vm을 복제 하는 방법을 설명 합니다.
 
 >[!NOTE]
->현재 Azure Site Recovery는 Windows OS를 실행 하는 Azure Disk Encryption 지원 Vm만 지원 합니다.
+>현재 Azure Site Recovery는 Windows OS를 실행 하는 Azure Disk Encryption 지원 Vm만 지원 합니다. Azure AD 앱이 없는 Azure Disk Encryption 사용 Vm은 관리 디스크를 사용 하는 경우에만 지원 됩니다. 관리 되지 않는 디스크가 있는 Vm은 지원 되지 않습니다.
+
+>[!NOTE]
+>ADE V1 (Azure AD 앱 사용)에서 ADE V2로 전환 하는 경우 (Azure AD 앱 없음), ADE V2를 사용 하도록 설정한 후 복제를 사용 하지 않도록 설정 하 고 복제를 사용 하도록 설정 해야 합니다.
 
 ## <a id="required-user-permissions"></a>필요한 사용자 권한
 Site Recovery를 사용 하려면 사용자에 게 대상 지역에서 키 자격 증명 모음을 만들고 원본 지역 key vault에서 대상 지역 key vault로 키를 복사할 수 있는 권한이 있어야 합니다.

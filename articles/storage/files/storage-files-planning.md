@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 287902c149fd3a8732ce9ce95b05b0d9fa36147b
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: eece1520a4b7e3bf37e1d209c58b5019921fdb98
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816612"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884375"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Azure Files 배포에 대한 계획
 
@@ -26,7 +26,7 @@ ms.locfileid: "68816612"
 
 * **스토리지 계정**: Azure Storage에 대한 모든 액세스는 Storage 계정을 통해 수행됩니다. 저장소 계정 용량에 대한 자세한 내용은 [확장성 및 성능 목표](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)를 참조하세요.
 
-* **공유**: Azure에서 File Storage 공유는 SMB 파일 공유입니다. 모든 디렉터리 및 파일을 부모 공유에 만들어야 합니다. 계정에 포함할 수 있는 공유 수에는 제한이 없으며, 공유에 저장할 수 있는 파일 수에는 파일 공유의 최대 5TiB의 최대 용량까지 제한이 없습니다.
+* **공유**: Azure에서 File Storage 공유는 SMB 파일 공유입니다. 모든 디렉터리 및 파일을 부모 공유에 만들어야 합니다. 계정에는 공유를 무제한 포함할 수 있으며, 공유는 파일 공유의 총 용량까지 파일 수에 제한 없이 저장할 수 있습니다. 표준 파일 공유의 경우 총 용량은 GA (최대 5 TiB) 또는 100 TiB (미리 보기)입니다. 프리미엄 파일 공유의 경우 총 용량은 100 TiB입니다.
 
 * **디렉터리**: 디렉터리 계층 구조(선택 사항)입니다.
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 92d44ef3d0db8e93d4babd7441238c7fa105dbd5
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: caf661faf00d1d32664b7958a14a8719a37ab36e
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639013"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882107"
 ---
 # <a name="add-a-popup-to-the-map"></a>맵에 팝업 추가
 
@@ -24,26 +24,40 @@ ms.locfileid: "68639013"
 
 <a id="addAPopup"></a>
 
+다음 코드에서는 기호 계층을 사용 하 여 `name` 및 `description` 속성이 있는 point 기능을 맵에 추가 합니다. [Popup 클래스](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest) 의 인스턴스가 만들어졌지만 표시 되지 않습니다. 마우스 이벤트가 기호 계층에 추가 되어 마우스로 기호 마커를 가리키거나 끌 때 팝업을 트리거하고 팝업을 닫습니다. 표식 기호가 가리킴 `position` 이면 팝업의 속성이 표식의 위치로 업데이트 되 `content` 고 옵션은 마우스가 가리키는 point 기능의 및 `description` 속성을 `name` 래핑하는 일부 HTML로 업데이트 됩니다. 그런 다음 `open` 함수를 사용 하 여 맵에 팝업을 표시 합니다.
+
+<br/>
+
 <iframe height='500' scrolling='no' title='Azure Maps를 사용하여 팝업 추가' src='//codepen.io/azuremaps/embed/MPRPvz/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)가 제공하는 <a href='https://codepen.io/azuremaps/pen/MPRPvz/'>Azure Maps를 사용하여 팝업 추가</a> 펜을 참조하세요.
 </iframe>
 
-위의 코드에서 첫 번째 코드 블록은 지도 개체를 만듭니다. 지침은 [지도 만들기](./map-create.md)를 참조하세요. 그러면 팝업 안에 HTML 콘텐츠가 표시됩니다.
-
-두 번째 코드 블록에서는 데이터 원본 개체가 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 클래스를 사용하여 생성됩니다. 점은 [Point](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) 클래스의 [기능](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) 중 하나입니다. 그러면 이름 및 설명 속성이 있는 점 개체가 만들어져 데이터 원본에 추가됩니다.
-
-[기호 계층](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest)은 텍스트 또는 아이콘을 사용하여 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest)에 래핑된 점 기반 데이터를 지도에 기호로 렌더링합니다.  기호 계층은 세 번째 코드 블록에서 생성됩니다. 데이터 원본이 기호 계층에 추가된 다음, 맵에 추가됩니다.
-
-네 번째 코드 블록은 `new atlas.Popup()`을 통해 [팝업 개체](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)를 만듭니다. position 및 pixelOffset과 같은 팝업 속성은 [PopupOptions](/javascript/api/azure-maps-control/atlas.popupoptions)의 일부입니다. PopupOptions는 popup 생성자나 popup 클래스의 [setOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#setoptions-popupoptions-) 함수를 통해 정의할 수 있습니다. 기호 계층에 대한 `mouseover` 이벤트 수신기가 생성됩니다.
-
-마지막 코드 블록에서는 `mouseover` 이벤트 수신기에 의해 트리거되는 함수가 생성됩니다. 여기서 팝업 속성 및 콘텐츠를 설정하고 맵에 팝업 개체를 추가합니다.
-
 ## <a name="reusing-a-popup-with-multiple-points"></a>여러 점을 사용하여 팝업을 다시 사용
 
-점이 많이 있고 한 번에 하나의 팝업을 표시하려는 경우 각 점 기능에 대해 팝업을 만드는 대신 한 팝업을 만들어 다시 사용하는 것이 가장 좋은 방법입니다. 이 작업을 수행하면 애플리케이션에서 생성되는 DOM 요소 수가 크게 줄어들어 더 나은 성능을 제공할 수 있습니다. 이 샘플에서는 3개 점 기능을 만듭니다. 그 중 하나를 클릭하면 해당 점 기능에 대한 콘텐츠와 함께 팝업이 표시됩니다.
+많은 수의 점이 있고 한 번에 하나의 popup만 표시 하려는 경우 가장 좋은 방법은 하나의 popup을 만들고 각 요소 기능에 대해 popup을 만드는 대신 다시 사용 하는 것입니다. Popup을 다시 사용 하면 응용 프로그램에서 만든 DOM 요소의 수가 크게 줄어 성능이 향상 될 수 있습니다. 다음 샘플에서는 3 포인트 기능을 만듭니다. 그 중 하나를 클릭하면 해당 점 기능에 대한 콘텐츠와 함께 팝업이 표시됩니다.
 
 <br/>
 
 <iframe height='500' scrolling='no' title='여러 점을 사용하여 팝업을 다시 사용' src='//codepen.io/azuremaps/embed/rQbjvK/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/rQbjvK/'>여러 점을 사용하여 팝업을 다시 사용</a>을 참조하세요.
+</iframe>
+
+## <a name="customizing-a-popup"></a>팝업 사용자 지정
+
+기본적으로 popup에는 흰색 배경, 아래쪽에는 포인터 화살표, 오른쪽 위 모서리에 닫기 단추가 있습니다. 다음 샘플에서는 팝업의 `fillColor` 옵션을 사용 하 여 배경색을 검은색으로 변경 합니다. `shoCloseButton` 옵션을 false로 설정 하 여 닫기 단추를 제거 합니다. 팝업의 HTML 콘텐츠는 팝업의 가장자리에서 패딩 된 10 픽셀을 사용 하 고 텍스트는 흰색으로 표시 되어 검은색 배경에 잘 표시 됩니다.  
+
+<br/>
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="사용자 지정 된 팝업" src="//codepen.io/azuremaps/embed/ymKgdg/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<a href='https://codepen.io'>CodePen</a>의 Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)로 펜 <a href='https://codepen.io/azuremaps/pen/ymKgdg/'>사용자 지정 팝업</a> 을 참조 하세요.
+</iframe>
+
+## <a name="popup-events"></a>Popup 이벤트
+
+팝업은 열고, 닫고, 끌 수 있습니다. Popup 클래스는 개발자가 이러한 작업에 반응 하는 데 도움이 되는 이벤트를 제공 합니다. 다음 샘플에서는 팝업을 열거나 닫거나 끌 때 발생 하는 이벤트를 강조 표시 합니다. 
+
+<br/>
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="Popup 이벤트" src="//codepen.io/azuremaps/embed/BXrpvB/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<a href='https://codepen.io'>CodePen</a>의 Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)로 펜 <a href='https://codepen.io/azuremaps/pen/BXrpvB/'>팝업 이벤트</a> 를 참조 하세요.
 </iframe>
 
 ## <a name="next-steps"></a>다음 단계

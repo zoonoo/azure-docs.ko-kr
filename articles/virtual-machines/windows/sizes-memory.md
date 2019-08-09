@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/15/2019
+ms.date: 08/08/2019
 ms.author: jonbeck
-ms.openlocfilehash: 5ee42b2028a9aa04250598e46ebd7b6b81d6a021
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: fb28e21e87fffdc5232a350f29cd3bbfa80de760
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710168"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884020"
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>메모리 최적화 가상 머신 크기
 
@@ -35,7 +35,7 @@ ms.locfileid: "67710168"
 - [컴퓨팅 최적화](sizes-compute.md)
 - [Storage에 최적화](sizes-storage.md)
 - [GPU에 최적화](sizes-gpu.md)
-- [고성능 계산](sizes-hpc.md)
+- [고성능 컴퓨팅](sizes-hpc.md)
 - [이전 세대](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>다음 단계
