@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 07/15/2019
+ms.date: 08/07/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 113e178d39ec776b63a0b38c55035f3493586ea2
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: f3aea108ed87debac56b18b5959d492f2bcb291d
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68233866"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853611"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>게스트 사용자를 위한 AD FS 및 타사 공급자와의 직접 페더레이션 (미리 보기)
 |     |
@@ -46,7 +46,7 @@ ms.locfileid: "68233866"
 ## <a name="limitations"></a>제한 사항
 
 ### <a name="dns-verified-domains-in-azure-ad"></a>Azure AD의 DNS 확인 도메인
-Azure AD에서 DNS가 확인 ***되지*** 않은 도메인에 대해서만 직접 페더레이션을 사용할 수 있습니다. 관리 되지 않는 (전자 메일 확인 또는 "바 이럴") Azure AD 테 넌 트는 DNS가 확인 되지 않으므로 직접 페더레이션을 사용할 수 있습니다.
+페더레이션 하려는 도메인은 Azure AD에서 DNS를 확인 ***하지*** 않아야 합니다. 관리 되지 않는 (전자 메일 확인 또는 "바 이럴") Azure AD 테 넌 트가 DNS에서 확인 되지 않으므로 직접 페더레이션을 설정할 수 있습니다.
 ### <a name="authentication-url"></a>인증 URL
 직접 페더레이션은 인증 URL의 도메인이 대상 도메인과 일치 하거나 인증 URL이 허용 되는 이러한 id 공급자 중 하나인 정책에만 허용 됩니다 .이 목록은 변경 될 수 있습니다.
 -   accounts.google.com
@@ -66,7 +66,7 @@ Id 공급자 설정에서 메타 데이터 URL을 지정 하는 경우 Azure AD�
 현재 최대 1000 페더레이션 관계가 지원 됩니다. 이 제한에는 [내부 페더레이션](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) 및 직접 페더레이션을 모두 포함 됩니다.
 ## <a name="frequently-asked-questions"></a>질문과 대답
 ### <a name="can-i-set-up-direct-federation-with-a-domain-for-which-an-unmanaged-email-verified-tenant-exists"></a>관리 되지 않는 (전자 메일 확인) 테 넌 트가 존재 하는 도메인을 사용 하 여 직접 페더레이션을 설정할 수 있나요? 
-예. 도메인을 확인 하지 않은 상태에서 테 넌 트가 [관리자 인수](../users-groups-roles/domains-admin-takeover.md)하지 않은 경우 직접 페더레이션을 설정할 수 있습니다. 관리 되지 않거나 전자 메일 확인 됨은 사용자가 B2B 초대를 교환 현재 존재 하지 않는 도메인을 사용 하 여 Azure AD에 대 한 셀프 서비스 등록을 수행 하는 경우에 생성 됩니다. 이러한 도메인으로 직접 페더레이션을 설정할 수 있습니다. Azure Portal 또는 PowerShell을 통해 DNS 확인 도메인으로 직접 페더레이션을 설정 하려고 하면 오류가 표시 됩니다.
+예. 도메인을 확인 하지 않은 상태에서 테 넌 트가 [관리자 인수](../users-groups-roles/domains-admin-takeover.md)하지 않은 경우 해당 도메인을 사용 하 여 직접 페더레이션을 설정할 수 있습니다. 관리 되지 않거나 전자 메일 확인 됨은 사용자가 B2B 초대를 교환 현재 존재 하지 않는 도메인을 사용 하 여 Azure AD에 대 한 셀프 서비스 등록을 수행 하는 경우에 생성 됩니다. 이러한 도메인으로 직접 페더레이션을 설정할 수 있습니다. Azure Portal 또는 PowerShell을 통해 DNS 확인 도메인으로 직접 페더레이션을 설정 하려고 하면 오류가 표시 됩니다.
 ### <a name="if-direct-federation-and-email-one-time-passcode-authentication-are-both-enabled-which-method-takes-precedence"></a>직접 페더레이션 및 전자 메일 일회용 암호 인증을 둘 다 사용 하도록 설정 하는 경우 어떤 방법이 우선적으로 적용 되나요?
 파트너 조직에 직접 페더레이션을 설정 하면 해당 조직의 새 게스트 사용자에 대 한 전자 메일 일회용 암호 인증 보다 우선 적용 됩니다. 게스트 사용자가 직접 페더레이션을 설정 하기 전에 일회용 암호 인증을 사용 하 여 초대를 사용 하는 경우에는 일회성 암호 인증을 계속 사용 합니다. 
 ### <a name="does-direct-federation-address-sign-in-issues-due-to-a-partially-synced-tenancy"></a>부분적으로 동기화 된 테 넌 트로 인해 페더레이션 주소 로그인 문제가 발생 하나요?
@@ -151,7 +151,7 @@ IdP에서 발급 한 WS-급지됨 토큰에 필요한 클레임:
 6. 메타 데이터 파일을 업로드 하 여 메타 데이터 정보를 채울 수 있습니다. 메타 데이터를 수동으로 입력 하도록 선택 하는 경우 다음 정보를 입력 합니다.
    - 파트너 IdP의 도메인 이름
    - 파트너 IdP의 엔터티 ID
-   - 파트너 IdP의 수동 요청자 끝점
+   - 파트너 IdP의 수동 요청자 엔드포인트
    - Certificate
    > [!NOTE]
    > 메타 데이터 URL은 선택 사항 이지만 권장 됩니다. 메타 데이터 URL을 제공 하는 경우 Azure AD는 만료 될 때 서명 인증서를 자동으로 갱신할 수 있습니다. 만료 시간 이전에 어떤 이유로 든 인증서를 회전 하거나 메타 데이터 URL을 제공 하지 않으면 Azure AD는 갱신할 수 없습니다. 이 경우 서명 인증서를 수동으로 업데이트 해야 합니다.

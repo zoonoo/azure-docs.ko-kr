@@ -7,12 +7,12 @@ ms.service: lighthouse
 ms.topic: sample
 ms.date: 07/11/2019
 ms.author: jenhayes
-ms.openlocfilehash: c0266bd3c88dccc8b0413e617bb4a5fcadbf3720
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: b363fcdb752522db07642e625837e03429244f47
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67971341"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884298"
 ---
 # <a name="azure-lighthouse-samples"></a>Azure Lighthouse 샘플
 
@@ -27,7 +27,7 @@ ms.locfileid: "67971341"
 | [deploy-azure-mgmt-services](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/deploy-azure-mgmt-services) | Azure 관리 서비스를 만들고, 함께 연결하고, 추가 솔루션을 배포합니다. |
 | [deploy-azure-security-center](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/deploy-azure-security-center) | 대상 Azure 구독 내에서 Azure Security Center를 사용하도록 설정하고 구성합니다. |
 | [marketplace-delegated-resource-management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/marketplace-delegated-resource-management) | 마켓플레이스에 게시된 관리형 서비스 솔루션에 따라 Azure 위임 리소스 관리에 고객의 구독을 등록합니다. |
-| [rg-delegated-resource-management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/delegated-resource-management) | Azure 위임 리소스 관리에 하나 이상의 고객 리소스 그룹을 등록합니다. |
+| [rg-delegated-resource-management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management) | Azure 위임 리소스 관리에 하나 이상의 고객 리소스 그룹을 등록합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

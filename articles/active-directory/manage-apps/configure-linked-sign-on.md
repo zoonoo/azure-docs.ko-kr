@@ -9,15 +9,15 @@ ms.subservice: app-mgmt
 ms.topic: article
 ms.workload: identity
 ms.date: 05/08/2019
-ms.author: msmimart
+ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2d9035adb70ab4a5877f3e55dc4115a5ec1f7f5
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: cc1e26a3c7d284a60b830f6f66cdcecef97db4d6
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68426565"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68834627"
 ---
 # <a name="configure-linked-sign-on"></a>연결된 로그온 구성
 
@@ -25,7 +25,7 @@ ms.locfileid: "68426565"
 
 ## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
-응용 프로그램을 Azure AD 테 넌 트에 추가 하지 않은 경우 [갤러리 앱 추가](add-gallery-app.md) 또는 [비 갤러리 앱 추가](add-non-gallery-app.md)를 참조 하세요.
+애플리케이션이 Azure AD 테넌트에 추가되지 않은 경우 [갤러리 앱 추가](add-gallery-app.md) 또는 [비갤러리 앱 추가](add-non-gallery-app.md)를 참조하세요.
 
 ### <a name="open-the-app-and-select-linked-sign-on"></a>앱을 열고 연결 된 로그온을 선택 합니다.
 
@@ -35,7 +35,7 @@ ms.locfileid: "68426565"
 
 1. **애플리케이션 유형** 메뉴에서 **모든 애플리케이션**을 선택한 다음, **적용**을 선택합니다.
 
-1. 검색 상자에 응용 프로그램의 이름을 입력 한 다음 결과에서 응용 프로그램을 선택 합니다.
+1. 검색 상자에서 애플리케이션 이름을 입력한 다음, 결과에서 애플리케이션을 선택합니다.
 
 1. **관리** 섹션 아래에서 **Single Sign-On**을 선택합니다. 
 
@@ -49,5 +49,5 @@ ms.locfileid: "68426565"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [응용 프로그램에 사용자 또는 그룹 할당](methods-for-assigning-users-and-groups.md)
-- [자동 사용자 계정 프로 비전 구성](configure-automatic-user-provisioning-portal.md)
+- [애플리케이션에 사용자 또는 그룹 할당](methods-for-assigning-users-and-groups.md)
+- [자동 사용자 계정 프로비저닝 구성](configure-automatic-user-provisioning-portal.md)

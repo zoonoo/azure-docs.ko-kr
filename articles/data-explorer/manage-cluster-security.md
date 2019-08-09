@@ -7,12 +7,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.openlocfilehash: fbc5b18de093b2c91b17fa310c08a5b02b113a22
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 86350f21f5c530a00560c92cc0ae2fd58c9a2c57
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68406523"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780051"
 ---
 # <a name="secure-your-cluster-in-azure-data-explorer"></a>Azure 데이터 탐색기에서 클러스터 보호
 
@@ -20,7 +20,7 @@ ms.locfileid: "68406523"
   
 ## <a name="enable-encryption-at-rest"></a>미사용 암호화 사용
   
-클러스터에서 [휴지 상태의 암호화](/azure/security/azure-security-encryption-atrest) 를 사용 하면 저장 된 데이터에 대 한 데이터 보호를 제공 합니다 (미사용). 
+클러스터에서 [휴지 상태의 암호화](/azure/security/fundamentals/encryption-atrest) 를 사용 하면 저장 된 데이터에 대 한 데이터 보호를 제공 합니다 (미사용). 
 
 1. Azure Portal에서 Azure 데이터 탐색기 클러스터 리소스로 이동 합니다. **설정** 제목 아래에서 **보안**을 선택 합니다. 
 

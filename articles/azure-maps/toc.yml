@@ -133,12 +133,14 @@
       items:
         - name: Android 지도 컨트롤 시작
           href: how-to-use-android-map-control-library.md
+        - name: 맵 스타일 변경
+          href: set-android-map-styles.md
         - name: 기호 계층 추가
           href: how-to-add-symbol-to-android-map.md
         - name: 셰이프 추가
           href: how-to-add-shapes-to-android-map.md
-        - name: 맵 스타일 변경
-          href: set-android-map-styles.md
+        - name: 타일 계층 추가
+          href: how-to-add-tile-layer-android-map.md
 - name: 참고 자료
   items:
     - name: API 및 매개 변수 확장

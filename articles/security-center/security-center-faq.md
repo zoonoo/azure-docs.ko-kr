@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 300d96a792663a32a326d5d01f281b77ccf9c4bf
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6e41453a096f4812b9ba541a2693b9c9b975b7c9
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050515"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779070"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure Security Center FAQ(질문과 대답)
 이 FAQ는 증가된 가시성으로 위협을 예방, 감지 및 대응하고 Microsoft Azure 리소스의 보안을 제어하는 서비스인 Azure Security Center에 관한 질문에 답변합니다.
@@ -36,7 +36,7 @@ Azure Security Center는 Azure 리소스의 보안에 대한 향상된 가시성
 ### <a name="how-do-i-get-azure-security-center"></a>Azure Security Center를 이용하려면 어떻게 해야 하나요?
 Azure Security Center는 Microsoft Azure 구독을 사용하도록 설정되어 있으며 [Azure Portal](https://azure.microsoft.com/features/azure-portal/)에서 액세스합니다. [포털에 로그인](https://portal.azure.com)하여 **찾아보기**를 선택하고 **Security Center**로 스크롤합니다.  
 
-## <a name="billing"></a>결제
+## <a name="billing"></a>대금 청구
 ### <a name="how-does-billing-work-for-azure-security-center"></a>Azure Security Center에 대한 청구는 어떻게 작동합니까?
 Security Center는 두 계층으로 제공됩니다.
 
@@ -44,10 +44,10 @@ Security Center는 두 계층으로 제공됩니다.
 
 **표준 계층**은 인텔리전스, 동작 분석, 변칙 검색, 보안 사고 위협 및 위협 특성 보고서 등 고급 위협 감지 기능을 추가합니다. 표준 계층 무료 평가판을 시작할 수 있습니다. 업그레이드하려면 보안 정책에서 [가격 책정 계층](https://docs.microsoft.com/azure/security-center/security-center-pricing)을 선택합니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.
 
-### <a name="how-can-i-track-who-in-my-organization-performed-pricing-tier-changes-in-azure-security-center"></a>내 조직에 Azure Security Center의 가격 책정 계층 변경 내용을 수행 하 게 추적할 수는 방법
-Azure 구독의 가격 책정 계층을 변경할 수 있는 권한이 있는 관리자는 여러 수 있으므로, 사용자 가격 책정 계층 변경을 수행한 사람 인지 알고 있어야 할 수도 있습니다. 를 사용 하 여 Azure 활동 로그를 사용할 수 하나. 추가 지침은 하세요 [여기](https://techcommunity.microsoft.com/t5/Security-Identity/Tracking-Changes-in-the-Pricing-Tier-for-Azure-Security-Center/td-p/390832)
+### <a name="how-can-i-track-who-in-my-organization-performed-pricing-tier-changes-in-azure-security-center"></a>에서 조직의 가격 책정 계층 변경을 수행한 사람을 추적 하려면 어떻게 해야 하나요? Azure Security Center
+Azure 구독에는 가격 책정 계층을 변경할 수 있는 권한이 있는 관리자가 여러 개 있을 수 있으므로 사용자는 가격 책정 계층 변경을 수행한 사용자를 알고 싶을 수 있습니다. 이를 사용 하려면 Azure 활동 로그를 사용할 수 있습니다. 자세한 내용은 [여기](https://techcommunity.microsoft.com/t5/Security-Identity/Tracking-Changes-in-the-Pricing-Tier-for-Azure-Security-Center/td-p/390832) 를 참조 하세요.
 
-## <a name="permissions"></a>권한
+## <a name="permissions"></a>사용 권한
 Azure Security Center는 Azure에서 사용자, 그룹 및 서비스에 [기본 제공 역할](../role-based-access-control/built-in-roles.md)을 제공하는 [RBAC(역할 기반 Access Control)](../role-based-access-control/role-assignments-portal.md)를 사용합니다.
 
 Security Center는 리소스 구성을 평가하여 보안 문제 및 취약성을 식별합니다. Security Center에서는 리소스가 속한 구독이나 리소스 그룹에 대한 소유자, 참가자 또는 독자 역할을 할당 받을 때 리소스와 관련된 항목만 볼 수 있습니다.
@@ -55,10 +55,10 @@ Security Center는 리소스 구성을 평가하여 보안 문제 및 취약성�
 Security Center의 역할 및 허용된 작업에 대한 자세한 내용은 [Azure Security Center의 권한](security-center-permissions.md)을 참조하세요.
 
 ## <a name="data-collection-agents-and-workspaces"></a>데이터 수집, 에이전트 및 작업 영역
-Security Center는 Azure virtual machines (Vm), 가상 머신 확장 집합 (VMSS), IaaS 컨테이너 및 보안 취약성과 위협을 모니터링 하는 온-프레미스) (포함 비 Azure 컴퓨터에서 데이터를 수집 합니다. Microsoft Monitoring Agent를 사용하여 데이터를 수집합니다. Microsoft Monitoring Agent는 머신에서 다양한 보안 관련 구성 및 이벤트 로그를 읽고 분석용으로 작업 영역에 데이터를 복사합니다.
+Security Center는 Azure Vm (가상 머신), VMSS (가상 머신 확장 집합), IaaS 컨테이너 및 비 Azure (온-프레미스) 컴퓨터에서 보안 취약성 및 위협에 대 한 모니터링을 위해 데이터를 수집 합니다. Microsoft Monitoring Agent를 사용하여 데이터를 수집합니다. Microsoft Monitoring Agent는 머신에서 다양한 보안 관련 구성 및 이벤트 로그를 읽고 분석용으로 작업 영역에 데이터를 복사합니다.
 
-### <a name="am-i-billed-for-azure-monitor-logs-on-the-workspaces-created-by-security-center"></a>Security Center에서 만든 작업 영역에서 Azure Monitor 로그에 대 한 요금은 청구 되나요?
-아니요. Security Center에서 만든 작업 영역은 노드 요금 청구 당 Azure Monitor 로그에 대 한 구성 하는 동안 Azure Monitor 로그 요금이 발생 하지 않습니다. Security Center 청구는 항상 작업 영역에 설치된 Security Center 보안 정책 및 솔루션에 기반합니다.
+### <a name="am-i-billed-for-azure-monitor-logs-on-the-workspaces-created-by-security-center"></a>Security Center에서 만든 작업 영역에 대 한 Azure Monitor 로그 요금이 청구 되나요?
+아니요. Security Center에서 만든 작업 영역은 노드 요금 청구 당 Azure Monitor 로그에 대해 구성 된 상태에서 Azure Monitor 로그 요금이 발생 하지 않습니다. Security Center 청구는 항상 작업 영역에 설치된 Security Center 보안 정책 및 솔루션에 기반합니다.
 
 - **무료 계층** – Security Center는 기본 작업 영역에서 'SecurityCenterFree' 솔루션을 사용하도록 설정합니다. 체험 계층에 대한 요금이 청구되지 않습니다.
 - **표준 계층** – Security Center는 기본 작업 영역에서 'Security' 솔루션을 사용하도록 설정합니다.
@@ -66,7 +66,7 @@ Security Center는 Azure virtual machines (Vm), 가상 머신 확장 집합 (VMS
 자세한 내용은 [Security Center 가격 책정](https://azure.microsoft.com/pricing/details/security-center/)을 참조하세요. 가격 책정 페이지 주소는 2017년 6월부터 보안 데이터 저장소 및 비례 배분 청구로 변경됩니다.
 
 > [!NOTE]
-> Log analytics 가격 책정 계층은 Security Center에서 만든 작업 영역에는 Security Center 청구 영향을 주지 않습니다.
+> Security Center에서 만든 작업 영역의 log analytics 가격 책정 계층은 Security Center 청구에 영향을 주지 않습니다.
 >
 >
 
@@ -77,7 +77,7 @@ Security Center는 Azure virtual machines (Vm), 가상 머신 확장 집합 (VMS
 
 - Microsoft Monitoring Agent 확장이 VM에 현재 설치되어 있지 않습니다.
 - VM이 실행 중인 상태입니다.
-- Windows 또는 Linux [Azure Virtual Machine 에이전트](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) 설치 됩니다.
+- Windows 또는 Linux [Azure 가상 컴퓨터 에이전트가](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) 설치 되어 있습니다.
 - VM이 웹 애플리케이션 방화벽이나 차세대 방화벽과 같은 어플라이언스로 사용되지 않습니다.
 
 ### <a name="can-i-delete-the-default-workspaces-created-by-security-center"></a>Security Center에서 만든 기본 작업 영역을 삭제할 수 있나요?
@@ -105,7 +105,7 @@ Security Center는 Azure virtual machines (Vm), 가상 머신 확장 집합 (VMS
    >
    >
 
-3. **저장**을 선택합니다.
+3.           **저장**을 선택합니다.
 4. **저장**을 선택하고 나면 모니터링되는 VM을 다시 구성할지를 묻는 메시지가 표시됩니다.
 
    - 새 작업 영역 설정을 **새 VM에만 적용**하려면 **아니요**를 선택합니다. 그러면 새 작업 영역 설정이 새 Agent 설치(Microsoft Monitoring Agent가 설치되어 있지 않은 새로 검색된 VM)에만 적용됩니다.
@@ -118,25 +118,25 @@ Security Center는 Azure virtual machines (Vm), 가상 머신 확장 집합 (VMS
 
    - 작업을 취소하려면 **취소**를 선택합니다.
 
-### 그렇다면 Microsoft Monitoring Agent vm 확장으로 이미 설치 된?<a name="mmaextensioninstalled"></a>
-Monitoring Agent 확장으로 설치 될 때만 단일 작업 영역에 보고 확장 구성을 허용 합니다. Security Center는 사용자 작업 영역에 대한 기존 연결을 재정의하지 않습니다. "보안" 또는 "SecurityCenterFree" 솔루션 설치가 완료 된 후에 security Center 이미 연결 되어 있는 작업 영역에 VM에서 보안 데이터를 저장 합니다. Security Center는이 프로세스에서 최신 버전으로 확장 버전을 업그레이드할 수 있습니다.
+### Microsoft Monitoring Agent VM에 확장으로 이미 설치 되어 있으면 어떻게 되나요?<a name="mmaextensioninstalled"></a>
+모니터링 에이전트가 확장으로 설치 될 때 확장 구성은 단일 작업 영역에만 보고 하도록 허용 합니다. Security Center는 사용자 작업 영역에 대한 기존 연결을 재정의하지 않습니다. "보안" 또는 "보안 강화" 솔루션이 설치 된 경우 Security Center는 이미 연결 된 작업 영역에 있는 VM의 보안 데이터를 저장 합니다. 이 프로세스에서 확장 버전을 최신 버전으로 업그레이드할 수 Security Center.
 
-자세한 내용은 [기존 에이전트 설치의 경우에서 자동 프로 비전](security-center-enable-data-collection.md#preexisting)합니다.
+자세한 내용은 [기존 에이전트를 설치 하는 경우 자동 프로 비전](security-center-enable-data-collection.md#preexisting)을 참조 하세요.
 
 
-### Microsoft Monitoring Agent 했습니다 어떻게 확장 (직접 에이전트) 것이 아니라 컴퓨터에서 직접 설치 되어 있습니까?<a name="directagentinstalled"></a>
-Microsoft Monitoring Agent (을 Azure 확장이 아니라) VM에 직접 설치 되어 있으면 Security Center가 Microsoft Monitoring Agent 확장을 설치 하 고 Microsoft Monitoring agent를 최신 버전으로 업그레이드할 수 있습니다.
-설치 된 에이전트는 계속 해당 이미 구성 된 작업 영역에 보고 하 고 또한 Security Center에서 구성 된 작업 영역에 보고 됩니다 (멀티 호 밍은 Windows 컴퓨터에서 지원 됨).
-설치 해야 구성된 된 작업 영역 사용자 작업 영역 (없습니다 Security Center의 기본 작업 영역) 인 경우는 "보안"SecurityCenterFree"Vm 및 컴퓨터에서 이벤트 처리를 시작 하려면 Security center에 솔루션을 보고 / 작업 영역입니다.
+### Microsoft Monitoring Agent이 컴퓨터에 직접 설치 되어 있지만 확장 (직접 에이전트)이 아닌 경우는 어떻게 되나요?<a name="directagentinstalled"></a>
+Microsoft Monitoring Agent VM에 직접 설치 되는 경우 (Azure 확장이 아니라) Security Center는 Microsoft Monitoring Agent 확장을 설치 하 고 Microsoft Monitoring Agent를 최신 버전으로 업그레이드할 수 있습니다.
+설치 된 에이전트는 이미 구성 된 작업 영역을 계속 보고 하 고, Security Center에서 구성 된 작업 영역 (Windows 컴퓨터에서는 멀티 호 밍이 지원 됨)에도 보고 합니다.
+구성 된 작업 영역이 사용자 작업 영역 (Security Center의 기본 작업 영역) 인 경우 해당 작업 영역에 대 한 "보안/" 보안 강화 "Security Center 솔루션을 설치 하 여 Vm 및 컴퓨터에서 보고 되는 컴퓨터의 이벤트 처리를 시작 해야 합니다. 환경이.
 
-Linux 컴퓨터에 대 한 에이전트 멀티 호 밍 되지 않으므로 지원-따라서 기존 에이전트 설치가 검색 되 면 자동 프로 비전 발생 하지 않습니다 및 컴퓨터의 구성을 변경 되지 않습니다.
+Linux 컴퓨터의 경우 에이전트 멀티 호 밍은 아직 지원 되지 않습니다. 따라서 기존 에이전트 설치가 검색 되 면 자동 프로비저닝이 발생 하지 않고 컴퓨터의 구성이 변경 되지 않습니다.
 
-2019-03-17, 기존 에이전트는 감지 하면 전에 Security Center에 구독 등록의 기존 컴퓨터에 Microsoft Monitoring Agent 확장을 설치 하지 않습니다 및 컴퓨터에는 영향을 받지 않습니다. 이러한 컴퓨터를이 컴퓨터에 에이전트 설치 문제를 해결 하는 "컴퓨터에서 에이전트 상태 문제 모니터링 해결" 권장 사항이 참조 하세요.
+등록 구독에 있는 기존 컴퓨터의 경우 2019-03-17 이전에 Security Center 하기 위해 기존 에이전트가 검색 되 면 Microsoft Monitoring Agent 확장이 설치 되지 않으며 컴퓨터에 영향을 주지 않습니다. 이러한 컴퓨터의 경우 해당 컴퓨터에서 에이전트 설치 문제를 해결 하려면 "컴퓨터에서 모니터링 에이전트 상태 문제 해결"을 참조 하세요.
 
  자세한 내용은 다음 섹션 [SCOM 또는 OMS 직접 에이전트가 VM에 이미 설치되어 있으면 어떻게 되나요?](#scomomsinstalled)를 참조하세요.
 
-### System Center Operations Manager (SCOM) 에이전트를 VM에 이미 설치 되어 있으면 어떻게 되나요?<a name="scomomsinstalled"></a>
-기존 System Center Operations Manager 에이전트를 security center는 Microsoft Monitoring Agent 확장-side-by-side를 설치 합니다. 기존 SCOM 에이전트는 일반적으로 System Center Operations Manager 서버에 보고 계속 됩니다. System Center Operations Manager 에이전트 및 Microsoft Monitoring Agent가이 프로세스 중 최신 버전으로 업데이트 될 공용 런타임 라이브러리를 공유 하는 note 하십시오. System Center Operations Manager 2012 에이전트 버전을 설치 하면 자동으로 프로 비전 설정 하지 하는 경우 (관리 효율성 기능 손실 될 수 있습니다 System Center Operations Manager server가 버전 2012).
+### System Center Operations Manager (SCOM) 에이전트가 VM에 이미 설치 되어 있으면 어떻게 되나요?<a name="scomomsinstalled"></a>
+Security center에서는 기존 System Center Operations Manager 에이전트에 Microsoft Monitoring Agent 확장을 함께 설치 합니다. 기존 SCOM 에이전트는 System Center Operations Manager 서버에 정상적으로 계속 보고 합니다. System Center Operations Manager 에이전트와 Microsoft Monitoring Agent는 공용 런타임 라이브러리를 공유 하며,이는이 프로세스 중에 최신 버전으로 업데이트 됩니다. 참고-System Center Operations Manager 에이전트 버전 2012가 설치 되어 있는 경우에는 자동 프로 비전을 설정 하지 마십시오. System Center Operations Manager 서버가 2012 버전인 경우에도 관리 기능이 손실 될 수 있습니다.
 
 ### <a name="what-is-the-impact-of-removing-these-extensions"></a>이러한 확장을 제거할 경우 어떤 영향이 있나요?
 Microsoft Monitoring 확장을 제거하는 경우 Security Center는 VM의 보안 데이터 및 일부 보안 권장 사항을 수집할 수 없고 경고를 사용할 수 없습니다. 24시간 이내에 Security Center는 VM이 확장을 누락하고 확장을 다시 설치했는지 확인합니다.
@@ -161,7 +161,7 @@ Microsoft Monitoring 확장을 제거하는 경우 Security Center는 VM의 보�
 다음에 해당하는 경우 자동 프로비전을 옵트아웃하는 것이 좋습니다.
 
 - Security Center에 의한 자동 에이전트 설치가 전체 구독에 적용됩니다.  VM의 하위 집합에 자동 설치를 적용할 수 없습니다. Microsoft Monitoring Agent와 함께 설치할 수 없는 중요한 VM이 있는 경우 자동 프로비전을 옵트아웃해야 합니다.
-- 에이전트의 버전을 업데이트 하는 Microsoft 모니터링 에이전트 (MMA) 확장을 설치 합니다. 이 직접 에이전트와 SCOM 에이전트에 적용 됩니다 (후자의 경우에 SCOM 및 MMA 공유 프로세스에서 업데이트 될 공용 런타임 라이브러리-). 설치된 SCOM 에이전트가 2012 버전이고 업그레이드된 경우 SCOM 서버도 2012 버전이면 관리 기능이 손실될 수 있습니다. 설치된 SCOM 에이전트가 2012 버전인 경우 자동 프로비전을 옵트아웃하는 것이 좋습니다.
+- MMA (Microsoft Monitoring Agent) 확장을 설치 하면 에이전트 버전이 업데이트 됩니다. 이는 직접 에이전트 및 SCOM 에이전트에 적용 됩니다 (후자의 경우 SCOM 및 MMA share 공용 런타임 라이브러리-프로세스에서 업데이트 됨). 설치된 SCOM 에이전트가 2012 버전이고 업그레이드된 경우 SCOM 서버도 2012 버전이면 관리 기능이 손실될 수 있습니다. 설치된 SCOM 에이전트가 2012 버전인 경우 자동 프로비전을 옵트아웃하는 것이 좋습니다.
 - 구독 외부의 사용자 지정 작업 영역(중앙 집중식 작업 영역)이 있는 경우 자동 프로비전을 옵트아웃해야 합니다. Microsoft Monitoring Agent 확장을 수동으로 설치하고 Security Center가 연결을 재정의하지 않고 작업 영역에 연결할 수 있습니다.
 - 구독 내에 자신의 사용자 지정 작업 영역이 있고 구독당 작업 영역을 여러 개 만들지 않으려는 경우 두 가지 옵션이 있습니다.
 
@@ -218,7 +218,9 @@ Microsoft Monitoring Agent를 수동으로 제거할 수 있습니다. Security 
 
 Security Center가 VM에서 의심스러운 작업을 감지하면 고객은 경우 [보안 연락처 정보](security-center-provide-security-contact-details.md)가 제공된 경우 전자 메일을 통해 알림을 받습니다. 경고는 또한 Security Center의 보안 경고 대시보드에 표시됩니다.
 
-
+### <a name="will-security-center-work-using-an-oms-gateway"></a>OMS 게이트웨이를 사용 하 여 작업할 Security Center 있나요?
+예. Azure Security Center는 Microsoft Monitoring Agent를 사용 하 여 Azure Vm 및 서버에서 데이터를 수집 하는 Azure Monitor 활용 합니다.
+데이터를 수집 하려면 각 VM과 서버에서 HTTPS를 사용 하 여 인터넷에 연결 해야 합니다. 연결은 프록시를 사용 하 여 직접 또는 [OMS 게이트웨이](../azure-monitor/platform/gateway.md)를 통해 연결할 수 있습니다.
 
 ### <a name="does-the-monitoring-agent-impact-the-performance-of-my-servers"></a>Monitoring Agent가 서버의 성능에 미치는 영향
 에이전트는 시스템 리소스의 명목 양을 소비하며 성능에 거의 영향을 미치지 않습니다. 성능 영향과 에이전트 및 확장에 대한 자세한 내용은 [계획 및 작업 가이드](security-center-planning-and-operations-guide.md#data-collection-and-storage)를 참조하세요.
@@ -229,9 +231,9 @@ Security Center가 VM에서 의심스러운 작업을 감지하면 고객은 경
 ## 기존 Azure Monitor 로그 고객<a name="existingloganalyticscust"></a>
 
 ### <a name="does-security-center-override-any-existing-connections-between-vms-and-workspaces"></a>Security Center에서 VM과 작업 영역 간의 모든 기존 연결을 재정의하나요?
-VM에 Azure 확장으로 Microsoft Monitoring Agent가 이미 설치되어 있으면 Security Center에서 기존 작업 영역 연결을 재정의하지 않습니다. 대신 Security Center에서 기존 작업 영역을 사용합니다. "보안" 또는 "SecurityCenterFree" 솔루션에 대 한 보고 작업 영역에 설치 되어 있는 VM은 보호할 수 있습니다. 
+VM에 Azure 확장으로 Microsoft Monitoring Agent가 이미 설치되어 있으면 Security Center에서 기존 작업 영역 연결을 재정의하지 않습니다. 대신 Security Center에서 기존 작업 영역을 사용합니다. "보안" 또는 "보안 강화" 솔루션이 보고 하는 작업 영역에 설치 되어 있으면 VM이 보호 됩니다. 
 
-Security Center 솔루션이 데이터 수집 화면에서 선택한 작업 영역에 설치 된 경우에 없는 및 솔루션 관련 Vm에만 적용 됩니다. 솔루션을 추가하면 기본적으로 Log Analytics 작업 영역에 연결된 모든 Windows 및 Linux 에이전트에 의해 배포됩니다. [솔루션 대상 지정](../operations-management-suite/operations-management-suite-solution-targeting.md)을 사용하면 솔루션에 범위를 적용할 수 있습니다.
+Security Center 솔루션은 아직 없는 경우 데이터 수집 화면에서 선택한 작업 영역에 설치 되 고 솔루션은 관련 Vm에만 적용 됩니다. 솔루션을 추가하면 기본적으로 Log Analytics 작업 영역에 연결된 모든 Windows 및 Linux 에이전트에 의해 배포됩니다. [솔루션 대상 지정](../operations-management-suite/operations-management-suite-solution-targeting.md)을 사용하면 솔루션에 범위를 적용할 수 있습니다.
 
 Microsoft Monitoring Agent를 Azure 확장으로 설치하는 것이 아니라 VM에 직접 설치하는 경우 Security Center는 Microsoft Monitoring Agent를 설치하지 않으며, 보안 모니터링 기능이 제한됩니다.
 
@@ -263,7 +265,7 @@ Azure Security Center에서 사용하도록 설정한 보안 정책에 따라 �
 보안 정책을 구성하는 방법을 자세히 알아보려면 [Azure Security Center에서 보안 정책 설정](tutorial-security-policy.md)을 참조하세요.
 
 ### <a name="what-is-a-security-recommendation"></a>보안 권장 사항이란?
-Azure Security Center에서는 Azure 리소스의 보안 상태를 분석합니다. 잠재적인 보안 취약성이 식별되면 권장 사항이 생성됩니다. 권장 사항은 필요한 컨트롤을 구성하는 과정을 안내합니다. 예:
+Azure Security Center에서는 Azure 리소스의 보안 상태를 분석합니다. 잠재적인 보안 취약성이 식별되면 권장 사항이 생성됩니다. 권장 사항은 필요한 컨트롤을 구성하는 과정을 안내합니다. 예는 다음과 같습니다.
 
 * 악성 소프트웨어를 식별하여 제거하는 데 도움을 주는 맬웨어 방지 프로그램 프로비전
 * 가상 머신의 트래픽을 제어하는 [네트워크 보안 그룹](../virtual-network/security-overview.md) 및 규칙
@@ -284,8 +286,8 @@ Azure Security Center는 리소스, 네트워크 및 맬웨어 방지 프로그�
 * 가상 머신에 대한 무작위 공격
 * 맬웨어 방지 프로그램 또는 웹 애플리케이션 방화벽 등과 같은 통합된 파트너 보안 솔루션에서의 보안 경고
 
-### 왜 점수 값 변경 보안 않았습니다? <a name="secure-score-faq"></a>
-2019 년 2 월을 기준으로 Security Center의 심각도 따라 하기 위해 몇 가지 권장 사항, 점수를 조정 합니다. 이러한 조정의 결과로 있을 점수 값을 보호 하는 전체에서 변경 합니다.  보안 점수에 대 한 자세한 내용은 참조 하세요. [점수를 계산할 보안](security-center-secure-score.md)합니다.
+### 보안 점수 값이 변경 되는 이유는 무엇 인가요? <a name="secure-score-faq"></a>
+2019 년 2 월 Security Center에는 심각도를 보다 잘 맞추기 위해 몇 가지 권장 사항의 점수를 조정 했습니다. 이러한 조정의 결과로 전체 보안 점수 값이 변경 될 수 있습니다.  보안 점수에 대 한 자세한 내용은 [보안 점수 계산](security-center-secure-score.md)을 참조 하세요.
 
 ### <a name="whats-the-difference-between-threats-detected-and-alerted-on-by-microsoft-security-response-center-versus-azure-security-center"></a>Microsoft 보안 응답 센터와 Azure Security Center에서 감지 및 경고된 위협 간의 차이점은 무엇입니까?
 Microsoft 보안 대응 센터(MSRC)는 Azure 네트워크 및 인프라의 선택 보안 모니터링을 수행하고 타사에서 위협 인텔리전스 및 남용 불만 사항을 받습니다. MSRC는 불법적인 또는 권한 없는 당사자가 고객 데이터에 액세스했거나 고객의 Azure 사용이 사용 제한에 대한 조건을 준수하지 않는 것을 인식하면 보안 사고 관리자는 고객에게 알립니다. 보안 연락처를 지정하지 않은 경우 대개 Azure Security Center에 지정된 보안 연락처 또는 Azure 구독 소유자에게 메일을 전송하는 방식으로 알림이 수행됩니다.
@@ -297,15 +299,15 @@ Azure Security Center에서는 다음과 같은 Azure 리소스를 모니터링�
 
 * 가상 머신(VM)( [Cloud Services](../cloud-services/cloud-services-choose-me.md)포함)
 * 가상 머신 확장 집합 (VMSSs)
-* Azure Virtual Networks
+* Azure Virtual Network
 * Azure SQL 서비스
 * Azure Storage 계정
 * Azure Web Apps([App Service Environment](../app-service/environment/intro.md))
 * VM 및 App Service Environment에서 웹 애플리케이션 방화벽 같이 Azure 구독과 통합된 파트너 솔루션
 
-또한 온-프레미스) (포함 비 Azure 컴퓨터도 모니터링할 수 있습니다 Azure Security Center에서 (둘 다 [Windows 컴퓨터](./quick-onboard-windows-computer.md) 하 고 [Linux 컴퓨터](./quick-onboard-linux-computer.md) 지)
+또한 Azure 외의 컴퓨터 (온-프레미스 포함)도 Azure Security Center에서 모니터링할 수 있습니다 ( [Windows 컴퓨터](./quick-onboard-windows-computer.md) 및 [Linux 컴퓨터](./quick-onboard-linux-computer.md) 모두 지원 됨).
 
-## <a name="virtual-machines"></a>Virtual Machines
+## <a name="virtual-machines"></a>가상 머신
 ### <a name="what-types-of-virtual-machines-are-supported"></a>어떤 유형의 가상 머신이 지원되나요?
 [클래식 및 Resource Manager 배포 모델](../azure-classic-rm.md)을 모두 사용하여 작성된 VM(가상 머신)에 대해 모니터링 및 권장 사항이 제공됩니다.
 
