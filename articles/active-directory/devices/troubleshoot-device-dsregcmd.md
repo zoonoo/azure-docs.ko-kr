@@ -133,7 +133,7 @@ Dsregcmd.exe/status 유틸리티는 도메인 사용자 계정으로 실행 해�
 - **WorkplaceJoined:** -Azure AD 등록 된 계정이 현재 ntuser.man 파일 컨텍스트의 장치에 추가 된 경우 "예"로 설정 합니다.
 - **WamDefaultSet:** -로그인 한 사용자에 대해 WAM default WebAccount가 생성 되 면 "예"로 설정 합니다. Dsreg/status를 관리자 컨텍스트에서 실행 하는 경우이 필드에 오류가 표시 될 수 있습니다. 
 - **WamDefaultAuthority:** -Azure AD의 "조직"으로 설정 합니다.
-- **WamDefaultId:** -Azure AD https://login.microsoft.com 의 경우-항상 ""입니다.
+- **WamDefaultId:** -Azure AD “https://login.microsoft.com” 의 경우-항상 ""입니다.
 - **고 wamdefaultguid:** -기본 WAM WebAccount에 대 한 WAM 공급자의 (Azure AD/MICROSOFT 계정) GUID입니다. 
 
 ### <a name="sample-user-state-output"></a>샘플 사용자 상태 출력
