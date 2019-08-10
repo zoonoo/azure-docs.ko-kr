@@ -58,6 +58,8 @@
           href: ./Quickstarts/create-publish-kb-csharp-sdk.md
         - name: Node.js
           href: ./Quickstarts/create-publish-kb-nodejs-sdk.md
+        - name: Python
+          href: ./Quickstarts/python-sdk.md
 - name: 자습서
   items:
     - name: KB에서 만들기 및 대답
