@@ -38,7 +38,7 @@ ms.locfileid: "66418322"
 1. VMware VM, Hyper-V VM 및 물리적 머신의 온-프레미스 재해 복구가 Azure에 수행되도록 [Azure를 설정](tutorial-prepare-azure.md)했는지 확인합니다.
 2. 재해 복구용 온-프레미스 [VMware](vmware-azure-tutorial-prepare-on-premises.md) 또는 [Hyper-V](hyper-v-prepare-on-premises-tutorial.md) 환경을 준비합니다. 물리적 서버에 대한 재해 복구를 설정하는 경우 [지원 매트릭스](vmware-physical-secondary-support-matrix.md)를 검토합니다.
 3. [VMware VM](vmware-azure-tutorial.md), [Hyper-V VM](hyper-v-azure-tutorial.md) 또는 [물리적 컴퓨터](physical-azure-disaster-recovery.md)에 대한 재해 복구를 설정합니다.
-4. [재해 복구 드릴](tutorial-dr-drill-azure.md)을 실행하여 모든 항목이 예상대로 작동하는지 확인합니다.
+4. [재해 복구 훈련](tutorial-dr-drill-azure.md)을 실행하여 모든 항목이 예상대로 작동하는지 확인합니다.
 
 ## <a name="failover-and-failback"></a>장애 조치 및 장애 복구
 
@@ -77,8 +77,8 @@ ms.locfileid: "66418322"
 
 1. **설정** > **복제된 항목**에서 장애 조치(failover)하려는 VM을 선택한 후 **장애 조치(failover)** 를 선택합니다.
 2. **장애 조치(Failover)** 에서 장애 조치(failover)할 **복구 지점**을 선택합니다. 다음 옵션 중 하나를 사용할 수 있습니다.
-   * **최신**: 이 옵션은 Site Recovery로 전송된 모든 데이터를 먼저 처리합니다. 이 옵션은 장애 조치(failover) 후에 생성된 Azure VM은 장애 조치(failover)가 트리거되었을 때 Site Recovery로 복제된 모든 데이터를 보유하므로 가장 낮은 RPO(복구 지점 목표)를 제공합니다.
-   * **가장 최근에 처리됨**: 이 옵션은 VM을 Site Recovery에서 처리된 최신 복구 지점으로 장애 조치(failover)합니다. 이 옵션은 처리되지 않은 데이터를 처리하는 데 시간이 투입되지 않으므로 낮은 RTO(복구 시간 목표)를 제공합니다.
+   * **최신**: 이 옵션은 Site Recovery로 전송된 모든 데이터를 먼저 처리합니다. 장애 조치(failover) 후에 생성된 Azure VM은 장애 조치(failover)가 트리거되었을 때 Site Recovery로 복제된 모든 데이터를 보유하므로, 이 옵션은 가장 낮은 RPO(복구 목표 시점)를 제공합니다.
+   * **가장 최근에 처리됨**: 이 옵션은 VM을 Site Recovery에서 처리된 최신 복구 지점으로 장애 조치(failover)합니다. 처리되지 않은 데이터를 처리하는 데 시간이 투입되지 않으므로, 이 옵션은 낮은 RTO(복구 목표 시간)를 제공합니다.
    * **최신 앱 일치**: 이 옵션은 VM을 Site Recovery에서 처리된 최신 앱 일치 복구 지점으로 장애 조치(failover)합니다.
    * **사용자 지정**: 이 옵션을 통해 복구 지점을 지정할 수 있습니다.
 
@@ -86,7 +86,7 @@ ms.locfileid: "66418322"
 
 일부 시나리오에서는 장애 조치(failover)를 위해서는 추가 처리가 필요하며 이러한 작업을 완료하는 데는 약 8~10분이 소요됩니다. 다음에 대한 테스트 장애 조치(failover) 시간이 길어질 수 있습니다.
 
-* 9.8 이전의 모바일 서비스 버전을 실행하는 VMware VM
+* 9\.8 이전의 모바일 서비스 버전을 실행하는 VMware VM
 * 실제 서버
 * VMware Linux VM
 * 물리적 서버로 보호되는 Hyper-V VM
