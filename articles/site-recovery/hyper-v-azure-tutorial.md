@@ -144,4 +144,4 @@ Site Recovery가 호환되는 Azure 저장소 계정 및 네트워크가 하나 
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]
-> [재해 복구 드릴 실행](tutorial-dr-drill-azure.md)
+> [재해 복구 훈련 실행](tutorial-dr-drill-azure.md)
