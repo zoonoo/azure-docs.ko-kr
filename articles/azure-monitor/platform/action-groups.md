@@ -144,7 +144,7 @@ Runbook 페이로드에 대 한 제한은 [Azure 구독 서비스](../../azure-s
 
 작업 그룹 웹 후크 작업을 사용 하면 Azure Active Directory를 활용 하 여 작업 그룹과 보호 된 웹 API (웹 후크 끝점) 간의 연결을 보호할 수 있습니다. 이 기능을 활용 하는 전체 워크플로는 아래에 설명 되어 있습니다. Azure AD 응용 프로그램 및 서비스 주체에 대 한 개요는 v2.0 [(Microsoft identity platform) 개요](https://docs.microsoft.com/azure/active-directory/develop/v2-overview)를 참조 하세요.
 
-1. 보호 된 web API에 대 한 Azure AD 응용 프로그램을 만듭니다. https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview 을 참조하세요.
+1. 보호 된 web API에 대 한 Azure AD 응용 프로그램을 만듭니다. [https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview](https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview ) 을 참조하세요.
     - 디먼 앱에서 호출 하도록 보호 된 API를 구성 합니다.
     
 1. Azure AD 응용 프로그램을 사용 하는 작업 그룹을 사용 하도록 설정 합니다.
