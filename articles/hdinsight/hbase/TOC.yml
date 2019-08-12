@@ -25,14 +25,6 @@
       href: ../hdinsight-component-versioning.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
     - name: HDInsight 4.0
       href: ../hdinsight-version-release.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
-    - name: 문제 해결
-      items:
-        - name: Apache HBase REST가 응답하지 않음
-          href: ./hbase-troubleshoot-rest-not-spending.md
-        - name: Azure 지역 서버의 고정 CPU
-          href: ./hbase-troubleshoot-pegged-cpu-region-server.md
-        - name: '''hbase hbck'' 명령을 사용하여 시간 제한'
-          href: ./hbase-troubleshoot-timeouts-hbase-hbck.md
 - name: 방법
   items:
     - name: 클러스터 저장소 사용
@@ -167,8 +159,25 @@
         - name: HDInsight 클러스터의 OS 패치
           href: ../hdinsight-os-patching.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
     - name: 문제 해결
-      href: ../hdinsight-troubleshoot-guide.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
       items:
+        - name: 문제 해결 리소스
+          href: ../hdinsight-troubleshoot-guide.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
+        - name: Apache Phoenix 보기에 데이터가 없음
+          href: ./hbase-troubleshoot-phoenix-no-data.md
+        - name: BindException - 사용 중인 주소
+          href: ./hbase-troubleshoot-bindexception-address-use.md
+        - name: Apache HBase 시작 실패
+          href: ./hbase-troubleshoot-start-fails.md
+        - name: 지역 서버 문제
+          href: ./hbase-troubleshoot-unassigned-regions.md
+        - name: Apache Phoenix 연결 문제
+          href: ./hbase-troubleshoot-phoenix-connectivity.md
+        - name: Apache HBase REST가 응답하지 않음
+          href: ./hbase-troubleshoot-rest-not-spending.md
+        - name: Azure 지역 서버의 고정 CPU
+          href: ./hbase-troubleshoot-pegged-cpu-region-server.md
+        - name: '''hbase hbck'' 명령을 사용하여 시간 제한'
+          href: ./hbase-troubleshoot-timeouts-hbase-hbck.md
         - name: 속도가 느리거나 오류가 발생하는 HDInsight 클러스터 문제 해결
           href: ../hdinsight-troubleshoot-failed-cluster.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
         - name: Apache Hadoop HDFS 문제 해결

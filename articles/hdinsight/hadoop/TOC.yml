@@ -41,30 +41,6 @@
       href: ../hdinsight-hadoop-compare-storage-options.md?toc=/azure/hdinsight/hadoop/toc.json&bc=/azure/hdinsight/hadoop/breadcrumb/toc.json
     - name: 관리형 ID 이해
       href: ../hdinsight-managed-identities.md?toc=/azure/hdinsight/hadoop/toc.json&bc=/azure/hdinsight/hadoop/breadcrumb/toc.json
-    - name: 문제 해결
-      items:
-        - name: 클러스터 생성 실패
-          href: ./hdinsight-troubleshoot-cluster-creation-fails.md
-        - name: 디스크 공간 부족
-          href: ./hdinsight-troubleshoot-out-disk-space.md
-        - name: 소프트 잠금 - CPU
-          href: ./hdinsight-troubleshoot-soft-lockup-cpu.md
-        - name: InvalidNetworkConfigurationErrorCode - 클러스터 만들기 실패
-          href: ./troubleshoot-invalidnetworkconfigurationerrorcode-cluster-creation-fails.md
-        - name: InvalidNetworkSecurityGroupSecurityRules - 클러스터 만들기 실패
-          href: ./hdinsight-troubleshoot-invalidnetworksecuritygroupsecurityrules-cluster-creation-fails.md
-        - name: HDInsight 클러스터에 로그인할 수 없음
-          href: ./hdinsight-troubleshoot-unable-log-in-cluster.md
-        - name: HDInsight 클러스터에 노드를 추가할 수 없음
-          href: ./hdinsight-troubleshoot-unable-add-nodes.md
-        - name: 서비스 주체 인증서 변환
-          href: ./hdinsight-troubleshoot-converting-service-principal-certificate.md
-        - name: 안전 모드에서 로컬 HDFS 중단
-          href: ./hdinsight-hdfs-troubleshoot-safe-mode.md
-        - name: Apache Ambari 하트비트 이슈
-          href: ./apache-ambari-troubleshoot-heartbeat-issues.md
-        - name: Apache Ambari는 호스트와 서비스를 표시합니다.
-          href: ./apache-ambari-troubleshoot-down-hosts-services.md
 - name: 방법
   items:
     - name: Apache Hadoop 샌드박스 사용
@@ -310,6 +286,30 @@
     - name: 문제 해결
       href: ../hdinsight-troubleshoot-guide.md?toc=/azure/hdinsight/hadoop/toc.json&bc=/azure/hdinsight/hadoop/breadcrumb/toc.json
       items:
+        - name: 클러스터 생성 실패
+          href: ./hdinsight-troubleshoot-cluster-creation-fails.md
+        - name: 디스크 공간 부족
+          href: ./hdinsight-troubleshoot-out-disk-space.md
+        - name: 소프트 잠금 - CPU
+          href: ./hdinsight-troubleshoot-soft-lockup-cpu.md
+        - name: InvalidNetworkConfigurationErrorCode - 클러스터 만들기 실패
+          href: ./troubleshoot-invalidnetworkconfigurationerrorcode-cluster-creation-fails.md
+        - name: InvalidNetworkSecurityGroupSecurityRules - 클러스터 만들기 실패
+          href: ./hdinsight-troubleshoot-invalidnetworksecuritygroupsecurityrules-cluster-creation-fails.md
+        - name: HDInsight 클러스터에 로그인할 수 없음
+          href: ./hdinsight-troubleshoot-unable-log-in-cluster.md
+        - name: HDInsight 클러스터에 노드를 추가할 수 없음
+          href: ./hdinsight-troubleshoot-unable-add-nodes.md
+        - name: 서비스 주체 인증서 변환
+          href: ./hdinsight-troubleshoot-converting-service-principal-certificate.md
+        - name: 안전 모드에서 로컬 HDFS 중단
+          href: ./hdinsight-hdfs-troubleshoot-safe-mode.md
+        - name: Apache Ambari 하트비트 이슈
+          href: ./apache-ambari-troubleshoot-heartbeat-issues.md
+        - name: Apache Ambari UI 502 오류
+          href: ./apache-ambari-troubleshoot-fivezerotwo-error.md
+        - name: Apache Ambari는 호스트와 서비스를 표시합니다.
+          href: ./apache-ambari-troubleshoot-down-hosts-services.md
         - name: 속도가 느리거나 오류가 발생하는 HDInsight 클러스터 문제 해결
           href: ../hdinsight-troubleshoot-failed-cluster.md?toc=/azure/hdinsight/hadoop/toc.json&bc=/azure/hdinsight/hadoop/breadcrumb/toc.json
         - name: Apache Hadoop HDFS 문제 해결

@@ -21,11 +21,11 @@
       href: azure-netapp-files-metrics.md
     - name: 성능
       items:
-        - name: Azure NetApp Files의 성능 벤치마크
-          href: azure-netapp-files-performance-benchmarks.md
         - name: Azure NetApp Files의 성능 고려 사항
           href: azure-netapp-files-performance-considerations.md
-        - name: Azure NetApp Files 파일을 사용하는 볼륨 성능 및 메트릭에 대한 벤치마크 테스트
+        - name: Azure NetApp Files의 성능 벤치마크 테스트 결과
+          href: azure-netapp-files-performance-benchmarks.md
+        - name: Azure NetApp Files의 성능 벤치마크 테스트 추천 사항
           href: azure-netapp-files-performance-metrics-volumes.md
     - name: Azure NetApp Files 비용 모델
       href: azure-netapp-files-cost-model.md

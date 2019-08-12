@@ -53,6 +53,16 @@
           href: pim-how-to-change-default-settings.md
         - name: 경고 구성
           href: pim-how-to-configure-security-alerts.md
+        - name: 사용자 지정 역할 미리 보기
+          items:
+            - name: 사용자 지정 역할 활성화
+              href: azure-ad-custom-roles-activate.md
+            - name: 사용자 지정 역할 할당
+              href: azure-ad-custom-roles-assign.md
+            - name: 역할 할당 제거
+              href: azure-ad-custom-roles-update-remove.md
+            - name: 사용자 지정 역할 구성
+              href: azure-ad-custom-roles-configure.md
         - name: 감사 기록 보기
           href: pim-how-to-use-audit-log.md
     - name: Azure 리소스 역할 관리

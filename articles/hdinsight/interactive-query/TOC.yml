@@ -19,20 +19,6 @@
       href: ../hdinsight-apps-install-applications.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: 용량 계획
       href: ../hdinsight-capacity-planning.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
-    - name: 문제 해결
-      items:
-        - name: GC 오버헤드 제한 초과
-          href: ./interactive-query-troubleshoot-outofmemory-overhead-exceeded.md
-        - name: Apache Ambari Tez 보기가 느리게 로드됩니다.
-          href: ./interactive-query-troubleshoot-tez-view-slow.md
-        - name: Apache Hive View에 오류 메시지가 표시되지 않음
-          href: ./interactive-query-troubleshoot-error-message-hive-view.md
-        - name: Apache Hive View에 액세스할 수 없음
-          href: ./interactive-query-troubleshoot-inaccessible-hive-view.md
-        - name: ZooKeeperHiveClientException - HiveServer2 구성
-          href: ./interactive-query-troubleshoot-zookeeperhiveclientexception-hiveserver-configs.md
-        - name: Apache Hive LLAP 쿼리 성능
-          href: ./interactive-query-troubleshoot-query-performance.md
 - name: 방법
   items:
     - name: Hive 워크로드를 HDInsight 4.0으로 마이그레이션
@@ -204,10 +190,31 @@
           href: ../hdinsight-os-patching.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: 문제 해결
       href: ../hdinsight-troubleshoot-guide.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
-      maintainContext: true
       items:
+        - name: Apache Hive 보기 시간 제한
+          href: ./interactive-query-troubleshoot-view-time-out.md
+        - name: 테이블 만들기 권한 오류
+          href: ./interactive-query-troubleshoot-permission-error-create-table.md
+        - name: GC 오버헤드 제한 초과
+          href: ./interactive-query-troubleshoot-outofmemory-overhead-exceeded.md
+        - name: Apache Ambari Tez 보기가 느리게 로드됩니다.
+          href: ./interactive-query-troubleshoot-tez-view-slow.md
+        - name: Apache Hive View에 오류 메시지가 표시되지 않음
+          href: ./interactive-query-troubleshoot-error-message-hive-view.md
+        - name: Apache Hive View에 액세스할 수 없음
+          href: ./interactive-query-troubleshoot-inaccessible-hive-view.md
+        - name: ZooKeeperHiveClientException - HiveServer2 구성
+          href: ./interactive-query-troubleshoot-zookeeperhiveclientexception-hiveserver-configs.md
+        - name: Apache Hive LLAP 쿼리 성능
+          href: ./interactive-query-troubleshoot-query-performance.md
         - name: 속도가 느리거나 오류가 발생하는 HDInsight 클러스터 문제 해결
-          href: ../hdinsight-troubleshoot-failed-cluster.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
+          href: ../hdinsight-troubleshoot-failed-cluster.md
+        - name: Apache Hadoop HDFS 문제 해결
+          href: ../hdinsight-troubleshoot-hdfs.md
+        - name: Apache HIVE 문제 해결
+          href: ../hdinsight-troubleshoot-hive.md
+        - name: Apache Hadoop YARN 문제 해결
+          href: ../hdinsight-troubleshoot-yarn.md
         - name: Apache Hadoop HDFS 문제 해결
           href: ../hdinsight-troubleshoot-hdfs.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
         - name: Apache HIVE 문제 해결

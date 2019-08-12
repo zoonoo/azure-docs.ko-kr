@@ -107,9 +107,9 @@
       href: Tutorials/storage-lab-tutorial.md
 - name: 개념
   items:
-    - name: 이미지에 태그 지정
+    - name: 콘텐츠 태그
       href: concept-tagging-images.md
-    - name: 개체 검색
+    - name: 개체 감지
       href: concept-object-detection.md
     - name: 브랜드 검색
       href: concept-brand-detection.md
@@ -119,17 +119,17 @@
       href: concept-describing-images.md
     - name: 얼굴 감지
       href: concept-detecting-faces.md
-    - name: 이미지 형식 검색
+    - name: 이미지 형식 감지
       href: concept-detecting-image-types.md
-    - name: 도메인 특정 콘텐츠 검색
+    - name: 도메인 특정 콘텐츠
       href: concept-detecting-domain-content.md
-    - name: 색 구성표 검색
+    - name: 색 구성표 감지
       href: concept-detecting-color-schemes.md
-    - name: 썸네일 생성
+    - name: 스마트하게 자른 썸네일
       href: concept-generating-thumbnails.md
-    - name: 인쇄되고 필기된 텍스트 인식
+    - name: 인쇄 및 필기 텍스트 인식
       href: concept-recognizing-text.md
-    - name: 성인 및 외설 콘텐츠 검색
+    - name: 성인 및 외설 콘텐츠 감지
       href: concept-detecting-adult-content.md
 - name: 방법 가이드
   items:

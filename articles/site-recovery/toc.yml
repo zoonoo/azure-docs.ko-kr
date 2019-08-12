@@ -155,6 +155,8 @@
           items:
             - name: Azure VM 재해 복구를 위한 네트워킹 준비
               href: azure-to-azure-about-networking.md
+            - name: 대상 Azure VM의 네트워킹 구성 사용자 지정
+              href: azure-to-azure-customize-networking.md
             - name: 네트워크 매핑 설정 및 장애 조치(failover) 후 IP 주소 유지
               href: azure-to-azure-network-mapping.md
             - name: 장애 조치(failover) 후 IP 주소 유지에 대한 예제

@@ -6,7 +6,7 @@
     - name: Azure Machine Learning 서비스란?
       displayName: 'AML, services, overview, introduction'
       href: overview-what-is-azure-ml.md
-    - name: 서비스의 작동 방식
+    - name: 아키텍처 및 용어
       displayName: 'architecture, concepts, definitions, glossary'
       href: concept-azure-machine-learning-architecture.md
 - name: 자습서
@@ -216,6 +216,8 @@
         - name: 배포 위치 및 방법
           displayName: 'publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker'
           href: how-to-deploy-and-where.md
+        - name: Notebook VM
+          href: how-to-deploy-local-container-notebook-vm.md
         - name: Azure Container Instances
           href: how-to-deploy-azure-container-instance.md
         - name: Azure Kubernetes Service
@@ -256,9 +258,9 @@
     - name: 재사용 가능한 워크플로 만들기
       displayName: pipelines
       items:
-        - name: ML 파이프라인 만들기
+        - name: 'ML 파이프라인: 일괄 처리, 컴퓨팅, 재사용, 공유'
           href: how-to-create-your-first-pipeline.md
-        - name: Azure Pipelines를 사용한 ML 워크플로의 CI/CD
+        - name: CI/CD용 Azure Pipelines
           displayName: 'continuous, integration, delivery'
           href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
     - name: 리소스 할당량 관리

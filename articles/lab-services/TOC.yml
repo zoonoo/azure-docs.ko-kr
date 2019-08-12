@@ -247,11 +247,11 @@
               href: devtest-lab-mandatory-artifacts.md
         - name: CI/CD와 통합
           items:
-            - name: Azure DevOps CI/CD 파이프라인에 랩 통합
-              href: devtest-lab-integrate-ci-cd-vsts.md
-            - name: Azure DevOps CI/CD 파이프라인에 환경 통합
+            - name: Azure Pipelines CI/CD 파이프라인에 랩 통합
+              href: devtest-lab-integrate-ci-cd.md
+            - name: Azure Pipelines CI/CD 파이프라인에 환경 통합
               href: integrate-environments-devops-pipeline.md
-            - name: Azure DevOps Services 빌드 및 릴리스 파이프라인에서 DevTest Labs 사용
+            - name: Azure Pipelines 빌드 및 릴리스 파이프라인에서 DevTest Labs 사용
               href: use-devtest-labs-build-release-pipelines.md
         - name: 랩 사용량 보고
           href: report-usage-across-multiple-labs-subscriptions.md

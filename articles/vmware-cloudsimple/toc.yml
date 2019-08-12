@@ -62,6 +62,8 @@
           items:
             - name: 노드 프로비전
               href: create-nodes.md
+            - name: 노드 삭제
+              href: delete-nodes.md
         - name: 프라이빗 클라우드 리소스 관리
           items:
             - name: 프라이빗 클라우드 만들기
@@ -76,6 +78,8 @@
               href: azure-subscription-mapping.md
             - name: 권한 높이기
               href: escalate-private-cloud-privileges.md
+            - name: 프라이빗 클라우드 삭제
+              href: delete-private-cloud.md
         - name: CloudSimple 작업 모니터링
           href: 'https://docs.azure.cloudsimple.com/activity/'
         - name: 프라이빗 클라우드 네트워킹 설정

@@ -4,7 +4,7 @@
   items:
     - name: SQL Database 정의
       href: sql-database-technical-overview.md
-    - name: Azure SQL 버전 선택
+    - name: SQL 옵션 선택
       href: sql-database-paas-vs-sql-server-iaas.md
     - name: 릴리스 정보
       href: sql-database-release-notes.md
@@ -280,14 +280,18 @@
               href: sql-vulnerability-assessment.md
             - name: 고급 위협 보호
               href: sql-database-threat-detection-overview.md
-        - name: 서버 수준 IP 방화벽 규칙
+        - name: 네트워크 보안
           items:
-            - name: 만들기 및 관리
+            - name: 네트워크 액세스 제어 개요
+              href: sql-database-networkaccess-overview.md
+            - name: IP 기반 방화벽
               href: sql-database-firewall-configure.md
-            - name: 가상 네트워크 엔드포인트
-              href: sql-database-vnet-service-endpoint-rule-overview.md
-            - name: 가상 네트워크 엔드포인트 - PowerShell
-              href: sql-database-vnet-service-endpoint-rule-powershell.md
+            - name: Virtual Network 방화벽 규칙
+              items:
+                - name: 가상 네트워크 엔드포인트
+                  href: sql-database-vnet-service-endpoint-rule-overview.md
+                - name: 가상 네트워크 엔드포인트 - PowerShell
+                  href: sql-database-vnet-service-endpoint-rule-powershell.md
         - name: Access Control
           items:
             - name: Access Control
