@@ -52,7 +52,7 @@ SFTP 연결된 서비스에 다음 속성이 지원됩니다.
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성을 다음으로 설정해야 합니다. **Sftp**. |예 |
-| 호스트 | SFTP 서버의 이름 또는 IP 주소입니다. |예 |
+| host | SFTP 서버의 이름 또는 IP 주소입니다. |예 |
 | port | SFTP 서버가 수신하는 포트입니다.<br/>허용되는 값은 정수이며 기본값은 **22**입니다. |아니요 |
 | skipHostKeyValidation | 호스트 키 유효성 검사를 건너뛸지 여부를 지정합니다.<br/>허용되는 값은 **true**, **false**(기본값)입니다.  | 아니요 |
 | hostKeyFingerprint | 호스트 키의 지문을 지정합니다. | “skipHostKeyValidation”이 false로 설정된 경우 예  |
