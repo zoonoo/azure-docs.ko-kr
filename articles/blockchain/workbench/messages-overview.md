@@ -261,7 +261,7 @@ Blockchain Workbench는 다음 필드가 포함된 응답을 반환합니다.
 | connectionId          | 블록체인 연결에 대한 고유 식별자입니다. |
 | messageSchemaVersion  | 메시징 스키마 버전입니다. |
 | messageName           | **CreateContractActionUpdate** |
-| status                | 계약 작업 요청의 상태입니다. 가능한 값: **제출**, **커밋됨**, **실패**                         |
+| status                | 계약 작업 요청의 상태입니다. 가능한 값: **Submitted**, **Committed**, **Failure**                         |
 | additionalInformation | 상태에 따라 제공되는 추가 정보입니다. |
 
 Blockchain Workbench의 제출된 **계약 작업 만들기** 응답 예:
