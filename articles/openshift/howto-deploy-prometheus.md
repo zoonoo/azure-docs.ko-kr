@@ -182,7 +182,7 @@ oc process -f prometheus-sdrole.yml | oc apply -f - -n app-project2
 
 ## <a name="optional-deploy-example-application"></a>선택 사항: 예제 응용 프로그램 배포
 
-모든 것이 작동 하지만 메트릭 원본이 없습니다. Prometheus URL로 이동 (https://prom-prometheus-project.apps. *임의 id*. *지역*.azmosa.io/). 다음 명령을 사용 하 여 찾을 수 있습니다.
+모든 것이 작동 하지만 메트릭 원본이 없습니다. Prometheus URL로 이동 (https://prom-prometheus-project.apps.*임의 id*.*지역*.azmosa.io/). 다음 명령을 사용 하 여 찾을 수 있습니다.
 
 ```
 oc get route prom -n prometheus-project

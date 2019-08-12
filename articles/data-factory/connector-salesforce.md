@@ -306,7 +306,7 @@ SOQL 또는 SQL 쿼리를 지정할 때 DateTime 형식 차이에 주의해야 �
 * **SOQL 샘플**: `SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
 * **SQL 샘플**: `SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}`
 
-### <a name="error-of-malformedquerytruncated"></a>MALFORMED_QUERY 오류: 잘림
+### <a name="error-of-malformed_querytruncated"></a>MALFORMED_QUERY 오류: 잘림
 
 오류 "MALFORMED_QUERY: 잘림 ", 일반적으로 데이터에 JunctionIdList 형식 열이 있고 Salesforce에 많은 수의 행이 있는 이러한 데이터의 지원 제한이 있기 때문입니다. 완화 하려면 JunctionIdList 열을 제외 하거나 복사할 행 수를 제한 (여러 복사 작업 실행으로 분할할 수 있음)을 시도 합니다.
 
