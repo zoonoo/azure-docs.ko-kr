@@ -64,7 +64,7 @@ Load Balancer는 TCP 및 UDP 애플리케이션에 대해 다음과 같은 기�
 
     ![해시 기반 배포](./media/load-balancer-overview/load-balancer-distribution.png)
 
-    그림: 해시 기반 배포*
+    그림: 해시 기반 배포 
 
 * **포트 전달**
 
