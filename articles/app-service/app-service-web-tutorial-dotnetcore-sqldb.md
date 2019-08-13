@@ -11,15 +11,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 01/31/2019
+ms.date: 08/06/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ad211eef673731a856c4db99fe0b4712217b23e5
-ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
+ms.openlocfilehash: 800454c3a8037d4562ae80d1093519733472c89c
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66808488"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68824638"
 ---
 # <a name="tutorial-build-an-aspnet-core-and-sql-database-app-in-azure-app-service"></a>자습서: Azure App Service에서 ASP.NET Core 및 SQL Database 앱 빌드
 
@@ -131,7 +131,7 @@ SQL Database 논리 서버를 만들면 Azure CLI는 다음 예제와 비슷한 
 [`az sql server firewall create`](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az-sql-server-firewall-rule-create) 명령을 사용하여 [Azure SQL Database 서버 수준 방화벽 규칙](../sql-database/sql-database-firewall-configure.md)을 만듭니다. 시작 IP 및 끝 IP가 0.0.0.0으로 설정되면 방화벽이 다른 Azure 리소스에 대해서만 열립니다. 
 
 ```azurecli-interactive
-az sql server firewall-rule create --resource-group myResourceGroup --server <server_name> --name AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
+az sql server firewall-rule create --resource-group myResourceGroup --server <server_name> --name AllowAllIps --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
 
 > [!TIP] 
@@ -172,13 +172,19 @@ Server=tcp:<server_name>.database.windows.net,1433;Database=coreDB;User ID=<db_u
 
 [!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-dotnetcore-win-no-h.md)] 
 
-### <a name="configure-an-environment-variable"></a>환경 변수 구성
+### <a name="configure-connection-string"></a>연결 문자열 구성
 
 Azure 앱에 연결 문자열을 설정하려면 Cloud Shell에서 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) 명령을 사용합니다. 다음 명령에서 *\<app name>* 및 *\<connection_string>* 매개 변수를 앞에서 만든 연결 문자열로 바꿉니다.
 
 ```azurecli-interactive
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection_string>' --connection-string-type SQLServer
 ```
+
+ASP.NET Core에서는 표준 패턴을 사용하여 이 명명된 연결 문자열(`MyDbConnection`)을 사용할 수 있습니다(예: *appsettings.json*에 지정된 연결 문자열). 이 경우 `MyDbConnection`은 *appsettings.json*에도 정의되어 있습니다. App Service에서 실행되는 경우 App Service에 정의된 연결 문자열이 *appsettings.json*에 정의된 연결 문자열보다 우선적으로 적용됩니다. 코드는 지역 개발 중에 *appsettings.json* 값을 사용하고, 동일한 코드는 배포될 때 App Service 값을 사용합니다.
+
+코드에서 연결 문자열을 참조하는 방법을 보려면 [프로덕션에서 SQL Database에 연결](#connect-to-sql-database-in-production)을 참조하세요.
+
+### <a name="configure-environment-variable"></a>환경 변수 구성
 
 다음으로 `ASPNETCORE_ENVIRONMENT` 앱 설정을 _프로덕션_으로 지정합니다. 로컬 개발 환경에 SQLite를 사용하고 Azure 환경에 SQL Database를 사용하기 때문에 이 설정을 통해 Azure에서 실행 중인지 여부를 알 수 있습니다.
 
@@ -187,6 +193,8 @@ az webapp config connection-string set --resource-group myResourceGroup --name <
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings ASPNETCORE_ENVIRONMENT="Production"
 ```
+
+코드에서 환경 변수를 참조하는 방법을 보려면 [프로덕션에서 SQL Database에 연결](#connect-to-sql-database-in-production)을 참조하세요.
 
 ### <a name="connect-to-sql-database-in-production"></a>프로덕션에서 SQL Database에 연결
 
@@ -212,7 +220,7 @@ else
 services.BuildServiceProvider().GetService<MyDatabaseContext>().Database.Migrate();
 ```
 
-이코드가 프로덕션(즉, Azure 환경)에서 실행되고 있다고 감지되는 경우 구성한 연결 문자열을 사용하여 SQL Database에 연결합니다.
+이 코드가 프로덕션(즉, Azure 환경)에서 실행되고 있다고 감지되는 경우 구성한 연결 문자열을 사용하여 SQL Database에 연결합니다.
 
 Azure에서 실행되는 경우 `Database.Migrate()` 호출이 해당 마이그레이션 구성에 따라 .NET Core 앱이 필요한 데이터베이스를 자동으로 생성하기 때문에 도움을 받을 수 있습니다. 
 
@@ -361,7 +369,7 @@ git commit -m "added done field"
 git push azure master
 ```
 
-`git push`가 완료되면 App Service 앱으로 이동하여 새 기능을 테스트해 봅니다.
+`git push`가 완료되면 App Service 앱으로 이동하여 할 일 항목을 추가해보고 **완료**를 선택합니다.
 
 ![Code First 마이그레이션 후 Azure 앱](./media/app-service-web-tutorial-dotnetcore-sqldb/this-one-is-done.png)
 
@@ -374,9 +382,9 @@ ASP.NET Core 앱이 Azure App Service에서 실행되는 동안 콘솔 로그를
 샘플 프로젝트는 다음 두 가지 변경 사항과 함께 [Azure에서 ASP.NET Core 로깅](https://docs.microsoft.com/aspnet/core/fundamentals/logging#azure-app-service-provider)의 지침을 따릅니다.
 
 - *DotNetCoreSqlDb.csproj*에서 `Microsoft.Extensions.Logging.AzureAppServices`에 대한 참조를 포함합니다.
-- *Startup.cs*에서 `loggerFactory.AddAzureWebAppDiagnostics()`를 호출합니다.
+- *Program.cs*에서 `loggerFactory.AddAzureWebAppDiagnostics()`를 호출합니다.
 
-App Service에서 ASP.NET Core [로그 수준](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-level)을 기본 수준 `Warning`에서 `Information`으로 설정하려면, Cloud Shell에서 [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) 명령을 사용합니다.
+App Service에서 ASP.NET Core [로그 수준](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-level)을 기본 수준 `Error`에서 `Information`으로 설정하려면, Cloud Shell에서 [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) 명령을 사용합니다.
 
 ```azurecli-interactive
 az webapp log config --name <app_name> --resource-group myResourceGroup --application-logging true --level information

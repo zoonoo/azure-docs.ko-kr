@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/29/2019
 ms.author: dpalled
 ms.custom: seodec18
-ms.openlocfilehash: 2c1013829a7e6e94712e22ae235a47490c8c5eaa
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 3e56792673c33ac641ce23213f2b3662b889ec2a
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68677654"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725654"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>자습서: Azure Time Series Insights JavaScript 클라이언트 라이브러리
 
@@ -40,14 +40,14 @@ ms.locfileid: "68677654"
 
 * 이 자습서에서는 브라우저의 **개발자 도구** 기능을 사용합니다. 최신 웹 브라우저([Microsoft Edge](/microsoft-edge/devtools-guide), [Chrome](https://developers.google.com/web/tools/chrome-devtools/), [Firefox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools), [Safari](https://developer.apple.com/safari/tools/) 등)는 일반적으로 키보드의 F12 바로 가기 키를 통해 **Web Inspector 보기**에 액세스합니다. 보기에 액세스하는 또 다른 방법은 마우스 오른쪽 단추로 웹 페이지를 클릭한 다음, **요소 검사**를 선택하는 것입니다.
 
-## <a name="video"></a>비디오
+## <a name="review-video"></a>비디오 검토
 
 이 비디오에서는 오픈 소스 Time Series Insights JavaScript SDK를 소개합니다.
 <br /><br />
 
 > [!VIDEO https://www.youtube.com/embed/X8sSm7Pl9aA]
 
-## <a name="time-series-insights-sample-application"></a>Time Series Insights 샘플 애플리케이션
+## <a name="sample-application"></a>샘플 애플리케이션
 
 이 자습서 전체에서 체험 서비스로 호스팅되는 Time Series Insights 샘플 앱을 사용하여 애플리케이션 이면의 소스 코드 및 Time Series Insights JavaScript 클라이언트 라이브러리를 살펴봅니다. 샘플 앱을 사용하면 JavaScript에서 Time Series Insights와 상호 작용하고 차트와 그래프를 통해 데이터를 시각화하는 방법을 알아볼 수 있습니다.
 
@@ -100,7 +100,7 @@ ms.locfileid: "68677654"
 
    [![본문 스크립트](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-body-script.png)](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-body-script.png#lightbox)
 
-## <a name="time-series-insights-javascript-client-library-concepts"></a>Time Series Insights JavaScript 클라이언트 라이브러리에 대한 개념
+## <a name="javascript-client-library"></a>JavaScript 클라이언트 라이브러리
 
 Time Series Insights 클라이언트 라이브러리(*tsiclient.js*)는 다음 두 가지 중요한 JavaScript 기능에 대한 추상화를 제공합니다.
 
@@ -231,7 +231,7 @@ Time Series Insights 클라이언트 라이브러리에서 제공하는 8개의 
 
 [![동일한 데이터의 여러 차트 형식](media/tutorial-explore-js-client-lib/tcs-multiple-chart-types-from-the-same-data.png)](media/tutorial-explore-js-client-lib/tcs-multiple-chart-types-from-the-same-data.png#lightbox)
 
-## <a name="advanced-features"></a>고급 기능
+## <a name="learn-about-advanced-features"></a>고급 기능에 대해 알아보기
 
 Time Series Insights 클라이언트 라이브러리에는 데이터 시각화를 창의적으로 구현하는 데 사용할 수 있는 몇 가지 추가 기능이 있습니다.
 

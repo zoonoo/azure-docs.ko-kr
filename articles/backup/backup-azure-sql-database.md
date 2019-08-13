@@ -1,5 +1,5 @@
 ---
-title: Azure에 SQL Server 데이터베이스 백업 | Microsoft Docs
+title: Azure에 SQL Server 데이터베이스 백업
 description: 이 자습서에서는 Azure에 SQL Server를 백업하는 방법을 설명합니다. SQL Server 복구에 대해서도 설명합니다.
 author: dcurwin
 manager: carmonm
@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: cddb540eb0d6892426c4857b152ab6caa746f6da
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 7312821320084c766f5b3357fe64c061df83673b
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639809"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827655"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Azure VM의 SQL Server 백업 정보
 
@@ -25,7 +25,7 @@ SQL Server 데이터베이스는 낮은 RPO(복구 지점 목표)와 장기 보�
 * 보호하려는 SQL Server VM을 지정하고 그 안에 있는 데이터베이스를 쿼리하면 Azure Backup 서비스가 `AzureBackupWindowsWorkload` 확장이라는 이름으로 VM에 워크로드 백업 확장을 설치합니다.
 * 이 확장은 코디네이터 및 SQL 플러그 인으로 구성됩니다. 코디네이터는 백업 구성, 백업 및 복원 같은 다양한 워크플로를 트리거하는 역할을 담당하고, 플러그 인은 실제 데이터 흐름을 담당합니다.
 * 이 VM의 데이터베이스를 검색하기 위해 Azure Backup은  `NT SERVICE\AzureWLBackupPluginSvc`라는 계정을 만듭니다. 이 계정은 백업 및 복원에 사용되며 SQL sysadmin 권한이 필요합니다. Azure Backup은 데이터베이스 검색/조회에  `NT AUTHORITY\SYSTEM`  계정을 활용하므로, 이 계정은 SQL에서 공용 로그인이어야 합니다. Azure Marketplace에서 SQL Server VM을 만들지 않은 경우  **UserErrorSQLNoSysadminMembership** 오류가 발생할 수 있습니다. 이 경우  [다음 지침을 따릅니다](backup-azure-sql-database.md).
-* 선택한 데이터베이스에서 보호 구성을 트리거하면 백업 서비스가 백업 일정과 기타 정책 세부 정보를 사용하여 코디네이터를 설정하고, 확장이 VM에 로컬로 캐시합니다. 
+* 선택한 데이터베이스에서 구성 보호를 트리거하면 백업 서비스가 백업 일정과 기타 정책 세부 정보를 사용하여 코디네이터를 설정하며, 이 경우 확장이 VM에 로컬로 캐시합니다.
 * 예약된 시간에 코디네이터가 플러그 인과 통신하고 VDI를 사용하여 SQL 서버의 백업 데이터를 스트리밍하기 시작합니다.  
 * 플러그 인은 복구 서비스 자격 증명 모음에 직접 데이터를 보내기 때문에 준비 위치가 필요 없습니다. 데이터는 Azure Backup 서비스를 통해 암호화되어 스토리지 계정에 저장됩니다.
 * 데이터 전송이 완료되면 코디네이터가 백업 서비스를 사용하여 커밋을 확인합니다.
@@ -45,7 +45,7 @@ SQL Server 데이터베이스는 낮은 RPO(복구 지점 목표)와 장기 보�
 **지원** | **세부 정보**
 --- | ---
 **지원되는 배포** | SQL Marketplace Azure VM 및 비 Marketplace VM(SQL Server가 수동 설치됨)이 지원됩니다.
-**지원되는 지역** | 오스트레일리아 동남부(ASE), 오스트레일리아 동부(AE) <br> 브라질 남부(BRS)<br> 캐나다 중부(CNC), 캐나다 동부(CE)<br> 동남 아시아(SEA), 동아시아(EA) <br> 미국 동부(EUS), 미국 동부 2(EUS2), 미국 중서부(WCUS), 미국 서부(WUS), 미국 서부 2(WUS 2), 미국 중북부(NCUS), 미국 중부(CUS), 미국 중남부(SCUS) <br> 인도 중부(INC), 인도 남부(INS) <br> 일본 동부(JPE), 일본 서부(JPW) <br> 한국 중부(KRC), 한국 남부(KRS) <br> 북유럽(NE), 서유럽 <br> 영국 남부(UKS), 영국 서부(UKW)
+**지원되는 지역** | 오스트레일리아 동남부(ASE), 오스트레일리아 동부(AE) <br> 브라질 남부(BRS)<br> 캐나다 중부(CNC), 캐나다 동부(CE)<br> 동남 아시아(SEA), 동아시아(EA) <br> 미국 동부(EUS), 미국 동부 2(EUS2), 미국 중서부(WCUS), 미국 서부(WUS), 미국 서부 2(WUS 2), 미국 중북부(NCUS), 미국 중부(CUS), 미국 중남부(SCUS) <br> 인도 중부(INC), 인도 남부(INS) <br> 일본 동부(JPE), 일본 서부(JPW) <br> 한국 중부(KRC), 한국 남부(KRS) <br> 북유럽(NE), 서유럽 <br> 영국 남부(UKS), 영국 서부(UKW) <br> US Gov 애리조나, US Gov 버지니아, US Gov 텍사스, US DoD 중부, US DoD 동부
 **지원되는 운영 체제** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012<br/><br/> Linux는 현재 지원되지 않습니다.
 **지원되는 SQL Server 버전** | [여기](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017)에 설명된 SQL Server 2017, [여기](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack)에 설명된 SQL Server 2016 및 SP, SQL Server 2014, SQL Server 2012.<br/><br/> Enterprise, Standard, Web, Developer, Express
 **지원되는 .NET 버전** | VM에 설치된 .NET Framework 4.5.2 이상

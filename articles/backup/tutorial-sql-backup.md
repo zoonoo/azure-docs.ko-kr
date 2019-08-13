@@ -1,5 +1,5 @@
 ---
-title: Azure에 SQL Server 데이터베이스 백업 | Microsoft Docs
+title: 자습서 - Azure에 SQL Server 데이터베이스 백업
 description: 이 자습서에서는 Azure에 SQL Server를 백업하는 방법을 설명합니다.
 author: dcurwin
 manager: carmonm
@@ -7,18 +7,18 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 99e1e8194594d204a5080287794362dbe028a1f5
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 729eb0d77cee85356e359dc475f4e439b8236ebb
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688415"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736563"
 ---
-# <a name="back-up-sql-server-databases-in-azure-vms"></a>Azure VM의 SQL Server 데이터베이스 백업
+# <a name="back-up-a-sql-server-database-in-an-azure-vm"></a>Azure VM에서 SQL Server 데이터베이스 백업
 
 
 
-이 문서에서는 Azure VM에서 실행되는 SQL Server 데이터베이스를 Azure Backup Recovery Services 자격 증명 모음에 백업하는 방법을 보여 줍니다. 이 문서에서는 다음 방법을 설명합니다.
+이 자습서에서는 Azure VM에서 실행되는 SQL Server 데이터베이스를 Azure Backup Recovery Services 자격 증명 모음에 백업하는 방법을 보여 줍니다. 이 문서에서는 다음 방법을 설명합니다.
 
 > [!div class="checklist"]
 > * 자격 증명 모음을 만들고 구성합니다.

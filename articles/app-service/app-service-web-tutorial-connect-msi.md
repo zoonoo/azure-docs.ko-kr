@@ -11,25 +11,33 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 06/21/2019
+ms.date: 08/06/2019
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 31535642526c608ad0ae29e5c0e3c93368e184ad
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 2cf5e0f6da52670d383a1d1508dc7bcc7847831f
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481008"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68824560"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>자습서: 관리 ID를 사용하여 App Service에서 Azure SQL Database 연결 보호
 
-[App Service](overview.md)는 Azure에서 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 또한 [Azure SQL Database](/azure/sql-database/) 및 기타 Azure 서비스에 대한 액세스를 보호하기 위한 턴키 솔루션인 [관리 ID](overview-managed-identity.md)를 앱에 제공합니다. App Service의 관리 ID는 연결 문자열의 자격 증명과 같은 비밀을 앱에서 제거하여 앱의 보안을 보다 강화합니다. 이 자습서에서는 [자습서: SQL Database를 사용하여 Azure에서 ASP.NET 앱 빌드](app-service-web-tutorial-dotnet-sqldatabase.md)에서 중단한 위치부터 계속됩니다. 완료되면 샘플 앱은 사용자 이름과 암호 없이도 안전하게 SQL Database에 연결됩니다.
+[App Service](overview.md)는 Azure에서 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 또한 [Azure SQL Database](/azure/sql-database/) 및 기타 Azure 서비스에 대한 액세스를 보호하기 위한 턴키 솔루션인 [관리 ID](overview-managed-identity.md)를 앱에 제공합니다. App Service의 관리 ID는 연결 문자열의 자격 증명과 같은 비밀을 앱에서 제거하여 앱의 보안을 보다 강화합니다. 이 자습서에서는 다음 자습서 중 하나에서 빌드한 샘플 웹앱에 관리 ID를 추가합니다. 
+
+- [자습서: SQL Database를 사용하여 Azure에서 ASP.NET 앱 빌드](app-service-web-tutorial-dotnet-sqldatabase.md)
+- [자습서: Azure App Service에서 ASP.NET Core 및 SQL Database 앱 빌드](app-service-web-tutorial-dotnetcore-sqldb.md)
+
+완료되면 샘플 앱은 사용자 이름과 암호 없이도 안전하게 SQL Database에 연결됩니다.
 
 > [!NOTE]
-> 이 시나리오는 현재 .NET Framework 4.7.2 이상에서 지원됩니다. [.NET Core 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2)는 이 시나리오를 지원하지만, 아직 App Service의 기본 이미지에 포함되지 않습니다. 
+> 이 자습서에서 다루는 단계는 다음 버전을 지원합니다.
+> 
+> - .NET Framework 4.7.2 이상.
+> - .NET Core 2.2 이상.
 >
 
-다음 방법에 대해 알아봅니다.
+다음을 알아봅니다.
 
 > [!div class="checklist"]
 > * 관리 ID 사용
@@ -44,9 +52,9 @@ ms.locfileid: "67481008"
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 문서는 [자습서: SQL Database를 사용하여 Azure에서 ASP.NET 앱 빌드](app-service-web-tutorial-dotnet-sqldatabase.md)에서 중단한 위치부터 계속됩니다. 아직 하지 않은 경우 먼저 해당 자습서를 따릅니다. 또는 SQL Database를 사용하여 해당 ASP.NET 앱에 맞게 단계를 조정할 수 있습니다.
+이 문서는 [자습서: SQL Database를 사용하여 Azure에서 ASP.NET 앱 빌드](app-service-web-tutorial-dotnet-sqldatabase.md) 또는 [자습서: Azure App Service에서 ASP.NET Core 및 SQL Database 앱 빌드](app-service-web-tutorial-dotnetcore-sqldb.md)에서 중단한 곳에서 이어집니다. 아직 수행하지 않은 경우 두 자습서 중 하나를 먼저 수행합니다. 또는 SQL Database를 사용하여 해당 .NET 앱에 맞게 단계를 조정할 수 있습니다.
 
-SQL Database를 백 엔드로 사용하여 앱을 디버깅하려면 [컴퓨터에서 클라이언트 연결을 허용](app-service-web-tutorial-dotnet-sqldatabase.md#allow-client-connection-from-your-computer)했는지 확인합니다.
+SQL Database를 백 엔드로 사용하여 앱을 디버깅하려면 컴퓨터에서 클라이언트 연결을 허용했는지 확인합니다. 그렇지 않은 경우 [Azure Portal를 사용하여 서버 수준 IP 방화벽 규칙 관리](../sql-database/sql-database-firewall-configure.md#manage-server-level-ip-firewall-rules-using-the-azure-portal)의 단계에 따라 클라이언트 IP를 추가합니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -79,12 +87,19 @@ Azure 서비스 인증의 Azure AD 사용자를 설정하려면 메뉴에서 **�
 
 이제 백 엔드 SQL Database에서 Azure AD 인증을 사용하여 앱을 개발하고 디버그할 준비가 되었습니다.
 
-## <a name="modify-aspnet-project"></a>ASP.NET 프로젝트 수정
+## <a name="modify-your-project"></a>프로젝트 수정
+
+프로젝트에 대해 수행하는 단계는 ASP.NET 프로젝트인지 아니면 ASP.NET Core 프로젝트인지에 따라 달라집니다.
+
+- [ASP.NET 수정](#modify-aspnet)
+- [ASP.NET Core 수정](#modify-aspnet-core)
+
+### <a name="modify-aspnet"></a>ASP.NET 수정
 
 Visual Studio에서 패키지 관리자 콘솔을 열고, [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) NuGet 패키지를 추가합니다.
 
 ```powershell
-Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.2.0
+Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.3.0
 ```
 
 *Web.config*에서 파일 위쪽부터 다음과 같은 변경 작업을 수행합니다.
@@ -107,7 +122,57 @@ Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.2.0
 
 - `MyDbConnection`이라는 연결 문자열을 찾고 `connectionString` 값을 `"server=tcp:<server-name>.database.windows.net;database=<db-name>;UID=AnyString;Authentication=Active Directory Interactive"`로 바꿉니다. _\<server-name>_ 및 _\<db-name>_ 을 서버 이름 및 데이터베이스 이름으로 바꿉니다.
 
-`Ctrl+F5`를 입력하여 앱을 다시 실행합니다. 이제 브라우저에서 동일한 CRUD 앱이 Azure AD 인증을 사용하여 Azure SQL Database에 직접 연결합니다. 이 설정을 사용하면 데이터베이스 마이그레이션을 실행할 수 있습니다. 나중에 변경 내용을 App Service에 배포할 때 동일한 설정이 앱의 관리 ID와 함께 작동합니다.
+SQL Database에 연결하는 데 필요한 모든 항목입니다. Visual studio에서 디버깅하는 경우 코드는 [Visual Studio 설정](#set-up-visual-studio)에서 구성한 Azure AD 사용자를 사용합니다. App Service 앱의 관리 ID에서 연결할 수 있도록 SQL Database 서버를 나중에 설정합니다.
+
+`Ctrl+F5`를 입력하여 앱을 다시 실행합니다. 이제 브라우저에서 동일한 CRUD 앱이 Azure AD 인증을 사용하여 Azure SQL Database에 직접 연결합니다. 이 설정을 사용하면 Visual Studio에서 데이터베이스 마이그레이션을 실행할 수 있습니다.
+
+### <a name="modify-aspnet-core"></a>ASP.NET Core 수정
+
+Visual Studio에서 패키지 관리자 콘솔을 열고, [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) NuGet 패키지를 추가합니다.
+
+```powershell
+Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.3.0
+```
+
+[ASP.NET Core 및 SQL Database 자습서](app-service-web-tutorial-dotnetcore-sqldb.md)에서는 로컬 개발 환경에서 Sqlite 데이터베이스 파일을 사용하고 Azure 프로덕션 환경에서 App Service의 연결 문자열을 사용하기 때문에 `MyDbConnection` 연결 문자열은 전혀 사용되지 않습니다. Active Directory 인증을 사용하여 두 환경에서 동일한 연결 문자열을 사용하려고 합니다. *appsettings.json*에서 연결 문자열 `MyDbConnection`의 값을 다음으로 바꿉니다.
+
+```json
+"Server=tcp:<server-name>.database.windows.net,1433;Database=<database-name>;"
+```
+
+*Startup.cs*에서 이전에 추가한 코드 섹션을 제거합니다.
+
+```csharp
+// Use SQL Database if in Azure, otherwise, use SQLite
+if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production")
+    services.AddDbContext<MyDatabaseContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("MyDbConnection")));
+else
+    services.AddDbContext<MyDatabaseContext>(options =>
+            options.UseSqlite("Data Source=localdatabase.db"));
+
+// Automatically perform database migration
+services.BuildServiceProvider().GetService<MyDatabaseContext>().Database.Migrate();
+```
+
+또한 다음 코드로 바꿉니다.
+
+```csharp
+services.AddDbContext<MyDatabaseContext>(options => {
+    options.UseSqlServer(Configuration.GetConnectionString("MyDbConnection"));
+});
+```
+
+다음으로, SQL Database에 대한 액세스 토큰을 사용하여 Entity Framework 데이터베이스 컨텍스트를 제공합니다. *Data\MyDatabaseContext.cs*에서 다음 코드를 빈 `MyDatabaseContext (DbContextOptions<MyDatabaseContext> options)` 생성자의 중괄호 내에 추가합니다.
+
+```csharp
+var conn = (System.Data.SqlClient.SqlConnection)Database.GetDbConnection();
+conn.AccessToken = (new Microsoft.Azure.Services.AppAuthentication.AzureServiceTokenProvider()).GetAccessTokenAsync("https://database.windows.net/").Result;
+```
+
+SQL Database에 연결하는 데 필요한 모든 항목입니다. Visual studio에서 디버깅하는 경우 코드는 [Visual Studio 설정](#set-up-visual-studio)에서 구성한 Azure AD 사용자를 사용합니다. App Service 앱의 관리 ID에서 연결할 수 있도록 SQL Database 서버를 나중에 설정합니다.
+
+`Ctrl+F5`를 입력하여 앱을 다시 실행합니다. 이제 브라우저에서 동일한 CRUD 앱이 Azure AD 인증을 사용하여 Azure SQL Database에 직접 연결합니다. 이 설정을 사용하면 Visual Studio에서 데이터베이스 마이그레이션을 실행할 수 있습니다.
 
 ## <a name="use-managed-identity-connectivity"></a>관리 ID 연결 사용
 
@@ -167,7 +232,7 @@ GO
 
 ### <a name="modify-connection-string"></a>연결 문자열 수정
 
-`Web.config`에서 변경한 내용은 관리 ID와 함께 작동하므로 Visual Studio가 처음으로 앱을 배포할 때 만든 기존 연결 문자열을 앱에서 제거하기만 하면 됩니다. 다음 명령에서 *\<app-name>* 을 앱의 이름으로 바꾸어 사용합니다.
+*Web.config* 또는 *appsettings.json*에서 변경한 내용은 관리 ID와 함께 작동하므로 Visual Studio가 처음으로 앱을 배포할 때 만든 기존 연결 문자열을 App Service에서 제거하기만 하면 됩니다. 다음 명령에서 *\<app-name>* 을 앱의 이름으로 바꾸어 사용합니다.
 
 ```azurecli-interactive
 az webapp config connection-string delete --resource-group myResourceGroup --name <app-name> --setting-names MyDbConnection
@@ -177,11 +242,20 @@ az webapp config connection-string delete --resource-group myResourceGroup --nam
 
 이제 Azure에 변경 내용을 게시하면 됩니다.
 
-**솔루션 탐색기**에서 **DotNetAppSqlDb** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
+**[자습서: SQL Database를 사용하여 Azure에서 ASP.NET 앱 빌드](app-service-web-tutorial-dotnet-sqldatabase.md)** 를 진행 중이었다면 Visual Studio에서 변경 내용을 게시합니다. **솔루션 탐색기**에서 **DotNetAppSqlDb** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
 
 ![솔루션 탐색기에서 게시](./media/app-service-web-tutorial-dotnet-sqldatabase/solution-explorer-publish.png)
 
-게시 페이지에서 **게시**를 클릭합니다. 새 웹 페이지에 할 일 목록이 표시되면 앱이 관리 ID를 사용하여 데이터베이스에 연결합니다.
+게시 페이지에서 **게시**를 클릭합니다. 
+
+**[자습서: Azure App Service에서 ASP.NET Core 및 SQL Database 앱 빌드](app-service-web-tutorial-dotnetcore-sqldb.md)** 를 진행 중이었다면 다음 명령으로 Git을 사용하여 변경 내용을 게시합니다.
+
+```bash
+git commit -am "configure managed identity"
+git push azure master
+```
+
+새 웹 페이지에 할 일 목록이 표시되면 앱이 관리 ID를 사용하여 데이터베이스에 연결합니다.
 
 ![Code First 마이그레이션 후 Azure 앱](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
 

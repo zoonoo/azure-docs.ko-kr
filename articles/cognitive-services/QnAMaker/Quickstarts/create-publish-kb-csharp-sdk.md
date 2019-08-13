@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 07/10/2019
+ms.date: 08/06/2019
 ms.author: diberry
-ms.openlocfilehash: af3de85cb2d32b4828a4641318f66f91c9254e24
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 686bdf834efd637db49a7b51dc2bf7effa1eb4cb
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563025"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839972"
 ---
 # <a name="quickstart-qna-maker-client-library-for-net"></a>빠른 시작: .NET용 QnA Maker 클라이언트 라이브러리
 
@@ -26,6 +26,7 @@ ms.locfileid: "68563025"
 * 기술 자료 만들기 
 * 기술 자료 관리
 * 기술 자료 게시
+* 기술 자료에서 답변 생성
 
 [참조 설명서](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Knowledge.QnAMaker) | [패키지(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker/) | [C# 샘플](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp)
 
@@ -68,7 +69,6 @@ Build succeeded.
 ...
 ```
 
-
 ### <a name="install-the-sdk"></a>SDK 설치
 
 애플리케이션 디렉터리 내에서 다음 명령을 사용하여 .NET용 QnA Maker 클라이언트 라이브러리를 설치합니다.
@@ -99,6 +99,7 @@ JSON 개체를 전송하여 기술 자료를 관리합니다. 즉각적인 작�
 * [기술 자료 게시](#publish-a-knowledge-base)
 * [기술 자료 삭제](#delete-a-knowledge-base)
 * [작업의 상태 가져오기](#get-status-of-an-operation)
+* [기술 자료에서 답변 생성](#generate-an-answer-from-the-knowledge-base)
 
 ## <a name="add-the-dependencies"></a>종속성 추가
 
@@ -106,7 +107,7 @@ JSON 개체를 전송하여 기술 자료를 관리합니다. 즉각적인 작�
 
 [!code-csharp[Using statements](~/samples-qnamaker-csharp/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=Dependencies)]
 
-## <a name="authenticate-the-client"></a>클라이언트 인증
+## <a name="authenticate-the-client-for-authoring-the-knowledge-base"></a>기술 자료 제작을 위한 클라이언트 인증
 
 **main** 메서드에서 `QNAMAKER_SUBSCRIPTION_KEY`라는 환경 변수로부터 가져온 사용자 리소스의 Azure 키에 대한 변수를 만듭니다. 애플리케이션이 시작된 후 환경 변수를 만들었다면 애플리케이션을 실행 중인 편집기, IDE 또는 셸을 닫고 다시 로드해야 변수에 액세스할 수 있습니다. 메서드는 나중에 생성됩니다.
 
@@ -115,6 +116,14 @@ JSON 개체를 전송하여 기술 자료를 관리합니다. 즉각적인 작�
 키가 `westus` 영역에 없는 경우 이 샘플 코드에 표시된 대로 **Endpoint** 변수의 위치를 변경합니다. 이 위치는 Azure Portal에서 QnA Maker 리소스에 대한 **개요** 페이지에서 찾을 수 있습니다.
 
 [!code-csharp[Authorization to resource key](~/samples-qnamaker-csharp/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=Authorization)]
+
+## <a name="authenticate-the-runtime-for-generating-an-answer"></a>응답을 생성하기 위한 런타임 인증
+
+**main** 메서드에서 `QNAMAKER_ENDPOINT_HOSTNAME` 및 `QNAMAKER_ENDPOINT_KEY`라는 환경 변수로부터 가져온 사용자 리소스의 Azure 키에 대한 변수를 만듭니다. 기술 자료를 게시할 때 이러한 값이 반환됩니다. 게시한 후 QnA Maker 포털의 **설정** 페이지에서 이러한 설정을 찾을 수 있습니다. 
+
+기술 자료를 쿼리하는 [QnAMakerRuntimeClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.qnamakerruntimeclient?view=azure-dotnet)를 만들어 답변을 생성하거나 활성 학습으로부터 학습합니다.
+
+[!code-csharp[Authenticate the runtime](~/samples-qnamaker-csharp/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=EndpointKey)]
 
 ## <a name="create-a-knowledge-base"></a>기술 자료 만들기
 
@@ -148,6 +157,13 @@ JSON 개체를 전송하여 기술 자료를 관리합니다. 즉각적인 작�
 
 [!code-csharp[Publish a knowledge base](~/samples-qnamaker-csharp/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=PublishKB&highlight=2)]
 
+## <a name="generate-an-answer-from-the-knowledge-base"></a>기술 자료에서 답변 생성
+
+[RuntimeClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.qnamakerclient.knowledgebase?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_QnAMakerClient_Knowledgebase).[GenerateAnswerAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.runtimeextensions.generateanswerasync?view=azure-dotnet) 메서드를 사용하여 게시된 기술 자료에서 답변을 생성합니다. 이 메서드는 기술 자료 ID 및 [QueryDTO](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.querydto?view=azure-dotnet)을 허용합니다. 채팅 봇에서 사용할 [Top](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.querydto.top?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_Models_QueryDTO_Top) 및 [Context](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.querydto.context?view=azure-dotnet)와 같은 QueryDTO의 추가 속성에 액세스합니다. 
+
+[!code-csharp[Generate an answer from a knowledge base](~/samples-qnamaker-csharp/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=GenerateAnswer&highlight=2)]
+
+
 ## <a name="delete-a-knowledge-base"></a>기술 자료 삭제
 
 기술 자료 ID의 매개 변수와 함께 [DeleteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebaseextensions.deleteasync?view=azure-dotnet) 메서드를 사용하여 기술 자료를 삭제할 수 있습니다. 
@@ -169,6 +185,8 @@ create 및 update와 같은 일부 메서드는 프로세스가 완료될 때까
 ```dotnet
 dotnet run
 ```
+
+[이 빠른 시작의 소스 코드](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/blob/master/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.css)는 QnA Maker C# 샘플 GitHub 리포지토리에서 사용할 수 있습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

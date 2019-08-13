@@ -16,16 +16,16 @@ ms.workload: infrastructure
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: fe19ea2d8946d645704139bbf2faa80f21e84039
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 4c55d3d92faf854952b609287bb16a30ed1e30ec
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708053"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717479"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 Azure VM의 사용자 지정 이미지 만들기
 
-사용자 지정 이미지는 Marketplace 이미지와 같지만 직접 만듭니다. 사용자 지정 이미지를 사용하여 배포를 부트스트랩하고 여러 VM에서 일관성을 유지할 수 있습니다. 이 자습서에서는 PowerShell을 사용하여 Azure 가상 머신의 사용자 지정 이미지를 만듭니다. 다음 방법에 대해 알아봅니다.
+사용자 지정 이미지는 Marketplace 이미지와 같지만 직접 만듭니다. 사용자 지정 이미지를 사용하여 배포를 부트스트랩하고 여러 VM에서 일관성을 유지할 수 있습니다. 이 자습서에서는 PowerShell을 사용하여 Azure 가상 머신의 사용자 지정 이미지를 만듭니다. 다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * VM Sysprep 및 일반화
@@ -33,6 +33,8 @@ ms.locfileid: "67708053"
 > * 사용자 지정 이미지에서 VM 만들기
 > * 구독에 모든 이미지 나열
 > * 이미지 삭제
+
+공개 미리 보기에는 [Azure VM Image Builder](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview) 서비스가 있습니다. 템플릿에서 사용자 지정을 간단히 설명하고 이 문서의 이미지 생성 단계를 처리합니다. [Azure Image Builder(미리 보기)를 사용해 보세요](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder).
 
 ## <a name="before-you-begin"></a>시작하기 전에
 

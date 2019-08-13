@@ -7,16 +7,16 @@ ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
-ms.date: 11/28/2018
-ms.openlocfilehash: 3fed332846c835106cbd2b8876d93aff1a97b0a3
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.date: 08/01/2019
+ms.openlocfilehash: 99f85abe0c8f08bedb3e9808d2b740d4b7842257
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275014"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720354"
 ---
 # <a name="monitor-and-scale-an-azure-database-for-mariadb-server-using-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MariaDB 서버 모니터링 및 확장
-이 샘플 CLI 스크립트는 메트릭을 쿼리한 후에 단일 Azure Database for MariaDB 서버를 다양한 성능 수준으로 확장합니다.
+이 샘플 CLI 스크립트는 메트릭을 쿼리한 후에 단일 Azure Database for MariaDB 서버에 대한 컴퓨팅 및 스토리지를 확장합니다.
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
@@ -37,10 +37,11 @@ CLI를 로컬로 실행하도록 선택한 경우 이 문서에 Azure CLI 버전
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [az mariadb server create](/cli/azure/mariadb/server#az-mariadb-server-create) | 데이터베이스를 호스팅하는 MariaDB 서버를 만듭니다. |
+| [az mariadb server update](/cli/azure/mariadb/server#az-mariadb-server-update) | MariaDB 서버의 속성을 업데이트합니다. |
 | [az monitor metrics list](/cli/azure/monitor/metrics#az-monitor-metrics-list) | 리소스에 대한 메트릭 값을 나열합니다. |
 | [az group delete](/cli/azure/group#az-group-delete) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 
 ## <a name="next-steps"></a>다음 단계
-- Azure CLI에 대한 자세한 내용: [Azure CLI 설명서](/cli/azure)
+- [Azure Database for MariaDB 컴퓨팅 및 스토리지](../concepts-pricing-tiers.md)에 대해 자세히 알아보기
 - 추가 스크립트 시도: [Azure Database for MariaDB용 Azure CLI 샘플](../sample-scripts-azure-cli.md)
-- 크기 조정에 대한 자세한 내용은 [가격 책정 계층]\(../concepts-pricing-tiers.md)을 참조하세요.
+- [Azure CLI](/cli/azure)에 대한 자세한 정보

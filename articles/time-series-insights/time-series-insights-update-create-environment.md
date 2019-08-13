@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 07/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: b462f0c427020b1422b91fbd7ac34e3023e546b8
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 998471d99a785eeff39ef7c99e60e1d9b49e0d7a
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68677873"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725826"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-preview-environment"></a>자습서: Azure Time Series Insights 미리 보기 환경 설정
 
@@ -62,7 +62,7 @@ ms.locfileid: "68677873"
 
     [![디바이스 시뮬레이션 솔루션 만들기 페이지](media/v2-update-provision/device-two-create.png)](media/v2-update-provision/device-two-create.png#lightbox)
 
-## <a name="create-a-time-series-insights-preview-payg-environment"></a>Time Series Insights 미리 보기 PAYG 환경 만들기
+## <a name="create-a-preview-payg-environment"></a>Preview PAYG 환경 만들기
 
 이 섹션에서는 Azure Time Series Insights 미리 보기 환경을 만들고 [Azure Portal](https://portal.azure.com/)을 사용하여 IoT 솔루션 가속기에서 만든 IoT Hub에 연결하는 방법에 대해 설명합니다.
 
@@ -130,7 +130,9 @@ ms.locfileid: "68677873"
 
    자격 증명이 나열되어 있지 않으면 환경에 대한 액세스 권한을 자신에게 부여해야 합니다. 사용 권한 설정에 대해 자세히 알아보려면 [데이터 액세스 권한 부여](./time-series-insights-data-access.md)를 읽어보세요.
 
-## <a name="stream-data-into-your-environment"></a>환경에 데이터 스트림
+## <a name="stream-data"></a>스트림 데이터
+
+이제 Time Series Insights 환경을 배포했으므로 분석을 위해 데이터를 스트리밍합니다.
 
 1. [Azure IoT 솔루션 가속기 페이지](https://www.azureiotsolutions.com/Accelerators)로 다시 이동합니다. 솔루션 가속기 대시보드에서 솔루션을 찾습니다. 그런 다음 **시작**을 선택합니다.
 
@@ -158,7 +160,7 @@ ms.locfileid: "68677873"
 
     [![Azure IoT 시뮬레이션 대시보드](media/v2-update-provision/device-seven-dashboard.png)](media/v2-update-provision/device-seven-dashboard.png#lightbox)
 
-## <a name="analyze-data-in-your-environment"></a>환경에서 데이터 분석
+## <a name="analyze-data"></a>데이터 분석
 
 이 섹션에서는 [Azure Time Series Insights 미리 보기 탐색기](./time-series-insights-update-explorer.md)를 사용하여 시계열 데이터에 대해 기본 분석을 수행합니다.
 

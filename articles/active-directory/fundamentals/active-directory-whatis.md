@@ -10,12 +10,12 @@ ms.date: 07/31/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3087f0ac69126c6d509eee77abe15cc35319dfb
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: eda457747a6a3e374e7fdea571f64446e15ded21
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68693913"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774171"
 ---
 # <a name="what-is-azure-active-directory"></a>Azure Active Directory란?
 
@@ -33,7 +33,7 @@ Azure AD의 대상은 다음과 같습니다.
 
 - **IT 관리자.** IT 관리자는 Azure AD를 사용하여 비즈니스 요구 사항에 따라 앱 및 앱 리소스에 대한 액세스를 제어할 수 있습니다. 예를 들어 Azure AD를 사용하여 중요한 조직 리소스에 액세스할 때에는 다단계 인증을 요구할 수 있습니다. 또한 Azure AD를 사용하여 기존 Windows Server AD와 Office 365를 비롯한 클라우드 앱 간에 사용자 프로비전을 자동화할 수 있습니다. 마지막으로, Azure AD는 자동으로 사용자 ID 및 자격 증명을 보호하고 액세스 거버넌스 요구 사항을 충족하는 강력한 도구를 제공합니다. 시작하려면 [30일 Azure Active Directory Premium 평가판](https://azure.microsoft.com/trial/get-started-active-directory/)에 등록하세요.
 
-- **앱 개발자.** Azure AD는 앱에 SSO(Single Sign-On)를 추가하여 사용자의 기존 자격 증명과 함께 사용할 수 있는 표준 기반 접근 방식을 앱 개발자에게 제공합니다. Azure AD는 조직의 기존 데이터를 사용하여 맞춤형 앱 환경을 빌드할 수 있는 API도 제공합니다. 시작하려면 [30일 Azure Active Directory Premium 평가판](https://azure.microsoft.com/trial/get-started-active-directory/)에 등록하세요. 자세한 내용은 [개발자용 Azure Active Directory](../develop/index.yml)를 참조하세요.
+- **앱 개발자.** 앱 개발자는 앱에 SSO(Single Sign-On)를 추가하여 사용자의 기존 자격 증명과 함께 사용할 수 있는 표준 기반 접근 방식으로 Azure AD를 사용할 수 있습니다. Azure AD는 조직의 기존 데이터를 사용하여 맞춤형 앱 환경을 빌드할 수 있는 API도 제공합니다. 시작하려면 [30일 Azure Active Directory Premium 평가판](https://azure.microsoft.com/trial/get-started-active-directory/)에 등록하세요. 자세한 내용은 [개발자용 Azure Active Directory](../develop/index.yml)를 참조하세요.
 
 - **Microsoft 365, Office 365, Azure 또는 Dynamics CRM Online 구독.** 여러분은 구독자로서 이미 Azure AD를 사용하고 있습니다. 각 Microsoft 365, Office 365, Azure 및 Dynamics CRM Online 테넌트는 자동으로 Azure AD 테넌트입니다. 통합 클라우드 앱에 대한 액세스를 즉시 관리할 수 있습니다.
 

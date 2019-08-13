@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: lbosq
-ms.openlocfilehash: 18f54e64498c7809e662ceb71d1e497a0f275ad6
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 545f679b11295485567a817d144225b361a262ce
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480458"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815201"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-python-and-the-azure-portal"></a>빠른 시작: Python 및 Azure Portal을 사용하여 Azure Cosmos DB에서 그래프 데이터베이스 만들기
 
@@ -173,13 +173,13 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 <a id="add-sample-data"></a>
 ## <a name="review-and-add-sample-data"></a>샘플 데이터 검토 및 추가
 
-이제 데이터 탐색기로 다시 돌아가서 그래프에 추가된 꼭짓점을 확인하고 추가 데이터 지점을 추가할 수 있습니다.
+꼭짓점과 에지를 삽입한 후 이제 데이터 탐색기로 돌아가서 그래프에 추가된 꼭짓점을 확인하고 추가 데이터 포인트를 추가할 수 있습니다.
 
 1. **데이터 탐색기**를 클릭하고, **sample-graph**를 확장하고, **그래프**를 클릭한 다음 **필터 적용**을 클릭합니다. 
 
    ![Azure Portal의 데이터 탐색기에서 새 문서 만들기](./media/create-graph-python/azure-cosmosdb-data-explorer-expanded.png)
 
-2. **결과** 목록에서 그래프에 추가된 새 사용자를 확인합니다. **ben**을 선택하고 robin에 연결되어 있는지 확인합니다. 끌어 놓아서 꼭짓점을 이동하고, 마우스 휠을 스크롤하여 확대 및 축소하고, 이중 화살표를 사용하여 그래프의 크기를 확장할 수 있습니다. 
+2. **결과** 목록에서 그래프에 추가된 세 명의 새로운 사용자를 확인합니다. 끌어 놓아서 꼭짓점을 이동하고, 마우스 휠을 스크롤하여 확대 및 축소하고, 이중 화살표를 사용하여 그래프의 크기를 확장할 수 있습니다. 
 
    ![Azure Portal의 데이터 탐색기에서 그래프의 새 꼭짓점](./media/create-graph-python/azure-cosmosdb-graph-explorer-new.png)
 
@@ -193,6 +193,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
     key|값|메모
     ----|----|----
+    pk|/pk| 
     id|ashley|꼭짓점의 고유 식별자입니다. ID를 지정하지 않으면 사용자에 대해 하나 생성됩니다.
     gender|female| 
     tech | java | 
@@ -210,6 +211,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
     key|값|메모
     ----|----|----
+    pk|/pk| 
     id|rakesh|꼭짓점의 고유 식별자입니다. ID를 지정하지 않으면 사용자에 대해 하나 생성됩니다.
     gender|male| 
     school|MIT| 

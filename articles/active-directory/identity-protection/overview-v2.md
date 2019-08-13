@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5d82f665cc837e5dbd2d7efbf16c7ae94e1b2b7
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 2987f8fb116bfcbb1698335c3aca6f1fd8eb633e
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68333903"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717280"
 ---
 # <a name="what-is-azure-active-directory-identity-protection-refreshed"></a>갱신된 Azure Active Directory ID 보호 소개
 
 조직 ID를 더 효율적으로 보호할 수 있도록 ID 보호 환경이 갱신되었습니다. 이 갱신된 환경에서는 다음과 같은 기능이 제공됩니다.
 
-- 사용자와 가장 관련성이 높은 위험(사용자 위험 및 로그인 위험)을 방지할 수 있도록 새롭게 설계된 관리 환경
+- 사용자 위험 및 로그인 위험과 가장 관련성이 높은 위험을 방지할 수 있도록 새롭게 설계된 관리 환경
 - 필터링, 정렬 및 스마트 다운로드 지원이 포함된 효율적인 조사 환경
 - 보안 손상 가능성이 가장 높은 사용자와 관련된 작업을 우선적으로 수행할 수 있도록 개선된 사용자 위험 계산 기능
 - 위험 데이터에 프로그래밍 방식으로 액세스하는 데 사용할 수 있는 새로운 API 지원

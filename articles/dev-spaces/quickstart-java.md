@@ -1,5 +1,5 @@
 ---
-title: Azure Dev Spaces를 사용하여 Kubernetes에서 Java로 개발
+title: Azure Dev Spaces를 사용하는 Kubernetes에서 Visual Studio Code 및 Java로 디버깅 및 반복
 titleSuffix: Azure Dev Spaces
 author: zr-msft
 services: azure-dev-spaces
@@ -10,14 +10,14 @@ ms.topic: quickstart
 description: Azure에서 컨테이너 및 마이크로서비스 및 Java로 신속하게 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Java, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: b3e199f38f6f57cf10991f7e03757b8b603f74ad
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 146812a5553643d3cbe3b308d6b7d7bed1e66dad
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706871"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725877"
 ---
-# <a name="quickstart-develop-with-java-on-kubernetes-using-azure-dev-spaces"></a>빠른 시작: Azure Dev Spaces를 사용하여 Kubernetes에서 Java로 개발
+# <a name="quickstart-debug-and-iterate-with-visual-studio-code-and-java-on-kubernetes-using-azure-dev-spaces"></a>빠른 시작: Azure Dev Spaces를 사용하는 Kubernetes에서 Visual Studio Code 및 Java로 디버깅 및 반복
 
 이 가이드에서는 다음을 수행하는 방법을 배우게 됩니다.
 
@@ -124,7 +124,7 @@ Visual Studio Code에도 기본 이미지, 노출된 포트 및 공용 엔드포
 1. 변경 내용을 저장합니다.
 1. *Java 프로그램 시작(AZDS)* 을 다시 실행합니다.
 1. 실행 중인 서비스로 이동하고 변경 내용을 살펴봅니다.
-1. *디버그*와 *디버깅 중지*를 차례로 클릭하여 애플리케이션을 중지합니다.
+1. *디버그*, *디버깅 중지*를 차례로 클릭하여 애플리케이션을 중지합니다.
 
 ## <a name="setting-and-using-breakpoints-for-debugging"></a>디버깅용 중단점 설정 및 사용
 

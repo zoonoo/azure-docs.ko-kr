@@ -9,12 +9,12 @@ ms.date: 07/29/2019
 ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: 921528c50bae03b67800bf3ccab8b5cd9bb704f6
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 4c81daa1f55167fa868c69f3bff388dbaa4887cd
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68677747"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725751"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>자습서: Azure Time Series Insights 환경 만들기
 
@@ -34,7 +34,7 @@ ms.locfileid: "68677747"
 
 * 또한 Azure 로그인 계정은 구독에 대한 **소유자** 역할의 멤버여야 합니다. 자세한 내용은 [역할 기반 액세스 제어 및 Azure Portal을 사용하여 액세스 관리](../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 
-## <a name="video"></a>비디오
+## <a name="review-video"></a>비디오 검토
 
 ### <a name="learn-how-to-use-an-azure-iot-solution-accelerator-to-generate-data-and-get-started-with-time-series-insights-br"></a>Azure IoT 솔루션 가속기를 사용하여 데이터를 생성하고 Time Series Insights를 시작하는 방법을 알아보세요. </br>
 
@@ -116,7 +116,7 @@ Azure IoT Hub는 자습서의 모든 디바이스(시뮬레이션된 디바이�
 
    [![Time Series Insights 환경 배포 성공](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-deployment-succeeded.png)](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-deployment-succeeded.png#lightbox)
 
-## <a name="run-device-simulation-to-stream-data"></a>디바이스 시뮬레이션을 실행하여 데이터를 스트리밍
+## <a name="run-device-simulation"></a>디바이스 시뮬레이션 실행
 
 이제 배포 및 초기 구성이 완료되었으므로 Time Series Insights 환경을 [가속기에서 만든 시뮬레이션된 디바이스](#create-a-device-simulation)의 샘플 데이터로 채웁니다.
 

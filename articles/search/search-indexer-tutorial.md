@@ -1,5 +1,5 @@
 ---
-title: '자습서: C# 예제 코드에서 Azure SQL 데이터베이스의 데이터 인덱싱 - Azure Search'
+title: 'C# 자습서: Azure SQL 데이터베이스에서 데이터 인덱싱 - Azure Search'
 description: Azure SQL 데이터베이스에 연결하고, 검색 가능한 데이터를 추출하고, Azure Search 인덱스에 로드하는 방법을 보여주는 C# 코드 예제입니다.
 author: HeidiSteen
 manager: cgronlun
@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: bb082fb83f8c2521b0deabced6f851e62b785e8f
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: c88ff0d7e408e03216707ff9282d640fb7d28500
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485383"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840682"
 ---
 # <a name="c-tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>C# 자습서: Azure Search 인덱서를 사용하여 Azure SQL 데이터베이스 탐색
 

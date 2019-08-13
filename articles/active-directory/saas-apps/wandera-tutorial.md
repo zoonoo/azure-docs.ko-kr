@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/04/2019
+ms.date: 07/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e556ce95107e820dc04d34c05bea3a2840aab7e8
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: d4f5004571c849d90b7d811906684e66c10ee487
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798547"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68825289"
 ---
 # <a name="tutorial-integrate-wandera-with-azure-active-directory"></a>자습서: Azure Active Directory와 Wandera 통합
 
@@ -37,7 +37,7 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 시작하려면 다음 항목이 필요합니다.
 
-* Azure AD 구독 구독이 없는 경우 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 다운로드할 수 있습니다.
+* Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
 * Wandera SSO(Single Sign-On)가 설정된 구독
 
 ## <a name="scenario-description"></a>시나리오 설명
@@ -66,9 +66,9 @@ Wandera에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요�
 
 1. **[Azure AD SSO 구성](#configure-azure-ad-sso)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
 2. **[Wandera SSO 구성](#configure-wandera-sso)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
-3. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-5. **[Wandera 테스트 사용자 만들기](#create-wandera-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Wandera에 만듭니다.
+3. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
+4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
+5. **[Wandera 테스트 사용자 만들기](#create-wandera-test-user)** - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 Wandera에 만듭니다.
 6. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
 
 ### <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
@@ -88,7 +88,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     > [!NOTE]
     > 이 값은 실제 값이 아닙니다. 실제 회신 URL로 값을 업데이트합니다. 이 값을 가져오려면 [Wandera 클라이언트 지원 팀](https://www.wandera.com/about-wandera/contact/#supportsection)에 문의합니다. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 찾고, **다운로드**를 선택하여 인증서를 컴퓨터에 다운로드하여 저장합니다.
+1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **페더레이션 메타데이터 XML**을 찾고, **다운로드**를 선택하여 인증서를 컴퓨터에 다운로드 및 저장합니다.
 
     ![인증서 다운로드 링크](common/metadataxml.png)
 
@@ -106,7 +106,27 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ### <a name="configure-wandera-sso"></a>Wandera SSO 구성
 
-**Wandera** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **메타데이터 XML**과 적절히 복사한 URL을 [Wandera 지원 팀](https://www.wandera.com/about-wandera/contact/#supportsection)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+1. Wandera 내에서 구성을 자동화하려면 **확장 설치**를 클릭하여 **내 앱 보안 로그인 브라우저 확장**을 설치해야 합니다.
+
+    ![내 앱 확장](common/install-myappssecure-extension.png)
+
+2. 브라우저에 확장을 추가한 후 **Wandera 설정**을 클릭하면 Wandera 애플리케이션으로 이동됩니다. 여기서 관리자 자격 증명을 입력하여 Wandera에 로그인합니다. 브라우저 확장이 애플리케이션을 자동으로 구성하고 3-4단계를 자동으로 수행합니다.
+
+    ![구성 설정](common/setup-sso.png)
+
+3. Wandera를 수동으로 설정하려면 새 웹 브라우저 창을 열고 Wandera 회사 사이트에 관리자로 로그인하여 다음 단계를 수행합니다.
+
+4. 페이지의 오른쪽 위 모서리에서 **설정** > **관리** > **Single Sign-On**을 클릭한 다음, **SAML 2.0 사용** 옵션을 선택하여 다음 단계를 수행합니다.
+
+    ![Wandera 구성](./media/wandera-tutorial/config01.png)
+
+    a. **수동으로 필수 필드 입력**을 클릭합니다.
+
+    b. Azure Portal에서 복사한 **Azure AD 식별자** 값을 **IdP EntityId** 텍스트 상자에 붙여넣습니다.
+
+    다. 메모장에서 페더레이션 메타데이터 XML을 열고, 내용을 복사하여 **IdP 공용 X.509 인증서** 텍스트 상자에 붙여넣습니다.
+
+    d. **저장**을 클릭합니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -140,7 +160,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ### <a name="create-wandera-test-user"></a>Wandera 테스트 사용자 만들기
 
-이 섹션에서는 Wandera에서 Britta Simon이라는 사용자를 만듭니다.  [Wandera 지원 팀](https://www.wandera.com/about-wandera/contact/#supportsection)에 문의하여 Wandera 플랫폼에 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 Wandera에 B.Simon이라는 사용자를 만듭니다.  [Wandera 지원 팀](https://www.wandera.com/about-wandera/contact/#supportsection)에 문의하여 Wandera 플랫폼에 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 ### <a name="test-sso"></a>SSO 테스트
 

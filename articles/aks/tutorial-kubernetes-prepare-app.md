@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 2b4ba646a037b2f5561dabf97dee14454c07c573
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 3ff93d006b7599eaa3f97c33efb047ce480c301c
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67614235"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68740944"
 ---
 # <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에 대한 애플리케이션 준비
 
-7개 중 1단계인 이 자습서에서는 Kubernetes에서 사용할 수 있도록 다중 컨테이너 애플리케이션을 준비하는 과정입니다. Docker Compose 같은 기존 개발 도구는 로컬로 애플리케이션을 빌드하고 테스트하는 데 사용됩니다. 다음 방법에 대해 알아봅니다.
+7개 중 1단계인 이 자습서에서는 Kubernetes에서 사용할 수 있도록 다중 컨테이너 애플리케이션을 준비하는 과정입니다. Docker Compose 같은 기존 개발 도구는 로컬로 애플리케이션을 빌드하고 테스트하는 데 사용됩니다. 다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * GitHub에서 애플리케이션 예제 소스 복제
@@ -103,7 +103,7 @@ b68fed4b66b6        redis             "docker-entrypoint..."   57 seconds ago   
 docker-compose down
 ```
 
-로컬 애플리케이션이 제거되면 그 다음 자습서에서 사용할 Azure Vote 애플리케이션 *azure-front-front*가 포함된 Docker 이미지가 생깁니다.
+로컬 애플리케이션이 제거되면 그 다음 자습서에서 사용할 Azure Vote 애플리케이션 *azure-vote-front*가 포함된 Docker 이미지가 생깁니다.
 
 ## <a name="next-steps"></a>다음 단계
 

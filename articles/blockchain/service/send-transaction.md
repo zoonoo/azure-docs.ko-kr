@@ -1,372 +1,136 @@
 ---
-title: Azure Blockchain Service를 사용하여 트랜잭션 보내기
-description: Azure Blockchain Service를 사용하여 스마트 계약을 배포하고 프라이빗 트랜잭션을 보내는 방법에 대한 자습서입니다.
+title: Azure Blockchain Service에서 스마트 계약 사용
+description: Azure Blockchain Service를 사용하여 스마트 계약을 배포하고, 트랜잭션을 통해 함수를 실행하는 방법에 대한 자습서입니다.
 services: azure-blockchain
-keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/29/2019
+ms.date: 07/31/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
-ms.reviewer: jackyhsu
-manager: femila
-ms.openlocfilehash: 3cfbbdc5b95d1607738b132980320d2ff7c99788
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.reviewer: chrisseg
+ms.openlocfilehash: 1843bd66e11a6686c9ae81fb8e30c7b030e889b7
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698393"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705123"
 ---
-# <a name="tutorial-send-transactions-using-azure-blockchain-service"></a>자습서: Azure Blockchain Service를 사용하여 트랜잭션 보내기
+# <a name="tutorial-use-smart-contracts-on-azure-blockchain-service"></a>자습서: Azure Blockchain Service에서 스마트 계약 사용
 
-이 자습서에서는 계약 및 트랜잭션 개인 정보를 테스트할 트랜잭션 노드를 만듭니다.  Truffle을 사용하여 로컬 개발 환경을 만들고 스마트 계약을 배포하여 프라이빗 트랜잭션을 보냅니다.
+이 자습서에서는 Etherum용 Azure Blockchain Development Kit를 사용하여 스마트 계약을 만들고 배포한 다음, 컨소시엄 블록체인 네트워크에서 트랜잭션을 통해 스마트 계약 함수를 실행합니다.
 
-이 문서에서 배울 내용은 다음과 같습니다.
+Etherum용 Azure Blockchain Development Kit를 사용하여 다음을 수행합니다.
 
 > [!div class="checklist"]
-> * 트랜잭션 노드 추가
-> * Truffle을 사용하여 스마트 계약 배포
-> * 트랜잭션 보내기
-> * 트랜잭션 개인 정보에 대한 유효성 검사
+> * Azure Blockchain Service 컨소시엄 블록체인 멤버에 연결
+> * 스마트 계약 만들기
+> * 스마트 계약 배포
+> * 트랜잭션을 통해 스마트 계약 함수 실행
+> * 계약 상태 쿼리
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 
-* [Azure Portal을 사용하여 블록체인 멤버 만들기](create-member.md)를 완료합니다.
-* [빠른 시작: Truffle을 사용하여 컨소시엄 네트워크에 연결](connect-truffle.md)을 완료합니다.
-* [Truffle](https://github.com/trufflesuite/truffle)을 설치합니다. Truffle을 사용하려면 [Node.js](https://nodejs.org), [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)를 포함한 여러 도구를 설치해야 합니다.
-* [Python 2.7.15](https://www.python.org/downloads/release/python-2715/)를 설치합니다. Python은 Web3에 필요합니다.
-* [Visual Studio Code](https://code.visualstudio.com/Download)를 설치합니다.
-* [Visual Studio Code Solidity 확장](https://marketplace.visualstudio.com/items?itemName=JuanBlanco.solidity)을 설치합니다.
+* [빠른 시작: Azure Portal을 사용하여 블록체인 멤버 만들기](create-member.md) 또는 [빠른 시작: Azure CLI를 사용하여 Azure Blockchain Service 블록체인 멤버 만들기](create-member-cli.md)를 완료합니다.
+* [Visual Studio Code](https://code.visualstudio.com/Download)
+* [Etherum용 Azure Blockchain Development Kit 확장](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain)
+* [Node.JS](https://nodejs.org)
+* [Git](https://git-scm.com)
+* [Python](https://www.python.org/downloads/release/python-2715/). python.exe를 경로에 추가합니다. Azure Blockchain Development Kit에는 경로의 Python이 필요합니다.
+* [Truffle](https://www.trufflesuite.com/docs/truffle/getting-started/installation)
+* [Ganache CLI](https://github.com/trufflesuite/ganache-cli)
 
-## <a name="create-transaction-nodes"></a>트랜잭션 노드 만들기
+### <a name="verify-azure-blockchain-development-kit-environment"></a>Azure Blockchain Development Kit 환경 확인
 
-기본적으로 하나의 트랜잭션 노드가 있습니다. 2개를 더 추가할 것입니다. 노드 중 하나는 프라이빗 트랜잭션에 참여합니다. 다른 하나는 프라이빗 트랜잭션에 포함되지 않습니다.
+Azure Blockchain Development Kit는 개발 환경 필수 구성 요소가 충족되었는지 확인합니다. 개발 환경을 확인하려면 다음을 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. Azure Blockchain 멤버로 이동하여 **트랜잭션 노드 > 추가**를 차례로 선택합니다.
-1. `alpha`라는 새 트랜잭션 노드에 대한 설정을 완료합니다.
+VS Code 명령 팔레트에서 **Azure Blockchain: 시작 페이지 표시**를 선택합니다.
 
-    ![트랜잭션 노드 만들기](./media/send-transaction/create-node.png)
+Azure Blockchain Development Kit는 완료하는 데 1분 정도 걸리는 유효성 검사 스크립트를 실행합니다. **터미널 > 새 터미널**을 차례로 선택하여 출력을 볼 수 있습니다. 터미널 메뉴 모음의 드롭다운에서 **출력** 탭 및 **Azure Blockchain**을 선택합니다. 성공한 유효성 검사는 다음 이미지와 같습니다.
 
-    | 설정 | 값 | 설명 |
-    |---------|-------|-------------|
-    | Name | `alpha` | 트랜잭션 노드 이름입니다. 트랜잭션 노드 엔드포인트에 대한 DNS 주소를 만드는 데 사용됩니다. 예: `alpha-mymanagedledger.blockchain.azure.com` |
-    | 암호 | 강력한 암호 | 기본 인증을 사용 하여 트랜잭션 노드 엔드포인트에 액세스하는 데 사용됩니다.
+![유효한 개발 환경](./media/send-transaction/valid-environment.png)
 
-1. **만들기**를 선택합니다.
+ 필수 도구가 없는 경우 **Azure Blockchain Development Kit - 미리 보기**라는 새 탭에는 설치할 필수 앱과 해당 도구를 다운로드하는 데 필요한 링크가 나열됩니다.
 
-    새 트랜잭션 노드를 프로비저닝하는 데 약 10분이 걸립니다.
+![개발 키트 필수 앱](./media/send-transaction/required-apps.png)
 
-1. 2~4단계를 반복하여 `beta`라는 트랜잭션 노드를 추가합니다.
+## <a name="connect-to-consortium-member"></a>컨소시엄 멤버에 연결
 
-노드가 프로비저닝되는 동안 자습서를 계속할 수 있습니다. 프로비저닝이 완료되면 3개의 트랜잭션 노드가 있습니다.
+Azure Blockchain Development Kit VS Code 확장을 사용하여 컨소시엄 멤버에 연결할 수 있습니다. 컨소시엄에 연결되면 스마트 계약을 Azure Blockchain Service 컨소시엄 멤버에 컴파일, 빌드 및 배포할 수 있습니다.
 
-## <a name="open-truffle-console"></a>Truffle 콘솔 열기
+Azure Blockchain Service 컨소시엄 멤버에 액세스할 수 없는 경우 [빠른 시작: Azure Portal을 사용하여 블록체인 멤버 만들기](create-member.md) 또는 [빠른 시작: Azure CLI를 사용하여 Azure Blockchain Service 블록체인 멤버 만들기](create-member-cli.md)의 필수 조건을 완료합니다.
 
-1. Node.js 명령 프롬프트 또는 셸을 엽니다.
-1. [빠른 시작: Truffle을 사용하여 컨소시엄 네트워크에 연결](connect-truffle.md)의 필수 조건에서 경로를 Truffle 프로젝트 디렉터리로 변경합니다. 예를 들면 다음과 같습니다.
+1. VS Code(Visual Studio Code) 탐색기 창에서 **Azure Blockchain** 확장을 펼칩니다.
+1. **컨소시엄에 연결**을 선택합니다.
 
-    ```bash
-    cd truffledemo
-    ```
+   ![컨소시엄에 연결](./media/send-transaction/connect-consortium.png)
 
-1. Truffle 콘솔을 사용하여 기본 트랜잭션 노드에 연결합니다.
+    Azure 인증을 요청하는 메시지가 표시되면 프롬프트에 따라 브라우저를 사용하여 인증합니다.
+1. 명령 팔레트 드롭다운에서 **Azure Blockchain Service 컨소시엄에 연결**을 선택합니다.
+1. Azure Blockchain Service 컨소시엄 멤버와 연결된 구독 및 리소스 그룹을 선택합니다.
+1. 목록에서 컨소시엄을 선택합니다.
 
-    ``` bash
-    truffle console --network defaultnode
-    ```
+컨소시엄 및 블록체인 멤버가 Visual Studio 탐색기 사이드바에 나열됩니다.
 
-    Truffle은 기본 트랜잭션 노드에 연결되고 대화형 콘솔을 제공합니다.
+![탐색기에 표시된 컨소시엄](./media/send-transaction/consortium-node.png)
 
-## <a name="create-ethereum-account"></a>Ethereum 계정 만들기
+## <a name="create-a-smart-contract"></a>스마트 계약 만들기
 
-Web3를 사용하여 기본 트랜잭션 노드에 연결하고 Ethereum 계정을 만듭니다. Web3 개체에서 메서드를 호출하여 트랜잭션 노드와 상호 작용할 수 있습니다.
+Etherum용 Azure Blockchain Development Kit는 프로젝트 템플릿과 Truffle 도구를 사용하여 계약을 스캐폴드, 빌드 및 배포하는 데 도움을 줍니다.
 
-1. 새 계정을 기본 트랜잭션 노드에 만듭니다. 암호 매개 변수를 사용자 고유의 강력한 암호로 바꿉니다.
+1. VS Code 명령 팔레트에서 **Azure Blockchain: 새 Solidity 프로젝트**를 선택합니다.
+1. **기본 프로젝트 만들기**를 선택합니다.
+1. `HelloBlockchain`이라는 새 폴더를 만들고, **새 프로젝트 경로를 선택**합니다.
 
-    ```bash
-    web3.eth.personal.newAccount("1@myStrongPassword");
-    ```
-
-    반환된 계정 주소와 암호를 적어 두세요. 다음 섹션에서 Ethereum 계정 주소 및 암호가 필요합니다.
-
-1. Truffle 개발 환경을 종료합니다.
-
-    ```bash
-    .exit
-    ```
-
-## <a name="configure-truffle-project"></a>Truffle 프로젝트 구성
-
-Truffle 프로젝트를 구성하려면 Azure Portal의 일부 트랜잭션 노드 정보가 필요합니다.
-
-### <a name="transaction-node-public-key"></a>트랜잭션 노드 공개 키
-
-각 트랜잭션 노드에는 공개 키가 있습니다. 프라이빗 키를 사용하면 개인 트랜잭션을 노드에 보낼 수 있습니다. 트랜잭션을 기본 트랜잭션 노드에서 *alpha* 트랜잭션 노드에 보내려면 *alpha* 트랜잭션 노드의 공개 키가 필요합니다.
-
-공개 키는 트랜잭션 노드 목록에서 가져올 수 있습니다. alpha 노드의 공개 키를 복사하고 나중에 자습서의 뒷부분에서 사용할 값을 저장합니다.
-
-![트랜잭션 노드 목록](./media/send-transaction/node-list.png)
-
-### <a name="transaction-node-endpoint-addresses"></a>트랜잭션 노드 엔드포인트 주소
-
-1. Azure Portal에서 각 트랜잭션 노드로 이동하여 **트랜잭션 노드 > 연결 문자열**을 차례로 선택합니다.
-1. 각 트랜잭션 노드에 대한 **HTTPS(액세스 키 1)** 에서 엔드포인트 URL을 복사하여 저장합니다. 자습서의 뒷부분에 있는 스마트 계약 구성 파일에 대한 엔드포인트 주소가 필요합니다.
-
-    ![트랜잭션 엔드포인트 주소](./media/send-transaction/endpoint.png)
-
-### <a name="edit-configuration-file"></a>구성 파일 편집
-
-1. Visual Studio Code를 시작하고, **파일 > 폴더 열기** 메뉴를 사용하여 Truffle 프로젝트 디렉터리 폴더를 엽니다.
-1. `truffle-config.js` Truffle 구성 파일을 엽니다.
-1. 파일의 내용을 다음 구성 정보로 바꿉니다. 엔드포인트 주소 및 계정 정보가 포함된 변수를 추가합니다. 꺾쇠 괄호 섹션을 이전 섹션에서 수집한 값으로 바꿉니다.
-
-    ``` javascript
-    var defaultnode = "<default transaction node connection string>";
-    var alpha = "<alpha transaction node connection string>";
-    var beta = "<beta transaction node connection string>";
-    
-    var myAccount = "<Ethereum account address>";
-    var myPassword = "<Ethereum account password>";
-    
-    var Web3 = require("web3");
-    
-    module.exports = {
-      networks: {
-        defaultnode: {
-          provider:(() =>  {
-          const AzureBlockchainProvider = new Web3.providers.HttpProvider(defaultnode);
-    
-          const web3 = new Web3(AzureBlockchainProvider);
-          web3.eth.personal.unlockAccount(myAccount, myPassword);
-    
-          return AzureBlockchainProvider;
-          })(),
-    
-          network_id: "*",
-          gasPrice: 0,
-          from: myAccount
-        },
-        alpha: {
-          provider: new Web3.providers.HttpProvider(alpha),
-          network_id: "*",
-        },
-        beta: {
-          provider: new Web3.providers.HttpProvider(beta),
-          network_id: "*",
-        }
-      },
-      compilers: {
-        solc: {
-          evmVersion: "byzantium"
-        }
-      }
-    }
-    ```
-
-1. `truffle-config.js`에 변경 내용을 저장합니다.
-
-## <a name="create-smart-contract"></a>스마트 계약 만들기
-
-1. **contracts** 폴더에서 새 파일(`SimpleStorage.sol`)을 만듭니다. 다음 코드를 추가합니다.
-
-    ```solidity
-    pragma solidity >=0.4.21 <0.6.0;
-    
-    contract SimpleStorage {
-        string public storedData;
-    
-        constructor(string memory initVal) public {
-            storedData = initVal;
-        }
-    
-        function set(string memory x) public {
-            storedData = x;
-        }
-    
-        function get() view public returns (string memory retVal) {
-            return storedData;
-        }
-    }
-    ```
-    
-1. **migrations** 폴더에서 새 파일(`2_deploy_simplestorage.js`)을 만듭니다. 다음 코드를 추가합니다.
-
-    ```solidity
-    var SimpleStorage = artifacts.require("SimpleStorage.sol");
-    
-    module.exports = function(deployer) {
-    
-      // Pass 42 to the contract as the first constructor parameter
-      deployer.deploy(SimpleStorage, "42", {privateFor: ["<alpha node public key>"], from:"<Ethereum account address>"})  
-    };
-    ```
-
-1. 꺾쇠 괄호의 값을 바꿉니다.
-
-    | 값 | 설명
-    |-------|-------------
-    | \<alpha node public key\> | alpha 노드의 공개 키
-    | \<Ethereum account address\> | 기본 트랜잭션 노드에 만든 Ethereum 계정 주소
-
-    이 예제에서는 **storeData** 값의 초기 값이 42로 설정되었습니다.
-
-    **privateFor**은 계약을 사용할 수 있는 노드를 정의합니다. 이 예제에서는 기본 트랜잭션 노드의 계정에서 프라이빗 트랜잭션을 **alpha** 노드에 캐스팅할 수 있습니다. 모든 프라이빗 트랜잭션 참가자에 대한 공개 키를 추가합니다. **privateFor:** 및 **from:** 이 포함되지 않으면 스마트 계약 트랜잭션이 공개되어 모든 컨소시엄 구성원이 볼 수 있습니다.
-
-1. **파일 > 모두 저장**을 차례로 선택하여 모든 파일을 저장합니다.
-
-## <a name="deploy-smart-contract"></a>스마트 계약 배포
-
-Truffle을 사용하여 `SimpleStorage.sol`을 기본 트랜잭션 노드 네트워크에 배포합니다.
-
-```bash
-truffle migrate --network defaultnode
-```
-
-Truffle에서 먼저 **SimpleStorage** 스마트 계약을 컴파일한 다음, 배포합니다.
-
-예제 출력:
-
-```
-admin@desktop:/mnt/c/truffledemo$ truffle migrate --network defaultnode
-
-2_deploy_simplestorage.js
-=========================
-
-   Deploying 'SimpleStorage'
-   -------------------------
-   > transaction hash:    0x3f695ff225e7d11a0239ffcaaab0d5f72adb545912693a77fbfc11c0dbe7ba72
-   > Blocks: 2            Seconds: 12
-   > contract address:    0x0b15c15C739c1F3C1e041ef70E0011e641C9D763
-   > account:             0x1a0B9683B449A8FcAd294A01E881c90c734735C3
-   > balance:             0
-   > gas used:            0
-   > gas price:           0 gwei
-   > value sent:          0 ETH
-   > total cost:          0 ETH
-
-
-   > Saving migration to chain.
-   > Saving artifacts
-   -------------------------------------
-   > Total cost:                   0 ETH
-
-
-Summary
-=======
-> Total deployments:   2
-> Final cost:          0 ETH
-```
-
-## <a name="validate-contract-privacy"></a>계약 개인 정보에 대한 유효성 검사
-
-계약 개인 정보 보호로 인해 계약 값은 **privateFor**에서 선언한 노드에서만 쿼리할 수 있습니다. 다음 예제에서는 계정이 해당 노드에 있으므로 기본 트랜잭션 노드를 쿼리할 수 있습니다. 
-
-1. Truffle 콘솔을 사용하여 기본 트랜잭션 노드에 연결합니다.
-
-    ```bash
-    truffle console --network defaultnode
-    ```
-
-1. Truffle 콘솔에서 계약 인스턴스의 값을 반환하는 코드를 실행합니다.
-
-    ```bash
-    SimpleStorage.deployed().then(function(instance){return instance.get();})
-    ```
-
-    기본 트랜잭션 노드를 쿼리하는 데 성공하면 42라는 값이 반환됩니다. 예:
-
-    ```
-    admin@desktop:/mnt/c/truffledemo$ truffle console --network defaultnode
-    truffle(defaultnode)> SimpleStorage.deployed().then(function(instance){return instance.get();})
-    '42'
-    ```
-
-1. Truffle 콘솔을 종료합니다.
-
-    ```bash
-    .exit
-    ```
-
-**privateFor**에서 **alpha** 노드의 공개 키를 선언했으므로 **alpha** 노드를 쿼리할 수 있습니다.
-
-1. Truffle 콘솔을 사용하여 **alpha** 노드에 연결합니다.
-
-    ```bash
-    truffle console --network alpha
-    ```
-
-1. Truffle 콘솔에서 계약 인스턴스의 값을 반환하는 코드를 실행합니다.
-
-    ```bash
-    SimpleStorage.deployed().then(function(instance){return instance.get();})
-    ```
-
-    **alpha** 노드를 쿼리하는 데 성공하면 42라는 값이 반환됩니다. 예:
-
-    ```
-    admin@desktop:/mnt/c/truffledemo$ truffle console --network alpha
-    truffle(alpha)> SimpleStorage.deployed().then(function(instance){return instance.get();})
-    '42'
-    ```
-
-1. Truffle 콘솔을 종료합니다.
-
-    ```bash
-    .exit
-    ```
-
-**privateFor**에서 **beta** 노드의 공개 키를 선언하지 않았으므로 계약 개인 정보 보호로 인해 **beta** 노드를 쿼리할 수 없습니다.
-
-1. Truffle 콘솔을 사용하여 **beta** 노드에 연결합니다.
-
-    ```bash
-    truffle console --network beta
-    ```
-
-1. 계약 인스턴스의 값을 반환하는 코드를 실행합니다.
-
-    ```bash
-    SimpleStorage.deployed().then(function(instance){return instance.get();})
-    ```
-
-1. 계약이 프라이빗이므로 **beta** 노드를 쿼리하는 데 실패합니다. 예:
-
-    ```
-    admin@desktop:/mnt/c/truffledemo$ truffle console --network beta
-    truffle(beta)> SimpleStorage.deployed().then(function(instance){return instance.get();})
-    Thrown:
-    Error: Returned values aren't valid, did it run Out of Gas?
-        at XMLHttpRequest._onHttpResponseEnd (/mnt/c/truffledemo/node_modules/xhr2-cookies/xml-http-request.ts:345:8)
-        at XMLHttpRequest._setReadyState (/mnt/c/truffledemo/node_modules/xhr2-cookies/xml-http-request.ts:219:8)
-        at XMLHttpRequestEventTarget.dispatchEvent (/mnt/c/truffledemo/node_modules/xhr2-cookies/xml-http-request-event-target.ts:44:13)
-        at XMLHttpRequest.request.onreadystatechange (/mnt/c/truffledemo/node_modules/web3-providers-http/src/index.js:96:13)
-    ```
-
-1. Truffle 콘솔을 종료합니다.
-
-    ```bash
-    .exit
-    ```
-    
-## <a name="send-a-transaction"></a>트랜잭션 보내기
-
-1. `sampletx.js`라는 파일을 만듭니다. 프로젝트의 루트에 저장합니다.
-1. 다음 스크립트는 계약 **storedData** 변수 값을 65로 설정합니다. 코드를 새 파일에 추가합니다.
+Azure Blockchain Development Kit에서 새 Solidity 프로젝트를 만들고 초기화합니다. 기본 프로젝트에는 **HelloBlockchain** 스마트 계약 샘플과 Azure Blockchain Service의 컨소시엄 멤버에 빌드 및 배포하는 데 필요한 모든 파일이 포함되어 있습니다. 프로젝트를 만드는 데 몇 분 정도 걸릴 수 있습니다. Azure Blockchain의 출력을 선택하여 VS Code의 터미널 패널의 진행 상황을 모니터링할 수 있습니다.
+
+프로젝트 구조는 다음 예제와 같습니다.
+
+   ![Solidity 프로젝트](./media/send-transaction/solidity-project.png)
+
+## <a name="build-a-smart-contract"></a>스마트 계약 빌드
+
+스마트 계약은 프로젝트의 **contracts** 디렉터리에 있습니다. 블록체인에 배포하기 전에 스마트 계약을 컴파일합니다. **계약 빌드** 명령을 사용하여 프로젝트의 모든 스마트 계약을 컴파일합니다.
+
+1. VS Code 탐색기 사이드바에서 프로젝트의 **contracts** 폴더를 펼칩니다.
+1. 마우스 오른쪽 단추로 **HelloBlockchain.sol**을 클릭하고, 메뉴에서 **계약 빌드**를 선택합니다.
+
+    ![계약 빌드](./media/send-transaction/build-contracts.png)
+
+Azure Blockchain Development Kit에서 Truffle을 사용하여 스마트 계약을 컴파일합니다.
+
+![컴파일 출력](./media/send-transaction/compile-output.png)
+
+## <a name="deploy-a-smart-contract"></a>스마트 계약 배포
+
+Truffle은 마이그레이션 스크립트를 사용하여 계약을 Ethereum 네트워크에 배포합니다. 마이그레이션은 프로젝트의 **miginations** 디렉터리에 있는 JavaScript 파일입니다.
+
+1. 스마트 계약을 배포하려면 마우스 오른쪽 단추로 **HelloBlockchain.sol**을 클릭하고, 메뉴에서 **계약 배포**를 선택합니다.
+1. **truffle-config.js에서** 아래에서 Azure Blockchain 컨소시엄 네트워크를 선택합니다. 컨소시엄 블록체인 네트워크는 프로젝트를 만들 때 프로젝트의 Truffle 구성 파일에 추가되었습니다.
+1. **니모닉 생성**을 선택합니다. 파일 이름을 선택하고, 해당 니모닉 파일을 프로젝트 폴더에 저장합니다. 예: `myblockchainmember.env` 니모닉 파일은 블록체인 멤버에 대한 Ethereum 프라이빗 키를 생성하는 데 사용됩니다.
+
+Azure Blockchain Development Kit에서 Truffle을 사용하여 계약을 블록체인으로 배포하는 마이그레이션 스크립트를 실행합니다.
+
+![성공적으로 배포된 계약](./media/send-transaction/deploy-contract.png)
+
+## <a name="call-a-contract-function"></a>계약 함수 호출
+
+**HelloBlockchain** 계약의 **SendRequest** 함수는 **RequestMessage** 상태 변수를 변경합니다. 블록체인 네트워크의 상태를 변경하는 작업은 트랜잭션을 통해 수행됩니다. 트랜잭션을 통해 **SendRequest** 함수를 실행하는 스크립트를 만들 수 있습니다.
+
+1. 새 파일을 Truffle 프로젝트의 루트에 만들고, 이름을 `sendrequest.js`로 지정합니다. 다음 Web3 JavaScript 코드를 파일에 추가합니다.
 
     ```javascript
-    var SimpleStorage = artifacts.require("SimpleStorage");
-    
+    var HelloBlockchain = artifacts.require("HelloBlockchain");
+        
     module.exports = function(done) {
-      console.log("Getting deployed version of SimpleStorage...")
-      SimpleStorage.deployed().then(function(instance) {
-        console.log("Setting value to 65...");
-        return instance.set("65", {privateFor: ["<alpha node public key>"], from:"<Ethereum account address>"});
+      console.log("Getting the deployed version of the HelloBlockchain smart contract")
+      HelloBlockchain.deployed().then(function(instance) {
+        console.log("Calling SendRequest function for contract ", instance.address);
+        return instance.SendRequest("Hello, blockchain!");
       }).then(function(result) {
-        console.log("Transaction:", result.tx);
-        console.log("Finished!");
+        console.log("Transaction hash: ", result.tx);
+        console.log("Request complete");
         done();
       }).catch(function(e) {
         console.log(e);
@@ -375,76 +139,85 @@ Summary
     };
     ```
 
-    꺾쇠 괄호 안의 값을 바꾼 다음, 파일을 저장합니다.
+1. Azure Blockchain Development Kit에서 프로젝트를 만들면 Truffle 구성 파일이 컨소시엄 블록체인 네트워크 엔드포인트의 세부 정보를 사용하여 생성됩니다. 프로젝트에서 **truffle-config.js**를 엽니다. 구성 파일에는 각각 development라는 이름 및 컨소시엄과 동일한 이름의 두 개의 네트워크가 나열되어 있습니다.
+1. VS Code의 터미널 창에서 Truffle을 사용하여 컨소시엄 블록체인 네트워크에서 스크립트를 실행합니다. 터미널 창 메뉴 모음의 드롭다운에서 **터미널** 탭 및 **PowerShell**을 선택합니다.
 
-    | 값 | 설명
-    |-------|-------------
-    | \<alpha node public key\> | alpha 노드의 공개 키
-    | \<Ethereum account address\> | 기본 트랜잭션 노드에 만든 Ethereum 계정 주소입니다.
-
-    **privateFor**은 트랜잭션을 사용할 수 있는 노드를 정의합니다. 이 예제에서는 기본 트랜잭션 노드의 계정에서 프라이빗 트랜잭션을 **alpha** 노드에 캐스팅할 수 있습니다. 모든 프라이빗 트랜잭션 참가자에 대한 공개 키를 추가해야 합니다.
-
-1. Truffle을 사용하여 기본 트랜잭션 노드에 대한 스크립트를 실행합니다.
-
-    ```bash
-    truffle exec sampletx.js --network defaultnode
+    ```PowerShell
+    truffle exec sendrequest.js --network <blockchain network>
     ```
 
-1. Truffle 콘솔에서 계약 인스턴스의 값을 반환하는 코드를 실행합니다.
+    \<블록체인 네트워크\>를 **truffle-config.js**에 정의된 블록체인 네트워크 이름으로 바꿉니다.
 
-    ```bash
-    SimpleStorage.deployed().then(function(instance){return instance.get();})
+Truffle이 블록체인 네트워크에서 스크립트를 실행합니다.
+
+![스크립트 출력](./media/send-transaction/execute-transaction.png)
+
+트랜잭션을 통해 계약 함수를 실행하면 블록이 만들어질 때까지 트랜잭션이 처리되지 않습니다. 트랜잭션을 통해 수행되는 함수는 반환 값 대신 트랜잭션 ID를 반환합니다.
+
+## <a name="query-contract-state"></a>계약 상태 쿼리
+
+스마트 계약 함수는 상태 변수의 현재 값을 반환할 수 있습니다. 상태 변수의 값을 반환하는 함수를 추가해 보겠습니다.
+
+1. **HelloBlockchain.sol**에서 **getMessage** 함수를 **HelloBlockchain** 스마트 계약에 추가합니다.
+
+    ``` solidity
+    function getMessage() public view returns (string memory)
+    {
+        if (State == StateType.Request)
+            return RequestMessage;
+        else
+            return ResponseMessage;
+    }
     ```
 
-    트랜잭션이 성공하면 값 65라는 값이 반환됩니다. 예:
+    이 함수는 계약의 현재 상태에 따라 상태 변수에 저장된 메시지를 반환합니다.
+
+1. 마우스 오른쪽 단추로 **HelloBlockchain.sol**을 클릭하고, 메뉴에서 **계약 빌드**를 선택하여 스마트 계약의 변경 내용을 컴파일합니다.
+1. 배포하려면 마우스 오른쪽 단추로 **HelloBlockchain.sol**을 클릭하고, 메뉴에서 **계약 배포**를 선택합니다.
+1. 다음으로 **getMessage** 함수를 호출하는 데 사용하는 스크립트를 만듭니다. 새 파일을 Truffle 프로젝트의 루트에 만들고, 이름을 `getmessage.js`로 지정합니다. 다음 Web3 JavaScript 코드를 파일에 추가합니다.
+
+    ```javascript
+    var HelloBlockchain = artifacts.require("HelloBlockchain");
     
+    module.exports = function(done) {
+      console.log("Getting the deployed version of the HelloBlockchain smart contract")
+      HelloBlockchain.deployed().then(function(instance) {
+        console.log("Calling getMessage function for contract ", instance.address);
+        return instance.getMessage();
+      }).then(function(result) {
+        console.log("Request message value: ", result);
+        console.log("Request complete");
+        done();
+      }).catch(function(e) {
+        console.log(e);
+        done();
+      });
+    };
     ```
-    Getting deployed version of SimpleStorage...
-    Setting value to 65...
-    Transaction: 0x864e67744c2502ce75ef6e5e09d1bfeb5cdfb7b880428fceca84bc8fd44e6ce0
-    Finished!
-    ```
 
-1. Truffle 콘솔을 종료합니다.
-
-    ```bash
-    .exit
-    ```
-    
-## <a name="validate-transaction-privacy"></a>트랜잭션 개인 정보에 대한 유효성 검사
-
-트랜잭션 개인 정보 보호로 인해 트랜잭션은 **privateFor**에서 선언한 노드에서만 수행할 수 있습니다. 다음 예제에서는 **privateFor**에서 **alpha** 노드의 공개 키를 선언했으므로 트랜잭션을 수행할 수 있습니다. 
-
-1. Truffle을 사용하여 **alpha** 노드에서 트랜잭션을 실행합니다.
-
-    ```bash
-    truffle exec sampletx.js --network alpha
-    ```
-    
-1. 계약 인스턴스의 값을 반환하는 코드를 실행합니다.
+1. VS Code의 터미널 창에서 Truffle을 사용하여 블록체인 네트워크에서 스크립트를 실행합니다. 터미널 창 메뉴 모음의 드롭다운에서 **터미널** 탭 및 **PowerShell**을 선택합니다.
 
     ```bash
-    SimpleStorage.deployed().then(function(instance){return instance.get();})
+    truffle exec getmessage.js --network <blockchain network>
     ```
-    
-    트랜잭션이 성공하면 값 65라는 값이 반환됩니다. 예:
 
-    ```
-    Getting deployed version of SimpleStorage...
-    Setting value to 65...
-    Transaction: 0x864e67744c2502ce75ef6e5e09d1bfeb5cdfb7b880428fceca84bc8fd44e6ce0
-    Finished!
-    ```
-    
-1. Truffle 콘솔을 종료합니다.
+    \<블록체인 네트워크\>를 **truffle-config.js**에 정의된 블록체인 네트워크 이름으로 바꿉니다.
 
-    ```bash
-    .exit
-    ```
+스크립트에서 getMessage 함수를 호출하여 스마트 계약을 쿼리합니다. **RequestMessage** 상태 변수의 현재 값이 반환됩니다.
+
+![스크립트 출력](./media/send-transaction/execute-get.png)
+
+값이 **Hello, blockchain!** 이 아닙니다. 대신, 반환되는 값은 자리 표시자입니다. 계약을 변경하여 배포하는 경우 계약에는 새 계약 주소가 지정되고 스마트 계약 생성자의 값이 상태 변수에 할당됩니다. Truffle 샘플인 **2_deploy_contracts.js** 마이그레이션 스크립트는 스마트 계약을 배포하고 자리 표시자 값을 인수로 전달합니다. 생성자는 **RequestMessage** 상태 변수를 자리 표시자 값으로 설정하고 이를 반환합니다.
+
+1. **RequestMessage** 상태 변수를 설정하고 값을 쿼리하려면 **sendrequest.js** 및 **getmessage.js** 스크립트를 다시 실행합니다.
+
+    ![스크립트 출력](./media/send-transaction/execute-set-get.png)
+
+    **sendrequest.js**는 **RequestMessage** 상태 변수를 **Hello, blockchain!** 으로 설정하고, **getmessage.js**는 **RequestMessage** 상태 변수의 값에 대한 계약을 쿼리하고 **Hello, blockchain!** 을 반환합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요하지 않은 경우 Azure Blockchain Service에서 만든 `myResourceGroup` 리소스 그룹을 삭제하여 리소스를 삭제할 수 있습니다.
+더 이상 필요하지 않은 경우 *블록체인 멤버 만들기* 필수 조건 빠른 시작에서 만든 `myResourceGroup` 리소스 그룹을 삭제하여 리소스를 삭제할 수 있습니다.
 
 리소스 그룹을 삭제하려면 다음을 수행합니다.
 
@@ -453,7 +226,7 @@ Summary
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 계약 및 트랜잭션 개인 정보를 표시할 두 개의 트랜잭션 노드를 추가했습니다. 기본 노드를 사용하여 프라이빗 스마트 계약을 배포했습니다. 계약 값을 쿼리하고 블록체인에서 트랜잭션을 수행하여 개인 정보를 테스트했습니다.
+이 자습서에서는 Azure Blockchain Development Kit를 사용하여 Solidity 프로젝트 샘플을 만들었습니다. 스마트 계약을 빌드하고 배포한 다음, Azure Blockchain Service에서 호스팅되는 블록체인 컨소시엄 네트워크에서 트랜잭션을 통해 함수를 호출했습니다.
 
 > [!div class="nextstepaction"]
 > [Azure Blockchain Service를 사용하여 블록체인 애플리케이션 개발](develop.md)

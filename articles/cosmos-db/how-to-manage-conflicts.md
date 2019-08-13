@@ -4,14 +4,14 @@ description: Azure Cosmos DB의 충돌을 관리하는 방법 알아보기
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 06/25/2019
+ms.date: 08/05/2019
 ms.author: mjbrown
-ms.openlocfilehash: 96171d4729187ca03f1e9529551a7fb6a26c6976
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 77fb0e195cee03405c4a601fe8c57d4a2690a4b2
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360366"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815080"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Azure Cosmos DB의 충돌 해결 정책 관리
 
@@ -19,7 +19,7 @@ ms.locfileid: "68360366"
 
 ## <a name="create-a-last-writer-wins-conflict-resolution-policy"></a>최종 작성자 인정(last-writer-wins) 충돌 해결 정책 만들기
 
-다음 샘플에서는 최종 작성자 인정 충돌 해결 정책을 사용하여 컨테이너를 설정하는 방법을 보여 줍니다. 최종 작성자 인정(last-writer-wins)의 기본 경로는 타임스탬프 필드 또는 `_ts` 속성입니다. 숫자 형식의 사용자 정의 경로로 설정할 수도 있습니다. 충돌이 발생할 경우 가장 높은 값이 적용됩니다. 경로가 설정되지 않았거나 잘못된 경우 기본값인 `_ts`로 설정됩니다. 이 정책을 통해 해결된 충돌은 충돌 피드에 표시되지 않습니다. 이 정책은 모든 API에서 사용할 수 있습니다.
+다음 샘플에서는 최종 작성자 인정 충돌 해결 정책을 사용하여 컨테이너를 설정하는 방법을 보여 줍니다. 최종 작성자 인정(last-writer-wins)의 기본 경로는 타임스탬프 필드 또는 `_ts` 속성입니다. SQL API의 경우, 숫자 형식의 사용자 정의 경로로 설정할 수도 있습니다. 충돌이 발생할 경우 가장 높은 값이 적용됩니다. 경로가 설정되지 않았거나 잘못된 경우 기본값인 `_ts`로 설정됩니다. 이 정책을 통해 해결된 충돌은 충돌 피드에 표시되지 않습니다. 이 정책은 모든 API에서 사용할 수 있습니다.
 
 ### <a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>.NET SDK V2
 
@@ -114,7 +114,6 @@ udp_collection = self.try_create_document_collection(
 
 > [!IMPORTANT]
 > 저장 프로시저와 마찬가지로, 사용자 지정 충돌 해결 프로시저는 파티션 키가 동일한 모든 데이터에 액세스하여 충돌 해결을 위한 삽입, 업데이트 또는 삭제 작업을 수행할 수 있습니다.
-
 
 이 샘플 저장 프로시저는 `/myCustomId` 경로에서 가장 낮은 값을 선택하여 충돌을 해결합니다.
 
@@ -273,7 +272,6 @@ udp_collection = self.try_create_document_collection(
 
 컨테이너가 만들어지면 `resolver` 저장 프로시저를 만들어야 합니다.
 
-
 ## <a name="create-a-custom-conflict-resolution-policy"></a>사용자 지정 충돌 해결 정책 만들기
 
 다음 샘플은 사용자 지정 충돌 해결 정책을 사용하여 컨테이너를 설정하는 방법을 보여줍니다. 이러한 충돌은 충돌 피드에 표시됩니다.
@@ -428,10 +426,10 @@ while conflict:
 
 다음 Azure Cosmos DB 개념에 대해 자세히 알아봅니다.
 
-* [글로벌 배포 - 내부 살펴보기](global-dist-under-the-hood.md)
-* [애플리케이션에서 다중 마스터를 구성하는 방법](how-to-multi-master.md)
-* [클라이언트 멀티 호밍 구성](how-to-manage-database-account.md#configure-multiple-write-regions)
-* [Azure Cosmos DB 계정에서 지역 추가 또는 제거](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
-* [애플리케이션에서 다중 마스터를 구성하는 방법](how-to-multi-master.md)
-* [분할 및 데이터 배포](partition-data.md)
-* [Azure Cosmos DB의 인덱싱](indexing-policies.md)
+- [글로벌 배포 - 내부 살펴보기](global-dist-under-the-hood.md)
+- [애플리케이션에서 다중 마스터를 구성하는 방법](how-to-multi-master.md)
+- [클라이언트 멀티 호밍 구성](how-to-manage-database-account.md#configure-multiple-write-regions)
+- [Azure Cosmos DB 계정에서 지역 추가 또는 제거](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+- [애플리케이션에서 다중 마스터를 구성하는 방법](how-to-multi-master.md)
+- [분할 및 데이터 배포](partition-data.md)
+- [Azure Cosmos DB의 인덱싱](indexing-policies.md)

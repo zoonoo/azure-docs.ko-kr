@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6eb4ce8cbbfec58d9c7980954691fd6c71266d23
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 7eae1c9a42547c73cc42868bac1f1f484b6354fa
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67588029"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717407"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skytap"></a>자습서: Skytap과 Azure Active Directory 통합
 
@@ -191,7 +191,7 @@ Skytap에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
 ### <a name="create-skytap-test-user"></a>Skytap 테스트 사용자 만들기
 
-이 섹션에서는 Skytap에서 Britta Simon이라는 사용자를 만듭니다. Skytap 플랫폼에서 사용자를 추가하려면  [Skytap 지원 팀](mailto:support@skytap.com)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 Skytap에서 Britta Simon이라는 사용자를 만듭니다. Skytap 계정 내의 모든 관리자 또는 사용자 관리자는 사용자를 만들 수 있습니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 Skytap의 도움말 파일에 있는 https://help.skytap.com/users-create.html 을 참조하세요.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트 
 

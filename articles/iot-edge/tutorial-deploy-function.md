@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 2c2a2659b6b9c77b36001af1602c904e7d200b56
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 592aac7e66e1f0720a203c24ac9f000951cfe6f6
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67433048"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839536"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>자습서: IoT Edge 모듈로 Azure 함수 배포
 
@@ -217,7 +217,7 @@ Azure Portal을 사용하여 빠른 시작에서 수행한 것처럼 IoT Edge �
 
 3. **CSharpFunction**이 포함된 솔루션 폴더를 찾습니다. config 폴더를 열고 **deployment.json** 파일을 선택한 다음, **Edge 배포 매니페스트 선택**을 클릭합니다.
 
-4. **Azure IoT Hub 디바이스** 섹션을 새로 고칩니다. **TempSensor** 모듈과 **$edgeAgent** 및 **$edgeHub**와 함께 실행되는 새 **CSharpFunction**이 표시됩니다. 모듈을 시작하는 데 몇 분 정도 걸릴 수 있습니다. IoT Edge 디바이스는 IoT Hub에서 해당 새 배포 정보를 검색하고, 새 컨테이너를 시작하고, 상태를 IoT Hub에 다시 보고해야 합니다. 
+4. **Azure IoT Hub 디바이스** 섹션을 새로 고칩니다. **SimulatedTemperatureSensor** 모듈과 **$edgeAgent** 및 **$edgeHub**와 함께 실행되는 새 **CSharpFunction**이 표시됩니다. 모듈을 시작하는 데 몇 분 정도 걸릴 수 있습니다. IoT Edge 디바이스는 IoT Hub에서 해당 새 배포 정보를 검색하고, 새 컨테이너를 시작하고, 상태를 IoT Hub에 다시 보고해야 합니다. 
 
    ![VS Code에서 배포된 모듈 보기](./media/tutorial-deploy-function/view-modules.png)
 

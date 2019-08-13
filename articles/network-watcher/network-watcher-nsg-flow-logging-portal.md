@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: bba263b65344672808487ae6de4c3f475a871842
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 3bc06a8903fbc431d991e6ef2a4aad8fbaff2365
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523936"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736863"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 가상 머신 간에 네트워크 트래픽 기록
 
@@ -48,8 +48,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     |Name|myVm|
     |사용자 이름| 선택한 사용자 이름을 입력합니다.|
     |암호| 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
-    |구독| 구독을 선택합니다.|
-    |리소스 그룹| **새로 만들기**를 선택하고 **myResourceGroup**을 입력합니다.|
+    |Subscription| 구독을 선택합니다.|
+    |Resource group| **새로 만들기**를 선택하고 **myResourceGroup**을 입력합니다.|
     |위치| **미국 동부**를 선택합니다.|
 
 4. VM에 대한 크기를 선택한 다음, **선택**을 선택합니다.
@@ -90,9 +90,9 @@ NSG 흐름을 기록하려면 **Microsoft.Insights** 공급자가 필요합니�
     | ---            | ---   |
     | Name           | 길이가 3~24자이고 소문자 및 숫자만 포함할 수 있고 모든 Azure Storage 계정에서 고유해야 합니다.                                                               |
     | 위치       | **미국 동부**를 선택합니다.                                           |
-    | 리소스 그룹 | **기존 항목 사용**을 선택한 다음, **myResourceGroup**을 선택합니다. |
+    | Resource group | **기존 항목 사용**을 선택한 다음, **myResourceGroup**을 선택합니다. |
 
-    저장소 계정을 만들 때 몇 분이 걸릴 수 있습니다. 저장소 계정을 만들 때까지 나머지 단계를 계속하지 않습니다. 만들지 않고 기존 저장소 계정을 사용하는 경우 저장소 계정에 대한 **설정** 아래의 **방화벽 및 가상 네트워크**에 **모든 네트워크**(기본값)가 선택된 저장소 계정을 선택하도록 합니다.
+    저장소 계정을 만들 때 몇 분이 걸릴 수 있습니다. 저장소 계정을 만들 때까지 나머지 단계를 계속하지 않습니다. 만들지 않고 기존 저장소 계정을 사용하는 경우 저장소 계정에 대한 **설정** 아래의 **방화벽 및 가상 네트워크**에 **모든 네트워크**(기본값)가 선택된 저장소 계정을 선택하도록 합니다. 모든 경우에 스토리지 계정은 NSG와 동일한 영역에 있어야 합니다. 
     
     > [!NOTE]
     > Microsoft.Insight 및 Microsoft.Network 공급자는 현재 Azure Storage에 대해 신뢰할 수 있는 Microsoft Services로 지원되지만 NSG Flow 로그는 아직 완전히 온보딩되지 않았습니다. NSG Flow 로깅을 사용하려면 이 기능이 완전히 온보딩될 때까지 **모든 네트워크**를 선택해야 합니다. 
@@ -204,7 +204,7 @@ NSG 흐름을 기록하려면 **Microsoft.Insights** 공급자가 필요합니�
 | ---          | ---                    | ---                                                                                      |
 | 1542110377   | 타임스탬프             | 흐름이 발생하는 경우 UNIX EPOCH 형식의 타임스탬프입니다. 이전 예제에서 날짜는 2018년 5월 1일 오후 2:59:05 GMT으로 변환됩니다.                                                                                    |
 | 10.0.0.4  | 원본 IP 주소      | 흐름이 시작된 원본 IP 주소입니다. 10.0.0.4는 [VM 만들기](#create-a-vm)에서 만든 VM의 개인 IP 주소입니다.
-| 13.67.143.118     | 대상 IP 주소  | 흐름을 보내는 대상 IP 주소입니다.                                                                                  |
+| 13.67.143.118     | 대상 IP 주소 | 흐름을 보내는 대상 IP 주소입니다.                                                                                  |
 | 44931        | 원본 포트            | 흐름이 시작된 원본 포트입니다.                                           |
 | 443         | 대상 포트       | 흐름을 보낸 대상 포트입니다. 포트 443으로 트래픽을 보냈으므로 **UserRule_default-allow-rdp**라는 규칙이 로그 파일에서 흐름을 처리했습니다.                                                |
 | T            | 프로토콜               | 흐름의 프로토콜이 TCP(T) 또는 UDP(U)인지입니다.                                  |

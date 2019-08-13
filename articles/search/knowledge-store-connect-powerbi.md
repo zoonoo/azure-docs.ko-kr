@@ -4,16 +4,17 @@ description: Azure Portal에서 데이터 가져오기 마법사를 사용하여
 author: heidisteen
 services: search
 ms.service: search
+ms.subservice: cognitive-search
 ms.devlang: NA
 ms.topic: tutorial
 ms.date: 07/30/2019
 ms.author: heidist
-ms.openlocfilehash: 04b04e8080590aa6e9fe1c17369e83fa5bb6b894
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 518a96ae8ace5c9630d594fe70487635b6ec1d2c
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668225"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840846"
 ---
 # <a name="create-an-azure-search-knowledge-store-and-connect-using-power-bi"></a>Azure Search 지식 저장소를 만들고 Power BI를 사용하여 연결
 
@@ -156,7 +157,7 @@ Azure Search 인덱서에서 액세스할 수 있도록 .csv 파일을 Azure Blo
 
 1. 파워 쿼리 명령 모음의 왼쪽 끝에서 **닫기 및 적용**을 클릭합니다.
 
-1. 지식 저장소에서 데이터 내에 만든 관계를 Power BI에서 인식하는지 확인합니다. 왼쪽 탐색 창에서 관계 타일을 클릭합니다. 세 테이블이 모두 관련되어야 합니다.
+1. 지식 저장소에서 데이터 내에 만든 관계를 Power BI에서 인식하는지 확인합니다. 왼쪽 탐색 창에서 관계 타일을 클릭합니다. 세 테이블이 모두 관련되어야 합니다. 관계를 편집하고 "교차 필터 방향"이 둘 다로 설정되어 있는지 확인합니다. 이렇게 하면 필터를 적용할 때 모든 시각적 개체가 새로 고쳐집니다.
 
    ![관계 유효성 검사](media/knowledge-store-howto-powerbi/powerbi-relationships.png "관계 유효성 검사")
 

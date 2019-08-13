@@ -1,5 +1,5 @@
 ---
-title: '자습서: 인덱싱 파이프라인에서 Cognitive Services REST API 호출 - Azure Search'
+title: 'REST 자습서: AI 보강 파이프라인에서 Cognitive Services 호출 - Azure Search'
 description: Postman 및 REST API를 사용하는 JSON Blob을 통해 데이터를 추출하고 변환하기 위해 Azure Search 인덱싱에서 데이터 추출, 자연어 및 이미지 AI를 처리하는 예제를 단계별로 알아봅니다.
 manager: pablocas
 author: luiscabrer
@@ -9,13 +9,13 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 05/28/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: cedcc1be5525cc6932ff168e6549de84fa02a4ca
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.subservice: cognitive-search
+ms.openlocfilehash: d431f0ced5b417e178e064dca347ae8d78f14e5d
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67669098"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840884"
 ---
 # <a name="rest-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>REST 자습서: Azure Search 인덱싱 파이프라인에서 Cognitive Services API 호출
 
@@ -488,4 +488,4 @@ Content-Type: application/json
 사용자 지정 기술을 사용하여 파이프라인을 사용자 지정 또는 확장합니다. 사용자 지정 기술을 만들어서 기술 집합에 추가하면 사용자가 직접 작성한 텍스트 또는 이미지 분석을 온보딩할 수 있습니다. 
 
 > [!div class="nextstepaction"]
-> [예제: Cognitive Search에 대한 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md)
+> [예제: 인지 검색에 대한 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md)

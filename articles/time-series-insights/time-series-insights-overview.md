@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: overview
-ms.date: 04/26/2019
+ms.date: 08/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: ce18b0060fe0bd0f9d5a8308fe1358e300c04441
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: c0c65f364e9e72d87d6618944ab296354e03a1fc
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165635"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736189"
 ---
 # <a name="what-is-azure-time-series-insights"></a>Azure Time Series Insights란?
 
@@ -33,7 +33,7 @@ Time Series Insights에는 다음 4가지 핵심 작업이 포함됩니다.
 
 내부에서 사용하거나 외부 고객이 사용할 애플리케이션을 구축하는 경우 Time Series Insights를 백 엔드로 사용할 수 있습니다. 이를 사용하여 시계열 데이터를 인덱싱, 저장 및 집계할 수 있습니다. 또한 사용자 지정 시각화 및 사용자 환경을 빌드하기 위해 [클라이언트 SDK](tutorial-explore-js-client-lib.md)를 사용합니다. 뿐만 아니라 Time Series Insights는 이러한 사용자 지정 시나리오를 지원하는 여러 [쿼리 API](how-to-shape-query-json.md)를 갖추고 있습니다.
 
-시계열 데이터는 자산 또는 프로세스가 시간이 지남에 따라 어떻게 달라지는지를 나타냅니다. 시계열 데이터는 타임스탬프를 통해 인덱싱되며, 시간은 이러한 데이터를 구성하는 가장 의미 있는 축입니다. 시계열 데이터는 일반적으로 순차적으로 도착하므로 대개 데이터베이스 업데이트보다는 삽입으로 처리됩니다.
+시계열 데이터는 자산 또는 프로세스가 시간이 지남에 따라 어떻게 달라지는지를 나타냅니다. 시계열 데이터는 타임스탬프를 통해 인덱싱되며, 시간은 이러한 데이터를 구성하는 가장 의미 있는 축입니다. 시계열 데이터는 일반적으로 순차적으로 도착하므로 데이터베이스 업데이트보다는 삽입으로 처리됩니다.
 
 대량의 시계열 데이터를 저장, 인덱싱, 쿼리, 분석 및 시각화하는 것이 어려울 수 있습니다.
 Azure Time Series Insights는 새로운 모든 이벤트를 하나의 행으로 캡처하고 저장하며, 시간이 지남에 따라 변경 내용을 효율적으로 측정합니다. 결과적으로 과거를 돌아보고 과거의 인사이트를 끌어내어 미래의 변화를 예측하는 데 도움이 될 수 있습니다.

@@ -9,12 +9,12 @@ ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 6c94ca3a82095736ef7d242987d1fbf66a825950
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: f6304c554858a29e8c6c886bcdec3b51efd635b6
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306513"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840086"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-for-linux-devices"></a>자습서: Linux 디바이스를 위한 Node.js IoT Edge 모듈 개발 및 배포
 
@@ -108,7 +108,7 @@ Node.js에서 IoT Edge 모듈을 개발하려면 다음 추가 필수 구성 요
 
 ### <a name="update-the-module-with-custom-code"></a>사용자 지정 코드를 사용하여 모듈 업데이트
 
-각 템플릿에는 **tempSensor** 모듈에서 센서 데이터를 시뮬레이션하고 이를 IoT Hub에 라우팅하는 샘플 코드가 포함되어 있습니다. 이 섹션에서는 NodeModule에서 메시지를 보내기 전에 분석하는 코드를 추가합니다. 
+각 템플릿에는 **SimulatedTemperatureSensor** 모듈에서 센서 데이터를 시뮬레이션하고 이를 IoT Hub에 라우팅하는 샘플 코드가 포함되어 있습니다. 이 섹션에서는 NodeModule에서 메시지를 보내기 전에 분석하는 코드를 추가합니다. 
 
 1. VS Code 탐색기에서 **modules** > **NodeModule** > **app.js**를 차례로 엽니다.
 
@@ -194,7 +194,7 @@ Node.js에서 IoT Edge 모듈을 개발하려면 다음 추가 필수 구성 요
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
 
-   `--password-stdin` 사용을 권장하는 보안 경고가 표시될 수 있습니다. 이 모범 사례는 프로덕션 시나리오에 권장되지만 이 자습서에는 포함되지 않습니다. 자세한 내용은 [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) 참조를 참조하세요.
+   `--password-stdin` 사용을 권장하는 보안 경고가 표시될 수 있습니다. 이 모범 사례는 프로덕션 시나리오에 권장되지만 이 자습서의 범위를 벗어납니다. 자세한 내용은 [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) 참조를 참조하세요.
 
 2. VS Code 탐색기에서 **deployment.template.json** 파일을 마우스 오른쪽 단추로 클릭하고 **IoT Edge 솔루션 빌드 및 푸시**를 선택합니다.
 
@@ -212,7 +212,7 @@ IoT Edge 디바이스가 작동되고 실행 중인지 확인합니다.
 
 3. **config** 폴더에서 **deployment.json** 파일을 선택한 다음, **에지 배포 매니페스트 선택**을 클릭합니다. deployment.template.json 파일을 사용하지 마세요.
 
-4. 새로고침 단추를 클릭합니다. **TempSensor** 모듈과 **$edgeAgent** 및 **$edgeHub**와 함께 실행되는 새 **NodeModule**이 표시됩니다.
+4. 새로고침 단추를 클릭합니다. **SimulatedTemperatureSensor** 모듈과 **$edgeAgent** 및 **$edgeHub**와 함께 실행되는 새 **NodeModule**이 표시됩니다.
 
 ## <a name="view-generated-data"></a>생성된 데이터 보기
 

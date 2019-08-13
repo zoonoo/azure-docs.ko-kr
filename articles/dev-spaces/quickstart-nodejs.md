@@ -1,5 +1,5 @@
 ---
-title: Azure Dev Spaces를 사용하여 Kubernetes에서 Node.js로 개발
+title: Azure Dev Spaces를 사용하는 Kubernetes에서 Visual Studio Code 및 Node.js로 디버깅 및 반복
 titleSuffix: Azure Dev Spaces
 author: zr-msft
 services: azure-dev-spaces
@@ -10,14 +10,14 @@ ms.topic: quickstart
 description: Azure에서 컨테이너, 마이크로서비스 및 Node.js를 사용하여 신속하게 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 3da6c015d46d2c83dd74c625e1e8eeaee81da2ae
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 4ee11b4bebe32ff4a9af38a0789823178f388e10
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707116"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725786"
 ---
-# <a name="quickstart-develop-with-nodejs-on-kubernetes-using-azure-dev-spaces"></a>빠른 시작: Azure Dev Spaces를 사용하여 Kubernetes에서 Node.js로 개발
+# <a name="quickstart-debug-and-iterate-with-visual-studio-code-and-nodejs-on-kubernetes-using-azure-dev-spaces"></a>빠른 시작: Azure Dev Spaces를 사용하는 Kubernetes에서 Visual Studio Code 및 Node.js로 디버깅 및 반복
 
 이 가이드에서는 다음을 수행하는 방법을 배우게 됩니다.
 

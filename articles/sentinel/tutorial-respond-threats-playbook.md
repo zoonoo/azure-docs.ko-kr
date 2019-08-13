@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/25/2019
 ms.author: rkarlin
-ms.openlocfilehash: cdfe22b67585221e2d7e17f47c6a09ba929d68ef
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: cd3288e308308729cf9b97e3c699d489857840a8
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599023"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780366"
 ---
 # <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel-preview"></a>자습서: Azure Sentinel 미리 보기에서 자동화된 위협 응답 설정
 
@@ -90,7 +90,7 @@ ms.locfileid: "68599023"
 
 요청 시 플레이북을 실행하려면
 
-1. **사례** 페이지에서 사례를 선택하고 **전체 세부 정보 보기**를 클릭합니다.
+1. **인시던트** 페이지에서 인시던트를 선택하고 **전체 세부 정보 보기**를 클릭합니다.
 
 2. **경고** 탭에서 플레이북을 실행하려는 경고를 클릭하고 오른쪽으로 스크롤하여 **플레이북 보기**를 클릭한 후 구독에서 사용 가능한 플레이북 목록에서 **실행**할 플레이북을 선택합니다. 
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/23/2019
+ms.date: 07/24/2019
 ms.author: jhakulin
-ms.openlocfilehash: 06831fa933c04827c966e8f6e12aa817f5008b88
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1b6e60edd86cff2d657b562f05351e20571c0909
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68554144"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815429"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-unity-beta"></a>빠른 시작: Unity용 Speech SDK(베타)를 사용하여 음성 인식
 
@@ -24,8 +24,8 @@ ms.locfileid: "68554144"
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 이 가이드에 따라 [Unity](https://unity3d.com/) 및 Unity용 Speech SDK(베타)를 사용하여 음성을 텍스트로 변환하는 애플리케이션을 만듭니다.
-작업을 마치면 컴퓨터의 마이크를 사용하여 실시간으로 음성을 텍스트로 변환할 수 있습니다.
-Unity에 익숙하지 않은 경우 애플리케이션 개발을 시작하기 전에 [Unity 사용자 설명서](https://docs.unity3d.com/Manual/UnityManual.html)를 연구하는 것이 좋습니다.
+완료되면 디바이스와 대화하여 실시간으로 음성을 텍스트로 변환할 수 있습니다.
+Unity를 처음 사용하는 경우 애플리케이션을 개발하기 전에 먼저 [Unity 사용자 설명서](https://docs.unity3d.com/Manual/UnityManual.html)를 검토하는 것이 좋습니다.
 
 > [!NOTE]
 > Unity용 Speech SDK는 현재 베타 버전입니다.
@@ -35,95 +35,123 @@ Unity에 익숙하지 않은 경우 애플리케이션 개발을 시작하기 �
 
 이 프로젝트를 완료하려면 다음이 필요합니다.
 
-* [Unity 2018.3 이상](https://store.unity.com/) 및 [UWP ARM64 지원이 추가된 Unity 2019.1](https://blogs.unity3d.com/2019/04/16/introducing-unity-2019-1/#universal)
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
-     * ARM64를 지원하려면 [ARM64에 대한 선택적 빌드 도구 및 ARM64용 Windows 10 SDK](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/)를 설치하세요.
-* Speech Service에 대한 구독 키 [무료로 가져올 수 있습니다](get-started.md).
-* 컴퓨터의 마이크에 액세스합니다.
+- [Unity 2018.3 이상](https://store.unity.com/)([UWP ARM64 지원이 추가된 Unity 2019.1](https://blogs.unity3d.com/2019/04/16/introducing-unity-2019-1/#universal) 포함)
+- [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/). Visual Studio 2017 버전 15.9 이상도 허용됩니다.
+  - ARM64를 지원하려면 [ARM64용 선택적 빌드 도구 및 ARM64용 Windows 10 SDK](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/)를 설치합니다.
+- Speech Service에 대한 구독 키 [무료로 가져올 수 있습니다](get-started.md).
+- 컴퓨터의 마이크에 액세스합니다.
 
 ## <a name="create-a-unity-project"></a>Unity 프로젝트 만들기
 
-* Unity를 시작하고, **프로젝트** 탭 아래에서 **새로 만들기**를 선택합니다.
-* **프로젝트 이름**을 **csharp-unity**로, **Template**을 **3D**로 지정하고 위치를 선택합니다.
-  그런 다음, **프로젝트 만들기**를 선택합니다.
-* 잠시 후에 Unity 편집기 창이 나타납니다.
+1. Unity를 엽니다. Unity를 처음 사용하는 경우 **Unity Hub** *<version number>* 창이 표시됩니다. (Unity Hub를 직접 열어 이 창으로 이동할 수도 있습니다.)
+
+   [![Unity Hub 창](media/sdk/qs-csharp-unity-hub.png)](media/sdk/qs-csharp-unity-hub.png#lightbox)
+1. **새로 만들기**를 선택합니다. **Unity를 사용하여 새 프로젝트 만들기** *<version number>* 창이 표시됩니다.
+
+   [![Unity Hub에서 새 프로젝트 만들기](media/sdk/qs-csharp-unity-create-a-new-project.png)](media/sdk/qs-csharp-unity-create-a-new-project.png#lightbox)
+1. **프로젝트 이름**에서 **csharp-unity**를 입력합니다.
+1. **템플릿**에서 **3D**가 아직 선택되지 않은 경우 이를 선택합니다.
+1. **위치**에서 프로젝트를 저장할 폴더를 선택하거나 만듭니다.
+1. **만들기**를 선택합니다.
+
+잠시 후에 Unity 편집기 창이 표시됩니다.
 
 ## <a name="install-the-speech-sdk"></a>Speech SDK 설치하기
 
+Unity용 Speech SDK를 설치하려면 다음 단계를 수행합니다.
+
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-* Unity용 Speech SDK(베타)는 Unity 자산 패키지(.unitypackage)로 패키지됩니다.
-  [여기](https://aka.ms/csspeech/unitypackage)에서 다운로드하세요.
-* **자산** > **패키지 가져오기** > **사용자 지정 패키지**를 차례로 선택하여 Speech SDK를 가져옵니다.
-  자세한 내용은 [Unity 설명서](https://docs.unity3d.com/Manual/AssetPackages.html)를 참조하세요.
-* 파일 선택기에서 위에서 다운로드한 .unitypackage Speech SDK 파일을 선택합니다.
-* 모든 파일이 선택되었는지 확인하고 **가져오기**를 클릭합니다.
+1. Unity 자산 패키지(.unitypackage)로 패키지된 [Unity용 Speech SDK(베타)](https://aka.ms/csspeech/unitypackage)를 다운로드하여 엽니다. 자산 패키지가 열리면 **Unity 패키지 가져오기** 대화 상자가 표시됩니다.
 
-  ![Speech SDK Unity 자산 패키지를 가져올 때의 Unity 편집기 스크린샷](media/sdk/qs-csharp-unity-01-import.png)
+   [![Unity 편집기의 Unity 패키지 가져오기 대화 상자](media/sdk/qs-csharp-unity-01-import.png)](media/sdk/qs-csharp-unity-01-import.png#lightbox)
+1. 모든 파일이 선택되었는지 확인하고, **가져오기**를 선택합니다. 잠시 후에 Unity 자산 패키지를 프로젝트로 가져옵니다.
+
+자산 패키지를 Unity로 가져오는 방법에 대한 자세한 내용은 [Unity 설명서](https://docs.unity3d.com/Manual/AssetPackages.html)를 참조하세요.
 
 ## <a name="add-ui"></a>UI 추가
 
-음성 인식을 트리거하는 단추와 결과를 표시하는 텍스트 필드로 구성된 최소한의 UI를 장면에 추가합니다.
+이제 최소한의 UI를 장면에 추가해 보겠습니다. 이 UI는 음성 인식을 트리거하는 단추와 결과를 표시하는 텍스트 필드로 구성됩니다. [**계층 구조** 창](https://docs.unity3d.com/Manual/Hierarchy.html)에서 Unity에서 새 프로젝트로 만든 샘플 장면이 표시됩니다.
 
-* [계층 구조 창](https://docs.unity3d.com/Manual/Hierarchy.html)(기본적으로 왼쪽에 있음)에는 Unity에서 새 프로젝트로 만든 장면 샘플이 표시됩니다.
-* 계층 구조 창의 위쪽에 있는 **만들기** 단추를 클릭하고, **UI** > **Button**을 차례로 선택합니다.
-* 이렇게 하면 계층 구조 창에서 볼 수 있는 3개의 게임 개체, 즉 **Canvas** 개체 내에 중첩된 **Button** 개체와 **EventSystem** 개체가 만들어집니다.
-* [장면 보기](https://docs.unity3d.com/Manual/UsingTheSceneView.html)에서 캔버스와 단추를 잘 볼 수 있도록 [장면 보기](https://docs.unity3d.com/Manual/SceneViewNavigation.html)를 탐색합니다.
-* 계층 구조 창에서 **Button** 개체를 클릭하여 [검사기 창](https://docs.unity3d.com/Manual/UsingTheInspector.html)(기본적으로 오른쪽에 있음)에 설정을 표시합니다.
-* 단추가 캔버스 중앙에 있도록 **Pos X** 및 **Pos Y** 속성을 **0**으로 설정합니다.
-* 계층 구조 창의 위쪽에 있는 **만들기** 단추를 다시 클릭하고, **UI** > **Text**를 선택하여 텍스트 필드를 만듭니다.
-* 계층 구조 창에서 **Text** 개체를 클릭하여 [검사기 창](https://docs.unity3d.com/Manual/UsingTheInspector.html)(기본적으로 오른쪽에 있음)에 설정을 표시합니다.
-* 텍스트 필드와 단추가 겹치지 않도록 **Pos X** 및 **Pos Y** 속성을 각각 **0** 및 **120**으로 설정하고, **Width** 및 **Height** 속성을 각각 **240** 및 **120**으로 설정합니다.
+1. **계층 구조** 창의 위쪽에서 **만들기** > **UI** > **Button**을 차례로 선택합니다.
 
-완료되면 UI가 다음 스크린샷과 비슷하게 표시됩니다.
+   이 작업은 **계층 구조** 창에서 볼 수 있는 세 개의 게임 개체, 즉 **Button** 개체, 단추가 포함된 **Canvas** 개체 및 **EventSystem** 개체를 만듭니다.
 
-[![Unity 편집기의 빠른 시작 사용자 인터페이스의 스크린샷](media/sdk/qs-csharp-unity-02-ui-inline.png)](media/sdk/qs-csharp-unity-02-ui-expanded.png#lightbox)
+   [![Unity 편집기 환경](media/sdk/qs-csharp-unity-editor-window.png)](media/sdk/qs-csharp-unity-editor-window.png#lightbox)
+
+1. [**장면** 보기](https://docs.unity3d.com/Manual/UsingTheSceneView.html)에서 캔버스와 단추를 잘 볼 수 있도록 [**장면** 보기를 탐색](https://docs.unity3d.com/Manual/SceneViewNavigation.html)합니다.
+
+1. [**검사기** 창](https://docs.unity3d.com/Manual/UsingTheInspector.html)(기본적으로 오른쪽에 있음)에서 단추가 캔버스의 중앙에 배치되도록 **Pos X** 및 **Pos Y** 속성을 **0**으로 설정합니다.
+
+1. **계층 구조** 창에서 **만들기** > **UI** > **Text**를 차례로 선택하여 **Text** 개체를 만듭니다.
+
+1. **검사기** 창에서 **Pos X** 및 **Pos Y** 속성을 **0** 및 **120**로 설정하고, **Width** 및 **Height** 속성을 **240** 및 **120**으로 설정합니다. 이러한 값을 사용하면 텍스트 필드와 단추가 겹치지 않습니다.
+
+완료되면 **장면** 보기가 다음 스크린샷과 같이 표시됩니다.
+
+[![Unity 편집기의 장면 보기](media/sdk/qs-csharp-unity-02-ui-inline.png)](media/sdk/qs-csharp-unity-02-ui-inline.png#lightbox)
 
 ## <a name="add-the-sample-code"></a>샘플 코드 추가
 
-1. [프로젝트 창](https://docs.unity3d.com/Manual/ProjectView.html)(기본적으로 왼쪽 아래에 있음)에서 **만들기** 단추를 클릭한 다음, **C# 스크립트**를 선택합니다. 스크립트 이름을 `HelloWorld`로 지정합니다.
+Unity 프로젝트에 대한 샘플 스크립트 코드를 추가하려면 다음 단계를 수행합니다.
 
-1. 스크립트를 두 번 클릭하여 편집합니다.
+1. [프로젝트 창](https://docs.unity3d.com/Manual/ProjectView.html)에서 **만들기** > **C# 스크립트**를 차례로 선택하여 새 C# 스크립트를 추가합니다.
+
+   [![Unity 편집기의 프로젝트 창](media/sdk/qs-csharp-unity-project-window.png)](media/sdk/qs-csharp-unity-project-window.png#lightbox)
+1. 스크립트 이름을 `HelloWorld`로 지정합니다.
+
+1. `HelloWorld`를 두 번 클릭하여 새로 만든 스크립트를 편집합니다.
 
    > [!NOTE]
-   > **편집** > **기본 설정** 아래에서 시작할 코드 편집기를 구성할 수 있습니다([Unity 사용자 설명서](https://docs.unity3d.com/Manual/Preferences.html) 참조).
+   > Unity에서 편집하는 데 사용할 코드 편집기를 구성하려면 **편집** > **기본 설정**을 차례로 선택한 다음, **외부 도구** 기본 설정으로 이동합니다. 자세한 내용은 [Unity 사용자 설명서](https://docs.unity3d.com/Manual/Preferences.html)를 참조하세요.
 
-1. 모든 코드를 다음으로 바꿉니다.
+1. 기존 스크립트를 다음 코드로 바꿉니다.
 
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-unity/Assets/Scripts/HelloWorld.cs#code)]
 
-1. `YourSubscriptionKey` 문자열을 찾아서 Speech Service 구독 키로 바꿉니다.
+1. `YourSubscriptionKey` 문자열을 찾아서 Speech Services 구독 키로 바꿉니다.
 
-1. `YourServiceRegion` 문자열을 찾아서 구독과 연결된 [Azure 지역](regions.md)으로 바꿉니다. 예를 들어 평가판을 사용하는 경우 Azure 지역은 `westus`입니다.
+1. `YourServiceRegion` 문자열을 찾아서 구독과 연결된 [지역](regions.md)으로 바꿉니다. 예를 들어 평가판을 사용하는 경우 Azure 지역은 `westus`입니다.
 
 1. 변경 내용을 스크립트에 저장합니다.
 
-1. Unity 편집기로 돌아가서 스크립트를 구성 요소로 게임 개체 중 하나에 추가해야 합니다.
+이제 Unity 편집기로 돌아가서 스크립트를 구성 요소로 게임 개체 중 하나에 추가합니다.
 
-   * 계층 구조 창에서 **Canvas** 개체를 클릭합니다. 이렇게 하면 [검사기 창](https://docs.unity3d.com/Manual/UsingTheInspector.html)(기본적으로 오른쪽에 있음)에서 설정이 열립니다.
-   * 검사기 창에서 **구성 요소 추가** 단추를 클릭한 다음, 위에서 만든 Hello World 스크립트를 검색하여 추가합니다.
-   * Hello World 구성 요소에는 `HelloWorld` 클래스의 공용 속성과 일치하는 **출력 텍스트** 및 **녹화 시작 단추**라는 초기화되지 않은 두 가지 속성이 있습니다.
-     두 속성을 연결하려면 개체 선택기(속성 오른쪽에 있는 작은 원형 아이콘)를 클릭하고, 앞에서 만든 텍스트 및 단추 개체를 선택합니다.
+1. **계층 구조** 창에서 **Canvas** 개체를 선택합니다.
 
-     > [!NOTE]
-     > 단추에는 중첩된 텍스트 개체도 있습니다. 실수로 텍스트 출력을 선택하지 않도록 합니다(또는 혼란을 방지하기 위해 검사기 창의 Name 필드를 사용하여 텍스트 개체 중 하나의 이름을 바꿉니다).
+1. **검사기** 창에서 **구성 요소 추가** 단추를 선택합니다.
+
+   [![Unity 편집기의 검사기 창](media/sdk/qs-csharp-unity-inspector-window.png)](media/sdk/qs-csharp-unity-inspector-window.png#lightbox)
+
+1. 드롭다운 목록에서 위에서 만든 `HelloWorld` 스크립트를 검색하여 추가합니다. **Hello World(스크립트)** 섹션이 **검사기** 창에 표시되며, 초기화되지 않은 **출력 텍스트** 및 **기록 시작 단추**의 두 속성을 나열합니다. 이러한 Unity 구성 요소 속성은 `HelloWorld` 클래스의 public 속성과 일치합니다.
+
+1. **기록 시작 단추** 속성의 개체 선택기(속성의 오른쪽에 있는 작은 원형 아이콘)를 선택하고, 이전에 만든 **Button** 개체를 선택합니다.
+
+1. **출력 텍스트** 속성의 개체 선택기를 선택하고 앞에서 만든 **Text** 개체를 선택합니다.
+
+   > [!NOTE]
+   > 단추에는 중첩된 텍스트 개체도 있습니다. 텍스트 출력을 위해 실수로 선택하지 마세요(또는 혼동을 방지하기 위해 **검사기** 창의 **Name** 필드를 사용하여 텍스트 개체 중 하나의 이름을 바꾸세요).
 
 ## <a name="run-the-application-in-the-unity-editor"></a>Unity 편집기에서 애플리케이션 실행
 
-* Unity 편집기 도구 모음(메뉴 모음 아래에 있음)에서 **재생** 단추를 누릅니다.
+이제 Unity 편집기 내에서 애플리케이션을 실행할 준비가 되었습니다.
 
-* 앱이 시작되면 단추를 클릭하고 컴퓨터의 마이크에 영어 구 또는 문장을 말합니다. 음성은 Speech Services로 전송되어 텍스트로 변환되고 창에 표시됩니다.
+1. Unity 편집기 도구 모음(메뉴 모음 아래)에서 **재생** 단추(오른쪽을 가리키는 삼각형)를 선택합니다.
 
-  [![Unity 게임 창에서 실행되는 빠른 시작의 스크린샷](media/sdk/qs-csharp-unity-03-output-inline.png)](media/sdk/qs-csharp-unity-03-output-expanded.png#lightbox)
+1. [**게임** 보기](https://docs.unity3d.com/Manual/GameView.html)로 이동하여 **Text** 개체에서 **음성을 인식하려면 단추를 클릭하세요**를 표시할 때까지 기다립니다. (애플리케이션이 시작되지 않았거나 응답할 준비가 되지 않은 경우 **새 텍스트**가 표시됩니다.)
 
-* [콘솔 창](https://docs.unity3d.com/Manual/Console.html)에서 디버그 메시지를 확인합니다.
+1. 단추를 선택하고 컴퓨터의 마이크에 영어 구 또는 문장을 말합니다. 음성은 Speech Services로 전송되고, **게임** 보기에 표시되는 텍스트로 전사됩니다.
 
-* 음성 인식이 완료되면 Unity 편집기 도구 모음에서 **재생** 단추를 클릭하여 앱을 중지합니다.
+   [![Unity 편집기의 게임 보기](media/sdk/qs-csharp-unity-03-output-inline.png)](media/sdk/qs-csharp-unity-03-output-inline.png#lightbox)
+
+1. [**콘솔** 창](https://docs.unity3d.com/Manual/Console.html)에서 디버그 메시지를 확인합니다. **콘솔** 창이 표시되지 않으면 메뉴 모음으로 이동하여 **창** > **일반** > **콘솔**을 차례로 선택하여 표시합니다.
+
+1. 음성 인식이 완료되면 Unity 편집기 도구 모음에서 **재생** 단추를 선택하여 애플리케이션을 중지합니다.
 
 ## <a name="additional-options-to-run-this-application"></a>이 애플리케이션을 실행하기 위한 추가 옵션
 
-이 애플리케이션은 Windows 독립 실행형 애플리케이션 또는 UWP 애플리케이션으로 Android에도 배포할 수 있습니다.
-이러한 추가 대상에 대한 구성을 설명하는 quickstart/csharp-unity 폴더의 [샘플 리포지토리](https://aka.ms/csspeech/samples)를 참조하세요.
+이 애플리케이션은 Android 앱, Windows 독립 실행형 앱 또는 UWP 애플리케이션으로 배포할 수도 있습니다.
+자세한 내용은 [샘플 리포지토리](https://aka.ms/csspeech/samples)를 참조하세요. `quickstart/csharp-unity` 폴더에서는 이러한 추가 대상에 대한 구성을 설명합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -132,5 +160,4 @@ Unity에 익숙하지 않은 경우 애플리케이션 개발을 시작하기 �
 
 ## <a name="see-also"></a>참고 항목
 
-- [음향 모델 사용자 지정](how-to-customize-acoustic-models.md)
-- [언어 모델 사용자 지정](how-to-customize-language-model.md)
+- [Custom Speech 모델 학습](how-to-custom-speech-train-model.md)

@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Postman 및 REST API를 사용하여 인덱스 만들기, 로드 및 쿼리 - Azure Search'
+title: 'REST 빠른 시작: Postman을 사용하여 인덱스 생성, 로드 및 쿼리 - Azure Search'
 description: Postman 및 샘플 데이터와 정의를 사용하여 Azure Search REST API를 호출하는 방법을 알아봅니다.
 author: HeidiSteen
 manager: cgronlun
@@ -9,13 +9,12 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 07/11/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 5a61f5476551d785f2db0ef52dff45554302fd07
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 5ad1708475200475669c5de8f4fbd316f04ebd04
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849798"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840795"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-postman-using-rest-apis"></a>빠른 시작: REST API를 사용하여 Postman에서 Azure Search 인덱스 만들기
 > [!div class="op_single_selector"]

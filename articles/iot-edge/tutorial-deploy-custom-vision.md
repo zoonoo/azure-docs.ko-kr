@@ -9,12 +9,12 @@ ms.date: 06/25/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 629b484d27d863727d180bb3e2d01b605ca539a6
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 63485a41016033b00f787fc8c938b8da7135d657
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67850130"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840145"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>자습서: Custom Vision Service를 사용하여 에지에서 이미지 분류 수행
 
@@ -369,9 +369,9 @@ Visual Studio Code용 IoT Edge 확장은 배포 매니페스트를 만들 수 �
 
 1. 솔루션 폴더에서 **deployment.template.json** 파일을 엽니다. 
 
-2. 만든 classifier 및 cameraCapture의 두 개와 기본적으로 포함된 tempSensor로 세 개의 모듈을 포함해야 하는 **모듈** 섹션을 찾습니다. 
+2. 만든 classifier 및 cameraCapture의 두 개의 모듈과 기본적으로 포함된 세 번째 모듈인 SimulatedTemperatureSensor, 이렇게 세 개의 모듈을 포함해야 하는 **모듈** 섹션을 찾습니다. 
 
-3. 모든 해당 매개 변수를 사용하여 **tempSensor** 모듈을 삭제합니다. 이 모듈은 테스트 시나리오에 대한 샘플 데이터를 제공하기 위해 포함되지만 이 배포에 필요하지 않습니다. 
+3. 모든 해당 매개 변수를 사용하여 **SimulatedTemperatureSensor** 모듈을 삭제합니다. 이 모듈은 테스트 시나리오에 대한 샘플 데이터를 제공하기 위해 포함되지만 이 배포에 필요하지 않습니다. 
 
 4. 이미지 분류 모듈을 **classifier** 이외의 이름으로 지정한 경우 이름을 확인하고 모두 소문자인지 확인합니다. cameraCapture 모듈은 소문자로 모든 요청을 서식 지정하는 요청 라이브러리를 사용하여 분류자 모듈을 호출하며, IoT Edge는 대/소문자를 구분합니다. 
 

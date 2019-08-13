@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b16d928e2e4fc4b5376d30b81eb39e5a46e54b0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5b7cb8d6ab34a632e36ea2fd1c87005a038bc523
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67098037"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68823723"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-elevate"></a>자습서: LinkedIn Elevate와 Azure Active Directory 통합
 
@@ -120,13 +120,13 @@ LinkedIn Elevate에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
     **로그인 URL** 텍스트 상자에서 `https://www.linkedin.com/checkpoint/enterprise/login/<AccountId>?application=elevate&applicationInstanceId=<InstanceId>` 패턴을 사용하여 URL을 입력합니다.
 
-6. LinkedIn Elevate 애플리케이션에는 특정 형식의 SAML 어설션이 필요하므로 사용자 지정 특성 매핑을 SAML 토큰 특성 구성에 추가해야 합니다. 다음 스크린샷에서는  **nameidentifier** 가  **user.userprincipalname**과 매핑되는 기본 특성 목록을 보여줍니다. LinkedIn Elevate 애플리케이션은 nameidentifier가  **user.mail**에 매핑되는 것으로 예상하므로, 특성 매핑을 변경하기 위해 [편집] 아이콘을 클릭하여 특성 매핑을 편집해야 합니다.
+6. LinkedIn Elevate 애플리케이션에는 특정 형식의 SAML 어설션이 필요하므로 사용자 지정 특성 매핑을 SAML 토큰 특성 구성에 추가해야 합니다. 다음 스크린샷에서는 **nameidentifier**가 **user.userprincipalname**과 매핑되는 기본 특성 목록을 보여줍니다. LinkedIn Elevate 애플리케이션은 nameidentifier가 **user.mail**에 매핑되는 것으로 예상하므로, 편집 아이콘을 클릭하고 특성 매핑을 변경하여 특성 매핑을 편집해야 합니다.
 
     ![이미지](common/edit-attribute.png)
 
-7. 위에서 언급한 특성 외에도, LinkedIn Elevate 애플리케이션에는 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다.  **사용자 특성**  대화 상자의 [사용자 클레임] 섹션에서 다음 단계를 수행하여 아래 표와 같은 SAML 토큰 특성을 추가합니다.
+7. 위에서 언급한 특성 외에도, LinkedIn Elevate 애플리케이션에는 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. **사용자 특성** 대화 상자의 사용자 클레임 섹션에서 다음 단계를 수행하여 아래 표와 같은 SAML 토큰 특성을 추가합니다.
 
-    | 이름 | 원본 특성|
+    | Name | 원본 특성|
     | -------| -------------|
     | department | user.department |
 

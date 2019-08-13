@@ -9,18 +9,18 @@ ms.topic: include
 ms.date: 04/16/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: ba3cf3e77e5414804e881e0cddb151fb14fb7fd5
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: abb8b6bed6766ff0ea85eab1434014a057af4ca3
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68669735"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68843271"
 ---
 ## <a name="publish-the-project-to-azure"></a>Azure에 프로젝트 게시
 
 Visual Studio Code를 사용하면 Azure에 직접 함수 프로젝트를 게시할 수 있습니다. 프로세스를 통해 함수 앱 및 관련된 리소스를 Azure 구독에서 만듭니다. 함수 앱은 함수를 위한 실행 컨텍스트를 제공합니다. 프로젝트는 패키지되어 Azure 구독에서 새 함수 앱에 배포됩니다.
 
-기본적으로 Visual Studio는 함수 앱을 만드는 데 필요한 모든 Azure 리소스를 만듭니다. 이러한 리소스의 이름은 선택한 함수 앱 이름을 기반으로 합니다. 만들어진 리소스를 전체적으로 제어해야 하는 경우에는 대신 [고급 옵션을 사용하여 게시](../articles/azure-functions/functions-develop-vs-code.md#enable-publishing-with-advanced-create-options)할 수 있습니다.
+기본적으로 Visual Studio Code는 함수 앱을 만드는 데 필요한 모든 Azure 리소스를 만듭니다. 이러한 리소스의 이름은 선택한 함수 앱 이름을 기반으로 합니다. 만들어진 리소스를 전체적으로 제어해야 하는 경우에는 대신 [고급 옵션을 사용하여 게시](../articles/azure-functions/functions-develop-vs-code.md#enable-publishing-with-advanced-create-options)할 수 있습니다.
 
 이 섹션에서는 Azure에서 새 함수 앱을 만든다고 가정합니다.
 

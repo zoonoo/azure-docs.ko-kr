@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 02/13/2019
+ms.date: 08/05/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c20256fb712d9381ba2adc90e2e68ce4fdc8911a
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: d4ca21ecf7ad0707ad33220a8e8c2700638f8e25
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382786"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68824844"
 ---
 # <a name="set-up-your-security-info-preview-from-the-sign-in-page-prompt"></a>로그인 페이지 프롬프트에서 보안 정보(미리 보기) 설정
 
@@ -75,7 +75,7 @@ ms.locfileid: "68382786"
 
 8. Microsoft Authenticator 앱에서 알림을 승인하고, **다음**을 선택합니다.
 
-    ![앱과 계정의 연결에 대한 성공 알림](media/security-info/securityinfo-prompt-auth-app-success.png).
+    ![앱과 계정 연결에 대한 성공 알림](media/security-info/securityinfo-prompt-auth-app-success.png)
 
     2단계 인증 또는 암호 재설정을 사용하면 기본적으로 Microsoft Authenticator 앱을 사용하여 사용자의 ID를 확인하도록 보안 정보가 업데이트됩니다.
 
@@ -98,6 +98,40 @@ ms.locfileid: "68382786"
 12. **성공** 페이지를 검토하여 보안 정보에 대한 Microsoft Authenticator 앱 및 전화(문자 메시지 또는 전화 통화) 방법을 모두 성공적으로 설정했는지 확인한 다음, **완료**를 선택합니다.
 
     ![성공적으로 완료된 마법사 페이지](media/security-info/securityinfo-prompt-setup-success.png)
+
+    >[!Note]
+    >조직에서 앱 암호 사용을 요구하는 경우 이 마법사의 추가 섹션을 확인하여 설정할 수 있습니다. **앱 암호**라는 세 번째 섹션이 표시되는 경우 마법사를 완료하기 전에 이를 채워야 합니다. 앱 암호를 추가하는 방법에 대한 단계는 이 문서의 [앱 암호 관리](#manage-your-app-passwords) 섹션을 참조하세요.
+
+### <a name="manage-your-app-passwords"></a>앱 암호 관리
+
+Outlook 2010과 같은 특정 앱은 2단계 인증을 지원하지 않습니다. 따라서 조직에서 2단계 인증을 사용하는 경우 앱이 작동하지 않습니다. 이 문제를 해결하려면 사용자의 일반 암호와는 별도로 자동으로 생성된 암호를 만들어 각 비 브라우저 앱과 함께 사용할 수 있습니다.
+
+>[!Note]
+>마법사에서 이 옵션이 표시되지 않으면 관리자가 설정하지 않은 것입니다. 설정되지 않았지만 앱 암호를 사용해야 하는 경우 [보안 정보(미리 보기) 페이지에서 앱 암호 설정](security-info-app-passwords.md)의 단계를 따를 수 있습니다.
+
+앱 암호를 사용하는 경우 다음 사항을 고려해야 합니다.
+
+- 앱 암호는 자동으로 생성되며 앱당 한 번만 입력됩니다.
+
+- 사용자당 40개의 암호로 제한되어 있습니다. 해당 제한을 초과한 후 암호를 만들려고 하면 새 암호를 만들기 전에 기존 암호를 삭제할 것인지를 묻는 메시지가 표시됩니다.
+
+- 앱마다가 아닌 디바이스마다 하나의 앱 암호를 사용합니다. 예를 들어 랩톱의 모든 앱에 대해 단일 암호를 만든 다음, 데스크톱의 모든 앱에 대해 다른 단일 암호를 만듭니다.
+
+#### <a name="to-add-app-passwords-in-the-sign-in-wizard"></a>로그인 마법사에서 앱 암호를 추가하려면
+
+1. 마법사의 이전 섹션을 완료한 후 **다음**을 선택하고 **앱 암호** 섹션을 완료합니다.
+
+2. 암호가 필요한 앱의 이름을 입력(예: `Outlook 2010`)한 다음, **다음**을 선택합니다.
+
+    ![마법사에서 앱 암호 이름 추가](media/security-info/app-password-app-password.png)
+
+3. **앱 암호** 화면에서 암호 코드를 복사하여 앱의 **암호** 영역에 붙여넣습니다(이 예제에서는 Outlook 2010).
+
+    ![복사할 암호가 있는 앱 암호 페이지](media/security-info/app-password-copy-password.png)
+
+4. 암호를 복사하여 앱에 붙여넣은 후, 이 마법사로 돌아와서 모든 로그인 방법 정보가 정확한지 확인한 다음, **완료**를 선택합니다.
+
+    ![완료 알림이 표시된 앱 암호 페이지](media/security-info/app-password-complete.png)
 
 ## <a name="next-steps"></a>다음 단계
 

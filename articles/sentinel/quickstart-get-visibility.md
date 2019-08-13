@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 75bfdce02313ab7e799f6535f247407c239653b8
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: c6434b4f5808c349d5e0ab04dafc5233f6ec63ac
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67619800"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780478"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel-preview"></a>빠른 시작: Azure Sentinel 미리 보기 시작
 
@@ -34,7 +34,7 @@ ms.locfileid: "67619800"
 
 ## <a name="get-visualization"></a>시각화 가져오기
 
-작업 환경에서 발생하는 상황을 시각화하고 분석하려면 먼저 개요 대시보드를 통해 조직의 보안 상황을 파악합니다. 이러한 타일의 각 요소를 클릭하여 요소의 원시 데이터로 드릴다운할 수 있습니다. 노이즈를 줄이고 검토 및 조사해야 하는 경고의 수를 최소화하기 위해 Azure Sentinel은 Fusion 기법을 통해 경고와 사례 간 상관 관계를 파악합니다. **사례**는 조사하고 해결할 수 있는 실행 가능한 인시던트를 만드는 데 사용되는 관련 경고 그룹입니다.
+작업 환경에서 발생하는 상황을 시각화하고 분석하려면 먼저 개요 대시보드를 통해 조직의 보안 상황을 파악합니다. 이러한 타일의 각 요소를 클릭하여 생성 시 기반이 된 원시 데이터로 드릴다운할 수 있습니다. 노이즈를 줄이고 검토 및 조사해야 하는 경고의 수를 최소화하기 위해 Azure Sentinel은 Fusion 기법을 통해 경고와 인시던트 간 상관 관계를 파악합니다. **인시던트**는 조사하고 해결할 수 있는 실행 가능한 인시던트를 만드는 데 사용되는 관련 경고 그룹입니다.
 
 - Azure Portal에서 Azure Sentinel을 선택하고 모니터링하려는 작업 영역을 선택합니다.
 
@@ -53,7 +53,7 @@ ms.locfileid: "67619800"
    ![Azure Sentinel 맵](./media/qs-get-visibility/map.png)
 
 
-- **최근 사례**: 최근 사례, 해당 심각도, 사례와 연결된 경고 수를 보려면 특정 유형의 경고에서 갑작스러운 피크가 확인되면 현재 활성 공격이 진행되고 있는 것일 수 있습니다. 예를 들어, Azure ATP에서 20개의 Pass-the-hash 이벤트가 갑자기 발생하면 누군가가 사용자를 공격하려고 하는 것일 수 있습니다.
+- **최근 인시던트**: 최근 인시던트, 해당 심각도, 인시던트와 연결된 경고 수를 보려면 다음을 수행합니다. 특정 유형의 경고에서 갑작스러운 피크가 확인되면 현재 활성 공격이 진행되고 있는 것일 수 있습니다. 예를 들어, Azure ATP에서 20개의 Pass-the-hash 이벤트가 갑자기 발생하면 누군가가 사용자를 공격하려고 하는 것일 수 있습니다.
 
 - **데이터 원본 오류**: Microsoft의 데이터 분석가는 데이터 원본 데이터에 오류가 있는지를 지속적으로 검색하는 모델을 만들었습니다. 오류가 있으면 아무것도 표시되지 않습니다. 오류가 감지되면 자세히 검토하여 원인을 파악해야 합니다. 예를 들어, Azure 활동에서 스파이크 부분을 클릭합니다. **차트**를 클릭하여 스파이크가 발생한 시간을 확인한 후 해당 기간 동안 발생한 활동을 필터링하여 스파이크의 원인을 파악할 수 있습니다.
 

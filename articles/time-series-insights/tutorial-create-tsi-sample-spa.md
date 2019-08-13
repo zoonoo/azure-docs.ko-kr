@@ -8,12 +8,12 @@ ms.date: 06/29/2019
 ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: bd50fb4a28aa0ab71c1fb0aeba772a2bd7d1df9d
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 4d9af918c222107cfca5863309efb391b8e6d2e0
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68677735"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720875"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>자습서: Azure Time Series Insights 단일 페이지 웹앱 만들기
 
@@ -38,7 +38,7 @@ ms.locfileid: "68677735"
 
 * Visual Studio용 IIS Express, Web Deploy 및 Azure Cloud Services 핵심 도구 구성 요소. Visual Studio 설치를 수정하여 이러한 구성 요소를 추가합니다.
 
-## <a name="application-design"></a>애플리케이션 설계
+## <a name="understand-application-design"></a>애플리케이션 디자인 이해
 
 Time Series Insights 샘플 SPA는 이 자습서에서 사용되는 디자인 및 코드의 기반입니다. 이 코드는 Time Series Insights JavaScript 클라이언트 라이브러리를 사용합니다. Time Series Insights 클라이언트 라이브러리는 다음 두 가지 주요 API 범주에 대한 추상화를 제공합니다.
 
@@ -48,11 +48,11 @@ Time Series Insights 샘플 SPA는 이 자습서에서 사용되는 디자인 �
 
 이 자습서에서는 샘플 애플리케이션의 Time Series Insights 환경에서 제공하는 데이터도 사용합니다. Time Series Insights 샘플 애플리케이션의 구조 및 Time Series Insights 클라이언트 라이브러리를 사용하는 방법에 대한 자세한 내용은 [Azure Time Series Insights JavaScript 클라이언트 라이브러리 살펴보기](tutorial-explore-js-client-lib.md) 자습서를 참조하세요.
 
-## <a name="register-the-application-with-azure-ad"></a>Azure AD에 애플리케이션 등록
+## <a name="register-with-azure-ad"></a>Azure AD에 등록
 
 [!INCLUDE [Azure Active Directory app registration](../../includes/time-series-insights-aad-registration.md)]
 
-## <a name="build-and-publish-the-web-application"></a>웹 애플리케이션 빌드 및 게시
+## <a name="build-and-publish"></a>빌드 및 게시
 
 1. 애플리케이션 프로젝트 파일을 저장할 디렉터리를 만듭니다. 그런 후, 다음의 각 URL로 이동합니다. 페이지의 오른쪽 위 모서리에 있는 **Raw** 링크를 마우스 오른쪽 단추로 클릭하고 **다른 이름으로 저장**을 선택하여 프로젝트 디렉터리에 파일을 저장합니다.
 
@@ -101,7 +101,7 @@ Time Series Insights 샘플 SPA는 이 자습서에서 사용되는 디자인 �
       <link rel="stylesheet" type="text/css" href="../../dist/tsiclient.css"> -->
       ```
 
-   1. Azure AD 앱 등록 ID를 사용하도록 앱을 구성하려면 [Azure AD를 사용하도록 애플리케이션을 등록](#register-the-application-with-azure-ad)할 때 **3단계**에서 복사한 **애플리케이션 ID**를 사용하도록 `clientID` 값을 변경합니다. Azure AD에서 **로그아웃 URL**을 만든 경우 해당 값을 `postLogoutRedirectUri` 값으로 설정합니다.
+   1. Azure AD 앱 등록 ID를 사용하도록 앱을 구성하려면 [Azure AD를 사용하도록 애플리케이션을 등록](#register-with-azure-ad)할 때 **3단계**에서 복사한 **애플리케이션 ID**를 사용하도록 `clientID` 값을 변경합니다. Azure AD에서 **로그아웃 URL**을 만든 경우 해당 값을 `postLogoutRedirectUri` 값으로 설정합니다.
 
       [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=147-153&highlight=4-5)]
 
@@ -141,9 +141,9 @@ Time Series Insights 샘플 SPA는 이 자습서에서 사용되는 디자인 �
 
 오류 코드/조건 | 설명
 ---------------------| -----------
-*AADSTS50011: 애플리케이션에 대해 등록된 회신 주소가 없습니다.* | Azure AD 등록에 **회신 URL** 속성이 없습니다. Azure AD 애플리케이션 등록의 **설정** > **회신 URL**로 이동합니다. [Azure AD를 사용하도록 애플리케이션을 등록](#register-the-application-with-azure-ad)했을 때 **2단계**에서 지정하는 옵션인 **리디렉션 URI**가 있는지 확인합니다.
-*AADSTS50011: 요청에 지정된 회신 URL이 애플리케이션에 대해 구성된 회신 URL과 일치하지 않습니다. '\<애플리케이션 ID GUID>'.* | [웹 애플리케이션 빌드 및 게시](#build-and-publish-the-web-application)의 **6단계**에서 지정한 `postLogoutRedirectUri`는 Azure AD 애플리케이션 등록의 **설정** > **회신 URL**에서 지정한 값과 일치해야 합니다. **대상 URL**의 값을 변경하여 [웹 애플리케이션 빌드 및 게시](#build-and-publish-the-web-application)의 **5단계**에 따라 *https*를 사용하도록 합니다.
-웹 애플리케이션이 로드되지만, 흰색 배경에 스타일 없이 텍스트로만 구성된 로그인 페이지가 표시됩니다. | [웹 애플리케이션 빌드 및 게시](#build-and-publish-the-web-application)의 **4단계**에서 설명한 경로가 올바른지 확인합니다. 웹 애플리케이션이 .css 파일을 찾을 수 없는 경우 페이지 스타일이 올바르게 지정되지 않습니다.
+*AADSTS50011: 애플리케이션에 대해 등록된 회신 주소가 없습니다.* | Azure AD 등록에 **회신 URL** 속성이 없습니다. Azure AD 애플리케이션 등록의 **설정** > **회신 URL**로 이동합니다. [Azure AD를 사용하도록 애플리케이션을 등록](#register-with-azure-ad)했을 때 **2단계** 또는 **4단계**에서 지정하는 옵션인 **리디렉션 URI**가 있는지 확인합니다.
+*AADSTS50011: 요청에 지정된 회신 URL이 애플리케이션에 대해 구성된 회신 URL과 일치하지 않습니다. '\<애플리케이션 ID GUID>'.* | [웹 애플리케이션 빌드 및 게시](#build-and-publish)의 **6.b단계**에서 지정한 `postLogoutRedirectUri`는 Azure AD 애플리케이션 등록의 **설정** > **회신 URL**에서 지정한 값과 일치해야 합니다. |
+웹 애플리케이션이 로드되지만, 흰색 배경에 스타일 없이 텍스트로만 구성된 로그인 페이지가 표시됩니다. | [웹 애플리케이션 빌드 및 게시](#build-and-publish)의 **6단계**에서 설명한 경로가 올바른지 확인합니다. 웹 애플리케이션이 .css 파일을 찾을 수 없는 경우 페이지 스타일이 올바르게 지정되지 않습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 738b4f47054081f0fb1b1a530bdf21cbf07a7726
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 05c81b5cde9e9c64d2d69bea1d14a18394f31e2a
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204707"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774592"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>자습서: 페더레이션 도메인용 하이브리드 Azure Active Directory 조인 구성
 
@@ -28,12 +28,23 @@ ms.locfileid: "67204707"
 
 Azure AD에 디바이스를 가져오면 클라우드와 온-프레미스 리소스에서 SSO(Single Sign-On)를 통해 사용자의 생산성을 극대화할 수 있습니다. 동시에 [조건부 액세스](../active-directory-conditional-access-azure-portal.md)를 사용하여 클라우드 및 온-프레미스 리소스에 대한 액세스를 보호할 수 있습니다.
 
-이 자습서에서는 AD FS(Active Directory Federation Services)를 사용하여 페더레이션된 환경의 Active Directory 도메인 가입 컴퓨터 디바이스에 대한 하이브리드 Azure AD 조인을 구성하는 방법을 알아봅니다.
+페더레이션 환경은 다음 요구 사항을 지원하는 ID 공급자가 있어야 합니다. AD FS(Active Directory Federation Services)를 사용하는 페더레이션된 환경을 사용하는 경우에는 아래 요구 사항이 이미 지원됩니다.
 
-> [!NOTE]
-> 페더레이션된 환경에서 AD FS가 아닌 다른 ID 공급자를 사용하는 경우 ID 공급자가 WS-Trust 프로토콜을 지원하는지 확인해야 합니다. WS-Trust는 Azure AD 사용하여 현재 Windows 하이브리드 Azure AD 조인 디바이스를 인증하는 데 필요합니다. 하이브리드 Azure AD 조인이 필요한 Windows 하위 수준 디바이스가 있는 경우 ID 공급자가 WIAORMULTIAUTHN 클레임을 지원해야 합니다. 
+- **WIAORMULTIAUTHN 클레임:** 이 클레임은 Windows 하위 수준 디바이스의 하이브리드 Azure AD 조인을 수행하는 데 필요합니다.
+- **WS-Trust 프로토콜:** 이 프로토콜은 Azure AD를 사용하여 현재 Windows 하이브리드 Azure AD 조인 디바이스를 인증하는 데 필요합니다.
+  AD FS를 사용하는 경우 다음 WS-Trust 엔드포인트를 사용하도록 설정해야 합니다. `/adfs/services/trust/2005/windowstransport`
+   `/adfs/services/trust/13/windowstransport`
+   `/adfs/services/trust/2005/usernamemixed`
+   `/adfs/services/trust/13/usernamemixed`
+   `/adfs/services/trust/2005/certificatemixed`
+   `/adfs/services/trust/13/certificatemixed` 
 
-다음 방법에 대해 알아봅니다.
+> [!WARNING] 
+> **adfs/services/trust/2005/windowstransport** 또는 **adfs/services/trust/13/windowstransport**는 모두 인트라넷 연결 엔드포인트로만 사용하도록 설정해야 하며 웹 애플리케이션 프록시를 통해 엑스트라넷 연결 엔드포인트로 노출되어서는 안됩니다. WS-Trust Windows 엔드포인트를 비활성화는 방법에 대해 자세히 알아보려면 [프록시에서 WS-Trust Windows 엔드포인트 사용 안 함](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet)을 참조하세요. **서비스** > **엔드포인트**에서 AD FS 관리 콘솔을 통해 어떤 엔드포인트가 사용하도록 설정되었는지 확인할 수 있습니다.
+
+이 자습서에서는 AD FS를 사용하여 페더레이션된 환경의 Active Directory 도메인 조인 컴퓨터 디바이스에 대한 하이브리드 Azure AD 조인을 구성하는 방법을 알아봅니다.
+
+다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 하이브리드 Azure AD 조인 구성

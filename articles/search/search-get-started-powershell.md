@@ -1,6 +1,6 @@
 ---
-title: 'PowerShell 빠른 시작: Azure Search REST Api를 사용 하 여 인덱스 만들기, 로드 및 쿼리-Azure Search'
-description: PowerShell의 Invoke-restmethod 및 Azure Search REST API를 사용 하 여 인덱스를 만들고, 데이터를 로드 하 고, 쿼리를 실행 하는 방법을 설명 합니다.
+title: 'PowerShell 빠른 시작: REST API를 사용하여 인덱스 만들기, 로드 및 쿼리 - Azure Search'
+description: PowerShell의 Invoke-RestMethod와 Azure Search REST API를 사용하여 인덱스를 만들고, 데이터를 로드하고, 쿼리를 실행하는 방법을 설명합니다.
 ms.date: 07/11/2019
 author: heidisteen
 manager: cgronlun
@@ -8,33 +8,32 @@ ms.author: heidist
 services: search
 ms.service: search
 ms.devlang: rest-api
-ms.topic: conceptual
-ms.custom: seodec2018
-ms.openlocfilehash: 6bff2c84a4bfd81b94054b85744c17a1cd217756
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
-ms.translationtype: MT
+ms.topic: quickstart
+ms.openlocfilehash: 3c47a9a809357d1ad09d8a2dd2ef5a7f1a31a02d
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67847058"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840729"
 ---
-# <a name="quickstart-create-an-azure-search-index-in-powershell-using-rest-apis"></a>빠른 시작: REST Api를 사용 하 여 PowerShell에서 Azure Search 인덱스 만들기
+# <a name="quickstart-create-an-azure-search-index-in-powershell-using-rest-apis"></a>빠른 시작: REST API를 사용하여 PowerShell에서 Azure Search 인덱스 만들기
 > [!div class="op_single_selector"]
-> * [PowerShell (REST)](search-create-index-rest-api.md)
+> * [PowerShell(REST)](search-create-index-rest-api.md)
 > * [C#](search-create-index-dotnet.md)
-> * [Postman (REST)](search-get-started-postman.md)
+> * [Postman(REST)](search-get-started-postman.md)
 > * [Python](search-get-started-python.md)
 > * [포털](search-create-index-portal.md)
 > 
 
-이 문서에서는 PowerShell 및 [AZURE SEARCH REST api](https://docs.microsoft.com/rest/api/searchservice/)를 사용 하 여 Azure Search 인덱스를 만들고 로드 하 고 쿼리 하는 과정을 안내 합니다. 이 문서에서는 PowerShell 명령을 대화형으로 실행 하는 방법을 설명 합니다. 또는 동일한 작업을 수행 하는 [Powershell 스크립트를 다운로드 하 여 실행할](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart) 수 있습니다.
+이 문서에서는 PowerShell 및 [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/)를 사용하여 Azure Search 인덱스를 만들고, 로드하고, 쿼리하는 과정을 안내합니다. 이 문서에서는 PowerShell 명령을 대화형으로 실행하는 방법에 대해 설명합니다. 또는 동일한 작업을 수행하는 [Powershell 스크립트를 다운로드하여 실행](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart)할 수 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
-이 빠른 시작에는 다음 서비스 및 도구가 필요 합니다. 
+이 빠른 시작에 필요한 서비스와 도구는 다음과 같습니다. 
 
-+ 순차 및 대화형 단계에 대해 [invoke-restmethod](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) 를 사용 하는 [PowerShell 5.1](https://github.com/PowerShell/PowerShell)이상.
++ [PowerShell 5.1 이상](https://github.com/PowerShell/PowerShell)(순차적 및 대화형 단계에 [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) 사용)
 
 + [Azure Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 빠른 시작에서는 체험 서비스를 사용할 수 있습니다. 
 
@@ -52,7 +51,7 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 
 ## <a name="connect-to-azure-search"></a>Azure Search에 연결
 
-1. PowerShell에서 콘텐츠 형식 및 API 키를 저장할 **$headers** 개체를 만듭니다. 관리 API 키 (-ADMIN-API 키)를 검색 서비스에 유효한 키로 바꿉니다. 이 헤더는 세션 기간 동안 한 번만 설정 하면 되지만 모든 요청에 추가 됩니다. 
+1. PowerShell에서 콘텐츠 형식 및 API 키를 저장하는 **$headers** 개체를 만듭니다. 관리 API 키(YOUR-ADMIN-API-KEY)를 검색 서비스에 유효한 키로 바꿉니다. 이 헤더는 세션 기간 동안 한 번만 설정하면 되지만 모든 요청에 추가됩니다. 
 
     ```powershell
     $headers = @{
@@ -61,19 +60,19 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
     'Accept' = 'application/json' }
     ```
 
-2. 서비스의 인덱스 컬렉션을 지정 하는 **$url** 개체를 만듭니다. 서비스 이름 (-검색 서비스 이름)을 유효한 검색 서비스로 바꿉니다.
+2. 서비스의 indexes 컬렉션을 지정하는 **$url** 개체를 만듭니다. 서비스 이름(YOUR-SEARCH-SERVICE-NAME)을 유효한 검색 서비스로 바꿉니다.
 
     ```powershell
     $url = "https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2019-05-06&$select=name"
     ```
 
-3. **Invoke-restmethod** 를 실행 하 여 GET 요청을 서비스에 보내고 연결을 확인 합니다. **Convertto-html** 를 추가 하 여 서비스에서 다시 보낸 응답을 볼 수 있습니다.
+3. **Invoke-RestMethod**를 실행하여 GET 요청을 서비스에 보내고 연결을 확인합니다. 서비스에서 다시 보낸 응답을 볼 수 있도록 **ConvertTo-Json**을 추가합니다.
 
     ```powershell
     Invoke-RestMethod -Uri $url -Headers $headers | ConvertTo-Json
     ```
 
-   서비스가 비어 있고 인덱스가 없는 경우 결과는 다음 예제와 유사 합니다. 그렇지 않으면 인덱스 정의의 JSON 표현이 표시 됩니다.
+   서비스가 비어 있고 인덱스가 없는 경우 결과는 다음 예제와 비슷합니다. 그렇지 않으면 인덱스 정의의 JSON 표현이 표시됩니다.
 
     ```
     {
@@ -86,13 +85,13 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 
 ## <a name="1---create-an-index"></a>1 - 인덱스 만들기
 
-포털을 사용 하지 않는 경우 데이터를 로드 하기 전에 서비스에 인덱스가 있어야 합니다. 이 단계에서는 인덱스를 정의 하 고 서비스에 푸시합니다. [Create Index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index) 이 단계에 사용 됩니다.
+포털을 사용하지 않는 경우 데이터를 로드하려면 먼저 서비스에 인덱스가 있어야 합니다. 이 단계에서는 인덱스를 정의하고 서비스로 푸시합니다. 이 단계에는 [인덱스 만들기](https://docs.microsoft.com/rest/api/searchservice/create-index) REST API가 사용됩니다.
 
-인덱스의 필수 요소는 이름 및 필드 컬렉션을 포함 합니다. Fields 컬렉션은 *문서의*구조를 정의 합니다. 각 필드에는 이름, 형식 및 특성 (예: 전체 텍스트 검색, 필터링 또는 검색 결과에서 검색할 수 있는지 여부)을 결정 하는 특성 (예:)이 있습니다. 인덱스 내에서 형식의 `Edm.String` 필드 중 하나를 문서 id의 *키* 로 지정 해야 합니다.
+인덱스의 필수 요소에는 name 및 fields 컬렉션이 포함됩니다. fields 컬렉션은 *문서*의 구조를 정의합니다. 각 필드에는 사용되는 방법(예: 검색 결과에서 전체 텍스트 검색 가능, 필터링 가능 또는 조회 가능 여부)을 결정하는 이름, 형식 및 속성이 있습니다. 인덱스 내에서 `Edm.String` 형식의 필드 중 하나는 문서 ID에 대한 *key*로 지정해야 합니다.
 
-이 인덱스의 이름은 "호텔-퀵 스타트" 이며 아래에 표시 되는 필드 정의가 있습니다. 다른 연습에서 사용 되는 더 큰 [호텔 인덱스](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) 의 하위 집합입니다. 이 빠른 시작에서 간단히 살펴볼 것입니다.
+이 인덱스의 이름은 "hotels-quickstart"이며 아래에 표시된 필드 정의가 있습니다. 다른 연습에서 사용되는 더 큰 [Hotels 인덱스](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON)의 하위 세트입니다. 이 빠른 시작에서는 간단히 하기 위해 다듬었습니다.
 
-1. 이 예를 PowerShell에 붙여넣어 인덱스 스키마를 포함 하는 **$body** 개체를 만듭니다.
+1. 다음 예제를 PowerShell에 붙여넣어 인덱스 스키마가 포함된 **$body** 개체를 만듭니다.
 
     ```powershell
     $body = @"
@@ -121,19 +120,19 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
     "@
     ```
 
-2. URI를 서비스의 인덱스 컬렉션으로 설정 하 고 *호텔-빠른* 시작 인덱스를 설정 합니다.
+2. URI를 서비스의 indexes 컬렉션 및 *hotels-quickstart* 인덱스로 설정합니다.
 
     ```powershell
     $url = "https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart?api-version=2019-05-06"
     ```
 
-3. **$Url**, **$headers**및 **$body** 를 사용 하 여 명령을 실행 하 여 서비스에 대 한 인덱스를 만듭니다. 
+3. **$url**, **$headers** 및 **$body**가 포함된 명령을 실행하여 서비스에 대한 인덱스를 만듭니다. 
 
     ```powershell
     Invoke-RestMethod -Uri $url -Headers $headers -Method Put -Body $body | ConvertTo-Json
     ```
 
-    결과는 다음과 유사 하 게 표시 됩니다 (간단 하 게 하기 위해 처음 두 필드로 잘림).
+    결과는 다음과 비슷합니다(간단히 하기 위해 처음 두 필드로 잘림).
 
     ```
     {
@@ -174,17 +173,17 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
     ```
 
 > [!Tip]
-> 확인을 위해 포털의 인덱스 목록을 확인할 수도 있습니다.
+> 확인을 위해 포털에서 인덱스 목록을 확인할 수도 있습니다.
 
 <a name="load-documents"></a>
 
 ## <a name="2---load-documents"></a>2 - 문서 로드
 
-문서를 푸시 하려면 인덱스의 URL 끝점에 대 한 HTTP POST 요청을 사용 합니다. 이 작업에 대 한 REST API은 [문서 추가, 업데이트 또는 삭제](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents)입니다.
+문서를 푸시하려면 인덱스의 URL 엔드포인트에 대한 HTTP POST 요청을 사용합니다. 이 작업의 REST API는 [문서 추가, 업데이트 또는 삭제](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents)입니다.
 
-1. 업로드할 문서를 포함 하는 **$body** 개체를 만들려면이 예제를 PowerShell에 붙여 넣습니다. 
+1. 다음 예제를 PowerShell에 붙여넣어 로드하려는 문서가 포함된 **$body** 개체를 만듭니다. 
 
-    이 요청에는 두 개의 전체 및 하나의 부분 레코드가 포함 됩니다. 부분 레코드는 불완전 한 문서를 업로드할 수 있음을 보여 줍니다. 매개 `@search.action` 변수는 인덱싱을 수행 하는 방법을 지정 합니다. 유효한 값에는 upload, merge, mergeOrUpload 및 delete가 있습니다. MergeOrUpload 동작은 hotelId = 3에 대 한 새 문서를 만들거나 이미 있는 경우 내용을 업데이트 합니다.
+    이 요청에는 두 개의 전체 레코드와 하나의 부분 레코드가 포함됩니다. 부분 레코드는 불완전한 문서를 업로드할 수 있음을 보여 줍니다. `@search.action` 매개 변수는 인덱싱을 수행하는 방법을 지정합니다. 유효한 값은 pload, merge, mergeOrUpload 및 delete입니다. mergeOrUpload 동작은 hotelId = 3에 대한 새 문서를 만들거나, 이미 있는 경우 내용을 업데이트합니다.
 
     ```powershell
     $body = @"
@@ -271,18 +270,18 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
     "@
     ```
 
-1. 끝점을 *호텔-빠른* 시작 문서 컬렉션으로 설정 하 고 인덱스 작업 (인덱스/호텔-빠른 시작/문서/인덱스)을 포함 합니다.
+1. 엔드포인트를 *hotels-quickstart* docs 컬렉션으로 설정하고, 인덱스 작업(indexes/hotels-quickstart/docs/index)을 포함합니다.
 
     ```powershell
     $url = "https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs/index?api-version=2019-05-06"
     ```
 
-1. **$Url**, **$headers**및 **$body** 를 사용 하 여 명령을 실행 하 여 호텔-빠른 시작 인덱스에 문서를 로드 합니다.
+1. **$url**, **$headers** 및 **$body**가 포함된 명령을 실행하여 문서를 hotels-quickstart 인덱스에 로드합니다.
 
     ```powershell
     Invoke-RestMethod -Uri $url -Headers $headers -Method Post -Body $body | ConvertTo-Json
     ```
-    결과는 다음 예제와 유사 하 게 표시 됩니다. [상태 코드 201](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes)이 표시 됩니다.
+    결과는 다음 예제와 비슷합니다. [201 상태 코드](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes)가 표시됩니다.
 
     ```
     {
@@ -318,25 +317,25 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 
 ## <a name="3---search-an-index"></a>3 - 인덱스 검색
 
-이 단계에서는 [문서 검색 API](https://docs.microsoft.com/rest/api/searchservice/search-documents)를 사용 하 여 인덱스를 쿼리 하는 방법을 보여 줍니다.
+이 단계에서는 [문서 검색 API](https://docs.microsoft.com/rest/api/searchservice/search-documents)를 사용하여 인덱스를 쿼리하는 방법을 보여 줍니다.
 
-검색 $urls에 작은따옴표를 사용 해야 합니다. 쿼리 문자열은 **$** 문자를 포함 하며 전체 문자열이 작은따옴표로 묶여 있는 경우 이스케이프 하지 않아도 됩니다.
+$url 검색에서는 작은따옴표를 사용해야 합니다. 쿼리 문자열에는 **$** 문자가 포함되며, 전체 문자열을 작은따옴표로 묶으면 이스케이프 처리를 생략할 수 있습니다.
 
-1. 끝점을 *호텔-빠른* 시작 문서 컬렉션으로 설정 하 고 **검색** 매개 변수를 추가 하 여 쿼리 문자열을 전달 합니다. 
+1. 엔드포인트를 *hotels-quickstart* docs 컬렉션으로 설정하고, 쿼리 문자열을 전달하는 **search** 매개 변수를 추가합니다. 
   
-   이 문자열은 빈 검색 (search = *)을 실행 하 여 임의 문서의 순위가 매겨진 목록 (검색 점수 = 1.0)을 반환 합니다. 기본적으로 Azure Search는 한 번에 50 일치 항목을 반환 합니다. 구조적으로이 쿼리는 전체 문서 구조와 값을 반환 합니다. 결과의 모든 문서 수를 가져오려면 **$count = true** 를 추가 합니다.
+   이 문자열은 빈 검색(search=*)을 실행하여 순위가 없는 임의 문서 목록(검색 점수 = 1.0)을 반환합니다. 기본적으로 Azure Search는 한 번에 50개의 일치 항목을 반환합니다. 구조적으로 이 쿼리는 전체 문서 구조와 값을 반환합니다. **$count=true**를 추가하여 결과에 있는 모든 문서의 수를 가져옵니다.
 
     ```powershell
     $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=*&$count=true'
     ```
 
-1. 명령을 실행 하 여 **$url** 를 서비스로 보냅니다.
+1. 다음 명령을 실행하여 **$url**을 서비스에 보냅니다.
 
     ```powershell
     Invoke-RestMethod -Uri $url -Headers $headers | ConvertTo-Json
     ```
 
-    결과는 다음 출력과 유사 하 게 표시 됩니다.
+    결과는 다음 출력과 비슷합니다.
 
     ```
     {
@@ -370,7 +369,7 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
                 . . . 
     ```
 
-구문에 대 한 느낌을 얻기 위해 몇 가지 다른 쿼리 예제를 시도 합니다. 문자열 검색, 약어 $filter 쿼리를 수행 하 고, 결과 집합을 제한 하 고, 검색 범위를 특정 필드로 지정 하는 등의 작업을 수행할 수 있습니다.
+구문을 이해하기 위해 몇 가지 다른 쿼리 예제를 시도해봅니다. 문자열 검색, 축자 $filter 쿼리를 수행하고, 결과 세트를 제한하고, 검색 범위를 특정 필드로 지정하는 등의 작업을 수행할 수 있습니다.
 
 ```powershell
 # Query example 1
@@ -402,7 +401,7 @@ $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quicksta
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 PowerShell을 사용 하 여 Azure Search에서 콘텐츠를 만들고 액세스 하기 위한 기본 워크플로를 단계별로 실행 했습니다. 개념을 염두에 두면 Azure 데이터 원본의 인덱싱과 같은 고급 시나리오로 이동 하는 것이 좋습니다.
+이 빠른 시작에서는 PowerShell을 사용하여 Azure Search에서 콘텐츠를 만들고 액세스하기 위한 기본 워크플로를 단계별로 실행했습니다. 이러한 개념을 염두에 두고 Azure 데이터 원본의 인덱싱과 같은 고급 시나리오로 이동하는 것이 좋습니다.
 
 > [!div class="nextstepaction"]
-> [REST 자습서: Azure Search에서 반 구조화 된 데이터 (JSON blob) 인덱싱 및 검색](search-semi-structured-data.md)
+> [REST 자습서: Azure Search에서 반정형 데이터(JSON Blob) 인덱싱 및 검색](search-semi-structured-data.md)

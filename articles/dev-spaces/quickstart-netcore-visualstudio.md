@@ -1,5 +1,5 @@
 ---
-title: Azure Dev Spaces와 Visual Studio를 사용하여 AKS에서 .NET Core로 개발
+title: Azure Dev Spaces를 사용하여 AKS에서 Visual Studio 및 .NET Core로 디버깅 및 반복
 titleSuffix: Azure Dev Spaces
 author: zr-msft
 services: azure-dev-spaces
@@ -12,14 +12,14 @@ keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, 
 manager: gwallace
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: bb23de0dfe2d717ee2e41d69eec211f1fde26687
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: ece47c86fba6bc975a4146f596fa001014352a4f
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707195"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725852"
 ---
-# <a name="quickstart-develop-with-net-core-on-kubernetes-with-azure-dev-spaces-visual-studio"></a>빠른 시작: Azure Dev Spaces(Visual Studio)를 사용하여 Kubernetes에서 .NET Core로 개발
+# <a name="quickstart-debug-and-iterate-with-visual-studio-and-net-core-on-kubernetes-with-azure-dev-spaces"></a>빠른 시작: Azure Dev Spaces를 사용하여 Kubernetes에서 Visual Studio 및 .NET Core로 디버깅 및 반복
 
 이 가이드에서는 다음을 수행하는 방법을 배우게 됩니다.
 

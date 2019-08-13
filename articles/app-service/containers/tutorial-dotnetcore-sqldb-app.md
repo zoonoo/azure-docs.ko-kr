@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 03/27/2019
+ms.date: 08/06/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 4837867188721b13b3f4cb64245ae85a1e32fe50
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: a4774431b6a6e37ee9e175e161813936a71cdee9
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67656632"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68824670"
 ---
 # <a name="build-an-aspnet-core-and-sql-database-app-in-azure-app-service-on-linux"></a>Linux의 Azure App Service에서 ASP.NET Core 및 SQL Database 앱 빌드
 
@@ -132,7 +132,7 @@ SQL Database 논리 서버를 만들면 Azure CLI는 다음 예제와 비슷한 
 [`az sql server firewall create`](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az-sql-server-firewall-rule-create) 명령을 사용하여 [Azure SQL Database 서버 수준 방화벽 규칙](../../sql-database/sql-database-firewall-configure.md)을 만듭니다. 시작 IP 및 끝 IP가 0.0.0.0으로 설정되면 방화벽이 다른 Azure 리소스에 대해서만 열립니다. 
 
 ```azurecli-interactive
-az sql server firewall-rule create --resource-group myResourceGroup --server <server-name> --name AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
+az sql server firewall-rule create --resource-group myResourceGroup --server <server-name> --name AllowAzureIps --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
 
 ### <a name="create-a-database"></a>데이터베이스 만들기
@@ -169,13 +169,19 @@ Server=tcp:<server-name>.database.windows.net,1433;Database=coreDB;User ID=<db-u
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-dotnetcore-linux-no-h.md)] 
 
-### <a name="configure-an-environment-variable"></a>환경 변수 구성
+### <a name="configure-connection-string"></a>연결 문자열 구성
 
 Azure 앱에 연결 문자열을 설정하려면 Cloud Shell에서 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) 명령을 사용합니다. 다음 명령에서 *\<app-name>* 및 *\<connection-string>* 매개 변수를 앞에서 만든 연결 문자열로 바꿉니다.
 
 ```azurecli-interactive
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection-string>' --connection-string-type SQLServer
 ```
+
+ASP.NET Core에서는 표준 패턴을 사용하여 이 명명된 연결 문자열(`MyDbConnection`)을 사용할 수 있습니다(예: *appsettings.json*에 지정된 연결 문자열). 이 경우 `MyDbConnection`은 *appsettings.json*에도 정의되어 있습니다. App Service에서 실행되는 경우 App Service에 정의된 연결 문자열이 *appsettings.json*에 정의된 연결 문자열보다 우선적으로 적용됩니다. 코드는 지역 개발 중에 *appsettings.json* 값을 사용하고, 동일한 코드는 배포될 때 App Service 값을 사용합니다.
+
+코드에서 연결 문자열을 참조하는 방법을 보려면 [프로덕션에서 SQL Database에 연결](#connect-to-sql-database-in-production)을 참조하세요.
+
+### <a name="configure-environment-variable"></a>환경 변수 구성
 
 다음으로 `ASPNETCORE_ENVIRONMENT` 앱 설정을 _프로덕션_으로 지정합니다. 로컬 개발 환경에 SQLite를 사용하고 Azure 환경에 SQL Database를 사용하기 때문에 이 설정을 통해 Azure에서 실행 중인지 여부를 알 수 있습니다.
 
@@ -184,6 +190,8 @@ az webapp config connection-string set --resource-group myResourceGroup --name <
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings ASPNETCORE_ENVIRONMENT="Production"
 ```
+
+코드에서 환경 변수를 참조하는 방법을 보려면 [프로덕션에서 SQL Database에 연결](#connect-to-sql-database-in-production)을 참조하세요.
 
 ### <a name="connect-to-sql-database-in-production"></a>프로덕션에서 SQL Database에 연결
 
@@ -209,7 +217,7 @@ else
 services.BuildServiceProvider().GetService<MyDatabaseContext>().Database.Migrate();
 ```
 
-이코드가 프로덕션(즉, Azure 환경)에서 실행되고 있다고 감지되는 경우 구성한 연결 문자열을 사용하여 SQL Database에 연결합니다. 앱 설정이 App Service에서 액세스되는 방법에 대한 자세한 내용은 [환경 변수 액세스](configure-language-dotnetcore.md#access-environment-variables)를 참조하세요.
+이 코드가 프로덕션(즉, Azure 환경)에서 실행되고 있다고 감지되는 경우 구성한 연결 문자열을 사용하여 SQL Database에 연결합니다. 앱 설정이 App Service에서 액세스되는 방법에 대한 자세한 내용은 [환경 변수 액세스](configure-language-dotnetcore.md#access-environment-variables)를 참조하세요.
 
 Azure에서 실행되는 경우 `Database.Migrate()` 호출이 해당 마이그레이션 구성에 따라 .NET Core 앱이 필요한 데이터베이스를 자동으로 생성하기 때문에 도움을 받을 수 있습니다.
 

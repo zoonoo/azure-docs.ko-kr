@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 07/20/2019
-ms.openlocfilehash: 8b89f5572ae94986590fe76096daeb0ad088fe59
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 66a0c625d300a74787e3640992675d5a3f31610c
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668580"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828577"
 ---
 # <a name="tutorial-train-your-first-model"></a>자습서: 첫 번째 모델 학습
 
@@ -111,7 +111,7 @@ for alpha in alphas:
 experiment
 ```
 
-<table style="width:100%"><tr><th>Name</th><th>작업 영역</th><th>보고서 페이지</th><th>문서 페이지</th></tr><tr><td>diabetes-experiment</td><td>your-workspace-name</td><td><a href="" target="_blank" rel="noopener">Azure Portal에 연결</a></td><td><a href="" target="_blank" rel="noopener">설명서에 연결</a></td></tr></table>
+<table style="width:100%"><tr><th>Name</th><th>작업 영역</th><th>보고서 페이지</th><th>문서 페이지</th></tr><tr><td>diabetes-experiment</td><td>your-workspace-name</td><td>Azure Portal에 연결</td><td>설명서 링크</td></tr></table>
 
 ## <a name="view-training-results-in-portal"></a>포털에서 학습 결과 보기
 
@@ -181,7 +181,7 @@ best_run.download_file(name="model_alpha_0.1.pkl")
 
 1. 작업 영역에서 **Notebook VM**을 선택합니다.
 
-   ![VM 서버 중지](./media/quickstart-run-cloud-notebook/stop-server.png)
+   ![VM 서버 중지](./media/tutorial-1st-experiment-sdk-setup/stop-server.png)
 
 1. 목록에서 VM을 선택합니다.
 

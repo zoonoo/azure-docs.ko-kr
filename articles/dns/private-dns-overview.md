@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: overview
 ms.date: 6/12/2019
 ms.author: victorh
-ms.openlocfilehash: aedace031eaedf2709993b5185979e8777821759
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 0921a1ac7aa1192fae78f168c2eb51ee3e74e24a
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444830"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774616"
 ---
 # <a name="what-is-azure-private-dns"></a>Azure 프라이빗 DNS란?
 
@@ -71,10 +71,11 @@ Azure DNS는 다음과 같은 기능을 제공합니다.
 
 Azure DNS의 제한 사항은 다음과 같습니다.
 
-* 특정 가상 네트워크는 VM DNS 레코드의 자동 등록이 사용 설정된 것처럼 1개의 프라이빗 영역에만 연결할 수 있습니다. 그러나 단일 DNS 영역에 여러 가상 네트워크를 연결할 수 있습니다.
+* VM DNS 레코드의 자동 등록이 활성화된 경우 특정 가상 네트워크를 하나의 프라이빗 영역에만 연결할 수 있습니다. 그러나 단일 DNS 영역에 여러 가상 네트워크를 연결할 수 있습니다.
 * 역방향 DNS는 연결된 가상 네트워크의 개인 IP 공간에 대해서만 작동합니다.
-* 연결된 가상 네트워크의 개인 IP에 대한 역방향 DNS는 가상 머신의 기본 접미사로 "internal.cloudapp.net"을 반환합니다. 자동 등록이 사용 설정된 프라이빗 영역에 연결된 가상 네트워크의 경우 개인 IP의 역방향 DNS가 FQDN 2개를 반환하며, 하나는 접미사가 기본적으로 *internal.cloudapp.net*이며, 다른 하나는 프라이빗 영역 접미사를 사용합니다.
-* 조건부 전달은 현재 기본적으로 지원되지 않습니다. Azure와 온-프레미스 네트워크 간에 확인을 사용하도록 설정하려면 [VM 및 역할 인스턴스에 대한 이름 확인](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)을 참조하세요.
+* 연결된 가상 네트워크의 개인 IP에 대한 역방향 DNS는 가상 머신의 기본 접미사로 "internal.cloudapp.net"을 반환합니다. 자동 등록이 사용 설정된 프라이빗 영역에 연결된 가상 네트워크에서는 개인 IP의 역방향 DNS가 FQDN 2개를 반환하는데, 하나는 기본 접미사(*internal.cloudapp.net*)를, 다른 하나는 프라이빗 영역 접미사를 사용합니다.
+* 조건부 전달은 현재 기본적으로 지원되지 않습니다. Azure와 온-프레미스 네트워크 간에 확인을 사용하려면 [VM 및 역할 인스턴스에 대한 이름 확인](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)을 참조하세요.
+
  
 ## <a name="pricing"></a>가격
 

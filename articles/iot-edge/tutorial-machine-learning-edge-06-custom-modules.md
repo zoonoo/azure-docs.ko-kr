@@ -8,12 +8,12 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 16c32fc14805ac8ae1412671b2bb400456b4ab7d
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 4d03e5ee5faf39425e1bf927a3c0557b0ad01b82
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603653"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840112"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>자습서: 사용자 지정 IoT Edge 모듈 만들기 및 배포
 
@@ -92,11 +92,11 @@ IoT Edge 디바이스는 다음 4가지 작업을 수행하는 데 필요합니�
        }
        ```
 
-     * **모듈:** 이 섹션에는 이 솔루션과 함께 제공되는 사용자 정의 모듈 집합이 포함됩니다. 현재 이 섹션에는 tempSensor 및 turbofanRulClassifier의 두 가지 모듈이 포함되어 있습니다. tempSensor는 Visual Studio Code 템플릿으로 설치되었지만 이 솔루션에는 필요하지 않습니다. 모듈 섹션에서 tempSensor 모듈 정의를 삭제할 수 있습니다. turbofanRulClassifier 모듈 정의는 컨테이너 레지스트리의 이미지를 가리키고 있습니다. 솔루션에 더 많은 모듈을 추가함에 따라 해당 모듈이 이 섹션에 표시됩니다.
+     * **모듈:** 이 섹션에는 이 솔루션과 함께 제공되는 사용자 정의 모듈 집합이 포함됩니다. 이 섹션에는 현재 다음 두 가지 모듈이 포함되어 있습니다. SimulatedTemperatureSensor 및 turbofanRulClassifier SimulatedTemperatureSensor는 Visual Studio Code 템플릿으로 설치되었지만 이 솔루션에는 필요하지 않습니다. 모듈 섹션에서 SimulatedTemperatureSensor 모듈 정의를 삭제할 수 있습니다. turbofanRulClassifier 모듈 정의는 컨테이너 레지스트리의 이미지를 가리키고 있습니다. 솔루션에 더 많은 모듈을 추가함에 따라 해당 모듈이 이 섹션에 표시됩니다.
 
        ```json
        "modules": {
-         "tempSensor": {
+         "SimulatedTemperatureSensor": {
            "version": "1.0",
            "type": "docker",
            "status": "running",
@@ -119,7 +119,7 @@ IoT Edge 디바이스는 다음 4가지 작업을 수행하는 데 필요합니�
        }
        ```
 
-     * **경로:** 이 자습서에서는 경로 관련 작업을 상당히 많이 수행합니다. 경로는 모듈 간에 서로 통신하는 방법을 정의합니다. 템플릿에 정의된 두 개의 경로가 필요한 라우팅과 일치하지 않습니다. 첫 번째 경로는 모든 데이터를 분류자 출력에서 IoT Hub($upstream)로 보냅니다. 다른 경로는 방금 삭제한 tempSensor의 경로입니다. 두 개의 기본 경로를 삭제합니다.
+     * **경로:** 이 자습서에서는 경로 관련 작업을 상당히 많이 수행합니다. 경로는 모듈 간에 서로 통신하는 방법을 정의합니다. 템플릿에 정의된 두 개의 경로가 필요한 라우팅과 일치하지 않습니다. 첫 번째 경로는 모든 데이터를 분류자 출력에서 IoT Hub($upstream)로 보냅니다. 다른 경로는 방금 삭제한 SimulatedTemperatureSensor의 경로입니다. 두 개의 기본 경로를 삭제합니다.
 
        ```json
        "$edgeHub": {
@@ -127,7 +127,7 @@ IoT Edge 디바이스는 다음 4가지 작업을 수행하는 데 필요합니�
            "schemaVersion": "1.0",
            "routes": {
              "turbofanRulClassifierToIoTHub": "FROM /messages/modules/turbofanRulClassifier/outputs/\* INTO $upstream",
-             "sensorToturbofanRulClassifier": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\\"/modules/turbofanRulClassifier/inputs/input1\\")"
+             "sensorToturbofanRulClassifier": "FROM /messages/modules/SimulatedTemperatureSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\\"/modules/turbofanRulClassifier/inputs/input1\\")"
            },
            "storeAndForwardConfiguration": {
              "timeToLiveSecs": 7200

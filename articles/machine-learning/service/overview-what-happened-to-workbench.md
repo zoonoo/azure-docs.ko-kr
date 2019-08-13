@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: a164276d41d182c5b439efc691d80693f1ac831e
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 2bc036fcde7ac541dbf7d8511f82080e52135777
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360137"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68772628"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench는 어떻게 되었나요?
 
@@ -120,8 +120,8 @@ Computer Vision, Text Analytics 및 예측용 도메인 패키지는 최신 버�
 
 [Azure Machine Learning Service에 대한 최신 아키텍처](concept-azure-machine-learning-architecture.md)에 대해 알아봅니다. 
 
-서비스 개요는 [Azure Machine Learning 서비스란?](overview-what-is-azure-ml.md)을 읽어보세요.
+서비스 개요는 [Azure Machine Learning Service란?](overview-what-is-azure-ml.md)을 읽어보세요.
 
-스크립트를 실행하고 최신 버전의 Azure Machine Learning Service를 사용하여 스크립트 실행 기록을 살펴보는 방법을 보여주는 빠른 시작은 [Azure Machine Learning Service로 시작하기](quickstart-run-cloud-notebook.md)를 사용해보세요.
+[환경 및 작업 영역](tutorial-1st-experiment-sdk-setup.md) 설정 및 [첫 번째 모델](tutorial-1st-experiment-sdk-train.md)에 대해 두 부분으로 구성된 자습서로 첫 번째 실험을 만듭니다.
 
 이 워크플로에 대해 더 자세히 알아보려면 Azure Machine Learning 서비스를 사용하여 모델을 학습시키고 배포하는 자세한 단계가 포함된 [전체 자습서](tutorial-train-models-with-aml.md)의 과정을 진행하세요. 

@@ -1,7 +1,7 @@
 ---
 title: '자습서: 환경 및 작업 영역 설정'
 titleSuffix: Azure Machine Learning service
-description: 이 자습서에서는 Jupyter Notebook에서 실행되는 Azure Machine Learning Python SDK를 시작하기 위한 엔드투엔드 단계를 수행합니다.
+description: 이 자습서 시리즈에서는 Jupyter Notebook에서 실행되는 Azure Machine Learning Python SDK를 시작하기 위한 엔드투엔드 단계를 수행합니다.  1부에서는 클라우드 Notebook 서버 환경을 만들고 실험 및 기계 학습 모델을 관리하는 작업 영역을 만드는 과정을 다룹니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 07/20/2019
-ms.openlocfilehash: e17d9286453aeb5c7eac688555177c2c42faad21
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: b3fdcfbb9869c0199c91f5bbc6ca1f02fec996cf
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668600"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828639"
 ---
 # <a name="tutorial-setup-environment-and-workspace"></a>자습서: 환경 및 작업 영역 설정
 
@@ -25,7 +25,7 @@ ms.locfileid: "68668600"
 
 > [!div class="checklist"]
 > * 다음 자습서에서 사용할 기계 학습 작업 영역을 만듭니다.
-> * 클라우드 Notebook 서버 환경을 만듭니다.
+> * Azure Machine Learning Python SDK가 미리 설치되고 미리 구성된 클라우드 기반 Jupyter Notebook 서버인 Notebook VM을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -49,14 +49,12 @@ ms.locfileid: "68668600"
 
 1. **+ 새로 만들기**를 선택하여 Notebook VM을 만듭니다.
 
-     ![새 VM 선택](./media/quickstart-run-cloud-notebook/add-workstation.png)
+     ![새 VM 선택](./media/tutorial-1st-experiment-sdk-setup/add-workstation.png)
 
 1. VM 이름을 제공합니다. 그런 다음 **만들기**를 선택합니다.
 
     > [!NOTE]
     > Notebook VM 이름은 2~16자 사이여야 합니다. 유효한 문자는 문자, 숫자 및 - 문자입니다.  이름은 Azure 구독 전체에서 고유해야 합니다.
-
-    ![새 VM 만들기](media/quickstart-run-cloud-notebook/create-new-workstation.png)
 
 1. 상태가 **실행 중**으로 바뀔 때까지 기다립니다.
 
@@ -66,7 +64,7 @@ VM이 실행되면 **Notebook VM** 섹션을 사용하여 Jupyter 웹 인터페�
 
 1. VM에 대한 **URI** 열에서 **Jupyter**를 선택합니다.
 
-    ![Jupyter Notebook 서버 시작](./media/quickstart-run-cloud-notebook/start-server.png)
+    ![Jupyter Notebook 서버 시작](./media/tutorial-1st-experiment-sdk-setup/start-server.png)
 
     이 링크는 Notebook 서버를 시작하고, 새 브라우저 탭에서 Jupyter Notebook 웹 페이지를 엽니다.  이 링크는 VM을 만든 사용자만 사용할 수 있습니다. 작업 영역의 각 사용자는 자신의 고유한 VM을 만들어야 합니다.
 
@@ -87,7 +85,7 @@ VM이 실행되면 **Notebook VM** 섹션을 사용하여 Jupyter 웹 인터페�
 
 1. 작업 영역에서 **Notebook VM**을 선택합니다.
 
-   ![VM 서버 중지](./media/quickstart-run-cloud-notebook/stop-server.png)
+   ![VM 서버 중지](./media/tutorial-1st-experiment-sdk-setup/stop-server.png)
 
 1. 목록에서 VM을 선택합니다.
 
