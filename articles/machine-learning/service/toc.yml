@@ -258,7 +258,7 @@
     - name: 재사용 가능한 워크플로 만들기
       displayName: pipelines
       items:
-        - name: 'ML 파이프라인: 일괄 처리, 컴퓨팅, 재사용, 공유'
+        - name: ML 파이프라인
           href: how-to-create-your-first-pipeline.md
         - name: CI/CD용 Azure Pipelines
           displayName: 'continuous, integration, delivery'

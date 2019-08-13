@@ -8,9 +8,12 @@
       displayName: 'loop, context, feature, action, rank, reward, developer, use case'
 - name: 빠른 시작
   items:
-    - name: 피드백 루프 만들기 및 사용
+    - name: 'C# 사용'
       href: csharp-quickstart-commandline-feedback-loop.md
       displayName: 'code, sample, quickstart, c#'
+    - name: Python 사용
+      href: python-quickstart-commandline-feedback-loop.md
+      displayName: 'code, sample, quickstart, python'
 - name: 개념
   items:
     - name: Personalizer의 작동 원리

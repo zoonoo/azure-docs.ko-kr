@@ -214,11 +214,11 @@ SAP BW Open Hub에서 데이터를 복사할 때는 SAP BW 데이터 형식에�
 | C (String) | String |
 | I (integer) | Int32 |
 | F (Float) | Double |
-| D (Date) | String |
-| T (Time) | String |
-| P (BCD Packed, Currency, Decimal, Qty) | Decimal |
-| N (Numc) | String |
-| X (Binary and Raw) | String |
+| D(날짜) | String |
+| T(시간) | String |
+| P(BCD 압축, 통화, 10진수, 수량) | 10진수 |
+| N(숫자) | String |
+| X(이진 및 원시) | String |
 
 ## <a name="next-steps"></a>다음 단계
 Azure Data Factory에서 복사 작업의 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.
