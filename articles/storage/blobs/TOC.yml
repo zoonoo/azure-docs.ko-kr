@@ -137,6 +137,8 @@
           items:
             - name: 액세스 계층
               href: storage-blob-storage-tiers.md
+            - name: Archive Storage에서 데이터 리하이드레이션
+              href: storage-blob-rehydration.md
             - name: Azure Blob Storage 수명 주기 관리
               href: storage-lifecycle-management-concepts.md
         - name: 성능 및 크기 조정

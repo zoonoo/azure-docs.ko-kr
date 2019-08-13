@@ -11,7 +11,7 @@ metadata:
   manager: jhubbard
   author: j-martens
   ms.author: jmartens
-  ms.date: 05/14/2019
+  ms.date: 08/13/2019
   ms.custom: seodec18
   ms.tgt_pltfrm: na
   ms.devlang: na
@@ -46,6 +46,7 @@ sections:
           - html: <a href="tutorial-1st-experiment-sdk-setup">환경을 설정하고 첫 번째 ML 실험을 학습합니다.</a>
           - html: <a href="tutorial-train-models-with-aml">이미지 분류 모델을 학습 및 배포</a>합니다.
           - html: <a href="tutorial-data-prep">데이터 준비 및 자동화된 ML을 사용하여 택시 요금 예측</b>.</a>
+          - html: <a href="how-to-run-batch-predictions">ML 파이프라인을 사용하여 대용량 데이터 세트에서 일괄 처리 예측을 실행합니다</b>.</a>
   - title: 샘플
     items:
       - type: paragraph

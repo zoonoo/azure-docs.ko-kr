@@ -58,6 +58,8 @@
           href: create-cloudsimple-service.md
         - name: CloudSimple 포털 액세스
           href: access-cloudsimple-portal.md
+        - name: 온-프레미스 방화벽 구성
+          href: on-premises-firewall-configuration.md
         - name: 노드 관리
           items:
             - name: 노드 프로비전

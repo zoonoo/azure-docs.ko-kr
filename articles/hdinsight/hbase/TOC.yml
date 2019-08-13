@@ -162,6 +162,8 @@
       items:
         - name: 문제 해결 리소스
           href: ../hdinsight-troubleshoot-guide.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
+        - name: 연결을 다시 설정하면 발생하는 스토리지 예외
+          href: ./hbase-troubleshoot-storage-exception-reset.md
         - name: Apache Phoenix 보기에 데이터가 없음
           href: ./hbase-troubleshoot-phoenix-no-data.md
         - name: BindException - 사용 중인 주소
