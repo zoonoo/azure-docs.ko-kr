@@ -31,7 +31,7 @@ ms.locfileid: "66399449"
 1. [Azure 준비](tutorial-prepare-azure.md)
 2. [온-프레미스 Hyper-V 준비](tutorial-prepare-on-premises-hyper-v.md)
 3. [Hyper-V VM](tutorial-hyper-v-to-azure.md) 또는 [System Center VMM 클라우드에서 관리되는 Hyper-V VM](tutorial-hyper-v-vmm-to-azure.md)용 재해 복구 설정
-4. [재해 복구 드릴 실행](tutorial-dr-drill-azure.md)
+4. [재해 복구 훈련 실행](tutorial-dr-drill-azure.md)
 
 ## <a name="prepare-for-failover-and-failback"></a>장애 조치(failover) 및 장애 복구(failback) 준비
 
