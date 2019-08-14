@@ -27,7 +27,7 @@
       href: ../hdinsight-version-release.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
 - name: 방법
   items:
-    - name: 클러스터 저장소 사용
+    - name: 클러스터 스토리지 사용
       items:
         - name: Azure Storage 사용
           href: ../hdinsight-hadoop-use-blob-storage.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
@@ -129,7 +129,7 @@
           href: ../hdinsight-scaling-best-practices.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
         - name: HDInsight 클러스터에 대한 로그 관리
           href: ../hdinsight-log-management.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
-        - name: 저장소 계정 추가
+        - name: 스토리지 계정 추가
           href: ../hdinsight-hadoop-add-storage.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
         - name: Apache Hadoop 작업용 데이터 업로드
           href: ../hdinsight-upload-data.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
@@ -162,6 +162,8 @@
       items:
         - name: 문제 해결 리소스
           href: ../hdinsight-troubleshoot-guide.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
+        - name: hbase hbck가 불일치 반환
+          href: ./hbase-troubleshoot-hbase-hbck-inconsistencies.md
         - name: 연결을 다시 설정하면 발생하는 스토리지 예외
           href: ./hbase-troubleshoot-storage-exception-reset.md
         - name: Apache Phoenix 보기에 데이터가 없음

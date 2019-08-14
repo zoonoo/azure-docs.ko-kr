@@ -284,6 +284,8 @@
                   href: application-proxy-configure-single-sign-on-on-premises-apps.md
             - name: 게시 연습
               items:
+                - name: Power BI와 통합
+                  href: application-proxy-integrate-with-power-bi.md
                 - name: Cloud App Security와 통합
                   href: application-proxy-integrate-with-microsoft-cloud-application-security.md
                 - name: 원격 데스크톱과 통합

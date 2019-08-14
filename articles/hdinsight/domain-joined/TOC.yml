@@ -58,6 +58,12 @@
   items:
     - name: ESP 클러스터 생성 및 온-프레미스와 동기화
       href: apache-domain-joined-create-configure-enterprise-security-cluster.md
+    - name: 문제 해결
+      items:
+        - name: 인증 문제
+          href: ./domain-joined-authentication-issues.md
+        - name: Zeppelin에 로그인할 수 없음
+          href: ./domain-joined-zeppelin-signin.md
 - name: 참고 자료
   items:
     - name: 코드 샘플

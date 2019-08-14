@@ -14,9 +14,11 @@
 - name: 자습서
   items:
     - name: 몰입형 판독기(Node.js) 시작
-      href: tutorial.md
+      href: tutorial-nodejs.md
+    - name: 몰입형 리더(Python) 시작
+      href: tutorial-python.md
     - name: 몰입형 리더에 사진 보내기(Swift)
-      href: ios-picture-immersive-reader-tutorial.md
+      href: tutorial-ios-picture-immersive-reader.md
 - name: 사용 방법
   items:
     - name: Azure Active Directory 인증

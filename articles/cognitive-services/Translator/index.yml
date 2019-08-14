@@ -60,34 +60,48 @@ sections:
               src: media/index/logo_go.svg
             title: Go
         rows:
-          - title: 한 언어에서 다른 언어로 텍스트 번역
+          - title: 텍스트 번역
             values:
-              - href: quickstart-csharp-translate
-              - href: quickstart-java-translate
-              - href: quickstart-nodejs-translate
-              - href: quickstart-python-translate
-              - href: quickstart-go-translate
+              - href: quickstart-translate?pivots=programming-language-csharp
+              - href: quickstart-translate?pivots=programming-language-java
+              - href: quickstart-translate?pivots=programming-language-nodejs
+              - href: quickstart-translate?pivots=programming-language-python
+              - href: quickstart-translate?pivots=programming-language-go
           - title: 한 스크립트에서 다른 스크립트로 텍스트 변환
             values:
-              - href: quickstart-csharp-transliterate
-              - href: quickstart-java-transliterate
-              - href: quickstart-nodejs-transliterate
-              - href: quickstart-python-transliterate
-              - href: quickstart-go-transliterate
-          - title: 텍스트의 언어 식별
+              - href: quickstart-transliterate?pivots=programming-language-csharp
+              - href: quickstart-transliterate?pivots=programming-language-java
+              - href: quickstart-transliterate?pivots=programming-language-nodejs
+              - href: quickstart-transliterate?pivots=programming-language-python
+              - href: quickstart-transliterate?pivots=programming-language-go
+          - title: 텍스트 언어 검색
             values:
-              - href: quickstart-csharp-detect
-              - href: quickstart-java-detect
-              - href: quickstart-nodejs-detect
-              - href: quickstart-python-detect
-              - href: quickstart-go-detect
+              - href: quickstart-detect?pivots=programming-language-csharp
+              - href: quickstart-detect?pivots=programming-language-java
+              - href: quickstart-detect?pivots=programming-language-nodejs
+              - href: quickstart-detect?pivots=programming-language-python
+              - href: quickstart-detect?pivots=programming-language-go
           - title: 대체 번역 및 사용량 가져오기
             values:
-              - href: quickstart-csharp-dictionary
-              - href: quickstart-java-dictionary
-              - href: quickstart-nodejs-dictionary
-              - href: quickstart-python-dictionary
-              - href: quickstart-go-dictionary
+              - href: quickstart-dictionary?pivots=programming-language-csharp
+              - href: quickstart-dictionary?pivots=programming-language-java
+              - href: quickstart-dictionary?pivots=programming-language-nodejs
+              - href: quickstart-dictionary?pivots=programming-language-python
+              - href: quickstart-dictionary?pivots=programming-language-go
+          - title: 문장 길이 결정
+            values:
+              - href: quickstart-sentences?pivots=programming-language-csharp
+              - href: quickstart-sentences?pivots=programming-language-java
+              - href: quickstart-sentences?pivots=programming-language-nodejs
+              - href: quickstart-sentences?pivots=programming-language-python
+              - href: quickstart-sentences?pivots=programming-language-go
+          - title: 지원되는 언어의 전체 목록 가져오기
+            values:
+              - href: quickstart-languages?pivots=programming-language-csharp
+              - href: quickstart-languages?pivots=programming-language-java
+              - href: quickstart-languages?pivots=programming-language-nodejs
+              - href: quickstart-languages?pivots=programming-language-python
+              - href: quickstart-languages?pivots=programming-language-go
   - title: 단계별 자습서
     items:
       - type: paragraph

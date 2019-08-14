@@ -45,7 +45,7 @@ sections:
     items:
       - type: paragraph
         text: |
-          Speech SDK(<a href="releasenotes.md">릴리스 정보</a>)를 사용하여 앱에 다음과 같은 기능 추가&colon; 
+          Speech SDK(<a href="releasenotes.md">릴리스 정보</a>)를 사용하여 앱에 다음과 같은 기능 추가&colon;
           <div class="row"><div class="column"><ul>
           <li><b><a href="speech-to-text.md">음성 텍스트 변환</a></b>(음성 인식/SR)</li>
           <li><b><a href="speech-devices-sdk-create-kws.md">사용자 지정 절전 모드 해제 단어</a></b>(키워드 스포터/KWS)</li>
@@ -249,14 +249,13 @@ sections:
   - title: 단계별 자습서
     items:
       - type: paragraph
-        text: Speech Service를 사용하여 응용 프로그램을 개발하는 방법을 알아봅니다.
+        text: Speech Service를 사용하여 애플리케이션을 개발하는 방법을 알아봅니다.
       - type: list
         style: unordered
         items:
-          - html: <a href="speech-to-text-sample.md">음성 텍스트 변환(SR)</a><br/>
-          - html: <a href="intent.md">의도 인식</a><br/>
-          - html: <a href="translation.md">번역</a>
-          - html: <a href="quickstart-text-to-speech-dotnet-windows.md">Text-to-speech</a><br/>
+          - html: '<a href="how-to-recognize-intents-from-speech-csharp.md">LUIS, C#을 통해 음성 의도 인식</a><br/>'
+          - html: '<a href="tutorial-voice-enable-your-bot-speech-sdk.md">음성 SDK, C#으로 음성을 지원하도록 봇 설정</a><br/>'
+          - html: '<a href="../translator/tutorial-build-flask-app-translation-synthesis.md?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json">Flask를 빌드하여 텍스트 번역 및 음성, REST 합성</a><br/>'
   - title: 샘플
     items:
       - type: paragraph

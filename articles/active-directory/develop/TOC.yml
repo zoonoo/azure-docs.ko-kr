@@ -295,6 +295,8 @@
               href: v2-oauth2-device-code.md
             - name: OAuth 2.0 리소스 소유자 암호 자격 증명 부여
               href: v2-oauth-ropc.md
+            - name: OAuth 2.0 SAML 전달자 어설션 흐름
+              href: v2-saml-bearer-assertion.md
             - name: 서명 키 롤오버
               href: active-directory-signing-key-rollover.md
             - name: ID 토큰

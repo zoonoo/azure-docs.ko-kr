@@ -98,9 +98,6 @@
     - name: 모델 해석력
       displayName: explainability
       href: machine-learning-interpretability-explainability.md
-    - name: FPGA 대 CPU GPU ASIC
-      displayName: 'field, programmable, arrays'
-      href: concept-accelerate-with-fpgas.md
     - name: ONNX
       href: concept-onnx.md
     - name: 보안
@@ -115,7 +112,7 @@
           href: how-to-enable-virtual-network.md
         - name: SSL로 웹 서비스 보호
           href: how-to-secure-web-service.md
-        - name: 저장소 액세스 키 다시 생성
+        - name: 스토리지 액세스 키 다시 생성
           href: how-to-change-storage-access-key.md
 - name: 방법 가이드
   items:

@@ -23,7 +23,7 @@
   items:
     - name: Hive 워크로드를 HDInsight 4.0으로 마이그레이션
       href: apache-hive-migrate-workloads.md
-    - name: 클러스터 저장소 사용
+    - name: 클러스터 스토리지 사용
       items:
         - name: Azure Storage 사용
           href: ../hdinsight-hadoop-use-blob-storage.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
@@ -172,7 +172,7 @@
           maintainContext: true
         - name: HDInsight 클러스터에 대한 로그 관리
           href: ../hdinsight-log-management.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
-        - name: 저장소 계정 추가
+        - name: 스토리지 계정 추가
           href: ../hdinsight-hadoop-add-storage.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
         - name: Apache Hadoop 작업용 데이터 업로드
           href: ../hdinsight-upload-data.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
@@ -191,6 +191,12 @@
     - name: 문제 해결
       href: ../hdinsight-troubleshoot-guide.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
       items:
+        - name: Apache Tez 애플리케이션이 중지됨
+          href: ./interactive-query-troubleshoot-tez-hangs.md
+        - name: Apache Hive LLAP 쿼리 성능
+          href: ./interactive-query-troubleshoot-query-performance.md
+        - name: 저속 reducer
+          href: ./interactive-query-troubleshoot-slow-reducer.md
         - name: Apache Hive 보기 시간 제한
           href: ./interactive-query-troubleshoot-view-time-out.md
         - name: 테이블 만들기 권한 오류

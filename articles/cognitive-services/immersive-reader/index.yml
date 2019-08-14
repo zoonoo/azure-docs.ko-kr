@@ -51,7 +51,9 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: <a href="tutorial.md">Node.js를 사용하여 몰입형 판독기 시작</a>
+          - html: <a href="tutorial-nodejs.md">Node.js를 사용하여 몰입형 판독기 시작</a>
+          - html: <a href="tutorial-python.md">Python을 사용하여 몰입형 리더 시작</a>
+          - html: <a href="tutorial-ios-picture-immersive-reader.md">Swift를 사용하여 몰입형 리더 시작</a>
   - title: 참고 자료
     items:
       - type: list

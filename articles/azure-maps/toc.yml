@@ -91,23 +91,27 @@
               href: choose-map-style.md
             - name: 맵에 컨트롤 추가
               href: map-add-controls.md
+            - name: 데이터 소스 만들기
+              href: create-data-source-web-sdk.md
             - name: 기호 계층 추가
               href: map-add-pin.md
-            - name: 팝업 추가
-              href: map-add-popup.md
             - name: 거품형 계층 추가
               href: map-add-bubble-layer.md
-            - name: 셰이프 추가
+            - name: 선 계층 추가
+              href: map-add-line-layer.md
+            - name: 다각형 계층 추가
               href: map-add-shape.md
             - name: 열 지도 계층 추가
               href: map-add-heat-map-layer.md
+            - name: 팝업 추가
+              href: map-add-popup.md
             - name: 클러스터 지점 데이터
               href: clustering-point-data-web-sdk.md
             - name: 데이터 기반 스타일 식 사용
               href: data-driven-style-expressions-web-sdk.md
             - name: 이미지 템플릿을 사용하는 방법
               href: how-to-use-image-templates-web-sdk.md
-            - name: 이미지 오버레이
+            - name: 이미지 계층 추가
               href: map-add-image-layer.md
             - name: 타일 레이어 추가
               href: map-add-tile-layer.md
@@ -139,6 +143,8 @@
           href: how-to-add-symbol-to-android-map.md
         - name: 셰이프 추가
           href: how-to-add-shapes-to-android-map.md
+        - name: 기능 정보 표시
+          href: display-feature-information-android.md
         - name: 타일 계층 추가
           href: how-to-add-tile-layer-android-map.md
 - name: 참고 자료

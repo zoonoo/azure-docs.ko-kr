@@ -14,7 +14,7 @@ ms.date: 08/06/2019
 ms.author: jingwang
 ms.openlocfilehash: 5dcbb2c25511277eaf46d6c9f4afc007a180f8a6
 ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/06/2019
 ms.locfileid: "68827864"
@@ -494,7 +494,7 @@ SQL Server에서로 데이터를 복사 하는 경우 SQL Server 데이터 형�
 | bit |Boolean |
 | char |String, Char[] |
 | date |DateTime |
-| Datetime |DateTime |
+| DateTime |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |

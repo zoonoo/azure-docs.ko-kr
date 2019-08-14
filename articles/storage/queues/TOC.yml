@@ -38,12 +38,12 @@
         - name: 권한 부여
           href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
           items:
-            - name: Azure AD를 사용하여 인증
+            - name: Azure AD 인증 및 권한 부여
               href: ../common/storage-auth-aad.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
             - name: 공유 키로 권한 부여
               href: /rest/api/storageservices/authorize-with-shared-key
             - name: SAS로 권한 부여
-              href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+              href: ../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Advanced Threat Protection
           href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Azure 공통 보안 특성
@@ -51,11 +51,11 @@
     - name: 데이터 중복
       href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
       items:
-        - name: 로컬 중복 저장소
+        - name: 로컬 중복 스토리지
           href: ../common/storage-redundancy-lrs.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-        - name: 영역 중복 저장소
+        - name: 영역 중복 스토리지
           href: ../common/storage-redundancy-zrs.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-        - name: 지역 중복 저장소
+        - name: 지역 중복 스토리지
           href: ../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: 재해 복구 및 장애 조치(Failover)
           href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
@@ -83,7 +83,7 @@
               href: ../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
             - name: 새 메트릭으로 마이그레이션
               href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-            - name: 저장소 분석
+            - name: 스토리지 분석
               href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
             - name: 스토리지 분석 메트릭(클래식)
               href: ../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
@@ -91,14 +91,14 @@
               href: ../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
 - name: 방법
   items:
-    - name: 저장소 계정 만들기 및 관리
+    - name: 스토리지 계정 만들기 및 관리
       items:
-        - name: 저장소 계정 만들기
+        - name: 스토리지 계정 만들기
           displayName: 'resource manager, resource manager template, template, ARM'
           href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-        - name: 저장소 계정 관리
+        - name: 스토리지 계정 관리
           href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-        - name: 저장소 계정 업그레이드
+        - name: 스토리지 계정 업그레이드
           href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: 큐 데이터 보호
       items:
@@ -118,11 +118,11 @@
                   href: ../common/storage-auth-aad-rbac-powershell.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
                 - name: Azure CLI
                   href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-            - name: Azure AD를 사용하여 인증
+            - name: Azure AD 인증 및 권한 부여
               items:
-                - name: 관리 ID로 인증
+                - name: 관리 ID로 권한 부여
                   href: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-                - name: 애플리케이션에서 인증
+                - name: 애플리케이션에서 권한 부여
                   href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
             - name: 공유 키로 권한 부여
               items:
