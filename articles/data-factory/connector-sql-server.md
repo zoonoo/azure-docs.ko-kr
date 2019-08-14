@@ -489,13 +489,13 @@ SQL Server에서로 데이터를 복사 하는 경우 SQL Server 데이터 형�
 
 | SQL Server 데이터 형식 | Azure Data Factory 중간 데이터 형식 |
 |:--- |:--- |
-| BIGINT |Int64 |
+| bigint |Int64 |
 | binary |Byte[] |
 | bit |Boolean |
 | char |String, Char[] |
-| date |Datetime |
-| Datetime |Datetime |
-| datetime2 |Datetime |
+| date |DateTime |
+| Datetime |DateTime |
+| datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
 | FILESTREAM attribute (varbinary(max)) |Byte[] |
@@ -509,14 +509,14 @@ SQL Server에서로 데이터를 복사 하는 경우 SQL Server 데이터 형�
 | nvarchar |String, Char[] |
 | real |Single |
 | rowversion |Byte[] |
-| smalldatetime |Datetime |
+| smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Object |
 | text |String, Char[] |
 | time |TimeSpan |
 | timestamp |Byte[] |
-| TINYINT |Int16 |
+| tinyint |Int16 |
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
