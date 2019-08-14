@@ -63,7 +63,7 @@ Azure Portal를 사용하여 리소스 그룹 및 단일 데이터베이스를 �
    - **적용**을 선택합니다.
 
 5. **추가 설정** 탭을 선택합니다. 
-6. **데이터 원본** 섹션의 **기존 데이터 사용** 아래에서 `샘플`을 선택합니다.
+6. **데이터 원본** 섹션의 **기존 데이터 사용** 아래에서 `Sample`을 선택합니다.
 
    ![추가 SQL DB 설정](../media/sql-database-get-started-portal/create-sql-database-additional-settings.png)
 
