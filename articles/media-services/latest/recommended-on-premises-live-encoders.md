@@ -6,15 +6,15 @@ keywords: 인코딩, 인코더, 미디어
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 08/16/2019
+ms.date: 08/08/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 1f152f7f94c12beecf015d9389ed85cb310573bd
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 6b9cb325f2bb7419e32efd5bde4705786c5dbeb5
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297731"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934938"
 ---
 # <a name="recommended-live-streaming-encoders"></a>권장 라이브 스트리밍 인코더
 

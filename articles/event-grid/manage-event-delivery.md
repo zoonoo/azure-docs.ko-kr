@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/06/2019
 ms.author: spelluru
-ms.openlocfilehash: a1b49fd3a2a85377a56c92aefd1b0056f91895b1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 63bae62ed89bd0bbc167a88274002d1fa1e9b86d
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66119574"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933367"
 ---
 # <a name="dead-letter-and-retry-policies"></a>배달 못한 편지 및 다시 시도 정책
 
@@ -22,10 +22,12 @@ ms.locfileid: "66119574"
 
 ## <a name="set-dead-letter-location"></a>배달 못한 편지 위치 설정
 
-배달 못한 편지 위치를 설정하려면 엔드포인트로 전달할 수 없는 이벤트를 보유할 저장소 계정이 필요합니다. 이 예제는 기존 스토리지 계정의 리소스 ID를 가져옵니다. 배달 못한 편지 엔드포인트의 스토리지 계정에 있는 컨테이너를 사용하는 이벤트 구독을 만듭니다.
+배달 못한 편지 위치를 설정하려면 엔드포인트로 전달할 수 없는 이벤트를 보유할 스토리지 계정이 필요합니다. 이 예제는 기존 스토리지 계정의 리소스 ID를 가져옵니다. 배달 못한 편지 엔드포인트의 스토리지 계정에 있는 컨테이너를 사용하는 이벤트 구독을 만듭니다.
 
 > [!NOTE]
-> 이 문서의 명령을 실행 하기 전에 저장소에서 저장소 계정 및 blob 컨테이너를 만듭니다.
+> - 이 문서에서 명령을 실행 하기 전에 저장소에서 저장소 계정 및 blob 컨테이너를 만듭니다.
+> - Event Grid 서비스는이 컨테이너에 blob을 만듭니다. Blob 이름에는 모든 문자를 대문자로 포함 하는 Event Grid 구독의 이름이 포함 됩니다. 예를 들어 구독의 이름이 My Blob Subscription 인 경우 배달 못 한 편지 blob의 이름에는 MY BLOB-SUBSCRIPTION (myblobcontainer/111111111/2019/8/8/5/ -111111111111)이 포함 됩니다. 이 동작은 Azure 서비스 간 처리의 차이점을 방지 하는 것입니다.
+
 
 ### <a name="azure-cli"></a>Azure CLI
 

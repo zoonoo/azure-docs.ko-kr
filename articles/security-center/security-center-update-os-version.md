@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: a17bc3cf8c8f1ffbb2a91e17944bfc1c203f439d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "60905859"
 ---
 # <a name="update-os-version-in-azure-security-center"></a>Azure Security Center에서 OS 버전 업데이트
@@ -34,7 +34,7 @@ ms.locfileid: "60905859"
    ![OS 버전 업데이트][1]
 2. 이렇게 하면 **OS 버전 업데이트**블레이드가 열립니다. 이 블레이드의 단계를 따라 OS 버전을 업데이트합니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 이 문서에서는 보안 센터 권장 사항 "OS 버전 업데이트"를 구현하는 방법을 보여 주었습니다. 클라우드 서비스 및 클라우드 서비스에 대한 OS 버전 업데이트에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Cloud Services 개요](../cloud-services/cloud-services-choose-me.md)

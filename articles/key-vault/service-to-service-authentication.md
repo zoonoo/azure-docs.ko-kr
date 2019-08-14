@@ -9,12 +9,12 @@ ms.author: mbaldwin
 ms.date: 07/06/2019
 ms.topic: conceptual
 ms.service: key-vault
-ms.openlocfilehash: d34c94ccca47d29afc4f3d83bec58db737be270c
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: f6a95f56b7b617b42c1cec9f64aae73b88b813da
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840425"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934332"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>.NET을 사용하여 Azure Key Vault에 서비스 간 인증
 
@@ -270,21 +270,21 @@ Azure CLI를 사용 하 여 기본 구독을 사용 하려는 계정이 포함 �
 
 #### <a name="unauthorized-access-access-denied-forbidden-etc-error"></a>무단 액세스, 액세스 거부, 사용 권한 없음 등 오류
  
-사용 되는 보안 주체에 액세스 하려는 리소스에 대 한 액세스 권한이 없습니다. 로컬 개발 컴퓨터에서 샘플을 실행 하 고 있는지 아니면 Azure에 App Service에 배포 했는지에 따라 원하는 리소스에 대 한 사용자 계정 또는 App Service의 MSI "참가자" 액세스 권한을 부여 합니다. 주요 자격 증명 모음과 같은 일부 리소스에는 보안 주체 (사용자, 앱, 그룹 등)에 대 한 액세스 권한을 부여 하는 데 사용 하는 고유한 [액세스 정책도](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-secure-your-key-vault#data-plane-and-access-policies) 있습니다.
+사용 되는 보안 주체에 액세스 하려는 리소스에 대 한 액세스 권한이 없습니다. 로컬 개발 컴퓨터에서 샘플을 실행 하 고 있는지 아니면 Azure에 App Service에 배포 했는지에 따라 원하는 리소스에 대 한 사용자 계정 또는 App Service의 MSI "참가자" 액세스 권한을 부여 합니다. 주요 자격 증명 모음과 같은 일부 리소스에는 보안 주체 (사용자, 앱, 그룹 등)에 대 한 액세스 권한을 부여 하는 데 사용 하는 고유한 [액세스 정책도](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault#data-plane-and-access-policies) 있습니다.
 
 ### <a name="common-issues-when-deployed-to-azure-app-service"></a>Azure App Service에 배포할 때 발생 하는 일반적인 문제
 
 #### <a name="managed-identity-is-not-setup-on-the-app-service"></a>관리 id가 App Service에 설정 되어 있지 않습니다.
  
-[Kudu debug 콘솔](https://azure.microsoft.com/en-us/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/)을 사용 하 여 MSI_ENDPOINT 및 MSI_SECRET 환경 변수를 확인 합니다. 이러한 환경 변수가 없는 경우에는 관리 Id가 App Service에서 사용 하도록 설정 되지 않습니다. 
+[Kudu debug 콘솔](https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/)을 사용 하 여 MSI_ENDPOINT 및 MSI_SECRET 환경 변수를 확인 합니다. 이러한 환경 변수가 없는 경우에는 관리 Id가 App Service에서 사용 하도록 설정 되지 않습니다. 
  
 ### <a name="common-issues-when-deployed-locally-with-iis"></a>IIS를 사용 하 여 로컬로 배포할 때 발생 하는 일반적인 문제
 
 #### <a name="cant-retrieve-tokens-when-debugging-app-in-iis"></a>IIS에서 앱을 디버그할 때 토큰을 검색할 수 없습니다.
 
 기본적으로 AppAuth는 IIS의 다른 사용자 컨텍스트에서 실행 되므로 개발자 id를 사용 하 여 액세스 토큰을 검색할 수 없습니다. 다음 두 단계를 통해 사용자 컨텍스트를 사용 하 여 실행 하도록 IIS를 구성할 수 있습니다.
-- 현재 사용자 계정으로 실행 되도록 웹 앱에 대 한 응용 프로그램 풀을 구성 합니다. 자세한 내용은 [여기](https://docs.microsoft.com/en-us/iis/manage/configuring-security/application-pool-identities#configuring-iis-application-pool-identities)를 참조하세요.
-- "SetProfileEnvironment"를 "True"로 구성 합니다. 자세한 내용은 [여기](https://docs.microsoft.com/en-us/iis/configuration/system.applicationhost/applicationpools/add/processmodel#configuration)를 참조 하세요. 
+- 현재 사용자 계정으로 실행 되도록 웹 앱에 대 한 응용 프로그램 풀을 구성 합니다. 자세한 내용은 [여기](https://docs.microsoft.com/iis/manage/configuring-security/application-pool-identities#configuring-iis-application-pool-identities)를 참조하세요.
+- "SetProfileEnvironment"를 "True"로 구성 합니다. 자세한 내용은 [여기](https://docs.microsoft.com/iis/configuration/system.applicationhost/applicationpools/add/processmodel#configuration)를 참조 하세요. 
 
     - %Windir%\System32\inetsrv\config\applicationHost.config으로 이동
     - "SetProfileEnvironment"를 검색 합니다. "False"로 설정 된 경우 "True"로 변경 합니다. 존재 하지 않는 경우 processModel 요소 (/configuration/system.applicationHost/applicationPools/applicationPoolDefaults/processModel/@setProfileEnvironment)에 특성으로 추가 하 고이를 "True"로 설정 합니다.

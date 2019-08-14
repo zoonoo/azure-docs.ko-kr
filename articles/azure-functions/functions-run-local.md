@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: f0f00745f2f7781bda0e636167b1cf1a4045f7cd
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 481e6c5f2271651627577af3d03f9dd4da725146
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881368"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68949920"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Azure Functions 핵심 도구 작업
 
@@ -93,7 +93,7 @@ Azure Functions 핵심 도구에는 두 가지 버전이 있습니다. 사용 �
 
 다음 단계에서는 [APT](https://wiki.debian.org/Apt)를 사용하여 Ubuntu/Debian Linux 배포판에 핵심 도구를 설치합니다. 다른 Linux 배포판의 경우 [핵심 도구 추가 정보](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux)를 참조하세요.
 
-1. Microsoft 제품 키를 신뢰할 수 있는 키로 등록합니다.
+1. Microsoft package repository GPG 키를 설치 하 여 패키지 무결성의 유효성을 검사 합니다.
 
     ```bash
     curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
@@ -135,15 +135,19 @@ func init MyFunctionProj
 ```
 
 프로젝트 이름을 제공하면 해당 이름을 사용한 새 폴더가 생성되고 초기화됩니다. 그렇지 않으면 현재 폴더는 초기화됩니다.  
-버전 2.x에서는 명령을 실행할 때 프로젝트에 대한 런타임을 선택해야 합니다. JavaScript 함수를 개발하려는 경우 **노드**를 선택합니다.
+버전 2.x에서는 명령을 실행할 때 프로젝트에 대한 런타임을 선택해야 합니다. 
 
 ```output
 Select a worker runtime:
 dotnet
 node
+python (preview)
+powershell (preview)
 ```
 
-위쪽/아래쪽 화살표 키를 사용하여 언어를 선택한 다음, Enter 키를 누릅니다. 출력은 JavaScript 프로젝트에 대한 다음 예제와 유사합니다.
+위쪽/아래쪽 화살표 키를 사용하여 언어를 선택한 다음, Enter 키를 누릅니다. JavaScript 또는 TypeScript 함수를 개발 하려는 경우에는 **노드**를 선택 하 고 언어를 선택 합니다. TypeScript에는 [몇 가지 추가 요구 사항이](functions-reference-node.md#typescript)있습니다. 
+
+출력은 JavaScript 프로젝트에 대한 다음 예제와 유사합니다.
 
 ```output
 Select a worker runtime: node
@@ -185,15 +189,15 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 
 > local.settings.json에 AzureWebJobsStorage 값이 없습니다. 이 값은 HTTP 이외의 모든 트리거에 필요합니다. 'func azure functionapp fetch-app-settings \<functionAppName\>'을 실행하거나 local.settings.json에서 연결 문자열을 지정할 수 있습니다.
 
-### <a name="get-your-storage-connection-strings"></a>저장소 연결 문자열 가져오기
+### <a name="get-your-storage-connection-strings"></a>스토리지 연결 문자열 가져오기
 
-개발을 위해 저장소 에뮬레이터를 사용하는 경우라도 실제 저장소 연결을 테스트하고 싶을 수 있습니다. 이미 [저장소 계정을 만든](../storage/common/storage-create-storage-account.md) 것으로 가정하면 다음 방법 중 하나에서 유효한 저장소 연결 문자열을 가져올 수 있습니다.
+개발을 위해 스토리지 에뮬레이터를 사용하는 경우라도 실제 스토리지 연결을 테스트하고 싶을 수 있습니다. 이미 [스토리지 계정을 만든](../storage/common/storage-create-storage-account.md) 것으로 가정하면 다음 방법 중 하나에서 유효한 스토리지 연결 문자열을 가져올 수 있습니다.
 
-+ [Azure Portal] 저장소 계정으로 이동하여 **설정**에서 **액세스 키**를 선택한 다음, **연결 문자열** 값 중 하나를 복사합니다.
++ [Azure Portal] 스토리지 계정으로 이동하여 **설정**에서 **액세스 키**를 선택한 다음, **연결 문자열** 값 중 하나를 복사합니다.
 
   ![Azure Portal에서 연결 문자열 복사](./media/functions-run-local/copy-storage-connection-portal.png)
 
-+ [Azure Storage Explorer](https://storageexplorer.com/)를 사용하여 Azure 계정에 연결합니다. **탐색기**에서 구독을 확장하고, 저장소 계정을 선택하고, 기본 또는 보조 연결 문자열을 복사합니다.
++ [Azure Storage Explorer](https://storageexplorer.com/)를 사용하여 Azure 계정에 연결합니다. **탐색기**에서 구독을 확장하고, 스토리지 계정을 선택하고, 기본 또는 보조 연결 문자열을 복사합니다.
 
   ![Storage Explorer에서 연결 문자열 복사](./media/functions-run-local/storage-explorer.png)
 
@@ -204,7 +208,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
     ```bash
     func azure functionapp fetch-app-settings <FunctionAppName>
     ```
-  + 특정 저장소 계정에 대한 연결 문자열을 가져옵니다.
+  + 특정 스토리지 계정에 대한 연결 문자열을 가져옵니다.
 
     ```bash
     func azure storage fetch-connection-string <StorageAccountName>
@@ -248,7 +252,7 @@ Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\function.json
 
 다음 인수를 사용하는 명령에서 이러한 옵션을 지정할 수도 있습니다.
 
-| 인수     | Description                            |
+| 인수     | 설명                            |
 | ------------------------------------------ | -------------------------------------- |
 | **`--csx`** | (버전 2.x) 버전 1.x 및 포털에서 사용되는 것과 동일한 C# 스크립트(.csx) 템플릿을 생성합니다. |
 | **`--language -l`**| C#, F# 또는 JavaScript와 같은 템플릿 프로그래밍 언어 이 옵션은 버전 1.x에서 필요합니다. 버전 2.x에서는 이 옵션을 사용하지 않거나 작업자 런타임과 일치하는 언어를 선택하세요. |
@@ -269,15 +273,40 @@ func new --template "Queue Trigger" --name QueueTriggerJS
 
 ## <a name="start"></a>로컬로 함수 실행
 
-Functions 프로젝트를 실행하려면 Functions 호스트를 실행합니다. 이 호스트는 프로젝트의 모든 함수에 대한 트리거를 활성화합니다.
+Functions 프로젝트를 실행하려면 Functions 호스트를 실행합니다. 호스트는 프로젝트의 모든 함수에 대해 트리거를 사용 하도록 설정 합니다. 
 
-```bash
+### <a name="version-2x"></a>버전 2.x
+
+런타임의 버전 2.x에서 시작 명령은 프로젝트 언어에 따라 달라 집니다.
+
+#### <a name="c"></a>C\#
+
+```command
+func start --build
+```
+
+#### <a name="javascript"></a>JavaScript
+
+```command
+func start
+```
+
+#### <a name="typescript"></a>TypeScript
+
+```command
+npm install
+npm start     
+```
+
+### <a name="version-1x"></a>버전 1.x
+
+함수 런타임의 버전 1.x에는 다음 예제와 같이 `host` 명령이 필요 합니다.
+
+```command
 func host start
 ```
 
-`host` 명령은 버전 1.x에서만 필요합니다.
-
-`func host start`은 다음 옵션을 지원합니다.
+`func start`은 다음 옵션을 지원합니다.
 
 | 옵션     | Description                            |
 | ------------ | -------------------------------------- |
@@ -293,8 +322,6 @@ func host start
 | **`--script-root --prefix`** | 실행하거나 배포할 함수 앱의 루트 경로를 지정하는 데 사용됩니다. 하위 폴더에 프로젝트 파일을 생성하는 컴파일된 프로젝트용으로 사용됩니다. 예를 들어 C# 클래스 라이브러리 프로젝트를 작성할 때는 `MyProject/bin/Debug/netstandard2.0`과 같은 경로를 사용하여 *root* 하위 폴더에 host.json, local.settings.json 및 function.json 파일이 생성됩니다. 이 경우 접두사를 `--script-root MyProject/bin/Debug/netstandard2.0`으로 설정합니다. 이 접두사는 Azure에서 실행할 때의 함수 앱 루트입니다. |
 | **`--timeout -t`** | Functions 호스트를 시작할 제한 시간(초)입니다. 기본값: 20초.|
 | **`--useHttps`** | `http://localhost:{port}`가 아닌 `https://localhost:{port}`에 바인딩합니다. 기본적으로 이 옵션은 사용자 컴퓨터에 신뢰할 수 있는 인증서를 만듭니다.|
-
-C# 클래스 라이브러리 프로젝트(.csproj)의 경우 library.dll을 생성하려면 `--build` 옵션을 포함해야 합니다.
 
 Functions 호스트가 시작되면 HTTP 트리거 함수의 URL이 출력됩니다.
 
@@ -412,7 +439,7 @@ func azure functionapp publish <FunctionAppName>
 
 다음 게시 옵션은 버전 2.x에서만 지원됩니다.
 
-| 옵션     | Description                            |
+| 옵션     | 설명                            |
 | ------------ | -------------------------------------- |
 | **`--publish-settings-only -o`** |  설정만 게시하고 콘텐츠는 건너뜁니다. 기본값은 프롬프트입니다. |
 |**`--list-ignored-files`** | .funcignore 파일을 기준으로 하여 게시 중에 무시되는 파일 목록을 표시합니다. |

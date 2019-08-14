@@ -4,14 +4,14 @@ description: Azure Active Directory Domain Services를 통해 Azure Files에 대
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 08/08/2019
 ms.author: rogarana
-ms.openlocfilehash: 060c47cc25d04bccc253bcebf6479d660621f6d2
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 2b5ebc9f35dd207e8e530b7d74acc5517125fbf4
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855316"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934994"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-over-smb-for-azure-files"></a>Azure Files SMB를 통한 Azure Active Directory Domain Services 인증 사용
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -62,9 +62,9 @@ Azure Files에 대한 SMB를 통한 Azure AD를 사용하도록 설정하기 전
     Azure AD 테넌트와 같은 구독에 연결된 신규 또는 기존 파일 공유를 선택합니다. 새 파일 공유를 만드는 방법에 대한 자세한 내용은 [Azure Files에 파일 공유 만들기](storage-how-to-create-file-share.md)를 참조하세요. 
     최적의 성능을 위해서는 공유에 액세스 하려는 VM과 동일한 지역에 파일 공유를 사용 하는 것이 좋습니다.
 
-5.  **저장소 계정 키를 사용하여 Azure 파일 공유를 탑재해 Azure Files 연결을 확인합니다.**
+5.  **스토리지 계정 키를 사용하여 Azure 파일 공유를 탑재해 Azure Files 연결을 확인합니다.**
 
-    VM 및 파일 공유가 적절하게 구성되었는지 확인하려면 저장소 계정 키를 사용하여 파일 공유를 탑재해 봅니다. 자세한 내용은 [Azure 파일 공유를 탑재하고 Windows에서 공유에 액세스](storage-how-to-use-files-windows.md)를 참조하세요.
+    VM 및 파일 공유가 적절하게 구성되었는지 확인하려면 스토리지 계정 키를 사용하여 파일 공유를 탑재해 봅니다. 자세한 내용은 [Azure 파일 공유를 탑재하고 Windows에서 공유에 액세스](storage-how-to-use-files-windows.md)를 참조하세요.
 
 ## <a name="enable-azure-ad-ds-authentication-for-your-account"></a>계정에 대해 Azure AD DS 인증 사용
 
@@ -140,9 +140,18 @@ Azure AD 자격 증명을 사용 하 여 리소스 Azure Files에 액세스 하�
 - **저장소 파일 데이터 Smb 공유 승격 된 참가자** 는 SMB를 통한 Azure Storage 파일 공유에서 NTFS 읽기, 쓰기, 삭제 및 수정 권한을 허용 합니다.
 
 > [!IMPORTANT]
-> ID에 역할을 할당하는 기능을 비롯하여 파일 공유에 대한 모든 관리 권한을 할당하려면 저장소 계정 키를 사용해야 합니다. Azure AD 자격 증명으로는 관리 권한이 지원되지 않습니다.
+> ID에 역할을 할당하는 기능을 비롯하여 파일 공유에 대한 모든 관리 권한을 할당하려면 스토리지 계정 키를 사용해야 합니다. Azure AD 자격 증명으로는 관리 권한이 지원되지 않습니다.
 
-Azure PowerShell 또는 Azure CLI를 사용 하 여 공유 수준 권한을 부여 하는 사용자의 Azure AD id에 기본 제공 역할을 할당할 수 있습니다.
+Azure Portal, PowerShell 또는 Azure CLI를 사용 하 여 공유 수준 권한을 부여 하는 사용자의 Azure AD id에 기본 제공 역할을 할당할 수 있습니다.
+
+#### <a name="azure-portal"></a>Azure Portal
+[Azure Portal](https://portal.azure.com)를 사용 하 여 Azure AD ID에 RBAC 역할을 할당 하려면 다음 단계를 수행 합니다.
+
+1. Azure Portal에서 파일 공유로 이동 하거나 [Azure Files에서 파일 공유를 만듭니다](storage-how-to-create-file-share.md).
+2. **Access Control(IAM)** 을 선택합니다.
+3. **역할 할당 추가** 선택
+4. **역할 할당 추가** 블레이드의 **역할** 목록에서 적절 한 기본 제공 역할 (저장소 파일 데이터 Smb 공유 판독기, 저장소 파일 데이터 smb 공유 참가자)을 선택 합니다. 기본 설정에서 다음 **에 대 한 액세스 권한 부여 옵션을** 유지 합니다. **AZURE AD 사용자, 그룹 또는 서비스 주체**입니다. 이름 또는 전자 메일 주소를 기준으로 대상 Azure AD id를 선택 합니다.
+5. **저장** 을 선택 하 여 역할 할당 작업을 완료 합니다.
 
 #### <a name="powershell"></a>PowerShell
 

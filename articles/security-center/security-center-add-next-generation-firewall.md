@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: 731102037b596091b80fbdfa02a8ff3c111b556e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "60707077"
 ---
 # <a name="add-a-next-generation-firewall-in-azure-security-center"></a>Azure Security Center에서 차세대 방화벽 추가
@@ -54,7 +54,7 @@ Azure Security Center에서는 보안 보호를 증가시키기 위해 Microsoft
    ![액세스를 제한하는 규칙 구성][9]
    ![인바운드 규칙 편집][10]
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 이 문서에서는 보안 센터 권장 사항 "차세대 방화벽 추가"를 구현하는 방법을 보여 주었습니다. NGFW 및 검사점 파트너 솔루션에 대해 자세히 알아보려면 다음을 참조하세요.
 
 * [차세대 방화벽](https://en.wikipedia.org/wiki/Next-Generation_Firewall)

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 928b0bcfb32d1a319c811d00fc84a37f85702895
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: c163e3cce862640d43f8696dca4eeef29f2ae12a
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68857440"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912436"
 ---
 다음 표는 [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)에 지정된 할당량과 제한을 나열합니다. Event Hubs 가격에 대한 자세한 내용은 [Event Hubs 가격 책정](https://azure.microsoft.com/pricing/details/event-hubs/)을 참조하세요.
 
@@ -36,6 +36,8 @@ ms.locfileid: "68857440"
 | Event Hub당 소비자 그룹 수 |엔터티 | - |1 |20 |
 | 네임스페이스당 AMQP 연결 수 |네임스페이스 |추가 연결에 대 한 후속 요청이 거부 되 고 호출 코드에서 예외를 수신 합니다. |100 |5,000|
 | 이벤트 데이터의 최대 보존 기간 |엔터티 | - |1일 |1-7일 |
+|Apache Kafka 사용 네임 스페이스|네임스페이스 |Kafka 프로토콜을 사용 하 여 네임 스페이스 스트림 응용 프로그램 Event Hubs |아니요 | 예 |
+|캡처 |엔터티 | 사용 하도록 설정 하면 동일한 스트림에서 마이크로 일괄 처리가 사용 됩니다. |아니요 |예 |
 
 
 ### <a name="event-hubs-dedicated---quotas-and-limits"></a>Event Hubs Dedicated-할당량 및 한도

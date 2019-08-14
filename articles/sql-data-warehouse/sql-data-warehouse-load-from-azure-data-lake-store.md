@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: load-data
-ms.date: 07/26/2019
+ms.date: 08/08/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 7bb775184a0d567fedf9da07cee60e5ba5a2097f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3db355cf5782620bda3a9e04afbee073c8929856
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562372"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935114"
 ---
 # <a name="load-data-from-azure-data-lake-storage-to-sql-data-warehouse"></a>Azure Data Lake Storage에서 SQL Data Warehouse 데이터 로드
 PolyBase 외부 테이블을 사용 하 여 Azure Data Lake Storage Azure SQL Data Warehouse에 데이터를 로드 합니다. Data Lake Storage에 저장 된 데이터에 대해 임시 쿼리를 실행할 수 있지만 최상의 성능을 위해 데이터를 SQL Data Warehouse으로 가져오는 것이 좋습니다.
@@ -59,6 +59,7 @@ CREATE MASTER KEY;
 
 CREATE DATABASE SCOPED CREDENTIAL ADLSCredential
 WITH
+    -- Always use the OAuth 2.0 authorization endpoint (v1)
     IDENTITY = '<client_id>@<OAuth_2.0_Token_EndPoint>',
     SECRET = '<key>'
 ;

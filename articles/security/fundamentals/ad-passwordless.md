@@ -9,18 +9,18 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 30c2eb2964f11b729b0ffaf58c532d5189cdc2cd
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 38c850f167287fe5e1a444c8670e359c4d2b6b90
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727762"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934826"
 ---
 # <a name="a-world-without-passwords-with-azure-active-directory"></a>Azure Active Directory 암호가 없는 전 세계
 
 암호와의 관계를 나눌 시간입니다. 이전에는 암호가 양호 하지만 오늘날의 디지털 작업 영역에서는 해커가 비교적 쉽게 공격을 받을 수 있게 되었습니다. 해커가 암호를 선호 하므로 Azure Active Directory (Azure AD)에서 가장 일반적으로 거부 되는 암호에 연도, 월, 계절 또는 로컬 스포츠 팀과 같은 용어가 포함 되는 것을 고려할 수 있습니다. 또한 [연구](https://aka.ms/passwordguidance) 에는 길이 요구 사항, 복잡성 요구 사항, 변경 빈도 등의 암호 관리에 대 한 기존 권장 사항이 인간 특성과 관련 된 다양 한 이유로 오히려 역효과가 일어날 되어 있습니다.
 
-사용자 계정을 손상 시키는 데 일반적으로 사용 되는 세 가지 유형의 공격은 암호 스프레이, 피싱 및 위반 재생입니다. [스마트 잠금](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-smart-lockout), [금지 된 암호](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises)및 [암호 보호](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises) 와 같은 Azure AD 기능은 이러한 종류의 공격 으로부터 보호 하는 데 도움이 됩니다. 마찬가지로 MFA ( [multi-factor authentication](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks) ) 또는 2 단계 인증을 구현 하는 경우 두 번째 형태의 인증을 요구 하 여 추가 보안을 제공 합니다. 그러나 장기 실행에서 암호 없는 솔루션은 가장 안전한 인증 방법을 보장 하기 위한 최상의 솔루션입니다.
+사용자 계정을 손상 시키는 데 일반적으로 사용 되는 세 가지 유형의 공격은 암호 스프레이, 피싱 및 위반 재생입니다. [스마트 잠금](../../active-directory/authentication/howto-password-smart-lockout.md), [금지 된 암호](../../active-directory/authentication/concept-password-ban-bad-on-premises.md)및 [암호 보호](../../active-directory/authentication/concept-password-ban-bad-on-premises.md) 와 같은 Azure AD 기능은 이러한 종류의 공격 으로부터 보호 하는 데 도움이 됩니다. 마찬가지로 MFA ( [multi-factor authentication](../../active-directory/authentication/concept-mfa-howitworks.md) ) 또는 2 단계 인증을 구현 하는 경우 두 번째 형태의 인증을 요구 하 여 추가 보안을 제공 합니다. 그러나 장기 실행에서 암호 없는 솔루션은 가장 안전한 인증 방법을 보장 하기 위한 최상의 솔루션입니다.
 
 이 문서는 Microsoft의 암호 없는 솔루션을 이해 하 고 구현 하 고 다음 옵션 중 하나 이상을 선택 하는 데 도움이 되는 여행의 시작입니다.
 
@@ -109,7 +109,7 @@ Windows 10 장치의 기능에 따라 TPM (하드웨어 신뢰할 수 있는 플
 
 [MICROSOFT pin 재설정 서비스](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-features#pin-reset) 는 사용자가 필요에 따라 PIN을 다시 설정할 수 있도록 하는 Azure AD의 기능입니다. 관리자는 그룹 정책, Microsoft Intune 또는 호환 되는 MDM을 사용 하 여 Microsoft PIN 재설정 서비스를 안전 하 게 사용 하도록 Windows 10 장치를 구성할 수 있습니다. 다시 등록 합니다.
 
-사용자가 암호를 사용 하 여 대체 해야 하는 경우도 있습니다. [셀프 서비스 암호 재설정](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment) (SSPR)는 IT 직원에 게 연락 하지 않고도 사용자가 암호를 재설정할 수 있도록 하는 또 다른 Azure AD 기능입니다. 사용자는 서비스를 사용 하기 전에 셀프 서비스 암호 재설정을 위해 등록 하거나 등록 해야 합니다. 등록 하는 동안 사용자는 조직에서 사용 하도록 설정 된 하나 이상의 인증 방법을 선택 합니다. SSPR를 사용 하면 사용자가 신속 하 게 차단이 해제 되 고 시간이 나 시간에 관계 없이 작업을 계속할 수 있습니다. 사용자가 자신을 차단 해제할 수 있도록 하 여 조직에서는 일반적인 암호 관련 문제에 대 한 비 생산성 시간 및 지원 비용을 줄일 수 있습니다.
+사용자가 암호를 사용 하 여 대체 해야 하는 경우도 있습니다. [셀프 서비스 암호 재설정](../../active-directory/authentication/howto-sspr-deployment.md) (SSPR)는 IT 직원에 게 연락 하지 않고도 사용자가 암호를 재설정할 수 있도록 하는 또 다른 Azure AD 기능입니다. 사용자는 서비스를 사용 하기 전에 셀프 서비스 암호 재설정을 위해 등록 하거나 등록 해야 합니다. 등록 하는 동안 사용자는 조직에서 사용 하도록 설정 된 하나 이상의 인증 방법을 선택 합니다. SSPR를 사용 하면 사용자가 신속 하 게 차단이 해제 되 고 시간이 나 시간에 관계 없이 작업을 계속할 수 있습니다. 사용자가 자신을 차단 해제할 수 있도록 하 여 조직에서는 일반적인 암호 관련 문제에 대 한 비 생산성 시간 및 지원 비용을 줄일 수 있습니다.
 
 ## <a name="passwordless-sign-in-with-microsoft-authenticator"></a>Microsoft Authenticator를 사용 하 여 passwordless 로그인
 
@@ -125,9 +125,9 @@ Microsoft Authenticator 앱을 사용 하 여 Azure AD에 암호 없는 로그�
 
 * Azure Multi-factor Authentication에 대해 최종 사용자가 사용 하도록 설정 됨
 
-* 사용자가 Microsoft Intune 또는 타사 MDM (모바일 장치 관리) 솔루션을 사용 하 여 장치를 등록할 수 있는 기능
+* 앱 배포를 용이 하 게 하려면 Microsoft Intune 또는 타사 MDM (모바일 장치 관리) 솔루션을 사용 하 여 장치를 등록 하는 것이 좋습니다.
 
-관리자는 이러한 요구 사항을 충족 한다고 가정 하 고 [Windows PowerShell](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-phone-sign-in#enable-my-users) 을 사용 하 여 테 넌 트에서 암호 없는 휴대폰 로그인을 사용 하도록 설정 합니다. 테 넌 트에서 휴대폰 로그인을 사용 하도록 설정 하면 최종 사용자가 앱의 **계정** 화면에서 회사 또는 학교 계정을 선택한 다음 **휴대폰 로그인 사용**을 선택 하 여 휴대폰을 사용 하 여 로그인 하도록 선택할 수 있습니다.
+관리자는 이러한 요구 사항을 충족 한다고 가정 하 고 [Windows PowerShell](../../active-directory/authentication/howto-authentication-passwordless-phone.md) 을 사용 하 여 테 넌 트에서 암호 없는 휴대폰 로그인을 사용 하도록 설정 합니다. 테 넌 트에서 휴대폰 로그인을 사용 하도록 설정 하면 최종 사용자가 앱의 **계정** 화면에서 회사 또는 학교 계정을 선택한 다음 **휴대폰 로그인 사용**을 선택 하 여 휴대폰을 사용 하 여 로그인 하도록 선택할 수 있습니다.
 
 관리자가 암호 없는 로그인을 사용 하도록 설정한 경우 최종 사용자는 다음 요구 사항을 충족 해야 합니다.
 
@@ -137,9 +137,9 @@ Microsoft Authenticator 앱을 사용 하 여 Azure AD에 암호 없는 로그�
 
 * 앱에 푸시 알림이 추가 된 회사 또는 학교 계정
 
-계정을 잠글 수 없거나 새 장치에서 계정을 다시 만들어야 하는 것을 방지 하려면 Microsoft Authenticator을 사용 하 여 [계정 자격 증명](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-backup-recovery) 을 클라우드로 백업 하는 것이 좋습니다. 백업 후에는 앱을 사용하여 정보를 새 디바이스에 복구하면 계정이 잠기거나 계정을 다시 만들어야 하는 문제를 피할 수 있습니다.
+계정을 잠글 수 없거나 새 장치에서 계정을 다시 만들어야 하는 것을 방지 하려면 Microsoft Authenticator을 사용 하 여 [계정 자격 증명](../../active-directory/user-help/user-help-auth-app-backup-recovery.md) 을 클라우드로 백업 하는 것이 좋습니다. 백업 후에는 앱을 사용하여 정보를 새 디바이스에 복구하면 계정이 잠기거나 계정을 다시 만들어야 하는 문제를 피할 수 있습니다.
 
-대부분의 사용자는 암호를 사용 하 여 인증 하는 데 익숙해져 있으므로 조직에서이 프로세스와 관련 된 사용자를 교육할 하는 것이 중요 합니다. 인식을 통해 사용자는 Microsoft Authenticator 앱을 사용한 로그인과 관련 된 [문제](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-phone-sign-in#known-issues) 에 대해 지원 센터에 전화할 가능성을 줄일 수 있습니다.
+대부분의 사용자는 암호를 사용 하 여 인증 하는 데 익숙해져 있으므로 조직에서이 프로세스와 관련 된 사용자를 교육할 하는 것이 중요 합니다. 인식을 통해 사용자는 Microsoft Authenticator 앱을 사용한 로그인과 관련 된 [문제](../../active-directory/authentication/howto-authentication-passwordless-phone.md) 에 대해 지원 센터에 전화할 가능성을 줄일 수 있습니다.
 
 > [!NOTE]
 > 이 솔루션에 대 한 잠재적인 실패 지점은 로밍 사용자가 인터넷에 연결 되지 않은 위치에 있는 경우입니다. FIDO2 보안 키 및 비즈니스용 Windows Hello에는 동일한 제한이 적용 되지 않습니다.
@@ -150,9 +150,9 @@ Microsoft Authenticator 앱을 사용 하 여 Azure AD에 암호 없는 로그�
 
 Azure AD 계정에 로그인 하는 데 Microsoft Authenticator 앱을 암호 없는 솔루션으로 사용 하려면 먼저 관리자와 최종 사용자 모두에 게 단계를 수행 해야 합니다.
 
-먼저 관리자가 Windows PowerShell을 사용 하 여 테 넌 트에서 [앱을 자격 증명으로 사용 하도록 설정](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-phone-sign-in#enable-my-users) 해야 합니다. 또한 관리자는 azure MFA (Multi-factor Authentication)에 대해 최종 사용자를 사용 하도록 설정 하 고 [확인 방법](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-mfasettings#verification-methods)중 하나로 Microsoft Authenticator 앱을 구성 해야 합니다.
+먼저 관리자가 Windows PowerShell을 사용 하 여 테 넌 트에서 [앱을 자격 증명으로 사용 하도록 설정](../../active-directory/authentication/howto-authentication-passwordless-phone.md) 해야 합니다. 또한 관리자는 azure MFA (Multi-factor Authentication)에 대해 최종 사용자를 사용 하도록 설정 하 고 [확인 방법](../../active-directory/authentication/howto-mfa-mfasettings.md#verification-methods)중 하나로 Microsoft Authenticator 앱을 구성 해야 합니다.
 
-최종 사용자는 Microsoft Authenticator 앱을 다운로드 하 여 [설치](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install) 하 고 Microsoft Authenticator 앱을 확인 방법 중 하나로 사용 하도록 [계정을 설정](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app) 해야 합니다.
+최종 사용자는 Microsoft Authenticator 앱을 다운로드 하 여 [설치](../../active-directory/user-help/user-help-auth-app-download-install.md) 하 고 Microsoft Authenticator 앱을 확인 방법 중 하나로 사용 하도록 [계정을 설정](../../active-directory/user-help/security-info-setup-auth-app.md) 해야 합니다.
 
 > [!VIDEO https://www.youtube.com/embed/uWbkLuI4g30]
 
@@ -184,7 +184,7 @@ Microsoft Authenticator를 사용 하는 암호 없는 인증은 비즈니스용
 
 #### <a name="user-manages-their-passwordless-sign-in-with-microsoft-authenticator-credentials"></a>사용자가 Microsoft Authenticator 자격 증명을 사용 하 여 암호 없는 로그인을 관리 합니다.
 
-사용자는 [결합 된 등록](https://docs.microsoft.com/azure/active-directory/authentication/concept-registration-mfa-sspr-combined)을 통해 Azure multi-factor Authentication 및 셀프 서비스 암호 재설정의 혜택을 등록 하 고 얻을 수 있습니다. 사용자는 [내 프로필 페이지로](https://aka.ms/mysecurityinfo)이동 하 여 이러한 설정을 등록 하 고 관리 합니다. SSPR를 사용 하도록 설정 하는 것 외에도 결합 된 등록은 여러 인증 방법과 작업을 지원 합니다.
+사용자는 [결합 된 등록](../../active-directory/authentication/concept-registration-mfa-sspr-combined.md)을 통해 Azure multi-factor Authentication 및 셀프 서비스 암호 재설정의 혜택을 등록 하 고 얻을 수 있습니다. 사용자는 [내 프로필 페이지로](https://aka.ms/mysecurityinfo)이동 하 여 이러한 설정을 등록 하 고 관리 합니다. SSPR를 사용 하도록 설정 하는 것 외에도 결합 된 등록은 여러 인증 방법과 작업을 지원 합니다.
 
 ## <a name="fido2-security-keys"></a>FIDO2 보안 키
 
@@ -228,7 +228,7 @@ FIDO2 규격 폼 팩터는 USB, NFC 및 Bluetooth 장치를 포함 합니다. �
 
 관리자는 [수동으로 키를 프로 비전](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-enable) 하 고 최종 사용자에 게 배포할 수 있지만, Windows 10 잠금 화면에서 FIDO2 자격 증명 공급자를 프로 비전 하 고 사용 하도록 설정 하는 것은 [Intune](https://docs.microsoft.com/intune/windows-enrollment-methods)을 통해 지원 됩니다. 또한 관리자는 [Azure Portal](https://portal.azure.com/) 를 사용 하 여 암호 없는 인증 방법으로 하드웨어 토큰 장치를 사용 하도록 설정 해야 합니다.
 
-또한 FIDO2 보안 키를 배포 하려면 사용자가 [결합 된 등록](https://docs.microsoft.com/azure/active-directory/authentication/concept-registration-mfa-sspr-combined)을 사용 하 여 키를 등록 해야 합니다. 사용자는 결합 된 등록을 통해 한 번 등록 하 고 Azure Multi-factor Authentication 및 single sign-on 암호 재설정 (SSPR)의 이점을 얻을 수 있습니다.
+또한 FIDO2 보안 키를 배포 하려면 사용자가 [결합 된 등록](../../active-directory/authentication/concept-registration-mfa-sspr-combined.md)을 사용 하 여 키를 등록 해야 합니다. 사용자는 결합 된 등록을 통해 한 번 등록 하 고 Azure Multi-factor Authentication 및 single sign-on 암호 재설정 (SSPR)의 이점을 얻을 수 있습니다.
 
 하드웨어 토큰을 기본 multi-factor authentication 방법으로 선택 하는 것 외에도 추가 확인 옵션을 선택 하는 것이 좋습니다.
 
@@ -342,5 +342,5 @@ Passwordless authentication은 향후의 wave 이며 보다 안전한 환경의 
 
 ## <a name="next-steps"></a>다음 단계
 
-* Passwordless의 개요는 [무엇 인가요?](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless)
+* Passwordless의 개요는 [무엇 인가요?](../../active-directory/authentication/concept-authentication-passwordless.md)
 * [Azure AD에서 암호 없는를 사용 하도록 설정 하는 방법](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-enable)

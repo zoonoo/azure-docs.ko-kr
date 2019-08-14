@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 2b961b855c7a0bb08c31b4e7ea8deb7f82ebb77c
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: fb13cd65142214ccf852c591ae081e7e633e1a4d
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68846199"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935318"
 ---
 # <a name="change-the-license-model-for-a-sql-server-virtual-machine-in-azure"></a>Azure에서 SQL Server 가상 컴퓨터에 대 한 라이선스 모델 변경
 이 문서에서는 **SqlVirtualMachine**새 SQL vm 리소스 공급자를 사용 하 여 AZURE에서 vm (가상 머신)에 대 SQL Server 한 라이선스 모델을 변경 하는 방법을 설명 합니다.
@@ -42,7 +42,7 @@ Azure VM에서 SQL Server에 Azure 하이브리드 혜택를 사용 하 고 정�
 
 VM이 프로 비전 될 때 SQL Server의 라이선스 유형이 설정 됩니다. 나중에 언제 든 지 변경할 수 있습니다. 라이선스 모델 간을 전환 하면 가동 중지 시간이 발생 하지 않으며, VM을 다시 시작 하지 않고 추가 비용을 추가 하지 않으며 즉시 적용 됩니다. 실제로 Azure 하이브리드 혜택를 활성화 하면 비용이 *절감* 됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 SQL VM 리소스 공급자를 사용 하려면 SQL Server IaaS 확장이 필요 합니다. 따라서 다음이 필요 합니다.
 - [Azure 구독](https://azure.microsoft.com/free/).
@@ -52,7 +52,7 @@ SQL VM 리소스 공급자를 사용 하려면 SQL Server IaaS 확장이 필요 
 
 ## <a name="change-the-license-for-vms-already-registered-with-the-resource-provider"></a>리소스 공급자에 이미 등록 된 Vm에 대 한 라이선스 변경 
 
-# <a name="azure-portaltabazure-portal"></a>[Azure Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
@@ -66,7 +66,7 @@ SQL VM 리소스 공급자를 사용 하려면 SQL Server IaaS 확장이 필요 
 ![포털의 Azure 하이브리드 혜택](media/virtual-machines-windows-sql-ahb/ahb-in-portal.png)
 
 
-# <a name="azure-clitabbash"></a>[Azure CLI](#tab/bash)
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Azure CLI를 사용 하 여 라이선스 모델을 변경할 수 있습니다.  
 
@@ -88,7 +88,7 @@ az sql vm update -n <VMName> -g <ResourceGroupName> --license-type AHUB
 az sql vm update -n <VMName> -g <ResourceGroupName> --license-type PAYG
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 PowerShell을 사용 하 여 라이선스 모델을 변경할 수 있습니다.
 
 다음 코드 조각에서는 종 량 제 라이선스 모델을 사용 하 여 사용자 라이선스 (또는 Azure 하이브리드 혜택 사용)로 전환 합니다.

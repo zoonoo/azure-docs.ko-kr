@@ -17,10 +17,10 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2019
 ms.author: radeltch
 ms.openlocfilehash: c8fcf4afa5a363d355f627be95dd7fe8131203ac
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67797964"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>SAP 응용 프로그램용 Azure NetApp Files를 사용 하 SUSE Linux Enterprise Server의 Azure Vm에서 SAP NetWeaver에 대 한 고가용성
@@ -137,7 +137,7 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS 및 SAP HANA 데이터�
 
 ## <a name="setting-up-the-azure-netapp-files-infrastructure"></a>Azure NetApp Files 인프라 설정 
 
-SAP NetWeaver에는 전송 및 프로필 디렉터리에 대한 공유 저장소가 필요합니다.  Azure NetApp 파일 인프라의 설치를 계속 하기 전에 [Azure NetApp Files 설명서][anf-azure-doc]를 숙지 하세요. 선택한 Azure 지역에서 Azure NetApp Files를 제공 하는지 확인 합니다. 다음 링크는 Azure 지역에서 Azure NetApp Files의 가용성을 보여 줍니다. [Azure 지역별 가용성을 Azure NetApp Files][anf-avail-matrix]합니다.
+SAP NetWeaver에는 전송 및 프로필 디렉터리에 대한 공유 스토리지가 필요합니다.  Azure NetApp 파일 인프라의 설치를 계속 하기 전에 [Azure NetApp Files 설명서][anf-azure-doc]를 숙지 하세요. 선택한 Azure 지역에서 Azure NetApp Files를 제공 하는지 확인 합니다. 다음 링크는 Azure 지역에서 Azure NetApp Files의 가용성을 보여 줍니다. [Azure 지역별 가용성을 Azure NetApp Files][anf-avail-matrix]합니다.
 
 Azure NetApp 파일은 여러 [azure 지역](https://azure.microsoft.com/global-infrastructure/services/?products=netapp)에서 사용할 수 있습니다. Azure NetApp Files를 배포 하기 전에 [Azure NetApp 파일 등록 지침][anf-register]에 따라 Azure NetApp Files에 등록을 요청 합니다. 
 

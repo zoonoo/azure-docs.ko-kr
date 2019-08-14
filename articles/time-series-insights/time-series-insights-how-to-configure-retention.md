@@ -9,24 +9,24 @@ manager: cshankar
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3235844c8750003d08e996f5065fcef256c2d244
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: e5cc1489af1dce3a9a57b96a3240c63e0395c33a
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165657"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68947238"
 ---
 # <a name="configuring-retention-in-time-series-insights"></a>Time Series Insights의 보존 기간 구성
 
-이 아티클에서는 Azure Time Series Insights의 **데이터 보존 시간** 및 **저장 제한을 초과하는 동작**을 구성하는 방법을 설명합니다.
+이 아티클에서는 Azure Time Series Insights의 **데이터 보존 시간** 및 **스토리지 제한을 초과하는 동작**을 구성하는 방법을 설명합니다.
 
 ## <a name="summary"></a>요약
 
-각 TSI(Time Series Insights) 환경에는 **데이터 보존 시간**을 구성하는 설정이 있습니다. 값의 범위는 1~400일입니다. 데이터는 환경 저장소 용량 또는 보존 기간(1-400) 중 더 빠른 시간을 기준으로 삭제됩니다.
+각 TSI(Time Series Insights) 환경에는 **데이터 보존 시간**을 구성하는 설정이 있습니다. 값의 범위는 1~400일입니다. 데이터는 환경 스토리지 용량 또는 보존 기간(1-400) 중 더 빠른 시간을 기준으로 삭제됩니다.
 
-각 TSI 환경에는 **저장 제한을 초과하는 동작**이라는 추가 설정이 있습니다. 이 설정은 환경의 최대 용량에 도달하면 수신 및 삭제 동작을 제어합니다. 두 가지 동작 중에서 선택할 수 있습니다.
+각 TSI 환경에는 **스토리지 제한을 초과하는 동작**이라는 추가 설정이 있습니다. 이 설정은 환경의 최대 용량에 도달하면 수신 및 삭제 동작을 제어합니다. 두 가지 동작 중에서 선택할 수 있습니다.
 
 - **이전 데이터 삭제**(기본값)
 - **수신 일시 중지**
@@ -43,9 +43,9 @@ ms.locfileid: "67165657"
 
 1. **데이터 보존 시간**을 선택하여 슬라이더 막대로 보존 기간을 구성하거나 텍스트 상자에 숫자를 입력합니다.
 
-1. **용량** 설정은 데이터 이벤트의 최대 양과 데이터 저장에 사용되는 총 저장 용량에 영향을 주므로 이 구성을 참고하세요.
+1. **용량** 설정은 데이터 이벤트의 최대 양과 데이터 스토리지에 사용되는 총 스토리지 용량에 영향을 주므로 이 구성을 참고하세요.
 
-1. **저장 제한을 초과하는 동작** 설정을 전환합니다. **이전 데이터 삭제** 또는 **수신 일시 중지** 동작을 선택합니다.
+1. **스토리지 제한을 초과하는 동작** 설정을 전환합니다. **이전 데이터 삭제** 또는 **수신 일시 중지** 동작을 선택합니다.
 
 1. **저장**을 선택하여 변경 내용을 구성합니다.
 

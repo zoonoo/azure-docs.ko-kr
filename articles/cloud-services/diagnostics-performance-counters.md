@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 02/02/2018
 ms.author: gwallace
 ms.openlocfilehash: d6b16b859b29ef835bca75c5fca0ea1a9d35a306
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "68358941"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Azure Cloud Service에 대한 성능 카운터 수집
@@ -115,7 +115,7 @@ Application Insights는 다음 성능 카운터를 자동으로 수집합니다.
 ### <a name="azure-diagnostics"></a>Azure Diagnostics
 
 > [!IMPORTANT]
-> 이러한 모든 데이터가 저장소 계정에 집계되지만, 포털은 데이터를 차트로 작성하는 기본적인 방법을 제공하지 **않습니다**. Application Insights 등의 다른 진단 서비스를 애플리케이션에 통합하는 것이 좋습니다.
+> 이러한 모든 데이터가 스토리지 계정에 집계되지만, 포털은 데이터를 차트로 작성하는 기본적인 방법을 제공하지 **않습니다**. Application Insights 등의 다른 진단 서비스를 애플리케이션에 통합하는 것이 좋습니다.
 
 Cloud Services용 Azure Diagnostics 확장을 사용하면 수집할 성능 카운터를 지정할 수 있습니다. Azure Diagnostics를 설정하려면 [클라우드 서비스 모니터링 개요](cloud-services-how-to-monitor.md#setup-diagnostics-extension)를 참조하세요.
 

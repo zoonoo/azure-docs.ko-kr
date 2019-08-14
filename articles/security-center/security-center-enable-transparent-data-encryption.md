@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: d5ddec40a1b20e377ec18ce871018f674557e7b4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "60704035"
 ---
 # <a name="enable-transparent-data-encryption-in-azure-security-center"></a>Azure Security Center에서 투명한 데이터 암호화 사용
@@ -43,7 +43,7 @@ Azure Security Center가 아직 TDE(투명한 데이터 암호화)를 사용하�
 
    ![암호화 상태][4]
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 이 문서에서는 보안 센터 권장 사항 "투명한 데이터 암호화 사용"을 구현하는 방법을 보여 주었습니다. SQL TDE에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Azure SQL Database를 사용한 투명한 데이터 암호화](https://msdn.microsoft.com/library/dn948096)

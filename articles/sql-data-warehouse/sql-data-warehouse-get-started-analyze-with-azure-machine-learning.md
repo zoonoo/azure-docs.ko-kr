@@ -11,10 +11,10 @@ ms.date: 03/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.openlocfilehash: cae2acf98f39030f4ff340d32f1911bb2b5763ae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "65860837"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 데이터 분석
@@ -33,10 +33,10 @@ ms.locfileid: "65860837"
 > 
 > 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 이 자습서를 단계별로 실행하려면 다음을 수행해야 합니다.
 
-* AdventureWorksDW 샘플 데이터로 미리 로드된 SQL Data Warehouse. 프로비전하려면 [SQL Data Warehouse 만들기][Create a SQL Data Warehouse]를 참조하고 샘플 데이터 로드를 선택합니다. 데이터 웨어하우스는 있지만 샘플 데이터가 없는 경우 [샘플 데이터를 수동으로 로드][load sample data manually]할 수 있습니다.
+* AdventureWorksDW 샘플 데이터로 미리 로드된 SQL Data Warehouse. 프로비전하려면 [SQL Data Warehouse 만들기][Create a SQL Data Warehouse] 를 참조하고 샘플 데이터 로드를 선택합니다. 데이터 웨어하우스는 있지만 샘플 데이터가 없는 경우 [샘플 데이터를 수동으로 로드][load sample data manually]할 수 있습니다.
 
 ## <a name="1-get-the-data"></a>1. 데이터 가져오기
 데이터는 AdventureWorksDW 데이터베이스의 dbo.vTargetMail 보기에 있습니다. 이 데이터를 읽으려면:
@@ -75,9 +75,9 @@ FROM [dbo].[vTargetMail]
 ![가져온 데이터 확인][3]
 
 ## <a name="2-clean-the-data"></a>2. 데이터 정리
-데이터를 정리하려면 모델에 관련되지 않은 일부 열을 삭제합니다. 다음을 수행합니다.
+데이터를 정리하려면 모델에 관련되지 않은 일부 열을 삭제합니다. 가상 하드 디스크 파일에 대한 중요 정보를 제공하려면
 
-1. **Data Transformation < Manipulation** 아래의 **Select Columns in Dataset** 모듈을 캔버스로 끌기합니다. 이 모듈을 연결 합니다 **데이터 가져오기** 모듈입니다.
+1. **Data Transformation < Manipulation** 아래의 **Select Columns in Dataset** 모듈을 캔버스로 끌기합니다. 이 모듈을 **데이터 가져오기** 모듈에 연결 합니다.
 2. 속성 창에서 **Launch column selector**을 클릭하여 삭제하려는 열을 지정합니다.
    ![프로젝트 열][4]
 3. 열 2개(CustomerAlternateKey 및 GeographyKey)를 제외합니다.
@@ -119,7 +119,7 @@ FROM [dbo].[vTargetMail]
 Scored Labels(예측)로 열 BikeBuyer(실제) 비교를 통해 모델이 얼마나 잘 실행했는지 확인할 수 있습니다. 다음 단계로 이 모델을 사용하여 새 고객에 대한 예측을 수행하고 이 모델을 웹 서비스로 게시하거나 SQL Data Warehouse에 결과를 다시 작성할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-예측 Machine Learning 모델을 구축하는 방법에 대한 자세한 내용은 [Azure의 Machine Learning 소개][Introduction to Machine Learning on Azure]를 참고하세요.
+예측 기계 학습 모델을 구축하는 방법에 대한 자세한 내용은 [Azure의 Machine Learning 소개][Introduction to Machine Learning on Azure]를 참고하세요.
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1-reader-new.png

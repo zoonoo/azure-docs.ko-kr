@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: af88d2f0ce0e26fe67dda265b59684083c133dd5
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 598ad4c103035ec2d94015e1f8e12194d1b723fc
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297595"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935109"
 ---
 # <a name="database-collation-support-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 대 한 데이터베이스 데이터 정렬 지원
 
@@ -26,7 +26,7 @@ ms.locfileid: "68297595"
 
 예를 들어, 기본 데이터 정렬을 대/소문자를 구분 하도록 변경 하려면 데이터 정렬의 이름을 SQL_Latin1_General_CP1_CI_AS에서 SQL_Latin1_General_CP1_CS_AS로 변경 하기만 하면 됩니다. 
 
-#<a name="list-of-unsupported-collation-types"></a>지원 되지 않는 데이터 정렬 형식 목록
+## <a name="list-of-unsupported-collation-types"></a>지원 되지 않는 데이터 정렬 형식 목록
 *   Japanese_Bushu_Kakusu_140_BIN
 *   Japanese_Bushu_Kakusu_140_BIN2
 *   Japanese_Bushu_Kakusu_140_CI_AI_VSS

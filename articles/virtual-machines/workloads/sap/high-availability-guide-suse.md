@@ -17,10 +17,10 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2019
 ms.author: sedusch
 ms.openlocfilehash: 16f88790d96a1e46f60db368f69155b3ad7afbef
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67797500"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>SAP 애플리케이션용 SUSE Linux Enterprise Server의 Azure VM에 있는 SAP NetWeaver에 대한 고가용성
@@ -125,7 +125,7 @@ NFS 서버, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS 및 SAP HAN
 
 ## <a name="setting-up-a-highly-available-nfs-server"></a>고가용성 NFS 서버 설정
 
-SAP NetWeaver에는 전송 및 프로필 디렉터리에 대한 공유 저장소가 필요합니다. SAP NetWeaver NFS 서버를 설정 하는 방법에 대 한 자세한 내용은 [Azure SUSE Linux Enterprise Server vm에서 nfs에 대 한 고가용성][nfs-ha] 을 참조 하세요.
+SAP NetWeaver에는 전송 및 프로필 디렉터리에 대한 공유 스토리지가 필요합니다. SAP NetWeaver NFS 서버를 설정 하는 방법에 대 한 자세한 내용은 [Azure SUSE Linux Enterprise Server vm에서 nfs에 대 한 고가용성][nfs-ha] 을 참조 하세요.
 
 ## <a name="setting-up-ascs"></a>(A)SCS 설정
 

@@ -11,10 +11,10 @@ ms.topic: article
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.openlocfilehash: 3f812c1142b5cd40169f7340163295b0f7ea6a4d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "60996601"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Azure Logic Apps에서 예외 및 오류 처리
@@ -29,9 +29,9 @@ ms.locfileid: "60996601"
 
 재시도 정책 유형은 다음과 같습니다. 
 
-| Type | 설명 | 
+| 형식 | Description | 
 |------|-------------| 
-| **기본값** | 이 정책은 7.5초마다 *기하급수적으로 증가하는* 간격으로 최대 4번의 다시 시도를 보냅니다. 7.5초마다 증가하지만 5 ~ 45초 사이로 제한됩니다. | 
+| **Default** | 이 정책은 7.5초마다 *기하급수적으로 증가하는* 간격으로 최대 4번의 다시 시도를 보냅니다. 7.5초마다 증가하지만 5 ~ 45초 사이로 제한됩니다. | 
 | **지수 간격**  | 이 정책은 다음 요청을 보내기 전에 기하급수적으로 증가하는 범위에서 선택된 임의의 간격만큼 대기합니다. | 
 | **고정 간격**  | 이 정책은 다음 요청을 보내기 전에 지정된 간격만큼 대기합니다. | 
 | **없음**  | 요청을 다시 보내지 않습니다. | 
@@ -71,7 +71,7 @@ ms.locfileid: "60996601"
 
 *필수*
 
-| 값 | Type | 설명 |
+| 값 | 형식 | Description |
 |-------|------|-------------|
 | <*retry-policy-type*> | String | 사용할 재시도 정책 유형(`default`, `none`, `fixed` 또는 `exponential`) | 
 | <*retry-interval*> | String | 해당 값이 [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)을 사용해야 하는 재시도 간격입니다. 기본 최소 간격은 `PT5S`이고 최대 간격은 `PT1D`입니다. 지수 간격 정책을 사용하면 다른 최소값 및 최대값을 지정할 수 있습니다. | 
@@ -80,7 +80,7 @@ ms.locfileid: "60996601"
 
 *선택 사항*
 
-| 값 | Type | 설명 |
+| 값 | 형식 | Description |
 |-------|------|-------------|
 | <*minimum-interval*> | String | 지수 간격 정책에서 임의로 선택한 간격의 최소 간격([ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)) | 
 | <*maximum-interval*> | String | 지수 간격 정책에서 임의로 선택한 간격의 최대 간격([ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)) | 
@@ -223,9 +223,9 @@ ms.locfileid: "60996601"
 
 범위에서 실패를 catch하는 것이 유용하지만, 실패한 작업과 반환된 오류 또는 상태 코드를 정확히 파악하는 데 도움이 되는 컨텍스트가 필요할 수 있습니다. `@result()` 식은 범위에 있는 모든 작업의 결과에 대한 컨텍스트를 제공합니다.
 
-`@result()` 식은 단일 매개 변수(범위 이름)를 수락하고 해당 범위 내에서 발생하는 모든 작업 결과의 배열을 반환합니다. 이러한 작업 개체와 동일한 특성을 포함 합니다  **\@actions()** 작업의 시작 시간, 종료 시간, 상태, 입력, 상관 관계 Id 및 출력 등의 개체입니다. 범위 내에서 실패 한 작업에 대 한 컨텍스트를 보내려고 하면 쉽게 페어링할 수는  **\@result()** 함수를 **runAfter** 속성입니다.
+`@result()` 식은 단일 매개 변수(범위 이름)를 수락하고 해당 범위 내에서 발생하는 모든 작업 결과의 배열을 반환합니다. 이러한 작업 개체에는 작업 시작 시간, 종료 시간, 상태, 입력, 상관 관계 id 및 출력과 같은  **\@작업 ()** 개체와 동일한 특성이 포함 됩니다. 범위 내에서 실패 한 작업에 대 한 컨텍스트를 보내려면  **\@result ()** 함수를 **runafter** 속성과 쉽게 쌍으로 연결할 수 있습니다.
 
-있는 범위에서 각 작업에 대 한 작업을 실행 하는 **실패** 결과 페어링할 수 있는 실패 한 작업 결과 배열을 필터링 하 고  **\@result()** 사용 하 여를 **[ 배열 필터링](../connectors/connectors-native-query.md)** 작업으로 [ **마다** ](../logic-apps/logic-apps-control-flow-loops.md) 루프입니다. 필터링된 결과 배열을 사용하고 **For each** 루프를 사용하여 각 오류에 대한 작업을 수행할 수 있습니다. 
+**실패** 한 결과가 포함 된 범위에서 각 작업에 대해 작업을 실행 하 고 실패 한 작업까지 결과 배열을 필터링 하려면  **\@결과 ()** 를 **[필터 배열](../connectors/connectors-native-query.md)** 작업 및 [**for each**](../logic-apps/logic-apps-control-flow-loops.md) 루프와 쌍으로 연결할 수 있습니다. 필터링된 결과 배열을 사용하고 **For each** 루프를 사용하여 각 오류에 대한 작업을 수행할 수 있습니다. 
 
 다음 예제에서는 자세한 설명과 함께 "My_Scope" 범위 내에서 실패한 작업의 응답 본문이 포함된 HTTP POST 요청을 보냅니다.
 
@@ -317,12 +317,12 @@ ms.locfileid: "60996601"
 }
 ```
 
-다른 예외 처리 패턴을 수행하려면 이 문서의 앞부분에서 설명한 식을 사용할 수 있습니다. 필터링된 실패 배열 전체를 허용하는 범위 외부에서 단일 예외 처리 작업을 실행하고 **For each** 작업을 제거하도록 선택할 수 있습니다. 기타 유용한 속성을 포함할 수도 있습니다는  **\@result()** 앞에서 설명한 대로 응답 합니다.
+다른 예외 처리 패턴을 수행하려면 이 문서의 앞부분에서 설명한 식을 사용할 수 있습니다. 필터링된 실패 배열 전체를 허용하는 범위 외부에서 단일 예외 처리 작업을 실행하고 **For each** 작업을 제거하도록 선택할 수 있습니다. 앞에서 설명한 대로  **\@result ()** 응답에서 기타 유용한 속성을 포함할 수도 있습니다.
 
 ## <a name="azure-diagnostics-and-metrics"></a>Azure Diagnostics 및 메트릭
 
 이전 패턴은 실행 내에서 오류 및 예외를 처리하는 훌륭한 방법이지만 실행 자체와는 독립적으로 오류를 식별하고 오류에 대응할 수도 있습니다. 
-[Azure 진단](../logic-apps/logic-apps-monitor-your-logic-apps.md)은 모든 실행 및 작업 상태를 포함하여 모든 워크플로 이벤트를 Azure Storage 계정 또는 Azure Event Hubs로 만든 이벤트 허브로 보내는 간단한 방법을 제공합니다. 
+[Azure Diagnostics](../logic-apps/logic-apps-monitor-your-logic-apps.md)는 모든 실행 및 작업 상태를 포함하여 모든 워크플로 이벤트를 Azure Storage 계정 또는 Azure Event Hubs로 만든 이벤트 허브로 보내는 간단한 방법을 제공합니다. 
 
 실행 상태를 평가하려면 로그 및 메트릭을 모니터링하거나 선호하는 모든 모니터링 도구에 게시할 수 있습니다. 한 가지 잠재적 옵션은 Event Hubs를 통해 모든 이벤트를 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)로 스트리밍하는 것입니다. Stream Analytics에서는 진단 로그의 모든 잘못된 부분, 평균 또는 오류를 기반으로 라이브 쿼리를 작성할 수 있습니다. Stream Analytics를 사용하여 큐, 토픽, SQL, Azure Cosmos DB 및 Power BI와 같은 다른 데이터 원본에 정보를 보낼 수 있습니다.
 

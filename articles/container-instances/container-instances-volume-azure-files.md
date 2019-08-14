@@ -10,10 +10,10 @@ ms.date: 07/08/2019
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: 25cac6a66baeb1587e4b5ba3f0923ca9c4394706
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "68325494"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Azure Container Instances에서 Azure 파일 공유 탑재
@@ -25,7 +25,7 @@ Azure Container Instances는 기본적으로 상태 비저장 방식으로 작�
 
 ## <a name="create-an-azure-file-share"></a>Azure 파일 공유 만들기
 
-Azure Container Instances에서 Azure 파일 공유를 사용하려면 먼저 파일 공유를 만들어야 합니다. 다음 스크립트를 실행하여 파일 공유를 호스팅할 저장소 계정과 파일 공유 자체를 만듭니다. Storage 계정 이름은 전역적으로 고유해야 하므로 이 스크립트는 기준 문자열에 임의 값을 추가합니다.
+Azure Container Instances에서 Azure 파일 공유를 사용하려면 먼저 파일 공유를 만들어야 합니다. 다음 스크립트를 실행하여 파일 공유를 호스팅할 스토리지 계정과 파일 공유 자체를 만듭니다. Storage 계정 이름은 전역적으로 고유해야 하므로 이 스크립트는 기준 문자열에 임의 값을 추가합니다.
 
 ```azurecli-interactive
 # Change these four parameters as needed
@@ -45,7 +45,7 @@ az storage account create \
 az storage share create --name $ACI_PERS_SHARE_NAME --account-name $ACI_PERS_STORAGE_ACCOUNT_NAME
 ```
 
-## <a name="get-storage-credentials"></a>저장소 자격 증명 가져오기
+## <a name="get-storage-credentials"></a>스토리지 자격 증명 가져오기
 
 Azure Container Instances의 볼륨으로 Azure 파일 공유를 탑재하려면 Storage 계정 이름, 공유 이름, Storage 액세스 키의 세 가지 값이 필요합니다.
 
@@ -55,7 +55,7 @@ Azure Container Instances의 볼륨으로 Azure 파일 공유를 탑재하려면
 echo $ACI_PERS_STORAGE_ACCOUNT_NAME
 ```
 
-공유 이름은 이미 알려져 있으므로(위 스크립트에서 *acishare*로 정의됨) 저장소 계정 키만 확인하면 됩니다. 이 키는 다음 명령을 사용하여 확인할 수 있습니다.
+공유 이름은 이미 알려져 있으므로(위 스크립트에서 *acishare*로 정의됨) 스토리지 계정 키만 확인하면 됩니다. 이 키는 다음 명령을 사용하여 확인할 수 있습니다.
 
 ```azurecli-interactive
 STORAGE_KEY=$(az storage account keys list --resource-group $ACI_PERS_RESOURCE_GROUP --account-name $ACI_PERS_STORAGE_ACCOUNT_NAME --query "[0].value" --output tsv)
@@ -95,7 +95,7 @@ az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --
 
 컨테이너 그룹을 배포 하 고 Azure CLI 및 [Yaml 템플릿을](container-instances-multi-container-yaml.md)사용 하 여 컨테이너에서 볼륨을 탑재할 수도 있습니다. 여러 컨테이너로 구성된 컨테이너 그룹을 배포할 때에는 YAML 템플릿을 사용하여 배포하는 것이 좋습니다.
 
-다음 yaml 템플릿은 `aci-hellofiles` 이미지를 사용 하 여 만든 하나의 컨테이너를 사용 하 여 컨테이너 그룹을 정의 합니다. Azure *파일 공유를* 탑재 하는 컨테이너는 이전에 볼륨으로 만들어집니다. 표시 되는 경우 파일 공유를 호스트 하는 저장소 계정에 대 한 이름 및 저장소 키를 입력 합니다. 
+다음 yaml 템플릿은 `aci-hellofiles` 이미지를 사용 하 여 만든 하나의 컨테이너를 사용 하 여 컨테이너 그룹을 정의 합니다. Azure 파일 공유를 탑재 하는 컨테이너는 이전에 볼륨으로 만들어집니다. 표시 되는 경우 파일 공유를 호스트 하는 저장소 계정에 대 한 이름 및 저장소 키를 입력 합니다. 
 
 CLI 예제에서와 같이이 값 `dnsNameLabel` 은 컨테이너 인스턴스를 만드는 Azure 지역 내에서 고유 해야 합니다. 필요한 경우 YAML 파일의 값을 업데이트 합니다.
 
@@ -149,7 +149,7 @@ CLI 및 YAML 배포 외에도 컨테이너 그룹을 배포 하 고 Azure [리�
 
 그런 다음 볼륨을 탑재 하려는 각 컨테이너에 대해 컨테이너 정의의 `volumeMounts` `properties` 섹션에서 배열을 채웁니다.
 
-다음 리소스 관리자 템플릿은 `aci-hellofiles` 이미지를 사용 하 여 만든 컨테이너 하나를 사용 하 여 컨테이너 그룹을 정의 합니다. Azure *파일 공유를* 탑재 하는 컨테이너는 이전에 볼륨으로 만들어집니다. 표시 되는 경우 파일 공유를 호스트 하는 저장소 계정에 대 한 이름 및 저장소 키를 입력 합니다. 
+다음 리소스 관리자 템플릿은 `aci-hellofiles` 이미지를 사용 하 여 만든 컨테이너 하나를 사용 하 여 컨테이너 그룹을 정의 합니다. Azure 파일 공유를 탑재 하는 컨테이너는 이전에 볼륨으로 만들어집니다. 표시 되는 경우 파일 공유를 호스트 하는 저장소 계정에 대 한 이름 및 저장소 키를 입력 합니다. 
 
 이전 예에서와 같이이 값은 `dnsNameLabel` 컨테이너 인스턴스를 만드는 Azure 지역 내에서 고유 해야 합니다. 필요한 경우 템플릿의 값을 업데이트 합니다.
 

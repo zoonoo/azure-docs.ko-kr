@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 08/07/2019
-ms.openlocfilehash: 4b66d015e8a182e305a36dacaa2e082288a3e19e
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 186ba03142e01c4b9340fc5b492621cc17575104
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840531"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934284"
 ---
 # <a name="introduction-to-deep-learning-vs-machine-learning"></a>심층 학습 및 기계 학습 소개
 
@@ -78,7 +78,7 @@ ms.locfileid: "68840531"
 
 ## <a name="what-are-artificial-neural-networks"></a>인공 신경망 이란?
 
-인공 신경망은 인간 두뇌 프로세스 정보에서 신경망을 생물학적 하는 방식에 따라 뛰어난 학습 모델입니다. 현재 사용 중인 인공 신경망의 여러 유형이 있습니다. 가장 인기 있는 인공 신경망 typologies는 아래에 설명 되어 있습니다.
+인공 신경망은 연결 된 노드 계층으로 구성 됩니다. 심층 학습 모델에서는 계층 수가 매우 많은 신경망을 사용 합니다. 가장 인기 있는 인공 신경망 typologies는 아래에 설명 되어 있습니다.
 
 ### <a name="feedforward-neural-network"></a>Feedforward 신경망
 

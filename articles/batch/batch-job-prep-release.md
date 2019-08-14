@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: a85ced787529db7e6d607665d81632ab1c450dfe
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "68466965"
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Batch 컴퓨팅 노드에서 작업 준비 및 작업 릴리스 태스크 실행
@@ -31,7 +31,7 @@ ms.locfileid: "68466965"
 
 작업 준비 및 해제 태스크는 파일 다운로드 ([리소스 파일][net_job_prep_resourcefiles]), 관리자 권한 실행, 사용자 지정 환경 변수, 최대 실행 기간, 재시도 횟수 및 파일 보존 시간과 같은 익숙한 Batch 태스크 기능을 제공 합니다.
 
-다음 섹션에서는 [Batch .net][api_net] 라이브러리에 있는 [JobPreparationTask][net_job_prep] and [JobReleaseTask][net_job_release] 클래스를 사용 하는 방법에 대해 알아봅니다.
+다음 섹션에서는 [Batch .net][api_net] 라이브러리에 있는 [JobPreparationTask][net_job_prep] 및 [JobReleaseTask][net_job_release] 클래스를 사용 하는 방법에 대해 알아봅니다.
 
 > [!TIP]
 > 컴퓨팅 노드 풀이 작업 실행 간에 지속되고 여러 작업에서 사용되는 "공유 풀" 환경에서는 작업 준비 및 해제 태스크가 특히 유용합니다.
@@ -64,7 +64,7 @@ Batch 작업은 종종 작업의 태스크에 대한 입력으로 데이터의 �
 작업 준비 태스크는 태스크를 실행하도록 예약된 노드에서만 실행됩니다. 노드에 태스크를 할당하지 않은 경우 준비 태스크가 불필요하게 실행되지 않도록 방지합니다. 이는 작업에 대한 태스크 수가 풀의 노드 수보다 작은 경우에 발생할 수 있습니다. 이 방식은 [동시 태스크 실행](batch-parallel-node-tasks.md) 을 활성화할 때도 적용되며, 이는 태스크 개수가 가능한 총 동시 태스크 개수보다 작으면 노드 일부를 유휴 상태로 남겨둡니다. 유휴 노드에서 작업 준비 태스크를 실행하지 않으면 데이터 전송 요금에 적은 비용을 투자할 수 있습니다.
 
 > [!NOTE]
-> [JobPreparationTask][net_job_prep_cloudjob] differs from [CloudPool.StartTask][pool_starttask] 에서 JobPreparationTask는 각 작업을 시작할 때 실행 되는 반면 starttask는 먼저 계산 노드가 풀에 조인 하거나 다시 시작할 때만 실행 됩니다.
+> [JobPreparationTask][net_job_prep_cloudjob] 는 각 작업이 시작 될 때 JobPreparationTask가 실행 되는 반면 starttask는 먼저 계산 노드가 풀에 조인 하거나 다시 시작할 때만 실행 된다는 점에서 [Cloudpool의 starttask][pool_starttask] 와 다릅니다.
 > 
 > 
 
@@ -79,7 +79,7 @@ Batch 작업은 종종 작업의 태스크에 대한 입력으로 데이터의 �
 > 
 
 ## <a name="job-prep-and-release-tasks-with-batch-net"></a>Batch .NET을 사용한 작업 준비 및 릴리스 태스크
-작업 준비 태스크를 사용 하려면 [JobPreparationTask][net_job_prep] object to your job's [CloudJob.JobPreparationTask][net_job_prep_cloudjob] 속성을 할당 합니다. 마찬가지로, [JobReleaseTask][net_job_release] 를 초기화 하 고 작업의 [cloudjob. JobReleaseTask][net_job_prep_cloudjob] 속성에 할당 하 여 작업의 릴리스 작업을 설정 합니다.
+작업 준비 태스크를 사용 하려면 [JobPreparationTask][net_job_prep] 개체를 작업의 [Cloudjob. JobPreparationTask][net_job_prep_cloudjob] 속성에 할당 합니다. 마찬가지로 [JobReleaseTask][net_job_release] 를 초기화 하 고 작업의 [Cloudjob. JobReleaseTask][net_job_prep_cloudjob] 속성에 할당 하 여 작업의 릴리스 작업을 설정 합니다.
 
 이 코드 조각에서는 `myBatchClient` `myPool` [batchclient][net_batch_client]의 인스턴스이고,는 Batch 계정 내의 기존 풀입니다.
 
@@ -107,7 +107,7 @@ myJob.JobReleaseTask =
 await myJob.CommitAsync();
 ```
 
-위에서 설명했듯이 작업이 종료되거나 삭제될 때 해제 태스크가 실행됩니다. [JobOperations. joboperations.terminatejobasync][net_job_terminate]. Delete a job with [JobOperations.DeleteJobAsync][net_job_delete]를 사용 하 여 작업을 종료 합니다. 일반적으로 작업의 태스크들이 완료되거나 정의한 시간 제한에 도달했을 때 작업을 종료하거나 삭제합니다. GitHub의 코드 샘플
+위에서 설명했듯이 작업이 종료되거나 삭제될 때 해제 태스크가 실행됩니다. [JobOperations. joboperations.terminatejobasync][net_job_terminate]를 사용 하 여 작업을 종료 합니다. [JobOperations][net_job_delete]를 사용 하 여 작업을 삭제 합니다. 일반적으로 작업의 태스크들이 완료되거나 정의한 시간 제한에 도달했을 때 작업을 종료하거나 삭제합니다.
 
 ```csharp
 // Terminate the job to mark it as Completed; this will initiate the
@@ -117,19 +117,19 @@ await myJob.CommitAsync();
 await myBatchClient.JobOperations.TerminateJobAsync("JobPrepReleaseSampleJob");
 ```
 
-## <a name="code-sample-on-github"></a>작업 준비 및 릴리스 작업의 작동을 확인 하려면 GitHub의 [Jobpreprelease][job_prep_release_sample] 샘플 프로젝트를 확인 하세요.
-이 콘솔 애플리케이션은 다음을 수행합니다. 노드가 두 개인 풀을 만듭니다.
+## <a name="code-sample-on-github"></a>GitHub의 코드 샘플
+작업 준비 및 릴리스 작업의 작동을 확인 하려면 GitHub의 [Jobpreprelease][job_prep_release_sample] 샘플 프로젝트를 확인 하세요. 이 콘솔 애플리케이션은 다음을 수행합니다.
 
-1. 작업 준비, 릴리스 및 표준 태스크를 사용하여 작업을 만듭니다.
-2. 먼저 노드 "공유" 디렉터리의 텍스트 파일에 노드 ID를 기록하는 작업 준비 태스크를 실행합니다.
-3. 동일한 텍스트 파일에 해당 태스크 ID를 기록하는 각 노드에서 태스크를 실행합니다.
-4. 모든 태스크가 완료되면(또는 시간 제한에 도달하면) 콘솔에 각 노드의 텍스트 파일에 있는 내용을 인쇄합니다.
-5. 작업이 완료되면 작업 릴리스 태스크를 실행하여 노드에서 파일을 삭제합니다.
-6. 실행된 각 노드에 대한 작업 준비 및 릴리스 태스크의 종료 코드를 인쇄합니다.
-7. 실행을 일시 중지하여 작업 및/또는 풀 삭제를 확인합니다.
-8. 샘플 애플리케이션에서 출력은 다음과 비슷합니다.
+1. 노드가 두 개인 풀을 만듭니다.
+2. 작업 준비, 릴리스 및 표준 태스크를 사용하여 작업을 만듭니다.
+3. 먼저 노드 "공유" 디렉터리의 텍스트 파일에 노드 ID를 기록하는 작업 준비 태스크를 실행합니다.
+4. 동일한 텍스트 파일에 해당 태스크 ID를 기록하는 각 노드에서 태스크를 실행합니다.
+5. 모든 태스크가 완료되면(또는 시간 제한에 도달하면) 콘솔에 각 노드의 텍스트 파일에 있는 내용을 인쇄합니다.
+6. 작업이 완료되면 작업 릴리스 태스크를 실행하여 노드에서 파일을 삭제합니다.
+7. 실행된 각 노드에 대한 작업 준비 및 릴리스 태스크의 종료 코드를 인쇄합니다.
+8. 실행을 일시 중지하여 작업 및/또는 풀 삭제를 확인합니다.
 
-새 풀에 있는 노드의 변수 생성 및 시작 시간으로 인해(일부 노드는 다른 노드 전에 태스크에 대해 준비됨) 다른 출력이 표시될 수 있습니다.
+샘플 애플리케이션에서 출력은 다음과 비슷합니다.
 
 ```
 Attempting to create pool: JobPrepReleaseSamplePool
@@ -175,27 +175,27 @@ Sample complete, hit ENTER to exit...
 ```
 
 > [!NOTE]
-> 특히, 태스크가 신속하게 완료되기 때문에 풀의 노드 중 하나에서 작업의 태스크를 모두 실행할 수 있습니다. 이러한 경우 작업을 실행하지 않은 노드에는 작업 준비 및 릴리스 태스크가 존재하지 않습니다. Azure 포털에서 작업 준비 및 해제 태스크 검사
+> 새 풀에 있는 노드의 변수 생성 및 시작 시간으로 인해(일부 노드는 다른 노드 전에 태스크에 대해 준비됨) 다른 출력이 표시될 수 있습니다. 특히, 태스크가 신속하게 완료되기 때문에 풀의 노드 중 하나에서 작업의 태스크를 모두 실행할 수 있습니다. 이러한 경우 작업을 실행하지 않은 노드에는 작업 준비 및 릴리스 태스크가 존재하지 않습니다.
 > 
 > 
 
-### <a name="inspect-job-preparation-and-release-tasks-in-the-azure-portal"></a>예제 응용 프로그램을 실행할 때 [Azure Portal][portal] 를 사용 하 여 작업 및 해당 태스크의 속성을 확인 하거나 작업의 태스크에 의해 수정 된 공유 텍스트 파일을 다운로드할 수도 있습니다.
-다음은 샘플 애플리케이션을 실행한 후에 Azure Portal에서 **준비 태스크 블레이드**를 보여 주는 스크린샷입니다.
+### <a name="inspect-job-preparation-and-release-tasks-in-the-azure-portal"></a>Azure 포털에서 작업 준비 및 해제 태스크 검사
+예제 응용 프로그램을 실행할 때 [Azure Portal][portal] 를 사용 하 여 작업 및 해당 태스크의 속성을 확인 하거나 작업의 태스크에 의해 수정 된 공유 텍스트 파일을 다운로드할 수도 있습니다.
 
-작업이 완료되었지만 작업과 풀을 삭제하기 전에 *JobPrepReleaseSampleJob* 속성으로 이동하여 **준비 태스크** 또는 **해제 태스크**를 클릭하여 그 속성을 확인합니다. Azure 포털에서 작업 준비 속성
+다음은 샘플 애플리케이션을 실행한 후에 Azure Portal에서 **준비 태스크 블레이드**를 보여 주는 스크린샷입니다. 작업이 완료되었지만 작업과 풀을 삭제하기 전에 *JobPrepReleaseSampleJob* 속성으로 이동하여 **준비 태스크** 또는 **해제 태스크**를 클릭하여 그 속성을 확인합니다.
 
-![다음 단계][1]
+![Azure 포털에서 작업 준비 속성][1]
 
-## <a name="next-steps"></a>애플리케이션 패키지
-### <a name="application-packages"></a>작업 준비 태스크 외에도 Batch의 [애플리케이션 패키지](batch-application-packages.md) 기능을 사용하여 태스크 실행을 위한 컴퓨팅 노드를 준비할 수 있습니다.
-이 기능은 설치 관리자를 실행하지 않아도 되는 애플리케이션, 100개 이상의 파일을 포함하는 애플리케이션 또는 엄격한 버전 제어를 필요로 하는 애플리케이션을 배포하는 데 특히 유용합니다. 애플리케이션 설치 및 데이터 준비
+## <a name="next-steps"></a>다음 단계
+### <a name="application-packages"></a>애플리케이션 패키지
+작업 준비 태스크 외에도 Batch의 [애플리케이션 패키지](batch-application-packages.md) 기능을 사용하여 태스크 실행을 위한 컴퓨팅 노드를 준비할 수 있습니다. 이 기능은 설치 관리자를 실행하지 않아도 되는 애플리케이션, 100개 이상의 파일을 포함하는 애플리케이션 또는 엄격한 버전 제어를 필요로 하는 애플리케이션을 배포하는 데 특히 유용합니다.
 
-### <a name="installing-applications-and-staging-data"></a>아래의 MSDN 포럼 게시물에서는 작업을 실행하기 위해 노드를 준비하는 여러 가지 방법을 간략히 제공합니다.
+### <a name="installing-applications-and-staging-data"></a>애플리케이션 설치 및 데이터 준비
+아래의 MSDN 포럼 게시물에서는 작업을 실행하기 위해 노드를 준비하는 여러 가지 방법을 간략히 제공합니다.
+
 [일괄 처리 계산 노드에 응용 프로그램 설치 및 데이터 준비][forum_post]
 
 Azure Batch 팀 멤버 중 하나에서 작성하고 애플리케이션과 데이터를 컴퓨팅 노드에 배포하는 데 사용할 수 있는 몇 가지 방법을 설명하고 있습니다.
-
-Written by one of the Azure Batch team members, it discusses several techniques that you can use to deploy applications and data to compute nodes.
 
 [api_net]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_listjobs]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx

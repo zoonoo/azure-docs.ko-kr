@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/05/2019
 ms.author: dacurwin
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 5fde581f322504c7e329da7fa153671b8a91183d
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: bae05e890ef76ada9f775293c673cb8baa82c8bf
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688369"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954570"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Azure Backup 워크 로드 모니터링
 
@@ -87,6 +87,9 @@ System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup 서버 (M
 
 ![RS Vault 내장 전자 메일 알림](media/backup-azure-monitoring-laworkspace/rs-vault-inbuiltnotification.png)
 
+> [!NOTE]
+> SQL 백업에 대 한 경고는 통합 되 고 전자 메일은 처음 발생 한 경우에만 전송 됩니다. 그러나 사용자가 경고를 비활성화 하는 경우 다음에 발생 하면 다른 전자 메일이 트리거됩니다.
+
 알림이 구성 되 면 환영 또는 소개 전자 메일을 받게 됩니다. 이렇게 하면 경고가 발생할 때 Azure Backup이 주소로 전자 메일을 보낼 수 있습니다.<br>
 
 빈도가 매시간 다이제스트로 설정 되 고 경고가 발생 하 고 한 시간 내에 해결 된 경우 예정 된 매시간 다이제스트의 일부가 되지 않습니다.
@@ -95,6 +98,14 @@ System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup 서버 (M
 >
 > * **데이터 삭제로 보호 중지** 와 같은 파괴적인 작업을 수행 하면 경고가 발생 하 고 복구 서비스 자격 증명 모음에 대해 알림이 구성 되지 않은 경우에도 전자 메일이 구독 소유자, 관리자 및 공동 관리자에 게 전송 됩니다.
 > * 성공한 작업에 대 한 알림을 구성 하려면 [Log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace)을 사용 합니다.
+
+## <a name="inactivating-alerts"></a>비활성화 경고
+
+활성 경고를 비활성화/해결 하려면 비활성화할 경고에 해당 하는 목록 항목을 클릭 하면 됩니다. 이렇게 하면 경고에 대 한 자세한 정보를 표시 하는 화면이 열리고 맨 위에 ' 비활성화 ' 단추가 표시 됩니다. 이 단추를 클릭 하면 경고 상태가 ' 비활성 '으로 변경 됩니다. 해당 경고에 해당 하는 목록 항목을 마우스 오른쪽 단추로 클릭 하 고 ' 비활성화 '를 선택 하 여 경고를 비활성화할 수도 있습니다.
+
+![RS Vault 경고 비활성화](media/backup-azure-monitoring-laworkspace/vault-alert-inactivation.png)
+
+
 
 ## <a name="next-steps"></a>다음 단계
 

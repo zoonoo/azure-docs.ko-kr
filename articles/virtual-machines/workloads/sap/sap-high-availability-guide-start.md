@@ -18,10 +18,10 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 6f6dc7745a47c61cf28a0e860a68af677dae8010
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67869124"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 고가용성
@@ -217,7 +217,7 @@ Azure Virtual Machines는 긴 조달 주기 없이 최소한의 시간 안에 �
 
 **요약:** 여기에 나열 된 문서에서는 SAP 설치 준비를 위해 Azure 인프라를 배포 하기 위해 수행할 수 있는 단계를 다룹니다. Azure 인프라 배포를 단순화하기 위해 SAP Azure Resource Manager 템플릿을 사용하여 전체 프로세스를 자동화합니다.
 
-**Updated** 3 월 2019
+**Updated** 2019년 3월
 
 * ![Windows][Logo_Windows] [sap ascs/SCS 인스턴스에 대해 windows 장애 조치 (failover) 클러스터 및 **공유 디스크** 를 사용 하 여 sap 고가용성을 위한 Azure 인프라 준비][sap-high-availability-infrastructure-wsfc-shared-disk]
 
@@ -235,7 +235,7 @@ Azure Virtual Machines는 긴 조달 주기 없이 최소한의 시간 안에 �
 
 **요약:** 여기에 나열 된 문서에서는 Azure의 Windows Server 장애 조치 (Failover) 클러스터링 클러스터 및 Linux 클러스터 프레임 워크에서 고가용성 SAP 시스템을 설치 하 고 구성 하는 방법에 대 한 단계별 예제를 제공 합니다.
 
-**Updated** 3 월 2019
+**Updated** 2019년 3월
 
 * ![Windows][Logo_Windows] [sap ascs/SCS 인스턴스에 대해 windows 장애 조치 (failover) 클러스터 및 **공유 디스크** 를 사용 하 여 sap NetWeaver 고가용성 설치][sap-high-availability-installation-wsfc-shared-disk]
 

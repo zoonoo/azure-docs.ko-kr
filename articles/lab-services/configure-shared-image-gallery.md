@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 80610168e0d293b65626da71ee349f25e456576b
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 93b3c7671a5beb4b3a451fe0efd13b9f48e00436
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774561"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68941812"
 ---
 # <a name="configure-a-shared-image-gallery-in-azure-devtest-labs"></a>Azure DevTest Labs에서 공유 이미지 갤러리 구성
 DevTest Labs는 이제 [공유 이미지 갤러리](../virtual-machines/windows/shared-image-galleries.md) 기능을 지원 합니다. 랩 사용자는 랩 리소스를 만드는 동안 이 기능을 사용하여 공유 위치의 이미지에 액세스할 수 있습니다. 사용자 지정 관리형 VM 이미지를 기준으로 구조와 조직을 구축하는 데도 사용할 수 있습니다. 공유 이미지 갤러리 기능은 다음을 지원 합니다.
@@ -36,7 +36,7 @@ DevTest Labs는 이제 [공유 이미지 갤러리](../virtual-machines/windows/
 ## <a name="considerations"></a>고려 사항
 - 한 번에 하나의 공유 이미지 갤러리만 랩에 연결할 수 있습니다. 다른 갤러리를 연결 하려면 기존 항목을 분리 하 고 다른 갤러리를 연결 해야 합니다. 
 - DevTest Labs는 현재 랩을 통해 갤러리에 이미지를 업로드 하는 것을 지원 하지 않습니다. 
-- 공유 이미지 갤러리 이미지를 사용 하 여 가상 컴퓨터를 만드는 동안 DevTest Labs는 항상이 이미지의 최신 게시 된 버전을 사용 합니다.
+- 공유 이미지 갤러리 이미지를 사용 하 여 가상 컴퓨터를 만드는 동안 DevTest Labs는 항상이 이미지의 최신 게시 된 버전을 사용 합니다. 그러나 이미지에 여러 버전이 있는 경우 사용자는 가상 컴퓨터를 만드는 동안 고급 설정 탭으로 이동 하 여 이전 버전에서 컴퓨터를 만들도록 선택할 수 있습니다.  
 - DevTest Labs는 공유 이미지 갤러리에서 랩을 존재 하는 영역에 이미지를 복제 하도록 자동으로 시도 하지만 항상 가능한 것은 아닙니다. 이러한 이미지에서 Vm을 만드는 데 문제가 있는 사용자를 방지 하려면 이미지가 랩의 지역에 이미 복제 되어 있는지 확인 합니다. "
 
 ## <a name="use-azure-portal"></a>Azure Portal 사용

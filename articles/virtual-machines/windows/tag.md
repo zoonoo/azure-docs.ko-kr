@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/05/2016
 ms.author: memccror
 ms.openlocfilehash: 26ee777f7db05ca1850e2a01c1716810624906c0
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67709847"
 ---
 # <a name="how-to-tag-a-windows-virtual-machine-in-azure"></a>Azure에서 Windows 가상 머신에 태그를 지정하는 방법
@@ -91,8 +91,8 @@ PowerShell을 통해 태그를 지정하는 방법에 대한 자세한 내용은
 [!INCLUDE [virtual-machines-common-tag-usage](../../../includes/virtual-machines-common-tag-usage.md)]
 
 ## <a name="next-steps"></a>다음 단계
-* Azure 리소스에 태그를 지정 하는 방법에 대 한 자세한 내용은 참조 하세요 [Azure Resource Manager 개요][Azure Resource Manager Overview] and [Using Tags to organize your Azure Resources][Using Tags to organize your Azure Resources]합니다.
-* 태그 하는 방법을 Azure 리소스의 사용을 관리, 참조 [Understanding your Azure Bill][Understanding your Azure Bill] and [Gain insights into your Microsoft Azure resource consumption][Gain insights into your Microsoft Azure resource consumption]합니다.
+* Azure 리소스에 태그를 지정하는 방법에 대한 자세한 내용은 [Azure Resource Manager 개요][Azure Resource Manager Overview] 및 [태그를 사용하여 Azure 리소스 구성][Using Tags to organize your Azure Resources]을 참조하세요.
+* 태그로 Azure 리소스의 사용을 관리하는 방법은 [Azure 청구서 이해][Understanding your Azure Bill] 및 [Microsoft Azure 리소스 소비에 대한 정보 얻기][Gain insights into your Microsoft Azure resource consumption]를 참조하세요.
 
 [PowerShell environment with Azure Resource Manager]: ../../azure-resource-manager/manage-resources-powershell.md
 [Azure Resource Cmdlets]: https://docs.microsoft.com/powershell/module/az.resources/

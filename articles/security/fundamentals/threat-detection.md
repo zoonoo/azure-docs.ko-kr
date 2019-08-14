@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 4e33b22c5bc931685f5848db55fc4b9b8fc6eafe
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: c7a31337888dcdc2a8f8b95c5203cc659882b038
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780615"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68927878"
 ---
 # <a name="azure-advanced-threat-detection"></a>Azure 지능형 위협 탐지
 
@@ -30,7 +30,7 @@ Azure는 앱 배포의 요구 사항에 맞게 보안을 구성하고 사용자 
 
 ## <a name="azure-active-directory-identity-protection"></a>Azure Active Directory ID 보호
 
-[Azure AD ID 보호](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)는 조직의 ID에 영향을 줄 수 있는 위험 이벤트와 잠재적 취약성에 대한 개요를 제공하는 [Azure Active Directory Premium P2](https://docs.microsoft.com/azure/active-directory/active-directory-editions) 버전의 기능입니다. ID 보호는 [Azure AD의 비정상적인 활동 보고서](https://docs.microsoft.com/azure/active-directory/active-directory-view-access-usage-reports)를 통해 제공되는 기존 Azure AD의 변칙 검색 기능을 사용하고, 실시간으로 비정상을 검색할 수 있는 새로운 위험 이벤트 유형을 도입하고 있습니다.
+[Azure AD ID 보호](../../active-directory/identity-protection/overview.md)는 조직의 ID에 영향을 줄 수 있는 위험 이벤트와 잠재적 취약성에 대한 개요를 제공하는 [Azure Active Directory Premium P2](../../active-directory/active-directory-whatis.md) 버전의 기능입니다. ID 보호는 [Azure AD의 비정상적인 활동 보고서](../../active-directory/active-directory-reporting-azure-portal.md)를 통해 제공되는 기존 Azure AD의 변칙 검색 기능을 사용하고, 실시간으로 비정상을 검색할 수 있는 새로운 위험 이벤트 유형을 도입하고 있습니다.
 
 ![Azure AD ID 보호 다이어그램](./media/threat-detection/azure-threat-detection-fig1.png)
 
@@ -38,7 +38,7 @@ ID 보호는 적응형 기계 학습 알고리즘 및 휴리스틱을 사용하�
 
 Azure Active Directory ID 보호는 모니터링 및 보고 도구 이상입니다. ID 보호는 위험 이벤트에 따라 각 사용자에 대한 위험 수준을 계산하며 이는 위험 기반 정책을 구성하여 조직의 ID를 자동으로 보호할 수 있도록 합니다.
 
-Azure Active Directory 및 [EMS](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access)에서 제공 하는 다른 [조건부 액세스 제어](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access) 외에도 이러한 위험 기반 정책은 암호 재설정 및 다단계를 포함 하는 적응 재구성 작업을 자동으로 차단 하거나 제공할 수 있습니다. 인증 적용.
+Azure Active Directory 및 [EMS](../../active-directory/active-directory-conditional-access-azure-portal.md)에서 제공 하는 다른 [조건부 액세스 제어](../../active-directory/active-directory-conditional-access-azure-portal.md) 외에도 이러한 위험 기반 정책은 암호 재설정 및 다단계를 포함 하는 적응 재구성 작업을 자동으로 차단 하거나 제공할 수 있습니다. 인증 적용.
 
 ### <a name="identity-protection-capabilities"></a>ID 보호 기능
 
@@ -46,25 +46,25 @@ Azure Active Directory ID 보호는 모니터링 및 보고 도구 이상입니�
 
 Azure ID 보호를 사용하여 계정과 ID를 보호할 수 있는 몇 가지 방법의 예는 다음과 같습니다.
 
-[위험 이벤트 및 위험한 계정 검색](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection#detection)
+[위험 이벤트 및 위험한 계정 검색](../../active-directory/identity-protection/overview.md)
 -   기계 학습 및 휴리스틱 규칙을 사용하여 6가지 위험 이벤트 유형을 검색합니다.
 -   사용자 위험 수준을 계산합니다.
 -   취약점을 강조 표시하여 전반적인 보안 상태를 개선하도록 맞춤형 권장 사항을 제공합니다.
 
-[위험 이벤트 조사](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection#investigation)
+[위험 이벤트 조사](../../active-directory/identity-protection/overview.md)
 -   위험 이벤트에 대한 알림을 보냅니다.
 -   관련된 컨텍스트 정보를 사용하여 위험 이벤트를 조사합니다.
 -   조사를 추적하는 기본 워크플로를 제공합니다.
 -   암호 재설정 등 수정 작업에 쉽게 액세스할 수 있습니다.
 
-[위험 기반 조건부 액세스 정책](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
+[위험 기반 조건부 액세스 정책](../../active-directory/identity-protection/overview.md)
 -   로그인을 차단하거나 다단계 인증 질문을 요구하여 위험한 로그인을 완화합니다.
 -   위험한 사용자 계정을 차단하거나 보호합니다.
 -   사용자에게 다단계 인증에 등록할 것을 요구합니다.
 
 ### <a name="azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management
 
-[Azure Active Directory PIM(Privileged Identity Management)](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure)을 사용하여 조직 내에서 액세스를 관리, 제어 및 모니터링할 수 있습니다. 이 기능에는 Azure AD 및 다른 Microsoft 온라인 서비스(예: Office 365 또는 Microsoft Intune)의 리소스에 대한 액세스가 포함됩니다.
+[Azure Active Directory PIM(Privileged Identity Management)](../../active-directory/privileged-identity-management/pim-configure.md)을 사용하여 조직 내에서 액세스를 관리, 제어 및 모니터링할 수 있습니다. 이 기능에는 Azure AD 및 다른 Microsoft 온라인 서비스(예: Office 365 또는 Microsoft Intune)의 리소스에 대한 액세스가 포함됩니다.
 
 ![Azure AD Privileged Identity Management 다이어그램](./media/threat-detection/azure-threat-detection-fig2.png)
 
@@ -78,13 +78,13 @@ PIM은 다음과 같이 도움을 줍니다.
 
 ## <a name="azure-monitor-logs"></a>Azure Monitor 로그
 
-[Azure Monitor 로그](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) 는 온-프레미스 및 클라우드 인프라를 관리 하 고 보호 하는 데 도움이 되는 Microsoft 클라우드 기반 IT 관리 솔루션입니다. Azure Monitor 로그는 클라우드 기반 서비스로 구현 되므로 인프라 서비스에 대 한 최소한의 투자로 신속 하 게 실행할 수 있습니다. 새로운 보안 기능을 자동으로 제공하므로 지속적인 유지 관리 및 업그레이드 비용이 절감됩니다.
+[Azure Monitor 로그](../../azure-monitor/index.yml) 는 온-프레미스 및 클라우드 인프라를 관리 하 고 보호 하는 데 도움이 되는 Microsoft 클라우드 기반 IT 관리 솔루션입니다. Azure Monitor 로그는 클라우드 기반 서비스로 구현 되므로 인프라 서비스에 대 한 최소한의 투자로 신속 하 게 실행할 수 있습니다. 새로운 보안 기능을 자동으로 제공하므로 지속적인 유지 관리 및 업그레이드 비용이 절감됩니다.
 
 Azure Monitor 로그는 중요 한 서비스를 자체적으로 제공 하는 것 외에도 [System Center Operations Manager](https://blogs.technet.microsoft.com/cbernier/2013/10/23/monitoring-windows-azure-with-system-center-operations-manager-2012-get-me-started/)와 같은 System Center 구성 요소와 통합 하 여 기존 보안 관리 투자를 클라우드로 확장할 수 있습니다. System Center와 Azure Monitor 로그는 함께 작동 하 여 전체 하이브리드 관리 환경을 제공 합니다.
 
 ### <a name="holistic-security-and-compliance-posture"></a>전체적인 보안 및 규정 준수 상태
 
-[Log Analytics 보안 및 감사 대시보드](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started)는 주의가 필요한 주목할 만한 문제에 대한 기본 제공되는 검색 쿼리를 통해 조직의 IT 보안 상태에 대한 포괄적인 보기를 제공합니다. 보안 및 감사 대시보드는 Azure Monitor 로그의 보안과 관련 된 모든 항목의 홈 화면입니다. 이 대시보드에서 컴퓨터의 보안 상태를 대략적으로 확인할 수 있으며 지난 24시간, 7일, 기타 사용자 지정 기간 동안 발생한 모든 이벤트를 확인할 수도 있습니다.
+[Log Analytics 보안 및 감사 대시보드](../../security-center/security-center-intro.md)는 주의가 필요한 주목할 만한 문제에 대한 기본 제공되는 검색 쿼리를 통해 조직의 IT 보안 상태에 대한 포괄적인 보기를 제공합니다. 보안 및 감사 대시보드는 Azure Monitor 로그의 보안과 관련 된 모든 항목의 홈 화면입니다. 이 대시보드에서 컴퓨터의 보안 상태를 대략적으로 확인할 수 있으며 지난 24시간, 7일, 기타 사용자 지정 기간 동안 발생한 모든 이벤트를 확인할 수도 있습니다.
 
 Azure Monitor 로그는 소프트웨어 업데이트 평가, 맬웨어 방지 평가 및 구성 기준을 포함 하 여 IT 운영의 컨텍스트 내에서 모든 환경의 전반적인 보안 상태를 빠르고 쉽게 이해 하는 데 도움이 됩니다. 또한 보안 로그 데이터에 쉽게 액세스하여 보안 및 규정 준수 감사 프로세스를 간소화할 수 있습니다.
 
@@ -103,7 +103,7 @@ Log Analytics 보안 및 감사 대시보드는 네 가지 주요 범주로 구�
 -   **일반적 보안 쿼리**: 환경을 모니터링하는 데 사용할 수 있는 가장 일반적인 보안 쿼리의 목록을 제공합니다. 쿼리를 선택하면 검색 창이 열리고 해당 쿼리에 대한 결과가 표시됩니다.
 
 ### <a name="insight-and-analytics"></a>인사이트 및 분석
-[Azure Monitor 로그](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) 의 중앙에는 Azure에서 호스트 되는 리포지토리가 있습니다.
+[Azure Monitor 로그](../../log-analytics/log-analytics-queries.md) 의 중앙에는 Azure에서 호스트 되는 리포지토리가 있습니다.
 
 ![인사이트 및 분석 다이어그램](./media/threat-detection/azure-threat-detection-fig4.png)
 
@@ -115,9 +115,9 @@ Log Analytics 보안 및 감사 대시보드는 네 가지 주요 범주로 구�
 
 
 Azure Monitor 로그와의 상호 작용은 대부분 모든 브라우저에서 실행 되는 Azure Portal를 통해 구성 설정 및 여러 도구에 대 한 액세스를 제공 하 여 수집 된 데이터를 분석 하 고 조작할 수 있습니다. 포털에서 다음을 수행할 수 있습니다.
-* [로그 검색](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-searches)에서는 쿼리를 구성하여 수집된 데이터를 분석합니다.
-* [대시보드](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-logs-dashboards)에서는 가장 중요한 검색의 그래픽 보기를 사용하여 사용자 지정할 수 있습니다.
-* [솔루션](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)에서는 추가 기능 및 분석 도구를 제공합니다.
+* [로그 검색](../../log-analytics/log-analytics-queries.md)에서는 쿼리를 구성하여 수집된 데이터를 분석합니다.
+* [대시보드](../../azure-monitor/learn/tutorial-logs-dashboards.md)에서는 가장 중요한 검색의 그래픽 보기를 사용하여 사용자 지정할 수 있습니다.
+* [솔루션](../../monitoring/monitoring-solutions.md)에서는 추가 기능 및 분석 도구를 제공합니다.
 
 ![분석 도구](./media/threat-detection/azure-threat-detection-fig6.png)
 
@@ -135,7 +135,7 @@ Azure에서 호스트되는 DSC 리소스를 만들고 관리하며 클라우드
 
 ## <a name="azure-security-center"></a>Azure Security Center
 
-Azure Security Center는 Azure 리소스를 보호하는 데 도움이 됩니다. Azure 구독에서 통합된 보안 모니터링 및 정책 관리를 제공합니다. 서비스 내에서 Azure 구독 및 [리소스 그룹](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal)에 대한 정책을 더욱 세부적으로 정의할 수 있습니다.
+Azure Security Center는 Azure 리소스를 보호하는 데 도움이 됩니다. Azure 구독에서 통합된 보안 모니터링 및 정책 관리를 제공합니다. 서비스 내에서 Azure 구독 및 [리소스 그룹](../../azure-resource-manager/manage-resources-portal.md)에 대한 정책을 더욱 세부적으로 정의할 수 있습니다.
 
 ![Azure Security Center 다이어그램](./media/threat-detection/azure-threat-detection-fig8.png)
 
@@ -216,7 +216,7 @@ Azure Security Center는 전 세계의 보안 연구 및 데이터 과학 팀과
 
 ### <a name="virtual-machines-microsoft-antimalware"></a>가상 머신: Microsoft 맬웨어 방지
 
-Azure용 [Microsoft 맬웨어 방지 프로그램](https://docs.microsoft.com/azure/security/fundamentals/antimalware)은 애플리케이션 및 테넌트 환경에 대한 단일 에이전트 솔루션이며 사용자의 개입 없이 백그라운드에서 실행되도록 설계되었습니다. 맬웨어 방지 프로그램 모니터링을 포함하여 기본 보안 또는 고급 사용자 지정 구성을 사용하여 애플리케이션 워크로드의 필요에 따라 보호를 배포할 수 있습니다. Azure 맬웨어 방지 프로그램은 Azure Virtual Machines의 보안 옵션이며, 모든 Azure PaaS 가상 머신에 자동으로 설치됩니다.
+Azure용 [Microsoft 맬웨어 방지 프로그램](antimalware.md)은 애플리케이션 및 테넌트 환경에 대한 단일 에이전트 솔루션이며 사용자의 개입 없이 백그라운드에서 실행되도록 설계되었습니다. 맬웨어 방지 프로그램 모니터링을 포함하여 기본 보안 또는 고급 사용자 지정 구성을 사용하여 애플리케이션 워크로드의 필요에 따라 보호를 배포할 수 있습니다. Azure 맬웨어 방지 프로그램은 Azure Virtual Machines의 보안 옵션이며, 모든 Azure PaaS 가상 머신에 자동으로 설치됩니다.
 
 #### <a name="microsoft-antimalware-core-features"></a>Microsoft 맬웨어 방지 프로그램 핵심 기능
 
@@ -252,9 +252,9 @@ Azure용 [Microsoft 맬웨어 방지 프로그램](https://docs.microsoft.com/az
 
 위협 검색 메일 알림을 받은 사용자는 메일의 딥 링크를 통해 관련 감사 레코드를 탐색하고 볼 수 있습니다. 이 링크를 클릭하면 감사 뷰어나 미리 구성된 감사 Excel 템플릿이 열려 다음과 같이 의심스러운 이벤트 발생 당시의 관련 감사 레코드를 보여 줍니다.
 
--   비정상적인 데이터베이스 활동이 있는 데이터베이스/서버에 대한 감사 저장소.
+-   비정상적인 데이터베이스 활동이 있는 데이터베이스/서버에 대한 감사 스토리지.
 
--   이벤트 발생 시 감사 로그를 작성하는 데 사용된 관련 감사 저장소 테이블.
+-   이벤트 발생 시 감사 로그를 작성하는 데 사용된 관련 감사 스토리지 테이블.
 
 -   이벤트 발생 직후 시간에 대한 감사 레코드.
 
@@ -268,7 +268,7 @@ SQL Database 위협 감지기는 다음 검색 방법 중 하나를 사용합니
 
 ### <a name="application-gateway-web-application-firewall"></a>Application Gateway 웹 애플리케이션 방화벽
 
-[WAF(웹 애플리케이션 방화벽)](../../app-service/environment/app-service-app-service-environment-web-application-firewall.md)는 표준 [application delivery control](https://kemptechnologies.com/in/application-delivery-controllers)(애플리케이션 전송 제어) 기능에 애플리케이션 게이트웨이를 사용하는 웹 애플리케이션에 보호를 제공하는 [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-webapplicationfirewall-overview)의 기능입니다. 웹 애플리케이션 방화벽은 대부분의 [Open Web Application Security Project (OWASP) top 10 common web vulnerabilities](https://www.owasp.org/index.php/Top_10_2010-Main)(OWASP(Open Web Application Security Project) 상위 10개 일반 웹 취약성)로부터 보호함으로써 이 기능을 수행합니다.
+[WAF(웹 애플리케이션 방화벽)](../../app-service/environment/app-service-app-service-environment-web-application-firewall.md)는 표준 [application delivery control](https://kemptechnologies.com/in/application-delivery-controllers)(애플리케이션 전송 제어) 기능에 애플리케이션 게이트웨이를 사용하는 웹 애플리케이션에 보호를 제공하는 [Azure Application Gateway](../../application-gateway/application-gateway-web-application-firewall-overview.md)의 기능입니다. 웹 애플리케이션 방화벽은 대부분의 [Open Web Application Security Project (OWASP) top 10 common web vulnerabilities](https://www.owasp.org/index.php/Top_10_2010-Main)(OWASP(Open Web Application Security Project) 상위 10개 일반 웹 취약성)로부터 보호함으로써 이 기능을 수행합니다.
 
 ![Application Gateway 웹 애플리케이션 방화벽 다이어그램](./media/threat-detection/azure-threat-detection-fig13.png)
 
@@ -302,7 +302,7 @@ SQL Database 위협 감지기는 다음 검색 방법 중 하나를 사용합니
 
 Anomaly Detection API는 시계열 데이터에서 다양한 비정상 패턴을 검색하는 데 유용한 API입니다. API는 시계열의 각 데이터 요소에 변칙 점수를 지정하며, 이 점수는 경고 생성, 대시보드를 통한 모니터링 또는 티켓 시스템과 연결에 사용할 수 있습니다.
 
-[변칙 검색 API](https://docs.microsoft.com/azure/machine-learning/machine-learning-apps-anomaly-detection-api)는 시계열 데이터에서 다음과 같은 유형의 변칙을 검색할 수 있습니다.
+[변칙 검색 API](../../machine-learning/team-data-science-process/apps-anomaly-detection-api.md)는 시계열 데이터에서 다음과 같은 유형의 변칙을 검색할 수 있습니다.
 
 -   **급증 및 급락**: 서비스에 대한 로그인 실패 횟수 또는 전자상거래 사이트의 체크 아웃 수를 모니터링할 때 비정상적인 급증 또는 급락은 보안 공격 또는 서비스 중단을 나타낼 수 있습니다.
 
@@ -384,6 +384,6 @@ Azure Marketplace에서 사용할 수 있는 웹 애플리케이션 방화벽의
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Security Center 감지 기능](https://docs.microsoft.com/azure/security-center/security-center-detection-capabilities): Azure 리소스를 대상으로 하는 활성 위협을 식별하고 신속하게 대응하는 데 필요한 인사이트를 제공합니다.
+- [Azure Security Center 감지 기능](../../security-center/security-center-detection-capabilities.md): Azure 리소스를 대상으로 하는 활성 위협을 식별하고 신속하게 대응하는 데 필요한 인사이트를 제공합니다.
 
 - [Azure SQL Database 위협 검색](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-your-built-in-security-expert/): 데이터베이스에 잠재적인 위협에 대한 우려 사항을 해결하는 데 도움이 됩니다.

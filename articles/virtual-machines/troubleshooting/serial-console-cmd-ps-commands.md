@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: f286881341e527d3f01e57768cd48405c85a9a69
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 77fe6f1ce416df049928697d2c166e2aba0abfe2
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710603"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935229"
 ---
 # <a name="windows-commands---cmd-and-powershell"></a>Windows 명령 - CMD 및 PowerShell
 
@@ -118,7 +118,7 @@ Azure VM은 IP 주소를 얻는 데 DHCP를 사용하려면 항상 게스트 운
 ### <a name="disable-windows-firewall"></a>Windows 방화벽 사용 안 함
 `netsh advfirewall set allprofiles state off`
 
-Windows 방화벽을 일시적으로 제외하는 문제를 해결하려면 이 명령을 사용할 수 있습니다. 다음에 다시 시작할 또는 아래 명령을 사용 하 여 사용 하도록 설정한 경우 사용 하도록 설정 하는 것이 됩니다. Windows 방화벽을 제외하기 위한 방법으로 Windows 방화벽 서비스(MPSSVC) 또는 기본 필터링 엔진(BFE) 서비스를 중지하지 마십시오. MPSSVC 또는 BFE 중지하면 모든 연결이 차단되게 됩니다.
+Windows 방화벽을 일시적으로 제외하는 문제를 해결하려면 이 명령을 사용할 수 있습니다. 다음에 다시 시작할 때 사용 하도록 설정 하거나, 아래 명령을 사용 하 여 사용 하도록 설정 합니다. Windows 방화벽을 제외하기 위한 방법으로 Windows 방화벽 서비스(MPSSVC) 또는 기본 필터링 엔진(BFE) 서비스를 중지하지 마십시오. MPSSVC 또는 BFE 중지하면 모든 연결이 차단되게 됩니다.
 ### <a name="enable-windows-firewall"></a>Windows 방화벽 사용
 `netsh advfirewall set allprofiles state on`
 ## <a name="manage-users-and-groups"></a>사용자 및 그룹 관리
@@ -241,7 +241,7 @@ Windows 방화벽을 일시적으로 제외하는 문제를 해결하려면 이 
 ### <a name="detect-safe-mode-boot"></a>안전 모드 부팅 검색
 `bcdedit /enum | find /i "safeboot"` 
 
-# <a name="windows-commands---powershell"></a>Windows 명령 - PowerShell
+## <a name="windows-commands---powershell"></a>Windows 명령 - PowerShell
 
 SAC에서 PowerShell을 실행하려면 CMD 프롬프트가 표시된 후 다음을 입력합니다.
 

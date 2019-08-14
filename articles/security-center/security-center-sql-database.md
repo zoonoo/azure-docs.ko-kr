@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/02/2017
 ms.author: rkarlin
 ms.openlocfilehash: 0a889de79b6a5921007614dac8d610c1be0222d2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "60704614"
 ---
 # <a name="azure-security-center-and-azure-sql-database-service"></a>Azure Security Center 및 Azure SQL Database 서비스
@@ -36,7 +36,7 @@ ms.locfileid: "60704614"
 
 Security Center는 SQL Database 리소스를 보호하는 것 외에도, Azure 가상 머신, Cloud Services, App Services, 가상 네트워크 등에 대한 보안 모니터링 및 관리도 제공합니다. [여기](security-center-intro.md)에서 보안에 대해 자세히 알아보세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 보안 센터를 시작하려면 Microsoft Azure에 대한 구독이 있어야 합니다. 보안 센터의 무료 계층은 구독을 사용하여 사용하도록 설정됩니다. 보안 센터의 무료 및 표준 계층에 대한 자세한 내용은 [보안 센터 가격 책정](https://azure.microsoft.com/pricing/details/security-center/)을 참조하세요.
 
 보안 센터는 역할 기반 액세스를 지원합니다. 역할 기반 액세스 제어(RBAC)에 대해 자세히 알아보려면 [Azure Active Directory 역할 기반 Access Control](../role-based-access-control/role-assignments-portal.md)을 참조하세요. 보안 센터 FAQ에서는 [보안 센터에서 권한 처리 방법](security-center-faq.md#permissions)에 대한 정보를 제공합니다.
@@ -67,7 +67,7 @@ SQL 감사 및 SQL 투명한 데이터 암호화(TDE)에 대한 권장 사항을
 
 보안 정책이 설정되면 보안 센터는 리소스의 보안 상태를 분석하여 잠재적인 취약성을 식별합니다. 권장 사항은 각 줄이 한 가지 특정 권장을 나타내는 표 형식으로 표시됩니다. 다음 표를 참조로 활용하여 Azure SQL Database에 대해 사용 가능한 권장 사항이 무엇이고 적용할 경우 각 권장 사항을 통해 어떤 작업이 수행되는지 확인합니다. 권장 사항을 선택하면 보안 센터에서 권장 사항을 구현하는 방법을 설명하는 문서로 이동합니다.
 
-| 권장 사항 | 설명 |
+| 권장 사항 | Description |
 | --- | --- |
 | [SQL Server에서 감사 및 위협 감지 사용](security-center-enable-auditing-on-sql-servers.md) |SQL Database 서버에 대한 감사 및 위협 감지를 켜는 것이 좋습니다. (SQL Database 서비스만 해당. 가상 머신에서 실행 중인 Microsoft SQL Server는 포함하지 않음) |
 | [SQL 데이터베이스에서 감사 및 위협 감지 사용](security-center-enable-auditing-on-sql-databases.md) |SQL Database 데이터베이스에 대한 감사 및 위협 감지를 켜는 것이 좋습니다. (SQL Database 서비스만 해당. 가상 머신에서 실행 중인 Microsoft SQL Server는 포함하지 않음) |

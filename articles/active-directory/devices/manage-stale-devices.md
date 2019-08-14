@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c6793581b797892c0bb468906d4f8ae72182618
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 78ddda8ff67cfdfebcf19f53c307c689884baf4d
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562122"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68942892"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>방법: Azure AD에서 부실 디바이스 관리
 
@@ -101,7 +101,7 @@ Azure AD를 정리하려면 다음을 수행합니다.
 - **Windows 7/8** -먼저 온-프레미스 AD에서 windows 7/8 장치를 사용 하지 않도록 설정 하거나 삭제 합니다. Azure AD Connect는 Azure AD에서 Windows 7/8 디바이스를 사용하지 않도록 설정하거나 삭제하는 데 사용할 수 없습니다. 대신 온-프레미스에서 변경 하는 경우 Azure AD에서 사용 하지 않도록 설정 하거나 삭제 해야 합니다.
 
 > [!NOTE]
->* 온-프레미스 AD 또는 Azure AD에서 장치를 삭제 하는 것은 클라이언트에서 등록 되지 않습니다. 장치를 id (예: 조건부 액세스)로 사용 하는 리소스에 대 한 액세스를 차단 합니다. [클라이언트에서 등록을 제거](faq.md#hybrid-azure-ad-join-faq)하는 방법에 대 한 추가 정보를 읽습니다.
+>* 온-프레미스 AD 또는 Azure AD에서 장치를 삭제 해도 클라이언트에서 등록이 제거 되지 않습니다. 장치를 id (예: 조건부 액세스)로 사용 하는 리소스에 대 한 액세스를 차단 합니다. [클라이언트에서 등록을 제거](faq.md#hybrid-azure-ad-join-faq)하는 방법에 대 한 추가 정보를 읽습니다.
 >* Azure AD 에서만 Windows 10 장치를 삭제 하면 Azure AD connect를 사용 하 여 온-프레미스에서 장치를 다시 동기화 하지만 "보류 중" 상태의 새 개체로 장치를 다시 동기화 합니다. 장치에 다시 등록 해야 합니다.
 >* Windows 10/Server 2016 장치의 동기화 범위에서 장치를 제거 하면 Azure AD 장치가 삭제 됩니다. 동기화 범위에 다시 추가 하면 새 개체가 "보류 중" 상태로 전환 됩니다. 장치를 다시 등록 해야 합니다.
 >* Windows 10 장치에 대 한 Azure AD Connect를 사용 하지 않는 경우 (예: 등록을 위해 AD FS만 사용) Windows 7/8 장치와 비슷한 수명 주기를 관리 해야 합니다.

@@ -1,25 +1,25 @@
 ---
 title: 디바이스에 블록 Blob 저장 - Azure IoT Edge | Microsoft Docs
 description: 계층화 및 라이브 라이브 기능 이해를 참조 하십시오. 지원 되는 blob storage 작업을 참조 하 고 blob storage 계정에 연결 합니다.
-author: arduppal
+author: kgremban
 manager: mchad
-ms.author: arduppal
-ms.reviewer: arduppal
+ms.author: kgremban
+ms.reviewer: kgremban
 ms.date: 08/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a40389ca378826aef1b6aa136f8f5d69783c638e
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 861b5c3ee6d5661339788e7a27ba70557d0ea267
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881229"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68947029"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>IoT Edge에서 Azure Blob Storage를 사용 하 여에 지에 데이터 저장
 
-IoT Edge의 Azure Blog Storage는 에지에 [블록 Blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) 스토리지 솔루션을 제공합니다. IoT Edge 장치의 blob storage 모듈은 블록 blob이 IoT Edge 장치에 로컬로 저장 된다는 점을 제외 하 고 Azure block blob service 처럼 동작 합니다. 동일한 Azure 저장소 SDK 메서드 또는 이미 익숙한 블록 Blob API 호출을 사용하여 Blob에 액세스할 수 있습니다. 이 문서에서는 IoT Edge 장치에서 Blob 서비스를 실행 하는 IoT Edge 컨테이너의 Azure Blob Storage 관련 된 개념을 설명 합니다.
+IoT Edge의 Azure Blog Storage는 에지에 [블록 Blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) 스토리지 솔루션을 제공합니다. IoT Edge 장치의 blob storage 모듈은 블록 blob이 IoT Edge 장치에 로컬로 저장 된다는 점을 제외 하 고 Azure block blob service 처럼 동작 합니다. 동일한 Azure Storage SDK 메서드 또는 이미 익숙한 블록 Blob API 호출을 사용하여 Blob에 액세스할 수 있습니다. 이 문서에서는 IoT Edge 장치에서 Blob 서비스를 실행 하는 IoT Edge 컨테이너의 Azure Blob Storage 관련 된 개념을 설명 합니다.
 
 이 모듈은 시나리오에서 유용 합니다.
 * 데이터를 처리 하거나 클라우드로 전송할 수 있을 때까지 로컬로 저장 해야 하는 경우 이 데이터는 비디오, 이미지, 재무 데이터, 병원 데이터 또는 기타 구조화 되지 않은 데이터 일 수 있습니다.
@@ -28,7 +28,7 @@ IoT Edge의 Azure Blog Storage는 에지에 [블록 Blob](https://docs.microsoft
 * 대역폭 비용을 절감 하 고 tb의 데이터를 클라우드로 전송 하지 않으려는 경우 데이터를 로컬로 처리 하 고 처리 된 데이터만 클라우드에 보낼 수 있습니다.
 
 비디오에서 빠른 소개 보기
-> [!VIDEO https://www.youtube.com/embed/QhCYCvu3tiM]
+> [!VIDEO https://www.youtube.com/embed/xbwgMNGB_3Y]
 
 이 모듈은 **deviceToCloudUpload** 및 **deviceautodelete** 기능과 함께 제공 됩니다.
 
@@ -55,7 +55,7 @@ Blob을 업로드 하는 동안 예기치 않은 프로세스 종료 (예: 전�
 - DeleteAfterMinutes 값이 만료 되는 경우 업로드 하는 동안 blob을 유지 하는 기능을 선택 합니다.
 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure IoT Edge 디바이스:
 
@@ -156,9 +156,9 @@ sudo chmod -R 700 <blob-dir>
 
 ## <a name="connect-to-your-blob-storage-module"></a>Blob Storage 모듈에 연결
 
-모듈에 대해 구성한 계정 이름 및 계정 키를 사용하여 IoT Edge 장치의 Blob Storage에 액세스할 수 있습니다.
+모듈에 대해 구성한 계정 이름 및 계정 키를 사용하여 IoT Edge 디바이스의 Blob Storage에 액세스할 수 있습니다.
 
-만드는 저장소 요청의 Blob 엔드포인트로 IoT Edge 디바이스를 지정합니다. 구성한 IoT Edge 디바이스 정보 및 계정 이름을 사용하여 [명시적 저장소 엔드포인트에 대한 연결 문자열을 만들 수 있습니다](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-explicit-storage-endpoint).
+만드는 스토리지 요청의 Blob 엔드포인트로 IoT Edge 디바이스를 지정합니다. 구성한 IoT Edge 디바이스 정보 및 계정 이름을 사용하여 [명시적 스토리지 엔드포인트에 대한 연결 문자열을 만들 수 있습니다](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-explicit-storage-endpoint).
 
 - IoT Edge 모듈의 Azure Blob Storage와 동일한 장치에 배포 된 모듈의 경우 Blob 끝점은 `http://<module name>:11002/<account name>`입니다.
 - 다른 장치에서 실행 되는 모듈 또는 응용 프로그램의 경우 네트워크에 적합 한 끝점을 선택 해야 합니다. 네트워크 설정에 따라 외부 모듈이 나 응용 프로그램의 데이터 트래픽이 IoT Edge 모듈의 Azure Blob Storage를 실행 하는 장치에 도달할 수 있도록 끝점 형식을 선택 합니다. 이 시나리오에 대 한 blob 끝점은 다음 중 하나입니다.
@@ -197,7 +197,7 @@ Azure Blob Storage 설명서에는 여러 언어의 빠른 시작 샘플 코드�
 
 1. Storage 탐색기에서 Azure storage 계정을 연결 하도록 선택할 수 있습니다. 이 구성은 로컬 저장소 계정 및 Azure storage 계정 모두에 대 한 단일 보기를 제공 합니다.
 
-## <a name="supported-storage-operations"></a>지원되는 저장소 작업
+## <a name="supported-storage-operations"></a>지원되는 스토리지 작업
 
 IoT Edge의 blob storage 모듈은 Azure Storage Sdk를 사용 하며, 블록 blob 끝점에 대 한 Azure Storage API의 2017-04-17 버전과 일치 합니다. 
 

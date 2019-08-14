@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: jomolesk
-ms.openlocfilehash: 46c72191ee17f63311b041d798cccec279e4b000
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b74373201db26405653584fc4000993b9d6fdf43
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60585984"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946824"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-for-fedramp"></a>Azure 보안 및 규정 준수 청사진: FedRAMP용 PaaS 웹 애플리케이션
 
@@ -35,7 +35,7 @@ ms.locfileid: "60585984"
 - Azure Active Directory
 - Azure Key Vault
 - Azure SQL Database
-- Application Gateway
+- 애플리케이션 게이트웨이
     - (1) 웹 애플리케이션 방화벽
         - 방화벽 모드: 방지
         - 규칙 집합: OWASP 3.0
@@ -48,7 +48,7 @@ ms.locfileid: "60585984"
 - App Service Environment v2
 - Azure Load Balancer
 - Azure 웹앱
-- Azure 리소스 관리자
+- Azure Resource Manager
 
 ## <a name="deployment-architecture"></a>배포 아키텍처
 다음 섹션에서는 개발 및 구현 요소에 대해 자세히 설명합니다.
@@ -63,12 +63,12 @@ ASE는 단일 고객의 애플리케이션만 실행하도록 격리되며 항�
 
 - Azure Virtual Network 및 네트워크 보안 규칙 내의 호스트
 - HTTPS 통신을 위해 자체 서명된 ILB 인증서가 있게 구성된 ASE
-- [내부 부하 분산 모드](https://docs.microsoft.com/azure/app-service-web/app-service-environment-with-internal-load-balancer)
-- [TLS 1.0](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-custom-settings) 사용 안 함
-- [TLS 암호화](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-custom-settings) 변경
-- [인바운드 트래픽 N/W 포트](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-control-inbound-traffic) 제어
-- [웹 애플리케이션 방화벽 설정 – 데이터 제한](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-web-application-firewall)
-- [Azure SQL Database 트래픽](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-network-architecture-overview) 허용
+- [내부 부하 분산 모드](../../app-service/environment/app-service-environment-with-internal-load-balancer.md)
+- [TLS 1.0](../../app-service/environment/app-service-app-service-environment-custom-settings.md) 사용 안 함
+- [TLS 암호화](../../app-service/environment/app-service-app-service-environment-custom-settings.md) 변경
+- [인바운드 트래픽 N/W 포트](../../app-service/environment/app-service-app-service-environment-control-inbound-traffic.md) 제어
+- [웹 애플리케이션 방화벽 설정 – 데이터 제한](../../app-service/environment/app-service-app-service-environment-web-application-firewall.md)
+- [Azure SQL Database 트래픽](../../app-service/environment/app-service-app-service-environment-network-architecture-overview.md) 허용
 
 [지침 및 권장 사항](#guidance-and-recommendations) 섹션에는 ASE에 대한 추가 정보가 포함됩니다.
 
@@ -77,14 +77,14 @@ ASE는 단일 고객의 애플리케이션만 실행하도록 격리되며 항�
 ### <a name="virtual-network"></a>Virtual Network
 아키텍처는 10.200.0.0/16 주소 공간으로 프라이빗 가상 네트워크를 정의합니다.
 
-**네트워크 보안 그룹**: [NSG(네트워크 보안 그룹)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)에는 가상 네트워크 내에서 트래픽을 허용하거나 거부하는 액세스 제어 목록이 포함됩니다. NSG는 서브넷 또는 개별 VM 수준에서 트래픽을 보호하는 데 사용할 수 있습니다. 다음과 같은 NSG가 있습니다.
+**네트워크 보안 그룹**: [NSG(네트워크 보안 그룹)](../../virtual-network/virtual-network-vnet-plan-design-arm.md)에는 가상 네트워크 내에서 트래픽을 허용하거나 거부하는 액세스 제어 목록이 포함됩니다. NSG는 서브넷 또는 개별 VM 수준에서 트래픽을 보호하는 데 사용할 수 있습니다. 다음과 같은 NSG가 있습니다.
 - 1 NSG - Application Gateway용
 - 1 NSG - App Service Environment용
 - 1 NSG - Azure SQL Database용
 
 각 NSG에는 솔루션이 안전하고 올바르게 작동할 수 있도록 특정 포트 및 프로토콜이 열려 있습니다. 또한 각 NSG에 대해 다음과 같은 구성을 사용합니다.
-  - [진단 로그 및 이벤트](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)는 저장소 계정에 사용되고 저장됩니다.
-  - Azure Monitor 로그에 연결 되는 [NSG의 진단](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
+  - [진단 로그 및 이벤트](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)는 스토리지 계정에 사용되고 저장됩니다.
+  - Azure Monitor 로그는 [Nsg의 진단](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json) 에 연결 됩니다.
 
 **서브넷**: 각 서브넷이 해당 NSG에 연결되어야 합니다.
 
@@ -95,20 +95,20 @@ ASE는 단일 고객의 애플리케이션만 실행하도록 격리되며 항�
 ### <a name="data-in-transit"></a>전송 중 데이터
 Azure는 기본적으로 Azure 데이터 센터와의 모든 통신을 암호화합니다. Azure Portal을 통한 Azure Storage에 대한 모든 트랜잭션은 HTTPS를 통해 발생합니다.
 
-### <a name="data-at-rest"></a>미사용 데이터
+### <a name="data-at-rest"></a>저장 데이터
 이 아키텍처는 암호화, 데이터베이스 감사 및 다른 방법을 통해 미사용 데이터를 보호합니다.
 
-**Azure Storage**: 암호화된 미사용 데이터 요구 사항에 부합하기 위해 모든 [Azure Storage](https://azure.microsoft.com/services/storage/)는 [스토리지 서비스 암호화](https://docs.microsoft.com/azure/storage/storage-service-encryption)를 사용합니다.
+**Azure Storage**: 암호화된 미사용 데이터 요구 사항에 부합하기 위해 모든 [Azure Storage](https://azure.microsoft.com/services/storage/)는 [스토리지 서비스 암호화](../../storage/common/storage-service-encryption.md)를 사용합니다.
 
 **Azure Disk Encryption**
-[Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)은 Windows의 BitLocker 기능을 활용하여 데이터 디스크에 대한 볼륨 암호화를 제공합니다. 이 솔루션은 Azure Key Vault와 통합되어 디스크 암호화 키를 제어하고 관리하는 데 유용합니다.
+[Azure Disk Encryption](../azure-security-disk-encryption-overview.md)은 Windows의 BitLocker 기능을 활용하여 데이터 디스크에 대한 볼륨 암호화를 제공합니다. 이 솔루션은 Azure Key Vault와 통합되어 디스크 암호화 키를 제어하고 관리하는 데 유용합니다.
 
 **Azure SQL Database**: Azure SQL Database 인스턴스는 다음 데이터베이스 보안 조치를 사용합니다.
 -   [AD 인증 및 권한 부여](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication)를 사용하면 데이터베이스 사용자 및 기타 Microsoft 서비스의 ID를 중앙의 한 위치에서 집중적으로 관리할 수 있습니다.
--   [SQL Database 감사](https://docs.microsoft.com/azure/sql-database/sql-database-auditing-get-started)는 데이터베이스 이벤트를 추적하고 Azure 저장소 계정의 감사 로그에 기록합니다.
+-   [SQL Database 감사](../../sql-database/sql-database-auditing.md)는 데이터베이스 이벤트를 추적하고 Azure Storage 계정의 감사 로그에 기록합니다.
 -   Azure SQL Database는 [TDE(투명한 데이터 암호화)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)를 사용하여 데이터베이스, 관련 백업 및 트랜잭션 로그 파일의 실시간 암호화 및 해독을 수행하고 미사용 정보를 보호하도록 구성됩니다.
 -   [방화벽 규칙](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)은 적절한 권한이 부여될 때까지 데이터베이스 서버에 대한 모든 액세스를 차단합니다. 방화벽은 각 요청이 시작된 IP 주소의 데이터베이스에 대한 액세스를 허용합니다.
--   [SQL 위협 요소 탐지](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-get-started)를 사용하면 의심스러운 데이터베이스 활동, 잠재적 취약성, SQL 삽입 공격 및 비정상 데이터베이스 액세스 패턴에 대한 보안 경고를 제공하여 발생할 수 있는 잠재적 위협을 탐지하고 대응할 수 있습니다.
+-   [SQL 위협 요소 탐지](../../sql-database/sql-database-threat-detection.md)를 사용하면 의심스러운 데이터베이스 활동, 잠재적 취약성, SQL 삽입 공격 및 비정상 데이터베이스 액세스 패턴에 대한 보안 경고를 제공하여 발생할 수 있는 잠재적 위협을 탐지하고 대응할 수 있습니다.
 -   [Always Encrypted 열](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault)은 중요한 데이터가 데이터베이스 시스템 내에서 일반 텍스트로 나타나지 않게 합니다. 데이터 암호화를 사용하도록 설정하면 키에 액세스할 수 있는 클라이언트 애플리케이션 또는 애플리케이션 서버만 일반 텍스트 데이터에 액세스할 수 있습니다.
 - [행 수준 보안](https://docs.microsoft.com/sql/relational-databases/security/row-level-security)을 사용하면 사용자가 데이터 액세스를 제한하여 처리를 중단하는 정책을 정의할 수 있습니다.
 - [SQL Database 동적 데이터 마스킹](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started)은 참조 아키텍처 배포 후에 수행할 수 있습니다. 고객은 데이터베이스 스키마를 준수하도록 동적 데이터 마스킹 설정을 조정해야 합니다.
@@ -116,10 +116,10 @@ Azure는 기본적으로 Azure 데이터 센터와의 모든 통신을 암호화
 ### <a name="identity-management"></a>ID 관리
 다음 기술은 Azure 환경에서 ID 관리 기능을 제공합니다.
 -   [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)는 Microsoft의 다중 테넌트 클라우드 기반 디렉터리 및 ID 관리 서비스입니다. 이 솔루션의 모든 사용자는 Azure SQL Database에 액세스하는 사용자를 포함하여 AAD에 만들어집니다.
--   애플리케이션에 대한 인증은 AAD를 사용하여 수행됩니다. 자세한 내용은 [Azure Active Directory와 애플리케이션 통합](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)을 참조하세요. 또한 데이터베이스 열 암호화는 Azure Active Directory를 사용하여 Azure SQL Database에 애플리케이션을 인증합니다. 자세한 내용은 [Azure SQL Database의 중요 데이터 보호](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault)를 참조하세요.
--   [Azure 역할 기반 액세스 제어](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure)는 Azure에 대해 세밀하게 초점을 맞춘 액세스 관리를 구현합니다. 구독 액세스는 구독 관리자로 제한되며 리소스 액세스는 사용자 역할에 따라 제한될 수 있습니다.
-- [Azure Active Directory Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-getting-started)를 사용하면 고객이 특정 정보에 액세스할 수 있는 사용자 수를 최소화할 수 있습니다.  관리자는 AAD PIM을 사용하여 권한 있는 ID와 리소스에 대한 액세스를 검색, 제한 및 모니터링할 수 있습니다. 필요한 경우 이 기능을 사용하여 요청 시 JIT(Just-In-Time) 관리 액세스를 적용할 수도 있습니다.
-- [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)은 조직의 ID에 영향을 미치는 잠재적 취약성을 탐지하고, 조직의 ID와 관련하여 검색된 의심스러운 작업에 대한 자동화된 대응을 구성하며, 의심스러운 인시던트를 조사하여 이를 해결하기 위한 적절한 조치를 수행합니다.
+-   애플리케이션에 대한 인증은 AAD를 사용하여 수행됩니다. 자세한 내용은 [Azure Active Directory와 애플리케이션 통합](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)을 참조하세요. 또한 데이터베이스 열 암호화는 Azure Active Directory를 사용하여 Azure SQL Database에 애플리케이션을 인증합니다. 자세한 내용은 [Azure SQL Database의 중요 데이터 보호](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault)를 참조하세요.
+-   [Azure 역할 기반 액세스 제어](../../role-based-access-control/role-assignments-portal.md)는 Azure에 대해 세밀하게 초점을 맞춘 액세스 관리를 구현합니다. 구독 액세스는 구독 관리자로 제한되며 리소스 액세스는 사용자 역할에 따라 제한될 수 있습니다.
+- [Azure Active Directory Privileged Identity Management](../../active-directory/privileged-identity-management/pim-getting-started.md)를 사용하면 고객이 특정 정보에 액세스할 수 있는 사용자 수를 최소화할 수 있습니다.  관리자는 AAD PIM을 사용하여 권한 있는 ID와 리소스에 대한 액세스를 검색, 제한 및 모니터링할 수 있습니다. 필요한 경우 이 기능을 사용하여 요청 시 JIT(Just-In-Time) 관리 액세스를 적용할 수도 있습니다.
+- [Azure Active Directory Identity Protection](../../active-directory/identity-protection/overview.md)은 조직의 ID에 영향을 미치는 잠재적 취약성을 탐지하고, 조직의 ID와 관련하여 검색된 의심스러운 작업에 대한 자동화된 대응을 구성하며, 의심스러운 인시던트를 조사하여 이를 해결하기 위한 적절한 조치를 수행합니다.
 
 ### <a name="security"></a>보안
 **비밀 관리**: 이 솔루션은 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)를 사용하여 키와 비밀을 관리합니다. Azure Key Vault는 클라우드 애플리케이션 및 서비스에서 사용되는 암호화 키 및 비밀을 보호하는데 도움이 됩니다. Azure Key Vault 기능을 통해 고객이 데이터를 보호하고 이러한 데이터에 액세스할 수 있습니다.
@@ -132,31 +132,31 @@ Azure는 기본적으로 Azure 데이터 센터와의 모든 통신을 암호화
 - 키에 허용되는 암호화 작업은 필요한 것으로 제한됩니다
 
 **Application Gateway**: 이 아키텍처는 웹 애플리케이션 방화벽 및 OWASP 규칙 집합을 사용하도록 설정된 Application Gateway를 통해 보안 취약성의 위험을 줄입니다. 추가적인 기능은 다음과 같습니다.
-- [종단 간 SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
-- [SSL 오프로드](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-portal) 사용
+- [엔드투엔드 SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
+- [SSL 오프로드](../../application-gateway/create-ssl-portal.md) 사용
 - [TLS v1.0 및 v1.1](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell) 사용 안 함
-- [웹 애플리케이션 방화벽](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview)
+- [웹 애플리케이션 방화벽](../../application-gateway/waf-overview.md)
 - [방지 모드](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-portal), OWASP 3.0 규칙 집합 사용
 - [진단 로깅](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics) 사용
-- [사용자 지정 상태 프로브](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-gateway-portal)
+- [사용자 지정 상태 프로브](../../application-gateway/quick-create-portal.md)
 - [Azure Security Center](https://azure.microsoft.com/services/security-center) 및 [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-security-recommendations)는 추가적인 보호 및 알림을 제공합니다. Azure Security Center는 평판 시스템도 제공합니다.
 
 ### <a name="logging-and-auditing"></a>로깅 및 감사
 Azure Monitor는 시스템 및 사용자 활동, 시스템 상태에 대한 광범위한 로깅을 제공합니다. Azure 및 온-프레미스 환경의 리소스에서 생성된 데이터를 수집하고 분석합니다.
-- **활동 로그**: [활동 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)는 구독에 있는 리소스에서 수행된 작업에 대한 인사이트를 제공합니다. 활동 로그는 작업의 개시 장치, 발생 시간 및 상태를 결정하는 데 도움이 될 수 있습니다.
-- **진단 로그**: [진단 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)는 모든 리소스에서 내보낸 모든 로그를 포함합니다. 이러한 로그에는 Windows 이벤트 시스템 로그, Azure Storage 로그, Key Vault 감사 로그 및 Application Gateway 액세스 및 방화벽 로그가 포함됩니다.
-- **로그 보관**: 모든 진단 로그는 보관을 위해 암호화된 중앙 집중식 Azure Storage 계정에 기록됩니다. 보존은 조직 특정 보존 요구 사항에 맞게 최대 730일까지 사용자가 구성할 수 있습니다. 이러한 로그는 처리, 저장 및 대시보드 보고에 대 한 Azure Monitor 로그에 연결 합니다.
+- **활동 로그**: [활동 로그](../../azure-monitor/platform/activity-logs-overview.md)는 구독에 있는 리소스에서 수행된 작업에 대한 인사이트를 제공합니다. 활동 로그는 작업의 개시 장치, 발생 시간 및 상태를 결정하는 데 도움이 될 수 있습니다.
+- **진단 로그**: [진단 로그](../../azure-monitor/platform/diagnostic-logs-overview.md)는 모든 리소스에서 내보낸 모든 로그를 포함합니다. 이러한 로그에는 Windows 이벤트 시스템 로그, Azure Storage 로그, Key Vault 감사 로그 및 Application Gateway 액세스 및 방화벽 로그가 포함됩니다.
+- **로그 보관**: 모든 진단 로그는 보관을 위해 암호화된 중앙 집중식 Azure Storage 계정에 기록됩니다. 보존은 조직 특정 보존 요구 사항에 맞게 최대 730일까지 사용자가 구성할 수 있습니다. 이러한 로그는 처리, 저장 및 대시보드 보고를 위해 Azure Monitor 로그에 연결 됩니다.
 
 또한 이 아키텍처의 일부로 포함된 모니터링 솔루션은 다음과 같습니다.
--   [Active Directory 평가](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): Active Directory 상태 확인 솔루션은 일정한 간격으로 서버 환경의 위험과 상태를 평가하고 배포된 서버 인프라에 관련된 권장 사항의 우선 순위 목록을 제공합니다.
--   [맬웨어 방지 평가](https://docs.microsoft.com/azure/log-analytics/log-analytics-malware): 맬웨어 방지 솔루션은 맬웨어, 위협 및 보호 상태를 보고합니다.
+-   [Active Directory 평가](../../azure-monitor/insights/ad-assessment.md): Active Directory 상태 확인 솔루션은 일정한 간격으로 서버 환경의 위험과 상태를 평가하고 배포된 서버 인프라에 관련된 권장 사항의 우선 순위 목록을 제공합니다.
+-   [맬웨어 방지 평가](../../security-center/security-center-install-endpoint-protection.md): 맬웨어 방지 솔루션은 맬웨어, 위협 및 보호 상태를 보고합니다.
 -   [Azure Automation](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker): Azure Automation 솔루션은 Runbook을 저장, 실행 및 관리합니다. 이 솔루션에서 Runbook은 Application Insights 및 Azure SQL Database에서 로그를 수집하는 데 도움이 됩니다.
--   [보안 및 감사](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started): 보안 및 감사 대시보드는 보안 도메인, 주목할 만한 문제, 탐지, 위협 인텔리전스 및 일반적인 보안 쿼리에 대한 메트릭을 제공하여 리소스의 보안 상태에 대한 높은 수준의 인사이트를 제공합니다.
--   [SQL 평가](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment): SQL 상태 확인 솔루션은 일정한 간격으로 서버 환경의 위험과 상태를 평가하고, 배포된 서버 인프라에 관련된 권장 사항의 우선 순위 목록을 고객에게 제공합니다.
--   [업데이트 관리](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management): 업데이트 관리 솔루션을 사용하면 고객이 사용 가능한 업데이트 상태 및 필수 업데이트 설치 프로세스를 포함하여 운영 체제 보안 업데이트를 관리할 수 있습니다.
--   [에이전트 상태](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): 에이전트 상태 솔루션은 배포되는 에이전트 수와 해당 지리적 분포, 응답이 없는 에이전트 수 및 운영 데이터를 제출하는 에이전트 수를 보고합니다.
--   [Azure 활동 로그](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): Activity Log Analytics 솔루션은 고객에 대한 모든 Azure 구독에서 Azure 활동 로그를 분석하는 데 도움을 줍니다.
--   [변경 내용 추적](https://docs.microsoft.com/azure/automation/automation-change-tracking): 변경 내용 추적 솔루션을 사용하면 고객이 환경의 변경 내용을 쉽게 파악할 수 있습니다.
+-   [보안 및 감사](../../security-center/security-center-intro.md): 보안 및 감사 대시보드는 보안 도메인, 주목할 만한 문제, 탐지, 위협 인텔리전스 및 일반적인 보안 쿼리에 대한 메트릭을 제공하여 리소스의 보안 상태에 대한 높은 수준의 인사이트를 제공합니다.
+-   [SQL 평가](../../azure-monitor/insights/sql-assessment.md): SQL 상태 확인 솔루션은 일정한 간격으로 서버 환경의 위험과 상태를 평가하고, 배포된 서버 인프라에 관련된 권장 사항의 우선 순위 목록을 고객에게 제공합니다.
+-   [업데이트 관리](../../automation/automation-update-management.md): 업데이트 관리 솔루션을 사용하면 고객이 사용 가능한 업데이트 상태 및 필수 업데이트 설치 프로세스를 포함하여 운영 체제 보안 업데이트를 관리할 수 있습니다.
+-   [에이전트 상태](../../monitoring/monitoring-solution-agenthealth.md): 에이전트 상태 솔루션은 배포되는 에이전트 수와 해당 지리적 분포, 응답이 없는 에이전트 수 및 운영 데이터를 제출하는 에이전트 수를 보고합니다.
+-   [Azure 활동 로그](../../azure-monitor/platform/collect-activity-logs.md): Activity Log Analytics 솔루션은 고객에 대한 모든 Azure 구독에서 Azure 활동 로그를 분석하는 데 도움을 줍니다.
+-   [변경 내용 추적](../../automation/change-tracking.md): 변경 내용 추적 솔루션을 사용하면 고객이 환경의 변경 내용을 쉽게 파악할 수 있습니다.
 
 **Azure Monitor**
 [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/)를 사용하면 사용자의 Azure 리소스에서 API 호출을 추적하는 것을 포함하여 조직에서 감사, 경고 만들기 및 데이터 보관을 수행할 수 있도록 하여 고객이 성능을 추적하고, 보안을 유지하고, 추세를 식별할 수 있습니다.

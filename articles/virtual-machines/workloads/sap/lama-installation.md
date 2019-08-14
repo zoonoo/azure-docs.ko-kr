@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
 ms.openlocfilehash: 4a4421b87aa094306a42212f76f7590d4f139047
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "68607966"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Azure용 SAP LaMa 커넥터
@@ -484,7 +484,7 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-di
   * 솔루션  
     sapacext를 `<hanasid`>adm으로 실행할 수 있는지 테스트합니다.
 
-* 저장소 단계에서 전체 복사본을 사용할 수 없는 경우 오류 발생
+* 스토리지 단계에서 전체 복사본을 사용할 수 없는 경우 오류 발생
   * 경로 IStorageCopyData.storageVolumeCopyList:1 및 필드 targetStorageSystemId에 대한 컨텍스트 특성 메시지를 보고할 때 오류가 발생했습니다.
   * 솔루션  
     단계의 경고를 무시하고 다시 시도하세요. 이 문제는 SAP LaMa의 새로운 지원 패키지/패치에서 수정될 예정입니다.

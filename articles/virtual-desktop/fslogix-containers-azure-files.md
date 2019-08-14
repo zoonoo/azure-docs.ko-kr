@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 13f80b42ef6dfd0c70067a3ecf5f3e172527a63f
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 6bb3be3805243bba4d11037b180e7f8418a84014
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68846539"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68947212"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>FSLogix 프로필 컨테이너 및 Azure Files
 
@@ -77,7 +77,7 @@ S2D 클러스터에는 보안 상태에서 패치, 업데이트 및 유지 관�
 
 ## <a name="azure-files-integration-with-azure-active-directory-domain-service"></a>Azure Files Azure Active Directory 도메인 서비스와 통합
 
-FSLogix 프로필 컨테이너의 성능 및 기능은 클라우드를 활용 합니다. 2019 7 월 7 일에 Microsoft Azure 파일은 [AD DS (Azure Active Directory 도메인 서비스)를 사용 하 여 Azure Files 인증](/articles/storage/files/storage-files-active-directory-overview.md)의 일반 공급을 발표 했습니다. 비용 및 관리 오버 헤드를 모두 해결 함으로써 Azure AD DS 인증을 사용 하는 Azure Files Windows 가상 데스크톱 서비스의 사용자 프로필에 대 한 프리미엄 솔루션입니다.
+FSLogix 프로필 컨테이너의 성능 및 기능은 클라우드를 활용 합니다. 2019 7 월 7 일에 Microsoft Azure 파일은 [AD DS (Azure Active Directory 도메인 서비스)를 사용 하 여 Azure Files 인증](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-active-directory-overview)의 일반 공급을 발표 했습니다. 비용 및 관리 오버 헤드를 모두 해결 함으로써 Azure AD DS 인증을 사용 하는 Azure Files Windows 가상 데스크톱 서비스의 사용자 프로필에 대 한 프리미엄 솔루션입니다.
 
 ## <a name="best-practices-for-windows-virtual-desktop"></a>Windows 가상 데스크톱에 대 한 모범 사례
 

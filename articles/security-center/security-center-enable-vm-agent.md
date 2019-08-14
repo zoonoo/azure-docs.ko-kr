@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: 12934ad53050d16b89dd5b4175ca19a24d1ec4d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "60916296"
 ---
 # <a name="enable-vm-agent-in-azure-security-center"></a>Azure Security Center에서 VM 에이전트 사용
@@ -37,7 +37,7 @@ Azure Marketplace에서 배포된 VM에 VM 에이전트가 기본적으로 설�
 2. 이렇게 하면 **VM 에이전트가 없거나 응답하지 않습니다.** 블레이드가 열립니다. 이 블레이드에 VM 에이전트가 필요한 VM을 나열합니다. VM 에이전트를 설치하려면 블레이드의 지침을 따릅니다.
    ![VM 에이전트가 없습니다][2]
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Azure Security Center에서 보안 정책 설정](tutorial-security-policy.md)-- Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.

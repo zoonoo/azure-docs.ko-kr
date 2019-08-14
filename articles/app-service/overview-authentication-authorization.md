@@ -4,7 +4,7 @@ description: Azure App Service에 대한 인증/권한 부여 기능의 개념 �
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: erikre
+manager: gwallace
 editor: ''
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.service: app-service
@@ -12,16 +12,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 08/24/2018
+ms.date: 08/12/2019
 ms.author: cephalin
 ms.reviewer: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 53733774968f94ac95d9b3fea6d8fcb422b4e02c
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 12ad82b0dda628c3a8cef7712322500c7a33517c
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68515183"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68953810"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Azure App Service의 인증 및 권한 부여
 
@@ -119,29 +119,23 @@ App Service는 [페더레이션 ID](https://en.wikipedia.org/wiki/Federated_iden
 
 ## <a name="authorization-behavior"></a>권한 부여 동작
 
-[Azure Portal](https://portal.azure.com)에서 여러 동작을 통해 App Service 인증을 구성 할 수 있습니다.
+[Azure Portal](https://portal.azure.com)에서 들어오는 요청이 인증 되지 않은 경우 여러 동작을 사용 하 여 App Service 권한 부여를 구성할 수 있습니다.
 
 ![](media/app-service-authentication-overview/authorization-flow.png)
 
 다음 제목은 옵션을 설명합니다.
 
-### <a name="allow-all-requests-default"></a>모든 요청(기본값) 허용
+### <a name="allow-anonymous-requests-no-action"></a>익명 요청 허용(작업 없음)
 
-인증 및 권한 부여는 App Service에서 관리하지 않습니다(사용 중지됨). 
+이 옵션은 응용 프로그램 코드에 대 한 인증 되지 않은 트래픽의 권한 부여를 지연 시킵니다. 인증된 요청의 경우 App Service는 HTTP 헤더의 인증 정보도 전달합니다. 
 
-인증 및 권한 부여가 필요하지 않거나 자체적으로 인증 및 인증 코드를 작성하려는 경우 이 옵션을 선택합니다.
+이 옵션은 익명 요청을 보다 유연하게 처리할 수 있습니다. 예를 들어 [여러 로그인 공급자](app-service-authentication-how-to.md#use-multiple-sign-in-providers)를 사용자에게 제공할 수 있습니다. 그러나 코드를 작성해야 합니다. 
 
 ### <a name="allow-only-authenticated-requests"></a>인증된 요청만 허용
 
 옵션은 **\<공급자>를 사용한 로그인**입니다. App Service는 사용자가 선택한 공급자에 대한 모든 익명 요청을 `/.auth/login/<provider>`로 리디렉션합니다. 익명의 요청이 네이티브 모바일 앱에서 오는 경우 반환된 응답은 `HTTP 401 Unauthorized`입니다.
 
 이 옵션을 사용하면 앱에서 인증 코드를 작성할 필요가 없습니다. 역할별 권한 부여와 같이 보다 정교한 권한 부여는 사용자의 클레임을 검사하여 처리할 수 있습니다([사용자 클레임 액세스](app-service-authentication-how-to.md#access-user-claims) 참조).
-
-### <a name="allow-all-requests-but-validate-authenticated-requests"></a>모든 요청을 허용하지만 인증된 요청의 유효성 검사
-
-옵션은 **익명 요청 허용**입니다. 이 옵션은 App Service의 인증 및 권한 부여를 활성화하지만 애플리케이션 코드에 대한 권한 결정을 지연시킵니다. 인증된 요청의 경우 App Service는 HTTP 헤더의 인증 정보도 전달합니다. 
-
-이 옵션은 익명 요청을 보다 유연하게 처리할 수 있습니다. 예를 들어 [여러 로그인 공급자](app-service-authentication-how-to.md#use-multiple-sign-in-providers)를 사용자에게 제공할 수 있습니다. 그러나 코드를 작성해야 합니다. 
 
 ## <a name="more-resources"></a>추가 리소스
 

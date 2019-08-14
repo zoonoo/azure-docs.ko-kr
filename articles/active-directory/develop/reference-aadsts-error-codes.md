@@ -18,10 +18,10 @@ ms.reviewer: hirsin, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3d6ed5c80d5c3241a9a328a2427ed8b920790635
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67482479"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>인증 및 권한 부여 오류 코드
@@ -31,11 +31,11 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 > [!NOTE]
 > 이 정보는 임시로 제공되며 변경될 수 있습니다. 질문이 있거나 원하는 항목을 찾을 수 없나요? GitHub 문제를 만들거나 [개발자를 위한 지원 및 도움말 옵션](active-directory-develop-help-support.md)을 확인하여 도움말 및 지원을 얻을 수 있는 다른 방법을 알아보세요.
 >
-> 이 설명서 개발자 및 관리자 지침을 제공 하지만 자체 클라이언트에서 사용 되지 않아야 합니다. 오류 코드는 응용 프로그램을 빌드하는 동안 개발자는 데 사용 되는 보다 세부적인 오류 메시지를 제공 하기 위해 언제 든 지 변경 될 수 있습니다는. 텍스트 또는 오류 코드 번호에 의존 하는 앱은 시간이 지남에 따라 끊어집니다.  
+> 이 설명서는 개발자 및 관리 지침에 제공 되지만 클라이언트 자체에서 사용해 서는 안 됩니다. 오류 코드는 개발자가 응용 프로그램을 빌드하는 동안 도움을 주기 위해 사용할 수 있는 보다 세부적인 오류 메시지를 제공 하기 위해 언제 든 지 변경 될 수 있습니다. 텍스트 또는 오류 코드 번호에 대 한 종속성을 사용 하는 앱은 시간이 지남에 따라 분할 됩니다.  
 
 ## <a name="aadsts-error-codes"></a>AADSTS 오류 코드
 
-| 오류 | 설명 |
+| Error | 설명 |
 |---|---|
 | AADSTS16000 | SelectUserAccount - 이것은 Azure AD에 의해 throw된 인터럽트로, 사용자가 여러 개의 유효한 SSO 세션 중에서 선택할 수 있는 UI가 나타납니다. 이 오류는 매우 일반적이며 `prompt=none`이 지정된 경우 애플리케이션에 반환될 수 있습니다. |
 | AADSTS16001 | UserAccountSelectionInvalid - 사용자가 세션 선택 논리가 거부한 타일을 클릭하면 이 오류가 표시됩니다. 이 오류가 트리거되면 사용자는 업데이트된 타일/세션 목록에서 선택하거나 다른 계정을 선택하여 복구할 수 있습니다. 이 오류는 코드 결함 또는 경합 상태로 인해 발생할 수 있습니다. |
@@ -53,12 +53,12 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS50001 | InvalidResource - 리소스를 사용할 수 없거나 존재하지 않습니다. 앱 코드를 확인하여 액세스하려는 리소스의 정확한 리소스 URL을 지정했는지 확인하세요.  |
 | AADSTS50002 | NotAllowedTenant - 테넌트의 제한된 프록시 액세스로 인해 로그인하지 못했습니다. 사용자 고유의 테넌트 정책인 경우 제한된 테넌트 설정을 변경하여 이 문제를 해결할 수 있습니다. |
 | AADSTS50003 | MissingSigningKey - 서명 키 또는 인증서의 누락으로 인해 로그인하지 못했습니다. 이 오류는 앱에 구성된 서명 키가 없기 때문일 수 있습니다. [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured)에 설명된 해결 방법을 확인하세요. 그래도 문제가 계속되면 앱 소유자 또는 앱 관리자에게 문의하세요. |
-| AADSTS50005 | DevicePolicyError-사용자는 조건부 액세스 정책을 통해 현재 지원 되지 않는 플랫폼에서 장치에 로그인을 시도 했습니다. |
+| AADSTS50005 | DevicePolicyError-사용자가 현재 조건부 액세스 정책을 통해 지원 되지 않는 플랫폼에서 장치에 로그인 하려고 했습니다. |
 | AADSTS50006 | InvalidSignature - 잘못된 서명으로 인해 서명을 확인하지 못했습니다. |
 | AADSTS50007 | PartnerEncryptionCertificateMissing - 이 앱에 대한 파트너 암호화 인증서를 찾을 수 없습니다. 이 문제를 해결하려면 Microsoft에서 [지원 티켓을 여세요](../fundamentals/active-directory-troubleshooting-support-howto.md). |
 | AADSTS50008 | InvalidSamlToken - 토큰에서 SAML 어설션이 누락되었거나 잘못 구성되었습니다. 페더레이션 공급자에게 문의하세요. |
 | AADSTS50010 | AudienceUriValidationFailed - 토큰 대상 그룹이 구성되지 않았으므로 앱에 대한 대상 그룹 URI 유효성 검사가 실패했습니다. |
-| AADSTS50011 | InvalidReplyTo - 회신 주소가 누락되었거나, 잘못 구성되었거나, 앱에 대해 구성된 회신 주소와 일치하지 않습니다.  해상도와 Azure Active Directory 응용 프로그램에이 누락 된 회신 주소를 추가 하거나 Active Directory에서 응용 프로그램을 관리할 수 있는 권한을 가진 사람이이 작업을 수행 하 게 확인 합니다.|
+| AADSTS50011 | InvalidReplyTo - 회신 주소가 누락되었거나, 잘못 구성되었거나, 앱에 대해 구성된 회신 주소와 일치하지 않습니다.  해결 방법으로이 누락 된 회신 주소를 Azure Active Directory 응용 프로그램에 추가 하거나 Active Directory에서 응용 프로그램을 관리할 수 있는 권한이 있는 사용자에 게이 작업을 수행할 수 있도록 합니다.|
 | AADSTS50012 | AuthenticationFailed - 다음 이유 중 하나로 인해 인증에 실패했습니다.<ul><li>서명 인증서의 주체 이름이 인증되지 않았습니다.</li><li>인증된 주체 이름에 대해 일치하는 신뢰할 수 있는 인증 기관 정책을 찾을 수 없습니다.</li><li>인증서 체인이 유효하지 않습니다.</li><li>서명 인증서가 유효하지 않습니다.</li><li>테넌트에서 정책이 구성되지 않았습니다.</li><li>서명 인증서의 지문이 인증되지 않았습니다.</li><li>클라이언트 어설션에 잘못된 서명이 들어 있습니다.</li></ul> |
 | AADSTS50013 | InvalidAssertion - 어설션이 여러 가지 이유로 유효하지 않습니다. 즉 토큰 발급자가 유효한 시간 범위 내의 API 버전과 일치하지 않거나, 만료되었거나, 잘못된 형식으로 되어 있습니다. 또는 어설션의 새로 고침 토큰이 주 새로 고침 토큰이 아닙니다. |
 | AADSTS50014 | GuestUserInPendingState - 사용자의 사용이 보류 상태입니다. 게스트 사용자 계정이 아직 완전히 생성되지 않았습니다. |
@@ -70,7 +70,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS50032 | WeakRsaKey - 잘못된 사용자가 약한 RSA 키를 사용하려고 했음을 나타냅니다. |
 | AADSTS50033 | RetryableError - 데이터베이스 작업과 관련이 없는 일시적인 오류를 나타냅니다. |
 | AADSTS50034 | UserAccountNotFound - 이 애플리케이션에 로그인하려면 계정을 해당 디렉터리에 추가해야 합니다. |
-| AADSTS50042 | UnableToGeneratePairwiseIdentifierWithMissingSalt-쌍별 식별자를 생성 하는 데 필요한 솔트 원칙에 없습니다. 테넌트 관리자에게 문의하세요. |
+| AADSTS50042 | UnableToGeneratePairwiseIdentifierWithMissingSalt-쌍으로 된 식별자를 생성 하는 데 필요한 솔트가 원칙에 없습니다. 테넌트 관리자에게 문의하세요. |
 | AADSTS50043 | UnableToGeneratePairwiseIdentifierWithMultipleSalts |
 | AADSTS50048 | SubjectMismatchesIssuer - 주체가 클라이언트 어설션의 발급자 클레임과 일치하지 않습니다. 테넌트 관리자에게 문의하세요. |
 | AADSTS50049 | NoSuchInstanceForDiscovery - 알 수 없거나 잘못된 인스턴스입니다. |
@@ -134,10 +134,10 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS51005 | TemporaryRedirect - 요청된 정보가 위치 헤더에 지정된 URI에 있음을 나타내는 HTTP 상태 307과 동일합니다. 이 상태를 수신하면 응답과 관련된 위치 헤더 뒤에 나옵니다. 원래의 요청 메서드가 POST인 경우 리디렉션된 요청도 POST 메서드를 사용합니다. |
 | AADSTS51006 | ForceReauthDueToInsufficientAuth - 통합 Windows 인증이 필요합니다. 사용자가 통합 Windows 인증 클레임이 누락된 세션 토큰을 사용하여 로그인했습니다. 사용자가 다시 로그인하도록 요청합니다. |
 | AADSTS52004 | DelegationDoesNotExistForLinkedIn - 사용자가 LinkedIn 리소스에 대한 액세스 동의를 제공하지 않았습니다. |
-| AADSTS53000 | 장치가 규정을 준수 하지 않으면 DeviceNotCompliant-조건부 액세스 정책을 준수 장치가 필요 하며 사용자가 Intune과 같이 승인된 MDM 공급자에 자신의 디바이스를 등록해야 합니다. |
-| AADSTS53001 | DeviceNotDomainJoined-조건부 액세스 정책이 도메인 가입된 장치 필요 하 고 장치가 도메인에 가입 되지 않았습니다. 사용자가 도메인 가입 디바이스를 사용하도록 합니다. |
-| AADSTS53002 | ApplicationUsedIsNotAnApprovedApp-사용 되는 앱은 조건부 액세스에 대 한 승인된 된 앱 없습니다. 사용자가 액세스 권한을 부여받으려면 사용하도록 승인된 앱 목록에 있는 앱 중 하나를 사용해야 합니다. |
-| AADSTS53003 | 조건부 액세스 정책에 의해 BlockedByConditionalAccess-액세스 차단 되었습니다. 액세스 정책에 따라 토큰 발급을 허용하지 않습니다. |
+| AADSTS53000 | DeviceNotCompliant-조건부 액세스 정책에는 준수 장치가 필요 하며 장치는 호환 되지 않습니다. 사용자가 Intune과 같이 승인된 MDM 공급자에 자신의 디바이스를 등록해야 합니다. |
+| AADSTS53001 | DeviceNotDomainJoined-조건부 액세스 정책에 도메인 가입 장치가 필요 하며 장치가 도메인에 가입 되어 있지 않습니다. 사용자가 도메인 가입 디바이스를 사용하도록 합니다. |
+| AADSTS53002 | ApplicationUsedIsNotAnApprovedApp-사용 되는 앱은 조건부 액세스에 대해 승인 된 앱이 아닙니다. 사용자가 액세스 권한을 부여받으려면 사용하도록 승인된 앱 목록에 있는 앱 중 하나를 사용해야 합니다. |
+| AADSTS53003 | BlockedByConditionalAccess-조건부 액세스 정책에 의해 액세스가 차단 되었습니다. 액세스 정책에 따라 토큰 발급을 허용하지 않습니다. |
 | AADSTS53004 | ProofUpBlockedDueToRisk - 사용자는 이 콘텐츠에 액세스하기 전에 다단계 인증 등록 프로세스를 완료해야 합니다. 사용자가 다단계 인증을 등록해야 합니다. |
 | AADSTS54000 | MinorUserBlockedLegalAgeGroupRule |
 | AADSTS65001 | DelegationDoesNotExist - 사용자 또는 관리자가 X ID로 애플리케이션을 사용하는 데 동의하지 않았습니다. 이 사용자 및 리소스에 대한 대화형 권한 부여 요청을 보내세요. |
@@ -215,7 +215,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS90093 | GraphUserUnauthorized - 요청에 대해 사용할 수 없는 오류 코드와 함께 반환된 그래프입니다. |
 | AADSTS90094 | AdminConsentRequired - 관리자 동의가 필요합니다. |
 | AADSTS90100 | InvalidRequestParameter - 매개 변수가 비어 있거나 잘못되었습니다. |
-| AADSTS901002 | AADSTS901002: 'Resource' 요청 매개 변수는 지원 되지 않습니다. |
+| AADSTS901002 | AADSTS901002: ' Resource ' 요청 매개 변수는 지원 되지 않습니다. |
 | AADSTS90101 | InvalidEmailAddress - 제공한 데이터가 유효한 메일 주소가 아닙니다. 메일 주소는 `someone@example.com` 형식이어야 합니다. |
 | AADSTS90102 | InvalidUriParameter - 값이 유효한 절대 URI여야 합니다. |
 | AADSTS90107 | InvalidXml - 요청이 잘못되었습니다. 데이터에 잘못된 문자가 없는지 확인합니다.|
@@ -258,7 +258,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS221000 | DeviceOnlyTokensNotSupportedByResource - 디바이스 전용 토큰을 수락하도록 리소스가 구성되어 있지 않습니다. |
 | AADSTS240001 | BulkAADJTokenUnauthorized - 사용자에게 Azure AD에 디바이스를 등록할 수 있는 권한이 없습니다. |
 | AADSTS240002 | RequiredClaimIsMissing - id_token을 `urn:ietf:params:oauth:grant-type:jwt-bearer` 권한 부여로 사용할 수 없습니다.|
-| AADSTS530032 | BlockedByConditionalAccessOnSecurityPolicy-테 넌 트 관리자가이 요청을 차단 하는 보안 정책을 구성 합니다. 요청에 정책 요구 사항을 만족 하는지 확인 하려면 테 넌 트 수준에서 정의 된 보안 정책을 확인 합니다. |
+| AADSTS530032 | BlockedByConditionalAccessOnSecurityPolicy-테 넌 트 관리자가이 요청을 차단 하는 보안 정책을 구성 했습니다. 테 넌 트 수준에 정의 된 보안 정책을 확인 하 여 요청이 정책 요구 사항을 충족 하는지 확인 합니다. |
 | AADSTS700016 | UnauthorizedClient_DoesNotMatchRequest - 디렉터리/테넌트에서 애플리케이션을 찾지 못했습니다. 이 오류는 테넌트의 관리자가 애플리케이션을 설치하지 않았거나 테넌트의 사용자가 동의하지 않은 경우에 발생할 수 있습니다. 애플리케이션에 대한 식별자 값을 잘못 구성했거나 잘못된 테넌트에 인증 요청을 보낸 것일 수 있습니다. |
 | AADSTS700020 | InteractionRequired - 액세스 권한 부여에는 상호 작용이 필요합니다. |
 | AADSTS700022 | InvalidMultipleResourcesScope - 입력 매개 변수 범위에 대해 제공한 값이 둘 이상의 리소스를 포함하므로 잘못되었습니다. |

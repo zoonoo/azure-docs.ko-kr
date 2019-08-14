@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91cc2707034eabf85afae70278f2448b77d3ee14
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 413df402d5acc878130a47821efd5fa3a512257d
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608081"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68931943"
 ---
 # <a name="baseline-policy-block-legacy-authentication-preview"></a>기준 정책: 레거시 인증 차단 (미리 보기)
 
@@ -37,7 +37,7 @@ ms.locfileid: "68608081"
 
 1. **Azure Portal** > Azure Active Directory로그인 > 으로 이동 합니다.
 1. **열** > **클라이언트 앱**을 클릭 하 여 표시 되지 않는 경우 클라이언트 앱 열을 추가 합니다.
-1. **클라이언트 앱** > **다른 클라이언트** 를 기준으로 필터링 하 고 **적용**을 클릭 합니다.
+1. 필터 > 추가**클라이언트 앱** > **다른 클라이언트** 에 대 한 옵션을 모두 선택 하 고 **적용**을 클릭 합니다.
 
 필터링은 레거시 인증 프로토콜을 통해 수행 된 로그인 시도만 표시 합니다. 개별 로그인 시도를 클릭 하면 추가 세부 정보가 표시 됩니다. **기본 정보** 탭의 **클라이언트 앱** 필드는 사용 된 레거시 인증 프로토콜을 표시 합니다.
 

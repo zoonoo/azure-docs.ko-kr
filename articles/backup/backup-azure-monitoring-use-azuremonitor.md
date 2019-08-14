@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: dacurwin
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: de13518173f21a0a802c37eb7be3cd6c4926d884
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: ffc245402965cdcd62bb210d79bd95db5444f964
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689201"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954632"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Azure Monitor를 사용 하 여 규모에 맞게 모니터링
 
@@ -238,7 +238,7 @@ Log Analytics의 모든 경고 및 모니터링 요구 사항을 충족 하거�
 
    ![새로운 경고 규칙](media/backup-azure-monitoring-laworkspace/new-alert-rule.png)
 
-여기서 리소스는 Recovery Services 자격 증명 모음 자체입니다. 활동 로그를 통해 알림이 받으려는 모든 자격 증명 모음에 대해 동일한 단계를 반복 해야 합니다. 이 경고는 이벤트를 기반으로 하기 때문에 조건에는 임계값, 기간 또는 빈도가 없습니다. 관련 활동 로그가 생성 되는 즉시 경고가 발생 합니다.
+여기서 리소스는 Recovery Services 자격 증명 모음 자체입니다. 활동 로그를 통해 알림이 받으려는 모든 자격 증명 모음에 대해 동일한 단계를 반복 합니다. 이 경고는 이벤트를 기반으로 하기 때문에 조건에는 임계값, 기간 또는 빈도가 없습니다. 관련 활동 로그가 생성 되는 즉시 경고가 발생 합니다.
 
 ## <a name="using-log-analytics-to-monitor-at-scale"></a>Log Analytics를 사용 하 여 대규모로 모니터링
 

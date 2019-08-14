@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0a051b0e853b60dfc1f5b6c3453d9ed8361f1748
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 0c6186334820d0e419a06b9c60a8279825bf54c2
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67438827"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68927303"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 애플리케이션의 사용자 인터페이스 사용자 지정
 
@@ -23,7 +23,7 @@ ms.locfileid: "67438827"
 
 이 문서를 완료하면 브랜드와 모양이 포함된 등록 및 로그인 사용자 지정 정책을 갖습니다. Azure AD B2C(Azure Active Directory B2C)를 사용하면 사용자에게 제공되는 HTML 및 CSS 콘텐츠를 거의 완벽하게 제어할 수 있습니다. 사용자 지정 정책을 사용하는 경우 Azure Portal의 컨트롤을 사용하는 대신 XML로 UI 사용자 지정을 구성합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 [사용자 지정 정책 시작](active-directory-b2c-get-started-custom.md)의 단계를 완료합니다. 로컬 계정을 사용하여 등록 및 로그인하기 위한 사용자 지정 정책이 작동해야 합니다.
 
@@ -53,6 +53,9 @@ ms.locfileid: "67438827"
 
 2. 복사한 코드 조각을 텍스트 편집기에 붙여넣은 다음 *customize-ui.html*이라는 파일로 저장합니다.
 
+> [!NOTE]
+> Login.microsoftonline.com를 사용 하는 경우 보안 제한으로 인해 HTML 양식 요소가 제거 됩니다. 사용자 지정 HTML 콘텐츠에서 HTML 양식 요소를 사용 하려면 b2clogin.com를 사용 하세요. 다른 혜택은 [B2clogin.com 사용](b2clogin.md) 을 참조 하세요.
+
 ## <a name="create-an-azure-blob-storage-account"></a>Azure Blob Storage 계정 만들기
 
 >[!NOTE]
@@ -61,49 +64,49 @@ ms.locfileid: "67438827"
 Blob Storage에서 이 HTML 콘텐츠를 호스팅하려면 다음을 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. **허브** 메뉴에서 **새로 만들기** > **저장소** > **저장소 계정**을 차례로 선택합니다.
-3. 저장소 계정의 고유한 **이름**을 입력합니다.
+2. **허브** 메뉴에서 **새로 만들기** > **스토리지** > **스토리지 계정**을 차례로 선택합니다.
+3. 스토리지 계정의 고유한 **이름**을 입력합니다.
 4. **배포 모델**은 **Resource Manager**로 유지하면 됩니다.
 5. **계정 종류**를 **Blob Storage**로 변경합니다.
 6. **성능**은 **표준**으로 유지하면 됩니다.
 7. **복제**는**RA-GRS**로 유지하면 됩니다.
 8. **액세스 계층**은 **핫**으로 유지하면 됩니다.
 9. **Storage 서비스 암호화**는 **사용 안 함**으로 유지하면 됩니다.
-10. 저장소 계정에 대한 **구독**을 선택합니다.
+10. 스토리지 계정에 대한 **구독**을 선택합니다.
 11. **리소스 그룹**을 만들거나 기존 그룹을 선택합니다.
-12. 저장소 계정에 대한 **지리적 위치**를 선택합니다.
-13. **만들기** 를 클릭하여 저장소 계정을 만들 수 있습니다.  
+12. 스토리지 계정에 대한 **지리적 위치**를 선택합니다.
+13. **만들기** 를 클릭하여 스토리지 계정을 만들 수 있습니다.  
     배포가 완료되면 **Storage 계정** 블레이드가 자동으로 열립니다.
 
 ## <a name="create-a-container"></a>컨테이너 만들기
 
 Blob Storage에 공용 컨테이너를 만들려면 다음을 수행합니다.
 
-1. 아래 **Blob service** 왼쪽 메뉴에서 선택 **Blob**합니다.
-2. 클릭 **+ 컨테이너**합니다.
-3. 에 대 한 **이름을**를 입력 *루트*입니다. 사용자 선택의 예를 들어 이름일 수 있습니다 *wingtiptoys*를 사용 하지만 *루트* 편의상이 예제에서입니다.
-4. 에 대 한 **공용 액세스 수준을**를 선택 **Blob**, 한 다음 **확인**합니다.
-5. 클릭 **루트** 새 컨테이너를 엽니다.
+1. 왼쪽 메뉴의 **Blob service** 에서 **blob**을 선택 합니다.
+2. **+ 컨테이너**를 클릭 합니다.
+3. **이름**에 *root*를 입력 합니다. 이 이름은 선택한 이름 (예: *wingtiptoys*) 일 수 있지만이 예제에서는 *루트* 를 사용 하는 것이 간단 합니다.
+4. **공용 액세스 수준**에서 **Blob**, **확인**을 차례로 선택 합니다.
+5. **루트** 를 클릭 하 여 새 컨테이너를 엽니다.
 6. **업로드**를 클릭합니다.
 7. **파일 선택** 옆에 있는 폴더 아이콘을 클릭합니다.
-8. 탐색 하 고 선택 **customize-ui.html** 페이지 UI 사용자 지정 섹션에서 이전에 만든입니다.
-9. 하위 폴더에 업로드 하려는 경우 확장 **Advanced** 에 폴더 이름을 입력 하 고 **폴더로 업로드**합니다.
+8. 페이지 UI 사용자 지정 섹션에서 이전에 만든 **customize-ui** 을 탐색 하 고 선택 합니다.
+9. 하위 폴더에 업로드 하려는 경우 **고급** 을 확장 하 고 **폴더에 업로드**폴더에 폴더 이름을 입력 합니다.
 10. **업로드**를 선택합니다.
-11. 선택 된 **customize-ui.html** 업로드 한 blob입니다.
-12. 오른쪽에는 **URL** 텍스트 상자를 선택 합니다 **클립보드에 복사** URL을 클립보드에 복사 아이콘.
-13. 웹 브라우저에서 업로드 한 blob에 액세스할 수 있는지 확인에 복사한 URL로 이동 합니다. 예를 들어 발생 하는 경우 액세스할 수 없는 경우는 `ResourceNotFound` 오류 컨테이너 액세스 형식이 설정 되어 있는지 확인 **blob**합니다.
+11. 업로드 한 **customize-ui** blob을 선택 합니다.
+12. **Url** 텍스트 상자의 오른쪽에서 **클립보드에 복사** 아이콘을 선택 하 여 url을 클립보드에 복사 합니다.
+13. 웹 브라우저에서 복사한 URL로 이동 하 여 업로드 한 blob에 액세스할 수 있는지 확인 합니다. 액세스할 수 없는 경우, 예를 들어 `ResourceNotFound` 오류가 발생 한 경우 컨테이너 액세스 형식이 **blob**으로 설정 되어 있는지 확인 합니다.
 
 ## <a name="configure-cors"></a>CORS 구성
 
 다음을 수행하여 CORS(원본 간 리소스 공유)에 Blob Storage를 구성합니다.
 
 1. 메뉴에서 **CORS**를 선택합니다.
-2. **허용된 원본**에 `https://your-tenant-name.b2clogin.com`을 입력합니다. `your-tenant-name`은 Azure AD B2C 테넌트의 이름으로 바꿉니다. 예: `https://fabrikam.b2clogin.com`. 테넌트 이름을 입력할 때는 모두 소문자를 사용해야 합니다.
+2. **허용된 원본**에 `https://your-tenant-name.b2clogin.com`을 입력합니다. `your-tenant-name`은 Azure AD B2C 테넌트의 이름으로 바꿉니다. `https://fabrikam.b2clogin.com` )을 입력합니다. 테넌트 이름을 입력할 때는 모두 소문자를 사용해야 합니다.
 3. **허용된 메소드**에서 `GET`과 `OPTIONS`를 모두 선택합니다.
 4. **허용된 헤더**에 별표(*)를 입력합니다.
 5. **노출된 헤더**에 별표(*)를 입력합니다.
 6. **최대 기간**에 200을 입력합니다.
-7. **저장**을 클릭합니다.
+7. **Save**을 클릭합니다.
 
 ## <a name="test-cors"></a>CORS 테스트
 
@@ -122,7 +125,7 @@ UI 사용자 지정을 구성하려면 **ContentDefinition** 및 해당 자식 �
 3. 확장 파일을 엽니다(예: 예: *TrustFrameworkExtensions.xml* **BuildingBlocks** 요소를 검색합니다. 요소가 존재하지 않는 경우 추가합니다.
 4. 복사한 **ContentDefinitions**의 전체 내용을 **BuildingBlocks** 요소의 자식으로 붙여 넣습니다. 
 5. 복사한 XML에서 `Id="api.signuporsignin"`을 포함하는 **ContentDefinition** 요소를 검색합니다.
-6. **LoadUri** 값을 저장소에 업로드한 HTML 파일의 URL로 변경합니다. 예: `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html`.
+6. **LoadUri** 값을 스토리지에 업로드한 HTML 파일의 URL로 변경합니다. `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html` )을 입력합니다.
     
     사용자 지정 정책이 다음과 비슷해야 합니다.
 
@@ -146,7 +149,7 @@ UI 사용자 지정을 구성하려면 **ContentDefinition** 및 해당 자식 �
 ## <a name="upload-your-updated-custom-policy"></a>업데이트된 사용자 지정 정책 업로드
 
 1. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 테넌트가 포함된 디렉터리를 선택합니다.
-3. Azure Portal의 왼쪽 위에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
+3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 4. **ID 경험 프레임워크**를 선택합니다.
 2. **모든 정책**을 클릭합니다.
 3. **업로드 정책**을 클릭합니다.
@@ -177,13 +180,13 @@ sample_templates/wingtip 폴더에는 다음과 같은 HTML 파일이 있습니�
 | *unified.html* | 통합 등록 또는 로그인 페이지의 템플릿으로 사용합니다. |
 | *updateprofile.html* | 프로필 업데이트 페이지의 템플릿으로 사용합니다. |
 
-샘플을 사용 하는 방법은 단계는 다음과 같습니다. 
-1. 로컬 컴퓨터에 리포지토리를 복제 합니다. Sample_templates 아래의 템플릿 폴더를 선택 합니다. 사용할 수 있습니다 `wingtip` 또는 `contoso`합니다.
-2. 아래에 있는 모든 파일을 업로드 합니다 `css`, `fonts`, 및 `images` 이전 섹션에 설명 된 대로 Blob storage에는 폴더입니다. 
-3. 다음으로, 각를 엽니다 \*.html 파일의 루트에서 `wingtip` 또는 `contoso` (중에서 선택한 첫 번째 단계)의 모든 인스턴스를 바꾸고 "http://localhost" 2 단계에서 업로드 한 css, 이미지 및 글꼴 파일의 Url을 사용 하 여 합니다.
-4. 저장 된 \*.html 파일을 Blob storage에 업로드 합니다.
-5. 이제 앞에서 설명한 대로 확장 파일을 수정할 [확장 파일을 수정](#modify-the-extensions-file)합니다.
-6. 글꼴, 이미지 또는 css 누락을 표시 하는 경우 확장 정책에서 참조를 확인 하십시오 및 \*.html 파일.
+샘플을 사용 하는 방법에 대 한 단계는 다음과 같습니다. 
+1. 로컬 컴퓨터에서 리포지토리를 복제 합니다. Sample_templates 아래에서 템플릿 폴더를 선택 합니다. `wingtip` 또는`contoso`를 사용할 수 있습니다.
+2. 이전 섹션에 설명 된 대로 `css`, `fonts`및 `images` 폴더 아래의 모든 파일을 Blob 저장소에 업로드 합니다. 
+3. 그런 다음, 또는 \* `wingtip` `contoso` (첫 번째 단계에서 선택한 항목 중 하나)의 루트에서 각 .html 파일을 열고 "http://localhost"의 모든 인스턴스를 2 단계에서 업로드 한 css, 이미지 및 글꼴 파일의 url로 바꿉니다.
+4. \*.Html 파일을 저장 하 고 Blob 저장소에 업로드 합니다.
+5. 이제 [확장 파일 수정](#modify-the-extensions-file)의 앞에서 설명한 대로 확장 파일을 수정 합니다.
+6. 누락 된 글꼴, 이미지 또는 css가 표시 되 면 확장 정책 및 \*.html 파일의 참조를 확인 하세요.
 
 ### <a name="content-defintion-ids"></a>콘텐츠 정의 Id
 

@@ -7,19 +7,19 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 312e39ff1b699bb3c7f2baea3c66cbf8999ee44b
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: ba21ec6ba82ac4984d3c51fc46f88de2cd56b2b2
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68814508"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933685"
 ---
 # <a name="use-a-jupyter-notebook-and-kqlmagic-extension-to-analyze-data-in-azure-data-explorer"></a>Jupyter Notebook 및 Kqlmagic 확장을 사용 하 여 Azure에서 데이터 분석 데이터 탐색기
 
 Jupyter Notebook은 라이브 코드, 수식, 시각화 및 내레이션 텍스트를 포함하는 문서를 만들고 공유할 수 있는 오픈 소스 웹 애플리케이션입니다. 사용에는 데이터 정리 및 변환, 숫자 시뮬레이션, 통계 모델링, 데이터 시각화 및 기계 학습이 포함됩니다.
 [Jupyter Notebook](https://jupyter.org/)은 추가 명령을 지원하여 커널의 기능을 확장하는 매직 함수를 지원합니다. KQL 매직은 Jupyter Notebook에서 Python 커널의 기능을 확장하는 명령이므로 Kusto 언어 쿼리를 기본적으로 실행할 수 있습니다. Python 및 Kusto 쿼리 언어를 쉽게 결합하여 `render` 명령과 통합된 서식 있는 Plot.ly 라이브러리를 통해 데이터를 쿼리하고 시각화할 수 있습니다. 쿼리 실행을 위한 데이터 원본이 지원됩니다. 이러한 데이터 원본에는 로그 및 원격 분석 데이터에 대 한 빠르고 확장성이 뛰어난 데이터 탐색 서비스인 Azure 데이터 탐색기와 Azure Monitor 로그 및 Application Insights 포함 됩니다. KQL 매직은 Azure Notebooks, Jupyter Lab 및 Visual Studio Code Jupyter 확장에서도 작동합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 - AAD(Azure Active Directory)의 멤버인 조직 메일 계정
 - 로컬 머신에 설치된 Jupyter Notebook 또는 Azure Notebooks를 사용하고 샘플 [Azure Notebooks](https://kustomagicsamples-manojraheja.notebooks.azure.com/j/notebooks/Getting%20Started%20with%20kqlmagic%20on%20Azure%20Data%20Explorer.ipynb) 복제
@@ -39,7 +39,9 @@ Jupyter Notebook은 라이브 코드, 수식, 시각화 및 내레이션 텍스�
     ```python
     %reload_ext Kqlmagic
     ```
-
+    > [!NOTE]
+    > 커널을 클릭 하 여 커널 버전을 Python 3.6로 변경 합니다. 커널 > 변경 커널 > Python 3.6
+    
 ## <a name="connect-to-the-azure-data-explorer-help-cluster"></a>Azure Data Explorer 도움말 클러스터에 연결
 
 다음 명령을 사용하여 ‘도움말’ 클러스터에 호스트된 ‘샘플’ 데이터베이스에 연결합니다. 타사 AAD 사용자의 경우 테넌트 이름 `Microsoft.com`을 AAD 테넌트로 바꿉니다.

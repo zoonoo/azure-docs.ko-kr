@@ -9,10 +9,10 @@ ms.date: 05/07/2017
 ms.author: ancav
 ms.subservice: autoscale
 ms.openlocfilehash: e6423f2ce3659fd3dd738dcc8a990261bc7bf60c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "60334336"
 ---
 # <a name="get-started-with-auto-scale-by-custom-metric-in-azure"></a>Azure에서 사용자 지정 메트릭을 기준으로 자동 크기 조정 시작
@@ -21,9 +21,9 @@ ms.locfileid: "60334336"
 Azure Monitor 자동 크기 조정은 [가상 컴퓨터 확장 집합](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) 및 [API Management 서비스](https://docs.microsoft.com/azure/api-management/api-management-key-concepts)에만 적용됩니다.
 
 ## <a name="lets-get-started"></a>시작
-이 문서에서는 Application Insights가 구성된 웹앱이 있다고 가정합니다. 아직 없으면 [ASP.NET 웹 사이트에 대한 Application Insights를 설정할 수 있습니다][1].
+이 문서에서는 Application Insights가 구성된 웹앱이 있다고 가정합니다. 아직 없는 경우 [ASP.NET 웹 사이트에 대 한 Application Insights를 설정할][1] 수 있습니다.
 
-- [Azure Portal][2]을 엽니다.
+- [Azure Portal][2] 열기
 - 왼쪽 탐색 창에서 Azure Monitor 아이콘을 클릭합니다.
   ![Azure Monitor 시작][3]
 - 자동 크기 조정 설정을 클릭하여 현재 자동 크기 조정 상태와 함께 자동 크기 조정을 적용할 수 있는 모든 리소스를 확인합니다. ![Azure Monitor에서 자동 크기 조정 검색][4]

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: fef509d705d0b904586a86b7dc58decc54e7023d
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 4ea983255463080592181cda321ef6b6d1ff147f
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716634"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932351"
 ---
 # <a name="azure-app-service-plan-overview"></a>Azure App Service 계획 개요
 
@@ -32,14 +32,13 @@ App Service의 앱은 _App Service 계획_에서 실행됩니다. App Service �
 - 지역(미국 서부, 미국 동부 등)
 - VM 인스턴스 수
 - VM 인스턴스 크기(소량, 중간, 대규모)
-- 가격 책정 계층(무료, 공유, 기본, 표준, 프리미엄, PremiumV2, 격리, 사용)
+- 가격 책정 계층 (무료, 공유, 기본, 표준, 프리미엄, PremiumV2, 격리)
 
 App Service 계획의 _가격 책정 계층_은 가져올 App Service 기능 및 계획에 대한 지불액을 결정합니다. 가격 책정 계층의 몇 가지 범주가 있습니다.
 
 - **공유 컴퓨팅**: **체험** 및 **공유**라는 두 개의 기본 계층은 다른 고객의 앱을 비롯한 다른 App Service 앱과 동일한 Azure VM에서 앱을 실행합니다. 이러한 계층은 CPU 할당량을 공유 리소스에서 실행되는 각 앱에 할당하고 리소스는 확장할 수 없습니다.
 - **전용 컴퓨팅**: **기본**, **표준**, **프리미엄** 및 **PremiumV2** 계층은 전용 Azure VM에서 앱을 실행합니다. 동일한 App Service 계획의 앱만이 동일한 컴퓨팅 리소스를 공유합니다. 계층이 높을수록 스케일 아웃을 위해 더 많은 VM 인스턴스가 제공됩니다.
-- **격리**: 이 계층은 전용 Azure Virtual Networks에서 전용 Azure VM을 실행합니다. 그러면 앱에 컴퓨팅 격리에 우선하는 네트워크 격리를 제공합니다. 최대 스케일 아웃 기능을 제공합니다.
-- **소비**: 이 계층은 [함수 앱](../azure-functions/functions-overview.md)에서만 사용할 수 있습니다. 그러면 워크로드에 따라 동적으로 함수를 확장합니다. 자세한 내용은 [Azure Functions 호스팅 계획 비교](../azure-functions/functions-scale.md)을 참조하세요.
+- **격리**: 이 계층은 전용 Azure 가상 네트워크에서 전용 Azure Vm을 실행 합니다. 앱에 대 한 계산 격리를 기반으로 네트워크 격리를 제공 합니다. 최대 스케일 아웃 기능을 제공합니다.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
@@ -48,7 +47,7 @@ App Service 계획의 _가격 책정 계층_은 가져올 App Service 기능 및
 <a name="new-pricing-tier-premiumv2"></a>
 
 > [!NOTE]
-> 새 **PremiumV2** 가격 책정 계층은 [Dv2 시리즈 VM](../virtual-machines/windows/sizes-general.md#dv2-series)에 더 빠른 프로세서, SSD 저장소 및 **표준**과 비교하여 두 배의 메모리 대 코어 비율을 제공합니다. 또한 **PremiumV2**는 표준 계획의 모든 고급 기능을 제공하면서 늘어난 인스턴스 수를 통해 더 큰 규모를 지원합니다. 기존 **프리미엄** 계층에서 사용할 수 있는 모든 기능이 **PremiumV2**에 포함되었습니다.
+> 새 **PremiumV2** 가격 책정 계층은 [Dv2 시리즈 VM](../virtual-machines/windows/sizes-general.md#dv2-series)에 더 빠른 프로세서, SSD 스토리지 및 **표준**과 비교하여 두 배의 메모리 대 코어 비율을 제공합니다. 또한 **PremiumV2**는 표준 계획의 모든 고급 기능을 제공하면서 늘어난 인스턴스 수를 통해 더 큰 규모를 지원합니다. 기존 **프리미엄** 계층에서 사용할 수 있는 모든 기능이 **PremiumV2**에 포함되었습니다.
 >
 > 다른 전용 계층과 마찬가지로 다음 3가지 VM 크기를 이 계층에 사용할 수 있습니다.
 >
@@ -79,9 +78,8 @@ App Service에서 앱을 만드는 경우 App Service 계획에 배치합니다.
 **체험** 계층을 제외하고 App Service 계획이 사용하는 컴퓨팅 리소스에 대한 시간당 요금을 사용합니다.
 
 - **공유** 계층에서 각 앱은 CPU 시간(분)의 할당량을 수신하므로 _각 앱_은 CPU 할당량에 대한 시간당 요금이 부과됩니다.
-- 전용 컴퓨팅 계층(**기본**, **표준**, **프리미엄**, **PremiumV2**)에서 App Service 계획은 앱의 크기를 조정하는 VM 인스턴스의 수를 정의합니다. 따라서 App Service 계획의 _각 VM 인스턴스_는 시간당 요금이 부과됩니다. 이러한 VM 인스턴스는 여기에서 실행되는 앱의 개수에 관계 없이 동일한 요금이 청구됩니다. 예기치 않은 요금을 방지하려면 [App Service 계획 정리](app-service-plan-manage.md#delete)를 참조하세요.
-- **격리** 계층에서 App Service 환경은 앱을 실행하는 격리된 작업자의 수를 정의하고 _각 작업자_는 시간당 요금이 부과됩니다. 또한 App Service 환경 자체를 실행하기 위한 시간 기반 요금이 있습니다. 
-- (Azure Functions에만 해당) **소비** 계층은 VM 인스턴스를 할당하고, 함수 앱의 워크로드를 제공하고, Azure에 의해 동적으로 초당 요금이 청구됩니다. 자세한 내용은 [Azure Functions 가격 책정](https://azure.microsoft.com/pricing/details/functions/)을 참조하세요.
+- 전용 계산 계층 (**기본**, **표준**, **프리미엄**, **PremiumV2**)에서 App Service 계획은 앱의 크기를 조정 하는 vm 인스턴스 수를 정의 합니다. 따라서 App Service 계획의 _각 vm 인스턴스_ 는 매시간 요금이 청구 됩니다. 이러한 VM 인스턴스는 여기에서 실행되는 앱의 개수에 관계 없이 동일한 요금이 청구됩니다. 예기치 않은 요금을 방지하려면 [App Service 계획 정리](app-service-plan-manage.md#delete)를 참조하세요.
+- **격리** 계층에서 App Service 환경은 앱을 실행하는 격리된 작업자의 수를 정의하고 _각 작업자_는 시간당 요금이 부과됩니다. 또한 App Service 환경 자체를 실행하기 위한 시간 기반 요금이 있습니다.
 
 사용할 수 있는 App Service 기능을 사용하기 위해 요금이 청구되지 않습니다(사용자 지정 도메인, SSL 인증서, 배포 슬롯, 백업 등 구성). 예외는 다음과 같습니다.
 
@@ -98,7 +96,7 @@ App Service에서 앱을 만드는 경우 App Service 계획에 배치합니다.
 
 언제든지 App Service 계획을 확장하고 축소할 수 있습니다. 계획의 가격 책정 계층을 변경하는 것처럼 간단합니다. 처음에 더 낮은 가격 책정 계층을 선택하고 더 많은 App Service 기능이 필요하면 나중에 확장할 수 있습니다.
 
-예를 들어 **체험** App Service 계획에서 웹앱을 테스트하기 시작하고 비용을 지불하지 않을 수 있습니다. [사용자 지정 DNS 이름](app-service-web-tutorial-custom-domain.md)을 웹앱에 추가하려는 경우 계획을 **공유** 계층까지 확장하면 됩니다. 나중에 [사용자 지정 SSL 인증서](app-service-web-tutorial-custom-ssl.md)를 추가하려는 경우 계획을 **기본** 계층까지 확장합니다. [스테이징 환경](deploy-staging-slots.md)이 필요하면 **표준** 계층까지 확장합니다. 더 많은 코어, 메모리 또는 저장소가 필요한 경우 동일한 계층에서 더 큰 VM 크기로 확장합니다.
+예를 들어 **체험** App Service 계획에서 웹앱을 테스트하기 시작하고 비용을 지불하지 않을 수 있습니다. [사용자 지정 DNS 이름](app-service-web-tutorial-custom-domain.md)을 웹앱에 추가하려는 경우 계획을 **공유** 계층까지 확장하면 됩니다. 나중에 [사용자 지정 SSL 인증서](app-service-web-tutorial-custom-ssl.md)를 추가하려는 경우 계획을 **기본** 계층까지 확장합니다. [스테이징 환경](deploy-staging-slots.md)이 필요하면 **표준** 계층까지 확장합니다. 더 많은 코어, 메모리 또는 스토리지가 필요한 경우 동일한 계층에서 더 큰 VM 크기로 확장합니다.
 
 동일하게 반대로도 작동합니다. 더 높은 계층의 기능이 더 이상 필요하지 않으면 하위 계층으로 축소하여 비용을 절약할 수 있습니다.
 

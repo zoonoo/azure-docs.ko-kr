@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: mbullwin
 ms.custom: include file
-ms.openlocfilehash: dd678fb784fa7587912f113a7c00bebca76efce8
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 7bf9c338315f5013be815625b06d633567a801a0
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68857442"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912434"
 ---
 응용 프로그램당 메트릭 및 이벤트 수에는 몇 가지 제한이 있습니다. 즉, 계측 키 당 몇 가지 제한이 있습니다. 선택하는 [가격 책정 계층](https://azure.microsoft.com/pricing/details/application-insights/)에 따라 제한됩니다.
 
@@ -23,7 +23,8 @@ ms.locfileid: "68857442"
 | 제한 | 32000 이벤트/초 | 제한은 분을 기준으로 측정됩니다.
 | 데이터 보존 | 90일 | 이 리소스는 [검색](../articles/azure-monitor/app/diagnostic-search.md), [분석](../articles/azure-monitor/app/analytics.md) 및 [메트릭 탐색기](../articles/azure-monitor/app/metrics-explorer.md)의 경우입니다.
 | [가용성 다단계 테스트](../articles/azure-monitor/app/availability-multistep.md) 자세한 결과 보존 | 90일 | 이 리소스는 각 단계의 자세한 결과를 제공합니다.
-| 최대 이벤트 크기 | 64,000 |
+| 최대 원격 분석 항목 크기 | 64 kB |
+| 일괄 처리당 최대 원격 분석 항목 수 | 64K |
 | 속성 및 메트릭 이름 길이 | 150 | [형식 스키마](https://github.com/microsoft/ApplicationInsights-Home/tree/master/EndpointSpecs/Schemas/Bond)를 참조하세요.
 | 속성 값 문자열 길이 | 8,192  | [형식 스키마](https://github.com/microsoft/ApplicationInsights-Home/tree/master/EndpointSpecs/Schemas/Bond)를 참조하세요.
 | 추적 및 예외 메시지 길이 | 32,768  | [형식 스키마](https://github.com/microsoft/ApplicationInsights-Home/tree/master/EndpointSpecs/Schemas/Bond)를 참조하세요.

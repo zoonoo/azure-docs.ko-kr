@@ -11,16 +11,15 @@ ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
 ms.service: cloud-services
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: genli
-ms.openlocfilehash: 513803adec71e0e2c9578d762c5f4c110ed7086f
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: eef99c7d7a108618b570988dd5d7ec9c2fdb8db4
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68384506"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68941744"
 ---
 # <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services에 대 한 연결 및 네트워킹 문제: FAQ(질문과 대답)
 
@@ -106,7 +105,7 @@ IIS의 URL 다시 쓰기 모듈을 사용하여 클라우드 서비스의 기본
 
 역할에 대해 둘 이상의 인스턴스가 있는 경우 RIP를 클라우드 서비스와 연결 하면 가동 중지 시간이 발생 하지 않아야 합니다. 또는 Azure 데이터 센터의 IP 범위를 허용 목록 수 있습니다. 모든 Azure IP 범위는 [Microsoft 다운로드 센터](https://www.microsoft.com/en-us/download/details.aspx?id=41653)에서 찾을 수 있습니다.
 
-이 파일에는 Azure 데이터 센터에서 사용되는 IP 주소 범위(계산, SQL 및 스토리지 범위 포함)가 포함되어 있습니다. 현재 배포된 범위와 향후 예정된 IP 범위 변경 내용을 반영하는 업데이트 파일이 매주 게시됩니다. 파일에 제시된 새 범위는 데이터 센터에서 적어도 한 주 동안 사용되지 않습니다. Azure에서 실행되는 서비스를 정확하게 식별할 수 있도록 매주 새로운 .xml 파일을 다운로드하여 사이트에서 필요한 변경 작업을 수행하세요. Azure ExpressRoute 사용자는 매월 첫 번째 주에 Azure 공간의 BGP 광고를 업데이트하는 데 이 파일이 사용되고 있음을 알 수 있습니다.
+이 파일에는 Azure 데이터 센터에서 사용되는 IP 주소 범위(컴퓨팅, SQL 및 스토리지 범위 포함)가 포함되어 있습니다. 현재 배포된 범위와 향후 예정된 IP 범위 변경 내용을 반영하는 업데이트 파일이 매주 게시됩니다. 파일에 제시된 새 범위는 데이터 센터에서 적어도 한 주 동안 사용되지 않습니다. Azure에서 실행되는 서비스를 정확하게 식별할 수 있도록 매주 새로운 .xml 파일을 다운로드하여 사이트에서 필요한 변경 작업을 수행하세요. Azure ExpressRoute 사용자는 매월 첫 번째 주에 Azure 공간의 BGP 광고를 업데이트하는 데 이 파일이 사용되고 있음을 알 수 있습니다.
 
 ## <a name="how-can-i-use-azure-resource-manager-virtual-networks-with-cloud-services"></a>클라우드 서비스와 Azure Resource Manager 가상 네트워크를 사용하려면 어떻게 해야 하나요?
 

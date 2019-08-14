@@ -10,10 +10,10 @@ ms.suite: integration
 ms.topic: article
 ms.date: 05/08/2019
 ms.openlocfilehash: 126c3fb348b1d53769a818ae4b21fcdbbef65615
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "68517231"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Azure Logic Apps용 커넥터
@@ -59,7 +59,7 @@ Logic Apps는 [수백 개의 커넥터](https://docs.microsoft.com/connectors)�
   |||
 
   > [!NOTE]
-  > [ISE (통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) 내의 논리 앱은 Azure virtual network의 리소스에 직접 액세스할 수 있습니다. Ise를 사용 하면 **ise 레이블을 표시** 하는 표준 및 엔터프라이즈 커넥터를 논리 앱과 동일한 ise에서 실행할 수 있습니다. ISE 레이블을 표시 하지 않는 커넥터는 글로벌 Logic Apps 서비스에서 실행 됩니다.
+  > [ISE (통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) 내의 논리 앱은 Azure virtual network의 리소스에 직접 액세스할 수 있습니다. Ise를 사용 하면 ise 레이블을 표시 하는 표준 및 엔터프라이즈 커넥터 를 논리 앱과 동일한 ise에서 실행할 수 있습니다. ISE 레이블을 표시 하지 않는 커넥터는 글로벌 Logic Apps 서비스에서 실행 됩니다.
   >
   > Azure 가상 네트워크에 연결 된 온-프레미스 시스템의 경우, 논리 앱이 **ise** 레이블, HTTP 작업 또는 [사용자 지정 커넥터가](#custom)있는 커넥터를 사용 하 여 해당 시스템에 직접 액세스할 수 있도록 ise를 해당 네트워크에 삽입 합니다. ISE에서 실행 되는 논리 앱 및 커넥터는 사용량 기반 요금제와 다른 가격 책정 계획을 사용 합니다. 
   >
@@ -113,7 +113,7 @@ Logic Apps은 이러한 서비스 또는 시스템을 사용 하 여 작업, 프
 |   |   |   |   | 
 |---|---|---|---| 
 | [![API 아이콘][azure-service-bus-icon]<br/>**Azure Service Bus**][azure-service-bus-doc] | Logic Apps에서 가장 일반적으로 사용되는 커넥터를 사용하여 비동기 메시지, 세션 및 토픽 구독을 관리합니다. | [![API 아이콘][sql-server-icon]<br/>**SQL Server**][sql-server-doc] | 온-프레미스의 SQL Server 또는 클라우드의 Azure SQL Database에 연결하여 레코드를 관리하고 저장 프로시저를 실행하거나 쿼리를 수행할 수 있습니다. | 
-| [![API 아이콘][office-365-outlook-icon]<br/>**Office 365<br/>Outlook**][office-365-outlook-doc] | Office 365 이메일 계정에 연결하여 이메일, 작업, 일정 이벤트 및 회의, 연락처, 요청 등을 만들고 관리할 수 있습니다. | [![API 아이콘][azure-blob-storage-icon]<br/>**Azure Blob<br/>Storage**][azure-blob-storage-doc] | 저장소 계정에 연결하여 Blob 콘텐츠를 만들고 관리할 수 있습니다. | 
+| [![API 아이콘][office-365-outlook-icon]<br/>**Office 365<br/>Outlook**][office-365-outlook-doc] | Office 365 이메일 계정에 연결하여 이메일, 작업, 일정 이벤트 및 회의, 연락처, 요청 등을 만들고 관리할 수 있습니다. | [![API 아이콘][azure-blob-storage-icon]<br/>**Azure Blob<br/>Storage**][azure-blob-storage-doc] | 스토리지 계정에 연결하여 Blob 콘텐츠를 만들고 관리할 수 있습니다. | 
 | [![API 아이콘][sftp-icon]<br/>**SFTP**][sftp-doc] | 인터넷에서 액세스할 수 있는 SFTP 서버에 연결하여 파일 및 폴더를 사용할 수 있습니다. | [![API 아이콘][sharepoint-online-icon]<br/>**SharePoint<br/>Online**][sharepoint-online-doc] | SharePoint Online에 연결하여 파일, 첨부 파일, 폴더 등을 관리할 수 있습니다. | 
 | [![API 아이콘][dynamics-365-icon]<br/>**Dynamics 365<br/>CRM Online**][dynamics-365-doc] | Dynamics 365 계정에 연결하여 레코드, 항목 등을 만들고 관리할 수 있습니다. | [![API 아이콘][ftp-icon]<br/>**FTP**][ftp-doc] | 인터넷에서 액세스할 수 있는 FTP 서버에 연결하여 파일 및 폴더를 사용할 수 있습니다. | 
 | [![API 아이콘][salesforce-icon]<br/>**Salesforce**][salesforce-doc] | Salesforce 계정에 연결하여 레코드, 작업, 개체 등의 항목을 만들고 관리할 수 있습니다. | [![API 아이콘][twitter-icon]<br/>**Twitter**][twitter-doc] | Twitter 계정에 연결하여 트윗, 팔로워, 타임라인 등을 관리할 수 있습니다. 트윗을 SQL, Excel 또는 SharePoint에 저장합니다. | 

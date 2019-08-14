@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: ca0067090924428a50ad2360f23a86576fff6cd3
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 5efd82a2cb0652f6dd2aab621c578ff90aca0111
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727015"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68927864"
 ---
 # <a name="security-management-in-azure"></a>Azure의 보안 관리
 Azure 구독자는 관리 워크스테이션, 개발자 PC, 심지어 작업별 사용 권한을 가진 최종 사용자 디바이스 등 여러 디바이스에서 자신의 클라우드 환경을 관리할 수 있습니다. 경우에 따라, 관리 기능은 [Azure Portal](https://azure.microsoft.com/features/azure-portal/)과 같은 웹 기반 콘솔을 통해 수행됩니다. 다른 경우, 가상 사설망(VPN), 터미널 서비스, 클라이언트 애플리케이션 프로토콜 또는 (프로그래밍 방식의) Azure 서비스 관리 API(SMAPI)를 통해 온-프레미스 시스템에서 Azure에 직접 연결할 수 있습니다. 또한 클라이언트 엔드포인트는 태블릿이나 스마트폰 같이 조인 또는 격리되고 관리되지 않는 도메인이 될 수 있습니다.
@@ -50,7 +50,7 @@ Azure 구독자는 관리 워크스테이션, 개발자 PC, 심지어 작업별 
 
 불필요한 소프트웨어를 제거하여 시스템의 공격 노출 영역을 줄입니다. 예제:
 
-* 장치의 주요 목적이 클라우드 서비스를 관리하는 것인 경우 모든 표준 관리, 지원 또는 개발 워크스테이션은 이메일 클라이언트 또는 기타 생산성 애플리케이션을 설치할 필요가 없습니다.
+* 디바이스의 주요 목적이 클라우드 서비스를 관리하는 것인 경우 모든 표준 관리, 지원 또는 개발 워크스테이션은 이메일 클라이언트 또는 기타 생산성 애플리케이션을 설치할 필요가 없습니다.
 
 인프라 구성 요소에 대한 관리자 권한이 있는 클라이언트 시스템은 보안 위험을 줄이기 위하여 가능한 한 가장 엄격한 정책을 적용해야 합니다. 예를 들면 다음과 같습니다.
 
@@ -94,7 +94,7 @@ Azure는 Azure 클라우드 서비스 및 가상 머신을 관리하는 관리�
 * 실행 제한. 실행 관리에 필요한 미리 정의된 실행 파일 집합만 허용합니다("기본 거부"라고도 함). 기본적으로 사용자는 허용 목록에 명시적으로 정의되지 않은 한 모든 프로그램을 실행하는 권한이 거부됩니다.
 * 최소 권한. 관리 워크스테이션 사용자는 로컬 컴퓨터에 대해 어떠한 관리 권한도 가지지 않습니다. 때문에 시스템 구성 또는 시스템 파일을 의도적이든 또는 실수로든 변경할 수 없습니다.
 
-Active Directory Domain Services(AD DS)의 [그룹 정책 개체](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-group-policy)(GPO)를 사용하고 로컬 관리 도메인을 통해 이를 모든 관리 계정에 적용함으로써 이 모두를 적용할 수 있습니다.
+Active Directory Domain Services(AD DS)의 [그룹 정책 개체](../../active-directory-domain-services/manage-group-policy.md)(GPO)를 사용하고 로컬 관리 도메인을 통해 이를 모든 관리 계정에 적용함으로써 이 모두를 적용할 수 있습니다.
 
 ### <a name="managing-services-applications-and-data"></a>서비스, 애플리케이션 및 데이터 관리
 Azure 클라우드 서비스 구성은 Windows PowerShell 명령줄 인터페이스 또는 이러한 RESTful 인터페이스를 활용하는 사용자 지정 애플리케이션을 경유하여 Azure Portal 또는 SMAPI를 통해 수행됩니다. 이러한 메커니즘을 사용하여 서비스에는 Azure Active Directory(Azure AD), Azure Storage, Azure Websites 및 Azure Virtual Network 등이 있습니다.
@@ -190,7 +190,7 @@ Azure에서 애플리케이션 및 데이터를 관리하는 경우 다음의 �
 | --- | --- |
 | 관리자 액세스 또는 기타 암호(예: SSL 또는 관리 인증서)에 대한 자격 증명을 전자 메일로 보내지 마세요. |계정 이름 및 음성 암호(음성 메일에는 저장되지 않음)를 제공하여 기밀성을 유지하거나, 클라이언트/서버 인증서의 원격 설치를 수행하거나(암호화된 세션을 통해), 보호된 네트워크 공유에서 다운로드하거나, 이동식 미디어를 통해 직접 배포합니다. |
 | - | 관리 인증서 수명 주기를 사전 관리합니다. |
-| 암호화되지 않았거나 해시되지 않은 애플리케이션 저장소(스프레드시트, SharePoint 사이트 또는 파일 공유 등)에 계정 암호를 저장하지 마세요. |보안 관리 원칙 및 시스템 강화 정책을 설정하고, 이를 개발 환경에 적용합니다. |
+| 암호화되지 않았거나 해시되지 않은 애플리케이션 스토리지(스프레드시트, SharePoint 사이트 또는 파일 공유 등)에 계정 암호를 저장하지 마세요. |보안 관리 원칙 및 시스템 강화 정책을 설정하고, 이를 개발 환경에 적용합니다. |
 | - | Azure SSL/TLS 사이트에 적절하게 액세스하도록 해주는 [Enhanced Mitigation Experience Toolkit 5.5](https://technet.microsoft.com/security/jj653751) 인증서 고정 규칙을 사용합니다. |
 | 관리자 간 계정 및 암호를 공유하거나, 여러 사용자 계정 또는 서비스, 특히 소셜 미디어 또는 기타 비 관리 작업에 암호를 다시 사용하지 마세요. |Azure 구독을 관리하는 전용 Microsoft 계정(개인 전자 메일에 사용하지 않는 계정)을 만듭니다. |
 | 구성 파일을 전자 메일로 보내지 마세요. |구성 파일 및 프로필은 전자 메일 등 쉽게 손상될 수 있는 메커니즘이 아닌 신뢰할 수 있는 소스(예: 암호화된 USB 플래시 드라이브)로부터 설치해야 합니다. |

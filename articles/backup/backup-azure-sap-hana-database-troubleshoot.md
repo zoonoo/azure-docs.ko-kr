@@ -8,18 +8,18 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/03/2019
 ms.author: dacurwin
-ms.openlocfilehash: 0512facbdf5f2222aee1e9bb5d2be64e22bf1a69
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 00e37030417da97d2c57b0fb5872422e7048a2bc
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774649"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954462"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Azure에서 SAP HANA 데이터베이스의 백업 문제 해결
 
 이 문서에서는 Azure virtual machines의 SAP HANA 데이터베이스 백업에 대 한 문제 해결 정보를 제공 합니다. 다음 섹션에서는 SAP HANA 백업에서 일반적인 오류를 진단 하는 데 필요한 중요 한 개념 데이터에 대해 설명 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 [필수 구성](backup-azure-sap-hana-database.md#prerequisites)요소의 일부로 HANA가 설치 된 가상 머신에서 preregistration 스크립트가 실행 되었는지 확인 합니다.
 

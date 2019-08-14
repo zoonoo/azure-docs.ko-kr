@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: dacurwin
-ms.openlocfilehash: 34484c309cb186aabec519e54269fefae316165e
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 5f44e9b386f5d05b75f6fdf6cf8b55360e4c5dae
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639900"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954776"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 삭제
 
@@ -51,7 +51,7 @@ MABS (Microsoft Azure Backup 서버) 또는 DPM을 사용 하 여 보호 된 온
 
 보호를 중지 하 고 백업 데이터를 삭제 하려면 다음을 수행 합니다.
 
-1. 포털 > **Recovery Services 자격 증명 모음** > **백업 항목** 에서 클라우드에서 보호 된 항목을 선택 합니다 (예: azurevirtual Machine, Azure Storage (Azure Files), SQL 및 Azure VM 등).
+1. 포털 > **Recovery Services 자격 증명 모음** > **백업 항목** 에서 클라우드의 보호 된 항목 (예: azurevirtual Machine, Azure Storage (Azure Files), Azure VM의 SQL 등)을 선택 합니다.
 
     ![백업 유형 선택](./media/backup-azure-delete-vault/azure-storage-selected.png)
 
@@ -66,7 +66,7 @@ MABS (Microsoft Azure Backup 서버) 또는 DPM을 사용 하 여 보호 된 온
          ![백업 데이터 삭제](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
 
 5. 알림![백업데이터](./media/backup-azure-delete-vault/messages.png)삭제를 확인 합니다. 완료 되 면 서비스는 다음과 같은 메시지를 표시 합니다. **"*백업 항목*"의 백업 및 백업 데이터 삭제를 중지 하는 중**입니다. **작업을 완료 했습니다**.
-6. 백업 **항목 메뉴에서** **새로 고침** 을 클릭 하 여 백업 항목이 제거 되었는지 확인 합니다.
+6. 백업 항목 메뉴에서 **새로 고침** 을 클릭 하 여 백업 항목이 제거 되었는지 확인 합니다.
 
       ![백업 데이터 삭제](./media/backup-azure-delete-vault/empty-items-list.png)
 
@@ -103,7 +103,7 @@ MABS (Microsoft Azure Backup 서버) 또는 DPM을 사용 하 여 보호 된 온
 
 
 5. 알림![백업데이터](./media/backup-azure-delete-vault/messages.png)삭제를 확인 합니다. 완료 되 면 서비스는 다음과 같은 메시지를 표시 합니다. **"*백업 항목*"의 백업 및 백업 데이터 삭제를 중지 하는 중**입니다. **작업을 완료 했습니다**.
-6. 백업 **항목 메뉴에서** **새로 고침** 을 클릭 하 여 백업 항목이 제거 되었는지 확인 합니다.
+6. 백업 항목 메뉴에서 **새로 고침** 을 클릭 하 여 백업 항목이 제거 되었는지 확인 합니다.
 
 이제 관리 콘솔에서 백업 항목을 삭제할 수 있습니다.
     
@@ -183,7 +183,7 @@ Recovery Services 자격 증명 모음을 삭제 하는이 옵션은 모든 종�
 
 - 자격 증명 모음 메뉴의 **Essentials** 창에서 **백업 항목**, **백업 관리 서버**또는 **복제 된 항목이** 나열 되지 않는지 확인 합니다. 백업 항목이 있는 경우 [시작 하기 전에](#before-you-start) 섹션을 참조 하세요.
 - [포털에서 자격 증명 모음 삭제](#delete-the-recovery-services-vault)를 다시 시도 합니다.
-- 모든 종속성이 제거 되 고 *자격 증명 모음 삭제 오류가 계속 발생* 하는 경우 ARMClient 도구를 사용 하 여 아래 지정 된 단계를 수행 합니다.
+- 모든 종속성이 제거 되 고 *자격 증명 모음 삭제 오류가 계속 발생*하는 경우 ARMClient 도구를 사용 하 여 아래 지정 된 단계를 수행 합니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

@@ -5,18 +5,21 @@ services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 05/17/2019
+ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: 72f34d9711e1ba4658288bfdeb847632d32d0fcf
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e9b654fc49a953f8fdbc9125c6f12486e0ab7b13
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68478338"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68949498"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>미리 보기-Azure Kubernetes 서비스 (AKS)에서 클러스터에 대 한 여러 노드 풀 만들기 및 관리
 
 Azure Kubernetes 서비스 (AKS)에서 동일한 구성의 노드는 *노드 풀*로 그룹화 됩니다. 이러한 노드 풀에는 응용 프로그램을 실행 하는 기본 Vm이 포함 됩니다. 초기 노드 수와 해당 크기 (SKU)는 *기본 노드 풀*을 만드는 AKS 클러스터를 만들 때 정의 됩니다. 계산 또는 저장소 요구가 다른 응용 프로그램을 지원 하기 위해 추가 노드 풀을 만들 수 있습니다. 예를 들어 이러한 추가 노드 풀을 사용 하 여 계산 집약적인 응용 프로그램을 위한 Gpu를 제공 하거나 고성능 SSD 저장소에 액세스할 수 있습니다.
+
+> [!NOTE]
+> 이 기능을 사용 하면 여러 노드 풀을 만들고 관리 하는 방법을 보다 효과적으로 제어할 수 있습니다. 따라서 create/update/delete에 별도의 명령이 필요 합니다. 이전에 `az aks create` 또는 `az aks update` managedcluster API를 사용 하 여 클러스터 작업을 수행 하 고 제어 평면과 단일 노드 풀을 변경 하는 유일한 옵션 이었습니다. 이 기능은 agentpool API를 통해 에이전트 풀에 대 한 별도의 작업 집합을 노출 하 고 `az aks nodepool` 개별 노드 풀에서 작업을 실행 하려면 명령 집합을 사용 해야 합니다.
 
 이 문서에서는 AKS 클러스터에서 여러 노드 풀을 만들고 관리 하는 방법을 보여 줍니다. 이 기능은 현재 미리 보기로 제공됩니다.
 
@@ -113,14 +116,15 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 
 ## <a name="add-a-node-pool"></a>노드 풀 추가
 
-이전 단계에서 만든 클러스터에는 단일 노드 풀이 있습니다. [Az aks node pool add][az-aks-nodepool-add] 명령을 사용 하 여 두 번째 노드 풀을 추가 해 보겠습니다. 다음 예에서는 *3 개의* 노드를 실행 하는 *mynodepool* 이라는 노드 풀을 만듭니다.
+이전 단계에서 만든 클러스터에는 단일 노드 풀이 있습니다. [Az aks nodepool add][az-aks-nodepool-add] 명령을 사용 하 여 두 번째 노드 풀을 추가 해 보겠습니다. 다음 예에서는 *3 개의* 노드를 실행 하는 *mynodepool* 이라는 노드 풀을 만듭니다.
 
 ```azurecli-interactive
 az aks nodepool add \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
     --name mynodepool \
-    --node-count 3
+    --node-count 3 \
+    --kubernetes-version 1.12.6
 ```
 
 노드 풀의 상태를 확인 하려면 [az aks node pool list][az-aks-nodepool-list] 명령을 사용 하 여 리소스 그룹 및 클러스터 이름을 지정 합니다.
@@ -174,7 +178,7 @@ VirtualMachineScaleSets  1        110        nodepool1   1.13.5                 
 
 노드를 지정 된 버전으로 업그레이드 하는 데 몇 분 정도 걸립니다.
 
-AKS 클러스터의 모든 노드 풀을 동일한 Kubernetes 버전으로 업그레이드 하는 것이 가장 좋습니다. 개별 노드 풀을 업그레이드 하는 기능을 사용 하면 롤링 업그레이드를 수행 하 고 응용 프로그램 작동 시간을 유지 하기 위해 노드 풀 간에 pod 일정을 예약할 수 있습니다.
+AKS 클러스터의 모든 노드 풀을 동일한 Kubernetes 버전으로 업그레이드 하는 것이 가장 좋습니다. 개별 노드 풀을 업그레이드 하는 기능을 사용 하면 롤링 업그레이드를 수행 하 고 노드 풀 간에 pod 일정을 예약 하 여 위에서 언급 한 제약 조건 내에서 응용 프로그램 작동 시간을 유지할 수 있습니다
 
 > [!NOTE]
 > Kubernetes는 표준 [의미 체계 버전](https://semver.org/) 관리 체계를 사용 합니다. 버전 번호는 *x-y*로 표시 됩니다. 여기서 *x* 는 주 버전이 고 *y* 는 부 버전이 며 *z* 는 패치 버전입니다. 예를 들어 버전 *1.12.6*에서 1은 주 버전이 고 12는 부 버전 이며 6은 패치 버전입니다. 클러스터를 만드는 동안 초기 노드 풀 뿐만 아니라 제어 평면의 Kubernetes 버전이 설정 되어 있습니다. 모든 추가 노드 풀은 클러스터에 추가 될 때 해당 Kubernetes 버전을 설정 합니다. Kubernetes 버전은 노드 풀과 노드 풀 및 제어 평면 사이에서 다를 수 있지만 다음과 같은 제한 사항이 적용 됩니다.
@@ -185,7 +189,7 @@ AKS 클러스터의 모든 노드 풀을 동일한 Kubernetes 버전으로 업�
 > 
 > Kubernetes 버전의 제어 평면을 업그레이드 하려면를 사용 `az aks upgrade`합니다. 클러스터에 노드 풀이 `az aks upgrade` 하나만 있는 경우이 명령은 노드 풀의 Kubernetes 버전도 업그레이드 합니다.
 
-## <a name="scale-a-node-pool"></a>노드 풀 크기 조정
+## <a name="scale-a-node-pool-manually"></a>수동으로 노드 풀 크기 조정
 
 응용 프로그램 워크 로드 요구가 변경 됨에 따라 노드 풀의 노드 수를 조정 해야 할 수 있습니다. 노드 수를 확장 하거나 축소할 수 있습니다.
 
@@ -214,6 +218,10 @@ VirtualMachineScaleSets  1        110        nodepool1   1.13.5                 
 ```
 
 크기 조정 작업을 완료 하는 데 몇 분이 걸립니다.
+
+## <a name="scale-a-specific-node-pool-automatically-by-enabling-the-cluster-autoscaler"></a>클러스터 autoscaler를 사용 하도록 설정 하 여 특정 노드 풀의 크기를 자동으로 조정 합니다.
+
+AKS는 [클러스터 autoscaler](cluster-autoscaler.md)구성 요소를 사용 하 여 노드 풀의 크기를 자동으로 조정 하기 위해 미리 보기의 별도 기능을 제공 합니다. 이 구성 요소는 노드 풀 당 고유한 최소 및 최대 소수 자릿수를 사용 하 여 노드 풀 당 사용 하도록 설정할 수 있는 AKS 추가 기능입니다. [노드 풀 당 클러스터 autoscaler를 사용](cluster-autoscaler.md#enable-the-cluster-autoscaler-on-an-existing-node-pool-in-a-cluster-with-multiple-node-pools)하는 방법을 알아봅니다.
 
 ## <a name="delete-a-node-pool"></a>노드 풀 삭제
 
@@ -437,6 +445,29 @@ az group deployment create \
 ```
 
 리소스 관리자 템플릿에서 정의한 노드 풀 설정 및 작업에 따라 AKS 클러스터를 업데이트 하는 데 몇 분 정도 걸릴 수 있습니다.
+
+## <a name="assign-a-public-ip-per-node-in-a-node-pool"></a>노드 풀에서 노드 당 공용 IP 할당
+
+AKS 노드에는 통신에 고유한 공용 IP 주소가 필요 하지 않습니다. 그러나 경우에 따라 노드 풀의 노드에 고유한 공용 IP 주소가 있어야 합니다. 예를 들어 콘솔에서 클라우드 가상 컴퓨터에 직접 연결 하 여 홉을 최소화 해야 하는 게임이 있습니다. 이는 별도의 미리 보기 기능인 노드 공용 IP (미리 보기)를 등록 하 여 수행할 수 있습니다.
+
+```azurecli-interactive
+az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerService
+```
+
+등록을 완료 한 후 [위에](##manage-node-pools-using-a-resource-manager-template) 나와 있는 것과 동일한 지침에 따라 Azure Resource Manager 템플릿을 배포 하 고 agentpoolprofiles에 다음과 같은 부울 값 속성 "enableNodePublicIP"를 추가 합니다. 이를 `true` 기본적 `false` 으로로 설정 합니다. 지정 하지 않은 경우로 설정 됩니다. 이는 생성 시간 전용 속성 이며 최소 API 버전 2019-06-01이 필요 합니다. 이는 Linux 및 Windows 노드 풀 모두에 적용할 수 있습니다.
+
+```
+"agentPoolProfiles":[  
+    {  
+      "maxPods": 30,
+      "osDiskSizeGB": 0,
+      "agentCount": 3,
+      "agentVmSize": "Standard_DS2_v2",
+      "osType": "Linux",
+      "vnetSubnetId": "[parameters('vnetSubnetId')]"
+      "enableNodePublicIP":true
+    }
+```
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
