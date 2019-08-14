@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: bacb677b8354c0b0e219ce7483a1446a96c28288
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 369069ef9a9c562ef6ba88a46dc0ef82c4debba1
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855526"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950674"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에서 알려진 문제
 
@@ -100,7 +100,7 @@ Data Lake Storage에 대 한 다중 프로토콜 액세스의 공개 미리 보�
 | **Blobfuse** |아직 지원 되지 않음|
 | **사용자 지정 도메인** |아직 지원 되지 않음|
 | **파일 시스템 탐색기** | 제한 된 지원 |
-| **진단 로깅** |진단 로그는 Data Lake Storage 미리 보기 [에서 다중 프로토콜 액세스](data-lake-storage-multi-protocol-access.md) 를 등록 하는 경우에만 지원 됩니다. <br><br>Azure Portal에서 로그를 사용 하도록 설정 하는 것은 현재 지원 되지 않습니다. PowerShell을 사용 하 여 로그를 사용 하도록 설정 하는 방법의 예는 다음과 같습니다. <br><br>`$storageAccount = Get-AzStorageAccount -ResourceGroupName <resourceGroup> -Name <storageAccountName>`<br><br>`Set-AzureStorageServiceLoggingProperty -Context $storageAccount.Context -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays <days>`. <br><br>이 예제에 표시 `Blob` 된 것과 같이를 `-ServiceType` 매개 변수의 값으로 지정 해야 합니다. 
+| **진단 로깅** |진단 로그는 Data Lake Storage 미리 보기 [에서 다중 프로토콜 액세스](data-lake-storage-multi-protocol-access.md) 를 등록 하는 경우에만 지원 됩니다. <br><br>Azure Portal에서 로그를 사용 하도록 설정 하는 것은 현재 지원 되지 않습니다. PowerShell을 사용 하 여 로그를 사용 하도록 설정 하는 방법의 예는 다음과 같습니다. <br><br>`$storageAccount = Get-AzStorageAccount -ResourceGroupName <resourceGroup> -Name <storageAccountName>`<br><br>`Set-AzStorageServiceLoggingProperty -Context $storageAccount.Context -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays <days>`. <br><br>이 예제에 표시 `Blob` 된 것과 같이를 `-ServiceType` 매개 변수의 값으로 지정 해야 합니다. 
 | **변경할 수 없는 저장소** |아직 지원 되지 않음 <br><br>변경할 수 없는 저장소는 데이터를 [웜 (한 번 쓰기, 많은 읽기)](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) 상태에 저장 하는 기능을 제공 합니다.|
 | **개체 수준 계층** |쿨 및 archive 계층은 Data Lake Storage 미리 보기 [에서 다중 프로토콜 액세스](data-lake-storage-multi-protocol-access.md) 를 등록 하는 경우에만 지원 됩니다. <br><br> 다른 모든 액세스 계층은 아직 지원 되지 않습니다.|
 | **Powershell 및 CLI 지원** | 제한 된 기능 <br><br>계정 만들기와 같은 관리 작업이 지원 됩니다. 파일 업로드 및 다운로드 등의 데이터 평면 작업은 [Data Lake Storage에 대 한 다중 프로토콜 액세스](data-lake-storage-multi-protocol-access.md)의 일부로 공개 미리 보기로 제공 됩니다. 디렉터리 작업 및 Acl (액세스 제어 목록) 설정은 아직 지원 되지 않습니다. |

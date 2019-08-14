@@ -2,26 +2,22 @@
 title: WebJobs로 백그라운드 작업 실행 - Azure App Service
 description: WebJobs를 사용하여 Azure App Service 웹앱, API 앱 또는 모바일 앱에서 백그라운드 작업을 실행하는 방법을 알아봅니다.
 services: app-service
-documentationcenter: ''
 author: ggailey777
 manager: jeconnoc
 editor: jimbe
 ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
 ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: glenga
 ms.reviewer: msangapu;david.ebbo;suwatch;pbatum;naren.soni
 ms.custom: seodec18
-ms.openlocfilehash: 55d040e96b92f73a632fd415220f9cf135335736
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 66c1b62dc94fc071d3b04fc0d4e89220df74d1f8
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850998"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945799"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Azure App Service에서 WebJobs로 백그라운드 작업 실행
 
@@ -83,7 +79,7 @@ when making changes in one don't forget the other two.
 
    ![WebJob 페이지 추가](./media/web-sites-create-web-jobs/addwjcontinuous.png)
 
-   | 설정      | 샘플 값   | Description  |
+   | 설정      | 샘플 값   | 설명  |
    | ------------ | ----------------- | ------------ |
    | **Name** | myContinuousWebJob | App Service 앱 내에서 고유한 이름입니다. 문자 또는 숫자로 시작해야 하며 "-" 및 "_"을 제외한 다른 특수 문자를 포함할 수 없습니다. |
    | **파일 업로드** | ConsoleApp.zip | 실행 파일 또는 스크립트 파일뿐만 아니라 프로그램 또는 스크립트를 실행하는 데 필요한 지원 파일이 포함되는 *.zip* 파일입니다. 지원되는 실행 파일 또는 스크립트 파일 형식은 [지원되는 파일 형식](#acceptablefiles) 섹션에 나열됩니다. |
@@ -165,7 +161,7 @@ when making changes in one don't forget the other two.
    | **파일 업로드** | ConsoleApp.zip | 실행 파일 또는 스크립트 파일뿐만 아니라 프로그램 또는 스크립트를 실행하는 데 필요한 지원 파일이 포함되는 *.zip* 파일입니다. 지원되는 실행 파일 또는 스크립트 파일 형식은 [지원되는 파일 형식](#acceptablefiles) 섹션에 나열됩니다. |
    | **형식** | 트리거됨 | [WebJob 형식](#webjob-types)은 이 문서의 앞부분에서 설명됩니다. |
    | **트리거** | 예약됨 | 안정적으로 실행되도록 예약하기 위해 Always On 기능을 사용하도록 설정합니다. Always On은 기본, 표준 및 프리미엄 가격 책정 계층에서만 사용할 수 있습니다.|
-   | **CRON 식** | 0 0/20 * * * * | [CRON 식](#cron-expressions)이 다음 섹션에 설명되어 있습니다. |
+   | **CRON 식** | 0 0/20 * * * * | [CRON 식](#ncrontab-expressions)이 다음 섹션에 설명되어 있습니다. |
 
 4. **확인**을 클릭합니다.
 

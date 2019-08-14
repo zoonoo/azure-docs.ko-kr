@@ -7,16 +7,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: dacurwin
-ms.openlocfilehash: 4ce6ef67c24bd623a4162329442693ed1628dae2
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 7e7312f942103125217c1f61ae8fe8007a49529b
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639872"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954754"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Recovery Services 자격 증명 모음 모니터링 및 관리
 
-이 문서에서는 Recovery Services 자격 증명 모음 **개요** 대시보드를 사용하여 Recovery Services 자격 증명 모음을 모니터링하고 관리하는 방법에 대해 설명합니다. 목록에서 Recovery Services 자격 증명 모음을 열면 선택한 자격 증명 모음에 대한 **개요** 대시보드가 열립니다. 대시보드는 자격 증명 모음에 대한 다양한 세부 정보를 제공합니다. 중요/경고 알림 상태, 진행 중/실패 백업 작업, LRS(로컬 중복 저장소)/GRS(지역 중복 저장소) 사용량을 보여 주는 *타일*이 있습니다. Azure VM을 자격 증명 모음에 백업하면 [**백업 사전 검사 상태** 타일에 위험 또는 경고 항목](https://azure.microsoft.com/blog/azure-vm-backup-pre-checks/)이 표시됩니다. 다음 이미지는 **Contoso-vault**에 대한 **개요** 대시보드입니다. **백업 항목** 타일에는 자격 증명 모음에 등록된 9개의 항목이 표시되어 있습니다.
+이 문서에서는 Recovery Services 자격 증명 모음 **개요** 대시보드를 사용하여 Recovery Services 자격 증명 모음을 모니터링하고 관리하는 방법에 대해 설명합니다. 목록에서 Recovery Services 자격 증명 모음을 열면 선택한 자격 증명 모음에 대한 **개요** 대시보드가 열립니다. 대시보드는 자격 증명 모음에 대한 다양한 세부 정보를 제공합니다. 중요/경고 알림 상태, 진행 중/실패 백업 작업, LRS(로컬 중복 스토리지)/GRS(지역 중복 스토리지) 사용량을 보여 주는 *타일*이 있습니다. Azure VM을 자격 증명 모음에 백업하면 [**백업 사전 검사 상태** 타일에 위험 또는 경고 항목](https://azure.microsoft.com/blog/azure-vm-backup-pre-checks/)이 표시됩니다. 다음 이미지는 **Contoso-vault**에 대한 **개요** 대시보드입니다. **백업 항목** 타일에는 자격 증명 모음에 등록된 9개의 항목이 표시되어 있습니다.
 
 ![복구 서비스 자격 증명 모음 대시보드](./media/backup-azure-manage-windows-server/rs-vault-blade.png)
 
@@ -60,9 +60,9 @@ Recovery Services 자격 증명 모음 **개요** 대시보드는 모니터링 �
 [사용량] 타일에서 제공하는 정보는 다음과 같습니다.
 
 * 자격 증명 모음에 구성된 백업 항목 수
-* 자격 증명 모음에서 사용하는 Azure 저장소(LRS 및 GRS로 구분됨).
+* 자격 증명 모음에서 사용하는 Azure Storage(LRS 및 GRS로 구분됨).
 
-해당 타일(백업 저장소 제외)을 클릭하여 연결된 메뉴를 엽니다. 위의 이미지에서 [백업 경고] 타일에는 세 개의 중요한 알림이 표시되어 있습니다. [백업 경고] 타일에서 [중요한 알림] 행을 클릭하면 [중요한 알림]에 대해 필터링된 [백업 경고]가 열립니다.
+해당 타일(백업 스토리지 제외)을 클릭하여 연결된 메뉴를 엽니다. 위의 이미지에서 [백업 경고] 타일에는 세 개의 중요한 알림이 표시되어 있습니다. [백업 경고] 타일에서 [중요한 알림] 행을 클릭하면 [중요한 알림]에 대해 필터링된 [백업 경고]가 열립니다.
 
 ![중요한 알림에 대해 필터링된 백업 경고 메뉴](./media/backup-azure-manage-windows-server/critical-backup-alerts.png)
 
@@ -175,7 +175,7 @@ Recovery Services 자격 증명 모음은 다양한 유형의 백업 데이터�
 
 자격 증명 모음 대시보드의 **백업 작업** 타일에는 지난 24시간 동안 진행 중인 작업 또는 실패한 작업의 수가 표시됩니다. 타일에서 잠시 동안 [백업 작업] 메뉴를 제공합니다.
 
-![설정에서 항목 Backup](./media/backup-azure-manage-windows-server/backup-jobs-tile.png)
+![설정에서 항목 백업](./media/backup-azure-manage-windows-server/backup-jobs-tile.png)
 
 작업에 대한 추가 세부 정보를 보려면 **진행 중** 또는 **실패**를 클릭하여 해당 상태에 대해 필터링된 [백업 작업] 메뉴를 엽니다.
 
@@ -185,11 +185,11 @@ Recovery Services 자격 증명 모음은 다양한 유형의 백업 데이터�
 
 [백업 작업] 메뉴를 열려면 자격 증명 모음의 주 메뉴에서 **백업 작업**을 클릭합니다.
 
-![설정에서 항목 Backup](./media/backup-azure-manage-windows-server/backup-jobs-menu-item.png)
+![설정에서 항목 백업](./media/backup-azure-manage-windows-server/backup-jobs-menu-item.png)
 
 [백업 작업] 목록이 열립니다.
 
-![설정에서 항목 Backup](./media/backup-azure-manage-windows-server/backup-jobs-list.png)
+![설정에서 항목 백업](./media/backup-azure-manage-windows-server/backup-jobs-list.png)
 
 [백업 작업] 메뉴에는 지난 24시간 동안 모든 백업 유형의 모든 작업에 대한 상태가 표시됩니다. **필터**를 사용하여 필터를 변경합니다. 필터에 대해서는 다음 섹션에서 설명합니다.
 
@@ -197,11 +197,11 @@ Recovery Services 자격 증명 모음은 다양한 유형의 백업 데이터�
 
 1. 자격 증명 모음 [백업 작업] 메뉴에서 **필터**를 클릭합니다.
 
-   ![설정에서 항목 Backup](./media/backup-azure-manage-windows-server/vault-backup-job-menu-filter.png)
+   ![설정에서 항목 백업](./media/backup-azure-manage-windows-server/vault-backup-job-menu-filter.png)
 
     [필터] 메뉴가 열립니다.
 
-   ![설정에서 항목 Backup](./media/backup-azure-manage-windows-server/filter-menu-backup-jobs.png)
+   ![설정에서 항목 백업](./media/backup-azure-manage-windows-server/filter-menu-backup-jobs.png)
 
 2. 필터 설정을 선택하고 **완료**를 클릭합니다. 필터링된 목록이 새 설정에 따라 새로 고쳐집니다.
 
@@ -254,10 +254,10 @@ Recovery Services 자격 증명 모음은 다양한 유형의 백업 데이터�
 
 ## <a name="monitor-backup-usage"></a>Backup 사용 모니터링
 
-대시보드의 [백업 저장소] 타일은 Azure에서 사용된 저장소를 보여 줍니다. 다음에 대한 저장소 사용량이 제공됩니다.
+대시보드의 [백업 스토리지] 타일은 Azure에서 사용된 스토리지를 보여 줍니다. 다음에 대한 스토리지 사용량이 제공됩니다.
 
-* 자격 증명 모음과 연결된 클라우드 LRS 저장소 사용량
-* 자격 증명 모음과 연결된 클라우드 GRS 저장소 사용량
+* 자격 증명 모음과 연결된 클라우드 LRS 스토리지 사용량
+* 자격 증명 모음과 연결된 클라우드 GRS 스토리지 사용량
 
 
 ## <a name="troubleshooting-monitoring-issues"></a>모니터링 문제 해결

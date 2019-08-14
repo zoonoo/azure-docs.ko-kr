@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 08/07/2019
+ms.date: 08/08/2019
 ms.author: alkohli
-ms.openlocfilehash: 309dc8e1fd15ae4088ed6ee87bdbb8aa4d636951
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 8fecc00a970f0e706dc6240eaec593fd54968ff8
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848564"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934215"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>Azure Data Box 및 Azure Data Box Heavy에 대 한 추적 및 이벤트 로깅
 
@@ -197,7 +197,7 @@ BOM 또는 매니페스트 파일도 Azure 저장소 계정에 복사 됩니다.
 
 Azure로 데이터를 업로드 하는 동안 복사 로그가 생성 됩니다.
 
-### <a name="copylog"></a>Copylog
+### <a name="copy-log"></a>로그 복사
 
 처리 되는 각 주문에 대해 Data Box 서비스는 연결 된 저장소 계정에 복사 로그를 만듭니다. 복사 로그에는 업로드 된 총 파일 수와 Data Box에서 Azure storage 계정으로 데이터를 복사 하는 동안 오류 발생 된 파일 수가 있습니다.
 
@@ -252,6 +252,8 @@ Azure로 업로드가 완료 되 면 오류가 발생할 수도 있습니다.
 ### <a name="upload-completed-with-warnings"></a>업로드가 완료 되었지만 경고가 발생 했습니다.
 
 Azure로의 업로드는 Azure 명명 규칙을 준수 하지 않는 컨테이너/b a b/파일 이름이 데이터에 있고 Azure에 데이터를 업로드 하기 위해 이름이 수정 된 경우 경고와 함께 완료 됩니다.
+
+![경고와 함께 완료 되었을 때 개요 블레이드에서 복사 로그 경로](media/data-box-logs/copy-log-path-3.png)
 
 Azure로 데이터를 업로드 하는 동안 Azure 명명 규칙을 준수 하지 않는 컨테이너의 이름이 바뀐 복사 로그의 예는 다음과 같습니다.
 

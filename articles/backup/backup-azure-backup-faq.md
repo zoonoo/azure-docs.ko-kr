@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/07/2019
 ms.author: dacurwin
-ms.openlocfilehash: c41381dd3e53c80e74da3dc0d0a08e1ac83daec6
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 415a25dbe63b8942509827cd8434cc0f50fde87a
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827625"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954805"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - 질문과 대답
 이 문서에서는 Azure Backup 서비스에 대한 일반적인 질문과 대답을 제공합니다.
@@ -33,19 +33,19 @@ ms.locfileid: "68827625"
 자격 증명 모음 당 정책을 최대 200 개만 포함할 수 있습니다.
 
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-data-from-different-servers-in-the-vault-when-restoring-data"></a>내 조직에 하나의 자격 증명 모음이 있는 경우 데이터를 복원할 때 자격 증명 모음의 다른 서버에서 데이터를 어떻게 격리할 수 있나요?
-백업을 설정할 때 함께 복구하려는 서버 데이터는 동일한 암호를 사용해야 합니다. 특정 서버로 복구를 격리하려는 경우 해당 서버에 대해서만 암호를 사용합니다. 예를 들어 인사부 서버가 첫 번째 암호화 암호를 사용하고, 회계 서버가 두 번째, 저장소 서버가 세 번째 암호화 암호를 사용할 수 있습니다.
+백업을 설정할 때 함께 복구하려는 서버 데이터는 동일한 암호를 사용해야 합니다. 특정 서버로 복구를 격리하려는 경우 해당 서버에 대해서만 암호를 사용합니다. 예를 들어 인사부 서버가 첫 번째 암호화 암호를 사용하고, 회계 서버가 두 번째, 스토리지 서버가 세 번째 암호화 암호를 사용할 수 있습니다.
 
 ### <a name="can-i-move-my-vault-between-subscriptions"></a>구독 간에 내 자격 증명 모음을 이동할 수 있나요?
-예. Recovery Services 자격 증명 모음을 이동하려면 이 [문서](backup-azure-move-recovery-services-vault.md)를 참조하세요.
+예. Recovery Services 자격 증명 모음을 이동 하려면이 [문서](backup-azure-move-recovery-services-vault.md) 를 참조 하세요.
 
 ### <a name="can-i-move-backup-data-to-another-vault"></a>백업 데이터를 다른 자격 증명 모음에 이동할 수 있나요?
 아니요. 자격 증명 모음에 저장된 백업 데이터는 다른 자격 증명 모음으로 옮길 수 없습니다.
 
 ### <a name="can-i-change-from-grs-to-lrs-after-a-backup"></a>백업 후 GRS에서 LRS로 변경할 수 있나요?
-아니요. Recovery Services 자격 증명 모음은 백업을 저장하기 전에만 저장소 옵션을 변경할 수 있습니다.
+아니요. Recovery Services 자격 증명 모음은 백업을 저장하기 전에만 스토리지 옵션을 변경할 수 있습니다.
 
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음에 백업된 VM에 대해 ILR(항목 수준 복원)을 수행할 수 있나요?
-- ILR은 Azure VM 백업을 통해 백업한 Azure VM에 대해 지원됩니다. 자세한 내용은 [문서](backup-azure-restore-files-from-vm.md)를 참조하세요.
+- ILR은 Azure VM 백업을 통해 백업한 Azure VM에 대해 지원됩니다. 자세한 내용은 [문서](backup-azure-restore-files-from-vm.md) 를 참조 하세요.
 - Azure backup Server 또는 System Center DPM에서 백업 된 온-프레미스 Vm의 온라인 복구 지점은 ILR가 지원 되지 않습니다.
 
 
@@ -54,7 +54,7 @@ ms.locfileid: "68827625"
 ### <a name="where-can-i-find-common-questions-about-the-azure-backup-agent-for-azure-vm-backup"></a>Azure VM 백업용 Azure Backup 에이전트에 대한 일반적인 질문은 어디에서 찾을 수 있나요?
 
 - Azure VM에서 실행되는 에이전트의 경우 이 [FAQ](backup-azure-vm-backup-faq.md)를 읽어보세요.
-- Azure 파일 폴더를 백업하는 데 사용하는 에이전트의 경우 이 [FAQ](backup-azure-file-folder-backup-faq.md)를 읽어보세요.
+- Azure 파일 폴더를 백업 하는 데 사용 되는 에이전트의 경우이 [FAQ](backup-azure-file-folder-backup-faq.md)를 참조 하세요.
 
 
 ## <a name="general-backup"></a>일반 백업
@@ -125,7 +125,7 @@ Azure Backup 에이전트 또는 DPM 또는 Azure Backup 서버에서 백업된 
 
 - Azure Backup은 백업하는 동안 백업 데이터에 검사점을 간혹 추가하는 검사점 메커니즘을 사용합니다.
 - 백업 데이터에 검사점이 있기 때문에 다음 백업 프로세스에서는 파일의 무결성을 유효성 검사할 수 있습니다.
-- 다음 백업 작업은 이전에 백업한 데이터에 대해 증분됩니다. 증분 백업은 새 데이터 또는 변경된 데이터만 전송하므로 대역폭의 사용률을 개선합니다.
+- 다음 백업 작업은 이전에 백업한 데이터에 대해 증분됩니다. 증분 백업은 새 데이터 또는 변경 된 데이터만 전송 하므로 대역폭 사용률을 높일 수 있습니다.
 
 Azure VM에 대한 백업 작업을 취소하면 모든 전송된 데이터는 무시됩니다. 다음 백업 작업은 마지막으로 성공한 백업 작업에서 증분 데이터를 전송합니다.
 
@@ -138,7 +138,7 @@ Azure VM에 대한 백업 작업을 취소하면 모든 전송된 데이터는 �
 예. 정책을 사용자 지정할 수 있습니다. 예를 들어 연도별 및 월별은 제외하고 주별 및 일별 보존 요구 사항만 구성할 수 있습니다.
 
 ### <a name="can-i-use-different-times-for-backup-scheduling-and-retention-policies"></a>백업 일정 및 보존 정책의 시간을 다르게 지정할 수 있나요?
-아니요. 보존 정책은 백업 지점에만 적용할 수 있습니다. 예를 들어, 이 이미지는 오전 12시와 오후 6시에 수행되는 백업의 보존 정책을 보여 줍니다.
+아니요. 보존 정책은 백업 지점에만 적용할 수 있습니다. 예를 들어이 이미지는 오전 12 시 및 오후 6 시에서 수행 되는 백업에 대 한 보존 정책을 보여 줍니다.
 
 ![Backup 일정 및 보존](./media/backup-azure-backup-faq/Schedule.png)
 
@@ -146,13 +146,13 @@ Azure VM에 대한 백업 작업을 취소하면 모든 전송된 데이터는 �
 ### <a name="if-a-backup-is-kept-for-a-long-time-does-it-take-more-time-to-recover-an-older-data-point-br"></a>오랜 시간 동안 백업을 유지하면 오래된 데이터 지점을 복구하는 데 시간이 더 걸리나요? <br/>
 아니요. 가장 오래된 지점이나 최신 지점을 복구하는 시간은 같습니다. 각 복구 지점은 전체 지점처럼 동작합니다.
 
-### <a name="if-each-recovery-point-is-like-a-full-point-does-it-impact-the-total-billable-backup-storage"></a>각 복구 지점이 전체 지점과 같은 경우 총 청구 가능 백업 저장소에 영향을 주나요?
+### <a name="if-each-recovery-point-is-like-a-full-point-does-it-impact-the-total-billable-backup-storage"></a>각 복구 지점이 전체 지점과 같은 경우 총 청구 가능 백업 스토리지에 영향을 주나요?
 일반적인 장기 보존 지점 제품은 백업 데이터를 전체 지점으로 저장합니다.
 
-- 전체 지점은 저장소를 *비효율적* 으로 사용하지만 복원은 쉽고 빠릅니다.
-- 증분 복사본은 저장소를 *효율적* 으로 사용하지만 데이터 체인을 복원해야 하며 이는 복구 시간에 영향을 줍니다.
+- 전체 지점은 스토리지를 *비효율적* 으로 사용하지만 복원은 쉽고 빠릅니다.
+- 증분 복사본은 스토리지를 *효율적* 으로 사용하지만 데이터 체인을 복원해야 하며 이는 복구 시간에 영향을 줍니다.
 
-Azure Backup 저장소 아키텍처는 데이터를 빠르게 복원할 수 있게 최적화하여 저장하고 저장소 비용을 낮춰 두 가지 이점을 모두 제공합니다. 이 방법을 사용하면 수신 및 발신 대역폭이 효율적으로 사용됩니다. 데이터를 복구하는 데 필요한 데이터 저장소와 시간의 양이 최소로 유지됩니다. [증분 백업](https://azure.microsoft.com/blog/microsoft-azure-backup-save-on-long-term-storage/)에 대해 자세히 알아보세요.
+Azure Backup 스토리지 아키텍처는 데이터를 빠르게 복원할 수 있게 최적화하여 저장하고 스토리지 비용을 낮춰 두 가지 이점을 모두 제공합니다. 이 방법을 사용하면 수신 및 발신 대역폭이 효율적으로 사용됩니다. 데이터를 복구하는 데 필요한 데이터 스토리지와 시간의 양이 최소로 유지됩니다. [증분 백업](https://azure.microsoft.com/blog/microsoft-azure-backup-save-on-long-term-storage/)에 대해 자세히 알아보세요.
 
 ### <a name="is-there-a-limit-on-the-number-of-recovery-points-that-can-be-created"></a>만들 수 있는 복구 지점의 수에 제한이 있나요?
 보호된 인스턴스당 최대 9999개의 복구 지점을 만들 수 있습니다. 보호된 인스턴스는 Azure로 백업하는 컴퓨터, 서버(실제 또는 가상) 또는 워크로드입니다.

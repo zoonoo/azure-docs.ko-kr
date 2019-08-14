@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/24/2017
 ms.author: dacurwin
-ms.openlocfilehash: 5e91d63f4479d0677c57342cb1b726e33a45bb86
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 72de5857786f284bfc4afda1db093d5343bd7a43
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689080"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954465"
 ---
 # <a name="back-up-sql-server-to-azure-with-azure-backup-server"></a>Azure Backup Server를 사용하여 Azure에 SQL Server 백업
 이 문서는 Microsoft Azure Backup Server(MABS)를 사용한 SQL Server 데이터베이스 백업의 구성 단계를 안내합니다.
@@ -44,7 +44,7 @@ Azure에 SQL Server 데이터베이스를 백업하고 Azure에서 데이터베�
     ![데이터 보호 방법 - 단기 디스크 및 온라인 Azure](./media/backup-azure-backup-sql/pg-name.png)
 7. **단기 목표 지정** 화면에서 필요한 입력을 포함하여 디스크에 백업 지점을 만듭니다.
 
-    여기서 **보존 범위**가 *5일*, **동기화 빈도**가 백업이 수행되는 빈도인 *15분*마다 한 번으로 설정된 것을 확인합니다. **빠른 전체 Backup** 을 *오후 8시*로 설정합니다.
+    여기서는 **보존 범위가** *5 일로*설정 된 것을 확인할 수 있으며, **동기화 빈도** 는 *15 분*마다 한 번씩 (백업이 수행 되는 빈도)로 설정 됩니다. **빠른 전체 Backup** 을 *오후 8시*로 설정합니다.
 
     ![단기 목표](./media/backup-azure-backup-sql/pg-shortterm.png)
 
@@ -55,13 +55,13 @@ Azure에 SQL Server 데이터베이스를 백업하고 Azure에서 데이터베�
 
 8. **다음**을 클릭합니다.
 
-    MABS에서는 사용 가능한 전체 저장소 공간 및 잠재적인 디스크 공간 사용률을 보여줍니다.
+    MABS에서는 사용 가능한 전체 스토리지 공간 및 잠재적인 디스크 공간 사용률을 보여줍니다.
 
     ![디스크 할당](./media/backup-azure-backup-sql/pg-storage.png)
 
-    기본적으로 MABS에서는 초기 백업 복사본에 사용되는 데이터 원본(SQL Server 데이터베이스)당 하나의 볼륨을 만듭니다. 이 방법을 사용하여 논리 디스크 관리자(LDM)는 MABS 보호를 300개 데이터 원본(SQL Server 데이터베이스)으로 제한합니다. 이 제한을 해결하려면 **DPM 저장소 풀에 데이터 배치**옵션을 선택합니다. 이 옵션을 사용하면 MABS에서 여러 데이터 원본에 단일 볼륨을 사용하므로 MABS가 최대 2000개의 SQL 데이터베이스를 보호할 수 있습니다.
+    기본적으로 MABS에서는 초기 백업 복사본에 사용되는 데이터 원본(SQL Server 데이터베이스)당 하나의 볼륨을 만듭니다. 이 방법을 사용하여 논리 디스크 관리자(LDM)는 MABS 보호를 300개 데이터 원본(SQL Server 데이터베이스)으로 제한합니다. 이 제한을 해결하려면 **DPM 스토리지 풀에 데이터 배치**옵션을 선택합니다. 이 옵션을 사용하면 MABS에서 여러 데이터 원본에 단일 볼륨을 사용하므로 MABS가 최대 2000개의 SQL 데이터베이스를 보호할 수 있습니다.
 
-    **볼륨 자동 증가** 옵션을 선택할 경우 프로덕션 데이터가 증가함에 따라 MABS는 백업 볼륨 증가를 처리할 수 있습니다. **볼륨 자동 증가** 옵션을 선택하지 않으면 MABS는 백업 저장소 사용을 보호 그룹의 데이터 원본으로 제한합니다.
+    **볼륨 자동 증가** 옵션을 선택할 경우 프로덕션 데이터가 증가함에 따라 MABS는 백업 볼륨 증가를 처리할 수 있습니다. **볼륨 자동 증가** 옵션을 선택하지 않으면 MABS는 백업 스토리지 사용을 보호 그룹의 데이터 원본으로 제한합니다.
 9. 관리자는 해당 초기 백업을 수동으로 전송하도록 선택하여(오프 네트워크) 네트워크를 통한 대역폭 정체를 방지합니다. 또한 초기 전송이 발생할 수 있는 시간을 구성할 수 있습니다. **다음**을 클릭합니다.
 
     ![초기 복제 방법](./media/backup-azure-backup-sql/pg-manual.png)
@@ -129,7 +129,7 @@ Azure에 SQL Server 데이터베이스를 백업하고 Azure에서 데이터베�
 ## <a name="recover-a-sql-server-database-from-azure"></a>Azure에서 SQL Server 데이터베이스 복구
 Azure에서 보호되는 엔터티(SQL Server 데이터베이스)를 복구하려면 다음 단계가 필요합니다.
 
-1. DPM 서버 관리 콘솔을 엽니다. DPM에서 백업된 서버를 확인할 수 있는 **복구** 작업 영역으로 이동합니다. 필요한 데이터베이스로 이동합니다.(이 경우 ReportServer$ MSDPM2012) **온라인**으로 끝나는 시간**에서 복구**를 선택합니다.
+1. DPM 서버 관리 콘솔을 엽니다. DPM에서 백업된 서버를 확인할 수 있는 **복구** 작업 영역으로 이동합니다. 필요한 데이터베이스로 이동합니다.(이 경우 ReportServer$ MSDPM2012) **온라인**으로 끝나는 시간 **에서 복구** 를 선택 합니다.
 
     ![복구 지점 선택](./media/backup-azure-backup-sql/sqlbackup-restorepoint.png)
 2. 데이터베이스 이름을 마우스 오른쪽 단추로 클릭하고 **복구**를 클릭합니다.

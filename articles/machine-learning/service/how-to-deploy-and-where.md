@@ -11,16 +11,16 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 08/06/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 7e88b99cf0ecede64d75b36eafdcc88798e2e4a4
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: a92cb0f3da5058e7ffeee6f47e8cfa26ae291005
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840453"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990570"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning Services를 사용하여 모델 배포
 
-Azure 클라우드에서 machine learning 모델을 웹 서비스로 배포 하거나 장치를 IoT Edge 하는 방법에 대해 알아봅니다. 
+Azure 클라우드에서 machine learning 모델을 웹 서비스로 배포 하거나 장치를 IoT Edge 하는 방법에 대해 알아봅니다.
 
 모델을 [배포 하는 위치](#target) 와 관계 없이 워크플로는 다음과 유사 합니다.
 
@@ -31,28 +31,59 @@ Azure 클라우드에서 machine learning 모델을 웹 서비스로 배포 하�
 
 배포 워크플로에 관련된 개념에 대한 자세한 내용은 [Azure Machine Learning Service를 사용하여 모델 관리, 배포 및 모니터링](concept-model-management-and-deployment.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
+
+- Azure Machine Learning 서비스 작업 영역. 자세한 내용은 [Azure Machine Learning 서비스 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
 
 - 모델. 학습 된 모델이 없는 경우 [이 자습서](https://aka.ms/azml-deploy-cloud)에서 제공 하는 모델 & 종속성 파일을 사용할 수 있습니다.
 
 - Machine Learning 서비스, [Azure Machine Learning PYTHON SDK](https://aka.ms/aml-sdk)또는 [Azure Machine Learning Visual Studio Code 확장](how-to-vscode-tools.md) [에 대 한 Azure CLI 확장](reference-azure-machine-learning-cli.md)입니다.
 
+## <a name="connect-to-your-workspace"></a>작업 영역에 연결
+
+다음 코드에서는 로컬 개발 환경에 캐시 된 정보를 사용 하 여 Azure Machine Learning 서비스 작업 영역에 연결 하는 방법을 보여 줍니다.
+
+**SDK 사용**
+
+```python
+from azureml.core import Workspace
+ws = Workspace.from_config(path=".file-path/ws_config.json")
+```
+
+SDK를 사용 하 여 작업 영역에 연결 하는 방법에 대 한 자세한 내용은 [Python 용 AZURE MACHINE LEARNING sdk](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#workspace)를 참조 하세요.
+
+**CLI 사용**
+
+CLI를 사용 하는 경우 `-w` 또는 `--workspace-name` 매개 변수를 사용 하 여 명령에 대 한 작업 영역을 지정 합니다.
+
+**VS Code 사용**
+
+VS Code 사용 하는 경우 그래픽 인터페이스를 사용 하 여 작업 영역을 선택 합니다. 자세한 내용은 VS Code 확장 설명서에서 [모델 배포 및 관리](how-to-vscode-tools.md#deploy-and-manage-models) 를 참조 하세요.
+
 ## <a id="registermodel"></a>모델 등록
 
-모델을 구성 하는 하나 이상의 파일에 대해 등록 된 모델 논리적 컨테이너입니다. 예를 들어 여러 파일에 저장 된 모델의 경우 작업 영역에서 단일 모델로 등록할 수 있습니다. 등록 후 등록 된 모델을 다운로드 하거나 배포 하 고 등록 된 모든 파일을 받을 수 있습니다.
+등록 된 모델은 모델을 구성 하는 하나 이상의 파일에 대 한 논리적 컨테이너입니다. 예를 들어 여러 파일에 저장 된 모델의 경우 작업 영역에서 단일 모델로 등록할 수 있습니다. 등록 후 등록 된 모델을 다운로드 하거나 배포 하 고 등록 된 모든 파일을 받을 수 있습니다.
 
-기계 학습 모델은 Azure Machine Learning 작업 영역에 등록 됩니다. 모델은 Azure Machine Learning에서 제공 되거나 다른 위치에서 가져올 수 있습니다. 다음 예에서는 파일에서 모델을 등록 하는 방법을 보여 줍니다.
+> [!TIP]
+> 모델을 등록할 때 학습 실행의 클라우드 위치에 대 한 경로 또는 로컬 디렉터리를 제공 합니다. 이 경로는 등록 프로세스의 일부로 업로드할 파일을 찾는 것입니다. 항목 스크립트에 사용 된 경로와 일치 하지 않아도 됩니다. 자세한 내용은 [Get_model_path 란?](#what-is-get_model_path)을 참조 하세요.
+
+기계 학습 모델은 Azure Machine Learning 작업 영역에 등록 됩니다. 모델은 Azure Machine Learning에서 제공 되거나 다른 위치에서 가져올 수 있습니다. 다음 예에서는 모델을 등록 하는 방법을 보여 줍니다.
 
 ### <a name="register-a-model-from-an-experiment-run"></a>실험 실행에서 모델 등록
 
-+ **Scikit-SDK를 사용 하는 예제 배우기**
+이 단원의 코드 조각은 학습 실행에서 모델을 등록 하는 방법을 보여 줍니다.
+
+> [!IMPORTANT]
+> 이러한 코드 조각은 이전에 학습 실행을 수행 하 고 `run` 개체 (SDK 예) 또는 실행 ID 값 (CLI 예)에 대 한 액세스 권한이 있다고 가정 합니다. 학습 모델에 대 한 자세한 내용은 [모델 학습을 위한 계산 대상 만들기 및 사용](how-to-set-up-training-targets.md)을 참조 하세요.
+
++ **SDK 사용**
+
   ```python
   model = run.register_model(model_name='sklearn_mnist', model_path='outputs/sklearn_mnist_model.pkl')
   print(model.name, model.id, model.version, sep='\t')
   ```
 
-  > [!TIP]
-  > 모델 등록에 여러 파일을 포함 하려면를 파일이 `model_path` 포함 된 디렉터리로 설정 합니다.
+  는 `model_path` 모델의 클라우드 위치를 참조 합니다. 이 예제에서는 단일 파일에 대 한 경로가 사용 됩니다. 모델 등록에 여러 파일을 포함 하려면를 파일이 `model_path` 포함 된 디렉터리로 설정 합니다.
 
 + **CLI 사용**
 
@@ -60,42 +91,47 @@ Azure 클라우드에서 machine learning 모델을 웹 서비스로 배포 하�
   az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name myexperiment --run-id myrunid
   ```
 
-  > [!TIP]
-  > 모델 등록에 여러 파일을 포함 하려면를 파일이 `--asset-path` 포함 된 디렉터리로 설정 합니다.
+  [!INCLUDE [install extension](../../../includes/machine-learning-service-install-extension.md)]
+
+  는 `--asset-path` 모델의 클라우드 위치를 참조 합니다. 이 예제에서는 단일 파일에 대 한 경로가 사용 됩니다. 모델 등록에 여러 파일을 포함 하려면를 파일이 `--asset-path` 포함 된 디렉터리로 설정 합니다.
 
 + **VS Code 사용**
 
   [VS Code](how-to-vscode-tools.md#deploy-and-manage-models) 확장 프로그램을 사용 하 여 모델 파일이 나 폴더를 사용 하 여 모델을 등록 합니다.
 
-### <a name="register-an-externally-created-model"></a>외부에서 만든 모델 등록
+### <a name="register-a-model-from-a-local-file"></a>로컬 파일에서 모델 등록
+
+모델에 **로컬 경로** 를 제공 하 여 모델을 등록할 수 있습니다. 폴더 또는 단일 파일을 제공할 수 있습니다. 이 메서드를 사용 하 여 Azure Machine Learning 서비스로 학습 하 고 다운로드 한 모델 또는 Azure Machine Learning 외부에서 학습 한 모델을 등록할 수 있습니다.
 
 [!INCLUDE [trusted models](../../../includes/machine-learning-service-trusted-model.md)]
 
-모델에 **로컬 경로** 를 제공 하 여 외부에서 만든 모델을 등록할 수 있습니다. 폴더 또는 단일 파일을 제공할 수 있습니다.
-
 + **Python SDK를 사용 하는 ONNX 예제:**
-  ```python
-  onnx_model_url = "https://www.cntk.ai/OnnxModels/mnist/opset_7/mnist.tar.gz"
-  urllib.request.urlretrieve(onnx_model_url, filename="mnist.tar.gz")
-  !tar xvzf mnist.tar.gz
-  
-  model = Model.register(workspace = ws,
-                         model_path ="mnist/model.onnx",
-                         model_name = "onnx_mnist",
-                         tags = {"onnx": "demo"},
-                         description = "MNIST image classification CNN from ONNX Model Zoo",)
-  ```
 
-  > [!TIP]
-  > 모델 등록에 여러 파일을 포함 하려면를 파일이 `model_path` 포함 된 디렉터리로 설정 합니다.
+    ```python
+    import os
+    import urllib.request
+    from azureml.core import Model
+    # Download model
+    onnx_model_url = "https://www.cntk.ai/OnnxModels/mnist/opset_7/mnist.tar.gz"
+    urllib.request.urlretrieve(onnx_model_url, filename="mnist.tar.gz")
+    os.system('tar xvzf mnist.tar.gz')
+    # Register model
+    model = Model.register(workspace = ws,
+                            model_path ="mnist/model.onnx",
+                            model_name = "onnx_mnist",
+                            tags = {"onnx": "demo"},
+                            description = "MNIST image classification CNN from ONNX Model Zoo",)
+    ```
+
+  모델 등록에 여러 파일을 포함 하려면를 파일이 `model_path` 포함 된 디렉터리로 설정 합니다.
 
 + **CLI 사용**
+
   ```azurecli-interactive
   az ml model register -n onnx_mnist -p mnist/model.onnx
   ```
 
-  > [!TIP]
-  > 모델 등록에 여러 파일을 포함 하려면를 파일이 `-p` 포함 된 디렉터리로 설정 합니다.
+  모델 등록에 여러 파일을 포함 하려면를 파일이 `-p` 포함 된 디렉터리로 설정 합니다.
 
 **예상 시간**: 약 10초
 
@@ -214,7 +250,7 @@ def run(data):
         return error
 ```
 
-다음 예제에서는 데이터 프레임를 사용 하 여 입력 데이터를 `<key: value>` 사전으로 정의 하는 방법을 보여 줍니다. 이 메서드는 Power BI에서 배포 된 웹 서비스를 사용 하는 데 지원 됩니다 ([Power BI에서 웹 서비스를 사용 하는 방법에 대 한 자세한 정보](https://docs.microsoft.com/power-bi/service-machine-learning-integration)).
+다음 예제에서는 데이터 프레임를 사용 하 여 입력 데이터를 `<key: value>` 사전으로 정의 하는 방법을 보여 줍니다. 이 메서드는 Power BI에서 배포 된 웹 서비스를 사용 하는 데 지원 됩니다 ([Power BI에서 웹 서비스를 사용 하는 방법에 대 한 자세한](https://docs.microsoft.com/power-bi/service-machine-learning-integration)정보).
 
 ```python
 import json
@@ -269,7 +305,97 @@ def run(data):
 * TensorFlow[https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow)
 * Keras[https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras)
 * ONNX[https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx/](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx/)
-* 이진 데이터에 대 한 점수 매기기: [웹 서비스를 사용 하는 방법](how-to-consume-web-service.md)
+
+<a id="binary"></a>
+
+#### <a name="binary-data"></a>이진 데이터
+
+모델이 이미지와 같이 이진 데이터를 허용하는 경우 원시 HTTP 요청을 수락하도록 배포에 사용되는 `score.py` 파일을 수정해야 합니다. 원시 데이터를 수락 하려면 항목 스크립트 `AMLRequest` 에서 클래스를 사용 하 고 `run()` 함수에 `@rawhttp` 데코레이터를 추가 합니다.
+
+이진 데이터를 허용 `score.py` 하는의 예는 다음과 같습니다.
+
+```python
+from azureml.contrib.services.aml_request import AMLRequest, rawhttp
+from azureml.contrib.services.aml_response import AMLResponse
+
+
+def init():
+    print("This is init()")
+
+
+@rawhttp
+def run(request):
+    print("This is run()")
+    print("Request: [{0}]".format(request))
+    if request.method == 'GET':
+        # For this example, just return the URL for GETs
+        respBody = str.encode(request.full_path)
+        return AMLResponse(respBody, 200)
+    elif request.method == 'POST':
+        reqBody = request.get_data(False)
+        # For a real world solution, you would load the data from reqBody
+        # and send to the model. Then return the response.
+
+        # For demonstration purposes, this example just returns the posted data as the response.
+        return AMLResponse(reqBody, 200)
+    else:
+        return AMLResponse("bad request", 500)
+```
+
+> [!IMPORTANT]
+> 클래스 `AMLRequest` 는 `azureml.contrib` 네임 스페이스에 있습니다. 이 네임 스페이스의 항목은 서비스를 개선 하기 위해 작업할 때 자주 변경 됩니다. 따라서 이 네임 스페이스의 모든 것을 미리 보기로 간주하므로 Microsoft에서 완벽히 지원하지 않아도 됩니다.
+>
+> 로컬 개발 환경에서 테스트를 수행 해야 하는 경우 다음 명령을 사용 하 여 구성 요소를 설치할 수 있습니다.
+>
+> ```shell
+> pip install azureml-contrib-services
+> ```
+
+<a id="cors"></a>
+
+#### <a name="cross-origin-resource-sharing-cors"></a>CORS (원본 간 리소스 공유)
+
+크로스-원본 자원 공유는 다른 도메인에서 웹 페이지의 리소스를 요청할 수 있도록 하는 방법입니다. CORS는 클라이언트 요청과 함께 전송 되 고 서비스 응답과 함께 반환 된 HTTP 헤더를 기반으로 작동 합니다. CORS 및 유효한 헤더에 대 한 자세한 내용은 위키백과에서 [원본 간 리소스 공유](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) 를 참조 하세요.
+
+CORS를 지원 하도록 모델 배포를 구성 하려면 항목 스크립트 `AMLResponse` 에서 클래스를 사용 합니다. 이 클래스를 사용 하 여 응답 개체의 헤더를 설정할 수 있습니다.
+
+다음 예에서는 입력 스크립트 `Access-Control-Allow-Origin` 의 응답에 대 한 헤더를 설정 합니다.
+
+```python
+from azureml.contrib.services.aml_response import AMLResponse
+
+def init():
+    print("This is init()")
+
+def run(request):
+    print("This is run()")
+    print("Request: [{0}]".format(request))
+    if request.method == 'GET':
+        # For this example, just return the URL for GETs
+        respBody = str.encode(request.full_path)
+        return AMLResponse(respBody, 200)
+    elif request.method == 'POST':
+        reqBody = request.get_data(False)
+        # For a real world solution, you would load the data from reqBody
+        # and send to the model. Then return the response.
+
+        # For demonstration purposes, this example
+        # adds a header and returns the request body
+        resp = AMLResponse(reqBody, 200)
+        resp.headers['Access-Control-Allow-Origin'] = "http://www.example.com"
+        return resp
+    else:
+        return AMLResponse("bad request", 500)
+```
+
+> [!IMPORTANT]
+> 클래스 `AMLResponse` 는 `azureml.contrib` 네임 스페이스에 있습니다. 이 네임 스페이스의 항목은 서비스를 개선 하기 위해 작업할 때 자주 변경 됩니다. 따라서 이 네임 스페이스의 모든 것을 미리 보기로 간주하므로 Microsoft에서 완벽히 지원하지 않아도 됩니다.
+>
+> 로컬 개발 환경에서 테스트를 수행 해야 하는 경우 다음 명령을 사용 하 여 구성 요소를 설치할 수 있습니다.
+>
+> ```shell
+> pip install azureml-contrib-services
+> ```
 
 ### <a name="2-define-your-inferenceconfig"></a>2. InferenceConfig 정의
 
@@ -328,7 +454,7 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 
 ### <a id="local"></a>로컬 배포
 
-로컬로 배포 하려면 로컬 컴퓨터에 Docker가 **설치** 되어 있어야 합니다.
+로컬로 배포 하려면 로컬 컴퓨터에 Docker가 설치 되어 있어야 합니다.
 
 #### <a name="using-the-sdk"></a>SDK 사용
 
@@ -352,6 +478,10 @@ az ml model deploy -m mymodel:1 -ic inferenceconfig.json -dc deploymentconfig.js
 [!INCLUDE [aml-local-deploy-config](../../../includes/machine-learning-service-local-deploy-config.md)]
 
 자세한 내용은 [az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) reference를 참조 하세요.
+
+### <a id="notebookvm"></a>NotebookVM 웹 서비스 (DEVTEST)
+
+[모델을 노트북 vm에 배포](how-to-deploy-local-container-notebook-vm.md)를 참조 하세요.
 
 ### <a id="aci"></a>Azure Container Instances (DEVTEST)
 
@@ -580,7 +710,10 @@ Azure Machine Learning 계산을 사용한 일괄 처리 유추 연습은 [일�
 
     ![enable-model-trigger](media/how-to-deploy-and-where/set-modeltrigger.png)
 
-샘플 프로젝트 및 예제를 보려면 [MLOps 리포지토리](https://github.com/Microsoft/MLOps) 를 확인 하세요.
+더 많은 샘플 프로젝트 및 예제는 다음 샘플 리포지토리를 참조 하세요.
+
+* [https://github.com/Microsoft/MLOps](https://github.com/Microsoft/MLOps)
+* [https://github.com/Microsoft/MLOpsPython](https://github.com/microsoft/MLOpsPython)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 배포된 웹 서비스를 삭제하려면 `service.delete()`를 사용합니다.

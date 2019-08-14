@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 1b2e6e0aa74c06afea09a67dbdf65ca47727b72e
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: c1c7dd0bd017852144139a841ff609dabf0f1a27
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780558"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68928065"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Azure에서 보안 애플리케이션 개발
 이 문서에서는 클라우드 용 응용 프로그램을 개발할 때 고려해 야 할 보안 작업 및 제어를 제공 합니다. Microsoft [SDL (보안 개발 수명 주기)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) 의 구현 및 확인 단계 중에 고려해 야 하는 보안 질문 및 개념을 다룹니다. 목표는 보다 안전한 응용 프로그램을 개발 하는 데 사용할 수 있는 활동 및 Azure 서비스를 정의 하는 데 도움을 주는 것입니다.
@@ -89,7 +89,7 @@ Azure Marketplace에서는 정적 코드 분석을 수행 하 고 코드 검토�
 
 무차별 암호 대입 및 사전 기반 추측을 방지 하려면 강력한 암호 정책을 구현 하 여 사용자가 복잡 한 암호를 만들 수 있도록 해야 합니다 (예: 12 자 최소 길이 및 영숫자 및 특수 문자 필요).
 
-Id 프레임 워크를 사용 하 여 암호 정책을 만들고 적용할 수 있습니다. Azure AD B2C는 [기본 제공 정책](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows#create-a-password-reset-user-flow), [셀프 서비스 암호 재설정](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-sspr)등을 제공 하 여 암호 관리에 도움이 됩니다.
+Id 프레임 워크를 사용 하 여 암호 정책을 만들고 적용할 수 있습니다. Azure AD B2C는 [기본 제공 정책](../../active-directory-b2c/tutorial-create-user-flows.md#create-a-password-reset-user-flow), [셀프 서비스 암호 재설정](../../active-directory-b2c/active-directory-b2c-reference-sspr.md)등을 제공 하 여 암호 관리에 도움이 됩니다.
 
 기본 계정에 대 한 공격 으로부터 보호 하려면 모든 키와 암호를 교체할 수 있는지 확인 하 고 리소스를 설치한 후에 생성 되거나 교체 되었는지 확인 합니다.
 
@@ -99,9 +99,9 @@ Id 프레임 워크를 사용 하 여 암호 정책을 만들고 적용할 수 �
 
 응용 프로그램에서 [파일 업로드](https://www.owasp.org/index.php/Unrestricted_File_Upload)를 허용 하는 경우이 위험한 작업에 대해 수행할 수 있는 예방 조치를 고려 하십시오. 대부분의 공격에 대 한 첫 번째 단계는 공격을 받는 시스템에 악성 코드를 가져오는 것입니다. 파일 업로드를 사용 하면 공격자가이를 수행할 수 있습니다. OWASP는 파일의 유효성을 검사 하는 솔루션을 제공 하 여 업로드 하는 파일이 안전한 지 확인 합니다.
 
-맬웨어 방지 보호는 바이러스, 스파이웨어 및 기타 악성 소프트웨어를 식별 하 고 제거 하는 데 도움이 됩니다. [Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) 또는 Microsoft 파트너의 엔드포인트 보호 솔루션([Trend Micro](https://www.trendmicro.com/azure/), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10) 및 [System Center Endpoint Protection](https://docs.microsoft.com/sccm/protect/deploy-use/endpoint-protection))을 설치할 수 있습니다.
+맬웨어 방지 보호는 바이러스, 스파이웨어 및 기타 악성 소프트웨어를 식별 하 고 제거 하는 데 도움이 됩니다. [Microsoft Antimalware](../fundamentals/antimalware.md) 또는 Microsoft 파트너의 엔드포인트 보호 솔루션([Trend Micro](https://www.trendmicro.com/azure/), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10) 및 [System Center Endpoint Protection](https://docs.microsoft.com/sccm/protect/deploy-use/endpoint-protection))을 설치할 수 있습니다.
 
-[Microsoft 맬웨어 방지 프로그램](https://docs.microsoft.com/azure/security/fundamentals/antimalware) 에는 실시간 보호, 예약 된 검색, 맬웨어 재구성, 서명 업데이트, 엔진 업데이트, 샘플 보고 및 제외 이벤트 수집과 같은 기능이 포함 되어 있습니다. 배포 및 기본 제공 검색(경고 및 인시던트)을 용이하게 하기 위해 [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-partner-integration)와 Microsoft 맬웨어 방지 프로그램 및 파트너 솔루션을 통합할 수 있습니다.
+[Microsoft 맬웨어 방지 프로그램](../fundamentals/antimalware.md) 에는 실시간 보호, 예약 된 검색, 맬웨어 재구성, 서명 업데이트, 엔진 업데이트, 샘플 보고 및 제외 이벤트 수집과 같은 기능이 포함 되어 있습니다. 배포 및 기본 제공 검색(경고 및 인시던트)을 용이하게 하기 위해 [Azure Security Center](../../security-center/security-center-partner-integration.md)와 Microsoft 맬웨어 방지 프로그램 및 파트너 솔루션을 통합할 수 있습니다.
 
 ### <a name="dont-cache-sensitive-content"></a>중요 한 콘텐츠 캐시 안 함
 
@@ -117,7 +117,7 @@ Id 프레임 워크를 사용 하 여 암호 정책을 만들고 적용할 수 �
 [Tinfoil security](https://www.tinfoilsecurity.com/) 에서 제공 하는 취약성 검색은 Azure App Service Web Apps에서 사용할 수 있습니다. [App Service를 통한 Tinfoil security 검색을 통해](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) 개발자와 관리자는 악의적인 행위자가 사용할 수 있기 전에 취약성을 신속 하 게 통합 하 고 경제적으로 해결할 수 있습니다.
 
 > [!NOTE]
-> [Tinfoil security를 AZURE AD와 통합할](https://docs.microsoft.com/azure/active-directory/saas-apps/tinfoil-security-tutorial)수도 있습니다. Tinfoil Security를 Azure AD와 통합 하면 다음과 같은 이점이 제공 됩니다.
+> [Tinfoil security를 AZURE AD와 통합할](../../active-directory/saas-apps/tinfoil-security-tutorial.md)수도 있습니다. Tinfoil Security를 Azure AD와 통합 하면 다음과 같은 이점이 제공 됩니다.
 >  - Azure AD에서 Tinfoil Security에 대 한 액세스 권한이 있는 사용자를 제어할 수 있습니다.
 >  - 사용자는 해당 Azure AD 계정을 사용 하 여 Tinfoil Security (single sign-on)에 자동으로 로그인 할 수 있습니다.
 >  - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
@@ -128,7 +128,7 @@ EAST (동적 응용 프로그램 보안 테스트)는 응용 프로그램을 운
 
 Aast는 정적 SAST (응용 프로그램 보안 테스트)와는 다릅니다. SAST 도구는 보안 결함을 찾기 위해 코드가 실행 되 고 있지 않을 때 소스 코드 또는 컴파일된 코드 버전을 분석 합니다.
 
-보안 전문가 ( [침투 테스터](https://docs.microsoft.com/azure/security/fundamentals/pen-testing) 또는 취약점 접근자)를 지원 하 여, 보안 전문가를 사용할 수 없는 경우 웹 프록시 스캐너 및 몇 가지 교육을 사용 하 여 사용자가 직접 수행할 수 있습니다. 코드에 명백한 보안 문제가 발생 하지 않도록 하기 위해 초기에 6AST 스캐너를 연결 합니다. 웹 응용 프로그램 취약성 스캐너 목록은 [OWASP](https://www.owasp.org/index.php/Category:Vulnerability_Scanning_Tools) 사이트를 참조 하세요.
+보안 전문가 ( [침투 테스터](../fundamentals/pen-testing.md) 또는 취약점 접근자)를 지원 하 여, 보안 전문가를 사용할 수 없는 경우 웹 프록시 스캐너 및 몇 가지 교육을 사용 하 여 사용자가 직접 수행할 수 있습니다. 코드에 명백한 보안 문제가 발생 하지 않도록 하기 위해 초기에 6AST 스캐너를 연결 합니다. 웹 응용 프로그램 취약성 스캐너 목록은 [OWASP](https://www.owasp.org/index.php/Category:Vulnerability_Scanning_Tools) 사이트를 참조 하세요.
 
 ### <a name="perform-fuzz-testing"></a>퍼징 테스트 수행
 
@@ -144,7 +144,7 @@ Aast는 정적 SAST (응용 프로그램 보안 테스트)와는 다릅니다. S
 
 ### <a name="perform-security-penetration-testing"></a>보안 침투 테스트 수행
 
-응용 프로그램의 보안을 유지 하는 것은 다른 기능을 테스트 하는 것 만큼 중요 합니다. [침투 테스트](https://docs.microsoft.com/azure/security/fundamentals/pen-testing) 를 빌드 및 배포 프로세스의 표준 부분으로 만듭니다. 배포 된 응용 프로그램에 대 한 일반 보안 테스트 및 취약성 검색을 예약 하 고 오픈 포트, 끝점 및 공격을 모니터링 합니다.
+응용 프로그램의 보안을 유지 하는 것은 다른 기능을 테스트 하는 것 만큼 중요 합니다. [침투 테스트](../fundamentals/pen-testing.md) 를 빌드 및 배포 프로세스의 표준 부분으로 만듭니다. 배포 된 응용 프로그램에 대 한 일반 보안 테스트 및 취약성 검색을 예약 하 고 오픈 포트, 끝점 및 공격을 모니터링 합니다.
 
 ### <a name="run-security-verification-tests"></a>보안 확인 테스트 실행
 

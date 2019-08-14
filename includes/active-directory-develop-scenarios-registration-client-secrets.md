@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 04/18/2018
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: cd37880be6d518105e880b93a0bd748f7c729d88
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 8f98808aa0f8a2c32e2117447824114747091a82
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68286174"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912432"
 ---
 ## <a name="registration-of-secrets-or-certificates"></a>비밀 또는 인증서 등록
 
@@ -29,7 +29,7 @@ ms.locfileid: "68286174"
 
 클라이언트 자격 증명의 관리는 응용 프로그램의 **인증서 & 암호** 페이지에서 발생 합니다.
 
-![image](../articles/active-directory/develop/media/quickstart-update-azure-ad-app-preview/credentials-certificates-secrets-expanded.png)
+![image](../articles/active-directory/develop/media/quickstart-update-azure-ad-app-preview/credentials-certificates-secrets.png)
 
 - 비밀 클라이언트 응용 프로그램을 등록 하는 동안 Azure AD에서 응용 프로그램 암호 (클라이언트 암호 라고도 하는)가 생성 됩니다. 이 생성은 **새 클라이언트 암호**를 선택할 때 발생 합니다. 이 시점에서 **저장**을 선택 하기 전에 앱에서 사용할 암호 문자열을 클립보드에 복사 해야 합니다. 이 문자열은 더 이상 표시 되지 않습니다.
 - 인증서는 **인증서 업로드** 단추를 사용 하 여 응용 프로그램 등록에 업로드 됩니다. Azure AD는 응용 프로그램에 직접 등록 된 인증서만 지원 하며 인증서 체인을 따르지 않습니다.

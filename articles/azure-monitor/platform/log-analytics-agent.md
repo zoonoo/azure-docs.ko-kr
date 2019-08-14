@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 08/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 653355af7dcb0b30c3deb444fcfe4b4ff76e7e77
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 6c8f9c98d645f60ea9281d1ca2aa15731c9c1e80
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68424126"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68955002"
 ---
 # <a name="collect-log-data-with-the-log-analytics-agent"></a>Log Analytics 에이전트를 사용 하 여 로그 데이터 수집
 
@@ -34,13 +34,21 @@ Azure Log Analytics 에이전트(이전 명칭은 MMA(Microsoft Monitoring Agent
 
 Linux 및 Windows 용 에이전트는 TCP 포트 443을 통해 Azure Monitor 서비스로 아웃 바운드를 전달 하 고, 컴퓨터가 인터넷을 통해 통신 하기 위해 방화벽 또는 프록시 서버를 통해 연결 하는 경우 아래 요구 사항을 검토 하 여 네트워크 구성을 이해 합니다. 필수. IT 보안 정책이 네트워크의 컴퓨터에서 인터넷에 연결할 수 있도록 허용 하지 않는 경우 [Log Analytics 게이트웨이](gateway.md) 를 설정한 다음 게이트웨이를 통해 Azure Monitor 로그에 연결 하도록 에이전트를 구성할 수 있습니다. 그러면 에이전트에서 구성 정보를 수신 하 고 작업 영역에서 사용 하도록 설정한 데이터 수집 규칙 및 모니터링 솔루션에 따라 수집 된 데이터를 보낼 수 있습니다. 
 
-System Center Operations Manager 2012 R2 이상 버전을 사용 하는 컴퓨터를 모니터링 하는 경우 Azure Monitor 서비스와 멀티홈 되어 데이터를 수집 하 고 서비스로 전달할 수 있으며이 경우에도 [Operations Manager](../../azure-monitor/platform/om-agents.md)에서 모니터링할 수 있습니다. Linux 컴퓨터에서 에이전트는 Windows 에이전트가 수행 하는 상태 서비스 구성 요소를 포함 하지 않으며, 대신 관리 서버에서 정보를 수집 하 고 처리 합니다. Linux 컴퓨터는 Operations Manager와 다르게 모니터링 되므로 구성을 수신 하거나 데이터를 직접 수집 하지 않으며 Windows 에이전트 관리 시스템과 같은 관리 그룹을 통해 전달 됩니다. 따라서 Operations Manager에 보고 하는 Linux 컴퓨터에서는이 시나리오가 지원 되지 않으며, 2 단계에서 [Operations Manager 관리 그룹](../platform/agent-manage.md#configure-agent-to-report-to-an-operations-manager-management-group) 및 Log Analytics 작업 영역에 보고 하도록 linux 컴퓨터를 구성 해야 합니다.
+Log Analytics 에이전트를 사용 하 여 데이터를 수집 하는 경우 에이전트 배포를 계획 하려면 다음 사항을 이해 해야 합니다.
 
-Windows 에이전트는 최대 4개의 Log Analytics 작업 영역을 보고할 수 있는 반면 Linux 에이전트는 단일 작업 영역에 대한 보고만 지원합니다.  
+* Windows 에이전트에서 데이터를 수집 하려면 System Center Operations Manager 관리 그룹에 보고 하는 동안에도 [각 에이전트가 하나 이상의 작업 영역에 보고 하도록 구성할](agent-windows.md)수 있습니다. Windows 에이전트는 최대 4 개의 작업 영역을 보고할 수 있습니다.
+* Linux 에이전트는 멀티 호 밍을 지원 하지 않으며 단일 작업 영역에만 보고할 수 있습니다.
+
+System Center Operations Manager 2012 R2 이상을 사용 하는 경우:
+
+* 각 Operations Manager 관리 그룹은 [하나의 작업 영역에만 연결할](om-agents.md)수 있습니다.
+* 관리 그룹에 보고 하는 Linux 컴퓨터는 Log Analytics 작업 영역에 직접 보고 하도록 구성 되어야 합니다. Linux 컴퓨터가 이미 작업 영역에 직접 보고 하 고 Operations Manager를 사용 하 여 모니터링 하려는 경우 다음 단계에 따라 [Operations Manager 관리 그룹에 보고](agent-manage.md#configure-agent-to-report-to-an-operations-manager-management-group)합니다.
+* Windows 컴퓨터에 Log Analytics Windows 에이전트를 설치 하 고 작업 영역과 함께 통합 된 Operations Manager와 다른 작업 영역에 보고 하도록 할 수 있습니다.
 
 Linux 및 Windows 용 에이전트는 Azure Monitor에 연결 하기 위한 것이 아니라 Hybrid Runbook worker 역할을 호스트 하는 Azure Automation 지원 하 고 [변경 내용 추적](../../automation/change-tracking.md), [업데이트 관리](../../automation/automation-update-management.md)및와 같은 기타 서비스도 지원 [Azure Security Center ](../../security-center/security-center-intro.md). Hybrid Runbook Worker 역할에 대한 자세한 내용은 [Azure Automation Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md)를 참조하세요.  
 
 ## <a name="supported-windows-operating-systems"></a>지원되는 Windows 운영 체제
+
 Windows 에이전트에 대해 다음 버전의 Windows 운영 체제가 공식적으로 지원됩니다.
 
 * Windows Server 2019
@@ -82,7 +90,7 @@ Windows 에이전트에 대해 다음 버전의 Windows 운영 체제가 공식�
 
 다음 표에서는 에이전트가 설치 될 지원 되는 Linux 배포판에 필요한 패키지를 강조 표시 합니다.
 
-|필수 패키지 |Description |최소 버전 |
+|필수 패키지 |설명 |최소 버전 |
 |-----------------|------------|----------------|
 |Glibc |    GNU C 라이브러리 | 2.5-12 
 |Openssl    | OpenSSL 라이브러리 | 1.0. x 또는 1.1. x |
@@ -121,7 +129,7 @@ Linux 에이전트의 경우, 설치 중에 또는 [설치 후에](agent-manage.
 > [!NOTE]
 > 프록시 서버에 인증할 필요가 없는 경우에도 Linux 에이전트는 의사 사용자/암호를 제공해야 합니다. 이는 사용자 이름 또는 암호일 수 있습니다.
 
-|속성| 설명 |
+|속성| Description |
 |--------|-------------|
 |프로토콜 | https |
 |사용자 | 프록시 인증을 위한 선택적 사용자 이름 |
@@ -138,7 +146,7 @@ Linux 에이전트의 경우, 설치 중에 또는 [설치 후에](agent-manage.
 
 사용자의 요구 사항에 따라 다른 방법을 사용 하 여 Azure 구독 또는 하이브리드 환경의 컴퓨터를 Azure Monitor 로그에 직접 연결할 수 있습니다. 다음 표는 조직에서 어떤 방법이 가장 적합한지 결정하기 위해 각 방법을 설명합니다.
 
-|Source | 메서드 | Description|
+|Source | 메서드 | 설명|
 |-------|-------------|-------------|
 |Azure VM| - Azure CLI 또는 Azure Resource Manager 템플릿을 사용한 [Windows](../../virtual-machines/extensions/oms-windows.md) 또는 [Linux](../../virtual-machines/extensions/oms-linux.md)용 Log Analytics VM 확장<br>- [Azure Portal에서 수동으로 연결합니다](../../azure-monitor/learn/quick-collect-azurevm.md?toc=/azure/azure-monitor/toc.json). | 이 확장은 Azure Virtual Machines에 Log Analytics 에이전트를 설치하고 기존 Azure Monitor 작업 영역에 등록합니다.|
 | 하이브리드 Windows 컴퓨터|- [수동 설치](agent-windows.md)<br>- [Azure Automation DSC](agent-windows.md#install-the-agent-using-dsc-in-azure-automation)<br>- [Azure Stack을 사용한 Resource Manager 템플릿](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) |Azure Automation DSC, [System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/deploy-use/deploy-applications) 또는 Azure Resource Manager 템플릿(데이터 센터에 Microsoft Azure Stack을 배포한 경우)과 같은 자동화된 방법을 사용하거나 명령줄에서 Microsoft Monitoring Agent를 설치합니다.| 

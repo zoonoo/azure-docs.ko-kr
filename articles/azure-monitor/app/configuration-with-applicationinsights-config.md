@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: fe71f4e89fb7e1b6ff3e4f59894a933fbb011692
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 02ad74e5b1f8b86a0072b413db2a572f8ed92781
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881410"
+ms.locfileid: "68932139"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>ApplicationInsights.config 또는 .xml로 Application Insights SDK 구성
 Application Insights .NET SDK는 NuGet 패키지의 숫자로 구성됩니다. [코어 패키지](https://www.nuget.org/packages/Microsoft.ApplicationInsights) Application Insights에 원격 분석을 보내는 경우에 API를 제공합니다. [추가 패키지](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights)는 해당 컨텍스트 및 애플리케이션에서 원격 분석을 자동으로 추적하기 위해 원격 분석 *모듈* 및 *이니셜라이저*를 제공합니다. 구성 파일을 조정 하 여 원격 분석 모듈 및 이니셜라이저를 사용 하거나 사용 하지 않도록 설정 하 고 그 중 일부에 대 한 매개 변수를 설정할 수 있습니다.
 
-구성 파일의 이름은 애플리케이션 유형에 따라 `ApplicationInsights.config` 또는 `ApplicationInsights.xml`입니다. [대부분의 SDK 버전을 설치할][start]때 프로젝트에 자동으로 추가 됩니다. SDK는 프로젝트 루트 `ApplicationInsights.config` 폴더에 파일을 만들고, 컴파일 된 경우 bin 폴더에 복사 합니다. 또한 [IIS 서버에서 상태 모니터][redfield]하 여 웹 앱에 추가 됩니다. Azure [웹 사이트](azure-web-apps.md) 또는 [azure VM 및 가상 머신 확장 집합에](azure-vm-vmss-apps.md) 대 한 확장이 사용 되는 경우 구성 파일은 무시 됩니다.
+구성 파일의 이름은 애플리케이션 유형에 따라 `ApplicationInsights.config` 또는 `ApplicationInsights.xml`입니다. [대부분의 SDK 버전을 설치할][start]때 프로젝트에 자동으로 추가 됩니다. 기본적으로 **> Application Insights 원격 분석 추가**를 지 원하는 Visual Studio 템플릿 프로젝트에서 자동화 된 환경을 사용 하는 경우 프로젝트 루트 폴더에 applicationinsights .config 파일이 생성 되 고, bin 폴더. 또한 [IIS 서버에서 상태 모니터][redfield]하 여 웹 앱에 추가 됩니다. Azure [웹 사이트](azure-web-apps.md) 또는 [azure VM 및 가상 머신 확장 집합에](azure-vm-vmss-apps.md) 대 한 확장이 사용 되는 경우 구성 파일은 무시 됩니다.
 
 [웹 페이지에서 SDK][client]를 제어 하는 것과 동일한 파일이 없습니다.
 
@@ -182,7 +182,7 @@ Service Fabric에서 실행되는 .NET 애플리케이션에 대해 `Microsoft.A
 이러한 매개 변수는 Java SDK가 수집한 원격 분석 데이터를 저장하고 플러시하는 방법에 영향을 줍니다.
 
 #### <a name="maxtelemetrybuffercapacity"></a>MaxTelemetryBufferCapacity
-SDK의 메모리 내 저장소에 저장할 수 있는 원격 분석 항목의 수입니다. 이 수에 도달하면 원격 분석 버퍼가 플러시됩니다. 즉, 원격 분석 항목이 Application Insights 서버로 전송됩니다.
+SDK의 메모리 내 스토리지에 저장할 수 있는 원격 분석 항목의 수입니다. 이 수에 도달하면 원격 분석 버퍼가 플러시됩니다. 즉, 원격 분석 항목이 Application Insights 서버로 전송됩니다.
 
 * 최소: 1
 * 최대: 1000
@@ -218,7 +218,7 @@ SDK의 메모리 내 저장소에 저장할 수 있는 원격 분석 항목의 �
 ```
 
 #### <a name="maxtransmissionstoragecapacityinmb"></a>MaxTransmissionStorageCapacityInMB
-로컬 디스크에서 영구 저장소에 할당되는 최대 크기(MB)를 결정합니다. 이 스토리지는 Application Insights 엔드포인트로 전송하지 못한 원격 분석 항목을 유지하는 데 사용됩니다. 저장소 크기를 충족하면 새 원격 분석 항목이 삭제됩니다.
+로컬 디스크에서 영구 스토리지에 할당되는 최대 크기(MB)를 결정합니다. 이 스토리지는 Application Insights 엔드포인트로 전송하지 못한 원격 분석 항목을 유지하는 데 사용됩니다. 스토리지 크기를 충족하면 새 원격 분석 항목이 삭제됩니다.
 
 * 최소: 1
 * 최대: 100

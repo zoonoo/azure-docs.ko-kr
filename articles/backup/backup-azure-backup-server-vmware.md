@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: dacurwin
-ms.openlocfilehash: c53e2c383739b717a5ce94c872b4616bbd1b3f26
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 88adf54ab26055f97534abb4d56d098079116248
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639945"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954930"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Azure Backup Server를 사용하여 VMware VM 백업
 
@@ -41,7 +41,7 @@ ms.locfileid: "68639945"
 - HTTPS를 사용 하지 않으려는 경우 [모든 VMware 서버에 대해 https 인증서 유효성 검사를 사용 하지 않도록 설정할](backup-azure-backup-server-vmware.md#disable-https-certificate-validation)수 있습니다.
 - 일반적으로 vSphere Web Client를 사용하여 Azure Backup Server 머신의 브라우저에서 vCenter/ESXi 서버로 연결합니다. 처음 이 작업을 수행할 때는 연결이 안전하지 않으며 다음 메시지가 표시됩니다.
 - Azure Backup Server에서 백업을 처리하는 방법을 파악하는 것이 중요합니다.
-    - 첫 번째 단계로 Azure Backup Server는 데이터를 로컬 디스크 스토리지에 백업합니다. Azure Backup Server가 보호된 데이터에 대한 디스크 복구 지점을 저장하는 디스크 및 볼륨 세트인 스토리지 풀이 Azure Backup Server에서 사용됩니다. 스토리지 풀은 DAS(직접 연결된 스토리지), 파이버 채널 SAN, iSCSI 스토리지 디바이스 또는 SAN일 수 있습니다. VMware VM 데이터를 로컬로 백업하기에 충분한 스토리지가 있는지 확인하는 것이 중요합니다.
+    - 첫 번째 단계로 Azure Backup Server는 데이터를 로컬 디스크 스토리지에 백업합니다. Azure Backup Server가 보호된 데이터에 대한 디스크 복구 지점을 저장하는 디스크 및 볼륨 세트인 스토리지 풀이 Azure Backup Server에서 사용됩니다. 스토리지 풀은 DAS(직접 연결된 스토리지), 파이버 채널 SAN, iSCSI 스토리지 디바이스 또는 SAN일 수 있습니다. VMware VM 데이터의 로컬 백업을 위한 충분 한 저장소가 있는지 확인 하는 것이 중요 합니다.
     - 그러면 Azure Backup Server는 로컬 디스크 스토리지에서 Azure로 백업합니다.
     - [도움말 보기](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1807#figure-out-how-much-storage-space-you-need)를 통해 필요한 스토리지 공간 크기를 파악합니다. 이 정보는 DPM을 위한 것이지만 Azure Backup Server에도 사용할 수 있습니다.
 
@@ -289,7 +289,7 @@ vCenter 서버에서 관리하지 않는 ESXi 호스트가 여러 개 있거나 
 1. **그룹 구성원 선택**에서 > 백업할 VM(또는 VM 폴더)을 선택합니다. 그리고 **다음**을 클릭합니다.
 
     - 폴더를 선택하면 해당 폴더 내의 VM 또는 폴더도 백업되도록 선택됩니다. 백업하지 않으려는 폴더 또는 VM을 선택 취소할 수 있습니다.
-1. VM 또는 폴더가 이미 백업 중인 경우에는 선택할 수 없습니다. 이 기능은 VM에 대해 중복 복구 지점이 생성되지 않도록 합니다. 을 선택합니다.
+1. VM 또는 폴더가 이미 백업 중인 경우에는 선택할 수 없습니다. 이렇게 하면 VM에 대해 중복 복구 지점이 생성 되지 않습니다.
 
      ![그룹 구성원 선택](./media/backup-azure-backup-server-vmware/server-add-selected-members.png)
 
@@ -301,7 +301,7 @@ vCenter 서버에서 관리하지 않는 ESXi 호스트가 여러 개 있거나 
 1. **단기 목표 지정**에서 데이터를 디스크에 백업하는 기간을 지정합니다.
    - **보존 범위**에서 디스크 복구 지점을 유지하는 기간(일)을 지정합니다.
    - **동기화 빈도**에서 디스크 복구 지점의 사용 빈도를 지정합니다.
-       - 백업 간격을 설정하지 않으려는 경우 각 복구 지점이 예약되기 직전에 백업이 실행되도록 **복구 지점 직전**을 선택할 수 있습니다.
+       - 백업 간격을 설정 하지 않으려면 각 복구 지점이 예약 되기 직전에 백업이 실행 되도록 **복구 지점** 직전을 확인할 수 있습니다.
        - 단기 백업은 전체 백업이며 증분이 아닙니다.
        - 단기 백업이 수행되는 시간/날짜를 변경하려면 **수정**을 클릭합니다.
 

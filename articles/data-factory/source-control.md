@@ -12,12 +12,12 @@ author: djpmsft
 ms.author: daperlov
 ms.reviewer: ''
 manager: craigg
-ms.openlocfilehash: 91c0ad260c16ac09fd764246d31f99d481f8f147
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: fd8168b5786f669de0c5c2109c9e02b43c62c582
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/09/2019
-ms.locfileid: "68886833"
+ms.locfileid: "68933664"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Azure Data Factory의 소스 제어
 
@@ -68,7 +68,7 @@ Azure Data Factory UX 제작 캔버스에서 **Data Factory** 드롭다운 메�
 
 구성 창에는 다음 Azure Repos 코드 리포지토리 설정이 표시 됩니다.
 
-| 설정 | Description | 값 |
+| 설정 | 설명 | 값 |
 |:--- |:--- |:--- |
 | **리포지토리 유형** | Azure Repos 코드 리포지토리의 유형입니다.<br/> | Azure DevOps Git 또는 GitHub |
 | **Azure Active Directory** | Azure AD 테넌트 이름입니다. | `<your tenant name>` |
@@ -243,7 +243,7 @@ Azure Key Vault 사용 하 여 Data Factory 연결 된 서비스에 대 한 연�
 
 게시 분기가 master 분기와 동기화 되지 않은 상태에서 최근 게시에도 불구 하 고 오래 된 리소스를 포함 하는 경우 다음 단계를 수행 합니다.
 
-1. 현재 Git 리포지토리를 제거 합니다./
+1. 현재 Git 리포지토리 제거
 1. 동일한 설정으로 Git를 다시 구성 하지만 **기존 Data Factory 리소스를 리포지토리로 가져오기** 가 선택 되어 있는지 확인 하 고 **새 분기** 를 선택 합니다.
 1. 공동 작업 분기에서 모든 리소스 삭제
 1. 변경 내용을 공동 작업 분기에 병합 하는 끌어오기 요청 만들기 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: dacurwin
-ms.openlocfilehash: 9a6ea961f7433f511ef22a6ac9aaefa51b5df8aa
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 1f8086580d60d13251052636d4d771855e9605a5
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663699"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954944"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음에 Azure VM 백업
 
@@ -89,7 +89,7 @@ ms.locfileid: "68663699"
 2. **속성**의 **백업 구성**에서 **업데이트**를 클릭 합니다.
 3. 저장소 복제 유형을 선택 하 고 **저장**을 클릭 합니다.
 
-      ![새 자격 증명 모음의 저장소 구성 설정](./media/backup-try-azure-backup-in-10-mins/full-blade.png)
+      ![새 자격 증명 모음의 스토리지 구성 설정](./media/backup-try-azure-backup-in-10-mins/full-blade.png)
 > [!NOTE]
    > 자격 증명 모음을 설정 하 고 백업 항목을 포함 한 후에는 저장소 복제 유형을 수정할 수 없습니다. 이 작업을 수행 하려는 경우 자격 증명 모음을 다시 만들어야 합니다.
 
@@ -138,7 +138,7 @@ ms.locfileid: "68663699"
 새 백업 정책을 만들도록 선택한 경우 정책 설정을 입력 합니다.
 
 1. **정책 이름**에서 의미 있는 이름을 지정 합니다.
-2. **백업 일정** 에서 백업을 수행 해야 하는 시기를 지정 합니다. Azure Vm에 대해 매일 또는 매주 백업을 수행할 수 있습니다.
+2. **백업 일정**에서 백업을 수행 해야 하는 시기를 지정 합니다. Azure Vm에 대해 매일 또는 매주 백업을 수행할 수 있습니다.
 2. **즉시**복원에서 즉시 복원에 대 한 스냅숏을 로컬로 보존할 기간을 지정 합니다.
     - 복원 하면 백업 된 VM 디스크가 저장소에서 네트워크를 통해 복구 저장소 위치로 복사 됩니다. 즉시 복원을 사용 하면 백업 데이터가 자격 증명 모음에 전송 될 때까지 기다리지 않고 백업 작업 중에 수행 되는 로컬로 저장 된 스냅숏을 활용할 수 있습니다.
     - 하루에서 5 일 사이에 즉시 복원에 대 한 스냅숏을 유지할 수 있습니다. 기본 설정은 이틀입니다.
@@ -164,7 +164,7 @@ ms.locfileid: "68663699"
 
 ## <a name="verify-backup-job-status"></a>백업 작업 상태 확인
 
-각 VM 백업에 대 한 백업 작업 세부 정보는 두 단계로 구성 됩니다. **스냅숏** 단계 다음에는 **자격 증명 모음으로 데이터 전송** 단계가 나옵니다.<br/>
+각 VM 백업에 대 한 백업 작업 세부 정보는 다음 두 단계로 구성 됩니다. **스냅숏** 단계 다음에는 **자격 증명 모음으로 데이터 전송** 단계가 나옵니다.<br/>
 스냅숏 단계를 통해 **즉시 복원** 하기 위해 디스크와 함께 저장 되는 복구 지점의 가용성을 보장 하 고 사용자가 구성한 스냅숏 보존 기간에 따라 최대 5 일 동안 사용할 수 있습니다. 자격 증명 모음으로 데이터 전송은 장기 보존을 위해 자격 증명 모음에 복구 지점을 만듭니다. 데이터를 자격 증명 모음으로 전송은 스냅숏 단계가 완료 된 후에만 시작 됩니다.
 
   ![백업 작업 상태](./media/backup-azure-arm-vms-prepare/backup-job-status.png)
@@ -211,7 +211,7 @@ VM에서 실행 되는 백업 확장에는 Azure 공용 IP 주소에 대 한 아
 **옵션** | **동작** | **세부 정보**
 --- | --- | ---
 **NSG 규칙 설정** | [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)를 허용합니다.<br/><br/> 모든 주소 범위를 허용 하 고 관리 하는 대신 [서비스 태그](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure)를 사용 하 여 Azure Backup 서비스에 대 한 액세스를 허용 하는 규칙을 추가할 수 있습니다. | [서비스 태그](../virtual-network/security-overview.md#service-tags)에 대해 자세히 알아보세요.<br/><br/> 서비스 태그는 액세스 관리를 간소화 하며 추가 비용이 발생 하지 않습니다.
-**프록시 배포** | 트래픽 라우팅을 위해 HTTP 프록시 서버를 배포합니다. | 저장소뿐만 아니라 Azure 전체에 대한 액세스를 제공합니다.<br/><br/> 스토리지 URL에 대한 세분화된 제어가 허용됩니다.<br/><br/> VM에 대한 인터넷 액세스의 단일 지점입니다.<br/><br/> 프록시에 대한 추가 비용이 없습니다.
+**프록시 배포** | 트래픽 라우팅을 위해 HTTP 프록시 서버를 배포합니다. | 스토리지뿐만 아니라 Azure 전체에 대한 액세스를 제공합니다.<br/><br/> 스토리지 URL에 대한 세분화된 제어가 허용됩니다.<br/><br/> VM에 대한 인터넷 액세스의 단일 지점입니다.<br/><br/> 프록시에 대한 추가 비용이 없습니다.
 **Azure Firewall 설정** | Azure Backup 서비스에 대한 FQDN 태그를 사용하여 VM에서 Azure Firewall을 통해 트래픽을 허용합니다. | VNet 서브넷에 Azure 방화벽이 설정 되어 있는 경우 간단 하 게 사용할 수 있습니다.<br/><br/> 사용자 고유의 FQDN 태그를 만들거나 태그에서 fqdn을 수정할 수 없습니다.<br/><br/> Azure Vm에 관리 디스크가 있는 경우 방화벽에서 추가 포트 (8443)를 열어야 할 수도 있습니다.
 
 #### <a name="establish-network-connectivity"></a>네트워크 연결 설정

@@ -4,14 +4,14 @@ description: Azure Files은 Azure Active Directory (Azure AD) 도메인 서비�
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 07/30/2019
+ms.date: 08/07/2019
 ms.author: rogarana
-ms.openlocfilehash: 604cf2bbe0cf8ab036c76ee9223d1ee34fd4bd3d
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: addb97d71da1ceac8717ae77204c87a8197dac86
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854566"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935164"
 ---
 # <a name="overview-of-azure-files-azure-active-directory-domain-service-azure-ad-ds-authentication-support-for-smb-access"></a>SMB 액세스를 위한 Azure AD DS (Azure Files Azure Active Directory 도메인 서비스) 인증 지원 개요
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -71,17 +71,17 @@ Azure AD 도메인 서비스 인증을 사용 하도록 설정한 후에는 Azur
 ### <a name="configure-directory--or-file-level-permissions-for-azure-files"></a>Azure Files에 대한 디렉터리 또는 파일 수준 권한 구성 
 Azure Files는 루트 디렉터리를 포함하여 디렉터리 및 파일 수준에서 표준 NTFS 파일 권한을 적용합니다. 디렉터리 또는 파일 수준 권한 구성은 SMB를 통해서만 지원됩니다. VM에서 대상 파일 공유를 탑재 하 고 Windows 파일 탐색기, Windows [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) 또는 [Set ACL](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-acl) 명령을 사용 하 여 사용 권한을 구성 합니다. 
 
-### <a name="use-the-storage-account-key-for-superuser-permissions"></a>슈퍼 사용자 권한은 저장소 계정 키 사용 
-저장소 계정 키를 보유한 사용자는 슈퍼 사용자 권한으로 Azure Files에 액세스할 수 있습니다. 슈퍼 사용자 권한은 RBAC를 사용하여 공유 수준에서 구성하고 Azure AD에서 적용하는 모든 액세스 제어 제한을 초월하는 권한입니다. Azure 파일 공유를 탑재하려면 슈퍼 사용자 권한이 필요합니다. 
+### <a name="use-the-storage-account-key-for-superuser-permissions"></a>슈퍼 사용자 권한은 스토리지 계정 키 사용 
+스토리지 계정 키를 보유한 사용자는 슈퍼 사용자 권한으로 Azure Files에 액세스할 수 있습니다. 슈퍼 사용자 권한은 RBAC를 사용하여 공유 수준에서 구성하고 Azure AD에서 적용하는 모든 액세스 제어 제한을 초월하는 권한입니다. Azure 파일 공유를 탑재하려면 슈퍼 사용자 권한이 필요합니다. 
 
 > [!IMPORTANT]
-> 보안을 위해 가능한 한 저장소 계정 키를 공유하지 말고 Azure AD 권한을 활용하는 것이 좋습니다.
+> 보안을 위해 가능한 한 스토리지 계정 키를 공유하지 말고 Azure AD 권한을 활용하는 것이 좋습니다.
 
 ### <a name="preserve-directory-and-file-acls-for-data-import-to-azure-file-shares"></a>Azure 파일 공유로 데이터를 가져오는 경우 디렉터리 및 파일 ACL 유지
 이제 Azure Files는 Azure 파일 공유에 데이터를 복사할 때 디렉터리 또는 파일 Acl 유지를 지원 합니다. 디렉터리 또는 파일의 Acl을 Azure Files에 복사할 수 있습니다. 예를 들어 [robocopy](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy)를 `/copy:s` 플래그와 함께 사용하여 데이터와 ACL을 둘 다 Azure 파일 공유로 복사할 수 있습니다. ACL 보존은 기본적으로 설정 되어 있으며 저장소 계정에서 Azure AD 도메인 서비스 인증 기능을 명시적으로 사용 하도록 설정할 필요가 없습니다. 
 
 ## <a name="pricing"></a>가격 책정
-저장소 계정에 대해 SMB를 통한 Azure AD 인증을 사용하도록 설정하는 데는 서비스 요금이 추가되지 않습니다. 가격에 대한 자세한 내용은 [Azure Files 가격](https://azure.microsoft.com/pricing/details/storage/files/) 및 [Azure AD Domain Services 가격](https://azure.microsoft.com/pricing/details/active-directory-ds/) 페이지를 참조하세요.
+스토리지 계정에 대해 SMB를 통한 Azure AD 인증을 사용하도록 설정하는 데는 서비스 요금이 추가되지 않습니다. 가격에 대한 자세한 내용은 [Azure Files 가격](https://azure.microsoft.com/pricing/details/storage/files/) 및 [Azure AD Domain Services 가격](https://azure.microsoft.com/pricing/details/active-directory-ds/) 페이지를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 Azure Files 및 SMB를 통한 Azure AD 인증에 대한 자세한 내용은 다음 리소스를 참조하세요.

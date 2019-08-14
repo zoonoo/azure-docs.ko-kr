@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 4df024f9ff37121df4d9be51ae1fa540028ddd3d
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 83b4f2fce3dbae2168627194a45e62a2d4479936
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727427"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934739"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Azure 데이터 보안 및 암호화 모범 사례
 이 문서에서는 데이터 보안 및 암호화에 대 한 모범 사례를 설명 합니다.
@@ -39,7 +39,7 @@ ms.locfileid: "68727427"
 
 [Azure Key Vault](/azure/key-vault/key-vault-overview)를 사용하면 클라우드 애플리케이션과 서비스에서 사용하는 암호화 키 및 비밀을 보호할 수 있습니다. 키 자격 증명 모음은 키 관리 프로세스를 간소화하고 데이터를 액세스하고 암호화 하는 키의 제어를 유지할 수 있습니다. 개발자는 개발 및 테스트(분)을 위한 키를 만든 다음, 프로덕션 키로 마이그레이션할 수 있습니다. 보안 관리자는 필요한 경우 권한을 키로 부여(및 해지)할 수 있습니다.
 
-Key Vault를 사용하여 자격 증명 모음이라는 보안 컨테이너를 여러 개 만들 수 있습니다. 이러한 자격 증명 모음은 HSM에서 지원됩니다. 자격 증명 모음은 애플리케이션 비밀을 중앙 집중식으로 저장하여 보안 정보의 우발적인 손실 가능성을 줄이는 데 도움이 됩니다. 또한 키 자격 증명 모음은 저장된 모든 항목에 대한 액세스를 제어하고 기록합니다. Azure Key Vault는 TLS(전송 계층 보안) 인증서를 요청하고 갱신하는 작업을 처리할 수 있습니다. 인증서 수명 주기 관리를 위한 강력한 솔루션 기능을 제공합니다.
+Key Vault를 사용하여 자격 증명 모음이라는 보안 컨테이너를 여러 개 만들 수 있습니다. 이러한 자격 증명 모음은 HSM에서 지원됩니다. 자격 증명 모음은 애플리케이션 비밀을 중앙 집중식으로 스토리지하여 보안 정보의 우발적인 손실 가능성을 줄이는 데 도움이 됩니다. 또한 키 자격 증명 모음은 저장된 모든 항목에 대한 액세스를 제어하고 기록합니다. Azure Key Vault는 TLS(전송 계층 보안) 인증서를 요청하고 갱신하는 작업을 처리할 수 있습니다. 인증서 수명 주기 관리를 위한 강력한 솔루션 기능을 제공합니다.
 
 Azure Key Vault는 애플리케이션 키와 비밀을 지원하도록 설계되었습니다. Key Vault는 사용자 암호 저장소로 사용할 수 없습니다.
 
@@ -97,7 +97,7 @@ RBAC를 사용하여 액세스 권한이 있는 사용자를 제어합니다. �
 
 전송 중인 데이터 보호는 데이터 보호 전략의 핵심입니다. 데이터가 여러 위치를 이동하기 때문에 항상 SSL/TLS 프로토콜을 사용하여 여러 위치 간에 데이터를 교환하는 것이 일반적으로 좋습니다. VPN을 사용하여 온-프레미스와 클라우드 인프라 간에 전체 통신 채널을 격리하려는 경우도 있습니다.
 
-온-프레미스 인프라와 Azure 간을 이동하는 데이터의 경우 HTTPS 또는 VPN처럼 적절한 안전 장치를 고려합니다. 공용 인터넷을 통해 가상 네트워크와 온-프레미스 위치 간에 암호화된 트래픽을 전송하는 경우 [Azure VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/)를 사용합니다.
+온-프레미스 인프라와 Azure 간을 이동하는 데이터의 경우 HTTPS 또는 VPN처럼 적절한 안전 장치를 고려합니다. 공용 인터넷을 통해 가상 네트워크와 온-프레미스 위치 간에 암호화된 트래픽을 전송하는 경우 [Azure VPN Gateway](../../vpn-gateway/index.yml)를 사용합니다.
 
 Azure VPN Gateway, SSL/TLS 및 HTTPS를 사용하는 데 관련된 모범 사례는 다음과 같습니다.
 
@@ -128,7 +128,7 @@ Azure VPN Gateway, SSL/TLS 및 HTTPS를 사용하는 데 관련된 모범 사례
 다음을 수행하는 것이 좋습니다.
 
 - 조직에 대해 [Azure Information Protection 배포](/azure/information-protection/deployment-roadmap)
-- 비즈니스 요구 사항을 반영하는 레이블 적용 예: 이 데이터를 분류하고 보호하기 위해 일급 비밀 데이터가 포함된 모든 문서 및 이메일에 이름이 "극비"로 지정된 레이블을 적용합니다. 그런 다음, 지정한 제한 사항으로 인해 권한이 있는 사용자만 이 데이터를 액세스할 수 있습니다.
+- 비즈니스 요구 사항을 반영하는 레이블 적용 예를 들어: 이 데이터를 분류하고 보호하기 위해 일급 비밀 데이터가 포함된 모든 문서 및 이메일에 이름이 "극비"로 지정된 레이블을 적용합니다. 그런 다음, 지정한 제한 사항으로 인해 권한이 있는 사용자만 이 데이터를 액세스할 수 있습니다.
 - 조직이 보호 서비스를 사용하는 방법을 모니터링할 수 있도록 [Azure RMS에 대한 사용 현황 로깅](/azure/information-protection/log-analyze-usage)을 구성합니다.
 
 [데이터 분류](https://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) 및 파일 보호에 약한 조직은 데이터 유출 및 데이터 남용에 더 취약할 수 있습니다. 적절한 파일 보호를 사용하여 비즈니스에 대한 인사이트를 얻고, 위험한 동작을 검색하고, 수정 조치를 수행하고, 문서에 대한 액세스를 추적하는 등 데이터 흐름을 분석할 수 있습니다.

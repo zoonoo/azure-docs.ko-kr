@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: christoc;xpouyat;juliako
-ms.openlocfilehash: d227e3618c138e6661cc4be7caa2b9a3ba1af3f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: christoc
+ms.reviewer: xpouyat; juliako
+ms.openlocfilehash: 1ab70d56bd3def58d0e814035070cf027a88cd3d
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61241554"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "69016724"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>고급 미디어 인코더 Premium 워크플로 자습서
 ## <a name="overview"></a>개요
@@ -760,7 +761,7 @@ xml을 더 자세히 알아보려면 다음과 같습니다.
 
 *결과 클립 목록 로깅*
 
-비디오 및 오디오 스트림을 자르는 방법을 보려면 테스트 실행을 수행합니다. 하지만 트리밍 지점에 대한 값이 서로 다른 둘 이상의 테스트를 실행하면 고려하지 않은 점인 있음을 알 수 있습니다! 이유는 Azure 런타임과 달리 디자이너가 실행할 때 마다 cliplist xml을 재정의하지 않기 때문입니다. 이 즉, 처음으로 설정한 시작 및 종료 지점에만 하면 xml을 변환할 모든 다른 시간에 가드 절 (하는 경우 (`clipListXML.indexOf("<trim>") == -1`)) 워크플로에서 인스턴스가 이미 있는 경우 다른 자르기 요소를 추가 하지 못하게 됩니다.
+비디오 및 오디오 스트림을 자르는 방법을 보려면 테스트 실행을 수행합니다. 하지만 트리밍 지점에 대한 값이 서로 다른 둘 이상의 테스트를 실행하면 고려하지 않은 점인 있음을 알 수 있습니다! 이유는 Azure 런타임과 달리 디자이너가 실행할 때 마다 cliplist xml을 재정의하지 않기 때문입니다. 즉, in 및 out 지점만 처음 설정 하는 경우에만 xml이 변환 되 고, 다른 모든 경우에는 guard 절 (if (`clipListXML.indexOf("<trim>") == -1`))이 이미 있는 경우 다른 trim 요소를 추가 하지 못하게 됩니다.
 
 워크플로를 편리하게 로컬로 테스트하려는 가장 좋은 방법은 자르기 요소가 이미 있는지 조사하는 정리 코드를 추가하는 것입니다. 그렇다면 새 값으로 xml을 수정하여 계속하기 전에 제거할 수 있습니다. 일반 문자열 조작을 사용하지 않고 구문 분석하는 실제 xml 개체 모델을 통해이 작업을 수행하는 것이 안전합니다.
 

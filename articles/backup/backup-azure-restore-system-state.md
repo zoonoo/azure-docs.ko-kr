@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/18/2017
 ms.author: dacurwin
-ms.openlocfilehash: 6dc478f569b94450921e56c05b148bae357fef8e
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 70cd7a1e77e6154b6406c82344b82f230eeb7b3c
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689141"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954638"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Windows Server에 시스템 상태 복원
 
@@ -171,7 +171,7 @@ Azure Recovery Services 에이전트를 사용하여 시스템 상태를 파일�
 
 ## <a name="troubleshoot-failed-system-state-restore"></a>실패한 시스템 상태 복원 문제 해결
 
-시스템 상태를 적용하는 이전 프로세스가 성공적으로 완료되지 않으면 Win RE(Windows Recovery Environment)를 사용하여 Windows Server를 복구합니다. 다음 단계에서는 Win RE를 사용하여 복구하는 방법을 설명합니다. 시스템 상태 복원 후에 Windows Server가 정상적으로 부팅되지 않는 경우에만 이 옵션을 사용합니다. 다음 프로세스는 비 시스템 데이터를 지우고 주의를 사용합니다.
+시스템 상태를 적용하는 이전 프로세스가 성공적으로 완료되지 않으면 Win RE(Windows Recovery Environment)를 사용하여 Windows Server를 복구합니다. 다음 단계에서는 Win RE를 사용하여 복구하는 방법을 설명합니다. 시스템 상태 복원 후 Windows Server가 정상적으로 부팅 되지 않는 경우에만이 옵션을 사용 합니다. 다음 프로세스는 비 시스템 데이터를 지우고 주의를 사용합니다.
 
 1. Win RE(Windows Recovery Environment)로 Windows Server를 부팅합니다.
 

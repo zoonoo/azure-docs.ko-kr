@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 1/12/2018
 ms.author: dacurwin
-ms.openlocfilehash: dae2268abc3771e43d717c65c19eed37b9f48e8e
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: bb764cfa14b4bc8e53f25629961a1baecd6a6c1f
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689249"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954700"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Azure Linux VM의 애플리케이션 일치 백업
 
@@ -24,7 +24,7 @@ VM의 백업 스냅샷을 만들 때 애플리케이션 일관성이란 복원 �
 
 프레임워크는 VM 스냅샷을 만드는 동안 사용자 지정 사전 스크립트 및 사후 스크립트를 실행하는 옵션을 제공합니다. 사전 스크립트는 VM 스냅샷을 만들기 직전에 실행되고 사후 스크립트는 VM 스냅샷을 만든 직후에 실행됩니다. 사전 스크립트와 사후 스크립트는 VM 스냅샷을 만드는 동안 애플리케이션과 환경을 제어하도록 유연성을 제공합니다.
 
-사전 스크립트는 IO를 정지하고 메모리 내 콘텐츠를 디스크로 플러시하는 네이티브 애플리케이션 API를 호출합니다. 이 작업을 통해 스냅샷의 애플리케이션 일관성이 보장됩니다. 사후 스크립트는 네이티브 애플리케이션 API를 사용하여 IO를 재개합니다. 이를 통해 애플리케이션이 VM 스냅샷 후 정상 작동을 재개할 수 있습니다.
+사전 스크립트는 IO를 정지하고 메모리 내 콘텐츠를 디스크로 플러시하는 네이티브 애플리케이션 API를 호출합니다. 이 작업을 통해 스냅샷의 애플리케이션 일관성이 보장됩니다. 사후 스크립트는 네이티브 응용 프로그램 Api를 사용 하 여 IOs를 재개 합니다. 그러면 응용 프로그램이 VM 스냅숏 후 정상 작업을 다시 시작할 수 있습니다.
 
 ## <a name="steps-to-configure-pre-script-and-post-script"></a>사전 스크립트 및 사후 스크립트를 구성하는 단계
 

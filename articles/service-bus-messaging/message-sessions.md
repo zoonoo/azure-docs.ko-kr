@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 2c206d42e220534225cfef0415a65c1f9494f761
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 67f3fd8f3166abac987e8fefbbf4a020f165c8bf
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64569799"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68951880"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>메시지 세션: FIFO(처음 들어간 것부터 사용) 
 
@@ -67,7 +67,7 @@ Service Bus의 세션 기능을 사용하면 C# 및 Java API의 [MessageSession]
 
 세션 상태 기능을 통해 broker 내부의 메시지 세션에 대한 애플리케이션 정의 주석을 사용할 수 있기 때문에 세션을 새 프로세서로 가져올 때 해당 세션에 대해 기록된 처리 상태를 즉시 사용할 수 있습니다.
 
-Service Bus 측면에서 메시지 세션 상태는 한 개 메시지 크기의 데이터(Service Bus Standard의 경우 256KB 및 Service Bus Premium의 경우 1MB)를 보유할 수 있는 불투명한 이진 개체입니다. 세션과 관련된 처리 상태는 세션 상태 내에 유지되거나 이러한 정보를 보유하는 저장소 위치 또는 데이터베이스 레코드를 세션 상태가 가리킬 수 있습니다.
+Service Bus 측면에서 메시지 세션 상태는 한 개 메시지 크기의 데이터(Service Bus Standard의 경우 256KB 및 Service Bus Premium의 경우 1MB)를 보유할 수 있는 불투명한 이진 개체입니다. 세션과 관련된 처리 상태는 세션 상태 내에 유지되거나 이러한 정보를 보유하는 스토리지 위치 또는 데이터베이스 레코드를 세션 상태가 가리킬 수 있습니다.
 
 세션 상태를 관리하는 API, [SetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_) 및 [GetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.getstate#Microsoft_ServiceBus_Messaging_MessageSession_GetState)는 C# 및 Java API의 [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) 개체에서 찾을 수 있습니다. 이전에 세션 상태가 설정되지 않은 세션은 **GetState**에 대한 **null** 참조를 반환합니다. 이전에 설정된 세션 상태를 지우는 것은 [SetState(null)](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_)을 통해 수행됩니다.
 
@@ -75,11 +75,21 @@ Service Bus 측면에서 메시지 세션 상태는 한 개 메시지 크기의 
 
 큐 또는 구독의 모든 기존 세션은 Java API의 **SessionBrowser** 메서드 및 .NET 클라이언트의 [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) 및 [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient)의 [GetMessageSessions](/dotnet/api/microsoft.servicebus.messaging.queueclient.getmessagesessions#Microsoft_ServiceBus_Messaging_QueueClient_GetMessageSessions)를 사용하여 열거할 수 있습니다.
 
-큐 또는 구독에 보관된 세션 상태는 해당 엔터티의 저장소 할당량에 포함됩니다. 애플리케이션이 세션을 끝내면 외부 관리 비용을 피하기 위해 애플리케이션이 보유 상태를 정리하는 것이 좋습니다.
+큐 또는 구독에 보관된 세션 상태는 해당 엔터티의 스토리지 할당량에 포함됩니다. 애플리케이션이 세션을 끝내면 외부 관리 비용을 피하기 위해 애플리케이션이 보유 상태를 정리하는 것이 좋습니다.
+
+## <a name="impact-of-delivery-count"></a>배달 횟수의 영향
+
+세션의 컨텍스트에서 메시지당 배달 수를 정의 하는 것은 세션 기능이 없어서 정의와 약간 다릅니다. 다음은 배달 횟수가 증가할 때 요약 한 테이블입니다.
+
+| 시나리오 | 메시지의 배달 횟수가 증가 됨 |
+|----------|---------------------------------------------|
+| 세션이 수락 되었지만 시간 초과로 인해 세션 잠금이 만료 됩니다. | 예 |
+| 세션이 수락 되 고 세션 내의 메시지가 잠긴 경우에도 완료 되지 않고 세션이 닫힙니다. | 아니요 |
+| 세션이 수락 되 고 메시지가 완료 된 다음 세션이 명시적으로 닫힙니다. | 해당 없음 (표준 흐름) 세션에서 제거 되는 메시지 |
 
 ## <a name="next-steps"></a>다음 단계
 
-- 참조를 [Microsoft.Azure.ServiceBus 샘플](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/Sessions) 또는 [Microsoft.ServiceBus.Messaging 샘플](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/Sessions) 세션 인식 메시지를 처리 하는.NET Framework 클라이언트를 사용 하는 예입니다. 
+- .NET Framework 클라이언트를 사용 하 여 세션 인식 메시지를 처리 하는 예제는 [ServiceBus 샘플](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/Sessions) 또는 [ServiceBus 샘플](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/Sessions) 을 참조 하세요. 
 
 Service Bus 메시징에 대해 자세히 알아보려면 다음 항목을 참조하세요.
 

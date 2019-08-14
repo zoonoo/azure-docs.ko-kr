@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: raynew
-ms.openlocfilehash: ed7e53570127f12dbe41932481a3286a78865dde
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 70107311b189e1692b902812c4ccbbd91c3695a1
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828287"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952107"
 ---
 # <a name="support-matrix-for-vmware-assessment-and-migration"></a>VMware 평가 및 마이그레이션 지원 매트릭스
 
@@ -90,8 +90,8 @@ Azure Migrate 어플라이언스를 인터넷에 연결 해야 합니다.
 **URL** | **세부 정보**  
 --- | --- |
 *.portal.azure.com  | Azure Portal Azure Migrate으로 이동 합니다.
-*.windows.net | Azure 구독에 로그인합니다.
-*.microsoftonline.com | 어플라이언스에 대 한 Active Directory 앱을 만들어 Azure Migrate 서비스와 통신 합니다.
+*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *. microsoft.com <br/> *. live.com | Azure 구독에 로그인합니다.
+*.microsoftonline.com <br/> *.microsoftonline-p.com | 어플라이언스에 대 한 Active Directory 앱을 만들어 Azure Migrate 서비스와 통신 합니다.
 management.azure.com | 어플라이언스에 대 한 Active Directory 앱을 만들어 Azure Migrate 서비스와 통신 합니다.
 dc.services.visualstudio.com | 내부 모니터링에 사용 되는 앱 로그를 업로드 합니다.
 *.vault.azure.net | Azure Key Vault에서 비밀을 관리 합니다.
@@ -104,7 +104,7 @@ http://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/d
 
 **장치** | **연결**
 --- | ---
-어플라이언스 | 어플라이언스에 대 한 원격 데스크톱 연결을 허용 하기 위해 TCP 포트 3389에서 인바운드 연결<br/><br/> URL을 사용 하 여 어플라이언스 관리 앱에 원격으로 액세스 하기 위해 포트 44368에서 인바운드 연결:```https://<appliance-ip-or-name>:44368``` <br/><br/>Azure Migrate에 검색 및 성능 메타 데이터를 보내기 위한 포트 443의 아웃 바운드 연결
+어플라이언스 | 어플라이언스에 대 한 원격 데스크톱 연결을 허용 하기 위해 TCP 포트 3389에서 인바운드 연결<br/><br/> URL을 사용 하 여 어플라이언스 관리 앱에 원격으로 액세스 하기 위해 포트 44368에서 인바운드 연결:```https://<appliance-ip-or-name>:44368``` <br/><br/>Azure Migrate에 검색 및 성능 메타 데이터를 보내기 위한 포트 443, 5671 및 5672의 아웃 바운드 연결
 vCenter Server | 어플라이언스에서 평가를 위한 구성 및 성능 메타 데이터를 수집할 수 있도록 TCP 포트 443에서 인바운드 연결 <br/><br/> 어플라이언스는 기본적으로 포트 443의 vCenter에 연결 됩니다. VCenter 서버가 다른 포트에서 수신 대기 하는 경우 검색을 설정할 때 포트를 수정할 수 있습니다.
 
 
@@ -175,8 +175,8 @@ Azure Migrate 어플라이언스는 인터넷에 인터넷으로 연결 되어�
 **URL** | **세부 정보**  
 --- | ---
 *.portal.azure.com | Azure Portal Azure Migrate으로 이동 합니다.
-*.windows.net | Azure 구독에 로그인합니다.
-*.microsoftonline.com | 어플라이언스에 대 한 Active Directory 앱을 만들어 Azure Migrate 서비스와 통신 합니다.
+*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *. microsoft.com <br/> *. live.com  | Azure 구독에 로그인합니다.
+*.microsoftonline.com <br/> *.microsoftonline-p.com | 어플라이언스에 대 한 Active Directory 앱을 만들어 Azure Migrate 서비스와 통신 합니다.
 management.azure.com | 어플라이언스에 대 한 Active Directory 앱을 만들어 Azure Migrate 서비스와 통신 합니다.
 dc.services.visualstudio.com | 내부 모니터링에 사용 되는 앱 로그를 업로드 합니다.
 *.vault.azure.net | Azure Key Vault에서 비밀을 관리 합니다.
@@ -237,7 +237,7 @@ MySQL | MySQL을 어플라이언스에 설치 해야 합니다.<br/> MySQL을 �
 기타 앱 | 복제 어플라이언스에서 다른 앱을 실행 하지 마세요.
 Windows Server 역할 | 다음 역할을 사용하지 않도록 설정함: <br> - Active Directory Domain Services <br>- 인터넷 정보 서비스 <br> - Hyper-V
 그룹 정책 | 다음 그룹 정책을 사용하지 않도록 설정함: <br> - 명령 프롬프트에 대한 액세스 방지 <br> - 레지스트리 편집 도구에 대한 액세스 방지 <br> - 파일 첨부를 위한 트러스트 논리 <br> - 스크립트 실행 켜기 <br> [자세히 알아보기](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
-IIS | - 기존의 기본 웹 사이트 없음 <br> - 포트 443에서 수신 대기하는 기존의 웹 사이트/응용 프로그램 없음 <br>- [익명 인증](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) 사용 <br> - [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) 설정 사용
+IIS | - 기존의 기본 웹 사이트 없음 <br> - 포트 443에서 수신 대기하는 기존의 웹 사이트/애플리케이션 없음 <br>- [익명 인증](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) 사용 <br> - [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) 설정 사용
 **네트워크 설정** |
 IP 주소 유형 | 정적
 포트 | 443(컨트롤 채널 오케스트레이션)<br>9443(데이터 전송)

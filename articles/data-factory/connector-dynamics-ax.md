@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
 ms.openlocfilehash: f2b1e8b9829bab56f0e49eafc50b7c56594de96b
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "68720812"
 ---
 # <a name="copy-data-from-dynamics-ax-by-using-azure-data-factory-preview"></a>Azure Data Factory를 사용하여 Dynamics AX에서 데이터 복사(미리 보기)
@@ -38,7 +38,7 @@ Dynamics AX에서 지원되는 모든 싱크 데이터 스토리지로 데이터
 
 다음 섹션에서는 Dynamics AX 커넥터에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 서비스 주체 인증을 사용하려면 다음 단계를 수행합니다.
 

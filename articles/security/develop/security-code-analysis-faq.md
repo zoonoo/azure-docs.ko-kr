@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 1fc5e83c2c46a7da2a4b56879a2d596405fd8bee
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 8038b7bd60ac771c798a1a8645022b0bf9e142a9
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68718315"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934840"
 ---
 # <a name="frequently-asked-questions"></a>질문과 대답
 질문이 있나요? 자세한 내용은 아래의 Faq를 확인 하세요.
@@ -137,12 +137,12 @@ BinSkim와 같은 게시 빌드 아티팩트를 분석 하는 다른 도구에 �
 
 #### <a name="what-are-recommended-secrets-management-guidelines"></a>권장 되는 비밀 관리 지침은 무엇 인가요? 
 하드 코딩 된 비밀을 적시에 검색 하 고 위험을 완화 하는 것이 도움이 되는 반면,이로 인해 비밀이 완전히 체크 인 되지 않는 경우 훨씬 더 낫습니다. 이와 관련 하 여 Microsoft는 Visual Studio 용 [Microsoft DevLabs 확장](https://marketplace.visualstudio.com/items?itemName=VSIDEDevOpsMSFT.ContinuousDeliveryToolsforVisualStudio) 의 일부로 Credscan Code Analyzer를 출시 했습니다. 초기 미리 보기 중에는 개발자에 게 코드에서 잠재적인 비밀을 검색 하는 인라인 환경을 제공 하 여 이러한 문제를 실시간으로 해결할 수 있는 기회를 제공 합니다. 자세한 내용은 클라우드에서 안전 하 게 암호 관리에 대 한 [이](https://devblogs.microsoft.com/visualstudio/managing-secrets-securely-in-the-cloud/) 블로그를 참조 하세요. 다음은 암호를 관리 하 고 응용 프로그램 내에서 중요 한 정보를 안전한 방식으로 액세스 하는 데 도움이 되는 몇 가지 추가 리소스입니다. 
- - [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/)
- - [Azure Active Directory](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication)
+ - [Azure Key Vault](../../key-vault/index.yml)
+ - [Azure Active Directory](../../sql-database/sql-database-aad-authentication.md)
  - [Azure AD 관리 서비스 ID](https://azure.microsoft.com/blog/keep-credentials-out-of-code-introducing-azure-ad-managed-service-identity/)
- - [Azure 리소스용 MSI(관리 서비스 ID)](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
- - [Azure 관리 서비스 ID](https://docs.microsoft.com/azure/app-service/overview-managed-identity)
- - [AppAuthentication 라이브러리](https://docs.microsoft.com/azure/key-vault/service-to-service-authentication)
+ - [Azure 리소스용 MSI(관리 서비스 ID)](../../active-directory/managed-identities-azure-resources/overview.md)
+ - [Azure 관리 서비스 ID](../../app-service/overview-managed-identity.md)
+ - [AppAuthentication 라이브러리](../../key-vault/service-to-service-authentication.md)
 
 #### <a name="can-i-write-my-own-custom-searchers"></a>사용자 지정 searchers를 직접 작성할 수 있나요?
 

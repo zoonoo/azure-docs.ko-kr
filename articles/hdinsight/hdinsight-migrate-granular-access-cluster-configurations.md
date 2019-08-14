@@ -6,13 +6,13 @@ ms.author: tyfox
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 06/03/2019
-ms.openlocfilehash: 797caae3caaca14c10481cb58654c45b4bed55ae
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.date: 08/09/2019
+ms.openlocfilehash: 1e5eb1e363ac9e282a72a9c1430c3f80c825bb91
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68884308"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945071"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>클러스터 구성에 대한 세밀한 역할 기반 액세스로 마이그레이션
 
@@ -20,8 +20,9 @@ ms.locfileid: "68884308"
 
 ## <a name="what-is-changing"></a>변경되는 내용
 
-이전에는 `*/read` 사용자가 권한을 가진 모든 사용자가 사용할 수 있기 때문에 클러스터 사용자가 소유자, 참가자 또는 읽기 권한자 [역할](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)을 처리 개체로 HDInsight API를 통해 암호를 가져올 수 있었습니다.
-앞으로 이러한 비밀에 액세스 하려면 `Microsoft.HDInsight/clusters/configurations/*` 권한이 필요 합니다. 즉, 사용자가 읽기 권한자 역할을 사용 하 여 더 이상 액세스할 수 없습니다. 비밀은 사용자의 역할이 허용 해야 하는 것 보다 높은 수준의 액세스를 얻는 데 사용할 수 있는 값으로 정의 됩니다. 여기에는 클러스터 게이트웨이 HTTP 자격 증명, 저장소 계정 키, 데이터베이스 자격 증명 등의 값이 포함 됩니다.
+이전에는 `*/read` 사용자가 권한을 가진 모든 사용자가 사용할 수 있기 때문에 클러스터 사용자가 소유자, 참가자 또는 읽기 권한자 [역할](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)을 처리 개체로 HDInsight API를 통해 암호를 가져올 수 있었습니다. 비밀은 사용자의 역할이 허용 해야 하는 것 보다 높은 수준의 액세스를 얻는 데 사용할 수 있는 값으로 정의 됩니다. 여기에는 클러스터 게이트웨이 HTTP 자격 증명, 저장소 계정 키, 데이터베이스 자격 증명 등의 값이 포함 됩니다.
+
+앞으로 이러한 비밀에 액세스 하려면 `Microsoft.HDInsight/clusters/configurations/action` 권한이 필요 합니다. 즉, 사용자가 읽기 권한자 역할을 사용 하 여 더 이상 액세스할 수 없습니다. 이 권한이 있는 역할은 참가자, 소유자 및 새 HDInsight 클러스터 운영자 역할 (아래 참조)입니다.
 
 또한 참가자 또는 소유자의 관리 권한을 부여 하지 않고도 암호를 검색할 수 있는 새 [HDInsight 클러스터 운영자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) 역할을 도입 하 고 있습니다. 요약하면
 
@@ -128,7 +129,7 @@ Python 용 HDInsight SDK의 [버전 1.0.0](https://pypi.org/project/azure-mgmt-h
 
 ### <a name="sdk-for-java"></a>Java 용 SDK
 
-Java 용 HDInsight SDK의 [버전 1.0.0](https://search.maven.org/artifact/com.microsoft.azure.hdinsight.v2018_06_01_preview/azure-mgmt-hdinsight/) 이상으로 업데이트 합니다. 이러한 변경의 영향을 받는 메서드를 사용 하는 경우 최소한의 코드를 수정 해야 할 수 있습니다.
+Java 용 HDInsight SDK의 [버전 1.0.0](https://search.maven.org/artifact/com.microsoft.azure.hdinsight.v2018_06_01_preview/azure-mgmt-hdinsight/1.0.0/jar) 이상으로 업데이트 합니다. 이러한 변경의 영향을 받는 메서드를 사용 하는 경우 최소한의 코드를 수정 해야 할 수 있습니다.
 
 - [`ConfigurationsInner.get`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018__06__01__preview.implementation._configurations_inner.get)는 더 이상 저장소 키 (핵심 사이트) 또는 HTTP 자격 증명 (게이트웨이)과 같은 **중요 한 매개 변수를 반환 하지 않습니다** .
     - 중요 한 매개 변수를 비롯 한 모든 구성을 검색 [`ConfigurationsInner.list`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018_06_01_preview.implementation.configurationsinner.list?view=azure-java-stable) 하려면 앞으로를 사용 합니다.  ' Reader ' 역할이 있는 사용자는이 메서드를 사용할 수 없습니다. 이렇게 하면 클러스터에 대 한 중요 한 정보에 액세스할 수 있는 사용자를 세부적으로 제어할 수 있습니다. 

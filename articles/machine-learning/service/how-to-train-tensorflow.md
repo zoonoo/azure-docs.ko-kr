@@ -1,29 +1,29 @@
 ---
-title: TensorFlow 모델 학습 및 등록
+title: TensorFlow를 사용 하 여 심층 학습 신경망 학습
 titleSuffix: Azure Machine Learning service
-description: 이 문서에서는 Azure Machine Learning 서비스를 사용 하 여 TensorFlow 모델을 학습 하 고 등록 하는 방법을 보여 줍니다.
+description: Azure Machine Learning 서비스를 사용 하 여 대규모로 TensorFlow 교육 스크립트를 실행 하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: maxluk
 author: maxluk
-ms.date: 06/10/2019
+ms.date: 08/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: a5d281598bc905914b71f40d556cfa0b16a46485
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 41ebca7bd4ea299bda7e2d7a95edced583866527
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847647"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966802"
 ---
-# <a name="train-and-register-tensorflow-models-at-scale-with-azure-machine-learning-service"></a>Azure Machine Learning 서비스를 사용 하 여 대규모로 TensorFlow 모델 학습 및 등록
+# <a name="build-a-tensorflow-deep-learning-model-at-scale-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 대규모로 TensorFlow 심층 학습 모델 빌드
 
-이 문서에서는 Azure Machine Learning 서비스를 사용 하 여 TensorFlow 모델을 학습 하 고 등록 하는 방법을 보여 줍니다. 인기 있는 [Mnist 데이터 집합](http://yann.lecun.com/exdb/mnist/) 을 사용 하 여 [TensorFlow Python 라이브러리](https://www.tensorflow.org/overview)를 사용 하 여 빌드된 심층 신경망을 사용 하 여 필기 한 숫자를 분류 합니다.
+이 문서에서는 Azure Machine Learning의 [TensorFlow 평가기](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) 클래스를 사용 하 여 대규모로 [TensorFlow](https://www.tensorflow.org/overview) 교육 스크립트를 실행 하는 방법을 보여 줍니다. 이 예제에서는 TensorFlow 모델을 학습 하 고 등록 하 여 DNN (심층 신경망)를 사용 하 여 필기 된 숫자를 분류 합니다.
 
-TensorFlow는 DNN (심층 신경망)를 만드는 데 일반적으로 사용 되는 오픈 소스 계산 프레임 워크입니다. Azure Machine Learning 서비스를 사용 하면 탄력적 클라우드 계산 리소스를 사용 하 여 오픈 소스 학습 작업을 신속 하 게 확장할 수 있습니다. 또한 학습 실행과 버전 모델을 추적 하 고 모델을 배포할 수 있습니다.
+TensorFlow 모델을 처음부터 개발 하 든, [기존 모델](how-to-deploy-existing-model.md) 을 클라우드로 가져오는 경우에는 Azure Machine Learning를 사용 하 여 오픈 소스 학습 작업을 확장 하 여 프로덕션 등급 모델을 빌드, 배포, 버전 및 모니터링할 수 있습니다. .
 
-TensorFlow 모델을 처음부터 개발 하 든, [기존 모델](how-to-deploy-existing-model.md) 을 클라우드로 전환 하 든 Azure Machine Learning 서비스를 통해 프로덕션이 준비 된 모델을 빌드할 수 있습니다.
+[심층 학습 vs machine learning](concept-deep-learning-vs-machine-learning.md)에 대해 자세히 알아보세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -32,7 +32,7 @@ TensorFlow 모델을 처음부터 개발 하 든, [기존 모델](how-to-deploy-
  - Azure Machine Learning 노트북 VM-다운로드 또는 설치 필요 없음
 
      - 이 자습서를 시작하기 전에 [자습서: SDK 및 샘플 리포지토리](tutorial-1st-experiment-sdk-setup.md) 를 사용 하 여 미리 로드 된 전용 노트북 서버를 만들기 위한 환경 및 작업 영역을 설정 합니다.
-    - 노트북 서버의 samples 폴더에서 다음 디렉터리로 이동 하 여 완료 되 고 확장 된 노트북을 찾습니다. **사용 방법-azureml > 교육-심층 학습 > 학습-hyperparameter 변수-tensorflow** 폴더. 
+    - 노트북 서버의 샘플 심층 학습 폴더에서 다음 디렉터리로 이동 하 여 완료 되 고 확장 된 노트북을 찾습니다. **사용 방법-azureml > 교육-심층 학습 > 학습-hyperparameter 변수-tensorflow** 폴더. 
  
  - 사용자 고유의 Jupyter Notebook 서버
 
@@ -73,7 +73,7 @@ from azureml.core.compute_target import ComputeTargetException
 ws = Workspace.from_config()
 ```
 
-### <a name="create-an-experiment"></a>실험 만들기
+### <a name="create-a-deep-learning-experiment"></a>심층 학습 실험 만들기
 
 학습 스크립트를 보관할 실험 및 폴더를 만듭니다. 이 예제에서는 "tf-mnist" 라는 실험을 만듭니다.
 
@@ -292,5 +292,9 @@ cluster_spec = tf.train.ClusterSpec(cluster)
 
 이 문서에서는 TensorFlow 모델을 학습 하 고 등록 했습니다. GPU 사용 클러스터에 모델을 배포 하는 방법에 대 한 자세한 내용은 GPU 모델 배포 문서를 참조 하세요.
 
-[Gpu를 사용 하 여 추론를 배포 하는 방법](how-to-deploy-inferencing-gpus.md)[Tensorboard를 사용 하 여 모니터링 하는 방법](how-to-monitor-tensorboard.md) 
-
+> [!div class="nextstepaction"]
+> [모델을 배포 하는 방법 및 위치](how-to-deploy-and-where.md)
+* [학습 중에 실행 메트릭 추적](how-to-track-experiments.md)
+* [하이퍼 매개 변수 조정](how-to-tune-hyperparameters.md)
+* [학습된 모델 배포](how-to-deploy-and-where.md)
+* [Azure의 분산 심층 학습 교육에 대 한 참조 아키텍처](/azure/architecture/reference-architectures/ai/training-deep-learning)

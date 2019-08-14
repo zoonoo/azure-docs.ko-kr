@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20d5131c773e2a9f7b6830725ccd934786d6dd67
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: a5fff27094881ffbada2bda7937fa714ffc07133
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68880945"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954360"
 ---
 # <a name="set-up-security-info-preview-to-use-an-authenticator-app"></a>인증 앱을 사용하도록 보안 정보(미리 보기) 설정
 
@@ -78,7 +78,7 @@ ms.locfileid: "68880945"
 
     인증 앱은 추가 정보 없이도 회사 또는 학교 계정을 성공적으로 추가해야 합니다. 하지만 QR 코드 판독기에서 코드를 읽을 수 없으면 **QR 코드를 스캔할 수 없습니까?** 링크를 선택하고, Microsoft Authenticator 앱에 코드와 URL을 수동으로 입력하면 됩니다. 코드를 수동으로 추가하는 방법에 대한 자세한 내용은 [수동으로 앱에 계정 추가](user-help-auth-app-add-account-manual.md)를 참조하세요.
 
-9. **QR 코드 스캔** 페이지에서 **다음**을 선택합니다.
+9. 컴퓨터의 **QR 코드 스캔** 페이지에서 **다음**을 선택합니다.
 
     계정을 테스트하기 위한 알림이 모바일 디바이스의 Microsoft Authenticator 앱으로 보내집니다.
 

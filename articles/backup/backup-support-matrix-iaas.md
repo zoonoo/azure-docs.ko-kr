@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: dacurwin
-ms.openlocfilehash: 369be73e2884594171419a66b94db64184582e58
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 9b0cbe8126a01a64e35b2fcfeca400aed5aef0cc
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68813816"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952025"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM Backup의 지원 매트릭스
 [Azure Backup 서비스](backup-overview.md) 를 사용 하 여 온-프레미스 컴퓨터 및 워크 로드와 Azure vm (가상 머신)을 백업할 수 있습니다. 이 문서에서는 Azure Backup를 사용 하 여 Azure Vm을 백업할 때 지원 설정 및 제한 사항을 요약 합니다.
@@ -157,8 +157,8 @@ Azure로 마이그레이션된 Vm 백업  | 지원됩니다.<br/><br/> VM을 백
 
 **구성 요소** | **지원**
 --- | ---
-Azure VM 데이터 디스크 수 | 16개 이하의 데이터 디스크가 있는 VM을 백업합니다. <br/><br/> 최대 4TB까지 디스크 크기를 지원합니다.
-데이터 디스크 크기 | 개별 디스크의 크기는 최대 4,095GB입니다.<br/><br/>4TB 30TB 보다 큰 디스크에 대 한 Azure Backup 큰 디스크 지원의 비공개 미리 보기에 등록 하려면 microsoft AskAzureBackupTeam@microsoft.com에 다시 씁니다.  
+Azure VM 데이터 디스크 수 | 16개 이하의 데이터 디스크가 있는 VM을 백업합니다. <br/><br/> 최대 4TB까지 디스크 크기를 지원합니다.<br/><br/>4 TB 이상의 디스크에 대 한 Azure Backup 큰 디스크 지원의 제한 된 공개 미리 보기에 등록 하려면 [AZURE VM 백업 개요](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb)를 참조 하세요.
+데이터 디스크 크기 | 개별 디스크의 크기는 최대 4,095GB입니다.<br/><br/>4TB 30TB 보다 큰 디스크에 대 한 Azure Backup 큰 디스크 지원의 제한 된 공개 미리 보기에 등록 하려면이 [문서](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb)를 참조 하세요.
 스토리지 형식 | 표준 HDD, 표준 SSD, 프리미엄 SSD.
 관리 디스크 | 지원됩니다.
 암호화된 디스크 | 지원됩니다.<br/><br/> Azure Disk Encryption에서 사용 하도록 설정 된 azure Vm은 Azure AD 앱을 사용 하거나 사용 하지 않고 백업할 수 있습니다.<br/><br/> 암호화된 VM은 파일/폴더 수준에서 복구할 수 없습니다. 전체 VM을 복구 해야 합니다.<br/><br/> Azure Backup에서 이미 보호되는 VM에 암호화를 사용하도록 설정할 수 있습니다.

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a745648f1b7abac7267d51cac9e1fe642ae13d8
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: c0b15c9730f7e469fde8fabd1bc4cbcd28efa66c
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68853697"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68953005"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Azure AD 암호 보호 배포
 
@@ -60,6 +60,7 @@ ms.locfileid: "68853697"
     |`https://login.microsoftonline.com`|인증 요청|
     |`https://enterpriseregistration.windows.net`|Azure AD 암호 보호 기능|
 
+* 도메인 컨트롤러에 프록시 서비스에 로그온 할 수 있는 권한을 부여 하려면 암호 보호를 위해 프록시 서비스를 호스팅하는 모든 컴퓨터를 구성 해야 합니다. 이는 "네트워크에서이 컴퓨터 액세스" 권한 할당을 통해 제어 됩니다.
 * 암호 보호를 위해 프록시 서비스를 호스트 하는 모든 컴퓨터는 아웃 바운드 TLS 1.2 HTTP 트래픽을 허용 하도록 구성 되어야 합니다.
 * Azure AD를 사용 하 여 암호 보호 및 포리스트에 대 한 프록시 서비스를 등록 하는 전역 관리자 계정.
 * Windows Server Active Directory 포리스트를 Azure AD에 등록할 수 있는 포리스트 루트 도메인의 도메인 관리자 권한이 있는 계정 Active Directory 합니다.

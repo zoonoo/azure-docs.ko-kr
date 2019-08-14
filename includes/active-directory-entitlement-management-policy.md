@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/31/2019
 ms.author: rolyon
 ms.custom: include file
-ms.openlocfilehash: db16a2f122da1bf6c767e0a47c93c22f1882c406
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 154d71c9cbc109834a5854b46c3e6584dcefa7eb
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68817233"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68968904"
 ---
 ### <a name="policy-for-users-in-your-directory"></a>정책: 디렉터리의 사용자
 
@@ -35,7 +35,7 @@ ms.locfileid: "68817233"
 
 ### <a name="policy-for-users-not-in-your-directory"></a>정책: 디렉터리에 없는 사용자의 경우
 
-이 액세스 패키지를 요청할 수 있는 디렉터리에 없는 사용자에 대 한 정책을 사용 하려는 경우 다음 단계를 수행 합니다. **디렉터리에 없는 사용자** 는 다른 Azure AD 디렉터리에 있는 사용자를 가리키며 디렉터리에 아직 초대 되지 않았을 수 있습니다.  **조직 관계 공동 작업 제한** 설정에서 사용할 수 있도록 디렉터리를 구성 해야 합니다.
+이 액세스 패키지를 요청할 수 있는 디렉터리에 없는 사용자에 대 한 정책을 사용 하려는 경우 다음 단계를 수행 합니다. **디렉터리에 없는 사용자** 는 다른 Azure AD 디렉터리에 있는 사용자를 가리키며 디렉터리에 아직 초대 되지 않았을 수 있습니다. 현재 Azure AD가 있는 조직의 사용자만 추가할 수 있습니다. **조직 관계 공동 작업 제한** 설정에서 사용할 수 있도록 디렉터리를 구성 해야 합니다.
 
 > [!NOTE]
 > 요청을 승인 하거나 자동으로 승인 하는 디렉터리에 아직 없는 사용자에 대해 게스트 외부 사용자 계정이 생성 됩니다. 게스트가 초대 되지만 초대 전자 메일은 수신 되지 않습니다. 대신, 액세스 패키지 할당이 전달 되 면 전자 메일을 받게 됩니다. 기본적으로 나중에 해당 게스트 사용자에 게 액세스 패키지 할당이 더 이상 없는 경우 마지막 할당이 만료 되었거나 취소 되었으므로 게스트 사용자 계정은 로그인 하 여 이후에 삭제 됩니다. 게스트 사용자에 게 무제한으로 디렉터리에 남아 있는 경우 액세스 패키지 할당이 없더라도 자격 관리 구성에 대 한 설정을 변경할 수 있습니다.

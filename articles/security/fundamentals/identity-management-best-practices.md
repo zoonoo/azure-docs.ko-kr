@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2019
 ms.author: barclayn
-ms.openlocfilehash: 46850ad430aa5fb8ad25a71515bdd640855350c2
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 371c3b9fde17bba33fb6f2526be68fe89aec6b01
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727252"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934699"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure Identity Management 및 액세스 제어 보안 모범 사례
 이 문서에서는 Azure ID 관리 및 액세스 제어 보안 모범 사례 컬렉션에 대해 설명합니다. 이러한 모범 사례는 [Azure AD](../../active-directory/fundamentals/active-directory-whatis.md)에 대한 Microsoft의 경험 그리고 여러분 같은 고객의 경험에서 얻은 것입니다.
@@ -84,8 +84,8 @@ AD FS(Active Directory Federation Service) 또는 다른 ID 공급자에서 페�
 **세부 정보**: 올바른 기능을 사용 하 여 인증을 지원 합니다.
 
   - 직원을 위한 Azure AD
-  - 게스트 사용자 및 외부 파트너를 위한 [AZURE AD B2B](https://docs.microsoft.com/azure/active-directory/b2b/)
-  - 응용 프로그램을 사용할 때 고객이 자신의 프로필을 등록, 로그인 및 관리 하는 방법을 제어 [Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/)
+  - 게스트 사용자 및 외부 파트너를 위한 [AZURE AD B2B](../../active-directory/b2b/index.yml)
+  - 응용 프로그램을 사용할 때 고객이 자신의 프로필을 등록, 로그인 및 관리 하는 방법을 제어 [Azure AD B2C](../../active-directory-b2c/index.yml)
 
 클라우드 ID와 해당 온-프레미스 ID를 통합하지 않는 조직은 계정을 관리하는 데 추가 오버헤드가 발생할 수 있습니다. 이 오버헤드는 실수 및 보안 위반의 가능성을 증가시킵니다.
 

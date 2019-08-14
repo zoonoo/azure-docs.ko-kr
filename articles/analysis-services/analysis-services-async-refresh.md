@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 63b64df457af5b7d3d2bd5901f73d89ccd3c913a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 82e40f756e0d8e0b5627b7c8856bd25fa98adbcb
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65506964"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932289"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>REST API를 사용한 비동기 새로 고침
 
 REST 호출을 지원하는 프로그래밍 언어를 사용하여 Azure Analysis Services 테이블 형식 모델에서 비동기 데이터 새로 고침 작업을 수행할 수 있습니다. 여기에는 쿼리 스케일 아웃을 위한 읽기 전용 복제본의 동기화가 포함됩니다. 
 
-데이터 새로 고침 작업은 데이터 볼륨, 파티션을 사용하는 사용자 지정 수준 등을 비롯한 다양한 요인에 따라 시간이 다소 소요될 수 있습니다. 이러한 작업은 일반적으로 [TOM](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo)(테이블 형식 개체 모델) [PowerShell](https://docs.microsoft.com/sql/analysis-services/powershell/analysis-services-powershell-reference) cmdlet 또는 [TMSL](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)(테이블 형식 모델 스크립팅 언어) 등을 사용하는 기존 방법으로 호출되었습니다. 그러나 이러한 메서드는 종종 신뢰할 수 없는, 장기 실행 HTTP 연결을 요구할 수 있습니다.
+데이터 새로 고침 작업은 데이터 볼륨, 파티션을 사용하는 사용자 지정 수준 등을 비롯한 다양한 요인에 따라 시간이 다소 소요될 수 있습니다. 이러한 작업은 일반적으로 [TOM](https://docs.microsoft.com/bi-reference/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo)(테이블 형식 개체 모델) [PowerShell](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) cmdlet 또는 [TMSL](https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference)(테이블 형식 모델 스크립팅 언어) 등을 사용하는 기존 방법으로 호출되었습니다. 그러나 이러한 메서드는 종종 신뢰할 수 없는, 장기 실행 HTTP 연결을 요구할 수 있습니다.
 
 Azure Analysis Services용 REST API에서는 데이터 새로 고침 작업을 비동기적으로 실행할 수 있습니다. REST API를 사용하면 클라이언트 애플리케이션에서의 장기 실행 HTTP 연결이 필요하지 않습니다. 안정성을 위한 기타 기본 제공 기능(예: 자동 다시 시도 및 일괄 처리 커밋)도 있습니다.
 
@@ -57,7 +57,7 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/
 https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes
 ```
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>인증
 
 모든 호출은 권한 부여 헤더에서 유효한 Azure Active Directory(OAuth 2) 토큰으로 인증되어야 하며 다음과 같은 요구 사항을 충족해야 합니다.
 
@@ -100,9 +100,9 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 
 | 이름             | 형식  | Description  |기본값  |
 |------------------|-------|--------------|---------|
-| `Type`           | Enum  | 수행할 처리 형식입니다. 이 형식은 TMSL [새로 고침 명령](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) 형식인 full, clearValues, calculate, dataOnly, automatic 및 defragment에 맞춰 정렬됩니다. Add 형식은 지원되지 않습니다.      |   automatic      |
+| `Type`           | Enum  | 수행할 처리 형식입니다. 이 형식은 TMSL [새로 고침 명령](https://docs.microsoft.com/bi-reference/tmsl/refresh-command-tmsl) 형식인 full, clearValues, calculate, dataOnly, automatic 및 defragment에 맞춰 정렬됩니다. Add 형식은 지원되지 않습니다.      |   automatic      |
 | `CommitMode`     | Enum  | 개체가 일괄로 커밋될지 또는 완료될 때만 커밋될지를 결정합니다. 모드에는 default, transactional, partialBatch가 포함됩니다.  |  transactional       |
-| `MaxParallelism` | Int   | 이 값은 처리 명령을 동시에 실행할 최대 스레드 수를 결정합니다. 이 값은 TMSL [시퀀스 명령](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl)에 설정될 수 있는 MaxParallelism 속성에 맞춰 정렬되거나 다른 메서드를 사용하여 정렬됩니다.       | 10        |
+| `MaxParallelism` | Int   | 이 값은 처리 명령을 동시에 실행할 최대 스레드 수를 결정합니다. 이 값은 TMSL [시퀀스 명령](https://docs.microsoft.com/bi-reference/tmsl/sequence-command-tmsl)에 설정될 수 있는 MaxParallelism 속성에 맞춰 정렬되거나 다른 메서드를 사용하여 정렬됩니다.       | 10        |
 | `RetryCount`     | Int   | 작업이 실패하기 전에 다시 시도하는 횟수를 나타냅니다.      |     0    |
 | `Objects`        | Array | 처리해야 하는 개체의 배열입니다. 각 개체에 전체 테이블을 처리할 때는 "table"이, 파티션을 처리할 때는 "partition"이 포함됩니다. 개체를 지정하지 않으면 전체 모델이 새로 고쳐집니다. |   전체 모델 처리      |
 
@@ -201,9 +201,9 @@ CommitMode는 partialBatch와 같습니다. 시간까지 걸릴 수 있는 큰 �
 1.  리포지토리를 복제하거나 다운로드합니다. RestApiSample 솔루션을 엽니다.
 2.  **client.BaseAddress = …** 줄을 찾은 후 [기준 URL](#base-url)을 제공합니다.
 
-코드 샘플에서는 [서비스 주체](#service-principal) 인증 합니다.
+코드 샘플에서는 [서비스 주체](#service-principal) 인증을 사용 합니다.
 
-### <a name="service-principal"></a>서비스 주체
+### <a name="service-principal"></a>서비스 사용자
 
 서비스 주체를 설정하고 Azure AS에서 필요한 사용 권한을 할당하는 방법에 대한 자세한 정보는 [서비스 주체 만들기 - Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md) 및 [서버 관리자 역할에 서비스 주체 추가](analysis-services-addservprinc-admins.md)를 참조하세요. 이 단계를 완료한 다음, 다음과 같은 추가 단계를 완료합니다.
 
@@ -212,7 +212,7 @@ CommitMode는 partialBatch와 같습니다. 시간까지 걸릴 수 있는 큰 �
 3.  예제를 실행합니다.
 
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
 [샘플](analysis-services-samples.md)   
 [REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)   

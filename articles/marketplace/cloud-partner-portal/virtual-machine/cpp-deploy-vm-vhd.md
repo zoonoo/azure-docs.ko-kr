@@ -2,23 +2,23 @@
 title: Azure Marketplace에 대 한 Vhd에서 VM 배포
 description: Azure에서 배포한 VHD에서 VM을 등록하는 방법을 설명합니다.
 services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: qianw211
 ms.service: marketplace
 ms.topic: article
-ms.date: 11/30/2018
-ms.author: pabutler
-ms.openlocfilehash: a393620f28d45ec494c4e899f01e7e9a92b3ceba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/08/2019
+ms.author: evansma
+ms.openlocfilehash: 1aa946c813de41423d4fb2ba5b3aa5274db90f39
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938300"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934959"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>VHD에서 VM 배포
 
 이 섹션에서는 Azure에서 배포한 VHD(가상 하드 디스크)를 통해 VM(가상 머신)을 배포하는 방법을 설명합니다.  필요한 도구 및 이 도구를 사용하여 사용자 VM 이미지를 만든 다음, PowerShell 스크립트를 사용하여 Azure에 배포하는 방법을 나열합니다.
 
-VHD(가상 하드 디스크), 즉 일반화된 운영 체제 VHD 및 0개 이상의 데이터 디스크 VHD가 Azure 저장소 계정에 업로드되면 사용자 VM 이미지로 등록할 수 있습니다. 그런 다음 해당 이미지를 테스트할 수 있습니다. 운영 체제 VHD는 일반화되므로 VHD URL을 제공하여 VM을 직접 배포할 수 없습니다.
+VHD(가상 하드 디스크), 즉 일반화된 운영 체제 VHD 및 0개 이상의 데이터 디스크 VHD가 Azure Storage 계정에 업로드되면 사용자 VM 이미지로 등록할 수 있습니다. 그런 다음 해당 이미지를 테스트할 수 있습니다. 운영 체제 VHD는 일반화되므로 VHD URL을 제공하여 VM을 직접 배포할 수 없습니다.
 
 VM 이미지에 대해 자세히 알아보려면 다음 블로그 게시물을 참조하세요.
 
@@ -57,14 +57,14 @@ VM이 배포되면 [VM 이미지를 인증](./cpp-certify-vm.md)할 준비가 �
 
    |  **매개 변수**              |   **설명**                                                            |
    |  -------------              |   ---------------                                                            |
-   | 사용자 저장소 계정 이름   | 일반화된 VHD가 있는 저장소 계정 이름                    |
-   | 사용자 저장소 컨테이너 이름 | 일반화된 VHD가 있는 컨테이너 이름                          |
-   | 공용 IP에 대한 DNS 이름      | 공용 IP DNS 이름                                                           |
+   | 사용자 스토리지 계정 이름   | 일반화된 VHD가 있는 스토리지 계정 이름                    |
+   | 사용자 스토리지 컨테이너 이름 | 일반화된 VHD가 있는 컨테이너 이름                          |
+   | 공용 IP에 대한 DNS 이름      | 공용 IP DNS 이름입니다. VM의 DNS 이름은 제품을 배포한 후 Azure Portal에서 정의 합니다.  |
    | 관리자 사용자 이름             | 새 VM에 대한 관리자 계정의 사용자 이름                                  |
    | 관리자 암호              | 새 VM에 대한 관리자 계정의 암호                                  |
-   | OS 종류                     | VM 운영 체제: `Windows` \| `Linux`                                    |
+   | OS 유형                     | VM 운영 체제: `Windows` \| `Linux`                                    |
    | 구독 ID             | 선택한 구독의 식별자                                      |
-   | Location                    | 배포의 지리적 위치                                        |
+   | 위치                    | 배포의 지리적 위치                                        |
    | VM 크기                     | [Azure VM 크기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)(예: `Standard_A2`) |
    | 공용 IP 주소 이름      | 공용 IP 주소의 이름                                               |
    | VM 이름                     | 새 VM의 이름                                                           |
@@ -75,7 +75,7 @@ VM이 배포되면 [VM 이미지를 인증](./cpp-certify-vm.md)할 준비가 �
             
 1. 이러한 값을 제공한 후 **구매**를 클릭합니다. 
 
-Azure에서 배포를 시작합니다. 지정된 관리되지 않는 VHD가 있는 새 VM을 지정된 저장소 계정 경로에 만듭니다.  포털의 왼쪽에 있는 **Virtual Machines**를 클릭하여 Azure Portal에서 진행 상황을 추적할 수 있습니다.  VM이 만들어지면 상태가 `Starting`에서 `Running`으로 변경됩니다. 
+Azure에서 배포를 시작합니다. 지정된 관리되지 않는 VHD가 있는 새 VM을 지정된 스토리지 계정 경로에 만듭니다.  포털의 왼쪽에 있는 **Virtual Machines**를 클릭하여 Azure Portal에서 진행 상황을 추적할 수 있습니다.  VM이 만들어지면 상태가 `Starting`에서 `Running`으로 변경됩니다. 
 
 
 ### <a name="deploy-a-vm-from-powershell"></a>PowerShell에서 VM 배포

@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 08/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: bbf682df2df7a8cdc9fedb36aa4244fc5c0e9488
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 29418345aaa8042e50b1297541cac3af0a3c1504
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244012"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935203"
 ---
 # <a name="data-querying"></a>데이터 쿼리
 
@@ -35,7 +35,7 @@ Time Series Insights에서 사용할 수 있는 세 가지 기본 API 범주는 
 
 다음과 같은 핵심 API가 지원됩니다.
 
-[![시간 시계열 쿼리 개요](media/v2-update-tsq/tsq.png)](media/v2-update-tsq/tsq.png#lightbox)
+[![시계열 쿼리 개요](media/v2-update-tsq/tsq.png)](media/v2-update-tsq/tsq.png#lightbox)
 
 ## <a name="environment-apis"></a>Environment API
 
@@ -75,8 +75,8 @@ Time Series Insights에서 사용할 수 있는 세 가지 기본 API 범주는 
 
 ## <a name="next-steps"></a>다음 단계
 
-- 에 대해 자세히 알아보세요 [저장소 및 수신](./time-series-insights-update-storage-ingress.md) Azure Time Series Insights 미리 보기에 있습니다.
+- Azure Time Series Insights 미리 보기에서 [저장소 및 수신](./time-series-insights-update-storage-ingress.md) 에 대해 자세히 알아보세요.
 
-- Time Series Insights 미리 보기를 읽을 [데이터 모델링](./time-series-insights-update-tsm.md) 문서.
+- Time Series Insights 미리 보기 [데이터 모델링](./time-series-insights-update-tsm.md) 문서를 참조 하세요.
 
-- 검색할 [시간 계열 ID를 선택할 때 모범 사례](./time-series-insights-update-how-to-id.md)합니다.
+- [시계열 ID를 선택할 때 모범 사례를](./time-series-insights-update-how-to-id.md)검색 합니다.

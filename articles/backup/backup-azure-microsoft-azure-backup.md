@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dacurwin
-ms.openlocfilehash: d815b471b0a1d7842118c7ac0b5e1665b8fb3c1e
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 0f7d9961b41ece23630584146e4eb777969e771a
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879950"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954746"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Azure Backup Server 설치 및 업그레이드
 > [!div class="op_single_selector"]
@@ -57,7 +57,7 @@ Azure에서 기본 서버를 실행하지 않을 경우 Hyper-V VM, VMware VM �
 | Windows Storage Server 2012 R2 및 최신 SP |64비트 |Standard, Workgroup |
 | Windows Storage Server 2012 및 최신 SP |64비트 |Standard, Workgroup |
 
-Windows Server 중복 제거를 사용하여 DPM 저장소를 중복 제거할 수 있습니다. [DPM 및 중복 제거](https://technet.microsoft.com/library/dn891438.aspx) 가 Hyper-V VM에 배포될 때 함께 작동하는 방법에 대해 자세히 알아보세요.
+Windows Server 중복 제거를 사용하여 DPM 스토리지를 중복 제거할 수 있습니다. [DPM 및 중복 제거](https://technet.microsoft.com/library/dn891438.aspx) 가 Hyper-V VM에 배포될 때 함께 작동하는 방법에 대해 자세히 알아보세요.
 
 > [!NOTE]
 > Azure Backup Server는 단일 용도의 전용 서버에서 실행하도록 설계되었습니다. Azure Backup Server를 다음 항목에 설치할 수 없습니다.
@@ -73,17 +73,17 @@ Windows Server 중복 제거를 사용하여 DPM 저장소를 중복 제거할 �
 
 [!INCLUDE [backup-create-rs-vault.md](../../includes/backup-create-rs-vault.md)]
 
-### <a name="set-storage-replication"></a>저장소 복제 설정
-저장소 복제 옵션을 사용하면 지역 중복 저장소와 로컬 중복 저장소 중에서 선택할 수 있습니다. 기본적으로 Recovery Services 자격 증명 모음은 지역 중복 저장소를 사용합니다. 이 자격 증명 모음이 기본 자격 증명 모음인 경우 저장소 옵션을 지역 중복 저장소 상태로 둡니다. 오래 지속되지 않는 저렴한 옵션을 원하는 경우에는 로컬 중복 저장소를 선택합니다. [지역 중복](../storage/common/storage-redundancy-grs.md) 및 [로컬 중복](../storage/common/storage-redundancy-lrs.md) 스토리지 옵션에 대한 자세한 내용은 [Azure Storage 복제 개요](../storage/common/storage-redundancy.md)를 참조하세요.
+### <a name="set-storage-replication"></a>스토리지 복제 설정
+스토리지 복제 옵션을 사용하면 지역 중복 스토리지와 로컬 중복 스토리지 중에서 선택할 수 있습니다. 기본적으로 Recovery Services 자격 증명 모음은 지역 중복 스토리지를 사용합니다. 이 자격 증명 모음이 기본 자격 증명 모음인 경우 스토리지 옵션을 지역 중복 스토리지 상태로 둡니다. 오래 지속되지 않는 저렴한 옵션을 원하는 경우에는 로컬 중복 스토리지를 선택합니다. [지역 중복](../storage/common/storage-redundancy-grs.md) 및 [로컬 중복](../storage/common/storage-redundancy-lrs.md) 스토리지 옵션에 대한 자세한 내용은 [Azure Storage 복제 개요](../storage/common/storage-redundancy.md)를 참조하세요.
 
-저장소 복제 설정을 편집하려면
+스토리지 복제 설정을 편집하려면
 
 1. **Recovery Services 자격 증명 모음** 블레이드에서 새 자격 증명 모음을 클릭합니다. **설정** 섹션에서 **속성**을 클릭 합니다.
 2. **속성**의 **백업 구성**에서 **업데이트**를 클릭 합니다.
 
 3. 저장소 복제 유형을 선택 하 고 **저장**을 클릭 합니다.
 
-     ![새 자격 증명 모음의 저장소 구성 설정](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
+     ![새 자격 증명 모음의 스토리지 구성 설정](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
 
  
 
@@ -155,7 +155,7 @@ Windows Server 중복 제거를 사용하여 DPM 저장소를 중복 제거할 �
 1. **Microsoft Azure Backup** 을 클릭하여 설치 마법사를 시작합니다.
 
     ![Microsoft Azure Backup 설정 마법사](./media/backup-azure-microsoft-azure-backup/launch-screen2.png)
-2. 시작 화면에서 **다음** 단추를 클릭합니다. 그러면 *필수 구성 요소 확인* 섹션으로 이동합니다. 이 화면에서 **확인**을 클릭하여 Azure Back Server에 대한 하드웨어 및 소프트웨어 필수 구성 요소가 충족되었는지 확인합니다. 모든 필수 조건이 성공적으로 충족되면 컴퓨터가 요구 사항을 만족한다는 것을 나타내는 메시지가 표시됩니다. **다음** 단추를 클릭합니다.
+2. 시작 화면에서 **다음** 단추를 클릭 합니다. 그러면 *필수 구성 요소 확인* 섹션으로 이동합니다. 이 화면에서 **확인**을 클릭하여 Azure Back Server에 대한 하드웨어 및 소프트웨어 필수 구성 요소가 충족되었는지 확인합니다. 모든 필수 조건이 성공적으로 충족되면 컴퓨터가 요구 사항을 만족한다는 것을 나타내는 메시지가 표시됩니다. **다음** 단추를 클릭합니다.
 
     ![Azure Backup 서버 - 시작 및 필수 조건 확인](./media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
 3. Microsoft Azure Backup Server에는 SQL Server Enterprise가 필요합니다. 또한 Azure Backup Server 설치 패키지는 사용자 고유의 SQL을 사용하지 않으려는 경우 필요한 적절한 SQL Server 이진 파일과 함께 제공됩니다. 새 Azure Backup Server 설치를 시작할 때 **이 설치 프로그램으로 새 SQL Server 인스턴스 설치** 옵션을 선택하고 **확인 후 설치** 단추를 클릭해야 합니다. 필수 구성 요소가 성공적으로 설치되면 **다음**을 클릭합니다.
@@ -188,7 +188,7 @@ Windows Server 중복 제거를 사용하여 DPM 저장소를 중복 제거할 �
 
     ![Microsoft Azure Backup PreReq2](./media/backup-azure-microsoft-azure-backup/space-screen.png)
 
-    스크래치 위치는 Azure에 백업에 대한 요구 사항입니다. 스크래치 위치가 클라우드로 백업할 계획된 데이터의 5%인지 확인하세요. 디스크 보호를 위해 별도 디스크가 설치를 완료하면 구성되어야 합니다. 저장소 풀에 관련된 자세한 내용은 [저장소 풀 및 디스크 저장소 구성](https://technet.microsoft.com/library/hh758075.aspx)을 참조하세요.
+    스크래치 위치는 Azure에 백업에 대한 요구 사항입니다. 스크래치 위치가 클라우드로 백업할 계획된 데이터의 5%인지 확인하세요. 디스크 보호를 위해 별도 디스크가 설치를 완료하면 구성되어야 합니다. 스토리지 풀에 관련된 자세한 내용은 [스토리지 풀 및 디스크 스토리지 구성](https://technet.microsoft.com/library/hh758075.aspx)을 참조하세요.
 5. 제한된 로컬 사용자 계정에 강력한 암호를 제공하고 **다음**을 클릭합니다.
 
     ![Microsoft Azure Backup PreReq2](./media/backup-azure-microsoft-azure-backup/security-screen.png)
@@ -214,11 +214,11 @@ Windows Server 중복 제거를 사용하여 DPM 저장소를 중복 제거할 �
 
 설치 단계가 완료되면 제품의 바탕 화면 아이콘도 만들어집니다. 제품을 시작하려면 아이콘을 두 번 클릭합니다.
 
-### <a name="add-backup-storage"></a>백업 저장소 추가
-첫 번째 백업 복사본은 Azure Backup 서버 컴퓨터에 연결된 저장소에 보관됩니다. 디스크 추가에 대한 자세한 내용은 [저장소 풀 및 디스크 저장소 구성](https://docs.microsoft.com/azure/backup/backup-mabs-add-storage)을 참조하세요.
+### <a name="add-backup-storage"></a>백업 스토리지 추가
+첫 번째 백업 복사본은 Azure Backup 서버 컴퓨터에 연결된 스토리지에 보관됩니다. 디스크 추가에 대한 자세한 내용은 [스토리지 풀 및 디스크 스토리지 구성](https://docs.microsoft.com/azure/backup/backup-mabs-add-storage)을 참조하세요.
 
 > [!NOTE]
-> 데이터를 Azure에 전송하려는 경우에도 백업 저장소를 추가해야 합니다. Azure Backup 서버의 현재 아키텍처에서 Azure Backup 자격 증명 모음은 데이터의 *두 번째* 복사본을 보유하고 로컬 저장소에서는 첫 번째(및 필수) 백업 복사본을 보유합니다.
+> 데이터를 Azure에 전송하려는 경우에도 백업 스토리지를 추가해야 합니다. Azure Backup 서버의 현재 아키텍처에서 Azure Backup 자격 증명 모음은 데이터의 *두 번째* 복사본을 보유하고 로컬 스토리지에서는 첫 번째(및 필수) 백업 복사본을 보유합니다.
 >
 >
 
@@ -259,7 +259,7 @@ MABS에서는 System Center Data Protection Manager 보호 에이전트를 사�
 5. 도메인 조인
 6. Azure Backup server V2 이상 설치 (이전 서버에서 MABS 저장소 풀 디스크를 이동 하 고 가져오기)
 7. 1단계에서 가져온 DPMDB를 복원합니다.
-8. 저장소를 원래 백업 서버에서 새 서버로 연결합니다.
+8. 스토리지를 원래 백업 서버에서 새 서버로 연결합니다.
 9. SQL에서 DPMDB 복원
 10. 새 서버의 관리 명령줄에서 Microsoft Azure Backup 설치 위치 및 bin 폴더로 cd
 

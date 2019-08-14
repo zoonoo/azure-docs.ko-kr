@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: mlearned
-ms.openlocfilehash: 748abc08c432518be4ce8698713b1df95077c3c1
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: e0b7154e3c4d6a6f493aac93ffcbcc424a67c300
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68722458"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932308"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>유지 관리 또는 문제 해결을 위해 AKS(Azure Kubernetes Service) 클러스터 노드에 대한 SSH와 연결
 
@@ -37,7 +37,7 @@ SSH 액세스를 사용 하 여 가상 머신 확장 집합을 구성 하려면 
 [Az aks show][az-aks-show] 명령을 사용 하 여 aks 클러스터의 리소스 그룹 이름을 가져온 다음 [az vmss list][az-vmss-list] 명령을 사용 하 여 확장 집합의 이름을 가져옵니다.
 
 ```azurecli-interactive
-CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
+$CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
 SCALE_SET_NAME=$(az vmss list --resource-group $CLUSTER_RESOURCE_GROUP --query [0].name -o tsv)
 ```
 
@@ -94,7 +94,7 @@ SSH 액세스를 위해 가상 머신 가용성 집합 기반 AKS 클러스터�
 [Az aks show][az-aks-show] 명령을 사용 하 여 aks 클러스터의 리소스 그룹 이름을 가져온 다음 [az vm list][az-vm-list] 명령을 사용 하 여 클러스터의 Linux 노드에 대 한 가상 컴퓨터 이름을 나열 합니다.
 
 ```azurecli-interactive
-CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
+$CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
 az vm list --resource-group $CLUSTER_RESOURCE_GROUP -o table
 ```
 

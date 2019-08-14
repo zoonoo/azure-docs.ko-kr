@@ -7,12 +7,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: dacurwin
 manager: carmonm
-ms.openlocfilehash: c4d01c3c72669f7fbfd5b2d8df0678cc0675ccde
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 7f890ddf7aff63189a720f3d604b00610af7a933
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639569"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68949857"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Microsoft Azure Backup Server 또는 System Center DPM을 사용 하 여 백업에 대 한 지원 매트릭스
 
@@ -55,7 +55,7 @@ DPM/MABS 및 Azure Backup를 사용한 백업은 다음과 같이 작동 합니�
 **시나리오** | **에이전트** | **위치**
 --- | --- | ---
 **온-프레미스 머신/워크로드 백업**: | DPM/MABS 보호 에이전트는 백업 하려는 컴퓨터에서 실행 됩니다.<br/><br/> DPM/MABS 서버의 MARS 에이전트<br/> 이 기능을 사용하도록 설정하는 데 필요한 Microsoft Azure Recovery Services 에이전트 또는 Azure Backup 에이전트의 최소 버전은 2.0.8719.0입니다.  | DPM/MABS가 온-프레미스에서 실행 되 고 있어야 합니다.
-**Azure VM/워크로드 백업** | 보호 된 컴퓨터의 DPM/MABS 보호 에이전트<br/><br/> DPM/MABS 서버의 MARS 에이전트 | DPM/MABS는 Azure VM에서 실행되어야 합니다.
+
 
 ## <a name="supported-deployments"></a>지원되는 배포
 
@@ -166,9 +166,9 @@ DPM 2016/MABS v2 (Windows Server 2016에서 실행) 이상에서 최신 백업 �
 **Windows Server 2012 R2(Datacenter 및 Standard)**<br/><br/> 64/32비트 | MABS v3, v2 | 온-프레미스/Azure VM | **온-프레미스 보호**: 볼륨/공유/폴더/파일/시스템 상태/완전 복구<br/><br/> **Azure VM 보호**: 볼륨/공유/폴더/파일<br/><br/> 중복 제거된 볼륨 지원 |
 **Windows Server 2012 SP1(Datacenter 및 Standard)**<br/><br/> 64/32비트 | MABS v3, v2 <br/><br/> [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855)을 설치해야 합니다. | 온-프레미스/Azure VM | **온-프레미스 보호**: 볼륨/공유/폴더/파일/시스템 상태/완전 복구<br/><br/> **Azure VM 보호**: 볼륨/공유/폴더/파일<br/><br/> 중복 제거된 볼륨 지원 |
 **Windows 2008 R2 SP1(Standard 및 Enterprise)**<br/><br/> 64/32비트 | MABS v3, v2에서 지원 됩니다.<br/><br/> [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855)을 설치해야 합니다. | 온-프레미스/Azure VM |   **온-프레미스 보호**: 볼륨/공유/폴더/파일/시스템 상태/완전 복구<br/><br/> **Azure VM 보호**: 볼륨/공유/폴더/파일<br/><br/> 중복 제거된 볼륨 지원 |
-**Windows 2008 R2(Standard 및 Enterprise)**<br/><br/> 64/32비트 | MABS v2/v3에서는 OS에서 SP1을 실행해야 합니다. | 온-프레미스/Azure VM | **온-프레미스 보호**: 볼륨/공유/폴더/파일/시스템 상태/완전 복구<br/><br/> **Azure VM 보호**: 볼륨/공유/폴더/파일<br/><br/> 중복 제거된 볼륨 지원 |
-**Windows Server 2008 SP2**<br/><br/> 64/32비트 | MABS v2, v3 | Mabs v2는 MABS를 VMware VM으로 배포할 때 지원 됩니다.<br/><br/> Azure VM에서 실행되는 MABS에서는 지원되지 않습니다. | 볼륨/공유/폴더/파일/시스템 상태/완전 복구 |
-**Windows Storage Server 2008** | MABS v2, v3 | MABS를 온-프레미스 물리적 서버/Hyper-v VM으로 설정 합니다. <br/><br/> Azure VM에서 실행되는 MABS에서는 지원되지 않습니다. | 볼륨/공유/폴더/파일/시스템 상태/완전 복구
+**Windows 2008 R2(Standard 및 Enterprise)**<br/><br/> 64/32비트 | MABS v3, v2의 경우 OS는 s p 1을 실행 해야 합니다. | 온-프레미스/Azure VM | **온-프레미스 보호**: 볼륨/공유/폴더/파일/시스템 상태/완전 복구<br/><br/> **Azure VM 보호**: 볼륨/공유/폴더/파일<br/><br/> 중복 제거된 볼륨 지원 |
+**Windows Server 2008 SP2**<br/><br/> 64/32비트 | MABS v3, v2 | Mabs v2는 MABS를 VMware VM으로 배포할 때 지원 됩니다.<br/><br/> Azure VM에서 실행되는 MABS에서는 지원되지 않습니다. | 볼륨/공유/폴더/파일/시스템 상태/완전 복구 |
+**Windows Storage Server 2008** | MABS v3, v2 | MABS를 온-프레미스 물리적 서버/Hyper-v VM으로 설정 합니다. <br/><br/> Azure VM에서 실행되는 MABS에서는 지원되지 않습니다. | 볼륨/공유/폴더/파일/시스템 상태/완전 복구
 **SQL Server 2017** | MABS v3 | 온-프레미스/Azure VM| SQL Server 데이터베이스를 백업합니다.<br/><br/> SQL Server 클러스터 백업이 지원됩니다.<br/><br/>CSV에 저장된 데이터베이스는 지원되지 않습니다. |
 **SQL Server 2016/2016 SP1** | MABS v3, v2 | 온-프레미스/Azure VM| SQL Server 데이터베이스를 백업합니다.<br/><br/> SQL Server 클러스터 백업이 지원됩니다.<br/><br/>CSV에 저장된 데이터베이스는 지원되지 않습니다. |
 **SQL Server 2014**<br/><br/> **SQL Server 2012/SP1/SP2**<br/><br/> **SQL Server 2008 R2**<br/><br/> **SQL Server 2008** | MABS v3, v2 | 온-프레미스/Azure VM| SQL Server 데이터베이스를 백업합니다.<br/><br/> SQL Server 클러스터 백업이 지원됩니다.<br/><br/>CSV에 저장된 데이터베이스는 지원되지 않습니다. |
@@ -195,7 +195,7 @@ DPM 2016/MABS v2 (Windows Server 2016에서 실행) 이상에서 최신 백업 �
 **Windows 2008 R2(Standard 및 Enterprise)**<br/><br/> 64/32비트 | 온-프레미스<br/><br/> DPM은 VMware VM으로 설치할 수 없습니다.<br/><br/> Azure VM에서 실행되는 DPM은 지원되지 않습니다. | **온-프레미스 보호**: 볼륨/공유/폴더/파일/시스템 상태/완전 복구
 **Windows Server 2008 SP2**<br/><br/> 64/32비트 | 온-프레미스만<br/><br/> DPM은 VMware VM으로 실행하는 경우 지원됩니다. 물리적 서버 또는 Hyper-V VM으로 실행하는 것은 지원되지 않습니다. | 볼륨/공유/폴더/파일/시스템 상태/완전 복구
 **Windows Storage Server 2008** | 물리적 서버 또는 Hyper-V VM으로 실행하는 DPM 온-프레미스 | 볼륨/공유/폴더/파일/시스템 상태/완전 복구
-**SQL Server 2017** | DPM SAC 업데이트 롤업 5 이상을 실행 하는 DPM 2016입니다.<br/><br/> 온-프레미스/Azure VM| SQL Server 데이터베이스를 백업합니다.<br/><br/> SQL Server 클러스터 백업이 지원됩니다.<br/><br/>CSV에 저장된 데이터베이스는 지원되지 않습니다.
+**SQL Server 2017** | DPM SAC DPM 2016 업데이트 롤업 5 이상을 실행 하 고 있습니다.<br/><br/> 온-프레미스/Azure VM| SQL Server 데이터베이스를 백업합니다.<br/><br/> SQL Server 클러스터 백업이 지원됩니다.<br/><br/>CSV에 저장된 데이터베이스는 지원되지 않습니다.
 **SQL Server 2016 SP1** | DPM 2012 R2에는 지원되지 않습니다. DPM SAC, 업데이트 롤업 4 이상을 실행하는 DPM 2016에는 지원됩니다.<br/><br/> 온-프레미스/Azure VM| SQL Server 데이터베이스를 백업합니다.<br/><br/> SQL Server 클러스터 백업이 지원됩니다.<br/><br/>CSV에 저장된 데이터베이스는 지원되지 않습니다.
 **SQL Server 2016** | DPM 2012 R2에는 지원되지 않습니다. DPM SAC에 대해 지원 됩니다. DPM 2016는 업데이트 롤업 2 이상에서 지원 됩니다.<br/><br/> 온-프레미스/Azure VM| SQL Server 데이터베이스를 백업합니다.<br/><br/> SQL Server 클러스터 백업이 지원됩니다.<br/><br/>CSV에 저장된 데이터베이스는 지원되지 않습니다.
 **SQL Server 2014**<br/><br/> **SQL Server 2012/SP1/SP2**<br/><br/> **SQL Server 2008 R2**<br/><br/> **SQL Server 2008** | 2014 SQL Server DPM 2012 R2 업데이트 롤업 4 이상을 실행 하 고 있습니다.<br/><br/> 온-프레미스/Azure VM| SQL Server 데이터베이스를 백업합니다.<br/><br/> SQL Server 클러스터 백업이 지원됩니다.<br/><br/>CSV에 저장된 데이터베이스는 지원되지 않습니다.

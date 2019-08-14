@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: dacurwin
-ms.openlocfilehash: 7a19b97e36bc28e5e629391f799b69370cf0fa38
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: e31c875f31f118716feea0c73bc2ca70a4ecd9a5
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737270"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954837"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>MABS를 사용 하 여 Azure에 SharePoint 팜 백업
 SharePoint 팜은 다른 데이터 원본을 백업하는 것과 같은 방법으로 Microsoft Azure Backup Server(MABS)를 사용하여 Microsoft Azure에 백업합니다. Azure Backup은 일간, 주간, 월간 혹은 연간 백업 지점을 생성하도록 백업 일정에 유연성을 제공하고 다양한 백업 지점에 관한 보존 정책 옵션을 제공합니다. 또한 빠른 복구 시간 목표(RTO)를 위해 로컬 디스크 복사본을 저장하는 기능과 경제적인 장기 보존을 위해 Azure에 사본을 복사하는 기능을 제공합니다.
@@ -43,7 +43,7 @@ Azure Backup Server는 LocalSystem 계정으로 실행됩니다. SQL Server 데�
 SharePoint 팜에 SQL Server 별칭으로 구성 된 SQL Server 데이터베이스가 있는 경우, MABS가 보호할 프런트엔드 웹 서버에 SQL Server 클라이언트 구성 요소를 설치합니다.
 
 ### <a name="sharepoint-server"></a>SharePoint Server
-성능은 SharePoint 팜의 크기와 같은 여러 요인에 따라 달라지지만, 일반 지침에 의하면 MABS 하나가 25TB SharePoint 팜을 보호할 수 있습니다.
+성능은 SharePoint 팜 크기와 같은 다양 한 요소에 따라 달라 지지만, 일반적으로 MABS는 25tb SharePoint 팜을 보호할 수 있는 방법입니다.
 
 ### <a name="whats-not-supported"></a>지원 되지않는 사항
 * SharePoint 팜을 보호하는 MABS는 검색 인덱스 또는 애플리케이션 서비스 데이터베이스를 보호하지 않습니다. 이러한 데이터베이스들은 별도로 보호를 구성해야 합니다.
@@ -99,7 +99,7 @@ MABS를 사용하여 SharePoint를 보호할 수 있으려면, **ConfigureShareP
    > 이 예제의 경우, 대부분의 복구가 경과된 지 5일이 안된 데이터에 대해 요구되므로, 디스크의 보존 범위를 5일로 선택했고 백업은 프로덕션 시간을 피해 수행되도록 했습니다.
    >
    >
-6. 보호 그룹에 할당된 저장소 풀 디스크 공간을 검토하고 **다음**을 클릭합니다.
+6. 보호 그룹에 할당된 스토리지 풀 디스크 공간을 검토하고 **다음**을 클릭합니다.
 7. 모든 보호 그룹에 대해 MABS는 복사본을 저장하고 관리하기 위해 디스크 공간을 할당합니다. 이 시점에서, MABS는 선택된 데이터의 복사본을 만들어야 합니다. 복사본을 만들 방법 및 날짜를 선택하고 **다음**을 클릭합니다.
 
     ![복제본 만들기 방법 선택](./media/backup-azure-backup-sharepoint/choose-replica-creation-method.png)

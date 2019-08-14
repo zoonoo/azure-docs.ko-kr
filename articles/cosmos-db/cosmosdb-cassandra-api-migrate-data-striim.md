@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 1e14e9819f4b3344d0f0155ac5c15337a45952dc
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: c739a6e79cab14ecc8e5a4be23c551d2774cbbd8
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828059"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933988"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-cassandra-api-account-using-striim"></a>Striim를 사용 하 여 Azure Cosmos DB Cassandra API 계정으로 데이터 마이그레이션
 
 Azure marketplace의 Striim 이미지는 데이터 웨어하우스 및 데이터베이스에서 Azure로의 지속적인 실시간 데이터 이동을 제공 합니다. 데이터를 이동 하는 동안 인라인 비 정규화, 데이터 변환을 수행 하 고 실시간 분석 및 데이터 보고 시나리오를 사용할 수 있습니다. Striim를 시작 하 여 계속 해 서 엔터프라이즈 데이터를 Azure Cosmos DB Cassandra API로 이동 하는 것이 쉽습니다. Azure는 Striim을 쉽게 배포 하 고 Azure Cosmos DB로 데이터를 마이그레이션할 수 있도록 해 주는 marketplace 제품을 제공 합니다. 
 
-이 문서에서는 Striim를 사용 하 여 **Oracle 데이터베이스** 에서 **Azure Cosmos DB Cassnadra API 계정**으로 데이터를 마이그레이션하는 방법을 보여 줍니다.
+이 문서에서는 Striim를 사용 하 여 **Oracle 데이터베이스** 에서 **Azure Cosmos DB Cassandra API 계정**으로 데이터를 마이그레이션하는 방법을 보여 줍니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -41,7 +41,7 @@ Azure marketplace의 Striim 이미지는 데이터 웨어하우스 및 데이터
 
 1. **Striim 클러스터 설정** 창에서 Striim 배포 유형과 가상 머신 크기를 선택 합니다.
 
-   |설정 | 값 | Description |
+   |설정 | 값 | 설명 |
    | ---| ---| ---|
    |Striim 배포 유형 |독립 실행형 | Striim는 **독립 실행형** 또는 **클러스터** 배포 유형에 서 실행할 수 있습니다. 독립 실행형 모드는 단일 가상 컴퓨터에 Striim 서버를 배포 하 고 데이터 볼륨에 따라 Vm의 크기를 선택할 수 있습니다. 클러스터 모드는 선택한 크기를 가진 둘 이상의 Vm에 Striim 서버를 배포 합니다. 노드가 3 개 이상인 클러스터 환경은 자동 고가용성 및 장애 조치 (failover)를 제공 합니다.</br></br> 이 자습서에서는 독립 실행형 옵션을 선택할 수 있습니다. 기본 "Standard_F4s" 크기 VM을 사용 합니다. | 
    | Striim 클러스터의 이름|    < Striim_cluster_Name >|  Striim 클러스터의 이름입니다.|

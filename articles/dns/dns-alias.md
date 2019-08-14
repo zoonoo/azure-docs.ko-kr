@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 07/19/2019
+ms.date: 08/09/2019
 ms.author: victorh
-ms.openlocfilehash: 89b50cff2d46f8c92c09653aeaac49551c97e9c6
-ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
+ms.openlocfilehash: 9a3cdb846921c2d73dd2cca5d679663c1ba9e192
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314459"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946894"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Azure DNS 별칭 레코드 개요
 
@@ -29,7 +29,7 @@ Azure DNS 별칭 레코드는 DNS 레코드 집합에서 한정됩니다. DNS �
 
 ## <a name="capabilities"></a>기능
 
-- **DNS A/AAAA 레코드 집합의 공용 IP 리소스를 가리킵니다**. A/AAAA 레코드 집합을 만들고 공용 IP 리소스를 가리키는 별칭 레코드 집합으로 설정할 수 있습니다. DNS 레코드 집합은 공용 IP 주소가 변경 되거나 삭제 되는 경우 자동으로 변경 됩니다. 잘못된 IP 주소를 가리키는 현수 DNS 레코드가 방지됩니다.
+- **DNS A/AAAA 레코드 집합의 공용 IP 리소스를 가리킵니다**. A/AAAA 레코드 집합을 만들고 공용 IP 리소스 (표준 또는 기본)를 가리키도록 별칭 레코드 집합을 만들 수 있습니다. DNS 레코드 집합은 공용 IP 주소가 변경 되거나 삭제 되는 경우 자동으로 변경 됩니다. 잘못된 IP 주소를 가리키는 현수 DNS 레코드가 방지됩니다.
 
    리소스 당 최대 20 개의 별칭 레코드 집합이 있습니다.
 

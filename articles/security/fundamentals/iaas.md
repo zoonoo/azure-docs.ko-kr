@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/05/2019
 ms.author: barclayn
-ms.openlocfilehash: 5e449ae33b19b27c3ea50d982ed84f681a0beb8f
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: c04d5fc5b455c798ffc8cb4a88948deaea0cf348
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727281"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68927922"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Azure의 IaaS 작업에 대한 보안 모범 사례
 이 문서에서는 VM 및 운영 체제에 대한 보안 모범 사례를 설명합니다.
@@ -79,7 +79,7 @@ VM에서 고가용성의 중요한 애플리케이션을 실행할 경우에는 
 
 Microsoft 맬웨어 방지 프로그램에는 실시간 보호, 예약된 검색, 맬웨어 치료, 서명 업데이트, 엔진 업데이트, 샘플 보고 및 제외 이벤트 컬렉션과 같은 기능이 포함됩니다. 프로덕션 환경과는 별도로 호스트되는 환경의 경우 VM 및 클라우드 서비스를 보호하는 데 맬웨어 방지 확장을 사용할 수 있습니다.
 
-배포 및 기본 제공 검색(경고 및 인시던트)을 용이하게 하기 위해 [Azure Security Center](https://docs.microsoft.com/azure/security-center/)와 Microsoft 맬웨어 방지 프로그램 및 파트너 솔루션을 통합할 수 있습니다.
+배포 및 기본 제공 검색(경고 및 인시던트)을 용이하게 하기 위해 [Azure Security Center](../../security-center/index.yml)와 Microsoft 맬웨어 방지 프로그램 및 파트너 솔루션을 통합할 수 있습니다.
 
 **모범 사례**: 맬웨어로부터 보호하는 맬웨어 방지 솔루션 설치   
 **세부 정보**: [Microsoft 파트너 솔루션 또는 Microsoft 맬웨어 방지 프로그램 설치](../../security-center/security-center-install-endpoint-protection.md)
@@ -152,7 +152,7 @@ VM에 대해 강력한 보안을 적용하지 않는 조직은 권한이 없는 
 VM 성능을 모니터링하지 않는 조직은 성능 패턴의 특정 변경 내용이 정상 또는 비정상인지 확인할 수 없습니다. 정상보다 더 많은 리소스를 소비하는 VM은 외부 리소스의 잠재적인 공격 또는 VM에서 손상된 프로세스가 실행 중임을 나타낼 수 있습니다.
 
 ## <a name="encrypt-your-virtual-hard-disk-files"></a>가상 하드 디스크 파일 암호화
-VHD(가상 하드 디스크)를 암호화하여 암호화 키 및 비밀과 함께 저장소의 미사용 부팅 볼륨 및 데이터 볼륨을 보호할 수 있는 것이 좋습니다.
+VHD(가상 하드 디스크)를 암호화하여 암호화 키 및 비밀과 함께 스토리지의 미사용 부팅 볼륨 및 데이터 볼륨을 보호할 수 있는 것이 좋습니다.
 
 [Azure Disk Encryption](../azure-security-disk-encryption-overview.md)을 사용하면 Windows 및 Linux IaaS 가상 머신 디스크를 암호화할 수 있습니다. Azure Disk Encryption은 산업 표준인 Windows의 [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) 기능과 Linux의 [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) 기능을 사용하여 OS 및 데이터 디스크를 위한 볼륨 암호화를 제공합니다. 또한 고객이 Key Vault 구독에서 디스크 암호화 키 및 암호를 관리 및 제어할 수 있도록 [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/)에 통합되어 있습니다. 이 솔루션은 가상 머신 디스크에 있는 모든 데이터가 Azure Storage에서 미사용 시 암호화되도록 합니다.
 

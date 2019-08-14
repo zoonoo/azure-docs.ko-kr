@@ -7,17 +7,17 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: barbkess
 ms.date: 03/01/2019
-ms.openlocfilehash: 9b6089aa828b5667f100c1a8cbff3e69345e4512
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 708c34347966eee7817ca04e0552dcba233765cb
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66150418"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934508"
 ---
 # <a name="azure-key-vault-managed-storage-account---powershell"></a>Azure Key Vault 관리 스토리지 계정 - PowerShell
 
 > [!NOTE]
-> [Azure Active Directory(Azure AD)와 Azure Storage 통합은 현재 미리 보기 중입니다](https://docs.microsoft.com/azure/storage/common/storage-auth-aad). 인증 및 권한 부여에 Azure Key Vault뿐만 아니라, Azure Storage에 대한 OAuth2 토큰 기반 액세스를 제공하는 Azure AD를 사용하는 것이 좋습니다. 이를 통해 다음을 수행할 수 있습니다.
+> [Azure Active Directory(Azure AD)와 Azure Storage 통합은 현재 미리 보기 중입니다](../storage/common/storage-auth-aad.md). 인증 및 권한 부여에 Azure Key Vault뿐만 아니라, Azure Storage에 대한 OAuth2 토큰 기반 액세스를 제공하는 Azure AD를 사용하는 것이 좋습니다. 이를 통해 다음을 수행할 수 있습니다.
 > - 스토리지 계정 자격 증명 대신, 애플리케이션 또는 사용자 ID를 사용하여 클라이언트 애플리케이션을 인증합니다. 
 > - Azure 기반 실행 시 [Azure AD 관리 ID](/azure/active-directory/managed-identities-azure-resources/)를 사용합니다. 관리 ID를 통해 클라이언트 인증은 물론, 애플리케이션에 또는 애플리케이션을 통해 자격 증명을 저장할 필요성이 없어집니다.
 > - 권한 부여 관리에 Key Vault에서도 지원되는 역할 기반 제어(RBAC)를 사용합니다.

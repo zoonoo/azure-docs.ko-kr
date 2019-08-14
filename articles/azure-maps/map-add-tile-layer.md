@@ -1,6 +1,6 @@
 ---
 title: Azure Maps에 타일 계층 추가 | Microsoft Docs
-description: Javascript 맵에 타일 계층을 추가하는 방법
+description: Azure Maps 웹 SDK에 타일 계층을 추가 하는 방법입니다.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: d872cd78b3fd04512fcaee706e54bffa1cf9fcc1
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 3f047ec1aced55038384cbe29bd3a4b8a948dce9
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882096"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976447"
 ---
 # <a name="add-a-tile-layer-to-a-map"></a>맵에 타일 계층 추가
 
@@ -40,16 +40,24 @@ ms.locfileid: "68882096"
 
 ## <a name="add-a-tile-layer"></a>타일 계층 추가
 
- 이 샘플은 x, y, 확대/축소 타일 배치 체계를 사용하는 타일 세트를 가리키는 타일 계층을 만드는 방법을 보여줍니다. 이 타일 계층의 원본은 [아이오와 주립 대학교의 Iowa Environmental Mesonet](https://mesonet.agron.iastate.edu/ogc/)에서 받은 날씨 레이더 오버레이입니다. 
+ 이 샘플은 x, y, 확대/축소 타일 배치 체계를 사용하는 타일 세트를 가리키는 타일 계층을 만드는 방법을 보여줍니다. 이 타일 계층의 원본은 [아이오와 주립 대학교의 Iowa Environmental Mesonet](https://mesonet.agron.iastate.edu/ogc/)에서 받은 날씨 레이더 오버레이입니다. 방사형 데이터를 볼 때 가장 적합 한 사용자는 지도를 탐색할 때 도시 레이블을 명확 하 게 볼 수 있습니다 .이는 `labels` 계층 아래에 타일 계층을 삽입 하 여 수행할 수 있습니다.
+
+```javascript
+//Create a tile layer and add it to the map below the label layer.
+//Weather radar tiles from Iowa Environmental Mesonet of Iowa State University.
+map.layers.add(new atlas.layer.TileLayer({
+    tileUrl: 'https://mesonet.agron.iastate.edu/cache/tile.py/1.0.0/nexrad-n0q-900913/{z}/{x}/{y}.png',
+    opacity: 0.8,
+    tileSize: 256
+}), 'labels');
+```
+
+다음은 위의 기능을 실행 하는 전체 코드 샘플입니다.
 
 <br/>
 
 <iframe height='500' scrolling='no' title='X, Y 및 Z를 사용하는 타일 계층' src='//codepen.io/azuremaps/embed/BGEQjG/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)로 <a href='https://codepen.io/azuremaps/pen/BGEQjG/'>X, Y 및 Z를 사용하는 펜 타일 계층</a>을 참조하세요.
 </iframe>
-
-위의 코드에서 첫 번째 코드 블록은 지도 개체를 만듭니다. 지침은 [지도 만들기](./map-create.md)를 참조하세요.
-
-두 번째 코드 블록에서 타일 서비스, 타일 크기 및 불투명도로 서식이 지정된 URL을 전달하면 반투명한 [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest)가 만들어집니다. 또한 맵에 타일 계층을 추가하는 경우에는 `labels` 계층 아래에 추가되어 레이블이 선명하게 표시됩니다.
 
 ## <a name="customize-a-tile-layer"></a>타일 계층 사용자 지정
 

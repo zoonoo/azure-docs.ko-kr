@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 5df666dc2bd574c168d6b5f65dd6a909564a921f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4a947c01d63e3842ead91481e480024a54380144
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64868434"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "69015048"
 ---
 # <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>Azure Portal을 사용한 주문형 콘텐츠 제공 시작
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 참고: [v2에서 v3 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 또한 [v2에서 v3로 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md) 을 참조 하세요.
 
 이 자습서에서는 Azure Portal을 사용한 Azure Media Services 애플리케이션으로 기본 주문형 비디오 콘텐츠 배달 서비스를 구현하는 단계를 안내합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 자습서를 완료하는 데 필요한 항목은 다음과 같습니다.
 
 * Azure 계정. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요. 
@@ -96,7 +96,7 @@ Azure Portal에서 Media Encoder Standard를 사용하여 콘텐츠를 인코딩
 ### <a name="monitor-encoding-job-progress"></a>인코딩 작업의 진행 상태 모니터링
 인코딩 작업의 진행 상태를 모니터링하려면 페이지 맨 위에 있는 **설정**을 선택한 후 **작업**을 선택합니다.
 
-![교육](./media/media-services-portal-vod-get-started/media-services-jobs.png)
+![에서](./media/media-services-portal-vod-get-started/media-services-jobs.png)
 
 ## <a name="publish-content"></a>콘텐츠 게시
 콘텐츠를 스트리밍 또는 다운로드하는 데 사용할 수 있는 URL을 사용자에게 제공하려면 먼저 로케이터를 만들어 자산을 게시해야 합니다. 로케이터는 자산에 있는 파일에 대한 액세스를 제공합니다. Azure Media Services는 두 가지 유형의 로케이터를 지원합니다. 
@@ -152,7 +152,7 @@ Azure Portal의 콘텐츠 플레이어에서 비디오를 테스트할 수 있�
 
 * 스트리밍을 시작하려면 기본 스트리밍 엔드포인트 실행을 시작하세요.
 * 비디오가 게시된 것을 확인합니다.
-* Azure Portal 미디어 플레이어가 기본 스트리밍 엔드포인트에서 재생됩니다. 기본이 아닌 스트리밍 엔드포인트에서 재생하려면 URL 복사를 선택하여 복사한 후 다른 플레이어에 붙여넣습니다. 예를 들어 [Azure Media Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html)에서 비디오를 테스트할 수 있습니다.
+* Azure Portal 미디어 플레이어가 기본 스트리밍 엔드포인트에서 재생됩니다. 기본이 아닌 스트리밍 엔드포인트에서 재생하려면 URL 복사를 선택하여 복사한 후 다른 플레이어에 붙여넣습니다. 예를 들어 [Azure Media Player](https://aka.ms/azuremediaplayer)에서 비디오를 테스트할 수 있습니다.
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

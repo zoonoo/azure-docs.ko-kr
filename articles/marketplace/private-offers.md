@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/1/2018
 ms.author: pabutler
-ms.openlocfilehash: dcba2b40bdcf4558f7a06f7e14d0ce654a9c1ec1
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 35134d828098af0cff3d585dee600ee1808b00c4
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876072"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69013626"
 ---
 # <a name="private-offers"></a>프라이빗 제품
 
@@ -49,9 +49,6 @@ ms.locfileid: "67876072"
 ![[프라이빗 제품]](./media/marketplace-publishers-guide/private-offer.png)
 
 또한 프라이빗 제품은 검색 결과에 나타납니다. “프라이빗” 배지만 조심하세요.
-
-> [!Note]
-> 사설 제품은 클라우드 솔루션 공급자 프로그램 (CSP)의 재판매인을 통해 설정 된 구독에서 지원 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

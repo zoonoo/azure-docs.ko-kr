@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: cawa
-ms.openlocfilehash: 9763a14e84d88be1d6f09fb9f16b6b7c9eeffd2d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3f5196c81550446221a4524330e355c595b65c6a
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65506435"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934365"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>웹 애플리케이션의 비밀 애플리케이션 설정을 안전하게 저장
 
@@ -41,7 +41,7 @@ ms.locfileid: "65506435"
 
     ![Azure Key Vault 만들기](./media/vs-secure-secret-appsettings/create-keyvault.PNG)
 
-2. 나와 나의 팀 멤버에게 Key Vault에 대한 액세스 권한을 부여합니다. 팀이 큰 경우 [Azure Active Directory 그룹](https://docs.microsoft.com/azure/active-directory/active-directory-groups-create-azure-portal)을 만들어서 해당 보안 그룹 액세스를 Key Vault에 추가할 수 있습니다. *비밀 권한* 드롭다운에서 *비밀 관리 작업* 아래의 *가져오기*와 *목록*을 선택합니다.
+2. 나와 나의 팀 멤버에게 Key Vault에 대한 액세스 권한을 부여합니다. 팀이 큰 경우 [Azure Active Directory 그룹](../active-directory/active-directory-groups-create-azure-portal.md)을 만들어서 해당 보안 그룹 액세스를 Key Vault에 추가할 수 있습니다. *비밀 권한* 드롭다운에서 *비밀 관리 작업* 아래의 *가져오기*와 *목록*을 선택합니다.
 
     ![Key Vault 액세스 정책 추가](./media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
 
@@ -50,7 +50,7 @@ ms.locfileid: "65506435"
     ![Key Vault 비밀 추가](./media/vs-secure-secret-appsettings/add-keyvault-secret.png)
 
     > [!NOTE] 
-    > Visual Studio 2017 V15.6 하기 전에 Visual Studio 용 Azure 서비스 인증 확장 프로그램을 설치 하는 것이 좋습니다를 사용 했습니다. 사용 되지 않습니다 하지만 이제는 funcionality가 Visual Studio에 통합 합니다. 따라서 이전 버전의 visual Studio 2017를 사용 하는 경우 좋습니다 이상으로 업데이트 하 VS 2017 15.6 이상을 기본적으로이 기능을 사용 하 고 Visual Studio 로그인 Id 자체를 사용 하 여 Key vault에 액세스할 수 있도록 합니다.
+    > Visual Studio 2017 V 15.6 이전에는 Visual Studio 용 Azure 서비스 인증 확장을 설치 하는 것이 좋습니다. 그러나 funcionality은 Visual Studio 내에서 통합 되므로 이제는 더 이상 사용 되지 않습니다. 따라서 이전 버전의 visual Studio 2017을 사용 하는 경우이 기능을 기본적으로 사용 하 고 Visual Studio 로그인 Id 자체를 사용 하 여 키 자격 증명 모음에 액세스할 수 있도록 VS 2017 15.6 이상으로 업데이트 하는 것이 좋습니다.
     >
  
 4. 다음 NuGet 패키지를 프로젝트에 추가합니다.

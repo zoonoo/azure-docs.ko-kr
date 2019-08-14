@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 2639d47a6c9d8da53c9d6bccde0d317698d5d9fd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5f242018abfb15cea1b76cbcaad00942ec25d78d
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61127874"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "69015072"
 ---
 # <a name="publish-content-in-the-azure-portal"></a>Azure Portal에서 콘텐츠 게시  
 > [!div class="op_single_selector"]
@@ -37,7 +37,7 @@ ms.locfileid: "61127874"
 
 콘텐츠를 스트리밍 또는 다운로드하는 데 사용할 수 있는 URL을 사용자에게 제공하려면 먼저 로케이터를 만들어 자산을 게시해야 합니다. 로케이터는 자산 파일에 대한 액세스를 제공합니다. Azure Media Services는 두 가지 유형의 로케이터를 지원합니다. 
 
-* **스트리밍(OnDemandOrigin) 로케이터** 스트리밍 로케이터는 적응 스트리밍에 사용됩니다. 적응 스트리밍의 예에는 Apple HLS(HTTP 라이브 스트리밍), Microsoft 부드러운 스트리밍, HTTP를 통한 동적 적응 스트리밍(DASH, MPEG-DASH라고도 함)이 있습니다. 스트리밍 로케이터를 만들려면 자산에 .ism 파일이 포함되어야 합니다. 예: http://amstest.streaming.mediaservices.windows.net/61b3da1d-96c7-489e-bd21-c5f8a7494b03/scott.ism/manifest
+* **스트리밍(OnDemandOrigin) 로케이터** 스트리밍 로케이터는 적응 스트리밍에 사용됩니다. 적응 스트리밍의 예에는 Apple HLS(HTTP 라이브 스트리밍), Microsoft 부드러운 스트리밍, HTTP를 통한 동적 적응 스트리밍(DASH, MPEG-DASH라고도 함)이 있습니다. 스트리밍 로케이터를 만들려면 자산에 .ism 파일이 포함되어야 합니다. http://amstest.streaming.mediaservices.windows.net/61b3da1d-96c7-489e-bd21-c5f8a7494b03/scott.ism/manifest )을 입력합니다.
 * **점진적(공유 액세스 서명) 로케이터** 점진적 로케이터는 점진적 다운로드를 통해 비디오를 제공하는 데 사용합니다.
 
 HLS 스트리밍 URL을 작성하려면 URL에 *(format=m3u8-aapl)* 을 추가합니다.
@@ -89,7 +89,7 @@ Azure Portal의 콘텐츠 플레이어에서 비디오를 테스트할 수 있�
 다음과 같은 몇 가지 고려 사항이 적용됩니다.
 
 * 비디오가 게시된 것을 확인합니다.
-* Azure Portal 미디어 플레이어가 기본 스트리밍 엔드포인트에서 재생됩니다. 기본이 아닌 스트리밍 엔드포인트에서 재생하려면 URL 복사를 선택하여 복사한 후 다른 플레이어에 붙여넣습니다. 예를 들어 [Azure Media Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html)에서 비디오를 테스트할 수 있습니다.
+* Azure Portal 미디어 플레이어가 기본 스트리밍 엔드포인트에서 재생됩니다. 기본이 아닌 스트리밍 엔드포인트에서 재생하려면 URL 복사를 선택하여 복사한 후 다른 플레이어에 붙여넣습니다. 예를 들어 [Azure Media Player](https://aka.ms/azuremediaplayer)에서 비디오를 테스트할 수 있습니다.
 * 스트리밍을 하고 있는 스트리밍 엔드포인트가 실행 중이어야 합니다.  
 
 ## <a name="provide-feedback"></a>피드백 제공

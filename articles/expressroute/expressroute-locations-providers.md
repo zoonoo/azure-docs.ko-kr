@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/07/2019
+ms.date: 08/09/2019
 ms.author: cherylmc
-ms.openlocfilehash: 7f253b71271787f7f2ef722134862ca72e0159df
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 22fa0ba52c346b8331fd6895cf87f3e15ee68ac6
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855765"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950080"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 파트너 및 피어링 위치
 
@@ -65,7 +65,7 @@ Express 경로 위치 (예를 들어 피어 링 위치 또는 위치 면)는 MSE
 
 | **지역** | **Azure 지역** | **ExpressRoute 위치** |
 | --- | --- | --- |
-| **미국 정부 클라우드** |미국 애리조나 주 정부, 미국 아이오와 주 정부, 미국 텍사스 주 정부, 미국 버지니아 주 정부, US DoD 중부, US DoD 동부  |시카고, 댈러스, 뉴욕, 피닉스, 샌안토니오, 시애틀, 실리콘밸리, 워싱턴 DC |
+| **미국 정부 클라우드** |US Gov 애리조나, US Gov 아이오와, US Gov 텍사스, US Gov 버지니아, US DoD 중부, US DoD 동부  |시카고, 댈러스, 뉴욕, 피닉스, 샌안토니오, 시애틀, 실리콘밸리, 워싱턴 DC |
 | **중국 동부** |중국 동부, 중국 동부2 |상하이, 상하이2 |
 | **중국 북부** |중국 북부, 중국 북부2 |베이징, 베이징2 |
 | **독일** |독일 중부, 독일 동부 |베를린, 프랑크푸르트 |
@@ -99,7 +99,7 @@ Express 경로 위치 (예를 들어 피어 링 위치 또는 위치 면)는 MSE
 | **Dubai** | Etisalat 아랍에미리트 | 아랍에미리트 북부 | Etisalat 아랍에미리트 |
 | **Dubai2** | du datamena | 아랍에미리트 북부 | du datamena, Orixcom |
 | **더블린** | Equinix | 유럽 북부 | Colt, eir, Equinix, Interxion, Megaport |
-| **프랑크푸르트** | Interxion | n/a | DE-DE x, Interxion |
+| **프랑크푸르트** | Interxion | n/a | DE-DE x, Interxion, 주황 |
 | **Hong Kong SAR** | Equinix | 아시아 동부 | Aryaka Networks, 영국령 텔레콤, CenturyLink 클라우드 연결, 최고 통신, 중국 통신 글로벌, 서-Ix, Megaport, NTT 통신, 주황색, PCCW Global 제한, Tata 통신, Telia 캐리어, Verizon |
 | **요하네스버그** | Teraco | 남아프리카 북부 | 영국령 텔레콤, 인터넷 솔루션-클라우드 연결, 액체 텔레콤, Teraco |
 | **콸라룸푸르** | TIME dotCom | n/a | TIME dotCom |
@@ -110,7 +110,7 @@ Express 경로 위치 (예를 들어 피어 링 위치 또는 위치 면)는 MSE
 | **마르세유** |Interxion | 프랑스 남부 | 비 CIX, Interxion, 재규어 네트워크 |
 | **멜버른** | NextDC | 오스트레일리아 남동부 | AARNet, Devoli,, Megaport, NEXTDC, Optus, Telstra Corporation, TPG 텔레콤 |
 | **마이애미** | Equinix | n/a | C3ntro+, Equinix, Megaport, Neutrona Networks |
-| **Montreal** | Cologix | n/a | Bell Canada, Cologix, Telus, Zayo |
+| **Montreal** | Cologix | n/a | 종 캐나다, Cologix, Megaport, Telus, Zayo |
 | **뭄바이** | Tata Communications | 인도 서부 | GCX (Global Gcx), Jio, Sify, Tata 통신, Verizon |
 | **뭄바이2** | Airtel | 인도 서부 | Airtel, Sify, Vodafone Idea |
 | **뉴욕** | Equinix | n/a | CenturyLink 클라우드 연결, Coresite, 서는 Inix, InterCloud, Megaport, Packet, Zayo |

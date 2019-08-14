@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f64beb80d1a11930fee74e669675b39087cade0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 03c9f0908d8b5290dc4585a330a7ea78a6577ab9
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562242"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68942963"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Azure Portal를 사용 하 여 장치 id 관리
 
@@ -116,7 +116,7 @@ Azure AD 포털을 사용 하 여 장치 id를 관리 하려면 장치를 Azure 
 
 ### <a name="manage-an-intune-device"></a>Intune 디바이스 관리
 
-Intune 관리자인 경우 **Microsoft Intune**으로 표시된 디바이스를 관리할 수 있습니다.
+Intune 관리자인 경우 **Microsoft Intune**으로 표시된 디바이스를 관리할 수 있습니다. 장치가에 등록 되지 않은 Microsoft Intune "관리" 옵션은 회색으로 표시 됩니다.
 
 ![Intune 디바이스 관리](./media/device-management-azure-portal/31.png)
 
@@ -151,7 +151,7 @@ Intune 관리자인 경우 **Microsoft Intune**으로 표시된 디바이스를 
 
 **설명**
 
-- 장치를 삭제하려면 Azure AD에서 글로벌 관리자 또는 Intune 관리자여야 합니다.
+- 디바이스를 삭제하려면 Azure AD에서 글로벌 관리자 또는 Intune 관리자여야 합니다.
 - 디바이스 삭제:
    - 디바이스에서 Azure AD 리소스에 액세스할 수 없게 됩니다.
    - 디바이스에 연결되어 있는 모든 세부 정보(예: Windows 디바이스에 대한 BitLocker 키)를 제거합니다.  

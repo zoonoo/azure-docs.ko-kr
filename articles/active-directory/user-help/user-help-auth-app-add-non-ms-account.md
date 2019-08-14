@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d7a039f25339d91d77d5b6924674ea36a16c15b
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: e1521d2b3d47667466636a1ac15f107826e40942
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68880808"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68942939"
 ---
 # <a name="add-your-non-microsoft-accounts"></a>비 Microsoft 계정 추가
 
@@ -33,6 +33,9 @@ ms.locfileid: "68880808"
 1. 계정에 로그인한 다음, 사용 중인 디바이스나 컴퓨터를 통해 2단계 인증을 설정합니다.
 
 2. Microsoft Authenticator 앱에 계정을 추가합니다. 이 프로세스의 일부로 QR 코드를 스캔하라는 메시지가 표시될 수 있습니다.
+
+    >[!Note]
+    >Microsoft Authenticator 앱을 처음으로 설정 하는 경우 앱에서 카메라에 액세스할 수 있도록 허용할지 (iOS) 아니면 앱이 사진을 촬영 하 고 비디오를 녹화 (Android) 할 수 있도록 허용할지 묻는 메시지가 표시 될 수 있습니다. **허용** 을 선택 하 여 인증자 앱이 카메라에 액세스 하 여 다음 단계에서 QR 코드를 그림으로 이동할 수 있도록 해야 합니다. 카메라를 허용 하지 않는 경우에도 인증자 앱을 설정할 수 있지만 코드 정보를 수동으로 추가 해야 합니다. 수동으로 코드를 추가 하는 방법에 대 한 자세한 내용은 [앱에 수동으로 계정 추가](user-help-auth-app-add-account-manual.md)를 참조 하세요.
 
 이 문서에서는 Facebook, Google, GitHub 및 Amazon 계정용 프로세스를 설명하지만 Instagram, Netflix, Adobe 등의 기타 앱에서도 동일한 프로세스를 수행하면 됩니다.
 
@@ -168,9 +171,6 @@ ms.locfileid: "68880808"
     페이지가 변경되어 QR 코드가 표시됩니다. 이 페이지를 닫지 마세요.
 
 5. Microsoft Authenticator 앱을 열고 오른쪽 위에 있는 **사용자 지정 및 제어** 아이콘에서 **계정 추가**를 선택한 다음, **기타 계정(Google, Facebook 등)** 을 선택합니다.
-
-    >[!Note]
-    >Microsoft Authenticator 앱을 처음으로 설정 하는 경우 앱에서 카메라에 액세스할 수 있도록 허용할지 (iOS) 아니면 앱이 사진을 촬영 하 고 비디오를 녹화 (Android) 할 수 있도록 허용할지 묻는 메시지가 표시 될 수 있습니다. **허용** 을 선택 하 여 인증자 앱이 카메라에 액세스 하 여 다음 단계에서 QR 코드를 그림으로 이동할 수 있도록 해야 합니다. 카메라를 허용 하지 않는 경우에도 인증자 앱을 설정할 수 있지만 코드 정보를 수동으로 추가 해야 합니다. 수동으로 코드를 추가 하는 방법에 대 한 자세한 내용은 [앱에 수동으로 계정 추가](user-help-auth-app-add-account-manual.md)를 참조 하세요.
 
 6. 디바이스 카메라를 사용하여 컴퓨터의 **코드를 받을 방법 선택** 페이지에서 QR 코드를 스캔합니다.
 

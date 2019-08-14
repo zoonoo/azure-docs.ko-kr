@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 1347e28fe36ffe9595516252aea102d817a705a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8070d0cc302e0c0745216cdd40c9cbbf34e2bf58
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61245124"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "69016643"
 ---
 # <a name="azure-media-services-community"></a>Azure Media Services 커뮤니티  
 
@@ -56,16 +56,8 @@ ms.locfileid: "61245124"
 
 ## <a name="contact-the-team"></a>팀에 문의
 
-기본 전자 메일은 azure Media Services: **amshelp\@microsoft.com**합니다.
+Azure Media Services 기본 전자 메일은 **amshelp@microsoft.com** 입니다.
 
-다음 표에 기능 하위 팀의 전자 메일이 나열되어 있습니다.
+## <a name="next-steps"></a>다음 단계
 
-| 기능 | Email |
-| --- | --- |
-| Azure 미디어 분석 |amsanalytics@microsoft.com |
-| Azure Media Player |ampinfo@microsoft.com |
-| Azure 미디어 탐색기 |amse@microsoft.com |
-| Workflow Designer |mepd@microsoft.com |
-| 파일 스트리밍 및 패키징 |amsstreaming@microsoft.com |
-| 라이브 스트리밍 및 패키징 |amslived@microsoft.com |
-
+[개요](media-services-overview.md)

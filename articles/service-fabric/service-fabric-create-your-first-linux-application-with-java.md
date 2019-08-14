@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/18/2018
 ms.author: atsenthi
 ms.openlocfilehash: 4b008c001e1c4749b6ab6f9f21eff479f007c05c
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "68599672"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Linux에서 첫 번째 Java Service Fabric Reliable Actors 애플리케이션 만들기
@@ -30,7 +30,7 @@ ms.locfileid: "68599672"
 
 이 빠른 시작을 통해 몇 분만에 Linux 개발 환경에서 첫 번째 Azure Service Fabric Java 애플리케이션을 만들 수 있습니다.  작업이 완료되면 간단한 Java 단일 서비스 애플리케이션이 로컬 개발 클러스터에서 실행됩니다.  
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 시작하기 전에 [Linux 개발 환경](service-fabric-get-started-linux.md)에서 Service Fabric SDK, Service Fabric CLI, Yeoman을 설치하고, Java 개발 환경을 설정하고, 개발 클러스터를 설정합니다. Mac OS X을 사용하는 경우 [Docker를 사용하여 Mac에서 개발 환경 설정](service-fabric-get-started-mac.md)할 수 있습니다.
 
 [Service Fabric CLI](service-fabric-cli.md)도 설치합니다.

@@ -6,14 +6,15 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 5c0bc97e5a5b362ea78f82ea99bb967a9607093a
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: e9e9013d354585d04f205feb93a84d94c0f05905
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882500"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950197"
 ---
-# <a name="document-data-sources"></a>데이터 원본 문서화
+# <a name="how-to-document-data-sources-in-azure-data-catalog"></a>Azure Data Catalog에서 데이터 원본을 문서화하는 방법
+
 ## <a name="introduction"></a>소개
 **Microsoft Azure 데이터 카탈로그**는 등록 시스템 및 기업 데이터 원본을 위한 검색 시스템 역할을 하는 완전히 관리되는 클라우드 서비스입니다. 다시 말해서 **Azure Data Catalog** 는 사람들이 데이터 원본을 검색하고 *이해*하고 사용하도록 하면서 조직의 기존 데이터로부터 더 많은 가치를 얻어내도록 돕는 역할을 합니다.
 

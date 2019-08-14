@@ -4,21 +4,21 @@ description: Azure Time Series Insights의 고객 데이터 요청 기능에 대
 author: ashannon7
 ms.author: dpalled
 manager: cshankar
-ms.date: 05/08/2019
+ms.date: 08/09/2019
 ms.topic: conceptual
 ms.service: time-series-insights
 services: time-series-insights
 ms.custom: seodec18
-ms.openlocfilehash: a67e716300254b7ae73cf5c608e4ab9177638456
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 3437634ff70371f9679423149b6996a099c044b5
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68677895"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950727"
 ---
 # <a name="summary-of-customer-data-request-features"></a>고객 데이터 요청 기능 요약
 
-Azure Time Series Insights는 수십억 개의 이벤트를 동시에 쉽게 수집, 저장, 탐색, 분석할 수 있는 저장소, 분석 및 시각화 구성 요소를 갖춘 관리되는 클라우드 서비스입니다.
+Azure Time Series Insights는 수십억 개의 이벤트를 동시에 쉽게 수집, 저장, 탐색, 분석할 수 있는 스토리지, 분석 및 시각화 구성 요소를 갖춘 관리되는 클라우드 서비스입니다.
 
 [!INCLUDE [gdpr-intro-sentence](../../includes/gdpr-intro-sentence.md)]
 
@@ -52,7 +52,7 @@ Time Series Insights는 Azure Portal에서 정책 블레이드와 통합됩니�
 
 ## <a name="to-delete-data-stored-within-time-series-insights"></a>Time Series Insights 내에 저장된 데이터를 삭제하려면
 
-개인 데이터는 사용자 및 관리자 데이터와 다르게 Time Series Insights 저장소로 이동할 수도 있습니다. Time Series Insights에 저장된 데이터를 개인 데이터로 간주하는 경우 다음 단계를 사용하여 이 데이터를 내보내고 삭제할 수 있습니다.
+개인 데이터는 사용자 및 관리자 데이터와 다르게 Time Series Insights 스토리지로 이동할 수도 있습니다. Time Series Insights에 저장된 데이터를 개인 데이터로 간주하는 경우 다음 단계를 사용하여 이 데이터를 내보내고 삭제할 수 있습니다.
 
 **데이터 보기 및 내보내기**
 

@@ -6,15 +6,15 @@ manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 06/05/2019
+ms.date: 08/12/2019
 ms.author: stegaw
 ms.custom: seodec18
-ms.openlocfilehash: 577467a6322b7f6d3cd7f199d80963f2f1a98ed6
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 61c3f033fbe3febe7b0d048b247cc1fe8d597698
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849321"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69014182"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Azure Digital Twins에서 사용자 정의 함수를 디버그하는 방법
 
@@ -45,7 +45,7 @@ Azure Digital Twins는 강력한 로깅, 모니터링 및 분석을 지원합니
 
 센서 원격 분석 메시지를 해당 로그에 일치시키려면 보내는 이벤트 데이터에 대한 상관 관계 ID를 지정할 수 있습니다. 이렇게 하려면 `x-ms-client-request-id` 속성을 GUID로 설정합니다.
 
-원격 분석을 보낸 후 set 상관 관계 ID를 사용 하 여 로그를 쿼리하려면 log analytics를 엽니다.
+원격 분석을 보낸 후 set 상관 관계 ID를 사용 하 여 로그를 쿼리하려면 Azure Monitor log analytics를 엽니다.
 
 ```Kusto
 AzureDiagnostics

@@ -10,28 +10,31 @@ ms.topic: conceptual
 ms.date: 01/28/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 4d70fe3f3f19723cd37080ae09dce97bfd8f3d34
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 080c1933f88d9e824969a42212de2eacd0f62e14
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511688"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68927276"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Azure Active Directory B2C의 리디렉션 URL을 b2clogin.com으로 설정
 
 Azure AD(Azure Active Directory) B2C 애플리케이션의 등록 및 로그인을 위한 ID 공급자를 설정하는 경우 리디렉션 URL을 지정해야 합니다. 이전에는 login.microsoftonline.com을 사용했지만 지금은 b2clogin.com을 사용해야 합니다.
 
+> [!NOTE]
+> B2clogin.com에서 JavaScript 클라이언트 쪽 코드 (현재 미리 보기 상태)를 사용할 수 있습니다. Login.microsoftonline.com를 사용 하는 경우 사용자 지정 페이지에서 JavaScript 코드가 제거 됩니다. 사용자 지정 페이지에서 HTML 양식 요소를 제거 하는 등의 login.microsoftonline.com에도 추가 보안 제한이 적용 됩니다. 
+
 b2clogin.com을 사용하면 다음과 같은 추가적인 이점이 제공됩니다.
 
 - 쿠키 헤더에서 Microsoft 서비스가 사용하는 공간이 줄어듭니다.
-- URL에 더 이상 Microsoft에 대한 참조가 포함되지 않습니다. 예: `https://your-tenant-name.b2clogin.com/tenant-id/oauth2/authresp`.
+- URL에 더 이상 Microsoft에 대한 참조가 포함되지 않습니다. `https://your-tenant-name.b2clogin.com/tenant-id/oauth2/authresp` )을 입력합니다.
 
->[!NOTE]
-> 테 넌 트 이름 및 테 넌 트 GUID 다음과 같이 사용할 수 있습니다.
-> * `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com` (계속 하려면 참조는 `onmicrosoft.com`)
-> * `https://your-tenant-name.b2clogin.com/your-tenant-guid` (이 경우에 Microsoft에 참조가 없는 전혀)
+> [!NOTE]
+> 다음과 같이 테 넌 트 이름 및 테 넌 트 GUID를 모두 사용할 수 있습니다.
+> * `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`(계속 참조 `onmicrosoft.com`)
+> * `https://your-tenant-name.b2clogin.com/your-tenant-guid`(이 경우에는 Microsoft에 대 한 참조가 없습니다.)
 >
-> 그러나 사용할 수 없습니다를 _사용자 지정 도메인_ Azure에 대 한 Active Directory B2C 테 넌 트, 예를 들어 `https://your-tenant-name.b2clogin.com/your-custom-domain-name` 것 _하지_ 작동 합니다.
+> 그러나 Azure Active Directory B2C 테 넌 트에 대해서는 _사용자 지정 도메인_ 을 사용할 수 없습니다 `https://your-tenant-name.b2clogin.com/your-custom-domain-name` . 예를 들어는 작동 _하지 않습니다_ .
 
 b2clogin.com을 사용하는 경우 변경해야 할 수 있는 다음 설정을 고려하세요.
 

@@ -6,15 +6,15 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 06/03/2018
+ms.date: 08/09/2019
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: 66a0b98e2cae14c3708cf8a6aa3f8bd498f41c9f
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: dd1481c74cdf519dcb4588e0b7cf09b7b6ab5f1d
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68609645"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950118"
 ---
 # <a name="how-to-configure-monitoring-in-azure-digital-twins"></a>Azure Digital Twins에서 모니터링을 구성하는 방법
 
@@ -84,7 +84,7 @@ Azure Digital Twins에 대한 활동 로깅이 기본적으로 사용되며 다�
 
 ## <a name="azure-monitor-and-log-analytics"></a>Azure 모니터 및 로그 분석
 
-IoT 애플리케이션은 서로 다른 리소스, 장치, 위치 및 데이터를 하나로 통합합니다. 세밀한 로깅은 전체 애플리케이션 아키텍처의 각 부분, 서비스 또는 구성 요소에 대한 자세한 정보를 제공하지만, 유지 관리 및 디버깅을 위해 통합 개요가 필요한 경우가 많습니다.
+IoT 애플리케이션은 서로 다른 리소스, 디바이스, 위치 및 데이터를 하나로 통합합니다. 세밀한 로깅은 전체 애플리케이션 아키텍처의 각 부분, 서비스 또는 구성 요소에 대한 자세한 정보를 제공하지만, 유지 관리 및 디버깅을 위해 통합 개요가 필요한 경우가 많습니다.
 
 Azure Monitor에는 한 위치에서 로깅 원본을 보고 분석할 수 있도록 하는 강력한 log analytics 서비스가 포함 되어 있습니다. 따라서 Azure Monitor는 복잡한 IoT 앱 내에서 로그를 분석하는 데 매우 유용합니다.
 
@@ -123,7 +123,7 @@ Azure Monitor에는 한 위치에서 로깅 원본을 보고 분석할 수 있�
 
 ## <a name="other-options"></a>기타 옵션
 
-Azure Digital Twins는 응용 프로그램별 로깅 및 보안 감사도 지원합니다. Azure Digital Twins 인스턴스에 제공되는 모든 Azure 로깅 옵션의 개요는 [Azure 로그 감사](../security/fundamentals/log-audit.md) 문서를 참조하세요.
+Azure Digital Twins는 애플리케이션별 로깅 및 보안 감사도 지원합니다. Azure Digital Twins 인스턴스에 제공되는 모든 Azure 로깅 옵션의 개요는 [Azure 로그 감사](../security/fundamentals/log-audit.md) 문서를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
