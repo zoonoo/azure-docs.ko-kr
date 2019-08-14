@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 08/13/2019
 ms.author: bwren
-ms.openlocfilehash: b66d9cf15aaeaca975b60f24601b8ad7f555f458
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6932f9f302bf1816842d78a662f01ebaafed8686
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62110160"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989191"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Azure Monitor의 모니터링 솔루션
 모니터링 솔루션은 Azure의 서비스를 활용하여 특정 애플리케이션이나 서비스의 작업에 대한 추가 인사이트를 제공합니다. 이 문서에서는 Azure 모니터링 솔루션에 대해 간략하게 설명하고 모니터링 솔루션을 설치 및 사용하는 방법을 자세히 알아봅니다.
@@ -65,11 +65,11 @@ Azure Monitor의 **개요** 페이지를 열면 작업 영역에 설치된 각 �
 ## <a name="install-a-monitoring-solution"></a>모니터링 솔루션 설치
 Microsoft 및 파트너의 모니터링 솔루션은 [Azure Marketplace](https://azuremarketplace.microsoft.com)에서 사용할 수 있습니다. 다음 절차를 사용하여 사용 가능한 솔루션을 검색하고 설치할 수 있습니다. 솔루션을 설치할 때 솔루션이 설치되고 데이터가 수집될 [Log Analytics 작업 영역](../platform/manage-access.md)을 선택해야 합니다.
 
-1. [구독의 솔루션 목록](#list-installed-monitoring-solutions)에서 **추가**를 클릭합니다. 
-1. **관리 솔루션** 오른쪽에서 **기타**를 클릭합니다. 
+1. [구독의 솔루션 목록](#list-installed-monitoring-solutions)에서 **추가**를 클릭합니다.
+1. 솔루션을 찾아보거나 검색 합니다. 또한 [이 검색 링크](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/management-tools?page=1&subcategories=management-solutions)에서 솔루션을 찾아볼 수 있습니다.
 1. 원하는 모니터링 솔루션을 찾아서 해당 설명을 자세히 읽습니다.
 1. 설치 프로세스를 시작하려면 **만들기**를 클릭합니다.
-1. 설치 프로세스가 시작되면 필요한 구성을 입력하라는 메시지가 표시되며, 필요한 구성은 솔루션마다 다릅니다.
+1. 설치 프로세스가 시작 되 면 Log Analytics 작업 영역을 지정 하 고 솔루션에 필요한 구성을 제공 하 라는 메시지가 표시 됩니다.
 
 ![솔루션 설치](media/solutions/install-solution.png)
 

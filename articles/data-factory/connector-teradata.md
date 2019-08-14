@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: ce326d7284e22a8734f6be671a277795ba659522
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 6cbddfc5e529bc48e08407796024e5232d1a22e8
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68720534"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966360"
 ---
 # <a name="copy-data-from-teradata-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Teradata에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -41,9 +41,11 @@ Teradata 데이터베이스에서 지원 되는 모든 싱크 데이터 저장�
 >
 > 자체 호스팅 integration runtime v 3.18의 릴리스 후에는 Teradata 커넥터가 업그레이드 Azure Data Factory. 이전 Teradata 커넥터를 사용 하는 기존 작업은 계속 지원 됩니다. 그러나 새 워크 로드의 경우 새 워크 로드를 사용 하는 것이 좋습니다. 새 경로에는 연결 된 서비스, 데이터 집합 및 복사 원본의 다른 집합이 필요 합니다. 구성 세부 정보는 다음에 나오는 해당 섹션을 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-Teradata에 공개적으로 액세스할 수 없는 경우 [자체 호스팅 통합 런타임을](create-self-hosted-integration-runtime.md)설정 해야 합니다. Integration runtime은 버전 3.18에서 시작 하는 기본 제공 Teradata 드라이버를 제공 합니다. 드라이버를 수동으로 설치 하지 않아도 됩니다. 이 드라이버를 사용 하려면 C++ 자체 호스팅 통합 런타임 컴퓨터에 "Visual 재배포할 2012 업데이트 4"가 필요 합니다. 아직 설치 하지 않은 경우 [여기](https://www.microsoft.com/en-sg/download/details.aspx?id=30679)에서 다운로드 합니다.
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+
+Integration runtime은 버전 3.18에서 시작 하는 기본 제공 Teradata 드라이버를 제공 합니다. 드라이버를 수동으로 설치 하지 않아도 됩니다. 이 드라이버를 사용 하려면 C++ 자체 호스팅 통합 런타임 컴퓨터에 "Visual 재배포할 2012 업데이트 4"가 필요 합니다. 아직 설치 하지 않은 경우 [여기](https://www.microsoft.com/en-sg/download/details.aspx?id=30679)에서 다운로드 합니다.
 
 3\.18 이전의 자체 호스팅 통합 런타임 버전의 경우 integration runtime 컴퓨터에 [Teradata 용 .net Data Provider](https://go.microsoft.com/fwlink/?LinkId=278886)버전 14 이상을 설치 합니다. 
 
@@ -61,9 +63,9 @@ Teradata 연결 된 서비스는 다음 속성을 지원 합니다.
 |:--- |:--- |:--- |
 | type | Type 속성은 **Teradata**로 설정 되어야 합니다. | 예 |
 | connectionString | Teradata 데이터베이스 인스턴스에 연결 하는 데 필요한 정보를 지정 합니다. 다음 샘플을 참조하세요.<br/>Azure Key Vault에 암호를 입력 하 고 연결 문자열에서 `password` 구성을 끌어올 수도 있습니다. 자세한 내용은 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 을 참조 하세요. | 예 |
-| username 이름 | Teradata 데이터베이스에 연결할 사용자 이름을 지정 합니다. Windows 인증을 사용 하는 경우 적용 됩니다. | 아니요 |
+| username | Teradata 데이터베이스에 연결할 사용자 이름을 지정 합니다. Windows 인증을 사용 하는 경우 적용 됩니다. | 아니요 |
 | password | 사용자 이름에 대해 지정한 사용자 계정의 암호를 지정 합니다. [Azure Key Vault에 저장 된 비밀을 참조](store-credentials-in-key-vault.md)하도록 선택할 수도 있습니다. <br>Windows 인증을 사용 하거나 기본 인증을 위해 Key Vault의 암호를 참조 하는 경우에 적용 됩니다. | 아니요 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. [필수 조건](#prerequisites)에 설명 된 대로 자체 호스팅 통합 런타임이 필요 합니다. |예 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [전제 조건](#prerequisites) 섹션에서 자세히 알아보세요. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |예 |
 
 **기본 인증을 사용 하는 예제**
 
@@ -184,11 +186,10 @@ Teradata에서 데이터를 복사 하려면 다음 속성이 지원 됩니다.
 
 이 섹션에서는 Teradata 원본에서 지원하는 속성의 목록을 제공합니다. 작업 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인](concepts-pipelines-activities.md)을 참조하세요. 
 
-### <a name="teradata-as-a-source-type"></a>Teradata를 원본 유형으로
+### <a name="teradata-as-source"></a>Teradata를 원본으로
 
-> [!TIP]
->
-> 데이터 분할을 사용 하 여 Teradata에서 데이터를 효율적으로 로드 하려면 [teradata에서 Parallel 복사](#parallel-copy-from-teradata) 섹션을 참조 하세요.
+>[!TIP]
+>데이터 분할을 사용 하 여 Teradata에서 데이터를 효율적으로 로드 하려면 [teradata에서 Parallel 복사](#parallel-copy-from-teradata) 섹션을 참조 하세요.
 
 Teradata에서 데이터를 복사 하려면 복사 작업 **원본** 섹션에서 다음 속성을 지원 합니다.
 
@@ -200,7 +201,7 @@ Teradata에서 데이터를 복사 하려면 복사 작업 **원본** 섹션에�
 | partitionSettings | 데이터 분할에 대 한 설정 그룹을 지정 합니다. <br>Partition 옵션을 사용할 수 `None`없는 경우에 적용 합니다. | 아니요 |
 | partitionColumnName | 병렬 복사를 위해 범위 분할에서 사용할 원본 열의 이름을 **정수 형식으로** 지정 합니다. 지정 하지 않으면 테이블의 기본 키가 자동으로 검색 되 고 파티션 열로 사용 됩니다. <br>Partition 옵션이 또는 `DynamicRange`인 경우에 `Hash` 적용 됩니다. 쿼리를 사용 하 여 원본 데이터, 후크 `?AdfHashPartitionCondition` 또는 `?AdfRangePartitionColumnName` where 절을 검색 하는 경우 [Teradata의 Parallel copy](#parallel-copy-from-teradata) 섹션에서 예제를 참조 하세요. | 아니요 |
 | partitionUpperBound | 데이터를 복사할 파티션 열의 최대값입니다. <br>파티션 옵션이 인 `DynamicRange`경우 적용 합니다. 쿼리를 사용 하 여 원본 데이터를 검색 하 `?AdfRangePartitionUpbound` 는 경우 WHERE 절에 후크 합니다. 예제는 [Teradata에서 Parallel 복사](#parallel-copy-from-teradata) 섹션을 참조 하세요. | 아니요 |
-| PartitionLowerBound | 데이터를 복사할 파티션 열의 최소값입니다. <br>파티션 옵션이 인 경우에 적용 `DynamicRange`됩니다. 쿼리를 사용 하 여 원본 데이터를 검색 하는 경우 `?AdfRangePartitionLowbound` WHERE 절에 후크 합니다. 예제는 [Teradata에서 Parallel 복사](#parallel-copy-from-teradata) 섹션을 참조 하세요. | 아니요 |
+| partitionLowerBound | 데이터를 복사할 파티션 열의 최소값입니다. <br>파티션 옵션이 인 경우에 적용 `DynamicRange`됩니다. 쿼리를 사용 하 여 원본 데이터를 검색 하는 경우 `?AdfRangePartitionLowbound` WHERE 절에 후크 합니다. 예제는 [Teradata에서 Parallel 복사](#parallel-copy-from-teradata) 섹션을 참조 하세요. | 아니요 |
 
 > [!NOTE]
 >
@@ -293,7 +294,7 @@ Teradata에서 데이터를 복사 하는 경우 다음 매핑이 적용 됩니�
 | Byte |Byte[] |
 | ByteInt |Int16 |
 | Char |String |
-| Clob |String |
+| Clob |문자열 |
 | 날짜 |DateTime |
 | Decimal |Decimal |
 | Double |Double |
@@ -324,7 +325,7 @@ Teradata에서 데이터를 복사 하는 경우 다음 매핑이 적용 됩니�
 | Timestamp |DateTime |
 | Timestamp With Time Zone |DateTime |
 | VarByte |Byte[] |
-| VarChar |String |
+| VarChar |문자열 |
 | VarGraphic |지원되지 않습니다. 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
 | Xml |지원되지 않습니다. 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
 

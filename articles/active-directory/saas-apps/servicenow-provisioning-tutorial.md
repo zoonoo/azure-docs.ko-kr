@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 08/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19b3e4cc5ba4bc0173721947bd1e1a680ca7b3a3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 85783339c7d1348f598f924f14d9b40cd0c8cd22
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60869845"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967176"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>자습서: Azure Active Directory로 자동 사용자 프로비전을 위한 ServiceNow 구성
 
@@ -30,7 +30,7 @@ ms.locfileid: "60869845"
 > [!NOTE]
 > 이 자습서에서는 Azure AD 사용자 프로비저닝 서비스에 기반하여 구축된 커넥터에 대해 설명합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../manage-apps/user-provisioning.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 ServiceNow와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -44,8 +44,7 @@ ServiceNow와 Azure AD 통합을 구성하려면 다음 항목이 필요합니�
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
 
 - 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 마세요.
-- Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
-
+- Azure AD 평가판 환경이 없는 경우 [체험 계정을](https://azure.microsoft.com/free/)얻을 수 있습니다.
 
 ## <a name="assigning-users-to-servicenow"></a>ServiceNow에 사용자 할당
 
@@ -57,6 +56,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 > [!IMPORTANT]
 >*   단일 Azure AD 사용자를 ServiceNow에 할당하여 프로비저닝 구성을 테스트하는 것이 좋습니다. 추가 사용자 및/또는 그룹은 나중에 할당할 수도 있습니다.
 >*   ServiceNow에 사용자를 할당할 때는 유효한 사용자 역할을 선택해야 합니다. "기본 액세스" 역할은 프로비전에 작동하지 않습니다.
+>*   Azure AD에서 역할을 만들고 구성 하는 방법에 대 한 자세한 내용은 다음 [링크](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management) 를 참조 하세요.
 
 ## <a name="enable-automated-user-provisioning"></a>자동 사용자 프로비전 사용
 

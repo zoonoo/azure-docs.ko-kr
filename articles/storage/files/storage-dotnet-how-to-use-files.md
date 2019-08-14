@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/22/2017
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: da8e82652b5406cb4e5fe6438f721e3394a4cd96
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: b79086298983e807cbfe0f4413d1fde54969cc6c
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854584"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986364"
 ---
 # <a name="develop-for-azure-files-with-net"></a>.NET을 사용하여 Azure Files 개발
 
@@ -24,8 +24,8 @@ ms.locfileid: "68854584"
 * 파일 내용 가져오기
 * 파일 공유에 대한 할당량(최대 크기) 설정
 * 공유에 정의된 공유 액세스 정책을 사용하는 파일에 대해 공유 액세스 서명(SAS 키) 만들기
-* 동일한 저장소 계정의 다른 파일로 파일 복사
-* 동일한 저장소 계정의 blob으로 파일 복사
+* 동일한 스토리지 계정의 다른 파일로 파일 복사
+* 동일한 스토리지 계정의 blob으로 파일 복사
 * 문제 해결을 위해 Azure Storage 메트릭 사용
 
 Azure Files에 대한 자세한 내용은 [Azure Files 소개](storage-files-introduction.md)를 참조하세요.
@@ -38,7 +38,7 @@ Azure Files는 클라이언트 애플리케이션에 광범위한 두 가지 방
 
 API | 사용 시기 | 참고
 ----|-------------|------
-[System.IO](https://docs.microsoft.com/dotnet/api/system.io) | 사용자 애플리케이션의 경우: <ul><li>SMB를 통해 파일을 읽고 써야 합니다.</li><li>포트 445를 통해 Azure Files 계정에 대한 액세스 권한이 있는 디바이스에서 실행됩니다.</li><li>파일 공유의 관리 설정을 관리할 필요가 없습니다.</li></ul> | SMB를 통한 Azure Files를 사용하여 파일 I/O를 코딩하는 작업은 일반적으로 네트워크 파일 공유 또는 로컬 저장소 디바이스를 사용하여 I/O를 코딩하는 작업과 동일합니다. 파일 I/O를 비롯한 다양한 .NET 기능에 대한 소개는 [이 자습서](https://docs.microsoft.com/dotnet/csharp/tutorials/console-teleprompter)를 참조하세요.
+[System.IO](https://docs.microsoft.com/dotnet/api/system.io) | 사용자 애플리케이션의 경우: <ul><li>SMB를 통해 파일을 읽고 써야 합니다.</li><li>포트 445를 통해 Azure Files 계정에 대한 액세스 권한이 있는 디바이스에서 실행됩니다.</li><li>파일 공유의 관리 설정을 관리할 필요가 없습니다.</li></ul> | SMB를 통한 Azure Files를 사용하여 파일 I/O를 코딩하는 작업은 일반적으로 네트워크 파일 공유 또는 로컬 스토리지 디바이스를 사용하여 I/O를 코딩하는 작업과 동일합니다. 파일 I/O를 비롯한 다양한 .NET 기능에 대한 소개는 [이 자습서](https://docs.microsoft.com/dotnet/csharp/tutorials/console-teleprompter)를 참조하세요.
 [Microsoft.Azure.Storage.File](https://docs.microsoft.com/dotnet/api/overview/azure/storage#client-library) | 사용자 애플리케이션의 경우: <ul><li>방화벽이나 ISP 제약 조건으로 인해 SMB를 통해 포트 445에서 Azure Files에 액세스할 수 없습니다.</li><li>파일 공유 할당량을 설정하거나 공유 액세스 서명을 만들 수 있는 기능 등 관리 기능이 필요합니다.</li></ul> | 이 문서는 (SMB 대신) REST 및 파일 공유의 관리를 사용하여 파일 I/O에서 `Microsoft.Azure.Storage.File`를 사용하는 방법을 보여줍니다.
 
 ## <a name="create-the-console-application-and-obtain-the-assembly"></a>콘솔 애플리케이션 만들기 및 어셈블리 가져오기
@@ -68,8 +68,8 @@ NuGet을 사용하여 패키지를 모두 가져올 수 있습니다. 다음 단
 2. 온라인에서 "WindowsAzure.Storage"를 검색하고 **설치**를 클릭하여 Storage 클라이언트 라이브러리와 종속성을 설치합니다.
 3. 온라인에서 "WindowsAzure.ConfigurationManager"를 검색하고 **설치**를 클릭하여 Azure 구성 관리자를 설치합니다.
 
-## <a name="save-your-storage-account-credentials-to-the-appconfig-file"></a>저장소 계정 자격 증명을 app.config 파일에 저장
-다음에는 프로젝트의 app.config 파일에 자격 증명을 저장합니다. 다음과 비슷하게 app.config 파일을 편집합니다. 여기서는 `myaccount`을(를) 저장소 계정 이름으로 바꾸고 `mykey`을(를) 저장소 계정 키로 바꿉니다.
+## <a name="save-your-storage-account-credentials-to-the-appconfig-file"></a>스토리지 계정 자격 증명을 app.config 파일에 저장
+다음에는 프로젝트의 app.config 파일에 자격 증명을 저장합니다. 다음과 비슷하게 app.config 파일을 편집합니다. 여기서는 `myaccount`을(를) 스토리지 계정 이름으로 바꾸고 `mykey`을(를) 스토리지 계정 키로 바꿉니다.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -84,7 +84,7 @@ NuGet을 사용하여 패키지를 모두 가져올 수 있습니다. 다음 단
 ```
 
 > [!NOTE]
-> 최신 버전의 Azure 저장소 에뮬레이터는 Azure Files를 지원하지 않습니다. Azure Files를 사용하려면 연결 문자열이 클라우드에 있는 Azure Storage 계정을 대상으로 해야 합니다.
+> 최신 버전의 Azure Storage 에뮬레이터는 Azure Files를 지원하지 않습니다. Azure Files를 사용하려면 연결 문자열이 클라우드에 있는 Azure Storage 계정을 대상으로 해야 합니다.
 
 ## <a name="add-using-directives"></a>지시문을 사용하여 추가
 솔루션 탐색기에서 `Program.cs` 파일을 열고 지시문을 사용하여 파일 맨 위에 다음을 추가합니다.
@@ -221,7 +221,7 @@ if (share.Exists())
 }
 ```
 
-공유 액세스 서명 만들기 및 사용에 대한 자세한 내용은 [SAS(공유 액세스 서명) 사용](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)을 참조하세요.
+공유 액세스 서명 만들기 및 사용에 대한 자세한 내용은 [SAS(공유 액세스 서명) 사용](../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)을 참조하세요.
 
 ## <a name="copy-files"></a>파일 복사
 Azure Storage 클라이언트 라이브러리 버전 5.x부터 파일을 다른 파일로, 파일을 blob으로 또는 blob을 파일로 복사할 수 있습니다. 다음 섹션에는 이러한 복사 작업을 프로그래밍 방식으로 수행하는 방법이 나와 있습니다.
@@ -229,11 +229,11 @@ Azure Storage 클라이언트 라이브러리 버전 5.x부터 파일을 다른 
 AzCopy를 사용하여 파일을 다른 파일로 복사하거나 blob을 파일로 복사할 수도 있고 그 반대로 복사할 수도 있습니다. [AzCopy 명령줄 유틸리티로 데이터 전송](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)을 참조하세요.
 
 > [!NOTE]
-> BLOB을 파일에 복사하거나 파일을 BLOB에 복사하는 경우 두 항목이 동일한 저장소 계정 내에 있더라도 SAS(공유 액세스 서명)를 사용하여 원본 개체에 대한 액세스를 인증해야 합니다.
+> BLOB을 파일에 복사하거나 파일을 BLOB에 복사하는 경우 두 항목이 동일한 스토리지 계정 내에 있더라도 SAS(공유 액세스 서명)를 사용하여 원본 개체에 대한 액세스를 인증해야 합니다.
 > 
 > 
 
-**다른 파일에 파일 복사** 다음 예제에서는 동일한 공유의 다른 파일에 파일을 복사합니다. 이 복사 작업은 동일한 저장소 계정의 파일 간에 복사를 수행하므로 공유 키 인증을 사용하여 복사를 수행할 수 있습니다.
+**다른 파일에 파일 복사** 다음 예제에서는 동일한 공유의 다른 파일에 파일을 복사합니다. 이 복사 작업은 동일한 스토리지 계정의 파일 간에 복사를 수행하므로 공유 키 인증을 사용하여 복사를 수행할 수 있습니다.
 
 ```csharp
 // Parse the connection string for the storage account.
@@ -277,7 +277,7 @@ if (share.Exists())
 }
 ```
 
-**Blob에 파일 복사** 다음 예제에서는 파일을 만들고 동일한 저장소 계정 내의 Blob에 복사합니다. 이 예제에서 서비스는 복사 작업 동안 원본 파일에 대한 액세스를 인증하는 데 사용하는 소스 파일용 SAS를 만듭니다.
+**Blob에 파일 복사** 다음 예제에서는 파일을 만들고 동일한 스토리지 계정 내의 Blob에 복사합니다. 이 예제에서 서비스는 복사 작업 동안 원본 파일에 대한 액세스를 인증하는 데 사용하는 소스 파일용 SAS를 만듭니다.
 
 ```csharp
 // Parse the connection string for the storage account.
@@ -400,11 +400,11 @@ CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTim
 ```
 
 ## <a name="troubleshooting-azure-files-using-metrics"></a>메트릭을 사용하여 Azure Files 문제 해결
-이제 Azure 저장소 분석은 Azure Files에 대한 메트릭을 지원합니다. 메트릭 데이터를 사용하여 요청을 추적하고 문제를 진단할 수 있습니다.
+이제 Azure Storage 분석은 Azure Files에 대한 메트릭을 지원합니다. 메트릭 데이터를 사용하여 요청을 추적하고 문제를 진단할 수 있습니다.
 
-[Azure Portal](https://portal.azure.com)에서 Azure Files에 대 한 메트릭을 사용 하도록 설정할 수 있습니다. 또한 REST API 또는 저장소 클라이언트 라이브러리의 유사한 기능 중 하나를 통해 파일 서비스 설정 속성을 호출하여 프로그래밍 방식으로 메트릭을 사용하도록 설정할 수도 있습니다.
+[Azure Portal](https://portal.azure.com)에서 Azure Files에 대 한 메트릭을 사용 하도록 설정할 수 있습니다. 또한 REST API 또는 스토리지 클라이언트 라이브러리의 유사한 기능 중 하나를 통해 파일 서비스 설정 속성을 호출하여 프로그래밍 방식으로 메트릭을 사용하도록 설정할 수도 있습니다.
 
-다음 코드 예제에서는 .NET용 저장소 클라이언트 라이브러리를 사용하여 Azure Files에 대한 메트릭을 사용하도록 설정하는 방법을 보여 줍니다.
+다음 코드 예제에서는 .NET용 스토리지 클라이언트 라이브러리를 사용하여 Azure Files에 대한 메트릭을 사용하도록 설정하는 방법을 보여 줍니다.
 
 먼저 위에서 추가한 항목 외에도 다음 `using` 지시문을 `Program.cs` 파일에 추가합니다.
 

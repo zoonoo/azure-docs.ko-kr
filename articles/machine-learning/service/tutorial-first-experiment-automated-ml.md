@@ -10,12 +10,12 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 07/23/2019
-ms.openlocfilehash: 1d2a0c9e1531ace16335ea57acaccedfe2c1a3c8
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 7ef19db472b30d82f14a5dd650cb8f4cb1f3ed3a
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815884"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990070"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-train-and-deploy-your-first-classification-model-preview"></a>자습서: 자동화 된 machine learning을 사용 하 여 첫 번째 분류 모델 학습 및 배포 (미리 보기)
 
@@ -32,7 +32,7 @@ ms.locfileid: "68815884"
 > * 학습 실행 세부 정보를 봅니다.
 > * 모델을 배포합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독. Azure 구독이 아직 없는 경우 [무료 계정](https://aka.ms/AMLFree)을 만듭니다.
 
@@ -95,7 +95,7 @@ ms.locfileid: "68815884"
     동시성| 최대 동시 반복 횟수로 **5** 를 선택 합니다.
 
    >[!NOTE]
-   > 이 실험에서는 메트릭 또는 최대 반복 임계값을 설정 하지 않습니다. 또한 알고리즘의 테스트를 차단 하지 않습니다.
+   > 이 실험에서는 메트릭 또는 반복 당 최대 코어 임계값을 설정 하지 않습니다. 또한 알고리즘의 테스트를 차단 하지 않습니다.
 
 1. **시작** 을 선택 하 여 실험을 실행 합니다.
 

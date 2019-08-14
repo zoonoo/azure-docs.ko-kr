@@ -4,17 +4,17 @@ description: Azure IoT Edge 디먼 및 런타임을 실행할 수 있는 운영 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 07/22/2019
+ms.date: 08/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 9b9acac829fd128a66e3ceea603bb804adf2a88b
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: fdecc34b49b853c34624cabf4688e0387c303a16
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598593"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985810"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Azure IoT Edge 지원 시스템
 
@@ -67,7 +67,7 @@ Azure IoT Edge는 컨테이너를 실행할 수 있는 대부분의 운영 체�
 | Windows 10 IoT Enterprise, 빌드 17763 | ![Windows 10 IoT Enterprise + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
 | Windows Server 2019, 빌드 17763 | ![Windows Server 2019 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
 | Windows Server IoT 2019, 빌드 17763 | ![Windows Server IoT 2019 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
-| Windows 10 IoT Core, 빌드 17763 | 공개 미리 보기 |  |  |
+| Windows 10 IoT Core, 빌드 17763 | ![Windows IoT Core + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
 
 
 위에 나열 된 Windows 운영 체제는 Windows에서 Windows 컨테이너를 실행 하는 장치에 대 한 요구 사항입니다. 이 구성은 프로덕션에 대해 유일 하 게 지원 되는 구성입니다. Windows 용 Azure IoT Edge 설치 패키지를 사용 하면 Windows에서 Linux 컨테이너를 사용할 수 있습니다. 그러나이 구성은 개발 및 테스트용 으로만 사용할 수 있습니다. Windows에서 Linux 컨테이너를 사용하는 것은 프로덕션에서 지원되는 구성이 아닙니다. 이 개발 시나리오에서는 Windows 10 빌드 14393 이상 및 Windows Server 2016 이상의 임의 버전을 사용할 수 있습니다.

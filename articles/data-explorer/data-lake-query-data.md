@@ -7,12 +7,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/17/2019
-ms.openlocfilehash: cd53e1386d9d6f2a38beb1661554c8cc9116169d
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: ef4dfc4370c71eac1978a6f3535b571a5e6009b5
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494859"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950131"
 ---
 # <a name="query-data-in-azure-data-lake-using-azure-data-explorer-preview"></a>Azure 데이터 탐색기 (미리 보기)를 사용 하 여 Azure Data Lake에서 데이터 쿼리
 
@@ -45,8 +45,11 @@ Azure 데이터 탐색기는 Azure Blob Storage 및 Azure Data Lake Storage Gen2
     dataformat=csv (h@'http://storageaccount.blob.core.windows.net/container1;secretKey') 
     with (compressed = true)  
     ```
-
-    이 쿼리는 일별 파티션 *container1/yyyy/MM/dd/all_exported_blobs*를 만듭니다. 보다 세분화 된 분할을 통해 성능이 향상 됩니다. 예를 들어, 위와 같이 매일 파티션이 있는 외부 테이블에 대 한 쿼리는 월별 분할 된 테이블이 있는 쿼리 보다 성능이 우수 합니다.
+    
+    > [!NOTE]
+    > * 보다 세분화 된 분할을 통해 성능이 향상 됩니다. 예를 들어 일별 파티션이 있는 외부 테이블에 대 한 쿼리는 월별 분할 된 테이블이 있는 쿼리 보다 성능이 더 우수 합니다.
+    > * 파티션이 있는 외부 테이블을 정의 하는 경우 저장소 구조가 동일할 것으로 예상 됩니다.
+예를 들어 테이블이 yyyy/MM/dd 형식의 DateTime 파티션으로 정의 된 경우 (기본값) URI 저장소 파일 경로는 *container1/yyyy/mm/dd/all_exported_blobs*여야 합니다. 
 
 1. 외부 테이블은 웹 UI의 왼쪽 창에 표시 됩니다.
 
@@ -195,7 +198,7 @@ T1 | join T on ProductId | take 10
 
 ### <a name="query-taxirides-external-table-data"></a>Query *TaxiRides* 외부 테이블 데이터 
 
-에 로그인 하 여 TaxiRides 외부 테이블을 쿼리 합니다.  [https://dataexplorer.azure.com/clusters/help/databases/Samples](https://dataexplorer.azure.com/clusters/help/databases/Samples) 
+에 로그인 하 여 TaxiRides 외부 테이블을 쿼리 합니다. [https://dataexplorer.azure.com/clusters/help/databases/Samples](https://dataexplorer.azure.com/clusters/help/databases/Samples) 
 
 #### <a name="query-taxirides-external-table-without-partitioning"></a>분할 하지 않고 *TaxiRides* 외부 테이블 쿼리
 

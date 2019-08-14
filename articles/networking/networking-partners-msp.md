@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: sukishen
-ms.openlocfilehash: 62f73f17d598cb2a22ef57d3ec0bcf91b8852298
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 3b82ecfc5aef5f78f7e77c23edfdfbeb7967b333
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728782"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989980"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Azure 네트워킹 MSP 파트너 정보
 
@@ -24,9 +24,11 @@ Azure 네트워킹 MSPs는 클라우드 및 하이브리드 네트워킹의 모�
 
 고객은 Azure Marketplace 또는 MSP에서 직접 MSP 관리 서비스 제품을 구매할 수 있습니다. MSPs는 Azure Lighthouse를 사용 하 여 고객의 구독 및 리소스 그룹에서 Azure 네트워킹 리소스를 배포 하 고 관리할 수 있습니다.
 
-## <a name="msp"></a>MSP 파트너
+## <a name="msp"></a>Azure 네트워킹 MSP 파트너
 
 Azure 네트워킹 MSP 파트너에서 제공 하는 관리 되는 클라우드 네트워킹 서비스에 대 한 자세한 내용은이 섹션의 링크를 사용 하세요. 클라우드 네트워크 서비스 파트너가 아래 섹션에 나열 되어 있지 않으면 공급자에 게 문의 하세요. ManagedVirtualWAN@microsoft.com으로 이메일을 전송하여 연락할 수 있습니다. 
+
+[ANS 그룹 영국](https://www.ans.co.uk/)
 
 [Aryaka 네트워크](https://www.aryaka.com/)
 
@@ -43,6 +45,8 @@ Azure 네트워킹 MSP 파트너에서 제공 하는 관리 되는 클라우드 
 [ixreach](https://www.ixreach.com/)
 
 [Megaport](https://www.megaport.com/)
+
+[Oncore](https://oncore.cloud/)
 
 [Tata 통신](https://www.tatacommunications.com/)
 

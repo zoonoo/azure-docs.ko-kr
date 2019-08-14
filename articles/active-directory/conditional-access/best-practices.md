@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08be09f7bee3aa17ff9d1baae4271e994fa235cb
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 3b7265f8d5ec4b7336253787e9cb881900a52b79
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68248876"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68963456"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Azure Active Directory의 조건부 액세스에 대 한 모범 사례
 
@@ -35,7 +35,7 @@ ms.locfileid: "68248876"
 
 정책이 작동되려면 다음을 구성해야 합니다.
 
-| 대상           | 방법                                  | 이유 |
+| 내용:           | 방법                                  | 이유 |
 | :--            | :--                                  | :-- |
 | **클라우드 앱** |하나 이상의 앱을 선택합니다.  | 조건부 액세스 정책의 목표는 권한 있는 사용자가 클라우드 앱에 액세스 하는 방법을 제어할 수 있도록 하는 것입니다.|
 | **사용자 및 그룹** | 선택한 클라우드 앱에 대한 액세스 권한을 부여받은 하나 이상의 사용자 또는 그룹을 선택합니다. | 할당 된 사용자 및 그룹이 없는 조건부 액세스 정책은 트리거되지 않습니다. |
@@ -50,7 +50,8 @@ ms.locfileid: "68248876"
 모든 정책은 다음 두 단계로 적용됩니다.
 
 - **첫 번째** 단계에서는 모든 정책이 평가되고 충족되지 않은 모든 액세스 제어가 수집됩니다. 
-- **두 번째** 단계에서는 충족되지 않은 요구 사항을 충족시키도록 요구하는 메시지가 표시됩니다. 정책 중 하나가 액세스를 차단 하는 경우 차단 되며 다른 정책 제어를 충족 하 라는 메시지가 표시 되지 않습니다. 정책에서 사용자를 차단 하는 경우 다음 순서로 다른 정책 컨트롤을 충족 하 라는 메시지가 표시 됩니다.
+
+- **두 번째** 단계에서는 충족되지 않은 요구 사항을 충족시키도록 요구하는 메시지가 표시됩니다. 정책 중 하나가 액세스를 차단 하는 경우 차단 되며 다른 정책 제어를 충족 하 라는 메시지가 표시 되지 않습니다. 사용자를 차단 하는 정책이 없으면 다음 순서로 다른 정책 컨트롤을 충족 하 라는 메시지가 표시 됩니다.
 
    ![주문](./media/best-practices/06.png)
     

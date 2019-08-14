@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 3ad599182191e41ea43d38260692a7ab46e1af6f
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: f3386d04cd3316b38a094524d0d5d4f3c5ab36bb
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845010"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986847"
 ---
 # <a name="use-azure-cdn-to-access-blobs-with-custom-domains-over-https"></a>Azure CDN을 사용하여 HTTP를 통한 사용자 지정 도메인으로 Blob 액세스
 
@@ -40,7 +40,7 @@ Azure CDN은 전송 중에 웹 애플리케이션 데이터의 개인정보처�
 
 ## <a name="shared-access-signatures"></a>공유 액세스 서명
 
-기본적으로 Blob Storage 엔드포인트는 익명 읽기 액세스를 허용하지 않습니다. 익명 읽기 액세스를 허용하지 않도록 Blob Storage 엔드포인트를 구성한 경우 각 요청의 [공유 액세스 서명](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 토큰을 사용자 지정 도메인에 제공합니다. 자세한 내용은 [컨테이너 및 Blob에 대한 익명 읽기 권한 관리](storage-manage-access-to-resources.md)를 참조하세요.
+기본적으로 Blob Storage 엔드포인트는 익명 읽기 액세스를 허용하지 않습니다. 익명 읽기 액세스를 허용하지 않도록 Blob Storage 엔드포인트를 구성한 경우 각 요청의 [공유 액세스 서명](../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 토큰을 사용자 지정 도메인에 제공합니다. 자세한 내용은 [컨테이너 및 Blob에 대한 익명 읽기 권한 관리](storage-manage-access-to-resources.md)를 참조하세요.
 
 Azure CDN은 공유 액세스 서명 토큰에 추가되는 제한 사항을 준수하지 않습니다. 예를 들어 모든 공유 액세스 서명 토큰이 만료됩니다. Azure CDN 에지 노드에서 콘텐츠가 제거될 때까지 만료된 공유 액세스 서명 사용하여 해당 콘텐츠에 계속 액세스할 수 있습니다. 캐시 응답 헤더를 설정하여 데이터를 Azure CDN에 얼마나 오래 캐시할 것인지 제어할 수 있습니다. 그 기간은 [Azure CDN에서 Azure Storage Blob의 만료 관리](../../cdn/cdn-manage-expiration-of-blob-content.md)를 참조하세요.
 

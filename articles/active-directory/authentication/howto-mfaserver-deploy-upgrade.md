@@ -1,5 +1,5 @@
 ---
-title: Azure MFA 서버-Azure Active Directory로 업그레이드
+title: Azure MFA 서버 업그레이드-Azure Active Directory
 description: Azure Multi-factor Authentication 서버를 최신 버전으로 업그레이드하는 단계 및 지침입니다.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dcafa3e2f2665e84856b80cc0911d2e83df1aa65
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 19ca6d82b80a9ed77a842b638ff8e9ff346342e8
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057333"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68988552"
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>최신 Azure Multi-Factor Authentication 서버로 업그레이드
 
@@ -25,7 +25,7 @@ ms.locfileid: "67057333"
 v6.x 이상에서 v7.x 또는 최신 버전으로 업그레이드하는 경우 모든 구성 요소가 .NET 2.0에서 .NET 4.5로 변경됩니다. 모든 구성 요소에는 Microsoft Visual C++ 2015 재배포 가능 패키지 업데이트 1 이상이 필요합니다. 이러한 구성 요소의 x86 및 x64 버전이 아직 설치되지 않았으면 MFA 서버 설치 관리자가 설치합니다. 사용자 포털 및 모바일 앱 웹 서비스가 별도 서버에서 실행되는 경우 해당 구성 요소를 업그레이드하기 전에 해당 패키지를 설치해야 합니다. [Microsoft 다운로드 센터](https://www.microsoft.com/download/)에서 최신 Microsoft Visual C++ 2015 재배포 가능 패키지 업데이트를 검색할 수 있습니다. 
 
 > [!IMPORTANT]
-> 2019 년 7 월 1 일을 기준으로 Microsoft 새 배포에 대 한 MFA 서버 제공 되지 않습니다. 해당 사용자의 multi-factor authentication 인증을 요구 하는 새 고객은 클라우드 기반 Azure Multi-factor Authentication을 사용 해야 합니다. 7 월 1 일 전에 MFA 서버를 활성화 한 기존 고객 최신 버전으로 향후 업데이트를 다운로드 하 고 일반적인 방식으로 정품 인증 자격 증명을 생성 하는 일을 할 수 있습니다.
+> 2019 년 7 월 1 일부 터 Microsoft는 더 이상 새 배포에 대해 MFA 서버를 제공 하지 않습니다. 사용자에 게 multi-factor authentication을 요구 하려는 새 고객은 클라우드 기반 Azure Multi-factor Authentication을 사용 해야 합니다. 7 월 1 일 이전에 MFA 서버를 활성화 한 기존 고객은 최신 버전을 다운로드 하 고, 나중에 업데이트 하 고 활성화 자격 증명을 생성할 수 있습니다.
 
 업그레이드 단계 한 눈에 보기:
 
@@ -66,7 +66,7 @@ v6.x 이상에서 v7.x 또는 최신 버전으로 업그레이드하는 경우 �
 ## <a name="upgrade-the-mobile-app-web-service"></a>모바일 앱 웹 서비스 업그레이드
 
 > [!NOTE]
-> Azure MFA Server 8.0 미만 버전에서 8.0 이상 버전으로 업그레이드할 때 업그레이드 후 모바일 앱 웹 서비스를 제거할 수 있습니다.
+> 8\.0 보다 오래 된 버전의 Azure MFA 서버에서 8.0 이상으로 업그레이드 하는 경우 업그레이드 후 모바일 앱 웹 서비스를 제거할 수 있습니다.
 
 ## <a name="upgrade-the-ad-fs-adapters"></a>AD FS 어댑터 업그레이드
 

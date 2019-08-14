@@ -2,7 +2,7 @@
 title: Azure Active Directory Power BI 콘텐츠 팩 사용 방법 | Microsoft Docs
 description: Azure Active Directory Power BI 콘텐츠 팩 사용 방법 알아보기
 services: active-directory
-author: MarkusVi
+author: cawrites
 manager: daveba
 ms.assetid: addd60fe-d5ac-4b8b-983c-0736c80ace02
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 934562147fedcc81b16fd1ad2534af5662ef4b78
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4d56802e96028b6b01b6be749405c56df2648161
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60437673"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68988244"
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Azure Active Directory Power BI 콘텐츠 팩 사용 방법
 
@@ -31,7 +31,7 @@ ms.locfileid: "60437673"
 
 Azure Active Directory(Azure AD)용 Power BI 콘텐츠 팩에는 사용자들이 미리 빌드된 보고서가 포함되어 있습니다. 보고서에서 Power BI의 풍부한 시각화 환경을 사용하여 디렉터리 내의 모든 활동에 대한 인사이트를 얻을 수 있습니다. 사용자 고유의 대시보드를 만들어 조직 내의 모든 사용자와 공유할 수도 있습니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 콘텐츠 팩 사용을 위한 Azure AD Premium(P1/P2) 라이선스가 있어야 합니다. [Azure Active Directory Premium 시작하기](../fundamentals/active-directory-get-started-premium.md)를 참조하여 Azure Active Directory 버전을 업그레이드하세요.
 
@@ -53,13 +53,13 @@ Azure AD Power BI 콘텐츠 팩에는 다음과 같은 보고서가 포함되어
  
 특정 날짜 또는 위치를 선택하여 결과를 필터링할 수도 있습니다.
 
-**앱당 고유 사용자**:  이 보고서는 지정된 앱을 사용하는 모든 고유 사용자를 보여줍니다. 여기에는 애플리케이션에 “성공적으로” 로그인한 사용자만 포함됩니다. 
+**앱당 고유 사용자**:  이 보고서는 지정된 앱을 사용하는 모든 고유 사용자를 보여줍니다. 여기에는 애플리케이션에 “성공적으로” 로그인한 사용자만 포함됩니다.
 
 **디바이스 로그인**: 이 보고서는 조직 내에서 사용된 다양한 디바이스 프로필을 이해하고 용도에 따라 디바이스 정책을 결정하는 데 도움이 됩니다. 이 보고서는 애플리케이션에 로그인할 때 사용된 OS 및 브라우저 유형과 다음과 같은 상세한 사용자 정보를 제공합니다.
 
 - 사용자 이름
 - IP 주소
-- Location 
+- 위치 
 - 로그인 상태 
 
 **SSPR 깔때기**: 이 보고서는 조직에서 SSPR 도구가 어떻게 사용되고 있는지 파악하는 데 도움이 됩니다. SSPR 도구를 통해 몇 차례의 암호 재설정이 시도되었고 그중 몇 건이 성공했는지 확인할 수 있습니다. 암호 재설정 실패를 심층 분석하고 특정 실패가 발생한 이유를 살펴볼 수도 있습니다. 
@@ -112,7 +112,7 @@ Power BI 보고서의 매일 새로 고침을 예약하려면 **데이터 세트
 
 Power BI와 관련된 일반적인 도움말은 이 [도움말 문서](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/)을 확인하세요.
 
-### <a name="refresh-failed"></a>새로 고침 실패 
+### <a name="refresh-failed"></a>새로 고치지 못했습니다. 
  
 **이 오류가 표시되는 방법**: Power BI 또는 새로 고침 기록 실패 상태로 인해 이메일을 받습니다. 
 

@@ -11,14 +11,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: b819a990b9f607aaf70bf2e16a5857de3f7306cc
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 320e92e45f319e394b5a38b3f1e8ef3f314920b8
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827502"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966337"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Azure Data Factory에서 메타데이터 가져오기 작업
 
@@ -41,7 +41,7 @@ GetMetadata 작업은 데이터 세트를 필수 입력으로 사용하고, 작�
 
 ### <a name="supported-connectors"></a>지원되는 커넥터
 
-**파일 저장소:**
+**파일 스토리지:**
 
 | 커넥터/메타데이터 | itemName<br>(파일/폴더) | itemType<br>(파일/폴더) | 크기<br>(파일) | 만듦<br>(파일/폴더) | lastModified<br>(파일/폴더) |childItems<br>(폴더) |contentMD5<br>(파일) | 구조<br/>(파일) | columnCount<br>(파일) | 있음<br>(파일/폴더) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
@@ -71,7 +71,7 @@ GetMetadata 작업은 데이터 세트를 필수 입력으로 사용하고, 작�
 
 GetMetadata 작업 필드 목록에 지정하여 검색할 수 있는 메타데이터 유형은 다음과 같습니다.
 
-| 메타데이터 유형 | Description |
+| 메타데이터 유형 | 설명 |
 |:--- |:--- |
 | itemName | 파일 또는 폴더의 이름입니다. |
 | itemType | 파일 또는 폴더의 형식입니다. 출력 값은 `File` 또는 `Folder`입니다. |
@@ -138,8 +138,8 @@ GetMetadata 작업 필드 목록에 지정하여 검색할 수 있는 메타데�
 -------- | ----------- | --------
 fieldList | 필요한 메타데이터 정보의 유형을 나열합니다. 지원되는 메타데이터에 대한 자세한 내용은 [메타데이터 옵션](#metadata-options) 섹션을 참조하세요. | 예 
 데이터 세트 | GetMetadata 작업 시 메타데이터 작업을 검색할 참조 데이터 세트입니다. 지원되는 커넥터에 대한 [지원되는 기능](#supported-capabilities) 섹션을 참조하고, 데이터 세트 구문 세부 정보에 대한 커넥터 항목을 참조하세요. | 예
-formatSettings | 서식 유형 데이터 집합 (Parquet, DelimitedText)을 사용 하는 경우에 적용 됩니다. | 아니요
-storeSettings | 서식 유형 데이터 집합 (Parquet, DelimitedText)을 사용 하는 경우에 적용 됩니다. | 아니요
+formatSettings | 서식 유형 데이터 집합을 사용 하는 경우 적용 합니다. | 아니요
+storeSettings | 서식 유형 데이터 집합을 사용 하는 경우 적용 합니다. | 아니요
 
 ## <a name="sample-output"></a>샘플 출력
 

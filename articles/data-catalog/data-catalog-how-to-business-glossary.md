@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 6ecb481245484332221e45b8f27c776291ea532d
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 1065abecb1f0ef57eb13b1ec3f194f07ae01eaee
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736403"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976802"
 ---
 # <a name="set-up-the-business-glossary-for-governed-tagging"></a>관리 태그 지정을 위한 비즈니스 용어집 설정
 
@@ -36,11 +36,11 @@ Azure Data Catalog는 데이터 원본 검색을 제공하여 사용자가 분�
 
 데이터 카탈로그 포털의 탐색 메뉴에서 **용어집** 옵션을 통해 비즈니스 용어집에 액세스할 수 있습니다.  
 
-![비즈니스 용어집에 액세스](./media/data-catalog-how-to-business-glossary/01-portal-menu.png)
+![Data Catalog-비즈니스 용어집 액세스](./media/data-catalog-how-to-business-glossary/01-portal-menu.png)
 
 데이터 카탈로그 관리자 및 용어집 관리자 역할을 하는 멤버는 비즈니스 용어집에서 용어를 만들고, 편집하고, 삭제할 수 있습니다. 모든 데이터 카탈로그 사용자는 용어 정의를 볼 수 있고, 용어를 사용하여 자산에 태그를 지정할 수 있습니다.
 
-![새 용어 추가](./media/data-catalog-how-to-business-glossary/02-new-term.png)
+![Data Catalog-새 용어집 용어를 추가 합니다.](./media/data-catalog-how-to-business-glossary/02-new-term.png)
 
 ## <a name="creating-glossary-terms"></a>용어 만들기
 

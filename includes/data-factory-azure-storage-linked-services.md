@@ -4,22 +4,22 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: b8585b62b0728d1ba6e010e42b44840903c46833
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: ee368b58195d61a1c6792a3a3655122af7104d58
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182671"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "69012202"
 ---
 ### <a name="azure-storage-linked-service"></a>Azure Storage 연결된 서비스
 **Azure Storage 연결된 서비스**에서 **계정 키**를 사용하여 Azure Storage 계정을 Azure Data Factory에 연결할 수 있으며, 이렇게 하면 데이터 팩터리에 Azure Storage에 대한 전역 액세스가 제공됩니다. 다음 테이블은 Azure Storage 연결된 서비스에 특정된 JSON 요소에 대한 설명을 제공합니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type |type 속성을 다음으로 설정해야 합니다. **AzureStorage** |예 |
-| connectionString |connectionString 속성에 대한 Azure 저장소에 연결하는 데 필요한 정보를 지정합니다. |예 |
+| connectionString |connectionString 속성에 대한 Azure Storage에 연결하는 데 필요한 정보를 지정합니다. |예 |
 
-Azure Storage에 대 한 계정 키를 확인/복사 하는 단계 다음 섹션을 참조 하세요. [액세스 키](../articles/storage/common/storage-account-manage.md#access-keys)합니다.
+Azure Storage에 대 한 계정 키를 보거나 복사 하는 단계는 다음 섹션을 참조 하세요. [액세스 키](../articles/storage/common/storage-account-manage.md#access-keys).
 
 **예제:**  
 
@@ -36,18 +36,18 @@ Azure Storage에 대 한 계정 키를 확인/복사 하는 단계 다음 섹션
 ```
 
 ### <a name="azure-storage-sas-linked-service"></a>Azure Storage SAS 연결된 서비스
-SAS(공유 액세스 서명)는 저장소 계정의 리소스에 대한 위임된 권한을 제공합니다. 계정 액세스 키를 공유할 필요 없이 지정된 권한 집합을 사용하여 지정된 기간 동안 클라이언트에 저장소 계정의 개체에 대한 제한된 권한을 부여할 수 있습니다. SAS는 저장소 리소스에 인증된 액세스를 수행하는 데 필요한 모든 정보가 쿼리 매개 변수에 있는 URI입니다. SAS를 사용하여 저장소 리소스에 액세스하려는 클라이언트는 SAS를 적절한 생성자 또는 메서드에 전달하면 됩니다. SAS에 대 한 자세한 내용은 참조 하세요. [공유 액세스 서명: SAS 모델 이해](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md)
+SAS(공유 액세스 서명)는 스토리지 계정의 리소스에 대한 위임된 권한을 제공합니다. 계정 액세스 키를 공유할 필요 없이 지정된 권한 집합을 사용하여 지정된 기간 동안 클라이언트에 스토리지 계정의 개체에 대한 제한된 권한을 부여할 수 있습니다. SAS는 스토리지 리소스에 인증된 액세스를 수행하는 데 필요한 모든 정보가 쿼리 매개 변수에 있는 URI입니다. SAS를 사용하여 스토리지 리소스에 액세스하려는 클라이언트는 SAS를 적절한 생성자 또는 메서드에 전달하면 됩니다. SAS에 대 한 자세한 내용은 [sas (공유 액세스 서명)를 사용 하 여 Azure Storage 리소스에 대 한 제한 된 액세스 권한 부여](../articles/storage/common/storage-sas-overview.md)를 참조 하세요.
 
 > [!IMPORTANT]
-> Azure Data Factory는 이제 **서비스 SAS**만 지원하며 계정 SAS는 지원하지 않습니다. 이러한 두 가지 형식과 생성 방법에 대한 자세한 내용은 [공유 액세스 서명 형식](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures) 을 참조하세요. Azure Portal 또는 Storage Explorer에서 생성할 수 있는 SAS URL는 지원되지 않는 계정 SAS입니다.
+> Azure Data Factory는 이제 **서비스 SAS**만 지원하며 계정 SAS는 지원하지 않습니다. Azure Portal 또는 Storage Explorer에서 생성할 수 있는 SAS URL는 지원되지 않는 계정 SAS입니다.
 
 > [!TIP]
-> 아래의 PowerShell 명령을 실행하여 저장소 계정에 대한 서비스 SAS를 생성할 수 있습니다(자리 표시자를 바꾸고 필요한 권한 부여).`$context = New-AzStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
+> 아래의 PowerShell 명령을 실행하여 스토리지 계정에 대한 서비스 SAS를 생성할 수 있습니다(자리 표시자를 바꾸고 필요한 권한 부여).`$context = New-AzStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
 > `New-AzStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
-Azure Storage SAS 연결된 서비스에서 SAS(공유 액세스 서명)을 사용하여 Azure Storage 계정을 Azure Data Factory에 연결할 수 있습니다. 이 서비스는 저장소의 모든/특정 리소스(Blob/컨테이너)에 대해 제한된/시간 제한 액세스를 데이터 팩터리에 제공합니다. 다음 표는 Azure Storage SAS 연결된 서비스에 특정된 JSON 요소에 대한 설명을 제공합니다. 
+Azure Storage SAS 연결된 서비스에서 SAS(공유 액세스 서명)을 사용하여 Azure Storage 계정을 Azure Data Factory에 연결할 수 있습니다. 이 서비스는 스토리지의 모든/특정 리소스(Blob/컨테이너)에 대해 제한된/시간 제한 액세스를 데이터 팩터리에 제공합니다. 다음 표는 Azure Storage SAS 연결된 서비스에 특정된 JSON 요소에 대한 설명을 제공합니다. 
 
-| 자산 | 설명 | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type |type 속성을 다음으로 설정해야 합니다. **AzureStorageSas** |예 |
 | sasUri |BLOB, 컨테이너, 테이블 등의 Azure Storage 리소스에 공유 액세스 서명 URI를 지정합니다.  |예 |

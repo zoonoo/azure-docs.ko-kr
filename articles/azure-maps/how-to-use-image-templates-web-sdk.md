@@ -9,14 +9,14 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: 1ca29fafae1269b21f4e39a9d2594f84af035d25
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: b9b1543ca37c636f4a82ff9ada3dfe212fa9b8d0
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856690"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976662"
 ---
-# <a name="how-to-use-image-templates"></a>이미지 템플릿을 사용 하는 방법
+# <a name="how-to-use-image-templates"></a>이미지 템플릿을 사용하는 방법
 
 Azure Maps 웹 SDK에서 이미지는 HTML 표식 및 다양 한 계층으로 사용할 수 있습니다.
 
@@ -108,7 +108,7 @@ map.imageSprite.createFromTemplate('myTemplatedIcon', 'marker-flat', 'teal', '#f
 
 응용 프로그램에서 아이콘이 다른 아이콘을 사용 하거나 추가 이미지 템플릿을 추가 하는 모듈을 만드는 경우에는 `atlas` 다음 정적 함수를 사용 하 여 Azure Maps 웹 SDK에서 이러한 아이콘을 쉽게 추가 하 고 검색할 수 있습니다. 공간.
 
-| 이름 | 반환 형식 | Description | 
+| 이름 | 반환 형식 | 설명 | 
 |-|-|-|
 | `addImageTemplate(templateName: string, template: string, override: boolean)` | | Atlas 네임 스페이스에 사용자 지정 SVG 이미지 템플릿을 추가 합니다. |
 |  `getImageTemplate(templateName: string, scale?: number)`| string | 이름으로 SVG 템플릿을 검색 합니다. |
@@ -116,7 +116,7 @@ map.imageSprite.createFromTemplate('myTemplatedIcon', 'marker-flat', 'teal', '#f
 
 SVG 이미지 템플릿은 다음 자리 표시자 값을 지원 합니다.
 
-| Placeholder | 설명 |
+| Placeholder | Description |
 |-|-|
 | `{color}` | 기본 색입니다. | 
 | `{secondaryColor}` | 보조 색입니다. | 
@@ -203,7 +203,10 @@ SVG 이미지 템플릿은 다음 자리 표시자 값을 지원 합니다.
 > [기호 계층 추가](map-add-pin.md)
 
 > [!div class="nextstepaction"]
-> [도형 추가](map-add-shape.md)
+> [선 계층 추가](map-add-line-layer.md)
+
+> [!div class="nextstepaction"]
+> [다각형 계층 추가](map-add-shape.md)
 
 > [!div class="nextstepaction"]
 > [HTML 표식 추가](map-add-bubble-layer.md)

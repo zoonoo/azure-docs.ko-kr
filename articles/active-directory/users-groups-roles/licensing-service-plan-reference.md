@@ -12,16 +12,16 @@ ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.date: 04/15/2019
-ms.author: curtand
-ms.reviewer: ajayanti1
+ms.author: arjay
+ms.reviewer: arjay
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a624920a6763be54735f7cc470d0ae4a3c97d2e3
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 02319bbbe9eb2ddeda463fb09620dad46020b623
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68740866"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68987518"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>라이선스에 대한 제품 이름 및 서비스 계획 식별자
 

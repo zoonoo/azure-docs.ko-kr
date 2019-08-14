@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8163b2261601b701913e07d703f5db0ac6fa7c0
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 13c9003baaca11dce5a2192a8183674faddfa6dc
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688086"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967292"
 ---
 # <a name="assign-users-and-groups-to-an-application-in-azure-active-directory"></a>Azure Active Directory에서 애플리케이션에 사용자 및 그룹 할당
 이 문서에서는 Azure AD(Azure Active Directory)에서 애플리케이션에 사용자나 그룹을 할당하는 방법을 설명합니다. 사용자를 먼저 애플리케이션에 할당해야 관리자가 해당 사용자에게 다음 작업을 수행할 권한을 부여할 수 있습니다.
@@ -40,7 +40,7 @@ ms.locfileid: "68688086"
 1. 관리자 계정으로 Azure 포털에 로그인합니다.
 2. 주 메뉴에서 **모든 서비스** 항목을 클릭합니다.
 3. 애플리케이션에 대해 사용하는 디렉터리를 선택합니다.
-4. **엔터프라이즈 응용 프로그램** 탭을 클릭합니다.
+4. **엔터프라이즈 애플리케이션** 탭을 클릭합니다.
 5. 이 디렉터리와 연결된 애플리케이션 목록에서 애플리케이션을 선택합니다.
 6. **속성** 탭을 클릭합니다.
 7. **사용자 할당 필요** 토글을 [예]로 변경합니다.
@@ -82,7 +82,7 @@ ms.locfileid: "68688086"
 
 15. **할당** 단추를 클릭하여 선택한 사용자에게 애플리케이션을 할당합니다.
 
-잠시 후에 선택한 사용자는 솔루션 설명 섹션에 설명된 메서드를 사용하여 이러한 애플리케이션을 시작할 수 있습니다.
+잠시 후 선택한 사용자가 솔루션 설명 섹션에 설명 된 방법을 사용 하 여 이러한 응용 프로그램을 시작할 수 있습니다.
 
 ## <a name="assign-groups"></a>그룹 할당
 
@@ -120,7 +120,7 @@ ms.locfileid: "68688086"
 
 15. **할당** 단추를 클릭하여 선택한 그룹에 애플리케이션을 할당합니다.
 
-잠시 후 선택한 그룹 내 사용자는 솔루션 설명 섹션에 설명된 메서드를 사용하여 이러한 애플리케이션을 시작할 수 있습니다. 동적 그룹인 경우 이러한 할당된 그룹 내 사용자에 대해 표시되는 이러한 할당에 약간의 추가 처리 지연이 있을 수 있습니다.
+잠시 후 선택한 그룹 내의 사용자가 솔루션 설명 섹션에 설명 된 방법을 사용 하 여 이러한 응용 프로그램을 시작할 수 있습니다. 동적 그룹인 경우 이러한 할당된 그룹 내 사용자에 대해 표시되는 이러한 할당에 약간의 추가 처리 지연이 있을 수 있습니다.
 
 ## <a name="enable-self-service-application-access"></a>셀프 서비스 애플리케이션 액세스 사용
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: fccf7bb5abafe75017a8df91f1f88a98238c74b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d34da4e1b3d9c3131db1d9edd94f67a132dc564f
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64704201"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932360"
 ---
 # <a name="azure-analysis-services-samples"></a>Azure Analysis Services 샘플
 
@@ -44,5 +44,5 @@ Azure Portal에 Analysis Services 서버가 있는 경우 빠르고 쉽게 샘�
 
 ## <a name="next-steps"></a>다음 단계
 
-[Adventure Works 자습서](https://docs.microsoft.com/sql/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial)   
+[Adventure Works 자습서](https://docs.microsoft.com/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial)   
 [Azure 온-프레미스 데이터 게이트웨이](analysis-services-gateway.md)  

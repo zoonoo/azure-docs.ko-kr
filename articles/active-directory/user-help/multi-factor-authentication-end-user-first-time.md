@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2df72d03bae8987de4998276a0be0f3ce1ec0333
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 75bc067bfe8a98ef2337f368243b3221be1677d6
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65230059"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68949903"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>2단계 인증에 내 계정 설정
 2단계 인증은 다른 사람이 침입하기 어렵게 만들어 계정을 보호하는 추가 보안 단계입니다. 이 문서를 읽고 있다면 아마도 회사 또는 학교 관리자로부터 Multi-Factor Authentication에 대한 전자 메일을 받았을 것입니다. 또는 로그인을 시도했고 추가 보안 검증을 설정하라는 메시지를 받았을 수도 있습니다. 해당되는 경우 **자동 등록 프로세스를 완료해야만 로그인할 수 있습니다**.
@@ -34,7 +34,7 @@ ms.locfileid: "65230059"
 
 시작하려면 **지금 설정하세요**를 클릭합니다.
 
-로그인할 때 이와 같은 화면이 표시되지 않으면 [2단계 인증을 위한 설정 관리](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page)의 지침에 따라 확인 옵션을 관리할 수 있는 설정 페이지를 찾습니다.
+로그인할 때 이와 같은 화면이 표시되지 않으면 [2단계 인증을 위한 설정 관리](multi-factor-authentication-end-user-manage-settings.md#using-the-additional-security-verification-page)의 지침에 따라 확인 옵션을 관리할 수 있는 설정 페이지를 찾습니다.
 
 ## <a name="decide-how-you-want-to-verify-your-sign-ins"></a>로그인 확인 방법 결정
 
@@ -72,7 +72,7 @@ ms.locfileid: "65230059"
 9. 모바일 앱에 액세스할 수 없는 경우 휴대폰 번호를 입력하는 것이 좋습니다. 드롭다운 목록에서 국가/지역을 지정 하 고 국가/지역 이름 옆의 상자에 휴대폰 번호를 입력 합니다. **다음**을 선택합니다.
 10. 이 시점에, Outlook 2010 이전 버전과 같은 비브라우저 앱 또는 Apple 디바이스의 네이티브 메일 앱에 앱 암호를 설정하라는 메시지가 표시됩니다 일부 앱에서 2단계 인증을 지원하지 않기 때문입니다. 이러한 앱을 사용하지 않는 경우 **완료**를 클릭하고 나머지 단계를 건너뜁니다.
 11. 이러한 앱을 사용하는 경우 제공된 앱 암호를 복사하고 일반 암호 대신 이 암호를 애플리케이션에 붙여 넣습니다. 여러 앱에 대해 동일한 앱 암호를 사용할 수 있습니다. 자세한 정보는 [앱 암호에 대한 도움말]을 참조하세요.
-12. **Done**을 클릭합니다.
+12. **완료**를 클릭합니다.
 
 ### <a name="add-an-account-manually"></a>수동으로 계정 추가
 QR 판독기를 사용하는 대신 모바일 앱에 수동으로 계정을 추가하려는 경우 다음 단계를 따르세요.
@@ -92,7 +92,7 @@ QR 판독기를 사용하는 대신 모바일 앱에 수동으로 계정을 추�
 4. **Contact me(연락처)** 를 선택하여 전화 번호를 확인합니다. 선택한 모드에 따라 문자를 보내거나 전화를 합니다. 화면에 제공된 지침에 따른 다음 **확인**을 선택합니다.
 5. 이 시점에, Outlook 2010 이전 버전과 같은 비브라우저 앱 또는 Apple 디바이스의 네이티브 메일 앱에 앱 암호를 설정하라는 메시지가 표시됩니다 일부 앱에서 2단계 인증을 지원하지 않기 때문입니다. 이러한 앱을 사용하지 않는 경우 **완료**를 클릭하고 나머지 단계를 건너뜁니다.
 6. 이러한 앱을 사용하는 경우 제공된 앱 암호를 복사하고 일반 암호 대신 이 암호를 애플리케이션에 붙여 넣습니다. 여러 앱에 대해 동일한 앱 암호를 사용할 수 있습니다. 자세한 정보는 [앱 암호에 대한 도움말]을 참조하세요.
-7. **Done**을 클릭합니다.
+7. **완료**를 클릭합니다.
 
 ## <a name="use-your-office-phone-as-the-contact-method"></a>사무실 전화를 연락 방법으로 사용
 1. 드롭다운에서 **사무실 전화** 선택  
@@ -102,7 +102,7 @@ QR 판독기를 사용하는 대신 모바일 앱에 수동으로 계정을 추�
 3. **Contact me(연락처)** 를 선택하여 전화 번호를 확인하면 해당 번호로 전화를 받게 됩니다. 화면에 제공된 지침에 따른 다음 **확인**을 선택합니다.
 4. 이 시점에, Outlook 2010 이전 버전과 같은 비브라우저 앱 또는 Apple 디바이스의 네이티브 메일 앱에 앱 암호를 설정하라는 메시지가 표시됩니다 일부 앱에서 2단계 인증을 지원하지 않기 때문입니다. 이러한 앱을 사용하지 않는 경우 **완료**를 클릭하고 나머지 단계를 건너뜁니다.
 5. 이러한 앱을 사용하는 경우 제공된 앱 암호를 복사하고 일반 암호 대신 이 암호를 애플리케이션에 붙여 넣습니다. 여러 앱에 대해 동일한 앱 암호를 사용할 수 있습니다. 자세한 내용은 [앱 암호란 무엇인가요?](multi-factor-authentication-end-user-app-passwords.md)를 참조하세요.
-6. **Done**을 클릭합니다.
+6. **완료**를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 * 기본 옵션 변경 및 [2단계 인증을 위한 설정 관리](multi-factor-authentication-end-user-manage-settings.md)

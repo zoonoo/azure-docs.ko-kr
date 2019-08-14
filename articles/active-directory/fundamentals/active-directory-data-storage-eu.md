@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 33704c3392726ccd12ca0fd74f26465a54697e11
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 178f81cf42e5c57be4a0b69ada6560d46951a3a3
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68722140"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68942856"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Azure Active Directory에서 유럽 고객에 대한 ID 데이터 스토리지
 Id 데이터는 Office 365 및 Azure와 같은 Microsoft 온라인 서비스를 구독할 때 조직에서 제공 하는 주소에 따라 지리적 위치에 Azure AD에 저장 됩니다. Id 데이터가 저장 되는 위치에 대 한 자세한 내용은 Microsoft 보안 센터의 [어디에 있는 데이터가 어디에 있나요?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) 섹션을 사용할 수 있습니다.
@@ -43,6 +43,15 @@ Azure AD B2B는 미국 데이터 센터에서 초대 및 리디렉션 URL 정보
 ## <a name="microsoft-azure-active-directory-domain-services-azure-ad-ds"></a>Microsoft Azure Active Directory 도메인 서비스 (Azure AD DS)
 
 Azure AD DS는 고객이 선택한 Azure Virtual Network와 동일한 위치에 사용자 데이터를 저장합니다. 따라서 네트워크가 유럽 밖에 있는 경우 데이터가 유럽 외부에 복제되고 저장됩니다.
+
+## <a name="federation-in-microsoft-exchange-server-2013"></a>Microsoft Exchange Server 2013의 페더레이션
+    
+- 응용 프로그램 식별자 (AppID)-Azure Active Directory 인증 시스템에서 생성 하 여 Exchange 조직을 식별 하는 고유 번호입니다.
+- 응용 프로그램에 대해 승인 된 페더레이션된 도메인 목록
+- 응용 프로그램의 토큰 서명 공개 키 
+
+Microsoft Exchange server의 페더레이션에 대 한 자세한 내용은 [페더레이션: Exchange 2013 도움말](https://docs.microsoft.com/exchange/federation-exchange-2013-help) 문서입니다.
+
 
 ## <a name="other-considerations"></a>기타 고려 사항
 

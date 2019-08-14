@@ -8,16 +8,16 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 06/27/2019
 ms.author: danlep
-ms.openlocfilehash: 680f0268e85d41f8061dc96db1779ab6c22b944a
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 6237b8056262abe1f8cea28bebd6b3bad97e0f7e
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310554"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967577"
 ---
 # <a name="run-an-acr-task-on-a-defined-schedule"></a>정의 된 일정에 따라 ACR 작업 실행
 
-이 문서에서는 일정에 따라 [ACR 작업](container-registry-tasks-overview.md) 을 실행 하는 방법을 보여 줍니다. 하나 이상의 *타이머 트리거*를 설정 하 여 작업을 예약 합니다. 
+이 문서에서는 일정에 따라 [ACR 작업](container-registry-tasks-overview.md) 을 실행 하는 방법을 보여 줍니다. 하나 이상의 *타이머 트리거*를 설정 하 여 작업을 예약 합니다.
 
 작업 예약은 다음과 같은 시나리오에 유용 합니다.
 
@@ -29,18 +29,18 @@ Azure Cloud Shell 또는 Azure CLI의 로컬 설치를 사용 하 여이 문서�
 
 ## <a name="about-scheduling-a-task"></a>작업 예약 정보
 
-* **Cron 식을** 사용 하는 트리거-태스크에 대 한 타이머 트리거에서 *cron 식을*사용 합니다. 식은 작업을 트리거할 분, 시간, 일, 월 및 요일을 지정 하는 5 개의 필드가 포함 된 문자열입니다. 분당 최대 1 개의 주파수가 지원 됩니다. 
+* **Cron 식을** 사용 하는 트리거-태스크에 대 한 타이머 트리거에서 *cron 식을*사용 합니다. 식은 작업을 트리거할 분, 시간, 일, 월 및 요일을 지정 하는 5 개의 필드가 포함 된 문자열입니다. 분당 최대 1 개의 주파수가 지원 됩니다.
 
   예를 들어 식은 `"0 12 * * Mon-Fri"` 각 요일의 정오 UTC로 작업을 트리거합니다. 이 문서의 뒷부분에 있는 [세부 정보](#cron-expressions) 를 참조 하세요.
-* **여러 타이머 트리거** -일정의 차이가 있는 한 작업에 여러 타이머를 추가 하는 작업을 수행할 수 있습니다. 
+* **여러 타이머 트리거** -일정의 차이가 있는 한 작업에 여러 타이머를 추가 하는 작업을 수행할 수 있습니다.
     * 작업을 만들거나 나중에 추가할 때 여러 타이머 트리거를 지정 합니다.
     * 필요에 따라 더 쉽게 관리할 수 있도록 트리거의 이름을 지정 하거나 ACR 작업에서 기본 트리거 이름을 제공 합니다.
-    * 타이머 일정이 한 번에 겹치면 ACR 작업에서 각 타이머에 대해 예약 된 시간에 작업을 트리거합니다. 
+    * 타이머 일정이 한 번에 겹치면 ACR 작업에서 각 타이머에 대해 예약 된 시간에 작업을 트리거합니다.
 * **다른 작업 트리거** -타이머 트리거 작업에서 [소스 코드 커밋](container-registry-tutorial-build-task.md) 또는 [기본 이미지 업데이트](container-registry-tutorial-base-image-update.md)를 기반으로 트리거를 사용 하도록 설정할 수도 있습니다. 다른 ACR 작업과 마찬가지로 예약 된 작업을 [수동으로 트리거할][az-acr-task-run] 수도 있습니다.
 
 ## <a name="create-a-task-with-a-timer-trigger"></a>타이머 트리거를 사용 하 여 작업 만들기
 
-[Az acr task create][az-acr-task-create] 명령을 사용 하 여 작업을 만드는 경우 필요에 따라 타이머 트리거를 추가할 수 있습니다. 매개 변수 `--schedule` 를 추가 하 고 타이머에 대 한 cron 식을 전달 합니다. 
+[Az acr task create][az-acr-task-create] 명령을 사용 하 여 작업을 만드는 경우 필요에 따라 타이머 트리거를 추가할 수 있습니다. 매개 변수 `--schedule` 를 추가 하 고 타이머에 대 한 cron 식을 전달 합니다.
 
 간단한 예로, 다음 명령을 실행 하면 매일 Docker 허브에서 `hello-world` 21:00 UTC로 이미지를 실행 하는 것이 트리거됩니다. 소스 코드 컨텍스트 없이 태스크가 실행 됩니다.
 
@@ -86,8 +86,8 @@ This message shows that your installation appears to be working correctly.
 예약 된 시간 후에 [az acr task list-][az-acr-task-list-runs] run 명령을 실행 하 여 타이머가 예상 대로 작업을 트리거 했는지 확인 합니다.
 
 ```azurecli
-az acr task list runs --name mytask --registry myregistry --output table
-``` 
+az acr task list-runs --name mytask --registry myregistry --output table
+```
 
 타이머가 성공적으로 실행 되 면 출력은 다음과 유사 합니다.
 
@@ -98,7 +98,7 @@ RUN ID    TASK     PLATFORM    STATUS     TRIGGER    STARTED               DURAT
 cf2b      mytask   linux       Succeeded  Timer      2019-06-28T21:00:23Z  00:00:06
 cf2a      mytask   linux       Succeeded  Manual     2019-06-28T20:53:23Z  00:00:06
 ```
-            
+
 ## <a name="manage-timer-triggers"></a>타이머 트리거 관리
 
 [Az acr task timer][az-acr-task-timer] 명령을 사용 하 여 acr 태스크에 대 한 타이머 트리거를 관리 합니다.
@@ -150,7 +150,7 @@ az acr task timer list --name mytask --registry myregistry
 ]
 ```
 
-### <a name="remove-a-timer-trigger"></a>타이머 트리거 제거 
+### <a name="remove-a-timer-trigger"></a>타이머 트리거 제거
 
 [Az acr task timer remove][az-acr-task-timer-remove] 명령을 사용 하 여 작업에서 타이머 트리거를 제거 합니다. 다음 예에서는 *mytask*에서 *timer2* 트리거를 제거 합니다.
 
@@ -178,7 +178,7 @@ Cron 식에 사용 되는 표준 시간대는 UTC (협정 세계시)입니다. �
 |---------|---------|---------|
 |특정 값 |<nobr>"5 * * * *"</nobr>|매시간 매 시간 5 분 지난 5 분|
 |모든 값(`*`)|<nobr>"* 5 * * *"</nobr>|5:00 UTC부터 1 시간 마다 (60 시간)|
-|범위(`-` 연산자)|<nobr>"0 1-3 * * *"</nobr>|하루에 3 번, 1:00, 2:00 및 3:00 UTC|  
+|범위(`-` 연산자)|<nobr>"0 1-3 * * *"</nobr>|하루에 3 번, 1:00, 2:00 및 3:00 UTC|
 |값 집합(`,` 연산자)|<nobr>"20,30,40 * * * *"</nobr>|시간당 3 번, 20 분, 30 분, 40 분을 지난 시간|
 |간격 값(`/` 연산자)|<nobr>"*/10 * * * *"</nobr>|시간당 6 번, 10 분, 20 분 등
 

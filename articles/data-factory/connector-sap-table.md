@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 18b5b941716fd2c6664c37f9e7c1ab2a37d07a88
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: da7dbdee4a376d88219a7a621ed7e3867873a37c
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68720655"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967398"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 SAP 테이블에서 데이터 복사
 
@@ -40,7 +40,7 @@ SAP 테이블에서 지원 되는 모든 싱크 데이터 저장소로 데이터
 - SNC가 구성 된 경우 기본 인증 또는 SNC (Secure Network Communications)를 사용 하 여 데이터를 복사 합니다.
 - SAP 응용 프로그램 서버 또는 SAP 메시지 서버에 연결 하는 중입니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 이 SAP 테이블 커넥터를 사용 하려면 다음을 수행 해야 합니다.
 
@@ -201,7 +201,7 @@ SAP BW 연결 된 허브 연결 된 서비스에서 데이터를 복사 하려�
 
 작업 정의에 대 한 섹션 및 속성의 전체 목록은 [파이프라인](concepts-pipelines-activities.md)을 참조 하세요. 다음 섹션에서는 SAP 테이블 원본에서 지 원하는 속성의 목록을 제공 합니다.
 
-### <a name="sap-table-as-a-source"></a>SAP 테이블을 원본으로
+### <a name="sap-table-as-source"></a>SAP 테이블을 원본으로
 
 SAP 테이블에서 데이터를 복사 하기 위해 지원 되는 속성은 다음과 같습니다.
 
@@ -223,7 +223,7 @@ SAP 테이블에서 데이터를 복사 하기 위해 지원 되는 속성은 �
 <br/>
 >`maxPartitionsNumber` `partitionLowerBound` `partitionUpperBound` 예를 들어, 각 파티션에 있는 행의 수는 다음 수식으로 계산 됩니다. (총 행 수와)/. `partitionOption` `partitionOnInt`<br/>
 <br/>
->파티션을 병렬로 실행 하 여 복사 속도를 높이려면 `maxPartitionsNumber` `parallelCopies` 속성의 값을 여러 개 만드는 것이 좋습니다. 자세한 내용은 [병렬 복사](copy-activity-performance.md#parallel-copy)를 참조 하세요.
+>복사 속도를 높이기 위해 데이터 파티션을 병렬로 로드 하려면 복사 작업의 [`parallelCopies`](copy-activity-performance.md#parallel-copy) 설정에 따라 병렬 처리 수준이 제어 됩니다. 예를 들어를 4로 `parallelCopies` 설정 하는 경우 Data Factory는 지정 된 파티션 옵션 및 설정을 기반으로 4 개의 쿼리를 동시에 생성 하 고 실행 하며 각 쿼리는 SAP 테이블에서 데이터의 일부를 검색 합니다. 속성의 값을 `maxPartitionsNumber` 여러 개 만드는 것이 좋습니다. `parallelCopies`
 
 에서 `rfcTableOptions`다음과 같은 일반적인 SAP 쿼리 연산자를 사용 하 여 행을 필터링 할 수 있습니다.
 
@@ -269,7 +269,8 @@ SAP 테이블에서 데이터를 복사 하기 위해 지원 되는 속성은 �
             },
             "sink": {
                 "type": "<sink type>"
-            }
+            },
+            "parallelCopies": 4
         }
     }
 ]

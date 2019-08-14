@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.topic: landing-page
 ms.date: 01/15/2019
 ms.author: mbullwin
-ms.openlocfilehash: 5571f84de5c6dd4f5dffea5869c744b7e5c02e24
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 6f35bf82e1c3275772bc9f5ccdcaceed024bd7d9
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875295"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967781"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -76,7 +76,6 @@ ms.locfileid: "67875295"
                                                             <a href="./learn/quick-monitor-portal.md">ASP.NET</a><br>
                                                             <a href="./learn/dotnetcore-quick-start.md">ASP.NET Core</a><br>
                                                             <a href="./learn/nodejs-quick-start.md">Node.js</a><br>
-                                                            <a href="./learn/java-quick-start.md">Java</a><br>
                                                             <a href="./learn/mobile-center-quickstart.md">Mobile</a><br>
                                                             <a href="./app/website-monitoring.md">브라우저/클라이언트 쪽 모니터링</a>
                                                         </p>
@@ -210,7 +209,7 @@ ms.locfileid: "67875295"
                                                         <h3>개인 정보, 보안, 사용량 &amp; 비용</h3>
                                                         <p>
                                                             <a href="https://docs.microsoft.com/azure/log-analytics/log-analytics-personal-data-mgmt">개인 데이터 처리</a><br>
-                                                            <a href="./app/data-retention-privacy.md">데이터 수집, 보존 &amp; 저장</a><br>
+                                                            <a href="./app/data-retention-privacy.md">데이터 수집, 보존 &amp; 스토리지</a><br>
                                                             <a href="./app/resources-roles-access-control.md">역할 기반 액세스</a><br>
                                                             <a href="./app/ip-addresses.md">IP 주소 &amp; 방화벽 예외</a><br>
                                                             <a href="https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs">사용량 및 예상 비용</a>

@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: a007e3adb72148cfde1590e996f7df9082159445
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 873f45a6cce85669581037c4c398a52b1ebd6d68
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840505"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966850"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>웹 서비스로 배포된 Azure Machine Learning 모델 사용
 
@@ -80,6 +80,7 @@ Azure Machine Learning은 웹 서비스에 대 한 액세스를 제어 하는 �
 |---|---|---|
 |Key|기본적으로 사용 안 함| 기본적으로 사용|
 |토큰| 사용할 수 없음| 기본적으로 사용 안 함 |
+
 #### <a name="authentication-with-keys"></a>키를 사용 하 여 인증
 
 배포에 대해 인증을 사용하도록 설정하면 자동으로 인증 키를 만듭니다.
@@ -98,7 +99,6 @@ print(primary)
 
 > [!IMPORTANT]
 > 키를 다시 생성해야 하는 경우 [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py)를 사용합니다.
-
 
 #### <a name="authentication-with-tokens"></a>토큰을 사용한 인증
 
@@ -155,50 +155,17 @@ REST API는 요청 본문이 다음과 같은 구조의 JSON 문서가 될 것�
             ]
         ]
 }
-``` 
+```
 
 웹 서비스는 한 번의 요청으로 여러 데이터 세트를 수락할 수 있습니다. 응답 배열을 포함하는 JSON 문서를 반환합니다.
 
 ### <a name="binary-data"></a>이진 데이터
 
-모델이 이미지와 같이 이진 데이터를 허용하는 경우 원시 HTTP 요청을 수락하도록 배포에 사용되는 `score.py` 파일을 수정해야 합니다. 이진 데이터를 허용 `score.py` 하는의 예는 다음과 같습니다.
+서비스에서 이진 데이터에 대 한 지원을 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [이진 데이터](how-to-deploy-and-where.md#binary)를 참조 하세요.
 
-```python
-from azureml.contrib.services.aml_request import AMLRequest, rawhttp
-from azureml.contrib.services.aml_response import AMLResponse
+### <a name="cross-origin-resource-sharing-cors"></a>CORS (원본 간 리소스 공유)
 
-
-def init():
-    print("This is init()")
-
-
-@rawhttp
-def run(request):
-    print("This is run()")
-    print("Request: [{0}]".format(request))
-    if request.method == 'GET':
-        # For this example, just return the URL for GETs
-        respBody = str.encode(request.full_path)
-        return AMLResponse(respBody, 200)
-    elif request.method == 'POST':
-        reqBody = request.get_data(False)
-        # For a real world solution, you would load the data from reqBody
-        # and send to the model. Then return the response.
-
-        # For demonstration purposes, this example just returns the posted data as the response.
-        return AMLResponse(reqBody, 200)
-    else:
-        return AMLResponse("bad request", 500)
-```
-
-> [!IMPORTANT]
-> 서비스를 개선을 위해 노력하므로 `azureml.contrib` 네임스페이스는 자주 변경됩니다. 따라서 이 네임 스페이스의 모든 것을 미리 보기로 간주하므로 Microsoft에서 완벽히 지원하지 않아도 됩니다.
->
-> 로컬 개발 환경에서 이를 테스트해야 하는 경우 다음 명령을 사용하여 `contrib` 네임스페이스에 구성 요소를 설치할 수 있습니다.
-> 
-> ```shell
-> pip install azureml-contrib-services
-> ```
+서비스에서 CORS 지원을 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [크로스-원본 리소스 공유](how-to-deploy-and-where.md#cors)를 참조 하세요.
 
 ## <a name="call-the-service-c"></a>서비스 호출(C#)
 
@@ -528,3 +495,7 @@ Power BI에서는 Azure Machine Learning 웹 서비스를 사용 하 여 예측�
 Power BI에서 사용 하도록 지원 되는 웹 서비스를 생성 하려면 스키마가 Power BI에 필요한 형식을 지원 해야 합니다. [Power BI 지원 스키마를 만드는 방법에 대해 알아봅니다](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#example-script-with-dictionary-input-support-consumption-from-power-bi).
 
 웹 서비스가 배포 되 면 Power BI 데이터 흐름에서 사용할 수 있습니다. [Power BI에서 Azure Machine Learning 웹 서비스를 사용 하는 방법을 알아봅니다](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
+
+## <a name="next-steps"></a>다음 단계
+
+Python 및 심층 학습 모델에 대 한 실시간 점수 매기기를 위한 참조 아키텍처를 보려면 [Azure 아키텍처 센터](/azure/architecture/reference-architectures/ai/realtime-scoring-python)로 이동 하세요.
