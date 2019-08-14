@@ -83,7 +83,7 @@
             - name: 프라이빗 클라우드 삭제
               href: delete-private-cloud.md
         - name: CloudSimple 작업 모니터링
-          href: 'https://docs.azure.cloudsimple.com/activity/'
+          href: monitor-activity.md
         - name: 프라이빗 클라우드 네트워킹 설정
           items:
             - name: VLAN 및 서브넷 만들기 및 관리

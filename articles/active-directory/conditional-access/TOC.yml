@@ -19,10 +19,6 @@
 - name: 개념
   expanded: false
   items:
-    - name: 조건부 액세스 채택
-      href: howto-conditional-access-adoption-kit.md
-    - name: 기준 보호 정책
-      href: concept-baseline-protection.md
     - name: 조건
       href: conditions.md
     - name: 위치 조건
@@ -33,6 +29,8 @@
       href: service-dependencies.md
     - name: What if 도구
       href: what-if-tool.md
+    - name: 기준 보호 정책
+      href: concept-baseline-protection.md
 - name: 방법 가이드
   expanded: true
   items:
@@ -40,16 +38,6 @@
       href: plan-conditional-access.md
     - name: 모범 사례
       href: best-practices.md
-    - name: 기준 정책
-      items:
-        - name: 관리자에 대해 MFA 요구
-          href: howto-baseline-protect-administrators.md
-        - name: 최종 사용자 보호
-          href: howto-baseline-protect-end-users.md
-        - name: 레거시 인증 차단
-          href: howto-baseline-protect-legacy-auth.md
-        - name: 서비스 관리를 위해 MFA 요구
-          href: howto-baseline-protect-azure.md
     - name: 레거시 인증 차단
       href: block-legacy-authentication.md
     - name: MFA에 대한 조건부 액세스 등록
@@ -68,6 +56,18 @@
       href: howto-conditional-access-session-lifetime.md
     - name: 클래식 정책 마이그레이션
       href: policy-migration.md
+    - name: 기준 정책
+      items:
+        - name: 관리자에 대해 MFA 요구
+          href: howto-baseline-protect-administrators.md
+        - name: 최종 사용자 보호
+          href: howto-baseline-protect-end-users.md
+        - name: 레거시 인증 차단
+          href: howto-baseline-protect-legacy-auth.md
+        - name: 서비스 관리를 위해 MFA 요구
+          href: howto-baseline-protect-azure.md
+    - name: 조건부 액세스 채택
+      href: howto-conditional-access-adoption-kit.md
     - name: 문제 해결
       items:
         - name: What If 도구를 사용하여 문제 해결

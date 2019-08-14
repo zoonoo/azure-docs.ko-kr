@@ -16,9 +16,7 @@
           href: learn/dotnetcore-quick-start.md
         - name: Node.js 애플리케이션
           href: learn/nodejs-quick-start.md
-        - name: Java 응용 프로그램
-          href: learn/java-quick-start.md
-        - name: 모바일 응용 프로그램
+        - name: 모바일 애플리케이션
           href: learn/mobile-center-quickstart.md
         - name: 웹 응용 프로그램
           href: app/website-monitoring.md
@@ -93,7 +91,7 @@
           href: platform/data-security.md
         - name: 개인 로그 데이터 처리
           href: platform/personal-data-mgmt.md
-        - name: '애플리케이션 데이터 수집, 보존 및 저장'
+        - name: '애플리케이션 데이터 수집, 보존 및 스토리지'
           href: app/data-retention-privacy.md
     - name: 경고
       items:

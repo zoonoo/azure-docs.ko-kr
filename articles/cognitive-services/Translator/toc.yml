@@ -9,77 +9,17 @@
     - name: 빠른 시작
       items:
         - name: 텍스트 번역
-          items:
-            - name: 'C#, REST'
-              href: quickstart-csharp-translate.md
-            - name: 'Go, REST'
-              href: quickstart-go-translate.md
-            - name: 'Java, REST'
-              href: quickstart-java-translate.md
-            - name: 'Node.js, REST'
-              href: quickstart-nodejs-translate.md
-            - name: 'Python, REST'
-              href: quickstart-python-translate.md
+          href: quickstart-translate.md
         - name: 음역 텍스트
-          items:
-            - name: 'C#, REST'
-              href: quickstart-csharp-transliterate.md
-            - name: 'Go, REST'
-              href: quickstart-go-transliterate.md
-            - name: 'Java, REST'
-              href: quickstart-java-transliterate.md
-            - name: 'Node.js, REST'
-              href: quickstart-nodejs-transliterate.md
-            - name: 'Python, REST'
-              href: quickstart-python-transliterate.md
-        - name: 언어 식별
-          items:
-            - name: 'C#, REST'
-              href: quickstart-csharp-detect.md
-            - name: 'Go, REST'
-              href: quickstart-go-detect.md
-            - name: 'Java, REST'
-              href: quickstart-java-detect.md
-            - name: 'Node.js, REST'
-              href: quickstart-nodejs-detect.md
-            - name: 'Python, REST'
-              href: quickstart-python-detect.md
+          href: quickstart-transliterate.md
+        - name: 언어 검색
+          href: quickstart-detect.md
         - name: 단어 번역 조회
-          items:
-            - name: 'C#, REST'
-              href: quickstart-csharp-dictionary.md
-            - name: 'Go, REST'
-              href: quickstart-go-dictionary.md
-            - name: 'Java, REST'
-              href: quickstart-java-dictionary.md
-            - name: 'Node.js, REST'
-              href: quickstart-nodejs-dictionary.md
-            - name: 'Python, REST'
-              href: quickstart-python-dictionary.md
+          href: quickstart-dictionary.md
         - name: 지원되는 언어 가져오기
-          items:
-            - name: 'C#, REST'
-              href: quickstart-csharp-languages.md
-            - name: 'Go, REST'
-              href: quickstart-go-languages.md
-            - name: 'Java, REST'
-              href: quickstart-java-languages.md
-            - name: 'Node.js, REST'
-              href: quickstart-nodejs-languages.md
-            - name: 'Python, REST'
-              href: quickstart-python-languages.md
+          href: quickstart-languages.md
         - name: 문장 길이 결정
-          items:
-            - name: 'C#, REST'
-              href: quickstart-csharp-sentences.md
-            - name: 'Go, REST'
-              href: quickstart-go-sentences.md
-            - name: 'Java, REST'
-              href: quickstart-java-sentences.md
-            - name: 'Node.js, REST'
-              href: quickstart-nodejs-sentences.md
-            - name: 'Python, REST'
-              href: quickstart-python-sentences.md
+          href: quickstart-sentences.md
     - name: 자습서
       items:
         - name: 'Translator Text에 대한 WPF 앱 만들기 - C#'
