@@ -1,6 +1,6 @@
 ---
-title: Azure 주문형 미디어 인코더 개요 및 비교 | Microsoft 문서
-description: 이 항목에서는 Azure 주문형 미디어 인코더를 대략적으로 설명하고 비교한 데이터를 제공합니다.
+title: Azure 주문형 미디어 인코더 개요 | Microsoft Docs
+description: 이 항목에서는 Azure 주문형 미디어 인코더에 대 한 개요를 제공 합니다.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -12,21 +12,21 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 06/25/2019
 ms.author: juliako
-ms.openlocfilehash: a976b7c1f697c09082ca0f7978bb23bb4e467e5d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7e8c49815ed5e9294739a840dd0314d1c8c6c174
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61464184"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "69015823"
 ---
-# <a name="overview-and-comparison-of-azure-on-demand-media-encoders"></a>Azure 주문형 미디어 인코더 개요 및 비교 
+# <a name="overview-of-azure-on-demand-media-encoders"></a>Azure 주문형 미디어 인코더 개요 
 
 ## <a name="encoding-overview"></a>Encoding 개요
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 참고: [v2에서 v3 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 또한 [v2에서 v3로 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md) 을 참조 하세요.
 
 Azure Media Services는 클라우드에서 미디어의 인코딩에 대한 여러 옵션을 제공합니다.
 
@@ -35,7 +35,10 @@ Media Services로 시작하는 경우 코덱과 파일 형식 간의 차이점�
 
 Media Services는 적응 비트 전송률 MP4 또는 부드러운 스트리밍 인코딩 콘텐츠를 Media Services에서 지원되는 스트리밍 형식(MPEG DASH, HLS, 부드러운 스트리밍)으로 다시 패키지하지 않고도 이런 스트리밍 형식으로 배달할 수 있게 하는 동적 패키징을 제공합니다.
 
-AMS 계정이 만들어질 때 **기본** 스트리밍 엔드포인트는 **중지됨** 상태에서 계정에 추가됩니다. 콘텐츠 스트리밍을 시작하고 동적 패키징 및 동적 암호화를 활용하려면 콘텐츠를 스트리밍하려는 스트리밍 엔드포인트는 **실행** 상태에 있어야 합니다. 
+AMS 계정이 만들어질 때 **기본** 스트리밍 엔드포인트는 **중지됨** 상태에서 계정에 추가됩니다. 콘텐츠 스트리밍을 시작하고 동적 패키징 및 동적 암호화를 활용하려면 콘텐츠를 스트리밍하려는 스트리밍 엔드포인트는 **실행** 상태에 있어야 합니다.
+
+> [!Note]
+> 스트리밍 끝점에 대 한 요금은 끝점이 **실행 중** 상태일 때마다 발생 합니다.
 
 Media Services는 이 문서에서 설명하는 다음 주문형 인코더를 지원합니다.
 
@@ -70,10 +73,10 @@ Media Services는 이 문서에서 설명하는 다음 주문형 인코더를 �
 ### <a name="create-overlays"></a>오버레이 만들기
 자세한 내용은 [미디어 인코더 표준을 사용하여 오버레이를 만드는 방법](media-services-advanced-encoding-with-mes.md#overlay)을 참조하세요.
 
-### <a name="see-also"></a>참고 항목
+### <a name="see-also"></a>참고자료
 [Media Services 블로그](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)
 
-## <a name="media-encoder-premium-workflow"></a>미디어 인코더 Premium 워크플로
+## <a name="media-encoder-premium-workflow"></a>Media Encoder Premium Workflow
 ### <a name="overview"></a>개요
 [Azure Media Services의 프리미엄 Encoding 소개](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services/)
 
@@ -84,7 +87,6 @@ Media Services는 이 문서에서 설명하는 다음 주문형 인코더를 �
 
 ### <a name="known-issues"></a>알려진 문제
 입력된 비디오에 자막이 없는 경우, 출력 자산은 빈 TTML 파일을 포함합니다.
-
 
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 06/26/2019
 ms.author: aahi
-ms.openlocfilehash: ab3d1e71515df80b5bdba1edf8cd16ba3ed6b0a9
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 786302b882fbd59932af17ccc6a390fa41b30ac9
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68500130"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932967"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-nodejs"></a>빠른 시작: Bing Video Search REST API 및 Node.js를 사용하여 비디오 검색
 
@@ -75,7 +75,7 @@ Bing Video Search API를 처음 호출하고 JSON 응답에서 검색 결과를 
        });
        ```
 
-# <a name="create-and-send-the-search-request"></a>검색 요청 만들기 및 보내기
+## <a name="create-and-send-the-search-request"></a>검색 요청 만들기 및 보내기
 
 1. `bing_video_search()`라는 함수를 만듭니다. 호스트 이름 및 헤더를 포함한 요청에 대한 매개 변수를 추가합니다. 검색어를 인코딩하고 `?q=` 매개 변수를 통해 경로 매개 변수에 추가합니다. 그런 다음, `req.end()`를 통해 요청을 보냅니다.
 

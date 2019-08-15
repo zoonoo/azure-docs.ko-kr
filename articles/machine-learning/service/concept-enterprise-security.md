@@ -10,18 +10,18 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/07/2019
-ms.openlocfilehash: d1ad89943f6acfec6e42199ef399643be12e2b8b
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: ebecb69e57c620b2eb84568757c8e3e6f1cb1663
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856233"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946399"
 ---
 # <a name="enterprise-security-for-azure-machine-learning-service"></a>Azure Machine Learning 서비스에 대 한 엔터프라이즈 보안
 
 이 문서에서는 Azure Machine learning 서비스에서 사용할 수 있는 보안 기능에 대해 알아봅니다.
 
-클라우드 서비스를 사용 하는 경우이를 필요로 하는 사용자 에게만 액세스를 제한 하는 것이 좋습니다. 이렇게 하려면 먼저 서비스에서 사용 하는 인증 및 권한 부여 모델을 이해 해야 합니다. 네트워크 액세스를 제한 하거나 온-프레미스 네트워크의 리소스를 클라우드의 리소스와 안전 하 게 가입 시킬 수도 있습니다. 데이터 암호화 역시 휴지 상태이 고 데이터를 서비스 간에 이동 하는 동안 중요 합니다. 마지막으로 서비스를 모니터링 하 고 모든 작업의 감사 로그를 생성할 수 있어야 합니다.
+클라우드 서비스를 사용 하는 경우이를 필요로 하는 사용자 에게만 액세스를 제한 하는 것이 좋습니다. 이렇게 하려면 먼저 서비스에서 사용 하는 인증 및 권한 부여 모델을 이해 해야 합니다. 또한 네트워크 액세스를 제한 하거나 온-프레미스 네트워크의 리소스를 클라우드와 안전 하 게 연결할 수 있습니다. 데이터 암호화 역시 휴지 상태이 고 데이터를 서비스 간에 이동 하는 동안 중요 합니다. 마지막으로 서비스를 모니터링 하 고 모든 작업의 감사 로그를 생성할 수 있어야 합니다.
 
 ## <a name="authentication"></a>인증
 
@@ -29,7 +29,7 @@ Multi-factor authentication은 Azure Active Directory (Azure AD)가 동일한에
 
 * 클라이언트는 Azure AD에 로그인 하 고 Azure Resource Manager 토큰을 가져옵니다.  사용자 및 서비스 주체는 완전히 지원 됩니다.
 * 클라이언트는 모든 Azure Machine Learning 서비스 & Azure Resource Manager 토큰을 제공 합니다.
-* Azure Machine Learning 서비스는 사용자 계산에 대 한 Azure Machine Learning 토큰을 제공 합니다. 예를 들어 Machine Learning 컴퓨팅 합니다. 이 Azure Machine Learning 토큰은 실행이 완료 된 후 사용자 계산에서 Azure Machine Learning 서비스 (작업 영역으로 범위 제한)로 다시 호출 하는 데 사용 됩니다.
+* Azure Machine Learning 서비스는 사용자 계산에 대 한 Azure Machine Learning 토큰을 제공 합니다. 예를 들어 Machine Learning 컴퓨팅 합니다. 이 토큰은 실행이 완료 된 후 사용자 계산에서 Azure Machine Learning 서비스로 다시 호출 (작업 영역으로 범위 제한) 하는 데 사용 됩니다.
 
 ![Azure Machine Learning 서비스에서 인증이 작동 하는 방식을 보여 주는 스크린샷](./media/enterprise-readiness/authentication.png)
 
@@ -151,7 +151,7 @@ Azure Blob Storage에 저장 된 데이터에 대 한 고유 키를 가져오는
 
 #### <a name="cosmos-db"></a>Cosmos DB
 
-Azure Machine Learning 서비스는 Azure Machine Learning 서비스에서 관리 하는 Microsoft 구독에 상주 하는 Cosmos DB에 메트릭과 메타 데이터를 저장 합니다. Cosmos DB에 저장 된 모든 데이터는 Microsoft 관리 키를 사용 하 여 미사용으로 암호화 됩니다.
+Azure Machine Learning 서비스는 Azure Machine Learning 서비스에서 관리 하는 Microsoft 구독에 상주 하는 Cosmos DB에 메트릭과 메타 데이터를 저장 합니다. Cosmos DB에 저장 된 모든 데이터는 Microsoft에서 관리 하는 키를 사용 하 여 미사용으로 암호화 됩니다.
 
 #### <a name="azure-container-registry-acr"></a>ACR (Azure Container Registry)
 
@@ -159,8 +159,8 @@ Azure Machine Learning 서비스는 Azure Machine Learning 서비스에서 관�
 
 #### <a name="machine-learning-compute"></a>Machine Learning 컴퓨팅
 
-각 계산 노드에 대 한 OS 디스크는 Azure Machine Learning service Storage 계정에서 Microsoft 관리 키를 사용 하 여 암호화 Azure Storage에 저장 됩니다. 이 계산은 임시 이며 대기 중인 실행이 없는 경우 일반적으로 클러스터를 축소 합니다. 기본 가상 머신은 프로 비전 해제 되 고 OS 디스크가 삭제 됩니다. OS 디스크에 대 한 Azure disk encryption은 지원 되지 않습니다.
-또한 각 가상 컴퓨터에는 OS 작업을 위한 로컬 임시 디스크가 있습니다. 이 디스크를 선택적으로 사용 하 여 학습 데이터를 준비할 수도 있습니다. 이 디스크는 암호화 되지 않습니다.
+각 계산 노드에 대 한 OS 디스크는 Azure Machine Learning service Storage 계정에서 Microsoft 관리 키를 사용 하 여 암호화 Azure Storage에 저장 됩니다. 이 계산 대상은 임시 이며 대기 중인 실행이 없는 경우 일반적으로 클러스터는 축소 됩니다. 기본 가상 머신은 프로 비전 해제 되 고 OS 디스크가 삭제 됩니다. OS 디스크에 대 한 Azure disk encryption은 지원 되지 않습니다.
+또한 각 가상 컴퓨터에는 OS 작업을 위한 로컬 임시 디스크가 있습니다. 또한 필요에 따라 학습 데이터를 준비 하는 데 디스크를 사용할 수 있습니다. 디스크가 암호화 되지 않았습니다.
 Azure에서 미사용 암호화가 작동 하는 방식에 대 한 자세한 내용은 [Azure 미사용 데이터 암호화](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)를 참조 하세요.
 
 ### <a name="encryption-in-transit"></a>전송 중 암호화
@@ -199,7 +199,12 @@ Azure Monitor 메트릭은 Azure Machine Learning 서비스 작업 영역에 대
 
 ![작업 영역에서 활동 로그를 보여 주는 스크린샷](./media/enterprise-readiness/workspace-activity-log.png)
 
-점수 매기기 요청 세부 정보는 작업 영역을 만드는 동안 사용자의 구독에서 생성 되는 AppInsights에 저장 됩니다. 여기에는 HTTPMethod, UserAgent, Etype, RequestUrl, StatusCode, RequestId, Duration 등의 필드가 포함 됩니다.
+점수 매기기 요청 정보는 작업 영역을 만드는 동안 사용자의 구독에서 생성 되는 응용 프로그램 정보에 저장 됩니다. 기록 되는 정보에는 HTTPMethod, UserAgent,,, RequestUrl, StatusCode, RequestId, Duration 등의 필드가 포함 됩니다.
+
+> [!IMPORTANT]
+> Azure Machine Learning 작업 영역 내의 일부 작업은 작업 로그에 정보를 기록 하지 않습니다. 예를 들어 학습을 시작 하거나 모델을 등록 합니다.
+>
+> 이러한 작업 중 일부는 작업 영역의 작업 영역에 표시 되지만 작업을 시작한 사용자는 표시 되지 않습니다.
 
 ## <a name="data-flow-diagram"></a>데이터 흐름 다이어그램
 
@@ -220,7 +225,7 @@ Azure Monitor 메트릭은 Azure Machine Learning 서비스 작업 영역에 대
 ### <a name="save-source-code-training-scripts"></a>소스 코드 저장 (학습 스크립트)
 
 다음 다이어그램에서는 코드 스냅숏 워크플로를 보여 줍니다.
-Azure Machine Learning 서비스 작업 영역과 연결 된 디렉터리 (실험)는 소스 코드 (학습 스크립트)를 포함 합니다.  이러한 기능은 고객의 로컬 컴퓨터와 클라우드에 저장 됩니다 (고객의 구독에서 Azure Blob Storage). 이러한 코드 스냅숏은 기록 감사에 대 한 실행 또는 검사에 사용 됩니다.
+Azure Machine Learning 서비스 작업 영역과 연결 된 디렉터리 (실험)는 소스 코드 (학습 스크립트)를 포함 합니다.  이러한 스크립트는 고객의 로컬 컴퓨터와 클라우드에 저장 됩니다 (고객의 구독에서 Azure Blob Storage에 저장 됨). 코드 스냅숏은 기록 감사에 대 한 실행 또는 검사에 사용 됩니다.
 
 ![작업 영역 만들기 워크플로를 보여 주는 스크린샷](./media/enterprise-readiness/code-snapshot.png)
 
@@ -238,7 +243,7 @@ Azure Machine Learning 서비스 작업 영역과 연결 된 디렉터리 (실�
    1. 환경 변수 및 configs을 설정 합니다.
    1. 사용자 스크립트 (위에서 언급 한 코드 스냅숏)를 실행 합니다.
 
-* (Machine Learning 컴퓨팅 – 작업 영역 관리 id를 사용 하 여 액세스 됨) Machine Learning 컴퓨팅는 관리 되는 계산 이므로 microsoft에서 관리 하며, 그 결과 microsoft 구독에서 실행 됩니다.
+* (Machine Learning 컴퓨팅 – 작업 영역 관리 id를 사용 하 여 액세스 됨) Machine Learning 컴퓨팅은 (는) 관리 되는 계산 이므로 microsoft에서 관리 하며, 그 결과 microsoft 구독에서 실행 됩니다.
 
    1. 필요한 경우 원격 Docker 생성이 시작 됩니다.
    1. 사용자 Azure 파일 공유에 관리 코드를 기록 합니다.
@@ -259,7 +264,7 @@ Azure Machine Learning 서비스 작업 영역과 연결 된 디렉터리 (실�
 * 사용자가 모델, 점수 파일 및 기타 모델 종속성을 사용 하 여 이미지를 만듭니다.
 * Docker 이미지가 만들어지고 ACR에 저장 됩니다.
 * 웹 서비스는 위에서 만든 이미지를 사용 하 여 계산 대상 (ACI/AKS)에 배포 됩니다.
-* 점수 매기기 요청 세부 정보는 사용자의 구독에 있는 AppInsights에 저장 됩니다.
+* 점수 매기기 요청 세부 정보는 사용자의 구독에 있는 응용 프로그램 정보에 저장 됩니다.
 * Microsoft/Azure 구독에도 원격 분석이 푸시 됨
 
 ![작업 영역 만들기 워크플로를 보여 주는 스크린샷](./media/enterprise-readiness/inferencing.png)

@@ -6,18 +6,18 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: cb12d80756c88c8e24dbec41a31c15c2133615ec
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 709428d420c7d5f725d1b7df85e4860aec765b48
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882587"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950671"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mariadb"></a>Azure Database for MariaDB Query Performance Insight
 
 **적용 대상:** Azure Database for MariaDB 10.2
 
-> [!NOTE]
+> [!IMPORTANT]
 > Query Performance Insight 미리 보기 상태입니다.
 
 Query Performance Insight를 사용하면 가장 오랫동안 실행되는 쿼리, 쿼리가 시간의 경과에 따라 변경되는 방식 및 쿼리에 영향을 주는 대기 등을 빠르게 파악할 수 있습니다.
@@ -38,7 +38,7 @@ Query Performance Insight를 사용하면 가장 오랫동안 실행되는 쿼�
 
 Query Performance Insight에서 쿼리 텍스트를 보는 데 필요한 **소유자** 또는 **참가자** 권한입니다. **읽기 권한자**는 차트 및 표를 볼 수 있지만 쿼리 텍스트는 볼 수 없습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 Query Performance Insight가 작동하려면 [쿼리 저장소](concepts-query-store.md)에 데이터가 있어야 합니다.
 

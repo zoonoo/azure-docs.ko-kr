@@ -1,7 +1,7 @@
 ---
 title: ML 파이프라인 만들기, 실행 및 추적
 titleSuffix: Azure Machine Learning service
-description: Python용 Azure Machine Learning SDK를 사용하여 기계 학습 파이프라인을 만들고 실행합니다. 파이프라인을 사용하여 ML(기계 학습) 단계를 연결하는 워크플로를 만들고 관리합니다. 이러한 단계에는 데이터 준비, 모델 학습, 모델 배포 및 유추/점수 매기기가 포함 됩니다.
+description: Python용 Azure Machine Learning SDK를 사용하여 기계 학습 파이프라인을 만들고 실행합니다. 기계 학습 (ML) 단계를 함께 사용 하는 워크플로를 만들고 관리 하려면 ML 파이프라인을 사용 합니다. 이러한 단계에는 데이터 준비, 모델 학습, 모델 배포 및 유추/점수 매기기가 포함 됩니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,49 +9,48 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.author: sanpil
 author: sanpil
-ms.date: 05/02/2019
+ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 497c4d9708a7b67bf0b5433c455d90dd277297d7
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 1e68f60880e09dfeb46641f40eca12e1fc0560bc
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68873602"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950434"
 ---
-# <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Azure Machine Learning SDK를 사용하여 기계 학습 파이프라인 만들기 및 실행
+# <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Azure Machine Learning SDK를 사용 하 여 machine learning 파이프라인 만들기 및 실행
 
-이 문서에서는 [Azure Machine Learning SDK](https://aka.ms/aml-sdk)를 사용하여 [기계 학습 파이프라인](concept-ml-pipelines.md)을 만들고 게시, 실행 및 추적하는 방법을 알아봅니다.  **Ml 파이프라인** 을 사용 하 여 다양 한 ml 단계를 함께 연결 하는 워크플로를 만든 후 나중에 액세스 하기 위해 해당 파이프라인을 Azure Machine Learning 작업 영역에 게시 하거나 다른와 공유할 수 있습니다.  
+이 문서에서는 [Azure Machine Learning SDK](https://aka.ms/aml-sdk)를 사용하여 [기계 학습 파이프라인](concept-ml-pipelines.md)을 만들고 게시, 실행 및 추적하는 방법을 알아봅니다.  **Ml 파이프라인** 을 사용 하 여 다양 한 ml 단계를 함께 연결 하는 워크플로를 만든 후 나중에 액세스 하기 위해 해당 파이프라인을 Azure Machine Learning 작업 영역에 게시 하거나 다른와 공유할 수 있습니다.  ML 파이프라인은 다양 한 계산을 사용 하 여 일괄 처리를 다시 실행 하는 대신 단계를 다시 사용 하 고 ML 워크플로를 다른 사람들과 공유 하는 일괄 처리 점수 매기기 시나리오에 적합 합니다. 
 
-[Azure 파이프라인](https://docs.microsoft.com/en-us/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2Fmachine-learning%2Fservice%2Fcontext%2Fml-context&view=azure-devops&tabs=yaml) 을 사용 하 여 (CI/CD) ml 작업을 자동화할 수 있지만이 유형의 파이프라인은 작업 영역 내에 저장 되지 않습니다. [이러한 유형의 파이프라인을 비교](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use)합니다.
+ML 작업의 CI/CD 자동화를 위해 [Azure 파이프라인](https://docs.microsoft.com/en-us/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2Fmachine-learning%2Fservice%2Fcontext%2Fml-context&view=azure-devops&tabs=yaml) 이라는 다른 종류의 파이프라인을 사용할 수 있지만 해당 유형의 파이프라인은 작업 영역 내에 저장 되지 않습니다. [이러한 서로 다른 파이프라인을 비교](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use)합니다.
 
-데이터 준비 및 모델 학습과 같은 파이프라인의 각 단계(phase)에 하나 이상의 단계(step)를 포함할 수 있습니다.
+데이터 준비 및 모델 교육과 같은 ML 파이프라인의 각 단계에는 하나 이상의 단계가 포함 될 수 있습니다.
 
-만든 파이프라인은 Azure Machine Learning Service [작업 영역](how-to-manage-workspace.md)의 멤버에게 표시됩니다. 
+만든 ML 파이프라인은 Azure Machine Learning 서비스 [작업 영역의](how-to-manage-workspace.md)구성원에 게 표시 됩니다. 
 
-파이프라인은 원격 컴퓨팅 대상을 해당 파이프라인과 관련된 중간 및 최종 데이터의 계산 및 스토리지에 사용합니다. 파이프라인은 지원되는 [Azure Storage](https://docs.microsoft.com/azure/storage/) 위치에서 데이터를 읽고 쓸 수 있습니다.
+ML 파이프라인은 계산에 원격 계산 대상을 사용 하 고 해당 파이프라인과 연결 된 중간 및 최종 데이터의 저장소를 사용 합니다. 지원 되는 [Azure Storage](https://docs.microsoft.com/azure/storage/) 위치에서 데이터를 읽고 쓸 수 있습니다.
 
 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-* [개발 환경을 구성](how-to-configure-environment.md)하여 Azure Machine Learning SDK를 설치합니다.
+* 모든 파이프라인 리소스를 수용하는 [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)을 만듭니다.
 
-* 모든 파이프라인 리소스를 수용하는 [Azure Machine Learning 작업 영역](how-to-configure-environment.md#workspace)을 만듭니다. 
+* Azure Machine Learning SDK를 설치 하거나 SDK가 이미 설치 된 [노트북 VM](tutorial-1st-experiment-sdk-setup.md#azure) 을 사용 하도록 [개발 환경을 구성](how-to-configure-environment.md) 합니다.
 
-  ```python
-  from azureml.core import Workspace
-  
-  ws = Workspace.create(
-     name = '<workspace-name>',
-     subscription_id = '<subscription-id>',
-     resource_group = '<resource-group>',
-     location = '<workspace_region>',
-     exist_ok = True)
-  ```
+작업 영역을 연결 하 여 시작 합니다.
+
+```Python
+import azureml.core
+from azureml.core import Workspace, Datastore
+
+ws = Workspace.from_config()
+```
+
 
 ## <a name="set-up-machine-learning-resources"></a>기계 학습 리소스 설정
 
-파이프라인을 실행하는 데 필요한 리소스를 만듭니다.
+ML 파이프라인을 실행 하는 데 필요한 리소스를 만듭니다.
 
 * 파이프라인 단계에서 필요한 데이터에 액세스하는 데 사용되는 데이터 저장소를 설정합니다.
 
@@ -60,22 +59,24 @@ Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다.
 * 파이프라인 단계가 실행될 [컴퓨팅 대상](concept-azure-machine-learning-architecture.md#compute-targets)을 설정합니다.
 
 ### <a name="set-up-a-datastore"></a>데이터 저장소 설정
+
 데이터 저장소는 파이프라인에서 액세스할 데이터를 저장합니다. 각 작업 영역마다 기본 데이터 저장소가 있습니다. 추가 데이터 저장소를 등록할 수 있습니다. 
 
 작업 영역을 만들 때 [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) 및 [Azure Blob 저장소가](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) 작업 영역에 연결 됩니다. 기본 데이터 저장소는 Azure Blob storage에 연결 하기 위해 등록 됩니다. 자세한 내용은 [Azure Files, Azure Blob 또는 Azure Disk를 사용할지 여부 결정](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks)을 참조하세요. 
 
 ```python
-# Default datastore (Azure blob storage)
+# Default datastore 
 def_data_store = ws.get_default_datastore()
 
-# The above call is equivalent to this
-def_data_store = Datastore(ws, "workspaceblobstore")
+# Get the blob storage associated with the workspace
+def_blob_store = Datastore(ws, "workspaceblobstore")
 
 # Get file storage associated with the workspace
 def_file_store = Datastore(ws, "workspacefilestore")
+
 ```
 
-파이프라인에서 액세스할 수 있도록 데이터 파일 또는 디렉터리를 해당 데이터 저장소에 업로드합니다. 이 예제에서는 데이터 저장소의 Blob Storage 버전을 사용합니다.
+파이프라인에서 액세스할 수 있도록 데이터 파일 또는 디렉터리를 해당 데이터 저장소에 업로드합니다. 이 예제에서는 Blob 저장소를 데이터 저장소로 사용 합니다.
 
 ```python
 def_blob_store.upload_files(
@@ -337,19 +338,21 @@ pipeline_run1.wait_for_completion()
 
 자세한 내용은 [실험 클래스](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) 참조를 참조 하세요.
 
+
+
 ## <a name="github-tracking-and-integration"></a>GitHub 추적 및 통합
 
 원본 디렉터리가 로컬 Git 리포지토리 인 학습 실행을 시작 하면 리포지토리에 대 한 정보가 실행 기록에 저장 됩니다. 예를 들어 리포지토리의 현재 커밋 ID는 기록의 일부로 기록 됩니다.
 
 ## <a name="publish-a-pipeline"></a>파이프라인 게시
 
-파이프라인을 게시하여 나중에 다른 입력을 사용하여 실행할 수 있습니다. 이미 게시된 파이프라인의 REST 엔드포인트가 매개 변수를 허용하려면 파이프라인을 게시하기 전에 매개 변수화해야 합니다. 
+파이프라인을 게시하여 나중에 다른 입력을 사용하여 실행할 수 있습니다. 이미 게시된 파이프라인의 REST 엔드포인트가 매개 변수를 허용하려면 파이프라인을 게시하기 전에 매개 변수화해야 합니다.
 
 1. 파이프라인 매개 변수를 만들려면 기본값으로 [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py) 개체를 사용합니다.
 
    ```python
    pipeline_param = PipelineParameter(
-     name="pipeline_arg", 
+     name="pipeline_arg",
      default_value=10)
    ```
 
@@ -360,20 +363,21 @@ pipeline_run1.wait_for_completion()
      script_name="compare.py",
      arguments=["--comp_data1", comp_data1, "--comp_data2", comp_data2, "--output_data", out_data3, "--param1", pipeline_param],
      inputs=[ comp_data1, comp_data2],
-     outputs=[out_data3],    
-     target=compute_target, 
+     outputs=[out_data3],
+     target=compute_target,
      source_directory=project_folder)
    ```
 
 3. 이 파이프라인을 게시하면 호출 시 매개 변수를 허용합니다.
 
    ```python
-   published_pipeline1 = pipeline1.publish(
-       name="My_Published_Pipeline", 
-       description="My Published Pipeline Description")
+   published_pipeline1 = pipeline_run1.publish_pipeline(
+        name="My_Published_Pipeline",
+        description="My Published Pipeline Description",
+        version="1.0")
    ```
 
-## <a name="run-a-published-pipeline"></a>게시된 파이프라인 실행
+### <a name="run-a-published-pipeline"></a>게시된 파이프라인 실행
 
 게시된 모든 파이프라인에는 REST 엔드포인트가 있습니다. 이 엔드포인트는 비-Python 클라이언트 등의 외부 시스템에서 파이프라인 실행을 호출합니다. 이 엔드포인트는 일괄 처리 채점 및 다시 학습 시나리오에서 “관리되는 반복 가능성”을 지원합니다.
 
@@ -386,15 +390,28 @@ response = requests.post(published_pipeline1.endpoint,
                                "ParameterAssignments": {"pipeline_arg": 20}})
 ```
 
-## <a name="view-results"></a>결과 보기
+### <a name="view-results-of-a-published-pipeline"></a>게시 된 파이프라인의 결과 보기
 
-모든 파이프라인 및 해당 실행 정보 목록을 참조하세요.
+게시 된 모든 파이프라인 목록과 해당 실행 세부 정보를 확인 합니다.
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.  
 
 1. [작업 영역을 보고](how-to-manage-workspace.md#view) 파이프라인 목록을 찾습니다.
  ![기계 학습 파이프라인 목록](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
  
 1. 특정 파이프라인을 선택하여 실행 결과를 확인합니다.
+
+### <a name="disable-a-published-pipeline"></a>게시 된 파이프라인 사용 안 함
+
+게시 된 파이프라인 목록에서 파이프라인을 숨기려면 사용 하지 않도록 설정 합니다.
+
+```
+# Get the pipeline by using its ID in the Azure portal
+p = PublishedPipeline.get(ws, id="068f4885-7088-424b-8ce2-eeb9ba5381a6")
+p.disable()
+```
+
+에서 `p.enable()`다시 사용 하도록 설정할 수 있습니다.
+
 
 ## <a name="caching--reuse"></a>캐싱 & 재사용  
 
@@ -416,6 +433,7 @@ step = PythonScriptStep(name="Hello World",
  
 
 ## <a name="next-steps"></a>다음 단계
+
 - [GitHub의 Jupyter 노트북](https://aka.ms/aml-pipeline-readme)을 사용하여 기계 학습 파이프라인을 추가로 살펴봅니다.
 - [azureml-pipelines-core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) 패키지 및 [azureml-pipelines-steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py) 패키지에 대한 SDK 참조 도움말을 읽습니다.
 

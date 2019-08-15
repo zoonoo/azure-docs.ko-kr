@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0725988ff88baea2458f0a5e459440874e66088
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 579a553f151cf34215af3188cfddada6da42e691
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596430"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68943622"
 ---
 # <a name="tutorial-integrate-oracle-cloud-infrastructure-console-with-azure-active-directory"></a>자습서: Azure Active Directory와 Oracle Cloud Infrastructure Console 통합
 
@@ -101,11 +101,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
    ![인증서 다운로드 링크](common/metadataxml.png)
 
-1. Oracle Cloud Infrastructure Console 애플리케이션은 특정 형식의 SAML 어설션을 예상하며, 따라서 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.  **편집**  단추를 클릭하여 사용자 특성 대화 상자를 엽니다.
+1. Oracle Cloud Infrastructure Console 애플리케이션은 특정 형식의 SAML 어설션을 예상하며, 따라서 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다. **편집** 아이콘을 클릭하여 사용자 특성 대화 상자를 엽니다.
 
    ![이미지](common/edit-attribute.png)
 
-1. 위에서 언급한 특성 외에도, Oracle Cloud Infrastructure Console 애플리케이션에는 SAML 응답에 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다.  **그룹 클레임(미리 보기)**   대화 상자의  **사용자 특성 및 클레임**  섹션에서 다음 단계를 수행합니다.
+1. 위에서 언급한 특성 외에도, Oracle Cloud Infrastructure Console 애플리케이션에는 SAML 응답에 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. **그룹 클레임(미리 보기)** 대화 상자의 **사용자 특성 및 클레임** 섹션에서 다음 단계를 수행합니다.
 
    1. **이름 식별자 값** 옆에 있는 **펜**을 클릭합니다.
 

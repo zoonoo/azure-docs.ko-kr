@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 193e76f79dd69eb10254ea72bda933e5b09630f3
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: 14eac7240c183911fba763bf21c37077107cc275
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144598"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68944928"
 ---
 # <a name="tutorial-integrate-globalone-with-azure-active-directory"></a>자습서: Azure Active Directory와 GlobalOne 통합
 
@@ -80,13 +80,13 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **기본 SAML 구성** 섹션에서 애플리케이션은 미리 구성되어 있으며 필요한 URL은 이미 Azure로 미리 채워져 있습니다. 사용자는 **저장** 단추를 클릭하여 구성을 저장해야 합니다.
 
-1. GlobalOne 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며 이는 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.  **편집**  단추를 클릭하여 사용자 특성 대화 상자를 엽니다.
+1. GlobalOne 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며 이는 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다. **편집** 아이콘을 클릭하여 사용자 특성 대화 상자를 엽니다.
 
     ![이미지](common/edit-attribute.png)
 
 1. 위에서 언급한 특성 외에도, GlobalOne 애플리케이션에는 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 다음 단계를 수행하여 아래 표와 같은 SAML 토큰 특성을 추가합니다.
 
-    | 이름 | 원본 특성|
+    | Name | 원본 특성|
     | ---------------| --------------- |
     | FirstName | user.givenname |
     | LastName | user.surname |

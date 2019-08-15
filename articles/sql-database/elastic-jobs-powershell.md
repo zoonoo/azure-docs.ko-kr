@@ -11,16 +11,16 @@ author: johnpaulkee
 ms.author: joke
 ms.reviwer: sstein
 ms.date: 03/13/2019
-ms.openlocfilehash: 064d55b96c8817f4b7ccc5f0925eeecfaf310424
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0d64bd150a43666679253f8244d80411e25dfdcd
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68550521"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935052"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>PowerShell을 사용하여 탄력적 작업 에이전트 만들기
 
-[탄력적 작업](sql-database-job-automation-overview.md#elastic-database-jobs)을 사용하면 여러 데이터페이스에 병렬적으로 하나 이상의 T-SQL(Transact-SQL) 스크립트를 실행할 수 있습니다.
+[탄력적 작업](sql-database-job-automation-overview.md#elastic-database-jobs-preview)을 사용하면 여러 데이터페이스에 병렬적으로 하나 이상의 T-SQL(Transact-SQL) 스크립트를 실행할 수 있습니다.
 
 이 자습서에서는 여러 데이터베이스에서 쿼리를 실행하는 데 필요한 단계를 알아봅니다.
 

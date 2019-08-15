@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 3bb4647b39a276e2dd54260c17eca1d700d5ba16
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: e2e730c623b6ee802938b930c4874f6c4920cc64
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67874980"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934413"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-net"></a>자습서: .NET에서 Windows 가상 머신에 Azure Key Vault 사용
 
@@ -105,9 +105,9 @@ az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --va
 ### <a name="create-a-virtual-machine"></a>가상 머신 만들기
 다음 방법 중 하나를 사용하여 가상 머신을 만듭니다.
 
-* [Azure CLI](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-cli)
-* [PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell)
-* [Azure 포털](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
+* [Azure CLI](../virtual-machines/windows/quick-create-cli.md)
+* [PowerShell](../virtual-machines/windows/quick-create-powershell.md)
+* [Azure 포털](../virtual-machines/windows/quick-create-portal.md)
 
 ### <a name="assign-an-identity-to-the-vm"></a>VM에 ID 할당
 [az vm identity assign](/cli/azure/vm/identity?view=azure-cli-latest#az-vm-identity-assign) 명령으로 가상 머신에 대한 시스템 할당 ID를 만듭니다.
@@ -134,7 +134,7 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssigned
 
 ### <a name="sign-in-to-the-virtual-machine"></a>가상 머신에 로그인
 
-가상 머신에 로그인하려면 [Windows를 실행하는 Azure 가상 머신에 연결 및 로그인](https://docs.microsoft.com/azure/virtual-machines/windows/connect-logon)의 지침을 따르세요.
+가상 머신에 로그인하려면 [Windows를 실행하는 Azure 가상 머신에 연결 및 로그인](../virtual-machines/windows/connect-logon.md)의 지침을 따르세요.
 
 ## <a name="set-up-the-console-app"></a>콘솔 앱 설정
 

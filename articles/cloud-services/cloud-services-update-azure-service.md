@@ -7,12 +7,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: gwallace
-ms.openlocfilehash: 10d919b21e05195e8a7b6b351a742a4f9a57ee2b
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: ae9d124391a1b17187ca98964874f681352498da
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360713"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945342"
 ---
 # <a name="how-to-update-a-cloud-service"></a>클라우드 서비스를 업데이트하는 방법
 
@@ -21,7 +21,7 @@ ms.locfileid: "68360713"
 ## <a name="update-an-azure-service"></a>Azure 서비스 업데이트
 Azure는 업그레이드 도메인(UD)이라는 논리적 그룹으로 역할 인스턴스를 구성합니다. 업그레이드 도메인(UD)은 그룹으로 업데이트되는 역할 인스턴스의 논리적 집합입니다.  Azure는 클라우드 서비스를 한 번에 하나의 UD로 업데이트하며 이는 다른 UD의 인스턴스를 계속해서 트래픽을 제공하도록 합니다.
 
-업그레이드 도메인의 기본값은 5입니다. 서비스 정의 파일(.csdef)의 upgradeDomainCount 특성을 포함하여 다른 수의 업그레이드 도메인을 지정할 수 있습니다. upgradeDomainCount 특성에 대한 자세한 내용은 [WebRole 스키마](/previous-versions/azure/reference/gg557553(v=azure.100)) 또는 [WorkerRole 스키마](/previous-versions/azure/reference/gg557552(v=azure.100))를 참조하세요.
+업그레이드 도메인의 기본값은 5입니다. 서비스 정의 파일(.csdef)의 upgradeDomainCount 특성을 포함하여 다른 수의 업그레이드 도메인을 지정할 수 있습니다. UpgradeDomainCount 특성에 대 한 자세한 내용은 [Azure Cloud Services 정의 스키마 (.Csdef 파일)](https://docs.microsoft.com/azure/cloud-services/schema-csdef-file)를 참조 하세요.
 
 서비스에서 하나 이상의 역할에 대한 전체 업데이트를 수행하면 Azure는 자신이 속한 업그레이드 도메인에 따라 역할 인스턴스의 집합을 업데이트합니다. Azure는 주어진 업그레이드 도메인 - 중지, 업데이트, 다시 온라인으로 전환 - 으로 모든 인스턴스를 업데이트하고 다음 도메인으로 이동합니다. 현재 업그레이드 도메인에서 실행 중인 인스턴스만 중지하여 Azure는 실행 중인 서비스에 가능한 한 최소한의 영향으로 업데이트를 발생하도록 합니다. 자세한 내용은 이 문서의 뒷부분에 나오는 [업데이트 진행 방법](#howanupgradeproceeds) 을 참조하세요.
 
@@ -50,7 +50,7 @@ Azure는 업그레이드 도메인(UD)이라는 논리적 그룹으로 역할 �
 | 운영 체제 버전 |예 |예 |예 |
 | .NET 신뢰 수준 |예 |예 |예 |
 | 가상 머신 크기<sup>1</sup> |예<sup>2</sup> |예 |예 |
-| 로컬 저장소 설정 |증가만<sup>2</sup> |예 |예 |
+| 로컬 스토리지 설정 |증가만<sup>2</sup> |예 |예 |
 | 서비스에서 역할 추가 또는 제거 |예 |예 |예 |
 | 특정 역할의 인스턴스 수 |예 |예 |예 |
 | 서비스에 대한 엔드포인트의 개수 또는 유형 |예<sup>2</sup> |아니요 |예 |

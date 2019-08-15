@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: 630d8f64b39888533aff4847dec64fa50fc43d7e
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: a5bfc664c412c93bbf3e522b01528e8247be3291
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855600"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69016065"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 사용에 대한 모범 사례
 
@@ -49,7 +49,7 @@ Data Lake Storage Gen2 또는 클라우드 서비스를 사용하여 시스템�
 
 ### <a name="high-availability-and-disaster-recovery"></a>고가용성 및 재해 복구
 
-HA(고가용성)와 DR(재해 복구)은 서로 결합될 수 있는 경우도 있지만, 특히 데이터에 관해서는 다소 다른 전략을 사용합니다. Data Lake Storage Gen2는 지역화된 하드웨어 오류를 방지하기 위해 이미 내부적으로 3배의 복제를 처리하고 있습니다. 또한 ZRS와 같은 다른 복제 옵션은 HA를 향상시키는 반면, GRS 및 RA-GRS는 DR을 향상시킵니다. HA에 대한 계획을 만들 때 서비스 중단이 발생하는 경우 작업은 로컬 또는 새 지역에서 별도로 복제된 인스턴스로 전환하여 가능한 한 빨리 최신 데이터에 액세스해야 합니다.
+HA(고가용성)와 DR(재해 복구)은 서로 결합될 수 있는 경우도 있지만, 특히 데이터에 관해서는 다소 다른 전략을 사용합니다. Data Lake Storage Gen2는 지역화된 하드웨어 오류를 방지하기 위해 이미 내부적으로 3배의 복제를 처리하고 있습니다. 또한 ZRS 또는 GZRS (미리 보기)와 같은 다른 복제 옵션은 HA를 개선 하 고, GRS & RA-GRS은 DR을 개선 합니다. HA에 대한 계획을 만들 때 서비스 중단이 발생하는 경우 작업은 로컬 또는 새 지역에서 별도로 복제된 인스턴스로 전환하여 가능한 한 빨리 최신 데이터에 액세스해야 합니다.
 
 DR 전략에서는 지역에서 치명적인 장애가 드물게 발생하는 경우에 대비하기 위해 GRS 또는 RA-GRS 복제도 사용하여 데이터를 다른 지역으로 복제해야 합니다. 또한 데이터 손상과 같은 위기 상황에 대한 요구 사항도 고려해야 하며, 이 경우 대체할 스냅샷을 정기적으로 만들어야 할 수 있습니다. 데이터의 중요도와 크기 및 위험 허용 오차에 따라 1시간, 6시간 및 24시간 기간의 델타 스냅샷을 롤링하는 것이 좋습니다.
 

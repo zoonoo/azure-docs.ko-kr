@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 14bf7dc62bb97cb14232660db6d0649e3d77d4fa
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 2c43a3c046243c4802fb433f3b755cee158002b6
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68662932"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950571"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Azure Security Center에서 보안 솔루션 통합
 이 문서를 통해 이미 Azure Security Center에 연결된 보안 솔루션을 관리하고 새로 추가할 수 있습니다.
@@ -56,7 +56,7 @@ Security Center에서 배포된 Azure 보안 솔루션은 자동으로 연결됩
 
    ![Security Center 개요](./media/security-center-partner-integration/overview.png)
 
-**보안 솔루션**에서 통합된 Azure 보안 솔루션의 상태에 대한 정보를 보고 기본 관리 작업을 수행할 수 있습니다. 또한 CEF(공통 이벤트 형식)에서 Azure Active Directory Identity Protection 알림 및 방화벽 로그와 같은 다른 형식의 보안 데이터 원본을 연결할 수 있습니다.
+**보안 솔루션**에서 통합된 Azure 보안 솔루션의 상태에 대한 정보를 보고 기본 관리 작업을 수행할 수 있습니다.
 
 ### <a name="connected-solutions"></a>연결된 솔루션
 
@@ -97,8 +97,6 @@ Security Center는 Azure에서 실행되는 보안 솔루션을 자동으로 검
 솔루션 아래의 **연결**을 선택하여 Security Center와 통합하고 보안 경고에서 알림을 받습니다.
 
 ![검색된 솔루션](./media/security-center-partner-integration/security-center-partner-integration-fig5.png)
-
-Security Center는 CEF(일반 이벤트 형식) 로그를 전달할 수 있는 구독에 배포되는 솔루션도 검색합니다. CEF 로그를 사용하여 Security Center에 [보안 솔루션을 연결](quick-security-solutions.md)하는 방법을 알아봅니다.
 
 ### <a name="add-data-sources"></a>데이터 원본 추가
 

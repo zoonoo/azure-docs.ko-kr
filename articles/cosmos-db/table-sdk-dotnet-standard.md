@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/18/2019
-ms.openlocfilehash: b3ebd8b6f65ec86d338932579f5d4ccec6a90be3
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: e92c2e58122556f90b25f070fff9e6e6616b0257
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68704743"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976841"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>Azure Cosmos DB 테이블 .NET Standard API: 다운로드 및 릴리스 정보
 > [!div class="op_single_selector"]
@@ -31,8 +31,13 @@ ms.locfileid: "68704743"
 |**빠른 시작**|[빠른 시작](create-table-dotnet.md)|
 |**자습서**|[자습서](tutorial-develop-table-dotnet.md)|
 |**현재 지원되는 프레임워크**|[Microsoft .NET Standard 2.0](https://www.nuget.org/packages/NETStandard.Library)|
+|**문제 보고**|[문제 보고](https://github.com/Azure/azure-cosmos-table-dotnet/issues)|
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="a-name104104"></a><a name="1.0.4"/>1.0.4
+* 버그 수정
+* RestExecutorConfiguration에 대 한 HttpClientTimeout 옵션을 제공 하세요.
 
 ### <a name="a-name104-preview104-preview"></a><a name="1.0.4-preview"/>1.0.4-미리 보기
 * 버그 수정
@@ -71,6 +76,7 @@ Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK �
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [1.0.4](#1.0.4) |2019, |--- |
 | [1.0.4-미리 보기](#1.0.4-preview) |2019 년 7 월 26 일 |--- |
 | 1.0.2-미리 보기 |5 월 2 일, 2019 |--- |
 | [1.0.1](#1.0.1) |2019 년 4 월 19 일 |--- |
@@ -86,4 +92,4 @@ Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK �
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>참고자료
-Azure Cosmos DB Table API에 대한 자세한 내용은 [Azure Cosmos DB Table API 소개](table-introduction.md)를 참조하세요. 
+Azure Cosmos DB Table API에 대한 자세한 내용은 [Azure Cosmos DB Table API 소개](table-introduction.md)를 참조하세요.

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2019
 ms.author: jmprieur
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dae3f9f2f4a9f6966d3453123773887c244cf4e2
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 519a86bed6a3a09b476bce6435ae666d655dbe03
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68334061"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68852256"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>유니버설 Windows 플랫폼 애플리케이션(XAML)에서 Microsoft Graph API 호출
 
@@ -50,12 +50,12 @@ ms.locfileid: "68334061"
 
 ## <a name="set-up-your-project"></a>프로젝트 설정
 
-이 섹션에서는 *Microsoft에 로그인*과 Windows Desktop .NET 응용 프로그램(XAML)을 통합하는 단계별 지침을 제공합니다. 그런 다음, Microsoft Graph API와 같은 토큰을 필요로 하는 웹 API를 쿼리할 수 있습니다.
+이 섹션에서는 *Microsoft에 로그인*과 Windows Desktop .NET 애플리케이션(XAML)을 통합하는 단계별 지침을 제공합니다. 그런 다음, Microsoft Graph API와 같은 토큰을 필요로 하는 웹 API를 쿼리할 수 있습니다.
 
 이 가이드는 Graph API, 로그 아웃 단추 및 호출의 결과를 표시하는 텍스트 상자를 쿼리하는 단추를 표시하는 애플리케이션을 만듭니다.
 
 > [!NOTE]
-> 이 샘플의 Visual Studio 프로젝트를 다운로드하고 싶으세요? [프로젝트를 다운로드](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)하고, 실행하기 전에 코드 샘플을 구성하려면 [응용 프로그램 등록](#register-your-application "응용 프로그램 등록 단계")의 단계로 건너뜁니다.
+> 이 샘플의 Visual Studio 프로젝트를 다운로드하고 싶으세요? [프로젝트를 다운로드](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)하고, 실행하기 전에 코드 샘플을 구성하려면 [애플리케이션 등록](#register-your-application "애플리케이션 등록 단계")의 단계로 건너뜁니다.
 
 ### <a name="create-your-application"></a>애플리케이션 만들기
 
@@ -215,11 +215,11 @@ ms.locfileid: "68334061"
 
 결국 `AcquireTokenSilent` 메서드가 실패합니다. 사용자가 로그아웃했거나 다른 디바이스에서 해당 암호를 변경하면 실패할 수 있습니다. MSAL이 대화형 작업을 요구해 이 문제를 해결할 수 있다고 감지하면 `MsalUiRequiredException` 예외를 발생합니다. 애플리케이션에서는 이러한 예외를 다음 두 가지 방법으로 처리할 수 있습니다.
 
-* 즉시 `AcquireTokenInteractive`에 대해 호출할 수 있습니다. 이 호출로 인해 사용자에게 로그인하라는 메시지가 표시됩니다. 일반적으로 이 패턴은 사용자가 사용할 수 있는 오프라인 콘텐츠가 없는 온라인 응용 프로그램에서 사용됩니다. 이 설정 안내에서 생성하는 샘플은 패턴을 따릅니다. 샘플을 처음으로 실행할 때 작업에 표시됩니다.
+* 즉시 `AcquireTokenInteractive`에 대해 호출할 수 있습니다. 이 호출로 인해 사용자에게 로그인하라는 메시지가 표시됩니다. 일반적으로 이 패턴은 사용자가 사용할 수 있는 오프라인 콘텐츠가 없는 온라인 애플리케이션에서 사용됩니다. 이 설정 안내에서 생성하는 샘플은 패턴을 따릅니다. 샘플을 처음으로 실행할 때 작업에 표시됩니다.
   * 이 애플리케이션을 사용한 사용자가 없기 때문에 `accounts.FirstOrDefault()`에는 null 값이 포함되며 `MsalUiRequiredException` 예외가 throw됩니다.
   * 그런 다음, 샘플의 코드는 `AcquireTokenInteractive`를 호출하여 예외를 처리합니다. 이 호출로 인해 사용자에게 로그인하라는 메시지가 표시됩니다.
 
-* 또는 대신 대화형 로그인이 필요한 사용자에게 시각적 표시를 제공합니다. 그런 다음, 로그인할 적절한 시기를 선택할 수 있습니다. 또는 애플리케이션이 나중에 `AcquireTokenSilent`를 다시 시도할 수 있습니다. 사용자가 중단 없이 다른 응용 프로그램 기능을 사용할 수 있는 경우에 이 패턴이 종종 사용됩니다. 예제로 응용 프로그램에서 오프라인 콘텐츠를 사용할 수 있는 경우입니다. 이 경우에 사용자는 보호된 리소스에 액세스하거나, 오래된 정보를 새로 고치기 위해 로그인하는 시점을 결정할 수 있습니다. 또는 네트워크가 일시적으로 사용할 수 없게 된 후에 복원된 경우 응용 프로그램이 `AcquireTokenSilent`를 다시 시도하도록 결정할 수 있습니다.
+* 또는 대신 대화형 로그인이 필요한 사용자에게 시각적 표시를 제공합니다. 그런 다음, 로그인할 적절한 시기를 선택할 수 있습니다. 또는 애플리케이션이 나중에 `AcquireTokenSilent`를 다시 시도할 수 있습니다. 사용자가 중단 없이 다른 애플리케이션 기능을 사용할 수 있는 경우에 이 패턴이 종종 사용됩니다. 예제로 애플리케이션에서 오프라인 콘텐츠를 사용할 수 있는 경우입니다. 이 경우에 사용자는 보호된 리소스에 액세스하거나, 오래된 정보를 새로 고치기 위해 로그인하는 시점을 결정할 수 있습니다. 또는 네트워크가 일시적으로 사용할 수 없게 된 후에 복원된 경우 애플리케이션이 `AcquireTokenSilent`를 다시 시도하도록 결정할 수 있습니다.
 
 ## <a name="call-microsoft-graph-api-by-using-the-token-you-just-obtained"></a>방금 가져온 토큰을 사용하여 Microsoft Graph API를 호출합니다.
 
@@ -255,7 +255,7 @@ ms.locfileid: "68334061"
 
 ### <a name="more-information-on-making-a-rest-call-against-a-protected-api"></a>보호되는 API에 대한 REST 호출에 관한 추가 정보
 
-이 샘플 응용 프로그램에서 `GetHttpContentWithToken` 메서드는 토큰이 필요한 보호되는 리소스에 대한 HTTP `GET` 요청을 실행하는 데 사용됩니다. 그런 다음, 메서드는 호출자에게 콘텐츠를 반환합니다. 이 메서드는 **HTTP 인증** 헤더에 획득된 토큰을 추가합니다. 이 샘플에서 리소스는 사용자 프로필 정보를 표시하는 Microsoft Graph API **me** 엔드포인트입니다.
+이 샘플 애플리케이션에서 `GetHttpContentWithToken` 메서드는 토큰이 필요한 보호되는 리소스에 대한 HTTP `GET` 요청을 실행하는 데 사용됩니다. 그런 다음, 메서드는 호출자에게 콘텐츠를 반환합니다. 이 메서드는 **HTTP 인증** 헤더에 획득된 토큰을 추가합니다. 이 샘플에서 리소스는 사용자 프로필 정보를 표시하는 Microsoft Graph API **me** 엔드포인트입니다.
 <!--end-collapse-->
 
 ## <a name="add-a-method-to-sign-out-the-user"></a>사용자를 로그아웃하는 메서드 추가
@@ -295,7 +295,7 @@ ms.locfileid: "68334061"
 ### <a name="more-information-on-sign-out"></a>로그아웃에 대한 자세한 정보
 
 `SignOutButton_Click` 메서드는 MSAL 사용자 캐시에서 사용자를 제거합니다. 이 메서드는 현재 사용자를 잊도록 MSAL에 효과적으로 지시합니다. 그런 다음, 대화형이 되도록 하는 경우에만 토큰을 획득하는 후속 요청이 성공합니다.
-이 샘플의 애플리케이션은 단일 사용자를 지원합니다. 그러나 MSAL은 둘 이상의 계정이 동시에 로그인할 수 있는 시나리오를 지원합니다. 사용자 한 명이 여러 계정을 가질 수 있는 이메일 응용 프로그램을 예로 듭니다.
+이 샘플의 애플리케이션은 단일 사용자를 지원합니다. 그러나 MSAL은 둘 이상의 계정이 동시에 로그인할 수 있는 시나리오를 지원합니다. 사용자 한 명이 여러 계정을 가질 수 있는 이메일 애플리케이션을 예로 듭니다.
 
 ## <a name="display-basic-token-information"></a>기본 토큰 정보 표시
 
@@ -322,7 +322,7 @@ ms.locfileid: "68334061"
 
 ## <a name="register-your-application"></a>애플리케이션 등록
 
-이제 Microsoft 애플리케이션 등록 포털에서 애플리케이션을 등록해야 합니다.
+이제 Microsoft 애플리케이션 등록 포털에서 등용 프로그램을 등록해야 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
 1. 계정이 둘 이상의 Azure AD 테넌트에 있는 경우 페이지 상단 메뉴의 오른쪽 위 모서리에서 `Directory + Subscription`을 선택하고, 포털 세션을 원하는 Azure AD 테넌트로 전환합니다.
@@ -356,11 +356,11 @@ ms.locfileid: "68334061"
     - 공유 사용자 인증서
 
 > [!IMPORTANT]
-> [Windows 통합 인증](https://aka.ms/msal-net-iwa)은 이 샘플에 대해 기본적으로 구성되지 않습니다. *엔터프라이즈 인증* 또는 *공유 사용자 인증서* 기능을 요청하는 응용 프로그램은 Windows 스토어를 통해 더 높은 수준의 확인이 필요합니다. 또한 일부 개발자가 더 높은 수준의 확인을 수행하려고 합니다. 페더레이션된 Azure AD 도메인과 함께 사용할 Windows 통합 인증이 필요한 경우에만 이 설정을 사용하세요.
+> [Windows 통합 인증](https://aka.ms/msal-net-iwa)은 이 샘플에 대해 기본적으로 구성되지 않습니다. *엔터프라이즈 인증* 또는 *공유 사용자 인증서* 기능을 요청하는 애플리케이션은 Windows 스토어를 통해 더 높은 수준의 확인이 필요합니다. 또한 일부 개발자가 더 높은 수준의 확인을 수행하려고 합니다. 페더레이션된 Azure AD 도메인과 함께 사용할 Windows 통합 인증이 필요한 경우에만 이 설정을 사용하세요.
 
 ## <a name="test-your-code"></a>코드 테스트
 
-응용 프로그램을 테스트하려면 F5 키를 선택하여 Visual Studio에서 프로젝트를 실행합니다. 아래와 같이 주 창이 표시됩니다.
+애플리케이션을 테스트하려면 F5 키를 선택하여 Visual Studio에서 프로젝트를 실행합니다. 아래와 같이 주 창이 표시됩니다.
 
 ![애플리케이션의 사용자 인터페이스](./media/tutorial-v2-windows-uwp/testapp-ui.png)
 
@@ -370,7 +370,7 @@ ms.locfileid: "68334061"
 
 ### <a name="consent"></a>동의
 
-응용 프로그램에 처음으로 로그인하면 다음과 유사한 동의 화면이 표시됩니다. 액세스하려면 **예**를 선택하여 명시적으로 동의합니다.
+애플리케이션에 처음으로 로그인하면 다음과 유사한 동의 화면이 표시됩니다. 액세스하려면 **예**를 선택하여 명시적으로 동의합니다.
 
 ![액세스 동의 화면](./media/tutorial-v2-windows-uwp/consentscreen.png)
 

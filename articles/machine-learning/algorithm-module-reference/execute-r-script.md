@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: peterlu
 ms.date: 06/01/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 710d64b445953ae3124830931c8cbb9315d32b83
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 3594d9670e8fb94b053479352fb88997caa16db6
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875722"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69016484"
 ---
 # <a name="execute-r-script"></a>R 스크립트 실행
 
@@ -76,8 +76,7 @@ azureml_main <- function(dataframe1, dataframe2){
 
 1.  실험에 **R 스크립트 실행** 모듈을 추가 합니다.
 
-    > [!NOTE]
-    > **R 스크립트 실행** 모듈에 전달 된 모든 데이터는 r `data.frame` 형식으로 변환 됩니다.
+  
 
 1. 스크립트에 필요한 모든 입력을 연결 합니다. 입력은 선택 사항이 며 데이터 및 추가 R 코드를 포함할 수 있습니다.
 
@@ -90,10 +89,33 @@ azureml_main <- function(dataframe1, dataframe2){
 1. **R 스크립트** 텍스트 상자에 올바른 R 스크립트를 입력 하거나 붙여 넣습니다.
 
     시작 하는 데 도움이 되는 **R 스크립트** 텍스트 상자는 편집 하거나 바꿀 수 있는 샘플 코드로 미리 채워져 있습니다.
+    
+```R
+# R version: 3.5.1
+# The script MUST contain a function named azureml_main
+# which is the entry point for this module.
 
-    * 스크립트는이 모듈의 진입점인 이라는 `azureml_main`함수를 포함 해야 합니다.
+# The entry point function can contain up to two input arguments:
+#   Param<dataframe1>: a R DataFrame
+#   Param<dataframe2>: a R DataFrame
+azureml_main <- function(dataframe1, dataframe2){
+  print("R script run.")
 
-    * 진입점 함수는 최대 두 개의 입력 인수를 포함할 수 있습니다 `Param<dataframe1>` .`Param<dataframe2>`
+  # If a zip file is connected to the third input port, it is
+  # unzipped under "./Script Bundle". This directory is added
+  # to sys.path.
+
+  # Return datasets as a Named List
+  return(list(dataset1=dataframe1, dataset2=dataframe2))
+}
+```
+
+ * 스크립트는이 모듈의 진입점인 이라는 `azureml_main`함수를 포함 해야 합니다.
+
+ * 진입점 함수는 최대 두 개의 입력 인수를 포함할 수 있습니다 `Param<dataframe1>` .`Param<dataframe2>`
+ 
+   > [!NOTE]
+    > **R 스크립트 실행** 모듈에 전달 되 `dataframe1` 는 데이터는 및 `dataframe2`로 참조 됩니다 .이는 Azure Machine Learning Studio (Studio 참조 as `dataset1`, `dataset2`)와 다릅니다. 입력 데이터가 스크립트에서 올바르게 referneced 확인 하세요.  
  
     > [!NOTE]
     >  기존 R 코드를 시각적 인터페이스 실험에서 실행 하려면 약간 변경 해야 할 수 있습니다. 예를 들어 CSV 형식으로 제공 하는 입력 데이터를 코드에서 사용 하려면 데이터 집합으로 명시적으로 변환 해야 합니다. R 언어에서 사용 되는 데이터 및 열 유형도 시각적 인터페이스에서 사용 되는 데이터 및 열 유형과는 차이가 있습니다.

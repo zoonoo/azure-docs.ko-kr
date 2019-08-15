@@ -9,14 +9,14 @@ ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7d1bce7575272b7df185c4e261685d989f49436c
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 4e7b3905295e619c5a9500f80b5c43126b919e2f
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716545"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946469"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Azure Machine Learning 서비스의 알려진 문제 및 문제 해결
 
@@ -71,7 +71,7 @@ GA 릴리스 전에 Azure Portal에서 Azure Machine Learning 작업 영역을 �
 
 ### <a name="experiment-charts"></a>실험 차트
 
-자동화 된 ML 실험 반복에 표시 되는 이진 분류 차트 (정밀도-리콜, ROC, 곡선 등)는 4/12부터 사용자 인터페이스에서 렌더링 올바르게 되지 않습니다. 차트 플롯에는 현재 더 낮은 결과가 포함 된 모델을 더 잘 수행 하는 역 결과가 표시 됩니다. 확인 중입니다.
+자동화 된 ML 실험 반복에 표시 되는 이진 분류 차트 (정밀도-리콜, ROC, 곡선 등)는 4/12부터 사용자 인터페이스에서 올바르게 렌더링 되지 않습니다. 차트 플롯에는 현재 더 낮은 결과가 포함 된 모델을 더 잘 수행 하는 역 결과가 표시 됩니다. 확인 중입니다.
 
 ## <a name="databricks"></a>Databricks
 
@@ -134,6 +134,15 @@ SDK 또는 포털의 공유 링크에서 작업 영역을 직접 확인하려는
 
 도움말을 요청할 때 진단 정보를 제공할 수 있는 경우에 유용할 수 있습니다. 일부 로그를 보려면 [Azure Portal](https://portal.azure.com) 를 방문 하 고 작업 영역으로 이동한 다음 **작업 영역 > 실험을 선택 하 > > 로그를 실행**합니다.
 
+> [!NOTE]
+> Azure Machine Learning 서비스는 자동 Ml 또는 교육 작업을 실행 하는 Docker 컨테이너와 같은 학습 중 다양 한 원본의 정보를 기록 합니다. 이러한 로그는 대부분 문서화 되어 있지 않습니다. 문제가 발생 하 고 Microsoft 지원에 문의 하는 경우 문제 해결 중에 이러한 로그를 사용할 수 있습니다.
+
+## <a name="activity-logs"></a>활동 로그
+
+Azure Machine Learning 작업 영역 내의 일부 작업은 __작업 로그__에 정보를 기록 하지 않습니다. 예를 들어 학습을 시작 하거나 모델을 등록 합니다.
+
+이러한 작업 중 일부는 작업 영역의 작업 영역에 표시 되지만 작업을 시작한 사용자는 표시 되지 않습니다.
+
 ## <a name="resource-quotas"></a>리소스 할당량
 
 Azure Machine Learning을 사용할 때 발생할 수 있는 [리소스 할당량](how-to-manage-quotas.md)에 대해 알아보세요.
@@ -154,6 +163,6 @@ Azure Machine Learning을 사용할 때 발생할 수 있는 [리소스 할당�
 
 ## <a name="overloaded-azurefile-storage"></a>오버 로드 된 AzureFile 저장소
 
-"저장소가 오버 로드 되었으므로 AzureFile의 작업 디렉터리에 프로젝트 파일을 업로드할 수 없습니다." 라는 오류가 표시 되 면 다음 해결 방법을 적용 하십시오.
+오류가 `Unable to upload project files to working directory in AzureFile because the storage is overloaded`표시 되 면 다음 해결 방법을 적용 합니다.
 
 데이터 전송과 같은 다른 작업에 대해 파일 공유를 사용 하는 경우 파일 공유를 사용 하 여 실행을 제출할 수 있도록 blob을 사용 하는 것이 좋습니다. 작업을 서로 다른 두 작업 영역 간에 분할할 수도 있습니다.

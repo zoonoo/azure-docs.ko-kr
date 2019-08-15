@@ -1,21 +1,19 @@
 ---
 title: Azure Storage를 사용하여 클라우드에 이미지 데이터 업로드 | Microsoft Docs
 description: 웹앱에서 Azure Blob Storage를 사용하여 앱 데이터를 저장합니다.
-services: storage
 author: normesta
 ms.service: storage
-ms.devlang: dotnet
+ms.subservice: blobs
 ms.topic: tutorial
 ms.date: 11/26/2018
 ms.author: normesta
-ms.reviewer: seguler
-ms.custom: mvc
-ms.openlocfilehash: 612c0b48faac365623fe36d6d2435c1c79566d9b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.reviewer: dineshm
+ms.openlocfilehash: 7185d118c9f4419713ebe1291dd55c44635f0c56
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071318"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68844943"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>자습서: Azure Storage를 사용하여 클라우드에 이미지 데이터 업로드
 
@@ -35,7 +33,7 @@ ms.locfileid: "67071318"
 시리즈 1부에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * 저장소 계정 만들기
+> * 스토리지 계정 만들기
 > * 컨테이너 만들기 및 사용 권한 설정
 > * 액세스 키 가져오기
 > * Azure에 웹앱 배포
@@ -60,7 +58,7 @@ CLI를 로컬로 설치하여 사용하려면 이 자습서에서 Azure CLI 버�
 az group create --name myResourceGroup --location southeastasia 
 ```
 
-## <a name="create-a-storage-account"></a>저장소 계정 만들기
+## <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
 이 샘플은 Azure Storage 계정의 blob 컨테이너에 이미지를 업로드합니다. 저장소 계정은 Azure Storage 데이터 개체의 저장 및 액세스를 위한 고유한 네임스페이스를 제공합니다. [az storage account create](/cli/azure/storage/account) 명령을 사용하여 만든 리소스 그룹에 저장소 계정을 만듭니다.
 
@@ -394,9 +392,9 @@ router.post('/', uploadStrategy, async (req, res) => {
 ```
 ---
 
-## <a name="verify-the-image-is-shown-in-the-storage-account"></a>저장소 계정에서 이미지가 표시되는지 확인합니다.
+## <a name="verify-the-image-is-shown-in-the-storage-account"></a>스토리지 계정에서 이미지가 표시되는지 확인합니다.
 
-[Azure Portal](https://portal.azure.com)에 로그인합니다. 왼쪽 메뉴에서 **저장소 계정**을 선택하고 저장소 계정의 이름을 선택합니다. **Blob Service** 아래에서 **Blob**을 선택한 다음, **images** 컨테이너를 선택합니다.
+[Azure Portal](https://portal.azure.com)에 로그인합니다. 왼쪽 메뉴에서 **스토리지 계정**을 선택하고 스토리지 계정의 이름을 선택합니다. **Blob Service** 아래에서 **Blob**을 선택한 다음, **images** 컨테이너를 선택합니다.
 
 컨테이너에 이미지가 표시되는지 확인합니다.
 
@@ -406,7 +404,7 @@ router.post('/', uploadStrategy, async (req, res) => {
 
 썸네일 보기를 테스트하려면 이미지를 **thumbnails** 컨테이너에 업로드하여 앱에서 **thumbnails** 컨테이너를 읽을 수 있는지 확인합니다.
 
-[Azure Portal](https://portal.azure.com)에 로그인합니다. 왼쪽 메뉴에서 **저장소 계정**을 선택하고 저장소 계정의 이름을 선택합니다. **Blob Service**에서 **Blob**을 선택한 다음, **thumbnails** 컨테이너를 선택합니다. **업로드**를 선택하여 **blob 업로드** 창을 엽니다.
+[Azure Portal](https://portal.azure.com)에 로그인합니다. 왼쪽 메뉴에서 **스토리지 계정**을 선택하고 스토리지 계정의 이름을 선택합니다. **Blob Service**에서 **Blob**을 선택한 다음, **thumbnails** 컨테이너를 선택합니다. **업로드**를 선택하여 **blob 업로드** 창을 엽니다.
 
 파일 선택기를 사용하여 파일을 선택하고, **업로드**를 선택합니다.
 

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
-ms.openlocfilehash: 9b1f0042f501cefc99343d53bbf2ad39f0ae1f4c
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 9a6b3a538304f2d09941650e3087130c21422dc0
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640474"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946357"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>MQTT 프로토콜을 사용하여 IoT 허브와 통신
 
@@ -77,7 +77,7 @@ MQTT 프로토콜을 지 원하는 [장치 sdk](https://github.com/Azure/azure-i
   `SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`
 
   > [!NOTE]
-  > X.509 인증서 인증을 사용하는 경우 SAS 토큰 암호는 필요하지 않습니다. 자세한 내용은 [Azure IoT Hub에서 x.509 보안 설정](iot-hub-security-x509-get-started.md) 을 참조 하세요.
+  > X.509 인증서 인증을 사용하는 경우 SAS 토큰 암호는 필요하지 않습니다. 자세한 내용은 [Azure IoT Hub에서 x.509 보안 설정](iot-hub-security-x509-get-started.md) 을 참조 하 고 [아래](#tlsssl-configuration)코드 지침을 따릅니다.
 
   SAS 토큰을 생성 하는 방법에 대 한 자세한 내용은 [IoT Hub 보안 토큰 사용](iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app)의 장치 섹션을 참조 하세요.
 
@@ -159,7 +159,7 @@ pip install paho-mqtt
 from paho.mqtt import client as mqtt
 import ssl
 
-path_to_root_cert = "<local path to digicert.cer>"
+path_to_root_cert = "<local path to digicert.cer file>"
 device_id = "<device id from device registry>"
 sas_token = "<generated SAS token>"
 iot_hub_name = "<iot hub name>"
@@ -200,6 +200,26 @@ client.loop_forever()
 
 [!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
 
+장치 인증서를 사용 하 여 인증 하려면 위의 코드 조각을 다음과 같이 변경 합니다. 인증서 기반 인증을 준비 하는 방법에 대 한 [X.509 CA 인증서를 가져오는 방법](./iot-hub-x509ca-overview.md#how-to-get-an-x509-ca-certificate) 을 참조 하세요.
+
+```python
+# Create the client as before
+# ...
+
+# Set the username but not the password on your client
+client.username_pw_set(username=iot_hub_name+".azure-devices.net/" +
+                       device_id + "/?api-version=2018-06-30", password=None)
+
+# Set the certificate and key paths on your client
+cert_file = "<local path to your certificate file>"
+key_file = "<local path to your device key file>"
+client.tls_set(ca_certs=path_to_root_cert, certfile=cert_file, keyfile=key_file,
+               cert_reqs=ssl.CERT_REQUIRED, tls_version=ssl.PROTOCOL_TLSv1, ciphers=None)
+
+# Connect as before
+client.connect(iot_hub_name+".azure-devices.net", port=8883)
+```
+
 ## <a name="sending-device-to-cloud-messages"></a>디바이스-클라우드 메시지 보내기
 
 성공적인 연결을 구축한 후 디바이스는 `devices/{device_id}/messages/events/` 또는 `devices/{device_id}/messages/events/{property_bag}`를 **토픽 이름**으로 사용하여 IoT Hub에 메시지를 보낼 수 있습니다. `{property_bag}` 요소는 URL 인코딩 형식의 속성을 추가하여 메시지를 보내는 디바이스를 사용할 수 있습니다. 예:
@@ -215,13 +235,13 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 
 * IoT Hub에서는 QoS 2 메시지를 지원하지 않습니다. 디바이스 앱이 **QoS 2**의 메시지를 게시하는 경우, IoT Hub는 네트워크 연결을 닫습니다.
 
-* IoT Hub에서는 보관 메시지가 지속되지 않습니다. 장치가 **RETAIN** 플래그가 1로 설정된 메시지를 게시하는 경우, IoT Hub는 **x-opt-retain** 애플리케이션 속성을 메시지에 추가합니다. 이 경우에 IoT Hub는 보관 메시지를 유지하지 않고 백 엔드 앱에 전달합니다.
+* IoT Hub에서는 보관 메시지가 지속되지 않습니다. 디바이스가 **RETAIN** 플래그가 1로 설정된 메시지를 게시하는 경우, IoT Hub는 **x-opt-retain** 애플리케이션 속성을 메시지에 추가합니다. 이 경우에 IoT Hub는 보관 메시지를 유지하지 않고 백 엔드 앱에 전달합니다.
 
 * IoT Hub는 디바이스 당 하나의 활성 MQTT 연결만을 지원합니다. 동일한 디바이스 ID를 대신하는 모든 새 MQTT 연결로 인해 IoT Hub가 기존 연결을 삭제하게 됩니다.
 
 자세한 내용은 [메시징 개발자 가이드](iot-hub-devguide-messaging.md)를 참조 하세요.
 
-## <a name="receiving-cloud-to-device-messages"></a>클라우드-장치 메시지 수신
+## <a name="receiving-cloud-to-device-messages"></a>클라우드-디바이스 메시지 수신
 
 IoT Hub에서 메시지를 수신하려면 디바이스는 `devices/{device_id}/messages/devicebound/#`을 **토픽 필터**로 사용하여 구독해야 합니다. 토픽 필터에 다중 레벨 와일드카드 `#`는 디바이스가 토픽 이름에 추가 속성을 수신하도록 하려는 경우에만 사용됩니다. IoT Hub는 하위 토픽의 필터링을 위한 `#` 또는 `?` 와일드카드의 사용을 허용하지 않습니다. IoT Hub는 범용 발행-구독 메시징 브로커가 아니므로 문서화된 토픽 이름 및 토픽 필터만 지원합니다.
 
@@ -255,7 +275,7 @@ IoT Hub는 메시지 속성이 있는 경우 **토픽 이름** `devices/{device_
 
 가능한 상태 코드:
 
-|Status | 설명 |
+|Status | Description |
 | ----- | ----------- |
 | 204 | 성공(반환되는 콘텐츠 없음) |
 | 429 | [IoT Hub 제한](iot-hub-devguide-quotas-throttling.md) 마다 너무 많은 요청 (제한 됨) |
@@ -313,7 +333,7 @@ client.publish("$iothub/twin/PATCH/properties/reported/?$rid=" +
 
 ## <a name="receiving-desired-properties-update-notifications"></a>desired 속성 업데이트 알림 수신
 
-디바이스가 연결되면 IoT Hub는 `$iothub/twin/PATCH/properties/desired/?$version={new version}` 항목에 알림을 보내는데 여기에는 솔루션 백 엔드에 의해 수행된 업데이트 콘텐츠가 포함됩니다. 예를 들어:
+디바이스가 연결되면 IoT Hub는 `$iothub/twin/PATCH/properties/desired/?$version={new version}` 항목에 알림을 보내는데 여기에는 솔루션 백 엔드에 의해 수행된 업데이트 콘텐츠가 포함됩니다. 예:
 
 ```json
 {

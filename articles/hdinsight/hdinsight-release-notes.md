@@ -8,14 +8,14 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.openlocfilehash: b6e9a340a1fdcbe3ee24b8c81d171ade04c63139
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 7c31520efd881e8e0b5ed309f62d273bac59c0e3
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68880028"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945023"
 ---
-# <a name="release-notes-for-azure-hdinsight"></a>Azure HDInsight 릴리스 정보
+# <a name="release-notes"></a>릴리스 정보
 
 이 문서에서는 **가장 최근** Azure HDInsight 릴리스 업데이트에 대한 정보를 제공합니다. 이전 릴리스에 대한 자세한 내용은 [HDInsight 릴리스 정보 보관](hdinsight-release-notes-archive.md)을 참조하세요.
 

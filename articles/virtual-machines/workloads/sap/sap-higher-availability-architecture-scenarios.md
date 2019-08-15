@@ -18,10 +18,10 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4668d5e7872c677f20c2395b5927d83c69775926
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "68855204"
 ---
 # <a name="utilize-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-an-sap-system"></a>Azure 인프라 VM 다시 시작을 활용하여 SAP 시스템의 고가용성 확보
@@ -221,13 +221,13 @@ Linux에서 WSFC(Windows Server 장애 조치(failover) 클러스터링) 또는 
 >
 >
 
-고가용성을 위한 또 다른 중요한 인프라 요소는 저장소입니다. 예를 들어 Azure Storage SLA는 99.9% 사용 가능합니다. 모든 VM 및 해당 디스크를 단일 Azure Storage 계정에 배포하는 경우 잠재적으로 Azure Storage를 사용할 수 없게 되어 해당 스토리지 계정에 배치된 모든 VM 및 해당 VM 내에서 실행되는 모든 SAP 구성 요소를 사용할 수 없게 됩니다.  
+고가용성을 위한 또 다른 중요한 인프라 요소는 스토리지입니다. 예를 들어 Azure Storage SLA는 99.9% 사용 가능합니다. 모든 VM 및 해당 디스크를 단일 Azure Storage 계정에 배포하는 경우 잠재적으로 Azure Storage를 사용할 수 없게 되어 해당 스토리지 계정에 배치된 모든 VM 및 해당 VM 내에서 실행되는 모든 SAP 구성 요소를 사용할 수 없게 됩니다.  
 
 단일 Azure Storage 계정에 모든 VM을 배치하는 대신 각 VM에 대한 전용 스토리지 계정을 사용할 수 있습니다. 여러 독립 Azure Storage 계정을 사용하여 전반적인 VM 및 SAP 애플리케이션 가용성을 증가시킵니다.
 
 Azure Managed Disks는 연결된 가상 머신의 장애 도메인에 자동으로 배치됩니다. 가용성 집합에 가상 머신 두 대를 배치하고 관리 디스크를 사용하는 경우 플랫폼에서 각기 다른 장애 도메인으로 관리 디스크를 분산시키는 작업도 수행합니다. Premium Storage 계정을 사용하려는 경우에는 관리 디스크를 사용하는 것이 좋습니다.
 
-Azure 인프라 고가용성 및 저장소 계정을 사용하는 SAP NetWeaver 시스템의 샘플 아키텍처는 다음과 같을 수 있습니다.
+Azure 인프라 고가용성 및 스토리지 계정을 사용하는 SAP NetWeaver 시스템의 샘플 아키텍처는 다음과 같을 수 있습니다.
 
 ![Azure 인프라 고가용성을 활용하여 SAP 애플리케이션 "고가용성" 확보][planning-guide-figure-2900]
 

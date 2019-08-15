@@ -8,12 +8,12 @@ ms.date: 02/07/2019
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: rugopala
-ms.openlocfilehash: 554a77b65b1baab980d765c69a5bffaeacb483d9
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 850d580d4eb1ca41932a28005d3375ced709db60
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855413"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69016384"
 ---
 # <a name="upgrade-your-big-data-analytics-solutions-from-azure-data-lake-storage-gen1-to-azure-data-lake-storage-gen2"></a>빅 데이터 분석 솔루션을 Azure Data Lake Storage Gen1에서 Azure Data Lake Storage Gen2로 업그레이드
 
@@ -82,7 +82,7 @@ Data Lake Storage Gen1에 있는 모든 기능을 Data Lake Storage Gen2에서 �
 | |병렬 분석 워크로드에 대해 최적화된 성능입니다. 높은 처리량 및 IOPS. | 병렬 분석 워크로드에 대해 최적화된 성능입니다. 높은 처리량 및 IOPS. | *지금 사용 가능* |
 | 가상 네트워크(VNet) 지원  | [Virtual Network 통합 사용](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-network-security)  | [Azure Storage에 서비스 엔드포인트 사용](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | *지금 사용 가능* |
 | 크기 한도 | 계정 크기, 파일 크기 또는 파일 수에 한도가 없음 | 계정 크기 또는 파일 수에 제한이 없습니다. 파일 크기는 5TB로 제한됩니다. | *지금 사용 가능*|
-| 지리적 중복| LRS(로컬 중복) | 로컬 중복(LRS), 영역 중복(ZRS), 글로벌 중복(GRS), 읽기 액세스 글로벌 중복(RA-GRS). 자세한 내용은 [여기](https://docs.microsoft.com/azure/storage/common/storage-redundancy)를 참조하세요.| *지금 사용 가능* |
+| 지리적 중복| LRS(로컬 중복) | LRS (로컬 중복) 영역 중복 (ZRS) 지역 중복 (GRS) 읽기 액세스 지역 중복 (RA-GRS) 자세한 내용은 [여기](https://docs.microsoft.com/azure/storage/common/storage-redundancy) 를 참조 하세요.| *지금 사용 가능* |
 | 지역별 가용성 | 자세한 내용은 [여기](https://azure.microsoft.com/regions/) | 모든 [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/)                                                                                                                                                                                                                                                                                                                                       | *지금 사용 가능*                                                                                                                           |
 | 가격                                       | 자세한 내용은 [가격 책정](https://azure.microsoft.com/pricing/details/data-lake-store/)                                                                            | 자세한 내용은 [가격 책정](https://azure.microsoft.com/pricing/details/storage/data-lake/)                                                                                                                                                                                                                                                                                                                                         |                                                                                                                                           |
 | 가용성 SLA                            | [SLA 참조](https://azure.microsoft.com/support/legal/sla/data-lake-store/v1_0/)                                                                   | [SLA 참조](https://azure.microsoft.com/support/legal/sla/storage/v1_3/)                                                                                                                                                                                                                                                                                                                                                | *지금 사용 가능*                                                                                                                           |

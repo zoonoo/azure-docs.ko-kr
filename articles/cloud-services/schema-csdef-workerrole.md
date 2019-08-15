@@ -10,15 +10,15 @@ ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: 41cd46bc-c479-43fa-96e5-d6c83e4e6d89
 caps.latest.revision: 55
-author: jpconnock
-ms.author: jeconnoc
-manager: timlt
-ms.openlocfilehash: 90a11c5bb81a0d29f5f8a1c1696732453aa4b1ab
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+author: georgewallace
+ms.author: gwallace
+manager: gwallace
+ms.openlocfilehash: ac1cce61a9b9b22c079066147d6a318f778999db
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "62095407"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945868"
 ---
 # <a name="azure-cloud-services-definition-workerrole-schema"></a>Azure Cloud Services 정의 WorkerRole 스키마
 Azure 작업자 역할은 일반화된 개발에 유용하고 웹 역할에 대한 백그라운드 처리를 수행할 수 있는 역할입니다.
@@ -170,10 +170,10 @@ Azure 작업자 역할은 일반화된 개발에 유용하고 웹 역할에 대�
 역할에 대한 구성 설정은 서비스 정의 파일에 선언되고 서비스 구성 파일에 설정된 이름 및 값 쌍입니다.
 
 ##  <a name="LocalResources"></a> LocalResources
-`LocalResources` 요소는 작업자 역할에 대한 로컬 저장소 리소스의 컬렉션을 설명합니다. 이 요소는 `LocalStorage` 요소의 부모입니다.
+`LocalResources` 요소는 작업자 역할에 대한 로컬 스토리지 리소스의 컬렉션을 설명합니다. 이 요소는 `LocalStorage` 요소의 부모입니다.
 
 ##  <a name="LocalStorage"></a> LocalStorage
-`LocalStorage` 요소는 런타임에서 서비스에 대한 파일 시스템 공간을 제공하는 로컬 저장소 리소스를 식별합니다. 한 역할은 0개 이상의 로컬 저장소 리소스를 정의할 수 있습니다.
+`LocalStorage` 요소는 런타임에서 서비스에 대한 파일 시스템 공간을 제공하는 로컬 스토리지 리소스를 식별합니다. 한 역할은 0개 이상의 로컬 스토리지 리소스를 정의할 수 있습니다.
 
 > [!NOTE]
 >  `LocalStorage` 요소는 `WorkerRole` 요소의 자식으로 표시될 수 있으며, Azure SDK의 이전 버전과의 호환성을 지원합니다.
@@ -184,9 +184,9 @@ Azure 작업자 역할은 일반화된 개발에 유용하고 웹 역할에 대�
 | --------- | ---- | ----------- |
 |name|string|필수 요소. 로컬 저장소의 고유한 이름입니다.|
 |cleanOnRoleRecycle|boolean|선택 사항입니다. 역할이 다시 시작될 때 로컬 저장소를 정리해야 하는지 여부를 나타냅니다. 기본값은 `true`입니다.|
-|sizeInMb|ssNoversion|선택 사항입니다. 로컬 저장소에 할당할 원하는 저장소 공간의 양(MB)입니다. 지정하지 않으면 할당되는 기본 저장소 공간은 100MB입니다. 할당될 수 있는 저장소 공간의 최소 크기는 1MB입니다.<br /><br /> 로컬 리소스의 최대 크기는 가상 머신 크기에 따라 다릅니다. 자세한 내용은 [Cloud Services를 위한 Virtual Machine 크기](cloud-services-sizes-specs.md)를 참조하세요.|
+|sizeInMb|ssNoversion|선택 사항입니다. 로컬 스토리지에 할당할 원하는 스토리지 공간의 양(MB)입니다. 지정하지 않으면 할당되는 기본 스토리지 공간은 100MB입니다. 할당될 수 있는 스토리지 공간의 최소 크기는 1MB입니다.<br /><br /> 로컬 리소스의 최대 크기는 가상 머신 크기에 따라 다릅니다. 자세한 내용은 [Cloud Services를 위한 Virtual Machine 크기](cloud-services-sizes-specs.md)를 참조하세요.|
 
-로컬 저장소 리소스에 할당된 디렉터리 이름은 이름 특성에 제공된 값에 해당합니다.
+로컬 스토리지 리소스에 할당된 디렉터리 이름은 이름 특성에 제공된 값에 해당합니다.
 
 ##  <a name="Endpoints"></a> Endpoints
 `Endpoints` 요소는 역할에 대한 입력(외부), 내부 및 인스턴스 입력 엔드포인트의 컬렉션을 설명합니다. 이 요소는 `InputEndpoint`, `InternalEndpoint` 및 `InstanceInputEndpoint` 요소의 부모입니다.
@@ -347,7 +347,7 @@ HTTP, HTTPS, UDP 및 TCP 엔드포인트의 조합인 여러 엔드포인트를 
 
 다음 표에서는 `NetFxEntryPoint` 요소의 특성을 설명합니다.
 
-| 특성 | 형식 | Description |
+| 특성 | 형식 | 설명 |
 | --------- | ---- | ----------- |
 |assemblyName|string|필수 요소. 진입점을 포함하는 어셈블리의 경로 및 파일 이름입니다. 경로는 **\\%ROLEROOT%\Approot** 폴더에 상대적입니다(`commandLine`에 **\\%ROLEROOT%\Approot**를 지정하지 않음, 가정됨). **%ROLEROOT%** 는 Azure에서 유지 관리되는 환경 변수이며, 사용자 역할에 대한 루트 폴더 위치를 나타냅니다. **\\%ROLEROOT%\Approot** 폴더는 사용자의 역할에 대한 애플리케이션 폴더를 나타냅니다.|
 |targetFrameworkVersion|string|필수 요소. 어셈블리가 작성되는 .NET Framework의 버전입니다. `targetFrameworkVersion="v4.0"` )을 입력합니다.|
@@ -360,7 +360,7 @@ HTTP, HTTPS, UDP 및 TCP 엔드포인트의 조합인 여러 엔드포인트를 
 
 다음 표에서는 `ProgramEntryPoint` 요소의 특성을 설명합니다.
 
-| 특성 | 형식 | Description |
+| 특성 | 형식 | 설명 |
 | --------- | ---- | ----------- |
 |commandLine|string|필수 요소. 실행할 프로그램의 경로, 파일 이름 및 명령줄 인수입니다. 경로는 **%ROLEROOT%\Approot** 폴더에 상대적입니다(명령줄에 **%ROLEROOT%\Approot**를 지정하지 않음, 가정됨). **%ROLEROOT%** 는 Azure에서 유지 관리되는 환경 변수이며, 사용자 역할에 대한 루트 폴더 위치를 나타냅니다. **%ROLEROOT%\Approot** 폴더는 사용자의 역할에 대한 애플리케이션 폴더를 나타냅니다.<br /><br /> 프로그램이 종료되면, 역할이 재활용되므로 일반적으로 단지 시작해서 한정된 작업을 실행하는 프로그램이 되는 대신 계속 실행되도록 프로그램을 설정합니다.|
 |setReadyOnProcessStart|boolean|필수 요소. 명령줄 프로그램이 시작되었음을 알리는 신호를 보내길 역할 인스턴스에서 대기하는지 여부를 지정합니다. 이 때 이 값은 `true`로 설정해야 합니다. 값을 `false`로 설정하면 나중에 사용하도록 예약됩니다.|
@@ -370,7 +370,7 @@ HTTP, HTTPS, UDP 및 TCP 엔드포인트의 조합인 여러 엔드포인트를 
 
 다음 표에서는 `Startup` 요소의 특성을 설명합니다.
 
-| 특성 | 형식 | Description |
+| 특성 | 형식 | 설명 |
 | --------- | ---- | ----------- |
 |priority|ssNoversion|내부 전용입니다.|
 

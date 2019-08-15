@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: b6f1198334d8bd4ba58b4fbba02942fc8c54c578
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 35cb408473da8c6397c5034ae20ac0a50b0953ea
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442857"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68944715"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ebsco"></a>자습서: EBSCO와 Azure Active Directory 통합
 
@@ -31,7 +31,7 @@ EBSCO를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 * 사용자가 자신의 Azure AD 계정으로 EBSCO에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -59,7 +59,7 @@ EBSCO의 Azure AD 통합을 구성하려면 갤러리의 EBSCO를 관리되는 S
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 응용 프로그램**으로 이동한 다음, **모든 응용 프로그램** 옵션을 선택합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -109,7 +109,7 @@ EBSCO에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
     **식별자** 텍스트 상자에 URL을 입력합니다. `pingsso.ebscohost.com`
 
-5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
+5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
     ![이미지](common/both-preintegrated-signon.png)
 
@@ -124,7 +124,7 @@ EBSCO에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
     o   **Profile** = 클라이언트는 링크를 조정하여 사용자를 특정 프로필에 연결할 수 있습니다(EBSCO에서 구매한 제품에 따라 다름). 특정 프로필 ID를 입력할 수 있습니다. 주 ID는 eds(EBSCO 검색 서비스) 및 ehost(EBSOCOhost 데이터베이스)입니다. 동일한 경우에 대한 지침은 [여기](https://help.ebsco.com/interfaces/EBSCOhost/EBSCOhost_FAQs/How_do_I_set_up_direct_links_to_EBSCOhost_profiles_and_or_databases#profile)를 참조하세요.
 
-6. EBSCO 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며, SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.  **편집**  아이콘을 클릭하여  **사용자 특성**  대화 상자를 엽니다.
+6. EBSCO 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며, SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다. **편집** 아이콘을 클릭하여 **사용자 특성** 대화 상자를 엽니다.
 
     ![이미지](common/edit-attribute.png)
 
@@ -133,7 +133,7 @@ EBSCO에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
 7. 위에서 언급한 특성 외에도, SAML 응답을 통해 몇 가지 특성이 추가로 EBSCO 애플리케이션에 전달되어야 합니다. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 다음 단계를 수행하여 아래 표와 같은 SAML 토큰 특성을 추가합니다. 
 
-    | 이름 | 원본 특성|
+    | Name | 원본 특성|
     | ---------------| --------------- |    
     | FirstName   | user.givenname |
     | LastName   | user.surname |

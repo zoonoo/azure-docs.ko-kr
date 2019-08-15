@@ -1,6 +1,6 @@
 ---
 title: 자습서 - Apache Storm을 사용하여 Storage/Data Lake Storage에 쓰기 - Azure HDInsight
-description: 자습서 - Apache Storm을 사용하여 Azure HDInsight용 HDFS 호환 저장소에 쓰는 방법을 알아봅니다.
+description: 자습서 - Apache Storm을 사용하여 Azure HDInsight용 HDFS 호환 스토리지에 쓰는 방법을 알아봅니다.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,16 +8,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/24/2019
-ms.openlocfilehash: 5c1376c7d1afe9c9702cfb43a146ac1cd17d6e58
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 17cb1091d34c8c0800d0b4dd1f9044fee0ef313f
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67428358"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946447"
 ---
 # <a name="tutorial-write-to-apache-hadoop-hdfs-from-apache-storm-on-azure-hdinsight"></a>자습서: Azure HDInsight의 Apache Storm에서 Apache Hadoop HDFS에 쓰기
 
-이 자습서에서는 Apache Storm을 사용하여 HDInsight의 Apache Storm에서 사용하는 HDFS 호환 스토리지에 데이터를 쓰는 방법에 대해 알아봅니다. HDInsight는 Azure Storage 및 Azure Data Lake Storage를 모두 HDFS 호환 스토리지로 사용할 수 있습니다. Storm은 HDFS에 데이터를 쓰는 [HdfsBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) 구성 요소를 제공합니다. 이 문서는 HdfsBolt에서 두 가지 유형의 저장소에 쓰는 방법에 대한 정보를 제공합니다.
+이 자습서에서는 Apache Storm을 사용하여 HDInsight의 Apache Storm에서 사용하는 HDFS 호환 스토리지에 데이터를 쓰는 방법에 대해 알아봅니다. HDInsight는 Azure Storage 및 Azure Data Lake Storage를 모두 HDFS 호환 스토리지로 사용할 수 있습니다. Storm은 HDFS에 데이터를 쓰는 [HdfsBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) 구성 요소를 제공합니다. 이 문서는 HdfsBolt에서 두 가지 유형의 스토리지에 쓰는 방법에 대한 정보를 제공합니다.
 
 이 문서에서 사용되는 예제 토폴로지는 HDInsight의 Storm에 포함된 구성 요소를 사용합니다. 다른 Apache Storm 클러스터와 함께 Azure Data Lake Storage를 사용하려면 수정해야 할 수도 있습니다.
 
@@ -42,7 +42,7 @@ ms.locfileid: "67428358"
 
 ### <a name="example-configuration"></a>예제 구성
 
-다음 YAML은 예제에 포함된 `resources/writetohdfs.yaml` 파일에서 인용한 부분입니다. 이 파일에서는 Apache Storm의 [Flux](https://storm.apache.org/releases/1.1.2/flux.html) 프레임워크를 사용하여 Storm 토폴로지를 정의합니다.
+다음 YAML은 예제에 포함된 `resources/writetohdfs.yaml` 파일에서 인용한 부분입니다. 이 파일에서는 Apache Storm의 [Flux](https://storm.apache.org/releases/current/flux.html) 프레임워크를 사용하여 Storm 토폴로지를 정의합니다.
 
 ```yaml
 components:

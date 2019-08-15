@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: cenkd;juliako
-ms.openlocfilehash: da20e4601b75bcb22546d21f6ad218ac9ba2728b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: juliako
+ms.openlocfilehash: a299c050be37d53acd01ddc2db580c4881eeae07
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61463808"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "69015474"
 ---
 # <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>온-프레미스 인코더에서 다중 비트 전송률 라이브 스트림을 받는 채널 작업
 
@@ -37,7 +37,7 @@ Azure Media Services에서 *채널*은 라이브 스트리밍 콘텐츠를 처�
 
 * 온-프레미스 라이브 인코더는 단일 비트 전송률 스트림을 RTMP 또는 부드러운 스트리밍(조각난 MP4) 형식의 하나로 Media Services를 통해 라이브 인코딩을 수행할 수 있는 LiveEvent에 전송합니다. 그러면 채널은 들어오는 단일 비트 전송률 스트림을 다중 비트 전송률(적응) 비디오 스트림으로 라이브 인코딩합니다. Media Services는 요청한 고객에게 스트림을 배달합니다.
 
-채널을 만들 때 Media Services 2.10 릴리스부터 채널에서 입력 스트림을 수신하는 방법을 지정할 수 있습니다. 채널이 스트림의 라이브 인코딩을 수행할지 여부를 지정할 수 있습니다. 다음 두 가지 옵션을 사용할 수 있습니다.
+채널을 만들 때 Media Services 2.10 릴리스부터 채널에서 입력 스트림을 수신하는 방법을 지정할 수 있습니다. 채널이 스트림의 라이브 인코딩을 수행할지 여부를 지정할 수 있습니다. 두 가지가 있습니다.
 
 * **통과**: 다중 비트 전송률 스트림(통과 스트림)을 출력할 온-프레미스 라이브 인코더를 사용할 계획인 경우 이 값을 지정합니다. 이 경우 들어오는 스트림이 인코딩 없이 출력으로 전달됩니다. 이것이 2.10 릴리스 이전의 채널 동작입니다. 이 문서에서는 이 형식의 채널을 사용하는 방법에 대한 세부 정보를 제공합니다.
 * **라이브 인코딩**: Media Services를 사용하여 단일 비트 전송률 라이브 스트림을 다중 비트 전송률 스트림으로 인코딩할 계획인 경우 이 값을 선택합니다. 라이브 인코딩 채널을 **실행** 상태로 놔두면 청구 요금이 발생합니다. 시간당 추가 요금 청구를 방지하려면 라이브 스트리밍 이벤트가 완료된 직후 실행 중인 채널을 중지하는 것이 좋습니다. Media Services는 요청한 고객에게 스트림을 배달합니다.
@@ -45,7 +45,7 @@ Azure Media Services에서 *채널*은 라이브 스트리밍 콘텐츠를 처�
 > [!NOTE]
 > 이 문서에서는 라이브 인코딩을 수행할 수 있는 채널의 특성에 대해 설명합니다. 라이브 인코딩을 수행할 수 있는 채널 작업에 대한 자세한 내용은 [Azure Media Services를 사용하여 다중 비트 전송률 스트림을 만드는 라이브 스트리밍](media-services-manage-live-encoder-enabled-channels.md)을 참조하세요.
 >
->에 대 한 자세한 내용은 프레미스 인코더에서 권장 [프레미스 인코더에서 권장](media-services-recommended-encoders.md)합니다.
+>온-프레미스 인코더 권장 사항에 대 한 자세한 내용은 [권장 온 프레미스 인코더](media-services-recommended-encoders.md)를 참조 하세요.
 
 다음 다이어그램은 다중 비트 전송률 RTMP 또는 조각화된 MP4(부드러운 스트리밍) 스트림을 출력하기 위해 온-프레미스 라이브 인코더를 사용하는 라이브 스트리밍 워크플로를 나타냅니다.
 
@@ -119,7 +119,7 @@ SSL 연결을 통한 조각화된 MP4(부드러운 스트리밍) 라이브 스�
 
 다음 테이블에서는 세그먼트 기간이 계산되는 방법을 보여 줍니다.
 
-| 키프레임 간격 | HLS 세그먼트 패키징 비율(FragmentsPerSegment) | 예 |
+| 키프레임 간격 | HLS 세그먼트 패키징 비율(FragmentsPerSegment) | 예제 |
 | --- | --- | --- |
 | 3초보다 작거나 같음 |3:1 |KeyFrameInterval(또는 GOP)이 2초인 경우 기본 HLS 세그먼트 패키징 비율은 3 대 1입니다. 그러면 6초 HLS 세그먼트를 만듭니다. |
 | 3~5초 |2:1 |KeyFrameInterval(또는 GOP)이 4초인 경우 기본 HLS 세그먼트 패키징 비율은 2 대 1입니다. 그러면 8초 HLS 세그먼트를 만듭니다. |
@@ -159,7 +159,7 @@ KeyFrameInterval 및 FragmentsPerSegment를 둘 다 명시적으로 설정하는
 채널 출력에 대한 내용은 [키 프레임 간격](#keyframe_interval) 섹션을 참조하세요.
 
 ### <a name="channel-managed-programs"></a>채널 관리되는 프로그램
-채널은 라이브 스트림에서 세그먼트의 게시 및 저장소를 제어하는데 사용할 수 있는 프로그램과 연결되어 있습니다. 채널은 프로그램을 관리합니다. 채널 및 프로그램 관계는 기존 미디어와 유사하여 채널에는 일정한 콘텐츠 스트림이 있고 프로그램 범위는 해당 채널에 있는 일부 시간 제한 이벤트로 지정됩니다.
+채널은 라이브 스트림에서 세그먼트의 게시 및 스토리지를 제어하는데 사용할 수 있는 프로그램과 연결되어 있습니다. 채널은 프로그램을 관리합니다. 채널 및 프로그램 관계는 기존 미디어와 유사하여 채널에는 일정한 콘텐츠 스트림이 있고 프로그램 범위는 해당 채널에 있는 일부 시간 제한 이벤트로 지정됩니다.
 
 **보관 창** 길이를 설정하여 프로그램에 대해 기록된 콘텐츠를 유지할 시간을 지정할 수 있습니다. 이 값은 최소 5분에서 최대 25시간 사이로 설정할 수 있습니다. 또한 보관 창 길이는 클라이언트가 현재 라이브 위치에서 이전 시간을 검색할 수 있는 최대 시간을 나타냅니다. 프로그램은 지정된 시간 동안 실행되지만 기간 길이보다 늦는 콘텐츠는 계속 삭제됩니다. 또한 이 속성의 값은 클라이언트 매니페스트가 증가할 수 있는 길이를 결정합니다.
 
@@ -187,14 +187,14 @@ KeyFrameInterval 및 FragmentsPerSegment를 둘 다 명시적으로 설정하는
 | 채널 상태 | 포털 UI 표시기 | 청구 여부 |
 | --- | --- | --- |
 | **시작 중** |**시작 중** |없음(일시적인 상태) |
-| **실행 중** |**준비**(실행 중인 프로그램이 없음)<p><p>또는<p>**스트리밍**(실행 중인 프로그램이 하나 이상임) |예 |
+| **실행 중** |**준비**(실행 중인 프로그램이 없음)<p><p>로 구분하거나 여러<p>**스트리밍**(실행 중인 프로그램이 하나 이상임) |예 |
 | **중지 중** |**중지 중** |없음(일시적인 상태) |
-| **중지** |**중지** |아닙니다. |
+| **중지** |**중지** |아니요 |
 
 ## <a id="cc_and_ads"></a>선택 자막 및 광고 삽입
 다음 테이블에서는 선택 자막 및 광고 삽입의 지원되는 표준을 설명합니다.
 
-| Standard | 메모 |
+| 표준 | 참고 |
 | --- | --- |
 | CEA-708 및 EIA-608(708/608) |CEA-708 및 EIA-608은 미국 및 캐나다의 선택 자막 표준입니다.<p><p>현재 인코딩된 입력 스트림에 수반되는 경우에만 자막이 지원됩니다. Media Services에 전송되는 인코딩된 스트림으로 608 또는 708 자막을 삽입할 수 있는 라이브 미디어 인코더를 사용해야 합니다. Media Services는 뷰어에 삽입된 선택 자막이 있는 콘텐츠를 제공합니다. |
 | TTML inside ismt(부드러운 스트리밍 텍스트 트랙) |Media Services 동적 패키징을 사용하면 클라이언트가 다음 형식 중 하나로 콘텐츠를 스트림할 수 있습니다. DASH, HLS 또는 부드러운 스트리밍. 하지만 자막 inside .ismt(부드러운 스트리밍 텍스트 트랙)가 포함된 조각화된 MP4(부드러운 스트리밍)를 수집하는 경우 부드러운 스트리밍 클라이언트로만 스트림을 제공할 수 있습니다. |
@@ -228,10 +228,10 @@ KeyFrameInterval 및 FragmentsPerSegment를 둘 다 명시적으로 설정하는
 ## <a name="feedback"></a>사용자 의견
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="related-topics"></a>관련된 항목
-[권장 온-프레미스 인코더](media-services-recommended-encoders.md)
+## <a name="related-topics"></a>관련 항목
+[온-프레미스 인코더 권장](media-services-recommended-encoders.md)
 
-[Azure Media Services 조각화된 MP4 라이브 수집 사양](media-services-fmp4-live-ingest-overview.md)
+[Azure Media Services 조각화된 MP4 라이브 수집 사양](../media-services-fmp4-live-ingest-overview.md)
 
 [Azure Media Services 개요 및 일반적인 시나리오](media-services-overview.md)
 

@@ -7,18 +7,17 @@ author: raiye
 editor: ''
 ms.assetid: 6306cafe-1153-44c7-8554-623b03d59a34
 ms.service: cloud-services
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 7/26/2019
 ms.author: raiye
-ms.openlocfilehash: 9f796d4fe0edd1b6a944fc96e8045b1434d939f0
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 63c0502cb7b5abf6b6005683cc97d3229ec90e47
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68592422"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945439"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스
 Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 제공합니다. 이 정보는 게스트 OS를 사용하지 않도록 설정하기 전에 업그레이드 경로를 계획하는 데 도움이 됩니다. *Azure 게스트 OS 업데이트 설정* 의 설명에 따라 [자동][Azure Guest OS Update Settings]게스트 OS 업데이트를 사용하도록 역할을 구성하는 경우, 이 페이지를 읽지 않아도 됩니다.

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: d0e8881607fe4dc84a7d533855dc2b9c48e5366d
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: b42313a83be413a9c34a45fca946ea165f8fc9a3
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726180"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967034"
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Cassandra에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -40,7 +40,9 @@ Cassandra 데이터베이스에서 지원되는 모든 싱크 데이터 저장�
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-공개적으로 액세스할 수 없는 Cassandra 데이터베이스에서 데이터를 복사하려면 자체 호스팅 통합 런타임을 설정해야 합니다. 자세한 내용은 [자체 호스팅 통합 런타임](create-self-hosted-integration-runtime.md) 문서를 참조하세요. 통합 런타임은 기본 제공 Cassandra 드라이버를 제공하므로 Cassandra 간에 데이터를 복사할 때 수동으로 드라이버를 설치할 필요가 없습니다.
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+
+통합 런타임은 기본 제공 Cassandra 드라이버를 제공하므로 Cassandra 간에 데이터를 복사할 때 수동으로 드라이버를 설치할 필요가 없습니다.
 
 ## <a name="getting-started"></a>시작
 
@@ -58,9 +60,9 @@ Cassandra 연결된 서비스에 다음 속성이 지원됩니다.
 | 호스트 |Cassandra 서버에 대한 하나 이상의 IP 주소 또는 호스트 이름.<br/>모든 서버에 동시에 연결하려면 쉼표로 구분된 IP 주소 또는 호스트 이름 목록을 지정합니다. |예 |
 | port |Cassandra 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. |아니요(기본값: 9042) |
 | authenticationType | Cassandra 데이터베이스에 연결하는 데 사용되는 인증 형식입니다.<br/>허용되는 값은 다음과 같습니다. **기본** 및 **익명**. |예 |
-| username 이름 |사용자 계정의 사용자 이름을 지정합니다. |예. authenticationType은 Basic으로 설정됩니다. |
+| username |사용자 계정의 사용자 이름을 지정합니다. |예. authenticationType은 Basic으로 설정됩니다. |
 | password |사용자 계정으로 password를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예. authenticationType은 Basic으로 설정됩니다. |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. 자체 호스팅 Integration Runtime 또는 Azure Integration Runtime을 사용할 수 있습니다(데이터 저장소를 공개적으로 액세스할 수 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [전제 조건](#prerequisites) 섹션에서 자세히 알아보세요. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
 
 >[!NOTE]
 >현재 연결에 SSL을 사용한 Cassandra 연결은 지원되지 않습니다.
@@ -181,7 +183,7 @@ Cassandra에서 데이터를 복사하는 경우 Cassandra 데이터 형식에�
 | DECIMAL |Decimal |
 | DOUBLE |DOUBLE |
 | FLOAT |Single |
-| INET |String |
+| INET |문자열 |
 | INT |Int32 |
 | TEXT |String |
 | TIMESTAMP |DateTime |

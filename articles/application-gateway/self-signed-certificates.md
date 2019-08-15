@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: victorh
-ms.openlocfilehash: 9966164ec1b6a37538a24d2ef8cb80007e6f6d29
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 659c4cb3a6f0d50176875b76eeb2784c711eafd1
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698239"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967135"
 ---
 # <a name="generate-an-azure-application-gateway-self-signed-certificate-with-a-custom-root-ca"></a>사용자 지정 루트 CA를 사용 하 여 Azure 애플리케이션 게이트웨이 자체 서명 된 인증서 생성
 
@@ -29,7 +29,7 @@ Application Gateway는 잘 알려진 CA (예: GoDaddy 또는 DigiCert)에 의해
 - 사용자 지정 CA로 서명 된 자체 서명 된 인증서 만들기
 - Application Gateway에 자체 서명 된 루트 인증서를 업로드 하 여 백 엔드 서버 인증
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - **Windows 또는 Linux를 실행 하는 컴퓨터의 [OpenSSL](https://www.openssl.org/)** 
 
@@ -150,7 +150,7 @@ SSL 바인딩 지침은 [IIS 7에서 ssl을 설정 하는 방법](https://docs.m
 
 ### <a name="nginx"></a>NGINX
 
-다음 구성은 SSL 구성이 포함 된 [NGINX 서버 블록](http://nginx.org/docs/http/configuring_https_servers.html) 의 예입니다.
+다음 구성은 SSL 구성이 포함 된 [NGINX 서버 블록](https://nginx.org/docs/http/configuring_https_servers.html) 의 예입니다.
 
 ![SSL을 사용 하는 NGINX](media/self-signed-certificates/nginx-ssl.png)
 

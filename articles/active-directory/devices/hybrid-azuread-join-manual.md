@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c9de4a9b72e446a7d2b6687af380ee910b58980
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: a56fcc45d4efb21c4904380d731d9e95584c39fd
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68741282"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879406"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>자습서: 하이브리드 Azure Active Directory 조인 디바이스를 수동으로 구성
 
@@ -71,6 +71,8 @@ Azure AD에 컴퓨터를 등록하려면 조직 네트워크 내에 있는 컴�
 버전 1703 이하의 Windows 10 디바이스를 사용하며 조직에서 아웃바운드 프록시를 통해 인터넷에 액세스해야 하는 경우 Windows 10 컴퓨터에서 Azure AD에 등록할 수 있도록 WPAD(웹 프록시 자동 검색)를 구현해야 합니다.
 
 Windows 10 1803부터는 페더레이션된 도메인에서 AD FS를 사용한 디바이스의 하이브리드 Azure AD 조인 시도가 실패하더라도 Azure AD Connect가 컴퓨터/디바이스 개체를 Azure AD와 동기화하도록 구성되어 있으면 디바이스가 동기화된 컴퓨터/디바이스를 사용하여 하이브리드 Azure AD 조인을 완료하려고 시도합니다.
+
+디바이스가 시스템 계정으로 위의 Microsoft 리소스에 액세스할 수 있는지 확인하기 위해 [디바이스 등록 연결 테스트](https://gallery.technet.microsoft.com/Test-Device-Registration-3dc944c0) 스크립트를 사용할 수 있습니다.
 
 ## <a name="verify-configuration-steps"></a>구성 확인 단계
 
@@ -555,8 +557,8 @@ Windows 하위 수준 디바이스를 등록하려면 다운로드 센터에서 
 
 도메인 조인 Windows 디바이스에 대한 하이브리드 Azure AD 조인을 완료할 때 문제가 발생하면 다음을 참조하세요.
 
-* [Windows 최신 장치의 하이브리드 Azure AD 조인 문제 해결](troubleshoot-hybrid-join-windows-current.md)
-* [Windows 하위 수준 장치의 하이브리드 Azure AD 조인 문제 해결](troubleshoot-hybrid-join-windows-legacy.md)
+* [Windows 최신 디바이스의 하이브리드 Azure AD 조인 문제 해결](troubleshoot-hybrid-join-windows-current.md)
+* [Windows 하위 수준 디바이스의 하이브리드 Azure AD 조인 문제 해결](troubleshoot-hybrid-join-windows-legacy.md)
 
 ## <a name="next-steps"></a>다음 단계
 

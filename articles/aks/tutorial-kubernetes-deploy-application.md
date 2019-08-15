@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: be4d3fd298a7c08aa640585beb741bad18a840ef
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 85471323a7f8918d80b7c0944fe5c255e9fa836a
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67614335"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018911"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에서 애플리케이션 실행
 
-Kubernetes는 컨테이너화된 애플리케이션용 분산 플랫폼을 제공합니다. 고유의 응용 프로그램 및 서비스를 빌드하여 Kubernetes 클러스터에 배포하고, 클러스터가 가용성 및 연결을 관리하게 합니다. 7개 중 4단계인 이 자습서에서는 애플리케이션 예제를 Kubernetes 클러스터에 배포합니다. 다음 방법에 대해 알아봅니다.
+Kubernetes는 컨테이너화된 애플리케이션용 분산 플랫폼을 제공합니다. 고유의 애플리케이션 및 서비스를 빌드하여 Kubernetes 클러스터에 배포하고, 클러스터가 가용성 및 연결을 관리하게 합니다. 7개 중 4단계인 이 자습서에서는 애플리케이션 예제를 Kubernetes 클러스터에 배포합니다. 다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Kubernetes 매니페스트 파일 업데이트
@@ -102,13 +102,13 @@ kubectl get service azure-vote-front --watch
 처음에는 *azure-vote-front* 서비스에 대한 *EXTERNAL-IP*가 *보류 중*으로 표시됩니다.
 
 ```
-azure-vote-front   10.0.34.242   <pending>     80:30676/TCP   7s
+azure-vote-front   LoadBalancer   10.0.34.242   <pending>     80:30676/TCP   5s
 ```
 
 *EXTERNAL-IP* 주소가 *보류 중*에서 실제 공용 IP 주소로 변경되면 `CTRL-C`를 사용하여 `kubectl` 조사식 프로세스를 중지합니다. 다음 예제 출력은 서비스에 할당된 유효한 공용 IP 주소를 보여줍니다.
 
 ```
-azure-vote-front   10.0.34.242   52.179.23.131   80:30676/TCP   2m
+azure-vote-front   LoadBalancer   10.0.34.242   52.179.23.131   80:30676/TCP   67s
 ```
 
 애플리케이션이 실제로 작동하는 모습을 보려면 웹 브라우저를 서비스의 외부 IP 주소로 엽니다.
@@ -123,7 +123,7 @@ azure-vote-front   10.0.34.242   52.179.23.131   80:30676/TCP   2m
 
 > [!div class="checklist"]
 > * Kubernetes 매니페스트 파일 업데이트
-> * Kubernetes에서 응용 프로그램 실행
+> * Kubernetes에서 애플리케이션 실행
 > * 애플리케이션 테스트
 
 그 다음 자습서로 이동하여 Kubernetes 애플리케이션 및 기본 Kubernetes 인프라 규모를 조정하는 방법을 알아보세요.

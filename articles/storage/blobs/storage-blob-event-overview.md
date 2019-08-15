@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: cbrooks
-ms.openlocfilehash: b79039c45006b81201d455cc4bbbf1b3468a3923
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 13eef9beb6c86683c56efc744dc42b4614b84fe9
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845551"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946492"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Blob Storage 이벤트에 대응
 
@@ -30,8 +30,8 @@ Blob 저장소 이벤트는 풍부한 재시도 정책 및 배달 못 한 편지
 |이 도구를 사용 하려면 다음을 수행 합니다.    |이 문서를 참조 하세요. |
 |--|-|
 |Azure Portal    |[빠른 시작: Azure Portal를 사용 하 여 Blob 저장소 이벤트를 웹 끝점으로 라우팅](https://docs.microsoft.com/azure/event-grid/blob-event-quickstart-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
-|Azure CLI    |[빠른 시작: PowerShell을 사용 하 여 웹 끝점에 저장소 이벤트 라우팅](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart-powershell?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
-|Powershell    |[빠른 시작: Azure CLI를 사용 하 여 웹 끝점으로 저장소 이벤트 라우팅](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|PowerShell    |[빠른 시작: PowerShell을 사용 하 여 웹 끝점에 저장소 이벤트 라우팅](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart-powershell?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Azure CLI    |[빠른 시작: Azure CLI를 사용 하 여 웹 끝점으로 저장소 이벤트 라우팅](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 
 ## <a name="the-event-model"></a>이벤트 모델
 
@@ -60,7 +60,7 @@ Blob Storage 이벤트의 제목은 다음 형식을 사용합니다.
 /blobServices/default/containers/<containername>/blobs/<blobname>
 ```
 
-저장소 계정의 모든 이벤트와 일치하는 항목을 찾으려면 제목 필터를 비워 둡니다.
+스토리지 계정의 모든 이벤트와 일치하는 항목을 찾으려면 제목 필터를 비워 둡니다.
 
 접두사를 공유하는 컨테이너 집합에서 생성된 Blob의 이벤트와 일치하는 항목을 찾으려면 다음과 같은 `subjectBeginsWith` 필터를 사용합니다.
 
@@ -86,7 +86,7 @@ Blob 접미사를 공유하는 특정 컨테이너에 만들어진 Blob의 이�
 
 Blob Storage 이벤트를 처리하는 애플리케이션은 아래 권장되는 몇 가지 지침을 따라야 합니다.
 > [!div class="checklist"]
-> * 동일한 이벤트 처리기로 이벤트를 라우팅하도록 여러 구독이 구성될 수 있으므로, 이벤트가 특정 원본에서 온 것이라고 가정하지 않고 메시지의 토픽을 확인하여 예상하는 저장소 계정에서 왔음을 확실히 아는 것이 중요합니다.
+> * 동일한 이벤트 처리기로 이벤트를 라우팅하도록 여러 구독이 구성될 수 있으므로, 이벤트가 특정 원본에서 온 것이라고 가정하지 않고 메시지의 토픽을 확인하여 예상하는 스토리지 계정에서 왔음을 확실히 아는 것이 중요합니다.
 > * 마찬가지로, eventType이 본인이 처리하려는 형식인지 확인하고, 수신된 모든 이벤트가 예상하는 형식일 것이라고 간주하지 않도록 합니다.
 > * 메시지가 잘못된 순서로 오거나 조금 늦게 도착할 수도 있으므로 etag 필드를 사용하여 개체에 대한 정보가 아직 최신 상태인지 여부를 확인합니다.  또한 sequencer 필드를 사용하여 특정 개체에 대한 이벤트 순서를 파악합니다.
 > * blobType 필드를 사용하여 Blob에 허용되는 작업 형식을 파악하고 Blob에 액세스하는 데 사용해야 하는 클라이언트 라이브러리 형식을 확인합니다. 유효한 값은 `BlockBlob` 또는 `PageBlob`입니다. 
