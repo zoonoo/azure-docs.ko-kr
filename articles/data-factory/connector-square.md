@@ -45,7 +45,7 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성을 다음으로 설정해야 합니다. **Square** | 예 |
-| 호스트 | Square 인스턴스의 URL입니다. 즉, mystore.mysquare.com입니다.  | 예 |
+| host | Square 인스턴스의 URL입니다. 즉, mystore.mysquare.com입니다.  | 예 |
 | clientId | Square 애플리케이션과 연결된 클라이언트 ID입니다.  | 예 |
 | clientSecret | Square 애플리케이션과 연결된 클라이언트 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | redirectUri | Square 애플리케이션 대시보드에 지정된 리디렉션 URL입니다. (예: http:\//chosts: 2500)  | 예 |
