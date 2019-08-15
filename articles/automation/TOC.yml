@@ -20,10 +20,14 @@
       displayName: RBAC
     - name: Automation 계정을 다른 구독으로 이동
       href: how-to/move-account.md
+    - name: Automation Services의 온보딩 자동화
+      href: /azure/architecture/cloud-adoption/operations/azure-server-management/onboarding-automation
 - name: 프로세스 Automation
   items:
     - name: Hybrid Runbook Worker 개요
       href: automation-hybrid-runbook-worker.md
+    - name: Runbook 갤러리
+      href: automation-runbook-gallery.md
     - name: 개념
       items:
         - name: Runbook 형식
@@ -297,8 +301,6 @@
   items:
     - name: SendGrid로 Runbook에서 이메일 보내기
       href: automation-send-email.md
-    - name: Runbook 갤러리
-      href: automation-runbook-gallery.md
     - name: 메트릭 경고로 Runbook 모니터링
       href: automation-alert-metric.md
     - name: Azure 경고에서 Runbook 시작

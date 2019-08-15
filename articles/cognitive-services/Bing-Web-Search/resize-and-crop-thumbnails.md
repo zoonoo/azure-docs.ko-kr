@@ -8,19 +8,19 @@ manager: nitinme
 ms.assetid: 05A08B01-89FF-4781-AFE7-08DA92F25047
 ms.service: cognitive-services
 ms.subservice: bing-web-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: aahi
-ms.openlocfilehash: 6a5b2dada254a0bfc7fa60172f56221ba67ad279
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: ecc6eb86e7115143fa63b44f9191b1fe8d3703b8
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67867975"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881806"
 ---
 # <a name="resize-and-crop-thumbnail-images"></a>썸네일 이미지 크기 조정 및 자르기
 
-Bing Search API의 일부 답변에는 Bing에서 제공 하는 미리 보기 이미지에 대 한 Url이 포함 되어 있습니다 .이 Url은 크기 조정 및 자르기와 쿼리 매개 변수를 포함할 수 있습니다. 예를 들어:
+Bing Search API의 일부 답변에는 Bing에서 제공 하는 미리 보기 이미지에 대 한 Url이 포함 되어 있습니다 .이 Url은 크기 조정 및 자르기와 쿼리 매개 변수를 포함할 수 있습니다. 예:
 
 `https://<host>/th?id=AMMS_92772df988...&w=110&h=73&rs=1&qlt=80&cdv=1&pid=16.1`
 

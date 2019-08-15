@@ -10,18 +10,18 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 617a8fc823b7c40d047e5825dc31b095da132f29
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: a2f743b2b7e63df8b81a1024b20e3e27a3f247a9
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321444"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932986"
 ---
 # <a name="configure-anomaly-detector-containers"></a>변칙 탐지기 컨테이너 구성
 
 **변칙 탐지기** 컨테이너 런타임 환경은 명령 인수를 `docker run` 사용 하 여 구성 됩니다. 이 컨테이너에는 여러 필수 설정과 몇 가지 선택적 설정이 있습니다. 몇 가지 명령의 [예제](#example-docker-run-commands)를 사용할 수 있습니다. 청구 설정은 컨테이너별로 다릅니다. 
 
-# <a name="configuration-settings"></a>구성 설정
+## <a name="configuration-settings"></a>구성 설정
 
 이 컨테이너에는 다음 구성 설정을 사용합니다.
 
@@ -134,3 +134,8 @@ ms.locfileid: "68321444"
   Billing={ENDPOINT_URI} ApiKey={API_KEY} \
   Logging:Console:LogLevel:Default=Information
   ```
+
+## <a name="next-steps"></a>다음 단계
+
+* [Azure Container Instances에 변칙 탐지기 컨테이너 배포](how-to/deploy-anomaly-detection-on-container-instances.md)
+* [변칙 탐지기 API 서비스에 대 한 자세한 정보](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)

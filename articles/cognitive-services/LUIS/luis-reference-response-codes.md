@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: diberry
-ms.openlocfilehash: c92bcf55b571c37efa308d9121ee4aee714e684a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 43fbca732bbd281ad980ae86e4a89f446fdb69bc
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560074"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945853"
 ---
 # <a name="common-api-response-codes-and-their-meaning"></a>일반적인 API 응답 코드 및 해당 의미
 

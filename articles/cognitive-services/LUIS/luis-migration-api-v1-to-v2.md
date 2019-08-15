@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: diberry
-ms.openlocfilehash: ab42ee29e508bfa62e2dba7a6e6a06baa0da2489
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2f67bf0951ef8928297c71e8fc9f924cf05c63f4
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560322"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932683"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>LUIS 앱에 대한 API v1에서 v2로 마이그레이션 가이드
 버전 1 [엔드포인트](https://aka.ms/v1-endpoint-api-docs) 및 [작성](https://aka.ms/v1-authoring-api-docs) API는 더 이상 사용되지 않습니다. 이 가이드를 사용하여 버전 2 [엔드포인트](https://go.microsoft.com/fwlink/?linkid=2092356) 및 [작성](https://go.microsoft.com/fwlink/?linkid=2092087) API로 마이그레이션하는 방법을 이해합니다. 
@@ -105,14 +105,14 @@ v2 엔드포인트 성공 응답:
 ```
 
 ## <a name="key-management-no-longer-in-api"></a>API에 더 이상 키 관리가 없음
-구독 끝점 키 API는 더 이상 사용되지 않으며 410 없음을 반환합니다.
+구독 엔드포인트 키 API는 더 이상 사용되지 않으며 410 없음을 반환합니다.
 
 | version | 경로(route) |
 |--|--|
 |1|/luis/v1.0/prog/subscriptions|
 |1|/luis/v1.0/prog/subscriptions/{subscriptionKey}|
 
-Azure [끝점 키](luis-how-to-azure-subscription.md)는 Azure Portal에서 생성됩니다. **[게시](luis-how-to-azure-subscription.md)** 페이지에서 LUIS 앱에 키를 할당합니다. 실제 키 값을 알 필요가 없습니다. LUIS는 구독 이름을 사용하여 키를 할당합니다. 
+Azure [엔드포인트 키](luis-how-to-azure-subscription.md)는 Azure Portal에서 생성됩니다. **[게시](luis-how-to-azure-subscription.md)** 페이지에서 LUIS 앱에 키를 할당합니다. 실제 키 값을 알 필요가 없습니다. LUIS는 구독 이름을 사용하여 키를 할당합니다. 
 
 ## <a name="new-versioning-route"></a>새 버전 관리 경로
 이제 v2 모델이 [버전](luis-how-to-manage-versions.md)에 포함됩니다. 버전 이름은 경로에서 10자입니다. 기본 버전은 “0.1”입니다.

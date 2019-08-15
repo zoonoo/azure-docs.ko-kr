@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: diberry
-ms.openlocfilehash: 972f75fd1c977e79a2fa70c44bb3069e2c69a2c5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1579c50f2dcf78e350ce014ffb1516cec4ac85b3
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563404"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933495"
 ---
 # <a name="ordinal-v2-prebuilt-entity-for-a-luis-app"></a>LUIS 앱에 대 한 서 수 V2 미리 작성 된 엔터티
 서 수 V2 number는 [서 수](luis-reference-prebuilt-ordinal.md) 를 확장 하 여 `next`, `last`및 `previous`와 같은 상대 참조를 제공 합니다. 이러한 항목은 미리 작성 된 서 수 엔터티를 사용 하 여 추출 되지 않습니다.

@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: e4ed781544d3cd11e8494e40589676adf57a9c75
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 1827bfdbebaf1ffa17c7c631a94aa8fc6471d13b
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405124"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854092"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Bing Custom Search 환경 구성
 
@@ -129,7 +129,7 @@ Bing에서 검색하려는 웹 조각을 지정하려면 **활성** 탭을 클�
 > [!NOTE]
 > 사용자의 검색 쿼리와 핀의 검색 쿼리 간의 모든 비교는 대/소문자를 구분합니다.
 
-| 값 | 설명                                                                          |
+| 값 | Description                                                                          |
 |---------------|----------------------------------------------------------------------------------|
 | 다음으로 시작 | 사용자의 쿼리 문자열이 핀의 쿼리 문자열로 시작하면 핀이 일치합니다. |
 | 다음으로 끝   | 사용자의 쿼리 문자열이 핀의 쿼리 문자열로 끝나면 핀이 일치합니다.  |
@@ -159,5 +159,5 @@ Bing에서 검색하려는 웹 조각을 지정하려면 **활성** 탭을 클�
 
 - [사용자 지정 검색 호출](./search-your-custom-view.md)
 - [호스트된 UI 환경 구성](./hosted-ui.md)
-- [장식 표식을 사용하여 텍스트를 강조 표시](./hit-highlighting.md)
+- [장식 표식을 사용하여 텍스트를 강조 표시](../bing-web-search/hit-highlighting.md)
 - [웹 페이지 페이징](./page-webpages.md)

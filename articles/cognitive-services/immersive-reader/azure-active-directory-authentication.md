@@ -1,21 +1,21 @@
 ---
 title: Azure Active Directory (Azure AD) 인증
 titleSuffix: Azure Cognitive Services
-description: 몰입 형 판독기 SDK에 대 한 참조
+description: 이 문서에서는 사용자 지정 하위 도메인을 사용 하 여 새 몰입 형 판독기 리소스를 만든 다음 Azure 테 넌 트에서 Azure AD를 구성 하는 방법을 보여 줍니다.
 services: cognitive-services
 author: rwaller
 manager: guillasi
 ms.service: cognitive-services
 ms.subservice: immersive-reader
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: rwaller
-ms.openlocfilehash: de6a29e1c4c102aa7d4038185c1635544ba9dfe2
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: e4b792a04b4926fdb56f37c089e73b90cde905d3
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688787"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990136"
 ---
 # <a name="use-azure-active-directory-azure-ad-authentication-with-the-immersive-reader-service"></a>몰입 형 판독기 서비스에서 Azure Active Directory (Azure AD) 인증 사용
 
@@ -134,5 +134,7 @@ ms.locfileid: "68688787"
 
 ## <a name="next-steps"></a>다음 단계
 
-* 몰입형 판독기 SDK를 사용하여 수행할 수 있는 다른 작업을 확인하려면 [자습서](./tutorial.md)를 살펴보세요.
+* Node.js를 사용 하 여 몰입 형 판독기 SDK로 수행할 수 있는 다른 작업을 확인 하려면 [node.js 자습서](./tutorial-nodejs.md) 를 확인 하세요.
+* Python [자습서](./tutorial-python.md) 를 확인 하 여 python을 사용 하는 몰입 형 판독기 SDK로 수행할 수 있는 다른 작업을 확인 하세요.
+* Swift를 사용 하 여 몰입 형 판독기 SDK로 수행할 수 있는 다른 작업을 확인 하려면 [Swift 자습서](./tutorial-ios-picture-immersive-reader.md) 를 확인 하세요.
 * [몰입형 판독기 SDK](https://github.com/microsoft/immersive-reader-sdk) 및 [몰입형 판독기 SDK 참조](./reference.md) 살펴보기

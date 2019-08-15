@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 8d107aed75904c27b9ed231d50c884f96318a324
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: e3f6ad4338863fcbb35bad4f286b71993cf6fa2a
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321425"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854827"
 ---
 # <a name="install-and-run-anomaly-detector-containers"></a>변칙 탐지기 컨테이너를 설치 하 고 실행 합니다.
 
@@ -30,7 +30,7 @@ Api에 대 한 자세한 내용은 다음을 참조 하세요.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 변칙 탐지기 컨테이너를 사용 하기 전에 다음 필수 구성 요소를 충족 해야 합니다.
 
@@ -198,4 +198,5 @@ ApiKey={API_KEY}
 ## <a name="next-steps"></a>다음 단계
 
 * [컨테이너 구성](anomaly-detector-container-configuration.md)에서 구성 설정을 검토합니다.
+* [Azure Container Instances에 변칙 탐지기 컨테이너 배포](how-to/deploy-anomaly-detection-on-container-instances.md)
 * [변칙 탐지기 API 서비스에 대 한 자세한 정보](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)

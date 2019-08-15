@@ -44,9 +44,9 @@ sections:
         style: unordered
         items:
           - html: <a href="tutorial-1st-experiment-sdk-setup">환경을 설정하고 첫 번째 ML 실험을 학습합니다.</a>
-          - html: <a href="tutorial-train-models-with-aml">이미지 분류 모델을 학습 및 배포</a>합니다.
-          - html: <a href="tutorial-data-prep">데이터 준비 및 자동화된 ML을 사용하여 택시 요금 예측</b>.</a>
-          - html: <a href="how-to-run-batch-predictions">ML 파이프라인을 사용하여 대용량 데이터 세트에서 일괄 처리 예측을 실행합니다</b>.</a>
+          - html: <a href="tutorial-train-models-with-aml">이미지 분류 모델을 학습 및 배포합니다.</a>
+          - html: <a href="tutorial-data-prep">데이터를 준비하고 자동화된 ML을 사용하여 택시 요금을 예측합니다.</b></a>
+          - html: <a href="how-to-run-batch-predictions">ML 파이프라인을 사용하여 대용량 데이터 세트에서 일괄 처리 예측을 실행합니다.</b></a>
   - title: 샘플
     items:
       - type: paragraph
@@ -56,10 +56,10 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: '<a href="https://aka.ms/aml-sdk">기본 Python SDK</a>: 핵심 기능, 자동화된 기계 학습, 파이프라인 등입니다.'
-          - html: '<a href="https://aka.ms/aml-monitoring-sdk">모니터링</a> Python SDK: 배포된 웹 서비스에서 데이터를 수집합니다.'
-          - html: 시각적 인터페이스에 대한 <a href="../algorithm-module-reference/module-reference.md">알고리즘 및 모듈 참조</a>
-          - html: '<a href="https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest">Azure ML CLI</a>: 기계 학습 명령줄 인터페이스 확장'
+          - html: '<a href="https://aka.ms/aml-sdk">기본 Python SDK</a> 문서: 핵심 기능, 자동화된 ML, 파이프라인 등에 대해 알아봅니다.'
+          - html: '<a href="https://aka.ms/aml-monitoring-sdk">모니터링</a> Python SDK 문서: 배포된 웹 서비스에서 데이터를 수집하는 방법 알아보기'
+          - html: 시각적 인터페이스 모듈에 대한 <a href="../algorithm-module-reference/module-reference.md">알고리즘 및 모듈 참조</a> 문서.
+          - html: '<a href="https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest">Azure ML CLI</a>: ML 명령줄 인터페이스 확장에 대해 알아봅니다.'
   - title: 기타 Azure Machine Learning 기술
     items:
       - type: list

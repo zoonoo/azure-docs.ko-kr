@@ -7,15 +7,15 @@ author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sajagtap
-ms.openlocfilehash: 7bbdfb995ab6c819b0782a30e2ade4df4e5e0551
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f3f93824eb021e0fb75e1a6b81935292379d50e5
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564234"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883065"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>.NET을 사용하여 비디오 대본 검토 만들기
 
@@ -25,7 +25,7 @@ ms.locfileid: "68564234"
 - 검토에 조정된 대본 추가
 - 검토 게시
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 - 아직 수행 하지 않은 경우 Content Moderator [검토 도구](https://contentmoderator.cognitive.microsoft.com/) 사이트에서 로그인 하거나 계정을 만듭니다.
 - 이 문서에서는 사용자 결정을 위한 검토 도구에서 [비디오를 조정](video-moderation-api.md)하고 [비디오 검토를 생성](video-reviews-quickstart-dotnet.md)했다고 가정합니다. 이제 검토 도구에서 조정된 비디오 대본을 추가하려고 합니다.

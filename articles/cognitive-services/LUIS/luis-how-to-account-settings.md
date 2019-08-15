@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 28f8a15922a3a3e4e3b464b86bdfea07d329a848
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 11a2040e674a0ee38fbce8b21097f058fe603da2
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638276"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881941"
 ---
 # <a name="manage-account-and-authoring-key"></a>계정 및 작성 키 관리
 
@@ -40,7 +40,7 @@ LUIS 계정에 대한 두 가지 주요 정보는 사용자 계정과 작성 키
 
 ## <a name="delete-account"></a>계정 삭제
 
-계정을 삭제할 때 삭제되는 데이터에 대한 내용은 [데이터 저장 및 제거](luis-concept-data-storage.md#accounts)를 참조하세요.
+계정을 삭제할 때 삭제되는 데이터에 대한 내용은 [데이터 스토리지 및 제거](luis-concept-data-storage.md#accounts)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

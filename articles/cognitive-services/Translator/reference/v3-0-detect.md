@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: ed4a57a791c88ae7df0337a0c1cc74dde14a13d8
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: ba73b75e30639dd3f5cf5523124c926ea3442fa1
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595097"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932030"
 ---
 # <a name="translator-text-api-30-detect"></a>Translator Text API 3.0: 검색
 
@@ -35,7 +35,7 @@ https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
 
 <table width="100%">
   <th width="20%">쿼리 매개 변수</th>
-  <th>Description</th>
+  <th>설명</th>
   <tr>
     <td>api-version</td>
     <td>*필수 매개 변수*입니다.<br/>클라이언트에서 요청한 API 버전입니다. 값은 `3.0`이어야 합니다.</td>
@@ -139,7 +139,7 @@ https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
 
 <table width="100%">
   <th width="20%">상태 코드</th>
-  <th>Description</th>
+  <th>설명</th>
   <tr>
     <td>200</td>
     <td>명령 실행 성공</td>
@@ -176,10 +176,6 @@ https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
 
 다음 예제에서는 텍스트 번역에 지원되는 언어를 검색하는 방법을 보여줍니다.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
-
-```
+```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/detect?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'What language is this text written in?'}]"
 ```
-
----

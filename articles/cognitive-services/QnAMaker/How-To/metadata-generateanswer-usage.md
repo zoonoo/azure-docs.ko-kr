@@ -1,54 +1,54 @@
 ---
 title: GenerateAnswer API와 메타데이터 - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: QnA Maker는 메타데이터를 키/값 쌍의 형태로 질문/응답 집합에 추가할 수 있습니다. 사용자 쿼리 결과 필터링 하 고 후속 대화에 사용할 수 있는 추가 정보를 저장할 수 있습니다.
+description: QnA Maker는 메타데이터를 키/값 쌍의 형태로 질문/응답 집합에 추가할 수 있습니다. 사용자 쿼리를 사용 하 여 결과를 필터링 하 고 추가 정보를 저장할 수 있습니다.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: diberry
-ms.openlocfilehash: 6bfcb531d0e4e8073a5553f7bc84a25e4f8a92a9
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: dbfa7aaccd513ffcf8ba3907911d8c49275b2ea6
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67785692"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967649"
 ---
-# <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>GenerateAnswer API 및 메타 데이터를 사용 하 여 답변을 가져오려면
+# <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>GenerateAnswer API 및 메타 데이터를 사용 하 여 답변 받기
 
-사용자의 질문에 대 한 예측된 답변을 얻으려면 GenerateAnswer API를 사용 합니다. 이 API를 사용 하는 방법에 대 한 정보를 볼 수 있는 기술 자료를 게시할 때 합니다 **게시** 페이지입니다. 답변 메타 데이터 태그를 기준으로 필터링 하는 API를 구성 하 고 테스트 쿼리 문자열 매개 변수를 사용 하 여 끝점에서 기술 자료를 테스트할 수도 있습니다.
+사용자의 질문에 대 한 예측 답변을 얻으려면 GenerateAnswer API를 사용 합니다. 기술 자료를 게시할 때 **게시** 페이지에서이 API를 사용 하는 방법에 대 한 정보를 볼 수 있습니다. 메타 데이터 태그를 기준으로 응답을 필터링 하도록 API를 구성 하 고 테스트 쿼리 문자열 매개 변수를 사용 하 여 끝점에서 기술 자료를 테스트할 수도 있습니다.
 
-QnA Maker의 질문 및 답변 사용자 집합에 키 / 값 쌍의 형태로 메타 데이터를 추가할 수 있습니다. 그런 다음 사용자 쿼리 결과 필터링 하 고 후속 대화에 사용할 수 있는 추가 정보를 저장 합니다.이 정보를 사용할 수 있습니다. 자세한 내용은 [기술 자료](../Concepts/knowledge-base.md)를 참조하세요.
+QnA Maker를 사용 하면 질문 및 답변 집합에 키 및 값 쌍의 형태로 메타 데이터를 추가할 수 있습니다. 그런 다음이 정보를 사용 하 여 사용자 쿼리에 대 한 결과를 필터링 하 고 추가 정보를 저장할 수 있습니다. 자세한 내용은 [기술 자료](../Concepts/knowledge-base.md)를 참조하세요.
 
 <a name="qna-entity"></a>
 
-## <a name="store-questions-and-answers-with-a-qna-entity"></a>질문 및 답변 QnA 엔터티를 사용 하 여 저장 합니다.
+## <a name="store-questions-and-answers-with-a-qna-entity"></a>QnA 엔터티를 사용 하 여 질문 및 답변 저장
 
-QnA Maker 질문 및 답변 데이터를 저장 하는 방법을 이해 하는 것이 반드시 합니다. 다음 일러스트레이션은 QnA 엔터티를 보여줍니다.
+QnA Maker 질문과 대답 데이터를 저장 하는 방법을 이해 하는 것이 중요 합니다. 다음 일러스트레이션은 QnA 엔터티를 보여줍니다.
 
-![QnA 엔터티의 그림](../media/qnamaker-how-to-metadata-usage/qna-entity.png)
+![QnA 엔터티 그림](../media/qnamaker-how-to-metadata-usage/qna-entity.png)
 
-QnA 엔터티마다 고유한 영구 ID가 있습니다. 특정 QnA 엔터티를 업데이트 하려면 ID를 사용할 수 있습니다.
+QnA 엔터티마다 고유한 영구 ID가 있습니다. ID를 사용 하 여 특정 QnA 엔터티를 업데이트할 수 있습니다.
 
 <a name="generateanswer-api"></a>
 
-## <a name="get-answer-predictions-with-the-generateanswer-api"></a>GenerateAnswer API를 사용 하 여 답변 예측
+## <a name="get-answer-predictions-with-the-generateanswer-api"></a>GenerateAnswer API를 사용 하 여 답변 예측 가져오기
 
-사용 된 [GenerateAnswer API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) 봇 또는 사용자 질문을 사용 하 여 기술 자료를 쿼리 하는 응용 프로그램에서 설정에 가장 일치 하는 질문 및 답변에서 가져오려고 합니다.
+봇 또는 응용 프로그램에서 [GENERATEANSWER API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) 를 사용 하 여 사용자 질문을 통해 기술 자료를 쿼리하고 질문 및 답변 집합에서 가장 일치 하는 항목을 가져옵니다.
 
 <a name="generateanswer-endpoint"></a>
 
-## <a name="publish-to-get-generateanswer-endpoint"></a>GenerateAnswer 끝점에 게시 
+## <a name="publish-to-get-generateanswer-endpoint"></a>GenerateAnswer 끝점 가져오기에 게시 
 
-기술 자료에 게시 한 후 합니다 [QnA Maker 포털](https://www.qnamaker.ai), 또는 사용 하 여 합니다 [API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish), GenerateAnswer 끝점의 세부 정보를 가져올 수 있습니다.
+[QnA Maker 포털](https://www.qnamaker.ai)에서 또는 [API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish)를 사용 하 여 기술 자료를 게시 한 후에는 generateanswer 끝점의 세부 정보를 가져올 수 있습니다.
 
 엔드포인트 세부 정보를 가져오려면 다음을 수행합니다.
 1. [https://www.qnamaker.ai](https://www.qnamaker.ai)에 로그인합니다.
-1. **내 기술 자료**를 선택 **코드 보기** 기술 자료에 대 한 합니다.
-    ![기술 자료를 내 스크린 샷](../media/qnamaker-how-to-metadata-usage/my-knowledge-bases.png)
+1. **내 기술 자료**에서 기술 자료에 대 한 **코드 보기** 를 선택 합니다.
+    ![내 기술 자료의 스크린샷](../media/qnamaker-how-to-metadata-usage/my-knowledge-bases.png)
 1. GenerateAnswer 엔드포인트 세부 정보를 가져옵니다.
 
     ![끝점 세부 정보 스크린샷](../media/qnamaker-how-to-metadata-usage/view-code.png)
@@ -61,21 +61,21 @@ QnA 엔터티마다 고유한 영구 ID가 있습니다. 특정 QnA 엔터티를
 
 HTTP POST 요청을 사용하여 GenerateAnswer를 호출합니다. GenerateAnswer를 호출하는 방법을 보여주는 샘플 코드는 [빠른 시작](../quickstarts/csharp.md)을 참조하세요. 
 
-POST 요청을 사용합니다.
+POST 요청은 다음을 사용 합니다.
 
-* 필요한 [URI 매개 변수](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#uri-parameters)
-* 필요한 [헤더 속성](https://docs.microsoft.com/azure/cognitive-services/qnamaker/quickstarts/get-answer-from-knowledge-base-nodejs#add-a-post-request-to-send-question-and-get-an-answer), `Authorization`, 보안
-* 필요한 [본문 속성](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#feedbackrecorddto)합니다. 
+* 필수 [URI 매개 변수](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#uri-parameters)
+* 보안을 위해 필요한 `Authorization` [헤더 속성](https://docs.microsoft.com/azure/cognitive-services/qnamaker/quickstarts/get-answer-from-knowledge-base-nodejs#add-a-post-request-to-send-question-and-get-an-answer)
+* 필수 [본문 속성](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#feedbackrecorddto)입니다. 
 
-GenerateAnswer URL의 형식은: 
+GenerateAnswer URL의 형식은 다음과 같습니다. 
 
 ```
 https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 ```
 
-HTTP 헤더 속성을 설정 해야 `Authorization` 문자열의 값을 사용 하 여 `EndpointKey` 는 후행 공백 다음에서 찾을 끝점 키를 **설정** 페이지입니다.
+의 `Authorization` HTTP 헤더 속성은 후행 공백이 있는 문자열 `EndpointKey` 의 값과 **설정** 페이지에 있는 끝점 키를 사용 하 여 설정 해야 합니다.
 
-예제 JSON 본문 다음과 같습니다.
+예제 JSON 본문은 다음과 같습니다.
 
 ```json
 {
@@ -96,7 +96,7 @@ HTTP 헤더 속성을 설정 해야 `Authorization` 문자열의 값을 사용 �
 
 ## <a name="generateanswer-response-properties"></a>GenerateAnswer 응답 속성
 
-합니다 [응답](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#successful-query) 사용 가능한 경우 답변 및 다음 표시 하는 데 필요한 정보를 대화의 설정 모두를 포함 하 여 JSON 개체입니다.
+[응답](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#successful-query) 은 응답을 표시 하는 데 필요한 모든 정보를 포함 하는 JSON 개체 이며, 사용 가능한 경우에는 다음 번에 대화를 진행 합니다.
 
 ```json
 {
@@ -120,9 +120,9 @@ HTTP 헤더 속성을 설정 해야 `Authorization` 문자열의 값을 사용 �
 }
 ```
 
-## <a name="use-qna-maker-with-a-bot-in-c"></a>에 봇과 QnA Maker를 사용 합니다.C#
+## <a name="use-qna-maker-with-a-bot-in-c"></a>에서 봇과 함께 QnA Maker 사용C#
 
-Bot framework QnA Maker의 속성에 대 한 액세스를 제공 합니다.
+Bot 프레임 워크는 QnA Maker의 속성에 대 한 액세스를 제공 합니다.
 
 ```csharp
 using Microsoft.Bot.Builder.AI.QnA;
@@ -134,11 +134,11 @@ qnaOptions.ScoreThreshold = 0.3F;
 var response = await _services.QnAServices[QnAMakerKey].GetAnswersAsync(turnContext, qnaOptions);
 ```
 
-지원 봇이 [예로](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-support/csharp_dotnetcore/Service/SupportBotService.cs#L418) 이 코드로 변경 합니다.
+지원 봇에는이 코드가 포함 된 [예제가](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-support/csharp_dotnetcore/Service/SupportBotService.cs#L418) 있습니다.
 
-## <a name="use-qna-maker-with-a-bot-in-nodejs"></a>Node.js에서 봇과 QnA Maker를 사용 합니다.
+## <a name="use-qna-maker-with-a-bot-in-nodejs"></a>Node.js에서 봇과 함께 QnA Maker 사용
 
-Bot framework QnA Maker의 속성에 대 한 액세스를 제공 합니다.
+Bot 프레임 워크는 QnA Maker의 속성에 대 한 액세스를 제공 합니다.
 
 ```javascript
 const { QnAMaker } = require('botbuilder-ai');
@@ -152,23 +152,23 @@ var qnaMakerOptions = {
 var qnaResults = await this.qnaMaker.getAnswers(stepContext.context, qnaMakerOptions);
 ```
 
-지원 봇이 [예로](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-activelearning/javascript_nodejs/Helpers/dialogHelper.js#L36) 이 코드로 변경 합니다.
+지원 봇에는이 코드가 포함 된 [예제가](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-activelearning/javascript_nodejs/Helpers/dialogHelper.js#L36) 있습니다.
 
 <a name="metadata-example"></a>
 
-## <a name="use-metadata-to-filter-answers-by-custom-metadata-tags"></a>메타 데이터를 사용 하 여 답변 사용자 지정 메타 데이터 태그로 필터링
+## <a name="use-metadata-to-filter-answers-by-custom-metadata-tags"></a>메타 데이터를 사용 하 여 사용자 지정 메타 데이터 태그로 답변 필터링
 
-메타 데이터를 추가 합니다. 이러한 메타 데이터 태그로 답을 필터링 할 수 있습니다. 메타 데이터 열을 추가 합니다 **보기 옵션** 메뉴. 메타 데이터를 선택 하 여 메타 데이터 기술 자료에 추가할 **+** 아이콘을 메타 데이터 쌍을 추가 합니다. 이 쌍 하나 키 한 개와 값으로 구성 됩니다.
+메타 데이터를 추가 하면 이러한 메타 데이터 태그로 답변을 필터링 할 수 있습니다. **보기 옵션** 메뉴에서 메타 데이터 열을 추가 합니다. 메타 데이터 **+** 아이콘을 선택 하 여 메타 데이터 쌍을 추가 하 여 기술 자료에 메타 데이터를 추가 합니다. 이 쌍은 하나의 키와 하나의 값으로 구성 됩니다.
 
-![메타 데이터를 추가 하는 스크린샷](../media/qnamaker-how-to-metadata-usage/add-metadata.png)
+![메타 데이터 추가 스크린샷](../media/qnamaker-how-to-metadata-usage/add-metadata.png)
 
 <a name="filter-results-with-strictfilters-for-metadata-tags"></a>
 
 ## <a name="filter-results-with-strictfilters-for-metadata-tags"></a>메타데이터 태그에 대한 strictFilters로 결과 필터링
 
-"경우에이 호텔을 닫고?", 사용자 질문을 고려해 여기서 의도 것을 의미 있는 식당 "환상의"로 지정 합니다.
+"Paradise" 라는 사용자 질문에 대 한 의도는 "이 호텔에 근접 하는 경우"를 참조 하세요.
 
-결과 "환상의" 음식점에 대해서만 필요 하기 때문에 "음식점 Name" 메타 데이터에 GenerateAnswer 호출에서 필터를 설정할 수 있습니다. 다음 예제에서는이 보여 줍니다.
+식당 "Paradise"에 대 한 결과만 필요 하므로, 메타 데이터 "식당 이름"에 대 한 GenerateAnswer 호출에서 필터를 설정할 수 있습니다. 다음 예제에서는이를 보여 줍니다.
 
 ```json
 {
@@ -184,9 +184,9 @@ var qnaResults = await this.qnaMaker.getAnswers(stepContext.context, qnaMakerOpt
 
 <a name="keep-context"></a>
 
-## <a name="use-question-and-answer-results-to-keep-conversation-context"></a>질문 및 답변 결과 사용 하 여 대화 컨텍스트를 유지 하려면
+## <a name="use-question-and-answer-results-to-keep-conversation-context"></a>질문 및 답변 결과를 사용 하 여 대화 컨텍스트 유지
 
-GenerateAnswer에 대 한 응답에는 일치 하는 질문 및 답변 집합의 해당 메타 데이터 정보를 포함합니다. 뒷부분에 나오는 대화에 사용 하기 위해 이전 대화의 컨텍스트를 저장 하려면 클라이언트 응용 프로그램에서이 정보를 사용할 수 있습니다. 
+GenerateAnswer에 대 한 응답에는 일치 하는 질문 및 답변 집합에 해당 하는 메타 데이터 정보가 포함 됩니다. 클라이언트 응용 프로그램에서이 정보를 사용 하 여 이후 대화에서 사용할 이전 대화의 컨텍스트를 저장할 수 있습니다. 
 
 ```json
 {
@@ -214,11 +214,11 @@ GenerateAnswer에 대 한 응답에는 일치 하는 질문 및 답변 집합의
 }
 ```
 
-## <a name="match-questions-only-by-text"></a>텍스트에서 질문에만 일치
+## <a name="match-questions-only-by-text"></a>텍스트를 기준으로 질문과 대답을 찾습니다.
 
-기본적으로 QnA Maker 질문 및 답변을 통해 검색합니다. 질문만 검색 하려는 경우 생성 하려면 답변을 사용 합니다 `RankerType=QuestionOnly` GenerateAnswer 요청 POST 본문에 있습니다.
+기본적으로 QnA Maker는 질문과 대답을 검색 합니다. 질문에 대해서만 검색 하려는 경우 대답을 생성 하려면 generateanswer 요청의 게시 본문 `RankerType=QuestionOnly` 에서를 사용 합니다.
 
-게시 된 kb를 통해 검색할 수 있습니다 사용 하 여 `isTest=false`, 또는 사용 하 여 테스트 kb `isTest=true`합니다.
+을 사용 하 여 `isTest=false` `isTest=true`게시 된 kb,를 사용 하 여 또는 테스트 kb에서 검색할 수 있습니다.
 
 ```json
 {
@@ -231,7 +231,7 @@ GenerateAnswer에 대 한 응답에는 일치 하는 질문 및 답변 집합의
 
 ## <a name="next-steps"></a>다음 단계
 
-**게시** 페이지에는 또한 사용 하 여 답변을 생성 하는 정보 제공 [Postman](../Quickstarts/get-answer-from-kb-using-postman.md) 하 고 [cURL](../Quickstarts/get-answer-from-kb-using-curl.md)합니다. 
+**게시** 페이지에는 [Postman](../Quickstarts/get-answer-from-kb-using-postman.md) 및 [말아](../Quickstarts/get-answer-from-kb-using-curl.md)의 대답을 생성 하는 정보도 제공 됩니다. 
 
 > [!div class="nextstepaction"]
 > [기술 자료 만들기](./create-knowledge-base.md)

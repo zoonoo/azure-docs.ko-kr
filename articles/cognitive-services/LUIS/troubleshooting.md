@@ -8,15 +8,15 @@ ms.custom: seodec18
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 5122a5a88f5a0d67799930999236f2993bc43f8f
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: b80c32fea0d62bb5800a677ff30cb0787e83afa2
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68609752"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945833"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding FAQ(질문과 대답)
 
@@ -108,9 +108,9 @@ Azure에서 [서비스](https://azure.microsoft.com/pricing/details/cognitive-se
 시스템은 해당 값에 관계 없이 점수가 가장 높은 의도를 사용해야 합니다. 예를 들어, 0.5(50%) 미만 점수라고 해서 LUIS가 반드시 낮은 신뢰도를 갖는다는 것을 의미하는 것은 아닙니다. 더 많은 학습 데이터를 제공하면 가능성이 가장 높은 의도의 [점수](luis-concept-prediction-score.md)를 높일 수 있습니다.
 
 ### <a name="why-dont-i-see-my-endpoint-hits-in-my-apps-dashboard"></a>내 앱의 대시보드에서 엔드포인트 적중이 표시되지 않는 이유는 무엇인가요?
-앱의 대시보드에 표시되는 총 끝점 적중은 주기적으로 업데이트되지만 Azure Portal의 LUIS 끝점 키와 연결된 메트릭은 좀 더 자주 업데이트됩니다.
+앱의 대시보드에 표시되는 총 엔드포인트 적중은 주기적으로 업데이트되지만 Azure Portal의 LUIS 엔드포인트 키와 연결된 메트릭은 좀 더 자주 업데이트됩니다.
 
-업데이트된 엔드포인트 적중이 대시보드에 보이지 않는 경우 Azure Portal에 로그인하고 LUIS 엔드포인트 키와 연결된 리소스를 찾은 다음, **메트릭**을 열어 **총 호출 수** 메트릭을 선택합니다. 끝점 키가 둘 이상의 LUIS 앱에 사용되는 경우 Azure Portal의 메트릭은 해당 메트릭을 사용하는 모든 LUIS 앱의 집계된 호출 수를 나타냅니다.
+업데이트된 엔드포인트 적중이 대시보드에 보이지 않는 경우 Azure Portal에 로그인하고 LUIS 엔드포인트 키와 연결된 리소스를 찾은 다음, **메트릭**을 열어 **총 호출 수** 메트릭을 선택합니다. 엔드포인트 키가 둘 이상의 LUIS 앱에 사용되는 경우 Azure Portal의 메트릭은 해당 메트릭을 사용하는 모든 LUIS 앱의 집계된 호출 수를 나타냅니다.
 
 ### <a name="is-there-a-powershell-command-get-to-the-endpoint-quota"></a>엔드포인트 할당량을 확인할 수 있는 PowerShell 명령이 있나요?
 
@@ -205,7 +205,7 @@ Azure에서 테넌트는 서비스와 연결된 클라이언트 또는 조직을
 ### <a name="how-can-i-disable-the-logging-of-utterances"></a>발언 로깅을 사용하지 않도록 설정하려면 어떻게 해야 하나요?
 클라이언트 애플리케이션이 LUIS를 쿼리하는 사용하는 엔드포인트 URL에서 `log=false`를 설정하여 사용자 발언의 로깅을 해제할 수 있습니다. 그렇지만 로깅을 해제하면 [활성 학습](luis-concept-review-endpoint-utterances.md#what-is-active-learning)에 따라 발언을 제안하거나 성능을 향상시키는 LUIS 앱 기능을 사용할 수 없게 됩니다. 데이터 개인 정보 문제 때문에 `log=false`를 설정하는 경우 LUIS에서 해당 사용자 발언의 기록을 다운로드하거나 해당 발언을 사용하여 앱을 향상시킬 수 없습니다.
 
-로깅은 발언의 유일한 저장소입니다.
+로깅은 발언의 유일한 스토리지입니다.
 
 ### <a name="why-dont-i-want-all-my-endpoint-utterances-logged"></a>모든 내 엔드포인트 발언을 로깅하지 않아도 되는 이유는 무엇인가요?
 예측 분석을 위해 로그를 사용하는 경우에는 로그에 테스트 발언을 캡처하지 않도록 합니다.
@@ -233,7 +233,7 @@ Azure에서 테넌트는 서비스와 연결된 클라이언트 또는 조직을
 ## <a name="app-notification"></a>앱 알림
 
 ### <a name="why-did-i-get-an-email-saying-im-almost-out-of-quota"></a>할당량이 거의 초과되려고 한다는 전자 메일이 수신되는 이유는 무엇인가요?
-작성/시작 키는 매월 1,000개의 엔드포인트 쿼리만 허용합니다. LUIS 끝점 키(무료 또는 유료)를 만들고 끝점 쿼리를 만들 때 해당 키를 사용합니다. 봇이나 다른 클라이언트 애플리케이션에서 엔드포인트 쿼리를 만드는 경우 해당 위치에서 LUIS 엔드포인트를 변경해야 합니다.
+작성/시작 키는 매월 1,000개의 엔드포인트 쿼리만 허용합니다. LUIS 엔드포인트 키(무료 또는 유료)를 만들고 엔드포인트 쿼리를 만들 때 해당 키를 사용합니다. 봇이나 다른 클라이언트 애플리케이션에서 엔드포인트 쿼리를 만드는 경우 해당 위치에서 LUIS 엔드포인트를 변경해야 합니다.
 
 ## <a name="bots"></a>봇
 

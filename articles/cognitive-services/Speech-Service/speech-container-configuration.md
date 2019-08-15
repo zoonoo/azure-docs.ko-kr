@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: dapine
-ms.openlocfilehash: 8a8b0e18c1db7a2e2fc08819aa2f2d64d650ded6
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: c4598e5e99012694a798e44c0d37e9578486751b
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321363"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932117"
 ---
 # <a name="configure-speech-service-containers"></a>음성 서비스 컨테이너 구성
 
@@ -23,7 +23,7 @@ ms.locfileid: "68321363"
 
 **음성** 컨테이너 런타임 환경은 `docker run` 명령 인수를 사용하여 구성됩니다. 이 컨테이너에는 여러 필수 설정과 몇 가지 선택적 설정이 있습니다. 몇 가지 명령의 [예제](#example-docker-run-commands)를 사용할 수 있습니다. 청구 설정은 컨테이너별로 다릅니다. 
 
-# <a name="configuration-settings"></a>구성 설정
+## <a name="configuration-settings"></a>구성 설정
 
 [!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
@@ -50,7 +50,7 @@ ms.locfileid: "68321363"
 
 * Azure Portal: **음성** 개요, `Endpoint` 레이블
 
-|필수| Name | 데이터 형식 | 설명 |
+|필수| Name | 데이터 형식 | Description |
 |--|------|-----------|-------------|
 |예| `Billing` | String | 청구 끝점 URI<br><br>예제:<br>`Billing=https://westus.api.cognitive.microsoft.com/sts/v1.0` |
 
@@ -78,7 +78,7 @@ ms.locfileid: "68321363"
 
 호스트 탑재 위치의 정확한 구문은 호스트 운영 체제에 따라 다릅니다. 또한 [호스트 컴퓨터](speech-container-howto.md#the-host-computer)의 탑재 위치에는 Docker 서비스 계정에서 사용되는 권한과 호스트 탑재 위치 권한 간의 충돌로 인해 액세스할 수 없습니다. 
 
-|Optional| Name | 데이터 형식 | Description |
+|Optional| Name | 데이터 형식 | 설명 |
 |-------|------|-----------|-------------|
 |허용되지 않음| `Input` | 문자열 | 음성 컨테이너는 이것을 사용하지 않습니다.|
 |Optional| `Output` | String | 출력 탑재의 대상입니다. 기본값은 `/output`입니다. 로그의 위치입니다. 컨테이너 로그가 포함됩니다. <br><br>예제:<br>`--mount type=bind,src=c:\output,target=/output`|

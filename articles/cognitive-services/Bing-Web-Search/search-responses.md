@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 5380713af17a751ab695fee90895b4f6b0d2369b
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: f19454868ad7be21777d725f61e09a84f6c7a313
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67542823"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854719"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Bing Web Search API 응답 구조 및 대답 형식  
 
@@ -123,7 +123,7 @@ The following shows an example of how you might display the webpage in a search 
 
 관련된 쿼리에 대한 Bing 검색 결과 페이지로 사용자를 이동시키는 하이퍼링크를 만들려면 `displayText` 쿼리 문자열 및 `webSearchUrl` URL을 사용합니다. 사용자의 Web Search API 쿼리에 있는 `text` 쿼리 문자열을 사용하여 직접 결과를 표시할 수도 있습니다.
 
-`displayText`에서 강조 표시 마커를 처리하는 방법에 대한 자세한 내용은 [적중 항목 강조 표시](./hit-highlighting.md)를 참조하세요.
+`displayText`에서 강조 표시 마커를 처리하는 방법에 대한 자세한 내용은 [적중 항목 강조 표시](../bing-web-search/hit-highlighting.md)를 참조하세요.
 
 다음은 Bing.com에서 관련된 쿼리 사용의 예를 보여줍니다.
 
@@ -290,21 +290,21 @@ Encoded query: 8^2%2B11^2-2*8*11*cos%2837%29
 
 수학 표현식은 다음과 같은 기호를 포함할 수 있습니다.
 
-|기호|설명|
+|Symbol|Description|
 |------------|-----------------|
 |+|더하기|
 |-|빼기|
 |/|나누기|
 |*|곱하기|
-|^|Power|
+|^|전원|
 |!|계승값|
-|.|Decimal|
+|을 선택합니다.|Decimal|
 |()|우선 순위 그룹화|
 |[]|함수|
 
 수학 표현식은 다음과 같은 상수를 포함할 수 있습니다.
 
-|기호|설명|
+|Symbol|Description|
 |------------|-----------------|
 |Pi|3.14159...|
 |Degree|도|
@@ -314,9 +314,9 @@ Encoded query: 8^2%2B11^2-2*8*11*cos%2837%29
 
 수학 표현식은 다음과 같은 함수를 포함할 수 있습니다.
 
-|기호|설명|
+|Symbol|Description|
 |------------|-----------------|
-|정렬|제곱근|
+|Sort|제곱근|
 |Sin[x], Cos[x], Tan[x]<br />Csc[x], Sec[x], Cot[x]|삼각함수(인수 사용, 라디안 단위)|
 |ArcSin[x], ArcCos[x], ArcTan[x]<br />ArcCsc[x], ArcSec[x], ArcCot[x]|역삼각함수(라디안 단위로 결과 제공)|
 |Exp[x], E^x|지수 함수|
@@ -332,7 +332,7 @@ Encoded query: 8^2%2B11^2-2*8*11*cos%2837%29
 
 `timeZone` 응답은 위치 이름, 지정된 위치의 현재 UTC 날짜 및 시간, UTC 오프셋을 제공합니다. 위치의 경계가 여러 표준 시간대 내에 있으면 응답은 경계 내 모든 표준 시간대의 현재 UTC 날짜 및 시간을 포함합니다. 예를 들어, 플로리다 주는 두 표준 시간대에 속하기 때문에 응답은 두 표준 시간대의 현지 날짜 및 시간을 포함합니다.  
 
-쿼리 상태 또는 국가/지역에, Bing 해당 위치의 지리적 경계 내에서 기본 도시를 결정을 요청에서 반환 된 `primaryCityTime` 필드입니다. 경계가 여러 표준 시간대를 포함하는 경우 나머지 표준 시간대가 `otherCityTimes` 필드에 반환됩니다.
+쿼리가 상태 또는 국가/지역의 시간을 요청 하는 경우 Bing은 위치의 지리적 경계 내에서 기본 도시를 결정 하 고 `primaryCityTime` 필드에 반환 합니다. 경계가 여러 표준 시간대를 포함하는 경우 나머지 표준 시간대가 `otherCityTimes` 필드에 반환됩니다.
 
 다음은 `timeZone` 응답을 반환하는 예제 쿼리입니다.
 
@@ -477,6 +477,6 @@ Bing Web Search API의 응답에 다음 헤더가 포함될 수 있습니다.
 
 * [요청 제한](throttling-requests.md) 설명서를 검토합니다.  
 
-## <a name="see-also"></a>참고 항목  
+## <a name="see-also"></a>참고자료  
 
 * [Bing Web Search API 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)

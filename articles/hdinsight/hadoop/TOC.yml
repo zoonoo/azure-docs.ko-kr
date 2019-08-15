@@ -45,7 +45,7 @@
   items:
     - name: Apache Hadoop 샌드박스 사용
       href: apache-hadoop-emulator-get-started.md
-    - name: 클러스터 저장소 사용
+    - name: 클러스터 스토리지 사용
       items:
         - name: Azure Storage 사용
           href: ../hdinsight-hadoop-use-blob-storage.md?toc=/azure/hdinsight/hadoop/toc.json&bc=/azure/hdinsight/hadoop/breadcrumb/toc.json
@@ -191,7 +191,7 @@
           href: apache-hadoop-on-premises-migration-best-practices-architecture.md
         - name: 모범 사례 - 인프라
           href: apache-hadoop-on-premises-migration-best-practices-infrastructure.md
-        - name: 모범 사례 - 저장소
+        - name: 모범 사례 - 스토리지
           href: apache-hadoop-on-premises-migration-best-practices-storage.md
         - name: 모범 사례 - 데이터 마이그레이션
           href: apache-hadoop-on-premises-migration-best-practices-data-migration.md
@@ -254,7 +254,7 @@
           maintainContext: true
         - name: HDInsight 클러스터에 대한 로그 관리
           href: ../hdinsight-log-management.md?toc=/azure/hdinsight/hadoop/toc.json&bc=/azure/hdinsight/hadoop/breadcrumb/toc.json
-        - name: 저장소 계정 추가
+        - name: 스토리지 계정 추가
           href: ../hdinsight-hadoop-add-storage.md?toc=/azure/hdinsight/hadoop/toc.json&bc=/azure/hdinsight/hadoop/breadcrumb/toc.json
         - name: Apache Hadoop 작업용 데이터 업로드
           href: ../hdinsight-upload-data.md?toc=/azure/hdinsight/hadoop/toc.json&bc=/azure/hdinsight/hadoop/breadcrumb/toc.json
@@ -310,6 +310,8 @@
           href: ./apache-ambari-troubleshoot-fivezerotwo-error.md
         - name: Apache Ambari는 호스트와 서비스를 표시합니다.
           href: ./apache-ambari-troubleshoot-down-hosts-services.md
+        - name: Data Lake 파일에 액세스할 수 없습니다.
+          href: ./hdinsight-troubleshoot-data-lake-files.md
         - name: 속도가 느리거나 오류가 발생하는 HDInsight 클러스터 문제 해결
           href: ../hdinsight-troubleshoot-failed-cluster.md?toc=/azure/hdinsight/hadoop/toc.json&bc=/azure/hdinsight/hadoop/breadcrumb/toc.json
         - name: Apache Hadoop HDFS 문제 해결

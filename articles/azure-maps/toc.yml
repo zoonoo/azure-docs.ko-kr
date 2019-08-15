@@ -25,6 +25,8 @@
       items:
         - name: 지오펜스 설정
           href: tutorial-geofence.md
+        - name: 공간 분석
+          href: tutorial-iot-hub-maps.md
 - name: 개념
   items:
     - name: Azure Maps 인증

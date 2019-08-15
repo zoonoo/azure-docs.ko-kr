@@ -3,26 +3,26 @@ title: Project Acoustics Unreal 및 Wtointegration
 titlesuffix: Azure Cognitive Services
 description: 이 방법에서는 프로젝트 Acoustics Unreal 및 wto플러그 인을 프로젝트에 통합 하는 방법을 설명 합니다.
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.author: kegodin
+ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5511dd6b9a7d77c0988a94fef747a30d25bb4fc3
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 47f39e8dcd96ea3bdba564df348e9b89a6b036ba
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68706618"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933180"
 ---
 # <a name="project-acoustics-unreal-and-wwise-integration"></a>Project Acoustics Unreal 및 Wtointegration
 이 방법은 Project Acoustics 플러그 인 패키지의 자세한 통합 단계를 기존 Unreal 및 Wtogame 프로젝트에 제공 합니다. 
 
 소프트웨어 요구 사항:
-* [Unreal Engine](https://www.unrealengine.com/) 4.20 또는 4.21
+* [Unreal Engine](https://www.unrealengine.com/) 4.20 +
 * [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2018.1.\*
 * [Unreal의 wtoplugin](https://www.audiokinetic.com/library/?source=UE4&id=index.html)
   * Wtounreal 플러그 인을 사용 하는 대신 WTOSDK의 직접 통합을 사용 하는 경우 프로젝트 Acoustics Unreal 플러그 인을 참조 하 고 WTOAPI 호출을 조정 합니다.
@@ -52,7 +52,7 @@ Wto이 아닌 오디오 엔진과 함께 Project Acoustics를 사용 하려는 �
 
 * 다운로드한 패키지에 포함된 `AcousticsWwisePlugin\ProjectAcoustics` 디렉터리를 선택합니다. 이 파일은 Wto믹서 플러그 인 번들을 포함 합니다.
 
-* 플러그 인을 설치 합니다. 이제 Project Acoustics가 설치 된 플러그 인 목록에 표시 됩니다.
+* 플러그 인을 설치 합니다. 이제 Project Acoustics가 설치 된 플러그 인 목록에 표시 됩니다.  
 ![Project Acoustics 설치 후의 설치 된 플러그 인 목록 스크린샷](media/unreal-integration-post-mixer-plugin-install.png)
 
 ## <a name="2-redeploy-wwise-into-your-game"></a>2. (다시) 게임에 배포
@@ -81,9 +81,13 @@ Wto이 아닌 오디오 엔진과 함께 Project Acoustics를 사용 하려는 �
 
     ![패치를 위해 제공 된 스크립트를 강조 표시 하는 Windows 탐색기 창 스크린샷](media/patch-wwise-script.png)
 
-* DirectX SDK가 설치되어 있지 않은 경우 `[UProject]\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`에DXSDK_DIR이 포함된 줄을 주석으로 처리해야 합니다.
+* DirectX SDK를 설치하지 않은 경우 사용하는 Wwise의 버전에 따라 `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`에 `DXSDK_DIR`을 포함하는 줄을 주석으로 처리해야 할 수도 있습니다.
 
     ![DXSDK 주석 처리를 보여주는 코드 편집기의 스크린샷](media/directx-sdk-comment.png)
+
+* Visual Studio 2019을 사용 하 여 컴파일하는 경우 연결 오류를 해결 하려면 `VSVersion` `vc150`의 `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs` 기본값을 다음과 같이 수동으로 편집 합니다.
+
+    ![이름이 microsoft.vc150로 변경 된 VSVersion을 보여 주는 코드 편집기의 스크린샷](media/vsversion-comment.png)
 
 ## <a name="5-build-game-and-check-python-is-enabled"></a>5. 게임 빌드 및 Python 사용 설정 확인
 
@@ -117,7 +121,7 @@ Wto이 아닌 오디오 엔진과 함께 Project Acoustics를 사용 하려는 �
 
 * 그런 다음 믹서 플러그 인 탭으로 이동 하 여 프로젝트 acoustics 믹서 플러그 인을 버스에 추가 합니다.
 
-    ![Project Acoustics Mixer 플러그 인을 추가 하는 방법을 보여주는 screenshow 표시](media/add-mixer-plugin.png)
+    ![Project Acoustics Mixer 플러그 인을 추가 하는 방법을 보여 주는 Wtobus 스크린샷](media/add-mixer-plugin.png)
 
 ### <a name="actor-mixer-hierarchy-setup"></a>행위자-믹서 계층 설정
 * 성능상의 이유로, Project Acoustics는 오디오 DSP를 모든 원본에 동시에 적용 합니다. 이렇게 하려면 플러그 인이 믹서 플러그인으로 작동 해야 합니다. 출력 버스가 일반적으로 드라이 출력 신호를 전달 하지만 wto는 출력 버스에 믹서 플러그 인을 사용 해야 합니다. Project Acoustics를 사용 하려면 버스 신호를 받은 상태에서 `Project Acoustics Bus`원음 신호를 aux로 라우팅해야 합니다. 다음 프로세스는이 신호 흐름으로의 점진적 마이그레이션을 지원 합니다.
@@ -159,7 +163,7 @@ Wto이 아닌 오디오 엔진과 함께 Project Acoustics를 사용 하려는 �
 
 * 이제 Acoustics Space 행위자의 Acoustics 데이터 슬롯에 구운 음향 데이터 자산을 할당 합니다. 이제 장면에 acoustics!
 
-    ![Unreal editor s howing acoustics Asset 할당의 스크린샷](media/acoustics-asset-assign.png)
+    ![Acoustics 자산 할당을 보여 주는 Unreal 편집기의 스크린샷](media/acoustics-asset-assign.png)
 
 * 이제 빈 행위자를 추가 하 고 다음을 수행 합니다.
 
@@ -167,7 +171,7 @@ Wto이 아닌 오디오 엔진과 함께 Project Acoustics를 사용 하려는 �
 
 1. 행위자에 Acoustics Audio 구성 요소를 추가 합니다. 이 구성 요소는 Project Acoustics의 기능을 사용 하 여 wtoaudio 구성 요소를 확장 합니다.
 2. 시작 시 재생 상자는 기본적으로 선택 되어 있으며,이는 수준 시작 시 연결 된 이벤트를 트리거합니다.
-3. Acoustics 매개 변수 표시 확인란을 사용 하 여 소스에 대 한 화면에 있는 디버그 정보를 인쇄 합니다.
+3. Acoustics 매개 변수 표시 확인란을 사용 하 여 소스에 대 한 화면에 있는 디버그 정보를 인쇄 합니다.  
     ![디버그 값을 사용 하는 소리 소스에서 Unreal editor Acoustics 패널의 스크린샷](media/debug-values.png)
 4. 일반적인 워크플로 별 wtoevent 할당
 5. 공간 오디오 사용이 꺼져 있는지 확인 합니다. 현재 특정 오디오 구성 요소에 대해 Project Acoustics를 사용 하는 경우 Acoustics에 대 한 Wto의 공간 오디오 엔진을 동시에 사용할 수 없습니다.

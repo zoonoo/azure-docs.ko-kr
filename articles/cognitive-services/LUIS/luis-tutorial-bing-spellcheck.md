@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: diberry
-ms.openlocfilehash: bf507fcb52d0c6a57453bd5f038530640e62ba9c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f8f22c70870b149f916eb767c5eb310e063d7413
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563333"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945085"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Bing Spell Check로 맞춤법이 틀린 단어 수정
 
@@ -28,8 +28,8 @@ LUIS 앱을 [Bing Spell Check API V7](https://azure.microsoft.com/services/cogni
 ![무료 키 만들기](./media/luis-tutorial-bing-spellcheck/free-key.png)
 
 <a name"create-subscription-key"></a>
-## <a name="create-endpoint-key"></a>끝점 키 만들기
-무료 키가 만료되면 끝점 키를 만듭니다.
+## <a name="create-endpoint-key"></a>엔드포인트 키 만들기
+무료 키가 만료되면 엔드포인트 키를 만듭니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 

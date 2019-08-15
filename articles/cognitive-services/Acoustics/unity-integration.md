@@ -3,20 +3,20 @@ title: Project Acoustics Unity 통합 및 배포
 titlesuffix: Azure Cognitive Services
 description: 이 방법에서는 Project Acoustics Unity 플러그 인을 Unity 프로젝트에 통합 하는 방법을 설명 합니다.
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.author: kegodin
+ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1a90f6102d35dc1a3bb97c840f2955b54f35bbad
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 54bc98e0ddba0292c6a5dbb07f2bbdfce6a1cb45
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68706636"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933152"
 ---
 # <a name="project-acoustics-unity-integration"></a>Project Acoustics Unity 통합
 이 방법에서는 Project Acoustics Unity 플러그 인을 Unity 프로젝트에 통합 하는 방법을 설명 합니다.
@@ -32,6 +32,10 @@ ms.locfileid: "68706636"
     ![Unity 패키지 가져오기 메뉴의 스크린샷](media/import-package.png)  
 
 * **ProjectAcoustics.unitypackage** 선택
+
+* [ **가져오기** ] 단추를 클릭 하 여 Unity 패키지를 프로젝트에 통합 하세요.  
+
+    ![Unity 패키지 가져오기 대화 상자 스크린샷](media/import-dialog.png)  
 
 기존 프로젝트에 플러그 인을 가져오려는 경우 프로젝트의 루트에 C# 컴파일러에 대한 옵션을 지정하는 **mcs.rsp** 파일이 이미 있을 것입니다. 프로젝트 Acoustics 플러그 인과 함께 제공되는 mcs.rsp 파일에 해당 파일의 내용을 병합해야 합니다.
 

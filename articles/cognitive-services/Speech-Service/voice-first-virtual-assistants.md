@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: travisw
-ms.openlocfilehash: 8a12c9e5d569092440552958554681c0b1d79590
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f77a95af1edcd37043ea1e067560577140a81a04
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68552551"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967600"
 ---
 # <a name="about-custom-voice-first-virtual-assistants-preview"></a>사용자 지정 음성-우선 가상 도우미 미리 보기 정보
 
@@ -36,14 +36,25 @@ Direct Line Speech 및 사용자 지정 음성-우선 가상 도우미에 대한
 |[텍스트 음성 변환](text-to-speech.md) | 봇의 텍스트 응답을 Azure 음성 서비스의 [텍스트-음성](text-to-speech.md)을 사용하여 합성합니다. 이 합성은 오디오 스트림으로 클라이언트 응용 프로그램으로 이용 가능하게 될 예정입니다. Microsoft는 귀사 브랜드에 음성으로 제공하는 사용자 고유의 사용자 지정, 고품질 신경망 TTS 음성을 구축하는 기능을 제공하며, 자세한 정보를 알아보려면 [문의](mailto:mstts@microsoft.com)하세요.
 |[직접 줄 음성](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech) | 봇 프레임 워크 내에서 직접 라인 음성은 클라이언트 응용 프로그램, 호환 봇 및 Azure Speech Services의 기능 간에 원활한 원활한 연결을 가능 하 게 합니다. 직접 선 음성 채널을 사용 하도록 봇을 구성 하는 방법에 대 한 자세한 내용은 [Bot Framework 설명서의 해당 페이지](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)를 참조 하세요.
 
+## <a name="get-started-with-virtual-assistants"></a>가상 도우미 시작 하기
+
+10분 이내에 코드를 실행하도록 디자인된 빠른 시작을 제공합니다. 이 표에는 언어별 구성 된 음성 기반 빠른 시작 빠른 시작 목록이 포함 되어 있습니다.
+
+| 빠른 시작 | 플랫폼 | API 참조 |
+|------------|----------|---------------|
+| C#, UWP | Windows | [찾아보기](https://aka.ms/csspeech/csharpref) |
+| Java | Windows, macOS, Linux | [찾아보기](https://aka.ms/csspeech/javaref) |
+| Java | Android | [찾아보기](https://aka.ms/csspeech/javaref) |
+
 ## <a name="sample-code"></a>샘플 코드
 
 음성-우선 가상 도우미를 만들기 위한 샘플 코드는 GitHub에서 사용할 수 있습니다. 이러한 샘플에서는 몇 가지 인기 있는 프로그래밍 언어로 봇을 연결하기 위한 클라이언트 응용 프로그램을 다룹니다.
 
 * [음성-우선 가상 도우미 샘플 (SDK)](https://aka.ms/csspeech/samples)
-* [빠른 시작: 음성-우선 가상 도우미 (C#)](quickstart-virtual-assistant-csharp-uwp.md)
-* [빠른 시작: 음성-우선 가상 도우미 (Java)](quickstart-virtual-assistant-java-jre.md)
-* [Direct Line Speech Client (C#, WPF)](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client)
+* [자습서: 음성 SDK를 사용 하 여 봇 사용C#](tutorial-voice-enable-your-bot-speech-sdk.md)
+
+## <a name="tutorial"></a>자습서
+[음성 SDK 및 직접 선 음성 채널을 사용 하 여 봇을 음성으로 사용 하도록 설정](tutorial-voice-enable-your-bot-speech-sdk.md)하는 방법에 대 한 자습서입니다.
 
 ## <a name="customization"></a>사용자 지정
 

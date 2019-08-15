@@ -7,16 +7,16 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: c14c607e4c563bbeeaff02b2c2478cc4b4d96ee5
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: afc50a5adb591550f6e988a572d1ac9a8c4439cb
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165132"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68955190"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>QnA Maker 기술 자료의 신뢰도 점수
 사용자 쿼리가 기술 자료와 일치하면 QnA Maker는 신뢰도 점수와 함께 관련 응답을 반환합니다. 이 점수는 응답이 지정된 사용자 쿼리에 올바르게 일치한다는 신뢰도를 나타냅니다. 
@@ -46,22 +46,22 @@ ms.locfileid: "67165132"
 |0|일치하는 부분이 없으므로 응답은 반환되지 않습니다.|“서비스 비용은 얼마나 되나요?”|
 
 ## <a name="choose-a-score-threshold"></a>점수 임계값 선택
-위의 표에서는 대부분의 기술 자료에서 예상되는 점수를 보여 줍니다. 그러나 모든 기술 자료는 다릅니다. 있고 다양 한 유형의 단어, 의도 및 목적-테스트 및 임계값을 선택 하는 것이 좋습니다 있으므로 가장을 작동 합니다. 기본적으로 모든 가능한 답변이 반환 되도록 임계값은 0으로 설정 됩니다. 대부분의 기술 자료에 대 한 작동 해야 하는 권장 되는 임계값 **50**합니다.
+위의 표에서는 대부분의 기술 자료에서 예상되는 점수를 보여 줍니다. 그러나 모든 KB는 서로 다르며 서로 다른 유형의 단어, 의도 및 목표가 있으므로 가장 적합 한 임계값을 테스트 하 고 선택 하는 것이 좋습니다. 기본적으로 임계값은 0으로 설정 되므로 가능한 모든 대답이 반환 됩니다. 가장 Kb에 대해 작동 해야 하는 권장 되는 임계값은 **50**입니다.
 
 임계값을 선택할 때 정확도와 적용 범위 간에 균형을 맞추고 요구 사항에 맞게 임계값을 조정해야 합니다.
 
 - 사용자 시나리오에서 **정확도**(또는 정밀도)가 더 중요한 경우 임계값을 늘립니다. 이러한 방식으로 진행하면 응답을 반환할 때마다 훨씬 더 신뢰할 수 있는 사례가 되고, 사용자가 원하는 응답이 될 가능성이 높아집니다. 이 경우 더 많은 질문에 응답이 제공되지 않을 수 있습니다. *예제:* 임계값 **70**을 지정하면 “저장 및 학습이란 무엇인가요?”와 같은 모호한 예제는 누락될 수 있습니다.
 
-- **적용 범위**(또는 재현율)가 좀 더 중요하고 가능한 한 많은 질문에 응답하려는 경우(사용자 질문에 부분적으로만 연관되어 있더라도) 임계값을 낮춥니다. 응답이 사용자의 실제 쿼리에 대한 응답이 아니지만 관련된 다른 응답을 제공하는 경우가 더 많을 수 있습니다. *예를 들어:* 임계값을 만들면 **30**, 같은 쿼리에 대 한 답변을 줄 수 있습니다 "내 KB를 여기서 편집할 수 있습니까?"
+- **적용 범위**(또는 재현율)가 좀 더 중요하고 가능한 한 많은 질문에 응답하려는 경우(사용자 질문에 부분적으로만 연관되어 있더라도) 임계값을 낮춥니다. 응답이 사용자의 실제 쿼리에 대한 응답이 아니지만 관련된 다른 응답을 제공하는 경우가 더 많을 수 있습니다. *예를 들어* , 임계값을 **30**으로 설정 하면 "내 KB를 편집할 수 있는 위치"와 같은 쿼리에 대 한 답을 제공할 수 있습니다.
 
 > [!NOTE]
 > QnA Maker의 최신 버전에는 점수 매기기 논리에 대한 개선 사항이 포함되며 임계값에 영향을 줄 수 있습니다. 언제든지 서비스를 업데이트하여 필요한 경우 임계값을 테스트하고 조정해야 합니다. [여기](https://www.qnamaker.ai/UserSettings)에서 QnA 서비스 버전을 확인할 수 있습니다. 최신 업데이트를 가져오는 방법은 [여기](../How-To/troubleshooting-runtime.md)를 참조하세요.
 
-## <a name="set-threshold"></a>설정한 임계값 
+## <a name="set-threshold"></a>임계값 설정 
 
-속성으로 임계값 점수를 설정 합니다 [GenerateAnswer API JSON 본문](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration)합니다. 이 GenerateAnswer 각 호출에 대해 설정한 것을 의미 합니다. 
+이 임계값 점수를 [Generateanswer API JSON 본문](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration)의 속성으로 설정 합니다. 즉, GenerateAnswer를 호출할 때마다이를 설정 합니다. 
 
-Bot framework에서 사용 하 여 옵션 개체의 일부로 점수를 설정 [ C# ](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-c) 하거나 [Node.js](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-nodejs)합니다.
+Bot 프레임 워크에서 또는 [C#](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-c) [node.js](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-nodejs)를 사용 하 여 옵션 개체의 일부로 점수를 설정 합니다.
 
 ## <a name="improve-confidence-scores"></a>신뢰도 점수 개선
 사용자 쿼리에 대한 특정 응답의 신뢰도 점수를 향상하기 위해 사용자 쿼리를 해당 응답의 대체 질문으로 기술 자료에 추가할 수 있습니다. 대/소문자를 구분하지 않는 [단어 변경](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace)을 사용하여 KB의 키워드에 동의어를 추가할 수도 있습니다.
@@ -78,7 +78,7 @@ Bot framework에서 사용 하 여 옵션 개체의 일부로 점수를 설정 [
 
 
 ## <a name="no-match-found"></a>일치하는 항목 없음
-순위 지정에서 적절한 일치 항목을 찾지 못하면 신뢰도 점수 0.0 또는 “없음”이 반환되고 기본 응답은 “No good match found in the KB”(KB에 적절한 일치 항목이 없습니다.)입니다. 이 설정을 재정의할 수 있습니다 [기본 응답](#change-default-answer) 봇 또는 응용 프로그램 코드는 끝점을 호출 합니다. 또는 Azure에서 재정의 응답을 설정할 수도 있으며, 이 경우 특정 QnA Maker 서비스에 배포된 모든 기술 자료의 기본값이 변경됩니다.
+순위 지정에서 적절한 일치 항목을 찾지 못하면 신뢰도 점수 0.0 또는 “없음”이 반환되고 기본 응답은 “No good match found in the KB”(KB에 적절한 일치 항목이 없습니다.)입니다. 끝점을 호출 하는 bot 또는 응용 프로그램 코드에서이 [기본 응답](#change-default-answer) 을 재정의할 수 있습니다. 또는 Azure에서 재정의 응답을 설정할 수도 있으며, 이 경우 특정 QnA Maker 서비스에 배포된 모든 기술 자료의 기본값이 변경됩니다.
 
 ## <a name="change-default-answer"></a>기본 답변 변경
 
@@ -88,7 +88,7 @@ Bot framework에서 사용 하 여 옵션 개체의 일부로 점수를 설정 [
 
     ![Azure Portal에서 QnA Maker에 대한 App service에 액세스](../media/qnamaker-concepts-confidencescore/set-default-response.png)
 
-3. **애플리케이션 설정**을 클릭하고 **DefaultAnswer** 필드를 원하는 기본 응답으로 편집합니다. **저장**을 클릭합니다.
+3. **애플리케이션 설정**을 클릭하고 **DefaultAnswer** 필드를 원하는 기본 응답으로 편집합니다. **Save**을 클릭합니다.
 
     ![애플리케이션 설정을 선택한 다음, QnA Maker에 대한 DefaultAnswer 편집](../media/qnamaker-concepts-confidencescore/change-response.png)
 

@@ -8,20 +8,20 @@ ms.custom: seodec18
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: 10ddbed710d3055e66bd3cb0b06cfa7949a9a1c5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 72a7b383d224936e3d22ee9e7acb5db28fe63c4e
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563382"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945139"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Microsoft Azure Traffic Manager를 사용하여 키 전체에서 엔드포인트 할당량 관리
 Language Understanding(LUIS)은 단일 키의 할당량 이상으로 엔드포인트 요청 할당량을 늘리는 기능을 제공합니다. 이렇게 하려면 **게시** 페이지의 **리소스 및 키** 섹션에서 LUIS에 대해 더 많은 키를 만들고 LUIS 애플리케이션에 추가합니다. 
 
-클라이언트 응용 프로그램은 키 전체에서 트래픽을 관리해야 합니다. LUIS는 이러한 작업을 수행하지 않습니다. 
+클라이언트 애플리케이션은 키 전체에서 트래픽을 관리해야 합니다. LUIS는 이러한 작업을 수행하지 않습니다. 
 
 이 문서에서는 Azure [Traffic Manager][traffic-manager-marketing]를 사용 하 여 키 간 트래픽을 관리 하는 방법을 설명 합니다. 이미 학습하고 게시한 LUIS 앱이 있어야 합니다. 이러한 앱이 없는 경우, 미리 빌드된 도메인 [빠른 시작](luis-get-started-create-app.md)을 따르세요. 
 
@@ -50,15 +50,15 @@ New-AzResourceGroup -Name luis-traffic-manager -Location "West US"
 
 2. [LUIS][LUIS] 웹 사이트의 **관리** 섹션에 있는 **키 및 끝점** 페이지에서 앱에 키를 할당 하 고 오른쪽 위에 있는 메뉴에서 **게시** 단추를 선택 하 여 앱을 다시 게시 합니다. 
 
-    **끝점** 열의 예제 URL에서는 끝점 키가 있는 GET 요청을 쿼리 매개 변수로 사용합니다. 새 키 두 개의 엔드포인트 URL을 복사합니다. 이 URL은 이 문서의 뒷부분에 나오는 Traffic Manager 구성의 일부로 사용됩니다.
+    **엔드포인트** 열의 예제 URL에서는 엔드포인트 키가 있는 GET 요청을 쿼리 매개 변수로 사용합니다. 새 키 두 개의 엔드포인트 URL을 복사합니다. 이 URL은 이 문서의 뒷부분에 나오는 Traffic Manager 구성의 일부로 사용됩니다.
 
 ## <a name="manage-luis-endpoint-requests-across-keys-with-traffic-manager"></a>Traffic Manager를 사용하여 키 전체에서 LUIS 엔드포인트 요청 관리
-Traffic Manager는 엔드포인트에 대한 새 DNS 액세스 지점을 만듭니다. 이 지점은 게이트웨이나 프록시 역할을 하지 않고 DNS 수준에서만 엄격하게 사용됩니다. 이 예제에서는 DNS 레코드를 변경하지 않습니다. DNS 라이브러리를 사용하여 Traffic Manager와 통신하고 특정 요청에 올바른 엔드포인트를 가져옵니다. LUIS에 대한 ‘각’ 요청은  먼저 Traffic Manager 요청에서 사용할 LUIS 엔드포인트를 결정하도록 합니다. 
+Traffic Manager는 엔드포인트에 대한 새 DNS 액세스 지점을 만듭니다. 이 지점은 게이트웨이나 프록시 역할을 하지 않고 DNS 수준에서만 엄격하게 사용됩니다. 이 예제에서는 DNS 레코드를 변경하지 않습니다. DNS 라이브러리를 사용하여 Traffic Manager와 통신하고 특정 요청에 올바른 엔드포인트를 가져옵니다. LUIS에 대한 ‘각’ 요청은 먼저 Traffic Manager 요청에서 사용할 LUIS 엔드포인트를 결정하도록 합니다. 
 
 ### <a name="polling-uses-luis-endpoint"></a>폴링에서 LUIS 엔드포인트 사용
-Traffic Manager는 엔드포인트를 정기적으로 폴링하여 엔드포인트를 계속 사용할 수 있도록 합니다. 폴링된 Traffic Manager URL은 GET 요청을 통해 액세스할 수 있어야 하며 200을 반환해야 합니다. **게시** 페이지의 엔드포인트 URL이 이 역할을 합니다. 끝점 키마다 다른 경로와 쿼리 문자열 매개 변수가 있으므로 끝점 키마다 다른 폴링 경로가 필요합니다. Traffic Manager가 폴링할 때마다 할당량 요청 비용이 듭니다. LUIS 엔드포인트의 쿼리 문자열 매개 변수 **q**는 LUIS로 전송된 발화입니다. 이 매개 변수는 발화를 전송하는 대신 Traffic Manager를 구성하는 동안 디버깅 기술로 Traffic Manager 폴링을 LUIS 엔드포인트 로그에 추가하는 데 사용됩니다.
+Traffic Manager는 엔드포인트를 정기적으로 폴링하여 엔드포인트를 계속 사용할 수 있도록 합니다. 폴링된 Traffic Manager URL은 GET 요청을 통해 액세스할 수 있어야 하며 200을 반환해야 합니다. **게시** 페이지의 엔드포인트 URL이 이 역할을 합니다. 엔드포인트 키마다 다른 경로와 쿼리 문자열 매개 변수가 있으므로 엔드포인트 키마다 다른 폴링 경로가 필요합니다. Traffic Manager가 폴링할 때마다 할당량 요청 비용이 듭니다. LUIS 엔드포인트의 쿼리 문자열 매개 변수 **q**는 LUIS로 전송된 발화입니다. 이 매개 변수는 발화를 전송하는 대신 Traffic Manager를 구성하는 동안 디버깅 기술로 Traffic Manager 폴링을 LUIS 엔드포인트 로그에 추가하는 데 사용됩니다.
 
-각 LUIS 엔드포인트에는 고유한 경로가 필요하므로 고유한 Traffic Manager 프로필이 필요합니다. 프로필을 관리하려면[  ‘중첩’ Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-nested-profiles) 아키텍처를 만듭니다. 하나의 부모 프로필은 자식 프로필을 가리키고 이러한 프로필의 트래픽을 관리합니다.
+각 LUIS 엔드포인트에는 고유한 경로가 필요하므로 고유한 Traffic Manager 프로필이 필요합니다. 프로필을 관리하려면[‘중첩’ Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-nested-profiles) 아키텍처를 만듭니다. 하나의 부모 프로필은 자식 프로필을 가리키고 이러한 프로필의 트래픽을 관리합니다.
 
 Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 변수를 사용하도록 경로를 변경하여 로그가 폴링으로 채워지지 않도록 해야 합니다.
 
@@ -66,11 +66,11 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
 다음 섹션에서는 East LUIS 키와 West LUIS 키에 대해 하나씩 두 개의 자식 프로필을 만듭니다. 그런 다음, 부모 프로필을 만들고 이 부모 프로필에 두 개의 자식 프로필을 추가합니다. 
 
 ### <a name="create-the-east-us-traffic-manager-profile-with-powershell"></a>PowerShell을 사용하여 미국 동부 Traffic Manager 프로필 만들기
-미국 동부 Traffic Manager 프로필을 만들려면 프로필 만들기, 엔드포인트 추가, 엔드포인트 설정 등의 여러 단계를 수행합니다. Traffic Manager 프로필에는 많은 엔드포인트가 있을 수 있지만 각 엔드포인트에는 동일한 유효성 검사 경로가 있습니다. 지역 및 끝점 키로 인해 east 및 west 구독에 대한 LUIS 끝점 URL이 서로 다르기 때문에 각 LUIS 끝점은 프로필에서 단일 끝점이어야 합니다. 
+미국 동부 Traffic Manager 프로필을 만들려면 프로필 만들기, 엔드포인트 추가, 엔드포인트 설정 등의 여러 단계를 수행합니다. Traffic Manager 프로필에는 많은 엔드포인트가 있을 수 있지만 각 엔드포인트에는 동일한 유효성 검사 경로가 있습니다. 지역 및 엔드포인트 키로 인해 east 및 west 구독에 대한 LUIS 엔드포인트 URL이 서로 다르기 때문에 각 LUIS 엔드포인트은 프로필에서 단일 엔드포인트이어야 합니다. 
 
 1. **[AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.trafficmanager/new-aztrafficmanagerprofile)** cmdlet을 사용 하 여 프로필 만들기
 
-    다음 cmdlet을 사용하여 프로필을 만듭니다. `appIdLuis` 및 `subscriptionKeyLuis`를 변경해야 합니다. subscriptionKey는 미국 동부 LUIS 키용입니다. LUIS 앱 ID 및 끝점 키를 포함하여 경로가 올바르지 않으면 Traffic Manager에서 LUIS 끝점을 요청할 수 없기 때문에 Traffic Manager 폴링은 `degraded` 상태가 됩니다. `q` 값이 `traffic-manager-east`인지 확인하여 이 값이 LUIS 엔드포인트 로그에 표시되도록 합니다.
+    다음 cmdlet을 사용하여 프로필을 만듭니다. `appIdLuis` 및 `subscriptionKeyLuis`를 변경해야 합니다. subscriptionKey는 미국 동부 LUIS 키용입니다. LUIS 앱 ID 및 엔드포인트 키를 포함하여 경로가 올바르지 않으면 Traffic Manager에서 LUIS 엔드포인트을 요청할 수 없기 때문에 Traffic Manager 폴링은 `degraded` 상태가 됩니다. `q` 값이 `traffic-manager-east`인지 확인하여 이 값이 LUIS 엔드포인트 로그에 표시되도록 합니다.
 
     ```powerShell
     $eastprofile = New-AzTrafficManagerProfile -Name luis-profile-eastus -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-eastus -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/luis/v2.0/apps/<appID>?subscription-key=<subscriptionKey>&q=traffic-manager-east"
@@ -138,7 +138,7 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
 
 1. **[AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/New-azTrafficManagerProfile)** cmdlet을 사용 하 여 프로필 만들기
 
-    다음 cmdlet을 사용하여 프로필을 만듭니다. `appIdLuis` 및 `subscriptionKeyLuis`를 변경해야 합니다. subscriptionKey는 미국 동부 LUIS 키용입니다. LUIS 앱 ID 및 끝점 키를 포함하여 경로가 올바르지 않으면 Traffic Manager에서 LUIS 끝점을 요청할 수 없기 때문에 Traffic Manager 폴링은 `degraded` 상태가 됩니다. `q` 값이 `traffic-manager-west`인지 확인하여 이 값이 LUIS 엔드포인트 로그에 표시되도록 합니다.
+    다음 cmdlet을 사용하여 프로필을 만듭니다. `appIdLuis` 및 `subscriptionKeyLuis`를 변경해야 합니다. subscriptionKey는 미국 동부 LUIS 키용입니다. LUIS 앱 ID 및 엔드포인트 키를 포함하여 경로가 올바르지 않으면 Traffic Manager에서 LUIS 엔드포인트을 요청할 수 없기 때문에 Traffic Manager 폴링은 `degraded` 상태가 됩니다. `q` 값이 `traffic-manager-west`인지 확인하여 이 값이 LUIS 엔드포인트 로그에 표시되도록 합니다.
 
     ```powerShell
     $westprofile = New-AzTrafficManagerProfile -Name luis-profile-westus -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-westus -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west"
@@ -154,7 +154,7 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
     |-RelativeDnsName|luis-dns-westus|서비스의 하위 도메인(luis-dns-westus.trafficmanager.net)|
     |-Ttl|30|폴링 간격(30초)|
     |-MonitorProtocol<BR>-MonitorPort|HTTPS<br>443|LUIS에 대한 포트 및 프로토콜은 HTTPS/443입니다.|
-    |-MonitorPath|`/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west`|`<appId>` 및 `<subscriptionKey>`를 사용자 고유의 값으로 바꿉니다. 이 끝점 키는 동부 끝점 키와 다릅니다.|
+    |-MonitorPath|`/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west`|`<appId>` 및 `<subscriptionKey>`를 사용자 고유의 값으로 바꿉니다. 이 엔드포인트 키는 동부 엔드포인트 키와 다릅니다.|
     
     성공한 요청에는 응답이 없습니다.
 
@@ -369,7 +369,7 @@ LUIS 엔드포인트가 있는 성공한 응답은 다음과 같습니다.
 Traffic Manager에 대해 [진단 로그](../../traffic-manager/traffic-manager-diagnostic-logs.md)를 사용하도록 설정하여 엔드포인트의 성능 상태가 저하된 이유를 확인합니다.
 
 ## <a name="clean-up"></a>정리
-두 개의 LUIS 끝점 키, 세 개의 Traffic Manager 프로필과 이러한 5개의 리소스가 포함된 리소스 그룹을 제거합니다. 이 작업은 Azure Portal에서 수행합니다. 리소스 목록에서 5개의 리소스를 삭제합니다. 그런 다음, 리소스 그룹을 삭제합니다. 
+두 개의 LUIS 엔드포인트 키, 세 개의 Traffic Manager 프로필과 이러한 5개의 리소스가 포함된 리소스 그룹을 제거합니다. 이 작업은 Azure Portal에서 수행합니다. 리소스 목록에서 5개의 리소스를 삭제합니다. 그런 다음, 리소스 그룹을 삭제합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

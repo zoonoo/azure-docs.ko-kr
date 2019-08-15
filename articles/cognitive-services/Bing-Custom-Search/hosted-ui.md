@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: ae073e10331f07d9863da1d4ed97533f95b87c86
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 2cc89bf57167db75404c044f58d18ab48edfaf38
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405054"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854079"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>호스트된 UI 환경 구성
 
@@ -165,5 +165,5 @@ Bing Custom Search는 JavaScript 코드 조각으로 웹 페이지 및 웹 애�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [장식 표식을 사용하여 텍스트를 강조 표시](./hit-highlighting.md)
+- [장식 표식을 사용하여 텍스트를 강조 표시](../bing-web-search/hit-highlighting.md)
 - [웹 페이지 페이징](./page-webpages.md)

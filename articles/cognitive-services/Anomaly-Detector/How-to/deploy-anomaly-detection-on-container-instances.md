@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 7/5/2019
 ms.author: dapine
-ms.openlocfilehash: defbd1275e24217c235caaef15dc8f7a55ad8613
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: cdcf701c6356303c84d3f79ee4230271f64ace78
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68296569"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854226"
 ---
 # <a name="deploy-an-anomaly-detector-container-to-azure-container-instances"></a>Azure Container Instances에 변칙 탐지기 컨테이너 배포
 
@@ -35,4 +35,8 @@ Cognitive Services [변칙 탐지기](../anomaly-detector-container-howto.md) �
 
 [!INCLUDE [API documentation](../../../../includes/cognitive-services-containers-api-documentation.md)]
 
-[!INCLUDE [Containers Next Steps](../../containers/includes/containers-next-steps.md)]
+## <a name="next-steps"></a>다음 단계
+
+* 컨테이너 이미지를 끌어오거나 컨테이너를 실행 하기 위한 컨테이너 [설치 및 실행](../anomaly-detector-container-configuration.md) 을 검토 합니다.
+* [컨테이너 구성](../anomaly-detector-container-configuration.md)에서 구성 설정을 검토합니다.
+* [변칙 탐지기 API 서비스에 대 한 자세한 정보](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)

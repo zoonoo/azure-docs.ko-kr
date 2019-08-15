@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/29/2019
 ms.author: diberry
-ms.openlocfilehash: bd0910fedc9fd27af198f6a2b94b34daf57c050f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: bf8b2551390fa36736f678c756093a55d6ceb0c2
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563675"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932881"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>예제 발화 집합으로 일괄 테스트
 
@@ -34,7 +34,7 @@ ms.locfileid: "68563675"
 
     가져오기 오류는 브라우저 위쪽의 빨간색 알림 표시줄에 보고됩니다. 가져오기에 오류가 있으면 데이터 세트가 생성되지 않습니다. 자세한 내용은 [일반 오류](luis-concept-batch-test.md#common-errors-importing-a-batch)를 참조하세요.
 
-3. **데이터 세트 이름** 필드에 데이터 세트 파일의 이름을 입력합니다. 데이터 세트 파일에는 ‘레이블이 지정된 의도’ 및 ‘엔터티’를 포함하는 **발화 배열**이 포함되어 있습니다.   구문의 [예제 일괄 처리 파일](luis-concept-batch-test.md#batch-file-format)을 검토합니다. 
+3. **데이터 세트 이름** 필드에 데이터 세트 파일의 이름을 입력합니다. 데이터 세트 파일에는 ‘레이블이 지정된 의도’ 및 ‘엔터티’를 포함하는 **발화 배열**이 포함되어 있습니다. 구문의 [예제 일괄 처리 파일](luis-concept-batch-test.md#batch-file-format)을 검토합니다. 
 
 4. **완료** 를 선택합니다. 데이터 세트 파일이 추가됩니다.
 

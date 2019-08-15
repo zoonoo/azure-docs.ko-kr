@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 06/24/2019
+ms.date: 08/13/2019
 ms.author: diberry
-ms.openlocfilehash: 1960856ce2f15945d1b1bfa093f349771d481ffc
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: db54a71a6bd252c1ca60ae356cbf340bc660d142
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663836"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989094"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>기능은 작업 및 컨텍스트에 관한 정보입니다.
 
@@ -25,7 +25,7 @@ Personalizer는 **현재 컨텍스트**에 관한 정보인 **기능**을 사용
 
 예를 들어 다음 사항에 관한 **기능**이 있을 수 있습니다.
 
-* _사용자_(예: `UserID`) 
+* _사용자 가상 사용자_ ( `Sports_Shopper`예:) 이 ID는 개별 사용자 ID가 되어서는 안 됩니다. 
 * _콘텐츠_(예: 동영상이 `Documentary`, `Movie` 또는 `TV Series` 중 어느 유형인지, 또는 소매 항목이 점포에서 구입할 수 있는지 여부)
 * _현재_ 기간(예: 요일)
 
@@ -150,7 +150,7 @@ AI 서비스를 사용하여 항목을 미리 처리하면 맞춤화에 유용�
 
 각 작업:
 
-* ID를 갖습니다.
+* 에는 _이벤트_ ID가 있습니다. 이벤트 ID가 이미 있는 경우 제출 해야 합니다. 이벤트 ID가 없는 경우에는 이벤트 ID를 보내지 않습니다. Personalizer는 해당 ID를 하나 만들어 순위 요청의 응답에 반환 합니다. ID는 사용자가 아닌 순위 이벤트와 연결 됩니다. ID를 만드는 경우 GUID는 가장 효율적으로 작동 합니다. 
 * 기능 목록을 갖습니다.
 * 기능 목록은 클(수백 개) 수도 있지만 보상 얻기에 기여하지 않는 기능을 제거하기 위해 기능 효과를 평가하는 것이 좋습니다. 
 * **작업**의 기능은 Personalizer에서 사용하는 **컨텍스트**의 기능과 상관성이 있을 수도 있고 없을 수도 있습니다.
