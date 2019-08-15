@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 06/19/2019
-ms.openlocfilehash: 0507b3cb64b4b12bac92cc6bc90120ab4ec56dee
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5dd241fed757669cf8bccd96a1de948e8d73a021
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568751"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69033265"
 ---
 # <a name="tutorial-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>자습서: 장애 조치 (failover) 그룹에 Azure SQL Database 탄력적 풀 추가
 
@@ -76,11 +76,11 @@ Azure Portal를 사용 하 여 Azure SQL Database 탄력적 풀 및 테스트 �
 1. **SQL 서버** 를 선택 하 고 섹션 1에서 만든 서버를 선택 합니다.
 1. **설정** 창에서 **장애 조치 (failover) 그룹** 을 선택 하 고 **그룹 추가** 를 선택 하 여 새 장애 조치 그룹을 만듭니다. 
 
-    ![새 장애 조치 (failover) 그룹 추가](media/sql-database-elastic-pool-create-failover-group-tutorial/add-elastic-pool-to-failover-group.png)
+    ![새 장애 조치 (failover) 그룹 추가](media/sql-database-single-database-create-failover-group-tutorial/sqldb-add-new-failover-group.png)
 
 1. **장애 조치 (Failover) 그룹** 페이지에서 다음 값을 입력 하거나 선택한 다음 **만들기**를 선택 합니다.
     - **장애 조치 (Failover) 그룹 이름**: 고유한 장애 조치 (failover) 그룹 이름 (예 `failovergrouptutorial`:)을 입력 합니다. 
-    - **보조 서버**: *필수 설정을 구성* 하는 옵션을 선택한 다음 **새 서버를 만들도록**선택 합니다. 또는 기존 서버를 보조 서버로 선택할 수도 있습니다. 다음 값을 입력 한 후 **선택**을 선택 합니다. 
+    - **보조 서버**: *필수 설정을 구성* 하는 옵션을 선택한 다음 **새 서버를 만들도록**선택 합니다. 또는 기존 서버를 보조 서버로 선택할 수도 있습니다. 새 보조 서버에 대해 다음 값을 입력 한 후 **선택**을 선택 합니다. 
         - **서버 이름**: 보조 서버에 대 한 고유한 이름 (예: `mysqlsecondary`)을 입력 합니다. 
         - **서버 관리자 로그인**: 입력할`azureuser`
         - **암호**: 암호 요구 사항을 충족하는 복잡한 암호를 입력합니다.
@@ -91,9 +91,9 @@ Azure Portal를 사용 하 여 Azure SQL Database 탄력적 풀 및 테스트 �
     
        ![장애 조치 (failover) 그룹에 대 한 보조 서버 만들기](media/sql-database-single-database-create-failover-group-tutorial/create-secondary-failover-server.png)
 
-1. 보조 서버를 선택 하면 **그룹 옵션 내의 데이터베이스가** 잠금 해제 됩니다. 이를 선택 하 여 **추가할 데이터베이스를 선택한** 다음, 섹션 2에서 만든 탄력적 풀을 선택 합니다. 보조 서버에서 탄력적 풀을 만들지 묻는 경고가 표시 됩니다. 경고를 선택한 다음 **확인** 을 선택 하 여 보조 서버에서 탄력적 풀을 만듭니다. 
+1. **그룹 내의 데이터베이스** 를 선택한 다음 섹션 2에서 만든 탄력적 풀을 선택 합니다. 보조 서버에서 탄력적 풀을 만들지 묻는 경고가 표시 됩니다. 경고를 선택한 다음 **확인** 을 선택 하 여 보조 서버에서 탄력적 풀을 만듭니다. 
         
-    ![장애 조치 (failover) 그룹에 SQL DB 추가](media/sql-database-single-database-create-failover-group-tutorial/add-sqldb-to-failover-group.png)
+    ![장애 조치 (failover) 그룹에 탄력적 풀 추가](media/sql-database-elastic-pool-create-failover-group-tutorial/add-elastic-pool-to-failover-group.png)
         
 1. **선택** 을 선택 하 여 탄력적 풀 설정을 장애 조치 (failover) 그룹에 적용 한 다음 **만들기** 를 선택 하 여 장애 조치 그룹을 만듭니다. 장애 조치 (failover) 그룹에 탄력적 풀을 추가 하면 지역에서 복제 프로세스가 자동으로 시작 됩니다. 
 
@@ -113,7 +113,7 @@ Azure Portal를 사용 하 여 Azure SQL Database 탄력적 풀 및 테스트 �
    ![SQL database를 포함 하는 장애 조치 (failover) 그룹 장애 조치 (failover)](media/sql-database-single-database-create-failover-group-tutorial/failover-sql-db.png)
 
 1. 주 서버가 보조 서버인 서버를 검토 합니다. 장애 조치 (failover)에 성공 하면 두 서버에 교환 된 역할이 있어야 합니다. 
-1. 장애 조치 (failover)를 **다시 선택 하** 여 장애 조치 그룹을 다시 원래 설정으로 장애 조치 합니다. 
+1. 장애 조치 (failover)를 다시 선택 하 여 장애 조치 그룹을 다시 원래 설정으로 장애 조치 합니다. 
 
 ## <a name="clean-up-resources"></a>리소스 정리 
 리소스 그룹을 삭제 하 여 리소스를 정리 합니다. 

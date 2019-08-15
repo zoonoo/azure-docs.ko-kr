@@ -2,17 +2,17 @@
 title: Azure Kubernetes 서비스에서 가용성 영역 사용 (AKS)
 description: Azure Kubernetes 서비스 (AKS)의 가용성 영역에 노드를 배포 하는 클러스터를 만드는 방법에 대해 알아봅니다.
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 06/24/2019
-ms.author: iainfou
-ms.openlocfilehash: 52df1438913983a80ece487b49d0d6bd7821b636
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.author: mlearned
+ms.openlocfilehash: 4c2058072df4fcb068257c3e265dfe365c6d7e65
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019446"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69033147"
 ---
 # <a name="preview---create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>미리 보기-가용성 영역를 사용 하는 AKS (Azure Kubernetes Service) 클러스터 만들기
 
@@ -23,7 +23,7 @@ AKS (Azure Kubernetes Service) 클러스터는 기본 Azure 계산 인프라의 
 이 문서에서는 AKS 클러스터를 만들고 노드 구성 요소를 가용성 영역에 분산 하는 방법을 보여 줍니다. 이 기능은 현재 미리 보기로 제공됩니다.
 
 > [!IMPORTANT]
-> AKS preview 기능은 셀프 서비스 옵트인 (opt in)입니다. 커뮤니티에서 피드백 및 버그를 수집 하기 위해 제공 됩니다. 미리 보기에서 이러한 기능은 프로덕션 용도로 사용 되지 않습니다. 공개 미리 보기의 기능은 ' 최고 노력 ' 지원에 속합니다. AKS 기술 지원 팀의 지원은 업무 시간 (태평양 표준 시간대) 에서만 사용할 수 있습니다. 자세한 내용은 다음 지원 문서를 참조 하세요.
+> AKS 미리 보기 기능은 셀프 서비스 옵트인입니다. 미리 보기는 "있는 그대로" 및 "사용 가능한 상태로" 제공 되며 서비스 수준 계약 및 제한 된 보증에서 제외 됩니다. AKS 미리 보기는 최상의 노력에 대 한 고객 지원에서 부분적으로 다룹니다. 이러한 기능은 프로덕션 용도로는 사용할 수 없습니다. 추가 정보 다음 지원 문서를 참조 하세요.
 >
 > * [AKS 지원 정책][aks-support-policies]
 > * [Azure 지원 FAQ][aks-faq]

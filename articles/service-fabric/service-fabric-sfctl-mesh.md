@@ -8,24 +8,23 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 4901630509eb60cb1bbe88a46b51277af244c8f8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0774a933bb109ffc66c7f4673d2803f0631f9b82
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60556834"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035314"
 ---
 # <a name="sfctl-mesh"></a>sfctl mesh
 Service Fabric Mesh 애플리케이션을 삭제하고 관리합니다.
 
 ## <a name="subgroups"></a>하위 그룹
-|하위 그룹|설명|
+|하위 그룹|Description|
 | --- | --- |
 | [app](service-fabric-sfctl-mesh-app.md) | 애플리케이션 리소스를 가져오고 삭제합니다. |
 | [code-package-log](service-fabric-sfctl-mesh-code-package-log.md) | 지정된 서비스 복제본에 대해 지정된 코드 패키지의 컨테이너 관련 로그를 가져옵니다. |

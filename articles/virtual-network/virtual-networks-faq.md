@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: b088b4d0e21819411c7329f3cb1e6ca9761665fd
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: ebb9028aab8626554d0f5fede15129c141d441cb
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68610192"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035336"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure Virtual Network FAQ(질문과 대답)
 
@@ -67,9 +67,11 @@ VNet을 다음에 사용합니다.
 예. 자세한 내용은 [Azure 제한](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits)을 참조하세요. 서브넷 주소 공간은 서로 겹칠 수 없습니다.
 
 ### <a name="are-there-any-restrictions-on-using-ip-addresses-within-these-subnets"></a>이러한 서브넷 내에서 IP 주소를 사용하는데 제한 사항이 있습니까?
-예. Azure는 각 서브넷 내에서 5개의 IP 주소를 예약합니다. 이것은 x. x. x. x. x. x. 3 및 서브넷의 마지막 주소입니다.    
-- x. x. 0 및 서브넷의 마지막 주소는 프로토콜 규칙을 위해 예약 됩니다.
-- Azure 서비스의 각 서브넷에서 x. x. x. x. x. x. x. 3은 예약 되어 있습니다.
+예. Azure는 각 서브넷 내에서 5개의 IP 주소를 예약합니다. 이것은 x. x. x. x. x. x. 3 및 서브넷의 마지막 주소입니다. Azure 서비스의 각 서브넷에서 x. x. x. x. x. x. x. 3은 예약 되어 있습니다.   
+- x. x. 0: 네트워크 주소
+- x. x. 1: 기본 게이트웨이에 대해 Azure에서 예약 됨
+- x. x. x, x. x. 3: Azure DNS Ip를 VNet 공간에 매핑하기 위해 Azure에서 예약 됨
+- x. x. 255: 네트워크 브로드캐스트 주소
 
 ### <a name="how-small-and-how-large-can-vnets-and-subnets-be"></a>VNet 및 서브넷은 얼마나 크고 얼마나 작을 수 있습니까?
 지원되는 가장 작은 서브넷은 /29이며 가장 큰 서브넷은 /8(CIDR 서브넷 정의 사용)입니다.

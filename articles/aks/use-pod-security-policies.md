@@ -7,19 +7,19 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/17/2019
 ms.author: mlearned
-ms.openlocfilehash: c398567dd3383f4b0b4fd2eaa4b474d1e95b7575
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 374e86409be08f1f9859b3e325dda57080b89dbf
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67613886"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69033995"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>미리 보기-Azure Kubernetes Service에서 pod 보안 정책을 사용 하 여 클러스터 보호 (AKS)
 
 AKS 클러스터의 보안을 향상 시키기 위해 예약할 수 있는 pod을 제한할 수 있습니다. 허용 하지 않는 리소스를 요청 하는 pod는 AKS 클러스터에서 실행할 수 없습니다. Pod 보안 정책을 사용 하 여이 액세스를 정의 합니다. 이 문서에서는 pod 보안 정책을 사용 하 여 AKS에서 pod의 배포를 제한 하는 방법을 보여 줍니다.
 
 > [!IMPORTANT]
-> AKS preview 기능은 셀프 서비스 옵트인 (opt in)입니다. 커뮤니티에서 피드백 및 버그를 수집 하기 위해 제공 됩니다. 미리 보기에서 이러한 기능은 프로덕션 용도로 사용 되지 않습니다. 공개 미리 보기의 기능은 ' 최고 노력 ' 지원에 속합니다. AKS 기술 지원 팀의 지원은 업무 시간 (태평양 표준 시간대) 에서만 사용할 수 있습니다. 자세한 내용은 다음 지원 문서를 참조 하세요.
+> AKS 미리 보기 기능은 셀프 서비스 옵트인입니다. 미리 보기는 "있는 그대로" 및 "사용 가능한 상태로" 제공 되며 서비스 수준 계약 및 제한 된 보증에서 제외 됩니다. AKS 미리 보기는 최상의 노력에 대 한 고객 지원에서 부분적으로 다룹니다. 이러한 기능은 프로덕션 용도로는 사용할 수 없습니다. 추가 정보 다음 지원 문서를 참조 하세요.
 >
 > * [AKS 지원 정책][aks-support-policies]
 > * [Azure 지원 FAQ][aks-faq]
@@ -67,7 +67,7 @@ az provider register --namespace Microsoft.ContainerService
 
 ## <a name="overview-of-pod-security-policies"></a>Pod 보안 정책 개요
 
-Kubernetes 클러스터에서 허용 컨트롤러는 리소스를 만들 때 API 서버에 대 한 요청을 가로채는 데 사용 됩니다. 그러면 허용 컨트롤러는 규칙 집합에 대해 리소스 요청의 *유효성을 검사* *하거나 배포* 매개 변수를 변경 하도록 리소스를 변경할 수 있습니다.
+Kubernetes 클러스터에서 허용 컨트롤러는 리소스를 만들 때 API 서버에 대 한 요청을 가로채는 데 사용 됩니다. 그러면 허용 컨트롤러는 규칙 집합에 대해 리소스 요청의 *유효성을 검사* 하거나 배포 매개 변수를 변경 하도록 리소스를 변경할 수 있습니다.
 
 *PodSecurityPolicy* 는 pod 사양이 정의 된 요구 사항을 충족 하는지 확인 하는 허용 컨트롤러입니다. 이러한 요구 사항에 따라 권한 있는 컨테이너의 사용, 특정 유형의 저장소에 대 한 액세스 또는 컨테이너를 실행할 수 있는 사용자 또는 그룹을 제한할 수 있습니다. Pod 사양이 pod 보안 정책에 설명 된 요구 사항을 충족 하지 않는 리소스를 배포 하려고 하면 요청이 거부 됩니다. AKS 클러스터에서 예약할 수 있는 pod을 제어 하는이 기능은 몇 가지 가능한 보안 취약점 또는 권한 에스컬레이션을 방지 합니다.
 
@@ -95,7 +95,7 @@ az aks update \
 
 ## <a name="default-aks-policies"></a>기본 AKS 정책
 
-Pod 보안 정책을 사용 하도록 설정 하면 AKS는 *특권* 이라는 두 가지 기본 정책을 *만듭니다.* 이러한 기본 정책은 편집 하거나 제거 하지 마십시오. 대신 제어 하려는 설정을 정의 하는 고유한 정책을 만듭니다. 먼저 이러한 기본 정책이 pod 배포에 영향을 주는 방식을 살펴보겠습니다.
+Pod 보안 정책을 사용 하도록 설정 하면 AKS는 *특권* 이라는 두 가지 기본 정책을만듭니다. 이러한 기본 정책은 편집 하거나 제거 하지 마십시오. 대신 제어 하려는 설정을 정의 하는 고유한 정책을 만듭니다. 먼저 이러한 기본 정책이 pod 배포에 영향을 주는 방식을 살펴보겠습니다.
 
 사용 가능한 정책을 보려면 다음 예제와 같이 [kubectl get psp][kubectl-get] 명령을 사용 합니다. 기본 *제한* 정책의 일부로 사용자는 권한 있는 pod 에스컬레이션에 대해 *PRIV* 사용이 거부 되 고 사용자가 *MustRunAsNonRoot*됩니다.
 

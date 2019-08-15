@@ -8,39 +8,38 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: f7c9bcc51757100cb1fc957dee12213bc8bf2eec
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 54cf0a60c86e82880573dd18dcb80ece8e1e51f2
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60556610"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035016"
 ---
 # <a name="sfctl-partition"></a>sfctl partition
 모든 서비스에 대한 파티션을 쿼리 및 관리합니다.
 
 ## <a name="commands"></a>명령
 
-|명령|설명|
+|명령|Description|
 | --- | --- |
 | data-loss | 이 API는 지정한 파티션에 대한 데이터 손실을 유도합니다. |
 | data-loss-status | StartDataLoss API를 사용하여 시작된 파티션 데이터 손실 작업의 진행률을 가져옵니다. |
-| health | 지정된 Service Fabric 파티션의 상태를 가져옵니다. |
-| info | Service Fabric 파티션에 관한 정보를 가져옵니다. |
-| list | Service Fabric 서비스의 파티션 목록을 가져옵니다. |
-| load | 지정된 Service Fabric 파티션의 부하 정보를 가져옵니다. |
+| 상태 | 지정된 Service Fabric 파티션의 상태를 가져옵니다. |
+| 정보 | Service Fabric 파티션에 관한 정보를 가져옵니다. |
+| 목록 | Service Fabric 서비스의 파티션 목록을 가져옵니다. |
+| 로드 | 지정된 Service Fabric 파티션의 부하 정보를 가져옵니다. |
 | load-reset | Service Fabric 파티션의 현재 부하를 다시 설정합니다. |
 | quorum-loss | 주어진 상태 저장 서비스 파티션에 대한 쿼럼 손실을 유도합니다. |
 | quorum-loss-status | StartQuorumLoss API를 사용하여 시작된 파티션에 대한 쿼럼 손실 작업의 진행률을 가져옵니다. |
-| recover | 현재 쿼럼 손실에 걸린 특정 파티션을 복구하고자 시도해야 함을 Service Fabric 클러스터에 나타냅니다. |
+| 복구 | 현재 쿼럼 손실에 걸린 특정 파티션을 복구하고자 시도해야 함을 Service Fabric 클러스터에 나타냅니다. |
 | recover-all | 현재 쿼럼 손실에 걸린 모든 서비스(시스템 서비스 포함)를 복구하고자 시도해야 함을 Service Fabric 클러스터에 나타냅니다. |
 | report-health | Service Fabric 파티션에 관한 상태 보고서를 보냅니다. |
-| restart | 이 API는 지정된 파티션의 일부 또는 모든 복제본 또는 인스턴스를 다시 시작합니다. |
+| 다시 시작 | 이 API는 지정된 파티션의 일부 또는 모든 복제본 또는 인스턴스를 다시 시작합니다. |
 | restart-status | StartPartitionRestart를 사용하여 시작된 PartitionRestart 작업의 진행률을 가져옵니다. |
 | svc-name | 파티션에 대한 Service Fabric 서비스의 이름을 가져옵니다. |
 
@@ -64,7 +63,7 @@ ms.locfileid: "60556610"
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
@@ -79,7 +78,7 @@ OperationId를 사용하여 StartDataLoss로 시작된 데이터 손실 작업�
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --operation-id [필수] | 이 API의 호출을 식별하는 GUID입니다.  이 값은 해당 GetProgress API에 전달됩니다. |
 | --partition-id [필수] | 파티션의 id입니다. |
@@ -88,7 +87,7 @@ OperationId를 사용하여 StartDataLoss로 시작된 데이터 손실 작업�
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
@@ -103,7 +102,7 @@ OperationId를 사용하여 StartDataLoss로 시작된 데이터 손실 작업�
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --partition-id      [필수] | 파티션의 id입니다. |
 | --events-health-state-filter | 상태에 따라 반환된 HealthEvent 개체의 컬렉션을 필터링할 수 있습니다. 이 매개 변수에 사용할 수 있는 값은 다음 상태 중 하나의 정수 값을 포함합니다. 필터와 일치하는 이벤트만 반환됩니다. 모든 이벤트는 집계된 상태를 평가하는 데 사용됩니다. 지정하지 않으면 모든 항목이 반환됩니다. 상태 값은 플래그 기반 열거형이므로 값은 비트 OR 연산자를 사용하여 구한 값의 조합일 수 있습니다. 예를 들어 제공된 값이 6이면 HealthState 값이 OK(2) 및 Warning(4)인 모든 이벤트가 반환됩니다.  <br> - Default - 기본값. 모든 HealthState와 일치합니다. 값은 0입니다.  <br> - None - 모든 HealthState 값과 일치하지 않는 필터입니다. 주어진 상태 컬렉션에 대해 결과를 반환하지 않기 위해 사용됩니다. 값은 1입니다.  <br> - Ok – HealthState 값이 Ok인 입력과 일치하는 필터입니다. 값은 2입니다.  <br> - Warning – HealthState 값이 Warning인 입력과 일치하는 필터입니다. 값은 4입니다.  <br> - Error - HealthState 값이 Error인 입력과 일치하는 필터입니다. 값은 8입니다.  <br> - All - 모든 HealthState 값의 입력과 일치하는 필터입니다. 값은 65535입니다. |
@@ -158,7 +157,7 @@ Service Fabric 서비스의 파티션 목록을 가져옵니다.
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
@@ -173,14 +172,14 @@ Service Fabric 서비스의 파티션 목록을 가져옵니다.
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --partition-id [필수] | 파티션의 id입니다. |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
@@ -217,7 +216,7 @@ Service Fabric 파티션의 현재 부하를 서비스에 대한 기본 부하�
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --operation-id         [필수] | 이 API의 호출을 식별하는 GUID입니다.  이 값은 해당 GetProgress API에 전달됩니다. |
 | --partition-id         [필수] | 파티션의 id입니다. |
@@ -228,7 +227,7 @@ Service Fabric 파티션의 현재 부하를 서비스에 대한 기본 부하�
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
@@ -243,7 +242,7 @@ StartQuorumLoss API를 사용하여 시작된 파티션에 대한 쿼럼 손실 
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --operation-id [필수] | 이 API의 호출을 식별하는 GUID입니다.  이 값은 해당 GetProgress API에 전달됩니다. |
 | --partition-id [필수] | 파티션의 id입니다. |
@@ -252,7 +251,7 @@ StartQuorumLoss API를 사용하여 시작된 파티션에 대한 쿼럼 손실 
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
@@ -267,14 +266,14 @@ StartQuorumLoss API를 사용하여 시작된 파티션에 대한 쿼럼 손실 
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --partition-id [필수] | 파티션의 id입니다. |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
@@ -289,7 +288,7 @@ StartQuorumLoss API를 사용하여 시작된 파티션에 대한 쿼럼 손실 
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
 
@@ -340,7 +339,7 @@ Service Fabric 파티션에 관한 상태 보고서를 보냅니다.
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --operation-id           [필수] | 이 API의 호출을 식별하는 GUID입니다.  이 값은 해당 GetProgress API에 전달됩니다. |
 | --partition-id           [필수] | 파티션의 id입니다. |
@@ -350,7 +349,7 @@ Service Fabric 파티션에 관한 상태 보고서를 보냅니다.
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
@@ -365,7 +364,7 @@ StartPartitionRestart를 사용하여 시작된 PartitionRestart 작업의 진�
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --operation-id [필수] | 이 API의 호출을 식별하는 GUID입니다.  이 값은 해당 GetProgress API에 전달됩니다. |
 | --partition-id [필수] | 파티션의 id입니다. |
@@ -374,7 +373,7 @@ StartPartitionRestart를 사용하여 시작된 PartitionRestart 작업의 진�
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
@@ -389,14 +388,14 @@ StartPartitionRestart를 사용하여 시작된 PartitionRestart 작업의 진�
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --partition-id [필수] | 파티션의 id입니다. |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |

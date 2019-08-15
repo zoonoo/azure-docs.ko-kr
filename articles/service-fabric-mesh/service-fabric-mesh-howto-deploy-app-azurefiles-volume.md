@@ -8,19 +8,18 @@ manager: chakdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric-mesh
-ms.devlang: azure-cli
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 9f21ad737fdcd0bcdc77394096308e47a4fb5a00
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: e02afde27335e9a512d1e297880993b19fa4304e
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371115"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034719"
 ---
 # <a name="mount-an-azure-files-based-volume-in-a-service-fabric-mesh-application"></a>Service Fabric Mesh 애플리케이션에서 Azure Files 기반 볼륨 사용 
 
@@ -85,8 +84,8 @@ az storage account keys list --account-name <storageAccountName> --query "[?keyN
 
 [Azure Portal](https://portal.azure.com)에서 이러한 값을 찾을 수도 있습니다.
 * `<storageAccountName>` - **스토리지 계정** 아래에서 파일 공유를 만들 때 사용한 스토리지 계정 이름입니다.
-* `<storageAccountKey>` - **저장소 계정**에서 저장소 계정을 선택한 다음, **액세스 키**를 선택하고 **key1** 아래의 값을 사용합니다.
-* `<fileShareName>` - **저장소 계정**에서 저장소 계정을 선택한 다음, **파일**을 선택합니다. 사용할 이름은 만든 파일 공유의 이름입니다.
+* `<storageAccountKey>` - **스토리지 계정**에서 스토리지 계정을 선택한 다음, **액세스 키**를 선택하고 **key1** 아래의 값을 사용합니다.
+* `<fileShareName>` - **스토리지 계정**에서 스토리지 계정을 선택한 다음, **파일**을 선택합니다. 사용할 이름은 만든 파일 공유의 이름입니다.
 
 ## <a name="declare-a-volume-resource-and-update-the-service-resource-json"></a>볼륨 리소스 선언 및 서비스 리소스 업데이트(JSON)
 

@@ -8,32 +8,31 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 1e5b5876fa6277d1bad0989c543de667f75a066c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9d41f978dd6a87287d8743e321acf35ff4909544
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66258739"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034977"
 ---
 # <a name="sfctl-node"></a>sfctl node
 클러스터를 형성하는 노드를 관리합니다.
 
 ## <a name="commands"></a>명령
 
-|명령|설명|
+|명령|Description|
 | --- | --- |
-| disable | 지정한 비활성화 의도로 Microsoft Azure Service Fabric 클러스터 노드를 비활성화합니다. |
-| enable | 현재 비활성화되어 있는 Microsoft Azure Service Fabric 클러스터 노드를 활성화합니다. |
-| health | Microsoft Azure Service 패브릭 노드의 상태를 가져옵니다. |
-| info | Microsoft Azure Service Fabric 클러스터에서 특정 노드에 관한 정보를 가져옵니다. |
-| list | Microsoft Azure Service Fabric 클러스터에서 노드 목록을 가져옵니다. |
-| load | Microsoft Azure Service 패브릭 노드의 부하 정보를 가져옵니다. |
+| 사용 안 함 | 지정한 비활성화 의도로 Microsoft Azure Service Fabric 클러스터 노드를 비활성화합니다. |
+| 사용 | 현재 비활성화되어 있는 Microsoft Azure Service Fabric 클러스터 노드를 활성화합니다. |
+| 상태 | Microsoft Azure Service 패브릭 노드의 상태를 가져옵니다. |
+| 정보 | Microsoft Azure Service Fabric 클러스터에서 특정 노드에 관한 정보를 가져옵니다. |
+| 목록 | Microsoft Azure Service Fabric 클러스터에서 노드 목록을 가져옵니다. |
+| 로드 | Microsoft Azure Service 패브릭 노드의 부하 정보를 가져옵니다. |
 | remove-state | 노드의 지속된 상태가 영구적으로 제거되거나 손실되었음을 Microsoft Azure Service Fabric에 알립니다. |
 | report-health | Microsoft Azure Service 패브릭 노드에 관한 상태 보고서를 보냅니다. |
 | restart | Microsoft Azure Service Fabric 클러스터 노드를 다시 시작합니다. |
@@ -47,15 +46,15 @@ ms.locfileid: "66258739"
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
-| --node-name [필수] | 노드의 이름입니다. |
+| --node-name [필수] | 노드 이름입니다. |
 | --deactivation-intent | 노드를 비활성화하는 의도나 이유를 설명합니다. 가능한 값은 다음과 같습니다. |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
@@ -70,14 +69,14 @@ ms.locfileid: "66258739"
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
-| --node-name [필수] | 노드의 이름입니다. |
+| --node-name [필수] | 노드 이름입니다. |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
@@ -92,7 +91,7 @@ Microsoft Azure Service 패브릭 노드의 상태를 가져옵니다. 상태에
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --node-name       [필수] | 노드의 이름입니다. |
 | --events-health-state-filter | 상태에 따라 반환된 HealthEvent 개체의 컬렉션을 필터링할 수 있습니다. 이 매개 변수에 사용할 수 있는 값은 다음 상태 중 하나의 정수 값을 포함합니다. 필터와 일치하는 이벤트만 반환됩니다. 모든 이벤트는 집계된 상태를 평가하는 데 사용됩니다. 지정하지 않으면 모든 항목이 반환됩니다. 상태 값은 플래그 기반 열거형이므로 값은 비트 OR 연산자를 사용하여 구한 값의 조합일 수 있습니다. 예를 들어 제공된 값이 6이면 HealthState 값이 OK(2) 및 Warning(4)인 모든 이벤트가 반환됩니다.  <br> - Default - 기본값. 모든 HealthState와 일치합니다. 값은 0입니다.  <br> - None - 모든 HealthState 값과 일치하지 않는 필터입니다. 주어진 상태 컬렉션에 대해 결과를 반환하지 않기 위해 사용됩니다. 값은 1입니다.  <br> - Ok – HealthState 값이 Ok인 입력과 일치하는 필터입니다. 값은 2입니다.  <br> - Warning – HealthState 값이 Warning인 입력과 일치하는 필터입니다. 값은 4입니다.  <br> - Error - HealthState 값이 Error인 입력과 일치하는 필터입니다. 값은 8입니다.  <br> - All - 모든 HealthState 값의 입력과 일치하는 필터입니다. 값은 65535입니다. |
@@ -117,12 +116,12 @@ Microsoft Azure Service Fabric 클러스터에서 특정 노드에 관한 정보
 
 |인수|설명|
 | --- | --- |
-| --node-name [필수] | 노드의 이름입니다. |
+| --node-name [필수] | 노드 이름입니다. |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
@@ -137,7 +136,7 @@ Microsoft Azure Service Fabric 클러스터에서 노드 목록을 가져옵니�
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --continuation-token | 연속 토큰 매개 변수는 다음 결과 집합을 얻는 데 사용됩니다. 공백 값이 아닌 연속 토큰은 시스템의 결과가 단일 응답에 맞지 않는 경우 API의 응답에 포함됩니다. 이 값이 다음 API 호출에 전달되면 API는 다음 결과 집합을 반환합니다. 결과가 더 이상 없으면 연속 토큰에 값이 포함되지 않습니다. 이 매개 변수의 값은 URL 인코딩이 되지 말아야 합니다. |
 | --max-results | 페이징된 쿼리의 일부로 반환될 결과의 최대 수입니다. 이 매개 변수는 반환되는 결과 수에 상한값을 정의합니다. 반환되는 결과는 구성에 정의된 최대 메시지 크기 제한에 따라 메시지에 맞지 않는 경우 지정된 최대의 결과보다 작을 수 있습니다. 이 매개 변수가 0이거나 지정되지 않은 경우 페이징된 쿼리는 반환 메시지에 맞는 가능한 많은 결과를 포함합니다. |
@@ -146,7 +145,7 @@ Microsoft Azure Service Fabric 클러스터에서 노드 목록을 가져옵니�
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
@@ -163,7 +162,7 @@ Microsoft Azure Service 패브릭 노드의 부하 정보를 가져옵니다.
 
 |인수|설명|
 | --- | --- |
-| --node-name [필수] | 노드의 이름입니다. |
+| --node-name [필수] | 노드 이름입니다. |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
@@ -181,13 +180,13 @@ Microsoft Azure Service 패브릭 노드의 부하 정보를 가져옵니다.
 
 해당 노드의 지속된 상태를 복구할 수 없다는 것을 의미합니다. 일반적으로 하드 디스크가 초기화 정리되거나 하드 디스크의 작동이 중단하는 경우에 발생합니다. 이 작업을 성공시키려면 노드는 중단되어야 합니다. 이 작업을 사용하면 Service Fabric에서 해당 노드의 복제본이 더 이상 존재하지 않으며, Service Fabric에서 해당 복제본이 다시 작동하기를 기다리는 것을 중지해야 함을 알 수 있습니다. 노드의 상태가 제거되지 않고 노드가 해당 상태 그대로 다시 작동할 수 있는 경우 이 cmdlet을 실행하지 마십시오.
 
-시드 노드의 경우이 cmdlet을 사용 하려면 서비스 패브릭 6.5에서 시작 하세요 일반 (비-시드) 노드로 시드 노드를 변경 하 고 노드 상태를 제거 하려면이 cmdlet을 호출 합니다. 시드 노드가 다운 되 면 클러스터를 Azure에서 실행을 하는 경우 Service Fabric 비-시드 노드로 자동으로 변경 하려고 합니다. 이렇게 확인 있는지 주 노드 형식에서 비-시드 노드의 수를 시드 노드 아래로 개수 보다 작아서는 안 됩니다. 필요한 경우이 달성 하기 위해 주 노드 형식에 더 많은 노드를 추가 합니다. 독립 실행형 클러스터에 대 한 상태 그대로 돌아와서 아래쪽 시드 노드가 필요 하지 않습니다, 경우 클러스터에서 노드를 제거 하세요 참조 [Service Fabric 독립 실행형 클러스터에서 노드를 제거 합니다.](/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes) 
+Service Fabric 6.5부터 시드 노드에이 cmdlet을 사용 하려면 시드 노드를 일반 (비 초기값) 노드로 변경한 다음이 cmdlet을 호출 하 여 노드 상태를 제거 하십시오. 클러스터가 Azure에서 실행 되는 경우 시드 노드가 다운 된 후에 Service Fabric는 초기값이 아닌 노드로 자동 변경 하려고 시도 합니다. 이 작업을 수행 하려면 주 노드 형식의 비 시드 노드 수가 다운 시드 노드 수보다 작지 않아야 합니다. 필요한 경우 주 노드 형식에 노드를 더 추가 하 여이를 구현 합니다. 독립 실행형 클러스터의 경우 다운 시드 노드가 상태를 그대로 유지 하지 않을 경우 클러스터에서 노드를 제거 합니다. [Service Fabric 독립 실행형 클러스터에서 노드 제거](/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes) 를 참조 하세요. 
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
-| --node-name [필수] | 노드의 이름입니다. |
+| --node-name [필수] | 노드 이름입니다. |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
@@ -207,11 +206,11 @@ Microsoft Azure Service 패브릭 노드에 관한 상태 보고서를 보냅니
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --health-property [필수] | 상태 정보의 속성입니다. <br><br> 엔터티는 서로 다른 속성에 대한 상태 보고서를 가질 수 있습니다. 속성은 문자열이며 보고자 유연성에서 보고서를 트리거하는 상태 조건을 분류하도록 허용하는 고정된 열거형이 아닙니다. 예를 들어 SourceId "LocalWatchdog"가 있는 보고자는 노드에서 사용 가능한 디스크의 상태를 모니터링할 수 있으므로 해당 노드에서 "AvailableDisk" 속성을 보고할 수 있습니다. 동일한 보고자는 노드 연결을 모니터링할 수 있으므로 동일한 노드에서 "Connectivity" 속성을 보고할 수 있습니다. Health 스토어에서 이러한 보고서는 지정된 노드에 대한 별도의 상태 이벤트로 처리됩니다. SourceId와 함께 속성은 상태 정보를 고유하게 식별합니다. |
 | --health-state    [필수] | 가능한 값\: 'Invalid', 'Ok', 'Warning', 'Error', 'Unknown'. |
-| --node-name       [필수] | 노드의 이름입니다. |
+| --node-name       [필수] | 노드 이름입니다. |
 | --source-id       [필수] | 상태 정보를 생성한 클라이언트/watchdog/시스템 구성 요소를 식별하는 원본 이름입니다. |
 | --description | 상태 정보의 설명입니다. <br><br> 보고서에 대한 사람이 읽을 수 있는 정보를 추가하는 데 사용되는 일반 텍스트를 나타냅니다. 설명의 최대 문자열 길이는 4096자입니다. 제공된 문자열이 긴 경우 자동으로 잘립니다. 잘린 경우 설명의 마지막 문자는 "[잘림]" 표식을 포함하고, 총 문자열 크기는 4096자입니다. 표식은 사용자에게 잘림이 발생했음을 나타냅니다. 잘린 경우 설명은 원래 문자열의 4096자보다 작은 문자를 갖습니다. |
 | --immediate | 보고서를 즉시 보낼지 여부를 나타내는 플래그입니다. <br><br> 상태 보고서는 Health 스토어에 전달하는 Service Fabric 게이트웨이 애플리케이션에 전송됩니다. Immediate가 true로 설정된 경우 보고서는 HTTP 게이트웨이 애플리케이션이 사용 중인 패브릭 클라이언트 설정에 관계 없이 HTTP 게이트웨이에서 Health 스토어로 즉시 전송됩니다. 이는 가능한 한 빨리 보내야 하는 중요한 보고서에 유용합니다. 타이밍 및 기타 조건에 따라 보고서 전송이 여전히 실패할 수 있습니다. 예를 들어, HTTP 게이트웨이가 닫혀 있거나 메시지가 게이트웨이에 도달하지 않는 경우입니다. Immediate가 false로 설정된 경우 보고서는 HTTP 게이트웨이의 상태 클라이언트 설정에 따라 전송됩니다. 따라서 HealthReportSendInterval 구성에 따라 일괄처리됩니다. 상태 클라이언트가 상태 보고서 처리뿐만 아니라 Health 스토어로 메시지를 보고하는 상태를 최적화하도록 허용하므로 이는 권장 설정입니다. 기본적으로 보고서는 즉시 전송되지 않습니다. |
@@ -239,14 +238,14 @@ Microsoft Azure Service Fabric 클러스터 노드를 다시 시작합니다.
 
 |인수|설명|
 | --- | --- |
-| --node-name [필수] | 노드의 이름입니다. |
+| --node-name [필수] | 노드 이름입니다. |
 | --create-fabric-dump | 패브릭 노드 프로세스의 덤프를 만들려면 True를 지정합니다. 대/소문자를 구분합니다.  기본값\: False. |
 | --node-instance-id | 대상 노드의 인스턴스 ID입니다. 인스턴스 ID가 지정된 경우 노드가 노드의 현재 인스턴스와 일치하는 경우에만 다시 시작됩니다. "0"의 기본값은 모든 인스턴스 ID와 일치할 것입니다. 인스턴스 ID는 노드 가져오기 쿼리를 사용하여 구할 수 있습니다.  기본값\: 0. |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
@@ -261,10 +260,10 @@ Microsoft Azure Service Fabric 클러스터 노드를 다시 시작합니다.
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --node-instance-id         [필수] | 대상 노드의 노드 인스턴스 ID입니다. 이것은 GetNodeInfo API를 통해 확인할 수 있습니다. |
-| --node-name                [필수] | 노드의 이름입니다. |
+| --node-name                [필수] | 노드 이름입니다. |
 | --node-transition-type     [필수] | 수행할 전환의 유형을 나타냅니다.  NodeTransitionType.Start는 중지된 노드를 시작합니다. NodeTransitionType.Stop은 작동하는 노드를 중지합니다. |
 | --operation-id             [필수] | 이 API의 호출을 식별하는 GUID입니다.  이 값은 해당 GetProgress API에 전달됩니다. |
 | --stop-duration-in-seconds [필수] | 노드가 중지된 채로 유지되는 기간(초).  최솟값은 600, 최댓값은 14400입니다.  이 시간이 만료되면 노드가 자동으로 다시 작동합니다. |
@@ -287,15 +286,15 @@ StartNodeTransition을 사용하여 시작된 작업의 진행률을 가져옵�
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
-| --node-name    [필수] | 노드의 이름입니다. |
+| --node-name    [필수] | 노드 이름입니다. |
 | --operation-id [필수] | 이 API의 호출을 식별하는 GUID입니다.  이 값은 해당 GetProgress API에 전달됩니다. |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/20/2019
 ms.author: saudas
-ms.openlocfilehash: a4726444e2103228cd26be3d3a6d516b31e315ee
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: bf86af16ce330be7119ecbeb24cedbcd31282735
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304323"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034045"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 지원되는 Kubernetes 버전
 
@@ -144,20 +144,21 @@ az aks get-versions --location eastus --output table
 ```
 KubernetesVersion    Upgrades
 -------------------  ------------------------
-1.13.5               None available
-1.12.7               1.13.5
-1.12.6               1.12.7, 1.13.5
-1.11.9               1.12.6, 1.12.7
-1.11.8               1.11.9, 1.12.6, 1.12.7
-1.10.13              1.11.8, 1.11.9
-1.10.12              1.10.13, 1.11.8, 1.11.9
+1.14.5               None available
+1.13.9               1.14.5
+1.12.8               1.13.9
+1.12.7               1.12.8, 1.13.9
+1.11.10              1.12.7, 1.12.8
+1.11.9               1.11.10, 1.12.7, 1.12.8
+1.10.13              1.11.9, 1.11.10
+1.10.12              1.10.13, 1.11.9, 1.11.10
 ```
 
 ## <a name="faq"></a>FAQ
 
 **고객이 지원되지 않는 부 버전을 사용하여 Kubernetes 클러스터를 업그레이드하면 어떻게 되나요?**
 
-*N-4* 버전을 사용할 경우에는 지원 되지 않으며 업그레이드 하 라는 메시지가 표시 됩니다. 버전 n-4에서 n-3으로 업그레이드 하는 경우 이제 지원 정책에 포함 됩니다. 예:
+*N-4* 버전을 사용할 경우에는 지원 되지 않으며 업그레이드 하 라는 메시지가 표시 됩니다. 버전 n-4에서 n-3으로 업그레이드 하는 경우 이제 지원 정책에 포함 됩니다. 예를 들어:
 
 - 지원 되는 AKS 버전이 *1.13. x*, *1.12* + .*b*, *1.11. c* + *1.11 d*및 *1.10. e* + *1.10 f* 와 사용자가 *1.9* 또는 *1.9. h*를 사용할 때 지원 되지 않습니다.
 - *1.9* 또는 *1.9* 에서 *1.10. e* 로 업그레이드 하는 경우 또는 *1.10. f* 에 성공 하면 지원 정책 내에서로 돌아갑니다.

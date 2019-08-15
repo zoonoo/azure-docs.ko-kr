@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 08/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: b590dabbe4b2c6526f2c602aeed64667348eefa9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 624c1648bc709e1ca6ee9c4120350a606df67df5
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66113868"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035736"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Azure 기본 인증서 인증 P2S 구성용 VPN 클라이언트 구성 파일 만들기 및 설치
 
@@ -74,7 +74,7 @@ PowerShell을 사용하거나 Azure Portal을 사용하여 클라이언트 구�
 
 ## <a name="installmac"></a>Mac(OS X)
 
- Azure에 연결할 모든 Mac에서 원시 IKEv2 VPN 클라이언트를 수동으로 구성해야 합니다. Azure는 원시 Azure 인증서 인증을 위해 mobileconfig 파일을 제공하지 않습니다. **일반**에는 구성에 필요한 모든 정보가 포함됩니다. 다운로드에 Generic 폴더가 보이지 않으면 IKEv2가 터널 유형으로 선택되지 않았을 가능성이 큽니다. 참고 VPN 게이트웨이 기본 SKU는 IKEv2를 지원 하지 않습니다. IKEv2가 선택되면 zip 파일을 다시 생성하여 Generic 폴더를 검색합니다.<br>Generic 폴더에 포함되는 파일은 다음과 같습니다.
+ Azure에 연결할 모든 Mac에서 원시 IKEv2 VPN 클라이언트를 수동으로 구성해야 합니다. Azure는 원시 Azure 인증서 인증을 위해 mobileconfig 파일을 제공하지 않습니다. **일반**에는 구성에 필요한 모든 정보가 포함됩니다. 다운로드에 Generic 폴더가 보이지 않으면 IKEv2가 터널 유형으로 선택되지 않았을 가능성이 큽니다. VPN gateway 기본 SKU는 IKEv2를 지원 하지 않습니다. IKEv2가 선택되면 zip 파일을 다시 생성하여 Generic 폴더를 검색합니다.<br>Generic 폴더에 포함되는 파일은 다음과 같습니다.
 
 * **VpnSettings.xml** - 서버 주소 및 터널 종류와 같은 중요한 설정이 포함되어 있습니다. 
 * **VpnServerRoot.cer** - P2S 연결 설정에서 Azure VPN Gateway의 유효성을 검사하는 데 필요한 루트 인증서가 포함되어 있습니다.
@@ -103,10 +103,10 @@ PowerShell을 사용하거나 Azure Portal을 사용하여 클라이언트 구�
    ![인증 설정](./media/point-to-site-vpn-client-configuration-azure-cert/authsettings.png)
 6. **선택...** 을 클릭합니다. 인증에 사용하려는 클라이언트 인증서를 선택합니다. 이 인증서는 2단계에서 설치한 인증서입니다.
 
-   ![인증서](./media/point-to-site-vpn-client-configuration-azure-cert/certificate.png)
+   ![인증서(certificate)](./media/point-to-site-vpn-client-configuration-azure-cert/certificate.png)
 7. **ID 선택**은 선택할 수 있는 인증서의 목록을 표시합니다. 적절한 인증서를 선택한 다음 **계속**을 클릭합니다.
 
-   ![ID](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
+   ![identity](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
 8. **로컬 ID** 필드에서 인증서 이름(6단계에서 사용한 이름)을 지정합니다. 이 예에서는 "ikev2Client.com"입니다. 그런 다음 **적용** 단추를 클릭하여 변경 내용을 저장합니다.
 
    ![적용](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
@@ -114,23 +114,15 @@ PowerShell을 사용하거나 Azure Portal을 사용하여 클라이언트 구�
 
 ## <a name="linuxgui"></a>Linux(strongSwan GUI)
 
-### <a name="extract-the-key-and-certificate"></a>키와 인증서를 추출합니다.
+### <a name="installstrongswan"></a>StrongSwan 설치
 
-strongSwan의 경우 클라이언트 인증서(.pfx 파일)에서 키와 인증서를 추출하고 개별 .pem 파일에 저장해야 합니다.
-다음 단계를 따르세요.
+[!INCLUDE [install strongSwan](../../includes/vpn-gateway-strongswan-install-include.md)]
 
-1. [OpenSSL](https://www.openssl.org/source/)에서 OpenSSL을 다운로드 및 설치합니다.
-2. 명령줄 창을 열고 OpenSSL을 설치한 디렉터리로 변경합니다(예: 'c:\OpenSLL-Win64\bin\').
-3. 다음 명령을 실행하여 프라이빗 키를 추출하고 클라이언트 인증서에서 'privatekey.pem'이라는 새 파일에 저장합니다.
+### <a name="genlinuxcerts"></a>인증서 생성
 
-   ```
-   C:\ OpenSLL-Win64\bin> openssl pkcs12 -in clientcert.pfx -nocerts -out privatekey.pem -nodes
-   ```
-4. 이제 다음 명령을 실행하여 공용 인증서를 추출하고 새 파일에 저장합니다.
+인증서를 아직 생성 하지 않은 경우 다음 단계를 사용 합니다.
 
-   ```
-   C:\ OpenSLL-Win64\bin> openssl pkcs12 -in clientcert.pfx -nokeys -out publiccert.pem -nodes
-   ```
+[!INCLUDE [strongSwan certificates](../../includes/vpn-gateway-strongswan-certificates-include.md)]
 
 ### <a name="install"></a>설치 및 구성
 
@@ -154,7 +146,7 @@ strongSwan의 경우 클라이언트 인증서(.pfx 파일)에서 키와 인증�
 
    ![이름 복사](./media/point-to-site-vpn-client-configuration-azure-cert/vpnserver.png)
 6. **게이트웨이** 섹션에서 새 VPN 연결의 **주소** 필드에 이 이름을 붙여넣습니다. 다음으로, **인증서** 필드 끝에 있는 폴더 아이콘을 클릭하고 **Generic** 폴더로 이동하여 **VpnServerRoot** 파일을 선택합니다.
-7. 연결의 **클라이언트** 섹션에서 **인증**에 대해 **인증서/개인 키**를 선택합니다. **인증서** 및 **개인 키**에 대해 이전에 만든 인증서 및 개인 키를 선택합니다. **옵션**에서 **내부 IP 주소 요청**을 선택합니다. 그런 다음 **추가**를 클릭합니다.
+7. 연결의 **클라이언트** 섹션에서 **인증**에 대해 **인증서/개인 키**를 선택합니다. **인증서** 및 **프라이빗 키**에 대해 이전에 만든 인증서 및 프라이빗 키를 선택합니다. **옵션**에서 **내부 IP 주소 요청**을 선택합니다. 그런 다음 **추가**를 클릭합니다.
 
    ![내부 IP 주소 요청](./media/point-to-site-vpn-client-configuration-azure-cert/inneripreq.png)
 8. **네트워크 관리자** 아이콘(위쪽 화살표/아래쪽 화살표)을 클릭하고 **VPN 연결**을 마우스로 가리킵니다. 만든 VPN 연결이 표시됩니다. 클릭하여 연결을 시작합니다.
@@ -163,10 +155,13 @@ strongSwan의 경우 클라이언트 인증서(.pfx 파일)에서 키와 인증�
 
 ### <a name="install-strongswan"></a>strongSwan 설치
 
-다음 CLI 명령을 사용하거나 [GUI](#install)의 strongSwan 단계를 사용하여 strongSwan을 설치할 수 있습니다.
+[!INCLUDE [install strongSwan](../../includes/vpn-gateway-strongswan-install-include.md)]
 
-1. `apt-get install strongswan-ikev2 strongswan-plugin-eap-tls`
-2. `apt-get install libstrongswan-standard-plugins`
+### <a name="generate-certificates"></a>인증서 생성
+
+인증서를 아직 생성 하지 않은 경우 다음 단계를 사용 합니다.
+
+[!INCLUDE [strongSwan certificates](../../includes/vpn-gateway-strongswan-certificates-include.md)]
 
 ### <a name="install-and-configure"></a>설치 및 구성
 
@@ -197,7 +192,7 @@ strongSwan의 경우 클라이언트 인증서(.pfx 파일)에서 키와 인증�
    : P12 client.p12 'password' # key filename inside /etc/ipsec.d/private directory
    ```
 
-7. 다음 명령을 실행합니다.
+7. 다음 명령을 실행 합니다.
 
    ```
    # ipsec restart

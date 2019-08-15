@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 54cb9f604e9d1b817947990e657390387df6c881
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 34e6fc0d4e6e0817f9312a6565a2dd5dd99fdab9
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60556596"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035244"
 ---
 # <a name="sfctl-property"></a>sfctl property
 Service Fabric 이름 아래에 있는 저장소 및 쿼리 속성입니다.
@@ -28,9 +27,9 @@ Service Fabric 이름 아래에 있는 저장소 및 쿼리 속성입니다.
 
 |명령|설명|
 | --- | --- |
-| delete | 지정된 Service Fabric 속성을 삭제합니다. |
+| 삭제 | 지정된 Service Fabric 속성을 삭제합니다. |
 | get | 지정된 Service Fabric 속성을 가져옵니다. |
-| list | 지정된 이름에서 모든 Service Fabric 속성에 대한 정보를 가져옵니다. |
+| 목록 | 지정된 이름에서 모든 Service Fabric 속성에 대한 정보를 가져옵니다. |
 | put | Service Fabric 속성을 만들거나 업데이트합니다. |
 
 ## <a name="sfctl-property-delete"></a>sfctl property delete
@@ -40,7 +39,7 @@ Service Fabric 이름 아래에 있는 저장소 및 쿼리 속성입니다.
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --name-id       [필수] | 'fabric\:' URI 체계가 없는 Service Fabric 이름입니다. |
 | --property-name [필수] | 가져올 속성의 이름을 지정합니다. |
@@ -63,7 +62,7 @@ Service Fabric 이름 아래에 있는 저장소 및 쿼리 속성입니다.
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --name-id       [필수] | 'fabric\:' URI 체계가 없는 Service Fabric 이름입니다. |
 | --property-name [필수] | 가져올 속성의 이름을 지정합니다. |
@@ -71,7 +70,7 @@ Service Fabric 이름 아래에 있는 저장소 및 쿼리 속성입니다.
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
@@ -95,7 +94,7 @@ Service Fabric 이름에는 사용자 지정 정보를 저장하는 하나 이�
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
@@ -120,7 +119,7 @@ Service Fabric 속성을 만들거나 업데이트합니다.
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |

@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: kgremban
-ms.openlocfilehash: 7d3586c571c2d70034f10cb3e1efd9242d6a1023
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 9e9028d0c9aeff19dc221b81defa5e2057927fa6
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986970"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034200"
 ---
 # <a name="use-iot-edge-on-windows-to-run-linux-containers"></a>Windows IoT Edge에서 Linux 컨테이너 실행
 
@@ -30,9 +30,7 @@ Windows에서 Linux 장치용 IoT Edge 모듈을 테스트합니다.
 
 ### <a name="supported-windows-versions"></a>지원되는 Windows 버전
 
-Linux 컨테이너를 사용 하는 Azure IoT Edge은 다음 버전의 Windows에서 실행할 수 있습니다. 
-* Windows 10 1주년 업데이트(빌드 14393) 이상
-* Windows Server 2016 이상
+Linux 컨테이너를 사용 하는 Azure IoT Edge는 [Docker Desktop의 요구 사항을](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install) 충족 하는 모든 버전의 Windows에서 실행할 수 있습니다.
 
 최신 버전의 IoT Edge에 포함된 기능에 대한 자세한 내용은 [Azure IoT Edge 릴리스](https://github.com/Azure/azure-iotedge/releases)를 참조하세요.
 

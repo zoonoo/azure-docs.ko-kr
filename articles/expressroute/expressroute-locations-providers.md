@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/09/2019
+ms.date: 08/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: bd0ed971b84baae3b85badfcc669bbad657d1551
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: ae397c077ac87618b646883f9125c9da2df81bfd
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69018943"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036580"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 파트너 및 피어링 위치
 
@@ -80,7 +80,7 @@ Express 경로 위치 (예를 들어 피어 링 위치 또는 위치 면)는 MSE
 
 
 ### <a name="production-azure"></a>프로덕션 Azure
-| **Location**: | **피어링 위치 소유자** | **로컬 Azure 지역** | **서비스 공급자** |
+| **위치** | **피어링 위치 소유자** | **로컬 Azure 지역** | **서비스 공급자** |
 | --- | --- | --- | --- |
 | **암스테르담** | Equinix | 유럽 서부 | Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Interxion, KPN, IX Reach, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, TeleCity Group, Telefonica, Telenor, Telia Carrier, Verizon, Zayo |
 | **암스테르담2** | Interxion | 유럽 서부 | CenturyLink Cloud Connect, DECIX, Interxion, Vodafone |
@@ -101,7 +101,7 @@ Express 경로 위치 (예를 들어 피어 링 위치 또는 위치 면)는 MSE
 | **더블린** | Equinix | 유럽 북부 | Colt, eir, Equinix, Interxion, Megaport |
 | **프랑크푸르트** | Interxion | n/a | DE-DE x, Interxion, 주황 |
 | **Hong Kong SAR** | Equinix | 아시아 동부 | Aryaka Networks, 영국령 텔레콤, CenturyLink 클라우드 연결, 최고 통신, 중국 통신 글로벌, 서-Ix, Megaport, NTT 통신, 주황색, PCCW Global 제한, Tata 통신, Telia 캐리어, Verizon |
-| **요하네스버그** | Teraco | 남아프리카 북부 | 영국령 텔레콤, 인터넷 솔루션-클라우드 연결, 액체 텔레콤, Teraco |
+| **요하네스버그** | Teraco | 남아프리카 북부 | 영국령 텔레콤, 인터넷 솔루션-클라우드 연결, 액체 텔레콤, 주황, Teraco |
 | **콸라룸푸르** | TIME dotCom | n/a | TIME dotCom |
 | **라스베이거스** | 스위치 | n/a | CenturyLink Cloud Connect, Megaport |
 | **런던** | Equinix | 영국 남부 | AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, Megaport, MTN, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Telehouse - KDDI, Telenor, Telia Carrier, Verizon, Vodafone, Zayo |
@@ -141,7 +141,7 @@ Express 경로 위치 (예를 들어 피어 링 위치 또는 위치 면)는 MSE
 ### <a name="national-cloud-environments"></a>국가별 클라우드 환경
 
 ### <a name="us-government-cloud"></a>미국 정부 클라우드
-| **Location**: | **서비스 공급자** |
+| **위치** | **서비스 공급자** |
 | --- | --- |
 | **시카고** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 | **댈러스** |Equinix, Megaport, Verizon |
@@ -153,7 +153,7 @@ Express 경로 위치 (예를 들어 피어 링 위치 또는 위치 면)는 MSE
 | **워싱턴 DC** |AT&T NetBond, CenturyLink Cloud Connect, Equinix, Level 3 Communications, Megaport, Verizon |
 
 ### <a name="china"></a>중국
-| **Location**: | **서비스 공급자** |
+| **위치** | **서비스 공급자** |
 | --- | --- |
 | **베이징** |China Telecom |
 | **베이징2** | 중국 통신, GDS |
@@ -186,7 +186,7 @@ Express 경로 위치 (예를 들어 피어 링 위치 또는 위치 면)는 MSE
   * [ExpressRoute 회로 만들기](expressroute-howto-circuit-classic.md) 의 단계에 따라 연결을 설정합니다.
 
 ## <a name="c1partners"></a>추가 서비스 공급자를 통한 연결
-| **Location**: | **Exchange** | **연결 공급자** |
+| **위치** | **Exchange** | **연결 공급자** |
 | --- | --- | --- |
 | **암스테르담** | Telecity, Interxion, Level 3 통신, | BICS, CloudXpress, Eurofiber, Fastweb S. p. A, Gulf Bridge 국제, Kalaam 텔레콤 바레인 B.c, MainOne, Nianet, Post, Proximus, TDC Erhverv, 텔레콤 Italia 반짝, Telekom Deutschland GmbH, Telia |
 | **애틀랜타** | Equinix| Ccs (crown 성

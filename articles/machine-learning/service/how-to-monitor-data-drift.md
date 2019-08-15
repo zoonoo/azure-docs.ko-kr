@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 07/08/2019
-ms.openlocfilehash: c5484c37d89cc9ae880bbe17987bb47f3114b8a4
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: b9593a5802300da8baa1e518f14885637db2068f
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847888"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036184"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>AKS (Azure Kubernetes Service)에 배포 된 모델에서 데이터 드리프트 (미리 보기) 검색
 
@@ -162,9 +162,9 @@ datadrift.disable_schedule()
 
 ![데이터 드리프트 구성 Azure Portal](media/how-to-monitor-data-drift/drift_config.png)
 
-## <a name="view-results-in-azure-ml-workspace-ui"></a>Azure ML 작업 영역 UI에서 결과 보기
+## <a name="view-results-in-azure-portal"></a>Azure Portal 결과 보기
 
-Azure ML 작업 영역 UI에서 결과를 보려면 모델 페이지로 이동 합니다. 모델의 자세히 탭에 데이터 드리프트 구성이 표시 됩니다. 이제 데이터 드리프트 메트릭을 시각화 하는 ' 데이터 드리프트 (미리 보기) ' 탭을 사용할 수 있습니다. 
+[Azure Portal](https://portal.azure.com)작업 영역에서 결과를 보려면 모델 페이지로 이동 합니다. 모델의 자세히 탭에 데이터 드리프트 구성이 표시 됩니다. 이제 데이터 드리프트 메트릭을 시각화 하는 ' 데이터 드리프트 (미리 보기) ' 탭을 사용할 수 있습니다. 
 
 ![Azure Portal 데이터 드리프트](media/how-to-monitor-data-drift/drift_ui.png)
 

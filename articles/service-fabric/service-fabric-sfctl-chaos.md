@@ -8,34 +8,33 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: b584ec301f0f4841c8df8fbbafb410abf645c373
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 27178b2f26086bf693dc9cda342c66f7d47a34d7
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837354"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035101"
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
 비정상 상황 테스트 서비스를 시작하고, 중지하고 보고합니다.
 
 ## <a name="subgroups"></a>하위 그룹
-|하위 그룹|설명|
+|하위 그룹|Description|
 | --- | --- |
 | [schedule](service-fabric-sfctl-chaos-schedule.md) | chaos schedule을 가져오고 설정합니다. |
 ## <a name="commands"></a>명령
 
-|명령|설명|
+|명령|Description|
 | --- | --- |
-| events | 연속 토큰 또는 시간 범위를 기반으로 Chaos 이벤트의 다음 세그먼트를 가져옵니다. |
+| 이벤트 | 연속 토큰 또는 시간 범위를 기반으로 Chaos 이벤트의 다음 세그먼트를 가져옵니다. |
 | get | Chaos의 상태를 가져옵니다. |
 | start | 클러스터의 Chaos가 시작됩니다. |
-| stop(정지) | 클러스터에서 실행되는 경우 Chaos를 중지하고 Chaos Schedule을 중지된 상태로 전환합니다. |
+| stop | 클러스터에서 실행되는 경우 Chaos를 중지하고 Chaos Schedule을 중지된 상태로 전환합니다. |
 
 ## <a name="sfctl-chaos-events"></a>sfctl chaos events
 연속 토큰 또는 시간 범위를 기반으로 Chaos 이벤트의 다음 세그먼트를 가져옵니다.
@@ -44,7 +43,7 @@ Chaos 이벤트의 다음 세그먼트를 가져오기 위해 ContinuationToken�
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --continuation-token | 연속 토큰 매개 변수는 다음 결과 집합을 얻는 데 사용됩니다. 공백 값이 아닌 연속 토큰은 시스템의 결과가 단일 응답에 맞지 않는 경우 API의 응답에 포함됩니다. 이 값이 다음 API 호출에 전달되면 API는 다음 결과 집합을 반환합니다. 결과가 더 이상 없으면 연속 토큰에 값이 포함되지 않습니다. 이 매개 변수의 값은 URL 인코딩이 되지 말아야 합니다. |
 | --end-time-utc | Chaos 보고서가 생성될 시간 범위의 종료 시간을 나타내는 Windows 파일 시간입니다. 자세한 내용은 [DateTime.ToFileTimeUtc 메서드](https://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx)를 참조하세요. |
@@ -69,13 +68,13 @@ Chaos가 실행 중인지 여부, Chaos 매개 변수가 Chaos 실행에 사용�
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
@@ -123,13 +122,13 @@ Chaos가 아직 클러스터에 실행되고 있지 않다면 Chaos 매개 변�
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |

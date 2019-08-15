@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 07/18/2019
-ms.openlocfilehash: 5d79edc4db07a2c5916725efc312d9f94fe985dc
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 05e16a67e6b01ce3bd1f03f0649baa1358414ea7
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640097"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035066"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>자동 장애 조치(failover) 그룹을 통해 여러 데이터베이스의 투명하고 조정된 장애 조치(failover)를 사용할 수 있습니다.
 
@@ -35,7 +35,7 @@ ms.locfileid: "68640097"
 
 장애 조치(failover) 후에는 새로운 주 데이터베이스에서 서버 및 데이터베이스의 인증 요구 사항이 구성되어 있는지 확인합니다. 자세한 내용은 [재해 복구 후의 SQL Database 보안](sql-database-geo-replication-security-config.md)을 참조하세요.
 
-실제 비즈니스 연속성을 달성하기 위해 데이터 센터 간에 데이터베이스 중복을 추가하는 것은 솔루션의 일부입니다. 치명적인 오류 후 애플리케이션(서비스) 엔드투엔드 복구에는 서비스 및 모든 종속성 서비스를 구성하는 모든 구성 요소의 복구가 필요합니다. 이러한 구성 요소의 예에는 클라이언트 소프트웨어(예: 사용자 지정 JavaScript를 사용한 브라우저), 웹 프런트 엔드, 저장소 및 DNS가 포함됩니다. 모든 구성 요소는 동일한 오류에 탄력적이며 애플리케이션의 복구 시간 목표(RTO) 내에서 사용할 수 있는 것이 중요합니다. 따라서 모든 종속성 서비스를 확인하고 제고하는 보장 사항 및 기능을 이해해야 합니다. 그런 다음 의존하는 서비스 장애 조치 중 서비스 기능을 확인하도록 적절한 단계를 수행해야 합니다. 재해 복구를 위한 솔루션 설계에 대한 자세한 내용은 [활성 지역 복제를 사용하여 재해 복구를 위한 클라우드 솔루션 설계](sql-database-designing-cloud-solutions-for-disaster-recovery.md)를 참조하세요.
+실제 비즈니스 연속성을 달성하기 위해 데이터 센터 간에 데이터베이스 중복을 추가하는 것은 솔루션의 일부입니다. 치명적인 오류 후 애플리케이션(서비스) 엔드투엔드 복구에는 서비스 및 모든 종속성 서비스를 구성하는 모든 구성 요소의 복구가 필요합니다. 이러한 구성 요소의 예에는 클라이언트 소프트웨어(예: 사용자 지정 JavaScript를 사용한 브라우저), 웹 프런트 엔드, 스토리지 및 DNS가 포함됩니다. 모든 구성 요소는 동일한 오류에 탄력적이며 애플리케이션의 복구 시간 목표(RTO) 내에서 사용할 수 있는 것이 중요합니다. 따라서 모든 종속성 서비스를 확인하고 제고하는 보장 사항 및 기능을 이해해야 합니다. 그런 다음 의존하는 서비스 장애 조치 중 서비스 기능을 확인하도록 적절한 단계를 수행해야 합니다. 재해 복구를 위한 솔루션 설계에 대한 자세한 내용은 [활성 지역 복제를 사용하여 재해 복구를 위한 클라우드 솔루션 설계](sql-database-designing-cloud-solutions-for-disaster-recovery.md)를 참조하세요.
 
 ## <a name="auto-failover-group-terminology-and-capabilities"></a>자동 장애 조치(failover) 그룹 용어 및 기능
 
@@ -133,9 +133,13 @@ ms.locfileid: "68640097"
 
 ## <a name="best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools"></a>단일 데이터베이스 및 탄력적 풀로 장애 조치(failover) 그룹을 사용하는 방법의 모범 사례
 
-자동 장애 조치(failover) 그룹은 주 SQL Database 서버에서 구성되어야 하며 다른 Azure 지역의 보조 SQL Database 서버에 연결됩니다.  그룹에는 이러한 서버에 있는 데이터베이스가 모두 또는 일부 포함될 수 있습니다. 다음 다이어그램은 여러 데이터베이스와 자동 장애 조치(failover) 그룹을 사용하는 지역 중복 클라우드 애플리케이션의 일반적인 구성을 보여 줍니다.
+자동 장애 조치(failover) 그룹은 주 SQL Database 서버에서 구성되어야 하며 다른 Azure 지역의 보조 SQL Database 서버에 연결됩니다. 그룹에는 이러한 서버에 있는 데이터베이스가 모두 또는 일부 포함될 수 있습니다. 다음 다이어그램은 여러 데이터베이스와 자동 장애 조치(failover) 그룹을 사용하는 지역 중복 클라우드 애플리케이션의 일반적인 구성을 보여 줍니다.
 
 ![자동 장애 조치(failover)](./media/sql-database-auto-failover-group/auto-failover-group.png)
+
+> [!NOTE]
+> 장애 조치 (failover) 그룹에 단일 데이터베이스를 추가 하는 자세한 단계별 자습서는 [장애 조치 (failover) 그룹에 단일 데이터베이스 추가](sql-database-single-database-failover-group-tutorial.md) 를 참조 하세요. 
+
 
 비즈니스 연속성을 고려하여 서비스를 설계하는 경우 다음과 같은 일반 지침을 따르세요.
 
@@ -167,12 +171,17 @@ ms.locfileid: "68640097"
 
 ## <a name="best-practices-of-using-failover-groups-with-managed-instances"></a>관리 되는 인스턴스에서 장애 조치 (failover) 그룹 사용에 대 한 모범 사례
 
-자동 장애 조치(failover) 그룹은 주 인스턴스에서 구성되어야 하며 다른 Azure 지역의 보조 인스턴스에 연결됩니다.  인스턴스의 모든 데이터베이스가 보조 인스턴스에 복제됩니다. 다음 다이어그램은 관리되는 인스턴스와 자동 장애 조치(failover) 그룹을 사용하는 지역 중복 클라우드 애플리케이션의 일반적인 구성을 보여 줍니다.
+> [!IMPORTANT]
+> Managed Instance에 대한 자동 장애 조치(failover) 그룹은 공개 미리 보기로 제공되고 있습니다.
+
+자동 장애 조치(failover) 그룹은 주 인스턴스에서 구성되어야 하며 다른 Azure 지역의 보조 인스턴스에 연결됩니다.  인스턴스의 모든 데이터베이스가 보조 인스턴스에 복제됩니다. 
+
+다음 다이어그램은 관리되는 인스턴스와 자동 장애 조치(failover) 그룹을 사용하는 지역 중복 클라우드 애플리케이션의 일반적인 구성을 보여 줍니다.
 
 ![자동 장애 조치(failover)](./media/sql-database-auto-failover-group/auto-failover-group-mi.png)
 
-> [!IMPORTANT]
-> Managed Instance에 대한 자동 장애 조치(failover) 그룹은 공개 미리 보기로 제공되고 있습니다.
+> [!NOTE]
+> 장애 조치 (failover) 그룹을 사용 하도록 관리 되는 인스턴스를 추가 하는 자세한 단계별 자습서는 [장애 조치 (failover) 그룹에 관리 되는 인스턴스 추가](sql-database-managed-instance-failover-group-tutorial.md) 를 참조 하세요. 
 
 응용 프로그램에서 관리 되는 인스턴스를 데이터 계층으로 사용 하는 경우 비즈니스 연속성을 위해 설계할 때 다음 일반 지침을 따르십시오.
 
@@ -333,7 +342,7 @@ ms.locfileid: "68640097"
 
 #### <a name="powershell-commandlets-to-create-an-instance-failover-group"></a>PowerShell commandlet 인스턴스 장애 조치 (failover) 그룹을 만들 수 있습니다.
 
-| API | Description |
+| API | 설명 |
 | --- | --- |
 | New-AzureRmSqlDatabaseInstanceFailoverGroup |장애 조치 그룹을 만들고 주 및 보조 서버 모두에 등록합니다|
 | Set-AzureRmSqlDatabaseInstanceFailoverGroup |장애 조치 그룹의 구성을 수정합니다.|
@@ -343,7 +352,7 @@ ms.locfileid: "68640097"
 
 ### <a name="rest-api-manage-sql-database-failover-groups-with-single-and-pooled-databases"></a>REST API: 단일 및 풀링된 데이터베이스를 사용하여 SQL Database 장애 조치(failover) 그룹 관리
 
-| API | Description |
+| API | 설명 |
 | --- | --- |
 | [장애 조치(failover) 그룹 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/failovergroups/createorupdate) | 장애 조치(failover) 그룹을 만들거나 업데이트합니다. |
 | [장애 조치(failover) 그룹 삭제](https://docs.microsoft.com/rest/api/sql/failovergroups/delete) | 서버에서 장애 조치 그룹을 제거합니다. |
@@ -367,6 +376,10 @@ ms.locfileid: "68640097"
 
 ## <a name="next-steps"></a>다음 단계
 
+- 자세한 자습서는를 참조 하세요.
+    - [장애 조치 (failover) 그룹에 단일 데이터베이스 추가](sql-database-single-database-failover-group-tutorial.md)
+    - [장애 조치 (failover) 그룹에 탄력적 풀 추가](sql-database-elastic-pool-failover-group-tutorial.md)
+    - [장애 조치 (failover) 그룹에 관리 되는 인스턴스 추가](sql-database-managed-instance-failover-group-tutorial.md)
 - 샘플 스크립트에 대해서는 다음을 참조하세요.
   - [PowerShell을 사용 하 여 Azure SQL Database에서 단일 데이터베이스에 대 한 활성 지역 복제 구성](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
   - [PowerShell을 사용 하 여 Azure SQL Database에서 풀링된 데이터베이스에 대 한 활성 지역 복제 구성](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)

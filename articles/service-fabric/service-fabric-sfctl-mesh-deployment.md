@@ -8,27 +8,26 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: e6b484dabd77a142961db2d97242896790fa3d8b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b3f506b46ef563f47fc7c67b759d3fcd08b7509d
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60836962"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035186"
 ---
 # <a name="sfctl-mesh-deployment"></a>sfctl mesh deployment
 Service Fabric Mesh 리소스를 만듭니다.
 
 ## <a name="commands"></a>명령
 
-|명령|설명|
+|명령|Description|
 | --- | --- |
-| create | Service Fabric Mesh 리소스의 배포를 만듭니다. |
+| 만들기 | Service Fabric Mesh 리소스의 배포를 만듭니다. |
 
 ## <a name="sfctl-mesh-deployment-create"></a>sfctl mesh deployment create
 Service Fabric Mesh 리소스의 배포를 만듭니다.
@@ -42,7 +41,7 @@ Service Fabric Mesh 리소스의 배포를 만듭니다.
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |

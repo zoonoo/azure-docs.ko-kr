@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4e7b3905295e619c5a9500f80b5c43126b919e2f
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 74d345249e1cbaeb45a1a35d3c3d2f61a4c0b9cf
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946469"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69032973"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Azure Machine Learning 서비스의 알려진 문제 및 문제 해결
 
@@ -48,6 +48,14 @@ Python용 Azure Machine Learning SDK: PyYAML은 distutils 설치 프로젝트입
 ```Python
 pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
 ```
+
+**오류 메시지:`ERROR: No matching distribution found for azureml-dataprep-native`**
+
+Anaconda의 Python 3.7.4 배포에는 azureml sdk 설치를 중단 하는 버그가 있습니다. 이 문제는이 [GitHub 문제](https://github.com/ContinuumIO/anaconda-issues/issues/11195) 에 설명 되어 있습니다 .이 작업은 다음 명령을 사용 하 여 새 Conda 환경을 만들어 해결할 수 있습니다.
+```bash
+conda create -n <env-name> python=3.7.3
+```
+이를 통해 3.7.4에 설치 문제가 없는 Python 3.7.3를 사용 하 여 Conda 환경을 만듭니다.
 
 ## <a name="trouble-creating-azure-machine-learning-compute"></a>Azure Machine Learning 컴퓨팅을 만드는 문제
 

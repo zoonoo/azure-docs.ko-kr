@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/20/2019
+ms.date: 8/14/2019
 ms.author: rkarlin
-ms.openlocfilehash: b5aae5f8e7195cfea7817b9e40e6f28d47fc3eff
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 138efd7cba80e288c4f8831b45272f4e46c8ee3f
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780416"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036239"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel-preview"></a>Azure 센티널 Preview 작업에 유용한 리소스
 
@@ -41,8 +41,12 @@ Azure Logic Apps 커넥터:<https://docs.microsoft.com/connectors/>
 | PaloAlto| CEF 구성| <https://www.paloaltonetworks.com/documentation/misc/cef.html>|
 | PluralSight | Kusto 쿼리 언어 과정| [https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch](https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch)|
 
+## <a name="blogs-and-forums"></a>블로그 및 포럼
+
+Azure 센티널의 [TechCommunity 공간](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bd-p/AzureSentinel) 에 질문을 게시 합니다.
+
+[TechCommunity](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bg-p/AzureSentinelBlog) 및 [Microsoft Azure](https://azure.microsoft.com/blog/tag/azure-sentinel/)에서 Azure 센티널 블로그 게시물을 확인 합니다.
+
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 Azure 센티널로 작업 하는 경우 유용한 리소스 목록을 얻었습니다. Azure 센티널에 대해 자세히 알아보려면 다음을 참조 하세요.
-
-* [Azure 보안 블로그](https://blogs.msdn.com/b/azuresecurity/). Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
+이 문서에서는 Azure 센티널로 작업 하는 경우 유용한 리소스 목록을 얻었습니다. Azure 보안 및 규정 준수에 대 한 추가 정보는 [Microsoft Azure 보안 및 규정 준수 블로그](https://blogs.msdn.com/b/azuresecurity/)에서 확인할 수 있습니다.

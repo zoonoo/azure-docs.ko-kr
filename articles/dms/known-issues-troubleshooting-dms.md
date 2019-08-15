@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 06/18/2019
-ms.openlocfilehash: a35e0496c7e36d42e28a64fef438fe56713d3c78
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: a72a0e26c2af34942faaa6a7e62feef86082e196
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854994"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034827"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>일반적인 Azure Database Migration Service 문제 및 오류 해결
 
@@ -98,9 +98,9 @@ Azure Database Migration 서비스 프로젝트 마법사에서 원본에 연결
 | ------------- | ------------- |
 | [Express](https://azure.microsoft.com/services/expressroute/)경로를 사용 하는 경우 서비스와 연결 된 Virtual Network 서브넷에서 3 개의 서비스 끝점을 프로 비전 [해야](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) Azure Database Migration Service.<br> --Service Bus 끝점<br> --저장소 끝점<br> --대상 데이터베이스 끝점 (예: SQL 끝점, Cosmos DB 끝점)<br><br><br><br><br> | 원본 및 Azure Database Migration Service 간 Express 경로 연결에 필요한 서비스 끝점을 [사용 하도록 설정](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) 합니다. <br><br><br><br><br><br><br><br> |
 
-## <a name="timeout-error-when-migrating-a-mysql-database-to-azure-db-for-mysql"></a>Mysql 용 Azure DB로 MySQL 데이터베이스를 마이그레이션하는 동안 시간 초과 오류가 발생 했습니다.
+## <a name="lock-wait-timeout-error-when-migrating-a-mysql-database-to-azure-db-for-mysql"></a>Mysql 용 Azure DB로 MySQL 데이터베이스를 마이그레이션할 때 잠금 대기 시간 초과 오류가 발생 했습니다.
 
-Azure Database Migration Service를 통해 MySQL 데이터베이스를 Azure Database for MySQL 인스턴스로 마이그레이션하면 다음 시간 초과 오류가 발생 하 여 마이그레이션이 실패 합니다.
+Azure Database Migration Service를 통해 MySQL 데이터베이스를 Azure Database for MySQL 인스턴스로 마이그레이션하면 다음과 같은 잠금 대기 시간 초과 오류가 발생 하 여 마이그레이션이 실패 합니다.
 
 * **오류**: 데이터베이스 마이그레이션 오류-파일을 로드 하지 못했습니다. RetCode ' n ' 파일에 대 한 로드 프로세스를 시작 하지 못했습니다. SQL_ERROR SqlState: HY000 NativeError: 1205 메시지: [MySQL] [ODBC Driver] [mysqld] 잠금 대기 시간 제한을 초과 했습니다. 트랜잭션을 다시 시작 해 보세요.
 

@@ -8,27 +8,26 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: e8b735780f4ed3402845d9d401f8e37701b9a1a6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6afcb891de763f156705bc9825ab7575a272c1db
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60836929"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035030"
 ---
 # <a name="sfctl-mesh-service"></a>sfctl mesh service
 애플리케이션 리소스의 서비스를 나열하고 서비스 세부 정보를 가져옵니다.
 
 ## <a name="commands"></a>명령
 
-|명령|설명|
+|명령|Description|
 | --- | --- |
-| list | 모든 서비스 리소스를 나열합니다. |
+| 목록 | 모든 서비스 리소스를 나열합니다. |
 | 표시 | 지정된 이름의 서비스 리소스를 가져옵니다. |
 
 ## <a name="sfctl-mesh-service-list"></a>sfctl mesh service list
@@ -40,11 +39,11 @@ ms.locfileid: "60836929"
 
 |인수|설명|
 | --- | --- |
-| --app-name --application-name[필수] | 애플리케이션 이름입니다. |
+| --app-name --application-name[필수] | 애플리케이션의 이름입니다. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
@@ -59,14 +58,14 @@ ms.locfileid: "60836929"
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
-| --app-name --application-name[필수] | 애플리케이션 이름입니다. |
-| --name -n[필수] | 서비스의 이름입니다. |
+| --app-name --application-name[필수] | 애플리케이션의 이름입니다. |
+| --name -n[필수] | 서비스 이름입니다. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |

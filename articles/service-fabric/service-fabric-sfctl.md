@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: c195d0c4250022102e735cf584370278e354bc41
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 35b881268ca21a840836c96388a4562a54d17d3b
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60545047"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035809"
 ---
 # <a name="sfctl"></a>sfctl
 Service Fabric 클러스터 및 엔터티 관리를 위한 명령. 이 버전은 Service Fabric 6.4 런타임과 호환됩니다.
@@ -27,7 +26,7 @@ Service Fabric 클러스터 및 엔터티 관리를 위한 명령. 이 버전은
 명령은 동사 명사 패턴을 따릅니다. 자세한 내용은 하위 그룹을 참조하세요.
 
 ## <a name="subgroups"></a>하위 그룹
-|하위 그룹|설명|
+|하위 그룹|Description|
 | --- | --- |
 | [application](service-fabric-sfctl-application.md) | 애플리케이션 및 애플리케이션 유형을 성, 삭제 및 관리합니다. |
 | [chaos](service-fabric-sfctl-chaos.md) | 비정상 상황 테스트 서비스를 시작, 중지 및 보고합니다. |

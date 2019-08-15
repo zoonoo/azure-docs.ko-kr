@@ -16,12 +16,12 @@ ms.date: 04/19/2019
 ms.author: ajburnle
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d33b4751b421f5af1536af9a88d15e060ab59bdb
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 2420fc25795ec74939649fb8a17ead7c8cfdd1df
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489072"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69032447"
 ---
 # <a name="view-reports-and-logs-in-azure-ad-entitlement-management-preview"></a>Azure AD 자격 관리 (미리 보기)에서 보고서 및 로그 보기
 
@@ -29,6 +29,12 @@ ms.locfileid: "68489072"
 > Azure AD(Azure Active Directory) 권한 관리는 현재 공개 미리 보기로 제공됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
 > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
+사용자 할당 보고서 및 Azure Active Directory 감사 로그는 디렉터리의 사용자에 대 한 추가 세부 정보를 제공 합니다. 관리자는 사용자가 감사를 위해 요청 로그에 액세스 하 고 볼 수 있는 리소스를 보거나 사용자 요청 상태를 확인할 수 있습니다. 이 문서에서는 사용자 할당 보고서와 Azure AD 감사 로그를 사용 하는 방법을 설명 합니다.
+
+권한 관리를 사용 하 여 Azure Active Directory의 사용자에 대 한 액세스를 관리 하는 방법을 알아보려면 다음 비디오를 시청 하세요.
+
+>[!VIDEO https://www.youtube.com/embed/omtNJ7ySjS0]
 
 ## <a name="view-resources-a-user-has-access-to"></a>사용자가 액세스할 수 있는 리소스 보기
 
@@ -52,7 +58,7 @@ ms.locfileid: "68489072"
 
 1. **Azure Active Directory** 클릭 하 고 **감사 로그**를 클릭 합니다.
 
-1. 위쪽에서 검색 하려는 감사 레코드  에 따라 범주 `EntitlementManagement` 를 `UserManagement`또는로 변경 합니다.  
+1. 위쪽에서 검색 하려는 감사 레코드 에 따라 범주 `EntitlementManagement` 를 `UserManagement`또는로 변경 합니다.  
 
 1. **적용**을 클릭합니다.
 

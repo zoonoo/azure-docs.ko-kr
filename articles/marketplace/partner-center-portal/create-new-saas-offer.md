@@ -1,18 +1,18 @@
 ---
 title: 상업적 Marketplace에서 새 SaaS 제품 만들기
 description: Microsoft 파트너 센터에서 상용 Marketplace 포털을 사용 하 여 Azure Marketplace, AppSource 또는 CSP (클라우드 솔루션 공급자) 프로그램을 통해 나열 하거나 판매 하기 위해 새 SaaS (Software as a Service) 제품을 만드는 방법입니다.
-author: mattwojo
+author: qianw211
 manager: evansma
-ms.author: mattwoj
+ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 06/27/2019
-ms.openlocfilehash: 6bf22bce28972e1f3a43efea3b33446ab2a81761
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.date: 08/14/2019
+ms.openlocfilehash: 3d3fc1541fb99d8d1219392158c3b87cd6ff99aa
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019582"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69033527"
 ---
 # <a name="create-a-new-saas-offer"></a>새 SaaS 제품 만들기
 
@@ -22,7 +22,7 @@ SaaS (Software as a Service) 제품을 만들기 시작 하려면 먼저 [파트
 
 \+ **새 제품** 을 선택 합니다. 단추를 클릭 한 다음, 서비스 메뉴 항목 **으로 소프트웨어** 를 선택 합니다. 
 
-다른 제안 유형 중 하나를 선택 하는 경우 이전 [Cloud 파트너 포털](https://cloudpartner.azure.com/)리디렉션됩니다.  이번에는 파트너 센터의 상용 Marketplace 포털에서 SaaS 제품을 사용할 수 있습니다. 
+다른 제품 유형을 선택 하면 이전 [Cloud 파트너 포털](https://cloudpartner.azure.com/)으로 리디렉션될 수 있습니다. 현재는 파트너 센터의 상용 Marketplace 포털에서 SaaS 및 Dynamics 365 제공만 사용할 수 있습니다.
 
 ![파트너 센터에서 제안 창 만들기](./media/new-offer-click.png)
 
@@ -39,7 +39,7 @@ SaaS (Software as a Service) 제품을 만들기 시작 하려면 먼저 [파트
 
 - **제품 별칭**: 파트너 센터 포털에서 제품을 참조 하는 데 사용 되는 이름입니다. 이 이름은 marketplace에서 사용 되지 않으며 고객에 게 표시 되는 *제품 이름* 및 기타 값과 다릅니다. *만들기*를 선택한 후에는이 값을 변경할 수 없습니다.
 
-<br>예: 테스트 제안 1&#8482;
+<br>예제: 테스트 제안 1&#8482;
 
 **만들기**를 선택합니다.  이 제품에 대 한 **제품 개요** 페이지가 생성 됩니다.  
 
@@ -117,7 +117,7 @@ Marketplace 목록을 만들어 Microsoft로 비즈니스를 홍보 하세요. M
 앱에 액세스할 수 있는 올바른 URL ( *http* 또는 *https*로 시작)을 제공 하 여 고객에 게 제품을 무료로 제공 합니다.  예: `https://contoso.com/saas-app`
 
 ##### <a name="free-trial-listing"></a>무료 평가판 (목록)
-[AZURE AD (Azure Active Directory)를 사용 하 여 한 번의 클릭으로 인증](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials)을 통해 평가판을 얻을 수 있는 올바른 URL ( *http* 또는 *https*로 시작)을 제공 하 여 고객에 게 제품을 나열 합니다.  예: `https://contoso.com/trial/saas-app`. 무료 평가판을 나열 하는 제품은 서비스에서 생성, 관리 및 구성 되며 Microsoft에서 관리 하는 구독을 포함 하지 않습니다.
+[AZURE AD (Azure Active Directory)를 사용 하 여 한 번의 클릭으로 인증](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials)을 통해 평가판을 얻을 수 있는 올바른 URL ( *http* 또는 *https*로 시작)을 제공 하 여 고객에 게 제품을 나열 합니다.  예를 들어 `https://contoso.com/trial/saas-app`을 참조하십시오. 무료 평가판을 나열 하는 제품은 서비스에서 생성, 관리 및 구성 되며 Microsoft에서 관리 하는 구독을 포함 하지 않습니다.
 
 > [!NOTE]
 > 평가판 링크를 통해 응용 프로그램에서 수신 하는 토큰은 Azure AD를 통해 사용자 정보를 가져와서 앱에서 계정 만들기를 자동화 하는 데만 사용할 수 있습니다. 이 토큰을 사용 하는 인증에는 MSA (Microsoft 계정)가 지원 되지 않습니다.
@@ -173,7 +173,7 @@ CRM (고객 관계 관리) 시스템을 연결 하 여 고객 연락처 정보�
 
 다음 섹션으로 이동 하기 전에 **저장** 해야 합니다.
 
-## <a name="properties"></a>Properties
+## <a name="properties"></a>속성
 **속성** 탭에서는 마켓플레이스에서 제품을 그룹화 하는 데 사용 되는 범주와 산업, 제품을 지 원하는 법적 계약 및 앱 버전을 정의 하 라는 메시지가 표시 됩니다. 
 
 이러한 필드를 완료 한 후 **저장** 을 선택 합니다. 
@@ -339,7 +339,7 @@ Azure Marketplace 게시자는 사용자 지정 약관을 만드는 대신 표�
 - [Marketplace 제품 목록에 대 한 모범 사례](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
 
 
-## <a name="preview"></a>미리 보기
+## <a name="preview"></a>Preview
 
 **미리 보기** 탭에서는 제품을 광범위 한 marketplace 대상에 게시 하기 전에 제품을 릴리스할 수 있는 제한 된 **미리 보기 대상을** 정의할 수 있습니다.
 

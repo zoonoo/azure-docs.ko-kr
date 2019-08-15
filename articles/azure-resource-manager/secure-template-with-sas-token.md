@@ -1,0 +1,149 @@
+---
+title: SAS 토큰을 사용 하 여 Azure Resource Manager 템플릿 안전 하 게 배포
+description: SAS 토큰으로 보호 되는 Azure Resource Manager 템플릿을 사용 하 여 Azure에 리소스를 배포 합니다. Azure PowerShell 및 Azure CLI를 표시 합니다.
+services: azure-resource-manager
+author: tfitzmac
+ms.service: azure-resource-manager
+ms.topic: conceptual
+ms.date: 08/14/2019
+ms.author: tomfitz
+ms.openlocfilehash: f396618350e4f4a9be09db421d073aec6ba52b65
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036957"
+---
+# <a name="deploy-private-resource-manager-template-with-sas-token"></a>SAS 토큰을 사용하여 프라이빗 Resource Manager 템플릿 배포
+
+템플릿이 저장소 계정에 있는 경우 공개적으로 노출 되지 않도록 템플릿에 대 한 액세스를 제한할 수 있습니다. 템플릿에 대 한 SAS (공유 액세스 서명) 토큰을 만들고 배포 하는 동안 해당 토큰을 제공 하 여 보안 템플릿에 액세스 합니다. 이 문서에서는 Azure PowerShell 또는 Azure CLI를 사용 하 여 SAS 토큰을 사용 하 여 템플릿을 배포 하는 방법을 설명 합니다.
+
+## <a name="create-storage-account-with-secured-container"></a>보안 컨테이너를 사용 하 여 저장소 계정 만들기
+
+다음 스크립트는 공용 액세스를 해제 한 상태에서 저장소 계정 및 컨테이너를 만듭니다.
+
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+New-AzResourceGroup `
+  -Name ExampleGroup `
+  -Location "Central US"
+New-AzStorageAccount `
+  -ResourceGroupName ExampleGroup `
+  -Name {your-unique-name} `
+  -Type Standard_LRS `
+  -Location "Central US"
+Set-AzCurrentStorageAccount `
+  -ResourceGroupName ExampleGroup `
+  -Name {your-unique-name}
+New-AzStorageContainer `
+  -Name templates `
+  -Permission Off
+```
+
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+az group create \
+  --name "ExampleGroup" \
+  --location "Central US"
+az storage account create \
+    --resource-group ExampleGroup \
+    --location "Central US" \
+    --sku Standard_LRS \
+    --kind Storage \
+    --name {your-unique-name}
+connection=$(az storage account show-connection-string \
+    --resource-group ExampleGroup \
+    --name {your-unique-name} \
+    --query connectionString)
+az storage container create \
+    --name templates \
+    --public-access Off \
+    --connection-string $connection
+```
+
+---
+
+## <a name="upload-template-to-storage-account"></a>저장소 계정에 템플릿 업로드
+
+이제 저장소 계정에 템플릿을 업로드할 준비가 되었습니다. 사용 하려는 템플릿에 대 한 경로를 제공 합니다.
+
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+Set-AzStorageBlobContent `
+  -Container templates `
+  -File c:\Templates\azuredeploy.json
+```
+
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+az storage blob upload \
+    --container-name templates \
+    --file azuredeploy.json \
+    --name azuredeploy.json \
+    --connection-string $connection
+```
+
+---
+
+## <a name="provide-sas-token-during-deployment"></a>배포하는 동안 SAS 토큰 제공
+
+스토리지 계정에 프라이빗 템플릿을 배포하려면 SAS 토큰을 생성하고 해당 템플릿의 URI에 포함합니다. 배포를 완료할 만큼 충분한 여유를 두고 만료 기간을 설정합니다.
+
+> [!IMPORTANT]
+> 템플릿이 포함 된 blob은 계정 소유자만 액세스할 수 있습니다. 그러나 blob용 SAS 토큰을 생성하면 해당 blob은 해당 URI를 가진 사람이면 누구나 액세스할 수 있습니다. 다른 사용자가 URI를 가로채는 경우, 그 사용자가 템플릿에 액세스할 수 있습니다. SAS 토큰은 템플릿에 대 한 액세스를 제한 하는 좋은 방법 이지만, 암호와 같은 중요 한 데이터를 템플릿에 직접 포함 해서는 안 됩니다.
+>
+
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+# get the URI with the SAS token
+$templateuri = New-AzStorageBlobSASToken `
+  -Container templates `
+  -Blob azuredeploy.json `
+  -Permission r `
+  -ExpiryTime (Get-Date).AddHours(2.0) -FullUri
+
+# provide URI with SAS token during deployment
+New-AzResourceGroupDeployment `
+  -ResourceGroupName ExampleGroup `
+  -TemplateUri $templateuri
+```
+
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+expiretime=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)
+connection=$(az storage account show-connection-string \
+    --resource-group ExampleGroup \
+    --name {your-unique-name} \
+    --query connectionString)
+token=$(az storage blob generate-sas \
+    --container-name templates \
+    --name azuredeploy.json \
+    --expiry $expiretime \
+    --permissions r \
+    --output tsv \
+    --connection-string $connection)
+url=$(az storage blob url \
+    --container-name templates \
+    --name azuredeploy.json \
+    --output tsv \
+    --connection-string $connection)
+az group deployment create \
+  --resource-group ExampleGroup \
+  --template-uri $url?$token
+```
+
+---
+
+연결된 템플릿에 SAS 토큰을 사용하는 예제는 [Azure Resource Manager에서 연결된 템플릿 사용](resource-group-linked-templates.md)을 참조하세요.
+
+
+## <a name="next-steps"></a>다음 단계
+* 템플릿 배포에 대한 소개는 [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](resource-group-template-deploy.md)를 참조하세요.
+* 템플릿을 배포하는 전체 샘플 스크립트는 [Resource Manager 템플릿 배포 스크립트](resource-manager-samples-powershell-deploy.md)를 참조하세요.
+* 템플릿에서 매개 변수를 정의하려면 [템플릿 작성](resource-group-authoring-templates.md#parameters)을 참조하세요.

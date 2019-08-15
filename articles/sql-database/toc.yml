@@ -107,6 +107,8 @@
       items:
         - name: DMS를 사용하여 온라인 마이그레이션
           href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
+        - name: 장애 조치(failover) 그룹 추가
+          href: sql-database-managed-instance-failover-group-tutorial.md
         - name: 트랜잭션 복제 구성
           href: replication-with-sql-database-managed-instance.md
     - name: SQL Database의 보안

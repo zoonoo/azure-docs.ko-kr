@@ -9,12 +9,12 @@ ms.date: 08/12/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 7d94c3ba4eaf34a2229b7331599e7c59b5f1dee7
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 4cf4f87e42508c60cd9195cb8d1e4127134f64aa
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990976"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034940"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>SAS (공유 액세스 서명)를 사용 하 여 Azure Storage 리소스에 대 한 제한 된 액세스 권한 부여
 
@@ -125,7 +125,7 @@ SAS가 유용한 일반적인 시나리오로는 다른 사용자가 스토리�
 
 - [.NET을 사용 하 여 계정 SAS 만들기](storage-account-sas-create-dotnet.md)
 
-## <a name="see-also"></a>참고자료
+## <a name="next-steps"></a>다음 단계
 
 - [공유 액세스 서명 (REST API)을 사용 하 여 액세스 위임](/rest/api/storageservices/delegate-access-with-shared-access-signature)
 - [사용자 위임 SAS (REST API) 만들기](/rest/api/storageservices/create-user-delegation-sas)

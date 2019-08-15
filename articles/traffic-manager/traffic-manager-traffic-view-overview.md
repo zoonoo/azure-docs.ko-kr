@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: 39d6090b14a16f505413154df2a78d42b3fb3f3c
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 5b451378fcc14106cb8731a89bcf6ccf415d0a92
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68333705"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035456"
 ---
 # <a name="traffic-manager-traffic-view"></a>Traffic Manager 트래픽 보기
 
@@ -44,6 +44,8 @@ Traffic Manager는 DNS 수준 라우팅을 제공하므로 최종 사용자가 �
 ## <a name="visual-overview"></a>시각적 개요
 
 Traffic Manager 페이지에서 **트래픽 보기** 섹션으로 이동하면 트래픽 보기 정보의 오버레이가 있는 지리적 맵이 제공됩니다. 맵에는 Traffic Manager 프로필의 사용자 기반 및 엔드포인트에 대한 정보가 제공됩니다.
+
+![Traffic Manager 트래픽 보기 지리적 보기][1]
 
 ### <a name="user-base-information"></a>사용자 기반 정보
 
@@ -94,3 +96,5 @@ Azure Portal에서 테이블 형식으로 트래픽 보기 데이터를 볼 수 
 - Traffic Manager가 지원하는 [트래픽 라우팅 방법](traffic-manager-routing-methods.md) 에 대해 자세히 알아봅니다.
 - [Traffic Manager 프로필을 만드는](traffic-manager-create-profile.md)
 
+<!--Image references-->
+[1]: ./media/traffic-manager-traffic-view-overview/trafficview.png

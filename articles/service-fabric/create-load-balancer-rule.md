@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: atsenthi
-ms.openlocfilehash: 440d5e37e03e58a39275e715ebce4fa07961cc84
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 2c96c421d768b1e75169615d81a03387602a83ac
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598572"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036074"
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>Service Fabric 클러스터에 대한 포트 열기
 
@@ -61,7 +60,7 @@ az network lb rule create --backend-port 40000 --frontend-port 39999 --protocol 
 
 Azure CLI 명령에는 다음 표에 설명되어 있는 몇 가지 매개 변수를 사용할 수 있습니다.
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | --------- | ----------- |
 | `--backend-port`  | Service Fabric 애플리케이션이 수신 대기하는 포트입니다. |
 | `--frontend-port` | 부하 분산 장치가 외부 연결을 위해 노출하는 포트입니다. |

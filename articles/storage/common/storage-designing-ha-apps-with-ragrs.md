@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 06/28/2019
+ms.date: 08/14/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 79d00d39903b6fb3891ee7c0ccc4743763043568
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: 1a5d80d6cd31621f8c3931b1845050f0a212ef08
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69015611"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036617"
 ---
 # <a name="designing-highly-available-applications-using-read-access-geo-redundant-storage"></a>읽기 액세스 지역 중복 저장소를 사용 하 여 항상 사용 가능한 응용 프로그램 디자인
 
@@ -150,7 +150,7 @@ Azure Storage 클라이언트 라이브러리를 사용 하면 다시 시도할 
 
 * 스토리지 요청에 전달하는 [**OperationContext**](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.context.operationcontext) 개체의 [**Retrying**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.operationcontext.retrying) 이벤트에 대해 처리기를 추가합니다. 이 방법은 이 문서에 표시되어 있고 함께 제공되는 샘플에 사용되어 있습니다. 이러한 이벤트는 클라이언트가 요청을 재시도할 때마다 발생하기 때문에 기본 엔드포인트에서 재시도 가능한 오류가 클라이언트에 발생하는 빈도를 추적할 수 있습니다.
 
-    ```csharp 
+    ```csharp
     operationContext.Retrying += (sender, arguments) =>
     {
         // Retrying in the primary region
@@ -219,7 +219,13 @@ PowerShell 또는 Azure CLI를 사용 하 여 마지막 동기화 시간을 검�
 
 ### <a name="powershell"></a>PowerShell
 
-PowerShell을 사용 하 여 저장소 계정에 대 한 마지막 동기화 시간을 가져오려면 저장소 계정의 **GeoReplicationStats. LastSyncTime** 속성을 확인 합니다. 자리 표시자 값을 사용자 고유의 값으로 대체 해야 합니다.
+PowerShell을 사용 하 여 저장소 계정에 대 한 마지막 동기화 시간을 가져오려면 지역에서 복제 통계 가져오기를 지 원하는 Azure Storage 미리 보기 모듈을 설치 합니다. 예:
+
+```powershell
+Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.1.1-preview –AllowPrerelease –AllowClobber –Force
+```
+
+그런 다음 저장소 계정의 **GeoReplicationStats. LastSyncTime** 속성을 확인 합니다. 자리 표시자 값을 사용자 고유의 값으로 대체 해야 합니다.
 
 ```powershell
 $lastSyncTime = $(Get-AzStorageAccount -ResourceGroupName <resource-group> `

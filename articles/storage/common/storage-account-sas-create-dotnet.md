@@ -9,12 +9,12 @@ ms.date: 08/06/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: f75b472a49dfb360ccda21e73286880fcd506153
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: b8d627fd905741c76dd34eb4270f49d46b93abb1
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990768"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036102"
 ---
 # <a name="create-an-account-sas-with-net"></a>.NET을 사용 하 여 계정 SAS 만들기
 
@@ -94,7 +94,7 @@ static void UseAccountSAS(string sasToken)
 }
 ```
 
-## <a name="see-also"></a>참고자료
+## <a name="next-steps"></a>다음 단계
 
 - [SAS (공유 액세스 서명)를 사용 하 여 Azure Storage 리소스에 대 한 제한 된 액세스 권한 부여](storage-sas-overview.md)
 - [계정 SAS 만들기](/rest/api/storageservices/create-account-sas)

@@ -1,5 +1,5 @@
 ---
-title: Java를 사용 하 여 이벤트 전송 및 수신-Azure Event Hubs | Microsoft Docs
+title: Java를 사용 하 여 Azure Event Hubs에서 데이터 전송
 description: 이 문서에서는 Azure Event Hubs에 이벤트를 전송 하는 Java 응용 프로그램을 만드는 연습을 제공 합니다.
 services: event-hubs
 author: ShubhaVijayasarathy
@@ -7,26 +7,26 @@ manager: timlt
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.custom: seodec18
+ms.custom: seodec18, seo-java-august2019
 ms.date: 04/15/2019
 ms.author: shvija
-ms.openlocfilehash: 00107d99f69fcec086f9692a5ba31a9d9970d089
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: c85d69b823956a5cf5e7f9d6dfa3c39b918cd465
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848524"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034809"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-java"></a>Java를 사용 하 여 Azure Event Hubs에서 이벤트 보내기 또는 받기
 
-Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 수 있는 빅 데이터 스트리밍 플랫폼이자 이벤트 수집 서비스입니다. Event Hubs는 분산된 소프트웨어와 장치에서 생성된 이벤트, 데이터 또는 원격 분석을 처리하고 저장할 수 있습니다. Event Hub로 전송된 데이터는 실시간 분석 공급자 또는 일괄 처리/저장소 어댑터를 사용하여 변환하고 저장할 수 있습니다. Event Hubs에 대한 자세한 개요는 [Event Hubs 개요](event-hubs-about.md) 및 [Event Hubs 기능](event-hubs-features.md)을 참조하세요.
+Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 수 있는 빅 데이터 스트리밍 플랫폼이자 이벤트 수집 서비스입니다. Event Hubs는 분산된 소프트웨어와 디바이스에서 생성된 이벤트, 데이터 또는 원격 분석을 처리하고 저장할 수 있습니다. Event Hub로 전송된 데이터는 실시간 분석 공급자 또는 일괄 처리/스토리지 어댑터를 사용하여 변환하고 저장할 수 있습니다. Event Hubs에 대한 자세한 개요는 [Event Hubs 개요](event-hubs-about.md) 및 [Event Hubs 기능](event-hubs-features.md)을 참조하세요.
 
 이 자습서에서는 이벤트 허브에서 이벤트를 보내거나 받기 위해 Java 응용 프로그램을 만드는 방법을 보여 줍니다. 
 
 > [!NOTE]
 > [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SimpleSend)에서 샘플로 이 빠른 시작을 다운로드하여 `EventHubConnectionString` 및 `EventHubName` 문자열을 이벤트 허브 값으로 대체하고, 실행합니다. 또는 이 자습서의 단계를 수행하여 직접 만들 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 이 자습서를 완료하려면 다음 필수 구성 요소가 필요합니다.
 
@@ -179,7 +179,7 @@ eventHubClient.closeSync();
 EventProcessorHost를 사용 하려면 [Azure Storage 계정] [Azure Storage 계정]이 있어야 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인 하 고 화면의 왼쪽에서 **리소스 만들기** 를 선택 합니다.
-2. **저장소**를 선택 하 고 **저장소 계정**을 선택 합니다. **저장소 계정 만들기** 창에서 저장소 계정에 사용할 이름을 입력합니다. 나머지 필드를 완료 하 고 원하는 지역을 선택한 후 **만들기**를 선택 합니다.
+2. **저장소**를 선택 하 고 **저장소 계정**을 선택 합니다. **스토리지 계정 만들기** 창에서 스토리지 계정에 사용할 이름을 입력합니다. 나머지 필드를 완료 하 고 원하는 지역을 선택한 후 **만들기**를 선택 합니다.
    
     ![저장소 계정 만들기](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
 
@@ -223,7 +223,7 @@ Event Hubs에 대한 Java 클라이언트 라이브러리는 [Maven 중앙 리�
         }
     }
     ```
-2. 다음 코드를 사용하여 `EventProcessorSample`(이)라는 클래스를 새로 만듭니다. 자리 표시자를 이벤트 허브 및 저장소 계정을 만들 때 사용한 값으로 바꿉니다.
+2. 다음 코드를 사용하여 `EventProcessorSample`(이)라는 클래스를 새로 만듭니다. 자리 표시자를 이벤트 허브 및 스토리지 계정을 만들 때 사용한 값으로 바꿉니다.
    
    ```java
    package com.microsoft.azure.eventhubs.samples.eventprocessorsample;
@@ -408,7 +408,7 @@ eventHubClient.sendSync(sendEvent, partitionKey);
 
 API는 기본 구현이 사용 사례와 호환되지 않는 시나리오를 위해 사용자 지정 검사점 관리자를 구현하는 메커니즘을 제공합니다.
 
-기본 검사점 관리자는 Blob 저장소를 사용하지만, EPH에서 사용하는 검사점 관리자를 사용자 고유의 구현으로 재정의하는 경우 원하는 저장소를 사용하여 검사점 관리자 구현을 지원할 수 있습니다.
+기본 검사점 관리자는 Blob Storage를 사용하지만, EPH에서 사용하는 검사점 관리자를 사용자 고유의 구현으로 재정의하는 경우 원하는 스토리지를 사용하여 검사점 관리자 구현을 지원할 수 있습니다.
 
 com.microsoft.azure.eventprocessorhost.ICheckpointManager 인터페이스를 구현하는 클래스를 만듭니다.
 

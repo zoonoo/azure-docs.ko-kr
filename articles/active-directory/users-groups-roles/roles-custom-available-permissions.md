@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e5ff6755f1391ff19e65df669fb51967a904f4f
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 99f31c5928273973a9089ae9ef1fd184cdb78bbb
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68707566"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69033374"
 ---
 # <a name="application-registration-subtypes-and-permissions-in-azure-active-directory"></a>Azure Active Directory의 응용 프로그램 등록 하위 형식 및 권한
 
@@ -46,12 +46,12 @@ ms.locfileid: "68707566"
 
 ### <a name="create-and-delete"></a>만들기 및 삭제
 
-앱 등록을 만드는 기능을 부여 하는 데 사용할 수 있는 두 가지 권한이 있습니다.
+응용 프로그램 등록을 만들 수 있는 기능을 부여 하는 데 사용할 수 있는 두 가지 권한은 각기 다른 동작입니다.
 
-- **microsoft. directory/응용 프로그램/createAsOwner**
-- **microsoft. 디렉터리/응용 프로그램/만들기**
+- **microsoft. directory/응용 프로그램/createAsOwner**: 이 권한을 할당 하면 만들어진 앱 등록의 첫 번째 소유자로 작성자가 추가 되 고 생성 된 앱 등록이 작성자의 250 생성 된 개체 할당량에 따라 계산 됩니다.
+- **microsoft. directory/applicationPolicies/만들기**: 이 권한을 할당 하면 만들어진 앱 등록의 첫 번째 소유자로 작성자가 추가 되지 않으며 만들어진 앱 등록이 작성자의 250 created 개체 할당량에 대해 계산 되지 않습니다. 디렉터리 수준 할당량이 적중 될 때까지 담당자가 앱 등록을 만들 수 없도록 하는 것이 없으므로이 사용 권한을 신중 하 게 사용 합니다. 두 사용 권한이 모두 할당 된 경우이 권한이 우선적으로 적용 됩니다.
 
-두 권한이 모두 할당 된 경우 만들기 권한이 우선 적용 됩니다. CreateAsOwner 권한은 자동으로 작성자를 첫 번째 소유자로 추가 하지 않지만 Graph Api 또는 PowerShell cmdlet을 사용 하는 경우 앱 등록을 만드는 동안 소유자를 지정할 수 있습니다.
+두 권한이 모두 할당 되 면/create 권한이 우선적으로 적용 됩니다. /CreateAsOwner 권한은 자동으로 작성자를 첫 번째 소유자로 추가 하지 않지만 Graph Api 또는 PowerShell cmdlet을 사용 하는 경우 앱 등록을 만드는 동안 소유자를 지정할 수 있습니다.
 
 만들기 권한 **새 등록** 명령에 대 한 액세스 권한을 부여 합니다.
 

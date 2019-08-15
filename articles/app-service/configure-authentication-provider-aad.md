@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 02/20/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: d687e770fae6c32ee351a597e12d1aca6094e5cb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a77a41500a9c22aa25d3de396e73a5b2e4c0c419
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60851378"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69033893"
 ---
 # <a name="configure-your-app-service-app-to-use-azure-active-directory-sign-in"></a>Azure Active Directory 로그인을 사용하도록 App Service 앱 구성
 
 > [!NOTE]
-> 지금은 AAD V2 MSAL 등 Azure App Services 및 Azure Functions에 대 한 지원 되지 않습니다. 업데이트를 다시 확인 하세요.
+> 지금은 AAD V2 (MSAL 포함)가 Azure 앱 서비스 및 Azure Functions에 대해 지원 되지 않습니다. 업데이트를 다시 확인 하세요.
 >
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -41,7 +41,11 @@ ms.locfileid: "60851378"
    앱 등록을 클릭하여 선택하고 **확인**을 클릭합니다. Azure Active Directory 설정 페이지에서 **확인**을 클릭합니다.
    기본적으로 App Service는 인증을 제공하지만 사이트 콘텐츠 및 API에 액세스하는 권한을 제한하지는 않습니다. 앱 코드에서 사용자 권한을 부여해야 합니다.
 5. (옵션) Azure Active Directory에서 인증된 사용자만 사이트에 액세스하도록 제한하려면 **요청이 인증되지 않으면 수행할 동작**을 **Azure Active Directory로 로그인**으로 설정합니다. 이렇게 하려면 모든 요청이 인증되어야 하며 모든 인증되지 않은 요청은 인증을 위해 Azure Active Directory로 리디렉션되어야 합니다.
-6. **저장**을 클릭합니다.
+
+> [!CAUTION]
+> 이러한 방식으로 액세스를 제한 하는 것은 앱에 대 한 모든 호출에 적용 됩니다 .이는 여러 단일 페이지 응용 프로그램과 마찬가지로 공개적으로 사용 가능한 홈 페이지를 사용 하는 앱에는 바람직하지 않을 수 있습니다. 이러한 응용 프로그램의 경우 [여기](overview-authentication-authorization.md#authentication-flow)에 설명 된 대로 **익명 요청 허용 (작업 없음)** 을 사용 하는 것이 좋습니다. 앱은 수동으로 로그인을 시작 합니다.
+
+6. **Save**을 클릭합니다.
 
 ## <a name="advanced"> </a>고급 설정을 사용하여 구성
 
@@ -55,10 +59,10 @@ ms.locfileid: "60851378"
 4. 몇 초 후에 방금 만든 새 앱 등록이 나타납니다.
 5. 앱 등록이 추가되면 앱 등록 이름을 클릭하고 위쪽의 **설정**을 클릭한 후 **속성**을 클릭합니다. 
 6. **앱 ID URI** 상자에 애플리케이션 URL(1단계)을 붙여 넣고, **홈페이지 URL**에도 애플리케이션 URL(1단계)을 붙여 넣은 후 **저장**을 클릭합니다.
-7. 클릭 합니다 **회신 Url**, 편집 합니다 **회신 URL**, (1 단계)에서 응용 프로그램 URL에 붙여넣은 다음 URL의 끝에 추가 */.auth/login/aad/callback* ( 예제에서는 `https://contoso.azurewebsites.net/.auth/login/aad/callback`). **저장**을 클릭합니다.
+7. 이제 **회신**url을 클릭 하 고 **회신 url**을 편집한 후 응용 프로그램 url (1 단계)을 붙여 넣고 url의 끝에 */.auth/login/aad/callback* (예: `https://contoso.azurewebsites.net/.auth/login/aad/callback`)을 추가 합니다. **Save**을 클릭합니다.
 
    > [!NOTE]
-   > 추가 하 여 여러 도메인에 대 한 동일한 앱 등록을 사용할 수 있습니다 **회신 Url**합니다. 각 App Service 인스턴스는 자체 등록을 사용 하 여 모델에 자체 사용 권한 및 동의 해야 합니다. 또한 별도 앱 등록을 사용 하 여 별도 사이트 슬롯에 대 한 것이 좋습니다. 테스트 하는 새 코드의 버그 프로덕션에 영향을 주지 않습니다 있도록 환경 간에 공유 되는 사용 권한을 방지 하기 위해서입니다.
+   > 추가 **회신 url**을 추가 하 여 여러 도메인에 대해 동일한 앱 등록을 사용할 수 있습니다. 자체 등록을 사용 하 여 각 App Service 인스턴스를 모델링 해야 하므로 고유한 권한 및 동의가 있습니다. 또한 별도의 사이트 슬롯에 대해 별도의 앱 등록을 사용 하는 것이 좋습니다. 이는 테스트 중인 새 코드의 버그가 프로덕션에 영향을 주지 않도록 환경 간에 공유 되는 권한을 방지 하기 위한 것입니다.
     
 8. 이때 앱의 **애플리케이션 ID**를 복사합니다. 나중에 사용하기 위해 보관합니다. App Service 앱을 구성하는 데 필요합니다.
 9. **등록된 앱** 페이지를 닫습니다. **앱 등록** 페이지에서 맨 위의 **엔드포인트** 단추를 클릭하고 **WS-FEDERATION SIGN-ON ENDPOINT** URL을 복사하되 끝에 있는 `/wsfed`를 URL에서 제거합니다. 최종 결과는 `https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000`과 같아야 합니다. 소버린 클라우드의 경우 도메인 이름은 다를 수 있습니다. 이 URL은 나중에 발급자 URL로 사용됩니다.
@@ -68,7 +72,7 @@ ms.locfileid: "60851378"
 1. [Azure Portal]로 돌아가서 App Service 앱으로 이동합니다. **인증/권한 부여**를 클릭합니다. 인증/권한 부여 기능이 사용하도록 설정되지 않은 경우 스위치를 **설정**으로 전환합니다. 인증 공급자 아래의 **Azure Active Directory**를 클릭하여 앱을 구성합니다.
 
     (선택 사항) 기본적으로 앱 서비스는 인증을 제공하지만 사이트 콘텐츠 및 API에 액세스하는 권한을 제한하지는 않습니다. 앱 코드에서 사용자 권한을 부여해야 합니다. **요청이 인증되지 않은 경우 수행할 작업**을 **Azure Active Directory로 로그인**으로 설정합니다. 이 옵션을 사용하려면 모든 요청이 인증되어야 하며 모든 인증되지 않은 요청은 인증을 위해 Azure Active Directory로 리디렉션되어야 합니다.
-2. Active Directory 인증 구성에서 **관리 모드** 아래의 **고급**을 클릭합니다. 클라이언트 ID 상자에 애플리케이션 ID(8단계)를 붙여넣고, 발급자 URL 값에 URL(9단계)을 붙여넣습니다. 그런 후 **OK**를 클릭합니다.
+2. Active Directory 인증 구성에서 **관리 모드** 아래의 **고급**을 클릭합니다. 클라이언트 ID 상자에 애플리케이션 ID(8단계)를 붙여넣고, 발급자 URL 값에 URL(9단계)을 붙여넣습니다. 그런 다음 **확인**을 클릭합니다.
 3. Active Directory 인증 구성 페이지에서 **저장**을 클릭합니다.
 
 이제 App Service 앱에서 Azure Active Directory를 인증에 사용할 준비가 되었습니다.

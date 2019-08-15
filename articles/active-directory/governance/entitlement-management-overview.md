@@ -1,5 +1,5 @@
 ---
-title: Azure AD 자격 관리 란? (미리 보기)-Azure Active Directory
+title: Azure AD 권한 관리란? (미리 보기)-Azure Active Directory
 description: Azure Active Directory 자격 관리에 대 한 개요와이를 사용 하 여 내부 및 외부 사용자의 그룹, 응용 프로그램 및 SharePoint Online 사이트에 대 한 액세스를 관리 하는 방법을 알아봅니다.
 services: active-directory
 documentationCenter: ''
@@ -16,14 +16,14 @@ ms.date: 07/10/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12452b4e9cc6caa64d4c81a310fbccb5d1717817
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: d93a20494886bb7d563439e2699f60bedb646dcd
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678151"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69032540"
 ---
-# <a name="what-is-azure-ad-entitlement-management-preview"></a>Azure AD 자격 관리 란? (미리 보기)
+# <a name="what-is-azure-ad-entitlement-management-preview"></a>Azure AD 권한 관리란? (미리 보기)
 
 > [!IMPORTANT]
 > Azure AD(Azure Active Directory) 권한 관리는 현재 공개 미리 보기로 제공됩니다.
@@ -34,6 +34,10 @@ ms.locfileid: "68678151"
 
 Azure AD (Azure Active Directory) 자격 관리를 통해 내부 사용자와 조직 외부 사용자의 그룹, 응용 프로그램 및 SharePoint Online 사이트에 대 한 액세스를 관리할 수 있습니다.
 
+이 비디오는 자격 관리 및 비즈니스 가치에 대 한 개요를 제공 합니다.
+
+>[!VIDEO https://www.youtube.com/embed/_Lss6bFrnQ8]
+
 ## <a name="why-use-entitlement-management"></a>자격 관리를 사용 하는 이유
 
 기업 조직은 종종 다음과 같은 리소스에 대 한 액세스를 관리할 때 어려움을 겪고 있습니다.
@@ -42,7 +46,7 @@ Azure AD (Azure Active Directory) 자격 관리를 통해 내부 사용자와 �
 - 사용자가 올바른 개인 또는 올바른 리소스를 찾는 데 어려움이 있을 수 있습니다.
 - 사용자가 리소스에 대 한 액세스를 찾고 받은 후에는 비즈니스 목적에 필요한 것 보다 더 긴 액세스를 유지할 수 있습니다.
 
-이러한 문제는 공급망 조직 또는 다른 비즈니스 파트너의 외부 사용자와 같이 다른 디렉터리에서 액세스 해야 하는 사용자에 게 복잡해 집니다. 예를 들어:
+이러한 문제는 공급망 조직 또는 다른 비즈니스 파트너의 외부 사용자와 같이 다른 디렉터리에서 액세스 해야 하는 사용자에 게 복잡해 집니다. 예:
 
 - 조직에서 다른 디렉터리의 모든 특정 개인을 초대할 수 있는 것을 알지 못할 수 있습니다.
 - 조직에서 이러한 사용자를 초대할 수 있는 경우에도 조직은 사용자의 모든 액세스를 일관 되 게 관리 하지 못할 수 있습니다.
@@ -73,7 +77,7 @@ Id 거 버 넌 스 및 자격 관리에 대 한 개요는 Ignite 2018 회의에�
 - 페더레이션 또는 프로 비전을 지 원하는 SaaS 응용 프로그램 및 사용자 지정 통합 응용 프로그램을 포함 한 Azure AD 엔터프라이즈 응용 프로그램
 - SharePoint Online 사이트 모음 및 사이트
 
-Azure AD 보안 그룹 또는 Office 365 그룹을 사용 하는 다른 리소스에 대 한 액세스를 제어할 수도 있습니다.  예를 들어:
+Azure AD 보안 그룹 또는 Office 365 그룹을 사용 하는 다른 리소스에 대 한 액세스를 제어할 수도 있습니다.  예:
 
 - 액세스 패키지의 Azure AD 보안 그룹을 사용 하 고 해당 그룹에 대 한 [그룹 기반 라이선스](../users-groups-roles/licensing-groups-assign.md) 를 구성 하 여 Microsoft Office 365에 대 한 라이선스를 사용자에 게 제공할 수 있습니다.
 - 액세스 패키지의 Azure AD 보안 그룹을 사용 하 여 Azure 리소스를 관리 하 고 해당 그룹에 대 한 [azure 역할 할당](../../role-based-access-control/role-assignments-portal.md) 을 만들어 사용자에 게 액세스 권한을 부여할 수 있습니다.

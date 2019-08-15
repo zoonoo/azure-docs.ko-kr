@@ -8,27 +8,26 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: a652439729e538b3ce2545ab3b09284e6645ce9d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 902ebab5dc12d7649edd0ed6e594e663e5332ce3
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60556392"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035229"
 ---
 # <a name="sfctl-sa-cluster"></a>sfctl sa-cluster
 독립 실행형 Service Fabric 클러스터를 관리합니다.
 
 ## <a name="commands"></a>명령
 
-|명령|설명|
+|명령|Description|
 | --- | --- |
-| config | Service Fabric 독립 실행형 클러스터 구성을 가져옵니다. |
+| 구성 | Service Fabric 독립 실행형 클러스터 구성을 가져옵니다. |
 | config-upgrade | Service Fabric 독립 실행형 클러스터의 구성 업그레이드를 시작합니다. |
 | upgrade-status | Service Fabric 독립 실행형 클러스터의 클러스터 구성 업그레이드 상태를 가져옵니다. |
 
@@ -61,7 +60,7 @@ Service Fabric 독립 실행형 클러스터의 구성 업그레이드를 시작
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --cluster-config            [필수] | 클러스터 구성입니다. |
 | --application-health-policies | 오류를 발생시키기 전의 비정상 애플리케이션 형식 이름 및 최대 비율 쌍의 JSON 인코딩된 사전. |
@@ -78,7 +77,7 @@ Service Fabric 독립 실행형 클러스터의 구성 업그레이드를 시작
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
@@ -102,13 +101,13 @@ Service Fabric 독립 실행형 클러스터의 클러스터 구성 업그레이
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |

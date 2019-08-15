@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/28/2019
+ms.date: 08/13/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 312f6746cb02aa66b0e7f8b47cb10e52558fa542
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 118a36587667c815489ddad03426b5cfcfee7382
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68323172"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036684"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch 서비스 할당량 및 제한
 
@@ -50,12 +50,12 @@ Batch에서 프로덕션 작업을 실행하려고 계획하는 경우, 위 기�
 
 | **Resource** | **최대 제한** |
 | --- | --- |
-| **[노드 간 통신 사용 풀](batch-mpi.md)의 계산 노드**  ||
+| **[노드 간 통신 사용 풀](batch-mpi.md)의 컴퓨팅 노드**  ||
 | Batch 서비스 풀 할당 모드 | 100 |
 | Batch 구독 풀 할당 모드 | 80 |
-| **[사용자 지정 VM 이미지를 사용하여 만든 풀](batch-custom-images.md)<sup>1</sup>의 계산 노드 수** ||
+| **[사용자 지정 VM 이미지를 사용하여 만든 풀](batch-custom-images.md)** <sup>1</sup>의 컴퓨팅 노드 수 ||
 | 전용 노드 | 2000 |
-| 우선 순위가 낮은 노드 | 1000 |
+| 낮은 우선 순위 노드 | 1000 |
 
 <sup>1</sup> 노드 간 통신을 사용하도록 설정되지 않은 풀입니다.
 
@@ -65,11 +65,12 @@ Batch에서 프로덕션 작업을 실행하려고 계획하는 경우, 위 기�
 
 | **Resource** | **최대 제한** |
 | --- | --- |
-| 계산 노드당 [동시 작업](batch-parallel-node-tasks.md) | 4 x 노드 코어 수 |
+| 컴퓨팅 노드당 [동시 작업](batch-parallel-node-tasks.md) | 4 x 노드 코어 수 |
 | [애플리케이션](batch-application-packages.md) | 20 |
 | 애플리케이션당 애플리케이션 패키지 | 40 |
 | 풀 당 응용 프로그램 패키지 | 10 |
 | 최대 작업 수명 | 180일<sup>1</sup> |
+| 계산 노드당 [탑재](virtual-file-mount.md) 수 | 10 |
 
 <sup>1</sup> 태스크의 최대 수명(태스크가 작업에 추가되는 시점부터 완료되는 시점까지)은 180일입니다. 완료 된 작업은 7 일 동안 지속 됩니다. 최대 수명 내에 완료 되지 않은 태스크에 대 한 데이터는 액세스할 수 없습니다.
 

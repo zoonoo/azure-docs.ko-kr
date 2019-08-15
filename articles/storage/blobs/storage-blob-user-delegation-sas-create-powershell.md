@@ -9,12 +9,12 @@ ms.date: 08/12/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 5412b83d8dfe92c6a24e717fb371c8963b808566
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 86b5e4b6bcf65c2174fa3d3743551813ce2f8b1b
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990794"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034748"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell-preview"></a>PowerShell (미리 보기)을 사용 하 여 컨테이너 또는 blob에 대 한 사용자 위임 SAS 만들기
 
@@ -32,11 +32,6 @@ PowerShell을 사용 하 여 사용자 위임 SAS를 만들려면 먼저 Az. Sto
 
     - **설정**에 있는 **앱 및 기능** 설정을 사용하여 Windows에서 이전에 설치한 Azure PowerShell을 제거합니다.
     - 에서 모든 **Azure** 모듈을 `%Program Files%\WindowsPowerShell\Modules`제거 합니다.
-    - PowerShell은 최신 Az. Storage 모듈을 기본적으로 로드 하므로 콘솔을 시작할 때 1.3.1-preview 모듈을 명시적으로 로드 해야 할 수도 있습니다. 미리 보기 모듈을 명시적으로 로드 하려면 [import-module](/powershell/module/microsoft.powershell.core/import-module) 명령을 실행 합니다.
-
-        ```powershell
-        Import-Module Az.Storage -RequiredVersion 1.3.1
-        ```
 
 1. 최신 버전의 PowerShellGet이 설치되어 있는지 확인합니다. Windows PowerShell 창을 열고 다음 명령을 실행하여 최신 버전을 설치합니다.
 
@@ -55,10 +50,21 @@ PowerShell을 사용 하 여 사용자 위임 SAS를 만들려면 먼저 Az. Sto
 1. 사용자 위임 SAS를 지 원하는 Azure Storage 미리 보기 모듈을 설치 합니다.
 
     ```powershell
-    Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.3.1-preview –AllowPrerelease –AllowClobber –Force
+    Install-Module Az.Storage `
+        –Repository PSGallery `
+        -RequiredVersion 1.3.1-preview `
+        –AllowPrerelease `
+        –AllowClobber `
+        –Force
     ```
 
 1. PowerShell 창을 닫았다가 다시 엽니다.
+
+PowerShell은 최신 Az. Storage 모듈을 기본적으로 로드 하므로 콘솔을 시작할 때 1.3.1-preview 모듈을 명시적으로 로드 해야 할 수도 있습니다. 미리 보기 모듈을 명시적으로 로드 하려면 [import-module](/powershell/module/microsoft.powershell.core/import-module) 명령을 실행 합니다.
+
+```powershell
+Import-Module Az.Storage -RequiredVersion 1.3.1
+```
 
 Azure PowerShell를 설치 하는 방법에 대 한 자세한 내용은 [PowerShellGet을 사용 하 여 Azure PowerShell 설치](/powershell/azure/install-az-ps)를 참조 하세요.
 
@@ -142,8 +148,7 @@ New-AzStorageBlobSASToken -Context $ctx `
 반환 된 사용자 위임 SAS URI는 다음과 유사 합니다.
 
 ```
-https://storagesamples.blob.core.windows.net/sample-container/blob1.txt?sv=2018-11-09&sr=b&sig=4f6QzTteEZmrEMXWn7iEeI27vHrX13zVmL6rk2MbiyA%3D&skoid=e5981635-dcf0-4279-ab7b-ca1cbdf4a5c7&sktid=72f988bf-86f1-41af-91ab
--2d7cd011db47&skt=2019-08-06T21%3A16%3A54Z&ske=2019-08-07T07%3A00%3A00Z&sks=b&skv=2018-11-09&se=2019-08-07T07%3A00%3A00Z&sp=racwd
+https://storagesamples.blob.core.windows.net/sample-container/blob1.txt?sv=2018-11-09&sr=b&sig=<sig>&skoid=<skoid>&sktid=<sktid>&skt=2019-08-06T21%3A16%3A54Z&ske=2019-08-07T07%3A00%3A00Z&sks=b&skv=2018-11-09&se=2019-08-07T07%3A00%3A00Z&sp=racwd
 ```
 
 > [!NOTE]
@@ -160,7 +165,7 @@ Revoke-AzStorageAccountUserDelegationKeys -ResourceGroupName <resource-group> `
     -StorageAccountName <storage-account>
 ```
 
-## <a name="see-also"></a>참고자료
+## <a name="next-steps"></a>다음 단계
 
 - [사용자 위임 SAS (REST API) 만들기](/rest/api/storageservices/create-a-user-delegation-sas)
 - [사용자 위임 키 가져오기 작업](/rest/api/storageservices/get-user-delegation-key)

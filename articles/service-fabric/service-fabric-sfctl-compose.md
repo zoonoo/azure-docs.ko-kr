@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 4b5cbb4a24b61de7e64a52ef950deedab3eec263
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dab844246d99b0ab80e1e86219c2064c79e74e4f
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837269"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035112"
 ---
 # <a name="sfctl-compose"></a>sfctl compose
 Docker Compose 애플리케이션을 만들고, 삭제하고, 관리합니다.
@@ -28,11 +27,11 @@ Docker Compose 애플리케이션을 만들고, 삭제하고, 관리합니다.
 
 |명령|설명|
 | --- | --- |
-| create | Service Fabric 작성 배포를 만듭니다. |
-| list | Service Fabric 클러스터에서 만든 작성 배포의 목록을 가져옵니다. |
+| 만들기 | Service Fabric 작성 배포를 만듭니다. |
+| 목록 | Service Fabric 클러스터에서 만든 작성 배포의 목록을 가져옵니다. |
 | 제거 | 클러스터에서 기존 Service Fabric 작성 배포를 삭제합니다. |
-| status | Service Fabric 작성 배포에 관한 정보를 가져옵니다. |
-| 업그레이드 | Service Fabric 클러스터에서 작성 배포 업그레이드를 시작합니다. |
+| 상태 | Service Fabric 작성 배포에 관한 정보를 가져옵니다. |
+| upgrade | Service Fabric 클러스터에서 작성 배포 업그레이드를 시작합니다. |
 | upgrade-rollback | Service Fabric 클러스터에서 작성 배포 업그레이드 롤백을 시작합니다. |
 | upgrade-status | 이 Service Fabric 작성 배포에 수행된 최신 업그레이드에 대한 세부 정보를 가져옵니다. |
 
@@ -52,7 +51,7 @@ Service Fabric 작성 배포를 만듭니다.
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
@@ -75,7 +74,7 @@ Service Fabric 클러스터에 만들어졌거나 만들어지는 프로세스�
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
@@ -90,14 +89,14 @@ Service Fabric 클러스터에 만들어졌거나 만들어지는 프로세스�
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --deployment-name [필수] | 배포의 id입니다. |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
@@ -112,7 +111,7 @@ Service Fabric 클러스터에서 만들어졌거나 만들어지는 과정에 �
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --deployment-name [필수] | 배포의 id입니다. |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
@@ -134,7 +133,7 @@ Service Fabric 클러스터에서 작성 배포 업그레이드를 시작합니�
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --deployment-name  [필수] | 배포의 이름입니다. |
 | --file-path        [필수] | 대상 Docker Compose 파일의 경로입니다. |
@@ -159,7 +158,7 @@ Service Fabric 클러스터에서 작성 배포 업그레이드를 시작합니�
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
@@ -174,7 +173,7 @@ Service Fabric 작성 배포 업그레이드를 롤백합니다.
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --deployment-name [필수] | 배포의 id입니다. |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
@@ -196,14 +195,14 @@ Service Fabric 작성 배포 업그레이드를 롤백합니다.
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --deployment-name [필수] | 배포의 id입니다. |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |

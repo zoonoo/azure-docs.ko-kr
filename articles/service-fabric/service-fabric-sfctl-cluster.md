@@ -8,29 +8,28 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 7bb399472d7e0ab14e6399fc8652d2eb132a866a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 305b1e11841dd2da4aa6c0bdeb3df2c76addad87
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837329"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036513"
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
 Service Fabric 클러스터를 선택하고, 관리하고, 운영합니다.
 
 ## <a name="commands"></a>명령
 
-|명령|설명|
+|명령|Description|
 | --- | --- |
 | code-versions | Service Fabric 클러스터에 프로비전되는 패브릭 코드 버전을 가져옵니다. |
 | config-versions | Service Fabric 클러스터에 프로비전되는 패브릭 구성 버전의 목록을 가져옵니다. |
-| health | Service Fabric 클러스터의 상태를 가져옵니다. |
+| 상태 | Service Fabric 클러스터의 상태를 가져옵니다. |
 | manifest | Service Fabric 클러스터 매니페스트를 가져옵니다. |
 | operation-cancel | 사용자로 인한 오류 작업을 취소합니다. |
 | operation-list | 제공된 입력으로 필터링한 사용자로 인한 오류 작업 목록을 가져옵니다. |
@@ -40,7 +39,7 @@ Service Fabric 클러스터를 선택하고, 관리하고, 운영합니다.
 | 선택 | Service Fabric 클러스터 엔드포인트에 연결합니다. |
 | show-connection | 이 sfctl 인스턴스가 연결된 Service Fabric 클러스터를 보여줍니다. |
 | unprovision | Service Fabric 클러스터의 코드 또는 구성 패키지를 프로 비전합니다. |
-| 업그레이드 | Service Fabric 클러스터의 코드 또는 구성 버전 업그레이드를 시작합니다. |
+| upgrade | Service Fabric 클러스터의 코드 또는 구성 버전 업그레이드를 시작합니다. |
 | upgrade-resume | 클러스터 업그레이드를 다음 업그레이드 도메인으로 이동합니다. |
 | upgrade-rollback | Service Fabric 클러스터의 업그레이드를 롤백합니다. |
 | upgrade-status | 현재 클러스터 업그레이드의 진행률을 가져옵니다. |
@@ -60,7 +59,7 @@ Service Fabric 클러스터에 프로비전되는 패브릭 코드 버전을 가
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
@@ -75,7 +74,7 @@ Service Fabric 클러스터에 프로비전되는 패브릭 구성 버전의 목
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --config-version | Service Fabric의 구성 버전입니다. |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
@@ -97,7 +96,7 @@ Service Fabric 클러스터의 상태를 가져옵니다.
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --applications-health-state-filter | 상태에 따라 클러스터 상태 쿼리의 결과로 반환된 애플리케이션 상태 개체를 필터링할 수 있습니다. 이 매개 변수에 사용 가능한 값은 HealthStateFilter 열거형의 멤버 또는 멤버에 대한 비트 연산에서 가져온 정수 값입니다. 필터와 일치하는 애플리케이션만 반환됩니다. 모든 애플리케이션은 집계된 상태를 평가하는 데 사용됩니다. 지정하지 않으면 모든 항목이 반환됩니다. 상태 값은 플래그 기반 열거형이므로 값은 비트 OR 연산자를 사용하여 구한 값의 조합일 수 있습니다. 예를 들어 제공된 값이 6이면 HealthState 값이 OK(2) 및 Warning(4)인 애플리케이션의 상태가 반환됩니다.  <br> - Default - 기본값. 모든 HealthState와 일치합니다. 값은 0입니다.  <br> - None - 모든 HealthState 값과 일치하지 않는 필터입니다. 주어진 상태 컬렉션에 대해 결과를 반환하지 않기 위해 사용됩니다. 값은 1입니다.  <br> - Ok – HealthState 값이 Ok인 입력과 일치하는 필터입니다. 값은 2입니다.  <br> - Warning – HealthState 값이 Warning인 입력과 일치하는 필터입니다. 값은 4입니다.  <br> - Error - HealthState 값이 Error인 입력과 일치하는 필터입니다. 값은 8입니다.  <br> - All - 모든 HealthState 값의 입력과 일치하는 필터입니다. 값은 65535입니다. |
 | --events-health-state-filter | 상태에 따라 반환된 HealthEvent 개체의 컬렉션을 필터링할 수 있습니다. 이 매개 변수에 사용할 수 있는 값은 다음 상태 중 하나의 정수 값을 포함합니다. 필터와 일치하는 이벤트만 반환됩니다. 모든 이벤트는 집계된 상태를 평가하는 데 사용됩니다. 지정하지 않으면 모든 항목이 반환됩니다. 상태 값은 플래그 기반 열거형이므로 값은 비트 OR 연산자를 사용하여 구한 값의 조합일 수 있습니다. 예를 들어 제공된 값이 6이면 HealthState 값이 OK(2) 및 Warning(4)인 모든 이벤트가 반환됩니다.  <br> - Default - 기본값. 모든 HealthState와 일치합니다. 값은 0입니다.  <br> - None - 모든 HealthState 값과 일치하지 않는 필터입니다. 주어진 상태 컬렉션에 대해 결과를 반환하지 않기 위해 사용됩니다. 값은 1입니다.  <br> - Ok – HealthState 값이 Ok인 입력과 일치하는 필터입니다. 값은 2입니다.  <br> - Warning – HealthState 값이 Warning인 입력과 일치하는 필터입니다. 값은 4입니다.  <br> - Error - HealthState 값이 Error인 입력과 일치하는 필터입니다. 값은 8입니다.  <br> - All - 모든 HealthState 값의 입력과 일치하는 필터입니다. 값은 65535입니다. |
@@ -108,7 +107,7 @@ Service Fabric 클러스터의 상태를 가져옵니다.
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
@@ -123,13 +122,13 @@ Service Fabric 클러스터 매니페스트를 가져옵니다. 클러스터 매
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
@@ -140,7 +139,7 @@ Service Fabric 클러스터 매니페스트를 가져옵니다. 클러스터 매
 ## <a name="sfctl-cluster-operation-cancel"></a>sfctl cluster operation-cancel
 사용자로 인한 오류 작업을 취소합니다.
 
-CancelOperation를 사용 하 여 취소 될 수도 있습니다는 오류 작업을 시작 하는 다음과 같은 Api\: StartDataLoss, StartQuorumLoss, StartPartitionRestart startnodetransition을 합니다. force가 false인 경우 지정된 사용자로 인한 작업이 정상적으로 중지되며 정리됩니다.  force가 true인 경우 명령이 중단되며, 일부 내부 상태가 남아 있을 수 있습니다.  force를 true로 지정하는 것은 주의해서 사용해야 합니다. force가 true로 설정된 이 API를 호출하는 것은 이 API가 force가 false로 먼저 설정된 동일한 테스트 명령에서 호출될 때까지 또는 테스트 명령에 이미 OperationState.RollingBack의 OperationState가 있는 한 허용되지 않습니다. 
+다음 api는 CancelOperation\: StartDataLoss, StartQuorumLoss, startpartitionrestart, startpartitionrestart을 사용 하 여 취소할 수 있는 오류 작업을 시작 합니다. force가 false인 경우 지정된 사용자로 인한 작업이 정상적으로 중지되며 정리됩니다.  force가 true인 경우 명령이 중단되며, 일부 내부 상태가 남아 있을 수 있습니다.  force를 true로 지정하는 것은 주의해서 사용해야 합니다. force가 true로 설정된 이 API를 호출하는 것은 이 API가 force가 false로 먼저 설정된 동일한 테스트 명령에서 호출될 때까지 또는 테스트 명령에 이미 OperationState.RollingBack의 OperationState가 있는 한 허용되지 않습니다. 
 
 설명\: OperationState.RollingBack은 시스템이 명령 실행으로 인해 발생된 내부 시스템 상태를 정리함을 의미합니다.  테스트 명령이 데이터 손실을 발생시킨 경우 데이터를 복원하지 않습니다.  예를 들어 StartDataLoss를 호출한 다음, 이 API를 호출하는 경우 시스템은 명령 실행에서의 내부 상태만을 정리합니다. 명령이 데이터 손실을 충분히 진행시킨 경우 대상 파티션의 데이터를 복원하지 않습니다. 
 
@@ -149,7 +148,7 @@ CancelOperation를 사용 하 여 취소 될 수도 있습니다는 오류 작�
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --operation-id [필수] | 이 API의 호출을 식별하는 GUID입니다.  이 값은 해당 GetProgress API에 전달됩니다. |
 | --force | 사용자로 인한 작업을 실행하여 수정된 내부 시스템 상태를 정상적으로 롤백 및 정리할지 여부를 나타냅니다. |
@@ -157,7 +156,7 @@ CancelOperation를 사용 하 여 취소 될 수도 있습니다는 오류 작�
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
@@ -180,7 +179,7 @@ CancelOperation를 사용 하 여 취소 될 수도 있습니다는 오류 작�
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
@@ -195,7 +194,7 @@ Service Fabric 클러스터의 코드 또는 구성 패키지의 유효성을 �
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --cluster-manifest-file-path | 클러스터 매니페스트 파일 경로입니다. |
 | --code-file-path | 클러스터 코드 패키지 파일 경로입니다. |
@@ -239,7 +238,7 @@ Service Fabric 클러스터 대한 상태 보고서를 보냅니다.
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --health-property [필수] | 상태 정보의 속성입니다. <br><br> 엔터티는 서로 다른 속성에 대한 상태 보고서를 가질 수 있습니다. 속성은 문자열이며 보고자 유연성에서 보고서를 트리거하는 상태 조건을 분류하도록 허용하는 고정된 열거형이 아닙니다. 예를 들어 SourceId "LocalWatchdog"가 있는 보고자는 노드에서 사용 가능한 디스크의 상태를 모니터링할 수 있으므로 해당 노드에서 "AvailableDisk" 속성을 보고할 수 있습니다. 동일한 보고자는 노드 연결을 모니터링할 수 있으므로 동일한 노드에서 "Connectivity" 속성을 보고할 수 있습니다. Health 스토어에서 이러한 보고서는 지정된 노드에 대한 별도의 상태 이벤트로 처리됩니다. SourceId와 함께 속성은 상태 정보를 고유하게 식별합니다. |
 | --health-state    [필수] | 가능한 값\: 'Invalid', 'Ok', 'Warning', 'Error', 'Unknown'. |
@@ -253,7 +252,7 @@ Service Fabric 클러스터 대한 상태 보고서를 보냅니다.
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
@@ -268,7 +267,7 @@ Service Fabric 클러스터 엔드포인트에 연결합니다.
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --endpoint [필수] | 포트 및 HTTP 또는 HTTPS 접두사를 포함하는 클러스터 엔드포인트 URL입니다. |
 | --aad | 인증에 Azure Active Directory를 사용합니다. |
@@ -280,7 +279,7 @@ Service Fabric 클러스터 엔드포인트에 연결합니다.
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
@@ -293,7 +292,7 @@ Service Fabric 클러스터 엔드포인트에 연결합니다.
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
@@ -308,7 +307,7 @@ Service Fabric 클러스터의 코드 또는 구성 패키지를 프로 비전�
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --code-version | 클러스터 코드 패키지 버전입니다. |
 | --config-version | 클러스터 매니페스트 버전입니다. |
@@ -316,7 +315,7 @@ Service Fabric 클러스터의 코드 또는 구성 패키지를 프로 비전�
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
@@ -331,7 +330,7 @@ Service Fabric 클러스터의 코드 또는 구성 버전 업그레이드를 �
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --app-health-map | 오류를 발생시키기 전의 비정상 애플리케이션 이름 및 최대 비율 쌍의 JSON 인코딩된 사전. |
 | --app-type-health-map | 오류를 발생시키기 전의 비정상 애플리케이션 형식 이름 및 최대 비율 쌍의 JSON 인코딩된 사전. |
@@ -356,7 +355,7 @@ Service Fabric 클러스터의 코드 또는 구성 버전 업그레이드를 �
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
@@ -371,14 +370,14 @@ Service Fabric 클러스터의 코드 또는 구성 버전 업그레이드를 �
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --upgrade-domain [필수] | 이 클러스터 업그레이드에 대한 다음 업그레이드 도메인입니다. |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
@@ -393,13 +392,13 @@ Service Fabric 클러스터의 코드 또는 구성 업그레이드를 롤백합
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
@@ -414,13 +413,13 @@ Service Fabric 클러스터의 코드 또는 구성 업그레이드를 롤백합
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
@@ -457,7 +456,7 @@ Service Fabric 클러스터의 업그레이드 매개 변수를 업데이트합�
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |

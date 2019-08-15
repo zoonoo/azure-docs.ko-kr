@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric Reliable Services 애플리케이션 매니페스트 예제 | Microsoft Docs
-description: Reliable Services Service Fabric 응용 프로그램에 대한 응용 프로그램 및 서비스 매니페스트 설정을 구성하는 방법을 알아봅니다.
+description: Reliable Services Service Fabric 애플리케이션에 대한 애플리케이션 및 서비스 매니페스트 설정을 구성하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: na
 author: peterpogorski
@@ -8,21 +8,20 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: xml
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/11/2018
 ms.author: pepogors
-ms.openlocfilehash: 6c4c8f0ee6aa12c58e02f71b42312cd6872076aa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a5678b4c4c0f7a9d8d3f3cf6e838580de2059a8f
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60719167"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035637"
 ---
 # <a name="reliable-services-application-and-service-manifest-examples"></a>Reliable Services 애플리케이션 및 서비스 매니페스트 예제
-다음은 ASP.NET Core 웹 프런트 엔드 및 상태 저장 백 엔드를 사용하는 Service Fabric 응용 프로그램용 응용 프로그램 및 서비스 매니페스트 예제입니다. 이러한 예제의 목적은 사용 가능한 설정 및 사용 방법을 보여주는 것입니다. 이러한 애플리케이션 및 서비스 매니페스트는 [Service Fabric .NET 빠른 시작](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) 매니페스트를 기반으로 합니다.
+다음은 ASP.NET Core 웹 프런트 엔드 및 상태 저장 백 엔드를 사용하는 Service Fabric 애플리케이션용 애플리케이션 및 서비스 매니페스트 예제입니다. 이러한 예제의 목적은 사용 가능한 설정 및 사용 방법을 보여주는 것입니다. 이러한 애플리케이션 및 서비스 매니페스트는 [Service Fabric .NET 빠른 시작](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) 매니페스트를 기반으로 합니다.
 
 다음 기능이 표시됩니다.
 
@@ -32,9 +31,9 @@ ms.locfileid: "60719167"
 |FrontEndService 서비스 매니페스트| [서비스 시작 시 스크립트 실행](service-fabric-run-script-at-service-startup.md), [HTTPS 엔드포인트 정의](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md#define-an-https-endpoint-in-the-service-manifest) | 
 |BackEndService 서비스 매니페스트| [구성 패키지 선언](service-fabric-application-and-service-manifests.md), [데이터 패키지 선언](service-fabric-application-and-service-manifests.md), [엔드포인트 구성](service-fabric-service-manifest-resources.md)| 
 
-특정 XML 요소에 대한 자세한 내용은 [응용 프로그램 매니페스트 요소](#application-manifest-elements), [VotingWeb 서비스 매니페스트 요소](#votingweb-service-manifest-elements) 및 [VotingData 서비스 매니페스트 요소](#votingdata-service-manifest-elements)를 참조하세요.
+특정 XML 요소에 대한 자세한 내용은 [애플리케이션 매니페스트 요소](#application-manifest-elements), [VotingWeb 서비스 매니페스트 요소](#votingweb-service-manifest-elements) 및 [VotingData 서비스 매니페스트 요소](#votingdata-service-manifest-elements)를 참조하세요.
 
-## <a name="application-manifest"></a>애플리케이션 매니페스트
+## <a name="application-manifest"></a>애플리케이션 매니페스트.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -280,7 +279,7 @@ ms.locfileid: "60719167"
 
 ```
 
-## <a name="application-manifest-elements"></a>응용 프로그램 매니페스트 요소
+## <a name="application-manifest-elements"></a>애플리케이션 매니페스트 요소
 ### <a name="applicationmanifest-element"></a>ApplicationManifest 요소
 애플리케이션 유형 및 버전을 선언적으로 설명합니다. 구성 요소 서비스의 서비스 매니페스트 하나 이상에서 애플리케이션 유형을 작성하기 위해 참조됩니다. 구성 요소 서비스의 구성 설정은 매개 변수화된 애플리케이션 설정을 사용하여 재정의할 수 있습니다. 기본 서비스, 서비스 템플릿, 보안 주체, 정책, 진단 설정 및 인증서도 애플리케이션 수준에서 선언할 수 있습니다. 자세한 내용은 [ApplicationManifest 요소](service-fabric-service-model-schema-elements.md#ApplicationManifestElementApplicationManifestTypeComplexType)를 참조하세요.
 

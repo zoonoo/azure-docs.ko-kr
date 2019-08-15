@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
 ms.author: asgang
-ms.openlocfilehash: 1e0450554597d99aa99d6df51f22bfc90c0d92ad
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 4d8ba44cdd5161a1a5ff108837cb57af4cd98835
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798575"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034792"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure 간 VM 복제 문제 해결
 
@@ -156,7 +156,7 @@ Site Recovery 복제가 작동하려면 VM에서 특정 URL 또는 IP 범위에 
 
 ### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>문제 1: Site Recovery에 Azure 가상 머신을 등록하지 못했습니다(151195). </br>
 - **가능한 원인** </br>
-  - DNS 확인 오류로 인해 Site Recovery 끝점에 연결할 수 없습니다.
+  - DNS 확인 오류로 인해 Site Recovery 끝점에 대 한 연결을 설정할 수 없습니다.
   - 가상 머신을 장애 조치(failover)했지만 DR 지역에서 DNS 서버에 도달할 수 없는 경우 재보호 기간에 자주 발생합니다.
 
 - **해결 방법**
@@ -175,7 +175,7 @@ Site Recovery 복제가 작동하려면 VM에서 특정 URL 또는 IP 범위에 
       - 나중에 AAD(Azure Active Directory)에 새 주소가 추가될 때 새 NSG 규칙을 만들어야 합니다.
 
 > [!NOTE]
-> 가상 컴퓨터 보호 되는 경우 **표준** 을 내부 부하 분산 장치, 즉 O365 Ip에 액세스할 수 없습니다 기본적으로 login.microsoftonline.com입니다. 되도록 변경 하거나 **기본적인** 내부 부하 분산 장치 유형 또는에 설명 된 대로 아웃 바운드 액세스를 만들기는 [문서](https://aka.ms/lboutboundrulescli)합니다.
+> 가상 컴퓨터가 **표준** 내부 부하 분산 장치 뒤에 있는 경우 O365 ip (예:)에 액세스할 수 없습니다. 기본적으로 login.microsoftonline.com입니다. **기본** 내부 부하 분산 장치 유형으로 변경 하거나 [문서](https://aka.ms/lboutboundrulescli)에 설명 된 대로 제한 된 액세스를 만듭니다.
 
 ### <a name="issue-3-site-recovery-configuration-failed-151197"></a>문제 3: Site Recovery 구성이 실패했습니다(151197).
 - **가능한 원인** </br>
@@ -185,25 +185,25 @@ Site Recovery 복제가 작동하려면 VM에서 특정 URL 또는 IP 범위에 
   - Azure Site Recovery는 지역에 따라 [Site Recovery IP 범위](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges)에 액세스할 수 있어야 합니다. 가상 머신에서 필요한 ip 범위에 액세스할 수 있는지 확인합니다.
 
 
-### <a name="issue-4-a2a-replication-failed-when-the-network-traffic-goes-through-on-premises-proxy-server-151072"></a>문제 4: 네트워크 트래픽은 온-프레미스 프록시 서버 (151072)를 통해 A2A 복제가 실패 했습니다.
+### <a name="issue-4-a2a-replication-failed-when-the-network-traffic-goes-through-on-premises-proxy-server-151072"></a>문제 4: 네트워크 트래픽이 온-프레미스 프록시 서버 (151072)를 통과 하는 경우 A2A 복제에 실패 함
 - **가능한 원인** </br>
-  - 사용자 지정 프록시 설정이 올바르지 않습니다 및 Azure Site Recovery 모바일 서비스 에이전트 검색 하지 못했습니다 자동-IE에서 프록시 설정
+  - 사용자 지정 프록시 설정이 잘못 되었으며 Azure Site Recovery 모바일 서비스 에이전트가 IE에서 프록시 설정을 자동으로 검색 하지 못했습니다.
 
 
 - **해결 방법**
   1. Mobility Service 에이전트는 Windows의 경우 IE에서 Linux의 경우 /etc/environment에서 프록시 설정을 검색합니다.
-  2. Azure Site Recovery 모바일 서비스에 대해서만 프록시를 설정 하려는 경우 위치한 ProxyInfo.conf 프록시 세부 정보를 제공할 수 있습니다.</br>
+  2. Azure Site Recovery 모바일 서비스에 대해서만 프록시를 설정 하는 것을 선호 하는 경우에는 다음 위치에 있는 ProxyInfo .에 프록시 정보를 제공할 수 있습니다.</br>
      - ***Linux***에서 ``/usr/local/InMage/config/``
      - ***Windows***에서 ``C:\ProgramData\Microsoft Azure Site Recovery\Config``
   3. ProxyInfo.conf에는 다음 INI 형식의 프록시 설정이 있어야 합니다.</br>
                 *[proxy]*</br>
                 *Address=http://1.2.3.4*</br>
                 *Port=567*</br>
-  4. Azure Site Recovery 모바일 서비스 에이전트 지원 ***인증 되지 않은 프록시***합니다.
+  4. Azure Site Recovery 모바일 서비스 에이전트는 인증 되지 않은 ***프록시***만 지원 합니다.
 
 
 ### <a name="fix-the-problem"></a>문제 해결
-수 있도록 [필요한 Url](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) 또는 [필요한 IP 범위](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges)의 단계를 수행 합니다 [네트워킹 지침 문서](site-recovery-azure-to-azure-networking-guidance.md)합니다.
+[필요한 url](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) 또는 [필수 IP 범위](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges)를 허용 하려면 [네트워킹 지침 문서의](site-recovery-azure-to-azure-networking-guidance.md)단계를 수행 합니다.
 
 ## <a name="disk-not-found-in-the-machine-error-code-150039"></a>컴퓨터에서 디스크를 찾을 수 없음(오류 코드 150039)
 
@@ -221,53 +221,53 @@ VM에 연결된 새 디스크는 초기화되어야 합니다.
 
 문제가 계속되면 지원에 문의하세요.
 
-## <a name="one-or-more-disks-are-available-for-protectionerror-code-153039"></a>하나 이상의 디스크 (오류 코드 153039) 보호를 위해 사용할 수 있습니다.
+## <a name="one-or-more-disks-are-available-for-protectionerror-code-153039"></a>하나 이상의 디스크를 보호할 수 있습니다 (오류 코드 153039).
 - **가능한 원인** </br>
-  - 하나 이상의 디스크가 보호 후 가상 컴퓨터에 최근에 추가 되었습니다 하는 경우. 
-  - 가상 머신의 보호 한 후 나중에 하나 이상의 디스크 초기화 되었습니다 하는 경우.
+  - 보호 후 최근에 가상 컴퓨터에 하나 이상의 디스크가 추가 된 경우 
+  - 가상 컴퓨터를 보호 한 후 나중에 하나 이상의 디스크가 초기화 된 경우
 
 ### <a name="fix-the-problem"></a>문제 해결
-디스크 보호 또는 복제 상태의 VM 다시 정상 되도록 경고를 무시 하거나 선택할 수 있습니다.</br>
-1. 디스크를 보호 합니다. 복제 된 항목으로 이동 > VM > 디스크 > 보호 되지 않는 디스크에 클릭 > 복제를 사용 하도록 설정 합니다.
+디스크를 보호 하도록 선택 하거나 경고를 무시 하 여 VM의 복제 상태를 다시 정상으로 설정할 수 있습니다.</br>
+1. 디스크를 보호 합니다. VM > 디스크 > 복제 된 항목으로 이동 > 보호 되지 않는 디스크 > 복제 사용을 클릭 합니다.
  ![add_disks](./media/azure-to-azure-troubleshoot-errors/add-disk.png)
-2. 경고를 해제 합니다. 복제 된 항목으로 이동 > VM > 개요 섹션에서 해제 경고를 클릭 합니다.
+2. 경고를 해제 합니다. VM > 복제 된 항목으로 이동 하 > 개요 섹션에서 해제 경고를 클릭 합니다.
 ![dismiss_warning](./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png)
 
 
-## <a name="remove-the-virtual-machine-from-the-vault-completed-with-information--error-code-150225"></a>(오류 코드 150225) 정보를 사용 하 여 완료 하는 자격 증명 모음에서 가상 컴퓨터를 제거 합니다.
-가상 컴퓨터를 보호 하는 동시에 Azure Site Recovery는 원본 가상 컴퓨터의 일부 링크를 만듭니다. 보호를 제거 하거나 복제를 사용 하지 않도록 설정 하는 경우 Azure Site Recovery는 정리 작업의 일부로 이러한 링크를 제거 합니다. 가상 컴퓨터에 리소스 잠금을 경우 정보를 사용 하 여 작업이 완료를 가져옵니다. 가상 머신을 Recovery services 자격 증명 모음에서 제거 되었지만 오래 된 링크 중 일부를 정리할 수 없습니다 원본 컴퓨터에서 알려 줍니다.
+## <a name="remove-the-virtual-machine-from-the-vault-completed-with-information--error-code-150225"></a>정보를 사용 하 여 완료 된 자격 증명 모음에서 가상 컴퓨터 제거 (오류 코드 150225)
+가상 컴퓨터를 보호 하는 시점에 Azure Site Recovery는 원본 가상 컴퓨터에 몇 가지 링크를 만듭니다. 보호를 제거 하거나 복제를 사용 하지 않도록 설정 하는 경우 정리 작업의 일부로 이러한 링크를 제거할 Azure Site Recovery. 가상 컴퓨터에 리소스 잠금이 있는 경우 작업은 정보를 사용 하 여 완료 됩니다. 이는 가상 머신이 Recovery services 자격 증명 모음에서 제거 되었지만 오래 된 링크 중 일부를 원본 컴퓨터에서 정리할 수 없음을 나타냅니다.
 
-이 가상 컴퓨터를 나중에 다시 보호 하기 위해 의도 하지 않은 경우이 경고를 무시할 수 있습니다. 그러나 나중에이 가상 컴퓨터를 보호 해야 할 경우 다음 정리 해야 링크 아래 단계에 설명 된 대로 합니다. 
+나중에이 가상 컴퓨터를 다시 보호 하지 않으려는 경우에는이 경고를 무시 해도 됩니다. 그러나 나중에이 가상 컴퓨터를 보호 해야 하는 경우 아래 단계에 설명 된 대로 링크를 정리 해야 합니다. 
 
-**이렇게 하지 않으면 새로 한 후:**
+**정리 작업을 수행 하지 않으면 다음을 수행 합니다.**
 
-1.  Recovery services 자격 증명 모음을 통해 복제를 사용 하도록 설정 하는 동안 가상 머신 나열 되지 않습니다. 
-2.  통해 VM을 보호 하려고 하면 **가상 머신 > 설정 > 재해 복구** 오류로 인해 실패 하는 것이 것 "*VM에서기존부실리소스링크인해복제를사용할수없습니다*".
+1.  Recovery services 자격 증명 모음을 통해 복제를 사용 하도록 설정 하는 동안 가상 머신은 나열 되지 않습니다. 
+2.  **가상 컴퓨터 > 설정 >** 사용 하 여 vm을 보호 하려는 경우 재해 복구를 수행 하면 실패 하 고 "*VM의 기존 부실 리소스 링크 때문에 복제를 사용 하도록 설정할 수 없습니다*." 오류가 표시 됩니다.
 
 
 ### <a name="fix-the-problem"></a>문제 해결
 
 >[!NOTE]
 >
->Azure Site Recovery는 원본 가상 컴퓨터를 삭제 또는 아래 단계를 수행 하는 동안에 전혀 영향 하지 않습니다.
+>원본 가상 컴퓨터를 삭제 하거나 아래 단계를 수행 하는 동안 어떤 방식으로든 영향을 주지 Azure Site Recovery.
 >
 
-1. VM 또는 VM에서 잠금을 제거 리소스 그룹입니다. 예: VM 아래 "MoveDemo" 이름이 삭제 해야 하는 리소스 잠금.
+1. VM 또는 VM 리소스 그룹에서 잠금을 제거 합니다. 예를 들어: 아래 VM 이름 "MoveDemo"에는 삭제 해야 하는 리소스 잠금이 있습니다.
 
    ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)
-2. 스크립트 다운로드 [오래 된 Azure Site Recovery 구성 제거](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)합니다.
-3. 스크립트 실행 *Cleanup-stale-asr-config-Azure-VM.ps1*합니다.
+2. 스크립트 다운로드 [오래 된 Azure Site Recovery 구성을 제거](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)합니다.
+3. *Cleanup-stale-asr-config-Azure-VM*스크립트를 실행 합니다.
 4. 구독 ID, VM 리소스 그룹 및 VM 이름을 매개 변수로 제공 합니다.
-5. Azure 자격 증명을 묻는 메시지가 제공 하는 스크립트가 오류 없이 실행 되는 확인 하십시오. 
+5. Azure 자격 증명을 요청 하는 경우이를 제공 하 고 스크립트가 오류 없이 실행 되는지 확인 하세요. 
 
 
-## <a name="replication-cannot-be-enabled-because-of-the-existing-stale-resource-links-on-the-vm-error-code-150226"></a>(오류 코드 150226) VM에서 기존 부실 리소스 링크 인해 복제를 사용할 수 없습니다.
+## <a name="replication-cannot-be-enabled-because-of-the-existing-stale-resource-links-on-the-vm-error-code-150226"></a>VM의 기존 부실 리소스 링크로 인해 복제를 사용 하도록 설정할 수 없습니다 (오류 코드 150226).
 
-**원인: 가상 컴퓨터에 이전 Site Recovery 보호를 유지 하는 오래 된 구성**
+**원인: 가상 컴퓨터가 이전 Site Recovery 보호와는 오래 된 구성을 남아 있습니다.**
 
 다음과 같은 경우 Azure VM에 부실 구성이 남겨질 수 있습니다.
 
-- Site Recovery를 사용 하 여 Azure VM에 대 한 복제를 사용 하도록 설정 하 고 다음 복제를 사용 하지 않도록 설정 되었지만 **원본 VM 리소스 잠금을 했습니다**합니다.
+- Site Recovery를 사용 하 여 Azure VM에 대 한 복제를 사용 하도록 설정 하 고 복제를 사용 하지 않도록 설정 했지만 **원본 VM에 리소스 잠금이**있습니다.
 - Site Recovery를 사용하여 Azure VM에 대해 복제를 사용하도록 설정한 후 VM에서 명시적으로 복제를 사용하지 않도록 설정하지 않으면서 Site Recovery 자격 증명 모음을 삭제했습니다.
 - Site Recovery를 사용하여 Azure VM에 대해 복제를 사용하도록 설정한 후 VM에서 명시적으로 복제를 사용하지 않도록 설정하지 않으면서 Site Recovery 자격 증명 모음이 포함된 리소스 그룹을 삭제했습니다.
 
@@ -275,24 +275,24 @@ VM에 연결된 새 디스크는 초기화되어야 합니다.
 
 >[!NOTE]
 >
->Azure Site Recovery는 원본 가상 컴퓨터를 삭제 또는 아래 단계를 수행 하는 동안에 전혀 영향 하지 않습니다.
+>원본 가상 컴퓨터를 삭제 하거나 아래 단계를 수행 하는 동안 어떤 방식으로든 영향을 주지 Azure Site Recovery.
 
 
-1. VM 또는 VM에서 잠금을 제거 리소스 그룹에 있는 경우. *예:* VM 아래 "MoveDemo" 이름이 삭제 해야 하는 리소스 잠금.
+1. VM 또는 VM 리소스 그룹 (있는 경우)에서 잠금을 제거 합니다. *예:* 아래 VM 이름 "MoveDemo"에는 삭제 해야 하는 리소스 잠금이 있습니다.
    
    ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)
-2. 스크립트 다운로드 [오래 된 Azure Site Recovery 구성 제거](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)합니다.
-3. 스크립트 실행 *Cleanup-stale-asr-config-Azure-VM.ps1*합니다.
+2. 스크립트 다운로드 [오래 된 Azure Site Recovery 구성을 제거](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)합니다.
+3. *Cleanup-stale-asr-config-Azure-VM*스크립트를 실행 합니다.
 4. 구독 ID, VM 리소스 그룹 및 VM 이름을 매개 변수로 제공 합니다.
-5. Azure 자격 증명을 묻는 메시지가 제공 하는 스크립트가 오류 없이 실행 되는 확인 하십시오.  
+5. Azure 자격 증명을 요청 하는 경우이를 제공 하 고 스크립트가 오류 없이 실행 되는지 확인 하세요.  
 
-## <a name="unable-to-see-the-azure-vm-or-resource-group--for-selection-in-enable-replication"></a>"복제 사용"에서 선택할 Azure VM 또는 리소스 그룹을 확인할 수 없습니다.
+## <a name="unable-to-see-the-azure-vm-or-resource-group--for-selection-in-enable-replication"></a>"복제 사용"에서 선택 항목에 대 한 Azure VM 또는 리소스 그룹을 볼 수 없습니다.
 
  **원인 1:  리소스 그룹 및 원본 가상 머신이 서로 다른 위치에 있음**
  
-Azure Site Recovery 현재 영역 리소스 그룹 및 virtual machines의 소스가 되는 규약 해야 동일한 위치에 있습니다. 경우 하지 않은 경우 다음 있습니다 없게 보호의 시간 동안 가상 머신 또는 리소스 그룹을 찾으려고 합니다. 
+현재 Azure Site Recovery 원본 영역 리소스 그룹 및 가상 컴퓨터가 동일한 위치에 있어야 합니다. 그렇지 않은 경우 보호 하는 동안 가상 머신 또는 리소스 그룹을 찾을 수 없습니다. 
 
-**해결 방법으로**, Recovery services 자격 증명 대신 VM에서 복제를 설정할 수 있습니다. 원본 VM으로 이동 > 속성 > 재해 복구 및 복제를 사용 하도록 설정 합니다.
+**해결 방법으로**Recovery services 자격 증명 모음 대신 VM에서 복제를 사용 하도록 설정할 수 있습니다. 원본 VM > 속성 > 재해 복구로 이동 하 여 복제를 사용 하도록 설정 합니다.
 
 **원인 2: 리소스 그룹이 선택한 구독에 포함되지 않음**
 
@@ -305,22 +305,22 @@ Azure Site Recovery 현재 영역 리소스 그룹 및 virtual machines의 소�
 - Site Recovery를 사용하여 Azure VM에 대해 복제를 사용하도록 설정한 후 VM에서 명시적으로 복제를 사용하지 않도록 설정하지 않으면서 Site Recovery 자격 증명 모음을 삭제했습니다.
 - Site Recovery를 사용하여 Azure VM에 대해 복제를 사용하도록 설정한 후 VM에서 명시적으로 복제를 사용하지 않도록 설정하지 않으면서 Site Recovery 자격 증명 모음이 포함된 리소스 그룹을 삭제했습니다.
 
-- Site Recovery를 사용 하 여 Azure VM에 대 한 복제를 사용 하도록 설정 하 고 복제를 사용 하지 않도록 설정 했지만 원본 VM 리소스 잠금.
+- Site Recovery를 사용 하 여 Azure VM에 대 한 복제를 사용 하도록 설정 하 고 복제를 사용 하지 않도록 설정 했지만 원본 VM에 리소스 잠금이 있습니다.
 
 ### <a name="fix-the-problem"></a>문제 해결
 
 > [!NOTE]
 >
-> 아래 스크립트를 사용하기 전에 ""AzureRM.Resources"" 모듈을 업데이트해야 합니다. Azure Site Recovery는 원본 가상 컴퓨터를 삭제 또는 아래 단계를 수행 하는 동안에 전혀 영향 하지 않습니다.
+> 아래 스크립트를 사용하기 전에 ""AzureRM.Resources"" 모듈을 업데이트해야 합니다. 원본 가상 컴퓨터를 삭제 하거나 아래 단계를 수행 하는 동안 어떤 방식으로든 영향을 주지 Azure Site Recovery.
 >
 
-1. VM 또는 VM에서 잠금을 제거 리소스 그룹에 있는 경우. *예:* VM 아래 "MoveDemo" 이름이 삭제 해야 하는 리소스 잠금.
+1. VM 또는 VM 리소스 그룹 (있는 경우)에서 잠금을 제거 합니다. *예:* 아래 VM 이름 "MoveDemo"에는 삭제 해야 하는 리소스 잠금이 있습니다.
 
    ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)
-2. 스크립트 다운로드 [부실 구성을 제거](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)합니다.
-3. 스크립트 실행 *Cleanup-stale-asr-config-Azure-VM.ps1*합니다.
+2. 스크립트 다운로드 [부실 구성 제거](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)
+3. *Cleanup-stale-asr-config-Azure-VM*스크립트를 실행 합니다.
 4. 구독 ID, VM 리소스 그룹 및 VM 이름을 매개 변수로 제공 합니다.
-5. Azure 자격 증명을 묻는 메시지가 제공 하는 스크립트가 오류 없이 실행 되는 확인 하십시오.
+5. Azure 자격 증명을 요청 하는 경우이를 제공 하 고 스크립트가 오류 없이 실행 되는지 확인 하세요.
 
 ## <a name="unable-to-select-virtual-machine-for-protection"></a>보호를 위해 가상 머신을 선택할 수 없음
  **원인 1:  가상 머신의 일부 확장이 실패하거나 응답하지 않는 상태로 설치됨** <br>
@@ -362,7 +362,7 @@ VM에서 복제를 사용하도록 설정하려면 프로비전 상태가 **성�
 
 **오류 코드** | **가능한 원인** | **권장 사항**
 --- | --- | ---
-151025<br></br>**메시지**: 사이트 복구 확장 설치 실패 | - 'COM+ 시스템 애플리케이션' 서비스가 비활성화되었습니다.</br></br>- '볼륨 섀도 복사본' 서비스가 비활성화되었습니다.| 'COM+ 시스템 애플리케이션' 및 '볼륨 섀도 복사본' 서비스를 자동 또는 수동 시작 모드로 설정하세요.
+151025<br></br>**메시지**: Site Recovery 확장을 설치 하지 못했습니다. | - 'COM+ 시스템 애플리케이션' 서비스가 비활성화되었습니다.</br></br>- '볼륨 섀도 복사본' 서비스가 비활성화되었습니다.| 'COM+ 시스템 애플리케이션' 및 '볼륨 섀도 복사본' 서비스를 자동 또는 수동 시작 모드로 설정하세요.
 
 ### <a name="fix-the-problem"></a>문제 해결
 
@@ -395,7 +395,7 @@ GRUB 구성 파일("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/gr
 디바이스 이름을 해당 UUID로 바꿔야 합니다.<br>
 
 
-1. 명령을 실행 하 여 장치의 UUID를 찾으려면 "blkid \<장치 이름 >"입니다. 예를 들어:<br>
+1. "Blkid \<device name >" 명령을 실행 하 여 장치의 UUID를 찾습니다. 예:<br>
    ```
    blkid /dev/sda1
    ```<br>
@@ -403,43 +403,43 @@ GRUB 구성 파일("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/gr
    ```blkid /dev/sda2```<br>
    ```/dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3"
    ```<br>
+   ```
 
 
 
-1. Now replace the device name with its UUID in the format like "root=UUID=\<UUID>". For example, if we replace the device names with UUID for root and resume parameter mentioned above in the files "/boot/grub2/grub.cfg", "/boot/grub2/grub.cfg" or "/etc/default/grub: then the lines in the files looks like. <br>
+1. 이제 "root = uuid =\<uuid >"와 같은 형식의 UUID로 장치 이름을 바꿉니다. 예를 들어 “/boot/grub2/grub.cfg”, “/boot/grub2/grub.cfg” 또는 “/etc/default/grub” 파일에서 위에 언급된 root 및 resume 매개 변수의 디바이스 이름을 UUID로 바꾸면 파일의 줄이 다음과 같이 표시됩니다. <br>
    *kernel /boot/vmlinuz-3.0.101-63-default **root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4** **resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b** splash=silent crashkernel=256M-:128M showopts vga=0x314*
-1. Restart the protection again
+1. 보호 다시 시작
 
-## Enable protection failed as device mentioned in the GRUB configuration doesn't exist(error code 151124)
-**Possible Cause:** </br>
-The GRUB configuration files ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.cfg" or "/etc/default/grub") may contain the parameters "rd.lvm.lv" or "rd_LVM_LV" to indicate the LVM device that should be discovered at the time of booting. If these LVM devices doesn't exist, then the protected system itself will not boot and stuck in the boot process. Even the same will be observed with the failover VM. Below are few examples:
+## <a name="enable-protection-failed-as-device-mentioned-in-the-grub-configuration-doesnt-existerror-code-151124"></a>GRUB 구성에서 언급 한 장치가 존재 하지 않으므로 보호를 사용 하도록 설정 하지 못했습니다 (오류 코드 151124).
+**가능한 원인:** </br>
+GRUB 구성 파일 ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.cfg" 또는 "/etc/default/grub")에는 부팅할 때 검색 해야 하는 LVM 장치를 나타내는 "rd.lvm.lv" 또는 "rd_LVM_LV" 매개 변수가 포함 될 수 있습니다. 이러한 LVM 장치가 없으면 보호 된 시스템 자체는 부팅 되지 않고 부팅 프로세스에서 중단 됩니다. 장애 조치 (failover) VM 에서도 동일한 내용이 관찰 됩니다. 다음은 몇 가지 예입니다.
 
-Few examples: </br>
+몇 가지 예: </br>
 
-1. The following line is from the GRUB file **"/boot/grub2/grub.cfg"** on RHEL7. </br>
-   *linux16 /vmlinuz-3.10.0-957.el7.x86_64 root=/dev/mapper/rhel_mup--rhel7u6-root ro crashkernel=128M\@64M **rd.lvm.lv=rootvg/root rd.lvm.lv=rootvg/swap** rhgb quiet LANG=en_US.UTF-8*</br>
-   Here the highlighted portion shows that the GRUB has to detect two LVM devices with names **"root"** and **"swap"** from the volume group "rootvg".
-1. The following line is from the GRUB file **"/etc/default/grub"** on RHEL7 </br>
-   *GRUB_CMDLINE_LINUX="crashkernel=auto **rd.lvm.lv=rootvg/root rd.lvm.lv=rootvg/swap** rhgb quiet"*</br>
-   Here the highlighted portion shows that the GRUB has to detect two LVM devices with names **"root"** and **"swap"** from the volume group "rootvg".
-1. The following line is from the GRUB file **"/boot/grub/menu.lst"** on RHEL6 </br>
-   *kernel /vmlinuz-2.6.32-754.el6.x86_64 ro root=UUID=36dd8b45-e90d-40d6-81ac-ad0d0725d69e rd_NO_LUKS LANG=en_US.UTF-8 rd_NO_MD SYSFONT=latarcyrheb-sun16 crashkernel=auto rd_LVM_LV=rootvg/lv_root  KEYBOARDTYPE=pc KEYTABLE=us rd_LVM_LV=rootvg/lv_swap rd_NO_DM rhgb quiet* </br>
-   Here the highlighted portion shows that the GRUB has to detect two LVM devices with names **"root"** and **"swap"** from the volume group "rootvg".<br>
+1. 다음 줄은 RHEL7의 GRUB 파일 **"/boot/grub2/grub.cfg"** 에서 가져온 것입니다. </br>
+   *linux16/vmlinuz-3.10.0-957.el7.x86_64 root =/dev/mapper/rhel_mup--rhel7u6-root ro crashkernel = 128m\@64m rootvg **= rootvg/root** = rhgb/swap en_US quiet LANG =. UTF-8*</br>
+   여기서 강조 표시 된 부분은 GRUB가 볼륨 그룹 "rootvg"에서 이름이 **"root"** 및 **"swap"** 인 두 개의 lvm 장치를 검색 해야 함을 보여 줍니다.
+1. 다음 줄은 RHEL7의 GRUB 파일 **"/etc/default/grub"** 에서 가져온 것입니다. </br>
+   *GRUB_CMDLINE_LINUX = "crashkernel = auto **rd. lv = rootvg/root rhgb = rootvg/swap** quiet"*</br>
+   여기서 강조 표시 된 부분은 GRUB가 볼륨 그룹 "rootvg"에서 이름이 **"root"** 및 **"swap"** 인 두 개의 lvm 장치를 검색 해야 함을 보여 줍니다.
+1. 다음 줄은 RHEL6의 GRUB 파일 **"/boot/grub/menu.lst"** 에서 가져온 것입니다. </br>
+   *kernel/vmlinuz-2.6.32-754.el6.x86_64 ro root = UUID = 36dd8b45-e90d-40d6-81ac-ad0d0725d69e rd_NO_LUKS LANG = en_US. UTF-8 rd_NO_MD SYSFONT = latarcyrheb-sun16 crashkernel = auto rd_LVM_LV = rootvg/lv_root KEYBOARDTYPE = pc KEYTABLE = us rd_LVM_LV = rootvg/lv_swap rd_NO_DM rhgb quiet* </br>
+   여기서 강조 표시 된 부분은 GRUB가 볼륨 그룹 "rootvg"에서 이름이 **"root"** 및 **"swap"** 인 두 개의 lvm 장치를 검색 해야 함을 보여 줍니다.<br>
 
-**How to Fix:**<br>
+**해결 방법:**<br>
 
-If the LVM device doesn't exist, fix either by creating it or remove the parameter for the same from the GRUB configuration files and then retry the enable protection. </br>
+LVM 장치가 존재 하지 않는 경우 수정 하거나 GRUB 구성 파일에서 동일한에 대 한 매개 변수를 제거한 후 보호 사용을 다시 시도 합니다. </br>
 
-## Site Recovery mobility service update completed with warnings ( error code 151083)
-Site Recovery mobility service has many components, one of which is called filter driver. Filter driver gets loaded into system memory only at a time of system reboot. Whenever there are  Site Recovery mobility service updates that has filter driver changes, we update the machine but still gives you warning that some fixes require a reboot. It means that the filter driver fixes can only be realized when a new filter driver is loaded which can happen only at the time of system reboot.<br>
-**Please note** that this is just a warning and existing replication keeps on working even after the new agent update. You can choose to reboot anytime you want to get the benefits of new filter driver but if you don't reboot than also old filter driver keeps on working. Apart from filter driver, **benefits of  any other enhancements and fixes in mobility service get realized without any reboot when the agent gets updated.**  
+## <a name="site-recovery-mobility-service-update-completed-with-warnings--error-code-151083"></a>Site Recovery 모바일 서비스 업데이트가 완료 되었지만 경고가 발생 했습니다 (오류 코드 151083).
+Site Recovery 모바일 서비스에는 여러 구성 요소가 있으며, 그중에서 하나를 필터 드라이버라고 합니다. 필터 드라이버는 시스템 재부팅 시에만 시스템 메모리에 로드됩니다. 필터 드라이버 변경 내용이 포함 된 모바일 서비스 업데이트가 Site Recovery 때마다 컴퓨터를 업데이트 하지만 일부 수정 프로그램이 다시 부팅 해야 한다는 경고를 제공 합니다. 이는 시스템을 다시 부팅할 때만 발생할 수 있는 새 필터 드라이버가 로드 된 경우에만 필터 드라이버 수정이 실현 될 수 있음을 의미 합니다.<br>
+이 경고는 단지 경고 이며 기존 복제는 새 에이전트 업데이트 후에도 계속 작동 합니다. 새 필터 드라이버의 혜택을 얻기 위해 언제든지 재부팅을 선택할 수 있지만, 재부팅하지 않을 경우 이전 필터 드라이버도 계속 작동합니다. 필터 드라이버와는 별도로, **모바일 서비스의 다른 향상 된 기능 및 수정 사항에 대 한 이점은 에이전트가 업데이트 될 때 다시 부팅 하지 않고 실현 됩니다.**  
 
 
-## Protection couldn't be enabled as replica managed disk 'diskname-replica' already exists without expected tags in the target resource group( error code 150161
+## <a name="protection-couldnt-be-enabled-as-replica-managed-disk-diskname-replica-already-exists-without-expected-tags-in-the-target-resource-group-error-code-150161"></a>대상 리소스 그룹에 필요한 태그가 없는 복제본 관리 디스크 ' diskname-replica '가 이미 있으므로 보호를 사용 하도록 설정할 수 없습니다 (오류 코드 150161
 
-**Cause**: It can occur if the  virtual machine was protected earlier in the past and during disabling the replication, replica disk was not cleaned due to some reason.</br>
-**How to fix:**
-Delete the mentioned replica disk in the error message and restart the failed protection job again.
+**원인**: 이전에 가상 컴퓨터를 보호 하는 동안 및 복제를 사용 하지 않도록 설정 하는 동안 복제본 디스크가 정리 되지 않은 경우에 발생할 수 있습니다.</br>
+**해결 방법:** 오류 메시지에서 언급 된 복제본 디스크를 삭제 하 고 실패 한 보호 작업을 다시 시작 합니다.
 
-## Next steps
-[Replicate Azure virtual machines](site-recovery-replicate-azure-to-azure.md)
+## <a name="next-steps"></a>다음 단계
+[Azure 가상 머신 복제](site-recovery-replicate-azure-to-azure.md)
