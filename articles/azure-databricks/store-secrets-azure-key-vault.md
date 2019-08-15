@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 07/19/2019
-ms.openlocfilehash: 4d80755cdf49246a8772cca82e2a71c6cccbf13a
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: 45c5be8b203daf21697f3cb6dad4ecadb6449339
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371393"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976521"
 ---
 # <a name="tutorial-access-azure-blob-storage-from-azure-databricks-using-azure-key-vault"></a>자습서: Azure Key Vault를 사용하여 Azure Databricks에서 Azure Blob Storage에 액세스
 
@@ -32,7 +32,11 @@ ms.locfileid: "68371393"
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-[Azure Portal](https://portal.azure.com/)에 로그인합니다. 이 자습서는 Azure 평가판 구독을 사용하여 수행할 수 없습니다. 클러스터를 만들기 전에 프로필로 이동하여 구독을 **종량제**로 변경합니다. 자세한 내용은 [Azure 체험 계정](https://azure.microsoft.com/free/)을 참조하세요.
+[Azure Portal](https://portal.azure.com/)에 로그인합니다.
+
+> [!Note]
+> 이 자습서는 **Azure 평가판 구독**을 사용하여 수행할 수 없습니다.
+> 무료 계정이 있는 경우 프로필로 이동하고 구독을 **종량제**로 변경합니다. 자세한 내용은 [Azure 체험 계정](https://azure.microsoft.com/free/)을 참조하세요. 그런 다음 [지출 한도를 제거](https://docs.microsoft.com/azure/billing/billing-spending-limit#remove-the-spending-limit-in-account-center)하고 해당 지역의 vCPU에 대한 [할당량 증가를 요청](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)합니다. Azure Databricks 작업 영역을 만드는 경우 **평가판(프리미엄-14일 무료 DBU)** 가격 책정 계층을 선택하여 14일간 무료 프리미엄 Azure Databricks DBU를 위한 작업 영역 액세스 권한을 부여할 수 있습니다.
 
 ## <a name="create-a-storage-account-and-blob-container"></a>스토리지 계정 및 Blob 컨테이너 만들기
 
@@ -42,7 +46,7 @@ ms.locfileid: "68371393"
 
 2. 구독 및 리소스 그룹을 선택하거나 새 리소스 그룹을 만듭니다. 그런 다음, 스토리지 계정 이름을 입력하고 위치를 선택합니다. **검토 + 만들기**를 선택합니다.
 
-   ![저장소 계정 속성 설정](./media/store-secrets-azure-key-vault/create-storage-account.png)
+   ![스토리지 계정 속성 설정](./media/store-secrets-azure-key-vault/create-storage-account.png)
 
 3. 유효성 검사에 실패하면 문제를 해결하고 다시 시도합니다. 유효성 검사에 성공하면 **만들기**를 선택하고, 스토리지 계정이 만들어질 때까지 기다립니다.
 
