@@ -57,7 +57,7 @@ Sybase 연결된 서비스에 다음 속성이 지원됩니다.
 | type | type 속성을 다음으로 설정해야 합니다. **Sybase** | 예 |
 | server | Sybase 서버의 이름입니다. |예 |
 | database | Sybase 데이터베이스의 이름입니다. |예 |
-| authenticationType | Sybase 데이터베이스에 연결하는 데 사용되는 인증 형식입니다.<br/>허용되는 값은 다음과 같습니다. **기본** 및 **Windows**. |예 |
+| authenticationType | Sybase 데이터베이스에 연결하는 데 사용되는 인증 형식입니다.<br/>허용되는 값은 다음과 같습니다. **Basic** 및 **Windows**. |예 |
 | username | Sybase 데이터베이스에 연결할 사용자 이름을 지정합니다. |예 |
 | password | 사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [필수 조건](#prerequisites)에 설명된 대로 자체 호스팅 Integration Runtime이 필요합니다. |예. |
