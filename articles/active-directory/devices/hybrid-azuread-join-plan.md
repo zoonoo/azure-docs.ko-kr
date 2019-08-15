@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49f8d0e418f43648665b95f5bf1f672e9f9dae28
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: cad2568702909274030d3c7c6469a7e4cbf670c4
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779449"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989252"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>방법: 하이브리드 Azure Active Directory 조인 구현 계획
 
@@ -101,7 +101,7 @@ Windows 10 도메인 조인 디바이스에서 이미 [Azure AD를 테넌트에 
 
 ## <a name="select-your-scenario-based-on-your-identity-infrastructure"></a>Id 인프라에 따라 시나리오를 선택 합니다.
 
-하이브리드 Azure AD 조인은 관리 및 페더레이션된 환경 모두에서 작동 합니다.  
+하이브리드 Azure AD 조인은 UPN을 라우팅할 수 있는지 여부에 따라 관리 및 페더레이션된 환경 모두에서 작동 합니다. 지원 되는 시나리오에 대 한 표는 페이지의 맨 아래를 참조 하십시오.  
 
 ### <a name="managed-environment"></a>관리 환경
 
@@ -111,10 +111,10 @@ Windows 10 도메인 조인 디바이스에서 이미 [Azure AD를 테넌트에 
 
 ### <a name="federated-environment"></a>페더레이션 환경
 
-페더레이션된 환경에는 다음 요구 사항을 지 원하는 id 공급자가 있어야 합니다. Active Directory Federation Services (AD FS)를 사용 하는 페더레이션된 환경을 사용 하는 경우에는 아래 요구 사항이 이미 지원 됩니다.
+페더레이션 환경은 다음 요구 사항을 지원하는 ID 공급자가 있어야 합니다. AD FS(Active Directory Federation Services)를 사용하는 페더레이션된 환경을 사용하는 경우에는 아래 요구 사항이 이미 지원됩니다.
 
-- **WIAORMULTIAUTHN 클레임:** 이 클레임은 Windows 하위 수준 장치에 대 한 하이브리드 Azure AD 조인을 수행 하는 데 필요 합니다.
-- **WS-TRUST 프로토콜:** 이 프로토콜은 Azure AD에서 Windows 현재 하이브리드 Azure AD 조인 장치를 인증 하는 데 필요 합니다. AD FS를 사용 하는 경우 다음 WS-TRUST 끝점을 사용 하도록 설정 해야 합니다.`/adfs/services/trust/2005/windowstransport`  
+- **WIAORMULTIAUTHN 클레임:** 이 클레임은 Windows 하위 수준 디바이스의 하이브리드 Azure AD 조인을 수행하는 데 필요합니다.
+- **WS-Trust 프로토콜:** 이 프로토콜은 Azure AD를 사용하여 현재 Windows 하이브리드 Azure AD 조인 디바이스를 인증하는 데 필요합니다. AD FS를 사용하는 경우 다음 WS-Trust 엔드포인트를 사용하도록 설정해야 합니다. `/adfs/services/trust/2005/windowstransport`  
 `/adfs/services/trust/13/windowstransport`  
   `/adfs/services/trust/2005/usernamemixed` 
   `/adfs/services/trust/13/usernamemixed`
@@ -122,7 +122,7 @@ Windows 10 도메인 조인 디바이스에서 이미 [Azure AD를 테넌트에 
   `/adfs/services/trust/13/certificatemixed` 
 
 > [!WARNING] 
-> **Adfs/services/trust/2005/windowstransport** 또는 **adfs/services/trust/13/windowstransport** 은 인트라넷 연결 끝점 으로만 사용 하도록 설정 해야 하며 웹 응용 프로그램 프록시를 통해 엑스트라넷 연결 끝점으로 노출 되어서는 안 됩니다. WS-TRUST WIndows 끝점을 사용 하지 않도록 설정 하는 방법에 대해 자세히 알아보려면 [프록시에서 Ws-trust windows 끝점 사용 안 함](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet)을 참조 하세요. **서비스** > **엔드포인트**에서 AD FS 관리 콘솔을 통해 어떤 엔드포인트가 사용하도록 설정되었는지 확인할 수 있습니다.
+> **adfs/services/trust/2005/windowstransport** 또는 **adfs/services/trust/13/windowstransport**는 모두 인트라넷 연결 엔드포인트로만 사용하도록 설정해야 하며 웹 애플리케이션 프록시를 통해 엑스트라넷 연결 엔드포인트로 노출되어서는 안됩니다. WS-Trust Windows 엔드포인트를 비활성화는 방법에 대해 자세히 알아보려면 [프록시에서 WS-Trust Windows 엔드포인트 사용 안 함](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet)을 참조하세요. **서비스** > **엔드포인트**에서 AD FS 관리 콘솔을 통해 어떤 엔드포인트가 사용하도록 설정되었는지 확인할 수 있습니다.
 
 > [!NOTE]
 > Azure AD는 관리형 도메인에서 스마트 카드나 인증서를 지원하지 않습니다.

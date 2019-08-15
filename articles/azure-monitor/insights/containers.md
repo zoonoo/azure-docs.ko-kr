@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 98b7e99e5e9d25c6708b92b02e609ad38a971054
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 5f48b1b1c8568c4f60d012797634b844a276b1bb
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381573"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68951969"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Azure Monitor의 컨테이너 모니터링 솔루션
 
@@ -28,7 +28,7 @@ ms.locfileid: "68381573"
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-솔루션은 어떤 컨테이너가 실행 중인지, 실행 중인 컨테이너 이미지 및 컨테이너가 실행 중인 위치를 표시합니다. 컨테이너에 사용하는 명령을 표시하는 상세한 감사 정보를 확인할 수 있습니다. 또한 중앙화된 로그를 보고 검색하면 원격으로 Docker 또는 Windows 호스트를 보지 않고도 컨테이너의 문제를 해결할 수 있습니다. 호스트에서 성가시고 과도한 리소스를 소모하는 컨테이너를 찾을 수 있습니다. 또한 컨테이너에 대해 중앙화된 CPU 메모리, 저장소, 네트워크 사용 및 성능 정보를 확인할 수 있습니다. Windows를 실행하는 컴퓨터에서 Windows Server, Hyper-V, Docker 컨테이너에서 로그를 중앙 집중화 및 비교할 수 있습니다. 솔루션은 다음과 같은 컨테이너 오케스트레이터를 지원합니다.
+솔루션은 어떤 컨테이너가 실행 중인지, 실행 중인 컨테이너 이미지 및 컨테이너가 실행 중인 위치를 표시합니다. 컨테이너에 사용하는 명령을 표시하는 상세한 감사 정보를 확인할 수 있습니다. 또한 중앙화된 로그를 보고 검색하면 원격으로 Docker 또는 Windows 호스트를 보지 않고도 컨테이너의 문제를 해결할 수 있습니다. 호스트에서 성가시고 과도한 리소스를 소모하는 컨테이너를 찾을 수 있습니다. 또한 컨테이너에 대해 중앙화된 CPU 메모리, 스토리지, 네트워크 사용 및 성능 정보를 확인할 수 있습니다. Windows를 실행하는 컴퓨터에서 Windows Server, Hyper-V, Docker 컨테이너에서 로그를 중앙 집중화 및 비교할 수 있습니다. 솔루션은 다음과 같은 컨테이너 오케스트레이터를 지원합니다.
 
 - Docker Swarm
 - DC/OS
@@ -202,11 +202,11 @@ Docker Swarm의 경우 작업 영역 ID와 기본 키에 대한 비밀을 만들
 2. 다음 명령을 실행 하 여 Azure Monitor에 대 한 프로젝트를 만들고 사용자 계정을 설정 합니다.
 
     ```
-    oadm new-project omslogging --node-selector='zone=default'
+    oc adm new-project omslogging --node-selector='zone=default'
     oc project omslogging  
     oc create serviceaccount omsagent  
-    oadm policy add-cluster-role-to-user cluster-reader   system:serviceaccount:omslogging:omsagent  
-    oadm policy add-scc-to-user privileged system:serviceaccount:omslogging:omsagent  
+    oc adm policy add-cluster-role-to-user cluster-reader   system:serviceaccount:omslogging:omsagent  
+    oc adm policy add-scc-to-user privileged system:serviceaccount:omslogging:omsagent  
     ```
 
 3. 디먼 집합을 배포하려면 다음을 실행합니다.
@@ -241,11 +241,11 @@ Log Analytics 에이전트 디먼 집합 yaml 파일을 사용할 때 Log Analyt
 2. 다음 명령을 실행 하 여 Azure Monitor에 대 한 프로젝트를 만들고 사용자 계정을 설정 합니다. 비밀 생성 스크립트는 Log Analytics 작업 영역 ID`<WSID>` 및 기본 키`<KEY>`를 요청하고, 완료되면 ocp-secret.yaml 파일이 생성됩니다.  
 
     ```
-    oadm new-project omslogging --node-selector='zone=default'  
+    oc adm new-project omslogging --node-selector='zone=default'  
     oc project omslogging  
     oc create serviceaccount omsagent  
-    oadm policy add-cluster-role-to-user cluster-reader   system:serviceaccount:omslogging:omsagent  
-    oadm policy add-scc-to-user privileged system:serviceaccount:omslogging:omsagent  
+    oc adm policy add-cluster-role-to-user cluster-reader   system:serviceaccount:omslogging:omsagent  
+    oc adm policy add-scc-to-user privileged system:serviceaccount:omslogging:omsagent  
     ```
 
 3. 다음을 실행하여 비밀 파일을 배포합니다.
@@ -557,7 +557,7 @@ Azure Portal에서 *솔루션 갤러리*로 이동하여 **컨테이너 모니�
 *PodLabel* 데이터 형식에 추가된 레이블은 사용자 고유의 사용자 지정 레이블입니다. 테이블에 표시된 추가된 PodLabel 레이블은 예입니다. 따라서 `PodLabel_deployment_s`, `PodLabel_deploymentconfig_s`, `PodLabel_docker_registry_s`는 사용자 환경의 데이터 집합에 따라 달라지며 일반적으로 `PodLabel_yourlabel_s`와 비슷합니다.
 
 ## <a name="monitor-containers"></a>모니터 컨테이너
-Azure Portal에서 솔루션을 사용 하도록 설정한 후에는 컨테이너 **타일에** 컨테이너 호스트와 호스트에서 실행 되는 컨테이너에 대 한 요약 정보가 표시 됩니다.
+Azure Portal에서 솔루션을 사용 하도록 설정한 후에는 컨테이너 타일에 컨테이너 호스트와 호스트에서 실행 되는 컨테이너에 대 한 요약 정보가 표시 됩니다.
 
 ![컨테이너 타일](./media/containers/containers-title.png)
 
@@ -619,7 +619,7 @@ Log Analytics 열리고 컨테이너의 상태에 대 한 정보가 표시 됩�
 - **ContainerImageInventory** – 이미지별로 정리하여 정보를 찾고 이미지 ID나 크기 같은 이미지 정보를 보려는 경우 이 유형을 사용합니다.
 - **ContainerInventory** – 컨테이너 위치, 해당 컨테이너 이름, 실행 중인 이미지에 대한 정보가 필요할 때 이 유형을 사용합니다.
 - **ContainerLog** – 특정 오류 로그 정보와 항목을 찾으려 할 때 이 유형을 사용합니다.
-- **ContainerNodeInventory_CL** 컨테이너가 상주하는 호스트/노드에 대한 정보를 얻으려면 이 유형을 사용합니다. Docker 버전, 오케스트레이션 형식, 저장소 및 네트워크 정보를 제공합니다.
+- **ContainerNodeInventory_CL** 컨테이너가 상주하는 호스트/노드에 대한 정보를 얻으려면 이 유형을 사용합니다. Docker 버전, 오케스트레이션 형식, 스토리지 및 네트워크 정보를 제공합니다.
 - **ContainerProcess_CL** 컨테이너 내에서 실행 중인 프로세스를 신속하게 확인하려면 이 형식을 사용합니다.
 - **ContainerServiceLog** – 시작, 중지, 삭제, 끌어오기 명령 등과 같이 Docker 데몬의 감사 추적 정보를 찾으려 할 때 이 유형을 사용합니다.
 - **KubeEvents_CL** Kubernetes 이벤트를 확인하려면 이 형식을 사용합니다.

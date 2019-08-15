@@ -9,18 +9,18 @@ ms.date: 07/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 8219e795bb9ab4fc0d479b71e6a93fe6300037d0
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 2e29dfde651addb58b767d04bd34e8e5441d54c8
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514908"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986735"
 ---
 # <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure blob에 대 한 액세스 권한 부여 및 RBAC를 사용 하 여 데이터 큐
 
 Azure AD(Azure Active Directory)에서는 [RBAC(역할 기반 액세스 제어)](../../role-based-access-control/overview.md)를 통해 보호된 리소스에 액세스 권한을 부여합니다. Azure Storage는 blob 또는 큐 데이터에 액세스 하는 데 사용 되는 일반 사용 권한 집합을 포함 하는 기본 제공 RBAC 역할 집합을 정의 합니다.
 
-RBAC 역할이 Azure AD 보안 주체에 할당 되 면 Azure는 해당 보안 주체에 대 한 해당 리소스에 대 한 액세스 권한을 부여 합니다. 액세스 권한은 구독, 리소스 그룹, 저장소 계정 또는 개별 컨테이너나 큐의 수준에 범위를 지정할 수 있습니다. Azure AD 보안 주체는 사용자, 그룹, 응용 프로그램 서비스 주체 또는 [azure 리소스에 대 한 관리 되는 id](../../active-directory/managed-identities-azure-resources/overview.md)일 수 있습니다.
+RBAC 역할이 Azure AD 보안 주체에 할당 되 면 Azure는 해당 보안 주체에 대 한 해당 리소스에 대 한 액세스 권한을 부여 합니다. 액세스 권한은 구독, 리소스 그룹, 스토리지 계정 또는 개별 컨테이너나 큐의 수준에 범위를 지정할 수 있습니다. Azure AD 보안 주체는 사용자, 그룹, 응용 프로그램 서비스 주체 또는 [azure 리소스에 대 한 관리 되는 id](../../active-directory/managed-identities-azure-resources/overview.md)일 수 있습니다.
 
 이 문서에서는 Azure CLI를 사용 하 여 기본 제공 RBAC 역할을 나열 하 고 사용자에 게 할당 하는 방법을 설명 합니다. Azure CLI를 사용 하는 방법에 대 한 자세한 내용은 [AZURE CLI (명령줄 인터페이스)](https://docs.microsoft.com/cli/azure)를 참조 하세요.
 
@@ -61,16 +61,16 @@ Storage Queue Data Reader                 Allows for read access to Azure Storag
 컨테이너에 범위가 지정 된 역할을 할당 하려면 `--scope` 매개 변수의 컨테이너 범위를 포함 하는 문자열을 지정 합니다. 컨테이너의 범위는 다음과 같은 형식입니다.
 
 ```
-/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/<container-name>
+/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/<container>
 ```
 
-다음 예에서는 사용자에 게 **저장소 Blob 데이터 참가자** 역할을 할당 하 고,이 컨테이너는 *sample 컨테이너*라는 컨테이너에 할당 합니다. 샘플 값과 대괄호 안의 자리 표시자 값을 고유한 값으로 바꿔야 합니다. 
+다음 예에서는 컨테이너 수준으로 범위가 지정 된 사용자에 게 **저장소 Blob 데이터 참가자** 역할을 할당 합니다. 샘플 값과 대괄호 안의 자리 표시자 값을 고유한 값으로 바꿔야 합니다.
 
 ```azurecli-interactive
 az role assignment create \
     --role "Storage Blob Data Contributor" \
     --assignee <email> \
-    --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/sample-container"
+    --scope "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/<container>"
 ```
 
 ### <a name="queue-scope"></a>큐 범위
@@ -78,16 +78,16 @@ az role assignment create \
 범위가 지정 된 역할을 큐에 할당 하려면 `--scope` 매개 변수의 큐 범위를 포함 하는 문자열을 지정 합니다. 큐의 범위는 다음과 같은 형식입니다.
 
 ```
-/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/queueServices/default/queues/<queue-name>
+/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/queueServices/default/queues/<queue>
 ```
 
-다음 예에서는 *sample queue*라는 큐로 범위가 지정 된 사용자에 게 **저장소 큐 데이터 참가자** 역할을 할당 합니다. 샘플 값과 대괄호 안의 자리 표시자 값을 고유한 값으로 바꿔야 합니다. 
+다음 예에서는 큐 수준으로 범위가 지정 된 사용자에 게 **저장소 큐 데이터 참가자** 역할을 할당 합니다. 샘플 값과 대괄호 안의 자리 표시자 값을 고유한 값으로 바꿔야 합니다.
 
 ```azurecli-interactive
 az role assignment create \
     --role "Storage Queue Data Contributor" \
     --assignee <email> \
-    --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/queueServices/default/queues/sample-queue"
+    --scope "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/queueServices/default/queues/<queue>"
 ```
 
 ### <a name="storage-account-scope"></a>저장소 계정 범위
@@ -98,24 +98,24 @@ az role assignment create \
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
 ```
 
-다음 예제에서는 저장소 계정 수준에서 사용자에 게 **저장소 Blob 데이터 판독기** 역할을 할당 하는 방법을 보여 줍니다. 샘플 값을 고유한 값으로 바꾸어야 합니다. 
+다음 예제에서는 저장소 계정 수준에서 사용자에 게 **저장소 Blob 데이터 판독기** 역할을 할당 하는 방법을 보여 줍니다. 샘플 값을 고유한 값으로 바꾸어야 합니다.
 
 ```azurecli-interactive
 az role assignment create \
     --role "Storage Blob Data Reader" \
     --assignee <email> \
-    --scope "/subscriptions/<subscription-id>/resourceGroups/sample-resource-group/providers/Microsoft.Storage/storageAccounts/storagesamples"
+    --scope "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>"
 ```
 
 ### <a name="resource-group-scope"></a>리소스 그룹 범위
 
-리소스 그룹에 범위가 지정 된 역할을 할당 하려면 `--resource-group` 매개 변수의 리소스 그룹 이름 또는 ID를 지정 합니다. 다음 예에서는 리소스 그룹 수준에서 사용자에 게 **저장소 큐 데이터 판독기** 역할을 할당 합니다. 괄호 안의 샘플 값과 자리 표시자 값을 고유한 값으로 바꿔야 합니다. 
+리소스 그룹에 범위가 지정 된 역할을 할당 하려면 `--resource-group` 매개 변수의 리소스 그룹 이름 또는 ID를 지정 합니다. 다음 예에서는 리소스 그룹 수준에서 사용자에 게 **저장소 큐 데이터 판독기** 역할을 할당 합니다. 괄호 안의 샘플 값과 자리 표시자 값을 고유한 값으로 바꿔야 합니다.
 
 ```azurecli-interactive
 az role assignment create \
     --role "Storage Queue Data Reader" \
     --assignee <email> \
-    --resource-group sample-resource-group
+    --resource-group <resource-group>
 ```
 
 ### <a name="subscription-scope"></a>구독 범위
@@ -132,7 +132,7 @@ az role assignment create \
 az role assignment create \
     --role "Storage Blob Data Reader" \
     --assignee <email> \
-    --scope "/subscriptions/<subscription-id>"
+    --scope "/subscriptions/<subscription>"
 ```
 
 ## <a name="next-steps"></a>다음 단계

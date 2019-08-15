@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 1af6ed2743807f75e96bed0ae67d0070aa55c0ef
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 0122b76592ce9e1179a3d65f7db681679bda6f37
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68677458"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68988621"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Windows에 Azure IoT Edge 런타임 설치
 
@@ -39,7 +39,7 @@ Windows 시스템에서 Linux 컨테이너를 사용하는 것은 Azure IoT Edge
 
 최신 버전의 IoT Edge에 포함 된 내용에 대 한 자세한 내용은 [Azure IoT Edge 릴리스](https://github.com/Azure/azure-iotedge/releases)를 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 섹션을 사용하여 Windows 디바이스에서 IoT Edge를 지원할 수 있는지 여부를 검토하고 설치 전에 컨테이너 엔진에 대해 준비합니다. 
 
@@ -202,7 +202,7 @@ Get-Service iotedge
 . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
 ```
 
-실행 중인 모듈을 나열합니다. 새로 설치한 후에는 실행 중인 것으로 표시 되는 유일한 모듈은 **edgeAgent**입니다. [IoT Edge 모듈을 배포한](how-to-deploy-modules-portal.md)후에는 다른 항목을 볼 수 있습니다. 
+실행 중인 모듈을 나열합니다. 새로 설치한 후에는 실행 중인 것으로 표시 되는 유일한 모듈은 **edgeAgent**입니다. [IoT Edge 모듈](how-to-deploy-modules-portal.md) 을 처음으로 배포한 후에는 다른 시스템 모듈인 **edgeHub**가 장치에서 시작 됩니다. 
 
 ```powershell
 iotedge list
@@ -262,6 +262,7 @@ IoT Edge를 업데이트할 때 다음을 비롯 한 추가 매개 변수를 사
 Windows 디바이스에서 IoT Edge 설치를 제거하려는 경우 관리 PowerShell 창에서 다음 명령을 사용합니다. 이 명령은 기존 구성 및 Moby 엔진 데이터와 함께 IoT Edge 런타임을 제거합니다. 
 
 ```powershell
+. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
 Uninstall-IoTEdge
 ```
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 267872f2036a0e697f4b2da65064805a0cfbd2b7
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 72155e072acb8006b48f6951fc60081126c80691
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358731"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990454"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>모델 학습의 컴퓨팅 대상 설정 
 
@@ -47,7 +47,7 @@ Azure Machine Learning Service에는 다양한 컴퓨팅 대상에 대한 다양
 
 학습 시에는 보통 로컬 컴퓨터에서 시작한 후 나중에 다른 컴퓨팅 대상에서 해당 학습 스크립트를 실행합니다. Azure Machine Learning Service를 사용하면 스크립트를 변경할 필요 없이 다양한 컴퓨팅 대상에서 스크립트를 실행할 수 있습니다. 
 
-**실행 구성**으로 각 컴퓨팅 대상에 대한 환경을 정의하기만 하면 됩니다.  그런 다음 다른 컴퓨팅 대상에서 학습 실험을 실행하려는 경우에 해당 컴퓨팅에 대한 실행 구성을 지정합니다. 
+**실행 구성**으로 각 컴퓨팅 대상에 대한 환경을 정의하기만 하면 됩니다.  그런 다음 다른 컴퓨팅 대상에서 학습 실험을 실행하려는 경우에 해당 컴퓨팅에 대한 실행 구성을 지정합니다.
 
 이 문서의 끝부분에서 [실험 제출](#submit)에 대해 자세히 알아보세요.
 
@@ -74,7 +74,26 @@ Azure Machine Learning Service에는 다양한 컴퓨팅 대상에 대한 다양
 다음 코드는 사용자 관리 환경에 대한 학습 실행을 구성하는 예를 보여줍니다.
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/runconfig.py?name=run_user_managed)]
-  
+
+## <a name="whats-an-estimator"></a>평가기?
+
+인기 있는 프레임 워크를 사용 하 여 모델 학습을 용이 하 게 하기 위해 Azure Machine Learning Python SDK는 더 높은 수준의 추상화 인 평가기 클래스를 제공 합니다. 이 클래스를 사용 하 여 간편 하 게 실행 구성을 생성할 수 있습니다. 제네릭 [평가기](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) 을 만들고 사용 하 여 선택한 학습 프레임 워크 (예: scikit)를 사용 하는 학습 스크립트를 제출할 수 있습니다.
+
+PyTorch, TensorFlow 및 체 이너 Azure Machine Learning 작업의 경우 이러한 프레임 워크 사용을 간소화 하기 위해 각 [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)및 [체 이너](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) 추정 제공 됩니다.
+
+자세한 내용은 [추정를 사용 하 여 ML 모델 학습](how-to-train-ml-models.md)을 참조 하세요.
+
+## <a name="whats-an-ml-pipeline"></a>ML 파이프라인 이란?
+
+ML 파이프라인을 사용 하 여 간단한, 속도, 이식성 및 재사용으로 워크플로를 최적화할 수 있습니다. Azure Machine Learning를 사용 하 여 파이프라인을 빌드하는 경우 인프라 및 자동화 대신 전문 지식, 기계 학습에 집중할 수 있습니다.
+
+ML 파이프라인은 파이프라인에서 고유한 계산 단위인 여러 **단계**에서 생성 됩니다. 각 단계는 독립적으로 실행 되 고 격리 된 계산 리소스를 사용할 수 있습니다. 이를 통해 여러 데이터 과학자가 과도 한 처리 시간이 소모 계산 리소스 없이 동시에 동일한 파이프라인에서 작업할 수 있으며 각 단계에 대해 다른 계산 형식/크기를 쉽게 사용할 수 있습니다.
+
+> [!TIP]
+> ML 파이프라인은 모델을 학습 하는 경우 실행 구성 또는 추정를 사용할 수 있습니다.
+
+ML 파이프라인은 모델을 트레인 할 수 있지만 학습 후 모델을 학습 하 고 배포 하기 전에 데이터를 준비할 수도 있습니다. 파이프라인의 주요 사용 사례 중 하나는 일괄 처리 점수 매기기입니다. 자세한 내용은 [파이프라인: Machine learning 워크플로](concept-ml-pipelines.md)를 최적화 합니다.
+
 ## <a name="set-up-in-python"></a>Python에서 설정
 
 아래의 섹션을 통해 다음과 같은 컴퓨팅 대상을 구성합니다.

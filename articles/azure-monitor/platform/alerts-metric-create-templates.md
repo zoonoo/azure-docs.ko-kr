@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 9/27/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 8300baa1afa3e6c738cee4c2a2517463c2af1e88
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d4430b14a93bb4cf2ccf43881ad061590f8e6815
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65978846"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976692"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 메트릭 경고 만들기
 
@@ -24,7 +24,7 @@ ms.locfileid: "65978846"
 > [!IMPORTANT]
 > 리소스 형식에 대한 메트릭 경고를 만드는 리소스 템플릿: Azure Log Analytics 작업 영역(예를 들면,) `Microsoft.OperationalInsights/workspaces`에는 추가적인 단계가 필요합니다. 자세한 내용은 [로그에 대한 메트릭 경고 - 리소스 템플릿](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs)의 문서를 참조하세요.
 
-기본적인 단계는 다음과 같습니다.
+기본 단계는 다음과 같습니다.
 
 1. 다음 템플릿 중 하나를 경고 생성 방법을 설명하는 JSON 파일로 사용합니다.
 2. 해당 매개 변수 파일을 편집하고 JSON으로 사용하여 경고를 사용자 지정합니다.
@@ -195,7 +195,7 @@ Resource Manager 템플릿을 사용하여 경고를 만들려면 `Microsoft.Ins
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -448,7 +448,7 @@ Resource Manager 템플릿을 사용하여 경고를 만들려면 `Microsoft.Ins
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -647,7 +647,7 @@ az group deployment create \
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -859,7 +859,7 @@ az group deployment create \
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -942,7 +942,7 @@ az group deployment create \
 
 ## <a name="template-for-metric-alert-that-monitors-multiple-resources"></a>여러 리소스를 모니터링하는 메트릭 경고에 대한 템플릿
 
-이전 섹션에서는 단일 리소스를 모니터링하는 메트릭 경고를 만드는 Azure Resource Manager 템플릿 샘플에 대해 설명했습니다. 이제 Azure Monitor는 하나의 경고 규칙으로 여러 리소스를 모니터링할 수 있습니다. 이 미리 보기 기능은 현재 Azure Resource Manager 템플릿 및 REST API를 통해서만 사용할 수 있으며 가상 머신에만 지원됩니다.
+이전 섹션에서는 단일 리소스를 모니터링하는 메트릭 경고를 만드는 Azure Resource Manager 템플릿 샘플에 대해 설명했습니다. 이제 Azure Monitor는 하나의 경고 규칙으로 여러 리소스를 모니터링할 수 있습니다. 이 기능은 현재 Azure 공용 클라우드에서만 지원 되며 가상 컴퓨터 및 Databox Edge 장치에 대해서만 지원 됩니다.
 
 동적 임계값 경고 규칙은 수백 가지 메트릭 시리즈에 대한 맞춤형 임계값(심지어 다양한 형식의)을 한 번에 만드는 데 유용할 수 있습니다. 그러면 관리할 경고 규칙이 더 적어집니다.
 
@@ -1177,7 +1177,7 @@ az group deployment create \
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -1494,7 +1494,7 @@ az group deployment create \
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -1796,7 +1796,7 @@ az group deployment create \
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -2110,7 +2110,7 @@ az group deployment create \
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -2409,7 +2409,7 @@ az group deployment create \
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -2726,7 +2726,7 @@ az group deployment create \
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {

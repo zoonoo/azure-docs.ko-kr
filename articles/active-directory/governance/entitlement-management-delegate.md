@@ -16,12 +16,12 @@ ms.date: 07/10/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4e21fdef5be09148f001ab6f66f87dd270ccf54
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 4430e2115e4282ba7bb618184139a845547a06ed
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618271"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967090"
 ---
 # <a name="delegate-tasks-in-azure-ad-entitlement-management-preview"></a>Azure AD 자격 관리 (미리 보기)에서 작업 위임
 
@@ -86,7 +86,7 @@ ms.locfileid: "68618271"
 | [카탈로그에 카탈로그 소유자 또는 액세스 패키지 관리자 추가](#add-a-catalog-owner-or-an-access-package-manager) |  | :heavy_check_mark: |  |  |
 | [카탈로그에 새 액세스 패키지 만들기](entitlement-management-access-package-create.md) |  | :heavy_check_mark:  | :heavy_check_mark:  |  |
 | [액세스 패키지의 리소스 역할 관리](entitlement-management-access-package-edit.md) |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [액세스 패키지를 요청할 수 있는 사용자 지정](entitlement-management-access-package-edit.md#add-a-new-policy) |  | :heavy_check_mark: | :heavy_check_mark: |  |
+| [정책 만들기 및 편집](entitlement-management-access-package-edit.md#add-a-new-policy) |  | :heavy_check_mark: | :heavy_check_mark: |  |
 | [사용자를 액세스 패키지에 직접 할당](entitlement-management-access-package-edit.md#directly-assign-a-user) |  | :heavy_check_mark: | :heavy_check_mark: |  |
 | [액세스 패키지에 할당 된 사용자 보기](entitlement-management-access-package-edit.md#view-who-has-an-assignment) |  | :heavy_check_mark: | :heavy_check_mark: |  |
 | [액세스 패키지의 요청 보기](entitlement-management-access-package-edit.md#view-requests) |  | :heavy_check_mark: | :heavy_check_mark: |  |

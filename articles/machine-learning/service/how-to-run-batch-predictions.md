@@ -1,5 +1,5 @@
 ---
-title: 대용량 데이터에서 일괄 예측 실행
+title: 파이프라인을 사용 하 여 대량 데이터에서 일괄 처리 예측 실행
 titleSuffix: Azure Machine Learning service
 description: Azure Machine Learning Service를 사용하여 대용량 데이터에서 비동기적으로 일괄 예측을 수행하는 방법을 알아봅니다.
 services: machine-learning
@@ -10,16 +10,16 @@ ms.reviewer: jmartens, garye
 ms.author: jordane
 author: jpe316
 ms.date: 07/12/2019
-ms.openlocfilehash: 689ee003e0923a65d3ca3f2d13c1a2d05c299dbd
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 97b66bff0e6413b7774a054a01a0dc73649c9cce
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358719"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68963012"
 ---
-# <a name="run-batch-predictions-on-large-data-sets-with-azure-machine-learning-service"></a>Azure Machine Learning Service를 사용하여 대용량 데이터 세트에서 일괄 예측을 실행합니다.
+# <a name="run-batch-predictions-on-large-data-sets-with-azure-machine-learning-pipelines"></a>Azure Machine Learning 파이프라인을 사용 하 여 대량 데이터 집합에서 일괄 처리 예측 실행
 
-이 문서에서는 Azure Machine Learning 서비스를 사용 하 여 많은 양의 데이터를 비동기적으로 예측 하는 방법을 알아봅니다.
+이 문서에서는 Azure Machine Learning 서비스에서 ML 파이프라인을 사용 하 여 대량의 데이터를 비동기적으로 예측 하는 방법에 대해 알아봅니다.
 
 일괄 예측(또는 일괄 채점)은 비동기 애플리케이션에 대한 최상의 처리량으로 비용 효율적인 유추를 제공합니다. 일괄 예측 파이프라인은 프로덕션 데이터의 테라바이트에 대한 유추를 수행하도록 확장할 수 있습니다. 일괄 예측은 데이터의 대규모 컬렉션에 대한 높은 처리량, fire-and-forget(실행 후 망각) 예측에 맞게 최적화되었습니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "68358719"
 
 다음 단계에서는 [기계 학습 파이프라인](concept-ml-pipelines.md) 을 만들어 미리 학습 된 컴퓨터 비전 모델 ([개시-V3](https://arxiv.org/abs/1512.00567))을 등록 합니다. 그런 다음 미리 학습 된 모델을 사용 하 여 Azure Blob storage 계정에서 사용할 수 있는 이미지에 대 한 일괄 처리 점수 매기기를 수행 합니다. 채점에 사용되는 이 이미지는 [ImageNet](http://image-net.org/) 데이터 세트에서 레이블되지 않은 이미지입니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning 서비스의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
@@ -358,7 +358,4 @@ RunDetails(published_pipeline_run).show()
 
 ## <a name="next-steps"></a>다음 단계
 
-이 작업을 엔드투엔드로 보려면 [GitHub](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines)에서 일괄 채점 notebook을 사용해 보세요.
-
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
-
+이 작업을 종단 간으로 확인 하려면 [GitHub](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines)에서 일괄 처리 점수 매기기 노트북을 사용해 보거나 [Azure 아키텍처 센터로](/azure/architecture/reference-architectures/ai/batch-scoring-python) 이동 하 여 샘플 솔루션 아키텍처를 확인 하세요.

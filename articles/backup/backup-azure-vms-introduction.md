@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: dacurwin
-ms.openlocfilehash: 07faf03ee9b12d1bf4a200de47d6df714c2248d9
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 72ab33cd280892ac6de827986e21e04672e58960
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737158"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68951858"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Azure VM 백업 개요
 
@@ -95,7 +95,7 @@ Azure Backup는 백업 일정에 따라 스냅숏을 생성 합니다.
 **데이터 전송** | Azure Backup에서 이전 백업의 증분 변경 내용을 식별 하는 데 필요한 시간을 고려 합니다.<br/><br/> 증분 백업에서 Azure Backup는 블록의 체크섬을 계산 하 여 변경 내용을 확인 합니다. 블록을 변경 하는 경우 자격 증명 모음으로 전송 하도록 표시 됩니다. 서비스는 식별 된 블록을 분석 하 여 전송할 데이터의 양을 더 최소화 하려고 합니다. 변경 된 모든 블록을 평가한 후에는 Azure Backup 자격 증명 모음에 변경 내용을 전송 합니다.<br/><br/> 스냅샷을 생성하는 시간과 자격 증명 모음으로 복사하는 시간 사이에 지연이 있을 수 있습니다.<br/><br/> 사용량이 많은 시간에는 백업이 처리 되는 데 최대 8 시간이 걸릴 수 있습니다. VM에 대한 백업 시간은 일별 백업의 경우 24시간 미만입니다.
 **초기 백업**: | 증분 백업의 총 백업 시간은 24 시간 미만 이지만 첫 번째 백업에는 그렇지 않을 수 있습니다. 초기 백업에 필요한 시간은 데이터의 크기 및 백업이 처리 되는 시기에 따라 달라 집니다.
 **복원 큐** | Azure Backup는 여러 저장소 계정의 복원 작업을 동시에 처리 하 고, 복원 요청을 큐에 넣습니다.
-**복원 복사** | 복원 프로세스 동안 데이터가 자격 증명 모음에서 스토리지 계정으로 복사됩니다.<br/><br/> 총 복원 시간은 IOPS (초당 I/o 작업 수) 및 저장소 계정의 처리량에 따라 달라 집니다.<br/><br/> 복사 시간을 단축하려면 다른 애플리케이션 쓰기 및 읽기로 로드되지 않은 저장소 계정을 선택합니다.
+**복원 복사** | 복원 프로세스 동안 데이터가 자격 증명 모음에서 스토리지 계정으로 복사됩니다.<br/><br/> 총 복원 시간은 IOPS (초당 I/o 작업 수) 및 저장소 계정의 처리량에 따라 달라 집니다.<br/><br/> 복사 시간을 단축하려면 다른 애플리케이션 쓰기 및 읽기로 로드되지 않은 스토리지 계정을 선택합니다.
 
 ### <a name="backup-performance"></a>Backup 성능
 
@@ -138,6 +138,50 @@ OS 디스크 | 4,095GB | 17GB
 데이터 디스크 2 | 4,095GB | 0GB
 
 이 경우 VM의 실제 크기는 17GB+30GB+0GB=47GB입니다. 이 보호 된 인스턴스 크기 (47 g b)는 월별 청구의 기반이 됩니다. VM의 데이터 양이 증가 함에 따라 청구 변경 내용이 일치 하는 데 사용 되는 보호 된 인스턴스 크기입니다.
+
+<a name="limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb"></a>
+## <a name="limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30-tb"></a>제한 된 공개 미리 보기: 최대 30tb의 디스크 크기를 포함 하는 VM 백업
+
+이제 Azure Backup은 최대 30tb의 강력 하 고 강력한 [Azure Managed Disks](https://azure.microsoft.com/blog/larger-more-powerful-managed-disks-for-azure-virtual-machines/) 의 제한 된 공개 미리 보기를 지원 합니다. 이 미리 보기는 관리 되는 가상 컴퓨터에 대 한 프로덕션 수준 지원을 제공 합니다.
+
+진행 중인 백업에 영향을 주지 않고 미리 보기에서 원활 하 게 등록할 수 있습니다. 미리 보기에 구독을 등록 한 후에는 디스크 크기가 최대 30tb 인 모든 가상 머신을 성공적으로 백업 해야 합니다. 미리 보기에 등록 하려면:
+ 
+관리자 권한 PowerShell 터미널에서 다음 cmdlet을 실행합니다.
+
+1. Azure 계정에 로그인합니다.
+
+    ```powershell
+    PS C:> Login-AzureRmAccount
+    ```
+
+2. 업그레이드를 위해 등록 하려는 구독을 선택 합니다.
+
+    ```powershell
+    PS C:>  Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
+    ```
+3. 이 구독을 미리 보기 프로그램에 등록 합니다. 
+
+    ```powershell
+    PS C:> Register-AzureRmProviderFeature -FeatureName "LargeDiskVMBackupPreview" –ProviderNamespace Microsoft.RecoveryServices
+    ```
+
+    구독이 미리 보기에 등록 될 때까지 30 분 동안 기다립니다. 
+
+ 4. 상태를 확인 하려면 다음 cmdlet을 실행 합니다.
+
+    ```powershell
+    PS C:> Get-AzureRmProviderFeature -FeatureName "LargeDiskVMBackupPreview" –ProviderNamespace Microsoft.RecoveryServices 
+    ```
+5. 구독이 등록 된 것으로 표시 되 면 다음 명령을 실행 합니다.
+    
+    ```powershell
+    PS C:> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
+    ```
+
+> [!NOTE]
+> 1TB 보다 큰 디스크가 있는 암호화 된 Vm은이 미리 보기에서 지원 되지 않습니다.
+
+
 
 ## <a name="next-steps"></a>다음 단계
 

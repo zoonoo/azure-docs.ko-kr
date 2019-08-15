@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: 18d8f2a974fb192578163f71a57d00824ae6b0fa
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 507af54b8b4c2e7c67538a1a25a040c7ee5fdfd5
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839465"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976313"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>데이터 기반 스타일 식 (웹 SDK)
 
@@ -41,7 +41,7 @@ ms.locfileid: "68839465"
 
 Azure Maps 웹 SDK는 자체 또는 다른 식과 함께 사용할 수 있는 여러 형식을 지원 합니다.
 
-| 식 형식 | 설명 |
+| 식 형식 | Description |
 |---------------------|-------------|
 | [집계 식](#aggregate-expression) | 데이터 집합에 대해 처리 되 고 `clusterProperties` `DataSource`의 옵션과 함께 사용할 수 있는 계산을 정의 하는 식입니다. |
 | [부울 식](#boolean-expressions) | 부울 식은 부울 비교를 평가 하기 위한 부울 연산자 식 집합을 제공 합니다. |
@@ -65,7 +65,8 @@ Azure Maps 웹 SDK는 자체 또는 다른 식과 함께 사용할 수 있는 �
         "type": "Point",
         "coordinates": [-122.13284, 47.63699]
     },
-    "properties": {     
+    "properties": { 
+        "id": 123,
         "entityType": "restaurant",
         "revenue": 12345,
         "subTitle": "Building 40", 
@@ -80,7 +81,7 @@ Azure Maps 웹 SDK는 자체 또는 다른 식과 함께 사용할 수 있는 �
 
 데이터 식은 기능에서 속성 데이터에 대 한 액세스를 제공 합니다. 
 
-| 식 | 반환 형식 | 설명 |
+| 식 | 반환 형식 | Description |
 |------------|-------------|-------------|
 | `['at', number, array]` | 개체(object) | 배열에서 항목을 검색 합니다. |
 | `['geometry-type']` | string | 기능의 geometry 형식을 가져옵니다. Point, MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon. |
@@ -193,7 +194,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 값을 비교할 때 비교는 엄격 하 게 형식화 됩니다. 다른 형식의 값은 항상 동일 하지 않은 것으로 간주 됩니다. 구문 분석 시 형식이 다른 것으로 알려진 사례는 잘못 된 것으로 간주 되며 구문 분석 오류를 생성 합니다. 
 
-| 식 | 반환 형식 | Description |
+| 식 | 반환 형식 | 설명 |
 |------------|-------------|-------------|
 | `['! ', boolean]` | boolean | 논리 부정. 입력 `true` 이 `false`이면를 반환 하 고 `false` , 입력이 `true`이면를 반환 합니다. |
 | `['!= ', value, value]` | boolean | 입력 `true` 값이 같지 않으면를 반환 하 고 `false` , 그렇지 않으면를 반환 합니다. |
@@ -310,6 +311,28 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
         //Specify a default value to return if no match is found.
         'black'
+    ]
+});
+```
+
+다음 예에서는 match 식을 사용 하 여 "in array" 또는 "array contains" 형식 필터를 수행 합니다 .이 경우 허용 되는 id 목록에 있는 ID 값을 가진 데이터를 필터링 합니다. 필터를 사용 하는 식을 사용 하는 경우 결과는 부울 값 이어야 합니다.
+
+```javascript
+var layer = new atlas.layer.BubbleLayer(datasource, null, {
+    filter: [
+        'match',  
+
+        //Get the property to match.
+        ['get', 'id'],  
+
+         //List of values to match.
+        [24, 53, 98], 
+
+        //If there is a match, return true.
+        true,
+    
+        //Otherwise return false.
+        false
     ]
 });
 ```
@@ -634,7 +657,7 @@ var layer = new atlas.layer.LineLayer(datasource, null, {
 });
 ```
 
-[라이브 예제 참조](map-add-shape.md#line-stroke-gradient)
+[라이브 예제 참조](map-add-line-layer.md#line-stroke-gradient)
 
 ### <a name="text-field-format-expression"></a>텍스트 필드 형식 식
 
@@ -816,8 +839,11 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 > [!div class="nextstepaction"] 
 > [거품형 계층 추가](map-add-bubble-layer.md)
 
-> [!div class="nextstepaction"] 
-> [셰이프 추가](map-add-shape.md)
+> [!div class="nextstepaction"]
+> [선 계층 추가](map-add-line-layer.md)
+
+> [!div class="nextstepaction"]
+> [다각형 계층 추가](map-add-shape.md)
 
 > [!div class="nextstepaction"] 
 > [열 지도 계층 추가](map-add-heat-map-layer.md)

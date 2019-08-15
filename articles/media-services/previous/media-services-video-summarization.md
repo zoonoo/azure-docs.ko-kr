@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/20/2019
-ms.author: milanga;juliako;
-ms.openlocfilehash: 0fcacf68f4b41ed8945a6a40d7da125aef499947
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: juliako
+ms.reviewer: milanga
+ms.openlocfilehash: e7a99ffdd42c02e5a18dc14c4774b428232b8293
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60825539"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "69015993"
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Azure 미디어 비디오 미리 보기를 사용하여 비디오 요약 만들기  
 ## <a name="overview"></a>개요
@@ -53,7 +54,7 @@ Azure 미디어 비디오 미리 보기 미디어 프로세서에서 수행할 �
 
 현재 다음 매개 변수를 변경할 수 있습니다.
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | --- | --- |
 | outputAudio |결과 비디오에 오디오를 포함할지 여부를 지정합니다. <br/>허용되는 값은 다음과 같습니다. True 또는 False입니다. 기본값은 True입니다. |
 | fadeInFadeOut |개별 동작 미리 보기 간에 페이드 전환이 사용되는지 여부를 지정합니다.  <br/>허용되는 값은 다음과 같습니다. True 또는 False입니다.  기본값은 True입니다. |
@@ -103,7 +104,7 @@ Azure 미디어 비디오 미리 보기 미디어 프로세서에서 수행할 �
 
 개발 환경을 설정하고 [.NET을 사용한 Media Services 환경](media-services-dotnet-how-to-use.md)에 설명된 대로 연결 정보를 사용하여 app.config 파일을 채웁니다. 
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```csharp
     using System;

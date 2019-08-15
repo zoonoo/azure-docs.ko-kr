@@ -14,28 +14,30 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: f05e3e85d36ffc23a193a6771a0271c71b2f8544
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2e7c1eedf02c8a7783ee90f403dbd77ec2ee53ea
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60631909"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68963340"
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>StorSimple 8000 시리즈 소프트웨어, 높은 가용성 및 네트워킹 요구 사항
 
 ## <a name="overview"></a>개요
 
-Microsoft Azure StorSimple 시작을 환영합니다. 이 문서에서는 중요한 시스템 요구 사항 및 StorSimple 디바이스와 해당 디바이스에 액세스하는 저장소 클라이언트에 대한 모범 사례를 설명합니다. StorSimple 시스템을 배포하기 전에 정보를 신중하게 검토하고 배포 및 후속 작업 중 필요에 따라 다시 검토하는 것이 좋습니다.
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
+
+Microsoft Azure StorSimple 시작을 환영합니다. 이 문서에서는 중요한 시스템 요구 사항 및 StorSimple 디바이스와 해당 디바이스에 액세스하는 스토리지 클라이언트에 대한 모범 사례를 설명합니다. StorSimple 시스템을 배포하기 전에 정보를 신중하게 검토하고 배포 및 후속 작업 중 필요에 따라 다시 검토하는 것이 좋습니다.
 
 시스템 요구 사항에는 다음 내용이 포함됩니다.
 
-* **저장소 클라이언트에 대한 소프트웨어 요구 사항** -지원되는 운영 체제 및 이러한 운영 체제에 대한 추가 요구 사항을 설명합니다.
+* **스토리지 클라이언트에 대한 소프트웨어 요구 사항** -지원되는 운영 체제 및 이러한 운영 체제에 대한 추가 요구 사항을 설명합니다.
 * **StorSimple 디바이스에 대한 네트워킹 요구 사항** - iSCSI, 클라우드 또는 관리 트래픽을 허용하도록 방화벽에서 열려야 하는 포트에 대한 정보를 제공합니다.
 * **StorSimple에 대한 고가용성 요구 사항** - StorSimple 디바이스 및 호스트 컴퓨터에 대한 고가용성 요구 사항 및 모범 사례를 설명합니다.
 
-## <a name="software-requirements-for-storage-clients"></a>저장소 클라이언트에 대한 소프트웨어 요구 사항
+## <a name="software-requirements-for-storage-clients"></a>스토리지 클라이언트에 대한 소프트웨어 요구 사항
 
-다음 소프트웨어 요구 사항은 StorSimple 디바이스에 액세스하는 저장소 클라이언트에 대한 것입니다.
+다음 소프트웨어 요구 사항은 StorSimple 디바이스에 액세스하는 스토리지 클라이언트에 대한 것입니다.
 
 | 지원되는 운영 체제 | 필요한 버전 | 추가 요구 사항/메모 |
 | --- | --- | --- |
@@ -61,16 +63,16 @@ Microsoft Azure StorSimple 시작을 환영합니다. 이 문서에서는 중요
 
 StorSimple 디바이스는 잠긴 디바이스입니다. 하지만 iSCSI, 클라우드 및 관리 트래픽에 허용하도록 포트가 방화벽에서 열려야 합니다. 다음 표에서 방화벽에서 열려야 하는 포트를 나열합니다. 이 테이블에서 *인* 또는 *인바운드*는 디바이스에 대한 들어오는 클라이언트 요청 액세스에서 방향을 참조합니다. *아웃* 또는 *아웃바운드*는 배포 후 데이터를 외부로 보내는 StorSimple 디바이스에서 방향을 참조합니다.
 
-| 포트 번호 <sup>1, 2</sup> | 인 또는 아웃 | 포트 범위 | 필수 | 메모 |
+| 포트 번호 <sup>1, 2</sup> | 인 또는 아웃 | 포트 범위 | 필수 | 참고 |
 | --- | --- | --- | --- | --- |
-| TCP 80(HTTP)<sup>3</sup> |아웃 |WAN |아니요 |<ul><li>업데이트 복구를 위한 인터넷 액세스에는 아웃바운드 포트가 사용됩니다.</li><li>아웃바운드 웹 프록시는 사용자가 구성할 수 있습니다.</li><li>시스템 업데이트를 허용하려면 컨트롤러 고정 IP에 대해 이 포트도 오픈되어야 합니다.</li></ul> |
-| TCP 443(HTTPS)<sup>3</sup> |아웃 |WAN |yes |<ul><li>아웃바운드 포트는 클라우드의 데이터에 액세스하는 데 사용됩니다.</li><li>아웃바운드 웹 프록시는 사용자가 구성할 수 있습니다.</li><li>시스템 업데이트를 허용하려면 컨트롤러 고정 IP에 대해 이 포트도 오픈되어야 합니다.</li><li>이 포트도 가비지 수집을 위한 두 컨트롤러에 대해 사용됩니다.</li></ul> |
+| TCP 80(HTTP)<sup>3</sup> |외부 |WAN |아니요 |<ul><li>업데이트 복구를 위한 인터넷 액세스에는 아웃바운드 포트가 사용됩니다.</li><li>아웃바운드 웹 프록시는 사용자가 구성할 수 있습니다.</li><li>시스템 업데이트를 허용하려면 컨트롤러 고정 IP에 대해 이 포트도 오픈되어야 합니다.</li></ul> |
+| TCP 443(HTTPS)<sup>3</sup> |외부 |WAN |yes |<ul><li>아웃바운드 포트는 클라우드의 데이터에 액세스하는 데 사용됩니다.</li><li>아웃바운드 웹 프록시는 사용자가 구성할 수 있습니다.</li><li>시스템 업데이트를 허용하려면 컨트롤러 고정 IP에 대해 이 포트도 오픈되어야 합니다.</li><li>이 포트도 가비지 수집을 위한 두 컨트롤러에 대해 사용됩니다.</li></ul> |
 | UDP 53(DNS) |아웃 |WAN |일부 경우에는 메모를 참조하십시오. |이 포트는 인터넷 기반 DNS 서버로 사용하는 경우에만 필요합니다. |
 | UDP 123(NTP) |아웃 |WAN |일부 경우에는 메모를 참조하십시오. |이 포트는 인터넷 기반 NTP 서버로 사용하는 경우에만 필요합니다. |
-| TCP 9354 |아웃 |WAN |예 |아웃바운드 포트는 StorSimple 디바이스에서 StorSimple 디바이스 관리자 서비스와 통신하는 데 사용됩니다. |
-| 3260(iSCSI) |그런 다음 |LAN |아닙니다. |이 포트는 iSCSI를 통해 데이터에 액세스하는 데 사용됩니다. |
-| 5985 |그런 다음 |LAN |아닙니다. |인바운드 포트는 StorSimple 디바이스와의 통신을 위해 StorSimple 스냅샷 관리자에 사용됩니다.<br>이 포트는 HTTP를 통해 StorSimple용 Windows PowerShell에 원격으로 연결할 때에도 사용됩니다. |
-| 5986 |그런 다음 |LAN |아닙니다. |이 포트는 HTTPS를 통해 StorSimple에 대해 Windows PowerShell에 원격으로 연결할 때 사용됩니다. |
+| TCP 9354 |외부 |WAN |예 |아웃바운드 포트는 StorSimple 디바이스에서 StorSimple 디바이스 관리자 서비스와 통신하는 데 사용됩니다. |
+| 3260(iSCSI) |입력 |LAN |아니요 |이 포트는 iSCSI를 통해 데이터에 액세스하는 데 사용됩니다. |
+| 5985 |입력 |LAN |아니요 |인바운드 포트는 StorSimple 디바이스와의 통신을 위해 StorSimple 스냅샷 관리자에 사용됩니다.<br>이 포트는 HTTP를 통해 StorSimple용 Windows PowerShell에 원격으로 연결할 때에도 사용됩니다. |
+| 5986 |입력 |LAN |아니요 |이 포트는 HTTPS를 통해 StorSimple에 대해 Windows PowerShell에 원격으로 연결할 때 사용됩니다. |
 
 <sup>1</sup> 인바운드 포트는 공용 인터넷에서 열릴 필요가 없습니다.
 
@@ -84,7 +86,7 @@ StorSimple 디바이스는 잠긴 디바이스입니다. 하지만 iSCSI, 클라
 
 ### <a name="url-patterns-for-firewall-rules"></a>방화벽 규칙에 대한 URL 패턴
 
-네트워크 관리자는 URL 패턴을 기준으로 하는 고급 방화벽 규칙이 인바운드 및 아웃바운드 트래픽을 필터링하도록 구성할 수 있습니다. StorSimple 디바이스 및 StorSimple 디바이스 관리자 서비스는 Azure Service Bus, Azure Active Directory Access Control, 저장소 계정 및 Microsoft 업데이트 서버 등의 다른 Microsoft 애플리케이션에 의존합니다. 이러한 애플리케이션과 연결된 URL 패턴을 사용하여 방화벽 규칙을 구성할 수 있습니다. 이러한 애플리케이션과 연결된 URL 패턴은 달라질 수 있습니다. 따라서 네트워크 관리자는 StorSimple에 대한 방화벽 규칙을 모니터링하고 필요에 따라 업데이트해야 합니다.
+네트워크 관리자는 URL 패턴을 기준으로 하는 고급 방화벽 규칙이 인바운드 및 아웃바운드 트래픽을 필터링하도록 구성할 수 있습니다. StorSimple 디바이스 및 StorSimple 디바이스 관리자 서비스는 Azure Service Bus, Azure Active Directory Access Control, 스토리지 계정 및 Microsoft 업데이트 서버 등의 다른 Microsoft 애플리케이션에 의존합니다. 이러한 애플리케이션과 연결된 URL 패턴을 사용하여 방화벽 규칙을 구성할 수 있습니다. 이러한 애플리케이션과 연결된 URL 패턴은 달라질 수 있습니다. 따라서 네트워크 관리자는 StorSimple에 대한 방화벽 규칙을 모니터링하고 필요에 따라 업데이트해야 합니다.
 
 StorSimple 고정 IP 주소에 따라 대부분의 경우에서 자유롭게 아웃바운드 트래픽에 대한 방화벽 규칙을 설정하는 것이 좋습니다. 그러나 보안 환경을 만드는 데 필요한 고급 방화벽 규칙을 설정하려면 아래 정보를 사용할 수 있습니다.
 
@@ -99,7 +101,7 @@ StorSimple 고정 IP 주소에 따라 대부분의 경우에서 자유롭게 아
 | `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*`<br>`https://login.windows.net` |StorSimple 디바이스 관리자 서비스<br>Access Control Service<br>Azure Service Bus<br>인증 서비스 |클라우드 사용 네트워크 인터페이스 |
 | `https://*.backup.windowsazure.com` |디바이스 등록 |데이터 0만 해당 |
 | `https://crl.microsoft.com/pki/*`<br>`https://www.microsoft.com/pki/*` |인증서 해지 |클라우드 사용 네트워크 인터페이스 |
-| `https://*.core.windows.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure 저장소 계정 및 모니터링 |클라우드 사용 네트워크 인터페이스 |
+| `https://*.core.windows.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure Storage 계정 및 모니터링 |클라우드 사용 네트워크 인터페이스 |
 | `https://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`https://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`https://download.microsoft.com`<br>`http://wustat.windows.com`<br>`https://ntservicepack.microsoft.com` |Microsoft 업데이트 서버<br> |컨트롤러 고정 IP만 |
 | `http://*.deploy.akamaitechnologies.com` |Akamai CDN |컨트롤러 고정 IP만 |
 | `https://*.partners.extranet.microsoft.com/*`<br>`https://dcupload.microsoft.com/`<br>`https://*.support.microsoft.com/` |지원 패키지 |클라우드 사용 네트워크 인터페이스 |
@@ -111,7 +113,7 @@ StorSimple 고정 IP 주소에 따라 대부분의 경우에서 자유롭게 아
 | `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login.microsoftonline.us` |StorSimple 디바이스 관리자 서비스<br>Access Control Service<br>Azure Service Bus<br>인증 서비스 |클라우드 사용 네트워크 인터페이스 |
 | `https://*.backup.windowsazure.us` |디바이스 등록 |데이터 0만 해당 |
 | `https://crl.microsoft.com/pki/*`<br>`https://www.microsoft.com/pki/*` |인증서 해지 |클라우드 사용 네트워크 인터페이스 |
-| `https://*.core.usgovcloudapi.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure 저장소 계정 및 모니터링 |클라우드 사용 네트워크 인터페이스 |
+| `https://*.core.usgovcloudapi.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure Storage 계정 및 모니터링 |클라우드 사용 네트워크 인터페이스 |
 | `https://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`https://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`https://download.microsoft.com`<br>`http://wustat.windows.com`<br>`https://ntservicepack.microsoft.com` |Microsoft 업데이트 서버<br> |컨트롤러 고정 IP만 |
 | `http://*.deploy.akamaitechnologies.com` |Akamai CDN |컨트롤러 고정 IP만 |
 | `https://*.partners.extranet.microsoft.com/*`<br>`https://dcupload.microsoft.com/`<br>`https://*.support.microsoft.com/` |지원 패키지 |클라우드 사용 네트워크 인터페이스 |
@@ -127,7 +129,7 @@ StorSimple에 대해 다수의 네트워크 인터페이스와 게이트웨이�
 * 미리 결정된 값 집합이 네트워크 인터페이스에 할당되었습니다.
 * 클라우드를 사용하거나 클라우드를 사용하지 않지만 게이트웨이가 구성되어 있는 다양한 네트워크 인터페이스에 대해 값이 할당된 아래의 예제 테이블을 고려해 보세요. 여기에 할당된 값은 예제입니다.
 
-    | Linux | 클라우드 사용 | 클라우드 미사용(게이트웨이 구성됨) |
+    | 네트워크 인터페이스 | 클라우드 사용 | 클라우드 미사용(게이트웨이 구성됨) |
     |-----|---------------|---------------------------|
     | Data 0  | 1            | -                        |
     | Data 1  | 2            | 20                       |
@@ -155,7 +157,7 @@ StorSimple에 대해 다수의 네트워크 인터페이스와 게이트웨이�
 * VIP 오류가 있으면 StorSimple 디바이스에 경고가 생성됩니다. 자세한 내용은 [경고 빠른 참조](storsimple-8000-manage-alerts.md)를 참조하세요.
 * 재시도에 있어서 iSCSI는 클라우드에 우선합니다.
   
-    다음 예제를 살펴보세요. StorSimple 장치에 사용 하도록 설정 하는 두 개의 네트워크 인터페이스, Data 0 및 Data 1입니다. Data 0은 클라우드를 사용하지만 Data 1은 클라우드와 iSCSI 모두를 사용합니다. 이 디바이스에서 클라우드 또는 iSCSI에 사용하도록 설정된 다른 네트워크 인터페이스는 없습니다.
+    다음 예제를 참조하세요. StorSimple 장치에는 Data 0 및 Data 1의 두 가지 네트워크 인터페이스가 사용 됩니다. Data 0은 클라우드를 사용하지만 Data 1은 클라우드와 iSCSI 모두를 사용합니다. 이 디바이스에서 클라우드 또는 iSCSI에 사용하도록 설정된 다른 네트워크 인터페이스는 없습니다.
   
     Data 1에 실패하면, 이것이 마지막 iSCSI 네트워크 인터페이스라는 전제 하에, 다른 컨트롤러의 Data 1로 컨트롤러 장애 조치(failover)가 발생하게 됩니다.
 
@@ -170,7 +172,7 @@ StorSimple 솔루션의 최적의 성능을 위해 위의 네트워킹 요구 �
 
 ## <a name="high-availability-requirements-for-storsimple"></a>StorSimple에 대한 고가용성 요구 사항
 
-StorSimple 솔루션에 포함된 하드웨어 플랫폼은 데이터센터에서 가용성이 높고, 내결함성을 갖춘 저장소 인프라에 대한 기반을 제공하는 가용성 및 안정성 기능이 있습니다. 하지만 StorSimple 솔루션의 가용성을 위해 준수해야 하는 요구 사항 및 모범 사례가 있습니다. StorSimple을 배포하기 전에 StorSimple 디바이스 및 연결된 호스트 컴퓨터에 대한 다음 요구 사항 및 모범 사례를 신중하게 검토해야 합니다.
+StorSimple 솔루션에 포함된 하드웨어 플랫폼은 데이터센터에서 가용성이 높고, 내결함성을 갖춘 스토리지 인프라에 대한 기반을 제공하는 가용성 및 안정성 기능이 있습니다. 하지만 StorSimple 솔루션의 가용성을 위해 준수해야 하는 요구 사항 및 모범 사례가 있습니다. StorSimple을 배포하기 전에 StorSimple 디바이스 및 연결된 호스트 컴퓨터에 대한 다음 요구 사항 및 모범 사례를 신중하게 검토해야 합니다.
 
 StorSimple 디바이스의 하드웨어 구성 요소 모니터링 및 유지 관리에 대한 자세한 내용을 보려면 [StorSimple 디바이스 관리자 서비스를 사용하여 하드웨어 구성 요소 및 상태 모니터링](storsimple-8000-monitor-hardware-status.md) 및 [StorSimple 하드웨어 구성 요소 교체](storsimple-8000-hardware-component-replacement.md)로 이동하세요.
 
@@ -239,8 +241,8 @@ StorSimple 디바이스 모델 8600에는 기본 인클로저 외에도 확장 E
 
 StorSimple 디바이스에 연결된 호스트의 고가용성을 위해 이러한 모범 사례를 신중하게 검토해야 합니다.
 
-* [2-노드 파일 서버 클러스터 구성][1]으로 StorSimple을 구성합니다. 호스트 쪽의 중복에서 오류 및 구축의 단일 지점을 제거하여 전체 솔루션 가용성이 높아집니다.
-* 저장소 컨트롤러를 장애 조치하는 동안 고가용성을 위해 Windows Server 2012(SMB 3.0)와 함께 사용할 수 있는 CA(Continuously Available) 공유를 사용합니다. Windows Server 2012를 사용하여 파일 서버 클러스터 및 CA 공유 구성을 위한 추가 정보는 이 [비디오 데모](https://channel9.msdn.com/Events/IT-Camps/IT-Camps-On-Demand-Windows-Server-2012/DEMO-Continuously-Available-File-Shares)를 참조하세요.
+* [2 개 노드 파일 서버 클러스터 구성을][1]사용 하 여 StorSimple을 구성 합니다. 호스트 쪽의 중복에서 오류 및 구축의 단일 지점을 제거하여 전체 솔루션 가용성이 높아집니다.
+* 스토리지 컨트롤러를 장애 조치하는 동안 고가용성을 위해 Windows Server 2012(SMB 3.0)와 함께 사용할 수 있는 CA(Continuously Available) 공유를 사용합니다. Windows Server 2012를 사용하여 파일 서버 클러스터 및 CA 공유 구성을 위한 추가 정보는 이 [비디오 데모](https://channel9.msdn.com/Events/IT-Camps/IT-Camps-On-Demand-Windows-Server-2012/DEMO-Continuously-Available-File-Shares)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

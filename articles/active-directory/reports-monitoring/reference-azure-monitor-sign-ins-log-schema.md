@@ -3,7 +3,7 @@ title: Azure Monitor에서 Azure Active Directory 로그인 로그 스키마 Mic
 description: Azure Monitor에서 사용할 Azure AD 로그인 로그 스키마에 대해 설명 합니다.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/18/2019
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e7ae7e90642a6adfd35e71765e2753334660c56
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 7a82cc4da3b9f4f0c654c95b9889a8bf73fd8ec5
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68261856"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989616"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>Azure Monitor에서 Azure AD 로그인 로그 스키마 해석
 
@@ -143,7 +143,7 @@ ms.locfileid: "68261856"
 
 ## <a name="field-descriptions"></a>필드 설명
 
-| 필드 이름 | 설명 |
+| 필드 이름 | Description |
 |------------|-------------|
 | 시간 | UTC 형식의 날짜 및 시간입니다. |
 | resourceId | 이 값이 매핑 해제되며 이 필드를 안전하게 무시할 수 있습니다.  |

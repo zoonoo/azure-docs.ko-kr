@@ -7,12 +7,12 @@ ms.author: parthp
 ms.service: marketplace
 ms.topic: guide
 ms.date: 07/05/2019
-ms.openlocfilehash: 16ed52aa2b56a97469ae8fc47299f09593b19c45
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: d6a0fec6e2efbd943a9b240df0db2c270a1b7e45
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668337"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68955581"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>파트너 센터에서 상용 마켓플레이스 계정 만들기
 
@@ -71,7 +71,7 @@ ms.locfileid: "68668337"
 
 계정이 [Cloud 파트너 포털 (CPP)](https://cloudpartner.azure.com)에서 마이그레이션된 경우 새 파트너 센터 계정을 만들 필요가 없지만 새 파트너 센터 계정에 대 한 사용자 지정 링크를 전자 메일을 통해 수신 하 고 그 다음에 표시 된 배너 알림을 받게 됩니다. 기존 CPP 계정에 로그인 합니다.
 
-이 사용자 지정 링크를 방문 하 여 새 파트너 센터 계정을 사용 하도록 설정 했으면 파트너 센터의 [상용 마켓플레이스 대시보드](https://partner.microsoft.com/dashboard/commercial-marketplace/) 를 방문 하 여 계정으로 돌아갈 수 있습니다.
+이 사용자 지정 링크를 방문 하 여 새 파트너 센터 계정을 사용 하도록 설정 했으면 파트너 센터의 [상용 마켓플레이스 대시보드](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) 를 방문 하 여 계정으로 돌아갈 수 있습니다.
 
 게시 계약과 회사 프로필 정보는 이전에 설정 된 계정 지급 프로필 정보, 사용자 계정 및 사용 권한, 사용자의 CPP 계정에 연결 된 활성 제품을 비롯 하 여 새 파트너 센터 계정으로 마이그레이션됩니다. 
 

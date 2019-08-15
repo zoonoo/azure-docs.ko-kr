@@ -7,12 +7,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: dacurwin
 manager: carmonm
-ms.openlocfilehash: 6d05b6ac49b372caff1bdc2f03358598fcc1afba
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 8c983772f58c1ea01db175b47225ccfafa515b96
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737079"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68951975"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>MARS(Microsoft Azure Recovery Services) 에이전트를 통한 백업 매트릭스 지원
 
@@ -72,8 +72,8 @@ MARS 에이전트에서 액세스해야 하는 URL은 다음과 같습니다.
 
 MARS 에이전트를 사용 하 여 온-프레미스 컴퓨터 및 Azure Vm에서 실행 되는 일부 운영 체제에서 Azure로 직접 백업할 수 있습니다. 운영 체제는 64 비트 여야 하며, 최신 서비스 팩 및 업데이트를 실행 해야 합니다. 다음 표에는 이러한 운영 체제가 요약 되어 있습니다.
 
-**운영 체제** | **파일/폴더** | **시스템 상태**
---- | --- | ---
+**운영 체제** | **파일/폴더** | **시스템 상태** 
+--- | --- | --- 
 Windows 10(Enterprise, Pro, Home) | 예 | 아니요
 Windows 8.1(Enterprise, Pro)| 예 |아니요
 Windows 8(Enterprise, Pro) | 예 | 아니요

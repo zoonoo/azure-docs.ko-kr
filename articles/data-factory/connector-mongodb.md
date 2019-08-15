@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 03ad098b2f83341150a59247f47b9a4abaa1b9d2
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 86029c5617d2a3c2723e388fb5812a3947166623
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726098"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966942"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Azure Data Factory를 사용하여 MongoDB에서 데이터 복사
 
@@ -34,7 +34,7 @@ MongoDB 데이터베이스에서 지원되는 모든 싱크 데이터 저장소�
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-공개적으로 액세스할 수 없는 MongoDB 데이터베이스에서 데이터를 복사하려면 자체 호스팅 통합 런타임을 설정해야 합니다. 자세한 내용은 [자체 호스팅 통합 런타임](create-self-hosted-integration-runtime.md) 문서를 참조하세요.
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## <a name="getting-started"></a>시작
 
@@ -51,7 +51,7 @@ MongoDB 연결된 서비스에 다음 속성이 지원됩니다.
 | type |type 속성을 다음으로 설정해야 합니다. **MongoDbV2** |예 |
 | connectionString |MongoDB 연결 문자열을 지정합니다(예: `mongodb://[username:password@]host[:port][/[database][?options]]`). 자세한 내용은 [연결 문자열에 대한 MongoDB 설명서](https://docs.mongodb.com/manual/reference/connection-string/)를 참조하세요. <br/><br />이 필드를 **SecureString** 형식으로 표시하여 Data Factory에서 안전하게 저장합니다. [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)할 수도 있습니다. |예 |
 | database | 액세스하려는 데이터베이스 이름입니다. | 예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. 자체 호스팅 Integration Runtime 또는 Azure Integration Runtime을 사용할 수 있습니다(데이터 저장소를 공개적으로 액세스할 수 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [전제 조건](#prerequisites) 섹션에서 자세히 알아보세요. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
 
 **예제:**
 

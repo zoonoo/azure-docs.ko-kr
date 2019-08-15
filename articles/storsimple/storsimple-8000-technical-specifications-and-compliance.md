@@ -14,18 +14,20 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 33becd46747f957cce67fb7b2ace170a9aa402ff
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 061194422a8c1bc449dbef0c4f04bb8e1db10dea
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65606926"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68965281"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>StorSimple 디바이스에 대한 기술 사양 및 규정 준수
 
 ## <a name="overview"></a>개요
 
-Microsoft Azure StorSimple 디바이스의 하드웨어 구성 요소는 이 문서에 설명된 기술 사양 및 규제 표준을 준수합니다. 기술 사양은 PCM(전원 및 냉각 모듈), 디스크 드라이브, 저장소 용량, 엔클로저를 설명합니다. 호환성 정보는 국제 표준, 안전성 및 배출 및 케이블 연결 등의 작업을 다룹니다.
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
+
+Microsoft Azure StorSimple 디바이스의 하드웨어 구성 요소는 이 문서에 설명된 기술 사양 및 규제 표준을 준수합니다. 기술 사양은 PCM(전원 및 냉각 모듈), 디스크 드라이브, 스토리지 용량, 엔클로저를 설명합니다. 호환성 정보는 국제 표준, 안전성 및 배출 및 케이블 연결 등의 작업을 다룹니다.
 
 ## <a name="power-and-cooling-module-specifications"></a>전원 및 냉각 모듈 사양
 
@@ -37,7 +39,7 @@ EBOD 엔클로저는 580 W PCM을 사용하며 기본 엔클로저는 764 W PCM�
 | --- | --- | --- |
 | 최대 출력 전원 |580W |764 |
 | 빈도 |50/60Hz |50/60Hz |
-| 전압 범위 선택 |자동 범위 지정: 90 – 264 V AC, 47/63 Hz |자동 범위 지정: 90- 264 V AC, 47/63 Hz |
+| 전압 범위 선택 |자동 범위: 90 – 264 V AC, 47/63 Hz |자동 범위: 90-264 V AC, 47/63 Hz |
 | 최대 유입 전류 |20A |20A |
 | 전원 요소 수정 |> 95% 정격 입력 전압 |> 95% 정격 입력 전압 |
 | 고주파 |EN61000-3-2를 충족합니다. |EN61000-3-2를 충족합니다. |
@@ -63,9 +65,9 @@ EBOD 엔클로저는 580 W PCM을 사용하며 기본 엔클로저는 764 W PCM�
 
 ## <a name="disk-drive-specifications"></a>디스크 드라이브 사양
 
-StorSimple 디바이스는 최대 12개의 3.5인치 폼 요소 SAS(Serial Attached SCSI) 디스크 드라이브를 지원합니다. 제품 구성에 따라 실제 드라이브는SSD(Solid-State Drives) 또는 HDD(하드 디스크 드라이브)의 혼합일 수 있습니다. 12개의 디스크 드라이브 슬롯이 3 x 4 구성으로 엔클로저 앞에 있습니다. EBOD 엔클로저는 12개의 다른 디스크 드라이브를 위한 추가 저장소를 허용합니다. 항상 HDD입니다.
+StorSimple 디바이스는 최대 12개의 3.5인치 폼 요소 SAS(Serial Attached SCSI) 디스크 드라이브를 지원합니다. 제품 구성에 따라 실제 드라이브는SSD(Solid-State Drives) 또는 HDD(하드 디스크 드라이브)의 혼합일 수 있습니다. 12개의 디스크 드라이브 슬롯이 3 x 4 구성으로 엔클로저 앞에 있습니다. EBOD 엔클로저는 12개의 다른 디스크 드라이브를 위한 추가 스토리지를 허용합니다. 항상 HDD입니다.
 
-## <a name="storage-specifications"></a>저장소 사양
+## <a name="storage-specifications"></a>스토리지 사양
 
 StorSimple 디바이스에는 8100 및 8600에 대한 하드 디스크 드라이브 및 반도체 드라이브가 혼합되어 있습니다. 8100 및 8600에 대한 총 사용 가능한 용량은 각각 약 15TB 및 38TB입니다. 다음 표에서는 SSD, HDD 및 StorSimple 솔루션 용량의 컨텍스트에서 클라우드 용량에 대한 세부 정보를 설명합니다.
 
@@ -149,7 +151,7 @@ Microsoft Azure StorSimple 디바이스에서 다음 국제 표준을 준수합�
 
 Microsoft Azure StorSimple 디바이스는 다음 안전 등급을 만족합니다.
 
-* 시스템 제품 형식 승인: UL, cUL, CE
+* 시스템 제품 유형 승인: UL, cUL, CE
 * 안전 규정 준수: UL 60950, IEC 60950, EN 60950
 
 ## <a name="emc-compliance"></a>EMC 규정 준수
@@ -160,8 +162,8 @@ Microsoft Azure StorSimple 디바이스는 다음 EMC 등급을 만족합니다.
 
 디바이스는 전도성 및 복사성 배출 수준에 대한 EMC 규정을 준수합니다.
 
-* 전도성 방출 제한 수준: CFR 47 파트 15B 클래스 A EN55022 클래스 A CISPR 클래스는
-* 방출 제한 수준 복사 성: CFR 47 파트 15B 클래스 A EN55022 클래스 A CISPR 클래스는
+* 수행 되는 방출 제한 수준: CFR 47 Part 15B 클래스 a EN55022 클래스 a CISPR CLASS A 클래스 a
+* 방출 되는 방출 제한 수준: CFR 47 Part 15B 클래스 a EN55022 클래스 a CISPR CLASS A 클래스 a
 
 ### <a name="harmonics-and-flicker"></a>고주파 및 깜박임
 
@@ -173,7 +175,7 @@ Microsoft Azure StorSimple 디바이스는 다음 EMC 등급을 만족합니다.
 
 ## <a name="ac-power-cord-compliance"></a>AC 전원 코드 규정 준수
 
-플러그와 전체 전원 코드 조립품 장치는 사용 되는, 국가/지역에 대 한 적절 한 표준을 충족 해야 하 고 해당 국가/지역에서 허용 되는 안전 승인을 받아야 합니다. 다음 표에서 미국과 유럽에 대한 표준을 보여줍니다.
+플러그 앤 전체 전원 코드 어셈블리는 장치를 사용 하는 국가/지역에 적합 한 표준을 충족 해야 하며, 해당 국가/지역에서 허용 되는 안전 승인을 보유 해야 합니다. 다음 표에서 미국과 유럽에 대한 표준을 보여줍니다.
 
 ### <a name="ac-power-cords---usa-must-be-nrtl-listed"></a>AC 전원 코드-미국(나열된 NRTL이어야 함)
 

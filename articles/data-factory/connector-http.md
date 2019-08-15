@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 8d6cc131c0c2baf7cc0a6600946870615d99e030
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: a6fa08596f5778b2c188fe3402801cf487b32ae4
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839794"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966993"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 HTTP 엔드포인트에서 데이터 복사
 
@@ -46,6 +46,10 @@ HTTP 원본에서 지원되는 모든 싱크 데이터 저장소로 데이터를
 > [!TIP]
 > Data Factory에서 HTTP 커넥터를 구성하기 전에 데이터 검색을 위한 HTTP 요청을 테스트하려면 헤더 및 본문 요구 사항의 API 사양을 알아봅니다. Postman 또는 웹 브라우저와 같은 도구를 사용하여 유효성을 검사할 수 있습니다.
 
+## <a name="prerequisites"></a>필수 구성 요소
+
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+
 ## <a name="get-started"></a>시작
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
@@ -62,7 +66,7 @@ HTTP 연결된 서비스에 다음 속성이 지원됩니다.
 | url | 웹 서버의 기본 URL입니다. | 예 |
 | enableServerCertificateValidation | HTTP 엔드포인트에 연결할 때 서버 SSL 인증서 유효성 검사를 사용할지 지정합니다. HTTPS 서버에서 자체 서명된 인증서를 사용하는 경우 이 속성을 **false**로 설정합니다. | 아니요<br /> (기본값: **true**) |
 | authenticationType | 인증 유형을 지정합니다. 허용되는 값은 **Anonymous**, **Basic**, **Digest**, **Windows** 및 **ClientCertificate**입니다. <br><br> 이러한 인증 형식의 더 많은 속성 및 JSON 샘플은 이 표 뒤의 섹션을 참조하세요. | 예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 데이터 저장소가 프라이빗 네트워크에 있는 경우, 자체 호스팅 통합 런타임을 사용할 수 있습니다. 지정하지 않으면 이 속성은 기본 Azure Integration Runtime을 사용합니다. |아니요 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. [전제 조건](#prerequisites) 섹션에서 자세히 알아보세요. 지정하지 않으면 기본 Azure Integration Runtime이 사용됩니다. |아니요 |
 
 ### <a name="using-basic-digest-or-windows-authentication"></a>Basic, Digest 또는 Windows 인증 사용
 

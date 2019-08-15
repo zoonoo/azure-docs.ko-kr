@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub 클라우드-장치 메시징 이해 | Microsoft Docs
+title: Azure IoT Hub 클라우드-디바이스 메시징 이해 | Microsoft Docs
 description: 이 개발자 가이드에서는 IoT hub에서 클라우드-장치 메시징을 사용 하는 방법을 설명 합니다. 여기에는 메시지 수명 주기 및 구성 옵션에 대 한 정보가 포함 됩니다.
 author: wesmc7777
 manager: philmea
@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: 4b8df538110f6c0b17a1ed37a2a6063a5b89a6e4
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: d4a51a44b48e94669e92a9d525c1b0966df53c18
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68880990"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68964126"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>IoT hub에서 클라우드-장치 메시지 보내기
 
@@ -57,12 +57,12 @@ IoT hub의 **최대 배달 횟수** 속성은 *큐* 에 대기 중인 상태와 
 
 ## <a name="message-expiration-time-to-live"></a>메시지 만료(TTL(Time To Live))
 
-모든 클라우드-장치 메시지에는 만료 시간이 있습니다. 이 시간은 다음 중 하나로 설정 됩니다.
+모든 클라우드-디바이스 메시지에는 만료 시간이 있습니다. 이 시간은 다음 중 하나로 설정 됩니다.
 
 * 서비스의 **ExpiryTimeUtc** 속성
 * Iot hub는 IoT hub 속성으로 지정 된 기본 ttl ( *time to live* )을 사용 합니다.
 
-[클라우드-장치 구성 옵션](#cloud-to-device-configuration-options)을 참조하세요.
+[클라우드-디바이스 구성 옵션](#cloud-to-device-configuration-options)을 참조하세요.
 
 메시지 만료를 활용 하 여 연결이 끊어진 장치에 메시지를 보내지 않도록 하는 일반적인 방법은 짧은 *시간을 라이브 값으로* 설정 하는 것입니다. 이 방법은 장치 연결 상태를 유지 관리 하는 것과 동일한 결과를 얻을 수 있지만 더 효율적입니다. 메시지 승인을 요청 하면 IoT hub는 다음 장치를 알립니다.
 
@@ -82,11 +82,7 @@ IoT hub의 **최대 배달 횟수** 속성은 *큐* 에 대기 중인 상태와 
 
 **Ack** 값이 *full*인 경우 피드백 메시지를 받지 못하면 피드백 메시지가 만료 되었음을 의미 합니다. 서비스는 원본 메시지에서 발생한 상황을 알지 못합니다. 실제로 서비스는 만료되기 전에 피드백을 처리할 수 있는지 확인해야 합니다. 최대 만료 시간은 2 일 이며, 오류가 발생 하는 경우 서비스를 다시 실행 하는 시간을 유지 합니다.
 
-> [!NOTE]
-> 장치가 삭제 되 면 보류 중인 피드백도 모두 삭제 됩니다.
->
-
-[끝점](iot-hub-devguide-endpoints.md)에 설명 된 대로 IoT hub는 서비스 지향 끝점 ( */messages/servicebound/feedback*)을 통해 피드백을 메시지로 전달 합니다. 피드백 수신을 위한 의미 체계는 클라우드-장치 메시지의 경우와 같습니다. 가능한 경우 메시지 피드백은 다음 형식으로 단일 메시지에서 일괄 처리됩니다.
+[끝점](iot-hub-devguide-endpoints.md)에 설명 된 대로 IoT hub는 서비스 지향 끝점 ( */messages/servicebound/feedback*)을 통해 피드백을 메시지로 전달 합니다. 피드백 수신을 위한 의미 체계는 클라우드-디바이스 메시지의 경우와 같습니다. 가능한 경우 메시지 피드백은 다음 형식으로 단일 메시지에서 일괄 처리됩니다.
 
 | 속성     | Description |
 | ------------ | ----------- |
@@ -101,7 +97,7 @@ IoT hub의 **최대 배달 횟수** 속성은 *큐* 에 대기 중인 상태와 
 | EnqueuedTimeUtc    | 메시지의 결과가 발생 한 시간을 나타내는 타임 스탬프입니다. 예를 들어 허브에서 피드백 메시지를 받았거나 원래 메시지는 만료 됩니다. |
 | OriginalMessageId  | 이 피드백 정보가 관련 된 클라우드-장치 메시지의 *MessageId* |
 | StatusCode         | IoT hub에서 생성 된 피드백 메시지에 사용 되는 필수 문자열: <br/> *성공* <br/> *종료* <br/> *DeliveryCountExceeded* <br/> *되었으므로* <br/> *삭제* |
-| Description        | *StatusCode* 에 대 한 문자열 값 |
+| 설명        | *StatusCode* 에 대 한 문자열 값 |
 | DeviceID           | 이 피드백 부분이 관련 된 클라우드-장치 메시지의 대상 장치에 대 한 *DeviceId* 입니다. |
 | DeviceGenerationId | 이 의견의 일부가 관련 된 클라우드-장치 메시지의 대상 장치에 대 한 *DeviceGenerationId* 입니다. |
 
@@ -126,11 +122,17 @@ IoT hub의 **최대 배달 횟수** 속성은 *큐* 에 대기 중인 상태와 
 ]
 ```
 
-## <a name="cloud-to-device-configuration-options"></a>클라우드-장치 구성 옵션
+**삭제 된 장치에 대 한 보류 중인 피드백**
 
-각 IoT Hub는 클라우드-장치 메시징에 다음 구성 옵션을 노출합니다.
+장치를 삭제 하면 보류 중인 피드백도 모두 삭제 됩니다. 장치 피드백이 일괄 처리로 전송 됩니다. 장치가 메시지 수신을 확인 하 고 다음 피드백 배치가 준비 될 때까지 좁은 기간 (종종 1 초 미만) 내에 장치를 삭제 하는 경우 피드백은 발생 하지 않습니다.
 
-| 속성                  | Description | 범위 및 기본값 |
+장치를 삭제 하기 전에 보류 중인 피드백이 도착할 때까지 대기 하 여이 동작을 처리할 수 있습니다. 장치가 삭제 되 면 관련 메시지 피드백이 손실 되는 것으로 간주 됩니다.
+
+## <a name="cloud-to-device-configuration-options"></a>클라우드-디바이스 구성 옵션
+
+각 IoT Hub는 클라우드-디바이스 메시징에 다음 구성 옵션을 노출합니다.
+
+| 속성                  | 설명 | 범위 및 기본값 |
 | ------------------------- | ----------- | ----------------- |
 | defaultTtlAsIso8601       | 클라우드-장치 메시지에 대 한 기본 TTL | 최대 2 일 (최소 1 분) ISO_8601 간격 기본 1시간 |
 | maxDeliveryCount          | 클라우드-장치 단위 큐의 최대 배달 횟수 | 1 ~ 100; 기본 10 |
@@ -143,4 +145,4 @@ IoT hub의 **최대 배달 횟수** 속성은 *큐* 에 대기 중인 상태와 
 
 클라우드-장치 메시지를 수신 하는 데 사용할 수 있는 Sdk에 대 한 자세한 내용은 [Azure IoT sdk](iot-hub-devguide-sdks.md)를 참조 하세요.
 
-클라우드-장치 메시지를 수신하려면 [클라우드-장치 보내기](iot-hub-csharp-csharp-c2d.md) 자습서를 참조하세요.
+클라우드-디바이스 메시지를 수신하려면 [클라우드-디바이스 보내기](iot-hub-csharp-csharp-c2d.md) 자습서를 참조하세요.

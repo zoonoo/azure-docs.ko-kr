@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: c91c09da31e4ecf42257b8f9c86f25c6ec39b9df
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 1190a0f34206004b72730a6af85bbe5db7d9961a
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68734636"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976780"
 ---
 # <a name="how-to-connect-to-data-sources"></a>데이터 원본에 연결하는 방법
 ## <a name="introduction"></a>소개
@@ -28,7 +28,7 @@ ms.locfileid: "68734636"
 
 목록 보기를 사용하는 경우 메뉴는 포털 창의 위쪽에 있는 검색 표시줄에서 사용 가능합니다.
 
- ![검색 표시줄에서 보고서 관리자로 SQL Server Reporting Services 보고서 열기](./media/data-catalog-how-to-connect/data-catalog-how-to-connect2.png)
+ ![보고서 관리자에서 SQL Server Reporting Services 보고서 열기](./media/data-catalog-how-to-connect/data-catalog-how-to-connect2.png)
 
 ## <a name="supported-client-applications"></a>지원되는 클라이언트 애플리케이션
 Azure Data Catalog 포털에서 데이터 원본에 대한 "열기..." 메뉴를 사용하는 경우 클라이언트 컴퓨터에 올바른 클라이언트 애플리케이션이 설치되어 있어야 합니다.

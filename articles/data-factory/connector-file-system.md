@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 411f5912a2fb83b97fa02ab9b91cee14c3f6cd1b
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 6cd88a58df4334180174fae9f0e651b5281e320e
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840296"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966541"
 ---
 # <a name="copy-data-to-or-from-a-file-system-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 파일 시스템 간에 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -42,7 +42,7 @@ ms.locfileid: "68840296"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-공개적으로 액세스할 수 없는 파일 시스템 간 데이터를 복사하려면 자체 호스팅 Integration Runtime을 설정해야 합니다. 자세한 내용은 [자체 호스팅 Integration Runtime](create-self-hosted-integration-runtime.md)을 참조하세요.
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## <a name="getting-started"></a>시작
 
@@ -60,7 +60,7 @@ ms.locfileid: "68840296"
 | 호스트 | 복사할 폴더의 루트 경로를 지정하고 있습니다. 문자열에서 특수 문자로 이스케이프 문자 "\"를 사용합니다. 예제를 살펴보려면 [연결된 서비스 및 데이터 세트 정의 샘플](#sample-linked-service-and-dataset-definitions) 을 참조하세요. | 예 |
 | userid | 서버에 대한 액세스 권한이 있는 사용자의 ID를 지정합니다. | 예 |
 | password | 사용자(userid)의 암호를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. 자체 호스팅 Integration Runtime 또는 Azure Integration Runtime을 사용할 수 있습니다(데이터 저장소를 공개적으로 액세스할 수 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [전제 조건](#prerequisites) 섹션에서 자세히 알아보세요. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
 
 ### <a name="sample-linked-service-and-dataset-definitions"></a>연결된 서비스 및 데이터 세트 정의 샘플
 

@@ -1,33 +1,30 @@
 ---
 title: Azure Durable Functions 단위 테스트
 description: Durable Functions를 단위 테스트하는 방법을 알아봅니다.
-services: functions
-author: kadimitr
-manager: jeconnoc
-keywords: ''
+author: ggailey777
+manager: gwallace
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.author: kadimitr
-ms.openlocfilehash: 69cf91f1448e36353f83de7a271abb3b53858bb0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: glenga
+ms.openlocfilehash: 0080365853e7a9c74d3ba0e5efb06ce5a3af2a21
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60648468"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967109"
 ---
 # <a name="durable-functions-unit-testing"></a>Durable Functions 단위 테스트
 
 단위 테스트는 최신 소프트웨어 개발 방법의 중요한 부분입니다. 단위 테스트는 비즈니스 논리 동작을 확인하고 향후 중요하지 않은 변경 내용을 도입하지 못하게 방지합니다. Durable Functions는 복잡성이 쉽게 증가할 수 있으므로 단위 테스트를 도입하면 변경 내용을 방지하는 데 도움이 됩니다. 다음 섹션에서는 세 가지 함수 형식 오케스트레이션 클라이언트, 오케스트레이터 및 작업 함수를 단위 테스트하는 방법을 설명합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서의 예제를 살펴보려면 다음과 같은 개념과 프레임워크에 대한 지식이 필요합니다.
 
 * 단위 테스트
 
-* 지속성 함수
+* Durable Functions
 
 * [xUnit](https://xunit.github.io/) - 프레임워크 테스트
 
@@ -91,11 +88,11 @@ ms.locfileid: "60648468"
         });
 ```
 
-모의 `TraceWriter`도 만듭니다.
+모의 `ILogger`도 만듭니다.
 
 ```csharp
-    // Mock TraceWriter
-    var traceWriterMock = new Mock<TraceWriter>(TraceLevel.Info);
+    // Mock ILogger
+    var loggerMock = new Mock<ILogger>();
 
 ```  
 
@@ -111,7 +108,7 @@ ms.locfileid: "60648468"
         },
         durableOrchestrationClientBaseMock.Object,
         functionName,
-        traceWriterMock.Object);
+        loggerMock.Object);
  ```
 
  마지막 단계는 출력을 예상 값과 비교하는 것입니다.

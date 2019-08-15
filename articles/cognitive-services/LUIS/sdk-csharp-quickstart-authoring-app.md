@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 07/17/2019
+ms.date: 08/12/2019
 ms.author: diberry
-ms.openlocfilehash: 19eeb396536925d9667c8dddb09bea779de79555
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 11f40d99a36493272cb6cd51e4a339c19cd0358b
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68707177"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966730"
 ---
 # <a name="quickstart-language-understanding-luis-authoring-client-library-for-net"></a>빠른 시작: .NET용 LUIS(Language Understanding) 작성 클라이언트 라이브러리
 
@@ -75,7 +75,7 @@ ms.locfileid: "68707177"
 애플리케이션 디렉터리 내에서 다음 명령을 사용하여 .NET용 LUIS(Language Understanding) 작성 클라이언트 라이브러리를 설치합니다.
 
 ```console
-dotnet add package Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring -Version 3.0.0
+dotnet add package Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring --version 3.0.0
 ```
 
 Visual Studio IDE를 사용하는 경우 클라이언트 라이브러리는 다운로드 가능한 NuGet 패키지로 제공됩니다.

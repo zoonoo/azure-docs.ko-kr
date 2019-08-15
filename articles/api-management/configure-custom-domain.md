@@ -9,14 +9,14 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 08/01/2019
+ms.date: 08/12/2019
 ms.author: apimpm
-ms.openlocfilehash: b3513ab2583939943ff188b582f57f49530e5ded
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 45e1ad6bd757ec5acaf784c94e4cfb5e487ce9ba
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736252"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68975731"
 ---
 # <a name="configure-a-custom-domain-name"></a>사용자 지정 도메인 이름 구성
 
@@ -34,7 +34,8 @@ Azure API Management 서비스 인스턴스를 만들면 Azure에서 azure-api.n
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 -   API Management 인스턴스입니다. 자세한 내용은 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 참조하세요.
--   사용자가 소유하고 있는 사용자 지정 도메인 이름입니다. 사용하려는 사용자 지정 도메인 이름은 DNS 서버에서 별도로 확보되어 호스트되어야 합니다. 이 항목은 사용자 지정 도메인 이름을 호스트하는 방법에 대해서는 설명하지 않습니다.
+-   사용자 또는 조직에서 소유 하 고 있는 사용자 지정 도메인 이름입니다. 이 항목에서는 사용자 지정 도메인 이름을 지정 하는 방법에 대 한 지침을 제공 하지 않습니다.
+-   사용자 지정 도메인 이름을 API Management 인스턴스의 기본 도메인 이름에 매핑하는 DNS 서버에서 호스트 되는 CNAME 레코드입니다. 이 항목에서는 CNAME 레코드를 호스트 하는 방법에 대 한 지침을 제공 하지 않습니다.
 -   공개 및 프라이빗 키(.PFX)가 있는 유효한 인증서가 있어야 합니다. 주체 또는 SAN (주체 대체 이름)은 도메인 이름과 일치 해야 합니다. 이렇게 하면 API Management 인스턴스가 SSL을 통해 Url을 안전 하 게 노출할 수 있습니다.
 
 ## <a name="use-the-azure-portal-to-set-a-custom-domain-name"></a>Azure Portal을 사용하여 사용자 지정 도메인 이름 설정
@@ -52,13 +53,17 @@ Azure API Management 서비스 인스턴스를 만들면 Azure에서 azure-api.n
     > [!NOTE]
     > 의 **게이트웨이** 끝점만 소비 계층의 구성에 사용할 수 있습니다.
     > 이들 중 일부 또는 모든 엔드포인트를 업데이트할 수 있습니다. 일반적으로 고객은 **게이트웨이** (이 URL은 API Management를 통해 노출 되는 API를 호출 하는 데 사용 됨) 및 **포털** (개발자 포털 URL)을 업데이트 합니다.
-    > **관리** 및 **SCM** 끝점은 API Management 인스턴스 소유자만 내부적으로 사용 되므로 사용자 지정 도메인 이름을 할당 하는 빈도가 낮습니다. **프리미엄** 계층은 **게이트웨이** 끝점에 대 한 여러 호스트 이름 설정을 지원 합니다.
+    > **관리** 및 **SCM** 끝점은 API Management 인스턴스 소유자만 내부적으로 사용 되므로 사용자 지정 도메인 이름을 할당 하는 빈도가 낮습니다.
+    > **프리미엄** 계층은 **게이트웨이** 끝점에 대 한 여러 호스트 이름 설정을 지원 합니다.
 
 1. 업데이트하려는 엔드포인트를 선택합니다.
 1. 오른쪽 창에서 **사용자 지정**을 클릭합니다.
 
-    - **사용자 지정 도메인 이름**에서 사용하려는 이름을 지정합니다. `api.contoso.com` )을 입력합니다. 와일드 카드 도메인 이름 (예: \*. domain.com)도 지원 됩니다.
+    - **사용자 지정 도메인 이름**에서 사용하려는 이름을 지정합니다. `api.contoso.com` )을 입력합니다.
     - **인증서**의 Key Vault에서 인증서를 선택 합니다. 유효한를 업로드할 수도 있습니다. 인증서가 암호로 보호 되는 경우 PFX 파일 및 **암호**를 제공 합니다.
+
+    > [!NOTE]
+    > 와일드 카드 도메인 이름 (예 `*.contoso.com` :)은 소비 계층을 제외한 모든 계층에서 지원 됩니다.
 
     > [!TIP]
     > Azure Key Vault를 사용 하 여 인증서를 관리 하 고이를 autorotate로 설정 하는 것이 좋습니다.
@@ -71,7 +76,7 @@ Azure API Management 서비스 인스턴스를 만들면 Azure에서 azure-api.n
 1. 적용을 클릭합니다.
 
     > [!NOTE]
-    > 배포 크기에 따라, 인증서를 할당하는 과정에 15분 이상 소요될 수 있습니다. 개발자 SKU는 가동 중지되고, 기본 이상의 SKU는 가동 중지되지 않습니다.
+    > 배포 크기에 따라, 인증서를 할당하는 과정에 15분 이상 소요될 수 있습니다. 개발자 SKU에는 가동 중지 시간이 있으며 Basic 이상 Sku에는 가동 중지 시간이 없습니다.
 
 [!INCLUDE [api-management-custom-domain](../../includes/api-management-custom-domain.md)]
 
@@ -79,8 +84,8 @@ Azure API Management 서비스 인스턴스를 만들면 Azure에서 azure-api.n
 
 사용자 지정 도메인 이름에 대 한 DNS를 구성 하는 경우 두 가지 옵션이 있습니다.
 
-- 구성 된 사용자 지정 도메인 이름의 끝점을 가리키는 CNAME 레코드를 구성 합니다.
-- API Management 게이트웨이 IP 주소를 가리키는 A 레코드를 구성 합니다.
+-   구성 된 사용자 지정 도메인 이름의 끝점을 가리키는 CNAME 레코드를 구성 합니다.
+-   API Management 게이트웨이 IP 주소를 가리키는 A 레코드를 구성 합니다.
 
 > [!NOTE]
 > API 관리 인스턴스 IP 주소는 정적 이지만 몇 가지 시나리오에서 변경 될 수 있습니다. 따라서 사용자 지정 도메인을 구성 하는 경우 CNAME을 사용 하는 것이 좋습니다. DNS 구성 방법을 선택할 때 고려해 야 합니다. [API MANANAGEMENT FAQ](https://docs.microsoft.com/azure/api-management/api-management-faq#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules)를 참조 하세요.

@@ -3,7 +3,7 @@ title: Azure AD reporting API 시작 | Microsoft Docs
 description: Azure Active Directory Reporting API를 시작하는 방법
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 8813b911-a4ec-4234-8474-2eef9afea11e
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2ff3e530dae3a6db4b7c84292a25e83c11000baf
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c30669c8f5aeefc14db42a32d87f333419758327
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60286738"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989873"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Azure Active Directory reporting API 시작하기
 
@@ -34,7 +34,7 @@ Azure AD 보고서에 대한 Microsoft Graph API를 사용하면 일련의 REST 
 
 문제가 발생하면 [Azure Active Directory에 대한 지원을 받는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 사용자 작업으로 또는 사용자 작업 없이 보고 API에 액세스하려면 다음이 필요합니다.
 

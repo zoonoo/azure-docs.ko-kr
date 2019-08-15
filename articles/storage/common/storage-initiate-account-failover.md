@@ -9,12 +9,12 @@ ms.date: 02/11/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 51e0379607c49019590a99c9fb7304f28be2afe5
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: d94f6297f27eb3ea130b443ccf94052d391eb46d
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305731"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985332"
 ---
 # <a name="initiate-a-storage-account-failover-preview"></a>스토리지 계정 장애 조치(failover)(미리 보기) 시작
 
@@ -48,7 +48,7 @@ ms.locfileid: "68305731"
 
 Azure Portal에서 계정 장애 조치(failover)를 시작하려면 다음 단계를 수행합니다.
 
-1. 저장소 계정으로 이동합니다.
+1. 스토리지 계정으로 이동합니다.
 2. **설정**에서 **지역 복제**를 선택합니다. 다음 이미지는 스토리지 계정의 지역 복제 및 장애 조치(failover) 상태를 보여 줍니다.
 
     ![지역 복제 및 장애 조치(failover) 상태가 표시된 스크린샷](media/storage-initiate-account-failover/portal-failover-prepare.png)
@@ -68,12 +68,13 @@ PowerShell을 사용하여 계정 장애 조치(failover)를 시작하려면 먼
 
     - **설정**에 있는 **앱 및 기능** 설정을 사용하여 Windows에서 이전에 설치한 Azure PowerShell을 제거합니다.
     - 에서 모든 **Azure** 모듈을 `%Program Files%\WindowsPowerShell\Modules`제거 합니다.
-    
+
 1. 최신 버전의 PowerShellGet이 설치되어 있는지 확인합니다. Windows PowerShell 창을 열고 다음 명령을 실행하여 최신 버전을 설치합니다.
- 
+
     ```powershell
     Install-Module PowerShellGet –Repository PSGallery –Force
     ```
+
 1. PowerShellGet을 설치한 후 PowerShell 창을 닫았다가 다시 엽니다. 
 
 1. Azure PowerShell의 최신 버전을 설치합니다.
@@ -82,14 +83,14 @@ PowerShell을 사용하여 계정 장애 조치(failover)를 시작하려면 먼
     Install-Module Az –Repository PSGallery –AllowClobber
     ```
 
-1. Azure AD를 지원하는 Azure Storage 미리 보기 모듈을 설치합니다.
-   
+1. 계정 장애 조치 (failover)를 지 원하는 Azure Storage 미리 보기 모듈을 설치 합니다.
+
     ```powershell
     Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.1.1-preview –AllowPrerelease –AllowClobber –Force 
     ```
+
 1. PowerShell 창을 닫았다가 다시 엽니다.
  
-
 PowerShell에서 계정 장애 조치(failover)를 시작하려면 다음 명령을 실행합니다.
 
 ```powershell

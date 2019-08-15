@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 7/9/2019
 ms.author: b-juche
-ms.openlocfilehash: 6e425eba3159f8840e1a7960f6a6c3171b1ba163
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 9409beea3f22fd7ff09fe49838a37d9ff0b485f6
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67850419"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68975922"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대한 SMB 볼륨 만들기
 
@@ -45,7 +45,7 @@ Azure NetApp Files에 서브넷을 위임해야 합니다.
     |    AD 웹 서비스    |    9389      |    TCP           |
     |    DNS                |    53        |    TCP           |
     |    DNS                |    53        |    UDP           |
-    |    ICMPv4             |    해당 사항 없음       |    Echo Reply    |
+    |    ICMPv4             |    N/A       |    Echo Reply    |
     |    Kerberos           |    464       |    TCP           |
     |    Kerberos           |    464       |    UDP           |
     |    Kerberos           |    88        |    TCP           |
@@ -85,7 +85,7 @@ Azure NetApp Files에 서브넷을 위임해야 합니다.
         SMB 서버 컴퓨터 계정이 생성 되는 OU (조직 구성 단위)에 대 한 LDAP 경로입니다. 즉, OU = second level, OU = first level입니다. 
     * **사용자 이름** 및 **암호** 를 포함 한 자격 증명
 
-    ![조인 Active Directory](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)
+    ![Active Directory 조인](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)
 
 3. **조인**을 클릭합니다.  
 
@@ -112,7 +112,7 @@ Azure NetApp Files에 서브넷을 위임해야 합니다.
         볼륨을 만들 용량 풀을 지정 합니다.
 
     * **할당량**  
-        볼륨에 할당되는 논리 저장소의 크기를 지정합니다.  
+        볼륨에 할당되는 논리 스토리지의 크기를 지정합니다.  
 
         **사용 가능한 할당량** 필드는 새 볼륨을 만들 때 사용할 수 있는 선택한 용량 풀에서 사용되지 않은 공간의 양을 보여줍니다. 새 볼륨의 크기는 사용 가능한 할당량을 초과해서는 안 됩니다.  
 
@@ -148,4 +148,6 @@ Azure NetApp Files에 서브넷을 위임해야 합니다.
 
 * [Windows 또는 Linux 가상 머신에 대 한 볼륨 탑재 또는 분리](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Azure NetApp Files에 대한 리소스 제한](azure-netapp-files-resource-limits.md)
+* [SMB Faq](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#smb-faqs)
 * [Azure 서비스에 대한 가상 네트워크 통합에 대해 알아보기](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)
+* [Azure CLI를 사용 하 여 새 Active Directory 포리스트 설치](https://docs.microsoft.com/windows-server/identity/ad-ds/deploy/virtual-dc/adds-on-azure-vm)

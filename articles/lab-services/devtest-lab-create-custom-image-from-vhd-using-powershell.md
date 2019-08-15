@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: c1cdb64e4c8c99eeca4cc66c0d0ad2b755144917
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b43dc668af74f532838dad3baf1d6e11d51ac69d
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60201961"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68964073"
 ---
 # <a name="create-a-custom-image-from-a-vhd-file-using-powershell"></a>PowerShell을 사용하여 VHD 파일에서 사용자 지정 이미지 만들기
 
@@ -35,20 +35,20 @@ ms.locfileid: "60201961"
 
 다음 단계는 PowerShell을 사용하여 VHD 파일에서 사용자 지정 이미지를 만드는 과정을 안내합니다.
 
-1. PowerShell 프롬프트에서 로그 다음 호출을 사용 하 여 Azure 계정에는 **Connect AzAccount** cmdlet.
+1. PowerShell 프롬프트에서 **AzAccount** cmdlet에 대 한 다음 호출을 사용 하 여 Azure 계정에 로그인 합니다.
 
     ```powershell
     Connect-AzAccount
     ```
 
-1.  호출 하 여 Azure 구독을 선택 합니다 **선택 AzSubscription** cmdlet. **$subscriptionId** 변수에 대한 다음 자리 표시자를 유효한 Azure 구독 ID로 바꿉니다.
+1.  **AzSubscription** cmdlet을 호출 하 여 원하는 Azure 구독을 선택 합니다. **$subscriptionId** 변수에 대한 다음 자리 표시자를 유효한 Azure 구독 ID로 바꿉니다.
 
     ```powershell
     $subscriptionId = '<Specify your subscription ID here>'
     Select-AzSubscription -SubscriptionId $subscriptionId
     ```
 
-1.  호출 하 여 랩 개체를 가져올는 **Get AzResource** cmdlet. **$labRg** 및 **$labName** 변수에 대한 다음 자리 표시자를 환경에 적합한 값으로 바꿉니다.
+1.  **AzResource** cmdlet을 호출 하 여 랩 개체를 가져옵니다. **$labRg** 및 **$labName** 변수에 대한 다음 자리 표시자를 환경에 적합한 값으로 바꿉니다.
 
     ```powershell
     $labRg = '<Specify your lab resource group name here>'
@@ -56,20 +56,13 @@ ms.locfileid: "60201961"
     $lab = Get-AzResource -ResourceId ('/subscriptions/' + $subscriptionId + '/resourceGroups/' + $labRg + '/providers/Microsoft.DevTestLab/labs/' + $labName)
     ```
 
-1.  랩 객체에서 랩 저장소 계정 및 랩 저장소 계정 키 값을 가져옵니다.
-
-    ```powershell
-    $labStorageAccount = Get-AzResource -ResourceId $lab.Properties.defaultStorageAccount
-    $labStorageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $labStorageAccount.ResourceGroupName -Name $labStorageAccount.ResourceName)[0].Value
-    ```
-
-1.  **$vhdUri** 변수에 대한 다음 자리 표시자를 업로드한 VHD 파일에 대한 URI로 바꿉니다. Azure Portal의 저장소 계정의 Blob 블레이드에서 VHD 파일의 URl를 가져올 수 있습니다.
+1.  **$vhdUri** 변수에 대한 다음 자리 표시자를 업로드한 VHD 파일에 대한 URI로 바꿉니다. Azure Portal의 스토리지 계정의 Blob 블레이드에서 VHD 파일의 URl를 가져올 수 있습니다.
 
     ```powershell
     $vhdUri = '<Specify the VHD URI here>'
     ```
 
-1.  사용 하 여 사용자 지정 이미지 만들기를 **새로 만들기-AzResourceGroupDeployment** cmdlet. **$customImageName** 및 **$customImageDescription** 변수에 대한 다음 자리 표시자를 환경에 의미 있는 이름으로 바꿉니다.
+1.  **AzResourceGroupDeployment** cmdlet을 사용 하 여 사용자 지정 이미지를 만듭니다. **$customImageName** 및 **$customImageDescription** 변수에 대한 다음 자리 표시자를 환경에 의미 있는 이름으로 바꿉니다.
 
     ```powershell
     $customImageName = '<Specify the custom image name>'
@@ -96,10 +89,6 @@ Select-AzSubscription -SubscriptionId $subscriptionId
 $labRg = '<Specify your lab resource group name here>'
 $labName = '<Specify your lab name here>'
 $lab = Get-AzResource -ResourceId ('/subscriptions/' + $subscriptionId + '/resourceGroups/' + $labRg + '/providers/Microsoft.DevTestLab/labs/' + $labName)
-
-# Get the lab storage account and lab storage account key values.
-$labStorageAccount = Get-AzResource -ResourceId $lab.Properties.defaultStorageAccount
-$labStorageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $labStorageAccount.ResourceGroupName -Name $labStorageAccount.ResourceName)[0].Value
 
 # Set the URI of the VHD file.
 $vhdUri = '<Specify the VHD URI here>'

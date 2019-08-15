@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: eece1520a4b7e3bf37e1d209c58b5019921fdb98
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 7591cefddd6e7217c885293a2f5c878d7a82e158
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68884375"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69015959"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Azure Files 배포에 대한 계획
 
@@ -24,7 +24,7 @@ ms.locfileid: "68884375"
 
 ![파일 구조](./media/storage-files-introduction/files-concepts.png)
 
-* **스토리지 계정**: Azure Storage에 대한 모든 액세스는 Storage 계정을 통해 수행됩니다. 저장소 계정 용량에 대한 자세한 내용은 [확장성 및 성능 목표](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)를 참조하세요.
+* **스토리지 계정**: Azure Storage에 대한 모든 액세스는 Storage 계정을 통해 수행됩니다. 스토리지 계정 용량에 대한 자세한 내용은 [확장성 및 성능 목표](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)를 참조하세요.
 
 * **공유**: Azure에서 File Storage 공유는 SMB 파일 공유입니다. 모든 디렉터리 및 파일을 부모 공유에 만들어야 합니다. 계정에는 공유를 무제한 포함할 수 있으며, 공유는 파일 공유의 총 용량까지 파일 수에 제한 없이 저장할 수 있습니다. 표준 파일 공유의 경우 총 용량은 GA (최대 5 TiB) 또는 100 TiB (미리 보기)입니다. 프리미엄 파일 공유의 경우 총 용량은 100 TiB입니다.
 
@@ -61,13 +61,13 @@ Azure Files에는 데이터 보안을 위한 몇 가지 기본 제공 옵션이 
     * SMB 3.0 암호화를 지 원하는 클라이언트는 암호화 된 채널을 통해 데이터를 보내고 받습니다.
     * 암호화를 사용 하 여 SMB 3.0을 지원 하지 않는 클라이언트는 암호화 되지 않은 smb 2.1 또는 SMB 3.0를 통해 데이터 센터 내에서 통신할 수 있습니다. SMB 클라이언트는 암호화 기능이 없는 SMB 3.0 또는 SMB 2.1을 통해 데이터 센터 내에서 통신할 수 없습니다.
     * 클라이언트는 HTTP 또는 HTTPS를 사용하여 파일 REST를 통해 통신할 수 있습니다.
-* 미사용 데이터 암호화([Azure 스토리지 서비스 암호화](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): 모든 스토리지 계정에 대해 SSE(스토리지 서비스 암호화)가 사용하도록 설정됩니다. 미사용 데이터는 완전히 관리되는 키로 암호화됩니다. 미사용 암호화를 사용할 경우 저장소 비용이 증가하거나 성능이 저하되지 않습니다. 
+* 미사용 데이터 암호화([Azure 스토리지 서비스 암호화](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): 모든 스토리지 계정에 대해 SSE(스토리지 서비스 암호화)가 사용하도록 설정됩니다. 미사용 데이터는 완전히 관리되는 키로 암호화됩니다. 미사용 암호화를 사용할 경우 스토리지 비용이 증가하거나 성능이 저하되지 않습니다. 
 * 암호화 된 데이터 전송 시 선택적 요구 사항:이 옵션을 선택 하면 암호화 되지 않은 채널을 통해 데이터에 대 한 액세스를 거부 Azure Files. 구체적으로 말하면, 암호화 연결을 통한 HTTPS 및 SMB 3.0만 허용됩니다.
 
     > [!Important]  
     > 데이터의 보안 전송이 필요한 경우 암호화된 SMB 3.0과 통신할 수 없는 이전 버전의 SMB 클라이언트는 실패합니다. 자세한 내용은 [Windows에 탑재](storage-how-to-use-files-windows.md), [Linux에 탑재](storage-how-to-use-files-linux.md) 및 [macOS에 탑재](storage-how-to-use-files-mac.md)를 참조하세요.
 
-최상의 보안을 위해 최신 클라이언트를 사용하여 데이터에 액세스할 때마다 미사용 시 암호화와 전송 시 데이터 암호화 모두를 항상 사용하는 것이 좋습니다. 예를 들어, SMB 2.1만 지원하는 Windows Server 2008 R2 VM에 공유를 탑재하는 경우 SMB 2.1이 암호화를 지원하지 않기 때문에 저장소 계정에 암호화되지 않은 트래픽을 허용해야 합니다.
+최상의 보안을 위해 최신 클라이언트를 사용하여 데이터에 액세스할 때마다 미사용 시 암호화와 전송 시 데이터 암호화 모두를 항상 사용하는 것이 좋습니다. 예를 들어, SMB 2.1만 지원하는 Windows Server 2008 R2 VM에 공유를 탑재하는 경우 SMB 2.1이 암호화를 지원하지 않기 때문에 스토리지 계정에 암호화되지 않은 트래픽을 허용해야 합니다.
 
 Azure 파일 공유에 액세스하기 위해 Azure 파일 동기화를 사용하는 경우, 미사용 시 데이터 암호화 필요 여부에 관계 없이 항상 암호화된 HTTPS 및 SMB 3.0을 사용하여 데이터를 Windows 서버에 동기화합니다.
 
@@ -101,7 +101,7 @@ Azure Backup는 프리미엄 파일 공유에 사용할 수 있으며 Azure Kube
 
 프리미엄 파일 공유는 고정 GiB/IOPS/처리량 비율을 기준으로 프로비전됩니다. 공유에 프로비전되는 각 GiB당 IOPS 1개, 초당 0.1MiB의 처리량이 공유당 최대 한도까지 지급됩니다. 허용되는 최소 프로비저닝 용량은 100GiB(최소 IOPS/처리량)입니다.
 
-최상의 노력 원칙에 따라 모든 공유는 60분 이상의 기간 동안(공유 크기별로 다름) 프로비전된 저장소 용량(GiB)당 IOPS를 3개까지 버스트할 수 있습니다. 새 공유에는 프로비전된 용량을 기준으로 전체 버스트 크레딧이 초기 제공됩니다.
+최상의 노력 원칙에 따라 모든 공유는 60분 이상의 기간 동안(공유 크기별로 다름) 프로비전된 스토리지 용량(GiB)당 IOPS를 3개까지 버스트할 수 있습니다. 새 공유에는 프로비전된 용량을 기준으로 전체 버스트 크레딧이 초기 제공됩니다.
 
 공유는 1 GiB 증분 단위로 프로 비전 되어야 합니다. 최소 크기는 100 GiB, 다음 크기는 101 GiB 등입니다.
 
@@ -155,26 +155,26 @@ Azure Backup는 프리미엄 파일 공유에 사용할 수 있으며 Azure Kube
 
 ## <a name="file-share-redundancy"></a>파일 공유 중복성
 
-Azure Files 표준 공유는 LRS (로컬 중복 저장소), ZRS (영역 중복 저장소) 및 GRS (지역 중복 저장소)의 세 가지 데이터 중복성 옵션을 지원 합니다.
+Azure Files 표준 공유는 LRS (로컬 중복 저장소), ZRS (영역 중복 저장소), GRS (지역 중복 저장소) 및 GZRS (지역 중복 저장소) (미리 보기)의 세 가지 데이터 중복성 옵션을 지원 합니다.
 
 Azure Files 프리미엄 공유는 LRS (로컬 중복 저장소)만 지원 합니다.
 
 다음 섹션에서는 서로 다른 중복 옵션의 차이점에 대해 설명합니다.
 
-### <a name="locally-redundant-storage"></a>로컬 중복 저장소
+### <a name="locally-redundant-storage"></a>로컬 중복 스토리지
 
 [!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-LRS.md)]
 
-### <a name="zone-redundant-storage"></a>영역 중복 저장소
+### <a name="zone-redundant-storage"></a>영역 중복 스토리지
 
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-ZRS.md)]
 
-### <a name="geo-redundant-storage"></a>지역 중복 저장소
+### <a name="geo-redundant-storage"></a>지역 중복 스토리지
 
 > [!Warning]  
 > Azure 파일 공유를 GRS 스토리지 계정의 클라우드 엔드포인트로 사용하는 경우 스토리지 계정 장애 조치(failover)를 시작하면 안 됩니다. 이러한 계정을 장애 조치(failover)하면 동기화가 더 이상 진행되지 않고, 새로 계층화된 파일의 경우 예기치 않은 데이터 손실이 발생할 수도 있습니다. Azure 지역이 손실되는 경우 Microsoft는 Azure 파일 동기화와 호환되는 방식으로 스토리지 계정의 장애 조치(failover)를 트리거합니다.
 
-GRS(지역 중복 저장소)는 기본 지역에서 수백 마일 떨어진 보조 지역에 데이터를 복제하여 지정된 1년에 걸쳐 99.99999999999999%(16개의 9) 이상의 개체 내구성을 제공하도록 설계되었습니다. 스토리지 계정에서 GRS를 활성화하면 전체 지역 가동 중단 또는 기본 지역을 복구할 수 없는 재해의 경우라도 데이터는 지속됩니다.
+GRS(지역 중복 스토리지)는 기본 지역에서 수백 마일 떨어진 보조 지역에 데이터를 복제하여 지정된 1년에 걸쳐 99.99999999999999%(16개의 9) 이상의 개체 내구성을 제공하도록 설계되었습니다. 스토리지 계정에서 GRS를 활성화하면 전체 지역 가동 중단 또는 기본 지역을 복구할 수 없는 재해의 경우라도 데이터는 지속됩니다.
 
 읽기 액세스 지역 중복 저장소 (RA-GRS)를 옵트인 (opt in) 하는 경우 Azure 파일이 현재 모든 지역에서 읽기 액세스 지역 중복 저장소 (RA-GRS)를 지원 하지 않는다는 것을 알아야 합니다. RA-GRS 저장소 계정의 파일 공유는 GRS 계정에서와 같이 작동 하며 GRS 가격이 청구 됩니다.
 
@@ -182,10 +182,11 @@ GRS는 데이터를 보조 지역의 다른 데이터 센터에 복제하지만,
 
 GRS를 사용 하는 저장소 계정의 경우 모든 데이터는 먼저 LRS (로컬 중복 저장소)를 사용 하 여 복제 됩니다. 업데이트는 먼저 기본 위치에 커밋되고 LRS를 사용하여 복제됩니다. 그런 다음, 업데이트는 GRS를 사용하여 보조 지역에 비동기적으로 복제됩니다. 데이터가 보조 위치에 기록되는 경우 LRS를 사용하여 해당 위치 내에도 복제됩니다.
 
-주 지역 및 보조 지역에서 모두 별도의 장애 도메인에서 복제본을 관리하고, 저장소 배율 단위 내에서 도메인을 업그레이드합니다. 저장소 배율 단위는 데이터 센터 내의 기본 복제 단위입니다. 이 수준의 복제는 LRS에서 제공 됩니다. 자세한 내용은 LRS (로컬 [중복 저장소)를 참조 하세요. Azure Storage에 대한 저렴한 데이터 중복성](../common/storage-redundancy-lrs.md)을 참조하세요.
+주 지역 및 보조 지역에서 모두 별도의 장애 도메인에서 복제본을 관리하고, 스토리지 배율 단위 내에서 도메인을 업그레이드합니다. 스토리지 배율 단위는 데이터 센터 내의 기본 복제 단위입니다. 이 수준의 복제는 LRS에서 제공 됩니다. 자세한 내용은 LRS (로컬 [중복 저장소)를 참조 하세요. Azure Storage에 대한 저렴한 데이터 중복성](../common/storage-redundancy-lrs.md)을 참조하세요.
 
 사용할 복제 옵션을 결정할 때 다음 사항에 유의하세요.
 
+* GZRS (지역 중복 저장소) (미리 보기)는 세 개의 Azure 가용성 영역에서 데이터를 동기적으로 복제 한 다음 데이터를 보조 지역에 비동기적으로 복제 하 여 고가용성과 함께 고가용성을 제공 합니다. 보조 지역에 대 한 읽기 액세스를 사용 하도록 설정할 수도 있습니다. GZRS는 지정 된 연도 동안 최소 99.99999999999999% (16 9의) 개체 내 구성을 제공 하도록 설계 되었습니다. GZRS에 대 한 자세한 내용은 고가용성 [및 최대 내구성 (미리 보기)을 위한 지리적 영역 중복 저장소](../common/storage-redundancy-gzrs.md)를 참조 하세요.
 * ZRS (영역 중복 저장소)는 동기식 복제를 사용 하 여 고가용성을 제공 하며, GRS 보다는 일부 시나리오에서 더 나은 선택이 될 수 있습니다. ZRS에 대한 자세한 내용은 [ZRS](../common/storage-redundancy-zrs.md)를 참조하세요.
 * 비동기 복제에는 데이터가 주 지역에 기록되는 시간에서 보조 지역으로 복제되는 시간까지의 지연이 발생합니다. 지역 재해의 경우 주 지역에서 해당 데이터를 복구할 수 없으면 보조 지역에 아직 복제되지 않은 변경 내용이 손실될 수 있습니다.
 * GRS를 사용하면 Microsoft에서 보조 지역으로 장애 조치(failover)를 시작하지 않는 한 읽기 또는 쓰기를 위해 복제본에 액세스할 수 없습니다. 장애 조치(failover)의 경우 장애 조치가 완료된 후 해당 데이터에 대한 읽기 및 쓰기 액세스 권한이 생성됩니다. 자세한 내용은 [재해 복구 지침](../common/storage-disaster-recovery-guidance.md)을 참조하세요.
@@ -198,7 +199,7 @@ GRS를 사용 하는 저장소 계정의 경우 모든 데이터는 먼저 LRS (
 
 - Azure 미리 보기 [조건은](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) Azure File Sync 배포와 함께 사용 되는 경우를 포함 하 여 미리 보기 상태인 동안 대량 파일 공유에 적용 됩니다.
 - 새 범용 저장소 계정 (기존 저장소 계정을 확장할 수 없음)을 만들어야 합니다.
-- LRS/ZRS to GRS는 더 큰 파일 공유 미리 보기에 구독이 수락 된 후 생성 된 새 저장소 계정에서 사용할 수 없습니다.
+- LRS/ZRS to GRS/GZRS 계정 변환은 더 큰 파일 공유 미리 보기에 구독이 수락 된 후 생성 되는 새 저장소 계정에서 사용할 수 없습니다.
 
 
 ### <a name="regional-availability"></a>지역별 가용성
@@ -214,7 +215,7 @@ GRS를 사용 하는 저장소 계정의 경우 모든 데이터는 먼저 LRS (
 |유럽 서부     |LRS, ZRS|아니요    |예|
 |미국 서부 2       |LRS, ZRS|아니요    |예|
 
-\* 포털을 지원 하지 않는 지역의 경우에도 PowerShell 또는 Azure CLI (명령줄 인터페이스)를 사용 하 여 5 개 보다 큰 TiB 공유를 만들 수 있습니다. Altenatively 할당량을 지정 하지 않고 포털을 통해 새 공유를 만듭니다. 그러면 나중에 PowerShell 또는 Azure CLI를 통해 업데이트 될 수 있는 기본 크기인 100 TiB 공유가 생성 됩니다.
+\* 포털을 지원 하지 않는 지역의 경우에도 PowerShell 또는 Azure CLI (명령줄 인터페이스)를 사용 하 여 5 개 보다 큰 TiB 공유를 만들 수 있습니다. 또는 할당량을 지정 하지 않고 포털을 통해 새 공유를 만듭니다. 그러면 나중에 PowerShell 또는 Azure CLI를 통해 업데이트 될 수 있는 기본 크기인 100 TiB 공유가 생성 됩니다.
 
 새 지역과 기능의 우선 순위를 지정 하는 데 도움이 되도록이 [설문 조사](https://aka.ms/azurefilesatscalesurvey)를 작성해 주세요.
 

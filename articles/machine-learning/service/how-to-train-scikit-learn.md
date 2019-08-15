@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.date: 08/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: e76a747f7e1d7ca7056edf5b69df0677aeff96a1
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 5c44f4ed5cd6488520bf6dd99f502f33049b9b17
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856008"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68962992"
 ---
 # <a name="build-scikit-learn-models-at-scale-with-azure-machine-learning-service"></a>빌드 scikit-Azure Machine Learning 서비스를 사용 하 여 대규모로 모델 학습
 
@@ -192,12 +192,12 @@ model = run.register_model(model_name='sklearn-iris', model_path='model.joblib')
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 scikit를 사용 하 여 기계 학습, 분류 모델을 학습 하 고 등록 했습니다. Azure Machine Learning 서비스에 대해 알아보세요.
 
-* 모델을 배포 하는 방법에 대 한 자세한 내용은 [모델 배포](how-to-deploy-and-where.md) 문서를 참조 하세요.
+이 문서에서는 Azure Machine Learning 서비스에서 Keras 모델을 학습 하 고 등록 했습니다. 모델을 배포 하는 방법에 대 한 자세한 내용은 모델 배포 문서를 참조 하세요.
 
-* 하이퍼 [매개 변수를 조정](how-to-tune-hyperparameters.md)합니다.
-
-* [학습 중 실행 메트릭을 추적](how-to-track-experiments.md)합니다.
-
-* [심층 학습 vs machine learning](concept-deep-learning-vs-machine-learning.md)에 대해 자세히 알아보세요.
+> [!div class="nextstepaction"]
+> [모델을 배포 하는 방법 및 위치](how-to-deploy-and-where.md)
+* [학습 중에 실행 메트릭 추적](how-to-track-experiments.md)
+* [하이퍼 매개 변수 조정](how-to-tune-hyperparameters.md)
+* [학습된 모델 배포](how-to-deploy-and-where.md)
+* [Azure의 분산 심층 학습 교육에 대 한 참조 아키텍처](/azure/architecture/reference-architectures/ai/training-deep-learning)

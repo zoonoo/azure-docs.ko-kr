@@ -1,6 +1,6 @@
 ---
 title: Azure Maps로 맵 만들기 | Microsoft Docs
-description: Javascript 맵을 만드는 방법
+description: Azure Maps 웹 SDK를 사용 하 여 맵을 만드는 방법
 author: jingjing-z
 ms.author: jinzh
 ms.date: 07/26/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 9f1188fcf2aa24791ca5181f5c94a1b0f6b15dc1
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 932c244ff41e757413a05cde019ee7ee1a82232d
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882075"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976113"
 ---
 # <a name="create-a-map"></a>맵 만들기
 
@@ -22,7 +22,7 @@ ms.locfileid: "68882075"
 
 ## <a name="loading-a-map"></a>지도 로드
 
-지도를 로드 하려면 [map 클래스](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)의 새 인스턴스를 만듭니다. 지도를 초기화 하는 경우 지도를 렌더링 하기 위한 DIV 요소 ID와 지도를 로드할 때 사용할 옵션 집합이 전달 됩니다. `atlas` 네임 스페이스에 기본 인증 정보가 지정 되지 않은 경우 지도를 로드할 때 맵 옵션에서이 정보를 지정 해야 합니다. 맵은 성능을 위해 여러 리소스를 비동기적으로 로드 합니다. 따라서 맵 인스턴스를 만든 후에 `ready` 또는 `load` 이벤트를 맵에 연결 하 고 해당 이벤트 처리기에서 맵과 상호 작용 하는 추가 코드를 추가 합니다. 이 `ready` 이벤트는 map에서 프로그래밍 방식으로 상호 작용할 수 있는 충분 한 리소스를 로드 하는 즉시 발생 합니다. 이 `load` 이벤트는 초기 지도 보기의 로드가 완전히 완료 된 후에 발생 합니다. 
+지도를 로드 하려면 [map 클래스](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)의 새 인스턴스를 만듭니다. 맵을 초기화할 때 지도를 렌더링 하기 위한 DIV 요소 ID와 지도를 로드할 때 사용할 옵션 집합이 전달 됩니다. `atlas` 네임 스페이스에 기본 인증 정보가 지정 되지 않은 경우 지도를 로드할 때 맵 옵션에서이 정보를 지정 해야 합니다. 맵은 성능을 위해 여러 리소스를 비동기적으로 로드 합니다. 따라서 맵 인스턴스를 만든 후에 `ready` 또는 `load` 이벤트를 맵에 연결 하 고 해당 이벤트 처리기에서 맵과 상호 작용 하는 추가 코드를 추가 합니다. 이 `ready` 이벤트는 map에서 프로그래밍 방식으로 상호 작용할 수 있는 충분 한 리소스를 로드 하는 즉시 발생 합니다. 이 `load` 이벤트는 초기 지도 보기의 로드가 완전히 완료 된 후에 발생 합니다. 
 
 <br/>
 
@@ -51,7 +51,7 @@ ms.locfileid: "68882075"
 
 ### <a name="set-the-camera"></a>카메라 설정
 
-다음 코드에서는 [Map 개체가](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) 만들어지고 중심 및 확대/축소 옵션이 설정 됩니다. 중심 및 확대/축소 수준과 같은 지도 속성은 [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions)의 일부입니다.
+다음 코드에서는 [Map 개체가](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) 만들어지고 중심 및 확대/축소 옵션이 설정 됩니다. 가운데 및 확대/축소 수준과 같은 지도 속성은 [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions)의 일부입니다.
 
 <br/>
 
@@ -104,3 +104,6 @@ ms.locfileid: "68882075"
 
 > [!div class="nextstepaction"]
 > [지도에 컨트롤 추가](map-add-controls.md)
+
+> [!div class="nextstepaction"]
+> [코드 샘플](https://docs.microsoft.com/samples/browse/?products=azure-maps)

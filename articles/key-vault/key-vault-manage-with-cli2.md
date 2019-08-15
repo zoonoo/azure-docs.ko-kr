@@ -2,19 +2,18 @@
 title: CLI를 사용하여 Azure Key Vault 관리 - Azure Key Vault | Microsoft Docs
 description: 이 문서를 참조하여 Azure CLI를 사용해 Key Vault에서 일반 작업을 자동화할 수 있습니다.
 services: key-vault
-author: barclayn
-manager: barbkess
-tags: azure-resource-manager
+author: msmbaldwin
+manager: rkarlin
 ms.service: key-vault
-ms.topic: conceptual
-ms.date: 01/10/2019
-ms.author: barclayn
-ms.openlocfilehash: d7d76458601b2afecafc1313e334215bf08b6545
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.topic: tutorial
+ms.date: 08/12/2019
+ms.author: mbaldwin
+ms.openlocfilehash: 952126b76b00ff472181c72b1fd7b1a0e1b14e40
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64713840"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976356"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Azure CLI를 사용하여 Key Vault 관리 
 
@@ -65,7 +64,7 @@ az account set -h
 
 ## <a name="how-to-create-a-hardened-container-a-vault-in-azure"></a>Azure에서 확정된 컨테이너(자격 증명 모음)를 만드는 방법
 
-자격 증명 모음은 하드웨어 보안 모듈의 지원을 받는 보안 컨테이너입니다. 자격 증명 모음은 애플리케이션 비밀을 중앙 집중식으로 저장하여 보안 정보의 우발적인 손실 가능성을 줄이는 데 도움이 됩니다. Key Vault는 또한 저장된 모든 것에 대한 액세스를 제어하고 기록합니다. Azure Key Vault는 TLS(전송 계층 보안) 인증서의 요청 및 갱신을 처리할 수 있으므로, 강력한 인증서 수명 주기 관리 솔루션에 필요한 기능을 제공합니다. 다음 단계에서는 자격 증명 모음을 만듭니다.
+자격 증명 모음은 하드웨어 보안 모듈의 지원을 받는 보안 컨테이너입니다. 자격 증명 모음은 애플리케이션 비밀을 중앙 집중식으로 스토리지하여 보안 정보의 우발적인 손실 가능성을 줄이는 데 도움이 됩니다. Key Vault는 또한 저장된 모든 것에 대한 액세스를 제어하고 기록합니다. Azure Key Vault는 TLS(전송 계층 보안) 인증서의 요청 및 갱신을 처리할 수 있으므로, 강력한 인증서 수명 주기 관리 솔루션에 필요한 기능을 제공합니다. 다음 단계에서는 자격 증명 모음을 만듭니다.
 
 ### <a name="connect-to-your-subscriptions"></a>구독에 연결
 

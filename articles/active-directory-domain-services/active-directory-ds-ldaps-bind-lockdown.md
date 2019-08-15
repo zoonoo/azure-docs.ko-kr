@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: iainfou
-ms.openlocfilehash: df0b3d27eec478280a33be831a2431eccdf05a74
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: cbc5bee0f4cc59f59af6e3f57219279cd8fcb030
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67483381"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68988573"
 ---
 # <a name="bind-to-an-azure-ad-domain-services-managed-domain-using-secure-ldap-ldaps"></a>보안 LDAP(LDAPS)를 사용하여 Azure AD Domain Services 관리되는 도메인에 바인딩
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 [작업 4: 인터넷에서 관리되는 도메인에 액세스하도록 DNS 구성](active-directory-ds-ldaps-configure-dns.md)을 완료합니다.
 
 
@@ -36,7 +36,7 @@ ms.locfileid: "67483381"
 다음으로 관리되는 도메인에 바인딩합니다. **연결**을 클릭하고 메뉴에서 **바인딩...** 을 클릭합니다. ‘AAD DC 관리자’ 그룹에 속한 사용자 계정의 자격 증명을 제공합니다.
 
 > [!IMPORTANT]
-> 사용자 (및 서비스 계정)는 Azure AD Domain Services 인스턴스에서 NTLM 암호 해시 동기화를 해제 한 경우 LDAP 단순 바인딩을 수행할 수 없습니다.  NTLM 암호 해시 동기화를 사용 하지 않도록 설정 하는 방법은 읽을 [Azure AD DOmain Services 관리 되는 도메인 보안](secure-your-domain.md)합니다.
+> Azure AD Domain Services 인스턴스에서 NTLM 암호 해시 동기화를 사용 하지 않도록 설정한 경우 사용자 및 서비스 계정에서 LDAP 단순 바인딩을 수행할 수 없습니다.  NTLM 암호 해시 동기화를 사용 하지 않도록 설정 하는 방법에 대 한 자세한 내용은 [관리 되는 Azure AD Domain Services 보안](secure-your-domain.md)을 참조 하세요.
 >
 >
 
@@ -70,7 +70,7 @@ ms.locfileid: "67483381"
 
 ## <a name="related-content"></a>관련 콘텐츠
 * [Azure AD Domain Services - 시작 가이드](create-instance.md)
-* [Azure AD Domain Services 도메인을 관리 합니다.](manage-domain.md)
+* [Azure AD Domain Services 도메인 관리](manage-domain.md)
 * [LDAP query basics](https://docs.microsoft.com/windows/desktop/ad/creating-a-query-filter)(LDAP 쿼리 기본 사항)
 * [Azure AD Domain Services에 대 한 그룹 정책 관리](manage-group-policy.md)
 * [네트워크 보안 그룹](../virtual-network/security-overview.md)

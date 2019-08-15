@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: dacurwin
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 7a69fc7c9077fa10ddf808f1cd953f6739eabe20
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 701972c32f3e80682e2a20d04b02bcd555532e08
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688719"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954991"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>REST API를 통해 Azure Backup을 사용하여 Azure VM 백업
 
-이 문서에서는 REST API를 통해 Azure Backup을 사용하여 Azure VM의 백업을 관리하는 방법을 설명합니다. 이전에 보호되지 않는 Azure VM에 대한 보호를 처음으로 구성하고, 보호된 Azure VM에 대한 주문형 백업을 트리거하고, 여기에 설명된 대로 REST API를 통해 백업된 VM의 백업 속성을 수정합니다.
+이 문서에서는 REST API를 통해 Azure Backup을 사용하여 Azure VM의 백업을 관리하는 방법을 설명합니다. 이전에 보호 되지 않은 Azure VM에 대해 처음으로 보호를 구성 하 고, 보호 된 Azure VM에 대 한 주문형 백업을 트리거하고 여기에 설명 된 대로 REST API를 통해 백업 된 VM의 백업 속성을 수정 합니다.
 
 새 자격 증명 모음 및 정책 만들기는 [자격 증명 모음 만들기](backup-azure-arm-userestapi-createorupdatevault.md) 및 [정책 만들기](backup-azure-arm-userestapi-createorupdatepolicy.md) REST API 자습서를 참조하세요.
 
@@ -98,7 +98,7 @@ X-Powered-By: ASP.NET
 
 ### <a name="selecting-the-relevant-azure-vm"></a>관련 Azure VM 선택
 
- 구독에서 [모든 보호 가능한 항목 나열하기](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list)에서 "캐싱"을 수행했는지 확인하고 응답에서 원하는 VM을 찾을 수 있습니다. [이 작업의 응답](#example-responses-1)은 또한 Recovery Services가 VM을 식별하는 방법에 대한 정보를 제공합니다.  패턴에 친숙해지면 이 단계를 건너뛰고 직접 [보호 활성화](#enabling-protection-for-the-azure-vm)를 진행할 수 있습니다.
+ 구독에서 [모든 보호 가능한 항목 나열하기](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list)에서 "캐싱"을 수행했는지 확인하고 응답에서 원하는 VM을 찾을 수 있습니다. [이 작업의 응답으로](#example-responses-1) VM Recovery Services 식별 하는 방법에 대 한 정보도 제공 됩니다.  패턴에 친숙해지면 이 단계를 건너뛰고 직접 [보호 활성화](#enabling-protection-for-the-azure-vm)를 진행할 수 있습니다.
 
 이 작업은 *GET* 작업입니다.
 
@@ -110,7 +110,7 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 ##### <a name="responses-1"></a>보낸
 
-|이름  |형식  |Description  |
+|이름  |형식  |설명  |
 |---------|---------|---------|
 |200 정상     | [WorkloadProtectableItemResourceList](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       확인 |
 
@@ -393,7 +393,7 @@ X-Powered-By: ASP.NET
 
 ### <a name="changing-the-policy-of-protection"></a>보호 정책 변경
 
-VM을 보호하는 정책을 변경하려면 [보호 사용](#enabling-protection-for-the-azure-vm)과 동일한 형식을 사용할 수 있습니다. [요청 본문](#example-request-body)의 새 정책 ID를 제공하고 요청을 제출합니다. 예를 들면 다음과 같습니다. TestVM의 정책을 ' DefaultPolicy '에서 ' ProdPolicy '로 변경 하려면 요청 본문에 ' ProdPolicy ' id를 제공 합니다.
+VM을 보호하는 정책을 변경하려면 [보호 사용](#enabling-protection-for-the-azure-vm)과 동일한 형식을 사용할 수 있습니다. [요청 본문](#example-request-body)의 새 정책 ID를 제공하고 요청을 제출합니다. 예를 들어: TestVM의 정책을 ' DefaultPolicy '에서 ' ProdPolicy '로 변경 하려면 요청 본문에 ' ProdPolicy ' ID를 제공 합니다.
 
 ```http
 {

@@ -1,6 +1,6 @@
 ---
 title: Azure Maps로 방향 표시 | Microsoft Docs
-description: Javascript 맵에서 두 위치 간의 방향을 표시하는 방법
+description: Azure Maps 웹 SDK를 사용 하 여 맵의 두 위치 사이에 방향을 표시 하는 방법입니다.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: codepen
-ms.openlocfilehash: 65f8337585e0a4d1077897274fd07505024af22c
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: cf997d4ae120f3e9309892b112f9954bde97bc76
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638953"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976481"
 ---
 # <a name="show-directions-from-a-to-b"></a>A에서 B로의 방향 표시
 
@@ -39,7 +39,7 @@ ms.locfileid: "68638953"
 
 [기호 계층](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest)은 텍스트 또는 아이콘을 사용하여 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest)에 래핑된 점 기반 데이터를 지도에 기호로 렌더링합니다. 다섯 번째 코드 블록은 지도에 기호 계층을 만들고 추가 합니다.
 
-여섯 번째 코드 블록은 [서비스 모듈](how-to-use-services-module.md)의 일부인 Azure Maps 라우팅 서비스를 쿼리 합니다. RouteURL의 [calculateRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routeurl?view=azure-iot-typescript-latest#methods) 메서드는 시작점과 끝점 간의 경로를 가져오는 데 사용 됩니다. 그런 다음 응답에서 GeoJSON feature 컬렉션은 메서드를 `geojson.getFeatures()` 사용 하 여 추출 되 고 datasource에 추가 됩니다. 그런 다음, 응답을 지도에 경로로 렌더링합니다. 지도에 선을 추가하는 방법에 대한 자세한 내용은 [지도에 선 추가](./map-add-shape.md#addALine)를 참조하세요.
+여섯 번째 코드 블록은 [서비스 모듈](how-to-use-services-module.md)의 일부인 Azure Maps 라우팅 서비스를 쿼리 합니다. RouteURL의 [calculateRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routeurl?view=azure-iot-typescript-latest#methods) 메서드는 시작점과 끝점 간의 경로를 가져오는 데 사용 됩니다. 그런 다음 응답에서 GeoJSON feature 컬렉션은 메서드를 `geojson.getFeatures()` 사용 하 여 추출 되 고 datasource에 추가 됩니다. 그런 다음, 응답을 지도에 경로로 렌더링합니다. 지도에 선을 추가하는 방법에 대한 자세한 내용은 [지도에 선 추가](map-add-line-layer.md)를 참조하세요.
 
 마지막 코드 블록은 지도의 [Setcamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) 속성을 사용 하 여 지도의 범위를 설정 합니다.
 
@@ -62,7 +62,7 @@ ms.locfileid: "68638953"
 
 다음 코드 블록은 시작 및 대상 지점에서 `SouthWest` 및 `NorthEast` 지점을 만들고 Map의 [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) 속성을 사용하여 지도의 경계를 설정합니다.
 
-마지막 코드 블록은 [FETCH api](https://fetch.spec.whatwg.org/) 를 사용 하 여 [Azure Maps 경로 api](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)에 대 한 검색 요청을 수행 합니다. 그런 다음 응답을 구문 분석 합니다. 응답이 성공한 경우 위도 및 경도 정보를 사용 하 여 해당 점에 연결 하 여 배열을 만듭니다. 그런 다음 데이터 원본에 선 데이터를 추가 하 여 맵에 경로를 렌더링 합니다. 지침은 [맵에 선 추가](./map-add-shape.md#addALine)를 참조하세요.
+마지막 코드 블록은 [FETCH api](https://fetch.spec.whatwg.org/) 를 사용 하 여 [Azure Maps 경로 api](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)에 대 한 검색 요청을 수행 합니다. 그런 다음 응답을 구문 분석 합니다. 응답이 성공한 경우 위도 및 경도 정보를 사용 하 여 해당 점에 연결 하 여 배열을 만듭니다. 그런 다음 데이터 원본에 선 데이터를 추가 하 여 맵에 경로를 렌더링 합니다. 지침은 [맵에 선 추가](map-add-line-layer.md)를 참조하세요.
 
 맵이 완전히 로드된 후 결과가 표시되도록 경로 쿼리, 데이터 원본, 기호, 선 계층 및 카메라 범위가 맵의 [이벤트 수신기](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) 내에 생성되고 설정됩니다.
 

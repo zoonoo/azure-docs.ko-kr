@@ -10,21 +10,21 @@ ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 109c2817b95f535acfb3d6987a7dad57135ee7a0
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: a681daa60503ff08320b25155e201ca0e7a4a001
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478633"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952989"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>변경 내용 추적 솔루션으로 사용자 환경의 변경 내용 추적
 
 이 문서에서는 변경 내용 추적 솔루션을 사용하여 사용자 환경의 변경 내용을 쉽게 식별할 수 있습니다. 이 솔루션은 Windows 및 Linux 소프트웨어, Windows 및 Linux 파일, Windows 레지스트리 키, Windows 서비스 및 Linux 디먼의 변경 내용을 추적합니다. 구성 변경 내용을 식별하면 운영 문제를 쉽게 특정할 수 있습니다.
 
-Linux 디먼 모니터링 되는 서버에 설치 된 소프트웨어, Windows 서비스, Windows 레지스트리 및 파일을 변경 처리를 위해 클라우드에서 Azure Monitor 서비스에 전송 됩니다. 논리는 수신된 데이터에 적용되며 클라우드 서비스는 데이터를 기록합니다. 변경 내용 추적 대시보드의 정보를 사용하여 서버 인프라에서 수행한 변경 내용을 쉽게 확인할 수 있습니다.
+모니터링 되는 서버에서 설치 된 소프트웨어, Windows 서비스, Windows 레지스트리 및 파일 및 Linux 디먼에 대 한 변경 내용은 클라우드의 Azure Monitor 서비스로 전송 되어 처리 됩니다. 논리는 수신된 데이터에 적용되며 클라우드 서비스는 데이터를 기록합니다. 변경 내용 추적 대시보드의 정보를 사용하여 서버 인프라에서 수행한 변경 내용을 쉽게 확인할 수 있습니다.
 
 > [!NOTE]
-> Azure Automation 변경 내용 추적 virtual machines의 변경 내용을 추적합니다. Azure Resource Manager 속성 변경 내용을 추적 하려면 Azure 리소스 그래프를 볼 [변경 내용](../governance/resource-graph/how-to/get-resource-changes.md)합니다.
+> Azure Automation 변경 내용 추적는 가상 컴퓨터의 변경 내용을 추적 합니다. Azure Resource Manager 속성 변경 내용을 추적 하려면 Azure 리소스 그래프의 [변경 기록](../governance/resource-graph/how-to/get-resource-changes.md)을 참조 하세요.
 
 ## <a name="supported-windows-operating-systems"></a>지원되는 Windows 운영 체제
 
@@ -34,7 +34,7 @@ Windows 에이전트에 대해 다음 버전의 Windows 운영 체제가 공식�
 
 ## <a name="supported-linux-operating-systems"></a>지원되는 Linux 운영 체제
 
-다음 Linux 배포판이 공식적으로 지원됩니다. 하지만 Linux 에이전트는 나열되지 않은 그 밖의 배포에서 실행이 가능할 수 있습니다. 다른 설명이 없는 한, 나열된 각 주 버전의 모든 부 버전이 지원됩니다.  
+다음 Linux 배포판이 공식적으로 지원됩니다. 하지만 Linux 에이전트는 나열되지 않은 그 밖의 배포에서 실행이 가능할 수 있습니다. 다른 설명이 없는 한, 나열된 각 주 버전의 모든 부 버전이 지원됩니다.
 
 ### <a name="64-bit"></a>64비트
 
@@ -69,6 +69,24 @@ Windows 에이전트에 대해 다음 버전의 Windows 운영 체제가 공식�
 
 Windows 및 Linux 모두에서 파일의 변경 내용 추적을 위해 파일의 MD5 해시를 사용합니다. 그런 다음, 이 해시를 사용하여 마지막 인벤토리 이후 변경이 있는지 검색합니다.
 
+### <a name="file-integrity-monitoring-in-azure-security-center"></a>Azure Security Center에서 파일 무결성 모니터링
+
+Azure Security Center Azure 변경 내용 추적에서 빌드된 FIM (파일 무결성 모니터링)을 추가 했습니다. FIM은 파일 및 레지스트리만 모니터링 하지만 전체 변경 내용 추적 솔루션에는 다음도 포함 됩니다.
+
+- 소프트웨어 변경
+- Windows 서비스
+- Linux 데몬
+
+이미 FIM을 사용 하도록 설정 했 고 전체 변경 내용 추적 솔루션을 사용해 보려는 경우 다음 단계를 수행 해야 합니다. 이 프로세스에서는 설정이 제거 되지 않습니다.
+
+> [!NOTE]
+> 전체 변경 내용 추적 솔루션을 사용 하도록 설정 하면 추가 요금이 발생할 수 있습니다. 자세한 내용은 [Automation 가격 책정](https://azure.microsoft.com/en-us/pricing/details/automation/)을 참조 하세요.
+
+1. 작업 영역으로 이동 하 여 [설치 된 모니터링 솔루션 목록](../azure-monitor/insights/solutions.md#list-installed-monitoring-solutions)에서 해당 작업 영역을 찾아 모니터링 솔루션을 제거 합니다.
+2. 솔루션 이름을 클릭 하 여 요약 페이지를 열고 [모니터링 솔루션 제거](../azure-monitor/insights/solutions.md#remove-a-monitoring-solution)에 설명 된 대로 삭제를 클릭 합니다.
+3. Automation 계정으로 이동 하 고 **구성 관리**아래의 리소스 메뉴에서 **변경 내용 추적** 를 선택 하 여 솔루션을 다시 사용 하도록 설정 합니다.
+4. 작업 영역 설정 세부 정보를 확인 하 고 **사용**을 클릭 합니다.
+
 ### <a name="configure-linux-files-to-track"></a>추적할 Linux 파일 구성
 
 다음 단계를 사용하여 Linux 컴퓨터에서 추적할 파일을 구성합니다.
@@ -77,10 +95,10 @@ Windows 및 Linux 모두에서 파일의 변경 내용 추적을 위해 파일�
 2. **변경 내용 추적** 페이지에서 **Linux 파일**을 선택한 다음, **+ 추가**를 클릭하여 추적할 새 파일을 추가합니다.
 3. **변경 내용 추적에 대해 Linux 파일 추가**에서 추적할 파일 또는 디렉터리에 대한 정보를 입력하고, **저장**을 클릭합니다.
 
-|자산  |설명  |
+|속성  |설명  |
 |---------|---------|
-|사용     | 설정이 적용되는지 여부를 결정합니다.        |
-|Item Name     | 추적할 파일의 이름입니다.        |
+|Enabled     | 설정이 적용되는지 여부를 결정합니다.        |
+|항목 이름     | 추적할 파일의 이름입니다.        |
 |그룹     | 논리적으로 파일을 그룹화하는 그룹 이름입니다.        |
 |경로 입력     | 파일을 확인할 경로입니다. 예: "/etc/* .conf"       |
 |경로 유형     | 추적할 항목 유형이며, 가능한 값은 File 및 Directory입니다.        |
@@ -100,10 +118,10 @@ Windows 및 Linux 모두에서 파일의 변경 내용 추적을 위해 파일�
 2. **변경 내용 추적** 페이지에서 **Windows 파일**을 선택한 다음, **+ 추가**를 클릭하여 추적할 새 파일을 추가합니다.
 3. **변경 내용 추적에 대해 Windows 파일 추가**에서 추적할 파일에 대한 정보를 입력하고, **저장**을 클릭합니다.
 
-|자산  |설명  |
+|속성  |Description  |
 |---------|---------|
-|사용     | 설정이 적용되는지 여부를 결정합니다.        |
-|Item Name     | 추적할 파일의 이름입니다.        |
+|Enabled     | 설정이 적용되는지 여부를 결정합니다.        |
+|항목 이름     | 추적할 파일의 이름입니다.        |
 |그룹     | 논리적으로 파일을 그룹화하는 그룹 이름입니다.        |
 |경로 입력     | 파일을 확인할 경로입니다(예: "c:\temp\\\*.txt").<br>"%winDir%\System32\\\*.*"와 같은 환경 변수도 사용할 수 있습니다.       |
 |재귀     | 추적할 항목을 찾을 때 재귀가 사용되는지 결정합니다.        |
@@ -132,12 +150,12 @@ Windows 및 Linux 모두에서 파일의 변경 내용 추적을 위해 파일�
 2. **변경 내용 추적** 페이지에서 **Windows 레지스트리**를 선택한 다음, **+ 추가**를 클릭하여 추적할 새 레지스트리 키를 추가합니다.
 3. **변경 내용 추적에 대해 Windows 레지스트리 추가**에서 추적할 키에 대한 정보를 입력하고 **저장**을 클릭합니다.
 
-|자산  |설명  |
+|속성  |Description  |
 |---------|---------|
-|사용     | 설정이 적용되는지 여부를 결정합니다.        |
-|Item Name     | 추적할 레지스트리 키의 식별 이름입니다.        |
+|Enabled     | 설정이 적용되는지 여부를 결정합니다.        |
+|항목 이름     | 추적할 레지스트리 키의 식별 이름입니다.        |
 |그룹     | 논리적으로 레지스트리 키를 그룹화하는 그룹 이름입니다.        |
-|Windows 레지스트리 키   | 레지스트리 키를 확인할 경로입니다. 예를 들면 다음과 같습니다. "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
+|Windows 레지스트리 키   | 레지스트리 키를 확인할 경로입니다. 예를 들어: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
 
 ## <a name="limitations"></a>제한 사항
 
@@ -158,31 +176,31 @@ Windows 및 Linux 모두에서 파일의 변경 내용 추적을 위해 파일�
 변경 내용 추적 솔루션에 현재 다음과 같은 문제가 있습니다.
 
 * Windows Server 2016 Core RS3 컴퓨터에서 핫픽스 업데이트가 수집되지 않습니다.
-* Linux 데몬 변경 된 경우에 변경 된 상태를 표시할 수 있습니다. 이 방법으로 인해는 `SvcRunLevels` 필드 캡처됩니다.
+* 변경 내용이 없는 경우에도 Linux 디먼는 변경 된 상태를 표시할 수 있습니다. 이는 `SvcRunLevels` 필드를 캡처하는 방식 때문입니다.
 
 ## <a name="change-tracking-data-collection-details"></a>변경 내용 추적 데이터 수집 정보
 
 다음 테이블에서는 변경 형식에 대한 데이터 컬렉션 빈도를 보여 줍니다. 모든 유형에 대해 현재 상태의 데이터 스냅샷은 최소한 24시간마다 새로 고쳐집니다.
 
-| **변경 유형** | **Frequency(빈도)** |
+| **변경 유형** | **빈도** |
 | --- | --- |
 | Windows 레지스트리 | 50분 |
 | Windows 파일 | 30분 |
 | Linux 파일 | 15분 |
-| Windows 서비스 | 10초에서 30분</br> Default: 30분 |
+| Windows 서비스 | 10초에서 30분</br> 기본값: 30분 |
 | Linux 데몬 | 5분 |
 | Windows 소프트웨어 | 30분 |
 | Linux 소프트웨어 | 5분 |
 
 다음 표는 변경 내용 추적에 대한 머신당 추적된 항목 한도를 보여 줍니다.
 
-| **리소스** | **제한**| **참고 사항** |
+| **Resource** | **제한**| **참고** |
 |---|---|---|
 |파일|500||
 |레지스트리|250||
 |Windows 소프트웨어|250|소프트웨어 업데이트를 포함하지 않음|
 |Linux 패키지|1250||
-|Services|250||
+|서비스|250||
 |디먼|250||
 
 변경 내용 추적 및 인벤토리를 사용하는 머신의 평균 Log Analytics 데이터 사용량은 월별 약 40MB입니다. 이 값은 근사값이며, 사용자 환경에 따라 변경될 수 있습니다. 사용자 환경을 모니터링하여 정확한 사용량을 확인하는 것이 좋습니다.
@@ -197,7 +215,7 @@ Windows 서비스에 대한 기본 컬렉션 빈도는 30분입니다. 빈도를
 
 > [!NOTE]
 > 에이전트가 10초 간격으로 변경 내용을 추적하는 동안 데이터를 포털에 표시하는 데 몇 분 정도가 걸립니다. 포털에 표시하는 시간 동안 변경 내용이 추적되고 기록됩니다.
-  
+
 ### <a name="registry-key-change-tracking"></a>레지스트리 키 변경 내용 추적
 
 레지스트리 키의 변경 내용을 모니터링하는 목적은 타사 코드 및 맬웨어가 활성화될 수 있는 확장성 지점을 정확하게 찾기 위한 것입니다. 다음 목록에서는 미리 구성된 레지스트리 키의 목록을 보여 줍니다. 이러한 키는 구성되어 있지만 사용할 수 없습니다. 이러한 레지스트리 키를 추적하려면 각 레지스트리 키를 사용하도록 설정해야 합니다.
@@ -255,7 +273,7 @@ Windows 서비스에 대한 기본 컬렉션 빈도는 30분입니다. 빈도를
 
 솔루션을 사용하도록 설정되면 Automation 계정의 **구성 관리** 아래에서 **변경 내용 추적**을 선택하여 모니터링되는 컴퓨터에 대한 변경 내용 요약을 볼 수 있습니다.
 
-컴퓨터에 대한 변경 내용을 확인한 다음, 각 이벤트에 대한 세부 정보를 살펴볼 수 있습니다. 차트 위쪽의 드롭다운을 사용하여 변경 유형 및 시간 범위에 따라 차트 및 세부 정보를 제한할 수 있습니다. 또한 차트를 클릭하고 끌어서 사용자 지정 시간 범위를 선택할 수도 있습니다. **형식 변경** 다음 값 중 하나로 설정 됩니다 **이벤트**, **디먼**를 **파일**를 **레지스트리**,  **소프트웨어**하십시오 **Windows 서비스**합니다. 범주 변경 유형을 표시 하 고 수 **Added**를 **Modified**, 또는 **제거**합니다.
+컴퓨터에 대한 변경 내용을 확인한 다음, 각 이벤트에 대한 세부 정보를 살펴볼 수 있습니다. 차트 위쪽의 드롭다운을 사용하여 변경 유형 및 시간 범위에 따라 차트 및 세부 정보를 제한할 수 있습니다. 또한 차트를 클릭하고 끌어서 사용자 지정 시간 범위를 선택할 수도 있습니다. **변경 유형** 은 **이벤트**, **디먼**, **파일**, **레지스트리**, **소프트웨어**, **Windows 서비스**값 중 하나입니다. 범주는 변경 유형을 표시 하며 **추가**, **수정**또는 **제거할**수 있습니다.
 
 ![변경 내용 추적 대시보드의 이미지](./media/change-tracking/change-tracking-dash01.png)
 
@@ -265,20 +283,20 @@ Windows 서비스에 대한 기본 컬렉션 빈도는 30분입니다. 빈도를
 
 ## <a name="search-logs"></a>로그 검색
 
-포털에서 제공하는 세부 정보 외에도 로그에 대한 검색을 수행할 수 있습니다. 사용 하 여는 **변경 내용 추적** 페이지 열기를 클릭 **Log Analytics**, 그러면 합니다 **로그** 페이지.
+포털에서 제공하는 세부 정보 외에도 로그에 대한 검색을 수행할 수 있습니다. **변경 내용 추적** 페이지가 열려 있는 상태에서 **Log Analytics**를 클릭 하면 **로그** 페이지가 열립니다.
 
 ### <a name="sample-queries"></a>샘플 쿼리
 
 다음 표에서는 이 솔루션에서 수집된 변경 레코드에 대한 로그 검색 샘플을 제공합니다.
 
-|쿼리  |설명  |
+|Query  |설명  |
 |---------|---------|
 |ConfigurationData<br>&#124; where   ConfigDataType == "WindowsServices" and SvcStartupType == "자동"<br>&#124; where SvcState == "중지됨"<br>&#124; summarize arg_max(TimeGenerated, *) by SoftwareName, Computer         | Auto로 설정되었지만 Stopped로 보고된 Windows 서비스에 대한 최근의 인벤토리 레코드를 표시합니다.<br>결과는 해당 SoftwareName 및 Computer에 대한 최근의 레코드로 제한됩니다.      |
 |ConfigurationChange<br>&#124; where ConfigChangeType == "소프트웨어" and ChangeCategory == "제거됨"<br>&#124; order by TimeGenerated desc|제거된 소프트웨어에 대한 변경 레코드를 표시합니다.|
 
 ## <a name="alert-on-changes"></a>변경 시 경고 표시
 
-변경 내용 추적 및 인벤토리의 주요 기능은 하이브리드 환경의 구성 상태 변경 내용과 구성 상태에 대해 경고를 표시하는 것입니다.  
+변경 내용 추적 및 인벤토리의 주요 기능은 하이브리드 환경의 구성 상태 변경 내용과 구성 상태에 대해 경고를 표시하는 것입니다.
 
 다음 예제의 스크린샷에는 컴퓨터에서 `C:\windows\system32\drivers\etc\hosts` 파일이 수정되었다는 내용이 표시되어 있습니다. 이 파일이 중요한 이유는, 호스트 파일은 Windows에서 호스트 이름을 IP 주소로 확인하는 데 사용되며 DNS보다도 우선 순위가 높기 때문입니다. 이로 인해 연결 문제가 발생할 수 있으며 악성 웹 사이트나 기타 위험한 웹 사이트로 트래픽이 리디렉션될 수도 있습니다.
 
@@ -300,7 +318,7 @@ Windows 서비스에 대한 기본 컬렉션 빈도는 30분입니다. 빈도를
 
 호스트 파일 변경 시에 경고를 표시하는 기능은 변경 내용 추적 또는 인벤토리 데이터에 경고를 적용하는 좋은 예 중 하나입니다. 하지만 아래 섹션에 정의된 사례와 해당 예제 쿼리를 비롯하여 기타 여러 경고 시나리오를 적용할 수도 있습니다.
 
-|쿼리  |설명  |
+|Query  |Description  |
 |---------|---------|
 |ConfigurationChange <br>&#124; where ConfigChangeType == "Files" and FileSystemPath contains " c:\\windows\\system32\\drivers\\"|중요한 파일 시스템의 변경 내용을 추적하는 데 유용 합니다.|
 |ConfigurationChange <br>&#124; where FieldsChanged contains "FileContentChecksum" and FileSystemPath == "c:\\windows\\system32\\drivers\\etc\\hosts"|주요 구성 파일의 수정 내용을 추적하는 데 유용합니다.|
@@ -318,4 +336,4 @@ Windows 서비스에 대한 기본 컬렉션 빈도는 30분입니다. 빈도를
 > [!div class="nextstepaction"]
 > [환경 변경 문제 해결](automation-tutorial-troubleshoot-changes.md)
 
-* 사용 하 여 [Azure Monitor 로그의 로그 검색](../log-analytics/log-analytics-log-searches.md) 자세한 변경 내용 추적 데이터를 볼 수 있습니다.
+* [Azure Monitor 로그의 로그 검색](../log-analytics/log-analytics-log-searches.md) 을 사용 하 여 자세한 변경 내용 추적 데이터를 볼 수 있습니다.

@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: raynew
-ms.openlocfilehash: 105cbf173a9abe1adf0999f63740d47b3da51a29
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 00f222472a9b41c7f95ae90bdca57f13175b2b5d
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856297"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952134"
 ---
 # <a name="support-matrix-for-hyper-v-assessment-and-migration"></a>Hyper-V 평가 및 마이그레이션 지원 매트릭스
 
@@ -61,8 +61,8 @@ Hyper-V VM | 단일 프로젝트에서 최대 35000 Hyper-v Vm을 평가 합니�
 | **지원**                | **세부 정보**               
 | :-------------------       | :------------------- |
 | **호스트 배포**       | Hyper-v 호스트는 독립 실행형 이거나 클러스터에 배포할 수 있습니다. |
-| **사용 권한**           | Hyper-v 호스트에 대 한 관리자 권한이 필요 합니다. |
-| **호스트 운영 체제** | Windows Server 2016 또는 Windows Server 2012 R2.<br/> Windows Server 2019를 실행 하는 Hyper-v 호스트에 있는 Vm은 평가할 수 없습니다. |
+| **사용 권한**           | Hyper-v 호스트에 대 한 관리자 권한이 필요 합니다. <br/> 또는 관리자 권한을 할당 하지 않으려는 경우 로컬 또는 도메인 사용자 계정을 만들고 이러한 그룹에 사용자를 추가 합니다. 원격 관리 사용자, Hyper-v 관리자 및 성능 모니터 사용자입니다. |
+| **호스트 운영 체제** | Windows Server 2019, Windows Server 2016 또는 Windows Server 2012 R2.<br/> Windows Server 2012를 실행 하는 Hyper-v 호스트에 있는 Vm은 평가할 수 없습니다. |
 | **PowerShell 원격 작업**   | 각 호스트에서를 사용 하도록 설정 해야 합니다. |
 | **Hyper-v 복제본**       | Hyper-v 복제본을 사용 하는 경우 (또는 VM 식별자가 같은 vm이 여러 개 있는 경우) Azure Migrate를 사용 하 여 원래 vm과 복제 된 Vm을 모두 검색 하는 경우 Azure Migrate에서 생성 된 평가가 정확 하지 않을 수 있습니다. |
 
@@ -72,13 +72,8 @@ Hyper-V VM | 단일 프로젝트에서 최대 35000 Hyper-v Vm을 평가 합니�
 | **지원**                  | **세부 정보**               
 | :----------------------------- | :------------------- |
 | **운영 체제** | Azure에서 지 원하는 모든 [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) 및 [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) 운영 체제입니다. |
-| **사용 권한**           | 평가 하려는 각 Hyper-v VM에 대 한 관리자 권한이 필요 합니다. |
 | **Integration Services**       | 운영 체제 정보를 캡처하기 위해 평가 하는 Vm에서 [hyper-v Integration Services](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/integration-services) 실행 중 이어야 합니다. |
-| **UEFI 부팅**                  | UEFI 부팅이 포함 된 Vm은 마이그레이션을 지원 하지 않습니다. |
-| **암호화 된 디스크/볼륨**    | 암호화 된 디스크/볼륨이 있는 Vm은 마이그레이션을 지원 하지 않습니다. |
-| **RDM/통과 디스크**      | Vm에 RDM 또는 통과 디스크가 있는 경우 이러한 디스크는 Azure에 복제 되지 않습니다. |
-| **NFS**                        | Vm에 볼륨으로 탑재 된 NFS 볼륨이 복제 되지 않습니다. |
-| **대상 디스크**                | Azure Migrate 평가는 관리 디스크를 사용 하 여 Azure Vm으로 마이그레이션하는 것이 좋습니다. |
+
 
 
 ## <a name="assessment-appliance-requirements"></a>평가-어플라이언스 요구 사항
@@ -103,8 +98,8 @@ Vm을 평가 하려면 Azure Migrate 어플라이언스에서 인터넷에 연�
 **URL** | **세부 정보**  
 --- | ---
 *.portal.azure.com | Azure Portal 탐색
-*.windows.net | Azure 구독에 로그인합니다.
-*.microsoftonline.com | 어플라이언스에서 서비스 통신에 대 한 Azure Active Directory 응용 프로그램 만들기
+*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *. microsoft.com <br/> *. live.com  | Azure 구독에 로그인합니다.
+*.microsoftonline.com <br/> *.microsoftonline-p.com | 어플라이언스에서 서비스 통신에 대 한 Azure Active Directory 응용 프로그램 만들기
 management.azure.com | 어플라이언스에서 서비스 통신에 대 한 Azure Active Directory 응용 프로그램 만들기
 dc.services.visualstudio.com | 로깅 및 모니터링
 *.vault.azure.net | 어플라이언스와 서비스 간에 통신 하는 경우 Azure Key Vault의 비밀을 관리 합니다.
@@ -119,7 +114,7 @@ https://download.microsoft.com/download/* | Microsoft 다운로드 사이트에�
 
 **장치** | **연결**
 --- | ---
-**기기가** | 어플라이언스에 대 한 원격 데스크톱 연결을 허용 하기 위해 TCP 포트 3389에서 인바운드 연결<br/> URL을 사용 하 여 어플라이언스 관리 앱에 원격으로 액세스 하기 위해 포트 44368에서 인바운드 연결:``` https://<appliance-ip-or-name>:44368 ```<br/> Azure Migrate에 검색 및 성능 메타 데이터를 보내기 위한 포트 443의 아웃 바운드 연결
+**기기가** | 어플라이언스에 대 한 원격 데스크톱 연결을 허용 하기 위해 TCP 포트 3389에서 인바운드 연결<br/> URL을 사용 하 여 어플라이언스 관리 앱에 원격으로 액세스 하기 위해 포트 44368에서 인바운드 연결:``` https://<appliance-ip-or-name>:44368 ```<br/> Azure Migrate에 검색 및 성능 메타 데이터를 보내기 위한 포트 443, 5671 및 5672의 아웃 바운드 연결
 **Hyper-v 호스트/클러스터** | CIM(Common Information Model) (CIM) 세션을 사용 하 여 Hyper-v Vm의 구성과 성능 메타 데이터를 끌어오기 위해 WinRM 포트 5985 (HTTP) 및 5986 (HTTPS)에서 인바운드 연결
 
 ## <a name="migration-hyper-v-host-requirements"></a>마이그레이션-Hyper-v 호스트 요구 사항

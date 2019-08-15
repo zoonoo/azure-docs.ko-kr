@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/06/2019
+ms.date: 08/12/2019
 ms.author: roiyz
-ms.openlocfilehash: 43da116753723470efddc92bffc11038a80a35fb
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 700d8c6ea1527598591aa4300a977f80085e04b0
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827045"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990359"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-windows"></a>Windows 용 가상 머신 확장 Azure Monitor
 
@@ -28,7 +28,7 @@ Azure Monitor 로그는 클라우드 및 온-프레미스 자산에서 모니터
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="operating-system"></a>운영 체제
 
@@ -41,7 +41,7 @@ Azure Monitor 로그는 클라우드 및 온-프레미스 자산에서 모니터
 |--------------------------------|--------------------------|--------------------------|--------------------------|
 | 10.20.18011 | 1.0.18011 | 7 월 2019 | <ul><li> 사소한 버그 수정 및 안정화 기능 향상 </li><li> MaxExpressionDepth를 1만으로 증가 </li></ul> |
 | 10.20.18001 | 1.0.18001 | 2019년 6월 | <ul><li> 사소한 버그 수정 및 안정화 기능 향상 </li><li> 프록시 연결을 만들 때 기본 자격 증명을 사용 하지 않도록 설정 하는 기능 추가 (WINHTTP_AUTOLOGON_SECURITY_LEVEL_HIGH에 대 한 지원) </li></ul>|
-| 10.19.13515 | 1.0.13515 | 3 월 2019 | <ul><li>사소한 안정화 픽스 </li></ul> |
+| 10.19.13515 | 1.0.13515 | 2019년 3월 | <ul><li>사소한 안정화 픽스 </li></ul> |
 | 10.19.10006 | n/a | 12 월 2018 | <ul><li> 사소한 안정화 픽스 </li></ul> | 
 | 8.0.11136 | n/a | 9 월 2018 |  <ul><li> VM 이동에 대 한 리소스 ID 변경 검색에 대 한 지원이 추가 됨 </li><li> 비 확장 설치를 사용 하는 경우 보고 리소스 ID에 대 한 지원이 추가 됨 </li></ul>| 
 | 8.0.11103 | n/a |  2018년 4월 | |
@@ -166,7 +166,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 �
 $PublicSettings = @{"workspaceId" = "myWorkspaceId"}
 $ProtectedSettings = @{"workspaceKey" = "myWorkspaceKey"}
 
-Set-AzVMExtension -ExtensionName "Microsoft.EnterpriseCloud.Monitoring" `
+Set-AzVMExtension -ExtensionName "MicrosoftMonitoringAgent" `
     -ResourceGroupName "myResourceGroup" `
     -VMName "myVM" `
     -Publisher "Microsoft.EnterpriseCloud.Monitoring" `

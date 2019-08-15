@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 23c4d5ee5ac1de9522cbf89a6de39578cf65347e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2d6a24184cf02c88ede5a83ed47ae686ee670773
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073572"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "69014948"
 ---
 # <a name="use-playready-andor-widevine-dynamic-common-encryption"></a>PlayReady 및/또는 Widevine 동적 일반 암호화 사용
 
 > [!NOTE]
-> 이 자습서를 완료하려면 Azure 계정이 필요합니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.   > Media Services v2 없는 새로운 특징 또는 기능은 추가 됩니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 참고: [v2에서 v3 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)
+> 이 자습서를 완료하려면 Azure 계정이 필요합니다. 자세한 내용은 참조 하세요 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)합니다.   > 새 기능이 나 기능이 Media Services v2에 추가 되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 또한 [v2에서 v3로 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md) 을 참조 하세요.
 >   
 
 ## <a name="overview"></a>개요
@@ -45,7 +45,7 @@ Media Services는 키를 요청 하는 사용자에 권한을 부여하는 여�
 
 자세한 내용은 [콘텐츠 키의 인증 정책 구성](media-services-protect-with-aes128.md#configure_key_auth_policy)을 참조하세요.
 
-동적 암호화를 이용하려면 다중 비트 전송률 MP4 파일 또는 다중 비트 전송률 부드러운 스트리밍 원본 파일의 집합이 포함된 자산이 필요합니다. 또한 자산의 배달 정책을 구성해야 합니다(이 항목의 뒷부분에서 설명). 그런 다음 스트리밍 URL에 지정된 형식에 따라 주문형 스트리밍 서버는 사용자가 선택한 프로토콜로 스트림이 배달되도록 합니다. 따라서 단일 저장소 형식으로만 파일을 저장하고 이에 대한 비용을 지불합니다. Media Services는 클라이언트의 각 요청에 따라 적절한 HTTP 응답을 작성하고 제공합니다.
+동적 암호화를 이용하려면 다중 비트 전송률 MP4 파일 또는 다중 비트 전송률 부드러운 스트리밍 원본 파일의 집합이 포함된 자산이 필요합니다. 또한 자산의 배달 정책을 구성해야 합니다(이 항목의 뒷부분에서 설명). 그런 다음 스트리밍 URL에 지정된 형식에 따라 주문형 스트리밍 서버는 사용자가 선택한 프로토콜로 스트림이 배달되도록 합니다. 따라서 단일 스토리지 형식으로만 파일을 저장하고 이에 대한 비용을 지불합니다. Media Services는 클라이언트의 각 요청에 따라 적절한 HTTP 응답을 작성하고 제공합니다.
 
 이 문서는 PlayReady 및 Widevine과 같이 여러 DRM으로 보호된 미디어를 제공하는 애플리케이션에서 작업하는 개발자에게 유용합니다. 이 문서에서는 권한이 있는 클라이언트만 PlayReady 또는 Widevine 라이선스를 받을 수 있도록 권한 부여 정책을 사용하여 PlayReady 라이선스 배달 서비스를 구성하는 방법을 보여 줍니다. 또한 DASH에 대해 PlayReady 또는 Widevine DRM으로 동적 암호화를 사용하는 방법을 보여줍니다.
 
@@ -94,7 +94,7 @@ Media Services 라이선스 배달 서비스를 사용하거나 동적 암호화
 자세한 내용은 [Media Services 계정에 파일 업로드](media-services-dotnet-upload-files.md)를 참조하세요.
 
 ## <a name="encode-the-asset-that-contains-the-file-to-the-adaptive-bitrate-mp4-set"></a>파일이 포함된 자산을 적응 비트 전송률 MP4 집합으로 인코딩합니다.
-동적 암호화를 사용하면 다중 비트 전송률 MP4 파일 또는 다중 비트 전송률 부드러운 스트리밍 원본 파일의 집합이 포함된 자산을 만들 수 있습니다. 다음으로 매니페스트 또는 조각 요청의 지정된 형식에 따라 주문형 스트리밍 서버는 선택한 프로토콜에서 스트림을 받을 수 있도록 합니다. 그런 다음 단일 저장소 형식으로만 파일을 저장하고 이에 대한 비용을 지불합니다. Media Services는 클라이언트의 요청에 따라 적절한 응답을 작성하고 제공합니다. 자세한 내용은 [동적 패키징 개요](media-services-dynamic-packaging-overview.md)를 참조하세요.
+동적 암호화를 사용하면 다중 비트 전송률 MP4 파일 또는 다중 비트 전송률 부드러운 스트리밍 원본 파일의 집합이 포함된 자산을 만들 수 있습니다. 다음으로 매니페스트 또는 조각 요청의 지정된 형식에 따라 주문형 스트리밍 서버는 선택한 프로토콜에서 스트림을 받을 수 있도록 합니다. 그런 다음 단일 스토리지 형식으로만 파일을 저장하고 이에 대한 비용을 지불합니다. Media Services는 클라이언트의 요청에 따라 적절한 응답을 작성하고 제공합니다. 자세한 내용은 [동적 패키징 개요](media-services-dynamic-packaging-overview.md)를 참조하세요.
 
 인코딩하는 방법에 관한 지침은 [Media Encoder Standard으로 자산 인코딩](media-services-dotnet-encode-with-media-encoder-standard.md)을 참조하세요.
 
@@ -143,7 +143,7 @@ string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTem
 Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
 ```
 
-[Azure Media Services 플레이어](https://amsplayer.azurewebsites.net/azuremediaplayer.html)를 사용하여 스트림을 테스트할 수 있습니다.
+[Azure Media Services 플레이어](https://aka.ms/azuremediaplayer)를 사용하여 스트림을 테스트할 수 있습니다.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기 및 구성
 
@@ -156,7 +156,7 @@ Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
     <add key="Audience" value="urn:test"/>
     ```
 
-## <a name="example"></a>예
+## <a name="example"></a>예제
 
 다음 샘플에서는 .NET용 Media Services SDK 버전 3.5.2에 도입된 기능을 보여 줍니다. (특히 Widevine 라이선스 템플릿을 정의하고 Media Services에서 Widevine 라이선스를 요청할 수 있는 기능이 포함되어 있습니다.)
 
@@ -612,10 +612,10 @@ namespace DynamicEncryptionWithDRM
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
 * [다중 DRM 및 Access Control이 포함된 CENC 사용](media-services-cenc-with-multidrm-access-control.md)
 * [Media Services를 사용하여 Widevine 패키징 구성](https://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services)
-* [Azure Media Services 용 Java 클라이언트 SDK 사용 하 여 시작](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use)
+* [Azure Media Services 용 Java 클라이언트 SDK 시작](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use)
 * Media Services용 최신 PHP SDK를 다운로드하려면 [Packagist 리포지토리](https://packagist.org/packages/microsoft/windowsazure#v0.5.7)에서 Microsoft/WindowAzure 패키지 버전 0.5.7을 찾습니다. 
 

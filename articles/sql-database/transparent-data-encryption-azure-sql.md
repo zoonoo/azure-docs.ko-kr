@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
-ms.date: 04/19/2019
-ms.openlocfilehash: 1d5baf4b7f8a28638c5dbd50fb407035a5b9ea89
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 08/12/2019
+ms.openlocfilehash: 07fcd0f1ec33aa9a7520e35eb7e53a76295009ba
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566131"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967912"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>SQL Database 및 Data Warehouse에 대한 투명한 데이터 암호화
 
@@ -24,7 +24,7 @@ TDE (투명 한 데이터 암호화)는 미사용 데이터를 암호화 하 여
 
 Azure SQL Managed Instance, Azure SQL Database의 이전 데이터베이스 또는 Azure SQL Data Warehouse에 대해 TDE를 수동으로 활성화해야 합니다.  
 
-투명한 데이터 암호화는 데이터베이스 암호화 키라는 대칭 키를 사용하여 전체 데이터베이스의 저장소를 암호화합니다. 이 데이터베이스 암호화 키는 투명한 데이터 암호화 보호기에서 보호됩니다. 보호기는 서비스 관리 인증서(서비스 관리 투명한 데이터 암호화) 또는 Azure Key Vault에 저장된 비대칭 키(Bring Your Own Key)입니다. Azure SQL Database 및 Data Warehouse의 경우 서버 수준에서, Azure SQL Managed Instance의 경우 인스턴스 수준에서 투명한 데이터 암호화 보호기를 설정합니다. *서버*라는 용어는 달리 언급하지 않는 한, 이 문서 전체에서 서버와 인스턴스를 모두 나타냅니다.
+투명한 데이터 암호화는 데이터베이스 암호화 키라는 대칭 키를 사용하여 전체 데이터베이스의 스토리지를 암호화합니다. 이 데이터베이스 암호화 키는 투명한 데이터 암호화 보호기에서 보호됩니다. 보호기는 서비스 관리 인증서(서비스 관리 투명한 데이터 암호화) 또는 Azure Key Vault에 저장된 비대칭 키(Bring Your Own Key)입니다. Azure SQL Database 및 Data Warehouse의 경우 서버 수준에서, Azure SQL Managed Instance의 경우 인스턴스 수준에서 투명한 데이터 암호화 보호기를 설정합니다. *서버*라는 용어는 달리 언급하지 않는 한, 이 문서 전체에서 서버와 인스턴스를 모두 나타냅니다.
 
 데이터베이스를 시작하면 암호화된 데이터베이스 암호화 키가 해독된 다음, SQL Server 데이터베이스 엔진 프로세스에서 데이터베이스 파일의 암호 해독 및 다시 암호화에 사용됩니다. 투명한 데이터 암호화는 페이지 수준에서 데이터의 실시간 I/O 암호화 및 해독을 수행합니다. 각 페이지는 메모리로 읽을 때 해독된 다음, 디스크에 쓰기 전에 암호화됩니다. 투명한 데이터 암호화에 대한 일반적인 설명은 [투명한 데이터 암호화](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption)를 참조하세요.
 
@@ -37,7 +37,7 @@ Azure에서 투명한 데이터 암호화의 기본 설정은 기본 제공 서�
 또한 Microsoft는 지역 복제 및 복원에 필요한 대로 키를 원활하게 이동하고 관리합니다.
 
 > [!IMPORTANT]
-> 새로 만든 모든 SQL 데이터베이스는 기본적으로 서비스 관리 투명한 데이터 암호화를 사용하여 암호화됩니다. Azure SQL Managed Instance 데이터베이스, 2017년 5월 이전에 생성된 기존 SQL 데이터베이스 및 복원, 지역 복제 및 데이터베이스 복사를 통해 생성된 SQL 데이터베이스는 기본적으로 암호화되지 않습니다.
+> 새로 만든 모든 SQL database 및 Managed Instance 데이터베이스는 서비스 관리 투명 한 데이터 암호화를 사용 하 여 기본적으로 암호화 됩니다. 2017 년 5 월 이전에 만든 기존 SQL database와 복원, 지리적 복제 및 데이터베이스 복사를 통해 만든 SQL 데이터베이스는 기본적으로 암호화 되지 않습니다. 2019 2 월 이전에 만든 기존 Managed Instance 데이터베이스는 기본적으로 암호화 되지 않습니다. 복원을 통해 만든 Managed Instance 데이터베이스는 원본에서 암호화 상태를 상속 합니다.
 
 ## <a name="customer-managed-transparent-data-encryption---bring-your-own-key"></a>고객 관리형 투명한 데이터 암호화 - Bring Your Own Key
 
@@ -92,7 +92,7 @@ PowerShell을 통해 투명한 데이터 암호화를 구성하려면 사용자�
 
 Azure SQL Data Warehouse 및 Data Warehouse에 대해 다음 cmdlet을 사용합니다.
 
-| Cmdlet | 설명 |
+| Cmdlet | Description |
 | --- | --- |
 | [Set-AzSqlDatabaseTransparentDataEncryption](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) |데이터베이스에 대한 투명한 데이터 암호화를 사용하거나 사용하지 않도록 설정합니다.|
 | [Get-AzSqlDatabaseTransparentDataEncryption](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption) |데이터베이스에 대한 투명한 데이터 암호화 상태를 가져옵니다. |
@@ -111,7 +111,7 @@ Azure SQL Data Warehouse 및 Data Warehouse에 대해 다음 cmdlet을 사용합
 
 master 데이터베이스에서 **dbmanager** 역할의 관리자 또는 구성원으로 로그인하여 데이터베이스에 연결합니다.
 
-| 명령 | Description |
+| 명령 | 설명 |
 | --- | --- |
 | [ALTER DATABASE (Azure SQL Database)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database) | SET ENCRYPTION ON/OFF는 데이터베이스를 암호화하거나 해독합니다. |
 | [sys.dm_database_encryption_keys](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql) |데이터베이스 및 연결된 해당 데이터베이스 암호화 키의 암호화 상태에 대한 정보를 반환합니다. |
@@ -125,7 +125,7 @@ master 데이터베이스에서 **dbmanager** 역할의 관리자 또는 구성�
 REST API를 통해 투명한 데이터 암호화를 구성하려면 사용자가 Azure 소유자, 기여자 또는 SQL 보안 관리자 권한으로 연결되어야 합니다.
 Azure SQL Data Warehouse 및 Data Warehouse에 대해 다음 명령 세트를 사용합니다.
 
-| 명령 | 설명 |
+| 명령 | Description |
 | --- | --- |
 |[서버 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|SQL Server 인스턴스에 Azure Active Directory ID(Key Vault에 대한 액세스 권한을 부여하는 데 사용)를 추가합니다.|
 |[서버 키 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/serverkeys/createorupdate)|SQL Server 인스턴스에 Key Vault 키를 추가합니다.|

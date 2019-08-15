@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: dacurwin
-ms.openlocfilehash: 0f31320a638dd4741d940d0b459575b66149b829
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: f2485786f323bc6d19d39f4da6ffa7cab14bbb4c
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698400"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68951834"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Azure Backup 인스턴트 복원 기능을 사용하여 향상된 백업 및 복원 성능 얻기
 
@@ -24,9 +24,9 @@ ms.locfileid: "68698400"
 
 * 자격 증명 모음으로의 데이터 전송이 완료될 때까지 기다리지 않고 백업 작업의 일부로 만든 스냅샷을 복구에 사용할 수 있습니다. 이에 따라, 복원을 트리거하기 전에 스냅샷이 저장소에 복사되는 대기 시간이 줄었습니다.
 * 기본적으로 스냅샷을 로컬에 2일 동안 보존하여 백업 및 복원 시간을 단축합니다. 이 기본 스냅숏 보존 값은 1 일에서 5 일 사이의 값으로 구성할 수 있습니다.
-* 최대 4TB까지 디스크 크기를 지원합니다. Azure Backup에서는 디스크 크기를 조정 하지 않는 것이 좋습니다.
+* 최대 4TB까지 디스크 크기를 지원합니다. Azure Backup에서는 디스크 크기를 조정 하지 않는 것이 좋습니다. 4 TB 이상의 디스크에 대 한 Azure Backup 큰 디스크 지원의 제한 된 공개 미리 보기에 등록 하려면 [AZURE VM 백업 개요](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb)를 참조 하세요.
 * 는 표준 HDD 디스크 및 프리미엄 SSD 디스크와 함께 표준 SSD 디스크를 지원 합니다.
-* 복원 시 관리 되지 않는 Vm 원본 저장소 계정 (디스크당)을 사용할 수 있습니다. 이 기능은 VM의 디스크가 저장소 계정에 분산된 경우에도 지원됩니다. 이는 다양한 VM 구성에 대한 복원 작업을 가속화합니다.
+* 복원 시 관리 되지 않는 Vm 원본 저장소 계정 (디스크당)을 사용할 수 있습니다. 이 기능은 VM의 디스크가 스토리지 계정에 분산된 경우에도 지원됩니다. 이는 다양한 VM 구성에 대한 복원 작업을 가속화합니다.
 * 즉시 복원을 사용 하 여 premium storage를 사용 하는 Vm 백업의 경우 할당 된 총 저장소 공간 *50%* 의 사용 가능한 공간을 할당 하는 것이 좋습니다 .이는 첫 번째 백업 **에서만** 필요 합니다. 50%의 사용 가능한 공간은 첫 번째 백업이 완료 된 후 백업에 대 한 요구 사항이 아닙니다.
 
 
@@ -39,7 +39,7 @@ ms.locfileid: "68698400"
 
 복구 지점은 1단계 및 2단계가 완료된 후에만 만들어지는 것으로 간주됩니다. 이 업그레이드의 일부로, 스냅샷이 완료되는 즉시 복구 지점이 생성되며 스냅샷 유형의 이 복구 지점을 사용하여 동일한 복원 흐름으로 복원을 수행할 수 있습니다. 복구 지점 유형으로 "스냅숏"을 사용 하 여 Azure Portal에서이 복구 지점을 식별할 수 있으며, 스냅숏이 자격 증명 모음으로 전송 된 후에는 복구 지점 유형이 "snapshot and vault"로 변경 됩니다.
 
-![VM 백업 스택 Resource Manager 배포 모델의 백업 작업 - 저장소 및 자격 증명 모음](./media/backup-azure-vms/instant-rp-flow.png)
+![VM 백업 스택 Resource Manager 배포 모델의 백업 작업 - 스토리지 및 자격 증명 모음](./media/backup-azure-vms/instant-rp-flow.png)
 
 기본적으로 스냅숏은 2 일 동안 보존 됩니다. 이 기능을 사용 하면 복원 시간을 줄여서 이러한 스냅숏의 복원 작업을 수행할 수 있습니다. 자격 증명 모음에서 데이터를 다시 변환 하 고 복사 하는 데 필요한 시간을 줄일 수 있습니다.
 

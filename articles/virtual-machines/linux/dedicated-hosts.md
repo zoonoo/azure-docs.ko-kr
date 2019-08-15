@@ -13,16 +13,23 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 07/25/2019
 ms.author: cynthn
-ms.openlocfilehash: addac2a68f45c1d9a7d650ab673b04db43aa79f3
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 5f2b34b3acb559d74414ea622fba2769ede7f0a7
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68700380"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976626"
 ---
 # <a name="preview-azure-dedicated-hosts"></a>미리 보기: Azure 전용 호스트
 
+Azure 전용 호스트는 단일 Azure 구독 전용 가상 머신을 하나 이상 호스트할 수 있는 물리적 서버를 제공 하는 서비스입니다. 전용 호스트는 데이터 센터에서 사용 되는 것과 동일한 물리적 서버 이며 리소스로 제공 됩니다. 지역, 가용성 영역 및 장애 도메인 내에서 전용 호스트를 프로 비전 할 수 있습니다. 그런 다음 사용자의 요구에 가장 적합 한 구성으로 Vm을 프로 비전 된 호스트에 직접 넣을 수 있습니다.
+
+[!INCLUDE [virtual-machines-common-dedicated-hosts-preview](../../../includes/virtual-machines-common-dedicated-hosts-preview.md)]
+
 [!INCLUDE [virtual-machines-common-dedicated-hosts](../../../includes/virtual-machines-common-dedicated-hosts.md)]
+
+
+virtual-machines-common-dedicated-hosts-preview.md
 
 ## <a name="next-steps"></a>다음 단계
 

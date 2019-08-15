@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
-ms.date: 07/05/2019
-ms.openlocfilehash: 33c844374d6d2b8e64cde6c7c9633e54a292d95f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 08/12/2019
+ms.openlocfilehash: 515e971214244cdd14955cc269a5f005cb93734f
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567286"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967915"
 ---
 # <a name="time-zones-in-azure-sql-database-managed-instance"></a>Azure SQL Database Managed Instance의 표준 시간대
 
@@ -83,10 +83,7 @@ TimezoneId 속성에 대해 지원 되는 값 목록은이 문서의 끝에 있�
 
 ### <a name="point-in-time-restore"></a>지정 시간 복원
 
-<del>지정 시간 복원을 수행 하는 경우에 복원 하는 시간은 UTC 시간으로 해석 됩니다. 이 설정은 일광 절약 시간 및 잠재적인 변경으로 인 한 모호성을 방지 합니다.<del>
-
- >[!WARNING]
-  > 현재 동작은 위의 문에 포함 되지 않으며,에 대 한 복원 시간은 자동 데이터베이스 백업이 수행 되는 원본 관리 되는 인스턴스의 표준 시간대에 따라 해석 됩니다. 지정 된 시간을 UTC 시간으로 해석 하기 위해이 동작을 수정 하는 작업을 수행 하 고 있습니다. 자세한 내용은 [알려진 문제](sql-database-managed-instance-timezone.md#known-issues) 를 참조 하세요.
+지정 시간 복원을 수행 하는 경우에 복원 하는 시간은 UTC 시간으로 해석 됩니다. 이러한 방식으로 일광 절약 시간으로 인 한 모호성을 방지 하 고 잠재적인 변경 사항을 방지 합니다.
 
 ### <a name="auto-failover-groups"></a>자동 장애 조치 그룹
 
