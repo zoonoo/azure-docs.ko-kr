@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: dacurwin
-ms.openlocfilehash: 1cbd0f649bd5e89c1ed424604697afa179964175
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 23492133035f27aa3e1217269022565e0ff217a9
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689012"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018771"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>PowerShell을 사용 하 여 Azure Vm 백업 및 복원
 
@@ -26,7 +26,7 @@ ms.locfileid: "68689012"
 > * 여러 가상 머신을 보호하기 위해 백업 정책 적용
 > * 보호된 가상 머신에 대한 주문형 백업 작업 트리거. 가상 머신을 백업하거나 보호하려면 먼저 [필수 조건](backup-azure-arm-vms-prepare.md)을 완료하여 VM을 보호하기 위한 환경을 준비해야 합니다.
 
-## <a name="before-you-start"></a>시작하기 전에
+## <a name="before-you-start"></a>시작하기 전 주의 사항
 
 - Recovery Services 자격 증명 모음에 대해 [자세히 알아보세요](backup-azure-recovery-services-vault-overview.md) .
 - Azure VM 백업에 대 한 아키텍처를 [검토](backup-architecture.md#architecture-direct-backup-of-azure-vms) 하 고, 백업 프로세스 [에 대해 알아보고](backup-azure-vms-introduction.md) , 지원, 제한 사항 및 필수 구성 요소를 [검토](backup-support-matrix-iaas.md) 합니다.
@@ -61,7 +61,7 @@ Azure 라이브러리에서 **Az. RecoveryServices** [cmdlet 참조](https://doc
 3. **Connect-AzAccount**를 사용하여 Azure 계정에 로그인합니다. 이 cmdlet은 계정 자격 증명을 묻는 웹 페이지를 엽니다.
 
     * 또는 **Connect-AzAccount** cmdlet에서 **-Credential** 매개 변수를 사용하여 계정 자격 증명을 매개 변수로 포함할 수 있습니다.
-    * 사용자가 테넌트를 대신하여 작업 중인 CSP 파트너인 경우 tenantID 또는 테넌트 기본 도메인 이름을 사용하여 고객을 테넌트로 지정합니다. 예를 들어: **Connect-AzAccount -Tenant "fabrikam.com"**
+    * 사용자가 테넌트를 대신하여 작업 중인 CSP 파트너인 경우 tenantID 또는 테넌트 기본 도메인 이름을 사용하여 고객을 테넌트로 지정합니다. 이는 아래와 같이 함수의 반환값을 데이터 프레임으로 바로 변환하는 데 사용할 수 있음을 나타냅니다. **Connect-AzAccount -Tenant "fabrikam.com"**
 
 4. 계정에 여러 구독이 있을 수 있으므로 사용하려는 구독을 계정과 연결합니다.
 
@@ -98,7 +98,7 @@ Azure 라이브러리에서 **Az. RecoveryServices** [cmdlet 참조](https://doc
     ```powershell
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName "test-rg" -Location "West US"
     ```
-3. [LRS(로컬 중복 저장소)](../storage/common/storage-redundancy-lrs.md) 또는 [GRS(지역 중복 저장소)](../storage/common/storage-redundancy-grs.md) 중에 사용할 저장소 중복 유형을 지정합니다. 다음 예제는 testvault에 대한 -BackupStorageRedundancy 옵션이 GeoRedundant로 설정된 것을 보여 줍니다.
+3. [LRS(로컬 중복 스토리지)](../storage/common/storage-redundancy-lrs.md) 또는 [GRS(지역 중복 스토리지)](../storage/common/storage-redundancy-grs.md) 중에 사용할 스토리지 중복 유형을 지정합니다. 다음 예제는 testvault에 대한 -BackupStorageRedundancy 옵션이 GeoRedundant로 설정된 것을 보여 줍니다.
 
     ```powershell
     $vault1 = Get-AzRecoveryServicesVault -Name "testvault"
@@ -217,7 +217,7 @@ NewPolicy           AzureVM            AzureVM              4/24/2016 1:30:00 AM
 보호 정책을 정의한 후에는 항목에 대한 정책을 계속 사용해야 합니다. [AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) 를 사용 하 여 보호를 사용 하도록 설정 합니다. 보호를 사용하도록 설정하는 데에는 항목 및 정책이라는 두 가지 개체가 필요합니다. 정책이 자격 증명 모음과 연결되고 나면, 백업 워크플로가 정책 일정에 정의된 시간에 트리거됩니다.
 
 > [!IMPORTANT]
-> PS를 사용 하 여 한 번에 여러 Vm에 대 한 백업을 사용 하도록 설정 하는 동안 단일 정책에 연결 된 Vm이 100 이상 인지 확인 합니다. 권장 되는 [모범 사례](https://docs.microsoft.com/azure/backup/backup-azure-vm-backup-faq#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-a-same-backup-policy)입니다. 현재 PS 클라이언트는 100 개가 넘는 Vm이 있는 경우 명시적으로 차단 하지 않지만, 나중에 확인이 추가 될 예정입니다.
+> PS를 사용 하 여 한 번에 여러 Vm에 대 한 백업을 사용 하도록 설정 하는 동안 단일 정책에 연결 된 Vm이 100 이상 인지 확인 합니다. 이는 [권장 모범 사례](https://docs.microsoft.com/azure/backup/backup-azure-vm-backup-faq#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-a-same-backup-policy)입니다. VM이 100개를 넘는 경우 지금은 PS 클라이언트가 명시적으로 차단하고 있진 않지만 향후 확인 절차를 추가하고자 합니다.
 
 다음 예제에서는 NewPolicy 정책을 사용하여 V2VM 항목에 대해 보호를 활성화합니다. 예제는 VM이 암호화되었는지 여부와 암호화 유형에 따라 다릅니다.
 
@@ -340,7 +340,7 @@ V2VM              Backup              InProgress          4/23/2016             
 
 ### <a name="change-policy-for-backup-items"></a>백업 항목에 대 한 정책 변경
 
-사용자는 기존 정책을 수정 하거나 백업 된 항목의 정책을 Policy1에서 Policy2로 변경할 수 있습니다. 백업 된 항목에 대 한 정책을 전환 하려면 관련 정책을 페치하고 항목을 백업 하 고 백업 항목과 함께 [AzRecoveryServices](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) 명령을 매개 변수로 사용 하면 됩니다.
+사용자는 기존 정책을 수정 하거나 백업 된 항목의 정책을 Policy1에서 Policy2로 변경할 수 있습니다. 백업 항목에 대 한 정책을 전환 하려면 관련 정책을 페치하고 항목을 백업 하 고 백업 항목과 함께 [AzRecoveryServices](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) 명령을 매개 변수로 사용 합니다.
 
 ````powershell
 $TargetPol1 = Get-AzRecoveryServicesBackupProtectionPolicy -Name <PolicyName>
@@ -465,7 +465,7 @@ $restorejob
 $restorejob = Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG" -TargetResourceGroupName "DestRGforManagedDisks"
 ```
 
-**VMConfig.JSON** 파일은 저장소 계정으로 복원되고, Managed Disks는 지정한 대상 RG로 복원됩니다.
+**VMConfig.JSON** 파일은 스토리지 계정으로 복원되고, Managed Disks는 지정한 대상 RG로 복원됩니다.
 
 다음 예제와 유사하게 출력됩니다.
 
@@ -511,7 +511,7 @@ $details = Get-AzRecoveryServicesBackupJobDetails -Job $restorejob
 > [!NOTE]
 > 디스크를 복원하면 이제 새 VM을 만드는 데 직접 사용할 수 있는 배포 템플릿을 가져올 수 있습니다. 암호화/암호화되지 않은 관리/비관리 VM을 만들기 위한 더 이상의 다른 PS cmdlet은 없습니다.
 
-결과 작업 세부 정보는 쿼리 및 배포 가능한 템플릿 URI를 제공합니다.
+결과 작업 세부 정보는 쿼리 및 배포할 수 있는 템플릿 URI를 제공 합니다.
 
 ```powershell
    $properties = $details.properties
@@ -538,7 +538,7 @@ New-AzResourceGroupDeployment -Name ExampleDeployment ResourceGroupName ExampleR
    $configBlobName = $properties["Config Blob Name"]
    ```
 
-2. Azure 저장소 컨텍스트를 설정하고 JSON 구성 파일을 복원합니다.
+2. Azure Storage 컨텍스트를 설정하고 JSON 구성 파일을 복원합니다.
 
    ```powershell
    Set-AzCurrentStorageAccount -Name $storageaccountname -ResourceGroupName "testvault"
@@ -653,7 +653,7 @@ New-AzResourceGroupDeployment -Name ExampleDeployment ResourceGroupName ExampleR
 
    * **Azure AD를 포함하며 BEK 및 KEK를 사용하여 암호화된 관리형 VM** - Azure AD를 포함하며 BEK 및 KEK를 사용하여 암호화된 관리형 VM의 경우에는 복원된 관리 디스크를 연결합니다. 자세한 내용은 [PowerShell을 사용하여 Windows VM에 데이터 디스크 연결](../virtual-machines/windows/attach-disk-ps.md)을 참조하세요.
 
-   * **Azure AD를 포함하지 않으며 BEK만 사용하여 암호화된 관리형 VM** - Azure AD를 포함하지 않으며 BEK만 사용하여 암호화된 관리형 VM의 경우 원본 **키 자격 증명 모음/비밀을 사용할 수 없으면** [Azure Backup 복구 지점에서 암호화되지 않은 가상 머신 복원](backup-azure-restore-key-secret.md)의 절차를 수행하여 키 자격 증명 모음에 비밀을 복원합니다. 그런 후에 다음 스크립트를 실행하여 복원된 OS 디스크에서 암호화 세부 정보를 설정합니다. 데이터 디스크의 경우에는 이 단계를 수행하지 않아도 됩니다. 복원된 키 자격 증명 모음에서 $dekurl을 가져올 수 있습니다.
+   * **AZURE ad가 없는 관리 되 고 암호화 된 vm (bek만 해당)** -azure ad가 없는 관리 되 고 암호화 된 VM (bek만 사용 하 여 암호화 됨)의 경우, 원본 키 **자격 증명 모음/암호를 사용할 수 없는** 경우 복원의 절차를 사용 하 여 key vault에 비밀 [ Azure Backup 복구 지점에서 암호화 되지 않은 가상 컴퓨터](backup-azure-restore-key-secret.md). 그런 후에 다음 스크립트를 실행하여 복원된 OS 디스크에서 암호화 세부 정보를 설정합니다. 데이터 디스크의 경우에는 이 단계를 수행하지 않아도 됩니다. 복원된 키 자격 증명 모음에서 $dekurl을 가져올 수 있습니다.
 
      아래 스크립트는 원본 키 자격 증명 모음/비밀을 사용할 수 없을 때만 실행하면 됩니다.  
 
@@ -667,7 +667,7 @@ New-AzResourceGroupDeployment -Name ExampleDeployment ResourceGroupName ExampleR
 
      OS 디스크에서 암호화 세부 정보가 설정되고 비밀이 사용 가능해진 후에 복원된 관리 디스크를 연결하려면 [PowerShell을 사용하여 Windows VM에 데이터 디스크 연결](../virtual-machines/windows/attach-disk-ps.md)을 참조하세요.
 
-   * **Azure AD를 포함하지 않으며 BEK 및 KEK를 사용하여 암호화된 관리형 VM** - Azure AD를 포함하지 않으며 BEK 및 KEK를 사용하여 암호화된 관리형 VM의 경우 원본 **키 자격 증명 모음/키/비밀을 사용할 수 없으면** [Azure Backup 복구 지점에서 암호화되지 않은 가상 머신 복원](backup-azure-restore-key-secret.md)의 절차를 수행하여 키 자격 증명 모음에 키 및 비밀을 복원합니다. 그런 후에 다음 스크립트를 실행하여 복원된 OS 디스크에서 암호화 세부 정보를 설정합니다. 데이터 디스크의 경우에는 이 단계를 수행하지 않아도 됩니다. 복원된 키 자격 증명 모음에서 $dekurl 및 $kekurl을 가져올 수 있습니다.
+   * **AZURE ad가 없는 관리 되 고 암호화 된 vm (bek 및 KEK)** -azure ad가 없는 관리 되 고 암호화 된 VM (bek & KEK를 사용 하 여 암호화 됨)의 경우, 원본 키 **자격 증명 모음/키/암호를 사용할 수 없는** 경우 [Azure Backup 복구 지점에서 암호화 되지 않은 가상 컴퓨터를 복원](backup-azure-restore-key-secret.md)합니다. 그런 후에 다음 스크립트를 실행하여 복원된 OS 디스크에서 암호화 세부 정보를 설정합니다. 데이터 디스크의 경우에는 이 단계를 수행하지 않아도 됩니다. 복원된 키 자격 증명 모음에서 $dekurl 및 $kekurl을 가져올 수 있습니다.
 
    아래 스크립트는 원본 키 자격 증명 모음/키/비밀을 사용할 수 없을 때만 실행하면 됩니다.
 
@@ -720,7 +720,7 @@ New-AzResourceGroupDeployment -Name ExampleDeployment ResourceGroupName ExampleR
 
    * **Azure AD가 포함되지 않은 VM** - 다음 명령을 사용하여 데이터 디스크에 대해 암호화를 수동으로 사용하도록 설정합니다.
 
-     명령 실행 중에 AADClientID를 입력하라는 메시지가 표시되면 Azure PowerShell을 업데이트해야 합니다.
+     명령 실행 중에 AADClientID를 요청 하는 경우에는 Azure PowerShell를 업데이트 해야 합니다.
 
      **BEK만 사용**
 
@@ -806,7 +806,7 @@ OsType  Password        Filename
 Windows e3632984e51f496 V2VM_wus2_8287309959960546283_451516692429_cbd6061f7fc543c489f1974d33659fed07a6e0c2e08740.exe
 ```
 
-파일을 복구할 컴퓨터에서 스크립트를 실행합니다. 스크립트를 실행하려면 제공된 암호를 입력해야 합니다. 디스크가 연결된 후에 Windows 파일 탐색기를 사용하여 새 볼륨 및 파일을 검색합니다. 자세한 내용은 Backup 관련 문서 [Azure Virtual Machine 백업에서 파일 복구](backup-azure-restore-files-from-vm.md)를 참조하세요.
+파일을 복구할 컴퓨터에서 스크립트를 실행합니다. 스크립트를 실행하려면 제공된 암호를 입력해야 합니다. 디스크가 연결된 후에 Windows 파일 탐색기를 사용하여 새 볼륨 및 파일을 검색합니다. 자세한 내용은 Backup 문서 [Azure virtual machine 백업에서 파일 복구](backup-azure-restore-files-from-vm.md)를 참조 하세요.
 
 ### <a name="unmount-the-disks"></a>디스크 분리
 

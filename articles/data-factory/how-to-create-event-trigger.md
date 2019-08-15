@@ -11,12 +11,12 @@ ms.date: 10/18/2018
 author: sharonlo101
 ms.author: shlo
 manager: craigg
-ms.openlocfilehash: bf4dc55d0ec17daf4c611563dd7aee3a06aa192b
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 32edacb7dd66274757359c4eb0e8c169995026ce
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68384723"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019536"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>이벤트에 대한 응답으로 파이프라인을 실행하는 트리거 만들기
 
@@ -49,10 +49,7 @@ EDA(이벤트 기반 아키텍처)는 프로덕션, 검색, 소비 및 이벤트
 5. Azure 구독 드롭다운에서 저장소 계정을 선택 하거나 저장소 계정 리소스 ID를 사용 하 여 수동으로 선택 합니다. 이벤트를 발생 시키려는 컨테이너를 선택 합니다. 컨테이너 선택은 선택 사항 이지만 모든 컨테이너를 선택 하면 많은 수의 이벤트가 발생할 수 있습니다.
 
    > [!NOTE]
-   > 이벤트 트리거는 현재 버전 2 저장소 계정 (범용)만 지원 합니다.
-
-   > [!NOTE]
-   > Azure Event Grid 제한으로 인해 Azure Data Factory는 저장소 계정 당 최대 500 이벤트 트리거를 지원 합니다.
+   > 이벤트 트리거는 현재 Azure Data Lake Storage Gen2 및 범용 버전 2 저장소 계정만 지원 합니다. Azure Event Grid 제한으로 인해 Azure Data Factory는 저장소 계정 당 최대 500 이벤트 트리거를 지원 합니다.
 
 6. **Blob 경로는로 시작** 하 고 **blob 경로는 속성으로 끝남** 이벤트를 수신 하려는 컨테이너, 폴더 및 blob 이름을 지정할 수 있습니다. 이벤트 트리거를 사용 하려면 이러한 속성 중 하나 이상을 정의 해야 합니다. **Blob path begins with**(Blob 경로 시작 문자) 및 **Blob path ends with**(Blob 경로 마지막 문자) 속성 모두에 대해 이 문서의 뒷부분에 나오는 예제와 같이 다양한 패턴을 사용할 수 있습니다.
 
@@ -67,7 +64,7 @@ EDA(이벤트 기반 아키텍처)는 프로덕션, 검색, 소비 및 이벤트
 
     ![이벤트 트리거 데이터 미리 보기](media/how-to-create-event-trigger/event-based-trigger-image3.png)
 
-9. 파이프라인을이 트리거에 연결 하려면 파이프라인 캔버스로 이동 하 여 **트리거 추가** 를 클릭 하 고 **새로 만들기/편집**을 선택 합니다. 측면 탐색이 나타나면 **트리거 선택** ... 드롭다운을 클릭 하 고 만든 트리거를 선택 합니다. **다음: 데이터 미리** 보기 구성이 올바른지 확인 **한 다음 데이터** 미리 보기가 올바른지 확인 합니다.
+9. 파이프라인을이 트리거에 연결 하려면 파이프라인 캔버스로 이동 하 여 **트리거 추가** 를 클릭 하 고 **새로 만들기/편집**을 선택 합니다. 측면 탐색이 나타나면 **트리거 선택** ... 드롭다운을 클릭 하 고 만든 트리거를 선택 합니다. **다음: 데이터 미리** 보기 구성이 올바른지 확인 한 다음 데이터 미리 보기가 올바른지 확인 합니다.
 
 10. 파이프라인에 매개 변수가 있는 경우 트리거 실행 매개 변수 쪽 탐색에서 지정할 수 있습니다. 이벤트 트리거는 blob의 폴더 경로 및 파일 이름을 속성 `@triggerBody().folderPath` 및 `@triggerBody().fileName`에 캡처합니다. 파이프라인에서 이러한 속성 값을 사용하려면 속성을 파이프라인 매개 변수에 매핑해야 합니다. 속성을 매개 변수에 매핑한 후 파이프라인 전체에서 `@pipeline().parameters.parameterName` 식을 통해 트리거가 캡처한 값에 액세스할 수 있습니다. 완료 되 면 **마침** 을 클릭 합니다.
 
@@ -81,8 +78,8 @@ EDA(이벤트 기반 아키텍처)는 프로덕션, 검색, 소비 및 이벤트
 
 | **JSON 요소** | **설명** | **형식** | **허용되는 값** | **필수** |
 | ---------------- | --------------- | -------- | ------------------ | ------------ |
-| **범위** | 저장소 계정의 Azure Resource Manager 리소스 ID입니다. | String | Azure Resource Manager ID | 예 |
-| **events** | 이 트리거를 발생시키는 이벤트 유형입니다. | 배열    | Microsoft.Storage.BlobCreated, Microsoft.Storage.BlobDeleted | 예, 이러한 값의 조합입니다. |
+| **범위** | 스토리지 계정의 Azure Resource Manager 리소스 ID입니다. | String | Azure Resource Manager ID | 예 |
+| **events** | 이 트리거를 발생시키는 이벤트 유형입니다. | Array    | Microsoft.Storage.BlobCreated, Microsoft.Storage.BlobDeleted | 예, 이러한 값의 조합입니다. |
 | **blobPathBeginsWith** | Blob 경로는 발생시킬 트리거에 제공된 패턴으로 시작해야 합니다. 예를 들어 `/records/blobs/december/`는 `records` 컨테이너 아래의 `december` 폴더에서 Blob에 대한 트리거만을 시작합니다. | String   | | 이러한 속성 중 하나 이상에 대한 값을 제공해야 합니다. `blobPathBeginsWith` 또는 `blobPathEndsWith` |
 | **blobPathEndsWith** | Blob 경로는 발생시킬 트리거에 제공된 패턴으로 끝나야 합니다. 예를 들어 `december/boxes.csv`는 `december` 폴더에서 `boxes`라는 이름의 Blob에 대한 트리거만을 시작합니다. | String   | | 이러한 속성 중 하나 이상에 대한 값을 제공해야 합니다. `blobPathBeginsWith` 또는 `blobPathEndsWith` |
 

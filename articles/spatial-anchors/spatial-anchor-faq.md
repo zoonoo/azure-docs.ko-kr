@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 435ad986a9f0b96d42c88d450f40e5900ad33b7c
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 06936a196813dacfc1fc9d02945bee4119b7eea8
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67653245"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68927506"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Azure Spatial Anchors에 대한 FAQ
 
@@ -121,10 +121,6 @@ GA(일반 공급) 날짜는 곧 발표할 예정입니다.
 **Q: Unreal을 사용할 수 있나요?**
 
 **A:** Unreal에 대한 지원은 앞으로 고려될 것입니다.
-
-**Q: Xamarin을 사용할 수 있나요?**
-
-**A:** Xamarin에 대한 지원은 앞으로 고려될 것입니다.
 
 **Q: Azure Spatial Anchors는 어떤 포트 및 프로토콜을 사용하나요?**
 

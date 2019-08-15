@@ -10,26 +10,26 @@ ms.subservice: manage
 ms.date: 04/30/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 84ad88ef738f798103a1d5bf8f9c8504433686a7
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 90544e182eb25f53232cee9a4dd0c05bd25508a3
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67653201"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68988485"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에서 백업 및 복원
 
 Azure SQL Data Warehouse를 백업하고 복원하는 방법을 알아봅니다. 데이터 웨어하우스 복원 지점을 사용하여 주 지역의 데이터 웨어하우스를 이전 상태로 복구하거나 복사합니다. 데이터 웨어하우스 지역 중복 백업을 사용하여 다른 지역에 복원합니다.
 
-## <a name="what-is-a-data-warehouse-snapshot"></a>데이터 웨어하우스 스냅숏은 무엇입니까
+## <a name="what-is-a-data-warehouse-snapshot"></a>데이터 웨어하우스 스냅숏의 정의
 
-*데이터 웨어하우스 스냅샷*은 데이터 웨어하우스를 이전 상태로 복구하거나 복사하는 데 활용할 수 있는 복원 지점을 만듭니다.  SQL Data Warehouse가 분산 시스템이므로 데이터 웨어하우스 스냅샷은 Azure 저장소에 있는 여러 파일로 구성됩니다. 스냅샷은 데이터 웨어하우스에 저장된 데이터의 증분 변경 내용을 캡처합니다.
+*데이터 웨어하우스 스냅샷*은 데이터 웨어하우스를 이전 상태로 복구하거나 복사하는 데 활용할 수 있는 복원 지점을 만듭니다.  SQL Data Warehouse가 분산 시스템이므로 데이터 웨어하우스 스냅샷은 Azure Storage에 있는 여러 파일로 구성됩니다. 스냅샷은 데이터 웨어하우스에 저장된 데이터의 증분 변경 내용을 캡처합니다.
 
 *데이터 웨어하우스 복원*은 기존 데이터 웨어하우스 또는 삭제된 데이터 웨어하우스의 복원 지점에서 만들어지는 새 데이터 웨어하우스입니다. 데이터 웨어하우스 복원은 데이터가 실수로 손상되거나 삭제된 후 데이터를 다시 만들기 때문에 비즈니스 연속성 및 재해 복구 전략의 필수적인 부분입니다. 또한 데이터 웨어하우스는 테스트 또는 개발 용도로 데이터 웨어하우스의 복사본을 만드는 강력한 메커니즘입니다.  SQL Data Warehouse 복원 속도는 원본 및 대상 데이터 웨어하우스의 위치와 데이터베이스 크기에 따라 달라질 수 있습니다. 동일한 지역 내에서 평균적으로 복원에는 일반적으로 약 20분이 걸립니다. 
 
 ## <a name="automatic-restore-points"></a>자동 복원 지점
 
-스냅숏은 복원 지점을 만드는 서비스의 기본 제공 기능입니다. 이 기능은 사용하도록 설정할 필요가 없습니다. 서비스에서 자동 복원 지점을 사용하여 복구를 위한 SLA를 유지 관리하는 사용자는 현재 이러한 복원 지점을 삭제할 수 없습니다.
+스냅숏은 복원 지점이 만들어지는 서비스의 기본 제공 기능입니다. 이 기능은 사용하도록 설정할 필요가 없습니다. 서비스에서 자동 복원 지점을 사용하여 복구를 위한 SLA를 유지 관리하는 사용자는 현재 이러한 복원 지점을 삭제할 수 없습니다.
 
 SQL Data Warehouse는 하루 종일 데이터 웨어하우스의 스냅샷을 수행하여 7일 동안 사용할 수 있는 복원 지점을 만듭니다. 이 보존 기간은 변경할 수 없습니다. SQL Data Warehouse는 8시간 RPO(복구 지점 목표)를 지원합니다. 지난 7일 동안 수행된 스냅샷 중 하나에서 주 지역의 데이터 웨어하우스를 복원할 수 있습니다.
 
@@ -81,9 +81,9 @@ Azure 청구서에는 Storage 및 재해 복구 스토리지에 대한 항목이
 
 주 데이터 웨어하우스 및 7일 간의 스냅샷 변경에 대한 총 비용은 가장 가까운 TB로 반올림하여 계산됩니다. 예를 들어 데이터 웨어하우스가 1.5TB이고 스냅샷에서 100GB를 캡처하면 2TB 데이터에 대한 비용이 Azure Premium Storage 요율로 청구됩니다.
 
-지역 중복 저장소를 사용하는 경우 별도의 저장소 비용이 청구됩니다. 지역 중복 스토리지는 표준 RA-GRS(Read-Access Geo Redundant Storage) 요금이 청구됩니다.
+지역 중복 스토리지를 사용하는 경우 별도의 스토리지 비용이 청구됩니다. 지역 중복 스토리지는 표준 RA-GRS(Read-Access Geo Redundant Storage) 요금이 청구됩니다.
 
-SQL Data Warehouse 가격 책정에 대 한 자세한 내용은 [SQL Data Warehouse 가격 책정]을 참조 하세요. 지역에서 복원 하는 경우 데이터 송신에 대 한 청구 되지 됩니다.
+가격 책정 SQL Data Warehouse에 대 한 자세한 내용은 [SQL Data Warehouse 가격 책정]을 참조 하십시오. 지역에서 복원 하는 경우 데이터 송신 요금이 청구 되지 않습니다.
 
 ## <a name="restoring-from-restore-points"></a>복원 지점에서 복원
 
@@ -95,13 +95,13 @@ SQL Data Warehouse 가격 책정에 대 한 자세한 내용은 [SQL Data Wareho
 
 삭제되거나 일시 중지된 데이터 웨어하우스를 복원하기 위해 [지원 티켓을 만들](sql-data-warehouse-get-started-create-support-ticket.md) 수 있습니다.
 
-## <a name="cross-subscription-restore"></a>교차 구독 복원
+## <a name="cross-subscription-restore"></a>구독 간 복원
 
 구독에서 직접 복원해야 할 경우 [여기](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/36256231-enable-support-for-cross-subscription-restore)서 이 기능에 투표합니다. 다른 논리 서버로 복원하고 구독 간 복원을 수행하는 구독에서 서버를 ['이동'](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)합니다 . 
 
 ## <a name="geo-redundant-restore"></a>지역 중복 복원
 
-[데이터 웨어하우스](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region-using-powershell)는 선택한 성능 수준에서 SQL Data Warehouse를 지원하는 모든 지역에 복원할 수 있습니다.
+[데이터 웨어하우스](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore-from-geo-backup#restore-from-an-azure-geographical-region-through-powershell)는 선택한 성능 수준에서 SQL Data Warehouse를 지원하는 모든 지역에 복원할 수 있습니다.
 
 > [!NOTE]
 > 지역 중복 복원을 수행하려면 이 기능에서 옵트아웃(opt out)하지 않아야 합니다.

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: automation
 ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 2f6dcbba8da314798b2e8de12a9fc5bf55f67a4a
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 3dece2d2bffc7bd2b9e0a3c2931b2038ebc3c77e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750276"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68850639"
 ---
 # <a name="create-an-azure-automation-runbook"></a>Azure Automation Runbook 만들기
 
@@ -24,7 +24,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-https://portal.azure.com에서 Azure에 로그인
+[https://portal.azure.com](https://portal.azure.com ) 에서 Azure에 로그인
 
 ## <a name="create-runbook"></a>runbook 만들기
 
@@ -45,7 +45,7 @@ https://portal.azure.com에서 Azure에 로그인
     ![Runbook 편집기에서 PowerShell 스크립트 작성](./media/automation-quickstart-create-runbook/automation-edit-runbook-empty.png)
 
 1. 편집 창에 다음 코드를 입력하거나 복사하여 붙여넣습니다. 기본값인 "World"가 포함된 "Name"이라는 선택적 입력 매개 변수를 만들고, 이 입력 값을 사용하는 문자열을 출력합니다.
-   
+
    ```powershell-interactive
    param
    (
@@ -102,4 +102,3 @@ Runbook이 게시되면 개요 페이지가 표시됩니다.
 
 > [!div class="nextstepaction"]
 > [Automation 방법 - Runbook 형식](./automation-runbook-types.md)
-

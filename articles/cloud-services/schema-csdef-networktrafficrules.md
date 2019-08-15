@@ -10,15 +10,15 @@ ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: 351b369f-365e-46c1-82ce-03fc3655cc88
 caps.latest.revision: 17
-author: jpconnock
-ms.author: jeconnoc
-manager: timlt
-ms.openlocfilehash: 8925943b0a5d151d55adedcfe3f01b5a14c63c1b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+author: georgewallace
+ms.author: gwallace
+manager: gwallace
+ms.openlocfilehash: e99b9f0f601841fe6ff32eba0a43bfafd652e941
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60613879"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945942"
 ---
 # <a name="azure-cloud-services-definition-networktrafficrules-schema"></a>Azure Cloud Services 정의 NetworkTrafficRules 스키마
 `NetworkTrafficRules` 노드는 역할이 서로 통신하는 방법을 지정하는 서비스 정의 파일의 선택적 요소입니다. 특정 역할의 내부 엔드포인트에 액세스할 수 있는 역할을 제한합니다. `NetworkTrafficRules`는 독립 실행형 요소가 아닙니다. 서비스 정의 파일에 두 개 이상의 역할과 결합됩니다.
@@ -76,10 +76,10 @@ AllowAllTraffic 요소
 ##  <a name="RoleEndpoint"></a> RoleEndpoint 요소
 `RoleEndpoint` 요소는 역할에서 통신을 허용하는 엔드포인트를 설명합니다. 역할에 둘 이상의 엔드포인트가 있는 경우 `RoleEndpoint` 요소를 여러 개 지정할 수 있습니다.
 
-| 특성      | Type     | 설명 |
+| attribute      | type     | 설명 |
 | -------------- | -------- | ----------- |
-| `endpointName` | `string` | 필수 사항입니다. 트래픽을 허용하는 엔드포인트의 이름입니다.|
-| `roleName`     | `string` | 필수 사항입니다. 통신을 허용하는 웹 역할의 이름입니다.|
+| `endpointName` | `string` | 필수. 트래픽을 허용하는 엔드포인트의 이름입니다.|
+| `roleName`     | `string` | 필수. 통신을 허용하는 웹 역할의 이름입니다.|
 
 ## <a name="allowalltraffic-element"></a>AllowAllTraffic 요소
 `AllowAllTraffic` 요소는 모든 역할이 `Destinations` 노드에 정의된 엔드포인트와 통신하도록 허용하는 규칙입니다.
@@ -87,16 +87,16 @@ AllowAllTraffic 요소
 ##  <a name="WhenSource"></a> WhenSource 요소
 `WhenSource` 요소는 `Destinations` 노드에 정의된 엔드포인트와 통신할 수 있는 역할의 컬렉션을 설명합니다.
 
-| 특성 | Type     | 설명 |
+| attribute | type     | 설명 |
 | --------- | -------- | ----------- |
-| `matches` | `string` | 필수 사항입니다. 통신을 허용할 때 적용할 규칙을 지정합니다. 현재 유효한 값은 `AnyRule`뿐입니다.|
+| `matches` | `string` | 필수. 통신을 허용할 때 적용할 규칙을 지정합니다. 현재 유효한 값은 `AnyRule`뿐입니다.|
   
 ##  <a name="FromRole"></a> FromRole 요소
 `FromRole` 요소는 `Destinations` 노드에 정의된 엔드포인트와 통신할 수 있는 역할을 지정합니다. 엔드포인트와 통신할 수 있는 역할이 둘 이상인 경우 `FromRole` 요소를 여러 개 지정할 수 있습니다.
 
-| 특성  | Type     | 설명 |
+| attribute  | type     | 설명 |
 | ---------- | -------- | ----------- |
-| `roleName` | `string` | 필수 사항입니다. 통신을 허용하는 역할에 대한 이름입니다.|
+| `roleName` | `string` | 필수. 통신을 허용하는 역할에 대한 이름입니다.|
 
 ## <a name="see-also"></a>관련 항목
 [Cloud Service(클래식) 정의 스키마](schema-csdef-file.md)

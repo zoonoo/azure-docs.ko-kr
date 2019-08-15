@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07c035f4823ea8c8eaa96ca9bda22450246811cd
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 1cb4d3e35ae743dbae4c049f515d61b3042e7efe
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779619"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952815"
 ---
 # <a name="azure-ad-password-protection-troubleshooting"></a>Azure AD 암호 보호 문제 해결
 
@@ -41,6 +41,8 @@ Azure AD 암호 보호를 배포한 후 문제를 해결해야 할 수도 있습
 1. 프록시 호스트 컴퓨터가 프록시 서비스에서 수신 하는 RPC 끝점 (동적 또는 정적)에 대 한 액세스를 차단 하 고 있습니다.
 
    Azure AD 암호 보호 프록시 설치 관리자는 Azure AD 암호 보호 프록시 서비스에서 수신 대기 하는 인바운드 포트에 대 한 액세스를 허용 하는 Windows 방화벽 인바운드 규칙을 자동으로 만듭니다. 이 규칙을 나중에 삭제 하거나 사용 하지 않도록 설정 하면 DC 에이전트는 프록시 서비스와 통신할 수 없습니다. 다른 방화벽 제품 대신 builtin Windows 방화벽을 사용 하지 않도록 설정한 경우 Azure AD 암호 보호 프록시 서비스에서 수신 대기 하는 인바운드 포트에 대 한 액세스를 허용 하도록 방화벽을 구성 해야 합니다. 이 구성은 `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet을 사용 하 여 특정 정적 RPC 포트에서 수신 하도록 프록시 서비스가 구성 된 경우 더 구체적으로 지정할 수 있습니다.
+
+1. 도메인 컨트롤러에서 컴퓨터에 로그온 할 수 있도록 프록시 호스트 컴퓨터가 구성 되어 있지 않습니다. 이 동작은 "네트워크에서이 컴퓨터 액세스" 사용자 권한 할당을 통해 제어 됩니다. 포리스트의 모든 도메인에 있는 모든 도메인 컨트롤러에이 권한을 부여 해야 합니다. 이 설정은 일반적으로 대규모 네트워크 강화 작업의 일부로 제약을 받습니다.
 
 ## <a name="proxy-service-is-unable-to-communicate-with-azure"></a>프록시 서비스가 Azure와 통신할 수 없습니다.
 

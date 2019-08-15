@@ -2,19 +2,18 @@
 title: 디바이스 오프라인으로 작동 - Azure IoT Edge | Microsoft Docs
 description: IoT Edge 디바이스 및 모듈을 인터넷 연결 없이 오프라인으로 더 오래 작동하는 방법과 IoT Edge를 사용하여 일반 IoT 디바이스를 오프라인으로 작동하는 방법을 이해합니다.
 author: kgremban
-manager: philmea
 ms.author: kgremban
-ms.date: 06/04/2019
+ms.date: 08/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 4a46128d3b0e77ff7921e1f4875c318a95309769
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 6d82b353f8b485b4441853b7ff8e70e7d69f4d6a
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598612"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986976"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>IoT Edge 장치, 모듈 및 자식 장치에 대 한 확장 된 오프 라인 기능 이해
 
@@ -33,7 +32,7 @@ IoT Edge 디바이스가 오프라인으로 전환되면 IoT Edge 허브는 세 
 
 2. **IoT Hub와 동기화**
 
-   적어도 IoT Edge 런타임을 설치한 후 IoT Edge 디바이스를 온라인에 연결하여 IoT Hub와 동기화해야 합니다. 이 동기화에서 IoT Edge 디바이스는 할당된 모든 자식 디바이스에 대한 세부 정보를 얻습니다. 또한 IoT Edge 디바이스는 오프라인 작업을 사용하도록 설정하고 원격 분석 메시지의 로컬 저장소에 대한 설정을 검색하도록 로컬 캐시를 안전하게 업데이트합니다. 
+   적어도 IoT Edge 런타임을 설치한 후 IoT Edge 디바이스를 온라인에 연결하여 IoT Hub와 동기화해야 합니다. 이 동기화에서 IoT Edge 디바이스는 할당된 모든 자식 디바이스에 대한 세부 정보를 얻습니다. 또한 IoT Edge 디바이스는 오프라인 작업을 사용하도록 설정하고 원격 분석 메시지의 로컬 스토리지에 대한 설정을 검색하도록 로컬 캐시를 안전하게 업데이트합니다. 
 
 3. **오프 라인으로 전환**
 
@@ -51,7 +50,7 @@ IoT Edge 디바이스가 오프라인으로 전환되면 IoT Edge 허브는 세 
 
 IoT Edge 아닌 장치만 자식 장치로 추가할 수 있습니다. 
 
-IoT Edge 디바이스 및 할당된 자식 디바이스는 초기 일회성 동기화 후 오프라인으로 무기한 작동할 수 있습니다. 그러나 메시지 저장소는 TTL(Time to Live) 및 메시지 저장에 사용 가능한 디스크 공간에 따라 달라집니다. 
+IoT Edge 디바이스 및 할당된 자식 디바이스는 초기 일회성 동기화 후 오프라인으로 무기한 작동할 수 있습니다. 그러나 메시지 스토리지는 TTL(Time to Live) 및 메시지 저장에 사용 가능한 디스크 공간에 따라 달라집니다. 
 
 ## <a name="set-up-parent-and-child-devices"></a>부모 및 자식 장치 설정
 
@@ -137,43 +136,71 @@ TTL(Time to Live) 설정은 메시지가 만료되기 전까지 대기할 수 �
 }
 ```
 
-### <a name="additional-offline-storage"></a>추가 오프라인 저장소
+### <a name="host-storage-for-system-modules"></a>시스템 모듈의 호스트 저장소
 
-기본적으로 메시지는 IoT Edge 허브의 컨테이너 파일 시스템에 저장됩니다. 저장소가 오프라인 요구 사항을 처리하기에 충분하지 않은 경우 IoT Edge 디바이스의 로컬 저장소를 전용으로 사용할 수 있습니다. 컨테이너의 스토리지 폴더를 가리키는 IoT Edge 허브에 대한 환경 변수를 만듭니다. 그런 다음, 만들기 옵션을 사용하여 해당 저장소 폴더를 호스트 머신의 폴더에 바인딩합니다. 
+메시지 및 모듈 상태 정보는 기본적으로 IoT Edge 허브의 로컬 컨테이너 파일 시스템에 저장 됩니다. 안정성을 향상 시키기 위해 특히 오프 라인으로 작업 하는 경우 호스트 IoT Edge 장치에 전용 저장소를 지정할 수 있습니다.
 
-**고급 Edge 런타임 설정 구성** 섹션에서 Azure Portal의 IoT Edge 허브 모듈에 대한 환경 변수 및 만들기 옵션을 구성할 수 있습니다. 또는 배포 매니페스트에서 직접 구성할 수도 있습니다. 
+호스트 시스템에서 저장소를 설정 하려면 컨테이너의 저장소 폴더를 가리키는 IoT Edge 허브 및 IoT Edge 에이전트에 대 한 환경 변수를 만듭니다. 그런 다음, 만들기 옵션을 사용하여 해당 스토리지 폴더를 호스트 머신의 폴더에 바인딩합니다. 
+
+**고급 Edge 런타임 설정 구성** 섹션에서 Azure Portal의 IoT Edge 허브 모듈에 대한 환경 변수 및 만들기 옵션을 구성할 수 있습니다. 
+
+1. IoT Edge 허브와 IoT Edge 에이전트 모두에서 모듈의 디렉터리를 가리키는 **Storagefolder** 라는 환경 변수를 추가 합니다.
+1. IoT Edge 허브와 IoT Edge 에이전트 모두에 대해 바인딩을 추가 하 여 호스트 컴퓨터의 로컬 디렉터리를 모듈의 디렉터리에 연결 합니다. 이는 아래와 같이 함수의 반환값을 데이터 프레임으로 바로 변환하는 데 사용할 수 있음을 나타냅니다. 
+
+   ![로컬 저장소에 대 한 만들기 옵션 및 환경 변수 추가](./media/offline-capabilities/offline-storage.png)
+
+또는 배포 매니페스트에서 직접 로컬 저장소를 구성할 수 있습니다. 이는 아래와 같이 함수의 반환값을 데이터 프레임으로 바로 변환하는 데 사용할 수 있음을 나타냅니다. 
 
 ```json
-"edgeHub": {
-    "type": "docker",
-    "settings": {
-        "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
-        "createOptions": {
-            "HostConfig": {
-                "Binds": ["<HostStoragePath>:<ModuleStoragePath>"],
-                "PortBindings": {
-                    "8883/tcp": [{"HostPort":"8883"}],
-                    "443/tcp": [{"HostPort":"443"}],
-                    "5671/tcp": [{"HostPort":"5671"}]
+"systemModules": {
+    "edgeAgent": {
+        "settings": {
+            "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
+            "createOptions": {
+                "HostConfig": {
+                    "Binds":["<HostStoragePath>:<ModuleStoragePath>"]
                 }
+            }
+        },
+        "type": "docker",
+        "env": {
+            "storageFolder": {
+                "value": "<ModuleStoragePath>"
             }
         }
     },
-    "env": {
-        "storageFolder": {
-            "value": "<ModuleStoragePath>"
-        }
-    },
-    "status": "running",
-    "restartPolicy": "always"
+    "edgeHub": {
+        "settings": {
+            "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+            "createOptions": {
+                "HostConfig": {
+                    "Binds":["<HostStoragePath>:<ModuleStoragePath"],
+                    "PortBindings":{"5671/tcp":[{"HostPort":"5671"}],"8883/tcp":[{"HostPort":"8883"}],"443/tcp":[{"HostPort":"443"}]}}}
+        },
+        "type": "docker",
+        "env": {
+            "storageFolder": {
+                "value": "<ModuleStoragePath>"
+            }
+        },
+        "status": "running",
+        "restartPolicy": "always"
+    }
 }
 ```
 
-`<HostStoragePath>` 및 `<ModuleStoragePath>`를 호스트 및 모듈 저장소 경로로 바꿉니다. 호스트 및 모듈 저장소 경로는 모두 절대 경로여야 합니다. 만들기 옵션에서 호스트 및 모듈 스토리지 경로를 함께 바인딩합니다. 그런 다음, 모듈 스토리지 경로를 가리키는 환경 변수를 만듭니다.  
+`<HostStoragePath>` 및`<ModuleStoragePath>` 를 호스트 및 모듈 저장소 경로로 바꾸고, 두 값이 모두 절대 경로 여야 합니다. 
 
 예를 들어 `"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]`는 컨테이너에서 **/iotedge/storage/** 디렉터리에 매핑된 사용자의 호스트 시스템의 **/etc/iotedge/storage** 디렉터리를 의미합니다. 또는 Windows 시스템에 대한 또 다른 예로 `"Binds":["C:\\temp:C:\\contemp"]`는 컨테이너에서 **C:\\contemp** 디렉터리에 매핑된 사용자의 호스트 시스템의 **C:\\temp** 디렉터리를 의미합니다. 
 
-또한 [docker 문서](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate)에서 만들기 옵션에 대한 자세한 세부 정보를 찾을 수 있습니다.
+Linux 장치에서 IoT Edge 허브의 사용자 프로필 UID 1000에 호스트 시스템 디렉터리에 대 한 읽기, 쓰기 및 실행 권한이 있는지 확인 합니다. 이러한 권한은 IoT Edge 허브가 디렉터리에 메시지를 저장 하 고 나중에 검색할 수 있도록 하기 위해 필요 합니다. IoT Edge 에이전트는 루트로 작동 하므로 추가 권한이 필요 하지 않습니다. 를 사용 `chown` 하 여 디렉터리 소유자를 변경한 다음 `chmod` 사용 권한을 변경 하는 등 Linux 시스템에서 디렉터리 권한을 관리 하는 방법에는 여러 가지가 있습니다. 이는 아래와 같이 함수의 반환값을 데이터 프레임으로 바로 변환하는 데 사용할 수 있음을 나타냅니다.
+
+```bash
+sudo chown 1000 <HostStoragePath>
+sudo chmod 700 <HostStoragePath>
+```
+
+[Docker 문서](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate)에서 만들기 옵션에 대 한 자세한 내용을 확인할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

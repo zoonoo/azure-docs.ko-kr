@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: article
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 323470adfe56ee20fe0fb64aeba38b6af4330351
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: c456dfec72f98dc4ae06f1d7d5d9fb461182d579
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827589"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018991"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Azure Backup를 사용 하 여 SQL Server 데이터베이스 백업 문제 해결
 
@@ -29,9 +29,9 @@ ms.locfileid: "68827589"
 
 ### <a name="backup-type-unsupported"></a>백업 유형이 지원되지 않습니다
 
-| Severity | 설명 | 가능한 원인 | 권장 조치 |
+| severity | 설명 | 가능한 원인 | 권장 조치 |
 |---|---|---|---|
-| 경고 | 이 데이터베이스의 현재 설정은 연결 된 정책에 있는 특정 백업 유형을 지원 하지 않습니다. | <li>Master 데이터베이스에서는 전체 데이터베이스 백업 작업만 수행할 수 있습니다. 차등 백업과 트랜잭션 로그 백업은 모두 사용할 수 없습니다. </li> <li>단순 복구 모델의 모든 데이터베이스는 트랜잭션 로그의 백업을 허용 하지 않습니다.</li> | 정책의 모든 백업 유형이 지원되도록 데이터베이스 설정을 수정합니다. 또는 지원 되는 백업 유형만 포함 하도록 현재 정책을 변경 합니다. 그렇지 않으면 예약 된 백업 중에 지원 되지 않는 백업 유형을 건너뛰지 않으며 임시 백업에 대 한 백업 작업이 실패 합니다.
+| Warning | 이 데이터베이스의 현재 설정은 연결 된 정책에 있는 특정 백업 유형을 지원 하지 않습니다. | <li>Master 데이터베이스에서는 전체 데이터베이스 백업 작업만 수행할 수 있습니다. 차등 백업과 트랜잭션 로그 백업은 모두 사용할 수 없습니다. </li> <li>단순 복구 모델의 모든 데이터베이스는 트랜잭션 로그의 백업을 허용 하지 않습니다.</li> | 정책의 모든 백업 유형이 지원되도록 데이터베이스 설정을 수정합니다. 또는 지원 되는 백업 유형만 포함 하도록 현재 정책을 변경 합니다. 그렇지 않으면 예약 된 백업 중에 지원 되지 않는 백업 유형을 건너뛰지 않으며 임시 백업에 대 한 백업 작업이 실패 합니다.
 
 
 ### <a name="usererrorsqlpodoesnotsupportbackuptype"></a>UserErrorSQLPODoesNotSupportBackupType
@@ -124,13 +124,13 @@ ms.locfileid: "68827589"
 
 | 오류 메시지 | 가능한 원인 | 권장 조치 |
 |---|---|---|
-24시간 동안 허용되는 작업 수에 대한 제한에 도달하여 작업이 차단되었습니다. | 24 시간 범위의 작업에 허용 되는 최대 제한에 도달 하면이 오류가 발생 합니다. <br> 예를 들어: 매일 트리거할 수 있는 백업 구성 작업 수에 대 한 제한에 도달 하 고 새 항목에 백업을 구성 하려고 하면이 오류가 표시 됩니다. | 일반적으로 24 시간 후에 작업을 다시 시도 하면이 문제가 해결 됩니다. 그러나 문제가 계속 되 면 Microsoft 지원에 문의 하 여 도움을 받을 수 있습니다.
+24시간 동안 허용되는 작업 수에 대한 제한에 도달하여 작업이 차단되었습니다. | 24 시간 범위의 작업에 허용 되는 최대 제한에 도달 하면이 오류가 발생 합니다. <br> 이는 아래와 같이 함수의 반환값을 데이터 프레임으로 바로 변환하는 데 사용할 수 있음을 나타냅니다. 매일 트리거할 수 있는 백업 구성 작업 수에 대 한 제한에 도달 하 고 새 항목에 백업을 구성 하려고 하면이 오류가 표시 됩니다. | 일반적으로 24 시간 후에 작업을 다시 시도 하면이 문제가 해결 됩니다. 그러나 문제가 계속 되 면 Microsoft 지원에 문의 하 여 도움을 받을 수 있습니다.
 
 ### <a name="clouddosabsolutelimitreachedwithretry"></a>CloudDosAbsoluteLimitReachedWithRetry
 
 | 오류 메시지 | 가능한 원인 | 권장 조치 |
 |---|---|---|
-자격 증명 모음이 24 시간 범위에서 허용 되는 작업의 최대 제한에 도달 하 여 작업이 차단 되었습니다. | 24 시간 범위의 작업에 허용 되는 최대 제한에 도달 하면이 오류가 발생 합니다. 이 오류는 일반적으로 정책 수정 또는 자동 보호와 같은 대규모 작업을 수행 하는 경우에 발생 합니다. CloudDosAbsoluteLimitReached의 경우와 달리이 상태를 해결 하기 위해 수행할 수 있는 작업은 많지 않습니다. 실제로 Azure Backup 서비스는 문제의 모든 항목에 대해 내부적으로 작업을 다시 시도 합니다.<br> 예를 들어: 정책으로 보호 되는 데이터 원본 수가 많은 경우 해당 정책을 수정 하려고 하면 보호 된 각 항목에 대 한 보호 작업 구성이 트리거되고 때로는 매일 이러한 작업에 허용 되는 최대 제한에 도달할 수 있습니다.| Azure Backup 서비스는 24 시간 후에이 작업을 자동으로 다시 시도 합니다. 
+자격 증명 모음이 24 시간 범위에서 허용 되는 작업의 최대 제한에 도달 하 여 작업이 차단 되었습니다. | 24 시간 범위의 작업에 허용 되는 최대 제한에 도달 하면이 오류가 발생 합니다. 이 오류는 일반적으로 정책 수정 또는 자동 보호와 같은 대규모 작업을 수행 하는 경우에 발생 합니다. CloudDosAbsoluteLimitReached의 경우와 달리이 상태를 해결 하기 위해 수행할 수 있는 작업은 많지 않습니다. 실제로 Azure Backup 서비스는 문제의 모든 항목에 대해 내부적으로 작업을 다시 시도 합니다.<br> 이는 아래와 같이 함수의 반환값을 데이터 프레임으로 바로 변환하는 데 사용할 수 있음을 나타냅니다. 정책으로 보호 되는 데이터 원본 수가 많은 경우 해당 정책을 수정 하려고 하면 보호 된 각 항목에 대 한 보호 작업 구성이 트리거되고 때로는 매일 이러한 작업에 허용 되는 최대 제한에 도달할 수 있습니다.| Azure Backup 서비스는 24 시간 후에이 작업을 자동으로 다시 시도 합니다. 
 
 
 ## <a name="re-registration-failures"></a>다시 등록 오류
@@ -163,7 +163,7 @@ ms.locfileid: "68827589"
 
 파일의 전체 문자열 크기는 파일 수 뿐만 아니라 해당 이름 및 경로에 따라 달라 집니다. 각 데이터베이스 파일에 대해 논리적 파일 이름 및 실제 경로를 가져옵니다. 다음 SQL 쿼리를 사용할 수 있습니다.
 
-```
+```sql
 SELECT mf.name AS LogicalName, Physical_Name AS Location FROM sys.master_files mf
                INNER JOIN sys.databases db ON db.database_id = mf.database_id
                WHERE db.name = N'<Database Name>'"
@@ -171,13 +171,13 @@ SELECT mf.name AS LogicalName, Physical_Name AS Location FROM sys.master_files m
 
 이제 다음 형식으로 정렬 합니다.
 
-```
+```json
 [{"path":"<Location>","logicalName":"<LogicalName>","isDir":false},{"path":"<Location>","logicalName":"<LogicalName>","isDir":false}]}
 ```
 
 예를 들면 다음과 같습니다.
 
-```
+```json
 [{"path":"F:\\Data\\TestDB12.mdf","logicalName":"TestDB12","isDir":false},{"path":"F:\\Log\\TestDB12_log.ldf","logicalName":"TestDB12_log","isDir":false}]}
 ```
 
@@ -188,7 +188,7 @@ SELECT mf.name AS LogicalName, Physical_Name AS Location FROM sys.master_files m
 복원 작업 중에 데이터베이스 파일의 매핑이 포함 된 JSON 파일을 대상 복원 경로에 배치 하 여 대상 복원 파일 경로를 재정의할 수 있습니다. 파일을 `database_name.json` 만들고 *C:\Program Files\Azure 워크 로드 Backup\bin\plugins\SQL*위치에 배치 합니다.
 
 파일의 내용은 다음과 같은 형식 이어야 합니다.
-```
+```json
 [
   {
     "Path": "<Restore_Path>",
@@ -205,7 +205,7 @@ SELECT mf.name AS LogicalName, Physical_Name AS Location FROM sys.master_files m
 
 예를 들면 다음과 같습니다.
 
-```
+```json
 [
   {
    "Path": "F:\\Data\\testdb2_1546408741449456.mdf",
@@ -222,7 +222,7 @@ SELECT mf.name AS LogicalName, Physical_Name AS Location FROM sys.master_files m
 
 위의 콘텐츠에서 다음 SQL 쿼리를 사용 하 여 데이터베이스 파일의 논리적 이름을 가져올 수 있습니다.
 
-```
+```sql
 SELECT mf.name AS LogicalName FROM sys.master_files mf
                 INNER JOIN sys.databases db ON db.database_id = mf.database_id
                 WHERE db.name = N'<Database Name>'"

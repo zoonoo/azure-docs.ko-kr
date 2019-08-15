@@ -3,7 +3,7 @@ title: Azure Active Directory 활동 로그의 데이터 누락 문제 해결 | 
 description: Azure Active Directory 활동 로그의 데이터 누락 문제 해결 방법을 제공합니다.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 7cbe4337-bb77-4ee0-b254-3e368be06db7
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 01/15/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b25c09b140102c0788a939c48f48300242fc6ee
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a04de319a17255e3b61378cbd716828a237317b3
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60285046"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989512"
 ---
 # <a name="troubleshoot-missing-data-in-the-azure-active-directory-activity-logs"></a>문제 해결: Azure Active Directory 활동 로그의 데이터 누락 
 
@@ -41,7 +41,7 @@ Azure Portal에서 일부 작업을 수행했고 `Activity logs > Audit Logs` �
 | 보고서 | &nbsp; | 대기 시간(P95) | 대기 시간(P99) |
 |--------|--------|---------------|---------------|
 | 디렉터리 감사 | &nbsp; | 2분 | 5분 |
-| 로그인 작업 | &nbsp; | 2분 | 5분 | 
+| 로그인 활동 | &nbsp; | 2분 | 5분 | 
 
 ### <a name="resolution"></a>해결 방법
 
@@ -62,7 +62,7 @@ Azure Portal에서 일부 작업을 수행했고 `Activity logs > Audit Logs` �
 | 보고서 | &nbsp; | 대기 시간(P95) | 대기 시간(P99) |
 |--------|--------|---------------|---------------|
 | 디렉터리 감사 | &nbsp; | 2분 | 5분 |
-| 로그인 작업 | &nbsp; | 2분 | 5분 | 
+| 로그인 활동 | &nbsp; | 2분 | 5분 | 
 
 ### <a name="resolution"></a>해결 방법
 
@@ -72,7 +72,7 @@ Azure Portal에서 일부 작업을 수행했고 `Activity logs > Audit Logs` �
 
 ### <a name="symptoms"></a>증상
 
-Azure Portal에서 30일이 초과된 로그인 및 감사 데이터를 볼 수 없습니다. 그 이유는 
+Azure Portal에서 30일이 초과된 로그인 및 감사 데이터를 볼 수 없습니다. 이유가 무엇일까요? 
 
  ![보고](./media/troubleshoot-missing-audit-data/03.png)
 
@@ -82,7 +82,7 @@ Azure Active Directory 작업은 사용자 라이선스에 따라 다음 기간 
 
 | 보고서           | &nbsp; |  Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
 | ---              | ----   |  ---           | ---                 | ---                 |
-| 디렉터리 감사  | &nbsp; |   7 일     | 30일             | 30일             |
+| 디렉터리 감사  | &nbsp; |   7일     | 30일             | 30일             |
 | 로그인 작업 | &nbsp; | 사용할 수 없습니다. 로그인 작업은 개별 사용자 프로필 블레이드에서 7일 동안 액세스할 수 있습니다. | 30일 | 30일             |
 
 자세한 내용은 [Azure Active Directory 보고서 보존 정책](reference-reports-data-retention.md)을 참조하세요.  

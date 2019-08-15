@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/12/2019
 ms.author: atsenthi
-ms.openlocfilehash: c20e782423c60985adb9e18e275fde59e57e00a2
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 08864d6a965921f7f6d284dc53bd2586d30fedd1
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599891"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69014437"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Service Fabric 클러스터 설정 사용자 지정
 이 문서에서는 사용자 지정할 수 있는 Service Fabric 클러스터의 다양한 패브릭 설정을 설명합니다. Azure에서 호스팅된 클러스터의 경우 [Azure Portal](https://portal.azure.com)을 통해 또는 Azure Resource Manager 템플릿을 사용하여 설정을 사용자 지정할 수 있습니다. 자세한 내용은 [Azure 클러스터의 구성 업그레이드](service-fabric-cluster-config-upgrade-azure.md)를 참조하세요. 독립 실행형 클러스터의 경우 *ClusterConfig.json* 파일을 업데이트하고 클러스터에서 구성 업그레이드를 수행하여 설정을 사용자 지정합니다. 자세한 내용은 [독립 실행형 클러스터의 구성 업그레이드](service-fabric-cluster-config-upgrade-windows-server.md)를 참조하세요.
@@ -132,7 +132,7 @@ ms.locfileid: "68599891"
 |ApplicationLogsFormatVersion |int, 기본값: 0 | Dynamic |애플리케이션 로그 형식의 버전. 지원되는 값은 0과 1입니다. 버전 1은 버전 0보다 더 많은 ETW 이벤트 레코드 필드를 포함합니다. |
 |AuditHttpRequests |bool, 기본값: false | Dynamic | HTTP 감사를 설정 하거나 해제 합니다. 감사 목적은 클러스터에 대해 수행 된 작업을 확인 하는 것입니다. 요청을 시작한 사람을 포함 합니다. 이는 가장 좋은 로깅입니다. 그리고 추적 손실이 발생할 수 있습니다. "User" 인증을 사용 하는 HTTP 요청은 기록 되지 않습니다. |
 |CaptureHttpTelemetry|bool, 기본값: false | Dynamic | HTTP 원격 분석을 설정 하거나 해제 합니다. 원격 분석의 목적은 향후 작업을 계획 하 고 문제 영역을 식별 하는 데 도움이 되는 원격 분석 데이터를 캡처할 수 있도록 Service Fabric 하는 것입니다. 원격 분석은 개인 데이터 나 요청 본문을 기록 하지 않습니다. 달리 구성 하지 않는 한 원격 분석은 모든 HTTP 요청을 캡처합니다. |
-|ClusterId |String | Dynamic |클러스터의 고유 ID입니다. 클러스터를 만들 때 생성됩니다. |
+|ClusterId |문자열 | Dynamic |클러스터의 고유 ID입니다. 클러스터를 만들 때 생성됩니다. |
 |ConsumerInstances |문자열 | Dynamic |DCA 소비자 인스턴스 목록 |
 |DiskFullSafetySpaceInMB |int, 기본값: 1024 | Dynamic |DCA에서 사용하지 못하도록 보호하기 위해 남아 있는 디스크 공간(MB) |
 |EnableCircularTraceSession |bool, 기본값: false | 정적 |플래그에서 순환 추적 세션을 사용해야 하는지 여부를 나타냅니다. |
@@ -411,6 +411,11 @@ ms.locfileid: "68599891"
 |WriteBufferMemoryPoolMaximumInKB | int, 기본값: 0 |Dynamic|쓰기 버퍼 메모리 풀이 확장할 수 있는 KB 수. 제한하지 않으려면 0을 사용합니다. |
 |WriteBufferMemoryPoolMinimumInKB |int, 기본값: 8388608 |Dynamic|쓰기 버퍼 메모리 풀에 처음으로 할당할 KB 수. 제한하지 않으려면 0을 사용합니다. 기본값은 아래의 SharedLogSizeInMB와 일치해야 합니다. |
 
+## <a name="managedidentitytokenservice"></a>ManagedIdentityTokenService
+| **매개 변수** | **허용되는 값** | **업그레이드 정책** | **지침 또는 간단한 설명** |
+| --- | --- | --- | --- |
+|IsEnabled|bool, 기본값: FALSE|정적|클러스터에서 관리 되는 Id 토큰 서비스의 현재 상태를 제어 하는 플래그입니다. Service Fabric 응용 프로그램의 관리 되는 id 기능을 사용 하기 위한 필수 구성 요소입니다.|
+
 ## <a name="management"></a>관리
 
 | **매개 변수** | **허용되는 값** | **업그레이드 정책** | **지침 또는 간단한 설명** |
@@ -501,7 +506,7 @@ ms.locfileid: "68599891"
 
 | **매개 변수** | **허용되는 값** | **업그레이드 정책** | **지침 또는 간단한 설명** |
 | --- | --- | --- | --- |
-|Counters |String | Dynamic |수집할 성능 카운터의 쉼표로 구분된 목록 |
+|Counters |문자열 | Dynamic |수집할 성능 카운터의 쉼표로 구분된 목록 |
 |IsEnabled |bool, 기본값: true | Dynamic |플래그에서 로컬 노드의 성능 카운터 수집을 사용하는지 여부를 나타냅니다. |
 |MaxCounterBinaryFileSizeInMB |int, 기본값: 1 | Dynamic |각 성능 카운터 이진 파일의 최대 크기(MB) |
 |NewCounterBinaryFileCreationIntervalInMinutes |int, 기본값: 10 | Dynamic |새 성능 카운터 이진 파일이 만들어지는 최대 간격(초) |
@@ -610,7 +615,7 @@ ms.locfileid: "68599891"
 |RunAsAccountType|string, 기본값: "" |Dynamic|RunAs 계정 유형을 나타냅니다. RunAs 섹션에 필요합니다. 유효한 값: "DomainUser/NetworkService/ManagedServiceAccount/LocalSystem"|
 |RunAsPassword|string, 기본값: "" |Dynamic|RunAs 계정 암호를 나타냅니다. "DomainUser" 계정 유형에만 필요합니다. |
 
-## <a name="runasdca"></a>RunAs_DCA
+## <a name="runas_dca"></a>RunAs_DCA
 
 | **매개 변수** | **허용되는 값** | **업그레이드 정책** | **지침 또는 간단한 설명** |
 | --- | --- | --- | --- |
@@ -618,7 +623,7 @@ ms.locfileid: "68599891"
 |RunAsAccountType|string, 기본값: "" |Dynamic|RunAs 계정 유형을 나타냅니다. RunAs 섹션에 필요합니다. 유효한 값: "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem" |
 |RunAsPassword|string, 기본값: "" |Dynamic|RunAs 계정 암호를 나타냅니다. "DomainUser" 계정 유형에만 필요합니다. |
 
-## <a name="runasfabric"></a>RunAs_Fabric
+## <a name="runas_fabric"></a>RunAs_Fabric
 
 | **매개 변수** | **허용되는 값** | **업그레이드 정책** | **지침 또는 간단한 설명** |
 | --- | --- | --- | --- |
@@ -626,7 +631,7 @@ ms.locfileid: "68599891"
 |RunAsAccountType|string, 기본값: "" |Dynamic|RunAs 계정 유형을 나타냅니다. RunAs 섹션에 필요합니다. 유효한 값: "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem" |
 |RunAsPassword|string, 기본값: "" |Dynamic|RunAs 계정 암호를 나타냅니다. "DomainUser" 계정 유형에만 필요합니다. |
 
-## <a name="runashttpgateway"></a>RunAs_HttpGateway
+## <a name="runas_httpgateway"></a>RunAs_HttpGateway
 
 | **매개 변수** | **허용되는 값** | **업그레이드 정책** | **지침 또는 간단한 설명** |
 | --- | --- | --- | --- |
@@ -696,7 +701,7 @@ ms.locfileid: "68599891"
 |CreateVolume|string, 기본값: "Admin"|Dynamic|볼륨을 만듭니다. |
 |DeactivateNode |string, 기본값: "Admin" |Dynamic| 단일 노드 비활성화에 대한 보안 구성 |
 |DeactivateNodesBatch |string, 기본값: "Admin" |Dynamic| 여러 노드 비활성화에 대한 보안 구성 |
-|삭제 |string, 기본값: "Admin" |Dynamic| 이미지 저장소 클라이언트 삭제 작업에 대한 보안 구성 |
+|DELETE |string, 기본값: "Admin" |Dynamic| 이미지 저장소 클라이언트 삭제 작업에 대한 보안 구성 |
 |DeleteApplication |string, 기본값: "Admin" |Dynamic| 애플리케이션 삭제에 대한 보안 구성 |
 |DeleteComposeDeployment|string, 기본값: "Admin"| Dynamic|작성 배포를 삭제합니다. |
 |DeleteGatewayResource|string, 기본값: "Admin"| Dynamic|게이트웨이 리소스를 삭제합니다. |
@@ -744,7 +749,7 @@ ms.locfileid: "68599891"
 |PropertyWriteBatch |string, 기본값: "Admin" |Dynamic|이름 지정 속성 쓰기 작업에 대한 보안 구성 |
 |ProvisionApplicationType |string, 기본값: "Admin" |Dynamic| 애플리케이션 유형 프로비전에 대한 보안 구성 |
 |ProvisionFabric |string, 기본값: "Admin" |Dynamic| MSI 및/또는 클러스터 매니페스트 프로비전에 대한 보안 구성 |
-|Query |string, 기본값: "Admin\|\|User" |Dynamic| 쿼리에 대한 보안 구성 |
+|query |string, 기본값: "Admin\|\|User" |Dynamic| 쿼리에 대한 보안 구성 |
 |RecoverPartition |string, 기본값: "Admin" | Dynamic|단일 파티션 복구에 대한 보안 구성 |
 |RecoverPartitions |string, 기본값: "Admin" | Dynamic|여러 파티션 복구에 대한 보안 구성 |
 |RecoverServicePartitions |string, 기본값: "Admin" |Dynamic| 서비스 파티션 복구에 대한 보안 구성 |
@@ -780,7 +785,7 @@ ms.locfileid: "68599891"
 |UpgradeApplication |string, 기본값: "Admin" |Dynamic| 애플리케이션 업그레이드 시작 또는 중단에 대한 보안 구성 |
 |UpgradeComposeDeployment|string, 기본값: "Admin"| Dynamic|작성 배포를 업그레이드합니다. |
 |UpgradeFabric |string, 기본값: "Admin" |Dynamic| 클러스터 업그레이드 시작에 대한 보안 구성 |
-|Upload |string, 기본값: "Admin" | Dynamic|이미지 저장소 클라이언트 업로드 작업에 대한 보안 구성 |
+|업로드 |string, 기본값: "Admin" | Dynamic|이미지 저장소 클라이언트 업로드 작업에 대한 보안 구성 |
 
 ## <a name="securityclientcertificateissuerstores"></a>Security/ClientCertificateIssuerStores
 
@@ -818,14 +823,14 @@ ms.locfileid: "68599891"
 | --- | --- | --- | --- |
 |PropertyGroup|X509NameMap, 기본값: None|Dynamic|"Name" 및 "Value" 쌍의 목록입니다. 각 "Name"은 주체 일반 이름 또는 서버 작업에 대해 권한이 있는 X509 인증서의 DnsName입니다. 지정된 “Name”의 경우 “Value”는 발급자 고정을 위해 쉼표로 구분된 인증서 지문 목록입니다. 비어있지 않은 경우 서버 인증서의 직접 발급자가 목록에 있어야 합니다.|
 
-## <a name="setup"></a>설정
+## <a name="setup"></a>설치 프로그램
 
 | **매개 변수** | **허용되는 값** | **업그레이드 정책** | **지침 또는 간단한 설명** |
 | --- | --- | --- | --- |
 |ContainerNetworkName|string, 기본값: ""| 정적 |컨테이너 네트워크를 설정할 때 사용할 네트워크 이름입니다.|
 |ContainerNetworkSetup|bool, 기본값: FALSE| 정적 |컨테이너 네트워크를 설정할지 여부입니다.|
 |FabricDataRoot |String | 허용되지 않음 |Service Fabric 데이터 루트 디렉터리. Azure에 대한 기본값: d:\svcfab |
-|FabricLogRoot |String | 허용되지 않음 |Service Fabric 로그 루트 디렉터리. SF 로그 및 추적이 배치되는 위치입니다. |
+|FabricLogRoot |문자열 | 허용되지 않음 |Service Fabric 로그 루트 디렉터리. SF 로그 및 추적이 배치되는 위치입니다. |
 |NodesToBeRemoved|string, 기본값: ""| Dynamic |구성 업그레이드의 일부로 제거해야 하는 노드입니다. (독립 실행형 배포에만 해당)|
 |ServiceRunAsAccountName |String | 허용되지 않음 |패브릭 호스트 서비스를 실행할 계정 이름 |
 |SkipContainerNetworkResetOnReboot|bool, 기본값: FALSE|NotAllowed|다시 부팅 시 컨테이너 네트워크 재설정을 건너뛸지 여부입니다.|

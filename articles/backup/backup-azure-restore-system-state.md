@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/18/2017
 ms.author: dacurwin
-ms.openlocfilehash: 70cd7a1e77e6154b6406c82344b82f230eeb7b3c
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 83c4d8a90bf9ae348026c14beaec4975636b29b5
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954638"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018798"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Windows Server에 시스템 상태 복원
 
@@ -124,9 +124,9 @@ Azure Recovery Services 에이전트를 사용하여 시스템 상태를 파일�
 
 1. 다음 명령을 사용하여 *디렉터리 서비스 복구 모드*로 서버를 다시 부팅합니다. 관리자 권한 명령 프롬프트에서 다음을 수행합니다.
 
-    ```
-    PS C:\> Bcdedit /set safeboot dsrepair
-    PS C:\> Shutdown /r /t 0
+    ```cmd
+    Bcdedit /set safeboot dsrepair
+    Shutdown /r /t 0
     ```
 
 2. 다시 부팅한 후에 Windows Server Backup 스냅인을 엽니다. 스냅인이 설치된 위치를 모르는 경우 컴퓨터 또는 서버에서 **Windows Server Backup**을 검색합니다.
@@ -189,14 +189,14 @@ Azure Recovery Services 에이전트를 사용하여 시스템 상태를 파일�
 
 5. 관리자 모드에서 명령 프롬프트를 여는 경우 시스템 상태 백업 버전을 가져오는 다음 명령을 실행합니다.
 
-    ```
+    ```cmd
     Wbadmin get versions -backuptarget:<Volume where WindowsImageBackup folder is copied>:
     ```
     ![시스템 상태 백업 버전 가져오기](./media/backup-azure-restore-system-state/winre-4.png)
 
 6. 백업에 사용할 수 있는 모든 볼륨을 가져오는 다음 명령을 실행합니다.
 
-    ```
+    ```cmd
     Wbadmin get items -version:<copy version from above step> -backuptarget:<Backup volume>
     ```
 
@@ -204,7 +204,7 @@ Azure Recovery Services 에이전트를 사용하여 시스템 상태를 파일�
 
 7. 다음 명령은 시스템 상태 Backup이 포함된 모든 볼륨을 복구합니다. 이 단계는 시스템 상태가 포함된 중요한 볼륨만을 복구합니다. 모든 비 시스템 데이터가 지워집니다.
 
-    ```
+    ```cmd
     Wbadmin start recovery -items:C: -itemtype:Volume -version:<Backupversion> -backuptarget:<backup target volume>
     ```
      ![시스템 상태 백업 버전 가져오기](./media/backup-azure-restore-system-state/winre-6.png)

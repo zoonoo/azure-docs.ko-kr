@@ -1,5 +1,5 @@
 ---
-title: 유형을 신용 위험 예측
+title: '시각적 인터페이스 예제 #3: 신용 위험을 예측 하는 분류'
 titleSuffix: Azure Machine Learning service
 description: 시각적 인터페이스를 사용 하 여 코드를 한 줄도 작성 하지 않고 기계 학습 분류자를 빌드하는 방법에 대해 알아봅니다.
 services: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: d1b3b8fa61492f3cf18e44e3e3046f32ea9c9b03
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 7565f94910d0e926682a72af42b02059fe7295ea
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855979"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990065"
 ---
 # <a name="sample-3---classification-predict-credit-risk"></a>샘플 3-분류: 신용 위험 예측
 
@@ -27,7 +27,7 @@ ms.locfileid: "68855979"
 
 ![실험 그래프](media/ui-sample-classification-predict-credit-risk-basic/overall-graph.png)
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
@@ -39,7 +39,7 @@ ms.locfileid: "68855979"
 
 [샘플 4-분류: 신용 위험 예측 (비용 중요)](ui-sample-classification-predict-credit-risk-cost-sensitive.md) 은이 실험과 동일한 문제를 해결 하는 고급 실험을 제공 합니다. **Python 스크립트 실행** 모듈을 사용 하 여 _비용에 민감한_ 분류를 수행 하 고 두 이진 분류 알고리즘의 성능을 비교 하는 방법을 보여 줍니다. 분류 실험을 작성 하는 방법에 대 한 자세한 내용을 보려면이 정보를 참조 하세요.
 
-## <a name="data"></a>보기
+## <a name="data"></a>data
 
 UC Irvine 리포지토리에서 독일어 신용 카드 데이터 집합을 사용 합니다.
 데이터 집합에는 20 개의 기능과 1 개의 레이블이 있는 1000 샘플이 포함 되어 있습니다. 각 샘플은 사람을 나타냅니다. 이 기능에는 숫자 및 범주 기능이 포함 됩니다. 범주 기능의 의미는 [UCI 웹 사이트](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29) 를 참조 하세요. 마지막 열은 신용 위험을 나타내며 두 개의 가능한 값, 즉 높은 신용 위험 = 2, 낮은 신용 위험 = 1만 포함 하는 레이블입니다.

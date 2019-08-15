@@ -7,12 +7,12 @@ ms.date: 07/30/2019
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: e14fcbd81a562b8d6451bb89a479c6675569403a
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 0fe893ae95b31b1b676a982a60166041a0ad964d
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854547"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69015898"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Azure Files에 대한 FAQ(질문과 대답)
 [Azure Files](storage-files-introduction.md)는 산업 표준 [SMB(서버 메시지 블록) 프로토콜](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유를 제공합니다. Azure 파일 공유를 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포에 동시에 탑재할 수 있습니다. 데이터가 사용되는 위치 가까이에 대한 빠른 액세스를 위해 Azure 파일 동기화를 사용하여 Windows Server 컴퓨터에서 Azure 파일 공유를 캐시할 수도 있습니다.
@@ -50,9 +50,9 @@ ms.locfileid: "68854547"
 * <a id="files-versus-disks"></a>**Azure 디스크 대신 Azure 파일 공유를 사용하는 이유는 무엇인가요?**  
     Azure 디스크의 디스크는 단순히 디스크입니다. Azure 디스크에서 값을 가져오려면 Azure에서 실행 중인 가상 머신에 디스크를 연결해야 합니다. 온-프레미스 서버에서 디스크를 사용하는 모든 항목에 대해 Azure 디스크를 사용할 수 있습니다. OS 시스템 디스크, OS에 대한 스왑 공간 또는 애플리케이션에 대한 전용 스토리지로 사용할 수 있습니다. Azure 디스크의 유용한 용도는 Azure 파일 공유를 사용할 수 있는 동일한 장소에서 사용하기 위해 클라우드에 파일 서버를 만들 수 있다는 것입니다. Azure Virtual Machines에 파일 서버를 배포하는 일은 현재 Azure Files에서 지원하지 않는 배포 옵션(예: NFS 프로토콜 지원 또는 Premium Storage)이 필요할 때 Azure에서 파일 스토리지를 얻는 고성능 방식입니다. 
 
-    그러나 Azure 디스크를 백 엔드 저장소로 사용해서 파일 서버를 실행하게 되면 몇 가지 이유로 인해 Azure 파일 공유를 사용할 때보다 일반적으로 훨씬 더 많은 비용이 초래됩니다. 첫째, 디스크 저장소에 대해 요금을 지불하는 것 외에, 하나 이상의 Azure VM을 실행하는 비용도 지불해야 합니다. 둘째, 파일 서버를 실행하는 데 사용 되는 VM도 관리해야 합니다. 예를 들어, OS 업그레이드에 대한 책임이 있습니다. 마지막으로 온-프레미스에 데이터를 캐시하려는 경우 사용자가 이를 위해 DFSR(분산 파일 시스템 복제)과 같은 복제 토폴로지를 설정하고 관리해야 합니다.
+    그러나 Azure 디스크를 백 엔드 스토리지로 사용해서 파일 서버를 실행하게 되면 몇 가지 이유로 인해 Azure 파일 공유를 사용할 때보다 일반적으로 훨씬 더 많은 비용이 초래됩니다. 첫째, 디스크 스토리지에 대해 요금을 지불하는 것 외에, 하나 이상의 Azure VM을 실행하는 비용도 지불해야 합니다. 둘째, 파일 서버를 실행하는 데 사용 되는 VM도 관리해야 합니다. 예를 들어, OS 업그레이드에 대한 책임이 있습니다. 마지막으로 온-프레미스에 데이터를 캐시하려는 경우 사용자가 이를 위해 DFSR(분산 파일 시스템 복제)과 같은 복제 토폴로지를 설정하고 관리해야 합니다.
 
-    Azure Virtual Machines에 호스트된 Azure Files 및 파일 서버를 둘 다 적절히 활용하는 방법 중 하나는(Azure 디스크를 백 엔드 저장소로 사용하는 것 외에) 클라우드 VM에서 호스트되는 파일 서버에 Azure 파일 동기화를 설치하는 것입니다. Azure 파일 공유가 파일 서버와 동일한 지역에 있으면 클라우드 계층화를 사용하도록 설정하고 사용 가능한 볼륨 공간 비율을 최대값(99%)으로 설정할 수 있습니다. 이렇게 하면 데이터의 최소 중복을 보장합니다. NFS 프로토콜 지원을 필요로 하는 애플리케이션과 같이 파일 서버와 함께 원하는 애플리케이션을 사용할 수도 있습니다.
+    Azure Virtual Machines에 호스트된 Azure Files 및 파일 서버를 둘 다 적절히 활용하는 방법 중 하나는(Azure 디스크를 백 엔드 스토리지로 사용하는 것 외에) 클라우드 VM에서 호스트되는 파일 서버에 Azure 파일 동기화를 설치하는 것입니다. Azure 파일 공유가 파일 서버와 동일한 지역에 있으면 클라우드 계층화를 사용하도록 설정하고 사용 가능한 볼륨 공간 비율을 최대값(99%)으로 설정할 수 있습니다. 이렇게 하면 데이터의 최소 중복을 보장합니다. NFS 프로토콜 지원을 필요로 하는 애플리케이션과 같이 파일 서버와 함께 원하는 애플리케이션을 사용할 수도 있습니다.
 
     Azure에서 고성능 및 고가용성 파일 서버를 설정하는 옵션에 대한 자세한 내용은 [Microsoft Azure에서 IaaS VM 게스트 클러스터 배포](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure/)를 참조하세요. Azure Files 및 Azure 디스크 간의 차이점에 대한 심도 있는 설명을 보려면 [Azure Blob Storage, Azure Files 또는 Azure 디스크를 사용해야 하는 경우 결정](../common/storage-decide-blobs-files-disks.md)을 참조하세요. Azure 디스크에 대한 자세한 내용은 [Azure Managed Disks 개요](../../virtual-machines/windows/managed-disks-overview.md)를 참조하세요.
 
@@ -67,11 +67,11 @@ ms.locfileid: "68854547"
     Azure 파일 공유를 배포하여 조직에서 프로덕션 파일 공유를 대신하는 방법에 대한 자세한 지침을 보려면 [Azure Files 배포에 대한 계획](storage-files-planning.md)을 참조하세요.
 
 * <a id="redundancy-options"></a>
-  **Azure Files에서 지원되는 저장소 중복 옵션은 무엇인가요?**  
-    현재 Azure Files는 LRS(로컬 중복 저장소), ZRS(영역 중복 저장소) 및 GRS(지역 중복 저장소)를 지원합니다. 앞으로 RA-GRS(읽기 액세스 지역 중복 저장소)를 지원할 예정이지만 지금은 일정 계획이 나와 있지 않습니다.
+  **Azure Files에서 지원되는 스토리지 중복 옵션은 무엇인가요?**  
+    현재 Azure Files에서는 LRS (로컬 중복 저장소), ZRS (영역 중복 저장소), GRS (지역 중복 저장소) 및 GZRS (지역 중복 저장소) (미리 보기)를 지원 합니다. 앞으로 RA-GRS(읽기 액세스 지역 중복 스토리지)를 지원할 예정이지만 지금은 일정 계획이 나와 있지 않습니다.
 
 * <a id="tier-options"></a>
-  **Azure Files에서 어떤 저장소 계층이 지원되나요?**  
+  **Azure Files에서 어떤 스토리지 계층이 지원되나요?**  
     Azure Files는 프리미엄 및 표준의 두 가지 저장소 계층을 지원 합니다. 표준 파일 공유는 범용 (GPv1 또는 GPv2) 저장소 계정에서 만들어지며 프리미엄 파일 공유는 FileStorage storage 계정에 만들어집니다. [표준 파일 공유](storage-how-to-create-file-share.md) 및 [프리미엄 파일 공유](storage-how-to-create-premium-fileshare.md)를 만드는 방법에 대해 자세히 알아보세요. 
     
     > [!NOTE]
@@ -89,7 +89,7 @@ ms.locfileid: "68854547"
 
 * <a id="cross-domain-sync"></a>
   **도메인에 가입된 서버와 도메인에 가입되지 않은 서버를 같은 동기화 그룹에 둘 수 있나요?**  
-    예. 동기화 그룹에는 도메인에 가입되지 않은 경우에도 다른 Active Directory 구성원 자격을 갖는 서버 엔드포인트가 포함될 수 있습니다. 이 구성이 기술적으로는 작동하지만, 한 서버의 파일 및 폴더에 대해 정의된 ACL(액세스 제어 목록)은 동기화 그룹의 다른 서버에 의해 적용될 수 없으므로 이러한 구성은 일반적인 구성으로 권장되지 않습니다. 최상의 결과를 얻으려면 동일한 Active Directory 포리스트에 있는 서버 간, 다른 Active Directory 포리스트에 있지만 설정된 트러스트 관계에 있는 서버 간 또는 도메인에 있지 않은 서버 간의 동기화를 권장합니다. 이러한 구성 간의 혼합 사용은 방지하는 것이 좋습니다.
+    예 동기화 그룹에는 도메인에 가입되지 않은 경우에도 다른 Active Directory 구성원 자격을 갖는 서버 엔드포인트가 포함될 수 있습니다. 이 구성이 기술적으로는 작동하지만, 한 서버의 파일 및 폴더에 대해 정의된 ACL(액세스 제어 목록)은 동기화 그룹의 다른 서버에 의해 적용될 수 없으므로 이러한 구성은 일반적인 구성으로 권장되지 않습니다. 최상의 결과를 얻으려면 동일한 Active Directory 포리스트에 있는 서버 간, 다른 Active Directory 포리스트에 있지만 설정된 트러스트 관계에 있는 서버 간 또는 도메인에 있지 않은 서버 간의 동기화를 권장합니다. 이러한 구성 간의 혼합 사용은 방지하는 것이 좋습니다.
 
 * <a id="afs-change-detection"></a>
   **SMB를 사용하여 또는 포털에서 Azure Files 공유에서 직접 파일을 만들었습니다. 파일을 동기화 그룹의 서버와 동기화하는 데 얼마나 소요되나요?**  
@@ -103,8 +103,8 @@ ms.locfileid: "68854547"
     예를 들어, CompanyReport.docx의 첫 번째 충돌은 CentralServer가 이전 쓰기가 발생한 위치인 경우 CompanyReport-CentralServer.docx가 됩니다. 두 번째 충돌은 CompanyReport-CentralServer-1.docx라는 이름이 됩니다.
 
 * <a id="afs-storage-redundancy"></a>
-  **지역 중복 저장소가 Azure 파일 동기화에서 지원되나요?**  
-    예, Azure Files는 LRS(로컬 중복 저장소) 및 GRS(지역 중복 저장소)를 모두 지원합니다. GRS에 대해 구성된 계정에서 쌍으로 연결된 지역 간에 스토리지 계정 장애 조치를 시작하는 경우 새 지역을 데이터 백업으로만 처리하는 것이 좋습니다. Azure 파일 동기화는 새 주 영역과의 동기화를 자동으로 시작하지 않습니다. 
+  **지역 중복 스토리지가 Azure 파일 동기화에서 지원되나요?**  
+    예, Azure Files는 LRS(로컬 중복 스토리지) 및 GRS(지역 중복 스토리지)를 모두 지원합니다. GRS에 대해 구성된 계정에서 쌍으로 연결된 지역 간에 스토리지 계정 장애 조치를 시작하는 경우 새 지역을 데이터 백업으로만 처리하는 것이 좋습니다. Azure 파일 동기화는 새 주 영역과의 동기화를 자동으로 시작하지 않습니다. 
 
 * <a id="sizeondisk-versus-size"></a>
   **Azure 파일 동기화를 사용한 후에 Azure 파일에 대한 *디스크 크기* 속성이 *크기* 속성과 일치하지 않는 이유는 무엇인가요?**  
@@ -155,11 +155,11 @@ ms.locfileid: "68854547"
     [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
     
 * <a id="afs-resource-move"></a>
-  **저장소 동기화 서비스 및/또는 저장소 계정을 다른 리소스 그룹이나 구독으로 이동할 수 있나요?**  
-   예, 저장소 동기화 서비스 및/또는 저장소 계정은 기존 Azure AD 테넌트 내의 다른 리소스 그룹 또는 구독으로 이동할 수 있습니다. 저장소 계정이 이동되는 경우 저장소 계정에 대한 액세스 권한을 하이브리드 파일 동기화 서비스에 부여해야 합니다([Azure 파일 동기화가 저장소 계정에 액세스할 수 있는지 확인합니다.](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac) 참조).
+  **스토리지 동기화 서비스 및/또는 스토리지 계정을 다른 리소스 그룹이나 구독으로 이동할 수 있나요?**  
+   예, 스토리지 동기화 서비스 및/또는 스토리지 계정은 기존 Azure AD 테넌트 내의 다른 리소스 그룹 또는 구독으로 이동할 수 있습니다. 스토리지 계정이 이동되는 경우 스토리지 계정에 대한 액세스 권한을 하이브리드 파일 동기화 서비스에 부여해야 합니다([Azure 파일 동기화가 스토리지 계정에 액세스할 수 있는지 확인합니다.](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac) 참조).
 
     > [!Note]  
-    > Azure 파일 동기화는 구독을 다른 Azure AD 테넌트로 이동할 수 없습니다.
+    > Azure 파일 동기화는 구독을 다른 Azure AD 테넌트로 이동하는 작업을 지원하지 않습니다.
     
 * <a id="afs-ntfs-acls"></a>
   **Azure 파일 동기화는 Azure Files에 저장된 데이터와 함께 디렉터리/파일 수준 NTFS ACL을 보존하나요?**
@@ -174,7 +174,7 @@ ms.locfileid: "68854547"
 
     Azure Files는 액세스 제어를 관리하기 위한 두 가지 방법을 추가로 제공합니다.
 
-    - SAS(공유 액세스 서명)를 사용하여 특정 사용 권한을 가지며, 지정된 시간 간격에 유효한 토큰을 생성할 수 있습니다. 예를 들어, 만료 시간으로 10분이 있는 특정 파일에 대한 읽기 전용 액세스 권한이 있는 토큰을 생성할 수 있습니다. 토큰이 유효한 동안 토큰을 소유한 사람은 해당 10분 동안 해당 파일에 대한 읽기 전용 액세스 권한을 가집니다. 현재, 공유 액세스 서명 키는 REST API를 통해 또는 클라이언트 라이브러리에서만 지원됩니다. 저장소 계정 키를 사용하여 SMB를 통해 Azure 파일 공유를 탑재해야 합니다.
+    - SAS(공유 액세스 서명)를 사용하여 특정 사용 권한을 가지며, 지정된 시간 간격에 유효한 토큰을 생성할 수 있습니다. 예를 들어, 만료 시간으로 10분이 있는 특정 파일에 대한 읽기 전용 액세스 권한이 있는 토큰을 생성할 수 있습니다. 토큰이 유효한 동안 토큰을 소유한 사람은 해당 10분 동안 해당 파일에 대한 읽기 전용 액세스 권한을 가집니다. 현재, 공유 액세스 서명 키는 REST API를 통해 또는 클라이언트 라이브러리에서만 지원됩니다. 스토리지 계정 키를 사용하여 SMB를 통해 Azure 파일 공유를 탑재해야 합니다.
 
     - Azure 파일 동기화는 동기화하는 모든 서버 엔드포인트에 대한 모든 임의 ACL 또는 DACL(Active Directory 기반 또는 로컬 여부)을 유지합니다. Windows Server는 Active Directory에서 이미 인증을 받을 수 있으므로 Azure 파일 동기화는 Active Directory 기반 인증 및 ACL의 전체 지원이 제공될 때까지 효과적인 일시적 옵션입니다.
     
@@ -213,12 +213,12 @@ ms.locfileid: "68854547"
 * <a id="encryption-at-rest"></a>
 **Azure 파일 공유가 미사용 암호화되도록 하려면 어떻게 해야 하나요?**  
 
-    예. 자세한 내용은 [Azure Storage 서비스 암호화](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)를 참조 하세요.
+    예 자세한 내용은 [Azure Storage 서비스 암호화](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)를 참조 하세요.
 
 * <a id="access-via-browser"></a>
 **웹 브라우저를 사용하여 특정 파일에 대한 액세스를 제공하려면 어떻게 해야 하나요?**  
 
-    공유 액세스 서명을 사용하여 특정 사용 권한을 가지며, 지정된 시간 간격에 유효한 토큰을 생성할 수 있습니다. 예를 들어, 설정된 기간 동안 특정 파일에 대해 읽기 전용 액세스 권한을 주는 토큰을 생성할 수 있습니다. 이 URL을 소유한 사람은 토큰이 유효한 동안 모든 웹 브라우저에서 파일에 직접 액세스할 수 있습니다. Storage Explore와 같은 UI에서 공유 액세스 서명 키를 쉽게 생성할 수 있습니다.
+    공유 액세스 서명을 사용하여 특정 사용 권한을 가지며, 지정된 시간 간격에 유효한 토큰을 생성할 수 있습니다. 예를 들어, 설정된 기간 동안 특정 파일에 대해 읽기 전용 액세스 권한을 주는 토큰을 생성할 수 있습니다. 이 URL을 소유한 사람은 토큰이 유효한 동안 모든 웹 브라우저에서 파일에 직접 액세스할 수 있습니다. Storage Explorer와 같은 UI에서 공유 액세스 서명 키를 쉽게 생성할 수 있습니다.
 
 * <a id="file-level-permissions"></a>
 **공유 내 폴더에 대한 읽기 전용 또는 쓰기 전용 권한을 지정할 수 있나요?**  
@@ -228,12 +228,12 @@ ms.locfileid: "68854547"
 * <a id="ip-restrictions"></a>
 **Azure 파일 공유에 대한 IP 제한을 구현할 수 있나요?**  
 
-    예. Azure 파일 공유에 대한 액세스는 저장소 계정 수준에서 제한할 수 있습니다. 자세한 내용은 [Azure Storage 방화벽 및 Virtual Networks 구성](../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)을 참조하세요.
+    예 Azure 파일 공유에 대한 액세스는 스토리지 계정 수준에서 제한할 수 있습니다. 자세한 내용은 [Azure Storage 방화벽 및 Virtual Networks 구성](../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)을 참조하세요.
 
 * <a id="data-compliance-policies"></a>
 **Azure Files는 어떤 데이터 규정 준수 정책을 지원하나요?**  
 
-   Azure Files는 Azure Storage의 다른 스토리지 서비스에서 사용되는 동일한 스토리지 아키텍처를 기반으로 하여 실행됩니다. Azure Files는 다른 Azure 저장소 서비스에서 사용되는 동일한 데이터 규정 준수 정책을 적용합니다. Azure Storage 데이터 규정 준수에 대한 자세한 내용은 [Azure Storage 준수 제품](https://docs.microsoft.com/azure/storage/common/storage-compliance-offerings)을 참조하고, [Microsoft Trust Center](https://microsoft.com/trustcenter/default.aspx)로 이동하여 참조할 수 있습니다.
+   Azure Files는 Azure Storage의 다른 스토리지 서비스에서 사용되는 동일한 스토리지 아키텍처를 기반으로 하여 실행됩니다. Azure Files는 다른 Azure Storage 서비스에서 사용되는 동일한 데이터 규정 준수 정책을 적용합니다. Azure Storage 데이터 규정 준수에 대한 자세한 내용은 [Azure Storage 준수 제품](https://docs.microsoft.com/azure/storage/common/storage-compliance-offerings)을 참조하고, [Microsoft Trust Center](https://microsoft.com/trustcenter/default.aspx)로 이동하여 참조할 수 있습니다.
 
 ## <a name="on-premises-access"></a>온-프레미스 액세스
 
@@ -266,7 +266,7 @@ ms.locfileid: "68854547"
 
 * <a id="where-are-snapshots-stored"></a>
 **내 공유 스냅샷은 어디에 저장되나요?**  
-    공유 스냅샷은 파일 공유와 동일한 저장소 계정에 저장됩니다.
+    공유 스냅샷은 파일 공유와 동일한 스토리지 계정에 저장됩니다.
 
 * <a id="snapshot-consistency"></a>
 **공유 스냅샷은 애플리케이션 일치 스냅샷인가요?**  
@@ -274,11 +274,11 @@ ms.locfileid: "68854547"
 
 * <a id="snapshot-limits"></a>
 **사용할 수 있는 공유 스냅샷 수에 제한이 있나요?**  
-    예. Azure Files는 최대 200개의 공유 스냅샷을 유지할 수 있습니다. 공유 스냅샷은 공유 할당량에 포함되지 않으므로 모든 공유 스냅샷에서 사용되는 총 공간에 대한 공유별 제한은 없습니다. 저장소 계정 제한은 여전히 적용됩니다. 공유 스냅샷이 200개를 넘는 경우 새 공유 스냅샷을 생성하려면 이전 스냅샷을 삭제해야 합니다.
+    예 Azure Files는 최대 200개의 공유 스냅샷을 유지할 수 있습니다. 공유 스냅샷은 공유 할당량에 포함되지 않으므로 모든 공유 스냅샷에서 사용되는 총 공간에 대한 공유별 제한은 없습니다. 다만 스토리지 계정 제한은 여전히 적용됩니다. 공유 스냅샷이 200개를 넘는 경우 새 공유 스냅샷을 생성하려면 이전 스냅샷을 삭제해야 합니다.
 
 * <a id="snapshot-cost"></a>
 **스냅샷 공유 비용은 얼마나 되나요?**  
-    표준 트랜잭션 및 표준 저장소 비용이 스냅샷에 적용됩니다. 스냅샷은 기본적으로 증분식입니다. 기본 스냅샷은 공유 자체입니다. 모든 후속 스냅샷은 증분이며, 이전 스냅샷과의 차이만 저장합니다. 즉, 청구서에 표시되는 델타 변경 내용은 워크로드 변동이 적은 경우 최소화됩니다. 표준 Azure 파일 가격 정보는 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/files/)를 참조하세요. 현재 공유 스냅샷으로 소비되는 크기를 보는 방법은 청구된 용량과 사용된 용량을 비교하는 것입니다. 보고를 개선하기 위한 도구를 개발 중입니다.
+    표준 트랜잭션 및 표준 스토리지 비용이 스냅샷에 적용됩니다. 스냅샷은 기본적으로 증분식입니다. 기본 스냅샷은 공유 자체입니다. 모든 후속 스냅샷은 증분이며, 이전 스냅샷과의 차이만 저장합니다. 즉, 청구서에 표시되는 델타 변경 내용은 워크로드 변동이 적은 경우 최소화됩니다. 표준 Azure 파일 가격 정보는 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/files/)를 참조하세요. 현재 공유 스냅샷으로 소비되는 크기를 보는 방법은 청구된 용량과 사용된 용량을 비교하는 것입니다. 보고를 개선하기 위한 도구를 개발 중입니다.
 
 * <a id="ntfs-acls-snaphsots"></a>
 **디렉터리 및 파일에 대한 NTFS ACL은 공유 스냅샷에서 지속되나요?**  
@@ -297,7 +297,7 @@ ms.locfileid: "68854547"
 
 * <a id="geo-redundant-snaphsots"></a>
 **공유 스냅샷이 지역 중복 스냅샷인가요?**  
-    공유 스냅샷은 생성된 Azure 파일 공유와 동일한 중복성을 갖습니다. 계정에 대해 지역 중복 저장소를 선택한 경우 공유 스냅샷이 페어링된 지역에도 중복해서 저장됩니다.
+    공유 스냅샷은 생성된 Azure 파일 공유와 동일한 중복성을 갖습니다. 계정에 대해 지역 중복 스토리지를 선택한 경우 공유 스냅샷이 페어링된 지역에도 중복해서 저장됩니다.
 
 ### <a name="manage-share-snapshots"></a>공유 스냅샷 관리
 * <a id="browse-snapshots-linux"></a>
@@ -305,7 +305,7 @@ ms.locfileid: "68854547"
     Azure CLI를 사용하여 Linux에서 공유 스냅샷을 생성, 나열, 검색 및 복원할 수 있습니다.
 
 * <a id="copy-snapshots-to-other-storage-account"></a>
-**다른 저장소 계정으로 공유 스냅샷을 복사할 수 있나요?**  
+**다른 스토리지 계정으로 공유 스냅샷을 복사할 수 있나요?**  
     공유 스냅샷의 파일을 다른 위치로 복사할 수 있지만 공유 스냅샷 자체는 복사할 수 없습니다.
 
 ### <a name="restore-data-from-share-snapshots"></a>공유 스냅샷에서 데이터 복원
@@ -314,8 +314,8 @@ ms.locfileid: "68854547"
     공유 스냅샷의 데이터를 다른 대상으로 복사할 수 있습니다. 공유 스냅샷을 기본 공유로 승격할 수 없습니다.
 
 * <a id="restore-snapshotted-file-to-other-share"></a>
-**공유 스냅샷의 데이터를 다른 저장소 계정으로 복원할 수 있나요?**  
-    예. 동일한 지역 또는 서로 다른 지역에서 원래 위치 또는 동일한 저장소 계정 또는 다른 저장소 계정을 포함하는 대체 위치로 공유 스냅샷의 파일을 복사할 수 있습니다. 온-프레미스 위치 또는 다른 클라우드로 파일을 복사할 수도 있습니다.    
+**공유 스냅샷의 데이터를 다른 스토리지 계정으로 복원할 수 있나요?**  
+    예 동일한 지역 또는 서로 다른 지역에서 원래 위치 또는 동일한 스토리지 계정 또는 다른 스토리지 계정을 포함하는 대체 위치로 공유 스냅샷의 파일을 복사할 수 있습니다. 온-프레미스 위치 또는 다른 클라우드로 파일을 복사할 수도 있습니다.    
   
 ### <a name="clean-up-share-snapshots"></a>공유 스냅샷 정리
 * <a id="delete-share-keep-snapshots"></a>
@@ -323,8 +323,8 @@ ms.locfileid: "68854547"
     공유에 활성 공유 스냅샷이 있는 경우 공유를 삭제할 수 없습니다. API를 사용하여 공유와 함께 공유 스냅샷을 삭제할 수 있습니다. Azure Portal에서 공유 스냅샷과 공유를 모두 삭제할 수도 있습니다.
 
 * <a id="delete-share-with-snapshots"></a>
-**저장소 계정을 삭제하는 경우 공유 스냅샷은 어떻게 되나요?**  
-    저장소 계정을 삭제하는 경우 공유 스냅샷도 삭제됩니다.
+**스토리지 계정을 삭제하는 경우 공유 스냅샷은 어떻게 되나요?**  
+    스토리지 계정을 삭제하는 경우 공유 스냅샷도 삭제됩니다.
 
 ## <a name="billing-and-pricing"></a>대금 청구 및 가격 책정
 * <a id="vm-file-share-network-traffic"></a>
@@ -333,7 +333,7 @@ ms.locfileid: "68854547"
 
 * <a id="share-snapshot-price"></a>
 **스냅샷 공유 비용은 얼마나 되나요?**  
-     미리 보기 동안 스냅샷 용량 공유에는 요금이 청구되지 않습니다. 표준 저장소 송신 및 트랜잭션 비용이 적용됩니다. 일반 공급 후에는 공유 스냅샷에 대한 용량 및 트랜잭션에 대해 구독에 요금이 청구될 예정입니다.
+     미리 보기 동안 스냅샷 용량 공유에는 요금이 청구되지 않습니다. 표준 스토리지 송신 및 트랜잭션 비용이 적용됩니다. 일반 공급 후에는 공유 스냅샷에 대한 용량 및 트랜잭션에 대해 구독에 요금이 청구될 예정입니다.
      
      공유 스냅샷은 기본적으로 증분합니다. 기본 공유 스냅샷은 공유 자체입니다. 모든 후속 공유 스냅샷은 증분하며, 이전 공유 스냅샷과의 차이만 저장합니다. 변경된 콘텐츠에 대해서만 요금이 청구됩니다. 100GiB의 데이터 공유가 있으나 마지막 공유 스냅샷 후에 5GiB만 변경된 경우 해당 공유 스냅샷은 추가로 5GiB만 사용하게 되며 105GiB에 대한 요금만 청구됩니다. 트랜잭션 및 표준 송신 요금에 대한 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/files/)를 참조하세요.
 
@@ -379,7 +379,7 @@ ms.locfileid: "68854547"
 **IBM MQ에서 Azure Files를 어떻게 사용하나요?**  
     IBM은 IBM MQ 고객이 IBM 서비스로 Azure Files를 구성할 수 있도록 돕는 문서를 발표했습니다. 자세한 내용은 [Microsoft Azure 파일 서비스와 IBM MQ 다중 인스턴스 큐 관리자를 설치하는 방법](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service)을 참조하세요.
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참조
 * [Windows에서 Azure Files 문제 해결](storage-troubleshoot-windows-file-connection-problems.md)
 * [Linux에서 Azure Files 문제 해결](storage-troubleshoot-linux-file-connection-problems.md)
 * [Azure 파일 동기화 문제 해결](storage-sync-files-troubleshoot.md)

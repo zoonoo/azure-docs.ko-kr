@@ -9,16 +9,16 @@ ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 4f9fff41e4b9043c271d656583fb8b9a11ff3a7a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9ddb1db9b39ac942a3476f50aad39c98198b2a18
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67052794"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68958601"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>빠른 시작: .NET 웹앱을 사용하여 Azure Key Vault에서 비밀 설정 및 검색
 
-이 빠른 시작에서는 Azure 리소스의 관리 ID를 사용하여 Azure Key Vault에서 정보를 읽는 Azure 웹 애플리케이션을 가져오는 단계를 수행합니다. Key Vault를 사용하여 정보를 안전하게 보호할 수 있습니다. 다음 방법에 대해 알아봅니다.
+이 빠른 시작에서는 Azure 리소스의 관리 ID를 사용하여 Azure Key Vault에서 정보를 읽는 Azure 웹 애플리케이션을 가져오는 단계를 수행합니다. Key Vault를 사용하여 정보를 안전하게 보호할 수 있습니다. 다음 방법을 알아봅니다.
 
 * 키 자격 증명 모음을 만듭니다.
 * 키 자격 증명 모음에 비밀을 저장합니다.
@@ -90,7 +90,7 @@ az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGr
 
 ## <a name="add-a-secret-to-the-key-vault"></a>키 자격 증명 모음에 비밀 추가
 
-이 작업을 설명하기 위한 비밀을 추가하고 있습니다. 안전하게 유지하면서 응용 프로그램에서 사용할 수 있도록 하는 데 필요한 SQL 연결 문자열 또는 기타 정보를 저장할 수 있습니다.
+이 작업을 설명하기 위한 비밀을 추가하고 있습니다. 안전하게 유지하면서 애플리케이션에서 사용할 수 있도록 하는 데 필요한 SQL 연결 문자열 또는 기타 정보를 저장할 수 있습니다.
 
 다음 명령을 입력하여 키 자격 증명 모음에 **AppSecret**라고 하는 비밀을 만듭니다. 이 비밀에는 **MySecret** 값이 저장됩니다.
 
@@ -187,4 +187,4 @@ az keyvault delete --name
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Key Vault에 대한 자세한 정보](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)
+> [Key Vault에 대한 자세한 정보](key-vault-whatis.md)

@@ -10,20 +10,20 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: dacurwin
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
-ms.openlocfilehash: a8ba5727dea214343e7696ff3193aba13922be03
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: b10283c2946d01101b941d53b6bf03be3a12e99e
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689463"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954921"
 ---
 # <a name="track-backup-and-restore-jobs-using-rest-api"></a>REST API를 사용하여 백업 및 복원 작업 추적
 
-Azure Backup 서비스는 백업을 트리거하거나, 복원 작업을 수행하거나, 백업을 사용하지 않도록 설정하는 등의 다양한 시나리오에서 백그라운드로 실행되는 작업을 트리거합니다. 이러한 작업은 해당 ID를 사용하여 추적할 수 있습니다.
+Azure Backup service는 백업 트리거, 복원 작업, 백업 사용 안 함과 같은 다양 한 시나리오에서 백그라운드로 실행 되는 작업을 트리거합니다. 이러한 작업은 해당 ID를 사용하여 추적할 수 있습니다.
 
 ## <a name="fetch-job-information-from-operations"></a>작업(operation)에서 작업(job) 정보 가져오기
 
-백업 트리거와 같은 작업은 항상 jobID를 반환합니다. 예를 들면 다음과 같습니다. [트리거 백업 REST API 작업](backup-azure-arm-userestapi-backupazurevms.md#example-responses-3) 의 최종 응답은 다음과 같습니다.
+백업 트리거와 같은 작업은 항상 jobID를 반환합니다. 이는 아래와 같이 함수의 반환값을 데이터 프레임으로 바로 변환하는 데 사용할 수 있음을 나타냅니다. [트리거 백업 REST API 작업](backup-azure-arm-userestapi-backupazurevms.md#example-responses-3) 의 최종 응답은 다음과 같습니다.
 
 ```http
 {
@@ -51,7 +51,7 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 ### <a name="response"></a>응답
 
-|이름  |형식  |Description  |
+|이름  |형식  |설명  |
 |---------|---------|---------|
 |200 정상     | [JobResource](https://docs.microsoft.com/rest/api/backup/jobdetails/get#jobresource)        | 확인        |
 

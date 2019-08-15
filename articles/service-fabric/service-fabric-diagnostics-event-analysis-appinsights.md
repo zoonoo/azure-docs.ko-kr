@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: f4c620bbb0e17abfacb504866230786a971ff409
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8e682a5c768ed4b3f35382c87528c1b0d11a3c3d
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60393200"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019707"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Application Insights를 사용하여 이벤트 분석 및 시각화
 
@@ -51,7 +51,7 @@ Application Insights 포털의 기능을 좀 더 자세히 살펴보려면 [Appl
 
 ### <a name="configuring-application-insights-with-eventflow"></a>EventFlow로 Application Insights 구성
 
-EventFlow를 사용하여 이벤트를 집계하는 경우 `Microsoft.Diagnostics.EventFlow.Output.ApplicationInsights`NuGet 패키지를 가져와야 합니다. 다음 코드는 *eventFlowConfig.json*의 *outputs* 섹션에 필요합니다.
+EventFlow를 사용하여 이벤트를 집계하는 경우 `Microsoft.Diagnostics.EventFlow.Outputs.ApplicationInsights`NuGet 패키지를 가져와야 합니다. 다음 코드는 *eventFlowConfig.json*의 *outputs* 섹션에 필요합니다.
 
 ```json
 "outputs": [

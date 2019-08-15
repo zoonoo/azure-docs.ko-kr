@@ -9,18 +9,17 @@ editor: ''
 tags: top-support-issue
 ms.assetid: 674b2faf-26d7-4f54-99ea-a9e02ef0eb2f
 ms.service: cloud-services
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: d2daae2a3317d3b48748262d87ab8d7f7e13f2b0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9e1ae9ca6106a6a55e0cfc933ad47a5944ed5abb
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60653389"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945404"
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>시작에 실패한 클라우드 서비스 역할의 문제 해결
 시작에 실패한 Azure Cloud Services 역할에 관련된 일반적인 문제 및 솔루션은 다음과 같습니다.
@@ -76,9 +75,9 @@ ms.locfileid: "60653389"
 
 * '/' 애플리케이션의 서버 오류.
 * 설명: 현재 웹 요청을 실행 하는 동안 처리 되지 않은 예외가 발생 했습니다. 오류에 대한 자세한 내용 및 코드에서 어디에 기반하는지는 스택 추적을 검토합니다.
-* 예외 정보: System.IO.FIleNotFoundException: 파일 또는 어셈블리를 로드할 수 없습니다 ' Microsoft.WindowsAzure.StorageClient, 버전 1.1.0.0, Culture = neutral, PublicKeyToken = 31bf856ad364e35 =' 또는 해당 종속성 중 하나입니다. 시스템은 지정된 파일을 찾을 수 없습니다.
+* 예외 정보: System.IO.FIleNotFoundException: 파일이 나 어셈블리 ' Microsoft.windowsazure.storageclient, Version = 1.1.0.0, Culture = 중립, PublicKeyToken = 31bf856ad364e35 ' 또는 해당 종속성 중 하나를 로드할 수 없습니다. 시스템에서 지정한 파일을 찾을 수 없습니다.
 
-예를 들면 다음과 같습니다.
+이는 아래와 같이 함수의 반환값을 데이터 프레임으로 바로 변환하는 데 사용할 수 있음을 나타냅니다.
 
 !['/' 애플리케이션의 명시적 서버 오류](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503389.png)
 

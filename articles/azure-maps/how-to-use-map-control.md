@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 5fdbd8092abcc51fc03e8b00106b7e25ec4be905
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: a152f32ef7d68686539b7d6edee57db8a5da9553
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839393"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976233"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Azure Maps 맵 컨트롤 사용
 
@@ -102,7 +102,7 @@ ms.locfileid: "68839393"
     </script>
     ```
 
-    자세한 내용은 [Azure Maps 인증](azure-maps-authentication.md) 을 참조 하세요.
+    자세한 내용은 [Azure Maps를 사용 하 여 인증](azure-maps-authentication.md) 문서를 참조 하세요.
 
 6. 선택적으로 다음 메타 태그 요소를 페이지 머리글에 추가하는 것이 도움이 될 수 있습니다.
 
@@ -214,3 +214,11 @@ map = new atlas.Map('myMap', {
 
 > [!div class="nextstepaction"]
 > [지도 스타일 선택](choose-map-style.md)
+
+지도에 데이터를 더 추가 하려면:
+
+> [!div class="nextstepaction"]
+> [맵 만들기](map-create.md)
+
+> [!div class="nextstepaction"]
+> [코드 샘플](https://docs.microsoft.com/samples/browse/?products=azure-maps)

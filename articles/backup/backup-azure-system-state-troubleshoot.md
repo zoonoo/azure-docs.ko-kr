@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: dacurwin
-ms.openlocfilehash: 55af6d17f18efd11fe2d6f89b9b87ca9f407ec25
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 26ba811eba1a25dacddd04814f8e0d2805360920
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688649"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018774"
 ---
 # <a name="troubleshoot-system-state-backup"></a>시스템 상태 백업 문제 해결
 
@@ -25,7 +25,7 @@ ms.locfileid: "68688649"
 
 - [MARS (Microsoft Azure Recovery Services) 에이전트가 최신 상태 인지 확인](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
 - [MARS 에이전트와 Azure 간에 네트워크 연결이 있는지 확인](https://aka.ms/AB-A4dp50)
-- Microsoft Azure Recovery Services가 실행 중인지 확인(서비스 콘솔에서) 필요한 경우 다시 시작하고 작업을 다시 시도
+- Microsoft Azure Recovery Services가 실행 중인지 확인(서비스 콘솔에서) 필요한 경우 다시 시작한 후 작업을 다시 시도 하세요.
 - [스크래치 폴더 위치에서 5~10% 볼륨 여유 공간을 사용할 수 있는지 확인](https://aka.ms/AB-AA4dwtt)
 - [다른 프로세스 또는 바이러스 백신 소프트웨어가 Azure Backup을 방해하는지 확인](https://aka.ms/AB-AA4dwtk)
 - [예약 백업은 실패하지만 수동 백업은 작동](https://aka.ms/ScheduledBackupFailManualWorks)
@@ -36,7 +36,7 @@ ms.locfileid: "68688649"
 - 자격 증명 모음에 **서버를 다시 등록**하려는 경우: <br>
   - 에이전트가 서버에서 제거되고 포털에서 삭제되었는지 확인 <br>
   - 처음 서버 등록에 사용한 것과 동일한 암호 사용 <br>
-- 오프 라인 백업의 경우 오프 라인 백업 작업을 시작 하기 전에 Azure PowerShell 버전 3.7.0가 원본 컴퓨터와 복사 컴퓨터 모두에 설치 되어 있는지 확인 합니다.
+- 오프 라인 백업의 경우 오프 라인 백업 작업을 시작 하기 전에 원본 컴퓨터와 복사 컴퓨터 모두에 Azure PowerShell 버전 3.7.0가 설치 되어 있는지 확인 하십시오.
 - [Azure 가상 머신에서 백업 에이전트가 실행 되는 경우 고려 사항](https://aka.ms/AB-AA4dwtr)
 
 ### <a name="limitation"></a>제한 사항
@@ -45,14 +45,14 @@ ms.locfileid: "68688649"
 
 ## <a name="pre-requisite"></a>필수 구성 요소
 
-Azure Backup를 사용 하 여 시스템 상태 백업 문제를 해결 하기 전에 다음과 같은 필수 구성 요소 확인을 수행 확인 합니다.  
+Azure Backup를 사용 하 여 시스템 상태 백업 문제를 해결 하기 전에 다음과 같은 필수 구성 요소 검사를 수행 합니다.  
 
 ### <a name="verify-windows-server-backup-is-installed"></a>Windows Server 백업 설치 되어 있는지 확인
 
-서버에 Windows Server 백업 설치 되어 있고 사용 하도록 설정 되어 있는지 확인 합니다. 설치 상태를 확인 하려면 아래 PowerShell 명령을 실행 합니다.
+서버에 Windows Server 백업 설치 되어 있고 사용 하도록 설정 되어 있는지 확인 합니다. 설치 상태를 확인 하려면 다음 PowerShell 명령을 실행 합니다.
 
- ```
- PS C:\> Get-WindowsFeature Windows-Server-Backup
+ ```powershell
+Get-WindowsFeature Windows-Server-Backup
  ```
 출력에 **설치 상태가** **사용 가능**으로 표시 되는 경우 Windows server backup 기능을 설치에 사용할 수 있지만 서버에 설치 하지는 않습니다. 그러나 Windows Server 백업 설치 되어 있지 않으면 아래 방법 중 하나를 사용 하 여 설치 합니다.
 
@@ -60,15 +60,15 @@ Azure Backup를 사용 하 여 시스템 상태 백업 문제를 해결 하기 �
 
 PowerShell을 사용 하 여 Windows Server 백업를 설치 하려면 아래 명령을 실행 합니다.
 
-  ```
-  PS C:\> Install-WindowsFeature -Name Windows-Server-Backup
+  ```powershell
+  Install-WindowsFeature -Name Windows-Server-Backup
   ```
 
 **방법 2: 서버 관리자를 사용 하 여 Windows Server 백업 설치**
 
-서버 관리자를 사용 하 여 Windows Server 백업를 설치 하려면 다음을 수행 합니다.
+서버 관리자를 사용 하 여 Windows Server 백업를 설치 하려면 다음 단계를 수행 합니다.
 
-1. **서버 관리자** 에서 **역할 및 기능 추가**를 클릭 합니다. **역할 및 기능 추가 마법사** 가 나타납니다.
+1. **서버 관리자**에서 **역할 및 기능 추가**를 클릭 합니다. **역할 및 기능 추가 마법사** 가 나타납니다.
 
     ![대시보드](./media/backup-azure-system-state-troubleshoot/server_management.jpg)
 
@@ -114,7 +114,7 @@ Windows Server 백업 상태를 확인 하려면 다음을 수행 합니다.
     > [!WARNING]
     > Get-WBJob: ' WBJob ' 용어는 cmdlet, 함수, 스크립트 파일 또는 작동 가능한 프로그램의 이름으로 인식 되지 않습니다. 경로가 올바른지 확인한 다음 다시 시도하세요.
 
-    -   이 오류로 인해 실패 하는 경우 1 단계 필수 구성 요소에 설명 된 대로 서버 컴퓨터에 Windows Server 백업 기능을 다시 설치 합니다.
+    -   이 오류가 발생 하 여 실패 하는 경우 1 단계 필수 구성 요소에 설명 된 대로 서버 컴퓨터에 Windows Server 백업 기능을 다시 설치 합니다.
 
   * 관리자 권한 명령 프롬프트에서 아래 명령을 실행 하 여 WSB 백업이 제대로 작동 하는지 확인 합니다.
 
@@ -126,7 +126,7 @@ Windows Server 백업 상태를 확인 하려면 다음을 수행 합니다.
     - 관리자 권한 PowerShell에서 명령을 실행 `Get-WBJob` 하 여 작업의 상태를 주기적으로 확인 합니다.        
     - 백업 작업이 완료 된 후 명령을 실행 `Get-WBJob -Previous 1` 하 여 작업의 최종 상태를 확인 합니다.
 
-작업이 실패 하면 WSB 에이전트 시스템 상태 백업 실패가 발생 하는 WSB 문제를 나타냅니다.
+작업이 실패 하는 경우에는 MARS 에이전트 시스템 상태 백업 실패가 발생 하는 WSB 문제를 나타냅니다.
 
 ## <a name="common-errors"></a>일반 오류
 

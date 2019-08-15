@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/08/2019
-ms.openlocfilehash: bc9b6053e6e2f920b826b3c14c6820b71e129aef
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 7c6b85bd1f5935fb3722f82efcdfc921fc9cb2ec
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882812"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990548"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>저장소 계정 액세스 키 다시 생성
 
@@ -23,7 +23,7 @@ Azure Machine Learning 서비스에서 사용 하는 Azure Storage 계정의 액
 
 보안을 위해 Azure Storage 계정에 대 한 액세스 키를 변경 해야 할 수 있습니다. 액세스 키를 다시 생성 하는 경우 새 키를 사용 하도록 Azure Machine Learning 업데이트 해야 합니다. Azure Machine Learning은 모델 저장소 및 데이터 저장소에 대 한 저장소 계정을 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure Machine Learning 서비스 작업 영역. 자세한 내용은 [작업 영역 만들기](how-to-manage-workspace.md) 문서를 참조 하세요.
 
@@ -84,17 +84,13 @@ for name, ds in datastores.items():
         az login
         ```
 
-    1. Azure Machine Learning 확장을 설치 하려면 다음 명령을 사용 합니다.
-
-        ```azurecli-interactive
-        az extension add -n azure-cli-ml 
-        ```
-
     1. 새 키를 사용 하도록 작업 영역을 업데이트 하려면 다음 명령을 사용 합니다. 을 `myworkspace` Azure Machine Learning 작업 영역 이름으로 바꾸고,을 `myresourcegroup` 작업 영역을 포함 하는 Azure 리소스 그룹의 이름으로 바꿉니다.
 
         ```azurecli-interactive
         az ml workspace sync-keys -w myworkspace -g myresourcegroup
         ```
+
+        [!INCLUDE [install extension](../../../includes/machine-learning-service-install-extension.md)]
 
         이 명령은 작업 영역에서 사용 하는 Azure storage 계정에 대 한 새 키를 자동으로 동기화 합니다.
 

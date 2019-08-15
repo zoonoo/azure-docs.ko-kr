@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 05/22/2019
 ms.author: jgao
-ms.openlocfilehash: 802c0409fe3ac88f73c383958d2337be09ef7992
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: b27caa3d91d67ad63bfbf5e7c549d690980cdd7b
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66016470"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934431"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-resource-manager-template"></a>빠른 시작: Resource Manager 템플릿을 사용하여 Azure Key Vault에서 비밀 설정 및 검색
 
@@ -102,6 +102,6 @@ Remove-AzResourceGroup -Name $resourceGroupName
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Key Vault 홈 페이지](https://azure.microsoft.com/services/key-vault/)
-* [Azure Key Vault 설명서](https://docs.microsoft.com/azure/key-vault/)
+* [Azure Key Vault 설명서](index.yml)
 * [Node용 Azure SDK](https://docs.microsoft.com/javascript/api/overview/azure/key-vault)
 * [Azure REST API 참조](https://docs.microsoft.com/rest/api/keyvault/)

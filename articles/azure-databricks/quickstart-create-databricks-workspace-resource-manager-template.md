@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/12/2019
-ms.openlocfilehash: 612c249abc3124e33badebd545f7220dd4cfc593
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 8d4cfb2be687f258255379d93fd60028dcd2eb2c
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311713"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932603"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 Azure Databricks에서 Spark 작업 실행
 
@@ -27,7 +27,11 @@ ms.locfileid: "68311713"
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-[Azure Portal](https://portal.azure.com)에 로그인합니다. 이 자습서는 Azure 평가판 구독을 사용하여 수행할 수 없습니다. 무료 계정을 사용하여 Azure Databricks 클러스터를 만들려면 클러스터를 만들기 전에 프로필로 이동하고 구독을 **종량제**로 변경합니다. 자세한 내용은 [Azure 체험 계정](https://azure.microsoft.com/free/)을 참조하세요.
+[Azure Portal](https://portal.azure.com)에 로그인합니다. 
+
+> [!Note]
+> 이 자습서는 **Azure 평가판 구독**을 사용하여 수행할 수 없습니다.
+> 무료 계정이 있는 경우 프로필로 이동하고 구독을 **종량제**로 변경합니다. 자세한 내용은 [Azure 체험 계정](https://azure.microsoft.com/free/)을 참조하세요. 그런 다음 [지출 한도를 제거](https://docs.microsoft.com/azure/billing/billing-spending-limit#remove-the-spending-limit-in-account-center)하고 해당 지역의 vCPU에 대한 [할당량 증가를 요청](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)합니다. Azure Databricks 작업 영역을 만드는 경우 **평가판(프리미엄-14일 무료 DBU)** 가격 책정 계층을 선택하여 14일간 무료 프리미엄 Azure Databricks DBU를 위한 작업 영역 액세스 권한을 부여할 수 있습니다.
 
 ## <a name="create-an-azure-databricks-workspace"></a>Azure Databricks 작업 영역 만들기
 
@@ -102,29 +106,29 @@ ms.locfileid: "68311713"
 3. 이 단계에서 Azure Storage 계정을 Databricks Spark 클러스터와 연결합니다. 이 연결을 수행하는 데는 두 가지 방법이 있습니다. Azure Storage 계정을 DBFS(Databricks 파일 시스템)에 탑재하거나 만든 애플리케이션에서 Azure Storage 계정에 직접 액세스할 수 있습니다.
 
    > [!IMPORTANT]
-   >이 문서에서는 **DBFS를 사용하여 저장소를 탑재**하는 방법을 사용합니다. 이 방법을 사용하면 탑재된 저장소가 클러스터 파일 시스템 자체와 연결됩니다. 따라서 클러스터에 액세스하는 모든 애플리케이션에서도 연결된 스토리지를 사용할 수 있습니다. 직접 액세스 방식은 액세스를 구성한 애플리케이션으로 제한됩니다.
+   >이 문서에서는 **DBFS를 사용하여 스토리지를 탑재**하는 방법을 사용합니다. 이 방법을 사용하면 탑재된 스토리지가 클러스터 파일 시스템 자체와 연결됩니다. 따라서 클러스터에 액세스하는 모든 애플리케이션에서도 연결된 스토리지를 사용할 수 있습니다. 직접 액세스 방식은 액세스를 구성한 애플리케이션으로 제한됩니다.
    >
    > 탑재 방법을 사용하려면 이 문서에서 선택한 Databricks 런타임 버전 **4.0**을 사용하여 Spark 클러스터를 만들어야 합니다.
 
    다음 코드 조각에서 `{YOUR CONTAINER NAME}`, `{YOUR STORAGE ACCOUNT NAME}` 및 `{YOUR STORAGE ACCOUNT ACCESS KEY}`를 Azure Storage 계정에 적절한 값으로 바꿉니다. 노트북의 빈 셀에 코드 조각을 붙여넣은 다음 SHIFT + ENTER를 눌러 코드 셀을 실행합니다.
 
-   * **DBFS를 사용하여 저장소 계정 탑재(권장)** 다음 코드 조각에서 Azure Storage 계정 경로는 `/mnt/mypath`에 탑재됩니다. 따라서 Azure Storage 계정에 액세스하는 향후의 모든 발생에서 전체 경로를 제공할 필요가 없습니다. `/mnt/mypath`만 사용하면 됩니다.
+   * **DBFS를 사용하여 스토리지 계정 탑재(권장)** 다음 코드 조각에서 Azure Storage 계정 경로는 `/mnt/mypath`에 탑재됩니다. 따라서 Azure Storage 계정에 액세스하는 향후의 모든 발생에서 전체 경로를 제공할 필요가 없습니다. `/mnt/mypath`만 사용하면 됩니다.
 
           dbutils.fs.mount(
             source = "wasbs://{YOUR CONTAINER NAME}@{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net/",
             mountPoint = "/mnt/mypath",
             extraConfigs = Map("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net" -> "{YOUR STORAGE ACCOUNT ACCESS KEY}"))
 
-   * **저장소 계정에 직접 액세스**
+   * **스토리지 계정에 직접 액세스**
 
           spark.conf.set("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
 
-     저장소 계정 키를 검색하는 방법에 대한 지침은 [저장소 액세스 키 관리](../storage/common/storage-account-manage.md#access-keys)를 참조하세요.
+     스토리지 계정 키를 검색하는 방법에 대한 지침은 [스토리지 액세스 키 관리](../storage/common/storage-account-manage.md#access-keys)를 참조하세요.
 
    > [!NOTE]
    > 또한 Azure Databricks에서 Azure Data Lake Store를 Spark 클러스터와 함께 사용할 수 있습니다. 자세한 내용은 [Azure Databricks에서 Data Lake Store 사용](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html)을 참조하세요.
 
-4. SQL 문을 실행하여 샘플 JSON 데이터 파일인 **small_radio_json.json**의 데이터를 사용하여 임시 테이블을 만듭니다. 다음 코드 조각에서 자리 표시자 값을 컨테이너 이름 및 저장소 계정 이름으로 대체합니다. 노트북의 코드 셀에 코드 조각을 붙여넣은 다음 SHIFT + ENTER를 누릅니다. 코드 조각에서 `path`는 Azure 저장소 계정에 업로드한 샘플 JSON 파일의 위치를 나타냅니다.
+4. SQL 문을 실행하여 샘플 JSON 데이터 파일인 **small_radio_json.json**의 데이터를 사용하여 임시 테이블을 만듭니다. 다음 코드 조각에서 자리 표시자 값을 컨테이너 이름 및 스토리지 계정 이름으로 대체합니다. 노트북의 코드 셀에 코드 조각을 붙여넣은 다음 SHIFT + ENTER를 누릅니다. 코드 조각에서 `path`는 Azure Storage 계정에 업로드한 샘플 JSON 파일의 위치를 나타냅니다.
 
    ```sql
    %sql
@@ -182,7 +186,7 @@ ms.locfileid: "68311713"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Azure Databricks에서 Spark 클러스터를 만들고 Azure 저장소의 데이터를 사용하여 Spark 작업을 실행했습니다. 또한 [Spark 데이터 소스](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html)를 보고 다른 데이터 소스의 데이터를 Azure Databricks로 가져오는 방법을 배울 수 있습니다. 또한 Resource Manager 템플릿을 살펴보고 [사용자 지정 VNET 주소로 Azure Databricks 작업 영역을 만들](https://github.com/Azure/azure-quickstart-templates/tree/master/101-databricks-workspace-with-custom-vnet-address) 수 있습니다. 템플릿에서 사용할 JSON 구문 및 속성은 [Microsoft.Databricks/workspaces](/azure/templates/microsoft.databricks/workspaces) 템플릿 참조를 참조하세요.
+이 문서에서는 Azure Databricks에서 Spark 클러스터를 만들고 Azure Storage의 데이터를 사용하여 Spark 작업을 실행했습니다. 또한 [Spark 데이터 소스](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html)를 보고 다른 데이터 소스의 데이터를 Azure Databricks로 가져오는 방법을 배울 수 있습니다. 또한 Resource Manager 템플릿을 살펴보고 [사용자 지정 VNET 주소로 Azure Databricks 작업 영역을 만들](https://github.com/Azure/azure-quickstart-templates/tree/master/101-databricks-workspace-with-custom-vnet-address) 수 있습니다. 템플릿에서 사용할 JSON 구문 및 속성은 [Microsoft.Databricks/workspaces](/azure/templates/microsoft.databricks/workspaces) 템플릿 참조를 참조하세요.
 
 Azure Databricks를 사용하여 ETL 작업(데이터 추출, 변환 및 로드)을 수행하는 방법을 알아보려면 다음 문서로 이동합니다.
 

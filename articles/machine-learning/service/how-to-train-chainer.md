@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.reviewer: sdgilley
 ms.date: 08/02/2019
-ms.openlocfilehash: 91ac8b596373963aeba00c1932dfde5d76f27bd0
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: bc14ba2bcaa80236717c062abd1dc8a63b58305c
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856038"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966842"
 ---
 # <a name="train-and-register-chainer-models-at-scale-with-azure-machine-learning-service"></a>Azure Machine Learning 서비스를 사용 하 여 대규모로 체 이너 모델 학습 및 등록
 
@@ -27,7 +27,7 @@ ms.locfileid: "68856038"
 
 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 지금 사용해 보세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이러한 환경 중 하나에서이 코드를 실행 합니다.
 
@@ -214,3 +214,5 @@ for f in run.get_file_names():
 * [하이퍼 매개 변수 조정](how-to-tune-hyperparameters.md)
 
 * [학습 중에 실행 메트릭 추적](how-to-track-experiments.md)
+
+* [Azure에서 분산 심층 학습 교육에 대 한 참조 아키텍처 보기](/azure/architecture/reference-architectures/ai/training-deep-learning)

@@ -7,19 +7,19 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: dacurwin
-ms.openlocfilehash: 5f44e9b386f5d05b75f6fdf6cf8b55360e4c5dae
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 9c63170b60a871182042acab8a35e505c603f260
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954776"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018881"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 삭제
 
 이 문서에서는 [Azure Backup](backup-overview.md) Recovery Services 자격 증명 모음을 삭제 하는 방법을 설명 합니다. 종속성을 제거한 후 자격 증명 모음을 삭제 하는 방법에 대 한 지침이 포함 되어 있습니다.
 
 
-## <a name="before-you-start"></a>시작하기 전에
+## <a name="before-you-start"></a>시작하기 전 주의 사항
 
 보호 된 서버 또는 자격 증명 모음과 연결 된 백업 관리 서버와 같이 종속성이 있는 Recovery Services 자격 증명 모음을 삭제할 수 없습니다.
 
@@ -47,15 +47,15 @@ MABS (Microsoft Azure Backup 서버) 또는 DPM을 사용 하 여 보호 된 온
 
 ## <a name="delete-protected-items-in-cloud"></a>클라우드에서 보호 된 항목 삭제
 
-계속 하기 전에 **[이](#before-you-start)** 섹션을 읽고 종속성 및 자격 증명 모음 삭제 프로세스를 이해 합니다.
+계속 하기 전에 **[이](#before-you-start)** 섹션을 계속 읽어 종속성 및 자격 증명 모음 삭제 프로세스를 이해 합니다.
 
 보호를 중지 하 고 백업 데이터를 삭제 하려면 다음을 수행 합니다.
 
-1. 포털 > **Recovery Services 자격 증명 모음** > **백업 항목** 에서 클라우드의 보호 된 항목 (예: azurevirtual Machine, Azure Storage (Azure Files), Azure VM의 SQL 등)을 선택 합니다.
+1. 포털 > **Recovery Services 자격 증명 모음** > **백업 항목**에서 클라우드의 보호 된 항목 (예: azurevirtual Machine, Azure Storage (Azure Files), Azure VM의 SQL 등)을 선택 합니다.
 
     ![백업 유형 선택](./media/backup-azure-delete-vault/azure-storage-selected.png)
 
-2. 백업 항목을 보호 하는지 여부에 따라 백업 항목을 마우스 오른쪽 단추로 클릭 하면 백업 **중지** 또는 **백업 데이터 삭제**가 표시 됩니다.
+2. 백업 항목을 마우스 오른쪽 단추로 클릭 합니다. 백업 항목이 보호 되었는지 여부에 따라 메뉴에 **백업 중지** 또는 **백업 데이터 삭제**가 표시 됩니다.
 
     - **백업 중지**의 경우 드롭다운에서 **백업 데이터 삭제** 를 선택 합니다. 백업 항목의 **이름** (대/소문자 구분)을 입력 하 고, **이유**를 선택 하 고, **설명을**입력 하 고, **백업 중지**를 클릭 합니다.
 
@@ -202,12 +202,12 @@ ARMClient 명령에 대 한 자세한 내용은이 [문서](https://github.com/p
 
 1. 구독 ID, 리소스 그룹 이름 및 자격 증명 모음 이름을 사용 하 여 다음 명령을 실행 합니다. 명령을 실행할 때 종속성이 없는 경우 자격 증명 모음을 삭제 합니다.
 
-   ```
+   ```azurepowershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
    ```
 2. 자격 증명 모음이 비어 있지 않으면 "이 자격 증명 모음 내에 기존 리소스가 있으므로 자격 증명 모음을 삭제할 수 없습니다." 라는 오류가 표시 됩니다. 자격 증명 모음 내에서 보호 된 항목/컨테이너를 제거 하려면 다음을 수행 합니다.
 
-   ```
+   ```azurepowershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
    ```
 

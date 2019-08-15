@@ -1,7 +1,7 @@
 ---
 title: 지식 저장소 소개(미리 보기) - Azure Search
 description: 보강된 문서를 Azure Storage에 보낸 후 Azure Search 및 다른 애플리케이션에서 해당 문서를 보고 변형하고 사용할 수 있습니다.
-manager: cgronlun
+manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
@@ -10,12 +10,12 @@ ms.devlang: NA
 ms.topic: overview
 ms.date: 08/02/2019
 ms.author: heidist
-ms.openlocfilehash: 107478f7e2d3c6726d3b8fb9c503ef13271c6571
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 8605a2c954eec2a57925557f8823a3614ebdc266
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840824"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69013388"
 ---
 # <a name="what-is-knowledge-store-in-azure-search"></a>Azure Search의 지식 저장소란 무엇인가요?
 

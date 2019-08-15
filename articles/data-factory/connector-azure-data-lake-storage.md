@@ -8,18 +8,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: a0a7a413d6c3344ccf5c3f7e4d14dd3d82715034
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 1882e994c5d062d3ca841025edb61965f7eb0aa0
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840312"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967048"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Lake Storage Gen2 간에 데이터 복사
 
-Azure Data Lake Storage Gen2은 [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md)에 기본 제공 되는 빅 데이터 분석 전용 기능 집합입니다. 파일 시스템 및 개체 저장소 패러다임을 모두 사용 하 여 데이터와 상호 작용 하는 데 사용할 수 있습니다.
+Azure Data Lake Storage Gen2 (ADLS Gen2)은 [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md)에 기본 제공 되는 빅 데이터 분석 전용 기능 집합입니다. 파일 시스템 및 개체 저장소 패러다임을 모두 사용 하 여 데이터와 상호 작용 하는 데 사용할 수 있습니다.
 
 이 문서에서는 Azure Data Lake Storage Gen2 간에 데이터를 복사 하는 방법을 설명 합니다. Azure Data Factory에 대해 자세히 알아보려면 [소개 문서](introduction.md)를 참조하세요.
 
@@ -65,7 +65,7 @@ Azure Data Lake Storage Gen2 커넥터는 다음 인증 유형을 지원 합니�
 
 ### <a name="account-key-authentication"></a>계정 키 인증
 
-저장소 계정 키 인증을 사용하는 데 지원되는 속성은 다음과 같습니다.
+스토리지 계정 키 인증을 사용하는 데 지원되는 속성은 다음과 같습니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
@@ -73,6 +73,9 @@ Azure Data Lake Storage Gen2 커넥터는 다음 인증 유형을 지원 합니�
 | url | 패턴을 사용 하는 Data Lake Storage Gen2에 `https://<accountname>.dfs.core.windows.net`대 한 끝점입니다. | 예 |
 | accountKey | Data Lake Storage Gen2에 대 한 계정 키입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. 데이터 저장소가 개인 네트워크에 있는 경우 Azure integration runtime 또는 자체 호스팅 integration runtime을 사용할 수 있습니다. 이 속성을 지정 하지 않으면 기본 Azure 통합 런타임이 사용 됩니다. |아니요 |
+
+>[!NOTE]
+>계정 키 인증을 사용 하는 경우 보조 ADLS 파일 시스템 끝점이 지원 되지 않습니다. 다른 인증 유형을 사용할 수 있습니다.
 
 **예제:**
 

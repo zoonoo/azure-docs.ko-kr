@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 03/20/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5ef739a7053fffdd45c6d5e144ae736429597a4f
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 5daa1cf04e04507174fa480c785bd15b656541a1
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850489"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019099"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Azure Automation용 Runbook 및 모듈 갤러리
 
@@ -99,6 +99,15 @@ Python Runbooks는 [스크립트 센터 갤러리](https://gallery.technet.micro
 ## <a name="requesting-a-runbook-or-module"></a>Runbook 또는 모듈 요청 중
 
 [사용자 음성](https://feedback.azure.com/forums/246290-azure-automation/)에 요청을 보낼 수 있습니다.  Runbook을 작성하는 데 도움이 필요하거나 PowerShell에 대한 질문이 있으면 [포럼](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc)에 질문을 게시하세요.
+
+## <a name="common-solutions-available-in-the-runbook-gallery"></a>Runbook 갤러리에서 사용할 수 있는 일반 솔루션
+
+아래 목록에는 일반적인 시나리오에 대 한 솔루션을 제공 하는 몇 가지 runbook이 포함 되어 있습니다. Azure Automation 팀에서 만든 runbook의 전체 목록은 [Azureautomationteam profile](https://www.powershellgallery.com/profiles/AzureAutomationTeam)을 참조 하세요.
+
+* [ModulesInAutomationToLatestVersion](https://www.powershellgallery.com/packages/Update-ModulesInAutomationToLatestVersion/) -Automation 계정에 있는 모든 모듈의 PowerShell 갤러리에 대 한 최신 버전을 가져옵니다.
+* [-AzureDiagnostics 사용](https://www.powershellgallery.com/packages/Enable-AzureDiagnostics/) -이 스크립트는 Azure 진단를 구성 하 고 작업 상태 및 작업 스트림을 포함 하는 Azure Automation 로그를 받도록 Log Analytics 합니다.
+* [ItemFromAzureVM](https://www.powershellgallery.com/packages/Copy-ItemFromAzureVM/) -이 Runbook은 Windows Azure 가상 컴퓨터에서 원격 파일을 복사 합니다.
+* [ItemFromAzureVM](https://www.powershellgallery.com/packages/Copy-ItemToAzureVM/) -이 Runbook은 Azure 가상 컴퓨터에 로컬 파일을 복사 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

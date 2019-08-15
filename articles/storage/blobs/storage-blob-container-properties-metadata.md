@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/10/2019
 ms.author: tamram
-ms.openlocfilehash: bd745c54fb659729b1e31f9975b2e4e0b6a97a83
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 35883b0c34503ca16f2b10fc061f94af514e10a9
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68235250"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986919"
 ---
 # <a name="manage-container-properties-and-metadata-with-net"></a>.NET을 사용 하 여 컨테이너 속성 및 메타 데이터 관리
 
@@ -27,7 +27,7 @@ Blob 컨테이너는 시스템 속성 및 사용자 정의 메타 데이터와 �
 Blob storage 리소스에 대 한 속성 및 메타 데이터 값 검색은 2 단계 프로세스입니다. 이러한 값을 읽으려면 먼저 **FetchAttributes** 또는 **FetchAttributesAsync** 메서드를 호출하여 명시적으로 가져와야 합니다. 이 규칙의 예외는 **Exists** 및 **ExistsAsync** 메서드가 커버에서 적절 한 **fetchattributes** 메서드를 호출 하는 것입니다. 이러한 메서드 중 하나를 호출할 때 **Fetchattributes**호출할 필요가 없습니다.
 
 > [!IMPORTANT]
-> 저장소 리소스의 속성 또는 메타데이터 값이 채워지지 않은 경우에는 코드가 **FetchAttributes** 또는 **FetchAttributesAsync** 메서드를 호출하는지 확인합니다.
+> 스토리지 리소스의 속성 또는 메타데이터 값이 채워지지 않은 경우에는 코드가 **FetchAttributes** 또는 **FetchAttributesAsync** 메서드를 호출하는지 확인합니다.
 
 메타 데이터 이름/값 쌍은 유효한 HTTP 헤더 이므로 HTTP 헤더를 관리 하는 모든 제한 사항을 준수 해야 합니다. 메타 데이터 이름은 유효한 HTTP 헤더 이름 및 유효한 C# 식별자 여야 하며, ASCII 문자만 포함할 수 있으며 대/소문자를 구분 하지 않는 것으로 처리 되어야 합니다. ASCII가 아닌 문자를 포함 하는 메타 데이터 값은 b a s e 64로 인코딩 또는 URL 인코딩해야 합니다.
 
@@ -125,9 +125,9 @@ public static async Task ReadContainerMetadataAsync(CloudBlobContainer container
 }
 ```
 
-[!INCLUDE [storage-blob-dotnet-resources](../../../includes/storage-blob-dotnet-resources.md)]
+[!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참조
 
 - [컨테이너 속성 가져오기 작업](/rest/api/storageservices/get-container-properties)
 - [컨테이너 메타 데이터 설정 작업](/rest/api/storageservices/set-container-metadata)

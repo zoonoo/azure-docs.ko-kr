@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: dacurwin
-ms.openlocfilehash: 88adf54ab26055f97534abb4d56d098079116248
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 9ae21e2bf71789d0b0dd19e3dd7a65ad10fae241
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954930"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018962"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Azure Backup Server를 사용하여 VMware VM 백업
 
@@ -26,7 +26,7 @@ ms.locfileid: "68954930"
 - Azure Backup Server에 vCenter 또는 ESXi 서버를 추가합니다.
 - 백업할 VMware VM을 포함하는 보호 그룹을 설정하고 백업 설정을 지정한 다음, 백업을 예약합니다.
 
-## <a name="before-you-start"></a>시작하기 전에
+## <a name="before-you-start"></a>시작하기 전 주의 사항
 - 백업이 지원되는 vCenter/ESXi 버전(버전 6.5, 6.0 및 5.5)을 실행 중인지 확인합니다.
 - Azure Backup Server를 설정했는지 확인합니다. 설정하지 않은 경우 시작하기 전에 [설정](backup-azure-microsoft-azure-backup.md)합니다. 최신 업데이트를 사용하여 Azure Backup Server를 실행해야 합니다.
 
@@ -36,7 +36,7 @@ ms.locfileid: "68954930"
 기본적으로 Azure Backup Server는 HTTPS를 통해 VMware 서버와 통신합니다. HTTPS 연결을 설정하려면 VMware CA(인증 기관) 인증서를 다운로드하여 Azure Backup Server에서 가져옵니다.
 
 
-### <a name="before-you-start"></a>시작하기 전에
+### <a name="before-you-start"></a>시작하기 전 주의 사항
 
 - HTTPS를 사용 하지 않으려는 경우 [모든 VMware 서버에 대해 https 인증서 유효성 검사를 사용 하지 않도록 설정할](backup-azure-backup-server-vmware.md#disable-https-certificate-validation)수 있습니다.
 - 일반적으로 vSphere Web Client를 사용하여 Azure Backup Server 머신의 브라우저에서 vCenter/ESXi 서버로 연결합니다. 처음 이 작업을 수행할 때는 연결이 안전하지 않으며 다음 메시지가 표시됩니다.
@@ -102,10 +102,10 @@ ms.locfileid: "68954930"
 
 ### <a name="disable-https-certificate-validation"></a>HTTPS 인증서 유효성 검사 사용 안 함
 
-조직 내에 보안 경계가 있고 VMware 서버와 Azure Backup Server 머신 간에 HTTPS 프로토콜을 사용하지 않으려는 경우 다음과 같이 HTTPS를 사용하지 않도록 설정합니다.
+조직 내에서 보안 경계가 있고 VMware 서버와 Azure Backup Server 컴퓨터 간에 HTTPS 프로토콜을 사용 하지 않으려는 경우 다음과 같이 HTTPS를 사용 하지 않도록 설정 합니다. 
 1. 다음 텍스트를 복사하여 .txt 파일에 붙여넣습니다.
 
-      ```
+      ```text
       Windows Registry Editor Version 5.00
       [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager\VMWare]
       "IgnoreCertificateValidation"=dword:00000001
@@ -221,7 +221,7 @@ VirtualMachine.State.RemoveSnapshot | VirtualMachine.State.RemoveSnapshot
 
     ![Azure Backup Server 자격 증명 관리 대화 상자](./media/backup-azure-backup-server-vmware/mabs-manage-credentials-dialog.png)
 
-4. **인증서 추가**에서 새 자격 증명의 이름과 설명을 입력하고 VMware 서버에서 정의한 사용자 이름과 암호를 지정합니다. Contoso Vcenter 자격 증명이란 이름은 이 절차에서 자격 증명을 식별하는 데 사용됩니다. VMware 서버와 Azure Backup Server가 있는 도메인이 동일하지 않으면 사용자 이름에 도메인을 지정합니다.
+4. **자격 증명 추가**에서 새 자격 증명에 대 한 이름 및 설명을 입력 하 고 VMware 서버에서 정의한 사용자 이름 및 암호를 지정 합니다. Contoso Vcenter 자격 증명이란 이름은 이 절차에서 자격 증명을 식별하는 데 사용됩니다. VMware 서버와 Azure Backup Server가 있는 도메인이 동일하지 않으면 사용자 이름에 도메인을 지정합니다.
 
     ![Azure Backup Server 자격 증명 추가 대화 상자](./media/backup-azure-backup-server-vmware/mabs-add-credential-dialog2.png)
 
@@ -286,7 +286,7 @@ vCenter 서버에서 관리하지 않는 ESXi 호스트가 여러 개 있거나 
 
 1. **보호 그룹 형식 선택** 페이지에서 **서버**를 선택하고 **다음**을 클릭합니다. **그룹 구성원 선택** 페이지가 나타납니다.
 
-1. **그룹 구성원 선택**에서 > 백업할 VM(또는 VM 폴더)을 선택합니다. 그리고 **다음**을 클릭합니다.
+1. **그룹 구성원 선택**에서 백업 하려는 vm (또는 vm 폴더)을 선택 합니다. 그리고 **다음**을 클릭합니다.
 
     - 폴더를 선택하면 해당 폴더 내의 VM 또는 폴더도 백업되도록 선택됩니다. 백업하지 않으려는 폴더 또는 VM을 선택 취소할 수 있습니다.
 1. VM 또는 폴더가 이미 백업 중인 경우에는 선택할 수 없습니다. 이렇게 하면 VM에 대해 중복 복구 지점이 생성 되지 않습니다.

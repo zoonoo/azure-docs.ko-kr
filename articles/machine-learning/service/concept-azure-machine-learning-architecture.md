@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: e6f6c41e5de4f4a053748dfb08dc57e8acac32e5
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: ea5e476680b07a6a7ba2b57e94f1f0b99cc10987
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848234"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990092"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning 서비스 작동 방법: 아키텍처 및 개념
 
@@ -49,12 +49,16 @@ Azure Machine Learning 다음 도구를 사용 합니다.
 + [Azure Machine Learning VS Code 확장](how-to-vscode-tools.md) 을 사용 하 여 Visual Studio Code에 코드 작성
 + [Azure Machine Learning 서비스에 대 한 시각적 인터페이스 (미리 보기)](ui-concept-visual-interface.md) 를 사용 하 여 코드를 작성 하지 않고 워크플로 단계를 수행 합니다.
 
-## <a name="glossary-of-concepts"></a>개념 용어집
+> [!NOTE]
+> 이 문서에서는 Azure Machine Learning에서 사용되는 용어와 개념을 정의하지만, Azure 플랫폼에 대한 용어와 개념은 다루지 않습니다. Azure 플랫폼 용어에 대한 자세한 내용은 [Microsoft Azure 용어집](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology)을 참조하세요.
+
+## <a name="glossary"></a>용어 설명
 
 + <a href="#workspaces">환경이</a>
 + <a href="#experiments">실험</a>
 + <a href="#models">모델인</a>
 + <a href="#run-configurations">실행 구성</a>
++ [추정](#estimators)
 + <a href="#datasets-and-datastores">데이터 집합 & 데이터 저장소</a>
 + <a href="#compute-targets">계산 대상</a>
 + <a href="#training-scripts">학습 스크립트</a>
@@ -62,26 +66,16 @@ Azure Machine Learning 다음 도구를 사용 합니다.
 + <a href="#github-tracking-and-integration">Git 추적</a>
 + <a href="#snapshots">스냅숏</a>
 + <a href="#activities">활동</a>
-+ <a href="#images">Image</a>
++ <a href="#images">이미지</a>
 + <a href="#deployment">배포</a>
 + <a href="#web-service-deployments">웹 서비스</a>
 + <a href="#iot-module-deployments">IoT 모듈</a>
 + <a href="#ml-pipelines">ML 파이프라인</a>
 + <a href="#logging">로깅</a>
 
-> [!NOTE]
-> 이 문서에서는 Azure Machine Learning에서 사용되는 용어와 개념을 정의하지만, Azure 플랫폼에 대한 용어와 개념은 다루지 않습니다. Azure 플랫폼 용어에 대한 자세한 내용은 [Microsoft Azure 용어집](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology)을 참조하세요.
-
-
 ### <a name="workspaces"></a>작업 영역
 
-[작업 영역은](concept-workspace.md) Azure Machine Learning 서비스에 대 한 최상위 리소스입니다. 작업 영역은 Azure Machine Learning Service를 사용하는 경우 만드는 모든 아티팩트를 사용할 수 있는 중앙 집중식 위치를 제공합니다.
-
-다음은 작업 영역의 분류 체계를 보여주는 다이어그램입니다.
-
-[![작업 영역 분류](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
-
-작업 영역에 대 한 자세한 내용은 [Azure Machine Learning 작업 영역 이란?](concept-workspace.md)을 참조 하세요.
+[작업 영역은](concept-workspace.md) Azure Machine Learning 서비스에 대 한 최상위 리소스입니다. 작업 영역은 Azure Machine Learning Service를 사용하는 경우 만드는 모든 아티팩트를 사용할 수 있는 중앙 집중식 위치를 제공합니다. 작업 영역을 다른 사용자와 공유할 수 있습니다. 작업 영역에 대 한 자세한 설명은 [Azure Machine Learning 작업 영역 이란?](concept-workspace.md)을 참조 하세요.
 
 ### <a name="experiments"></a>실험
 
@@ -97,7 +91,7 @@ Azure Machine Learning 다음 도구를 사용 합니다.
 
 Azure Machine Learning Service는 프레임워크에 관계없이 사용할 수 있습니다. 모델을 만들 때 Scikit, XGBoost, PyTorch, TensorFlow 및 체 이너와 같은 인기 있는 기계 학습 프레임 워크를 사용할 수 있습니다.
 
-모델 학습 예제는 [자습서: Azure Machine Learning Service를 사용하여 이미지 분류 모델 학습](tutorial-train-models-with-aml.md) 노트북에서 모델 학습을 수행합니다.
+Scikit 및 평가기를 사용 하 여 모델을 학습 하는 방법에 대 한 [예제를 보려면 자습서: Azure Machine Learning Service를 사용하여 이미지 분류 모델 학습](tutorial-train-models-with-aml.md) 노트북에서 모델 학습을 수행합니다.
 
 **모델 레지스트리** 는 Azure Machine Learning 서비스 작업 영역의 모든 모델을 추적 합니다.
 
@@ -120,11 +114,24 @@ Azure Machine Learning Service는 프레임워크에 관계없이 사용할 수 
 
 실행 구성 예제는 [모델 학습을 위한 컴퓨팅 대상 선택 및 사용](how-to-set-up-training-targets.md)을 참조하세요.
 
+### <a name="estimators"></a>추정
+
+인기 있는 프레임 워크를 사용 하 여 모델 학습을 용이 하 게 하기 위해 평가기 클래스를 사용 하면 실행 구성을 쉽게 만들 수 있습니다. 제네릭 [평가기](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) 을 만들고 사용 하 여 선택한 학습 프레임 워크 (예: scikit)를 사용 하는 학습 스크립트를 제출할 수 있습니다.
+
+PyTorch, TensorFlow 및 체 이너 Azure Machine Learning 작업의 경우 이러한 프레임 워크 사용을 간소화 하기 위해 각 [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)및 [체 이너](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) 추정 제공 됩니다.
+
+자세한 내용은 다음 문서를 참조하세요.
+
+* [추정를 사용 하 여 ML 모델을 학습](how-to-train-ml-models.md)합니다.
+* [Azure Machine Learning를 사용 하 여 대규모로 Pytorch 심층 학습 모델을 학습](how-to-train-pytorch.md)합니다.
+* [Azure Machine Learning 서비스를 사용 하 여 대규모로 TensorFlow 모델을 학습 하 고 등록](how-to-train-tensorflow.md)합니다.
+* [Azure Machine Learning 서비스를 통해 대규모로 체 이너 모델을 학습 하 고 등록](how-to-train-chainer.md)합니다.
+
 ### <a name="datasets-and-datastores"></a>데이터 집합 및 데이터 저장소
 
 **Azure Machine Learning 데이터 집합** (미리 보기)를 사용 하면 데이터에 쉽게 액세스 하 고 작업을 수행할 수 있습니다. 데이터 집합은 모델 학습 및 파이프라인 생성과 같은 다양 한 시나리오에서 데이터를 관리 합니다. Azure Machine Learning SDK를 사용 하 여 기본 저장소에 액세스 하 고, 데이터를 탐색 및 준비 하 고, 여러 데이터 집합 정의의 수명 주기를 관리 하 고, 학습 및 프로덕션 환경에서 사용 되는 데이터 집합을 비교할 수 있습니다.
 
-데이터 집합은 또는 `from_delimited_files()` `to_pandas_dataframe()`을 사용 하는 것과 같이 널리 사용 되는 형식으로 데이터를 사용 하기 위한 메서드를 제공
+데이터 집합은 또는 `from_delimited_files()` `to_pandas_dataframe()`을 사용 하는 것과 같이 널리 사용 되는 형식으로 데이터 작업을 위한 메서드를 제공 합니다
 
 자세한 내용은 [Azure Machine Learning 데이터 집합 만들기 및 등록](how-to-create-register-datasets.md)을 참조 하세요.  데이터 집합을 사용 하는 추가 예제는 [샘플 노트북](https://github.com/Azure/MachineLearningNotebooks/tree/master/work-with-data/datasets)을 참조 하세요.
 
@@ -152,7 +159,6 @@ Azure Machine Learning Service는 프레임워크에 관계없이 사용할 수 
 * 실행 전의 스크립트를 포함하는 디렉터리의 스냅샷
 
 모델을 학습시키기 위해 스크립트를 제출할 때 모델을 생성합니다. 실행에는 0개 이상의 자식 실행이 포함될 수 있습니다. 예를 들어 최상위 실행에는 두 개의 자식 실행이 포함될 수 있고, 각 자식 실행에는 자체 자식 실행이 포함될 수 있습니다.
-
 
 ### <a name="github-tracking-and-integration"></a>GitHub 추적 및 통합
 

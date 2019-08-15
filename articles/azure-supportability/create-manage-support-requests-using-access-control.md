@@ -7,12 +7,12 @@ ms.date: 1/31/2017
 ms.topic: article
 ms.service: azure
 ms.assetid: 58a0ca9d-86d2-469a-9714-3b8320c33cf5
-ms.openlocfilehash: d98d0637c6d520193b11f4267c59016772ef063a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3cf17f6e391608af9d17591a81c579a1db779a6a
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60809928"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967803"
 ---
 # <a name="azure-role-based-access-control-rbac-to-control-access-rights-to-create-and-manage-support-requests"></a>Azure 역할 기반 Access Control(RBAC)로 지원 요청을 만들고 관리하기 위한 액세스 권한 제어
 
@@ -20,7 +20,7 @@ ms.locfileid: "60809928"
 Azure Portal([portal.azure.com](https://portal.azure.com))에서 지원 요청 생성은 Azure의 RBAC 모델을 사용하여 지원 요청을 만들고 관리할 수 잇는 사용자를 정의합니다.
 특정 범위(구독, 리소스 그룹 또는 리소스일 수 있음)에서 사용자, 그룹 및 애플리케이션에 적절한 RBAC 역할을 할당하여 액세스 권한을 부여합니다.
 
-예를 들어를 보겠습니다. 리소스 그룹 소유자는 구독 범위에서 읽기 권한이 있는 웹 사이트, virtual machines 및 서브넷과 같은 리소스 그룹 아래에 있는 모든 리소스를 관리할 수 있습니다.
+예를 들어 보겠습니다. 구독 범위에서 읽기 권한을 가진 리소스 그룹 소유자는 웹 사이트, 가상 컴퓨터 및 서브넷과 같은 리소스 그룹의 모든 리소스를 관리할 수 있습니다.
 하지만 가상 머신 리소스에 대해 지원 요청을 생성하려고 하는 경우 다음 오류가 발생합니다.
 
 ![구독 오류](./media/create-manage-support-requests-using-access-control/subscription-error.png)
@@ -65,7 +65,7 @@ Azure PowerShell, Azure 명령줄 인터페이스(CLI) 및 REST API를 사용하
 Joe는 이 구독에서 일부 리소스 그룹에 대한 리소스 소유자인 여러분의 동료이며 구독에 대해 읽기 권한을 보유합니다.
 동료인 Joe가 이 구독 아래 리소스에 대한 지원 티켓을 만들고 관리할 수 있도록 액세스 권한을 부여하고 싶습니다.
 
-1. 먼저 구독으로 이동하고 "설정" 아래에서 사용자 목록을 확인합니다. 구독에 대해 읽기 권한이 있는 Joe를 클릭하고 새 사용자 지정 역할을 할당해 보겠습니다.
+1. 첫 번째 단계는 구독으로 이동 하는 것입니다. **설정**에 사용자 목록이 표시 됩니다. 구독에 대 한 읽기 권한자 권한이 있는 사용자 Joe를 선택 합니다. Joe에 새 사용자 지정 역할을 할당 하겠습니다.
 
     ![역할 추가](./media/create-manage-support-requests-using-access-control/add-role.png)
 
@@ -85,7 +85,7 @@ Joe는 이 구독에서 일부 리소스 그룹에 대한 리소스 소유자인
 
     ![추가된 사용자](./media/create-manage-support-requests-using-access-control/user-added.png)
 
-    Joe가 포털에 로그인하면 자신이 추가된 구독을 볼 수 있습니다.
+    Joe가 포털에 로그인 하면 joe가 추가 된 구독을 볼 수 있습니다.
 
 7. Joe는 "도움말 및 지원" 블레이드에서 "새 지원 요청"을 클릭하고 "Visual Studio Ultimate with MSDN"에 대한 지원 요청을 만들 수 있습니다.
 
@@ -96,15 +96,15 @@ Joe는 이 구독에서 일부 리소스 그룹에 대한 리소스 소유자인
 ## <a name="remove-support-request-access-in-the-azure-portal"></a>Azure Portal에서 지원 요청 액세스 제거
 
 사용자에게 지원 요청을 만들고 관리하기 위한 액세스 권한을 부여할 수 있었던 것처럼 사용자에 대한 액세스 권한을 제거할 수도 있습니다.
-지원 요청을 만들고 관리할 수 있는 기능을 제거하려면 구독으로 이동하고 "설정"을 클릭하고 사용자(이 경우, Joe)를 클릭합니다.
-역할 이름, "지원 요청 참여자"를 마우스 오른쪽 단추로 클릭하고 "제거"를 클릭합니다.
+
+지원 요청을 만들고 관리할 수 있는 기능을 제거하려면 구독으로 이동하고 "설정"을 클릭하고 사용자(이 경우, Joe)를 클릭합니다. 역할 이름, "지원 요청 참여자"를 마우스 오른쪽 단추로 클릭하고 "제거"를 클릭합니다.
 
 ![지원 요청 액세스 제거](./media/create-manage-support-requests-using-access-control/remove-support-request-access.png)
 
-Joe가 포털에 로그인하고 지원 요청을 만들려고 하면 다음 오류가 발생합니다.
+Joe가 포털에 로그인 하 여 지원 요청을 만들려고 하면 Joe는 다음 오류를 발견 합니다.
 
 ![구독 오류-2](./media/create-manage-support-requests-using-access-control/subscription-error-2.png)
 
-Joe가 "모든 지원 요청"을 클릭할 때 지원 요청을 볼 수 없습니다.
+Joe가 "모든 지원 요청"을 선택할 때 지원 요청을 볼 수 없습니다.
 
 ![사례 정보 보기-2](./media/create-manage-support-requests-using-access-control/case-details-view-2.png)

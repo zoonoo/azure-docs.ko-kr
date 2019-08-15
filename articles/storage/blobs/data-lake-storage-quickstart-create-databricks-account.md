@@ -1,19 +1,19 @@
 ---
 title: '빠른 시작: Azure Databricks를 사용하여 Azure Data Lake Storage Gen2의 데이터 분석 | Microsoft Docs'
 description: Azure Portal 및 Azure Data Lake Storage Gen2 스토리지 계정을 사용하여 Azure Databricks에서 Spark 작업을 실행하는 방법을 알아봅니다.
-services: storage
 author: normesta
 ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 02/15/2019
-ms.openlocfilehash: d27f89b5a6f6da0732b98fe7b15793e80d491038
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.reviewer: jeking
+ms.openlocfilehash: a1e7ee4f81f2b40b804ee69c8366ca87c377e6ac
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357490"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855487"
 ---
 # <a name="quickstart-analyze-data-in-azure-data-lake-storage-gen2-by-using-azure-databricks"></a>빠른 시작: Azure Databricks를 사용하여 Azure Data Lake Storage Gen2의 데이터 분석
 
@@ -29,7 +29,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
   스토리지 계정의 이름을 텍스트 파일에 붙여넣습니다. 곧 필요하게 될 것입니다.
 
-* 서비스 주체 만들기 [방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)
+* 서비스 주체를 생성합니다. [방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)를 참조하세요.
 
   해당 문서의 단계를 수행할 때 해야 하는 두어 가지 항목이 있습니다.
 
@@ -88,9 +88,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 클러스터를 만드는 방법에 대한 자세한 내용은 [Azure Databricks에서 Spark 클러스터 만들기](https://docs.azuredatabricks.net/user-guide/clusters/create.html)를 참조하세요.
 
-## <a name="create-storage-account-file-system"></a>저장소 계정 파일 시스템 만들기
+## <a name="create-storage-account-file-system"></a>스토리지 계정 파일 시스템 만들기
 
-이 섹션에서는 Azure Databricks 작업 영역에서 노트북을 만든 다음, 코드 조각을 실행하여 저장소 계정을 구성합니다.
+이 섹션에서는 Azure Databricks 작업 영역에서 노트북을 만든 다음, 코드 조각을 실행하여 스토리지 계정을 구성합니다.
 
 1. [Azure Portal](https://portal.azure.com)에서, 앞에서 만든 Databricks 작업 영역으로 이동한 후 **작업 영역 시작**을 선택합니다.
 
@@ -148,7 +148,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 다음 작업을 수행하여 데이터에 대한 Spark SQL 작업을 실행합니다.
 
-1. SQL 문을 실행하여 샘플 JSON 데이터 파일인 **small_radio_json.json**의 데이터를 사용하여 임시 테이블을 만듭니다. 다음 코드 조각에서 자리 표시자 값을 파일 시스템 이름 및 저장소 계정 이름으로 바꿉니다. 앞에서 만든 노트북을 사용하여 노트북의 새 코드 셀에 코드 조각을 붙여넣은 다음, SHIFT+ENTER를 누릅니다.
+1. SQL 문을 실행하여 샘플 JSON 데이터 파일인 **small_radio_json.json**의 데이터를 사용하여 임시 테이블을 만듭니다. 다음 코드 조각에서 자리 표시자 값을 파일 시스템 이름 및 스토리지 계정 이름으로 바꿉니다. 앞에서 만든 노트북을 사용하여 노트북의 새 코드 셀에 코드 조각을 붙여넣은 다음, SHIFT+ENTER를 누릅니다.
 
     ```sql
     %sql

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7744d99bb97d11b7702c8ee388cf27bc0cc087cc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9679e3216184c0dc5b8dee241c30fc69d5423aeb
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508337"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68963751"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-qq-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 QQ 계정으로 등록 설정 및 로그인
 
@@ -30,7 +30,7 @@ Azure AD(Azure Active Directory) B2C에서 QQ 계정을 ID 공급자로 사용�
 ### <a name="register-for-the-qq-developer-program"></a>QQ 개발자 프로그램 등록
 
 1. QQ 계정 자격 증명으로 [QQ 개발자 포털](http://open.qq.com)에 로그인합니다.
-2. 로그인한 후에 [http://open.qq.com/reg](http://open.qq.com/reg)로 이동하여 개발자인 사용자를 직접 등록합니다.
+2. 로그인한 후에 [https://open.qq.com/reg](https://open.qq.com/reg)로 이동하여 개발자인 사용자를 직접 등록합니다.
 3. **个人**(개별 개발자)를 선택합니다.
 4. 필요한 정보를 입력하고 **下 一 步**(다음 단계)를 선택합니다.
 5. 전자 메일 확인 프로세스를 완료합니다. 개발자로 등록한 후 승인이 되기까지 몇 일 동안 기다려야 합니다. 

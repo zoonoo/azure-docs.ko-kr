@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dacurwin
-ms.openlocfilehash: 0f7d9961b41ece23630584146e4eb777969e771a
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: eb9908fc7b2d4ecd8af8c2b4a65ab43352035ec5
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954746"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018905"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Azure Backup Server 설치 및 업그레이드
 > [!div class="op_single_selector"]
@@ -173,9 +173,9 @@ Windows Server 중복 제거를 사용하여 DPM 스토리지를 중복 제거�
 
     **SQL 2017을 사용하여 SSRS 구성**
 
-    SQL 2017의 자체 인스턴스를 사용하는 경우 수동으로 SSRS를 구성해야 합니다. SSRS 구성 후 SSRS의 *IsInitialized* 속성이 *True*로 설정되었는지 확인합니다. True로 설정하면 MABS는 SSRS가 이미 구성되어 있다고 가정하고 SSRS 구성을 건너뜁니다.
+    사용자 고유의 SQL 2017 인스턴스를 사용 하는 경우 SSRS를 수동으로 구성 해야 합니다. SSRS 구성 후 SSRS의 *IsInitialized* 속성이 *True*로 설정되었는지 확인합니다. True로 설정하면 MABS는 SSRS가 이미 구성되어 있다고 가정하고 SSRS 구성을 건너뜁니다.
 
-    SSRS 구성에 대해 다음 값을 사용합니다.
+    SSRS 구성에 대해 다음 값을 사용합니다. 
 
         - Service Account: ‘Use built-in account’ should be Network Service
         - Web Service URL: ‘Virtual Directory’ should be ReportServer_<SQLInstanceName>
@@ -278,11 +278,11 @@ Azure 연결 및 Azure 구독 상태를 알고 있다면 아래 표를 사용하
 
 | 연결 상태 | Azure 구독 | Azure에 백업 | 디스크에 백업 | Azure에서 복구 | 디스크에서 복구 |
 | --- | --- | --- | --- | --- | --- |
-| 연결됨 |Active |Allowed |허용됨 |허용됨 |Allowed |
-| 연결됨 |만료됨 |중지됨 |중지됨 |Allowed |Allowed |
+| 연결됨 |Active |허용함 |허용됨 |허용됨 |허용함 |
+| 연결됨 |만료됨 |중지됨 |중지됨 |허용함 |허용함 |
 | 연결됨 |프로비전 해제됨 |중지됨 |중지됨 |중지되고 Azure 복구 지점 삭제됨 |중지됨 |
-| 손실된 연결 > 15일 |활성 |중지됨 |중지됨 |Allowed |Allowed |
-| 손실된 연결 > 15일 |만료됨 |중지됨 |중지됨 |Allowed |Allowed |
+| 손실된 연결 > 15일 |활성 |중지됨 |중지됨 |허용함 |허용함 |
+| 손실된 연결 > 15일 |만료됨 |중지됨 |중지됨 |허용함 |허용함 |
 | 손실된 연결 > 15일 |프로비전 해제됨 |중지됨 |중지됨 |중지되고 Azure 복구 지점 삭제됨 |중지됨 |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>연결 끊김 복구

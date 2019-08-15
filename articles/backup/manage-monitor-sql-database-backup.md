@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: dacurwin
-ms.openlocfilehash: 7cd916c8e52b40dee3ce2d63d43dc88f09001b32
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 1d50f239a0ef4de02c9f0c87a28b0f5092d9c529
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827569"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019029"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>백업한 SQL Server 데이터베이스 관리 및 모니터링
 
@@ -92,9 +92,9 @@ Azure Backup는 **백업 작업** 포털에서 수동으로 트리거된 모든 
 
 > [!NOTE]
 >
-데이터 삭제 옵션에 대 한 자세한 내용은 아래 FAQ를 참조 하세요.
-* [Autoprotected 인스턴스에서 데이터베이스를 삭제 하는 경우 백업에 어떤 일이 발생 하나요?](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)
-* [Autoprotected 데이터베이스의 백업 작업을 중지 하는 경우 해당 동작이 어떻게 되나요?](faq-backup-sql-server.md#if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior)
+>데이터 삭제 옵션에 대 한 자세한 내용은 아래 FAQ를 참조 하세요.
+>* [Autoprotected 인스턴스에서 데이터베이스를 삭제 하는 경우 백업에 어떤 일이 발생 하나요?](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)
+>* [Autoprotected 데이터베이스의 백업 작업을 중지 하는 경우 해당 동작이 어떻게 되나요?](faq-backup-sql-server.md#if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior)
 >
 >
 
@@ -145,7 +145,7 @@ SQL database에 대 한 보호를 다시 시작 하려면:
 
 경우에 따라 VM에 대 한 워크 로드 확장이 특정 원인 또는 기타에 영향을 받을 수 있습니다. 이러한 경우 VM에서 트리거되는 모든 작업은 실패 하기 시작 합니다. 그런 다음 VM에서 확장을 다시 등록 해야 할 수 있습니다. 작업을 **다시 등록** 하면 작업을 계속할 수 있도록 VM에서 워크 로드 백업 확장 프로그램이 다시 설치 됩니다.  <br>
 
-이 옵션은 주의 해 서 사용 하는 것이 좋습니다. 이미 정상 상태의 VM에서 트리거되면이 작업을 수행 하면 확장이 다시 시작 됩니다. 이로 인해 모든 진행 중인 작업이 실패할 수 있습니다. 다시 등록 작업을 트리거하기 전에 하나 이상의 [증상](backup-sql-server-azure-troubleshoot.md#re-registration-failures) 을 확인 하세요.
+이 옵션은 주의 해 서 사용 해야 합니다. 이미 정상 상태의 VM에서 트리거되면이 작업을 수행 하면 확장이 다시 시작 됩니다. 이로 인해 모든 진행 중인 작업이 실패할 수 있습니다. 다시 등록 작업을 트리거하기 전에 하나 이상의 [증상](backup-sql-server-azure-troubleshoot.md#re-registration-failures) 을 확인 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

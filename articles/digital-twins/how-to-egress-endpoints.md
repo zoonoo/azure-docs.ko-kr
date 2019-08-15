@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 06/06/2019
+ms.date: 08/12/2019
 ms.author: alinast
-ms.openlocfilehash: 478fe1859dd9067e8097df0384657793602c1378
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3c33992ce3c130d6c06e0709a9c4ddcab4fff159
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071450"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69013933"
 ---
 # <a name="egress-and-endpoints"></a>송신 및 엔드포인트
 
@@ -47,16 +47,16 @@ Azure Digital Twins *엔드포인트*는 사용자의 Azure 구독 내 메시지
 }
 ```
 
-| 특성 | Type | 설명 |
+| attribute | type | 설명 |
 | --- | --- | --- |
-| id | 문자열 | 이벤트에 대한 고유 식별자입니다. |
-| subject | 문자열 | 게시자가 정의한 이벤트 주체에 대한 경로입니다. |
+| id | string | 이벤트에 대한 고유 식별자입니다. |
+| subject | string | 게시자가 정의한 이벤트 주체에 대한 경로입니다. |
 | data | 개체(object) | 특정 리소스 공급자에 대한 이벤트 데이터입니다. |
-| eventType | 문자열 | 이 이벤트 원본에 대해 등록된 이벤트 유형 중 하나입니다. |
-| eventTime | 문자열 | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
-| dataVersion | 문자열 | 데이터 개체의 스키마 버전입니다. 게시자가 스키마 버전을 정의합니다. |
-| metadataVersion | 문자열 | 이벤트 메타데이터의 스키마 버전입니다. Event Grid는 최상위 속성의 스키마를 정의합니다. Event Grid는 이 값을 제공합니다. |
-| topic | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
+| eventType | string | 이 이벤트 원본에 대해 등록된 이벤트 유형 중 하나입니다. |
+| eventTime | string | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
+| dataVersion | string | 데이터 개체의 스키마 버전입니다. 게시자가 스키마 버전을 정의합니다. |
+| metadataVersion | string | 이벤트 메타데이터의 스키마 버전입니다. Event Grid는 최상위 속성의 스키마를 정의합니다. Event Grid는 이 값을 제공합니다. |
+| topic | string | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
 
 Event Grid 이벤트 스키마에 대한 자세한 내용은 다음을 참조하세요.
 
@@ -90,7 +90,7 @@ Event Grid 이벤트 스키마에 대한 자세한 내용은 다음을 참조하
 - 센서
 - SensorBlobMetadata
 - SensorExtendedProperty
-- 공백
+- Space
 - SpaceBlobMetadata
 - SpaceExtendedProperty
 - SpaceResource
@@ -100,7 +100,7 @@ Event Grid 이벤트 스키마에 대한 자세한 내용은 다음을 참조하
 - UserBlobMetadata
 - UserExtendedProperty
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```JSON
 {
@@ -133,7 +133,7 @@ Event Grid 이벤트 스키마에 대한 자세한 내용은 다음을 참조하
 > [!IMPORTANT]  
 > 이 이벤트는 UDF 자체에서 명시적으로 전송해야 합니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```JSON
 {
@@ -161,7 +161,7 @@ Event Grid 이벤트 스키마에 대한 자세한 내용은 다음을 참조하
 
 **SensorChange**는 원격 분석 변경 내용을 기반으로 하는 센서의 상태 업데이트입니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```JSON
 {
@@ -196,7 +196,7 @@ Event Grid 이벤트 스키마에 대한 자세한 내용은 다음을 참조하
 
 **SpaceChange**는 원격 분석 변경 내용을 기반으로 하는 공간의 상태 업데이트입니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```JSON
 {
@@ -246,7 +246,7 @@ Event Grid 이벤트 스키마에 대한 자세한 내용은 다음을 참조하
 >[!IMPORTANT]
 > **eventTypes** 특성에 유의합니다. 이 특성은 엔드포인트가 처리하는 이벤트 유형을 정의하고 해당 라우팅을 결정합니다.
 
-인증된 HTTP POST 요청
+다음에 대 한 인증 된 HTTP POST 요청:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/endpoints

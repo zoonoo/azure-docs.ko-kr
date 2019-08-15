@@ -9,14 +9,14 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
-ms.date: 07/07/2019
+ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 822b8bd1d0f5be854b6d345d68fcdb680b2ef1c4
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 1581a62f0999cf502feaad31d2c884f4d171e770
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882555"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019668"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database 관리형 인스턴스 및 SQL Server 간의 T-SQL 차이점
 
@@ -309,12 +309,12 @@ SQL Server 에이전트에 대한 자세한 내용은 [SQL Server 에이전트](
 
 ### <a name="tables"></a>테이블
 
-다음 테이블은 지원 되지 않습니다.
+다음 테이블 형식은 지원 되지 않습니다.
 
-- `FILESTREAM`
-- `FILETABLE`
-- `EXTERNAL TABLE`
-- `MEMORY_OPTIMIZED` 
+- [FILESTREAM](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server)
+- [FILETABLE](https://docs.microsoft.com/sql/relational-databases/blob/filetables-sql-server)
+- [외부 테이블](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql) Polybase
+- [MEMORY_OPTIMIZED](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables) (범용 계층 에서만 지원 됨)
 
 테이블을 만들고 변경 하는 방법에 대 한 자세한 내용은 [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) 및 [alter TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql)을 참조 하세요.
 
@@ -468,10 +468,13 @@ HDFS 또는 Azure Blob storage의 파일을 참조 하는 외부 테이블은 �
 
 제한 사항: 
 
+- 손상 된 데이터베이스의 백업은 손상 유형에 따라 복원 될 수 있지만 손상이 수정 될 때까지 자동화 된 백업은 사용 되지 않습니다. 원본 인스턴스에서를 실행 `DBCC CHECKDB` 하 고이 문제를 방지 하기 위해 백업을 `WITH CHECKSUM` 사용 해야 합니다.
+- 이 문서 `.BAK` 에서 설명 하는 제한 ( `FILESTREAM` 예: 또는 `FILETABLE` 개체)을 포함 하는 데이터베이스 파일의 복원은 Managed Instance에서 복원할 수 없습니다.
 - `.BAK`여러 백업 세트를 포함 하는 파일은 복원할 수 없습니다. 
 - `.BAK`여러 로그 파일이 포함 된 파일은 복원할 수 없습니다.
-- .Bak에 데이터가 포함 되어 `FILESTREAM` 있으면 복원이 실패 합니다.
-- 활성 메모리 내 개체가 있는 데이터베이스를 포함 하는 백업은 범용 인스턴스에서 복원할 수 없습니다. Restore 문에 대 한 자세한 내용은 [restore 문](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql)을 참조 하십시오.
+- 8TB 보다 큰 데이터베이스, 활성 메모리 내 OLTP 개체 또는 280 개 이상의 파일을 포함 하는 백업은 범용 인스턴스에서 복원할 수 없습니다. 
+- 4TB 보다 큰 데이터베이스가 포함 된 백업 또는 전체 크기가 [리소스 제한](sql-database-managed-instance-resource-limits.md) 에 설명 된 크기 보다 큰 메모리 내 OLTP 개체를 포함 하는 백업은 중요 비즈니스용 인스턴스에서 복원할 수 없습니다.
+Restore 문에 대 한 자세한 내용은 [restore 문](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql)을 참조 하십시오.
 
 ### <a name="service-broker"></a>Service Broker
 
@@ -531,7 +534,7 @@ HDFS 또는 Azure Blob storage의 파일을 참조 하는 외부 테이블은 �
 
 관리 되는 인스턴스는 [포함 된 데이터베이스](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases)를 복원할 수 없습니다. 포함 된 기존 데이터베이스의 지정 시간 복원은 관리 되는 인스턴스에서 작동 하지 않습니다. 그 동안에는 관리 되는 인스턴스에 배치 된 데이터베이스에서 포함 옵션을 제거 하는 것이 좋습니다. 프로덕션 데이터베이스에 대 한 포함 옵션을 사용 하지 마세요. 
 
-### <a name="exceeding-storage-space-with-small-database-files"></a>작은 데이터베이스 파일이 포함된 저장소 공간 초과
+### <a name="exceeding-storage-space-with-small-database-files"></a>작은 데이터베이스 파일이 포함된 스토리지 공간 초과
 
 `CREATE DATABASE`인스턴스가 `ALTER DATABASE ADD FILE`Azure Storage 제한 `RESTORE DATABASE` 에 도달할 수 있으므로, 및 문이 실패할 수 있습니다.
 
@@ -547,11 +550,6 @@ HDFS 또는 Azure Blob storage의 파일을 참조 하는 외부 테이블은 �
 이 예제에서 기존 데이터베이스는 계속 작동 하며 새 파일이 추가 되지 않는 한 문제 없이 커질 수 있습니다. 모든 데이터베이스의 총 크기가 인스턴스 크기 제한에 도달 하지 않더라도 새 디스크 드라이브에 충분 한 공간이 없기 때문에 새 데이터베이스를 만들거나 복원할 수 없습니다. 이 경우 반환 되는 오류는 명확 하지 않습니다.
 
 시스템 뷰를 사용 하 여 [남은 파일 수를 식별할](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) 수 있습니다. 이 한도에 도달 하면 [DBCC SHRINKFILE 문을 사용 하 여 작은 파일 중 일부를 비우고 삭제](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) 하거나 [이 제한이 없는 중요 비즈니스용 계층](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics)으로 전환 해 보세요.
-
-### <a name="incorrect-configuration-of-the-sas-key-during-database-restore"></a>데이터베이스 복원 중 잘못 된 SAS 키 구성
-
-`RESTORE DATABASE`.bak 파일을 읽는은 .bak 파일을 읽으려고 계속 시도 하 여의 `CREDENTIAL` 공유 액세스 서명이 잘못 된 경우 오랜 시간 후에 오류를 반환 하는 경우도 있습니다. 데이터베이스를 복원 하기 전에 RESTORE HEADERONLY를 실행 하 여 SAS 키가 올바른지를 확인할 수 있습니다.
-Azure Portal를 사용 하 여 생성 된 `?` SAS 키에서 선행을 제거 해야 합니다.
 
 ### <a name="tooling"></a>도구
 
@@ -624,11 +622,6 @@ using (var scope = new TransactionScope())
 Tde ( `BACKUP DATABASE ... WITH COPY_ONLY` 서비스 관리 투명한 데이터 암호화)로 암호화 된 데이터베이스에서는 실행할 수 없습니다. 서비스 관리 TDE는 내부 TDE 키를 사용 하 여 백업을 암호화 합니다. 키를 내보낼 수 없으므로 백업을 복원할 수 없습니다.
 
 **해결 방법:** 자동 백업 및 지정 시간 복원을 사용 하거나 대신 [고객 관리 (BYOK) TDE](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#customer-managed-transparent-data-encryption---bring-your-own-key) 를 사용 합니다. 데이터베이스에서 암호화를 사용 하지 않도록 설정할 수도 있습니다.
-
-### <a name="point-in-time-restore-follows-time-by-the-time-zone-set-on-the-source-instance"></a>지정 시간 복원은 원본 인스턴스에 설정 된 표준 시간대를 따릅니다.
-
-지정 시간 복원은 현재 UTC를 따라 다음 원본 인스턴스의 표준 시간대에 따라 복원 하는 시간을로 해석 합니다.
-자세한 내용은 [관리 되는 인스턴스 표준 시간대의 알려진 문제](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone#known-issues) 를 확인 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,21 +1,21 @@
 ---
-title: 클라이언트 응용 프로그램에서 blob 및 큐 데이터에 액세스 하기 위해 Azure Active Directory를 사용 하 여 인증
+title: 클라이언트 응용 프로그램에서 Azure Active Directory를 사용 하 여 blob 및 큐에 대 한 액세스 권한 부여-Azure Storage
 description: Azure Active Directory를 사용 하 여 클라이언트 응용 프로그램 내에서 인증 하 고, OAuth 2.0 토큰을 획득 하 고, Azure Blob storage 및 Queue storage에 대 한 요청에 권한을 부여 합니다.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 07/15/2019
+ms.date: 07/18/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ffae7467e9f94c68cf004b74c9791f2d9cda3171
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 5138fb6338f4ade322414619f8785d77550a91d1
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68250000"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986797"
 ---
-# <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues"></a>Blob 및 큐에 액세스 하기 위해 응용 프로그램에서 Azure Active Directory를 사용 하 여 인증
+# <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-from-a-client-application"></a>클라이언트 응용 프로그램에서 Azure Active Directory를 사용 하 여 blob 및 큐에 대 한 액세스 권한 부여
 
 Azure Blob 저장소 또는 큐 저장소에서 Azure Active Directory (Azure AD)를 사용 하는 경우의 주요 이점은 자격 증명을 코드에 더 이상 저장할 필요가 없다는 점입니다. 대신 Microsoft id 플랫폼 (이전의 Azure AD)에서 OAuth 2.0 액세스 토큰을 요청할 수 있습니다. Azure AD는 응용 프로그램을 실행 하는 보안 주체 (사용자, 그룹 또는 서비스 사용자)를 인증 합니다. 인증에 성공 하면 Azure AD는 응용 프로그램에 액세스 토큰을 반환 하 고 응용 프로그램은 액세스 토큰을 사용 하 여 Azure Blob 저장소 또는 큐 저장소에 대 한 요청에 권한을 부여할 수 있습니다.
 
@@ -106,14 +106,14 @@ Microsoft 퍼블릭 클라우드의 경우 기본 Azure AD 권한은 다음과 �
 - 클라이언트 리디렉션 URI입니다. 앱 등록에 대 한 **인증** 설정에서이 값을 검색 합니다.
 - 클라이언트 암호의 값입니다. 이전에 복사한 위치에서이 값을 검색 합니다.
 
-### <a name="create-a-storage-account-and-container"></a>저장소 계정 및 컨테이너 만들기
+### <a name="create-a-storage-account-and-container"></a>스토리지 계정 및 컨테이너 만들기
 
 코드 샘플을 실행 하려면 Azure Active Directory와 동일한 구독 내에 저장소 계정을 만듭니다. 그런 다음 해당 저장소 계정 내에 컨테이너를 만듭니다. 샘플 코드는이 컨테이너에 블록 blob을 만듭니다.
 
 그런 다음, 샘플 코드를 실행 하는 사용자 계정에 **저장소 Blob 데이터 참가자** 역할을 명시적으로 할당 합니다. Azure Portal에서이 역할을 할당 하는 방법에 대 한 지침은 [Azure Portal에서 Azure blob에 대 한 액세스 권한 부여 및 RBAC를 사용 하 여 데이터 큐](storage-auth-aad-rbac-portal.md)지정을 참조 하세요.
 
 > [!NOTE]
-> Azure Storage 계정을 만들면 Azure AD를 통해 데이터에 액세스할 수 있는 권한이 자동으로 할당 되지 않습니다. Azure Storage에 RBAC 역할을 직접 명시적으로 할당해야 합니다. 구독, 리소스 그룹, 저장소 계정 또는 컨테이너나 큐 수준으로 지정할 수 있습니다.
+> Azure Storage 계정을 만들면 Azure AD를 통해 데이터에 액세스할 수 있는 권한이 자동으로 할당 되지 않습니다. Azure Storage에 RBAC 역할을 직접 명시적으로 할당해야 합니다. 구독, 리소스 그룹, 스토리지 계정 또는 컨테이너나 큐 수준으로 지정할 수 있습니다.
 
 ### <a name="create-a-web-application-that-authorizes-access-to-blob-storage-with-azure-ad"></a>Azure AD를 사용 하 여 Blob 저장소에 대 한 액세스 권한을 부여 하는 웹 응용 프로그램 만들기
 

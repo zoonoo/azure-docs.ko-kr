@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: a14e03c21de0b5388040943fbe5e9434271b567f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d2cd7c8e24571f66fa73ceaa9a70ce33d6105e9c
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66258810"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69017750"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>공유 액세스 서명을 사용한 Service Bus 액세스 제어
 
@@ -51,13 +51,13 @@ Service Bus에서 SAS 인증은 연결된 액세스 권한 및 기본 및 보조
 
 네임스페이스 또는 엔터티 정책은 각각 기본 권한 및 Send 및 Listen의 조합을 다루는 세 개의 규칙 집합을 제공하여 최대 12개의 공유 액세스 권한 부여 규칙을 포함할 수 있습니다. 이 제한은 SAS 정책 저장소가 사용자 또는 서비스 계정 저장소에 적합하지 않다는 것을 강조합니다. 애플리케이션에서 사용자 또는 서비스 ID에 따라 Service Bus에 대한 액세스 권한을 부여해야 하는 경우 인증 및 액세스 검사 후 SAS 토큰을 발급하는 보안 토큰 서비스를 구현해야 합니다.
 
-권한 부여 규칙은 *기본 키*와 *보조 키*에 할당됩니다. 이들은 강력한 암호화 키입니다. 잃어 버리거나 누출되지 않도록 하세요. 항상 [Azure Portal][Azure portal]에서 사용할 수 있습니다. 생성된 키 중 하나를 사용할 수 있으며 언제든지 다시 생성할 수 있습니다. 정책에서 키를 다시 생성하거나 변경하는 경우 해당 키에 기반한 이전에 발급된 모든 토큰은 즉시 무효화됩니다. 그러나 이러한 토큰에 따라 생성된 진행 중인 연결은 토큰이 만료될 때까지 작업을 계속합니다.
+권한 부여 규칙은 *기본 키*와 *보조 키*에 할당됩니다. 이들은 강력한 암호화 키입니다. 이러한 항목을 분실 하거나 누설 하지 마세요. 항상 [Azure Portal][Azure portal]에서 사용할 수 있습니다. 생성된 키 중 하나를 사용할 수 있으며 언제든지 다시 생성할 수 있습니다. 정책에서 키를 다시 생성하거나 변경하는 경우 해당 키에 기반한 이전에 발급된 모든 토큰은 즉시 무효화됩니다. 그러나 이러한 토큰에 따라 생성된 진행 중인 연결은 토큰이 만료될 때까지 작업을 계속합니다.
 
 Service Bus 네임스페이스를 만들 때 **RootManageSharedAccessKey**라는 정책 규칙이 네임스페이스에 대해 자동으로 만들어집니다. 이 정책은 전체 네임스페이스에 대한 Manage 사용 권한을 갖습니다. 이 규칙을 관리 **루트** 계정과 같이 처리하고 애플리케이션에서 사용하지 않는 것이 좋습니다. Powershell 또는 Azure CLI를 통해 포털의 해당 네임스페이스에 대한 **구성** 탭에서 추가 정책 규칙을 만들 수 있습니다.
 
 ## <a name="configuration-for-shared-access-signature-authentication"></a>공유 액세스 서명 인증을 위한 구성
 
-Service Bus 네임스페이스, 큐 또는 항목에 대한 [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 규칙을 구성할 수 있습니다. Service Bus 구독에서 [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 의 구성은 현재 지원되지 않지만 네임스페이스 또는 항목에 구성된 규칙을 사용하여 구독에 액세스할 수 있습니다. 이 절차를 설명하는 작업 샘플은 [Service Bus 구독으로 공유 액세스 서명(SAS) 인증 사용](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c) 샘플을 참조하세요.
+Service Bus 네임스페이스, 큐 또는 항목에 대한 [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 규칙을 구성할 수 있습니다. Service Bus 구독에서 [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 의 구성은 현재 지원되지 않지만 네임스페이스 또는 항목에 구성된 규칙을 사용하여 구독에 액세스할 수 있습니다. 이 절차를 설명 하는 작업 예제는 [관리 Azure Service Bus 큐 관리](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/ManagingEntities/SASAuthorizationRule) 샘플을 참조 하세요.
 
 ![SAS](./media/service-bus-sas/service-bus-namespace.png)
 
@@ -88,7 +88,7 @@ SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 
 리소스 URI은 액세스를 하려는 Service Bus 리소스의 전체 URI입니다. 예를 들면 `http://<namespace>.servicebus.windows.net/<entityPath>` 또는 `sb://<namespace>.servicebus.windows.net/<entityPath>`입니다. 즉, `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`과 같습니다. 
 
-**URI 여야 [백분율로 인코딩된](https://msdn.microsoft.com/library/4fkewx0t.aspx)합니다.**
+**URI는 [%로 인코딩해야](/dotnet/api/system.web.httputility.urlencode?view=netframework-4.8)합니다.**
 
 이 URI로 또는 부모 계층 중 하나에 의해 지정된 엔터티에 서명에 사용된 공유 액세스 권한 부여 규칙을 구성해야 합니다. 예를 들어 이전 예에서 `http://contoso.servicebus.windows.net/contosoTopics/T1` 또는 `http://contoso.servicebus.windows.net`입니다.
 
@@ -104,8 +104,8 @@ SAS 토큰은 `signature-string`에서 사용된 `<resourceURI>`를 접두사로
 
 다음과 같이 설명된 시나리오는 권한 부여 규칙의 구성, SAS 토큰의 생성 및 클라이언트 권한 부여를 포함합니다.
 
-구성을 설명하고 SAS 권한 부여를 사용하는 Service Bus 애플리케이션의 작업 샘플 전체는 [Service Bus를 사용하여 공유 액세스 서명 인증](https://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8)을 참조하세요. 네임스페이스 또는 토픽에 구성된 SAS 권한 부여 규칙을 사용하여 Service Bus 구독을 보호하는 방법을 설명하는 관련 샘플은 [Service Bus 구독으로 SAS(공유 액세스 서명) 인증 사용](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c)에서 확인할 수 있습니다.
-
+구성을 보여 주고 SAS 권한 부여를 사용 하는 Service Bus 응용 프로그램의 전체 작업 샘플은 GitHub 리포지토리에서 다음 샘플을 참조 하세요. [Azure Service Bus 큐 관리](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/ManagingEntities/SASAuthorizationRule)
+ 
 ## <a name="access-shared-access-authorization-rules-on-an-entity"></a>엔터티에 대한 공유 액세스 권한 부여 규칙 액세스
 
 Service Bus .NET Framework 라이브러리를 사용하여 해당하는 [QueueDescription](/dotnet/api/microsoft.servicebus.messaging.queuedescription) 또는 [TopicDescription](/dotnet/api/microsoft.servicebus.messaging.topicdescription)에서 [AuthorizationRules](/dotnet/api/microsoft.servicebus.messaging.authorizationrules) 컬렉션을 통해 Service Bus 큐나 토픽에 구성된 [Microsoft.ServiceBus.Messaging.SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 개체에 액세스할 수 있습니다.
@@ -185,7 +185,7 @@ ContentType: application/atom+xml;type=entry;charset=utf-8
 
 Service Bus에 데이터의 전송을 시작하기 전에 게시자는 AMQP 메시지 안에 있는 SAS 토큰을 **$cbs**(모든 SAS 토큰을 얻고 유효성을 검사하기 위해 서비스에서 사용하는 "특별" 큐)라는 이름의 정의된 AMQP 노드에 전송해야 합니다. 게시자는 AMQP 메시지 내부에 있는 **ReplyTo** 필드를 지정해야 합니다. 이는 서비스가 토큰 유효성 검사 결과와 함께 게시자에게 응답하는 노드입니다(게시자와 서비스 간의 간단한 요청/응답 패턴). 이 회신 노드는 "즉시" 생성되며 AMQP 1.0 사양에 설명된 것처럼 “원격 노드 동적 생성”에 대해 얘기합니다. SAS 토큰이 유효한지 확인한 후 게시자는 이제 데이터를 서비스에 보내기 시작할 수 있습니다.
 
-다음 단계를 사용 하 여 AMQP 프로토콜을 통해 SAS 토큰을 전송 하는 방법을 표시 합니다 [AMQP.NET Lite](https://github.com/Azure/amqpnetlite) 라이브러리입니다. 이 C에서 공식 Service Bus에 대 한 SDK (예를 들어 WinRT,.NET Compact Framework,.NET Micro Framework 및 Mono) 개발을 사용할 수 없는 경우에 유용\#합니다. 물론 이 라이브러리는 클레임 기반 보안이 HTTP 수준에서 작동하는 방식을 볼 때처럼 AMQP 수준에서 작동하는 방식을 이해하는 데 유용합니다("권한 부여" 헤더 내에서 전송되는 HTTP POST 요청 및 SAS 토큰과 함께). AMQP에 대 한 깊은 지식이 필요 하지 않으면, 수 없어도.NET Framework 응용 프로그램과 함께 공식 Service Bus SDK를 사용할 수 있습니다.
+다음 단계에서는 [AMQP.NET Lite](https://github.com/Azure/amqpnetlite) 라이브러리를 사용 하 여 amqp 프로토콜을 사용 하 여 SAS 토큰을 보내는 방법을 보여 줍니다. 이는 C\#에서 개발 하는 공식 Service Bus SDK (예: WinRT, .NET Compact Framework, .Net 마이크로 프레임 워크 및 Mono)를 사용할 수 없는 경우에 유용 합니다. 물론 이 라이브러리는 클레임 기반 보안이 HTTP 수준에서 작동하는 방식을 볼 때처럼 AMQP 수준에서 작동하는 방식을 이해하는 데 유용합니다("권한 부여" 헤더 내에서 전송되는 HTTP POST 요청 및 SAS 토큰과 함께). AMQP에 대 한 이러한 심층 지식이 필요 하지 않은 경우에는 .NET Framework 응용 프로그램에서 공식 Service Bus SDK를 사용할 수 있습니다.
 
 ### <a name="c35"></a>C&#35;
 
@@ -261,7 +261,7 @@ AMQP 메시지는 간단한 메시지보다 정보가 많고 속성이 많습니
 | 네임스페이스에서 권한 부여 규칙 구성 |관리 |네임스페이스 주소 |
 | **서비스 레지스트리** | | |
 | 프라이빗 정책 열거 |관리 |네임스페이스 주소 |
-| 네임스페이스에서 수신 시작 |수신 대기 |네임스페이스 주소 |
+| 네임스페이스에서 수신 시작 |수신 |네임스페이스 주소 |
 | 네임스페이스에서 수신기로 메시지 보내기 |보내기 |네임스페이스 주소 |
 | **큐** | | |
 | 큐 만들기 |관리 |네임스페이스 주소 |
@@ -270,15 +270,15 @@ AMQP 메시지는 간단한 메시지보다 정보가 많고 속성이 많습니
 | 큐 설명 가져오기 |관리 |유효한 큐 주소 |
 | 큐에서 권한 부여 규칙 구성 |관리 |유효한 큐 주소 |
 | 큐로 보내기 |보내기 |유효한 큐 주소 |
-| 큐에서 메시지 받기 |수신 대기 |유효한 큐 주소 |
-| 메시지 보기-잠금 모드에서 메시지를 받은 후에 중단 또는 완료 |수신 대기 |유효한 큐 주소 |
-| 나중에 검색에 대한 메시지 연기 |수신 대기 |유효한 큐 주소 |
-| 메시지 효력 상실 |수신 대기 |유효한 큐 주소 |
-| 메시지 큐 세션을 사용하여 연결된 상태 가져오기 |수신 대기 |유효한 큐 주소 |
-| 메시지 큐 세션을 사용하여 연결된 상태 설정 |수신 대기 |유효한 큐 주소 |
-| 나중에 배달할 메시지를 예약합니다(예: [ScheduleMessageAsync()](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_)). |수신 대기 | 유효한 큐 주소
+| 큐에서 메시지 받기 |수신 |유효한 큐 주소 |
+| 메시지 보기-잠금 모드에서 메시지를 받은 후에 중단 또는 완료 |수신 |유효한 큐 주소 |
+| 나중에 검색에 대한 메시지 연기 |수신 |유효한 큐 주소 |
+| 메시지 효력 상실 |수신 |유효한 큐 주소 |
+| 메시지 큐 세션을 사용하여 연결된 상태 가져오기 |수신 |유효한 큐 주소 |
+| 메시지 큐 세션을 사용하여 연결된 상태 설정 |수신 |유효한 큐 주소 |
+| 나중에 배달할 메시지를 예약합니다(예: [ScheduleMessageAsync()](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_)). |수신 | 유효한 큐 주소
 | **항목** | | |
-| 토픽 만들기 |관리 |네임스페이스 주소 |
+| 주제 만들기 |관리 |네임스페이스 주소 |
 | 항목 삭제 |관리 |유효한 항목 주소 |
 | 항목 열거 |관리 |/$Resources/Topics |
 | 항목 설명 가져오기 |관리 |유효한 항목 주소 |
@@ -289,11 +289,11 @@ AMQP 메시지는 간단한 메시지보다 정보가 많고 속성이 많습니
 | 구독 삭제 |관리 |../myTopic/Subscriptions/mySubscription |
 | 구독 열거 |관리 |../myTopic/Subscriptions |
 | 구독 설명 가져오기 |관리 |../myTopic/Subscriptions/mySubscription |
-| 메시지 보기-잠금 모드에서 메시지를 받은 후에 중단 또는 완료 |수신 대기 |../myTopic/Subscriptions/mySubscription |
-| 나중에 검색에 대한 메시지 연기 |수신 대기 |../myTopic/Subscriptions/mySubscription |
-| 메시지 효력 상실 |수신 대기 |../myTopic/Subscriptions/mySubscription |
-| 항목 세션을 사용하여 연결된 상태 가져오기 |수신 대기 |../myTopic/Subscriptions/mySubscription |
-| 항목 세션을 사용하여 연결된 상태 설정 |수신 대기 |../myTopic/Subscriptions/mySubscription |
+| 메시지 보기-잠금 모드에서 메시지를 받은 후에 중단 또는 완료 |수신 |../myTopic/Subscriptions/mySubscription |
+| 나중에 검색에 대한 메시지 연기 |수신 |../myTopic/Subscriptions/mySubscription |
+| 메시지 효력 상실 |수신 |../myTopic/Subscriptions/mySubscription |
+| 항목 세션을 사용하여 연결된 상태 가져오기 |수신 |../myTopic/Subscriptions/mySubscription |
+| 항목 세션을 사용하여 연결된 상태 설정 |수신 |../myTopic/Subscriptions/mySubscription |
 | **규칙** | | |
 | 규칙 만들기 |관리 |../myTopic/Subscriptions/mySubscription |
 | 규칙 삭제 |관리 |../myTopic/Subscriptions/mySubscription |

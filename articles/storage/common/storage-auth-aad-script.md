@@ -9,12 +9,12 @@ ms.date: 07/03/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 80ab896e1393d6c68b22a61d1b96acd507aa6994
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: d6a85d0f9480418bd840786e17ee258dbdb90c48
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249901"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985206"
 ---
 # <a name="run-azure-cli-or-powershell-commands-with-azure-ad-credentials-to-access-blob-or-queue-data"></a>Azure AD 자격 증명을 사용 하 여 Azure CLI 또는 PowerShell 명령을 실행 하 여 blob 또는 큐 데이터에 액세스
 
@@ -82,15 +82,17 @@ Azure CLI는 blob `--auth-mode` 및 큐 데이터 작업에 대 한 매개 변�
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Azure PowerShell를 사용 하 여 로그인 하 고 Azure AD 자격 증명을 사용 하 여 Azure Storage에 대해 후속 작업을 실행 하려면 저장소 계정을 참조 하 고 `-UseConnectedAccount` 매개 변수를 포함 하는 저장소 컨텍스트를 만듭니다.
+Azure PowerShell를 사용 하 여 로그인 하 고 Azure AD 자격 증명을 사용 하 여 Azure Storage에 대해 후속 작업을 실행 하려면 저장소 계정을 참조 하는 저장소 `-UseConnectedAccount` 컨텍스트를 만들고 매개 변수를 포함 합니다.
 
 다음 예제에서는 Azure AD 자격 증명을 사용 하 여 Azure PowerShell에서 새 저장소 계정으로 컨테이너를 만드는 방법을 보여 줍니다. 꺾쇠 괄호 안의 자리 표시자 값을 사용자 고유의 값으로 대체 해야 합니다.
 
-1. `Connect-AzAccount` 명령을 사용 하 여 azure 구독에 로그인 하 고 화면의 지시에 따라 azure AD 자격 증명을 입력 합니다. 
+1. [AzAccount](/powershell/module/az.accounts/connect-azaccount) 명령을 사용 하 여 Azure 계정에 로그인 합니다.
 
     ```powershell
     Connect-AzAccount
     ```
+
+    PowerShell을 사용 하 여 Azure에 로그인 하는 방법에 대 한 자세한 내용은 [Azure PowerShell 사용 하 여 로그인](/powershell/azure/authenticate-azureps)을 참조 하세요.
 
 1. [AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)을 호출 하 여 Azure 리소스 그룹을 만듭니다. 
 
@@ -131,4 +133,4 @@ Azure PowerShell를 사용 하 여 로그인 하 고 Azure AD 자격 증명을 �
 
 - Azure storage에 대 한 RBAC 역할에 대해 자세히 알아보려면 [rbac를 사용 하 여 저장소 데이터에 대 한 액세스 권한 관리](storage-auth-aad-rbac.md)를 참조 하세요.
 - Azure Storage에서 Azure 리소스에 관리 id를 사용 하는 방법에 대 한 자세한 내용은 [Azure 리소스에 대 한 Azure Active Directory 및 관리 id를 사용 하 여 blob 및 큐에 대 한 액세스 인증](storage-auth-aad-msi.md)
-- 저장소 애플리케이션 내에서 컨테이너와 큐에 대한 액세스 권한을 부여하는 방법을 알아보려면 [저장소 애플리케이션에서 Azure AD 사용](storage-auth-aad-app.md)을 참조하세요.
+- 스토리지 애플리케이션 내에서 컨테이너와 큐에 대한 액세스 권한을 부여하는 방법을 알아보려면 [스토리지 애플리케이션에서 Azure AD 사용](storage-auth-aad-app.md)을 참조하세요.

@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 07/12/2019
-ms.openlocfilehash: 8d4a7a1b176a0c232c4461c7a8cfc2b1e3faddd6
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.date: 08/12/2019
+ms.openlocfilehash: a01f6cbb20d084864d3a7f64aa8c90d2bc3405f2
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638385"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68977064"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 복제본 읽기
 
@@ -34,7 +34,33 @@ GTID 복제에 대 한 자세한 내용은 [Mariadb 복제 설명서](https://ma
 
 복제본 읽기 기능은 비동기 복제를 사용 합니다. 이 기능은 동기식 복제 시나리오를 위한 것이 아닙니다. 마스터와 복제본 간에는 측정 가능한 지연이 발생합니다. 복제본의 데이터는 결과적으로 마스터의 데이터와 일치하게 됩니다. 이러한 지연 시간을 수용할 수 있는 워크로드에 이 기능을 사용합니다.
 
-읽기 복제본은 재해 복구 계획을 향상 시킬 수 있습니다. 지역 재해가 발생할 때 마스터 서버를 사용할 수 없는 경우 다른 지역의 복제본으로 워크로드를 보낼 수 있습니다. 이렇게 하려면 먼저 복제 중지 함수를 사용 하 여 복제본이 쓰기를 수락 하도록 합니다. 그런 다음 연결 문자열을 업데이트하여 응용 프로그램을 리디렉션할 수 있습니다. 자세한 내용은 [복제 중지](#stop-replication) 섹션을 확인합니다.
+
+## <a name="cross-region-replication"></a>지역 간 복제
+마스터 서버에서 다른 지역에 읽기 복제본을 만들 수 있습니다. 지역 간 복제는 재해 복구 계획 또는 사용자에 게 더 가까운 데이터 가져오기 등의 시나리오에 유용할 수 있습니다.
+
+> [!IMPORTANT]
+> 지역 간 복제는 현재 공개 미리 보기로 제공 됩니다.
+
+[Azure Database for MariaDB 지역](https://azure.microsoft.com/global-infrastructure/services/?products=mariadb)에 마스터 서버를 둘 수 있습니다.  마스터 서버는 쌍을 이루는 지역 또는 유니버설 복제본 지역에 복제본이 있을 수 있습니다.
+
+### <a name="universal-replica-regions"></a>유니버설 복제본 영역
+마스터 서버가 있는 위치에 관계 없이 항상 다음 지역에서 읽기 복제본을 만들 수 있습니다. 다음은 범용 복제본 지역입니다.
+
+오스트레일리아 동부, 오스트레일리아 남동쪽, 미국 중부, 동아시아, 미국 동부, 미국 동부 2, 일본 동부, 일본 서 부, 대한민국 중부, 한국 남부, 미국 중 북부, 북부 유럽, 미국 동부, 동남 아시아, 영국 남부, 영국 서부, 유럽 서부, 미국 서 부, 미국 서 부 2.
+
+
+### <a name="paired-regions"></a>쌍을 이루는 지역
+유니버설 복제본 영역 외에도 마스터 서버의 Azure 쌍을 이루는 지역에서 읽기 복제본을 만들 수 있습니다. 지역 쌍을 모를 경우 [Azure 쌍을 이루는 지역 문서](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)에서 자세히 알아볼 수 있습니다.
+
+재해 복구 계획에 지역 간 복제본을 사용 하는 경우 다른 지역 중 하나가 아닌 쌍을 이루는 지역에 복제본을 만드는 것이 좋습니다. 쌍을 이루는 지역은 동시 업데이트를 방지 하 고 물리적 격리 및 데이터 상주의 우선 순위를 지정 합니다.  
+
+그러나 고려해 야 할 제한 사항이 있습니다. 
+
+* 사용 가능한 지역: Azure Database for MariaDB는 미국 서 부 2, 프랑스 중부, 아랍에미리트 북부 및 독일 중부에서 사용할 수 있습니다. 그러나 쌍을 이루는 지역에는 사용할 수 없습니다.
+    
+* 단방향 쌍: 일부 Azure 지역은 한 방향 으로만 쌍으로 연결 됩니다. 이러한 지역에는 인도 서 부, 브라질 남부 및 US Gov 버지니아 포함 됩니다. 
+   즉, 인도 서 부의 마스터 서버는 남부 인도에서 복제본을 만들 수 있습니다. 그러나 인도 남부의 마스터 서버는 인도 서 부에서 복제본을 만들 수 없습니다. 이는 인도 서 부의 보조 지역이 남부 인도 이지만 남부 인도의 보조 지역은 인도 서 부가 아니기 때문입니다.
+
 
 ## <a name="create-a-replica"></a>복제본 만들기
 

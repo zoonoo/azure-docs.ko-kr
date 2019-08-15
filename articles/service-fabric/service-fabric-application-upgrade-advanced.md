@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 3cdddac74552b56dfe3567adf30f1a05b6eb8e24
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a3d0d6077da4df9a7f0d1b246c9752d38488a175
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60616537"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68963831"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Service Fabric 애플리케이션 업그레이드: 고급 항목
 ## <a name="adding-or-removing-service-types-during-an-application-upgrade"></a>애플리케이션을 업그레이드하는 동안 서비스 유형 추가 또는 제거
@@ -85,6 +85,44 @@ app1/
 ```
 
 즉, 일반적인 방법으로 전체 애플리케이션 패키지를 만든 다음, 버전이 변경되지 않은 코드/config/데이터 패키지 폴더를 제거합니다.
+
+## <a name="upgrade-application-parameters-independently-of-version"></a>버전과 별개로 응용 프로그램 매개 변수 업그레이드
+
+경우에 따라 매니페스트 버전을 변경 하지 않고 Service Fabric 응용 프로그램의 매개 변수를 변경 하는 것이 좋습니다. **Get-servicefabricapplicationupgrade** Azure Service Fabric PowerShell cmdlet에 **-applicationparameter** 플래그를 사용 하 여이 작업을 편리 하 게 수행할 수 있습니다. 다음 속성을 사용 하 여 Service Fabric 응용 프로그램을 가정 합니다.
+
+```PowerShell
+PS C:\> Get-ServiceFabricApplication -ApplicationName fabric:/Application1
+
+ApplicationName        : fabric:/Application1
+ApplicationTypeName    : Application1Type
+ApplicationTypeVersion : 1.0.0
+ApplicationStatus      : Ready
+HealthState            : Ok
+ApplicationParameters  : { "ImportantParameter" = "1"; "NewParameter" = "testBefore" }
+```
+
+이제 **get-servicefabricapplicationupgrade** cmdlet을 사용 하 여 응용 프로그램을 업그레이드 합니다. 이 예는 모니터링 되는 업그레이드를 보여 주지만 모니터링 되지 않는 업그레이드도 사용할 수 있습니다. 이 cmdlet에서 허용 하는 플래그에 대 한 전체 설명을 보려면 [Azure Service Fabric PowerShell 모듈 참조](/powershell/module/servicefabric/start-servicefabricapplicationupgrade?view=azureservicefabricps#parameters) 를 참조 하세요.
+
+```PowerShell
+PS C:\> $appParams = @{ "ImportantParameter" = "2"; "NewParameter" = "testAfter"}
+
+PS C:\> Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/Application1 -ApplicationTypeVers
+ion 1.0.0 -ApplicationParameter $appParams -Monitored
+
+```
+
+업그레이드 한 후 응용 프로그램에 업데이트 된 매개 변수와 동일한 버전이 있는지 확인 합니다.
+
+```PowerShell
+PS C:\> Get-ServiceFabricApplication -ApplicationName fabric:/Application1
+
+ApplicationName        : fabric:/Application1
+ApplicationTypeName    : Application1Type
+ApplicationTypeVersion : 1.0.0
+ApplicationStatus      : Ready
+HealthState            : Ok
+ApplicationParameters  : { "ImportantParameter" = "2"; "NewParameter" = "testAfter" }
+```
 
 ## <a name="rolling-back-application-upgrades"></a>애플리케이션 업그레이드 롤백
 

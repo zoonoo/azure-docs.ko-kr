@@ -3,7 +3,7 @@ title: Azure Active Directory 보고서를 사용하여 로그인 오류 문제�
 description: Azure Portal에서 Azure Active Directory 보고서를 사용하여 로그인 오류 문제를 해결하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db68ad2a29dcaa53d219b679b9e0f24a50a6f576
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5c901395436c8ed660c50b7342a804143d57db3c
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60286577"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68988179"
 ---
 # <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>방법: Azure Active Directory 보고서를 사용하여 로그인 오류 문제 해결
 
@@ -32,22 +32,22 @@ Azure AD(Azure Active Directory)의 [ 로그인 보고서](concept-sign-ins.md)�
 
 또한 로그인 보고서는 조직의 사용자에 대한 로그인 실패 문제를 해결하는 데 도움이 될 수 있습니다. 이 가이드에서는 로그인 보고서에서 로그인 실패를 격리하고, 이를 사용하여 실패의 근본 원인을 파악하는 방법에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 다음 작업을 수행해야 합니다.
 
 * 프리미엄(P1/P2) 라이선스가 있는 Azure AD 테넌트 [Azure Active Directory Premium 시작하기](../fundamentals/active-directory-get-started-premium.md)를 참조하여 Azure Active Directory 버전을 업그레이드하세요.
-* 에 있는 사용자를 **전역 관리자**, **보안 관리자**를 **보안 읽기 권한자**, 또는 **판독기 보고** 테 넌 트에 대 한 역할입니다. 또한 모든 사용자는 고유한 로그인에 액세스할 수 있습니다. 
+* **전역 관리자**, **보안 관리자**, **보안 읽기 권한자**또는 테 넌 트에 대 한 **보고서 읽기 권한자** 역할을 하는 사용자입니다. 또한 모든 사용자는 고유한 로그인에 액세스할 수 있습니다. 
 
 ## <a name="troubleshoot-sign-in-errors-using-the-sign-ins-report"></a>로그인 보고서를 사용하여 로그인 오류 문제 해결
 
 1. [Azure Portal](https://portal.azure.com)로 이동하고 디렉터리를 선택합니다.
 2. **모니터링** 섹션에서 **Azure Active Directory**를 선택하고, **로그인**을 선택합니다. 
-3. 제공된 필터를 사용하여 사용자 이름 또는 개체 식별자, 애플리케이션 이름 또는 날짜에 따라 오류를 좁힐 수 있습니다. 또한 선택 **실패** 에서 합니다 **상태** 만 실패 한 로그인을 표시 하려면 드롭다운 목록입니다. 
+3. 제공된 필터를 사용하여 사용자 이름 또는 개체 식별자, 애플리케이션 이름 또는 날짜에 따라 오류를 좁힐 수 있습니다. 또한 **상태** 드롭다운에서 실패 를 선택 하 여 실패 한 로그인만 표시 합니다. 
 
-    ![결과 필터링](./media/howto-troubleshoot-sign-in-errors/filters.png)
+    ![필터 결과](./media/howto-troubleshoot-sign-in-errors/filters.png)
         
-4. 조사 하려는 실패 한 로그인을 식별 합니다. 선택 하 여 실패 한 로그인에 대 한 자세한 정보를 사용 하 여 추가 세부 정보 창을 엽니다. **로그인 오류 코드** 및 **실패 이유**를 적어 둡니다. 
+4. 조사 하려는 실패 한 로그인을 식별 합니다. 실패 한 로그인에 대 한 자세한 정보가 포함 된 추가 세부 정보 창을 열려면이를 선택 합니다. **로그인 오류 코드** 및 **실패 이유**를 적어 둡니다. 
 
     ![레코드 선택](./media/howto-troubleshoot-sign-in-errors/sign-in-failures.png)
         
@@ -55,7 +55,7 @@ Azure AD(Azure Active Directory)의 [ 로그인 보고서](concept-sign-ins.md)�
 
     ![문제 해결 및 지원](./media/howto-troubleshoot-sign-in-errors/troubleshooting-and-support.png)
 
-6. 실패 이유는 오류를 설명합니다. 예를 들어, 위의 시나리오에서 실패 이유가 **잘못 된 사용자 이름, 암호 또는 잘못 된 온-프레미스 사용자 이름 또는 암호**합니다. 해결 방법은 올바른 사용자 이름과 암호를 사용하여 다시 로그인하는 것입니다.
+6. 실패 이유는 오류를 설명합니다. 예를 들어 위의 시나리오에서 실패 이유는 **잘못 된 사용자 이름 또는 암호 이거나 잘못 된 온-프레미스 사용자 이름 또는 암호**입니다. 해결 방법은 올바른 사용자 이름과 암호를 사용하여 다시 로그인하는 것입니다.
 
 7. [로그인 오류 코드 참조](reference-sign-ins-error-codes.md)에서 이 예의 **50126** 오류 코드를 검색하여 수정 아이디어를 포함한 추가 정보를 얻을 수 있습니다. 
 

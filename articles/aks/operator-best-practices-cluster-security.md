@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mlearned
-ms.openlocfilehash: d4a77fc1756b0fa9decb6d3a84760beb1e700863
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 46e44804ddbabd8bf5620ad9516f1ca2d5017bfa
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67614886"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019302"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 클러스터 보안 및 업그레이드 모범 사례
 
@@ -188,7 +188,7 @@ az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
 그런 다음 [az AKS upgrade][az-aks-upgrade] 명령을 사용 하 여 AKS 클러스터를 업그레이드할 수 있습니다. 업그레이드 프로세스는 한 번에 하나의 노드를 안전하게 차단했다가 드레이닝하고, 나머지 노드에서 pod를 예약한 후 최신 OS 및 Kubernetes 버전을 실행하는 새 노드를 배포합니다.
 
 ```azurecli-interactive
-az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.11.8
+az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version KUBERNETES_VERSION
 ```
 
 AKS의 업그레이드에 대 한 자세한 내용은 [AKS에서 지원 되는 Kubernetes 버전][aks-supported-versions] 및 [AKS 클러스터 업그레이드][aks-upgrade]를 참조 하세요.

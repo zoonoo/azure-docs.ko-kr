@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: pabutler
-ms.openlocfilehash: fa0a88ce3f74c20ab36931a6a78f8265bdb9d8be
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 98d33dd1aad726d4da8499006166dfd2c043378f
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876250"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68977163"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure 파트너 고객 사용량 특성
 
@@ -99,7 +99,7 @@ Resource Manager 템플릿을 사용하는 경우 앞에서 설명한 지침에 
 > [!Note]
 > 문자열의 형식이 중요합니다. **pid-** 접두사가 포함되지 않으면 데이터를 쿼리할 수 없습니다. SDK마다 다른 방법으로 추적합니다. 이 방법을 구현하려면 기본 설정 Azure SDK에 대한 지원 및 추적 방법을 검토하세요.
 
-#### <a name="example-the-python-sdk"></a>예제: Python SDK
+#### <a name="example-the-python-sdk"></a>예: Python SDK
 
 Python의 경우 **config** 특성을 사용합니다. 이 특성은 UserAgent에만 추가할 수 있습니다. 예를 들면 다음과 같습니다.
 
@@ -123,7 +123,7 @@ Azure CLI를 사용하여 GUID를 추가하는 경우 **AZURE_HTTP_USER_AGENT** 
 ```
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
-자세한 내용은 [Go용 Azure SDK](https://docs.microsoft.com/go/azure/)를 참조 하세요.
+자세한 내용은 [Go용 Azure SDK](https://docs.microsoft.com/azure/go/)를 참조 하세요.
 
 ## <a name="use-terraform"></a>Terraform 사용
 
@@ -198,7 +198,7 @@ GUID가 템플릿이나 사용자 에이전트에 추가되고 해당 GUID가 CP
 
    ![다른 GUID를 입력하고 설명을 제공합니다.](media/marketplace-publishers-guide/guid-dev-center-example-description.png)
 
-1.           **저장**을 선택합니다.
+1. **저장**을 선택합니다.
 
    ![저장 선택](media/marketplace-publishers-guide/guid-dev-center-save.png)
 

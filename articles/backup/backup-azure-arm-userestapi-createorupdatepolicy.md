@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: dacurwin
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-ms.openlocfilehash: d81d8aa299333890de61cf0c8ee75be76ca31bf2
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 8b812ea053cb8e9da7cd3ef021ab6b74196d36ca
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688735"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954959"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>REST API를 사용하여 Azure Recovery Services 백업 정책 만들기
 
@@ -36,7 +36,7 @@ Azure Recovery Services 자격 증명 모음에 대한 백업 정책을 만드�
 - "매일", "매주", "매월", "매년" 단위로 백업 지점에 대한 보존을 정의할 수 있습니다.
 - "매주"는 그 주의 특정 날짜의 백업을 참조하고, "매월"은 그 달의 특정 날짜의 백업을 의미하며, "매년"은 그 해의 특정 날짜의 백업을 참조합니다.
 - "매월", "매년" 백업 지점의 보존은 "LongTermRetention"이라고 합니다.
-- 자격 증명 모음을 만들면 "DefaultPolicy"라는 Azure VM 백업 정책이 만들어지고 Azure VM 백업에도 사용할 수 있습니다.
+- 자격 증명 모음을 만들면 "DefaultPolicy" 라는 Azure VM 백업에 대 한 정책도 만들어지고 Azure Vm을 백업 하는 데 사용할 수 있습니다.
 
 Azure Backup 정책을 만들거나 업데이트하려면 다음 *PUT* 작업을 사용합니다.
 
@@ -50,7 +50,7 @@ URI에서 `{policyName}` 및 `{vaultName}`을 제공합니다. 요청 본문에 
 
 예를 들어 Azure VM 백업의 백업을 만들려면 요청 본문의 구성 요소는 다음과 같습니다.
 
-|이름  |필수  |형식  |Description  |
+|이름  |필수  |형식  |설명  |
 |---------|---------|---------|---------|
 |속성     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | ProtectionPolicyResource 속성        |
 |tags     |         | Object        |  리소스 태그       |
@@ -158,7 +158,7 @@ URI에서 `{policyName}` 및 `{vaultName}`을 제공합니다. 요청 본문에 
 
 두 응답을 반환합니다. 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 200(정상)
 
-|이름  |형식  |Description  |
+|이름  |형식  |설명  |
 |---------|---------|---------|
 |200 정상     |    [보호 PolicyResource](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#protectionpolicyresource)     |  확인       |
 |202 수락됨     |         |     동의함    |

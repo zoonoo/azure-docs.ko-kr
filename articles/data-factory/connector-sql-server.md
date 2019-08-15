@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 5dcbb2c25511277eaf46d6c9f4afc007a180f8a6
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
-ms.translationtype: HT
+ms.openlocfilehash: f5ddd9928194c477d8f8b6f4c9569a8fe58f39d3
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827864"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967373"
 ---
 # <a name="copy-data-to-and-from-sql-server-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 SQL Server 간에 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Azure Data Factory의 버전을 선택 합니다."]
@@ -42,9 +42,9 @@ SQL Server 데이터베이스에서 지원 되는 모든 싱크 데이터 저장
 >[!NOTE]
 >지금은이 커넥터에서 SQL Server [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) 지원 되지 않습니다. 이 문제를 해결 하려면 [일반 odbc 커넥터](connector-odbc.md) 와 SQL Server ODBC 드라이버를 사용할 수 있습니다. ODBC 드라이버 다운로드 및 연결 문자열 구성에서 [이 지침](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=sql-server-2017) 을 따르세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-공개적으로 액세스할 수 없는 SQL Server 데이터베이스의 데이터 복사를 사용 하려면 자체 호스팅 통합 런타임을 설정 해야 합니다. 자세한 내용은 [자체 호스팅 통합 런타임](create-self-hosted-integration-runtime.md)을 참조하세요. Integration runtime은 기본 제공 SQL Server 데이터베이스 드라이버를 제공 합니다. 또는에서 SQL Server 데이터베이스로 데이터를 복사할 때 수동으로 드라이버를 설치할 필요가 없습니다.
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## <a name="get-started"></a>시작
 
@@ -62,7 +62,7 @@ SQL Server 연결 된 서비스에 대해 지원 되는 속성은 다음과 같�
 | connectionString |SQL 인증 또는 Windows 인증을 사용 하 여 SQL Server 데이터베이스에 연결 하는 데 필요한 **connectionString** 정보를 지정 합니다. 다음 샘플을 참조하세요.<br/>이 필드를 **SecureString** 으로 표시 하 여 Azure Data Factory에 안전 하 게 저장 합니다. Azure Key Vault에 암호를 입력할 수도 있습니다. SQL 인증 인 경우 연결 문자열에서 `password` 구성을 끌어옵니다. 자세한 내용은 표 다음에 나오는 JSON 예를 참조 하 고 [Azure Key Vault에 자격 증명을 저장](store-credentials-in-key-vault.md)합니다. |예 |
 | userName |Windows 인증을 사용 하는 경우 사용자 이름을 지정 합니다. **domainname\\username**을 예로 들 수 있습니다. |아니요 |
 | password |사용자 이름에 대해 지정한 사용자 계정의 암호를 지정 합니다. 이 필드를 **SecureString** 으로 표시 하 여 Azure Data Factory에 안전 하 게 저장 합니다. 또는 [Azure Key Vault에 저장 된 암호를 참조할](store-credentials-in-key-vault.md)수 있습니다. |아니요 |
-| connectVia | 이 [Integration Runtime](concepts-integration-runtime.md)은 데이터 저장소에 연결하는 데 사용됩니다. 데이터 저장소에 공개적으로 액세스할 수 있는 경우 자체 호스팅 통합 런타임 또는 Azure integration runtime을 사용할 수 있습니다. 지정 하지 않으면 기본 Azure 통합 런타임이 사용 됩니다. |아니요 |
+| connectVia | 이 [Integration Runtime](concepts-integration-runtime.md)은 데이터 저장소에 연결하는 데 사용됩니다. [전제 조건](#prerequisites) 섹션에서 자세히 알아보세요. 지정 하지 않으면 기본 Azure 통합 런타임이 사용 됩니다. |아니요 |
 
 >[!TIP]
 >오류 코드 "usererrorfailedtoconnecttosqlserver"와 함께 오류가 발생 하 고 "데이터베이스에 대 한 세션 한도는 XXX 이며이에 도달 했습니다." 라는 메시지가 표시 되 `Pooling=false` 면 연결 문자열에를 추가 하 고 다시 시도 합니다.

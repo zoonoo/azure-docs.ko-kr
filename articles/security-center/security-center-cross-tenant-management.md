@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/04/2019
+ms.date: 08/11/2019
 ms.author: v-mohabe
-ms.openlocfilehash: b8d27178a75cb39c7d7769f2db6a193292a3f9f1
-ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
+ms.openlocfilehash: d6b5b528c3021bfb62bc30ad5910524db36e7e95
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68782517"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950542"
 ---
 # <a name="cross-tenant-management-in-security-center"></a>Security Center의 교차 테 넌 트 관리
 
@@ -28,8 +28,6 @@ ms.locfileid: "68782517"
 - 서비스 공급자는 해당 테 넌 트 내에서 여러 고객에 대 한 리소스의 보안 상태를 관리할 수 있습니다.
 
 - 여러 테 넌 트가 있는 조직의 보안 팀은 단일 위치에서 보안 상태를 보고 관리할 수 있습니다.
-
-  ![교차 테 넌 트 관리](./media/security-center-cross-tenant-management/cross-tenant-security-center.png)
 
 ## <a name="set-up-cross-tenant-management"></a>교차 테 넌 트 관리 설정
 
@@ -48,22 +46,13 @@ ms.locfileid: "68782517"
 
 뷰와 작업은 기본적으로 동일 합니다. 다음은 몇 가지 예입니다.
 
-- **보안 정책 관리**: 한 보기에서 [정책을](tutorial-security-policy.md)사용 하 여 많은 리소스의 보안 상태를 관리 하 고, 보안 권장 사항을 사용 하 여 작업을 수행 하 고, 보안 관련 데이터를 수집 및 관리 합니다. 예를 들어 다음 이미지에는 네 개의 다른 테 넌 트 디렉터리 (Doug, Microsoft, SSO, Wilde Company)와 각 테 넌 트에 구독이 있습니다. 다른 테 넌 트에서 선택한 구독이이 정책 관리 목록에 나열 됩니다.
-
-     ![정책의 교차 테 넌 트 관리](./media/security-center-cross-tenant-management/cross-tenant-policy.png)
-
-- **보안 점수 및 규정 준수 상태 개선**: 테 넌 트 간 표시 유형을 사용 하면 다음 이미지에 표시 된 것 처럼 각 테 넌 트의 전반적인 보안 상태를 확인 하 고 각 테 넌 트의 [보안 점수](security-center-secure-score.md) 와 [규정 준수](security-center-compliance-dashboard.md) 상태를 가장 잘 개선할 수 있습니다.
-
-     ![보안 점수](./media/security-center-cross-tenant-management/cross-tenant-secure-score.png)
-
-- **권장 사항**수정: 한 번에 다양 한 테 넌 트의 많은 리소스에 대 한 [권장 사항을](security-center-recommendations.md) 모니터링 하 고 재구성 합니다 (아래 이미지 참조). 그런 다음 모든 테 넌 트에 가장 높은 위험을 제시 하는 취약성을 즉시 다룰 수 있습니다.
-
-  ![권장 구성의 교차 테 넌 트 관리](./media/security-center-cross-tenant-management/cross-tenant-recommendation.png)
-
+- **보안 정책 관리**: 한 보기에서 [정책을](tutorial-security-policy.md)사용 하 여 많은 리소스의 보안 상태를 관리 하 고, 보안 권장 사항을 사용 하 여 작업을 수행 하 고, 보안 관련 데이터를 수집 및 관리 합니다.
+- **보안 점수 및 규정 준수 상태 개선**: 테 넌 트 간 표시 유형을 통해 모든 테 넌 트의 전반적인 보안 상태와 각 테 넌 트의 [보안 점수](security-center-secure-score.md) 및 [규정 준수](security-center-compliance-dashboard.md) 상태를 가장 잘 개선 하는 방법을 볼 수 있습니다.
+- **권장 사항**수정: 한 번에 다양 한 테 넌 트의 많은 리소스에 대 한 [권장 사항을](security-center-recommendations.md) 모니터링 하 고 재구성 합니다. 그런 다음 모든 테 넌 트에 가장 높은 위험을 제시 하는 취약성을 즉시 다룰 수 있습니다.
 - **경고 관리**: 다른 테 넌 트 전체에서 [경고](security-center-alerts-overview.md) 를 검색 합니다. 조치 가능한 [수정 단계](security-center-managing-and-responding-alerts.md)를 준수 하지 않는 리소스에 대 한 조치를 취합니다.
 
 - **고급 클라우드 방어 기능 및 기타 기능 관리**: [JIT (just-in-time) VM 액세스](security-center-just-in-time.md), [적응 네트워크 강화](security-center-adaptive-network-hardening.md), [적응 응용 프로그램 제어](security-center-adaptive-application.md)등의 다양 한 위협 검색 및 보호 서비스를 관리 합니다.
-
+ 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Security Center에서 교차 테 넌 트 관리를 작동 하는 방법을 설명 합니다. 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 

@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 07/15/2019
+ms.date: 07/18/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 2d0697567bfd2fcf95a1fe6ebf246646af5650c3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0f1c66126a1aa9a6ebf6f78ac6fb1ba37ba41829
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564883"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985420"
 ---
 # <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>Azure 리소스에 대 한 Azure Active Directory 및 관리 id를 사용 하 여 blob 및 큐에 대 한 액세스 권한 부여
 
@@ -50,17 +50,7 @@ RBAC 역할을 할당 하는 방법에 대 한 자세한 내용은 다음 문서
 
 이 코드 예제에서는 Azure AD에서 OAuth 2.0 토큰을 가져온 후이를 사용 하 여 블록 blob 만들기 요청에 권한을 부여 하는 방법을 보여 줍니다. 이 예제가 작동 하려면 먼저 앞의 섹션에 설명 된 단계를 따르세요.
 
-.NET 용 [Microsoft Azure 앱 인증](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) 클라이언트 라이브러리 (미리 보기)는 코드에서 토큰을 획득 하 고 갱신 하는 프로세스를 간소화 합니다. 앱 인증 클라이언트 라이브러리는 인증을 자동으로 관리 합니다. 라이브러리는 개발자의 자격 증명을 사용 하 여 로컬 개발 중에 인증 합니다. 로컬 개발 동안 개발자 자격 증명을 사용하는 것이 Azure AD 자격 증명을 만들거나 개발자 간에 자격 증명을 공유할 필요가 없으므로 더 안전합니다. 솔루션을 나중에 Azure에 배포 하는 경우 라이브러리에서 자동으로 응용 프로그램 자격 증명을 사용 하도록 전환 합니다.
-
-### <a name="install-packages"></a>패키지 설치
-
-Azure Storage 응용 프로그램에서 앱 인증 라이브러리를 사용 하려면 [Nuget](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication)에서 최신 미리 보기 패키지를 설치 하 고 최신 버전 [Azure Storage의 .net 용 공용 클라이언트 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/) 및 [Azure Blob 저장소 클라이언트 라이브러리를 설치 합니다. .NET의 경우](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/). 다음 **using** 문을 코드에 추가 합니다.
-
-```csharp
-using Microsoft.Azure.Services.AppAuthentication;
-using Microsoft.Azure.Storage.Auth;
-using Microsoft.Azure.Storage.Blob;
-```
+[!INCLUDE [storage-app-auth-lib-include](../../../includes/storage-app-auth-lib-include.md)]
 
 ### <a name="add-the-callback-method"></a>콜백 메서드 추가
 
@@ -142,5 +132,5 @@ do
 ## <a name="next-steps"></a>다음 단계
 
 - Azure storage에 대 한 RBAC 역할에 대해 자세히 알아보려면 [rbac를 사용 하 여 저장소 데이터에 대 한 액세스 권한 관리](storage-auth-aad-rbac.md)를 참조 하세요.
-- 저장소 애플리케이션 내에서 컨테이너와 큐에 대한 액세스 권한을 부여하는 방법을 알아보려면 [저장소 애플리케이션에서 Azure AD 사용](storage-auth-aad-app.md)을 참조하세요.
+- 스토리지 애플리케이션 내에서 컨테이너와 큐에 대한 액세스 권한을 부여하는 방법을 알아보려면 [스토리지 애플리케이션에서 Azure AD 사용](storage-auth-aad-app.md)을 참조하세요.
 - Azure AD 자격 증명을 사용 하 여 Azure CLI 및 PowerShell 명령을 실행 하는 방법을 알아보려면 [AZURE ad 자격 증명을 사용 하 여 Azure CLI 또는 powershell 명령을 실행 하 여 blob 또는 큐 데이터에 액세스](storage-auth-aad-script.md)를 참조 하세요.

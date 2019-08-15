@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2019
 ms.author: jmprieur
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c407ca9f7d28f1a74f0037931d83dd64fe7fc801
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: a85cafce13cffcebbcce3ebf022941ce899fa72b
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335551"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68852762"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>빠른 시작: Windows 데스크톱 앱에서 토큰 가져오기 및 Microsoft Graph API 호출
 
@@ -136,7 +136,7 @@ MSAL에는 토큰 가져오기에 사용되는 두 가지 메서드인 `AcquireT
 
 상황에 따라 사용자가 팝업 창을 통해 Microsoft ID 플랫폼 엔드포인트와 상호 작용하여 자격 증명의 유효성을 검사하거나 동의를 제공해야 합니다. 일부 사례:
 
-- 처음으로 사용자가 응용 프로그램에 로그인한 경우
+- 처음으로 사용자가 애플리케이션에 로그인한 경우
 - 암호가 만료되어 사용자가 자격 증명을 다시 입력해야 할 경우
 - 애플리케이션이 사용자 동의가 필요한 리소스에 액세스를 요청하고 있는 경우
 - 2단계 인증이 필요한 경우

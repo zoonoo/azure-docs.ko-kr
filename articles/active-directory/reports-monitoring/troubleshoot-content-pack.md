@@ -3,7 +3,7 @@ title: Azure Active Directory 활동 로그 콘텐츠 팩 오류 문제 해결 |
 description: Azure Active Directory 활동 콘텐츠 팩의 오류 메시지 목록 및 수정 단계를 제공합니다.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: ffce7eb1-99da-4ea7-9c4d-2322b755c8ce
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 06/07/2019
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ee49ae56122fe596a4490914677d91d2f0348f6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 54a0a5b5306414eb50a1928ec8a1854f56055681
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66807533"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68987891"
 ---
 # <a name="troubleshooting-azure-active-directory-activity-logs-content-pack-errors"></a>Azure Active Directory 활동 로그 콘텐츠 팩 오류 문제 해결 
 
@@ -39,7 +39,7 @@ Azure Active Directory(Azure AD)용 Power BI 콘텐츠 팩으로 작업할 때 �
 
 이 문서에서는 가능한 원인 및 이러한 오류를 해결하는 방법에 대한 정보를 제공합니다.
  
-## <a name="refresh-failed"></a>새로 고침 실패 
+## <a name="refresh-failed"></a>새로 고치지 못했습니다. 
  
 **이 오류가 표시되는 방법**: Power BI 또는 새로 고침 기록 실패 상태로 인해 이메일을 받습니다. 
 
@@ -47,7 +47,7 @@ Azure Active Directory(Azure AD)용 Power BI 콘텐츠 팩으로 작업할 때 �
 | 원인 | 해결 방법 |
 | ---   | ---        |
 | 콘텐츠 팩에 연결되는 사용자의 자격 증명이 다시 설정되었지만 콘텐츠 팩의 연결 설정에서 업데이트되지 않은 경우 새로 고침 실패 오류가 발생할 수 있습니다. | Power BI에서 Azure AD 활동 로그 대시보드(**Azure Active Directory 활동 로그**)에 해당하는 데이터 세트를 찾아서 새로 고침 예약을 선택하고 Azure AD 자격 증명을 입력합니다. |
-| 새로 고침을 큰 데이터 집합으로 인해 실패할 수 있습니다. | 현재 Power BI를 사용 하 여 Azure AD 콘텐츠 팩은 Power BI 서비스에서 시간 제한 관련 일부 제한으로 인해 작은 데이터 집합만 (보다 작거나 500,00 행)를 지원할 수 있습니다. 제한 오류가 발생할 경우, 새로 고침 제한 시간 문제로 인해 실패 하는 경우이 될 큰 데이터 집합을 인출 하려고 합니다. 쿼리 기간을 줄이고 다시 시도 하십시오.|
+| 데이터 집합이 크기 때문에 새로 고침이 실패할 수 있습니다. | 현재 Power BI 포함 된 Azure AD 콘텐츠 팩은 Power BI 서비스의 제한 시간에 대 한 몇 가지 제한 사항으로 인해 작은 데이터 집합 (500, 00 행 미만)만 지원할 수 있습니다. 제한 오류가 발생 하거나 제한 시간 문제로 인해 새로 고침이 실패 하는 경우에는 많은 데이터 집합을 인출 하려고 했기 때문일 수 있습니다. 쿼리의 기간을 줄인 후 다시 시도 하십시오.|
  
  
 ## <a name="failed-to-update-data-source-credentials"></a>데이터 원본 자격 증명을 업데이트하지 못했습니다. 
@@ -71,6 +71,6 @@ Azure Active Directory(Azure AD)용 Power BI 콘텐츠 팩으로 작업할 때 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure AD 보고서에 대 한 Power BI 콘텐츠 팩을 설치](quickstart-install-power-bi-content-pack.md)합니다.
+* [AZURE AD 보고서용 Power BI 콘텐츠 팩을 설치](quickstart-install-power-bi-content-pack.md)합니다.
 * [Azure AD 보고서용 Power BI 콘텐츠 팩을 사용하여 데이터 시각화](howto-power-bi-content-pack.md)
 * [Azure Active Directory를 지원하는 방법](../fundamentals/active-directory-troubleshooting-support-howto.md)

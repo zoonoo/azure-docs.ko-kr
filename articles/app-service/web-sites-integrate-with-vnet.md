@@ -15,10 +15,10 @@ ms.date: 07/25/2019
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 8321a9dd779406b2d1de44bd4c9313e4d855548d
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "68740906"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Azure Virtual Network에 앱 통합
@@ -38,7 +38,7 @@ VNet 통합 기능에는 두 가지 형태가 있습니다.
 
 앱은 한 번에 한 가지 형식의 VNet 통합 기능만 사용할 수 있습니다. 그런 다음 사용 해야 하는 기능에 대 한 질문입니다. 여러 항목에 대해 사용할 수 있습니다. 분명히 차이점는 다음과 같습니다.
 
-| 문제점  | 솔루션 | 
+| 문제점  | 해결 방법 | 
 |----------|----------|
 | 동일한 지역에서 RFC 1918 주소 (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16)에 도달 하려고 합니다. | 지역 VNet 통합 |
 | 클래식 VNet 또는 다른 지역의 VNet에서 리소스에 도달 하려고 합니다. | 게이트웨이 필요 VNet 통합 |
