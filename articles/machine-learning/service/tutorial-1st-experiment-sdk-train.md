@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 07/20/2019
-ms.openlocfilehash: 66a0c625d300a74787e3640992675d5a3f31610c
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: a3db70925d59f9d0e2793b04824b2e8606719dd4
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828577"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934227"
 ---
 # <a name="tutorial-train-your-first-model"></a>자습서: 첫 번째 모델 학습
 
@@ -23,6 +23,7 @@ ms.locfileid: "68828577"
 
 이 자습서에서는 다음 작업에 대해 알아봅니다.
 
+> [!div class="checklist"]
 > * 작업 영역 연결 및 실험 만들기
 > * 데이터 로드 및 scikit-learn 모델 학습
 > * 포털에서 학습 결과 보기

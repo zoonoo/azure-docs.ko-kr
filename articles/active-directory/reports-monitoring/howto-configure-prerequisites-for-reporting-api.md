@@ -3,7 +3,7 @@ title: Azure Active Directory reporting API에 액세스하기 위한 필수 구
 description: Azure AD Reporting API에 액세스하기 위한 필수 구성 요소에 대해 알아보기
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: ada19f69-665c-452a-8452-701029bf4252
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ab30dfeccc4ae1c7b09a8f48846ffb9e71cfc23
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f925a86504d68fd08b83c63e4da8b37b4aa25f85
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60439089"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989912"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Azure Active Directory reporting API에 액세스하기 위한 필수 구성 요소
 
@@ -41,7 +41,7 @@ reporting API에 액세스하도록 준비하려면 다음을 수행해야 합�
 
 API를 통해 보고 데이터에 액세스하려면 다음 역할 중 하나를 할당받아야 합니다.
 
-- 보안 판독기
+- 보안 읽기 권한자
 
 - 보안 관리자
 
@@ -91,7 +91,7 @@ Azure AD 보고 API에 액세스하도록 디렉터리를 구성하려면 Azure 
 
 | API | 사용 권한 |
 | --- | --- |
-| Windows Azure Active Directory | 디렉터리 데이터 읽기 |
+| Microsoft Azure Active Directory | 디렉터리 데이터 읽기 |
 | Microsoft Graph | 모든 감사 로그 데이터 읽기 |
 
 
@@ -211,7 +211,7 @@ Reporting API에 대한 호출을 구성하는 경우 이 값이 필요합니다
 
     b. **만료**로 **In 2 years**(2년)를 선택합니다.
 
-    c. **저장**을 클릭합니다.
+    c. **Save**을 클릭합니다.
 
     d. 키 값을 복사합니다.
 

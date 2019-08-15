@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 189e4f280e8aba28c4d1af449aa8a3428e303911
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 4aa8f9a7c6807a2f9505559ea13fb0b4f410346d
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68298413"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68987163"
 ---
 # <a name="troubleshooting-devices-using-the-dsregcmd-command"></a>Dsregcmd.exe 명령을 사용 하 여 장치 문제 해결
 
@@ -28,8 +28,8 @@ Dsregcmd.exe/status 유틸리티는 도메인 사용자 계정으로 실행 해�
 
 | AzureAdJoined | EnterpriseJoined 됨 | DomainJoined | 디바이스 상태 |
 | ---   | ---   | ---   | ---   |
-| 예 | 아니요 | 아니요 | Azure AD 조인 됨 |
-| 아니요 | 아니요 | 예 | 도메인 가입 |
+| 예 | 아니요 | 아니요 | Azure AD 연결됨 |
+| 아니요 | 아니요 | 예 | 도메인 조인 |
 | 예 | 아니요 | 예 | 하이브리드 AD 조인 됨 |
 | 아니요 | 예 | 예 | 온-프레미스 DRS 조인 됨 |
 
@@ -295,6 +295,9 @@ Dsregcmd.exe/status 유틸리티는 도메인 사용자 계정으로 실행 해�
 ## <a name="ngc-prerequisite-check"></a>NGC 필수 구성 요소 확인
 
 이 섹션에서는 NGC 키의 프로 비전에 대 한 필수 검사를 수행 합니다. 
+
+> [!NOTE]
+> 사용자가 이미 NGC 자격 증명을 구성 했으면 dsregcmd.exe/status에서 NGC 필수 구성 요소 확인 세부 정보를 볼 수 없습니다.
 
 ### <a name="sample-ngc-prerequisite-check-output"></a>샘플 NGC 필수 구성 요소 검사 출력
 

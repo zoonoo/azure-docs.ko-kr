@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 08/02/2019
-ms.openlocfilehash: a5db2c1c40c9c6f5c05205b9b2c652d2e23cf229
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 2f6d45613120d02dd96a9fe0a14ce388d20cf0c6
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848253"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990579"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>Azure Portal에서 자동화 된 machine learning 실험 만들기, 탐색 및 배포 (미리 보기)
 
@@ -50,7 +50,7 @@ ms.locfileid: "68848253"
 
 1. **새 계산 만들기** 를 선택 하 여이 실험의 계산 컨텍스트를 구성 합니다.
 
-    필드|설명
+    필드|Description
     ---|---
     컴퓨팅 이름| 계산 컨텍스트를 식별 하는 고유한 이름을 입력 합니다.
     가상 머신 크기| 계산에 대 한 가상 머신 크기를 선택 합니다.
@@ -66,6 +66,10 @@ ms.locfileid: "68848253"
 1. 저장소 컨테이너를 선택 합니다.
 
 1. 저장소 컨테이너에서 데이터 파일을 선택 하거나 로컬 컴퓨터의 파일을 컨테이너에 업로드 합니다. 공개 미리 보기는 로컬 파일 업로드 및 Azure Blob Storage 계정만 지원 합니다.
+    >[!Important]
+    > 데이터 학습을 위한 요구 사항:
+    >* 데이터는 테이블 형식 이어야 합니다.
+    >* 예측 하려는 값 (대상 열)이 데이터에 있어야 합니다.
 
     [![데이터 파일 선택](media/tutorial-1st-experiment-automated-ml/select-data-file.png)](media/tutorial-1st-experiment-automated-ml/select-data-file-expanded.png#lightbox)
 
@@ -107,7 +111,7 @@ ms.locfileid: "68848253"
 >[!NOTE]
 > 관련이 없는 형식의 기능에 대해 빈 항목이 표시 됩니다.
 
-통계|Description
+통계|설명
 ------|------
 기능| 요약 되는 열의 이름입니다.
 프로필| 유추 된 형식을 기반으로 하는 인라인 시각화입니다. 예를 들어 문자열, 부울 및 날짜에는 값이 포함 되 고, decimals (숫자)에는 근사 히스토그램이 있습니다. 이를 통해 데이터 배포를 빠르게 파악할 수 있습니다.
@@ -130,7 +134,7 @@ Variance| 이 열의 데이터에 대 한 분포의 평균 값을 측정 한 값
 
 실험을 구성할 때 고급 설정을 `Preprocess`사용 하도록 설정할 수 있습니다. 이렇게 하면 다음 데이터 전처리 및 기능화 단계가 자동으로 수행 됩니다.
 
-|전처리&nbsp;단계| Description |
+|전처리&nbsp;단계| 설명 |
 | ------------- | ------------- |
 |높은 카디널리티 또는 분산 없는 기능 삭제|모든 값이 누락 된 기능을 포함 하 여 학습 및 유효성 검사 집합에서이를 삭제 하거나, 모든 행에서 동일한 값을 사용 하거나, 해시, Id 또는 Guid와 같은 매우 높은 카디널리티를 사용 합니다.|
 |누락 값 입력|숫자 기능의 경우 열에 있는 값의 평균을 돌립니다 합니다.<br/><br/>범주 기능의 경우 가장 자주 사용 되는 값을 돌립니다 합니다.|

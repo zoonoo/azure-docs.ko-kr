@@ -1,5 +1,5 @@
 ---
-title: 완료 가격 예측
+title: '시각적 인터페이스 예제 #1: 가격을 예측 하는 회귀'
 titleSuffix: Azure Machine Learning service
 description: 한 줄의 코드를 작성 하지 않고도 자동차의 가격을 예측 하는 기계 학습 모델을 빌드하는 방법을 알아봅니다.
 services: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: 95373bdd58332f49307004067cdd04b9c313b935
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 0c86955e0b10111bf9b6db0d884b73867a4467c5
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845959"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990417"
 ---
 # <a name="sample-1---regression-predict-price"></a>샘플 1-회귀: 가격 예측
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Storage에 대 한 연결 문자열 구성
-description: Azure Storage 계정에 대한연결 문자열을 구성합니다. 연결 문자열을 공유 키 인증을 사용 하 여 런타임 시 응용 프로그램에서 저장소 계정에 대 한 액세스 권한을 부여 하는 데 필요한 정보를 포함 합니다.
+description: Azure Storage 계정에 대한연결 문자열을 구성합니다. 연결 문자열에는 공유 키 인증을 사용 하 여 런타임에 응용 프로그램에서 저장소 계정에 대 한 액세스 권한을 부여 하는 데 필요한 정보가 포함 되어 있습니다.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,19 +9,19 @@ ms.date: 06/20/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 7c83b382f8aca3d8fda1c0de4785c51f3f3b1fc5
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 0f73871d8248b2f52bab5934eef03d883c72ed79
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67302513"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985394"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Azure Storage 연결 문자열 구성
 
-연결 문자열에는 데이터 공유 키 인증을 사용 하 여 런타임에 Azure Storage 계정에 액세스 하려면 응용 프로그램에 필요한 인증 정보를 포함 합니다. 다음과 같은 작업을 수행하도록 연결 문자열을 구성할 수 있습니다.
+연결 문자열에는 응용 프로그램이 공유 키 인증을 사용 하 여 런타임에 Azure Storage 계정의 데이터에 액세스 하는 데 필요한 인증 정보가 포함 됩니다. 다음과 같은 작업을 수행하도록 연결 문자열을 구성할 수 있습니다.
 
-* Azure 저장소 에뮬레이터에 연결합니다.
-* Azure의 저장소 계정에 액세스
+* Azure Storage 에뮬레이터에 연결합니다.
+* Azure의 스토리지 계정에 액세스
 * SAS(공유 액세스 서명)를 통해 Azure의 지정된 리소스에 액세스
 
 [!INCLUDE [storage-recommend-azure-ad-include](../../../includes/storage-recommend-azure-ad-include.md)]
@@ -32,7 +32,7 @@ ms.locfileid: "67302513"
 
 [!INCLUDE [storage-view-keys-include](../../../includes/storage-view-keys-include.md)]
 
-## <a name="store-a-connection-string"></a>저장소 연결 문자열
+## <a name="store-a-connection-string"></a>연결 문자열 저장
 
 Azure Storage에 대해 만들어진 요청 권한을 부여하려면 런타임에 애플리케이션이 연결 문자열에 액세스해야 합니다. 연결 문자열을 저장하기 위한 여러 가지 옵션이 있습니다.
 
@@ -52,7 +52,7 @@ Azure Storage에 대해 만들어진 요청 권한을 부여하려면 런타임�
 
 ## <a name="configure-a-connection-string-for-an-azure-storage-account"></a>Azure storage 계정에 대 한 연결 문자열 구성
 
-Azure Storage 계정에 연결 문자열을 만들려면 다음 형식을 사용 합니다. HTTPS(권장) 또는 HTTP를 통해 저장소 계정에 연결할지 여부를 나타내며, `myAccountName`을 저장소 계정의 이름으로 바꾸고, `myAccountKey`를 계정 액세스 키로 바꿉니다.
+Azure Storage 계정에 연결 문자열을 만들려면 다음 형식을 사용 합니다. HTTPS(권장) 또는 HTTP를 통해 스토리지 계정에 연결할지 여부를 나타내며, `myAccountName`을 스토리지 계정의 이름으로 바꾸고, `myAccountKey`를 계정 액세스 키로 바꿉니다.
 
 `DefaultEndpointsProtocol=[http|https];AccountName=myAccountName;AccountKey=myAccountKey`
 
@@ -63,14 +63,14 @@ Azure Storage 계정에 연결 문자열을 만들려면 다음 형식을 사용
 Azure Storage는 연결 문자열에서 HTTP 및 HTTPS를 모두 지원하지만 *HTTPS를 사용하는 것이 좋습니다.*
 
 > [!TIP]
-> 저장소 계정의 연결 문자열은 [Azure Portal](https://portal.azure.com)에서 찾을 수 있습니다. 저장소 계정의 메뉴 블레이드에서 **설정** > **액세스 키**로 이동하여 주 및 보조 액세스 키에 대한 연결 문자열을 모두 확인합니다.
+> 스토리지 계정의 연결 문자열은 [Azure Portal](https://portal.azure.com)에서 찾을 수 있습니다. 스토리지 계정의 메뉴 블레이드에서 **설정** > **액세스 키**로 이동하여 주 및 보조 액세스 키에 대한 연결 문자열을 모두 확인합니다.
 >
 
 ## <a name="create-a-connection-string-using-a-shared-access-signature"></a>공유 액세스 서명을 사용하여 연결 문자열 만들기
 
 [!INCLUDE [storage-use-sas-in-connection-string-include](../../../includes/storage-use-sas-in-connection-string-include.md)]
 
-## <a name="create-a-connection-string-for-an-explicit-storage-endpoint"></a>명시적 저장소 엔드포인트에 대한 연결 문자열 만들기
+## <a name="create-a-connection-string-for-an-explicit-storage-endpoint"></a>명시적 스토리지 엔드포인트에 대한 연결 문자열 만들기
 
 기본 엔드포인트를 사용하는 대신 연결 문자열에서 명시적 서비스 엔드포인트를 지정할 수 있습니다. 명시적 Blob 엔드포인트를 지정하는 연결 문자열을 만들려면 다음 형식으로 프로토콜 사양(HTTPS(권장) 또는 HTTP)을 포함하는 전체 서비스 엔드포인트를 각 서비스에 대해 지정합니다.
 
@@ -109,9 +109,9 @@ AccountName=storagesample;
 AccountKey=<account-key>
 ```
 
-연결 문자열에 있는 엔드포인트 값은 저장소 서비스의 요청 URI를 생성하는 데 사용되며 코드로 반환되는 URI의 형식을 지정합니다.
+연결 문자열에 있는 엔드포인트 값은 스토리지 서비스의 요청 URI를 생성하는 데 사용되며 코드로 반환되는 URI의 형식을 지정합니다.
 
-저장소 엔드포인트를 사용자 지정 도메인에 매핑하고 연결 문자열에서 엔드포인트를 생략하면 해당 연결 문자열을 사용할 수 없어서 코드로부터 해당 서비스의 데이터에 액세스할 수 없습니다.
+스토리지 엔드포인트를 사용자 지정 도메인에 매핑하고 연결 문자열에서 엔드포인트를 생략하면 해당 연결 문자열을 사용할 수 없어서 코드로부터 해당 서비스의 데이터에 액세스할 수 없습니다.
 
 > [!IMPORTANT]
 > 연결 문자열의 서비스 엔드포인트 값은 `https://`(권장) 또는 `http://`를 포함하는 올바른 형식의 URI여야 합니다. Azure Storage는 사용자 지정 도메인에 대해 HTTPS를 아직 지원하지 않으므로 사용자 지정 도메인을 가리키는 엔드포인트 URI에 대해 `http://`를 *지정해야* 합니다.
@@ -119,7 +119,7 @@ AccountKey=<account-key>
 
 ### <a name="create-a-connection-string-with-an-endpoint-suffix"></a>엔드포인트 접미사를 사용하여 연결 문자열 만들기
 
-Azure Government 또는 Azure 중국 21Vianet 같은 지역 또는 다른 끝점 접미사를 사용 하 여 인스턴스 저장소 서비스에 대 한 연결 문자열을 만들려면 다음 연결 문자열 형식을 사용 합니다. HTTPS(권장) 또는 HTTP를 통해 저장소 계정에 연결할지 여부를 표시하며, `myAccountName`을 저장소 계정의 이름으로 바꾸고, `myAccountKey`를 계정 액세스 키로 바꾸고, `mySuffix`을 URI 접미사로 바꿉니다.
+Azure 중국 21Vianet 또는 Azure Government와 같이 다른 끝점 접미사를 사용 하는 지역 또는 인스턴스에 저장소 서비스에 대 한 연결 문자열을 만들려면 다음 연결 문자열 형식을 사용 합니다. HTTPS(권장) 또는 HTTP를 통해 스토리지 계정에 연결할지 여부를 표시하며, `myAccountName`을 스토리지 계정의 이름으로 바꾸고, `myAccountKey`를 계정 액세스 키로 바꾸고, `mySuffix`을 URI 접미사로 바꿉니다.
 
 ```
 DefaultEndpointsProtocol=[http|https];
@@ -128,7 +128,7 @@ AccountKey=myAccountKey;
 EndpointSuffix=mySuffix;
 ```
 
-Azure 중국 21Vianet에서 저장소 서비스에 대 한 연결 문자열의 예는 다음과 같습니다.
+Azure 중국 21Vianet의 저장소 서비스에 대 한 연결 문자열의 예는 다음과 같습니다.
 
 ```
 DefaultEndpointsProtocol=https;
@@ -145,5 +145,4 @@ EndpointSuffix=core.chinacloudapi.cn;
 
 * [개발 및 테스트에 Azure Storage 에뮬레이터 사용](storage-use-emulator.md)
 * [Azure Storage Explorer](storage-explorers.md)
-* [SAS(공유 액세스 서명) 사용](storage-dotnet-shared-access-signature-part-1.md)
-
+* [공유 액세스 서명 (SAS)을 사용 하 여](storage-sas-overview.md)

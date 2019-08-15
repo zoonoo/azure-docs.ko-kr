@@ -12,23 +12,23 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/19/2018
+ms.date: 8/12/2019
 ms.author: atsenthi
-ms.openlocfilehash: e5fb28b176ce14a9b871b2a6a775e0017fcc993d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a5e452bf3dc9f35c345a5f27af829904b4839ece
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67052676"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68977122"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Service Fabric 애플리케이션 및 서비스 매니페스트
-이 문서에서는 Service Fabric 애플리케이션 및 서비스가 ApplicationManifest.xml 및 ServiceManifest.xml 파일을 사용하여 정의되고 버전화되는 방법에 대해 설명합니다.  자세한 예제는 [응용 프로그램 및 서비스 매니페스트 예제](service-fabric-manifest-examples.md)를 참조하세요.  이러한 매니페스트 파일의 XML 스키마는 [ServiceFabricServiceModel.xsd 스키마 설명서](service-fabric-service-model-schema.md)에 설명되어 있습니다.
+이 문서에서는 Service Fabric 애플리케이션 및 서비스가 ApplicationManifest.xml 및 ServiceManifest.xml 파일을 사용하여 정의되고 버전화되는 방법에 대해 설명합니다.  자세한 예제는 [애플리케이션 및 서비스 매니페스트 예제](service-fabric-manifest-examples.md)를 참조하세요.  이러한 매니페스트 파일의 XML 스키마는 [ServiceFabricServiceModel.xsd 스키마 설명서](service-fabric-service-model-schema.md)에 설명되어 있습니다.
 
 > [!WARNING]
 > 매니페스트 XML 파일 스키마는 자식 요소의 올바른 순서를 적용합니다.  부분적인 해결 방법으로는 Service Fabric 매니페스트를 작성하거나 수정하는 동안 Visual Studio에서 “C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd”를 엽니다. 이렇게 하면 자식 요소의 순서를 확인하고 IntelliSense를 제공할 수 있습니다.
 
 ## <a name="describe-a-service-in-servicemanifestxml"></a>ServiceManifest.xml의 서비스 설명
-서비스 매니페스트는 서비스 유형 및 버전을 선언적으로 정의합니다. 서비스 유형, 상태 속성, 부하 분산 메트릭, 서비스 바이너리, 구성 파일 등의 서비스 메타데이터를 지정합니다.  다시 말해서 하나 이상의 서비스 유형을 지원하는 서비스 패키지를 구성하는 코드, 구성 및 데이터 패키지를 설명합니다. 서비스 매니페스트에는 독립적으로 버전화할 수 있는 여러 코드, 구성 및 데이터 패키지가 포함될 수 있습니다. 다음은 [투표 응용 프로그램 예제](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart)의 ASP.NET Core 웹 프런트 엔드 서비스에 대한 서비스 매니페스트입니다(여기에 몇 가지 [자세한 예제](service-fabric-manifest-examples.md)도 나와 있음).
+서비스 매니페스트는 서비스 유형 및 버전을 선언적으로 정의합니다. 서비스 유형, 상태 속성, 부하 분산 메트릭, 서비스 바이너리, 구성 파일 등의 서비스 메타데이터를 지정합니다.  다시 말해서 하나 이상의 서비스 유형을 지원하는 서비스 패키지를 구성하는 코드, 구성 및 데이터 패키지를 설명합니다. 서비스 매니페스트에는 독립적으로 버전화할 수 있는 여러 코드, 구성 및 데이터 패키지가 포함될 수 있습니다. 다음은 [투표 애플리케이션 예제](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart)의 ASP.NET Core 웹 프런트 엔드 서비스에 대한 서비스 매니페스트입니다(여기에 몇 가지 [자세한 예제](service-fabric-manifest-examples.md)도 나와 있음).
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -74,7 +74,7 @@ ms.locfileid: "67052676"
 
 **EntryPoint** 를 통해 지정되는 실행 파일은 일반적으로 장기 실행 서비스 호스트입니다. **SetupEntryPoint** 는 서비스 패브릭과 같은 자격 증명(일반적으로 *LocalSystem* 계정)을 사용하여 다른 진입점보다 먼저 실행되는 권한 있는 진입점입니다.  별도의 설정 진입점이 있으면 한동안은 높은 권한을 사용하여 서비스 호스트를 실행하지 않아도 됩니다. **EntryPoint**를 통해 지정된 실행 파일은 **SetupEntryPoint**가 성공적으로 종료된 후 실행됩니다. 프로세스가 종료되지 않거나 충돌하는 경우 결과 프로세스를 모니터링하여 다시 시작합니다( **SetupEntryPoint**를 사용하여 다시 시작).  
 
-**SetupEntryPoint** 를 사용하는 일반적인 시나리오는 서비스를 시작하기 전에 실행 파일을 실행하는 경우 또는 높은 권한을 사용하여 작업을 수행하는 경우입니다. 예를 들면 다음과 같습니다.
+**SetupEntryPoint** 를 사용하는 일반적인 시나리오는 서비스를 시작하기 전에 실행 파일을 실행하는 경우 또는 높은 권한을 사용하여 작업을 수행하는 경우입니다. 예를 들어:
 
 * 서비스 실행 파일에 필요한 환경 변수를 설정하고 초기화합니다. 이것은 서비스 패브릭 프로그래밍 모델을 통해 작성된 실행 파일에만 국한되지는 않습니다. 예를 들어 npm.exe 파일에는 node.js 애플리케이션 배포를 위해 구성되는 환경 변수가 필요합니다.
 * 보안 인증서를 설치하여 액세스 제어를 설정합니다.
@@ -96,8 +96,12 @@ SetupEntryPoint를 구성하는 방법에 대한 자세한 내용은 [서비스 
 </Settings>
 ```
 
-Service Fabric 서비스 **끝점** 은 서비스 패브릭 리소스의 예입니다. 서비스 패브릭 리소스를 컴파일된 코드를 변경 하지 않고 선언/변경할 수 있습니다. 서비스 매니페스트에 지정된 Service Fabric 리소스에 대한 액세스는 애플리케이션 매니페스트의 **SecurityGroup**을 통해 제어할 수 있습니다. 서비스 매니페스트에 엔드포인트 리소스가 정의되면 Service Fabric에서는 포트가 명시적으로 지정되지 않을 경우 예약된 애플리케이션 포트 범위에 포함되는 포트를 할당합니다. [엔드포인트 리소스 지정 또는 재정의](service-fabric-service-manifest-resources.md)에 대해 자세히 알아보세요.
+Service Fabric 서비스 **끝점** 은 Service Fabric 리소스의 예입니다. 컴파일된 코드를 변경 하지 않고 Service Fabric 리소스를 선언/변경할 수 있습니다. 서비스 매니페스트에 지정된 Service Fabric 리소스에 대한 액세스는 애플리케이션 매니페스트의 **SecurityGroup**을 통해 제어할 수 있습니다. 서비스 매니페스트에 엔드포인트 리소스가 정의되면 Service Fabric에서는 포트가 명시적으로 지정되지 않을 경우 예약된 애플리케이션 포트 범위에 포함되는 포트를 할당합니다. [엔드포인트 리소스 지정 또는 재정의](service-fabric-service-manifest-resources.md)에 대해 자세히 알아보세요.
 
+ 
+> [!WARNING]
+> 의도적으로 정적 포트는 ClusterManifest에 지정 된 응용 프로그램 포트 범위와 겹치면 안 됩니다. 정적 포트를 지정 하는 경우에는 응용 프로그램 포트 범위 외부에 할당 합니다. 그렇지 않으면 포트 충돌이 발생 합니다. Release 6.5를 사용 하면 이러한 충돌을 감지 하면 **상태 경고가** cu2 배포를 계속 해 서 배송 된 6.5 동작으로 동기화 할 수 있습니다. 그러나 다음 주요 릴리스에서는 응용 프로그램을 배포 하지 못할 수 있습니다.
+>
 
 <!--
 For more information about other features supported by service manifests, refer to the following articles:
@@ -111,7 +115,7 @@ For more information about other features supported by service manifests, refer 
 ## <a name="describe-an-application-in-applicationmanifestxml"></a>ApplicationManifest.xml의 애플리케이션 설명
 애플리케이션 매니페스트는 애플리케이션 유형 및 버전을 선언적으로 설명합니다. 안정적인 이름, 파티션 구성표, 인스턴스 수/복제 요소, 보안/격리 정책, 배치 제약 조건, 구성 재정의, 구성 서비스 유형 등의 서비스 구성 메타데이터를 지정합니다. 또한 애플리케이션이 배치되는 부하 분산 도메인을 설명합니다.
 
-따라서 애플리케이션 매니페스트는 애플리케이션 수준에서 요소를 설명하고 애플리케이션 유형을 구성하는 하나 이상의 서비스 매니페스트를 참조합니다. 다음은 [투표 응용 프로그램 예제](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart)에 대한 응용 프로그램 매니페스트입니다(여기에 몇 가지 [자세한 예제](service-fabric-manifest-examples.md)도 나와 있음).
+따라서 애플리케이션 매니페스트는 애플리케이션 수준에서 요소를 설명하고 애플리케이션 유형을 구성하는 하나 이상의 서비스 매니페스트를 참조합니다. 다음은 [투표 애플리케이션 예제](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart)에 대한 애플리케이션 매니페스트입니다(여기에 몇 가지 [자세한 예제](service-fabric-manifest-examples.md)도 나와 있음).
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -147,6 +151,7 @@ For more information about other features supported by service manifests, refer 
     <Service Name="VotingWeb" ServicePackageActivationMode="ExclusiveProcess">
       <StatelessService ServiceTypeName="VotingWebType" InstanceCount="[VotingWeb_InstanceCount]">
         <SingletonPartition />
+         <PlacementConstraints>(NodeType==NodeType0)</PlacementConstraints
       </StatelessService>
     </Service>
   </DefaultServices>
@@ -155,7 +160,7 @@ For more information about other features supported by service manifests, refer 
 
 서비스 매니페스트와 마찬가지로 **Version** 특성은 구조화되지 않은 문자열이며 시스템에서 구문을 분석하지 않습니다. 또한 업그레이드에 대한 각 구성 요소의 버전을 지정하는 데 사용됩니다.
 
-**매개 변수**는 애플리케이션 매니페스트에서 사용되는 매개 변수를 정의합니다. 응용 프로그램이 인스턴스화되고 응용 프로그램 또는 서비스 구성 설정을 재정의할 수 있을 때 이러한 매개 변수의 값을 제공할 수 있습니다.  애플리케이션 인스턴스화 중에 값이 변경되지 않은 경우 기본 매개 변수 값이 사용됩니다. 개별 환경에 대해 서로 다른 애플리케이션 및 서비스 매개 변수를 유지 관리하는 방법을 알아보려면 [여러 환경에 대한 애플리케이션 매개 변수 관리](service-fabric-manage-multiple-environment-app-configuration.md)를 참조하세요.
+**매개 변수**는 애플리케이션 매니페스트에서 사용되는 매개 변수를 정의합니다. 애플리케이션이 인스턴스화되고 애플리케이션 또는 서비스 구성 설정을 재정의할 수 있을 때 이러한 매개 변수의 값을 제공할 수 있습니다.  애플리케이션 인스턴스화 중에 값이 변경되지 않은 경우 기본 매개 변수 값이 사용됩니다. 개별 환경에 대해 서로 다른 애플리케이션 및 서비스 매개 변수를 유지 관리하는 방법을 알아보려면 [여러 환경에 대한 애플리케이션 매개 변수 관리](service-fabric-manage-multiple-environment-app-configuration.md)를 참조하세요.
 
 **ServiceManifestImport** 는 이 애플리케이션 유형을 구성하는 서비스 매니페스트에 대한 참조를 포함합니다. 애플리케이션 매니페스트에는 여러 개의 서비스 매니페스트 가져오기가 포함될 수 있으며, 각 항목은 독립적으로 버전화될 수 있습니다. 가져온 서비스 매니페스트는 이 애플리케이션 유형 내에서 유효한 있는 서비스 유형을 결정합니다. ServiceManifestImport 내에서 Settings.xml의 구성 값과 ServiceManifest.xml 파일의 환경 변수를 재정의할 수 있습니다. 끝점 바인딩, 보안 및 액세스, 패키지 공유에 대한 **정책**(이전 예제에서 설정되지 않음)은 가져온 서비스 매니페스트에 설정할 수 있습니다.  자세한 내용은 [애플리케이션에 대한 보안 정책 구성](service-fabric-application-runas-security.md)을 참조하세요.
 
@@ -163,10 +168,12 @@ For more information about other features supported by service manifests, refer 
 
 **인증서**(이전 예제에서 설정되지 않음)는 [HTTPS 엔드포인트 설정](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service) 또는 [애플리케이션 매니페스트의 비밀 암호화](service-fabric-application-secret-management.md)에 사용되는 인증서를 선언합니다.
 
-**정책을** (앞의 예제에서 설정 되지 않음) 로그 컬렉션에 설명 합니다 [기본 실행](service-fabric-application-runas-security.md)를 [상태](service-fabric-health-introduction.md#health-policies), 및 [보안 액세스](service-fabric-application-runas-security.md) 정책에 설정 하는 응용 프로그램 수준에서 서비스는 서비스 패브릭 런타임에서에 액세스할 수 있는지 여부를 포함 합니다.
+**배치 제약 조건은** 서비스를 실행할 위치를 정의 하는 문입니다. 이러한 문은 하나 이상의 노드 속성에 대해 선택한 개별 서비스에 연결 됩니다. 자세한 내용은 [배치 제약 조건 및 노드 속성 구문](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#placement-constraints-and-node-property-syntax) 을 참조 하세요.
+
+**정책** (이전 예제에서 설정 되지 않음)는 서비스에 Service Fabric 런타임에 대 한 액세스 권한이 있는지 여부를 포함 하 여 응용 프로그램 수준에서 설정 하는 로그 컬렉션, [기본 실행](service-fabric-application-runas-security.md), [상태](service-fabric-health-introduction.md#health-policies)및 [보안 액세스](service-fabric-application-runas-security.md) 정책에 대해 설명 합니다.
 
 > [!NOTE] 
-> Service Fabric 응용 프로그램을 기본적으로는 Service Fabric 런타임, 응용 프로그램별 요청과 패브릭 및 응용 프로그램 관련 파일을 포함 하는 호스트의 파일 경로 가리키는 환경 변수를 수락 하는 끝점의 형식에서에 대 한 액세스 적용 . 응용 프로그램이 신뢰할 수 없는 코드 (즉, 해당 provenance 알려지지 않은 또는 실행 해도 안전할 필요가 알고 응용 프로그램 소유자)를 호스트 하는 경우이 액세스를 사용 하지 않도록 설정 하는 것이 좋습니다. 자세한 내용은 참조 하십시오 [Service Fabric 보안 모범 사례](service-fabric-best-practices-security.md#platform-isolation)합니다. 
+> 기본적으로 Service Fabric 응용 프로그램은 응용 프로그램별 요청을 수락 하는 끝점의 형식 및 패브릭 및 응용 프로그램별 파일이 포함 된 호스트의 파일 경로를 가리키는 환경 변수를 사용 하 여 Service Fabric 런타임에 액세스할 수 있습니다. . 응용 프로그램이 신뢰할 수 없는 코드를 호스트 하는 경우 (즉, provenance를 알 수 없거나 응용 프로그램 소유자가 안전 하 게 실행 되지 않도록 하는 코드)이 액세스를 사용 하지 않도록 설정 하는 것이 좋습니다. 자세한 내용은 [Service Fabric의 보안 모범 사례](service-fabric-best-practices-security.md#platform-isolation)를 참조 하세요. 
 >
 
 **보안 주체**(이전 예제에서 설정되지 않음)는 [서비스 및 보안 서비스 리소스 실행](service-fabric-application-runas-security.md)에 필요한 보안 주체(사용자 또는 그룹)를 설명합니다.  보안 주체는 **정책** 섹션에서 참조됩니다.

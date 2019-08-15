@@ -1,6 +1,6 @@
 ---
 title: Azure Maps에 기호 계층 추가 | Microsoft Docs
-description: Javascript 맵에 기호를 추가하는 방법
+description: Azure Maps 웹 SDK에 기호를 추가 하는 방법입니다.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,32 +9,52 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 3bce4922a33648f5d7c0d211dba126f35603239b
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 10f6a7ef92bfd6558ed93e7fb40df9e48e1b92f5
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68849294"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976170"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>맵에 기호 계층 추가
 
-이 문서에서는 맵에 기호 계층으로 데이터 원본에서 요소 데이터를 렌더링할 수 있는 방법을 보여줍니다. 기호 레이어는 WebGL을 사용 하 여 렌더링 되 고 HTML 표식 보다 훨씬 큰 수의 요소 집합을 지원 하지만 스타일 지정을 위해 기존 CSS 및 HTML 요소를 지원 하지 않습니다.  
+기호는 데이터 원본에 연결 하 여 지정 된 지점에서 아이콘 및/또는 텍스트를 렌더링 하는 데 사용할 수 있습니다. 기호 계층은 WebGL를 사용 하 여 렌더링 되며 지도에서 많은 지점의 컬렉션을 렌더링 하는 데 사용할 수 있습니다. 이 계층은 HTML 표식을 사용 하 여 달성할 수 있는 것 보다 뛰어난 성능으로 지도에 더 많은 점 데이터를 렌더링할 수 있습니다. 그러나 기호 계층은 스타일 지정을 위한 기존 CSS 및 HTML 요소를 지원 하지 않습니다.  
 
 > [!TIP]
 > 기본적으로 기호 계층은 데이터 원본에 있는 모든 도형의 좌표를 렌더링합니다. 점 기 하 도형 기능만 렌더링 하도록 계층을 제한 하려면 계층의 `filter` 속성을로 `['==', ['geometry-type'], 'Point']` 설정 하 고, `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` 다중 포인트 기능을 포함 하려는 경우로 설정 합니다.
 
 ## <a name="add-a-symbol-layer"></a>기호 계층 추가
 
+지도에 기호 계층을 추가 하 고 데이터를 렌더링 하려면 먼저 데이터 원본을 만들어 맵을 추가 해야 합니다. 그런 다음 기호 계층을 만들고 데이터 소스에 전달 하 여 데이터를 검색할 수 있습니다. 마지막으로 데이터를 렌더링할 수 있도록 데이터를 데이터 소스에 추가 해야 합니다. 다음 코드에서는 기호 계층을 사용 하 여 맵에 단일 점을 렌더링 하기 위해 로드 한 후 맵에 추가 해야 하는 코드를 보여 줍니다. 
+
+```javascript
+//Create a data source and add it to the map.
+var dataSource = new atlas.source.DataSource();
+map.sources.add(dataSource);
+
+//Create a symbol layer to render icons and/or text at points on the map.
+var layer = new atlas.layer.SymbolLayer(dataSource);
+
+//Add the layer to the map.
+map.layers.add(layer);
+
+//Create a point and add it to the data source.
+dataSource.add(new atlas.data.Point([0, 0]));
+```
+
+에는 다음과 같은 네 가지 유형의 지점 데이터를 추가할 수 있습니다.
+
+- GeoJSON Point geometry-이 개체는 점의 좌표를 포함 하 고 다른 것은 포함 하지 않습니다. `atlas.data.Point` 도우미 클래스를 사용 하 여 이러한 개체를 쉽게 만들 수 있습니다.
+- GeoJSON MultiPoint geometry-이 개체는 여러 점의 좌표를 포함 하지만 다른 요소는 포함 하지 않습니다. `atlas.data.MultiPoint` 도우미 클래스를 사용 하 여 이러한 개체를 쉽게 만들 수 있습니다.
+- GeoJSON 기능-이 개체는 모든 GeoJSON 기 하 도형 및 기 하 도형에 연결 된 메타 데이터를 포함 하는 속성 집합으로 구성 됩니다. `atlas.data.Feature` 도우미 클래스를 사용 하 여 이러한 개체를 쉽게 만들 수 있습니다.
+- `atlas.Shape`클래스는 GeoJSON 형상과 기 하 도형에 연결 된 메타 데이터를 포함 하는 속성 집합으로 구성 된다는 점에서 GeoJSON 기능과 비슷합니다. GeoJSON 개체가 데이터 원본에 추가 되는 경우 계층에서 쉽게 렌더링 될 수 있지만 해당 GeoJSON 개체의 좌표계가 업데이트 되는 경우 JSON 개체에 업데이트를 트리거하는 메커니즘이 없기 때문에 데이터 원본 및 맵은 변경 되지 않습니다. Shape 클래스는 포함 된 데이터를 업데이트 하는 함수를 제공 하 고, 변경이 수행 되 면 데이터 원본 및 맵이 자동으로 알림 및 업데이트 됩니다. 
+
+다음 코드 샘플에서는 GeoJSON Point geometry를 만들고 `atlas.Shape` 클래스에 전달 하 여 쉽게 업데이트할 수 있게 합니다. 맵의 중심은 처음에 기호를 렌더링 하는 데 사용 됩니다. Click 이벤트는 맵에 추가 됩니다. 이렇게 하면 마우스를 클릭 한 위치의 좌표가 맵에서 기호의 위치를 업데이트 하는 shapes `setCoordinates` 함수와 함께 사용 됩니다.
+
+<br/>
+
 <iframe height='500' scrolling='no' title='핀 고정 위치 전환' src='//codepen.io/azuremaps/embed/ZqJjRP/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)에 의한 Pen <a href='https://codepen.io/azuremaps/pen/ZqJjRP/'>핀 고정 위치 전환</a>을 참조하세요.
 </iframe>
-
-위에서 첫 번째 코드 블록은 지도 개체를 생성합니다. 지침은 [지도 만들기](./map-create.md)를 참조하세요.
-
-두 번째 코드 블록에서는 데이터 원본 개체가 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 클래스를 사용하여 생성됩니다. [점](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) 기 하 도형을 포함 하는 GeoJSON [기능은](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature) [셰이프](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) 클래스에 의해 래핑되어 더 쉽게 업데이트 하 고 데이터 원본에 추가할 수 있습니다.
-
-세 번째 코드 블록은 [이벤트 수신기](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events)를 만들고 마우스 클릭 시 shape 클래스 [setCoordinates](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) 메서드를 사용하여 점의 좌표를 업데이트합니다.
-
-[기호 계층](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest)은 텍스트 또는 아이콘을 사용하여 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest)에 래핑된 점 기반 데이터를 지도에 기호로 렌더링합니다.  데이터 원본, 클릭 이벤트 수신기 및 기호 계층이 만들어지고 `ready` [이벤트 수신기](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) 함수 내의 맵에 추가 되어 지도를 로드 하 고 액세스할 준비가 된 후 요소가 표시 됩니다.
 
 > [!TIP]
 > 기본적으로의 성능을 위해 기호 레이어는 겹치는 기호를 숨겨 기호 렌더링을 최적화 합니다. 확대 하면 숨겨진 기호가 표시 됩니다. 이 기능을 사용 하지 않도록 설정 하 고 모든 기호를 항상 렌더링 `allowOverlap` 하려면 `iconOptions` 옵션의 속성을 `true`로 설정 합니다.
@@ -49,7 +69,7 @@ ms.locfileid: "68849294"
 </iframe>
 
 > [!TIP]
-> Azure Maps 웹 SDK는 기호 계층과 함께 사용할 수 있는 몇 가지 사용자 지정 가능 이미지 템플릿을 제공 합니다. 자세한 내용은 [이미지 템플릿 사용 방법](how-to-use-image-templates-web-sdk.md) 문서를 참조 하세요.
+> Azure Maps 웹 SDK는 기호 계층과 함께 사용할 수 있는 몇 가지 사용자 지정 가능 이미지 템플릿을 제공 합니다. 자세한 정보 [이미지 템플릿을 사용 하는 방법](how-to-use-image-templates-web-sdk.md) 문서를 참조 하세요.
 
 ## <a name="customize-a-symbol-layer"></a>기호 계층 사용자 지정 
 
@@ -59,6 +79,9 @@ ms.locfileid: "68849294"
 
 <iframe height='700' scrolling='no' title='기호 계층 옵션' src='//codepen.io/azuremaps/embed/PxVXje/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/PxVXje/'>기호 계층 옵션</a>을 참조하세요.
 </iframe>
+
+> [!TIP]
+> 기호 레이어가 있는 텍스트만 렌더링 하려면 아이콘 옵션의 `image` 속성을로 `'none'`설정 하 여 아이콘을 숨길 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -74,9 +97,12 @@ ms.locfileid: "68849294"
 > [IconOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.iconoptions?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"]
-> [TexTOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.textoptions?view=azure-iot-typescript-latest)
+> [TextOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.textoptions?view=azure-iot-typescript-latest)
 
 맵에 추가할 더 많은 코드 예제를 보려면 다음 문서를 참조하세요.
+
+> [!div class="nextstepaction"]
+> [데이터 원본 만들기](create-data-source-web-sdk.md)
 
 > [!div class="nextstepaction"]
 > [팝업 추가](map-add-popup.md)
@@ -88,7 +114,10 @@ ms.locfileid: "68849294"
 > [이미지 템플릿을 사용 하는 방법](how-to-use-image-templates-web-sdk.md)
 
 > [!div class="nextstepaction"]
-> [도형 추가](map-add-shape.md)
+> [선 계층 추가](map-add-line-layer.md)
+
+> [!div class="nextstepaction"]
+> [다각형 계층 추가](map-add-shape.md)
 
 > [!div class="nextstepaction"]
 > [거품형 계층 추가](map-add-bubble-layer.md)

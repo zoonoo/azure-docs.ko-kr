@@ -1,9 +1,9 @@
 ---
-title: 설치 하 고 Azure Active Directory에 대 한 log analytics 보기를 사용 하는 방법 | Microsoft Docs
-description: 설치 하 고 Azure Active Directory에 대 한 log analytics 보기를 사용 하는 방법을 알아봅니다
+title: Azure Active Directory에 대 한 log analytics 보기를 설치 하 고 사용 하는 방법 | Microsoft Docs
+description: Azure Active Directory에 대 한 log analytics 보기를 설치 하 고 사용 하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 2290de3c-2858-4da0-b4ca-a00107702e26
@@ -14,28 +14,28 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/18/2019
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92a5d9539d254eb7d52e3277691c9d8ff5a41821
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7cb1241387144b691b76ec330a5f90b762ebc11f
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60286814"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989778"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Azure Active Directory용 로그 분석 보기 설치 및 사용
 
-Azure Active Directory 로그 분석 보기를 통해 Azure AD 테넌트의 Azure AD 활동 로그를 분석하고 검색할 수 있습니다. Azure AD 활동 로그에는 포함되는 항목은 다음과 같습니다.
+Azure Active Directory 로그 분석 보기를 통해 Azure AD 테넌트에서 Azure AD 활동 로그를 분석하고 검색할 수 있습니다. Azure AD 활동 로그에는 포함되는 항목은 다음과 같습니다.
 
 * 감사 로그: [감사 로그 활동 보고서](concept-audit-logs.md)를 통해 테넌트에서 수행된 모든 작업의 기록에 액세스할 수 있습니다.
 * 로그인 로그: [로그인 활동 보고서](concept-sign-ins.md)를 통해 감사 로그에 보고된 작업을 수행한 사용자를 확인할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 로그 분석 보기를 사용하려면 다음이 필요합니다.
 
-* Azure 구독의 Log Analytics 작업 영역. [Log Analytics 작업 영역을 만드는 방법](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace)을 알아보세요.
+* Azure 구독의 Log Analytics 작업 영역. [Log Analytics 작업 영역을 만드는 방법](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace)을 알아봅니다.
 * 먼저 [Azure AD 활동 로그를 Log Analytics 작업 영역으로 라우팅](howto-integrate-activity-logs-with-log-analytics.md)하는 단계를 완료합니다.
 * [GitHub 리포지토리](https://aka.ms/AADLogAnalyticsviews)의 보기를 로컬 컴퓨터에 다운로드합니다.
 

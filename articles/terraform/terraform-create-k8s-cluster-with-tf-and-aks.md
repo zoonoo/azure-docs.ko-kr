@@ -9,15 +9,15 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/04/2018
-ms.openlocfilehash: d8438f5ddbbb3744811448aeb563be602b04516d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 257a2d78a54e292faecda836811f0a58fabd584d
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58009103"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854510"
 ---
 # <a name="create-a-kubernetes-cluster-with-azure-kubernetes-service-and-terraform"></a>Azure Kubernetes Service 및 Terraform을 사용하여 Kubernetes 클러스터 만들기
-[AKS(Azure Kubernetes Service)](/azure/aks/)는 호스팅된 Kubernetes 환경을 관리하므로 컨테이너 오케스트레이션에 대한 전문 지식 없이 컨테이너화된 응용 프로그램을 빠르고 쉽게 배포하고 관리할 수 있습니다. 또한 응용 프로그램을 오프라인으로 변경하지 않고 주문형 리소스를 프로비전하고, 업그레이드하고, 크기 조정하여 진행 중인 작업 및 유지 관리 부담을 제거합니다.
+[AKS(Azure Kubernetes Service)](/azure/aks/)는 호스팅된 Kubernetes 환경을 관리하므로 컨테이너 오케스트레이션에 대한 전문 지식 없이 컨테이너화된 애플리케이션을 빠르고 쉽게 배포하고 관리할 수 있습니다. 또한 애플리케이션을 오프라인으로 변경하지 않고 주문형 리소스를 프로비전하고, 업그레이드하고, 크기 조정하여 진행 중인 작업 및 유지 관리 부담을 제거합니다.
 
 이 자습서에서는 [Terraform](https://terraform.io) 및 AKS를 사용하여 [Kubernetes](https://www.redhat.com/en/topics/containers/what-is-kubernetes) 클러스터를 만드는 과정에서 다음 작업을 수행하는 방법에 대해 설명합니다.
 
@@ -110,9 +110,14 @@ Kubernetes 클러스터용 리소스를 선언하는 Terraform 구성 파일을 
         name     = "${var.resource_group_name}"
         location = "${var.location}"
     }
+    
+    resource "random_id" "log_analytics_workspace_name_suffix" {
+        byte_length = 8
+    }
 
     resource "azurerm_log_analytics_workspace" "test" {
-        name                = "${var.log_analytics_workspace_name}"
+        # The WorkSpace name has to be unique across the whole of azure, not just the current subscription/tenant.
+        name                = "${var.log_analytics_workspace_name}-${random_id.log_analytics_workspace_name_suffix.dec}"
         location            = "${var.log_analytics_workspace_location}"
         resource_group_name = "${azurerm_resource_group.k8s.name}"
         sku                 = "${var.log_analytics_workspace_sku}"
@@ -165,7 +170,7 @@ Kubernetes 클러스터용 리소스를 선언하는 Terraform 구성 파일을 
             }
         }
 
-        tags {
+        tags = {
             Environment = "Development"
         }
     }
@@ -299,22 +304,22 @@ Kubernetes 클러스터용 리소스를 선언하는 Terraform 구성 파일을 
     :wq
     ```
 
-## <a name="set-up-azure-storage-to-store-terraform-state"></a>Terraform 상태를 저장하도록 Azure 저장소 설정
-Terraform은 `terraform.tfstate` 파일을 통해 로컬로 상태를 추적합니다. 이 패턴은 단일 작업자 환경에서 잘 작동합니다. 그러나 실제의 다중 작업자 환경에서는 [Azure 저장소](/azure/storage/)를 사용하는 서버에서 상태를 추적해야 합니다. 이 섹션에서는 필요한 저장소 계정 정보(계정 이름 및 계정 키)를 검색하고 Terraform 상태 정보를 저장할 저장소 컨테이너를 만듭니다.
+## <a name="set-up-azure-storage-to-store-terraform-state"></a>Terraform 상태를 저장하도록 Azure Storage 설정
+Terraform은 `terraform.tfstate` 파일을 통해 로컬로 상태를 추적합니다. 이 패턴은 단일 작업자 환경에서 잘 작동합니다. 그러나 실제의 다중 작업자 환경에서는 [Azure Storage](/azure/storage/)를 사용하는 서버에서 상태를 추적해야 합니다. 이 섹션에서는 필요한 스토리지 계정 정보(계정 이름 및 계정 키)를 검색하고 Terraform 상태 정보를 저장할 스토리지 컨테이너를 만듭니다.
 
 1. Azure Portal에서 왼쪽 메뉴에 있는 **모든 서비스**를 선택합니다.
 
-1. **저장소 계정**을 선택합니다.
+1. **스토리지 계정**을 선택합니다.
 
-1. **저장소 계정** 탭에서 Terraform가 상태를 저장하도록 설정할 저장소 계정의 이름을 선택합니다. 예를 들어, Cloud Shell을 처음 열 때 만들어진 저장소 계정을 사용할 수 있습니다.  Cloud Shell에서 만든 저장소 계정 이름은 일반적으로 `cs`로 시작되고 그 뒤에 숫자 및 문자로 이루어진 임의의 문자열이 나옵니다. **선택한 저장소 계정의 이름은 나중에 필요하므로 기억해 둡니다.**
+1. **스토리지 계정** 탭에서 Terraform가 상태를 저장하도록 설정할 스토리지 계정의 이름을 선택합니다. 예를 들어, Cloud Shell을 처음 열 때 만들어진 스토리지 계정을 사용할 수 있습니다.  Cloud Shell에서 만든 스토리지 계정 이름은 일반적으로 `cs`로 시작되고 그 뒤에 숫자 및 문자로 이루어진 임의의 문자열이 나옵니다. **선택한 스토리지 계정의 이름은 나중에 필요하므로 기억해 둡니다.**
 
-1. [저장소 계정] 탭에서 **액세스 키**를 선택합니다.
+1. [스토리지 계정] 탭에서 **액세스 키**를 선택합니다.
 
-    ![저장소 계정 메뉴](./media/terraform-create-k8s-cluster-with-tf-and-aks/storage-account.png)
+    ![스토리지 계정 메뉴](./media/terraform-create-k8s-cluster-with-tf-and-aks/storage-account.png)
 
 1. **key1** **key** 값을 기록해 웁니다. (키 오른쪽에 있는 아이콘을 선택하면 값이 클립보드에 복사됩니다.)
 
-    ![저장소 계정 액세스 키](./media/terraform-create-k8s-cluster-with-tf-and-aks/storage-account-access-key.png)
+    ![스토리지 계정 액세스 키](./media/terraform-create-k8s-cluster-with-tf-and-aks/storage-account-access-key.png)
 
 1. Cloud Shell에서 Azure Storage 계정에 컨테이너를 만듭니다. &lt;YourAzureStorageAccountName> 및 &lt;YourAzureStorageAccountAccessKey> 자리 표시자를 Azure Storage 계정에 해당하는 값으로 바꾸면 됩니다.
 

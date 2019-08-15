@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.date: 10/24/2018
 ms.author: victorh
 ms.openlocfilehash: 393441e7ff620f3795e42c2cb376f99f8763f25b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59044864"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "60193206"
 ---
 # <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>자습서: Azure Firewall 로그 및 메트릭 모니터링
 
@@ -71,9 +71,9 @@ ms.locfileid: "59044864"
 
 진단 로깅을 활성화하려면 다음 단계를 사용합니다.
 
-1. 로그 데이터를 저장할 저장소 계정의 리소스 ID를 적어 둡니다. 이 값은 */subscriptions/\<subscriptionId\>/resourceGroups/\<resource group name\>/providers/Microsoft.Storage/storageAccounts/\<storage account name\>* 형식입니다.
+1. 로그 데이터를 저장할 스토리지 계정의 리소스 ID를 적어 둡니다. 이 값은 */subscriptions/\<subscriptionId\>/resourceGroups/\<resource group name\>/providers/Microsoft.Storage/storageAccounts/\<storage account name\>* 형식입니다.
 
-   구독의 모든 저장소 계정을 사용할 수 있습니다. Azure Portal을 사용하여 이 정보를 찾을 수 있습니다. 정보는 리소스 **속성** 페이지에 있습니다.
+   구독의 모든 스토리지 계정을 사용할 수 있습니다. Azure Portal을 사용하여 이 정보를 찾을 수 있습니다. 정보는 리소스 **속성** 페이지에 있습니다.
 
 2. 로깅을 사용할 방화벽의 리소스 ID를 적어 둡니다. 이 값은 */subscriptions/\<subscriptionId\>/resourceGroups/\<resource group name\>/providers/Microsoft.Network/azureFirewalls/\<Firewall name\>* 의 형식입니다.
 
@@ -88,7 +88,7 @@ ms.locfileid: "59044864"
     ```
     
 > [!TIP] 
->진단 로그에는 별도의 스토리지 계정이 필요하지 않습니다. 액세스 및 성능 로깅에 저장소를 사용할 경우 서비스 요금이 부과됩니다.
+>진단 로그에는 별도의 스토리지 계정이 필요하지 않습니다. 액세스 및 성능 로깅에 스토리지를 사용할 경우 서비스 요금이 부과됩니다.
 
 ## <a name="view-and-analyze-the-activity-log"></a>활동 로그 보기 및 분석
 
@@ -103,7 +103,7 @@ ms.locfileid: "59044864"
 
 Azure Firewall 로그 분석 샘플 쿼리는 [Azure Firewall 로그 분석 샘플](log-analytics-samples.md)을 참조하세요.
 
-저장소 계정에 연결하고 액세스 및 성능 로그에 대한 JSON 로그 항목을 검색할 수도 있습니다. JSON 파일을 다운로드한 후 CSV로 변환하여 Excel, Power BI 또는 기타 데이터 시각화 도구에서 볼 수 있습니다.
+스토리지 계정에 연결하고 액세스 및 성능 로그에 대한 JSON 로그 항목을 검색할 수도 있습니다. JSON 파일을 다운로드한 후 CSV로 변환하여 Excel, Power BI 또는 기타 데이터 시각화 도구에서 볼 수 있습니다.
 
 > [!TIP]
 > Visual Studio를 익숙하게 사용할 수 있고 C#에서 상수 및 변수에 대한 값 변경에 대한 기본 개념이 있는 경우 GitHub에서 제공하는 [로그 변환기 도구](https://github.com/Azure-Samples/networking-dotnet-log-converter)를 사용할 수 있습니다.

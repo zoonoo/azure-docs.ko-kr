@@ -5,28 +5,28 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 06/05/2019
+ms.date: 08/13/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: db2557bd34cace220b1c9e5f7e6932dd63d9f89c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f7f90c5ecb3c53792ca819eeba98b5f21f548473
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66734526"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68987492"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Azure Analysis Services에 연결하기 위한 클라이언트 라이브러리
 
-클라이언트 라이브러리는 클라이언트 애플리케이션 및 도구에서 Analysis Services 서버에 연결하는 데 필요합니다. Microsoft 클라이언트 응용 프로그램 같은 Power BI Desktop, Excel, SQL Server Management Studio (SSMS) 및 SQL Server Data Tools (SSDT) 세 클라이언트 라이브러리를 설치 하 고 일반 응용 프로그램 업데이트와 함께 업데이트 합니다. 경우에 따라 최신 버전의 클라이언트 라이브러리를 설치 해야 합니다. 사용자 지정 클라이언트 응용 프로그램 클라이언트 라이브러리가 설치 되어 있어야 합니다.
+클라이언트 라이브러리는 클라이언트 애플리케이션 및 도구에서 Analysis Services 서버에 연결하는 데 필요합니다. SSMS (Power BI Desktop, Excel, SQL Server Management Studio) 및 SQL Server Data Tools (SSDT)와 같은 Microsoft 클라이언트 응용 프로그램은 세 가지 클라이언트 라이브러리를 모두 설치 하 고 일반 응용 프로그램 업데이트와 함께 업데이트 합니다. 경우에 따라 최신 버전의 클라이언트 라이브러리를 설치 해야 할 수도 있습니다. 또한 사용자 지정 클라이언트 응용 프로그램에서 클라이언트 라이브러리를 설치 해야 합니다.
 
 ## <a name="download-the-latest-client-libraries-windows-installer"></a>최신 클라이언트 라이브러리 다운로드(Windows Installer)  
 
 |다운로드  |제품 버전  | 
 |---------|---------|
-|[MSOLAP(amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.24.20    |
-|[MSOLAP(x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.24.20      |
-|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   16.3.0.0    |
-|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    16.3.0.0     |
+|[MSOLAP(amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.33.23    |
+|[MSOLAP(x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.33.23      |
+|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   18.0.2.0    |
+|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    18.0.2.0     |
 
 ## <a name="amo-and-adomd-nuget-packages"></a>AMO 및 ADOMD(NuGet 패키지)
 
@@ -34,8 +34,8 @@ AMO(Analysis Services Management Objects) 및 ADOMD 클라이언트 라이브러
 
 |패키지  | 제품 버전  | 
 |---------|---------|
-|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    16.3.0     |
-|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   16.3.0      |
+|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    18.0.2     |
+|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   18.0.2      |
 
 NuGet 패키지 어셈블리 AssemblyVersion은 유의적 버전 MAJOR.MINOR.PATCH를 따릅니다. NuGet 참조는 GAC에 다른 버전이 있더라도(MSI 설치의 결과) 필요한 버전을 로드합니다. 패치는 각 릴리스에 대해 증가합니다. AMO 및 ADOMD 버전은 동기 상태로 유지됩니다.
 
@@ -66,14 +66,14 @@ Power BI Desktop 및 Excel과 같은 Microsoft 클라이언트 애플리케이�
 
  ADOMD.NET은 Analysis Services 데이터를 쿼리하는 데 사용되는 관리되는 데이터 클라이언트 라이브러리입니다. 도구 및 클라이언트 애플리케이션에 의해 설치되고 사용됩니다. 
   
- 데이터베이스에 연결하는 경우 세 라이브러리에 대한 연결 문자열 속성이 모두 비슷합니다. [Microsoft.AnalysisServices.AdomdClient.AdomdConnection.ConnectionString](/dotnet/api/microsoft.analysisservices.adomdclient.adomdconnection.connectionstring#Microsoft_AnalysisServices_AdomdClient_AdomdConnection_ConnectionString)을 사용하여 ADOMD.NET에 대해 정의한 거의 모든 연결 문자열이 AMO 및 Analysis Services OLE DB Provider(MSOLAP)에도 작동합니다. 자세한 내용은 [연결 문자열 속성&#40;Analysis Services&#41;](https://docs.microsoft.com/sql/analysis-services/instances/connection-string-properties-analysis-services)를 참조하세요.  
+ 데이터베이스에 연결하는 경우 세 라이브러리에 대한 연결 문자열 속성이 모두 비슷합니다. [Microsoft.AnalysisServices.AdomdClient.AdomdConnection.ConnectionString](/dotnet/api/microsoft.analysisservices.adomdclient.adomdconnection.connectionstring#Microsoft_AnalysisServices_AdomdClient_AdomdConnection_ConnectionString)을 사용하여 ADOMD.NET에 대해 정의한 거의 모든 연결 문자열이 AMO 및 Analysis Services OLE DB Provider(MSOLAP)에도 작동합니다. 자세한 내용은 [연결 문자열 속성&#40;Analysis Services&#41;](https://docs.microsoft.com/analysis-services/instances/connection-string-properties-analysis-servicess)를 참조하세요.  
 
   
 ##  <a name="bkmk_LibUpdate"></a> 클라이언트 라이브러리 버전을 확인하는 방법   
   
 ### <a name="oleddb-msolap"></a>OLEDDB(MSOLAP)  
   
-1.  `C:\Program Files\Microsoft Analysis Services\AS OLEDB\`로 이동합니다. 둘 이상의 폴더가 있는 경우 더 높은 숫자를 선택합니다.
+1.  [https://partnercenter.microsoft.com/partner/support](`C:\Program Files\Microsoft Analysis Services\AS OLEDB\`)로 이동하세요. 둘 이상의 폴더가 있는 경우 더 높은 숫자를 선택합니다.
   
 2.  마우스 오른쪽 단추로 **msolap.dll** > **Properties** > **Details**를 클릭합니다. 파일 이름이 msolap140.dll이면 최신 버전보다 오래된 것이므로 업그레이드해야 합니다.
     
@@ -82,12 +82,12 @@ Power BI Desktop 및 Excel과 같은 Microsoft 클라이언트 애플리케이�
   
 ### <a name="amo"></a>AMO
 
-1. `C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.AnalysisServices\`로 이동합니다. 둘 이상의 폴더가 있는 경우 더 높은 숫자를 선택합니다.
+1. [https://partnercenter.microsoft.com/partner/support](`C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.AnalysisServices\`)로 이동하세요. 둘 이상의 폴더가 있는 경우 더 높은 숫자를 선택합니다.
 2. 마우스 오른쪽 단추로 **Microsoft.AnalysisServices** > **속성** > **세부 정보**를 클릭합니다.  
 
 ### <a name="adomd"></a>ADOMD
 
-1. `C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.AnalysisServices.AdomdClient\`로 이동합니다. 둘 이상의 폴더가 있는 경우 더 높은 숫자를 선택합니다.
+1. [https://partnercenter.microsoft.com/partner/support](`C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.AnalysisServices.AdomdClient\`)로 이동하세요. 둘 이상의 폴더가 있는 경우 더 높은 숫자를 선택합니다.
 2. 마우스 오른쪽 단추로 **Microsoft.AnalysisServices.AdomdClient** > **속성** > **세부 정보**를 클릭합니다.  
 
 

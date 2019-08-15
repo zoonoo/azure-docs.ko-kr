@@ -10,14 +10,14 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/11/2019
-ms.openlocfilehash: 0025f488f6a9b0af4e05a8bdf3ddf36c089d4d9f
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: f41ccef7803366e63247e6862c59ddb983527d26
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856115"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990511"
 ---
-# <a name="deploy-a-model-using-a-custom-docker-image"></a>사용자 지정 Docker 이미지를 사용 하 여 모델 배포
+# <a name="deploy-a-model-by-using-a-custom-docker-image"></a>사용자 지정 Docker 이미지를 사용 하 여 모델 배포
 
 Azure Machine Learning 서비스를 사용 하 여 학습 된 모델을 배포할 때 사용자 지정 Docker 이미지를 사용 하는 방법을 알아봅니다.
 
@@ -99,6 +99,8 @@ Azure Machine Learning 서비스를 사용 하 여 모델을 이미 학습 하�
     az ml workspace show -w <myworkspace> -g <resourcegroup> --query containerRegistry
     ```
 
+    [!INCLUDE [install extension](../../../includes/machine-learning-service-install-extension.md)]
+
     반환되는 정보는 다음 텍스트와 유사합니다.
 
     ```text
@@ -176,7 +178,7 @@ Azure Container Registry에 기존 이미지를 업로드 하는 방법에 대 �
 
 Microsoft는 공개적으로 액세스할 수 있는 리포지토리에 여러 docker 이미지를 제공 하며,이는이 섹션의 단계에서 사용할 수 있습니다.
 
-| 이미지 | Description |
+| 이미지 | 설명 |
 | ----- | ----- |
 | `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` | Azure Machine Learning 서비스에 대 한 기본 이미지 |
 | `mcr.microsoft.com/azureml/onnxruntime:v0.4.0` | ONNX 런타임을 포함 합니다. |

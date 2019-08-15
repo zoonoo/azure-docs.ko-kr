@@ -1,20 +1,18 @@
 ---
 title: '자습서: Azure CDN을 사용하여 정적 웹 사이트의 SSL에서 사용자 지정 도메인 사용 - Azure Storage'
 description: 정적 웹 사이트 호스팅에서 사용자 지정 도메인을 구성하는 방법을 알아봅니다.
-services: storage
 author: normesta
 ms.service: storage
 ms.topic: tutorial
 ms.date: 05/22/2019
 ms.author: normesta
-ms.reviewer: seguler
-ms.custom: seodec18
-ms.openlocfilehash: 2b0bb94be2ba8ea983cda8fd015d05fcd532f2bc
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.reviewer: dineshm
+ms.openlocfilehash: a65c0e677182eb224f6bfa7ed834740458b97098
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66226153"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847014"
 ---
 # <a name="tutorial-use-azure-cdn-to-enable-a-custom-domain-with-ssl-for-a-static-website"></a>자습서: Azure CDN을 사용하여 정적 웹 사이트에서 SSL과 함께 사용자 지정 도메인을 사용하도록 설정
 

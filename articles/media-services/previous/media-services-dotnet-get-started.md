@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 2d55af3e9ed3ad64f9ba7726799b31acb6b48580
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 11754e8e98e13cffefaf4a8c1fa08bc60d650105
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61465051"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "69016559"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>.NET SDK를 사용한 주문형 콘텐츠 제공 시작  
 
@@ -27,14 +27,14 @@ ms.locfileid: "61465051"
 
 이 자습서에서는 Azure Media Services .NET SDK를 사용하는 AMS(Azure Media Services) 애플리케이션으로 기본 VoD(주문형 비디오) 콘텐츠 배달 서비스를 구현하는 단계를 안내합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 자습서를 완료하는 데 필요한 조건은 다음과 같습니다.
 
 * Azure 계정. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * Media Services 계정. Media Services 계정을 만들려면 [Media Services 계정을 만드는 방법](media-services-portal-create-account.md)을 참조하세요.
 * .NET Framework 4.0 이상.
-* 있습니다.
+* Visual Studio.
 
 이 자습서에는 다음 작업이 포함되어 있습니다.
 
@@ -158,7 +158,7 @@ Media Services에서 자산에 디지털 파일을 업로드(수집)합니다. *
 
 **CreateFromFile** 메서드는 다음 자산 만들기 옵션 중 하나를 지정할 수 있는 **AssetCreationOptions**를 사용합니다.
 
-* **없음** - 암호화가 사용되지 않습니다. 기본값입니다. 이 옵션을 사용하면 콘텐츠가 전송 중인 상태이거나 저장소에 저장된 상태일 때 보호되지 않습니다.
+* **없음** - 암호화가 사용되지 않습니다. 기본값입니다. 이 옵션을 사용하면 콘텐츠가 전송 중인 상태이거나 스토리지에 저장된 상태일 때 보호되지 않습니다.
   MP4를 배달하려는 경우 이 옵션을 사용하세요.
 * **StorageEncrypted** - AES(Advanced Encryption Standard) 256비트 암호화를 사용하여 암호화되지 않은 콘텐츠를 로컬에서 암호화한 다음에 암호화되어 저장된 Azure Storage에 업로드하려면 이 옵션을 사용합니다. Storage 암호화로 보호된 자산은 자동으로 암호 해제되어 인코딩되기 전에 암호화된 파일 시스템에 배치됩니다. 그리고 필요에 따라 새 출력 자산으로 다시 업로드되기 전에 다시 암호화됩니다. Storage 암호화를 사용하는 기본적인 사례는 디스크에 저장된 상태일 때 강력한 암호화로 고품질의 입력 미디어 파일을 보호하려는 경우입니다.
 * **CommonEncryptionProtected** - 이미 암호화되어 일반적인 암호화 또는 PlayReady DRM(예: PlayReady DRM으로 보호되는 부드러운 스트리밍)으로 보호된 콘텐츠를 업로드하는 경우 이 옵션을 사용합니다.
@@ -371,7 +371,7 @@ MPEG DASH
     https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_56kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
 
-비디오를 스트리밍하려면 [Azure Media Services 플레이어](https://amsplayer.azurewebsites.net/azuremediaplayer.html)의 URL 텍스트 상자에서 URL을 붙여넣습니다.
+비디오를 스트리밍하려면 [Azure Media Services 플레이어](https://aka.ms/azuremediaplayer)의 URL 텍스트 상자에서 URL을 붙여넣습니다.
 
 점진적 다운로드를 테스트하려면 Internet Explorer, Chrome, Safari 등의 브라우저에 URL을 붙여넣습니다.
 

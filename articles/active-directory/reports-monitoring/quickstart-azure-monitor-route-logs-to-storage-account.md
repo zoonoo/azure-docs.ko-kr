@@ -3,7 +3,7 @@ title: 자습서 - 스토리지 계정에 Azure Active Directory 로그 보관 |
 description: 스토리지 계정으로 Azure Active Directory 로그를 푸시하도록 Azure Diagnostics를 설정하는 방법 알아보기
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 045f94b3-6f12-407a-8e9c-ed13ae7b43a3
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/18/2019
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0198fe1ce61c8f78e315d1166a7ea03aae20d592
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: d98fb0677b864fccfb5abd2b08381db1bd1c9c8f
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999504"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989730"
 ---
 # <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account"></a>자습서: Azure 스토리지 계정에 Azure AD 로그 보관
 
-이 자습서에서는 Azure AD(Azure Active Directory) 로그를 Azure 스토리지 계정으로 라우팅하도록 Azure Monitor 진단 설정을 지정하는 방법을 알아봅니다.
+이 자습서에서는 Azure AD(Azure Active Directory) 로그를 Azure Storage 계정으로 라우팅하도록 Azure Monitor 진단 설정을 지정하는 방법을 알아봅니다.
 
 ## <a name="prerequisites"></a>필수 조건 
 
@@ -51,9 +51,9 @@ ms.locfileid: "59999504"
 
      ![설정 내보내기](./media/quickstart-azure-monitor-route-logs-to-storage-account/ExportSettings.png)
 
-5. 이름을 보면 용도를 알 수 있는 설정 이름을 입력합니다(예: *Azure 저장소 계정으로 보내기*). 
+5. 이름을 보면 용도를 알 수 있는 설정 이름을 입력합니다(예: *Azure Storage 계정으로 보내기*). 
 
-6. **저장소 계정에 보관** 확인란을 선택하고 **저장소 계정**을 선택합니다. 
+6. **스토리지 계정에 보관** 확인란을 선택하고 **스토리지 계정**을 선택합니다. 
 
 7. 로그를 라우팅하려는 Azure 구독 및 스토리지 계정을 선택합니다.
  
@@ -69,7 +69,7 @@ ms.locfileid: "59999504"
 
     ![진단 설정](./media/quickstart-azure-monitor-route-logs-to-storage-account/DiagnosticSettings.png)
 
-12. 약 15분 후 저장소 계정으로 로그가 푸시되었는지 확인합니다. [Azure Portal](https://portal.azure.com)로 이동하고, **저장소 계정**을 선택하고, 이전에 사용한 저장소 계정을 선택하고, **Blob**을 선택합니다. **감사 로그**에서 **insights-log-audit**를 선택합니다. **로그인 로그**에 **insights-logs-signin**을 선택합니다.
+12. 약 15분 후 스토리지 계정으로 로그가 푸시되었는지 확인합니다. [Azure Portal](https://portal.azure.com)로 이동하고, **스토리지 계정**을 선택하고, 이전에 사용한 스토리지 계정을 선택하고, **Blob**을 선택합니다. **감사 로그**에서 **insights-log-audit**를 선택합니다. **로그인 로그**에 **insights-logs-signin**을 선택합니다.
 
     ![Storage 계정](./media/quickstart-azure-monitor-route-logs-to-storage-account/StorageAccount.png)
 

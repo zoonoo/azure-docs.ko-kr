@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: reference
 ms.date: 05/23/2019
 ms.author: evansma
-ms.openlocfilehash: a8196370a93a6ce8eed83002397c2f09efbc777f
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 276699b9316a0c4fd428038f2c967bdf934f449c
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358591"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69016036"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>SaaS 처리 Api, 버전 2 
 
@@ -282,7 +282,7 @@ Response Body:
           "term": { //This gives the free trial term start and end date
             "startDate": "2019-05-31",
             "endDate": "2019-06-29",
-            "termUnit": "P1M"
+            "termUnit": "P1M" //where P1M: Monthly, P1Y: Yearly 
         },
 }
 ```
@@ -789,6 +789,8 @@ Response body:
 ## <a name="implementing-a-webhook-on-the-saas-service"></a>SaaS 서비스에서 webhook 구현
 
 게시자는이 SaaS 서비스에서 webhook을 구현 하 여 사용자에 게 서비스의 변경 사항을 사전에 알려야 합니다. SaaS 서비스는 webhook 알림에 대 한 작업을 수행 하기 전에 유효성을 검사 하 고 권한을 부여 하기 위해 작업 API를 호출 해야 합니다.
+
+보안 통신을 보장 하기 위해 Microsoft는 호출의 일부로 권한 부여 헤더에 Azure Active Directory JWT 토큰을 포함 합니다. SaaS 공급자는 유효한 호출만 허용 되도록 [Microsoft id 플랫폼 액세스 토큰](https://docs.microsoft.com/azure/active-directory/develop/access-tokens) 문서에 설명 된 대로 JWT 토큰의 유효성을 검사 하는 것이 좋습니다.
 
 ```json
 {

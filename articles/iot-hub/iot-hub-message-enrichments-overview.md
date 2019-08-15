@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 8e24489ad2909879b035a08316e66788034e99bc
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.openlocfilehash: 5ef1749217dd8980892d7bf933cbe1412929fbbd
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377205"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976989"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages-preview"></a>장치-클라우드 IoT Hub 메시지에 대 한 메시지 강화 (미리 보기)
 
@@ -29,9 +29,9 @@ ms.locfileid: "68377205"
 
 * 보강을 적용 해야 하는 하나 이상의 [끝점](iot-hub-devguide-endpoints.md) 입니다.
 
-키는 임의의 문자열일 수 있습니다.
+**키** 가 문자열입니다. 키에는 영숫자와 특수 문자 (하이픈 (`-`), 밑줄 (`_`) 및 마침표 (`.`)만 사용할 수 있습니다.
 
-값은 다음 중 하나일 수 있습니다.
+**값** 은 다음 중 하나일 수 있습니다.
 
 * 모든 정적 문자열입니다. 조건, 논리, 연산 및 함수와 같은 동적 값은 허용 되지 않습니다. 예를 들어 여러 고객이 사용 하는 SaaS 응용 프로그램을 개발 하는 경우 각 고객에 게 식별자를 할당 하 고 해당 식별자를 응용 프로그램에서 사용할 수 있도록 설정할 수 있습니다. 응용 프로그램이 실행 되 면 IoT Hub는 고객의 식별자를 사용 하 여 장치 원격 분석 메시지를 스탬프 처리 하므로 각 고객에 대해 메시지를 다르게 처리할 수 있습니다.
 

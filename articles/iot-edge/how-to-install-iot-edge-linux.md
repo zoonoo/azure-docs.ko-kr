@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: bb23ee1e51be178f93e05b728f7b8c2e9bb18e0d
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: ad5e78638f920401a83dd431c33a68b6d80144d7
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414484"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68988623"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-debian-based-linux-systems"></a>Debian 기반 Linux 시스템에 Azure IoT Edge 런타임 설치
 
@@ -262,6 +262,8 @@ journalctl -u iotedge --no-pager --no-full
 ```bash
 sudo iotedge list
 ```
+
+장치에 IoT Edge를 설치한 후 실행 되는 것으로 표시 되는 유일한 모듈은 **edgeAgent**입니다. 첫 번째 배포를 만든 후에는 다른 시스템 모듈 **$edgeHub** 장치 에서도 시작 됩니다. 자세한 내용은 [배포 IoT Edge 모듈](how-to-deploy-modules-portal.md)을 참조 하세요.
 
 ## <a name="tips-and-troubleshooting"></a>팁 및 문제 해결
 

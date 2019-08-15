@@ -3,7 +3,7 @@ title: Azure Resource Manager를 사용하여 애플리케이션과 서비스 �
 description: Azure Resource Manager 템플릿을 사용하여 Service Fabric 클러스터로 애플리케이션 및 서비스를 배포하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
-ms.author: dekapur
-ms.openlocfilehash: db515454c68fe3a7eb1a4616c3278d9fc93ddb2c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: 3810afa7ad00aa731751aa1f0bfe38d503de5850
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66258657"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68953214"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>애플리케이션 및 서비스를 Azure Resource Manager 리소스로 관리
 
@@ -28,33 +28,33 @@ Azure Resource Manager를 통해 Service Fabric 클러스터에 애플리케이�
 이 방법은 클러스터에 필요한 설치, 거버넌스 또는 클러스터 관리 애플리케이션을 배포할 때 권장되는 방법입니다. 여기에는 [패치 오케스트레이션 애플리케이션](service-fabric-patch-orchestration-application.md), Watchdogs 또는 다른 서비스나 애플리케이션을 배포하기 위해 먼저 클러스터에서 실행 중이어야 하는 모든 애플리케이션이 포함됩니다. 
 
 해당하는 경우 애플리케이션을 Resource Manager 리소스로 관리하여 다음을 향상시킬 수 있습니다.
-* 감사 내역: 리소스 관리자는 모든 작업을 감사 하 고 자세한 유지 *활동 로그* 는 도움이 될 수 있습니다 이러한 응용 프로그램 및 클러스터에 대 한 변경 내용을 추적 합니다.
-* 역할 기반 액세스 제어 (RBAC): 클러스터에 배포 하는 응용 프로그램 뿐만 아니라 클러스터에 대 한 액세스를 관리 하는 동일한 Resource Manager 템플릿을 통해 수행할 수 있습니다.
+* 감사 내역: 리소스 관리자는 모든 작업을 감사 하 고 이러한 응용 프로그램 및 클러스터에 대 한 변경 내용을 추적 하는 데 도움이 될 수 있는 자세한 *활동 로그* 를 유지 합니다.
+* RBAC (역할 기반 액세스 제어): 클러스터 및 클러스터에 배포 된 응용 프로그램에 대 한 액세스 관리는 동일한 리소스 관리자 템플릿을 통해 수행할 수 있습니다.
 * Azure Resource Manager(Azure Portal을 통해)는 클러스터 및 중요한 애플리케이션 배포를 관리하기 위한 원스톱 상점이 됩니다.
 
 다음 코드 조각에서는 한 템플릿을 통해 관리될 수 있는 여러 종류의 리소스를 보여 줍니다.
 
 ```json
 {
-    "apiVersion": "2017-07-01-preview",
+    "apiVersion": "2019-03-01",
     "type": "Microsoft.ServiceFabric/clusters/applicationTypes",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationTypeName'))]",
     "location": "[variables('clusterLocation')]",
 },
 {
-    "apiVersion": "2017-07-01-preview",
+    "apiVersion": "2019-03-01",
     "type": "Microsoft.ServiceFabric/clusters/applicationTypes/versions",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationTypeName'), '/', parameters('applicationTypeVersion'))]",
     "location": "[variables('clusterLocation')]",
 },
 {
-    "apiVersion": "2017-07-01-preview",
+    "apiVersion": "2019-03-01",
     "type": "Microsoft.ServiceFabric/clusters/applications",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'))]",
     "location": "[variables('clusterLocation')]",
 },
 {
-    "apiVersion": "2017-07-01-preview",
+    "apiVersion": "2019-03-01",
     "type": "Microsoft.ServiceFabric/clusters/applications/services",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'), '/', parameters('serviceName'))]",
     "location": "[variables('clusterLocation')]"
@@ -142,7 +142,7 @@ Azure Resource Manager를 통해 Service Fabric 클러스터에 애플리케이�
     },
     "resources": [
       {
-        "apiVersion": "2017-07-01-preview",
+        "apiVersion": "2019-03-01",
         "type": "Microsoft.ServiceFabric/clusters/applicationTypes",
         "name": "[concat(parameters('clusterName'), '/', parameters('applicationTypeName'))]",
         "location": "[variables('clusterLocation')]",
@@ -152,7 +152,7 @@ Azure Resource Manager를 통해 Service Fabric 클러스터에 애플리케이�
         }
       },
       {
-        "apiVersion": "2017-07-01-preview",
+        "apiVersion": "2019-03-01",
         "type": "Microsoft.ServiceFabric/clusters/applicationTypes/versions",
         "name": "[concat(parameters('clusterName'), '/', parameters('applicationTypeName'), '/', parameters('applicationTypeVersion'))]",
         "location": "[variables('clusterLocation')]",
@@ -165,7 +165,7 @@ Azure Resource Manager를 통해 Service Fabric 클러스터에 애플리케이�
         }
       },
       {
-        "apiVersion": "2017-07-01-preview",
+        "apiVersion": "2019-03-01",
         "type": "Microsoft.ServiceFabric/clusters/applications",
         "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'))]",
         "location": "[variables('clusterLocation')]",
@@ -200,7 +200,7 @@ Azure Resource Manager를 통해 Service Fabric 클러스터에 애플리케이�
         }
       },
       {
-        "apiVersion": "2017-07-01-preview",
+        "apiVersion": "2019-03-01",
         "type": "Microsoft.ServiceFabric/clusters/applications/services",
         "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'), '/', parameters('serviceName'))]",
         "location": "[variables('clusterLocation')]",
@@ -221,7 +221,7 @@ Azure Resource Manager를 통해 Service Fabric 클러스터에 애플리케이�
         }
       },
       {
-        "apiVersion": "2017-07-01-preview",
+        "apiVersion": "2019-03-01",
         "type": "Microsoft.ServiceFabric/clusters/applications/services",
         "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'), '/', parameters('serviceName2'))]",
         "location": "[variables('clusterLocation')]",
@@ -255,19 +255,19 @@ Azure Resource Manager를 통해 Service Fabric 클러스터에 애플리케이�
    ```
 
    > [!NOTE] 
-   > *apiVersion*을 `"2017-07-01-preview"`로 설정해야 합니다. 클러스터가 이미 배포된 경우 이 템플릿을 클러스터와는 별도로 배포할 수도 있습니다.
+   > *apiVersion*을 `"2019-03-01"`로 설정해야 합니다. 클러스터가 이미 배포된 경우 이 템플릿을 클러스터와는 별도로 배포할 수도 있습니다.
 
 5. 배포합니다. 
 
-## <a name="remove-service-fabric-resource-provider-application-resource"></a>Service Fabric 리소스 공급자 응용 프로그램 리소스를 제거 합니다.
-다음 트리거할 수와 클러스터에서 되지 않은 ovisioned 앱 패키지 및 사용 된 디스크 공간이 정리:
+## <a name="remove-service-fabric-resource-provider-application-resource"></a>리소스 공급자 응용 프로그램 리소스 Service Fabric 제거
+다음은 클러스터에서 프로 비전 해제 되도록 앱 패키지를 트리거하고, 사용 된 디스크 공간을 정리 합니다.
 ```powershell
-Get-AzureRmResource -ResourceId /subscriptions/{sid}/resourceGroups/{rg}/providers/Microsoft.ServiceFabric/clusters/{cluster}/applicationTypes/{apptType}/versions/{version} -ApiVersion "2017-07-01-preview" | Remove-AzureRmResource -Force -ApiVersion "2017-07-01-preview"
+Get-AzureRmResource -ResourceId /subscriptions/{sid}/resourceGroups/{rg}/providers/Microsoft.ServiceFabric/clusters/{cluster}/applicationTypes/{apptType}/versions/{version} -ApiVersion "2019-03-01" | Remove-AzureRmResource -Force -ApiVersion "2017-07-01-preview"
 ```
-단순히 ARM 템플릿에서 Microsoft.ServiceFabric/clusters/application를 제거 하는 응용 프로그램 프로 비전 해제 하지 않습니다.
+ARM 템플릿에서 ServiceFabric/클러스터/응용 프로그램을 제거 하면 응용 프로그램이 프로 비전 해제 되지 않습니다.
 
 >[!NOTE]
-> 제거가 완료 되 면 나타나지 않습니다 SFX 또는 ARM에 패키지 버전이 더 이상. 를 사용 하 여 응용 프로그램이 실행 되는 응용 프로그램 유형 버전 리소스를 삭제할 수 없습니다. ARM/SFRP이 방지 됩니다. 실행 중인 패키지를 프로 비전 해제 하려고 하면 SF 런타임 해당 하지 것입니다.
+> 제거가 완료 되 면 SFX 또는 ARM의 패키지 버전이 더 이상 표시 되지 않습니다. 응용 프로그램이 실행 되 고 있는 응용 프로그램 종류 버전 리소스는 삭제할 수 없습니다. ARM/SFRP는이를 방지 합니다. 실행 중인 패키지의 프로 비전을 해제 하려는 경우에는 SF 런타임이이를 방지 합니다.
 
 
 ## <a name="manage-an-existing-application-via-resource-manager"></a>Resource Manager를 통해 기존 애플리케이션 관리
@@ -275,7 +275,7 @@ Get-AzureRmResource -ResourceId /subscriptions/{sid}/resourceGroups/{rg}/provide
 클러스터가 이미 작동 중이며 Resource Manager 리소스로 관리하려는 일부 애플리케이션이 이미 클러스터에 배포된 경우, 애플리케이션을 제거한 후 다시 배포하는 대신, 동일한 API를 통해 PUT 호출을 사용하여 애플리케이션이 Resource Manager 리소스로 승인되도록 할 수 있습니다. 
 
 > [!NOTE]
-> 고객 클러스터 업그레이드를 비정상 응용 프로그램을 무시할 수 있도록 지정할 수 있습니다 "maxPercentUnhealthyApplications: 100 "의" 업그레이드 설명 부트/healthPolicy "섹션에서 모든 설정에 대해 자세한 설명이 있는 [서비스 패브릭 REST API 클러스터 업그레이드 정책 설명서](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy)합니다.
+> 클러스터 업그레이드가 비정상 앱을 무시 하도록 허용 하려면 고객이 다음을 지정할 수 있습니다. "maxPercentUnhealthyApplications: 100 "" upgradeDescription/healthPolicy "섹션에서 모든 설정에 대 한 자세한 설명은 [서비스 패브릭 REST API 클러스터 업그레이드 정책 설명서](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy)에 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

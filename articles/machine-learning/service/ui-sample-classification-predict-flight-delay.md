@@ -1,5 +1,5 @@
 ---
-title: 유형을 비행 지연 예측
+title: '시각적 인터페이스 예제 #6: 비행 지연 예측을 위한 분류'
 titleSuffix: Azure Machine Learning service
 description: 이 문서에서는 끌어서 놓기 시각적 인터페이스와 사용자 지정 R 코드를 사용 하 여 비행 지연을 예측 하는 기계 학습 모델을 빌드하는 방법을 보여 줍니다.
 services: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 07/02/2019
-ms.openlocfilehash: f2ef5fd17d6c6a91fa5f3c5d62700b68c5fbca24
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 4c0a990ae3f45fc7b08c157f180d8ecf805c24e6
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855973"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990017"
 ---
 # <a name="sample-6---classification-predict-flight-delays-using-r"></a>샘플 6-분류: R을 사용 하 여 비행 지연 예측
 

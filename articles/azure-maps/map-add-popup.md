@@ -1,6 +1,6 @@
 ---
 title: Azure Maps로 팝업 추가 | Microsoft Docs
-description: Javascript 맵에 팝업을 추가하는 방법
+description: Azure Maps 웹 SDK에 팝업을 추가 하는 방법입니다.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: caf661faf00d1d32664b7958a14a8719a37ab36e
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: cde6c745034d0963bd372e36e6e5a046113c202b
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882107"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976561"
 ---
 # <a name="add-a-popup-to-the-map"></a>맵에 팝업 추가
 
@@ -22,9 +22,61 @@ ms.locfileid: "68882107"
 
 ## <a name="understand-the-code"></a>코드 이해
 
-<a id="addAPopup"></a>
-
 다음 코드에서는 기호 계층을 사용 하 여 `name` 및 `description` 속성이 있는 point 기능을 맵에 추가 합니다. [Popup 클래스](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest) 의 인스턴스가 만들어졌지만 표시 되지 않습니다. 마우스 이벤트가 기호 계층에 추가 되어 마우스로 기호 마커를 가리키거나 끌 때 팝업을 트리거하고 팝업을 닫습니다. 표식 기호가 가리킴 `position` 이면 팝업의 속성이 표식의 위치로 업데이트 되 `content` 고 옵션은 마우스가 가리키는 point 기능의 및 `description` 속성을 `name` 래핑하는 일부 HTML로 업데이트 됩니다. 그런 다음 `open` 함수를 사용 하 여 맵에 팝업을 표시 합니다.
+
+```javascript
+//Define an HTML template for a custom popup content laypout.
+var popupTemplate = '<div class="customInfobox"><div class="name">{name}</div>{description}</div>';
+
+//Create a data source and add it to the map.
+var dataSource = new atlas.source.DataSource();
+map.sources.add(dataSource);
+
+dataSource.add(new atlas.data.Feature(new atlas.data.Point([-122.1333, 47.63]), {
+  name: 'Microsoft Building 41', 
+  description: '15571 NE 31st St, Redmond, WA 98052'
+}));
+
+//Create a layer to render point data.
+var symbolLayer = new atlas.layer.SymbolLayer(dataSource);
+
+//Add the polygon and line the symbol layer to the map.
+map.layers.add(symbolLayer);
+
+//Create a popup but leave it closed so we can update it and display it later.
+popup = new atlas.Popup({
+  pixelOffset: [0, -18],
+  closeButton: false
+});
+
+//Add a hover event to the symbol layer.
+map.events.add('mouseover', symbolLayer, function (e) {
+  //Make sure that the point exists.
+  if (e.shapes && e.shapes.length > 0) {
+    var content, coordinate;
+    var properties = e.shapes[0].getProperties();
+    content = popupTemplate.replace(/{name}/g, properties.name).replace(/{description}/g, properties.description);
+    coordinate = e.shapes[0].getCoordinates();
+
+    popup.setOptions({
+      //Update the content of the popup.
+      content: content,
+
+      //Update the popup's position with the symbol's coordinate.
+      position: coordinate
+
+    });
+    //Open the popup.
+    popup.open(map);
+  }
+});
+
+map.events.add('mouseleave', symbolLayer, function (){
+  popup.close();
+});
+```
+
+다음은 위의 기능을 실행 하는 전체 코드 샘플입니다.
 
 <br/>
 
@@ -79,4 +131,7 @@ ms.locfileid: "68882107"
 > [HTML 표식 추가](./map-add-custom-html.md)
 
 > [!div class="nextstepaction"]
-> [도형 추가](./map-add-shape.md)
+> [선 계층 추가](map-add-line-layer.md)
+
+> [!div class="nextstepaction"]
+> [다각형 계층 추가](map-add-shape.md)

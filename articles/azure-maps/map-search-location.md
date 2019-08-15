@@ -1,6 +1,6 @@
 ---
 title: Azure Maps를 사용하여 검색 결과 표시 | Microsoft Docs
-description: Azure Maps로 검색 요청을 수행한 후 Javascrip 지도에 결과를 표시하는 방법
+description: Azure Maps를 사용 하 여 검색 요청을 수행 하는 방법 Azure Maps 웹 SDK에 결과를 표시 합니다.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 22b677ef4b21d3869e39d600910c271c935934ca
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 7c4c78e1d21754d42391a3762e9f7ed199a7376b
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638647"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68975975"
 ---
 # <a name="show-search-results-on-the-map"></a>지도에 검색 결과 표시
 
