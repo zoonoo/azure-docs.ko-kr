@@ -1,9 +1,9 @@
 ---
 title: 내 WebJob 프로젝트(Visual Studio Azure Storage 연결 서비스)의 변경 내용 | Microsoft Docs
-description: 연결 된 서비스를 Visual Studio를 사용 하 여 저장소 계정에 연결한 후 Azure WebJob 프로젝트의 변경 사항을 설명 합니다.
+description: Visual Studio 연결 서비스를 사용 하 여 저장소 계정에 연결한 후 Azure WebJob 프로젝트에서 발생 하는 작업에 대해 설명 합니다.
 services: storage
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: 36ae7ff7-c22c-47eb-b220-049d61618c74
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: fa152d8b88254a35d00b91537bf1001ea1130e57
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c54214e0b919ddaa60403a1c986a144100143577
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60722616"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69510465"
 ---
 # <a name="what-happened-to-my-webjob-project-visual-studio-azure-storage-connected-service"></a>내 WebJob 프로젝트(Visual Studio Azure Storage 연결 서비스)의 변경 내용
 ## <a name="references-added"></a>참조 추가됨

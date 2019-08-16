@@ -15,24 +15,24 @@ ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
 ms.openlocfilehash: f1777fcb5a4e7899da982bd9d1d35905cb408ad2
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
+ms.lasthandoff: 08/15/2019
 ms.locfileid: "67446299"
 ---
 # <a name="add-authentication-to-your-xamarin-forms-app"></a>Xamarin Forms 앱에 인증 추가
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
 > [!NOTE]
-> Visual Studio App Center는 모바일 앱 개발을 위한 중앙 새 및 통합 서비스에 투자 합니다. 개발자가 사용할 수 **빌드**를 **테스트** 하 고 **배포** 연속 통합 및 배달 파이프라인을 설정 하는 서비스입니다. 개발자 상태 및 사용 하 여 해당 앱의 사용량을 모니터링할 수 있습니다, 앱을 배포한 후 합니다 **Analytics** 하 고 **진단** , 서비스를 사용 하 여 사용자와 소통 하세요를 **푸시** 서비스입니다. 개발자가 활용할 수도 있습니다 **인증** 해당 사용자를 인증 하 고 **데이터** 유지 하 고 클라우드에 앱 데이터 동기화 서비스. 체크 아웃 [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-forms-get-started-users) 지금 합니다.
+> Visual Studio App Center은 모바일 앱 개발에 대 한 새롭고 통합 된 서비스를 투자 합니다. 개발자는 **빌드**, **테스트** 및 **배포** 서비스를 사용 하 여 지속적인 통합 및 배달 파이프라인을 설정할 수 있습니다. 앱이 배포 되 면 개발자는 **분석** 및 **진단** 서비스를 사용 하 여 앱의 상태와 사용 현황을 모니터링 하 고, **푸시** 서비스를 사용 하 여 사용자와 참여할 수 있습니다. 또한 개발자는 **Auth** 를 활용 하 여 사용자 및 **데이터** 서비스를 인증 하 여 클라우드에서 앱 데이터를 유지 하 고 동기화 할 수 있습니다. 지금 [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-forms-get-started-users) 확인 하세요.
 >
 
 ## <a name="overview"></a>개요
 이 항목에서는 클라이언트 애플리케이션에서 App Service 모바일 앱의 사용자를 인증하는 방법을 보여 줍니다. 이 자습서에서는 App Service가 지원하는 ID 공급자를 사용하여 Xamarin.Forms 빠른 시작 프로젝트에 인증을 추가합니다. 모바일 앱에서 인증이 완료되고 권한이 부여되고 나면 사용자 ID 값이 표시되고 제한된 테이블 데이터에 액세스할 수 있게 됩니다.
 
-## <a name="prerequisites"></a>필수 조건
-이 자습서를 사용 하 여 최상의 결과 먼저 완료 하는 권장 합니다 [Xamarin Forms 앱 만들기][1] 자습서입니다. 이 자습서를 완료하면 다중 플랫폼 TodoList 앱인 Xamarin.Forms 프로젝트가 생깁니다.
+## <a name="prerequisites"></a>필수 구성 요소
+이 자습서를 사용 하 여 최상의 결과를 위해 먼저 [Xamarin Forms 앱 만들기][1] 자습서를 완료 하는 것이 좋습니다. 이 자습서를 완료하면 다중 플랫폼 TodoList 앱인 Xamarin.Forms 프로젝트가 생깁니다.
 
 다운로드한 빠른 시작 서버 프로젝트를 사용하지 않는 경우 프로젝트에 인증 확장 패키지를 추가해야 합니다. 서버 확장 패키지에 대한 자세한 내용은 [Azure Mobile Apps용 .NET 백 엔드 서버 SDK 사용][2]을 참조하세요.
 
@@ -51,14 +51,13 @@ ms.locfileid: "67446299"
 
 4. **확인**을 클릭합니다.
 
-5. **저장**을 클릭합니다.
+5. **Save**을 클릭합니다.
 
 ## <a name="restrict-permissions-to-authenticated-users"></a>사용 권한을 인증된 사용자로 제한
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 ## <a name="add-authentication-to-the-portable-class-library"></a>이식 가능한 클래스 라이브러리에 인증 추가
-Mobile Apps를 사용 하 여 [LoginAsync][3] extension method on the [MobileServiceClient][4] to sign in a user with App Service authentication. This sample
-uses a server-managed authentication flow that displays the provider's sign-in interface in the app. For more information, see [Server-managed authentication][5]합니다. 프로덕션 앱에서 향상된 사용자 환경을 제공하기 위해 대신 [클라이언트 관리 인증][6]을 사용하는 것을 고려할 수 있습니다.
+Mobile Apps는 [MobileServiceClient][4] 의 [LoginAsync][3] 확장 메서드를 사용 하 여 App Service 인증으로 사용자를 로그인 합니다. 이 샘플에서는 서버 관리 인증 흐름을 사용하여 앱에서 공급자의 로그인 인터페이스를 표시합니다. 자세한 내용은 [서버 관리 인증][5]을 참조하세요. 프로덕션 앱에서 향상 된 사용자 환경을 제공 하기 위해 대신 [클라이언트 관리 인증][6]을 사용 하는 것이 좋습니다.
 
 Xamarin Forms 프로젝트를 사용하여 인증하기 위해서 앱에 대한 이식 가능한 클래스 라이브러리에 **IAuthenticate** 인터페이스를 정의합니다. 또한 이식 가능한 클래스 라이브러리에 정의된 사용자 인터페이스를 업데이트하여 **로그인** 단추를 추가합니다. 사용자는 이 단추를 클릭하여 인증을 시작합니다. 인증에 성공하면 Mobile App 백 엔드에서 데이터가 로드됩니다.
 
@@ -195,7 +194,7 @@ Xamarin Forms 프로젝트를 사용하여 인증하기 위해서 앱에 대한 
 
 ### <a name="troubleshooting"></a>문제 해결
 
-**응용 프로그램 작동이 중단되고 `Java.Lang.NoSuchMethodError: No static method startActivity`** 메시지가 표시됨
+**애플리케이션 작동이 중단되고 `Java.Lang.NoSuchMethodError: No static method startActivity`** 메시지가 표시됨
 
 지원 패키지의 충돌 현상이 Visual Studio에서는 경고로만 표시되는데 런타임에 애플리케이션 작동이 중단되고 이 예외가 표시되는 경우가 있습니다. 이 경우에는 프로젝트에서 참조하는 모든 지원 패키지의 버전이 동일한지 확인해야 합니다. [Azure Mobile Apps NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/)에는 Android 플랫폼에 대한 `Xamarin.Android.Support.CustomTabs` 종속성이 있으므로 프로젝트에서 최신 지원 패키지를 사용하는 경우 충돌 방지를 위해 필수 버전이 포함된 이 패키지를 직접 설치해야 합니다.
 

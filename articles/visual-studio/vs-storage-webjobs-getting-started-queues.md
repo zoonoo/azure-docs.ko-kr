@@ -3,7 +3,7 @@ title: Queue Storage 및 Visual Studio 연결된 서비스 시작(WebJob 프로�
 description: Visual Studio 연결된 서비스를 사용하여 스토리지 계정에 연결한 후 WebJob 프로젝트에서 Azure Queue Storage 사용을 시작하는 방법입니다.
 services: storage
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: 5c3ef267-2a67-44e9-ab4a-1edd7015034f
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 44206f1826fc25407d9dec3f832b70881091e187
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 0afed158f5a19f3d82a3953f828f2b5566a6d5ff
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68248969"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69510798"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Azure Queue Storage 및 Visual Studio 연결된 서비스 시작(WebJob 프로젝트)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -27,7 +27,7 @@ ms.locfileid: "68248969"
 
 이 문서에서는 Azure Queue Storage 서비스에서 Azure WebJobs SDK 버전 1.x를 사용하는 방법을 보여 주는 C# 코드 샘플을 제공합니다.
 
-Azure Queue Storage는 HTTP 또는 HTTPS를 사용하여 인증된 호출을 통해 전 세계 어디에서나 액세스할 수 있는 다수의 메시지를 저장하기 위한 서비스입니다. 단일 큐 메시지의 크기는 최대 64KB일 수 있으며, 하나의 큐에 저장소 계정의 총 용량 제한까지 수백만 개의 메시지가 포함될 수 있습니다. 자세한 내용은 [.NET을 사용하여 Azure Queue Storage 시작](../storage/queues/storage-dotnet-how-to-use-queues.md) 을 참조하세요. ASP.NET에 대한 자세한 내용은 [ASP.NET(영문)](https://www.asp.net)을 참조하세요.
+Azure Queue Storage는 HTTP 또는 HTTPS를 사용하여 인증된 호출을 통해 전 세계 어디에서나 액세스할 수 있는 다수의 메시지를 저장하기 위한 서비스입니다. 단일 큐 메시지의 크기는 최대 64KB일 수 있으며, 하나의 큐에 스토리지 계정의 총 용량 제한까지 수백만 개의 메시지가 포함될 수 있습니다. 자세한 내용은 [.NET을 사용하여 Azure Queue Storage 시작](../storage/queues/storage-dotnet-how-to-use-queues.md) 을 참조하세요. ASP.NET에 대한 자세한 내용은 [ASP.NET(영문)](https://www.asp.net)을 참조하세요.
 
 ## <a name="how-to-trigger-a-function-when-a-queue-message-is-received"></a>큐 메시지를 받을 때 함수를 트리거하는 방법
 큐 메시지가 수신될 때 WebJobs SDK에서 호출하는 함수를 작성하려면 **QueueTrigger** 특성을 사용합니다. 특성 생성자는 폴링할 큐의 이름을 지정하는 문자열 매개 변수를 사용합니다. 큐 이름을 동적으로 설정하는 방법을 알아보려면 [구성 옵션을 설정하는 방법](#how-to-set-configuration-options)을 참조하세요.
@@ -44,7 +44,7 @@ public static void ProcessQueueMessage([QueueTrigger("logqueue")] string logMess
 
 **string** 외에도 매개 변수는 바이트 배열, **CloudQueueMessage** 개체 또는 사용자가 정의한 POCO일 수 있습니다.
 
-### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO( [Plain Old CLR Object](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) 큐 메시지
+### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplain_old_clr_object-queue-messages"></a>POCO( [Plain Old CLR Object](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) 큐 메시지
 다음 예제에서 큐 메시지에는 **BlobName** 속성을 포함하는 **BlobInformation** 개체에 대한 JSON이 포함됩니다. SDK에서 자동으로 개체를 역직렬화합니다.
 
 ```csharp
@@ -94,7 +94,7 @@ public async static Task ProcessQueueMessageAsyncCancellationToken(
 * **CloudQueueMessage**
 
 ## <a name="polling-algorithm"></a>폴링 알고리즘
-SDK는 무작위 지수 백오프 알고리즘을 구현하여 유휴 큐 폴링이 저장소 트랜잭션 비용에 미치는 영향을 줄입니다.  메시지가 발견되면 SDK는 2초 대기하고 다른 메시지가 있는지 확인하며, 메시지가 발견되지 않으면 4초 정도 대기하고 나서 다시 시도합니다. 후속 시도로 큐 메시지를 가져오지 못하면 최대 대기 시간(기본값 1분)에 도달할 때까지 대기 시간이 계속 증가합니다. [최대 대기 시간은 구성 가능합니다](#how-to-set-configuration-options).
+SDK는 무작위 지수 백오프 알고리즘을 구현하여 유휴 큐 폴링이 스토리지 트랜잭션 비용에 미치는 영향을 줄입니다.  메시지가 발견되면 SDK는 2초 대기하고 다른 메시지가 있는지 확인하며, 메시지가 발견되지 않으면 4초 정도 대기하고 나서 다시 시도합니다. 후속 시도로 큐 메시지를 가져오지 못하면 최대 대기 시간(기본값 1분)에 도달할 때까지 대기 시간이 계속 증가합니다. [최대 대기 시간은 구성 가능합니다](#how-to-set-configuration-options).
 
 ## <a name="multiple-instances"></a>여러 인스턴스
 웹 앱이 여러 인스턴스에서 실행되는 경우 연속적인 WebJob이 각 컴퓨터에서 실행되고, 각 컴퓨터는 트리거를 기다렸다가 함수 실행을 시도합니다. 일부 시나리오에서는 이로 인해 일부 함수가 동일한 데이터를 두 번 처리하게 될 수 있으므로 함수는 역등원이어야 합니다(같은 입력 데이터로 반복 호출해도 중복된 결과가 나오지 않도록 작성).  
@@ -201,7 +201,7 @@ public static void CreateQueueMessage(
 }
 ```
 
-### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO( [Plain Old CLR Object](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) 큐 메시지
+### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplain_old_clr_object-queue-messages"></a>POCO( [Plain Old CLR Object](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) 큐 메시지
 문자열 대신 POCO가 포함된 큐 메시지를 만들려면 POCO 유형을 출력 매개 변수로 **Queue** 특성 생성자에 전달합니다.
 
 ```csharp
@@ -296,7 +296,7 @@ public static void DeleteBlob(
 }
 ```
 
-### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO( [Plain Old CLR Object](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) 큐 메시지
+### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplain_old_clr_object-queue-messages"></a>POCO( [Plain Old CLR Object](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) 큐 메시지
 큐 메시지에 JSON으로 저장된 POCO의 경우 **Queue** 특성의 **blobPath** 매개 변수에서 개체 속성의 이름을 지정하는 자리 표시자를 사용할 수 있습니다. 큐 메타데이터 속성 이름을 자리 표시자로 사용할 수도 있습니다. [큐 또는 큐 메시지 메타데이터 가져오기](#get-queue-or-queue-message-metadata)를 참조하세요.
 
 다음 예제에서는 Blob을 확장명이 다른 새 Blob에 복사합니다. 큐 메시지는 **BlobName** 및 **BlobNameWithoutExtension** 속성을 포함하는 **BlobInformation** 개체입니다. 속성 이름은 **Blob** 특성에 대한 Blob 경로에서 자리 표시자로 사용됩니다.

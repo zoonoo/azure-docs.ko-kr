@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
-ms.date: 02/28/2019
-ms.openlocfilehash: 31fb6eaefe557c1f135b4558b873454d4a3a01d8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 08/06/2019
+ms.openlocfilehash: 305a35d1d40d94d1ce8e463b4af51eb84278bc3f
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568617"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69510266"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>탄력적 풀이 여러 Azure SQL 데이터베이스를 관리하고 크기를 조정하는 데 도움을 주는 방식
 
@@ -108,7 +108,7 @@ SaaS 개발자는 여러 데이터베이스로 구성된 대규모 데이터 계
 풀의 적절한 크기는 풀의 모든 데이터베이스에 필요한 집계 리소스에 따라 달라집니다. 이는 다음 결정을 포함합니다.
 
 - 풀의 모든 데이터베이스에서 사용되는 최대 리소스(선택한 리소스 모델에 따라 최대 DTU 또는 최대 vCore)입니다.
-- 풀에 있는 모든 데이터베이스의 최대 저장된 바이트 수입니다.
+- 풀에 있는 모든 데이터베이스의 최대 스토리지된 바이트 수입니다.
 
 각 리소스 모델에 대해 사용할 수 있는 서비스 계층은 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 또는 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 참조하세요.
 
@@ -122,7 +122,7 @@ SaaS 개발자는 여러 데이터베이스로 구성된 대규모 데이터 계
    vCore 기반 구매 모델의 경우: MAX(<*총 DB 수* X *DB당 평균 vCore 사용률*>,<br>  
    < *동시 최고 DB의 수* X *DB당 최고 vCore 사용률* )
 
-2. 풀에서 모든 데이터베이스에 필요한 바이트 수를 추가하여 풀에 필요한 저장소 공간을 예측합니다. 그런 다음 이 저장소의 양을 제공하는 eDTU 풀 크기를 결정합니다.
+2. 풀에서 모든 데이터베이스에 필요한 바이트 수를 추가하여 풀에 필요한 스토리지 공간을 예측합니다. 그런 다음 이 스토리지의 양을 제공하는 eDTU 풀 크기를 결정합니다.
 3. DTU 기반 구매 모델의 경우 1단계 및 2단계에서 eDTU 예상 중 큰 수를 사용합니다. VCore 기반 구매 모델의 경우 1단계의 vCore 예상을 사용합니다.
 4. [SQL Database 가격 책정 페이지](https://azure.microsoft.com/pricing/details/sql-database/)를 확인하고 3단계의 예상보다 큰 경우 가장 작은 풀 크기를 찾습니다.
 5. 5단계의 풀 가격을 적절한 단일 데이터베이스용 컴퓨팅 크기를 사용할 때의 가격과 비교해 보세요.
@@ -210,9 +210,9 @@ Azure Portal에서 탄력적 풀 및 해당 풀 내의 데이터베이스의 사
 
   Umbraco는 Azure SQL Database에서 탄력적 풀을 사용 하 여 클라우드에서 수천 개의 테 넌 트에 대해 서비스를 신속 하 게 프로 비전 하 고 확장 합니다.
 
-- [Daxko/CSI](https://customers.microsoft.com/story/csi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services)
+- [Daxko/CSI](https://customers.microsoft.com/story/726277-csi-daxko-partner-professional-service-azure)    
 
-  Daxko/CSI는 Azure SQL Database에서 탄력적 풀을 사용 하 여 개발 주기를 가속화 하 고 고객 서비스 및 성능을 향상 시킵니다.
+   Daxko/CSI는 Azure SQL Database에서 탄력적 풀을 사용 하 여 개발 주기를 가속화 하 고 고객 서비스 및 성능을 향상 시킵니다.   
 
 ## <a name="next-steps"></a>다음 단계
 

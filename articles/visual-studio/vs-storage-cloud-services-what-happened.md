@@ -1,9 +1,9 @@
 ---
 title: 클라우드 서비스 프로젝트에 대해 변경된 내용 | Microsoft Docs
-description: Visual Studio 연결 서비스를 사용하여 Azure 저장소 계정에 연결한 후 클라우드 서비스 프로젝트의 변경 내용에 대해 설명합니다.
+description: Visual Studio 연결 서비스를 사용하여 Azure Storage 계정에 연결한 후 클라우드 서비스 프로젝트의 변경 내용에 대해 설명합니다.
 services: storage
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: ca0ea68d-f417-4ce8-9413-40d76f69cdea
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: b0adceb42109f07658e56cebde3fbc4401478a1e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d96e523b6e4e060eaef33de0f961e7020e5dfb57
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64720451"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69510645"
 ---
 # <a name="what-happened-to-my-cloud-services-project-visual-studio-azure-storage-connected-service"></a>내 클라우드 서비스 프로젝트(Visual Studio Azure Storage 연결 서비스)의 변경 내용
 ## <a name="references-added"></a>참조 추가됨
@@ -34,7 +34,7 @@ Azure Storage NuGet 패키지가 Visual Studio 프로젝트에 추가되었습�
 * **System.Spatial**
 
 ## <a name="connection-string-for-azure-storage-added"></a>추가된 Azure Storage에 대한 연결 문자열
-선택한 저장소 계정의 연결 문자열과 키를 포함하는 요소가 생성되었습니다. 다음 파일이 수정되었습니다.
+선택한 스토리지 계정의 연결 문자열과 키를 포함하는 요소가 생성되었습니다. 다음 파일이 수정되었습니다.
 
 * **ServiceDefinition.csdef**
 * **ServiceConfiguration.Cloud.cscfg**

@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: b228dfd92fe389d196a65f7152ef22751842f4bb
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 24ad0f2e917420c327577851cabc9e5bdbad2825
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640292"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515658"
 ---
 # <a name="sink-transformation-for-a-data-flow"></a>데이터 흐름에 대 한 싱크 변환
 
@@ -79,13 +79,16 @@ Azure Blob 저장소 또는 Data Lake Storage 싱크 형식의 경우 변환 된
 
 데이터베이스 설정 선택:
 
+![SQL 싱크 옵션을 표시 하는 설정 탭](media/data-flow/alter-row2.png "SQL 옵션")
+
 * **업데이트 방법**: 기본값은 삽입을 허용 하는 것입니다. 원본에서 새 행 삽입을 중지 하려면 **삽입 허용** 을 선택 취소 합니다. 행을 업데이트, upsert 또는 삭제 하려면 먼저 해당 작업에 대 한 태그 행에 alter row 변환을 추가 합니다. 
 * **테이블 다시 만들기**: 데이터 흐름이 끝나기 전에 대상 테이블을 삭제 하거나 만듭니다.
 * **테이블 자르기**: 데이터 흐름이 끝나기 전에 대상 테이블에서 모든 행을 제거 합니다.
 * **배치 크기**: 청크에 대한 버킷 쓰기 수를 입력합니다. 대량 데이터 로드에이 옵션을 사용 합니다. 
 * **준비 사용**: Azure 데이터 웨어하우스를 싱크 데이터 집합으로 로드할 때 PolyBase를 사용 합니다.
+* **사전 및 사후 SQL 스크립트**: 이전 (전처리) 및 이후 (사후 처리) 데이터를 싱크 데이터베이스에 기록 하기 전에 실행할 여러 줄 SQL 스크립트를 입력 합니다.
 
-![SQL 싱크 옵션을 표시 하는 설정 탭](media/data-flow/alter-row2.png "SQL 옵션")
+![사전 및 사후 SQL 처리 스크립트](media/data-flow/prepost1.png "SQL 처리 스크립트")
 
 > [!NOTE]
 > 데이터 흐름에서 Data Factory를 지시 하 여 대상 데이터베이스에 새 테이블 정의를 만들 수 있습니다. 테이블 정의를 만들려면 새 테이블 이름이 있는 싱크 변환의 데이터 집합을 설정 합니다. SQL 데이터 집합의 테이블 이름 아래에서 **편집** 을 선택 하 고 새 테이블 이름을 입력 합니다. 그런 다음 싱크 변환에서 **schema 드리프트**를 사용 하도록 설정 합니다. **가져오기 스키마** 를 **없음**으로 설정 합니다.

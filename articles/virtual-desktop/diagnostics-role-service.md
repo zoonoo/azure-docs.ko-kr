@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: f5869cbb51cf1c968ee8ca1e2286416fd263d647
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: d6cde04d122d20c4aad5920c29995d9d33165163
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68224629"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515529"
 ---
 # <a name="identify-issues-with-the-diagnostics-feature"></a>진단 기능을 사용하여 문제 식별
 
@@ -82,7 +82,7 @@ Get-RdsDiagnosticActivities -TenantName <tenantName> -UserName <UserUPN>
 Get-RdsDiagnosticActivities -TenantName <tenantName> -StartTime "08/01/2018"
 ```
 
-\- **EndTime** 매개 변수를 cmdlet에 추가 하 여 결과를  수신 하려는 특정 기간을 지정할 수 있습니다. 다음 예제 cmdlet은 8 월 1 일부 터 8 월 10 일 사이에서 진단 활동의 목록을 반환 합니다.
+\- **EndTime** 매개 변수를 cmdlet에 추가 하 여 결과를 수신 하려는 특정 기간을 지정할 수 있습니다. 다음 예제 cmdlet은 8 월 1 일부 터 8 월 10 일 사이에서 진단 활동의 목록을 반환 합니다.
 
 ```powershell
 Get-RdsDiagnosticActivities -TenantName <tenantName> -StartTime "08/01/2018" -EndTime "08/10/2018"
@@ -153,7 +153,7 @@ Get-RdsDiagnosticActivities -TenantName <tenantName> -Outcome Failure
 |8000|InvalidAuthorizationRoleScope|입력 한 역할 이름이 기존 역할 이름과 일치 하지 않습니다. 오타가 있는지 역할 이름을 검토 하 고 다시 시도 하세요. |
 |8001|UserNotFound |입력 한 사용자 이름이 기존 사용자 이름과 일치 하지 않습니다. 오타가 있는지 확인 하 고 다시 시도 하세요.|
 |8005|UserNotFoundInAAD |입력 한 사용자 이름이 기존 사용자 이름과 일치 하지 않습니다. 오타가 있는지 확인 하 고 다시 시도 하세요.|
-|8008|TenantConsentRequired|테 넌 트에 대 한 동의를 제공 하려면 [여기](tenant-setup-azure-active-directory.md#grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-preview-service) 의 지침을 따르세요.|
+|8008|TenantConsentRequired|테 넌 트에 대 한 동의를 제공 하려면 [여기](tenant-setup-azure-active-directory.md#grant-permissions-to-windows-virtual-desktop) 의 지침을 따르세요.|
 
 ### <a name="external-connection-error-codes"></a>외부 연결 오류 코드
 

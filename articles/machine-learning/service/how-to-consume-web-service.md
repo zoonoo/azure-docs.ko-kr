@@ -9,20 +9,20 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 07/10/2019
+ms.date: 08/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 873f45a6cce85669581037c4c398a52b1ebd6d68
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 9b7157cd58abc7f1fecf288e72b0232c8a67b7ee
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966850"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69512594"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>웹 서비스로 배포된 Azure Machine Learning 모델 사용
 
 Azure Machine Learning 모델을 웹 서비스로 배포하면 REST API가 생성됩니다. 이 API로 데이터를 보내고 모델에서 반환된 예측을 받을 수 있습니다. 이 문서에서는 C#, Go, Java 및 Python을 사용하여 웹 서비스용 클라이언트를 만드는 방법에 대해 알아봅니다.
 
-Azure Container Instances, Azure Kubernetes Service 또는 FPGA (필드 프로그래밍 가능 게이트 배열)에 이미지를 배포할 때 웹 서비스를 만듭니다. 등록된 모델과 채점 파일에서 이미지를 만듭니다. [Azure Machine Learning SDK](https://aka.ms/aml-sdk)를 사용하여 웹 서비스에 액세스하는 데 사용되는 URI를 검색합니다. 인증이 사용 가능한 경우 SDK를 사용하여 인증 키를 가져올 수도 있습니다.
+Azure Container Instances, Azure Kubernetes Service 또는 FPGA (필드 프로그래밍 가능 게이트 배열)에 이미지를 배포할 때 웹 서비스를 만듭니다. 등록된 모델과 채점 파일에서 이미지를 만듭니다. [Azure Machine Learning SDK](https://aka.ms/aml-sdk)를 사용하여 웹 서비스에 액세스하는 데 사용되는 URI를 검색합니다. 인증을 사용 하는 경우 SDK를 사용 하 여 인증 키 또는 토큰을 가져올 수도 있습니다.
 
 기계 학습 웹 서비스를 사용하는 클라이언트를 만들기 위한 일반적인 워크플로는 다음과 같습니다.
 
@@ -81,6 +81,8 @@ Azure Machine Learning은 웹 서비스에 대 한 액세스를 제어 하는 �
 |Key|기본적으로 사용 안 함| 기본적으로 사용|
 |토큰| 사용할 수 없음| 기본적으로 사용 안 함 |
 
+키 또는 토큰으로 보안이 설정 된 서비스로 요청을 보낼 때 __권한 부여__ 헤더를 사용 하 여 키 또는 토큰을 전달 합니다. 키 또는 토큰은로 `Bearer <key-or-token>`형식이 지정 되어야 합니다. 여기서 `<key-or-token>` 은 키 또는 토큰 값입니다.
+
 #### <a name="authentication-with-keys"></a>키를 사용 하 여 인증
 
 배포에 대해 인증을 사용하도록 설정하면 자동으로 인증 키를 만듭니다.
@@ -112,7 +114,7 @@ print(primary)
 토큰 인증을 사용 하는 경우 `get_token` 메서드를 사용 하 여 전달자 토큰을 검색 하 고 해당 토큰 만료 시간을 지정할 수 있습니다.
 
 ```python
-token, refresh_by = service.get_tokens()
+token, refresh_by = service.get_token()
 print(token)
 ```
 
@@ -193,9 +195,9 @@ namespace MLWebServiceClient
     {
         static void Main(string[] args)
         {
-            // Set the scoring URI and authentication key
+            // Set the scoring URI and authentication key or token
             string scoringUri = "<your web service URI>";
-            string authKey = "<your key>";
+            string authKey = "<your key or token>";
 
             // Set the data to be sent to the service.
             // In this case, we are sending two sets of data to be scored.
@@ -309,8 +311,8 @@ var exampleData = []Features{
 
 // Set to the URI for your service
 var serviceUri string = "<your web service URI>"
-// Set to the authentication key (if any) for your service
-var authKey string = "<your key>"
+// Set to the authentication key or token (if any) for your service
+var authKey string = "<your key or token>"
 
 func main() {
     // Create the input data from example data
@@ -364,8 +366,8 @@ public class App {
     public static void sendRequest(String data) {
         // Replace with the scoring_uri of your service
         String uri = "<your web service URI>";
-        // If using authentication, replace with the auth key
-        String key = "<your key>";
+        // If using authentication, replace with the auth key or token
+        String key = "<your key or token>";
         try {
             // Create the request
             Content content = Request.Post(uri)
@@ -438,8 +440,8 @@ import json
 
 # URL for the web service
 scoring_uri = '<your web service URI>'
-# If the service is authenticated, set the key
-key = '<your key>'
+# If the service is authenticated, set the key or token
+key = '<your key or token>'
 
 # Two sets of data to score, so we get two results back
 data = {"data":

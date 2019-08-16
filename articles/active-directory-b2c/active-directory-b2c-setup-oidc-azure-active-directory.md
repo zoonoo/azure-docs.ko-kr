@@ -7,20 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/08/2019
+ms.date: 08/06/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 58c6d1b032f5b492c5641ff51da80426124069b1
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 46755cb8d0383d166b10d50854eb476b676a6ee4
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716771"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69509734"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 특정 Azure Active Directory 조직에 대한 로그인 설정
-
->[!NOTE]
-> 이 기능은 공개 미리 보기 상태입니다. 프로덕션 환경에서는 이 기능을 사용하지 마세요.
 
 Azure AD B2C에서 Azure AD(Azure Active Directory)를 [ID 공급자](active-directory-b2c-reference-oauth-code.md)로 사용하려면 해당 계정을 나타내는 애플리케이션을 만들어야 합니다. 이 문서에서는 Azure AD B2C의 사용자 흐름을 사용하여 특정 Azure AD 조직의 사용자에 대한 로그인을 설정하는 방법을 보여 줍니다.
 
@@ -54,7 +51,7 @@ Azure AD B2C에서 Azure AD(Azure Active Directory)를 [ID 공급자](active-dir
 2. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 3. **ID 공급자**를 선택한 다음, **추가**를 선택합니다.
 4. **이름**을 입력합니다. 예를 들어 `Contoso Azure AD`을 입력합니다.
-5. **Id 공급자 유형**을 선택 하 고 **Openid connect Connect (미리 보기)** 를 선택한 다음 **확인**을 클릭 합니다.
+5. **Id 공급자 유형**을 선택 하 고 **openid connect Connect**를 선택한 다음 **확인**을 클릭 합니다.
 6. **이 id 공급자 설정** 선택
 7. **메타데이터 URL**에 대해 다음 URL을 입력합니다. 여기서 `your-AD-tenant-domain`는 Azure AD 테넌트의 도메인 이름으로 대체됩니다. 예 `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`:
 

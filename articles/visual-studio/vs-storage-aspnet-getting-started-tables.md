@@ -3,7 +3,7 @@ title: Azure Table Storage 및 Visual Studio 연결 서비스 시작(ASP.NET) | 
 description: Visual Studio 연결 서비스를 사용하여 스토리지 계정에 연결한 후 Visual Studio ASP.NET 프로젝트에서 Azure Table Storage 사용을 시작하는 방법입니다.
 services: storage
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: af81a326-18f4-4449-bc0d-e96fba27c1f8
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/21/2016
 ms.author: ghogen
-ms.openlocfilehash: ea50506df53bfd586656d0030be4536d9d3b907d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6f0858d3c2e3f79dda58710031c105e83418058e
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62122993"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69511172"
 ---
 # <a name="get-started-with-azure-table-storage-and-visual-studio-connected-services-aspnet"></a>Azure Table Storage 및 Visual Studio 연결 서비스 시작
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -28,10 +28,10 @@ Azure Table Storage를 사용하면 많은 양의 구조화된 데이터를 저�
 
 이 자습서에서는 Azure Table Storage 항목을 사용하여 몇 가지 일반적인 시나리오에 대한 ASP.NET 코드를 작성하는 방법을 보여 줍니다. 이러한 시나리오는 테이블 만들기 및 테이블 엔터티 추가, 쿼리 및 삭제를 포함합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-* [Azure 저장소 계정](../storage/common/storage-quickstart-create-account.md)
+* [Azure Storage 계정](../storage/common/storage-quickstart-create-account.md)
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -114,7 +114,7 @@ Azure Table Storage를 사용하면 많은 양의 구조화된 데이터를 저�
     }
     ```
 
-1. **CreateTable** 메서드 내에서 스토리지 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 저장소 연결 문자열 및 저장소 계정 정보를 가져오려면 다음 코드를 사용합니다. ( *&lt;storage-account-name>* 을 액세스 중인 Azure Storage 계정의 이름으로 변경합니다.)
+1. **CreateTable** 메서드 내에서 스토리지 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 스토리지 연결 문자열 및 스토리지 계정 정보를 가져오려면 다음 코드를 사용합니다. ( *&lt;storage-account-name>* 을 액세스 중인 Azure Storage 계정의 이름으로 변경합니다.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -169,7 +169,7 @@ Azure Table Storage를 사용하면 많은 양의 구조화된 데이터를 저�
     <li>@Html.ActionLink("Create table", "CreateTable", "Tables")</li>
     ```
 
-1. 응용 프로그램을 실행 하 고 선택 **Create table** 다음 스크린샷과 유사한 결과 확인 하려면:
+1. 응용 프로그램을 실행 하 고 **테이블 만들기** 를 선택 하 여 다음 스크린샷에 유사한 결과를 확인 합니다.
   
     ![테이블 만들기](./media/vs-storage-aspnet-getting-started-tables/create-table-results.png)
 
@@ -203,7 +203,7 @@ Azure Table Storage를 사용하면 많은 양의 구조화된 데이터를 저�
     }
     ```
 
-1. **AddEntity** 메서드 내에서 스토리지 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 저장소 연결 문자열 및 저장소 계정 정보를 가져오려면 다음 코드를 사용합니다. ( *&lt;storage-account-name>* 을 액세스 중인 Azure Storage 계정의 이름으로 변경합니다.)
+1. **AddEntity** 메서드 내에서 스토리지 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 스토리지 연결 문자열 및 스토리지 계정 정보를 가져오려면 다음 코드를 사용합니다. ( *&lt;storage-account-name>* 을 액세스 중인 Azure Storage 계정의 이름으로 변경합니다.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -271,11 +271,11 @@ Azure Table Storage를 사용하면 많은 양의 구조화된 데이터를 저�
     <li>@Html.ActionLink("Add entity", "AddEntity", "Tables")</li>
     ```
 
-1. 응용 프로그램을 실행 하 고 선택 **엔터티 추가** 다음 스크린샷과 유사한 결과 확인 하려면:
+1. 응용 프로그램을 실행 하 고 **엔터티 추가** 를 선택 하 여 다음 스크린샷에 유사한 결과를 확인 합니다.
   
     ![엔터티 추가](./media/vs-storage-aspnet-getting-started-tables/add-entity-results.png)
 
-    [단일 엔터티 가져오기](#get-a-single-entity) 섹션의 단계를 수행하여 엔터티가 추가되었는지 확인할 수 있습니다. [Microsoft Azure Storage 탐색기](../vs-azure-tools-storage-manage-with-storage-explorer.md)를 사용하여 테이블에 대한 모든 엔터티를 볼 수도 있습니다.
+    [단일 엔터티 가져오기](#get-a-single-entity) 섹션의 단계를 수행하여 엔터티가 추가되었는지 확인할 수 있습니다. [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md)를 사용하여 테이블에 대한 모든 엔터티를 볼 수도 있습니다.
 
 ## <a name="add-a-batch-of-entities-to-a-table"></a>테이블에 엔터티를 일괄로 추가
 
@@ -298,7 +298,7 @@ Azure Table Storage를 사용하면 많은 양의 구조화된 데이터를 저�
     }
     ```
 
-1. **AddEntities** 메서드 내에서 스토리지 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 저장소 연결 문자열 및 저장소 계정 정보를 가져오려면 다음 코드를 사용합니다. ( *&lt;storage-account-name>* 을 액세스 중인 Azure Storage 계정의 이름으로 변경합니다.)
+1. **AddEntities** 메서드 내에서 스토리지 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 스토리지 연결 문자열 및 스토리지 계정 정보를 가져오려면 다음 코드를 사용합니다. ( *&lt;storage-account-name>* 을 액세스 중인 Azure Storage 계정의 이름으로 변경합니다.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -391,11 +391,11 @@ Azure Table Storage를 사용하면 많은 양의 구조화된 데이터를 저�
     <li>@Html.ActionLink("Add entities", "AddEntities", "Tables")</li>
     ```
 
-1. 응용 프로그램을 실행 하 고 선택 **엔터티 추가** 다음 스크린샷과 유사한 결과 확인 하려면:
+1. 응용 프로그램을 실행 하 고 **엔터티 추가** 를 선택 하 여 다음 스크린샷에 유사한 결과를 확인 합니다.
   
     ![엔터티 추가](./media/vs-storage-aspnet-getting-started-tables/add-entities-results.png)
 
-    [단일 엔터티 가져오기](#get-a-single-entity) 섹션의 단계를 수행하여 엔터티가 추가되었는지 확인할 수 있습니다. [Microsoft Azure Storage 탐색기](../vs-azure-tools-storage-manage-with-storage-explorer.md)를 사용하여 테이블에 대한 모든 엔터티를 볼 수도 있습니다.
+    [단일 엔터티 가져오기](#get-a-single-entity) 섹션의 단계를 수행하여 엔터티가 추가되었는지 확인할 수 있습니다. [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md)를 사용하여 테이블에 대한 모든 엔터티를 볼 수도 있습니다.
 
 ## <a name="get-a-single-entity"></a>단일 엔터티 가져오기
 
@@ -418,7 +418,7 @@ Azure Table Storage를 사용하면 많은 양의 구조화된 데이터를 저�
     }
     ```
 
-1. **GetSingle** 메서드 내에서 스토리지 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 저장소 연결 문자열 및 저장소 계정 정보를 가져오려면 다음 코드를 사용합니다. ( *&lt;storage-account-name>* 을 액세스 중인 Azure Storage 계정의 이름으로 변경합니다.)
+1. **GetSingle** 메서드 내에서 스토리지 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 스토리지 연결 문자열 및 스토리지 계정 정보를 가져오려면 다음 코드를 사용합니다. ( *&lt;storage-account-name>* 을 액세스 중인 Azure Storage 계정의 이름으로 변경합니다.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -493,7 +493,7 @@ Azure Table Storage를 사용하면 많은 양의 구조화된 데이터를 저�
     <li>@Html.ActionLink("Get single", "GetSingle", "Tables")</li>
     ```
 
-1. 응용 프로그램을 실행 하 고 선택 **단일 가져오기** 다음 스크린샷과 유사한 결과 확인 하려면:
+1. 응용 프로그램을 실행 하 고 **Single 가져오기** 를 선택 하 여 다음 스크린샷에 유사한 결과를 확인 합니다.
   
     ![단일 가져오기](./media/vs-storage-aspnet-getting-started-tables/get-single-results.png)
 
@@ -518,7 +518,7 @@ Azure Table Storage를 사용하면 많은 양의 구조화된 데이터를 저�
     }
     ```
 
-1. **GetPartition** 메서드 내에서 스토리지 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 저장소 연결 문자열 및 저장소 계정 정보를 가져오려면 다음 코드를 사용합니다. ( *&lt;storage-account-name>* 을 액세스 중인 Azure Storage 계정의 이름으로 변경합니다.)
+1. **GetPartition** 메서드 내에서 스토리지 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 스토리지 연결 문자열 및 스토리지 계정 정보를 가져오려면 다음 코드를 사용합니다. ( *&lt;storage-account-name>* 을 액세스 중인 Azure Storage 계정의 이름으로 변경합니다.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -537,7 +537,7 @@ Azure Table Storage를 사용하면 많은 양의 구조화된 데이터를 저�
     CloudTable table = tableClient.GetTableReference("TestTable");
     ```
 
-1. **TableQuery** 개체를 인스턴스화하고 **Where** 절에 쿼리를 지정합니다. 사용 하 여 합니다 **CustomerEntity** 클래스 및 데이터 섹션에 나와 [테이블에 엔터티를 일괄으로 추가](#add-a-batch-of-entities-to-a-table), 모든 엔터티에 대 한 테이블을 쿼리 하는 다음 코드 조각은 여기서는 **PartitionKey**  (고객의 마지막) 이름이 "Smith"의 값:
+1. **TableQuery** 개체를 인스턴스화하고 **Where** 절에 쿼리를 지정합니다. **Customerentity** 클래스 및 [테이블에 엔터티 일괄 처리 추가](#add-a-batch-of-entities-to-a-table)섹션에 제공 된 데이터를 사용 하 여 다음 코드 조각은 **PartitionKey** (고객의 last Name)의 값이 "Smith" 인 모든 엔터티에 대해 테이블을 쿼리 합니다.
 
     ```csharp
     TableQuery<CustomerEntity> query = 
@@ -603,7 +603,7 @@ Azure Table Storage를 사용하면 많은 양의 구조화된 데이터를 저�
     <li>@Html.ActionLink("Get partition", "GetPartition", "Tables")</li>
     ```
 
-1. 응용 프로그램을 실행 하 고 선택 **파티션 가져오기** 다음 스크린샷과 유사한 결과 확인 하려면:
+1. 응용 프로그램을 실행 하 고 **파티션 가져오기** 를 선택 하 여 다음 스크린샷에 유사한 결과를 확인 합니다.
   
     ![파티션 가져오기](./media/vs-storage-aspnet-getting-started-tables/get-partition-results.png)
 
@@ -628,7 +628,7 @@ Azure Table Storage를 사용하면 많은 양의 구조화된 데이터를 저�
     }
     ```
 
-1. **DeleteEntity** 메서드 내에서 스토리지 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 저장소 연결 문자열 및 저장소 계정 정보를 가져오려면 다음 코드를 사용합니다. ( *&lt;storage-account-name>* 을 액세스 중인 Azure Storage 계정의 이름으로 변경합니다.)
+1. **DeleteEntity** 메서드 내에서 스토리지 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 스토리지 연결 문자열 및 스토리지 계정 정보를 가져오려면 다음 코드를 사용합니다. ( *&lt;storage-account-name>* 을 액세스 중인 Azure Storage 계정의 이름으로 변경합니다.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -703,7 +703,7 @@ Azure Table Storage를 사용하면 많은 양의 구조화된 데이터를 저�
     <li>@Html.ActionLink("Delete entity", "DeleteEntity", "Tables")</li>
     ```
 
-1. 응용 프로그램을 실행 하 고 선택 **엔터티를 삭제** 다음 스크린샷과 유사한 결과 확인 하려면:
+1. 응용 프로그램을 실행 하 고 **엔터티 삭제** 를 선택 하 여 다음 스크린샷에 유사한 결과를 확인 합니다.
   
     ![단일 가져오기](./media/vs-storage-aspnet-getting-started-tables/delete-entity-results.png)
 

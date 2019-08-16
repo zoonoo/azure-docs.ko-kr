@@ -28,7 +28,7 @@
   items:
     - name: 용량 계획
       href: ../hdinsight-capacity-planning.md?toc=/azure/hdinsight/kafka/toc.json&bc=/azure/hdinsight/kafka/breadcrumb/toc.json
-    - name: 저장소 및 확장성
+    - name: 스토리지 및 확장성
       href: apache-kafka-scalability.md
     - name: 데이터 고가용성
       href: apache-kafka-high-availability.md
@@ -142,7 +142,7 @@
               href: ../hdinsight-cluster-availability.md?toc=/azure/hdinsight/kafka/toc.json&bc=/azure/hdinsight/kafka/breadcrumb/toc.json
         - name: HDInsight 클러스터에 대한 로그 관리
           href: ../hdinsight-log-management.md?toc=/azure/hdinsight/kafka/toc.json&bc=/azure/hdinsight/kafka/breadcrumb/toc.json
-        - name: 저장소 계정 추가
+        - name: 스토리지 계정 추가
           href: ../hdinsight-hadoop-add-storage.md?toc=/azure/hdinsight/kafka/toc.json&bc=/azure/hdinsight/kafka/breadcrumb/toc.json
         - name: Apache Hadoop 작업용 데이터 업로드
           href: ../hdinsight-upload-data.md?toc=/azure/hdinsight/kafka/toc.json&bc=/azure/hdinsight/kafka/breadcrumb/toc.json
@@ -200,6 +200,8 @@
       href: /azure/templates/microsoft.hdinsight/allversions
 - name: 리소스
   items:
+    - name: FAQ
+      href: kafka-faq.md
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=intelligence-analytics'
     - name: 포럼에서 도움말 보기

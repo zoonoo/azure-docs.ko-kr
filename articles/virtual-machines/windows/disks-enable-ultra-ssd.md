@@ -1,17 +1,17 @@
 ---
 title: Windows VM용 Ultra Disks - Azure Managed Disks | Microsoft Docs
-description: Azure VM용 울트라 SSD에 대해 알아봅니다.
+description: Azure Vm의 ultra disks에 대해 알아보기
 author: roygara
 ms.service: virtual-machines-windows
 ms.topic: conceptual
-ms.date: 05/10/2019
+ms.date: 08/15/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 26556a9cc84317f26c1c94b7ab2bc72c0722b35d
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 787f24389baff96c94c0bb6af415e083dfaa591c
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698738"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69510345"
 ---
 [!INCLUDE [virtual-machines-disks-ultra-ssd](../../../includes/virtual-machines-disks-getting-started-ultra-ssd.md)]

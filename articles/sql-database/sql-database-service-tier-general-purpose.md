@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 02/07/2019
-ms.openlocfilehash: 711552501825e5d34d3547ede8dc998065083c96
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2573adcb199ab32467493729842b6c47e3add64b
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566734"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515304"
 ---
 # <a name="general-purpose-service-tier---azure-sql-database"></a>범용 서비스 계층 - Azure SQL Database
 
@@ -48,7 +48,7 @@ Azure SQL Database는 인프라 오류의 경우에도 99.99%의 가용성을 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Managed Instance](sql-database-managed-instance-resource-limits.md#service-tier-characteristics)에서 범용/표준 계층의 리소스 특성 (코어 수, IO, 메모리), [vcore 모델](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes) 또는 [dtu 모델](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes)의 단일 데이터베이스 또는 [Vcore 모델](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes) 및 [dtu 모델](sql-database-dtu-resource-limits-elastic-pools.md#standard-elastic-pool-limits)의 탄력적 풀을 찾습니다.
+- [Managed Instance](sql-database-managed-instance-resource-limits.md#service-tier-characteristics)에서 범용/표준 계층의 리소스 특성 (코어 수, IO, 메모리), [vcore 모델](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-for-provisioned-compute) 또는 [dtu 모델](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes)의 단일 데이터베이스 또는 [Vcore 모델](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes) 및 [dtu 모델](sql-database-dtu-resource-limits-elastic-pools.md#standard-elastic-pool-limits)의 탄력적 풀을 찾습니다.
 - [중요 비즈니스용](sql-database-service-tier-business-critical.md) 및 [하이퍼스케일](sql-database-service-tier-hyperscale.md)에 대해 알아 봅니다.
 - [Service Fabric](../service-fabric/service-fabric-overview.md)에 대해 알아 봅니다.
 - 고가용성 및 재해 복구에 대한 자세한 옵션은 [비즈니스 연속성](sql-database-business-continuity.md)을 참조하세요.

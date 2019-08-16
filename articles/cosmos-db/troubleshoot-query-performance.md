@@ -8,12 +8,12 @@ ms.date: 07/10/2019
 ms.author: girobins
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: a713ed69dc9c35e16b1cc5d9ad9819d53e2e1efe
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: d0dd9a371c4912cae0e74b214c673c629fc1ff55
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986163"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515807"
 ---
 # <a name="troubleshoot-query-performance-for-azure-cosmos-db"></a>Azure Cosmos DB에 대 한 쿼리 성능 문제 해결
 이 문서에서는 Azure Cosmos DB SQL 쿼리 문제를 식별, 진단 및 해결 하는 방법을 설명 합니다. Azure Cosmos DB 쿼리에 대 한 최적의 성능을 얻으려면 아래 문제 해결 단계를 수행 합니다. 
@@ -24,11 +24,12 @@ ms.locfileid: "68986163"
 ## <a name="check-consistency-level"></a>일관성 수준 확인
 [일관성 수준은](consistency-levels.md) 성능 및 요금에 영향을 줄 수 있습니다. 일관성 수준이 지정 된 시나리오에 적합 한지 확인 합니다. 자세한 내용은 [일관성 수준 선택](consistency-levels-choosing.md)을 참조 하세요.
 
-## <a name="log-sql-query-in-storage-account"></a>저장소 계정에 Sql 쿼리 기록
-[진단 로그를 통해 SQL API 쿼리 로그를 통해](logging.md#turn-on-logging-in-the-azure-portal) 사용자가 선택한 저장소 계정에 난독 처리 된 쿼리를 기록할 수 있습니다. 이를 통해 진단 로그를 확인 하 고 더 많은 RUs를 사용 하 여 쿼리를 찾고 작업 id를 사용 하 여 QueryRuntimeStatistics와 일치 시킬 수 있습니다. 
+## <a name="log-the-executed-sql-query"></a>실행 된 SQL 쿼리 기록 
 
+실행 된 SQL 쿼리를 저장소 계정 또는 진단 로그 테이블에 기록할 수 있습니다. [진단 로그를 통해 SQL 쿼리 로그](logging.md#turn-on-logging-in-the-azure-portal) 를 사용 하 여 선택한 저장소 계정에 난독 처리 된 쿼리를 기록할 수 있습니다. 이를 통해 로그를 확인 하 고 더 높은 RUs를 사용 하는 쿼리를 찾을 수 있습니다. 나중에 작업 id를 사용 하 여 QueryRuntimeStatistics의 실제 쿼리를 일치 시킬 수 있습니다. 이 쿼리는 보안 목적 및 쿼리 매개 변수 이름에 대해 난독 처리 되며 where 절의 해당 값은 실제 이름 및 값과 다릅니다. 저장소 계정에 대 한 로깅을 사용 하 여 실행 된 쿼리의 장기 보존을 유지할 수 있습니다.  
 
 ## <a name="log-query-metrics"></a>로그 쿼리 메트릭
+
 느리거나 `QueryMetrics` 비용이 많이 드는 쿼리 문제를 해결 하려면를 사용 합니다. 
 
   * 응답 `FeedOptions.PopulateQueryMetrics = true` 에를 `QueryMetrics` 포함 하도록 설정 합니다.
@@ -116,7 +117,7 @@ ms.locfileid: "68986163"
   * 가능한 경우 파티션 키에서 필터를 사용하는 쿼리를 작성합니다.
   * 성능 쿼리를 얻기 위해 필터에서 위쪽/아래쪽 호출을 수행 하지 않습니다. 대신 삽입 시 값의 대/소문자를 표준화 합니다. 각 값에 대해 원하는 대/소문자를 사용 하 여 값을 삽입 하거나 원래 값과 원하는 대/소문자를 사용 하 여 값을 삽입 합니다. 
 
-    이는 아래와 같이 함수의 반환값을 데이터 프레임으로 바로 변환하는 데 사용할 수 있음을 나타냅니다.
+    예를 들어:
     
     ```sql
 

@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 06/27/2019
 ms.author: danlep
-ms.openlocfilehash: 6237b8056262abe1f8cea28bebd6b3bad97e0f7e
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: a4a1099d90b619be383d440067a692c51a2430ac
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967577"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69509064"
 ---
 # <a name="run-an-acr-task-on-a-defined-schedule"></a>정의 된 일정에 따라 ACR 작업 실행
 
@@ -48,9 +48,9 @@ Azure Cloud Shell 또는 Azure CLI의 로컬 설치를 사용 하 여이 문서�
 az acr task create \
   --name mytask \
   --registry myregistry \
-  --context /dev/null \
   --cmd hello-world \
-  --schedule "0 21 * * *"
+  --schedule "0 21 * * *" \
+  --context /dev/null
 ```
 
 [Az acr task show][az-acr-task-show] 명령을 실행 하 여 타이머 트리거가 구성 되어 있는지 확인 합니다. 기본적으로 기본 이미지 업데이트 트리거도 사용 하도록 설정 됩니다.
@@ -176,11 +176,11 @@ Cron 식에 사용 되는 표준 시간대는 UTC (협정 세계시)입니다. �
 
 |형식  |예제  |트리거될 때  |
 |---------|---------|---------|
-|특정 값 |<nobr>"5 * * * *"</nobr>|매시간 매 시간 5 분 지난 5 분|
-|모든 값(`*`)|<nobr>"* 5 * * *"</nobr>|5:00 UTC부터 1 시간 마다 (60 시간)|
-|범위(`-` 연산자)|<nobr>"0 1-3 * * *"</nobr>|하루에 3 번, 1:00, 2:00 및 3:00 UTC|
-|값 집합(`,` 연산자)|<nobr>"20,30,40 * * * *"</nobr>|시간당 3 번, 20 분, 30 분, 40 분을 지난 시간|
-|간격 값(`/` 연산자)|<nobr>"*/10 * * * *"</nobr>|시간당 6 번, 10 분, 20 분 등
+|특정 값 |<nobr>`"5 * * * *"`</nobr>|매시간 매 시간 5 분 지난 5 분|
+|모든 값(`*`)|<nobr>`"* 5 * * *"`</nobr>|5:00 UTC부터 1 시간 마다 (60 시간)|
+|범위(`-` 연산자)|<nobr>`"0 1-3 * * *"`</nobr>|하루에 3 번, 1:00, 2:00 및 3:00 UTC|
+|값 집합(`,` 연산자)|<nobr>`"20,30,40 * * * *"`</nobr>|시간당 3 번, 20 분, 30 분, 40 분을 지난 시간|
+|간격 값(`/` 연산자)|<nobr>`"*/10 * * * *"`</nobr>|시간당 6 번, 10 분, 20 분 등
 
 [!INCLUDE [functions-cron-expressions-months-days](../../includes/functions-cron-expressions-months-days.md)]
 
@@ -198,6 +198,8 @@ Cron 식에 사용 되는 표준 시간대는 UTC (협정 세계시)입니다. �
 
 
 ## <a name="next-steps"></a>다음 단계
+
+예약 된 작업을 사용 하 여 레지스트리에서 리포지토리를 정리 하는 예제는 [Azure container registry에서 자동으로 이미지 제거](container-registry-auto-purge.md)를 참조 하세요.
 
 소스 코드 커밋 또는 기본 이미지 업데이트에 의해 트리거되는 작업의 예를 보려면 [ACR 작업 자습서 시리즈](container-registry-tutorial-quick-task.md)를 확인 하세요.
 

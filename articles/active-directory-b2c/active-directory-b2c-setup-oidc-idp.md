@@ -1,5 +1,5 @@
 ---
-title: OpenID Connect로 등록 및 로그인 설정 - Azure Active Directory B2C | Microsoft Docs
+title: Openid connect Connect-Azure Active Directory B2C를 사용 하 여 등록 및 로그인 설정
 description: Azure Active Directory B2C를 사용하여 OpenID Connect를 통한 등록 및 로그인을 설정하는 방법을 설명합니다.
 services: active-directory-b2c
 author: mmacy
@@ -7,23 +7,19 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 08/06/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 774716aeb28ca5d9563f38272a59c8e675a11e4b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 720deb28ce124af23035337ac88cfb1d37fc7c53
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508385"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69509696"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-openid-connect-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 OpenID Connect를 통한 등록 및 로그인 설정
 
->[!NOTE]
-> 이 기능은 공개 미리 보기 상태입니다. 프로덕션 환경에서는 이 기능을 사용하지 마세요.
-
-
-[OpenID Connect](active-directory-b2c-reference-oidc.md)는 사용자를 안전하게 로그인하는 데 사용할 수 있는 OAuth 2.0을 기반으로 빌드된 인증 프로토콜입니다. 이 프로토콜을 사용하는 ID 공급자는 대부분 Azure AD B2C에서 지원됩니다. 이 문서에서는 사용자 지정 OpenID Connect ID 공급 기업을 사용자 흐름에 추가하는 방법을 설명합니다.
+[Openid connect Connect](active-directory-b2c-reference-oidc.md) 는 보안 사용자 로그인에 사용할 수 있는 OAuth 2.0 위에 구축 된 인증 프로토콜입니다. 이 프로토콜을 사용 하는 대부분의 id 공급자는 Azure AD B2C에서 지원 됩니다. 이 문서에서는 사용자 지정 OpenID Connect ID 공급 기업을 사용자 흐름에 추가하는 방법을 설명합니다.
 
 ## <a name="add-the-identity-provider"></a>ID 공급자 추가
 
@@ -31,7 +27,7 @@ ms.locfileid: "66508385"
 2. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 테넌트가 포함된 디렉터리를 선택합니다.
 3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 4. **ID 공급자**를 선택한 다음 **추가**를 클릭합니다.
-5. **ID 공급자 유형**에서 **OpenID Connect(미리 보기)** 를 선택합니다.
+5. **ID 공급자 유형**에서 **OpenID Connect**를 선택합니다.
 
 ## <a name="configure-the-identity-provider"></a>ID 공급자 구성
 

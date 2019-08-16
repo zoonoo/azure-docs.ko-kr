@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: ac3d1a55a707349873132befb25a38358b563138
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: bb54221dedc3bfd5ddc84098d5309d26abcfa305
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875569"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515570"
 ---
 # <a name="azure-security-center-detection-capabilities"></a>Azure Security Center 감지 기능
 이 문서에서는 Microsoft Azure 리소스(Windows 및 Linux 둘 다)를 대상으로 하는 활성 위협을 식별하도록 하고, 신속하게 응답하기 위한 인사이트를 제공하는 Azure Security Center의 고급 탐지 기능을 설명합니다.
@@ -83,7 +83,7 @@ Azure Security Center는 위협 상황에서 변경 내용을 지속적으로 �
 
 * [Azure Security Center 계획 및 작업 가이드](security-center-planning-and-operations-guide.md)
 * [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md)
-* [Azure Security Center에서 유형별 보안 경고](security-center-alerts-type.md)
+* [Azure Security Center의 보안 경고](security-center-alerts-overview.md)
 * [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md) — Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
 * [Azure Security Center를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md) — 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
 * [Azure Security Center FAQ](security-center-faq.md) - 서비스 사용에 관한 질문과 대답을 찾습니다.

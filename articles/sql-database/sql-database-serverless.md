@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 07/05/2019
-ms.openlocfilehash: 3b9a9f4ac1cf0722ab7d3838f0b0c4c12b47dc74
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 67e877609eec98e7100b34ab477dbab7c5577772
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566807"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515288"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>서버를 사용 하지 않는 Azure SQL Database (미리 보기)
 
@@ -254,7 +254,7 @@ PowerShell에서 인수를 `MinVcore` 사용 하 여 [AzSqlDatabase](https://doc
 
 응용 프로그램 패키지의 리소스 사용 및 서버를 사용 하지 않는 데이터베이스의 사용자 풀 모니터링에 대 한 메트릭은 다음 표에 나와 있습니다.
 
-|엔터티|메트릭|설명|단위|
+|엔터티|메트릭|Description|단위|
 |---|---|---|---|
 |앱 패키지|app_cpu_percent|앱에 허용되는 최대 vCore 수에 대한 앱에서 사용한 vCore 수의 백분율입니다.|백분율|
 |앱 패키지|app_cpu_billed|보고 기간 동안 앱에 대해 요금이 청구되는 컴퓨팅의 양입니다. 이 기간 동안에 대한 지불 금액은 이 메트릭과 vCore 단가를 곱한 값입니다. <br><br>이 메트릭의 값은 시간이 지남에 따라 사용된 최대 CPU와 사용된 초당 메모리를 집계하여 결정됩니다. 사용된 양이 최소 vCore 수 및 최소 메모리로 설정된 최소 프로비저닝된 양보다 적으면 최소 프로비저닝된 양에 대한 요금이 청구됩니다. 청구의 목적으로 CPU를 메모리와 비교하기 위해 메모리는 vCore당 메모리 양(GB 단위)을 3GB로 다시 조정하여 vCore 단위로 정규화됩니다.|vCore 시간(초)|
@@ -281,7 +281,7 @@ Get-AzSqlDatabase `
 
 ## <a name="resource-limits"></a>리소스 한계
 
-리소스 제한은 [서버리스 컴퓨팅 계층](sql-database-vCore-resource-limits-single-databases.md#serverless-compute-tier)을 참조하세요.
+리소스 제한의 경우 서버를 사용 하지 않는 [계산 계층](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute)을 참조 하세요.
 
 ## <a name="billing"></a>대금 청구
 
@@ -324,4 +324,4 @@ Get-AzSqlDatabase `
 ## <a name="next-steps"></a>다음 단계
 
 - 시작하려면 [빠른 시작: Azure Portal을 사용하여 Azure SQL Database에서 단일 데이터베이스 만들기](sql-database-single-database-get-started.md)를 참조하세요.
-- 리소스 제한은 [서버리스 컴퓨팅 계층 리소스 제한](sql-database-vCore-resource-limits-single-databases.md#serverless-compute-tier)을 참조하세요.
+- 리소스 제한은 [서버리스 컴퓨팅 계층 리소스 제한](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute)을 참조하세요.

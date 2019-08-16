@@ -14,25 +14,25 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2019
 ms.author: rogirdh
-ms.openlocfilehash: 18dbc60c1a29fbc26f4bbc73faa58aeafc66c32f
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 2cab129556dcd0407793512f41f91311804abd0f
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68880106"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69510206"
 ---
 # <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>Azure와 Oracle 클라우드 인프라 간의 직접 상호 관계 설정  
 
 [통합 다중 클라우드 환경](oracle-oci-overview.md) (미리 보기)을 만들기 위해 Microsoft와 Oracle은 [Express](../../../expressroute/expressroute-introduction.md) 경로 및 [FASTCONNECT](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnectoverview.htm)를 통해 Azure와 OCI (oracle cloud Infrastructure) 간에 직접 연결을 제공 합니다. Express 경로 및 FastConnect 연결을 통해 고객은 두 클라우드 간에 짧은 대기 시간, 높은 처리량, 개인 직접 연결을 경험할 수 있습니다.
 
 > [!IMPORTANT]
-> Microsoft Azure와 OCI 간의 연결은 미리 보기 단계에 있습니다. Azure와 OCI 사이에 짧은 대기 시간 연결을 사용 하려면 먼저 Azure 구독을이 기능에 대해 허용 목록 해야 합니다. 구독 ID를 사용 하 여에 전자 메일을 oracleconnect@microsoft.com 전송 하 여 미리 보기에 등록 해야 합니다. 구독이 등록되면 이메일 회신을 받게 됩니다. 확인 이메일을 받을 때까지는 기능을 사용할 수 없습니다. 이 미리 보기를 사용 하도록 설정 하려면 Microsoft 담당자에 게 문의할 수도 있습니다. 이 미리 보기는 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에 사용할 수 없습니다. 특정 기능은 지원되지 않을 수 있거나, 기능이 제한될 수 있거나 모든 Azure 위치에서 사용하지는 못할 수 있습니다. 자세한 내용은 Microsoft Azure 미리 보기에 대 한 [추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 을 참조 하세요.
+> Microsoft Azure와 OCI 간의 연결은 미리 보기 단계에 있습니다. Azure와 OCI 간에 짧은 대기 시간 연결을 사용 하도록 설정 하려면 먼저 Azure 구독이이 기능에 대해 목록으로 표시 되어야 합니다. 이 간단한 [설문 조사 양식을](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyzVVsi364tClw522rL9tkpUMVFGVVFWRlhMNUlRQTVWSTEzT0dXMlRUTyQlQCN0PWcu)완료 하 여 미리 보기에 등록 해야 합니다. 구독이 등록되면 이메일 회신을 받게 됩니다. 확인 이메일을 받을 때까지는 기능을 사용할 수 없습니다. 이 미리 보기를 사용 하도록 설정 하려면 Microsoft 담당자에 게 문의할 수도 있습니다. 미리 보기 기능에 대 한 액세스는 가용성 및 Microsoft에 의해 제한 될 수 있습니다. 설문 조사 완료는 액세스를 보장 하지 않습니다. 이 미리 보기는 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에 사용할 수 없습니다. 특정 기능은 지원되지 않을 수 있거나, 기능이 제한될 수 있거나 모든 Azure 위치에서 사용하지는 못할 수 있습니다. 자세한 내용은 Microsoft Azure 미리 보기에 대 한 [추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 을 참조 하세요. 이 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다.
 
 다음 이미지는 상호 교차 수준 개요를 보여 줍니다.
 
 ![클라우드 간 네트워크 연결](media/configure-azure-oci-networking/azure-oci-connect.png)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 * Azure와 OCI 간에 연결을 설정 하려면 활성 Azure 구독 및 활성 OCI 테 넌 트가 있어야 합니다.
 

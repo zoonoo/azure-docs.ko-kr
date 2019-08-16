@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 21fe92bf4a33dc44545f1bd54c718db6c0a38532
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: a334b19fe4dd819a6e4c391e49d934bf5955a567
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68843269"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69516049"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Azure IaaS VM 디스크와 관리 및 관리되지 않는 프리미엄 디스크에 대한 질문과 대답
 
@@ -23,7 +23,7 @@ ms.locfileid: "68843269"
 
 **Azure Managed Disks란?**
 
-Managed Disks는 저장소 계정 관리를 처리하여 Azure IaaS VM을 위한 디스크 관리를 간소화하는 기능입니다. 자세한 내용은 [Managed Disks 개요](../articles/virtual-machines/windows/managed-disks-overview.md)를 참조하세요.
+Managed Disks는 스토리지 계정 관리를 처리하여 Azure IaaS VM을 위한 디스크 관리를 간소화하는 기능입니다. 자세한 내용은 [Managed Disks 개요](../articles/virtual-machines/windows/managed-disks-overview.md)를 참조하세요.
 
 **80GB인 기존 VHD에서 표준 Managed Disk를 만들 경우 비용은 얼마나 드나요?**
 
@@ -41,9 +41,9 @@ Managed Disks는 저장소 계정 관리를 처리하여 Azure IaaS VM을 위한
 
 프리미엄 관리 디스크의 가격은 관리되지 않는 프리미엄 디스크와 같습니다.
 
-**내 Managed Disks의 저장소 계정 유형(표준 또는 프리미엄)을 내가 변경할 수 있나요?**
+**내 Managed Disks의 스토리지 계정 유형(표준 또는 프리미엄)을 내가 변경할 수 있나요?**
 
-예. Azure Portal, PowerShell 또는 Azure CLI를 사용하여 Managed Disks의 저장소 계정 형식을 변경할 수 있습니다.
+예. Azure Portal, PowerShell 또는 Azure CLI를 사용하여 Managed Disks의 스토리지 계정 형식을 변경할 수 있습니다.
 
 **Azure Storage 계정에서 VHD 파일을 사용하여 다른 구독에 Managed Disk를 만들 수 있나요?**
 
@@ -55,7 +55,7 @@ Managed Disks는 저장소 계정 관리를 처리하여 Azure IaaS VM을 위한
 
 **고객이 Managed Disks를 사용하는 경우 규모 제한이 있나요?**
 
-Managed Disks는 저장소 계정과 관련된 한도를 없앱니다. 그러나 최대 한도는 하나의 구독에 대해 지역당 및 디스크 형식당 50,000개의 관리 디스크입니다.
+Managed Disks는 스토리지 계정과 관련된 한도를 없앱니다. 그러나 최대 한도는 하나의 구독에 대해 지역당 및 디스크 형식당 50,000개의 관리 디스크입니다.
 
 **관리 디스크의 증분 스냅샷을 가져올 수 있나요?**
 
@@ -77,7 +77,7 @@ Managed Disks는 저장소 계정과 관련된 한도를 없앱니다. 그러나
 
 Managed Disks를 사용하는 가용성 집합이 위치한 지역에 따라 지원되는 장애 도메인 수는 2개 또는 3개입니다.
 
-**진단을 위한 표준 저장소 계정은 어떤 방식으로 설정되나요?**
+**진단을 위한 표준 스토리지 계정은 어떤 방식으로 설정되나요?**
 
 VM 진단을 위한 프라이빗 스토리지 계정을 설정할 수 있습니다.
 
@@ -109,9 +109,9 @@ Managed Disks에서는 세 가지 주요 기본 역할을 지원합니다.
 
 예.
 
-**로컬 중복 저장소, 지역 중복 저장소 및 영역 중복 저장소 Managed Disks를 만들 수 있나요?**
+**로컬 중복 스토리지, 지역 중복 스토리지 및 영역 중복 스토리지 Managed Disks를 만들 수 있나요?**
 
-Azure Managed Disks에서는 현재 로컬 중복 저장소 Managed Disks만 지원합니다.
+Azure Managed Disks에서는 현재 로컬 중복 스토리지 Managed Disks만 지원합니다.
 
 **Managed Disks를 축소하거나 크기를 줄일 수 있나요?**
 
@@ -143,12 +143,53 @@ GPT 분할은 OS 디스크가 아닌 데이터 디스크에서만 사용할 수 
 
 **스냅숏을 지 원하는 디스크 유형은 무엇입니까?**
 
-프리미엄 SSD, 표준 SSD 및 표준 HDD 지원 스냅숏이 있습니다. 이러한 세 가지 디스크 유형에 대해 스냅숏은 모든 디스크 크기 (최대 32 TiB 크기의 디스크 포함)에 대해 지원 됩니다. Ultra Ssd는 스냅숏을 지원 하지 않습니다.
+프리미엄 SSD, 표준 SSD 및 표준 HDD 지원 스냅숏이 있습니다. 이러한 세 가지 디스크 유형에 대해 스냅숏은 모든 디스크 크기 (최대 32 TiB 크기의 디스크 포함)에 대해 지원 됩니다. 울트라 디스크는 스냅숏을 지원 하지 않습니다.
+
+## <a name="ultra-disks"></a>Ultra disks
+
+**현재 어떤 지역에서 ultra disks를 지원 하나요?**
+- 미국 동부 2
+- 동남 아시아
+- 유럽 북부
+
+**현재 어떤 VM 시리즈에서 ultra disks를 지원 하나요?**
+- ESv3
+- DSv3
+
+**Ultra disk 처리량을로 설정 해야 하는 사항은 무엇 인가요?**
+디스크 처리량을로 설정 하는 것이 확실 하지 않은 경우에는 IO 크기를 16 KiB 가정 하 고 응용 프로그램을 모니터링 하는 것에서 성능을 조정 하 여 시작 하는 것이 좋습니다. 수식은 다음과 같습니다. MBps의 처리량 = IOPS * 16/1000.
+
+**내 디스크를 4만 IOPS로 구성 했지만 12800 IOPS만 표시 됩니다. 디스크의 성능이 표시 되지 않는 이유는 무엇 인가요?**
+디스크 제한 뿐만 아니라 VM 수준에서 적용 되는 IO 제한도 있습니다. 사용 중인 VM 크기가 디스크에 구성 된 수준을 지원할 수 있는지 확인 하세요. VM에서 적용 하는 IO 제한에 대 한 자세한 내용은 [Azure에서 Windows 가상 머신에 대 한 크기](../articles/virtual-machines/windows/sizes.md)를 참조 하세요.
+
+**Ultra disk에서 캐싱 수준을 사용할 수 있나요?**
+아니요, ultra disks는 다른 디스크 유형에 서 지원 되는 다른 캐싱 방법을 지원 하지 않습니다. 디스크 캐싱을 None으로 설정 합니다.
+
+**기존 VM에 ultra disk를 연결할 수 있나요?**
+아마도 VM은 Ultra disks를 지 원하는 지역 및 가용성 영역 쌍에 있어야 합니다. 자세한 내용은 [ultra disks 시작](../articles/virtual-machines/windows/disks-enable-ultra-ssd.md) 을 참조 하세요.
+
+**내 VM에 대 한 OS 디스크로 울트라 디스크를 사용할 수 있나요?**
+아니요. ultra Disks는 데이터 디스크로만 지원 되며 4K 기본 디스크로만 지원 됩니다.
+
+**기존 디스크를 울트라 디스크로 변환할 수 있나요?**
+아니요, 하지만 기존 디스크에서 ultra 디스크로 날짜를 마이그레이션할 수 있습니다. 기존 디스크를 울트라 디스크로 마이그레이션하려면 두 디스크를 동일한 VM에 연결 하 고 디스크의 데이터를 한 디스크에서 다른 디스크로 복사 하거나 데이터 마이그레이션을 위한 타사 솔루션을 활용 합니다.
+
+**울트라 디스크에 대 한 스냅숏을 만들 수 있나요?**
+아니요, 스냅숏을 아직 사용할 수 없습니다.
+
+**울트라 디스크에 사용할 수 Azure Backup 있나요?**
+아니요, Azure Backup 지원은 아직 사용할 수 없습니다.
+
+**가용성 집합에서 실행 되는 VM에 ultra disk를 연결할 수 있나요?**
+아니요. 아직 지원 되지 않습니다.
+
+**Ultra disks를 사용 하는 Vm에 대해 Azure Site Recovery (ASR)를 사용 하도록 설정할 수 있나요?**
+아니요, ASR은 아직 ultra disks에 대해 지원 되지 않습니다.
 
 ## <a name="standard-ssd-disks"></a>표준 SSD 디스크
 
 **Azure 표준 SSD 디스크란?**
-표준 SSD 디스크는 반도체 미디어에서 지원되며 더 낮은 IOPS 수준에서 일관된 성능을 필요로 하는 워크로드에 대해 비용 효율적인 저장소로 최적화된 표준 디스크입니다.
+표준 SSD 디스크는 반도체 미디어에서 지원되며 더 낮은 IOPS 수준에서 일관된 성능을 필요로 하는 워크로드에 대해 비용 효율적인 스토리지로 최적화된 표준 디스크입니다.
 
 <a id="standard-ssds-azure-regions"></a>**현재 표준 SSD 디스크가 지원되는 지역은 어디입니까?**
 이제 모든 Azure 지역에서 표준 SSD 디스크를 지원합니다.
@@ -179,7 +220,7 @@ Azure Resource Manager 템플릿, SDK, PowerShell 또는 CLI를 사용 하 여 �
 템플릿을 사용하여 표준 SSD 디스크를 만드는 방법에 대한 전체 템플릿 예제를 보려면 [표준 SSD 데이터 디스크를 사용하여 Windows 이미지에서 VM 만들기](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/)를 참조하세요.
 
 **기존 디스크를 표준 SSD로 변환할 수 있나요?**
-예, 할 수 있습니다. Managed Disks로 변환하는 방법에 대한 일반 지침을 보려면 [Azure 관리 디스크 저장소를 표준에서 프리미엄으로, 또 그 반대로 변환](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage)을 참조하세요. 또한 다음 값을 사용하여 디스크 유형을 표준 SSD로 업데이트하세요.
+예, 할 수 있습니다. Managed Disks로 변환하는 방법에 대한 일반 지침을 보려면 [Azure 관리 디스크 스토리지를 표준에서 프리미엄으로, 또 그 반대로 변환](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage)을 참조하세요. 또한 다음 값을 사용하여 디스크 유형을 표준 SSD로 업데이트하세요.
 -AccountType StandardSSD_LRS
 
 **HDD 대신 표준 SSD 디스크를 사용할 경우의 이점은 무엇입니까?**
@@ -225,7 +266,7 @@ Azure Resource Manager 템플릿, SDK, PowerShell 또는 CLI를 사용 하 여 �
 
 아니요. Managed Disks를 사용 하는 Vm에 대해 Azure와 Azure 간 보호를 Azure Site Recovery 합니다.
 
-**Managed Disks에 이전에 암호화된 저장소 계정에 있는 관리되지 않는 디스크가 있는 VM을 마이그레이션할 수 있나요?**
+**Managed Disks에 이전에 암호화된 스토리지 계정에 있는 관리되지 않는 디스크가 있는 VM을 마이그레이션할 수 있나요?**
 
 예
 
@@ -262,13 +303,13 @@ Azure Portal, Azure CLI 및 PowerShell에서 Managed Disk를 만든 시간을 �
 
 예. 2017년 6월 9일 이후에 만든 모든 관리되는 스냅샷 및 이미지는 자동으로 암호화됩니다. 
 
-**Managed Disks에 이전에 암호화된 저장소 계정에 있는 관리되지 않는 디스크가 있는 VM을 변환할 수 있나요?**
+**Managed Disks에 이전에 암호화된 스토리지 계정에 있는 관리되지 않는 디스크가 있는 VM을 변환할 수 있나요?**
 
 예
 
 **Managed Disk 또는 스냅샷에서 내보낸 VHD도 암호화되나요?**
 
-아니요. 하지만 암호화된 Managed Disk 또는 스냅샷의 암호화된 저장소 계정에 VHD를 내보낼 경우 암호화됩니다. 
+아니요. 하지만 암호화된 Managed Disk 또는 스냅샷의 암호화된 스토리지 계정에 VHD를 내보낼 경우 암호화됩니다. 
 
 ## <a name="premium-disks-managed-and-unmanaged"></a>프리미엄 디스크: 관리형 및 비관리형
 
@@ -294,7 +335,7 @@ DS 시리즈의 캐시 및 로컬 SSD에 대한 결합 제한은 코어당 4,000
 
 **Managed Disks VM에 로컬 SSD가 지원되나요?**
 
-로컬 SSD는 Managed Disks VM에 포함되어 있는 임시 저장소입니다. 이 임시 저장소에 대한 추가 비용은 없습니다. 이 로컬 SSD가 Azure Blob Storage에 보존되지 않기 때문에 애플리케이션 데이터를 저장하는 데 사용하지 않는 것이 좋습니다.
+로컬 SSD는 Managed Disks VM에 포함되어 있는 임시 스토리지입니다. 이 임시 스토리지에 대한 추가 비용은 없습니다. 이 로컬 SSD가 Azure Blob Storage에 보존되지 않기 때문에 애플리케이션 데이터를 저장하는 데 사용하지 않는 것이 좋습니다.
 
 **프리미엄 디스크에서 TRIM의 사용에 대한 영향이 있나요?**
 

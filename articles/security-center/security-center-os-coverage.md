@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/03/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 7cd1d451b49faf2f8e3ad38f4ff780256ef2dc5d
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 9a11af7e2875c9af5cf4b08d459bc67b55dbdcf3
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883594"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515543"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Azure Security Center에서 지원하는 기능 및 플랫폼
 
@@ -165,6 +165,6 @@ ms.locfileid: "68883594"
 ## <a name="next-steps"></a>다음 단계
 
 - [디자인 고려 사항을 계획하고 이해하여 Azure Security Center를 채택](security-center-planning-and-operations-guide.md)하는 방법을 알아봅니다.
-- [Security Center에서 가상 머신 동작 분석 및 크래시 덤프 메모리 분석](security-center-alerts-type.md#virtual-machine-behavioral-analysis)에 대해 자세히 알아봅니다.
+- [Azure Security Center에서 vm & 서버에 대 한 위협 검색](security-center-alerts-iaas.md)에 대해 자세히 알아보세요.
 - [Azure Security Center 사용에 관한 질문과 대답](security-center-faq.md)을 찾아봅니다.
 - [Azure 보안 및 규정 준수에 관한 블로그 게시물](https://blogs.msdn.com/b/azuresecurity/)을 찾아봅니다.

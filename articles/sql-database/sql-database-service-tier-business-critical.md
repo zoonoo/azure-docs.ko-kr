@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 12/04/2018
-ms.openlocfilehash: 208224e10c3acfb17bc5fd89d2d66152943811dc
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 48cde2f96083779bdeb13ba5f39b68c18b395045
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566757"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515369"
 ---
 # <a name="business-critical-tier---azure-sql-database"></a>중요 비즈니스용 계층 - Azure SQL Database
 
@@ -38,7 +38,7 @@ Azure는 사용자의 가동 중단 시간을 최소화하면서 운영 체제, 
 
 ![데이터베이스 엔진 노드의 클러스터](media/sql-database-managed-instance/business-critical-service-tier.png)
 
-SQL 데이터베이스 엔진 프로세스와 기본 mdf/ldf 파일이 SSD 저장소가 로컬에 연결되어 있는 동일한 노드에 배치되기 때문에 워크로드에 대한 대기 시간이 짧습니다. SQL Server [Always On 가용성 그룹](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)과 유사한 기술을 사용하여 고가용성이 구현됩니다. 모든 데이터베이스는 고객 워크로드에 액세스할 수 있는 주 데이터베이스 하나와 데이터 복사본을 포함하는 보조 프로세스 세 개가 있는 데이터베이스 노드의 클러스터입니다. 주 노드는 어떤 이유로든 주 노드의 작동이 중단되는 경우 보조 복제본의 데이터를 사용할 수 있도록 하기 위해 변경 내용을 보조 노드로 지속적으로 푸시합니다 장애 조치(failover)는 SQL Server 데이터베이스 엔진에 의해 처리됩니다. 보조 복제본 하나가 주 노드가 되고 클러스터에 충분한 노드를 보장하기 위해 새로운 보조 복제본이 만들어집니다. 워크로드는 새로운 주 노드에 자동으로 리디렉션됩니다.
+SQL 데이터베이스 엔진 프로세스와 기본 mdf/ldf 파일이 SSD 스토리지가 로컬에 연결되어 있는 동일한 노드에 배치되기 때문에 워크로드에 대한 대기 시간이 짧습니다. SQL Server [Always On 가용성 그룹](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)과 유사한 기술을 사용하여 고가용성이 구현됩니다. 모든 데이터베이스는 고객 워크로드에 액세스할 수 있는 주 데이터베이스 하나와 데이터 복사본을 포함하는 보조 프로세스 세 개가 있는 데이터베이스 노드의 클러스터입니다. 주 노드는 어떤 이유로든 주 노드의 작동이 중단되는 경우 보조 복제본의 데이터를 사용할 수 있도록 하기 위해 변경 내용을 보조 노드로 지속적으로 푸시합니다 장애 조치(failover)는 SQL Server 데이터베이스 엔진에 의해 처리됩니다. 보조 복제본 하나가 주 노드가 되고 클러스터에 충분한 노드를 보장하기 위해 새로운 보조 복제본이 만들어집니다. 워크로드는 새로운 주 노드에 자동으로 리디렉션됩니다.
 
 또한 중요 비즈니스용 클러스터에는 기본 워크로드의 성능에 영향을 주면 안 되는 읽기 전용 쿼리(예: 보고서)를 실행하는 데 사용될 수 있는 기본 읽기 전용 노드를 무료로 제공하는 [읽기 확장](sql-database-read-scale-out.md) 기능이 기본으로 제공됩니다.
 
@@ -48,7 +48,7 @@ SQL 데이터베이스 엔진 프로세스와 기본 mdf/ldf 파일이 SSD 저�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Managed Instance](sql-database-managed-instance-resource-limits.md#service-tier-characteristics)에서 중요 비즈니스용 계층의 리소스 특성 (코어 수, IO, 메모리), [vcore 모델](sql-database-vcore-resource-limits-single-databases.md#business-critical-service-tier-for-provisioned-compute-tier) 또는 [dtu 모델](sql-database-dtu-resource-limits-single-databases.md#premium-service-tier)의 단일 데이터베이스 또는 [Vcore 모델](sql-database-vcore-resource-limits-elastic-pools.md#business-critical-service-tier-storage-sizes-and-compute-sizes) 및 [dtu 모델](sql-database-dtu-resource-limits-elastic-pools.md#premium-elastic-pool-limits)의 탄력적 풀을 찾습니다.
+- [Managed Instance](sql-database-managed-instance-resource-limits.md#service-tier-characteristics)에서 중요 비즈니스용 계층의 리소스 특성 (코어 수, IO, 메모리), [vcore 모델](sql-database-vcore-resource-limits-single-databases.md#business-critical-service-tier-for-provisioned-compute) 또는 [dtu 모델](sql-database-dtu-resource-limits-single-databases.md#premium-service-tier)의 단일 데이터베이스 또는 [Vcore 모델](sql-database-vcore-resource-limits-elastic-pools.md#business-critical-service-tier-storage-sizes-and-compute-sizes) 및 [dtu 모델](sql-database-dtu-resource-limits-elastic-pools.md#premium-elastic-pool-limits)의 탄력적 풀을 찾습니다.
 - [범용](sql-database-service-tier-general-purpose.md) 및 [하이퍼스케일](sql-database-service-tier-hyperscale.md) 계층에 대해 알아봅니다.
 - [Service Fabric](../service-fabric/service-fabric-overview.md)에 대해 알아봅니다.
 - 고가용성 및 재해 복구에 대한 자세한 옵션은 [비즈니스 연속성](sql-database-business-continuity.md)을 참조하세요.

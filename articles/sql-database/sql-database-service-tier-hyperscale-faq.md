@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/06/2019
-ms.openlocfilehash: 94894126be98f0d3d4d404d97d0a4a39fff2e665
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 951d5bb10fbeeac090a1edb510b7214855477eac
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847403"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515360"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Azure SQL 하이퍼스케일 데이터베이스에 대한 FAQ
 
@@ -48,13 +48,13 @@ VCore 기반 서비스 계층은 기본적으로 가용성, 저장소 유형 및
 | **적합한 대상** |모두|  대부분의 비즈니스 워크로드. 예산 중심의 균형 잡힌 컴퓨팅 및 스토리지 옵션을 제공합니다. | 대용량 데이터 요구 사항 및 유동적인 스토리지 크기 자동 조정 및 컴퓨팅 규모 조정 기능이 있는 데이터 애플리케이션. | 트랜잭션 속도가 높고 지연 시간이 적은 OLTP 애플리케이션. 다수의 격리된 복제본을 사용하여 장애에 대해 최고의 복원력을 제공합니다.|
 |  **리소스 종류** ||단일 데이터베이스/탄력적 풀/관리되는 인스턴스 | 단일 데이터베이스 | 단일 데이터베이스/탄력적 풀/관리되는 인스턴스 |
 | **컴퓨팅 크기**|단일 데이터베이스/탄력적 풀* | vCore 1~80개 | vCore 1~80개* | vCore 1~80개 |
-| |Managed Instance | vCore 8, 16, 24, 32, 40, 64, 80개 | N/A | vCore 8, 16, 24, 32, 40, 64, 80개 |
-| **저장소 유형** | 모두 |프리미엄 원격 저장소(인스턴스별) | 로컬 SSD 캐시를 사용한 분리형 저장소(인스턴스별) | 초고속 로컬 SSD 저장소(인스턴스별) |
-| **저장소 크기** | 단일 데이터베이스/탄력적 풀 | 5GB~4TB | 최대 100TB | 5GB~4TB |
+| |Managed Instance | vCore 8, 16, 24, 32, 40, 64, 80개 | 해당 사항 없음 | vCore 8, 16, 24, 32, 40, 64, 80개 |
+| **저장소 유형** | 모두 |프리미엄 원격 스토리지(인스턴스별) | 로컬 SSD 캐시를 사용한 분리형 스토리지(인스턴스별) | 초고속 로컬 SSD 스토리지(인스턴스별) |
+| **스토리지 크기** | 단일 데이터베이스/탄력적 풀 | 5GB~4TB | 최대 100TB | 5GB~4TB |
 | | Managed Instance  | 32GB~8TB | 해당 사항 없음 | 32GB~4TB |
 | **IO 처리량** | 단일 데이터베이스** | vCore당 500 IOPS(최대 7,000 IOPS) | Hyperscale은 여러 수준에서 캐싱을 사용 하는 다중 계층 아키텍처입니다. 유효 IOPs는 워크 로드에 따라 달라 집니다. | 5000 IOPS(최대 200,000 IOPS)|
-| | Managed Instance | 파일의 크기에 따라 다름 | 해당 사항 없음 | Managed Instance: 파일의 크기에 따라 다름|
-|**가용성**|모두|복제본 1개, 읽기 확장 없음, 로컬 캐시 없음 | 복제본 여러 개, 읽기 확장 최대 15, 부분 로컬 캐시 | 복제본 3개, 읽기 확장 1개, 영역 중복 HA, 전체 로컬 캐시 |
+| | Managed Instance | 파일의 크기에 따라 다름 | N/A | Managed Instance: 파일의 크기에 따라 다름|
+|**Availability**|모두|복제본 1개, 읽기 확장 없음, 로컬 캐시 없음 | 복제본 여러 개, 읽기 확장 최대 15, 부분 로컬 캐시 | 복제본 3개, 읽기 확장 1개, 영역 중복 HA, 전체 로컬 캐시 |
 |**백업**|모두|RA-GRS, 7-35일(기본값: 7일)| RA-GRS, 7 일, 상수 시간 지정 시간 복구 (PITR) | RA-GRS, 7-35일(기본값: 7일) |
 
 \* 하이퍼스케일 서비스 계층에는 탄력적 풀이 지원되지 않습니다.
@@ -88,7 +88,7 @@ SQL Database 하이퍼스케일은 워크로드 요구 사항에 따라 신속�
 
 - **강화/축소**
 
-  하이퍼스케일을 사용하면 CPU, 메모리 등의 리소스 측면에서 기본 컴퓨팅 규모를 강화한 다음, 일정 시간 내에 축소할 수 있습니다. 저장소가 공유되기 때문에 강화와 축소는 데이터 작업의 크기가 아닙니다.  
+  하이퍼스케일을 사용하면 CPU, 메모리 등의 리소스 측면에서 기본 컴퓨팅 규모를 강화한 다음, 일정 시간 내에 축소할 수 있습니다. 스토리지가 공유되기 때문에 강화와 축소는 데이터 작업의 크기가 아닙니다.  
 - **규모 감축/확장**
 
   하이퍼스케일을 사용하면 읽기 요청을 처리하는 데 사용할 수 있는 추가 컴퓨팅 노드를 하나 이상 프로비저닝할 수 있습니다. 즉, 추가 컴퓨팅 노드를 읽기 전용 노드로 사용하여 기본 컴퓨팅의 읽기 워크로드를 오프로드할 수 있습니다. 이러한 노드는 읽기 전용 뿐 아니라 주 복제본에서 장애 조치 (failover) 시에도 핫 대기 역할을 수행 합니다.
@@ -131,7 +131,7 @@ PDW(병렬 데이터 웨어하우스), Teradata 또는 기타 MPP(Massively Para
 
 ### <a name="can-i-provision-a-compute-with-extra-ram-for-my-memory-intensive-workload"></a>메모리 사용량이 많은 워크로드를 위해 컴퓨팅에 추가 RAM을 프로비전할 수 있나요?
 
-아니요. RAM을 더 확보하려면 더 큰 컴퓨팅 크기로 업그레이드해야 합니다. 자세한 내용은 [하이퍼스케일 스토리지 및 컴퓨팅 크기](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier)를 참조하세요.
+아니요. RAM을 더 확보하려면 더 큰 컴퓨팅 크기로 업그레이드해야 합니다. 자세한 내용은 [하이퍼스케일 스토리지 및 컴퓨팅 크기](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-for-provisioned-compute)를 참조하세요.
 
 ### <a name="can-i-provision-multiple-compute-nodes-of-different-sizes"></a>크기가 다른 컴퓨팅 노드를 여러 개 프로비저닝할 수 있나요?
 
@@ -149,7 +149,7 @@ Hyperscale 데이터베이스에서 복원 력은 저장소 수준에서 제공 
 
 고가용성이 필요한 중용 업무용 앱의 경우 기본 컴퓨팅 노드(기본값)를 포함하여 최소 2개의 컴퓨팅 노드를 프로비저닝해야 합니다. 이렇게 하면 장애 조치(failover)가 발생할 경우 상시 대기가 가능합니다.
 
-## <a name="data-size-and-storage-questions"></a>데이터 크기 및 저장소 질문
+## <a name="data-size-and-storage-questions"></a>데이터 크기 및 스토리지 질문
 
 ### <a name="what-is-the-max-db-size-supported-with-sql-database-hyperscale"></a>SQL Database 하이퍼스케일에 지원되는 최대 DB 크기는 얼마인가요?
 
@@ -161,7 +161,7 @@ Hyperscale 데이터베이스에서 복원 력은 저장소 수준에서 제공 
 
 ### <a name="does-my-temp-db-scale-as-my-database-grows"></a>데이터베이스가 커지면 임시 DB 규모가 커지나요?
 
-`tempdb` 데이터베이스는 로컬 SSD 스토리지에 위치하며 사용자가 프로비전한 컴퓨팅 크기를 기반으로 구성됩니다. `tempdb`는 최대 성능 이점을 제공하도록 최적화되고 배치됩니다. `tempdb` 크기는 구성할 수 없으며 저장소 하위 시스템에 의해 관리됩니다.
+`tempdb` 데이터베이스는 로컬 SSD 스토리지에 위치하며 사용자가 프로비전한 컴퓨팅 크기를 기반으로 구성됩니다. `tempdb`는 최대 성능 이점을 제공하도록 최적화되고 배치됩니다. `tempdb` 크기는 구성할 수 없으며 스토리지 하위 시스템에 의해 관리됩니다.
 
 ### <a name="does-my-database-size-automatically-grow-or-do-i-have-to-manage-the-size-of-the-data-files"></a>데이터베이스 크기가 자동으로 커지나요? 아니면 데이터 파일의 크기를 관리해야 하나요?
 
@@ -272,7 +272,7 @@ RPO는 0분입니다. RTO 목표는 데이터베이스 크기에 관계없이 10
 
 ### <a name="do-backups-of-large-databases-affect-compute-performance-on-my-primary"></a>큰 데이터베이스를 백업하면 주 노드의 컴퓨팅 성능에 영향을 주나요?
 
-아니요. 백업은 저장소 하위 시스템에 의해 관리되며 파일 스냅샷이 활용됩니다. 주 노드의 사용자 워크로드에 영향을 주지 않습니다.
+아니요. 백업은 스토리지 하위 시스템에 의해 관리되며 파일 스냅샷이 활용됩니다. 주 노드의 사용자 워크로드에 영향을 주지 않습니다.
 
 ### <a name="can-i-perform-geo-restore-with-a-sql-database-hyperscale-database"></a>SQL Database 하이퍼스케일 데이터베이스로 지역 복원을 수행할 수 있나요?
 
@@ -288,7 +288,7 @@ RPO는 0분입니다. RTO 목표는 데이터베이스 크기에 관계없이 10
 
 ### <a name="can-i-take-a-sql-database-hyperscale-database-backup-and-restore-it-to-my-on-premises-server-or-sql-server-in-vm"></a>SQL Database 하이퍼스케일 데이터베이스 백업을 가져와서 온-프레미스 서버나 VM의 SQL Server에 복원할 수 있나요?
 
-아니요. 하이퍼스케일 데이터베이스의 저장소 형식은 기존 SQL Server와 다르며 백업을 제어하거나 액세스할 수 없습니다. SQL Database 하이퍼스케일 데이터베이스에서 데이터를 가져오려면 내보내기 서비스를 사용하거나 스크립팅과 BCP를 사용합니다.
+아니요. 하이퍼스케일 데이터베이스의 스토리지 형식은 기존 SQL Server와 다르며 백업을 제어하거나 액세스할 수 없습니다. SQL Database 하이퍼스케일 데이터베이스에서 데이터를 가져오려면 내보내기 서비스를 사용하거나 스크립팅과 BCP를 사용합니다.
 
 ## <a name="cross-feature-questions"></a>교차 기능 질문
 

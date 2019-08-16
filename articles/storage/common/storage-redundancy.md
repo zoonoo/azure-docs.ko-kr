@@ -9,12 +9,12 @@ ms.date: 07/10/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: a4c624cf06a0e56b30b71c80a6b4a5ad48cb31a9
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: 17d1bd95067c15bd67f80f3713f0e497bff8a68d
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016406"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69516116"
 ---
 # <a name="azure-storage-redundancy"></a>Azure Storage 중복성
 
@@ -44,7 +44,7 @@ Azure Storage는 CRCs (순환 중복 검사)를 사용 하 여 저장 된 데이
 | 전체 지역 가동 중단                                                                                     | 아니요                              | 아니요                               | 예                                  | 예                                  |
 | 지역 전체가 사용할 수 없는 우 데이터(원격 지역 복제 지역의)에 대한 읽기 권한 | 아니요                              | 아니요                               | 예 (RA-GRS 사용)                                   | 예 (RA-GZRS 사용)                                 |
 | 지정된 한 해 동안 개체의 \_\_ 내구성을 제공하도록 설계                                          | 최소 99.999999999% | 최소 99.9999999999% | 최소 99.99999999999999% | 최소 99.99999999999999% |
-| 지원되는 스토리지 계정 형식                                                                   | GPv2, GPv1, Blob                | GPv2                             | GPv2, GPv1, Blob                     | GPv2, GPv1, Blob                     |
+| 지원되는 스토리지 계정 형식                                                                   | GPv2, GPv1, Blob                | GPv2                             | GPv2, GPv1, Blob                     | GPv2                     |
 | 읽기 요청에 대한 가용성 SLA | 최소 99.9%(쿨 액세스 계층에 대해 99%) | 최소 99.9%(쿨 액세스 계층에 대해 99%) | 최소 99.9%(쿨 액세스 계층에 대해 99%) | 최소 99.99%(쿨 액세스 계층에 대해 99.9%) |
 | 쓰기 요청에 대한 가용성 SLA | 최소 99.9%(쿨 액세스 계층에 대해 99%) | 최소 99.9%(쿨 액세스 계층에 대해 99%) | 최소 99.9%(쿨 액세스 계층에 대해 99%) | 최소 99.9%(쿨 액세스 계층에 대해 99%) |
 

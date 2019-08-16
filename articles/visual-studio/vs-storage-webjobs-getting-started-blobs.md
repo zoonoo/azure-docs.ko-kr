@@ -3,7 +3,7 @@ title: Blob Storage 및 Visual Studio 연결된 서비스 시작(WebJob 프로�
 description: Visual Studio 연결된 서비스를 사용하여 Azure 스토리지에 연결한 후 WebJob 프로젝트에서 Blob Storage 사용을 시작하는 방법입니다.
 services: storage
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: 324c9376-0225-4092-9825-5d1bd5550058
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 5a7c16e6ac565d1660fee02cb7df178344b195e7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1e951fde7e47ccfcce5f64db4ef27ac767d63480
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62122926"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69510658"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-webjob-projects"></a>Azure Blob Storage 및 Visual Studio 연결된 서비스 시작(WebJob 프로젝트)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
@@ -144,7 +144,7 @@ Azure 스토리지 계정으로 직접 작업하려는 경우 메서드 서명�
 
 포이즌 Blob에 대한 큐 메시지는 다음 속성을 포함하는 JSON 개체입니다.
 
-* FunctionId (형식에서 *{WebJob 이름}* 합니다. 함수입니다. *{함수 이름}* 예를 들어: WebJob1.Functions.CopyBlob)
+* FunctionId ( *{WebJob 이름}* 형식). 역함수. *{함수 이름}* . 예를 들면 다음과 같습니다. WebJob1.Functions.CopyBlob)
 * BlobType("BlockBlob" 또는 "PageBlob")
 * ContainerName
 * BlobName
@@ -182,7 +182,7 @@ SDK는 JSON 메시지를 자동으로 deserialize합니다. **PoisonBlobMessage*
         }
 
 ### <a name="blob-polling-algorithm"></a>Blob 폴링 알고리즘
-WebJobs SDK는 애플리케이션이 시작될 때 **BlobTrigger** 특성에 지정된 모든 컨테이너를 검사합니다. 대용량 저장소 계정의 경우 이러한 검사에 약간의 시간이 걸릴 수 있으므로 새 Blob을 찾고 **BlobTrigger** 함수를 실행하기까지 조금 기다려야 할 수 있습니다.
+WebJobs SDK는 애플리케이션이 시작될 때 **BlobTrigger** 특성에 지정된 모든 컨테이너를 검사합니다. 대용량 스토리지 계정의 경우 이러한 검사에 약간의 시간이 걸릴 수 있으므로 새 Blob을 찾고 **BlobTrigger** 함수를 실행하기까지 조금 기다려야 할 수 있습니다.
 
 애플리케이션이 시작된 후 새 Blob 또는 변경된 Blob을 검색하기 위해 SDK는 Blob Storage 로그를 주기적으로 읽습니다. Blob 로그는 버퍼되고 약 10분마다 실제로 작성되므로 Blob이 생성되거나 업데이트된 후 해당 **BlobTrigger** 함수가 실행되기 전에 지연이 발생할 수 있습니다.
 
@@ -193,7 +193,7 @@ WebJobs SDK는 동일한 새 Blob 또는 업데이트된 Blob에 대해 **BlobTr
 
 Blob 수신 확인은 AzureWebJobsStorage 연결 문자열에 지정된 Azure 스토리지 계정의 *azure-webjobs-hosts* 라는 컨테이너에 저장됩니다. Blob 수신 확인에는 다음 정보가 포함됩니다.
 
-* Blob에 대해 호출 된 함수 (" *{WebJob 이름}* 합니다. 함수입니다. *{함수 이름}* ", 예를 들어: "WebJob1.Functions.CopyBlob")
+* Blob에 대해 호출 된 함수 (" *{WebJob 이름}* )입니다. 역함수. *{함수 이름}* ", 예: "WebJob1.Functions.CopyBlob")
 * 컨테이너 이름
 * Blob 유형("BlockBlob" 또는 "PageBlob")
 * Blob 이름

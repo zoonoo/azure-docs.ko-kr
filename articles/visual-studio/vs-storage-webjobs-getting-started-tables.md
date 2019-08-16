@@ -1,9 +1,9 @@
 ---
-title: Azure 저장소 및 Visual Studio 연결 서비스 시작(WebJob 프로젝트)
+title: Azure Storage 및 Visual Studio 연결 서비스 시작(WebJob 프로젝트)
 description: Visual Studio 연결된 서비스를 사용하여 스토리지 계정에 연결한 후 Visual Studio Azure WebJobs 프로젝트에서 Azure Table Storage 사용을 시작하는 방법입니다.
 services: storage
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: 061a6c46-0592-4e5d-aced-ab7498481cde
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 481c2f1eaf20e317c8efa4f21f337f4073af898f
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 8875f680c8bb83c2375d6fe767f376cbb35d5a0a
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68260756"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69510676"
 ---
 # <a name="getting-started-with-azure-storage-azure-webjob-projects"></a>Azure Storage 시작(Azure WebJob 프로젝트)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -120,7 +120,7 @@ Azure 스토리지 API로 직접 작업하려는 경우 메서드 서명에 **Cl
 
 이 예제의 **Person** 클래스는 **ITableEntity**를 구현할 필요가 없습니다.
 
-## <a name="how-to-use-the-net-storage-api-directly-to-work-with-a-table"></a>.NET 저장소 API를 직접 사용하여 테이블로 작업하는 방법
+## <a name="how-to-use-the-net-storage-api-directly-to-work-with-a-table"></a>.NET 스토리지 API를 직접 사용하여 테이블로 작업하는 방법
 **CloudTable** 개체에서 **Table** 특성을 사용하여 테이블 작업을 보다 유연하게 수행할 수 있습니다.
 
 다음 코드 샘플은 **CloudTable** 개체를 사용하여 *Ingress* 테이블에 단일 엔터티를 추가합니다.

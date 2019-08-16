@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/12/2019
 ms.author: danlep
-ms.openlocfilehash: 6aa729e4f32769ec50632bea582c8b69c7c0ce91
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: bcaf2918c92ec7b8223d394290a1d7c624fc451c
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68642138"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69509232"
 ---
 # <a name="external-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Azure에서 관리 하는 id를 사용 하 여 ACR 작업에서 외부 인증 
 
@@ -30,7 +30,7 @@ ms.locfileid: "68642138"
 
 실제 시나리오에서 회사는 빌드 프로세스의 일부로 Docker 허브의 개인 리포지토리에 이미지를 게시할 수 있습니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 작업을 실행 하는 Azure container registry가 필요 합니다. 이 문서에서이 레지스트리의 이름은 *myregistry*입니다. 을 이후 단계에서 사용자 고유의 레지스트리 이름으로 바꿉니다.
 
@@ -107,7 +107,7 @@ steps:
 
 ### <a name="create-task"></a>작업 만들기
 
-다음 [az acr task create][az-acr-task-create] 명령을 실행 하 여 *dockerhubtask* 작업을 만듭니다. 작업 컨텍스트는 로컬 시스템 이며 명령은 작업 디렉터리에 있는 파일 `dockerhubtask.yaml` 을 참조 합니다. 매개 `--assign-identity` 변수는 사용자 할당 id의 리소스 ID를 전달 합니다. 
+다음 [az acr task create][az-acr-task-create] 명령을 실행 하 여 *dockerhubtask* 작업을 만듭니다. 작업은 소스 코드 컨텍스트 없이 실행 되 고 명령은 작업 디렉터리에 있는 파일 `dockerhubtask.yaml` 을 참조 합니다. 매개 `--assign-identity` 변수는 사용자 할당 id의 리소스 ID를 전달 합니다. 
 
 ```azurecli
 az acr task create \
@@ -126,7 +126,7 @@ az acr task create \
 
 ### <a name="create-task"></a>작업 만들기
 
-다음 [az acr task create][az-acr-task-create] 명령을 실행 하 여 *dockerhubtask* 작업을 만듭니다. 작업 컨텍스트는 로컬 시스템 이며 명령은 작업 디렉터리에 있는 파일 `dockerhubtask.yaml` 을 참조 합니다.  값 `--assign-identity` 이 없는 매개 변수는 태스크에 대해 시스템이 할당 한 id를 사용 하도록 설정 합니다.  
+다음 [az acr task create][az-acr-task-create] 명령을 실행 하 여 *dockerhubtask* 작업을 만듭니다. 작업은 소스 코드 컨텍스트 없이 실행 되 고 명령은 작업 디렉터리에 있는 파일 `dockerhubtask.yaml` 을 참조 합니다. 값 `--assign-identity` 이 없는 매개 변수는 태스크에 대해 시스템이 할당 한 id를 사용 하도록 설정 합니다.  
 
 ```azurecli
 az acr task create \

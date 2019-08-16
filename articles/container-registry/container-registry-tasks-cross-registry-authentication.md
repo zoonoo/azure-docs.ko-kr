@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/12/2019
 ms.author: danlep
-ms.openlocfilehash: 8fac70e7e5125ae86b2b5ce13041bbf1fd067bbe
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 07fa7f3df5274ae88c93deac75093ead3f32f036
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68642073"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69509087"
 ---
 # <a name="cross-registry-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Azure로 관리 되는 id를 사용 하 여 ACR 작업에서의 크로스 레지스트리 인증 
 
@@ -76,7 +76,7 @@ steps:
 
 ### <a name="create-task"></a>작업 만들기
 
-다음 [az acr task create][az-acr-task-create] 명령을 실행 하 여 *helloworldtask* 작업을 만듭니다. 작업 컨텍스트는 로컬 시스템 이며 명령은 작업 디렉터리에 있는 파일 `helloworldtask.yaml` 을 참조 합니다. 매개 `--assign-identity` 변수는 사용자 할당 id의 리소스 ID를 전달 합니다. 
+다음 [az acr task create][az-acr-task-create] 명령을 실행 하 여 *helloworldtask* 작업을 만듭니다. 작업은 소스 코드 컨텍스트 없이 실행 되 고 명령은 작업 디렉터리에 있는 파일 `helloworldtask.yaml` 을 참조 합니다. 매개 `--assign-identity` 변수는 사용자 할당 id의 리소스 ID를 전달 합니다. 
 
 ```azurecli
 az acr task create \
@@ -95,7 +95,7 @@ az acr task create \
 
 ### <a name="create-task"></a>작업 만들기
 
-다음 [az acr task create][az-acr-task-create] 명령을 실행 하 여 *helloworldtask* 작업을 만듭니다. 작업 컨텍스트는 로컬 시스템 이며 명령은 작업 디렉터리에 있는 파일 `helloworldtask.yaml` 을 참조 합니다. 값 `--assign-identity` 이 없는 매개 변수는 태스크에 대해 시스템이 할당 한 id를 사용 하도록 설정 합니다. 
+다음 [az acr task create][az-acr-task-create] 명령을 실행 하 여 *helloworldtask* 작업을 만듭니다. 작업은 소스 코드 컨텍스트 없이 실행 되 고 명령은 작업 디렉터리에 있는 파일 `helloworldtask.yaml` 을 참조 합니다. 값 `--assign-identity` 이 없는 매개 변수는 태스크에 대해 시스템이 할당 한 id를 사용 하도록 설정 합니다. 
 
 ```azurecli
 az acr task create \

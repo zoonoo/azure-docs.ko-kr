@@ -99,7 +99,7 @@
       items:
         - name: Just-In-Time 액세스 관리
           href: security-center-just-in-time.md
-        - name: 적응형 애플리케이션 제어
+        - name: 적응 애플리케이션 컨트롤
           href: security-center-adaptive-application.md
         - name: 파일 무결성 모니터링
           href: security-center-file-integrity-monitoring.md
@@ -129,7 +129,7 @@
           href: security-center-apply-disk-encryption.md
         - name: 시스템 업데이트 적용
           href: security-center-apply-system-updates.md
-        - name: 저장소 계정에 암호화 사용
+        - name: 스토리지 계정에 암호화 사용
           href: security-center-enable-encryption-for-storage-account.md
         - name: VM 에이전트 사용
           href: security-center-enable-vm-agent.md
@@ -181,10 +181,6 @@
           href: security-center-search.md
         - name: 계획 및 작업
           href: security-center-planning-and-operations-guide.md
-        - name: 보안 경고 이해
-          href: security-center-alerts-type.md
-        - name: Azure 리소스와 사용자에 대한 UEBA
-          href: security-center-ueba-mcas.md
         - name: 보안 구성 사용자 지정
           href: security-center-customize-os-security-config.md
 - name: 참고 자료

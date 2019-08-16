@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3f6d15e67122afcbea3cc294c803a302e961bdbd
-ms.sourcegitcommit: 57a7d4f67635212f5bf0c56e58fd87c8ec366f2c
+ms.openlocfilehash: c192a994ac5398d41e28a35267b922ba98b721cc
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68372558"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69513609"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Azure Automation 상태 구성 개요
 
@@ -41,7 +41,7 @@ Azure 포털 또는 PowerShell에서 DSC 구성, 리소스 및 대상 노드를 
 
 Azure Automation 상태 구성으로 관리되는 노드는 상세한 보고 상태 데이터를 기본 제공 끌어오기 서버에 보냅니다. 이 데이터를 Log Analytics 작업 영역으로 보내려면 Azure Automation 상태 구성을 구성할 수 있습니다. 상태 구성 상태 데이터를 Log Analytics 작업 영역으로 전송 하는 방법에 대 한 자세한 내용은 [Azure Automation 상태 구성 보고 데이터를 Azure Monitor 로그로 전달](automation-dsc-diagnostics.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 DSC (Azure Automation 상태 구성)를 사용 하는 경우 다음 요구 사항을 고려 하세요.
 
@@ -57,6 +57,8 @@ Windows를 실행 하는 노드의 경우 지원 되는 버전은 다음과 같�
 - Windows 10
 - Windows 8.1
 - Windows 7
+
+[Microsoft Hyper-v Server](/windows-server/virtualization/hyper-v/hyper-v-server-2016) 독립 실행형 제품 Sku는 필요한 상태 구성 구현을 포함 하지 않으므로 PowerShell DSC 또는 Azure Automation 상태 구성으로 관리할 수 없습니다.
 
 Linux를 실행 하는 노드의 경우 다음 distros/버전이 지원 됩니다.
 
@@ -119,7 +121,7 @@ Linux 노드의 경우 DSC 에이전트는 프록시를 지원 하 고 http_prox
 지역 이름 대신 지역 IP 주소 목록을 보려면 Microsoft 다운로드 센터에서 [Azure 데이터 센터 IP 주소](https://www.microsoft.com/download/details.aspx?id=41653) XML 파일을 다운로드하세요.
 
 > [!NOTE]
-> Azure 데이터 센터 IP 주소 XML 파일은 Microsoft Azure 데이터 센터에서 사용되는 IP 주소 범위를 나열합니다. 이 파일에는 계산, SQL 및 스토리지 범위가 포함되어 있습니다.
+> Azure 데이터 센터 IP 주소 XML 파일은 Microsoft Azure 데이터 센터에서 사용되는 IP 주소 범위를 나열합니다. 이 파일에는 컴퓨팅, SQL 및 스토리지 범위가 포함되어 있습니다.
 >
 >업데이트된 파일이 매주 게시됩니다. 이 파일에는 현재 배포된 범위 및 IP 범위에 대해 예정된 변경 내용이 반영됩니다. 파일에 제시된 새 범위는 데이터 센터에서 적어도 한 주 동안 사용되지 않습니다.
 >

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 7/9/2019
 ms.author: b-juche
-ms.openlocfilehash: 9409beea3f22fd7ff09fe49838a37d9ff0b485f6
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 3cd60f390f0233e2923660fc39675b5a307d8d8f
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68975922"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515423"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대한 SMB 볼륨 만들기
 
@@ -59,6 +59,18 @@ Azure NetApp Files에 서브넷을 위임해야 합니다.
     |    보안 LDAP        |    636       |    TCP           |
     |    보안 LDAP        |    3269      |    TCP           |
     |    w32time            |    123       |    UDP           |
+
+* 대상 Active Directory Domain Services에 대 한 사이트 토폴로지는 Azure NetApp Files 배포 되는 Azure VNet의 모범 사례를 준수 해야 합니다.  
+
+    Azure NetApp Files 배포 되는 가상 네트워크의 주소 공간은 기존 또는 새 Active Directory 사이트에 추가 해야 합니다 (Azure NetApp Files에서 연결할 수 있는 도메인 컨트롤러). 
+
+* Azure NetApp Files의 [위임 된 서브넷](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet) 에서 지정 된 DNS 서버에 연결할 수 있어야 합니다.  
+
+    지원 되는 네트워크 토폴로지의 [Azure NetApp Files 네트워크 계획에 대 한 지침을](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies) 참조 하세요.
+
+    NSGs (네트워크 보안 그룹) 및 방화벽에는 Active Directory 및 DNS 트래픽 요청을 허용 하는 적절 하 게 구성 된 규칙이 있어야 합니다.
+
+    AD 사이트 및 서비스에 대 한 [사이트 토폴로지 디자인을](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology) 참조 하세요. 
 
 ## <a name="create-an-active-directory-connection"></a>Active Directory 연결 만들기
 
@@ -117,15 +129,15 @@ Azure NetApp Files에 서브넷을 위임해야 합니다.
         **사용 가능한 할당량** 필드는 새 볼륨을 만들 때 사용할 수 있는 선택한 용량 풀에서 사용되지 않은 공간의 양을 보여줍니다. 새 볼륨의 크기는 사용 가능한 할당량을 초과해서는 안 됩니다.  
 
     * **가상 네트워크**  
-        볼륨에 액세스하려는 Azure Vnet(가상 네트워크)을 지정합니다.  
+        볼륨에 액세스 하려는 Azure VNet (가상 네트워크)을 지정 합니다.  
 
-        지정하는 VNet에는 Azure NetApp Files에 위임된 서브넷이 있어야 합니다. Azure NetApp Files 서비스는 동일한 VNet 또는 VNet 피어링을 통해 볼륨과 동일한 영역에 있는 VNet에서만 액세스할 수 있습니다. Express 경로를 통해 온-프레미스 네트워크에서 볼륨에 액세스할 수도 있습니다.   
+        사용자가 지정 하는 VNet에는 Azure NetApp Files에 대해 위임 된 서브넷이 있어야 합니다. Azure NetApp Files 서비스는 동일한 VNet 또는 VNet 피어 링을 통해 볼륨과 동일한 지역에 있는 VNet 에서만 액세스할 수 있습니다. Express 경로를 통해 온-프레미스 네트워크에서 볼륨에 액세스할 수도 있습니다.   
 
     * **서브넷**  
         볼륨에 사용할 서브넷을 지정합니다.  
         지정하는 서브넷은 Azure NetApp Files에 위임되어야 합니다. 
         
-        서브넷을 위임하지 않은 경우에는 볼륨 만들기 페이지에서 **새로 만들기**를 클릭할 수 있습니다. 그런 다음, 서브넷 만들기 페이지에서 서브넷 정보를 지정하고 **Microsoft.NetApp/volumes**를 선택하여 Azure NetApp Files의 서브넷을 위임합니다. 각 Vnet에서 하나의 서브넷만 Azure NetApp Files로 위임할 수 있습니다.   
+        서브넷을 위임하지 않은 경우에는 볼륨 만들기 페이지에서 **새로 만들기**를 클릭할 수 있습니다. 그런 다음, 서브넷 만들기 페이지에서 서브넷 정보를 지정하고 **Microsoft.NetApp/volumes**를 선택하여 Azure NetApp Files의 서브넷을 위임합니다. 각 VNet에서 하나의 서브넷만 Azure NetApp Files로 위임할 수 있습니다.   
  
         ![볼륨 만들기](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     

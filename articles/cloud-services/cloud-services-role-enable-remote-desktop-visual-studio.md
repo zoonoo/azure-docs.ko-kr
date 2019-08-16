@@ -3,7 +3,7 @@ title: Azure Cloud Services의 역할에 대해 원격 데스크톱 연결 사�
 description: Azure 클라우드 서비스 애플리케이션을 구성하여 원격 데스크톱 연결을 허용하는 방법입니다.
 services: cloud-services
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: f5727ebe-9f57-4d7d-aff1-58761e8de8c1
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.workload: azure-vs
 ms.date: 03/06/2018
 ms.author: ghogen
-ms.openlocfilehash: 924719a8371f4d41cb9ead09252d8f3d3424326a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6a6d045513e3e91c5a8b2004e47378a097be8963
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64717747"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515907"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-visual-studio"></a>Visual Studio를 사용하여 Azure Cloud Services에서 역할에 대한 원격 데스크톱 연결 사용
 
@@ -86,7 +86,7 @@ Certificate with thumbprint [thumbprint] doesn't exist.
 
 Azure DevOps Services에서 RDP 확장을 사용하려면 빌드 파이프라인에 다음 세부 정보를 포함합니다.
 
-1. MSBuild 인수에 `/p:ForceRDPExtensionOverPlugin=true`를 포함하여 배포가 RDP 플러그 인 대신 RDP 확장을 통해 작동하는지 확인합니다. 예를 들면 다음과 같습니다.
+1. MSBuild 인수에 `/p:ForceRDPExtensionOverPlugin=true`를 포함하여 배포가 RDP 플러그 인 대신 RDP 확장을 통해 작동하는지 확인합니다. 예:
 
     ```
     msbuild AzureCloudService5.ccproj /t:Publish /p:TargetProfile=Cloud /p:DebugType=None
@@ -95,7 +95,7 @@ Azure DevOps Services에서 RDP 확장을 사용하려면 빌드 파이프라인
 
 1. 빌드 단계가 완료되면 **Azure 클라우드 서비스 배포** 단계를 추가하고 해당 속성을 설정합니다.
 
-1. 배포 단계를 수행한 후 추가 **Azure Powershell** 단계에서 설정 해당 **표시 이름** 속성을 "Azure 배포: RDP 확장을 사용 하도록 설정"(또는 다른 적절 한 이름) 적절 한 Azure 구독을 선택 합니다.
+1. 배포 단계 후에 **Azure Powershell** 단계를 추가 하 고 **표시 이름** 속성을 "azure 배포: RDP 확장 사용 "(또는 다른 적합 한 이름)을 선택 하 고 적절 한 Azure 구독을 선택 합니다.
 
 1. **스크립트 유형**을 "인라인"으로 설정하고, 아래 코드를 **인라인 스크립트** 필드에 붙여넣습니다. (또한 이 스크립트를 사용하여 프로젝트에 `.ps1` 파일을 만들고, **스크립트 유형**을 "스크립트 파일 경로"로 설정하고, 이 파일을 가리키도록 **스크립트 경로**를 설정할 수도 있습니다.)
 
@@ -146,6 +146,6 @@ Azure에 클라우드 서비스를 게시하고 원격 데스크톱을 사용하
 
 3. 이전에 만든 사용자 이름 및 암호를 입력합니다. 이제 원격 세션에 로그인됩니다.
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 [Cloud Services를 구성하는 방법](cloud-services-how-to-configure-portal.md)
