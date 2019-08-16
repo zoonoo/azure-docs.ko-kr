@@ -8,31 +8,39 @@ ms.topic: include
 ms.date: 08/14/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: ade787370278de147e446ebb12f0f06637fd8125
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
-ms.translationtype: HT
+ms.openlocfilehash: ddab6927044ce638e50ff3ad79aa3c35d046c820
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035737"
+ms.locfileid: "69520861"
 ---
 다음 구성은 아래 단계에 사용 되었습니다.
 
   | | |
   |---|---|
-  |Computer| Ubuntu Server 16.04<br>ID_LIKE=debian<br>PRETTY_NAME="Ubuntu 16.04.4 LTS"<br>VERSION_ID="16.04" |
+  |Computer| Ubuntu Server 18.04|
   |종속성| strongSwan |
 
 
 다음 명령을 사용하여 필요한 strongSwan 구성을 설치합니다.
 
 ```
-apt-get install strongswan-ikev2 strongswan-plugin-eap-tls
+sudo apt install strongswan
 ```
 
 ```
-apt-get install libstrongswan-standard-plugins
+sudo apt install strongswan-pki
 ```
 
 ```
-apt-get install strongswan-pki
+sudo apt install libstrongswan-extra-plugins
 ```
+
+다음 명령을 사용 하 여 Azure 명령줄 인터페이스를 설치 합니다.
+
+```
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+```
+
+[Azure CLI를 설치 하는 방법에 대 한 추가 지침](https://docs.microsoft.com/cli/azure/install-azure-cli-apt?view=azure-cli-latest)

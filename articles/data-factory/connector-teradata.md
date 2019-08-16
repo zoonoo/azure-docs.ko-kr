@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 6cbddfc5e529bc48e08407796024e5232d1a22e8
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 134302bffdadc27cf202a43e7dc4cc94704bb5b3
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966360"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69557874"
 ---
 # <a name="copy-data-from-teradata-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Teradata에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -143,7 +143,7 @@ Teradata에서 데이터를 복사 하려면 다음 속성이 지원 됩니다.
 |:--- |:--- |:--- |
 | type | 데이터 집합의 type 속성을로 `TeradataTable`설정 해야 합니다. | 예 |
 | database | Teradata 데이터베이스의 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
-| table | Teradata 데이터베이스에 있는 테이블의 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
+| 테이블 | Teradata 데이터베이스에 있는 테이블의 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 **예제:**
 
@@ -325,7 +325,7 @@ Teradata에서 데이터를 복사 하는 경우 다음 매핑이 적용 됩니�
 | Timestamp |DateTime |
 | Timestamp With Time Zone |DateTime |
 | VarByte |Byte[] |
-| VarChar |문자열 |
+| VarChar |String |
 | VarGraphic |지원되지 않습니다. 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
 | Xml |지원되지 않습니다. 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
 

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
-ms.openlocfilehash: c58a36988e3aee9b122446e3ee3c4878a582b8ad
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 6991ebfa58099a42b09e482d11c0d3c3983decce
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67871028"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69535048"
 ---
 # <a name="commercial-marketplace-transaction-capabilities-and-considerations"></a>상업적 marketplace 트랜잭션 기능 및 고려 사항
 
@@ -84,7 +84,7 @@ Microsoft에서는 고객 들이 Microsoft의 상용 Marketplace 및 게시자�
 
 거래 게시 시나리오의 경우 게시자는 30일 또는 90일 동안 소프트웨어 라이선스를 무료로 사용할 수 있습니다. 이 할인 기능은 파트너 솔루션 사용으로 인한 Azure 인프라 사용 비용은 포함하지 않습니다.
 
-### <a name="private-offers"></a>프라이빗 제품
+### <a name="private-offers"></a>전용 제품
 
 제공 유형 및 청구 모델을 사용 하 여 제품을 수익 창출 하는 것 외에도, 게시자는 개인 제품을 제공 하 고, 협의 된 거래 가격 책정 또는 사용자 지정 구성을 완료할 수 있습니다. 프라이빗 제품은 3가지 거래 게시 옵션 모두에서 지원됩니다.
 
@@ -144,7 +144,7 @@ Microsoft에서는 고객 들이 Microsoft의 상용 Marketplace 및 게시자�
 |Microsoft는 라이선스 비용의 80%를 지불합니다. <br> \*Microsoft는 정규화 된 SaaS 앱에 대 한 라이선스 비용의 90%를 지불 합니다.   |   매월 $80.00 <br> \*$90.00/월    |
 |Microsoft는 라이선스 비용의 20%를 유지합니다. <br> \*Microsoft는 정규화 된 SaaS 앱에 대 한 라이선스 비용의 10%를 유지 합니다.  |  매월 $20.00 <br> \*$10.00     |
 
-* **Marketplace 서비스 요금 감소:** 상업적 Marketplace에 게시 하는 특정 SaaS 제품의 경우 Microsoft는 Microsoft 게시자 계약에 설명 된 대로 20%에서 10%까지 Marketplace 서비스 요금을 절감 합니다.  제품을 한정 하려면 Microsoft에서 하나 이상의 제품을 IP 공동 판매 준비 또는 IP 공동 판매 우선 순위로 지정 해야 합니다. 이 월에 대 한이 절감 된 Marketplace 서비스 요금을 받으려면 해당 월이 끝날 때까지 영업일 기준으로 5 일 이상 전에 자격을 충족 해야 합니다. Marketplace 서비스 요금은 Vm, 관리 되는 앱 또는 상용 Marketplace를 통해 제공 되는 기타 제품에는 적용 되지 않습니다.  이 절감 된 Marketplace 서비스 요금은 Microsoft에서 5 월 1 일부 터 2019 년 6 월 30 2020 일 사이에 수집 된 라이선스 요금으로 정규화 된 제안에 제공 될 예정입니다.  이 시간 후에 Marketplace 서비스 요금은 일반적인 금액으로 반환 됩니다.
+* **Marketplace 서비스 요금 감소:** 상업적 Marketplace에 게시 하는 특정 SaaS 제품의 경우 Microsoft는 Microsoft 게시자 계약에 설명 된 대로 20%에서 10%까지 Marketplace 서비스 요금을 절감 합니다.  제품을 한정 하려면 Microsoft에서 하나 이상의 제품을 IP 공동 판매 준비 또는 IP 공동 판매 우선 순위로 지정 해야 합니다. 이 월에 대해이 감소 하는 Marketplace 서비스 요금을 받으려면 이전 달력 월이 끝날 때까지 최소 5 영업일 영업일 이전에 자격을 충족 해야 합니다. Marketplace 서비스 요금은 Vm, 관리 되는 앱 또는 상용 Marketplace를 통해 제공 되는 기타 제품에는 적용 되지 않습니다.  이 절감 된 Marketplace 서비스 요금은 Microsoft에서 5 월 1 일부 터 2019 년 6 월 30 2020 일 사이에 수집 된 라이선스 요금으로 정규화 된 제안에 제공 될 예정입니다.  이 시간 후에 Marketplace 서비스 요금은 일반적인 금액으로 반환 됩니다.
 
 ### <a name="customer-invoicing-payment-billing-and-collections"></a>고객 송장 처리, 지불, 청구 및 수금
 

@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 08/06/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: a92cb0f3da5058e7ffeee6f47e8cfa26ae291005
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 5c0c3ade3fd089a4819b8836b07e249fc32c06e0
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990570"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543619"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning Services를 사용하여 모델 배포
 
@@ -149,12 +149,25 @@ Azure Machine Learning 서비스 외부에서 학습 한 모델을 사용 하는
 
 ## <a name="prepare-to-deploy"></a>배포 준비
 
-웹 서비스로 배포 하려면 유추 구성 (`InferenceConfig`) 및 배포 구성을 만들어야 합니다. 유추 또는 모델 점수 매기기는 배포 된 모델이 예측에 사용 되는 단계 이며 가장 일반적으로 프로덕션 데이터에 사용 됩니다. 유추 구성에서는 모델을 제공 하는 데 필요한 스크립트와 종속성을 지정 합니다. 배포 구성에서 계산 대상에 모델을 제공 하는 방법에 대 한 세부 정보를 지정 합니다.
+모델을 배포 하려면 다음 몇 가지 작업을 수행 해야 합니다.
 
-> [!IMPORTANT]
-> Azure Machine Learning SDK는 웹 서비스 또는 IoT Edge 배포에서 데이터 저장소 또는 데이터 집합에 액세스 하는 방법을 제공 하지 않습니다. 배포 외부에 저장 된 데이터에 액세스 하기 위해 배포 된 모델이 필요한 경우 (예: Azure Storage 계정에서) 관련 SDK를 사용 하 여 사용자 지정 코드 솔루션을 개발 해야 합니다. 예를 들어 [Python 용 AZURE STORAGE SDK](https://github.com/Azure/azure-storage-python)가 있습니다.
->
-> 시나리오에 사용할 수 있는 또 다른 대안은 점수를 매길 때 데이터 저장소에 대 한 액세스를 제공 하는 [일괄 처리 예측](how-to-run-batch-predictions.md)입니다.
+* __항목 스크립트__입니다. 이 스크립트는 요청을 수락 하 고, 모델을 사용 하 여 요청 점수를 생성 하 고, 결과를 반환 합니다.
+
+    > [!IMPORTANT]
+    > 항목 스크립트는 모델에 따라 다릅니다. 들어오는 요청 데이터의 형식, 모델에 필요한 데이터의 형식 및 클라이언트에 반환 되는 데이터 형식을 이해 해야 합니다.
+    >
+    > 요청 데이터가 모델에서 사용할 수 없는 형식인 경우 스크립트는이를 허용 되는 형식으로 변환할 수 있습니다. 클라이언트에 반환 하기 전에 응답을 변환할 수도 있습니다.
+
+    > [!IMPORTANT]
+    > Azure Machine Learning SDK는 웹 서비스 또는 IoT Edge 배포에서 데이터 저장소 또는 데이터 집합에 액세스 하는 방법을 제공 하지 않습니다. 배포 외부에 저장 된 데이터에 액세스 하기 위해 배포 된 모델이 필요한 경우 (예: Azure Storage 계정에서) 관련 SDK를 사용 하 여 사용자 지정 코드 솔루션을 개발 해야 합니다. 예를 들어 [Python 용 AZURE STORAGE SDK](https://github.com/Azure/azure-storage-python)가 있습니다.
+    >
+    > 시나리오에 사용할 수 있는 또 다른 대안은 점수를 매길 때 데이터 저장소에 대 한 액세스를 제공 하는 [일괄 처리 예측](how-to-run-batch-predictions.md)입니다.
+
+* 항목 스크립트나 모델을 실행 하는 데 필요한 도우미 스크립트 또는 Python/Conda 패키지와 같은 **종속성**
+
+* 배포 된 모델을 호스팅하는 계산 대상의 __배포 구성__ 입니다. 이 구성에서는 모델을 실행 하는 데 필요한 메모리 및 CPU 요구 사항 등을 설명 합니다.
+
+이러한 엔터티는 __유추 구성__및 __배포 구성__에 캡슐화 됩니다. 유추 구성은 입력 스크립트 및 기타 종속성을 참조 합니다. 이러한 구성은 SDK를 사용 하는 경우 프로그래밍 방식으로 정의 되 고 CLI를 사용 하 여 배포를 수행 하는 경우 JSON 파일로 정의 됩니다.
 
 ### <a id="script"></a> 1. 항목 스크립트 & 종속성 정의
 
@@ -399,9 +412,13 @@ def run(request):
 
 ### <a name="2-define-your-inferenceconfig"></a>2. InferenceConfig 정의
 
-유추 구성에서는 예측을 만들도록 모델을 구성 하는 방법을 설명 합니다. 다음 예제에서는 유추 구성을 만드는 방법을 보여 줍니다. 이 구성은 런타임, 항목 스크립트 및 conda 환경 파일 (선택 사항)을 지정 합니다.
+유추 구성에서는 예측을 만들도록 모델을 구성 하는 방법을 설명 합니다. 이 구성은 입력 스크립트에 포함 되지 않습니다. 항목 스크립트를 참조 하 고 배포에 필요한 모든 리소스를 찾는 데 사용 됩니다. 나중에 모델을 배포할 때 사용 됩니다.
+
+다음 예제에서는 유추 구성을 만드는 방법을 보여 줍니다. 이 구성은 런타임, 항목 스크립트 및 conda 환경 파일 (선택 사항)을 지정 합니다.
 
 ```python
+from azureml.core.model import InferenceConfig
+
 inference_config = InferenceConfig(runtime="python",
                                    entry_script="x/y/score.py",
                                    conda_file="env/myenv.yml")
@@ -431,7 +448,7 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 
 ### <a name="3-define-your-deployment-configuration"></a>3. 배포 구성 정의
 
-를 배포 하기 전에 배포 구성을 정의 해야 합니다. __배포 구성은 웹 서비스를 호스팅하는 계산 대상에만 적용 됩니다__. 예를 들어 로컬로 배포할 때 서비스에서 요청을 수락 하는 포트를 지정 해야 합니다.
+를 배포 하기 전에 배포 구성을 정의 해야 합니다. __배포 구성은 웹 서비스를 호스팅하는 계산 대상에만 적용 됩니다__. 예를 들어 로컬로 배포할 때 서비스에서 요청을 수락 하는 포트를 지정 해야 합니다. 배포 구성은 입력 스크립트의 일부가 아닙니다. 모델 및 항목 스크립트를 호스팅할 계산 대상의 특성을 정의 하는 데 사용 됩니다.
 
 계산 리소스를 만들어야 할 수도 있습니다. 예를 들어, 작업 영역과 연결 된 Azure Kubernetes 서비스가 아직 없는 경우입니다.
 
@@ -442,6 +459,12 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 | 로컬 | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
 | Azure Container Instances | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 | Azure Kubernetes Service | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
+
+로컬, ACI 및 AKS 웹 서비스에 대 한 이러한 각 클래스는 다음에서 `azureml.core.webservice`가져올 수 있습니다.
+
+```python
+from azureml.core.webservice import AciWebservice, AksWebservice, LocalWebservice
+```
 
 > [!TIP]
 > 모델을 서비스로 배포 하기 전에이를 프로 파일링 하 여 최적의 CPU 및 메모리 요구 사항을 확인 하는 것이 좋습니다. SDK 또는 CLI를 사용 하 여 모델을 프로 파일링 할 수 있습니다. 자세한 내용은 [profile ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-) 및 [az ml model profile](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-profile) reference를 참조 하세요.
@@ -459,6 +482,8 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 #### <a name="using-the-sdk"></a>SDK 사용
 
 ```python
+from azureml.core.webservice import LocalWebservice, Webservice
+
 deployment_config = LocalWebservice.deploy_configuration(port=8890)
 service = Model.deploy(ws, "myservice", [model], inference_config, deployment_config)
 service.wait_for_deployment(show_output = True)

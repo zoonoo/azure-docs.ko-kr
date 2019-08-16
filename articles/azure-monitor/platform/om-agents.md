@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 08/13/2019
 ms.author: magoedte
-ms.openlocfilehash: 2ea17a4363218351eb6e5ba0678435f3707e4ab9
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: a559fe86850ee9c1378876bc5ed8f2d0ddfb2d99
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663729"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543056"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Azure Monitor에 Operations Manager 연결
 
@@ -40,7 +40,7 @@ Operations Manager 관리 그룹에 보고 하는 에이전트는 작업 영역�
 
 IT 보안 정책이 네트워크의 컴퓨터가 인터넷에 연결하도록 허용하지 않을 경우 Log Analytics 게이트웨이에 연결하여 구성 정보를 받고 사용하도록 설정한 솔루션에 따라 수집된 데이터를 보내도록 관리 서버를 구성할 수 있습니다. Operations Manager 관리 그룹을 구성 하 여 Log Analytics 게이트웨이를 통해 Azure Monitor으로 통신 하도록 구성 하는 방법에 대 한 자세한 내용 및 단계는 [Log Analytics 게이트웨이를 사용 하 여 Azure Monitor에 컴퓨터 연결](../../azure-monitor/platform/gateway.md)을 참조 하세요.  
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 시작에 앞서 다음 요구 사항을 검토합니다.
 
@@ -65,12 +65,12 @@ IT 보안 정책이 네트워크의 컴퓨터가 인터넷에 연결하도록 �
 >[!NOTE]
 >최근 Azure Api 변경으로 인해 고객은 관리 그룹 간의 통합을 성공적으로 구성 하 고 처음으로 Azure Monitor 수 없습니다. 관리 그룹과 서비스를 이미 통합한 고객의 경우, 기존 연결을 재구성해야 하는 경우가 아니면 영향을 받지 않습니다.  
 >다음 버전의 Operations Manager에 대해 새로운 관리 팩이 릴리스되었습니다.
->  
->* System Center Operations Manager 1801은 [여기](https://www.microsoft.com/download/details.aspx?id=57173)에서 관리 팩을 다운로드받으세요.  
->* System Center 2016 - Operations Manager는 [여기](https://www.microsoft.com/download/details.aspx?id=57172)에서 관리 팩을 다운로드받으세요.  
->* System Center Operations Manager 2012 R2는 [여기](https://www.microsoft.com/download/details.aspx?id=57171)에서 관리 팩을 다운로드받으세요.  
->
->이 관리 팩 업데이트는 System Center Operations Manager 1807에 적용할 수 없습니다. 이 버전은 1801 버전의 업데이트 릴리스이며 제품 전체 빌드가 아니기 때문입니다.   
+> - System Center Operations Manager 2019의 경우 Operations Manager 빌드와 함께 관리 팩이 제공 됩니다.
+>- Operations Manager 1801 관리 팩은 Operations Manager 1807에도 적용 됩니다.
+>- System Center Operations Manager 1801의 경우 [여기](https://www.microsoft.com/download/details.aspx?id=57173)에서 관리 팩을 다운로드 합니다.
+>- System Center 2016-Operations Manager의 경우 [여기](https://www.microsoft.com/download/details.aspx?id=57172)에서 관리 팩을 다운로드 합니다.  
+>- System Center Operations Manager 2012 r 2의 경우 [여기](https://www.microsoft.com/download/details.aspx?id=57171)에서 관리 팩을 다운로드 합니다.  
+
 
 ### <a name="network"></a>네트워크
 

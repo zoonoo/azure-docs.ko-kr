@@ -8,14 +8,14 @@ editor: tysonn
 ms.service: azure-monitor
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 08/02/2019
+ms.date: 08/14/2019
 ms.author: magoedte
-ms.openlocfilehash: 3644b40311c037df800eb89ca26d1285fbf1e082
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: f8d763f8bb228a0d4d83a3776f818d59939b942d
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68741515"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69559070"
 ---
 # <a name="azure-monitor-for-containers-frequently-asked-questions"></a>컨테이너용 Azure Monitor 질문과 대답
 
@@ -33,7 +33,7 @@ Microsoft FAQ는 컨테이너용 Azure Monitor에 대한 질문과 대답 목록
 
 ContainerInventory 테이블에는 중지된 컨테이너와 실행 중인 컨테이너 둘 다에 대한 정보가 포함되어 있습니다. 이 테이블은 Docker에서 모든 컨테이너(실행 중 및 중지)를 쿼리하고 해당 데이터를 Log Analytics 작업 영역에 전달하는 에이전트 내 워크플로로 채워집니다.
  
-## <a name="how-do-i-resolve-missing-subscription-registration-error"></a>누락 된 **구독 등록** 오류를 해결 어떻게 할까요? 있습니까?
+## <a name="how-do-i-resolve-missing-subscription-registration-error"></a>누락 된 *구독 등록* 오류를 해결 어떻게 할까요? 있습니까?
 
 **Microsoft.operationsmanagement에 대 한 구독 등록 누락**오류가 표시 되 면 작업 영역이 정의 된 구독에서 리소스 공급자 **microsoft.operationsmanagement** 를 등록 하 여 해결할 수 있습니다. 이 작업을 수행하는 방법에 대한 설명서는 [여기](../../azure-resource-manager/resource-manager-register-provider-errors.md)에서 찾을 수 있습니다.
 
@@ -71,7 +71,7 @@ LogEntry : ({“Hello": "This example has multiple lines:","Docker/Moby": "will 
 
 ```
 
-이 문제를 자세히 살펴보려면 다음 [github 링크](https://github.com/moby/moby/issues/22920)를 검토하세요.
+문제에 대 한 자세한 내용을 보려면 다음 [GitHub 링크](https://github.com/moby/moby/issues/22920)를 검토 하세요.
 
 ## <a name="how-do-i-resolve-azure-ad-errors-when-i-enable-live-logs"></a>라이브 로그를 사용 하도록 설정할 때 Azure AD 오류를 해결할 어떻게 할까요? 있나요? 
 
@@ -86,6 +86,9 @@ AKS 클러스터의 컨테이너에 대 한 Azure Monitor를 사용 하도록 �
 - *.oms.opinsights.azure.com   443
 - *.blob.core.windows.net      443
 - dc.services.visualstudio.com 443
+- *. microsoftonline.com 443
+- *. monitoring.azure.com 443
+- login.microsoftonline.com 443
 
 ## <a name="next-steps"></a>다음 단계
 

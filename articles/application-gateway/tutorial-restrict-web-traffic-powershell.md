@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/01/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 219c2a36d1a241db8361ae1f8f2f74b9a68780ca
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 002cc85391f4722cea7f6f448beae1cbe97877ac
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688273"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69542657"
 ---
 # <a name="enable-web-application-firewall-using-azure-powershell"></a>Azure PowerShell을 사용하여 웹 애플리케이션 방화벽 활성화
 
@@ -25,7 +25,7 @@ ms.locfileid: "68688273"
 > * 네트워크 설정
 > * WAF를 사용하는 애플리케이션 게이트웨이 만들기
 > * 가상 머신 확장 집합 만들기
-> * 저장소 계정 만들기 및 진단 구성
+> * 스토리지 계정 만들기 및 진단 구성
 
 ![웹 애플리케이션 방화벽 예제](./media/tutorial-restrict-web-traffic-powershell/scenario-waf.png)
 
@@ -192,7 +192,7 @@ $backendPool = Get-AzApplicationGatewayBackendAddressPool `
 
 $ipConfig = New-AzVmssIpConfig `
   -Name myVmssIPConfig `
-  -SubnetId $vnet.Subnets[1].Id `
+  -SubnetId $vnet.Subnets[0].Id `
   -ApplicationGatewayBackendAddressPoolsId $backendPool.Id
 
 $vmssConfig = New-AzVmssConfig `
@@ -246,11 +246,11 @@ Update-AzVmss `
   -VirtualMachineScaleSet $vmss
 ```
 
-## <a name="create-a-storage-account-and-configure-diagnostics"></a>저장소 계정 만들기 및 진단 구성
+## <a name="create-a-storage-account-and-configure-diagnostics"></a>스토리지 계정 만들기 및 진단 구성
 
 이 문서에서 애플리케이션 게이트웨이는 스토리지 계정을 사용하여 검색 및 방지 목적으로 데이터를 저장합니다. Azure Monitor 로그 또는 Event Hub를 사용하여 데이터를 기록할 수도 있습니다.
 
-### <a name="create-the-storage-account"></a>저장소 계정 만들기
+### <a name="create-the-storage-account"></a>스토리지 계정 만들기
 
 [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount)를 사용하여 *myagstore1*이라는 스토리지 계정을 만듭니다.
 
@@ -278,7 +278,7 @@ $store = Get-AzStorageAccount `
 Set-AzDiagnosticSetting `
   -ResourceId $appgw.Id `
   -StorageAccountId $store.Id `
-  -Categories ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog, ApplicationGatewayFirewallLog `
+  -Category ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog, ApplicationGatewayFirewallLog `
   -Enabled $true `
   -RetentionEnabled $true `
   -RetentionInDays 30

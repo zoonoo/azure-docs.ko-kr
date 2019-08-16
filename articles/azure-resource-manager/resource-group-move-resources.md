@@ -1,17 +1,17 @@
 ---
-title: 새 구독 또는 리소스 그룹으로 Azure 리소스 이동 | Microsoft Docs
+title: Azure 리소스를 새 구독 또는 리소스 그룹으로 이동 | Microsoft Docs
 description: Azure Resource Manager를 사용하여 리소스를 새 리소스 그룹 또는 구독으로 이동합니다.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: tomfitz
-ms.openlocfilehash: 01ec8facf2771de9ec01b9470521340a59ee4d0d
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 53482fdd760517967c9a4a976b43b64ba745c637
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721392"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69542970"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>새 리소스 그룹 또는 구독으로 리소스 이동
 
@@ -19,21 +19,21 @@ ms.locfileid: "67721392"
 
 이동 작업 동안 원본 그룹과 대상 그룹 모두 잠겨 있습니다. 쓰기 및 삭제 작업은 이동이 완료될 때까지 리소스 그룹에서 차단됩니다. 이 잠금은 리소스 그룹에서 리소스를 추가, 업데이트, 삭제할 수 없음을 의미하지만 리소스가 고정되었음을 의미하지는 않습니다. 예를 들어, SQL Server와 해당 데이터베이스를 새 리소스 그룹으로 이동하는 경우 해당 데이터베이스를 사용하는 애플리케이션에는 가동 중지 시간이 발생하지 않습니다. 데이터베이스에 계속해서 읽고 쓸 수 있습니다.
 
-새 리소스 그룹 또는 구독으로 이동만 리소스를 이동 합니다. 리소스의 위치를 변경 되지 않습니다.
+리소스를 이동 하면 새 리소스 그룹 또는 구독으로 이동 됩니다. 리소스의 위치는 변경 되지 않습니다.
 
 ## <a name="checklist-before-moving-resources"></a>리소스를 이동하기 전의 검사 목록
 
 리소스를 이동하기 전에 몇 가지 중요한 단계가 있습니다. 이러한 조건을 확인하면 오류를 방지할 수 있습니다.
 
-1. 이동 하려는 리소스 이동 작업을 지원 해야 합니다. 리소스는 이동을 지원 목록에 대해서 [이동 리소스에 대 한 작업 지원](move-support-resources.md)합니다.
+1. 이동 하려는 리소스는 이동 작업을 지원 해야 합니다. 이동을 지 원하는 리소스 목록은 [리소스에 대 한 이동 작업 지원](move-support-resources.md)을 참조 하세요.
 
-1. 일부 서비스 리소스를 이동할 때 특정 제한 사항 또는 요구 사항이 있습니다. 다음 서비스를 이동 했다면 이동 하기 전에 해당 지침을 확인 합니다.
+1. 일부 서비스에는 리소스를 이동할 때 특정 제한 사항이 나 요구 사항이 있습니다. 다음 서비스를 이동 하는 경우 이동 하기 전에 지침을 확인 하세요.
 
    * [App Services 이동 지침](./move-limitations/app-service-move-limitations.md)
-   * [Azure DevOps 서비스 이동 지침](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)
-   * [클래식 배포 모델 이동 지침](./move-limitations/classic-model-move-limitations.md) -클래식 Compute, 클래식 저장소, 클래식 가상 네트워크 및 클라우드 서비스
+   * [Azure DevOps Services 이동 지침](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)
+   * [클래식 배포 모델 이동 지침](./move-limitations/classic-model-move-limitations.md) -클래식 계산, 클래식 저장소, 클래식 가상 네트워크 및 Cloud Services
    * [Recovery Services 이동 지침](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
-   * [가상 컴퓨터 이동 지침](./move-limitations/virtual-machines-move-limitations.md)
+   * [Virtual Machines 이동 지침](./move-limitations/virtual-machines-move-limitations.md)
    * [가상 네트워크 이동 지침](./move-limitations/virtual-network-move-limitations.md)
 
 1. 원본 및 대상 구독이 활성 상태여야 합니다. 사용하지 않도록 설정된 계정을 사용하도록 설정하는 과정에서 문제가 발생하면 [Azure 지원 요청을 작성](../azure-supportability/how-to-create-azure-support-request.md)하세요. 문제 유형으로 **구독 관리**를 선택합니다.
@@ -94,9 +94,26 @@ ms.locfileid: "67721392"
 
 1. 리소스를 이동하기 전에 리소스를 이동하려는 구독에 대한 구독 할당량을 확인합니다. 리소스 이동 시 구독이 해당 한계를 초과하는 경우 할당량 증가를 요청할 수 있는지 여부를 검토해야 합니다. 제한의 목록 및 증가 요청 방법은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)을 참조하세요.
 
+1. **구독 간 이동의 경우 리소스와 해당 종속 리소스는 동일한 리소스 그룹에 위치 해야 하며 함께 이동 해야 합니다.** 예를 들어 관리 디스크가 있는 VM은 다른 종속 리소스와 함께 VM 및 관리 디스크를 함께 이동 해야 합니다.
+
+   리소스를 새 구독으로 이동 하는 경우 리소스에 종속 리소스가 있는지와 동일한 리소스 그룹에 있는지 여부를 확인 합니다. 리소스가 동일한 리소스 그룹에 없는 경우 리소스를 동일한 리소스 그룹으로 통합할 수 있는지 확인 합니다. 그렇다면 리소스 그룹 간에 이동 작업을 사용 하 여 이러한 모든 리소스를 동일한 리소스 그룹으로 가져옵니다.
+    
+자세한 내용은 [구독 간 이동 시나리오](#scenario-for-move-across-subscriptions)를 참조 하십시오.
+
+## <a name="scenario-for-move-across-subscriptions"></a>구독 간 이동 시나리오
+한 구독에서 다른 구독으로 리소스를 이동 하는 과정은 다음 3 단계로 진행 됩니다.
+
+![구독 간 이동 시나리오](./media/resource-group-move-resources/cross-subscription-move-scenario.png)
+
+설명을 위해 종속 리소스가 하나만 있습니다.
+
+* 1단계: 종속 리소스가 서로 다른 리소스 그룹에 분산 된 경우 먼저 하나의 리소스 그룹으로 이동 합니다.
+* 2단계: 리소스 및 종속 리소스를 원본 구독에서 대상 구독으로 함께 이동 합니다.
+* 3단계: 필요에 따라 대상 구독 내의 다른 리소스 그룹에 종속 리소스를 재배포할 수 있습니다. 
+
 ## <a name="validate-move"></a>이동 유효성 검사
 
-[이동 작업 유효성 검사](/rest/api/resources/resources/validatemoveresources)를 수행하면 실제로 리소스를 이동하지 않고 이동 시나리오를 테스트할 수 있습니다. 이 작업을 사용 하 여 이동 성공할 경우를 확인 합니다. 이동 요청을 보낼 때 자동으로 유효성 검사 라고 합니다. 결과 미리 결정 해야 하는 경우에이 작업을 사용 합니다. 이 작업을 실행하려면 다음이 필요합니다.
+[이동 작업 유효성 검사](/rest/api/resources/resources/validatemoveresources)를 수행하면 실제로 리소스를 이동하지 않고 이동 시나리오를 테스트할 수 있습니다. 이 작업을 사용 하 여 이동이 성공 하는지 확인 합니다. 이동 요청을 보내면 유효성 검사가 자동으로 호출 됩니다. 결과를 predetermine 해야 하는 경우에만이 작업을 사용 합니다. 이 작업을 실행하려면 다음이 필요합니다.
 
 * 원본 리소스 그룹의 이름
 * 대상 리소스 그룹의 리소스 ID
@@ -167,7 +184,7 @@ Authorization: Bearer <access-token>
 
 ![이동 결과 표시](./media/resource-group-move-resources/show-result.png)
 
-오류가 발생 하는 경우 참조 [새 리소스 그룹 또는 구독으로 Azure 리소스를 이동 하는 문제 해결](troubleshoot-move.md)합니다.
+오류가 발생 하는 경우 [Azure 리소스를 새 리소스 그룹 또는 구독으로 이동 문제 해결](troubleshoot-move.md)을 참조 하세요.
 
 ## <a name="use-azure-powershell"></a>Azure PowerShell 사용
 
@@ -181,7 +198,7 @@ Move-AzResource -DestinationResourceGroupName NewRG -ResourceId $webapp.Resource
 
 새 구독으로 이동하려면 `DestinationSubscriptionId` 매개 변수 값을 포함합니다.
 
-오류가 발생 하는 경우 참조 [새 리소스 그룹 또는 구독으로 Azure 리소스를 이동 하는 문제 해결](troubleshoot-move.md)합니다.
+오류가 발생 하는 경우 [Azure 리소스를 새 리소스 그룹 또는 구독으로 이동 문제 해결](troubleshoot-move.md)을 참조 하세요.
 
 ## <a name="use-azure-cli"></a>Azure CLI 사용
 
@@ -195,11 +212,11 @@ az resource move --destination-group newgroup --ids $webapp $plan
 
 새 구독으로 이동하려면 `--destination-subscription-id` 매개 변수를 제공합니다.
 
-오류가 발생 하는 경우 참조 [새 리소스 그룹 또는 구독으로 Azure 리소스를 이동 하는 문제 해결](troubleshoot-move.md)합니다.
+오류가 발생 하는 경우 [Azure 리소스를 새 리소스 그룹 또는 구독으로 이동 문제 해결](troubleshoot-move.md)을 참조 하세요.
 
 ## <a name="use-rest-api"></a>REST API 사용
 
-기존 리소스를 다른 리소스 그룹 또는 구독을 이동 하려면 사용 합니다 [리소스를 이동할](/rest/api/resources/Resources/MoveResources) 작업 합니다.
+기존 리소스를 다른 리소스 그룹 또는 구독으로 이동 하려면 [리소스 이동](/rest/api/resources/Resources/MoveResources) 작업을 사용 합니다.
 
 ```HTTP
 POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version}
@@ -214,8 +231,8 @@ POST https://management.azure.com/subscriptions/{source-subscription-id}/resourc
 }
 ```
 
-오류가 발생 하는 경우 참조 [새 리소스 그룹 또는 구독으로 Azure 리소스를 이동 하는 문제 해결](troubleshoot-move.md)합니다.
+오류가 발생 하는 경우 [Azure 리소스를 새 리소스 그룹 또는 구독으로 이동 문제 해결](troubleshoot-move.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-리소스는 이동을 지원 목록에 대해서 [이동 리소스에 대 한 작업 지원](move-support-resources.md)합니다.
+이동을 지 원하는 리소스 목록은 [리소스에 대 한 이동 작업 지원](move-support-resources.md)을 참조 하세요.

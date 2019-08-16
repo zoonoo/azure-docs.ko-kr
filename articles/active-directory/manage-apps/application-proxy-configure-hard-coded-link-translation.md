@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/04/2018
+ms.date: 08/15/2019
 ms.author: mimart
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6d85fc7ed16f397cb91232e9648df4e8741b37a
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: aa0dc2081aff5a24fb830b756131cccd5c6ce810
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68705792"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533690"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 사용하여 게시된 앱에 대해 하드 코드된 링크 리디렉션
 
@@ -30,13 +30,16 @@ Azure AD 애플리케이션 프록시는 원격 사용자가 자신의 디바이
 링크가 회사 네트워크의 내부와 외부에서 동일하게 작동하는지 확인하는 가장 좋은 방법은 앱의 외부 URL을 내부 URL과 동일하도록 구성하는 것입니다. [사용자 지정 도메인](application-proxy-configure-custom-domain.md)을 사용하여 외부 URL이 기본 애플리케이션 프록시 도메인 대신 회사 도메인 이름을 갖도록 구성합니다.
 
 
-테넌트에서 사용자 지정 도메인을 사용할 수 없는 경우 이 기능을 제공하기 위한 몇 가지 다른 옵션이 있습니다. 이러한 모든 기능은 사용자 지정 도메인 및 서로 간에 호환이 가능하므로 필요한 경우 다른 솔루션 및 사용자 지정을 구성할 수 있습니다. 
+테넌트에서 사용자 지정 도메인을 사용할 수 없는 경우 이 기능을 제공하기 위한 몇 가지 다른 옵션이 있습니다. 이러한 모든 기능은 사용자 지정 도메인 및 서로 간에 호환이 가능하므로 필요한 경우 다른 솔루션 및 사용자 지정을 구성할 수 있습니다.
+
+> [!NOTE]
+> Javascript를 통해 생성 된 하드 코드 된 내부 Url에 대해서는 링크 변환이 지원 되지 않습니다.
 
 **옵션 1: Managed Browser 또는 microsoft edge** 사용-이 솔루션은 사용자가 Intune Managed Browser 또는 microsoft edge 브라우저를 통해 응용 프로그램에 액세스 하도록 권장 하거나 요구 하는 경우에만 적용할 수 있습니다. 모든 게시된 URL을 처리합니다. 
 
 **옵션 2: MyApps 확장 사용** – 이 솔루션에서는 사용자가 클라이언트 쪽 브라우저 확장을 설치할 것을 요구하지만 게시된 모든 URL 및 작업을 인기 브라우저로 처리합니다. 
 
-**옵션 3: 링크 변환 설정 사용** – 사용자가 볼 수 없는 관리자 쪽 설정입니다. 그러나 HTML 및 CSS의 URL만 처리합니다. Javascript를 통해 생성된 하드 코딩된 내부 URL(예)은 작동하지 않습니다.  
+**옵션 3: 링크 변환 설정 사용** – 사용자가 볼 수 없는 관리자 쪽 설정입니다. 그러나 HTML 및 CSS의 URL만 처리합니다.   
 
 이 세 가지 기능은 사용자가 어디에 있든 관계 없이 링크를 계속 작동시킵니다. 내부 엔드포인트나 포트를 직접 가리키는 앱을 사용하는 경우 이러한 내부 URL을 게시된 외부 애플리케이션 프록시 URL에 매핑할 수 있습니다. 
 

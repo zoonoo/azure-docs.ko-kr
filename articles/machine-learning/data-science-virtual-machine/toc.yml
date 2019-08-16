@@ -19,9 +19,7 @@
       href: dsvm-ubuntu-intro.md
     - name: CentOS DSVM 만들기
       href: linux-dsvm-intro.md
-    - name: 심층 학습 VM 만들기
-      href: provision-deep-learning-dsvm.md
-    - name: Geo AI DSVM 만들기
+    - name: Geo AI 데이터 과학 VM 만들기
       href: provision-geo-ai-dsvm.md
 - name: 개념
   items:

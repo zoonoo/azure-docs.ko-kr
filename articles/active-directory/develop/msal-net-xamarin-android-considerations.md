@@ -3,7 +3,7 @@ title: Xamarin Android 고려 사항 (.NET 용 Microsoft Authentication Library)
 description: MSAL.NET (Microsoft Authentication Library for .NET)에서 Xamarin Android를 사용 하는 경우의 특정 고려 사항에 대해 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/24/2019
-ms.author: ryanwi
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff55853c859008690548b161451a24941a597d3a
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 465902cf6ef6db1d867f7cc986da8c9e06e4fbbf
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277893"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532451"
 ---
 # <a name="xamarin-android-specific-considerations-with-msalnet"></a>MSAL.NET를 사용 하 여 Xamarin Android 관련 고려 사항
 이 문서에서는 MSAL.NET (Microsoft Authentication Library for .NET)에서 Xamarin Android를 사용할 때의 구체적인 고려 사항을 설명 합니다.
@@ -115,7 +115,7 @@ var authResult = AcquireTokenInteractive(scopes)
 
 ### <a name="error-the-name-authenticationcontinuationhelper-does-not-exist-in-the-current-context"></a>오류: ' AuthenticationContinuationHelper ' 이름이 현재 컨텍스트에 없습니다.
 
-Visual Studio에서 Android .csproj * 파일을 올바르게 업데이트 하지 않았기 때문일 수 있습니다. 경우에 따라   **hintpath>filepath에monoandroid90대신netstandard13이잘못포함\<** 됩니다.
+Visual Studio에서 Android .csproj * 파일을 올바르게 업데이트 하지 않았기 때문일 수 있습니다. 경우에 따라  **hintpath>filepath에monoandroid90대신netstandard13이잘못포함\<** 됩니다.
 
 ```xml
 <Reference Include="Microsoft.Identity.Client, Version=3.0.4.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae,
@@ -128,6 +128,6 @@ Visual Studio에서 Android .csproj * 파일을 올바르게 업데이트 하지
 
 다음 샘플의 readme.md 파일에 있는 [Android 관련 고려 사항](https://github.com/azure-samples/active-directory-xamarin-native-v2#android-specific-considerations) 단락에서 자세한 내용 및 샘플을 제공 합니다.
 
-| 예제 | 플랫폼 | Description |
+| 예제 | 플랫폼 | 설명 |
 | ------ | -------- | ----------- |
 |[https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) | Xamarin iOS, Android, UWP | 간단한 Xamarin Forms 앱은 MSAL을 사용 하 여 AADD v2.0 끝점을 통해 MSA 및 Azure AD를 인증 하 고 결과 토큰을 사용 하 여 Microsoft Graph에 액세스 하는 방법을 보여주는 합니다. <br>![토폴로지](media/msal-net-xamarin-android-considerations/topology.png) |

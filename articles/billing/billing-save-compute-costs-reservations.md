@@ -7,12 +7,12 @@ ms.service: billing
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: banders
-ms.openlocfilehash: 2e595fbee90b710ec6b8090a770d93e688a04818
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 2122b6bd5fbd6b15bd5a2e411898d957708bf4c9
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839986"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69558879"
 ---
 # <a name="what-are-azure-reservations"></a>Azure Reservations란?
 
@@ -28,15 +28,15 @@ Azure 예약은 1년치 또는 3년치 가상 머신, SQL Database 컴퓨팅 용
 
 서비스 플랜:
 
-- **예약 가상 머신 인스턴스** -예약에는 가상 머신 계산 비용만 포함 됩니다. 추가 소프트웨어, 네트워킹 또는 저장소 요금은 포함되지 않습니다.
-- **Azure Cosmos DB 예약 된 용량** -예약에는 리소스에 대해 프로 비전 된 처리량이 포함 됩니다. 저장소 및 네트워킹 요금은 포함하지 않습니다.
+- **예약 가상 머신 인스턴스** -예약에는 가상 머신 계산 비용만 포함 됩니다. 추가 소프트웨어, 네트워킹 또는 스토리지 요금은 포함되지 않습니다.
+- **Azure Cosmos DB 예약 된 용량** -예약에는 리소스에 대해 프로 비전 된 처리량이 포함 됩니다. 스토리지 및 네트워킹 요금은 포함하지 않습니다.
 - **SQL Database Reserved vCore** -예약에 계산 비용만 포함 됩니다. 라이선스는 별도로 청구됩니다.
 
 Windows 가상 머신 및 SQL Database의 경우 [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)으로 라이선스 비용을 처리할 수 있습니다.
 
 ## <a name="whos-eligible-to-purchase-a-reservation"></a>예약을 구매할 수 있는 주체는?
 
-요금제를 구입 하려면 Enterprise (MS-AZR-0017P-0017P 또는 MS-AZR-0017P-Ms-azr-0148p) 또는 종 량 제 구독 (MS-MS-AZR-0017P-0017P 또는 MS-MS-AZR-0017P-0017P)에 구독 소유자 역할이 있어야 합니다. 클라우드 솔루션 공급자는 Azure Portal 또는 [파트너 센터](/partner-center/azure-reservations) 를 사용 하 여 Azure Reservations를 구매할 수 있습니다.
+요금제를 구입 하려면 Enterprise (MS-AZR-0017P-0017P 또는 MS-AZR-0017P-Ms-azr-0148p) 또는 종 량 제 구독 (MS-MS-AZR-0017P-0003P 또는 MS-MS-AZR-0017P-0017P)에 구독 소유자 역할이 있어야 합니다. 클라우드 솔루션 공급자는 Azure Portal 또는 [파트너 센터](/partner-center/azure-reservations) 를 사용 하 여 Azure Reservations를 구매할 수 있습니다.
 
 Ea (기업계약) 고객은 EA 포털에서 **예약 된 인스턴스 추가** 옵션을 사용 하지 않도록 설정 하 여 ea 관리자에 대 한 구매를 제한할 수 있습니다. 예약을 구매 하려면 EA 관리자가 하나 이상의 EA 구독에 대 한 구독 소유자 여야 합니다. 옵션은 중앙 집중식 팀에서 다양 한 비용 센터에 대 한 예약을 구매 하려는 기업에 유용 합니다. 구매한 후 중앙 집중식 팀은 예약에 비용 센터 소유자를 추가할 수 있습니다. 그러면 소유자는 예약의 범위를 구독으로 지정할 수 있습니다. 중앙 팀은 예약을 구매 하는 구독 소유자 액세스 권한이 필요 하지 않습니다.
 

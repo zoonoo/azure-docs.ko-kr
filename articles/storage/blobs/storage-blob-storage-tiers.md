@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 8f180308133ffba12cc3bffb19130aa7a129da9f
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 48c6d6ed60045d906fcb711bd07ab492b6bbf488
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952884"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543675"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Azure Blob storage: 핫, 쿨 및 보관 액세스 계층
 
@@ -80,6 +80,7 @@ Blob이 보관 저장소에 있는 동안 blob 데이터는 오프 라인 상태
 ### <a name="blob-rehydration"></a>Blob 리하이드레이션
 
 [!INCLUDE [storage-blob-rehydrate-include](../../../includes/storage-blob-rehydrate-include.md)]
+자세한 내용은 [리하이드레이션 blob data in archive 계층](storage-blob-rehydration.md) 을 참조 하세요.  
 
 ## <a name="account-level-tiering"></a>계정 수준 계층화
 
@@ -127,11 +128,11 @@ GB당 요금 및 월정액 이외에도 쿨 계층으로 이동된 모든 Blob(G
 
 |                                           | **프리미엄 성능**   | **핫 계층** | **쿨 계층**       | **보관 계층**  |
 | ----------------------------------------- | ------------------------- | ------------ | ------------------- | ----------------- |
-| **가용성**                          | 99.9%                     | 99.9%        | 99%                 | 오프라인           |
-| **가용성** <br> **(RA-GRS 읽기)**  | N/A                       | 99.99%       | 99.9%               | 오프라인           |
+| **Availability**                          | 99.9%                     | 99.9%        | 99%                 | 오프라인           |
+| **Availability** <br> **(RA-GRS 읽기)**  | 해당 사항 없음                       | 99.99%       | 99.9%               | 오프라인           |
 | **사용 요금**                         | 더 높은 저장소 비용, 낮은 액세스 및 트랜잭션 비용 | 스토리지 비용 더 높음, 액세스 및 트랜잭션 비용 더 낮음 | 스토리지 비용 더 낮음, 액세스 및 트랜잭션 비용 더 높음 | 스토리지 비용 가장 낮음, 액세스 및 트랜잭션 비용 가장 높음 |
 | **최소 개체 크기**                   | 해당 사항 없음                       | 해당 사항 없음          | 해당 사항 없음                 | 해당 사항 없음               |
-| **최소 스토리지 기간**              | 해당 사항 없음                       | 해당 사항 없음          | 30 일<sup>1</sup> | 180일
+| **최소 스토리지 기간**              | N/A                       | 해당 사항 없음          | 30 일<sup>1</sup> | 180일
 | **대기 시간** <br> **(첫 번째 바이트까지의 시간)** | 1 자리 밀리초 | 밀리초 | 밀리초        | 시간<sup>2</sup> |
 
 <sup>1</sup> GPv2 계정의 쿨 계층에 있는 개체의 최소 보존 기간은 30 일입니다. Blob storage 계정에는 쿨 계층에 대 한 최소 보존 기간이 없습니다.
@@ -164,11 +165,13 @@ GB당 요금 및 월정액 이외에도 쿨 계층으로 이동된 모든 Blob(G
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-1. 저장소 계정에서 blob으로 이동 하려면 **모든 리소스**를 선택 하 고 저장소 계정을 선택한 다음 컨테이너를 선택 하 고 blob을 선택 합니다.
+1. 스토리지 계정에서 Blob으로 이동하려면 모든 리소스를 선택하고 스토리지 계정을 선택하고 컨테이너를 선택한 다음 Blob을 선택합니다.
 
-1. **Blob 속성** 블레이드에서 **액세스 계층** 드롭다운 메뉴를 선택 하 여 **핫**, **쿨**또는 **보관** 액세스 계층을 선택 합니다.
+1. **Blob 속성** 블레이드에서 계층 **변경** 단추를 선택 하 여 계층 블레이드를 엽니다.
 
-1. 블레이드 위쪽에서 **저장**을 클릭합니다.
+1. **핫**, **쿨**또는 **보관** 액세스 계층을 선택 합니다. Blob이 현재 보관 된 상태이 고 온라인 계층으로 리하이드레이션 하는 경우 **표준** 또는 **높음**의 리하이드레이션 우선 순위를 선택할 수도 있습니다.
+
+1. 블레이드 아래쪽에서 **확인**을 클릭합니다.
 
 ## <a name="pricing-and-billing"></a>가격 책정 및 대금 청구
 
@@ -245,6 +248,8 @@ Azure Portal, PowerShell과 CLI 도구 및 .NET, Java, Python과 Node.js 클라�
 [지역별 핫, 쿨 및 보관의 가용성 확인](https://azure.microsoft.com/regions/#services)
 
 [Azure Blob Storage 수명 주기 관리](storage-lifecycle-management-concepts.md)
+
+[보관 계층에서 blob 데이터 리하이드레이션에 대 한 자세한 정보](storage-blob-rehydration.md)
 
 [Azure Storage 메트릭을 활성화하여 현재 Storage 계정의 사용 현황 평가](../common/storage-enable-and-view-metrics.md)
 

@@ -3,7 +3,7 @@ title: Xamarin iOS 고려 사항 (Microsoft Authentication Library for .NET) | M
 description: MSAL.NET (Microsoft Authentication Library for .NET)에서 Xamarin iOS를 사용 하는 경우의 특정 고려 사항에 대해 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2019
-ms.author: ryanwi
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7bb4aab4c217e20245a1f6ee9b2910a4558acad
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 906f2fc8cdac31922e6e93526f65577fe76c4b9c
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278224"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532384"
 ---
 # <a name="xamarin-ios-specific-considerations-with-msalnet"></a>MSAL.NET를 사용 하 여 Xamarin iOS 관련 고려 사항
 Xamarin iOS에서 MSAL.NET 사용 시 고려해 야 할 몇 가지 고려 사항이 있습니다.
@@ -116,7 +116,7 @@ Msal 2.7. x에서 새 `iOSKeychainSecurityGroup` 속성을 사용 하는 경우 
 
 자세한 내용은 다음 샘플의 readme.md 파일에 있는 [IOS 관련 고려 사항](https://github.com/azure-samples/active-directory-xamarin-native-v2#ios-specific-considerations) 단락에서 제공 됩니다.
 
-예제 | 플랫폼 | 설명
+예제 | 플랫폼 | Description
 ------ | -------- | -----------
 [https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) | Xamarin iOS, Android, UWP | 간단한 Xamarin Forms 앱은 MSAL을 사용 하 여 Azure AD v2.0 끝점을 통해 MSA 및 Azure AD를 인증 하 고 결과 토큰을 사용 하 여 Microsoft Graph에 액세스 하는 방법을 보여주는 합니다.
 

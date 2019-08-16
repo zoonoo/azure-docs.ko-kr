@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 1668e0b3b155804496b190f2ba66d220ba0dd219
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 00fadd8a98ec4f58783ed8b407e2621a7c107149
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381955"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533528"
 ---
 # <a name="aks-troubleshooting"></a>AKS 문제 해결
 
@@ -65,7 +65,7 @@ Kubernetes 대시보드가 표시되지 않으면 `kube-proxy` pod가 `kube-syst
 
 ## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>kubectl logs를 사용하여 로그를 가져올 수 없고 API 서버에 연결할 수 없습니다. "서버에서 오류가 발생 했습니다. 오류를 전화 접속 하는 중입니다." 라는 오류가 발생 합니다. 어떻게 해야 하나요?
 
-기본 네트워크 보안 그룹이 수정 되지 않고 API 서버에 연결 하기 위해 포트 22 및 9000이 모두 열려 있는지 확인 합니다. 명령을 사용 하 여 `tunnelfront`  pod가 kube 네임 스페이스에서 `kubectl get pods --namespace kube-system` 실행 중인지 확인 합니다. 실행되지 않으면 pod를 강제로 삭제합니다. 그러면 다시 시작됩니다.
+기본 네트워크 보안 그룹이 수정 되지 않고 API 서버에 연결 하기 위해 포트 22 및 9000이 모두 열려 있는지 확인 합니다. 명령을 사용 하 여 `tunnelfront` pod가 kube 네임 스페이스에서 `kubectl get pods --namespace kube-system` 실행 중인지 확인 합니다. 실행되지 않으면 pod를 강제로 삭제합니다. 그러면 다시 시작됩니다.
 
 ## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-message-changing-property-imagereference-is-not-allowed-error-how-do-i-fix-this-problem"></a>업그레이드하거나 크기를 조정하려고 하는데 "메시지": "'imageReference' 속성을 변경할 수 없습니다." 오류가 표시됩니다. 이 문제를 어떻게 해결하나요?
 
@@ -86,10 +86,12 @@ AKS 클러스터 내의 에이전트 노드에서 태그를 수정했기 때문�
 
 *이 문제 해결 지원은 다음에서 전송 됩니다. https://aka.ms/aks-pending-upgrade*
 
-활성 업그레이드 작업이 발생 하거나 업그레이드를 시도 했지만 이후에 실패 한 경우 클러스터 작업이 제한 됩니다. 문제를 진단 하 여 `az aks show -g myResourceGroup -n myAKSCluster -o table` 클러스터에서 자세한 상태를 검색 합니다. 결과에 따라:
+단일 노드 풀 또는 [여러 노드 풀](use-multiple-node-pools.md) 을 포함 하는 클러스터에서 클러스터에 대 한 업그레이드 및 크기 조정 작업은 함께 사용할 수 없습니다. 클러스터 또는 노드 풀을 동시에 업그레이드 하 고 확장할 수 없습니다. 대신, 동일한 리소스에 대 한 다음 요청 전에 대상 리소스에서 각 작업 유형이 완료 되어야 합니다. 따라서 활성 업그레이드 또는 크기 조정 작업이 발생 하거나 시도한 후에 실패 하는 경우 작업이 제한 됩니다. 
 
-* 클러스터가 적극적으로 업그레이드 되는 경우 작업이 종료 될 때까지 기다립니다. 성공한 경우 이전에 실패 한 작업을 다시 시도 합니다.
-* 클러스터가 업그레이드에 실패 한 경우 위에 설명 된 단계를 수행 합니다.
+문제를 진단 하 여 클러스터 `az aks show -g myResourceGroup -n myAKSCluster -o table` 에서 자세한 상태를 검색 하는 데 도움을 받을 수 있습니다. 결과에 따라:
+
+* 클러스터가 적극적으로 업그레이드 되는 경우 작업이 종료 될 때까지 기다립니다. 성공 하면 이전에 실패 한 작업을 다시 시도 합니다.
+* 클러스터가 업그레이드에 실패 한 경우 이전 섹션에 설명 된 단계를 수행 합니다.
 
 ## <a name="can-i-move-my-cluster-to-a-different-subscription-or-my-subscription-with-my-cluster-to-a-new-tenant"></a>클러스터를 새 테 넌 트에 대 한 다른 구독 또는 구독으로 이동할 수 있나요?
 

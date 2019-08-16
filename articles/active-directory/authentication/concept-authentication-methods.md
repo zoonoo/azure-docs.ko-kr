@@ -1,6 +1,6 @@
 ---
 title: 인증 방법-Azure Active Directory
-description: MFA 및 SSPR에 대 한 Azure AD에서 사용 가능한 인증 방법
+description: MFA 및 SSPR 용 Azure AD에서 사용할 수 있는 인증 방법
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,29 +11,29 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1322c919906dc2d0dd23de538fa2c1992fbe5da0
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 22c25c0a2b2f48baa3b57a8ad39ed4514c884826
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164836"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533144"
 ---
 # <a name="what-are-authentication-methods"></a>인증 방법이란?
 
-관리자로 서 Azure Multi-factor Authentication 및 사용자가 여러 인증 방법을 등록 하도록 요구 하는 것이 좋습니다. 셀프 서비스 암호 재설정 (SSPR)에 대 한 인증 방법을 선택 합니다. 인증 방법을 사용자에 대해 사용할 수 없는 경우 다른 메서드를 사용 하 여 인증 하도록 선택할 수 있습니다.
+관리자는 Azure Multi-factor Authentication에 대 한 인증 방법 및 SSPR (셀프 서비스 암호 재설정)을 선택할 때 사용자가 여러 인증 방법을 등록 하도록 요구 하는 것이 좋습니다. 사용자에 대 한 인증 방법을 사용할 수 없는 경우 다른 방법으로 인증 하도록 선택할 수 있습니다.
 
-관리자는 SSPR 및 MFA 사용자에게 제공하는 인증 방법을 정책에서 정의할 수 있습니다. 일부 기능에는 일부 인증 방법이 제공되지 않을 수 있습니다. 정책을 구성 하는 방법에 대 한 자세한 내용은 문서를 참조 [셀프 서비스 암호 재설정을 성공적으로 롤아웃하는 방법](howto-sspr-deployment.md) 고 [클라우드 기반 Azure Multi-factor Authentication을 계획 합니다.](howto-mfa-getstarted.md)
+관리자는 SSPR 및 MFA 사용자에게 제공하는 인증 방법을 정책에서 정의할 수 있습니다. 일부 기능에는 일부 인증 방법이 제공되지 않을 수 있습니다. 정책을 구성 하는 방법에 대 한 자세한 내용은 [셀프 서비스 암호 재설정을 성공적으로 출시 하는 방법](howto-sspr-deployment.md) 및 [클라우드 기반 Azure multi-factor Authentication 계획](howto-mfa-getstarted.md) 문서를 참조 하세요.
 
 관리자는 사용자가 액세스 권한이 없는 경우 필요한 최소 인증 방법 수보다 많이 선택할 수 있게 하는 것이 좋습니다.
 
-|인증 방법|사용 현황|
+|인증 방법|사용법|
 | --- | --- |
 | 암호 | MFA 및 SSPR |
 | 보안 질문 | SSPR만 |
-| 메일 주소 | SSPR만 |
+| 전자 메일 주소 | SSPR만 |
 | Microsoft Authenticator 앱 | MFA 및 SSPR용 공개 미리 보기 |
 | OATH 하드웨어 토큰 | MFA 및 SSPR용 공개 미리 보기 |
-| sms | MFA 및 SSPR |
+| SMS | MFA 및 SSPR |
 | 음성 통화 | MFA 및 SSPR |
 | 앱 암호 | 특정 경우 MFA만 |
 
@@ -60,15 +60,15 @@ Azure AD 암호는 인증 방법으로 간주됩니다. **비활성화할 수 �
 
 ### <a name="predefined-questions"></a>미리 정의된 질문
 
-* 배우자/파트너를 처음 만난 도시는 어디인가요?
+* 첫 번째 배우자/애인을 만난 도시는 어디였습니까?
 * 부모님이 처음 만난 도시는 어디인가요?
 * 가장 가까운 형제 자매가 사는 도시는 어디인가요?
 * 아버지가 출생하신 도시는 어디인가요?
 * 첫 직장이 있는 도시는 어디인가요?
 * 어머니가 출생하신 도시는 어디인가요?
-* 2000년에 새해를 맞은 도시는 어디인가요?
-* 고등학교에서 가장 좋아했던 선생님의 성은 무엇인가요?
-* 지원했지만 다니지 않은 대학의 이름은 무엇인가요?
+* 2000년 새해 첫 날 어느 도시에 있었습니까?
+* 고등학교에서 가장 좋아하는 선생님의 성은 무엇입니까?
+* 지원했지만 다니지 않은 대학의 이름은 무엇입니까?
 * 첫 번째 결혼 피로연을 열었던 장소의 이름은 무엇인가요?
 * 아버지의 중간 이름은 무엇인가요?
 * 가장 좋아하는 음식은 무엇인가요?
@@ -94,7 +94,7 @@ Azure AD 암호는 인증 방법으로 간주됩니다. **비활성화할 수 �
 * 첫 번째 직업은 무엇인가요?
 * 어린 시절 전화 번호의 마지막 4자리는 무엇인가요?
 * 어린 시절 자라서 되고 싶었던 것은 무엇인가요?
-* 지금까지 만난 가장 유명한 사람은 누구인가요?
+* 지금까지 만난 사람 중에 가장 유명한 사람은 누구입니까?
 
 미리 정의된 모든 보안 질문은 모두 사용자의 브라우저 로캘을 기반으로 Office 365 언어의 전체 집합으로 번역 및 지역화됩니다.
 
@@ -113,7 +113,7 @@ Azure AD 암호는 인증 방법으로 간주됩니다. **비활성화할 수 �
 * 유니코드 문자를 포함한 모든 문자 집합을 사용하여 질문과 응답을 정의할 수 있습니다.
 * 정의된 질문 수는 등록에 필요한 질문 수보다 크거나 같아야 합니다.
 
-## <a name="email-address"></a>메일 주소
+## <a name="email-address"></a>전자 메일 주소
 
 이메일 주소는 **Azure AD SSPR(Self-service Password Reset)** 에서만 사용할 수 있습니다.
 
@@ -142,9 +142,9 @@ Microsoft Authenticator 앱을 사용하면 스마트폰 또는 태블릿에 알
 모바일 앱을 통한 알림 및 모바일 앱의 확인 코드 둘 다 사용하도록 설정한 경우 알림을 사용하여 Microsoft Authenticator 앱을 등록하려는 사용자는 알림 및 코드 모두를 사용하여 해당 ID를 확인할 수 있습니다.
 
 > [!NOTE]
-> 조직에서는 직원 작업 또는 중국으로 이동 하는 **모바일 앱을 통한 알림** 메서드를 **Android 장치** 해당 국가에서 작동 하지 않습니다. 대체 메서드는 사용자 제공 이루어져야 합니다.
+> 조직에서 근무 하는 직원이 있거나 중국으로 여행 하는 경우 **Android 장치** 에서 **모바일 앱 방법을 통한 알림이** 해당 국가에서 작동 하지 않습니다. 이러한 사용자에 대해 다른 방법을 사용할 수 있습니다.
 
-### <a name="verification-code-from-mobile-app"></a>모바일 앱의 확인 코드
+### <a name="verification-code-from-mobile-app"></a>모바일 앱을 통한 인증 코드
 
 Microsoft Authenticator 앱 또는 타사 앱을 소프트웨어 토큰으로 사용하여 OATH 확인 코드를 생성할 수 있습니다. 사용자 이름 및 암호를 입력한 후 앱에서 제공한 코드를 로그인 화면에 입력합니다. 확인 코드는 두 번째 인증 형식을 제공합니다.
 
@@ -152,13 +152,13 @@ Microsoft Authenticator 앱 또는 타사 앱을 소프트웨어 토큰으로 �
 > 재설정에 한 가지 방법만 필요하고 셀프 서비스 암호 재설정을 사용하는 경우 **최고 수준의 보안을 유지하기 위해** 사용자에게 유일한 옵션으로 확인 코드만 제공됩니다.
 >
 
-사용자는 최대 5 개의 OATH 하드웨어 토큰 또는 authenticator 응용 프로그램이 언제 든 지 사용 하도록 구성 된 Microsoft Authenticator 앱과 같은 조합이 있을 수 있습니다.
+사용자는 언제 든 지 사용 하도록 구성 된 Microsoft Authenticator 앱과 같은 최대 5 개의 OATH 하드웨어 토큰 또는 인증자 응용 프로그램을 조합 하 여 사용할 수 있습니다.
 
 ## <a name="oath-hardware-tokens-public-preview"></a>OATH 하드웨어 토큰(공개 미리 보기)
 
-OATH는 OTP(일회성 암호) 코드 생성 방법을 지정하는 공개 표준입니다. Azure AD는 30초 또는 60초 중 하나로 OATH-TOTP SHA-1 토큰 사용을 지원합니다. 고객은 자신이 선택한 공급업체에서 이러한 토큰을 확보할 수 있습니다. 비밀 키 모든 토큰을 사용 하 여 호환 되지 않을 수 있습니다는 128 자로 제한 됩니다.
+OATH는 OTP(일회성 암호) 코드 생성 방법을 지정하는 공개 표준입니다. Azure AD는 30초 또는 60초 중 하나로 OATH-TOTP SHA-1 토큰 사용을 지원합니다. 고객은 자신이 선택한 공급업체에서 이러한 토큰을 확보할 수 있습니다. 비밀 키는 모든 토큰과 호환 되지 않을 수 있는 128 자로 제한 됩니다. 비밀 키를 Base32로 인코딩해야 합니다.
 
-![MFA 서버 OATH 토큰 블레이드로 OATH 토큰 업로드](media/concept-authentication-methods/oath-tokens-azure-ad.png)
+![MFA 서버 OATH 토큰 블레이드에 OATH 토큰 업로드](media/concept-authentication-methods/oath-tokens-azure-ad.png)
 
 OATH 하드웨어 토큰은 공개 미리 보기의 일부로 지원됩니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
@@ -178,11 +178,11 @@ CSV 파일의 크기에 따라 처리하는 데 몇 분 정도가 소요될 수 
 
 오류가 모두 처리되면 관리자는 토큰이 활성화되도록 **활성화**를 클릭하고 토큰에 표시된 OTP를 입력하여 각 키를 활성화할 수 있습니다.
 
-사용자는 최대 5 개의 OATH 하드웨어 토큰 또는 authenticator 응용 프로그램이 언제 든 지 사용 하도록 구성 된 Microsoft Authenticator 앱과 같은 조합이 있을 수 있습니다.
+사용자는 언제 든 지 사용 하도록 구성 된 Microsoft Authenticator 앱과 같은 최대 5 개의 OATH 하드웨어 토큰 또는 인증자 응용 프로그램을 조합 하 여 사용할 수 있습니다.
 
 ## <a name="phone-options"></a>전화 옵션
 
-### <a name="mobile-phone"></a>휴대폰
+### <a name="mobile-phone"></a>모바일 폰
 
 휴대폰 사용자에게는 두 옵션이 제공됩니다.
 
@@ -204,7 +204,7 @@ CSV 파일의 크기에 따라 처리하는 데 몇 분 정도가 소요될 수 
 제공한 전화 번호에 자동으로 음성 전화를 겁니다. 전화를 받고 휴대폰 키패드에서 #을 눌러 인증합니다.
 
 > [!IMPORTANT]
-> 전화 통화 옵션의 2019 년 3 월부터 Azure AD 체험/평가판 테 넌 트에서 MFA 및 SSPR 사용자에 게 제공 되지 않습니다. SMS 메시지는이 변경의 영향을 받지 않습니다. 전화 통화는 유료 Azure AD 테 넌 트의 사용자에 게 사용 가능 하도록 계속 됩니다. 이 변경은 Azure AD 체험/평가판 테 넌 트에만 영향을 줍니다.
+> 2019 년 3 월부터, 무료/평가판 Azure AD 테 넌 트의 MFA 및 SSPR 사용자가 전화 통화 옵션을 사용할 수 없습니다. SMS 메시지는 이러한 변경의 영향을 받지 않습니다. 전화 통화는 유료 Azure AD 테 넌 트의 사용자가 계속 사용할 수 있습니다. 이 변경 내용은 무료/평가판 Azure AD 테 넌 트에만 영향을 줍니다.
 
 ### <a name="office-phone"></a>사무실 전화
 
@@ -215,7 +215,7 @@ CSV 파일의 크기에 따라 처리하는 데 몇 분 정도가 소요될 수 
 사무실 전화 특성은 관리자가 관리합니다.
 
 > [!IMPORTANT]
-> 전화 통화 옵션의 2019 년 3 월부터 Azure AD 체험/평가판 테 넌 트에서 MFA 및 SSPR 사용자에 게 제공 되지 않습니다. SMS 메시지는이 변경의 영향을 받지 않습니다. 전화 통화는 유료 Azure AD 테 넌 트의 사용자에 게 사용 가능 하도록 계속 됩니다. 이 변경은 Azure AD 체험/평가판 테 넌 트에만 영향을 줍니다.
+> 2019 년 3 월부터, 무료/평가판 Azure AD 테 넌 트의 MFA 및 SSPR 사용자가 전화 통화 옵션을 사용할 수 없습니다. SMS 메시지는 이러한 변경의 영향을 받지 않습니다. 전화 통화는 유료 Azure AD 테 넌 트의 사용자가 계속 사용할 수 있습니다. 이 변경 내용은 무료/평가판 Azure AD 테 넌 트에만 영향을 줍니다.
 
 > [!NOTE]
 > 국가 번호와 전화 번호 사이에 공백이 필요합니다.
@@ -224,22 +224,22 @@ CSV 파일의 크기에 따라 처리하는 데 몇 분 정도가 소요될 수 
 
 ### <a name="troubleshooting-phone-options"></a>전화 옵션 문제 해결
 
-전화 번호를 사용 하 여 인증 방법에 관련 된 일반적인 문제:
+전화 번호를 사용 하는 인증 방법과 관련 된 일반적인 문제:
 
 * 단일 장치에서 차단 된 호출자 ID
    * 장치 문제 해결
-* 잘못 된 전화 번호, 잘못 된 국가 코드, 업무용 전화 번호 및 집 전화 번호
-   * 사용자 개체의 문제 해결 하 고 인증 방법을 구성 합니다. 등록 된 올바른 전화 번호를 확인 합니다.
+* 잘못 된 전화 번호, 잘못 된 국가 코드, 집 전화번호 및 회사 전화 번호
+   * 사용자 개체 및 구성 된 인증 방법 문제를 해결 합니다. 올바른 전화 번호가 등록 되어 있는지 확인 합니다.
 * 잘못 된 PIN 입력
-   * 사용자가 Azure MFA 서버에 등록 된 올바른 PIN을 사용 하는 것을 확인 합니다.
-* 음성 전달 된 호출
-   * 사용자에 게 전화를 설정 하 고 해당 영역에서 서비스를 사용할 수 있는지 확인 하거나 대체 메서드를 사용 합니다.
+   * 사용자가 Azure MFA 서버에 등록 된 올바른 PIN을 사용 했는지 확인 합니다.
+* 음성 메일로 전달 된 통화
+   * 사용자가 전화를 켜고 해당 지역에서 해당 서비스를 사용할 수 있는지 확인 하거나 대체 방법을 사용 합니다.
 * 사용자가 차단됨
-   * Azure portal에서 사용자를 차단 해제 하는 관리자를 있습니다.
-* SMS 장치에 등록 되어 있지 않습니다.
-   * 메서드를 변경 하거나 장치에서 SMS 활성화 사용자가.
-* 잘못 된 통신 공급자 (폰 입력 없음 검색, DTMF 소리 문제를 여러 장치에서 차단 된 호출자 ID 또는 여러 장치에서 SMS 차단)
-   * Microsoft 여러 통신 공급자를 사용 하 여 전화 통화 및 인증에 대 한 SMS 메시지를 라우팅합니다. 위의 문제가 표시 되는 경우 5 분 내에 5 번 이상 메서드를 사용 하 고 해당 사용자의 정보를 사용할 수 있는 경우 Microsoft 지원에 문의 하려는 사용자 시도가 있습니다.
+   * 관리자가 Azure Portal에서 사용자의 차단을 해제 하도록 합니다.
+* SMS가 장치에서 구독 하지 않음
+   * 사용자가 장치에서 메서드를 변경 하거나 SMS를 활성화 하도록 합니다.
+* 잘못 된 통신 공급자 (전화 입력 없음, 누락 된 DTMF 톤 문제, 여러 장치에서 차단 된 호출자 ID 또는 여러 장치에서 차단 된 SMS)
+   * Microsoft는 여러 통신 공급자를 사용 하 여 인증을 위해 전화 통화와 SMS 메시지를 라우팅합니다. 위의 문제가 발생 한 경우 사용자가 5 분 이내에 5 번 이상 메서드를 사용 하 고 Microsoft 지원에 문의할 때 해당 사용자의 정보를 사용할 수 있도록 합니다.
 
 ## <a name="app-passwords"></a>앱 암호
 
@@ -261,6 +261,6 @@ CSV 파일의 크기에 따라 처리하는 데 몇 분 정도가 소요될 수 
 
 [조직에 Azure Multi-Factor Authentication을 사용하도록 설정](howto-mfa-getstarted.md)
 
-[테 넌 트의 결합 된 등록을 사용 하도록 설정](howto-registration-mfa-sspr-combined.md)
+[테 넌 트에서 결합 된 등록 사용](howto-registration-mfa-sspr-combined.md)
 
 [최종 사용자 인증 방법 구성 설명서](https://aka.ms/securityinfoguide)

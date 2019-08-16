@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: 5093b74484cd04a0c0c7afed8e2ebc725af033f5
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 33078439e8f055d746fad9949a9b0d7651e120f7
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249828"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543814"
 ---
 # <a name="what-is-ipv6-for-azure-virtual-network-preview"></a>Azure Virtual Network에 대 한 i p v 6은 무엇 인가요? (미리 보기)
 
@@ -48,10 +48,12 @@ VNet 용 IPv6에는 다음과 같은 기능이 포함 되어 있습니다.
 
 - Azure 고객은 자신의 응용 프로그램, 고객의 요구에 맞게 자신의 IPv6 가상 네트워크 주소 공간을 정의 하거나 온-프레미스 IP 공간으로 원활 하 게 통합할 수 있습니다.
 - 이중 스택 (IPv4 및 IPv6) 이중 스택 서브넷을 사용 하는 가상 네트워크는 응용 프로그램이 가상 네트워크 또는 인터넷에서 IPv4 및 IPv6 리소스 모두에 연결할 수 있습니다.
-- 네트워크 보안 그룹에 대 한 IPv6 규칙을 사용 하 여 리소스 보호
+    > [!IMPORTANT]
+    > I p v 6의 서브넷 크기는 정확히/64 이어야 합니다.  이렇게 하면 일부 라우터는/64 IPv6 경로만 허용할 수 있으므로 온-프레미스 네트워크에 대 한 서브넷 라우팅을 사용 하도록 설정할 경우 호환성이 보장 됩니다.  
+- 네트워크 보안 그룹에 대 한 IPv6 규칙을 사용 하 여 리소스를 보호 합니다.
 - 특히 네트워크 가상 어플라이언스를 활용 하 여 응용 프로그램을 보강 하는 경우 사용자 정의 경로를 사용 하 여 가상 네트워크에서 IPv6 트래픽 라우팅을 사용자 지정 합니다.
 - 인터넷 클라이언트가 IPv6 (AAAA) 레코드에 대 한 Azure DNS 지원으로 선택 된 프로토콜을 사용 하 여 이중 스택 응용 프로그램에 원활 하 게 액세스할 수 있도록 합니다. 
-- 표준 IPv6 공용 Load Balancer 지원: 다음을 포함 하는 복원 력이 뛰어난 응용 프로그램을 만들 수 있습니다.
+- 복원력과 확장성이 뛰어난 애플리케이션을 생성하기 위한 표준 IPv6 공개 부하 분산 장치 지원에는 다음이 포함됩니다.
     - 상태에 해당 하는 백 엔드 풀 인스턴스를 확인 하 여 새 흐름을 받을 수 있는 선택적 IPv6 상태 프로브입니다. 을 선택합니다.  
     - 아웃 바운드 연결에 대 한 모든 선언적 제어를 제공 하는 선택적 아웃 바운드 규칙은 특정 요구에 맞게이 기능을 확장 하 고 조정 합니다.
     - 단일 부하 분산 장치에서 여러 IPv6 공용 IP 주소를 사용할 수 있도록 하는 선택적 다중 프런트 엔드 구성-프런트 엔드 주소에서 동일한 프런트 엔드 프로토콜 및 포트를 재사용할 수 있습니다.
@@ -71,7 +73,7 @@ Azure virtual network에 대 한 i p v 6의 미리 보기 릴리스에는 다음
   - IPv6 부하 분산 규칙은 *부동 IP* 기능을 사용 **하지** 않을 수 있습니다. 백 엔드 인스턴스에 대 한 포트 다시 사용은 IPv4 에서만 지원 됩니다.
 - 인터넷 연결 IPv6 주소의 블록 예약은 Azure 공용 IP 주소 접두사 기능에서 지원 되지 않습니다.
 
-## <a name="pricing"></a>가격
+## <a name="pricing"></a>가격 책정
 
 IPv6 Azure 리소스 및 대역폭은 IPv4와 동일한 요금으로 청구 됩니다. I p v 6에 대 한 추가 요금이 나 다른 요금은 없습니다. [공용 IP 주소](https://azure.microsoft.com/pricing/details/ip-addresses/), [네트워크 대역폭](https://azure.microsoft.com/pricing/details/bandwidth/)또는 [Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/)에 대 한 가격 책정에 대 한 세부 정보를 찾을 수 있습니다.
 

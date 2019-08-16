@@ -3,17 +3,17 @@ title: CloudSimple 사설 클라우드 VMware 구성 요소에의 한 Azure VMwa
 description: 사설 클라우드에 VMware 구성 요소가 설치 되는 방법에 대해 설명 합니다.
 author: sharaths-cs
 ms.author: dikamath
-ms.date: 04/30/2019
+ms.date: 08/15/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 89bc9c07ae74da1a4269a505627a7626e478ef99
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 26f58a38ac3abe9c6e2a3c6254190dffc4a51eb9
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812189"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543717"
 ---
 # <a name="private-cloud-vmware-components"></a>사설 클라우드 VMware 구성 요소
 
@@ -47,7 +47,7 @@ vCenter server 어플라이언스 (VCSA)는 CloudSimple로 VMware 솔루션에 �
 
 ### <a name="vcenter-single-sign-on"></a>vCenter single sign-on
 
-VCSA의 Embedded Platform Services 컨트롤러는 **VCenter Single sign-on 도메인**에 연결 됩니다.  도메인 이름은 **cloudsimple. local**입니다.  VCenter에 액세스할 **CloudOwner@cloudsimple.com** 수 있는 기본 사용자가 만들어집니다.  [VCenter에 대 한](https://docs.azure.cloudsimple.com/set-vcenter-identity/)온-프레미스/Azure active directory id 원본을 추가할 수 있습니다.
+VCSA의 Embedded Platform Services 컨트롤러는 **VCenter Single sign-on 도메인**에 연결 됩니다.  도메인 이름은 **cloudsimple. local**입니다.  VCenter에 액세스할 **CloudOwner@cloudsimple.com** 수 있는 기본 사용자가 만들어집니다.  [VCenter에 대 한](set-vcenter-identity.md)온-프레미스/Azure active directory id 원본을 추가할 수 있습니다.
 
 ## <a name="vsan-storage"></a>vSAN 저장소
 

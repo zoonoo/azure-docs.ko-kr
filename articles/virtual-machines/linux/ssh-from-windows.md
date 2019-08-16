@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: bd5eeb3bc3864dc0203c558228dce2f54dbaa79d
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 157cc706da34281ec7bb36a9b9e16a4192b3bd96
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708813"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543871"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Azure에서 Windows를 통해 SSH 키를 사용하는 방법
 
@@ -48,7 +48,7 @@ Windows 컴퓨터는 항상 비교 가능한 SSH 명령을 설치하지는 않�
 * 이제 [Azure 계정 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)을 설치하여 Visual Studio Code 내에서 터미널로 Cloud Shell에 액세스합니다.
 
 ## <a name="create-an-ssh-key-pair"></a>SSH 키 쌍 만들기
-다음 섹션에서는 Windows에서 SSH 키 쌍을 만드는 두 가지 옵션을 설명합니다. 셸 명령(`ssh-keygen`) 또는 GUI 도구(PuTTYgen)를 사용할 수 있습니다.
+다음 섹션에서는 Windows에서 SSH 키 쌍을 만드는 두 가지 옵션을 설명합니다. 셸 명령(`ssh-keygen`) 또는 GUI 도구(PuTTYgen)를 사용할 수 있습니다. 또한 Powershell을 사용 하 여 키를 만들 때 공개 키를 ssh .com (SECSH) 형식으로 업로드 합니다. CLI를 사용 하는 경우 업로드 하기 전에 키를 OpenSSH 형식으로 변환 합니다. 
 
 ### <a name="create-ssh-keys-with-ssh-keygen"></a>ssh-keygen을 사용하여 SSH 키 만들기
 

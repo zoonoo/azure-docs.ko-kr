@@ -11,6 +11,9 @@
     - name: 'C# 사용'
       href: csharp-quickstart-commandline-feedback-loop.md
       displayName: 'code, sample, quickstart, c#'
+    - name: Node.js 사용
+      href: quickstart-command-line-feedback-loop-nodejs-sdk.md
+      displayName: 'code, sample, quickstart, node, npm, sdk'
     - name: Python 사용
       href: python-quickstart-commandline-feedback-loop.md
       displayName: 'code, sample, quickstart, python'

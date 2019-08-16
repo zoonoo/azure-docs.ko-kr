@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 2c115bf0ad21e905e998692fbbc175f5aa52b86d
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 77d900844705bb86ce4bcfeda31d6ee765cb8d45
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69014268"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534999"
 ---
 # <a name="tutorial-using-azure-iot-hub-message-enrichments-preview"></a>자습서: Azure IoT Hub 메시지 강화 사용 (미리 보기)
 
@@ -30,7 +30,7 @@ ms.locfileid: "69014268"
 > * 허브로 메시지를 보내는 IoT 장치를 시뮬레이트하는 앱을 실행 합니다.
 > * 결과를 확인 하 고 강화 메시지가 정상적으로 작동 하는지 확인 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독이 있어야 합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -84,7 +84,7 @@ Azure CLI 스크립트는 필요한 리소스를 만드는 것 외에도 별도�
 
 ```azurecli-interactive
 # This command retrieves the subscription id of the current Azure account.
-# This field is used when setting up the routing rules.
+# This field is used when setting up the routing queries.
 subscriptionID=$(az account show --query id -o tsv)
 
 # Concatenate this number onto the resources that have to be globally unique.
@@ -269,7 +269,7 @@ az iot hub route create \
 
 ## <a name="send-messages-to-the-iot-hub"></a>IoT Hub에 메시지 보내기
 
-강화 메시지를 끝점에 대해 구성 했으므로 시뮬레이션 된 장치 응용 프로그램을 실행 하 여 IoT Hub에 메시지를 보냅니다. 허브는 다음을 수행 하는 규칙을 사용 하 여 설정 되었습니다.
+강화 메시지를 끝점에 대해 구성 했으므로 시뮬레이션 된 장치 응용 프로그램을 실행 하 여 IoT Hub에 메시지를 보냅니다. 허브는 다음을 수행 하는 설정으로 설정 되었습니다.
 
 * 저장소 끝점 ContosoStorageEndpointOriginal로 라우팅되는 메시지는 보강 되지 않으며 저장소 컨테이너 `original`에 저장 됩니다.
 

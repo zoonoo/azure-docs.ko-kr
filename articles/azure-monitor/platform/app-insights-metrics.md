@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 07/03/2019
 ms.author: vitalyg
 ms.subservice: application-insights
-ms.openlocfilehash: d4b7a214af23d69f1217d84e9401de230cd358b0
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 903fd2309949036b62fb4975596fb645c021d06d
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67877364"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69535041"
 ---
 # <a name="application-insights-log-based-metrics"></a>로그 기반 메트릭 Application Insights
 
@@ -30,13 +30,13 @@ Application Insights 로그 기반 메트릭을 사용 하 여 모니터링 되�
 
 [메트릭 탐색기](metrics-getting-started.md)에서 동일한 메트릭을 그리면 기본값이 없습니다. 쿼리는 차트 설정에 따라 동적으로 조정 됩니다.
 
-- 선택한 시간 범위는 추가 *where timestamp ...* 절로 **변환 되어 선택한** 시간 범위 에서만 이벤트를 선택 합니다. 예를 들어, 가장 최근 24 시간 동안의 데이터를 보여 주는 차트의 경우 쿼리는 *| where timestamp > 전 (24 h)* 을 포함 합니다.
+- 선택한 시간 범위는 추가 *where timestamp ...* 절로 변환 되어 선택한 시간 범위 에서만 이벤트를 선택 합니다. 예를 들어, 가장 최근 24 시간 동안의 데이터를 보여 주는 차트의 경우 쿼리는 *| where timestamp > 전 (24 h)* 을 포함 합니다.
 
 - 선택한 **시간 세분성** 이 최종 요약에 배치 됩니다.  *bin (timestamp, [time 그레인을]) 절을 기준으로* 합니다.
 
 - 선택한 모든 **필터** 차원이 추가 *where* 절로 변환 됩니다.
 
-- 선택한 **분할 된 차트** 차원은 추가 요약 속성으로 변환 됩니다. 예를 들어 차트를 *위치*별로 분할 하 고 5 분 시간 세분성을 사용 하 여 그리면 *요약* 절 *이 요약 됩니다. bin (타임 스탬프, 5 m), 위치를 기준으로*합니다.
+- 선택한 **분할 된 차트** 차원은 추가 요약 속성으로 변환 됩니다. 예를 들어 차트를 *위치*별로 분할 하 고 5 분 시간 세분성을 사용 하 여 그리면 *요약* 절이 요약 됩니다.  *bin (타임 스탬프, 5 m), 위치를 기준으로*합니다.
 
 > [!NOTE]
 > Kusto 쿼리 언어를 처음 접하는 경우에는 수정 하지 않고 Kusto 문을 복사 하 여 Log Analytics 쿼리 창에 붙여 넣는 작업을 시작 합니다. 기본 차트를 보려면 **실행** 을 클릭 합니다. 쿼리 언어의 구문을 이해 하기 시작할 때 약간의 수정 작업을 시작 하 고 변경의 영향을 확인할 수 있습니다. 사용자 고유의 데이터를 탐색 하는 것은 [Log Analytics](../../azure-monitor/log-query/get-started-portal.md) 및 [Azure Monitor](../../azure-monitor/overview.md)의 모든 기능을 실현 하기 시작 하는 좋은 방법입니다.
@@ -93,7 +93,7 @@ availabilityResults
 브라우저 메트릭은 실제 최종 사용자 브라우저에서 Application Insights JavaScript SDK에 의해 수집 됩니다. 웹 앱을 사용 하 여 사용자의 경험에 대 한 유용한 정보를 제공 합니다. 브라우저 메트릭은 일반적으로 샘플링 되지 않습니다. 즉, 샘플링으로 기울일 수 있는 서버 쪽 메트릭과 비교 하 여 사용 숫자의 전체 자릿수를 제공 합니다.
 
 > [!NOTE]
-> 브라우저 메트릭을 수집 하려면 [Application Insights JAVASCRIPT SDK 코드 조각을](../../azure-monitor/app/javascript.md#add-the-sdk-script-to-your-app-or-web-pages)사용 하 여 응용 프로그램을 계측 해야 합니다.
+> 브라우저 메트릭을 수집 하려면 [Application Insights JAVASCRIPT SDK](../../azure-monitor/app/javascript.md)를 사용 하 여 응용 프로그램을 계측 해야 합니다.
 
 ### <a name="browser-page-load-time-browsertimingstotalduration"></a>브라우저 페이지 로드 시간 (browserTimings/totalDuration)
 
@@ -183,7 +183,7 @@ browserTimings
 
 이 메트릭은 브라우저에서 실행 중인 응용 프로그램 코드에서 throw 된 예외 수를 반영 합니다. ```trackException()``` Application Insights API 호출로 추적 되는 예외만 메트릭에 포함 됩니다.
 
-|측정 단위|지원 되는 집계|미리 집계 된 차원|참고|
+|측정 단위|지원 되는 집계|미리 집계 된 차원|메모|
 |---|---|---|---|
 |개수|개수|없음|로그 기반 버전은 **Sum** 집계를 사용 합니다.|
 
@@ -198,7 +198,7 @@ exceptions
 
 실패 한 종속성 호출 수입니다.
 
-|측정 단위|지원 되는 집계|미리 집계 된 차원|참고|
+|측정 단위|지원 되는 집계|미리 집계 된 차원|메모|
 |---|---|---|---|
 |개수|개수|없음|로그 기반 버전은 **Sum** 집계를 사용 합니다.|
 
@@ -213,7 +213,7 @@ dependencies
 
 Application Insights에 대 한 예외를 기록할 때마다 SDK의 지 수 [예외 () 메서드가](../../azure-monitor/app/api-custom-events-metrics.md#trackexception) 호출 됩니다. 예외 메트릭에는 로깅된 예외의 수가 표시 됩니다.
 
-|측정 단위|지원 되는 집계|미리 집계 된 차원|참고|
+|측정 단위|지원 되는 집계|미리 집계 된 차원|메모|
 |---|---|---|---|
 |개수|개수|클라우드 역할 이름, 클라우드 역할 인스턴스, 장치 유형|로그 기반 버전은 **Sum** 집계를 사용 합니다.|
 
@@ -227,7 +227,7 @@ exceptions
 
 *실패로*표시 된 추적 된 서버 요청 수입니다. 기본적으로 Application Insights SDK는 HTTP 응답 코드 5xx 또는 4xx를 반환한 각 서버 요청을 실패 한 요청으로 자동으로 표시 합니다. [사용자 지정 원격 분석 이니셜라이저에서](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer)요청 원격 분석 항목의 *success* 속성을 수정 하 여이 논리를 사용자 지정할 수 있습니다.
 
-|측정 단위|지원 되는 집계|미리 집계 된 차원|참고|
+|측정 단위|지원 되는 집계|미리 집계 된 차원|메모|
 |---|---|---|---|
 |개수|개수|클라우드 역할 인스턴스, 클라우드 역할 이름, 실제 또는 가상 트래픽, 요청 성능, 응답 코드|로그 기반 버전은 **Sum** 집계를 사용 합니다.|
 
@@ -242,7 +242,7 @@ requests
 
 이 메트릭은 서버 예외의 수를 표시 합니다.
 
-|측정 단위|지원 되는 집계|미리 집계 된 차원|참고|
+|측정 단위|지원 되는 집계|미리 집계 된 차원|메모|
 |---|---|---|---|
 |개수|개수|클라우드 역할 이름, 클라우드 역할 인스턴스|로그 기반 버전은 **Sum** 집계를 사용 합니다.|
 
@@ -327,7 +327,7 @@ performanceCounters
 
 |측정 단위|지원 되는 집계|지원 되는 차원|
 |---|---|---|
-|초당 바이트 수|평균, 최소값, 최대값|클라우드 역할 인스턴스
+|초당 바이트|평균, 최소값, 최대값|클라우드 역할 인스턴스
 
 ```Kusto
 performanceCounters

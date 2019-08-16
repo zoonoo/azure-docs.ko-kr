@@ -3,7 +3,7 @@ title: Microsoft Authentication Library for .NET의 웹 브라우저 Microsoft
 description: MSAL.NET (Microsoft Authentication Library for .NET)에서 Xamarin Android를 사용 하는 경우의 특정 고려 사항에 대해 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2019
-ms.author: jmprieur
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abb04a30719f7603610b323a4bb271666371ba97
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: e1285c5c61cee25e387ca5fb598f0e062088e549
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68276861"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532508"
 ---
 # <a name="using-web-browsers-in-msalnet"></a>MSAL.NET에서 웹 브라우저 사용
 대화형 인증에는 웹 브라우저가 필요 합니다. 기본적으로 MSAL.NET 및 Xamarin.ios에서 [시스템 웹 브라우저](#system-web-browser-on-xamarinios-xamarinandroid) 를 지원 합니다. 그러나 [xamarin.ios](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinios) 및 [xamarin Android](#detecting-the-presence-of-custom-tabs-on-xamarinandroid) 앱에서 요구 사항 (UX, sso (single sign-on)에 대 한 요구 사항)에 따라 [포함 된 웹 브라우저를 사용 하도록 설정할 수도 있습니다](#enable-embedded-webviews-on-ios-and-android) . 뿐만 아니라 Android에서 chrome 사용자 지정 탭을 지 원하는 Chrome 또는 브라우저를 지 원하는 브라우저의 유무에 따라 사용할 웹 브라우저를 [동적으로 선택할](#detecting-the-presence-of-custom-tabs-on-xamarinandroid) 수도 있습니다. MSAL.NET는 .NET Core 데스크톱 응용 프로그램에서 시스템 브라우저만 지원 합니다.
@@ -46,7 +46,7 @@ MSAL.NET는 다중 프레임 워크 라이브러리 이며 UI 컨트롤에서 �
 
 일반적으로 플랫폼 기본값을 사용 하는 것이 좋으며,이는 일반적으로 시스템 브라우저입니다. 시스템 브라우저는 이전에 로그인 한 사용자를 기억 하는 것이 더 좋습니다. 이 동작을 변경 해야 하는 경우 다음을 사용 합니다.`WithUseEmbeddedWebView(bool)`
 
-### <a name="at-a-glance"></a>개요
+### <a name="at-a-glance"></a>한눈에 보기
 
 | 프레임워크        | 포함된 | 시스템 | 기본값 |
 | ------------- |-------------| -----| ----- |

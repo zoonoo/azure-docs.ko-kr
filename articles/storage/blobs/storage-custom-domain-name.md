@@ -8,26 +8,26 @@ ms.date: 06/26/2018
 ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: ae809dd4841d6df8caabebfaded263b52f386834
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 2359befc05bff867a8f8b17943ed67d906ff4971
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845036"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534332"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>Azure 스토리지 계정에 대한 사용자 지정 도메인 이름 구성
 
-Azure 저장소 계정에서 Blob 데이터에 액세스할 수 있도록 사용자 지정 도메인을 구성할 수 있습니다. Azure Blob 스토리지에 대한 기본 엔드포인트는 *\<storage-account-name>.blob.core.windows.net*입니다. [정적 websites 기능의](storage-blob-static-website.md)일부로 생성 된 웹 끝점을 사용할 수도 있습니다. 사용자 지정 도메인 및 하위 도메인 (예: *www\.contoso.com*)을 저장소 계정의 blob 또는 웹 끝점에 매핑하는 경우 사용자가 해당 도메인을 사용 하 여 저장소 계정의 blob 데이터에 액세스할 수 있습니다.
+Azure Storage 계정에서 Blob 데이터에 액세스할 수 있도록 사용자 지정 도메인을 구성할 수 있습니다. Azure Blob 스토리지에 대한 기본 엔드포인트는 *\<storage-account-name>.blob.core.windows.net*입니다. [정적 websites 기능의](storage-blob-static-website.md)일부로 생성 된 웹 끝점을 사용할 수도 있습니다. 사용자 지정 도메인 및 하위 도메인 (예: *www\.contoso.com*)을 저장소 계정의 blob 또는 웹 끝점에 매핑하는 경우 사용자가 해당 도메인을 사용 하 여 저장소 계정의 blob 데이터에 액세스할 수 있습니다.
 
 > [!IMPORTANT]
 > Azure Storage는 아직 기본적으로 사용자 지정 도메인으로 HTTPS를 지원하지 않습니다. 현재 [Azure CDN을 사용하여 HTTP를 통해 사용자 지정 도메인으로 Blob에 액세스](storage-https-custom-domain-cdn.md)할 수 있습니다.
 > 
 > 
 > [!NOTE]
-> 저장소 계정은 현재 계정당 하나의 사용자 정의 도메인 이름만 지원합니다. 웹 및 Blob 서비스 엔드포인트 모두에 사용자 지정 도메인 이름을 매핑할 수는 없습니다.
+> 스토리지 계정은 현재 계정당 하나의 사용자 정의 도메인 이름만 지원합니다. 웹 및 Blob 서비스 엔드포인트 모두에 사용자 지정 도메인 이름을 매핑할 수는 없습니다.
 > 
 > [!NOTE]
-> 매핑은 하위 도메인 (예: www\.contoso.com)에 대해서만 작동 합니다. 루트 도메인 (예: contoso.com)에서 웹 끝점을 사용할 수 있도록 하려면 [사용자 지정 도메인에 Azure CDN를 사용](storage-https-custom-domain-cdn.md) 해야 합니다.
+> 매핑은 하위 도메인 (예: www\.contoso.com)에 대해서만 작동 합니다. 루트 도메인 (예: contoso.com)에서 웹 끝점을 사용할 수 있도록 하려면 [Azure CDN 끝점에 사용자 지정 도메인을 추가](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain)해야 합니다.
 
 다음 테이블에서는 이름이 *mystorageaccount*인 스토리지 계정에 있는 Blob 데이터의 여러 샘플 URL을 보여 줍니다. 저장소 계정에 대해 등록 된 사용자 지정 하위 도메인은 *www\.contoso.com*:
 

@@ -1,5 +1,5 @@
 ---
-title: 리디렉션 URL을 b2clogin.com으로 설정 - Azure Active Directory B2C | Microsoft Docs
+title: 리디렉션 Url을 b2clogin.com-Azure Active Directory B2C로 설정 합니다.
 description: Azure Active Directory B2C의 리디렉션 URL에 b2clogin.com을 사용하는 방법을 알아봅니다.
 services: active-directory-b2c
 author: mmacy
@@ -7,83 +7,85 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/28/2019
+ms.date: 08/17/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 080c1933f88d9e824969a42212de2eacd0f62e14
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: dbc366daac89f44d4b084081590124f81ff9cc9c
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68927276"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533752"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Azure Active Directory B2C의 리디렉션 URL을 b2clogin.com으로 설정
 
-Azure AD(Azure Active Directory) B2C 애플리케이션의 등록 및 로그인을 위한 ID 공급자를 설정하는 경우 리디렉션 URL을 지정해야 합니다. 이전에는 login.microsoftonline.com을 사용했지만 지금은 b2clogin.com을 사용해야 합니다.
+Azure Active Directory B2C (Azure AD B2C) 응용 프로그램에서 등록 및 로그인을 위해 id 공급자를 설정 하는 경우 리디렉션 URL을 지정 해야 합니다. 응용 프로그램 및 Api에서 *login.microsoftonline.com* 을 더 이상 참조 하지 않아야 합니다. 대신 모든 새 응용 프로그램에 대해 *b2clogin.com* 를 사용 하 고 기존 응용 프로그램을 *login.microsoftonline.com* 에서 *b2clogin.com*로 마이그레이션합니다.
 
-> [!NOTE]
-> B2clogin.com에서 JavaScript 클라이언트 쪽 코드 (현재 미리 보기 상태)를 사용할 수 있습니다. Login.microsoftonline.com를 사용 하는 경우 사용자 지정 페이지에서 JavaScript 코드가 제거 됩니다. 사용자 지정 페이지에서 HTML 양식 요소를 제거 하는 등의 login.microsoftonline.com에도 추가 보안 제한이 적용 됩니다. 
+## <a name="benefits-of-b2clogincom"></a>B2clogin.com의 이점
 
-b2clogin.com을 사용하면 다음과 같은 추가적인 이점이 제공됩니다.
+리디렉션 URL로 *b2clogin.com* 를 사용 하는 경우:
 
-- 쿠키 헤더에서 Microsoft 서비스가 사용하는 공간이 줄어듭니다.
-- URL에 더 이상 Microsoft에 대한 참조가 포함되지 않습니다. `https://your-tenant-name.b2clogin.com/tenant-id/oauth2/authresp` )을 입력합니다.
+* 쿠키 헤더에서 Microsoft 서비스가 사용하는 공간이 줄어듭니다.
+* 리디렉션 Url은 더 이상 Microsoft에 대 한 참조를 포함할 필요가 없습니다.
+* JavaScript 클라이언트 쪽 코드가 사용자 지정 된 페이지에서 지원 됩니다 (현재 [미리 보기로](user-flow-javascript-overview.md)제공 됨). 보안 제한으로 인해 *login.microsoftonline.com*를 사용 하는 경우 JavaScript 코드 및 HTML 양식 요소가 사용자 지정 페이지에서 제거 됩니다.
 
-> [!NOTE]
-> 다음과 같이 테 넌 트 이름 및 테 넌 트 GUID를 모두 사용할 수 있습니다.
-> * `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`(계속 참조 `onmicrosoft.com`)
-> * `https://your-tenant-name.b2clogin.com/your-tenant-guid`(이 경우에는 Microsoft에 대 한 참조가 없습니다.)
->
-> 그러나 Azure Active Directory B2C 테 넌 트에 대해서는 _사용자 지정 도메인_ 을 사용할 수 없습니다 `https://your-tenant-name.b2clogin.com/your-custom-domain-name` . 예를 들어는 작동 _하지 않습니다_ .
+## <a name="overview-of-required-changes"></a>필수 변경 사항 개요
 
-b2clogin.com을 사용하는 경우 변경해야 할 수 있는 다음 설정을 고려하세요.
+응용 프로그램을 *b2clogin.com*로 마이그레이션하기 위해 수행 해야 할 몇 가지 수정 사항이 있습니다.
 
-- ID 공급자 애플리케이션의 리디렉션 URL에 b2clogin.com이 사용되도록 설정합니다. 
-- 사용자 흐름 참조 및 토큰 엔드포인트에 대해 b2clogin.com을 사용하도록 Azure AD B2C 애플리케이션을 설정합니다. 
-- MSAL을 사용하는 경우 **ValidateAuthority** 속성을 `false`로 설정해야 합니다.
-- [사용자 인터페이스 사용자 지정](active-directory-b2c-ui-customization-custom-dynamic.md)의 CORS 설정에서 정의한 **허용된 원본**을 변경해야 합니다.  
+* *B2clogin.com*를 참조 하도록 id 공급자의 응용 프로그램에서 리디렉션 URL을 변경 합니다.
+* 사용자 흐름 및 토큰 끝점 참조에서 *b2clogin.com* 를 사용 하도록 Azure AD B2C 응용 프로그램을 업데이트 합니다.
+* CORS 설정에서 [사용자 인터페이스 사용자 지정](active-directory-b2c-ui-customization-custom-dynamic.md)에 대해 정의한 모든 **허용 된 원본을** 업데이트 합니다.
 
-## <a name="change-redirect-urls"></a>리디렉션 URL 변경
+## <a name="change-identity-provider-redirect-urls"></a>Id 공급자 리디렉션 Url 변경
 
-b2clogin.com을 사용하려면 ID 공급자 애플리케이션의 설정에서 신뢰할 수 있는 URL 목록을 찾은 후 Azure AD B2C로 다시 리디렉션하도록 변경합니다.  현재는 일부 login.microsoftonline.com 사이트로 다시 리디렉션하도록 설정한 상태일 것입니다. 
+응용 프로그램을 만든 각 id 공급자의 웹 사이트에서 `your-tenant-name.b2clogin.com` *login.microsoftonline.com*대신 리디렉션할 모든 신뢰할 수 있는 url을 변경 합니다.
 
-`your-tenant-name.b2clogin.com`이 인증되도록 리디렉션 URL을 변경해야 합니다. `your-tenant-name`을 Azure AD B2C 테넌트의 이름으로 바꾸고 `/te`가 URL에 있으면 제거합니다. ID 공급자마다 이 URL이 약간씩 다르므로 해당 페이지에서 정확한 URL을 확인하세요.
+B2clogin.com 리디렉션 Url에 사용할 수 있는 두 가지 형식이 있습니다. 첫 번째는 테 넌 트 도메인 이름 대신에 테 넌 트 ID (GUID)를 사용 하 여 URL의 어디에 나 "Microsoft"가 표시 되지 않도록 하는 이점을 제공 합니다.
 
-다음 문서에서 ID 공급자의 설정 정보를 찾을 수 있습니다.
-
-- [Microsoft 계정](active-directory-b2c-setup-msa-app.md)
-- [Facebook](active-directory-b2c-setup-fb-app.md)
-- [Google](active-directory-b2c-setup-goog-app.md)
-- [Amazon](active-directory-b2c-setup-amzn-app.md)
-- [LinkedIn](active-directory-b2c-setup-li-app.md)
-- [Twitter](active-directory-b2c-setup-twitter-app.md)
-- [GitHub](active-directory-b2c-setup-github-app.md)
-- [Weibo](active-directory-b2c-setup-weibo-app.md)
-- [QQ](active-directory-b2c-setup-qq-app.md)
-- [WeChat](active-directory-b2c-setup-wechat-app.md)
-- [Azure AD](active-directory-b2c-setup-oidc-azure-active-directory.md)
-- [Custom OIDC](active-directory-b2c-setup-oidc-idp.md)
-
-## <a name="update-your-application"></a>애플리케이션 업데이트
-
-Azure AD B2C 애플리케이션은 사용자 흐름 참조 및 토큰 엔드포인트 등의 여러 위치에서 `login.microsoftonline.com`을 참조할 수 있습니다.  권한 부여 엔드포인트, 토큰 엔드포인트 및 발급자가 `your-tenant-name.b2clogin.com`을 사용하도록 업데이트되었는지 확인합니다.  
-
-## <a name="set-the-validateauthority-property"></a>ValidateAuthority 속성 설정
-
-MSAL을 사용하는 경우 **ValidateAuthority** 속성을 `false`로 설정합니다. **ValidateAuthority**가 `false`로 설정된 경우 리디렉션은 b2clogin.com으로 허용됩니다. 
-
-다음 예제에서는 이 속성을 설정하는 방법을 보여 줍니다.
-
-[.NET용 MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet):
-
-```CSharp
- ConfidentialClientApplication client = new ConfidentialClientApplication(...); // can also be PublicClientApplication
- client.ValidateAuthority = false;
+```
+https://{your-tenant-name}.b2clogin.com/{your-tenant-id}/oauth2/authresp
 ```
 
-[JavaScript용 MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-js):
+두 번째 옵션은 형식의 테 넌 트 도메인 이름을 `your-tenant-name.onmicrosoft.com`사용 합니다. 예를 들어:
 
-```Javascript
+```
+https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp
+```
+
+두 형식 모두:
+
+* `{your-tenant-name}`은 Azure AD B2C 테넌트의 이름으로 바꿉니다.
+* URL `/te` 에 있으면를 제거 합니다.
+
+## <a name="update-your-applications-and-apis"></a>응용 프로그램 및 Api 업데이트
+
+Azure AD B2C 지원 응용 프로그램 및 api의 코드는 여러 위치 `login.microsoftonline.com` 에서 참조할 수 있습니다. 예를 들어 코드에 사용자 흐름과 토큰 끝점에 대 한 참조가 있을 수 있습니다. 다음을 대신 참조 `your-tenant-name.b2clogin.com`로 업데이트 합니다.
+
+* 권한 부여 엔드포인트
+* 토큰 엔드포인트
+* 토큰 발급자
+
+예를 들어 Contoso의 등록/로그인 정책에 대 한 기관 끝점은 이제 다음과 같습니다.
+
+```
+https://contosob2c.b2clogin.com/00000000-0000-0000-0000-000000000000/B2C_1_signupsignin1
+```
+
+## <a name="microsoft-authentication-library-msal"></a>MSAL(Microsoft 인증 라이브러리)
+
+### <a name="validateauthority-property"></a>ValidateAuthority 속성
+
+[MSAL.NET][msal-dotnet] v2 이전 버전을 사용 하는 경우 *b2clogin.com*로 리디렉션을 허용 하도록 **validateauthority** 속성을 클라이언트 인스턴스화에 설정으로 `false` 설정 합니다. 이 설정은 MSAL.NET v3 이상에는 필요 하지 않습니다.
+
+```CSharp
+ConfidentialClientApplication client = new ConfidentialClientApplication(...); // Can also be PublicClientApplication
+client.ValidateAuthority = false; // MSAL.NET v2 and earlier **ONLY**
+```
+
+[JavaScript에 Msal을][msal-js]사용 하는 경우:
+
+```JavaScript
 this.clientApplication = new UserAgentApplication(
   env.auth.clientId,
   env.auth.loginAuthority,
@@ -93,3 +95,9 @@ this.clientApplication = new UserAgentApplication(
   }
 );
 ```
+
+<!-- LINKS - External -->
+[msal-dotnet]: https://github.com/AzureAD/microsoft-authentication-library-for-dotnet
+[msal-dotnet-b2c]: https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AAD-B2C-specifics
+[msal-js]: https://github.com/AzureAD/microsoft-authentication-library-for-js
+[msal-js-b2c]: ../active-directory/develop/msal-b2c-overview.md

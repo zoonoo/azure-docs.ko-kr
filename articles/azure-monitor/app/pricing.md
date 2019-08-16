@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/13/2019
 ms.author: dalek
-ms.openlocfilehash: abf23eda2474ecbcfcaf0dadb26327225213a9a6
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 4029a9e46b9c9bb7cbd677deff4a172d8fc982f8
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989222"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534600"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Application Insights의 사용량 및 비용 관리
 
@@ -41,7 +41,7 @@ Application Insights의 가격 책정 방식에 대해 궁금한 사항이 있�
 > [!NOTE]
 > 이 문서의 스크린샷에 표시 되는 모든 가격은 예를 들어 목적 으로만 사용 됩니다. 사용자의 통화 및 지역에 따른 현재 가격은 [Application Insights 가격 책정][pricing]을 참조하세요.
 
-### <a name="multi-step-web-tests"></a>다단계 웹 테스트
+### <a name="multi-step-web-tests"></a>다중 단계 웹 테스트
 
 [다중 단계 웹 테스트](../../azure-monitor/app/availability-multistep.md)는 추가 요금이 발생합니다. 다중 단계 웹 테스트는 일련의 작업을 수행하는 웹 테스트입니다.
 
@@ -92,7 +92,7 @@ Application Insights 요금은 Azure 청구서에 추가됩니다. Azure 청구�
 다음 작업을 수행하여 데이터 볼륨을 줄일 수 있습니다.
 
 * [샘플링](../../azure-monitor/app/sampling.md)을 사용합니다. 이 기술은 메트릭을 기울이지 않고 데이터의 속도를 줄입니다. 검색에서 관련된 항목 간을 탐색하는 기능을 손실하지 않습니다. 서버 앱에서는 샘플링이 자동으로 수행됩니다.
-* [보고될 수 있는 Ajax 호출 수를 제한](../../azure-monitor/app/javascript.md#detailed-configuration) 하거나 Ajax 보고를 해제합니다.
+* [보고될 수 있는 Ajax 호출 수를 제한](../../azure-monitor/app/javascript.md#configuration) 하거나 Ajax 보고를 해제합니다.
 * [ApplicationInsights.config를 편집](../../azure-monitor/app/configuration-with-applicationinsights-config.md)하여 필요하지 않은 컬렉션 모듈을 끕니다. 예를 들어 성능 카운터 또는 종속성 데이터가 필요하지 않다고 결정할 수 있습니다.
 * 별도 계측 키에서 원격 분석을 분할합니다. 
 * 메트릭을 미리 집계합니다. 앱에 TrackMetric에 대한 호출을 추가한 경우 측정 일괄 처리의 평균 및 표준 편차 계산을 허용하는 오버로드를 사용하여 트래픽을 줄일 수 있습니다. 또는 [사전 집계 패키지](https://www.myget.org/gallery/applicationinsights-sdk-labs)를 사용할 수 있습니다.

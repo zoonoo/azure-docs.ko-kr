@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a334b19fe4dd819a6e4c391e49d934bf5955a567
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: c3201ec64ee7a3471b7d93b83664c62c2e7e0435
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69516049"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69541506"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Azure IaaS VM 디스크와 관리 및 관리되지 않는 프리미엄 디스크에 대한 질문과 대답
 
@@ -172,7 +172,7 @@ GPT 분할은 OS 디스크가 아닌 데이터 디스크에서만 사용할 수 
 아니요. ultra Disks는 데이터 디스크로만 지원 되며 4K 기본 디스크로만 지원 됩니다.
 
 **기존 디스크를 울트라 디스크로 변환할 수 있나요?**
-아니요, 하지만 기존 디스크에서 ultra 디스크로 날짜를 마이그레이션할 수 있습니다. 기존 디스크를 울트라 디스크로 마이그레이션하려면 두 디스크를 동일한 VM에 연결 하 고 디스크의 데이터를 한 디스크에서 다른 디스크로 복사 하거나 데이터 마이그레이션을 위한 타사 솔루션을 활용 합니다.
+아니요, 하지만 기존 디스크에서 ultra 디스크로 데이터를 마이그레이션할 수 있습니다. 기존 디스크를 울트라 디스크로 마이그레이션하려면 두 디스크를 동일한 VM에 연결 하 고 디스크의 데이터를 한 디스크에서 다른 디스크로 복사 하거나 데이터 마이그레이션을 위한 타사 솔루션을 활용 합니다.
 
 **울트라 디스크에 대 한 스냅숏을 만들 수 있나요?**
 아니요, 스냅숏을 아직 사용할 수 없습니다.

@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 1581a62f0999cf502feaad31d2c884f4d171e770
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 44b98b55bfa2d0424831f6cf612f66dbcdc8a6d9
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019668"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543701"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database 관리형 인스턴스 및 SQL Server 간의 T-SQL 차이점
 
@@ -92,7 +92,7 @@ Azure Blob Storage에 대한 감사에서 `CREATE AUDIT` 구문의 주요 차이
 - 파일이 배치 되 `TO URL` 는 Azure Blob 저장소 컨테이너의 URL을 지정 하는 데 사용할 수 있는 새 구문이 제공 됩니다. `.xel`
 - 관리 되 `TO FILE` 는 인스턴스에서 Windows 파일 공유에 액세스할 수 없으므로 구문은 지원 되지 않습니다.
 
-참조 항목: 
+자세한 내용은 다음을 참조하세요. 
 
 - [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql) 
 - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
@@ -339,9 +339,9 @@ SQL Server 에이전트에 대한 자세한 내용은 [SQL Server 에이전트](
 
 SQL Server에서 사용할 수 있는 문서화 되지 않은 DBCC 문은 관리 되는 인스턴스에서 지원 되지 않습니다.
 
-- `Trace flags`는 지원되지 않습니다. [추적 플래그](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql)를 참조 하세요.
-- `DBCC TRACEOFF`는 지원되지 않습니다. [DBCC TRACEOFF](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql)를 참조하세요.
-- `DBCC TRACEON`은 지원되지 않습니다. [DBCC TRACEON](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql)을 참조하세요.
+- 제한 된 수의 전역 `Trace flags` 만 지원 됩니다. 세션 수준은 `Trace flags` 지원 되지 않습니다. [추적 플래그](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql)를 참조 하세요.
+- [DBCC TRACEOFF](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql) 및 [dbcc TRACEON](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql) 는 제한 된 수의 전역 추적 플래그를 사용 하 여 작동 합니다.
+- REPAIR_ALLOW_DATA_LOSS, REPAIR_FAST 및 REPAIR_REBUILD 옵션을 사용한 [DBCC CHECKDB](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-checkdb-transact-sql) 는 데이터베이스를 모드에서 `SINGLE_USER` 설정할 수 없기 때문에 사용할 수 없습니다. [ALTER database 차이점](#alter-database-statement)을 참조 하십시오. 잠재적 데이터베이스 손상은 Azure 지원 팀에서 처리 합니다. 수정 해야 하는 데이터베이스 손상을 발견 하는 경우 Azure 지원에 문의 하세요.
 
 ### <a name="distributed-transactions"></a>분산 트랜잭션
 
@@ -399,7 +399,7 @@ HDFS 또는 Azure Blob storage의 파일을 참조 하는 외부 테이블은 �
 
 ### <a name="replication"></a>복제
 
-- 스냅숏 및 양방향 복제 유형이 지원 됩니다. 병합 복제, 피어 투 피어 복제 및 업데이트할 수 있는 구독은 지원 되지 않습니다.
+- 스냅숏과 양방향 복제 유형이 지원 됩니다. 병합 복제, 피어 투 피어 복제 및 업데이트할 수 있는 구독은 지원 되지 않습니다.
 - [트랜잭션 복제](sql-database-managed-instance-transactional-replication.md) 는 다음과 같은 몇 가지 제약 조건으로 관리 되는 인스턴스에서 공개 미리 보기에 사용할 수 있습니다.
     - 모든 유형의 복제 참여자 (게시자, 배포자, 끌어오기 구독자 및 밀어넣기 구독자)를 관리 되는 인스턴스에 배치할 수 있지만 게시자와 배포자를 서로 다른 인스턴스에 배치할 수는 없습니다.
     - 관리 되는 인스턴스는 최신 버전의 SQL Server와 통신할 수 있습니다. [여기](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems)에서 지원 되는 버전을 참조 하세요.

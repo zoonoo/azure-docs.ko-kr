@@ -3,22 +3,22 @@ title: Azure의 Red Hat Enterprise Linux 이미지 | Microsoft Docs
 description: Microsoft Azure의 Red Hat Enterprise Linux 이미지에 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
-author: BorisB2015
-manager: gwallace
+author: asinn826
+manager: BorisB2015
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 6/6/2019
+ms.date: 8/14/2019
 ms.author: borisb
-ms.openlocfilehash: 7d34e480dd3cf90f1948e83ea1d18c04f1dcdce2
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 25b0ccfa5ed2b7b9ff031565fe7f14b1477769c4
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854431"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543854"
 ---
 # <a name="red-hat-enterprise-linux-images-in-azure"></a>Azure의 Red Hat Enterprise Linux 이미지
 이 문서에서는 명명 및 보존 정책에 대한 정책과 함께 Azure Marketplace에서 사용할 수 있는 RHEL(Red Hat Enterprise Linux) 이미지를 설명합니다.
@@ -99,19 +99,21 @@ RedHat:RHEL:7.4:7.4.2019041718
 
 >[!NOTE]
 > 이 문서를 작성할 당시에는 RHEL 7.4 이상 부 버전 에서만 EUS를 지원 합니다. RHEL < = 7.3에 대 한 EUS는 더 이상 지원 되지 않습니다.
+>
+> RHEL EUS 가용성에 대 한 자세한 내용은 [여기](https://access.redhat.com/support/policy/updates/errata)를 참조 하세요.
 
 부 버전 |EUS 이미지 예제              |EUS 상태                                                   |
 :-------------|:------------------------------|:------------------------------------------------------------|
 RHEL 7.4      |RedHat:RHEL:7.4:7.4.2019041718 | 4 월 2019 일에 게시 된 이미지는 기본적으로 EUS입니다.|
 RHEL 7.5      |RedHat:RHEL:7.5:7.5.2019060305 | 6 월 2019 일 이후 게시 된 이미지는 기본적으로 EUS입니다. |
 RHEL 7.6      |RedHat:RHEL:7.6:7.6.2019052206 | 2019 이상 게시 된 이미지는 기본적으로 EUS입니다.  |
-RHEL 8.0      |해당 사항 없음                            | 현재 사용할 수 있는 EUS 이미지가 없습니다.                 |
+RHEL 8.0      |해당 사항 없음                            | Red Hat에서 제공 되는 EUS 없음                               |
 
 
 ## <a name="list-of-rhel-images-available"></a>사용할 수 있는 RHEL 이미지 목록
 다음 제품은 SKU이며 현재 일반 용도로 사용할 수 있습니다.
 
-제공| SKU | 분할 | 프로비전 | 참고
+제공| SKU | 분할 | 프로비전 | 메모
 :----|:----|:-------------|:-------------|:-----
 RHEL          | 7-RAW    | RAW    | Linux 에이전트 | RHEL 7 이미지 패밀리입니다. <br> 기본적으로 EUS 리포지토리에 연결 되지 않습니다.
 |             | 7-LVM    | LVM    | Linux 에이전트 | RHEL 7 이미지 패밀리입니다. <br> 기본적으로 EUS 리포지토리에 연결 되지 않습니다.

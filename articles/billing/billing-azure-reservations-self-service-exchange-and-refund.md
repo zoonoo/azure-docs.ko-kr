@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/05/2019
 ms.author: banders
-ms.openlocfilehash: 5e38684500520d4565835456b94200aea399c938
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 828bc3784a118a81adc4391b1bf222c00ee2025a
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68814107"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543010"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Azure Reservations에 대 한 셀프 서비스 교환 및 환불
 
@@ -60,11 +60,6 @@ US Government 기업계약 고객은 셀프 서비스 교환 및 취소 기능�
 
 Azure에는 취소, 교환 및 환불에 대 한 다음과 같은 정책이 있습니다.
 
-**취소 정책**
-
-- 예약을 취소 하는 경우 12% 조기 종료 요금이 있을 수 있습니다.
-- 취소에 대 한 환불 받은 비용은 12% 조기 종료 수수료를 뺀 나머지 비례 등급 잔액입니다. 취소 하려면 Azure Portal 예약으로 이동 하 여 **환불**을 선택 합니다.
-
 **Exchange 정책**
 
 - 기존 예약을 여러 개 반환 하 여 동일한 유형의 새 예약을 구입할 수 있습니다. 한 유형의 예약을 다른 유형으로 교환할 수 없습니다. 예를 들어 VM 예약을 반환 하 여 SQL 예약을 구입할 수 없습니다.
@@ -77,10 +72,12 @@ Azure에는 취소, 교환 및 환불에 대 한 다음과 같은 정책이 있�
 - 교환에 대 한 페널티 또는 연간 제한은 없습니다.
 
 **환불 정책**
+- 예약을 취소 하는 경우 12% 조기 종료 요금이 있을 수 있습니다.
+- 취소에 대 한 환불 받은 비용은 12% 조기 종료 수수료를 뺀 나머지 비례 등급 잔액입니다. 취소 하려면 Azure Portal 예약으로 이동 하 여 **환불**을 선택 합니다.
 - 총 환불 금액은 12 개월의 롤링 기간에 $5만 USD를 초과할 수 없습니다.
 - 환불는 구매 가격이 나 예약의 현재 가격 중 가장 낮은 가격을 기준으로 계산 됩니다.
 - 예약 소유자만 환불을 처리할 수 있습니다. [예약을 관리할 수 있는 사용자를 추가 하거나 변경 하는 방법에 대해 알아봅니다](billing-manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
-- Microsoft는 현재 벌칙이 부과 되지 않지만 모든 반환에 대해 12% 페널티를 부과 하는 권리를 보유 합니다.
+- Microsoft는 모든 반환에 대해 12% 페널티를 부과 하는 권리를 보유 합니다. 패널티는 현재 청구 되지 않지만 향후 청구 될 예정입니다.
 
 ## <a name="exchange-non-premium-storage-for-premium-storage"></a>Premium storage에 대 한 비 premium storage
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 819b2f3c54d97639eceae9aed60fdd5da2e7b3ef
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 572371f4abec413be5a2320c7d69d8126f26924f
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608176"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533065"
 ---
 # <a name="what-are-baseline-policies"></a>기준 정책 이란?
 
@@ -41,7 +41,7 @@ ms.locfileid: "68608176"
 
 관리자 계정에는 강력 하 고 액세스 권한이 있으므로 특별히 주의 해 서 처리 해야 합니다. 권한 있는 계정에 대 한 보호를 개선 하는 일반적인 방법 중 하나는 로그인에 사용할 때 보다 강력한 계정 확인을 요구 하는 것입니다. Azure Active Directory 관리자가 Azure Multi-factor Authentication을 등록 하 고 사용 하도록 요구 하 여 더 강력한 계정 확인을 얻을 수 있습니다.
 
-[관리자 용 mfa 필요 (미리 보기)](howto-baseline-protect-administrators.md) 는 다음 디렉터리 역할에 대해 mfa (multi-factor authentication)를 요구 하는 기준 정책으로, 가장 권한 있는 Azure AD 역할로 간주 됩니다.
+[관리자 용 Mfa 필요 (미리 보기)](howto-baseline-protect-administrators.md) 는 다음 디렉터리 역할에 대해 mfa (multi-factor authentication)를 요구 하는 기준 정책으로, 가장 권한 있는 Azure AD 역할로 간주 됩니다.
 
 * 전역 관리자
 * SharePoint administrator
@@ -52,7 +52,7 @@ ms.locfileid: "68608176"
 * 대금 청구 관리자
 * 사용자 관리자
 
-조직에서 스크립트나 코드에 이러한 계정을 사용 하는 경우 [관리 되는 id](../managed-identities-azure-resources/overview.md)로 대체 하는 것이 좋습니다.
+조직에서 스크립트나 코드에 이러한 계정을 사용 하는 경우 [관리 되는 id](../managed-identities-azure-resources/overview.md)로 대체 하는 것이 좋습니다.
 
 ### <a name="end-user-protection-preview"></a>최종 사용자 보호 (미리 보기)
 
@@ -87,15 +87,15 @@ ms.locfileid: "68608176"
 
 기준 정책을 설정 하려면:
 
-1. 전역 관리자, 보안 관리자 또는 조건부 액세스 관리자 권한으로 **Azure Portal** 에 로그인 합니다.
+1. 전역 관리자, 보안 관리자 또는 조건부 액세스 관리자 권한으로 **Azure Portal** 에 로그인 합니다.
 1. **Azure Active Directory** > **조건부 액세스**로 이동 합니다.
 1. 정책 목록에서 사용 하도록 설정할 기준 정책을 선택 합니다.
 1. **정책 사용** 을 **켜기**로 설정 합니다.
-1. 저장을 클릭 합니다.
+1. 저장을 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-참조 항목:
+자세한 내용은 다음을 참조하세요.
 
 * [ID 인프라를 보호하기 위한 5단계](../../security/fundamentals/steps-secure-identity.md)
 * [Azure Active Directory의 조건부 액세스란?](overview.md)

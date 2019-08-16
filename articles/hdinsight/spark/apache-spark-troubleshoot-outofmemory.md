@@ -5,13 +5,13 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
-ms.date: 08/02/2019
-ms.openlocfilehash: a8351f13f015ca53e72bbff41152e46690fdc7bc
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.date: 08/15/2019
+ms.openlocfilehash: f6ff654b8e51dfaf2697df69c7f220d41346c2bc
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855723"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543474"
 ---
 # <a name="outofmemoryerror-exceptions-for-apache-spark-in-azure-hdinsight"></a>Azure HDInsight의 Apache Spark에 대 한 OutOfMemoryError 예외
 
@@ -53,13 +53,13 @@ java.lang.OutOfMemoryError
 
 ### <a name="cause"></a>원인
 
-이 예외의 가장 가능성이 높은 원인은 힙 메모리가 충분 하지 않은 경우입니다. Spark 응용 프로그램은 실행 기 또는 드라이버로 실행 될 때 충분 한 JVM (Java Virtual Machines) 힙 메모리를 필요로 합니다.
+이 예외의 가장 가능성 높은 원인은 JVM(Java Virtual Machine)에 할당된 힙 메모리가 충분하지 않다는 것입니다. 이러한 Jvm는 실행 기 또는 드라이버를 Apache Spark 응용 프로그램의 일부로 실행 됩니다.
 
 ### <a name="resolution"></a>해결 방법
 
 1. Spark 애플리케이션에서 처리할 데이터의 최대 크기를 결정합니다. 입력 데이터의 최대 크기를 기준으로 크기를 예상 하 고, 입력 데이터를 변환 하 여 생성 된 중간 데이터와 중간 데이터를 추가로 변환 하 여 출력 데이터를 생성 합니다. 초기 예측이 충분 하지 않으면 크기를 약간 늘리고 메모리 오류가 감소 때까지 반복 합니다.
 
-1. 사용할 HDInsight 클러스터가 Spark 애플리케이션을 수용할 수 있는 메모리와 코어 등 충분한 리소스를 갖추고 있는지 확인하세요. 이는 클러스터의 YARN UI에서 Cluster Metrics 섹션에 있는 Memory Used 값과 Memory Total 값, VCores Used 값과 VCores Total 값을 통해 확인할 수 있습니다.
+1. 사용할 HDInsight 클러스터가 Spark 애플리케이션을 수용할 수 있는 메모리와 코어 등 충분한 리소스를 갖추고 있는지 확인하세요. 이는 클러스터의 YARN UI에 있는 클러스터 메트릭 섹션을 확인 하 여 **사용 된 메모리** 및 **사용 되는** **메모리 총** 및 vcores **VCores Total** 값을 검토하여 이를 확인할 수 있습니다.
 
     ![yarn core 메모리 보기](./media/apache-spark-ts-outofmemory/yarn-core-memory-view.png)
 

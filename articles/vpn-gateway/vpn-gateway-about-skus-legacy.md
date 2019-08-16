@@ -2,25 +2,18 @@
 title: 레거시 Azure Virtual Network VPN 게이트웨이 SKU | Microsoft Docs
 description: 이전 버전의 가상 네트워크 게이트웨이 SKU인 Basic, Standard 및 HighPerformance를 사용하는 방법입니다.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/10/2019
+ms.date: 08/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: 00f1677e2691f9be5bb4584b07ca00340a52b1e1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5c745258929d495c1e568a156690f569de9f0e36
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67056440"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533915"
 ---
 # <a name="working-with-virtual-network-gateway-skus-legacy-skus"></a>가상 네트워크 게이트웨이 SKU(레거시 SKU) 사용
 
@@ -30,7 +23,7 @@ ms.locfileid: "67056440"
 
 [!INCLUDE [Legacy gateway SKUs](../../includes/vpn-gateway-gwsku-legacy-include.md)]
 
-레거시 게이트웨이 가격 책정을 볼 수 있습니다는 **Virtual Network 게이트웨이** 섹션에는 [ExpressRoute 가격 책정 페이지](https://azure.microsoft.com/pricing/details/expressroute)합니다.
+[Express 경로 가격 페이지](https://azure.microsoft.com/pricing/details/expressroute)의에 있는 **Virtual Network 게이트웨이** 섹션에서 레거시 게이트웨이 가격 책정을 볼 수 있습니다.
 
 ## <a name="agg"></a>SKU 기준으로 예상된 총 처리량
 
@@ -42,15 +35,9 @@ ms.locfileid: "67056440"
 
 ## <a name="resize"></a>게이트웨이 크기 조정
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 동일한 SKU 제품군 내에서 게이트웨이의 크기를 게이트웨이 SKU로 조정할 수 있습니다. 예를 들어 Standard SKU는 HighPerformance SKU로 크기를 조정할 수 있습니다. 하지만 이전 SKU와 새 SKU 제품군 간에 VPN Gateway의 크기를 조정할 수는 없습니다. 예를 들어 Standard SKU에서 VpnGw2 SKU로, 또는 Basic SKU에서 VpnGw1로 크기를 조정할 수는 없습니다.
 
-클래식 배포 모델의 게이트웨이 크기를 조정하려면 다음 명령을 사용합니다.
-
-```powershell
-Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
-```
+### <a name="resource-manager"></a>Resource Manager
 
 PowerShell을 사용하여 Resource Manager 배포 모델의 게이트웨이 크기를 조정하려면 다음 명령을 사용합니다.
 
@@ -58,7 +45,16 @@ PowerShell을 사용하여 Resource Manager 배포 모델의 게이트웨이 크
 $gw = Get-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 Resize-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
 ```
+
 또한 Azure Portal에서 게이트웨이 크기를 조정할 수도 있습니다.
+
+### <a name="classicresize"></a>기존
+
+클래식 배포 모델에 대 한 게이트웨이 크기를 조정 하려면 서비스 관리 PowerShell cmdlet을 사용 해야 합니다. 다음 명령을 사용합니다.
+
+```powershell
+Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
+```
 
 ## <a name="change"></a>새 게이트웨이 SKU로 변경
 

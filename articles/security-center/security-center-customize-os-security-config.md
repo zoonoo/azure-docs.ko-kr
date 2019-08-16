@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/20/2019
-ms.author: rkarlin
-ms.openlocfilehash: 8216aee1c27fd5bcb722648aa6380044e1431452
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.date: 08/15/2019
+ms.author: v-mohabe
+ms.openlocfilehash: df4f51f97798048b28c0193dbc61e07fc55c9adc
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68662485"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69535066"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-retired"></a>Azure Security Center에서 OS 보안 구성 사용자 지정 (사용 되지 않음)
 
@@ -317,4 +317,4 @@ Security Center에서 기본 OS 보안 구성을 사용자 지정하려면 다�
 
 - [Security Center 공통 구성 식별자 및 기준 규칙](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335).
 - Security Center는 CCE(일반 구성 열거형)를 사용하여 구성 규칙에 고유 ID를 할당합니다. 자세한 내용은 [CCE](https://nvd.nist.gov/config/cce/index)를 참조하세요.
-- OS 구성이 권장되는 보안 구성 규칙과 일치하지 않을 경우 취약점을 해결하려면 [보안 구성 수정](security-center-remediate-os-vulnerabilities.md)을 참조하세요.
+- OS 구성이 권장되는 보안 구성 규칙과 일치하지 않을 경우 취약점을 해결하려면 [보안 구성 수정](security-center-virtual-machine-protection.md)을 참조하세요.

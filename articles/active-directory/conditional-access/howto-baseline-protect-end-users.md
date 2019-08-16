@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: afcd9c9d3191caeabe182f499b5fd80cd8e1d8dd
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 131d38f6154e7a6e2f3175838b084e47e17ec582
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608142"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532933"
 ---
 # <a name="baseline-policy-end-user-protection-preview"></a>기준 정책: 최종 사용자 보호 (미리 보기)
 
@@ -64,15 +64,15 @@ Microsoft의 누출 자격 증명 서비스는 고객을 보호 하기 위해 �
 
 이 정책을 사용 하도록 설정 하 고 사용자를 보호 하려면:
 
-1. 전역 관리자, 보안 관리자 또는 조건부 액세스 관리자 권한으로 **Azure Portal** 에 로그인 합니다.
+1. 전역 관리자, 보안 관리자 또는 조건부 액세스 관리자 권한으로 **Azure Portal** 에 로그인 합니다.
 1. **Azure Active Directory** > **조건부 액세스**로 이동 합니다.
 1. 정책 목록에서 기준 정책을 선택 **합니다. 최종 사용자 보호 (미리 보기**).
 1. 정책 **사용을 즉시 정책**사용으로 설정 합니다.
-1.  **저장**을 클릭 합니다.
+1. **Save**을 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-참조 항목:
+자세한 내용은 다음을 참조하세요.
 
 * [조건부 액세스 기준 보호 정책](concept-baseline-protection.md)
 * [ID 인프라를 보호하기 위한 5단계](../../security/fundamentals/steps-secure-identity.md)

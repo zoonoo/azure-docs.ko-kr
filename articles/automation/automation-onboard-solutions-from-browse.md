@@ -9,12 +9,12 @@ ms.date: 04/11/2019
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: cf063311e5559ddf5706df397ce744a726610000
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 5be247e8bb999ee5306d10e67c46c7273953dc71
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667337"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534692"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>여러 VM에서 업데이트 관리, 변경 내용 추적 및 인벤토리 솔루션 사용
 
@@ -45,7 +45,7 @@ Azure Portal에서 **가상 머신**으로 이동합니다.
 
 ### <a name="resource-group-limit"></a> 온보딩 제한 사항
 
-온보딩에 사용할 수 있는 리소스 그룹 수는 [Resource Manager 배포 제한](../azure-resource-manager/resource-manager-cross-resource-group-deployment.md)으로 제한됩니다. Resource Manager 배포(업데이트 배포와 혼동하지 말 것)는 배포당 5개의 리소스 그룹으로 제한됩니다. 온보딩의 무결성을 보장하기 위해 이러한 리소스 그룹 중 2개는 Log Analytics 작업 영역, Automation 계정 및 관련 리소스를 구성하기 위해 예약되어 있습니다. 그러면 배포를 위해 선택할 리소스 그룹이 3개 남습니다.
+온보딩에 사용할 수 있는 리소스 그룹 수는 [Resource Manager 배포 제한](../azure-resource-manager/resource-manager-cross-resource-group-deployment.md)으로 제한됩니다. 업데이트 배포와 혼동 하지 않는 리소스 관리자 배포는 배포 당 리소스 그룹 5 개로 제한 됩니다. 온보딩의 무결성을 보장하기 위해 이러한 리소스 그룹 중 2개는 Log Analytics 작업 영역, Automation 계정 및 관련 리소스를 구성하기 위해 예약되어 있습니다. 그러면 배포를 위해 선택할 리소스 그룹이 3개 남습니다. 이 제한은 자동화 솔루션에서 관리할 수 있는 리소스 그룹의 수가 아니라 동시 온 보 딩에만 적용 됩니다.
 
 Runbook을 온 보 딩에 사용할 수도 있습니다. 자세한 내용은 [Azure Automation에 대 한 업데이트 및 변경 내용 추적 솔루션](automation-onboard-solutions.md)등록을 참조 하세요.
 
@@ -117,7 +117,7 @@ Automation 계정을 Log Analytics 작업 영역에 더 이상 통합 하지 않
 
 **원인**: 이 오류는 등록하려는 VM이 다른 작업 영역에 보고함을 나타냅니다.
 
-**솔루션**: **구성으로 사용**을 클릭하여 대상 Automation 계정 및 Log Analytics 작업 영역을 변경합니다.
+**해결 방법**: **구성으로 사용**을 클릭하여 대상 Automation 계정 및 Log Analytics 작업 영역을 변경합니다.
 
 ### <a name="vm-reports-to-a-workspace-that-is-not-available-in-this-subscription"></a>VM이 이 구독에서 사용할 수 있는 작업 영역에 보고
 
@@ -127,7 +127,7 @@ Automation 계정을 Log Analytics 작업 영역에 더 이상 통합 하지 않
 * 더 이상 존재하지 않습니다.
 * 액세스 권한이 없는 리소스 그룹에 있습니다.
 
-**솔루션**: VM이 보고하는 작업 영역과 연결된 Automation 계정을 찾아서 범위 구성을 변경하여 가상 머신을 등록합니다.
+**해결 방법**: VM이 보고하는 작업 영역과 연결된 Automation 계정을 찾아서 범위 구성을 변경하여 가상 머신을 등록합니다.
 
 ### <a name="vm-operating-system-version-or-distribution-is-not-supported"></a>VM 운영 체제 버전 또는 배포가 지원되지 않음
 
@@ -139,13 +139,13 @@ Automation 계정을 Log Analytics 작업 영역에 더 이상 통합 하지 않
 
 **원인**: 클래식 배포 모델을 사용하는 가상 머신이 지원되지 않습니다.
 
-**솔루션**: 가상 컴퓨터를 리소스 관리자 배포 모델로 마이그레이션합니다. 작업 방법은 [클래식 배포 모델 리소스 마이그레이션](../virtual-machines/windows/migration-classic-resource-manager-overview.md)을 참조하세요.
+**해결 방법**: 가상 컴퓨터를 리소스 관리자 배포 모델로 마이그레이션합니다. 작업 방법은 [클래식 배포 모델 리소스 마이그레이션](../virtual-machines/windows/migration-classic-resource-manager-overview.md)을 참조하세요.
 
 ### <a name="vm-is-stopped-deallocated"></a>VM이 중지되었습니다. (할당 취소됨)
 
 **원인**: 가상 머신의 상태가 **실행 중**이 아닙니다.
 
-**솔루션**: VM을 솔루션에 등록하려면 VM이 실행 중이어야 합니다. 페이지에서 나가지 말고 **VM 시작** 인라인 링크를 클릭하여 VM을 시작합니다.
+**해결 방법**: VM을 솔루션에 등록하려면 VM이 실행 중이어야 합니다. 페이지에서 나가지 말고 **VM 시작** 인라인 링크를 클릭하여 VM을 시작합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

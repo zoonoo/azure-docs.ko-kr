@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.openlocfilehash: 49ac1a7585ddf2a6500c7e9382880109c3f7f431
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67181974"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534275"
 ---
 ## <a name="export-an-api-definition"></a>API 정의 내보내기
 [함수에 대한 OpenAPI 정의 만들기](../articles/azure-functions/functions-openapi-definition.md)를 통해 함수에 대한 OpenAPI 정의를 만들었습니다. 이 프로세스의 다음 단계는 PowerApps 및 Microsoft Flow가 해당 사용자 지정 API에서 사용할 수 있도록 API 정의를 내보내는 것입니다.
@@ -27,7 +27,7 @@ ms.locfileid: "67181974"
 
 1. 오른쪽 창에서 표에 지정된 것처럼 설정을 사용합니다.
 
-    |설정|설명|
+    |설정|Description|
     |--------|------------|
     |**내보내기 모드**|**기본**을 선택하여 사용자 지정 API를 자동으로 생성합니다. **수동**을 선택하면 API 정의가 내보내지지만 PowerApps 및 Microsoft Flow에 수동으로 가져와야 합니다. 자세한 내용은 [PowerApps 및 Microsoft Flow로 내보내기](../articles/azure-functions/app-service-export-api-to-powerapps-and-flow.md)를 참조하세요.|
     |**환경**|사용자 지정 API를 저장해야 하는 환경을 선택합니다. 자세한 내용은 [환경 개요(PowerApps)](https://powerapps.microsoft.com/tutorials/environments-overview/) 또는 [환경 개요(Microsoft Flow)](https://us.flow.microsoft.com/documentation/environments-overview-admin/)를 참조하세요.|

@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: peterlu
 ms.date: 06/01/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3594d9670e8fb94b053479352fb88997caa16db6
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 7de3dd016700d10ef5fac97fada5cd23c2f4e1cb
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016484"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69558307"
 ---
 # <a name="execute-r-script"></a>R 스크립트 실행
 
@@ -65,6 +65,8 @@ azureml_main <- function(dataframe1, dataframe2){
   return(list(dataset1=dataframe1, dataset2=dataframe2))
 }
 ```
+ > [!NOTE]
+    > 설치를 반복 하지 않으려면 패키지가 이미 있는지 확인 하세요. 위의 `  if(!require(zoo)) install.packages("zoo",repos = "http://cran.us.r-project.org")` 샘플 코드와 같습니다. 설치를 반복 하면 웹 서비스 요청 시간이 초과 될 수 있습니다.     
 
 ## <a name="how-to-configure-execute-r-script"></a>R 스크립트 실행을 구성 하는 방법
 

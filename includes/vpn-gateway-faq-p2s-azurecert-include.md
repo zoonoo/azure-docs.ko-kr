@@ -5,21 +5,25 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 08/14/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: e2e91dc91cf0fbe6827808785a4c3cc25b06542b
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 93f6bc8533218af7f0e6dcd1c5f7be6fe8c00e29
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182023"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69520860"
 ---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
 
-### <a name="can-i-use-my-own-internal-pki-root-ca-for-point-to-site-connectivity"></a>지점 및 사이트 간 연결에 내부 PKI 루트 CA를 사용할 수 있습니까?
+### <a name="can-i-use-my-own-internal-pki-root-ca-to-generate-certificates-for-point-to-site-connectivity"></a>자체 내부 PKI 루트 CA를 사용 하 여 지점 및 사이트 간 연결에 대 한 인증서를 생성할 수 있나요?
 
 예. 이전에는 자체 서명한 루트 인증서만 사용할 수 있었습니다. 여전히 20개의 루트 인증서를 업로드할 수 있습니다.
+
+### <a name="can-i-use-certificates-from-azure-key-vault"></a>Azure Key Vault에서 인증서를 사용할 수 있나요?
+
+아니요.
 
 ### <a name="what-tools-can-i-use-to-create-certificates"></a>인증서를 만들려면 어떤 도구를 사용합니까?
 
@@ -27,11 +31,11 @@ You can use your Enterprise PKI 솔루션(사용자 인터넷 PKI), Azure PowerS
 
 ### <a name="certsettings"></a>인증서 설정 및 매개 변수에 대한 지침이 있습니까?
 
-* **내부 PKI/Enterprise PKI 솔루션:** 하는 단계를 참조 하세요 [인증서를 생성할](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert)합니다.
+* **내부 PKI/엔터프라이즈 PKI 솔루션:** [인증서를 생성](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert)하는 단계를 참조 하세요.
 
-* **Azure PowerShell:** 참조 된 [Azure PowerShell](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md) 단계에 대 한 문서.
+* **Azure PowerShell:** 단계는 [Azure PowerShell](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md) 문서를 참조 하세요.
 
-* **MakeCert:** 참조 된 [MakeCert](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md) 단계에 대 한 문서.
+* **MakeCert:** 단계는 [makecert.exe](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md) 문서를 참조 하세요.
 
 * **OpenSSL:** 
 

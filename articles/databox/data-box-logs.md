@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: alkohli
-ms.openlocfilehash: 8fecc00a970f0e706dc6240eaec593fd54968ff8
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 72e1d3b0ad72b1e68b88eb0550cbe839ade9d929
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934215"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69535166"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>Azure Data Box 및 Azure Data Box Heavy에 대 한 추적 및 이벤트 로깅
 
@@ -64,7 +64,7 @@ Azure Portal 및 운송 업체 웹 사이트를 통해 주문을 추적할 수 �
 
 - Data Box가 잠긴 상태에서 온-프레미스에 도착 합니다. Azure Portal에서 사용할 수 있는 장치 자격 증명을 순서 대로 사용할 수 있습니다.  
 
-    Data Box 설정 되 면 장치 자격 증명에 액세스 한 사람을 알아야 할 수 있습니다. **장치 자격 증명** 블레이드에 액세스 한 사람을 파악 하기 위해 활동 로그를 쿼리할 수 있습니다.  **장치 세부 정보 > 자격 증명에 대** 한 액세스를 포함 하는 모든 작업은 `ListCredentials` 작업으로 작업 로그에 기록 됩니다.
+    Data Box 설정 되 면 장치 자격 증명에 액세스 한 사람을 알아야 할 수 있습니다. **장치 자격 증명** 블레이드에 액세스 한 사람을 파악 하기 위해 활동 로그를 쿼리할 수 있습니다.  **장치 세부 정보 > 자격 증명에 대** 한 액세스를 포함 하는 모든 작업은 `ListCredentials` 작업으로 작업 로그에 기록 됩니다.
 
     ![활동 로그 쿼리](media/data-box-logs/query-activity-log-1.png)
 
@@ -76,7 +76,7 @@ Data Box 또는 Data Box Heavy 데이터를 복사 하는 동안 복사 되는 �
 
 ### <a name="errorxml-file"></a>오류 .xml 파일
 
-복사 작업이 오류 없이 완료 되었는지 확인 합니다. 복사 프로세스 중에 오류가 발생 하는 경우 **연결 및 복사** 페이지에서 로그를 다운로드 합니다.
+복사 작업이 오류 없이 완료 되었는지 확인 합니다. 복사하는 동안 오류가 있는 경우 **연결 및 복사** 페이지에서 로그를 다운로드합니다.
 
 - 512 바이트가 아닌 파일을 Data Box의 관리 디스크 폴더에 복사한 경우 파일은 준비 저장소 계정에 페이지 blob으로 업로드 되지 않습니다. 로그에 오류가 표시됩니다. 파일을 제거하고 512 바이트로 정렬된 파일을 복사합니다.
 - VHDX 또는 동적 VHD 또는 차이점 보관용 VHD를 복사한 경우 (이러한 파일은 지원 되지 않음) 로그에 오류가 표시 됩니다.
@@ -203,7 +203,7 @@ Azure로 데이터를 업로드 하는 동안 복사 로그가 생성 됩니다.
 
 Azure로 업로드 하는 동안 CRC (순환 중복 검사) 계산이 수행 됩니다. 데이터 복사와 데이터 업로드 후의 CRCs가 비교 됩니다. CRC 불일치는 해당 파일을 업로드 하지 못했음을 나타냅니다.
 
-기본적으로 로그는 라는 `copylog`컨테이너에 기록 됩니다. 로그는 다음과 같은 명명 규칙을 사용 하 여 저장 됩니다.
+기본적으로 로그는 `copylog`라는 컨테이너에 기록됩니다. 로그는 다음과 같은 명명 규칙을 사용 하 여 저장 됩니다.
 
 `storage-account-name/databoxcopylog/ordername_device-serial-number_CopyLog_guid.xml`.
 
@@ -354,7 +354,7 @@ The authentication information fields provide detailed information about this sp
 
 ## <a name="download-order-history"></a>주문 기록 다운로드
 
-Azure Portal에서 주문 기록을 사용할 수 있습니다. 주문이 완료 되 고 장치 정리 (디스크에서 데이터 지우기)가 완료 되 면 장치 주문으로 이동 하 여 **주문 정보**로 이동 합니다.  **다운로드 주문 기록**  옵션을 사용할 수 있습니다. 자세한 내용은 [다운로드 주문 기록](data-box-portal-admin.md#download-order-history)을 참조 하세요.
+Azure Portal에서 주문 기록을 사용할 수 있습니다. 주문이 완료 되 고 장치 정리 (디스크에서 데이터 지우기)가 완료 되 면 장치 주문으로 이동 하 여 **주문 정보**로 이동 합니다. **주문 기록 다운로드** 옵션을 사용할 수 있습니다. 자세한 내용은 [다운로드 주문 기록](data-box-portal-admin.md#download-order-history)을 참조 하세요.
 
 주문 내역을 스크롤하면 다음과 같이 표시 됩니다.
 

@@ -1,19 +1,19 @@
 ---
-title: CloudSimple로 VMware 솔루션의 Vlan 및 서브넷-Azure
+title: CloudSimple 별 Azure VMware 솔루션의 Vlan 및 서브넷
 description: CloudSimple 사설 클라우드의 Vlan 및 서브넷에 대해 알아보기
 author: sharaths-cs
 ms.author: dikamath
-ms.date: 04/10/2019
+ms.date: 08/15/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d6659c50b79237907cf596d65e0ba9fb72113246
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 7af191893d6b3cf1c38e5ff44a7a8a04509347a8
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812470"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543793"
 ---
 # <a name="vlans-and-subnets-overview"></a>Vlan 및 서브넷 개요
 
@@ -23,7 +23,7 @@ CloudSimple은 CloudSimple 서비스가 배포 되는 지역 당 네트워크를
 
 ## <a name="vlans"></a>VLAN
 
-Vlan (계층 2 네트워크)은 사설 클라우드 당 생성 됩니다.  계층 2 트래픽은 사설 클라우드의 경계 내에 유지 되므로 사설 클라우드 내에서 로컬 트래픽을 격리할 수 있습니다.  사설 클라우드에서 생성 된 VLAN을 사용 하 여 해당 사설 클라우드에서 분산 포트 그룹을 만들 수 있습니다.  사설 클라우드에서 만들어진 VLAN은 사설 클라우드의 호스트에 연결 된 모든 스위치에서 자동으로 구성 됩니다.
+각 사설 클라우드에 대해 VLAN (계층 2 네트워크)이 생성 됩니다.  계층 2 트래픽은 사설 클라우드의 경계 내에 유지 되므로 사설 클라우드 내에서 로컬 트래픽을 격리할 수 있습니다.  사설 클라우드에서 생성 된 VLAN을 사용 하 여 해당 사설 클라우드에서 분산 포트 그룹을 만들 수 있습니다.  사설 클라우드에서 만들어진 VLAN은 사설 클라우드의 호스트에 연결 된 모든 스위치에서 자동으로 구성 됩니다.
 
 ## <a name="subnets"></a>서브넷
 
@@ -33,17 +33,17 @@ Vlan (계층 2 네트워크)은 사설 클라우드 당 생성 됩니다.  계�
 
 ## <a name="vspherevsan-subnets-cidr-range"></a>vSphere/Vsphere 서브넷 CIDR 범위
 
-사설 클라우드는 vCenter server에서 관리 하는 격리 된 VMware stack (ESXi 호스트, vCenter, vSAN 및 NSX) 환경으로 만들어집니다.  관리 구성 요소는 **Vsphere/Vsphere 서브넷 CIDR**에 대해 선택 된 네트워크에 배포 됩니다.  네트워크 CIDR 범위는 배포 하는 동안 다른 서브넷으로 나뉩니다.
+사설 클라우드는 vCenter server에서 관리 하는 격리 된 VMware stack (ESXi 호스트, vCenter, vSAN 및 NSX) 환경으로 만들어집니다.  관리 구성 요소는 vSphere/Vsphere 서브넷 CIDR에 대해 선택 된 네트워크에 배포 됩니다.  네트워크 CIDR 범위는 배포 하는 동안 다른 서브넷으로 나뉩니다.
 
-최소 vSphere/Vsphere 서브넷 CIDR 범위 접두사: **/24** 최대 Vsphere/vsphere 서브넷 cidr 범위 접두사: **/21**
+* 최소 vSphere/Vsphere 서브넷 CIDR 범위 접두사: **/24**
+* 최대 vSphere/Vsphere 서브넷 CIDR 범위 접두사: **/21**
 
-> [!CAUTION]
-> VSphere/Vsphere CIDR 범위의 IP 주소는 사설 클라우드 인프라에서 사용 하도록 예약 되어 있습니다. 가상 머신에서이 범위의 IP 주소를 사용 하지 마세요.
-
+> [!IMPORTANT]
+> VSphere/Vsphere CIDR 범위의 IP 주소는 사설 클라우드 인프라에서 사용 하도록 예약 되어 있습니다.  가상 머신에서는이 범위의 IP 주소를 사용 하지 마세요.
 
 ### <a name="vspherevsan-subnets-cidr-range-limits"></a>vSphere/Vsphere 서브넷 CIDR 범위 제한
 
-VSphere/Vsphere 서브넷 CIDR 범위 크기를 선택 하면 사설 클라우드의 크기에 영향을 줍니다.  아래 표는 vSphere/Vsphere 서브넷 CIDR의 크기에 따라 가질 수 있는 최대 노드 수를 보여 줍니다.
+VSphere/Vsphere 서브넷 CIDR 범위 크기를 선택 하면 사설 클라우드의 크기에 영향을 줍니다.  다음 표에서는 vSphere/Vsphere 서브넷 CIDR의 크기에 따라 가질 수 있는 최대 노드 수를 보여 줍니다.
 
 | 지정 된 vSphere/Vsphere 서브넷 CIDR 접두사 길이 | 최대 노드 수 |
 |---------------------------------------------------|-------------------------|
@@ -54,19 +54,19 @@ VSphere/Vsphere 서브넷 CIDR 범위 크기를 선택 하면 사설 클라우�
 
 ### <a name="management-subnets-created-on-a-private-cloud"></a>사설 클라우드에서 만든 관리 서브넷
 
-사설 클라우드를 만들 때 다음 관리 서브넷이 생성 됩니다. 
+사설 클라우드를 만들 때 생성 되는 관리 서브넷은 다음과 같습니다.
 
-* **시스템 관리** -ESXi 호스트의 관리 네트워크, DNS 서버, vCenter server에 대 한 VLAN 및 서브넷.
-* **VMotion** -VLAN 및 ESXi 호스트의 서브넷 ' VMotion network.
-* **Vsan** -VLAN 및 ESXi 호스트의 vsan 네트워크에 대 한 서브넷입니다.
-* **NsxtEdgeUplink1** -vlan 및 외부 네트워크에 대 한 vlan 업링크 서브넷
-* **NsxtEdgeUplink2** -vlan 및 외부 네트워크에 대 한 vlan 업링크 서브넷
-* **NsxtEdgeTransport** -전송 영역에 대 한 VLAN 및 서브넷은 NSX의 계층 2 네트워크에 대 한 연결을 제어 합니다.
-* **NsxtHostTransport** -VLAN 및 호스트 전송 영역에 대 한 서브넷
+* **시스템 관리**. ESXi 호스트의 관리 네트워크, DNS 서버, vCenter server에 대 한 VLAN 및 서브넷.
+* **VMotion**. ESXi 호스트의 vMotion 네트워크에 대 한 VLAN 및 서브넷.
+* **VSAN**. ESXi 호스트의 vSAN 네트워크에 대 한 VLAN 및 서브넷.
+* **NsxtEdgeUplink1**. Vlan 및 외부 네트워크에 대 한 VLAN 업링크 서브넷
+* **NsxtEdgeUplink2**. Vlan 및 외부 네트워크에 대 한 VLAN 업링크 서브넷
+* **NsxtEdgeTransport**. 전송 영역에 대 한 VLAN 및 서브넷은 NSX의 계층 2 네트워크에 대 한 연결을 제어 합니다.
+* **NsxtHostTransport**. 호스트 전송 영역에 대 한 VLAN 및 서브넷.
 
 ### <a name="management-network-cidr-range-breakdown"></a>관리 네트워크 CIDR 범위 분석
 
-지정 된 vSphere/Vsphere 서브넷 CIDR 범위는 여러 서브넷으로 나뉩니다.  다음 표에서는 허용 된 접두사에 대 한 분석의 예를 보여 줍니다.  이 예에서는 CIDR 범위로 **192.168.0.0** 을 사용 합니다.
+지정 된 vSphere/Vsphere 서브넷 CIDR 범위는 여러 서브넷으로 나뉩니다.  다음 표에서는 허용 된 접두사에 대 한 분석의 예를 보여 줍니다.  이 예에서는 CIDR 범위로 192.168.0.0을 사용 합니다.
 
 예제:
 
@@ -82,4 +82,4 @@ VSphere/Vsphere 서브넷 CIDR 범위 크기를 선택 하면 사설 클라우�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Vlan 및 서브넷 만들기 및 관리](https://docs.azure.cloudsimple.com/create-vlan-subnet/)
+* [Vlan 및 서브넷 만들기 및 관리](create-vlan-subnet.md)

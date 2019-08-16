@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/17/2019
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 69fdc6cf678107ef64ea1fe7b819738fd4a4ff4f
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 2514325c93f0f72aa979f871e86e465093479402
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182305"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69558735"
 ---
 ## <a name="customize-and-extend-the-device-management-actions"></a>디바이스 관리 작업 사용자 지정 및 확장
 
@@ -27,6 +27,6 @@ IoT 솔루션에서 정의된 디바이스 관리 패턴 집합을 확장하거�
 
 이 자습서에서는 디바이스에서 원격 다시 시작을 트리거하는 데 직접 메서드를 사용했습니다. 보고된 속성을 사용하여 디바이스에서 마지막으로 다시 시작한 시간을 보고하고, 디바이스 쌍을 쿼리하여 디바이스가 클라우드에서 마지막으로 다시 시작한 시간을 확인했습니다.
 
-시작 IoT Hub 및 장치 관리 패턴 같은 원격 무선 펌웨어 업데이트를 계속 하려면 참조 [펌웨어 업데이트를 수행 하는 방법](../articles/iot-hub/tutorial-firmware-update.md)
+무선 펌웨어 업데이트를 통한 원격 같은 IoT Hub 및 장치 관리 패턴을 계속 시작 하려면 [펌웨어 업데이트를 수행 하는 방법](../articles/iot-hub/tutorial-firmware-update.md)을 참조 하세요.
 
-여러 장치에서 솔루션 및 일정 메서드를 호출 하 여 IoT 확장 하는 방법에 알아보려면 참조 [jobs 예약 및 브로드캐스트](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md)합니다.
+IoT 솔루션을 확장 하 고 여러 장치에서 메서드 호출을 예약 하는 방법을 알아보려면 [작업 예약 및 브로드캐스트](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md)를 참조 하세요.

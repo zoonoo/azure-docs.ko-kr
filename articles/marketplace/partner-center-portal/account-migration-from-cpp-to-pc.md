@@ -1,50 +1,67 @@
 ---
-title: 파트너 센터-Azure에 대 한 상용 Marketplace Cloud 파트너 포털에서 계정 마이그레이션
-description: 파트너 센터 계정 CPP에서 마이그레이션 방법입니다. -Azure Marketplace 고급
+title: Cloud 파트너 포털에서 파트너 센터로의 계정 마이그레이션-Azure 용 상용 Marketplace
+description: CPP에서 파트너 센터로 계정을 마이그레이션하는 방법입니다. -Azure 용 상용 마켓플레이스
 author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 05/30/2019
-ms.openlocfilehash: dc3a393d3cc3bea9412dfbc33ed21630de352e13
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.date: 08/15/2019
+ms.openlocfilehash: 9ab9a57641e6b34942ae6d4293311714177aa012
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67619588"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533194"
 ---
-# <a name="account-migration-from-cloud-partner-portal-to-partner-center"></a>파트너 센터를 클라우드 파트너 포털에서 계정 마이그레이션
+# <a name="account-migration-from-cloud-partner-portal-to-partner-center"></a>Cloud 파트너 포털에서 파트너 센터로의 계정 마이그레이션
 
-제품 마이그레이션하는 경우를 통해 클라우드 파트너 포털 (CPP)에서 파트너 센터 (PC), CPP에서 편집을 위해 잠겨 있습니다. 이 시점에서 파트너 센터에 마이그레이션될 계정 설정 해야 합니다.  파트너 센터에서 계정 설정을 뿐만 아니라 제품을 모두를 관리할 수 있습니다.
+제품이 Cloud 파트너 포털 (CPP)에서 파트너 센터 (PC)로 마이그레이션되면 CPP에서 편집할 수 있도록 잠깁니다. 이제 계정 설정을 파트너 센터로 마이그레이션해야 합니다.  파트너 센터에서 사용자 계정 설정과 제품을 모두 관리할 수 있습니다.
 
 ## <a name="account-migration-process"></a>계정 마이그레이션 프로세스
 
-CPP에서 제품 마이그레이션될, 계정 마이그레이션에 대 한 구성 됩니다. 
+CPP에서 제품이 마이그레이션되면 계정이 마이그레이션하도록 구성 됩니다. 
  
-지정된 된 계정에 대 한 CPP에서 소유자 역할이 있는 사용자 인 경우 게시자 프로필 페이지에 노란색 배너가 표시 됩니다.  파트너 센터 계정 설정을 이동 해야 합니다. 
+지정 된 계정에 대해 CPP의 소유자 역할을 하는 사용자의 경우 게시자 프로필 페이지에 노란색 배너가 표시 됩니다.  계정 설정을 파트너 센터로 이동 하 라는 메시지가 표시 됩니다. 
 
-계정 마이그레이션 프로세스를 시작 하려면이 배너를 클릭 합니다. 다음 항목을 입력 해야 합니다.
+배너를 클릭 하 여 계정 마이그레이션 프로세스를 시작 합니다. 다음 항목을 입력 해야 합니다.
 
 ### <a name="work-e-mail-address"></a>**회사 전자 메일 주소**
 
-대부분의 경우, CPP에 로그인 하는 데 사용 하는 전자 메일 주소를 사용 하 여 로그인 합니다. 경우에 따라 다른 전자 메일 주소를 사용 해야 합니다.
+대부분의 경우에는 CPP에 로그인 하는 데 사용 하는 전자 메일 주소를 사용 하 여 로그인 합니다. 특정 한 경우에는 다른 전자 메일 주소를 사용 해야 합니다.
 
-* Microsoft 계정: CPP 계정이 Microsoft 계정, 테 넌 트, 사용자의 MPN ID가 등록 되어 연결 된 유효한 직장 메일 주소를 입력 해야 합니다. 
+* Microsoft 계정: CPP 계정이 Microsoft 계정인 경우 MPN ID가 등록 된 테 넌 트와 연결 된 올바른 회사 전자 메일 주소를 입력 해야 합니다. 
 
-* 테 넌 트 일치 하지 않습니다. 회사 전자 메일 주소 CPP 계정에 있는 Microsoft 파트너 네트워크 ID와 연결 된 테 넌 트에 속하지 않습니다, 오류가 표시 됩니다. 이 오류를 이동 하려면 테 넌 트와 연결 된 전자 메일 주소를 입력 합니다. 오류 메시지에는 테 넌 트의 이름을 입력 합니다. 
+* 테 넌 트 불일치: 작업 전자 메일 주소가 CPP 계정에 있는 Microsoft 파트너 네트워크 ID와 연결 된 테 넌 트에 속하지 않는 경우 오류가 표시 됩니다. 이 오류를 발생 한 후에 이동 하려면 테 넌 트와 연결 된 전자 메일 주소를 입력 합니다. 오류 메시지에는 테 넌 트의 이름이 제공 됩니다. 
 
 ### <a name="sign-up-for-microsoft-partner-network-program"></a>Microsoft 파트너 네트워크 프로그램에 등록
 
-CPP 계정의 Microsoft 파트너 네트워크 ID를 없거나 유효 하지 않은 하나에 정품 인증 프로세스의 일부로 Microsoft 파트너 네트워크 프로그램에 등록 해야 합니다.
+CPP 계정에 Microsoft 파트너 네트워크 ID가 없거나 잘못 된 ID가 있는 경우 정품 인증 프로세스의 일부로 Microsoft 파트너 네트워크 프로그램에 등록 해야 합니다.
 
-## <a name="account-activation-is-complete"></a>계정 활성화가 완료
+## <a name="account-activation-is-complete"></a>계정 활성화가 완료 되었습니다.
 
-계정 마이그레이션 지정된 된 계정에 대 한 번만 수행 해야 합니다. 지정된 된 파트너는 계정에 대 한 마이그레이션이 완료 되 면 모든 소유자는 게시자 프로필 페이지에이 동작이 표시 됩니다.
+계정 마이그레이션은 지정 된 계정에 대해 한 번만 수행 해야 합니다. 지정 된 파트너가 계정에 대 한 마이그레이션을 완료 하면 모든 소유자는 게시자 프로필 페이지에서이 동작을 볼 수 있습니다.
 
-1. Microsoft 파트너의 계정 설정을 관리할 수 있는 Microsoft 파트너 네트워크에서 파트너 설정 페이지를 참조 하려고 합니다. 
-1. 계정 마이그레이션 완료 되 면 게시자 프로필 페이지에서 노란색 배너가 파트너 센터에서 계정 설정을 관리 하도록 요청 하기 CPP에서 지정 된 계정의 소유자 역할에 속한 사용자에 게 표시 됩니다. 
-1. CPP에서 계정 설정 페이지 읽기 전용 모드로 변환 됩니다. 
+1. Microsoft 파트너의 계정 설정을 관리할 수 있는 Microsoft 파트너 네트워크의 파트너 설정 페이지가 표시 됩니다. 
+2. 계정 마이그레이션이 완료 되 면 게시자 프로필 페이지의 노란색 배너가 지정 된 계정에 대 한 CPP의 소유자 역할에 속한 사용자에 게 표시 되어 파트너 센터의 계정 설정을 관리 하도록 요청 합니다. 
+3. 그러면 CPP의 계정 설정 페이지가 읽기 전용 모드로 변환 됩니다. 
+
+## <a name="move-dynamics-365-based-solutions-to-partner-center"></a>Dynamics 365 기반 솔루션을 파트너 센터로 이동
+
+단일 상업용 파트너 GTM 포털에서 재무 및 운영 솔루션에 대 한 Dynamics 365 for Customer Engagement 또는 Dynamics 365가 있는 경우 **2019 년 8 월 31 일까 지 이러한 지침에 따라** 이러한 솔루션을 파트너 센터로 이동 합니다.
+
+> [!NOTE]
+> 계정이 원래 PMC (파트너 구성원 센터)에서 만들어진 경우 [파트너 센터](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) 에 로그인 하 여 다음 단계를 완료 하기 전에 계정이 마이그레이션 되었는지 확인 합니다. MPN ID를 사용 하 여 프로필 화면이 표시 되 면 진행할 준비가 된 것입니다. 그렇지 않으면 [파트너 구성원 센터](https://partners.microsoft.com/partnerprogram/Welcome.aspx)의 지시에 따라 계정 마이그레이션을 시작 해야 합니다. 이에 대 한 도움이 필요한 경우 [지원](https://partner.microsoft.com/support?issueid=100-0077)을 참조 하세요.
+
+1. [파트너 센터의 상업용 마켓플레이스 개요 페이지로](https://partner.microsoft.com/dashboard/commercial-marketplace/overview)이동 합니다. 왼쪽 탐색 창에 "상용 마켓플레이스"가 표시 되는 경우 등록 된 후 다음 단계를 진행 해야 합니다. 그렇지 않은 경우 지금 [상업적 marketplace에 등록](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) 하세요.
+2. [제안을 검색](https://appsource.microsoft.com/)하 여 제품이 appsource에 있는지 확인 합니다. 제품이 이미 AppSource에 있는 경우 다음 단계를 진행 합니다. AppSource에 없는 제품의 경우 [고객 Engagement 제안의 새 dynamics 365](create-new-customer-engagement-offer.md) 또는 [운영 제안의 새로운 dynamics 365](create-new-operations-offer.md)를 만드세요.
+3. Business Applications ISV 연결 프로그램에서 등록을 확인 합니다.
+  
+   * 파트너 센터의 [규약](https://partner.microsoft.com/dashboard/account/agreements) 페이지에서 프로그램에 등록할 **Business Applications ISV 추 록** 을 수락 했는지 확인 합니다.
+   * [계정 설정](https://partner.microsoft.com/dashboard/account/v3/accountsettings/billingprofile) 페이지에서 청구 정보를 제공 합니다.
+
+4. 제품이 이전에 인증 된 경우에도 인증을 위해 신규 및 기존 제품을 제출 합니다. **2019 년 8 월 31 일 전 승인에 충분 한 시간을 허용 하려면 가능한 빨리 제출 하는 것이 좋습니다.**
+5. [One 상업 파트너 GTM 포털로](https://msgtm.azurewebsites.net/en-US/Profile/SignIn) 이동 하 여 Marketplace 링크 섹션에 appsource 목록 URL을 추가 합니다. 이 단계에 대 한 도움이 필요한 경우에 cosell@microsoft.com전자 메일을 보내 주세요.
 
 ## <a name="next-steps"></a>다음 단계
 

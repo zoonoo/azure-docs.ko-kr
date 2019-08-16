@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: zarhoads
-ms.openlocfilehash: 1dcf08f4fefb53ed46038c82e0ce8f9d3dd94de2
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 68968c1f846a1052600a8ed108f4d40fd9d8f2cb
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69032242"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534735"
 ---
 # <a name="preview---use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>미리 보기-Azure Kubernetes 서비스 (AKS)에서 표준 SKU 부하 분산 장치 사용
 
@@ -92,11 +92,11 @@ az provider register --namespace Microsoft.ContainerService
 
 * 부하 분산 장치에 대 한 *표준* SKU를 사용 하는 경우 공용 주소를 허용 하 고 IP 생성을 차단을 하는 Azure Policy를 만들지 않도록 해야 합니다. AKS 클러스터는 AKS 클러스터에 대해 만들어진 것과 동일한 리소스 그룹에 *표준* SKU 공용 IP를 자동으로 만듭니다 .이는 일반적으로 처음에 *MC_* 로 이름이 지정 됩니다. AKS는 *표준* SKU 부하 분산 장치에 공용 IP를 할당 합니다. 공용 IP는 AKS 클러스터에서 송신 트래픽을 허용 하는 데 필요 합니다. 이 공용 IP는 또한 이전 버전의 AKS와의 호환성을 유지 하기 위해 제어 평면과 에이전트 노드 간의 연결을 유지 하는 데 필요 합니다.
 * 부하 분산 장치에 대 한 *표준* SKU를 사용 하는 경우 Kubernetes 버전 1.13.5 이상을 사용 해야 합니다.
-* 표준 부하 분산 장치에서 [노드 공용 ip 기능](use-multiple-node-pools.md#assign-a-public-ip-per-node-in-a-node-pool) 을 사용 하는 경우 노드에 대해 SLB 아웃 바운드 규칙 또는 공용 IP를 설정할 수 있습니다. 하나를 선택 해야 합니다. 한 VM을 SLB 아웃 바운드 규칙과 공용 IP에 동시에 연결할 수 없기 때문입니다.
 
 이 기능은 미리 보기 상태 이지만 다음과 같은 추가 제한 사항이 적용 됩니다.
 
 * AKS에서 부하 분산 장치에 대 한 *표준* SKU를 사용 하는 경우 부하 분산 장치에 대 한 송신에 대 한 사용자 고유의 공용 IP 주소를 설정할 수 없습니다. AKS는 부하 분산 장치에 할당 하는 IP 주소를 사용 해야 합니다.
+* 이는 [노드 공용 IP 기능과](use-multiple-node-pools.md#assign-a-public-ip-per-node-in-a-node-pool)함께 사용할 수 없습니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
