@@ -10,7 +10,7 @@
       href: /azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: 사용자에게 라이선스 할당
       href: /azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: 리소스 범위를 사용하여 역할 할당
+    - name: 무제한 앱 등록에 대한 사용 권한 부여
       href: roles-quickstart-app-registration-limits.md
     - name: 그룹 만료 설정
       href: groups-quickstart-expiration.md

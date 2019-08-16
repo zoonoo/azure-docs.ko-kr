@@ -112,7 +112,7 @@
       href: dedicated-hosts.md
     - name: 유지 관리 및 업데이트
       href: maintenance-and-updates.md
-    - name: 디스크 저장소
+    - name: 디스크 스토리지
       items:
         - name: 관리 디스크 소개
           href: managed-disks-overview.md
@@ -356,7 +356,7 @@
               href: hpcpack-cluster-submit-jobs.md
             - name: HPC 팩의 Excel
               href: excel-cluster-hpcpack.md
-    - name: 저장소 관리
+    - name: 스토리지 관리
       items:
         - name: 디스크 추가
           items:
@@ -388,7 +388,7 @@
           items:
             - name: Write Accelerator 사용
               href: how-to-enable-write-accelerator.md
-            - name: 울트라 SSD 사용
+            - name: 울트라 디스크 사용
               href: disks-enable-ultra-ssd.md
             - name: 디스크 벤치마크
               href: disks-benchmarks.md

@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 07/22/2019
+ms.date: 08/06/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c46c11ead645b93d7710d1e11636037e4dcaf8e7
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 8a4bbe92cc1b34801abffa1e905d873d4382025a
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444561"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912438"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpngateway"></a>Azure 가상 네트워크 게이트웨이(VPN Gateway)와 Azure Virtual WAN vpngateway 간의 차이점은 무엇입니까?
 
@@ -91,7 +91,7 @@ Virtual WAN은 대규모 사이트 간 연결을 제공하며 처리량, 확장�
 
 azurevirtualwan@microsoft.com에 전자 메일을 보냅니다. IKEv1 또는 IKEv2 IPsec 연결용으로 프로비전 가능한 디바이스가 있는 파트너가 적합합니다.
 
-### <a name="what-if-a-device-i-am-using-is-not-in-the-virtual-wan-partner-list-can-i-still-use-it-to-connect-to-azure-virtual-wan-vpn"></a>사용 중인 디바이스가 Virtual WAN 파트너 목록에 없는 경우에는 어떻게 하나요? 계속 Azure Virtual WAN VPN에 연결할 수 있나요?
+### <a name="what-if-a-device-i-am-using-is-not-in-the-virtual-wan-partner-list-can-i-still-use-it-to-connect-to-azure-virtual-wan-vpn"></a>사용 중인 디바이스가 Virtual WAN 파트너 목록에 없는 경우 어떻게 되나요? 계속 Azure Virtual WAN VPN에 연결할 수 있나요?
 
 네, 디바이스가 IPsec IKEv1 또는 IKEv2를 지원하는 경우 연결할 수 있습니다. Virtual WAN 파트너는 디바이스에서 Azure VPN 엔드포인트로의 연결을 자동화합니다. 이는 ‘분기 정보 업로드’, ‘IPsec 및 구성’ 및 ‘연결성’과 같은 단계를 자동화하는 것을 의미합니다. 디바이스가 Virtual WAN 파트너 에코시스템에서 온 것이 아니기 때문에 IPsec 연결을 설정하려면 Azure 구성을 가져오고 디바이스를 업데이트하는 작업을 수동으로 많이 수행해야 합니다. 
 
@@ -103,7 +103,7 @@ azurevirtualwan@microsoft.com에 전자 메일을 보냅니다. IKEv1 또는 IKE
 
 예. Virtual WAN에서는 VPN 및 VPN에서 ExpressRoute로의 분기 간 연결을 사용할 수 있습니다. 현재 사이트 간 VPN은 일반 공급되는 반면 ExpressRoute는 미리 보기로 제공됩니다.
 
-### <a name="does-branch-to-branch-traffic-traverse-through-the-azure-virtual-wan"></a>분기-분기 트래픽은 Azure Virtual WAN을 통과하나요?
+### <a name="does-branch-to-branch-traffic-traverse-through-the-azure-virtual-wan"></a>분기 간 트래픽은 Azure Virtual WAN을 통과하나요?
 
 예.
 
@@ -122,6 +122,10 @@ Virtual WAN 파트너는 Azure VPN 엔드포인트로의 IPsec 연결을 자동�
 ### <a name="is-there-a-network-throughput-limit-when-using-azure-virtual-wan"></a>Azure Virtual WAN을 사용하는 경우 네트워크 처리량 제한이 있나요?
 
 허브의 분기 수는 허브/지역당 1,000개 연결, 속도는 총 20Gbps로 제한됩니다.
+
+### <a name="i-dont-see-the-20-gbps-setting-for-the-virtual-hub-in-the-portal-how-do-i-configure-that"></a>포털에는 가상 허브에 대한 20Gbps 설정이 표시되지 않습니다. 이를 구성하려면 어떻게 하나요?
+
+현재 [Update-AzVpnGateway](https://docs.microsoft.com/powershell/module/az.network/update-azvpngateway) cmdlet을 사용하여 게이트웨이 크기 조정 단위를 20Gbps로 구성할 수 있습니다. 이 설정은 포털에서 사용할 수 있는 로드맵에 있습니다.
 
 ### <a name="how-many-vpn-connections-does-a-virtual-wan-hub-support"></a>Virtual WAN 허브에서 지원하는 VPN 연결은 몇 개인가요?
 

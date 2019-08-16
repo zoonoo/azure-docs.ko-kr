@@ -121,11 +121,7 @@
           displayName: 'deployment,rollback on error,redeploy'
           href: resource-group-template-deploy-rest.md
         - name: SAS 토큰을 사용하여 템플릿 보호
-          items:
-            - name: Azure CLI 사용
-              href: resource-manager-cli-sas-token.md
-            - name: Azure PowerShell 사용
-              href: resource-manager-powershell-sas-token.md
+          href: secure-template-with-sas-token.md
         - name: 여러 리소스 그룹 또는 구독에 배포
           href: resource-manager-cross-resource-group-deployment.md
     - name: CI/CD

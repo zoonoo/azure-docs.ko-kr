@@ -7,13 +7,13 @@ services: time-series-insights
 ms.service: time-series-insights
 author: kingdomofends
 ms.author: adgera
-ms.date: 07/02/2019
-ms.openlocfilehash: a463e3cf475909c34054717460dc10dbba4ad8f0
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.date: 08/08/2019
+ms.openlocfilehash: ed5cd9424630a90b989b8a4d76959961f82a53ec
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543894"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935247"
 ---
 > [!IMPORTANT]
 > * 2019년 5월에 새 **Azure Active Directory** > **앱 등록** 블레이드가 레거시 **Azure Active Directory** > **앱 등록(레거시)** 블레이드를 대체합니다.
@@ -51,6 +51,15 @@ ms.locfileid: "67543894"
    [![새 클라이언트 비밀 만들기](media/time-series-insights-aad-registration/active-directory-auth-blade.png)](media/time-series-insights-aad-registration/active-directory-auth-blade.png#lightbox)
 
    **저장**을 클릭합니다.
+
+1. **인증서 및 비밀**을 선택한 다음, **새 클라이언트 비밀**을 선택하여 클라이언트에서 ID를 증명하는 데 사용할 수 있는 애플리케이션 암호를 만듭니다.
+
+   [![새 클라이언트 비밀 만들기](media/time-series-insights-aad-registration/active-directory-application-keys-save.png)](media/time-series-insights-aad-registration/active-directory-application-keys-save.png#lightbox)
+
+   그러면 클라이언트 비밀 암호가 표시됩니다. 원하는 텍스트 편집기에 키를 복사합니다.
+
+   > [!NOTE]
+   > 대신 인증서를 가져올 수 있습니다. 보안을 강화하기 위해 인증서를 사용하는 것이 좋습니다. 인증서를 사용하려면 **인증서 업로드**를 선택합니다.
 
 1. Azure Active Directory 앱 Azure Time Series Insights에 연결합니다. **API 사용 권한** > **사용 권한 추가** > **내 조직에서 사용하는 API**를 선택합니다. 
 

@@ -44,6 +44,8 @@
           href: ingest-data-event-hub.md
         - name: Event Grid
           href: ingest-data-event-grid.md
+        - name: 한 번 클릭으로 수집
+          href: ingest-data-one-click.md
         - name: Kafka
           href: ingest-data-kafka.md
         - name: Python

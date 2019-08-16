@@ -55,7 +55,7 @@ Microsoft 음성 인식 SDK와 REST API는 모두 다음 언어 (로캘)를 지�
  ru-RU | 러시아어(러시아) | 예 | 예 | 아니요
  sv-SE | 스웨덴어(스웨덴) | 아니요 | 아니요 | 아니요
  zh-CN | 중국어(북경어, 간체) | 예 | 예 | 아니요
- zh-HK | 중국어 (광둥어, 번체) | 아니요 | 예 | 아니요
+ zh-HK | 중국어(광동어, 번체) | 아니요 | 예 | 아니요
  zh-TW | 중국어(대만어) | 아니요 | 예 | 아니요
  th-TH | 태국어 (태국) | 아니요 | 아니요 | 아니요
 
@@ -77,11 +77,11 @@ Microsoft 음성 인식 SDK와 REST API는 모두 다음 언어 (로캘)를 지�
 
 로캘 | 언어 | Gender | 전체 서비스 이름 매핑 | 짧은 음성 이름
 --------|----------|--------|---------|------------
-de-DE | 독일어 (독일) | 여성 | "Microsoft Server Speech Text to Speech Voice (de, KatjaNeural)" | "de-DE-KatjaNeural"
+de-DE | 독일어 (독일) | 여성 | "Microsoft Server Speech Text to Speech Voice (de-DE, KatjaNeural)" | "de-DE-KatjaNeural"
 ko-KR | 영어(미국) | 남성 | "Microsoft Server Speech Text to Speech Voice (en-US, GuyNeural)" | "en-US-GuyNeural"
 ko-KR | 영어(미국) | 여성 | "Microsoft Server Speech Text to Speech Voice (en-US, JessaNeural)" | "en-us-JessaNeural"
-it-IT | 이탈리아어(이탈리아) | 여성 |"Microsoft Server Speech Text to Speech Voice (it IT, ElsaNeural)" | "it-ElsaNeural"
-zh-CN | 중국어(본토) | 여성 | "Microsoft Server Speech Text to Speech Voice(zh-CN, XiaoxiaoNeural)" | "zh-CN-XiaoxiaoNeural"
+it-IT | 이탈리아어(이탈리아) | 여성 |"Microsoft Server Speech Text to Speech Voice (it-IT, ElsaNeural)" | "it-IT-ElsaNeural"
+zh-CN | 중국어(본토) | 여성 | "Microsoft Server Speech Text to Speech Voice (zh-CN, XiaoxiaoNeural)" | "zh-CN-XiaoxiaoNeural"
 
 > [!NOTE]
 > 음성 합성 요청에서 전체 서비스 이름 매핑 또는 짧은 음성 이름을 사용할 수 있습니다.

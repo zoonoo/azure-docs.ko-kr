@@ -9,12 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 07/31/2019
-ms.openlocfilehash: 7be5b0dbe4bbfba30ea469eec662877c1ef56c7c
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: e571c65e64fad73c646aa05366cab685aa745caa
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689616"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68968903"
 ---
 1. 사용하는 Azure 구독에 대한 자격 증명을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다. 
 
@@ -30,7 +30,7 @@ ms.locfileid: "68689616"
 
     ![작업 영역 만들기](./media/aml-create-in-portal/workspace-create-main-tab.png)
 
-   필드|설명
+   필드|설명 
    ---|---
    작업 영역 이름 |작업 영역을 식별하는 고유한 이름을 입력합니다. 이 예제에서는 **docs-ws**를 사용합니다. 이름은 리소스 그룹 전체에서 고유해야 합니다. 다른 사용자가 만든 작업 영역과 구별되고 기억하기 쉬운 이름을 사용하세요.  
    Subscription |사용할 Azure 구독을 선택합니다.
@@ -44,3 +44,14 @@ ms.locfileid: "68689616"
    프로세스가 완료되면 배포 성공 메시지가 표시됩니다. 알림 섹션에도 표시됩니다. 새 작업 영역을 보려면 **리소스로 이동**을 선택합니다.
 
    ![작업 영역 만들기 상태](./media/aml-create-in-portal/notifications.png)
+
+1. 포털에서 시각적 인터페이스 또는 자동화된 ML 실험과 같은 코드 없는 옵션을 사용하는 경우 지금 수행합니다. [Notebook VM](../articles/machine-learning/service/tutorial-1st-experiment-sdk-setup.md#azure)을 만드는 경우에도 수행합니다. 
+
+1. 로컬 환경에서 이 작업 영역을 참조하는 코드를 사용하려면 작업 영역의 **개요** 섹션에서 **config.json 다운로드**를 선택합니다.  
+
+   ![config.json 다운로드](./media/aml-create-in-portal/configure.png)
+   
+   Python 스크립트 또는 Jupyter Notebook을 사용하여 파일을 디렉터리 구조에 배치합니다. 동일한 디렉터리, *.azureml*이라는 하위 디렉터리 또는 부모 디렉터리에 있을 수 있습니다. 이 파일은 Notebook VM을 만들 때 VM의 올바른 디렉터리에 추가됩니다.
+
+    
+

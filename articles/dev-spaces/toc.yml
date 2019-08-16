@@ -85,5 +85,7 @@
           href: how-to/dev-spaces-business-continuity.md
         - name: Windows 컨테이너와 상호 작용
           href: how-to/run-dev-spaces-windows-containers.md
+        - name: 사용자 지정 수신 및 HTTPS에 traefik 사용
+          href: how-to/ingress-https-traefik.md
     - name: 문제 해결
       href: troubleshooting.md

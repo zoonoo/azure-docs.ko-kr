@@ -73,16 +73,18 @@
       href: batch-application-packages.md
     - name: 풀 만들기 및 관리
       items:
-        - name: 자동 크기 조정 계산 노드
+        - name: 자동 크기 조정 컴퓨팅 노드
           href: batch-automatic-scaling.md
         - name: 컴퓨팅 노드에 대한 VM 크기 선택
           href: batch-pool-vm-sizes.md
         - name: 컴퓨팅 노드에 대한 액세스 구성
           href: pool-endpoint-configuration.md
-        - name: 사용자 지정 이미지로 풀 만들기
+        - name: Shared Image Gallery를 사용하여 풀 만들기
           href: batch-custom-images.md
         - name: 가상 네트워크에서 풀 만들기
           href: batch-virtual-network.md
+        - name: 가상 파일 시스템 탑재
+          href: virtual-file-mount.md
         - name: Azure 파일 공유 탑재
           href: pool-file-shares.md
         - name: RDMA 또는 GPU 인스턴스 사용
