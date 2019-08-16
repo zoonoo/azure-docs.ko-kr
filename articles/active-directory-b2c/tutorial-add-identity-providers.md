@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5710ccfe5d6450714e029827a795b484b1bcd2b4
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: eee881e6d4e446e07867261545a90dfacaa93712
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716652"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69512205"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C의 애플리케이션에 ID 공급자 추가
 
@@ -86,7 +86,7 @@ Azure AD B2C의 ID 공급자로 Facebook 계정을 사용하려면 Facebook에�
 1. **제품**옆에 있는 더하기 기호를 선택 하 고 **Facebook 로그인**아래에서 **설정**을 선택 합니다.
 1. 왼쪽 메뉴의 **Facebook 로그인** 아래에서 **설정**을 선택 합니다.
 1. **유효한 OAuth 리디렉션 URI**에 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`를 입력합니다. `your-tenant-name`을 테넌트 이름으로 바꿉니다. 페이지 맨 아래에 있는 **변경 내용 저장** 을 선택 합니다.
-1. Facebook 응용 프로그램을 Azure AD B2C 사용할 수 있도록 하려면 페이지의 오른쪽 위에 있는 **상태** 선택기를 클릭 하 여 응용 프로그램을 **공개로 설정한** 다음 **확인**을 클릭 합니다. 이때 상태가 **개발**에서 **라이브**로 변경됩니다.
+1. Facebook 응용 프로그램을 Azure AD B2C 사용할 수 있도록 하려면 페이지의 오른쪽 위에 있는 **상태** 선택기를 클릭 하 여 응용 프로그램을 공개로 설정한 다음 **확인**을 클릭 합니다. 이때 상태가 **개발**에서 **라이브**로 변경됩니다.
 
 ## <a name="add-the-identity-providers"></a>ID 공급자 추가
 
@@ -98,7 +98,7 @@ Azure AD B2C의 ID 공급자로 Facebook 계정을 사용하려면 Facebook에�
 1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 1. **ID 공급자**를 선택한 다음, **추가**를 선택합니다.
 1. **이름**을 입력합니다. 예를 들어 *Contoso Azure AD*를 입력합니다.
-1. **Id 공급자 유형**을 선택 하 고 **Openid connect Connect (미리 보기)** 를 선택한 다음 **확인**을 클릭 합니다.
+1. **Id 공급자 유형**을 선택 하 고 **openid connect Connect**를 선택한 다음 **확인**을 클릭 합니다.
 1. **이 ID 공급자 설정**을 클릭합니다.
 1. **메타 데이터 url**에 다음 url을 입력 합니다. `your-AD-tenant-domain` 를 Azure AD 테 넌 트의 도메인 이름으로 바꿉니다.
 
