@@ -9,12 +9,12 @@ ms.author: mbaldwin
 ms.date: 07/06/2019
 ms.topic: conceptual
 ms.service: key-vault
-ms.openlocfilehash: f6a95f56b7b617b42c1cec9f64aae73b88b813da
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 30c99ae4150e0bd4645488b5bf75b8bbac0ee66f
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934332"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562452"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>.NET을 사용하여 Azure Key Vault에 서비스 간 인증
 
@@ -132,7 +132,7 @@ Azure에 로그인하고 나면 `AzureServiceTokenProvider`는 서비스 주체�
 
 ## <a name="running-the-application-using-managed-identity-or-user-assigned-identity"></a>관리 id 또는 사용자 할당 id를 사용 하 여 응용 프로그램 실행 
 
-Azure App Service 또는 활성화된 관리 ID를 사용하는 Azure VM에서 코드를 실행하는 경우 라이브러리는 자동으로 관리 ID를 사용합니다. 
+Azure App Service 또는 활성화된 관리 ID를 사용하는 Azure VM에서 코드를 실행하는 경우 라이브러리는 자동으로 관리 ID를 사용합니다. 코드를 변경 하지 않아도 되지만 관리 되는 id에는 키 자격 증명 모음에 대 한 *get* 권한이 있어야 합니다. 키 자격 증명 모음 *액세스 정책을*통해 관리 id에 *get* 권한을 부여할 수 있습니다.
 
 또는 사용자 할당 id를 사용 하 여 인증할 수 있습니다. 사용자 할당 id에 대 한 자세한 내용은 [Azure 리소스에 대 한 관리 Id 정보](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work)를 참조 하세요. 사용자 할당 id를 사용 하 여 인증 하려면 연결 문자열에 사용자 할당 id의 클라이언트 ID를 지정 해야 합니다. 연결 문자열은 아래 [연결 문자열 지원](#connection-string-support) 섹션에 지정 되어 있습니다.
 

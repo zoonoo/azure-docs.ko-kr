@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 07/05/2019
 ms.author: cherylmc
-ms.openlocfilehash: 359773dad53f333b2f052dd5b5481645c72746da
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 92978815af22e3ce1a549b9ca3e335befca8c918
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533923"
+ms.locfileid: "69563038"
 ---
 # <a name="reset-a-vpn-gateway"></a>VPN Gateway 다시 설정
 
@@ -69,10 +69,12 @@ Reset-AzVirtualNetworkGateway -VirtualNetworkGateway $gw
 
 ### <a name="resetclassic"></a>클래식 배포 모델
 
-게이트웨이를 다시 설정하는 cmdlet은 **Reset-AzureVNetGateway**입니다. 서비스 관리를 위한 Azure PowerShell cmdlet은 데스크톱에 로컬로 설치 해야 합니다. Azure Cloud Shell를 사용할 수 없습니다. 다시 설정을 수행하기 전에 최신 버전의 [SM(Service Management) PowerShell cmdlet](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets)이 있는지 확인합니다. 다음 예제에서는 "ContosoVNet"이라는 가상 네트워크에 대한 게이트웨이를 다시 설정합니다.
+게이트웨이를 다시 설정하는 cmdlet은 **Reset-AzureVNetGateway**입니다. 서비스 관리를 위한 Azure PowerShell cmdlet은 데스크톱에 로컬로 설치 해야 합니다. Azure Cloud Shell를 사용할 수 없습니다. 다시 설정을 수행하기 전에 최신 버전의 [SM(Service Management) PowerShell cmdlet](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets)이 있는지 확인합니다. 이 명령을 사용 하는 경우 가상 네트워크의 전체 이름을 사용 하 고 있는지 확인 합니다. 포털을 사용 하 여 만든 클래식 Vnet에는 PowerShell에 필요한 긴 이름이 있습니다. ' Get-AzureVNetConfig-ExportToFile C:\Myfoldername\NetworkConfig.xml '을 사용 하 여 긴 이름을 볼 수 있습니다.
+
+다음 예제에서는 "Group TestRG1 TestVNet1" 이라는 가상 네트워크에 대 한 게이트웨이를 다시 설정 합니다 .이는 포털에서 단순히 "TestVNet1"로 표시 됩니다.
 
 ```powershell
-Reset-AzureVNetGateway –VnetName “ContosoVNet”
+Reset-AzureVNetGateway –VnetName 'Group TestRG1 TestVNet1'
 ```
 
 결과:

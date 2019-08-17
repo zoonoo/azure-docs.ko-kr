@@ -13,18 +13,16 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: ec42693fe42f35d728a4a5018776867f07403f81
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 0cdd7f291b43f442b8471a19f515e4a2d12b4e74
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226869"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562881"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 개발자 가이드
 
 이 문서에서는 Python을 사용하여 Azure Functions를 개발하는 방법을 소개합니다. 아래 내용은 [Azure Functions 개발자 가이드](functions-reference.md)를 이미 읽었다고 가정합니다.
-
-[!INCLUDE [functions-python-preview-note](../../includes/functions-python-preview-note.md)]
 
 ## <a name="programming-model"></a>프로그래밍 모델
 
@@ -227,7 +225,7 @@ def main(req):
 
 다양한 추적 수준에서 콘솔에 쓸 수 있는 추가 로깅 메서드가 제공됩니다.
 
-| 메서드                 | Description                                |
+| 메서드                 | 설명                                |
 | ---------------------- | ------------------------------------------ |
 | logging.**critical(_message_)**   | 루트 로거에 위험 수준의 메시지를 기록합니다.  |
 | logging.**error(_message_)**   | 루트 로거에 오류 수준의 메시지를 기록합니다.    |
@@ -334,7 +332,7 @@ func azure functionapp publish <app name> --build-native-deps
 
 종속성을 빌드하고 CD (지속적인 업데이트) 시스템을 사용 하 여 게시 하려면 [Azure DevOps 파이프라인을 사용](functions-how-to-azure-devops.md)합니다. 
 
-## <a name="unit-testing"></a>유닛 테스트
+## <a name="unit-testing"></a>단위 테스트
 
 Python으로 작성 된 함수는 표준 테스트 프레임 워크를 사용 하 여 다른 Python 코드와 같이 테스트할 수 있습니다. 대부분의 바인딩에서 `azure.functions` 패키지에서 적절 한 클래스의 인스턴스를 만들어 모의 입력 개체를 만들 수 있습니다. 패키지를 즉시 사용할 수 없으므로 위의 [Python 버전 및 패키지 관리](#python-version-and-package-management) 섹션에 설명 `requirements.txt` 된 대로 파일을 통해 설치 해야 합니다. [`azure.functions`](https://pypi.org/project/azure-functions/)
 

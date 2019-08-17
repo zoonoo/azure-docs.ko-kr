@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: a0da13e82811d500dee50c2231500245c7e011a6
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 3b242ff8ee3e635493cd501cf37ffc7c78a57d91
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68383437"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563311"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Azure Stream Analytics의 출력 이해
 
@@ -34,7 +34,7 @@ Stream Analytics의 Azure Data Lake Storage 출력은 현재 Azure 중국 21Vian
 
 다음 표에서는 Data Lake Storage Gen 1 출력을 구성 하기 위한 속성 이름 및 해당 설명을 나열 합니다.   
 
-| 속성 이름 | 설명 |
+| 속성 이름 | Description |
 | --- | --- |
 | 출력 별칭 | 쿼리 출력을 Data Lake Store으로 보내기 위해 쿼리에서 사용 되는 식별 이름입니다. |
 | 구독 | Azure Data Lake Storage 계정을 포함 하는 구독입니다. |
@@ -76,11 +76,11 @@ Azure Blob storage는 클라우드에 구조화 되지 않은 대량의 데이�
 
 다음 표에서는 blob 출력을 만들기 위한 속성 이름 및 해당 설명을 나열 합니다.
 
-| 속성 이름       | 설명                                                                      |
+| 속성 이름       | Description                                                                      |
 | ------------------- | ---------------------------------------------------------------------------------|
 | 출력 별칭        | 쿼리 출력을 이 Blob Storage로 보내기 위해 쿼리에서 사용되는 식별 이름입니다. |
 | Storage 계정     | 출력을 전송 하는 저장소 계정의 이름입니다.               |
-| 스토리지 계정 키 | 저장소 계정과 연결된 비밀 키입니다.                              |
+| 스토리지 계정 키 | 스토리지 계정과 연결된 비밀 키입니다.                              |
 | 스토리지 컨테이너   | Azure Blob service에 저장 된 blob에 대 한 논리적 그룹화입니다. Blob service에 Blob을 업로드하는 경우 해당 Blob에 대한 컨테이너를 지정해야 합니다. |
 | 경로 패턴 | 선택 사항입니다. 지정 된 컨테이너 내에서 blob를 작성 하는 데 사용 되는 파일 경로 패턴입니다. <br /><br /> 경로 패턴에서 하나 이상의 날짜 및 시간 변수 인스턴스를 사용 하 여 blob이 작성 되는 빈도를 지정 하도록 선택할 수 있습니다. <br /> {date}, {time} <br /><br />사용자 지정 Blob 분할을 사용하여 이벤트 데이터에서 파티션 Blob까지 하나의 사용자 지정 {field} 이름을 지정할 수 있습니다. 필드 이름은 영숫자이며 공백, 하이픈 및 밑줄을 포함할 수 있습니다. 사용자 지정 필드에 대한 제한은 다음을 포함합니다. <ul><li>필드 이름은 대/소문자를 구분 하지 않습니다. 예를 들어, 서비스는 열 "ID"와 열 "id"를 구분할 수 없습니다.</li><li>중첩 된 필드는 허용 되지 않습니다. 대신 작업 쿼리에 별칭을 사용 하 여 필드를 "평면화" 합니다.</li><li>식을 필드 이름으로 사용할 수 없습니다.</li></ul> <br />이 기능을 사용하면 경로에 사용자 지정 날짜/시간 형식 지정자 구성을 사용할 수 있습니다. 사용자 지정 날짜 및 시간 형식은 {datetime:\<specifier>} 키워드로 묶어 한 번에 하나씩만 지정해야 합니다. 지정자 >에 \<허용 되는 입력은 yyyy, MM, M, dd, d, HH, H, MM, M, ss 또는 s입니다. {Datetime:\<지정자 >} 키워드는 경로에서 여러 번 사용 하 여 사용자 지정 날짜/시간 구성을 구성할 수 있습니다. <br /><br />예를 들면 다음과 같습니다. <ul><li>예제 1: cluster1/logs/{date}/{time}</li><li>예제 2: cluster1/logs/{date}</li><li>예제 3: cluster1/{client_id}/{date}/{time}</li><li>예제 4: cluster1/{datetime:ss}/{myField} where the query is: SELECT data.myField AS myField FROM 입력</li><li>예제 5: cluster1/year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}</ul><br />만든 폴더 구조의 타임 스탬프는 현지 시간이 아닌 UTC를 따릅니다.<br /><br />파일 이름 지정에는 다음 규칙이 사용 됩니다. <br /><br />{경로 접두사 패턴}/schemaHashcode_Guid_Number.extension<br /><br />예제 출력 파일:<ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li>  <li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul> <br />이 기능에 대 한 자세한 내용은 [Azure Stream Analytics 사용자 지정 blob 출력 분할](stream-analytics-custom-path-patterns-blob-storage-output.md)을 참조 하세요. |
 | 날짜 형식 | 선택 사항입니다. 접두사 경로에 날짜 토큰을 사용하는 경우 파일을 구성하는 날짜 형식을 선택할 수 있습니다. 예제: YYYY/MM/DD |
@@ -174,19 +174,19 @@ Stream Analytics는 출력의 첫 번째 이벤트 집합을 기반으로 데이
 Int64 | Int64 | 문자열 | 문자열 | Double
 Double | Double | 문자열 | 문자열 | Double
 문자열 | String | String | String | 문자열 
-DateTime | 문자열 | 문자열 |  DateTime | String
+DateTime | 문자열 | 문자열 |  DateTime | 문자열
 
 ## <a name="table-storage"></a>테이블 스토리지
 
-[Azure Table Storage](../storage/common/storage-introduction.md)는 가용성이 높고 확장성이 큰 스토리지를 제공하므로, 응용 프로그램이 사용자 요구에 맞게 자동으로 확장할 수 있습니다. 테이블 저장소는 Microsoft의 NoSQL 키/특성 저장소로, 스키마에 대 한 제약 조건이 더 작은 구조화 된 데이터에 사용할 수 있습니다. Azure Table Storage는 지속적이고 효율적인 검색을 위해 데이터를 저장하는 데 사용할 수 있습니다.
+[Azure Table Storage](../storage/common/storage-introduction.md)는 가용성이 높고 확장성이 큰 스토리지를 제공하므로, 애플리케이션이 사용자 요구에 맞게 자동으로 확장할 수 있습니다. 테이블 저장소는 Microsoft의 NoSQL 키/특성 저장소로, 스키마에 대 한 제약 조건이 더 작은 구조화 된 데이터에 사용할 수 있습니다. Azure Table Storage는 지속적이고 효율적인 검색을 위해 데이터를 저장하는 데 사용할 수 있습니다.
 
 다음 표에서는 테이블 출력을 만들기 위한 속성 이름 및 해당 설명을 나열 합니다.
 
-| 속성 이름 | Description |
+| 속성 이름 | 설명 |
 | --- | --- |
 | 출력 별칭 |쿼리 출력을 이 Table Storage로 보내기 위해 쿼리에서 사용되는 이름입니다. |
 | Storage 계정 |출력을 전송 하는 저장소 계정의 이름입니다. |
-| 스토리지 계정 키 |저장소 계정과 연결된 선택키입니다. |
+| 스토리지 계정 키 |스토리지 계정과 연결된 선택키입니다. |
 | 테이블 이름 |테이블의 이름입니다. 테이블이 존재 하지 않는 경우 생성 됩니다. |
 | 파티션 키 |파티션 키를 포함 하는 출력 열의 이름입니다. 파티션 키는 엔터티의 기본 키의 첫 번째 부분을 형성 하는 테이블 내의 파티션에 대 한 고유 식별자입니다. 크기는 최대 1kb 일 수 있는 문자열 값입니다. |
 | 행 키 |행 키를 포함 하는 출력 열의 이름입니다. 행 키는 파티션 내의 엔터티에 대 한 고유 식별자입니다. 엔터티의 기본 키에서 두 번째 부분을 형성합니다. 행 키는 최대 1kb의 크기를 가질 수 있는 문자열 값입니다. |
@@ -198,7 +198,7 @@ DateTime | 문자열 | 문자열 |  DateTime | String
 
 다음 표에서는 큐 출력을 만들기 위한 속성 이름 및 해당 설명을 나열 합니다.
 
-| 속성 이름 | 설명 |
+| 속성 이름 | Description |
 | --- | --- |
 | 출력 별칭 |쿼리 출력을이 Service Bus 큐로 보내기 위해 쿼리에서 사용 되는 식별 이름입니다. |
 | 서비스 버스 네임스페이스 |메시징 엔터티 집합에 대 한 컨테이너입니다. |
@@ -218,7 +218,7 @@ Service Bus 큐는 보낸 사람에서 받는 사람으로의 일대일 통신 �
 
 다음 표에서는 Service Bus 토픽 출력을 만들기 위한 속성 이름 및 해당 설명을 나열 합니다.
 
-| 속성 이름 | 설명 |
+| 속성 이름 | Description |
 | --- | --- |
 | 출력 별칭 |쿼리 출력을이 Service Bus 토픽으로 보내기 위해 쿼리에서 사용 되는 식별 이름입니다. |
 | 서비스 버스 네임스페이스 |메시징 엔터티 집합에 대 한 컨테이너입니다. 새 이벤트 허브를 만들 때 Service Bus 네임스페이스도 만들었습니다. |
@@ -243,7 +243,7 @@ Stream Analytics의 Azure Cosmos DB 출력은 현재 Azure 중국 21Vianet 및 A
 
 다음 표에서는 Azure Cosmos DB 출력을 만드는 속성에 대해 설명합니다.
 
-| 속성 이름 | 설명 |
+| 속성 이름 | Description |
 | --- | --- |
 | 출력 별칭 | Stream Analytics 쿼리에서 이 출력을 참조할 별칭입니다. |
 | 싱크 | Azure Cosmos DB. |
@@ -270,6 +270,9 @@ Azure Stream Analytics는 HTTP 트리거를 통해 Azure Functions를 호출합�
 | 최대 일괄 처리 수  |Azure Functions로 전송 되는 각 일괄 처리의 최대 이벤트 수를 지정할 수 있는 속성입니다. 기본값은 100입니다. |
 
 Azure Stream Analytics는 Azure 함수에서 413 ("http 요청 엔터티 너무 큼") 예외를 수신 하면 Azure Functions 전송 되는 일괄 처리 크기를 줄입니다. Azure 함수 코드에서 이 예외를 사용하여 Azure Stream Analytics가 너무 큰 일괄 처리를 전송하지 않도록 합니다. 또한 함수에 사용 되는 최대 일괄 처리 수 및 크기 값이 Stream Analytics 포털에 입력 한 값과 일치 하는지 확인 합니다.
+
+> [!NOTE]
+> 연결을 테스트 하는 동안 Stream Analytics는 Azure Functions에 대 한 빈 일괄 처리를 보내 두 작업 간의 연결이 작동 하는지 테스트 합니다. 함수 앱이 빈 일괄 처리 요청을 처리 하 여 연결 테스트에 통과 하는지 확인 합니다.
 
 또한 시간 창에 이벤트가 발생 하지 않는 경우 출력이 생성 되지 않습니다. 따라서 **computeResult** 함수는 호출 되지 않습니다. 이 동작은 기본 제공 기간 이동 집계 함수와 일치합니다.
 

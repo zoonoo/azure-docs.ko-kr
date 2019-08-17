@@ -12,12 +12,12 @@ ms.subservice: development
 ms.date: 08/15/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 65cbd6679c85e82eaa5fd28bb91d54b443cc891e
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 02caa7154ef9cb8419b533f0cb2d0fd57e86bf9f
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515468"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563339"
 ---
 # <a name="getting-started-with-visual-studio-2019-for-sql-data-warehouse"></a>SQL Data Warehouse 용 Visual Studio 2019 시작
 Visual Studio **2019** SQL SERVER DATA TOOLS (SSDT)는 다음을 수행 하는 데 사용할 수 있는 단일 도구입니다.
@@ -33,7 +33,7 @@ Visual Studio **2019** SQL SERVER DATA TOOLS (SSDT)는 다음을 수행 하는 �
 > 현재 Visual Studio SSDT 데이터베이스 프로젝트는 미리 보기 상태입니다. 이 기능에 대한 주기적인 업데이트를 수신하려면 [UserVoice]에서 투표해주세요.
 
 ## <a name="install-visual-studio-2019"></a>Visual Studio 2019 설치
-다음 링크를 사용 하 여 Visual Studio를 다운로드 하 고 설치 합니다. [Visual Studio 2019 다운로드][]합니다. 설치 하는 동안 데이터 저장소 및 처리 워크 로드를 선택 해야 합니다. Visual Studio 2019에는 더 이상 독립 실행형 SSDT 설치가 필요 하지 않습니다.
+Visual studio를 다운로드 하 여 설치 하려면 [Visual studio 2019 다운로드][] 를 참조 하세요. 설치 하는 동안 데이터 저장소 및 처리 워크 로드를 선택 합니다. Visual Studio 2019에는 독립 실행형 SSDT 설치가 더 이상 필요 하지 않습니다.
 
 ## <a name="reporting-issues-with-ssdt-visual-studio-2019-preview"></a>SSDT Visual Studio 2019 (미리 보기)와 관련 된 문제 보고
 
@@ -51,7 +51,7 @@ SQL Data Warehouse와 함께 SSDT를 사용 하는 경우 문제를 보고 하�
 [connect]: ./sql-data-warehouse-query-visual-studio.md
 
 <!--Other-->
-[Visual Studio 2019 다운로드]: https://www.visualstudio.com/downloads/
+[Visual Studio 2019 다운로드]: https://visualstudio.microsoft.com/vs/preview/
 [Installing Visual Studio]: https://msdn.microsoft.com/library/e2h7fzkw.aspx
 [SSDT Download]: https://msdn.microsoft.com/library/mt204009.aspx
 [UserVoice]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu

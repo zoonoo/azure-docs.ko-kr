@@ -8,16 +8,16 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d9fc39edfad18c756c2816f9eb0b3774d8bf882c
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: a180e2ba6c1a610116271d5a9b6e3fdf562cecdf
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812672"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563203"
 ---
 # <a name="account-management-overview"></a>계정 관리 개요
 
-CloudSimple 서비스를 만들 때 CloudSimple에 계정을 만듭니다.  이 계정은 서비스가 있는 Azure 구독과 연결 됩니다.  구독에서 **소유자** 및 **참가자** 역할이 있는 모든 사용자는 cloudsimple 포털에 액세스할 수 있습니다.  CloudSimple 서비스와 연결 된 Azure 구독 ID 및 테 넌 트 ID는 [계정 페이지](https://docs.azure.cloudsimple.com/account/)에서 찾을 수 있습니다.
+CloudSimple 서비스를 만들 때 CloudSimple에 계정을 만듭니다.  이 계정은 서비스가 있는 Azure 구독과 연결 됩니다.  구독에서 **소유자** 및 **참가자** 역할이 있는 모든 사용자는 cloudsimple 포털에 액세스할 수 있습니다.  CloudSimple 서비스와 연결 된 Azure 구독 ID 및 테 넌 트 ID는 [계정 페이지](account.md)에서 찾을 수 있습니다.
 
 ## <a name="additional-alert-emails"></a>추가 경고 전자 메일
 
@@ -36,5 +36,5 @@ CloudSimple에서 전자 메일 Id를 구성 하 여 경고를 받을 수 있습
 
 ## <a name="next-steps"></a>다음 단계
 
-* [계정 요약 보기](https://docs.azure.cloudsimple.com/account/)
-* [사용자 목록 보기](https://docs.azure.cloudsimple.com/users/)
+* [계정 요약 보기](account.md)
+* [사용자 목록 보기](users.md)

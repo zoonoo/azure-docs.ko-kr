@@ -1,5 +1,5 @@
 ---
-title: Azure 관리 되는 응용 프로그램의 만들기 환경을 위한 CreateUiDefitinion Microsoft Docs
+title: Azure 관리 되는 응용 프로그램의 만들기 환경에 대 한 CreateUiDefinition Microsoft Docs
 description: Azure Managed Applications에 대한 UI 정의를 만드는 방법에 대해 설명합니다.
 services: managed-applications
 documentationcenter: na
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 292f2995e7ff1f56c306b8c9859bdb323f21762d
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 1ee6d9332a2be5ccb22b7571b348e2e0aae78fb2
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847604"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563551"
 ---
-# <a name="createuidefitinionjson-for-azure-managed-applications-create-experience"></a>Azure 관리 되는 응용 프로그램의 만들기 환경을 위한 CreateUiDefitinion
+# <a name="createuidefinitionjson-for-azure-managed-applications-create-experience"></a>Azure 관리 되는 응용 프로그램의 만들기 환경을 위한 CreateUiDefinition
 
 이 문서에서는 관리 되는 응용 프로그램을 만들 때 사용자 인터페이스를 정의 하는 데 사용 Azure Portal 하는 **Createuidefinition. json** 파일의 핵심 개념을 소개 합니다.
 

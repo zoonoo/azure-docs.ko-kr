@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: cotresne
-ms.openlocfilehash: 7f931a72eab534bc2856e9e545b684d2b8ae7a60
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 88b6fbbd68f1f98e50ec0f04336a022dc1580a73
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444034"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562908"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Azure Functions의 배포 기술
 
@@ -31,7 +31,7 @@ Azure Functions는 Windows 및 Linux에서 플랫폼 간 로컬 개발 및 호�
 
 각 계획 마다 동작이 다릅니다. Azure Functions의 각 버전에 대 한 모든 배포 기술이 제공 되는 것은 아닙니다. 다음 차트는 운영 체제 및 호스팅 계획의 각 조합에 대해 지원 되는 배포 기술을 보여 줍니다.
 
-| 배포 기술 | Windows 사용량 | Windows Premium (미리 보기) | Windows 전용  | Linux 소비 (미리 보기) | Linux 전용 |
+| 배포 기술 | Windows 사용량 | Windows Premium (미리 보기) | Windows 전용  | Linux 소비 | Linux 전용 |
 |-----------------------|:-------------------:|:-------------------------:|:-----------------:|:---------------------------:|:---------------:|
 | 외부 패키지 URL<sup>1</sup> |✔|✔|✔|✔|✔|
 | Zip 배포 |✔|✔|✔| |✔|
@@ -70,7 +70,7 @@ Azure Functions에서 사용할 수 있는 배포 방법은 다음과 같습니�
 >
 >Azure Blob storage를 사용 하는 경우 [공유 액세스 서명 (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) 이 포함 된 개인 컨테이너를 사용 하 여 패키지에 대 한 액세스 기능을 제공 합니다. 응용 프로그램이 다시 시작 될 때마다 콘텐츠의 복사본을 페치합니다. 참조는 응용 프로그램의 수명 동안 유효 해야 합니다.
 
->__사용 시기:__ 외부 패키지 URL은 사용 계획 (미리 보기)에서 Linux에서 실행 되는 Azure Functions에 대해 유일 하 게 지원 되는 배포 방법입니다. 함수 앱이 참조 하는 패키지 파일을 업데이트할 때 [수동으로 트리거를 동기화](#trigger-syncing) 하 여 응용 프로그램의 변경 내용을 Azure에 전달 해야 합니다.
+>__사용 시기:__ 외부 패키지 URL은 사용 계획에서 Linux에서 실행 되는 Azure Functions에 대해 유일 하 게 지원 되는 배포 방법입니다. 함수 앱이 참조 하는 패키지 파일을 업데이트할 때 [수동으로 트리거를 동기화](#trigger-syncing) 하 여 응용 프로그램의 변경 내용을 Azure에 전달 해야 합니다.
 
 ### <a name="zip-deploy"></a>Zip 배포
 
@@ -151,14 +151,14 @@ FTP를 사용 하 여 파일을 Azure Functions로 직접 전송할 수 있습�
 
 다음 표에서는 포털 편집을 지 원하는 운영 체제 및 언어를 보여 줍니다.
 
-| | Windows 사용량 | Windows Premium (미리 보기) | Windows 전용 | Linux 소비 (미리 보기) | Linux 프리미엄 (미리 보기)| Linux 전용 |
+| | Windows 사용량 | Windows Premium (미리 보기) | Windows 전용 | Linux 소비 | Linux 프리미엄 (미리 보기)| Linux 전용 |
 |-|:-----------------: |:-------------------------:|:-----------------:|:---------------------------:|:---------------:|:---------------:|
 | C# | | | | | |
 | C# 스크립트 |✔|✔|✔| |✔<sup>\*</sup> |✔<sup>\*</sup>|
 | F# | | | | | | |
 | Java | | | | | | |
 | JavaScript(Node.js) |✔|✔|✔| |✔<sup>\*</sup>|✔<sup>\*</sup>|
-| Python 2(미리 보기) | | | | | | |
+| Python(미리 보기) | | | | | | |
 | PowerShell (미리 보기) |✔|✔|✔| | | |
 | TypeScript (node.js) | | | | | | |
 

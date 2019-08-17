@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 94ef85836ef524b34cd1c51e4eda83695bc70507
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 348cd0eccc66adb29a7564bbbeca99fffec28957
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68443948"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562853"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions 크기 조정 및 호스팅
 
@@ -51,11 +51,11 @@ App Service 계획을 사용 하면 관리 하는 전용 인프라를 활용할 
 | | 소비 계획 | 프리미엄 플랜 | 전용 계획 |
 |-|:----------------:|:------------:|:----------------:|
 | Windows | GA | 미리 보기 | GA |
-| Linux | 미리 보기 | 미리 보기 | GA |
+| Linux | GA | 미리 보기 | GA |
 
 ## <a name="consumption-plan"></a>소비 계획
 
-소비 계획을 사용 하는 경우 Azure Functions 호스트의 인스턴스는 들어오는 이벤트의 수에 따라 동적으로 추가 및 제거 됩니다. 이 서버리스 계획은 자동으로 규모를 조정하며, 함수를 실행하는 경우에만 계산 리소스에 대한 요금이 청구됩니다. 소비 계획에서 구성 가능한 시간 후 함수 실행 시간이 초과됩니다.
+소비 계획을 사용 하는 경우 Azure Functions 호스트의 인스턴스는 들어오는 이벤트의 수에 따라 동적으로 추가 및 제거 됩니다. 이 서버리스 계획은 자동으로 규모를 조정하며, 함수를 실행하는 경우에만 컴퓨팅 리소스에 대한 요금이 청구됩니다. 소비 계획에서 구성 가능한 시간 후 함수 실행 시간이 초과됩니다.
 
 청구는 실행 횟수, 실행 시간 및 사용된 메모리를 기반으로 하며, 함수 앱 내의 모든 함수에 대해 집계됩니다. 자세한 내용은 [Azure Functions 가격 책정 페이지](https://azure.microsoft.com/pricing/details/functions/)를 참조하세요.
 
@@ -142,7 +142,7 @@ az appservice plan list --query "[?id=='$appServicePlanId'].sku.tier" --output t
 
 소비 및 프리미엄 계획에서 Azure Functions 인프라는 해당 함수가 트리거되는 이벤트의 수에 따라 함수 호스트의 인스턴스를 추가 하 여 CPU 및 메모리 리소스를 확장 합니다. 소비 계획에 있는 함수 호스트의 각 인스턴스는 1.5 GB의 메모리와 하나의 CPU로 제한 됩니다.  호스트의 인스턴스는 전체 함수 앱입니다. 즉, 함수 앱 내의 모든 함수는 인스턴스 내에서 리소스를 공유 하 고 동시에 크기를 조정 합니다. 동일한 소비 계획을 공유 하는 함수 앱은 독립적으로 크기가 조정 됩니다.  프리미엄 계획에서 계획 크기는 해당 인스턴스에서 해당 계획의 모든 앱에 대해 사용 가능한 메모리와 CPU를 결정 합니다.  
 
-함수 코드 파일은 함수의 주 저장소 계정에서 Azure Files 공유에 저장 됩니다. 함수 앱의 주 저장소 계정을 삭제하면 함수 코드 파일이 삭제되고 복구할 수 없습니다.
+함수 코드 파일은 함수의 주 저장소 계정에서 Azure Files 공유에 저장 됩니다. 함수 앱의 주 스토리지 계정을 삭제하면 함수 코드 파일이 삭제되고 복구할 수 없습니다.
 
 > [!NOTE]
 > 소비 계획에서 Blob 트리거를 사용하는 경우 새 Blob 처리에 하루 최대 10분이 지연될 수 있습니다. 이 지연은 함수 앱이 유휴 상태일 때 발생합니다. 함수 앱이 실행된 후에는 Blob이 즉시 처리됩니다. 이러한 콜드 부팅 지연 시간을 방지 하려면 프리미엄 요금제를 사용 하거나 [Event Grid 트리거](functions-bindings-event-grid.md)를 사용 합니다. 자세한 내용은 [Blob 트리거 바인딩 참조 문서](functions-bindings-storage-blob.md#trigger)를 참조합니다.

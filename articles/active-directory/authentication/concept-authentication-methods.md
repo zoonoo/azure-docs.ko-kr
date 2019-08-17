@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/17/2019
+ms.date: 08/16/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22c25c0a2b2f48baa3b57a8ad39ed4514c884826
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: d18c74e908f6d5c4c3d2eefb0518add380fa1324
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533144"
+ms.locfileid: "69561310"
 ---
 # <a name="what-are-authentication-methods"></a>인증 방법이란?
 
@@ -31,7 +31,7 @@ ms.locfileid: "69533144"
 | 암호 | MFA 및 SSPR |
 | 보안 질문 | SSPR만 |
 | 전자 메일 주소 | SSPR만 |
-| Microsoft Authenticator 앱 | MFA 및 SSPR용 공개 미리 보기 |
+| Microsoft Authenticator 앱 | MFA 및 SSPR |
 | OATH 하드웨어 토큰 | MFA 및 SSPR용 공개 미리 보기 |
 | SMS | MFA 및 SSPR |
 | 음성 통화 | MFA 및 SSPR |
@@ -41,7 +41,7 @@ ms.locfileid: "69533144"
 
 |     |
 | --- |
-| MFA 및 SSPR용 OATH 하드웨어 토큰과 Azure AD SSPR(Self-service Password Reset) 방법인 모바일 앱 알림 또는 모바일 앱 코드는 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.|
+| MFA 및 SSPR의 OATH 하드웨어 토큰은 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.|
 |     |
 
 ## <a name="password"></a>암호

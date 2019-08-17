@@ -8,22 +8,22 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 5bb1a4dd9d652481dfe1a2727ee0e5fe7601e96a
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 95d27bab243f6805436465f5027e519d33e20f6f
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812766"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563230"
 ---
-# <a name="accessing-the-vmware-solution-by-cloudsimple-portal-from-azure-portal"></a>Azure Portal에서 CloudSimple 포털에의 한 VMware 솔루션 액세스
+# <a name="access-the-vmware-solution-by-cloudsimple-portal-from-the-azure-portal"></a>Azure Portal에서 CloudSimple 포털로 VMware 솔루션에 액세스 합니다.
 
 Single sign-on은 CloudSimple 포털에 대 한 액세스를 지원 합니다. Azure Portal에 로그인 한 후에 다시 로그인 하지 않고 CloudSimple 포털에 액세스할 수 있습니다. CloudSimple 포털에 처음 액세스할 때 [Cloudsimple 서비스 권한 부여](#consent-to-cloudsimple-service-authorization-application) 응용 프로그램에 권한을 부여 하 라는 메시지가 표시 됩니다.  권한 부여는 일회성 작업입니다.
 
 ## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
-Builtin **소유자** 및 **참여자** 역할을 가진 사용자는 cloudsimple 포털에 액세스할 수 있습니다.  CloudSimple service가 배포 되는 리소스 그룹에 역할을 구성 해야 합니다.  CloudSimple service 개체에도 역할을 구성할 수 있습니다.  역할을 확인 하는 방법에 대 한 자세한 내용은 [역할 할당 보기](https://docs.microsoft.com/azure/role-based-access-control/check-access) 문서를 참조 하세요.
+Builtin **소유자** 및 **참여자** 역할을 가진 사용자는 cloudsimple 포털에 액세스할 수 있습니다.  CloudSimple service가 배포 되는 리소스 그룹에 역할을 구성 해야 합니다.  CloudSimple service 개체에도 역할을 구성할 수 있습니다.  역할을 확인 하는 방법에 대 한 자세한 내용은 [역할 할당 보기](https://docs.microsoft.com/azure/role-based-access-control/check-access) 문서를 참조 하세요. 기본 제공 **소유자** 및 **참가자** 역할을 가진 사용자만 cloudsimple 포털에 액세스할 수 있습니다.  구독에서 역할을 구성 해야 합니다.  역할을 확인 하는 방법에 대 한 자세한 내용은 [역할 할당 보기](https://docs.microsoft.com/azure/role-based-access-control/check-access) 문서를 참조 하세요.
 
-사용자 지정 역할을 사용 하는 경우 역할은에서 ```Actions```다음 작업 중 하나를 수행 해야 합니다.  사용자 지정 역할에 대 한 자세한 내용은 [Azure 리소스에 대 한 사용자 지정 역할](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)을 참조 하세요.  작업이의 일부인 ```NotActions```경우 사용자는 cloudsimple 포털에 액세스할 수 없습니다. 
+사용자 지정 역할을 사용 하는 경우 역할은에서 ```Actions```다음 작업 중 하나를 수행 해야 합니다.  사용자 지정 역할에 대 한 자세한 내용은 [Azure 리소스에 대 한 사용자 지정 역할](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)을 참조 하세요.  작업이의 일부인 ```NotActions```경우 사용자는 cloudsimple 포털에 액세스할 수 없습니다.
 
 ```
 Microsoft.VMwareCloudSimple/*
@@ -48,7 +48,7 @@ Microsoft.VMwareCloudSimple/dedicatedCloudServices/*/write
 
     ![CloudSimple 포털 시작](media/launch-cloudsimple-portal.png)
 
-> [!TIP]
+> [!NOTE]
 > Azure Portal에서 직접 사설 클라우드 작업 (예: 사설 클라우드 만들기 또는 확장)을 선택 하는 경우 CloudSimple 포털이 표시 된 페이지에 열립니다.
 
 CloudSimple 포털의 측면 메뉴에서 **홈** 을 선택 하 여 사설 클라우드에 대 한 요약 정보를 표시 합니다. 주의가 필요한 경고 및 작업과 함께 사설 클라우드의 리소스 및 용량이 표시 됩니다. 일반 작업의 경우 페이지 맨 위에 있는 명명 된 아이콘을 클릭 합니다.
@@ -57,7 +57,7 @@ CloudSimple 포털의 측면 메뉴에서 **홈** 을 선택 하 여 사설 클�
 
 ## <a name="consent-to-cloudsimple-service-authorization-application"></a>CloudSimple 서비스 권한 부여 응용 프로그램에 동의
 
-Azure Portal 처음으로 CloudSimple 포털을 시작 하려면 CloudSimple 서비스 권한 부여 응용 프로그램에 대 한 동의가 필요 합니다.  **수락** 을 선택 하 여 요청 된 권한을 부여 하 고 cloudsimple 포털에 액세스 합니다. 
+Azure Portal 처음으로 CloudSimple 포털을 시작 하려면 CloudSimple 서비스 권한 부여 응용 프로그램에 대 한 동의가 필요 합니다.  **수락** 을 선택 하 여 요청 된 권한을 부여 하 고 cloudsimple 포털에 액세스 합니다.
 
 ![CloudSimple 서비스 권한 부여에 대 한 동의-관리자](media/cloudsimple-azure-consent.png)
 

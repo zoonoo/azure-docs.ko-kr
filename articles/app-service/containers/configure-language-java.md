@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/26/2019
 ms.author: brendm
 ms.custom: seodec18
-ms.openlocfilehash: 825379c04c22b3f13e651455c490a58ad47169d8
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: b71cf55944c1049fa2c3ddca79f02a8b75b9b2ec
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967155"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563008"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Azure App Service에 대 한 Linux Java 앱 구성
 
@@ -139,7 +139,7 @@ App Service 계획에서 배포 슬롯 하나를 사용하여 단일 애플리�
 
 애플리케이션 힙 설정을 튜닝할 때 App Service 계획 세부 정보를 검토하고 여러 애플리케이션 및 배포 슬롯 요구 사항을 고려하여 최적의 메모리 할당을 찾아보세요.
 
-JAR 응용 프로그램을 배포 하는 경우 기본 제공 이미지가 앱을 올바르게 식별할 수 있도록이 파일의 이름을 *app.config* 로 지정 해야 합니다. Maven 플러그 인은이 이름을 자동으로 바꿉니다. JAR의 이름을 *app.config*로 변경 하지 않으려는 경우에는 명령을 사용 하 여 셸 스크립트를 업로드 하 여 jar을 실행할 수 있습니다. 그런 다음 포털의 구성 섹션에 있는 [시작 파일](app-service-linux-faq.md#built-in-images) 텍스트 상자에이 스크립트의 전체 경로를 붙여넣습니다.
+JAR 응용 프로그램을 배포 하는 경우 기본 제공 이미지가 앱을 올바르게 식별할 수 있도록이 파일의 이름을 *app.config* 로 지정 해야 합니다. Maven 플러그 인은이 이름을 자동으로 바꿉니다. JAR의 이름을 *app.config*로 변경 하지 않으려는 경우에는 명령을 사용 하 여 셸 스크립트를 업로드 하 여 jar을 실행할 수 있습니다. 그런 다음 포털의 구성 섹션에 있는 [시작 파일](app-service-linux-faq.md#built-in-images) 텍스트 상자에이 스크립트의 전체 경로를 붙여넣습니다. 시작 스크립트가 배치 된 디렉터리에서 실행 되지 않습니다. 따라서 항상 절대 경로를 사용 하 여 시작 스크립트의 파일을 참조 합니다 (예 `java -jar /home/myapp/myapp.jar`:).
 
 ### <a name="turn-on-web-sockets"></a>웹 소켓 켜기
 

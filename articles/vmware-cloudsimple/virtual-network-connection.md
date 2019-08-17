@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8ba2d2fd9c943fe55e82956d022f6ba9840a550f
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 00d49d763dedc5d86557dadd10f5d727e7893dbe
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/16/2019
-ms.locfileid: "69536600"
+ms.locfileid: "69563066"
 ---
 # <a name="connect-azure-virtual-network-to-cloudsimple-using-expressroute"></a>Express 경로를 사용 하 여 Azure 가상 네트워크를 CloudSimple에 연결
 
@@ -24,7 +24,7 @@ ms.locfileid: "69536600"
 사설 클라우드와 Azure virtual network 간의 Express 경로 연결에는 인증 키가 필요 합니다. 키를 얻으려면 <a href="https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest" target="_blank">지원</a>되는 티켓을 파일에 입력 합니다.  요청에서 다음 정보를 사용 합니다.
 
 * 문제 유형: **기술**
-* 구독: CloudSimple 서비스가 배포 된 구독을 선택 합니다. * *
+* 구독: **CloudSimple 서비스가 배포 된 구독을 선택 합니다.**
 * 서비스: **CloudSimple 별 VMware 솔루션**
 * 문제 유형: **서비스 요청**
 * 문제 하위 유형: **Azure VNET 연결에 대 한 인증 키**

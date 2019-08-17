@@ -1,261 +1,235 @@
 ---
 title: Azure Search 서비스에 대한 SKU 또는 가격 책정 계층 선택 - Azure Search
-description: 이러한 Sku의 azure Search는 프로비저닝할 수 있습니다. Free, Basic 및 Standard 및 표준 다양 한 리소스 구성 및 용량 수준에서 제공 됩니다.
+description: Azure Search는 다음 Sku에서 프로 비전 할 수 있습니다. Free, Basic, Standard 및 Standard는 다양 한 리소스 구성 및 용량 수준에서 사용할 수 있습니다.
 services: search
 author: HeidiSteen
-manager: cgronlun
-tags: azure-portal
+manager: nitinme
+tags: ''
 ms.service: search
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 08/15/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 892a79f898e2448096ad4b252a18e0713bb32e52
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: d93f8c61511dd1d3fc2bfd253fa7a21857f67ed6
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485303"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563381"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Azure Search에 대한 가격 책정 계층 선택
 
-Azure Search 서비스를 만들 때를 [리소스가 만들어집니다](search-create-service-portal.md) 가격 책정 계층 (또는 SKU)에서 서비스의 수명 동안 고정 되어 있는 합니다. Free, Basic, Standard 및 저장소 액세스에 최적화 된 계층에 포함 됩니다. 표준 및 저장소 액세스에 최적화 된 여러 구성 및 용량을 사용 하 여 사용할 수 있습니다.
+Azure Search 서비스를 만들면 서비스 수명 동안 고정 된 가격 책정 계층 (또는 SKU)에서 [리소스가 생성 됩니다](search-create-service-portal.md) . 계층에는 무료, 기본, 표준 및 저장소에 최적화 됨이 포함 됩니다. 표준 및 저장소 최적화는 여러 구성 및 용량에서 사용할 수 있습니다.
 
-대부분의 고객이 서비스를 평가할 수 있도록 무료 계층을 사용 하 여 시작 합니다. 개발 및 프로덕션 배포에 대 한 상위 계층 중 하나에서 두 번째 서비스를 만드는 일반적인 사후 평가 것입니다. Cognitive search 리소스를 많이 사용에 대 한 것을 비롯 한 무료 계층에서 사용 하 여 모든 빠른 시작 및 자습서를 완료할 수 있습니다.
+대부분의 고객은 서비스를 평가할 수 있도록 무료 계층으로 시작 합니다. 사후 평가, 개발 및 프로덕션 배포를 위해 상위 계층 중 하나에서 두 번째 서비스를 만드는 것이 일반적입니다.
 
-> [!NOTE]
-> 년 7 월 1 일 기준으로 모든 계층은 공급 최적화 된 저장소 계층을 포함 합니다. 가격 책정은 모두에서 찾을 수 있습니다 합니다 [가격 정보](https://azure.microsoft.com/pricing/details/search/) 페이지입니다.
+무료 계층을 비롯 한 모든 계층은 일반적으로 기능 패리티를 제공 하지만 더 큰 워크 로드는 더 높은 계층에 대 한 요구를 지시할 수 있습니다. 예를 들어 [Cognitive Services를 사용 하는 AI 보강](cognitive-search-concept-intro.md) 에는 데이터 집합이 작은 경우를 제외 하 고 무료 서비스에서 시간이 초과 되는 장기 실행 기술이 있습니다.
+
+> [!NOTE] 
+> 패리티 기능에 대 한 예외는 S3 HD에서 사용할 수 없는 [인덱서](search-indexer-overview.md)입니다.
+>
+
+<!-- For Basic tier and up, you can [adjust replica and partition resources](search-capacity-planning.md) to increase or decrease scale. You could start with one or two of each and then temporarily raise your computational power for a heavy indexing workload. The ability to tune resource levels within a tier adds flexibility, but also slightly complicates your analysis. You might have to experiment to see whether a lower tier with more resources/replicas offers better value and performance than a higher tier with fewer resources. To learn more about when and why you would adjust capacity, see [Performance and optimization considerations](search-performance-optimization.md). -->
+
+## <a name="available-tiers"></a>사용 가능한 계층
 
 계층은 기능보다는 서비스를 호스팅하는 하드웨어의 특성을 반영하며 다음과 같이 구분됩니다.
 
-+ 만들 수 있는 인덱스의 수입니다.
-+ 파티션 (실제 저장소) 속도 크기입니다.
++ 만들 수 있는 인덱스 및 인덱서 수량
++ 파티션(실제 스토리지)의 크기와 속도
 
-무료 계층을 비롯 한 모든 계층에서 일반적으로 기능 패리티를 제공 하지만 더 큰 워크 로드 수 더 높은 계층에 대 한 필요성을 지정 합니다. 예를 들어 [Cognitive Services를 사용 하 여 AI 보강](cognitive-search-concept-intro.md) 에 장기 실행 기술을 시간 초과 되는 무료 서비스는 데이터 집합이 작으면 하지 않는 한 합니다.
+선택한 계층에 따라 청구 요금이 결정 됩니다. Azure Portal의 다음 스크린샷은 사용 가능한 계층, 가격 책정 (포털 및 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/search/)에서 찾을 수 있음)을 보여 줍니다. 가장 일반적인 계층은 **무료**, **기본**및 **표준** 입니다.
 
-> [!NOTE] 
-> 예외는 기능 패리티 [인덱서](search-indexer-overview.md), S3 HD에 제공 되지 않는 합니다.
->
+**Free** 는 다른 구독자와 공유 되는 클러스터에서 제한 된 검색 서비스를 만듭니다. 빠른 시작 및 자습서를 비롯 한 작은 프로젝트를 완료할 수 있지만 서비스를 확장 하거나 중요 한 작업을 실행할 수는 없습니다. 기본 및 **표준은** 가장 일반적으로 사용 되는 청구 가능 계층으로, **표준** 을 기본값으로 사용 합니다.
 
-하면 계층 내 [복제본 및 파티션 리소스 조정](search-capacity-planning.md) 규모를 늘리거나 합니다. 각 중 하나 또는 두으로 시작 하 고 과도 한 인덱싱 작업에 대 한 컴퓨팅 기능에 일시적으로 발생 시킬 수 있습니다. 계층 내의 리소스 수준을 조정하면 유연성이 추가될 뿐만 아니라 분석도 약간 복잡해집니다. 더 많은 리소스/복제본을 사용 하 여 더 낮은 계층 적은 리소스로 더 높은 계층 보다 더 나은 성능과 값을 제공 하는지 여부를 확인 하려면 실험을 해야 합니다. 용량을 조정하는 시기 및 이유에 대해 자세히 알아보려면 [성능 및 최적화 고려 사항](search-performance-optimization.md)을 참조하세요.
+![Azure Search 가격 책정 계층](media/search-sku-tier/tiers.png "Azure Search 가격 책정 계층")
 
-## <a name="tiers-for-azure-search"></a>Azure Search 계층
+일부 계층은 특정 작업 유형에 맞게 최적화 되어 있습니다. 예를 들어 **표준 3 고밀도 (S3 HD)** 는 s 3의 *호스팅 모드* 입니다. 여기서 기본 하드웨어는 많은 수의 작은 인덱스에 대해 최적화 되 고 배포할지에 시나리오를 위한 것입니다. S3 HD는 S3와 동일한 단가를 갖지만 하드웨어는 많은 수의 작은 인덱스에서 빠른 파일 읽기에 최적화 되어 있습니다.
 
-다음 표에서 사용 가능한 계층을 보여 줍니다. 다양 한 계층에 대 한 자세한 내용을 찾을 수 있습니다는 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/search/)를 [Azure Search의 서비스 제한 사항](search-limits-quotas-capacity.md) 기사 및 페이지 경우 포털에서 서비스를 프로 비전 할 합니다.
+**저장소에 최적화** 된 계층은 표준 계층 보다 TB 당 저렴 한 가격으로 더 큰 저장소 용량을 제공 합니다. 기본 단점은 특정 응용 프로그램 요구 사항에 대 한 유효성을 검사 해야 하는 더 높은 쿼리 대기 시간입니다.  이 계층의 성능 고려 사항에 대해 자세히 알아보려면 [성능 및 최적화 고려 사항](search-performance-optimization.md)을 참조 하세요.
 
-|계층 | 용량 |
-|-----|-------------|
-|무료 | 다른 구독자와 공유 합니다. 확장할 수 없습니다. 3 개의 인덱스 및 50MB의 저장소로 제한 됩니다. |
-|Basic | 소규모 프로덕션 워크 로드 전용된 컴퓨팅 리소스를 지원 합니다. 하나의 파티션에 2GB 및 최대 3 개의 복제본입니다. |
-|표준 1 (S1) | S1 및 모든 수준에서 더 많은 저장소 및 처리 용량으로 더 높고, 전용 컴퓨터. S1에 대 한 파티션 크기가 25 GB/파티션 (서비스 당 300GB 최대)입니다. |
-|표준 2 (S2) | 와 비슷하지만 s1, 100GB 파티션 (및 서비스 당 최대 1.2TB)를 사용 하 여 합니다. |
-|표준 3 (S3의 경우) | 200GB 파티션 (서비스 당 2.4TB 최대). |
-|표준 3 고밀도 (S3 HD) | 고밀도는 *호스팅 모드* S3에 대 한 합니다. 기본 하드웨어는 많은 수의 작은 인덱스에 대 한 최적화 되 고 다중 테 넌 트 시나리오에 대 한 것입니다. S3 HD는 S3 되지만 하드웨어가 여러 작은 인덱스의 빠른 파일 읽기에 최적화 된 대로 동일한 단위당 요금이 있습니다.|
-|저장소 최적화 (L1) 1 | 1TB 파티션 (서비스 당 최대 12TB의). |
-|저장소 최적화 L2 (2) | 2TB 파티션 (24 TB 당 최대 서비스). |
+[가격 책정 페이지](https://azure.microsoft.com/pricing/details/search/), [Azure Search의 서비스 제한](search-limits-quotas-capacity.md) 문서 및 서비스를 프로 비전 할 때 포털 페이지에서 다양 한 계층에 대 한 자세한 내용을 확인할 수 있습니다.
 
-> [!NOTE] 
-> 저장소 액세스에 최적화 된 계층 보다 표준 계층 TB 당 더 낮은 가격으로 더 큰 저장소 용량을 제공합니다. 기본 단점은 특정 응용 프로그램 요구 사항에 대 한 유효성을 검사 해야 하는 더 높은 쿼리 대기 시간을 보여 줍니다.  이 계층의 성능 고려 사항에 대 한 자세한 내용은 참조 하세요 [성능 및 최적화 고려 사항](search-performance-optimization.md)합니다.
->
+## <a name="billable-events"></a>청구 가능한 이벤트
 
-## <a name="how-billing-works"></a>청구 방법
+Azure Search을 기반으로 하는 솔루션은 다음과 같은 방법으로 비용을 발생 시킬 수 있습니다.
 
-Azure Search에서 비용이 발생 하는 방법은 세 가지가 있습니다. 이 섹션에서는 세 가지 청구 구성 요소를 설명합니다. 
++ 최소 구성의 기본 서비스 비용
++ 확장 시 증분 비용 (복제본 또는 파티션 추가)
++ 아웃 바운드 데이터 전송에 대 한 대역폭 요금
++ Cognitive Services 리소스를 활용 하는 인식 검색
 
-+ 핵심 서비스 비용
-+ 데이터 송신 (또는 대역폭) 요금
-+ AI 강화
+### <a name="service-costs"></a>서비스 비용
 
-### <a name="core-service-costs-fixed-and-variable"></a>핵심 서비스 비용 (고정 및 변수)
+요금을 방지 하기 위해 "일시 중지" 될 수 있는 가상 머신 또는 다른 리소스와 달리 Azure Search 서비스는 항상 독점적으로 사용 되는 하드웨어에서 사용할 수 있습니다. 따라서 서비스를 만드는 것은 서비스를 만들 때 시작 되 고 서비스를 삭제할 때 종료 되는 청구 가능 이벤트입니다. 
 
-서비스 자체에 대 한 최소 요금 청구는 첫 번째 검색 단위 (1 개 복제본 x 1 파티션). 이 이는 서비스는이 구성을 보다 적은 권한으로 실행할 수 없으므로 서비스의 수명 동안 고정 됩니다.
+최소 요금은 첫 번째 검색 단위 (하나의 복제본 x 파티션)입니다. 이 구성 보다 작은 항목에서 서비스를 실행할 수 없기 때문에이 최소값은 서비스의 수명 동안 고정 됩니다. 최소값을 초과 하 여 복제본과 파티션을 서로 독립적으로 추가할 수 있습니다. 복제본 및 파티션을 통해 용량이 증가 하는 경우 다음 수식에 따라 청구서가 증가 합니다. [(복제본 x 파티션 x rate)](#search-units). 여기서 청구 되는 등급은 선택한 가격 책정 계층에 따라 달라 집니다.
 
-최소를 추가할 수 있습니다 하지 복제본과 파티션을 독립적으로. 예를 들어, 복제본 또는 파티션으로 추가할 수 있습니다. 복제본 및 파티션의 통해 용량 증가 증분 가변 비용 구성 요소를 구성 합니다.
+검색 솔루션의 비용을 예측 하는 경우 가격 책정 및 용량이 선형이 아닌 것을 염두에 두어야 합니다. (두 배의 용량으로 비용을 늘립니다.) 수식의 작동 방법에 대 한 예는 [복제본 및 파티션을 할당 하는 방법](search-capacity-planning.md#how-to-allocate-replicas-and-partitions)을 참조 하세요.
 
-청구는 기준으로 한 [수식 (복제본 파티션 x 속도 x)](#search-units)합니다. 선택한 가격 책정 계층에서 청구 되는 속도 따라 달라 집니다.
+### <a name="bandwidth-charges"></a>대역폭 요금
 
-다음 스크린 샷에서 단위당 가격 Free, Basic 및 S1에 대 한 표시 됩니다. (S2, S3, L1 및 L2 표시 되지 않습니다.) 월간 비용에 대해 표시 되는 값을 평균는 기본 서비스를 만들면 *가격 1*합니다. 표준 서비스에 대 한 월별 비용에 대해 표시 되는 값을 평균 됩니다 *가격-2*합니다. 연속 된 각 계층에서 큰 계산 능력과 저장소 용량 이므로 각 계층에 대 한 단위 비용이 늘어납니다. Azure Search에 대 한 요금은에서 사용할 수는 [Azure Search 가격 책정 페이지](https://azure.microsoft.com/pricing/details/search/)합니다.
+[Azure Search 인덱서](search-indexer-overview.md) 를 사용 하면 서비스의 위치에 따라 청구에 영향을 줄 수 있습니다. 데이터와 동일한 지역에 Azure Search 서비스를 만드는 경우 데이터 송신 요금을 완전히 제거할 수 있습니다. [대역폭 가격 책정 페이지](https://azure.microsoft.com/pricing/details/bandwidth/)의 일부 정보는 다음과 같습니다.
 
-![단위당 가격 책정](./media/search-sku-tier/per-unit-pricing.png "단위당 가격")
++ Microsoft는 Azure의 모든 서비스 또는 Azure Search의 아웃 바운드 데이터에 대 한 인바운드 데이터를 청구 하지 않습니다.
++ Multiservice 솔루션에서는 모든 서비스가 동일한 지역에 있는 경우 네트워크를 통과 하는 데이터에 대 한 요금이 부과 되지 않습니다.
 
-검색 솔루션의 비용을 예상 하는 경우 유지 염두에서 하는 가격 책정 및 용량 선형이 아닙니다. (용량을 두 배로 높일 경우 이상 비용은 두 배가 됩니다.) 수식 작동 하는 방법의 예제를 참조 하세요 [복제본 및 파티션의 할당 하는 방법](search-capacity-planning.md#how-to-allocate-replicas-and-partitions)합니다.
+서비스가 서로 다른 지역에 있는 경우 아웃 바운드 데이터에 대 한 요금이 적용 됩니다. 이러한 요금은 실제로 Azure Search 청구서에 포함 되지 않습니다. 데이터 또는 AI 보강 인덱서를 사용 하 여 서로 다른 지역에서 데이터를 끌어오는 경우 전체 청구서에 반영 된 비용이 표시 되기 때문에 여기에 설명 되어 있습니다.
 
-#### <a name="billing-based-on-search-units"></a>검색 단위 기준으로 청구
+### <a name="cognitive-search-ai-enrichment-with-cognitive-services"></a>Cognitive Services로 인식 검색 AI 보강
 
-Azure Search 작업에 대 한 이해를 청구 가장 중요 한 개념은는 *검색 단위* (SU)입니다. Azure Search은 인덱싱 및 쿼리를 위해 복제본과 파티션 둘 다에 의존하므로 하나를 기준으로만 청구하는 것은 적절하지 않습니다. 대신, 청구는 둘 다의 복합을 기준으로 합니다.
+Cognitive Services를 사용 하는 [AI 보강](cognitive-search-concept-intro.md)의 경우 종 량 제 처리를 위한 S0 가격 책정 계층에서 Azure Search와 동일한 지역에 [청구 가능한 Azure Cognitive Services 리소스를 연결](cognitive-search-attach-cognitive-services.md)하도록 계획 해야 합니다. 연결 Cognitive Services와 관련 된 고정 비용은 없습니다. 필요한 처리에 대해서만 비용을 지불 하면 됩니다.
 
-SU를 곱한 값을 *복제본* 하 고 *파티션* 서비스에서 사용: **(R x P = SU)** .
-
-모든 서비스는 최소값으로 1SU(복제본 1개 x 파티션 1개)에서 시작합니다. 모든 서비스에 대 한 최대 36 개의 Su는. 이 최대 여러 가지 방법으로 연결할 수 있습니다. 6 파티션 x 6 복제본 또는 예를 들어 3 개 파티션은 x 12 복제본입니다. 일반적으로 총 용량 (예를 들어 복제본 3, 3-파티션 서비스 9 개의 Su로 청구) 미만 사용 하는 것입니다. 참조 된 [파티션 및 복제본 조합](search-capacity-planning.md#chart) 유효한 조합에 대 한 차트입니다.
-
-SU 당 청구 요금은 시간당 경우 각 계층에 점차 더 높은 속도입니다. 해당 계층에 대 한 전체 높은 시간당 요금에 기여 하는이 및 더 높은 계층 크고 더 파티션과 함께 제공 합니다. 각 계층에 대 한 요금을 볼 수 있습니다 합니다 [가격 정보](https://azure.microsoft.com/pricing/details/search/) 페이지입니다.
-
-대부분의 고객은 총 용량의 일부만 온라인 상태로 유지하고 나머지는 보류 상태로 둡니다. 대금 청구, 파티션 및 온라인으로 전환 하는 복제본 수는 SU 계산 수식 결정 시간별로 지불 합니다.
-
-### <a name="data-egress-charges-during-indexing"></a>인덱싱 중 데이터 송신 요금이 발생 합니다.
-
-사용 하 여 [Azure Search 인덱서](search-indexer-overview.md) 서비스 위치에 따라 청구에 영향을 줄 수 있습니다. 데이터와 동일한 지역에서 Azure Search 서비스를 만든 경우에 완전 하 게 데이터 송신 요금을 제거할 수 있습니다. 일부 내용은 여기에 [대역폭 가격 책정 페이지](https://azure.microsoft.com/pricing/details/bandwidth/):
-
-+ Microsoft는 Azure Search에서 Azure에서 서비스에 모든 인바운드 데이터 또는 모든 아웃 바운드 데이터에 대해 과금 하지 않습니다.
-
-+ 다중 서비스 솔루션에는 모든 서비스가 동일한 지역에 되었을 때 네트워크를 통과 하는 데이터에 대 한 무료입니다.
-
-서비스가 서로 다른 지역에 있으면 아웃 바운드 데이터에 대 한 요금이 적용지 않습니다. 이러한 요금은 Azure Search 청구서에 실제로 포함 되지 않습니다. 해당 하는 때문에 여기서 설명 데이터를 끌어오는 데이터 또는 AI를 보강 한 인덱서를 사용 하 여 서로 다른 지역에서 하는, 전체 청구 금액에 반영 하는 비용을 볼 수 있습니다.
-
-### <a name="ai-enrichments-with-cognitive-services"></a>Cognitive Services를 사용 하 여 AI 강화
-
-에 대 한 [Cognitive Services를 사용 하 여 AI 보강](cognitive-search-concept-intro.md), 종 량 제 처리용 S0 가격 책정 계층에서 Azure Search와 동일한 지역에 청구 가능 Azure Cognitive Services 리소스에 연결 하도록 계획 해야 합니다. Cognitive Services에 연결 된 연결 된 고정 비용은 없습니다. 필요한 처리에 대해서만 지불 합니다.
-
-문서 해독 하는 동안 이미지 추출은 Azure Search 요금이 발생 합니다. 문서에서 추출 된 이미지의 수에 따라 청구 됩니다. 텍스트 추출은 현재 무료입니다.
-
-자연어 처리와 같은 다른 강화에 기반한 [기본 제공 인식 기술](cognitive-search-predefined-skills.md) 및 Cognitive Services 리소스에 대 한 요금이 청구 됩니다. Cognitive Services를 직접 사용 하 여 작업을 수행 했습니다 처럼 동일한 요율로 청구 됩니다. 자세한 내용은 [기술 집합을 사용 하 여 Cognitive Services 리소스 연결](cognitive-search-attach-cognitive-services.md)합니다.
+| 연산 | 청구 영향 |
+|-----------|----------------|
+| 문서 크랙, 텍스트 추출 | Free |
+| 문서 크랙, 이미지 추출 | 문서에서 추출 된 이미지의 수에 따라 요금이 청구 됩니다. [인덱서 구성](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters)에서 **imageaction** 은 이미지 추출을 트리거하는 매개 변수입니다. **Imageaction** 이 "none" (기본값)으로 설정 된 경우 이미지 추출에 대 한 요금이 청구 되지 않습니다. 이미지 추출 율은 Azure Search에 대 한 [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/search/) 페이지에 설명 되어 있습니다.|
+| [미리 빌드된 인식 기술](cognitive-search-predefined-skills.md) | Cognitive Services를 직접 사용 하 여 작업을 수행한 것과 동일한 요금으로 청구 됩니다. |
+| 사용자 지정 기술 | 사용자 지정 기술은 사용자가 제공 하는 기능입니다. 사용자 지정 기술 사용 비용은 사용자 지정 코드가 다른 요금제 서비스를 호출 하는지 여부에 따라 전적으로 달라 집니다. |
 
 <a name="search-units"></a>
 
-#### <a name="billing-for-image-extraction-in-cognitive-search"></a>Cognitive Search의 이미지 추출 비용 청구
+## <a name="billing-formula-r-x-p--su"></a>청구 수식 (R x P = SU)
 
-Cognitive 검색 인덱싱 파이프라인에에서는 파일에서 이미지를 추출 하는 경우 부과 됩니다 해당 작업에 대 한 Azure Search 청구서에 있습니다. 에 [인덱서 구성](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters)를 **imageAction** 이미지 추출 트리거하는 매개 변수입니다. 하는 경우 **imageAction** 이미지 추출에 대 한 요금이 부과 되지 않습니다 (기본값), "none"으로 설정 됩니다.
+Azure Search 작업을 이해 하는 가장 중요 한 청구 개념은 *검색 단위* (SU)입니다. Azure Search은 인덱싱 및 쿼리를 위해 복제본과 파티션 둘 다에 의존하므로 하나를 기준으로만 청구하는 것은 적절하지 않습니다. 대신, 청구는 둘 다의 복합을 기준으로 합니다.
 
-가격은 변경 될 수 있습니다. 에 설명 되어 있습니다 합니다 [가격 정보](https://azure.microsoft.com/pricing/details/search/) Azure Search에 대 한 페이지입니다.
+SU는 서비스에서 사용 하는 *복제본* 및 *파티션의* 제품입니다. **(R x P = SU)** .
 
-#### <a name="billing-for-built-in-skills-in-cognitive-search"></a>Cognitive Search에서 기본 제공 기술에 대한 요금 청구
+모든 서비스는 최소값으로 1SU(복제본 1개 x 파티션 1개)에서 시작합니다. 모든 서비스에 대 한 최대값은 36입니다. 이 최대값은 여러 가지 방법으로 연결할 수 있습니다. 6 파티션 x 6 개 또는 3 개의 파티션 x 12 복제본 (예:) 총 용량을 사용 하는 것이 일반적입니다 (예: 3 개 복제본, 3-파티션 서비스는 9 개 SUs로 청구 됨). 올바른 조합은 [파티션 및 복제본 조합](search-capacity-planning.md#chart) 차트를 참조 하세요.
 
-보강 파이프라인을 설정한 경우 파이프라인에서 사용되는 [기본 제공 기술](cognitive-search-predefined-skills.md)은 기계 학습 모델을 기준으로 합니다. 이러한 모델은 Cognitive Services에서 제공 됩니다. 인덱싱 중 이러한 모델을 사용 하는 경우 청구 됩니다 같은 속도로 직접 리소스를 요청 하는 경우 것 처럼 합니다.
+요금 청구 요금은 SU 당 매시간입니다. 각 계층의 속도가 점차 높아집니다. 상위 계층에는 더 큰 및 speedier 파티션이 제공 되며,이는 해당 계층에 대 한 전반적인 시간당 요금에 기여 합니다. [가격 정보](https://azure.microsoft.com/pricing/details/search/) 페이지에서 각 계층에 대 한 요금을 볼 수 있습니다.
 
-예를 들어, 스캔된 JPEG 파일에 대해 OCR (광학 문자 인식)을 사용 하는 파이프라인이 있다고 및 결과 텍스트는 자유 형식 검색 쿼리에 대 한 Azure Search 인덱스에 푸시됩니다. 인덱싱 파이프라인의 [OCR 기술](cognitive-search-skill-ocr.md)에서 인덱서가 포함되고 해당 기술은 [Cognitive Services 리소스에 연결](cognitive-search-attach-cognitive-services.md)됩니다. 인덱서를 실행 하면 OCR 실행에 대 한 요금은 Cognitive 리소스 청구서에 표시 됩니다.
+대부분의 고객은 총 용량의 일부만 온라인 상태로 유지하고 나머지는 보류 상태로 둡니다. 요금 청구를 위해 SU 수식으로 계산 되는 온라인 상태로 전환 되는 파티션 및 복제본의 수는 시간별로 청구 되는 항목을 결정 합니다.
 
-## <a name="tips-for-reducing-costs"></a>비용을 절감하기 위한 팁
+## <a name="how-to-manage-and-reduce-costs"></a>비용을 관리 하 고 절감 하는 방법
 
-청구서를 줄이기 위해 서비스를 종료할 수 없습니다. 전용 리소스가 항상 운영, 서비스의 수명에 대 한 배타적 사용을 위해 할당 합니다. 복제본 및 파티션의 여전히 적절 한 성능을 제공 하는 수준으로 줄일 수는 청구 요금을 절감 하는 유일한 방법은 하 고 [SLA 준수](https://azure.microsoft.com/support/legal/sla/search/v1_0/)합니다.
+다음 제안 외에도 [요금 청구 및 비용 관리](https://docs.microsoft.com/azure/billing/billing-getting-started)를 참조 하세요.
 
-비용을 절감 하는 한 가지 방법은 시간당 속도가 계층을 선택 하는 경우 S1 시간별 요금은 S2 또는 S3 요금보다 낮습니다. 있다는 가정 낮은 부하 예상 끝에 서비스를 프로 비전를 서비스의 보다 커지는 있습니다 경우 수 있습니다 두 번째 큰 계층화 된 서비스 만들기, 두 번째 서비스에서 인덱스를 다시 작성 첫 번째를 삭제 합니다.
+- 대역폭 요금을 최소화 하거나 제거 하기 위해 동일한 지역에 있거나 가능한 적은 수의 지역에 모든 리소스를 만듭니다.
 
-온-프레미스 서버에 대 한 용량 계획을 완료 한 것이 구매 "예상된 증가 처리할 수 있도록 일반적 알 수 있습니다. 클라우드 서비스를 사용 하 여 추진할 수 있는 더 많은 비용 절감 적극적으로 특정 구매를에서 잠겨 있지는 때문입니다. 현재 충분 하지 않은 경우에 항상 더 높은 계층 서비스로 전환할 수 있습니다.
+- 모든 서비스를 하나의 리소스 그룹 (예: Azure Search, Cognitive Services 및 솔루션에서 사용 되는 기타 Azure 서비스)으로 통합 합니다. Azure Portal에서 리소스 그룹을 찾고 **Cost Management** 명령을 사용 하 여 실제 및 예상 지출 정보를 파악 합니다.
 
-### <a name="capacity"></a>용량
+- 요청 및 응답이 데이터 센터 경계 내에 유지 되도록 프런트 엔드 응용 프로그램에 대해 Azure 웹 앱을 고려 합니다.
+
+- 인덱싱 등의 리소스를 많이 사용 하는 작업을 확장 한 다음 일반 쿼리 워크 로드에 대해 다시 조정 합니다. Azure Search에 대 한 최소 구성 (하나의 파티션과 하나의 복제본으로 구성 된 SU)으로 시작한 다음 사용자 활동을 모니터링 하 여 용량이 더 필요 함을 나타내는 사용 패턴을 식별 합니다. 예측 가능한 패턴이 있는 경우 크기 조정을 활동과 동기화 할 수 있습니다 .이를 자동화 하는 코드를 작성 해야 합니다.
+
+청구서를 줄이기 위해 search 서비스를 종료할 수 없습니다. 전용 리소스는 항상 작동 하며 서비스 수명 동안 독점적으로 사용 하도록 할당 됩니다. 서비스 자체를 기준으로 청구서를 낮추는 유일한 방법은 복제본과 파티션을 여전히 허용 되는 성능 및 [SLA 준수](https://azure.microsoft.com/support/legal/sla/search/v1_0/)를 제공 하는 수준으로 축소 하거나 더 낮은 계층에서 서비스를 만드는 것입니다 (S1 시간당 요금은 S2 또는 S3 요금 보다 낮음). 부하 예측의 하단에서 서비스를 프로 비전 한다고 가정 하 고, 서비스를 증가 시키는 경우 두 번째 대규모 계층화 된 서비스를 만들고 두 번째 서비스에서 인덱스를 다시 작성 한 다음 첫 번째 서비스를 삭제할 수 있습니다.
+
+## <a name="how-to-evaluate-capacity-requirements"></a>용량 요구 사항을 평가 하는 방법
 
 Azure Search에서 용량은 *복제본* 및 *파티션*으로 구조화됩니다.
 
-+ 복제본은 검색 서비스의 인스턴스입니다. 각 복제본의 사본 하나 부하 분산 된 인덱스입니다. 예를 들어 6 개의 복제본을 사용 하 여 서비스에 서비스에서 로드 된 모든 인덱스의 6 개 복사본이 있습니다.
++ 복제본은 검색 서비스의 인스턴스입니다. 각 복제본은 인덱스의 부하 분산 된 복사본 하나를 호스팅합니다. 예를 들어 6 개의 복제본이 있는 서비스는 서비스에 로드 된 모든 인덱스의 복사본 6 개를 포함 합니다.
 
-+ 파티션은 인덱스를 저장 및 검색 가능한 데이터를 자동으로 분할 합니다. 두 개의 파티션으로 분할 절반 인덱스, 3 개의 파티션을 접는, 및 등으로 분할 합니다. 용량을 기준으로 *파티션 크기* 계층 간에 기본 차별화 기능입니다.
++ 파티션은 인덱스를 저장 하 고 검색 가능한 데이터를 자동으로 분할 합니다. 두 파티션은 인덱스를 절반으로 분할 하 고, 세 개의 파티션은 세 개의 파티션으로 분할 하는 식으로 분할 됩니다. 용량 측면에서 *파티션 크기* 는 계층 간의 주요 차별화 기능입니다.
 
 > [!NOTE]
-> 모든 표준 및 액세스에 최적화 된 저장소 계층 지원 [유연한 복제본 및 파티션의 조합을](search-capacity-planning.md#chart) 할 수 있도록 [속도 또는 저장소에 대 한 시스템을 최적화](search-performance-optimization.md) 균형을 변경 하 여 합니다. 기본 계층 고가용성에 대 한 최대 3 개의 복제본을 제공 하지만, 하나의 파티션을 갖습니다. 무료 계층에서 전용된 리소스를 제공 하지 않습니다: 컴퓨팅 리소스를 여러 구독자가 공유 합니다.
+> 모든 표준 및 저장소 최적화 계층은 [복제본과 파티션의 유연한 조합을](search-capacity-planning.md#chart) 지원 하므로 잔액을 변경 하 여 [시스템을 속도 또는 저장소에 맞게 최적화할](search-performance-optimization.md) 수 있습니다. 기본 계층은 고가용성을 위해 최대 3 개의 복제본을 제공 하지만 파티션이 하나 뿐입니다. 무료 계층은 전용 리소스를 제공 하지 않습니다. 컴퓨팅 리소스는 여러 구독자가 공유 합니다.
 
-### <a name="more-about-service-limits"></a>서비스 제한에 대한 자세한 정보
+<!-- ## Consumption patterns
 
-인덱스 및 인덱서 같은 호스트 리소스를 서비스합니다. 각 계층에서 부과 [서비스 제한 사항](search-limits-quotas-capacity.md) 수가 리소스를 만들 수 있습니다. 따라서 인덱스 (및 기타 개체)의 최대 수는 계층 중에서 두 번째 차별화 기능은 합니다. 포털에서 각 옵션을 검토 하면서 인덱스의 수에 제한이 note 합니다. 인덱서, 데이터 원본 및 못한 경우가 등의 다른 리소스 인덱스 제한에 부착 됩니다.
+On the low and high ends, Basic and S3 HD are for important but atypical consumption patterns. Basic is for small production workloads. It offers SLAs, dedicated resources, and high availability, but it provides modest storage, topping out at 2 GB total. This tier was engineered for customers that consistently underutilize available capacity. At the high end, S3 HD is for workloads typical of ISVs, partners, [multitenant solutions](search-modeling-multitenant-saas-applications.md), or any configuration that calls for a large number of small indexes. It's often clear when Basic or S3 HD is the right tier. If you want confirmation, you can post to [StackOverflow](https://stackoverflow.com/questions/tagged/azure-search) or [contact Azure support](https://azure.microsoft.com/support/options/) for guidance.
 
-## <a name="consumption-patterns"></a>소비 패턴
-
-대부분의 고객은 무기한 유지 하는 무료 서비스를 시작 하 고 심각한 개발 또는 프로덕션 워크 로드에 대 한 표준 또는 저장소에 최적화 된 계층 중 하나를 선택 합니다.
-
-![Azure Search 가격 책정 계층](./media/search-sku-tier/tiers.png "Azure Search 가격 책정 계층")
-
-하위 및 상위 끝, 기본 및 S3 HD에 중요 하지만 비정상적 사용 패턴에 대 한 합니다. Basic 소규모 프로덕션 워크 로드입니다. Sla, 전용된 리소스 및 고가용성을 제공 하지만 2 GB 합계에서 되리라 예상 하는 적절 한 저장소를 제공 합니다. 이 계층 사용 가능한 용량을 일관 되 게 행동할 고객용 설계 되었습니다. 높은 끝점에서 S3 HD는 Isv의 일반적인 워크 로드에 대 한 파트너 [다중 테 넌 트 솔루션](search-modeling-multitenant-saas-applications.md), 또는 많은 수의 작은 인덱스에 대 한 호출 하는 모든 구성 합니다. 기본 명확 하거나 S3 HD는 올바른 계층. 확인을 하려는 경우에 게시할 수 있습니다 [StackOverflow](https://stackoverflow.com/questions/tagged/azure-search) 하거나 [Azure 지원에 문의](https://azure.microsoft.com/support/options/) 지침에 대 한 합니다.
-
-자주 사용 되는 표준 계층 S1 S3 통해 용량 수준을 높이고의 진행을 구성 합니다. 파티션 크기의 변 곡점 지점 및 숫자 인덱스, 인덱서 및 배치한 리소스에 대 한 제한 가지가 있습니다.
+The more commonly used standard tiers, S1 through S3, make up a progression of increasing levels of capacity. There are inflection points on partition size and limits on numbers of indexes, indexers, and corollary resources:
 
 |  | S1 | S2 | S3 |  |  |  |  |
 |--|----|----|----|--|--|--|--|
-| 파티션 크기|  25GB | 100GB | 200GB |  |  |  |  |
-| 인덱스 및 인덱서 제한| 50 | 200 | 200 |  |  |  |  |
+| Partition size|  25 GB | 100 GB | 200 GB |  |  |  |  |
+| Index and indexer limits| 50 | 200 | 200 |  |  |  |  |
 
-S1은 전용된 리소스 및 여러 파티션과 필요로 하는 고객에 대 한 일반적인 선택 합니다. S1은 복제본을 통해 파티션을 최대화 하는 경우 서비스별 제한인 300GB를 제공 하는 25GB와 최대 12 개의 파티션으로 파티션에 제공 합니다. (참조 [파티션 및 복제본 할당](search-capacity-planning.md#chart) 자세한 할당을 분산 합니다.)
+S1 is a common choice for customers that need dedicated resources and multiple partitions. S1 offers partitions of 25 GB and up to 12 partitions, providing a per-service limit of 300 GB if you maximize partitions over replicas. (See [Allocate partitions and replicas](search-capacity-planning.md#chart) for more balanced allocations.)
 
-포털 및 가격 책정 페이지 파티션 크기 및 저장소에 포커스를 설정할 하지만 모든 계산 기능 (디스크 용량, 속도, Cpu) 각 계층의 경우 일반적으로 가격을 사용 하 여 연속 해 서 증가 합니다. S2 복제본을 S1 보다 빠르게 이며 S3 S2 보다 빠릅니다. S3 계층 불균형적으로 빠른 I/O를 사용 하 여 선형 계산 가격 패턴에서 중단합니다. 병목 상태가 발생 하는 I/O를 예상 하는 경우 염두 낮은 계층을 사용 하 여 가져올 수 있습니다 것 보다 훨씬 더 많은 IOPS S3 사용 하 여 가져올 수 있습니다.
+The portal and pricing pages put the focus on partition size and storage, but, for each tier, all compute capabilities (disk capacity, speed, CPUs) generally increase linearly with price. An S2 replica is faster than S1, and S3 is faster than S2. S3 tiers break from the linear compute-pricing pattern with disproportionately faster I/O. If you expect I/O to be the bottleneck, keep in mind that you can get much more IOPS with S3 than you can get with lower tiers.
 
-S3 및 S3 HD는 동일한 대용량 인프라에서 지원 하지만 다른 방법으로 최대 한계에 도달 하기. 최대 한도 리소스에 바인딩된 S3 적은 수의 매우 큰 인덱스를 대상으로 (각 서비스에 대 한 2.4TB). S3 HD는 많은 수의 매우 작은 인덱스를 대상으로 합니다. 인덱스 수가 1,000개가 되면 S3 HD는 인덱스 제약 조건 형태로 한도에 도달합니다. 1000 개가 넘는 인덱스가 필요한 S3 HD 고객을 진행 하는 방법에 대 한 내용은 Microsoft 지원에 문의 합니다.
+S3 and S3 HD are backed by identical high-capacity infrastructure, but they reach their maximum limits in different ways. S3 targets a smaller number of very large indexes, so its maximum limit is resource-bound (2.4 TB for each service). S3 HD targets a large number of very small indexes. At 1,000 indexes, S3 HD reaches its limits in the form of index constraints. If you're an S3 HD customer and you need more than 1,000 indexes, contact Microsoft Support for information about how to proceed.
 
 > [!NOTE]
-> 문서 제한 된 고려 사항 한 번에 있지만 해당 새 서비스에 더 이상. 문서 제한도 적용 하는 조건에 대 한 정보를 참조 하세요 [제한 문서](search-limits-quotas-capacity.md#document-limits)합니다.
+> Document limits were a consideration at one time, but they're no longer applicable for new services. For information about conditions in which document limits still apply, see [Document limits](search-limits-quotas-capacity.md#document-limits).
 >
 
-저장소 액세스에 최적화 된 계층, L1 및 L2, 쿼리 대기 시간이 최소화 최상위 우선 순위로 사용 하지 않을 때 대규모 데이터 요구 사항 이지만 최종 사용자 수가 비교적 적으므로 사용 하 여 응용 프로그램 적합 합니다.  
+Storage Optimized tiers, L1 and L2, are ideal for applications with large data requirements but a relatively low number of end users, when minimizing query latency isn't the top priority.  
 
 |  | L1 | L2 |  |  |  |  |  |
 |--|----|----|--|--|--|--|--|
-| 파티션 크기|  1TB | 2TB |  |  |  |  |  |
-| 인덱스 및 인덱서 제한| 10 | 10 |  |  |  |  |  |
+| Partition size|  1 TB | 2 TB |  |  |  |  |  |
+| Index and indexer limits| 10 | 10 |  |  |  |  |  |
 
-L2는 L1의 전체 저장소 용량 두 배를 제공합니다.  인덱스 필요 하다 고 생각 하는 데이터의 최대 크기에 따라 계층을 선택 합니다. L1 계층 파티션을 최대 12TB 1TB 단위로 확장합니다. L2 파티션에 파티션당 24 TB 최대 2tb 늘립니다.
+L2 offers twice the overall storage capacity of L1.  Choose your tier based on the maximum amount of data that you think your index needs. The L1 tier partitions scale up in 1-TB increments to a maximum of 12 TB. The L2 partitions increase by 2 TBs per partition up to a maximum of 24 TB. -->
 
-## <a name="evaluating-capacity"></a>용량을 평가
+### <a name="evaluating-capacity"></a>용량 평가
 
-용량 및 서비스 실행 비용 직접 관련 되어 있습니다. 두 수준 계층 제한: 저장소 및 리소스입니다. 고려해 야 모두 있으므로 중 먼저 도달 하면 제한은 유효 한계입니다.
+서비스를 실행 하는 비용과 용량은 직접적으로 관련이 있습니다. 계층은 저장소 및 리소스의 두 수준에 제한을 부과 합니다. 가장 먼저 도달 하는 한도가 유효 한도 인지에 대해 생각해 야 합니다.
 
-일반적으로 비즈니스 요구 사항에 해야 하는 인덱스 수입니다. 예를 들어 문서의 큰 리포지토리에 대 한 전역 인덱스를 해야 할 수 있습니다. 또는 지역, 응용 프로그램 또는 비즈니스 틈새 기반으로 하는 여러 개의 인덱스를 해야 할 수 있습니다.
+비즈니스 요구 사항에 따라 일반적으로 필요한 인덱스 수가 결정 됩니다. 예를 들어 문서에 대 한 많은 리포지토리의 전역 인덱스가 필요할 수 있습니다. 또는 지역, 응용 프로그램 또는 비즈니스 틈새을 기반으로 하는 인덱스가 여러 개 필요할 수 있습니다.
 
-인덱스의 크기를 결정하려면 [하나를 빌드](search-create-index-portal.md)해야 합니다. Azure Search에서 데이터 구조는 기본적으로 [인덱스를 반전](https://en.wikipedia.org/wiki/Inverted_index) 구조를 원본 데이터 보다 각기 다른 특징이 있습니다. 반전 된 인덱스의 경우 크기와 복잡성 따라 결정 됩니다 콘텐츠를 반드시를 피드 하는 데이터 양을 기준으로. 높은 중복성을 사용 하 여 대용량 데이터 소스는 가변적 콘텐츠를 포함 하는 더 작은 데이터 집합 보다 작은 인덱스에 발생할 수 있습니다. 따라서 가능성이 거의 원래 데이터 집합의 크기를 기준으로 인덱스 크기를 유추할 수 있습니다.
+인덱스의 크기를 결정하려면 [하나를 빌드](search-create-index-portal.md)해야 합니다. Azure Search의 데이터 구조는 주로 원본 데이터와 특성이 다른 [반전 된 인덱스](https://en.wikipedia.org/wiki/Inverted_index) 구조입니다. 반전 된 인덱스의 경우 크기와 복잡성은 내용에 따라 결정 되며,이는 사용자가 제공 하는 데이터의 양이 아닐 수도 있습니다. 중복성이 높은 큰 데이터 원본을 사용 하면 가변 콘텐츠를 포함 하는 작은 데이터 집합 보다 더 작은 인덱스가 생성 될 수 있습니다. 따라서 원래 데이터 집합의 크기에 따라 인덱스 크기를 유추할 수 있는 경우는 거의 없습니다.
 
 > [!NOTE] 
-> 인덱스 및 저장소에 대 한 향후 요구 사항 예측 추측 느낄 수, 하는 경우에 이렇게 가치가 있습니다. 더 높은 계층에서 새 서비스를 프로 비전 할 경우 계층의 용량이 너무 적은, 차례로 [인덱스를 다시 로드](search-howto-reindex.md)합니다. 하나의 SKU에서 다른 서비스의 전체 업그레이드가 없습니다.
+> 인덱스 및 저장소에 대 한 향후 수요를 예측 하는 것이 추측 처럼 느껴질 수 있지만이 경우에는 충분 합니다. 계층의 용량이 너무 낮을 경우 더 높은 계층에서 새 서비스를 프로 비전 한 다음 [인덱스를 다시 로드](search-howto-reindex.md)해야 합니다. 한 SKU에서 다른 SKU로의 서비스 전체 업그레이드는 없습니다.
 >
 
-### <a name="step-1-develop-rough-estimates-by-using-the-free-tier"></a>1단계: 무료 계층을 사용 하 여 대략적인 예상 개발
+### <a name="step-1-develop-rough-estimates-by-using-the-free-tier"></a>1단계: 무료 계층을 사용 하 여 대략적인 예측 개발
 
-용량을 예측 하기 위한 한 가지 방법은 무료 계층을 사용 하 여 시작 하는 것입니다. 무료 서비스는 50MB의 저장소 및 인덱싱 시간 2 분의 최대 3 개의 인덱스를 제공 해야 합니다. 이러한 제약 조건 가진 예상된 인덱스 크기를 예측 하기 어려울 수 있습니다. 다음은 수행할 수 있는 방법이입니다.
+용량을 예측 하는 한 가지 방법은 무료 계층으로 시작 하는 것입니다. 무료 서비스는 최대 3 개의 인덱스, 50 MB의 저장소 및 2 분의 인덱싱 시간을 제공 합니다. 이러한 제약 조건을 사용 하 여 예상 인덱스 크기를 추정 하는 것은 어려울 수 있습니다. 사용할 수 있는 방법은 다음과 같습니다.
 
-+ [무료 서비스 만들기](search-create-service-portal.md)합니다.
-+ 소규모의 대표 데이터 집합 (예: 5,000 문서 및 샘플 크기를 10%)를 준비 합니다.
-+ [초기 인덱스를 만들려면](search-create-index-portal.md) (예를 들어 30MB) 포털에서 크기를 확인 합니다.
++ [무료 서비스를 만드세요](search-create-service-portal.md).
++ 작은 대표 데이터 집합을 준비 합니다 (예: 5000 문서 및 10% 샘플 크기).
++ [초기 인덱스를 작성](search-create-index-portal.md) 하 고 포털에서 크기를 기록 합니다 (예: 30mb).
 
-샘플 담당자 및 전체 데이터 원본의 10% 인 경우 모든 문서가 인덱싱됩니다 하는 경우 30 MB 인덱스를 대략 300MB를 됩니다. 이 예비 번호를 갖춘 (개발 및 프로덕션) 두 인덱스에 대 한 예산에 크기가 double 수입니다. 이렇게 하면 총 600MB의 저장소 요구 사항이 있습니다. 기본 계층에서이 요구 사항이 충족 쉽게 있습니다를 시작 하도록 합니다.
+샘플이 전체 데이터 원본의 대표 및 10% 이면 모든 문서가 인덱싱되는 경우 30mb의 인덱스가 약 300이 됩니다. 이 예비 수치를 사용 하 여 두 개의 인덱스 (개발 및 프로덕션)에 대 한 예산 금액을 두 배로 절약할 수 있습니다. 그러면 저장소 요구 사항에 총 600 MB가 제공 됩니다. 이 요구 사항은 기본 계층에서 쉽게 충족할 수 있으므로 시작 합니다.
 
-### <a name="step-2-develop-refined-estimates-by-using-a-billable-tier"></a>2단계: 구체화 된 예상 청구 가능 계층을 사용 하 여 개발
+### <a name="step-2-develop-refined-estimates-by-using-a-billable-tier"></a>2단계: 청구 가능 계층을 사용 하 여 구체화 된 예측 개발
 
-일부 고객은 더 큰 샘플링 및 처리 시간을 수용 하 고 그런 다음 개발 하는 동안 인덱스 수량, 크기 및 쿼리 볼륨의 현실적인 예측을 개발할 수 있는 전용된 리소스를 시작 하려고 했습니다. 처음에 서비스를 최적 예측을 기반으로 프로 비전 됩니다. 그런 다음 개발 프로젝트를 완성 되어 감에 팀 일반적으로 기존 서비스 인지 확인 또는 예상된 프로덕션 워크 로드에 대 한 용량 초과 합니다.
+일부 고객은 더 큰 샘플링 및 처리 시간을 수용할 수 있는 전용 리소스부터 시작 하 여 개발 중에 인덱스 수량, 크기 및 쿼리 볼륨의 실제 추정치를 개발 하는 것을 선호 합니다. 처음에는 가장 추측 된 예측에 따라 서비스가 프로 비전 됩니다. 그런 다음 개발 프로젝트가 완성 됨에 따라 팀은 일반적으로 기존 서비스가 프로젝션 된 프로덕션 워크 로드에 대 한 용량을 초과 하 고 있는지 여부를 확인 합니다.
 
-1. [각 계층에서 서비스 제한 검토](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#index-limits) 낮은 계층 해야 하는 인덱스 수를 지원 하는지 여부를 확인 하려면. Basic, S1 및 S2 계층 전반에 걸쳐 인덱스 제한은 15, 50 및 200, 각각입니다. 저장소 액세스에 최적화 된 계층의 제한이 인덱스 10 개 있으므로 적은 수의 매우 큰 인덱스를 지원 하도록 설계 되었습니다.
+1. [각 계층에서 서비스 제한을 검토](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#index-limits) 하 여 하위 계층이 필요한 인덱스 수를 지원할 수 있는지 확인 합니다. 기본, S1 및 S2 계층 전체에서 인덱스 제한은 각각 15, 50 및 200입니다. 저장소에 최적화 된 계층은 매우 큰 인덱스를 적게 지원 하도록 설계 되었기 때문에 인덱스가 10 개로 제한 됩니다.
 
 1. [청구 가능 계층에서 서비스 만들기](search-create-service-portal.md):
 
-    + 낮은 기본 또는 S1에서 배우 시작 부분에는 경우 시작 합니다.
-    + 높음, S2 또는 S3도 개의 대규모 인덱싱 및 쿼리 로드 하려는 경우 시작 합니다.
-    + 많은 양의 데이터를 인덱싱 중인 및 쿼리 부하가 비교적 낮은, 내부 비즈니스 응용 프로그램과 함께 하는 경우 저장소 액세스에 최적화 된, L1 또는 L2를 사용 하 여 시작 합니다.
+    + 학습 곡선의 시작 부분에 있는 경우 기본 또는 S1에서 낮은 수준으로 시작 하세요.
+    + 대규모 인덱싱 및 쿼리가 로드 되는 것을 알고 있는 경우 시작 높음, S2 또는 심지어 S3.
+    + 내부 비즈니스 응용 프로그램과 마찬가지로, 많은 양의 데이터를 인덱싱하는 경우에는 L1 또는 L2에서 저장소에 최적화 된 저장소로 시작 합니다.
 
 1. 원본 데이터가 인덱스로 변환되는 방법을 결정하려면 [초기 인덱스를 만듭니다](search-create-index-portal.md). 인덱스 크기를 추정하는 유일한 방법입니다.
 
-1. 포털에서 [저장소, 서비스 제한, 쿼리 볼륨 및 대기 시간을 모니터링](search-monitor-usage.md)합니다. 포털은 두 번째, 제한 된 쿼리 및 검색 대기 시간 쿼리를 보여 줍니다. 이러한 값은 모두 올바른 계층을 선택한 경우를 결정 하는 데 도움이 됩니다. 구성할 수도 있습니다 사용 하 여 클릭 광고 분석 같은 값의 심층 모니터링 [검색 트래픽 분석](search-traffic-analytics.md)합니다.
+1. 포털에서 [스토리지, 서비스 제한, 쿼리 볼륨 및 대기 시간을 모니터링](search-monitor-usage.md)합니다. 포털에는 초당 쿼리 수, 제한 된 쿼리 및 검색 대기 시간이 표시 됩니다. 이러한 모든 값은 올바른 계층을 선택 했는지 여부를 결정 하는 데 도움이 될 수 있습니다. [검색 트래픽 분석](search-traffic-analytics.md)을 사용 하도록 설정 하 여 클릭 광고 분석과 같은 값의 심층 모니터링을 구성할 수도 있습니다.
 
-인덱스 수와 크기는 동일 하 게 분석 해야 합니다. 최대 제한에 도달 하거나 (인덱스, 인덱서 및 등) 리소스의 최대 제한 (파티션) 저장소의 전체 사용률을 통해 둘 중 먼저 때문입니다. 포털을 사용하면 둘 모두 추적할 수 있으며, 개요 페이지에 현재 사용량 및 최대 한도가 나란히 표시됩니다.
+인덱스 번호와 크기는 분석에도 동일 하 게 중요 합니다. 최대 한도는 저장소 (파티션)의 전체 사용률 또는 리소스에 대 한 최대 제한 (인덱스, 인덱서 등)을 통해 도달할 수 있기 때문입니다. 포털을 사용하면 둘 모두 추적할 수 있으며, 개요 페이지에 현재 사용량 및 최대 한도가 나란히 표시됩니다.
 
 > [!NOTE]
-> 문서에 불필요 한 데이터가 포함 된 경우 저장소 요구 사항 팽창 될 수 있습니다. 이상적으로 문서 검색 환경에 필요한 데이터만 포함 합니다. 이진 데이터 검색 가능한 아니며 (아마도 Azure 테이블 또는 blob 저장소)에 개별적으로 저장 되어야 합니다. 다음 외부 데이터에 대 한 URL 참조를 보유 하는 인덱스에는 필드를 추가 해야 합니다. 개별 문서의 최대 크기는 16MB (또는 하나의 요청에서 여러 문서를 업로드 하는 대량 인 경우). 자세한 내용은 [Azure Search의 서비스 제한 사항](search-limits-quotas-capacity.md) 을 참조하세요.
+> 문서에 불필요 한 데이터가 포함 되어 있으면 저장소 요구 사항을 팽창 수 있습니다. 이상적으로 문서에는 검색 환경에 필요한 데이터만 포함 됩니다. 이진 데이터는 검색할 수 없으며 Azure 테이블 또는 blob 저장소에 별도로 저장 해야 합니다. 그런 다음 인덱스에 필드를 추가 하 여 외부 데이터에 대 한 URL 참조를 저장 해야 합니다. 개별 문서의 최대 크기는 16mb입니다 (한 요청에서 여러 문서를 대량으로 업로드 하는 경우에는 더 낮음). 자세한 내용은 [Azure Search의 서비스 제한 사항](search-limits-quotas-capacity.md) 을 참조하세요.
 >
 
 **쿼리 볼륨 고려 사항**
 
-초당 쿼리 수 (QPS) 성능 튜닝 중에 중요 한 메트릭은 있지만 일반적으로 계층 고려만 높은 쿼리 볼륨 처음에 예상 되는 경우.
+QPS (초당 쿼리 수)는 성능 튜닝 중에 중요 한 메트릭입니다. 그러나 일반적으로 처음에는 높은 쿼리 볼륨이 필요한 경우에만 계층을 고려 합니다.
 
-표준 계층에는 복제본 및 파티션의 균형을 제공할 수 있습니다. 부하 분산에 대 한 복제본을 추가 하 여 쿼리 소요를 늘릴 수도 있고 병렬 처리에 대 한 파티션을 추가할 수 있습니다. 서비스 프로 비전 된 후에 다음 성능을 조정할 수 있습니다.
+표준 계층을 통해 복제본과 파티션의 균형을 맞출 수 있습니다. 부하 분산을 위해 복제본을 추가 하거나 병렬 처리를 위해 파티션을 추가 하 여 쿼리 수행을 늘릴 수 있습니다. 그런 다음 서비스가 프로 비전 된 후 성능을 조정할 수 있습니다.
 
-처음부터 지속적인된 높은 쿼리 볼륨을 예상 하는 경우 더 강력한 하드웨어에서 지 원하는 높은 Standard 계층을 고려해 야 합니다. 다음 파티션 및 복제본을 오프 라인으로 수행할 수도 있고 해당 쿼리 볼륨 발생 하지 않습니다 하는 경우 하위 계층 서비스에 전환할 수 있습니다. 쿼리 처리량을 계산하는 방법에 대한 자세한 내용은 [Azure Search 성능 및 최적화](search-performance-optimization.md)를 참조하십시오.
+처음부터 지속적으로 높은 쿼리 볼륨을 원하는 경우 더 강력한 하드웨어에서 지원 되는 더 높은 표준 계층을 고려해 야 합니다. 그런 다음 파티션 및 복제본을 오프 라인으로 전환 하거나, 해당 쿼리 볼륨이 발생 하지 않는 경우 하위 계층 서비스로 전환할 수도 있습니다. 쿼리 처리량을 계산하는 방법에 대한 자세한 내용은 [Azure Search 성능 및 최적화](search-performance-optimization.md)를 참조하십시오.
 
-저장소 액세스에 최적화 된 계층을 쿼리 대기 시간 요구 사항이 더 중요 한 경우에 대 한 더 많은 사용 가능한 전체 인덱스 저장소를 지 원하는 대량 데이터 워크 로드에 유용 합니다. 추가 복제본에 대 한 병렬 처리에 대 한 부하 분산 및 추가 파티션을 사용 해야 합니다. 서비스 프로 비전 된 후에 다음 성능을 조정할 수 있습니다.
+저장소에 최적화 된 계층은 대량 데이터 워크 로드에 유용 하며, 쿼리 대기 시간 요구 사항이 그다지 중요 하지 않은 경우에 사용할 수 있는 전체 인덱스 저장소를 지원 합니다. 부하 분산 및 병렬 처리를 위한 추가 파티션에 대해서는 추가 복제본을 계속 사용 해야 합니다. 그런 다음 서비스가 프로 비전 된 후 성능을 조정할 수 있습니다.
 
 **서비스 수준 계약**
 
-무료 계층 및 미리 보기 기능을 제공 하지 않습니다 [서비스 수준 계약 (Sla)](https://azure.microsoft.com/support/legal/sla/search/v1_0/)합니다. 모든 청구 가능 계층에 대해 서비스에 충분한 중복성을 프로비전할 때 SLA가 적용됩니다. 쿼리 (읽기) Sla에 대 한 복제본이 두 개 이상 포함 해야 합니다. 쿼리 및 인덱싱 (읽기 / 쓰기) Sla에 대 한 복제본이 세 개 이상 포함 해야 합니다. 파티션 수가 Sla에 영향을 주지 않습니다.
+무료 계층 및 미리 보기 기능은 [sla (서비스 수준 계약)](https://azure.microsoft.com/support/legal/sla/search/v1_0/)를 제공 하지 않습니다. 모든 청구 가능 계층에 대해 서비스에 충분한 중복성을 프로비전할 때 SLA가 적용됩니다. 쿼리 (읽기) Sla에는 두 개 이상의 복제본이 있어야 합니다. 쿼리 및 인덱싱 (읽기-쓰기) Sla에는 3 개 이상의 복제본이 있어야 합니다. 파티션 수는 Sla에 영향을 주지 않습니다.
 
 ## <a name="tips-for-tier-evaluation"></a>계층 평가에 대한 팁
 
-+ 효율적인 인덱스를 작성 하는 방법을 알아보고 새로 고침 메서드 최소 영향에 대해 알아봅니다. 사용 하 여 [검색 트래픽 분석](search-traffic-analytics.md) 쿼리 작업에 대 한 정보를 얻을 수 있습니다.
++ 효율적인 인덱스를 작성 하는 방법과 최소한의 영향을 주는 새로 고침 방법에 대해 알아봅니다. [검색 트래픽 분석](search-traffic-analytics.md) 을 사용 하 여 쿼리 작업에 대 한 정보를 얻습니다.
 
-+ 메트릭 쿼리를 중심으로 빌드를 허용 하 고 사용 패턴 (쿼리 업무 시간 동안 사용량이 적은 시간 동안 인덱싱) 데이터를 수집 합니다. 서비스 프로 비전 결정을 알리기 위해이 데이터를 사용 합니다. 시간별 또는 일별 주기로 실용적인 있지 않더라도 파티션 및 쿼리 볼륨의 계획 된 변경 내용을 수용 하도록 리소스를 동적으로 조정할 수 있습니다. 수준을 유지 작업을 수행할 수 있을 정도로 긴 경우에 계획 되지 않은 하지만 지속적으로 변경 내용을 수용할 수 있습니다.
++ 메트릭을 사용 하 여 쿼리를 작성 하 고 사용 패턴 (업무 시간 동안 쿼리, 사용량이 적은 시간 동안 인덱싱)에 대 한 데이터를 수집 합니다. 이 데이터를 사용 하 여 서비스 프로 비전 결정을 알립니다. 시간별 또는 일별 주기에서는 실용적이 지 않지만 쿼리 볼륨의 계획 된 변경 내용을 수용 하기 위해 파티션 및 리소스를 동적으로 조정할 수 있습니다. 또한 수준에서 조치를 취하는 데 충분 한 시간을 보유 하는 경우 계획 되지 않았지만 지속적으로 변경 될 수 있습니다.
 
-+ 실제 요구 사항은 여 예측의 보다 큰 경우에 서비스를 종료 해야 underprovisioning의 유일한 단점은 인지 해야 합니다. 서비스 중단을 방지하려면 상위 계층의 동일한 구독에서 새 서비스를 만들고, 모든 앱과 요청이 새 엔드포인트를 대상으로 할 때까지 이를 나란히 실행합니다.
++ 프로 비전 중에는 실제 요구 사항이 예측 보다 큰 경우에만 서비스를 종료 해야 한다는 단점이 있습니다. 서비스 중단을 방지하려면 상위 계층의 동일한 구독에서 새 서비스를 만들고, 모든 앱과 요청이 새 엔드포인트를 대상으로 할 때까지 이를 나란히 실행합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-무료 계층으로 시작한 특징을 이해 하려면 데이터의 하위 집합을 사용 하 여 초기 인덱스를 작성 합니다. Azure Search에서 데이터 구조를 반전 된 인덱스 구조가입니다. 크기와 복잡성 반전 된 인덱스의 내용에 의해 결정 됩니다. 중복성이 큰 콘텐츠는 결과적으로 불규칙성이 큰 콘텐츠보다 더 작은 인덱스가 되는 경향이 있습니다. 데이터 집합의 크기가 아닌 따라서 내용 특징 인덱스 저장소 요구 사항을 결정합니다.
+무료 계층으로 시작 하 고 데이터의 하위 집합을 사용 하 여 초기 인덱스를 작성 하 여 특성을 이해 합니다. Azure Search의 데이터 구조는 반전 된 인덱스 구조입니다. 반전 된 인덱스의 크기 및 복잡성은 내용에 따라 결정 됩니다. 중복성이 큰 콘텐츠는 결과적으로 불규칙성이 큰 콘텐츠보다 더 작은 인덱스가 되는 경향이 있습니다. 따라서 데이터 집합의 크기가 아닌 콘텐츠 특성은 인덱스 저장소 요구 사항을 결정 합니다.
 
-인덱스 크기의 초기 예상 값을 설정한 후 [청구 가능한 서비스를 프로 비전](search-create-service-portal.md) 이 문서에 설명 된 계층 중 하나에서: Basic, Standard 또는 액세스에 최적화 된 저장소입니다. 데이터 크기 조정에 어떤 인공적인 제약 조건을 완화 하 고 [인덱스를 다시 작성할](search-howto-reindex.md) 검색할 수 있도록 하려는 모든 데이터를 포함 하도록 합니다.
+인덱스 크기의 초기 추정치를 받은 후에는이 문서에서 설명 하는 계층 중 하나에서 [청구 가능한 서비스를 프로 비전](search-create-service-portal.md) 합니다. 기본, 표준 또는 저장소에 최적화 되어 있습니다. 데이터 크기 조정에 대 한 인공 제약 조건을 완화 하 고 검색 하려는 모든 데이터를 포함 하도록 [인덱스를 다시 작성](search-howto-reindex.md) 합니다.
 
 필요한 성능과 규모를 가져오려면 필요에 따라 [파티션 및 복제본을 할당](search-capacity-planning.md)합니다.
 
-성능 및 용량 문제가 경우 작업이 끝났습니다. 그렇지 않으면 사용자의 요구에 맞춰 더 밀접하게 조정하는 다른 계층에서 검색 서비스를 다시 만듭니다.
+성능 및 용량이 충분 하면 작업이 완료 된 것입니다. 그렇지 않으면 사용자의 요구에 맞춰 더 밀접하게 조정하는 다른 계층에서 검색 서비스를 다시 만듭니다.
 
 > [!NOTE]
-> 질문이 있는 경우에 게시 [StackOverflow](https://stackoverflow.com/questions/tagged/azure-search) 하거나 [Azure 지원에 문의](https://azure.microsoft.com/support/options/)합니다.
+> 질문이 있는 경우 [Stackoverflow](https://stackoverflow.com/questions/tagged/azure-search) 에 게시 하거나 [Azure 지원에 문의 하세요](https://azure.microsoft.com/support/options/).

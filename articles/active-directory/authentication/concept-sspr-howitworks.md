@@ -1,31 +1,26 @@
 ---
-title: 셀프 서비스 암호 재설정 딥 다이브 분석-Azure Active Directory
+title: 셀프 서비스 암호 재설정 심층 살펴보기-Azure Active Directory
 description: SSPR(셀프 서비스 암호 재설정)은 어떻게 작동하나요?
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/30/2019
+ms.date: 08/16/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47a6f475b5f1152850ec918b196883c6974f4d95
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2c31867f4de0e49e2c82733dc859f17ba060bdaa
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60415624"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69561342"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>작동 방법: Azure AD 셀프 서비스 암호 재설정
 
 SSPR(셀프 서비스 암호 재설정)은 어떻게 작동하나요? 인터페이스에서 이 옵션은 무엇인가요? 계속하여 Azure AD(Azure Active Directory) SSPR에 대해 자세히 알아보겠습니다.
-
-|     |
-| --- |
-| Azure AD SSPR(Self-service Password Reset)에 대한 모바일 앱 알림 및 모바일 앱 코드는 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.|
-|     |
 
 ## <a name="how-does-the-password-reset-portal-work"></a>암호 재설정 포털의 작동 원리
 
@@ -59,24 +54,24 @@ SSPR(셀프 서비스 암호 재설정)은 어떻게 작동하나요? 인터페�
 
 ## <a name="authentication-methods"></a>인증 방법
 
-SSPR을 사용하는 경우 인증 방법으로 다음 옵션 중 하나 이상을 선택해야 합니다. 이러한 옵션을 "게이트"라고 하는 경우도 있습니다. 사용자가 필요할 때 한 인증 방법에 액세스하지 못하는 상황에서 더 유연하게 사용할 수 있게 **두 개 이상의 인증 방법을 선택**하는 것이 좋습니다. 아래 나열 된 방법에 대 한 자세한 문서에서 찾을 수 있습니다 [인증 방법 이란?](concept-authentication-methods.md)합니다.
+SSPR을 사용하는 경우 인증 방법으로 다음 옵션 중 하나 이상을 선택해야 합니다. 이러한 옵션을 "게이트"라고 하는 경우도 있습니다. 사용자가 필요할 때 한 인증 방법에 액세스하지 못하는 상황에서 더 유연하게 사용할 수 있게 **두 개 이상의 인증 방법을 선택**하는 것이 좋습니다. 아래에 나열 된 방법에 대 한 추가 정보는 [인증 방법 이란?](concept-authentication-methods.md)문서에서 찾을 수 있습니다.
 
-* 모바일 앱 알림(미리 보기)
-* 모바일 앱 코드(미리 보기)
-* Email
-* 휴대폰
+* 모바일 앱 알림
+* 모바일 앱 코드
+* EMail
+* 모바일 폰
 * 사무실 전화
 * 보안 질문
 
 사용자는 관리자가 사용하도록 설정한 인증 방법으로 데이터를 표시하는 경우에만 자신의 암호를 재설정할 수 있습니다.
 
 > [!IMPORTANT]
-> 전화 통화 옵션의 2019 년 3 월부터 Azure AD 체험/평가판 테 넌 트에서 MFA 및 SSPR 사용자에 게 제공 되지 않습니다. SMS 메시지는이 변경의 영향을 받지 않습니다. 전화 통화는 유료 Azure AD 테 넌 트의 사용자에 게 사용 가능 하도록 계속 됩니다. 이 변경은 Azure AD 체험/평가판 테 넌 트에만 영향을 줍니다.
+> 2019 년 3 월부터, 무료/평가판 Azure AD 테 넌 트의 MFA 및 SSPR 사용자가 전화 통화 옵션을 사용할 수 없습니다. SMS 메시지는 이러한 변경의 영향을 받지 않습니다. 전화 통화는 유료 Azure AD 테 넌 트의 사용자가 계속 사용할 수 있습니다. 이 변경 내용은 무료/평가판 Azure AD 테 넌 트에만 영향을 줍니다.
 
 > [!WARNING]
 > Azure 관리자 역할이 할당된 계정은 [관리자 재설정 정책의 차이점](concept-sspr-policy.md#administrator-reset-policy-differences) 섹션에 정의된 메서드를 사용해야 합니다.
 
-![Azure portal에서 인증 방법 선택][Authentication]
+![Azure Portal의 인증 방법 선택][Authentication]
 
 ### <a name="number-of-authentication-methods-required"></a>필수 인증 방법의 수
 
@@ -86,7 +81,7 @@ SSPR을 사용하는 경우 인증 방법으로 다음 옵션 중 하나 이상�
 
 사용자에 대해 최소한의 필요한 인증 방법이 등록되지 않은 경우 관리자가 사용자의 암호를 다시 설정하도록 지시하는 오류 페이지가 표시됩니다.
 
-#### <a name="mobile-app-and-sspr-preview"></a>모바일 앱 및 SSPR(미리 보기)
+#### <a name="mobile-app-and-sspr"></a>모바일 앱 및 SSPR
 
 Microsoft Authenticator 앱과 같은 모바일 앱을 암호 재설정 방법으로 사용할 경우 다음 주의 사항에 유의해야 합니다.
 
@@ -126,7 +121,7 @@ Microsoft Authenticator 앱과 같은 모바일 앱을 암호 재설정 방법�
 이 옵션을 사용하려면 사용자가 Azure AD를 사용하는 애플리케이션에 로그인한 경우 암호 재설정 등록을 완료해야 합니다. 이 워크플로에는 다음 애플리케이션이 포함됩니다.
 
 * Office 365
-* Azure portal
+* Azure Portal
 * 액세스 패널
 * 페더레이션된 애플리케이션
 * Azure AD를 사용하여 애플리케이션 사용자 지정
@@ -152,7 +147,7 @@ Microsoft Authenticator 앱과 같은 모바일 앱을 암호 재설정 방법�
 
 ### <a name="notify-all-admins-when-other-admins-reset-their-passwords"></a>다른 관리자가 암호를 재설정하면 모든 관리자에게 알림
 
-이 옵션을 **예**로 설정하면 '모든 관리자'가 Azure AD의 파일에 있는 기본 이메일 주소로 전자 메일을 받습니다.  전자 메일은 사용자에게 다른 관리자가 SSPR을 사용하여 암호를 변경했음을 알려줍니다.
+이 옵션을 **예**로 설정하면 '모든 관리자'가 Azure AD의 파일에 있는 기본 이메일 주소로 전자 메일을 받습니다. 전자 메일은 사용자에게 다른 관리자가 SSPR을 사용하여 암호를 변경했음을 알려줍니다.
 
 예제: 환경에 4명의 관리자가 있습니다. A 관리자는 SSPR을 사용하여 암호를 다시 설정합니다. B, C 및 D 관리자는 암호 재설정을 알려주는 이메일을 받습니다.
 
@@ -160,7 +155,7 @@ Microsoft Authenticator 앱과 같은 모바일 앱을 암호 재설정 방법�
 
 Azure AD Connect를 설치, 구성 및 사용 설정하는 경우 온-프레미스 통합을 위해 다음과 같은 추가 옵션이 있습니다. 이 옵션이 회색으로 표시되면 쓰기 저장이 제대로 구성되지 않은 것입니다. 자세한 내용은 [비밀번호 쓰기 저장 구성](howto-sspr-writeback.md)을 참조하세요.
 
-![비밀 번호 쓰기 저장의 유효성을 검사 하도록 설정할지 및 작업][Writeback]
+![비밀 번호 쓰기 저장이 사용 하도록 설정 되어 있고 작동 하는지 확인][Writeback]
 
 이 페이지에서는 현재 구성에 따라 다음 메시지 중 하나가 표시되는 온-프레미스 쓰기 저장 클라이언트의 빠른 상태를 제공합니다.
 
