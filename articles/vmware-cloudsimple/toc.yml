@@ -101,11 +101,9 @@
         - name: CloudSimple 포털 계정 관리
           items:
             - name: 계정 요약 정보 보기
-              href: 'https://docs.azure.cloudsimple.com/account/'
+              href: account.md
             - name: 사용자 목록 보기
-              href: 'https://docs.azure.cloudsimple.com/users/'
-            - name: 사용량 로그 보기
-              href: 'https://docs.azure.cloudsimple.com/usage/'
+              href: users.md
             - name: 프라이빗 클라우드에 가상 네트워크 연결 설정
               href: 'https://docs.azure.cloudsimple.com/virtual-network-connection/'
             - name: 사용자 프로필 편집
@@ -129,7 +127,7 @@
             - name: 온-프레미스와 프라이빗 클라우드 간의 VPN 연결
               href: set-up-vpn.md
             - name: ExpressRoute를 통해 온-프레미스 네트워크 연결
-              href: 'https://docs.azure.cloudsimple.com/on-premises-connection/'
+              href: on-premises-connection.md
             - name: ExpressRoute를 통해 Azure 가상 네트워크 연결
               href: azure-expressroute-connection.md
         - name: VMware 플랫폼
