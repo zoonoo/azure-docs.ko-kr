@@ -54,9 +54,9 @@ ms.locfileid: "68720403"
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | type 속성을 다음으로 설정해야 합니다. **웹** |예 |
+| type | type 속성을 다음으로 설정해야 합니다. **Web** |예 |
 | url | 웹 원본에 대한 URL입니다. |예 |
-| authenticationType | 허용되는 값은 **익명**입니다. |예 |
+| authenticationType | 허용되는 값은 **Anonymous**입니다. |예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [필수 조건](#prerequisites)에 설명된 대로 자체 호스팅 Integration Runtime이 필요합니다. |예 |
 
 **예제:**
