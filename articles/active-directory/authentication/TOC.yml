@@ -25,7 +25,7 @@
       href: concept-authentication-methods.md
     - name: 암호 없는 인증
       href: concept-authentication-passwordless.md
-    - name: 결합 등록
+    - name: 보안 정보 등록
       href: concept-registration-mfa-sspr-combined.md
     - name: 암호 재설정
       items:
@@ -103,7 +103,7 @@
               href: howto-mfa-nps-extension-rdg.md
             - name: VPN
               href: howto-mfa-nps-extension-vpn.md
-    - name: 결합 등록
+    - name: 보안 정보 등록
       items:
         - name: 결합 등록 사용
           href: howto-registration-mfa-sspr-combined.md

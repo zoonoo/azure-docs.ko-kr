@@ -101,6 +101,8 @@
               href: network-watcher-nsg-flow-logging-cli.md
             - name: REST (영문)
               href: network-watcher-nsg-flow-logging-rest.md
+        - name: NSG 흐름 로그 스토리지 Blob 삭제
+          href: network-watcher-delete-nsg-flow-log-blobs.md
         - name: NSG 흐름 로그 분석
           items:
             - name: NSG 흐름 로그 읽기

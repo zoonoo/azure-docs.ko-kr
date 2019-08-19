@@ -62,9 +62,6 @@
           href: active-directory-b2c-reference-tokens.md
         - name: 액세스 토큰 요청
           href: active-directory-b2c-access-tokens.md
-        - name: 여러 토큰 발급자 지원
-          href: multiple-token-endpoints.md
-          displayName: 'migrate, b2clogin, owin, jwt'
     - name: 사용자 흐름 및 정책
       items:
         - name: 사용자 흐름
@@ -307,7 +304,12 @@
             - name: RelyingParty
               href: relyingparty.md
     - name: b2clogin.com 사용
-      href: b2clogin.md
+      items:
+        - name: b2clogin.com 개요
+          href: b2clogin.md
+        - name: Web API를 b2clogin.com으로 마이그레이션
+          href: multiple-token-endpoints.md
+          displayName: 'migrate, b2clogin, owin, jwt'
     - name: Automation
       items:
         - name: 사용 현황 보고서 내보내기

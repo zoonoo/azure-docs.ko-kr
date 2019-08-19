@@ -35,7 +35,7 @@
           maintainContext: true
 - name: 자습서
   items:
-    - name: 1 - AKS를 위한 응용 프로그램 준비
+    - name: 1 - AKS를 위한 애플리케이션 준비
       href: tutorial-kubernetes-prepare-app.md
     - name: 2 - 컨테이너 레지스트리 만들기
       href: tutorial-kubernetes-prepare-acr.md
@@ -45,7 +45,7 @@
       href: tutorial-kubernetes-deploy-application.md
     - name: 5 - 애플리케이션 크기 조정
       href: tutorial-kubernetes-scale.md
-    - name: 6 - 응용 프로그램 업데이트
+    - name: 6 - 애플리케이션 업데이트
       href: tutorial-kubernetes-app-update.md
     - name: 7- 클러스터 업그레이드
       href: tutorial-kubernetes-upgrade-cluster.md
@@ -84,7 +84,7 @@
               href: operator-best-practices-container-image-management.md
             - name: 네트워킹
               href: operator-best-practices-network.md
-            - name: Storage
+            - name: 스토리지
               href: operator-best-practices-storage.md
             - name: BC(비즈니스 연속성) 및 DR(재해 복구)
               href: operator-best-practices-multi-region.md
@@ -116,6 +116,8 @@
         - name: AKS 클러스터 삭제
           href: '/cli/azure/aks#az-aks-delete'
           maintainContext: true
+        - name: AKS 클러스터를 사용하여 ACR 만들기(미리 보기)
+          href: cluster-container-registry-integration.md
         - name: 가상 노드 만들기
           items:
             - name: Azure CLI 사용

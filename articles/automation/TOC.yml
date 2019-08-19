@@ -276,6 +276,22 @@
         - name: 상태 구성(DSC) 문제 해결
           href: troubleshoot/desired-state-configuration.md
           displayName: 'Desired State Configuration, troubleshoot'
+    - name: 참고 자료
+      items:
+        - name: 커뮤니티 솔루션
+          items:
+            - name: 규모에 맞는 구성 데이터
+              href: automation-dsc-config-data-at-scale.md
+              displayName: 'DSC, Configuration Data, ConfigData'
+            - name: 서버에서 구성 만들기
+              href: automation-dsc-config-from-server.md
+              displayName: 'DSC, ReverseDSC'
+            - name: STIG 기반 구성
+              href: automation-dsc-configuration-based-on-stig.md
+              displayName: 'DSC, Configuration'
+            - name: 구성을 복합 리소스로 변환
+              href: automation-dsc-create-composite.md
+              displayName: 'DSC, composite'
 - name: 공유 리소스 관리
   items:
     - name: 인증서
