@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/10/2019
 ms.author: juergent
-ms.openlocfilehash: 232468d9b3466759d7af2b7be68a1f553ced6e6d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c649b93284a48df705d389f4de728d83f793af04
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68348650"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036643"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [2015553]: https://launchpad.support.sap.com/#/notes/2015553
@@ -517,11 +517,11 @@ Db2 HADR 구성을 만들기 전에 설치를 수행한 경우 이전 섹션에 
 J2EE 구성 도구를 사용 하 여 JDBC URL을 확인 하거나 업데이트할 수 있습니다. J2EE 구성 도구는 그래픽 도구 이므로 X 서버를 설치 해야 합니다.
  
 1. J2EE 인스턴스의 기본 응용 프로그램 서버에 로그인 하 고 다음을 실행 합니다.
-     <pre><code>sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh</code></pre>
+     <pre><code>sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh</code></pre>  
 1.왼쪽 프레임에서 **보안 저장소**를 선택 합니다.
 1.오른쪽 프레임에서 jdbc/pool/\<SAPSID>/urlkey 키를 선택 합니다.
 1.JDBC URL의 호스트 이름을 가상 호스트 이름으로 변경 합니다.
-     <pre><code>jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0</code></pre>
+     <pre><code>jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0</code></pre>  
 1.**추가**를 선택 합니다.
 1.변경 내용을 저장 하려면 왼쪽 위에서 디스크 아이콘을 선택 합니다.
 1.구성 도구를 닫습니다.
@@ -534,7 +534,7 @@ HADR 설치를 위해 Db2 로그 보관을 구성 하려면 모든 로그 보관
 
 두 노드에서 로그가 기록 되는 일반적인 NFS 공유 또는 GlusterFS를 구성 하는 것이 좋습니다. NFS 공유 또는 GlusterFS는 항상 사용 가능 해야 합니다. 
 
-전송 또는 프로필 디렉터리에 대해 기존의 항상 사용 가능한 NFS 공유 또는 GlusterFS를 사용할 수 있습니다. 참조 항목:
+전송 또는 프로필 디렉터리에 대해 기존의 항상 사용 가능한 NFS 공유 또는 GlusterFS를 사용할 수 있습니다. 자세한 내용은 다음을 참조하세요.
 
 - [SAP NetWeaver에 대한 Red Hat Enterprise Linux에 있는 Azure VM의 GlusterFS][glusterfs] 
 - [SAP 응용 프로그램용 Azure NetApp Files를 사용 하 Red Hat Enterprise Linux의 Azure Vm에서 SAP NetWeaver에 대 한 고가용성][anf-rhel]
