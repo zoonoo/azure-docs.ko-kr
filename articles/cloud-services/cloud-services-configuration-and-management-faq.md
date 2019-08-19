@@ -11,16 +11,15 @@ ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
 ms.service: cloud-services
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 6217fe51a0231ee1bd34f9fbe8edef47ee073209
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 480ca33f02242499bdf9fff3fa35695e7d4841a0
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68609710"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945463"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services의 구성 및 관리 문제: FAQ(질문과 대답)
 
@@ -131,7 +130,7 @@ Csdef 및 cscfg 업로드 위치에 대해 Blob나 로컬을 선택할 수 있�
 인스턴스 수준에서 메트릭을 모니터링할 수 있습니다. 추가 모니터링 기능은 [클라우드 서비스를 모니터링하는 방법](cloud-services-how-to-monitor.md)에서 제공합니다.
 
 ### <a name="why-does-iis-stop-writing-to-the-log-directory"></a>IIS에서 로그 디렉터리에 작성을 중지하는 이유는 무엇인가요?
-로그 디렉터리에 작성할 로컬 저장소 할당량을 모두 사용했습니다. 이를 수정하기 위해 다음 세 가지 중 하나를 수행할 수 있습니다.
+로그 디렉터리에 작성할 로컬 스토리지 할당량을 모두 사용했습니다. 이를 수정하기 위해 다음 세 가지 중 하나를 수행할 수 있습니다.
 * IIS에 진단을 사용하도록 설정하고 진단을 주기적으로 Blob Storage에 이동합니다.
 * 로깅 디렉터리에서 로그 파일을 수동으로 제거합니다.
 * 로컬 리소스에 대한 할당량 제한을 늘립니다.
@@ -231,7 +230,7 @@ Azure Active Directory에 조인된 컴퓨터에서 RDP 파일을 사용하는 �
 1. 다운로드한 RDP 파일을 마우스 오른쪽 단추로 클릭한 다음 **편집**을 선택합니다.
 2. 사용자 이름 앞에 "&#92;"을 접두사로 추가합니다. 예를 들어 **username** 대신 **.\username**을 사용합니다.
 
-## <a name="scaling"></a>크기 조정
+## <a name="scaling"></a>배율 조정
 
 ### <a name="i-cannot-scale-beyond-x-instances"></a>X 인스턴스 이상 확장할 수 없습니다.
 사용자의 Azure 구독은 사용할 수 있는 코어 수를 제한합니다. 사용 가능한 모든 코어를 사용하는 경우 크기 조정은 작동하지 않습니다. 예를 들어 100개의 코어 제한이 있으면 클라우드 서비스에 대한 100개의 A1 크기 가상 머신 인스턴스나 50개의 A2 크기 가상 머신 인스턴스를 생성할 수 있습니다.

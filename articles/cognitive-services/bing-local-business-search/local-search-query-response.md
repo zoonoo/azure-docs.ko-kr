@@ -6,15 +6,15 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: rosh
-ms.openlocfilehash: 5a26324f22ed46d0c06ecb0eb7ecaf74f589051e
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
-ms.translationtype: HT
+ms.openlocfilehash: 1938bb0464eee458e7320cba4bf713a67c298d27
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423431"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882862"
 ---
 # <a name="sending-and-using-bing-local-business-search-api-queries-and-responses"></a>Bing Local Business Search API 쿼리 및 응답 보내기 및 사용
 
@@ -56,11 +56,11 @@ Bing Local Business Search API의 JSON 응답에는 `SearchResponse` 개체가 �
 API에서 반환된 JSON 결과는 다음 특성을 포함합니다.
 
 * _type
-* address
+* 주소
 * entityPresentationInfo
 * 지역
 * id
-* 이름
+* name
 * routeablePoint
 * telephone
 * url
