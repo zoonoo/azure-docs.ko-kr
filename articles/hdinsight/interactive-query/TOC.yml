@@ -193,6 +193,8 @@
       items:
         - name: Apache Tez 애플리케이션이 중지됨
           href: ./interactive-query-troubleshoot-tez-hangs.md
+        - name: Apache Ambari Tez 보기가 느리게 로드됩니다.
+          href: ./interactive-query-troubleshoot-tez-view-slow.md
         - name: Apache Hive LLAP 쿼리 성능
           href: ./interactive-query-troubleshoot-query-performance.md
         - name: 저속 reducer
@@ -203,24 +205,14 @@
           href: ./interactive-query-troubleshoot-permission-error-create-table.md
         - name: GC 오버헤드 제한 초과
           href: ./interactive-query-troubleshoot-outofmemory-overhead-exceeded.md
-        - name: Apache Ambari Tez 보기가 느리게 로드됩니다.
-          href: ./interactive-query-troubleshoot-tez-view-slow.md
         - name: Apache Hive View에 오류 메시지가 표시되지 않음
           href: ./interactive-query-troubleshoot-error-message-hive-view.md
         - name: Apache Hive View에 액세스할 수 없음
           href: ./interactive-query-troubleshoot-inaccessible-hive-view.md
         - name: ZooKeeperHiveClientException - HiveServer2 구성
           href: ./interactive-query-troubleshoot-zookeeperhiveclientexception-hiveserver-configs.md
-        - name: Apache Hive LLAP 쿼리 성능
-          href: ./interactive-query-troubleshoot-query-performance.md
         - name: 속도가 느리거나 오류가 발생하는 HDInsight 클러스터 문제 해결
           href: ../hdinsight-troubleshoot-failed-cluster.md
-        - name: Apache Hadoop HDFS 문제 해결
-          href: ../hdinsight-troubleshoot-hdfs.md
-        - name: Apache HIVE 문제 해결
-          href: ../hdinsight-troubleshoot-hive.md
-        - name: Apache Hadoop YARN 문제 해결
-          href: ../hdinsight-troubleshoot-yarn.md
         - name: Apache Hadoop HDFS 문제 해결
           href: ../hdinsight-troubleshoot-hdfs.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
         - name: Apache HIVE 문제 해결
