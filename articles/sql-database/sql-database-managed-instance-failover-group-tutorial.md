@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: sashan, carlrab
 manager: jroth
 ms.date: 06/27/2019
-ms.openlocfilehash: 5bf2ee68ff2cfde2846dff2d94f7478920a18760
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: e4b7de3931c0d3508e5af6aa6bf85dfa18641aee
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69037113"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624977"
 ---
 # <a name="tutorial-add-a-sql-database-managed-instance-to-a-failover-group"></a>자습서: 장애 조치 (failover) 그룹에 SQL Database 관리 되는 인스턴스 추가
 
@@ -151,7 +151,7 @@ ms.locfileid: "69037113"
     | **게이트웨이 유형** | **VPN**을 선택합니다. |
     | **VPN 유형** | **경로 기반** 선택 |
     | **SKU**| 기본값은 `VpnGw1`그대로 둡니다. |
-    | **위치**| 보조 관리 되는 인스턴스와 보조 가상 네트워크가 있는 위치입니다.   |
+    | **위치**| 기본 관리 되는 인스턴스 및 기본 가상 네트워크가 있는 위치입니다.   |
     | **가상 네트워크**| 섹션 2에서 만든 가상 네트워크 (예: `vnet-sql-mi-primary`)를 선택 합니다. |
     | **공용 IP 주소**| **새로 만들기**를 선택합니다. |
     | **공용 IP 주소 이름**| IP 주소에 대 한 이름 (예: `primary-gateway-IP`)을 입력 합니다. |
