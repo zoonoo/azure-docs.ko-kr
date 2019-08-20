@@ -43,12 +43,12 @@ Azure 통합 런타임의 컴퓨팅 리소스는 Azure에서 완전히 탄력적
 
 | 자산 | Description |
 -------- | ------------- | 
-| 이름 | Azure 통합 런타임의 이름. |  
-| 시스템 상태 | Azure 통합 런타임의 상태. | 
+| Name | Azure 통합 런타임의 이름. |  
+| State | Azure 통합 런타임의 상태. | 
 | Location | Azure 통합 런타임의 위치. Azure 통합 런타임의 위치에 대한 자세한 내용은 [통합 런타임 소개](concepts-integration-runtime.md)를 참조하세요. |
 | DataFactoryName | Azure 통합 런타임이 속한 데이터 팩터리의 이름. | 
 | ResourceGroupName | 데이터 팩터리가 속한 리소스 그룹의 이름.  |
-| 설명 | 통합 런타임에 대한 설명.  |
+| Description | 통합 런타임에 대한 설명.  |
 
 ### <a name="status"></a>상태
 다음 테이블은 Azure 통합 런타임의 가능한 상태를 제공합니다.
