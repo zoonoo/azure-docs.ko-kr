@@ -8,16 +8,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: b42eb51b510423ffc0d15ee3a646bca3d4392f7f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 4883e5a8b0354dba726f4a7c58872bc8cba6c542
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64686850"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575773"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>HDInsight 클러스터에 대한 로그 관리
 
-HDInsight 클러스터는 다양한 로그 파일을 생성합니다. 예를 들어 Apache Hadoop 및 Apache Spark 같은 관련 서비스는 구체적인 작업 실행 로그를 생성합니다. 로그 파일 관리는 정상 HDInsight 클러스터를 유지 관리하는 업무의 일부입니다. 로그를 보관하도록 규정하는 요구 사항도 존재할 수 있습니다.  로그 파일의 수와 크기 때문에 로그 저장 및 보관을 최적화하면 서비스 비용 관리에 도움이 됩니다.
+HDInsight 클러스터는 다양한 로그 파일을 생성합니다. 예를 들어 Apache Hadoop 및 Apache Spark 같은 관련 서비스는 구체적인 작업 실행 로그를 생성합니다. 로그 파일 관리는 정상 HDInsight 클러스터를 유지 관리하는 업무의 일부입니다. 로그를 보관하도록 규정하는 요구 사항도 존재할 수 있습니다.  로그 파일의 수와 크기 때문에 로그 스토리지 및 보관을 최적화하면 서비스 비용 관리에 도움이 됩니다.
 
 HDInsight 클러스터 로그 관리에는 클러스터 환경의 모든 측면에 대한 정보를 유지가 포함됩니다. 모든 관련 Azure 서비스 로그, 클러스터 구성, 작업 실행 정보, 모든 오류 상태 및 기타 필요한 데이터가 이 정보에 포함됩니다.
 
@@ -31,7 +31,7 @@ HDInsight 클러스터 로그 관리에는 클러스터 환경의 모든 측면�
 
 ## <a name="step-1-determine-log-retention-policies"></a>1단계: 로그 보존 정책 결정
 
-HDInsight 클러스터 로그 관리 전략을 만드는 첫 번째 단계는 비즈니스 시나리오 및 작업 실행 기록 저장소 요구 사항에 대한 정보를 수집하는 것입니다.
+HDInsight 클러스터 로그 관리 전략을 만드는 첫 번째 단계는 비즈니스 시나리오 및 작업 실행 기록 스토리지 요구 사항에 대한 정보를 수집하는 것입니다.
 
 ### <a name="cluster-details"></a>클러스터 세부 정보
 
@@ -42,7 +42,7 @@ HDInsight 클러스터 로그 관리 전략을 만드는 첫 번째 단계는 �
 * 마지막 상태 변경 세부 정보를 포함한 클러스터 상태
 * 마스터, 코어 및 작업 노드에 대해 지정된 HDInsight 인스턴스의 유형 및 수
 
-Azure Portal을 사용하여 이 최상위 수준 정보를 대부분 얻을 수 있습니다.  사용할 수 있습니다 [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) 에 HDInsight 클러스터에 대 한 정보를 가져오려면:
+Azure Portal을 사용하여 이 최상위 수준 정보를 대부분 얻을 수 있습니다.  또는 [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) 를 사용 하 여 HDInsight 클러스터에 대 한 정보를 가져올 수 있습니다.
 
 ```azurecli
     az hdinsight list --resource-group <ResourceGroup>
@@ -75,7 +75,7 @@ HDInsight 클러스터에서 실행 중인 워크로드 유형을 이해하여 �
 
 ### <a name="view-cluster-configuration-settings-with-the-ambari-ui"></a>Ambari UI를 사용하여 클러스터 구성 설정 보기
 
-Apache Ambari는 웹 UI 및 REST API를 제공하므로 HDInsight 클러스터의 관리, 구성 및 모니터링이 간단합니다. Ambari는 Linux 기반 HDInsight 클러스터에 포함되어 있습니다. 선택 합니다 **클러스터 대시보드** 창을 열려면 Azure portal HDInsight 페이지의 **클러스터 대시보드** 링크 페이지.  다음으로 **HDInsight 클러스터 대시보드** 창을 선택하여 Ambari UI를 엽니다.  클러스터 로그인 자격 증명을 입력하라는 메시지가 나타납니다.
+Apache Ambari는 웹 UI 및 REST API를 제공하므로 HDInsight 클러스터의 관리, 구성 및 모니터링이 간단합니다. Ambari는 Linux 기반 HDInsight 클러스터에 포함되어 있습니다. Azure Portal HDInsight 페이지에서 **클러스터 대시보드** 창을 선택 하 여 **클러스터 대시보드** 링크 페이지를 엽니다.  다음으로 **HDInsight 클러스터 대시보드** 창을 선택하여 Ambari UI를 엽니다.  클러스터 로그인 자격 증명을 입력하라는 메시지가 나타납니다.
 
 서비스 보기 목록을 열려면 HDInsight의 Azure Portal 페이지에서 **Ambari 보기** 창을 선택합니다.  이 목록은 설치된 라이브러리에 따라 달라집니다.  예를 들어 YARN 큐 관리자, Hive 보기 및 Tez 보기가 표시될 수 있습니다.  아무 서비스 링크를 선택하여 구성 및 서비스 정보를 살펴봅니다.  Ambari UI **스택 및 버전** 페이지는 클러스터 서비스의 구성 및 서비스 버전 기록에 대한 정보를 제공합니다. Ambari UI에서 이 섹션으로 이동하려면 **관리자** 메뉴를 선택한 다음 **스택 및 버전**을 선택합니다.  **버전** 탭을 선택하여 서비스 버전 정보를 봅니다.
 
@@ -93,11 +93,11 @@ HDInsight [스크립트 동작](hdinsight-hadoop-customize-cluster-linux.md)은 
 
 다음 단계는 다양한 서비스에 대한 작업 실행 로그 파일을 검토하는 것입니다.  Apache HBase, Apache Spark 및 기타 여러 서비스가 포함될 수 있습니다. Hadoop 클러스터는 자세한 정보 표시 로그를 대량으로 생성하므로 유용한 로그와 그렇지 않은 로그를 확인하는 데 시간이 오래 걸릴 수 있습니다.  로그 파일 대상 관리가 가능하도록 로깅 시스템을 이해하는 것이 중요합니다.  다음은 로그 파일 예제입니다.
 
-![HDInsight 로그 파일 예](./media/hdinsight-troubleshoot-failed-cluster/logs.png)
+![HDInsight 로그 파일 예](./media/hdinsight-log-management/logs.png)
 
 ### <a name="access-the-hadoop-log-files"></a>Hadoop 로그 파일에 액세스
 
-HDInsight는 로그 파일을 클러스터 파일 시스템과 Azure 저장소에 모두 저장합니다. 열어 클러스터의 로그 파일을 검사할 수 있습니다는 [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) 클러스터 및 파일 시스템을 탐색 하거나 원격 헤드 노드 서버에서 Hadoop YARN 상태 포털을 사용 하 여 연결 합니다. Azure 저장소에서 데이터에 액세스 및 다운로드할 수 있는 도구 중 하나를 사용하여 Azure 저장소에 있는 로그 파일을 검사할 수 있습니다. 예로 [AzCopy](../storage/common/storage-use-azcopy.md)를 [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer), 및 Visual Studio 서버 탐색기. PowerShell 및 Azure Storage 클라이언트 라이브러리를 사용하거나 Azure .NET SDK를 사용하여 Azure Blob Storage의 데이터에 액세스할 수 있습니다.
+HDInsight는 로그 파일을 클러스터 파일 시스템과 Azure Storage에 모두 저장합니다. 클러스터에 대 한 [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) 연결을 열고 파일 시스템을 검색 하거나 원격 헤드 노드 서버에서 Hadoop YARN 상태 포털을 사용 하 여 클러스터의 로그 파일을 검사할 수 있습니다. Azure Storage에서 데이터에 액세스 및 다운로드할 수 있는 도구 중 하나를 사용하여 Azure Storage에 있는 로그 파일을 검사할 수 있습니다. 예는 [AzCopy](../storage/common/storage-use-azcopy.md), [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer)및 Visual Studio 서버 탐색기입니다. PowerShell 및 Azure Storage 클라이언트 라이브러리를 사용하거나 Azure .NET SDK를 사용하여 Azure Blob Storage의 데이터에 액세스할 수 있습니다.
 
 Hadoop은 클러스터의 다양한 노드에서 작업을 *작업 시도*로 실행합니다. HDInsight는 추측성 작업 시도를 시작한 후 완료되지 않는 다른 작업 시도를 먼저 종료할 수 있습니다. 이로 인해 컨트롤러, stderr 및 syslog 로그 파일에 즉시 기록되는 활동이 상당히 많이 생성됩니다. 뿐만 아니라 여러 작업 시도가 동시에 실행되지만 로그 파일은 결과를 선형적으로만 표시할 수 있습니다.
 
@@ -130,7 +130,7 @@ YARN CLI 도구를 사용하려면 먼저 SSH를 사용하여 HDInsight 클러�
 
 YARN ResourceManager UI는 클러스터 헤드 노드에서 실행되며 Ambari 웹 UI를 통해 액세스할 수 있습니다. 다음 단계를 사용하여 YARN 로그를 봅니다.
 
-1. 웹 브라우저에서 `https://CLUSTERNAME.azurehdinsight.net`으로 이동합니다. CLUSTERNAME은 HDInsight 클러스터 이름을 바꿉니다.
+1. 웹 브라우저에서 `https://CLUSTERNAME.azurehdinsight.net` 으로 이동합니다. CLUSTERNAME은 HDInsight 클러스터 이름을 바꿉니다.
 2. 왼쪽에 있는 서비스 목록에서 YARN을 선택합니다.
 3. 빠른 링크 드롭다운에서 클러스터 헤드 노드 중 하나를 선택한 다음 **ResourceManager 로그**를 선택합니다. YARN 로그에 대한 링크 목록이 나타납니다.
 
@@ -138,9 +138,9 @@ YARN ResourceManager UI는 클러스터 헤드 노드에서 실행되며 Ambari 
 
 이전 단계에서는 HDInsight 클러스터가 생성하는 로그 파일의 종류와 볼륨을 알아보았습니다.
 
-다음으로 일정 기간의 핵심 로그 저장소 위치에 있는 로그 데이터 볼륨을 분석합니다. 예를 들어 30-60-90일의 볼륨 및 성장을 분석할 수 있습니다.  이 정보를 스프레드시트에 기록하거나 Visual Studio, Azure Storage Explorer, Microsoft Excel용 파워 쿼리 같은 다른 도구를 사용합니다. 자세한 내용은 [HDInsight 로그 분석](hdinsight-debug-jobs.md)을 참조하세요.  
+다음으로 일정 기간의 핵심 로그 스토리지 위치에 있는 로그 데이터 볼륨을 분석합니다. 예를 들어 30-60-90일의 볼륨 및 성장을 분석할 수 있습니다.  이 정보를 스프레드시트에 기록하거나 Visual Studio, Azure Storage Explorer, Microsoft Excel용 파워 쿼리 같은 다른 도구를 사용합니다. 자세한 내용은 [HDInsight 로그 분석](hdinsight-debug-jobs.md)을 참조하세요.  
 
-핵심 로그에 대한 로그 관리 전략을 만드는 데 필요한 정보가 충분히 수집되었습니다.  스프레드시트(또는 원하는 도구)를 사용하여 향후 Azure 서비스에서 감당할 로그 크기 증가 및 로그 저장소를 예측합니다.  검사하는 로그 집합에 대한 로그 보존 요구 사항도 고려해야 합니다.  이제 삭제해도 되는 로그 파일과 보존해야 하는 로그를 확인하고 보다 저렴한 Azure 저장소에 보관한 후 미래의 로그 저장소 비용을 다시 예측할 수 있습니다.
+핵심 로그에 대한 로그 관리 전략을 만드는 데 필요한 정보가 충분히 수집되었습니다.  스프레드시트(또는 원하는 도구)를 사용하여 향후 Azure 서비스에서 감당할 로그 크기 증가 및 로그 스토리지를 예측합니다.  검사하는 로그 집합에 대한 로그 보존 요구 사항도 고려해야 합니다.  이제 삭제해도 되는 로그 파일과 보존해야 하는 로그를 확인하고 보다 저렴한 Azure Storage에 보관한 후 미래의 로그 스토리지 비용을 다시 예측할 수 있습니다.
 
 ## <a name="step-5-determine-log-archive-policies-and-processes"></a>5단계: 로그 보관 정책 및 프로세스 결정
 
@@ -152,10 +152,10 @@ YARN ResourceManager UI는 클러스터 헤드 노드에서 실행되며 Ambari 
 
 또는 PowerShell을 사용하여 로그 보관을 스크립팅할 수 있습니다.  PowerShell 스크립트 예제는 [Azure Blob Storage에 Azure Automation 로그 보관](https://gallery.technet.microsoft.com/scriptcenter/Archive-Azure-Automation-898a1aa8)을 참조하세요.
 
-### <a name="accessing-azure-storage-metrics"></a>Azure 저장소 메트릭 액세스
+### <a name="accessing-azure-storage-metrics"></a>Azure Storage 메트릭 액세스
 
-저장소 작업 및 액세스를 기록하도록 Azure 저장소를 구성할 수 있습니다. 이와 같은 매우 구체적인 로그는 용량을 모니터링하고 계획을 수립하고 스토리지에 대한 요청을 감사하는 데 사용할 수 있습니다. 기록되는 정보 중에는 솔루션의 성능을 모니터링하고 미세 조정할 수 있는 대기 시간 세부 정보가 포함됩니다.
-Hadoop용 .NET SDK를 사용하여 HDInsight 클러스터에 대한 데이터를 보유하는 Azure 저장소에 대해 생성된 로그 파일을 검사할 수 있습니다.
+스토리지 작업 및 액세스를 기록하도록 Azure Storage를 구성할 수 있습니다. 이와 같은 매우 구체적인 로그는 용량을 모니터링하고 계획을 수립하고 스토리지에 대한 요청을 감사하는 데 사용할 수 있습니다. 기록되는 정보 중에는 솔루션의 성능을 모니터링하고 미세 조정할 수 있는 대기 시간 세부 정보가 포함됩니다.
+Hadoop용 .NET SDK를 사용하여 HDInsight 클러스터에 대한 데이터를 보유하는 Azure Storage에 대해 생성된 로그 파일을 검사할 수 있습니다.
 
 ### <a name="control-the-size-and-number-of-backup-indexes-for-old-log-files"></a>오래된 로그 파일의 백업 인덱스 크기 및 수 제어
 
@@ -166,7 +166,7 @@ Hadoop용 .NET SDK를 사용하여 HDInsight 클러스터에 대한 데이터를
 
 ### <a name="other-log-management-techniques"></a>기타 로그 관리 기술
 
-디스크 공간 부족을 방지 하려면 따르면 일부 OS 도구와 같은 [logrotate](https://linux.die.net/man/8/logrotate) 로그 파일의 처리를 관리 합니다. 매일 실행되도록 `logrotate`를 구성하여 로그 파일을 압축하고 오래된 파일을 제거할 수 있습니다. 접근 방식은 로컬 노드에 로그 파일을 유지하는 시간 등의 요구 사항에 따라 달라집니다.  
+디스크 공간이 부족 하지 않도록 하기 위해 [logrotate](https://linux.die.net/man/8/logrotate) 와 같은 일부 OS 도구를 사용 하 여 로그 파일 처리를 관리할 수 있습니다. 매일 실행되도록 `logrotate`를 구성하여 로그 파일을 압축하고 오래된 파일을 제거할 수 있습니다. 접근 방식은 로컬 노드에 로그 파일을 유지하는 시간 등의 요구 사항에 따라 달라집니다.  
 
 또한 하나 이상의 서비스에 디버그 로깅을 사용하도록 설정되었는지 확인할 수 있습니다. 설정된 경우 출력 로그 크기가 급격하게 커집니다.  
 
@@ -175,5 +175,5 @@ Hadoop용 .NET SDK를 사용하여 HDInsight 클러스터에 대한 데이터를
 ## <a name="next-steps"></a>다음 단계
 
 * [HDInsight의 모니터링 및 로깅 연습](https://msdn.microsoft.com/library/dn749790.aspx)
-* [Linux 기반 HDInsight에서 Apache Hadoop YARN 응용 프로그램 액세스 로그](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Linux 기반 HDInsight에서 YARN 응용 프로그램 로그에 액세스 Apache Hadoop](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [다양한 Apache Hadoop 구성 요소의 로그 파일 크기를 제어하는 방법](https://community.hortonworks.com/articles/8882/how-to-control-size-of-log-files-for-various-hdp-c.html)

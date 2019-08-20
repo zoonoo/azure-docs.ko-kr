@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.author: dacurwin
-ms.openlocfilehash: f47afd450350226aa944287e756b73f61b15b32d
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: 54b83df4c0ad68c9bd6b39d39926657395c48f3e
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952054"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615870"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup 오류 문제 해결: 에이전트 또는 확장 관련 문제
 
@@ -106,7 +106,7 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 **오류 코드**: UserErrorUnsupportedDiskSize <br>
 **오류 메시지**: 현재 Azure Backup는 4095GB 보다 큰 디스크 크기를 지원 하지 않습니다. <br>
 
-4095 GB 보다 큰 디스크 크기를 사용 하 여 VM을 백업 하는 경우 백업 작업이 실패할 수 있습니다. 4 TB 이상의 디스크에 대 한 Azure Backup 큰 디스크 지원의 제한 된 공개 미리 보기에 등록 하려면 [AZURE VM 백업 개요](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb)를 참조 하세요.
+4095 GB 보다 큰 디스크 크기를 사용 하 여 VM을 백업 하는 경우 백업 작업이 실패할 수 있습니다. 4 TB 이상의 디스크에 대 한 Azure Backup 큰 디스크 지원의 제한 된 공개 미리 보기에 등록 하려면이 [문서](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb)를 참조 하세요.
 
 ## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress - 다른 백업 작업이 현재 진행 중이어서 백업을 시작할 수 없습니다.
 

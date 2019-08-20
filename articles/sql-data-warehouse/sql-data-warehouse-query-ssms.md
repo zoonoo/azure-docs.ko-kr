@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 67707b64bb6018b322ba980535651c126a526eb7
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: b96896c0366c6fba2548480b166bdb9cf6ca692c
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479541"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575338"
 ---
 # <a name="connect-to-sql-data-warehouse-with-sql-server-management-studio-ssms"></a>SSMS(SQL Server Management Studio)를 사용하여 SQL Data Warehouse에 연결
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ SSMS(SQL Server Management Studio)를 사용하여 Azure SQL Data Warehouse에 �
 ## <a name="prerequisites"></a>필수 구성 요소
 이 자습서를 사용하려면 다음이 필요합니다.
 
-* 기존 SQL 데이터 웨어하우스. 만들려면 [SQL Data Warehouse 만들기][Create a SQL Data Warehouse]를 참조하세요.
+* 기존 SQL Data Warehouse입니다. 만들려면 [SQL Data Warehouse 만들기][Create a SQL Data Warehouse]를 참조하세요.
 * SSMS(SQL Server Management Studio) 설치. 아직 없는 경우 SSMS를 무료로 [설치][Install SSMS] 하세요.
 * 정규화된 SQL 서버 이름. 이를 찾으려면 [SQL Data Warehouse에 연결][Connect to SQL Data Warehouse]을 참조하세요.
 

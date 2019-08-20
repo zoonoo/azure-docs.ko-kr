@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 1716bd64286f1882b9fc224712d227967d78058a
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 8d2cb30e0f18485d500344e571b3ac5f2cde008f
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68637781"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615701"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Azure Cosmos DB 대량 실행기 라이브러리 개요
  
@@ -21,7 +21,7 @@ Azure Cosmos DB는 다음을 지원하기 위해 탄력적으로 스케일 아�
 * 대규모 읽기 및 쓰기 처리량(초당 수백만 작업).  
 * 예측 가능한 밀리초 대기 시간으로 많은 양(수백 테라바이트 이상)의 트랜잭션 및 작업 데이터를 저장합니다.  
 
-Bulk Executor 라이브러리를 사용하면 이 대규모 처리량 및 저장소를 활용할 수 있습니다. Bulk Executor 라이브러리를 사용하면 Azure Cosmos DB에서 대량 가져오기 및 대량 업데이트 API를 통해 대량 작업을 수행할 수 있습니다. 다음 섹션에서 대량 실행기 라이브러리의 기능에 대한 자세한 내용을 확인할 수 있습니다. 
+Bulk Executor 라이브러리를 사용하면 이 대규모 처리량 및 스토리지를 활용할 수 있습니다. Bulk Executor 라이브러리를 사용하면 Azure Cosmos DB에서 대량 가져오기 및 대량 업데이트 API를 통해 대량 작업을 수행할 수 있습니다. 다음 섹션에서 대량 실행기 라이브러리의 기능에 대한 자세한 내용을 확인할 수 있습니다. 
 
 > [!NOTE] 
 > 현재, Bulk Executor 라이브러리는 가져오기 및 업데이트 작업을 지원하며, 이 라이브러리는 Azure Cosmos DB SQL API 및 Gremlin API 계정에서만 지원됩니다.
@@ -36,7 +36,7 @@ Bulk Executor 라이브러리를 사용하면 이 대규모 처리량 및 저장
  
 * 스케일 아웃 아키텍처를 사용하면 한 시간에 테라바이트 이상의 데이터를 대량으로 가져올 수 있습니다.  
 
-* Azure Cosmos DB 컨테이너의 기존 데이터를 패치로 대량 업데이트할 수 있습니다. 
+* Azure Cosmos 컨테이너의 기존 데이터를 패치로 대량 업데이트할 수 있습니다. 
  
 ## <a name="how-does-the-bulk-executor-operate"></a>대량 실행 기는 어떻게 작동 하나요? 
 

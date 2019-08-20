@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 1ee6d9332a2be5ccb22b7571b348e2e0aae78fb2
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 783c4f5b1f5a7f2be748bc7173da2d068e1425f4
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563551"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575643"
 ---
 # <a name="createuidefinitionjson-for-azure-managed-applications-create-experience"></a>Azure 관리 되는 응용 프로그램의 만들기 환경을 위한 CreateUiDefinition
 
@@ -52,13 +52,11 @@ CreateUiDefinition에는 항상 다음 세 가지 속성이 포함됩니다.
 
 `$schema`를 포함하는 것이 좋지만 선택 사항입니다. 지정하는 경우 `version`의 값은 `$schema` URI 내의 버전과 일치해야 합니다.
 
-JSON 편집기를 사용 하 여 UI 정의를 만든 다음 [Ui 정의 샌드박스에서](https://portal.azure.com/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade) 테스트 하 여 미리 볼 수 있습니다. 샌드박스에 대 한 자세한 내용은 [Azure Managed Applications에 대 한 포털 인터페이스 테스트](test-createuidefinition.md)를 참조 하세요.
+JSON 편집기를 사용 하 여 createUiDefinition을 만든 다음 [Createuidefinition 샌드박스에서](https://portal.azure.com/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade) 테스트 하 여 미리 볼 수 있습니다. 샌드박스에 대 한 자세한 내용은 [Azure Managed Applications에 대 한 포털 인터페이스 테스트](test-createuidefinition.md)를 참조 하세요.
 
 ## <a name="basics"></a>기본 사항
 
 기본은 Azure Portal에서 파일을 구문 분석할 때 생성 되는 첫 번째 단계입니다. 포털에서는 `basics`에 지정된 요소를 표시할 뿐만 아니라 사용자가 배포에 대한 구독, 리소스 그룹 및 위치를 선택하기 위한 요소도 삽입합니다. 가능 하면 클러스터 또는 관리자 자격 증명의 이름과 같이 배포 차원 매개 변수를 쿼리 하는 요소는이 단계에서 수행 해야 합니다.
-
-요소의 동작이 사용자의 구독, 리소스 그룹 또는 위치에 따라 달라 지는 경우에는 기본에서 해당 요소를 사용할 수 없습니다. 예를 들어 **Microsoft.Compute.SizeSelector**는 사용 가능한 크기의 목록을 결정하는 사용자의 구독 및 위치에 따라 다릅니다. 따라서 **Microsoft.Compute.SizeSelector**는 steps에만 사용할 수 있습니다. 일반적으로 **Microsoft.Common** 네임스페이스의 요소만 basics에 사용할 수 있습니다. 사용자의 컨텍스트에 종속 되지 않는 다른 네임 스페이스 (예: **Microsoft. Compute**)의 일부 요소는 여전히 허용 됩니다.
 
 ## <a name="steps"></a>단계
 

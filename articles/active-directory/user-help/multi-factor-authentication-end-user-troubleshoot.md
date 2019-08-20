@@ -13,12 +13,12 @@ ms.date: 08/07/2019
 ms.author: lizross
 ms.reviewer: kexia
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df32ec9c2d181072bb67a8ca0f2cb04560287286
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 178ce07db24976d7df590d353603da67b68122e8
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68949761"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616112"
 ---
 # <a name="troubleshoot-common-two-factor-verification-problems"></a>일반적인 2 단계 인증 문제 해결
 
@@ -29,7 +29,7 @@ ms.locfileid: "68949761"
 >[!Important]
 >이 콘텐츠는 사용자를 위한 것입니다. 관리자의 경우 [Azure Active Directory 문서](https://docs.microsoft.com/azure/active-directory)에서 Azure AD(Azure Active Directory) 환경을 설정하고 관리하는 방법에 대한 자세한 정보를 찾을 수 있습니다.
 >
->또한이 콘텐츠는 회사 또는 학교 계정 (예: alain@contoso.com)에서 사용자에 게 제공 하는 계정인 용도로만 사용 됩니다. 2 단계 인증 및 개인 Microsoft 계정에 문제가 있는 경우 직접 설정 하는 계정 (예: danielle@outlook.com)은 [Microsoft 계정에 대해 2 단계 인증 설정 또는 해제](https://support.microsoft.com/en-us/help/4028586/microsoft-account-turning-two-step-verification-on-or-off)를 참조 하세요.
+>또한이 콘텐츠는 회사 또는 학교 계정 (예: alain@contoso.com)에서 사용자에 게 제공 하는 계정인 용도로만 사용 됩니다. 2 단계 인증 및 개인 Microsoft 계정에 문제가 있는 경우 직접 설정 하는 계정 (예: danielle@outlook.com)은 [Microsoft 계정에 대해 2 단계 인증 설정 또는 해제](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off)를 참조 하세요.
 
 ## <a name="i-forgot-my-mobile-device-at-home"></a>집에서 모바일 장치를 잊은 경우
 
@@ -92,7 +92,11 @@ ms.locfileid: "68949761"
 
 ## <a name="i-cant-get-my-app-passwords-to-work"></a>앱 암호를 사용할 수 없습니다.
 
-앱 암호는 2 단계 인증을 지원 하지 않는 이전 데스크톱 응용 프로그램에 대 한 일반 암호를 대체 합니다. 먼저 암호를 올바르게 입력했는지 확인합니다. 이 문제가 해결 되지 않으면 [2 단계 인증에 대 한 앱 암호 관리](multi-factor-authentication-end-user-app-passwords.md#create-and-delete-app-passwords-using-the-myapps-portal) 문서의 단계에 따라 앱 암호 **만들기 및 삭제** 의 단계에 따라 앱에 대 한 새 앱 암호를 만들어 보세요.
+앱 암호는 2 단계 인증을 지원 하지 않는 이전 데스크톱 응용 프로그램에 대 한 일반 암호를 대체 합니다. 먼저 암호를 올바르게 입력했는지 확인합니다. 이 문제가 해결 되지 않으면 [2 단계 인증에 대 한 앱 암호 관리](multi-factor-authentication-end-user-app-passwords.md#create-and-delete-app-passwords-from-the-additional-security-verification-page) 문서의 단계에 따라 앱 암호 **만들기 및 삭제** 의 단계에 따라 앱에 대 한 새 앱 암호를 만들어 보세요.
+
+## <a name="why-cant-i-turn-two-factor-verification-off"></a>2 단계 인증을 해제할 수 없는 이유는 무엇입니까?
+
+회사 또는 학교 계정 (예: alain@contoso.com)을 사용 하 여 2 단계 인증을 사용 하는 경우이 추가 된 보안 기능을 사용 해야 하는 경우가 많습니다. 조직에서이 기능을 사용 해야 한다고 결정 했기 때문에 개별적으로 해제할 수 있는 방법은 없습니다. 그러나와 같이 alain@outlook.com개인 계정으로 2 단계 인증을 사용 하는 경우 기능을 켜고 끌 수 있습니다. 개인 Microsoft 계정에 대 한 2 단계 인증을 제어 하는 방법에 대 한 지침은 [Microsoft 계정에 대해 2 단계 인증 설정 또는 해제](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off)를 참조 하세요.
 
 ## <a name="i-didnt-find-an-answer-to-my-problem"></a>문제에 대한 답변을 찾을 수 없는 경우
 

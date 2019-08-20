@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
-ms.openlocfilehash: a8bd260db7a141ce845ce7fb5b7e10f642907b82
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2864e3d29a0beccd2ef52732a85ea1495e1efab8
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60310326"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575293"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>SQL Data Warehouse를 업그레이드하여 성능 최적화
 
@@ -31,12 +31,12 @@ Azure SQL Data Warehouse를 Azure 하드웨어와 저장소 아키텍처 최신 
 
 이 업그레이드는 [지원되는 지역](gen2-migration-schedule.md#automated-schedule-and-region-availability-table)의 컴퓨팅 최적화 Gen1 계층 데이터 웨어하우스에 적용됩니다.
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
 1. 사용자의 [지역](gen2-migration-schedule.md#automated-schedule-and-region-availability-table)에서 GEN1-GEN2 마이그레이션이 지원되는지 확인합니다. 자동 마이그레이션 날짜를 기록해 둡니다. 자동 프로세스 충돌을 방지하려면 자동 프로세스 시작 날짜 전에 수동 마이그레이션을 진행하도록 계획합니다.
 2. 아직 지원되지 않는 지역에 있는 경우, 지역이 추가되는지 여부를 계속 확인하거나 [복원을 사용하여 지원되는 지역으로 업그레이드](#upgrade-from-an-azure-geographical-region-using-restore-through-the-azure-portal)합니다.
 3. 사용자의 지역이 지원되는 경우, [Azure Portal을 통해 업그레이드](#upgrade-in-a-supported-region-using-the-azure-portal)합니다.
-4. 데이터 웨어하우스에 대한 **제안된 성능 수준 선택**은 아래에 있는 매핑을 사용하여 계산에 최적화된 Gen1 계층의 현재 성능 수준을 기반으로 합니다.
+4. 데이터 웨어하우스에 대한 **제안된 성능 수준 선택**은 아래에 있는 매핑을 사용하여 컴퓨팅 최적화 Gen1 계층의 현재 성능 수준을 기반으로 합니다.
 
    | 컴퓨팅 최적화 Gen1 계층 | 컴퓨팅 최적화 Gen2 계층 |
    | :-------------------------: | :-------------------------: |
@@ -58,7 +58,7 @@ Azure SQL Data Warehouse를 Azure 하드웨어와 저장소 아키텍처 최신 
 
 ## <a name="upgrade-in-a-supported-region-using-the-azure-portal"></a>Azure Portal을 사용하여 지원되는 지역에서 업그레이드
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -185,7 +185,7 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-2. 복원 지점을 만들려는 SQL 데이터 웨어하우스로 이동합니다.
+2. 복원 지점을 만들 SQL Data Warehouse 이동 합니다.
 
 3. 개요 섹션 위쪽에서 **+새 복원 지점**을 선택합니다.
 
@@ -198,7 +198,7 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 ## <a name="restore-an-active-or-paused-database-using-the-azure-portal"></a>Azure Portal을 사용하여 활성 또는 일시 중지된 데이터베이스 복원
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. 복원하려는 SQL 데이터 웨어하우스로 이동합니다.
+2. 복원 하려는 SQL Data Warehouse로 이동 합니다.
 3. 개요 섹션 위쪽에서 **복원**을 선택합니다.
 
     ![ 복원 개요](./media/sql-data-warehouse-restore-database-portal/restoring_0.png)

@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 07/03/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
-ms.openlocfilehash: bb5a267d1c7058193f1d7c8ed4087f5c0ebab267
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 9dcb8b2e9c1b75aac3c195f89777ac9c6eb030d7
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68426591"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575254"
 ---
 # <a name="user-defined-restore-points"></a>사용자 정의 복원 지점이
 
@@ -61,7 +61,7 @@ Azure Portal를 통해 사용자 정의 복원 지점이 만들어질 수도 있
 
 1. [Azure Portal][Azure portal] 계정에 로그인 합니다.
 
-2. 복원 지점을 만들려는 SQL 데이터 웨어하우스로 이동합니다.
+2. 복원 지점을 만들 SQL Data Warehouse 이동 합니다.
 
 3. 왼쪽 창에서 **개요** 를 선택 하 고 **+ 새 복원 지점**을 선택 합니다. 새 복원 지점 단추를 사용할 수 없는 경우 데이터 웨어하우스가 일시 중지 되지 않았는지 확인 합니다.
 

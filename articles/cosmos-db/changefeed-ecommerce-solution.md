@@ -7,16 +7,16 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: 7923ce10912ebb6f09c1c3d8390dd51b4f876bea
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 86d4dd706b097891db155214e4edb7e85e054858
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68551995"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616956"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Azure Cosmos DB 변경 피드를 사용하여 실시간 데이터 분석 시각화
 
-Azure Cosmos DB 변경 피드는 레코드가 만들어지거나 수정될 때 Azure Cosmos DB 컨테이너에서 해당 레코드를 지속적이고 증분적으로 가져오는 메커니즘입니다. 변경 피드 지원은 컨테이너의 변경 내용을 수신하여 작동합니다. 그런 다음 변경된 문서가 수정된 순서로 정렬된 목록이 출력됩니다. 변경 피드에 대한 자세한 내용은 [변경 피드 사용](change-feed.md) 문서를 참조하세요. 
+Azure Cosmos DB 변경 피드는 해당 레코드가 만들어지거나 수정 되는 동안 Azure Cosmos 컨테이너에서 연속 된 레코드의 증분 피드를 가져오는 메커니즘입니다. 변경 피드 지원은 컨테이너의 변경 내용을 수신하여 작동합니다. 그런 다음 변경된 문서가 수정된 순서로 정렬된 목록이 출력됩니다. 변경 피드에 대한 자세한 내용은 [변경 피드 사용](change-feed.md) 문서를 참조하세요. 
 
 이 문서에서는 전자상거래 회사에서 변경 피드를 사용하여 사용자 패턴을 파악하고 실시간 데이터 분석 및 시각화를 수행하는 방법에 대해 설명합니다. 사용자가 항목을 조회하거나, 자신의 카트에 항목을 추가하거나, 항목을 구입하는 것과 같은 이벤트를 분석합니다. 이러한 이벤트 중 하나가 발생하면 새 레코드가 만들어지고 변경 피드에서 해당 레코드를 기록합니다. 변경 피드는 회사 성과 및 활동을 분석하는 메트릭을 시각화하는 일련의 단계를 트리거합니다. 시각화할 수 있는 샘플 메트릭에는 수익, 고유 사이트 방문자, 가장 인기 있는 항목 및 카트에 추가하거나 구입한 항목을 비교하여 조회되는 평균 가격이 포함됩니다. 이러한 샘플 메트릭을 통해 전자 상거래 회사는 사이트 인기도를 평가하고 광고 및 가격 전략을 개발하며, 투자할 재고와 관련된 의사 결정을 내릴 수 있습니다.
 
@@ -41,9 +41,9 @@ Azure Cosmos DB 변경 피드는 레코드가 만들어지거나 수정될 때 A
    }
    ```
 
-2. **Cosmos DB:** 생성 된 데이터는 Azure Cosmos DB 컬렉션에 저장 됩니다.  
+2. **Cosmos DB:** 생성 된 데이터는 Azure Cosmos 컨테이너에 저장 됩니다.  
 
-3. **변경 피드:** 변경 피드는 Azure Cosmos DB 컬렉션의 변경 내용을 수신 대기합니다. 새 문서가 컬렉션에 추가될 때마다, 즉 사용자가 항목을 조회하거나 자신의 카트에 항목을 추가하거나 항목을 구입하는 것과 같은 이벤트가 발생하면 변경 피드에서 [Azure Function](../azure-functions/functions-overview.md)을 트리거합니다.  
+3. **변경 피드:** 변경 피드가 Azure Cosmos 컨테이너에 대 한 변경 내용을 수신 대기 합니다. 새 문서가 컬렉션에 추가될 때마다, 즉 사용자가 항목을 조회하거나 자신의 카트에 항목을 추가하거나 항목을 구입하는 것과 같은 이벤트가 발생하면 변경 피드에서 [Azure Function](../azure-functions/functions-overview.md)을 트리거합니다.  
 
 4. **Azure Function:** Azure Function은 새 데이터를 처리하여 [Azure Event Hub](../event-hubs/event-hubs-about.md)로 보냅니다.  
 
@@ -109,7 +109,7 @@ Azure Cosmos DB 변경 피드는 레코드가 만들어지거나 수정될 때 A
 
    * **데이터베이스 ID** 필드에 대해 **기존 항목 사용**을 선택한 다음, **changefeedlabdatabase**를 입력합니다.  
    * **컬렉션 ID** 필드에 대해 **leases**를 입력합니다.  
-   * **저장소 용량**에 대해 **고정**을 선택합니다.  
+   * **스토리지 용량**에 대해 **고정**을 선택합니다.  
    * **처리량** 필드는 기본값으로 설정된 채로 둡니다.  
    * **확인** 단추를 선택합니다.
 
@@ -121,15 +121,15 @@ Azure Cosmos DB 변경 피드는 레코드가 만들어지거나 수정될 때 A
 
 2. **키** 창으로 이동하고, [기본 연결 문자열]을 복사하여 랩 전체에서 액세스할 수 있는 메모장이나 다른 문서에 붙여넣습니다. **Cosmos DB 연결 문자열**이라는 레이블을 지정해야 합니다. 문자열은 나중에 코드에 복사해야 하므로 메모를 작성하여 저장한 위치를 적어 둡니다.
 
-### <a name="get-the-storage-account-key-and-connection-string"></a>저장소 계정 키 및 연결 문자열 가져오기
+### <a name="get-the-storage-account-key-and-connection-string"></a>스토리지 계정 키 및 연결 문자열 가져오기
 
-Azure Storage 계정을 사용하면 사용자가 데이터를 저장할 수 있습니다. 이 랩에서는 저장소 계정을 사용하여 Azure Function에서 사용하는 데이터를 저장합니다. 컬렉션이 수정되면 Azure Function이 트리거됩니다.
+Azure Storage 계정을 사용하면 사용자가 데이터를 저장할 수 있습니다. 이 랩에서는 스토리지 계정을 사용하여 Azure Function에서 사용하는 데이터를 저장합니다. 컬렉션이 수정되면 Azure Function이 트리거됩니다.
 
-1. 리소스 그룹으로 돌아가서 이전에 만든 저장소 계정을 엽니다.  
+1. 리소스 그룹으로 돌아가서 이전에 만든 스토리지 계정을 엽니다.  
 
 2. 왼쪽 메뉴에서 **액세스 키**를 선택합니다.  
 
-3. **키 1**에 있는 값을 메모장 또는 랩 전체에서 액세스할 수 있는 다른 문서에 복사합니다. **키**에는 **저장소 키**, **연결 문자열**에는 **저장소 연결 문자열**이라는 레이블을 지정해야 합니다. 이러한 문자열은 나중에 코드에 복사해야 하므로 메모를 작성하여 저장한 위치를 적어 둡니다.  
+3. **키 1**에 있는 값을 메모장 또는 랩 전체에서 액세스할 수 있는 다른 문서에 복사합니다. **키**에는 **스토리지 키**, **연결 문자열**에는 **스토리지 연결 문자열**이라는 레이블을 지정해야 합니다. 이러한 문자열은 나중에 코드에 복사해야 하므로 메모를 작성하여 저장한 위치를 적어 둡니다.  
 
 ### <a name="get-the-event-hub-namespace-connection-string"></a>Event Hub 네임스페이스 연결 문자열 가져오기
 
@@ -143,7 +143,7 @@ Azure Event Hub는 이벤트 데이터를 받고, 저장하고, 처리하고, �
 
 ## <a name="set-up-azure-function-to-read-the-change-feed"></a>변경 피드를 읽도록 Azure Function 설정
 
-Cosmos DB 컬렉션에서 새 문서가 만들어지거나 현재 문서가 수정되면 변경 피드에서 수정된 문서를 컬렉션 변경 기록에 자동으로 추가합니다. 이제 변경 피드를 처리하는 Azure Function을 작성하고 실행합니다. 만든 컬렉션에서 문서가 만들어지거나 수정되면 변경 피드에서 Azure Function을 트리거합니다. 그러면 Azure Function에서 수정된 문서를 Event Hub로 보냅니다.
+새 문서를 만들거나 Cosmos 컨테이너에서 현재 문서를 수정 하면 변경 피드는 해당 수정 된 문서를 컬렉션 변경 내용에 대 한 기록에 자동으로 추가 합니다. 이제 변경 피드를 처리하는 Azure Function을 작성하고 실행합니다. 만든 컬렉션에서 문서가 만들어지거나 수정되면 변경 피드에서 Azure Function을 트리거합니다. 그러면 Azure Function에서 수정된 문서를 Event Hub로 보냅니다.
 
 1. 디바이스에서 복제한 리포지토리로 돌아갑니다.  
 
@@ -318,11 +318,11 @@ Power BI는 데이터를 분석하고 인사이트를 공유하는 비즈니스 
 
 ## <a name="optional-visualize-with-an-e-commerce-site"></a>선택 사항: 전자 상거래 사이트를 통해 시각화
 
-이제 새 데이터 분석 도구를 사용하여 실제 전자 상거래 사이트에 연결하는 방법을 살펴보겠습니다. 전자 상거래 사이트를 구축하려면 Azure Cosmos DB 데이터베이스를 사용하여 제품 범주(여성, 남성, 남녀 공용) 목록, 제품 카탈로그 및 가장 인기 있는 항목 목록을 저장합니다.
+이제 새 데이터 분석 도구를 사용하여 실제 전자 상거래 사이트에 연결하는 방법을 살펴보겠습니다. 전자 상거래 사이트를 빌드하기 위해 Azure Cosmos 데이터베이스를 사용 하 여 제품 범주 (여자, 남자, 전 성별), 제품 카탈로그 및 가장 인기 있는 항목의 목록을 저장 합니다.
 
 1. [Azure Portal](https://portal.azure.com/), **Cosmos DB 계정**, **데이터 탐색기**로 차례로 다시 이동합니다.  
 
-   **changefeedlabdatabase** - **products** 및 **categories** 아래에 [고정] 저장소 용량이 있는 두 개의 컬렉션을 추가합니다.
+   **changefeedlabdatabase** - **products** 및 **categories** 아래에 [고정] 스토리지 용량이 있는 두 개의 컬렉션을 추가합니다.
 
    **changefeedlabdatabase** 아래에 파티션 키로 **topItems** 및 **/Item**이라는 다른 컬렉션을 추가합니다.
 

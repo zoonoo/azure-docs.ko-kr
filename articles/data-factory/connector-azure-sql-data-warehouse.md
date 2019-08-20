@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 2d0c8cfb5e146694304d32eca27836f49d82e887
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 3b50b0e81103f0b4c8ffa757673c9ec0ef652fc0
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618697"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614132"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure SQL Data Warehouse 간 데이터 복사 
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스의 버전을 선택 합니다."]
@@ -400,7 +400,7 @@ Azure SQL Data Warehouse에 데이터를 복사하려면 복사 작업의 싱크
 
 ## <a name="use-polybase-to-load-data-into-azure-sql-data-warehouse"></a>PolyBase를 사용하여 Azure SQL Data Warehouse에 데이터 로드
 
-[PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide)를 사용하면 높은 처리량으로 대량 데이터를 Azure SQL Data Warehouse에 효율적으로 로드할 수 있습니다. 기본 BULKINSERT 메커니즘 대신 PolyBase를 사용하면 처리량이 훨씬 증가합니다. 자세한 비교는 [성능 참조](copy-activity-performance.md#performance-reference)를 참조하세요. 사용 사례가 있는 연습을 보려면 [Azure SQL Data Warehouse에 1TB 로드](v1/data-factory-load-sql-data-warehouse.md)를 참조하세요.
+[PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide)를 사용하면 높은 처리량으로 대량 데이터를 Azure SQL Data Warehouse에 효율적으로 로드할 수 있습니다. 기본 BULKINSERT 메커니즘 대신 PolyBase를 사용하면 처리량이 훨씬 증가합니다. 사용 사례가 있는 연습을 보려면 [Azure SQL Data Warehouse에 1TB 로드](v1/data-factory-load-sql-data-warehouse.md)를 참조하세요.
 
 * 원본 데이터가 **Azure Blob, Azure Data Lake Storage Gen1 또는 Azure Data Lake Storage Gen2**에 있고 **형식이 polybase 호환**인 경우 복사 작업을 사용 하 여 polybase를 직접 호출 하 여 원본에서 데이터를 Azure SQL Data Warehouse 가져올 수 있습니다. 자세한 내용은 **[PolyBase를 사용하여 직접 복사](#direct-copy-by-using-polybase)** 를 참조하세요.
 * 원본 데이터 저장소와 형식이 PolyBase에서 원래 지원되지 않는 경우, 대신 **[PolyBase를 사용한 준비된 복사](#staged-copy-by-using-polybase)** 기능을 사용합니다. 준비된 복사 기능을 사용할 경우, 처리량도 향상됩니다. 이 기능은 데이터를 PolyBase 호환 형식으로 자동으로 변환합니다. 또한 Azure Blob Storage에 데이터를 저장합니다. 그런 다음, SQL Data Warehouse에 데이터를 로드합니다.
@@ -593,9 +593,9 @@ Azure SQL Data Warehouse에서/로 데이터를 복사하는 경우, Azure SQL D
 | binary                                | Byte[]                         |
 | bit                                   | Boolean                        |
 | char                                  | String, Char[]                 |
-| date                                  | Datetime                       |
-| Datetime                              | Datetime                       |
-| datetime2                             | Datetime                       |
+| date                                  | DateTime                       |
+| DateTime                              | DateTime                       |
+| datetime2                             | DateTime                       |
 | Datetimeoffset                        | DateTimeOffset                 |
 | Decimal                               | Decimal                        |
 | FILESTREAM attribute (varbinary(max)) | Byte[]                         |
@@ -608,7 +608,7 @@ Azure SQL Data Warehouse에서/로 데이터를 복사하는 경우, Azure SQL D
 | nvarchar                              | String, Char[]                 |
 | real                                  | Single                         |
 | rowversion                            | Byte[]                         |
-| smalldatetime                         | Datetime                       |
+| smalldatetime                         | DateTime                       |
 | smallint                              | Int16                          |
 | smallmoney                            | Decimal                        |
 | Time                                  | TimeSpan                       |

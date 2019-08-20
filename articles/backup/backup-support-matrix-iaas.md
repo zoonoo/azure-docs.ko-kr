@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: dacurwin
-ms.openlocfilehash: 9b0cbe8126a01a64e35b2fcfeca400aed5aef0cc
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: df9e60c8d517c35029e425d50dba81a18c2f1114
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952025"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617357"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM Backup의 지원 매트릭스
 [Azure Backup 서비스](backup-overview.md) 를 사용 하 여 온-프레미스 컴퓨터 및 워크 로드와 Azure vm (가상 머신)을 백업할 수 있습니다. 이 문서에서는 Azure Backup를 사용 하 여 Azure Vm을 백업할 때 지원 설정 및 제한 사항을 요약 합니다.
@@ -42,7 +42,7 @@ Backup server에 Azure VM 백업  | 파일/폴더/볼륨 백업 시스템 상태
 Microsoft Azure VM을 만들 때 백업 사용 | 지원 대상: <br/><br/> -Windows Server 2019 (Datacenter/Datacenter Core/Standard) <br/><br/> -Windows Server 2016 (Datacenter/Datacenter Core/Standard) <br/><br/> -Windows Server 2012 R2 (Datacenter/Standard) <br/><br/> -Windows Server 2008 R2 (RTM 및 SP1 Standard)
 Linux VM을 만들 때 백업 사용 | 지원 대상:<br/><br/> - Ubuntu Server: 18.04, 17.10, 17.04, 16.04 (LTS), 14.04 (LTS)<br/><br/> - Red Hat: RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4<br/><br/> - SUSE Linux Enterprise Server: 11 SP4, 12 SP2, 12 SP3, 15 <br/><br/> - Debian: 8, 9<br/><br/> - CentOS: 6.9, 7.3<br/><br/> - Oracle Linux: 6.7, 6.8, 6.9, 7.2, 7.3
 종료/오프 라인 VM 인 VM 백업 | 지원됩니다.<br/><br/> 스냅샷이 충돌 일치 특성만 있고 앱 일치 특성은 없습니다.
-관리 디스크로 마이그레이션한 후 디스크 백업 | 지원됩니다.<br/><br/> 백업이 계속 작동합니다. 별도의 작업이 필요 없습니다.
+관리 디스크로 마이그레이션한 후 디스크 백업 | 지원됩니다.<br/><br/> 백업이 계속 작동합니다. 추가적인 조치가 필요하지 않습니다.
 리소스 그룹 잠금을 사용하도록 설정한 후 Managed Disks를 백업합니다. | 지원되지 않습니다.<br/><br/> 이전 복원 지점은 삭제할 수 없는 Azure Backup 복원 지점의 최대 제한에 도달 하면 백업이 실패 하기 시작 합니다.
 VM의 백업 정책 수정 | 지원됩니다.<br/><br/> 새 정책의 일정 및 보존 설정을 사용 하 여 VM을 백업 합니다. 보존 설정이 연장될 경우 기존 복구 지점이 표시되고 유지됩니다. 축소 된 경우 기존 복구 지점은 다음 정리 작업에서 정리 되 고 최종적으로 삭제 됩니다.
 백업 작업 취소 | 스냅샷 프로세스 동안 지원됩니다.<br/><br/> 스냅샷이 자격 증명 모음으로 전송될 때는 지원되지 않습니다.
@@ -157,7 +157,7 @@ Azure로 마이그레이션된 Vm 백업  | 지원됩니다.<br/><br/> VM을 백
 
 **구성 요소** | **지원**
 --- | ---
-Azure VM 데이터 디스크 수 | 16개 이하의 데이터 디스크가 있는 VM을 백업합니다. <br/><br/> 최대 4TB까지 디스크 크기를 지원합니다.<br/><br/>4 TB 이상의 디스크에 대 한 Azure Backup 큰 디스크 지원의 제한 된 공개 미리 보기에 등록 하려면 [AZURE VM 백업 개요](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb)를 참조 하세요.
+Azure VM 데이터 디스크 수 | 16개 이하의 데이터 디스크가 있는 VM을 백업합니다. <br/><br/> 최대 4TB까지 디스크 크기를 지원합니다.<br/><br/>4 TB 이상의 디스크에 대 한 Azure Backup 큰 디스크 지원의 제한 된 공개 미리 보기에 등록 하려면이 [문서](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb)를 참조 하세요.
 데이터 디스크 크기 | 개별 디스크의 크기는 최대 4,095GB입니다.<br/><br/>4TB 30TB 보다 큰 디스크에 대 한 Azure Backup 큰 디스크 지원의 제한 된 공개 미리 보기에 등록 하려면이 [문서](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb)를 참조 하세요.
 스토리지 형식 | 표준 HDD, 표준 SSD, 프리미엄 SSD.
 관리 디스크 | 지원됩니다.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 617d19b0dd9da926eb49170c1566febc6f6280ba
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 833d8533ff3289693e1744db2d77d4bed6a9ea69
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467806"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617007"
 ---
 # <a name="work-with-azure-cosmos-account"></a>Azure Cosmos 계정 작업
 
@@ -25,7 +25,7 @@ Azure Cosmos 계정 내의 모든 데이터에 대 한 액세스를 안전 하 �
 
 ## <a name="elements-in-an-azure-cosmos-account"></a>Azure Cosmos 계정의 요소
 
-Azure Cosmos DB 컨테이너는 확장성을 위한 기본 단위입니다. 하나의 컨테이너는 무제한으로 프로비전된 처리량(RU/s)과 스토리지를 무제한으로 가질 수 있습니다. Azure Cosmos DB는 사용자가 지정한 논리 파티션을 사용하여 컨테이너를 투명하게 분할함으로써 프로비전된 처리량과 스토리지를 탄력적으로 확장합니다. 자세한 내용은 [Azure Cosmos 컨테이너와 항목으로 작업](databases-containers-items.md)을 참조하세요.
+Azure Cosmos 컨테이너는 확장성의 기본 단위입니다. 하나의 컨테이너는 무제한으로 프로비전된 처리량(RU/s)과 스토리지를 무제한으로 가질 수 있습니다. Azure Cosmos DB는 사용자가 지정한 논리 파티션을 사용하여 컨테이너를 투명하게 분할함으로써 프로비전된 처리량과 스토리지를 탄력적으로 확장합니다. 자세한 내용은 [Azure Cosmos 컨테이너와 항목으로 작업](databases-containers-items.md)을 참조하세요.
 
 Azure 구독을 사용하면 현재 Azure Cosmos 계정을 최대 100개까지 만들 수 있습니다. 하나의 Azure Cosmos 계정은 데이터와 프로비전된 처리량을 무제한으로 관리할 수 있습니다. 계정에서 하나 이상의 Azure Cosmos 데이터베이스를 만들고 이 데이터베이스 내에서 하나 이상의 컨테이너를 만들어서 데이터와 프로비전된 처리량을 관리할 수 있습니다. 다음 그림은 Azure Cosmos 계정의 요소 계층 구조를 보여 줍니다.
 

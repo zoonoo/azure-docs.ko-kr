@@ -6,12 +6,12 @@ ms.service: managed-applications
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 91dd661cf4900512390079751f400f6a9888c452
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 54eb2df06df56c33e1a3cd74e7a4a93c07aab682
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845912"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575674"
 ---
 # <a name="test-your-portal-interface-for-azure-managed-applications"></a>Azure Managed Applications에 대 한 포털 인터페이스 테스트
 
@@ -55,9 +55,9 @@ ms.locfileid: "68845912"
 * [PowerShell side-by-side 로드 스크립트-Azure 모듈](https://github.com/Azure/azure-quickstart-templates/blob/master/SideLoad-CreateUIDefinition.ps1)
 * [Azure CLI 테스트용으로 로드 스크립트](https://github.com/Azure/azure-quickstart-templates/blob/master/sideload-createuidef.sh)
 
-포털에서 인터페이스 파일을 보려면 다운로드한 스크립트를 실행합니다. 이 스크립트는 Azure 구독에 저장소 게정을 만들고 createUiDefinition.json 파일을 저장소 계정에 업로드합니다. 처음 스크립트를 실행하거나 저장소 계정이 삭제된 경우에만 저장소 계정이 생성됩니다. 저장소 계정이 Azure 구독에 이미 있는 경우 스크립트가 이를 다시 사용합니다. 스크립트에서 포털을 열고 저장소 계정에서 파일을 로드합니다.
+포털에서 인터페이스 파일을 보려면 다운로드한 스크립트를 실행합니다. 이 스크립트는 Azure 구독에 스토리지 게정을 만들고 createUiDefinition.json 파일을 스토리지 계정에 업로드합니다. 처음 스크립트를 실행하거나 스토리지 계정이 삭제된 경우에만 스토리지 계정이 생성됩니다. 스토리지 계정이 Azure 구독에 이미 있는 경우 스크립트가 이를 다시 사용합니다. 스크립트에서 포털을 열고 스토리지 계정에서 파일을 로드합니다.
 
-저장소 계정의 위치를 제공하고 createUiDefinition.json 파일이 있는 폴더를 지정합니다.
+스토리지 계정의 위치를 제공하고 createUiDefinition.json 파일이 있는 폴더를 지정합니다.
 
 PowerShell의 경우 다음을 사용합니다.
 
@@ -75,7 +75,7 @@ Azure CLI의 경우
   -a .\100-Marketplace-Sample
 ```
 
-createUiDefinition.json 파일이 스크립트와 동일한 폴더에 있고 저장소 계정을 이미 만든 경우 해당 매개 변수를 제공할 필요가 없습니다.
+createUiDefinition.json 파일이 스크립트와 동일한 폴더에 있고 스토리지 계정을 이미 만든 경우 해당 매개 변수를 제공할 필요가 없습니다.
 
 PowerShell의 경우 다음을 사용합니다.
 
@@ -91,7 +91,7 @@ Azure CLI의 경우
 
 이 스크립트는 브라우저에서 새 탭을 엽니다. 관리되는 애플리케이션을 만들기 위한 인터페이스가 있는 포털을 표시합니다.
 
-필드의 값을 제공합니다. 완료되면 값이 템플릿으로 전달됩니다.
+필드의 값을 제공합니다. 완료 되 면 브라우저의 개발자 도구 콘솔에서 찾을 수 있는 템플릿에 전달 되는 값이 표시 됩니다.
 
 ![값 표시](./media/test-createuidefinition/show-json.png)
 

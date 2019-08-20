@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dacurwin
-ms.openlocfilehash: eb9908fc7b2d4ecd8af8c2b4a65ab43352035ec5
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 18eacc914a30dc6004bef71e9d3910e170c43d9b
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69018905"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575133"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Azure Backup Server 설치 및 업그레이드
 > [!div class="op_single_selector"]
@@ -176,11 +176,10 @@ Windows Server 중복 제거를 사용하여 DPM 스토리지를 중복 제거�
     사용자 고유의 SQL 2017 인스턴스를 사용 하는 경우 SSRS를 수동으로 구성 해야 합니다. SSRS 구성 후 SSRS의 *IsInitialized* 속성이 *True*로 설정되었는지 확인합니다. True로 설정하면 MABS는 SSRS가 이미 구성되어 있다고 가정하고 SSRS 구성을 건너뜁니다.
 
     SSRS 구성에 대해 다음 값을 사용합니다. 
-
-        - Service Account: ‘Use built-in account’ should be Network Service
-        - Web Service URL: ‘Virtual Directory’ should be ReportServer_<SQLInstanceName>
-        - Database: DatabaseName should be ReportServer$<SQLInstanceName>
-        - Web Portal URL: ‘Virtual Directory’ should be Reports_<SQLInstanceName>
+    - 서비스 계정: ' 기본 제공 계정 사용 '은 네트워크 서비스 여야 합니다.
+    - 웹 서비스 URL: ' 가상 디렉터리 '는 ReportServer_ 여야 합니다.<SQLInstanceName>
+    - 데이터 DatabaseName은 ReportServer $ 여야 합니다.<SQLInstanceName>
+    - 웹 포털 URL: ' 가상 디렉터리 '는 Reports_ 여야 합니다.<SQLInstanceName>
 
     SSRS 구성에 대해 [자세히 알아봅니다](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017).
 
@@ -278,11 +277,11 @@ Azure 연결 및 Azure 구독 상태를 알고 있다면 아래 표를 사용하
 
 | 연결 상태 | Azure 구독 | Azure에 백업 | 디스크에 백업 | Azure에서 복구 | 디스크에서 복구 |
 | --- | --- | --- | --- | --- | --- |
-| 연결됨 |Active |허용함 |허용됨 |허용됨 |허용함 |
-| 연결됨 |만료됨 |중지됨 |중지됨 |허용함 |허용함 |
+| 연결됨 |Active |Allowed |허용됨 |허용됨 |Allowed |
+| 연결됨 |만료됨 |중지됨 |중지됨 |Allowed |Allowed |
 | 연결됨 |프로비전 해제됨 |중지됨 |중지됨 |중지되고 Azure 복구 지점 삭제됨 |중지됨 |
-| 손실된 연결 > 15일 |활성 |중지됨 |중지됨 |허용함 |허용함 |
-| 손실된 연결 > 15일 |만료됨 |중지됨 |중지됨 |허용함 |허용함 |
+| 손실된 연결 > 15일 |활성 |중지됨 |중지됨 |Allowed |Allowed |
+| 손실된 연결 > 15일 |만료됨 |중지됨 |중지됨 |Allowed |Allowed |
 | 손실된 연결 > 15일 |프로비전 해제됨 |중지됨 |중지됨 |중지되고 Azure 복구 지점 삭제됨 |중지됨 |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>연결 끊김 복구

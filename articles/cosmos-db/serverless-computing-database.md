@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: sngun
-ms.openlocfilehash: 3bf89cd3ec0822cee2a3ebcf76de4193046462f9
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: e1014c710d892e45f09999db22b1f59c0bb36300
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335894"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614593"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Azure Cosmos DB 및 Azure Functions를 사용하는 서버리스 데이터베이스 컴퓨팅
 
@@ -23,9 +23,9 @@ ms.locfileid: "68335894"
 
 Azure Cosmos DB 및 Azure Functions를 사용하면 다음과 같은 방법으로 데이터베이스와 서버를 사용하지 않는 앱을 통합할 수 있습니다.
 
-* **Cosmos DB에 대 한 이벤트 구동 Azure Functions 트리거**를 만듭니다. 이 트리거는 [변경 피드](change-feed.md) 스트림을 사용하여 Azure Cosmos DB 컨테이너에서 변경 내용을 모니터링합니다. 컨테이너를 변경하면 변경 피드 스트림이 트리거로 전송되고, 트리거가 Azure Functions를 호출합니다.
-* 또는 **입력 바인딩**을 사용하여 Azure Functions를 Azure Cosmos DB 컨테이너에 바인딩합니다. 입력 바인딩은 함수가 실행될 때 컨테이너에서 데이터를 읽습니다.
-* **출력 바인딩**을 사용하여 함수를 Azure Cosmos DB 컨테이너에 바인딩합니다. 출력 바인딩은 함수가 완료될 때 컨테이너에 데이터를 씁니다.
+* **Cosmos DB에 대 한 이벤트 구동 Azure Functions 트리거**를 만듭니다. 이 트리거는 [변경 피드](change-feed.md) 스트림을 사용 하 여 Azure Cosmos 컨테이너에서 변경 내용을 모니터링 합니다. 컨테이너를 변경하면 변경 피드 스트림이 트리거로 전송되고, 트리거가 Azure Functions를 호출합니다.
+* 또는 **입력 바인딩을**사용 하 여 azure Cosmos 컨테이너에 azure Function을 바인딩합니다. 입력 바인딩은 함수가 실행될 때 컨테이너에서 데이터를 읽습니다.
+* **출력 바인딩을**사용 하 여 Azure Cosmos 컨테이너에 함수를 바인딩합니다. 출력 바인딩은 함수가 완료될 때 컨테이너에 데이터를 씁니다.
 
 > [!NOTE]
 > 현재 Cosmos DB에 대 한 Azure Functions 트리거, 입력 바인딩 및 출력 바인딩은 SQL API 에서만 사용 하도록 지원 됩니다. 다른 모든 Azure Cosmos DB API의 경우 API에 정적 클라이언트를 사용하여 함수에서 데이터베이스에 액세스해야 합니다.
@@ -37,9 +37,9 @@ Azure Cosmos DB 및 Azure Functions를 사용하면 다음과 같은 방법으�
 
 Azure Cosmos DB에 대 한 Azure Functions 트리거, 입력 바인딩 및 출력 바인딩을 다음 조합으로 사용할 수 있습니다.
 
-* Cosmos DB에 대 한 Azure Functions 트리거를 다른 Azure Cosmos DB 컨테이너에 대 한 출력 바인딩과 함께 사용할 수 있습니다. 함수가 변경 피드의 항목에 대해 작업을 수행하는 경우 다른 컨테이너에 쓸 수 있습니다(원본 컨테이너와 동일한 컨테이너에 쓰면 재귀 루프가 생성됨). 또는 출력 바인딩을 사용 하 여 Cosmos DB에 대 한 Azure Functions 트리거를 사용 하 여 모든 변경 된 항목을 한 컨테이너에서 다른 컨테이너로 효과적으로 마이그레이션할 수 있습니다.
+* Cosmos DB에 대 한 Azure Functions 트리거를 다른 Azure Cosmos 컨테이너에 대 한 출력 바인딩과 함께 사용할 수 있습니다. 함수가 변경 피드의 항목에 대해 작업을 수행하는 경우 다른 컨테이너에 쓸 수 있습니다(원본 컨테이너와 동일한 컨테이너에 쓰면 재귀 루프가 생성됨). 또는 출력 바인딩을 사용 하 여 Cosmos DB에 대 한 Azure Functions 트리거를 사용 하 여 모든 변경 된 항목을 한 컨테이너에서 다른 컨테이너로 효과적으로 마이그레이션할 수 있습니다.
 * Azure Cosmos DB에 대한 입력 바인딩 및 출력 바인딩을 동일한 Azure Functions에 사용할 수 있습니다. 이 기능은 입력 바인딩을 사용하여 특정 데이터를 찾고 Azure Functions에서 수정한 다음 수정 후 동일한 컨테이너 또는 다른 컨테이너에 저장하려는 경우에 효과적입니다.
-* Azure Cosmos DB 컨테이너에 대 한 입력 바인딩은 Cosmos DB에 대 한 Azure Functions 트리거와 동일한 함수에서 사용할 수 있으며 출력 바인딩과 함께 또는 사용 하지 않을 수도 있습니다. 이 조합을 사용하여 입력 바인딩과 함께 환율 컨테이너로 가져온 최신 통화 환율 정보를 쇼핑 카트 서비스의 새 주문 변경 피드에 적용할 수 있습니다. 출력 바인딩을 사용하여 현재 통화 변환이 적용된 업데이트된 쇼핑 카트 합계를 세 번째 컨테이너에 쓸 수 있습니다.
+* Azure Cosmos 컨테이너에 대 한 입력 바인딩은 Cosmos DB에 대 한 Azure Functions 트리거와 동일한 함수에서 사용 될 수 있으며, 출력 바인딩과 함께 또는 없이도 사용할 수 있습니다. 이 조합을 사용하여 입력 바인딩과 함께 환율 컨테이너로 가져온 최신 통화 환율 정보를 쇼핑 카트 서비스의 새 주문 변경 피드에 적용할 수 있습니다. 출력 바인딩을 사용하여 현재 통화 변환이 적용된 업데이트된 쇼핑 카트 합계를 세 번째 컨테이너에 쓸 수 있습니다.
 
 ## <a name="use-cases"></a>사용 사례
 
@@ -57,7 +57,7 @@ IoT 구현에서는 검사 엔진 라이트가 커넥티드 자동차에 표시�
 4. 변경 피드를 통해 모든 변경 내용이 스트리밍되기 때문에 센서 데이터 컬렉션에 대한 데이터 변경 시마다 트리거가 호출됩니다.
 5. 임계값 조건은 센서 데이터를 보증 부서에 보내기 위해 함수에 사용됩니다.
 6. 또한 온도가 특정 값을 초과하는 경우 소유자에게도 경고가 전송됩니다.
-7. 함수의 **출력 바인딩**은 다른 Azure Cosmos DB 컨테이너의 자동차 레코드를 업데이트하여 검사 엔진 이벤트에 대한 정보를 저장합니다.
+7. 함수의 **출력 바인딩은** 다른 Azure Cosmos 컨테이너의 car 레코드를 업데이트 하 여 검사 엔진 이벤트에 대 한 정보를 저장 합니다.
 
 다음 그림은 Azure Portal에서 이 트리거에 대해 기록되는 코드를 보여 줍니다.
 
@@ -69,7 +69,7 @@ IoT 구현에서는 검사 엔진 라이트가 커넥티드 자동차에 표시�
 
 **구현:** Azure Cosmos DB 입력 바인딩을 사용하는 타이머 트리거
 
-1. [타이머 트리거](../azure-functions/functions-bindings-timer.md)를 사용하여 **입력 바인딩**을 통해 일정 시간 간격마다 Azure Cosmos DB 컨테이너에 저장된 은행 계좌 잔액 정보를 검색할 수 있습니다.
+1. [타이머 트리거](../azure-functions/functions-bindings-timer.md)를 사용 하 여 **입력 바인딩을**사용 하 여 일정 한 간격으로 Azure Cosmos 컨테이너에 저장 된 은행 계좌 잔액 정보를 검색할 수 있습니다.
 2. 잔액이 사용자가 설정한 잔액 임계값 하한 아래에 있을 경우 Azure Functions에서 후속 작업을 수행합니다.
 3. 출력 바인딩은 서비스 계정의 메일을 낮은 잔액 계정 각각에 대해 식별된 메일 주소로 보내는 [SendGrid 통합](../azure-functions/functions-bindings-sendgrid.md)일 수 있습니다.
 
@@ -118,7 +118,7 @@ Azure Cosmos DB와 Azure Functions 간의 네이티브 통합은 Azure Portal �
 
 ## <a name="why-choose-azure-functions-integration-for-serverless-computing"></a>서버를 사용하지 않는 컴퓨팅에 대해 Azure Functions 통합을 선택하는 이유
 
-Azure Functions는 인프라를 프로비전 또는 관리하지 않고 요청 시 실행할 수 있는 확장 가능한 작업 단위나 간결한 논리 항목을 만들 수 있는 기능을 제공합니다. Azure Functions를 사용하면 Azure Cosmos DB 데이터베이스의 변경 내용에 응답할 완전한 앱을 만들 필요가 없으며 특정 작업에 대한 다시 사용 가능한 작은 함수를 만들 수 있습니다. 또한 HTTP 요청, 시간이 지정된 트리거 등의 이벤트에 대한 응답으로 Azure Cosmos DB 데이터를 Azure Functions에 대한 입력 또는 출력으로 사용할 수도 있습니다.
+Azure Functions는 인프라를 프로비전 또는 관리하지 않고 요청 시 실행할 수 있는 확장 가능한 작업 단위나 간결한 논리 항목을 만들 수 있는 기능을 제공합니다. Azure Functions를 사용 하 여 Azure Cosmos 데이터베이스의 변경 내용에 응답 하는 완전 한 응용 프로그램을 만들 필요가 없습니다. 특정 작업에 대해 재사용 가능한 작은 기능을 만들 수 있습니다. 또한 HTTP 요청, 시간이 지정된 트리거 등의 이벤트에 대한 응답으로 Azure Cosmos DB 데이터를 Azure Functions에 대한 입력 또는 출력으로 사용할 수도 있습니다.
 
 Azure Cosmos DB는 다음과 같은 이유로 서버를 사용하지 않는 컴퓨팅 아키텍처에 권장되는 데이터베이스입니다.
 

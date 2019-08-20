@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 08/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: 77cfde8cc9c6556b907f1185f451c70c8c8e888d
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 2e6036c5f29614f2e91278b693c07dc3dc8595f2
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534059"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575474"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Azure Portal(클래식)을 사용하여 사이트 간 연결 만들기
 
@@ -39,7 +39,7 @@ ms.locfileid: "69534059"
 * 호환되는 VPN 디바이스 및 이 디바이스를 구성할 수 있는 사람이 있는지 확인합니다. 호환되는 VPN 디바이스 및 디바이스 구성에 대한 자세한 내용은 [VPN 디바이스 정보](vpn-gateway-about-vpn-devices.md)를 참조하세요.
 * VPN 디바이스에 대한 외부 연결 공용 IPv4 주소가 있는지 확인합니다.
 * 온-프레미스 네트워크에 있는 IP 주소 범위에 익숙하지 않은 경우 세부 정보를 제공할 수 있는 다른 사람의 도움을 받아야 합니다. 이 구성을 만들 때 Azure가 온-프레미스 위치에 라우팅할 IP 주소 범위 접두사를 지정해야 합니다. 온-프레미스 네트워크의 어떤 서브넷도 사용자가 연결하려는 가상 네트워크 서브넷과 중첩될 수 없습니다.
-* 현재 공유 키를 지정하고 VPN Gateway 연결을 만드는 데 PowerShell이 필요합니다. 최신 버전의 Azure SM(서비스 관리) PowerShell cmdlet을 설치합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요. 이 구성에 PowerShell을 사용할 때 관리자 권한으로 실행되고 있는지 확인합니다.
+* 현재 공유 키를 지정하고 VPN Gateway 연결을 만드는 데 PowerShell이 필요합니다. 최신 버전의 Azure SM(서비스 관리) PowerShell cmdlet을 설치합니다. Cmdlet을 설치 하려면 [서비스 관리](/powershell/azure/servicemanagement/install-azure-ps)를 참조 하세요. 일반적인 PowerShell 설치에 대 한 자세한 내용은 [Azure PowerShell 설치 및 구성 하는 방법](/powershell/azure/overview)을 참조 하세요. 이 구성에 PowerShell을 사용할 때 관리자 권한으로 실행되고 있는지 확인합니다.
 
 ### <a name="values"></a>이 연습에 대한 샘플 구성 값
 
@@ -159,6 +159,12 @@ VPN Gateway의 게이트웨이 서브넷을 만들어야 합니다. 게이트웨
 
 ### <a name="step-1-connect-to-your-azure-account"></a>1단계. Azure 계정에 연결
 
+PowerShell 서비스 관리 모듈을 사용 하 여 이러한 명령을 로컬로 실행 해야 합니다. 서비스 관리로 전환 하려면 다음 명령을 사용 합니다.
+
+```powershell
+azure config mode asm
+```
+
 1. 상승된 권한으로 PowerShell 콘솔을 열고 계정에 연결합니다. 연결에 도움이 되도록 다음 예제를 사용합니다.
 
    ```powershell
@@ -177,18 +183,14 @@ VPN Gateway의 게이트웨이 서브넷을 만들어야 합니다. 게이트웨
 
 ### <a name="step-2-set-the-shared-key-and-create-the-connection"></a>2단계. 공유 키 설정 및 연결 만들기
 
-PowerShell 및 클래식 배포 모델을 사용하는 경우 포털에 있는 리소스의 이름은 종종 PowerShell을 사용하는 경우에 Azure에서 예상하는 이름이 아닐 수 있습니다. 다음 단계에서는 네트워크 구성 파일을 내보내어 이름의 정확한 값을 가져올 수 있습니다. PowerShell 서비스 관리 모듈을 사용 하 여 이러한 명령을 로컬로 실행 해야 합니다. 서비스 관리로 전환 하려면 다음 명령을 사용 합니다.
-
-```powershell
-azure config mode asm
-```
+PowerShell을 사용 하지 않고 포털에서 클래식 VNet을 만들면 Azure에서 짧은 이름에 리소스 그룹 이름을 추가 합니다. 예를 들어 Azure에 따르면이 연습을 위해 만든 VNet의 이름은 "TestVNet1"가 아닌 "Group TestRG1 TestVNet1"입니다. PowerShell에는 포털에 표시 되는 짧은 이름이 아니라 가상 네트워크의 전체 이름이 필요 합니다. 긴 이름은 포털에 표시 되지 않습니다. 다음 단계는 네트워크 구성 파일을 내보내 가상 네트워크 이름에 대 한 정확한 값을 가져오는 데 도움이 됩니다. 
 
 1. 컴퓨터에 디렉터리를 만들고 디렉터리에 네트워크 구성 파일을 내보냅니다. 이 예제에서는 네트워크 구성 파일을 C:\AzureNet으로 내보냅니다.
 
    ```powershell
    Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
    ```
-2. xml 편집기에서 네트워크 구성 파일을 열고 'LocalNetworkSite 이름' 및 'VirtualNetworkSite 이름'의 값을 확인합니다. 필요한 값을 반영하도록 예제를 수정합니다. 공백이 포함된 이름을 지정할 때는 값을 작은따옴표로 묶습니다.
+2. xml 편집기에서 네트워크 구성 파일을 열고 'LocalNetworkSite 이름' 및 'VirtualNetworkSite 이름'의 값을 확인합니다. 이 연습에 대 한 예제를 수정 하 여 xml의 값을 반영 합니다. 공백이 포함된 이름을 지정할 때는 값을 작은따옴표로 묶습니다.
 
 3. 공유 키를 설정하고 연결을 만듭니다. '-SharedKey'는 사용자가 생성하고 지정하는 값입니다. 이 예제에서는 'abc123'을 사용했지만 좀 더 복잡한 항목을 생성하여 사용할 수 있습니다. 중요한 점은 여기에서 지정한 값이 VPN 디바이스를 구성하는 경우 지정한 것과 동일한 값이어야 한다는 것입니다.
 

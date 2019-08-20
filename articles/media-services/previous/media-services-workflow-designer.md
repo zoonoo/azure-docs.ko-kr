@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: anilmur
 ms.reviewer: juliako;johndeu
-ms.openlocfilehash: 246a1461973dba129a5b1d12be8a09703eb99267
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: c5aa7af1ca6f4fe0768add47d2037d797e4ef99b
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69015968"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69613235"
 ---
 # <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>워크플로 디자이너와 고급 Encoding 워크플로 만들기  
 ## <a name="overview"></a>개요
@@ -87,7 +87,7 @@ Media Services 학습 경로를 검토합니다.
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-지원이 필요하거나 Workflow Designer 도구에서 사용자 지정 워크플로를 만드는 방법에 대해 질문이 있는 경우 mepd@microsoft.com로 메일을 보내주세요.
+지원이 필요하거나 Workflow Designer 도구에서 사용자 지정 워크플로를 만드는 방법에 대해 질문이 있는 경우 mepd@microsoft.com로 메일을 보내주세요. 전자 메일을 작성 하는 경우 영어를 사용 하세요.
 
 ## <a name="see-also"></a>참고 항목
 [Azure Premium 인코더 워크플로 디자이너 교육 비디오](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)

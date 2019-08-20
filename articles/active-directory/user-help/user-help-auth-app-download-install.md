@@ -13,12 +13,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1ee54fac5a4c325ea5db3b97522fd2772b8dbd4
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 15ecdf0feb0d8e5307eac9916748e0bacdf51620
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382419"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616040"
 ---
 # <a name="download-and-install-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱 다운로드 및 설치
 
@@ -52,7 +52,7 @@ Microsoft Authenticator 앱은 다음을 비롯한 여러 가지 방법으로 �
 - **Apple iOS** Apple iOS 디바이스에서 App Store로 이동하여 [Microsoft Authenticator 앱을 다운로드 및 설치](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458)합니다.
 
 >[!Important]
->현재 모바일 장치에 있지 않은 경우에도 [Microsoft Authenticator 페이지](https://www.microsoft.com/en-us/account/authenticator)에서 다운로드 링크를 보내 Microsoft Authenticator 앱을 가져올 수 있습니다.
+>현재 모바일 장치에 있지 않은 경우에도 [Microsoft Authenticator 페이지](https://www.microsoft.com/account/authenticator)에서 다운로드 링크를 보내 Microsoft Authenticator 앱을 가져올 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

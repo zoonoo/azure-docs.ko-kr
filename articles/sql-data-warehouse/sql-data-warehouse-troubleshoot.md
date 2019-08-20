@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 7/29/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 04d63b2c1583228a274c0ba21c87df08886f5cdb
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: a6a6fdf6e63bf8c063f8dd6f23ae380e9ce7b98d
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619075"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575520"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse 문제 해결
 이 문서에서는 일반적인 문제 해결 질문을 나열합니다.
@@ -24,7 +24,7 @@ ms.locfileid: "68619075"
 | 문제점                                                        | 해결 방법                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | 'NT AUTHORITY\ANONYMOUS LOGON' 사용자에 대해 로그인 실패 (Microsoft SQL Server, 오류: 18456) | 이 오류는 AAD 사용자가 마스터 데이터베이스에 연결하려고 하는데 마스터에 사용자가 없는 경우에 발생합니다.  이 문제를 해결하려면 연결 시에 연결하려는 SQL Data Warehouse를 지정하거나 마스터 데이터베이스에 사용자를 추가합니다.  자세한 내용은 [보안 개요][Security overview] 를 참조하세요. |
-| 현재 보안 컨텍스트로는 서버 보안 주체 "MyUserName" 이(가) 데이터베이스 "master" 에 액세스할 수 없습니다. 사용자 기본 데이터베이스를 열 수 없습니다. 로그인에 실패했습니다. 사용자 'MyUserName'에 대한 로그인이 실패했습니다. (Microsoft SQL Server, 오류: 916) | 이 오류는 AAD 사용자가 마스터 데이터베이스에 연결하려고 하는데 마스터에 사용자가 없는 경우에 발생합니다.  이 문제를 해결하려면 연결 시에 연결하려는 SQL Data Warehouse를 지정하거나 마스터 데이터베이스에 사용자를 추가합니다.  자세한 내용은 [보안 개요][Security overview] 를 참조하세요. |
+| 현재 보안 컨텍스트로는 서버 보안 주체 "MyUserName" 이(가) 데이터베이스 "master" 에 액세스할 수 없습니다. 사용자 기본 데이터베이스를 열 수 없습니다. 로그인이 실패했습니다. 사용자 'MyUserName'에 대한 로그인이 실패했습니다. (Microsoft SQL Server, 오류: 916) | 이 오류는 AAD 사용자가 마스터 데이터베이스에 연결하려고 하는데 마스터에 사용자가 없는 경우에 발생합니다.  이 문제를 해결하려면 연결 시에 연결하려는 SQL Data Warehouse를 지정하거나 마스터 데이터베이스에 사용자를 추가합니다.  자세한 내용은 [보안 개요][Security overview] 를 참조하세요. |
 | CTAIP 오류                                                  | 이 오류는 로그인이 SQL Data Warehouse 데이터베이스가 아닌 SQL 서버 마스터 데이터베이스에서 만들어진 경우에 발생할 수 있습니다.  이 오류가 발생하는 경우 [보안 개요][Security overview] 문서를 살펴보세요.  이 문서에서는 마스터 데이터베이스에서 로그인과 사용자를 만드는 방법과 SQL Data Warehouse 데이터베이스에서 사용자를 만드는 방법을 차례로 설명합니다. |
 | 방화벽에서 차단됨                                          | Azure SQL 데이터베이스가 알려진 IP 주소만 데이터베이스에 액세스할 수 있도록 서버 및 데이터베이스 수준 방화벽으로 보호됩니다. 방화벽은 기본적으로 안전하며 이는 연결하기 전에 IP 주소 또는 주소 범위를 명시적으로 설정해야 한다는 의미입니다.  액세스를 위해 방화벽을 구성 하려면 [프로 비전 지침][Provisioning instructions]의 [클라이언트 IP에 대 한 서버 방화벽 액세스 구성][Configure server firewall access for your client IP] 의 단계를 따르세요. |
 | 도구 또는 드라이버에 연결할 수 없음                           | SQL Data Warehouse [SSMS][SSMS], [Visual Studio 용 SSDT][SSDT for Visual Studio]또는 [sqlcmd][sqlcmd] 를 사용 하 여 데이터를 쿼리 하는 것이 좋습니다. 드라이버에 대 한 자세한 내용 및 SQL Data Warehouse에 연결 하는 방법에 대 한 자세한 내용은 [Azure SQL Data Warehouse 드라이버][Drivers for Azure SQL Data Warehouse] 및 [Azure SQL Data Warehouse 문서에 연결][Connect to Azure SQL Data Warehouse] 을 참조 하세요. |
@@ -34,7 +34,7 @@ ms.locfileid: "68619075"
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Visual Studio 개체 탐색기에 AAD 사용자가 없음           | 이는 알려진 문제입니다.  해결 방법으로 [sys.database_principals][sys.database_principals]에서 사용자를 봅니다.  SQL Data Warehouse에서 Azure Active Directory를 사용하는 방법에 대한 자세한 내용을 [Azure SQL Data Warehouse에 대한 인증][Authentication to Azure SQL Data Warehouse] 을 참조하세요. |
 | 수동 스크립팅, 스크립팅 마법사 사용 또는 SSMS를 통한 연결 속도가 느리거나 응답 하지 않거나 오류를 생성 하는 경우 | 사용자가 master 데이터베이스에서 만들어졌는지 확인합니다. 스크립팅 옵션에서 엔진 버전이 “Microsoft Azure SQL Data Warehouse 버전”으로 설정되고 엔진 유형이 “Microsoft Azure SQL Database”로 설정되어 있는지도 확인합니다. |
-| SSMS에서 스크립트 생성 실패                               | "종속 개체에 대한 스크립트 생성" 옵션이 "True"로 설정된 경우 SQL 데이터 웨어하우스용 스크립트 생성이 실패합니다. 이 문제를 해결하려면 사용자가 수동으로 도구 -> 옵션 -> SQL Server 개체 탐색기 -> 종속 개체에 대한 스크립트 생성 옵션으로 이동하여 false로 설정해야 합니다 |
+| SSMS에서 스크립트 생성 실패                               | "종속 개체에 대 한 스크립트 생성" 옵션을 "True"로 설정 하면 SQL Data Warehouse에 대 한 스크립트를 생성할 수 없습니다. 이 문제를 해결하려면 사용자가 수동으로 도구 -> 옵션 -> SQL Server 개체 탐색기 -> 종속 개체에 대한 스크립트 생성 옵션으로 이동하여 false로 설정해야 합니다 |
 
 ## <a name="performance"></a>성능
 | 문제점                                                        | 해결 방법                                                   |

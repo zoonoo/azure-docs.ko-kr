@@ -10,12 +10,12 @@ ms.subservice: load-data
 ms.date: 07/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 30b4009b2f52f4949a380f0fc51b02f94c98d966
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: f81a19631b29954f9bd3da55a4b332e37746152e
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304288"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69574942"
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>자습서: Azure SQL Data Warehouse에 데이터 로드
 
@@ -44,9 +44,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="create-a-blank-sql-data-warehouse"></a>빈 SQL Data Warehouse 만들기
 
-Azure SQL Database가 정의된 [컴퓨팅 리소스](memory-and-concurrency-limits.md)를 사용하여 만들어집니다. 데이터베이스는 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 및 [Azure SQL 논리 서버](../sql-database/sql-database-features.md)에서 만들어집니다. 
+정의 된 [계산 리소스](memory-and-concurrency-limits.md)집합을 사용 하 여 Azure SQL Data Warehouse를 만듭니다. 데이터베이스는 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 및 [Azure SQL 논리 서버](../sql-database/sql-database-features.md)에 생성됩니다. 
 
-빈 SQL Data Database를 만들려면 다음 단계를 수행합니다. 
+빈 SQL Data Warehouse를 만들려면 다음 단계를 수행 합니다. 
 
 1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 클릭합니다.
 
@@ -56,7 +56,7 @@ Azure SQL Database가 정의된 [컴퓨팅 리소스](memory-and-concurrency-lim
 
 3. 다음 정보로 SQL Data Warehouse 양식을 작성합니다.   
 
-   | 설정 | 제안된 값 | Description | 
+   | 설정 | 제안된 값 | 설명 | 
    | ------- | --------------- | ----------- | 
    | **데이터베이스 이름** | SampleDW | 유효한 데이터베이스 이름은 [데이터베이스 식별자](/sql/relational-databases/databases/database-identifiers)를 참조하세요. | 
    | **구독** | 사용자의 구독  | 구독에 대한 자세한 내용은 [구독](https://account.windowsazure.com/Subscriptions)을 참조하세요. |
@@ -1098,9 +1098,9 @@ SQL Data Warehouse는 각 Compute 노드에 데이터를 캐시하여 테이블�
 
     ![리소스 정리](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. 데이터를 스토리지에 보관하려는 경우 데이터 웨어하우스를 사용하지 않을 때 계산을 일시 중지할 수 있습니다. 계산을 일시 중지 하면 데이터 저장소에 대해서만 요금이 부과 되며, 데이터를 사용할 준비가 되 면 언제 든 지 계산을 다시 시작할 수 있습니다. 컴퓨팅을 일시 중지하려면 **일시 중지** 단추를 클릭합니다. 데이터 웨어하우스가 일시 중지되면 **시작** 단추가 표시됩니다.  컴퓨팅을 재개하려면 **시작**을 클릭합니다.
+2. 데이터를 스토리지에 보관하려는 경우 데이터 웨어하우스를 사용하지 않을 때 컴퓨팅을 일시 중지할 수 있습니다. 계산을 일시 중지 하면 데이터 저장소에 대해서만 요금이 부과 되며, 데이터를 사용할 준비가 되 면 언제 든 지 계산을 다시 시작할 수 있습니다. 컴퓨팅을 일시 중지하려면 **일시 중지** 단추를 클릭합니다. 데이터 웨어하우스가 일시 중지되면 **시작** 단추가 표시됩니다.  컴퓨팅을 재개하려면 **시작**을 클릭합니다.
 
-3. 앞으로 요금이 부과되지 않게 하려면 데이터 웨어하우스를 삭제하면 됩니다. 계산 또는 스토리지에 대한 요금이 청구되지 않도록 데이터 웨어하우스를 제거하려면 **삭제**를 클릭합니다.
+3. 앞으로 요금이 부과되지 않게 하려면 데이터 웨어하우스를 삭제하면 됩니다. 컴퓨팅 또는 스토리지에 대한 요금이 청구되지 않도록 데이터 웨어하우스를 제거하려면 **삭제**를 클릭합니다.
 
 4. 만든 SQL 서버를 제거하려면 이전 이미지에서 **sample-svr.database.windows.net**을 클릭한 다음, **삭제**를 클릭합니다.  서버를 삭제하면 서버에 할당된 모든 데이터베이스가 삭제되므로 주의해야 합니다.
 

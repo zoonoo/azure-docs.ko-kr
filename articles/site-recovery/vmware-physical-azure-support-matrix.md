@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: raynew
-ms.openlocfilehash: 65c330a9b2dcc97160280daede926573fdef4c00
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: fd24d0d9f05855cf22da547f95b16da0a8d2c788
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679371"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617637"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>VMware VM 또는 물리적 서버와 Azure 간 재해 복구를 위한 지원 매트릭스
 
@@ -113,15 +113,15 @@ SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | [9.25][9.25 UR] | SP1 3.1
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | [9.24][9.24 UR] | SP1 3.12.49-11-default에서 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default에서 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default에서 4.4.120-92.70-default</br></br>SP2 (LTSS) 4.4.121-92.73-default to 4.4.121-92.101-default</br></br>SP3 4.4.73-기본값-4.4.175-94.79-default</br></br>SP4 4.12.14-94.41-default to 4.12.14-95.6-default |
 
 
-## <a name="linux-file-systemsguest-storage"></a>Linux 파일 시스템/게스트 저장소
+## <a name="linux-file-systemsguest-storage"></a>Linux 파일 시스템/게스트 스토리지
 
 **구성 요소** | **지원됨**
 --- | ---
 파일 시스템 | ext3, ext4, XFS
 볼륨 관리자 | -LVM이 지원 됩니다.<br/> -LVM의/boot는 [업데이트 롤업 31](https://support.microsoft.com/help/4478871/) (모바일 서비스 버전 9.20)부터 지원 됩니다. 이전 모바일 서비스 버전에서는 지원 되지 않습니다.<br/> -여러 OS 디스크가 지원 되지 않습니다.
-반가상화 저장 디바이스 | 반가상화 드라이버에서 내보낸 디바이스는 지원되지 않습니다.
+반가상화 스토리지 디바이스 | 반가상화 드라이버에서 내보낸 디바이스는 지원되지 않습니다.
 다중 큐 블록 IO 디바이스 | 지원되지 않습니다.
-HP CCISS 저장소 컨트롤러가 있는 물리적 서버 | 지원되지 않습니다.
+HP CCISS 스토리지 컨트롤러가 있는 물리적 서버 | 지원되지 않습니다.
 디바이스/탑재 지점 명명 규칙 | 디바이스 이름과 탑재 지점 이름은 고유해야 합니다.<br/> 이름에 대/소문자를 구분 하는 두 개의 장치/탑재 지점이 없는지 확인 합니다. 예를 들어 *장치 1* 및 *장치 1* 와 동일한 VM에 대 한 장치 이름을 지정 하는 것은 지원 되지 않습니다.
 디렉터리 | 버전 9.20 이전 버전의 모바일 서비스를 실행 하는 경우 ( [업데이트 롤업 31](https://support.microsoft.com/help/4478871/)에서 출시) 다음 제한이 적용 됩니다.<br/><br/> -이러한 디렉터리 (별도의 파티션/파일 시스템으로 설정 된 경우)는 원본 서버의 동일한 OS 디스크에 있어야 합니다./(root),/boot,/usr,/usr/local,/var,/etc</br> -/Boot 디렉터리는 디스크 파티션에 있어야 하며 LVM 볼륨이 아니어야 합니다.<br/><br/> 버전 9.20 부터는 이러한 제한이 적용 되지 않습니다. 
 루트 디렉터리 | -부팅 디스크는 GPT 파티션 형식 되어서는 안됩니다. 이것은 Azure 아키텍처의 제한 사항입니다. GPT 디스크는 데이터 디스크로 지원 됩니다.<br/><br/> VM의 여러 부팅 디스크가 지원 되지 않음<br/><br/> -두 개 이상의 디스크에서 LVM 볼륨의/boot 지원 되지 않습니다.<br/> -부팅 디스크가 없는 컴퓨터는 복제할 수 없습니다.
@@ -181,14 +181,14 @@ Docker 디스크 구성 | 아니요
 게스트/서버 공유 클러스터 디스크 | 아니요
 게스트/서버 암호화된 디스크 | 아니요
 게스트/서버 NFS | 아니요
-게스트/서버 iSCSI | 아니요
+게스트/서버 iSCSI | 마이그레이션-예<br/>재해 복구의 경우 iSCSI는 VM에 연결 된 디스크로 장애 복구 (failback) 합니다.
 게스트/서버 SMB 3.0 | 아니요
 게스트/서버 RDM | 예<br/><br/> 물리적 서버의 경우 해당 없음
 게스트/서버 디스크 > 1 TB | 예, 디스크가 1024 MB 보다 커야 합니다.<br/><br/>관리 디스크에 복제 하는 경우 최대 8192 GB (9.26 버전 이상)<br></br> 저장소 계정에 복제 하는 경우 최대 4095 GB
 4K 논리적 및 4k 물리적 섹터 크기 포함 게스트/서버 디스크 | 아니요
 4K 논리 및 512 바이트의 실제 섹터 크기를 포함 하는 게스트/서버 디스크 | 아니요
 스트라이프 디스크 포함 게스트/서버 볼륨 4TB 이상 <br/><br/>논리 볼륨 관리(LVM)| 예
-게스트/서버 - 저장소 공간 | 아니요
+게스트/서버 - 스토리지 공간 | 아니요
 게스트/서버 디스크 핫 추가/제거 | 아니요
 게스트/서버 - 디스크 제외 | 예
 게스트/서버 다중 경로(MPIO) | 아니요
@@ -207,11 +207,11 @@ Docker 디스크 구성 | 아니요
 
 **구성 요소** | **지원됨**
 --- | ---
-로컬 중복 저장소 | 예
-지역 중복 저장소 | 예
-읽기 액세스 지역 중복 저장소 | 예
-쿨 저장소 | 아니요
-핫 저장소| 아니요
+로컬 중복 스토리지 | 예
+지역 중복 스토리지 | 예
+읽기 액세스 지역 중복 스토리지 | 예
+쿨 스토리지 | 아니요
+핫 스토리지| 아니요
 블록 Blob | 아니요
 미사용 암호화 (SSE)| 예
 Premium Storage | 예
@@ -279,7 +279,7 @@ VM의 모든 디스크에 대한 최고 데이터 변동률 | 54MB/초
 --- | ---
 리소스 그룹 간 자격 증명 모음 이동 | 아니요
 구독 내 및 구독 간에 자격 증명 모음 이동 | 아니요
-저장소 그룹 간 저장소, 네트워크, Azure VM 이동 | 아니요
+스토리지 그룹 간 스토리지, 네트워크, Azure VM 이동 | 아니요
 저장소, 네트워크, Azure Vm을 구독 내 및 구독 간에 이동 합니다. | 아니요
 
 

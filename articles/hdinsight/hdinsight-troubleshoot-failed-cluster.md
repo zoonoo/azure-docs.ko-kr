@@ -1,32 +1,32 @@
 ---
-title: HDInsight 클러스터-Azure HDInsight에서 속도가 느리거나 오류가 발생 작업 문제 해결
+title: HDInsight 클러스터에서 느리거나 실패 한 작업 문제 해결-Azure HDInsight
 description: 속도가 느리거나 오류가 발생하는 HDInsight 클러스터 문제 진단 및 해결
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 03/19/2019
-ms.openlocfilehash: 0f405f542a8408c290704f1707ca10a24b08f861
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.topic: troubleshooting
+ms.date: 08/15/2019
+ms.openlocfilehash: b7afeee554a1faee9507f0a891803024f3bc11e4
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65203620"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69573686"
 ---
-# <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>HDInsight 클러스터에서 속도가 느리거나 오류가 발생 작업 문제 해결
+# <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>HDInsight 클러스터에서 느리거나 실패 한 작업 문제 해결
 
-HDInsight 클러스터에서 데이터를 느리게 실행 되거나 오류 코드로 실패 하는 응용 프로그램 처리를 하는 경우 몇 가지 문제 해결 옵션이 있습니다. 작업 실행 시간이 예상보다 오래 걸리거나 응답 시간이 대체적으로 느려진 경우 클러스터가 실행되는 서비스처럼 클러스터에서 위로 올라가는 업스트림 오류가 있을 수 있습니다. 그러나 이러한 성능 저하의 가장 일반적인 원인은 부족한 크기 조정입니다. 새 HDInsight 클러스터를 만들 때 적절 한 선택 [가상 머신 크기](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters)합니다.
+HDInsight 클러스터에서 데이터를 처리 하는 응용 프로그램이 느리게 실행 되거나 오류 코드로 인해 실패 하는 경우 몇 가지 문제 해결 옵션이 있습니다. 작업 실행 시간이 예상보다 오래 걸리거나 응답 시간이 대체적으로 느려진 경우 클러스터가 실행되는 서비스처럼 클러스터에서 위로 올라가는 업스트림 오류가 있을 수 있습니다. 그러나 이러한 성능 저하의 가장 일반적인 원인은 부족한 크기 조정입니다. 새 HDInsight 클러스터를 만들 때 적절 한 [가상 머신 크기](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters)를 선택 합니다.
 
 속도가 느리거나 오류가 발생하는 클러스터를 진단하려면 관련된 Azure Services, 클러스터 구성, 작업 실행 정보 등 환경의 모든 측면에 대한 정보를 수집합니다. 다른 클러스터에서 오류 상태를 재현해 보면 진단에 도움이 됩니다.
 
 * 1단계: 문제에 대 한 데이터를 수집 합니다.
-* 2단계: HDInsight 클러스터 환경 유효성을 검사 합니다.
-* 3단계: 클러스터의 상태를 봅니다.
+* 2단계: HDInsight 클러스터 환경의 유효성을 검사 합니다.
+* 3단계: 클러스터의 상태를 확인 합니다.
 * 4단계: 환경 스택 및 버전을 검토 합니다.
 * 5단계: 클러스터 로그 파일을 검사 합니다.
-* 6단계: 구성 설정을 확인 합니다.
+* 6단계: 구성 설정을 확인 하십시오.
 * 7단계: 다른 클러스터에서 오류를 재현 합니다.
 
 ## <a name="step-1-gather-data-about-the-issue"></a>1단계: 문제에 대한 데이터 수집
@@ -56,7 +56,7 @@ Azure Portal에서 이 정보를 제공할 수 있습니다.
 
 ![HDInsight Azure Portal 정보](./media/hdinsight-troubleshoot-failed-cluster/portal.png)
 
-사용할 수도 있습니다 [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest):
+[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)를 사용할 수도 있습니다.
 
 ```azurecli
 az hdinsight list --resource-group <ResourceGroup>
@@ -72,9 +72,9 @@ az hdinsight show --resource-group <ResourceGroup> --name <ClusterName>
 ### <a name="service-details"></a>서비스 세부 정보
 
 * 오픈 소스 라이브러리 릴리스 버전을 확인 합니다.
-* 확인할 [Azure 서비스 중단](https://azure.microsoft.com/status/)합니다.  
-* Azure 서비스 사용 제한 확인 합니다. 
-* Azure Virtual Network 서브넷 구성을 확인 합니다.  
+* [Azure 서비스 중단](https://azure.microsoft.com/status/)을 확인 합니다.  
+* Azure 서비스 사용 제한을 확인 합니다. 
+* Azure Virtual Network 서브넷 구성을 확인 하세요.  
 
 ### <a name="view-cluster-configuration-settings-with-the-ambari-ui"></a>Ambari UI를 사용하여 클러스터 구성 설정 보기
 
@@ -95,7 +95,7 @@ HDInsight는 여러 Azure 서비스를 사용합니다. Azure HDInsight에서 �
 
 #### <a name="check-the-release-version"></a>릴리스 버전 확인
 
-클러스터 버전을 최신 HDInsight 릴리스와 비교합니다. 각 HDInsight 릴리스는 새로운 애플리케이션, 기능, 패치, 버그 수정 등의 개선 사항을 포함하고 있습니다. 클러스터에 영향을 미치는 문제가 최신 릴리스 버전에서는 해결되었을 수 있습니다. 가능하다면 최신 버전의 HDInsight와 Apache HBase, Apache Spark 같은 관련 라이브러리를 사용하여 클러스터를 다시 실행해 봅니다.
+클러스터 버전을 최신 HDInsight 릴리스와 비교합니다. 각 HDInsight 릴리스는 새로운 애플리케이션, 기능, 패치, 버그 수정 등의 개선 사항을 포함하고 있습니다. 클러스터에 영향을 미치는 문제가 최신 릴리스 버전에서는 해결되었을 수 있습니다. 가능 하면 최신 버전의 HDInsight 및 Apache HBase, Apache Spark 등의 관련 라이브러리를 사용 하 여 클러스터를 다시 실행 합니다.
 
 #### <a name="restart-your-cluster-services"></a>클러스터 서비스 다시 시작
 
@@ -119,7 +119,7 @@ Apache Hive, Apache Pig 또는 Apache Sqoop 작업이 실패하는 일반적인 
 
 #### <a name="badgateway-502-status-code"></a>잘못된 게이트웨이(502 상태 코드)
 
-게이트웨이 노드에서 반환하는 일반적인 메시지이며, 가장 일반적인 오류 상태 코드입니다. 이 코드가 표시되는 이유 중 하나는 활성 헤드 노드에서 WebHCat 서비스가 중지되는 것입니다. 이 가능성을 확인하려면 다음 CURL 명령을 사용합니다.
+이 코드는 게이트웨이 노드의 일반 메시지 이며 가장 일반적인 오류 상태 코드입니다. 이 코드가 표시되는 이유 중 하나는 활성 헤드 노드에서 WebHCat 서비스가 중지되는 것입니다. 이 가능성을 확인하려면 다음 CURL 명령을 사용합니다.
 
 ```bash
 curl -u admin:{HTTP PASSWD} https://{CLUSTERNAME}.azurehdinsight.net/templeton/v1/status?user.name=admin
@@ -250,12 +250,12 @@ HDInsight 클러스터는 기본 설정을 사용하여 Hadoop, Hive, HBase 등�
 
 ## <a name="step-7-reproduce-the-failure-on-a-different-cluster"></a>7단계: 다른 클러스터에서 오류 재현
 
-클러스터 오류의 원인을 진단하려면 동일한 구성으로 새 클러스터를 시작한 후 실패한 작업의 단계를 하나씩 다시 제출합니다. 각 단계의 결과를 확인한 후 다음 단계를 처리합니다. 이 방법을 사용하면 실패한 각 단계를 수정하고 다시 실행할 수 있습니다. 또한 입력 데이터를 한 번만 로드하면 된다는 장점이 있습니다.
+클러스터 오류의 원인을 진단하려면 동일한 구성으로 새 클러스터를 시작한 후 실패한 작업의 단계를 하나씩 다시 제출합니다. 각 단계의 결과를 확인한 후 다음 단계를 처리합니다. 이 방법을 사용 하면 실패 한 단일 단계를 수정 하 고 다시 실행할 수 있습니다. 또한 입력 데이터를 한 번만 로드하면 된다는 장점이 있습니다.
 
 1. 실패한 클러스터와 동일한 구성으로 새 테스트 클러스터를 만듭니다.
 2. 첫 번째 작업 단계를 테스트 클러스터에 제출합니다.
 3. 단계에서 처리가 완료되면 단계 로그 파일에서 오류를 확인합니다. 테스트 클러스터의 마스터 노드에 연결하고 거기서 로그 파일을 봅니다. 단계 로그 파일은 단계가 어느 정도 실행된 후에야 나타나고, 완료되거나 실패합니다.
-4. 첫 번째 단계가 성공하면 그 다음 단계를 실행합니다. 오류가 있으면 로그 파일의 오류를 조사합니다. 코드 오류인 경우 오류를 수정하고 단계를 다시 실행합니다.
+4. 첫 번째 단계가 성공하면 그 다음 단계를 실행합니다. 오류가 있으면 로그 파일의 오류를 조사합니다. 코드에서 오류가 발생 한 경우 수정 하 고 단계를 다시 실행 합니다.
 5. 모든 단계가 오류 없이 실행될 때까지 계속 진행합니다.
 6. 테스트 클러스터 디버깅이 완료되면 테스트 클러스터를 삭제합니다.
 
@@ -263,6 +263,6 @@ HDInsight 클러스터는 기본 설정을 사용하여 Hadoop, Hive, HBase 등�
 
 * [Apache Ambari Web UI를 사용하여 HDInsight 클러스터 관리](hdinsight-hadoop-manage-ambari.md)
 * [HDInsight 로그 분석](hdinsight-debug-jobs.md)
-* [Linux 기반 HDInsight에서 Apache Hadoop YARN 응용 프로그램 로그인 액세스](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Linux 기반 HDInsight에 대 한 액세스 Apache Hadoop YARN 응용 프로그램 로그인](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [Linux 기반 HDInsight에서 Apache Hadoop 서비스에 힙 덤프 사용](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 * [HDInsight의 Apache Spark 클러스터에 대한 알려진 문제](hdinsight-apache-spark-known-issues.md)

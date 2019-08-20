@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 44b98b55bfa2d0424831f6cf612f66dbcdc8a6d9
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
-ms.translationtype: MT
+ms.openlocfilehash: 811d54da2fbcf36bcd2529ed9172c80d6414ab54
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543701"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617630"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database 관리형 인스턴스 및 SQL Server 간의 T-SQL 차이점
 
@@ -512,6 +512,10 @@ Restore 문에 대 한 자세한 내용은 [restore 문](https://docs.microsoft.
 - 관리 되는 인스턴스를 만든 후에는 관리 되는 인스턴스 또는 VNet을 다른 리소스 그룹 또는 구독으로 이동할 수 없습니다.
 - App Service 환경, 논리 앱, 관리 되는 인스턴스 (예: 지역에서 복제, 트랜잭션 복제 또는 연결 된 서버를 통해)와 같은 일부 서비스의 경우 Vnet가 global을 사용 하 여 연결 된 경우 다른 지역의 관리 되는 인스턴스에 액세스할 수 없습니다. [ 피어 링](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). VNet 게이트웨이를 통해 Express 경로 또는 VNet 간을 통해 이러한 리소스에 연결할 수 있습니다.
 
+### <a name="tempdb-size"></a>TEMPDB 크기
+
+범용 계층의 최대 파일 `tempdb` 크기는 코어 당 24gb 보다 클 수 없습니다. 중요 비즈니스용 계층 `tempdb` 의 최대 크기는 인스턴스 저장소 크기에 의해 제한 됩니다. `Tempdb`로그 파일 크기는 일반적인 용도와 중요 비즈니스용 계층 모두 120 GB로 제한 됩니다. 일부 쿼리는에서 `tempdb` 코어 당 24gb 이상을 필요로 하거나 120 이상의 로그 데이터를 생성 하는 경우 오류를 반환할 수 있습니다.
+
 ## <a name="Changes"></a> 동작 변경
 
 다른 결과를 반환하는 변수, 함수 및 뷰는 다음과 같습니다.
@@ -526,13 +530,31 @@ Restore 문에 대 한 자세한 내용은 [restore 문](https://docs.microsoft.
 
 ## <a name="Issues"> </a> 알려진 문제 및 제한 사항
 
-### <a name="tempdb-size"></a>TEMPDB 크기
+### <a name="cross-database-service-broker-dialogs-dont-work-after-service-tier-upgrade"></a>서비스 계층 업그레이드 후 데이터베이스 간 Service Broker 대화 상자가 작동 하지 않음
 
-범용 계층의 최대 파일 `tempdb` 크기는 코어 당 24gb 보다 클 수 없습니다. 중요 비즈니스용 계층 `tempdb` 의 최대 크기는 인스턴스 저장소 크기에 의해 제한 됩니다. `Tempdb`로그 파일 크기는 일반적인 용도와 중요 비즈니스용 계층 모두 120 GB로 제한 됩니다. 데이터베이스 `tempdb` 는 항상 12 개의 데이터 파일로 분할 됩니다. 파일당 최대 크기는 변경할 수 없으며 새 파일은에 `tempdb`추가할 수 없습니다. 일부 쿼리는에서 `tempdb` 코어 당 24gb 이상을 필요로 하거나 120 이상의 로그 데이터를 생성 하는 경우 오류를 반환할 수 있습니다. `Tempdb`는 인스턴스가 시작 되거나 장애 조치 (failover) 될 때 항상 빈 데이터베이스로 다시 생성 되며에서 `tempdb` 변경한 내용은 유지 되지 않습니다. 
+**날** 8 월 2019
 
-### <a name="cant-restore-contained-database"></a>포함 된 데이터베이스를 복원할 수 없습니다.
+데이터베이스 간 Service Broker 대화 상자에서 서비스 계층 변경 작업 후 메시지를 배달 하지 못합니다. Managed Instance에서 vcores 또는 인스턴스 저장소 크기를 변경 하면 모든 데이터베이스에 `service_broke_guid` 대해 [sys. 데이터베이스](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) 보기의 값이 변경 됩니다. 다른 `DIALOG` 데이터베이스에서 GUID로 Service broker를 참조 하는 [BEGIN DIALOG](https://docs.microsoft.com/en-us/sql/t-sql/statements/begin-dialog-conversation-transact-sql) 문을 사용 하 여 만든 모든는 메시지를 배달할 수 없습니다.
 
-관리 되는 인스턴스는 [포함 된 데이터베이스](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases)를 복원할 수 없습니다. 포함 된 기존 데이터베이스의 지정 시간 복원은 관리 되는 인스턴스에서 작동 하지 않습니다. 그 동안에는 관리 되는 인스턴스에 배치 된 데이터베이스에서 포함 옵션을 제거 하는 것이 좋습니다. 프로덕션 데이터베이스에 대 한 포함 옵션을 사용 하지 마세요. 
+**해결 방법:** 서비스 계층을 업데이트 하기 전에 데이터베이스 간 Service Broker 대화 상자를 사용 하는 작업을 중지 하 고 이후에 다시 초기화 합니다.
+
+### <a name="query-parameter-not-supported-in-sp_send_db_mail"></a>@querysp_send_db_mail에서 지원 되지 않는 매개 변수
+
+**날** 2019년 4월
+
+[Sp_send_db_mail 프로시저](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) 의 매개변수가작동하지`@query` 않습니다.
+
+### <a name="aad-logins-and-users-are-not-supported-in-tools"></a>AAD 로그인 및 사용자가 도구에서 지원 되지 않음
+
+**날** 2019년 4월
+
+SQL Server Management Studio 및 SQL Server Data Tools는 Azure Acctive directory 로그인 및 사용자를 지원 하지 fuly.
+- 현재 SQL Server Data Tools에서 Azure AD 서버 보안 주체 (로그인) 및 사용자 (공개 미리 보기)를 사용 하는 것은 지원 되지 않습니다.
+- Azure AD 서버 보안 주체 (로그인) 및 사용자 (공개 미리 보기)에 대 한 스크립팅은 SQL Server Management Studio에서 지원 되지 않습니다.
+
+### <a name="tempdb-structure-is-re-created"></a>TEMPDB 구조가 다시 생성 됩니다.
+
+데이터베이스 `tempdb` 는 항상 12 개의 데이터 파일로 분할 되며 파일 구조를 변경할 수 없습니다. 파일당 최대 크기를 변경할 수 없으며 새 파일을에 `tempdb`추가할 수 없습니다. `Tempdb`는 인스턴스가 시작 되거나 장애 조치 (failover) 될 때 항상 빈 데이터베이스로 다시 생성 되며에서 `tempdb` 변경한 내용은 유지 되지 않습니다.
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>작은 데이터베이스 파일이 포함된 스토리지 공간 초과
 
@@ -551,24 +573,9 @@ Restore 문에 대 한 자세한 내용은 [restore 문](https://docs.microsoft.
 
 시스템 뷰를 사용 하 여 [남은 파일 수를 식별할](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) 수 있습니다. 이 한도에 도달 하면 [DBCC SHRINKFILE 문을 사용 하 여 작은 파일 중 일부를 비우고 삭제](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) 하거나 [이 제한이 없는 중요 비즈니스용 계층](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics)으로 전환 해 보세요.
 
-### <a name="tooling"></a>도구
-
-SQL Server Management Studio 및 SQL Server Data Tools는 관리 되는 인스턴스에 액세스 하는 동안 몇 가지 문제가 있을 수 있습니다.
-
-- 현재 SQL Server Data Tools에서 Azure AD 서버 보안 주체 (로그인) 및 사용자 (공개 미리 보기)를 사용 하는 것은 지원 되지 않습니다.
-- Azure AD 서버 보안 주체 (로그인) 및 사용자 (공개 미리 보기)에 대 한 스크립팅은 SQL Server Management Studio에서 지원 되지 않습니다.
-
-### <a name="incorrect-database-names-in-some-views-logs-and-messages"></a>일부 뷰, 로그 및 메시지에 잘못된 데이터베이스 이름이 있음
+### <a name="guid-values-shown-instead-of-database-names"></a>데이터베이스 이름 대신 표시 되는 GUID 값
 
 몇 가지 시스템 뷰, 성능 카운터, 오류 메시지, XEvent 및 오류 로그 항목에는 실제 데이터베이스 이름 대신 GUID 데이터베이스 식별자가 표시됩니다. 이러한 GUID 식별자는 나중에 실제 데이터베이스 이름으로 대체 되기 때문에 사용 하지 마세요.
-
-### <a name="database-mail"></a>데이터베이스 메일
-
-[Sp_send_db_mail 프로시저](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) 의 매개변수가작동하지`@query` 않습니다.
-
-### <a name="database-mail-profile"></a>데이터베이스 메일 프로필
-
-SQL Server 에이전트에서 사용 하는 데이터베이스 메일 프로필을 호출 `AzureManagedInstance_dbmail_profile`해야 합니다. 다른 데이터베이스 메일 프로필 이름에 대 한 제한은 없습니다.
 
 ### <a name="error-logs-arent-persisted"></a>오류 로그는 지속 되지 않습니다.
 

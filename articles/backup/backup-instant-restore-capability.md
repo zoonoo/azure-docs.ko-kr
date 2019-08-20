@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: dacurwin
-ms.openlocfilehash: f2485786f323bc6d19d39f4da6ffa7cab14bbb4c
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: aad3ca34ab9db5ec910e70e70ba5a31afa94e417
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68951834"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69611987"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Azure Backup 인스턴트 복원 기능을 사용하여 향상된 백업 및 복원 성능 얻기
 
@@ -24,7 +24,7 @@ ms.locfileid: "68951834"
 
 * 자격 증명 모음으로의 데이터 전송이 완료될 때까지 기다리지 않고 백업 작업의 일부로 만든 스냅샷을 복구에 사용할 수 있습니다. 이에 따라, 복원을 트리거하기 전에 스냅샷이 저장소에 복사되는 대기 시간이 줄었습니다.
 * 기본적으로 스냅샷을 로컬에 2일 동안 보존하여 백업 및 복원 시간을 단축합니다. 이 기본 스냅숏 보존 값은 1 일에서 5 일 사이의 값으로 구성할 수 있습니다.
-* 최대 4TB까지 디스크 크기를 지원합니다. Azure Backup에서는 디스크 크기를 조정 하지 않는 것이 좋습니다. 4 TB 이상의 디스크에 대 한 Azure Backup 큰 디스크 지원의 제한 된 공개 미리 보기에 등록 하려면 [AZURE VM 백업 개요](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb)를 참조 하세요.
+* 최대 4TB까지 디스크 크기를 지원합니다. Azure Backup에서는 디스크 크기를 조정 하지 않는 것이 좋습니다. 1TB 보다 큰 디스크에 대 한 Azure Backup 큰 디스크 지원의 제한 된 공개 미리 보기에 등록 하려면 최대 30TB의 디스크 크기를 포함 하는 [VM 백업](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb)을 참조 하세요.
 * 는 표준 HDD 디스크 및 프리미엄 SSD 디스크와 함께 표준 SSD 디스크를 지원 합니다.
 * 복원 시 관리 되지 않는 Vm 원본 저장소 계정 (디스크당)을 사용할 수 있습니다. 이 기능은 VM의 디스크가 스토리지 계정에 분산된 경우에도 지원됩니다. 이는 다양한 VM 구성에 대한 복원 작업을 가속화합니다.
 * 즉시 복원을 사용 하 여 premium storage를 사용 하는 Vm 백업의 경우 할당 된 총 저장소 공간 *50%* 의 사용 가능한 공간을 할당 하는 것이 좋습니다 .이는 첫 번째 백업 **에서만** 필요 합니다. 50%의 사용 가능한 공간은 첫 번째 백업이 완료 된 후 백업에 대 한 요구 사항이 아닙니다.

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: rimman
-ms.openlocfilehash: e321091f2abcff4c385b442ac6474c0592845e2e
-ms.sourcegitcommit: 15f7b641a67f3d6cf4fb4b4c11eaee18cf335923
+ms.openlocfilehash: f2e01e42a53f6f099191c03f45d6521668ea73a1
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68602041"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616678"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Azure Cosmos DB에서 데이터 액세스 보호
 
@@ -105,7 +105,7 @@ Cosmos DB 리소스 토큰은 사용자가 부여한 권한에 따라 마스터 
 <a id="users"></a>
 
 ## <a name="users"></a>사용자
-Cosmos DB 사용자는 Cosmos DB 데이터베이스와 연결됩니다.  각 데이터베이스는 0개 이상의 Cosmos DB 사용자를 포함할 수 있습니다.  다음 코드 샘플에서는 Cosmos DB 사용자 리소스를 만드는 방법을 보여 줍니다.
+사용자 Cosmos DB Cosmos 데이터베이스와 연결 됩니다.  각 데이터베이스는 0개 이상의 Cosmos DB 사용자를 포함할 수 있습니다.  다음 코드 샘플에서는 Cosmos DB 사용자 리소스를 만드는 방법을 보여 줍니다.
 
 ```csharp
 //Create a user.
@@ -193,5 +193,5 @@ Azure Cosmos DB를 사용하면 데이터베이스 또는 컬렉션에 있는 �
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## <a name="next-steps"></a>다음 단계
-* Cosmos DB 데이터베이스 보안에 대한 자세한 내용은 [Cosmos DB: 데이터베이스 보안](database-security.md)을 참조하세요.
+* Cosmos 데이터베이스 보안에 대 한 자세한 내용은 Cosmos DB [를 참조 하세요. 데이터베이스 보안](database-security.md)을 참조하세요.
 * Azure Cosmos DB 권한 부여 토큰을 생성하는 방법에 대한 자세한 내용은 [Azure Cosmos DB 리소스에 대한 Access Control](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources)을 참조하세요.

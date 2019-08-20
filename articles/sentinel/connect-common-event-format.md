@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/31/2019
+ms.date: 08/19/2019
 ms.author: rkarlin
-ms.openlocfilehash: 1cc661509a28bb57bed0361b48cdeda5e6338e54
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 28def73926294a025d70844e535a0856153ae30a
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679318"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69611941"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>일반적인 이벤트 형식을 사용 하 여 외부 솔루션 연결
 
@@ -54,6 +54,13 @@ Azure 센티널과 CEF 어플라이언스 간의 연결은 세 단계로 이루�
 또는 에이전트를 기존 Azure VM, 다른 클라우드의 VM 또는 온-프레미스 컴퓨터에서 수동으로 배포할 수 있습니다. 
 
  ![온-프레미스의 CEF](./media/connect-cef/cef-syslog-onprem.png)
+
+## <a name="security-considerations"></a>보안 고려 사항
+
+조직의 보안 정책에 따라 컴퓨터의 보안을 구성 해야 합니다. 예를 들어 회사 네트워크 보안 정책에 맞게 네트워크를 구성 하 고, 요구 사항에 맞게 디먼의 포트 및 프로토콜을 변경할 수 있습니다. 다음 지침을 사용 하 여 컴퓨터 보안 구성을 향상 시킬 수 있습니다.  [Azure에서 VM 보안](../virtual-machines/linux/security-policy.md), [네트워크 보안에 대 한 모범 사례](../security/fundamentals/network-best-practices.md)를 참조 하세요.
+
+보안 솔루션과 Syslog 컴퓨터 간에 TLS 통신을 사용 하려면 TLS에서 통신 하도록 Syslog 데몬 (rsyslog 또는 syslog 기능)을 구성 해야 합니다. [Tls-rsyslog를 사용 하 여 Syslog 트래픽 암호화](https://www.rsyslog.com/doc/v8-stable/tutorials/tls_cert_summary.html), [tls를 사용 하 여 로그 메시지 암호화-Syslog](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.22/administration-guide/60#TOPIC-1209298)
+
 
 ## <a name="step-1-configure-your-syslog-vm"></a>1단계: Syslog VM 구성
 

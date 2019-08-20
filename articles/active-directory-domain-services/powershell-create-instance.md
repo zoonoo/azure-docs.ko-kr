@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: iainfou
-ms.openlocfilehash: daddb2d13aee08fe7294ab2d7f0892bab761562b
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: c6572ab8bc2a10039f327233f983c2e822fba3b0
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67472681"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617228"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>PowerShell을 사용하여 Azure Active Directory Domain Services 사용
 이 문서에서는 PowerShell을 사용하여 Azure AD(Azure Active Directory) Domain Services를 사용하도록 설정하는 방법을 보여 줍니다.
@@ -62,7 +62,7 @@ $GroupObjectId = Get-AzureADGroup `
 
 # Now, retrieve the object ID of the user you'd like to add to the group.
 $UserObjectId = Get-AzureADUser `
-  -Filter "UserPrincipalName eq 'admin@contoso100.onmicrosoft.com'" | `
+  -Filter "UserPrincipalName eq 'admin@contoso.onmicrosoft.com'" | `
   Select-Object ObjectId
 
 # Add the user to the 'AAD DC Administrators' group.
@@ -124,7 +124,7 @@ $Vnet=New-AzVirtualNetwork `
 
 ```powershell
 $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
-$ManagedDomainName = "contoso100.com"
+$ManagedDomainName = "contoso.com"
 $ResourceGroupName = "ContosoAaddsRg"
 $VnetName = "DomainServicesVNet_WUS"
 $AzureLocation = "westus"
@@ -140,9 +140,9 @@ New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$
 > [!WARNING]
 > **관리되는 도메인을 프로비전한 후 추가 구성 단계를 잊지 말고 진행합니다.**
 > 관리되는 도메인이 프로비전되면 다음 작업을 완료해야 합니다.
-> * 가상 컴퓨터가 도메인 가입 또는 인증을 위해 관리되는 도메인을 찾을 수 있도록 가상 네트워크에 대한 **[DNS 설정을 업데이트](active-directory-ds-getting-started-dns.md)** 합니다.
-> * 최종 사용자가 회사 자격 증명을 사용하여 관리되는 도메인에 로그인할 수 있도록 **[Azure AD Domain Services에 대한 암호 동기화를 사용하도록 설정](active-directory-ds-getting-started-password-sync.md)** 합니다.
-
+> * 가상 머신이 도메인 가입 또는 인증을 위해 관리되는 도메인을 찾을 수 있도록 가상 네트워크에 대한 DNS 설정을 업데이트합니다. DNS를 구성 하려면 포털에서 Azure AD DS 관리 되는 도메인을 선택 합니다. **개요** 창에서 자동으로 이러한 DNS 설정을 구성 하 라는 메시지가 표시 됩니다.
+> * 관리 되는 도메인에 대 한 인바운드 트래픽을 제한 하는 데 필요한 네트워크 보안 그룹 규칙을 만듭니다. 네트워크 보안 그룹 규칙을 만들려면 포털에서 Azure AD DS 관리 되는 도메인을 선택 합니다. **개요** 창에 적절 한 네트워크 보안 그룹 규칙을 자동으로 만들지 묻는 메시지가 표시 됩니다.
+> * 최종 사용자가 회사 자격 증명을 사용하여 관리되는 도메인에 로그인할 수 있도록 **[Azure AD Domain Services에 대한 암호 동기화를 사용하도록 설정](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds)** 합니다.
 
 ## <a name="powershell-script"></a>PowerShell 스크립트
 이 문서에 나열된 모든 작업을 수행하는 데 사용되는 PowerShell 스크립트는 아래에 나와 있습니다. 이 스크립트를 복사하고 '.ps1' 확장명을 사용해서 파일을 저장합니다. PowerShell에서 또는 PowerShell ISE(통합 스크립팅 환경)를 사용하여 스크립트를 실행합니다.
@@ -153,9 +153,9 @@ New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$
 
 ```powershell
 # Change the following values to match your deployment.
-$AaddsAdminUserUpn = "admin@contoso100.onmicrosoft.com"
+$AaddsAdminUserUpn = "admin@contoso.onmicrosoft.com"
 $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
-$ManagedDomainName = "contoso100.com"
+$ManagedDomainName = "contoso.com"
 $ResourceGroupName = "ContosoAaddsRg"
 $VnetName = "DomainServicesVNet_WUS"
 $AzureLocation = "westus"
@@ -224,11 +224,12 @@ New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$
 > [!WARNING]
 > **관리되는 도메인을 프로비전한 후 추가 구성 단계를 잊지 말고 진행합니다.**
 > 관리되는 도메인이 프로비전되면 다음 작업을 완료해야 합니다.
-> * 가상 머신이 도메인 가입 또는 인증을 위해 관리되는 도메인을 찾을 수 있도록 가상 네트워크에 대한 DNS 설정을 업데이트합니다.
-> * 최종 사용자가 회사 자격 증명을 사용하여 관리되는 도메인에 로그인할 수 있도록 Azure AD Domain Services에 대한 암호 동기화를 사용하도록 설정합니다.
+> * 가상 머신이 도메인 가입 또는 인증을 위해 관리되는 도메인을 찾을 수 있도록 가상 네트워크에 대한 DNS 설정을 업데이트합니다. DNS를 구성 하려면 포털에서 Azure AD DS 관리 되는 도메인을 선택 합니다. **개요** 창에서 자동으로 이러한 DNS 설정을 구성 하 라는 메시지가 표시 됩니다.
+> * 관리 되는 도메인에 대 한 인바운드 트래픽을 제한 하는 데 필요한 네트워크 보안 그룹 규칙을 만듭니다. 네트워크 보안 그룹 규칙을 만들려면 포털에서 Azure AD DS 관리 되는 도메인을 선택 합니다. **개요** 창에 적절 한 네트워크 보안 그룹 규칙을 자동으로 만들지 묻는 메시지가 표시 됩니다.
+> * 최종 사용자가 회사 자격 증명을 사용하여 관리되는 도메인에 로그인할 수 있도록 **[Azure AD Domain Services에 대한 암호 동기화를 사용하도록 설정](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds)** 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 관리되는 도메인을 만든 후에는 관리되는 도메인을 사용할 수 있도록 다음 구성 작업을 수행합니다.
 
-* [관리되는 도메인을 가리키도록 가상 네트워크에 대한 DNS 서버 설정 업데이트](active-directory-ds-getting-started-dns.md)
-* [관리되는 도메인에 대한 암호 동기화 사용](active-directory-ds-getting-started-password-sync.md)
+* [관리되는 도메인을 가리키도록 가상 네트워크에 대한 DNS 서버 설정 업데이트](tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network)
+* [관리되는 도메인에 대한 암호 동기화 사용](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds)

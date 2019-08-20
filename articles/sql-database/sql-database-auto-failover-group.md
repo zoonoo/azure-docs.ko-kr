@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 07/18/2019
-ms.openlocfilehash: 05e16a67e6b01ce3bd1f03f0649baa1358414ea7
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 08/16/2019
+ms.openlocfilehash: 69a3b4fc966b6dd506d91e52b33967a2e001367f
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035066"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575783"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>자동 장애 조치(failover) 그룹을 통해 여러 데이터베이스의 투명하고 조정된 장애 조치(failover)를 사용할 수 있습니다.
 
@@ -25,7 +25,9 @@ ms.locfileid: "69035066"
 > [!NOTE]
 > SQL Database 서버에서 단일 또는 풀링된 데이터베이스를 사용 중이며 동일하거나 다른 지역에 여러 개의 보조 데이터베이스를 만들려는 경우 [활성 지역 복제](sql-database-active-geo-replication.md)를 사용합니다. 
 
-자동 장애 조치(failover) 정책과 함께 자동 장애 조치(failover) 그룹을 사용하는 경우 그룹 내 데이터베이스 중 하나 이상에 영향을 미치는 중단이 발생하면 자동 장애 조치(failover)가 수행됩니다. 또한 자동 장애 조치 그룹은 장애 조치하는 동안 변경되지 않는 읽기-쓰기 및 읽기 전용 수신기 끝점을 제공합니다. 수동 또는 자동 장애 조치 활성화를 사용하는지 여부에 관계 없이 장애 조치는 그룹의 모든 보조 데이터베이스를 주 데이터베이스로 전환합니다. 데이터베이스 장애 조치(failover)가 완료되면 엔드포인트를 새 지역으로 리디렉션하도록 DNS 레코드가 자동으로 업데이트됩니다. 특정 RPO 및 RTO 데이터에 대해서는 [비즈니스 연속성 개요](sql-database-business-continuity.md)를 참조하세요.
+자동 장애 조치(failover) 정책과 함께 자동 장애 조치(failover) 그룹을 사용하는 경우 그룹 내 데이터베이스 중 하나 이상에 영향을 미치는 중단이 발생하면 자동 장애 조치(failover)가 수행됩니다. 일반적으로 이러한 인시던트는 기본 제공 되는 자동 고가용성 작업으로 자체적으로 완화 될 수 없습니다. 장애 조치 (failover) 트리거의 예에는 여러 계산 노드의 OS 커널 메모리 누수로 인 한 SQL 테 넌 트 링 또는 제어 링으로 인 한 인시던트가 포함 되어 있거나, ro 중 잘못 된 네트워크 케이블이 잘렸습니다. 하나 이상의 테 넌 트 링으로 인해 발생 한 인시던트가 포함 됩니다. 하드웨어 서비스 해제.  자세한 내용은 [SQL Database 고가용성](sql-database-high-availability.md)을 참조 하세요.
+
+또한 자동 장애 조치 그룹은 장애 조치하는 동안 변경되지 않는 읽기-쓰기 및 읽기 전용 수신기 끝점을 제공합니다. 수동 또는 자동 장애 조치 활성화를 사용하는지 여부에 관계 없이 장애 조치는 그룹의 모든 보조 데이터베이스를 주 데이터베이스로 전환합니다. 데이터베이스 장애 조치(failover)가 완료되면 엔드포인트를 새 지역으로 리디렉션하도록 DNS 레코드가 자동으로 업데이트됩니다. 특정 RPO 및 RTO 데이터에 대해서는 [비즈니스 연속성 개요](sql-database-business-continuity.md)를 참조하세요.
 
 자동 장애 조치(failover) 정책과 함께 자동 장애 조치(failover) 그룹을 사용하는 경우 SQL Database 서버 또는 관리되는 인스턴스의 데이터베이스에 영향을 미치는 중단이 발생하면 자동 장애 조치(failover)가 수행됩니다. 다음을 사용하여 자동 장애 조치(failover) 그룹을 관리할 수 있습니다.
 
@@ -307,7 +309,7 @@ ms.locfileid: "69035066"
 
 ### <a name="powershell-manage-sql-database-failover-with-single-databases-and-elastic-pools"></a>PowerShell: 단일 데이터베이스 및 탄력적 풀을 사용하여 SQL Database 장애 조치(failover) 관리
 
-| Cmdlet | Description |
+| Cmdlet | 설명 |
 | --- | --- |
 | [New-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasefailovergroup) |장애 조치 그룹을 만들고 주 및 보조 서버 모두에 등록합니다|
 | [Remove-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasefailovergroup) | 서버에서 장애 조치 그룹을 제거하고 그룹에 포함된 모든 보조 데이터베이스를 삭제합니다. |
@@ -342,7 +344,7 @@ ms.locfileid: "69035066"
 
 #### <a name="powershell-commandlets-to-create-an-instance-failover-group"></a>PowerShell commandlet 인스턴스 장애 조치 (failover) 그룹을 만들 수 있습니다.
 
-| API | 설명 |
+| API | Description |
 | --- | --- |
 | New-AzureRmSqlDatabaseInstanceFailoverGroup |장애 조치 그룹을 만들고 주 및 보조 서버 모두에 등록합니다|
 | Set-AzureRmSqlDatabaseInstanceFailoverGroup |장애 조치 그룹의 구성을 수정합니다.|
@@ -352,7 +354,7 @@ ms.locfileid: "69035066"
 
 ### <a name="rest-api-manage-sql-database-failover-groups-with-single-and-pooled-databases"></a>REST API: 단일 및 풀링된 데이터베이스를 사용하여 SQL Database 장애 조치(failover) 그룹 관리
 
-| API | 설명 |
+| API | Description |
 | --- | --- |
 | [장애 조치(failover) 그룹 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/failovergroups/createorupdate) | 장애 조치(failover) 그룹을 만들거나 업데이트합니다. |
 | [장애 조치(failover) 그룹 삭제](https://docs.microsoft.com/rest/api/sql/failovergroups/delete) | 서버에서 장애 조치 그룹을 제거합니다. |
@@ -365,7 +367,7 @@ ms.locfileid: "69035066"
 
 ### <a name="rest-api-manage-failover-groups-with-managed-instances-preview"></a>REST API: Managed Instance를 사용하여 장애 조치(failover) 그룹 관리(미리 보기)
 
-| API | 설명 |
+| API | Description |
 | --- | --- |
 | [장애 조치(failover) 그룹 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/createorupdate) | 장애 조치(failover) 그룹을 만들거나 업데이트합니다. |
 | [장애 조치(failover) 그룹 삭제](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/delete) | 서버에서 장애 조치 그룹을 제거합니다. |

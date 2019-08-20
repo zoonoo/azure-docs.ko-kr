@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: e5142e9b4e7c2c79fd2b7e41123db4422334b730
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 0efd11ef4e9dda2c522e145bf5cb942998d59e53
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467784"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69573960"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Azure Cosmos DB의 변경 피드 프로세서 
 
@@ -85,12 +85,13 @@ Cosmos 컨테이너 내부 및 외부의 데이터 이동은 항상 RU를 사용
 ## <a name="additional-resources"></a>추가 자료
 
 * [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md)
+* [GitHub의 사용 샘플](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/usage/changefeed)
 * [GitHub의 추가 샘플](https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor)
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 다음 문서에서 변경 피드에 대해 자세히 알아볼 수 있습니다.
+이제 다음 문서에서 변경 피드 프로세서에 대해 자세히 알아볼 수 있습니다.
 
 * [변경 피드 개요](change-feed.md)
-* [변경 피드를 읽는 방법](read-change-feed.md)
-* [Azure Functions로 변경 피드 사용](change-feed-functions.md)
+* [변경 피드 평가기 사용](how-to-use-change-feed-estimator.md)
+* [변경 피드 프로세서 시작 시간](how-to-configure-change-feed-start-time.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: 0cdd7f291b43f442b8471a19f515e4a2d12b4e74
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 637205bd4ad438d7efbee6fb304b0a934aefdfdf
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562881"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615893"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 개발자 가이드
 
@@ -225,7 +225,7 @@ def main(req):
 
 다양한 추적 수준에서 콘솔에 쓸 수 있는 추가 로깅 메서드가 제공됩니다.
 
-| 메서드                 | 설명                                |
+| 메서드                 | Description                                |
 | ---------------------- | ------------------------------------------ |
 | logging.**critical(_message_)**   | 루트 로거에 위험 수준의 메시지를 기록합니다.  |
 | logging.**error(_message_)**   | 루트 로거에 오류 수준의 메시지를 기록합니다.    |
@@ -259,7 +259,7 @@ def main():
 
 실행 중에 함수의 호출 컨텍스트를 가져오려면 해당 시그니처에 [`context`](/python/api/azure-functions/azure.functions.context?view=azure-python) 인수를 포함 합니다. 
 
-예를 들어:
+예:
 
 ```python
 import azure.functions
@@ -315,14 +315,22 @@ pip install -r requirements.txt
 
 ## <a name="publishing-to-azure"></a>Azure에 게시
 
-게시할 준비가 되 면 모든 종속성이 프로젝트 디렉터리의 루트에 있는 *요구 사항 .txt* 파일에 나열 되어 있는지 확인 합니다. 컴파일러가 필요하고 PyPI에서 manylinux 호환 휠의 설치를 지원하지 않는 패키지를 사용하는 경우 Azure에 게시하면 다음 오류가 발생하고 실패합니다. 
+게시할 준비가 되 면 모든 종속성이 프로젝트 디렉터리의 루트에 있는 *요구 사항 .txt* 파일에 나열 되어 있는지 확인 합니다. 이러한 종속성을 [원격으로 빌드할](functions-deployment-technologies.md#remote-build) 수 Azure Functions.
+
+Azure에 배포 하 고 원격 빌드를 수행 하려면 다음 명령을 사용 합니다.
+
+```bash
+func azure functionapp publish <app name> --build remote
+```
+
+원격 빌드를 사용 하지 않고, 컴파일러를 필요로 하는 패키지를 사용 하 고 PyPI에서 많은 Linux 호환 휠 설치를 지원 하지 않는 경우 로컬로 빌드하지 않고 Azure에 게시 하면 다음과 같은 오류가 발생 합니다.
 
 ```
 There was an error restoring dependencies.ERROR: cannot install <package name - version> dependency: binary dependencies without wheels are not supported.  
 The terminal process terminated with exit code: 1
 ```
 
-필요한 이진을 자동으로 빌드하고 구성하려면 로컬 머신에 [Docker를 설치](https://docs.docker.com/install/)하고 다음 명령을 실행하여 [Azure Functions Core Tools](functions-run-local.md#v2)(func)를 통해 게시합니다. `<app name>`을 Azure의 함수 앱 이름으로 바꾸어야 합니다. 
+로컬에서 빌드하고 필요한 이진 파일을 구성 하려면 로컬 컴퓨터에 [Docker를 설치](https://docs.docker.com/install/) 하 고 다음 명령을 실행 하 여 func ( [Azure Functions Core Tools](functions-run-local.md#v2) )를 사용 하 여 게시 합니다. `<app name>`을 Azure의 함수 앱 이름으로 바꾸어야 합니다. 
 
 ```bash
 func azure functionapp publish <app name> --build-native-deps

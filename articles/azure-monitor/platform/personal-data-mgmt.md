@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: magoedte
-ms.openlocfilehash: 29c91f2dcff04a2d21973e79c5719c3f4d84181b
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: a443931b8340552251fbcbe534f009eeeaf953aa
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827382"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617299"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Log Analytics 및 Application Insights에 저장된 개인 데이터에 대한 지침
 
@@ -99,12 +99,17 @@ Log Analytics는 스키마를 데이터에 지정하는 동안 모든 필드를 
 
 제거는 높은 수준의 권한이 필요한 작업으로 Azure의 사용자(리소스 소유자도 포함) 또는 앱이 Azure Resource Manager에서 명시적으로 역할을 부여받아야 실행할 수 있습니다. 이 역할은 _데이터 제거자_이며, 데이터 손실 가능성 때문에 신중하게 위임해야 합니다. 
 
+> [!IMPORTANT]
+> 시스템 리소스를 관리 하기 위해 제거 요청은 시간당 50 요청에 의해 제한 됩니다. 제거 해야 하는 모든 사용자 id가 조건자에 포함 된 단일 명령을 보내서 제거 요청 실행을 일괄 처리 해야 합니다. 여러 id를 지정 하려면 [in 연산자](/azure/kusto/query/inoperator) 를 사용 합니다. 결과를 예상 하는지 확인 하려면 제거 요청을 실행 하기 전에 쿼리를 실행 해야 합니다. 
+
+
+
 Azure Resource Manager 역할이 할당되면 두 개의 새 API 경로를 사용할 수 있습니다. 
 
 #### <a name="log-data"></a>로그 데이터
 
 * [게시 제거](https://docs.microsoft.com/rest/api/loganalytics/workspaces%202015-03-20/purge) - 삭제할 데이터의 매개 변수를 지정하는 개체를 사용하고 참조 GUID를 반환합니다. 
-* GET 상태 가져오기 - POST 제거 호출은 제거 API의 상태를 결정하기 위해 호출할 수 있는 URL이 포함된 'x-ms-status-location' 헤더를 반환합니다. 예:
+* GET 상태 가져오기 - POST 제거 호출은 제거 API의 상태를 결정하기 위해 호출할 수 있는 URL이 포함된 'x-ms-status-location' 헤더를 반환합니다. 예를 들어:
 
     ```
     x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/Microsoft.OperationalInsights/workspaces/[WorkspaceName]/operations/purge-[PurgeOperationId]?api-version=2015-03-20

@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d7ceb854f5f6f8d0bfb2d589f42fe6d022ec743
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 9af3549984bd29a6e896e498bf4a2e6c67d7e0e2
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382470"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616008"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱을 사용하여 계정에 로그인
 
@@ -122,7 +122,7 @@ Outlook.com, Xbox, Skype 등의 개인 Microsoft 계정에 휴대폰 로그인�
 
 ## <a name="next-steps"></a>다음 단계
 
-- 개인 Microsoft 계정에 대 한 확인 코드를 가져오는 데 문제가 있는 경우 [Microsoft 계정 보안 정보 & 확인 코드](https://support.microsoft.com/en-us/help/12428/microsoft-account-security-info-verification-codes) 문서에서 **확인 코드 문제 해결** 섹션을 참조 하세요.
+- 개인 Microsoft 계정에 대 한 확인 코드를 가져오는 데 문제가 있는 경우 [Microsoft 계정 보안 정보 & 확인 코드](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes) 문서에서 **확인 코드 문제 해결** 섹션을 참조 하세요.
 
 - 앱에 대한 일반적인 질문이 더 있는 경우 [Microsoft Authenticator FAQ](user-help-auth-app-faq.md)를 참조하세요.
 

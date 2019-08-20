@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/17/2018
 ms.author: sedusch
-ms.openlocfilehash: bffb92e37ccddd43c2a64466282084bb6226c338
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 24e7e67145b789737484fcb594f48127c41eafe9
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570564"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575232"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Azure의 Red Hat Enterprise Linux에서 Pacemaker 설정
 
@@ -107,12 +107,16 @@ ms.locfileid: "68570564"
    > RHEL 7.6: fence-agents-4.2.1 -11 el7 _ 6.8  
    > RHEL 7.5: fence-agents-4.0.11 -86 el7 _ 5.8  
    > RHEL 7.4: fence-agents-4.0.11 -66 el7 _ 4.12 문제점  
-   > 자세한 내용은 [RHEL 고가용성 클러스터 구성원으로 실행 되는 AZURE vm을 친 하는 데 시간이 오래 걸리고, VM이 종료 되기 전에 실패/시간 초과 될 수 있음](https://access.redhat.com/solutions/3408711) 을 참조 하세요.
+   > 자세한 내용은 [RHEL 고가용성 클러스터 구성원으로 실행 되는 AZURE vm을 친 하는 데 시간이 오래 걸리고, VM이 종료 되기 전에 펜스가 실패 하거나 시간이 초과](https://access.redhat.com/solutions/3408711)되는 경우를 참조 하세요.
 
    Azure fence 에이전트의 버전을 확인 합니다. 필요한 경우 위에 명시 된 것 보다 이전 버전 또는 같은 버전으로 업데이트 합니다.
+
    <pre><code># Check the version of the Azure Fence Agent
     sudo yum info fence-agents-azure-arm
    </code></pre>
+
+   > [!IMPORTANT]
+   > Azure Fence 에이전트를 업데이트 해야 하 고 사용자 지정 역할을 사용 하는 경우에는 **전원 꺼짐**작업을 포함 하도록 사용자 지정 역할을 업데이트 해야 합니다. 자세한 내용은 [fence 에이전트에 대 한 사용자 지정 역할 만들기](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker#1-create-a-custom-role-for-the-fence-agent)를 참조 하세요.  
 
 1. **[A]** 호스트 이름 확인 설정
 

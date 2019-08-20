@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: a8265496c475566ec7a87a19eab6d975838e9da4
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 23ae7b5cfec26fb2483a3e4ac13a1220888d76ee
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966399"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614254"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure Data Factory의 복사 작업
 
@@ -144,7 +144,7 @@ Azure Data Factory에서 복사 작업을 사용하려면 다음이 필요합니
 
 ## <a name="monitoring"></a>모니터링
 
-Azure Data Factory "작성자/모니터" UI에서 또는 프로그래밍 방식으로 복사 작업 실행을 모니터링할 수 있습니다. 그런 후 시나리오의 성능과 구성을 사내 테스트에서 얻은 복사 작업의 [성능 참조](copy-activity-performance.md#performance-reference)와 비교할 수 있습니다.
+Azure Data Factory "작성자/모니터" UI에서 또는 프로그래밍 방식으로 복사 작업 실행을 모니터링할 수 있습니다.
 
 ### <a name="monitor-visually"></a>시각적으로 모니터링
 
@@ -171,7 +171,7 @@ Azure Data Factory "작성자/모니터" UI에서 또는 프로그래밍 방식�
 
 복사 작업 실행 세부 정보 및 성능 특성은 복사 작업 실행 결과-> 출력 섹션에도 반환 됩니다. 다음은 전체 목록입니다. 해당 복사 시나리오에 해당되는 항목만 표시됩니다. [퀵 스타트 모니터링 섹션](quickstart-create-data-factory-dot-net.md#monitor-a-pipeline-run)에서 작업 실행을 모니터링하는 방법을 알아봅니다.
 
-| 속성 이름  | 설명 | 단위 |
+| 속성 이름  | Description | 단위 |
 |:--- |:--- |:--- |
 | dataRead | 원본에서 읽은 데이터 크기 | Int64 값(**바이트**) |
 | dataWritten | 싱크에 쓴 데이터 크기 | Int64 값(**바이트**) |

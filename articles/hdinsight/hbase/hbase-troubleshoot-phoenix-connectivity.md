@@ -5,13 +5,13 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
-ms.date: 08/07/2019
-ms.openlocfilehash: 641d622377bad7a1239efd526b93c6f0f0c08d4a
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.date: 08/14/2019
+ms.openlocfilehash: 66077416dca4048fc99047f7d6b967e55aab0a23
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68887041"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575730"
 ---
 # <a name="scenario-apache-phoenix-connectivity-issues-in-azure-hdinsight"></a>시나리오: Azure HDInsight의 Apache Phoenix 연결 문제
 
@@ -27,7 +27,7 @@ Apache Phoenix를 사용 하 여 Apache HBase에 연결할 수 없습니다. 이
 
 ### <a name="resolution"></a>해결 방법
 
-**HBase > 빠른 링크 > zk***  **(활성)-> 사육 사 정보**에 대 한 링크를 따라 Ambari UI에서 활성 사육 사 노드의 IP를 식별할 수 있습니다. 필요에 따라 수정 합니다.
+ >  **HBase**빠른링크 > zk (활성) 사육 사 정보에 대 한 링크를 따라 Ambari UI에서 활성 사육 사 노드의 IP를 식별할 수 있습니다. >  필요에 따라 IP를 수정 합니다.
 
 ---
 
@@ -35,25 +35,25 @@ Apache Phoenix를 사용 하 여 Apache HBase에 연결할 수 없습니다. 이
 
 와 `!tables`같은 명령을 실행 하면 다음과 비슷한 오류 메시지가 표시 됩니다.
 
-```
+```output
 Error while connecting to sqlline.py (Hbase - phoenix) Setting property: [isolation, TRANSACTION_READ_COMMITTED] issuing: !connect jdbc:phoenix:10.2.0.7 none none org.apache.phoenix.jdbc.PhoenixDriver Connecting to jdbc:phoenix:10.2.0.7 SLF4J: Class path contains multiple SLF4J bindings.
 ```
 
 와 `count 'SYSTEM.CATALOG'`같은 명령을 실행 하면 다음과 비슷한 오류 메시지가 표시 됩니다.
 
-```
+```output
 ERROR: org.apache.hadoop.hbase.NotServingRegionException: Region SYSTEM.CATALOG,,1485464083256.c0568c94033870c517ed36c45da98129. is not online on 10.2.0.5,16020,1489466172189)
 ```
 
 ### <a name="resolution"></a>해결 방법
 
-Ambari UI에서 모든 사육 드 노드의 HMaster 서비스를 다시 시작 합니다.
+Apache Ambari UI에서 다음 단계를 완료 하 여 모든 사육 드 노드에서 HMaster 서비스를 다시 시작 합니다.
 
-1. Hbase의 요약 섹션에서 **hbase-> 활성 HBase Master** 링크로 이동 합니다.
+1. Hbase의 **요약** 섹션에서 **hbase** > **Active HBase Master**로 이동 합니다.
 
 1. **구성 요소** 섹션에서 HBase Master 서비스를 다시 시작 합니다.
 
-1. 나머지 **대기 HBase Master** 서비스에 대해 위의 단계를 반복 합니다.
+1. 나머지 모든 **Standby HBase Master** 서비스에 대해 이러한 단계를 반복합니다.
 
 HBase Master 서비스가 안정화 되 고 복구를 완료 하는 데 최대 5 분이 걸릴 수 있습니다. `SYSTEM.CATALOG` 테이블이 정상으로 전환 되 면 Apache Phoenix에 대 한 연결 문제가 자동으로 해결 됩니다.
 

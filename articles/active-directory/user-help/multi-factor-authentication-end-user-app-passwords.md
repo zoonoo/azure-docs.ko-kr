@@ -1,6 +1,6 @@
 ---
-title: 앱 암호-Azure Active Directory를 관리 하는 방법 | Microsoft Docs
-description: 앱 암호 및 무엇 인지 알아봅니다 2 단계 인증 관련 하 여 사용 합니다.
+title: 앱 암호를 관리 하는 방법-Azure Active Directory | Microsoft Docs
+description: 2 단계 인증과 관련 하 여 앱 암호 및 사용 되는 항목에 대해 알아봅니다.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -10,20 +10,21 @@ ms.workload: identity
 ms.service: active-directory
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 08/13/2019
 ms.author: lizross
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6790fa1cbb10999a751b31bcb27db2edcb67b4a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1a9d997f9ced0fbd921abfb13cda5a4845eb3763
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60334948"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616230"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>2단계 인증을 위한 앱 암호 관리
 
-Outlook 2010과 같은 특정 비브라우저 앱은 2단계 인증을 지원하지 않습니다. 따라서 2단계 인증을 사용하는 경우 앱이 작동하지 않습니다. 이 문제를 해결하려면 사용자의 일반 암호와는 별도로 자동으로 생성된 암호를 만들어 각 비 브라우저 앱과 함께 사용할 수 있습니다.
+>[!Important]
+>관리자가 사용자의 앱 암호 사용을 허용하지 않을 수 있습니다. **앱 암호**가 옵션으로 표시되지 않으면 조직에서 사용할 수 없는 것입니다.
 
 앱 암호를 사용하는 경우 다음 사항을 고려해야 합니다.
 
@@ -36,88 +37,93 @@ Outlook 2010과 같은 특정 비브라우저 앱은 2단계 인증을 지원하
     >[!Note]
     >Outlook을 포함한 Office 2013 클라이언트는 새로운 인증 프로토콜을 지원하며 2단계 인증과 함께 사용할 수 있습니다. 이 지원으로 2단계 인증을 켜고 나면 Office 2013 클라이언트에는 더 이상 앱 암호가 필요하지 않습니다. 자세한 내용은 [Office 2013 및 Office 2016 클라이언트 앱에 대한 최신 인증 작동 방식](https://support.office.com/article/how-modern-authentication-works-for-office-2013-and-office-2016-client-apps-e4c45989-4b1a-462e-a81b-2a13191cf517) 문서를 참조하세요.
 
-## <a name="where-to-create-and-delete-your-app-passwords"></a>앱 암호를 만들고 삭제하는 위치
+## <a name="create-new-app-passwords"></a>새 앱 암호 만들기
 
-초기 2단계 인증을 등록하는 동안 앱 암호가 지정됩니다. 둘 이상의 암호가 필요한 경우 2단계 인증을 사용하는 방법에 따라 추가적인 암호를 만들 수 있습니다.
+처음 2 단계 인증 등록 프로세스 중에는 단일 앱 암호를 제공 합니다. 둘 이상의 작업이 필요한 경우 직접 만들어야 합니다. 조직에서 2 단계 인증을 설정 하는 방법에 따라 여러 영역에서 앱 암호를 만들 수 있습니다. 회사 또는 학교 계정으로 2 단계 인증을 사용 하도록 등록 하는 방법에 대 한 자세한 내용은 [2 단계 인증에 대 한 개요 및 회사 또는 학교 계정](multi-factor-authentication-end-user-first-time.md) 및 관련 문서를 참조 하세요.
 
-- **회사 또는 학교 계정, MyApps 포털에서 2단계 인증을 사용합니다.** 만들 만들기에서 지침을 사용 하 여 앱 암호를 삭제 하 고이 문서의 MyApps 포털 섹션을 사용 하 여 앱 암호를 삭제 합니다. MyApps 포털 및 사용 방법에 대한 자세한 내용은 [Azure Active Directory의 MyApps 포털이란?](active-directory-saas-access-panel-introduction.md)을 참조하세요.
+### <a name="where-to-create-and-delete-your-app-passwords"></a>앱 암호를 만들고 삭제하는 위치
 
-- **회사 또는 학교 계정, Office 365 포털에서 2단계 인증을 사용합니다.** 이 문서의 [Office 365 포털을 사용하여 앱 암호 만들기 및 삭제](#create-and-delete-app-passwords-using-the-office-365-portal) 섹션에 나온 지침을 사용하여 앱 암호를 만들고 삭제합니다.
+2 단계 인증을 사용 하는 방법에 따라 앱 암호를 만들고 삭제할 수 있습니다.
 
-- **개인 Microsoft 계정에 2단계 인증을 사용합니다.** 개인 Microsoft 계정을 통해 [보안 기본 사항](https://account.microsoft.com/account/) 페이지를 사용하여 앱 암호를 만들고 삭제합니다. 자세한 내용은 [앱 암호 및 2단계 인증](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification) 문서를 참조하세요.
+- **조직에서 2 단계 인증 및 추가 보안 확인 페이지를 사용 합니다.** 조직에서 2 단계 인증을 사용 하는 회사 또는 학교 계정 alain@contoso.com(예:)을 사용 하는 경우 [추가 보안 인증 페이지](https://account.activedirectory.windowsazure.com/Proofup.aspx)에서 앱 암호를 관리할 수 있습니다. 자세한 지침은이 문서에서 [추가 보안 인증을 사용 하 여 앱 암호 만들기 및 삭제 페이지](#create-and-delete-app-passwords-from-the-additional-security-verification-page) 를 참조 하세요.
 
-## <a name="create-and-delete-app-passwords-using-the-myapps-portal"></a>MyApps 포털을 사용하여 앱 암호 만들기 및 삭제
-MyApps 포털을 통해 앱 암호를 만들고 삭제할 수 있습니다.
+- **조직에서 2 단계 인증 및 Office 365 포털을 사용 합니다.** 조직에서 회사 또는 학교 계정 (예:, alain@contoso.com), 2 단계 확인 및 office 365 앱을 사용 하는 경우 [office 365 포털 페이지](https://office.portal.com)에서 앱 암호를 관리할 수 있습니다. 자세한 지침은이 문서에서 [Office 365 포털을 사용 하 여 앱 암호 만들기 및 삭제](#create-and-delete-app-passwords-using-the-office-365-portal) 를 참조 하세요.
 
-### <a name="to-create-an-app-password-using-the-myapps-portal"></a>MyApps 포털을 사용하여 앱 암호를 만들려면
+- **개인 Microsoft 계정를 사용 하 여 2 단계 인증을 사용 하 고 있습니다.** 2 단계 인증에 개인 Microsoft 계정 (예:, alain@outlook.com)를 사용 하는 경우 [보안 기본 페이지](https://account.microsoft.com/security/)에서 앱 암호를 관리할 수 있습니다. 자세한 지침은 [2 단계 인증을 지원 하지 않는 앱에서 앱 암호 사용](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-and-two-step-verification)을 참조 하세요.
 
-1. [https://myapps.microsoft.com](https://myapps.microsoft.com)에 로그인합니다.
+## <a name="create-and-delete-app-passwords-from-the-additional-security-verification-page"></a>추가 보안 인증 페이지에서 앱 암호 만들기 및 삭제
 
-2. 오른쪽 위에 있는 이름을 클릭하고 **프로필**을 선택합니다.
+회사 또는 학교 계정에 대 한 **추가 보안 인증** 페이지에서 앱 암호를 만들고 삭제할 수 있습니다.
 
-3. **추가 보안 인증**을 선택합니다.
+1. [추가 보안 인증 페이지](https://account.activedirectory.windowsazure.com/Proofup.aspx)에 로그인 한 후 **앱 암호**를 선택 합니다.
 
-   ![추가 보안 인증 선택 - 스크린샷](./media/multi-factor-authentication-end-user-app-passwords/myapps1.png)
+    ![앱 암호 탭이 강조 표시 된 앱 암호 페이지](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page.png)
 
-4. **앱 암호**를 선택합니다.
+2. **만들기**를 선택 하 고 앱 암호가 필요한 앱의 이름을 입력 한 후 **다음**을 선택 합니다.
 
-   ![앱 암호 선택 - 스크린샷](./media/multi-factor-authentication-end-user-app-passwords/apppass2.png)
+    ![암호를 요구 하는 앱의 이름을 사용 하 여 앱 암호 만들기 페이지](media/multi-factor-authentication-end-user-app-passwords/mfa-create-app-password-page.png)
 
-5. **만들기**를 클릭합니다.
+3. **앱 암호** 페이지에서 암호를 복사한 다음 **닫기**를 선택 합니다.
 
-6. 앱 암호에 사용할 이름을 입력한 다음, **다음**을 선택합니다.
+    ![지정 된 앱에 대 한 암호를 포함 하는 앱 암호 페이지](media/multi-factor-authentication-end-user-app-passwords/mfa-your-app-password-page.png)
 
-7. 앱 암호를 클립보드에 복사하고 앱에 붙여 넣습니다.
-   
-    ![앱 암호 만들기](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
+4. **앱 암호** 페이지에서 앱이 나열 되는지 확인 합니다.
 
-### <a name="to-delete-an-app-password-using-the-myapps-portal"></a>MyApps 포털을 사용하여 앱 암호를 삭제하려면
+     ![목록에 새 앱이 표시 된 앱 암호 페이지](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-with-new-password.png)  
 
-1. 프로필로 이동한 다음, **추가 보안 확인**을 선택합니다.
+5. 앱 암호를 만든 앱 (예: Outlook 2010)을 열고 요청 시 앱 암호를 붙여넣습니다. 앱 당 한 번만 수행 하면 됩니다.
 
-2. **앱 암호**를 선택한 다음, 삭제할 앱 암호 옆에 있는 **삭제**를 선택합니다.
+### <a name="to-delete-an-app-password-using-the-app-passwords-page"></a>앱 암호 페이지를 사용 하 여 앱 암호를 삭제 하려면
 
-   ![앱 암호 삭제](./media/multi-factor-authentication-end-user-app-passwords/delete1.png)
+1. **앱 암호** 페이지에서 삭제 하려는 앱 암호 옆에 있는 **삭제** 를 선택 합니다.
 
-3. **예**를 선택하여 암호를 삭제할 것인지 확인한 다음, **닫기**를 선택합니다.
+   ![앱 암호 삭제](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-delete.png)
 
-## <a name="create-and-delete-app-passwords-using-the-office-365-portal"></a>Office 365 포털을 사용하여 앱 암호 만들기 및 삭제
-
-회사 또는 학교 계정 및 Office 365 앱에서 2단계 인증을 사용하는 경우 Office 365 포털을 사용하여 앱 암호를 만들고 삭제할 수 있습니다. 한 번에 최대 40개의 앱 암호를 만들 수 있습니다. 해당 제한을 초과한 후 다른 앱 암호가 필요한 경우 기존 앱 암호 중 하나를 삭제해야 합니다.
-
-### <a name="to-create-app-passwords-using-the-office-365-portal"></a>Office 365 포털을 사용하여 앱 암호를 삭제하려면
-
-1. 회사 또는 학교 계정에 로그인합니다.
-
-2. 로 이동 [ https://portal.office.com ](https://portal.office.com)를 선택 합니다 **설정** 의 오른쪽 위에 있는 아이콘을 **Office 365 포털** 페이지를 차례로 확장 한 다음 **추가 보안 확인**합니다.
-
-    ![확장된 추가 보안 확인 영역을 보여 주는 Office 포털](media/security-info/security-info-o365password.png)
-
-3. **앱 암호 만들기 및 관리**라는 텍스트를 선택하여 **앱 암호** 페이지를 엽니다.
-
-4. **만들기**를 선택하고 앱 암호가 필요한 앱에 사용할 친숙한 이름을 입력한 다음, **다음**을 선택합니다.
-
-5. **클립보드로 암호 복사**를 선택한 다음, **닫기**를 선택합니다.
-
-6. 복사한 앱 암호를 사용하여 비브라우저 앱에 로그인합니다. 이 암호를 한 번 입력해야 하고 다음에 사용할 수 있도록 기억해야 합니다.
-
-### <a name="to-delete-app-passwords-using-the-office-365-portal"></a>Office 365 포털을 사용하여 앱 암호를 삭제하려면
-
-1. 회사 또는 학교 계정에 로그인합니다.
-
-2. 로 이동 [ https://portal.office.com ](https://portal.office.com)를 선택 합니다 **설정** 의 오른쪽 위에 있는 아이콘을 **Office 365 포털** 페이지를 선택한 **추가 보안 확인**합니다.
-
-3. **앱 암호 만들기 및 관리**라는 텍스트를 선택하여 **앱 암호** 페이지를 엽니다.
-
-4. 삭제할 앱 암호에서 **삭제**를 선택하고 확인 상자에서 **예**를 선택한 다음, **닫기**를 선택합니다.
+2. **예**를 선택하여 암호를 삭제할 것인지 확인한 다음, **닫기**를 선택합니다.
 
     앱 암호가 성공적으로 삭제되었습니다.
 
-5. 새 앱 암호를 만들려면 앱 암호를 만들기 위한 단계를 수행합니다.
+## <a name="create-and-delete-app-passwords-using-the-office-365-portal"></a>Office 365 포털을 사용하여 앱 암호 만들기 및 삭제
+
+회사 또는 학교 계정 및 Office 365 앱에서 2단계 인증을 사용하는 경우 Office 365 포털을 사용하여 앱 암호를 만들고 삭제할 수 있습니다.
+
+### <a name="to-create-app-passwords-using-the-office-365-portal"></a>Office 365 포털을 사용하여 앱 암호를 삭제하려면
+
+1. Office 365에 로그인 한 후 [내 계정 페이지로](https://portal.office.com)이동 하 고 **보안 & 개인 정보**를 선택한 후에 **추가 보안 확인**을 확장 합니다.
+
+    ![확장된 추가 보안 확인 영역을 보여 주는 Office 포털](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-o365-my-account-page.png)
+
+2. 앱 암호 **만들기 및 관리** 라는 텍스트를 선택 하 여 **앱 암호** 페이지를 엽니다.
+
+    ![앱 암호 탭이 강조 표시 된 앱 암호 페이지](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page.png)
+
+3. **만들기**를 선택 하 고 앱 암호가 필요한 앱의 이름을 입력 한 후 **다음**을 선택 합니다.
+
+    ![암호를 요구 하는 앱의 이름을 사용 하 여 앱 암호 만들기 페이지](media/multi-factor-authentication-end-user-app-passwords/mfa-create-app-password-page.png)
+
+4. **앱 암호** 페이지에서 암호를 복사한 다음 **닫기**를 선택 합니다.
+
+    ![지정 된 앱에 대 한 암호를 포함 하는 앱 암호 페이지](media/multi-factor-authentication-end-user-app-passwords/mfa-your-app-password-page.png)
+
+5. **앱 암호** 페이지에서 앱이 나열 되는지 확인 합니다.
+
+     ![목록에 새 앱이 표시 된 앱 암호 페이지](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-with-new-password.png)  
+
+6. 앱 암호를 만든 앱 (예: Outlook 2010)을 열고 요청 시 앱 암호를 붙여넣습니다. 앱 당 한 번만 수행 하면 됩니다.
+
+### <a name="to-delete-app-passwords-using-the-app-passwords-page"></a>앱 암호 페이지를 사용 하 여 앱 암호를 삭제 하려면
+
+1. **앱 암호** 페이지에서 삭제 하려는 앱 암호 옆에 있는 **삭제** 를 선택 합니다.
+
+   ![앱 암호 삭제](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-delete.png)
+
+2. 확인 상자에서 **예** 를 선택 하 고 **닫기**를 선택 합니다.
+
+    앱 암호가 성공적으로 삭제되었습니다.
 
 ## <a name="if-your-app-passwords-arent-working-properly"></a>앱 암호가 제대로 작동하지 않는 경우
 
-암호를 올바르게 입력했는지 확인합니다. 암호를 올바르게 입력했다면 로그인을 다시 시도하고 새 앱 암호를 만들 수 있습니다. 그러한 옵션들로 문제가 해결되지 않는다면 기존 앱 암호를 삭제할 수 있도록 회사 지원팀에 문의합니다. 그러면 새로운 앱 암호를 만들 수 있습니다. 
+암호를 올바르게 입력했는지 확인합니다. 암호를 올바르게 입력했다면 로그인을 다시 시도하고 새 앱 암호를 만들 수 있습니다. 이러한 방법으로 문제를 해결할 수 없는 경우 기존 앱 암호를 삭제 하 여 새 앱 암호를 만들 수 있도록 조직의 지원 센터에 문의 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

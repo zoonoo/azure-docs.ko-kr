@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 08/17/2019
 ms.author: magoedte
-ms.openlocfilehash: 6c8f9c98d645f60ea9281d1ca2aa15731c9c1e80
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 576a44663518343a9132af468a0f1c1fb8e4de50
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68955002"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575402"
 ---
 # <a name="collect-log-data-with-the-log-analytics-agent"></a>Log Analytics 에이전트를 사용 하 여 로그 데이터 수집
 
@@ -90,7 +90,7 @@ Windows 에이전트에 대해 다음 버전의 Windows 운영 체제가 공식�
 
 다음 표에서는 에이전트가 설치 될 지원 되는 Linux 배포판에 필요한 패키지를 강조 표시 합니다.
 
-|필수 패키지 |설명 |최소 버전 |
+|필수 패키지 |Description |최소 버전 |
 |-----------------|------------|----------------|
 |Glibc |    GNU C 라이브러리 | 2.5-12 
 |Openssl    | OpenSSL 라이브러리 | 1.0. x 또는 1.1. x |
@@ -146,9 +146,9 @@ Linux 에이전트의 경우, 설치 중에 또는 [설치 후에](agent-manage.
 
 사용자의 요구 사항에 따라 다른 방법을 사용 하 여 Azure 구독 또는 하이브리드 환경의 컴퓨터를 Azure Monitor 로그에 직접 연결할 수 있습니다. 다음 표는 조직에서 어떤 방법이 가장 적합한지 결정하기 위해 각 방법을 설명합니다.
 
-|Source | 메서드 | 설명|
+|Source | 메서드 | Description|
 |-------|-------------|-------------|
-|Azure VM| - Azure CLI 또는 Azure Resource Manager 템플릿을 사용한 [Windows](../../virtual-machines/extensions/oms-windows.md) 또는 [Linux](../../virtual-machines/extensions/oms-linux.md)용 Log Analytics VM 확장<br>- [Azure Portal에서 수동으로 연결합니다](../../azure-monitor/learn/quick-collect-azurevm.md?toc=/azure/azure-monitor/toc.json). | 이 확장은 Azure Virtual Machines에 Log Analytics 에이전트를 설치하고 기존 Azure Monitor 작업 영역에 등록합니다.|
+|Azure VM| - Azure CLI 또는 Azure Resource Manager 템플릿을 사용한 [Windows](../../virtual-machines/extensions/oms-windows.md) 또는 [Linux](../../virtual-machines/extensions/oms-linux.md)용 Log Analytics VM 확장<br>- [Azure Portal에서 수동으로](../../azure-monitor/learn/quick-collect-azurevm.md?toc=/azure/azure-monitor/toc.json)<br>- [자동 프로 비전 Azure Security Center](../../security-center/security-center-enable-data-collection.md)| -확장은 Azure 가상 컴퓨터에 Log Analytics 에이전트를 설치 하 고 기존 Azure Monitor 작업 영역에 등록 합니다.<br>-Azure Security Center은 지원 되는 모든 Azure Vm 및 새로 생성 된 Vm에 대 한 Log Analytics 에이전트를 프로 비전 할 수 있습니다 .이 에이전트를 사용 하 여 보안 취약성 및 위협을 모니터링할 수 있습니다. 사용 하도록 설정 하면 설치 된 에이전트가 없는 기존 또는 새 VM이 프로 비전 됩니다.|
 | 하이브리드 Windows 컴퓨터|- [수동 설치](agent-windows.md)<br>- [Azure Automation DSC](agent-windows.md#install-the-agent-using-dsc-in-azure-automation)<br>- [Azure Stack을 사용한 Resource Manager 템플릿](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) |Azure Automation DSC, [System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/deploy-use/deploy-applications) 또는 Azure Resource Manager 템플릿(데이터 센터에 Microsoft Azure Stack을 배포한 경우)과 같은 자동화된 방법을 사용하거나 명령줄에서 Microsoft Monitoring Agent를 설치합니다.| 
 | 하이브리드 Linux 컴퓨터| [수동 설치](../../azure-monitor/learn/quick-collect-linux-computer.md)|GitHub에 호스트된 래퍼 스크립트를 호출하는 Linux용 에이전트를 설치합니다. | 
 | System Center Operations Manager|[Operations Manager를 Log Analytics와 통합](../../azure-monitor/platform/om-agents.md) | Operations Manager와 Azure Monitor 로그 간의 통합을 구성 하 여 Windows 컴퓨터 보고에서 수집 된 데이터를 관리 그룹으로 전달 합니다.|  

@@ -3,62 +3,63 @@ title: CloudSimple 빠른 시작에의 한 Azure VMware 솔루션-사설 클라�
 description: CloudSimple로 Azure VMware 솔루션을 사용 하 여 사설 클라우드를 만들고 구성 하는 방법을 알아봅니다.
 author: sharaths-cs
 ms.author: dikamath
-ms.date: 04/10/2019
+ms.date: 08/16/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 6b68dcd47377ee56c4ebedc94905e1f0a8b70b38
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: fdf1fc14eb4ab1458c25b484bae6cd84ecec6d7f
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812346"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575499"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>빠른 시작-사설 클라우드 환경 구성
 
 이 문서에서는 CloudSimple 사설 클라우드를 만들고 사설 클라우드 환경을 설정 하는 방법에 대해 알아봅니다.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
-
-사설 클라우드에 대 한 vSphere/Vsphere 서브넷의 CIDR 범위를 할당 합니다. 사설 클라우드는 vCenter server에서 관리 하는 격리 된 VMware stack (ESXi 호스트, vCenter, vSAN 및 NSX) 환경으로 만들어집니다. 관리 구성 요소는 vSphere/Vsphere 서브넷 CIDR에 대해 선택 된 네트워크에 배포 됩니다. 네트워크 CIDR 범위는 배포 하는 동안 다른 서브넷으로 나뉩니다.  VSphere/Vsphere 서브넷 주소 공간은 고유 해야 합니다. CloudSimple 환경과 통신 하는 네트워크와 겹치지 않아야 합니다.  CloudSimple과 통신 하는 네트워크에는 온-프레미스 네트워크 및 Azure virtual network가 포함 됩니다.  VSphere/Vsphere 서브넷에 대 한 자세한 내용은 [vlan 및 서브넷 개요](cloudsimple-vlans-subnets.md)를 참조 하세요.
-
-* 최소 vSphere/Vsphere 서브넷 CIDR 범위 접두사:/24 
-* 최대 vSphere/Vsphere 서브넷 CIDR 범위 접두사:/21
-
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
+
 [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 
-## <a name="create-a-private-cloud"></a>프라이빗 클라우드 만들기
+## <a name="create-a-private-cloud"></a>사설 클라우드 만들기
+
+사설 클라우드는 ESXi 호스트, vCenter, vSAN 및 NSX를 지 원하는 격리 된 VMware 스택입니다.
+
+사설 클라우드는 CloudSimple 포털을 통해 관리 됩니다. 자체 관리 도메인에 자체 vCenter 서버가 있습니다. 스택은 전용 노드 및 isolated 운영 체제 미 설치 하드웨어 노드에서 실행 됩니다.
 
 1. **모든 서비스**를 선택합니다.
 2. **Cloudsimple 서비스**를 검색 합니다.
 3. 사설 클라우드를 만들려는 CloudSimple 서비스를 선택 합니다.
-4. 개요에서 **사설 클라우드 만들기** 를 클릭 하 여 cloudsimple 포털에 대 한 새 브라우저 탭을 엽니다.  메시지가 표시 되 면 Azure 로그인 자격 증명을 사용 하 여 로그인 합니다.  
+4. **개요**에서 **사설 클라우드 만들기** 를 클릭 하 여 cloudsimple 포털에 대 한 새 브라우저 탭을 엽니다.  메시지가 표시 되 면 Azure 로그인 자격 증명을 사용 하 여 로그인 합니다.  
 
     ![Azure에서 사설 클라우드 만들기](media/create-private-cloud-from-azure.png)
 
 5. CloudSimple 포털에서 사설 클라우드의 이름을 제공 합니다.
 6. 사설 클라우드의 **위치** 를 선택 합니다.
-7. Azure에서 프로 비전 한 **노드 형식을** 선택 합니다.  [CS28 또는 CS36 옵션](cloudsimple-node.md#vmware-solution-by-cloudsimple-nodes-sku)을 선택할 수 있습니다. 후자 옵션은 최대 계산 및 메모리 용량을 포함 합니다.
-8. **노드 수**를 지정 합니다.  사설 클라우드를 만들려면 최소 세 개의 노드가 필요 합니다.
+7. Azure에서 구매한 항목과 일치 하는 **노드 유형**을 선택 합니다. [CS28 또는 CS36 옵션](cloudsimple-node.md#vmware-solution-by-cloudsimple-nodes-sku)을 선택할 수 있습니다. 후자 옵션은 최대 계산 및 메모리 용량을 포함 합니다.
+8. **노드 수**를 지정 합니다.  사설 클라우드를 만들려면 노드가 세 개 이상 필요 합니다.
 
     ![사설 클라우드 만들기-기본 정보](media/create-private-cloud-basic-info.png)
 
 9. **다음: 고급 옵션**입니다.
-10. VSphere/Vsphere 서브넷의 CIDR 범위를 입력 합니다. CIDR 범위가 온-프레미스 또는 다른 Azure 서브넷과 겹치지 않는지 확인 합니다.
+10. VSphere/Vsphere 서브넷의 CIDR 범위를 입력 합니다. CIDR 범위가 온-프레미스 또는 기타 Azure 서브넷 (가상 네트워크) 또는 게이트웨이 서브넷과 겹치지 않는지 확인 합니다.
 
-    ![사설 클라우드 만들기-고급 옵션](media/create-private-cloud-advanced-options.png)
+    **CIDR 범위 옵션:** /24,/23,/22 또는/21. /24 CIDR 범위는 최대 9 개의 노드를 지원 하 고/23 CIDR 범위는 최대 41 노드를 지원 하며,/22 및/21 CIDR 범위는 최대 64 노드 (사설 클라우드의 최대 노드 수)를 지원 합니다.
 
-11. 완료되면 **다음: 검토 하 고**만듭니다.
+      > [!IMPORTANT]
+      > VSphere/Vsphere CIDR 범위의 IP 주소는 사설 클라우드 인프라에서 사용 하도록 예약 되어 있습니다.  가상 머신에서는이 범위의 IP 주소를 사용 하지 마세요.
+
+11. **다음: 검토 하 고**만듭니다.
 12. 설정을 검토 합니다. 설정을 변경 해야 하는 경우에는 **이전**을 클릭 합니다.
 13. **만들기**를 클릭합니다.
 
-사설 클라우드 프로 비전 프로세스가 시작 됩니다.  사설 클라우드를 프로 비전 하는 데 2 시간이 걸릴 수 있습니다.
+사설 클라우드 프로 비전 프로세스가 시작 됩니다.  사설 클라우드를 프로 비전 하는 데 최대 2 시간이 걸릴 수 있습니다.
 
 ## <a name="launch-cloudsimple-portal"></a>CloudSimple 포털 시작
 
-Azure Portal에서 CloudSimple 포털에 액세스할 수 있습니다.  CloudSimple 포털은 SSO (Single sign-on)를 사용 하 여 Azure 로그인 자격 증명으로 시작 됩니다.  CloudSimple 포털에 액세스 하려면 **Cloudsimple 서비스 권한 부여** 응용 프로그램에 권한을 부여 해야 합니다.  권한 부여에 대 한 자세한 내용은 [CloudSimple 서비스 권한 부여 응용 프로그램에 동의](https://docs.azure.cloudsimple.com/access-cloudsimple-portal/#consent-to-cloudsimple-service-authorization-application) 를 참조 하세요.
+Azure Portal에서 CloudSimple 포털에 액세스할 수 있습니다.  CloudSimple 포털은 SSO (Single Sign-on)를 사용 하 여 Azure 로그인 자격 증명으로 시작 됩니다.  CloudSimple 포털에 액세스 하려면 **Cloudsimple 서비스 권한 부여** 응용 프로그램에 권한을 부여 해야 합니다.  권한 부여에 대 한 자세한 내용은 [CloudSimple 서비스 권한 부여 응용 프로그램에 동의](access-cloudsimple-portal.md#consent-to-cloudsimple-service-authorization-application)를 참조 하세요.
 
 1. **모든 서비스**를 선택합니다.
 2. **Cloudsimple 서비스**를 검색 합니다.
@@ -69,7 +70,7 @@ Azure Portal에서 CloudSimple 포털에 액세스할 수 있습니다.  CloudSi
 
 ## <a name="create-point-to-site-vpn"></a>지점 및 사이트 간 VPN 만들기
 
-지점 및 사이트 간 VPN 연결은 컴퓨터에서 사설 클라우드에 연결 하는 가장 간단한 방법입니다. 원격으로 사설 클라우드에 연결 하는 경우 지점 및 사이트 간 VPN 연결을 사용 합니다.  사설 클라우드에 빠르게 액세스 하려면 다음 단계를 수행 합니다.  온-프레미스 네트워크에서 CloudSimple 영역에 대 한 액세스는 사이트 간 [VPN](https://docs.azure.cloudsimple.com/vpn-gateway/) 또는 [Azure express](https://docs.azure.cloudsimple.com/on-premises-connection/)경로를 사용 하 여 수행할 수 있습니다.
+지점 및 사이트 간 VPN 연결은 컴퓨터에서 사설 클라우드에 연결 하는 가장 간단한 방법입니다. 원격으로 사설 클라우드에 연결 하는 경우 지점 및 사이트 간 VPN 연결을 사용 합니다.  사설 클라우드에 빠르게 액세스 하려면 다음 단계를 수행 합니다.  온-프레미스 네트워크에서 CloudSimple 영역에 대 한 액세스는 [사이트 간 VPN](vpn-gateway.md) 또는 [Azure express](on-premises-connection.md)경로를 사용 하 여 수행할 수 있습니다.
 
 ### <a name="create-gateway"></a>게이트웨이 만들기
 
@@ -94,9 +95,9 @@ Azure Portal에서 CloudSimple 포털에 액세스할 수 있습니다.  CloudSi
 6. Vlan/서브넷 섹션에서 게이트웨이 및 연결에 대 한 관리 및 사용자 Vlan/서브넷을 지정할 수 있습니다.
 
     * **자동으로 추가** 옵션은이 게이트웨이에 대 한 전역 정책을 설정 합니다. 설정은 현재 게이트웨이에 적용 됩니다. 설정은 **선택** 영역에서 재정의할 수 있습니다.
-    * **사설 클라우드의 관리 vlan/서브넷 추가**를 선택 합니다. 
-    * 모든 사용자 정의 Vlan/서브넷을 추가 하려면 **사용자 정의 vlan/서브넷 추가**를 클릭 합니다. 
-    * **Select** 설정은 **자동 추가**에서 전역 설정을 재정의 합니다. 
+    * **사설 클라우드의 관리 vlan/서브넷 추가**를 선택 합니다.
+    * 모든 사용자 정의 Vlan/서브넷을 추가 하려면 **사용자 정의 vlan/서브넷 추가**를 클릭 합니다.
+    * **Select** 설정은 **자동 추가**에서 전역 설정을 재정의 합니다.
 
 7. **다음** 을 클릭 하 여 설정을 검토 합니다. 편집 아이콘을 클릭 하 여 변경 합니다.
 8. **만들기** 를 클릭 하 여 VPN gateway를 만듭니다.
@@ -109,16 +110,16 @@ VPN 클라이언트는 컴퓨터에서 CloudSimple에 연결 하는 데 필요 �
 2. **VPN Gateway**를 선택 합니다.
 3. VPN gateway 목록에서 지점 및 사이트 간 VPN gateway를 클릭 합니다.
 4. **사용자**를 선택합니다.
-5. **내 VPN 구성 다운로드** 를 클릭 합니다.
+5. **내 VPN 구성 다운로드**를 클릭 합니다.
 
     ![VPN 구성 다운로드](media/download-p2s-vpn-configuration.png)
 
-6. VPN 클라이언트에서 구성 가져오기
+6. VPN 클라이언트에서 구성을 가져옵니다.
 
     * [Windows 클라이언트에서 구성 가져오기](https://openvpn.net/vpn-server-resources/connecting-to-access-server-with-windows/#openvpn-open-source-openvpn-gui-program) 에 대 한 지침
     * [Macos 또는 OS X에서 구성을 가져오는](https://www.sparklabs.com/support/kb/article/getting-started-with-viscosity-mac/#creating-your-first-connection) 방법에 대 한 지침
 
-7. CloudSimple에 연결
+7. CloudSimple에 연결 합니다.
 
 ## <a name="create-a-vlan-for-your-workload-vms"></a>워크 로드 Vm에 대 한 VLAN 만들기
 
@@ -126,7 +127,7 @@ VPN 클라이언트는 컴퓨터에서 CloudSimple에 연결 하는 데 필요 �
 
 1. CloudSimple 포털에서 **네트워크**를 선택 합니다.
 2. **VLAN/서브넷**을 클릭 합니다.
-3. **VLAN/서브넷 만들기** 를 클릭 합니다.
+3. **VLAN/서브넷 만들기**를 클릭 합니다.
 
     ![VLAN/서브넷 만들기](media/create-new-vlan-subnet.png)
 
@@ -138,11 +139,11 @@ VPN 클라이언트는 컴퓨터에서 CloudSimple에 연결 하는 데 필요 �
 
     ![VLAN/서브넷 세부 정보 만들기](media/create-new-vlan-subnet-details.png)
 
-V m/서브넷이 생성 됩니다.  이제이 VLAN ID를 사용 하 여 사설 클라우드 vCenter에 분산 포트 그룹을 만들 수 있습니다. 
+V m/서브넷이 생성 됩니다.  이제이 VLAN ID를 사용 하 여 사설 클라우드 vCenter에 분산 포트 그룹을 만들 수 있습니다.
 
 ## <a name="connect-your-environment-to-an-azure-virtual-network"></a>Azure virtual network에 환경 연결
 
-CloudSimple은 사설 클라우드에 대 한 Express 경로 회로를 제공 합니다. Azure의 가상 네트워크를 Express 경로 회로에 연결할 수 있습니다. 연결 설정에 대 한 자세한 내용은 Express 경로를 [사용 하 여 Azure Virtual Network 연결](https://docs.azure.cloudsimple.com/cloudsimple-azure-network-connection/) 의 단계를 따르세요.
+CloudSimple은 사설 클라우드에 대 한 Express 경로 회로를 제공 합니다. Azure의 가상 네트워크를 Express 경로 회로에 연결할 수 있습니다. 연결 설정에 대 한 자세한 내용은 Express 경로를 [사용 하 여 Azure Virtual Network 연결](https://docs.azure.cloudsimple.com/cloudsimple-azure-network-connection/)의 단계를 따르세요.
 
 ## <a name="sign-in-to-vcenter"></a>VCenter에 로그인
 
@@ -182,33 +183,29 @@ CloudSimple은 vCenter에 처음 로그인 할 때 암호를 변경 하는 것�
 
 NSX manager는 기본 암호를 사용 하 여 배포 됩니다.  사설 클라우드를 만든 후 암호를 변경 하는 것이 좋습니다.
 
-   * 사용자 이름: **관리자**
-   * 암호: **CloudSimple123!**
+* 사용자 이름: **관리자**
+* 암호: **CloudSimple123!**
 
 CloudSimple 포털에서 NSX manager의 FQDN (정규화 된 도메인 이름) 및 IP 주소를 찾을 수 있습니다.
 
 1. CloudSimple 포털을 시작 하 고 **리소스**를 선택 합니다.
 2. 사용 하려는 사설 클라우드를 클릭 합니다.
 3. **Vsphere 관리 네트워크** 를 선택 합니다.
-4. **NSX Manager** 의 FQDN 또는 IP 주소를 사용 하 고 웹 브라우저를 사용 하 여 연결 합니다. 
+4. **NSX Manager** 의 FQDN 또는 IP 주소를 사용 하 고 웹 브라우저를 사용 하 여 연결 합니다.
 
     ![NSX Manager FQDN 찾기](media/private-cloud-nsx-manager-fqdn.png)
 
-암호를 변경 하려면 [사용자의 암호 관리](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.4/administration/GUID-DB31B304-66A5-4516-9E55-2712D12B4F27.html)의 지침을 따르세요.
-
-> [!WARNING]
-> 기본적으로 NSX 관리자 암호는 90 일 후에 만료 됩니다.
+암호를 변경 하려면 [NSX Manager 설치](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.2/com.vmware.nsxt.install.doc/GUID-A65FE3DD-C4F1-47EC-B952-DEDF1A3DD0CF.html)의 지침을 따르세요.
 
 ## <a name="create-a-port-group"></a>포트 그룹 만들기
 
 VSphere 분산 포트 그룹을 만들려면 다음을 수행 합니다.
 
-1. [Vsphere 네트워킹 가이드](https://docs.vmware.com/en/VMware-vSphere/6.5/vsphere-esxi-vcenter-server-65-networking-guide.pdf)의 "분산 포트 그룹 추가"의 지침을 따르세요.
+1. [Vsphere 네트워킹 가이드](https://docs.vmware.com/en/VMware-vSphere/6.5/vsphere-esxi-vcenter-server-65-networking-guide.pdf)의 "분산 포트 그룹 추가"의 지침을 따릅니다.
 2. 분산 포트 그룹을 설정할 때 [작업 vm에 대 한 Vlan 만들기](#create-a-vlan-for-your-workload-vms)에서 만든 vlan ID를 제공 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure에서 VMware Vm 사용](https://docs.azure.cloudsimple.com/quickstart-create-vmware-virtual-machine)
 * [Azure에서 VMware Vm 사용](quickstart-create-vmware-virtual-machine.md)
-* [Azure Express 경로를 사용 하 여 온-프레미스 네트워크에 연결](https://docs.azure.cloudsimple.com/on-premises-connection/)
-* [온-프레미스에서 사이트 간 VPN 설정](https://docs.azure.cloudsimple.com/vpn-gateway/)
+* [Azure Express 경로를 사용 하 여 온-프레미스 네트워크에 연결](on-premises-connection.md)
+* [온-프레미스에서 사이트 간 VPN 설정](vpn-gateway.md)

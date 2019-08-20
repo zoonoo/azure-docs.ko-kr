@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 11/19/2018
 ms.author: ramkris
-ms.openlocfilehash: 989d52e773ed01a8fd1f4d383c42d7628e196a60
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
-ms.translationtype: MT
+ms.openlocfilehash: 03e620f97ef094994f95b5dc39b95376fa7e09dd
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68814712"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614461"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>.NET 대량 실행자 라이브러리: 정보 다운로드 
 
@@ -33,7 +33,7 @@ ms.locfileid: "68814712"
 
 | |  |
 |---|---|
-| **설명**| .Net bulk executor 라이브러리를 사용 하면 클라이언트 응용 프로그램이 Azure Cosmos DB 계정에서 대량 작업을 수행할 수 있습니다. 이 라이브러리는 대량 가져오기, 대량 업데이트 및 대량 삭제 네임 스페이스를 제공 합니다. BulkImport 모듈은 컬렉션이 최대 범위 내에 사용되도록 프로비전된 처리량과 같이 최적화된 방법으로 문서를 대량 수집할 수 있습니다. BulkUpdate 모듈은 Azure Cosmos DB 컨테이너의 기존 데이터를 패치로 대량 업데이트할 수 있습니다. BulkDelete 모듈은 컬렉션이 최대 범위 내에 사용되도록 프로비전된 처리량과 같이 최적화된 방법으로 문서를 대량 삭제할 수 있습니다.|
+| **설명**| .Net bulk executor 라이브러리를 사용 하면 클라이언트 응용 프로그램이 Azure Cosmos DB 계정에서 대량 작업을 수행할 수 있습니다. 이 라이브러리는 대량 가져오기, 대량 업데이트 및 대량 삭제 네임 스페이스를 제공 합니다. BulkImport 모듈은 컬렉션이 최대 범위 내에 사용되도록 프로비전된 처리량과 같이 최적화된 방법으로 문서를 대량 수집할 수 있습니다. 대량 업데이트 모듈은 Azure Cosmos 컨테이너의 기존 데이터를 패치로 대량 업데이트할 수 있습니다. BulkDelete 모듈은 컬렉션이 최대 범위 내에 사용되도록 프로비전된 처리량과 같이 최적화된 방법으로 문서를 대량 삭제할 수 있습니다.|
 |**SDK 다운로드**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/) |
 | **GitHub의 BulkExecutor 라이브러리**| [GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)|
 |**API 설명서**|[.NET API 참조 설명서](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor?view=azure-dotnet)|
@@ -84,7 +84,7 @@ ms.locfileid: "68814712"
 
 ### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
 
-* 스토리지가 예외를 throw 하지 않고 현재 용량을 초과하면 Cosmos DB 컨테이너의 탄력적 크기 조정에 맞게 투명하게 조정되도록 BulkExecutor 가져오기 및 업데이트 API가 개선되었습니다.
+* 저장소에서 예외를 발생 시 키 지 않고 현재 용량을 초과 하는 경우 Cosmos 컨테이너의 탄력적인 크기 조정에 투명 하 게 적응 하도록 대량 실행자 가져오기 및 업데이트 Api를 개선 했습니다.
 
 ### <a name="a-name112112"></a><a name="1.1.2"/>1.1.2
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2019
 ms.author: iainfou
-ms.openlocfilehash: 63f2e12b9b769e806f8bd052af5bc78aed6a1fe0
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 5a8f3401de0dc452193efbcf79aef87a19aed081
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67472299"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617080"
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services - 경고 문제 해결
 이 문서에서는 관리되는 도메인에서 발생할 수 있는 경고에 대한 문제 해결 가이드를 제공합니다.
@@ -81,7 +81,7 @@ ms.locfileid: "67472299"
 
 1. 기존 Azure AD 디렉터리에서 [관리되는 도메인을 삭제](delete-aadds.md)합니다.
 2. Azure AD B2C 디렉터리가 아닌 새 디렉터리를 만듭니다.
-3. [시작](create-instance.md) 가이드에 따라 관리되는 도메인을 다시 만듭니다.
+3. [시작](tutorial-create-instance.md) 가이드에 따라 관리되는 도메인을 다시 만듭니다.
 
 ## <a name="aadds103-address-is-in-a-public-ip-range"></a>AADDS103: 주소가 공용 IP 범위에 있음
 
@@ -110,7 +110,7 @@ ms.locfileid: "67472299"
    5. 왼쪽 탐색 창에서 **서브넷**을 클릭합니다.
    6. 테이블에서 편집하려는 서브넷을 클릭합니다.
    7. 주소 범위를 업데이트하고 변경 내용을 저장합니다.
-3. [Azure AD Domain Services를 사용하여 시작 가이드](create-instance.md)에 따라 관리되는 도메인을 다시 만듭니다. 개인 IP 주소 범위를 갖는 가상 네트워크를 선택해야 합니다.
+3. [Azure AD Domain Services를 사용하여 시작 가이드](tutorial-create-instance.md)에 따라 관리되는 도메인을 다시 만듭니다. 개인 IP 주소 범위를 갖는 가상 네트워크를 선택해야 합니다.
 4. 가상 머신을 새 도메인에 가입하려면 [이 가이드](join-windows-vm.md)를 따릅니다.
 8. 경고를 해결하려면 두 시간 내에 도메인의 상태를 확인합니다.
 
@@ -124,9 +124,9 @@ ms.locfileid: "67472299"
 
 Azure AD Domain Services는 함수에 대한 구독이 필요하며 다른 구독으로 이동할 수 없습니다. 관리되는 도메인이 연결된 Azure 구독이 삭제되었으므로 Azure 구독 및 Azure AD Domain Services를 다시 생성해야 합니다.
 
-1. Azure 구독을 만듭니다.
+1. Azure 구독 만들기
 2. 기존 Azure AD 디렉터리에서 [관리되는 도메인을 삭제](delete-aadds.md)합니다.
-3. [시작](create-instance.md) 가이드에 따라 관리되는 도메인을 다시 만듭니다.
+3. [시작](tutorial-create-instance.md) 가이드에 따라 관리되는 도메인을 다시 만듭니다.
 
 ## <a name="aadds107-your-azure-subscription-is-disabled"></a>AADDS107: Azure 구독이 사용하지 않도록 설정됨
 
@@ -177,7 +177,7 @@ Azure AD Domain Services는 제대로 작동하기 위해 배포하는 동안 �
 
 **해결 방법:**
 
-이 오류는 복구할 수 없습니다. 이 문제를 해결하려면 [기존의 관리되는 도메인을 삭제](delete-aadds.md)하고 [관리되는 도메인을 다시 만듭니다.](create-instance.md)
+이 오류는 복구할 수 없습니다. 이 문제를 해결하려면 [기존의 관리되는 도메인을 삭제](delete-aadds.md)하고 [관리되는 도메인을 다시 만듭니다.](tutorial-create-instance.md)
 
 ## <a name="aadds111-service-principal-unauthorized"></a>AADDS111: 권한 없는 서비스 주체
 
@@ -222,7 +222,7 @@ Azure AD Domain Services는 제대로 작동하기 위해 배포하는 동안 �
 
 **해결 방법:**
 
-이 오류는 복구할 수 없습니다. 이를 해결하려면 [기존의 관리되는 도메인을 삭제](delete-aadds.md)하고 [관리되는 도메인을 다시 만들어야](create-instance.md) 합니다.
+이 오류는 복구할 수 없습니다. 이를 해결하려면 [기존의 관리되는 도메인을 삭제](delete-aadds.md)하고 [관리되는 도메인을 다시 만들어야](tutorial-create-instance.md) 합니다.
 
 ## <a name="aadds114-subnet-invalid"></a>AADDS114: 잘못된 서브넷
 
@@ -232,7 +232,7 @@ Azure AD Domain Services는 제대로 작동하기 위해 배포하는 동안 �
 
 **해결 방법:**
 
-이 오류는 복구할 수 없습니다. 이를 해결하려면 [기존의 관리되는 도메인을 삭제](delete-aadds.md)하고 [관리되는 도메인을 다시 만들어야](create-instance.md) 합니다.
+이 오류는 복구할 수 없습니다. 이를 해결하려면 [기존의 관리되는 도메인을 삭제](delete-aadds.md)하고 [관리되는 도메인을 다시 만들어야](tutorial-create-instance.md) 합니다.
 
 ## <a name="aadds115-resources-are-locked"></a>AADDS115: 리소스가 잠김
 
@@ -270,7 +270,7 @@ Azure AD Domain Services는 제대로 작동하기 위해 배포하는 동안 �
 
 관리되는 도메인에서 동기화가 중지되는 몇 가지 일반적인 원인은 다음과 같습니다.
 - 관리되는 도메인에서 네트워크 연결이 차단된 경우. 네트워크의 문제를 확인하는 방법에 대한 자세한 내용은 [네트워크 보안 그룹 문제 해결](alert-nsg.md) 방법과 [Azure AD Domain Services의 네트워크 요구 사항](network-considerations.md)을 읽어보세요.
--  암호 동기화가 설정되지 않았거나 완료되지 않은 경우. 암호 동기화를 설정하려면 [이 문서](active-directory-ds-getting-started-password-sync.md)를 읽어보세요.
+-  암호 동기화가 설정되지 않았거나 완료되지 않은 경우. 암호 동기화를 설정하려면 [이 문서](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds)를 읽어보세요.
 
 ## <a name="aadds501-a-backup-has-not-been-taken-in-a-while"></a>AADDS501: 한 동안 백업이 수행되지 않음
 
@@ -310,5 +310,5 @@ Azure AD Domain Services는 제대로 작동하기 위해 배포하는 동안 �
 관리되는 도메인의 구성에서 문제를 나타낼 수 있는 모든 경고에 대한 [도메인의 상태를 확인](check-health.md)합니다. 이러한 경고를 해결할 수 있는 경우 수행합니다. 이후에 구독을 다시 활성화하려면 지원에 문의하세요.
 
 
-## <a name="contact-us"></a>문의처
+## <a name="contact-us"></a>문의
 [지원이 필요하거나 피드백을 공유하려면](contact-us.md)Azure Active Directory Domain Services 제품 팀에 문의하세요.

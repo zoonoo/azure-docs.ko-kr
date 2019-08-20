@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: 78a6c5262cd6668712beac1e041fa4f25c05a724
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: c1f3d1ec7bb9e9f449cea3f9aa36ca8f80348c6e
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234077"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69612826"
 ---
 # <a name="join-a-coreos-linux-virtual-machine-to-a-managed-domain"></a>CoreOS Linux 가상 머신을 관리되는 도메인에 가입
 이 문서에서는 Azure에서 CoreOS Linux 가상 머신을 Azure AD Domain Services 관리되는 도메인에 가입하는 방법을 보여 줍니다.
@@ -31,9 +31,9 @@ ms.locfileid: "68234077"
 이 문서에 나열된 작업을 수행하려면 다음이 필요합니다.
 1. 유효한 **Azure 구독**.
 2. **Azure AD 디렉터리** - 온-프레미스 디렉터리 또는 클라우드 전용 디렉터리와 동기화됩니다.
-3. **Azure AD 도메인 서비스** 를 사용하도록 설정해야 합니다. 그렇지 않은 경우 [시작 가이드](create-instance.md)에 간략히 설명된 모든 작업을 따릅니다.
-4. 관리되는 도메인의 IP 주소를 가상 네트워크에 대한 DNS 서버로 구성했는지 확인합니다. 자세한 내용은 [Azure 가상 네트워크에 대한 DNS 설정을 업데이트하는 방법](active-directory-ds-getting-started-dns.md)을 참조하세요.
-5. [Azure AD Domain Services 관리되는 도메인에 암호를 동기화](active-directory-ds-getting-started-password-sync.md)하는 데 필요한 단계를 완료합니다.
+3. **Azure AD 도메인 서비스** 를 사용하도록 설정해야 합니다. 그렇지 않은 경우 [시작 가이드](tutorial-create-instance.md)에 간략히 설명된 모든 작업을 따릅니다.
+4. 관리되는 도메인의 IP 주소를 가상 네트워크에 대한 DNS 서버로 구성했는지 확인합니다. 자세한 내용은 [Azure 가상 네트워크에 대한 DNS 설정을 업데이트하는 방법](tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network)을 참조하세요.
+5. [Azure AD Domain Services 관리되는 도메인에 암호를 동기화](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds)하는 데 필요한 단계를 완료합니다.
 
 
 ## <a name="provision-a-coreos-linux-virtual-machine"></a>CoreOS Linux 가상 머신 프로비전
@@ -53,7 +53,7 @@ ms.locfileid: "68234077"
 ## <a name="connect-remotely-to-the-newly-provisioned-linux-virtual-machine"></a>새로 프로비전된 Linux 가상 머신에 원격으로 연결
 CoreOS 가상 머신이 Azure에서 프로비전되었습니다. 다음 작업은 VM을 프로비전할 때 만든 로컬 관리자 계정을 사용하여 가상 머신에 원격으로 연결하는 것입니다.
 
-[Linux를 실행하는 가상 머신에 로그온하는 방법](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 문서의 지침을 따르세요.
+Linux를 실행 하는 [가상 머신에 로그인 하는 방법](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)문서의 지침을 따릅니다.
 
 
 ## <a name="configure-the-hosts-file-on-the-linux-virtual-machine"></a>Linux 가상 컴퓨터에서 호스트 파일 구성
@@ -66,10 +66,10 @@ sudo vi /etc/hosts
 호스트 파일에 다음 값을 입력합니다.
 
 ```console
-127.0.0.1 contoso-coreos.contoso100.com contoso-coreos
+127.0.0.1 contoso-coreos.contoso.com contoso-coreos
 ```
 
-여기서 'contoso100.com'은 관리되는 도메인의 DNS 도메인 이름입니다. 'contoso-coreos'는 관리되는 도메인에 가입한 CoreOS 가상 컴퓨터의 호스트 이름입니다.
+여기서 ' contoso.com '는 관리 되는 도메인의 DNS 도메인 이름입니다. 'contoso-coreos'는 관리되는 도메인에 가입한 CoreOS 가상 컴퓨터의 호스트 이름입니다.
 
 
 ## <a name="configure-the-sssd-service-on-the-linux-virtual-machine"></a>Linux 가상 머신에서 SSSD 서비스 구성
@@ -79,15 +79,15 @@ sudo vi /etc/hosts
 [sssd]
 config_file_version = 2
 services = nss, pam
-domains = CONTOSO100.COM
+domains = contoso.COM
 
-[domain/CONTOSO100.COM]
+[domain/contoso.COM]
 id_provider = ad
 auth_provider = ad
 chpass_provider = ad
 
-ldap_uri = ldap://contoso100.com
-ldap_search_base = dc=contoso100,dc=com
+ldap_uri = ldap://contoso.com
+ldap_search_base = dc=contoso,dc=com
 ldap_schema = rfc2307bis
 ldap_sasl_mech = GSSAPI
 ldap_user_object_class = user
@@ -98,18 +98,18 @@ ldap_account_expire_policy = ad
 ldap_force_upper_case_realm = true
 fallback_homedir = /home/%d/%u
 
-krb5_server = contoso100.com
-krb5_realm = CONTOSO100.COM
+krb5_server = contoso.com
+krb5_realm = contoso.COM
 ```
 
-'CONTOSO100.COM'을 관리되는 도메인의 DNS 도메인 이름으로 대체합니다. 구성 파일에서 도메인 이름은 대문자로 지정해야 합니다.
+' Contoso '를 바꿉니다. COM에서 관리 되는 도메인의 DNS 도메인 이름으로 바꿉니다. 구성 파일에서 도메인 이름은 대문자로 지정해야 합니다.
 
 
 ## <a name="join-the-linux-virtual-machine-to-the-managed-domain"></a>Linux 가상 컴퓨터를 관리되는 도메인에 가입
 이제 필요한 패키지를 Linux 가상 머신에 설치했고 다음 작업은 가상 머신을 관리되는 도메인에 가입하는 것입니다.
 
 ```console
-sudo adcli join -D CONTOSO100.COM -U bob@CONTOSO100.COM -K /etc/krb5.keytab -H contoso-coreos.contoso100.com -N coreos
+sudo adcli join -D contoso.COM -U bob@contoso.COM -K /etc/krb5.keytab -H contoso-coreos.contoso.com -N coreos
 ```
 
 
@@ -129,10 +129,10 @@ sudo systemctl start sssd.service
 ## <a name="verify-domain-join"></a>도메인 가입 확인
 컴퓨터가 관리되는 도메인에 성공적으로 가입되었는지 여부를 확인합니다. 다른 SSH 연결을 사용하여 도메인에 가입된 CoreOS VM에 연결합니다. 도메인 사용자 계정을 사용하고 사용자 계정이 올바른지 확인합니다.
 
-1. SSH 터미널에서 다음 명령을 입력하고 SSH를 사용하여 도메인에 가입된 CoreOS 가상 머신에 연결합니다. 관리되는 도메인에 속하는 도메인 계정을 사용합니다(예: 여기서는 ‘bob@CONTOSO100.COM’).
+1. SSH 터미널에서 다음 명령을 입력하고 SSH를 사용하여 도메인에 가입된 CoreOS 가상 머신에 연결합니다. 관리되는 도메인에 속하는 도메인 계정을 사용합니다(예: 여기서는 ‘bob@contoso.COM’).
     
     ```console
-    ssh -l bob@CONTOSO100.COM contoso-coreos.contoso100.com
+    ssh -l bob@contoso.COM contoso-coreos.contoso.com
     ```
 
 2. SSH 터미널에서 다음 명령을 입력하여 홈 디렉터리가 올바르게 초기화되었는지 확인합니다.
@@ -149,9 +149,9 @@ sudo systemctl start sssd.service
 
 
 ## <a name="troubleshooting-domain-join"></a>도메인 가입 문제 해결
-[도메인 가입 문제 해결](join-windows-vm.md#troubleshoot-joining-a-domain) 문서를 참조하세요.
+[도메인 가입 문제 해결](join-windows-vm.md#troubleshoot-domain-join-issues) 문서를 참조하세요.
 
 ## <a name="related-content"></a>관련 내용
-* [Azure AD 도메인 서비스 - 시작 가이드](create-instance.md)
+* [Azure AD 도메인 서비스 - 시작 가이드](tutorial-create-instance.md)
 * [Windows Server 가상 머신을 Azure AD 도메인 서비스 관리되는 도메인에 가입](active-directory-ds-admin-guide-join-windows-vm.md)
-* [Linux를 실행하는 가상 머신에 로그온하는 방법](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Linux를 실행 하는 가상 머신에 로그인 하는 방법](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

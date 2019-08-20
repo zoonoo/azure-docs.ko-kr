@@ -8,14 +8,14 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 6e53d0d4f8f19a3cf81f1adb6c62b2797a50d146
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: b54f1d8c0705488c53925d097433e77aed3eac72
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812218"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617605"
 ---
-# <a name="escalate-private-cloud-vcenter-privileges-from-the-cloudsimple-portal"></a>CloudSimple 포털에서 사설 클라우드 vCenter 권한 에스컬레이션 
+# <a name="escalate-private-cloud-vcenter-privileges-from-the-cloudsimple-portal"></a>CloudSimple 포털에서 사설 클라우드 vCenter 권한 에스컬레이션
 
 사설 클라우드 vCenter에 대 한 관리 액세스를 위해 CloudSimple 권한을 일시적으로 에스컬레이션 할 수 있습니다.  상승 된 권한을 사용 하 여 VMware 솔루션을 설치 하 고, id 원본을 추가 하 고, 사용자를 관리할 수 있습니다.
 
@@ -38,7 +38,7 @@ VCenter SSO 도메인에 새 사용자를 만들고 vCenter에 대 한 액세스
 
     ![VSphere 대 한 권한 변경](media/escalate-private-cloud-privilege.png)
 
-4. VSphere 사용자 유형을 선택 합니다.  로컬 **CloudOwner@cloudsimple.local** 사용자만 에스컬레이션 가능 합니다.
+4. VSphere 사용자 유형을 선택 합니다.  로컬 `CloudOwner@cloudsimple.local` 사용자만 에스컬레이션 가능 합니다.
 
 5. 드롭다운에서 에스컬레이션 시간 간격을 선택 합니다. 작업을 완료 하는 데 사용할 가장 짧은 기간을 선택 합니다.
 

@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 40caea40637c57aedb6315ff6fc032898ff07af7
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 20ca823f60ced4260c2e61ca15ae04e158b7d952
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467939"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615675"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Azure Cosmos DB의 변경 피드 - 개요
 
-Azure Cosmos DB의 변경 피드 지원은 모든 변경 사항에 대해 Azure Cosmos DB 컨테이너를 수신하여 작동합니다. 그런 다음 변경된 문서가 수정된 순서로 정렬된 목록이 출력됩니다. 변경 사항은 지속적이며, 비동기적 및 증분적으로 처리할 수 있고 출력을 하나 이상의 소비자 사이에 분산하여 병렬 처리가 가능합니다. 
+Azure Cosmos DB의 변경 피드 지원은 변경 내용에 대 한 Azure Cosmos 컨테이너를 수신 하 여 작동 합니다. 그런 다음 변경된 문서가 수정된 순서로 정렬된 목록이 출력됩니다. 변경 사항은 지속적이며, 비동기적 및 증분적으로 처리할 수 있고 출력을 하나 이상의 소비자 사이에 분산하여 병렬 처리가 가능합니다. 
 
 Azure Cosmos DB는 IoT, 게임, 소매 및 운영 로깅 애플리케이션에 적합합니다. 이러한 애플리케이션에서 일반적인 설계 패턴은 데이터 변경 사항을 사용하여 추가 작업을 트리거하는 것입니다. 추가 작업의 예제는 다음을 포함합니다.
 
@@ -56,7 +56,7 @@ Azure Cosmos DB의 변경 피드를 사용하면 다음 그림과 같이 이러�
 
 항목에서 TTL(Time to Live) 속성이 -1로 설정된 경우 변경 피드는 영원히 유지됩니다. 데이터를 삭제하지 않는 이상, 데이터는 변경 피드에 계속 남아 있습니다.  
 
-### <a name="change-feed-and-etag-lsn-or-ts"></a>변경 피드 및 _etag, _lsn 또는 _ts
+### <a name="change-feed-and-_etag-_lsn-or-_ts"></a>변경 피드 및 _etag, _lsn 또는 _ts
 
 _etag 형식은 내부적이며 언제든지 변경될 수 있으므로 의존하면 안 됩니다. _ts는 수정 또는 생성 타임스탬프입니다. _ts를 시간순 비교에 사용할 수 있습니다. _lsn은 변경 피드에만 추가 되는 일괄 처리 ID입니다. 트랜잭션 ID를 나타냅니다. 많은 항목에는 동일한 _lsn이 있을 수 있습니다. FeedResponse의 ETag는 항목에 표시된 _etag와 다릅니다. _etag는 내부 식별자이며 항목의 버전에 대해 알려주는 동시성 컨트롤에 사용되는 반면 ETag는 피드 시퀀싱에 사용됩니다.
 

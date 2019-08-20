@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: iainfou
-ms.openlocfilehash: 475817985885cdd6023e72f20ecf35a3ca582924
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 1c52ac967d241f31d96988fa5ead8b4e049f6f4c
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67472434"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617094"
 ---
 # <a name="synchronization-in-an-azure-ad-domain-services-managed-domain"></a>Azure AD 도메인 서비스 관리되는 도메인에서 동기화
 다음 다이어그램에서는 Azure AD 도메인 서비스 관리되는 도메인에서 동기화가 작동하는 방식을 보여 줍니다.
@@ -60,7 +60,7 @@ Azure AD Connect 동기화는 사용자 계정, 그룹 구성원 자격 및 자�
 ## <a name="how-specific-attributes-are-synchronized-to-your-managed-domain"></a>관리되는 도메인에 특정 특성이 동기화되는 방식
 다음 표에는 몇 가지 공통 특성이 나열되어 있으며 이러한 특성이 관리되는 도메인에 동기화되는 방식이 설명되어 있습니다.
 
-| 관리되는 도메인의 특성 | 원본 | 메모 |
+| 관리되는 도메인의 특성 | Source | 메모 |
 |:--- |:--- |:--- |
 | UPN |Azure AD 테넌트의 사용자 UPN 특성 |Azure AD 테넌트의 UPN 특성은 있는 그대로 관리되는 도메인에 동기화됩니다. 따라서 관리되는 도메인에 로그인하는 가장 안정적인 방법은 UPN을 사용하는 것입니다. |
 | SAMAccountName |Azure AD 테넌트에서 사용되거나 자동 생성된 사용자의 mailNickname |SAMAccountName 특성은 Azure AD 테넌트의 mailNickname 특성에서 제공됩니다. 여러 사용자 계정에 동일한 mailNickname 특성이 있으면 SAMAccountName이 자동으로 생성됩니다. 사용자의 mailNickname 또는 UPN 접두사가 20자 보다 긴 경우에는 SAMAccountName 특성에 대한 20자 제한을 충족하기 위해 SAMAccountName이 자동으로 생성됩니다. |
@@ -69,7 +69,7 @@ Azure AD Connect 동기화는 사용자 계정, 그룹 구성원 자격 및 자�
 | 사용자 및 그룹에 대한 SID 기록 |온-프레미스 기본 사용자 및 그룹 SID |관리되는 도메인의 사용자 및 그룹에 대한 SidHistory 특성은 온-프레미스 도메인의 해당 기본 사용자 또는 그룹 SID와 일치하도록 설정됩니다. 이 기능을 사용하면 리소스 ACL을 다시 만들 필요가 없으므로 온-프레미스 애플리케이션을 관리되는 도메인으로 보다 쉽게 이동할 수 있습니다. |
 
 > [!NOTE]
-> **UPN 형식을 사용하여 관리되는 도메인에 로그인:** 관리되는 도메인의 일부 사용자 계정에 대해 SAMAccountName 특성이 자동으로 생성될 수 있습니다. 여러 사용자가 동일한 mailNickname 특성을 사용하거나 사용자의 UPN 접두사가 너무 긴 경우 이러한 사용자에 대한 SAMAccountName이 자동으로 생성될 수 있습니다. 따라서 SAMAccountName 형식(예: 'CONTOSO100\joeuser')은 도메인에 로그인하는 안정적인 방법이 아닐 수 있습니다. 자동 생성된 사용자의 SAMAccountName은 UPN 접두사와 다를 수 있습니다. 관리되는 도메인에 안정적으로 로그인하려면 UPN 형식(예: ‘joeuser@contoso100.com’)을 사용하세요.
+> **UPN 형식을 사용하여 관리되는 도메인에 로그인:** 관리되는 도메인의 일부 사용자 계정에 대해 SAMAccountName 특성이 자동으로 생성될 수 있습니다. 여러 사용자가 동일한 mailNickname 특성을 사용하거나 사용자의 UPN 접두사가 너무 긴 경우 이러한 사용자에 대한 SAMAccountName이 자동으로 생성될 수 있습니다. 따라서 SAMAccountName 형식 (예: ' CONTOSO\dee ')은 항상 도메인에 로그인 하는 신뢰할 수 있는 방법이 아닙니다. 자동 생성된 사용자의 SAMAccountName은 UPN 접두사와 다를 수 있습니다. 관리되는 도메인에 안정적으로 로그인하려면 UPN 형식(예: ‘dee@contoso.com’)을 사용하세요.
 
 ### <a name="attribute-mapping-for-user-accounts"></a>사용자 계정에 대한 특성 매핑
 다음 표에서는 Azure AD 테넌트의 사용자 개체에 대한 특정 특성이 관리되는 도메인의 해당 특성에 동기화되는 방식을 보여 줍니다.
@@ -88,7 +88,7 @@ Azure AD Connect 동기화는 사용자 계정, 그룹 구성원 자격 및 자�
 | mailNickname |msDS-AzureADMailNickname |
 | mailNickname |SAMAccountName(자동 생성되는 경우도 있음) |
 | mobile |mobile |
-| objectId |msDS-AzureADObjectId |
+| objectid |msDS-AzureADObjectId |
 | onPremiseSecurityIdentifier |sidHistory |
 | passwordPolicies |userAccountControl(DONT_EXPIRE_PASSWORD 비트를 설정하거나 지움) |
 | physicalDeliveryOfficeName |physicalDeliveryOfficeName |
@@ -109,14 +109,14 @@ Azure AD Connect 동기화는 사용자 계정, 그룹 구성원 자격 및 자�
 | displayName |SAMAccountName(자동 생성되는 경우도 있음) |
 | 메일 |메일 |
 | mailNickname |msDS-AzureADMailNickname |
-| objectId |msDS-AzureADObjectId |
+| objectid |msDS-AzureADObjectId |
 | onPremiseSecurityIdentifier |sidHistory |
 | securityEnabled |groupType |
 
 ## <a name="password-hash-synchronization-and-security-considerations"></a>암호 해시 동기화 및 보안 고려 사항
 Azure AD Domain Services를 사용하도록 설정하면 Azure AD 디렉터리는 NTLM 및 Kerberos 호환 형식으로 암호 해시를 생성하고 저장합니다. 
 
-기존 클라우드 사용자 계정의 경우 Azure AD가 해당 일반 텍스트 암호를 저장하지 않으므로 이러한 해시 자동으로 생성되지 않습니다. 따라서 Microsoft에서는 암호 해시를 생성하고 Azure AD에 저장하기 위해 [클라우드 사용자가 해당 암호를 재설정/변경](active-directory-ds-getting-started-password-sync.md)해야 합니다. Azure AD Domain Services를 사용하도록 설정한 후에 Azure AD에서 만든 클라우드 사용자 계정의 경우 암호 해시는 NTLM 및 Kerberos 호환 형식으로 생성되고 저장됩니다. 
+기존 클라우드 사용자 계정의 경우 Azure AD가 해당 일반 텍스트 암호를 저장하지 않으므로 이러한 해시 자동으로 생성되지 않습니다. 따라서 Microsoft에서는 암호 해시를 생성하고 Azure AD에 저장하기 위해 [클라우드 사용자가 해당 암호를 재설정/변경](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds)해야 합니다. Azure AD Domain Services를 사용하도록 설정한 후에 Azure AD에서 만든 클라우드 사용자 계정의 경우 암호 해시는 NTLM 및 Kerberos 호환 형식으로 생성되고 저장됩니다. 
 
 Azure AD Connect Sync를 사용하여 온-프레미스 AD에서 동기화된 사용자 계정의 경우 [NTLM 및 Kerberos 호환 형식으로 암호 해시를 동기화하도록 Azure AD Connect를 구성](active-directory-ds-getting-started-password-sync-synced-tenant.md)해야 합니다.
 
@@ -126,7 +126,6 @@ NTLM 및 Kerberos 호환 암호 해시는 Azure AD에서 항상 암호화된 방
 이 문서의 이전 섹션에서 설명한 대로, 관리되는 도메인에서 Azure AD 테넌트로 다시 동기화되지는 않습니다. [관리되는 도메인에서 사용자 지정 OU(조직 구성 단위)를 만들](create-ou.md) 수 있습니다. 또한 이러한 사용자 지정 OU 내에서 다른 OU, 사용자, 그룹 또는 서비스 계정을 만들 수 있습니다. 사용자 지정 OU 내에서 만든 개체는 Azure AD 테넌트에 다시 동기화되지 않습니다. 이러한 개체는 관리되는 도메인 내에서만 사용할 수 있습니다. 따라서 Azure AD PowerShell cmdlet, Azure AD Graph API 또는 Azure AD 관리 UI를 사용하여 이러한 개체를 볼 수 없습니다.
 
 ## <a name="related-content"></a>관련 내용
-* [기능 - Azure AD Domain Services](active-directory-ds-features.md)
 * [배포 시나리오 - Azure AD Domain Services](scenarios.md)
 * [Azure AD 도메인 서비스에 대한 네트워킹 고려 사항](network-considerations.md)
-* [Azure AD 도메인 서비스 시작](create-instance.md)
+* [Azure AD 도메인 서비스 시작](tutorial-create-instance.md)

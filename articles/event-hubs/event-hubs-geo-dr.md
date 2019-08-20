@@ -14,18 +14,19 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 8dca94f0200f6bd41dfdc199b41bf69981a960da
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 22cf2be8eaed47a9440c6798acfb4383bd84c916
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562705"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69611708"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs - 지리적 재해 복구 
 
 ([가용성 영역](../availability-zones/az-overview.md)을 사용하지 않는 경우)전체 Azure 지역 또는 데이터 센터에서 가동 중지 시간이 발생하면 데이터 처리가 다른 지역 또는 데이터 센터에서 계속 작동되는 것이 중요합니다. 따라서 *지리적 재해 복구* 및 *지리적 복제*는 기업에 중요한 기능입니다. Azure Event Hubs는 네임스페이스 수준에서 지리적 재해 복구 및 지리적 복제를 둘 다 지원합니다. 
 
-지역 재해 복구 기능은 Event Hubs Standard 및 전용 SKU 둘 다에서 전역적으로 사용할 수 있습니다. 동일한 SKU 계층에서 지역 쌍 네임 스페이스를 사용할 수 있습니다. 예를 들어 전용 SKU 에서만 제공 되는 네임 스페이스가 클러스터에 있는 경우 다른 클러스터의 네임 스페이스와만 쌍으로 연결할 수 있습니다. 
+> [!NOTE]
+> 지역 재해 복구 기능은 [표준 및 전용 sku](https://azure.microsoft.com/pricing/details/event-hubs/)에서만 사용할 수 있습니다.  
 
 ## <a name="outages-and-disasters"></a>중단 및 재해
 
@@ -37,7 +38,9 @@ Azure Event Hubs의 지역 재해 복구 기능은 재해 복구 솔루션입니
 
 ## <a name="basic-concepts-and-terms"></a>기본 개념 및 용어
 
-재해 복구 기능은 메타데이터 재해 복구를 구현하며 주 및 보조 재해 복구 네임스페이스를 사용합니다. 지역 재해 복구 기능은 [표준 및 전용 sku](https://azure.microsoft.com/pricing/details/event-hubs/) 에 대해서만 사용할 수 있습니다. 별칭을 통해 연결이 수행되므로 연결 문자열을 변경할 필요가 없습니다.
+재해 복구 기능은 메타데이터 재해 복구를 구현하며 주 및 보조 재해 복구 네임스페이스를 사용합니다. 
+
+지역 재해 복구 기능은 [표준 및 전용 sku](https://azure.microsoft.com/pricing/details/event-hubs/) 에 대해서만 사용할 수 있습니다. 별칭을 통해 연결이 수행되므로 연결 문자열을 변경할 필요가 없습니다.
 
 이 문서에서는 다음 용어가 사용됩니다.
 
@@ -48,6 +51,19 @@ Azure Event Hubs의 지역 재해 복구 기능은 재해 복구 솔루션입니
 -  *메타데이터*: Event Hubs 및 소비자 그룹과 같은 엔터티 및 네임스페이스와 연결된 서비스의 해당 속성입니다. 엔터티 및 해당 설정만이 자동으로 복제됩니다. 메시지 및 이벤트는 복제되지 않습니다. 
 
 -  *장애 조치(Failover)* : 보조 네임스페이스를 활성화하는 프로세스입니다.
+
+## <a name="supported-namespace-pairs"></a>지원 되는 네임 스페이스 쌍
+기본 및 보조 네임 스페이스의 다음과 같은 조합이 지원 됩니다.  
+
+| 기본 네임 스페이스 | 보조 네임 스페이스 | 지원 | 
+| ----------------- | -------------------- | ---------- |
+| 표준 | 표준 | 예 | 
+| 표준 | 전용 | 예 | 
+| 전용 | 전용 | 예 | 
+| 전용 | 표준 | 아니요 | 
+
+> [!NOTE]
+> 동일한 전용 클러스터에 있는 네임 스페이스는 쌍으로 연결할 수 없습니다. 별도의 클러스터에 있는 네임 스페이스를 쌍으로 연결할 수 있습니다. 
 
 ## <a name="setup-and-failover-flow"></a>흐름 설정 및 장애 조치
 

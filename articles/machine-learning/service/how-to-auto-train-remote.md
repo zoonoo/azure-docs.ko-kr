@@ -11,12 +11,12 @@ ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 7/12/2019
-ms.openlocfilehash: 852190f7b66c0d2c527d1784c72f963e11620064
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
-ms.translationtype: MT
+ms.openlocfilehash: 3af7e6bb9544ab0d255d4d4301b258f57b19b999
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371097"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616395"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>클라우드의 자동화된 기계 학습을 사용하여 모델 학습
 
@@ -51,7 +51,6 @@ provisioning_config = AmlCompute.provisioning_configuration(vm_size="STANDARD_D2
                                                             # for GPU, use "STANDARD_NC6"
                                                             # vm_priority = 'lowpriority', # optional
                                                             max_nodes=6)
-
 compute_target = ComputeTarget.create(
     ws, amlcompute_cluster_name, provisioning_config)
 
@@ -67,35 +66,30 @@ compute_target.wait_for_completion(
 + 64자보다 짧아야 합니다.
 + 다음 문자를 포함할 수 없습니다. `\` ~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \\\\ | ; : \' \\" , < > / ?.`
 
-## <a name="access-data-using-getdata-function"></a>Get_data () 함수를 사용 하 여 데이터 액세스
+## <a name="access-data-using-tabulardataset-function"></a>TabularDataset 함수를 사용 하 여 데이터 액세스
 
-학습 데이터에 대한 원격 리소스 액세스를 제공합니다. 원격 컴퓨팅에서 실행되는 자동화된 기계 학습 실험의 경우 `get_data()` 함수를 사용하여 데이터를 페치해야 합니다.
+X 및 y를 s `TabularDataset`로 정의 합니다 .이는 AutoMLConfig에서 자동화 된 ML에 전달 됩니다. `from_delimited_files`기본적으로는 `infer_column_types` 를 true로 설정 합니다. 그러면 열 형식이 자동으로 유추 됩니다. 
 
-액세스를 제공하려면 다음을 수행해야 합니다.
-+ `get_data()` 함수가 포함된 get_data.py 파일 만들기
-+ 해당 파일을 절대 경로로 액세스할 수 있는 디렉터리에 배치
-
-Blob Storage 또는 get_data.py 파일의 로컬 디스크에서 데이터를 읽도록 코드를 캡슐화할 수 있습니다. 다음 코드 샘플의 데이터는 sklearn 패키지에서 옵니다.
+수동으로 열 유형을 설정 하려면 `set_column_types` 인수를 설정 하 여 각 열의 유형을 수동으로 설정 합니다. 다음 코드 샘플의 데이터는 sklearn 패키지에서 옵니다.
 
 ```python
 # Create a project_folder if it doesn't exist
 if not os.path.exists(project_folder):
     os.makedirs(project_folder)
 
-#Write the get_data file.
-%%writefile $project_folder/get_data.py
-
 from sklearn import datasets
 from scipy import sparse
 import numpy as np
+import pandas as pd
 
-def get_data():
+data_train = datasets.load_digits()
 
-    digits = datasets.load_digits()
-    X_digits = digits.data[10:,:]
-    y_digits = digits.target[10:]
+pd.DataFrame(data_train.data[100:,:]).to_csv(\'data/X_train.csv\', index=False)
+pd.DataFrame(data_train.target[100:]).to_csv(\'data/y_train.csv\', index=False)
 
-    return { "X" : X_digits, "y" : y_digits }
+X = Dataset.Tabular.from_delimited_files(path=ds.path('digitsdata/X_train.csv'))
+y = Dataset.Tabular.from_delimited_files(path=ds.path('digitsdata/y_train.csv'))
+
 ```
 
 ## <a name="create-run-configuration"></a>실행 구성 만들기
@@ -119,7 +113,6 @@ run_config.environment.python.conda_dependencies = dependencies
 이 디자인 패턴의 추가 예제는이 [샘플 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/remote-amlcompute/auto-ml-remote-amlcompute.ipynb) 을 참조 하세요.
 
 ## <a name="configure-experiment"></a>실험 구성
-
 `AutoMLConfig`에 대해 설정을 지정합니다.  ([매개 변수 전체 목록](how-to-configure-auto-train.md#configure-experiment) 및 가능한 값을 참조하세요.)
 
 ```python
@@ -143,7 +136,8 @@ automl_config = AutoMLConfig(task='classification',
                              path=project_folder,
                              compute_target=compute_target,
                              run_configuration=run_config,
-                             data_script=project_folder + "/get_data.py",
+                             X = X,
+                             y = y,
                              **automl_settings,
                              )
 ```
@@ -158,7 +152,8 @@ automl_config = AutoMLConfig(task='classification',
                              path=project_folder,
                              compute_target=compute_target,
                              run_configuration=run_config,
-                             data_script=project_folder + "/get_data.py",
+                             X = X,
+                             y = y,
                              **automl_settings,
                              model_explainability=True,
                              X_valid=X_test

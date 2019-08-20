@@ -9,20 +9,20 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: f8cb7458deddc95f33fa5e4582ffa7c25c3c64e6
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: ef006e94ee22886f1129c7c9ca31e20503312fe3
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619821"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616926"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Bulk Executor Java 라이브러리를 사용하여 Azure Cosmos DB 데이터에서 대량 작업 수행
 
-이 자습서는 Azure Cosmos DB Bulk Executor Java 라이브러리를 사용하여 Azure Cosmos DB 문서를 가져오고 업데이트하는 데 관한 지침을 제공합니다. Bulk Executor 라이브러리와 방대한 처리량 및 저장소를 활용하는 방법에 대한 자세한 내용은 [Bulk Executor 라이브러리 개요](bulk-executor-overview.md) 문서를 참조하세요. 이 자습서에서는 임의의 문서를 생성하는 Java 애플리케이션을 빌드하고 이러한 문서를 Azure Cosmos DB 컨테이너에 대량으로 가져옵니다. 가져온 후 문서의 일부 속성을 대량 업데이트합니다. 
+이 자습서는 Azure Cosmos DB Bulk Executor Java 라이브러리를 사용하여 Azure Cosmos DB 문서를 가져오고 업데이트하는 데 관한 지침을 제공합니다. Bulk Executor 라이브러리와 방대한 처리량 및 스토리지를 활용하는 방법에 대한 자세한 내용은 [Bulk Executor 라이브러리 개요](bulk-executor-overview.md) 문서를 참조하세요. 이 자습서에서는 무작위 문서를 생성 하는 Java 응용 프로그램을 빌드하고 Azure Cosmos 컨테이너로 대량으로 가져옵니다. 가져온 후 문서의 일부 속성을 대량 업데이트합니다. 
 
 현재 대량 실행자 라이브러리는 Azure Cosmos DB SQL API 및 Gremlin API 계정 에서만 지원 됩니다. 이 문서에서는 SQL API 계정에서 대량 실행 기 Java 라이브러리를 사용 하는 방법을 설명 합니다. Bulk Executor .NET 라이브러리 사용에 대해 알아보려면 [Azure Cosmos DB Gremlin API에서 대량 작업 수행](bulk-executor-graph-dotnet.md)을 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.  
 
@@ -88,7 +88,7 @@ ms.locfileid: "68619821"
    client.getConnectionPolicy().getRetryOptions().setMaxRetryAttemptsOnThrottledRequests(0);
    ```
 
-4. 임의 문서를 생성하여 Azure Cosmos DB 컨테이너에 대량으로 가져오는 importAll API를 호출합니다. CmdLineConfiguration.java 파일 내에서 명령줄 구성을 구성할 수 있습니다.
+4. 임의 문서를 생성 하는 importAll API를 호출 하 여 Azure Cosmos 컨테이너로 대량으로 가져옵니다. CmdLineConfiguration.java 파일 내에서 명령줄 구성을 구성할 수 있습니다.
 
    ```java
    BulkImportResponse bulkImportResponse = bulkExecutor.importAll(documents, false, true, null);
@@ -155,7 +155,7 @@ BulkUpdateAsync API를 사용하여 기존 문서를 업데이트할 수 있습�
     }).collect(Collectors.toCollection(() -> updateItems));
    ```
 
-2. 임의 문서를 생성한 다음, Azure Cosmos DB 컨테이너에 대량으로 가져오는 updateAll API를 호출합니다. CmdLineConfiguration.java 파일에 전달할 명령줄 구성을 구성할 수 있습니다.
+2. 임의 문서를 생성 하는 updateAll API를 호출 하 여 Azure Cosmos 컨테이너로 대량으로 가져옵니다. CmdLineConfiguration.java 파일에 전달할 명령줄 구성을 구성할 수 있습니다.
 
    ```java
    BulkUpdateResponse bulkUpdateResponse = bulkExecutor.updateAll(updateItems, null)
@@ -206,7 +206,7 @@ Bulk Executor 라이브러리를 사용하는 경우 성능 향상을 위해 다
    * 많은 수의 문서를 처리할 때 메모리 문제를 방지하기 위해 JVM의 힙 크기를 충분한 수로 설정합니다. 제안되는 힙 크기: 최대(3GB, 3 * sizeof(각 일괄 처리에서 대량 가져오기 API로 전달된 모든 문서)).  
    * 문서 수가 많은 대량 작업을 수행하면 처리량이 더 높아지므로 전처리 시간이 있습니다. 따라서 10,000,000개 문서를 가져오려는 경우 크기가 100,000개인 대량 문서 100개에서 대량 가져오기를 100번 수행하는 것보다 각 크기가 1,000,000개인 대량 문서 10개에서 대량 가져오기를 10번 실행하는 것이 좋습니다.  
 
-* 특정 Azure Cosmos DB 컨테이너에 해당하는 단일 가상 머신 내에서 전체 애플리케이션에 대한 단일 DocumentBulkExecutor 개체를 인스턴스화하는 것이 좋습니다.  
+* 특정 Azure Cosmos 컨테이너에 해당 하는 단일 가상 머신 내에서 전체 응용 프로그램에 대해 단일 Document대량 실행자 개체를 인스턴스화하는 것이 좋습니다.  
 
 * 단일 대량 작업 API 실행은 클라이언트 컴퓨터의 CPU 및 네트워크 IO의 대규모 청크를 사용하기 때문입니다. 이는 내부적으로 여러 작업을 생성되며 발생합니다. 대량 작업 API 호출을 각각 실행하는 애플리케이션 내에서 여러 동시 작업이 발생하지 않도록 하십시오. 단일 가상 머신에서 실행되는 단일 대량 작업 API 호출에서 전체 컨테이너의 처리량을 사용할 수 없는 경우(컨테이너의 처리량이 1백만 RU/s 미만인 경우) 대량 작업 API 호출을 동시에 실행하도록 개별 가상 머신을 만드는 것이 좋습니다.
 

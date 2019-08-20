@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/03/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 9a11af7e2875c9af5cf4b08d459bc67b55dbdcf3
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 21a42b2986b52282fbab914fa702d8c4a323ed35
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515543"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69611956"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Azure Security Center에서 지원하는 기능 및 플랫폼
 
@@ -30,8 +30,7 @@ ms.locfileid: "69515543"
 >
 
 ## <a name="platforms-that-support-the-data-collection-agent"></a>데이터 수집 에이전트를 지원하는 플랫폼 
-
-이 섹션에서는 Azure Security Center 에이전트를 실행하고 데이터를 수집할 수 있는 플랫폼을 나열합니다.
+이 섹션에서는 Azure Security Center에서 사용 되는 Log Analytics 에이전트를 실행할 수 있는 플랫폼을 나열 합니다.
 
 ### <a name="supported-platforms-for-windows-computers-and-vms"></a>Windows 컴퓨터 및 VM에 대해 지원되는 플랫폼
 다음 Windows 운영 체제가 지원됩니다.

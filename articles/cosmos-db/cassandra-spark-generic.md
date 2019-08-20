@@ -8,18 +8,18 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 75d2930363b6ad1aeace22d7529df04f31deefe5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cc28cf590a1fd2c3fdfe8651f136526188801c04
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60893639"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615634"
 ---
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>Spark에서 Azure Cosmos DB Cassandra API에 연결
 
 이 문서는 Spark에서 Azure Cosmos DB Cassandra API 통합에 대한 문서 시리즈 중 하나입니다. 문서는 연결, DDL(데이터 정의 언어) 작업, 기본 DML(데이터 조작 언어) 작업 및 Spark에서 고급 Azure Cosmos DB Cassandra API 통합을 다룹니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 * [Azure Cosmos DB Cassandra API 계정을 프로비전합니다](create-cassandra-dotnet.md#create-a-database-account).
 
 * 선택한 Spark 환경 [[Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) | [Azure HDInsight Spark](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql) | 기타]를 프로비전합니다.
@@ -46,8 +46,8 @@ ms.locfileid: "60893639"
 | spark.cassandra.connection.connections_per_executor_max  | 없음 | 실행기별 노드당 연결의 최대 수입니다. 10*n은 n개 노드 Cassandra 클러스터의 노드당 10개의 연결과 같습니다. 따라서 5개 노드 Cassandra 클러스터에 대한 실행기별 노드당 5개의 연결이 필요한 경우 이 구성을 25로 설정해야 합니다. 이 값을 병렬 처리 수준 또는 spark 작업이 구성된 실행기 수에 따라 수정합니다.   |
 | spark.cassandra.output.concurrent.writes  |  100 | 실행기당 발생할 수 있는 병렬 쓰기 수를 정의합니다. "batch.size.rows"를 1로 설정했으므로 이 값을 적절하게 크기 조정해야 합니다. 이 값을 병렬 처리 수준 또는 워크로드에 대해 달성하려는 처리량에 따라 수정합니다. |
 | spark.cassandra.concurrent.reads |  512 | 실행기당 발생할 수 있는 병렬 읽기 수를 정의합니다. 이 값을 병렬 처리 수준 또는 워크로드에 대해 달성하려는 처리량에 따라 수정합니다.  |
-| spark.cassandra.output.throughput_mb_per_sec  | 없음 | 실행기당 총 쓰기 처리량을 정의합니다. 이 매개 변수는 spark 작업 처리량의 상한 및 Cosmos DB 컬렉션의 프로비전된 처리량을 기준으로 사용될 수 있습니다.   |
-| spark.cassandra.input.reads_per_sec| 없음   | 실행기당 총 읽기 처리량을 정의합니다. 이 매개 변수는 spark 작업 처리량의 상한 및 Cosmos DB 컬렉션의 프로비전된 처리량을 기준으로 사용될 수 있습니다.  |
+| spark.cassandra.output.throughput_mb_per_sec  | 없음 | 실행기당 총 쓰기 처리량을 정의합니다. 이 매개 변수는 spark 작업 처리량의 상한으로 사용할 수 있으며 Cosmos 컨테이너의 프로 비전 된 처리량에 기반 합니다.   |
+| spark.cassandra.input.reads_per_sec| 없음   | 실행기당 총 읽기 처리량을 정의합니다. 이 매개 변수는 spark 작업 처리량의 상한으로 사용할 수 있으며 Cosmos 컨테이너의 프로 비전 된 처리량에 기반 합니다.  |
 | spark.cassandra.output.batch.grouping.buffer.size |  1000  | Cassandra API에 보내기 전에 메모리에 저장할 수 있는 단일 spark 작업당 일괄 처리 수를 정의합니다. |
 | spark.cassandra.connection.keep_alive_ms | 60000 | 사용되지 않는 연결을 사용할 수 있는 기간을 정의합니다. | 
 

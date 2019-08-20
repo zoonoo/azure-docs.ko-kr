@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4ecf3ec6ba9c71f3d7624b541ba0618645ab14f4
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: da7b9c44d15ac0ca16afe15e429a6fe2cf89e366
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69535093"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575246"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Azure를 사용 하 여 SAP 워크 로드 시나리오 호스트 및 실행
 
@@ -122,6 +122,7 @@ SAP 구성 요소에 Azure 서비스를 통합 하는 방법에 대 한 자세�
 
 ## <a name="change-log"></a>변경 로그
 
+- 08/16/2019: Azure의 새 버전으로 업데이트 하는 경우 사용자 지정 역할의 작업을 업데이트 하도록 고객에 게 알리도록 [azure의 Red Hat Enterprise Linux Pacemaker 설정](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker) 변경  
 - 08/15/2019: 울트라 디스크의 일반 공급 (이전의 울트라 SSD)을 반영 하는 [Azure 가상 머신 저장소 구성 SAP HANA](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) 변경
 - 08/01/2019: SLES 15 용 변경 사항을 통합 하기 위해 [Azure의 SUSE Linux Enterprise Server Pacemaker 설정](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) 변경 사항 
 - 07/23/2019: [Azure의 파일 공유를 사용 하 여 Windows 장애 조치 (failover) 클러스터의 SAP ASCS/SCS 인스턴스가 클러스터](sap-high-availability-guide-wsfc-file-share.md) 에서 변경 되어 Azure Site Recovery 서비스에서 제공 하는 저장소 공간 다이렉트에 대 한 지원이 반영 됩니다.

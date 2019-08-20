@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 128aa17c3f3d19f5551958fde488f803224d1cd5
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 08ace7170a982fbaa186b77b27e342f16349aadd
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68693440"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69613314"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: 사용자 마이그레이션
 
@@ -27,7 +27,7 @@ Azure AD B2C를 사용 하 여 [AZURE AD Graph API][B2C-GraphQuickStart]를 통�
 
 - **사전 마이그레이션**: 이 흐름은 사용자의 자격 증명(사용자 이름 및 암호)에 대한 명확한 액세스 권한이 있거나 자격 증명이 암호화되어 있지만 암호를 해독할 수 있는 경우에 적용됩니다. 사전 마이그레이션 프로세스에는 이전 ID 공급자의 사용자를 읽고 Azure AD B2C 디렉터리에 새 계정을 만드는 작업이 포함됩니다.
 
-- **사전 마이그레이션 및 암호 재설정**: 이 흐름은 사용자의 암호에 액세스할 수 없을 경우에 적용됩니다. 예:
+- **사전 마이그레이션 및 암호 재설정**: 이 흐름은 사용자의 암호에 액세스할 수 없을 경우에 적용됩니다. 예를 들어:
   - 암호는 해시 형식으로 저장됩니다.
   - 암호는 액세스할 수 없는 ID 공급자에 저장됩니다. 이전 ID 공급자는 웹 서비스를 호출하여 사용자 자격 증명의 유효성을 검사합니다.
 
@@ -248,7 +248,7 @@ Azure AD 테넌트를 정리하고 Azure AD 디렉터리에서 사용자를 제�
 > [!NOTE]
 > 사용자 마이그레이션 상태를 확인하고 변경하려면 사용자 지정 정책을 사용해야 합니다. [사용자 지정 정책 시작][B2C-GetStartedCustom] 의 설정 지침을 완료 해야 합니다.
 
-사용자가 먼저 암호를 재설정하지 않고 로그인하려고 하면 정책은 친절한 오류 메시지를 반환해야 합니다. 예를 들어:
+사용자가 먼저 암호를 재설정하지 않고 로그인하려고 하면 정책은 친절한 오류 메시지를 반환해야 합니다. 예:
 
 > *암호가 만료되었습니다. 다시 설정하려면 암호 다시 설정 링크를 선택하세요.*
 
@@ -375,4 +375,4 @@ RESTful API에 대한 기술 프로필을 정의한 후에 Azure AD B2C 정책�
 [B2C-GraphQuickStart]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet
 [B2C-NavContext]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-navigate-to-b2c-context
 [Portal]: https://portal.azure.com/
-[UserMigrationSample]: https://github.com/yoelhor/Azure-AD-B2C-UserMigration
+[UserMigrationSample]: https://github.com/azure-ad-b2c/user-migration

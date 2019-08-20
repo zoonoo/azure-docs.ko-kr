@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/02/2019
+ms.date: 8/18/2019
 ms.author: v-mohabe
-ms.openlocfilehash: f795822d76def4a6695a4746fba7e8566041cb2b
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
-ms.translationtype: MT
+ms.openlocfilehash: 18579f716f80cdf79b703dc78fe520c675e82c51
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68295543"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575637"
 ---
 # <a name="threat-detection-for-azure-service-layer-in-azure-security-center"></a>Azure Security Center에서 Azure 서비스 계층에 대 한 위협 감지
 
@@ -37,7 +37,7 @@ Security Center 네트워크 계층 분석은 Azure core 라우터가 수집 하
 
 > [!div class="mx-tableFixed"]
 
-|경고|Description|
+|알림|Description|
 |---|---|
 |**의심 스러운 나가는 RDP 네트워크 활동**|샘플링 된 네트워크 트래픽 분석은 배포의 리소스에서 발생 하는 비정상적인 RDP (보내는 원격 데스크톱 프로토콜) 통신을 검색 했습니다. 이 작업은이 환경에서 비정상으로 간주 되며 리소스가 손상 되어 외부 RDP 끝점의 무작위 적용에 사용 되 고 있음을 나타낼 수 있습니다. 이러한 유형의 활동으로 인해 외부 엔터티가 IP에 악성 플래그를 설정할 수 있습니다.|
 |**여러 대상으로 의심 스러운 나가는 RDP 네트워크 활동**|샘플링 된 네트워크 트래픽 분석은 배포의 리소스에서 여러 대상으로 보내는 비정상적인 RDP (보내는 원격 데스크톱 프로토콜) 통신을 검색 했습니다. 이 작업은이 환경에서 비정상으로 간주 되며 리소스가 손상 되어 외부 RDP 끝점의 무작위 적용에 사용 되 고 있음을 나타낼 수 있습니다. 이러한 유형의 활동으로 인해 외부 엔터티가 IP에 악성 플래그를 설정할 수 있습니다.|
@@ -47,6 +47,7 @@ Security Center 네트워크 계층 분석은 Azure core 라우터가 수집 하
 |**의심 스러운 들어오는 SSH 네트워크 활동**|샘플링 된 네트워크 트래픽 분석을 통해 배포에서 리소스에 대 한 비정상적인 들어오는 SSH 통신이 감지 되었습니다. 리소스에 대해 상대적으로 많은 수의 들어오는 연결이이 환경에서 비정상으로 간주 됩니다. 이 활동은 SSH 인터페이스의 무차별 암호 대입 시도를 나타낼 수 있습니다.
 |**여러 원본에서 의심 스러운 들어오는 RDP 네트워크 활동**|샘플링 된 네트워크 트래픽 분석을 통해 여러 원본에서 배포의 리소스로 비정상적인 들어오는 RDP 통신이 감지 되었습니다. 리소스에 연결 하는 다양 한 고유 Ip는이 환경에서 비정상으로 간주 됩니다. 이 활동은 여러 호스트 (봇 넷)에서 RDP 인터페이스를 무차별 암호 대입 하려고 시도 했음을 나타낼 수 있습니다.|
 |**의심 스러운 들어오는 RDP 네트워크 활동**|샘플링 된 네트워크 트래픽 분석을 통해 배포에서 리소스에 대 한 비정상적인 들어오는 RDP 통신이 감지 되었습니다. 리소스에 대해 상대적으로 많은 수의 들어오는 연결이이 환경에서 비정상으로 간주 됩니다. 이 활동은 SSH 인터페이스의 무차별 암호 대입 시도를 나타낼 수 있습니다.|
+|**악의적인 주소와의 네트워크 통신이 감지 되었습니다.**|샘플링 된 네트워크 트래픽 분석은 가능한 명령 및 제어 (C & C) 서버를 사용 하 여 배포의 리소스에서 시작 된 통신을 감지 했습니다. 이러한 유형의 활동으로 인해 외부 엔터티가 IP에 악성 플래그를 설정할 수 있습니다.|
 
 Security Center 네트워크 관련 신호를 사용 하 여 위협 방지를 적용 하는 방법을 이해 하려면 [Azure Security Center에서 추론 DNS](https://azure.microsoft.com/blog/heuristic-dns-detections-in-azure-security-center/)검색을 참조 하세요.
 ## Azure 관리 계층 (Azure Resource Manager) (미리 보기)<a name ="management-layer"></a>
@@ -58,7 +59,7 @@ Security Center는 Azure의 제어 평면으로 간주 되는 Azure Resource Man
 
 > [!div class="mx-tableFixed"]
 
-|경고|Description|
+|알림|Description|
 |---|---|
 |**마이크로 버스트 도구 키트 실행**|사용자 환경에서 알려진 클라우드 환경 정찰 도구 키트를 실행 했습니다. 도구 "마이크로 버스트" ( https://github.com/NetSPI/MicroBurst) 공격자 또는 침투 테스터는를 사용 하 여 구독 리소스를 매핑하고, 안전 하지 않은 구성을 식별 하 고, 기밀 정보를 누출) 할 수 있습니다.|
 |**Azurite toolkit 실행**|사용자 환경에서 알려진 클라우드 환경 정찰 도구 키트를 실행 했습니다. "Azurite" 도구 (공격자 또는 https://github.com/mwrlabs/Azurite) 침투 테스터는를 사용 하 여 구독 리소스를 매핑하고 안전 하지 않은 구성을 식별할 수 있음)를 참조 하세요.|

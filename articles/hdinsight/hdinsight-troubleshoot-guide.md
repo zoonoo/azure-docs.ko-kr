@@ -6,18 +6,18 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/14/2019
-ms.openlocfilehash: ef701d146a37350ee07d4c368110fe09d864301e
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 096a8f221313b9dfa3e0fe804a10fc12246177ff
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543498"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575716"
 ---
 # <a name="troubleshoot-by-using-azure-hdinsight"></a>Azure HDInsight를 사용하여 문제 해결
 
 | Apache 워크로드 | 가장 많이 하는 질문 |
 |---|---|
-|![HBase](./media/hdinsight-troubleshoot-guide/HBASE.png)<br>[Apache HBase 문제 해결](hbase/apache-troubleshoot-hbase.md)|<br>[할당되지 않은 여러 영역이 있는 hbck 명령 보고서를 실행하려면 어떻게 하나요?](hbase/apache-troubleshoot-hbase.md#how-do-i-run-hbck-command-reports-with-multiple-unassigned-regions)<br><br>[영역 할당에 대해 hbck 명령을 사용하여 시간 제한 문제를 해결하려면 어떻게 하나요?](hbase/apache-troubleshoot-hbase.md#how-do-i-fix-timeout-issues-with-hbck-commands-for-region-assignments)<br><br>[Apache Phoenix를 사용하여 JDBC 또는 SQLLine 연결 문제를 해결하려면 어떻게 하나요?](hbase/apache-troubleshoot-hbase.md#how-do-i-fix-jdbc-or-sqlline-connectivity-issues-with-apache-phoenix)<br><br>[마스터 서버가 시작되지 않는 원인은 무엇인가요?](hbase/hbase-troubleshoot-start-fails.md)<br><br>[지역 서버에서 다시 시작이 실패하는 원인은 무엇인가요?](hbase/apache-troubleshoot-hbase.md#what-causes-a-restart-failure-on-a-region-server)|
+|![HBase](./media/hdinsight-troubleshoot-guide/HBASE.png)<br>[Apache HBase 문제 해결](hbase/apache-troubleshoot-hbase.md)|<br>[할당 되지 않은 영역](hbase/hbase-troubleshoot-unassigned-regions.md#scenario-unassigned-regions)<br><br>[Azure HDInsight에서 ' hbase hbck ' 명령을 사용 하 여 시간 제한](hbase/hbase-troubleshoot-timeouts-hbase-hbck.md)<br><br>[Azure HDInsight의 Apache Phoenix 연결 문제](hbase/hbase-troubleshoot-phoenix-connectivity.md)<br><br>[마스터 서버가 시작되지 않는 원인은 무엇인가요?](hbase/hbase-troubleshoot-start-fails.md)<br><br>[BindException-이미 사용 중인 주소](hbase/hbase-troubleshoot-bindexception-address-use.md)|
 |![HDFS](./media/hdinsight-troubleshoot-guide/HDFS.png)<br>[Apache Hadoop HDFS 문제 해결](hdinsight-troubleshoot-hdfs.md)|<br>[클러스터 내부에서 로컬 HDFS에 액세스하려면 어떻게 하나요?](hdinsight-troubleshoot-hdfs.md#how-do-i-access-local-hdfs-from-inside-a-cluster)<br><br>[Azure HDInsight 클러스터의 안전 모드에서 로컬 HDFS가 중단 됨](hadoop/hdinsight-hdfs-troubleshoot-safe-mode.md)|
 |![Hive](./media/hdinsight-troubleshoot-guide/HIVE.png)<br>[문제 해결 Apache Hive](hdinsight-troubleshoot-hive.md)|<br>[Hive metastore를 내보내고 다른 클러스터로 가져오려면 어떻게 하나요?](hdinsight-troubleshoot-hive.md#how-do-i-export-a-hive-metastore-and-import-it-on-another-cluster)<br><br>[클러스터에서 Apache Hive 로그를 찾으려면 어떻게 할까요?](hdinsight-troubleshoot-hive.md#how-do-i-locate-hive-logs-on-a-cluster)<br><br>[클러스터에서 특정 구성으로 Apache Hive 셸을 시작하려면 어떻게 하나요?](hdinsight-troubleshoot-hive.md#how-do-i-launch-the-hive-shell-with-specific-configurations-on-a-cluster)<br><br>[클러스터 중요 경로에서 Apache Tez DAG 데이터를 분석하려면 어떻게 하나요?](hdinsight-troubleshoot-hive.md#how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path)<br><br>[클러스터에서 Apache Tez DAG 데이터를 다운로드하려면 어떻게 하나요?](hdinsight-troubleshoot-hive.md#how-do-i-download-tez-dag-data-from-a-cluster)|
 |![Spark](./media/hdinsight-troubleshoot-guide/SPARK.png)<br>[Apache Spark 문제 해결](hdinsight-troubleshoot-SPARK.md)|<br>[클러스터에서 Apache Ambari를 사용하여 Apache Spark 애플리케이션을 구성하려면 어떻게 해야 하나요?](spark/apache-troubleshoot-spark.md#how-do-i-configure-an-apache-spark-application-by-using-apache-ambari-on-clusters)<br><br>[클러스터에서 Jupyter Notebook을 사용하여 Apache Spark 애플리케이션을 구성하려면 어떻게 해야 하나요?](spark/apache-troubleshoot-spark.md#how-do-i-configure-an-apache-spark-application-by-using-a-jupyter-notebook-on-clusters)<br><br>[클러스터에서 Apache Livy를 사용하여 Apache Spark 애플리케이션을 구성하려면 어떻게 해야 하나요?](spark/apache-troubleshoot-spark.md#how-do-i-configure-an-apache-spark-application-by-using-apache-livy-on-clusters)<br><br>[클러스터에서 spark-submit을 사용하여 Apache Spark 애플리케이션을 구성하려면 어떻게 해야 하나요?](spark/apache-troubleshoot-spark.md#how-do-i-configure-an-apache-spark-application-by-using-spark-submit-on-clusters)<br><br>[IntelliJ를 사용하여 Apache Spark 애플리케이션을 구성하려면 어떻게 하나요?](spark/apache-spark-intellij-tool-plugin.md)<br><br>[Eclipse를 사용하여 Apache Spark 애플리케이션을 구성하려면 어떻게 하나요?](spark/apache-spark-eclipse-tool-plugin.md)<br><br>[VSCode를 사용하여 Apache Spark 애플리케이션을 구성하려면 어떻게 하나요?](hdinsight-for-vscode.md)<br><br>[Apache Spark에 대 한 OutOfMemoryError 예외](spark/apache-spark-troubleshoot-outofmemory.md#scenario-outofmemoryerror-exception-for-apache-spark)|

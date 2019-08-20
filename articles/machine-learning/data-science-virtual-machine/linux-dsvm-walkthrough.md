@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: vijetaj
-ms.openlocfilehash: df05b2605f3553ce26447a4f8e2440002b75ec3a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 95d128a7af60a1504d05fb5316969fccc49c397f
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68557338"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69574973"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Azure에서 Linux 데이터 과학 Virtual Machine을 사용하여 데이터 과학
 이 연습에서는 Linux 데이터 과학 VM을 사용하여 몇 가지 일반 데이터 과학 작업을 수행하는 방법을 보여 줍니다. Linux DSVM(데이터 과학 Virtual Machine)은 데이터 분석 및 기계 학습에 흔히 사용되는 도구 모음과 함께 미리 설치된, Azure에서 사용 가능한 가상 머신 이미지입니다. 주요 소프트웨어 구성 요소는 [Linux 데이터 과학 Virtual Machine 프로비전](linux-dsvm-intro.md) 항목에 항목별로 나와 있습니다. VM 이미지를 사용하면 각 도구를 개별적으로 설치하고 구성할 필요 없이 몇 분 내에 데이터 과학 작업을 쉽게 시작할 수 있습니다. 필요한 경우 VM을 쉽게 확장하고 사용하지 않을 때 중지할 수 있습니다. 따라서 이 리소스는 탄력적이고 비용 효율적입니다.
@@ -48,7 +48,7 @@ Linux 데이터 과학 Virtual Machine을 사용하려면 먼저 다음이 있�
 >
 >
 
-저장소 공간이 더 필요한 경우 추가 디스크를 만들고 VM에 연결할 수 있습니다. 이러한 디스크는 영구 Azure Storage를 사용하므로 서버가 크기 조정으로 인해 다시 프로비전되거나 종료되는 경우에도 해당 데이터는 보존됩니다. 디스크를 추가하고 VM에 연결하려면 [Linux VM에 디스크 추가](../../virtual-machines/linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)의 지침을 따릅니다. 이러한 단계는 DSVM에 이미 설치되어 있는 Azure CLI(Azure 명령줄 인터페이스)를 사용합니다. 따라서 전적으로 VM 자체에서 이 절차를 수행할 수 있습니다. 저장소를 늘리는 또 다른 옵션은 [Azure Files](../../storage/files/storage-how-to-use-files-linux.md)를 사용하는 것입니다.
+스토리지 공간이 더 필요한 경우 추가 디스크를 만들고 VM에 연결할 수 있습니다. 이러한 디스크는 영구 Azure Storage를 사용하므로 서버가 크기 조정으로 인해 다시 프로비전되거나 종료되는 경우에도 해당 데이터는 보존됩니다. 디스크를 추가하고 VM에 연결하려면 [Linux VM에 디스크 추가](../../virtual-machines/linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)의 지침을 따릅니다. 이러한 단계는 DSVM에 이미 설치되어 있는 Azure CLI(Azure 명령줄 인터페이스)를 사용합니다. 따라서 전적으로 VM 자체에서 이 절차를 수행할 수 있습니다. 스토리지를 늘리는 또 다른 옵션은 [Azure Files](../../storage/files/storage-how-to-use-files-linux.md)를 사용하는 것입니다.
 
 데이터를 다운로드하려면 터미널 창을 열고 다음 명령을 실행합니다.
 
@@ -229,6 +229,20 @@ R을 사용하여 데이터를 검사하고 몇 가지 기본 Machine Learning�
 
     consume(ep, smallTestSet[1:10, ])
 
+<a name="deep-learning"></a>
+
+## <a name="deep-learning-tutorials-and-walkthroughs"></a>심화 학습 자습서 및 연습
+
+프레임워크 기반 샘플 외에도 DLVM에서 유효성이 확인된 일련의 포괄적인 연습이 제공됩니다. 이러한 연습을 통해 이미지 및 텍스트/언어 이해와 같이 도메인에서 딥 러닝 애플리케이션의 개발을 빠르게 시작할 수 있습니다. 다양한 도메인과 기술에 대한 엔드투엔드 자습서가 계속 추가될 예정입니다.   
+
+
+- [다양한 프레임워크에서 신경망 실행](https://github.com/ilkarman/DeepLearningFrameworks): 한 프레임워크에서 다른 프레임워크로 코드를 마이그레이션하는 방법을 보여주는 포괄적인 연습입니다. 또한 프레임워크에서 시간 성능을 실행하고 모델을 비교하는 방법을 보여 줍니다. 
+
+- [이미지 내 제품을 검색하도록 엔드투엔드 솔루션을 빌드하는 방법 가이드](https://github.com/Azure/cortana-intelligence-product-detection-from-images): 이미지 검색은 이미지 내의 개체를 찾고 분류할 수 있는 기술입니다. 이 기술은 많은 실제 비즈니스 도메인에서 엄청난 성과를 거둘 수 있습니다. 예를 들어 소매업체는 이 기술을 사용하여 고객이 선택한 제품을 확인할 수 있습니다. 또한 이 정보는 매장의 제품 재고를 관리하는 데 도움이 됩니다. 
+
+- [오디오에 대한 딥 러닝](https://blogs.technet.microsoft.com/machinelearning/2018/01/30/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure/) 이 자습서는 [도시 소리 데이터 세트](https://serv.cusp.nyu.edu/projects/urbansounddataset/urbansound8k.html)에서 오디오 이벤트 검색에 대한 딥 러닝 모델을 학습하는 방법을 보여주고 오디오 데이터를 작업하는 방법의 개요를 제공합니다.
+
+- [텍스트 문서의 분류](https://github.com/anargyri/lstm_han): 이 연습에서는 두 개의 다른 신경망 아키텍처를 빌드 및 학습하는 방법을 보여줍니다. 계층 Attention Network 및 LSTM(Long Short Term Memory) 네트워크 이러한 신경망은 Keras API를 딥 러닝에 사용하여 텍스트 문서를 분류합니다. Keras는 다음 세 개의 가장 인기 있는 딥러닝 프레임워크에 대한 프런트 엔드입니다. Microsoft Cognitive Toolkit, TensorFlow 및 Theano
 
 ## <a name="use-other-tools-available"></a>사용 가능한 다른 도구 사용
 나머지 섹션에서는 Linux 데이터 과학 VM에 설치된 일부 도구의 사용 방법을 보여 줍니다. 설명할 도구 목록은 다음과 같습니다.
@@ -495,7 +509,7 @@ PostgreSQL용 대화형 터미널인 psql을 기본 제공 postgres 사용자로
 * *사용자 이름* 및 *암호*를 입력합니다.
 * **확인**을 클릭합니다.
 * **연결** 창을 열려면 별칭 ***스팸 데이터베이스***를 두 번 클릭합니다.
-*           **연결**을 선택합니다.
+* **연결**을 선택합니다.
 
 일부 쿼리를 실행하려면
 

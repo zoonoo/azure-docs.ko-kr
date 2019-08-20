@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 1c2bf53a610c566ac58df588f6d96389f2206563
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 700cd6c0c75b25d56e812a394d6bdd193e4fb57c
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717542"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614064"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>저장 프로시저, 트리거 및 사용자 정의 함수
 
@@ -79,11 +79,11 @@ Azure Cosmos DB는 두 가지 유형의 트리거를 지원 합니다.
 
 ### <a name="pre-triggers"></a>사전 트리거
 
-Azure Cosmos DB는 Azure Cosmos DB 항목에 대해 작업을 수행하여 호출할 수 있는 트리거를 제공합니다. 예를 들어, 항목을 작성할 때 사전 트리거를 지정할 수 있습니다. 이 경우 항목을 만들기 전에 사전 트리거가 실행됩니다. 사전 트리거는 입력 매개 변수를 사용할 수 없습니다. 필요한 경우 요청 개체를 사용하여 원래 요청에서 문서 본문을 업데이트할 수 있습니다. 사용자는 트리거를 등록할 때 트리거 실행에 사용되는 작업을 지정할 수 있습니다. 트리거를 `TriggerOperation.Create`로 만든 경우에는 바꾸기 작업에서 해당 트리거를 사용하는 것이 허용되지 않습니다. 예제를 보려면 [트리거 작성 방법](how-to-write-stored-procedures-triggers-udfs.md#triggers) 문서를 참조하세요.
+Azure Cosmos DB는 Azure Cosmos 항목에 대해 작업을 수행 하 여 호출할 수 있는 트리거를 제공 합니다. 예를 들어, 항목을 작성할 때 사전 트리거를 지정할 수 있습니다. 이 경우 항목을 만들기 전에 사전 트리거가 실행됩니다. 사전 트리거는 입력 매개 변수를 사용할 수 없습니다. 필요한 경우 요청 개체를 사용하여 원래 요청에서 문서 본문을 업데이트할 수 있습니다. 사용자는 트리거를 등록할 때 트리거 실행에 사용되는 작업을 지정할 수 있습니다. 트리거를 `TriggerOperation.Create`로 만든 경우에는 바꾸기 작업에서 해당 트리거를 사용하는 것이 허용되지 않습니다. 예제를 보려면 [트리거 작성 방법](how-to-write-stored-procedures-triggers-udfs.md#triggers) 문서를 참조하세요.
 
 ### <a name="post-triggers"></a>사후 트리거
 
-사전 트리거와 마찬가지로 사후 트리거도 Azure Cosmos DB 항목에 대한 작업과 관련되며 입력 매개 변수가 필요하지 않습니다. 이 트리거는 작업이 완료된 *후에* 실행되며 클라이언트에 전송된 응답 메시지에 액세스할 수 있습니다. 예제를 보려면 [트리거 작성 방법](how-to-write-stored-procedures-triggers-udfs.md#triggers) 문서를 참조하세요.
+사후 트리거와 마찬가지로 사후 트리거와 마찬가지로 Azure Cosmos 항목에 대 한 작업에도 연결 되며 입력 매개 변수는 필요 하지 않습니다. 이 트리거는 작업이 완료된 *후에* 실행되며 클라이언트에 전송된 응답 메시지에 액세스할 수 있습니다. 예제를 보려면 [트리거 작성 방법](how-to-write-stored-procedures-triggers-udfs.md#triggers) 문서를 참조하세요.
 
 > [!NOTE]
 > 등록 된 트리거는 해당 하는 작업 (만들기/삭제/바꾸기/업데이트)이 발생 하면 자동으로 실행 되지 않습니다. 이러한 작업을 실행할 때 이러한 작업을 명시적으로 호출 해야 합니다. 자세히 알아보려면 [트리거를 실행 하는 방법](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) 문서를 참조 하세요.

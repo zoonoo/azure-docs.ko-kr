@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5fff27094881ffbada2bda7937fa714ffc07133
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 0e1be41c854e212a7b673d8c2dff42d7b9981fb4
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954360"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616125"
 ---
 # <a name="set-up-security-info-preview-to-use-an-authenticator-app"></a>인증 앱을 사용하도록 보안 정보(미리 보기) 설정
 
@@ -145,6 +145,8 @@ ms.locfileid: "68954360"
     >이러한 옵션 중 일부가 누락된 경우 사용자의 조직에서 해당 방법을 허용하지 않았을 가능성이 있습니다. 이 경우 사용 가능한 방법을 선택하거나 관리자에게 문의하여 자세한 도움을 받아야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
+
+- [2 단계 인증 또는 보안 정보를 사용 하 여 로그인](security-info-setup-signin.md) 문서의 단계를 수행 하 여 Microsoft Authenticator 앱을 사용 하 여 로그인 합니다.
 
 - 분실했거나 잊어버린 경우 [암호 재설정 포털](https://passwordreset.microsoftonline.com/)에서 암호를 다시 설정하거나 [회사 또는 학교 암호 재설정](user-help-reset-password.md) 문서의 단계를 수행합니다.
 

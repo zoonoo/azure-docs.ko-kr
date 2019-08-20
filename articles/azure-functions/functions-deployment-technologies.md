@@ -10,16 +10,16 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: cotresne
-ms.openlocfilehash: 88b6fbbd68f1f98e50ec0f04336a022dc1580a73
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
-ms.translationtype: MT
+ms.openlocfilehash: d877628cbf0a1c26b2d05a0d1486d5ea858b61ac
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562908"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69612000"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Azure Functions의 배포 기술
 
-몇 가지 다른 기술을 사용 하 여 Azure Functions 프로젝트 코드를 Azure에 배포할 수 있습니다. 이 문서에서는 이러한 기술의 완전 한 목록을 제공 하 고, 다양 한 기능에 사용할 수 있는 기술을 설명 하 고, 각 방법을 사용할 때 발생 하는 상황을 설명 하 고, 다양 한 시나리오에서 가장 적합 한 방법에 대 한 권장 사항을 제공 합니다. . Azure Functions에 대 한 배포를 지 원하는 다양 한 도구는 해당 컨텍스트에 따라 올바른 기술으로 조정 됩니다.
+몇 가지 다른 기술을 사용 하 여 Azure Functions 프로젝트 코드를 Azure에 배포할 수 있습니다. 이 문서에서는 이러한 기술의 완전 한 목록을 제공 하 고, 다양 한 기능에 사용할 수 있는 기술을 설명 하 고, 각 방법을 사용할 때 발생 하는 상황을 설명 하 고, 다양 한 시나리오에서 가장 적합 한 방법에 대 한 권장 사항을 제공 합니다. . Azure Functions에 대 한 배포를 지 원하는 다양 한 도구는 해당 컨텍스트에 따라 올바른 기술으로 조정 됩니다. 일반적으로 zip 배포는 Azure Functions에 권장 되는 배포 기술입니다.
 
 ## <a name="deployment-technology-availability"></a>배포 기술 가용성
 
@@ -31,17 +31,17 @@ Azure Functions는 Windows 및 Linux에서 플랫폼 간 로컬 개발 및 호�
 
 각 계획 마다 동작이 다릅니다. Azure Functions의 각 버전에 대 한 모든 배포 기술이 제공 되는 것은 아닙니다. 다음 차트는 운영 체제 및 호스팅 계획의 각 조합에 대해 지원 되는 배포 기술을 보여 줍니다.
 
-| 배포 기술 | Windows 사용량 | Windows Premium (미리 보기) | Windows 전용  | Linux 소비 | Linux 전용 |
-|-----------------------|:-------------------:|:-------------------------:|:-----------------:|:---------------------------:|:---------------:|
-| 외부 패키지 URL<sup>1</sup> |✔|✔|✔|✔|✔|
-| Zip 배포 |✔|✔|✔| |✔|
-| Docker 컨테이너 | | | | |✔|
-| 웹 배포 |✔|✔|✔| | |
-| 소스 제어 |✔|✔|✔| |✔|
-| 로컬 Git<sup>1</sup> |✔|✔|✔| |✔|
-| 클라우드 동기화<sup>1</sup> |✔|✔|✔| |✔|
-| FTP<sup>1</sup> |✔|✔|✔| |✔|
-| 포털 편집 |✔|✔|✔| |✔<sup>2</sup>|
+| 배포 기술 | Windows 사용량 | Windows Premium (미리 보기) | Windows 전용  | Linux 소비 | Linux 프리미엄 (미리 보기) | Linux 전용 |
+|-----------------------|:-------------------:|:-------------------------:|:------------------:|:---------------------------:|:-------------:|:---------------:|
+| 외부 패키지 URL<sup>1</sup> |✔|✔|✔|✔|✔|✔|
+| Zip 배포 |✔|✔|✔|✔|✔|✔|
+| Docker 컨테이너 | | | | |✔|✔|
+| 웹 배포 |✔|✔|✔| | | |
+| 소스 제어 |✔|✔|✔| |✔|✔|
+| 로컬 Git<sup>1</sup> |✔|✔|✔| |✔|✔|
+| 클라우드 동기화<sup>1</sup> |✔|✔|✔| |✔|✔|
+| FTP<sup>1</sup> |✔|✔|✔| |✔|✔|
+| 포털 편집 |✔|✔|✔| |✔<sup>2</sup>|✔<sup>2</sup>|
 
 <sup>1</sup> [수동 트리거를 동기화](#trigger-syncing)해야 하는 배포 기술입니다.  
 <sup>2</sup> 포털 편집은 프리미엄 및 전용 요금제를 사용 하는 Linux의 함수에 대 한 HTTP 및 타이머 트리거에 대해서만 사용할 수 있습니다.
@@ -58,7 +58,40 @@ Azure Functions는 Windows 및 Linux에서 플랫폼 간 로컬 개발 및 호�
 * [마스터 키](functions-bindings-http-webhook.md#authorization-keys)를 사용 하 여 `https://{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>` HTTP POST 요청을 보냅니다.
 * 에 HTTP POST 요청을 `https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Web/sites/<FUNCTION_APP_NAME>/syncfunctiontriggers?api-version=2016-08-01`보냅니다. 자리 표시자를 구독 ID, 리소스 그룹 이름 및 함수 앱의 이름으로 바꿉니다.
 
-## <a name="deployment-technology-details"></a>배포 기술 세부 정보 
+### <a name="remote-build"></a>원격 빌드
+
+Zip 배포 후에 수신 하는 코드에서 자동으로 빌드를 수행할 수 Azure Functions. 이러한 빌드는 응용 프로그램이 Windows 또는 Linux에서 실행 되는지 여부에 따라 약간 다르게 동작 합니다. 앱이 이전에 [패키지 모드에서](run-functions-from-deployment-package.md) 실행 되도록 설정 된 경우 원격 빌드가 수행 되지 않습니다. 
+
+> [!NOTE]
+> 원격 빌드에 문제가 있는 경우 기능을 사용할 수 있게 되기 전에 앱이 생성 되었기 때문일 수 있습니다 (2019 년 8 월 1 일). 새 함수 앱을 만들어 보세요.
+
+#### <a name="remote-build-on-windows"></a>Windows에서 원격 빌드
+
+Windows에서 실행 되는 모든 함수 앱에는 작은 관리 앱 인 SCM (또는 [Kudu](https://github.com/projectkudu/kudu)) 사이트가 있습니다. 이 사이트는 Azure Functions에 대 한 대부분의 배포 및 빌드 논리를 처리 합니다.
+
+앱을 Windows에 배포할 때 ( `dotnet restore` C#) 또는 `npm install` (JavaScript)와 같은 언어별 명령이 실행 됩니다.
+
+#### <a name="remote-build-on-linux-preview"></a>Linux에서의 원격 빌드 (미리 보기)
+
+Linux에서 원격 빌드를 사용 하도록 설정 하려면 다음 [응용 프로그램 설정을](functions-how-to-use-azure-function-app-settings.md#settings)설정 해야 합니다.
+
+* `ENABLE_ORYX_BUILD=true`
+* `SCM_DO_BUILD_DURING_DEPLOYMENT=true`
+
+앱이 Linux에서 원격으로 빌드되면 [배포 패키지에서 실행](run-functions-from-deployment-package.md)됩니다.
+
+> [!NOTE]
+> Linux 전용 (App Service) 계획의 원격 빌드는 현재 node.js 및 Python 에서만 지원 됩니다.
+
+##### <a name="consumption-preview-plan"></a>소비 (미리 보기) 계획
+
+소비 계획에서 실행 되는 Linux 함수 앱은 배포 옵션을 제한 하는 SCM/Kudu 사이트를 포함 하지 않습니다. 그러나 소비 계획에서 실행 되는 Linux의 함수 앱은 원격 빌드를 지원 합니다. 이러한 원격 빌드에서는 [Oryx](https://github.com/microsoft/Oryx)를 사용 합니다.
+
+##### <a name="dedicated-and-premium-preview-plans"></a>전용 및 프리미엄 (미리 보기) 요금제
+
+[전용 (App Service) 요금제](functions-scale.md#app-service-plan) 및 [Premium 요금제](functions-scale.md#premium-plan) 에서 Linux에서 실행 되는 함수 앱에는 [Oryx](https://github.com/microsoft/Oryx)를 사용 하는 제한 된 SCM/Kudu 사이트도 있습니다.
+
+## <a name="deployment-technology-details"></a>배포 기술 세부 정보
 
 Azure Functions에서 사용할 수 있는 배포 방법은 다음과 같습니다.
 
@@ -70,17 +103,25 @@ Azure Functions에서 사용할 수 있는 배포 방법은 다음과 같습니�
 >
 >Azure Blob storage를 사용 하는 경우 [공유 액세스 서명 (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) 이 포함 된 개인 컨테이너를 사용 하 여 패키지에 대 한 액세스 기능을 제공 합니다. 응용 프로그램이 다시 시작 될 때마다 콘텐츠의 복사본을 페치합니다. 참조는 응용 프로그램의 수명 동안 유효 해야 합니다.
 
->__사용 시기:__ 외부 패키지 URL은 사용 계획에서 Linux에서 실행 되는 Azure Functions에 대해 유일 하 게 지원 되는 배포 방법입니다. 함수 앱이 참조 하는 패키지 파일을 업데이트할 때 [수동으로 트리거를 동기화](#trigger-syncing) 하 여 응용 프로그램의 변경 내용을 Azure에 전달 해야 합니다.
+>__사용 시기:__ 외부 패키지 URL은 사용자가 원격 빌드를 원하지 않는 경우 소비 계획에서 Linux에서 실행 되는 Azure Functions에 대해 유일 하 게 지원 되는 배포 방법입니다. 함수 앱이 참조 하는 패키지 파일을 업데이트할 때 [수동으로 트리거를 동기화](#trigger-syncing) 하 여 응용 프로그램의 변경 내용을 Azure에 전달 해야 합니다.
 
 ### <a name="zip-deploy"></a>Zip 배포
 
-Zip 배포를 사용 하 여 함수 앱을 포함 하는 .zip 파일을 Azure에 푸시합니다. 필요에 따라 [패키지 모드에서 실행](run-functions-from-deployment-package.md) 되도록 앱을 설정할 수 있습니다.
+Zip 배포를 사용 하 여 함수 앱을 포함 하는 .zip 파일을 Azure에 푸시합니다. 필요에 따라 [패키지에서 실행](run-functions-from-deployment-package.md)을 시작 하도록 앱을 설정 하거나 [원격 빌드가](#remote-build) 발생 하도록 지정할 수 있습니다.
 
 >__사용 방법:__ 선호 하는 클라이언트 도구를 사용 하 여 배포: [VS Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure), [Visual Studio](functions-develop-vs.md#publish-to-azure)또는 [Azure CLI](functions-create-first-azure-function-azure-cli.md#deploy-the-function-app-project-to-azure). .Zip 파일을 함수 앱에 수동으로 배포 하려면 [.zip 파일이 나 URL에서 배포](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url)의 지침을 따르세요.
->
->Zip 배포를 사용 하 여 배포 하는 경우 앱이 [패키지 모드에서 실행](run-functions-from-deployment-package.md) 되도록 설정할 수 있습니다. 패키지 모드에서 실행을 설정 하려면 `WEBSITE_RUN_FROM_PACKAGE` 응용 프로그램 설정 값을로 `1`설정 합니다. Zip 배포를 권장 합니다. 응용 프로그램에 대 한 로드 시간이 빨라지고, VS Code, Visual Studio 및 Azure CLI에 대 한 기본값입니다.
 
->__사용 시기:__ Zip 배포는 Windows 및 Linux에서 실행 되는 기능에 대 한 권장 배포 기술인 프리미엄 또는 전용 계획입니다.
+원격 빌드와 함께 zip 배포를 수행 하려면 다음 [핵심 도구](functions-run-local.md) 명령을 사용 합니다.
+
+```bash
+func azure functionapp publish <app name> --build remote
+```
+
+또는 ' ' azureFunctions. scmDoBuildDuringDeployment "플래그를 추가 하 여 배포 시 원격 빌드를 수행 하도록 VS Code에 지시할 수 있습니다. VS Code에 플래그를 추가 하는 방법에 대 한 자세한 내용은 [Azure Functions 확장 Wiki](https://github.com/microsoft/vscode-azurefunctions/wiki)의 지침을 참조 하세요.
+
+>Zip 배포를 사용 하 여 배포 하는 경우 앱이 [패키지에서 실행](run-functions-from-deployment-package.md)되도록 설정할 수 있습니다. 패키지에서 실행 하려면 `WEBSITE_RUN_FROM_PACKAGE` 응용 프로그램 설정 값을로 `1`설정 합니다. Zip 배포를 권장 합니다. 응용 프로그램에 대 한 로드 시간이 빨라지고, VS Code, Visual Studio 및 Azure CLI에 대 한 기본값입니다. 
+
+>__사용 시기:__ Zip 배포는 Azure Functions에 권장 되는 배포 기술입니다.
 
 ### <a name="docker-container"></a>Docker 컨테이너
 
@@ -93,7 +134,7 @@ Zip 배포를 사용 하 여 함수 앱을 포함 하는 .zip 파일을 Azure에
 >
 >사용자 지정 컨테이너를 사용 하 여 기존 앱에 배포 하려면 [Azure Functions Core Tools](functions-run-local.md)에서 [`func deploy`](functions-run-local.md#publish) 명령을 사용 합니다.
 
->__사용 시기:__ 함수 앱이 실행 되는 Linux 환경을 보다 세부적으로 제어 해야 하는 경우 Docker 컨테이너 옵션을 사용 합니다. 이 배포 메커니즘은 App Service 계획의 Linux에서 실행 되는 함수에만 사용할 수 있습니다.
+>__사용 시기:__ 함수 앱이 실행 되는 Linux 환경을 보다 세부적으로 제어 해야 하는 경우 Docker 컨테이너 옵션을 사용 합니다. 이 배포 메커니즘은 Linux에서 실행 되는 함수에만 사용할 수 있습니다.
 
 ### <a name="web-deploy-msdeploy"></a>웹 배포 (Msdeploy.exe)
 

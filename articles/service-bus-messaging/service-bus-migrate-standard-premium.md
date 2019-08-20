@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2019
 ms.author: aschhab
-ms.openlocfilehash: 57ab281e8d07537c22bd3cf60306dfb1c7e81541
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: f7cbee13416c090e59c82c928946b512af1c620b
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67566074"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69611913"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>기존 Azure Service Bus 표준 네임 스페이스를 프리미엄 계층으로 마이그레이션
 이전에는 표준 계층 에서만 네임 스페이스를 제공 Azure Service Bus 합니다. 네임 스페이스는 낮은 처리량 및 개발자 환경에 최적화 된 다중 테 넌 트의 기능입니다. 프리미엄 계층은 예측 가능한 대기 시간에 대 한 네임 스페이스 당 전용 리소스를 제공 하 고 고정 된 가격으로 처리량을 증가 시킵니다. 프리미엄 계층은 높은 처리량 및 추가 엔터프라이즈 기능이 필요한 프로덕션 환경에 최적화 되어 있습니다.
@@ -115,7 +115,8 @@ Azure Portal를 사용 하 여 마이그레이션하는 경우에는 명령을 �
    1. 동기화가 완료 되 면 페이지 아래쪽에서 **다음** 을 선택 합니다.
 
 1. 요약 페이지에서 변경 내용을 검토 합니다. **마이그레이션 완료** 를 선택 하 여 네임 스페이스를 전환 하 고 마이그레이션을 완료 합니다.
-    ![네임 스페이스 전환-전환][] 메뉴-마이그레이션이 완료 되 면 확인 페이지가 표시 됩니다.
+    ![네임 스페이스 전환-전환 메뉴][]  
+    마이그레이션이 완료 되 면 확인 페이지가 표시 됩니다.
     ![네임 스페이스 전환-성공][]
 
 ## <a name="caveats"></a>주의 사항

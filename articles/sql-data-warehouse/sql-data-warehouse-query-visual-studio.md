@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 08/15/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: aea2b3229dd793bc31adc0038763e09340a5f85a
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: e6c3de1714d363eb1481bcea5f470d04125b96b9
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534786"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575302"
 ---
 # <a name="connect-to-sql-data-warehouse-with-visual-studio-and-ssdt"></a>Visual Studio 및 SSDT를 사용하여 SQL Data Warehouse에 연결
 > [!div class="op_single_selector"]
@@ -29,10 +29,10 @@ ms.locfileid: "69534786"
 
 Visual Studio를 사용하여 단 몇 분 만에 Azure SQL Data Warehouse를 쿼리합니다. 이 메서드는 Visual Studio 2019에서 SSDT (SQL Server Data Tools) 확장을 사용 합니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 이 자습서를 사용하려면 다음이 필요합니다.
 
-* 기존 SQL 데이터 웨어하우스. 만들려면 [SQL Data Warehouse 만들기][Create a SQL Data Warehouse]를 참조하세요.
+* 기존 SQL Data Warehouse입니다. 만들려면 [SQL Data Warehouse 만들기][Create a SQL Data Warehouse]를 참조하세요.
 * Visual Studio용 SSDT. Visual Studio가 있는 경우 이미 소유하고 있을 것입니다. 설치 지침 및 옵션은 [Visual Studio 및 SSDT 설치][Installing Visual Studio and SSDT]를 참조하세요.
 * 정규화된 SQL 서버 이름. 이를 찾으려면 [SQL Data Warehouse에 연결][Connect to SQL Data Warehouse]을 참조하세요.
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: iainfou
-ms.openlocfilehash: 3d44937c977ba264d671f2053d387470651af68a
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 509bd472fe5f930ac830b8b4016129f8acb67324
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69030889"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69612890"
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services: FAQ(질문과 대답)
 이 페이지는 Azure Active Directory Domain Services에 대한 자주 묻는 질문을 응답합니다. 업데이트를 계속 확인합니다.
@@ -31,6 +31,9 @@ Azure AD Domain Services 구성 또는 관리에서 발생하는 일반적인 �
 ## <a name="configuration"></a>Configuration
 ### <a name="can-i-create-multiple-managed-domains-for-a-single-azure-ad-directory"></a>단일 Azure AD 디렉터리에 여러 관리되는 도메인을 만들 수 있나요?
 아니요. 단일 Azure AD 디렉터리에 Azure AD Domain Services에서 제공하는 단일 관리되는 도메인만 만들 수 있습니다.  
+
+### <a name="can-i-enable-azure-ad-domain-services-in-a-classic-virtual-network"></a>클래식 가상 네트워크에서 Azure AD Domain Services를 사용 하도록 설정할 수 있나요?
+클래식 가상 네트워크는 새로운 배포에서 지원되지 않습니다. 클래식 가상 네트워크에 배포된 기존의 관리되는 도메인은 계속 지원됩니다.
 
 ### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-resource-manager-virtual-network"></a>Azure Resource Manager 가상 네트워크에서 Azure AD Domain Services를 사용할 수 있습니까?
 예. Azure Resource Manager 가상 네트워크에서 Azure AD Domain Services를 사용할 수 있습니다. 클래식 Azure 가상 네트워크는 새 관리되는 도메인을 만드는 데 더 이상 지원되지 않습니다.

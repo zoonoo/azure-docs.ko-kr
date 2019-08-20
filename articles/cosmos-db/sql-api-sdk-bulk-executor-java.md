@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 11/21/2018
 ms.author: ramkris
-ms.openlocfilehash: 134a4e42b779c199b7846dabd1f5158c86c5a146
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
-ms.translationtype: MT
+ms.openlocfilehash: 1322e455292071c4a9cb1563615cba91bdbe0447
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638609"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616405"
 ---
 # <a name="java-bulk-executor-library-download-information"></a>Java Bulk Executor 라이브러리: 정보 다운로드
 
@@ -33,7 +33,7 @@ ms.locfileid: "68638609"
 
 | |  |
 |---|---|
-|**설명**|클라이언트 애플리케이션은 Bulk Executor 라이브러리를 통해 Azure Cosmos DB 계정에서 대량 작업을 수행할 수 있습니다. Bulk Executor 라이브러리는 BulkImport 및 BulkUpdate 네임스페이스를 제공합니다. BulkImport 모듈은 컬렉션이 최대 범위 내에 사용되도록 프로비전된 처리량과 같이 최적화된 방법으로 문서를 대량 수집할 수 있습니다. BulkUpdate 모듈은 Azure Cosmos DB 컨테이너의 기존 데이터를 패치로 대량 업데이트할 수 있습니다.|
+|**설명**|클라이언트 애플리케이션은 Bulk Executor 라이브러리를 통해 Azure Cosmos DB 계정에서 대량 작업을 수행할 수 있습니다. Bulk Executor 라이브러리는 BulkImport 및 BulkUpdate 네임스페이스를 제공합니다. BulkImport 모듈은 컬렉션이 최대 범위 내에 사용되도록 프로비전된 처리량과 같이 최적화된 방법으로 문서를 대량 수집할 수 있습니다. 대량 업데이트 모듈은 Azure Cosmos 컨테이너의 기존 데이터를 패치로 대량 업데이트할 수 있습니다.|
 |**SDK 다운로드**|[Maven](https://search.maven.org/#search%7Cga%7C1%7Cdocumentdb-bulkexecutor)|
 |**GitHub의 BulkExecutor 라이브러리**|[GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-java-getting-started)|
 | **API 설명서**| [.NET API 참조 설명서](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor)|

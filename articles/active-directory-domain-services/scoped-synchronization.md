@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: bb96e7ccbc38a71d24178c31f8eb9a077c06b8f0
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 7d3bd8c6c62c0b8a1be6203e426337fcee7d2126
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67472516"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617126"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-your-managed-domain"></a>Azure AD에서 관리되는 도메인으로 범위 동기화 구성
 이 문서에서는 Azure AD 디렉터리에서 Azure AD Domain Services 관리되는 도메인으로 특정 사용자 계정만 동기화하도록 구성하는 방법을 보여 줍니다.
@@ -47,7 +47,7 @@ ms.locfileid: "67472516"
 
 ## <a name="create-a-new-managed-domain-and-enable-group-based-scoped-synchronization-using-azure-portal"></a>새 관리형 도메인 만들기 및 Azure Portal을 사용하여 그룹 기반 범위 동기화 사용하도록 설정
 
-1. [시작 가이드](create-instance.md)에 따라 관리형 도메인을 만듭니다.
+1. [시작 가이드](tutorial-create-instance.md)에 따라 관리형 도메인을 만듭니다.
 2. Azure AD Domain Services 만들기 마법사에서 동기화 스타일 선택 중에 **범위**를 선택합니다.
 
 ## <a name="create-a-new-managed-domain-and-enable-group-based-scoped-synchronization-using-powershell"></a>새 관리형 도메인 만들기 및 PowerShell을 사용하여 그룹 기반 범위 동기화 사용하도록 설정
@@ -58,7 +58,7 @@ PowerShell을 사용하여 이 단계 집합을 완료합니다. [PowerShell을 
 1. 다음 작업을 완료합니다.
    * [작업 1: 필수 PowerShell 모듈 설치](powershell-create-instance.md#task-1-install-the-required-powershell-modules)
    * [작업 2: Azure AD 디렉터리에서 필요한 서비스 주체 만들기](powershell-create-instance.md#task-2-create-the-required-service-principal-in-your-azure-ad-directory)
-   * [작업 3: 만들기 및 ' AAD DC 관리자 ' group]powershell-create-instance.md#task-3-create-and-configure-the-aad-dc-administrators-group 구성).
+   * [작업 3: ' AAD DC 관리자 ' 그룹] powershell을 만들고 구성 합니다. md # 작업-3----------------------------------
    * [작업 4: Azure AD Domain Services 리소스 공급자 등록](powershell-create-instance.md#task-4-register-the-azure-ad-domain-services-resource-provider)
    * [작업 5: 리소스 그룹 만들기](powershell-create-instance.md#task-5-create-a-resource-group)
    * [작업 6: 가상 네트워크 만들기 및 구성](powershell-create-instance.md#task-6-create-and-configure-the-virtual-network)
@@ -81,7 +81,7 @@ PowerShell을 사용하여 이 단계 집합을 완료합니다. [PowerShell을 
 
    ```powershell
    $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
-   $ManagedDomainName = "contoso100.com"
+   $ManagedDomainName = "contoso.com"
    $ResourceGroupName = "ContosoAaddsRg"
    $VnetName = "DomainServicesVNet_WUS"
    $AzureLocation = "westus"

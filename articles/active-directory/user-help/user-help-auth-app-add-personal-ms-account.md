@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 502407bbf1cdb47fc8105ed0220babcd9f292faa
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 7cf4629ca97abc5d4ce508f7078f4691467ba249
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382702"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616073"
 ---
 # <a name="add-your-personal-microsoft-accounts"></a>개인 Microsoft 계정 추가
 
@@ -70,6 +70,6 @@ ms.locfileid: "68382702"
 
 - 앱에 계정을 추가한 후에는 디바이스에서 Authenticator 앱을 사용하여 로그인할 수 있습니다. 자세한 내용은 [앱을 사용하여 로그인](user-help-auth-app-sign-in.md)을 참조하세요.
 
-- 개인 Microsoft 계정에 대 한 확인 코드를 가져오는 데 문제가 있는 경우 [Microsoft 계정 보안 정보 & 확인 코드](https://support.microsoft.com/en-us/help/12428/microsoft-account-security-info-verification-codes) 문서에서 **확인 코드 문제 해결** 섹션을 참조 하세요.
+- 개인 Microsoft 계정에 대 한 확인 코드를 가져오는 데 문제가 있는 경우 [Microsoft 계정 보안 정보 & 확인 코드](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes) 문서에서 **확인 코드 문제 해결** 섹션을 참조 하세요.
 
 - iOS를 실행하는 디바이스의 경우에는 계정 자격 증명 및 관련 앱 설정(예: 계정 순서)을 클라우드에 백업할 수도 있습니다. 자세한 내용은 [Microsoft Authenticator 앱을 통한 백업 및 복구](user-help-auth-app-backup-recovery.md)를 참조하세요.

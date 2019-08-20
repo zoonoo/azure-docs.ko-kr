@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: mjbrown
-ms.openlocfilehash: 9ec049311fc158b13bba45deb2974d7cdd531f90
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: f9d8bf9161343e4b36a3c16209873962b69d8af5
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815047"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615214"
 ---
 # <a name="manage-azure-cosmos-resources-using-azure-cli"></a>Azure CLI를 사용하여 Azure Cosmos 리소스 관리
 
@@ -41,7 +41,7 @@ az cosmosdb create \
 
 ## <a name="create-a-database"></a>데이터베이스 만들기
 
-Cosmos DB 데이터베이스를 만들려면 다음 명령을 실행 합니다.
+Cosmos 데이터베이스를 만들려면 다음 명령을 실행 합니다.
 
 ```azurecli-interactive
 az cosmosdb database create \
@@ -52,7 +52,7 @@ az cosmosdb database create \
 
 ## <a name="create-a-container"></a>컨테이너 만들기
 
-R u/초 400 및 파티션 키를 사용 하 여 Cosmos DB 컨테이너를 만들려면 다음 명령을 실행 합니다.
+Cosmos/s/400 및 파티션 키를 사용 하 여 컨테이너를 만들려면 다음 명령을 실행 합니다.
 
 ```azurecli-interactive
 # Create a container
@@ -67,7 +67,7 @@ az cosmosdb collection create \
 
 ## <a name="change-the-throughput-of-a-container"></a>컨테이너 처리량 변경
 
-Cosmos DB 컨테이너의 처리량을 1000 o s/s로 변경 하려면 다음 명령을 실행 합니다.
+Cosmos 컨테이너의 처리량을 1000 o s/s로 변경 하려면 다음 명령을 실행 합니다.
 
 ```azurecli-interactive
 # Update container throughput
