@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 7312821320084c766f5b3357fe64c061df83673b
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 647ab76760d0c5ce5315a60d0a671163b902be0f
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827655"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954548"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Azure VM의 SQL Server 백업 정보
 
@@ -58,7 +58,7 @@ Azure Backup은 최근에 [EOS SQL Sever](https://docs.microsoft.com/azure/virtu
 2. .NET Framework 4.5.2 이상을 VM에 설치해야 합니다.
 3. FCI 및 미러된 데이터베이스 백업은 지원되지 않습니다.
 
-일반 공급될 때까지는 사용자에게 이 기능에 대한 요금이 부과되지 않습니다. 이 버전에도 다른 모든 [기능 고려 사항 및 제한 사항](#feature-consideration-and-limitations)은 적용됩니다. [레지스트리 키](backup-sql-server-database-azure-vms.md#add-registry-key-to-enable-registration) 설정이 포함된 SQL Server 2008 및 2008 R2에서 보호를 구성하기 전에 [필수 조건](backup-sql-server-database-azure-vms.md#prerequisites)을 참조하세요. (이 기능이 일반 공급되면 이 단계는 필요하지 않습니다.)
+일반 공급될 때까지는 사용자에게 이 기능에 대한 요금이 부과되지 않습니다. 이 버전에도 다른 모든 [기능 고려 사항 및 제한 사항](#feature-consideration-and-limitations)은 적용됩니다. [레지스트리 키](backup-sql-server-database-azure-vms.md#add-registry-key-to-enable-registration) 설정이 포함된 SQL Server 2008 및 2008 R2에 대한 보호를 구성하기 전에 [필수 구성 요소](backup-sql-server-database-azure-vms.md#prerequisites)를 참조하세요(이 기능이 일반 공급되면 이 단계는 필요하지 않음).
 
 
 ## <a name="feature-consideration-and-limitations"></a>기능 고려 사항 및 제한 사항
@@ -75,7 +75,7 @@ Azure Backup은 최근에 [EOS SQL Sever](https://docs.microsoft.com/azure/virtu
 - 하나의 자격 증명 모음에 최대 **2,000**개의 SQL Server 데이터베이스를 백업할 수 있습니다. 데이터베이스 수가 이보다 더 많은 경우 자격 증명 모음을 여러 개 만들면 됩니다.
 - 한 번에 데이터베이스 **50**개까지 백업을 구성할 수 있습니다. 이 제한은 백업 부하 최적화에 도움이 됩니다.
 - 지원되는 최대 데이터베이스 크기는 **2TB**이며, 이보다 크면 성능 문제가 발생할 수 있습니다.
-- 서버당 보호할 수 있는 데이터베이스 수를 알 수 있도록 대역폭, VM 크기, 백업 빈도, 데이터베이스 크기 등의 요소를 고려해야 합니다. VM 리소스 및 백업 정책에 따라 서버당 사용할 수 있는 데이터베이스의 대략적인 수를 제공하는 Resource Planner를 [다운로드](http://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx)합니다.
+- 서버당 보호할 수 있는 데이터베이스 수를 알 수 있도록 대역폭, VM 크기, 백업 빈도, 데이터베이스 크기 등의 요소를 고려해야 합니다. VM 리소스 및 백업 정책에 따라 서버당 사용할 수 있는 데이터베이스의 대략적인 수를 제공하는 Resource Planner를 [다운로드](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx)합니다.
 - 가용성 그룹의 경우 백업은 몇 가지 요소에 따라 다른 노드에서 수행됩니다. 아래는 가용성 그룹에 대한 백업 동작을 요약한 것입니다.
 
 ### <a name="back-up-behavior-in-case-of-always-on-availability-groups"></a>Always On 가용성 그룹의 백업 동작
@@ -83,7 +83,7 @@ Azure Backup은 최근에 [EOS SQL Sever](https://docs.microsoft.com/azure/virtu
 백업이 AG의 한 노드에서 구성되어 있는 것이 좋습니다. 백업은 항상 주 노드와 동일한 지역에서 구성되어야 합니다. 즉, 백업을 구성하는 지역에 항상 주 노드가 있어야 합니다. AG의 모든 노드가 백업이 구성되어 있는 곳과 동일한 지역에 있는 경우 문제가 없습니다.
 
 **지역 간 AG**
-- 백업 기본 설정에 관계 없이 백업이 구성되어 있는 곳과 동일한 지역에 있지 않은 노드에서는 백업이 일어나지 않습니다. 따라서 지역 간 백업은 지원되지 않습니다. 노드가 2개뿐이고 보조 노드가 다른 지역에 있는 경우, 백업은 계속 주 노드에서 발생합니다(백업 기본 설정이 ‘보조만’이 아닌 경우에 한 해).
+- 백업 기본 설정에 관계 없이 백업이 구성되어 있는 곳과 동일한 지역에 있지 않은 노드에서는 백업이 일어나지 않습니다. 따라서 지역 간 백업은 지원되지 않습니다. 노드가 두 개뿐이고 보조 노드가 다른 지역에 있는 경우, 백업은 계속 주 노드에서 발생합니다(백업 기본 설정이 ‘보조만’이 아닌 경우에 한 해).
 - 백업이 구성되어 있는 곳과 다른 지역으로 장애 조치(failover)가 발생하는 경우 장애 조치 지역의 노드에서 백업이 실패합니다.
 
 백업 기본 설정 및 백업 유형(전체/차등/로그/복사 전용 전체)에 따라 특정 노드(주/보조)에서 백업이 수행됩니다.

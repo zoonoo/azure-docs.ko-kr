@@ -1,5 +1,5 @@
 ---
-title: Web App for Containers에 대한 사용자 지정 이미지 빌드 - Azure App Service | Microsoft Docs
+title: 개인 레지스트리의 App Service에서 사용자 지정 이미지 빌드 및 실행
 description: Web App for Containers에 사용자 지정 Docker 이미지를 사용하는 방법.
 keywords: azure app service, 웹앱, linux, docker, 컨테이너
 services: app-service
@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: b48ec72a1f0a4178dad66ed31c544399e90c5293
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 6ef739b61c07dae1631a704a70a3a5543d9d8a3d
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67484508"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69015596"
 ---
 # <a name="tutorial-build-a-custom-image-and-run-in-app-service-from-a-private-registry"></a>자습서: 개인 레지스트리의 App Service에서 사용자 지정 이미지 빌드 및 실행
 
@@ -292,20 +292,20 @@ SSH를 사용하면 컨테이너와 클라이언트 간의 보안 통신을 설�
 
 * [진입 스크립트](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/init.sh#L5)에서 SSH 서버를 시작합니다.
 
-      ```bash
-      #!/bin/bash
-      service ssh start
+    ```bash
+    #!/bin/bash
+    service ssh start
     ```
 
-### Open SSH connection to container
+### <a name="open-ssh-connection-to-container"></a>컨테이너에 대한 SSH 연결 열기
 
-SSH connection is available only through the Kudu site, which is accessible at `https://<app-name>.scm.azurewebsites.net`.
+SSH 연결은 `https://<app-name>.scm.azurewebsites.net`에서 액세스할 수 있는 Kudu 사이트를 통해서만 사용할 수 있습니다.
 
-To connect, browse to `https://<app-name>.scm.azurewebsites.net/webssh/host` and sign in with your Azure account.
+연결하려면 `https://<app-name>.scm.azurewebsites.net/webssh/host`로 이동하고 Azure 계정으로 로그인합니다.
 
-You are then redirected to a page displaying an interactive console.
+그런 다음 대화형 콘솔을 표시하는 페이지로 리디렉션됩니다.
 
-You may wish to verify that certain applications are running in the container. To inspect the container and verify running processes, issue the `top` command at the prompt.
+특정 애플리케이션이 컨테이너에서 실행되고 있는지를 확인하려고 합니다. 컨테이너를 검사하고 실행 중인 프로세스를 확인하려면 프롬프트에서 `top` 명령을 실행합니다.
 
 ```bash
 top

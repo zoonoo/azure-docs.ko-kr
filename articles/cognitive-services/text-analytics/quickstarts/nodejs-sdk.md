@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Node.js를 사용하여 텍스트 분석 API 호출'
+title: '빠른 시작: Node.js용 Text Analytics 클라이언트 라이브러리 | Microsoft Docs'
 titleSuffix: Azure Cognitive Services
 description: 텍스트 분석 API 사용을 빠르게 시작하는 데 도움이 되는 정보 및 코드 샘플을 구합니다.
 services: cognitive-services
@@ -10,86 +10,124 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 07/30/2019
 ms.author: shthowse
-ms.openlocfilehash: 9b8a713d58d5753e04de050e0bc961b5e8388123
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 8590acbbd6001c1f214589298e454c1e75f93d67
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68697489"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883528"
 ---
-# <a name="quickstart-using-nodejs-to-call-the-text-analytics-cognitive-service"></a>빠른 시작: Node.js를 사용하여 텍스트 분석 Cognitive Service 호출
+# <a name="quickstart-text-analytics-client-library-for-nodejs"></a>빠른 시작: Node.js용 Text Analytics 클라이언트 라이브러리
 <a name="HOLTop"></a>
 
-이 빠른 시작을 사용하여 Node.js용 Text Analytics SDK를 통해 언어 분석을 시작하세요. [Text Analytics](//go.microsoft.com/fwlink/?LinkID=759711) REST API는 대부분의 프로그래밍 언어와 호환되는 반면, SDK를 사용하면 서비스를 애플리케이션에 쉽게 통합할 수 있습니다. 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/textAnalytics.js)에서 확인할 수 있습니다.
+Node.js용 Text Analytics 클라이언트 라이브러리를 시작합니다. 이러한 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다. 
 
-API 기술 문서는 [API 정의](//go.microsoft.com/fwlink/?LinkID=759346)를 참조하세요.
+Node.js용 Text Analytics 클라이언트 라이브러리를 사용하여 수행하는 작업은 다음과 같습니다.
+
+* 정서 분석
+* 언어 검색
+* 엔터티 인식
+* 핵심 문구 추출
+
+[참조 설명서](https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/textanalytics?view=azure-node-latest) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/cognitiveServicesTextAnalytics) | [패키지(NPM)](https://www.npmjs.com/package/azure-cognitiveservices-textanalytics) | [샘플](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/)
 
 ## <a name="prerequisites"></a>필수 조건
 
-* [Node.JS](https://nodejs.org/)
-* Text Analytics [Node.js용 SDK](https://www.npmjs.com/package/azure-cognitiveservices-textanalytics)이며, 다음을 사용하여 SDK를 설치할 수 있습니다.
+* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
+* 최신 버전의 [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core)
 
-    `npm install azure-cognitiveservices-textanalytics`
+## <a name="setting-up"></a>설치
 
-[!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
+### <a name="create-a-text-analytics-azure-resource"></a>Text Analytics Azure 리소스 만들기
 
-등록하는 동안 생성된 [엔드포인트 및 액세스 키](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)도 있어야 합니다.
+Azure Cognitive Services는 구독하는 Azure 리소스로 표시됩니다. 로컬 머신에서 [Azure Portal](../../cognitive-services-apis-create-account.md) 또는 [Azure CLI](../../cognitive-services-apis-create-account-cli.md)를 사용하여 Text Analytics용 리소스를 만듭니다. 또한 다음을 수행할 수 있습니다.
 
-## <a name="create-a-nodejs-application-and-install-the-sdk"></a>Node.js 애플리케이션 만들기 및 SDK 설치
+* 7일 동안 유효한 [평가판 키](https://azure.microsoft.com/try/cognitive-services/#decision)를 가져옵니다. 키를 등록 후 [Azure 웹 사이트](https://azure.microsoft.com/try/cognitive-services/my-apis/)에서 사용할 수 있습니다.  
+* [Azure Portal](https://portal.azure.com/)에서 리소스를 확인합니다.
 
-Node.js를 설치한 후 노드 프로젝트를 만듭니다. 앱에 대한 새 디렉터리를 만들고 해당 디렉터리로 이동합니다.
+평가판 구독 또는 리소스에서 키를 가져오면 `TEXTANALYTICS_SUBSCRIPTION_KEY`라는 키에 대한 [환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication).
 
-```mkdir myapp && cd myapp```
+### <a name="create-a-new-nodejs-application"></a>새 Node.js 애플리케이션 만들기
 
-package.json 파일을 사용하여 노드 애플리케이션을 만들려면 ```npm init```를 실행합니다. `ms-rest-azure` 및 `azure-cognitiveservices-textanalytics` NPM 패키지를 설치합니다.
+콘솔 창(예: cmd, PowerShell 또는 Bash)에서 앱에 대한 새 디렉터리를 만들고 이 디렉터리로 이동합니다. 
 
-```npm install azure-cognitiveservices-textanalytics ms-rest-azure```
+```console
+mkdir myapp && cd myapp
+```
 
-종속성이 있는 앱의 package.json 파일이 업데이트됩니다.
+`package.json` 파일을 사용하여 노드 애플리케이션을 만들려면 `npm init` 명령을 실행합니다. 
 
-## <a name="authenticate-your-credentials"></a>자격 증명 인증
+```console
+npm init
+```
 
-프로젝트 루트에 새 파일 `index.js`를 만들고 설치된 라이브러리를 가져옵니다.
+파일 `index.js`를 만들고 다음 라이브러리를 가져옵니다.
 
 ```javascript
 const CognitiveServicesCredentials = require("ms-rest-azure").CognitiveServicesCredentials;
 const TextAnalyticsAPIClient = require("azure-cognitiveservices-textanalytics");
 ```
 
-Text Analytics 구독 키에 대한 변수를 만듭니다.
+리소스의 Azure 엔드포인트 및 키에 대한 변수를 만듭니다. 애플리케이션을 시작한 후에 환경 변수를 만든 경우 이를 실행 중인 편집기, IDE 또는 셸을 닫고 다시 열어 해당 변수에 액세스해야 합니다.
+
+[!INCLUDE [text-analytics-find-resource-information](../includes/find-azure-resource-info.md)]
 
 ```javascript
+// replace this endpoint with the correct one for your Azure resource. 
+let endpoint = "https://westus.api.cognitive.microsoft.com/";
+// This sample assumes you have created an environment variable for your key
+let key = var apiKey = process.env.TEXTANALYTICS_SUBSCRIPTION_KEY;
 let credentials = new CognitiveServicesCredentials(
-    "enter-your-key-here"
+    key
 );
 ```
 
-> [!Tip]
-> 프로덕션 시스템에서의 안전한 비밀 배포를 위해 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-net)를 사용하는 것이 좋습니다.
->
+### <a name="install-the-client-library"></a>클라이언트 라이브러리 설치
 
-## <a name="create-a-text-analytics-client"></a>Text Analytics 클라이언트 만들기
+`ms-rest-azure` 및 `azure-cognitiveservices-textanalytics` NPM 패키지를 설치합니다.
 
-`credentials`를 매개 변수로 사용하여 새 `TextAnalyticsClient` 개체를 만듭니다. Text Analytics 구독에 맞는 Azure 지역을 사용합니다.
+```console
+npm install azure-cognitiveservices-textanalytics ms-rest-azure
+```
+
+종속성이 있는 앱의 `package.json` 파일이 업데이트됩니다.
+
+## <a name="object-model"></a>개체 모델
+
+Text Analytics 클라이언트는 키를 사용하여 Azure에 인증하는 [TextAnalyticsClient](https://docs.microsoft.com/javascript/api/azure-cognitiveservices-textanalytics/textanalyticsclient?view=azure-node-latest) 개체입니다. 클라이언트는 텍스트를 단일 문자열 또는 일괄 처리로 분석하는 몇 가지 메서드를 제공합니다.
+
+텍스트는 사용된 메서드에 따라 `id`, `text` 및 `language` 특성의 조합이 포함된 `dictionary` 개체인 `documents`의 목록으로 API에 보내집니다. `text` 특성은 분석할 텍스트를 `language` 원본에 저장하며, `id`는 임의의 값이 될 수 있습니다. 
+
+응답 개체는 각 문서에 대한 분석 정보가 포함된 목록입니다. 
+
+## <a name="code-examples"></a>코드 예제
+
+* [클라이언트 인증](#authenticate-the-client)
+* [감정 분석](#sentiment-analysis)
+* [언어 감지](#language-detection)
+* [엔터티 인식](#entity-recognition)
+* [핵심 구 추출](#key-phrase-extraction)
+
+
+## <a name="authenticate-the-client"></a>클라이언트 인증
+
+`credentials` 및 `endpoint`를 매개 변수로 사용하여 새 [TextAnalyticsClient](https://docs.microsoft.com/javascript/api/azure-cognitiveservices-textanalytics/textanalyticsclient?view=azure-node-latest) 개체를 만듭니다.
 
 ```javascript
 //Replace 'westus' with the correct region for your Text Analytics subscription
 let client = new TextAnalyticsAPIClient(
     credentials,
-    "https://westus.api.cognitive.microsoft.com/"
+    endpoint
 );
 ```
 
 ## <a name="sentiment-analysis"></a>정서 분석
 
-분석하려는 문서가 포함된 개체 목록을 만듭니다. API에 대한 페이로드는 `id`, `language` 및 `text` 특성이 포함된 `documents` 목록으로 구성됩니다. `text` 특성은 분석할 텍스트를 저장하고, `language`는 문서의 언어이고, `id`는 아무 값이나 가능합니다. 
+분석하려는 문서가 포함된 개체 목록을 만듭니다.
 
 ```javascript
 const inputDocuments = {documents:[
-    {language:"en", id:"1", text:"I had the best day of my life."},
-    {language:"en", id:"2", text:"This was a waste of my time. The speaker put me to sleep."},
-    {language:"es", id:"3", text:"No tengo dinero ni nada que dar..."},
-    {language:"it", id:"4", text:"L'hotel veneziano era meraviglioso. È un bellissimo pezzo di architettura."}
+    {language:"en", id:"1", text:"I had the best day of my life."}
 ]}
 ```
 
@@ -111,23 +149,18 @@ operation
 ### <a name="output"></a>출력
 
 ```console
-[ { id: '1', score: 0.8723785877227783 },
-  { id: '2', score: 0.1059873104095459 },
-  { id: '3', score: 0.43635445833206177 },
-  { id: '4', score: 1 } ]
+[ { id: '1', score: 0.8723785877227783 } ]
 ```
 
 ## <a name="language-detection"></a>언어 검색
 
-문서가 포함된 개체 목록을 생성합니다. API에 대한 페이로드는 `id` 및 `text` 특성이 포함된 `documents` 목록으로 구성됩니다. `text` 특성은 분석할 텍스트를 저장하며, `id`는 임의의 값이 될 수 있습니다.
+문서가 포함된 개체 목록을 생성합니다.
 
 ```javascript
 // The documents to be submitted for language detection. The ID can be any value.
 const inputDocuments = {
     documents: [
-        { id: "1", text: "This is a document written in English." },
-        { id: "2", text: "Este es un document escrito en Español." },
-        { id: "3", text: "这是一个用中文写的文件" }
+        { id: "1", text: "This is a document written in English." }
     ]
     };
 ```
@@ -159,19 +192,16 @@ operation
 ```console
 ===== LANGUAGE EXTRACTION ======
 ID: 1 Language English
-ID: 2 Language Spanish
-ID: 3 Language Chinese_Simplified
 ```
 
 ## <a name="entity-recognition"></a>엔터티 인식
 
-문서가 포함된 개체 목록을 생성합니다. API에 대한 페이로드는 `id`, `language` 및 `text` 특성이 포함된 `documents` 목록으로 구성됩니다. `text` 특성은 분석할 텍스트를 저장하고, `language`는 문서의 언어이고, `id`는 아무 값이나 가능합니다.
+문서가 포함된 개체 목록을 생성합니다.
 
 ```javascript
 
     const inputDocuments = {documents:[
-        {language:"en", id:"1", text:"Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800"},
-        {language:"es", id:"2", text:"La sede principal de Microsoft se encuentra en la ciudad de Redmond, a 21 kilómetros de Seattle."},
+        {language:"en", id:"1", text:"Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800"}
         ]}
 
 }
@@ -220,28 +250,16 @@ Document ID: 1
             Offset: 89 Length: 5 Score: 0.8
     Name: Altair 8800 Type: Other Sub Type: Other
             Offset: 116 Length: 11 Score: 0.8
-Document ID: 2
-    Name: Microsoft Type: Organization Sub Type: Organization
-            Offset: 21 Length: 9 Score: 0.999755859375
-    Name: Redmond (Washington) Type: Location Sub Type: Location
-            Offset: 60 Length: 7 Score: 0.9911284446716309
-    Name: 21 kilómetros Type: Quantity Sub Type: Quantity
-            Offset: 71 Length: 13 Score: 0.8
-    Name: Seattle Type: Location Sub Type: Location
-            Offset: 88 Length: 7 Score: 0.9998779296875
 ```
 
 ## <a name="key-phrase-extraction"></a>핵심 문구 추출
 
-문서가 포함된 개체 목록을 생성합니다. API에 대한 페이로드는 `id`, `language` 및 `text` 특성이 포함된 `documents` 목록으로 구성됩니다. `text` 특성은 분석할 텍스트를 저장하고, `language`는 문서의 언어이고, `id`는 아무 값이나 가능합니다.
+문서가 포함된 개체 목록을 생성합니다.
 
 ```javascript
     let inputLanguage = {
     documents: [
-        {language:"ja", id:"1", text:"猫は幸せ"},
-        {language:"de", id:"2", text:"Fahrt nach Stuttgart und dann zum Hotel zu Fu."},
-        {language:"en", id:"3", text:"My cat might need to see a veterinarian."},
-        {language:"es", id:"4", text:"A mi me encanta el fútbol!"}
+        {language:"en", id:"1", text:"My cat might need to see a veterinarian."}
     ]
     };
 ```
@@ -266,19 +284,35 @@ Document ID: 2
 ### <a name="output"></a>출력
 
 ```console
-[ 
-    { id: '1', keyPhrases: [ '幸せ' ] },
-    { id: '2', keyPhrases: [ 'Stuttgart', 'Hotel', 'Fahrt', 'Fu' ] },
-    { id: '3', keyPhrases: [ 'cat', 'veterinarian' ] },
-    { id: '4', keyPhrases: [ 'fútbol' ] } 
+[
+    { id: '1', keyPhrases: [ 'cat', 'veterinarian' ] }
 ]
 ```
+
+## <a name="run-the-application"></a>애플리케이션 실행
+
+quickstart 파일의 `node` 명령을 사용하여 애플리케이션을 실행합니다.
+
+```console
+node index.js
+```
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스 그룹을 삭제하면 됩니다. 리소스 그룹을 삭제하면 해당 리소스 그룹에 연결된 다른 모든 리소스가 함께 삭제됩니다.
+
+* [포털](../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
 > [텍스트 분석 및 Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
-## <a name="see-also"></a>참고 항목
 
- [Text Analytics 개요](../overview.md) [FAQ(질문과 대답)](../text-analytics-resource-faq.md)
+* [Text Analytics 개요](../overview.md)
+* [감정 분석](../how-tos/text-analytics-how-to-sentiment-analysis.md)
+* [엔터티 인식](../how-tos/text-analytics-how-to-entity-linking.md)
+* [언어 감지](../how-tos/text-analytics-how-to-keyword-extraction.md)
+* [언어 인식](../how-tos/text-analytics-how-to-language-detection.md)
+* 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/textAnalytics.js)에서 확인할 수 있습니다.

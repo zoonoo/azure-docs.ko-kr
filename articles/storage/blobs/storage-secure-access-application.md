@@ -9,16 +9,16 @@ ms.date: 05/30/2018
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.custom: mvc
-ms.openlocfilehash: 8e56b02b84c0324f723ead1bbf156c847edbbeb5
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 2cd7a83b597d656ddbb0210aacfe96f6c056248b
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787981"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986693"
 ---
 # <a name="secure-access-to-an-applications-data-in-the-cloud"></a>클라우드의 애플리케이션 데이터에 대한 액세스 보호
 
-이 자습서는 시리즈의 3부입니다. 저장소 계정에 대한 액세스를 보호하는 방법을 배웁니다. 
+이 자습서는 시리즈의 3부입니다. 스토리지 계정에 대한 액세스를 보호하는 방법을 배웁니다. 
 
 시리즈 3부에서는 다음 방법에 대해 알아봅니다.
 
@@ -27,7 +27,7 @@ ms.locfileid: "65787981"
 > * 서버 쪽 암호화 켜기
 > * HTTPS 전용 전송 사용
 
-[Azure Blob Storage](../common/storage-introduction.md#blob-storage)는 애플리케이션용 파일을 저장하기 위한 강력한 서비스를 제공합니다. 이 자습서에서는 [이전 항목][previous-tutorial]을 확장하여 웹 애플리케이션에서 저장소 계정에 대한 액세스를 보호하는 방법을 보여 줍니다. 완료되면 이미지가 암호화되고 웹앱은 보안 SAS 토큰을 사용하여 썸네일 이미지에 액세스합니다.
+[Azure Blob Storage](../common/storage-introduction.md#blob-storage)는 애플리케이션용 파일을 저장하기 위한 강력한 서비스를 제공합니다. 이 자습서에서는 [이전 항목][previous-tutorial]을 확장하여 웹 애플리케이션에서 스토리지 계정에 대한 액세스를 보호하는 방법을 보여 줍니다. 완료되면 이미지가 암호화되고 웹앱은 보안 SAS 토큰을 사용하여 썸네일 이미지에 액세스합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -49,7 +49,7 @@ az storage container set-permission \ --account-name $blobStorageAccount \ --acc
 
 ## <a name="configure-sas-tokens-for-thumbnails"></a>썸네일에 대한 SAS 토큰 구성
 
-이 자습서 시리즈의 1부에서 웹 애플리케이션은 공용 컨테이너의 이미지를 표시했습니다. 시리즈의 이 부분에서는 [SAS(공유 액세스 서명)](../common/storage-dotnet-shared-access-signature-part-1.md#what-is-a-shared-access-signature) 토큰을 사용하여 썸네일 이미지를 검색합니다. SAS 토큰을 사용하여 IP, 프로토콜, 시간 간격, 허용되는 권한에 따라 컨테이너 또는 blob에 대해 제한된 액세스를 제공할 수 있습니다.
+이 자습서 시리즈의 1부에서 웹 애플리케이션은 공용 컨테이너의 이미지를 표시했습니다. 시리즈의 이 부분에서는 SAS(공유 액세스 서명) 토큰을 사용하여 썸네일 이미지를 검색합니다. SAS 토큰을 사용하여 IP, 프로토콜, 시간 간격, 허용되는 권한에 따라 컨테이너 또는 blob에 대해 제한된 액세스를 제공할 수 있습니다. SAS에 대한 자세한 내용은 [SAS(공유 액세스 서명)를 사용하여 Azure Storage 리소스에 대한 제한된 액세스 권한 부여](../common/storage-sas-overview.md)를 참조하세요.
 
 이 예제에서 소스 코드 리포지토리는 업데이트된 코드 샘플이 있는 `sasTokens` 분기를 사용합니다. [az webapp deployment source delete](/cli/azure/webapp/deployment/source)를 사용하여 기존 GitHub 배포를 삭제합니다. 다음으로, [az webapp deployment source config](/cli/azure/webapp/deployment/source) 명령을 사용하여 웹앱에 대한 Git 배포를 구성합니다.  
 
@@ -147,7 +147,7 @@ SSE는 모든 성능 계층(표준 및 프리미엄), 모든 배포 모델(Azure
 
 ## <a name="enable-https-only"></a>HTTPS만 사용
 
-저장소 계정과의 데이터 요청을 안전하게 유지하기 위해 요청을 HTTPS로만 제한할 수 있습니다. [az storage account update](/cli/azure/storage/account) 명령을 사용하여 스토리지 계정 필수 프로토콜을 업데이트합니다.
+스토리지 계정과의 데이터 요청을 안전하게 유지하기 위해 요청을 HTTPS로만 제한할 수 있습니다. [az storage account update](/cli/azure/storage/account) 명령을 사용하여 스토리지 계정 필수 프로토콜을 업데이트합니다.
 
 ```azurecli-interactive
 az storage account update --resource-group myresourcegroup --name <storage-account-name> --https-only true
@@ -167,16 +167,16 @@ HTTP/1.1 400 The account being accessed does not support http.
 
 ## <a name="next-steps"></a>다음 단계
 
-시리즈의 3부에서는 다음 방법을 비롯하여 저장소 계정에 대한 액세스를 보호하는 방법을 배웠습니다.
+시리즈의 3부에서는 다음 방법을 비롯하여 스토리지 계정에 대한 액세스를 보호하는 방법을 배웠습니다.
 
 > [!div class="checklist"]
 > * SAS 토큰을 사용하여 썸네일 이미지에 액세스
 > * 서버 쪽 암호화 켜기
 > * HTTPS 전용 전송 사용
 
-시리즈의 4부를 계속 진행하면서 클라우드 저장소 애플리케이션을 모니터링하고 문제를 해결하는 방법을 알아봅니다.
+시리즈의 4부를 계속 진행하면서 클라우드 스토리지 애플리케이션을 모니터링하고 문제를 해결하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [애플리케이션 클라우드 애플리케이션 저장소 모니터링 및 문제 해결](storage-monitor-troubleshoot-storage-application.md)
+> [애플리케이션 클라우드 애플리케이션 스토리지 모니터링 및 문제 해결](storage-monitor-troubleshoot-storage-application.md)
 
 [previous-tutorial]: ../../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json

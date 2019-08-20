@@ -3,20 +3,20 @@ title: Project Acoustics 개요
 titlesuffix: Azure Cognitive Services
 description: Project Acoustics는 3D 대화형 환경을 위한 음향 엔진으로, 베이킹된 파동 물리학 시뮬레이션과 대화형 디자인 컨트롤을 통합합니다.
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: overview
 ms.date: 03/20/2019
-ms.author: kegodin
+ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: a654dd966c40b5b079f92b910ade52f4eda10344
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: f0685b65ce9204221e93a1ea4aa47a5e09eaac9f
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68704748"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932975"
 ---
 # <a name="what-is-project-acoustics"></a>프로젝트 Acoustics란?
 Project Acoustics는 3D 대화형 환경을 위한 파동 음향 엔진입니다. 수동으로 영역을 표시하지 않고도 복잡한 장면에서 회절, 포털링(portaling) 및 반향 효과와 같은 파동 효과를 모델링합니다. 게임 엔진과 오디오 미들웨어 통합도 포함됩니다. Project Acoustics의 원칙은 정적 조명과 비슷합니다. 즉, 세부적인 물리학을 오프라인으로 베이킹하여 물리적 기준을 제공하며, 의미 있는 디자인 컨트롤이 포함된 간단한 런타임을 사용하여 미적 목표를 충족합니다.
@@ -40,11 +40,17 @@ Project Acoustics의 주요 혁신은 음향 시뮬레이션과 기존의 소리
 * **베이킹:** 분석 단계는 로컬로 실행하여 위에서 선택한 항목에 따라 복셀화 및 다른 기하학적 분석을 수행합니다. 결과는 장면 설정을 확인할 수 있도록 편집기에서 시각화됩니다. 베이킹이 제출되면 복셀 데이터가 Azure로 전송되고 음향 게임 자산이 반환됩니다.
 * **런타임:** 자산이 수준에 로드되면 음향을 해당 수준에서 수신 대기할 준비가 됩니다. 편집기에서 세분화된 원본별 제어를 사용하여 음향을 라이브로 설계합니다. 컨트롤은 수준 스크립팅에서도 구동할 수 있습니다.
 
-## <a name="platforms"></a>플랫폼
+## <a name="runtime-platforms"></a>런타임 플랫폼
 현재 Project Acoustics 런타임 플러그 인이 배포될 수 있는 플랫폼은 다음과 같습니다.
 * Windows
+* MacOS
 * Android
 * Xbox One
+
+## <a name="editor-platforms"></a>편집기 플랫폼
+Project Acoustics 편집기 플러그 인은 다음 플랫폼에서 사용할 수 있습니다.
+* Windows
+* MacOS(Unity 전용)
 
 ## <a name="download"></a>다운로드
 * [Project Acoustics Unity 플러그 인 및 샘플](https://www.microsoft.com/en-us/download/details.aspx?id=57346)

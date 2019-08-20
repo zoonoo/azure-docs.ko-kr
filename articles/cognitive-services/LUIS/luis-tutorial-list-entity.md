@@ -1,5 +1,5 @@
 ---
-title: Extact 텍스트 일치 엔터티-LUIS
+title: 정확한 텍스트 일치 엔터티 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 단어 또는 구의 LUIS 레이블 변형에 유용한 목록 엔터티를 추가하는 방법을 알아봅니다.
 services: cognitive-services
@@ -7,27 +7,27 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: da6e8e794520a737a96ba45f94459fb8c1a5ff18
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
-ms.translationtype: MT
+ms.openlocfilehash: 979cbe16653c09ea1b019310d820b070be4a5a91
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68637840"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946060"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>엔터티 검색을 높이기 위한 목록 엔터티 사용 
 이 자습서에서는 엔터티 검색을 높이기 위한 [목록 엔터티](luis-concept-entity-types.md) 사용을 설명합니다. 목록 엔터티는 용어가 정확히 일치하므로 레이블을 지정할 필요가 없습니다.  
 
-이 자습서에서는 다음 작업을 수행하는 방법을 알아봅니다.
+이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * 목록 엔터티 만들기 
 > * 정규화된 값 및 동의어 추가
 > * 향상된 엔터티 ID의 유효성 검사
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 > [!div class="checklist"]
 > * 최신 [Node.js](https://nodejs.org)
@@ -212,7 +212,7 @@ node train.js
 
 두 개의 다른 발언을 시도하여 thermostat으로 반환되는지 확인합니다. 
 
-|#|발언|엔터티(entity)|type|value|
+|#|발언|엔터티|형식|값|
 |--|--|--|--|--|
 |1|turn on the ac| ac | DevicesList | Thermostat|
 |2|turn up the heat|heat| DevicesList |Thermostat|

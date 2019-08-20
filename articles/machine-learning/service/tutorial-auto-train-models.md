@@ -9,14 +9,14 @@ ms.topic: tutorial
 author: nacharya1
 ms.author: nilesha
 ms.reviewer: trbye
-ms.date: 04/11/2019
+ms.date: 08/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: bbb9653173925e1443504aa3f2e9c5e6edbfc486
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: 060257ef144309e37208db80c7731ed96b995b2c
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371043"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990472"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>자습서: 자동화된 기계 학습을 사용하여 모델 빌드
 
@@ -54,7 +54,7 @@ Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다.
 
 아래 섹션 중 하나에서 이러한 필수 구성 요소를 모두 가져옵니다.
 
-* [작업 영역에서 클라우드 Notebook 서버](#azure) 사용 
+* [작업 영역에서 클라우드 Notebook 서버](#azure) 사용
 * [사용자 고유의 Notebook 서버](#server) 사용
 
 ### <a name="azure"></a>작업 영역에서 클라우드 Notebook 서버 사용
@@ -688,6 +688,9 @@ automated_ml_config = AutoMLConfig(task='regression',
                                    **automl_settings)
 ```
 
+> [!NOTE]
+> 자동화된 기계 학습 사전 처리 단계(기능 정규화, 누락된 데이터 처리, 텍스트를 숫자로 변환 등)는 기본 모델의 일부가 됩니다. 예측에 모델을 사용하는 경우 학습 중에 적용되는 동일한 전처리 단계가 입력 데이터에 자동으로 적용됩니다.
+
 ### <a name="train-the-automatic-regression-model"></a>자동 회귀 모델 학습
 
 실험을 시작하여 로컬로 실행합니다. 정의된 `automated_ml_config` 개체를 실험에 전달합니다. 실험하는 동안 진행률을 확인하려면 출력을 `True`로 설정합니다.
@@ -764,7 +767,7 @@ RunDetails(local_run).show()
 ```
 local_run.get_portal_url()
 ```
-  
+
 
 ### <a name="option-2-get-and-examine-all-run-iterations-in-python"></a>옵션 2: Python에서 모든 실행 반복 가져오기 및 검사
 

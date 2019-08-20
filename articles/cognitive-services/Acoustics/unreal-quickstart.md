@@ -3,27 +3,27 @@ title: Unreal을 사용한 Project Acoustics 빠른 시작
 titlesuffix: Azure Cognitive Services
 description: 샘플 콘텐츠를 사용하여 Unreal 및 Wwise에서 Project Acoustics 디자인 컨트롤을 실험하고 Windows Desktop에 배포합니다.
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: quickstart
 ms.date: 03/20/2019
-ms.author: kegodin
+ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: 06023b2758d09fe8ebe7c1301ef1a03d9c54aa41
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 927ce403130460c302f546038ff3a0c3a16e0368
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68704763"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933050"
 ---
 # <a name="project-acoustics-unrealwwise-quickstart"></a>Project Acoustics Unreal/Wwise 빠른 시작
 이 빠른 시작에서는 Unreal Engine 및 Wwise를 위한 제공된 샘플 콘텐츠를 사용하여 Project Acoustics 디자인 컨트롤을 실험합니다.
 
-소프트웨어 요구 사항:
-* [Unreal Engine](https://www.unrealengine.com/) 4.21
-* [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2018.1.6
+샘플 콘텐츠를 사용하기 위한 소프트웨어 요구 사항:
+* [Unreal Engine](https://www.unrealengine.com/) 4.22
+* [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2019.1.2
 
 ## <a name="download-the-sample-package"></a>샘플 패키지 다운로드
 [Project Acoustics Unreal + Wwise 샘플 패키지](https://www.microsoft.com/download/details.aspx?id=58090)를 다운로드합니다. 예제 패키지에는 Unreal Engine 프로젝트, 해당 Unreal 프로젝트에 대한 Wwise 프로젝트 및 Project Acoustics Wwise 플러그 인이 포함되어 있습니다.
@@ -55,12 +55,16 @@ Project Acoustics Unreal 플러그 인의 경우 Wwise Unreal 플러그 인 API�
 
     ![DXSDK 주석 처리를 보여주는 코드 편집기의 스크린샷](media/directx-sdk-comment.png)
 
+* Visual Studio 2019를 사용하여 컴파일하는 경우 Wwise를 사용하여 연결 오류를 해결하려면 `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`의 기본값 `VSVersion`을 `vc150`으로 수동으로 편집합니다.
+
+    ![vc150으로 변경된 VSVersion을 보여 주는 코드 편집기의 스크린샷](media/vsversion-comment.png)
+
 ### <a name="open-the-unreal-project"></a>Unreal 프로젝트를 엽니다. 
 모듈을 다시 작성하라는 메시지가 표시되면 예를 클릭합니다.
 
 >빌드 장애 시 프로젝트를 열지 못할 경우 Project Acoustics Wwise 플러그 인이 Project Acoustics 샘플 프로젝트에 사용된 것과 동일한 버전의 Wwise에 설치되었는지 확인합니다.
 
->[AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2018.1.6을 사용하지 않는 경우 샘플 프로젝트에서 오디오를 재생하려면 사운드 뱅크를 다시 생성해야 합니다.
+>2019.1 이전 [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 버전을 사용하는 경우 Project Acoustics 샘플 프로젝트를 사용하여 사운드 뱅크를 생성할 수 없습니다.  적절한 사용을 위해 Wwise 버전 2019.1을 샘플 프로젝트에 통합해야 합니다.
 
 ## <a name="experiment-with-project-acoustics-design-controls"></a>Project Acoustics 디자인 컨트롤을 사용하여 실험
 Unreal 편집기에서 재생 단추를 클릭하여 장면에 어떤 소리가 나는지 들어봅니다. 바탕 화면에서 W, A, S, D 및 마우스를 사용하여 이동합니다. 더 많은 컨트롤에 대한 키보드 바로 바기를 보려면 **F1** 키를 누릅니다. 사용해볼 수 있는 일부 디자인 활동은 다음과 같습니다.

@@ -7,12 +7,12 @@ ms.topic: sample
 ms.date: 08/05/2019
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 79302fc0f9addc70461d21c03b02416d15a6fa6c
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 45f5e21e05cf627d418cb66418cf305833a73891
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68814932"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68965101"
 ---
 # <a name="manage-azure-cosmos-db-sql-api-resources-using-powershell"></a>PowerShell을 사용하여 Azure Cosmos DB SQL API 리소스 관리
 
@@ -116,16 +116,15 @@ Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 * 지역 추가 또는 제거
 * 기본 일관성 정책 변경
-* 장애 조치 정책 변경
 * IP 범위 필터 변경
 * Virtual Network 구성 변경
 * 다중 마스터 사용
 
 > [!NOTE]
-> 이 명령을 사용하면 하위 지역을 추가/제거할 수 있지만 장애 조치 우선 순위는 수정할 수 없습니다. 장애 조치 우선 순위를 수정하려면 [Azure Cosmos 계정에 대한 장애 조치 우선 순위 수정](#modify-failover-priority)을 참조하세요.
+> 이 명령을 사용하면 지역을 추가 및 제거할 수 있지만 장애 조치(failover) 우선순위를 수정하거나 `failoverPriority=0`을 사용하여 지역을 변경할 수 없습니다. 장애 조치 우선 순위를 수정하려면 [Azure Cosmos 계정에 대한 장애 조치 우선 순위 수정](#modify-failover-priority)을 참조하세요.
 
 ```azurepowershell-interactive
-# Update an Azure Cosmos Account and set Consistency level to Session
+# Get an Azure Cosmos Account (assume it has two regions currently West US 2 and East US 2) and add a third region
 
 $resourceGroupName = "myResourceGroup"
 $accountName = "myaccountname"
@@ -133,9 +132,13 @@ $accountName = "myaccountname"
 $account = Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
     -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName -Name $accountName
 
-$consistencyPolicy = @{ "defaultConsistencyLevel"="Session" }
+$locations = @(
+    @{ "locationName"="West US 2"; "failoverPriority"=0 },
+    @{ "locationName"="East US 2"; "failoverPriority"=1 },
+    @{ "locationName"="South Central US"; "failoverPriority"=2 }
+)
 
-$account.Properties.consistencyPolicy = $consistencyPolicy
+$account.Properties.locations = $locations
 $CosmosDBProperties = $account.Properties
 
 Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
@@ -235,9 +238,9 @@ Select-Object $keys
 
 ### <a id="modify-failover-priority"></a> 장애 조치 우선 순위 수정
 
-다중 지역 데이터베이스 계정의 경우 주 쓰기 복제본에서 지역 장애 조치가 발생하면 Cosmos 계정에서 보조 읽기 복제본을 승격시키는 순서를 변경할 수 있습니다. `failoverPriority=0`인 지역이 수정되면 다음 명령을 사용하여 재해 복구 계획을 테스트하는 재해 복구 훈련을 시작할 수도 있습니다.
+다중 지역 데이터베이스 계정의 경우 주 쓰기 복제본에서 지역 장애 조치가 발생하면 Cosmos 계정에서 보조 읽기 복제본을 승격시키는 순서를 변경할 수 있습니다. `failoverPriority=0` 수정은 재해 복구 계획을 테스트하기 위한 재해 복구 훈련을 시작하는 데도 사용할 수 있습니다.
 
-아래 예제에서는 계정의 현재 장애 조치 우선 순위가 westus=0 및 eastus=1이라고 가정하고 지역을 대칭 이동시킵니다.
+아래 예제에서는 계정의 현재 장애 조치(failover) 우선순위가 `West US 2 = 0` 및 `East US 2 = 1`이라고 가정하고 지역을 대칭 이동시킵니다.
 
 > [!CAUTION]
 > `failoverPriority=0`에 대한 `locationName`을 변경하면 Azure Cosmos 계정에 대한 수동 장애 조치가 트리거됩니다. 다른 우선 순위 변경은 장애 조치를 트리거하지 않습니다.
@@ -248,10 +251,14 @@ Select-Object $keys
 $resourceGroupName = "myResourceGroup"
 $accountName = "mycosmosaccount"
 
-$failoverPolicies = @(
-    @{ "locationName"="East US"; "failoverPriority"=0 },
-    @{ "locationName"="West US"; "failoverPriority"=1 }
+$failoverRegions = @(
+    @{ "locationName"="East US 2"; "failoverPriority"=0 },
+    @{ "locationName"="West US 2"; "failoverPriority"=1 }
 )
+
+$failoverPolicies = @{
+    "failoverPolicies"= $failoverRegions
+}
 
 Invoke-AzResourceAction -Action failoverPriorityChange `
     -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" `

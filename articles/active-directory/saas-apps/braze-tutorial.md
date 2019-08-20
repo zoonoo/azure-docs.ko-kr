@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd8d4a4bd21e0f7a7f483e139beb1840b5c3cc7f
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 3a32548bdafa999fe72e8b2f8e3b80961ebe3c9a
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165079"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69032899"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-braze"></a>자습서: Braze와 Azure Active Directory 연결
 
@@ -32,7 +32,7 @@ Braze를 Azure AD와 연결하면 다음과 같은 이점을 누릴 수 있습�
 * 사용자가 해당 Azure AD 계정으로 Braze에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -58,7 +58,7 @@ Braze의 Azure AD 연결을 구성하려면 갤러리에서 Braze를 관리형 S
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 응용 프로그램**으로 이동한 다음, **모든 응용 프로그램** 옵션을 선택합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -108,22 +108,22 @@ Braze에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
     **회신 URL** 텍스트 상자에 `https://<SUBDOMAIN>.braze.com/auth/saml/callback` 패턴을 사용하여 URL을 입력합니다.
 
-5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
+5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
     ![Braze 도메인 및 URL Single Sign-On 정보](common/both-signonurl.png)
 
     **로그인 URL** 텍스트 상자에서 `https://<SUBDOMAIN>.braze.com/sign_in` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Braze 클라이언트 지원 팀](mailto:support@braze.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 하위 도메인의 경우 Braze 인스턴스 URL에 나열된 조정 하위 도메인을 사용합니다. 예를 들어 인스턴스가 US-01이면 URL은 https://dashboard-01.braze.com 입니다. 즉, 하위 도메인은 대시보드-01이 됩니다.
 
-6. Braze 애플리케이션에는 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 응용 프로그램 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 단추를 클릭하여 **사용자 특성** 대화 상자를 엽니다.
+6. Braze 애플리케이션에는 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 애플리케이션 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 단추를 클릭하여 **사용자 특성** 대화 상자를 엽니다.
 
     ![이미지](common/edit-attribute.png)
 
 7. 위의 이미지와 같이 SAML 토큰 특성을 구성하기 위해 **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 **편집 아이콘**을 사용하여 클레임을 편집하거나 **새 클레임 추가**를 사용하여 클레임을 추가하고, 다음 단계를 수행합니다.
 
-    | 이름 | 원본 특성|
+    | Name | 원본 특성|
     | -----| --------------- |
     | 이메일 | user.userprincipalname |
     | first_name| user.givenname|
@@ -164,7 +164,7 @@ Braze에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
 ### <a name="configure-braze-single-sign-on"></a>Braze Single Sign-On 구성
 
-**Braze** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **인증서(Base64)** 와 적절히 복사한 URL을 [Braze 지원 팀](mailto:support@braze.com)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+**Braze** 쪽에서 Single Sign-On을 구성하려면 Braze 계정 관리자가 계정에 SAML SSO를 사용하도록 설정했는지 확인해야 합니다. 일단 사용하도록 설정한 후에는 회사 설정 > 보안 설정으로 이동하여 SAML SSO 섹션을 켜기로 전환할 수 있습니다. 이 섹션 내에서 SAML 이름 추가와 함께 다운로드된 **인증서(Base64)** 를 복사하고 붙여 넣어야 합니다. 
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -218,7 +218,7 @@ Braze에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
 ### <a name="create-braze-test-user"></a>Braze 테스트 사용자 만들기
 
-이 섹션에서는 Braze에서 Britta Simon이라는 사용자를 만듭니다. Braze 플랫폼에서 사용자를 추가하려면  [Braze 지원 팀](mailto:support@braze.com)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 Braze에서 Britta Simon이라는 사용자를 만듭니다. Braze 플랫폼에서 사용자를 추가할 수 있습니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 

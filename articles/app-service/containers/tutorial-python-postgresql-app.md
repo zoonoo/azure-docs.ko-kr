@@ -1,39 +1,38 @@
 ---
-title: Linux에서 PostgreSQL을 사용하는 Python(Django) - Azure App Service | Microsoft Docs
-description: Azure에서 데이터 기반 Python 앱을 실행하고 PostgreSQL 데이터베이스에 연결하는 방법을 알아봅니다. Django는 자습서에서 사용됩니다.
+title: Linux에서 PostgreSQL을 사용하는 Python(Django) 웹앱 - Azure App Service | Microsoft Docs
+description: Azure에서 데이터 기반 Python(Django) 웹앱을 실행하고 PostgreSQL 데이터베이스에 연결하는 방법을 알아봅니다.
 services: app-service\web
 documentationcenter: python
 author: cephalin
-manager: jeconnoc
+manager: gwallace
 ms.service: app-service-web
 ms.workload: web
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: cephalin
-ms.reviewer: beverst
 ms.custom: seodec18
-ms.openlocfilehash: 3fbc9429da393f4df14ade57d6bd20219b5fcfa2
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 1cb9cd72908dc88ef2890764bc8d3fad88a82707
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67617531"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68951916"
 ---
-# <a name="build-a-python-and-postgresql-app-in-azure-app-service"></a>Azure App Service에서 Python 및 PostgreSQL 앱 빌드
+# <a name="build-a-python-django-web-app-with-postgresql-in-azure-app-service"></a>Azure App Service에서 PostgreSQL을 사용하여 Python(Django) 웹앱 빌드
 
-[Linux의 App Service](app-service-linux-intro.md)는 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 PostgreSQL을 데이터베이스 백 엔드로 사용하여 데이터 기반 Python 앱을 만드는 방법을 보여줍니다. 완료되면 Linux의 App Service에서 Django 애플리케이션을 실행하게 됩니다.
+[Linux의 App Service](app-service-linux-intro.md)는 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 PostgreSQL을 데이터베이스 백 엔드로 사용하여 데이터 기반 Python(Django) 웹앱을 만드는 방법을 보여 줍니다. 완료되면 Linux의 Azure App Service에서 Django 웹 애플리케이션을 실행하게 됩니다.
 
-![Linux의 App Service의 Python Django 앱](./media/tutorial-python-postgresql-app/django-admin-azure.png)
+![Linux의 App Service의 Python Django 웹앱](./media/tutorial-python-postgresql-app/django-admin-azure.png)
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * Azure에서 PostgreSQL 데이터베이스 만들기
-> * PostgreSQL에 Python 앱 연결
-> * Azure에 앱 배포
+> * PostgreSQL에 Python 웹앱 연결
+> * Azure에 Python 웹앱 배포
 > * 진단 로그 보기
-> * Azure Portal에서 앱 관리
+> * Azure Portal에서 Python 웹앱 관리
 
 > [!NOTE]
 > Azure Database for PostgreSQL를 만들기 전에, [해당 Azure 지역에서 사용할 수 있는 컴퓨팅 세대](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#compute-generations-and-vcores)를 확인하세요.
@@ -93,7 +92,7 @@ git clone https://github.com/Azure-Samples/djangoapp.git
 cd djangoapp
 ```
 
-이 샘플 리포지토리에는 [Django](https://www.djangoproject.com/) 애플리케이션이 들어 있습니다. [Django 설명서의 자습서 시작](https://docs.djangoproject.com/en/2.1/intro/tutorial01/)을 수행하여 얻는 것과 동일한 데이터 기반 앱입니다. 이 자습서에서는 Django를 설명하지 않지만 App Service에 Django 앱(또는 다른 데이터 기반 Python 앱)을 배포하고 실행하는 방법을 보여줍니다.
+이 샘플 리포지토리에는 [Django](https://www.djangoproject.com/) 애플리케이션이 들어 있습니다. [Django 설명서의 자습서 시작](https://docs.djangoproject.com/en/2.1/intro/tutorial01/)을 수행하여 얻는 것과 동일한 데이터 기반 앱입니다. 이 자습서에서는 Django를 설명하지 않지만 Azure App Service에 Django 웹앱(또는 다른 데이터 기반 Python 앱)을 배포하고 실행하는 방법을 보여 줍니다.
 
 ### <a name="configure-environment"></a>환경 구성
 
@@ -129,7 +128,7 @@ python manage.py createsuperuser
 python manage.py runserver
 ```
 
-앱이 완전히 로드되면 다음과 비슷한 메시지가 표시됩니다.
+Django 웹앱이 완전히 로드되면 다음과 비슷한 메시지가 표시됩니다.
 
 ```bash
 Performing system checks...
@@ -216,7 +215,7 @@ az postgres server firewall-rule create --resource-group myResourceGroup --serve
 
 ## <a name="connect-python-app-to-production-database"></a>Python 앱을 프로덕션 데이터베이스에 연결
 
-이 단계에서는 Django 샘플 앱을 앞에서 만든 Azure Database for PostgreSQL 서버에 연결합니다.
+이 단계에서는 Django 웹앱을 앞에서 만든 Azure Database for PostgreSQL 서버에 연결합니다.
 
 ### <a name="create-empty-database-and-user-access"></a>빈 데이터베이스 및 사용자 액세스 만들기
 
@@ -237,7 +236,7 @@ GRANT ALL PRIVILEGES ON DATABASE pollsdb TO manager;
 `\q`를 입력하여 PostgreSQL 클라이언트를 종료합니다.
 
 > [!NOTE]
-> 관리 사용자를 사용하는 대신 특정 응용 프로그램에 대해 제한된 사용 권한으로 데이터베이스 사용자를 만드는 것이 좋습니다. 이 예제에서 `manager` 사용자에게는 `pollsdb` 데이터베이스에 대해서_만_ 모든 권한이 있습니다.
+> 관리 사용자를 사용하는 대신 특정 애플리케이션에 대해 제한된 사용 권한으로 데이터베이스 사용자를 만드는 것이 좋습니다. 이 예제에서 `manager` 사용자에게는 `pollsdb` 데이터베이스에 대해서_만_ 모든 권한이 있습니다.
 
 ### <a name="test-app-connectivity-to-production-database"></a>프로덕션 데이터베이스에 대한 앱 연결 테스트
 
@@ -280,15 +279,14 @@ python manage.py runserver
 
 ## <a name="deploy-to-azure"></a>Deploy to Azure
 
-이 단계에서는 Postgres에 연결된 Python 응용 프로그램을 Azure App Service에 배포합니다.
+이 단계에서는 Postgres에 연결된 Python 애플리케이션을 Azure App Service에 배포합니다.
 
 ### <a name="configure-repository"></a>리포지토리 구성
 
-Django가 들어오는 요청에서 `HTTP_HOST` 헤더의 유효성을 검사합니다. Django 앱을 App Service에서 작동하도록 하려면 허용된 호스트에 앱의 정규화된 도메인 이름을 추가해야 합니다. _azuresite/settings.py_를 열고 `ALLOWED_HOSTS` 설정을 찾습니다. 줄을 다음으로 변경합니다.
+Django가 들어오는 요청에서 `HTTP_HOST` 헤더의 유효성을 검사합니다. Django 웹앱을 App Service에서 작동하도록 하려면 허용된 호스트에 앱의 정규화된 도메인 이름을 추가해야 합니다. _azuresite/settings.py_를 열고 `ALLOWED_HOSTS` 설정을 찾습니다. 줄을 다음으로 변경합니다.
 
 ```python
-ALLOWED_HOSTS = [os.environ['WEBSITE_SITE_NAME'] + '.azurewebsites.net',
-                 '127.0.0.1'] if 'WEBSITE_SITE_NAME' in os.environ else []
+ALLOWED_HOSTS = [os.environ['WEBSITE_SITE_NAME'] + '.azurewebsites.net', '127.0.0.1'] if 'WEBSITE_SITE_NAME' in os.environ else []
 ```
 
 다음으로 Django는 [프로덕션 환경에서 정적 파일 제공](https://docs.djangoproject.com/en/2.1/howto/static-files/deployment/)을 지원하지 않으므로 이 작업을 수동으로 활성화해야 합니다. 이 자습서의 경우 [WhiteNoise](https://whitenoise.evans.io/en/stable/)를 사용합니다. WhiteNoise 패키지는 _requirements.txt_에 이미 포함되어 있습니다. Django를 사용하려면 구성하기만 하면 됩니다. 
@@ -386,13 +384,13 @@ http://<app-name>.azurewebsites.net
 
 이전에 만든 설문 조사 질문이 표시됩니다. 
 
-App Service는 기본적으로 `manage.py startproject`에서 만들어진 각 하위 디렉터리에서 _wsgi.py_를 검색하여 리포지토리에서 Django 프로젝트를 검색합니다. 파일을 찾으면 Django 앱을 로드합니다. App Service에서 Python 앱을 로드하는 방법에 대한 자세한 내용은 [기본 제공 Python 이미지 구성](how-to-configure-python.md)을 참조하세요.
+App Service는 기본적으로 `manage.py startproject`에서 만들어진 각 하위 디렉터리에서 _wsgi.py_를 검색하여 리포지토리에서 Django 프로젝트를 검색합니다. 파일을 찾으면 Django 웹앱을 로드합니다. App Service에서 Python 앱을 로드하는 방법에 대한 자세한 내용은 [기본 제공 Python 이미지 구성](how-to-configure-python.md)을 참조하세요.
 
 `<app-name>.azurewebsites.net`으로 이동하고 사용자가 만든 동일한 관리 사용자를 사용하여 로그인합니다. 원하는 경우 자세한 일부 설문 조사 질문을 만들어 보세요.
 
 ![로컬로 Python Django 애플리케이션 실행](./media/tutorial-python-postgresql-app/django-admin-azure.png)
 
-**축하합니다.** Linux용 App Service에서 Python 앱이 실행되고 있습니다.
+**축하합니다.** Linux용 Azure App Service에서 Python(Django) 웹앱이 실행되고 있습니다.
 
 ## <a name="stream-diagnostic-logs"></a>진단 로그 스트림
 
@@ -418,10 +416,10 @@ App Service는 기본적으로 `manage.py startproject`에서 만들어진 각 �
 
 > [!div class="checklist"]
 > * Azure에서 PostgreSQL 데이터베이스 만들기
-> * PostgreSQL에 Python 앱 연결
-> * Azure에 앱 배포
+> * PostgreSQL에 Python 웹앱 연결
+> * Azure에 Python 웹앱 배포
 > * 진단 로그 보기
-> * Azure Portal에서 앱 관리
+> * Azure Portal에서 Python 웹앱 관리
 
 다음 자습서로 이동하여 사용자 지정 DNS 이름을 앱에 매핑하는 방법을 알아봅니다.
 

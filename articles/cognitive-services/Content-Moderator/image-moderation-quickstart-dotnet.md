@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 07/03/2019
+ms.date: 08/08/2019
 ms.author: sajagtap
-ms.openlocfilehash: 9bfe5f21da6418f82b2099a5da4ba8c3c32c25f3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2a4726357e35fa123355d9ba450f7c6d8624fe78
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564493"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946227"
 ---
 # <a name="quickstart-analyze-images-for-objectionable-content-in-c"></a>빠른 시작: C#으로 이미지에서 불쾌한 콘텐츠 분석
 
@@ -49,22 +49,22 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 *Program.cs* 파일 위에 다음 `using` 문을 추가합니다.
 
-[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=1-8)]
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=1-7)]
 
 ### <a name="create-the-content-moderator-client"></a>Content Moderator 클라이언트 만들기
 
 다음 코드를 *Program.cs* 파일에 추가하여 구독에 대한 Content Moderator 클라이언트 공급자를 만듭니다. 동일한 네임스페이스에서 **Program** 클래스와 함께 코드를 추가합니다. **AzureRegion** 및 **CMSubscriptionKey** 필드를 해당 지역 식별자 및 구독 키 값으로 업데이트해야 합니다.
 
-[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=84-107)]
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=83-106)]
 
 
 ### <a name="set-up-input-and-output-targets"></a>입력 및 출력 대상 설정
 
 _Program.cs_의 **Program** 클래스에 다음 정적 필드를 추가합니다. 이러한 필드는 입력 이미지 콘텐츠 및 출력 JSON 콘텐츠에 대한 파일을 지정합니다.
 
-[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=49-53)]
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=48-52)]
 
-*_ImageFiles.txt* 입력 파일을 만들고 해당 경로를 적절하게 업데이트해야 합니다(상대 경로는 실행 디렉터리에 상대적). _ImageFiles.txt_를 열고 조정할 이미지의 URL을 추가합니다. 이 빠른 시작에서는 샘플 입력으로 다음 URL을 사용합니다.
+*ImageFiles.txt* 입력 파일을 만들고 해당 경로를 적절하게 업데이트해야 합니다(상대 경로는 실행 디렉터리에 상대적임). _ImageFiles.txt_를 열고 조정할 이미지의 URL을 추가합니다. 이 빠른 시작에서는 샘플 입력으로 다음 URL을 사용합니다.
 
 ```
 https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg
@@ -75,20 +75,20 @@ https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png
 
 동일한 네임스페이스에서 **Program** 클래스와 함께 다음 코드를 *Program.cs*에 추가합니다. 이 클래스의 인스턴스를 사용하여 검토한 각각의 이미지에 대한 조정 결과를 기록합니다.
 
-[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=109-124)]
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=108-123)]
 
 
 ### <a name="define-the-image-evaluation-method"></a>이미지 평가 메서드 정의
 
 **Program** 클래스에 다음 메서드를 추가합니다. 이 메서드는 단일 이미지를 3가지 다른 방식으로 평가하고 평가 결과를 반환합니다. 수행할 개별 작업에 대해 자세히 알아보려면 [다음 단계](#next-steps) 섹션에 있는 링크를 따라가세요.
 
-[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=55-81)]
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=54-80)]
 
 ### <a name="load-the-input-images"></a>입력 이미지 로드
 
 **Program** 클래스의 **Main** 메서드에 다음 코드를 추가합니다. 이 코드는 입력 파일에서 각 이미지 URL에 대한 평가 데이터를 검색하는 프로그램을 설정합니다. 그런 다음, 이 데이터를 단일 출력 파일에 씁니다.
 
-[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=17-46)]
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=16-45)]
 
 ## <a name="run-the-program"></a>프로그램 실행
 

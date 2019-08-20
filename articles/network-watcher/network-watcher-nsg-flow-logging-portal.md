@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 3bc06a8903fbc431d991e6ef2a4aad8fbaff2365
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: f254572f5c26a809f401e99f527ccd3d30451c3d
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736863"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68931581"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 가상 머신 간에 네트워크 트래픽 기록
 
@@ -83,7 +83,7 @@ NSG 흐름을 기록하려면 **Microsoft.Insights** 공급자가 필요합니�
 ## <a name="enable-nsg-flow-log"></a>NSG 흐름 로그 설정
 
 1. NSG 흐름 로그 데이터가 Azure Storage 계정에 기록됩니다. Azure Storage 계정을 만들려면 포털의 왼쪽 맨 위에서 **+ 리소스 만들기**를 선택합니다.
-2. **저장소**를 선택한 다음, **저장소 계정 - Blob, 파일, 테이블, 큐**를 선택합니다.
+2. **스토리지**를 선택한 다음, **스토리지 계정 - Blob, 파일, 테이블, 큐**를 선택합니다.
 3. 다음 정보를 입력하거나 선택하고, 나머지 기본값을 그대로 적용한 다음, **만들기**를 선택합니다.
 
     | 설정        | 값                                                        |
@@ -92,7 +92,7 @@ NSG 흐름을 기록하려면 **Microsoft.Insights** 공급자가 필요합니�
     | 위치       | **미국 동부**를 선택합니다.                                           |
     | Resource group | **기존 항목 사용**을 선택한 다음, **myResourceGroup**을 선택합니다. |
 
-    저장소 계정을 만들 때 몇 분이 걸릴 수 있습니다. 저장소 계정을 만들 때까지 나머지 단계를 계속하지 않습니다. 만들지 않고 기존 저장소 계정을 사용하는 경우 저장소 계정에 대한 **설정** 아래의 **방화벽 및 가상 네트워크**에 **모든 네트워크**(기본값)가 선택된 저장소 계정을 선택하도록 합니다. 모든 경우에 스토리지 계정은 NSG와 동일한 영역에 있어야 합니다. 
+    스토리지 계정을 만들 때 몇 분이 걸릴 수 있습니다. 스토리지 계정을 만들 때까지 나머지 단계를 계속하지 않습니다. 만들지 않고 기존 스토리지 계정을 사용하는 경우 스토리지 계정에 대한 **설정** 아래의 **방화벽 및 가상 네트워크**에 **모든 네트워크**(기본값)가 선택된 스토리지 계정을 선택하도록 합니다. 모든 경우에 스토리지 계정은 NSG와 동일한 영역에 있어야 합니다. 
     
     > [!NOTE]
     > Microsoft.Insight 및 Microsoft.Network 공급자는 현재 Azure Storage에 대해 신뢰할 수 있는 Microsoft Services로 지원되지만 NSG Flow 로그는 아직 완전히 온보딩되지 않았습니다. NSG Flow 로깅을 사용하려면 이 기능이 완전히 온보딩될 때까지 **모든 네트워크**를 선택해야 합니다. 
@@ -107,7 +107,12 @@ NSG 흐름을 기록하려면 **Microsoft.Insights** 공급자가 필요합니�
 
    ![흐름 로그 버전 선택](./media/network-watcher-nsg-flow-logging-portal/select-flow-log-version.png)
 
-9. 3단계에 만든 저장소 계정을 선택합니다.
+9. 3단계에 만든 스토리지 계정을 선택합니다.
+   > [!NOTE]
+   > 다음과 같은 경우 NSG 흐름 로그가 스토리지 계정에서 작동하지 않습니다.
+   > * 스토리지 계정은 방화벽을 사용하도록 설정되어 있습니다.
+   > * 스토리지 계정은 [계층 구조 네임스페이스](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace)를 사용하도록 설정되었습니다.
+1. 포털의 맨 왼쪽 위에서 **모든 서비스**를 선택합니다. **필터 상자**에 *Network Watcher*를 입력합니다. 검색 결과에 **Network Watcher**가 나타나면 이를 선택합니다.
 10. **보존(일)** 을 5로 선택한 다음, **저장**을 선택합니다.
 
 ## <a name="download-flow-log"></a>흐름 로그 다운로드
@@ -117,7 +122,7 @@ NSG 흐름을 기록하려면 **Microsoft.Insights** 공급자가 필요합니�
 
    ![흐름 로그 다운로드](./media/network-watcher-nsg-flow-logging-portal/download-flow-logs.png)
 
-3. [NSG 흐름 로그 사용](#enable-nsg-flow-log)의 2단계에서 구성된 저장소 계정을 선택합니다.
+3. [NSG 흐름 로그 사용](#enable-nsg-flow-log)의 2단계에서 구성된 스토리지 계정을 선택합니다.
 4. **Blob service**에서 **Blob**을 선택한 다음, **insights-logs-networksecuritygroupflowevent** 컨테이너를 선택합니다.
 5. 컨테이너에서 다음 그림에 표시된 대로 PT1H.json 파일에 도달할 때까지 폴더 계층으로 탐색합니다. 다음 명명 규칙에 따라 폴더 계층에 로그 파일을 작성합니다. https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 
@@ -212,7 +217,7 @@ NSG 흐름을 기록하려면 **Microsoft.Insights** 공급자가 필요합니�
 | A            | 조치                 | 트래픽을 허용했는지(A) 또는 거부했는지(D)입니다.  
 | C            | 흐름 상태 **버전 2만 해당** | 흐름의 상태를 캡처합니다. 가능한 상태는 다음과 같습니다. **B**: 흐름이 만들어질 때 시작합니다. 통계가 제공되지 않습니다. **C**: 지속적인 흐름에 대해 계속됩니다. 통계가 5분 간격으로 제공됩니다. **E**: 흐름이 종료되면 끝납니다. 통계가 제공됩니다. |
 | 30 | 보낸 패킷 - 원본에서 대상 **버전 2만 해당** | 마지막 업데이트 이후 원본에서 대상으로 전송된 TCP 또는 UDP 패킷의 총 수입니다. |
-| 16978 | 보낸 바이트 - 원본에서 대상 **버전 2만 해당** | 마지막 업데이트 이후 원본에서 대상으로 전송된 TCP 또는 UDP 패킷 바이트의 총 수입니다. 패킷 바이트에는 패킷 헤더 및 페이로드가 포함됩니다. | 
+| 16978 | 보낸 바이트 - 원본에서 대상 **버전 2만 해당** | 마지막 업데이트 이후 원본에서 대상으로 전송된 TCP 또는 UDP 패킷 바이트의 총 수입니다. 패킷 바이트에는 패킷 헤더 및 페이로드가 포함됩니다. |
 | 24 | 보낸 패킷 - 대상에서 원본으로 **버전 2만 해당** | 마지막 업데이트 이후 대상에서 원본으로 전송된 TCP 또는 UDP 패킷의 총 수입니다. |
 | 14008| 보낸 바이트 - 대상에서 원본으로 **버전 2만 해당** | 마지막 업데이트 이후 대상에서 원본으로 전송된 TCP 및 UDP 패킷 바이트의 총 수입니다. 패킷 바이트에는 패킷 헤더 및 페이로드가 포함됩니다.|
 

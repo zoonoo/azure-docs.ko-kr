@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: hamusa
-ms.openlocfilehash: 7b27637ca63ec69d7f4c33f05e7c037d67676b2d
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 04162f074dba05ac6492c16acb446912296cd673
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828291"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952090"
 ---
 # <a name="assess-vmware-vms-with-azure-migrate-server-assessment"></a>Azure Migrate를 사용하여 VMware VM 평가: 서버 평가
 
@@ -180,8 +180,39 @@ Azure Migrate: 서버 평가는 경량 VMware VM 어플라이언스를 실행합
 
 ### <a name="scoping-discovery"></a>검색 범위 지정
 
-검색 범위는 검색에 사용되는 vCenter 계정의 액세스를 제한하여 지정할 수 있습니다. 범위는 vCenter Server 데이터 센터, 클러스터, 클러스터 폴더, 호스트, 호스트 폴더 또는 개별 VM으로 설정할 수 있습니다. 
+검색 범위는 검색에 사용되는 vCenter 계정의 액세스를 제한하여 지정할 수 있습니다. 범위는 vCenter Server 데이터 센터, 클러스터, 클러스터 폴더, 호스트, 호스트 폴더 또는 개별 VM으로 설정할 수 있습니다.
 
+범위를 설정하려면 다음 단계를 수행해야 합니다.
+1.  vCenter 사용자 계정을 만듭니다.
+2.  필요한 권한으로 새 역할을 정의합니다. (<em>에이전트 없는 서버 마이그레이션에 필요</em>)
+3.  vCenter 개체의 사용자 계정에 권한을 할당합니다.
+
+**vCenter 사용자 계정 만들기**
+1.  vSphere Web Client에 vCenter Server 관리자로 로그인합니다.
+2.  **관리** > **SSO 사용자 및 그룹** > **사용자** 탭을 클릭합니다.
+3.  **새 사용자** 아이콘을 클릭합니다.
+4.  새로운 사용자를 만드는 데 필요한 정보를 입력하고 **확인**을 클릭합니다.
+
+**필요한 권한으로 새 역할 정의**(<em>에이전트 없는 서버 마이그레이션에 필요</em>)
+1.  vSphere Web Client에 vCenter Server 관리자로 로그인합니다.
+2.  **관리** > **역할 관리자**로 이동합니다.
+3.  드롭다운 메뉴에서 vCenter Server를 선택합니다.
+4.  **역할 만들기** 작업을 클릭합니다.
+5.  새 역할의 이름을 입력합니다. (예: <em>Azure_Migrate</em>).
+6.  이 [사용 권한](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions)을 새로 정의한 역할에 할당합니다.
+7.  **확인**을 클릭합니다.
+
+**vCenter 개체에 대한 권한 할당**
+
+역할이 할당되어 있는 vCenter 사용자 계정에 vCenter의 인벤토리 개체에 대한 권한을 할당하는 방법은 2가지입니다.
+- 서버 평가의 경우, 검색할 VM이 호스팅되는 모든 부모 개체의 vCenter 사용자 계정에 **읽기 전용** 역할을 적용해야 합니다. 데이터 센터까지의 계층 구조에 있는 모든 부모 개체(호스트, 호스트 폴더, 클러스터, 클러스터 폴더)가 포함됩니다. 이러한 권한은 계층 구조의 자식 개체로 전파됩니다. 
+
+    마찬가지로 서버 마이그레이션의 경우, 이러한 [권한](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions)이 할당되어 있는 사용자 정의 역할(<em>Azure _Migrate</em>이라고 할 수 있음)을 마이그레이션할 VM이 호스팅되는 모든 부모 개체의 vCenter 사용자 계정에 적용해야 합니다.
+
+![권한 할당](./media/tutorial-assess-vmware/assign-perms.png)
+
+- 대안으로 데이터 센터 수준에서 사용자 계정 및 역할을 할당하고 자식 개체에 전파하는 것이 있습니다. 그런 다음, 이러한 계정은 검색/마이그레이션하지 않을 모든 개체(예: VM)에 대해 **액세스 못함** 역할을 부여합니다. 이 구성은 복잡합니다. 모든 새로운 자식 개체에게는 부모로부터 상속된 액세스도 자동으로 부여되므로 우발적인 액세스 제어를 공개합니다. 따라서 첫 번째 방법을 사용하는 것이 좋습니다.
+ 
 > [!NOTE]
 > 현재 vCenter 계정에 vCenter VM 폴더 수준의 액세스 권한이 부여된 경우 서버 평가에서 VM을 검색할 수 없습니다. 검색 범위를 VM 폴더로 지정하려는 경우 vCenter 계정에 VM 수준의 읽기 전용 액세스 권한이 할당되도록 하여 검색을 수행할 수 있습니다.  이 작업을 수행하는 방법에 대한 지침은 다음과 같습니다.
 >

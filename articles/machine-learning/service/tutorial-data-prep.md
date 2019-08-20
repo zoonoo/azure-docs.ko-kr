@@ -11,12 +11,12 @@ ms.author: sihhu
 ms.reviewer: trbye
 ms.date: 07/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6692f64dc7e7fa2799f9095af39171a2ddc0e76d
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 241c84212132ee90e71291758e094cb4a115f2e2
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360907"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018089"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>자습서: 회귀 모델링을 위한 데이터 준비
 
@@ -56,7 +56,7 @@ ms.locfileid: "68360907"
 
 사용자 컴퓨터에 로컬 Jupyter Notebook 서버를 만들려면 이러한 단계를 사용합니다.  이러한 단계를 완료한 후에는 **tutorials/regression-part1-data-prep.ipynb** Notebook을 실행합니다.
 
-1. [Azure Machine Learning Python 빠른 시작](setup-create-workspace.md#sdk)의 설치 단계를 완료하여 Miniconda 환경을 만들고 SDK를 설치합니다.  원하는 경우 **작업 영역 만들기** 섹션을 건너뛰어도 되지만 작업 영역은 이 자습서 시리즈의 [2부](tutorial-auto-train-models.md)에서 필요합니다.
+1. [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)의 설치 단계를 완료합니다.
 1. `azureml-dataprep` 패키지는 SDK를 설치할 때 자동으로 설치됩니다.
 1. [GitHub 리포지토리](https://aka.ms/aml-notebooks)를 복제합니다.
 
@@ -100,10 +100,11 @@ import azureml.dataprep as dprep
 
 ```python
 from IPython.display import display
-dataset_root = "https://dprepdata.blob.core.windows.net/demo"
 
-green_path = "/".join([dataset_root, "green-small/*"])
-yellow_path = "/".join([dataset_root, "yellow-small/*"])
+green_path = "https://dprepdata.blob.core.windows.net/demo/green-small/*"
+yellow_path = "https://dprepdata.blob.core.windows.net/demo/yellow-small/*"
+
+# (optional) Download and view a subset of the data: https://dprepdata.blob.core.windows.net/demo/green-small/green_tripdata_2013-08.csv
 
 green_df_raw = dprep.read_csv(
     path=green_path, header=dprep.PromoteHeadersMode.GROUPED)
@@ -113,9 +114,6 @@ yellow_df_raw = dprep.auto_read_file(path=yellow_path)
 display(green_df_raw.head(5))
 display(yellow_df_raw.head(5))
 ```
-
-> [!Note]
-> 이 동일한 예제의 URL은 전체 URL이 아닙니다. 대신 BLOB의 demo 폴더를 말합니다. 일부 데이터에 대한 전체 URL은 https://dprepdata.blob.core.windows.net/demo/green-small/green_tripdata_2013-08.csv 입니다.
 
 `Dataflow` 개체는 데이터 프레임과 비슷하며, 데이터에 대한 일련의 지연 평가된 변경할 수 없는 작업을 나타냅니다. 사용 가능한 다른 변환 및 필터링 메서드를 호출하여 작업을 추가할 수 있습니다. `Dataflow`에 작업을 추가한 결과는 항상 새로운 `Dataflow` 개체입니다.
 
@@ -156,7 +154,7 @@ green_df = (green_df_raw
                 "Trip_distance": "distance"
             })
             .keep_columns(columns=useful_columns))
-green_df.head(5)
+display(green_df.head(5))
 ```
 
 <div>
@@ -290,7 +288,7 @@ yellow_df = (yellow_df_raw
                  "trip_distance": "distance"
              })
              .keep_columns(columns=useful_columns))
-yellow_df.head(5)
+display(yellow_df.head(5))
 ```
 
 녹색 택시 데이터에서 `append_rows()` 함수를 호출하여 노란색 택시 데이터를 추가합니다. 새로 조합된 데이터 프레임이 생성됩니다.

@@ -1,17 +1,17 @@
 ---
 title: Azure Data Catalog에서 데이터 자산 등록
-description: Azure Data Catalog에서 데이터 자산을 등록하는 방법
+description: 이 자습서에서는 Azure Data Catalog에 데이터 자산을 등록하는 방법을 설명합니다.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: tutorial
 ms.date: 08/01/2019
-ms.openlocfilehash: 6dcf29c1bb98d15daf652671f31ed1647d66a81b
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 4bd2b7093100ff24b21b67ea84613ac9b2ec8299
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68734836"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950242"
 ---
 # <a name="tutorial-register-data-assets-in-azure-data-catalog"></a>자습서: Azure Data Catalog에서 데이터 자산 등록
 

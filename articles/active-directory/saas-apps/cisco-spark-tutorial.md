@@ -1,5 +1,5 @@
 ---
-title: '자습서: Cisco Webex와 Azure Active Directory 통합 | Microsoft Docs'
+title: '자습서: Cisco Webex와 Azure Active Directory SSO(Single Sign-On) 연결 | Microsoft Docs'
 description: Azure Active Directory 및 Cisco Webex 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/24/2019
+ms.date: 08/09/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9bf8b4d696a3784988a92fc24de1ae6964786e07
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 99e6839443a75376224fe6a1007802b6b948a395
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67836408"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989456"
 ---
-# <a name="tutorial-integrate-cisco-webex-with-azure-active-directory"></a>자습서: Cisco Webex와 Azure Active Directory 통합
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex"></a>자습서: Cisco Webex와 Azure Active Directory SSO(Single Sign-On) 연결
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 Cisco Webex를 통합하는 방법에 대해 알아봅니다. Azure AD와 Cisco Webex를 통합하는 경우 다음을 수행할 수 있습니다.
 
@@ -42,7 +42,7 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 ## <a name="scenario-description"></a>시나리오 설명
 
-이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다. Cisco Webex는 **SP 및 IDP** 시작 SSO를 지원하며 **자동화된** 사용자 프로비저닝을 지원합니다.
+이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다. Cisco Webex는 **SP** 시작 SSO를 지원하며 **자동화된** 사용자 프로비저닝을 지원합니다.
 
 ## <a name="adding-cisco-webex-from-the-gallery"></a>갤러리에서 Cisco Webex 추가
 
@@ -55,18 +55,18 @@ Cisco Webex의 Azure AD 통합을 구성하려면 갤러리의 Cisco Webex를 �
 1. **갤러리에서 추가** 섹션의 검색 상자에 **Cisco Webex**를 입력합니다.
 1. 결과 패널에서 **Cisco Webex**를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
+## <a name="configure-and-test-azure-ad-single-sign-on-for-cisco-webex"></a>Cisco Webex에 대한 Azure AD Single Sign-On 구성 및 테스트
 
 **B.Simon**이라는 테스트 사용자를 사용하여 Cisco Webex에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 Cisco Webex의 관련 사용자 간에 연결이 형성되어야 합니다.
 
 Cisco Webex에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요소를 완료합니다.
 
 1. 사용자가 이 기능을 사용할 수 있도록 **[Azure AD SSO를 구성](#configure-azure-ad-sso)** 합니다.
+    1. **[Azure AD 테스트 사용자를 생성](#create-an-azure-ad-test-user)** 하여 B.Simon으로 Azure AD Single Sign-On을 테스트합니다.
+    1. **[Azure AD 테스트 사용자를 할당](#assign-the-azure-ad-test-user)** 하여 B.Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
 2. **[Cisco Webex 구성](#configure-cisco-webex)** - 애플리케이션 쪽에서 SSO 설정을 구성합니다.
-3. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
-4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B.Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
-5. **[Cisco Webex 테스트 사용자 만들기](#create-cisco-webex-test-user)** - Azure AD 표현과 연결된 B.Simon에 해당하는 사용자를 Cisco Webex에 만듭니다.
-6. **[SSO를 테스트](#test-sso)** 하여 구성이 작동하는지 여부를 확인합니다.
+    1. **[Cisco Webex 테스트 사용자 만들기](#create-cisco-webex-test-user)** - Azure AD 표현과 연결된 B.Simon에 해당하는 사용자를 Cisco Webex에 만듭니다.
+3. **[SSO를 테스트](#test-sso)** 하여 구성이 작동하는지 여부를 확인합니다.
 
 ### <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
 
@@ -81,7 +81,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 4. **기본 SAML 구성** 섹션에서 다음 단계를 수행하여 다운로드한 **서비스 공급자 메타데이터 파일**을 업로드하고 애플리케이션을 구성합니다.
 
     >[!Note]
-    >**Cisco Webex** 포털에서 서비스 공급 기업 메타데이터 파일을 얻게 됩니다. 
+    >서비스 공급 기업 메타데이터 파일은 이 자습서의 뒷부분에 설명되어 있는 **Cisco Webex 구성** 섹션에서 구할 수 있습니다. 
 
     a. **메타데이터 파일 업로드**를 클릭합니다.
 
@@ -91,7 +91,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     **로그온 URL** 텍스트 상자에 SP 메타데이터 파일 업로드로 자동 입력되는 **회신 URL**의 값을 붙여넣습니다.
 
-5. Cisco Webex 애플리케이션은 특정 서식에서 SAML 어설션이 필요합니다. 이를 위해서는 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다. **편집** 아이콘을 클릭하여 특성을 추가합니다.
+5. Cisco Webex 애플리케이션은 특정 서식에서 SAML 어설션이 필요합니다. 이를 위해서는 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.  **편집**  단추를 클릭하여 사용자 특성 대화 상자를 엽니다.
 
     ![이미지](common/edit-attribute.png)
 
@@ -127,24 +127,6 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
    ![구성 URL 복사](common/copy-configuration-urls.png)
 
-### <a name="configure-cisco-webex"></a>Cisco Webex 구성
-
-1. 전체 관리자 자격 증명으로 [Cisco Cloud Collaboration Management](https://admin.ciscospark.com/)에 로그인합니다.
-
-2. **설정**을 선택하고 **인증** 섹션 아래에서 **수정**을 클릭합니다.
-
-    ![Configure Single Sign-On](./media/cisco-spark-tutorial/tutorial-cisco-spark-10.png)
-  
-3. **타사 ID 공급자 통합 (고급)** 을 선택하고 다음 화면으로 이동합니다.
-
-4. **Idp 메타데이터 가져오기** 페이지에서 Azure AD 메타데이터 파일을 페이지로 끌어다 놓거나 파일 브라우저 옵션을 사용하여 Azure AD 메타데이터 파일을 찾아 업로드합니다. 그런 다음 **메타데이터에서 인증 기관이 서명한 인증서 필요(더 안전)** 를 선택하고 **다음**을 클릭합니다.
-
-    ![Configure Single Sign-On](./media/cisco-spark-tutorial/tutorial-cisco-spark-11.png)
-
-5. **SSO 연결 테스트**를 선택하고 새 브라우저 탭이 열리면 로그인하여 Azure AD로 인증합니다.
-
-6. **Cisco Cloud Collaboration Management** 브라우저 탭으로 돌아갑니다. 테스트에 성공하면 **이 테스트에 성공했습니다. Single Sign-On 사용 옵션**을 선택하고 **다음**을 클릭합니다.
-
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
@@ -174,9 +156,27 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon**을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
+## <a name="configure-cisco-webex"></a>Cisco Webex 구성
+
+1. 전체 관리자 자격 증명으로 [Cisco Cloud Collaboration Management](https://admin.ciscospark.com/)에 로그인합니다.
+
+2. **설정**을 선택하고 **인증** 섹션 아래에서 **수정**을 클릭합니다.
+
+    ![Configure Single Sign-On](./media/cisco-spark-tutorial/tutorial-cisco-spark-10.png)
+  
+3. **타사 ID 공급자 통합 (고급)** 을 선택하고 다음 화면으로 이동합니다.
+
+4. **Idp 메타데이터 가져오기** 페이지에서 Azure AD 메타데이터 파일을 페이지로 끌어다 놓거나 파일 브라우저 옵션을 사용하여 Azure AD 메타데이터 파일을 찾아 업로드합니다. 그런 다음 **메타데이터에서 인증 기관이 서명한 인증서 필요(더 안전)** 를 선택하고 **다음**을 클릭합니다.
+
+    ![Configure Single Sign-On](./media/cisco-spark-tutorial/tutorial-cisco-spark-11.png)
+
+5. **SSO 연결 테스트**를 선택하고 새 브라우저 탭이 열리면 로그인하여 Azure AD로 인증합니다.
+
+6. **Cisco Cloud Collaboration Management** 브라우저 탭으로 돌아갑니다. 테스트에 성공하면 **이 테스트에 성공했습니다. Single Sign-On 사용 옵션**을 선택하고 **다음**을 클릭합니다.
+
 ### <a name="create-cisco-webex-test-user"></a>Cisco Webex 테스트 사용자 만들기
 
-이 섹션에서는 Cisco Webex에서 Britta Simon이라는 사용자를 만듭니다. 이 섹션에서는 Cisco Webex에서 Britta Simon이라는 사용자를 만듭니다.
+이 섹션에서는 Cisco Webex에서 B.Simon이라는 사용자를 만듭니다. 이 섹션에서는 Cisco Webex에서 B.Simon이라는 사용자를 만듭니다.
 
 1. 전체 관리자 자격 증명으로 [Cisco Cloud Collaboration Management](https://admin.ciscospark.com/)로 이동합니다.
 
@@ -196,11 +196,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     다. **이메일 주소** 텍스트 상자에서 사용자의 이메일 주소(예: b.simon@contoso.com)를 입력합니다.
 
-5. 더하기 기호를 클릭하여 Britta Simon을 추가합니다. 그런 후 **다음**을 클릭합니다.
+5. 더하기 기호를 클릭하여 B.Simon을 추가합니다. 그런 후 **다음**을 클릭합니다.
 
 6. **사용자에 대한 서비스 추가** 창에서 **저장**을 클릭한 후 **마침**을 클릭합니다.
 
-### <a name="test-sso"></a>SSO 테스트
+## <a name="test-sso"></a>SSO 테스트
 
 액세스 패널에서 Cisco Webex 타일을 선택하면 SSO를 설정한 Cisco Webex에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
 
@@ -211,3 +211,5 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 - [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Azure AD에서 Cisco Webex 사용해 보기](https://aad.portal.azure.com)

@@ -10,16 +10,16 @@ ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: b929d0c0da2a812a1c8595536f09931e4edd0fd9
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: f8488195ed9e115843c2dc551af52d5da010ffe7
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68594926"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036735"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>자습서: WPF를 사용하여 번역 앱 만들기
 
-이 자습서에서는 단일 구독 키를 사용하여 텍스트 번역, 언어 감지 및 맞춤법 검사에서 Azure Cognitive Services를 사용하는 [WPF(Windows Presentation Foundation)](https://docs.microsoft.com/visualstudio/designers/getting-started-with-wpf?view=vs-2017) 앱을 빌드합니다. 특히 앱에서 Translator Text API 및 [Bing Spell Check](https://azure.microsoft.com/services/cognitive-services/spell-check/) API를 호출합니다.
+이 자습서에서는 단일 구독 키를 사용하여 텍스트 번역, 언어 감지 및 맞춤법 검사에서 Azure Cognitive Services를 사용하는 [WPF(Windows Presentation Foundation)](https://docs.microsoft.com/visualstudio/designers/getting-started-with-wpf?view=vs-2019) 앱을 빌드합니다. 특히 앱에서 Translator Text API 및 [Bing Spell Check](https://azure.microsoft.com/services/cognitive-services/spell-check/) API를 호출합니다.
 
 WPF란? 데스크톱 클라이언트 앱을 만드는 UI 프레임워크입니다. WPF 개발 플랫폼은 애플리케이션 모델, 리소스, 컨트롤, 그래픽, 레이아웃, 데이터 바인딩, 문서 및 보안을 포함한 광범위한 애플리케이션 개발 기능을 지원합니다. .NET Framework의 하위 집합이므로 이전에 ASP.NET 또는 Windows Forms를 사용하는 .NET Framework를 통해 앱을 빌드한 경우 프로그래밍 환경에 이미 친숙해져 있습니다. WPF는 XAML(Extensible App Markup Language)을 사용하여 앱 프로그래밍을 위한 선언적 모델을 제공하며, 이 모델은 다음 섹션에서 검토하겠습니다.
 
@@ -50,7 +50,7 @@ WPF란? 데스크톱 클라이언트 앱을 만드는 UI 프레임워크입니�
 
 * Azure Cognitive Services 구독. [Cognitive Services 키 가져오기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#multi-service-resource).
 * Windows 머신
-* [Visual Studio 2017](https://www.visualstudio.com/downloads/) - Community 또는 Enterprise
+* [Visual Studio 2019](https://www.visualstudio.com/downloads/) - Community 또는 Enterprise
 
 > [!NOTE]
 > 이 자습서에서는 구독을 미국 서부 지역에 만드는 것이 좋습니다. 그렇지 않으면 이 연습을 수행할 때 코드에서 엔드포인트와 지역을 변경해야 합니다.  
@@ -59,11 +59,13 @@ WPF란? 데스크톱 클라이언트 앱을 만드는 UI 프레임워크입니�
 
 수행해야 하는 첫 번째 작업은 Visual Studio에서 프로젝트를 설정하는 것입니다.
 
-1. Visual Studio를 엽니다. 그런 다음, **파일 > 새로 만들기 > 프로젝트**를 차례로 선택합니다.
-2. 왼쪽 패널에서 **Visual C#** 을 찾아서 선택합니다. 그런 다음, 가운데 패널에서 **WPF 앱(.NET Framework)** 을 선택합니다.
-   ![Visual Studio에서 WPF 앱 만들기](media/create-wpf-project-visual-studio.png)
-3. 프로젝트 `MSTranslatorTextDemo`의 이름을 지정하고, 프레임워크 버전을 **.NET Framework 4.5.2 이상**으로 설정한 다음, **확인**을 클릭합니다.
-4. 프로젝트가 만들어졌습니다. 두 개의 탭, `MainWindow.xaml` 및 `MainWindow.xaml.cs`가 열려 있습니다. 이 자습서에서는 이 두 파일에 코드를 추가합니다. 첫 번째 탭은 앱의 사용자 인터페이스에 대한 것이며, 두 번째 탭은 Translator Text 및 Bing Spell Check 호출에 대한 것입니다.
+1. Visual Studio를 엽니다. **새 프로젝트 만들기**를 선택합니다.
+1. **새 프로젝트 만들기**에서 **WPF 앱(.NET Framework)** 을 찾아 선택합니다. **언어**에서 C#을 선택하여 옵션의 범위를 좁힐 수 있습니다.
+1. **다음**을 선택한 다음, 프로젝트 `MSTranslatorTextDemo`의 이름을 지정합니다.
+1. 프레임워크 버전을 **.NET Framework 4.7.2** 이상으로 설정하고, **만들기**를 선택합니다.
+   ![Visual Studio에서 이름 및 프레임워크 버전 입력](media/name-wpf-project-visual-studio.png)
+
+프로젝트가 만들어졌습니다. 두 개의 탭, `MainWindow.xaml` 및 `MainWindow.xaml.cs`가 열려 있습니다. 이 자습서에서는 이 두 파일에 코드를 추가합니다. 앱의 사용자 인터페이스에 대한 `MainWindow.xaml`을 수정합니다. Translator Text 및 Bing Spell Check에 대한 호출에 대해 `MainWindow.xaml.cs`를 수정합니다.
    ![환경 검토](media/blank-wpf-project.png)
 
 다음 섹션에서는 JSON 구문 분석과 같은 추가 기능을 위해 어셈블리와 NuGet 패키지를 프로젝트에 추가합니다.
@@ -76,28 +78,31 @@ WPF란? 데스크톱 클라이언트 앱을 만드는 UI 프레임워크입니�
 
 개체를 직렬화 및 역직렬화하고 HTTP 요청 및 응답을 관리하는 어셈블리를 프로젝트에 추가해 보겠습니다.
 
-1. Visual Studio의 솔루션 탐색기(오른쪽 패널)에서 프로젝트를 찾습니다. 마우스 오른쪽 단추로 프로젝트를 클릭한 다음, **추가 > 참조...** 를 선택합니다. 그러면 **참조 관리자**가 열립니다.
-   ![어셈블리 참조 추가](media/add-assemblies-sample.png)
-2. 어셈블리 탭에는 참조에 사용할 수 있는 모든 .NET Framework 어셈블리가 나열됩니다. 화면의 오른쪽 위에 있는 검색 창을 사용하여 다음 참조를 검색하고 이를 프로젝트에 추가합니다.
+1. Visual Studio의 솔루션 탐색기에서 프로젝트를 찾습니다. 마우스 오른쪽 단추로 프로젝트를 클릭한 다음, **추가 > 참조**를 선택합니다. 그러면 **참조 관리자**가 열립니다.
+1. **어셈블리** 탭에는 참조에 사용할 수 있는 모든 .NET Framework 어셈블리가 나열됩니다. 오른쪽 위에 있는 검색 창을 사용하여 참조를 검색합니다.
+   ![어셈블리 참조 추가](media/add-assemblies-2019.png)
+1. 프로젝트에 대해 다음 참조를 선택합니다.
    * [System.Runtime.Serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization)
    * [System.Web](https://docs.microsoft.com/dotnet/api/system.web)
-   * [System.Web.Extensions](https://docs.microsoft.com/dotnet/api/system.web)
+   * System.Web.Extensions
    * [System.Windows](https://docs.microsoft.com/dotnet/api/system.windows)
-3. 이러한 참조가 프로젝트에 추가되면 **확인**을 클릭하여 **참조 관리자**를 닫을 수 있습니다.
+1. 이러한 참조가 프로젝트에 추가되면 **확인**을 클릭하여 **참조 관리자**를 닫을 수 있습니다.
 
 > [!NOTE]
-> 어셈블리 참조에 대한 자세한 내용은 [방법: 참조 관리자를 사용하여 참조 추가 또는 제거](https://docs.microsoft.com/visualstudio/ide/how-to-add-or-remove-references-by-using-the-reference-manager?view=vs-2017)를 참조하세요.
+> 어셈블리 참조에 대한 자세한 내용은 [방법: 참조 관리자를 사용하여 참조 추가 또는 제거](https://docs.microsoft.com/visualstudio/ide/how-to-add-or-remove-references-by-using-the-reference-manager?view=vs-2019)를 참조하세요.
 
 ### <a name="install-newtonsoftjson"></a>NewtonSoft.Json 설치
 
 앱에서는 NewtonSoft.Json을 사용하여 JSON 개체를 역직렬화합니다. 다음 지침에 따라 패키지를 설치하세요.
 
-1. Visual Studio의 솔루션 탐색기에서 프로젝트를 찾고 마우스 오른쪽 단추로 프로젝트를 클릭합니다. **NuGet 패키지 관리...** 를 선택합니다.
-2. **찾아보기** 탭을 찾아서 선택합니다.
-3. [NewtonSoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/)을 검색 창에 입력합니다.
-   ![NewtonSoft.Json 찾기 및 설치](media/add-nuget-packages.png)
-4. 패키지를 선택하고 **설치**를 클릭합니다.
-5. 설치가 완료되면 탭을 닫습니다.
+1. Visual Studio의 솔루션 탐색기에서 프로젝트를 찾고 마우스 오른쪽 단추로 프로젝트를 클릭합니다. **NuGet 패키지 관리**를 선택합니다.
+1. **찾아보기** 탭을 찾아서 선택합니다.
+1. [NewtonSoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/)을 검색 창에 입력합니다.
+
+    ![NewtonSoft.Json 찾기 및 설치](media/nuget-package-manager.png)
+
+1. 패키지를 선택하고 **설치**를 클릭합니다.
+1. 설치가 완료되면 탭을 닫습니다.
 
 ## <a name="create-a-wpf-form-using-xaml"></a>XAML을 사용하여 WPF 양식 만들기
 
@@ -124,7 +129,7 @@ WPF란? 데스크톱 클라이언트 앱을 만드는 UI 프레임워크입니�
 코드를 프로젝트에 추가해 보겠습니다.
 
 1. Visual Studio에서 `MainWindow.xaml` 탭을 선택합니다.
-2. 이 코드를 프로젝트에 복사하고 저장합니다.
+1. 이 코드를 프로젝트에 복사한 다음, **파일 > MainWindow.xaml 저장**을 선택하여 변경 내용을 저장합니다.
    ```xaml
    <Window x:Class="MSTranslatorTextDemo.MainWindow"
            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -159,7 +164,7 @@ WPF란? 데스크톱 클라이언트 앱을 만드는 UI 프레임워크입니�
        </Grid>
    </Window>
    ```
-3. 이제 Visual Studio에서 앱의 사용자 인터페이스에 대한 미리 보기가 표시됩니다. 위의 이미지와 비슷하게 표시됩니다.
+이제 Visual Studio에서 앱의 사용자 인터페이스에 대한 미리 보기가 표시됩니다. 위의 이미지와 비슷하게 표시됩니다.
 
 양식이 준비되었습니다. 이제 Translator Text와 Bing Spell Check를 사용하는 코드를 작성해 보겠습니다.
 
@@ -179,7 +184,7 @@ WPF란? 데스크톱 클라이언트 앱을 만드는 UI 프레임워크입니�
 모든 프로젝트가 `MainWindow : Window` 클래스에 캡슐화되어 있습니다. 먼저 구독 키를 설정하는 코드를 추가하고, Translator Text 및 Bing Spell Check에 대한 엔드포인트를 선언하고, 앱을 초기화하겠습니다.
 
 1. Visual Studio에서 `MainWindow.xaml.cs` 탭을 선택합니다.
-2. 미리 채워진 `using` 문을 다음 명령문으로 바꿉니다.  
+1. 미리 채워진 `using` 문을 다음 명령문으로 바꿉니다.  
    ```csharp
    using System;
    using System.Windows;
@@ -191,7 +196,7 @@ WPF란? 데스크톱 클라이언트 앱을 만드는 UI 프레임워크입니�
    using System.Text;
    using Newtonsoft.Json;
    ```
-3. `MainWindow : Window` 클래스를 찾아서 다음 코드로 바꿉니다.
+1. `MainWindow : Window` 클래스를 찾아서 다음 코드로 바꿉니다.
    ```csharp
    {
        // This sample uses the Cognitive Services subscription key for all services. To learn more about
@@ -241,7 +246,7 @@ WPF란? 데스크톱 클라이언트 앱을 만드는 UI 프레임워크입니�
    // In the following sections, we'll add code below this.
    }
    ```
-   1. Cognitive Services 구독 키를 추가하고 저장합니다.
+1. Cognitive Services 구독 키를 추가하고 저장합니다.
 
 이 코드 블록에서는 번역에 사용할 수 있는 언어에 대한 정보가 포함된 두 개의 멤버 변수를 선언했습니다.
 
@@ -250,7 +255,7 @@ WPF란? 데스크톱 클라이언트 앱을 만드는 UI 프레임워크입니�
 |`languageCodes` | 문자열 배열 |언어 코드를 캐시합니다. Translator 서비스는 영어를 나타내는 `en`과 같은 짧은 코드를 사용하여 언어를 식별합니다. |
 |`languageCodesAndTitles` | 정렬된 사전 | 사용자 인터페이스의 “친숙한” 이름을 API에 사용된 짧은 코드로 다시 매핑합니다. 대/소문자와 관계없이 사전순으로 정렬됩니다. |
 
-다음으로, `MainWindow` 생성자 내에서 `HandleExceptions`를 사용하여 오류 처리를 추가했습니다. 이렇게 하면 예외가 처리되지 않는 경우 경고가 제공됩니다. 그런 다음, 제공된 구독 키의 길이가 32자인지 확인하는 검사가 실행됩니다. 키의 길이가 32자보다 작거나 크면 오류가 발생합니다.
+다음으로, `MainWindow` 생성자 내에서 `HandleExceptions`를 사용하여 오류 처리를 추가했습니다. 이 오류 처리는 예외가 처리되지 않는 경우 경고가 제공되도록 합니다. 그런 다음, 제공된 구독 키의 길이가 32자인지 확인하는 검사가 실행됩니다. 키의 길이가 32자보다 작거나 크면 오류가 발생합니다.
 
 최소한 적절한 길이의 키가 있으면 `InitializeComponent()` 호출에서 주 애플리케이션 창에 대한 XAML 설명을 찾아 로드하고 인스턴스화하여 사용자 인터페이스를 롤링합니다.
 
@@ -323,7 +328,7 @@ JSON 응답은 구문 분석되어 사전으로 변환됩니다. 그런 다음, 
 
 ## <a name="populate-language-drop-down-menus"></a>언어 드롭다운 메뉴 채우기
 
-사용자 인터페이스는 XAML을 사용하여 정의되므로 `InitializeComponent()` 호출 외에는 많이 설정할 필요가 없습니다. 수행해야 하는 한 가지 작업은 **원래 언어** 및 **번역 대상 언어** 드롭다운 메뉴에 언어 이름을 추가하는 것이며, `PopulateLanguageMenus()` 메서드를 통해 수행됩니다.
+사용자 인터페이스는 XAML을 사용하여 정의되므로 `InitializeComponent()` 호출 외에는 많이 설정할 필요가 없습니다. 수행해야 하는 한 가지 작업은 **원래 언어** 및 **번역 대상 언어** 드롭다운 메뉴에 언어 이름을 추가하는 것입니다. `PopulateLanguageMenus()` 메서드는 이름을 추가합니다.
 
 1. Visual Studio에서 `MainWindow.xaml.cs` 탭을 엽니다.
 2. 다음 코드를 `GetLanguagesForTranslate()` 메서드 아래의 프로젝트에 추가합니다.
@@ -413,7 +418,7 @@ JSON 응답은 구문 분석되어 사전으로 변환됩니다. 그런 다음, 
 
 ## <a name="spell-check-the-source-text"></a>원본 텍스트 맞춤법 검사
 
-이제 Bing Spell Check API를 사용하여 원본 텍스트의 맞춤법을 검사하는 메서드를 만들어 보겠습니다. 이렇게 하면 Translator Text API에서 정확한 번역을 얻을 수 있습니다. **번역** 단추를 클릭하면 원본 텍스트에 대한 모든 수정이 번역 요청에 전달됩니다.
+이제 Bing Spell Check API를 사용하여 원본 텍스트의 맞춤법을 검사하는 메서드를 만들어 보겠습니다. 맞춤법 검사를 통해 Translator Text API에서 정확한 번역을 얻을 수 있습니다. **번역** 단추를 클릭하면 원본 텍스트에 대한 모든 수정이 번역 요청에 전달됩니다.
 
 1. Visual Studio에서 `MainWindow.xaml.cs` 탭을 엽니다.
 2. 다음 코드를 `DetectLanguage()` 메서드 아래의 프로젝트에 추가합니다.
@@ -480,7 +485,7 @@ private string CorrectSpelling(string text)
 수행해야 하는 마지막 작업은 사용자 인터페이스에서 **번역** 단추를 클릭할 때 호출되는 메서드를 만드는 것입니다.
 
 1. Visual Studio에서 `MainWindow.xaml.cs` 탭을 엽니다.
-2. 다음 코드를 `CorrectSpelling()` 메서드 아래의 프로젝트에 추가하고 저장합니다.  
+1. 다음 코드를 `CorrectSpelling()` 메서드 아래의 프로젝트에 추가하고 저장합니다.  
    ```csharp
    // ***** PERFORM TRANSLATION ON BUTTON CLICK
    private async void TranslateButton_Click(object sender, EventArgs e)
@@ -537,7 +542,7 @@ private string CorrectSpelling(string text)
        {
            request.Method = HttpMethod.Post;
            request.RequestUri = new Uri(uri);
-           request.Content = new StringContent(requestBody, Encoding.UTF8, "app/json");
+           request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
            request.Headers.Add("Ocp-Apim-Subscription-Key", COGNITIVE_SERVICES_KEY);
            request.Headers.Add("Ocp-Apim-Subscription-Region", "westus");
            request.Headers.Add("X-ClientTraceId", Guid.NewGuid().ToString());

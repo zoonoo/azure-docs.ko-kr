@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 원격 이미지 분석 - REST, Java'
+title: '빠른 시작: REST API 및 Java를 사용하여 원격 이미지 분석'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Java와 함께 Computer Vision API를 사용하여 이미지를 분석합니다.
 services: cognitive-services
@@ -10,13 +10,13 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.custom: seodec18
-ms.openlocfilehash: eadf3aca848f1b8ad24cd387e1988cdf8ea55580
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.custom: seodec18, seo-java-august2019
+ms.openlocfilehash: 69d14b3ce84ddd1fbd54ab8a0f6f0c9e24ebac1e
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604436"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946320"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-and-java"></a>빠른 시작: Computer Vision REST API 및 Java를 사용하여 원격 이미지 분석
 

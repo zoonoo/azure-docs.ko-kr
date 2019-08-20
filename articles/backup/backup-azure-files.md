@@ -7,12 +7,12 @@ ms.date: 07/29/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: c2e78f6925ae8ff72e7f603c886376b32e40cd94
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 03b65c71201ba125cb3924a52e8760a088374aa6
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737251"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954729"
 ---
 # <a name="back-up-and-restore-azure-file-shares"></a>Azure 파일 공유 백업 및 복원
 이 문서에서는 Azure Portal을 사용하여 [Azure 파일 공유](../storage/files/storage-files-introduction.md)를 백업 및 복원하는 방법을 설명합니다.
@@ -27,17 +27,17 @@ ms.locfileid: "68737251"
 > * 백업 데이터 삭제
 
 ## <a name="prerequisites"></a>필수 조건
-Azure 파일 공유를 백업하려면 파일 공유가 [지원되는 저장소 계정 유형](backup-azure-files.md#limitations-for-azure-file-share-backup-during-preview) 중 하나에 있는지 확인합니다. 이를 확인한 후에는 파일 공유를 보호할 수 있습니다.
+Azure 파일 공유를 백업하려면 파일 공유가 [지원되는 스토리지 계정 유형](backup-azure-files.md#limitations-for-azure-file-share-backup-during-preview) 중 하나에 있는지 확인합니다. 이를 확인한 후에는 파일 공유를 보호할 수 있습니다.
 
 ## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Azure 파일 공유 백업 미리 보기의 제한 사항
 Azure 파일 공유를 위한 백업은 미리 보기로 제공됩니다. 범용 v1 및 범용 v2 스토리지 계정 둘 다에서 Azure 파일 공유가 지원됩니다. 다음 백업 시나리오에는 Azure 파일 공유가 지원되지 않습니다.
 - ZRS([영역 중복 스토리지](../storage/common/storage-redundancy-zrs.md)) 복제 기능이 있는 스토리지 계정의 Azure 파일 공유 백업에 대한 지원은 현재 [이러한 지역](backup-azure-files-faq.md#in-which-geos-can-i-back-up-azure-file-shares-)으로 제한됩니다.
-- Virtual Networks 또는 방화벽을 사용하도록 설정된 저장소 계정에서 Azure 파일 공유를 보호할 수 없습니다.
+- Virtual Networks 또는 방화벽을 사용하도록 설정된 스토리지 계정에서 Azure 파일 공유를 보호할 수 없습니다.
 - Azure Backup을 사용하여 Azure Files를 보호할 수 있는 CLI가 없습니다.
 - 현재 Azure Backup은 Azure 파일 공유의 예약 백업을 하루에 한 번 구성할 수 있습니다.
 - 일별 최대 예약 백업의 수는 1개입니다.
 - 일별 최대 주문형 백업의 수는 4개입니다.
-- 저장소 계정에서 [리소스 잠금](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest)을 사용하면 Recovery Services 자격 증명 모음에서 Backup이 실수로 삭제되는 것을 방지할 수 있습니다.
+- 스토리지 계정에서 [리소스 잠금](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest)을 사용하면 Recovery Services 자격 증명 모음에서 Backup이 실수로 삭제되는 것을 방지할 수 있습니다.
 - Azure Backup으로 생성된 스냅샷은 삭제하지 마십시오. 스냅샷을 삭제하면 복구 지점이 손실되거나 복원이 실패할 수 있습니다.
 - Azure Backup으로 보호되는 파일 공유는 삭제하지 마세요. 현재 솔루션은 파일 공유가 삭제되면 Azure Backup에서 만든 모든 스냅샷을 삭제하므로 모든 복원 지점이 손실됩니다.
 
@@ -58,11 +58,11 @@ Azure 파일 공유를 위한 백업은 미리 보기로 제공됩니다. 범용
 
    ![Backup을 클릭하여 Azure 파일 공유를 자격 증명 모음과 연결](./media/backup-file-shares/set-backup-goal.png)
 
-    자격 증명 모음이 Azure 파일 공유와 연결되면 Backup 메뉴가 열리고 저장소 계정을 선택하라는 메시지가 표시됩니다. 메뉴에는 개발자의 자격 증명 모음이 있는 지역에서 아직 Recovery Services 자격 증명 모음과 연결되지 않은 모든 지원되는 저장소 계정이 표시됩니다.
+    자격 증명 모음이 Azure 파일 공유와 연결되면 Backup 메뉴가 열리고 스토리지 계정을 선택하라는 메시지가 표시됩니다. 메뉴에는 개발자의 자격 증명 모음이 있는 지역에서 아직 Recovery Services 자격 증명 모음과 연결되지 않은 모든 지원되는 스토리지 계정이 표시됩니다.
 
    ![Backup을 클릭하여 Azure 파일 공유를 자격 증명 모음과 연결](./media/backup-file-shares/list-of-storage-accounts.png)
 
-4. 저장소 계정 목록에서 계정을 선택하고 **확인**을 클릭합니다. Azure는 저장소 계정에서 백업 가능한 파일 공유를 검색합니다. 최근에 파일 공유를 추가했는데 목록에 보이지 않으면 파일 공유가 표시될 때까지 잠시 기다립니다.
+4. 스토리지 계정 목록에서 계정을 선택하고 **확인**을 클릭합니다. Azure는 스토리지 계정에서 백업 가능한 파일 공유를 검색합니다. 최근에 파일 공유를 추가했는데 목록에 보이지 않으면 파일 공유가 표시될 때까지 잠시 기다립니다.
 
    ![Backup을 클릭하여 Azure 파일 공유를 자격 증명 모음과 연결](./media/backup-file-shares/discover-file-shares.png)
 

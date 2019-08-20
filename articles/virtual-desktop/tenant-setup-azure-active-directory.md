@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 3d418d9f18c98e1b6fdf39924ab41dae77fba291
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 062b815315d7bcdd5d55a86c2447a0b21295e8b6
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204745"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69014085"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-preview"></a>자습서: Windows Virtual Desktop 미리 보기에서 테넌트 만들기
 
@@ -42,17 +42,25 @@ Windows Virtual Desktop 서비스에 권한을 부여하면 이 서비스에서 
 
 서비스 권한을 부여하려면:
 
-1. 브라우저를 열고 [Windows Virtual Desktop 동의 페이지](https://rdweb.wvd.microsoft.com)에 연결합니다.
-2. **동의 옵션** > **서버 앱**에서 Azure Active Directory 테넌트 이름 또는 디렉터리 ID를 입력한 후 **제출**을 선택합니다.
-        
-   클라우드 솔루션 공급자 고객의 경우 ID는 고객의 파트너 포털 Microsoft ID입니다. 기업 고객의 경우 ID는 **Azure Active Directory** > **속성** > **디렉터리 ID**에 있습니다.
-3. 글로벌 관리자 계정을 사용하여 Windows Virtual Desktop 동의 페이지에 로그인합니다. 예를 들어 Contoso 조직의 사용자 계정은 admin@contoso.com 또는 admin@contoso.onmicrosoft.com일 수 있습니다.  
-4. **수락**을 선택합니다.
-5. 1분간 대기합니다.
-6. [Windows Virtual Desktop 동의 페이지](https://rdweb.wvd.microsoft.com)로 다시 이동합니다.
-7. **동의 옵션** > **클라이언트 앱**으로 이동하고 동일한 Azure Active Directory 테넌트 이름 또는 디렉터리 ID를 입력한 다음, **제출**을 선택합니다.
-8. 3단계와 마찬가지로 글로벌 관리자로 Windows Virtual Desktop 동의 페이지에 로그인합니다.
-9. **수락**을 선택합니다.
+1. 브라우저를 열고 [Windows Virtual Desktop 서버 앱](https://login.microsoftonline.com/common/adminconsent?client_id=5a0aa725-4958-4b0c-80a9-34562e23f3b7&redirect_uri=https%3A%2F%2Frdweb.wvd.microsoft.com%2FRDWeb%2FConsentCallback)에 대한 관리자 동의 흐름을 시작합니다.
+   > [!NOTE]
+   > 고객을 관리하고 고객의 디렉터리에 대한 관리자 동의를 부여해야 하는 경우 브라우저에 다음 URL을 입력하고 {tenant}를 고객의 Azure AD 도메인 이름으로 바꿉니다. 예를 들어 고객의 조직에서 contoso.onmicrosoft.com의 Azure AD 도메인 이름을 등록한 경우 {tenant}를 contoso.onmicrosoft.com으로 바꿉니다.
+   >```
+   >https://login.microsoftonline.com/{tenant}/adminconsent?client_id=5a0aa725-4958-4b0c-80a9-34562e23f3b7&redirect_uri=https%3A%2F%2Frdweb.wvd.microsoft.com%2FRDWeb%2FConsentCallback
+   >```
+
+2. 글로벌 관리자 계정을 사용하여 Windows Virtual Desktop 동의 페이지에 로그인합니다. 예를 들어 Contoso 조직의 사용자 계정은 admin@contoso.com 또는 admin@contoso.onmicrosoft.com일 수 있습니다.  
+3. **수락**을 선택합니다.
+4. Azure AD가 동의를 기록할 수 있도록 1분 동안 기다립니다.
+5. 브라우저를 열고 [Windows Virtual Desktop 클라이언트 앱](https://login.microsoftonline.com/common/adminconsent?client_id=fa4345a4-a730-4230-84a8-7d9651b86739&redirect_uri=https%3A%2F%2Frdweb.wvd.microsoft.com%2FRDWeb%2FConsentCallback)에 대한 관리자 동의 흐름을 시작합니다.
+   >[!NOTE]
+   > 고객을 관리하고 고객의 디렉터리에 대한 관리자 동의를 부여해야 하는 경우 브라우저에 다음 URL을 입력하고 {tenant}를 고객의 Azure AD 도메인 이름으로 바꿉니다. 예를 들어 고객의 조직에서 contoso.onmicrosoft.com의 Azure AD 도메인 이름을 등록한 경우 {tenant}를 contoso.onmicrosoft.com으로 바꿉니다.
+   >```
+   > https://login.microsoftonline.com/{tenant}/adminconsent?client_id=fa4345a4-a730-4230-84a8-7d9651b86739&redirect_uri=https%3A%2F%2Frdweb.wvd.microsoft.com%2FRDWeb%2FConsentCallback
+   >```
+
+6. 2단계와 마찬가지로 글로벌 관리자로 Windows Virtual Desktop 동의 페이지에 로그인합니다.
+7. **수락**을 선택합니다.
 
 ## <a name="assign-the-tenantcreator-application-role-to-a-user-in-your-azure-active-directory-tenant"></a>Azure Active Directory 테넌트의 사용자에게 TenantCreator 애플리케이션 역할 할당
 

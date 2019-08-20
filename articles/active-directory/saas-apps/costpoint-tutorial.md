@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/28/2019
+ms.date: 08/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f21c7896f0ed2afba3a302b4686289cf331ba510
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 6c1a8b916feb2ad67623434f2b63468be72bf1aa
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67536851"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879580"
 ---
 # <a name="tutorial-integrate-costpoint-with-azure-active-directory"></a>자습서: Costpoint와 Azure Active Directory 통합
 
@@ -38,7 +38,7 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 시작하려면 다음 항목이 필요합니다.
 
 * Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
-* Costpoint SSO(Single Sign-On)가 설정된 구독
+* Costpoint SSO(Single Sign-On)를 사용하도록 설정된 구독
 
 ## <a name="scenario-description"></a>시나리오 설명
 
@@ -78,34 +78,49 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
-4. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
+1. **서비스 공급자 메타데이터 파일**이 있으면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    a. **식별자** 텍스트 상자에서 `https://<CostpointURI>` 패턴을 사용하여 URL을 입력합니다.
+    > [!NOTE]
+    > 서비스 공급자 메타데이터 파일은 자습서의 뒷부분에서 설명하는 **Costpoint 메타데이터 생성** 섹션에서 가져옵니다.
+ 
+    1. **메타데이터 파일 업로드**를 클릭합니다.
+    
+    1. **폴더 로고**를 클릭하여 메타데이터 파일을 선택하고 **업로드**를 클릭합니다.
+    
+    1. 메타데이터 파일이 성공적으로 업로드되면 Costpoint 섹션 텍스트 상자에서 **식별자** 및 **회신 URL** 값이 자동으로 채워집니다.
 
-    b. **회신 URL** 텍스트 상자에서 `https://<CostpointURI>/LoginServlet.cps` 패턴을 사용하여 URL을 입력합니다.
+        > [!Note]
+        > **식별자** 및 **회신 URL** 값이 자동으로 입력되지 않으면 요구 사항에 따라 수동으로 값을 입력합니다. **식별자(엔터티 ID)** 및 **회신 URL(Assertion Consumer Service URL)** 이 올바르게 설정되어 있고 **ACS URL**이 **/LoginServlet.cps**로 끝나는 유효한 Costpoint URL인지 확인합니다.
 
-    다. **추가 URL 설정**을 클릭합니다.
+    1. **추가 URL 설정**을 클릭합니다.
 
-    d. **릴레이 상태** 텍스트 상자에서 다음 패턴을 사용하여 값을 입력합니다. `<SYSTEM VALUE>`
+    1. **릴레이 상태** 텍스트 상자에서 다음 패턴을 사용하여 값을 입력합니다. `system=[your system], (for example, **system=DELTEKCP**)`
+
+1. **SP** 시작 모드로 애플리케이션을 구성하려는 경우 다음 단계를 수행합니다.
+    
+    **로그온 URL** 텍스트 상자에 `https://costpointteea.deltek.com/cpweb/cploginform.htm` URL을 입력합니다.
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 식별자, 회신 URL 및 릴레이 상태로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Costpoint 클라이언트 지원 팀](https://www.deltek.com/about/contact-us)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-5. **SP** 시작 모드로 애플리케이션을 구성하려는 경우 다음 단계를 수행합니다.
-
-    **로그온 URL** 텍스트 상자에 `https://costpointteea.deltek.com/cpweb/cploginform.htm` URL을 입력합니다.
-
-1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 복사 단추를 클릭하여 **앱 페더레이션 메타데이터 URL**을 복사한 후 메모장에 저장합니다.
+1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 복사 아이콘을 클릭하여 **앱 페더레이션 메타데이터 URL**을 복사하고 메모장에 저장합니다.
 
    ![인증서 다운로드 링크](common/copy-metadataurl.png)
 
-1. **Costpoint 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
+### <a name="generate-costpoint-metadata"></a>Costpoint 메타데이터 생성
 
-   ![구성 URL 복사](common/copy-configuration-urls.png)
+Costpoint SAML SSO 구성은 **DeltekCostpoint711Security.pdf** 가이드에 설명되어 있습니다. 여기서 **SAML Single Sign-on Setup -> Configure SAML Single Sign-on between Costpoint and Azure AD**(SAML Single Sign-On 설정 -> Costpoint 및 Azure AD 간 SAML Single Sign-On 구성) 섹션을 참조합니다. 지침에 따라 **Costpoint SP 페더레이션 메타데이터 XML** 파일을 생성합니다. 이 파일은 Azure Portal의 **기본 SAML 구성**에서 사용합니다.
+
+![Costpoint 구성 유틸리티](./media/costpoint-tutorial/config02.png)
+
+> [!NOTE]
+> **DeltekCostpoint711Security.pdf** 가이드는 [Costpoint 클라이언트 지원 팀](https://www.deltek.com/about/contact-us)에서 제공합니다. 없는 경우 이 파일을 얻으려면 이 지원 팀에 문의하세요.
 
 ### <a name="configure-costpoint"></a>Costpoint 구성
 
-**Costpoint** 쪽에서 Single Sign-On을 구성하려면 **앱 페더레이션 메타데이터 URL**을 [Costpoint 지원 팀](https://www.deltek.com/about/contact-us)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+**Costpoint 구성 유틸리티**로 돌아가서 **앱 페더레이션 메타데이터 URL**을 **IdP 페더레이션 메타데이터 XML** 텍스트 상자에 붙여넣고, **DeltekCostpoint711Security.pdf** 가이드의 지침을 계속 수행하여 Costpoint SAML 설정을 완료합니다. 
+
+![Costpoint 구성 유틸리티](./media/costpoint-tutorial/config01.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -121,25 +136,29 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
-이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 B.Simon에게 Costpoint에 대한 액세스 권한을 부여합니다.
+이 섹션에서는 B.Simon이 Azure Single Sign-On을 사용할 수 있도록 B.Simon에게 Costpoint에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택한 다음, **모든 애플리케이션**을 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션** > **모든 애플리케이션**을 차례로 선택합니다.
 1. 애플리케이션 목록에서 **Costpoint**를 선택합니다.
-1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹**을 선택합니다.
+1. 앱의 개요 페이지에 있는 **관리** 섹션에서 **사용자 및 그룹**을 선택합니다.
 
    !["사용자 및 그룹" 링크](common/users-groups-blade.png)
 
-1. **사용자 추가**를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
+1. **사용자 추가**를 선택하고, **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
 
     ![사용자 추가 링크](common/add-assign-user.png)
 
-1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon**을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
-1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에 대한 적절한 역할을 선택한 다음, 화면의 아래쪽에 있는 **선택** 단추를 클릭합니다.
+1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택하고, 화면의 아래쪽에 있는 **선택** 단추를 클릭합니다.
+1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에게 적합한 역할을 선택한 다음, 화면의 아래쪽에 있는 **선택** 단추를 클릭합니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
 ### <a name="create-costpoint-test-user"></a>Costpoint 테스트 사용자 만들기
 
-이 섹션에서는 Costpoint에 B.Simon이라는 사용자를 만듭니다. Costpoint 플랫폼에서 사용자를 추가하려면  [Costpoint 클라이언트 지원 팀](https://www.deltek.com/about/contact-us)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다. 
+이 섹션에서는 Costpoint에서 사용자를 만듭니다. **사용자 ID**가 **B.SIMON**이고 이름이 **B.Simon**이라고 가정합니다. [Costpoint 클라이언트 지원 팀](https://www.deltek.com/about/contact-us)과 협력하여 사용자를 Costpoint 플랫폼에 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+ 
+사용자가 만들어지면 사용자의 **Authentication Method**(인증 방법) 선택 항목이 **Active Directory**이고, **SAML Single Sign-On** 확인란을 선택하며, Azure Active Directory의 사용자 이름은 **Active Directory 또는 인증서 ID**여야 합니다(아래 참조).
+
+![Costpoint 사용자](./media/costpoint-tutorial/user01.png)
 
 ### <a name="test-sso"></a>SSO 테스트
 

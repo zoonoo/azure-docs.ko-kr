@@ -13,18 +13,18 @@ ms.devlang: na
 ms.date: 05/21/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 0d27eef8ee2c70449bacaced0de89bdc5e6989ff
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: b997451a25f8a093491a322376db95ea53165893
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357820"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989151"
 ---
 # <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>자습서: Azure Resource Manager 템플릿에서 조건 사용
 
 조건에 따라 Azure 리소스를 배포하는 방법을 알아봅니다.
 
-[리소스 배포 순서 설정](./resource-manager-tutorial-create-templates-with-dependent-resources.md) 자습서에서는 가상 머신, 가상 네트워크 및 저장소 계정을 포함한 기타 종속 리소스를 만듭니다. 매번 새 저장소 계정을 만드는 대신, 사용자가 새 저장소 계정을 만들지, 기존 저장소 계정을 사용할지 선택하도록 할 수 있습니다. 이 목표를 달성하기 위해 추가 매개 변수를 정의합니다. 매개 변수의 값이 “new”인 경우 새 저장소 계정이 만들어집니다. 그렇지 않을 경우 지정된 이름의 기존 스토리지 계정이 사용됩니다.
+[리소스 배포 순서 설정](./resource-manager-tutorial-create-templates-with-dependent-resources.md) 자습서에서는 가상 머신, 가상 네트워크 및 스토리지 계정을 포함한 기타 종속 리소스를 만듭니다. 매번 새 스토리지 계정을 만드는 대신, 사용자가 새 스토리지 계정을 만들지, 기존 스토리지 계정을 사용할지 선택하도록 할 수 있습니다. 이 목표를 달성하기 위해 추가 매개 변수를 정의합니다. 매개 변수의 값이 “new”인 경우 새 스토리지 계정이 만들어집니다. 그렇지 않을 경우 지정된 이름의 기존 스토리지 계정이 사용됩니다.
 
 ![Resource Manager 템플릿 사용 조건 다이어그램](./media/resource-manager-tutorial-use-conditions/resource-manager-template-use-condition-diagram.png)
 
@@ -85,8 +85,8 @@ Azure 퀵 스타트 템플릿은 Resource Manager 템플릿용 저장소입니�
 
 기존 템플릿에서 두 가지를 변경합니다.
 
-* 저장소 계정 이름 매개 변수를 추가합니다. 사용자는 새 저장소 계정 이름 또는 기존 저장소 계정 이름을 지정할 수 있습니다.
-* **newOrExisting**이라는 새 매개 변수를 추가합니다. 배포에서는 이 매개 변수를 사용하여 새 저장소 계정을 만들 위치를 결정하거나 기존 저장소 계정을 사용합니다.
+* 스토리지 계정 이름 매개 변수를 추가합니다. 사용자는 새 스토리지 계정 이름 또는 기존 스토리지 계정 이름을 지정할 수 있습니다.
+* **newOrExisting**이라는 새 매개 변수를 추가합니다. 배포에서는 이 매개 변수를 사용하여 새 스토리지 계정을 만들지 또는 기존 스토리지 계정을 사용할지 여부를 결정합니다.
 
 변경 절차는 다음과 같습니다.
 
@@ -115,15 +115,15 @@ Azure 퀵 스타트 템플릿은 Resource Manager 템플릿용 저장소입니�
 
     ![Resource Manager 사용 조건](./media/resource-manager-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-parameters.png)
 
-5. 저장소 계정 정의의 시작 부분에 다음 줄을 추가합니다.
+5. 스토리지 계정 정의의 시작 부분에 다음 줄을 추가합니다.
 
     ```json
     "condition": "[equals(parameters('newOrExisting'),'new')]",
     ```
 
-    조건은 **newOrExisting**이라는 매개 변수의 값을 확인합니다. 매개 변수 값이 **new**이면 배포에서 저장소 계정을 만듭니다.
+    조건은 **newOrExisting**이라는 매개 변수의 값을 확인합니다. 매개 변수 값이 **new**이면 배포에서 스토리지 계정을 만듭니다.
 
-    업데이트된 저장소 계정 정의는 다음과 같습니다.
+    업데이트된 스토리지 계정 정의는 다음과 같습니다.
 
     ![Resource Manager 사용 조건](./media/resource-manager-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
 6. 가상 머신 리소스 정의의 **storageUri** 속성을 다음 값으로 업데이트합니다.
@@ -132,13 +132,13 @@ Azure 퀵 스타트 템플릿은 Resource Manager 템플릿용 저장소입니�
     "storageUri": "[concat('https://', parameters('storageAccountName'), '.blob.core.windows.net')]"
     ```
 
-    다른 리소스 그룹에서 기존 저장소 계정을 사용하는 경우 이 변경은 필요합니다.
+    다른 리소스 그룹에서 기존 스토리지 계정을 사용하는 경우 이 변경은 필요합니다.
 
 7. 변경 내용을 저장합니다.
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 
-[템플릿 배포](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template)의 지침을 따라 Cloud Shell을 열고 수정된 템플릿을 업로드한 후 다음 PowerShell 스크립트를 실행하여 템플릿을 배포합니다.
+[템플릿 배포](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template)의 지침에 따라 Cloud Shell을 열고 수정된 템플릿을 업로드한 후, 다음 PowerShell 스크립트를 실행하여 템플릿을 배포합니다.
 
 ```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
@@ -161,9 +161,9 @@ New-AzResourceGroupDeployment `
 ```
 
 > [!NOTE]
-> **newOrExisting**이 **new**이지만 지정된 저장소 계정 이름의 저장소 계정이 이미 있는 경우 배포가 실패합니다.
+> **newOrExisting**이 **new**이지만 지정된 스토리지 계정 이름의 스토리지 계정이 이미 있는 경우 배포가 실패합니다.
 
-**newOrExisting**이 “existing”으로 설정된 다른 배포를 시도하고 기존 저장 계정을 지정해 보세요. 저장소 계정을 미리 들려면 [저장소 계정 만들기](../storage/common/storage-quickstart-create-account.md)를 참조하세요.
+**newOrExisting**이 "existing"으로 설정된 다른 배포를 시도하고 기존 스토리지 계정을 지정해 보세요. 스토리지 계정을 미리 들려면 [스토리지 계정 만들기](../storage/common/storage-quickstart-create-account.md)를 참조하세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -176,7 +176,7 @@ Remove-AzResourceGroup -Name $resourceGroupName
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 새로운 저장소 계정을 만들지, 기존 저장소 계정을 사용할지 사용자가 선택할 수 있는 템플릿을 개발했습니다. Azure Key Vault에서 비밀을 검색하고 해당 비밀을 템플릿 배포에 암호로 사용하는 방법을 알아보려면 다음을 참조하세요.
+이 자습서에서는 새로운 스토리지 계정을 만들지, 기존 스토리지 계정을 사용할지 사용자가 선택할 수 있는 템플릿을 개발했습니다. Azure Key Vault에서 비밀을 검색하고 해당 비밀을 템플릿 배포에 암호로 사용하는 방법을 알아보려면 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
 > [템플릿 배포에서 Key Vault 통합](./resource-manager-tutorial-use-key-vault.md)

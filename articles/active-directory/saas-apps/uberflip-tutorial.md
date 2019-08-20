@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: fb55840a3423f32d2d6d6d2531628ae4361a0cc3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8760606c981f494b38d4eb8ac1b2cd50ceb8582c
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67088202"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68852101"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>자습서: Uberflip과 Azure Active Directory 통합
 
@@ -122,7 +122,7 @@ Uberflip에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
    ![페더레이션 메타데이터 XML 다운로드 옵션](common/metadataxml.png)
 
-1. **Uberflip 설정** 창에서 필요한 URL 또는 URLS를 복사합니다.
+1. **Uberflip 설정** 창에서 필요한 URL을 복사합니다.
 
    * **로그인 URL**
    * **Azure AD 식별자**

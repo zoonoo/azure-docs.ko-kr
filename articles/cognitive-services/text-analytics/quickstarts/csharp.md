@@ -1,141 +1,192 @@
 ---
-title: '빠른 시작: .NET 및 C#용 Azure SDK를 사용하여 Text Analytics 서비스 호출'
+title: '빠른 시작: .NET용 Text Analytics 클라이언트 라이브러리 | Microsoft Docs'
 titleSuffix: Azure Cognitive Services
-description: Text Analytics 서비스 및 C#을 사용하여 시작하는 데 도움이 되는 정보 및 코드 샘플
+description: 이 빠른 시작을 통해 Azure Cognitive Services에서 Text Analytics API를 사용하는 방법을 알아봅니다.
 services: cognitive-services
 author: raymondl
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 07/30/2019
+ms.date: 08/05/2019
 ms.author: assafi
-ms.openlocfilehash: d12f6b400b270c6ef631d9f503980efef1ae8458
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: deb8c742161d59c8926c1ec139978d15b891bd4a
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840388"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019484"
 ---
-# <a name="quickstart-use-the-net-sdk-and-c-to-call-the-text-analytics-service"></a>빠른 시작: .NET SDK 및 C#을 사용하여 Text Analytics 서비스 호출
+# <a name="quickstart-text-analytics-client-library-for-net"></a>빠른 시작: .NET용 Text Analytics 클라이언트 라이브러리
 <a name="HOLTop"></a>
 
-이 빠른 시작을 사용하면 .NET 및 C#용 Azure SDK를 사용하여 시작하는 데 도움이 됩니다. [Text Analytics](//go.microsoft.com/fwlink/?LinkID=759711) REST API는 대부분의 프로그래밍 언어와 호환되지만, SDK를 사용하면 서비스를 애플리케이션에 쉽게 통합할 수 있습니다.
+.NET용 Text Analytics 클라이언트 라이브러리를 시작합니다. 이러한 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다. 
 
-> [!NOTE]
-> 이 문서의 데모 코드는 간단히 하기 위해 Text Analytics .NET SDK의 동기 메서드를 사용합니다. 하지만 프로덕션 시나리오에서는 자체 애플리케이션에서 일괄 처리된 비동기 메서드를 사용하여 확장성과 응답성을 유지하는 것이 좋습니다. 예를 들어 `Sentiment` 대신 `SentimentBatchAsync`를 사용할 수 있습니다.
->
-> 이 예제의 일괄 처리된 비동기 버전은 [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/samples/TextAnalytics)에서 찾을 수 있습니다.
+.NET용 Text Analytics 클라이언트 라이브러리를 사용하여 수행하는 작업은 다음과 같습니다.
 
-기술 세부 정보는 .NET용 SDK [Text Analytics](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet)를 참조하세요.
+* 정서 분석
+* 언어 검색
+* 엔터티 인식
+* 핵심 문구 추출
+
+[참조 설명서](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet-preview) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Language.TextAnalytics) | [패키지(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics/) | [샘플](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples)
+
+> [!NOTE] 
+> 이 문서의 데모 코드는 간단히 하기 위해 Text Analytics .NET SDK의 동기 메서드를 사용합니다. 하지만 프로덕션 시나리오에서는 자체 애플리케이션에서 일괄 처리된 비동기 메서드를 사용하여 확장성과 응답성을 유지하는 것이 좋습니다. 예를 들어 [Sentiment()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentiment?view=azure-dotnet) 대신 [SentimentBatchAsync()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentimentbatchasync?view=azure-dotnet&viewFallbackFrom=azure-dotnet-preview)를 호출합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-* Visual Studio 2017 이상의 모든 버전
-* Text Analytics [.NET용 SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
+* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
+* 최신 버전의 [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core)
 
-[!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
+## <a name="setting-up"></a>설치
 
-## <a name="create-the-visual-studio-solution-and-install-the-sdk"></a>Visual Studio 솔루션 만들기 및 SDK 설치
+### <a name="create-a-text-analytics-azure-resource"></a>Text Analytics Azure 리소스 만들기
 
-1. 새로운 콘솔 앱(.NET Core) 프로젝트를 만듭니다. [Visual Studio에 액세스](https://visualstudio.microsoft.com/vs/)합니다.
-1. 솔루션을 마우스 오른쪽 단추로 클릭하고 **솔루션에 대한 NuGet 패키지 관리**를 선택합니다.
-1. **찾아보기** 탭을 선택합니다. **Microsoft.Azure.CognitiveServices.Language.TextAnalytics**를 검색합니다.
+Azure Cognitive Services로 애플리케이션을 인증하는 키 받기는 구독하는 Azure 리소스로 표시됩니다. 로컬 머신에서 [Azure Portal](../../cognitive-services-apis-create-account.md) 또는 [Azure CLI](../../cognitive-services-apis-create-account-cli.md)를 사용하여 Text Analytics용 리소스를 만듭니다. 또한 다음을 수행할 수 있습니다.
 
-## <a name="authenticate-your-credentials"></a>자격 증명 인증
+* 7일 동안 유효한 [평가판 키](https://azure.microsoft.com/try/cognitive-services/#decision)를 가져옵니다. 키를 등록 후 [Azure 웹 사이트](https://azure.microsoft.com/try/cognitive-services/my-apis/)에서 사용할 수 있습니다.  
+* [Azure Portal](https://portal.azure.com/)에서 리소스를 확인합니다.
 
-1. 다음과 같은 `using` 문을 기본 클래스 파일(기본적으로 Program.cs)에 추가합니다.
+평가판 구독 또는 리소스에서 키를 가져오면 `TEXT_ANALYTICS_SUBSCRIPTION_KEY`라는 키에 대한 [환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication).
 
-    ```csharp
-    using System;
-    using System.Collections.Generic;
-    using System.Net.Http;
-    using System.Threading;
-    using System.Threading.Tasks;
-    using Microsoft.Azure.CognitiveServices.Language.TextAnalytics;
-    using Microsoft.Azure.CognitiveServices.Language.TextAnalytics.Models;
-    using Microsoft.Rest;
-    ```
+### <a name="create-a-new-c-application"></a>새 C# 애플리케이션 만들기
 
-2. 새 `ApiKeyServiceClientCredentials` 클래스를 만들어 자격 증명을 저장하고 각 요청에 대해 추가합니다.
+선호하는 편집기 또는 IDE에서 .NET Core 애플리케이션을 새로 만듭니다. 
 
-    ```csharp
-    class ApiKeyServiceClientCredentials : ServiceClientCredentials
-    {
-        private readonly string apiKey;
+콘솔 창(예: cmd, PowerShell 또는 Bash)에서 `dotnet new` 명령을 사용하여 `text-analytics quickstart`라는 새 콘솔 앱을 만듭니다. 이 명령은 *program.cs*라는 단일 소스 파일을 사용하여 간단한 "Hello World" C# 프로젝트를 만듭니다. 
 
-        public ApiKeyServiceClientCredentials(string apiKey)
-        {
-            this.apiKey = apiKey;
-        }
-
-        public override Task ProcessHttpRequestAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-        {
-            if (request == null)
-            {
-                throw new ArgumentNullException("request");
-            }
-            request.Headers.Add("Ocp-Apim-Subscription-Key", this.apiKey);
-            return base.ProcessHttpRequestAsync(request, cancellationToken);
-        }
-    }
-    ```
-
-3. `Program` 클래스를 업데이트합니다. Text Analytics API 키에 대한 상수 멤버 및 서비스 엔드포인트에 대한 또 다른 멤버를 추가합니다. Text Analytics 리소스에 대한 올바른 Azure 위치를 사용해야 합니다.
-
-    ```csharp
-    // Enter your Text Analytics (TA) API Key (available in Azure Portal -> your TA resource -> Keys)
-    private const string ApiKey = "enter-your-textanalytics-api-key-here";
-    // You can get the resource location from Azure Portal -> your TA resource -> Overview
-    // There are two acceptable formats for the endpoint, both
-    // require that you omit the `/text/analytics/<version>` suffix:
-    // 1. A location based endpoint URL -
-    //     "https://<your-location>.api.cognitive.microsoft.com";
-    // 2. A resource name based endpoint URL -
-    //     "https://<your-resource-name>.cognitiveservices.azure.com";
-    private const string Endpoint = "enter-your-base-resource-endpoint-here";
-    ```
-
-> [!Tip]
-> 프로덕션 시스템에서 비밀의 보안을 강화하기 위해 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-net)를 사용하는 것이 좋습니다.
->
-
-## <a name="create-a-text-analytics-client"></a>Text Analytics 클라이언트 만들기
-
-프로젝트의 `Main` 함수에서 호출하려는 샘플 메서드를 호출합니다. 정의한 `Endpoint` 및 `ApiKey` 매개 변수를 전달합니다.
-
-```csharp
-    public static void Main(string[] args)
-    {
-        var credentials = new ApiKeyServiceClientCredentials(ApiKey);
-        var client = new TextAnalyticsClient(credentials)
-        {
-            Endpoint = Endpoint
-        };
-
-        // Change the console encoding to display non-ASCII characters.
-        Console.OutputEncoding = System.Text.Encoding.UTF8;
-        SentimentAnalysisExample(client);
-        // DetectLanguageExample(client);
-        // RecognizeEntitiesExample(client);
-        // KeyPhraseExtractionExample(client);
-        Console.ReadLine();
-    }
+```console
+dotnet new console -n text-analytics-quickstart
 ```
 
-다음 섹션에서는 각 서비스 기능을 호출하는 방법을 설명합니다.
+새로 만든 앱 폴더로 디렉터리를 변경합니다. 다음을 통해 애플리케이션을 빌드할 수 있습니다.
 
-## <a name="perform-sentiment-analysis"></a>감정 분석 수행
+```console
+dotnet build
+```
 
-1. 이전에 만든 클라이언트를 사용하는 새 함수 `SentimentAnalysisExample()`을 만듭니다.
-2. 동일한 함수에서 `client.Sentiment()`를 호출하고 결과를 확인합니다. 결과에는 성공하면 `Score` 감정이 포함되고, 그렇지 않으면 `errorMessage`가 포함됩니다. 점수가 0에 가까울수록 부정적인 감정을 나타내고, 1에 가까울수록 긍정적인 감정을 나타냅니다.
+빌드 출력에 경고나 오류가 포함되지 않아야 합니다. 
 
-    ```csharp
+```console
+...
+Build succeeded.
+ 0 Warning(s)
+ 0 Error(s)
+...
+```
+
+선호하는 편집기 또는 IDE에서 프로젝트 디렉터리의 *program.cs* 파일을 엽니다. 다음 `using` 지시문을 추가합니다.
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading;
+using System.Threading.Tasks;
+using Microsoft.Azure.CognitiveServices.Language.TextAnalytics;
+using Microsoft.Azure.CognitiveServices.Language.TextAnalytics.Models;
+using Microsoft.Rest;
+```
+
+애플리케이션의 `Main` 메서드에서, 리소스의 Azure 엔드포인트 및 키에 대한 변수를 만듭니다. 애플리케이션을 시작한 후에 환경 변수를 만든 경우 이를 실행 중인 편집기, IDE 또는 셸을 닫고 다시 열어 해당 변수에 액세스해야 합니다. 메서드는 나중에 정의합니다.
+
+[!INCLUDE [text-analytics-find-resource-information](../includes/find-azure-resource-info.md)]
+
+```csharp
+static void Main(string[] args)
+{
+    // replace this endpoint with the correct one for your Azure resource. 
+    string endpoint = $"https://westus.api.cognitive.microsoft.com";
+    //This sample assumes you have created an environment variable for your key
+    string key = Environment.GetEnvironmentVariable("TEXT_ANALYTICS_SUBSCRIPTION_KEY");
+
+    var credentials = new ApiKeyServiceClientCredentials(key);
+    TextAnalyticsClient client = new TextAnalyticsClient(credentials)
+    {
+        Endpoint = endpoint
+    };
+
+    Console.OutputEncoding = System.Text.Encoding.UTF8;
+    SentimentAnalysisExample(client);
+    // languageDetectionExample(client);
+    // RecognizeEntitiesExample(client);
+    // KeyPhraseExtractionExample(client);
+    Console.ReadLine();
+}
+```
+
+### <a name="install-the-client-library"></a>클라이언트 라이브러리 설치
+
+애플리케이션 디렉터리 내에서 다음 명령을 사용하여 .NET용 Text Analytics 클라이언트 라이브러리를 설치합니다.
+
+```console
+dotnet add package Microsoft.Azure.CognitiveServices.Language.TextAnalytics --version 4.0.0
+```
+
+Visual Studio IDE를 사용하는 경우 클라이언트 라이브러리는 다운로드 가능한 NuGet 패키지로 제공됩니다.
+
+## <a name="object-model"></a>개체 모델
+
+Text Analytics 클라이언트는 키를 사용하여 Azure에 인증하고 텍스트를 단일 문자열 또는 일괄 처리로 허용하는 함수를 제공하는 [TextAnalyticsClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-dotnet) 개체입니다. 텍스트는 API에 동기식 또는 비동기식으로 보낼 수 있습니다. 응답 개체에는 보내는 각 문서에 대한 분석 정보가 포함됩니다. 
+
+
+## <a name="code-examples"></a>코드 예제
+
+* [클라이언트 인증](#authenticate-the-client)
+* [감정 분석](#sentiment-analysis)
+* [언어 감지](#language-detection)
+* [엔터티 인식](#entity-recognition)
+* [핵심 구 추출](#key-phrase-extraction)
+
+## <a name="authenticate-the-client"></a>클라이언트 인증
+
+자격 증명을 저장하여 클라이언트의 요청에 추가하는 새 `ApiKeyServiceClientCredentials` 클래스를 만듭니다. 이 안에 `Ocp-Apim-Subscription-Key` 헤더에 키를 추가하는 `ProcessHttpRequestAsync()`에 대한 재정의를 만듭니다.
+
+```csharp
+class ApiKeyServiceClientCredentials : ServiceClientCredentials
+{
+    private readonly string apiKey;
+
+    public ApiKeyServiceClientCredentials(string apiKey)
+    {
+        this.apiKey = apiKey;
+    }
+
+    public override Task ProcessHttpRequestAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+    {
+        if (request == null)
+        {
+            throw new ArgumentNullException("request");
+        }
+        request.Headers.Add("Ocp-Apim-Subscription-Key", this.apiKey);
+        return base.ProcessHttpRequestAsync(request, cancellationToken);
+    }
+}
+```
+
+`main()` 메서드에서 키와 엔드포인트로 클라이언트를 인스턴스화합니다.
+
+```csharp
+var credentials = new ApiKeyServiceClientCredentials(key);
+TextAnalyticsClient client = new TextAnalyticsClient(credentials)
+{
+    Endpoint = endpoint
+};
+```
+
+## <a name="sentiment-analysis"></a>정서 분석
+
+앞에서 만든 클라이언트를 사용하고 해당 [Sentiment()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentiment?view=azure-dotnet) 함수를 호출하는 `SentimentAnalysisExample()`이라는 새 함수를 만듭니다. 반환된 [SentimentResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.sentimentresult?view=azure-dotnet) 개체에는 성공하면 감정 `Score`가 포함되고 그렇지 않으면 `errorMessage`가 포함됩니다. 
+
+점수가 0에 가까울수록 부정적인 감정을 나타내고, 1에 가까울수록 긍정적인 감정을 나타냅니다.
+
+```csharp
+static void SentimentAnalysisExample(TextAnalyticsClient client){
     var result = client.Sentiment("I had the best day of my life.", "en");
-
-    // Printing sentiment results
     Console.WriteLine($"Sentiment Score: {result.Score:0.00}");
-    ```
+}
+```
 
 ### <a name="output"></a>출력
 
@@ -143,20 +194,22 @@ ms.locfileid: "68840388"
 Sentiment Score: 0.87
 ```
 
-## <a name="perform-language-detection"></a>언어 검색 수행
+## <a name="language-detection"></a>언어 검색
 
-1. 이전에 만든 클라이언트를 사용하는 새 함수 `DetectLanguageExample()`을 만듭니다.
-2. 동일한 함수에서 `client.DetectLanguage()`를 호출하고 결과를 확인합니다. 결과에는 성공하면 `DetectedLanguages`에서 검색된 언어 목록이 포함되고, 그렇지 않으면 `errorMessage`가 포함됩니다. 그런 다음, 반환된 첫 번째 언어를 출력합니다.
-
-    ```csharp
-    var result = client.DetectLanguage("This is a document written in English.");
-
-    // Printing detected languages
-    Console.WriteLine($"Language: {result.DetectedLanguages[0].Name}");
-    ```
+앞에서 만든 클라이언트를 사용하고 해당 [DetectLanguage()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.detectlanguage?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Language_TextAnalytics_TextAnalyticsClientExtensions_DetectLanguage_Microsoft_Azure_CognitiveServices_Language_TextAnalytics_ITextAnalyticsClient_System_String_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_) 함수를 호출하는 `languageDetectionExample()`이라는 새 함수를 만듭니다. 반환된 [LanguageResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.languageresult?view=azure-dotnet) 개체에는 성공하면 `DetectedLanguages`에서 검색된 언어 목록이 포함되고 그렇지 않으면 `errorMessage`가 포함됩니다.  처음 반환된 언어를 출력합니다.
 
 > [!Tip]
 > 일부 경우에는 입력에 따라 언어를 명확하게 구분하는 것이 어려울 수 있습니다. 2자로 된 국가 코드는 `countryHint` 매개 변수를 사용하여 지정할 수 있습니다. 기본적으로 API는 "US"를 기본 countryHint로 사용합니다. 이 동작을 제거하려면 이 값을 빈 문자열의 `countryHint = ""`로 설정하여 이 매개 변수를 다시 설정하면 됩니다.
+
+```csharp
+static void languageDetectionExample(TextAnalyticsClient client){
+    var result = client.DetectLanguage("This is a document written in English.");
+    Console.WriteLine($"Language: {result.DetectedLanguages[0].Name}");
+}
+```
+<!--
+[!code-csharp[Language Detection example](~/cognitive-services-dotnet-sdk-samples/samples/language/Program.cs?name=language-detection)]
+-->
 
 ### <a name="output"></a>출력
 
@@ -164,25 +217,26 @@ Sentiment Score: 0.87
 Language: English
 ```
 
-## <a name="perform-entity-recognition"></a>엔터티 인식 수행
+## <a name="entity-recognition"></a>엔터티 인식
 
-1. 이전에 만든 클라이언트를 사용하는 새 함수 `RecognizeEntitiesExample()`을 만듭니다.
-2. 동일한 함수에서 `client.Entities()`를 호출하고 결과를 확인합니다. 그런 다음, 결과를 반복합니다. 결과에는 성공하면 `Entities`에서 검색된 엔터티 목록이 포함되고, 그렇지 않으면 `errorMessage`가 포함됩니다. 검색된 각 엔터티에 대해 해당 Type(형식), Sub-Type(하위 형식), Wikipedia 이름(있는 경우) 외에도 원본 텍스트의 위치를 출력합니다.
+앞에서 만든 클라이언트를 사용하고 해당 [Entities()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.entities?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Language_TextAnalytics_TextAnalyticsClientExtensions_Entities_Microsoft_Azure_CognitiveServices_Language_TextAnalytics_ITextAnalyticsClient_System_String_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_) 함수를 호출하는 `RecognizeEntitiesExample()`이라는 새 함수를 만듭니다. 결과를 반복합니다. 반환된 [EntitiesResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.entitiesresult?view=azure-dotnet) 개체에는 성공하면 `Entities`에서 검색된 엔티티 목록이 포함되고 그렇지 않으면 `errorMessage`가 포함됩니다. 검색된 각 엔터티에 대해 해당 Type(형식), Sub-Type(하위 형식), Wikipedia 이름(있는 경우) 외에도 원본 텍스트의 위치를 출력합니다.
 
-    ```csharp
+```csharp
+static void entityRecognitionExample(TextAnalyticsClient client){
+
     var result = client.Entities("Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800.");
-
-    // Printing recognized entities
     Console.WriteLine("Entities:");
-    foreach (var entity in result.Entities)
-    {
+    foreach (var entity in result.Entities){
         Console.WriteLine($"\tName: {entity.Name},\tType: {entity.Type ?? "N/A"},\tSub-Type: {entity.SubType ?? "N/A"}");
-        foreach (var match in entity.Matches)
-        {
+        foreach (var match in entity.Matches){
             Console.WriteLine($"\t\tOffset: {match.Offset},\tLength: {match.Length},\tScore: {match.EntityTypeScore:F3}");
         }
     }
-    ```
+}
+```
+<!--
+[!code-csharp[Entity Recognition example](~/cognitive-services-dotnet-sdk-samples/samples/language/Program.cs?name=language-detection)]
+-->
 
 ### <a name="output"></a>출력
 
@@ -204,22 +258,21 @@ Entities:
         Offset: 116,    Length: 11,     Score: 0.800
 ```
 
-## <a name="perform-key-phrase-extraction"></a>핵심 구 추출 수행
+## <a name="key-phrase-extraction"></a>핵심 문구 추출
 
-1. 이전에 만든 클라이언트를 사용하는 새 함수 `KeyPhraseExtractionExample()`을 만듭니다.
-2. 동일한 함수에서 `client.KeyPhrases()`를 호출하고 결과를 확인합니다. 결과에는 성공하면 `KeyPhrases`에서 검색된 핵심 구 목록이 포함되고, 그렇지 않으면 `errorMessage`가 포함됩니다. 그런 다음, 검색된 핵심 구를 출력합니다.
+앞에서 만든 클라이언트를 사용하고 해당 [KeyPhrases()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.keyphrases?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Language_TextAnalytics_TextAnalyticsClientExtensions_KeyPhrases_Microsoft_Azure_CognitiveServices_Language_TextAnalytics_ITextAnalyticsClient_System_String_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_) 함수를 호출하는 `KeyPhraseExtractionExample()`이라는 새 함수를 만듭니다. 결과에는 성공하면 `KeyPhrases`에서 검색된 핵심 구 목록이 포함되고, 그렇지 않으면 `errorMessage`가 포함됩니다. 검색된 핵심 구를 출력합니다.
 
-    ```csharp
-    var result = client.KeyPhrases("My cat might need to see a veterinarian.");
+```csharp
+var result = client.KeyPhrases("My cat might need to see a veterinarian.");
 
-    // Printing key phrases
-    Console.WriteLine("Key phrases:");
+// Printing key phrases
+Console.WriteLine("Key phrases:");
 
-    foreach (string keyphrase in result.KeyPhrases)
-    {
-        Console.WriteLine($"\t{keyphrase}");
-    }
-    ```
+foreach (string keyphrase in result.KeyPhrases)
+{
+    Console.WriteLine($"\t{keyphrase}");
+}
+```
 
 ### <a name="output"></a>출력
 
@@ -229,6 +282,13 @@ Key phrases:
     veterinarian
 ```
 
+## <a name="clean-up-resources"></a>리소스 정리
+
+Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스 그룹을 삭제하면 됩니다. 리소스 그룹을 삭제하면 해당 리소스 그룹에 연결된 다른 모든 리소스가 함께 삭제됩니다.
+
+* [포털](../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
@@ -236,4 +296,7 @@ Key phrases:
 
 
 * [Text Analytics 개요](../overview.md)
-* [FAQ(질문과 대답)](../text-analytics-resource-faq.md)
+* [감정 분석](../how-tos/text-analytics-how-to-sentiment-analysis.md)
+* [엔터티 인식](../how-tos/text-analytics-how-to-entity-linking.md)
+* [언어 감지](../how-tos/text-analytics-how-to-keyword-extraction.md)
+* [언어 인식](../how-tos/text-analytics-how-to-language-detection.md)

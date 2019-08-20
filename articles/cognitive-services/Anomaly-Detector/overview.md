@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: overview
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 80e0984deff83726fd96a462a1ae8a4375db9d2e
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 70cb4a008391ad55562bc55fb45d877988e68643
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721613"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854783"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>Anomaly Detector API란?
 
@@ -38,15 +38,22 @@ Anomaly Detector를 사용하면 시계열 데이터 전체에서 또는 실시�
 
 ## <a name="demo"></a>데모
 
-Anomaly Detector API 사용을 신속하게 시작하려면 브라우저에서 실행할 수 있는 [온라인 데모](https://notebooks.azure.com/AzureAnomalyDetection/projects/anomalydetector)를 사용해보세요. 이 데모는 웹 호스팅 Jupyter Notebook에서 실행되며 API 요청을 보내고 결과를 시각화하는 방법을 보여줍니다.
+이 [대화형 데모](https://aka.ms/adDemo)를 확인하여 Anomaly Detector가 작동하는 방식을 이해합니다.
+데모를 실행하려면 Anomaly Detector 리소스를 만들고 API 키와 엔드포인트를 가져와야 합니다.
 
-데모를 실행하려면 다음 단계를 완료하세요.
+## <a name="notebook"></a>노트북
 
-1. 유효한 Anomaly Detector API 구독 키와 API 엔드포인트를 가져옵니다. 아래 섹션에는 가입에 대한 지침이 나와 있습니다. 
-2. 로그인하고 오른쪽 위 모서리의 복제를 클릭합니다.
-3. **Run on free compute**(무료 컴퓨팅에서 실행)을 클릭합니다.
-4. 이 샘플의 Notebook 중 하나를 선택합니다.
-5. 유효한 Anomaly Detector API 구독 키를 `subscription_key` 변수에 추가합니다. `endpoint` 변수를 엔드포인트로 변경합니다. 예: `https://westus2.api.cognitive.microsoft.com`
+Anomaly Detector API를 호출하는 방법을 알아보려면 이 [Azure Notebook](https://aka.ms/adNotebook)을 사용해 보세요. 이 웹 호스팅 Jupyter Notebook은 API 요청을 보내고 결과를 시각화하는 방법을 보여 줍니다.
+
+Notebook을 실행하려면 다음 단계를 완료하세요.
+
+1. 유효한 Anomaly Detector API 구독 키와 API 엔드포인트를 가져옵니다. 아래 섹션에는 가입에 대한 지침이 나와 있습니다.
+1. 로그인하고 오른쪽 위 모서리의 복제를 클릭합니다.
+1. 복제 작업을 완료하기 전에 대화 상자에서 "공용" 옵션의 선택을 취소합니다. 그렇지 않으면 구독 키를 포함하여 노트북이 공개됩니다.
+1. **Run on free compute**(무료 컴퓨팅에서 실행)을 클릭합니다.
+1. Notebook 중 하나를 선택합니다.
+1. 유효한 Anomaly Detector API 구독 키를 `subscription_key` 변수에 추가합니다. 
+1. `endpoint` 변수를 엔드포인트로 변경합니다. 예: `https://westus2.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/last/detect`
 1. 상단 메뉴 모음에서 **셀**과 **모두 실행**을 차례로 클릭합니다.
 
 ## <a name="workflow"></a>워크플로
@@ -62,6 +69,13 @@ Anomaly Detector API는 RESTful 웹 서비스이며, HTTP 요청을 수행하고
 1. 시계열 데이터를 가져와서 유효한 JSON 형식으로 변환합니다. 데이터 준비 시 [모범 사례](concepts/anomaly-detection-best-practices.md)를 사용하면 최상의 결과를 얻을 수 있습니다.
 1. 자신의 데이터로 Anomaly Detector API에 요청을 보냅니다.
 1. 반환된 JSON 메시지를 구문 분석하여 API 응답을 처리합니다.
+
+## <a name="algorithms"></a>알고리즘
+
+* 내부의 알고리즘에 대한 이 기술 블로그 [Azure Anomaly Detector API 소개](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162)를 참조하세요.
+* Microsoft에서 개발한 최첨단 SR-CNN 알고리즘에 대한 이 문서 [Microsoft의 시계열 Anomaly Detection 서비스](https://arxiv.org/abs/1906.03821)(KDD 2019에서 수락)를 참조하세요.
+
+> [!VIDEO https://www.youtube.com/embed/ERTaAnwCarM]
 
 ## <a name="next-steps"></a>다음 단계
 

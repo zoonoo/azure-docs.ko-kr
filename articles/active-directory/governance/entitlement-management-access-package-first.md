@@ -16,12 +16,12 @@ ms.date: 07/23/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1688651466ba6748e1254c9d33bb24435602868b
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 76ba284ec1a30322a24c762a1829b399f2583c6c
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489160"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69032923"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management-preview"></a>자습서: Azure AD 권한 관리(미리 보기)에서 첫 번째 액세스 패키지 만들기
 
@@ -44,7 +44,9 @@ ms.locfileid: "68489160"
 > * 내부 사용자가 액세스 패키지를 요청하는 방법 보여주기
 > * 액세스 요청 승인
 
-Azure AD Premium P2 또는 Enterprise Mobility + Security E5 라이선스가 없으면, 무료 [Enterprise Mobility + Security E5 평가판](https://signup.microsoft.com/Signup?OfferId=87dd2714-d452-48a0-a809-d2f58c4f68b7&ali=1)을 만드세요.
+첫 번째 액세스 패키지 만들기를 포함하여 Azure Active Directory 자격 관리를 배포하는 프로세스에 대한 단계별 데모는 다음 비디오를 참조하세요.
+
+>[!VIDEO https://www.youtube.com/embed/zaaKvaaYwI4]
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -52,6 +54,8 @@ Azure AD 권한 관리(미리 보기)를 사용하려면 다음 라이선스 중
 
 - Azure AD Premium P2
 - EMS(Enterprise Mobility + Security) E5 라이선스
+
+Azure AD Premium P2 또는 Enterprise Mobility + Security E5 라이선스가 없으면, 무료 [Enterprise Mobility + Security E5 평가판](https://signup.microsoft.com/Signup?OfferId=87dd2714-d452-48a0-a809-d2f58c4f68b7&ali=1)을 만드세요.
 
 ## <a name="step-1-set-up-users-and-group"></a>1단계: 사용자 및 그룹 설정
 

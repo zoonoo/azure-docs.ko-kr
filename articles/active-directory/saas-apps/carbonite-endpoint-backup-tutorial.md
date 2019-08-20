@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/30/2019
+ms.date: 08/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf5bf49538823ea50bca197a78ec54d4ddcae1ff
-ms.sourcegitcommit: 6ad03fa28a0f60cb6dce6144f728c2ceb56ff6e2
+ms.openlocfilehash: e078cb7daa787b9fe5e8bc996b36f0fef198f41c
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68708446"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879690"
 ---
 # <a name="tutorial-integrate-carbonite-endpoint-backup-with-azure-active-directory"></a>자습서: Azure Active Directory와 Carbonite Endpoint Backup 연결
 
@@ -103,7 +103,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     | `https://red-emea.mysecuredatavault.com/AssertionConsumerService.aspx`|
     | | |
 
-1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
+1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
     **로그온 URL** 텍스트 상자에서 다음 URL 중 하나를 입력합니다.
 
@@ -125,27 +125,35 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ### <a name="configure-carbonite-endpoint-backup-sso"></a>Carbonite Endpoint Backup SSO 구성
 
-1. 다른 웹 브라우저 창에서 Carbonite Endpoint Backup 회사 사이트에 관리자 권한으로 로그인합니다.
+1. Carbonite Endpoint Backup 내에서 구성을 자동화하려면 **확장 설치**를 클릭하여 **내 앱 보안 로그인 브라우저 확장**을 설치해야 합니다.
 
-1. 왼쪽 창에서 **Company**(회사)를 클릭합니다.
+    ![내 앱 확장](common/install-myappssecure-extension.png)
+
+2. 브라우저에 확장을 추가한 후 **Carbonite Endpoint Backup 설정**을 클릭하면 Carbonite Endpoint Backup 애플리케이션으로 안내합니다. 여기서 관리자 자격 증명을 입력하여 Carbonite Endpoint Backup에 로그인합니다. 브라우저 확장에서 애플리케이션을 자동으로 구성하고 3-7단계를 자동화합니다.
+
+    ![구성 설정](common/setup-sso.png)
+
+3. Carbonite Endpoint Backup을 수동으로 설정하려면 새 웹 브라우저 창을 열고 Carbonite Endpoint Backup 회사 사이트에 관리자로 로그인한 후에 다음 단계를 수행합니다.
+
+4. 왼쪽 창에서 **Company**(회사)를 클릭합니다.
 
     ![Carbonite Endpoint Backup 구성 ](media/carbonite-endpoint-backup-tutorial/configure1.png)
 
-1. **Single sign-on**을 클릭합니다.
+5. **Single sign-on**을 클릭합니다.
 
     ![Carbonite Endpoint Backup 구성 ](media/carbonite-endpoint-backup-tutorial/configure2.png)
 
-1. **Enable**(사용)을 클릭한 다음, **Edit settings**(설정 편집)를 클릭하여 구성합니다.
+6. **Enable**(사용)을 클릭한 다음, **Edit settings**(설정 편집)를 클릭하여 구성합니다.
 
     ![Carbonite Endpoint Backup 구성 ](media/carbonite-endpoint-backup-tutorial/configure3.png)
 
-1. **Single sign-on** 설정 페이지에서 다음 단계를 수행합니다.
+7. **Single sign-on** 설정 페이지에서 다음 단계를 수행합니다.
 
     ![Carbonite Endpoint Backup 구성 ](media/carbonite-endpoint-backup-tutorial/configure4.png)
 
-    1. **Identity provider name**(ID 공급자 이름) 텍스트 상자에서 ID 공급자의 이름(예: **Microsoft Azure AD**)을 입력합니다.
+    1. Azure Portal에서 복사한 **Azure AD 식별자** 값을 **ID 공급자 이름** 텍스트 상자에 붙여넣습니다.
 
-    1. Azure Portal에서 복사한 **Azure AD 식별자** 값을 **ID 공급자 URL** 텍스트 상자에 붙여넣습니다.
+    1. Azure Portal에서 복사한 **로그인 URL** 값을 **ID 공급자 URL** 텍스트 상자에 붙여넣습니다.
 
     1. **Choose file**(파일 선택)을 클릭하여 Azure Portal로부터 다운로드한 **인증서(Base64)** 를 업로드합니다.
 

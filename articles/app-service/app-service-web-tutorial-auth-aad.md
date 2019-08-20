@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 08/07/2018
+ms.date: 08/14/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: fff2469269d8f60f837f0af444e16928a9212bb0
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: ad0c510244c78fa3bdba41690c2284d0650c4b55
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67866575"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019334"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>자습서: Azure App Service에서 엔드투엔드 사용자 인증 및 권한 부여
 
@@ -218,7 +218,7 @@ Azure Active Directory를 ID 공급자로 사용합니다. 자세한 내용은 [
 
 ### <a name="enable-authentication-and-authorization-for-back-end-app"></a>백 엔드 앱에 대한 인증 및 권한 부여 사용
 
-[Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **리소스 그룹** > **myAuthResourceGroup** >  _\<back-end-app-name>_ 을 클릭하여 백 엔드 앱의 관리 페이지를 엽니다.
+[Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **리소스 그룹** > **myAuthResourceGroup** >  **_\<back-end-app-name>_** 을 클릭하여 백 엔드 앱의 관리 페이지를 엽니다.
 
 ![Azure App Service에서 실행되는 ASP.NET Core API](./media/app-service-web-tutorial-auth-aad/portal-navigate-back-end.png)
 
@@ -236,15 +236,15 @@ Azure Active Directory를 ID 공급자로 사용합니다. 자세한 내용은 [
 
 `Successfully saved the Auth Settings for <back-end-app-name> App` 메시지가 포함된 알림이 표시되면 페이지를 새로 고칩니다.
 
-**Azure Active Directory**를 다시 클릭한 다음, **애플리케이션 관리**를 클릭합니다.
+**Azure Active Directory**를 다시 클릭한 다음, **Azure AD 앱**을 클릭합니다.
 
-AD 애플리케이션의 관리 페이지에서 **애플리케이션 ID**를 메모장에 복사합니다. 이 값은 나중에 필요합니다.
+Azure AD 애플리케이션의 **클라이언트 ID**를 메모장에 복사합니다. 이 값은 나중에 필요합니다.
 
 ![Azure App Service에서 실행되는 ASP.NET Core API](./media/app-service-web-tutorial-auth-aad/get-application-id-back-end.png)
 
 ### <a name="enable-authentication-and-authorization-for-front-end-app"></a>프런트 엔드 앱에 대한 인증 및 권한 부여 사용
 
-프런트 엔드 앱과 동일한 단계를 따르지만 마지막 단계는 건너뜁니다. 프런트 엔드 앱에는 **애플리케이션 ID**가 필요하지 않습니다. **Azure Active Directory 설정** 페이지를 열어둡니다.
+프런트 엔드 앱과 동일한 단계를 따르지만 마지막 단계는 건너뜁니다. 프런트 엔드 앱에는 클라이언트 ID가 필요하지 않습니다.
 
 원하는 경우 `http://<front-end-app-name>.azurewebsites.net`으로 이동합니다. 이제 보안 로그인 페이지로 연결됩니다. 로그인 후에도 백 엔드 앱의 데이터에 여전히 액세스할 수 없습니다. 다음 세 가지를 수행해야 하기 때문입니다.
 
@@ -259,21 +259,19 @@ AD 애플리케이션의 관리 페이지에서 **애플리케이션 ID**를 메
 
 두 앱에 대해 인증 및 권한 부여를 사용하도록 설정했으므로 각 앱은 AD 애플리케이션으로 지원됩니다. 이 단계에서는 프런트 엔드 앱에 사용자 대신 백 엔드 액세스 권한을 부여합니다. (기술적으로 프런트 엔드의 _AD 애플리케이션_ 에 사용자를 대신하여 백 엔드의 _AD 애플리케이션_ 에 액세스할 수 있는 권한을 부여합니다.)
 
-이 시점에서 프런트 엔드 앱의 **Azure Active Directory 설정** 페이지에 있어야 합니다. 그렇지 않은 경우 해당 페이지로 돌아갑니다. 
-
-**권한 관리** > **추가** > **API 선택**을 클릭합니다.
+포털의 왼쪽 메뉴에서 **Azure Active Directory** > **앱 등록** > **소유 애플리케이션** >  **\<front-end-app-name>**  > **API 권한**을 선택합니다.
 
 ![Azure App Service에서 실행되는 ASP.NET Core API](./media/app-service-web-tutorial-auth-aad/add-api-access-front-end.png)
 
-**API 선택** 페이지에서 백 엔드 앱의 AD 애플리케이션 이름을 입력합니다. 이것은 기본적으로 백 엔드 앱 이름과 같습니다. 이것을 목록에서 선택하고 **선택** 을 클릭합니다.
+**권한 추가**를 선택한 다음, **내 API** >  **\<back-end-app-name>** 을 선택합니다.
 
-**액세스 _\<AD-application-name>_** 옆의 확인란을 선택합니다. **선택** > **완료**를 클릭합니다.
+백 엔드 앱에 대한 **API 권한 요청** 페이지에서 **위임된 권한** 및 **user_impersonation**를 선택한 다음, **권한 추가**를 선택합니다.
 
 ![Azure App Service에서 실행되는 ASP.NET Core API](./media/app-service-web-tutorial-auth-aad/select-permission-front-end.png)
 
 ### <a name="configure-app-service-to-return-a-usable-access-token"></a>사용 가능한 액세스 토큰을 반환하도록 App Service 구성
 
-이제 프런트 엔드 앱에 필요한 권한이 있습니다. 이 단계에서는 백 엔드 액세스에 사용 가능한 액세스 토큰을 제공하도록 App Service 인증 및 권한 부여를 구성합니다. 이 단계에서는 [백 엔드 앱에 대한 인증 및 권한 부여 사용](#enable-authentication-and-authorization-for-back-end-app)에서 복사한 백 엔드의 애플리케이션 ID가 필요합니다.
+이제 프런트 엔드 앱에는 로그인한 사용자로 백 엔드 앱에 액세스하는 데 필요한 권한이 있습니다. 이 단계에서는 백 엔드 액세스에 사용 가능한 액세스 토큰을 제공하도록 App Service 인증 및 권한 부여를 구성합니다. 이 단계에서는 [백 엔드 앱에 대한 인증 및 권한 부여 사용](#enable-authentication-and-authorization-for-back-end-app)에서 복사한 백 엔드의 클라이언트 ID가 필요합니다.
 
 [Azure Resource Explorer](https://resources.azure.com)에 로그인합니다. 페이지의 위쪽에서 **읽기/쓰기** 를 클릭하여 Azure 리소스 편집이 가능하도록 설정합니다.
 
@@ -281,10 +279,10 @@ AD 애플리케이션의 관리 페이지에서 **애플리케이션 ID**를 메
 
 왼쪽 브라우저에서 **구독** >  **_\<your-subscription>_**  > **resourceGroups** > **myAuthResourceGroup** > **공급자** > **Microsoft.Web** > **사이트** >  **_\<front-end-app-name>_**  > **구성** > **authsettings**를 클릭합니다.
 
-**authsettings** 보기에서 **편집**을 클릭합니다. 복사한 애플리케이션 ID를 사용하여 `additionalLoginParams`를 다음 JSON 문자열로 설정합니다. 
+**authsettings** 보기에서 **편집**을 클릭합니다. 복사한 클라이언트 ID를 사용하여 `additionalLoginParams`를 다음 JSON 문자열로 설정합니다. 
 
 ```json
-"additionalLoginParams": ["response_type=code id_token","resource=<back_end_application_id>"],
+"additionalLoginParams": ["response_type=code id_token","resource=<back-end-client-id>"],
 ```
 
 ![Azure App Service에서 실행되는 ASP.NET Core API](./media/app-service-web-tutorial-auth-aad/additional-login-params-front-end.png)
@@ -293,13 +291,13 @@ AD 애플리케이션의 관리 페이지에서 **애플리케이션 ID**를 메
 
 이제 앱이 구성되었습니다. 이제 프런트 엔드가 적절한 액세스 토큰을 사용하여 백 엔드에 액세스할 준비가 되었습니다.
 
-다른 공급자에 대해 구성하는 방법에 대한 자세한 내용은 [ID 공급자 토큰 새로 고침](app-service-authentication-how-to.md#refresh-identity-provider-tokens)을 참조하세요.
+다른 공급자에 대한 액세스 토큰을 구성하는 방법에 대한 자세한 내용은 [ID 공급자 토큰 새로 고침](app-service-authentication-how-to.md#refresh-identity-provider-tokens)을 참조하세요.
 
 ## <a name="call-api-securely-from-server-code"></a>서버 코드에서 안전하게 API 호출
 
 이 단계에서는 이전에 수정한 서버 코드를 사용하여 백 엔드 API에 대해 인증된 호출을 수행합니다.
 
-이제 프런트 엔드 앱에 필요한 권한이 있고 백 엔드의 애플리케이션 ID가 로그인 매개 변수에 추가됩니다. 따라서 백 엔드 앱 인증을 위한 액세스 토큰을 가져올 수 있습니다. App Service는 인증된 요청마다 `X-MS-TOKEN-AAD-ACCESS-TOKEN` 헤더를 삽입하여([앱 코드에서 토큰 검색](app-service-authentication-how-to.md#retrieve-tokens-in-app-code) 참조) 이 토큰을 서버 코드에 제공합니다.
+이제 프런트 엔드 앱에 필요한 권한이 있고 백 엔드의 클라이언트 ID가 로그인 매개 변수에 추가됩니다. 따라서 백 엔드 앱 인증을 위한 액세스 토큰을 가져올 수 있습니다. App Service는 인증된 요청마다 `X-MS-TOKEN-AAD-ACCESS-TOKEN` 헤더를 삽입하여([앱 코드에서 토큰 검색](app-service-authentication-how-to.md#retrieve-tokens-in-app-code) 참조) 이 토큰을 서버 코드에 제공합니다.
 
 > [!NOTE]
 > 이 헤더는 지원되는 모든 언어로 삽입됩니다. 각 해당 언어에 대한 표준 패턴을 사용하여 액세스할 수 있습니다.
@@ -317,7 +315,7 @@ public override void OnActionExecuting(ActionExecutingContext context)
 }
 ```
 
-이 코드는 표준 HTTP 헤더 `Authorization: Bearer <access_token>`를 모든 원격 API 호출에 추가합니다. ASP.NET Core MVC 요청 실행 파이프라인에서 `OnActionExecuting`은 각 작업 메서드(예: `GetAll()`)가 실행되기 직전에 실행되므로 나가는 API 호출 각각에 액세스 토큰이 표시됩니다.
+이 코드는 표준 HTTP 헤더 `Authorization: Bearer <access-token>`를 모든 원격 API 호출에 추가합니다. ASP.NET Core MVC 요청 실행 파이프라인에서 `OnActionExecuting`은 각 작업 메서드(예: `GetAll()`)가 실행되기 직전에 실행되므로 나가는 API 호출 각각에 액세스 토큰이 표시됩니다.
 
 모든 변경 내용을 저장합니다. 로컬 터미널 창에서 다음 Git 명령을 사용하여 변경 내용을 프런트 엔드 앱에 배포합니다.
 

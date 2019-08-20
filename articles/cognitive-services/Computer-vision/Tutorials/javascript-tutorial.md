@@ -7,54 +7,54 @@ author: KellyDF
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 04/30/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 24ef94b702d11977df4e1ca2dab181f5c14a00df
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
-ms.translationtype: MT
+ms.openlocfilehash: df2aef9a6401d0a3a1807fb7e869f03f9b7bcd36
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564560"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881246"
 ---
-# <a name="use-computer-vision-features-with-the-rest-api-and-javascript"></a>REST API 및 JavaScript를 사용 하 여 Computer Vision 기능 사용
+# <a name="use-computer-vision-features-with-the-rest-api-and-javascript"></a>REST API 및 JavaScript를 통해 Computer Vision 기능 사용
 
-이 가이드에서는 Azure Cognitive Services Computer Vision REST API의 기능을 보여 줍니다.
+이 가이드에서는 Azure Cognitive Services Computer Vision REST API의 기능을 보여줍니다.
 
 Computer Vision REST API를 사용하는 JavaScript 애플리케이션을 탐색하여 OCR(광학 인식)을 수행하고, 스마트하게 잘리는 썸네일을 만들고, 이미지에서 얼굴을 포함한 시각적 기능을 감지, 분류, 태그 지정 및 설명합니다. 이 예제에서는 분석 또는 처리할 이미지 URL을 제출할 수 있습니다. 이 오픈 소스 예제는 Computer Vision REST API를 사용하는 사용자 고유의 JavaScript 앱을 빌드하기 위한 템플릿으로 사용할 수 있습니다.
 
-JavaScript 양식 애플리케이션은 이미 작성되어 있지만 Computer Vision 기능이 없습니다. 이 가이드에서는 Computer Vision REST API 관련 된 코드를 추가 하 여 응용 프로그램의 기능을 완료 합니다.
+JavaScript 양식 애플리케이션은 이미 작성되어 있지만 Computer Vision 기능이 없습니다. 이 가이드에서는 Computer Vision REST API 관련 코드를 추가하여 애플리케이션의 기능을 완성합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 ### <a name="platform-requirements"></a>플랫폼 요구 사항
 
-간단한 텍스트 편집기를 사용 하 여이 가이드의 단계를 따를 수 있습니다.
+간단한 텍스트 편집기를 사용하여 이 가이드의 단계를 수행할 수 있습니다.
 
 ### <a name="subscribe-to-computer-vision-api-and-get-a-subscription-key"></a>Computer Vision API 구독 및 구독 키 가져오기
 
-예제를 만들기 전에 먼저 Azure Cognitive Services의 일부인 Computer Vision API를 구독해야 합니다. 구독 및 키 관리에 대한 자세한 내용은 [구독](https://azure.microsoft.com/try/cognitive-services/)을 참조하세요. 이 가이드에서는 기본 키와 보조 키를 모두 사용할 수 있습니다.
+예제를 만들기 전에 먼저 Azure Cognitive Services의 일부인 Computer Vision API를 구독해야 합니다. 구독 및 키 관리에 대한 자세한 내용은 [구독](https://azure.microsoft.com/try/cognitive-services/)을 참조하세요. 기본 및 보조 키는 모두 이 가이드에서 사용할 수 있습니다.
 
-## <a name="acquire-incomplete-tutorial-project"></a>불완전 한 tutorial 프로젝트 가져오기
+## <a name="acquire-incomplete-tutorial-project"></a>완료되지 않은 자습서 프로젝트 획득
 
 ### <a name="download-the-project"></a>프로젝트를 다운로드합니다.
 
 [Cognitive Services JavaScript Computer Vision 자습서](https://github.com/Azure-Samples/cognitive-services-javascript-computer-vision-tutorial)를 복제하거나 .zip 파일을 다운로드하여 빈 디렉터리에 추출합니다.
 
-모든 자습서 코드가 추가 된 완료 된 프로젝트를 사용 하는 것을 선호 하는 경우 **완료** 된 폴더의 파일을 사용할 수 있습니다.
+모든 자습서 코드가 추가된 상태로 완성된 자습서를 사용하려면 **Completed** 폴더에 있는 파일을 사용하면 됩니다.
 
 ## <a name="add-tutorial-code-to-the-project"></a>프로젝트에 자습서 코드 추가
 
-JavaScript 애플리케이션은 각 기능마다 하나씩 6개의 .html 파일로 설정되어 있습니다. 각 파일은 Computer Vision (분석, OCR 등)의 다른 기능을 보여 줍니다. 6 개 섹션에는 상호 종속성이 없으므로 자습서 코드를 파일 하나, 6 개 파일 하나 또는 파일 하나에만 추가할 수 있습니다. 그리고 자습서 코드는 임의의 순서로 파일에 추가할 수 있습니다.
+JavaScript 애플리케이션은 각 기능마다 하나씩 6개의 .html 파일로 설정되어 있습니다. 각 파일은 Computer Vision의 다양한 함수(분석, OCR 등)를 보여줍니다. 6개 섹션은 서로 종속되지 않으므로 하나의 파일, 6개의 파일 모두 또는 몇 개의 파일에만 자습서 코드를 추가할 수 있습니다. 그리고 자습서 코드는 임의의 순서로 파일에 추가할 수 있습니다.
 
 ### <a name="analyze-an-image"></a>이미지 분석
 
-Computer Vision 분석 기능은 수천 개의 인식할 만한 개체, 살아있는 사물, 장면 및 작업에 대 한 이미지를 검색 합니다. 분석이 완료되면 [분석]에서 설명 태그, 색 분석, 캡션 등으로 이미지를 설명하는 JSON 개체를 반환합니다.
+Computer Vision의 [분석] 기능은 이미지를 검사하여 수천 개의 인식 가능한 물체, 생물, 풍경 및 동작을 분석합니다. 분석이 완료되면 [분석]에서 설명 태그, 색 분석, 캡션 등으로 이미지를 설명하는 JSON 개체를 반환합니다.
 
-응용 프로그램의 분석 기능을 완료 하려면 다음 단계를 수행 합니다.
+애플리케이션의 [분석] 기능을 완성하려면 다음 단계를 수행합니다.
 
-#### <a name="add-the-event-handler-code-for-the-analyze-button"></a>분석 단추에 대 한 이벤트 처리기 코드를 추가 합니다.
+#### <a name="add-the-event-handler-code-for-the-analyze-button"></a>분석 단추에 대한 이벤트 처리기 코드 추가
 
 텍스트 편집기에서 **analyze.html** 파일을 열고, 파일의 아래쪽에서 **analyzeButtonClick** 함수를 찾습니다.
 
@@ -158,9 +158,9 @@ function AnalyzeImage(sourceImageUrl, responseTextArea, captionSpan) {
 
 Computer Vision의 [랜드마크] 기능은 산이나 유명한 건물과 같은 자연 및 인공 랜드마크에 대한 이미지를 분석합니다. 분석이 완료되면 [랜드마크]에서 이미지에 있는 랜드마크를 식별하는 JSON 개체를 반환합니다.
 
-응용 프로그램의 랜드마크 기능을 완료 하려면 다음 단계를 수행 합니다.
+애플리케이션의 [랜드마크] 기능을 완성하려면 다음 단계를 수행합니다.
 
-#### <a name="add-the-event-handler-code-for-the-landmark-button"></a>랜드마크 단추에 대 한 이벤트 처리기 코드를 추가 합니다.
+#### <a name="add-the-event-handler-code-for-the-landmark-button"></a>랜드마크 단추에 대한 이벤트 처리기 코드 추가
 
 텍스트 편집기에서 **landmark.html** 파일을 열고, 파일의 아래쪽에서 **landmarkButtonClick** 함수를 찾습니다.
 
@@ -263,9 +263,9 @@ function IdentifyLandmarks(sourceImageUrl, responseTextArea, captionSpan) {
 
 Computer Vision의 [유명 인사] 기능은 유명 인사에 대한 이미지를 분석합니다. 분석이 완료되면 [유명 인사]에서 이미지에 있는 유명 인사를 식별하는 JSON 개체를 반환합니다.
 
-응용 프로그램의 유명인 기능을 완료 하려면 다음 단계를 수행 합니다.
+애플리케이션의 [유명 인사] 기능을 완성하려면 다음 단계를 수행합니다.
 
-#### <a name="add-the-event-handler-code-for-the-celebrities-button"></a>유명인 단추에 대 한 이벤트 처리기 코드를 추가 합니다.
+#### <a name="add-the-event-handler-code-for-the-celebrities-button"></a>유명 인사 단추에 대한 이벤트 처리기 코드 추가
 
 텍스트 편집기에서 **celebrities.html** 파일을 열고, 파일의 아래쪽에서 **celebritiesButtonClick** 함수를 찾습니다.
 
@@ -356,7 +356,7 @@ function IdentifyCelebrities(sourceImageUrl, responseTextArea, captionSpan) {
 }
 ```
 
-#### <a name="run-the-celebrities-function"></a>유명인 함수를 실행 합니다.
+#### <a name="run-the-celebrities-function"></a>유명 인사 함수 실행
 
 **celebrities.html** 파일을 저장하고, 웹 브라우저에서 엽니다. 구독 키를 **구독 키** 필드에 배치하고, **구독 지역**에서 올바른 지역을 사용하고 있는지 확인합니다. 분석할 이미지에 대한 URL을 입력한 다음, **이미지 분석** 단추를 클릭하여 이미지를 분석하고 결과를 표시합니다.
 
@@ -364,9 +364,9 @@ function IdentifyCelebrities(sourceImageUrl, responseTextArea, captionSpan) {
 
 Computer Vision의 [썸네일] 기능은 이미지에서 썸네일을 생성합니다. **스마트 자르기** 기능을 사용하면 [썸네일] 기능에서 이미지의 관심 영역을 식별하고 이 영역에서 썸네일을 가운데에 맞춰 미적으로 더욱 만족스러운 썸네일 이미지를 생성할 수 있습니다.
 
-응용 프로그램의 미리 보기 기능을 완료 하려면 다음 단계를 수행 합니다.
+애플리케이션의 [썸네일] 기능을 완성하려면 다음 단계를 수행합니다.
 
-#### <a name="add-the-event-handler-code-for-the-thumbnail-button"></a>축소판 그림 단추에 대 한 이벤트 처리기 코드를 추가 합니다.
+#### <a name="add-the-event-handler-code-for-the-thumbnail-button"></a>썸네일 단추에 대한 이벤트 처리기 코드 추가
 
 텍스트 편집기에서 **thumbnail.html** 파일을 열고, 파일의 아래쪽에서 **thumbnailButtonClick** 함수를 찾습니다.
 
@@ -475,7 +475,7 @@ function getThumbnail (sourceImageUrl, smartCropping, imageElement, responseText
 }
 ```
 
-#### <a name="run-the-thumbnail-function"></a>축소판 그림 함수 실행
+#### <a name="run-the-thumbnail-function"></a>썸네일 함수 실행
 
 **thumbnail.html** 파일을 저장하고, 웹 브라우저에서 엽니다. 구독 키를 **구독 키** 필드에 배치하고, **구독 지역**에서 올바른 지역을 사용하고 있는지 확인합니다. 분석할 이미지에 대한 URL을 입력한 다음, **썸네일 생성** 단추를 클릭하여 이미지를 분석하고 결과를 표시합니다.
 
@@ -483,9 +483,9 @@ function getThumbnail (sourceImageUrl, smartCropping, imageElement, responseText
 
 Computer Vision의 OCR(광학 인식) 기능은 인쇄된 텍스트의 이미지를 분석합니다. 분석이 완료되면 OCR에서 텍스트와 이미지 내 텍스트 위치가 포함된 JSON 개체를 반환합니다.
 
-응용 프로그램의 OCR 기능을 완료 하려면 다음 단계를 수행 합니다.
+애플리케이션의 OCR 기능을 완성하려면 다음 단계를 수행합니다.
 
-### <a name="add-the-event-handler-code-for-the-ocr-button"></a>OCR 단추에 대 한 이벤트 처리기 코드를 추가 합니다.
+### <a name="add-the-event-handler-code-for-the-ocr-button"></a>OCR 단추에 대한 이벤트 처리기 코드 추가
 
 텍스트 편집기에서 **ocr.html** 파일을 열고, 파일의 아래쪽에서 **ocrButtonClick** 함수를 찾습니다.
 
@@ -576,9 +576,9 @@ function ReadOcrImage(sourceImageUrl, responseTextArea) {
 
 Computer Vision의 [필기 인식] 기능은 손으로 쓴 텍스트의 이미지를 분석합니다. 분석이 완료되면 [필기 인식]에서 텍스트와 이미지 내 텍스트 위치가 포함된 JSON 개체를 반환합니다.
 
-응용 프로그램의 필기 인식 기능을 완료 하려면 다음 단계를 수행 합니다.
+애플리케이션의 [필기 인식] 기능을 완성하려면 다음 단계를 수행합니다.
 
-#### <a name="add-the-event-handler-code-for-the-handwriting-button"></a>필기 단추에 대 한 이벤트 처리기 코드를 추가 합니다.
+#### <a name="add-the-event-handler-code-for-the-handwriting-button"></a>필기 단추에 대한 이벤트 처리기 코드 추가
 
 텍스트 편집기에서 **handwriting.html** 파일을 열고, 파일의 아래쪽에서 **handwritingButtonClick** 함수를 찾습니다.
 
@@ -733,6 +733,6 @@ function ReadHandwrittenImage(sourceImageUrl, responseTextArea) {
 
 ## <a name="next-steps"></a>다음 단계
 
-이 가이드에서는 JavaScript와 Computer Vision REST API를 사용 하 여 사용 가능한 여러 이미지 분석 기능을 테스트 했습니다. 다음으로 관련 Api에 대 한 자세한 내용을 보려면 참조 설명서를 참조 하세요.
+이 가이드에서는 JavaScript와 함께 Computer Vision REST API를 사용하여 사용 가능한 많은 이미지 분석 기능을 테스트했습니다. 다음으로 관련 API에 대해 자세히 알아보려면 참조 설명서를 참조하세요.
 
 - [Computer Vision REST API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)
