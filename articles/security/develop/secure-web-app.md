@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: terrylan
-ms.openlocfilehash: 0683c065285a6ddf8d966bbd3d22e88c39b34d5c
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 640900458eccc36afe58cb148ffd7b94b43be879
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728810"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934908"
 ---
 # <a name="develop-a-secure-web-app"></a>보안 웹 앱 개발
 
@@ -52,16 +52,16 @@ ms.locfileid: "68728810"
 
 아키텍처는 다음 구성 요소로 구성 됩니다.
 
-- [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/). 응용 프로그램 아키텍처에 대 한 게이트웨이 및 방화벽을 제공 합니다.
-- [Linux의 Azure Web Apps](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro). Linux 환경에서 Python 앱을 실행 하기 위한 컨테이너 런타임을 제공 합니다.
-- [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) 앱의 암호를 저장 및 암호화 하 고 그에 대 한 액세스 정책 생성을 관리 합니다.
+- [Azure Application Gateway](../../application-gateway/index.yml). 응용 프로그램 아키텍처에 대 한 게이트웨이 및 방화벽을 제공 합니다.
+- [Linux의 Azure Web Apps](../../app-service/containers/app-service-linux-intro.md). Linux 환경에서 Python 앱을 실행 하기 위한 컨테이너 런타임을 제공 합니다.
+- [Azure Key Vault](../../key-vault/index.yml) 앱의 암호를 저장 및 암호화 하 고 그에 대 한 액세스 정책 생성을 관리 합니다.
 - [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/). 앱 데이터를 안전 하 게 저장 합니다.
-- [Azure Security Center](https://docs.microsoft.com/azure/security-center/) 및 [Azure 애플리케이션 정보](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) 앱의 작동에 대 한 모니터링 및 경고를 제공 합니다.
+- [Azure Security Center](../../security-center/index.yml) 및 [Azure 애플리케이션 정보](../../azure-monitor/app/app-insights-overview.md) 앱의 작동에 대 한 모니터링 및 경고를 제공 합니다.
 
 ## <a name="threat-model"></a>위협 모델
 위협 모델링은 비즈니스 및 응용 프로그램에 대 한 잠재적인 보안 위협을 식별 한 다음 적절 한 완화 계획이 적용 되도록 하는 프로세스입니다.
 
-이 샘플에서는 [Microsoft Threat Modeling Tool](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool) 를 사용 하 여 보안 샘플 앱에 대 한 위협 모델링을 구현 했습니다. 구성 요소와 데이터 흐름을 다이어그램으로 작성 하 여 개발 프로세스 초기에 문제 및 위협을 식별할 수 있습니다. 그러면 나중에 시간과 비용이 절약 됩니다.
+이 샘플에서는 [Microsoft Threat Modeling Tool](threat-modeling-tool.md) 를 사용 하 여 보안 샘플 앱에 대 한 위협 모델링을 구현 했습니다. 구성 요소와 데이터 흐름을 다이어그램으로 작성 하 여 개발 프로세스 초기에 문제 및 위협을 식별할 수 있습니다. 그러면 나중에 시간과 비용이 절약 됩니다.
 
 샘플 앱에 대 한 위협 모델은 다음과 같습니다.
 
@@ -349,19 +349,19 @@ $$ LANGUAGE PLPGSQL;
 ```
 
 
-PostgreSQL에 대 한 SSL 및 CA (인증 기관) 확인을 설정 하는 방법에 대 한 자세한 내용은 [Azure Database for PostgreSQL에서 ssl 연결 구성](https://docs.microsoft.com/en-us/azure/postgresql/concepts-ssl-connection-security)을 참조 하세요.
+PostgreSQL에 대 한 SSL 및 CA (인증 기관) 확인을 설정 하는 방법에 대 한 자세한 내용은 [Azure Database for PostgreSQL에서 ssl 연결 구성](https://docs.microsoft.com/azure/postgresql/concepts-ssl-connection-security)을 참조 하세요.
 
 컨테이너에 루트 인증서가 포함 되어 있습니다. 인증서를 얻기 위해 수행 하는 단계는 다음과 같습니다.
 
 1. 인증 [기관](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt)에서 인증서 파일을 다운로드 합니다.
-2. [OpenSSL를 컴퓨터에 다운로드 하 여 설치](https://docs.microsoft.com/en-us/azure/postgresql/concepts-ssl-connection-security)합니다.
+2. [OpenSSL를 컴퓨터에 다운로드 하 여 설치](https://docs.microsoft.com/azure/postgresql/concepts-ssl-connection-security)합니다.
 3. 인증서 파일 디코딩:
 
    ```powershell
    openssl x509 -inform DER -in BaltimoreCyberTrustRoot.crt -text -out root.crt
    ```
 
-PostgreSQL에 대 한 SSL 보안을 구성 하는 방법에 대 한 자세한 내용은 [Ssl 연결 보안 구성](https://docs.microsoft.com/en-gb/azure/postgresql/concepts-ssl-connection-security)을 참조 하세요.
+PostgreSQL에 대 한 SSL 보안을 구성 하는 방법에 대 한 자세한 내용은 [Ssl 연결 보안 구성](https://docs.microsoft.com/azure/postgresql/concepts-ssl-connection-security)을 참조 하세요.
 
 #### <a name="deploy-azure-web-apps-on-linux"></a>Linux에서 Azure Web Apps 배포
 Azure는 Python, Ruby, C#및 Java와 같이 널리 사용 되는 언어에 대해 미리 작성 된 컨테이너 및 이미지 집합을 제공 하므로 Azure App Service 위에 Linux 서비스를 쉽게 빌드할 수 있습니다. 또한 Azure는 거의 모든 프로그래밍 언어를 Azure App Service 플랫폼에서 실행할 수 있는 사용자 지정 컨테이너를 지원 합니다.
@@ -680,7 +680,7 @@ App Service 인스턴스를 가상 네트워크와 통합할 수 있습니다. �
 1. 다음 페이지에서 **VNET 추가 (미리 보기)** 를 선택 합니다.
 
 1. 다음 메뉴에서로 `hello-vnet`시작 하는 배포에서 만든 가상 네트워크를 선택 합니다. 새 서브넷을 만들거나 기존 서브넷을 선택할 수 있습니다.
-   이 경우 새 서브넷을 만듭니다. **주소 범위** 를 **10.0.3.0/24** 로 설정 하 고 서브넷의 이름을 서브넷으로 설정 **합니다.**
+   이 경우 새 서브넷을 만듭니다. **주소 범위** 를 **10.0.3.0/24** 로 설정 하 고 서브넷의이름을 서브넷으로 설정 합니다.
 
    ![가상 네트워크 구성 App Service](./media/secure-web-app/app-vnet-config.png)
 
@@ -760,7 +760,7 @@ Azure Portal에서 필요한 자격 증명을 사용 하도록 앱을 구성 합
    *Azure AD 앱 등록 만들기*
 
 3. 다음 페이지에서 앱 이름을 입력 합니다. **지원 되는 계정 유형**에서 **이 조직 디렉터리의 계정만**을 선택 합니다.
-    **URI 리디렉션**에서 앱이 실행 될 기본 도메인을 입력 하 고 토큰 끝점을 사용 하 여 하나를 추가 합니다. 예를 들어: *GATEWAY_HASH*. cloudapp.net/token.
+    **URI 리디렉션**에서 앱이 실행 될 기본 도메인을 입력 하 고 토큰 끝점을 사용 하 여 하나를 추가 합니다. 예: *GATEWAY_HASH*. cloudapp.net/token.
 
    ![Azure AD 앱 등록 구성](./media/secure-web-app/ad-auth-type.png)
 
@@ -769,7 +769,7 @@ Azure Portal에서 필요한 자격 증명을 사용 하도록 앱을 구성 합
 4. 등록 된 앱과 해당 정보를 표시 하는 화면이 표시 됩니다. Azure Key Vault 인스턴스에이 정보를 추가 해야 합니다.
    1. 응용 프로그램 (클라이언트) ID를 복사 하 고 Key Vault에로 `CLIENTID`저장 합니다.
    2. 이전 단계에서 입력 한 리디렉션 URI를 복사 하 고으로 `REDIRECTURI`저장 합니다.
-   3. Microsoftonline.com *형식의 AZURE*AD 기본 디렉터리 이름을 복사 하 고 Key Vault에로 `TENANT`저장 합니다.
+   3. Microsoftonline.com 형식의 Azure AD 기본 디렉터리 이름을 복사 하 고 Key Vault에로 `TENANT`저장 합니다.
    4. 이전에 만든 Azure AD 앱의 **인증서 & 암호** 탭으로 이동 하 고 다음 스크린샷에 표시 된 것 처럼 **새 클라이언트 암호**를 선택 합니다. 만료 날짜를 설정 하 고 생성 된 값을 복사한 다음 Key Vault `CLIENTSECRET`에 저장 합니다.
 
       ![Azure AD 인증 암호](./media/secure-web-app/ad-auth-secrets.png)

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
-ms.openlocfilehash: 754eb063f82344e72bece8fb0ac5708dbc8ab791
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 0da426a9302ce72b5359df15d3f8e244fc1766a0
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249128"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935353"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [2015553]: https://launchpad.support.sap.com/#/notes/2015553
@@ -133,7 +133,7 @@ IBM Db2 구성을 배포 하려면 다음 단계를 수행 해야 합니다.
 | 가상 네트워크/서브넷 정의 | IBM Db2 및 Azure Load Balancer에 대 한 Vm이 배포 되 고 있습니다. 기존 또는 새로 만들 수 있습니다. |
 | IBM Db2 LUW을 호스트 하는 가상 머신 | VM 크기, 저장소, 네트워킹, IP 주소입니다. |
 | IBM Db2 데이터베이스용 가상 호스트 이름 및 가상 IP| SAP 응용 프로그램 서버 연결에 사용 되는 가상 IP 또는 호스트 이름입니다. **db-virt-hostname**, **db-virt-ip**. |
-| Azure 펜스 | Azure 펜스 또는 SBD 펜스 (매우 권장). 분할을 방지 하는 메서드를 사용 하는 것이 금지 됩니다. |
+| Azure 펜스 | Azure 펜스 또는 SBD 펜스 (매우 권장). 메서드를 사용 하 여 부분 분할 상황을 방지 합니다. |
 | SBD VM | SBD 가상 머신 크기, 저장소, 네트워크. |
 | Azure Load Balancer | 기본 또는 표준 (권장)을 사용 하 고 Db2 데이터베이스용 프로브 포트 (권장 62500) **프로브 포트**를 사용 합니다. |
 | 이름 확인| 환경에서 이름 확인이 작동 하는 방식입니다. DNS 서비스는 매우 권장 됩니다. 로컬 호스트 파일을 사용할 수 있습니다. |
@@ -144,7 +144,7 @@ Azure의 Linux Pacemaker에 대 한 자세한 내용은 [azure에서 Pacemaker o
 
 IBM Db2 LUW의 리소스 에이전트는 SAP 응용 프로그램의 SUSE Linux Enterprise Server에 포함 되어 있습니다. 이 문서에 설명 된 설치의 경우 SAP 응용 프로그램용 SUSE Linux 서버를 사용 해야 합니다. Azure Marketplace에는 새 Azure 가상 컴퓨터를 배포 하는 데 사용할 수 있는 SAP 응용 프로그램용 Enterprise Server 12 용 SUSE 이미지가 포함 되어 있습니다. Azure VM Marketplace에서 VM 이미지를 선택 하는 경우 Azure Marketplace를 통해 SUSE에서 제공 하는 다양 한 지원 또는 서비스 모델에 대해 알고 있어야 합니다. 
 
-### <a name="hosts-dns-updates"></a>호스팅해야 DNS 업데이트
+### <a name="hosts-dns-updates"></a>호스트: DNS 업데이트
 호스트 이름 확인을 위한 적절 한 IP 주소를 사용 하도록 DNS 서버를 업데이트 하 고 가상 호스트 이름을 비롯 한 모든 호스트 이름 목록을 만듭니다. DNS 서버가 없거나 DNS 항목을 업데이트 하거나 만들 수 없는 경우이 시나리오에 참여 하는 개별 Vm의 로컬 호스트 파일을 사용 해야 합니다. 호스트 파일 항목을 사용 하는 경우에는 SAP 시스템 환경의 모든 Vm에 항목이 적용 되는지 확인 합니다. 그러나 이상적으로는 Azure로 확장 되는 DNS를 사용 하는 것이 좋습니다.
 
 
@@ -202,7 +202,7 @@ Sap [설치 가이드 Finder][sap-instfind]를 사용 하 여 sap 도움말 포�
 
 SAP 유형이 같은 시스템 복사 프로시저를 사용 하 여 대기 데이터베이스 서버를 설정 하려면 다음 단계를 실행 합니다.
 
-1. **대상 시스템**  **배포 데이터베이스 인스턴스**> 시스템 복사 옵션을 선택 합니다. >  > 
+1. **대상 시스템** **배포 데이터베이스 인스턴스**> 시스템 복사 옵션을 선택 합니다. >  > 
 1. Backup을 사용 하 여 대기 서버 인스턴스에서 백업을 복원할 수 있도록 복사 방법으로 같은 **시스템** 을 선택 합니다.
 1. 동일한 시스템 복사를 위해 데이터베이스를 복원 하는 종료 단계에 도달 하면 설치 관리자를 종료 합니다. 주 호스트의 백업에서 데이터베이스를 복원 합니다. 주 데이터베이스 서버에서 모든 후속 설치 단계가 이미 실행 되었습니다.
 1. IBM Db2 용 HADR을 설정 합니다.
@@ -404,10 +404,10 @@ sudo crm configure property maintenance-mode=false</pre></code>
 # <a name="full-list-of-resources"></a>전체 리소스 목록:
 
 #  <a name="stonith-sbd----stonithexternalsbd-started-azibmdb02"></a>stonith (stonith: external/sbd): Azibmdb02 시작 됨
-#  <a name="resource-group-gipdb2ptrptr"></a>리소스 그룹: g_ip_db2ptr_PTR
-#      <a name="rscipdb2ptrptr--ocfheartbeatipaddr2-------started-azibmdb02"></a>rsc_ip_db2ptr_PTR  (ocf::heartbeat:IPaddr2):       Azibmdb02 시작 됨
-#      <a name="rscncdb2ptrptr--ocfheartbeatanything------started-azibmdb02"></a>rsc_nc_db2ptr_PTR (ocf:: 하트 비트: 모든 항목):      Azibmdb02 시작 됨
-#  <a name="masterslave-set-msldb2db2ptrptr-rscdb2db2ptrptr"></a>마스터/슬레이브 집합: msl_Db2_db2ptr_PTR [rsc_Db2_db2ptr_PTR]
+#  <a name="resource-group-g_ip_db2ptr_ptr"></a>리소스 그룹: g_ip_db2ptr_PTR
+#      <a name="rsc_ip_db2ptr_ptr--ocfheartbeatipaddr2-------started-azibmdb02"></a>rsc_ip_db2ptr_PTR  (ocf::heartbeat:IPaddr2):       Azibmdb02 시작 됨
+#      <a name="rsc_nc_db2ptr_ptr--ocfheartbeatanything------started-azibmdb02"></a>rsc_nc_db2ptr_PTR (ocf:: 하트 비트: 모든 항목):      Azibmdb02 시작 됨
+#  <a name="masterslave-set-msl_db2_db2ptr_ptr-rsc_db2_db2ptr_ptr"></a>마스터/슬레이브 집합: msl_Db2_db2ptr_PTR [rsc_Db2_db2ptr_PTR]
 #      <a name="masters--azibmdb02-"></a>마스터: [azibmdb02]
 #      <a name="slaves--azibmdb01-"></a>슬레이브: [azibmdb01]
 </pre>

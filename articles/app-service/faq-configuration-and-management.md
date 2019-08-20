@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 6f86a8465bcbd3d88ffb7909cac53c3fd38c3af6
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: f7fbfbe5ae5d2ba4148d94768a1109f566151170
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489444"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69513800"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure의 Web Apps에 대한 구성 및 관리 FAQ
 
@@ -167,7 +167,7 @@ App Service Environment를 사용할 경우 [Barracuda 방화벽](https://azure.
 
 ## <a name="how-do-i-block-ports-in-an-app-service-web-app"></a>App Service 웹앱에서 포트를 어떻게 차단하나요?
 
-App Service 공유 테넌트 환경에서는 인프라의 특성 때문에 특정 포트를 차단할 수 없습니다. Visual Studio 원격 디버깅을 위해 TCP 포트 4016, 4018 및 4020이 열릴 수도 있습니다.
+App Service 공유 테넌트 환경에서는 인프라의 특성 때문에 특정 포트를 차단할 수 없습니다. Visual Studio 원격 디버깅을 위해 TCP 포트 4020, 4022 및 4024도 열릴 수 있습니다.
 
 App Service Environment에서는 인바운드 및 아웃바운드 트래픽을 완벽하게 제어할 수 있습니다. 네트워크 보안 그룹을 사용하여 특정 포트를 제한하거나 차단할 수 있습니다. App Service Environment에 대한 자세한 내용은 [Introducing App Service Environment](https://azure.microsoft.com/blog/introducing-app-service-environment/)(App Service Environment 소개)를 참조하세요.
 
@@ -251,7 +251,7 @@ Cron 식을 사용하여 예약된 WebJob을 만들 수 있습니다.
 
 ## <a name="how-do-i-perform-penetration-testing-for-my-app-service-app"></a>내 App Service 앱에 대한 침투 테스트를 수행하려면 어떻게 하나요?
 
-침투 테스트를 수행하려면 [요청을 제출](https://portal.msrc.microsoft.com/en-us/engage/pentest)합니다.
+침투 테스트를 수행하려면 [요청을 제출](https://portal.msrc.microsoft.com/engage/pentest)합니다.
 
 ## <a name="how-do-i-configure-a-custom-domain-name-for-an-app-service-web-app-that-uses-traffic-manager"></a>Traffic Manager를 사용하는 App Service 웹앱에 대한 사용자 지정 도메인 이름을 구성하려면 어떻게 하나요?
 

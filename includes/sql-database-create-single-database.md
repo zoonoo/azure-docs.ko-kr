@@ -6,21 +6,21 @@ ms.topic: include
 ms.date: 06/19/2019
 ms.author: mathoma
 ms.openlocfilehash: eff121cfaf4473607110de4553a9bb8021990caf
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
+ms.lasthandoff: 08/15/2019
 ms.locfileid: "68444683"
 ---
 이 단계에서는 리소스 그룹 및 Azure SQL Database 단일 데이터베이스를 만듭니다. 
 
 > [!IMPORTANT]
-> 이 문서의 단계를 수행 하는 컴퓨터의 공용 IP 주소를 사용 하도록 방화벽 규칙을 설정 해야 합니다. 데이터베이스 수준 방화벽 규칙은 보조 서버에 자동으로 복제됩니다.
+> 이 문서의 단계를 수행할 컴퓨터의 공용 IP 주소를 사용하도록 방화벽 규칙을 설정해야 합니다. 데이터베이스 수준 방화벽 규칙은 보조 서버에 자동으로 복제됩니다.
 >
 > 자세한 내용은 [데이터베이스 수준 방화벽 규칙 만들기](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database)를 참조하세요. 사용 중인 컴퓨터용 서버 수준 방화벽 규칙에 사용되는 IP 주소를 확인하려면 [서버 수준 방화벽 만들기](../articles/sql-database/sql-database-server-level-firewall-rule.md)를 참조하세요.  
 
 # <a name="azure-portaltabazure-portal"></a>[Azure Portal](#tab/azure-portal)
-Azure Portal를 사용 하 여 리소스 그룹 및 단일 데이터베이스를 만듭니다. 
+Azure Portal를 사용하여 리소스 그룹 및 단일 데이터베이스를 만듭니다. 
 
 1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 선택합니다.
 2. **데이터베이스**를 선택한 다음, **SQL Database**를 선택하여 **SQL Database 만들기** 페이지를 엽니다.
@@ -80,7 +80,7 @@ Azure Portal를 사용 하 여 리소스 그룹 및 단일 데이터베이스를
 
 [!INCLUDE [updated-for-az](updated-for-az.md)]
 
-PowerShell을 사용 하 여 리소스 그룹 및 단일 데이터베이스를 만듭니다. 
+PowerShell을 사용하여 리소스 그룹 및 단일 데이터베이스를 만듭니다. 
 
    ```powershell-interactive
    # Set variables for your server and database
@@ -130,7 +130,7 @@ PowerShell을 사용 하 여 리소스 그룹 및 단일 데이터베이스를 �
    ```
 
 # <a name="az-clitabbash"></a>[AZ CLI](#tab/bash)
-AZ CLI를 사용 하 여 리소스 그룹 및 단일 데이터베이스를 만듭니다. 
+AZ CLI를 사용하여 리소스 그룹 및 단일 데이터베이스를 만듭니다. 
 
 
    ```azurecli-interactive

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/19/2019
 ms.author: v-mohabe
 ms.openlocfilehash: 6e41453a096f4812b9ba541a2693b9c9b975b7c9
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "68779070"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure Security Center FAQ(질문과 대답)
@@ -63,7 +63,7 @@ Security Center는 Azure Vm (가상 머신), VMSS (가상 머신 확장 집합),
 - **무료 계층** – Security Center는 기본 작업 영역에서 'SecurityCenterFree' 솔루션을 사용하도록 설정합니다. 체험 계층에 대한 요금이 청구되지 않습니다.
 - **표준 계층** – Security Center는 기본 작업 영역에서 'Security' 솔루션을 사용하도록 설정합니다.
 
-자세한 내용은 [Security Center 가격 책정](https://azure.microsoft.com/pricing/details/security-center/)을 참조하세요. 가격 책정 페이지 주소는 2017년 6월부터 보안 데이터 저장소 및 비례 배분 청구로 변경됩니다.
+자세한 내용은 [Security Center 가격 책정](https://azure.microsoft.com/pricing/details/security-center/)을 참조하세요. 가격 책정 페이지 주소는 2017년 6월부터 보안 데이터 스토리지 및 비례 배분 청구로 변경됩니다.
 
 > [!NOTE]
 > Security Center에서 만든 작업 영역의 log analytics 가격 책정 계층은 Security Center 청구에 영향을 주지 않습니다.

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/13/2019
 ms.author: v-mohabe
 ms.openlocfilehash: cc0c319357b39ddb3e88d515613273a6f7dc0867
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "65968807"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Azure Security Center에서 파일 무결성 모니터링
@@ -38,10 +38,10 @@ Security Center에서는 모니터링할 엔터티를 권장하며 FIM을 쉽게
 > [!NOTE]
 > FIM(파일 무결성 모니터링) 기능은 Windows/Linux 컴퓨터 및 VM에서 작동하며 Security Center의 표준 계층에서 사용할 수 있습니다. Security Center의 가격 책정 계층에 대해 자세히 알아보려면 [가격 책정](security-center-pricing.md)을 참조하세요. FIM은 Log Analytics 작업 영역에 데이터를 업로드합니다. 업로드하는 데이터의 양에 따라 데이터 요금이 부과됩니다. 자세한 내용은 [Log Analytics 가격](https://azure.microsoft.com/pricing/details/log-analytics/)을 참조하세요.
 
-FIM은 Azure 변경 내용 추적 솔루션을 사용하여 환경의 변경 내용을 추적하고 식별합니다. 파일 무결성 모니터링을 사용 해야는 **변경 내용 추적** 종류의 리소스 **솔루션**합니다. 데이터 수집 빈도 정보를 참조 하세요 [데이터 컬렉션 세부 정보 변경 내용 추적](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details) Azure 변경 내용 추적에 대 한 합니다.
+FIM은 Azure 변경 내용 추적 솔루션을 사용하여 환경의 변경 내용을 추적하고 식별합니다. 파일 무결성 모니터링을 사용 하도록 설정 하면 **솔루션**형식 **변경 내용 추적** 리소스가 있습니다. 데이터 수집 빈도에 대 한 자세한 내용은 Azure 변경 내용 추적에 대 한 [변경 내용 추적 데이터 수집 세부 정보](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details) 를 참조 하세요.
 
 > [!NOTE]
-> 제거 하는 경우는 **변경 내용 추적** 리소스 있습니다 모니터링 Security Center에서 기능 파일 무결성도 해제 됩니다.
+> **변경 내용 추적** 리소스를 제거 하는 경우 Security Center 에서도 파일 무결성 모니터링 기능을 사용 하지 않도록 설정 합니다.
 
 ## <a name="which-files-should-i-monitor"></a>어떤 파일을 모니터링해야 할까요?
 모니터링할 파일을 선택할 때 시스템 및 애플리케이션에 중요한 파일을 고려해야 합니다. 계획 없이 변경할 것으로 예상되지 않는 파일을 선택합니다. 애플리케이션이나 운영 체제(예: 로그 파일 및 텍스트 파일)에서 자주 변경되는 파일을 선택하면 공격을 식별하기 어렵게 만드는 노이즈가 많이 발생합니다.
@@ -178,7 +178,7 @@ FIM을 사용하는 작업 영역에 대한 **파일 무결성 모니터링** �
 
    ![[거짓]으로 설정된 [사용]][19]
 
-6. **저장**을 선택합니다.
+6.           **저장**을 선택합니다.
 
 ## <a name="folder-and-path-monitoring-using-wildcards"></a>와일드 카드를 사용하여 폴더 및 경로 모니터링
 

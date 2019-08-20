@@ -100,7 +100,7 @@ Azure 앱 Services 호스팅된 응용 프로그램에 대해 응용 프로그�
 
 클라이언트 쪽 모니터링이 ASP.NET에 대해 옵트인 (opt in) 됩니다. 클라이언트 쪽 모니터링을 사용 하도록 설정 하려면:
 
-* 선택 **설정을** > ** **응용 프로그램 설정****
+* 선택 **설정을** > ** **응용 프로그램 설정** **
    * 응용 프로그램 설정에서 새 **앱 설정 이름** 및 **값**을 추가 합니다.
 
      이름: `APPINSIGHTS_JAVASCRIPT_ENABLED`
@@ -356,7 +356,7 @@ $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Resourc
 |`AppContainsDiagnosticSourceAssembly**:true`|이 값은 확장에서 응용 프로그램의 `System.Diagnostics.DiagnosticSource` 에 대 한 참조를 검색 하 여 백오프 함을 나타냅니다.| 참조를 제거 합니다.
 |`IKeyExists:false`|이 값은 AppSetting, `APPINSIGHTS_INSTRUMENTATIONKEY`에 계측 키가 없음을 나타냅니다. 가능한 원인: 값을 실수로 제거 했을 수 있습니다. 자동화 스크립트에서 값을 설정 하지 않았습니다. | 설정이 App Service 응용 프로그램 설정에 표시 되는지 확인 합니다.
 
-### <a name="appinsightsjavascriptenabled-and-urlcompression-is-not-supported"></a>APPINSIGHTS_JAVASCRIPT_ENABLED 및 urlCompression은 지원 되지 않습니다.
+### <a name="appinsights_javascript_enabled-and-urlcompression-is-not-supported"></a>APPINSIGHTS_JAVASCRIPT_ENABLED 및 urlCompression은 지원 되지 않습니다.
 
 콘텐츠가 인코딩된 경우에 APPINSIGHTS_JAVASCRIPT_ENABLED = true를 사용 하는 경우 다음과 같은 오류가 발생할 수 있습니다. 
 
