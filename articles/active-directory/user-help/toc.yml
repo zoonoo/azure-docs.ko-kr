@@ -4,8 +4,16 @@
   items:
     - name: 개요
       href: user-help-two-step-verification-overview.md
-    - name: 내 계정 설정
-      href: multi-factor-authentication-end-user-first-time.md
+    - name: 2단계 인증 방법 설정
+      items:
+        - name: 개요
+          href: multi-factor-authentication-end-user-first-time.md
+        - name: 인증자 앱 설정
+          href: multi-factor-authentication-setup-auth-app.md
+        - name: 모바일 디바이스 설정
+          href: multi-factor-authentication-setup-phone-number.md
+        - name: 사무실 전화 설정
+          href: multi-factor-authentication-setup-office-phone.md
     - name: 설정 관리
       href: multi-factor-authentication-end-user-manage-settings.md
     - name: 도움말 보기

@@ -273,6 +273,8 @@
       items:
         - name: Gen2로 업그레이드
           href: upgrade-to-latest-generation.md
+        - name: 컴퓨팅 관리
+          href: manage-compute-with-azure-functions.md
         - name: 워크로드 모니터링 - 포털
           href: sql-data-warehouse-monitor-workload-portal.md
         - name: 워크로드 모니터링 - DMV

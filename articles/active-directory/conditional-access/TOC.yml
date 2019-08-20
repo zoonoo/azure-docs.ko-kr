@@ -19,6 +19,10 @@
 - name: 개념
   expanded: false
   items:
+    - name: 조건부 액세스 채택
+      href: howto-conditional-access-adoption-kit.md
+    - name: 일반 조건부 액세스 정책
+      href: concept-conditional-access-policy-common.md
     - name: 조건
       href: conditions.md
     - name: 위치 조건
@@ -38,6 +42,22 @@
       href: plan-conditional-access.md
     - name: 모범 사례
       href: best-practices.md
+    - name: 공통 정책 템플릿
+      items:
+        - name: 관리자용 MFA 필요
+          href: howto-conditional-access-policy-admin-mfa.md
+        - name: Azure 관리용 MFA 필요
+          href: howto-conditional-access-policy-azure-management.md
+        - name: 레거시 인증 차단
+          href: howto-conditional-access-policy-block-legacy.md
+        - name: 위험 기반 조건부 액세스
+          href: howto-conditional-access-policy-risk.md
+        - name: MFA 등록을 위해 신뢰할 수 있는 위치 필요
+          href: howto-conditional-access-policy-registration.md
+        - name: 위치별 액세스 차단
+          href: howto-conditional-access-policy-location.md
+        - name: 준수 디바이스 필요
+          href: howto-conditional-access-policy-compliant-device.md
     - name: 레거시 인증 차단
       href: block-legacy-authentication.md
     - name: MFA에 대한 조건부 액세스 등록

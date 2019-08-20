@@ -29,6 +29,8 @@
           items:
             - name: 앱 통합 시작
               href: plan-an-application-integration.md
+            - name: 액세스 패널 배포 계획
+              href: access-panel-deployment-plan.md
             - name: 개발자를 위한 지침
               href: developer-guidance-for-integrating-applications.md
         - name: SSO(Single sign-on)
@@ -342,7 +344,7 @@
           href: functions-for-customizing-application-data.md
     - name: 온-프레미스 앱에 대한 애플리케이션 프록시
       items:
-        - name: 응용 프로그램 프록시 버전 내역
+        - name: 애플리케이션 프록시 버전 내역
           href: application-proxy-release-version-history.md
 - name: 리소스
   items:

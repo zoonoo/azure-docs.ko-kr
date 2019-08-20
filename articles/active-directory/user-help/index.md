@@ -11,12 +11,12 @@ ms.topic: landing-page
 ms.date: 07/30/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a6908a26e1d513261094be28620c3c9a2d86b48
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: a065f275321d16b9eaf82a02cb7da45c15aa82cc
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68383103"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616327"
 ---
 # <a name="user-help-for-authentication-apps-and-device-management"></a>인증, 앱 및 디바이스 관리에 대한 사용자 도움말
 
@@ -92,8 +92,11 @@ ms.locfileid: "68383103"
                     <div class="cardText">
                         <h3>2단계 인증 도움말</h3>
                         <p>
-                        <a href="/azure/active-directory/user-help/multi-factor-authentication-end-user-first-time">2단계 인증 설정</a><br/>
+                        <a href="/azure/active-directory/user-help/multi-factor-authentication-setup-auth-app">인증자 앱 설정</a><br/>
+                        <a href="/azure/active-directory/user-help/multi-factor-authentication-setup-phone-number">모바일 디바이스 설정</a><br/>
+                        <a href="/azure/active-directory/user-help/multi-factor-authentication-setup-office-phone">사무실 전화 설정</a><br/>
                         <a href="/azure/active-directory/user-help/multi-factor-authentication-end-user-manage-settings">설정 관리</a><br/>
+                        <a href="/azure/active-directory/user-help/multi-factor-authentication-end-user-troubleshoot">일반적인 문제에 대한 도움말 보기</a><br/>
                         <a href="/azure/active-directory/user-help/user-help-sign-in">로그인 방법</a>
                         </p>
                     </div>
@@ -125,7 +128,7 @@ ms.locfileid: "68383103"
                     <div class="cardText">
                         <h3>내 디바이스 관리 도움말</h3>
                         <p>
-                        <a href="/azure/active-directory/user-help/user-help-join-device-on-network">작업 장치 조인</a><br/>
+                        <a href="/azure/active-directory/user-help/user-help-join-device-on-network">작업 디바이스 조인</a><br/>
                         <a href="/azure/active-directory/user-help/user-help-register-device-on-network">작업할 개인 디바이스 등록</a>
                         </p>
                     </div>
