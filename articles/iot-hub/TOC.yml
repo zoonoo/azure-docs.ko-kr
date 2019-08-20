@@ -108,7 +108,7 @@
       items:
         - name: 디바이스-클라우드 기능 가이드
           href: iot-hub-devguide-d2c-guidance.md
-        - name: 클라우드-장치 기능 가이드
+        - name: 클라우드-디바이스 기능 가이드
           href: iot-hub-devguide-c2d-guidance.md
         - name: 메시지 보내기 및 받기
           href: iot-hub-devguide-messaging.md
@@ -126,7 +126,7 @@
                   href: iot-hub-devguide-routing-query-syntax.md
             - name: IoT Hub 이벤트에 대응
               href: iot-hub-event-grid.md
-            - name: IoT Hub에서 클라우드-장치 메시지 보내기
+            - name: IoT Hub에서 클라우드-디바이스 메시지 보내기
               href: iot-hub-devguide-messages-c2d.md
             - name: 통신 프로토콜 선택
               href: iot-hub-devguide-protocols.md
@@ -208,7 +208,7 @@
           href: iot-hub-query-avro-data.md
         - name: Event Grid에서 디바이스 연결 상태 이벤트 정렬
           href: iot-hub-how-to-order-connection-state-events.md
-        - name: 클라우드-장치 메시지 보내기
+        - name: 클라우드-디바이스 메시지 보내기
           items:
             - name: .NET
               href: iot-hub-csharp-csharp-c2d.md
@@ -332,8 +332,6 @@
               href: iot-hub-raspberry-pi-kit-c-get-started.md
             - name: Arduino를 사용하는 MXChip IoT DevKit
               href: iot-hub-arduino-iot-devkit-az3166-get-started.md
-            - name: Arduino를 사용하는 Adafruit Feather HUZZAH ESP8266
-              href: iot-hub-arduino-huzzah-esp8266-get-started.md
         - name: MXChip IoT DevKit 사용
           items:
             - name: Azure Cognitive Services를 사용하여 음성 메시지 변환
@@ -442,7 +440,7 @@
       href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-python/'
     - name: iOS 플랫폼용 Azure IoT 샘플
       href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/'
-    - name: IoT용 Azure Certified 장치 카탈로그
+    - name: IoT용 Azure Certified 디바이스 카탈로그
       href: 'https://catalog.azureiotsolutions.com/'
     - name: Azure IoT 개발자 센터
       href: 'https://azure.microsoft.com/develop/iot/'

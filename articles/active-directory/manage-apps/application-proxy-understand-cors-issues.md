@@ -52,7 +52,7 @@ ms.locfileid: "68499617"
 
 ## <a name="cors-challenges-with-application-proxy"></a>응용 프로그램 프록시를 사용한 CORS 챌린지
 
-다음 예제에서는 일반적인 Azure AD 응용 프로그램 프록시 CORS 시나리오를 보여 줍니다. 내부 서버는 Corswebservice 웹 API 컨트롤러 및 Corswebservice를 호출 하는 **Corswebservice** 를 호스팅합니다.  **** **Corswebclient** 에서 **CORSWEBCLIENT**로의 AJAX 요청이 있습니다.
+다음 예제에서는 일반적인 Azure AD 응용 프로그램 프록시 CORS 시나리오를 보여 줍니다. 내부 서버는 **Corswebservice** 웹 API 컨트롤러 및 **Corswebservice** 를 호출 하는  **Corswebservice** 를 호스팅합니다. **Corswebclient** 에서 **CORSWEBCLIENT**로의 AJAX 요청이 있습니다.
 
 ![온-프레미스 동일한 원본 요청](./media/application-proxy-understand-cors-issues/image1.png)
 

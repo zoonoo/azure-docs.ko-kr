@@ -148,9 +148,6 @@
         - name: 데이터 세트 추가 및 등록
           displayName: 'data, dataset'
           href: how-to-create-register-datasets.md
-        - name: 데이터 탐색
-          displayName: 'data, eda, exploratory, analysis, etl, dataset, summary statistics, profile, explore, data preparation, dataprep'
-          href: how-to-explore-prepare-data.md
         - name: azureml.dataprep를 사용하여 준비
           items:
             - name: 데이터 로드

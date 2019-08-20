@@ -146,12 +146,12 @@
               href: /azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json
             - name: 클래식 배포
               href: ./move-limitations/classic-model-move-limitations.md
+            - name: 네트워킹
+              href: ./move-limitations/networking-move-limitations.md
             - name: Recovery Services
               href: ../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json
             - name: Virtual Machines
               href: ./move-limitations/virtual-machines-move-limitations.md
-            - name: Virtual Network
-              href: ./move-limitations/virtual-network-move-limitations.md
     - name: 태그들
       items:
         - name: 리소스 태그 지정

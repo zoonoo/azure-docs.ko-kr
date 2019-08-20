@@ -40,7 +40,7 @@ Azure Cosmos DB에 대 한 Advanced Threat Protection은 Azure Cosmos DB 계정�
 3.  **고급 보안** 구성 블레이드에서 다음을 수행 합니다.
 
     * **Advanced Threat Protection** 옵션을 클릭 하 여 **켜기**로 설정 합니다.
-    *  **** 저장 을 클릭 하 여 새로운 또는 업데이트 된 Advanced Threat Protection 정책을 저장 합니다.   
+    *  **저장** 을 클릭 하 여 새로운 또는 업데이트 된 Advanced Threat Protection 정책을 저장 합니다.   
 
 ### <a name="set-up-atp-using-rest-api"></a>REST API를 사용 하 여 ATP 설정
 

@@ -363,7 +363,7 @@ SELECT [TOP <max number>] <projection list>
 
 **Attribute_name**은 FROM 컬렉션에 있는 JSON 문서의 속성을 참조합니다. SELECT 절에 대한 일부 예제는 디바이스 쌍 쿼리 시작 섹션에서 확인할 수 있습니다.
 
-현재 **SELECT***와 다른 선택 절은 디바이스 쌍에 대한 집계 쿼리에서만 지원됩니다.
+현재 **SELECT** *와 다른 선택 절은 디바이스 쌍에 대한 집계 쿼리에서만 지원됩니다.
 
 ## <a name="group-by-clause"></a>GROUP BY 절
 

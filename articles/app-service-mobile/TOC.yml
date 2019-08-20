@@ -145,7 +145,7 @@
     - name: 확장
       items:
         - name: 앱 강화
-          href: ../app-service/web-sites-scale.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+          href: ../app-service/manage-scale-up.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
         - name: App Service 환경
           href: ../app-service/environment/intro.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
           items:

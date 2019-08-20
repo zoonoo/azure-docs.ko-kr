@@ -216,9 +216,6 @@
         - name: VM에서 변경 내용 문제 해결
           href: automation-tutorial-troubleshoot-changes.md
           displayName: inventory
-        - name: 인벤토리 컬렉션을 사용하여 VM 관리
-          href: automation-vm-inventory.md
-          displayName: inventory
     - name: 문제 해결
       items:
         - name: 온보딩

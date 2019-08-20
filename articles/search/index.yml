@@ -7,9 +7,8 @@ metadata:
   description: 'Azure Search를 사용하여 프라이빗, 이기종 콘텐츠에 대한 엔터프라이즈 검색 솔루션을 만드는 방법을 알아봅니다. 자습서, API 참조 및 기타 문서에서는 검색 가능한 콘텐츠를 광범위한 시나리오에서 단순 및 고급 구문을 통해 쿼리 가능한 단일 고속 인덱스로 통합하는 방법을 보여 줍니다.'
   services: search
   author: HeidiSteen
-  manager: cgronlun
+  manager: nitinme
   ms.service: search
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 08/12/2019
   ms.author: heidist

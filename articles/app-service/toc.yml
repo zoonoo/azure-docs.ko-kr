@@ -170,7 +170,7 @@
     - name: 앱 크기 조정
       items:
         - name: 서버 용량 강화
-          href: web-sites-scale.md
+          href: manage-scale-up.md
         - name: PremiumV2 계층 구성
           href: app-service-configure-premium-tier.md
         - name: 여러 인스턴스로 규모 확장

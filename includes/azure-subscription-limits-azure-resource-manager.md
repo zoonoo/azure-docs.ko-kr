@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/22/2019
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: 4d13779317793b5edd971dd457a77e0bc5cae1c8
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: f85605610727ef2c1e1987b7ef93a41ce2417a25
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68426922"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69626369"
 ---
 | 리소스 | 기본 제한 | 최대 제한 |
 | --- | --- | --- |
@@ -21,7 +21,7 @@ ms.locfileid: "68426922"
 | [구독](../articles/billing-buy-sign-up-azure-subscription.md)당 VM 총 코어 수 |지역 당 20<sup>개의 1</sup> | 지원에 문의 |
 | Dv2 및 F와 같은 시리즈 당 VM, [구독](../articles/billing-buy-sign-up-azure-subscription.md) 당 코어 수 |지역 당 20<sup>개의 1</sup> | 지원에 문의 |
 | 구독 당 [공동 관리자](../articles/billing-add-change-azure-subscription-administrator.md) |무제한. |무제한. |
-| 구독당 하위 지역별 [저장소 계정](../articles/storage/common/storage-quickstart-create-account.md) |250 |250 |
+| 구독당 하위 지역별 [스토리지 계정](../articles/storage/common/storage-quickstart-create-account.md) |250 |250 |
 | 구독 당 [리소스 그룹](../articles/azure-resource-manager/resource-group-overview.md) |980 |980 |
 | 구독 당 [가용성 집합](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) |2000 지역입니다. |2000 지역입니다. |
 | Azure Resource Manager API 요청 크기 |4194304 바이트 |4194304 바이트 |
@@ -33,7 +33,7 @@ ms.locfileid: "68426922"
 
 <sup>1</sup> 기본 제한은 무료 평가판, 종 량 제 및 Dv2, F, G 등의 시리즈와 같은 제품 범주 유형에 따라 달라 집니다. 예를 들어 기업계약 구독의 기본값은 350입니다.
 
-<sup>2</sup> 구독 당 개수에 제한 없이 태그를 적용할 수 있습니다. 리소스당 또는 리소스 그룹당 태그 수는 15개로 제한됩니다. 리소스 관리자은 태그 수가 1만 이하인 경우에만 구독의 [고유 태그 이름 및 값 목록을](/rest/api/resources/tags) 반환 합니다. 숫자가 1만를 초과 하는 경우에도 태그를 기준으로 리소스를 찾을 수 있습니다.  
+<sup>2</sup> 구독 당 개수에 제한 없이 태그를 적용할 수 있습니다. 리소스 또는 리소스 그룹당 태그 수는 50 개로 제한 됩니다. 리소스 관리자은 태그 수가 1만 이하인 경우에만 구독의 [고유 태그 이름 및 값 목록을](/rest/api/resources/tags) 반환 합니다. 숫자가 1만를 초과 하는 경우에도 태그를 기준으로 리소스를 찾을 수 있습니다.  
 
 <sup>3</sup> 이러한 기능은 Azure 리소스 그룹 및 리소스 관리자에 더 이상 필요 하지 않습니다.
 

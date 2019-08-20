@@ -12,6 +12,18 @@
 - name: 빠른 시작
   expanded: true
   items:
+    - name: 클라이언트
+      items:
+        - name: 'C#'
+          href: quickstarts/csharp.md
+        - name: Python
+          href: quickstarts/python-sdk.md
+        - name: Go
+          href: quickstarts/go-sdk.md
+        - name: Ruby
+          href: quickstarts/ruby-sdk.md
+        - name: Node.js
+          href: quickstarts/nodejs-sdk.md
     - name: REST API
       items:
         - name: Go
@@ -26,18 +38,6 @@
           href: quickstarts/python.md
         - name: Ruby
           href: quickstarts/ruby.md
-    - name: 클라이언트
-      items:
-        - name: 'C#'
-          href: quickstarts/csharp.md
-        - name: Python
-          href: quickstarts/python-sdk.md
-        - name: Go
-          href: quickstarts/go-sdk.md
-        - name: Ruby
-          href: quickstarts/ruby-sdk.md
-        - name: Node.js
-          href: quickstarts/nodejs-sdk.md
 - name: 자습서
   items:
     - name: Power BI를 통합하여 고객 피드백 분석
