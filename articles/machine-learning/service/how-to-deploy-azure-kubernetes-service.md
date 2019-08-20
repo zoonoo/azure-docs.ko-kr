@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2019
-ms.openlocfilehash: bc9d3f6b461412f0e28cba3cb86d288085ffe500
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 490085da1e8f6b8e151168433836d59329887c6e
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543582"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69623955"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Azure Kubernetes Service 클러스터에 모델 배포
 
@@ -59,6 +59,9 @@ Azure Kubernetes Service에 배포 하는 경우 __작업 영역에 연결__된 
 **예상 시간**: 약 20분입니다.
 
 작업 영역에 대 한 일회성 프로세스는 AKS 클러스터를 만들거나 연결 하는 것입니다. 이 클러스터를 여러 배포에 재사용할 수 있습니다. 클러스터 또는 클러스터를 포함 하는 리소스 그룹을 삭제 하는 경우 다음에를 배포 해야 할 때 새 클러스터를 만들어야 합니다. 여러 AKS 클러스터를 작업 영역에 연결할 수 있습니다.
+
+> [!TIP]
+> Azure Virtual Network를 사용 하 여 AKS 클러스터를 보호 하려면 먼저 가상 네트워크를 만들어야 합니다. 자세한 내용은 [Azure Virtual Network를 사용 하 여 보안 실험 및 유추](how-to-enable-virtual-network.md#aksvnet)를 참조 하세요.
 
 프로덕션 대신 __개발__, __유효성 검사__및 __테스트__ 를 위해 AKS 클러스터를 만들려는 경우 개발 __테스트__에 대 한 __클러스터 목적__ 을 지정할 수 있습니다.
 
@@ -115,6 +118,8 @@ Azure 구독에 AKS 클러스터가 이미 있고 버전 1.12. # # 인 경우 �
 
 > [!TIP]
 > 기존 AKS 클러스터는 Azure Machine Learning 서비스 작업 영역 보다 Azure 지역에 있을 수 있습니다.
+>
+> Azure Virtual Network를 사용 하 여 AKS 클러스터를 보호 하려면 먼저 가상 네트워크를 만들어야 합니다. 자세한 내용은 [Azure Virtual Network를 사용 하 여 보안 실험 및 유추](how-to-enable-virtual-network.md#aksvnet)를 참조 하세요.
 
 > [!WARNING]
 > AKS 클러스터를 작업 영역에 연결 하는 경우 매개 변수를 `cluster_purpose` 설정 하 여 클러스터를 사용 하는 방법을 정의할 수 있습니다.
@@ -272,6 +277,7 @@ print(token)
 
 ## <a name="next-steps"></a>다음 단계
 
+* [가상 네트워크의 보안 실험 및 유추](how-to-enable-virtual-network.md)
 * [사용자 지정 Docker 이미지를 사용 하 여 모델을 배포 하는 방법](how-to-deploy-custom-docker-image.md)
 * [배포 문제 해결](how-to-troubleshoot-deployment.md)
 * [SSL을 사용하여 Azure Machine Learning 웹 서비스 보호](how-to-secure-web-service.md)

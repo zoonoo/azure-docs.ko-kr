@@ -8,14 +8,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: atsenthi
-ms.openlocfilehash: b6e1108ffee13f1583d920947404963a69616788
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 1facd85563a54de2b703bbc8c192976db92c30f7
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68958422"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624897"
 ---
-# <a name="granting-a-service-fabric-applications-managed-identity-access-to-azure-resources"></a>Azure 리소스에 대 한 Service Fabric 응용 프로그램의 관리 되는 id 액세스 권한 부여
+# <a name="granting-a-service-fabric-applications-managed-identity-access-to-azure-resources-preview"></a>Azure 리소스에 대 한 Service Fabric 응용 프로그램의 관리 되는 id 액세스 권한 부여 (미리 보기)
 
 응용 프로그램에서 관리 되는 id를 사용 하 여 다른 리소스에 액세스 하려면 액세스 하는 보호 된 Azure 리소스에서 해당 id에 대 한 권한을 부여 해야 합니다. 사용 권한을 부여 하는 작업은 일반적으로 해당 하는 역할 기반 액세스 검사를 적용 하는 Azure Resource Manager를 통해 라우팅되는 보호 된 리소스를 소유 하는 Azure 서비스의 ' 제어 평면 ' 관리 작업입니다.
 

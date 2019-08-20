@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: 4883e5a8b0354dba726f4a7c58872bc8cba6c542
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
-ms.translationtype: HT
+ms.openlocfilehash: d4774dcc96e5f7639ca0b03bca992c9a3126230b
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575773"
+ms.locfileid: "69623889"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>HDInsight 클러스터에 대한 로그 관리
 
@@ -97,7 +97,7 @@ HDInsight [스크립트 동작](hdinsight-hadoop-customize-cluster-linux.md)은 
 
 ### <a name="access-the-hadoop-log-files"></a>Hadoop 로그 파일에 액세스
 
-HDInsight는 로그 파일을 클러스터 파일 시스템과 Azure Storage에 모두 저장합니다. 클러스터에 대 한 [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) 연결을 열고 파일 시스템을 검색 하거나 원격 헤드 노드 서버에서 Hadoop YARN 상태 포털을 사용 하 여 클러스터의 로그 파일을 검사할 수 있습니다. Azure Storage에서 데이터에 액세스 및 다운로드할 수 있는 도구 중 하나를 사용하여 Azure Storage에 있는 로그 파일을 검사할 수 있습니다. 예는 [AzCopy](../storage/common/storage-use-azcopy.md), [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer)및 Visual Studio 서버 탐색기입니다. PowerShell 및 Azure Storage 클라이언트 라이브러리를 사용하거나 Azure .NET SDK를 사용하여 Azure Blob Storage의 데이터에 액세스할 수 있습니다.
+HDInsight는 로그 파일을 클러스터 파일 시스템과 Azure Storage에 모두 저장합니다. 클러스터에 대 한 [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) 연결을 열고 파일 시스템을 검색 하거나 원격 헤드 노드 서버에서 Hadoop YARN 상태 포털을 사용 하 여 클러스터의 로그 파일을 검사할 수 있습니다. Azure Storage에서 데이터에 액세스 및 다운로드할 수 있는 도구 중 하나를 사용하여 Azure Storage에 있는 로그 파일을 검사할 수 있습니다. 예는 [AzCopy](../storage/common/storage-use-azcopy.md), [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer)및 Visual Studio 서버 탐색기입니다. PowerShell 및 Azure Storage 클라이언트 라이브러리를 사용하거나 Azure .NET SDK를 사용하여 Azure Blob Storage의 데이터에 액세스할 수 있습니다.
 
 Hadoop은 클러스터의 다양한 노드에서 작업을 *작업 시도*로 실행합니다. HDInsight는 추측성 작업 시도를 시작한 후 완료되지 않는 다른 작업 시도를 먼저 종료할 수 있습니다. 이로 인해 컨트롤러, stderr 및 syslog 로그 파일에 즉시 기록되는 활동이 상당히 많이 생성됩니다. 뿐만 아니라 여러 작업 시도가 동시에 실행되지만 로그 파일은 결과를 선형적으로만 표시할 수 있습니다.
 

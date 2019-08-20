@@ -4,14 +4,14 @@ description: Azure Resource Manager를 사용하여 리소스를 새 리소스 �
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 08/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: 53482fdd760517967c9a4a976b43b64ba745c637
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 114e0d8e935aa8e6ac3f70a34a8050b19758fb42
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69542970"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624550"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>새 리소스 그룹 또는 구독으로 리소스 이동
 
@@ -32,9 +32,11 @@ ms.locfileid: "69542970"
    * [App Services 이동 지침](./move-limitations/app-service-move-limitations.md)
    * [Azure DevOps Services 이동 지침](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)
    * [클래식 배포 모델 이동 지침](./move-limitations/classic-model-move-limitations.md) -클래식 계산, 클래식 저장소, 클래식 가상 네트워크 및 Cloud Services
+   * [네트워킹 이동 지침](./move-limitations/networking-move-limitations.md)
    * [Recovery Services 이동 지침](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
    * [Virtual Machines 이동 지침](./move-limitations/virtual-machines-move-limitations.md)
-   * [가상 네트워크 이동 지침](./move-limitations/virtual-network-move-limitations.md)
+
+   대상 리소스 그룹에 가상 네트워크가 포함 된 경우 해당 리소스가 이동에 관여 하지 않더라도 종속 리소스의 상태는 이동을 차단할 수 있습니다. 자세한 내용은 [네트워킹 이동 지침](./move-limitations/virtual-network-move-limitations.md)을 참조 하세요.
 
 1. 원본 및 대상 구독이 활성 상태여야 합니다. 사용하지 않도록 설정된 계정을 사용하도록 설정하는 과정에서 문제가 발생하면 [Azure 지원 요청을 작성](../azure-supportability/how-to-create-azure-support-request.md)하세요. 문제 유형으로 **구독 관리**를 선택합니다.
 
@@ -97,10 +99,11 @@ ms.locfileid: "69542970"
 1. **구독 간 이동의 경우 리소스와 해당 종속 리소스는 동일한 리소스 그룹에 위치 해야 하며 함께 이동 해야 합니다.** 예를 들어 관리 디스크가 있는 VM은 다른 종속 리소스와 함께 VM 및 관리 디스크를 함께 이동 해야 합니다.
 
    리소스를 새 구독으로 이동 하는 경우 리소스에 종속 리소스가 있는지와 동일한 리소스 그룹에 있는지 여부를 확인 합니다. 리소스가 동일한 리소스 그룹에 없는 경우 리소스를 동일한 리소스 그룹으로 통합할 수 있는지 확인 합니다. 그렇다면 리소스 그룹 간에 이동 작업을 사용 하 여 이러한 모든 리소스를 동일한 리소스 그룹으로 가져옵니다.
-    
-자세한 내용은 [구독 간 이동 시나리오](#scenario-for-move-across-subscriptions)를 참조 하십시오.
+
+   자세한 내용은 [구독 간 이동 시나리오](#scenario-for-move-across-subscriptions)를 참조 하십시오.
 
 ## <a name="scenario-for-move-across-subscriptions"></a>구독 간 이동 시나리오
+
 한 구독에서 다른 구독으로 리소스를 이동 하는 과정은 다음 3 단계로 진행 됩니다.
 
 ![구독 간 이동 시나리오](./media/resource-group-move-resources/cross-subscription-move-scenario.png)

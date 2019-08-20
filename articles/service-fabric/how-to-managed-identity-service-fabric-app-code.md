@@ -8,14 +8,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 7/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: 528e1b0a353cdcd716f9bca63c423af7a6f12641
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: d5593da4f874688fa099827e418b12e41363f4bd
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68958240"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624884"
 ---
-# <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services"></a>Service Fabric 응용 프로그램의 관리 되는 id를 활용 하 여 Azure 서비스에 액세스 하는 방법
+# <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services-preview"></a>Service Fabric 응용 프로그램의 관리 되는 id를 활용 하 여 Azure 서비스에 액세스 하는 방법 (미리 보기)
 
 Service Fabric 응용 프로그램은 관리 되는 id를 활용 하 여 Azure Active Directory 기반 인증을 지 원하는 다른 Azure 리소스에 액세스할 수 있습니다. 응용 프로그램은 시스템 할당 또는 사용자 할당 일 수 있는 id를 나타내는 [액세스 토큰](../active-directory/develop/developer-glossary.md#access-token) 을 가져올 수 있으며,이 토큰을 ' 전달자 ' 토큰으로 사용 하 여 다른 서비스 ( [보호 된 리소스 서버](../active-directory/develop/developer-glossary.md#resource-server)라고도 함)에 인증할 수 있습니다. 토큰은 Service Fabric 응용 프로그램에 할당 된 id를 나타내며, 해당 id를 공유 하는 Azure 리소스 (SF 응용 프로그램 포함)에만 발급 됩니다. 관리 되는 id에 대 한 자세한 설명 및 시스템 할당 id와 사용자 할당 id를 구분 하는 방법은 [관리 id 개요](../active-directory/managed-identities-azure-resources/overview.md) 설명서를 참조 하세요. 이 문서 전체에서 관리 되는 id 사용 Service Fabric 응용 프로그램을 [클라이언트 응용 프로그램](../active-directory/develop/developer-glossary.md#client-application) 으로 참조 합니다.
 

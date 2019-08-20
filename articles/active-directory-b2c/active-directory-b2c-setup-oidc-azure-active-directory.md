@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 46755cb8d0383d166b10d50854eb476b676a6ee4
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 477b4e51c49a558aed0e5623a3821fa9b8d9eabd
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69509734"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69622357"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 특정 Azure Active Directory 조직에 대한 로그인 설정
 
@@ -26,7 +26,7 @@ Azure AD B2C에서 Azure AD(Azure Active Directory)를 [ID 공급자](active-dir
 특정 Azure AD 조직의 사용자에 대한 로그인을 사용하도록 설정하려면 Azure AD B2C 테넌트와 동일하지 않은 조직의 Azure AD 테넌트 내에 애플리케이션을 등록해야 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. Azure AD 테 넌 트를 포함 하는 디렉터리를 사용 하 고 있는지 확인 합니다. 상단 메뉴에서 **디렉터리 및 구독 필터** 를 선택 하 고 Azure AD 테 넌 트가 포함 된 디렉터리를 선택 합니다. Azure AD B2C 테 넌 트와 같은 테 넌 트가 아닙니다.
+2. Azure AD 테 넌 트를 포함 하는 디렉터리를 사용 하 고 있는지 확인 합니다. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택 하 고 Azure AD 테 넌 트가 포함 된 디렉터리를 선택 합니다. Azure AD B2C 테 넌 트와 같은 테 넌 트가 아닙니다.
 3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택한 다음, **앱 등록**을 검색하여 선택합니다.
 4. **새 등록**을 선택합니다.
 5. 애플리케이션의 이름을 입력합니다. `Azure AD B2C App` )을 입력합니다.
@@ -47,27 +47,28 @@ Azure AD B2C에서 Azure AD(Azure Active Directory)를 [ID 공급자](active-dir
 
 ## <a name="configure-azure-ad-as-an-identity-provider"></a>테넌트에서 Azure AD를 ID 공급자로 구성
 
-1. Azure AD B2C 테 넌 트가 포함 된 디렉터리를 사용 하 고 있는지 확인 합니다. 상단 메뉴에서 **디렉터리 및 구독 필터** 를 선택 하 고 Azure AD B2C 테 넌 트를 포함 하는 디렉터리를 선택 합니다.
-2. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
-3. **ID 공급자**를 선택한 다음, **추가**를 선택합니다.
-4. **이름**을 입력합니다. 예를 들어 `Contoso Azure AD`을 입력합니다.
-5. **Id 공급자 유형**을 선택 하 고 **openid connect Connect**를 선택한 다음 **확인**을 클릭 합니다.
-6. **이 id 공급자 설정** 선택
-7. **메타데이터 URL**에 대해 다음 URL을 입력합니다. 여기서 `your-AD-tenant-domain`는 Azure AD 테넌트의 도메인 이름으로 대체됩니다. 예 `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`:
+1. Azure AD B2C 테 넌 트가 포함 된 디렉터리를 사용 하 고 있는지 확인 합니다. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택 하 고 Azure AD B2C 테 넌 트를 포함 하는 디렉터리를 선택 합니다.
+1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
+1. **Id 공급자**를 선택한 다음 **New openid connect Connect 공급자**를 선택 합니다.
+1. **이름**을 입력합니다. 예를 들어 *Contoso Azure AD*를 입력합니다.
+1. **메타 데이터 url**에 다음 url을 입력 하 `your-AD-tenant-domain` 여 Azure AD 테 넌 트의 도메인 이름으로 바꿉니다.
 
     ```
     https://login.microsoftonline.com/your-AD-tenant-domain/.well-known/openid-configuration
     ```
 
-8. **클라이언트 id**에 대해 이전에 기록한 응용 프로그램 ID를 입력 하 고 **클라이언트 암호**에 이전에 기록한 클라이언트 암호를 입력 합니다.
-9. 선택적으로 **Domain_hint**의 값을 입력합니다. `ContosoAD` )을 입력합니다. 이 값은 요청에서 *domain_hint*를 사용하여 이 ID 공급자를 참조할 때 사용할 값입니다.
-10. **확인**을 클릭합니다.
-11. **이 ID 공급자의 클레임을 매핑**하고 다음 클레임을 설정하세요.
+    `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration` )을 입력합니다.
 
-    - **사용자 ID**에 `oid`를 입력합니다.
-    - **표시 이름**에 `name`을 입력합니다.
-    - **이름**에 `given_name`을 입력합니다.
-    - **성**에 `family_name`을 입력합니다.
-    - **메일**에 대해 `unique_name`을 입력합니다.
+1. **클라이언트 id**에 대해 이전에 기록한 응용 프로그램 id를 입력 합니다.
+1. **클라이언트 암호**에 대해 이전에 기록한 클라이언트 암호를 입력 합니다.
+1. **범위**, **응답 유형**및 **응답 모드**에 대 한 기본값을 그대로 둡니다.
+1. 필드 **Domain_hint**에 대 한 값을 입력 합니다. 예를 들면 *ContosoAD*입니다. 이 값은 요청에서 *domain_hint*를 사용하여 이 ID 공급자를 참조할 때 사용할 값입니다.
+1. **Id 공급자 클레임 매핑**아래에서 다음 클레임 매핑 값을 입력 합니다.
 
-12. **확인**을 클릭한 다음, **만들기**를 클릭하여 구성을 저장합니다.
+    * **사용자 ID**: *oid*
+    * **표시 이름**: *이름*
+    * **지정 된 이름**: *given_name*
+    * **성**: *family_name*
+    * **전자 메일**: *unique_name*
+
+1. **저장**을 선택합니다.

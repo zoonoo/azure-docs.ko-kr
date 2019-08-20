@@ -1,26 +1,33 @@
 ---
-title: Azure 디지털 쌍에 대 한 레거시 AAD 앱 등록을 사용 하 여 | Microsoft Docs
-description: 이 문서에서는 Azure 디지털 쌍 설정에 대 한 Azure Active Directory를 사용 하 여 앱 등록 만들기의 레거시 메서드를 사용 하는 방법을 보여 줍니다.
+title: Azure Digital Twins에 레거시 AAD 앱 등록 사용 | Microsoft Docs
+description: 이 문서에서는 Azure Digital Twins 설정에 대해 Azure Active Directory를 사용 하 여 앱 등록을 만드는 레거시 방법을 사용 하는 방법을 보여 줍니다.
 author: alinamstanciu
 manager: philmea
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 08/16/2019
 ms.author: alinast
-ms.openlocfilehash: ed6c540cedd21bb5154f8746050d5eaa9444b818
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: e9689c71c881c7f5f29ac05fea53bb2c27f75591
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67484718"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624748"
 ---
-# <a name="register-your-azure-digital-twins-app-with-azure-active-directory-legacy"></a>기존 Azure Active Directory를 사용 하 여 Azure 디지털 쌍 앱 등록
+# <a name="register-your-azure-digital-twins-app-with-azure-active-directory-legacy"></a>Azure Active Directory 레거시를 사용 하 여 Azure Digital Twins 앱 등록
 
-이 기사에서는 디지털 쌍 인스턴스에 액세스할 수 있도록 Azure Active Directory (Azure AD)에 샘플 응용 프로그램을 등록 하려면 이전 또는 레거시 방식으로 사용할 수 있습니다. 새 Azure의 경우이 메서드를 시도 하려는 AD 앱 등록 설정이 작동 하지 않습니다.
+이 문서에서는 사용 되지 않는 **앱 등록 (레거시)** 블레이드를 사용 하 여 샘플 응용 프로그램을 등록 하는 방법을 설명 합니다.
+
+> [!IMPORTANT]
+> * 2019년 5월에 새 **Azure Active Directory** > **앱 등록** 블레이드가 레거시 **Azure Active Directory** > **앱 등록(레거시)** 블레이드를 대체합니다.
+> * 레거시 블레이드에 생성되거나 표시된 앱 등록은 자동으로 새 블레이드에 나타납니다.
+> * 새 Azure 앱 등록 환경으로 마이그레이션하는 방법에 대한 전체 정보는 [Azure 앱 등록 학습 가이드](https://docs.microsoft.com/azure/active-directory/develop/app-registrations-training-guide) 및 [Azure Active Directory 빠른 시작](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app)을 참조하세요.
 
 [!INCLUDE [Digital Twins legacy AAD](../../includes/digital-twins-permissions-legacy.md)]
 
 ## <a name="next-steps"></a>다음 단계
 
-앱을 AAD에 등록 되 면 디지털 쌍 인스턴스와 도움말 시나리오에서 진행 한 다음 연결할 수 있습니다. 참조를 [퀵 스타트](quickstart-view-occupancy-dotnet.md#build-application) 또는 [자습서](tutorial-facilities-setup.md#configure-the-digital-twins-sample) 다음 단계에 대 한 자세한 내용은 합니다. 
+[빠른](quickstart-view-occupancy-dotnet.md#build-application) 시작 또는 [자습서](tutorial-facilities-setup.md#configure-the-digital-twins-sample)를 계속 합니다.
+
+[새 **앱 등록** 블레이드를 사용 하 여 앱을 등록 하는 방법을](tutorial-facilities-setup.md#grant-permissions-to-your-app)알아봅니다.

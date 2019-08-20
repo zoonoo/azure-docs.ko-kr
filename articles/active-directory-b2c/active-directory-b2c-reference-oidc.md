@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/16/2019
+ms.date: 08/20/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f6188f5c5bdd256ee84c5e7dc8632e5c067ceca5
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 36efdb7db57d3acfa7384d904e9be8faad4c6534
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69541728"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69622066"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 OpenID Connect로 웹 로그인
 
@@ -32,11 +32,10 @@ Azure AD B2C는 단순한 인증 및 권한 부여 보다 더 많은 작업으�
 
 웹 응용 프로그램이 사용자를 인증 하 고 사용자 흐름을 실행 해야 하는 경우 사용자를 `/authorize` 끝점으로 보낼 수 있습니다. 사용자가 사용자 흐름에 따라 동작을 수행 합니다.
 
-이 요청에서 클라이언트는 매개 변수에서 `scope` 사용자 로부터 획득 해야 하는 사용 권한과 `p` 매개 변수에서 실행할 사용자 흐름이 표시 됩니다. 각각 서로 다른 사용자 흐름을 사용하는 세 가지 예제가 다음 섹션에서 제공됩니다(쉽게 읽을 수 있도록 줄 바꿈 적용). 각 요청의 작동 방식에 대해 이해하려면 요청을 브라우저에 붙여 넣고 실행합니다. 가 있고 사용자 `fabrikamb2c` 흐름을 만든 테 넌 트의 이름으로 바꿀 수 있습니다. 또한을 (를) 대체 `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6`해야 합니다. 이 클라이언트 ID를 만든 응용 프로그램 등록의 앱 ID로 바꿉니다. 또한 테 넌 트에 `b2c_1_sign_in` 있는 정책 이름으로 정책 이름을 변경 합니다.
+이 요청에서 클라이언트는 `scope` 매개 변수에서 사용자 로부터 획득 해야 하는 권한을 표시 하 고 실행할 사용자 흐름을 지정 합니다. 각각 서로 다른 사용자 흐름을 사용하는 세 가지 예제가 다음 섹션에서 제공됩니다(쉽게 읽을 수 있도록 줄 바꿈 적용). 각 요청의 작동 방식에 대해 이해하려면 요청을 브라우저에 붙여 넣고 실행합니다. 가 있고 사용자 `fabrikamb2c` 흐름을 만든 테 넌 트의 이름으로 바꿀 수 있습니다. 또한을 (를) 대체 `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6`해야 합니다. 이 클라이언트 ID를 만든 응용 프로그램 등록의 앱 ID로 바꿉니다. 또한 정책 이름 ()을`{policy}`테 넌 트에 있는 정책 이름 (예: `b2c_1_sign_in`)으로 변경 합니다.
 
-#### <a name="use-a-sign-in-user-flow"></a>로그인 사용자 흐름 사용
-```
-GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
+```HTTP
+GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=code+id_token
 &redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
@@ -44,40 +43,14 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &scope=openid%20offline_access
 &state=arbitrary_data_you_can_receive_in_the_response
 &nonce=12345
-&p=b2c_1_sign_in
-```
-
-#### <a name="use-a-sign-up-user-flow"></a>가입 사용자 흐름 사용
-```
-GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
-client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
-&response_type=code+id_token
-&redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
-&response_mode=form_post
-&scope=openid%20offline_access
-&state=arbitrary_data_you_can_receive_in_the_response
-&nonce=12345
-&p=b2c_1_sign_up
-```
-
-#### <a name="use-an-edit-profile-user-flow"></a>프로필 편집 사용자 흐름 사용
-```
-GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
-client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
-&response_type=code+id_token
-&redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
-&response_mode=form_post
-&scope=openid%20offline_access
-&state=arbitrary_data_you_can_receive_in_the_response
-&nonce=12345
-&p=b2c_1_edit_profile
 ```
 
 | 매개 변수 | 필수 | 설명 |
 | --------- | -------- | ----------- |
+| 넌 | 예 | Azure AD B2C 테 넌 트의 이름 |
+| policy | 예 | 실행 되는 사용자 흐름입니다. Azure AD B2C 테 넌 트에서 생성 된 사용자 흐름의 이름입니다. 사용자 흐름의 이름은으로 `b2c_1_`시작 해야 합니다. 예를 들면 `b2c_1_sign_in`, `b2c_1_sign_up`또는 `b2c_1_edit_profile`입니다. |
 | client_id | 예 | [Azure Portal](https://portal.azure.com/) 응용 프로그램에 할당 된 응용 프로그램 ID입니다. |
 | nonce | 예 | 응용 프로그램에 의해 생성 된 요청에 포함 된 값으로, 결과 ID 토큰에 클레임으로 포함 됩니다. 그러면 응용 프로그램에서이 값을 확인 하 여 토큰 재생 공격을 완화할 수 있습니다. 값은 일반적으로 요청의 출처를 식별하는 데 사용할 수 있는 임의의 고유 문자열입니다. |
-| p | 예 | 실행 되는 사용자 흐름입니다. Azure AD B2C 테 넌 트에서 생성 된 사용자 흐름의 이름입니다. 사용자 흐름의 이름은으로 `b2c\_1\_`시작 해야 합니다. |
 | response_type | 예 | Openid connect Connect에 대 한 ID 토큰을 포함 해야 합니다. 웹 응용 프로그램에 웹 API를 호출 하는 데 필요한 토큰만 있으면를 사용할 `code+id_token`수 있습니다. |
 | 범위 | 예 | 공백으로 구분된 범위 목록입니다. `openid` 범위는 사용자에게 로그인하고 ID 토큰 형식으로 사용자에 대한 데이터를 가져올 권한을 나타냅니다. 범위 `offline_access` 는 웹 응용 프로그램에 대 한 선택 사항입니다. 응용 프로그램에 리소스에 대 한 확장 액세스를 위한 *새로 고침 토큰이* 필요 함을 나타냅니다. |
 | prompt | 아니요 | 필요한 사용자 상호 작용의 형식입니다. 현재 유효한 값은 `login`뿐이며, 이는 사용자가 해당 요청에 대한 자격 증명을 입력하도록 합니다. |
@@ -91,7 +64,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 `response_mode=fragment` 를 사용한 성공적인 응답은 다음과 같습니다.
 
-```
+```HTTP
 GET https://aadb2cplayground.azurewebsites.net/#
 id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 &code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
@@ -106,7 +79,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 
 응용 프로그램에서 적절 하 게 처리할 수 `redirect_uri` 있도록 오류 응답을 매개 변수로 보낼 수도 있습니다.
 
-```
+```HTTP
 GET https://aadb2cplayground.azurewebsites.net/#
 error=access_denied
 &error_description=the+user+canceled+the+authentication
@@ -125,11 +98,15 @@ ID 토큰을 받는 것만으로는 사용자를 인증할 수 없습니다. ID 
 
 Azure AD B2C에는 응용 프로그램이 런타임에 Azure AD B2C에 대 한 정보를 가져올 수 있도록 하는 Openid connect Connect 메타 데이터 끝점이 있습니다. 이 정보에는 엔드포인트, 토큰 콘텐츠 및 토큰 서명 키가 포함됩니다. B2C 테넌트에서 각 사용자 흐름에 대한 JSON 메타데이터 문서가 있습니다. 예를 들어 `fabrikamb2c.onmicrosoft.com`의 `b2c_1_sign_in` 사용자 흐름에 대한 메타데이터 문서는 다음 위치에 있습니다.
 
-`https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in`
+```HTTP
+https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_sign_in/v2.0/.well-known/openid-configuration
+```
 
 이 구성 문서의 속성 중 하나가 `jwks_uri`이며, 동일한 사용자 흐름에 대한 값은 다음과 같습니다.
 
-`https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in`.
+```HTTP
+https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_sign_in/discovery/v2.0/keys
+```
 
 ID 토큰을 서명 하는 데 사용 된 사용자 흐름과 메타 데이터를 가져올 위치를 확인 하려면 두 가지 옵션을 사용할 수 있습니다. 먼저 사용자 흐름 이름이 ID 토큰의 `acr` 클레임에 포함됩니다. 다른 옵션은 요청을 실행할 때 `state` 매개 변수의 값에 사용자 흐름을 인코딩한 다음 이를 디코딩하여 어떤 사용자 흐름을 사용할지 결정하는 것입니다. 두 방법 중 하나는 유효합니다.
 
@@ -159,9 +136,9 @@ ID 토큰의 유효성을 검사 한 후 사용자와 세션을 시작할 수 �
 
 앱의 클라이언트 ID를 요청 된 범위로 사용 하는 규칙에 따라 앱 자체 백 엔드 웹 API에 대 한 액세스 토큰을 요청할 수도 있습니다 (해당 클라이언트 ID가 "대상"으로 지정 된 액세스 토큰을 생성 함).
 
-```
-POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1
-Host: https://fabrikamb2c.b2clogin.com
+```HTTP
+POST {tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/token HTTP/1.1
+Host: {tenant}.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob&client_secret=<your-application-secret>
@@ -169,17 +146,18 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 
 | 매개 변수 | 필수 | Description |
 | --------- | -------- | ----------- |
+| 넌 | 예 | Azure AD B2C 테 넌 트의 이름 |
+| policy | 예 | 권한 부여 코드를 획득하는 데 사용된 사용자 흐름입니다. 이 요청에서는 다른 사용자 흐름을 사용할 수 없습니다. 이 매개 변수를 POST 본문이 아니라 쿼리 문자열에 추가 합니다. |
 | client_id | 예 | [Azure Portal](https://portal.azure.com/) 응용 프로그램에 할당 된 응용 프로그램 ID입니다. |
 | client_secret | 예 | [Azure Portal](https://portal.azure.com/)에서 생성 된 응용 프로그램 암호입니다. 이 애플리케이션 암호는 중요한 보안 아티팩트입니다. 서버에 안전하게 저장해야 합니다. 정기적으로이 클라이언트 암호를 변경 합니다. |
 | code | 예 | 사용자 흐름의 시작 부분에서 얻은 인증 코드입니다. |
 | grant_type | 예 | 권한 유형입니다. 인증 코드 흐름의 경우 `authorization_code`이어야 합니다. |
-| p | 예 | 권한 부여 코드를 획득하는 데 사용된 사용자 흐름입니다. 이 요청에서는 다른 사용자 흐름을 사용할 수 없습니다. 이 매개 변수를 POST 본문이 아니라 쿼리 문자열에 추가 합니다. |
 | redirect_uri | 예 | 권한 부여 코드를 받은 애플리케이션의 `redirect_uri` 매개 변수입니다. |
 | 범위 | 아니요 | 공백으로 구분된 범위 목록입니다. `openid` 범위는 사용자에게 로그인하고 id_token 매개 변수의 형식으로 사용자에 대한 데이터를 가져올 권한을 나타냅니다. 클라이언트와 동일한 응용 프로그램 ID로 표시 되는 응용 프로그램 자체 백 엔드 웹 API에 대 한 토큰을 가져오는 데 사용할 수 있습니다. 범위 `offline_access` 는 리소스에 대 한 확장 된 액세스를 위해 응용 프로그램에 새로 고침 토큰이 필요 함을 나타냅니다. |
 
 성공적인 토큰 응답은 다음과 같습니다.
 
-```
+```JSON
 {
     "not_before": "1442340812",
     "token_type": "Bearer",
@@ -189,6 +167,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
     "refresh_token": "AAQfQmvuDy8WtUv-sd0TBwWVQs1rC-Lfxa_NDkLqpg50Cxp5Dxj0VPF1mx2Z...",
 }
 ```
+
 | 매개 변수 | Description |
 | --------- | ----------- |
 | not_before | epoch 시간에서 토큰은 유효한 것으로 간주되는 시간입니다. |
@@ -200,7 +179,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 
 오류 응답은 다음과 같습니다.
 
-```
+```JSON
 {
     "error": "access_denied",
     "error_description": "The user revoked access to the app.",
@@ -216,9 +195,9 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 
 액세스 토큰을 성공적으로 얻었으므로 이제 `Authorization` 헤더에 포함하여 백 엔드 웹 API에 대한 요청에서 토큰을 사용할 수 있습니다.
 
-```
+```HTTP
 GET /tasks
-Host: https://mytaskwebapi.com
+Host: mytaskwebapi.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 ```
 
@@ -226,9 +205,9 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 
 ID 토큰은 짧은 시간 동안 만료 됩니다. 토큰이 만료 된 후에도 계속 해 서 리소스에 액세스할 수 있도록 토큰을 새로 고칩니다. 다른 `POST` 요청을 `/token` 끝점에 제출 하 여 토큰을 새로 고칠 수 있습니다. 이번에는 `code` 매개 변수 대신 `refresh_token` 매개 변수를 제공합니다.
 
-```
-POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1
-Host: https://fabrikamb2c.b2clogin.com
+```HTTP
+POST {tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/token HTTP/1.1
+Host: {tenant}.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=openid offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob&client_secret=<your-application-secret>
@@ -236,17 +215,18 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
 
 | 매개 변수 | 필수 | 설명 |
 | --------- | -------- | ----------- |
+| 넌 | 예 | Azure AD B2C 테 넌 트의 이름 |
+| policy | 예 | 원래의 새로 고침 토큰을 얻는 데 사용된 사용자 흐름입니다. 이 요청에서는 다른 사용자 흐름을 사용할 수 없습니다. 이 매개 변수를 POST 본문이 아니라 쿼리 문자열에 추가 합니다. |
 | client_id | 예 | [Azure Portal](https://portal.azure.com/) 응용 프로그램에 할당 된 응용 프로그램 ID입니다. |
 | client_secret | 예 | [Azure Portal](https://portal.azure.com/)에서 생성 된 응용 프로그램 암호입니다. 이 애플리케이션 암호는 중요한 보안 아티팩트입니다. 서버에 안전하게 저장해야 합니다. 정기적으로이 클라이언트 암호를 변경 합니다. |
 | grant_type | 예 | 권한 부여 코드 흐름의이 부분에 대 한 새로 고침 토큰 이어야 하는 권한 부여 형식입니다. |
 | refresh_token | 예 | 흐름의 두 번째 부분에서 획득 한 원래 새로 고침 토큰입니다. 이 `offline_access` 범위는 새로 고침 토큰을 수신 하기 위해 권한 부여 및 토큰 요청에서 모두 사용 해야 합니다. |
-| p | 예 | 원래의 새로 고침 토큰을 얻는 데 사용된 사용자 흐름입니다. 이 요청에서는 다른 사용자 흐름을 사용할 수 없습니다. 이 매개 변수를 POST 본문이 아니라 쿼리 문자열에 추가 합니다. |
 | redirect_uri | 아니요 | 권한 부여 코드를 받은 애플리케이션의 `redirect_uri` 매개 변수입니다. |
 | 범위 | 아니요 | 공백으로 구분된 범위 목록입니다. `openid` 범위는 사용자에게 로그인하고 ID 토큰 형식으로 사용자에 대한 데이터를 가져올 권한을 나타냅니다. 클라이언트와 동일한 응용 프로그램 ID로 표시 되는 응용 프로그램 자체 백 엔드 웹 API에 토큰을 보내는 데 사용할 수 있습니다. 범위 `offline_access` 는 리소스에 대 한 확장 된 액세스를 위해 응용 프로그램에 새로 고침 토큰이 필요 함을 나타냅니다. |
 
 성공적인 토큰 응답은 다음과 같습니다.
 
-```
+```JSON
 {
     "not_before": "1442340812",
     "token_type": "Bearer",
@@ -256,6 +236,7 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
     "refresh_token": "AAQfQmvuDy8WtUv-sd0TBwWVQs1rC-Lfxa_NDkLqpg50Cxp5Dxj0VPF1mx2Z...",
 }
 ```
+
 | 매개 변수 | 설명 |
 | --------- | ----------- |
 | not_before | epoch 시간에서 토큰은 유효한 것으로 간주되는 시간입니다. |
@@ -267,14 +248,14 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
 
 오류 응답은 다음과 같습니다.
 
-```
+```JSON
 {
     "error": "access_denied",
     "error_description": "The user revoked access to the app.",
 }
 ```
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | --------- | ----------- |
 | 오류 | 발생 한 오류 유형을 분류 하는 데 사용할 수 있는 코드입니다. |
 | error_description | 인증 오류의 근본 원인을 식별 하는 데 도움이 될 수 있는 메시지입니다. |
@@ -285,7 +266,7 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
 
 사용자를 로그 아웃 하려면 앞에서 설명한 openid connect Connect 메타 `end_session` 데이터 문서에 나열 된 끝점으로 사용자를 리디렉션합니다.
 
-```
+```HTTP
 GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/logout?post_logout_redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
 ```
 

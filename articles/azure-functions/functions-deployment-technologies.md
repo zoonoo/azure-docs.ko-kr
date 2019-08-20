@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: cotresne
-ms.openlocfilehash: d877628cbf0a1c26b2d05a0d1486d5ea858b61ac
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
-ms.translationtype: HT
+ms.openlocfilehash: 9f40ec658fc6725f381300d967c9d7cd61c3a218
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/19/2019
-ms.locfileid: "69612000"
+ms.locfileid: "69624142"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Azure Functions의 배포 기술
 
@@ -207,23 +207,7 @@ FTP를 사용 하 여 파일을 Azure Functions로 직접 전송할 수 있습�
 
 ## <a name="deployment-slots"></a>배포 슬롯
 
-함수 앱을 Azure에 배포 하는 경우 프로덕션에 직접 배포 하는 대신 별도의 배포 슬롯에 배포할 수 있습니다. 배포 슬롯에 대 한 자세한 내용은 [Azure App Service 슬롯](../app-service/deploy-staging-slots.md)을 참조 하세요.
-
-### <a name="deployment-slots-levels-of-support"></a>지원 배포 슬롯 수준
-
-배포 슬롯에 대해 지원 되는 두 가지 수준은 다음과 같습니다.
-
-* **GA (일반 공급)** : 프로덕션 사용을 위해 완전히 지원 되 고 승인 됩니다.
-* **미리 보기**: 아직 지원 되지 않지만 나중에 GA 상태에 도달할 것으로 예상 됩니다.
-
-| OS/호스팅 계획 | 지원 수준 |
-| --------------- | ------ |
-| Windows 사용량 | Preview |
-| Windows Premium (미리 보기) | Preview |
-| Windows 전용 | 일반 공급 |
-| Linux 소비 | 지원되지 않음 |
-| Linux 프리미엄 (미리 보기) | Preview |
-| Linux 전용 | 일반 공급 |
+함수 앱을 Azure에 배포 하는 경우 프로덕션에 직접 배포 하는 대신 별도의 배포 슬롯에 배포할 수 있습니다. 배포 슬롯에 대 한 자세한 내용은 [Azure Functions 배포 슬롯](../app-service/deploy-staging-slots.md) 설명서를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

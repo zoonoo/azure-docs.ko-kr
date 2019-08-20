@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 811d54da2fbcf36bcd2529ed9172c80d6414ab54
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
-ms.translationtype: HT
+ms.openlocfilehash: 5e9972c5fea7aaa2e6b5270aff87343437b1963e
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/19/2019
-ms.locfileid: "69617630"
+ms.locfileid: "69624019"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database 관리형 인스턴스 및 SQL Server 간의 T-SQL 차이점
 
@@ -62,6 +62,7 @@ ms.locfileid: "69617630"
 제한 사항: 
 
 - 관리 되는 인스턴스를 사용 하면 최대 32 개의 스트라이프를 사용 하 여 백업에 인스턴스 데이터베이스를 백업할 수 있습니다. 백업 압축을 사용 하는 경우 최대 2TB의 데이터베이스에 충분 합니다.
+- Tde ( `BACKUP DATABASE ... WITH COPY_ONLY` 서비스 관리 투명한 데이터 암호화)로 암호화 된 데이터베이스에서는 실행할 수 없습니다. 서비스 관리 TDE는 내부 TDE 키를 사용 하 여 백업을 암호화 합니다. 키를 내보낼 수 없으므로 백업을 복원할 수 없습니다. 자동 백업 및 지정 시간 복원을 사용 하거나 대신 [고객 관리 (BYOK) TDE](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#customer-managed-transparent-data-encryption---bring-your-own-key) 를 사용 합니다. 데이터베이스에서 암호화를 사용 하지 않도록 설정할 수도 있습니다.
 - 관리 되는 인스턴스에서 `BACKUP` 명령을 사용 하 여 최대 백업 스트라이프 크기는 최대 blob 크기인 195 GB입니다. 백업 명령에서 스트라이프 수를 늘려 개별 스트라이프 크기를 줄이고 이 제한 내에서 유지합니다.
 
     > [!TIP]
@@ -538,6 +539,14 @@ Restore 문에 대 한 자세한 내용은 [restore 문](https://docs.microsoft.
 
 **해결 방법:** 서비스 계층을 업데이트 하기 전에 데이터베이스 간 Service Broker 대화 상자를 사용 하는 작업을 중지 하 고 이후에 다시 초기화 합니다.
 
+### <a name="some-aad-login-types-cannot-be-impersonated"></a>일부 AAD 로그인 유형을 가장할 수 없습니다.
+
+**날** 7 월 2019
+
+다음 AAD `EXECUTE AS USER` 보안 `EXECUTE AS LOGIN` 주체를 사용 하는 가장이 지원 되지 않습니다.
+-   별칭이 지정 되는 AAD 사용자입니다. 이 경우 `15517`다음과 같은 오류가 반환 됩니다.
+- Aad 응용 프로그램 또는 서비스 주체를 기반으로 하는 AAD 로그인 및 사용자입니다. 이 경우 `15517` 및 `15406`에는 다음과 같은 오류가 반환 됩니다.
+
 ### <a name="query-parameter-not-supported-in-sp_send_db_mail"></a>@querysp_send_db_mail에서 지원 되지 않는 매개 변수
 
 **날** 2019년 4월
@@ -546,13 +555,13 @@ Restore 문에 대 한 자세한 내용은 [restore 문](https://docs.microsoft.
 
 ### <a name="aad-logins-and-users-are-not-supported-in-tools"></a>AAD 로그인 및 사용자가 도구에서 지원 되지 않음
 
-**날** 2019년 4월
+**날** 1 월 2019
 
 SQL Server Management Studio 및 SQL Server Data Tools는 Azure Acctive directory 로그인 및 사용자를 지원 하지 fuly.
 - 현재 SQL Server Data Tools에서 Azure AD 서버 보안 주체 (로그인) 및 사용자 (공개 미리 보기)를 사용 하는 것은 지원 되지 않습니다.
 - Azure AD 서버 보안 주체 (로그인) 및 사용자 (공개 미리 보기)에 대 한 스크립팅은 SQL Server Management Studio에서 지원 되지 않습니다.
 
-### <a name="tempdb-structure-is-re-created"></a>TEMPDB 구조가 다시 생성 됩니다.
+### <a name="tempdb-structure-and-content-is-re-created"></a>TEMPDB 구조와 콘텐츠를 다시 만들었습니다.
 
 데이터베이스 `tempdb` 는 항상 12 개의 데이터 파일로 분할 되며 파일 구조를 변경할 수 없습니다. 파일당 최대 크기를 변경할 수 없으며 새 파일을에 `tempdb`추가할 수 없습니다. `Tempdb`는 인스턴스가 시작 되거나 장애 조치 (failover) 될 때 항상 빈 데이터베이스로 다시 생성 되며에서 `tempdb` 변경한 내용은 유지 되지 않습니다.
 
@@ -623,12 +632,6 @@ using (var scope = new TransactionScope())
 관리 되는 인스턴스 및 연결 된 서버 또는 현재 인스턴스를 참조 하는 분산 쿼리에 배치 된 CLR 모듈은 종종 로컬 인스턴스의 IP를 확인할 수 없습니다. 이 오류는 일시적인 문제입니다.
 
 **해결 방법:** 가능 하면 CLR 모듈에서 컨텍스트 연결을 사용 합니다.
-
-### <a name="tde-encrypted-databases-with-a-service-managed-key-dont-support-user-initiated-backups"></a>서비스 관리 키를 사용 하는 TDE로 암호화 된 데이터베이스는 사용자가 시작한 백업을 지원 하지 않습니다.
-
-Tde ( `BACKUP DATABASE ... WITH COPY_ONLY` 서비스 관리 투명한 데이터 암호화)로 암호화 된 데이터베이스에서는 실행할 수 없습니다. 서비스 관리 TDE는 내부 TDE 키를 사용 하 여 백업을 암호화 합니다. 키를 내보낼 수 없으므로 백업을 복원할 수 없습니다.
-
-**해결 방법:** 자동 백업 및 지정 시간 복원을 사용 하거나 대신 [고객 관리 (BYOK) TDE](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#customer-managed-transparent-data-encryption---bring-your-own-key) 를 사용 합니다. 데이터베이스에서 암호화를 사용 하지 않도록 설정할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

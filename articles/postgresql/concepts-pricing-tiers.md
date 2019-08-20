@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: 2f6be256801983924cc794d6c8b8fa31e39959e1
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: f65bc0a9969ac713c2fb9f8629b97fbe522e9fe0
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967848"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624837"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL-단일 서버에서 가격 책정 계층
 
@@ -40,7 +40,7 @@ Azure Database for PostgreSQL 서버는 기본, 범용 및 메모리 최적화�
 
 계산 리소스는 기본 하드웨어의 논리적 CPU를 나타내는 vCore로 제공됩니다. 중국 동부 1, 중국 북부 1, US DoD 중부 및 US DoD 동부는 Intel E5 2673 v3 (Haswell) 2.4 g h z 프로세서를 기반으로 하는 Gen 4 논리 Cpu를 활용 합니다. 다른 모든 지역은 Intel E5-2673 v4 (Broadwell) 2.3 g h z 프로세서를 기반으로 하는 Gen 5 논리 Cpu를 활용 합니다.
 
-## <a name="storage"></a>스토리지
+## <a name="storage"></a>저장 공간
 
 프로비전하는 스토리지는 Azure Database for PostgreSQL 서버에 사용할 수 있는 스토리지 용량입니다. 스토리지는 데이터베이스 파일, 임시 파일, 트랜잭션 로그 및 PostgreSQL 서버 로그에 사용됩니다. 프로비전하는 총 스토리지 용량도 서버에 사용할 수 있는 I/O 용량을 정의합니다.
 
@@ -67,7 +67,7 @@ Azure Portal 또는 Azure CLI 명령을 사용하여 I/O 사용량을 모니터�
 |              | **범용** | **메모리 최적화** |
 |:-------------|:--------------------|:---------------------|
 | 스토리지 형식 | Azure Premium Storage | Azure Premium Storage |
-| 스토리지 크기 | 32 g b ~ 16TB| 32 ~ 16TB |
+| 스토리지 크기 | 32 g b ~ 16TB| 32 g b ~ 16TB |
 | 스토리지 증분 크기 | 1GB | 1GB |
 | IOPS | 3IOPS/GB<br/>최소 100IOPS<br/>최대 2만 IOPS | 3IOPS/GB<br/>최소 100IOPS<br/>최대 2만 IOPS |
 

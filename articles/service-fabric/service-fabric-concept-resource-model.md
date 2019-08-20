@@ -7,15 +7,15 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: atsenthi
-ms.openlocfilehash: 7795612d8aa4974bc640571d49ad1520e2a0f94c
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 8e39318dcaa31a111908c6be1ae7a51d73eb7478
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68963836"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69623823"
 ---
 # <a name="what-is-the-service-fabric-application-resource-model"></a>Service Fabric 응용 프로그램 리소스 모델은 무엇 인가요?
-Service Fabric 응용 프로그램은 Azure Resource Manager를 통해 Service Fabric 클러스터에 배포 하는 것이 좋습니다. 이 방법을 사용 하면 JSON에서 응용 프로그램 및 서비스를 설명 하 고 클러스터와 동일한 리소스 관리자 템플릿에 배포할 수 있습니다. PowerShell 또는 Azure CLI를 통해 응용 프로그램을 배포 하 고 관리 하는 것과는 반대로 클러스터가 준비 될 때까지 기다릴 필요가 없습니다. 응용 프로그램 등록, 프로 비전 및 배포 프로세스는 모두 한 단계에서 발생할 수 있습니다. 클러스터에서 응용 프로그램 수명 주기를 관리 하는 것이 가장 좋습니다. 자세한 내용은 [모범 사례](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code#azure-service-fabric-resources)를 참조 하세요.
+Service Fabric 응용 프로그램은 Azure Resource Manager를 통해 Service Fabric 클러스터에 배포 하는 것이 좋습니다. 이 방법을 사용 하면 JSON에서 응용 프로그램 및 서비스를 설명 하 고 클러스터와 동일한 리소스 관리자 템플릿에 배포할 수 있습니다. PowerShell 또는 Azure CLI를 통해 응용 프로그램을 배포 하 고 관리 하는 것과는 반대로 클러스터가 준비 될 때까지 기다릴 필요가 없습니다. 애플리케이션 등록, 프로비저닝 및 배포 프로세스를 모두 한 단계로 수행할 수 있습니다. 이 방식은 클러스터의 애플리케이션 수명 주기를 관리하는 모범 사례입니다. 자세한 내용은 [모범 사례](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code#azure-service-fabric-resources)를 참조 하세요.
 
 해당하는 경우 애플리케이션을 Resource Manager 리소스로 관리하여 다음을 향상시킬 수 있습니다.
 * 감사 내역: 리소스 관리자는 모든 작업을 감사 하 고 이러한 응용 프로그램 및 클러스터에 대 한 변경 내용을 추적 하는 데 도움이 될 수 있는 자세한 *활동 로그* 를 유지 합니다.
@@ -33,7 +33,7 @@ Service Fabric 응용 프로그램은 Azure Resource Manager를 통해 Service F
 ## <a name="deploy-application-resources-using-azure-resource-manager"></a>Azure Resource Manager를 사용 하 여 응용 프로그램 리소스 배포  
 Azure Resource Manager 응용 프로그램 리소스 모델을 사용 하 여 응용 프로그램 및 서비스를 배포 하려면 응용 프로그램 코드를 패키지 하 고 패키지를 업로드 한 다음 Azure Resource Manager 템플릿에서 패키지 위치를 응용 프로그램으로 참조 해야 합니다. 리소스나. 자세한 내용은 [응용 프로그램 패키지](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps#create-an-sfpkg)를 참조 하십시오.
           
-그런 다음 Azure Resource Manager 템플릿을 만들고 응용 프로그램 세부 정보를 사용 하 여 매개 변수 파일을 업데이트 한 다음 Service Fabric 클러스터에 배포 합니다. 여기에서 샘플을 참조 하세요.
+그런 다음 Azure Resource Manager 템플릿을 만들고 응용 프로그램 세부 정보를 사용 하 여 매개 변수 파일을 업데이트 한 다음 Service Fabric 클러스터에 배포 합니다. [여기](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/master/ARM)에서 샘플을 참조 하세요.
 
 ### <a name="create-a-storage-account"></a>Storage 계정 만들기 
 응용 프로그램 이미지를 준비 하려면 리소스 관리자 템플릿에서 응용 프로그램을 배포 하려면 저장소 계정이 필요 합니다. 기존 저장소 계정을 다시 사용 하거나 새 저장소 계정을 만들어 응용 프로그램을 준비할 수 있습니다. 기존 저장소 계정을 사용 하려는 경우이 단계를 건너뛸 수 있습니다. 

@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/26/2019
 ms.author: bharathb
-ms.openlocfilehash: 041f9c95b22fd4b8c238c603deb0558f2bca01a8
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: a4de902e51b101d14aac599c9aad8c4feb86a9c6
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737629"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624598"
 ---
 # <a name="migrate-hundreds-of-terabytes-of-data-into-azure-cosmos-db"></a>수백 테라바이트의 데이터를 Azure Cosmos DB로 마이그레이션 
 
@@ -140,9 +140,16 @@ Azure Cosmos DB로 데이터를 마이그레이션하기 위한 기존 도구에
 
 6. 이러한 오류 중 일부는 원본 데이터의 잘못 된 문서 때문에 발생할 수 있습니다. 이를 식별 하 고 수정 해야 합니다. 그런 다음 실패 한 파티션에서 가져오기 단계를 다시 실행 하 여 다시 수집 해야 합니다. 
 
-마이그레이션이 완료 되 면 Azure Cosmos DB의 문서 수가 원본 데이터베이스의 문서 수와 동일한 지 확인할 수 있습니다. 이 예에서는 Azure Cosmos DB의 총 크기가 65 테라바이트로 설정 되어 있습니다. 마이그레이션 후에는 인덱싱을 선택적으로 설정 하 고 작업의 작업에 필요한 수준으로 RUs를 낮출 수 있습니다.   
+마이그레이션이 완료 되 면 Azure Cosmos DB의 문서 수가 원본 데이터베이스의 문서 수와 동일한 지 확인할 수 있습니다. 이 예에서는 Azure Cosmos DB의 총 크기가 65 테라바이트로 설정 되어 있습니다. 마이그레이션 후에는 인덱싱을 선택적으로 설정 하 고 작업의 작업에 필요한 수준으로 RUs를 낮출 수 있습니다.
+
+## <a name="contact-the-azure-cosmos-db-team"></a>Azure Cosmos DB 팀에 문의
+이 가이드를 따라 대규모 마이그레이션에 대해 대규모 데이터 집합을 Azure Cosmos DB로 마이그레이션할 수 있지만, Azure Cosmos DB 제품 팀에 연락 하 여 데이터 모델링 및 일반 아키텍처 검토의 유효성을 검사 하는 것이 좋습니다. 제품 팀은 데이터 집합 및 워크 로드에 따라 사용자에 게 적용할 수 있는 다른 성능 및 비용 최적화를 제안할 수도 있습니다. 대규모 마이그레이션에 대 한 지원을 위해 Azure Cosmos DB 팀에 문의 하려면 아래와 같이 "일반 권고" 문제 유형 및 "큼 (TB +) 마이그레이션" 문제 하위 유형 아래에서 지원 티켓을 열 수 있습니다.
+
+![마이그레이션 지원 항목](./media/migrate-cosmosdb-data/supporttopic.png)
+
 
 ## <a name="next-steps"></a>다음 단계
 * [.Net](bulk-executor-dot-net.md) 및 [Java](bulk-executor-java.md)에서 대량 실행자 라이브러리를 사용 하는 샘플 응용 프로그램을 사용해 보세요. 
 * 대량 실행자 라이브러리는 Cosmos DB Spark 커넥터에 통합 되어 있습니다. 자세한 내용은 [Azure Cosmos DB spark 커넥터](spark-connector.md) 문서를 참조 하세요.  
+* 대규모 마이그레이션에 대 한 추가 도움말을 보려면 "일반 권고" 문제 유형 및 "대규모 (TB +) 마이그레이션" 문제 하위 유형에 서 지원 티켓을 열어 Azure Cosmos DB 제품 팀에 문의 하세요. 
 

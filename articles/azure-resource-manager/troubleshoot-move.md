@@ -1,21 +1,21 @@
 ---
-title: 새 구독 또는 리소스 그룹에 Azure 리소스를 이동할 때 오류 문제 해결
+title: Azure 리소스를 새 구독 또는 리소스 그룹으로 이동할 때 발생 하는 오류 문제 해결
 description: Azure Resource Manager를 사용하여 리소스를 새 리소스 그룹 또는 구독으로 이동합니다.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 08/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: e23d7c571a010e5bfb42e5f15368e0194272ed53
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 445ee2784a74a366089a49a0e2f2f17d51ef93bf
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67723468"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624294"
 ---
-# <a name="troubleshoot-moving-azure-resources-to-new-resource-group-or-subscription"></a>새 리소스 그룹 또는 구독으로 Azure 리소스를 이동 하는 문제 해결
+# <a name="troubleshoot-moving-azure-resources-to-new-resource-group-or-subscription"></a>Azure 리소스를 새 리소스 그룹 또는 구독으로 이동 하는 문제 해결
 
-이 문서에서는 리소스를 이동 하는 경우 문제를 해결 하는 데 도움이 되는 제안 사항을 제공 합니다.
+이 문서에서는 리소스를 이동할 때 문제를 해결 하는 데 도움이 되는 제안을 제공 합니다.
 
 ## <a name="upgrade-a-subscription"></a>구독 업그레이드
 
@@ -28,18 +28,22 @@ ms.locfileid: "67723468"
 
 ## <a name="service-limitations"></a>서비스 제한 사항
 
-일부 서비스 리소스를 이동할 때 추가적인 고려 사항이 필요 합니다. 다음 서비스를 이동 하는 경우 지침 및 제한 사항 확인 해야 합니다.
+일부 서비스의 경우 리소스를 이동할 때 추가로 고려해 야 할 사항이 있습니다. 다음 서비스를 이동 하는 경우 지침 및 제한 사항을 확인 해야 합니다.
 
 * [App Services](./move-limitations/app-service-move-limitations.md)
 * [Azure DevOps Services](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)
 * [클래식 배포 모델](./move-limitations/classic-model-move-limitations.md)
+* [네트워킹](./move-limitations/networking-move-limitations.md)
 * [Recovery Services](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
 * [Virtual Machines](./move-limitations/virtual-machines-move-limitations.md)
-* [Virtual Network](./move-limitations/virtual-network-move-limitations.md)
 
-## <a name="large-requests"></a>큰 요청
+## <a name="large-requests"></a>대량 요청
 
 가능한 경우 대용량 이동을 개별 이동 작업으로 나눕니다. 단일 작업에 800개가 넘는 리소스가 포함되면 Resource Manager가 즉시 오류를 반환합니다. 그러나 800개 미만의 리소스 이동도 시간 초과로 인해 실패할 수 있습니다.
+
+## <a name="resource-not-in-succeeded-state"></a>리소스가 성공 상태 아님
+
+리소스가 성공 상태에 있지 않아 이동할 수 없다는 오류 메시지가 표시 되는 경우 실제로는 이동을 차단 하는 종속 리소스가 될 수 있습니다. [종속 리소스의 상태](./move-limitations/networking-move-limitations.md#state-of-dependent-resources)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

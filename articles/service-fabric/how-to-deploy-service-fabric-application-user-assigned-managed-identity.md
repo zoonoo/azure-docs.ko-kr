@@ -7,14 +7,14 @@ ms.service: service-fabric
 ms.topic: article
 ms.date: 08/09/2019
 ms.author: atsenthi
-ms.openlocfilehash: b99dbe3fd03b8854d7c1f54d17d5ced1f2534132
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: f8dfaa39f02aefbdda1f34afa5011ce5fadbae49
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68963869"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624908"
 ---
-# <a name="deploy-service-fabric-application-with-a-user-assigned-managed-identity"></a>사용자 할당 관리 Id를 사용 하 여 Service Fabric 응용 프로그램 배포
+# <a name="deploy-service-fabric-application-with-a-user-assigned-managed-identity-preview"></a>사용자 할당 관리 Id를 사용 하 여 Service Fabric 응용 프로그램 배포 (미리 보기)
 
 관리 id를 사용 하 여 Service Fabric 응용 프로그램을 배포 하려면 응용 프로그램을 일반적으로 Azure Resource Manager 템플릿이 있는 Azure Resource Manager를 통해 배포 해야 합니다. Azure Resource Manager를 통해 Service Fabric 응용 프로그램을 배포 하는 방법에 대 한 자세한 내용은 [Azure Resource Manager 리소스로 응용 프로그램 및 서비스 관리](service-fabric-application-arm-resource.md)를 참조 하세요.
 

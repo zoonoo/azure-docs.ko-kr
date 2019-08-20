@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 07/08/2019
-ms.openlocfilehash: b9593a5802300da8baa1e518f14885637db2068f
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 41e357ee53d4c2fbc6683be3446ba2527dd9253f
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036184"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69623970"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>AKS (Azure Kubernetes Service)에 배포 된 모델에서 데이터 드리프트 (미리 보기) 검색
 
@@ -40,9 +40,9 @@ Azure Machine Learning 서비스를 사용 하 여 AKS에 배포 된 모델에 �
 
 ### <a name="how-data-drift-is-monitored-in-azure-machine-learning-service"></a>Azure Machine Learning service에서 데이터 드리프트를 모니터링 하는 방법
 
-데이터 드리프트는 Azure Machine Learning 서비스를 사용 하 여 데이터 집합 또는 배포를 통해 모니터링 됩니다. 데이터 드리프트를 모니터링 하기 위해 기본 데이터 집합 (일반적으로 모델에 대 한 학습 데이터 집합)이 지정 됩니다. 두 번째 데이터 집합 (일반적으로 배포에서 수집 된 입력 데이터 모델)은 기준선 데이터 집합에 대해 테스트 됩니다. 데이터 집합은 모두 [프로 파일링](how-to-explore-prepare-data.md#explore-with-summary-statistics) 되 고 데이터 드리프트 모니터링 서비스에 입력 됩니다. 기계 학습 모델을 학습 하 여 두 데이터 집합 간의 차이를 검색 합니다. 모델의 성능은 두 데이터 집합 간의 드리프트 크기를 측정 하는 드리프트 계수로 변환 됩니다. [모델 interpretability](machine-learning-interpretability-explainability.md)를 사용 하 여 드리프트 계수에 영향을 주는 기능을 계산 합니다. 데이터 집합 프로필에서 각 기능에 대 한 통계 정보를 추적 합니다. 
+데이터 드리프트는 Azure Machine Learning 서비스를 사용 하 여 데이터 집합 또는 배포를 통해 모니터링 됩니다. 데이터 드리프트를 모니터링 하기 위해 기본 데이터 집합 (일반적으로 모델에 대 한 학습 데이터 집합)이 지정 됩니다. 두 번째 데이터 집합 (일반적으로 배포에서 수집 된 입력 데이터 모델)은 기준선 데이터 집합에 대해 테스트 됩니다. 데이터 집합은 모두 프로 파일링 되 고 데이터 드리프트 모니터링 서비스에 입력 됩니다. 기계 학습 모델을 학습 하 여 두 데이터 집합 간의 차이를 검색 합니다. 모델의 성능은 두 데이터 집합 간의 드리프트 크기를 측정 하는 드리프트 계수로 변환 됩니다. [모델 interpretability](machine-learning-interpretability-explainability.md)를 사용 하 여 드리프트 계수에 영향을 주는 기능을 계산 합니다. 데이터 집합 프로필에서 각 기능에 대 한 통계 정보를 추적 합니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 - Azure 구독. 계정이 없는 경우 시작 하기 전에 무료 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 지금 사용해 보세요.
 

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/09/2019
-ms.openlocfilehash: 1e5eb1e363ac9e282a72a9c1430c3f80c825bb91
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: a77310d0e45f095260d77ead0cfe14a3ce0ebd8e
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945071"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69623837"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>클러스터 구성에 대한 세밀한 역할 기반 액세스로 마이그레이션
 
@@ -29,9 +29,9 @@ ms.locfileid: "68945071"
 | 역할                                  | 앞서                                                                                       | 앞으로 이동       |
 |---------------------------------------|--------------------------------------------------------------------------------------------------|-----------|
 | 독자                                | -암호를 비롯 한 읽기 액세스                                                                   | -읽기 액세스, 비밀 **제외** |           |   |   |
-| HDInsight 클러스터 운영자<br>(새 역할) | N/A                                                                                              | -읽기/쓰기 액세스 (암호 포함)         |   |   |
-| 기여자                           | -읽기/쓰기 액세스 (암호 포함)<br>-모든 유형의 Azure 리소스를 만들고 관리 합니다.     | 변경 안 함 |
-| 소유자                                 | -암호를 포함 하는 읽기/쓰기 액세스<br>-모든 리소스에 대 한 모든 권한<br>-다른 사용자에 대 한 액세스 위임 | 변경 안 함 |
+| HDInsight 클러스터 운영자<br>(새 역할) | 해당 사항 없음                                                                                              | -읽기/쓰기 액세스 (암호 포함)         |   |   |
+| 기여자                           | -읽기/쓰기 액세스 (암호 포함)<br>-모든 유형의 Azure 리소스를 만들고 관리 합니다.     | 변경 내용 없음 |
+| 소유자                                 | -암호를 포함 하는 읽기/쓰기 액세스<br>-모든 리소스에 대 한 모든 권한<br>-다른 사용자에 대 한 액세스 위임 | 변경 내용 없음 |
 
 사용자에 게 클러스터 암호에 대 한 읽기/쓰기 액세스 권한을 부여 하는 HDInsight 클러스터 운영자 역할 할당을 추가 하는 방법에 대 한 자세한 내용은 아래 섹션에서 [사용자에 게 Hdinsight 클러스터 운영자 역할 할당 추가](#add-the-hdinsight-cluster-operator-role-assignment-to-a-user)를 참조 하세요.
 
@@ -201,7 +201,7 @@ az role assignment create --role "HDInsight Cluster Operator" --assignee user@do
 
 ### <a name="what-will-happen-if-i-take-no-action"></a>작업을 수행 하지 않으면 어떻게 되나요?
 
-`GET /configurations/{configurationName}` 및 `GET /configurations` 는`POST /configurations/gateway` 더 이상 정보를 반환 하지 않으며,이 호출은 저장소 계정 키 또는 클러스터 암호와 같은 중요 한 매개 변수를 더 이상 반환 하지 않습니다. 해당 SDK 메서드 및 PowerShell cmdlet의 경우에도 마찬가지입니다.
+및 호출은 더 이상 정보를 `GET /configurations/{configurationName}` 반환 하지 않으며, 호출은 저장소 계정 키 또는 클러스터 암호와 같은 중요 한 매개 변수를 더 이상 반환 하지 않습니다. `POST /configurations/gateway` `GET /configurations` 해당 SDK 메서드 및 PowerShell cmdlet의 경우에도 마찬가지입니다.
 
 이전 버전의 도구 중 하나를 사용 하는 경우에는 위에서 언급 한 것 처럼 이전 버전의 도구를 사용 하는 경우를 업데이트할 때까지 더 이상 작동 하지 않습니다.
 

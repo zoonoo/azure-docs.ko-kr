@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: eee881e6d4e446e07867261545a90dfacaa93712
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 388ef66351140dab18bd7c92290d84f0f4d734ac
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69512205"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69622780"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C의 애플리케이션에 ID 공급자 추가
 
@@ -94,13 +94,11 @@ Azure AD B2C의 ID 공급자로 Facebook 계정을 사용하려면 Facebook에�
 
 ### <a name="add-the-azure-active-directory-identity-provider"></a>Azure Active Directory ID 공급자 추가
 
-1. 맨 위 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 Azure AD B2C 테넌트가 포함된 디렉터리를 선택하여 Azure AD B2C 테넌트가 포함된 디렉터리를 사용합니다.
+1. Azure AD B2C 테 넌 트가 포함 된 디렉터리를 사용 하 고 있는지 확인 합니다. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택 하 고 Azure AD B2C 테 넌 트를 포함 하는 디렉터리를 선택 합니다.
 1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
-1. **ID 공급자**를 선택한 다음, **추가**를 선택합니다.
+1. **Id 공급자**를 선택한 다음 **New openid connect Connect 공급자**를 선택 합니다.
 1. **이름**을 입력합니다. 예를 들어 *Contoso Azure AD*를 입력합니다.
-1. **Id 공급자 유형**을 선택 하 고 **openid connect Connect**를 선택한 다음 **확인**을 클릭 합니다.
-1. **이 ID 공급자 설정**을 클릭합니다.
-1. **메타 데이터 url**에 다음 url을 입력 합니다. `your-AD-tenant-domain` 를 Azure AD 테 넌 트의 도메인 이름으로 바꿉니다.
+1. **메타 데이터 url**에 다음 url을 입력 하 `your-AD-tenant-domain` 여 Azure AD 테 넌 트의 도메인 이름으로 바꿉니다.
 
     ```
     https://login.microsoftonline.com/your-AD-tenant-domain/.well-known/openid-configuration
@@ -108,28 +106,27 @@ Azure AD B2C의 ID 공급자로 Facebook 계정을 사용하려면 Facebook에�
 
     `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration` )을 입력합니다.
 
-1. **클라이언트 id**에 대해 이전에 기록한 *응용 프로그램 (클라이언트) id* 를 입력 합니다.
-1. **클라이언트 암호**에 대해 이전에 기록한 *클라이언트 암호* 값을 입력 합니다.
-1. 선택적으로 **Domain_hint**의 값을 입력합니다. `ContosoAD` )을 입력합니다. [도메인 힌트](../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) 는 응용 프로그램의 인증 요청에 포함 된 지시문입니다. 페더레이션된 IdP 로그인 페이지로 사용자를 빠르게 보내는 데 사용할 수 있습니다. 또는 다중 테넌트 애플리케이션에서 테넌트에 대한 브랜딩 Azure AD 로그인 페이지로 사용자를 바로 보내는 데 사용될 수 있습니다.
-1.           **확인**을 선택합니다.
-1. **이 ID 공급자의 클레임을 매핑**하고 다음 클레임을 설정하세요.
+1. **클라이언트 id**에 대해 이전에 기록한 응용 프로그램 id를 입력 합니다.
+1. **클라이언트 암호**에 대해 이전에 기록한 클라이언트 암호를 입력 합니다.
+1. **범위**, **응답 유형**및 **응답 모드**에 대 한 기본값을 그대로 둡니다.
+1. 필드 **Domain_hint**에 대 한 값을 입력 합니다. 예를 들면 *ContosoAD*입니다. [도메인 힌트](../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) 는 응용 프로그램의 인증 요청에 포함 된 지시문입니다. 페더레이션된 IdP 로그인 페이지로 사용자를 빠르게 보내는 데 사용할 수 있습니다. 또는 다중 테넌트 애플리케이션에서 테넌트에 대한 브랜딩 Azure AD 로그인 페이지로 사용자를 바로 보내는 데 사용될 수 있습니다.
+1. **Id 공급자 클레임 매핑**아래에서 다음 클레임 매핑 값을 입력 합니다.
 
-    - **사용자 ID**에 `oid`를 입력합니다.
-    - **표시 이름**에 `name`을 입력합니다.
-    - **이름**에 `given_name`을 입력합니다.
-    - **성**에 `family_name`을 입력합니다.
-    - **메일**에 대해 `unique_name`을 입력합니다.
+    * **사용자 ID**: *oid*
+    * **표시 이름**: *이름*
+    * **지정 된 이름**: *given_name*
+    * **성**: *family_name*
+    * **전자 메일**: *unique_name*
 
-1. **확인**을 선택 하 고 **만들기** 를 선택 하 여 구성을 저장 합니다.
+1. **저장**을 선택합니다.
 
 ### <a name="add-the-facebook-identity-provider"></a>Facebook ID 공급자 추가
 
-1. **ID 공급자**를 선택한 다음, **추가**를 선택합니다.
-1. **이름**을 입력합니다. 예를 들어 *Facebook*을 입력합니다.
-1. **Id 공급자 유형**을 선택 하 고 **Facebook**을 선택한 다음 **확인**을 선택 합니다.
-1. **이 id 공급자 설정** 을 선택 하 고 이전에 **클라이언트 Id**로 기록한 *앱 ID* 를 입력 합니다.
-1. **클라이언트 암호로**기록한 *앱 암호* 를 입력 합니다.
-1. **확인** 을 선택 하 고 **만들기** 를 선택 하 여 Facebook 구성을 저장 합니다.
+1. **Id 공급자**를 선택한 다음 **Facebook**을 선택 합니다.
+1. **이름**을 입력합니다. 예: *Facebook*.
+1. **클라이언트 ID**에 대해 이전에 만든 Facebook 응용 프로그램의 앱 ID를 입력 합니다.
+1. **클라이언트 암호**의 경우 기록한 앱 암호를 입력 합니다.
+1. **저장**을 선택합니다.
 
 ## <a name="update-the-user-flow"></a>사용자 흐름 업데이트
 
@@ -137,7 +134,7 @@ Azure AD B2C의 ID 공급자로 Facebook 계정을 사용하려면 Facebook에�
 
 1. **사용자 흐름(정책)** 을 선택한 다음, *B2C_1_signupsignin1* 사용자 흐름을 선택합니다.
 2. **ID 공급자**를 선택한 다음, 추가한 **Facebook** 및 **Contoso Azure AD** ID 공급자를 선택합니다.
-3.           **저장**을 선택합니다.
+3. **저장**을 선택합니다.
 
 ## <a name="test-the-user-flow"></a>사용자 흐름 테스트
 

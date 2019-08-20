@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3d1a8afdbad1878f4ce134edeeb95dad79e98a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dedb60a2a5d3681198fbc8a21af1dce1778e43eb
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65784825"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69622646"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Azure AD Connect Health Agent 설치
 
@@ -30,7 +30,7 @@ ms.locfileid: "65784825"
 
 다음 표는 Azure AD Connect Health를 사용하기 위한 요구 사항 목록입니다.
 
-| 요구 사항 | 설명 |
+| 요구 사항 | Description |
 | --- | --- |
 | Azure AD Premium |Azure AD Connect Health는 Azure AD Premium 기능이기 때문에 Azure AD Premium이 필요합니다. <br /><br />자세한 내용은 [Azure AD Premium 시작](../fundamentals/active-directory-get-started-premium.md)을 참조하세요. <br />30일 무료 평가판을 시작하려면 [평가판 시작](https://azure.microsoft.com/trial/get-started-active-directory/)을 참조하세요. |
 | 사용자는 Azure AD Connect Health를 시작할 수 있는 Azure AD의 전역 관리자여야 합니다. |기본적으로 전역 관리자만 Health Agent를 설치할 수 있고, 이것을 시작하고 포털에 액세스하고 Azure AD Connect Health 내에서 작업을 수행하도록 구성할 수 있습니다. 자세한 내용은 [Azure AD 디렉터리 관리](../fundamentals/active-directory-administer.md)를 참조하세요. <br /><br /> 역할 기반 Access Control를 사용하여 조직의 다른 사용자에게 Azure AD Connect Health에 대한 액세스를 허용할 수 있습니다. 자세한 내용은 [Azure AD Connect Health용 역할 기반 Access Control](how-to-connect-health-operations.md#manage-access-with-role-based-access-control)을 참조하세요. <br /><br />**중요:** 에이전트를 설치할 때 사용하는 계정은 직장 또는 학교 계정이어야 합니다. Microsoft 계정은 사용할 수 없습니다. 자세한 내용은 [조직으로 Azure 등록](../fundamentals/sign-up-organization.md)을 참조하세요. |
@@ -45,7 +45,7 @@ ms.locfileid: "65784825"
 
 ### <a name="outbound-connectivity-to-the-azure-service-endpoints"></a>Azure 서비스 엔드포인트에 대한 아웃바운드 연결
 
- 에이전트는 설치 및 런타임 중에 Azure AD Connect Health 서비스 엔드포인트에 연결되어야 합니다. 방화벽을 사용하여 아웃바운드 연결을 차단하는 경우 다음 URL이 기본적으로 차단되지 않는지 확인합니다. 이러한 URL의 보안 모니터링 또는 검사를 사용 안 함으로 설정하지 말고 다른 인터넷 트래픽처럼 허용합니다. 해당 URL은 Azure AD Connect Health 서비스 엔드포인트와의 통신을 허용합니다. 설명 하는 방법 [Test-azureadconnecthealthconnectivity를 사용 하 여 아웃 바운드 연결을 확인](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-agent-install#test-connectivity-to-azure-ad-connect-health-service)합니다.
+ 에이전트는 설치 및 런타임 중에 Azure AD Connect Health 서비스 엔드포인트에 연결되어야 합니다. 방화벽을 사용하여 아웃바운드 연결을 차단하는 경우 다음 URL이 기본적으로 차단되지 않는지 확인합니다. 이러한 URL의 보안 모니터링 또는 검사를 사용 안 함으로 설정하지 말고 다른 인터넷 트래픽처럼 허용합니다. 해당 URL은 Azure AD Connect Health 서비스 엔드포인트와의 통신을 허용합니다. [AzureADConnectHealthConnectivity를 사용 하 여 아웃 바운드 연결을 확인](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-agent-install#test-connectivity-to-azure-ad-connect-health-service)하는 방법을 알아봅니다.
 
 | 도메인 환경 | 필수 Azure 서비스 엔드포인트 |
 | --- | --- |
@@ -249,12 +249,12 @@ Azure AD Connect를 성공적으로 설치한 후 동기화에 대한 Azure AD C
 
 ![Azure AD Connect Health 확인](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install5.png)
 
-### <a name="quick-agent-installation-in-multiple-servers"></a>여러 서버에서 빠른 에이전트 설치
+### <a name="quick-agent-installation-in-multiple-servers"></a>여러 서버에 빠른 에이전트 설치
 
-1. 암호를 사용 하 여 Azure AD에서 사용자 계정을 만듭니다.
-2. 할당 된 **소유자** 이 로컬 AAD 계정 포털에서 Azure AD Connect Health에 대 한 역할입니다. 단계를 따릅니다 [여기](how-to-connect-health-operations.md#manage-access-with-role-based-access-control)합니다. 모든 서비스 인스턴스에 역할을 할당 합니다. 
-3. 설치에 대 한 로컬 도메인 컨트롤러에서.exe MSI 파일을 다운로드 합니다.
-4. 등록 하려면 다음 스크립트를 실행 합니다. 만든 새 사용자 계정 및 암호를 사용 하 여 매개 변수를 대체 합니다. 
+1. Azure AD에서 암호를 사용 하 여 사용자 계정을 만듭니다.
+2. 포털을 통해 Azure AD Connect Health에서이 로컬 AAD 계정의 **소유자** 역할을 할당 합니다. [여기](how-to-connect-health-operations.md#manage-access-with-role-based-access-control)의 단계를 따르세요. 모든 서비스 인스턴스에 역할을 할당 합니다. 
+3. 설치를 위해 로컬 도메인 컨트롤러에서 .exe MSI 파일을 다운로드 합니다.
+4. 다음 스크립트를 실행 하 여 등록 합니다. 매개 변수를 만든 새 사용자 계정 및 암호를 바꿉니다. 
 
 ```powershell
 AdHealthAddsAgentSetup.exe /quiet
@@ -268,9 +268,9 @@ Register-AzureADConnectHealthADDSAgent -UserPrincipalName $USERNAME -Credential 
 
 ```
 
-1. 완료 되 면 다음 중 하나 이상을 수행 하 여 로컬 계정에 대 한 액세스를 제거할 수 있습니다. 
-    * AAD Connect Health에 대 한 로컬 계정에 대 한 역할 할당 제거
-    * 로컬 계정의 암호를 회전 합니다. 
+1. 완료 되 면 다음 중 하나 이상을 수행 하 여 로컬 계정에 대 한 액세스 권한을 제거할 수 있습니다. 
+    * AAD Connect Health에 대 한 로컬 계정에 대 한 역할 할당을 제거 합니다.
+    * 로컬 계정에 대 한 암호를 회전 합니다. 
     * AAD 로컬 계정 사용 안 함
     * AAD 로컬 계정 삭제  
 
@@ -312,8 +312,8 @@ HTTP 프록시와 작동하도록 Azure AD Connect Health Agent를 구성할 수
 HTTP 프록시를 사용하도록 Azure AD Connect Health Agent를 구성하는 옵션은 다음과 같습니다.
 
 > [!NOTE]
-> 프록시 설정이 업데이트되도록 하려면 모든 Azure AD Connect Health Agent 서비스를 다시 시작해야 합니다. 다음 명령 실행:<br />
-> Restart-Service AdHealth*
+> 프록시 설정이 업데이트되도록 하려면 모든 Azure AD Connect Health Agent 서비스를 다시 시작해야 합니다. 다음 명령을 실행합니다.<br />
+> 서비스 다시 시작 AzureADConnectHealth *
 >
 >
 

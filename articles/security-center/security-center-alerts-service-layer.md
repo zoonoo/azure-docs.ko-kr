@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 8/18/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 18579f716f80cdf79b703dc78fe520c675e82c51
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
-ms.translationtype: HT
+ms.openlocfilehash: 70b43c65703316e5dee8e9cf2cf86fe982a49592
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575637"
+ms.locfileid: "69624778"
 ---
 # <a name="threat-detection-for-azure-service-layer-in-azure-security-center"></a>Azure Security Center에서 Azure 서비스 계층에 대 한 위협 감지
 
@@ -78,4 +78,4 @@ Security Center는 Azure의 제어 평면으로 간주 되는 Azure Resource Man
 > 3. **통합 사용**에서 **Microsoft Cloud App Security에서 내 데이터에 액세스하도록 허용**의 선택을 취소하고 **저장**을 클릭합니다.
 
 >[!NOTE]
->Azure Security Center는 보안과 관련 된 고객 데이터를 해당 리소스와 동일한 지역에 저장 합니다. Microsoft가 리소스의 지역에 Azure Security Center를 아직 배포 하지 않은 경우에는 미국의 데이터를 저장 합니다. MCAS (Microsoft Cloud App Security)를 사용 하는 경우이 정보는 MCAS의 지리적 위치 규칙에 따라 저장 됩니다. [자세한 내용은 비 지역별 서비스를 위한 데이터 저장소를](http://azuredatacentermap.azurewebsites.net/)참조 하세요.
+>Azure Security Center는 보안과 관련 된 고객 데이터를 해당 리소스와 동일한 지역에 저장 합니다. Microsoft가 리소스의 지역에 Azure Security Center를 아직 배포 하지 않은 경우에는 미국의 데이터를 저장 합니다. MCAS (Microsoft Cloud App Security)를 사용 하는 경우이 정보는 MCAS의 지리적 위치 규칙에 따라 저장 됩니다. [자세한 내용은 비 지역별 서비스를 위한 데이터 저장소를](https://azuredatacentermap.azurewebsites.net/)참조 하세요.

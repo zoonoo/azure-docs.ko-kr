@@ -5,15 +5,15 @@ services: digital-twins
 author: alinamstanciu
 ms.service: digital-twins
 ms.topic: include
-ms.date: 08/12/2019
+ms.date: 08/16/2019
 ms.author: alinast
 ms.custom: include file
-ms.openlocfilehash: 9f4bf6fb92b590e274e8880b5f900e5469f85727
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: ef6b395aeff18a63f52f58e2477679b48a19b002
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "69012208"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624760"
 ---
 1. [Azure Portal](https://portal.azure.com)의 왼쪽 창에서 **Azure Active Directory**를 연 다음, **속성** 창을 엽니다. **디렉터리 ID**를 임시 파일에 복사합니다. 이 값은 다음 섹션에서 샘플 애플리케이션을 구성하는 데 사용됩니다.
 
@@ -41,7 +41,7 @@ ms.locfileid: "69012208"
 
    e. **API 액세스 추가** 창에서 **완료**를 선택합니다.
 
-   f. **필요한 권한** 창에서 **권한 부여** 단추를 선택하고, 나타나는 확인 메시지를 수락합니다. 이 API에 대 한 권한이 부여 되지 않은 경우 관리자에 게 문의 하십시오.
+   f. **필요한 권한** 창에서 **권한 부여** 단추를 선택 하 고 표시 되는 승인을 수락 합니다. 이 API에 대 한 권한이 부여 되지 않은 경우 관리자에 게 문의 하십시오.
 
       ![필요한 권한 창](./media/digital-twins-permissions-legacy/aad-app-req-permissions.png)
 

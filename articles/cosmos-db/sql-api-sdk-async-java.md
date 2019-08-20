@@ -8,27 +8,27 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 07/01/2019
 ms.author: moderakh
-ms.openlocfilehash: 3cafa4d5aecaa4c8f3863c3269ec02793340e3e6
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 3bee473adde9c4762cf400dff6190eb76a4cc8d7
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509273"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624699"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>SQL API용 Azure Cosmos DB Async Java SDK: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET 변경 피드](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
-> * [Node.JS](sql-api-sdk-node.md)
+> * [Node.js](sql-api-sdk-node.md)
 > * [비동기 Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST (영문)](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 리소스 공급자](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
+> * [대량 실행자-.NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [대량 실행자-Java](sql-api-sdk-bulk-executor-java.md)
 
 SQL API 비동기 Java SDK는 [Netty 라이브러리](https://netty.io/)를 지원하고 비동기 작업을 제공하기 때문에 SQL API Java SDK와는 다릅니다. 기존 [SQL API Java SDK](sql-api-sdk-java.md)는 비동기 작업을 지원하지 않습니다. 
 
@@ -45,25 +45,25 @@ SQL API 비동기 Java SDK는 [Netty 라이브러리](https://netty.io/)를 지�
 ## <a name="release-notes"></a>릴리스 정보
 
 ### <a name="a-name250250"></a><a name="2.5.0"/>2.5.0
-* TCP 모드에서 기본적으로
-* 파티션 간 쿼리 메트릭을 모든 파티션에 이제 반환합니다.
-* 전역 강력한 이제 제대로 작동
-* 쿼리에 대 한 장애 조치 다중 마스터에 대 한 않았습니다. 다시 시도
-* 종속성이 보안 핫픽스 삭제
+* 기본적으로 TCP 모드 설정
+* 이제 크로스 파티션의 쿼리 메트릭이 모든 파티션을 반환 합니다.
+* 이제 Global Strong은 제대로 작동 합니다.
+* 다중 마스터를 제대로 다시 시도 하지 않는 쿼리에 대 한 장애 조치 (Failover)
+* 보안 핫픽스의 종속성 충격
 
 ### <a name="a-name245245"></a><a name="2.4.5"/>2.4.5
-* 해시 V2 지원에 대 한 픽스
+* Hash V2 지원에 대 한 버그 수정
 
 ### <a name="a-name243243"></a><a name="2.4.3"/>2.4.3
-* Client#close()에서 리소스 누수에 대 한 픽스 ([github #88](https://github.com/Azure/azure-cosmosdb-java/issues/88)).
+* 클라이언트 # close () ([github #88](https://github.com/Azure/azure-cosmosdb-java/issues/88))에서 리소스 누수 문제를 수정 했습니다.
 
 ### <a name="a-name242242"></a><a name="2.4.2"/>2.4.2
-* 추가 된 연속 토큰이 지원에 대 한 파티션 간 쿼리에 합니다.
+* 파티션 간 쿼리에 대 한 연속 토큰 지원을 추가 했습니다.
 
 ### <a name="a-name241241"></a><a name="2.4.1"/>2.4.1
-* 직접 모드에서 몇 가지 버그도를 수정 되었습니다.
-* 직접 모드에서 향상 된 로깅입니다.
-* 향상 된 연결 관리 합니다.
+* 직접 모드의 일부 버그를 수정 했습니다.
+* 직접 모드의 로깅이 향상 되었습니다.
+* 연결 관리 기능이 향상 되었습니다.
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
 * 이제 직접 모드 연결이 GA(일반 공급)로 출시되었습니다. 직접 모드 연결을 사용하는 샘플은 [azure-cosmosdb-java](https://github.com/Azure/azure-cosmosdb-java) GitHub 리포지토리를 참조하세요.
@@ -156,9 +156,9 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
-| [2.4.3](#2.4.3) |2019 년 3 월 5 일|--- |
-| [2.4.2](#2.4.2) |2019 년 3 월 1 일|--- |
-| [2.4.1](#2.4.1) |2019 년 2 월 20 일|--- |
+| [2.4.3](#2.4.3) |3 월 5 일, 2019|--- |
+| [2.4.2](#2.4.2) |3 월 1 일, 2019|--- |
+| [2.4.1](#2.4.1) |2 월 20 일, 2019|--- |
 | [2.4.0](#2.4.0) |2019년 2월 8일|--- |
 | [2.4.0-beta-1](#2.4.0-beta-1) |2019년 2월 4일|--- |
 | [2.3.1](#2.3.1) |2019년 1월 15일|--- |
@@ -176,6 +176,6 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 ## <a name="faq"></a>FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 Cosmos DB에 대한 자세한 내용은 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 서비스 페이지를 참조하세요.
 

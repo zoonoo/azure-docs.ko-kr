@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: roiyz
-ms.openlocfilehash: 8b16d7b20c4d49398790d207065da946d98ef658
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 1a01f5f8aed994c16b8302e42996b27ee6a48003
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839173"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624869"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Linux 가상 머신에서 Azure 사용자 지정 스크립트 확장 버전 2 사용
 사용자 지정 스크립트 확장 버전 2는 Azure 가상 머신에서 스크립트를 다운로드하고 실행합니다. 이 확장은 배포 후 구성, 소프트웨어 설치 또는 기타 구성/관리 작업에 유용합니다. 스크립트를 Azure Storage 또는 기타 액세스가 가능한 인터넷 위치에서 다운로드하거나 확장 런타임을 제공할 수 있습니다. 
@@ -78,7 +78,7 @@ Linux용 사용자 지정 스크립트 확장은 지원되는 확장 OS의 확�
   "name": "config-app",
   "type": "Extensions",
   "location": "[resourceGroup().location]",
-  "apiVersion": "2015-06-15",
+  "apiVersion": "2019-03-01",
   "dependsOn": [
     "[concat('Microsoft.Compute/virtualMachines/', concat(variables('vmName'),copyindex()))]"
   ],
@@ -109,7 +109,7 @@ Linux용 사용자 지정 스크립트 확장은 지원되는 확장 OS의 확�
 
 | 이름 | 값/예제 | 데이터 형식 | 
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | 날짜 |
+| apiVersion | 2019-03-01 | 날짜 |
 | publisher | Microsoft.Compute.Extensions | string |
 | type | CustomScript | string |
 | typeHandlerVersion | 2.0 | ssNoversion |
@@ -127,8 +127,8 @@ Linux용 사용자 지정 스크립트 확장은 지원되는 확장 OS의 확�
   * `commandToExecute`: (스크립트를 설정하지 않은 경우 **필수**, 문자열) 실행할 진입점 스크립트입니다. 명령에 암호와 같은 기밀 정보가 포함되는 경우 이 필드를 대신 사용합니다.
 * `script`: (commandToExecute를 설정하지 않은 경우 **필수**, 문자열) /bin/sh로 실행된 base64 인코딩(및 필요에 따라 gzip 압축) 스크립트입니다.
 * `fileUris`: (옵션, 문자열 배열) 다운로드할 파일에 대한 URL입니다.
-* `storageAccountName`: (옵션, 문자열) 저장소 계정에 대한 이름입니다. 저장소 자격 증명을 지정하는 경우 모든 `fileUris`는 Azure Blob에 대한 URL이어야 합니다.
-* `storageAccountKey`: (옵션, 문자열) 저장소 계정의 액세스 키입니다.
+* `storageAccountName`: (옵션, 문자열) 스토리지 계정에 대한 이름입니다. 스토리지 자격 증명을 지정하는 경우 모든 `fileUris`는 Azure Blob에 대한 URL이어야 합니다.
+* `storageAccountKey`: (옵션, 문자열) 스토리지 계정의 액세스 키입니다.
 
 
 다음 값은 공용 또는 보호된 설정 중 하나에서 설정할 수 있습니다. 확장은 공용 및 보호된 설정 모두에 아래 값이 설정된 모든 구성을 거부합니다.
@@ -210,7 +210,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 �
   "name": "config-app",
   "type": "extensions",
   "location": "[resourceGroup().location]",
-  "apiVersion": "2015-06-15",
+  "apiVersion": "2019-03-01",
   "dependsOn": [
     "[concat('Microsoft.Compute/virtualMachines/', concat(variables('vmName'),copyindex()))]"
   ],
@@ -364,7 +364,7 @@ Azure 스크립트 확장은 여기에서 찾을 수 있는 로그를 생성합�
 /var/log/azure/custom-script/handler.log
 ```
 
-개별 실행을 찾아야, 다음과 같은 모양이 됩니다.
+개별 실행을 확인 해야 합니다. 다음과 같이 표시 됩니다.
 ```text
 time=2018-04-26T17:47:23Z version=v2.0.6/git@1008306-clean operation=enable seq=0 event=start
 time=2018-04-26T17:47:23Z version=v2.0.6/git@1008306-clean operation=enable seq=0 event=pre-check

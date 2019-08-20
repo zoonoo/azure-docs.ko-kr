@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.reviewer: mbullwin
-ms.date: 08/13/2019
+ms.date: 08/19/2019
 ms.author: dalek
-ms.openlocfilehash: 4029a9e46b9c9bb7cbd677deff4a172d8fc982f8
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: c3da37d89da8c70f6acdfb1b5ab9c5b10edb86f0
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534600"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624388"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Application Insights의 사용량 및 비용 관리
 
@@ -103,7 +103,7 @@ Application Insights 요금은 Azure 청구서에 추가됩니다. Azure 청구�
 
 일별 볼륨 한도를 사용하는 대신 [샘플링](../../azure-monitor/app/sampling.md)을 사용하여 원하는 수준으로 데이터 볼륨을 조정합니다. 그런 다음, 애플리케이션이 예기치 않게 높은 볼륨의 원격 분석을 보내기 시작하는 경우 "최후의 수단"으로만 일일 한도를 사용합니다.
 
-일일 한도를 변경하려면 Application Insights 리소스의 **구성** 섹션의 **사용량 및 예상 비용** 창에서 **일일 상한**을 선택합니다.
+일일 한도를 변경 하려면 Application Insights 리소스의 **구성** 섹션에 있는 **사용량 및 예상 비용** 페이지에서 **일일 상한**을 선택 합니다.
 
 ![일별 원격 분석 볼륨 한도 조정](./media/pricing/pricing-003.png)
 
@@ -135,11 +135,13 @@ Application Insights 요금은 Azure 청구서에 추가됩니다. Azure 청구�
 
 ## <a name="change-the-data-retention-period"></a>데이터 보존 기간 변경
 
-Application Insights은 이제 제한 된 수의 Application Insights 고객을 변수 보존 미리 보기에 등록 합니다. 이 미리 보기 프로그램에 참여 하는 방법에 대 한 정보는 [여기](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031)에서 확인할 수 있습니다.
+Application Insights 리소스에 대 한 기본 보존 기간은 90 일입니다. 각 Application Insights 리소스에 대해 서로 다른 보존 기간을 선택할 수 있습니다. 사용 가능한 보존 기간의 전체 집합은 30, 60, 90, 120, 180, 270, 365, 550 또는 730 일입니다. 
 
-Application Insights 리소스에 대 한 기본 보존 기간은 90 일입니다. 각 Application Insights 리소스에 대해 서로 다른 보존 기간을 선택할 수 있습니다. 사용 가능한 보존 기간의 전체 집합은 30, 60, 120, 180, 270, 365, 550 또는 730 일입니다. 
+보존 기간을 변경 하려면 Application Insights 리소스에서 **사용량 및 예상 비용** 페이지로 이동 하 여 **데이터 보존** 옵션을 선택 합니다.
 
-더 긴 보존을 위해 대금 청구를 사용 하도록 설정 하면 90 일 보다 오래 유지 된 데이터는 현재 Azure Log Analytics 데이터 보존에 대해 청구 되는 것과 동일한 요금으로 청구 됩니다. [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/)에서 자세히 알아보세요.  [이 제안에 투표](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031)하 여 변수 보존 진행률을 최신 상태로 유지 합니다. 
+![일별 원격 분석 볼륨 한도 조정](./media/pricing/pricing-005.png)
+
+더 긴 보존을 위해 대금 청구를 사용 하도록 설정 하면 90 일 보다 오래 유지 된 데이터는 현재 Azure Log Analytics 데이터 보존에 대해 청구 되는 것과 동일한 요금으로 청구 됩니다. [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/)에서 자세히 알아보세요. [이 제안에 투표](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031)하 여 변수 보존 진행률을 최신 상태로 유지 합니다. 
 
 ## <a name="limits-summary"></a>제한 요약
 
