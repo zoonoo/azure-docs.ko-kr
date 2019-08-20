@@ -10,18 +10,18 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 01/25/2019
-ms.openlocfilehash: 677d9b5a8ca837288755ab098fbccd8a5b7ddacd
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f4d2afd65ec06c331498ce974e933fe08c8e67dd
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567864"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935184"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>데이터베이스 작업을 사용하여 관리 작업 자동화
 
 Azure SQL Database를 통해 T-SQL 쿼리를 실행하고 유지 관리 작업을 수행하도록 하나 이상의 데이터베이스에 대해 주기적으로 실행되는 작업을 만들고 예약할 수 있습니다. 모든 작업은 실행의 상태를 기록하고 오류가 발생하는 경우 작업을 자동으로 다시 시도합니다.
 대상 데이터베이스 또는 작업이 실행되는 Azure SQL 데이터베이스의 그룹을 정의할 수 있으며, 작업 실행을 위한 일정도 정의할 수 있습니다.
-작업은 대상 데이터베이스의 로그인 태스크를 처리합니다. 또한 Azure SQL 데이터베이스 그룹에서 실행할 Transact-SQL 스크립트를 정의, 유지 관리 및 보존합니다.
+작업은 대상 데이터베이스에 로그인하는 작업을 처리합니다. 또한 Azure SQL 데이터베이스 그룹에서 실행할 Transact-SQL 스크립트를 정의, 유지 관리 및 보존합니다.
 
 ## <a name="when-to-use-automated-jobs"></a>자동화된 작업을 사용하는 경우
 
@@ -44,7 +44,7 @@ Azure SQL Database를 통해 T-SQL 쿼리를 실행하고 유지 관리 작업�
 다음 작업 예약 기술은 Azure SQL Database에서 사용할 수 있습니다.
 
 - **SQL 에이전트 작업**은 Managed Instance에서 사용할 수 있는 클래식 및 입증된 SQL Server 작업 예약 구성 요소입니다. SQL 에이전트 작업은 단일 데이터베이스에서 사용할 수 없습니다.
-- **Elastic Database 작업**은 하나 또는 여러 Azure SQL Databases에서 사용자 지정 작업을 실행하는 작업 예약 서비스입니다.
+- **Elastic Database 작업(미리 보기)** 은 하나 또는 여러 Azure SQL Databases에서 사용자 지정 작업을 실행하는 작업 예약 서비스입니다.
 
 SQL 에이전트(온-프레미스 및 SQL Database Managed Instance의 일부로 사용 가능)와 Database 탄력적 작업 에이전트(Azure SQL 데이터베이스의 단일 데이터베이스 및 SQL Data Warehouse의 데이터베이스에서 사용 가능) 사이의 몇 가지 차이점을 주목할 필요가 있습니다.
 
@@ -55,13 +55,13 @@ SQL 에이전트(온-프레미스 및 SQL Database Managed Instance의 일부로
 
 ## <a name="sql-agent-jobs"></a>SQL 에이전트 작업
 
-SQL 에이전트 작업은 데이터베이스에 대한 일련의 T-SQL 스크립트로 지정됩니다. 작업을 사용하여 두 번 이상 실행할 수 있으며 성공 또는 실패를 모니터링하는 관리 작업을 정의합니다.
+SQL 에이전트 작업은 데이터베이스에 대해 지정된 일련의 T-SQL 스크립트입니다. 작업을 사용하여 두 번 이상 실행할 수 있으며 성공 또는 실패를 모니터링하는 관리 작업을 정의합니다.
 하나의 로컬 서버 또는 여러 원격 서버에서 작업을 실행할 수 있습니다. SQL 에이전트 작업은 Managed Instance 서비스 내에서 실행되는 내부 데이터베이스 엔진 구성 요소입니다.
 SQL 에이전트 작업에는 몇 가지 주요 개념이 있습니다.
 
 - **작업 단계**는 작업 내에서 실행되어야 하는 하나 이상의 단계로 설정됩니다. 모든 작업 단계에서 작업 단계가 성공 또는 실패인 경우에 발생되어야 하는 다시 시도 전략 및 작업을 정의할 수 있습니다.
 - **일정**은 작업을 실행해야 하는 시기를 정의합니다.
-- **알림**은 작업이 완료되면 운영자에게 이메일을 통해 사용할 규칙을 정의할 수 있습니다.
+- **알림**을 통해 작업이 완료되면 이메일을 통해 운영자에게 알리는 데 사용할 규칙을 정의할 수 있습니다.
 
 ### <a name="job-steps"></a>작업 단계
 
@@ -94,7 +94,7 @@ SQL 에이전트를 사용하면 데이터베이스에 대해 단일 Transact-SQ
 
 ### <a name="job-notifications"></a>작업 알림
 
-SQL 에이전트 작업을 통해 작업이 성공적으로 완료되거나 실패할 때 알림을 받을 수 있습니다. 이메일을 통해 이메일 알림을 받을 수 있습니다.
+SQL 에이전트 작업을 통해 작업이 성공적으로 완료되거나 실패할 때 알림을 받을 수 있습니다. 이메일을 통해 알림을 받을 수 있습니다.
 
 먼저 다음 샘플에 나온 것처럼 이메일 알림을 보내는 데 사용될 이메일 계정을 설정하고 `AzureManagedInstance_dbmail_profile`이라는 이메일 프로필에 계정을 할당해야 합니다.
 
@@ -134,10 +134,10 @@ GO
 RECONFIGURE 
 ```
 
-SQL 에이전트 작업에 문제가 발생했음을 운영자에게 알릴 수 있습니다. 운영자는 둘 이상의 Managed Instance를 유지 관리하는 개인에 대한 연락처 정보를 정의합니다. 경우에 따라 운영자 책임이 한 개인에게 할당되기도 합니다.
+SQL 에이전트 작업에 문제가 발생했음을 운영자에게 알릴 수 있습니다. 운영자는 하나 이상의 Managed Instance의 유지 관리를 담당하는 개인에 대한 연락처 정보를 정의합니다. 운영자 책임이 개인 한 명에게 할당되는 경우도 있습니다.
 여러 Managed Instance 또는 SQL Server를 사용하는 시스템에서는 여러 개인이 운영자 책임을 공유할 수 있습니다. 운영자는 보안 정보를 포함하지 않으며 보안 주체를 정의하지 않습니다.
 
-다음 예제와 같이 SSMS 또는 Transact-SQL 스크립트를 사용하여 운영자를 만들 수 있습니다.
+다음 예제와 같은 Transact-SQL 스크립트나 SSMS를 사용하여 운영자를 만들 수 있습니다.
 
 ```sql
 EXEC msdb.dbo.sp_add_operator 
@@ -158,17 +158,17 @@ EXEC msdb.dbo.sp_update_job @job_name=N'Load data using SSIS',
 
 SQL Server에서 사용할 수 있는 SQL 에이전트 기능 중 일부는 Managed Instance에서 지원되지 않습니다.
 - SQL 에이전트 설정은 읽기 전용입니다. `sp_set_agent_properties` 프로시저는 Managed Instance에서 지원되지 않습니다.
-- 에이전트 사용 설정/해제는 현재 Managed Instance에서 지원되지 않습니다. SQL 에이전트는 항상 실행되고 있습니다.
+- SQL 에이전트 사용 설정/해제는 현재 Managed Instance에서 지원되지 않습니다. SQL 에이전트는 항상 실행되고 있습니다.
 - 알림은 부분적으로 지원됩니다.
   - 호출기는 지원되지 않습니다.
   - NetSend는 지원되지 않습니다.
-  - 경고는 아직 지원되지 않습니다.
+  - 경고는 지원되지 않습니다.
 - 프록시는 지원되지 않습니다.
 - Eventlog는 지원되지 않습니다.
 
 SQL Server 에이전트에 대한 자세한 내용은 [SQL Server 에이전트](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent)를 참조하세요.
 
-## <a name="elastic-database-jobs"></a>Elastic Database 작업
+## <a name="elastic-database-jobs-preview"></a>Elastic Database 작업(미리 보기)
 
 **Elastic Database 작업**은 스케줄에 따라 또는 요청 시 많은 데이터베이스에서 병렬로 하나 이상의 T-SQL 스크립트를 실행하는 기능을 제공합니다.
 

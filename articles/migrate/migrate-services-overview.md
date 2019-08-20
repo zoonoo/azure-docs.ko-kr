@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 07/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 5409ed799454a6bb64077ee884065fc518556142
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 03918976935f9071ba2a7951e29195118943a8ef
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227821"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845843"
 ---
 # <a name="about-azure-migrate"></a>Azure Migrate 정보
 
@@ -50,7 +50,7 @@ Azure Migrate는 네이티브 Azure 도구 외에도, 다양한 ISV 제품에 �
 
 ### <a name="selecting-an-isv-tool"></a>ISV 도구 선택
 
-ISV 도구를 Azure Migrate 프로젝트에 추가한 후에는 ISV 정책에 따라 라이선스를 얻거나 평가판에 등록하여 도구를 시작합니다. 각 도구에는 Azure Migrate에 연결할 수 있는 옵션이 있습니다. 도구 지침 및 설명서에 따라 도구를 Azure Migrate에 연결합니다.
+ISV 도구를 Azure Migrate 프로젝트에 추가한 후에는 ISV 정책에 따라 라이선스를 얻거나 평가판에 등록하여 도구를 시작합니다. 각 도구에는 Azure Migrate에 연결할 수 있는 옵션이 있습니다. 도구 지침 및 설명서에 따라 도구를 Azure Migrate에 연결합니다. ISV 도구에 대한 라이선스는 ISV 라이선스 모델에 따릅니다.
 
 ## <a name="azure-migrate-server-assessment"></a>Azure Migrate 서버 평가
 

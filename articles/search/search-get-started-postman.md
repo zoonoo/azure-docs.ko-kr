@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 07/11/2019
 ms.author: heidist
-ms.openlocfilehash: 5ad1708475200475669c5de8f4fbd316f04ebd04
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: e3912e90762977bc801279fde481fc26516e51a6
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840795"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882651"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-postman-using-rest-apis"></a>빠른 시작: REST API를 사용하여 Postman에서 Azure Search 인덱스 만들기
 > [!div class="op_single_selector"]
@@ -80,7 +80,7 @@ Postman에서 이렇게 하려면 다음을 수행합니다.
 
 1. 동사를 **PUT**으로 변경합니다.
 
-2. 이 URL(`https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels?api-version=2019-05-06`)에 복사합니다.
+2. 이 URL(`https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart?api-version=2019-05-06`)에 복사합니다.
 
 3. 인덱스 정의(아래에 복사 준비 코드가 제공됨)를 요청 본문에 지정합니다.
 
@@ -298,6 +298,7 @@ api-version 구문이 다른 점에 유의하세요. 이 요청의 경우 `?`를
 
 ## <a name="next-steps"></a>다음 단계
 
-REST 클라이언트는 즉석 탐색에 매우 유용하지만 이제 REST API가 어떻게 작동하는지 알게 되었니 코드로 진행할 수 있습니다. 다음 단계는 다음 링크를 참조하세요.
+이제 핵심 작업을 수행하는 방법을 배웠으므로 인덱서 또는 [인지 검색 파이프라인 설정](cognitive-search-tutorial-blob.md)과 같은 고급 기능에 대한 추가 REST API 호출을 진행할 수 있습니다. 다음 단계에서는 다음 링크를 권장합니다.
 
-+ [빠른 시작: .NET SDK를 사용하여 인덱스 만들기](search-get-started-dotnet.md)
+> [!div class="nextstepaction"]
+> [REST 자습서: Azure Search에서 반정형 데이터(JSON Blob) 인덱싱 및 검색](search-semi-structured-data.md)

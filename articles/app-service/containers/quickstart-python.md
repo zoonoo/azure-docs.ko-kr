@@ -4,7 +4,7 @@ description: 몇 분 안에 Linux의 Azure App Service에서 첫 번째 Python H
 services: app-service\web
 documentationcenter: ''
 author: cephalin
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: app-service-web
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 04/29/2019
 ms.author: cephalin
-ms.openlocfilehash: 28e10389f65e0b64ed15c00eb2a8632229397383
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 163876d63ba2127dd3f3444e95b284918e60e368
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639182"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68951990"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux"></a>Azure App Service on Linux에서 Python 앱 만들기
 
@@ -199,7 +199,7 @@ az webapp up -n <app-name> -l <location-name>
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [자습서: PostgreSQL을 사용한 Python 앱](tutorial-python-postgresql-app.md)
+> [자습서: PostgreSQL을 사용하는 Python(Django) 웹앱](tutorial-python-postgresql-app.md)
 
 > [!div class="nextstepaction"]
 > [Python 앱 구성](how-to-configure-python.md)

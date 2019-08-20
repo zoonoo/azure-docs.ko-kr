@@ -1,18 +1,19 @@
 ---
 title: Azure Key Vault - PowerShell로 일시 삭제를 사용하는 방법
 description: PowerShell 코드 캡처를 통한 일시 삭제의 사용 사례 예제
+services: key-vault
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 ms.service: key-vault
-ms.topic: conceptual
-ms.date: 03/19/2019
+ms.topic: tutorial
+ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: ecc87e03a80ce10bedbe26b3ebb452ec704eefcb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.openlocfilehash: 6a24f2dd52c3ac3c51df54bf5c01c7b31ca16147
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60461368"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985765"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>PowerShell로 Key Vault 일시 삭제를 사용하는 방법
 
@@ -49,6 +50,9 @@ Key Vault 작업은 RBAC(역할 기반 액세스 제어) 권한을 통해 다음
 ## <a name="enabling-soft-delete"></a>일시 삭제를 사용하도록 설정
 
 "일시 삭제"를 사용하여 삭제된 키 자격 증명 모음 또는 키 자격 증명 모음에 저장된 개체를 복구할 수 있습니다.
+
+> [!IMPORTANT]
+> 키 자격 증명 모음에 대해 '일시 삭제'를 사용하도록 설정하는 것은 복구 불가능한 동작입니다. 일시 삭제된 속성을 "true"로 설정한 후에는 해당 속성을 변경하거나 제거할 수 없습니다.  
 
 ### <a name="existing-key-vault"></a>기존 Key Vault 사용
 
@@ -101,7 +105,7 @@ Remove-AzKeyVault -VaultName 'ContosoVault'
 Get-AzKeyVault -InRemovedState 
 ```
 
-- *ID* 복구 또는 제거 하는 경우 해당 리소스를 식별할 수 있습니다. 
+- *ID*를 사용하여 복구 또는 제거할 때 리소스를 식별할 수 있습니다. 
 - *리소스 ID*는 이 자격 증명 모음의 원본 리소스 ID입니다. 이제 이 Key Vault가 삭제된 상태로 있으므로 해당 리소스 ID를 사용하는 리소스가 없습니다. 
 - *예약된 제거 날짜*는 어떤 작업도 수행되지 않는 경우 자격 증명 모음이 영구적으로 삭제되는 시기입니다. *예약된 제거 날짜*를 계산하는 데 사용되는 기본 보존 기간은 90일입니다.
 
@@ -202,7 +206,7 @@ Set-AzKeyVaultAccessPolicy -VaultName ContosoVault -UserPrincipalName user@conto
 > [!IMPORTANT]
 > 키 자격 증명 모음 또는 포함된 해당 개체 중 하나를 제거하면 영구적으로 삭제되며, 이는 복구할 수 없습니다!
 
-제거 함수는 키 자격 증명 모음 개체 또는 전체 key vault가 이전에 일시 삭제는 영구적으로 삭제 됩니다. 이전 섹션에서 설명한 대로 일시 삭제 기능을 사용하도록 설정된 키 자격 증명 모음에 저장된 개체는 다음과 같이 여러 가지 상태를 거칠 수 있습니다.
+제거 함수는 이전에 일시 삭제되었던 Key Vault 개체 또는 전체 Key Vault를 영구적으로 삭제하는 데 사용됩니다. 이전 섹션에서 설명한 대로 일시 삭제 기능을 사용하도록 설정된 키 자격 증명 모음에 저장된 개체는 다음과 같이 여러 가지 상태를 거칠 수 있습니다.
 - **활성**: 삭제 전
 - **일시 삭제**: 삭제 후 목록에 나열되고 활성 상태로 다시 복구할 수 있습니다.
 - **영구 삭제**: 제거 후 복구할 수 없습니다.
@@ -230,19 +234,19 @@ Remove-AzKeyVault -VaultName ContosoVault -InRemovedState -Location westus
 >[!IMPORTANT]
 >해당 *예약된 제거 날짜* 필드에 의해 트리거되는 제거된 자격 증명 모음 개체가 영구적으로 삭제됩니다. 이는 복구할 수 없습니다!
 
-## <a name="enabling-purge-protection"></a>보호 제거를 사용 하도록 설정
+## <a name="enabling-purge-protection"></a>제거 보호 활성화
 
-보호 제거 삭제 된 자격 증명 모음 또는 개체에 설정 된 경우 90 일의 보존 기간이 경과 될 때까지 상태를 비울 수 없습니다. 즉, 이러한 자격 증명 모음 또는 개체는 여전히 복구할 수 있는 상태입니다. 이 기능을 사용 하면 자격 증명 모음 또는 개체가 될 수 없습니다 영구적으로 추가 된 보증 경과할 때까지 보존 기간을 삭제 합니다.
+제거 보호를 설정하면 보존 기간인 90일이 지날 때까지 삭제된 상태의 자격 증명 모음이나 개체를 제거할 수 없습니다. 즉, 이러한 자격 증명 모음 또는 개체는 여전히 복구할 수 있는 상태입니다. 이 기능을 사용하면 보존 기간이 지날 때까지는 자격 증명 모음이나 개체를 삭제할 수 없습니다.
 
-일시 삭제를 함께 사용 하는 경우에 보호 제거를 사용할 수 있습니다. 
+일시 삭제가 활성화된 경우에만 제거 보호를 사용하도록 설정할 수 있습니다. 
 
-모두 일시 삭제를 설정 하 고 자격 증명 모음을 만들 때 보호 제거를 사용 합니다 [새로 만들기-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault?view=azps-1.5.0) cmdlet:
+자격 증명 모음을 만들 때 일시 삭제 및 제거 보호를 모두 설정하려면 [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault?view=azps-1.5.0) cmdlet을 사용합니다.
 
 ```powershell
 New-AzKeyVault -Name ContosoVault -ResourceGroupName ContosoRG -Location westus -EnableSoftDelete -EnablePurgeProtection
 ```
 
-보호 제거 (이미 있는 일시 삭제가 활성화 되어)는 기존 자격 증명 모음에 추가를 사용 합니다 [Get AzKeyVault](/powershell/module/az.keyvault/Get-AzKeyVault?view=azps-1.5.0), [Get AzResource](/powershell/module/az.resources/get-azresource?view=azps-1.5.0), 및 [집합 AzResource](/powershell/module/az.resources/set-azresource?view=azps-1.5.0) cmdlet:
+이미 일시 삭제가 활성화된 기존 자격 증명 모음에 제거 보호를 추가하려면 [Get-AzKeyVault](/powershell/module/az.keyvault/Get-AzKeyVault?view=azps-1.5.0), [Get-AzResource](/powershell/module/az.resources/get-azresource?view=azps-1.5.0) 및 [Set-AzResource](/powershell/module/az.resources/set-azresource?view=azps-1.5.0) cmdlet을 사용합니다.
 
 ```
 ($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "ContosoVault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enablePurgeProtection" -Value "true"
@@ -253,4 +257,4 @@ Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
 ## <a name="other-resources"></a>기타 리소스
 
 - Key Vault의 일시 삭제 기능에 대한 자세한 내용은 [Azure Key Vault 일시 삭제 개요](key-vault-ovw-soft-delete.md)를 참조하세요.
-- Azure Key Vault 사용의 일반적인 개요를 참조 하세요 [Azure Key Vault 란?](key-vault-overview.md)합니다. ate 성공 =}
+- Azure Key Vault 사용에 대한 일반적인 개요는 [Azure Key Vault란?](key-vault-overview.md).ate=Succeeded}을 참조하세요.

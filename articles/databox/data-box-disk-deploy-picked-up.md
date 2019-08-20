@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 07/23/2019
+ms.date: 08/12/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: ca42532fe6ba954180ce06ed0e3561e42f1fb447
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 9e3159a083d21e4a7a81df2fcf7a7d5db882b757
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68424243"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976924"
 ---
 ::: zone target="docs"
 
@@ -109,12 +109,9 @@ ms.locfileid: "68424243"
 1. 회사 이름과 주소 정보를 보낸 사람 정보로 탁송 운송장에 작성합니다.
 2. 다음 이메일 템플릿을 사용하여 Quantium Solutions에 이메일을 전송합니다.
 
-    - Japan Post Chakubarai 탁송 운송장이 포함되지 않거나 누락된 경우 이를 이메일에서 언급해야 합니다. Quantium Solutions Japan은 Japan Post에 픽업 시 탁송 운송장을 가져올 것을 요청합니다.
-    - 주문이 여러 개인 경우에는 개별 픽업을 보장하도록 이메일을 보냅니다.
-
     ```
     To: Customerservice.JP@quantiumsolutions.com
-    Subject: Pickup request for Azure Data Box Disk｜Job Name： 
+    Subject: Pickup request for Microsoft Azure Data Box Disk｜Job Name： 
     Body: 
     - Japan Post Yu-Pack tracking number (reference number)：
     - Requested pickup date：mmdd (Select a requested time slot from below).
@@ -123,6 +120,9 @@ ms.locfileid: "68424243"
         c. 15：00-17：00 
         d. 17：00-19：00 
     ```
+    - **오사카에서 픽업하는 경우** 이메일 템플릿의 제목을 `Pickup request for Microsoft Azure OSA`로 수정합니다.
+    - Japan Post Chakubarai 탁송 운송장이 포함되지 않거나 누락된 경우 이를 이메일에서 언급해야 합니다. Quantium Solutions Japan은 Japan Post에 픽업 시 탁송 운송장을 가져올 것을 요청합니다.
+    - 주문이 여러 개인 경우에는 개별 픽업을 보장하도록 이메일을 보냅니다.
 
 3. 픽업을 예약한 후 Quantium Solutions에서 이메일 확인을 수신합니다. 이메일 확인에는 Chakubarai 탁송 운송장에 대한 정보도 포함되어 있습니다.
 
@@ -183,7 +183,7 @@ Microsoft에서 디스크를 수신하고 검사할 때 작업 상태는 **수�
 
 오류와 함께 복사가 완료되면 [업로드 오류 문제 해결](data-box-disk-troubleshoot-upload.md)을 참조하세요.
 
-원본에서 데이터를 삭제하기 전에 데이터 저장소 계정에 있는지 확인합니다. 다음 위치에 데이터가 있을 수 있습니다.
+원본에서 데이터를 삭제하기 전에 데이터 스토리지 계정에 있는지 확인합니다. 다음 위치에 데이터가 있을 수 있습니다.
 
 - Azure Storage 계정. Data Box에 데이터를 복사할 때, 데이터 형식에 따라 Azure Storage 계정에서 다음 경로 중 하나에 업로드됩니다.
 
@@ -206,17 +206,17 @@ Microsoft에서 디스크를 수신하고 검사할 때 작업 상태는 **수�
 
 데이터가 Azure로 업로드되었는지 확인하려면 다음 단계를 수행합니다.
 
-1. 디스크 주문과 연결된 저장소 계정으로 이동합니다.
-2. **Blob service > Blob 찾아보기**로 이동합니다. 컨테이너 목록이 표시됩니다. *BlockBlob* 및 *PageBlob* 폴더 아래에서 만든 하위 폴더에 해당하는 동일한 이름의 컨테이너가 저장소 계정에 만들어집니다.
+1. 디스크 주문과 연결된 스토리지 계정으로 이동합니다.
+2. **Blob service > Blob 찾아보기**로 이동합니다. 컨테이너 목록이 표시됩니다. *BlockBlob* 및 *PageBlob* 폴더 아래에서 만든 하위 폴더에 해당하는 동일한 이름의 컨테이너가 스토리지 계정에 만들어집니다.
     폴더 이름이 Azure 명명 규칙을 따르지 않는 경우 Azure에 대한 데이터 업로드가 실패합니다.
 
-4. 전체 데이터 세트가 로드되었는지 확인하려면 Microsoft Azure Storage Explorer를 사용합니다. 디스크 임대 주문에 해당하는 저장소 계정을 연결한 다음, Blob 컨테이너의 목록을 살펴봅니다. 컨테이너를 선택하고, **...자세히**를 클릭한 다음, **폴더 통계**를 클릭합니다. **작업** 창에서 Blob의 수 및 총 Blob 크기를 포함하는 해당 폴더에 대한 통계가 표시됩니다. 총 Blob 크기(바이트)는 데이터 세트의 크기와 일치해야 합니다.
+4. 전체 데이터 세트가 로드되었는지 확인하려면 Microsoft Azure Storage Explorer를 사용합니다. 디스크 임대 주문에 해당하는 스토리지 계정을 연결한 다음, Blob 컨테이너의 목록을 살펴봅니다. 컨테이너를 선택하고, **...자세히**를 클릭한 다음, **폴더 통계**를 클릭합니다. **작업** 창에서 Blob의 수 및 총 Blob 크기를 포함하는 해당 폴더에 대한 통계가 표시됩니다. 총 Blob 크기(바이트)는 데이터 세트의 크기와 일치해야 합니다.
 
     ![Storage Explorer에서 폴더 통계](media/data-box-disk-deploy-picked-up/folder-statistics-storage-explorer.png)
 
 ## <a name="erasure-of-data-from-data-box-disk"></a>Data Box Disk에서 데이터 지우기
 
-복사가 완료되고 데이터가 Azure 저장소 계정에 있는지 확인하면 디스크는 NIST 표준에 따라 안전하게 지워집니다.
+복사가 완료되고 데이터가 Azure Storage 계정에 있는지 확인하면 디스크는 NIST 표준에 따라 안전하게 지워집니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,12 +10,12 @@ ms.date: 07/31/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eda457747a6a3e374e7fdea571f64446e15ded21
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: a52b9ee26aac20d95356db6a280c5feb40023fed
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774171"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68942798"
 ---
 # <a name="what-is-azure-active-directory"></a>Azure Active Directory란?
 
@@ -50,9 +50,9 @@ Azure AD 구현을 향상하기 위해 Azure Active Directory Premium P1 또는 
 
 - **Azure Active Directory Free.** Azure, Office 365 및 여러 인기 SaaS 앱에 사용자 및 그룹 관리, 온-프레미스 디렉터리 동기화, 기본 보고서, 클라우드 사용자를 위한 셀프 서비스 암호 변경 및 Single Sign-On을 제공합니다.
 
-- **Azure Active Directory Premium P1.** P1은 Free 및 Basic 기능 외에도 하이브리드 사용자에게 온-프레미스 및 클라우드 리소스에 대한 액세스를 제공합니다. 또한 온-프레미스 사용자에 대한 셀프 서비스 암호 재설정을 허용하는 동적 그룹, 셀프 서비스 그룹 관리, Microsoft Identity Manager(온-프레미스 ID 및 액세스 관리 도구 모음), 클라우드 쓰기 저장 기능 등의 고급 관리를 지원합니다.
+- **Azure Active Directory Premium P1.** P1은 Free 기능 외에도 하이브리드 사용자에게 온-프레미스 및 클라우드 리소스에 대한 액세스를 제공합니다. 또한 온-프레미스 사용자에 대한 셀프 서비스 암호 재설정을 허용하는 동적 그룹, 셀프 서비스 그룹 관리, Microsoft Identity Manager(온-프레미스 ID 및 액세스 관리 도구 모음), 클라우드 쓰기 저장 기능 등의 고급 관리를 지원합니다.
 
-- **Azure Active Directory Premium P2.** P2는 Free, Basic 및 P1 기능 외에도 앱 및 중요한 회사 데이터에 대한 위험 기반 조건부 액세스를 제공하는 [Azure Active Directory Identity Protection](../identity-protection/enable.md)과 관리자의 리소스 액세스를 검색, 제한, 모니터링하고 필요할 때 적시에 액세스를 제공할 수 있도록 도와주는 [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md)를 제공합니다.
+- **Azure Active Directory Premium P2.** P2는 Free 및 P1 기능 외에도 앱 및 중요한 회사 데이터에 대한 위험 기반 조건부 액세스를 제공하는 [Azure Active Directory Identity Protection](../identity-protection/enable.md)과 관리자의 리소스 액세스를 검색, 제한, 모니터링하고 필요할 때 적시에 액세스를 제공할 수 있도록 도와주는 [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md)를 제공합니다.
 
 - **"종량제" 기능 라이선스.** Azure Active Directory B2C(Business-to-Customer) 같은 추가 기능 라이선스도 얻을 수 있습니다. B2C는 고객용 앱의 ID 및 액세스 관리 솔루션을 제공하는 데 도움이 될 수 있습니다. 자세한 내용은 [Azure Active Directory B2C 설명서](../../active-directory-b2c/index.yml)를 참조하세요.
 

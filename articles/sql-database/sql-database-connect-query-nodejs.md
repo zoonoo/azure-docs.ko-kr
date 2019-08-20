@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 03/25/2019
-ms.openlocfilehash: 4a99acaaae0c0efee61d97605a81d74549e02509
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 72e509a9a7f820c26895bdfac9216b0373729f6c
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569195"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68947093"
 ---
 # <a name="quickstart-use-nodejs-to-query-an-azure-sql-database"></a>빠른 시작: Node.js를 사용하여 Azure SQL 데이터베이스 쿼리
 
@@ -56,13 +56,13 @@ Azure SQL 데이터베이스에 연결하는 데 필요한 연결 정보를 가�
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-2. **SQL 데이터베이스** 또는 **SQL 관리되는 인스턴스** 페이지로 이동합니다.
+2. **SQL 데이터베이스** 또는 **SQL 관리형 인스턴스** 페이지로 이동합니다.
 
 3. **개요** 페이지에서 단일 데이터베이스에 대한 **서버 이름** 옆에 있는 정규화된 서버 이름 또는 관리되는 인스턴스에 대한 **호스트** 옆에 있는 정규화된 서버 이름을 검토합니다. 서버 이름이나 호스트 이름을 복사하려면 마우스로 해당 이름 위를 가리키고 **복사** 아이콘을 선택합니다. 
 
 ## <a name="create-the-project"></a>프로젝트 만들기
 
-명령 프롬프트를 열고 *sqltest*라는 폴더를 만듭니다. 생성한 폴더로 이동하여 다음 명령을 실행합니다.
+명령 프롬프트를 열고 *sqltest*라는 폴더를 만듭니다. 생성한 폴더를 열고 다음 명령을 실행합니다.
 
   ```bash
   npm init -y

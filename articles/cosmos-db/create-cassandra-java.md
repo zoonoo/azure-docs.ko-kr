@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Cassandra API와 Java - Azure Cosmos DB'
+title: Cassandra API 및 Java를 사용하여 앱 빌드 - Azure Cosmos DB
 description: 이 빠른 시작은 Azure Portal 및 Java와 함께 Azure Cosmos DB Cassandra API를 사용하여 프로필 애플리케이션을 만드는 방법을 보여 줍니다.
 ms.service: cosmos-db
 author: SnehaGunda
@@ -8,12 +8,13 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 968c43ed78c59e5c1f147aaaa5bb33484d95c7a9
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.custom: seo-java-august2019
+ms.openlocfilehash: e8ca40ec86bc3af92fd23bb7acce3d6c39b082fb
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325476"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933935"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-java-sdk-and-azure-cosmos-db"></a>빠른 시작: Java SDK 및 Azure Cosmos DB를 사용하여 Cassandra 앱 빌드
 
@@ -203,7 +204,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
     터미널 창에 키스페이스와 테이블이 작성되었다는 알림이 표시됩니다. 그런 다음, 테이블의 모든 사용자를 선택하여 반환하고 출력을 표시한 후 ID로 행을 선택하고 값을 표시합니다.  
 
-    프로그램 실행을 중지하고 콘솔 창을 닫으려면 CTRL+C를 누릅니다.
+    프로그램 실행을 중지하고 콘솔 창을 닫으려면 **CTRL + C**를 선택합니다.
 
 4. Azure Portal에서 **데이터 탐색기**를 열어 이 새 데이터를 쿼리/수정/사용합니다. 
 

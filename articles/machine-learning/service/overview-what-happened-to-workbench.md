@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2bc036fcde7ac541dbf7d8511f82080e52135777
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: e043847db09eec6ec05cca1e259024cf08e91ed0
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68772628"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68846032"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench는 어떻게 되었나요?
 
@@ -40,7 +40,7 @@ Azure Machine Learning Service의 최신 릴리스에 포함된 기능은 다음
 + 더 포괄적인 새 Python <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>
 + 확장된 새 기계 학습용 [Azure CLI 확장](reference-azure-machine-learning-cli.md)
 
-[아키텍처](concept-azure-machine-learning-architecture.md)는 사용 편의성을 고려하여 다시 설계되었습니다. 여러 Azure 리소스 및 계정 대신 [Azure Machine Learning Service 작업 영역](concept-workspace.md)만 있으면 됩니다. [Azure Portal]에서 신속하게 작업 영역을 만들 수 있습니다(setup-create-workspace.md#portal). 작업 영역을 사용하면 여러 사용자가 학습 및 배포 컴퓨팅 대상, 모델 실험, Docker 이미지, 배포된 모델 등을 저장할 수 있습니다.
+[아키텍처](concept-azure-machine-learning-architecture.md)는 사용 편의성을 고려하여 다시 설계되었습니다. 여러 Azure 리소스 및 계정 대신 [Azure Machine Learning Service 작업 영역](concept-workspace.md)만 있으면 됩니다. [Azure Portal]에서 신속하게 작업 영역을 만들 수 있습니다(how-to-manage-workspace.md). 작업 영역을 사용하면 여러 사용자가 학습 및 배포 컴퓨팅 대상, 모델 실험, Docker 이미지, 배포된 모델 등을 저장할 수 있습니다.
 
 최신 릴리스에는 향상된 새 CLI와 SDK 클라이언트가 포함되어 있지만, 데스크톱 Workbench 애플리케이션 자체는 더 이상 사용되지 않습니다. 실험은 [Azure Portal의 작업 영역 대시보드](how-to-track-experiments.md#view-the-experiment-in-the-azure-portal)에서 관리할 수 있습니다. 대시보드를 사용하여 실험 기록을 가져오고, 작업 영역에 연결된 컴퓨팅 대상을 관리하고, 모델 및 Docker 이미지를 관리하고, 심지어 웹 서비스를 배포할 수 있습니다.
 
@@ -50,7 +50,7 @@ Azure Machine Learning Service의 최신 릴리스에 포함된 기능은 다음
 
 2019년 1월 9일자로 Machine Learning Workbench, Azure Machine Learning 실험 및 모델 관리 계정, 연결된 SDK 및 CLI에 대한 지원이 종료됩니다. 
 
-모든 최신 기능은 이 <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>, [CLI](reference-azure-machine-learning-cli.md) 및 [포털](setup-create-workspace.md#portal)을 통해 사용할 수 있습니다.
+모든 최신 기능은 이 <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>, [CLI](reference-azure-machine-learning-cli.md) 및 [포털](how-to-manage-workspace.md)을 통해 사용할 수 있습니다.
 
 ## <a name="what-about-run-histories"></a>실행 기록은 어떻게 되나요?
 
@@ -82,7 +82,7 @@ run = exp.submit(source_directory=script_folder,
                  script='train.py', run_config=run_config_system_managed)
 ```
 
-시작하려면 [작업 영역을 만듭니다](setup-create-workspace.md#portal).
+시작하려면 [작업 영역을 만듭니다](how-to-manage-workspace.md).
 
 ## <a name="what-about-my-registered-models-and-images"></a>등록된 모델과 이미지는 어떻게 되나요?
 

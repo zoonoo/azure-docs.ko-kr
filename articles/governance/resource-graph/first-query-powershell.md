@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 6c58528aba29cbbc81694112815534a8fc525b8a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a8221de15dfa48b4eebcf0fe0df29ea0c3a1868e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565389"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854960"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 첫 번째 Resource Graph 쿼리 실행
 
@@ -27,7 +27,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="add-the-resource-graph-module"></a>Resource Graph 모듈 추가
 
-Azure PowerShell을 사용하도록 설정하여 Azure Resource Graph를 쿼리하려면 해당 모듈을 추가해야 합니다. [Azure Cloud Shell](https://shell.azure.com) 또는 [Azure PowerShell Docker 이미지](https://hub.docker.com/r/azuresdk/azure-powershell/)와 함께 로컬로 설치된 PowerShell로 이 모듈을 사용할 수 있습니다.
+Azure PowerShell을 사용하도록 설정하여 Azure Resource Graph를 쿼리하려면 해당 모듈을 추가해야 합니다. [Azure Cloud Shell](https://shell.azure.com) 또는 [PowerShell Docker 이미지](https://hub.docker.com/_/microsoft-powershell)와 함께 로컬로 설치된 PowerShell로 이 모듈을 사용할 수 있습니다.
 
 ### <a name="base-requirements"></a>기본 요구 사항
 
@@ -98,8 +98,11 @@ Azure PowerShell 모듈이 선택한 환경에 추가되었으므로 간단한 R
 Azure PowerShell 환경에서 Resource Graph 모듈을 제거하려면 다음 명령을 사용하여 이 작업을 수행할 수 있습니다.
 
 ```azurepowershell-interactive
-# Remove the Resource Graph module from the Azure PowerShell environment
+# Remove the Resource Graph module from the current session
 Remove-Module -Name 'Az.ResourceGraph'
+
+# Uninstall the Resource Graph module from the environment
+Uninstall-Module -Name 'Az.ResourceGraph'
 ```
 
 > [!NOTE]

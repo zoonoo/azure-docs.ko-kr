@@ -1,20 +1,19 @@
 ---
 title: Azure Data Lake Storage Gen2 소개
 description: Azure Data Lake Storage Gen2에 대한 개요 제공
-services: storage
 author: normesta
 ms.service: storage
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: daa5efcf1be075e81e402edff56239a7cf21db18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 3dea4dfc58bf087b8f6bc0a3f45646da5cb597ad
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939222"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847237"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 소개
 
@@ -44,17 +43,17 @@ Data Lake Storage Gen2의 기본적인 부분은 [계층 구조 네임스페이�
 
 -   **비용 효율성**: Data Lake Storage Gen2는 낮은 비용의 스토리지 용량 및 트랜잭션을 제공합니다. 데이터가 전체 수명 주기를 통해 전환됨에 따라 청구 요금이 바뀌므로 [Azure Blob Storage 수명 주기](storage-lifecycle-management-concepts.md)와 같은 기본 제공 기능을 통해 비용이 최소한으로 유지됩니다.
 
--   **최적화된 드라이버**: ABFS 드라이버가 [특히 최적화](data-lake-storage-abfs-driver.md) 빅 데이터 분석에 대 한 합니다. 해당 REST Api 끝점을 통해 표시 됩니다 `dfs.core.windows.net`합니다.
+-   **최적화된 드라이버**: ABFS 드라이버는 빅 데이터 분석을 위해 [특별히 최적화](data-lake-storage-abfs-driver.md)되었습니다. 해당 REST API는 `dfs.core.windows.net` 엔드포인트를 통해 표시됩니다.
 
 ### <a name="scalability"></a>확장성
 
-Azure Storage는 Data Lake Storage Gen2 또는 Blob Storage 인터페이스를 통해 액세스하는지 여부에 관계없이 계획적으로 확장 가능합니다. ‘많은 엑사바이트의 데이터’를 저장하고 제공할 수 있습니다.  이 저장소 양은 높은 IOPS(초당 입출력 작업 수) 수준에서 Gbps(초당 기가비트 수)로 측정되는 처리량에 사용할 수 있습니다. 지속성 외에도 서비스, 계정 및 파일 수준에서 측정되는 거의 지속적인 요청별 대기 시간으로 처리가 실행됩니다.
+Azure Storage는 Data Lake Storage Gen2 또는 Blob Storage 인터페이스를 통해 액세스하는지 여부에 관계없이 계획적으로 확장 가능합니다. ‘많은 엑사바이트의 데이터’를 저장하고 제공할 수 있습니다.  이 스토리지 양은 높은 IOPS(초당 입출력 작업 수) 수준에서 Gbps(초당 기가비트 수)로 측정되는 처리량에 사용할 수 있습니다. 지속성 외에도 서비스, 계정 및 파일 수준에서 측정되는 거의 지속적인 요청별 대기 시간으로 처리가 실행됩니다.
 
 ### <a name="cost-effectiveness"></a>비용 효과
 
 Azure Blob 스토리지에 기반하여 Data Lake Storage Gen2를 구축하는 경우 얻을 수 있는 많은 이점 중 하나는 스토리지 용량 및 트랜잭션의 비용이 저렴하다는 것입니다. 다른 클라우드 스토리지 서비스와 달리 Data Lake Storage Gen2에 저장된 데이터는 분석하기 전에 이동하거나 변환할 필요가 없습니다. 가격 책정에 대한 자세한 내용은 [Azure Storage 가격](https://azure.microsoft.com/pricing/details/storage)을 참조하세요.
 
-또한 [계층 구조 네임스페이스](data-lake-storage-namespace.md)와 같은 기능은 많은 분석 작업의 전반적인 성능을 크게 개선합니다. 이 성능 개선은 동일한 양의 데이터를 처리하는 데 필요한 계산 능력이 감소하므로 엔드투엔드 분석 작업에 대한 TCO(총 소유 비용)가 낮아짐을 의미합니다.
+또한 [계층 구조 네임스페이스](data-lake-storage-namespace.md)와 같은 기능은 많은 분석 작업의 전반적인 성능을 크게 개선합니다. 이 성능 개선은 동일한 양의 데이터를 처리하는 데 필요한 컴퓨팅 능력이 감소하므로 엔드투엔드 분석 작업에 대한 TCO(총 소유 비용)가 낮아짐을 의미합니다.
 
 ### <a name="one-service-multiple-concepts"></a>하나의 서비스, 여러 개념
 
@@ -87,5 +86,5 @@ Data Lake Storage Gen2는 몇 가지 오픈 소스 플랫폼에서 지원합니�
 다음 문서에서는 Data Lake Storage Gen2의 기본 개념을 설명하고 데이터를 저장, 액세스, 관리하고 데이터에서 인사이트를 얻는 방법을 자세히 살펴봅니다.
 
 -   [계층 구조 네임스페이스](data-lake-storage-namespace.md)
--   [저장소 계정을 만드는](data-lake-storage-quickstart-create-account.md)
+-   [스토리지 계정을 만드는](data-lake-storage-quickstart-create-account.md)
 -   [Azure Databricks에서 Data Lake Storage Gen2 계정 사용](data-lake-storage-quickstart-create-databricks-account.md)

@@ -5,23 +5,23 @@ services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: include
-ms.date: 04/13/2018
+ms.date: 08/07/2019
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: 127d67cc3b5dcd0ddd585470821eb1baa08c2388
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 6656c374ae0ff4aae7f99fd340e9e25e5cbc67d1
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182749"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854189"
 ---
-이제 데이터 탐색기를 사용하여 새 컬렉션에 데이터를 추가할 수 있습니다.
+이제 데이터 탐색기를 사용하여 새 컨테이너에 데이터를 추가할 수 있습니다.
 
-1. 데이터 탐색기에서 새 데이터베이스가 컬렉션 창에 나타납니다. **작업** 데이터베이스를 확장하고 **Items** 컬렉션을 확장하고 **문서**를 클릭한 후 **새 문서**를 클릭합니다. 
+1. **Data Explorer**에서 **Tasks** 데이터베이스를 확장하고 **Items** 컨테이너를 확장합니다. **항목**을 선택한 다음, **새 항목**을 클릭합니다.
 
    ![Azure Portal의 데이터 탐색기에서 새 문서 만들기](./media/cosmos-db-create-sql-api-add-sample-data/azure-cosmosdb-data-explorer-new-document.png)
   
-2. 이제 다음과 같은 구조를 사용하여 컬렉션에 문서를 추가 합니다.
+2. 이제 다음과 같은 구조를 사용하여 컨테이너에 문서를 추가합니다.
 
      ```json
      {
@@ -33,8 +33,8 @@ ms.locfileid: "67182749"
      }
      ```
 
-3. **문서** 탭에 Json을 추가했으면 **저장**을 클릭합니다.
+3. **문서** 탭에 json을 추가했으면 **저장**을 선택합니다.
 
-    ![Azure Portal의 데이터 탐색기에서 Json 데이터를 복사하고 저장을 클릭합니다.](./media/cosmos-db-create-sql-api-add-sample-data/azure-cosmosdb-data-explorer-save-document.png)
+    ![Azure Portal의 Azure Data Explorer에서 Json 데이터를 복사하고 저장을 선택합니다.](./media/cosmos-db-create-sql-api-add-sample-data/azure-cosmosdb-data-explorer-save-document.png)
 
 4.  `id` 속성에 대한 고유한 값을 삽입하는 경우 둘 이상의 문서를 만들고 저장하며 다른 속성을 적합하게 변경합니다. Azure Cosmos DB가 데이터에 어떠한 스키마도 적용하지 않으므로 새 문서는 사용자가 원하는 어떠한 구조든 가질 수 있습니다.

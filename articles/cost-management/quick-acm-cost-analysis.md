@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.service: cost-management
 manager: micflan
 ms.custom: seodec18
-ms.openlocfilehash: d07a52a3cd07c69b9b7e2ef43331ddd9fb455b10
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.openlocfilehash: 2ca0c0741ea543b30695303d473389979f2e1045
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67827825"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855043"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>빠른 시작: 비용 분석을 사용하여 비용 탐색 및 분석
 
@@ -128,7 +128,7 @@ Azure Cost Management 데이터에 액세스하는 방법에 대한 자세한 �
 
 ![리소스 그룹 이름을 보여 주는 현재 보기의 전체 데이터](./media/quick-acm-cost-analysis/full-data-set.png)
 
-특정 특성별로 비용을 그룹화하는 경우 상위 10명의 비용 기여자가 가장 높은 기여자에서 가장 낮은 기여자 순으로 표시됩니다. 10명이 넘는 경우 상위 9명의 비용 기여자만 **기타** 그룹에 표시됩니다. 이 그룹은 나머지 그룹을 모두 포함합니다. 태그로 그룹화할 경우 태그 키가 적용되지 않은 비용에 **태그 없음** 그룹이 표시될 수 있습니다. 태그가 없는 비용이 태그가 있는 비용보다 많은 경우에도 **태그 없음**은 항상 마지막에 있습니다. 10개 이상의 태그 값이 있는 경우 태그가 없는 비용은 **기타**에 포함됩니다.
+특정 특성별로 비용을 그룹화하는 경우 상위 10명의 비용 기여자가 가장 높은 기여자에서 가장 낮은 기여자 순으로 표시됩니다. 10명을 초과하는 경우 상위 9명의 비용 기여자에게는 나머지 모든 그룹을 결합한 **기타** 그룹이 표시됩니다. 태그로 그룹화할 경우 태그 키가 적용되지 않은 비용에 **태그 없음** 그룹이 표시될 수 있습니다. 태그가 없는 비용이 태그가 있는 비용보다 많은 경우에도 **태그 없음**은 항상 마지막에 있습니다. 10개 이상의 태그 값이 있는 경우 태그가 없는 비용은 **기타**에 포함됩니다. 테이블 뷰로 전환하고 세분성을 **없음**으로 변경하여 가장 높은 비용부터 가장 낮은 비용까지 순위가 매겨진 모든 값을 확인합니다.
 
 클래식 가상 머신, 네트워킹 및 스토리지 리소스는 자세한 청구 데이터를 공유하지 않습니다. 이러한 리소스는 비용을 그룹화할 때 **클래식 서비스**로 병합됩니다.
 

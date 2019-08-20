@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b2c765778fc2bdd8425cc3f375831c0d317e753
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c4b235426a7029abb9bb79ba56e582cccc3b14a6
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67100887"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68944441"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hubspot"></a>자습서: HubSpot과 Azure Active Directory 통합
 
@@ -161,7 +161,7 @@ HubSpot에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     1. HubSpot의 **ID 공급자 Single Sign-On URL** 상자에 Azure Portal에서 복사한 **로그인 URL** 값을 붙여넣습니다.
 
-    1. Windows 메모장에서 다운로드한 인증서(Base64) 파일을 엽니다. 파일 콘텐츠를 선택한 후 복사합니다. 그런 다음, HubSpot의  **X.509 인증서** 상자에 붙여넣습니다.
+    1. Windows 메모장에서 다운로드한 인증서(Base64) 파일을 엽니다. 파일 콘텐츠를 선택한 후 복사합니다. 그런 다음, HubSpot에서 **X.509 인증서** 상자에 붙여넣습니다.
 
     1. **확인**을 선택합니다.
 

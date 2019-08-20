@@ -1,6 +1,5 @@
 ---
-title: 정의
-titleSuffix: Azure Machine Learning service
+title: Azure Machine Learning Service란?
 description: 고급 분석 애플리케이션을 클라우드 규모로 개발, 실험 및 배포하는 전문 데이터 과학자를 위한 통합 엔드투엔드 데이터 과학 솔루션인 Azure Machine Learning Service의 개요입니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 08/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5323c996b8d974c9db11a508503f767cfee80301
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 1dea5e174c66685f889595ab15b3edf57dd02493
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828115"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018238"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>Azure Machine Learning 서비스란?
 
@@ -50,15 +49,15 @@ Azure Machine Learning Service는 머신 러닝 모델의 데이터 준비, 교�
 
 SDK를 사용하여 [모델 학습 및 튜닝을 자동화](tutorial-auto-train-models.md)할 수도 있습니다.
 
-### <a name="code-free--low-code-experience"></a>코드가 없는/적은 환경
+### <a name="ui-based-low-code-experience"></a>UI 기반, 낮은 코드 환경
 
 코드 없는 학습을 원하신다면 다음 방법을 시도해보세요.
 
-+ 끌어서 놓기 실험 및 배포가 가능한 시각적 인터페이스
++ 사용하기 쉬운 인터페이스에서 [자동화된 ML 실험](tutorial-first-experiment-automated-ml.md)을 만듭니다.
++ [시각적 인터페이스에서 끌어서 놓기 실험](ui-tutorial-automobile-price-train-score.md).
+  ![Azure Machine Learning Service용 시각적 인터페이스](media/overview-what-is-azure-ml/visual-interface.png)
 
-    ![Azure Machine Learning Service용 시각적 인터페이스](media/overview-what-is-azure-ml/visual-interface.png)
 
-+ 자동화된 ML 실험을 위한 Azure Portal 옵션
 
 ### <a name="operationalization-mlops"></a>운영화(MLOps)
 
@@ -106,7 +105,7 @@ Azure 서비스에서 사용 가능한 크레딧을 제공합니다. 크레딧�
 
 ## <a name="next-steps"></a>다음 단계
 
-- 시작하려면 [Machine Learning 서비스 작업 영역을 만듭니다](setup-create-workspace.md).
+- 시작하려면 [Machine Learning 서비스 작업 영역을 만듭니다](how-to-manage-workspace.md).
 
 - 다음 전체 자습서를 따릅니다.
   + [Azure Machine Learning Service를 사용하여 이미지 분류 모델 학습](tutorial-train-models-with-aml.md)

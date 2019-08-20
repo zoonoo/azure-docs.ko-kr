@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd3719e63b19066d61647b90ccae03ed841f3c6c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9b4f2f6e86ce076e7c0464609252b027499a8307
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561902"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68942874"
 ---
 <!--As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization-->
 
@@ -53,7 +53,7 @@ _MDM policy - West_라는 이름의 새 그룹을 만듭니다. 그룹 만들기
 3. **만들기**를 선택합니다.
 
 ## <a name="create-a-new-user"></a>새 사용자 만들기
-_Alain Charon_이라는 새 사용자를 만듭니다. 사용자는 그룹 멤버로 추가되기 전에 존재해야 합니다. 사용자 만들기에 대한 자세한 내용은 [사용자 추가 또는 삭제 방법](add-users-azure-active-directory.md)을 참조하세요.
+_Alain Charon_이라는 새 사용자를 만듭니다. 사용자는 그룹 멤버로 추가되기 전에 존재해야 합니다. 먼저 "사용자 지정 도메인 이름" 탭을 확인하여 사용자를 만들 확인된 도메인 이름을 가져옵니다. 사용자 만들기에 대한 자세한 내용은 [사용자 추가 또는 삭제 방법](add-users-azure-active-directory.md)을 참조하세요.
 
 1. **Azure Active Directory**, **사용자**를 선택한 다음, **새 사용자**를 선택합니다.
 

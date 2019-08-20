@@ -6,15 +6,15 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 07/09/2019
+ms.date: 08/09/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: d0d1dbb81f00f500f3eb95c605ed0c15c634f624
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 0649fea0b598ffaaaf2611c9d1324174105ee5d4
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706807"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68931530"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>포털에서 Azure Search서비스 만들기
 
@@ -40,11 +40,26 @@ PowerShell을 선호합니까? Azure Resource Manager [서비스 템플릿](http
 
 ![Azure Search 리소스로 이동](./media/search-create-service-portal/find-search3.png "Azure Search에 대한 탐색 경로")
 
-## <a name="name-the-service-and-url-endpoint"></a>서비스 및 URL 엔드포인트의 이름
+## <a name="select-a-subscription"></a>구독 선택
 
-서비스 이름은 API 호출이 발급되는 URL 엔드포인트의 일부입니다.`https://your-service-name.search.windows.net` **URL** 필드에 서비스 이름을 입력합니다.
+둘 이상의 구독이 있는 경우 데이터 또는 파일 스토리지 서비스도 있는 구독을 선택합니다. Azure Search는 [*인덱서*](search-indexer-overview.md)를 통해 인덱싱하기 위해 Azure Table 및 Blob 스토리지, SQL Database 및 Azure Cosmos DB를 자동으로 검색할 수 있지만 동일한 구독의 서비스에 대해서만 가능합니다.
 
-예를 들어 엔드포인트가 `https://my-app-name-01.search.windows.net`이기를 원하는 경우 `my-app-name-01`을 입력합니다.
+## <a name="set-a-resource-group"></a>리소스 그룹 설정
+
+리소스 그룹이 필요하며, 비용 관리를 포함하여 리소스를 모두 관리하는 데 유용합니다. 리소스 그룹은 하나의 서비스 또는 함께 사용되는 여러 서비스로 구성될 수 있습니다. 예를 들어 Azure Search를 사용하여 Azure Cosmos DB 데이터베이스를 인덱싱하는 경우 관리를 위해 두 서비스를 동일한 리소스 그룹의 일부로 만들 수 있습니다. 
+
+단일 그룹에 리소스를 결합하지 않거나 기존 리소스 그룹을 관련이 없는 솔루션에서 사용되는 리소스로 채우는 경우 Azure Search 리소스에 대해서만 새 리소스 그룹을 만듭니다. 
+
+서비스를 사용하면서 스크린샷과 같이 현재 및 예상 비용을 모두 추적하거나, 아래로 스크롤하여 개별 리소스에 대한 요금을 확인할 수 있습니다.
+
+![리소스 그룹 수준의 비용 관리](./media/search-create-service-portal/resource-group-cost-management.png "리소스 그룹 수준의 비용 관리")
+
+> [!TIP]
+> 리소스 그룹을 삭제하면 그 안의 서비스도 삭제됩니다. 여러 서비스를 이용하는 프로토타입 프로젝트의 경우, 이들을 모두 동일한 리소스 그룹에 배치하면 프로젝트가 종료된 후 쉽게 정리할 수 있습니다.
+
+## <a name="name-the-service"></a>서비스 이름 지정
+
+[인스턴스 세부 정보]의 **URL** 필드에서 서비스 이름을 제공합니다. 이름은 API 호출을 발급하는 URL 엔드포인트의 일부(`https://your-service-name.search.windows.net`)입니다. 예를 들어 엔드포인트가 `https://myservice.search.windows.net`이기를 원하는 경우 `myservice`을 입력합니다.
 
 서비스 이름 요구 사항:
 
@@ -54,41 +69,31 @@ PowerShell을 선호합니까? Azure Resource Manager [서비스 템플릿](http
 * 첫 두 문자 또는 마지막 한 문자에는 대시("-")를 사용하지 않음
 * 어디서든 연속 대시("--")를 사용할 수 없음
 
-## <a name="select-a-subscription"></a>구독 선택
-
-둘 이상의 구독이 있는 경우 데이터 또는 파일 저장소 서비스도 있는 구독을 선택합니다. Azure Search는 [*인덱서*](search-indexer-overview.md)를 통해 인덱싱하기 위해 Azure Table 및 Blob Storage, SQL Database, Azure Cosmos DB를 자동 검색할 수 있지만, 동일한 구독의 서비스에 대해서만 가능합니다.
-
-## <a name="select-a-resource-group"></a>리소스 그룹 선택
-
-리소스 그룹은 함께 사용된 Azure 서비스 및 리소스의 컬렉션입니다. 예를 들어 Azure Search를 사용하여 SQL Database를 인덱싱하는 경우 이들 두 서비스는 동일한 리소스 그룹의 일부여야 합니다.
-
-단일 그룹에 리소스를 결합하지 않거나 기존 리소스 그룹을 관련이 없는 솔루션에서 사용되는 리소스로 채우는 경우 Azure Search 리소스에 대해서만 새 리소스 그룹을 만듭니다.
-
 > [!TIP]
-> 리소스 그룹을 삭제하면 그 안의 서비스도 삭제됩니다. 여러 서비스를 이용하는 프로토타입 프로젝트의 경우, 이들을 모두 동일한 리소스 그룹에 배치하면 프로젝트가 종료된 후 쉽게 정리할 수 있습니다.
+> 여러 서비스를 사용하려는 경우 지역(또는 위치)을 명명 규칙으로 서비스 이름에 포함하는 것이 좋습니다. 동일한 지역 내의 서비스는 체험 서비스로 데이터를 교환할 수 있으므로, Azure Search가 미국 서부에 있고 다른 서비스도 미국 서부에 있는 경우 `mysearchservice-westus`와 같은 이름은 리소스를 결합하거나 연결하는 방법을 결정할 때 속성 페이지로 이동하는 횟수를 줄일 수 있습니다.
 
-## <a name="select-a-location"></a>위치 선택
+## <a name="choose-a-location"></a>위치 선택
 
 Azure 서비스인 Azure Search는 전 세계 데이터 센터에서 호스팅될 수 있습니다. 지원되는 지역 목록은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/search/)를 참조하세요. 
 
-다른 Azure 서비스(Azure Storage, Azure Cosmos DB, Azure SQL Database)에서 제공하는 데이터를 인덱싱하는 경우 대역폭 요금이 발생하지 않도록 Azure Search 서비스를 동일한 지역에 만드는 것이 좋습니다. 서비스가 동일한 지역에 있는 경우 아웃바운드 데이터에 대한 요금이 없습니다.
+여러 서비스에 대해 동일한 위치를 선택하여 대역폭 요금을 최소화하거나 방지할 수 있습니다. 예를 들어 다른 Azure 서비스(Azure 스토리지, Azure Cosmos DB, Azure SQL Database)에서 제공한 데이터를 인덱싱하는 경우 Azure Search 서비스를 동일한 지역에 만들면 대역폭 요금이 발생하지 않습니다(서비스가 동일한 지역에 있는 경우 아웃바운드 데이터에 대한 요금이 발생하지 않음).
 
-Cognitive Search AI 강화를 사용하는 경우 서비스를 Cognitive Services 리소스와 동일한 지역에 만듭니다. *동일한 지역에 있는 Azure Search와 Cognitive Services의 공동 위치는 AI 보강의 요건입니다*.
+또한 인지 검색 AI 보강을 사용하는 경우 서비스를 Cognitive Services 리소스와 동일한 지역에 만듭니다. *동일한 지역에 있는 Azure Search와 Cognitive Services의 공동 위치는 AI 보강의 요건입니다*.
 
 > [!Note]
 > 인도 중부에서는 현재 새로운 서비스를 사용할 수 없습니다. 인도 중부에 이미 있는 서비스의 경우 제한 없이 확장이 가능하며 해당 지역에서 서비스가 완전히 지원됩니다. 이 지역에 대한 제한은 일시적이며 새로운 서비스로만 제한됩니다. 이 내용은 제한이 더 이상 적용되지 않을 때 삭제됩니다.
 
-## <a name="select-a-pricing-tier-sku"></a>가격 책정 계층(SKU) 선택
+## <a name="choose-a-pricing-tier-sku"></a>가격 책정 계층(SKU) 선택
 
 [Azure Search는 현재 여러 가지 가격 책정 계층에서 제공되며](https://azure.microsoft.com/pricing/details/search/) 무료, 기본 또는 표준 등이 있습니다. 각 계층에는 자체 [용량 및 제한](search-limits-quotas-capacity.md)이 있습니다. 지침은 [가격 책정 계층 또는 SKU 선택](search-sku-tier.md) 을 참조하세요.
 
-표준은 프로덕션 워크로드에서 일반적으로 선택되지만 대부분의 고객은 무료 서비스를 시작합니다.
+기본 및 표준 계층은 프로덕션 워크로드에서 일반적으로 선택되지만, 대부분의 고객은 체험 서비스로 시작합니다. 계층 간의 주요 차이점은 파티션 크기와 속도 및 만들 수 있는 개체 수에 대한 제한에 있습니다.
 
-서비스를 만든 후에 가격 책정 계층을 변경할 수 없습니다. 나중에 상위 또는 하위 계층이 필요한 경우 서비스를 다시 만들어야 합니다.
+서비스가 만들어지면 가격 책정 계층을 변경할 수 없습니다. 나중에 상위 또는 하위 계층이 필요한 경우 서비스를 다시 만들어야 합니다.
 
 ## <a name="create-your-service"></a>서비스 만들기
 
-서비스를 만드는 데 필요한 입력을 입력합니다. 
+필요한 입력이 제공되면 계속 진행하여 서비스를 만듭니다. 
 
 ![서비스 검토 및 만들기](./media/search-create-service-portal/new-service3.png "서비스 검토 및 만들기")
 
@@ -98,7 +103,7 @@ Cognitive Search AI 강화를 사용하는 경우 서비스를 Cognitive Service
 
 ## <a name="get-a-key-and-url-endpoint"></a>키 및 URL 엔드포인트 가져오기
 
-포털을 사용하지 않는 경우 새 서비스에 액세스하려면 URL 엔드포인트와 인증 api-key 키를 제공해야 합니다.
+포털을 사용하지 않는 경우 새 서비스에 프로그래밍 방식으로 액세스하려면 URL 엔드포인트와 인증 API 키를 제공해야 합니다.
 
 1. 서비스 개요 페이지의 오른쪽에서 URL 엔드포인트를 찾아 복사합니다.
 
@@ -141,7 +146,7 @@ Cognitive Search AI 강화를 사용하는 경우 서비스를 Cognitive Service
 * 전역으로 배포된 애플리케이션의 경우 애플리케이션 해외 트래픽 대기 시간을 최소화하기 위해 여러 하위 지역에 Azure Search 인스턴스가 필요할 수 있습니다.
 
 > [!NOTE]
-> Azure Search에서는 인덱싱 및 쿼리 작업을 분리할 수 없습니다. 따라서 분리 된 작업에 대해 여러 서비스를 만들지 마세요. 인덱스는 항상 만들어진 서비스에서 쿼리됩니다(한 서비스에서 인덱스를 만든 후 다른 서비스로 복사할 수 없음).
+> Azure Search에서는 인덱싱 및 쿼리 작업을 분리할 수 없습니다. 따라서 분리된 워크로드에 대해 여러 서비스를 만들지 않습니다. 인덱스는 항상 만들어진 서비스에서 쿼리됩니다(한 서비스에서 인덱스를 만든 후 다른 서비스로 복사할 수 없음).
 
 고가용성을 위해 두 번째 서비스가 필요하지 않습니다. 동일한 서비스에 두 개 이상의 복제본을 사용하는 경우 쿼리에 대한 가용성을 높일 수 있습니다. 복제본 업데이트는 순차적입니다. 즉, 서비스 업데이트가 롤아웃될 때도 적어도 하나의 서비스는 작동됩니다. 가동 시간에 대한 자세한 내용은 [서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/search/v1_0/)을 참조하세요.
 

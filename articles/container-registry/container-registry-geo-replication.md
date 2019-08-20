@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: overview
 ms.date: 05/24/2019
 ms.author: stevelas
-ms.openlocfilehash: e17b70843fcda1d183de1b81a98da53138835340
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 2fffa3b063969cbe68fb9a405f4198f15b3f9809
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68309598"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845212"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Azure Container Registry의 지리적 복제
 
@@ -60,7 +60,7 @@ Azure Container Registry의 지리적 복제 기능을 사용하면 다음과 �
 
 * 모든 지역에서 단일 레지스트리 관리: `contoso.azurecr.io`
 * 모든 지역에서 동일한 이미지 URL을 사용하므로 모든 이미지 배포에 대해 단일 구성 관리 가능: `contoso.azurecr.io/public/products/web:1.2`
-* 단일 레지스트리로 푸시하면 ACR이 지역 복제를 관리합니다. 특정 복제본의 이벤트를 알리도록 지역별 [webhook](container-registry-webhook.md)를 구성할 수 있습니다.
+* 단일 레지스트리로 푸시하면 ACR이 지역 복제를 관리합니다. 특정 복제본의 이벤트를 알리도록 지역 [웹후크](container-registry-webhook.md)를 구성할 수 있습니다.
 
 ## <a name="configure-geo-replication"></a>지역에서 복제 구성
 

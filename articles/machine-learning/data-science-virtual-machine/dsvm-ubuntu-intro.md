@@ -15,13 +15,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/16/2018
-ms.openlocfilehash: 8a19f414f31c307111edad876ed973ff4027d907
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.date: 08/13/2019
+ms.openlocfilehash: 6d79bfa8f390d145bfd963b40497030140a3d135
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68591923"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69013583"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Azure에서 Linux(Ubuntu)용 데이터 과학 Virtual Machine 프로비전
 
@@ -86,32 +86,35 @@ Linux용 데이터 과학 Virtual Machine을 만들려면 먼저 Azure 구독이
 Linux용 데이터 과학 Virtual Machine의 인스턴스를 만드는 단계는 다음과 같습니다.
 
 1. [Azure 포털](https://portal.azure.com/#create/microsoft-dsvm.linux-data-science-vm-ubuntulinuxdsvmubuntu)에서 가상 머신 목록으로 이동합니다. 아직 로그인하지 않은 경우 Azure 계정에 로그인하라는 메시지가 표시될 수 있습니다. 
-1. 아래의 **만들기**를 클릭하여 마법사를 실행합니다.![configure-data-science-vm](./media/dsvm-ubuntu-intro/configure-data-science-virtual-machine.png)
-1. 다음 섹션에서는 Microsoft 데이터 과학 Virtual Machine을 만드는 데 사용되는 마법사의 각 단계(위 그림의 오른쪽에 열거되어 있음)에 필요한 내용을 입력합니다. 다음은 이러한 각 단계를 구성하는 데 필요한 입력입니다.
+1. **만들기**를 클릭하여 마법사를 엽니다.
+    ![configure-data-science-vm](./media/dsvm-ubuntu-intro/configure-data-science-virtual-machine.png)
+1. 다음 섹션에서는 Microsoft Data Science Virtual Machine을 만드는 데 사용되는 마법사의 각 단계에 필요한 내용을 입력합니다. 다음은 이러한 각 단계를 구성하는 데 필요한 입력입니다.
 
-   a. **기본 사항**:
-
-   * **이름**: 만들려는 데이터 과학 서버 이름
-   * **VM 디스크 유형**: SSD(반도체 드라이브)를 선호하는 경우 **프리미엄 SSD**를 선택합니다. 그렇지 않은 경우에는 **표준 HDD**를 선택합니다. 
-   * **사용자 이름**: 첫 번째 계정의 로그인 ID
-   * **암호**: 첫 번째 계정 암호(암호 대신 SSH 공개 키를 사용할 수 있음)
-   * **구독**: 둘 이상의 구독이 있는 경우 머신을 만들고 요금을 청구할 구독을 선택합니다. 이 구독에 대한 리소스 만들기 권한이 있어야 합니다.
-   * **리소스 그룹**: 새 그룹을 만들거나 기존 그룹을 사용할 수 있습니다.
-   * **위치**: 가장 적합한 데이터 센터를 선택합니다. 이 위치는 대개 대부분의 데이터가 저장되어 있는 위치이거나 사용자의 실제 위치에 가장 가까운 위치(이 경우 네트워크에 가장 빠르게 액세스할 수 있음)입니다.
-
-   b. **크기**:
-
-   * 기능 요구 사항과 비용 제약 조건에 부합하는 서버 유형 중 하나를 선택합니다. GPU 기반 VM 인스턴스에 대해 NC 또는 ND 클래스 VM을 선택합니다. [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/) 페이지에는 GPU가 있는 영역이 나열됩니다.
-
-   다. **설정**:
-
-   * 대부분의 경우에는 기본값만 사용할 수 있습니다. 기본값 이외의 값을 살펴보려면 정보 링크를 가리켜 특정 필드에 대한 도움말을 확인합니다.
-
-   d. **요약**:
-
-   * 입력한 모든 정보가 올바른지 확인합니다. 사용 약관에 대한 링크가 제공됩니다. VM은 **크기** 단계에서 선택한 서버 크기에 대한 컴퓨팅 이외에 추가 요금이 발생하지 않습니다. 프로비전을 시작하려면 **만들기**를 클릭합니다. 
-
-프로비전에는 약 5분이 걸립니다. 프로비전의 상태는 Azure 포털에 표시됩니다.
+    a. **기본 사항**:
+    
+    * **구독**: 둘 이상의 구독이 있는 경우 머신을 만들고 요금을 청구할 구독을 선택합니다. 이 구독에 대한 리소스 만들기 권한이 있어야 합니다.
+    * **리소스 그룹**: 새 그룹을 만들거나 기존 그룹을 사용할 수 있습니다.
+    * **가상 머신 이름**: 만들려는 데이터 과학 서버 이름
+    * **지역**: 가장 적합한 데이터 센터를 선택합니다. 이 위치는 대개 대부분의 데이터가 저장되어 있는 위치이거나 사용자의 실제 위치에 가장 가까운 위치(이 경우 네트워크에 가장 빠르게 액세스할 수 있음)입니다.
+    * **가용성 옵션**: 가용성 세트/영역에서 이 VM을 사용하려는 경우 이를 설정하고 그렇지 않은 경우 기본값을 그대로 둡니다.
+    * **이미지**: 기본값을 그대로 둡니다.
+    * **크기**: 기능 요구 사항과 비용 제약 조건에 부합하는 서버 유형 중 하나를 선택합니다. GPU 기반 VM 인스턴스에 대해 NC 또는 ND 시리즈 VM을 선택합니다. 
+    * **사용자 이름**: 관리자 사용자 이름
+    * **SSH 공개 키**: 단일 줄 형식의 RSA 공개 키(SSH 키 대신 암호를 사용할 수 있음)
+    
+    b. **디스크**:
+    
+    * **OS 디스크 유형**: SSD(반도체 드라이브)를 선호하는 경우 **프리미엄 SSD**를 선택합니다. 그렇지 않은 경우에는 **표준 HDD**를 선택합니다.
+    
+    다. 나머지 설정의 경우 기본값만 사용할 수 있습니다. 기본값 이외의 값을 살펴보려면 정보 링크를 가리켜 특정 필드에 대한 도움말을 확인합니다.
+    
+    마지막으로 **검토 + 만들기**를 선택합니다.
+    
+    d. **검토 + 만들기**:
+    
+    * 유효성 검사를 통과한 후 입력한 모든 정보가 올바른지 확인합니다. 사용 약관에 대한 링크가 제공됩니다. VM에는 크기 입력에서 선택한 서버 크기에 대한 컴퓨팅 이외의 추가 요금이 발생하지 않습니다. 프로비전을 시작하려면 **만들기**를 클릭합니다.
+    
+    프로비전에는 약 5분이 걸립니다. 프로비전의 상태는 Azure 포털에 표시됩니다.
 
 ## <a name="how-to-access-the-data-science-virtual-machine-for-linux"></a>Linux용 데이터 과학 Virtual Machine에 액세스하는 방법
 

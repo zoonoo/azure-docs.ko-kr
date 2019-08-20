@@ -7,12 +7,12 @@ ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
-ms.openlocfilehash: b096a6c7bb5b1fedaa5d2963dddae03df9fe6954
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: c234324bf76f9d944037a411ed8bb3b7e4841cbe
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66494048"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882551"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-javascript"></a>빠른 시작: JavaScript를 사용하여 Azure Functions와 SignalR Service로 대화방 만들기
 
@@ -25,6 +25,8 @@ Azure SignalR Service를 사용하면 애플리케이션에 실시간 기능을 
 [Visual Studio Code](https://code.visualstudio.com/)와 같은 코드 편집기가 설치되어 있는지 확인합니다.
 
 Azure 함수 앱을 로컬로 실행하려면 [Azure Functions Core Tools(v2)](https://github.com/Azure/azure-functions-core-tools#installing)를 설치하세요.
+
+Azure Functions에는 [Node.js](https://nodejs.org/en/download/) 버전 8 또는 10이 필요합니다.
 
 확장을 설치하려면 현재 Azure Functions Core Tools에는 [.NET Core SDK](https://www.microsoft.com/net/download)가 설치되어 있어야 합니다. 그러나 JavaScript Azure 함수 앱을 빌드하는 데는 .NET에 대한 지식이 필요하지 않습니다.
 
@@ -84,4 +86,4 @@ Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 �
 이 빠른 시작에서는 VS Code에서 실시간 서버리스 애플리케이션을 빌드하고 실행했습니다. 다음으로는 VS Code에서 Azure Functions를 배포하는 방법에 대해 자세히 알아보세요.
 
 > [!div class="nextstepaction"]
-> [VS Code로 Azure Functions 배포](https://docs.microsoft.com/azure/azure-functions/tutorial-javascript-vscode-get-started)
+> [VS Code로 Azure Functions 배포](https://code.visualstudio.com/tutorials/functions-extension/getting-started)

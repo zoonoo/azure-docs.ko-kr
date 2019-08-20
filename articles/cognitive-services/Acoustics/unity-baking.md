@@ -3,26 +3,26 @@ title: Project Acoustics Unity 음향 효과 베이킹 자습서
 titlesuffix: Azure Cognitive Services
 description: 이 자습서에서는 Unity에서 Project Acoustics를 사용하는 음향 효과 베이킹에 대해 설명합니다.
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
-ms.author: kegodin
+ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2362b3916d1b1f430350d975dc0b61914a777be2
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: b7249c3048ba3af3adbaac01f43770482a0d38ad
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68706698"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933229"
 ---
 # <a name="project-acoustics-unity-bake-tutorial"></a>Project Acoustics Unity 음향 효과 베이킹 자습서
 이 자습서에서는 Unity에서 Project Acoustics를 사용하는 음향 효과 베이킹에 대해 설명합니다.
 
 소프트웨어 요구 사항:
-* [Windows용 Unity 2018.2 이상](https://unity3d.com)
+* Windows 또는 MacOS용 [Unity 2018.2+](https://unity3d.com)
 * [Unity 프로젝트에 통합된 Project Acoustics 플러그 인](unity-integration.md) 또는 [Project Acoustics Unity 콘텐츠 샘플](unity-quickstart.md)
 * 선택 사항: 클라우드 컴퓨팅을 사용하여 베이킹을 가속화하는 [Azure Batch 계정](create-azure-account.md)
 
@@ -179,6 +179,25 @@ Azure Batch 서비스를 사용하여 클라우드에서 컴퓨팅 클러스터�
 
 Azure 자격 증명은 로컬 컴퓨터에 안전하게 저장되고 Unity 편집기에 연결됩니다. 이러한 자격 증명은 Azure에 대한 보안 연결을 설정하는 데만 사용됩니다.
 
+## <a name="to-find-the-status-of-a-running-job-on-the-azure-portal"></a>Azure Portal에서 실행 중인 작업의 상태를 확인하려면
+
+1. 준비 탭에서 준비 작업 ID 찾기:
+
+![Unity 준비 작업 ID의 스크린샷](media/unity-job-id.png)  
+
+2. [Azure Portal](https://portal.azure.com)을 열고, 준비에 사용되는 Batch 계정으로 이동하고 **작업** 선택
+
+![작업 링크 스크린샷](media/azure-batch-jobs.png)  
+
+3. 작업 목록에서 작업 ID 검색
+
+![준비 작업 상태의 스크린샷](media/azure-bake-job-status.png)  
+
+4. 작업 ID를 클릭하여 관련 작업 상태와 전체 작업 상태 확인
+
+![준비 작업 상태의 스크린샷](media/azure-batch-task-state.png)  
+
+
 ### <a name="Estimating-bake-cost"></a> Azure 준비 비용 예측
 
 지정된 준비에 부과될 요금을 예측하려면 기간에 해당하는 **Estimated Compute Cost**(예상 컴퓨팅 비용) 값에 선택한 **VM 노드 유형**의 로컬 통화로 나타낸 시간당 비용을 곱합니다. 결과에는 노드를 계속 작동하는 데 필요한 노드 시간은 포함되지 않습니다. 예를 들어, 노드 유형으로 **Standard_F8s_v2**을 선택했으며(시간당 요금 $0.40), 예상 컴퓨팅 비용이 3시간 57분이면 예상되는 작업 실행 비용은 $0.40 * ~4시간 = ~$1.60가 됩니다. 실제 비용은 노드를 시작하기 위한 추가 시간 때문에 약간 더 높을 것입니다. [Azure Batch 가격 책정](https://azure.microsoft.com/pricing/details/virtual-machines/linux) 페이지에서 시간별 노드 비용을 찾을 수 있습니다(범주로 "컴퓨팅 최적화" 또는 "고성능 컴퓨팅" 선택).
@@ -188,6 +207,7 @@ Azure 자격 증명은 로컬 컴퓨터에 안전하게 저장되고 Unity 편�
 
 ### <a name="minimum-hardware-requirements"></a>최소 하드웨어 요구 사항
 * 8개 이상의 코어와 32GB의 RAM이 있는 x86-64 프로세서
+* Docker를 실행하도록 [활성화된 Hyper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v)
 
 예를 들어 Intel Xeon E5-1660 @ 3GHz 및 32GB RAM을 갖춘 8개의 코어 머신에서 테스트하는 경우 다음과 같습니다.
 * 100개의 프로브가 있는 작은 장면은 성긴 해상도 베이킹의 경우 약 2시간, 미세 해상도 베이킹의 경우 약 32시간이 걸릴 수 있습니다.
@@ -195,13 +215,15 @@ Azure 자격 증명은 로컬 컴퓨터에 안전하게 저장되고 Unity 편�
 
 ### <a name="setup-docker"></a>Docker 설치
 시뮬레이션을 처리할 Docker를 PC에서 설치 및 구성합니다.
-1. [Docker 도구 집합](https://www.docker.com/products/docker-desktop)을 설치합니다.
-2. Docker 설정을 시작하고, "고급" 옵션으로 이동하여 8GB 이상의 RAM을 사용하도록 리소스를 구성합니다. Docker에 더 많은 CPU를 할당할수록, 준비를 더 빠르게 완료할 수 있습니다. ![Docker 설정 예제의 스크린샷](media/docker-settings.png)
-3. “공유 드라이브”로 이동한 후 처리에 사용되는 드라이브에 대한 공유를 켭니다.![Docker 공유 드라이브 옵션의 스크린샷](media/docker-shared-drives.png)
+1. [Docker Desktop](https://www.docker.com/products/docker-desktop)을 설치합니다.
+2. Docker 설정을 시작하고, "고급" 옵션으로 이동하여 8GB 이상의 RAM을 사용하도록 리소스를 구성합니다. Docker에 더 많은 CPU를 할당할수록, 준비를 더 빠르게 완료할 수 있습니다.  
+![Docker 설정 예제의 스크린샷](media/docker-settings.png)
+1. “공유 드라이브”로 이동한 후 처리에 사용되는 드라이브에 대한 공유를 켭니다.  
+![Docker 공유 드라이브 옵션의 스크린샷](media/docker-shared-drives.png)
 
 ### <a name="run-local-bake"></a>로컬 준비 실행
 1. **Bake**(베이킹) 탭의 "Prepare Local Bake"(로컬 베이킹 준비) 단추를 클릭하고 입력 파일과 실행 스크립트가 저장될 폴더를 선택합니다. 그러면 최소 하드웨어 요구 사항을 충족하는 모든 컴퓨터에서 준비를 실행하고, 해당 폴더를 컴퓨터로 복사하여 Docker를 설치할 수 있습니다.
-2. “runlocalbake.bat” 스크립트를 사용하여 시뮬레이션을 시작합니다. 이 스크립트는 시뮬레이션 처리에 필요한 도구 집합으로 프로젝트 Acoustics Docker 이미지를 가져온 후 시뮬레이션을 시작합니다. 
+2. Windows에서 "runlocalbake.bat" 스크립트를 사용하거나 MacOS에서 "runlocalbake.sh" 스크립트를 사용하여 시뮬레이션을 시작합니다. 이 스크립트는 시뮬레이션 처리에 필요한 도구 집합으로 프로젝트 Acoustics Docker 이미지를 가져온 후 시뮬레이션을 시작합니다. 
 3. 시뮬레이션이 완료되면 결과 .ace 파일을 Unity 프로젝트로 다시 복사합니다. Unity가 이 파일을 이진 파일로 인식하도록 하려면 파일 확장명에 “.bytes”를 추가합니다(예: “Scene1.ace.bytes”). 시뮬레이션에 대한 자세한 로그는 "AcousticsLog.txt"에 저장됩니다. 실행 동안 문제가 발생하면 진단을 위해 이 파일을 제공하세요.
 
 ## <a name="Data-Files"></a> 베이킹 프로세스에서 추가된 데이터 파일

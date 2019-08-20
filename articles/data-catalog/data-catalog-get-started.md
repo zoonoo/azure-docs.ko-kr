@@ -1,17 +1,17 @@
 ---
 title: Azure Data Catalog 만들기
-description: Azure Data Catalog를 만드는 방법에 대한 빠른 시작입니다.
+description: 이 빠른 시작에서는 Azure Portal을 사용하여 Azure Data Catalog를 만드는 방법을 설명합니다.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: quickstart
 ms.date: 08/01/2019
-ms.openlocfilehash: df2f536dc95dd74dbae1c8bda1a9934a73fd1fe0
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 854760ea0158d356cc5449c9f1fdab6161588640
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736487"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976870"
 ---
 # <a name="quickstart-create-an-azure-data-catalog"></a>빠른 시작: Azure Data Catalog 만들기
 
@@ -36,7 +36,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 1. [Azure Portal](https://portal.azure.com) > **리소스 만들기**로 이동하고 **Data Catalog**를 선택합니다.
 
-    ![Data Catalog 만들기](media/data-catalog-get-started/data-catalog-create.png)
+    ![Azure Data Catalog 만들기 단추](media/data-catalog-get-started/data-catalog-create.png)
 
 2. 데이터 카탈로그의 **이름**, 사용하려는 **구독** 및 카탈로그의 **위치**, **가격 책정 계층**을 지정합니다. 그런 다음 **만들기**를 선택합니다.
 

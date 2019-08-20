@@ -13,12 +13,12 @@ ms.date: 08/10/2018
 ms.author: routlaw
 ms.reviewer: glenga
 ms.custom: mvc, devcenter, seo-java-july2019
-ms.openlocfilehash: 9ed954eaf96196fdaa944778db8ea47dd5e6da9f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1bb370009ce76b1962204907689d85b4f89c26c2
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564797"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932168"
 ---
 # <a name="create-your-first-function-with-java-and-maven"></a>Java 및 Maven을 사용하여 첫 번째 함수 만들기
 
@@ -93,13 +93,13 @@ import com.microsoft.azure.functions.*;
 
 public class Function {
     /**
-     * This function listens at endpoint "/api/hello". Two ways to invoke it using "curl" command in bash:
-     * 1. curl -d "HTTP Body" {your host}/api/hello
-     * 2. curl {your host}/api/hello?name=HTTP%20Query
+     * This function listens at endpoint "/api/HttpTrigger-Java". Two ways to invoke it using "curl" command in bash:
+     * 1. curl -d "HTTP Body" {your host}/api/HttpTrigger-Java
+     * 2. curl {your host}/api/HttpTrigger-Java?name=HTTP%20Query
      */
-    @FunctionName("hello")
+    @FunctionName("HttpTrigger-Java")
     public HttpResponseMessage run(
-            @HttpTrigger(name = "req", methods = { HttpMethod.GET, HttpMethod.POST }, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
+            @HttpTrigger(name = "req", methods = { HttpMethod.GET, HttpMethod.POST }, authLevel = AuthorizationLevel.FUNCTION) HttpRequestMessage<Optional<String>> request,
             final ExecutionContext context) {
         context.getLogger().info("Java HTTP trigger processed a request.");
 
@@ -123,7 +123,7 @@ public class Function {
 
 ## <a name="run-the-function-locally"></a>로컬에서 함수 실행
 
-디렉터리를 새로 만든 프로젝트 폴더로 변경하고 Maven으로 함수를 실행합니다.
+디렉터리를 새로 만든 프로젝트 폴더(host.json 및 pom.xml 파일이 포함된 폴더)로 변경하고 Maven으로 함수를 빌드하고 실행합니다.
 
 ```CMD
 cd fabrikam-function
@@ -142,13 +142,13 @@ Hit CTRL-C to exit...
 
 Http Functions:
 
-   hello: http://localhost:7071/api/hello
+   hello: http://localhost:7071/api/HttpTrigger-Java
 ```
 
 새 터미널 창에서 curl을 사용하여 명령줄에서 함수를 트리거합니다.
 
 ```CMD
-curl -w "\n" http://localhost:7071/api/hello -d LocalFunction
+curl -w "\n" http://localhost:7071/api/HttpTrigger-Java -d LocalFunction
 ```
 
 ```Output
@@ -190,7 +190,7 @@ mvn azure-functions:deploy
 > **액세스 권한**을 `Anonymous`로 설정해야 합니다. 기본 수준 `Function`을 선택하면 함수 엔드포인트에 액세스하기 위해 요청에 [함수 키](../azure-functions/functions-bindings-http-webhook.md#authorization-keys)를 제공해야 합니다.
 
 ```azurecli
-curl -w "\n" https://fabrikam-function-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions
+curl -w "\n" https://fabrikam-function-20170920120101928.azurewebsites.net/api/HttpTrigger-Java -d AzureFunctions
 ```
 
 ```Output
@@ -214,7 +214,7 @@ return request.createResponse(200, "Hi, " + name);
 변경 내용을 저장합니다. 이전처럼 터미널에서 `azure-functions:deploy`를 실행하여 mvn 정리 패키지를 실행하고 다시 배포합니다. 함수 앱이 업데이트되고 이 요청은 다음을 갖습니다.
 
 ```bash
-curl -w '\n' -d AzureFunctionsTest https://fabrikam-functions-20170920120101928.azurewebsites.net/api/hello
+curl -w '\n' -d AzureFunctionsTest https://fabrikam-functions-20170920120101928.azurewebsites.net/api/HttpTrigger-Java
 ```
 
 업데이트된 출력은 다음과 같습니다.
