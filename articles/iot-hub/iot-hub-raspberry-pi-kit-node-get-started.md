@@ -1,6 +1,6 @@
 ---
 title: Raspberry Pi-클라우드(Node.js) - Raspberry Pi를 Azure IoT Hub에 연결 | Microsoft Docs
-description: 설정 하 고이 자습서에서는 Azure 클라우드 플랫폼으로 데이터를 보내기 위해 Raspberry Pi에 대 한 Azure IoT Hub에 Raspberry Pi를 연결 하는 방법을 알아봅니다.
+description: Raspberry Azure IoT Hub Pi를 설정 하 고 Raspberry Pi에 연결 하 여이 자습서에서 Azure 클라우드 플랫폼으로 데이터를 전송 하는 방법에 대해 알아봅니다.
 author: wesmc7777
 manager: philmea
 keywords: azure iot raspberry pi, raspberry pi iot hub, raspberry pi에서 클라우드로 데이터 전송, raspberry pi-클라우드
@@ -8,14 +8,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 04/11/2018
+ms.date: 07/17/2019
 ms.author: wesmc
-ms.openlocfilehash: e7863e4a0f4cab6f6328de19d1611710f9188de3
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: e7346fa0f9cc977755c441077a50707dd207019f
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67838754"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69638299"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Raspberry Pi를 Azure IoT Hub에 연결(Node.js)
 
@@ -94,10 +94,7 @@ Raspbian 이미지를 설치를 위해 microSD 카드를 준비합니다.
 
 1. Raspbian을 다운로드합니다.
 
-   a. [Raspbian Stretch를 다운로드합니다](https://downloads.raspberrypi.org/raspbian/images/raspbian-2017-07-05/)(.zip 파일).
-
-   > [!WARNING]
-   > 위의 링크를 사용하여 `raspbian-2017-07-5` zip 이미지를 다운로드하십시오. 최신 버전의 Raspbian 이미지에는 Wiring-Pi Node와 관련된 몇 가지 알려진 문제점이 있으며 이로 인해 다음 단계에서 오류가 발생할 수 있습니다.
+   a. [Raspbian Buster with desktop](https://www.raspberrypi.org/downloads/raspbian/) (.zip 파일).
 
    b. 컴퓨터의 폴더에 Raspbian 이미지의 압축을 풉니다.
 
@@ -119,7 +116,7 @@ Raspbian 이미지를 설치를 위해 microSD 카드를 준비합니다.
 
 1. Pi를 모니터, 키보드 및 마우스에 연결합니다.
 
-2. Pi를 시작한 다음 Raspbian를 사용 하 여 로그인 `pi` 사용자 이름으로 및 `raspberry` 암호로 합니다.
+2. Pi를 시작한 다음를 사용자 이름으로, `pi` `raspberry` 를 암호로 사용 하 여 Raspbian에 로그인 합니다.
 
 3. Raspberry 아이콘 > **기본 설정** > **Raspberry Pi 구성**을 클릭합니다.
 
@@ -195,10 +192,10 @@ BME280이 Raspberry Pi에 성공적으로 연결되면 아래 이미지처럼 �
    node -v
    ```
 
-   버전이 10.x 보다 낮은, Node.js가 없는 Pi에서 최신 버전을 설치 합니다.
+   버전이 11.x 보다 낮거나 Pi에 node.js가 없는 경우 최신 버전을 설치 합니다.
 
    ```bash
-   curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash
+   curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash
    sudo apt-get -y install nodejs
    ```
 
@@ -226,7 +223,7 @@ BME280이 Raspberry Pi에 성공적으로 연결되면 아래 이미지처럼 �
    nano config.json
    ```
 
-   ![Config 파일](./media/iot-hub-raspberry-pi-kit-node-get-started/6-config-file.png)
+   ![구성 파일](./media/iot-hub-raspberry-pi-kit-node-get-started/6-config-file.png)
 
    이 파일에는 사용자가 구성할 수 있는 두 개 항목이 있습니다. 첫 번째는 클라우드로 전송되는 두 메시지 사이의 시간 간격(밀리초)을 정의하는 `interval`입니다. 두 번째는 시뮬레이트된 센서 데이터의 사용 여부에 대한 부울 값인 `simulatedData`입니다.
 
@@ -249,11 +246,11 @@ IoT Hub로 전송되는 센서 데이터와 메시지를 보여 주는 다음 �
 
 ![출력 - Raspberry Pi에서 IoT Hub로 전송된 센서 데이터](./media/iot-hub-raspberry-pi-kit-node-get-started/8-run-output.png)
 
-## <a name="read-the-messages-received-by-your-hub"></a>허브에서 수신한 메시지 읽기
+## <a name="read-the-messages-received-by-your-hub"></a>허브에서 받은 메시지 읽기
 
-장치에서 IoT hub에서 수신한 메시지를 모니터링 하는 한 가지 방법은 Visual Studio Code 용 Azure IoT 도구를 사용 하는 것입니다. 자세한 내용은 참조 하세요 [for Visual Studio Code 장치 및 IoT Hub 간에 메시지를 받고 보내는 데 사용 하 여 Azure IoT 도구](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)합니다.
+장치에서 IoT hub가 받은 메시지를 모니터링 하는 한 가지 방법은 Visual Studio Code 용 Azure IoT 도구를 사용 하는 것입니다. 자세한 내용은 [Azure IoT Tools를 사용 하 여 장치와 IoT Hub 간에 메시지 보내기 및 받기 Visual Studio Code](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)을 참조 하세요.
 
-장치에서 보낸 데이터를 처리 하는 방법을 더 보려면, 다음 섹션을 진행 합니다.
+장치에서 전송 되는 데이터를 처리 하는 방법에 대 한 자세한 내용은 다음 섹션을 계속 진행 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

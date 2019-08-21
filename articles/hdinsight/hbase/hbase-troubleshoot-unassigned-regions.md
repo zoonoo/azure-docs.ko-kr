@@ -5,13 +5,13 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
-ms.date: 08/07/2019
-ms.openlocfilehash: e75f2fdd0530b92e8c8405b74c2a364ff9e9e28e
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.date: 08/16/2019
+ms.openlocfilehash: 6e734a661557b024257fcd1b9d9c2da6a3bc8f85
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935433"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640218"
 ---
 # <a name="issues-with-region-servers-in-azure-hdinsight"></a>Azure HDInsight에서 지역 서버 문제
 
@@ -27,7 +27,7 @@ ms.locfileid: "68935433"
 multiple regions being unassigned or holes in the chain of regions
 ```
 
-Apache HBase Master UI에서 영역 수가 모든 지역 서버에서 불균형 하는 것을 볼 수 있습니다.
+Apache HBase Master UI에서 모든 지역 서버에서 불균형 한 지역 수를 확인할 수 있습니다. 그런 후 `hbase hbck` 명령을 실행하여 영역 체인의 빈 영역을 확인할 수 있습니다.
 
 ### <a name="cause"></a>원인
 
@@ -45,7 +45,7 @@ Apache HBase Master UI에서 영역 수가 모든 지역 서버에서 불균형 
 
 1. 명령을 사용 하 `exit` 여 사육 사 셸을 종료 합니다.
 
-1. Ambari UI를 열고 Ambari에서 Active HBase Master 서비스를 다시 시작합니다.
+1. Apache Ambari UI를 열고 활성 HBase Master 서비스를 다시 시작합니다.
 
 1. 명령을 `hbase hbck` 다시 실행 합니다 (추가 옵션 없음). 출력을 확인 하 고 모든 지역이 할당 되었는지 확인 합니다.
 
@@ -61,7 +61,7 @@ Apache HBase Master UI에서 영역 수가 모든 지역 서버에서 불균형 
 
 여러 개의 WAL 디렉터리 분할.
 
-1. 현재 wals `hadoop fs -ls -R /hbase/WALs/ > /tmp/wals.out`의 목록을 가져옵니다.
+1. 현재 WALs `hadoop fs -ls -R /hbase/WALs/ > /tmp/wals.out`의 목록을 가져옵니다.
 
 1. 파일을 `wals.out` 검사 합니다. 분할 디렉터리가 너무 많은 경우 (* 분할부터) 영역 서버는 이러한 디렉터리로 인해 실패할 수 있습니다.
 

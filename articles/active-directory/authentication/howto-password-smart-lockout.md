@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 489ff1824c4bc45ee7ed31e9c96377975a32baa4
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 8df01c204a6893f4e2ff1c2ff22fa337d77c519b
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879237"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69637585"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory 스마트 잠금
 
@@ -48,7 +48,7 @@ AD FS 2016 및 AF FS 2019을 사용 하는 페더레이션된 배포는 [엑스�
 예를 들어 Azure AD 카운터가 AD 보다 더 높은 경우 Azure AD는 120 초 (2 분)가 되 고 프레미스 AD는 1 분 (60 초)으로 설정 됩니다.
 
 > [!IMPORTANT]
-> 현재로서는 사용자의 클라우드 계정이 스마트 잠금 기능에 의해 잠긴 경우 관리자가 잠금을 해제할 수 없습니다. 잠금 기간이 만료될 때까지 기다려야 합니다.
+> 현재 관리자는 스마트 잠금 기능에 의해 잠긴 경우 사용자의 클라우드 계정을 잠금 해제할 수 없습니다. 잠금 기간이 만료될 때까지 기다려야 합니다. 그러나 사용자는 신뢰할 수 있는 장치 또는 위치에서 SSPR (셀프 서비스 암호 재설정)를 사용 하 여 잠금을 해제할 수 있습니다.
 
 ## <a name="verify-on-premises-account-lockout-policy"></a>온-프레미스 계정 잠금 정책 확인
 

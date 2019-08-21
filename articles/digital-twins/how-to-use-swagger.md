@@ -6,15 +6,15 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 06/29/2019
+ms.date: 08/16/2019
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: 9d4fd798309398dff38081cc66b4071c5dd1f5bf
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 1344b86b9fa922dc22870dda495ff367a511b8ca
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67670779"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640256"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Azure Digital Twins Swagger 참조 설명서
 
@@ -42,7 +42,7 @@ Swagger는 Azure Digital Twins 관리 API에 대한 호출 테스트와 개발�
 
 간결한 요약에서는 API를 설명합니다.
 
-[![Swagger 위쪽](media/how-to-use-swagger/swagger-management-top-img.png)](media/how-to-use-swagger/swagger-management-top-img.png#lightbox)
+[![Swagger 상단](media/how-to-use-swagger/swagger-management-top-img.png)](media/how-to-use-swagger/swagger-management-top-img.png#lightbox)
 
 관리 API 개체 모델도 나열됩니다.
 
@@ -93,9 +93,9 @@ Swagger의 강력한 기능 중 하나는 문서 UI를 통해 직접 API 엔드�
 ## <a name="swagger-oauth-20-authorization"></a>Swagger OAuth 2.0 권한 부여
 
 > [!NOTE]
-> * Azure 디지털 쌍 리소스를 만든 사용자 보안 주체는 공간 관리자 역할 할당을 있고 다른 사용자에 대 한 추가 역할 할당을 만들 수 있게 됩니다. Api를 호출 하려면 이러한 사용자 및 역할과 권한을 부여할 수 있습니다.
+> * Azure Digital Twins 리소스를 만든 사용자 보안 주체는 공간 관리자 역할 할당을 포함 하 고 다른 사용자에 대 한 추가 역할 할당을 만들 수 있습니다. 이러한 사용자 및 해당 역할은 Api를 호출할 수 있는 권한이 부여 될 수 있습니다.
 
-1. 단계를 따릅니다 [이 빠른 시작](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) 또는 [Azure Active Directory 레거시 디지털 쌍 Azure 앱 등록](./how-to-use-legacy-aad.md) 만들기 및 Azure AD 응용 프로그램을 구성 합니다. 또는 기존 앱 등록을 다시 사용할 수 있습니다.
+1. [이 빠른](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) 시작의 단계에 따라 azure AD 응용 프로그램을 만들고 구성 하려면 [Azure Active Directory 레거시를 사용 하 여 Azure Digital Twins 앱을 등록](./how-to-use-legacy-aad.md) 합니다. 또는 기존 앱 등록을 다시 사용할 수 있습니다.
 
 1. 앱 등록에 다음 회신 url을 추가 합니다.
 
@@ -104,21 +104,21 @@ Swagger의 강력한 기능 중 하나는 문서 UI를 통해 직접 API 엔드�
     ```
     | 이름  | 다음 항목으로 교체 | 예제 |
     |---------|---------|---------|
-    | YOUR_SWAGGER_URL | 포털에 있는 관리 REST API 설명서 URL  | `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger` |
+    | YOUR_SWAGGER_URL | 포털에서 찾을 수 있는 관리 REST API 설명서 URL  | `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger` |
 
 1. Azure AD 앱의 ID를 복사 합니다.
 
-Azure Active Directory 등록을 완료 합니다.
+Azure Active Directory 등록을 완료 한 후:
 
-1. 선택 된 **권한 부여** swagger 페이지에는 단추입니다.
+1. Swagger 페이지에서 **권한 부여** 단추를 선택 합니다.
 
-    [![권한 부여 단추 선택 Swagger](media/how-to-use-swagger/swagger-select-authorize-btn.png)](media/how-to-use-swagger/swagger-select-authorize-btn.png#lightbox)
+    [![Swagger 권한 부여 단추를 선택 합니다.](media/how-to-use-swagger/swagger-select-authorize-btn.png)](media/how-to-use-swagger/swagger-select-authorize-btn.png#lightbox)
 
-1. 응용 프로그램 ID를 붙여 합니다 **client_id** 필드입니다.
+1. 응용 프로그램 ID를 **client_id** 필드에 붙여넣습니다.
 
     [![Swagger client_id 필드](media/how-to-use-swagger/swagger-auth-form.png)](media/how-to-use-swagger/swagger-auth-form.png#lightbox)
 
-1. 모달 다음 성공 후 이동 합니다.
+1. 그러면 다음과 같은 성공 모달로 리디렉션됩니다.
 
     [![Swagger 리디렉션 모달](media/how-to-use-swagger/swagger-auth-redirect-img.png)](media/how-to-use-swagger/swagger-auth-redirect-img.png#lightbox)
 

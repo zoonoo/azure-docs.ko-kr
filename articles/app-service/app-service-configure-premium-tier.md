@@ -16,18 +16,18 @@ ms.topic: article
 ms.date: 07/25/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c85644e3cab39f9e0864af91722ee54aab6d59f3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d500c3841a9ecec1e4ceae8b13824f0240a5121d
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66139730"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639860"
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>Azure App Service에 대한 PremiumV2 계층 구성
 
-새 **PremiumV2** 가격 책정 계층은 프로세서, SSD 저장소 속도를 개선하며 기존 가격 책정 계층의 메모리 대 코어 비율을 두 배로 높입니다. 성능상의 이점 덕분에 더 적은 인스턴스에서 앱을 실행하여 비용을 절감할 수 있습니다. 이 문서에서는 **PremiumV2** 계층에서 앱을 만들거나 **PremiumV2** 계층으로 앱을 강화하는 방법에 대해 알아봅니다.
+새 **PremiumV2** 가격 책정 계층은 프로세서, SSD 스토리지 속도를 개선하며 기존 가격 책정 계층의 메모리 대 코어 비율을 두 배로 높입니다. 성능상의 이점 덕분에 더 적은 인스턴스에서 앱을 실행하여 비용을 절감할 수 있습니다. 이 문서에서는 **PremiumV2** 계층에서 앱을 만들거나 **PremiumV2** 계층으로 앱을 강화하는 방법에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 앱을 **PremiumV2**로 강화하려면 **PremiumV2**보다 낮은 가격 책정 계층에서 실행되는 Azure App Service이 있어야 하며, 앱은 PremiumV2를 지원하는 App Service 배포에서 실행되어야 합니다.
 
@@ -86,7 +86,7 @@ App Service 앱 페이지의 왼쪽 탐색 영역에서 **강화(App Service 계
 
 ## <a name="scale-up-from-an-unsupported-resource-group-and-region-combination"></a>지원되지 않는 리소스 그룹 및 지역 조합에서 강화
 
-앱이 **PremiumV2**를 사용할 수 없는 App Service 배포에서 실행되거나 앱이 현재 **PremiumV2**를 지원하지 않는 지역에서 실행되는 경우 **PremiumV2**를 이용하려면 앱을 다시 배포해야 합니다.  다음 두 가지 옵션을 사용할 수 있습니다.
+앱이 **PremiumV2**를 사용할 수 없는 App Service 배포에서 실행되거나 앱이 현재 **PremiumV2**를 지원하지 않는 지역에서 실행되는 경우 **PremiumV2**를 이용하려면 앱을 다시 배포해야 합니다.  두 가지가 있습니다.
 
 - **새** 리소스 그룹을 만든 다음, **새** 리소스 그룹에서 **새** 앱 및 App Service 계획을 만들어 생성 프로세스 동안 원하는 Azure 지역을 선택합니다.  새 App Service 계획을 만들 때 **PremiumV2** 계획을 선택**해야 합니다**.  이렇게 하면 리소스 그룹, App Service 계획 및 Azure 지역의 조합이 결국 **PremiumV2**를 지원하는 App Service 배포에서 생성되는 App Service 계획이 되어야 합니다.  그런 다음, 새로 만든 앱 및 App Service 계획에 애플리케이션 코드를 다시 배포합니다. 필요한 경우 이후 **PremiumV2**에서 App Service 계획을 축소하여 비용을 절약할 수 있으며 **PremiumV2**를 사용하여 나중에 다시 성공적으로 확장할 수도 있습니다.
 - 앱이 이미 기존 **프리미엄** 계층에서 실행되는 경우에는 모든 앱 설정, 연결 문자열 및 배포 구성과 함께 앱을 **PremiumV2**를 사용하는 App Service 계획에 복제할 수 있습니다.
@@ -125,5 +125,5 @@ New-AzAppServicePlan -ResourceGroupName <resource_group_name> `
 ```
 ## <a name="more-resources"></a>추가 리소스
 
-[Azure에서 앱 강화](web-sites-scale.md)  
+[Azure에서 앱 강화](manage-scale-up.md)  
 [수동 또는 자동으로 인스턴스 개수 조정](../monitoring-and-diagnostics/insights-how-to-scale.md)

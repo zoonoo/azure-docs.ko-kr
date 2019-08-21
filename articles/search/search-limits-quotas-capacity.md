@@ -2,20 +2,18 @@
 title: 계층 및 SKU에 대한 서비스 제한 - Azure Search
 description: 용량 계획에 사용되는 서비스 제한 및 Azure Search에 대한 요청 및 응답의 최대 제한입니다.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
-ms.devlang: NA
 ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 35beb55d7326b954a568a377b73696fe598742c5
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 9ddc7ad8882b30a17be5820116da72c5ab32fad9
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348306"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640618"
 ---
 # <a name="service-limits-in-azure-search"></a>Azure Search의 서비스 제한 사항
 저장소, 워크 로드 및 인덱스, 문서 및 기타 개체의 수량에 대 한 최대 제한은 **무료**, **기본**, **표준**또는 **저장소에 최적화** 된 가격 책정 계층에서 [Azure Search를 프로 비전](search-create-service-portal.md) 하는지 여부에 따라 달라 집니다.
@@ -24,7 +22,7 @@ ms.locfileid: "68348306"
 
 + **기본**은 소규모의 프로덕션 워크로드를 위한 전용 컴퓨팅 리소스를 제공합니다.
 
-+ **표준**은 모든 수준에서 더 많은 저장소 및 처리 용량으로 전용 컴퓨터에서 실행됩니다. 표준은 4가지 수준인 S1, S2, S3 및 S3 HD로 제공됩니다.
++ **표준**은 모든 수준에서 더 많은 스토리지 및 처리 용량으로 전용 컴퓨터에서 실행됩니다. 표준은 4가지 수준인 S1, S2, S3 및 S3 HD로 제공됩니다.
 
 + **저장소 최적화** 는 **Standard**보다 많은 저장소, 저장소 대역폭 및 메모리가 있는 전용 컴퓨터에서 실행 됩니다. 저장소 최적화는 다음과 같은 두 가지 수준으로 제공 됩니다. L1 및 L2
 
@@ -40,7 +38,7 @@ ms.locfileid: "68348306"
 ## <a name="subscription-limits"></a>구독 제한
 [!INCLUDE [azure-search-limits-per-subscription](../../includes/azure-search-limits-per-subscription.md)]
 
-## <a name="storage-limits"></a>저장소 제한
+## <a name="storage-limits"></a>스토리지 제한
 [!INCLUDE [azure-search-limits-per-service](../../includes/azure-search-limits-per-service.md)]
 
 <a name="index-limits"></a>
@@ -113,9 +111,9 @@ ms.locfileid: "68348306"
 | 호출당 최대 인덱싱 로드 |10,000개 문서 |최대 문서에 의해서만 제한됨 |최대 문서에 의해서만 제한됨 |최대 문서에 의해서만 제한됨 |최대 문서에 의해서만 제한됨 |N/A |제한 없음 |제한 없음 |
 | 최소 일정 | 5분 |5분 |5분 |5분 |5분 |5분 |5분 | 5분 |
 | 최대 실행 시간 <sup>5</sup> | 1-3분 |24시간 |24시간 |24시간 |24시간 |N/A  |24시간 |24시간 |
-| 인식 검색 기능이나 이미지 분석을 통한 Blob 인덱싱의 최대 실행 시간 <sup>5</sup> | 3~10분 |2시간 |2시간 |2시간 |2시간 |N/A  |2시간 |2시간 |
-| Blob 인덱서: 최대 Blob 크기(MB) |16 |16 |128 |256 |256 |N/A  |256 |256 |
-| Blob 인덱서: Blob에서 추출된 콘텐츠의 최대 문자 |32,000 |64,000 |&nbsp;1억 |&nbsp;1억 |&nbsp;1억 |해당 사항 없음 |&nbsp;1억 |&nbsp;1억 |
+| 인식 검색 기능이나 이미지 분석을 통한 Blob 인덱싱의 최대 실행 시간 <sup>5</sup> | 3~10분 |2시간 |2시간 |2시간 |2시간 |해당 사항 없음  |2시간 |2시간 |
+| Blob 인덱서: 최대 Blob 크기(MB) |16 |16 |128 |256 |256 |해당 사항 없음  |256 |256 |
+| Blob 인덱서: Blob에서 추출된 콘텐츠의 최대 문자 |32,000 |64,000 |&nbsp;1억 |&nbsp;1억 |&nbsp;1억 |N/A |&nbsp;1억 |&nbsp;1억 |
 
 <sup>1</sup> 무료 계층의 인덱서 최대 실행 시간은 Blob 원본의 경우 3분이고 기타 모든 데이터 원본의 경우 1분입니다. Cognitive Services를 호출 하는 AI 인덱싱의 경우 무료 서비스는 하루 20 개의 무료 트랜잭션으로 제한 되며, 여기서 트랜잭션은 보강 파이프라인을 통해 성공적으로 전달 되는 문서로 정의 됩니다.
 

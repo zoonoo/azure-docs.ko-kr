@@ -5,18 +5,17 @@ services: search
 manager: pablocas
 author: luiscabrer
 ms.service: search
-ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: ebff47360aa78a7774be50bcce8518f6e30ca073
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 8cf72ba2fff65cf3382344fd2851c9c6027676c2
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68841071"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69635900"
 ---
 #   <a name="image-analysis-cognitive-skill"></a>이미지 분석 인식 기술
 
@@ -485,7 +484,7 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
 ## <a name="error-cases"></a>오류 사례
 다음 오류 사례에서는 요소가 추출되지 않습니다.
 
-| 오류 코드 | 설명 |
+| 오류 코드 | Description |
 |------------|-------------|
 | NotSupportedLanguage | 제공한 언어가 지원되지 않습니다. |
 | InvalidImageUrl | 이미지 URL의 형식이 잘못되었거나 액세스할 수 없습니다.|

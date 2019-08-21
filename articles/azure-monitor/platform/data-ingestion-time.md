@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/18/2019
 ms.author: bwren
-ms.openlocfilehash: e07a436ee18a216bab569d299e534e729996db19
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 5947c4c28736f8488ea0e48941214df42c6af72a
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990167"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639495"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Azure Monitor의 로그 데이터 수집 시간
 Azure Monitor는 점점 더 빠른 속도로 매달 테라바이트 단위의 데이터를 보내는 수천 명의 고객을 처리하는 대규모 데이터 서비스입니다. 로그 데이터가 수집된 후 사용할 수 있기까지 걸리는 시간에 대해 질문하는 경우가 많습니다. 이 문서에서는 이 대기 시간에 영향을 주는 여러 요인에 대해 설명합니다.
@@ -100,8 +100,11 @@ Heartbeat
 | summarize percentiles(E2EIngestionLatency,50,95), percentiles(AgentLatency,50,95) by Computer 
 | top 20 by percentile_E2EIngestionLatency_95 desc
 ```
- 
-일정 기간 동안 특정 컴퓨터에 대 한 수집 시간을 드릴 다운 하려면 다음 쿼리를 사용 합니다 .이 쿼리는 그래프에서 과거 날짜의 데이터도 시각화 합니다. 
+
+위의 백분위 수 검사는 대기 시간에 일반적인 추세를 찾는 데 유용 합니다. 대기 시간에 단기 스파이크를 식별 하기 위해 최대 (`max()`)를 사용 하는 것이 더 효과적일 수 있습니다.
+
+일정 기간 동안 특정 컴퓨터에 대 한 수집 시간을 드릴 다운 하려면 다음 쿼리를 사용 합니다 .이 쿼리는 그래프에서 과거 날짜의 데이터를 시각화도 합니다. 
+
 
 ``` Kusto
 Heartbeat 

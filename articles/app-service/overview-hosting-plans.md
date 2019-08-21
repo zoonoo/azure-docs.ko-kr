@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 4ea983255463080592181cda321ef6b6d1ff147f
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: be391f2aa9ee5d94ffc36a6e03d3af8881346520
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932351"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69636546"
 ---
 # <a name="azure-app-service-plan-overview"></a>Azure App Service 계획 개요
 
@@ -100,7 +100,7 @@ App Service에서 앱을 만드는 경우 App Service 계획에 배치합니다.
 
 동일하게 반대로도 작동합니다. 더 높은 계층의 기능이 더 이상 필요하지 않으면 하위 계층으로 축소하여 비용을 절약할 수 있습니다.
 
-App Service 계획을 확장하는 방법에 대한 자세한 내용은 [Azure에서 앱 확장](web-sites-scale.md)을 참조하세요.
+App Service 계획을 확장하는 방법에 대한 자세한 내용은 [Azure에서 앱 확장](manage-scale-up.md)을 참조하세요.
 
 앱이 다른 앱과 동일한 App Service 계획에 있으면 컴퓨팅 리소스를 격리하여 앱의 성능을 향상하는 것이 좋습니다. 앱을 별도의 App Service 계획으로 이동하여 수행할 수 있습니다. 자세한 내용은 [앱을 다른 App Service 계획으로 이동](app-service-plan-manage.md#move)을 참조하세요.
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/04/2019
 ms.author: mlearned
-ms.openlocfilehash: 0238278b81255d735f8a950ca307d0e05100cfec
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: e3a4ea2e81e6c428b51d164336282f8f929d414b
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67614572"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639803"
 ---
 # <a name="connect-with-rdp-to-azure-kubernetes-service-aks-cluster-windows-server-nodes-for-maintenance-or-troubleshooting"></a>유지 관리 또는 문제 해결을 위해 RDP를 사용 하 여 AKS (Azure Kubernetes Service) 클러스터 Windows Server 노드에 연결
 
@@ -63,6 +63,27 @@ az vm create \
 ```
 
 가상 컴퓨터의 공용 IP 주소를 기록 합니다. 이후 단계에서이 주소를 사용 합니다.
+
+## <a name="allow-access-to-the-virtual-machine"></a>가상 컴퓨터에 대 한 액세스 허용
+
+AKS 노드 풀 서브넷은 기본적으로 NSGs (네트워크 보안 그룹)로 보호 됩니다. 가상 컴퓨터에 액세스 하려면 NSG에서 액세스를 사용 하도록 설정 해야 합니다.
+
+> [!NOTE]
+> NSGs는 AKS 서비스에 의해 제어 됩니다. NSG에 대 한 변경 내용은 언제 든 지 제어 평면에 의해 덮어쓰여집니다.
+>
+
+먼저 규칙을 추가할 nsg의 리소스 그룹 및 nsg 이름을 가져옵니다.
+
+```azurecli-interactive
+CLUSTER_RG=$(az aks show -g myResourceGroup -n myAKSCluster --query nodeResourceGroup -o tsv)
+NSG_NAME=$(az network nsg list -g $CLUSTER_RG --query [].name -o tsv)
+```
+
+그런 다음, NSG 규칙을 만듭니다.
+
+```azurecli-interactive
+az network nsg rule create --name tempRDPAccess --resource-group $CLUSTER_RG --nsg-name $NSG_NAME --priority 100 --destination-port-range 3389 --protocol Tcp --description "Temporary RDP access to Windows nodes"
+```
 
 ## <a name="get-the-node-address"></a>노드 주소 가져오기
 
@@ -117,6 +138,17 @@ aksnpwin000000                      Ready    agent   13h   v1.12.7   10.240.0.67
 
 ```azurecli-interactive
 az vm delete --resource-group myResourceGroup --name myVM
+```
+
+그리고 NSG 규칙:
+
+```azurecli-interactive
+CLUSTER_RG=$(az aks show -g myResourceGroup -n myAKSCluster --query nodeResourceGroup -o tsv)
+NSG_NAME=$(az network nsg list -g $CLUSTER_RG --query [].name -o tsv)
+```
+
+```azurecli-interactive
+az network nsg rule delete --resource-group $CLUSTER_RG --nsg-name $NSG_NAME --name tempRDPAccess
 ```
 
 ## <a name="next-steps"></a>다음 단계

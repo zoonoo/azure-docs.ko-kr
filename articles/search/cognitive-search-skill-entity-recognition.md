@@ -5,18 +5,17 @@ services: search
 manager: pablocas
 author: luiscabrer
 ms.service: search
-ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: 1328edfd9a049daf9244df992b55f4fb1585c8ba
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 25f6075d1e026745d4db1a60149e109a0f9636a4
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68841073"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69635967"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>엔터티 인식 기술
 
@@ -42,7 +41,7 @@ Microsoft.Skills.Text.EntityRecognitionSkill
 |--------------------|-------------|
 | categories    | 추출되어야 하는 범주 배열입니다.  가능한 범주 형식: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`. 범주가 제공되지 않으면 모든 형식이 반환됩니다.|
 |defaultLanguageCode |  입력 텍스트의 언어 코드입니다. 다음 언어 `de, en, es, fr, it`가 지원됩니다.|
-|minimumPrecision | 사용되지 않습니다. 나중에 사용하도록 예약되어 있습니다. |
+|minimumPrecision | 사용되지 않습니다. 나중에 사용하기 위해 예약되어 있습니다. |
 |includeTypelessEntities | 텍스트에 잘 알려진 엔터티가 포함되어 있지만 지원되는 범주 중 하나로 분류할 수 없는 경우 `"entities"` 복합 출력 필드의 일부로 반환됩니다. 
 이러한 엔터티는 잘 알려져 있지만 현재 지원 되는 "범주"의 일부로 분류 되지 않습니다. 예를 들어 "Windows 10"은 잘 알려진 엔터티 (a 제품) 이지만 "Products"는 현재 지원 되는 범주에 속하지 않습니다. 기본값은 `false`입니다. |
 

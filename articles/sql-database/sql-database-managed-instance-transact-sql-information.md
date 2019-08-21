@@ -11,28 +11,30 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 5e9972c5fea7aaa2e6b5270aff87343437b1963e
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
-ms.translationtype: MT
+ms.openlocfilehash: b792c0fc5d02a84d45b47ac68e0058144f31e673
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624019"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69641009"
 ---
-# <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database 관리형 인스턴스 및 SQL Server 간의 T-SQL 차이점
+# <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>관리 되는 인스턴스 T-sql의 차이점, 제한 사항 및 알려진 문제
 
-이 문서에서는 Azure SQL Database 관리 되는 인스턴스와 온-프레미스 SQL Server 데이터베이스 엔진 간의 구문과 동작의 차이점을 요약 하 고 설명 합니다. 다음 주제에 대해 설명 합니다.<a name="Differences"></a>
+이 문서에서는 Azure SQL Database 관리 되는 인스턴스와 온-프레미스 SQL Server 데이터베이스 엔진 간의 구문과 동작의 차이점을 요약 하 고 설명 합니다. 관리되는 인스턴스 배포 옵션은 온-프레미스 SQL Server 데이터베이스 엔진과의 높은 호환성을 제공합니다. 대부분의 SQL Server 데이터베이스 엔진 기능은 관리되는 인스턴스에서 지원됩니다.
+
+![마이그레이션](./media/sql-database-managed-instance/migration.png)
+
+Managed Instance에서 도입 된 몇 가지 PaaS 제한 사항이 있으며 SQL Server에 비해 일부 동작이 변경 되었습니다. 차이점은 다음 범주로 구분 됩니다.<a name="Differences"></a>
 
 - [가용성](#availability) 은 [Always On](#always-on-availability) 및 [백업의](#backup)차이를 포함 합니다.
 - [보안](#security) 에는 [감사](#auditing), [인증서](#certificates), [자격 증명](#credential), [암호화 공급자](#cryptographic-providers), [로그인 및 사용자](#logins-and-users), [서비스 키 및 서비스 마스터 키](#service-key-and-service-master-key)의 차이점이 포함 됩니다.
 - [구성](#configuration) 에는 [버퍼 풀 확장](#buffer-pool-extension), [데이터 정렬](#collation), [호환성 수준](#compatibility-levels), [데이터베이스 미러링](#database-mirroring), [데이터베이스 옵션](#database-options), [SQL Server 에이전트](#sql-server-agent)및 [테이블 옵션](#tables)의 차이점이 포함 됩니다.
 - [기능](#functionalities) 에는 [BULK INSERT/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [분산 트랜잭션](#distributed-transactions), [확장 이벤트](#extended-events), [외부 라이브러리](#external-libraries), [filestream 및 FileTable](#filestream-and-filetable)이 포함 됩니다. [전체 텍스트 의미 체계 검색](#full-text-semantic-search), [연결 된 서버](#linked-servers), [PolyBase](#polybase), [복제](#replication), [복원](#restore-statement), [Service Broker](#service-broker), [저장 프로시저, 함수 및 트리거가](#stored-procedures-functions-and-triggers)있습니다.
 - Vnet 및 서브넷 구성과 같은 [환경 설정](#Environment) .
-- [관리 되는 인스턴스에서 동작이 다른 기능](#Changes)
-- [임시 제한 사항 및 알려진 문제](#Issues)
 
-관리되는 인스턴스 배포 옵션은 온-프레미스 SQL Server 데이터베이스 엔진과의 높은 호환성을 제공합니다. 대부분의 SQL Server 데이터베이스 엔진 기능은 관리되는 인스턴스에서 지원됩니다.
+이러한 기능 중 대부분은 아키텍처 제약 조건 이며 서비스 기능을 나타냅니다.
 
-![마이그레이션](./media/sql-database-managed-instance/migration.png)
+또한이 페이지에서는 관리 되는 인스턴스에서 검색 된 [알려진 알려진 문제](#Issues) 에 대해 설명 하며,이 문제는 나중에 해결 될 예정입니다.
 
 ## <a name="availability"></a>가용성
 
@@ -499,6 +501,18 @@ Restore 문에 대 한 자세한 내용은 [restore 문](https://docs.microsoft.
 - `Extended stored procedures`는 지원 되지 않습니다. `sp_addextendedproc`여기 `sp_dropextendedproc`에는 및가 포함 됩니다  . [확장 저장 프로시저](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql)를 참조 하세요.
 - `sp_attach_db`, `sp_attach_single_file_db` 및 `sp_detach_db`는 지원되지 않습니다. [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql) 및 [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql)를 참조하세요.
 
+### <a name="system-functions-and-variables"></a>시스템 함수 및 변수
+
+다른 결과를 반환하는 변수, 함수 및 뷰는 다음과 같습니다.
+
+- `SERVERPROPERTY('EngineEdition')`값 8을 반환 합니다. 이 속성은 관리되는 인스턴스를 고유하게 식별합니다. [SERVERPROPERTY](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql)를 참조하세요.
+- `SERVERPROPERTY('InstanceName')`SQL Server에 대 한 인스턴스 개념이 관리 되는 인스턴스에 적용 되지 않기 때문에 NULL을 반환 합니다. [SERVERPROPERTY('InstanceName')](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql)를 참조하세요.
+- `@@SERVERNAME`전체 DNS "연결 가능" 이름 (예: my-managed-instance.wcus17662feb9ce98.database.windows.net)을 반환 합니다. [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql)을 참조하세요. 
+- `SYS.SERVERS`"name" 및 "data_source" 속성의 경우와 `myinstance.domain.database.windows.net` 같이 전체 DNS "연결 가능" 이름을 반환 합니다. [SYS.SERVERS](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql)를 참조하세요.
+- `@@SERVICENAME`SQL Server에 대해 존재 하는 서비스 개념이 관리 되는 인스턴스에 적용 되지 않으므로 NULL을 반환 합니다. [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql)을 참조하세요.
+- `SUSER_ID`가 지원됩니다. Azure AD 로그인이 sys. syslogins에 없으면 NULL을 반환 합니다. [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql)를 참조하세요. 
+- `SUSER_SID`는 지원되지 않습니다. 잘못 된 데이터가 반환 됩니다 .이는 알려진 문제입니다. [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql)를 참조하세요. 
+
 ## <a name="Environment"></a>환경 제약 조건
 
 ### <a name="subnet"></a>Subnet
@@ -513,33 +527,25 @@ Restore 문에 대 한 자세한 내용은 [restore 문](https://docs.microsoft.
 - 관리 되는 인스턴스를 만든 후에는 관리 되는 인스턴스 또는 VNet을 다른 리소스 그룹 또는 구독으로 이동할 수 없습니다.
 - App Service 환경, 논리 앱, 관리 되는 인스턴스 (예: 지역에서 복제, 트랜잭션 복제 또는 연결 된 서버를 통해)와 같은 일부 서비스의 경우 Vnet가 global을 사용 하 여 연결 된 경우 다른 지역의 관리 되는 인스턴스에 액세스할 수 없습니다. [ 피어 링](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). VNet 게이트웨이를 통해 Express 경로 또는 VNet 간을 통해 이러한 리소스에 연결할 수 있습니다.
 
-### <a name="tempdb-size"></a>TEMPDB 크기
+### <a name="tempdb"></a>TEMPDB
 
 범용 계층의 최대 파일 `tempdb` 크기는 코어 당 24gb 보다 클 수 없습니다. 중요 비즈니스용 계층 `tempdb` 의 최대 크기는 인스턴스 저장소 크기에 의해 제한 됩니다. `Tempdb`로그 파일 크기는 일반적인 용도와 중요 비즈니스용 계층 모두 120 GB로 제한 됩니다. 일부 쿼리는에서 `tempdb` 코어 당 24gb 이상을 필요로 하거나 120 이상의 로그 데이터를 생성 하는 경우 오류를 반환할 수 있습니다.
 
-## <a name="Changes"></a> 동작 변경
+### <a name="error-logs"></a>오류 로그
 
-다른 결과를 반환하는 변수, 함수 및 뷰는 다음과 같습니다.
+관리 되는 인스턴스는 자세한 정보를 오류 로그에 배치 합니다. 오류 로그에 기록 되는 내부 시스템 이벤트가 많이 있습니다. 사용자 지정 프로시저를 사용 하 여 일부 관련이 없는 항목을 필터링 하는 오류 로그를 읽을 수 있습니다. 자세한 내용은 [관리 되는 인스턴스 – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/)를 참조 하세요.
 
-- `SERVERPROPERTY('EngineEdition')`값 8을 반환 합니다. 이 속성은 관리되는 인스턴스를 고유하게 식별합니다. [SERVERPROPERTY](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql)를 참조하세요.
-- `SERVERPROPERTY('InstanceName')`SQL Server에 대 한 인스턴스 개념이 관리 되는 인스턴스에 적용 되지 않기 때문에 NULL을 반환 합니다. [SERVERPROPERTY('InstanceName')](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql)를 참조하세요.
-- `@@SERVERNAME`전체 DNS "연결 가능" 이름 (예: my-managed-instance.wcus17662feb9ce98.database.windows.net)을 반환 합니다. [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql)을 참조하세요. 
-- `SYS.SERVERS`"name" 및 "data_source" 속성의 경우와 `myinstance.domain.database.windows.net` 같이 전체 DNS "연결 가능" 이름을 반환 합니다. [SYS.SERVERS](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql)를 참조하세요.
-- `@@SERVICENAME`SQL Server에 대해 존재 하는 서비스 개념이 관리 되는 인스턴스에 적용 되지 않으므로 NULL을 반환 합니다. [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql)을 참조하세요.
-- `SUSER_ID`가 지원됩니다. Azure AD 로그인이 sys. syslogins에 없으면 NULL을 반환 합니다. [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql)를 참조하세요. 
-- `SUSER_SID`는 지원되지 않습니다. 잘못 된 데이터가 반환 됩니다 .이는 알려진 문제입니다. [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql)를 참조하세요. 
+## <a name="Issues"></a>알려진 문제
 
-## <a name="Issues"> </a> 알려진 문제 및 제한 사항
-
-### <a name="cross-database-service-broker-dialogs-dont-work-after-service-tier-upgrade"></a>서비스 계층 업그레이드 후 데이터베이스 간 Service Broker 대화 상자가 작동 하지 않음
+### <a name="cross-database-service-broker-dialogs-must-be-re-initialized-after-service-tier-upgrade"></a>서비스 계층 업그레이드 후 데이터베이스 간 Service Broker 대화 상자를 다시 초기화 해야 함
 
 **날** 8 월 2019
 
-데이터베이스 간 Service Broker 대화 상자에서 서비스 계층 변경 작업 후 메시지를 배달 하지 못합니다. Managed Instance에서 vcores 또는 인스턴스 저장소 크기를 변경 하면 모든 데이터베이스에 `service_broke_guid` 대해 [sys. 데이터베이스](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) 보기의 값이 변경 됩니다. 다른 `DIALOG` 데이터베이스에서 GUID로 Service broker를 참조 하는 [BEGIN DIALOG](https://docs.microsoft.com/en-us/sql/t-sql/statements/begin-dialog-conversation-transact-sql) 문을 사용 하 여 만든 모든는 메시지를 배달할 수 없습니다.
+데이터베이스 간 Service Broker 대화 상자는 서비스 계층 변경 작업 후에 다른 데이터베이스의 서비스에 메시지를 배달 하지 않습니다. 메시지는 **손실 되지** 않으며 발신자 큐에서 찾을 수 있습니다. Managed Instance에서 vcores 또는 인스턴스 저장소 크기를 변경 하면 모든 데이터베이스에 `service_broke_guid` 대해 [sys. 데이터베이스](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) 보기의 값이 변경 됩니다. 다른 `DIALOG` 데이터베이스의 Service broker를 참조 하는 [시작 대화 상자](https://docs.microsoft.com/en-us/sql/t-sql/statements/begin-dialog-conversation-transact-sql) 를 사용 하 여 만든 모든는 메시지 메시지를 대상 서비스로 배달 하는 것을 중지 합니다.
 
-**해결 방법:** 서비스 계층을 업데이트 하기 전에 데이터베이스 간 Service Broker 대화 상자를 사용 하는 작업을 중지 하 고 이후에 다시 초기화 합니다.
+**해결 방법:** 서비스 계층을 업데이트 하기 전에 데이터베이스 간 Service Broker 대화 상자를 사용 하는 작업을 중지 하 고 이후에 다시 초기화 합니다. 서비스 계층 변경 후 배달 되지 않은 메시지가 남아 있으면 원본 큐에서 메시지를 읽고 대상 큐에 다시 보냅니다.
 
-### <a name="some-aad-login-types-cannot-be-impersonated"></a>일부 AAD 로그인 유형을 가장할 수 없습니다.
+### <a name="impresonification-of-aad-login-types-is-not-supported"></a>AAD 로그인 형식의 Impresonification은 지원 되지 않습니다.
 
 **날** 7 월 2019
 
@@ -547,11 +553,19 @@ Restore 문에 대 한 자세한 내용은 [restore 문](https://docs.microsoft.
 -   별칭이 지정 되는 AAD 사용자입니다. 이 경우 `15517`다음과 같은 오류가 반환 됩니다.
 - Aad 응용 프로그램 또는 서비스 주체를 기반으로 하는 AAD 로그인 및 사용자입니다. 이 경우 `15517` 및 `15406`에는 다음과 같은 오류가 반환 됩니다.
 
+### <a name="database-email"></a>데이터베이스 전자 메일 
+
 ### <a name="query-parameter-not-supported-in-sp_send_db_mail"></a>@querysp_send_db_mail에서 지원 되지 않는 매개 변수
 
 **날** 2019년 4월
 
 [Sp_send_db_mail 프로시저](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) 의 매개변수가작동하지`@query` 않습니다.
+
+### <a name="transactional-replication-must-be-reconfigured-after-geo-failover"></a>지역 장애 조치 (failover) 후 트랜잭션 복제를 다시 구성 해야 합니다.
+
+**날** 3 월 2019
+
+자동 장애 조치 그룹의 데이터베이스에서 트랜잭션 복제를 사용 하는 경우 관리 되는 인스턴스 관리자는 이전 주 데이터베이스의 모든 게시를 정리 하 고 다른 지역에 대 한 장애 조치 (failover)가 발생 한 후 새 주 데이터베이스에서 다시 구성 해야 합니다. 자세한 내용은 [복제](#replication) 를 참조 하세요.
 
 ### <a name="aad-logins-and-users-are-not-supported-in-tools"></a>AAD 로그인 및 사용자가 도구에서 지원 되지 않음
 
@@ -588,13 +602,7 @@ SQL Server Management Studio 및 SQL Server Data Tools는 Azure Acctive director
 
 ### <a name="error-logs-arent-persisted"></a>오류 로그는 지속 되지 않습니다.
 
-관리 되는 인스턴스에서 사용할 수 있는 오류 로그는 지속 되지 않으며 크기는 최대 저장소 제한에 포함 되지 않습니다. 장애 조치 (failover)가 발생 하면 오류 로그가 자동으로 삭제 될 수 있습니다.
-
-### <a name="error-logs-are-verbose"></a>오류 로그에 자세한 정보가 표시됨
-
-관리 되는 인스턴스는 자세한 정보를 오류 로그에 배치 하 고 대부분은 관련이 없습니다. 
-
-**해결 방법:** 사용자 지정 프로시저를 사용 하 여 일부 관련이 없는 항목을 필터링 하는 오류 로그를 읽을 수 있습니다. 자세한 내용은 [관리 되는 인스턴스 – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/)를 참조 하세요.
+관리 되는 인스턴스에서 사용할 수 있는 오류 로그는 지속 되지 않으며 크기는 최대 저장소 제한에 포함 되지 않습니다. 장애 조치 (failover)가 발생 하면 오류 로그가 자동으로 삭제 될 수 있습니다. 여러 가상 컴퓨터에서 Managed Instance 여러 번 이동 되었으므로 오류 로그 기록에 차이가 있을 수 있습니다.
 
 ### <a name="transaction-scope-on-two-databases-within-the-same-instance-isnt-supported"></a>동일한 인스턴스 내에 있는 두 데이터베이스의 트랜잭션 범위는 지원 되지 않습니다.
 

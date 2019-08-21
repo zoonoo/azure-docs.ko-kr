@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 72614a7f804f404e3e560d944db7b3d2e496c383
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: a3817b3e9f62a863f3fea9305ef169db2eb84491
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68705677"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69637953"
 ---
 # <a name="getting-started"> </a>Azure App Service의 Mobile Apps 정보
 
@@ -29,7 +29,7 @@ ms.locfileid: "68705677"
 
 Azure App Service는 완전히 관리되는 PaaS([platform as a service](https://azure.microsoft.com/overview/what-is-paas/))로써 전문 개발자를 위해 제공됩니다. 이 서비스는 웹, 모바일 및 통합 시나리오에 풍부한 기능 집합을 제공합니다. 
 
-Azure App Service의 Mobile Apps 기능은 엔터프라이즈 개발자 및 시스템 통합자에게 확장성이 뛰어나고 전 세계에서 사용 가능한 모바일 응용 프로그램 개발 플랫폼을 제공합니다.
+Azure App Service의 Mobile Apps 기능은 엔터프라이즈 개발자 및 시스템 통합자에게 확장성이 뛰어나고 전 세계에서 사용 가능한 모바일 애플리케이션 개발 플랫폼을 제공합니다.
 
 ![Mobile Apps 기능에 대한 시각적 개요](./media/app-service-mobile-value-prop/overview.png)
 
@@ -104,7 +104,7 @@ Azure App Service 플랫폼에 대한 자세한 내용은 [Azure App Service]를
 [Xamarin.iOS 및 Xamarin.Android]: ./app-service-mobile-dotnet-how-to-use-client-library.md
 [Xamarin.Forms]: ./app-service-mobile-xamarin-forms-get-started.md
 [Apache Cordova]: ./app-service-mobile-cordova-how-to-use-client-library.md
-[자동 크기 조정]: ../app-service/web-sites-scale.md
+[자동 크기 조정]: ../app-service/manage-scale-up.md
 [스테이징 환경]: ../app-service/deploy-staging-slots.md
 [하이브리드 연결]: ../biztalk-services/integration-hybrid-connection-overview.md
 [가상 네트워크]: ../app-service/web-sites-integrate-with-vnet.md

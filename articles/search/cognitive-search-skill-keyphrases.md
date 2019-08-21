@@ -5,18 +5,17 @@ services: search
 manager: pablocas
 author: luiscabrer
 ms.service: search
-ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: dcd0579482a8292dc848a1d2f6a779c93e7e349c
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 1c6b6455176001c752eb99d04deb3fe63a9d4006
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68841044"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639092"
 ---
 #   <a name="key-phrase-extraction-cognitive-skill"></a>핵심 문구 추출 인식 기술
 
@@ -40,14 +39,14 @@ Microsoft.Skills.Text.KeyPhraseExtractionSkill
 
 매개 변수는 대/소문자를 구분합니다.
 
-| 입력                | Description |
+| 입력                | 설명 |
 |---------------------|-------------|
 | defaultLanguageCode | (선택 사항) 명시적으로 언어를 지정하지 않은 문서에 적용할 언어 코드입니다.  기본 언어 코드가 지정되지 않은 경우 영어(en)가 기본 언어 코드로 사용됩니다. <br/> [지원되는 언어 전체 목록](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)을 참조합니다. |
 | maxKeyPhraseCount   | (선택 사항) 생성할 핵심 구문의 최대 수입니다. |
 
 ## <a name="skill-inputs"></a>기술 입력
 
-| 입력     | Description |
+| 입력     | 설명 |
 |--------------------|-------------|
 | text | 분석할 텍스트입니다.|
 | languageCode  |  레코드의 언어를 나타내는 문자열입니다. 이 매개 변수를 지정하지 않으면 레코드를 분석하는 데 기본 언어 코드가 사용됩니다. <br/>[지원되는 언어 전체 목록](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) 참조|

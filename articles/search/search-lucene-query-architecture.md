@@ -5,16 +5,15 @@ manager: jlembicz
 author: yahnoosh
 services: search
 ms.service: search
-ms.devlang: NA
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: jlembicz
-ms.openlocfilehash: 6e54bc91ff60ce4f3c2340282410923225601df4
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 3ce1e0a37357f016373e1ffe5b6a7d5daf2501d9
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883902"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640560"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Azure Search에서 전체 텍스트 검색의 작동 방식
 
@@ -235,7 +234,7 @@ Spacious,||air-condition*+"Ocean view"
 
 **용어 인덱싱 방식**
 
-인덱싱에 대한 몇 가지 기본 사항을 파악하면 검색을 이해하는 데 도움이 됩니다. 저장소 단위는 반전된 인덱스이며, 검색 가능한 필드당 하나씩 있습니다. 반전된 인덱스 내에는 모든 문서의 모든 정렬된 용어 목록이 있습니다. 각 용어는 아래 예제처럼 각각 발생하는 문서 목록에 매핑됩니다.
+인덱싱에 대한 몇 가지 기본 사항을 파악하면 검색을 이해하는 데 도움이 됩니다. 스토리지 단위는 반전된 인덱스이며, 검색 가능한 필드당 하나씩 있습니다. 반전된 인덱스 내에는 모든 문서의 모든 정렬된 용어 목록이 있습니다. 각 용어는 아래 예제처럼 각각 발생하는 문서 목록에 매핑됩니다.
 
 반전된 인덱스에 용어를 생성하기 위해 검색 엔진은 쿼리 처리 중 발생하는 동작과 비슷하게 문서 내용에 대한 어휘 분석을 수행합니다.
 

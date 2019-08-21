@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 06/26/2019
-ms.openlocfilehash: 961c0de6856a9791f76be1ec609f176f1fbbf8fb
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 412a3cb32663f5bd3bfad2d565b6797f92e26b75
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567331"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69641103"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>관리 되는 인스턴스 리소스 제한 Azure SQL Database 개요
 
@@ -42,7 +42,7 @@ Azure SQL Database 관리 되는 인스턴스는 두 가지 하드웨어 세대�
 | 최대 인스턴스 예약 된 저장소 |  일반 용도: 8TB<br/>중요 비즈니스용: 1TB | 일반 용도: 8 TB<br/> 중요 비즈니스용 1tb, 2tb 또는 4 TB의 코어 수에 따라 |
 
 > [!IMPORTANT]
-> 새 Gen4 데이터베이스는 AustraliaEast 지역에서 더 이상 지원 되지 않습니다.
+> 새 Gen4 데이터베이스는 오스트레일리아 동부 또는 브라질 남부 지역에서 더 이상 지원 되지 않습니다.
 
 ### <a name="service-tier-characteristics"></a>서비스 계층 특성
 
@@ -53,7 +53,7 @@ Azure SQL Database 관리 되는 인스턴스는 두 가지 하드웨어 세대�
 | vCore 수\* | Gen4: 8, 16, 24<br/>Gen5: 4, 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24, 32 <br/> Gen5: 4, 8, 16, 24, 32, 40, 64, 80 |
 | 최대 메모리 | Gen4: 56 g b-168 GB (7GB/vCore)<br/>Gen5: 40.8 g b-408 GB (5.1 g b/vCore)<br/>더 많은 메모리를 얻기 위해 vCores를 추가 합니다. | Gen4: 56 g b-168 GB (7GB/vCore)<br/>Gen5: 40.8 g b-408 GB (5.1 g b/vCore)<br/>더 많은 메모리를 얻기 위해 vCores를 추가 합니다. |
 | 최대 인스턴스 예약 된 저장소 크기 | -4 vCores의 경우 2tb (Gen5만 해당)<br/>-다른 크기의 경우 8TB | Gen4: 1TB <br/> Gen5: <br/>-1tb (4, 8, 16 vCores)<br/>- 2TB(24개 vCore용)<br/>- 4TB(32, 40, 64, 80개 vCore용) |
-| 최대 데이터베이스 크기 | 인스턴스당 최대 저장소 크기에 따라 결정됨 | 인스턴스당 최대 저장소 크기에 따라 결정됨 |
+| 최대 데이터베이스 크기 | 인스턴스당 최대 스토리지 크기에 따라 결정됨 | 인스턴스당 최대 스토리지 크기에 따라 결정됨 |
 | 인스턴스당 최대 데이터베이스 수 | 100 | 100 |
 | 인스턴스당 데이터베이스 파일의 최대 수 | 최대 280개 | 데이터베이스당 32,767개 파일 |
 | 데이터/로그 IOPS(근사치) | 파일당 500~7,500<br/>\*[더 많은 IOPS를 얻기 위해 파일 크기 늘리기](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11k-110 K (1375/vCore)<br/>더 나은 IO 성능을 얻으려면 vCores를 더 추가 합니다. |
@@ -99,7 +99,7 @@ Azure SQL Database 관리 되는 인스턴스는 두 가지 하드웨어 세대�
 |종량제|3|320|
 |CSP |8 (일부 지역의 경우 15 * *)|960 (일부 지역에서 1440 * *)|
 |종량제 개발/테스트|3|320|
-|엔터프라이즈 개발/테스트|3|320|
+|Enterprise 개발/테스트|3|320|
 |EA|8 (일부 지역의 경우 15 * *)|960 (일부 지역에서 1440 * *)|
 |Visual Studio Enterprise|2 |64|
 |Visual Studio Professional 및 MSDN 플랫폼|2|32|

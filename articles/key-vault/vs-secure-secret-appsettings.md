@@ -7,14 +7,14 @@ manager: paulyuk
 editor: ''
 ms.service: key-vault
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 07/17/2019
 ms.author: cawa
-ms.openlocfilehash: 3f5196c81550446221a4524330e355c595b65c6a
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: d5662fa3cae8ba0cec0fd76965597ccac7c83889
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934365"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639475"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>웹 애플리케이션의 비밀 애플리케이션 설정을 안전하게 저장
 
@@ -23,9 +23,9 @@ ms.locfileid: "68934365"
 
 일반적으로 모든 웹 애플리케이션 구성 설정은 Web.config와 같은 구성 파일에 저장됩니다. 이렇게 하면 GitHub와 같은 공개 소스 제어 시스템에 클라우드 자격 증명과 같은 비밀 설정을 체크 인하게 됩니다. 한편 소스 코드를 변경하고 개발 설정을 재구성하는 데 필요한 오버헤드로 인해 보안 모범 사례를 따르기 어려울 수 있습니다.
 
-개발 프로세스가 안전하도록, 소스 코드를 거의 또는 전혀 변경하지 않고 애플리케이션 비밀 설정을 안전하게 저장하기 위한 도구와 프레임워크 라이브러리가 생성됩니다.
+개발 프로세스를 안전 하 게 유지 하기 위해 도구 및 프레임 워크 라이브러리는 소스 코드를 변경 하거나 최소한으로 변경 하 여 응용 프로그램 비밀 설정을 안전 하 게 저장 하기 위해 만들어집니다.
 
-## <a name="aspnet-and-net-core-applications"></a>ASP.NET 및 .NET Core 애플리케이션
+## <a name="aspnet-and-net-core-applications"></a>ASP.NET 및 .NET Core 응용 프로그램
 
 ### <a name="save-secret-settings-in-user-secret-store-that-is-outside-of-source-control-folder"></a>소스 제어 폴더 외부의 사용자 비밀 저장소에 비밀 설정 저장
 빠른 프로토타입을 수행 중이거나 인터넷에 액세스할 수 없는 경우 소스 제어 폴더 외부의 비밀 설정을 User Secret 저장소로 이동하는 것부터 시작합니다. 사용자 비밀 저장소는 사용자 프로필 폴더 아래에 저장된 파일이므로 비밀이 소스 제어로 체크 인되지 않습니다. 다음 다이어그램은 [사용자 비밀](https://docs.microsoft.com/aspnet/core/security/app-secrets?tabs=visual-studio)의 작동 원리를 보여줍니다.
@@ -45,12 +45,12 @@ ms.locfileid: "68934365"
 
     ![Key Vault 액세스 정책 추가](./media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
 
-3. Azure Portal의 Key Vault에 비밀을 추가합니다. 중첩된 구성 설정의 경우 Key Vault 비밀 이름이 유효하도록 ':'을 '--'로 바꿉니다. ':'은 Key Vault 비밀의 이름에 사용할 수 없습니다.
+3. Azure Portal에서 Key Vault에 비밀을 추가 합니다. 중첩된 구성 설정의 경우 Key Vault 비밀 이름이 유효하도록 ':'을 '--'로 바꿉니다. ':'은 Key Vault 비밀의 이름에 사용할 수 없습니다.
 
     ![Key Vault 비밀 추가](./media/vs-secure-secret-appsettings/add-keyvault-secret.png)
 
     > [!NOTE] 
-    > Visual Studio 2017 V 15.6 이전에는 Visual Studio 용 Azure 서비스 인증 확장을 설치 하는 것이 좋습니다. 그러나 funcionality은 Visual Studio 내에서 통합 되므로 이제는 더 이상 사용 되지 않습니다. 따라서 이전 버전의 visual Studio 2017을 사용 하는 경우이 기능을 기본적으로 사용 하 고 Visual Studio 로그인 Id 자체를 사용 하 여 키 자격 증명 모음에 액세스할 수 있도록 VS 2017 15.6 이상으로 업데이트 하는 것이 좋습니다.
+    > Visual Studio 2017 V 15.6 이전에는 Visual Studio 용 Azure 서비스 인증 확장을 설치 하는 것이 좋습니다. 그러나이 기능은 Visual Studio 내에서 통합 되기 때문에 이제는 더 이상 사용 되지 않습니다. 따라서 이전 버전의 visual Studio 2017을 사용 하는 경우이 기능을 기본적으로 사용 하 고 Visual Studio 로그인 Id 자체를 사용 하 여 키 자격 증명 모음에 액세스할 수 있도록 VS 2017 15.6 이상으로 업데이트 하는 것이 좋습니다.
     >
  
 4. 다음 NuGet 패키지를 프로젝트에 추가합니다.
@@ -97,10 +97,10 @@ ms.locfileid: "68934365"
 
 1. 다음 NuGet 패키지를 프로젝트에 설치합니다.
     ```
-    Microsoft.Configuration.ConfigurationBuilders.Basic
+    Microsoft.Configuration.ConfigurationBuilders.Base
     ```
 
-2. 다음과 유사한 파일을 만듭니다. 프로젝트 폴더 외부의 위치에 저장합니다.
+2. 다음과 같은 파일을 만듭니다. 프로젝트 폴더 외부의 위치에 저장합니다.
 
     ```xml
     <root>
@@ -123,7 +123,7 @@ ms.locfileid: "68934365"
     </configBuilders>
     ```
 
-4. appSettings 섹션에서 비밀 구성 빌더를 사용하는 것으로 지정합니다. 더미 값을 사용하여 비밀 설정에 대한 항목이 있도록 합니다.
+4. appSettings 섹션에서 비밀 구성 빌더를 사용하는 것으로 지정합니다. 비밀 설정에 더미 값이 있는 항목이 있는지 확인 합니다.
 
     ```xml
         <appSettings configBuilders="Secrets">

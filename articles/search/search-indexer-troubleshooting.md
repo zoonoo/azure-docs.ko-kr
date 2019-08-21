@@ -2,20 +2,18 @@
 title: 일반적인 검색 인덱서 문제 해결 - Azure Search
 description: 데이터 원본 연결, 방화벽 및 누락된 문서를 포함하여 Azure Search의 인덱서에서 발생하는 오류 및 일반적인 문제를 해결합니다.
 author: mgottein
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: magottei
-ms.custom: seodec2018
-ms.openlocfilehash: 1cb3260fa11354de963318a023fec912d082eae4
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 4692be287e9b38cf116107d2e7c1043f23a6b34b
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67653412"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640608"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-search"></a>Azure Search의 일반적인 인덱서 문제 해결
 
@@ -35,11 +33,11 @@ Azure Storage는 구성 가능한 방화벽을 제공합니다. 기본적으로 
 
 방화벽을 사용하는 경우 특정 오류 메시지가 발생하지 않습니다. 일반적으로 방화벽 오류는 `The remote server returned an error: (403) Forbidden`과 같습니다.
 
-[포털](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal)에서 방화벽을 사용하도록 설정했는지 확인할 수 있습니다. 지원 되는 유일한 해결 방법은 액세스를 허용 하도록 선택 하 여 방화벽을 해제 하는 것 ['모든 네트워크'](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal)합니다.
+[포털](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal)에서 방화벽을 사용하도록 설정했는지 확인할 수 있습니다. 유일 하 게 지원 되는 해결 방법은 [' 모든 네트워크 '](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal)에서 액세스를 허용 하도록 선택 하 여 방화벽을 비활성화 하는 것입니다.
 
-인덱서는 연결 된 기술 되지 않은 경우 있습니다 _수 있습니다_ 하려고 [예외를 추가](https://docs.microsoft.com/azure/storage/common/storage-network-security#managing-ip-network-rules) search 서비스의 IP 주소에 대 한 합니다. 그러나이 시나리오는 지원 되지 않습니다 및 작동 하도록 보장 되지 않습니다.
+인덱서에 연결 된 기술 없는 경우 검색 서비스의 IP 주소에 대 한 [예외를 추가](https://docs.microsoft.com/azure/storage/common/storage-network-security#managing-ip-network-rules) 하려고 할 _수_ 있습니다. 그러나이 시나리오는 지원 되지 않으며 작동 하지 않을 수 있습니다.
 
-FQDN을 ping 하 여 검색 서비스의 IP 주소를 확인할 수 있습니다 (`<your-search-service-name>.search.windows.net`).
+FQDN (`<your-search-service-name>.search.windows.net`)을 ping 하 여 검색 서비스의 IP 주소를 찾을 수 있습니다.
 
 ### <a name="cosmos-db"></a>Cosmos DB
 
@@ -68,7 +66,7 @@ api-key: [admin key]
 
 Blob 인덱서는 [컨테이너의 blob에서 텍스트를 찾아서 추출합니다](search-howto-indexing-azure-blob-storage.md#how-azure-search-indexes-blobs). 텍스트 추출에 대한 몇 가지 문제는 다음과 같습니다.
 
-* 문서에는 스캔된 이미지만 포함됩니다. 스캔된 이미지(JPG)와 같은 텍스트가 아닌 콘텐츠를 포함한 PDF Blob은 표준 Blob 인덱싱 파이프라인에서 결과를 생성하지 않습니다. 텍스트 요소를 사용 하 여 이미지 콘텐츠를 만든 경우 사용할 수 있습니다 [cognitive search](cognitive-search-concept-image-scenarios.md) 를 찾고 텍스트를 추출 합니다.
+* 문서에는 스캔된 이미지만 포함됩니다. 스캔된 이미지(JPG)와 같은 텍스트가 아닌 콘텐츠를 포함한 PDF Blob은 표준 Blob 인덱싱 파이프라인에서 결과를 생성하지 않습니다. 텍스트 요소가 있는 이미지 내용이 있는 경우 [인지 검색](cognitive-search-concept-image-scenarios.md) 을 사용 하 여 텍스트를 찾고 추출할 수 있습니다.
 * Blob 인덱서는 메타데이터를 인덱스하도록 구성됩니다. 콘텐츠를 추출하려면 [콘텐츠 및 메타데이터를 모두 추출](search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed)하도록 Blob 인덱서를 구성해야 합니다.
 
 ```
@@ -91,5 +89,5 @@ api-key: [admin key]
 * 문서는 인덱스되지 않았습니다. 성공적인 인덱서 실행을 위해 포털을 확인합니다.
 * 문서는 인덱서 실행 후에 업데이트되었습니다. 인덱서가 [일정](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-schedule)대로 진행되는 경우 결국 문서를 다시 실행하고 선택합니다.
 * 데이터 원본에 지정된 [쿼리](https://docs.microsoft.com/rest/api/searchservice/create-data-source#request-body-syntax)는 문서를 제외합니다. 인덱서는 데이터 원본에 포함되지 않는 문서를 인덱싱할 수 없습니다.
-* [필드 매핑](https://docs.microsoft.com/rest/api/searchservice/create-indexer#fieldmappings) 또는 [cognitive search](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro) 문서 변경 및 예상과 다르게 보입니다.
+* [필드 매핑](https://docs.microsoft.com/rest/api/searchservice/create-indexer#fieldmappings) 또는 [인지 검색](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro) 에서 문서를 변경 하 여 원하는 것과 다르게 보입니다.
 * [문서 조회 API](https://docs.microsoft.com/rest/api/searchservice/lookup-document)를 사용하여 문서를 찾습니다.

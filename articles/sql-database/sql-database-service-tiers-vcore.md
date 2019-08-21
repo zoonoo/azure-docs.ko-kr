@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 06/26/2019
-ms.openlocfilehash: e5af3803ebb4cb0a88a082d3c85d0df68da8d1b8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a23f71a38324d9751846f1308f79d3a4e746fd85
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566619"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69637277"
 ---
 # <a name="choose-among-the-vcore-service-tiers-and-migrate-from-the-dtu-service-tiers"></a>VCore 서비스 계층 중에서 선택 하 고 DTU 서비스 계층에서 마이그레이션
 
@@ -28,7 +28,7 @@ VCore (가상 코어) 기반 구매 모델을 사용 하면 계산 및 저장소
 4세대 하드웨어는 실질적으로 vCore당 더 많은 메모리를 제공합니다. 그러나 5세대 하드웨어를 사용하면 컴퓨팅 리소스를 훨씬 더 강화할 수 있습니다.
 
 > [!IMPORTANT]
-> 새 Gen4 데이터베이스는 AustraliaEast 지역에서 더 이상 지원 되지 않습니다.
+> 새 Gen4 데이터베이스는 오스트레일리아 동부 또는 브라질 남부 지역에서 더 이상 지원 되지 않습니다.
 > [!NOTE]
 > DTU 기반 서비스 계층에 대 한 자세한 내용은 [dtu 기반 구매 모델에 대 한 서비스 계층](sql-database-service-tiers-dtu.md)을 참조 하세요. DTU 기반 및 vCore 기반 구매 모델에 대 한 서비스 계층 간의 차이점에 대 한 자세한 내용은 [Azure SQL Database 구매 모델](sql-database-purchase-models.md)을 참조 하세요.
 
@@ -36,7 +36,7 @@ VCore (가상 코어) 기반 구매 모델을 사용 하면 계산 및 저장소
 
 VCore 기반 구매 모델은 세 가지 서비스 계층, 즉 범용, 하이퍼 규모 및 중요 비즈니스용 서비스 계층을 제공 합니다. 이러한 서비스 계층은 다양 한 계산 크기, 고가용성 디자인, 내결함성 방법, 저장소의 형식 및 크기 및 i/o 범위로 구분 됩니다.
 
-백업에 필요한 저장소와 보존 기간을 개별적으로 구성해야 합니다. 백업 보존 기간을 설정 하려면 Azure Portal을 열고 서버 (데이터베이스가 아님)로 이동한 다음 **백업** > 관리로 이동 합니다.**정책** > 지정**시간 복원 구성** > **7- 35 일**.
+백업에 필요한 스토리지와 보존 기간을 개별적으로 구성해야 합니다. 백업 보존 기간을 설정 하려면 Azure Portal을 열고 서버 (데이터베이스가 아님)로 이동한 다음 **백업** > 관리로 이동 합니다.**정책** > 지정**시간 복원 구성** > **7- 35 일**.
 
 다음 표에서는 세 계층 간의 차이점을 설명 합니다.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 6b127738d4be79c30d1791d7313c0f8f7eacaf36
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
-ms.translationtype: MT
+ms.openlocfilehash: 60b3d1dcc7d60b25319b3fa5dd740541a457927f
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985146"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640084"
 ---
 # <a name="get-started-with-azcopy"></a>AzCopy 시작
 
@@ -65,9 +65,9 @@ AD (Azure Active Directory)를 사용 하거나 SAS (공유 액세스 서명) �
 |**Blob 저장소 (계층적 네임 스페이스)** | Azure AD & SAS |
 |**File Storage** | SAS 전용 |
 
-### <a name="option-1-use-azure-ad"></a>옵션 1: Azure AD 사용
+### <a name="option-1-use-azure-active-directory"></a>옵션 1: Azure Active Directory 사용
 
-Azure AD를 사용 하 여 각 명령에 SAS 토큰을 추가 하지 않고 자격 증명을 한 번 제공할 수 있습니다.  
+Azure Active Directory를 사용 하 여 각 명령에 SAS 토큰을 추가 하지 않고 자격 증명을 한 번 제공할 수 있습니다.  
 
 > [!NOTE]
 > 현재 릴리스에서 저장소 계정 간에 blob을 복사 하려는 경우 각 원본 URL에 SAS 토큰을 추가 해야 합니다. SAS 토큰은 대상 URL 에서만 생략할 수 있습니다. 예제는 [저장소 계정 간에 Blob 복사](storage-use-azcopy-blobs.md)를 참조 하세요.
@@ -149,7 +149,7 @@ $env:AZCOPY_SPA_CLIENT_SECRET="$(Read-Host -prompt "Enter key")"
 ```
 
 > [!NOTE]
-> 이 예제에 나와 있는 것 처럼 프롬프트를 사용 하는 것이 좋습니다. 이렇게 하면 클라이언트 암호가 콘솔의 명령 기록에 나타나지 않습니다. 
+> 이 예제에 나와 있는 것 처럼 프롬프트를 사용 하는 것이 좋습니다. 이렇게 하면 사용자의 암호가 콘솔의 명령 기록에 표시 되지 않습니다.  
 
 다음 명령을 입력 하 고 ENTER 키를 누릅니다.
 

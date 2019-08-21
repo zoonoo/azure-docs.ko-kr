@@ -6,16 +6,15 @@ author: luiscabrer
 services: search
 ms.service: search
 ms.subservice: cognitive-search
-ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: a032288338d2d6a53489105790b6862eefadf609
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 58f98f3807955db0b32cbcd1ed0d409814e35a76
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68841238"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639911"
 ---
 # <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>예제: Bing Entity Search API를 사용 하 여 사용자 지정 기술 만들기
 
@@ -43,7 +42,7 @@ ms.locfileid: "68841238"
 
 1. 형식을 **HTTP 트리거**로 선택합니다.
 
-1. 저장소 계정의 경우, 이 함수에 대한 저장소가 필요하지 않으므로 **없음**을 선택할 수 있습니다.
+1. 스토리지 계정의 경우, 이 함수에 대한 스토리지가 필요하지 않으므로 **없음**을 선택할 수 있습니다.
 
 1. **확인**을 선택하여 함수 프로젝트 및 HTTP 트리거 함수를 만듭니다.
 
@@ -381,7 +380,7 @@ POST https://localhost:7071/api/EntitySearch
 
 1. Visual Studio를 Azure 계정에 아직 연결하지 않았으면 **계정 추가...** 를 선택합니다.
 
-1. 화면에 표시되는 메시지를 따릅니다. 앱 서비스, Azure 구독, 리소스 그룹, 호스팅 계획 및 사용 하려는 저장소 계정에 대 한 고유한 이름을 지정 하 라는 메시지가 표시 됩니다. 아직 없는 경우 새 리소스 그룹, 새 호스팅 플랜 및 저장소 계정을 만들 수 있습니다. 작업을 마쳤으면 **만들기**를 선택합니다.
+1. 화면에 표시되는 메시지를 따릅니다. 앱 서비스, Azure 구독, 리소스 그룹, 호스팅 계획 및 사용 하려는 저장소 계정에 대 한 고유한 이름을 지정 하 라는 메시지가 표시 됩니다. 아직 없는 경우 새 리소스 그룹, 새 호스팅 플랜 및 스토리지 계정을 만들 수 있습니다. 작업을 마쳤으면 **만들기**를 선택합니다.
 
 1. 배포가 완료 되 면 사이트 URL을 확인 합니다. 이 URL은 Azure에서 해당 함수 앱의 주소입니다. 
 

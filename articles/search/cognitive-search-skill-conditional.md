@@ -6,17 +6,16 @@ manager: pablocas
 author: luiscabrer
 ms.service: search
 ms.subservice: cognitive-search
-ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.author: luisca
-ms.openlocfilehash: dff0ffaed49d7e4b7ba8211827a26bc3e9a87d9d
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 21a36988b31571f2110fe4fd2802aa5d84ee0216
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68841108"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69635920"
 ---
 #   <a name="conditional-skill"></a>조건부 기술
 
@@ -88,7 +87,7 @@ Microsoft.Skills.Util.ConditionalSkill
 ## <a name="skill-inputs"></a>기술 입력
 입력은 대/소문자를 구분합니다.
 
-| 입력   | Description |
+| 입력   | 설명 |
 |-------------|-------------|
 | 조건   | 이 입력은 평가할 조건을 나타내는 [평가 된 필드](#evaluated-fields) 입니다. 이 조건은 부울 값 (*true* 또는 *false*)으로 계산 되어야 합니다.   <br/>  예를 들면 다음과 같습니다. <br/> "= true" <br/> "= $(/document/language) =='fr'" <br/> "= $(/document/pages/\*/language) == $(/document/expectedLanguage)" <br/> |
 | whenTrue    | 이 입력은 조건이 *true*로 평가 되는 경우 반환할 값을 나타내는 [계산 된 필드](#evaluated-fields) 입니다. 상수 문자열은 작은따옴표 (' 및 ')로 반환 되어야 합니다. <br/>샘플 값: <br/> "= ' 계약 '"<br/>"= $(/document/contractType)" <br/> "= $(/document/entities/\*)" <br/> |

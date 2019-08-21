@@ -1,26 +1,26 @@
 ---
-title: 인증을 포함하여 Azure Storage Services REST API 작업 호출 | Microsoft Docs
-description: 인증을 포함하여 Azure Storage Services REST API 작업 호출
+title: 공유 키 인증을 사용 하 여 Azure Storage Services REST API 작업 호출 | Microsoft Docs
+description: Azure Storage REST API를 사용 하 여 공유 키 권한 부여를 통해 Blob 저장소에 대 한 요청을 수행할 수 있습니다.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 08/19/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 2149bfb68697129680c45f15c6cce359863fbc59
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 1463a470c84d38ebc30e32cf539aa9d6f64a6854
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989935"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640672"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>Azure Storage REST API 사용
 
-이 문서에서는 Blob Storage Service REST API를 사용하는 방법 및 서비스에 대한 호출을 인증하는 방법을 보여 줍니다. REST에 대해 알지 못하는 개발자의 관점에서 작성 되었으며 REST 호출을 수행 하는 방법을 알 수 없습니다. REST 호출에 대한 참조 설명서를 살펴보고 실제 REST 호출로 변환하는 방법을 살펴보겠습니다. 어떤 필드가 어디로 이동할까요? REST 호출을 설정하는 방법을 배우고 나면 이 지식을 활용하여 Storage Service REST API를 사용할 수 있습니다.
+이 문서에서는 Blob Storage Service REST Api를 사용 하는 방법 및 서비스에 대 한 호출을 인증 하는 방법을 보여 줍니다. REST에 대해 알지 못하는 개발자의 관점에서 작성 되었으며 REST 호출을 수행 하는 방법을 알 수 없습니다. REST 호출에 대한 참조 설명서를 살펴보고 실제 REST 호출로 변환하는 방법을 살펴보겠습니다. 어떤 필드가 어디로 이동할까요? REST 호출을 설정하는 방법을 배우고 나면 이 지식을 활용하여 Storage Service REST API를 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건 
+## <a name="prerequisites"></a>필수 구성 요소 
 
 애플리케이션이 스토리지 계정에 대한 Blob Storage의 컨테이너를 나열합니다. 이 문서의 코드를 사용해 보려면 다음 항목이 필요합니다. 
 
@@ -267,12 +267,13 @@ Content-Length: 1511
 ## <a name="creating-the-authorization-header"></a>인증 헤더 만들기
 
 > [!TIP]
-> 이제 Azure Storage는 blob 및 큐에 대 한 Azure Active Directory (Azure AD) 통합을 지원 합니다. Azure AD는 Azure Storage에 대한 요청에 권한을 부여하는 훨씬 간단한 환경을 제공합니다. Azure AD를 사용 하 여 REST 작업에 권한을 부여 하는 방법에 대 한 자세한 내용은 [Azure Active Directory로 인증](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory)을 참조 하세요. Azure Storage와의 Azure AD 통합에 대 한 개요는 [Azure Active Directory를 사용 하 여 Azure Storage에 대 한 액세스 인증](storage-auth-aad.md)을 참조 하세요.
+> 이제 Azure Storage는 blob 및 큐에 대 한 Azure Active Directory (Azure AD) 통합을 지원 합니다. Azure AD는 Azure Storage에 대한 요청에 권한을 부여하는 훨씬 간단한 환경을 제공합니다. Azure AD를 사용 하 여 REST 작업에 권한을 부여 하는 방법에 대 한 자세한 내용은 [Azure Active Directory 권한 부여](/rest/api/storageservices/authorize-with-azure-active-directory)를 참조 하세요. Azure Storage와의 Azure AD 통합에 대 한 개요는 [Azure Active Directory를 사용 하 여 Azure Storage에 대 한 액세스 인증](storage-auth-aad.md)을 참조 하세요.
 
-[Azure Storage Services 인증](/rest/api/storageservices/Authorization-for-the-Azure-Storage-Services) 방법을 개념적으로(코드 없이) 설명하는 문서가 있습니다.
+[Azure Storage 요청에 권한을 부여](/rest/api/storageservices/authorize-requests-to-azure-storage)하는 방법 (코드 없음)에 대해 설명 하는 문서가 있습니다.
+
 이 문서에서 필요한 내용만 추리고 코드를 살펴보겠습니다.
 
-첫째로, 공유 키 인증을 사용합니다. 인증 헤더 형식은 다음과 같습니다.
+먼저 공유 키 인증을 사용 합니다. 인증 헤더 형식은 다음과 같습니다.
 
 ```  
 Authorization="SharedKey <storage account name>:<signature>"  
@@ -360,7 +361,7 @@ private static string GetCanonicalizedHeaders(HttpRequestMessage httpRequestMess
 
 쿼리 매개 변수가 있는 경우이 예제에도 해당 매개 변수가 포함 됩니다. 다음은 값이 여러 개인 추가 쿼리 매개 변수 및 쿼리 매개 변수를 처리하는 코드입니다. 모든 REST Api에 대해 작동 하도록이 코드를 작성 하 고 있음을 명심 하세요. ListContainers 메서드가 모두 필요 하지 않은 경우에도 모든 가능성을 포함 하려고 합니다.
 
-```csharp 
+```csharp
 private static string GetCanonicalizedResource(Uri address, string storageAccountName)
 {
     // The absolute path will be "/" because for we're getting a list of containers.
@@ -376,7 +377,7 @@ private static string GetCanonicalizedResource(Uri address, string storageAccoun
         sb.Append('\n').Append(item).Append(':').Append(values[item]);
     }
 
-    return sb.ToString();
+    return sb.ToString().ToLower();
 }
 ```
 
@@ -571,3 +572,4 @@ Content-Length: 1135
 * [BLOB 서비스 REST API](/rest/api/storageservices/blob-service-rest-api)
 * [파일 서비스 REST API](/rest/api/storageservices/file-service-rest-api)
 * [큐 서비스 REST API](/rest/api/storageservices/queue-service-rest-api)
+* [테이블 서비스 REST API](/rest/api/storageservices/table-service-rest-api)

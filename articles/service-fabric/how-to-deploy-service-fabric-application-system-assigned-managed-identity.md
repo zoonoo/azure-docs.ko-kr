@@ -7,12 +7,12 @@ ms.service: service-fabric
 ms.topic: article
 ms.date: 07/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: c225971675557ba9bc98aafa25d17a3ef95a594a
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 9f6f3d43f80b3c69b0c1106b8e395b4d8f5d32ab
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624940"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640697"
 ---
 # <a name="deploy-service-fabric-application-with-system-assigned-managed-identity-preview"></a>시스템 할당 관리 id (미리 보기)를 사용 하 여 Service Fabric 응용 프로그램 배포
 
@@ -92,7 +92,7 @@ Azure Service Fabric 응용 프로그램의 관리 되는 id 기능에 액세스
     ```
     이는 위에 설명 된 대로 서비스에 대 한 id와 동등한 매핑 이며 서비스 정의의 관점에서 설명 합니다. Id는 응용 프로그램 매니페스트에 선언 된 대로 이름 (`WebAdmin`)으로 참조 됩니다.
 
-## <a name="related-articles"></a>관련 문서
+## <a name="next-steps"></a>다음 단계
 
 * Azure Service Fabric에서 [관리 되는 id 지원](./concepts-managed-identity.md) 검토
 

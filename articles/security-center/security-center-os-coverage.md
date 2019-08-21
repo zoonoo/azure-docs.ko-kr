@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/03/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 21a42b2986b52282fbab914fa702d8c4a323ed35
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 1f5a144728614ee13bf4f08bb594f0546d446880
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69611956"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640794"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Azure Security Center에서 지원하는 기능 및 플랫폼
 
@@ -111,7 +111,7 @@ ms.locfileid: "69611956"
 |------|------|-----|-----|
 | Windows Defender(Microsoft 맬웨어 방지 프로그램)| Windows Server 2016| 아니오, OS에 기본 제공| 예 |
 | System Center Endpoint Protection(Microsoft 맬웨어 방지 프로그램) | Windows Server 2012 R2, 2012, 2008 R2(아래 참고 참조) | 확장을 통해 | 예 |
-| Trend Micro - 모든 버전 | Windows Server 제품군  | 아니요 | 예 |
+| 추세 마이크로 – 모든 버전 * | Windows Server 제품군  | 아니요 | 예 |
 | Symantec v12.1.1100+| Windows Server 제품군  | 아니요 | 예 |
 | McAfee v10+ | Windows Server 제품군  | 아니요 | 예 |
 | McAfee v10+ | Linux 서버 제품군  | 아니요 | 예로 **\*** |
@@ -121,6 +121,7 @@ ms.locfileid: "69611956"
 
 > [!NOTE]
 > - Windows Server 2008 R2 가상 머신에서 SCEP(System Center Endpoint Protection)의 검색을 위해서는 PowerShell 3.0(또는 상위 버전)이 설치된 후 SCEP가 설치되어야 합니다.
+> - 심층 보안 에이전트에 대해 추세 마이크로 보호 감지가 지원 됩니다.  OfficeScan 에이전트는 지원 되지 않습니다.
 
 ## <a name="supported-paas-features"></a>지원되는 PaaS 기능
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/06/2019
 ms.author: mlearned
-ms.openlocfilehash: cf9dc304efea8874d16953f74bf88a4317760819
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 369729f10de4a55cd14bb866795ea1aa15b3d9da
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69031830"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639779"
 ---
 # <a name="preview---limit-egress-traffic-for-cluster-nodes-and-control-access-to-required-ports-and-services-in-azure-kubernetes-service-aks"></a>미리 보기-클러스터 노드에 대 한 송신 트래픽 제한 및 Azure Kubernetes 서비스에서 필요한 포트 및 서비스에 대 한 액세스 제어 (AKS)
 
@@ -58,6 +58,10 @@ az provider register --namespace Microsoft.ContainerService
 AKS 클러스터의 보안을 강화 하기 위해 송신 트래픽을 제한할 수 있습니다. 클러스터는 MCR 또는 ACR에서 기본 시스템 컨테이너 이미지를 가져오도록 구성 됩니다. 이러한 방식으로 송신 트래픽을 잠그는 경우 AKS 노드가 필요한 외부 서비스와 올바르게 통신할 수 있도록 특정 포트 및 Fqdn을 정의 해야 합니다. 이러한 권한이 있는 포트 및 Fqdn이 없으면 AKS 노드가 API 서버와 통신할 수 없거나 핵심 구성 요소를 설치할 수 없습니다.
 
 [Azure 방화벽][azure-firewall] 또는 타사 방화벽 어플라이언스를 사용 하 여 송신 트래픽을 보호 하 고 이러한 필수 포트 및 주소를 정의할 수 있습니다. AKS는 이러한 규칙을 자동으로 만들지 않습니다. 네트워크 방화벽에서 적절 한 규칙을 만들 때 다음 포트와 주소는 참조용입니다.
+
+> [!IMPORTANT]
+> Azure 방화벽을 사용 하 여 송신 트래픽을 제한 하 고 UDR (사용자 정의 경로)를 만들어 모든 송신 트래픽을 강제로 적용 하는 경우 수신 트래픽을 올바르게 허용 하도록 방화벽에서 적절 한 DNAT 규칙을 만들어야 합니다. UDR과 함께 Azure 방화벽을 사용 하면 비대칭 라우팅으로 인해 수신 설정이 끊어집니다. (AKS 서브넷에 방화벽의 개인 IP 주소로 이동 하는 기본 경로가 있지만 다음 유형의 공용 부하 분산 장치 수신 또는 Kubernetes 서비스를 사용 하 고 있기 때문에 문제가 발생 합니다. LoadBalancer). 이 경우 들어오는 부하 분산 장치 트래픽은 해당 공용 IP 주소를 통해 수신되지만 반환 경로는 방화벽의 개인 IP 주소를 거칩니다. 방화벽은 상태 저장 이므로 방화벽에서 설정 된 세션을 인식 하지 못하기 때문에 반환 하는 패킷을 삭제 합니다. Azure 방화벽과 수신 또는 서비스 부하 분산 장치를 통합 하는 방법에 대 한 자세한 내용은 azure [와 azure 표준 Load Balancer 통합](https://docs.microsoft.com/en-us/azure/firewall/integrate-lb)을 참조 하세요.
+>
 
 AKS에는 두 가지 포트 및 주소 집합이 있습니다.
 

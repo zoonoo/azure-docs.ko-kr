@@ -9,18 +9,18 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/08/2019
+ms.date: 08/19/2019
 ms.author: juliako
-ms.openlocfilehash: 01b386c820a09af0e616698aabc58a886c30bb09
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 466ab0737aa5af40bd1bc137b98ab57a48feafde
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65550938"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69637349"
 ---
 # <a name="transforms-and-jobs"></a>Transform 및 Job
 
-이 항목에 대 한 세부 정보를 제공 [변형](https://docs.microsoft.com/rest/api/media/transforms) 하 고 [작업](https://docs.microsoft.com/rest/api/media/jobs) 이러한 엔터티 간의 관계를 설명 합니다. 
+이 항목에서는 [변환](https://docs.microsoft.com/rest/api/media/transforms) 및 [작업](https://docs.microsoft.com/rest/api/media/jobs) 에 대 한 세부 정보를 제공 하 고 이러한 엔터티 간의 관계를 설명 합니다. 
 
 ## <a name="overview"></a>개요 
 
@@ -37,7 +37,7 @@ ms.locfileid: "65550938"
 3. Transform 나열 
 4. 나중에 이 "변환"을 사용할 계획이 아니면 삭제하세요. 
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 모든 비디오의 첫 번째 프레임을 썸네일 이미지로 추출하려는 경우 수행할 단계는 다음과 같습니다. 
 
@@ -53,49 +53,49 @@ ms.locfileid: "65550938"
 
 ## <a name="transforms"></a>변형
 
-**Transforms**는 비디오 인코딩 또는 분석에 대한 일반적인 작업을 구성하는 데 사용할 수 있습니다. 각 **변환**은 비디오 또는 오디오 파일을 처리하는 작업의 작성법 또는 워크플로를 설명합니다. 한 변환을 여러 규칙에 적용할 수 있습니다. 예를 들어 각 비디오를 지정된 비트 전송률에서 MP4 파일로 인코딩하고 비디오의 첫 번째 프레임으로 썸네일을 생성하도록 변환을 지정할 수 있습니다. 변환에 포함하려는 규칙마다 TransformOutput 항목 하나를 추가합니다. 지시 변환의 입력된 미디어 파일을 처리할 방법을 사전 설정을 사용 합니다.
+**Transforms**는 비디오 인코딩 또는 분석에 대한 일반적인 작업을 구성하는 데 사용할 수 있습니다. 각 **변환**은 비디오 또는 오디오 파일을 처리하는 작업의 작성법 또는 워크플로를 설명합니다. 한 변환을 여러 규칙에 적용할 수 있습니다. 예를 들어 각 비디오를 지정된 비트 전송률에서 MP4 파일로 인코딩하고 비디오의 첫 번째 프레임으로 썸네일을 생성하도록 변환을 지정할 수 있습니다. 변환에 포함하려는 규칙마다 TransformOutput 항목 하나를 추가합니다. 미리 설정을 사용 하 여 입력 미디어 파일을 처리 하는 방법을 변환에 알립니다.
 
 ### <a name="viewing-schema"></a>스키마 보기
 
-Media Services v3에서는 사전 설정에는 API 자체의 강력한 형식의 엔터티. 이러한 개체에 대 한 "schema" 정의 찾을 수 있습니다 [Open API Specification (또는 Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01)합니다. 미리 설정 된 정의 볼 수도 있습니다 (같은 **StandardEncoderPreset**)에 [REST API](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset)에 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) (또는 다른 Media Services v3 SDK 참조 설명서).
+Media Services v 3에서 사전 설정은 API 자체에서 강력한 형식의 엔터티입니다. [OPEN API 사양 (또는 Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01)에서 이러한 개체에 대 한 "스키마" 정의를 찾을 수 있습니다. [REST API](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset), [.net sdk](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) 또는 기타 Media Services v3 sdk 참조 설명서에서 미리 설정 된 정의 (예: **StandardEncoderPreset**)를 볼 수도 있습니다.
 
 ### <a name="creating-transforms"></a>변환 만들기
 
-나머지 부분에서는 CLI를 사용 하 여 변환을 만들거나 게시 된 Sdk 중 하나를 사용할 수 있습니다. Media Services v3 API는 Azure Resource Manager에 의해 실행되기 때문에 Resource Manager 템플릿을 사용하여 Media Services 계정에 변환을 만들고 배포할 수 있습니다. 역할 기반 액세스 제어를 사용하여 변환에 대한 액세스를 잠글 수 있습니다.
+REST, CLI를 사용 하 여 변환을 만들거나 게시 된 Sdk를 사용할 수 있습니다. Media Services v3 API는 Azure Resource Manager에 의해 실행되기 때문에 Resource Manager 템플릿을 사용하여 Media Services 계정에 변환을 만들고 배포할 수 있습니다. 역할 기반 액세스 제어를 사용하여 변환에 대한 액세스를 잠글 수 있습니다.
 
 ### <a name="updating-transforms"></a>변환 업데이트
 
-업데이트 해야 할 경우에 [변환](https://docs.microsoft.com/rest/api/media/transforms)를 사용 합니다 **업데이트** 작업 합니다. 설명 또는 기본 TransformOutputs의 우선 순위를 변경 하기 위한 것입니다. 해당 업데이트는 모든 진행 중인 작업이 완료되었을 때 수행하는 것이 좋습니다. 레시피를 다시 작성 하려는 경우 새 변환 해야 합니다.
+[변환을](https://docs.microsoft.com/rest/api/media/transforms)업데이트 해야 하는 경우 **업데이트** 작업을 사용 합니다. 이는 설명 또는 기본 TransformOutputs의 우선 순위를 변경 하기 위한 것입니다. 해당 업데이트는 모든 진행 중인 작업이 완료되었을 때 수행하는 것이 좋습니다. 조리법을 다시 작성 하려는 경우 새 변환을 만들어야 합니다.
 
-### <a name="transform-object-diagram"></a>변환 개체 다이어그램
+### <a name="transform-object-diagram"></a>개체 변환 다이어그램
 
-다음 다이어그램에서는 합니다 **변환** 개체 및 파생 관계를 포함 하 여 참조 하는 개체입니다. 회색 화살표 작업 참조 및 녹색 화살표는 클래스 파생 관계를 표시 하는 형식이 표시 됩니다.<br/>전체 크기로 보려면 이미지를 클릭합니다.  
+다음 다이어그램에서는 **변환** 개체와이 개체가 참조 하는 개체 (파생 관계 포함)를 보여 줍니다. 회색 화살표에는 작업에서 참조 하는 형식과 녹색 화살표가 클래스 파생 관계를 표시 합니다.<br/>전체 크기로 보려면 이미지를 클릭합니다.  
 
 <a href="./media/api-diagrams/transform-large.png" target="_blank"><img src="./media/api-diagrams/transform-small.png"></a> 
 
-## <a name="jobs"></a>교육
+## <a name="jobs"></a>에서
 
 **작업**은 **변환**을 특정 입력 비디오 또는 오디오 콘텐츠에 적용하기 위한 Azure Media Services에 대한 실제 요청입니다. 변환을 만든 후에는 Media Services API 또는 게시된 SDK를 사용하여 작업을 제출할 수 있습니다. **작업**은 입력 비디오의 위치 및 출력 위치와 같은 정보를 지정합니다. 입력 비디오의 위치는 HTTPS URL, SAS URL 또는 [자산](https://docs.microsoft.com/rest/api/media/assets)을 사용하여 지정할 수 있습니다.  
 
-### <a name="job-input-from-https"></a>HTTPS에서 작업 입력
+### <a name="job-input-from-https"></a>HTTPS의 작업 입력
 
-사용 하 여 [HTTPS에서 입력 작업](job-input-from-http-how-to.md) 경우 콘텐츠 URL을 통해 액세스할 수 있는 이미 및 Azure에서 소스 파일을 저장할 필요가 없습니다 (예를 들어, S3에서 가져오기). 이 방법은 Azure Blob storage에서 콘텐츠를 포함 하지만 파일을 자산에 대 한 필요가 없습니다에 적합 합니다. 현재이 메서드는 입력에 대 한 단일 파일로 지원 합니다.
+URL을 통해 콘텐츠를 이미 액세스할 수 있고 원본 파일을 Azure에 저장 하지 않아도 되는 경우 (예: S3에서 가져오기) [HTTPS의 작업 입력](job-input-from-http-how-to.md) 을 사용 합니다. 이 방법은 Azure Blob storage에 콘텐츠가 있지만 파일이 자산에 포함 될 필요가 없는 경우에도 적합 합니다. 현재이 메서드는 입력에 단일 파일만 지원 합니다.
 
-### <a name="asset-as-job-input"></a>작업 입력 자산
+### <a name="asset-as-job-input"></a>작업 입력으로 자산
 
-사용 하 여 [작업 입력 자산](job-input-from-local-file-how-to.md) 자산에는 입력된 콘텐츠가 이미 경우 콘텐츠를 로컬 파일에 저장 됩니다. 스트리밍 또는 다운로드 (예를 들어 하려는 다운로드용 mp4를 게시할 수도 음성 텍스트 또는 얼굴 감지를 위해)에 대 한 입력된 자산을 게시 하려는 경우 유용한 옵션 이기도 합니다. 이 메서드는 다중 파일 자산 (예를 들어, 로컬로 인코딩된 집합 스트리밍 MBR)를 지원 합니다.
+입력 콘텐츠가 이미 자산에 있거나 콘텐츠가 로컬 파일에 저장 된 경우 [자산을 작업 입력으로](job-input-from-local-file-how-to.md) 사용 합니다. 스트리밍 또는 다운로드를 위해 입력 자산을 게시 하려는 경우 (다운로드를 위해 mp4를 게시 하 고 텍스트 또는 얼굴 감지를 수행 하려는 경우)에도 좋은 옵션입니다. 이 메서드는 다중 파일 자산을 지원 합니다 (예: 로컬로 인코드된 MBR 스트리밍 집합).
 
-### <a name="checking-job-progress"></a>작업 진행 상태를 확인 하는 중
+### <a name="checking-job-progress"></a>작업 진행 상황 확인
 
 Event Grid로 이벤트를 모니터링하여 작업의 진행 상황 및 상태를 가져올 수 있습니다. 자세한 내용은 [Event Grid를 사용하여 이벤트 모니터링](job-state-events-cli-how-to.md)을 참조하세요.
 
-### <a name="updating-jobs"></a>업데이트 작업
+### <a name="updating-jobs"></a>작업 업데이트
 
 작업을 제출한 후 [작업](https://docs.microsoft.com/rest/api/media/jobs) 엔터티에 대한 업데이트 작업을 사용하여 *설명* 및 *우선 순위* 속성을 수정할 수 있습니다. *우선 순위* 속성에 대한 변경은 작업이 아직 큐에 대기 중인 상태에만 유효합니다. 작업 처리가 시작되었거나 완료된 경우 우선 순위를 변경해도 아무 효과가 없습니다.
 
 ### <a name="job-object-diagram"></a>작업 개체 다이어그램
 
-다음 다이어그램에서는 합니다 **작업** 개체 및 파생 관계를 포함 하 여 참조 하는 개체입니다.<br/>전체 크기로 보려면 이미지를 클릭합니다.  
+다음 다이어그램에서는 **작업** 개체와이 개체가 참조 하는 개체 (파생 관계 포함)를 보여 줍니다.<br/>전체 크기로 보려면 이미지를 클릭합니다.  
 
 <a href="./media/api-diagrams/job-large.png" target="_blank"><img src="./media/api-diagrams/job-small.png"></a> 
 
@@ -109,15 +109,16 @@ Media Services v3 또는 Video Indexer에 의해 트리거되는 오디오 분�
 
 [Azure Media Services 커뮤니티](media-services-community.md) 문서를 체크 아웃하여 다양한 방법으로 질문을 하고, 피드백을 제공하고, Media Services에 대한 업데이트를 가져올 수 있습니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
 * [오류 코드](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode)
-* [Media Services 엔터티 필터링, 정렬, 페이징](entities-overview.md)
+* [Media Services 엔터티의 필터링, 순서 지정, 페이징](entities-overview.md)
 
 ## <a name="next-steps"></a>다음 단계
 
-- 개발을 시작 하기 전에 검토 [Media Services v3 Api를 사용 하 여 개발](media-services-apis-overview.md) (Api, 명명 규칙, 액세스에 대 한 정보를 포함 합니다.)
-- 이러한 자습서를 확인 합니다.
+- 개발을 시작 하기 전에 [Media Services V3 api를 사용 하 여 개발](media-services-apis-overview.md) (api에 액세스 하는 방법, 명명 규칙 등)을 검토 합니다.
+- 다음 자습서를 확인 하세요.
 
-    - [자습서: .NET](stream-files-tutorial-with-api.md)를 사용하여 비디오 업로드, 인코딩 및 스트림
-    - [자습서: .NET을 사용하여 Media Services v3에서 비디오 분석](analyze-videos-tutorial-with-api.md)
+    - [자습서: URL을 기반으로 원격 파일 인코딩 및 비디오 스트림](stream-files-tutorial-with-rest.md)
+    - [자습서: 비디오 업로드, 인코딩 및 스트리밍](stream-files-tutorial-with-api.md)
+    - [자습서: Media Services v3로 비디오 분석](analyze-videos-tutorial-with-api.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2018
 ms.author: v-mohabe
-ms.openlocfilehash: 87f5a14bcd6003ad81b663ed97e5349dcbff2a30
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 597670803514fa59faaafdad73786cdb745a0976
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68296524"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640909"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Windows Defender Advanced Threat Protection과 Azure Security Center 통합
 
@@ -51,7 +51,7 @@ Windows Defender ATP로 피벗하여 경고를 추가로 조사할 수 있습니
 
 ## <a name="platform-support"></a>플랫폼 지원
 
-Security Center의 windows Defender ATP는 표준 서비스 구독에 속하는 windows Server 2012 R2 및 Windows Server 2016 운영 체제에 대 한 검색을 지원 합니다.
+Security Center의 windows Defender ATP는 표준 서비스 구독에서 Windows Server 2016, 2012 R2 및 2008 R2 SP1 운영 체제에 대 한 검색을 지원 합니다.
 
 > [!NOTE]
 > Azure Security Center를 사용 하 여 서버를 모니터링 하는 경우 Windows Defender ATP 테 넌 트가 자동으로 생성 되 고 Windows Defender ATP 데이터가 기본적으로 유럽에 저장 됩니다. 데이터를 다른 위치로 이동 해야 하는 경우 Microsoft 지원에 문의 하 여 테 넌 트를 다시 설정 해야 합니다.

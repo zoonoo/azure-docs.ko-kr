@@ -9,18 +9,18 @@ ms.date: 08/02/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: f33193e3102afca73344fcd640d14d9af9c1d46e
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 2607e09e6b8428c2aacc8ee7c6be42f54284a1ce
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68775355"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69641087"
 ---
 # <a name="authorize-access-to-azure-blobs-and-queues-using-azure-active-directory"></a>Azure Active Directory를 사용 하 여 Azure blob 및 큐에 대 한 액세스 권한 부여
 
 Azure Storage는 AD (Azure Active Directory)를 사용 하 여 Blob 및 큐 저장소에 대 한 요청에 권한을 부여할 수 있습니다. Azure AD에서는 RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자, 그룹 또는 응용 프로그램 서비스 사용자 일 수 있는 보안 주체에 권한을 부여할 수 있습니다. 보안 주체는 OAuth 2.0 토큰을 반환 하기 위해 Azure AD에서 인증 됩니다. 토큰을 사용 하 여 Blob 또는 큐 저장소에 있는 리소스에 액세스 하는 요청을 인증할 수 있습니다.
 
-Azure AD에서 반환 된 OAuth 2.0 토큰을 사용 하 여 사용자 또는 응용 프로그램에 권한을 부여 하면 공유 키 권한 부여 및 SAS (공유 액세스 서명)를 통해 뛰어난 보안과 사용 편의성을 제공 합니다. Azure AD를 사용 하면 계정 액세스 키를 코드와 함께 저장 하 고 잠재적인 보안 취약점을 초래할 필요가 없습니다. 애플리케이션에서 공유 키 인증을 계속 사용할 수 있는 동안 Azure AD를 사용하면 코드에서 계정 액세스 키를 저장하지 않아도 됩니다. SAS(공유 액세스 서명)를 계속 사용하여 저장소 계정의 리소스에 세분화된 액세스 권한을 부여할 수도 있습니다. 하지만 Azure AD에서는 SAS 토큰을 관리하거나 손상된 SAS를 해지하는 방법을 걱정할 필요 없이 유사한 기능을 제공합니다. 가능 하면 Azure Storage 응용 프로그램에 Azure AD 인증을 사용 하는 것이 좋습니다.
+Azure AD에서 반환 된 OAuth 2.0 토큰을 사용 하 여 사용자 또는 응용 프로그램에 권한을 부여 하면 공유 키 권한 부여 및 SAS (공유 액세스 서명)를 통해 뛰어난 보안과 사용 편의성을 제공 합니다. Azure AD를 사용 하면 계정 액세스 키를 코드와 함께 저장 하 고 잠재적인 보안 취약점을 초래할 필요가 없습니다. 애플리케이션에서 공유 키 인증을 계속 사용할 수 있는 동안 Azure AD를 사용하면 코드에서 계정 액세스 키를 저장하지 않아도 됩니다. SAS(공유 액세스 서명)를 계속 사용하여 스토리지 계정의 리소스에 세분화된 액세스 권한을 부여할 수도 있습니다. 하지만 Azure AD에서는 SAS 토큰을 관리하거나 손상된 SAS를 해지하는 방법을 걱정할 필요 없이 유사한 기능을 제공합니다. 가능 하면 Azure Storage 응용 프로그램에 Azure AD 인증을 사용 하는 것이 좋습니다.
 
 Azure AD를 사용한 권한 부여는 모든 공용 지역 및 국가 클라우드의 모든 범용 및 Blob 저장소 계정에 사용할 수 있습니다. Azure Resource Manager 배포 모델로 만든 저장소 계정만 Azure AD 권한 부여를 지원 합니다. Azure AD를 사용한 권한 부여는 Azure Table storage에 대해 지원 되지 않습니다.
 
@@ -38,7 +38,7 @@ Azure Blob 또는 큐 서비스에 요청 하는 네이티브 응용 프로그�
 
 Azure AD(Azure Active Directory)에서는 [RBAC(역할 기반 액세스 제어)](../../role-based-access-control/overview.md)를 통해 보호된 리소스에 액세스 권한을 부여합니다. Azure Storage는 blob 및 큐 데이터에 액세스 하는 데 사용 되는 일반 사용 권한 집합을 포함 하는 기본 제공 RBAC 역할 집합을 정의 합니다. Blob 및 큐 데이터에 액세스 하기 위한 사용자 지정 역할을 정의할 수도 있습니다.
 
-RBAC 역할이 Azure AD 보안 주체에 할당 되 면 Azure는 해당 보안 주체에 대 한 해당 리소스에 대 한 액세스 권한을 부여 합니다. 액세스 권한은 구독, 리소스 그룹, 저장소 계정 또는 개별 컨테이너나 큐의 수준에 범위를 지정할 수 있습니다. Azure AD 보안 주체는 사용자, 그룹, 응용 프로그램 서비스 주체 또는 [azure 리소스에 대 한 관리 되는 id](../../active-directory/managed-identities-azure-resources/overview.md)일 수 있습니다.
+RBAC 역할이 Azure AD 보안 주체에 할당 되 면 Azure는 해당 보안 주체에 대 한 해당 리소스에 대 한 액세스 권한을 부여 합니다. 액세스 권한은 구독, 리소스 그룹, 스토리지 계정 또는 개별 컨테이너나 큐의 수준에 범위를 지정할 수 있습니다. Azure AD 보안 주체는 사용자, 그룹, 응용 프로그램 서비스 주체 또는 [azure 리소스에 대 한 관리 되는 id](../../active-directory/managed-identities-azure-resources/overview.md)일 수 있습니다.
 
 ### <a name="built-in-rbac-roles-for-blobs-and-queues"></a>Blob 및 큐에 대 한 기본 제공 RBAC 역할
 
@@ -54,7 +54,7 @@ RBAC 역할이 Azure AD 보안 주체에 할당 되 면 Azure는 해당 보안 �
 
 ### <a name="access-permissions-for-data-operations"></a>데이터 작업에 대 한 액세스 권한
 
-특정 Blob 또는 큐 서비스 작업을 호출 하는 데 필요한 권한에 대 한 자세한 내용은 [blob 및 큐 데이터 작업 호출에 대 한 권한](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)을 참조 하세요.
+특정 Blob 또는 큐 서비스 작업을 호출 하는 데 필요한 권한에 대 한 자세한 내용은 [blob 및 큐 데이터 작업 호출에 대 한 권한](https://docs.microsoft.com/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)을 참조 하세요.
 
 ## <a name="resource-scope"></a>리소스 범위
 
@@ -85,5 +85,5 @@ Azure Files는 도메인에 가입 된 Vm에 대해서만 SMB를 통해 Azure AD
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure 리소스에 대 한 Azure Active Directory 및 관리 id를 사용 하 여 blob 및 큐에 대 한 액세스 권한 부여](storage-auth-aad-msi.md)
-- [Blob 및 큐 액세스를 위해 애플리케이션에서 Azure Active Directory를 사용하여 인증](storage-auth-aad-app.md)
+- [Blob 및 큐에 액세스 하기 위해 응용 프로그램에서 Azure Active Directory 권한을 부여 합니다.](storage-auth-aad-app.md)
 - [Azure Active Directory 기반 access control에 대 한 Azure Storage 지원 출시](https://azure.microsoft.com/blog/azure-storage-support-for-azure-ad-based-access-control-now-generally-available/)
