@@ -90,7 +90,7 @@
           items:
             - name: Azure Backup Server 설치
               href: backup-azure-microsoft-azure-backup.md
-            - name: 저장소 추가
+            - name: 스토리지 추가
               href: backup-mabs-add-storage.md
             - name: MABS의 새로운 기능
               href: backup-mabs-whats-new-mabs.md
@@ -114,6 +114,8 @@
               href: backup-mabs-system-state-and-bmr.md
         - name: Azure Backup Server에서 데이터 복구
           href: backup-azure-alternate-dpm-server.md
+        - name: Azure Backup Server를 사용하여 VMware VM 복원
+          href: restore-azure-backup-server-vmware.md
     - name: Azure Stack의 Azure Backup Server
       items:
         - name: Azure Backup Server 설치

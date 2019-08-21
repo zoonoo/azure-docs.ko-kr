@@ -108,7 +108,7 @@
 - name: 샘플
   items:
     - name: 코드 샘플
-      href: 'https://azure.microsoft.com/resources/samples/?service=service-fabric'
+      href: 'https://docs.microsoft.com/samples/browse/'
     - name: Azure PowerShell
       href: service-fabric-powershell-samples.md
     - name: Service Fabric CLI
@@ -354,7 +354,7 @@
       href: service-fabric-api-management-overview.md
     - name: 앱 리소스 모델
       href: service-fabric-concept-resource-model.md
-    - name: 관리 ID
+    - name: 관리 ID(미리 보기)
       href: concepts-managed-identity.md
 - name: 방법 가이드
   items:
@@ -747,7 +747,7 @@
           href: service-fabric-reverse-proxy-diagnostics.md
         - name: 로컬 클러스터 문제 해결
           href: service-fabric-troubleshoot-local-cluster-setup.md
-    - name: Service Fabric 앱에 관리 ID 사용
+    - name: Service Fabric 앱의 관리 ID 사용(미리 보기)
       items:
         - name: 클러스터 설정
           items:
