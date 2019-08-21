@@ -197,7 +197,7 @@ Azure Backup은 컴퓨터에서 실행 중인 Azure VM 에이전트에 확장을
 
 **VM** | **세부 정보**
 --- | ---
-**Windows** | 1. 에이전트 MSI 파일을 [다운로드하여 설치](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)합니다.<br/><br/> 2. 컴퓨터의 관리자 권한으로 설치합니다.<br/><br/> 3. 설치를 확인 합니다. VM의 >  *c:\windowsazure\\pupv\\pupv\\pupv\ppv\pv\* **세부 정보** 탭에서 **제품 버전** 을 2.6.1198.718 이상 이상으로 설정 해야 합니다.<br/><br/> 에이전트를 업데이트 하는 경우 백업 작업이 실행 되 고 있지 않은지 확인 한 후 [에이전트를 다시 설치](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)하십시오.
+**Windows** | 1. 에이전트 MSI 파일을 [다운로드하여 설치](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)합니다.<br/><br/> 2. 컴퓨터의 관리자 권한으로 설치합니다.<br/><br/> 3. 설치를 확인 합니다. VM의 >  *c:\windowsazure\\pupv\\pupv\\pupv\ppv\pv* **세부 정보** 탭에서 **제품 버전** 을 2.6.1198.718 이상 이상으로 설정 해야 합니다.<br/><br/> 에이전트를 업데이트 하는 경우 백업 작업이 실행 되 고 있지 않은지 확인 한 후 [에이전트를 다시 설치](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)하십시오.
 **Linux** | 배포의 패키지 리포지토리에서 RPM 또는 DEB 패키지를 사용 하 여를 설치 합니다. 이는 Azure Linux 에이전트를 설치 하 고 업그레이드 하는 데 선호 되는 방법입니다. 모든 [인증 배포 공급자](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)는 이미지 및 리포지토리에 Azure Linux 에이전트 패키지를 통합합니다. 에이전트는 [GitHub](https://github.com/Azure/WALinuxAgent)에서 사용할 수 있지만 설치하지 않는 것이 좋습니다.<br/><br/> 에이전트를 업데이트 하는 경우 백업 작업이 실행 되 고 있지 않은지 확인 하 고 이진 파일을 업데이트 합니다.
 
 ### <a name="explicitly-allow-outbound-access"></a>아웃 바운드 액세스를 명시적으로 허용
