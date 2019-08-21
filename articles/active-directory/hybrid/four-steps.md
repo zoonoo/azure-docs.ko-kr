@@ -83,7 +83,7 @@ Azure AD 응용 프로그램 프록시는 다음과 같은 이점을 제공 합�
 
 [Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) (MCAS)를 사용 하면 사용자가 SSO 및 조건부 액세스와 같은 기능을 활용할 수 있도록 사용 권한 부여 하 고 엔터프라이즈 응용 프로그램 갤러리에 추가할 수 있는 사용자에 게 널리 사용 되는 유용한 앱을 식별할 수 있습니다.
 
-*"* * Cloud App Security**은 Accenture를 보호 하는 기본 보안 정책을 지 원하는 방식으로 사용자가 클라우드 및 SaaS 응용 프로그램을 제대로 사용 하 고 있는지 확인 하는 데 도움이 됩니다." *--- [John Blasi, Director 관리, 정보 보안, Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
+*"**Cloud App Security**은 Accenture를 보호 하는 기본 보안 정책을 지 원하는 방식으로 사용자가 클라우드 및 SaaS 응용 프로그램을 제대로 사용 하 고 있는지 확인 하는 데 도움이 됩니다."* --- [John Blasi, Director 관리, 정보 보안, Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
 
 섀도 IT를 검색 하는 것 외에도 MCAS는 앱의 위험 수준을 결정 하 고, 회사 데이터에 대 한 무단 액세스, 가능한 데이터 유출 및 기타 보안 위험을 응용 프로그램에 내재 할 수 있습니다.
 
