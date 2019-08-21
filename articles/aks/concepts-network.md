@@ -150,7 +150,7 @@ AKS 클러스터에서 컨테이너에 대한 요청에 클라이언트 원본 I
 
 AKS 네트워킹을 시작 하려면 [kubenet][aks-configure-kubenet-networking] 또는 [Azure cni][aks-configure-advanced-networking]를 사용 하 여 고유한 IP 주소 범위를 사용 하 여 AKS 클러스터를 만들고 구성 합니다.
 
-관련 모범 사례는 [AKS의 네트워크 연결 및 보안에 대 한 모범 사례][operator-best-practices-network]를 참조 하세요.
+관련된 모범 사례는 [AKS에서의 네트워크 연결 및 보안 모범 사례][operator-best-practices-network]를 참조하세요.
 
 Kubernetes 및 AKS 핵심 개념에 대한 자세한 내용은 다음 문서를 참조하세요.
 
