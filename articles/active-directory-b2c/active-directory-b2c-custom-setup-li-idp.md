@@ -76,7 +76,7 @@ Azure AD B2C에서 ID 공급자로 LinkedIn을 사용하려면 LinkedIn 애플�
 
 정책 확장 파일의 **ClaimsProviders** 요소에 LinkedIn 계정을 추가 하 여 해당 계정을 클레임 공급자로 정의 합니다.
 
-1. 편집기에서 *Socialandlocalaccounts/ **trustframeworkextensions.xml** *파일을 엽니다. 이 파일은 필수 구성 요소 중 하나의 일부로 다운로드 한 [사용자 지정 정책 시작 팩][starter-pack] 에 있습니다.
+1. 편집기에서 *Socialandlocalaccounts/ **trustframeworkextensions.xml*** 파일을 엽니다. 이 파일은 필수 구성 요소 중 하나의 일부로 다운로드 한 [사용자 지정 정책 시작 팩][starter-pack] 에 있습니다.
 1. **ClaimsProviders** 요소를 찾습니다. 해당 요소가 없으면 루트 요소 아래에 추가합니다.
 1. 다음과 같이 새 **ClaimsProvider**를 추가합니다.
 
