@@ -53,14 +53,6 @@
           href: concept-feature-evaluation.md
     - name: 확장성 및 성능
       href: concepts-scalability-performance.md
-- name: 데모
-  items:
-    - name: 뉴스 콘텐츠 웹 사이트
-      href: 'https://personalizerdemo-staging.azurewebsites.net/'
-    - name: 쇼핑 콘텐츠 웹 사이트
-      href: 'http://personalizer-traveldemo.azurewebsites.net/'
-    - name: 데모용 샘플 코드
-      href: 'https://github.com/Azure-Samples/cognitive-services-personalizer-samples/tree/master/demos'
 - name: 방법 가이드
   items:
     - name: Personalizer 만들기 및 구성

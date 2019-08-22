@@ -9,18 +9,16 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 05/06/2019
-ms.openlocfilehash: cf35651f7dd839e8792029851b9bfe278036624c
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: eb84dc1b5bf3f756e484ef27aaa998ab6b94cc51
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182820"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69891708"
 ---
 작업 영역에 연결된 컴퓨팅 리소스인 컴퓨팅 대상에서 실험이 실행됩니다.  컴퓨팅 대상을 만든 후 이후 실행에 다시 사용할 수 있습니다.
 
 1. 아래쪽에서 **실행**을 선택하여 실험을 실행합니다.
-
-     ![실험 실행](./media/aml-ui-create-training-compute/run-experiment.png)
 
 1. **컴퓨팅 대상 설정** 대화 상자가 나타날 때 작업 영역에 이미 컴퓨팅 리소스가 있는 경우 지금 선택할 수 있습니다.  그렇지 않은 경우 **새로 만들기**를 선택합니다.
 

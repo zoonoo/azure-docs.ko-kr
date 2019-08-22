@@ -1,7 +1,7 @@
 ---
 title: 지식 저장소 시작 방법(미리 보기) - Azure Search
 description: Azure Search에서 AI 인덱싱 파이프라인을 통해 만들어진 강화된 문서를 Azure 스토리지 계정의 지식 저장소에 보내는 단계에 대해 알아봅니다. 여기서는 Azure Search 및 다른 애플리케이션에서 강화된 문서를 보고, 개조하고, 사용할 수 있습니다.
-manager: cgronlun
+manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
@@ -9,12 +9,12 @@ ms.subservice: cognitive-search
 ms.topic: tutorial
 ms.date: 06/29/2019
 ms.author: heidist
-ms.openlocfilehash: 7539481105e1c1fd3b6816778e31e6edde8842d3
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: d6cecdce9bc4f7fee9ec936ac73b6accc77084c4
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840801"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648831"
 ---
 # <a name="how-to-get-started-with-knowledge-store-in-azure-search"></a>Azure Search에서 지식 저장소 시작 방법
 

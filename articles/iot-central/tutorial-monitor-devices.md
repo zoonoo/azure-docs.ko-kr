@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Central에서 디바이스 모니터링 | Microsoft Docs
-description: 운영자로서 Azure IoT Central 애플리케이션을 사용하여 장치를 모니터링합니다.
+description: 운영자로서 Azure IoT Central 애플리케이션을 사용하여 디바이스를 모니터링합니다.
 author: dominicbetts
 ms.author: dobett
 ms.date: 06/09/2019
@@ -9,16 +9,18 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: d6ad7631ae32f8bd04812093a0fef4fa3d575864
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d716eb761ab406b65f10898b29775327a801ac45
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067406"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69875479"
 ---
 # <a name="tutorial-use-azure-iot-central-to-monitor-your-devices"></a>자습서: Azure IoT Central을 사용하여 디바이스 모니터링
 
-이 자습서에서는 운영자로서 Microsoft Azure IoT Central 애플리케이션을 사용하여 장치를 모니터링하고 설정을 변경하는 방법을 알려줍니다.
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
+
+이 자습서에서는 운영자로서 Microsoft Azure IoT Central 애플리케이션을 사용하여 디바이스를 모니터링하고 설정을 변경하는 방법을 알려줍니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 

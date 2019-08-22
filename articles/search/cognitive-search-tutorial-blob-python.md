@@ -1,7 +1,7 @@
 ---
 title: 'Python 자습서: AI 보강 파이프라인에서 Cognitive Services 호출 - Azure Search'
 description: Jupyter Python Notebook을 사용하여 Azure Search의 데이터 추출, 자연어 및 이미지 AI 처리 예제를 단계별로 안내합니다. 추출된 데이터는 인덱싱되고 쿼리로 쉽게 액세스할 수 있습니다.
-manager: cgronlun
+manager: nitinme
 author: LisaLeib
 services: search
 ms.service: search
@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: v-lilei
-ms.openlocfilehash: af355ec353e12c30723597927883cb23dfa31e71
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 2cde1fe258d2caf7e7dc9d8ede582364f42c676b
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840930"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648876"
 ---
 # <a name="python-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>Python 자습서: Azure Search 인덱싱 파이프라인에서 Cognitive Services API 호출
 
@@ -77,7 +77,7 @@ Azure Search 서비스와 상호 작용하려면 서비스 URL과 액세스 키�
 
    ![Azure Blob Storage의 원본 파일](./media/cognitive-search-quickstart-blob/sample-data.png)
 
-1. 샘플 파일이 로드되면 Blob Storage에 대한 컨테이너 이름 및 연결 문자열을 가져옵니다. 이렇게 하려면 Azure Portal에서 저장소 계정으로 이동해야 합니다. **액세스 키**를 클릭한 후 **연결 문자열** 필드를 복사합니다.
+1. 샘플 파일이 로드되면 Blob Storage에 대한 컨테이너 이름 및 연결 문자열을 가져옵니다. 이렇게 하려면 Azure Portal에서 스토리지 계정으로 이동해야 합니다. **액세스 키**를 클릭한 후 **연결 문자열** 필드를 복사합니다.
 
 연결 문자열은 `DefaultEndpointsProtocol=https;AccountName=<YOUR-STORAGE-ACCOUNT-NAME>;AccountKey=<YOUR-STORAGE-ACCOUNT-KEY>;EndpointSuffix=core.windows.net` 형식입니다.
 
