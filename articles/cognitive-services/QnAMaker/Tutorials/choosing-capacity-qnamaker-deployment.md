@@ -8,28 +8,28 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 08/20/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 3126613a9dca00d221610dc46116dd409c65d53d
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 2b2879a1ebcf01a0433873e8da77c4ce55a078cd
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446637"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647009"
 ---
 # <a name="choosing-capacity-for-your-qna-maker-deployment"></a>QnA Maker 배포 용량 선택
 
 QnA Maker 서비스는 다음 세 가지 Azure 리소스에 종속됩니다.
 1.  App Service(런타임)
-2.  Azure Search(QnAs 저장)
+2.  Azure Search (QnAs 저장 및 검색)
 3.  App Insights(선택 사항, 채팅 로그 및 원격 분석 저장)
 
 QnA Maker 서비스를 만들기 전에 적합한 위 서비스 계층을 결정해야 합니다. 
 
 일반적으로 고려해야 하는 다음 세 가지 매개 변수가 있습니다.
 
-1. **서비스에서 필요한 처리량**: 필요에 따라 App Service에 적합한 [앱 플랜](https://azure.microsoft.com/pricing/details/app-service/plans/)을 선택합니다. 앱을 [확장](https://docs.microsoft.com/azure/app-service/web-sites-scale)하거나 축소할 수 있습니다. 이 경우 Azure Search SKU 선택에도 영향을 줍니다. 자세한 내용은 [여기](https://docs.microsoft.com/azure/search/search-sku-tier)를 참조하세요.
+1. **서비스에서 필요한 처리량**: 필요에 따라 App Service에 적합한 [앱 플랜](https://azure.microsoft.com/pricing/details/app-service/plans/)을 선택합니다. 앱을 [확장](https://docs.microsoft.com/azure/app-service/manage-scale-up)하거나 축소할 수 있습니다. 이 경우 Azure Search SKU 선택에도 영향을 줍니다. 자세한 내용은 [여기](https://docs.microsoft.com/azure/search/search-sku-tier)를 참조하세요.
 
 1. **기술 자료의 크기 및 수**: 시나리오에 적절한 [Azure Search SKU](https://azure.microsoft.com/pricing/details/search/)를 선택합니다. 특정 계층에 N-1개의 기술 자료를 게시할 수 있습니다. 여기서 N은 계층에서 허용되는 최대 인덱스 개수입니다. 또한 계층당 허용되는 문서의 최대 크기 및 개수를 확인합니다.
 
@@ -42,8 +42,8 @@ QnA Maker 서비스를 만들기 전에 적합한 위 서비스 계층을 결정
 |                        | QnA Maker 관리 | App Service | Azure Search | 제한 사항                      |
 | ---------------------- | -------------------- | ----------- | ------------ | -------------------------------- |
 | 실험        | 체험 SKU             | 체험 계층   | 체험 계층    | KB 최대 2개, 50MB 크기까지 게시  |
-| 개발/테스트 환경   | 표준 SKU         | 공유됨      | Basic        | 최대 14KB, 2GB 크기까지 게시    |
-| 프로덕션 환경 | 표준 SKU         | Basic       | Standard     | KB 최대 49개, 25GB 크기까지 게시 |
+| 개발/테스트 환경   | 표준 SKU         | Shared      | Basic        | 최대 14KB, 2GB 크기까지 게시    |
+| 프로덕션 환경 | 표준 SKU         | Basic       | 표준     | KB 최대 49개, 25GB 크기까지 게시 |
 
 QnA Maker 스택을 업그레이드하려면 [QnA Maker 서비스 업그레이드](../How-To/upgrade-qnamaker-service.md)를 참조하세요.
 

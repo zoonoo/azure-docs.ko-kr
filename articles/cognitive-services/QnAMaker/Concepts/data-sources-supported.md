@@ -8,18 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 07/25/2019
+ms.date: 08/16/2019
 ms.author: diberry
-ms.openlocfilehash: 78c75e69be5521660937e34da0d7261dba1de385
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 5175dee24542c716b3d087412864ae7e6f056d18
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68955439"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615974"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>QnA Maker 콘텐츠의 데이터 원본
 
 QnA Maker는 웹 페이지, PDF 파일 또는 MS Word doc 파일로 저장된 FAQ, 제품 설명서, 지침, 지원 문서 및 정책 등의 반 구조화된 콘텐츠에서 질문-대답 쌍을 자동으로 추출합니다. 구조화된 QnA 콘텐츠 파일의 콘텐츠를 기술 자료에 추가할 수도 있습니다. 
+
+## <a name="data-types"></a>데이터 형식
 
 다음 표에는 QnA Maker에서 지원되는 콘텐츠 형식 및 파일 형식이 요약되어 있습니다.
 
@@ -32,11 +34,21 @@ QnA Maker는 웹 페이지, PDF 파일 또는 MS Word doc 파일로 저장된 FA
 
 ## <a name="data-source-locations"></a>데이터 원본 위치
 
-대부분의 데이터 원본 위치는 인증을 요구 하지 않는 공용 Url 또는 파일을 제공 해야 합니다. 
+데이터 원본 위치는 인증이 필요 하지 않은 **공용 url 또는 파일**입니다. 
 
-[Sharepoint 데이터 원본 위치](../How-to/add-sharepoint-datasources.md) 는 인증 된 파일을 제공할 수 있습니다. Sharepoint 리소스는 웹 페이지가 아닌 파일 이어야 합니다. 
+데이터 원본에 대 한 인증이 필요한 경우 다음 방법을 고려 하 여 데이터를 QnA Maker으로 가져와야 합니다.
 
-인증 된 파일 또는 URL이 있는 경우 인증 된 사이트의 파일을 로컬 컴퓨터에 다운로드 한 다음 로컬 컴퓨터의 파일을 기술 자료에 추가 하는 옵션이 있습니다. 
+* [수동으로 파일 다운로드](#download-file-from-authenticated-data-source-location) 및 QnA Maker로 가져오기
+* 인증 된 [Sharepoint 위치의](#import-file-from-authenticated-sharepoint) 파일 가져오기 
+
+### <a name="download-file-from-authenticated-data-source-location"></a>인증 된 데이터 원본 위치에서 파일 다운로드
+
+인증 된 파일 (인증 된 Sharepoint 위치에 없음) 또는 URL이 있는 경우 인증 된 사이트의 파일을 로컬 컴퓨터에 다운로드 한 다음 로컬 컴퓨터의 파일을 기술 자료에 추가 하는 것이 또 다른 옵션입니다.
+
+### <a name="import-file-from-authenticated-sharepoint"></a>인증 된 Sharepoint에서 파일 가져오기 
+
+[Sharepoint 데이터 원본 위치](../How-to/add-sharepoint-datasources.md) 는 인증 된 **파일**을 제공할 수 있습니다. Sharepoint 리소스는 웹 페이지가 아닌 파일 이어야 합니다. URL이와 같은 웹 확장명으로 끝나는 경우 **입니다. ASPX**는 Sharepoint에서 QnA Maker으로 가져오지 않습니다.
+
 
 ## <a name="faq-urls"></a>FAQ URL
 
@@ -133,9 +145,21 @@ Answer2
 
 원본 파일의 추가 열은 무시됩니다.
 
+### <a name="example-of-structured-excel-file"></a>구조적 Excel 파일의 예
+
 아래는 HTML 콘텐츠가 포함된 구조화된 QnA *.xls* 파일의 예입니다.
 
  ![기술 자료를 위한 구조화된 QnA 문서 예제](../media/qnamaker-concepts-datasources/structured-qna-xls.png)
+
+### <a name="example-of-alternate-questions-for-single-answer-in-excel-file"></a>Excel 파일의 단일 답변에 대 한 대체 질문 예제
+
+다음은 단일 답변에 대 한 몇 가지 대체 질문이 있는 구조화 된 QnA 파일의 예입니다.
+
+ ![Excel 파일의 단일 답변에 대 한 대체 질문 예제](../media/qnamaker-concepts-datasources/xls-alternate-question-example.png)
+
+파일을 가져온 후에는 다음과 같이 질문 및 답변 쌍이 기술 자료에 있습니다.
+
+ ![기술 자료로 가져온 단일 답변에 대 한 대체 질문 스크린샷](../media/qnamaker-concepts-datasources/xls-alternate-question-example-after-import.png)
 
 ## <a name="structured-data-format-through-import"></a>가져오기를 통한 구조화된 데이터 형식
 

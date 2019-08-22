@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 6a29117ff6e5173063bc2aced87f08f1a6aea425
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 8b4b5553605042499a9a8f3343ac4e6678e7006f
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559582"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640436"
 ---
 # <a name="prepare-data-to-create-a-custom-voice"></a>데이터를 준비 하 여 사용자 지정 음성 만들기
 
@@ -124,7 +124,7 @@ ms.locfileid: "68559582"
 | 파일 이름 | 일치 하는 오디오 파일과 같은 이름을 사용 합니다. |
 | 인코딩 형식 | UTF-8-BOM만 |
 | 줄당 발언의 # | 제한 없음 |
-| 최대 파일 크기 | 5천만 개 |
+| 최대 파일 크기 | 50MB |
 
 이 데이터 형식의 모든 기록 파일은 zip 파일로 그룹화 되어야 합니다. Zip 파일에는 하위 폴더가 허용 되지 않습니다. 예를 들어, ' kingstory ', 45 초 길이의 오디오 파일이 포함 된 zip 파일을 업로드 하 고, 다른 하나는 이름이 ' queenstory ', 200 seconds 인 zip 파일을 업로드 했습니다. ' Kingstory ' 라는 두 개의 기록이 포함 된 다른 zip 파일을 업로드 하 고 다른 하나는 ' queenstory '를 업로드 해야 합니다. 각 일반 텍스트 파일 내에 일치 하는 오디오에 대 한 전체 올바른 기록을 제공 합니다.
 

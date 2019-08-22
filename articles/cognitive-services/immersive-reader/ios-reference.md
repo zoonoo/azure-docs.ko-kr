@@ -1,20 +1,20 @@
 ---
 title: 몰입 형 판독기 iOS SDK 참조
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 몰입 형 판독기 iOS SDK에 대 한 참조
 services: cognitive-services
-author: MeganRoach
+author: metanMSFT
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 08/01/2019
-ms.author: t-meroa
-ms.openlocfilehash: acdaaf0bf08644053e86343ae4b002002fee6a84
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.author: metan
+ms.openlocfilehash: 615c09dd8a7287918bb009ce11854278b21554c1
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966592"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899405"
 ---
 # <a name="immersive-reader-sdk-reference"></a>몰입 형 판독기 SDK 참조
 
@@ -37,8 +37,8 @@ public func launchImmersiveReader(navController: UINavigationController, token: 
 | 이름 | 형식 | 설명 |
 | ---- | ---- |------------ |
 | `navController` | UINavigationController | 함수를 호출 하는 iOS 응용 프로그램에 대 한 탐색 컨트롤러입니다. |
-| `token` | String | Azure AD 인증 토큰입니다. [AZURE AD 인증 방법을](./azure-active-directory-authentication.md)참조 하세요. |
-| `subdomain` | String | Azure에서 몰입 형 판독기 리소스의 사용자 지정 하위 도메인입니다. [AZURE AD 인증 방법을](./azure-active-directory-authentication.md)참조 하세요. |
+| `token` | 문자열 | Azure AD 인증 토큰입니다. [AZURE AD 인증 방법을](./azure-active-directory-authentication.md)참조 하세요. |
+| `subdomain` | 문자열 | Azure에서 몰입 형 판독기 리소스의 사용자 지정 하위 도메인입니다. [AZURE AD 인증 방법을](./azure-active-directory-authentication.md)참조 하세요. |
 | `content` | [콘텐츠](#content) | 몰입 형 판독기에 표시할 콘텐츠를 포함 하는 개체입니다. |
 | `options` | [옵션](#options) | 몰입 형 판독기의 특정 동작을 구성 하기 위한 옵션입니다. 선택 사항입니다. |
 | `onSuccess` | ()-> Void | 몰입 형 판독기가 성공적으로 시작 될 때 호출 되는 닫기입니다. |
@@ -64,7 +64,7 @@ struct Content: Encodable {
 | 텍스트/일반 | 일반 텍스트입니다. |
 | application/mathml + xml | MathML (수학 Markup Language). [자세히 알아보기](https://developer.mozilla.org/en-US/docs/Web/MathML).
 
-### <a name="options"></a>변수
+### <a name="options"></a>옵션
 
 몰입 형 판독기의 특정 동작을 구성 하는 속성을 포함 합니다.
 
@@ -88,7 +88,7 @@ struct Error {
 
 #### <a name="error-codes"></a>오류 코드
 
-| 코드 | 설명 |
+| 코드 | Description |
 | ---- | ----------- |
 | BadArgument | 제공 된 인수가 잘못 되었습니다. `message` 자세한 내용은를 참조 하십시오. |
 | 제한 시간 | 몰입 형 판독기를 지정 된 시간 제한 내에 로드 하지 못했습니다. |

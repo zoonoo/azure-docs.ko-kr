@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 7/16/2019
 ms.author: dapine
-ms.openlocfilehash: 06f2db708385c4c3fbf8d005b701b633ac52776a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 420ac45b7d3b5e97772b1aa712ba6b8442ac1de2
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559150"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562750"
 ---
 # <a name="use-with-kubernetes-and-helm"></a>Kubernetes 및 Helm 활용
 
@@ -95,7 +95,7 @@ Microsoft에서 제공 하는 모든 공개적으로 사용 가능한 투구 차
 helm repo add microsoft https://microsoft.github.io/charts/repo
 ```
 
-다음으로 투구 차트 값을 구성 합니다. 다음 YAML을 복사 하 여 라는 `config-values.yaml`파일에 붙여 넣습니다. **Cognitive Services 음성 온-프레미스 투구 차트**를 사용자 지정 하는 방법에 대 한 자세한 내용은 [투구 차트 사용자 지정](#customize-helm-charts)을 참조 하세요. `billing` 및`apikey` 값을 사용자 고유의 값으로 바꿉니다.
+다음으로 투구 차트 값을 구성 합니다. 다음 YAML을 복사 하 여 라는 `config-values.yaml`파일에 붙여 넣습니다. **Cognitive Services 음성 온-프레미스 투구 차트**를 사용자 지정 하는 방법에 대 한 자세한 내용은 [투구 차트 사용자 지정](#customize-helm-charts)을 참조 하세요. `# {ENDPOINT_URI}` 및`# {API_KEY}` 주석을 사용자 고유의 값으로 바꿉니다.
 
 ```yaml
 # These settings are deployment specific and users can provide customizations
@@ -113,8 +113,8 @@ speechToText:
       - containerpreview # Or an existing secret
     args:
       eula: accept
-      billing: # < Your billing URL >
-      apikey: # < Your API Key >
+      billing: # {ENDPOINT_URI}
+      apikey: # {API_KEY}
 
 # text-to-speech configurations
 textToSpeech:
@@ -129,8 +129,8 @@ textToSpeech:
       - containerpreview # Or an existing secret
     args:
       eula: accept
-      billing: # < Your billing URL >
-      apikey: # < Your API Key >
+      billing: # {ENDPOINT_URI}
+      apikey: # {API_KEY}
 ```
 
 > [!IMPORTANT]

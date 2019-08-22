@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: f0ccf0e480fa57e0ffdfc94ca35cfaceded37a0b
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: cd67f435ff390267e01acd99594b9063db4c4ee1
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663891"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69559098"
 ---
 # <a name="personalizer-settings"></a>Personalizer 설정
 
@@ -86,6 +86,7 @@ ms.locfileid: "68663891"
 ## <a name="import-and-export-learning-policy"></a>학습 정책 가져오기 및 내보내기
 
 **모델 및 정책**의 리소스 관리 섹션에서 새 학습 정책을 가져오거나 현재 학습 정책을 내보냅니다.
+이전 내보내기에서 학습 정책 파일을 가져오거나 오프 라인 평가 중에 검색 된 최적화 된 정책을 다운로드할 수 있습니다. 이러한 파일을 수동으로 변경 하면 machine learning 성능 및 오프 라인 평가의 정확도에 영향을 주며, Microsoft는 기계 학습 및 평가의 정확도 나 수동으로 편집한 정책으로 인해 발생 하는 서비스 예외를 보장할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

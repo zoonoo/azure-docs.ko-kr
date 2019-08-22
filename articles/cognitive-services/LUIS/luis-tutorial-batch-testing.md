@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 08/20/2019
 ms.author: diberry
-ms.openlocfilehash: 0a3a9330eaa977f72cdbaba4e11aaa706b437fad
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 45520d39c822c734e3fc725bca3375e93983a118
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945913"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69637448"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>자습서: 일괄 처리 테스트 데이터 세트
 
@@ -95,7 +95,7 @@ ms.locfileid: "68945913"
 
 ## <a name="review-batch-results"></a>일괄 처리 결과 검토
 
-일괄 처리 차트는 결과의 사분면으로 표시됩니다. 차트의 오른쪽이 필터입니다. 기본적으로 필터는 목록의 첫 번째 의도로 설정됩니다. 필터에는 모든 의도 및 단순 및 복합 엔터티만 포함 됩니다. [차트의 섹션](luis-concept-batch-test.md#batch-test-results) 또는 차트 내의 한 점을 선택하면 차트 아래에 관련된 발언이 표시됩니다. 
+일괄 처리 차트는 결과의 사분면으로 표시됩니다. 차트의 오른쪽이 필터입니다. 필터는 의도 및 엔터티를 포함 합니다. [차트의 섹션](luis-concept-batch-test.md#batch-test-results) 또는 차트 내의 한 점을 선택하면 차트 아래에 관련된 발언이 표시됩니다. 
 
 차트 위로 마우스를 가져간 후 마우스 휠로 차트의 발언을 확대하거나 축소할 수 있습니다. 차트에 많은 점이 밀집되어 있을 때 이렇게 하면 편리합니다. 
 
@@ -103,27 +103,27 @@ ms.locfileid: "68945913"
 
 ### <a name="getjobinformation-test-results"></a>GetJobInformation 테스트 결과
 
-필터에 표시되는 **GetJobInformation** 테스트 결과는 4개 예측 중 2개가 성공적이었음을 보여 줍니다. 1사분면 위에서 이름 **False positive**를 선택하고 차트 아래에서 발언을 확인합니다. 
+필터에 표시되는 **GetJobInformation** 테스트 결과는 4개 예측 중 2개가 성공적이었음을 보여 줍니다. 왼쪽 아래 사분면에서 이름 **False 음수** 를 선택 하 여 차트 아래의 길이 발언를 확인 합니다. 
 
-![LUIS 일괄 테스트 발언](./media/luis-tutorial-batch-testing/hr-applyforjobs-false-positive-results.png)
+키보드, Ctrl + E를 사용 하 여 사용자 utterance의 정확한 텍스트를 표시 하는 레이블 보기로 전환 합니다. 
 
-발언 중 두 개가 올바른 의도 **GetJobInformation**이 아닌 **ApplyForJob**으로 예측되는 이유는 무엇인가요? 두 의도는 단어 선택 및 단어 배열 측면에서 매우 밀접하게 관련되어 있습니다. 또한 **GetJobInformation**보다 **ApplyForJob**에 대한 예제가 거의 3배 이상 더 많습니다. 이러한 예제 발언 수의 불균형 때문에 **ApplyForJob** 의도에 가중치가 더 부여됩니다. 
+Utterance `Is there a database position open in Los Colinas?` 는 _getjobinformation_ 으로 레이블이 지정 되지만 현재 모델은 utterance을 _applyforjob_으로 예측 했습니다. 
+
+**Getjobinformation**보다는 **applyforjob** 에 대 한 많은 예가 거의 세 번 있습니다. 이 불균일 예에서는 **Applyforjob** 의도의 우선 순위를 기준으로 잘못 된 예측이 발생 합니다. 
 
 두 의도는 동일한 오류 수를 갖습니다. 한 의도에서 예측이 잘못되면 다른 의도에도 영향을 미칩니다. 발언이 한 의도에 대해 잘못 예측되었고, 다른 의도에 대해서도 잘못 예측되었으므로 둘 다 오류가 있습니다. 
 
-![LUIS 일괄 테스트 필터 오류](./media/luis-tutorial-batch-testing/hr-intent-error-count.png)
+<a name="fix-the-app"></a>
 
-**False positive** 섹션의 위쪽 점에 해당하는 발언은 `Can I apply for any database jobs with this resume?` 및 `Can I apply for any database jobs with this resume?`입니다. 첫 번째 발언의 경우 단어 `resume`이 **ApplyForJob**에서만 사용되었습니다. 두 번째 발언의 경우 단어 `apply`가 **ApplyForJob** 의도에서만 사용되었습니다.
-
-## <a name="fix-the-app"></a>앱 수정
+## <a name="how-to-fix-the-app"></a>앱을 수정 하는 방법
 
 이 섹션의 목적은 앱을 수정하여 **GetJobInformation**에 대해 모든 발언이 올바르게 예측되도록 하는 것입니다. 
 
-간단해 보이는 해결 방법은 올바른 의도에 이러한 일괄 처리 파일 발언을 추가하는 것입니다. 그렇지만 원하는 방식이 아닐 것입니다. 이러한 발언을 예제로 추가하지 않으면서 LUIS에서 발언이 올바르게 예측되도록 할 것입니다. 
+간단해 보이는 해결 방법은 올바른 의도에 이러한 일괄 처리 파일 발언을 추가하는 것입니다. 원하는 것이 아닙니다. 이러한 발언을 예제로 추가하지 않으면서 LUIS에서 발언이 올바르게 예측되도록 할 것입니다. 
 
 **ApplyForJob** 발언 수량이 **GetJobInformation**와 같아질 때까지 발언을 제거하는 방법에 대해서도 관심이 있을 수 있습니다. 이렇게 하면 테스트 결과는 수정되지만 LUIS에서 다음 번에 해당 의도를 정확하게 예측하지 못할 수 있습니다. 
 
-첫 번째 해결 방법은 **GetJobInformation**에 발언을 더 추가하는 것입니다. 두 번째 해결 방법은 `resume` 및 `apply`와 같은 단어의 가중치를 **ApplyForJob** 의도에 맞게 줄이는 것입니다. 
+수정은 **Getjobinformation**에 길이 발언를 더 추가 하는 것입니다. 작업에 적용 _되지 않고_ 작업 정보를 찾는 의도를 대상으로 하는 동시에 utterance 길이, 단어 선택 및 단어 정렬을 변경 해야 합니다.
 
 ### <a name="add-more-utterances"></a>발언 추가
 
@@ -161,15 +161,13 @@ ms.locfileid: "68945913"
 
 1. 맨 위 탐색 모음에서 **테스트**를 선택합니다. 일괄 처리 결과가 계속 열려 있으면 **목록으로 돌아가기**를 선택합니다.  
 
-2. 일괄 처리 이름 오른쪽에 있는 줄임표(***...***) 단추를 선택하고 **데이터 세트 실행**을 선택합니다. 일괄 테스트가 완료될 때까지 기다립니다. **결과 보기** 단추가 이제 녹색으로 표시됩니다. 이것은 전체 일괄 처리가 성공적으로 실행되었음을 나타냅니다.
+1. 일괄 처리 이름 오른쪽에 있는 줄임표 (***...***) 단추를 선택 하 고 **실행**을 선택 합니다. 일괄 테스트가 완료될 때까지 기다립니다. **결과 보기** 단추가 이제 녹색으로 표시됩니다. 이것은 전체 일괄 처리가 성공적으로 실행되었음을 나타냅니다.
 
-3. **See results**(결과 보기)를 선택합니다. 모든 의도의 이름 왼쪽에 녹색 아이콘이 있어야 합니다. 
-
-    ![일괄 처리 결과 단추가 강조 표시된 LUIS의 스크린샷](./media/luis-tutorial-batch-testing/hr-batch-test-intents-no-errors.png)
+1. **See results**(결과 보기)를 선택합니다. 모든 의도의 이름 왼쪽에 녹색 아이콘이 있어야 합니다. 
 
 ## <a name="create-batch-file-with-entities"></a>엔터티를 사용하여 일괄 처리 파일 만들기 
 
-일괄 테스트에서 엔터티를 확인하려면 일괄 처리 JSON 파일에서 엔터티에 레이블이 지정되어 있어야 합니다. 컴퓨터에서 학습 한 엔터티만 사용 됩니다 (단순 및 복합 엔터티). 기계 학습되지 않은 엔터티는 정규식 또는 명시적인 텍스트 일치를 통해 항상 확인되므로 추가할 필요가 없습니다.
+일괄 테스트에서 엔터티를 확인하려면 일괄 처리 JSON 파일에서 엔터티에 레이블이 지정되어 있어야 합니다. 
 
 전체 단어에 대한 엔터티 변형([토큰](luis-glossary.md#token)) 개수는 예측 품질에 영향을 줄 수 있습니다. 레이블이 지정된 발언과 함께 의도에 제공된 학습 데이터에 다양한 길이의 엔터티가 포함되는지 확인합니다. 
 
@@ -178,7 +176,6 @@ ms.locfileid: "68945913"
 테스트 발언에 제공된 **Job** 엔터티의 값은 일반적으로 하나 또는 두 개의 단어로 되어 있지만 더 많은 단어를 포함하는 예제도 일부 있습니다. _직접 만든_ Human Resources 앱에 여러 단어의 작업 이름이 있는 경우 이 앱에서 **Job** 엔터티 레이블이 지정된 예제 발언은 잘 작동하지 않습니다.
 
 1. [VSCode](https://code.visualstudio.com/) 같은 텍스트 편집기에서 `HumanResources-entities-batch.json`을 만들거나 [다운로드](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources-entities-batch.json)합니다.
-
 
 2. JSON 형식의 일괄 처리 파일에서 발언에서 엔터티의 위치 뿐만 아니라 테스트에서 예측하려는 **의도**가 있는 발언을 포함하는 개체 배열을 추가합니다. 엔터티는 토큰 기반이므로 한 문자에서 각 엔터티를 시작 및 중지해야 합니다. 발언 앞뒤에 공백을 포함하지 않도록 합니다. 공백이 있으면 일괄 처리 파일을 가져올 때 오류가 발생합니다.  
 
@@ -200,8 +197,6 @@ ms.locfileid: "68945913"
 6. **실행** 단추를 선택합니다. 테스트가 완료될 때까지 기다립니다.
 
 7. **See results**(결과 보기)를 선택합니다.
-
-[!INCLUDE [Entity roles in batch testing - currently not supported](../../../includes/cognitive-services-luis-roles-not-supported-in-batch-testing.md)]
 
 ## <a name="review-entity-batch-results"></a>엔터티 일괄 처리 결과 검토
 

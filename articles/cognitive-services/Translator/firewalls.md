@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: 567e869ab9ccb2f29cd0e88ba2e44d7d1b4a296c
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 43ce5c09ca4116df47232167866f0e7e3d0b2720
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595282"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899560"
 ---
 # <a name="how-to-translate-behind-ip-firewalls-with-the-translator-text-api"></a>Translator Text API를 사용하여 IP 방화벽 뒤에서 변환하는 방법
 
@@ -24,9 +24,9 @@ Translator Text API는 도메인 이름 또는 IP 필터링을 사용하여 방�
 ## <a name="translator-ip-addresses"></a>Translator IP 주소
 api.cognitive.microsofttranslator.com의 IP 주소 - 2018년 11월 20일 기준 Microsoft Translator Text API:
 
-* **아시아 태평양:** 40.90.139.163, 104.44.89.44
-* **유럽:** 40.90.138.4, 40.90.141.99
-* **북아메리카:** 40.90.139.36, 40.90.139.2
+* **아시아 태평양:** 20.40.125.208, 20.43.88.240, 20.184.58.62, 40.90.139.163, 104.44.89.44
+* **유럽:** 40.90.138.4, 40.90.141.99, 51.105.170.64, 52.155.218.251
+* **북아메리카:** 40.90.139.36, 40.90.139.2, 40.119.2.134, 52.224.200.129, 52.249.207.163
 
 
 ## <a name="next-steps"></a>다음 단계

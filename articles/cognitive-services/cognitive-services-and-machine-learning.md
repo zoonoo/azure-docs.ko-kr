@@ -7,14 +7,14 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 08/15/2019
 ms.author: diberry
-ms.openlocfilehash: d7049c729140591717782b191f970f4295140cb8
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 570429a2d5332e7d951271b36b79d9d16df174c0
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68697933"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69535207"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Cognitive Services 및 기계 학습
 
@@ -79,7 +79,7 @@ Machine learning은 성공적으로 구현 하는 데 더 오랜 시간이 걸�
 
 일부 서비스를 사용 하면 사용자 고유의 데이터를 가져온 다음 모델을 학습 시킬 수 있습니다. 이렇게 하면 사용자 고유의 데이터를 사용 하 여 서비스의 데이터 및 알고리즘을 사용 하 여 모델을 확장할 수 있습니다. 출력은 요구 사항과 일치 합니다. 사용자 고유의 데이터를 가져올 때 서비스에 특정 한 방식으로 데이터에 태그를 지정 해야 할 수 있습니다. 예를 들어 꽃을 식별 하는 모델을 학습 하는 경우 각 이미지에서 꽃의 위치와 함께 꽃 이미지 카탈로그를 제공 하 여 모델을 학습할 수 있습니다. 
 
-서비스를 _사용_ 하면 데이터를 제공 하 여 자신의 데이터를 향상할 수 있습니다. 서비스에서 데이터를 제공 해야 _할 수도 있습니다_ . 
+서비스를 _사용_ 하면 데이터를 제공 하 여 자신의 데이터를 향상할 수 있습니다. 서비스에서 데이터 를 제공 해야 할 수도 있습니다. 
 
 ### <a name="real-time-or-near-real-time-data-required"></a>실시간 또는 거의 실시간 데이터 필요
 
@@ -131,6 +131,10 @@ Machine learning은 성공적으로 구현 하는 데 더 오랜 시간이 걸�
 |--|--|
 |[Custom Vision](./custom-vision-service/home.md)|Android 용 Tensorflow에 대 한 [내보내기](./Custom-Vision-Service/export-model-python.md) , IOS11 용 Coreml, Windows ML 용 onnx|
 
+## <a name="learn-more"></a>자세한 정보
+
+* [아키텍처 가이드-Microsoft에서 기계 학습 제품 이란?](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
+* [기계 학습-심층 학습 및 기계 학습 소개](../machine-learning/service/concept-deep-learning-vs-machine-learning.md)
 
 ## <a name="next-steps"></a>다음 단계
 

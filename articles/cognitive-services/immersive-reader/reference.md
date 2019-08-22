@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 1a616bce8c161825853b1966769d9505595d95de
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 1d9fc20055fe3adb571b5a77330cc6537998cb5f
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688324"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534477"
 ---
 # <a name="immersive-reader-sdk-reference"></a>몰입 형 판독기 SDK 참조
 
@@ -35,7 +35,7 @@ launchAsync(token: string, subdomain: string, content: Content, options?: Option
 
 #### <a name="parameters"></a>매개 변수
 
-| 이름 | 형식 | 설명 |
+| 이름 | 형식 | Description |
 | ---- | ---- |------------ |
 | `token` | string | Azure AD 인증 토큰입니다. [AZURE AD 인증 방법을](./azure-active-directory-authentication.md)참조 하세요. |
 | `subdomain` | string | Azure에서 몰입 형 판독기 리소스의 사용자 지정 하위 도메인입니다. [AZURE AD 인증 방법을](./azure-active-directory-authentication.md)참조 하세요. |
@@ -73,8 +73,9 @@ launchAsync(token: string, subdomain: string, content: Content, options?: Option
 | --------- | ----------- |
 | 텍스트/일반 | 일반 텍스트입니다. |
 | application/mathml + xml | MathML (수학 Markup Language). [자세히 알아보기](https://developer.mozilla.org/en-US/docs/Web/MathML).
+| application/vnd. vnd.openxmlformats-officedocument.spreadsheetml.sheet. wordprocessingml | Microsoft Word .docx 형식 문서입니다.
 
-### <a name="options"></a>변수
+### <a name="options"></a>옵션
 
 몰입 형 판독기의 특정 동작을 구성 하는 속성을 포함 합니다.
 
@@ -104,7 +105,8 @@ launchAsync(token: string, subdomain: string, content: Content, options?: Option
 | ---- | ----------- |
 | BadArgument | 제공 된 인수가 잘못 되었습니다. `message` 자세한 내용은를 참조 하십시오. |
 | 제한 시간 | 몰입 형 판독기를 지정 된 시간 제한 내에 로드 하지 못했습니다. |
-| TokenExpired| 제공 된 토큰이 만료 되었습니다. |
+| TokenExpired | 제공 된 토큰이 만료 되었습니다. |
+| 정체됨 | 호출 속도로 제한을 초과 했습니다. |
 
 ## <a name="launching-the-immersive-reader"></a>몰입 형 판독기 시작
 
@@ -118,7 +120,7 @@ SDK는 몰입 형 판독기를 시작 하기 위한 단추에 대 한 기본 스
 
 다음 특성을 사용 하 여 단추의 모양과 느낌을 구성할 수 있습니다.
 
-| 특성 | 설명 |
+| 특성 | Description |
 | --------- | ----------- |
 | `data-button-style` | 단추의 스타일을 설정 합니다. `icon`, `text` 또는 `iconAndText`일 수 있습니다. 기본값은 `icon`입니다. |
 | `data-locale` | 로캘을 설정 합니다 `en-US` `fr-FR`(예:). 기본값은 영어입니다. |

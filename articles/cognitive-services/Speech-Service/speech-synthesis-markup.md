@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 89b8b5f8c574de033fabf6861e24fc7d2b31e171
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 12d556fd9c37b83a919b830d155250e9eaa64128
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855093"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624252"
 ---
 # <a name="speech-synthesis-markup-language-ssml"></a>SSML(Speech Synthesis Markup Language)
 
@@ -31,6 +31,10 @@ SSML의 Speech Services 구현은 World Wide Web 컨소시엄의 [음성 합성 
 표준 및 신경망 음성에서 선택하거나 고유한 제품 또는 브랜드를 만들기 위해 사용자 고유의 사용자 지정 음성을 만듭니다. 75개 이상 표준 음성이 45개 이상의 언어 및 로캘에서 제공되며, 5개의 신경망 음성은 4개 언어 및 로캘에서 사용할 수 있습니다. 지원되는 언어, 로캘 및 음성(인공신경망 및 표준)의 전체 목록은 [언어 지원](language-support.md)을 참조하세요.
 
 표준, 신경망 및 사용자 지정 음성에 대해 자세히 알아보려면 [텍스트 음성 변환 개요](text-to-speech.md)를 참조 하세요.
+
+## <a name="special-characters"></a>특수 문자
+
+SSML를 사용 하 여 텍스트를 합성 음성으로 변환 하는 동안 XML을 사용 하는 것과 마찬가지로 따옴표, 아포스트로피 및 대괄호와 같은 특수 문자를 이스케이프 해야 합니다. 자세한 내용은 XML(Extensible Markup Language) (XML [) 1.0을 참조 하세요. 부록 D](https://www.w3.org/TR/xml/#sec-entexpand).
 
 ## <a name="supported-ssml-elements"></a>지원 되는 SSML 요소
 
@@ -142,6 +146,7 @@ SSML의 Speech Services 구현은 World Wide Web 컨소시엄의 [음성 합성 
 |-------|------|-------------|
 | `en-US-JessaNeural` | type=`cheerful` | 긍정적이 고 행복 한 emotion 표현 |
 | | type=`empathy` | 신경쓰지의 의미를 표현 하 고 이해 합니다. |
+| | type=`chat` | 편안 하 고 낮은 톤으로 말하기 |
 | `zh-CN-XiaoxiaoNeural` | type=`newscast` | 뉴스 브로드캐스트와 유사한 공식 톤을 나타냅니다. |
 | | type=`sentiment` | 터치 메시지 또는 스토리를 전달 합니다. |
 
@@ -246,7 +251,7 @@ Phonetic 영문자는 문자, 숫자 또는 문자로 구성 된 전화로 구�
 
 **특성**
 
-| 특성 | 설명 | 필수/선택 |
+| 특성 | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | 계열의 | `ph` 특성에서 문자열의 발음을 synthesizing 때 사용할 발음 문자를 지정 합니다. 영문자를 지정 하는 문자열은 소문자로 지정 해야 합니다. 지정할 수 있는 알파벳은 다음과 같습니다.<ul><li>ipa &ndash; 국제 발음 영문자</li><li>sapi &ndash; Speech API Phone 집합</li><li>ups &ndash; 범용 전화 번호 설정</li></ul>알파벳은 요소의 음소 적용 됩니다. 자세한 내용은 [Phonetic 영문자 참조](https://msdn.microsoft.com/library/hh362879(v=office.14).aspx)를 참조 하세요. | Optional |
 | ph | `phoneme` 요소에 있는 단어의 발음을 지정 하는 전화를 포함 하는 문자열입니다. 지정 된 문자열이 인식할 수 없는 휴대폰을 포함 하는 경우 TTS (텍스트 음성 변환) 서비스는 전체 SSML 문서를 거부 하 고 문서에 지정 된 음성 출력을 생성 하지 않습니다. | 음소를 사용 하는 경우 필수입니다. |
@@ -283,10 +288,10 @@ Phonetic 영문자는 문자, 숫자 또는 문자로 구성 된 전화로 구�
 
 **특성**
 
-| 특성 | 설명 | 필수/선택 |
+| 특성 | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | 피치 | 텍스트의 기준선 피치를 나타냅니다. 다음과 같이 피치를 표현할 수 있습니다.<ul><li>숫자로 표시 되 고 그 뒤에 "Hz" (Hz)가 표시 되는 절대값입니다. 예: 600Hz.</li><li>간격을 변경할 양을 지정 하는 "+" 또는 "-" 앞에 오는 숫자로 표시 되는 상대 값입니다. 예: + 80Hz 또는-2st "St"는 변경 단위가 표준 diatonic 크기에 대 한 반음 (절반 단계의 절반) 임을 나타냅니다.</li><li>상수 값:<ul><li>x-낮음</li><li>낮음</li><li>보통</li><li>높음</li><li>x-high</li><li>기본</li></ul></li></ul>을 선택합니다. | Optional |
-| contour | 외형선은 신경망에 대해 지원 되지 않습니다. 컨투어는 음성 출력의 지정 된 시간 위치에 있는 대상의 배열로 음성 콘텐츠의 피치 변화를 나타냅니다. 각 대상은 매개 변수 쌍 집합으로 정의 됩니다. 예를 들어: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>각 매개 변수 집합의 첫 번째 값은 피치 변경의 위치를 텍스트 기간의 백분율로 지정 합니다. 두 번째 값은 피치에 대 한 열거형 값 또는 상대 값을 사용 하 여 피치를 발생 시키거나 낮출 크기를 지정 `pitch`합니다 (참조). | Optional |
+| contour | 외형선은 신경망에 대해 지원 되지 않습니다. 컨투어는 음성 출력의 지정 된 시간 위치에 있는 대상의 배열로 음성 콘텐츠의 피치 변화를 나타냅니다. 각 대상은 매개 변수 쌍 집합으로 정의 됩니다. 예: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>각 매개 변수 집합의 첫 번째 값은 피치 변경의 위치를 텍스트 기간의 백분율로 지정 합니다. 두 번째 값은 피치에 대 한 열거형 값 또는 상대 값을 사용 하 여 피치를 발생 시키거나 낮출 크기를 지정 `pitch`합니다 (참조). | Optional |
 | range  | 텍스트의 피치 범위를 나타내는 값입니다. `range` 설명`pitch`하는 데 사용 되는 것과 동일한 절대값, 상대 값 또는 열거형 값을 사용 하 여 나타낼 수 있습니다. | Optional |
 | 이율  | 텍스트의 읽어주기 율을 나타냅니다. 다음과 같이 나타낼 `rate` 수 있습니다.<ul><li>기본값의 승수 역할을 하는 숫자로 표시 되는 상대 값입니다. 예를 들어 값이 *1* 이면 비율이 변경 되지 않습니다. 값이 *0.5* 이면 나누어이 발생 합니다. 값이 *3* 이면 tripling이 발생 합니다.</li><li>상수 값:<ul><li>x-slow</li><li>slow</li><li>보통</li><li>빠르지</li><li>x-빠름</li><li>기본</li></ul></li></ul> | Optional |
 | duration  | TTS (음성 합성) 서비스가 텍스트를 읽는 동안 경과 해야 하는 기간 (초 또는 밀리초)입니다. 예를 들면 *2 s* 또는 *18ms*입니다. | Optional |
@@ -409,7 +414,7 @@ SSML 문서 당 배경 오디오 파일은 하나만 허용 됩니다. 그러나
 
 **특성**
 
-| 특성 | 설명 | 필수/선택 |
+| 특성 | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | src | 배경 오디오 파일의 위치/URL을 지정 합니다. | SSML 문서에서 배경 오디오를 사용 하는 경우 필요 합니다. |
 | 볼륨 | 배경 오디오 파일의 볼륨을 지정 합니다. **허용**되는 `0` 값 `100` : 포함 기본값은 `1`입니다. | Optional |

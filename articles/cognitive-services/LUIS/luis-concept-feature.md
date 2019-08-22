@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: e85f9a90af778a7e68bf761d8d2159e808cf122d
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 829054064a21b2fb8da2bd975501bfcd0840e7eb
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639202"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624581"
 ---
 # <a name="phrase-list-features-in-your-luis-app"></a>LUIS 앱의 구문 목록 기능
 
@@ -69,7 +69,7 @@ ms.locfileid: "68639202"
 
 ### <a name="non-interchangeable-lists"></a>서로 교환 불가능한 목록
 
-서로 교환 불가능한 구문 목록은 LUIS 검색을 향상하는 신호입니다. 구문 목록은 다른 단어보다 더 중요한 단어 또는 구문을 나타냅니다. 이는 의도 및 엔터티 검색에 도움이 됩니다. 예를 들어 글로벌 여행 같은 주체 도메인(즉, 단일 언어를 사용하는 여러 문화권)이 있다고 가정해 봅시다. 앱에 중요하지만 동의어는 아닌 단어 및 구문이 있습니다. 
+서로 교환 불가능한 구문 목록은 LUIS 검색을 향상하는 신호입니다. 구 목록에는 다른 단어 보다 더 중요 한 단어나 구가 표시 됩니다. 이는 의도 및 엔터티 검색에 도움이 됩니다. 예를 들어 글로벌 여행 같은 주체 도메인(즉, 단일 언어를 사용하는 여러 문화권)이 있다고 가정해 봅시다. 앱에 중요하지만 동의어는 아닌 단어 및 구문이 있습니다. 
 
 또 다른 예로 희귀 단어, 독점 단어 및 외래 단어에는 서로 교환 불가능한 구문 목록을 사용합니다. LUIS가 희귀 및 독점 단어뿐 아니라 앱 문화권 외부의 외래 단어를 인식하지 못할 수 있습니다. 서로 교환 불가능한 설정은 희귀 단어 집합이 LUIS가 인식하도록 학습되어야 하는 클래스를 구성하지만 동의어가 아니고 서로 교환 가능하지 않음을 나타냅니다.
 

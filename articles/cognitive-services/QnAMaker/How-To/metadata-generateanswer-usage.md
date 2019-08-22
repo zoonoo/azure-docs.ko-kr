@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: diberry
-ms.openlocfilehash: dbfa7aaccd513ffcf8ba3907911d8c49275b2ea6
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 18b901b429ee675726ef0e36535f1f97f4cdd076
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967649"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543003"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>GenerateAnswer API 및 메타 데이터를 사용 하 여 답변 받기
 
@@ -228,6 +228,18 @@ GenerateAnswer에 대 한 응답에는 일치 하는 질문 및 답변 집합에
   "RankerType":"QuestionOnly"
 }
 ```
+
+## <a name="common-http-errors"></a>일반 HTTP 오류
+
+|코드|설명|
+|:--|--|
+|2xx|Success|
+|400|요청 매개 변수가 잘못되었습니다. 필수 매개 변수가 누락되었거나, 형식이 잘못되었거나, 너무 큽니다.|
+|400|요청 본문이 잘못되었습니다. JSON이 누락되었거나, 형식이 잘못되었거나, 너무 큽니다.|
+|401|잘못된 키|
+|403|사용 권한 없음 - 올바른 사용 권한이 없음|
+|404|기술 자료가 존재하지 않음|
+|410|이 API는 더 이상 사용되지 않으며, 더 이상 사용할 수 없습니다.|
 
 ## <a name="next-steps"></a>다음 단계
 
