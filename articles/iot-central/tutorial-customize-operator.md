@@ -8,18 +8,20 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: ced771002ca9f542f89dbf74ba4a4745ad2a0339
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: aa5ff93b4f1f6392f753a88d57a072f542fc16e2
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67850187"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877266"
 ---
 # <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>자습서: Azure IoT Central 연산자의 보기 사용자 지정
 
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
+
 이 자습서에서는 작성기로서 애플리케이션의 연산자의 뷰를 사용자 지정하는 방법을 설명합니다. 작성기로서 애플리케이션을 변경하는 경우 Microsoft Azure IoT Central 애플리케이션에서 연산자의 뷰를 미리 볼 수 있습니다.
 
-이 자습서에서는 연결된 공조 장치에 대한 관련 정보를 연산자에 표시하려면 애플리케이션을 사용자 지정합니다. 사용자 지정을 사용하면 연산자가 애플리케이션에 연결된 공조 장치를 관리하게 할 수 있습니다.
+이 자습서에서는 연결된 공조 디바이스에 대한 관련 정보를 연산자에 표시하려면 애플리케이션을 사용자 지정합니다. 사용자 지정을 사용하면 연산자가 애플리케이션에 연결된 공조 디바이스를 관리하게 할 수 있습니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -35,7 +37,7 @@ ms.locfileid: "67850187"
 
 시작하기 전에 이전의 두 자습서를 완료해야 합니다.
 
-* [Azure IoT Central 애플리케이션에서 새 장치 유형을 정의합니다](tutorial-define-device-type.md).
+* [Azure IoT Central 애플리케이션에서 새 디바이스 유형을 정의합니다](tutorial-define-device-type.md).
 * [디바이스에 대한 규칙 및 작업을 구성합니다](tutorial-configure-rules.md).
 
 ## <a name="configure-your-device-dashboard"></a>디바이스 대시보드 구성
@@ -161,4 +163,4 @@ ms.locfileid: "67850187"
 애플리케이션의 연산자의 뷰를 사용자 지정하는 방법을 알아보았으므로 제안된 다음 단계는 다음과 같습니다.
 
 * [디바이스 모니터링(연산자로서)](tutorial-monitor-devices.md)
-* [애플리케이션에 새 장치 추가(연산자 및 장치 개발자로서)](tutorial-add-device.md)
+* [애플리케이션에 새 디바이스 추가(연산자 및 디바이스 개발자로서)](tutorial-add-device.md)

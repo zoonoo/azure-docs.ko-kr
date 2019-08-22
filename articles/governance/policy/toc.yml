@@ -85,7 +85,7 @@
             - name: 리소스 그룹으로부터 사용자 지정 VM 이미지 허용
               displayName: 'deny, concat, ExistingResourceGroups'
               href: samples/allow-custom-vm-image.md
-            - name: 저장소 계정 및 가상 머신에 대해 허용된 SKU
+            - name: 스토리지 계정 및 가상 머신에 대해 허용된 SKU
               displayName: 'initiative, vmSKUs, storageSKUs'
               href: samples/allowed-skus-storage.md
             - name: 승인된 VM 이미지
@@ -232,26 +232,23 @@
             - name: Microsoft SQL DB 수준 감사 설정 감사
               displayName: auditIfNotExists
               href: samples/audit-sql-db-audit-setting.md
-    - name: Storage
+    - name: 스토리지
       items:
-        - name: 저장소 계정 및 VM에 대해 허용된 SKU
+        - name: 스토리지 계정 및 VM에 대해 허용된 SKU
           displayName: 'initiative, vmSKUs, storageSKUs'
           href: samples/allowed-skus-storage.md
-        - name: 허용되는 저장소 계정 SKU
+        - name: 허용되는 스토리지 계정 SKU
           displayName: 'deny, builtin, storageSKUs'
           href: samples/allowed-storage-account-skus.md
-        - name: 저장소 계정에 대한 쿨 액세스 계층 거부
+        - name: 스토리지 계정에 대한 쿨 액세스 계층 거부
           displayName: 'deny, all'
           href: samples/deny-cool-access-tiering.md
-        - name: 저장소 계정에 대해서만 HTTPS 트래픽 확인
+        - name: 스토리지 계정에 대해서만 HTTPS 트래픽 확인
           displayName: 'deny, all'
           href: samples/ensure-https-storage-account.md
-        - name: 저장소 파일 암호화 확인
+        - name: 스토리지 파일 암호화 확인
           displayName: 'deny, all'
           href: samples/ensure-storage-file-encryption.md
-        - name: 저장소 계정 암호화 필요
-          displayName: 'deny, builtin'
-          href: samples/require-storage-account-encryption.md
 - name: 개념
   items:
     - name: Azure Policy 정의 구조

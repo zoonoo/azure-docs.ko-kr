@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 70431870027cc27d886995b0bf7f47108ad767fa
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: ddbf2e5349a77a45155fafd07da5489d0073b093
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273944"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876390"
 ---
 # <a name="restore-a-disk-and-create-a-recovered-vm-in-azure"></a>Azure에서 디스크 복원 및 복구된 VM 만들기
 Azure Backup은 지역 중복 복구 자격 증명 모음에 저장되는 복구 지점을 만듭니다. 복구 지점에서 복원하는 경우 전체 VM 또는 개별 파일을 복원할 수 있습니다. 이 문서에서는 CLI를 사용하여 전체 VM을 복원하는 방법에 대해 설명합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
@@ -35,7 +35,7 @@ CLI를 로컬로 설치하여 사용하도록 선택하는 경우 이 자습서�
 
 
 ## <a name="backup-overview"></a>Backup 개요
-Azure에서 백업을 시작하면 VM에 대한 백업 확장에서 특정 시점 스냅샷을 만듭니다. 첫 번째 백업이 요청될 때 백업 확장이 VM에 설치됩니다. 또한 백업이 수행될 때 VM이 실행되고 있지 않으면 Azure Backup에서 기본 저장소의 스냅샷을 만들 수도 있습니다.
+Azure에서 백업을 시작하면 VM에 대한 백업 확장에서 특정 시점 스냅샷을 만듭니다. 첫 번째 백업이 요청될 때 백업 확장이 VM에 설치됩니다. 또한 백업이 수행될 때 VM이 실행되고 있지 않으면 Azure Backup에서 기본 스토리지의 스냅샷을 만들 수도 있습니다.
 
 기본적으로 Azure Backup은 파일 시스템 일치 백업을 만듭니다. Azure Backup에서 스냅샷을 만들면 데이터가 Recovery Services 자격 증명 모음으로 전송됩니다. 효율성을 극대화하기 위해 Azure Backup은 이전 백업 이후에 변경된 데이터 블록만 식별하여 전송합니다.
 
@@ -59,9 +59,9 @@ az backup recoverypoint list \
 
 
 ## <a name="restore-a-vm-disk"></a>VM 디스크 복원
-복구 지점에서 디스크를 복원하려면 먼저 Azure 저장소 계정을 만듭니다. 이 저장소 계정은 복원된 디스크를 저장하는 데 사용됩니다. 추가 단계에서 복원된 디스크를 사용하여 VM을 만듭니다.
+복구 지점에서 디스크를 복원하려면 먼저 Azure Storage 계정을 만듭니다. 이 스토리지 계정은 복원된 디스크를 저장하는 데 사용됩니다. 추가 단계에서 복원된 디스크를 사용하여 VM을 만듭니다.
 
-1. [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create)를 사용하여 스토리지 계정을 만듭니다. 저장소 계정 이름은 모두 소문자여야 하며 전역적으로 고유해야 합니다. *mystorageaccount*를 사용자 고유의 이름으로 바꿉니다.
+1. [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create)를 사용하여 스토리지 계정을 만듭니다. 스토리지 계정 이름은 모두 소문자여야 하며 전역적으로 고유해야 합니다. *mystorageaccount*를 사용자 고유의 이름으로 바꿉니다.
 
     ```azurecli-interactive
     az storage account create \
@@ -95,7 +95,7 @@ az backup job list \
 
 출력은 다음 예제와 비슷합니다. 여기서는 복원 작업 상태가 *진행 중*이라고 표시됩니다.
 
-```
+```output
 Name      Operation        Status      Item Name    Start Time UTC       Duration
 --------  ---------------  ----------  -----------  -------------------  --------------
 7f2ad916  Restore          InProgress  myvm         2017-09-19T19:39:52  0:00:34.520850
@@ -103,7 +103,7 @@ a0a8e5e6  Backup           Completed   myvm         2017-09-19T03:09:21  0:15:26
 fe5d0414  ConfigureBackup  Completed   myvm         2017-09-19T03:03:57  0:00:31.191807
 ```
 
-복원 작업의 *상태*가 *완료됨*을 보고되면 디스크가 저장소 계정으로 복원되었습니다.
+복원 작업의 *상태*가 *완료됨*을 보고되면 디스크가 스토리지 계정으로 복원되었습니다.
 
 
 ## <a name="convert-the-restored-disk-to-a-managed-disk"></a>복원된 디스크를 관리 디스크로 변환
@@ -118,7 +118,7 @@ fe5d0414  ConfigureBackup  Completed   myvm         2017-09-19T03:03:57  0:00:31
         --name mystorageaccount )
     ```
 
-2. 관리되지 않는 디스크는 저장소 계정에서 보호됩니다. 다음 명령은 관리되지 않는 디스크에 대한 정보를 가져와서 관리 디스크를 만드는 다음 단계에서 사용되는 *uri*라는 변수를 만듭니다.
+2. 관리되지 않는 디스크는 스토리지 계정에서 보호됩니다. 다음 명령은 관리되지 않는 디스크에 대한 정보를 가져와서 관리 디스크를 만드는 다음 단계에서 사용되는 *uri*라는 변수를 만듭니다.
 
     ```azurecli-interactive
     container=$(az storage container list --query [0].name -o tsv)
