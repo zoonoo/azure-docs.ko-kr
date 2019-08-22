@@ -76,7 +76,7 @@ Azure AD B2C에서 ID 공급자로 LinkedIn을 사용하려면 LinkedIn 애플�
 
 정책 확장 파일의 **ClaimsProviders** 요소에 LinkedIn 계정을 추가 하 여 해당 계정을 클레임 공급자로 정의 합니다.
 
-1. 편집기에서 *Socialandlocalaccounts/* * trustframeworkextensions.xml** * 파일을 엽니다. 이 파일은 필수 구성 요소 중 하나의 일부로 다운로드 한 [사용자 지정 정책 시작 팩][starter-pack] 에 있습니다.
+1. 편집기에서 *Socialandlocalaccounts/ **trustframeworkextensions.xml** *파일을 엽니다. 이 파일은 필수 구성 요소 중 하나의 일부로 다운로드 한 [사용자 지정 정책 시작 팩][starter-pack] 에 있습니다.
 1. **ClaimsProviders** 요소를 찾습니다. 해당 요소가 없으면 루트 요소 아래에 추가합니다.
 1. 다음과 같이 새 **ClaimsProvider**를 추가합니다.
 
@@ -217,12 +217,12 @@ LinkedIn 기술 프로필을 사용 하려면 **ExtractGivenNameFromLinkedInResp
 
 ## <a name="create-an-azure-ad-b2c-application"></a>Azure AD B2C 애플리케이션 만들기
 
-Azure AD B2C와의 통신은 테넌트에서 만드는 애플리케이션을 통해 수행됩니다. 이 섹션에서는 테스트 애플리케이션을 아직 만들지 않은 경우 이를 만들기 위해 완료할 수 있는 선택적 단계를 설명합니다.
+Azure AD B2C와의 통신은 테넌트에서 만드는 애플리케이션을 통해 수행됩니다. 이 섹션에는 아직 만들지 않은 경우 테스트 애플리케이션을 만들기 위해 완료할 수 있는 선택적 단계가 나와 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. Azure AD B2C 테 넌 트를 포함 하는 디렉터리를 사용 하 고 있는지 확인 합니다. 상단 메뉴에서 **디렉터리 및 구독 필터** 를 선택 하 고 테 넌 트가 포함 된 디렉터리를 선택 합니다.
 3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
-4. **응용 프로그램**을 선택하고 **추가**를 선택합니다.
+4. **애플리케이션**을 선택하고 **추가**를 선택합니다.
 5. 애플리케이션 이름(예: *testapp1*)을 입력합니다.
 6. **웹앱/웹 API**에서 `Yes`를 선택하고 **회신 URL**에 `https://jwt.ms`를 입력합니다.
 7. **만들기**를 클릭합니다.
@@ -236,7 +236,7 @@ Azure AD B2C와의 통신은 테넌트에서 만드는 애플리케이션을 통
 3. **PublicPolicyUri** 값을 정책의 URI로 업데이트합니다. 예를 들어 `http://contoso.com/B2C_1A_signup_signin_linkedin`으로 업데이트할 수 있습니다.
 4. 새로 만든 사용자 경험의 ID(SignUpSignLinkedIn)와 일치하도록 **DefaultUserJourney**의 **ReferenceId** 특성을 업데이트합니다.
 5. 변경 내용을 저장하고 파일을 업로드한 다음 목록에서 새 정책을 선택합니다.
-6. **응용 프로그램 선택** 필드에서 직접 만든 Azure AD B2C 응용 프로그램이 선택되어 있는지 확인하고 **지금 실행**을 클릭하여 테스트를 진행합니다.
+6. **애플리케이션 선택** 필드에서 직접 만든 Azure AD B2C 애플리케이션이 선택되어 있는지 확인하고 **지금 실행**을 클릭하여 테스트를 진행합니다.
 
 ## <a name="migration-from-v10-to-v20"></a>V 1.0에서 v2.0로 마이그레이션
 
