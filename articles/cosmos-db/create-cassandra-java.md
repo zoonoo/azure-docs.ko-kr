@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.custom: seo-java-august2019
-ms.openlocfilehash: e8ca40ec86bc3af92fd23bb7acce3d6c39b082fb
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 7a76ed943a9c3f7312653d1ea4d714e4c02a5294
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933935"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615620"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-java-sdk-and-azure-cosmos-db"></a>빠른 시작: Java SDK 및 Azure Cosmos DB를 사용하여 Cassandra 앱 빌드
 
@@ -220,7 +220,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 데이터 탐색기를 사용하여 Azure Cosmos DB 계정, Cassandra 데이터베이스, 컨테이너를 만들고, 프로그래밍 방법으로 같은 작업을 수행하도록 앱을 실행하는 방법을 알아보았습니다. 이제 Azure Cosmos DB 컨테이너에 추가 데이터를 가져올 수 있습니다. 
+이 빠른 시작에서는 데이터 탐색기를 사용하여 Azure Cosmos DB 계정, Cassandra 데이터베이스, 컨테이너를 만들고, 프로그래밍 방법으로 같은 작업을 수행하도록 앱을 실행하는 방법을 알아보았습니다. 이제 Azure Cosmos 컨테이너에 추가 데이터를 가져올 수 있습니다. 
 
 > [!div class="nextstepaction"]
 > [Azure Cosmos DB로 Cassandra 데이터 가져오기](cassandra-import-data.md)

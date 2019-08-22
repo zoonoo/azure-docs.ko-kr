@@ -7,12 +7,12 @@ ms.date: 11/14/2018
 ms.service: storage
 ms.topic: quickstart
 ms.custom: seo-java-july2019
-ms.openlocfilehash: dcaefc6603221909329925f30bcf7556441b3d8e
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 633054d0e06a78124b8fdcefface665b2bf8c25d
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68722032"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900451"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-by-using-the-java-storage-sdk-v10"></a>빠른 시작: Java Storage SDK V10을 사용하여 Blob 업로드, 다운로드 및 나열
 
@@ -45,8 +45,8 @@ git clone https://github.com/Azure-Samples/storage-blobs-java-v10-quickstart.git
 
 [!INCLUDE [storage-copy-account-key-portal](../../../includes/storage-copy-account-key-portal.md)]
 
-## <a name="configure-your-storage-connection-string"></a>저장소 연결 문자열 구성
-이 솔루션은 저장소 계정의 이름 및 키를 안전하게 저장해야 합니다. 샘플을 실행하는 머신에 로컬인 환경 변수에 저장합니다. 운영 체제에 따라 Linux 또는 Windows 예제를 따라 환경 변수를 만듭니다.
+## <a name="configure-your-storage-connection-string"></a>스토리지 연결 문자열 구성
+이 솔루션은 스토리지 계정의 이름 및 키를 안전하게 저장해야 합니다. 샘플을 실행하는 머신에 로컬인 환경 변수에 저장합니다. 운영 체제에 따라 Linux 또는 Windows 예제를 따라 환경 변수를 만듭니다.
 
 ### <a name="linux-example"></a>Linux 예제
 
@@ -109,7 +109,7 @@ Cleaning up the sample and exiting!
 
 다음 섹션에서는 작동 방식을 이해할 수 있도록 샘플 코드를 연습해 보겠습니다.
 
-### <a name="get-references-to-the-storage-objects"></a>저장소 개체에 대한 참조 가져오기
+### <a name="get-references-to-the-storage-objects"></a>스토리지 개체에 대한 참조 가져오기
 
 먼저 Blob Storage에 액세스하고 관리하는 데 사용되는 개체의 참조를 만듭니다. 이러한 개체는 서로를 기반으로 합니다. 각각은 목록의 그 다음 개체에서 사용됩니다.
 
@@ -289,5 +289,5 @@ containerURL.delete(null).blockingGet();
 
 > [!div class="nextstepaction"]
 > [Java 소스 코드에 대한 Storage SDK V10](https://github.com/Azure/azure-storage-java/)
-> [API 참조](https://docs.microsoft.com/java/api/overview/azure/storage/client?view=azure-java-stable)
+> [API 참조](https://docs.microsoft.com/java/api/overview/azure/storage)
 > [RxJava에 대해 자세히 알아보기](https://github.com/ReactiveX/RxJava)

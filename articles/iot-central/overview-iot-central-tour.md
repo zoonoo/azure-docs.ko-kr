@@ -9,14 +9,16 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 56ff40cb2b103c620b880792571549e2bdb17064
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6c06d789e6a005c0079f889cead6a75f4d0baf19
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67064356"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69875709"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Azure IoT Central UI 둘러보기
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 이 문서에서는 Microsoft Azure IoT Central UI를 소개합니다. UI를 사용하여 Azure IoT Central 솔루션과 연결된 디바이스를 생성, 관리 및 사용할 수 있습니다.
 
@@ -39,7 +41,7 @@ _운영자_는 Azure IoT Central UI를 사용하여 Azure IoT Central 솔루션�
 
 | 메뉴 | 설명 |
 | ---- | ----------- |
-| ![왼쪽 탐색 메뉴](media/overview-iot-central-tour/navigationbar.png) | <ul><li>**대시보드** 단추를 클릭하면 애플리케이션 대시보드가 표시됩니다. 개발자는 운영자에 맞게 대시보드를 사용자 지정할 수 있습니다. 또한 사용자는 자신의 대시보드를 만들 수도 있습니다.</li><li>**Device Explorer** 단추는 애플리케이션의 각 디바이스 템플릿에 연결된 시뮬레이션 디바이스와 실제 디바이스를 모두 나열합니다. 운영자는 **Device Explorer**를 사용하여 연결된 디바이스를 관리합니다.</li><li>**디바이스 집합** 단추를 사용하여 디바이스 집합을 보고 만들 수 있습니다. 운영자는 디바이스 집합을 쿼리에 지정된 논리 컬렉션으로 만들 수 있습니다.</li><li>**Analytics** 단추는 디바이스 및 디바이스 집합에 대한 디바이스 원격 분석에서 파생된 분석을 보여줍니다. 운영자는 장치 데이터 위에 사용자 지정 보기를 만들어 애플리케이션에서 인사이트를 끌어낼 수 있습니다.</li><li>**작업** 단추를 사용하면 대규모 업데이트를 수행하는 작업을 생성하고 실행하여 대량 디바이스 관리를 수행할 수 있습니다.</li><li>**디바이스 템플릿** 단추는 작성자가 디바이스 템플릿을 만들고 관리할 때 사용하는 도구를 보여줍니다.</li><li>**연속 데이터 내보내기** 단추는 관리자가 스토리지 및 큐 같은 다른 Azure 서비스로 연속 내보내기를 구성할 때 사용됩니다.</li><li>**관리** 단추는 관리자가 애플리케이션 설정, 사용자 및 역할을 관리할 수 있는 애플리케이션 관리 페이지를 표시합니다.</li></ul> |
+| ![왼쪽 탐색 메뉴](media/overview-iot-central-tour/navigationbar.png) | <ul><li>**대시보드** 단추를 클릭하면 애플리케이션 대시보드가 표시됩니다. 개발자는 운영자에 맞게 대시보드를 사용자 지정할 수 있습니다. 또한 사용자는 자신의 대시보드를 만들 수도 있습니다.</li><li>**Device Explorer** 단추는 애플리케이션의 각 디바이스 템플릿에 연결된 시뮬레이션 디바이스와 실제 디바이스를 모두 나열합니다. 운영자는 **Device Explorer**를 사용하여 연결된 디바이스를 관리합니다.</li><li>**디바이스 집합** 단추를 사용하여 디바이스 집합을 보고 만들 수 있습니다. 운영자는 디바이스 집합을 쿼리에 지정된 논리 컬렉션으로 만들 수 있습니다.</li><li>**Analytics** 단추는 디바이스 및 디바이스 집합에 대한 디바이스 원격 분석에서 파생된 분석을 보여줍니다. 운영자는 디바이스 데이터 위에 사용자 지정 보기를 만들어 애플리케이션에서 인사이트를 끌어낼 수 있습니다.</li><li>**작업** 단추를 사용하면 대규모 업데이트를 수행하는 작업을 생성하고 실행하여 대량 디바이스 관리를 수행할 수 있습니다.</li><li>**디바이스 템플릿** 단추는 작성자가 디바이스 템플릿을 만들고 관리할 때 사용하는 도구를 보여줍니다.</li><li>**연속 데이터 내보내기** 단추는 관리자가 스토리지 및 큐 같은 다른 Azure 서비스로 연속 내보내기를 구성할 때 사용됩니다.</li><li>**관리** 단추는 관리자가 애플리케이션 설정, 사용자 및 역할을 관리할 수 있는 애플리케이션 관리 페이지를 표시합니다.</li></ul> |
 
 ## <a name="search-help-and-support"></a>검색, 도움말 및 지원
 
@@ -73,20 +75,20 @@ UI의 밝은 테마 또는 어두운 테마 중에서 선택할 수 있습니다
 
 Explorer 페이지는 Azure IoT Central 애플리케이션의 _디바이스_를 _디바이스 템플릿_별로 보여줍니다.
 
-* 장치 템플릿은 애플리케이션에 연결할 수 있는 장치의 유형을 정의합니다. 자세한 내용은 [Azure IoT Central 애플리케이션에 새 장치 유형 정의](tutorial-define-device-type.md)를 참조하세요.
-* 장치는 애플리케이션의 실제 또는 시뮬레이션된 장치를 나타냅니다. 자세한 내용은 [Azure IoT Central 애플리케이션에 새 장치 추가](tutorial-add-device.md)를 참조하세요.
+* 디바이스 템플릿은 애플리케이션에 연결할 수 있는 디바이스의 유형을 정의합니다. 자세한 내용은 [Azure IoT Central 애플리케이션에 새 디바이스 유형 정의](tutorial-define-device-type.md)를 참조하세요.
+* 디바이스는 애플리케이션의 실제 또는 시뮬레이션된 디바이스를 나타냅니다. 자세한 내용은 [Azure IoT Central 애플리케이션에 새 디바이스 추가](tutorial-add-device.md)를 참조하세요.
 
 ## <a name="device-sets"></a>디바이스 집합
 
 ![디바이스 집합 페이지](media/overview-iot-central-tour/devicesets.png)
 
-_디바이스 집합_ 페이지는 개발자가 만든 디바이스 집합을 표시합니다. 디바이스 집합은 관련 디바이스의 컬렉션입니다. 개발자는 디바이스 집합에 포함된 디바이스를 식별하는 쿼리를 정의합니다. 애플리케이션에서 분석을 사용자 지정할 때 장치 집합을 사용합니다. 자세한 내용은 [Azure IoT Central 애플리케이션에서 장치 집합 사용](howto-use-device-sets.md) 문서를 참조하세요.
+_디바이스 집합_ 페이지는 개발자가 만든 디바이스 집합을 표시합니다. 디바이스 집합은 관련 디바이스의 컬렉션입니다. 개발자는 디바이스 집합에 포함된 디바이스를 식별하는 쿼리를 정의합니다. 애플리케이션에서 분석을 사용자 지정할 때 디바이스 집합을 사용합니다. 자세한 내용은 [Azure IoT Central 애플리케이션에서 디바이스 집합 사용](howto-use-device-sets.md) 문서를 참조하세요.
 
 ## <a name="analytics"></a>분석
 
 ![분석 페이지](media/overview-iot-central-tour/analytics.png)
 
-분석 페이지에는 애플리케이션에 연결된 장치의 작동 방식을 이해하는 데 도움이 되는 차트가 표시됩니다. 운영자는 이 페이지를 사용하여 연결된 디바이스의 문제를 모니터링하고 조사합니다. 개발자는 이 페이지에 표시되는 차트를 정의할 수 있습니다. 자세한 내용은 [Azure IoT Central 애플리케이션을 위한 사용자 지정 분석 만들기](howto-use-device-sets.md) 문서를 참조하세요.
+분석 페이지에는 애플리케이션에 연결된 디바이스의 작동 방식을 이해하는 데 도움이 되는 차트가 표시됩니다. 운영자는 이 페이지를 사용하여 연결된 디바이스의 문제를 모니터링하고 조사합니다. 개발자는 이 페이지에 표시되는 차트를 정의할 수 있습니다. 자세한 내용은 [Azure IoT Central 애플리케이션을 위한 사용자 지정 분석 만들기](howto-use-device-sets.md) 문서를 참조하세요.
 
 ## <a name="jobs"></a>교육
 
@@ -105,7 +107,7 @@ _디바이스 집합_ 페이지는 개발자가 만든 디바이스 집합을 �
 - 명령
 - 이벤트 또는 원격 측정 값 기반 규칙
 
-자세한 내용은 [Azure IoT Central 애플리케이션에서 새 장치 유형 정의](tutorial-define-device-type.md) 자습서를 참조하세요.
+자세한 내용은 [Azure IoT Central 애플리케이션에서 새 디바이스 유형 정의](tutorial-define-device-type.md) 자습서를 참조하세요.
 
 ## <a name="continuous-data-export"></a>연속 데이터 내보내기
 

@@ -1,7 +1,7 @@
 ---
 title: 포털에서 Azure Search 서비스 만들기 - Azure Search
 description: Azure Portal에서 Azure Search 리소스를 프로비전합니다. 리소스 그룹, 지역 및 SKU 또는 가격 책정 계층을 선택합니다.
-manager: cgronlun
+manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 08/09/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 0649fea0b598ffaaaf2611c9d1324174105ee5d4
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 0aabf10b3be8f2f13abbba15d514a008f193646c
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68931530"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69649940"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>포털에서 Azure Search서비스 만들기
 

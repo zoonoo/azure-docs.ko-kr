@@ -7,12 +7,12 @@ ms.date: 07/29/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 03b65c71201ba125cb3924a52e8760a088374aa6
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: d5702576b3353bbc779601c7a5fe91417d73c7a1
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954729"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624348"
 ---
 # <a name="back-up-and-restore-azure-file-shares"></a>Azure 파일 공유 백업 및 복원
 이 문서에서는 Azure Portal을 사용하여 [Azure 파일 공유](../storage/files/storage-files-introduction.md)를 백업 및 복원하는 방법을 설명합니다.
@@ -32,7 +32,6 @@ Azure 파일 공유를 백업하려면 파일 공유가 [지원되는 스토리�
 ## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Azure 파일 공유 백업 미리 보기의 제한 사항
 Azure 파일 공유를 위한 백업은 미리 보기로 제공됩니다. 범용 v1 및 범용 v2 스토리지 계정 둘 다에서 Azure 파일 공유가 지원됩니다. 다음 백업 시나리오에는 Azure 파일 공유가 지원되지 않습니다.
 - ZRS([영역 중복 스토리지](../storage/common/storage-redundancy-zrs.md)) 복제 기능이 있는 스토리지 계정의 Azure 파일 공유 백업에 대한 지원은 현재 [이러한 지역](backup-azure-files-faq.md#in-which-geos-can-i-back-up-azure-file-shares-)으로 제한됩니다.
-- Virtual Networks 또는 방화벽을 사용하도록 설정된 스토리지 계정에서 Azure 파일 공유를 보호할 수 없습니다.
 - Azure Backup을 사용하여 Azure Files를 보호할 수 있는 CLI가 없습니다.
 - 현재 Azure Backup은 Azure 파일 공유의 예약 백업을 하루에 한 번 구성할 수 있습니다.
 - 일별 최대 예약 백업의 수는 1개입니다.

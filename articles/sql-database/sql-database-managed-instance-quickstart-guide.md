@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlr
 ms.date: 07/11/2019
-ms.openlocfilehash: 97f7393622311103d94d3067205f902e3eec6843
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a8dfe0db5277a995b6e6675381ebeb5aeb243c9b
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567348"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647210"
 ---
 # <a name="getting-started-with-azure-sql-database-managed-instance"></a>Azure SQL Database 관리형 인스턴스 시작하기
 
@@ -55,8 +55,6 @@ Managed Instance를 수동으로 만드는 대신, [PowerShell](scripts/sql-data
 ## <a name="customize-network-environment"></a>네트워크 환경 사용자 지정
 
 [Azure Portal](sql-database-managed-instance-get-started.md)을 사용하여 인스턴스를 만드는 경우 VNet/서브넷을 자동으로 구성할 수 있지만, VNet과 서브넷의 매개 변수를 구성할 수 있기 때문에 Managed Instance를 만들기 전에 인스턴스를 만드는 것이 좋습니다. 네트워크 환경을 만들고 구성하는 가장 쉬운 방법은 인스턴스가 배치되는 곳에 네트워크와 서브넷을 만들고 구성하는 [Azure Resource 배포](sql-database-managed-instance-create-vnet-subnet.md) 템플릿을 사용하는 것입니다. Azure Resource Manager 배포 단추를 누르고 양식에 매개 변수를 입력하기만 하면 됩니다.
-
-또는 [PowerShell 스크립트](https://www.powershellmagazine.com/20../../configuring-azure-environment-to-set-up-azure-sql-database-managed-instance-preview/)를 사용하여 네트워크 만들기를 자동화할 수 있습니다.
 
 또는 [PowerShell 스크립트](https://www.powershellmagazine.com/2018/07/23/configuring-azure-environment-to-set-up-azure-sql-database-managed-instance-preview/)를 사용하여 네트워크 만들기를 자동화할 수도 있습니다.
 

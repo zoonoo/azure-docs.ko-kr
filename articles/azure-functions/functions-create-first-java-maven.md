@@ -13,12 +13,12 @@ ms.date: 08/10/2018
 ms.author: routlaw
 ms.reviewer: glenga
 ms.custom: mvc, devcenter, seo-java-july2019
-ms.openlocfilehash: 1bb370009ce76b1962204907689d85b4f89c26c2
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 116d211e366e17ba667baf1e1deae719b56dc3ee
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932168"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69542736"
 ---
 # <a name="create-your-first-function-with-java-and-maven"></a>Java 및 Maven을 사용하여 첫 번째 함수 만들기
 
@@ -202,13 +202,13 @@ Hello AzureFunctions!
 생성된 프로젝트에서 `src/main.../Function.java` 원본 파일을 편집하여 함수 앱에서 반환된 텍스트를 변경합니다. 다음과 같이 변경합니다.
 
 ```java
-return request.createResponse(200, "Hello, " + name);
+return request.createResponseBuilder(HttpStatus.OK).body("Hello, " + name).build();
 ```
 
 다음으로:
 
 ```java
-return request.createResponse(200, "Hi, " + name);
+return request.createResponseBuilder(HttpStatus.OK).body("Hi, " + name).build();
 ```
 
 변경 내용을 저장합니다. 이전처럼 터미널에서 `azure-functions:deploy`를 실행하여 mvn 정리 패키지를 실행하고 다시 배포합니다. 함수 앱이 업데이트되고 이 요청은 다음을 갖습니다.

@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 05/14/2019
-ms.openlocfilehash: efc3801ab03f739761a41bec754f975fe43dcd8e
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 6e9e7d884b7580d7655921134a7ab63b0b1b0dd6
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792014"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899996"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---hyperscale-citus-preview-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Database for PostgreSQL - 하이퍼스케일(Citus)(미리 보기)
 
@@ -116,14 +116,14 @@ ORDER BY hour;
 `user_id`에 조인하는 경우 하이퍼스케일은 조인 실행을 분할된 데이터베이스로 보내 여러 작업자 노드에서 병렬로 실행할 수 있습니다. 예를 들어 리포지토리를 가장 많이 만든 사용자를 찾아보겠습니다.
 
 ```sql
-SELECT login, count(*)
-FROM github_events ge
-JOIN github_users gu
-ON ge.user_id = gu.user_id
-WHERE event_type = 'CreateEvent' AND
-      payload @> '{"ref_type": "repository"}'
-GROUP BY login
-ORDER BY count(*) DESC;
+SELECT gu.login, count(*)
+  FROM github_events ge
+  JOIN github_users gu
+    ON ge.user_id = gu.user_id
+ WHERE ge.event_type = 'CreateEvent'
+   AND ge.payload @> '{"ref_type": "repository"}'
+ GROUP BY gu.login
+ ORDER BY count(*) DESC;
 ```
 
 ## <a name="clean-up-resources"></a>리소스 정리

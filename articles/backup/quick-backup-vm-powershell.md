@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 04/16/2019
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: b5c800e1b07fab2026ab74209a41bc07cc56238f
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: ea4f982409f339487cd570230ebbb75682f409ec
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019488"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69874610"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>PowerShell을 사용하여 Azure에서 가상 머신 백업
 
@@ -144,7 +144,7 @@ Azure VM에 대해 백업을 사용하도록 설정하고 백업 정책을 지�
     ```
     출력은 다음 예제와 비슷합니다. 여기서는 작업 상태를 **InProgress**(진행 중)로 보여 줍니다.
 
-    ```
+    ```output
     WorkloadName   Operation         Status       StartTime              EndTime                JobID
     ------------   ---------         ------       ---------              -------                -----
     myvm           Backup            InProgress   9/18/2017 9:38:02 PM                          9f9e8f14

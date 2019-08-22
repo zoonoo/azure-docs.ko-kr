@@ -5,17 +5,16 @@ manager: pablocas
 author: luiscabrer
 services: search
 ms.service: search
-ms.devlang: NA
 ms.topic: tutorial
 ms.date: 05/28/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: d431f0ced5b417e178e064dca347ae8d78f14e5d
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 07fd1bbab68dc9abcd6e7f8df7f36f7977ff5b3a
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840884"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69638913"
 ---
 # <a name="rest-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>REST 자습서: Azure Search 인덱싱 파이프라인에서 Cognitive Services API 호출
 
@@ -77,7 +76,7 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 
    ![Azure Blob Storage의 원본 파일](./media/cognitive-search-quickstart-blob/sample-data.png)
 
-1. 샘플 파일이 로드되면 Blob Storage에 대한 컨테이너 이름 및 연결 문자열을 가져옵니다. 이렇게 하려면 Azure Portal에서 저장소 계정으로 이동해야 합니다. 그리고 **액세스 키**에서 **연결 문자열** 필드를 복사합니다.
+1. 샘플 파일이 로드되면 Blob Storage에 대한 컨테이너 이름 및 연결 문자열을 가져옵니다. 이렇게 하려면 Azure Portal에서 스토리지 계정으로 이동해야 합니다. 그리고 **액세스 키**에서 **연결 문자열** 필드를 복사합니다.
 
    연결 문자열은 다음 예제와 비슷한 URL이어야 합니다.
 
@@ -95,7 +94,7 @@ Postman을 시작하고 HTTP 요청을 설정합니다. 이 도구가 생소한 
 
   ![반구조화된 검색](media/search-semi-structured-data/postmanoverview.png)
 
-데이터 원본, 기술 세트, 인덱스 및 인덱서를 만들기 위해 Postman을 사용하여 검색 서비스에 대한 API 호출을 네 번 수행합니다. 데이터 원본은 저장소 계정 및 JSON 데이터에 대한 포인터를 포함합니다. 검색 서비스는 데이터를 로드할 때 연결합니다.
+데이터 원본, 기술 세트, 인덱스 및 인덱서를 만들기 위해 Postman을 사용하여 검색 서비스에 대한 API 호출을 네 번 수행합니다. 데이터 원본은 스토리지 계정 및 JSON 데이터에 대한 포인터를 포함합니다. 검색 서비스는 데이터를 로드할 때 연결합니다.
 
 
 ## <a name="create-a-data-source"></a>데이터 소스 만들기

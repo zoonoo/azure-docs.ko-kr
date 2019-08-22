@@ -2,7 +2,7 @@
 title: 'C# 빠른 시작: .NET SDK를 사용하여 인덱스 만들기, 로드 및 쿼리 - Azure Search'
 description: C#과 Azure Search .NET SDK를 사용하여 인덱스를 만들고, 데이터를 로드하고, 쿼리를 실행하는 방법을 설명합니다.
 author: heidisteen
-manager: cgronlun
+manager: nitinme
 ms.author: heidist
 tags: azure-portal
 services: search
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 07/11/2019
-ms.openlocfilehash: 6138df5b80f479a54683ec0408b832dd78bff8e4
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 6a77ecd91c0d04f0b449d25686578784921987bf
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67847087"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69649809"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-c-using-the-net-sdk"></a>빠른 시작: .NET SDK를 사용하여 C#으로 Azure Search 인덱스 만들기
 > [!div class="op_single_selector"]
