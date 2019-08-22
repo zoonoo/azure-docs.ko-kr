@@ -3,19 +3,19 @@ title: 전체 텍스트 검색을 위해 Azure Blob Storage 콘텐츠 인덱싱 
 description: Azure Blob Storage를 인덱싱하고 Azure Search를 사용하여 문서에서 텍스트를 추출하는 방법을 알아봅니다.
 ms.date: 05/02/2019
 author: mgottein
-manager: cgronlun
+manager: nitinme
 ms.author: magottei
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 832be20f78d1e88a3bb6d1c25c7aaf5d7354e857
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c72a60dfb19c71ee039e2fcdb278581e41117b93
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66753971"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69656666"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Azure Search로 Azure Blob Storage에서 문서 인덱싱
 이 문서에서는 Azure Search를 사용하여 Azure Blob Storage에 저장된 문서(예: PDF, Office 파일 및 다양한 기타 일반적인 형식)를 인덱싱하는 방법을 보여줍니다. 먼저, blob 인덱서 설정 및 구성의 기본 사항을 설명합니다. 그런 다음, 동작 및 발생할 수 있는 시나리오의 심층적 탐색을 제공합니다.
@@ -38,15 +38,15 @@ BLOB 인덱서는 다음과 같은 문서 형식에서 텍스트를 추출할 �
 
 여기에서는 REST API를 사용하여 흐름을 설명합니다.
 
-### <a name="step-1-create-a-data-source"></a>1단계: 데이터 소스 만들기
+### <a name="step-1-create-a-data-source"></a>1단계: 데이터 원본 만들기
 데이터 원본은 인덱싱할 데이터, 데이터에 액세스하는 데 필요한 자격 증명 및 데이터 변경 내용(예: 수정되거나 삭제된 행)을 효율적으로 식별할 수 있도록 해주는 정책을 지정합니다. 데이터 원본을 동일한 검색 서비스의 여러 인덱서에서 사용할 수 있습니다.
 
 데이터 원본에는 BLOB 인덱싱을 위한 다음과 같은 필수 속성이 있어야 합니다.
 
 * **name**은 검색 서비스 내 데이터 원본의 고유 이름입니다.
 * **type**은 `azureblob`여야 합니다.
-* **credentials**는 저장소 계정 연결 문자열을 `credentials.connectionString` 매개 변수로 제공합니다. 자세한 내용은 아래에서 [자격 증명을 지정하는 방법](#Credentials)을 참조하세요.
-* **container**는 저장소 계정에 있는 컨테이너를 지정합니다. 기본적으로 컨테이너 내의 모든 BLOB은 검색 가능합니다. 특정 가상 디렉터리의 BLOB만 인덱싱하려면 선택 사항인 **query** 매개 변수를 사용하여 해당 디렉터리를 지정할 수 있습니다,
+* **credentials**는 스토리지 계정 연결 문자열을 `credentials.connectionString` 매개 변수로 제공합니다. 자세한 내용은 아래에서 [자격 증명을 지정하는 방법](#Credentials)을 참조하세요.
+* **container**는 스토리지 계정에 있는 컨테이너를 지정합니다. 기본적으로 컨테이너 내의 모든 BLOB은 검색 가능합니다. 특정 가상 디렉터리의 BLOB만 인덱싱하려면 선택 사항인 **query** 매개 변수를 사용하여 해당 디렉터리를 지정할 수 있습니다,
 
 데이터 원본을 만드는 방법:
 
@@ -68,11 +68,11 @@ BLOB 인덱서는 다음과 같은 문서 형식에서 텍스트를 추출할 �
 
 Blob 컨테이너에 대한 자격 증명을 제공하는 방법은 다음 중 하나입니다.
 
-- **전체 액세스 스토리지 계정 연결 문자열**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` 저장소 계정 블레이드로 이동 하 여 Azure portal에서 연결 문자열을 가져올 수 있습니다 > 설정 > 키 (클래식 저장소 계정) 또는 설정 > 액세스 키 (Azure Resource Manager 저장소 계정).
+- **전체 액세스 스토리지 계정 연결 문자열**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`저장소 계정 블레이드 > 설정 > 키 (클래식 저장소 계정) 또는 설정 > 액세스 키 (Azure Resource Manager 저장소 계정)로 이동 하 여 Azure Portal에서 연결 문자열을 가져올 수 있습니다.
 - **스토리지 계정 공유 액세스 서명**(SAS) 연결 문자열: `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl` SAS에 컨테이너 및 개체(이 경우 Blob)에 대한 읽기 권한 및 목록이 있어야 합니다.
 -  **컨테이너 공유 액세스 서명**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl` SAS에 컨테이너에 대한 읽기 권한 및 목록이 있어야 합니다.
 
-저장소 공유 액세스 서명에 대한 자세한 내용은 [공유 액세스 서명 사용](../storage/common/storage-dotnet-shared-access-signature-part-1.md)을 참조하세요.
+스토리지 공유 액세스 서명에 대한 자세한 내용은 [공유 액세스 서명 사용](../storage/common/storage-dotnet-shared-access-signature-part-1.md)을 참조하세요.
 
 > [!NOTE]
 > SAS 자격 증명을 사용하는 경우 자격 증명이 만료되는 것을 방지하기 위해 갱신된 서명을 사용하여 데이터 원본 자격 증명을 주기적으로 업데이트해야 합니다. SAS 자격 증명이 만료되면 `Credentials provided in the connection string are invalid or have expired.`와 유사한 오류 메시지가 표시되면서 인덱서가 실행되지 못합니다.  
@@ -116,14 +116,14 @@ Blob 컨테이너에 대한 자격 증명을 제공하는 방법은 다음 중 �
 
 인덱서 만들기 API에 대한 자세한 내용은 [인덱서 만들기](https://docs.microsoft.com/rest/api/searchservice/create-indexer)를 확인하세요.
 
-인덱서 일정을 정의 하는 방법에 대 한 자세한 내용은 참조 하세요. [Azure search 인덱서를 예약 하는 방법을](search-howto-schedule-indexers.md)합니다.
+인덱서 일정을 정의 하는 방법에 대 한 자세한 내용은 [Azure Search의 인덱서를 예약 하는 방법을](search-howto-schedule-indexers.md)참조 하세요.
 
 ## <a name="how-azure-search-indexes-blobs"></a>Azure Search가 BLOB을 인덱싱하는 방식
 
-[인덱서 구성](#PartsOfBlobToIndex)에 따라, Blob 인덱서는 저장소 메타데이터만 인덱싱하거나(메타데이터만 필요하고 Blob 콘텐츠를 인덱싱할 필요가 없는 경우에 유용함), 저장소 및 콘텐츠 메타데이터를 인덱싱하거나, 메타데이터와 텍스트 콘텐츠 모두를 인덱싱할 수 있습니다. 기본적으로 인덱서는 메타데이터와 콘텐츠를 둘 다 추출합니다.
+[인덱서 구성](#PartsOfBlobToIndex)에 따라, Blob 인덱서는 스토리지 메타데이터만 인덱싱하거나(메타데이터만 필요하고 Blob 콘텐츠를 인덱싱할 필요가 없는 경우에 유용함), 스토리지 및 콘텐츠 메타데이터를 인덱싱하거나, 메타데이터와 텍스트 콘텐츠 모두를 인덱싱할 수 있습니다. 기본적으로 인덱서는 메타데이터와 콘텐츠를 둘 다 추출합니다.
 
 > [!NOTE]
-> 기본적으로 JSON 또는 CSV와 같이 구조화된 콘텐츠를 포함하는 Blob은 단일 텍스트 청크로 인덱싱됩니다. 구조화 된 방법으로 JSON 및 CSV blob을 인덱스 하려는 경우 참조 [JSON blob 인덱싱](search-howto-index-json-blobs.md) 하 고 [CSV blob 인덱싱](search-howto-index-csv-blobs.md) 자세한 내용은 합니다.
+> 기본적으로 JSON 또는 CSV와 같이 구조화된 콘텐츠를 포함하는 Blob은 단일 텍스트 청크로 인덱싱됩니다. 구조화 된 방식으로 JSON 및 CSV blob을 인덱싱하는 방법에 대 한 자세한 내용은 [json Blob 인덱싱](search-howto-index-json-blobs.md) 및 [csv blob 인덱싱](search-howto-index-csv-blobs.md) 을 참조 하세요.
 >
 > 복합 또는 포함된 문서(예: ZIP 보관 파일 또는 첨부 파일이 있는 Outlook 메일이 포함된 Word 문서)도 단일 문서로 인덱싱됩니다.
 
@@ -141,7 +141,7 @@ Blob 컨테이너에 대한 자격 증명을 제공하는 방법은 다음 중 �
   * **metadata\_storage\_last\_modified**(Edm.DateTimeOffset) - BLOB에 대해 마지막으로 수정된 타임스탬프. Azure Search는 이 타임스탬프로 변경된 BLOB을 식별하여 초기 인덱싱 후 모든 항목을 다시 인덱싱하는 것을 방지합니다.
   * **metadata\_storage\_size** (Edm.Int64) - BLOB 크기(바이트).
   * **metadata\_storage\_content\_md5**(Edm.String) - BLOB 콘텐츠의 MD5 해시(사용 가능한 경우).
-  * **메타 데이터\_저장소\_sas\_토큰** (Edm.String)-사용할 수 있는 임시 SAS 토큰 [사용자 지정 기술](cognitive-search-custom-skill-interface.md) blob에 대 한 액세스를 가져오려고 합니다. 만료 될 수 있습니다 나중에 사용할이 토큰을 저장 되어야 합니다.
+  * **메타\_데이터저장소\_sas\_토큰** (Edm. 문자열)-blob에 대 한 액세스 권한을 얻기 위해 [사용자 지정 기술](cognitive-search-custom-skill-interface.md) 에서 사용할 수 있는 임시 sas 토큰입니다. 이 토큰은 만료 될 수 있으므로 나중에 사용할 수 있도록 저장 해서는 안 됩니다.
 
 * 각 문서 형식과 관련된 메타데이터 속성이 [여기](#ContentSpecificMetadata) 나열된 필드로 추출됩니다.
 
@@ -231,10 +231,10 @@ Azure Search에서는 문서 키가 문서를 고유하게 식별합니다. 모�
 `dataToExtract` 구성 매개 변수를 사용하여 Blob에서 인덱싱할 부분을 제어할 수 있습니다. 사용되는 값은 다음과 같습니다.
 
 * `storageMetadata` - [표준 BLOB 속성 및 사용자가 지정한 메타데이터](../storage/blobs/storage-properties-metadata.md)만 인덱싱되도록 지정합니다.
-* `allMetadata` - BLOB 콘텐츠에서 추출한 [Content-Type별 메타데이터](#ContentSpecificMetadata) 및 저장소 메타데이터가 인덱싱되도록 지정합니다.
+* `allMetadata` - BLOB 콘텐츠에서 추출한 [Content-Type별 메타데이터](#ContentSpecificMetadata) 및 스토리지 메타데이터가 인덱싱되도록 지정합니다.
 * `contentAndMetadata` - Blob에서 추출한 모든 메타데이터 및 텍스트 콘텐츠가 인덱싱되도록 지정합니다. 기본값입니다.
 
-예를 들어 저장소 메타데이터만 인덱싱하려면 다음을 사용합니다.
+예를 들어 스토리지 메타데이터만 인덱싱하려면 다음을 사용합니다.
 
     PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
     Content-Type: application/json
@@ -272,11 +272,11 @@ Azure Search에서는 문서 키가 문서를 고유하게 식별합니다. 모�
 
       "parameters" : { "configuration" : { "failOnUnprocessableDocument" : false } }
 
-Azure Search는 인덱싱되는 Blob의 크기를 제한합니다. 이러한 제한 사항은 [Azure Search의 서비스 제한 사항](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)에서 설명됩니다. 너무 큰 Blob은 기본적으로 오류로 처리됩니다. 그러나 `indexStorageMetadataOnlyForOversizedDocuments` 구성 매개 변수를 true로 설정한 경우 너무 큰 Blob의 저장소 메타데이터를 여전히 인덱싱할 수 있습니다. 
+Azure Search는 인덱싱되는 Blob의 크기를 제한합니다. 이러한 제한 사항은 [Azure Search의 서비스 제한 사항](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)에서 설명됩니다. 너무 큰 Blob은 기본적으로 오류로 처리됩니다. 그러나 `indexStorageMetadataOnlyForOversizedDocuments` 구성 매개 변수를 true로 설정한 경우 너무 큰 Blob의 스토리지 메타데이터를 여전히 인덱싱할 수 있습니다. 
 
     "parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }
 
-또한 Blob을 구문 분석하거나 문서를 인덱스를 추가할 때 임의 처리 지점에서 오류가 발생하는 경우에도 인덱싱을 계속할 수 있습니다. 설정 개수의 오류를 무시하려면 `maxFailedItems` 및 `maxFailedItemsPerBatch` 구성 매개 변수를 원하는 값으로 설정합니다. 예를 들면 다음과 같습니다.
+또한 Blob을 구문 분석하거나 문서를 인덱스를 추가할 때 임의 처리 지점에서 오류가 발생하는 경우에도 인덱싱을 계속할 수 있습니다. 설정 개수의 오류를 무시하려면 `maxFailedItems` 및 `maxFailedItemsPerBatch` 구성 매개 변수를 원하는 값으로 설정합니다. 예를 들어:
 
     {
       ... other parts of indexer definition
@@ -337,7 +337,7 @@ BLOB 인덱싱은 시간이 오래 걸리는 프로세스입니다. 인덱싱할
 
 인덱스에 있는 여러 원본의 문서를 "조합"할 수도 있습니다. 예를 들어 Cosmos DB에 저장된 다른 메타데이터와 BLOB의 텍스트를 병합할 수 있습니다. 푸시 인덱싱 API를 다양한 인덱서와 함께 사용하여 여러 부분에서 검색 문서를 구축할 수도 있습니다. 
 
-이렇게 하려면 모든 인덱서 및 기타 구성 요소가 문서 키에 동의해야 합니다. 자세한 내용은 다음 외부 문서를 참조하세요. [Azure Search의 다른 데이터와 문서 결합](https://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html)합니다.
+이렇게 하려면 모든 인덱서 및 기타 구성 요소가 문서 키에 동의해야 합니다. 자세한 내용은 다음 외부 문서를 참조하세요. [Azure Search의 다른 데이터와 문서를 결합](https://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html)합니다.
 
 <a name="IndexingPlainText"></a>
 ## <a name="indexing-plain-text"></a>일반 텍스트 인덱싱 

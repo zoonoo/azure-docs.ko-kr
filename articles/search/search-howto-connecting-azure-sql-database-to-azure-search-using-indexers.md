@@ -3,19 +3,19 @@ title: 인덱서를 사용하여 Azure SQL Database 콘텐츠 연결 및 인덱�
 description: Azure Search에서 전체 텍스트 검색을 위해 인덱서를 사용하여 Azure SQL Database의 데이터를 크롤링하는 방법을 알아봅니다. 이 문서에서는 연결, 인덱서 구성 및 데이터 수집에 대해 설명합니다.
 ms.date: 05/02/2019
 author: mgottein
-manager: cgronlun
+manager: nitinme
 ms.author: magottei
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 59a45791676f62f42763e0e834d327b0c0c4106d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4ed218fdc1c6580e9b92364d123b081a1f34b441
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755106"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69656228"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Azure Search 인덱서를 사용하여 Azure SQL Database 콘텐츠에 연결 및 인덱싱
 
@@ -158,7 +158,7 @@ Azure 서비스에서 데이터베이스에 연결하도록 허용해야 할 수
 
 **interval** 매개 변수는 필수 사항입니다. 두 개의 연속된 인덱서 실행 간의 시작 시간 간격을 나타냅니다. 허용되는 가장 작은 간격은 5분이고 가장 긴 간격은 1일입니다. 형식은 XSD "dayTimeDuration" 값( [ISO 8601 기간](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) 값의 제한된 하위 집합)이어야 합니다. 해당 패턴은 `P(nD)(T(nH)(nM))`입니다. 예를 들어 15분 간격이면 `PT15M`, 2시간 간격이면 `PT2H`입니다.
 
-인덱서 일정을 정의 하는 방법에 대 한 자세한 내용은 참조 하세요. [Azure search 인덱서를 예약 하는 방법을](search-howto-schedule-indexers.md)합니다.
+인덱서 일정을 정의 하는 방법에 대 한 자세한 내용은 [Azure Search의 인덱서를 예약 하는 방법을](search-howto-schedule-indexers.md)참조 하세요.
 
 <a name="CaptureChangedRows"></a>
 
@@ -178,7 +178,7 @@ SQL 데이터베이스에서 [변경 내용 추적](https://docs.microsoft.com/s
 + 데이터베이스에서 테이블에 대해 [변경 내용 추적을 설정](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server)합니다. 
 + 테이블에서 복합 기본 키(두 개 이상의 열을 포함하는 기본 키)가 없습니다.  
 
-#### <a name="usage"></a>사용 현황
+#### <a name="usage"></a>사용법
 
 이 정책을 사용하려면 다음과 같이 데이터 원본을 만들거나 업데이트합니다.
 
@@ -213,7 +213,7 @@ SQL 통합 변경 내용 추적 정책을 사용할 때는 별도의 데이터 �
 > [!IMPORTANT] 
 > 상위 워터 마크 열에는 [rowversion](https://docs.microsoft.com/sql/t-sql/data-types/rowversion-transact-sql) 데이터 형식을 사용하는 것이 좋습니다. 다른 데이터 형식을 사용하는 경우 변경 추적이 인덱서 쿼리와 동시에 실행되는 트랜잭션의 모든 변경 내용을 캡처하지는 않습니다. 읽기 전용 복제본이 있는 구성에 **rowversion**을 사용하는 경우 주 복제본에서 인덱서를 가리켜야 합니다. 데이터 동기화 시나리오에는 주 복제본만 사용할 수 있습니다.
 
-#### <a name="usage"></a>사용 현황
+#### <a name="usage"></a>사용법
 
 높은 워터 마크 정책을 사용하려면 다음과 같이 데이터 원본을 만들거나 업데이트합니다.
 
@@ -270,26 +270,26 @@ SQL 통합 변경 내용 추적 정책을 사용할 때는 별도의 데이터 �
 <a name="TypeMapping"></a>
 
 ## <a name="mapping-between-sql-and-azure-search-data-types"></a>SQL과 Azure Search 데이터 형식 사이의 매핑
-| SQL 데이터 형식 | 허용되는 대상 인덱스 필드 유형 | 메모 |
+| SQL 데이터 형식 | 허용되는 대상 인덱스 필드 유형 | 참고 |
 | --- | --- | --- |
 | bit |Edm.Boolean, Edm.String | |
 | int, smallint, tinyint |Edm.Int32, Edm.Int64, Edm.String | |
-| bigint |Edm.Int64, Edm.Int64, Edm.String | |
+| BIGINT |Edm.Int64, Edm.Int64, Edm.String | |
 | real, float |Edm.Double, Edm.String | |
 | smallmoney, money decimal numeric |Edm.String |Azure Search에서는 decimal 형식을 Edm.Double로 변환하면 정밀도가 떨어지기 때문에 이를 지원하지 않습니다. |
 | char, nchar, varchar, nvarchar |Edm.String<br/>Collection(Edm.String) |SQL 문자열은 문자열이 JSON 배열을 나타내는 경우 Collection(Edm.String) 필드를 채우는 데 사용할 수 있습니다. `["red", "white", "blue"]` |
 | smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, Edm.String | |
 | uniqueidentifer |Edm.String | |
 | geography |Edm.GeographyPoint |SRID가 4326(기본값)인 POINT 형식의 지리 인스턴스만 지원됩니다. |
-| rowversion |N/A |행 버전 열은 변경 내용 추적에 사용할 수 있지만 검색 인덱스에 저장할 수는 없습니다. |
+| rowversion |해당 사항 없음 |행 버전 열은 변경 내용 추적에 사용할 수 있지만 검색 인덱스에 저장할 수는 없습니다. |
 | time, timespan, binary, varbinary, image, xml, geometry, CLR types |N/A |지원되지 않음 |
 
 ## <a name="configuration-settings"></a>구성 설정
 SQL 인덱서는 여러 구성 설정을 노출합니다.
 
-| 설정 | 데이터 형식 | 목적 | 기본값 |
+| 설정 | 데이터 형식 | 용도 | 기본값 |
 | --- | --- | --- | --- |
-| queryTimeout |문자열 |SQL 쿼리 실행의 제한 시간 설정 |5분("00:05:00") |
+| queryTimeout |string |SQL 쿼리 실행의 제한 시간 설정 |5분("00:05:00") |
 | disableOrderByHighWaterMarkColumn |bool |상위 워터 마크 정책에서 사용하는 SQL 쿼리에서 ORDER BY 절이 생략되도록 합니다. [상위 워터 마크 정책](#HighWaterMarkPolicy)을 참조하세요. |false |
 
 이러한 설정은 인덱서 정의의 `parameters.configuration` 개체에 사용됩니다. 예를 들어 쿼리 제한 시간을 10분으로 설정하려면 다음 구성을 사용하여 인덱서를 만들거나 업데이트합니다.

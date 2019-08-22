@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: b792c0fc5d02a84d45b47ac68e0058144f31e673
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
-ms.translationtype: HT
+ms.openlocfilehash: 8ed9b86f8dd4f255a6ea8420ef27fbb131df91a9
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/20/2019
-ms.locfileid: "69641009"
+ms.locfileid: "69644888"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>관리 되는 인스턴스 T-sql의 차이점, 제한 사항 및 알려진 문제
 
@@ -545,15 +545,13 @@ Restore 문에 대 한 자세한 내용은 [restore 문](https://docs.microsoft.
 
 **해결 방법:** 서비스 계층을 업데이트 하기 전에 데이터베이스 간 Service Broker 대화 상자를 사용 하는 작업을 중지 하 고 이후에 다시 초기화 합니다. 서비스 계층 변경 후 배달 되지 않은 메시지가 남아 있으면 원본 큐에서 메시지를 읽고 대상 큐에 다시 보냅니다.
 
-### <a name="impresonification-of-aad-login-types-is-not-supported"></a>AAD 로그인 형식의 Impresonification은 지원 되지 않습니다.
+### <a name="impersonification-of-aad-login-types-is-not-supported"></a>AAD 로그인 형식의 Impersonification은 지원 되지 않습니다.
 
 **날** 7 월 2019
 
 다음 AAD `EXECUTE AS USER` 보안 `EXECUTE AS LOGIN` 주체를 사용 하는 가장이 지원 되지 않습니다.
 -   별칭이 지정 되는 AAD 사용자입니다. 이 경우 `15517`다음과 같은 오류가 반환 됩니다.
 - Aad 응용 프로그램 또는 서비스 주체를 기반으로 하는 AAD 로그인 및 사용자입니다. 이 경우 `15517` 및 `15406`에는 다음과 같은 오류가 반환 됩니다.
-
-### <a name="database-email"></a>데이터베이스 전자 메일 
 
 ### <a name="query-parameter-not-supported-in-sp_send_db_mail"></a>@querysp_send_db_mail에서 지원 되지 않는 매개 변수
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/02/2019
+ms.date: 8/20/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 91dd397095718b3b43e41767af422801fd50b7f1
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 25fb94afdfe68510c66cff130a3abc8b74d7311d
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68295694"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647316"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Azure Security Center의 보안 경고
 
@@ -50,7 +50,7 @@ ASC는 Azure에 배포 되었는지 또는 다른 온-프레미스 및 하이브
 
 ## <a name="what-are-alert-incidents"></a>경고 인시던트 란 무엇 인가요?
 
-보안 인시던트는 각 경고를 개별적으로 나열 하는 대신 관련 된 경고의 컬렉션입니다. Security Center는 fusion을 사용 하 여 서로 다른 경고와 낮은 정확도 신호를 보안 인시던트에 상호 연결 합니다.
+보안 인시던트는 각 경고를 개별적으로 나열 하는 대신 관련 된 경고의 컬렉션입니다. Security Center는 [클라우드 스마트 경고 상관 관계](security-center-alerts-cloud-smart.md) 를 사용 하 여 서로 다른 경고와 낮은 충실도 신호의 상관 관계를 보안 인시던트에 연결 합니다.
 
 인시던트를 사용 하 여 공격 캠페인 및 모든 관련 경고에 대 한 단일 보기를 제공 Security Center 합니다. 이 보기에서는 공격자가 수행한 작업과 영향을 받는 리소스를 빠르게 파악할 수 있습니다. 자세한 내용은 [클라우드 스마트 경고 상관 관계](security-center-alerts-cloud-smart.md)를 참조 하세요.
 

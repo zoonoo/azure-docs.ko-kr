@@ -8,16 +8,18 @@ ms.date: 07/10/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: philmea
-ms.openlocfilehash: d9d7b2d189c6a1533be2d1cae4989669787c3f2a
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: ad5f660ff72eceecbb6db2e9557b023ed2c6ea99
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849004"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69875805"
 ---
 # <a name="group-multiple-actions-to-run-from-one-or-more-rules"></a>하나 이상의 규칙에서 실행할 여러 작업 그룹화
 
 *이 문서는 빌더 및 관리자에 게 적용 됩니다.*
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 Azure IoT Central에서는 조건이 충족 될 때 작업을 실행 하는 규칙을 만듭니다. 규칙은 장치 원격 분석 또는 이벤트를 기반으로 합니다. 예를 들어 장치의 온도가 임계값을 초과 하는 경우 운영자에 게 알릴 수 있습니다. 이 문서에서는 [Azure Monitor](../azure-monitor/overview.md) *작업 그룹* 을 사용 하 여 여러 작업을 IoT Central 규칙에 연결 하는 방법을 설명 합니다. 여러 규칙에 작업 그룹을 연결할 수 있습니다. [작업 그룹](../azure-monitor/platform/action-groups.md) 은 Azure 구독의 소유자가 정의한 알림 기본 설정 모음입니다.
 
@@ -51,7 +53,7 @@ Azure 구독에서 작업 그룹을 선택 합니다.
 
 ![작업 그룹 선택](media/howto-use-action-groups/chooseactiongroup.png)
 
-          **저장**을 선택합니다. 이제 규칙을 트리거할 때 실행할 작업 목록에 작업 그룹이 표시 됩니다.
+**저장**을 선택합니다. 이제 규칙을 트리거할 때 실행할 작업 목록에 작업 그룹이 표시 됩니다.
 
 ![작업 그룹 저장 됨](media/howto-use-action-groups/savedactiongroup.png)
 
@@ -60,9 +62,9 @@ Azure 구독에서 작업 그룹을 선택 합니다.
 | 작업 유형 | 출력 형식 |
 | ----------- | -------------- |
 | EMail       | 표준 IoT Central 전자 메일 템플릿 |
-| sms         | Azure IoT Central 경고: $ {applicationName}-"$ {ruleName}"이 (가) $ {triggerDate} $ {Triggerdate} (으)로 "$ {장치 이름}"에서 트리거 되었습니다. |
+| SMS         | Azure IoT Central 경고: $ {applicationName}-"$ {ruleName}"이 (가) $ {triggerDate} $ {Triggerdate} (으)로 "$ {장치 이름}"에서 트리거 되었습니다. |
 | 음성       | Azure. $. T 중앙 경고: $ {applicationName}의 $ {triggerDate} $ {Triggerdate}에서 장치 "$ {ruleName}"에 대 한 규칙 "$ {}"이 (가) 트리거 되었습니다. |
-| 웹후크     | {"schemaId": "AzureIoTCentralRuleWebhook", "data": {[regular webhook 페이로드](#payload)}} |
+| Webhook     | {"schemaId": "AzureIoTCentralRuleWebhook", "data": {[regular webhook 페이로드](#payload)}} |
 
 다음 텍스트는 작업 그룹의 예제 SMS 메시지입니다.
 

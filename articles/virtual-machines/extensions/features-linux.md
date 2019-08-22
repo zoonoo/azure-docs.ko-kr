@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: 8227aa366c8f5149d4212e6cdd00e2745db84814
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: f2397c67b71cc370a0a98d44bb02e5ee77551afb
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881947"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650640"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Linux용 가상 머신 확장 및 기능
 
@@ -86,7 +86,7 @@ Azure VM 확장은 기존 VM에서 실행됩니다. 이러한 기능은 이미 �
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Azure VM 확장은 [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) 명령을 사용하여 기존 VM에 대해 실행할 수 있습니다. 다음 예제에서는 *Myvm*이라는 리소스 그룹에서 *MYVM* 이라는 Vm에 대해 사용자 지정 스크립트 확장을 실행 합니다. 사용자 고유의 정보를 https://raw.githubusercontent.com/me/project/hello.sh) 사용 하 여 예제 리소스 그룹 이름, VM 이름 및 스크립트를 바꿉니다. 
+Azure VM 확장은 [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) 명령을 사용하여 기존 VM에 대해 실행할 수 있습니다. 다음 예제에서는 *Myvm*이라는 리소스 그룹에서 *MYVM* 이라는 Vm에 대해 사용자 지정 스크립트 확장을 실행 합니다. 사용자 고유의 정보를 사용 하 여 예제 리소스 그룹 이름, VM 이름 및 스크립트\/를 실행 (https:/raw.githubusercontent.com/me/project/hello.sh)으로 바꿉니다. 
 
 ```azurecli
 az vm extension set `
@@ -153,7 +153,7 @@ Resource Manager 템플릿 작성에 대한 자세한 내용은 [Azure Resource 
 
 ## <a name="secure-vm-extension-data"></a>VM 확장 데이터 보호
 
-VM 확장을 실행하는 경우 자격 증명, 저장소 계정 이름 및 저장소 계정 액세스 키와 같은 중요한 정보를 포함해야 할 수도 있습니다. 많은 VM 확장에는 데이터를 암호화하고 대상 VM 내에서만 해독하는 보호된 구성이 포함되어 있습니다. 각 확장에는 보호되는 특정 구성 스키마가 있으며 각각은 확장 관련 설명서에 자세히 나와 있습니다.
+VM 확장을 실행하는 경우 자격 증명, 스토리지 계정 이름 및 스토리지 계정 액세스 키와 같은 중요한 정보를 포함해야 할 수도 있습니다. 많은 VM 확장에는 데이터를 암호화하고 대상 VM 내에서만 해독하는 보호된 구성이 포함되어 있습니다. 각 확장에는 보호되는 특정 구성 스키마가 있으며 각각은 확장 관련 설명서에 자세히 나와 있습니다.
 
 다음 예제에서는 Linux용 사용자 지정 스크립트 확장의 인스턴스를 보여 줍니다. 실행할 명령에는 자격 증명 집합이 포함됩니다. 이 예제에서는 실행할 명령이 암호화되지 않습니다.
 
@@ -404,7 +404,7 @@ az vm extension delete \
 
 ## <a name="common-vm-extension-reference"></a>일반적인 VM 확장 참조
 
-| 확장 이름 | Description | 자세한 정보 |
+| 확장 이름 | 설명 | 자세한 정보 |
 | --- | --- | --- |
 | Linux용 사용자 지정 스크립트 확장 |Azure Virtual Machine에 대해 스크립트 실행 |[Linux용 사용자 지정 스크립트 확장](custom-script-linux.md) |
 | VM 액세스 확장 |Azure Virtual Machine에 대한 액세스 권한 복구 |[VM 액세스 확장](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |

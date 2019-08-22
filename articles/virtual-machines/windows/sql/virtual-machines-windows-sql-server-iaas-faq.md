@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: 80c90ceb0e2edac47d67b99e7fb7f03c1ab82fb1
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 5b3c65361f45c8ad5bdf3adf89dc3002c229d0d0
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882364"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650400"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Azure의 Windows Virtual Machines에서 실행되는 SQL Server에 대한 질문과 대답
 
@@ -87,7 +87,7 @@ ms.locfileid: "68882364"
 
    대기 보조 가용성 그룹 또는 장애 조치 (failover) 클러스터형 인스턴스에 대 한 무료 수동 라이선스를 보유 하려면 [라이선스 가이드 PDF](https://download.microsoft.com/download/7/8/C/78CDF005-97C1-4129-926B-CE4A6FE92CF5/SQL_Server_2017_Licensing_guide.pdf)의 설명에 따라 다음 조건을 모두 충족 해야 합니다.
 
-   1. [소프트웨어 보증](https://www.microsoft.comlicensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3)을 통한 [라이선스](https://www.microsoft.com/licensing/licensing-programs/software-assurance-license-mobility?activetab=software-assurance-license-mobility-pivot:primaryr2) 이동이 있습니다. 
+   1. [소프트웨어 보증](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3)을 통한 [라이선스](https://www.microsoft.com/licensing/licensing-programs/software-assurance-license-mobility?activetab=software-assurance-license-mobility-pivot:primaryr2) 이동이 있습니다. 
    1. Passive SQL Server 인스턴스는 클라이언트에 SQL Server 데이터를 제공 하거나 활성 SQL Server 워크 로드를 실행 하지 않습니다. 주 서버와 동기화 하는 데만 사용 되 고 그렇지 않은 경우에는 수동 데이터베이스를 웜 대기 상태에서 유지 관리 합니다. 활성 SQL Server 워크 로드를 실행 하는 클라이언트에 대 한 보고서, 보조 서버의 추가 백업 등의 "작업"을 수행 하는 것과 같은 데이터를 제공 하는 경우 유료 라이선스 SQL Server 인스턴스여야 합니다. 
    1. 활성 SQL Server 라이선스는 소프트웨어 보증에 포함 되며, 사용이 허가 된 활성 서버와 동일한 양의 계산을 포함 하는 **하나의** 수동 보조 SQL Server 인스턴스를 허용 합니다. 
    1. 보조 SQL Server VM는 BYOL (사용자 라이선스 보유) 또는 Azure 하이브리드 혜택 (AHB) [라이선스 모델](virtual-machines-windows-sql-ahb.md)을 활용 합니다. 
@@ -178,7 +178,7 @@ ms.locfileid: "68882364"
 
 1. **SQL Server FCI(장애 조치 클러스터 인스턴스)는 Azure VM에서 지원되나요?**
 
-   예. [Windows Server 2016에서 Windows 장애 조치 클러스터를 만들고](virtual-machines-windows-portal-sql-create-failover-cluster.md) 클러스터 저장소에 대한 S2D(저장소 공간 다이렉트)를 사용할 수 있습니다. 또는 [Azure Virtual Machines에서 SQL Server에 대한 고가용성 및 재해 복구](virtual-machines-windows-sql-high-availability-dr.md#azure-only-high-availability-solutions)에 설명된 대로 타사 클러스터링 또는 저장소 솔루션을 사용할 수 있습니다.
+   예. [Windows Server 2016에서 Windows 장애 조치 클러스터를 만들고](virtual-machines-windows-portal-sql-create-failover-cluster.md) 클러스터 스토리지에 대한 S2D(스토리지 공간 다이렉트)를 사용할 수 있습니다. 또는 [Azure Virtual Machines에서 SQL Server에 대한 고가용성 및 재해 복구](virtual-machines-windows-sql-high-availability-dr.md#azure-only-high-availability-solutions)에 설명된 대로 타사 클러스터링 또는 스토리지 솔루션을 사용할 수 있습니다.
 
    > [!IMPORTANT]
    > 현재 Azure의 SQL Server FCI에 대해 _전체_ [SQL Server IaaS 에이전트 확장이](virtual-machines-windows-sql-server-agent-extension.md) 지원 되지 않습니다. FCI에 참여 하는 Vm에서 _전체_ 확장을 제거 하 고 대신 _경량_ 모드로 확장을 설치 하는 것이 좋습니다. 이 확장 프로그램은 자동화 된 백업 및 패치, SQL Server에 대 한 일부 포털 기능 등의 기능을 지원 합니다. 이러한 기능은 _전체_ 에이전트가 제거 된 후 SQL Server vm에 대해 작동 하지 않습니다.

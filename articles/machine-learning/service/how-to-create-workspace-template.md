@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/16/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 0e78d9cfce59615a53534fe9815205e39f64853d
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 89c24512e50dedbf10d145088ec77c2e6e303d1e
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868828"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69873159"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning-service"></a>Azure Resource Manager 템플릿을 사용 하 여 Azure Machine Learning 서비스에 대 한 작업 영역 만들기
 
@@ -23,7 +23,7 @@ ms.locfileid: "67868828"
 
 자세한 내용은 [Azure 리소스 관리자 템플릿을 사용하여 애플리케이션 배포](../../azure-resource-manager/resource-group-template-deploy.md)를 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **Azure 구독**. 구독이 없는 경우[Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
@@ -38,10 +38,10 @@ ms.locfileid: "67868828"
 이 템플릿은 다음과 같은 Azure 서비스를 만듭니다.
 
 * Azure 리소스 그룹
-* Azure Storage 계정
+* Azure 스토리지 계정
 * Azure Key Vault
 * Azure Application Insights
-* Azure Container Registry
+* Azure 컨테이너 레지스트리
 * Azure Machine Learning 작업 영역
 
 리소스 그룹은 서비스를 보관하는 컨테이너입니다. Azure Machine Learning 작업 영역에는 다양한 서비스가 필요합니다.
@@ -71,8 +71,6 @@ ms.locfileid: "67868828"
    * 리소스 그룹: 서비스를 포함할 리소스 그룹을 선택하거나 만듭니다.
    * 작업 영역 이름: 생성될 Azure Machine Learning 작업 영역에 사용할 이름입니다. 작업 영역 이름은 3자에서 33자 사이여야 합니다. 영숫자와 ‘-’만 포함할 수 있습니다.
    * 위치: 리소스가 생성될 위치를 선택합니다.
-
-     ![Azure Portal의 템플릿 매개 변수](media/how-to-create-workspace-template/template-parameters.png)
 
 자세한 내용은 [사용자 지정 템플릿에서 리소스 배포](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template)를 참조하세요.
 

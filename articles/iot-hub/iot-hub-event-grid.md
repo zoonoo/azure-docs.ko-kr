@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: 0f8942d92958ee8add9645239cc5664a4a96bb33
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: f411771fbf39a99642506253fc025d6b29840423
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533363"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648636"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>작업을 트리거하기 위해 Event Grid를 사용하여 IoT Hub 이벤트에 대응
 
@@ -31,7 +31,7 @@ Event Grid가지 원되는 지역의 IoT Hub에 대해 Event Grid 통합을 사�
 
 IoT Hub는 다음과 같은 이벤트 유형을 게시합니다.
 
-| 이벤트 유형 | 설명 |
+| 이벤트 유형 | Description |
 | ---------- | ----------- |
 | Microsoft.Devices.DeviceCreated | IoT 허브에 디바이스를 등록하는 경우 게시합니다. |
 | Microsoft.Devices.DeviceDeleted | IoT 허브에서 디바이스를 삭제하는 경우 게시합니다. |
@@ -72,7 +72,7 @@ IoT Hub 이벤트에는 디바이스 수명 주기 변경에 대응하는 데 �
 
 ### <a name="device-telemetry-schema"></a>장치 원격 분석 스키마
 
-장치 원격 분석 메시지는 메시지 [시스템 속성](iot-hub-devguide-routing-query-syntax.md#system-properties)에서 CONTENTTYPE이 json으로 설정 되 고 contentencoding이 u t f-8로 설정 된 유효한 JSON 형식 이어야 합니다. 이 설정을 지정 하지 않으면 IoT Hub는 메시지를 base 64 인코딩 형식으로 씁니다.
+장치 원격 분석 메시지는 메시지 [시스템 속성](iot-hub-devguide-routing-query-syntax.md#system-properties)에서 contentType이 **application/JSON** 으로 설정 되 고 Contentencoding이 **u t f-8** 로 설정 된 유효한 JSON 형식 이어야 합니다. 이러한 속성은 모두 대/소문자를 구분 하지 않습니다. 콘텐츠 인코딩이 설정 되지 않은 경우 IoT Hub는 메시지를 base 64 인코딩 형식으로 씁니다.
 
 Event Grid으로 끝점을 선택 하 여 Event Grid에 게시 되기 전에 장치 원격 분석 이벤트를 보강할 수 있습니다. 자세한 내용은 [메시지 강화 개요](iot-hub-message-enrichments-overview.md)를 참조 하세요.
 
@@ -174,9 +174,9 @@ IoT 이벤트의 제목은 다음 형식을 사용합니다.
 devices/{deviceId}
 ```
 
-또한 Event Grid를 사용 하 여 데이터 콘텐츠를 포함 하 여 각 이벤트의 특성에 대 한 필터링을 수행할 수 있습니다. 그러면 원격 분석 메시지의 내용에 따라 전달 되는 이벤트를 선택할 수 있습니다. 예제를 보려면 [고급 필터링](../event-grid/event-filtering.md#advanced-filtering) 을 참조 하세요. 원격 분석 메시지 본문에 대 한 필터링을 위해 메시지 [시스템 속성](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties)에서 CONTENTTYPE을 JSON으로, contentencoding을 u t f-8로 설정 해야 합니다.
+또한 Event Grid를 사용 하 여 데이터 콘텐츠를 포함 하 여 각 이벤트의 특성에 대 한 필터링을 수행할 수 있습니다. 그러면 원격 분석 메시지의 내용에 따라 전달 되는 이벤트를 선택할 수 있습니다. 예제를 보려면 [고급 필터링](../event-grid/event-filtering.md#advanced-filtering) 을 참조 하세요. 원격 분석 메시지 본문에 대 한 필터링을 위해 메시지 [시스템 속성](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties)에서 contentType을 **application/Json** 으로, Contentencoding을 **u t f-8** 로 설정 해야 합니다. 이러한 속성은 모두 대/소문자를 구분 하지 않습니다.
 
-DeviceConnected, DeviceDisconnected, DeviceCreated 및 Devicedisconnected와 같은 비 원격 분석 이벤트의 경우 구독을 만들 때 Event Grid 필터링을 사용할 수 있습니다. 원격 분석 이벤트의 경우, Event Grid 필터링 외에도 사용자는 메시지 라우팅 쿼리를 통해 장치 쌍, 메시지 속성 및 본문을 기준으로 필터링 할 수 있습니다. 장치 원격 분석에 대 한 Event Grid 구독에 따라 IoT Hub에서 기본 [경로](iot-hub-devguide-messages-d2c.md) 를 만듭니다. 이 단일 경로는 모든 Event Grid 구독을 처리할 수 있습니다. 원격 분석 데이터를 보내기 전에 메시지를 필터링 하기 위해 [라우팅 쿼리](iot-hub-devguide-routing-query-syntax.md)를 업데이트할 수 있습니다. 본문이 JSON 인 경우에만 메시지 본문에 라우팅 쿼리를 적용할 수 있습니다. 또한 메시지 [시스템 속성](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties)에서 CONTENTTYPE을 JSON으로, contentencoding을 u t f-8로 설정 해야 합니다.
+DeviceConnected, DeviceDisconnected, DeviceCreated 및 Devicedisconnected와 같은 비 원격 분석 이벤트의 경우 구독을 만들 때 Event Grid 필터링을 사용할 수 있습니다. 원격 분석 이벤트의 경우, Event Grid 필터링 외에도 사용자는 메시지 라우팅 쿼리를 통해 장치 쌍, 메시지 속성 및 본문을 기준으로 필터링 할 수 있습니다. 장치 원격 분석에 대 한 Event Grid 구독에 따라 IoT Hub에서 기본 [경로](iot-hub-devguide-messages-d2c.md) 를 만듭니다. 이 단일 경로는 모든 Event Grid 구독을 처리할 수 있습니다. 원격 분석 데이터를 보내기 전에 메시지를 필터링 하기 위해 [라우팅 쿼리](iot-hub-devguide-routing-query-syntax.md)를 업데이트할 수 있습니다. 본문이 JSON 인 경우에만 메시지 본문에 라우팅 쿼리를 적용할 수 있습니다. 또한 메시지 [시스템 속성](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties)에서 contentType을 **application/Json** 으로, Contentencoding을 **u t f-8** 로 설정 해야 합니다.
 
 ## <a name="limitations-for-device-connected-and-device-disconnected-events"></a>디바이스 연결됨 및 디바이스 연결 끊김 이벤트에 대한 제한
 

@@ -8,14 +8,16 @@ ms.date: 07/08/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: 0fcce6bd6ee9461790ca7618f65be9a20a821afc
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 7366072dbf6b000981899a56ca1c8cfe6af6f04a
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360332"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876040"
 ---
 # <a name="export-your-data-to-azure-blob-storage"></a>Azure Blob Storage에 데이터 내보내기
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 *이 항목의 내용은 관리자에게 적용됩니다.*
 
@@ -25,7 +27,7 @@ ms.locfileid: "68360332"
 > 연속 데이터 내보내기를 켜면 그 시점 이후의 데이터만 얻게 됩니다. 현재는 연속 데이터 내보내기가 꺼져 있는 시간의 데이터를 검색할 수 없습니다. 더 많은 기록 데이터를 유지하려면 연속 데이터 내보내기를 일찍 켜세요.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 - IoT Central 애플리케이션에서 관리자여야 함
 
@@ -38,12 +40,12 @@ ms.locfileid: "68360332"
 
 1. [Azure Portal에서 새 스토리지 계정](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM)을 만듭니다. [Azure Storage 문서](https://aka.ms/blobdocscreatestorageaccount)에서 자세히 알아볼 수 있습니다.
 2. 계정 유형은 **범용** 또는 **Blob Storage** 중에 선택합니다.
-3. 구독을 선택하세요. 
+3. 구독을 선택합니다. 
 
     > [!Note] 
     > 이제 종량제 IoT Central 애플리케이션에 대한 구독과 **동일하지 않은** 다른 구독으로 데이터를 내보낼 수 있습니다. 이 경우 연결 문자열을 사용하여 연결합니다.
 
-4. 스토리지 계정에 컨테이너를 만듭니다. 저장소 계정으로 이동합니다. **Blob 서비스**에서 **Blob 찾아보기**를 선택합니다. 위쪽에서 **+ 컨테이너** 를 선택 하 여 새 컨테이너를 만듭니다.
+4. 스토리지 계정에 컨테이너를 만듭니다. 스토리지 계정으로 이동합니다. **Blob 서비스**에서 **Blob 찾아보기**를 선택합니다. 위쪽에서 **+ 컨테이너** 를 선택 하 여 새 컨테이너를 만듭니다.
 
 
 ## <a name="set-up-continuous-data-export"></a>연속 데이터 내보내기 설정
@@ -85,7 +87,7 @@ ms.locfileid: "68360332"
 
 7. **데이터 내보내기** 아래에서 형식을 **켜기**로 설정하여 내보낼 각 데이터 형식을 지정합니다.
 
-6. 연속 데이터 내보내기를 켜려면 **데이터 내보내기**가 **켬**인지 확인합니다.           **저장**을 선택합니다.
+6. 연속 데이터 내보내기를 켜려면 **데이터 내보내기**가 **켬**인지 확인합니다. **저장**을 선택합니다.
 
    ![연속 데이터 내보내기 구성](media/howto-export-data/export-list-blob.png)
 

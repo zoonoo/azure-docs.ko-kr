@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: raynew
-ms.openlocfilehash: 2ed93846e0a1ab98b25bdfbe33b34779996da82b
-ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
+ms.openlocfilehash: 6882476cabc3dc3a737f31eeeb4ccd92e5ea6ee0
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68782637"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69872756"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Azure 간 재해 복구 아키텍처
 
@@ -131,7 +131,7 @@ VM에 대한 아웃바운드 액세스가 URL로 제어되는 경우 다음 URL�
 
 | **URL** | **세부 정보** |
 | ------- | ----------- |
-| \*.blob.core.windows.net | VM에서 원본 지역의 캐시 저장소 계정에 데이터를 쓸 수 있도록 합니다. |
+| \*.blob.core.windows.net | VM에서 원본 지역의 캐시 스토리지 계정에 데이터를 쓸 수 있도록 합니다. |
 | login.microsoftonline.com | Site Recovery 서비스 URL에 대한 권한 부여 및 인증을 제공합니다. |
 | \*.hypervrecoverymanager.windowsazure.com | VM이 Site Recovery 서비스와 통신할 수 있도록 합니다. |
 | \*.servicebus.windows.net | VM이 Site Recovery 모니터링 및 진단 데이터를 쓸 수 있도록 합니다. |
@@ -139,6 +139,7 @@ VM에 대한 아웃바운드 액세스가 URL로 제어되는 경우 다음 URL�
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>IP 주소 범위에 대한 아웃바운드 연결
 
 IP 주소를 사용하여 VM에 대한 아웃바운드 연결을 제어하려면 다음 주소를 허용합니다.
+네트워크 연결 요구 사항에 대 한 자세한 내용은 [네트워킹 백서](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges) 를 참조 하십시오. 
 
 #### <a name="source-region-rules"></a>원본 지역 규칙
 

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 4aadac343e023e68432741c1f1231bc0ec9fe0ea
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 5e3b96d79ddef7940fd4029f9268e3040a63d2fb
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990196"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69875080"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions HTTP 트리거 및 바인딩
 
@@ -728,7 +728,7 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 
 ![포털에서 함수 키를 관리합니다.](./media/functions-bindings-http-webhook/manage-function-keys.png)
 
-프로그래밍 방식으로 함수 키를 확인하는 데 사용할 수 있도록 지원되는 API는 없습니다.
+[키 관리 API](https://github.com/Azure/azure-functions-host/wiki/Key-management-API)를 사용 하 여 프로그래밍 방식으로 함수 키를 가져올 수 있습니다.
 
 ### <a name="api-key-authorization"></a>API 키 권한 부여
 

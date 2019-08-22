@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 72155e072acb8006b48f6951fc60081126c80691
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: e73a64a9782535da31e2eacbaa2740007707c774
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990454"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69872423"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>모델 학습의 컴퓨팅 대상 설정 
 
@@ -317,7 +317,7 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 1. [Azure Portal](https://portal.azure.com)로 이동하여 자신의 작업 영역을 엽니다. 
 1. __애플리케이션__에서 __컴퓨팅__을 선택합니다.
 
-    ![[컴퓨팅 보기] 탭](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)
+    [![계산 탭 보기](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace-expanded.png)
 
 ### <a id="portal-create"></a>컴퓨팅 대상 만들기
 
@@ -336,8 +336,6 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 
 1. 양식을 작성합니다. 필요한 속성, 특히 컴퓨팅을 스핀업하는 데 사용하는 **VM 제품군** 및 **최대 노드**에 대한 값을 입력합니다.  
 
-    ![양식 작성](./media/how-to-set-up-training-targets/add-compute-form.png) 
-
 1. __만들기__를 선택합니다.
 
 
@@ -348,8 +346,6 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 1. 그러면 컴퓨팅 대상의 세부 정보가 표시됩니다. 
 
     ![컴퓨팅 대상 세부 정보 보기](./media/how-to-set-up-training-targets/compute-target-details.png) 
-
-
 
 ### <a id="portal-reuse"></a>컴퓨팅 대상 연결
 

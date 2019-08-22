@@ -7,18 +7,23 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/26/2019
 ms.author: bharathb
-ms.openlocfilehash: a4de902e51b101d14aac599c9aad8c4feb86a9c6
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 6092b3aac2b0282a795d89730266e72179b34e8a
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624598"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648889"
 ---
 # <a name="migrate-hundreds-of-terabytes-of-data-into-azure-cosmos-db"></a>수백 테라바이트의 데이터를 Azure Cosmos DB로 마이그레이션 
 
 Tb의 데이터를 저장할 수 Azure Cosmos DB. 대규모 데이터 마이그레이션을 수행 하 여 프로덕션 워크 로드를 Azure Cosmos DB로 이동할 수 있습니다. 이 문서에서는 대규모 데이터를 Azure Cosmos DB로 이동 하는 데 필요한 과제를 설명 하 고 문제를 해결 하 고 데이터를 Azure Cosmos DB으로 마이그레이션하는 데 도움이 되는 도구를 소개 합니다. 이 사례 연구에서 고객은 Cosmos DB SQL API를 사용 했습니다.  
 
 전체 작업을 Azure Cosmos DB로 마이그레이션하기 전에 데이터의 하위 집합을 마이그레이션하여 파티션 키 선택, 쿼리 성능 및 데이터 모델링과 같은 일부 측면의 유효성을 검사할 수 있습니다. 개념 증명의 유효성을 검사 한 후에는 전체 작업을 Azure Cosmos DB로 이동할 수 있습니다.  
+
+[Cosmos DB 부트스트랩 프로그램](https://azurecosmosdb.github.io/CosmosBootstrap/) 을 사용 하 여 Azure Cosmos DB에서 응용 프로그램을 빌드하거나 마이그레이션하는 속도를 높일 수도 있습니다. 이 프로그램의 일부로 Azure Cosmos DB 팀의 엔지니어가 프로젝트에 할당 되 고 데이터를 Azure Cosmos DB으로 마이그레이션하는 데 도움이 됩니다. 아래 단추를 클릭 하 Cosmos DB 부트스트랩 프로그램에 등록 합니다.
+
+> [!div class="nextstepaction"]
+> [Cosmos DB 부트스트랩 프로그램](https://azurecosmosdb.github.io/CosmosBootstrap/)
 
 ## <a name="tools-for-data-migration"></a>데이터 마이그레이션 도구 
 
@@ -152,4 +157,7 @@ Azure Cosmos DB로 데이터를 마이그레이션하기 위한 기존 도구에
 * [.Net](bulk-executor-dot-net.md) 및 [Java](bulk-executor-java.md)에서 대량 실행자 라이브러리를 사용 하는 샘플 응용 프로그램을 사용해 보세요. 
 * 대량 실행자 라이브러리는 Cosmos DB Spark 커넥터에 통합 되어 있습니다. 자세한 내용은 [Azure Cosmos DB spark 커넥터](spark-connector.md) 문서를 참조 하세요.  
 * 대규모 마이그레이션에 대 한 추가 도움말을 보려면 "일반 권고" 문제 유형 및 "대규모 (TB +) 마이그레이션" 문제 하위 유형에 서 지원 티켓을 열어 Azure Cosmos DB 제품 팀에 문의 하세요. 
+* [Cosmos DB 부트스트랩 프로그램](https://azurecosmosdb.github.io/CosmosBootstrap/) 을 사용 하 여 Azure Cosmos DB에서 응용 프로그램을 빌드하거나 마이그레이션하는 속도를 높일 수 있습니다.
 
+> [!div class="nextstepaction"]
+> [Cosmos DB 부트스트랩 프로그램](https://azurecosmosdb.github.io/CosmosBootstrap/)

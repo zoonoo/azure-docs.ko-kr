@@ -1,13 +1,13 @@
 ---
 title: OData 언어 개요-Azure Search
-description: 필터에 대 한 OData 언어 개요, 선택한 by Azure Search 쿼리에 대 한 합니다.
+description: OData 언어 개요 필터, 선택 및 Azure Search 쿼리를 위한 정렬 기준입니다.
 ms.date: 06/13/2019
 services: search
 ms.service: search
 ms.topic: conceptual
 author: Brjohnstmsft
 ms.author: brjohnst
-ms.manager: cgronlun
+manager: nitinme
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,34 +19,34 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 166c23088fe0388199ca51efde05153bb5697e38
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0bd446b0ffa97a758f68a0f85889b13da6e3d8b0
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063695"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650025"
 ---
-# <a name="odata-language-overview-for-filter-orderby-and-select-in-azure-search"></a>에 대 한 OData 언어 개요 `$filter`하십시오 `$orderby`, 및 `$select` Azure Search에서
+# <a name="odata-language-overview-for-filter-orderby-and-select-in-azure-search"></a>`$filter` ,`$orderby`및 의`$select` OData 언어 개요 Azure Search
 
-Azure Search의 OData 식 구문 하위 집합을 지원 **$filter**하십시오 **$orderby**, 및 **$select** 식. 필터 식은 쿼리 구문 분석 때 평가되고, 검색을 특정 필드로 제한하거나 인덱스 검색 때 사용되는 일치 조건을 추가합니다. Order by 식 결과 반환 되는 문서를 정렬 하려면 집합을 통해 사후 처리 단계로 적용 됩니다. Select 식 결과 집합에 포함 되는 문서 필드를 결정 합니다. 이러한 식의 구문은 구별 합니다 [간단한](query-simple-syntax.md) 또는 [전체](query-lucene-syntax.md) 쿼리 구문에 사용 되는 합니다 **검색** 매개 변수를 구문에서 중복 되는 부분이 있지만 필드를 참조 합니다.
+Azure Search는 **$filter**, **$orderby**및 **$select** 식의 OData 식 구문 하위 집합을 지원 합니다. 필터 식은 쿼리 구문 분석 때 평가되고, 검색을 특정 필드로 제한하거나 인덱스 검색 때 사용되는 일치 조건을 추가합니다. Order by 식은 반환 되는 문서를 정렬 하기 위해 결과 집합에 대 한 사후 처리 단계로 적용 됩니다. 식 선택은 결과 집합에 포함 되는 문서 필드를 결정 합니다. 이러한 식의 구문은 **검색** 매개 변수에 사용 되는 [단순](query-simple-syntax.md) 또는 [전체](query-lucene-syntax.md) 쿼리 구문과 구분 됩니다. 하지만 필드를 참조 하는 구문에는 약간의 차이가 있습니다.
 
-이 문서에서는 필터, order by 및 select 식에 사용 된 OData 식 언어의 개요를 제공 합니다. 언어는 "아래에서 위로", 가장 기본적인 요소를 사용 하 여 시작 하 고 빌드에 표시 됩니다. 각 매개 변수에 대 한 최상위 구문은 별도 문서에서 설명 합니다.
+이 문서에서는 필터, order by 및 select 식에 사용 되는 OData 식 언어의 개요를 제공 합니다. 언어가 가장 기본적인 요소부터 시작 하 여 "상향식"으로 표시 됩니다. 각 매개 변수에 대 한 최상위 구문은 별도의 문서에 설명 되어 있습니다.
 
 - [$filter 구문](search-query-odata-filter.md)
 - [$orderby 구문](search-query-odata-orderby.md)
 - [$select 구문](search-query-odata-select.md)
 
-OData 식 간단한에 이르는 매우 복잡 하지만 모든 공통 요소를 공유 합니다. Azure Search의 OData 식의 가장 기본적인 부분은 다음과 같습니다.
+OData 식의 범위는 단순에서 매우 복잡 하지만 모두 공통 요소를 공유 합니다. Azure Search OData 식의 가장 기본적인 부분은 다음과 같습니다.
 
-- **경로 필드**을 인덱스의 특정 필드를 나타냅니다.
+- 인덱스의 특정 필드를 참조 하는 **필드 경로**입니다.
 - **상수**는 특정 데이터 형식의 리터럴 값입니다.
 
 > [!NOTE]
-> Azure Search의 용어에서 다른 합니다 [OData 표준을](https://www.odata.org/documentation/) 몇 가지 방식에서입니다. 이라고 하는 **필드** Azure Search에서 호출 되는 **속성** OData에서와 마찬가지로 **필드 경로** 비교 **속성 경로**. **인덱스** 포함 된 **문서** Azure Search에서 라고 하며 일반적으로 더으로 OData는 **엔터티 집합** 포함 된 **엔터티**합니다. Azure Search 용어는이 참조 전체에 사용 됩니다.
+> Azure Search의 용어는 [OData 표준과](https://www.odata.org/documentation/) 다릅니다. Azure Search에서 **필드** 를 호출 하는 것은 OData에서 **속성** 이라고 하며, **필드 경로** 와 **속성 경로**에 대해서도 유사 합니다. Azure Search **문서** 를 포함 하는 **인덱스** 를 일반적으로 OData에서 **엔터티**를 포함 하는 **엔터티 집합** 이라고 합니다. Azure Search 용어는이 참조 전체에서 사용 됩니다.
 
 ## <a name="field-paths"></a>필드 경로
 
-다음 EBNF ([확장 된 Backus Naur 폼](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) 문법 필드 경로 정의 합니다.
+다음 EBNF ([Extended Backus-Backus-naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form))은 필드 경로의 문법을 정의 합니다.
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -56,62 +56,62 @@ field_path ::= identifier('/'identifier)*
 identifier ::= [a-zA-Z_][a-zA-Z_0-9]*
 ```
 
-대화형 구문 다이어그램을 사용할 수 있는 이기도합니다.
+대화형 구문 다이어그램도 사용할 수 있습니다.
 
 > [!div class="nextstepaction"]
 > [Azure Search에 대 한 OData 구문 다이어그램](https://azuresearch.github.io/odata-syntax-diagram/#field_path)
 
 > [!NOTE]
-> 참조 [Azure Search에 대 한 OData 식 구문 참조](search-query-odata-syntax-reference.md) 전체 EBNF에 대 한 합니다.
+> 전체 EBNF [Azure Search에 대 한 OData 식 구문 참조](search-query-odata-syntax-reference.md) 를 참조 하세요.
 
-하나 이상의 필드 경로 이루어집니다 **식별자** 슬래시로 구분 합니다. 각 식별자는 ASCII 문자 또는 밑줄로 시작 하 고 ASCII 문자, 숫자 또는 밑줄을 포함 하는 문자 시퀀스입니다. 위-소문자 또는 문자 수 있습니다.
+필드 경로는 슬래시로 구분 된 하나 이상의 **식별자** 로 구성 됩니다. 각 식별자는 ASCII 문자 또는 밑줄로 시작 해야 하 고 ASCII 문자, 숫자 또는 밑줄만 포함 하는 문자 시퀀스입니다. 문자는 대문자나 소문자 일 수 있습니다.
 
-식별자 또는 필드의 이름 중 하나를 참조할 수는 **범위 변수** 의 컨텍스트에서 [컬렉션 식](search-query-odata-collection-operators.md) (`any` 또는 `all`) 필터에서. 범위 변수는 컬렉션의 현재 요소를 나타내는 루프 변수 비슷합니다. 복잡 한 컬렉션에 대 한 해당 변수 때문 변수의 하위 필드를 참조 하려면 필드 경로 사용할 수 있는 개체를 나타냅니다. 이 대부분의 프로그래밍 언어에서 점 표기법 유사 합니다.
+식별자는 필드 이름 또는 필터의 [컬렉션 식](search-query-odata-collection-operators.md) (`any` 또는 `all`)의 컨텍스트에서 **범위 변수** 를 참조할 수 있습니다. 범위 변수는 컬렉션의 현재 요소를 나타내는 루프 변수와 같습니다. 복합 컬렉션의 경우 해당 변수는 개체를 나타내므로 필드 경로를 사용 하 여 변수의 하위 필드를 참조할 수 있습니다. 이는 대부분의 프로그래밍 언어에서 점 표기법과 유사 합니다.
 
-필드 경로의 예는 다음 표에 표시 됩니다.
+다음 표에서는 필드 경로의 예를 보여 줍니다.
 
-| 필드 경로 | 설명 |
+| 필드 경로 | Description |
 | --- | --- |
-| `HotelName` | 인덱스의 최상위 필드 참조 |
-| `Address/City` | 참조 된 `City` ; 인덱스의 복잡 한 필드 하위 필드 `Address` 유형의 `Edm.ComplexType` 이 예제 |
-| `Rooms/Type` | 참조 된 `Type` ; 인덱스에 있는 복잡 한 컬렉션 필드의 하위 필드 `Rooms` 유형의 `Collection(Edm.ComplexType)` 이 예제 |
-| `Stores/Address/Country` | 참조 하는 `Country` 하위 필드는 `Address` ; 인덱스에 있는 복잡 한 컬렉션 필드의 하위 필드 `Stores` 유형의 `Collection(Edm.ComplexType)` 하 고 `Address` 형식의 `Edm.ComplexType` 이 예제 |
-| `room/Type` | 참조 하는 `Type` 하위 필드는 `room` 필터 식의 예를 들어 범위 변수 `Rooms/any(room: room/Type eq 'deluxe')` |
-| `store/Address/Country` | 참조를 `Country` 하위 필드를 `Address` 하위 필드는 `store` 필터 식의 예를 들어 범위 변수 `Stores/any(store: store/Address/Country eq 'Canada')` |
+| `HotelName` | 인덱스의 최상위 필드를 참조 합니다. |
+| `Address/City` | 인덱스에 있는 `City` 복합 필드의 하위 필드를 참조 합니다. 이 예제에서는 `Edm.ComplexType` 형식입니다. `Address` |
+| `Rooms/Type` | 인덱스에 있는 `Type` 복합 컬렉션 필드의 하위 필드를 참조 합니다. 이 예제에서는 `Collection(Edm.ComplexType)` 형식입니다. `Rooms` |
+| `Stores/Address/Country` | 인덱스에 있는 `Country` 복합 컬렉션 필드의 `Address` 하위 필드에 대 한 하위 필드를 참조 합니다. `Edm.ComplexType` 는 형식이 `Collection(Edm.ComplexType)` 며`Address` 이 예제에서는 형식입니다. `Stores` |
+| `room/Type` | 는 필터 식 `Type` 에서와 같이 `room` 범위 변수의 하위 필드를 참조 합니다.`Rooms/any(room: room/Type eq 'deluxe')` |
+| `store/Address/Country` | 는 필터 식 `Country` 에서와 같이 `store` 범위 변수의 `Address` 하위 필드에 대 한 하위 필드를 참조 합니다.`Stores/any(store: store/Address/Country eq 'Canada')` |
 
-필드 경로의 의미는 컨텍스트에 따라 달라 집니다. 필터에 필드 경로 참조의 값을 *단일 인스턴스* 현재 문서에서 필드의 합니다. 다른 컨텍스트에서 같은 **$orderby**를 **$select**, 또는 [전체 Lucene 구문에서 필드 지정된 검색](query-lucene-syntax.md#bkmk_fields)에 필드 경로 자체 필드를 나타냅니다. 이러한 차이 필드 경로 필터에서 사용 되는 방법에 대 한 일부 결과
+필드 경로의 의미는 컨텍스트에 따라 달라 집니다. 필터에서 필드 경로는 현재 문서에 있는 필드의 *단일 인스턴스* 값을 나타냅니다. [전체 Lucene 구문에서](query-lucene-syntax.md#bkmk_fields) **$orderby**, **$select**또는 필드 지정 search와 같은 다른 컨텍스트에서 필드 경로는 필드 자체를 참조 합니다. 이러한 차이는 필터에서 필드 경로를 사용 하는 방법에 대 한 몇 가지 영향을 줍니다.
 
-필드 경로 고려해 보겠습니다 `Address/City`합니다. 필터의 경우, "샌프란시스코"와 같은 현재 문서에 대 한 단일 도시를 나타냅니다. 반대로 `Rooms/Type` 가리킵니다는 `Type` 많은 방 (예: "standard"에 대 한 첫 번째 대화방에 "디럭스" 두 번째 공간, 및 등)에 대 한 하위 필드입니다. 이후 `Rooms/Type` 를 참조 하지 않습니다는 *단일 인스턴스* 하위 필드의 `Type`, 필터에서 직접 사용할 수 없습니다. 대신 방 종류를 필터링 하려면 사용 된 [람다 식](search-query-odata-collection-operators.md) 같이 범위 변수를 사용 하 여:
+필드 경로 `Address/City`를 고려 합니다. 필터에서이는 "샌프란시스코"와 같이 현재 문서에 대 한 단일 도시를 나타냅니다. 이와 대조적으로 `Rooms/Type` 는 많은 대화방 `Type` 의 하위 필드 (예: "standard", 두 번째 방에 대 한 "deluxe")를 참조 합니다. 는 하위 필드 `Type`의 단일 인스턴스를 참조 하지않으므로필터`Rooms/Type` 에 직접 사용할 수 없습니다. 대신, 방 유형을 필터링 하려면 다음과 같이 범위 변수와 함께 [람다 식을](search-query-odata-collection-operators.md) 사용 합니다.
 
     Rooms/any(room: room/Type eq 'deluxe')
 
-이 예제에서는 범위 변수의 `room` 에 표시 되는 `room/Type` 필드 경로입니다. 이런 방식으로 `room/Type` 현재 문서에서 현재 대화방의 유형을 나타냅니다. 이 단일 인스턴스의 `Type` 하위 필드를 필터에서 직접 사용할 수 있도록 합니다.
+이 예에서는 범위 변수가 `room` `room/Type` 필드 경로에 표시 됩니다. 이러한 방식 `room/Type` 으로는 현재 문서에서 현재 대화방의 유형을 나타냅니다. 이는 `Type` 하위 필드의 단일 인스턴스이며 필터에 직접 사용할 수 있습니다.
 
-### <a name="using-field-paths"></a>필드 경로 사용 하 여
+### <a name="using-field-paths"></a>필드 경로 사용
 
-필드 경로의 많은 매개 변수에서 사용 되는 [Azure Search API](https://docs.microsoft.com/rest/api/searchservice/)합니다. 다음 표에 사용할 수 있는, 모든 위치 및 용도에 제한이 있습니다.
+필드 경로는 [AZURE SEARCH API](https://docs.microsoft.com/rest/api/searchservice/)의 많은 매개 변수에 사용 됩니다. 다음 표에서는 사용할 수 있는 모든 위치 및 사용에 대 한 제한 사항을 보여 줍니다.
 
-| API | 매개 변수 이름 | 제한 |
+| API | 매개 변수 이름 | Restrictions |
 | --- | --- | --- |
-| [만들](https://docs.microsoft.com/rest/api/searchservice/create-index) 나 [업데이트](https://docs.microsoft.com/rest/api/searchservice/update-index) 인덱스 | `suggesters/sourceFields` | 없음 |
-| [만들](https://docs.microsoft.com/rest/api/searchservice/create-index) 나 [업데이트](https://docs.microsoft.com/rest/api/searchservice/update-index) 인덱스 | `scoringProfiles/text/weights` | 참조할 수 있습니다 **검색 가능한** 필드 |
-| [만들](https://docs.microsoft.com/rest/api/searchservice/create-index) 나 [업데이트](https://docs.microsoft.com/rest/api/searchservice/update-index) 인덱스 | `scoringProfiles/functions/fieldName` | 참조할 수 있습니다 **필터링 가능** 필드 |
-| [이를 통해 검색](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `search` 때 `queryType` 는 `full` | 참조할 수 있습니다 **검색 가능한** 필드 |
-| [이를 통해 검색](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `facet` | 참조할 수 있습니다 **facetable** 필드 |
-| [이를 통해 검색](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `highlight` | 참조할 수 있습니다 **검색 가능한** 필드 |
-| [이를 통해 검색](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `searchFields` | 참조할 수 있습니다 **검색 가능한** 필드 |
-| [제안](https://docs.microsoft.com/rest/api/searchservice/suggestions) 고 [자동 완성](https://docs.microsoft.com/rest/api/searchservice/autocomplete) | `searchFields` | 포함 된 필드를 참조할 수 있습니다는 [확인 기](index-add-suggesters.md) |
-| [검색](https://docs.microsoft.com/rest/api/searchservice/search-documents)하십시오 [제안](https://docs.microsoft.com/rest/api/searchservice/suggestions), 및 [자동 완성](https://docs.microsoft.com/rest/api/searchservice/autocomplete) | `$filter` | 참조할 수 있습니다 **필터링 가능** 필드 |
-| [검색](https://docs.microsoft.com/rest/api/searchservice/search-documents) 고 [제안](https://docs.microsoft.com/rest/api/searchservice/suggestions) | `$orderby` | 참조할 수 있습니다 **정렬 가능** 필드 |
-| [검색](https://docs.microsoft.com/rest/api/searchservice/search-documents)하십시오 [제안](https://docs.microsoft.com/rest/api/searchservice/suggestions), 및 [조회](https://docs.microsoft.com/rest/api/searchservice/lookup-document) | `$select` | 참조할 수 있습니다 **검색할** 필드 |
+| 인덱스 [만들기](https://docs.microsoft.com/rest/api/searchservice/create-index) 또는 [업데이트](https://docs.microsoft.com/rest/api/searchservice/update-index) | `suggesters/sourceFields` | 없음 |
+| 인덱스 [만들기](https://docs.microsoft.com/rest/api/searchservice/create-index) 또는 [업데이트](https://docs.microsoft.com/rest/api/searchservice/update-index) | `scoringProfiles/text/weights` | **검색 가능한** 필드만 참조할 수 있습니다. |
+| 인덱스 [만들기](https://docs.microsoft.com/rest/api/searchservice/create-index) 또는 [업데이트](https://docs.microsoft.com/rest/api/searchservice/update-index) | `scoringProfiles/functions/fieldName` | **필터링** 가능한 필드만 참조할 수 있습니다. |
+| [이를 통해 검색](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `search`가 `queryType` 인 경우`full` | **검색 가능한** 필드만 참조할 수 있습니다. |
+| [이를 통해 검색](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `facet` | **패싯 가능** 필드만 참조할 수 있습니다. |
+| [이를 통해 검색](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `highlight` | **검색 가능한** 필드만 참조할 수 있습니다. |
+| [이를 통해 검색](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `searchFields` | **검색 가능한** 필드만 참조할 수 있습니다. |
+| [제안](https://docs.microsoft.com/rest/api/searchservice/suggestions) 및 [자동 완성](https://docs.microsoft.com/rest/api/searchservice/autocomplete) | `searchFields` | [확인 기](index-add-suggesters.md) 의 일부인 필드만 참조할 수 있습니다. |
+| [검색](https://docs.microsoft.com/rest/api/searchservice/search-documents), [제안](https://docs.microsoft.com/rest/api/searchservice/suggestions)및 [자동 완성](https://docs.microsoft.com/rest/api/searchservice/autocomplete) | `$filter` | **필터링** 가능한 필드만 참조할 수 있습니다. |
+| [검색](https://docs.microsoft.com/rest/api/searchservice/search-documents) 및 [제안](https://docs.microsoft.com/rest/api/searchservice/suggestions) | `$orderby` | **정렬** 가능한 필드만 참조할 수 있습니다. |
+| [검색](https://docs.microsoft.com/rest/api/searchservice/search-documents), [제안](https://docs.microsoft.com/rest/api/searchservice/suggestions)및 [조회](https://docs.microsoft.com/rest/api/searchservice/lookup-document) | `$select` | **검색할** 수 있는 필드만 참조할 수 있습니다. |
 
 ## <a name="constants"></a>상수
 
-Odata에서는 상수는 리터럴 값을 지정 [엔터티 데이터 모델](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model) (EDM) 형식입니다. 참조 [지원 되는 데이터 형식](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) Azure Search에서 지원 되는 형식의 목록을입니다. 컬렉션 형식 상수는 지원 되지 않습니다.
+OData의 상수는 지정 된 EDM ( [엔터티 데이터 모델](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model) ) 형식의 리터럴 값입니다. Azure Search에서 지원 되는 형식 목록은 [지원 되는 데이터 형식](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) 을 참조 하세요. 컬렉션 형식의 상수는 지원 되지 않습니다.
 
-다음 표에서 각 Azure Search에서 지원 되는 데이터 형식에 대 한 상수의 예를 보여 줍니다.
+다음 표에서는 Azure Search에서 지 원하는 각 데이터 형식에 대 한 상수의 예를 보여 줍니다.
 
-| 데이터 형식 | 예제에서는 상수 |
+| 데이터 형식 | 예제 상수 |
 | --- | --- |
 | `Edm.Boolean` | `true`, `false` |
 | `Edm.DateTimeOffset` | `2019-05-06T12:30:05.451Z` |
@@ -122,7 +122,7 @@ Odata에서는 상수는 리터럴 값을 지정 [엔터티 데이터 모델](ht
 | `Edm.Int64` | `283032927235` |
 | `Edm.String` | `'hello'` |
 
-다음 EBNF ([확장 된 Backus Naur 폼](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) 위의 표에 표시 된 상수 중 대부분에 대 한 문법을 정의 합니다. 지역 공간 형식에 대 한 문법에서 찾을 수 있습니다 [Azure Search의 OData 지리 공간 함수](search-query-odata-geo-spatial-functions.md)합니다.
+다음 EBNF ([Extended Backus-Backus-naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form))는 위의 표에 표시 된 대부분의 상수에 대 한 문법을 정의 합니다. 지역 공간 형식에 대 한 문법은 [Azure Search의 OData 지역 공간 함수](search-query-odata-geo-spatial-functions.md)에서 찾을 수 있습니다.
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -184,21 +184,21 @@ exponent ::= 'e' sign? integer_literal
 boolean_literal ::= 'true' | 'false'
 ```
 
-대화형 구문 다이어그램을 사용할 수 있는 이기도합니다.
+대화형 구문 다이어그램도 사용할 수 있습니다.
 
 > [!div class="nextstepaction"]
 > [Azure Search에 대 한 OData 구문 다이어그램](https://azuresearch.github.io/odata-syntax-diagram/#constant)
 
 > [!NOTE]
-> 참조 [Azure Search에 대 한 OData 식 구문 참조](search-query-odata-syntax-reference.md) 전체 EBNF에 대 한 합니다.
+> 전체 EBNF [Azure Search에 대 한 OData 식 구문 참조](search-query-odata-syntax-reference.md) 를 참조 하세요.
 
-## <a name="building-expressions-from-field-paths-and-constants"></a>필드 경로를 상수 식 작성
+## <a name="building-expressions-from-field-paths-and-constants"></a>필드 경로 및 상수에서 식 작성
 
-필드 경로 및 상수 OData 식의 가장 기본적인 일부 이지만 전체 식 자체 이미 있습니다. 실제로 **$select** Azure Search에서 매개 변수 없는 필드 경로의 쉼표로 구분 된 목록 및 **$orderby** 보다 훨씬 더 복잡 하지 않습니다 **$select**합니다. 형식의 필드가 있는 경우 `Edm.Boolean` 인덱스에 작성할 수도 있습니다. 필터를 해당 필드의 경로 뿐입니다. 상수 `true` 고 `false` 유효한 필터에 구현 되어 있습니다.
+필드 경로와 상수는 OData 식의 가장 기본적인 부분 이지만 이미 전체 식입니다. 실제로 Azure Search의 **$select** 매개 변수는 아무 작업도 수행 하지 않지만 쉼표로 구분 된 필드 경로 목록과 **$orderby** 는 **$select**보다 훨씬 복잡 하지 않습니다. 인덱스에 형식의 `Edm.Boolean` 필드가 있는 경우에도 해당 필드의 경로는 아니지만 필터를 작성할 수 있습니다. 상수 `true` 와`false` 는 마찬가지로 유효한 필터입니다.
 
-그러나 대부분의 해야 둘 이상의 필드와 상수를 참조 하는 복잡 한 식입니다. 매개 변수에 따라 다른 방법으로 이러한 식은 작성할 수 있습니다.
+그러나 대부분의 경우에는 둘 이상의 필드와 상수를 참조 하는 더 복잡 한 식이 필요 합니다. 이러한 식은 매개 변수에 따라 다양 한 방식으로 빌드됩니다.
 
-다음 EBNF ([확장 된 Backus Naur 폼](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form))에 대 한 문법을 정의 합니다 **$filter**를 **$orderby**, 및 **$select** 매개 변수입니다. 이러한 필드 경로 및 상수를 참조 하는 간단한 식에서 작성 됩니다.
+다음 EBNF ([Extended Backus-Backus-naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form))은 **$filter**, **$orderby**및 **$select** 매개 변수에 대 한 문법을 정의 합니다. 이러한 작업은 필드 경로와 상수를 참조 하는 간단한 식에서 빌드됩니다.
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -210,23 +210,23 @@ order_by_expression ::= order_by_clause(',' order_by_clause)*
 select_expression ::= '*' | field_path(',' field_path)*
 ```
 
-대화형 구문 다이어그램을 사용할 수 있는 이기도합니다.
+대화형 구문 다이어그램도 사용할 수 있습니다.
 
 > [!div class="nextstepaction"]
 > [Azure Search에 대 한 OData 구문 다이어그램](https://azuresearch.github.io/odata-syntax-diagram/#filter_expression)
 
 > [!NOTE]
-> 참조 [Azure Search에 대 한 OData 식 구문 참조](search-query-odata-syntax-reference.md) 전체 EBNF에 대 한 합니다.
+> 전체 EBNF [Azure Search에 대 한 OData 식 구문 참조](search-query-odata-syntax-reference.md) 를 참조 하세요.
 
-합니다 **$orderby** 하 고 **$select** 매개 변수는 모두 간단한 식의 쉼표로 구분 된 목록입니다. 합니다 **$filter** 매개 변수는 하위 식을 더 간단한 식의 구성 된 부울 식입니다. 와 같은 논리 연산자를 사용 하 여 이러한 하위 식을 결합 [ `and`, `or`, 및 `not` ](search-query-odata-logical-operators.md), 같은 비교 연산자 [ `eq`, `lt`합니다 `gt`등과](search-query-odata-comparison-operators.md), 및와 같은 컬렉션 연산자 [ `any` 하 고 `all` ](search-query-odata-collection-operators.md)합니다.
+**$Orderby** 및 **$select** 매개 변수는 간단한 식의 쉼표로 구분 된 목록입니다. **$Filter** 매개 변수는 보다 간단한 하위 식으로 구성 된 부울 식입니다. 이러한 하위 식은,, 등의 논리 [ `and` `or` `not` ](search-query-odata-logical-operators.md)연산자를 사용 하 여 결합 되 고,,, 등 [ `eq`의 `gt` `lt`](search-query-odata-comparison-operators.md)비교 연산자와 함께 사용 됩니다. 및와 같은 연산자입니다. [ `any` `all` ](search-query-odata-collection-operators.md)
 
-합니다 **$filter**를 **$orderby**, 및 **$select** 매개 변수를 다음 문서에서 자세히 살펴보겠습니다.
+**$Filter**, **$orderby**및 **$select** 매개 변수는 다음 문서에 자세히 설명 되어 있습니다.
 
 - [Azure Search의 OData $filter 구문](search-query-odata-filter.md)
 - [Azure Search의 OData $orderby 구문](search-query-odata-orderby.md)
 - [Azure Search의 OData $select 구문](search-query-odata-select.md)
 
-## <a name="see-also"></a>참고 항목  
+## <a name="see-also"></a>참고자료  
 
 - [Azure Search의 패싯 탐색](search-faceted-navigation.md)
 - [Azure Search의 필터](search-filters.md)

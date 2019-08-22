@@ -15,18 +15,18 @@ ms.date: 06/18/2019
 ms.author: cephalin
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 4b2934c8b93ffb247661886cb2791c0719996aeb
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 47db310f6affa6317a74020d182c521d65cd32f3
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297179"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69875238"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Azure App Service에 대 한 로컬 Git 배포
 
 이 방법 가이드에서는 로컬 컴퓨터의 Git 리포지토리에서 [Azure App Service](overview.md) 에 앱을 배포 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 이 방법 가이드의 단계를 수행하려면
 
@@ -156,7 +156,7 @@ Git를 사용 하 여 Azure에서 App Service 앱에 게시 하는 경우 다음
 |`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.`|중 `git push`에 분기를 지정 하지 않았거나에서 `.gitconfig`값을 `push.default` 설정 하지 않았습니다.|`git push` 마스터`git push azure master`분기를 지정 하 여를 다시 실행 합니다.|
 |`src refspec [branchname] does not match any.`|' Azure ' 원격의 마스터가 아닌 다른 분기에 푸시 하려고 했습니다.|`git push` 마스터`git push azure master`분기를 지정 하 여를 다시 실행 합니다.|
 |`RPC failed; result=22, HTTP code = 5xx.`|이 오류는 HTTPS를 통해 큰 git 리포지토리를 푸시하려고 시도하는 경우 발생할 수 있습니다.|로컬 컴퓨터에서 git 구성을 변경 하 여 `postBuffer` 더 크게 만듭니다. 예를 들어 `git config --global http.postBuffer 524288000`을 참조하십시오.|
-|`Error - Changes committed to remote repository but your web app not updated.`|추가 필수 모듈을 지정 하는 _패키지나 json_ 파일을 사용 하 여 node.js 앱을 배포 했습니다.|오류에 `npm ERR!` 대 한 추가 컨텍스트를 위해이 오류 이전의 오류 메시지를 검토 합니다. 이 오류의 알려진 원인과 해당 `npm ERR!` 메시지는 다음과 같습니다.<br /><br />**형식이 잘못 된 package. json 파일**:`npm ERR! Couldn't read dependencies.`<br /><br />**네이티브 모듈에는 Windows 용 이진 배포가**없습니다.<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />로 구분하거나 여러 <br />' npm [modulename@version] preinstall: \make || gmake\`|
+|`Error - Changes committed to remote repository but your web app not updated.`|추가 필수 모듈을 지정 하는 _패키지나 json_ 파일을 사용 하 여 node.js 앱을 배포 했습니다.|오류에 `npm ERR!` 대 한 추가 컨텍스트를 위해이 오류 이전의 오류 메시지를 검토 합니다. 이 오류의 알려진 원인과 해당 `npm ERR!` 메시지는 다음과 같습니다.<br /><br />**형식이 잘못 된 package. json 파일**:`npm ERR! Couldn't read dependencies.`<br /><br />**네이티브 모듈에는 Windows 용 이진 배포가**없습니다.<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />로 구분하거나 여러 <br />`npm ERR! [modulename@version] preinstall: \make || gmake\ `|
 
 ## <a name="additional-resources"></a>추가 자료
 

@@ -15,12 +15,12 @@ ms.workload: azure-vs
 ms.date: 02/18/2019
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: d50acc50880229626c847d41d9abe9a9e13d9c6e
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 58d03d80c82fbf58803f7fefa8ef60c19f99bced
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736124"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876880"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Visual Studio를 사용하여 WebJobs 개발 및 배포 - Azure App Service
 
@@ -90,7 +90,7 @@ WebJob 지원 프로젝트에는 다음 항목이 추가됩니다.
 
 Visual Studio 2015를 사용하는 경우 [Azure SDK for .NET(Visual Studio 2015)](https://azure.microsoft.com/downloads/)을 설치합니다.
 
-Visual Studio 2019을 사용 하는 경우 [Azure 개발 워크 로드](https://docs.microsoft.com/visualstudio/install/install-visual-studio#step-4---choose-workloads)를 설치 합니다.
+Visual Studio 2017을 사용하는 경우 [Azure 개발 워크로드](https://docs.microsoft.com/visualstudio/install/install-visual-studio#step-4---choose-workloads)를 설치합니다.
 
 ### <a id="convert"></a>기존 콘솔 애플리케이션 프로젝트에 WebJobs 배포 사용
 

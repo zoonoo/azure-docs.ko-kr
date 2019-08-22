@@ -2,7 +2,7 @@
 title: 포털에서 Azure Search에 대한 서비스 관리 - Azure Search
 description: Azure Portal을 사용하여 Microsoft Azure에 호스트된 클라우드 검색 서비스인 Azure Search 서비스를 관리합니다.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 tags: azure-portal
 services: search
 ms.service: search
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: d5820c927b88eba37eaf092dfd4b209180bfc8eb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2c4b2a03e7e5c818453eaf4ad6881b2caba3b93c
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60565452"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647668"
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Azure 포털에서 Azure Search에 대한 서비스 관리
 > [!div class="op_single_selector"]
@@ -60,7 +60,7 @@ Azure Search에서는 포털 또는 프로그래밍 방식 인터페이스를 �
 <a id="sub-5"></a>
 
 ## <a name="monitor-resource-usage"></a>리소스 사용 모니터링
-대시보드에서는 리소스 모니터링이 서비스 대시보드에 표시되는 정보 및 서비스를 쿼리하여 얻을 수 있는 몇 개의 메트릭으로 제한됩니다. 서비스 대시보드의 사용 섹션에서 파티션 리소스 수준이 애플리케이션에 적합한지 신속하게 확인할 수 있습니다. 캡처 및 기록된 된 이벤트를 유지 하려는 경우 Azure 모니터링 하는 등의 외부 리소스를 제공할 수 있습니다. 자세한 내용은 [Azure Search 모니터링](search-monitor-usage.md)합니다.
+대시보드에서는 리소스 모니터링이 서비스 대시보드에 표시되는 정보 및 서비스를 쿼리하여 얻을 수 있는 몇 개의 메트릭으로 제한됩니다. 서비스 대시보드의 사용 섹션에서 파티션 리소스 수준이 애플리케이션에 적합한지 신속하게 확인할 수 있습니다. 기록 된 이벤트를 캡처하고 유지 하려는 경우 Azure 모니터링과 같은 외부 리소스를 프로 비전 할 수 있습니다. 자세한 내용은 [Azure Search 모니터링](search-monitor-usage.md)을 참조 하세요.
 
 Search Service REST API를 사용하여 프로그래밍 방식으로 문서 및 인덱스 수를 가져올 수 있습니다. 
 
@@ -79,7 +79,7 @@ Microsoft의 통제 범위를 벗어나는 치명적인 장애가 발생하더�
 
 ## <a name="backup-and-restore"></a>Backup 및 복원
 
-Azure Search는 기본 데이터 저장소 솔루션이 아니므로 셀프 서비스 백업 및 복원에 대한 공식적인 메커니즘을 제공하지 않습니다. 인덱스를 만들고 채우는 데 사용되는 애플리케이션 코드는 인덱스를 실수로 삭제하는 경우에 사실상 복원 옵션으로 사용됩니다. 
+Azure Search는 기본 데이터 스토리지 솔루션이 아니므로 셀프 서비스 백업 및 복원에 대한 공식적인 메커니즘을 제공하지 않습니다. 인덱스를 만들고 채우는 데 사용되는 애플리케이션 코드는 인덱스를 실수로 삭제하는 경우에 사실상 복원 옵션으로 사용됩니다. 
 
 인덱스를 다시 작성하려면 삭제(있다고 가정)하고, 서비스에서 인덱스를 다시 만들고, 기본 데이터 저장소에서 데이터를 검색하여 다시 로드합니다.
 
@@ -109,11 +109,11 @@ QPS(초당 쿼리 수)를 높이거나 고가용성을 구현하려면 복제본
 쿼리 볼륨이 많은 기간이 지나고 검색 쿼리 부하가 정규화되면(예: 휴일 할인이 종료된 후) 슬라이더를 사용하여 복제본을 줄일 수 있습니다. 필요한 추가 단계는 없습니다. 복제본 수를 줄이면 데이터 센터의 가상 머신이 해제됩니다. 이제 이전보다 적은 VM에서 쿼리 및 데이터 수집 작업이 실행됩니다. 최소 요구 사항은 복제본 하나입니다.
 
 ### <a name="remove-partitions"></a>파티션 제거
-추가 조치가 필요 없는 복제본 제거와 달리, 줄일 수 있는 것보다 많은 저장소를 사용하는 경우 몇 가지 작업이 필요할 수 있습니다. 예를 들어 솔루션에서 파티션 세 개를 사용하며 한 개 또는 두 개의 파티션으로 다운사이징하는 경우 인덱스를 호스팅하는 데 새 저장소 공간이 필요한 것보다 적으면 오류가 생성됩니다. 예상처럼, 연결된 인덱스 내의 문서 또는 인덱스를 삭제하여 공간을 확보하거나 현재 구성을 유지할 수 있습니다.
+추가 조치가 필요 없는 복제본 제거와 달리, 줄일 수 있는 것보다 많은 스토리지를 사용하는 경우 몇 가지 작업이 필요할 수 있습니다. 예를 들어 솔루션에서 파티션 세 개를 사용하며 한 개 또는 두 개의 파티션으로 다운사이징하는 경우 인덱스를 호스팅하는 데 새 스토리지 공간이 필요한 것보다 적으면 오류가 생성됩니다. 예상처럼, 연결된 인덱스 내의 문서 또는 인덱스를 삭제하여 공간을 확보하거나 현재 구성을 유지할 수 있습니다.
 
-특정 파티션에 저장되는 인덱스 분할을 알려주는 검색 방법은 없습니다. 각 파티션에서 제공하는 저장소는 대략 25GB이므로 보유한 개수의 파티션에 수용할 수 있는 크기로 저장소를 줄여야 합니다. 파티션 한 개로 되돌리려면 12개 분할이 모두 들어가야 합니다.
+특정 파티션에 저장되는 인덱스 분할을 알려주는 검색 방법은 없습니다. 각 파티션에서 제공하는 스토리지는 대략 25GB이므로 보유한 개수의 파티션에 수용할 수 있는 크기로 스토리지를 줄여야 합니다. 파티션 한 개로 되돌리려면 12개 분할이 모두 들어가야 합니다.
 
-미래 계획에 도움이 되도록 저장소를 검사( [인덱스 통계 가져오기](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)사용)하여 실제로 사용한 크기를 확인하는 것이 좋습니다. 
+미래 계획에 도움이 되도록 스토리지를 검사( [인덱스 통계 가져오기](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)사용)하여 실제로 사용한 크기를 확인하는 것이 좋습니다. 
 
 <a id="advanced-deployment"></a>
 

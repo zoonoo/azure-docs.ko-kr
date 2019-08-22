@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 0122b76592ce9e1179a3d65f7db681679bda6f37
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: e5b99bba3c3b21ea9662845928c523c329695bf8
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68988621"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877232"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Windows에 Azure IoT Edge 런타임 설치
 
@@ -30,16 +30,11 @@ IoT Edge 런타임에 대한 자세한 내용은 [Azure IoT Edge 런타임 및 �
 >
 > 이 문제를 해결 하려면 명령을 `Stop-Service iotedge` 사용 하 여 이러한 전원 상태를 사용 하기 전에 실행 중인 IoT Edge 모듈을 모두 중지 합니다. 
 
-<!--
-> [!NOTE]
-> Using Linux containers on Windows systems is not a recommended or supported production configuration for Azure IoT Edge. However, it can be used for development and testing purposes.
--->
-
 Windows 시스템에서 Linux 컨테이너를 사용하는 것은 Azure IoT Edge에 추천되거나 지원되는 프로덕션 구성이 아닙니다. 그러나 개발 및 테스트 용도로만 사용할 수 있습니다. 자세히 알아보려면 [Windows에서 IoT Edge를 사용 하 여 Linux 컨테이너 실행](how-to-install-iot-edge-windows-with-linux.md)을 참조 하세요.
 
 최신 버전의 IoT Edge에 포함 된 내용에 대 한 자세한 내용은 [Azure IoT Edge 릴리스](https://github.com/Azure/azure-iotedge/releases)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 이 섹션을 사용하여 Windows 디바이스에서 IoT Edge를 지원할 수 있는지 여부를 검토하고 설치 전에 컨테이너 엔진에 대해 준비합니다. 
 
@@ -57,6 +52,9 @@ Azure IoT Edge는 [OCI 호환](https://www.opencontainers.org/) 컨테이너 엔
 >Azure IoT Edge 소프트웨어 패키지에는 패키지(LICENSE 디렉터리)에 있는 사용 조건이 적용됩니다. 패키지를 사용하기 전에 사용 조건을 읽어보시기 바랍니다. 패키지를 설치 및 사용하면 이러한 사용 조건에 동의하게 됩니다. 사용 조건에 동의하지 않는 경우, 패키지를 사용하지 마세요.
 
 PowerShell 스크립트가 Azure IoT Edge 보안 디먼을 다운로드하여 설치합니다. 그런 다음, 보안 디먼이 다른 모듈의 원격 배포를 가능하게 하는 두 가지 런타임 모듈 중 첫 번째인 IoT Edge 에이전트를 시작합니다. 
+
+>[!TIP]
+>IoT Core 장치의 경우 RemotePowerShell 세션을 사용 하 여 설치 명령을 실행 하는 것이 좋습니다. 자세한 내용은 [Windows IoT 용 PowerShell 사용](https://docs.microsoft.com/windows/iot-core/connect-your-device/powershell)을 참조 하세요.
 
 디바이스에 IoT Edge 런타임을 처음 설치하는 경우 IoT 허브의 ID를 사용하여 디바이스를 프로비전해야 합니다. IoT Hub에서 제공 하는 장치 연결 문자열을 사용 하 여 단일 IoT Edge 장치를 수동으로 프로 비전 할 수 있습니다. 또는 장치 프로 비전 서비스 (DPS)를 사용 하 여 장치를 자동으로 프로 비전 할 수 있습니다 .이는 설정할 장치가 많은 경우에 유용 합니다. 프로비전 선택 사항에 따라 적절한 설치 스크립트를 선택합니다. 
 

@@ -2,7 +2,7 @@
 title: Lucene 쿼리 예제 - Azure Search
 description: Lucene은 Azure Search 서비스에서 유사 항목 검색, 근접 검색, 용어 상승, 정규식 검색 및 와일드카드 검색에 대해 구문을 쿼리합니다.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 tags: Lucene query analyzer syntax
 services: search
 ms.service: search
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 53a1f09fcc9897f4def565a9119ad97ca365cae3
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 3f6a39129db9e8c43a5e2de68d919ba1037c3f5c
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882743"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648229"
 ---
 # <a name="query-examples-using-full-lucene-search-syntax-advanced-queries-in-azure-search"></a>"Full" Lucene 검색 구문을 사용 하는 쿼리 예제 (Azure Search 고급 쿼리)
 
@@ -45,7 +45,7 @@ Lucene 파서는 필드 범위 쿼리, 유사 항목 및 접두사 와일드 카
 
 ### <a name="set-the-request-url"></a>요청 URL 설정
 
-요청은 Azure Search 끝점 및 검색 문자열을 포함하는 URL과 연결되는 GET 명령입니다.
+요청은 Azure Search 엔드포인트 및 검색 문자열을 포함하는 URL과 연결되는 GET 명령입니다.
 
   ![Postman 요청 헤더](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
 

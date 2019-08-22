@@ -6,14 +6,14 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: heidist
-manager: cgronlun
+manager: nitinme
 author: HeidiSteen
-ms.openlocfilehash: da1d39c23106b2218700e7a2707b824e240448d3
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 387248b2dac7c10ec0e96454f26964ca7f15c56e
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883031"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650002"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Azure Search의 텍스트 처리용 분석기
 
@@ -26,7 +26,7 @@ ms.locfileid: "68883031"
 + 대문자 단어는 소문자가 됩니다.
 + 단어는 시제에 관계 없이 일치를 찾을 수 있도록 루트 양식으로 세분화됩니다.
 
-언어 분석기는 입력된 텍스트를 정보 저장 및 검색 시 효율적인 원시 형태 또는 루트 형태로 변환합니다. 변환은 인덱싱 중 인덱스가 빌드될 때, 그리고 검색 중 인덱스 읽기가 수행될 때 발생합니다. 두 작업에서 동일한 분석기를 사용하면 예상되는 검색 결과를 얻을 확률이 큽니다.
+언어 분석기는 입력된 텍스트를 정보 스토리지 및 검색 시 효율적인 원시 형태 또는 루트 형태로 변환합니다. 변환은 인덱싱 중 인덱스가 빌드될 때, 그리고 검색 중 인덱스 읽기가 수행될 때 발생합니다. 두 작업에서 동일한 분석기를 사용하면 예상되는 검색 결과를 얻을 확률이 큽니다.
 
 ## <a name="default-analyzer"></a>기본 분석기  
 

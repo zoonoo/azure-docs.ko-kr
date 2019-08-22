@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/11/2018
 ms.author: pepogors
-ms.openlocfilehash: 10419240f730a6b68f1161f158f7f903a98a9933
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: dc3384821ddfba0a137a74297bc44903b6ed5d1d
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035606"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650572"
 ---
 # <a name="service-fabric-application-and-service-manifest-examples"></a>Service Fabric 애플리케이션 및 서비스 매니페스트 예제
 이 섹션에는 애플리케이션 및 서비스 매니페스트 예제가 포함되어 있습니다. 이러한 예제의 목적은 중요한 시나리오를 보여주는 것아 아니라 사용 가능한 다양한 설정과 사용 방법을 보여주는 것입니다. 
@@ -39,7 +39,7 @@ ms.locfileid: "69035606"
 |[데이터 패키지 선언](service-fabric-application-and-service-manifests.md)|[VotingData 서비스 매니페스트](service-fabric-manifest-example-reliable-services-app.md#votingdata-service-manifest)|
 |[환경 변수 재정의](service-fabric-get-started-containers.md#configure-and-set-environment-variables)|[컨테이너 애플리케이션 매니페스트](service-fabric-manifest-example-container-app.md#application-manifest)|
 |[컨테이너 포트-호스트 매핑 구성](service-fabric-get-started-containers.md#configure-container-port-to-host-port-mapping-and-container-to-container-discovery)| [컨테이너 애플리케이션 매니페스트](service-fabric-manifest-example-container-app.md#application-manifest)|
-|[컨테이너 레지스트리 인증 구성](service-fabric-get-started-containers.md#configure-container-registry-authentication)|[컨테이너 애플리케이션 매니페스트](service-fabric-manifest-example-container-app.md#application-manifest)|
+|[컨테이너 레지스트리 인증 구성](service-fabric-get-started-containers.md#configure-container-repository-authentication)|[컨테이너 애플리케이션 매니페스트](service-fabric-manifest-example-container-app.md#application-manifest)|
 |[격리 모드 설정](service-fabric-get-started-containers.md#configure-isolation-mode)|[컨테이너 애플리케이션 매니페스트](service-fabric-manifest-example-container-app.md#application-manifest)|
 |[OS 빌드 관련 컨테이너 이미지 지정](service-fabric-get-started-containers.md#specify-os-build-specific-container-images)|[컨테이너 애플리케이션 매니페스트](service-fabric-manifest-example-container-app.md#application-manifest)|
 |[환경 변수 설정](service-fabric-get-started-containers.md#configure-and-set-environment-variables)|[컨테이너 FrontEndService 서비스 매니페스트](service-fabric-manifest-example-container-app.md#frontendservice-service-manifest), [컨테이너 BackEndService 서비스 매니페스트](service-fabric-manifest-example-container-app.md#backendservice-service-manifest)|

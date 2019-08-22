@@ -2,19 +2,19 @@
 title: 쿼리 유형 및 구성 - Azure Search
 description: Azure Search에서 검색 쿼리 작성, 매개 변수를 사용하여 결과 필터링, 선택 및 정렬에 대한 기본 사항입니다.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 ms.author: heidist
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.custom: seodec2018
-ms.openlocfilehash: c2d40865857bc3ea8367199ed29e0220a0e7c557
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 30c3b233a1454d04fb281e049376b2b3aafe1879
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882588"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647963"
 ---
 # <a name="how-to-compose-a-query-in-azure-search"></a>Azure Search에서 쿼리를 작성하는 방법
 
@@ -26,7 +26,7 @@ Azure Search에서 쿼리는 왕복 작업의 전체 사양입니다. 요청의 
 
 다음 표에는 쿼리를 제출하기 위한 API 및 도구 기반 접근 방법이 나와 있습니다.
 
-| 방법 | 설명 |
+| 방법 | Description |
 |-------------|-------------|
 | [검색 탐색기(포털)](search-explorer.md) | 검색 표시줄 및 인덱스와 api-version 선택을 위한 옵션을 제공합니다. 결과는 JSON 문서로 반환됩니다. <br/>[자세한 정보](search-get-started-portal.md#query-index) | 
 | [Postman 또는 Fiddler](search-get-started-postman.md) | 웹 테스트 도구는 REST 호출 작성에 적합한 선택 항목입니다. REST API는 Azure Search에서 가능한 모든 작업을 지원합니다. 이 문서에서는 Azure Search로 요청을 전송하기 위해 HTTP 요청 헤더 및 본문을 설정하는 방법을 알아봅니다.  |

@@ -3,7 +3,7 @@ title: Azure Search 2019-05-06의 미리 보기 REST API-Azure Search
 description: Azure Search Service REST API 버전 2019-05-06-미리 보기에는 기술 자료 저장소 및 고객 관리 암호화 키와 같은 실험적 기능이 포함 되어 있습니다.
 services: search
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.workload: search
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 29d079c4e21352ced5fdcde44acaee66b79f6af9
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 7fa280742556b7bc42d2c7fb30c880f836eef62b
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876651"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69649990"
 ---
 # <a name="azure-search-service-rest-api-version-2019-05-06-preview"></a>Azure Search 서비스 REST api-버전 2019-05-06-미리 보기
 이 문서에서는 `api-version=2019-05-06-Preview` 버전의 Azure Search Service REST API를 설명하면서 아직 일반 공개되지 않은 실험적 기능을 제공합니다.

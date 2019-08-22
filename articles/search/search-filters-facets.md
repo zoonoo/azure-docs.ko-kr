@@ -2,19 +2,19 @@
 title: 앱에서 검색 탐색을 위한 패싯 필터 - Azure Search
 description: Microsoft Azure의 호스트된 클라우드 검색 서비스인 Azure Search의 쿼리에 대한 검색 결과를 줄이려면 사용자 보안 ID, 지리적 위치 또는 숫자 값별로 조건을 필터링합니다.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 5/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 88171487fd180931d4659390f0db3c8619fb2d62
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: a2fe29cf1d7c183aa62e6b86a4b29479d1f34ff8
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67653448"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69649880"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-search"></a>Azure Search에서 패싯 필터를 작성하는 방법 
 
@@ -35,26 +35,26 @@ ms.locfileid: "67653448"
 
 ## <a name="choose-fields"></a>필드 선택
 
-패싯은 단일 값 필드 및 컬렉션을 통해 계산할 수 있습니다. 필드 패싯 탐색에서 가장 잘 작동 하는 카디널리티가 낮습니다: 소수의 (예를 들어, 색, 국가/지역 또는 브랜드 이름 목록) 검색 코 퍼스의 문서 전체에서 반복 되는 고유 값입니다. 
+패싯은 단일 값 필드 및 컬렉션을 통해 계산할 수 있습니다. 패싯 탐색에서 가장 잘 작동 하는 필드의 카디널리티: 검색 모음의 문서 전체에서 반복 되는 소수의 고유 값 (예: 색, 국가/지역 또는 브랜드 이름 목록)이 있습니다. 
 
-설정 하 여 인덱스를 만들 때 필드-별로 패싯 가능 합니다 `facetable` 특성을 `true`입니다. 설정 일반적으로 해야 합니다 `filterable` 특성을 `true` 검색 응용 프로그램은 최종 사용자가 선택한 패싯 기준으로 해당 필드에서 필터링 할 수 있도록 이러한 필드에 대 한 합니다. 
+패싯은 `facetable` 특성을로 `true`설정 하 여 인덱스를 만들 때 필드 별로 사용 하도록 설정 됩니다. 또한 최종 사용자가 선택 하 `filterable` 는 패싯을 `true` 기반으로 검색 응용 프로그램에서 이러한 필드를 필터링 할 수 있도록 이러한 필드에 대해 특성을로 설정 해야 합니다. 
 
-모든 REST API를 사용 하 여 인덱스를 만들 때 [필드 형식](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) 에 사용 될 수 있는 수는 패싯 탐색으로 표시 되어 `facetable` 기본적으로:
+REST API를 사용 하 여 인덱스를 만들 때 패싯 탐색에 사용할 수 있는 모든 [필드 형식이](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) 기본적으로로 `facetable` 표시 됩니다.
 
 + `Edm.String`
 + `Edm.DateTimeOffset`
 + `Edm.Boolean`
-+ 숫자 필드 형식: `Edm.Int32`, `Edm.Int64`, `Edm.Double`
-+ 위 형식의 컬렉션 (예를 들어 `Collection(Edm.String)` 또는 `Collection(Edm.Double)`)
++ 숫자 필드 형식: `Edm.Int32`, `Edm.Int64`,`Edm.Double`
++ 위의 형식 (예: `Collection(Edm.String)` 또는 `Collection(Edm.Double)`)의 컬렉션
 
-사용할 수 없습니다 `Edm.GeographyPoint` 또는 `Collection(Edm.GeographyPoint)` 패싯 탐색의 필드입니다. 패싯 카디널리티가 낮은 필드에서 가장 잘 작동 합니다. 지리적 좌표를 확인으로 인해 모든 두 개의 좌표 집합이 지정된 된 데이터 집합에서 같아야 하는 거의 없습니다. 따라서 지리적 좌표에는 패싯이 지원되지 않습니다. 위치별로 패싯을 만들려면 도시 또는 지역 필드가 필요합니다.
+패싯 탐색에서 `Edm.GeographyPoint` 또는 `Collection(Edm.GeographyPoint)` 필드를 사용할 수 없습니다. 패싯은 카디널리티가 낮은 필드에 가장 잘 작동 합니다. 지리적 좌표를 확인 하기 때문에 지정 된 데이터 집합에서 두 개의 좌표 집합은 동일 하지 않습니다. 따라서 지리적 좌표에는 패싯이 지원되지 않습니다. 위치별로 패싯을 만들려면 도시 또는 지역 필드가 필요합니다.
 
 ## <a name="set-attributes"></a>특성 설정
 
-필드가 사용되는 방식을 제어하는 인덱스 특성은 인덱스의 개별 필드 정의에 추가됩니다. 다음 예에서 패싯에 대 한 유용한 카디널리티가 낮은 필드의 구성: `category` (호텔, 모텔, 호스텔) `tags`, 및 `rating`합니다. 이러한 필드를 `filterable` 고 `facetable` 돕기 위해 다음 예제에서 명시적으로 설정 특성입니다. 
+필드가 사용되는 방식을 제어하는 인덱스 특성은 인덱스의 개별 필드 정의에 추가됩니다. 다음 예제에서 카디널리티가 낮은 필드는 패싯에 유용 하며 `category` (호텔, motel, hostel), `tags`및 `rating`로 구성 됩니다. 이러한 필드에는 `filterable` 설명을 `facetable` 위해 다음 예제에서 명시적으로 설정 된 및 특성이 있습니다. 
 
 > [!Tip]
-> 성능 및 저장소 최적화를 위한 최고의 방법으로, 패싯으로 사용하지 말아야 하는 필드에 대해 패싯을 해제합니다. ID 또는 제품 이름과 같은 고유한 값의 문자열 필드에 설정할 특히 `"facetable": false` 패싯 탐색에서 실수로 (그리고 비 효과적) 사용을 방지 하기 위해.
+> 성능 및 스토리지 최적화를 위한 최고의 방법으로, 패싯으로 사용하지 말아야 하는 필드에 대해 패싯을 해제합니다. 특히 ID 또는 제품 이름과 같은 고유 값에 대 한 문자열 필드는 패싯 탐색에서 실수로 (그리고 비효율적인 `"facetable": false` ) 사용을 방지 하기 위해로 설정 되어야 합니다.
 
 
 ```json
@@ -78,7 +78,7 @@ ms.locfileid: "67653448"
 ```
 
 > [!Note]
-> 이 인덱스 정의는 [REST API를 사용하여 Azure Search 인덱스 만들기](https://docs.microsoft.com/azure/search/search-create-index-rest-api)에서 복사됩니다. 필드 정의의 피상적인 차이점을 제외하고는 동일합니다. `filterable` 하 고 `facetable` 특성에 명시적으로 추가 됩니다 `category`, `tags`, `parkingIncluded`, `smokingAllowed`, 및 `rating` 필드. 실제로 `filterable` 고 `facetable` REST API를 사용 하는 경우 이러한 필드는 기본적으로 활성화 됩니다. .NET SDK를 사용 하는 경우 이러한 특성을 명시적으로 활성화 되어야 합니다.
+> 이 인덱스 정의는 [REST API를 사용하여 Azure Search 인덱스 만들기](https://docs.microsoft.com/azure/search/search-create-index-rest-api)에서 복사됩니다. 필드 정의의 피상적인 차이점을 제외하고는 동일합니다. 및 `filterable` `parkingIncluded` `category` 특성은`smokingAllowed`,,, 및`rating` 필드에 명시적으로 추가 됩니다. `tags` `facetable` 실제로 `filterable` 및`facetable` 는 REST API를 사용 하는 경우 이러한 필드에 대해 기본적으로 사용 하도록 설정 됩니다. .NET SDK를 사용 하는 경우 이러한 특성을 명시적으로 사용 하도록 설정 해야 합니다.
 
 ## <a name="build-and-load-an-index"></a>인덱스 빌드 및 로드
 
@@ -99,7 +99,7 @@ var sp = new SearchParameters()
 
 ### <a name="return-filtered-results-on-click-events"></a>클릭 이벤트로 필터링된 결과 반환하기
 
-패싯 값에 대해 최종 사용자가 click 이벤트 처리기에서 사용자의 의도 실현 하려면 필터 식을 사용 해야 합니다. 지정 된을 `category` 패싯을 사용 하 여 구현 됩니다 "motel" 범주 클릭을 `$filter` 해당 숙박 유형을 선택 하는 식입니다. 사용자가 모델이 표시 됨을 나타내려면 "motel"을 클릭 하면 응용 프로그램이 보내는 다음 쿼리에 포함 `$filter=category eq 'motel'`합니다.
+최종 사용자가 패싯 값을 클릭할 때 click 이벤트에 대 한 처리기는 필터 식을 사용 하 여 사용자의 의도를 인식 해야 합니다. 패싯이 지정 된 경우 "motel" 범주를 클릭 하면 해당 형식의 적절 `$filter` 를 선택 하는 식으로 구현 됩니다. `category` 사용자가 "motel"를 클릭 하 여 모텔만 표시 하도록 지정 하는 경우 응용 프로그램에서 전송 하는 `$filter=category eq 'motel'`다음 쿼리는를 포함 합니다.
 
 다음 코드 조각은 사용자가 범주 패싯에서 값을 선택하는 경우 범주를 필터에 추가합니다.
 
@@ -108,7 +108,7 @@ if (!String.IsNullOrEmpty(categoryFacet))
     filter = $"category eq '{categoryFacet}'";
 ```
 
-사용자와 같은 컬렉션 필드에 대 한 패싯 값을 클릭할 경우 `tags`, 예를 들어 값 "pool", 응용 프로그램에 다음 필터 구문을 사용 해야 합니다. `$filter=tags/any(t: t eq 'pool')`
+사용자가 예를 들어 "pool" 값과 같은 `tags`컬렉션 필드의 패싯 값을 클릭 하면 응용 프로그램에서 다음 필터 구문을 사용 해야 합니다.`$filter=tags/any(t: t eq 'pool')`
 
 ## <a name="tips-and-workarounds"></a>팁 및 해결 방법
 

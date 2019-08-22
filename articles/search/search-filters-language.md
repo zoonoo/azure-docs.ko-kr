@@ -2,7 +2,7 @@
 title: 검색 인덱스의 다국어 콘텐츠에 대한 언어 필터 - Azure Search
 description: 언어별 필드로 쿼리 실행 범위를 지정하는 다국어 검색을 지원하는 필터 기준입니다.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.workload: search
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/23/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 695fdfba1573ff97b05f8e8b50a05bef9dbf48de
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1eced868b180a916355d6f9fbfc8cd47a5d7d6e2
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61289625"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69649875"
 ---
 # <a name="how-to-filter-by-language-in-azure-search"></a>Azure Search에서 언어에 따라 필터링하는 방법 
 
@@ -23,7 +23,7 @@ ms.locfileid: "61289625"
 
 요청에 대한 쿼리 매개 변수는 검색 작업 범위를 지정하고 전달하려는 검색 환경과 호환되는 콘텐츠를 제공하지 않는 필드의 결과를 잘라내는 데 사용됩니다.
 
-| 매개 변수 | 목적 |
+| 매개 변수 | 용도 |
 |-----------|--------------|
 | **searchFields** | 전체 텍스트 검색을 명명된 필드 목록으로 제한합니다. |
 | **$select** | 지정하는 필드만 포함하도록 응답을 잘라냅니다. 기본적으로 검색 가능한 모든 필드가 반환됩니다. **$select** 매개 변수를 통해 반환할 필드를 선택할 수 있습니다. |
@@ -62,7 +62,7 @@ parameters =
 > [!Note]
 > 쿼리에 $filter 인수가 없지만 이 사용 사례는 필터 개념과 밀접한 관련이 있으므로 필터링 시나리오로 제시합니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
 + [Azure Search의 필터](search-filters.md)
 + [언어 분석기](https://docs.microsoft.com/rest/api/searchservice/language-support)

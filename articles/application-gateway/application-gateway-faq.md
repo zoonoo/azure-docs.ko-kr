@@ -5,15 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 6/1/2019
+ms.date: 08/22/2019
 ms.author: victorh
-ms.openlocfilehash: 5bfb3a093cd101f30daf4439dc8f58b5b4f693ca
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: da8142ad035eec338a3c1ba1a23be7c2be470a04
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68740881"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69891717"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Application Gateway에 대 한 질문과 대답
 
@@ -361,6 +360,13 @@ Application Gateway 액세스 로그를 위해 인기 있는 [Goaccess](https://
 ### <a name="what-could-cause-backend-health-to-return-an-unknown-status"></a>백 엔드 상태에서 알 수 없는 상태를 반환 하는 이유는 무엇 인가요?
 
 일반적으로 백 엔드에 대 한 액세스가 응용 프로그램 게이트웨이 서브넷의 NSG (네트워크 보안 그룹), 사용자 지정 DNS 또는 UDR (사용자 정의 라우팅)에 의해 차단 되는 경우 알 수 없음 상태가 표시 됩니다. 자세한 내용은 [Application Gateway에 대 한 백 엔드 상태, 진단 로깅 및 메트릭](application-gateway-diagnostics.md)을 참조 하세요.
+
+### <a name="is-there-any-case-where-nsg-flow-logs-wont-show-allowed-traffic"></a>NSG 흐름 로그에 허용 된 트래픽이 표시 되지 않는 경우가 있나요?
+
+예. 구성이 다음 시나리오와 일치 하는 경우 NSG 흐름 로그에 허용 된 트래픽이 표시 되지 않습니다.
+- Application Gateway v2를 배포 했습니다.
+- 응용 프로그램 게이트웨이 서브넷에 NSG가 있습니다.
+- 해당 NSG에서 NSG 흐름 로그를 사용 하도록 설정 했습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

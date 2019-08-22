@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: c282a739ad55d6f2c5fcbe3b3a1a69541a7350cd
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 78be50d234605775bcef4ece2e6ff7c01ec0437f
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705779"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69874225"
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>오프라인 모드에서 Azure 가상 머신 에이전트 설치 
 
@@ -36,27 +36,17 @@ Azure VM 에이전트(가상 머신 에이전트)는 로컬 관리자 암호 재
 
 다음 단계에 따라 오프라인 모드에서 VM 에이전트를 설치합니다.
 
-> [!NOTE]
-> 오프라인 모드에서 VM 에이전트를 설치하는 프로세스를 자동화할 수 있습니다.
-> 이렇게 하려면 [Azure VM 복구 스크립트](https://github.com/Azure/azure-support-scripts/blob/master/VMRecovery/ResourceManager/README.md)를 사용합니다. Azure VM 복구 스크립트를 사용하려는 경우 다음 프로세스를 사용할 수 있습니다.
-> 1. 스크립트를 사용해 관련 VM의 OS 디스크를 복구 VM에 연결하는 방식으로 1단계를 건너뜁니다.
-> 2. 2~10단계를 진행하여 완화 내용을 적용합니다.
-> 3. 스크립트를 사용해 VM을 다시 빌드하는 방식으로 11단계를 건너뜁니다.
-> 4. 12단계를 진행합니다.
-
 ### <a name="step-1-attach-the-os-disk-of-the-vm-to-another-vm-as-a-data-disk"></a>1단계: VM의 OS 디스크를 다른 VM에 데이터 디스크로 연결
 
-1.  VM을 삭제합니다. VM을 삭제할 때 **디스크 유지** 옵션을 선택해야 합니다.
+1. 영향을 받는 VM의 OS 디스크에 대 한 스냅숏을 만들고 스냅숏에서 디스크를 만든 다음 문제 해결 VM에 디스크를 연결 합니다. 자세한 내용은 [Azure Portal를 사용 하 여 OS 디스크를 복구 VM에 연결 함으로써 WINDOWS VM 문제 해결](troubleshoot-recovery-disks-portal-windows.md)을 참조 하세요. 클래식 VM의 경우 VM을 삭제 하 고 OS 디스크를 유지 한 다음 OS 디스크를 문제 해결 VM에 연결 합니다.
 
-2.  OS 디스크를 (_문제 해결사_ VM으로 알려진) 다른 VM에 데이터로 연결합니다. 자세한 내용은 [Azure Portal에서 Windows VM에 데이터 디스크 연결](../windows/attach-managed-disk-portal.md)을 참조하세요.
-
-3.  문제 해결사 VM에 연결합니다. **컴퓨터 관리** > **디스크 관리**를 엽니다. OS 디스크가 온라인 상태이고 드라이브 문자가 디스크 파티션에 할당되었는지 확인합니다.
+2.  문제 해결사 VM에 연결합니다. **컴퓨터 관리** > **디스크 관리**를 엽니다. OS 디스크가 온라인 상태이고 드라이브 문자가 디스크 파티션에 할당되었는지 확인합니다.
 
 ### <a name="step-2-modify-the-os-disk-to-install-the-azure-vm-agent"></a>2단계: Azure VM 에이전트를 설치하도록 OS 디스크 수정
 
 1.  문제 해결사 VM에 대한 원격 데스크톱 연결을 만듭니다.
 
-2.  연결한 OS 디스크에서 \windows\system32\config 폴더를 찾습니다. 롤백이 필요한 경우 이 폴더에 있는 모든 파일을 복사합니다.
+2.  문제 해결사 VM에서 연결 된 OS 디스크로 이동 하 여 \windows\system32\config 폴더를 엽니다. 롤백이 필요한 경우 이 폴더에 있는 모든 파일을 복사합니다.
 
 3.  **레지스트리 편집기**를 시작합니다(regedit.exe).
 
@@ -109,7 +99,7 @@ Azure VM 에이전트(가상 머신 에이전트)는 로컬 관리자 암호 재
 
 10.  **BROKENSOFTWARE**를 선택합니다. 메뉴에서 **파일** > **Hive 언로드**를 선택합니다.
 
-11.  OS 디스크를 분리하고, OS 디스크를 사용하여 VM을 다시 만듭니다.
+11.  OS 디스크를 분리 한 다음 [영향을 받는 VM에 대 한 os 디스크를 변경](troubleshoot-recovery-disks-portal-windows.md#swap-the-os-disk-for-the-vm)합니다. 클래식 VM의 경우 복구 된 OS 디스크를 사용 하 여 새 VM을 만듭니다.
 
 12.  VM에 액세스합니다. RdAgent가 실행 중이고 로그가 생성됩니다.
 

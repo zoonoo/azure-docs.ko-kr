@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: glenga
-ms.openlocfilehash: 183056d01146194b2854a70df790802e1a0bb839
-ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
+ms.openlocfilehash: 498bb8c0f1e7bb674605d4a98f0be0f3e0b9a7c9
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68782227"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650490"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Azure Functions에서 함수를 사용하지 않도록 설정하는 방법
 
@@ -29,7 +29,7 @@ ms.locfileid: "68782227"
 
 ## <a name="functions-2x---all-languages"></a>Functions 2.x - 모든 언어
 
-함수 2.x에서 형식의 `AzureWebJobs.<FUNCTION_NAME>.Disabled`앱 설정을 사용 하 여 함수를 사용 하지 않도록 설정 합니다. Azure CLI를 사용 하 여 프로그래밍 방식으로이 설정을 만들고 수정할 수 있습니다. [Azure Portal](https://portal.azure.com)의 함수 **관리** 탭에서이 작업을 수행할 수도 있습니다. 
+함수 2.x에서 형식의 `AzureWebJobs.<FUNCTION_NAME>.Disabled`앱 설정을 사용 하 여 함수를 사용 하지 않도록 설정 합니다. [Azure CLI](/cli/azure/) 사용 및 [Azure Portal](https://portal.azure.com)의 함수 **관리** 탭에서 비롯 하 여 다양 한 방법으로이 응용 프로그램 설정을 만들고 수정할 수 있습니다. 
 
 ### <a name="azure-cli"></a>Azure CLI
 

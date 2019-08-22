@@ -1,7 +1,7 @@
 ---
 title: Azure Portal의 데이터 쿼리용 검색 탐색기 도구 - Azure Search
 description: 검색 탐색기와 같은 Azure Portal 도구를 사용하여 Azure Search에서 인덱스를 쿼리합니다. 검색 용어 또는 고급 구문을 포함하는 정규화된 검색 문자열을 입력합니다.
-manager: cgronlun
+manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 87e5ec82299ef9ddc8bc8756196bb2ace3d1f6f3
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: e941e487adaac38c4ec3bd61a58b4b0c61f4c80a
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414232"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69649960"
 ---
 # <a name="search-explorer-for-querying-data-in-azure-search"></a>Azure Search에서 데이터를 쿼리하기 위한 검색 탐색기 
 

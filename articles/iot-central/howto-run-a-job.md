@@ -8,14 +8,14 @@ ms.author: sahubbar
 ms.date: 07/08/2019
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: 298770b1b2da816ddef9154fafb20d7c6cb82df3
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 6c18a244ceae2ccd9a536abeb6bc2d85760bb0a6
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849034"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69875920"
 ---
-# <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에서 작업 만들기 및 실행
+# <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Azure IoT Central 응용 프로그램에서 작업 만들기 및 실행
 
 Microsoft Azure IoT Central에서는 작업을 사용하여 연결된 디바이스를 대규모로 관리할 수 있습니다. 작업을 사용 하면 장치 속성, 설정 및 명령에 대 한 대량 업데이트를 수행할 수 있습니다. 이 문서에서는 응용 프로그램에서 작업을 사용 하 여 시작 하는 방법을 안내 합니다.
 
@@ -76,7 +76,7 @@ Microsoft Azure IoT Central에서는 작업을 사용하여 연결된 디바이�
 | -------------------- | ------------------------------------------------------- |
 | 완료            | 모든 디바이스에서 이 작업이 실행되었습니다.              |
 | 실패               | 이 작업은 실패했으며 디바이스에서 완전히 실행되지 않았습니다.  |
-| Pending              | 장치에서이 작업의 실행이 아직 시작 되지 않았습니다.         |
+| 대기 중              | 장치에서이 작업의 실행이 아직 시작 되지 않았습니다.         |
 | 실행 중              | 이 작업이 현재 디바이스에서 실행되고 있습니다.             |
 | 중지됨              | 이 작업을 사용자가 수동으로 중지했습니다.           |
 
@@ -84,7 +84,7 @@ Microsoft Azure IoT Central에서는 작업을 사용하여 연결된 디바이�
 
 | 상태 메시지       | 상태 의미                                                     |
 | -------------------- | ------------------------------------------------------------------ |
-| Succeeded            | 작업이 성공적으로 실행 된 장치 수입니다.       |
+| 성공            | 작업이 성공적으로 실행 된 장치 수입니다.       |
 | 실패               | 작업 실행에 실패 한 장치 수입니다.       |
 
 ### <a name="view-the-device-status"></a>디바이스 상태 확인
@@ -95,7 +95,7 @@ Microsoft Azure IoT Central에서는 작업을 사용하여 연결된 디바이�
 | -------------------- | ----------------------------------------------------------------------------- |
 | 완료            | 이 디바이스에서 작업이 실행되었습니다.                                     |
 | 실패               | 이 디바이스에서 작업 실행이 실패했습니다. 오류 메시지에 자세한 정보가 표시 됩니다.  |
-| Pending              | 이 장치에서 작업이 아직 실행 되지 않았습니다.                                   |
+| 대기 중              | 이 장치에서 작업이 아직 실행 되지 않았습니다.                                   |
 
 > [!NOTE]
 > 장치가 삭제 된 경우 장치를 선택할 수 없으며 장치 ID를 사용 하 여 삭제 됨으로 표시 됩니다.
@@ -106,4 +106,4 @@ Azure IoT Central 응용 프로그램에서 작업을 만드는 방법을 배웠
 
 - [디바이스 설정 사용](howto-use-device-sets.md)
 - [디바이스 관리](howto-manage-devices.md)
-- [장치 템플릿 버전 관리](howto-version-device-template.md)
+- [디바이스 템플릿 버전 관리](howto-version-device-template.md)

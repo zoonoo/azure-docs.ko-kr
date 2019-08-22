@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 08/21/2019
+ms.date: 08/22/2019
 ms.author: victorh
-ms.openlocfilehash: 8524c8f05a5d48755ab1ccca62f0fd53870190bb
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: fea00358fc21cf6f57673e14ebd0feafe532b620
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640237"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876551"
 ---
 # <a name="azure-firewall-logs-and-metrics"></a>Azure 방화벽 로그 및 메트릭
 
@@ -95,6 +95,10 @@ Azure 방화벽에 사용할 수 있는 메트릭은 다음과 같습니다.
 
     단위: 개수
 
+- **네트워크 규칙 적중 횟수** -네트워크 규칙이 적중 된 횟수입니다.
+
+    단위: 개수
+
 - **처리 된 데이터** -방화벽을 통과 하는 데이터의 양입니다.
 
     단위: 바이트
@@ -109,9 +113,7 @@ Azure 방화벽에 사용할 수 있는 메트릭은 다음과 같습니다.
 
 
 
-- **네트워크 규칙 적중 횟수** -네트워크 규칙이 적중 된 횟수입니다.
 
-    단위: 개수
 
 - **Snat 포트 사용률** -방화벽에서 사용한 SNAT 포트의 백분율입니다.
 

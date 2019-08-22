@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.openlocfilehash: ea85a0906ce231312c491d31a33c331480d23812
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: a5632767ef8230d16b47f350436fda53794efdf5
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68362156"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69872540"
 ---
 # <a name="understand-automated-machine-learning-results"></a>자동화 된 machine learning 결과 이해
 
@@ -26,7 +26,7 @@ ms.locfileid: "68362156"
 + [회귀 모델에 대 한 메트릭, 차트 및 그래프](#regression)
 + [모델 interpretability 및 기능 중요도](#explain-model)
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독. Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 지금 사용해 보세요.
 
@@ -47,15 +47,15 @@ ms.locfileid: "68362156"
 
 1. 실험 목록에서 탐색 하려는 실험을 선택 합니다.
 
-   ![실험 목록](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-list.png)
+   [![실험 목록](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-list.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-list-expanded.png)
 
 1. 아래쪽 테이블에서 **실행 번호**를 선택 합니다.
 
-   ![실험 실행](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-run.png)
+   [ 실험실행![](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-run.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-run-expanded.png))
 
 1. 반복 테이블에서 추가로 탐색 하려는 모델의 **반복 번호** 를 선택 합니다.
 
-   ![실험 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-model.png)
+   [![실험 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-model.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-model-expanded.png)
 
 `RunDetails` [Jupyter 위젯을](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py)사용할 때 실행 중에도 동일한 결과가 표시 됩니다.
 
@@ -75,7 +75,7 @@ ms.locfileid: "68362156"
 
 다음 메트릭은 분류 태스크에 대 한 각 실행 반복에 저장 됩니다.
 
-|메트릭|Description|계산|추가 매개 변수
+|메트릭|설명|계산|추가 매개 변수
 --|--|--|--|
 AUC_Macro| AUC는 Receiver Operating Characteristic Curve 아래의 영역입니다. Macro(매크로)는 각 클래스에 대한 AUC의 산술 평균입니다.  | [계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="macro"|
 AUC_Micro| AUC는 Receiver Operating Characteristic Curve 아래의 영역입니다. Micro(마이크로)는 각 클래스의 참 긍정과 거짓 긍정을 결합하여 전역적으로 컴퓨팅됩니다.| [계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="micro"|
@@ -170,7 +170,7 @@ ROC(수신기 작동 특성)는 특정 모델에 대해 올바르게 분류된 �
 
 회귀 또는 예측 작업에 대해 각 실행 반복에 다음 메트릭이 저장 됩니다.
 
-|메트릭|Description|계산|추가 매개 변수
+|메트릭|설명|계산|추가 매개 변수
 --|--|--|--|
 explained_variance|Explained variance(설명된 분산)는 수학 모델에서 지정된 데이터 세트의 편차가 고려되는 비율입니다. 오차 분산에 대한 원래 데이터의 분산 감소율입니다. 오차의 평균이 0이면 explained variance와 같습니다.|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|없음|
 r2_score|R2는 평균을 출력하는 기준선 모델과 비교한 제곱 오차의 결정 계수 또는 환원율입니다. 오차의 평균이 0이면 explained variance와 같습니다.|[계산](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|없음|
@@ -192,7 +192,7 @@ normalized_root_mean_squared_log_error|Noramlized Root mean squared log error(�
 
 예제 1: 예측 정확도가 낮은 회귀 모델 ![예측 정확도가 낮은 회귀 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression1.png)
 
-예제 2: 예측 정확도가 높은 회귀 모델 ![예측 정확도가 높은 회귀 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression2.png)
+예제 2: 정확도가 높은 회귀 모델 예측의 정확도가 높은 회귀 [ ![모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression2.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression2-expanded.png)
 
 
 

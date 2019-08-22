@@ -10,12 +10,12 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
 ms.date: 06/21/2019
-ms.openlocfilehash: 1e742c278b9356c7501964541802e0c96dc74b09
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 2e8eb79c4baebebb1974a977394215545ef944db
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358651"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69872400"
 ---
 # <a name="model-interpretability-with-azure-machine-learning-service"></a>Azure Machine Learning 서비스를 사용 하는 모델 interpretability
 
@@ -69,7 +69,7 @@ __직접 explainers__ 는 통합 라이브러리에서 제공 됩니다. SDK는 
 * **순열 기능 중요도 설명**: 순열 기능 중요도는 [Breiman의 임의 포리스트 용지](https://www.stat.berkeley.edu/%7Ebreiman/randomforest2001.pdf) (섹션 10 참조)에서 설명 하는 분류 및 회귀 모델을 설명 하는 데 사용 되는 기술입니다. 높은 수준에서 작동 방식은 전체 데이터 집합에 대해 한 번에 하나의 기능을 임의로 순서 섞기 하 고 관심 있는 성능 메트릭이 감소 하는 정도를 계산 하는 것입니다. 변경이 클수록 해당 기능이 더 중요 합니다.
 
 * **라임 설명** (`contrib`): 라임를 기반으로 하는 라임 설명는 최신 로컬 해석 모델 (라임) 알고리즘을 사용 하 여 로컬 서로게이트 모델을 만듭니다. 전역 서로게이트 모델과 달리, 라임는 개별 예측을 설명 하는 로컬 서로게이트 모델 학습에 중점을 둔 것입니다.
-* **한자 텍스트 설명** (`contrib`): 한자 텍스트 설명는 지정 된 블랙 박스 텍스트 모델에 대 한 텍스트 데이터에서 모델 설명을 가져오기 위해 계층적 주의 네트워크를 사용 합니다. 지정 된 교사 모델의 예측 된 출력에서 한자 서로게이트 모델을 학습 합니다. 텍스트 모음 전체적으로 학습 한 후에는 설명의 정확도를 향상 시키기 위해 특정 문서에 대 한 미세 조정 단계를 추가 했습니다. 한자는 문장 및 단어 주의를 위해 두 개의 주의 계층으로 양방향 RNN을 사용 합니다. DNN이 교사 모델에 대해 학습 되 고 특정 문서에 대해 미세 조정 되 면 주목 계층에서 단어 importances을 추출할 수 있습니다. 텍스트 데이터에 대 한 라임 또는 SHAP 보다 정확 하 게 정확 하 게 사용할 수 있지만 학습 시간 측면에서 비용이 더 많이 듭니다. 그러나 글러브 word 포함를 사용 하 여 네트워크를 초기화 하는 옵션을 사용자에 게 제공 하 여 학습 시간을 향상 시켰습니다. 하지만 여전히 느립니다. 원격 Azure GPU VM에서 한자를 실행 하 여 학습 시간을 크게 향상 시킬 수 있습니다. 한자 구현은 ' 문서 분류를 위한 계층 주의 네트워크 (Yang et al., 2016) ' ([https://www.cs.cmu.edu/~diyiy/docs/naacl16.pdf](https://www.cs.cmu.edu/~diyiy/docs/naacl16.pdf))에 설명 되어 있습니다.
+* **한자 텍스트 설명** (`contrib`): 한자 텍스트 설명는 지정 된 블랙 박스 텍스트 모델에 대 한 텍스트 데이터에서 모델 설명을 가져오기 위해 계층적 주의 네트워크를 사용 합니다. 지정 된 교사 모델의 예측 된 출력에서 한자 서로게이트 모델을 학습 합니다. 텍스트 모음 전체적으로 학습 한 후에는 설명의 정확도를 향상 시키기 위해 특정 문서에 대 한 미세 조정 단계를 추가 했습니다. 한자는 문장 및 단어 주의를 위해 두 개의 주의 계층으로 양방향 RNN을 사용 합니다. DNN이 교사 모델에 대해 학습 되 고 특정 문서에 대해 미세 조정 되 면 주목 계층에서 단어 importances을 추출할 수 있습니다. 텍스트 데이터에 대 한 라임 또는 SHAP 보다 정확 하 게 정확 하 게 사용할 수 있지만 학습 시간 측면에서 비용이 더 많이 듭니다. 그러나 글러브 word 포함를 사용 하 여 네트워크를 초기화 하는 옵션을 사용자에 게 제공 하 여 학습 시간을 향상 시켰습니다. 하지만 여전히 느립니다. 원격 Azure GPU VM에서 한자를 실행 하 여 학습 시간을 크게 향상 시킬 수 있습니다. 한자 구현은 [' 문서 분류를 위한 계층적 주의 네트워크 (Yang et al., 2016) '](https://www.researchgate.net/publication/305334401_Hierarchical_Attention_Networks_for_Document_Classification)에 설명 되어 있습니다.
 
 
 __Meta explainers__ 는 적절 한 직접 설명을 자동으로 선택 하 고 지정 된 모델 및 데이터 집합을 기반으로 최상의 설명 정보를 생성 합니다. Meta explainers는 통합 또는 개발한 모든 라이브러리 (SHAP, 라임, 모방 등)를 활용 합니다. SDK에서 사용할 수 있는 meta explainers는 다음과 같습니다.
@@ -292,7 +292,7 @@ Azure Machine Learning service에서 지 원하는 다양 한 계산 대상을 �
 
 이전 그림에서 언제 든 지 개별 데이터 요소를 클릭 하 여 지정 된 데이터 요소에 대 한 로컬 기능 중요도 그림을 로드할 수 있습니다.
 
-|그림|Description|
+|그림|설명|
 |----|-----------|
 |로컬 중요도|최상위 K (구성 가능 K) 중요 기능을 전역적으로 보여 줍니다. 이 차트는 특정 데이터 요소에 대 한 기본 모델의 로컬 동작을 이해 하는 데 유용 합니다.|
 |Perturbation 탐색|선택한 데이터 요소의 기능 값을 변경 하 고 이러한 변경 내용이 예측 값에 미치는 영향을 관찰할 수 있습니다.|

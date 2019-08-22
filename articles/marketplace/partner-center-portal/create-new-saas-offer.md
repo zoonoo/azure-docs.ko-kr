@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 3d3fc1541fb99d8d1219392158c3b87cd6ff99aa
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
-ms.translationtype: MT
+ms.openlocfilehash: 37624c79a345f956de9a289c672340e391199e2f
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69033527"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650710"
 ---
 # <a name="create-a-new-saas-offer"></a>새 SaaS 제품 만들기
 
@@ -302,12 +302,7 @@ Azure Marketplace 게시자는 사용자 지정 약관을 만드는 대신 표�
 
     위는 다음과 같습니다.
 
-    <h1>제목 1입니다.</h1> 
-    <h2>제목 2입니다.</h2> 
-    <h3>제목 3입니다.</h3> 
-    <h4>제목 4입니다.</h4> 
-    <h5>제목 5입니다.</h5> 
-    <h6>제목 6입니다.</h6> 
+    ![샘플 제목](./media/heading.png)
 
 #### <a name="links"></a>링크
 

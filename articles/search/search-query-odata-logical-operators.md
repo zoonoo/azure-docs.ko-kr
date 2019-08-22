@@ -1,13 +1,13 @@
 ---
 title: OData 논리 연산자 참조-Azure Search
-description: OData 논리 연산자를,와 하지 Azure Search 쿼리 합니다.
+description: Azure Search 쿼리의 OData 논리 연산자, and, or 및 not
 ms.date: 06/13/2019
 services: search
 ms.service: search
 ms.topic: conceptual
 author: brjohnstmsft
 ms.author: brjohnst
-ms.manager: cgronlun
+manager: nitinme
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,26 +19,26 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: de93765117b4cafe70e5ad277e32ca0a1fa8d90a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bf4939a40a2fdf1c8fc6cf97beca0184b1604c98
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67079770"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647988"
 ---
-# <a name="odata-logical-operators-in-azure-search---and-or-not"></a>-Azure Search의 OData 논리 연산자 `and`, `or`, `not`
+# <a name="odata-logical-operators-in-azure-search---and-or-not"></a>Azure Search의 OData 논리 연산자- `and`, `or`,`not`
 
-[OData 필터 식을](query-odata-filter-orderby-syntax.md) Azure Search에는 부울 식으로 계산 되는 `true` 또는 `false`합니다. 일련의 작성 하 여 복잡 한 필터를 작성할 수 있습니다 [간단한 필터](search-query-odata-comparison-operators.md) 에서 논리 연산자를 사용 하 여 작성 하 고 [부울 대 수](https://en.wikipedia.org/wiki/Boolean_algebra):
+Azure Search의 [OData 필터 식은](query-odata-filter-orderby-syntax.md) 또는 `true` `false`로 계산 되는 부울 식입니다. [간단한](search-query-odata-comparison-operators.md) 필터를 작성 하 고 [부울 대 수](https://en.wikipedia.org/wiki/Boolean_algebra)의 논리 연산자를 사용 하 여 작성 하 여 복잡 한 필터를 작성할 수 있습니다.
 
-- `and`: 계산 되는 이항 연산자 `true` 의 왼쪽 및 오른쪽 하위 식이 모두로 평가 되 면 `true`합니다.
-- `or`: 계산 되는 이항 연산자 `true` 경우 왼쪽 또는 오른쪽 하위 식 중 하나를 평가 `true`합니다.
-- `not`: 계산 되는 단항 연산자 `true` 해당 하위 식이 `false`, 그 반대로 합니다.
+- `and`: 왼쪽 및 오른쪽 하위 식이 모두 `true` 로 `true`계산 되는 경우로 계산 되는 이항 연산자입니다.
+- `or`: 왼쪽 또는 오른쪽 하위 식 중 `true` 하나가로 `true`계산 되는 경우로 계산 되는 이항 연산자입니다.
+- `not`: 하위 식이로 `false`계산 되는 `true` 경우로 계산 되는 단항 연산자이 고, 그 반대의 경우입니다.
 
-와 함께 이러한 합니다 [컬렉션 연산자 `any` 하 고 `all` ](search-query-odata-collection-operators.md), 매우 복잡 한 검색 조건을 표현할 수 있는 필터를 구성할 수 있습니다.
+이를 통해 [ `any` 컬렉션 연산자와 `all` ](search-query-odata-collection-operators.md)를 함께 사용 하면 매우 복잡 한 검색 조건을 표현할 수 있는 필터를 생성할 수 있습니다.
 
 ## <a name="syntax"></a>구문
 
-다음 EBNF ([확장 된 Backus Naur 폼](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form))의 논리 연산자를 사용 하는 OData 식 문법 정의 합니다.
+다음 EBNF ([Extended Backus-Backus-naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form))는 논리 연산자를 사용 하는 OData 식의 문법을 정의 합니다.
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -48,31 +48,31 @@ logical_expression ::=
     | 'not' boolean_expression
 ```
 
-대화형 구문 다이어그램을 사용할 수 있는 이기도합니다.
+대화형 구문 다이어그램도 사용할 수 있습니다.
 
 > [!div class="nextstepaction"]
 > [Azure Search에 대 한 OData 구문 다이어그램](https://azuresearch.github.io/odata-syntax-diagram/#logical_expression)
 
 > [!NOTE]
-> 참조 [Azure Search에 대 한 OData 식 구문 참조](search-query-odata-syntax-reference.md) 전체 EBNF에 대 한 합니다.
+> 전체 EBNF [Azure Search에 대 한 OData 식 구문 참조](search-query-odata-syntax-reference.md) 를 참조 하세요.
 
-논리 식의 두 가지: 이진 (`and`/`or`)에 두 개의 하위 식 및 단항 (`not`)을 하나 뿐입니다. 하위 식에는 어떤 종류의 부울 식 수 있습니다.
+논리적 식에는 두`and`가지 형태가 있습니다./`or`여기에는 두 개의 하위 식과 단항 (`not`)이 있습니다. 여기에는 하나만 있습니다. 하위 식은 모든 종류의 부울 식일 수 있습니다.
 
-- 형식의 필드 또는 범위 변수 `Edm.Boolean`
-- 형식의 값을 반환 하는 함수 `Edm.Boolean`와 같은 `geo.intersects` 또는 `search.ismatch`
-- [비교 식](search-query-odata-comparison-operators.md)와 같은 `rating gt 4`
-- [컬렉션 식](search-query-odata-collection-operators.md)와 같은 `Rooms/any(room: room/Type eq 'Deluxe Room')`
-- 부울 리터럴은 `true` 또는 `false`합니다.
-- 다른 논리 식을 사용 하 여 생성할 `and`, `or`, 및 `not`합니다.
+- 형식의 필드 또는 범위 변수`Edm.Boolean`
+- 또는와 `Edm.Boolean` `geo.intersects` 같은 형식의 값을 반환 하는 함수`search.ismatch`
+- [비교 식](search-query-odata-comparison-operators.md)(예:`rating gt 4`
+- [컬렉션 식](search-query-odata-collection-operators.md)(예:`Rooms/any(room: room/Type eq 'Deluxe Room')`
+- 부울 리터럴 `true` 또는 `false`입니다.
+- , `and` `or`및 를사용하여생성된다른논리식입니다.`not`
 
 > [!IMPORTANT]
-> 사용 하 여 하위 식의 일부 종류를 사용할 수 있는 경우도 있습니다 `and` / `or`특히 내부 람다 식입니다. 참조 [Azure Search의 OData 컬렉션 연산자](search-query-odata-collection-operators.md#limitations) 세부 정보에 대 한 합니다.
+> 모든 종류의 하위 식을와 함께 `and` / `or`사용할 수 없는 경우도 있습니다 (특히 람다 식 내에서). 자세한 내용은 [Azure Search의 OData 컬렉션 연산자](search-query-odata-collection-operators.md#limitations) 를 참조 하세요.
 
-### <a name="logical-operators-and-null"></a>논리 연산자 및 `null`
+### <a name="logical-operators-and-null"></a>논리 연산자 및`null`
 
-함수 및 비교와 같은 대부분의 부울 식을 생성할 수 없습니다 `null` 값 및 논리 연산자에 적용할 수 없습니다 합니다 `null` 직접 리터럴 (예를 들어 `x and null` 허용 되지 않습니다). 그러나 부울 필드 수 `null`이므로 방법을 알아야 `and`를 `or`, 및 `not` 연산자는 null이 있는 경우 작동 합니다. 다음 표에 요약 되어 있습니다이 위치 `b` 형식의 필드임 `Edm.Boolean`:
+함수 및 비교와 같은 대부분의 부울 식은 값 `null` 을 생성할 수 없으며 논리 연산자는 `null` 리터럴에 직접 적용할 수 없습니다. 예를 `x and null` 들어는 허용 되지 않습니다. 그러나 부울 필드는이 될 `null`수 있으므로 `and`, 및 `not` 연산자가 null 인 경우 `or`의 동작에 대해 알고 있어야 합니다. 다음 표에 요약 되어 있습니다. 여기서 `b` 은 형식의 `Edm.Boolean`필드입니다.
 
-| 식 | 결과 때 `b` 는 `null` |
+| 식 | 가 인 `b` 경우의 결과`null` |
 | --- | --- |
 | `b` | `false` |
 | `not b` | `true` |
@@ -87,23 +87,23 @@ logical_expression ::=
 | `b or true` | `true` |
 | `b or false` | `false` |
 
-경우 부울 필드를 `b` 가 작성 된 것 처럼 동작 하는 필터 식에 단독으로 나타나고 `b eq true`, 따라서 `b` 은 `null`, 식의 결과가 `false`합니다. 마찬가지로 `not b` 처럼 `not (b eq true)`로 계산 되므로 `true`합니다. 이렇게에서 `null` 필드와 동일 하 게 동작 `false`합니다. 사용 하 여 다른 식과 결합할 때의 동작으로 구성 됩니다 `and` 고 `or`위의 표에 나와 있는 것 처럼 합니다. 그럼에도 불구 하 고, 직접 비교 `false` (`b eq false`)로 계속 평가 됩니다 `false`합니다. 다시 말해 `null` 와 같지 않은 `false`부울 식에 것 처럼 동작 하는 경우에 합니다.
+부울 `b` 필드가 필터 식에 단독으로 표시 되 면 작성 `b eq true` `b` 된 것 처럼 동작 하 고,가 `null`이면 식이로 `false`평가 됩니다. 마찬가지로는 `not b` 처럼 `not (b eq true)`동작 하므로로 `true`계산 됩니다. 이러한 방식 `null` 으로 필드는와 동일 하 게 `false`동작 합니다. 이는 위의 표에 표시 된 것 처럼 및 `and` `or`를 사용 하 여 다른 식과 결합 될 때 동작 하는 방법과 일치 합니다. 이 경우에도 ( `false` `b eq false`)에 대 한 직접 비교는로 `false`평가 됩니다. 즉, `null` 부울 식에서와 같이 동작 `false`하더라도는와 같지 않습니다.
 
 ## <a name="examples"></a>예
 
-일치 문서 위치를 `rating` 필드는 3, 5 사이입니다.
+`rating` 필드가 3에서 5 사이인 문서를 찾습니다 (포함).
 
     rating ge 3 and rating le 5
 
-일치 위치를 문서화의 모든 요소는 `ratings` 필드는 보다 작거나 3 보다 크거나 5:
+`ratings` 필드의 모든 요소가 3 보다 작거나 5 보다 큰 문서를 찾습니다.
 
     ratings/all(r: r lt 3 or r gt 5)
 
-일치 문서 위치를 `location` 필드는 지정 된 다각형 내에 있고 "public" 라는 용어는 문서에 없습니다.
+`location` 필드가 지정 된 다각형 내에 있고 문서에 "public" 이라는 용어가 포함 되지 않은 문서를 찾습니다.
 
     geo.intersects(location, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))') and not search.ismatch('public')
 
-캐나다 밴쿠버 호텔에 대 한 문서와 일치 된 자료 deluxe 공간이 있는 160 미만인 비율:
+160 미만의 기본 요금을 가진 deluxe 공간이 있는 밴쿠버 캐나다에서 호텔 문서를 찾습니다.
 
     Address/City eq 'Vancouver' and Address/Country eq 'Canada' and Rooms/any(room: room/Type eq 'Deluxe Room' and room/BaseRate lt 160)
 

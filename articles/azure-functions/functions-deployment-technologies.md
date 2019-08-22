@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: cotresne
-ms.openlocfilehash: 9f40ec658fc6725f381300d967c9d7cd61c3a218
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: a0c34fcc70d92f98a6d72e4cd2fc78d34d863d55
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624142"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650450"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Azure Functions의 배포 기술
 
@@ -60,7 +60,7 @@ Azure Functions는 Windows 및 Linux에서 플랫폼 간 로컬 개발 및 호�
 
 ### <a name="remote-build"></a>원격 빌드
 
-Zip 배포 후에 수신 하는 코드에서 자동으로 빌드를 수행할 수 Azure Functions. 이러한 빌드는 응용 프로그램이 Windows 또는 Linux에서 실행 되는지 여부에 따라 약간 다르게 동작 합니다. 앱이 이전에 [패키지 모드에서](run-functions-from-deployment-package.md) 실행 되도록 설정 된 경우 원격 빌드가 수행 되지 않습니다. 
+Zip 배포 후에 수신 하는 코드에서 자동으로 빌드를 수행할 수 Azure Functions. 이러한 빌드는 응용 프로그램이 Windows 또는 Linux에서 실행 되는지 여부에 따라 약간 다르게 동작 합니다. 앱이 이전에 [패키지 모드에서](run-functions-from-deployment-package.md) 실행 되도록 설정 된 경우 원격 빌드가 수행 되지 않습니다. 원격 빌드를 사용 하는 방법을 알아보려면 [zip 배포](#zip-deploy)로 이동 합니다.
 
 > [!NOTE]
 > 원격 빌드에 문제가 있는 경우 기능을 사용할 수 있게 되기 전에 앱이 생성 되었기 때문일 수 있습니다 (2019 년 8 월 1 일). 새 함수 앱을 만들어 보세요.
@@ -85,11 +85,11 @@ Linux에서 원격 빌드를 사용 하도록 설정 하려면 다음 [응용 �
 
 ##### <a name="consumption-preview-plan"></a>소비 (미리 보기) 계획
 
-소비 계획에서 실행 되는 Linux 함수 앱은 배포 옵션을 제한 하는 SCM/Kudu 사이트를 포함 하지 않습니다. 그러나 소비 계획에서 실행 되는 Linux의 함수 앱은 원격 빌드를 지원 합니다. 이러한 원격 빌드에서는 [Oryx](https://github.com/microsoft/Oryx)를 사용 합니다.
+소비 계획에서 실행 되는 Linux 함수 앱은 배포 옵션을 제한 하는 SCM/Kudu 사이트를 포함 하지 않습니다. 그러나 소비 계획에서 실행 되는 Linux의 함수 앱은 원격 빌드를 지원 합니다.
 
 ##### <a name="dedicated-and-premium-preview-plans"></a>전용 및 프리미엄 (미리 보기) 요금제
 
-[전용 (App Service) 요금제](functions-scale.md#app-service-plan) 및 [Premium 요금제](functions-scale.md#premium-plan) 에서 Linux에서 실행 되는 함수 앱에는 [Oryx](https://github.com/microsoft/Oryx)를 사용 하는 제한 된 SCM/Kudu 사이트도 있습니다.
+[전용 (App Service) 요금제](functions-scale.md#app-service-plan) 및 [Premium 요금제](functions-scale.md#premium-plan) 에서 Linux에서 실행 되는 함수 앱에는 제한 된 SCM/Kudu 사이트도 있습니다.
 
 ## <a name="deployment-technology-details"></a>배포 기술 세부 정보
 
@@ -111,7 +111,7 @@ Zip 배포를 사용 하 여 함수 앱을 포함 하는 .zip 파일을 Azure에
 
 >__사용 방법:__ 선호 하는 클라이언트 도구를 사용 하 여 배포: [VS Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure), [Visual Studio](functions-develop-vs.md#publish-to-azure)또는 [Azure CLI](functions-create-first-azure-function-azure-cli.md#deploy-the-function-app-project-to-azure). .Zip 파일을 함수 앱에 수동으로 배포 하려면 [.zip 파일이 나 URL에서 배포](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url)의 지침을 따르세요.
 
-원격 빌드와 함께 zip 배포를 수행 하려면 다음 [핵심 도구](functions-run-local.md) 명령을 사용 합니다.
+[원격 빌드와](#remote-build)함께 zip 배포를 수행 하려면 다음 [핵심 도구](functions-run-local.md) 명령을 사용 합니다.
 
 ```bash
 func azure functionapp publish <app name> --build remote

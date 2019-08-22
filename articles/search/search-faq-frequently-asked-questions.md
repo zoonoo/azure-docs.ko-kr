@@ -2,19 +2,19 @@
 title: FAQ(질문과 대답) - Azure Search
 description: Microsoft Azure의 클라우드 호스티드 검색 서비스인 Microsoft Azure Search 서비스에 대한 일반적인 질문과 답변입니다.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 08/03/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: c77f26187914b2c6e52426bb2a07303b22ccb2b0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d4aae2f2ef9ccbc645647125682d999c11c99ab6
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65023989"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69649825"
 ---
 # <a name="azure-search---frequently-asked-questions-faq"></a>Azure Search - FAQ(질문과 대답)
 
@@ -38,7 +38,7 @@ Azure Search에서는 여러 데이터 원본, [다국어 언어 분석](https:/
 
 ### <a name="can-i-pause-azure-search-service-and-stop-billing"></a>Azure Search를 일시 중지하고 청구를 멈출 수 있습니까?
 
-서비스는 일시 중지할 수 없습니다. 서비스가 만들어지면 고객의 독점적 사용을 위해 계산 및 저장소 리소스가 할당됩니다. 요청에 따라 이러한 리소스를 해제하고 재청구하는 것은 불가능합니다.
+서비스는 일시 중지할 수 없습니다. 서비스가 만들어지면 고객의 독점적 사용을 위해 계산 및 스토리지 리소스가 할당됩니다. 요청에 따라 이러한 리소스를 해제하고 재청구하는 것은 불가능합니다.
 
 ## <a name="indexing-operations"></a>인덱싱 작업
 
@@ -64,7 +64,7 @@ Azure Search에서는 여러 데이터 원본, [다국어 언어 분석](https:/
 
 아니요. 이 작업은 지원되지 않습니다. 검색 범위는 항상 단일 인덱스입니다.
 
-### <a name="can-i-restrict-search-index-access-by-user-identity"></a>사용자 id 별로 검색 인덱스 액세스를 제한할 수 있습니까?
+### <a name="can-i-restrict-search-index-access-by-user-identity"></a>사용자 id로 검색 인덱스 액세스를 제한할 수 있나요?
 
 `search.in()` 필터를 사용하여 [보안 필터](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search)를 구현할 수 있습니다. 이 필터는 [AAD(Azure Active Directory) 등의 ID 관리 서비스](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search-with-aad)를 사용하여 정의된 사용자 그룹 멤버 자격에 따라 검색 결과를 자릅니다.
 
@@ -80,7 +80,7 @@ Azure Search에서는 여러 데이터 원본, [다국어 언어 분석](https:/
 
 ### <a name="why-is-the-search-rank-a-constant-or-equal-score-of-10-for-every-hit"></a>검색 순위가 일정하거나 모든 적중에 대해 점수가 1.0으로 같은 이유는 무엇인가요?
 
-기본적으로 검색 결과는 [일치하는 용어의 통계적 속성](search-lucene-query-architecture.md#stage-4-scoring)에 따라 점수가 매겨지며 결과 집합에서 높은 점수에서 낮은 점수 순으로 순위가 매겨집니다. 그러나 일부 쿼리 유형(와일드카드, 접두사, regex)은 전체적인 문서 점수에 항상 상수 점수를 부여합니다. 이 동작은 의도된 것입니다. Azure Search는 순위 영향 없이 쿼리 확장을 통해 검색된 일치 항목이 결과에는 포함되게 하기 위해 일정 점수를 적용합니다.
+기본적으로 검색 결과는 [일치하는 용어의 통계적 속성](search-lucene-query-architecture.md#stage-4-scoring)에 따라 점수가 매겨지며 결과 집합에서 높은 점수에서 낮은 점수 순으로 순위가 매겨집니다. 그러나 일부 쿼리 유형(와일드카드, 접두사, regex)은 전체적인 문서 점수에 항상 상수 점수를 부여합니다. 이 동작은 설계 시 의도된 것입니다. Azure Search는 순위 영향 없이 쿼리 확장을 통해 검색된 일치 항목이 결과에는 포함되게 하기 위해 일정 점수를 적용합니다.
 
 예를 들어, 와일드카드 검색에서 "tour*"를 입력하면 "tours", "tourettes" 및 "tourmaline"이 일치합니다. 이러한 결과의 특성을 감안할 때, 어떤 용어가 더 중요한지 합리적으로 유추할 방법이 없습니다. 이러한 이유로 와일드카드, 접두사, regex 쿼리 유형의 결과에 대한 점수를 매길 때에는 용어 빈도를 무시합니다. 예기치 않은 일치의 가능성에 따른 왜곡을 방지하기 위해 부분 이력 기준 검색 결과에는 일정 점수가 부여됩니다.
 
@@ -94,7 +94,7 @@ Azure Search에서는 여러 데이터 원본, [다국어 언어 분석](https:/
 
 없는 기능 또는 특징에 대해 질문이 있으면 [사용자 의견 웹 사이트](https://feedback.azure.com/forums/263029-azure-search)에서 요청하세요.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
  [StackOverflow: Azure Search](https://stackoverflow.com/questions/tagged/azure-search)   
  [Azure Search의 전체 텍스트 검색 작동 방식](search-lucene-query-architecture.md)  

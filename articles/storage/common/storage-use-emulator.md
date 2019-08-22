@@ -7,12 +7,12 @@ ms.date: 08/10/2018
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.openlocfilehash: 9e0e024a5bd3c9cf16879bb9ea93727a338ddbf4
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
-ms.translationtype: MT
+ms.openlocfilehash: ee8dd9da186013dc168e20e6b8b842cca85de172
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986399"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877637"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>개발 및 테스트에 Azure Storage 에뮬레이터 사용
 
@@ -176,7 +176,7 @@ Azure Storage 계정에 리소스 주소를 지정할 때는 다음 체계를 �
 
 옵션 목록을 보려면 명령 프롬프트에 `/help` 을(를) 입력합니다.
 
-| 옵션 | 설명 | 명령 | 인수 |
+| 옵션 | Description | 명령 | 인수 |
 | --- | --- | --- | --- |
 | **시작** |스토리지 에뮬레이터를 시작합니다. |`AzureStorageEmulator.exe start [-inprocess]` |*-inprocess*: 새 프로세스를 만드는 대신 현재 프로세스에서 에뮬레이터를 시작합니다. |
 | **중지** |스토리지 에뮬레이터를 중지합니다. |`AzureStorageEmulator.exe stop` | |
@@ -221,9 +221,21 @@ Azure Storage 계정에 리소스 주소를 지정할 때는 다음 체계를 �
 
 ## <a name="storage-emulator-release-notes"></a>스토리지 에뮬레이터 릴리스 정보
 
+### <a name="version-510"></a>버전 5.10
+
+* 저장소 에뮬레이터는 Blob, Queue 및 Table service 끝점에서 저장소 서비스 버전 2019-07-07을 거부 하지 않습니다.
+
+### <a name="version-59"></a>버전 5.9
+
+* 저장소 에뮬레이터는 Blob, Queue 및 Table service 끝점에서 저장소 서비스 버전 2019-02-02을 거부 하지 않습니다.
+
+### <a name="version-58"></a>버전 5.8
+
+* 저장소 에뮬레이터는 Blob, Queue 및 Table service 끝점에서 저장소 서비스 버전 2018-11-09을 거부 하지 않습니다.
+
 ### <a name="version-57"></a>버전 5.7
 
-로깅을 사용하도록 설정한 경우 충돌을 야기하는 버그가 수정되었습니다.
+* 로깅을 사용하도록 설정한 경우 충돌을 야기하는 버그가 수정되었습니다.
 
 ### <a name="version-56"></a>버전 5.6
 
@@ -236,11 +248,11 @@ Azure Storage 계정에 리소스 주소를 지정할 때는 다음 체계를 �
 
 ### <a name="version-54"></a>버전 5.4
 
-설치 안정성을 향상하기 위해, 에뮬레이터가 더 이상 설치 중에 포트를 예약하려고 시도하지 않습니다. 포트 예약을 원하는 경우 **init** 명령의 *-reserveports* 옵션을 사용하여 지정하세요.
+* 설치 안정성을 향상하기 위해, 에뮬레이터가 더 이상 설치 중에 포트를 예약하려고 시도하지 않습니다. 포트 예약을 원하는 경우 **init** 명령의 *-reserveports* 옵션을 사용하여 지정하세요.
 
 ### <a name="version-53"></a>버전 5.3
 
-스토리지 에뮬레이터는 이제 Blob, 큐 및 Table service 엔드포인트에서 2017-07-29 버전의 스토리지 서비스를 지원합니다.
+* 스토리지 에뮬레이터는 이제 Blob, 큐 및 Table service 엔드포인트에서 2017-07-29 버전의 스토리지 서비스를 지원합니다.
 
 ### <a name="version-52"></a>버전 5.2
 
@@ -249,7 +261,7 @@ Azure Storage 계정에 리소스 주소를 지정할 때는 다음 체계를 �
 
 ### <a name="version-51"></a>버전 5.1
 
-서비스가 `DataServiceVersion` 헤더를 반환하지 않았던 일부 응답에서 스토리지 에뮬레이터가 이 헤더를 반환하는 버그를 수정했습니다.
+* 서비스가 `DataServiceVersion` 헤더를 반환하지 않았던 일부 응답에서 스토리지 에뮬레이터가 이 헤더를 반환하는 버그를 수정했습니다.
 
 ### <a name="version-50"></a>버전 5.0
 

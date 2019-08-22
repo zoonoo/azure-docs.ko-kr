@@ -1,8 +1,8 @@
 ---
-title: "\"단순\" 검색 구문-Azure Search를 사용 하 여 쿼리 예제"
+title: "\"Simple\" 검색 구문을 사용 하는 쿼리 예제-Azure Search"
 description: 전체 텍스트 검색, 필터 검색, 지리적 검색, 패싯 검색 및 Azure Search 인덱스 쿼리에 사용되는 기타 쿼리 문자열에 대한 단순 쿼리 예제입니다.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 tags: Simple query analyzer syntax
 services: search
 ms.service: search
@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 6b7451371fe1562a6763643cd90e5646bd255018
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: df84686e512db90351d5a9815706890bce49848b
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67653519"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647628"
 ---
-# <a name="query-examples-using-the-simple-search-syntax-in-azure-search"></a>"단순" 검색 구문을 사용 하 여 Azure Search의 쿼리 예제
+# <a name="query-examples-using-the-simple-search-syntax-in-azure-search"></a>Azure Search에서 "단순" 검색 구문을 사용 하는 쿼리 예제
 
 [단순 쿼리 구문](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)은 Azure Search 인덱스에 대해 전체 텍스트 검색 쿼리를 실행하기 위해 기본 쿼리 파서를 호출합니다. 단순 쿼리 분석기는 신속하며, Azure Search에서 전체 텍스트 검색, 필터링 및 패싯 검색, 지리적 검색 등의 일반적인 시나리오를 처리합니다. 이 문서에서는 단순 구문을 사용할 때 사용할 수 있는 쿼리 작업을 보여 주는 예제를 단계별로 진행합니다.
 
@@ -41,7 +41,7 @@ ms.locfileid: "67653519"
 
 ### <a name="set-the-request-url"></a>요청 URL 설정
 
-요청은 Azure Search 끝점 및 검색 문자열을 포함하는 URL과 연결되는 GET 명령입니다.
+요청은 Azure Search 엔드포인트 및 검색 문자열을 포함하는 URL과 연결되는 GET 명령입니다.
 
   ![Postman 요청 헤더](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
 
@@ -55,9 +55,9 @@ URL 구성에는 다음 요소가 있습니다.
 
 ## <a name="send-your-first-query"></a>첫 번째 쿼리 전송
 
-확인 단계에서 다음 요청을 GET에 붙여넣고 **보내기**를 클릭합니다. 결과는 자세한 JSON 문서로 반환됩니다. 모든 필드 및 모든 값을 볼 수 있는 전체 문서가 반환 됩니다.
+확인 단계에서 다음 요청을 GET에 붙여넣고 **보내기**를 클릭합니다. 결과는 자세한 JSON 문서로 반환됩니다. 모든 필드와 모든 값을 볼 수 있는 전체 문서가 반환 됩니다.
 
-유효성 검사 단계로 및 문서 구조를 보려면 REST 클라이언트에이 URL을 붙여 넣습니다.
+이 URL을 REST 클라이언트에 유효성 검사 단계로 붙여넣고 문서 구조를 봅니다.
 
   ```http
   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&search=*
@@ -77,13 +77,13 @@ URL 구성에는 다음 요소가 있습니다.
 
 간단히 하기 위해 쿼리는 *business_title*만을 대상으로 하며, 직함만 반환되도록 지정합니다. 이 구문은 business_title 필드로만 쿼리 실행을 제한하며 응답에 포함되는 필드를 지정하도록 **선택**하는 **searchFields**입니다.
 
-### <a name="partial-query-string"></a>일부 쿼리 문자열
+### <a name="partial-query-string"></a>부분 쿼리 문자열
 
 ```http
 searchFields=business_title&$select=business_title&search=*
 ```
 
-쉼표로 구분 된 목록에서 여러 필드를 사용 하 여 동일한 쿼리는 다음과 같습니다.
+쉼표로 구분 된 목록에 여러 필드가 있는 동일한 쿼리는 다음과 같습니다.
 
 ```http
 search=*&searchFields=business_title, posting_type&$select=business_title, posting_type
@@ -211,7 +211,7 @@ POST /indexes/nycjobs/docs/search?api-version=2019-05-06
       "count": "true"
     }
 ```
-좀 더 읽기 쉬운 결과 대 한 작업 ID, 직책 및 작업 위치를 포함 하도록 검색 결과 잘립니다. 인덱스(Staten 섬에 작업 위치가 있는 경우)의 임의 문서에서 시작 좌표를 가져왔습니다.
+보다 읽기 쉬운 결과를 위해 작업 ID, 직위 및 작업 위치를 포함 하도록 검색 결과가 잘립니다. 인덱스(Staten 섬에 작업 위치가 있는 경우)의 임의 문서에서 시작 좌표를 가져왔습니다.
 
 GET을 사용하여 Postman에서 이를 시도해 볼 수 있습니다.
 

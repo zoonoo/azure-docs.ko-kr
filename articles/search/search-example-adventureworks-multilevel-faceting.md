@@ -2,18 +2,18 @@
 title: '예제: 다중 수준 패싯 - Azure Search'
 description: 다중 수준 분류를 위한 패싯 구조를 빌드하여 애플리케이션 페이지에 포함할 수 있는 중첩 탐색 구조를 만드는 방법을 알아봅니다.
 author: cstone
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: chstone
-ms.openlocfilehash: e17a91a35b69102e4e0ac6025559bbc32e71d8fb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5a6fda0157f0f3a4ca5861acd4bcbead7839e451
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024136"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69649928"
 ---
 # <a name="example-multi-level-facets-in-azure-search"></a>예제: Azure Search의 다중 수준 패싯
 
@@ -87,7 +87,7 @@ categories.count = sum;
   ![다중 수준 패싯 필터](./media/search-example-adventureworks/multi-level-facet.png "다중 수준 패싯 필터")
 
  
-트리의 각 링크는 관련 필터를 적용해야 합니다. 예를 들면 다음과 같습니다.
+트리의 각 링크는 관련 필터를 적용해야 합니다. 예를 들어:
 
 + **taxonomy/any**`(x:x eq 'Accessories')`는 액세서리 분기의 모든 문서를 반환합니다.
 + **taxonomy/any**`(x:x eq 'Accessories|Bike Racks')`는 액세서리 분기 아래에서 하위 범주가 자전거 고정대인 문서만 반환합니다.
@@ -97,6 +97,6 @@ categories.count = sum;
 > [!TIP]
 > 쿼리 속도는 반환되는 패싯의 수에 영향을 받습니다. 매우 큰 분류 세트를 지원하려면 각 문서의 최상위 분류 값을 보관하는 패싯 가능한 **Edm.String** 필드를 추가하는 방법을 고려해 보세요. 그 후 위의 기술을 똑같이 적용하되, 사용자가 최상위 노드를 확장할 때 컬렉션-패싯 쿼리(루트 분류 필드에서 필터링됨)만 수행합니다. 또는 100% 회수가 필요 없는 경우 패싯 수를 적절하게 줄이고, 개수를 기준으로 패싯 항목을 정렬합니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
 [예제: Azure Search에 대한 AdventureWorks Inventory 데이터베이스 모델링](search-example-adventureworks-modeling.md)

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 5ef1749217dd8980892d7bf933cbe1412929fbbd
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 9e3df59af33d6e5fdd1024d42c34dc2b4ed3184e
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976989"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69873187"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages-preview"></a>장치-클라우드 IoT Hub 메시지에 대 한 메시지 강화 (미리 보기)
 
@@ -76,6 +76,8 @@ Event Grid으로 끝점을 선택 하 여 Event Grid에 게시 되는 메시지�
 
 * 강화를 포함 하 여 총 메시지 크기는 256 KB를 초과할 수 없습니다. 메시지 크기가 256 KB를 초과 하면 IoT Hub 메시지를 삭제 합니다. [IoT Hub 메트릭을](iot-hub-metrics.md) 사용 하 여 메시지를 삭제할 때 오류를 식별 하 고 디버그할 수 있습니다. 예를 들어 d2c를 모니터링할 수 있습니다.
 
+* 강화 메시지는 디지털 쌍 변경 이벤트 ( [IoT 플러그 앤 플레이 공개 미리 보기](../iot-pnp/overview-iot-plug-and-play.md)의 일부)에 적용 되지 않습니다.
+
 ## <a name="pricing"></a>가격 책정
 
 메시지 강화는 추가 요금 없이 사용할 수 있습니다. 현재 IoT Hub에 메시지를 보낼 때 요금이 청구 됩니다. 메시지가 여러 끝점으로 이동 하더라도 해당 메시지에 대해 한 번만 요금이 청구 됩니다.
@@ -87,6 +89,8 @@ Event Grid으로 끝점을 선택 하 여 Event Grid에 게시 되는 메시지�
 ## <a name="next-steps"></a>다음 단계
 
 IoT Hub로 메시지를 라우팅하는 방법에 대 한 자세한 내용은 다음 문서를 확인 하세요.
+
+* [메시지 개선 자습서](tutorial-message-enrichments.md)
 
 * [IoT Hub 메시지 라우팅을 사용 하 여 다른 끝점으로 장치-클라우드 메시지 보내기](iot-hub-devguide-messages-d2c.md)
 

@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/24/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: d95760745dc3554bc63271cedc63dcf3bf017c5c
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 59b5138950e0fb94ea0051fa9cfe9aa75cd7d770
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855212"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877800"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-by-using-the-sql-server-iaas-agent-extension"></a>SQL Server IaaS 에이전트 확장을 사용 하 여 Azure virtual machines에서 관리 작업 자동화
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ SQL Server IaaS 확장에는 다음과 같은 세 가지 관리 효율성 모드
 ## <a name="supported-services"></a>지원되는 서비스
 SQL Server IaaS 에이전트 확장은 다음 관리 작업을 지원합니다.
 
-| 관리 기능 | Description |
+| 관리 기능 | 설명 |
 | --- | --- |
 | **자동화 된 백업 SQL Server** |는 VM에 기본 인스턴스 또는 [올바르게 설치](virtual-machines-windows-sql-server-iaas-faq.md#administration) 된 명명 된 SQL Server 인스턴스에 대 한 모든 데이터베이스의 백업 일정을 자동화 합니다. 자세한 내용은 [Azure virtual machines의 SQL Server에 대 한 자동화 된 백업 (리소스 관리자)](virtual-machines-windows-sql-automated-backup.md)을 참조 하세요. |
 | **자동화 된 패치 SQL Server** |워크로드가 가장 많은 시간에 업데이트하지 않도록 VM에 대한 중요한 Windows 업데이트가 수행될 유지 관리 기간을 구성할 수 있습니다. 자세한 내용은 [Azure virtual machines의 SQL Server에 대 한 자동화 된 패치 (리소스 관리자)](virtual-machines-windows-sql-automated-patching.md)를 참조 하세요. |
@@ -56,7 +56,7 @@ SQL Server Iaas 에이전트 확장이 설치 되어 실행 되 면 관리 기�
 * Azure Portal에서 가상 컴퓨터의 SQL Server 패널에서 Azure Marketplace의 SQL Server 이미지에 Azure PowerShell 합니다.
 * 확장의 수동 설치에 대 한 Azure PowerShell. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 VM에서 SQL Server IaaS 에이전트 확장을 사용 하기 위한 요구 사항은 다음과 같습니다.
 
 **운영 체제**:
@@ -88,14 +88,17 @@ VM에서 SQL Server IaaS 에이전트 확장을 사용 하기 위한 요구 사�
 PowerShell을 사용 하 여 SQL Server IaaS 에이전트의 현재 모드를 볼 수 있습니다. 
 
   ```powershell-interactive
-     //Get the SqlVirtualMachine
+     #Get the SqlVirtualMachine
      $sqlvm = Get-AzResource -Name $vm.Name  -ResourceGroupName $vm.ResourceGroupName  -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines
      $sqlvm.Properties.sqlManagement
   ```
 
-NoAgent 또는 lightweight IaaS 확장이 설치 된 SQL Server Vm의 경우 Azure Portal를 사용 하 여 모드를 full로 업그레이드할 수 있습니다. 다운 그레이드할 수는 없습니다. 이렇게 하려면 SQL Server IaaS 확장을 완전히 제거 하 고 다시 설치 해야 합니다. 
+*경량* IaaS 확장이 설치 된 SQL Server vm은 Azure Portal를 사용 하 여 모드를 _full_ 로 업그레이드할 수 있습니다. _에이전트가 없는_ SQL Server Vm은 Windows 2008 R2 이상으로 업그레이드 한 후에 _전체_ 로 업그레이드할 수 있습니다. 다운 그레이드할 수는 없습니다. 이렇게 하려면 SQL IaaS 확장을 완전히 제거 하 고 다시 설치 해야 합니다. 
 
 에이전트 모드를 full로 업그레이드 하려면 다음을 수행 합니다. 
+
+
+# <a name="azure-portaltabazure-portal"></a>[Azure Portal](#tab/azure-portal)
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. [SQL 가상 컴퓨터](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource) 리소스로 이동 합니다. 
@@ -108,8 +111,33 @@ NoAgent 또는 lightweight IaaS 확장이 설치 된 SQL Server Vm의 경우 Azu
 
     ![가상 머신에서 SQL Server 서비스를 다시 시작 하는 것에 동의 하는 확인란](media/virtual-machines-windows-sql-server-agent-extension/enable-full-mode-iaas.png)
 
+# <a name="az-clitabbash"></a>[AZ CLI](#tab/bash)
+
+다음 Az CLI 코드 조각을 실행 합니다.
+
+  ```azurecli-interactive
+  # Update to full mode
+
+  az sql vm update --name <vm_name> --resource-group <resource_group_name> --sql-mgmt-type full  
+  ```
+
+# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+
+다음 PowerShell 코드 조각을 실행 합니다.
+
+  ```powershell-interactive
+  # Update to full mode
+
+  $SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName <resource_group_name> -ResourceName <VM_name>
+  $SqlVm.Properties.sqlManagement="Full"
+  $SqlVm | Set-AzResource -Force
+  ```
+
+---
+
+
 ##  <a name="installation"></a>설치
-SQL Server IaaS 확장은 [SQL VM 리소스 공급자](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-the-sql-vm-resource-provider)를 사용 하 여 SQL Server VM를 등록할 때 설치 됩니다. 필요한 경우 전체 또는 경량 모드를 사용 하 여 SQL Server IaaS 에이전트를 수동으로 설치할 수 있습니다. 
+SQL Server IaaS 확장은 [SQL VM 리소스 공급자](virtual-machines-windows-sql-register-with-resource-provider.md)를 사용 하 여 SQL Server VM를 등록할 때 설치 됩니다. 필요한 경우 전체 또는 경량 모드를 사용 하 여 SQL Server IaaS 에이전트를 수동으로 설치할 수 있습니다. 
 
 Azure Portal를 사용 하 여 SQL Server 가상 머신 Azure Marketplace 이미지 중 하나를 프로 비전 할 때 전체 모드의 SQL Server IaaS 에이전트 확장이 자동으로 설치 됩니다. 
 
@@ -119,10 +147,10 @@ SQL Server IaaS 확장의 전체 모드는 SQL Server VM의 단일 인스턴스�
 PowerShell을 사용 하 여 전체 모드로 SQL Server IaaS 에이전트를 설치 합니다.
 
   ```powershell-interactive
-     // Get the existing compute VM
+     #Get the existing compute VM
      $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
           
-     // Register the SQL Server VM with 'Full' SQL Server IaaS agent
+     #Register the SQL Server VM with 'Full' SQL Server IaaS agent
      New-AzResource -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
         -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines `
         -Properties @{virtualMachineResourceId=$vm.Id;sqlServerLicenseType='AHUB';sqlManagement='Full'}  
@@ -158,10 +186,10 @@ PowerShell을 사용 하 여 경량 모드로 SQL Server IaaS 에이전트를 �
 
 
   ```powershell-interactive
-     // Get the existing  Compute VM
+     /#Get the existing  Compute VM
      $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
           
-     // Register the SQL Server VM with the 'Lightweight' SQL IaaS agent
+     #Register the SQL Server VM with the 'Lightweight' SQL IaaS agent
      New-AzResource -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
         -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines `
         -Properties @{virtualMachineResourceId=$vm.Id;sqlServerLicenseType='AHUB';sqlManagement='LightWeight'}  

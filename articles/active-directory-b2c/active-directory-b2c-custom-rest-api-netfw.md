@@ -1,21 +1,21 @@
 ---
-title: Azure Active Directory B2C 사용자 경험에서 REST API 클레임 교환 통합 | Microsoft Docs
-description: Azure AD B2C 사용자 경험에서 REST API 클레임 교환을 사용자 입력의 유효성 검사로 통합
+title: Azure Active Directory B2C 사용자 경험에 REST API 클레임 교환 통합
+description: 사용자 입력의 유효성 검사로 Azure AD B2C 사용자 경험에 REST API 클레임 교환을 통합 합니다.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/30/2017
+ms.date: 08/21/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ed26c4d90738e10f3eb5a9a486cd2734090abd0e
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 49cd049c56e0c1d80318f9323aefe2d128774f3f
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227248"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69645115"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Azure AD B2C 사용자 경험에서 REST API 클레임 교환을 사용자 입력의 유효성 검사로 통합
 
@@ -24,6 +24,7 @@ ms.locfileid: "68227248"
 Azure AD B2C(Azure Active Directory B2C)의 기반이 되는 ID 경험 프레임워크를 사용하여 사용자 경험에서 RESTful API와 통합할 수 있습니다. 이 연습에서는 Azure AD B2C가 .NET Framework RESTful 서비스(Web API)와 상호 작용하는 방법을 알아봅니다.
 
 ## <a name="introduction"></a>소개
+
 Azure AD B2C를 사용하면 RESTful 서비스를 호출하여 사용자 경험에 고유한 비즈니스 논리를 추가할 수 있습니다. ID 경험 프레임워크는 *입력 클레임* 컬렉션의 RESTful 서비스에 데이터를 보내고 *출력 클레임* 컬렉션의 RESTful에서 다시 데이터를 수신합니다. RESTful 서비스 통합을 사용하면 다음과 같은 작업을 수행할 수 있습니다.
 
 * **사용자 입력 데이터 유효성 검사**: 잘못된 형식의 데이터가 Azure AD에 저장되지 않도록 방지합니다. 사용자의 값이 유효하지 않으면 RESTful 서비스는 사용자에게 항목을 제공하도록 지시하는 오류 메시지를 반환합니다. 예를 들어 사용자가 제공한 전자 메일 주소가 고객 데이터베이스에서 종료되었는지 확인할 수 있습니다.
@@ -34,59 +35,60 @@ Azure AD B2C를 사용하면 RESTful 서비스를 호출하여 사용자 경험�
 다음과 같은 방법으로 RESTful 서비스와 통합을 디자인할 수 있습니다.
 
 * **유효성 검사 기술 프로필**: RESTful 서비스에 대한 호출은 지정된 기술 프로필의 유효성 검사 기술 프로필 내에서 발생합니다. 유효성 검사 기술 프로필은 사용자 경험이 진행되기 전에 사용자가 제공한 데이터의 유효성을 검사합니다. 유효성 검사 기술 프로필을 사용하면 다음과 같은 작업을 수행할 수 있습니다.
-   * 입력 클레임을 보냅니다.
-   * 입력 클레임의 유효성을 검사하고 사용자 정의 오류 메시지를 throw합니다.
-   * 출력 클레임을 다시 보냅니다.
+  * 입력 클레임을 보냅니다.
+  * 입력 클레임의 유효성을 검사하고 사용자 정의 오류 메시지를 throw합니다.
+  * 출력 클레임을 다시 보냅니다.
 
 * **클레임 교환**: 이 디자인은 유효성 검사 기술 프로필과 유사하지만 오케스트레이션 단계 내에서 발생합니다. 이 정의는 다음으로 제한됩니다.
-   * 입력 클레임을 보냅니다.
-   * 출력 클레임을 다시 보냅니다.
+  * 입력 클레임을 보냅니다.
+  * 출력 클레임을 다시 보냅니다.
 
 ## <a name="restful-walkthrough"></a>RESTful 연습
+
 이 연습에서는 사용자 입력의 유효성을 검사하고 사용자 전용 번호를 제공하는 .NET Framework Web API를 개발합니다. 예를 들어 애플리케이션은 전용 번호에 따라 *플래티넘 혜택*에 대한 액세스 권한을 부여할 수 있습니다.
 
 개요:
-* RESTful 서비스(.NET Framework Web API) 개발
-* 사용자 경험에서 RESTful 서비스 사용
-* 입력 클레임 보내기 및 사용자 코드로 읽기
-* 사용자 이름의 유효성 검사
-* 전용 번호 다시 보내기
-* JWT(JSON Web Token)에 전용 번호 추가
 
-## <a name="prerequisites"></a>필수 구성 요소
+* RESTful 서비스 (.NET Framework web API) 개발
+* 사용자 경험에서 RESTful 서비스 사용
+* 입력 클레임을 보내고 코드에서 읽습니다.
+* 사용자의 이름을 확인 합니다.
+* 충성도 번호를 다시 보냅니다.
+* JSON Web Token (JWT)에 충성도 번호를 추가 합니다.
+
+## <a name="prerequisites"></a>전제 조건
+
 [사용자 지정 정책 시작](active-directory-b2c-get-started-custom.md) 문서의 단계를 완료합니다.
 
 ## <a name="step-1-create-an-aspnet-web-api"></a>1단계: ASP.NET Web API 만들기
 
 1. Visual Studio에서 **파일** > **새로 만들기** > **프로젝트**를 선택하여 프로젝트를 만듭니다.
-
-2. **새 프로젝트** 창에서 **Visual C#**  > **웹** > **ASP.NET 웹 애플리케이션(.NET Framework)** 을 선택합니다.
-
-3. **이름** 상자에서 애플리케이션의 이름(예: *Contoso.AADB2C.API*)을 지정한 후 **확인**을 선택합니다.
+1. **새 프로젝트** 창에서 **Visual C#**  > **웹** > **ASP.NET 웹 애플리케이션(.NET Framework)** 을 선택합니다.
+1. **이름** 상자에서 애플리케이션의 이름(예: *Contoso.AADB2C.API*)을 지정한 후 **확인**을 선택합니다.
 
     ![Visual Studio에서 새 Visual Studio 프로젝트 만들기](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-create-project.png)
 
-4. **새 ASP.NET 웹 애플리케이션** 창에서 **Web API** 또는 **Azure API 앱** 템플릿을 선택합니다.
+1. **새 ASP.NET 웹 애플리케이션** 창에서 **Web API** 또는 **Azure API 앱** 템플릿을 선택합니다.
 
     ![Visual Studio에서 web API 템플릿 선택](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-select-web-api.png)
 
-5. 인증을 **인증 없음**으로 설정해야 합니다.
-
-6. **확인**을 선택하여 프로젝트를 만듭니다.
+1. 인증을 **인증 없음**으로 설정해야 합니다.
+1. **확인**을 선택하여 프로젝트를 만듭니다.
 
 ## <a name="step-2-prepare-the-rest-api-endpoint"></a>2단계: REST API 엔드포인트 준비
 
 ### <a name="step-21-add-data-models"></a>2\.1단계: 데이터 모델 추가
+
 모델은 RESTful 서비스에서 입력 클레임 및 출력 클레임 데이터를 나타냅니다. 코드에서는 입력 클레임 모델을 JSON 문자열에서 C# 개체(모델)로 역직렬화하여 입력 데이터를 읽습니다. ASP.NET Web API는 자동으로 출력 클레임 모델을 다시 JSON으로 역직렬화하고 HTTP 응답 메시지의 본문에 직렬화된 데이터를 기록합니다.
 
 다음을 수행하여 입력 클레임을 나타내는 모델을 만듭니다.
 
 1. 솔루션 탐색기가 열려 있지 않으면 **보기** > **솔루션 탐색기**를 선택합니다.
-2. 솔루션 탐색기에서 **Models** 폴더를 마우스 오른쪽 단추로 클릭한 후 **추가**, **클래스**를 차례로 선택합니다.
+1. 솔루션 탐색기에서 **Models** 폴더를 마우스 오른쪽 단추로 클릭한 후 **추가**, **클래스**를 차례로 선택합니다.
 
     ![Visual Studio에서 선택한 클래스 추가 메뉴 항목](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-model.png)
 
-3. `InputClaimsModel` 클래스의 이름을 지정하고 `InputClaimsModel` 클래스에 다음 속성을 추가합니다.
+1. `InputClaimsModel` 클래스의 이름을 지정하고 `InputClaimsModel` 클래스에 다음 속성을 추가합니다.
 
     ```csharp
     namespace Contoso.AADB2C.API.Models
@@ -100,7 +102,7 @@ Azure AD B2C를 사용하면 RESTful 서비스를 호출하여 사용자 경험�
     }
     ```
 
-4. 새 모델인 `OutputClaimsModel`을 만들고 `OutputClaimsModel` 클래스에 다음 속성을 추가합니다.
+1. 새 모델인 `OutputClaimsModel`을 만들고 `OutputClaimsModel` 클래스에 다음 속성을 추가합니다.
 
     ```csharp
     namespace Contoso.AADB2C.API.Models
@@ -112,7 +114,7 @@ Azure AD B2C를 사용하면 RESTful 서비스를 호출하여 사용자 경험�
     }
     ```
 
-5. `B2CResponseContent`라는 모델을 하나 더 만듭니다. 이 모델을 입력 유효성 검사 오류 메시지를 throw하는 데 사용합니다. 다음 속성을 `B2CResponseContent` 클래스에 추가하고 누락된 참조를 제공하고 해당 파일을 저장합니다.
+1. 입력 유효성 검사 오류 메시지 `B2CResponseContent`를 throw 하는 데 사용 하는 모델을 하나 더 만듭니다. 다음 속성을 `B2CResponseContent` 클래스에 추가하고 누락된 참조를 제공하고 해당 파일을 저장합니다.
 
     ```csharp
     namespace Contoso.AADB2C.API.Models
@@ -134,23 +136,24 @@ Azure AD B2C를 사용하면 RESTful 서비스를 호출하여 사용자 경험�
     ```
 
 ### <a name="step-22-add-a-controller"></a>2\.2단계: 컨트롤러 추가
+
 Web API에서 _컨트롤러_는 HTTP 요청을 처리하는 개체입니다. 컨트롤러는 출력 클레임을 반환하거나 이름이 유효하지 않은 경우 충돌 HTTP 오류 메시지를 throw합니다.
 
 1. 솔루션 탐색기에서 **Controllers** 폴더를 마우스 오른쪽 단추로 클릭한 후 **추가**, **컨트롤러**를 차례로 선택합니다.
 
     ![Visual Studio에서 새 컨트롤러 추가](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-1.png)
 
-2. **스캐폴드 추가** 창에서 **Web API 컨트롤러 - 비어 있음**을 선택하고 **추가**를 선택합니다.
+1. **스캐폴드 추가** 창에서 **Web API 컨트롤러 - 비어 있음**을 선택하고 **추가**를 선택합니다.
 
     ![Visual Studio에서 비어 있는 웹 API 2 컨트롤러 선택](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-2.png)
 
-3. **컨트롤러 추가** 창에서 컨트롤러의 이름을 **IdentityController**로 지정한 후 **추가**를 선택합니다.
+1. **컨트롤러 추가** 창에서 컨트롤러의 이름을 **IdentityController**로 지정한 후 **추가**를 선택합니다.
 
     ![Visual Studio에서 컨트롤러 이름 입력](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-3.png)
 
     스캐폴딩은 *Controllers* 폴더에서 *IdentityController.cs*라는 파일을 만듭니다.
 
-4. *IdentityController.cs* 파일이 열려있지 않으면 두 번 클릭한 후 파일의 코드를 다음 코드로 바꿉니다.
+1. *IdentityController.cs* 파일이 열려있지 않으면 두 번 클릭한 후 파일의 코드를 다음 코드로 바꿉니다.
 
     ```csharp
     using Contoso.AADB2C.API.Models;
@@ -204,29 +207,31 @@ Web API에서 _컨트롤러_는 HTTP 요청을 처리하는 개체입니다. 컨
     ```
 
 ## <a name="step-3-publish-the-project-to-azure"></a>3단계: Azure에 프로젝트 게시
+
 1. 솔루션 탐색기에서 **Contoso.AADB2C.API** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **게시**를 선택합니다.
 
     ![Visual Studio를 사용 하 여 Microsoft Azure App Service에 게시](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-1.png)
 
-2. **게시** 창에서 **Microsoft Azure App Service**를 선택한 다음 **게시**를 선택합니다.
+1. **게시** 창에서 **Microsoft Azure App Service**를 선택한 다음 **게시**를 선택합니다.
 
     ![Visual Studio를 사용 하 여 새 Microsoft Azure App Service 만들기](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-2.png)
 
     **App Service 만들기** 창이 열립니다. 여기에서 Azure에서 ASP.NET 웹앱을 실행하는 데 필요한 모든 Azure 리소스를 만듭니다.
 
-    > [!NOTE]
-    >게시 방법에 대한 자세한 내용은 [Azure에서 ASP.NET 웹앱 만들기](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet)를 참조하세요.
+    > [!TIP]
+    > 게시 방법에 대한 자세한 내용은 [Azure에서 ASP.NET 웹앱 만들기](../app-service/app-service-web-get-started-dotnet-framework.md)를 참조하세요.
 
-3. **Web App 이름** 상자에서 고유한 앱 이름을 입력합니다(유효한 문자: a-z, 0-9 및 -(하이픈)). 웹앱의 URL은 http://<app_name>.azurewebsites.NET입니다. 여기서 *app_name*은 웹앱의 이름입니다. 자동으로 생성된 이름을 적용할 수 있습니다. 이 이름은 고유합니다.
+1. **Web App 이름** 상자에서 고유한 앱 이름을 입력합니다(유효한 문자: a-z, 0-9 및 -(하이픈)). 웹앱의 URL은 http://<app_name>.azurewebsites.NET입니다. 여기서 *app_name*은 웹앱의 이름입니다. 자동으로 생성된 이름을 적용할 수 있습니다. 이 이름은 고유합니다.
 
     ![App Service 속성 구성](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-3.png)
 
-4. Azure 리소스 만들기를 시작하려면 **만들기**를 선택합니다.
+1. Azure 리소스 만들기를 시작하려면 **만들기**를 선택합니다.
     ASP.NET 웹앱을 만든 후에 마법사는 Azure에 게시한 다음 기본 브라우저에서 앱을 시작합니다.
 
-6. 웹앱의 URL을 복사합니다.
+1. 웹앱의 URL을 복사합니다.
 
 ## <a name="step-4-add-the-new-loyaltynumber-claim-to-the-schema-of-your-trustframeworkextensionsxml-file"></a>4단계: TrustFrameworkExtensions.xml 파일의 스키마에 새 `loyaltyNumber` 클레임 추가
+
 `loyaltyNumber` 클레임은 아직 스키마에서 정의되지 않습니다. `<BuildingBlocks>` 요소 내에서 정의를 추가합니다. *TrustFrameworkExtensions.xml* 파일의 시작 부분에서 찾을 수 있습니다.
 
 ```xml
@@ -242,6 +247,7 @@ Web API에서 _컨트롤러_는 HTTP 요청을 처리하는 개체입니다. 컨
 ```
 
 ## <a name="step-5-add-a-claims-provider"></a>5단계: 클레임 공급자 추가
+
 모든 클레임 공급자에는 엔드포인트를 지정하는 하나 이상의 기술 프로필 및 클레임 공급자와 통신하는 데 필요한 프로토콜이 있어야 합니다.
 
 클레임 공급자에는 다양한 이유로 여러 기술 프로필이 있을 수 있습니다. 예를 들어 클레임 공급자가 여러 프로토콜을 지원하거나, 엔드포인트가 다른 기능을 가질 수 있거나 릴리스가 다양한 보증 수준을 가진 클레임을 포함할 수 있기 때문에 여러 기술 프로필을 정의할 수 있습니다. 다른 사용자 경험이 아닌 하나의 사용자 경험에서 중요한 클레임을 해제하기 위해 허용할 수도 있습니다.
@@ -269,8 +275,10 @@ Web API에서 _컨트롤러_는 HTTP 요청을 처리하는 개체입니다. 컨
       <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
       <Metadata>
         <Item Key="ServiceUrl">https://your-app-name.azurewebsites.NET/api/identity/signup</Item>
-        <Item Key="AuthenticationType">None</Item>
         <Item Key="SendClaimsIn">Body</Item>
+        <!-- Set AuthenticationType to Basic or ClientCertificate in production environments -->
+        <Item Key="AuthenticationType">None</Item>
+        <!-- REMOVE the following line in production environments -->
         <Item Key="AllowInsecureAuthInProduction">true</Item>
       </Metadata>
       <InputClaims>
@@ -297,7 +305,10 @@ Web API에서 _컨트롤러_는 HTTP 요청을 처리하는 개체입니다. 컨
 </ClaimsProvider>
 ```
 
+`AuthenticationType` 위의`AllowInsecureAuthInProduction` 설명은 프로덕션 환경으로 이동할 때 수행 해야 하는 변경 내용을 지정 합니다. 프로덕션을 위해 RESTful Api를 보호 하는 방법을 알아보려면 [기본 인증을 사용 하는 RESTful Api 보안](active-directory-b2c-custom-rest-api-netfw-secure-basic.md) 및 [인증서 인증을 사용 하는 보안 RESTful api](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)를 참조 하세요.
+
 ## <a name="step-6-add-the-loyaltynumber-claim-to-your-relying-party-policy-file-so-the-claim-is-sent-to-your-application"></a>6단계: `loyaltyNumber` 클레임을 신뢰 당사자 정책 파일에 추가하여 애플리케이션에 해당 클레임을 보냄
+
 *SignUpOrSignIn.xml* RP(신뢰 당사자) 파일을 편집하고 TechnicalProfile Id="PolicyProfile" 요소를 수정하여 `<OutputClaim ClaimTypeReferenceId="loyaltyNumber" />`를 추가합니다.
 
 새 클레임을 추가한 후에 신뢰 당사자 코드는 다음과 같습니다.
@@ -327,19 +338,20 @@ Web API에서 _컨트롤러_는 HTTP 요청을 처리하는 개체입니다. 컨
 
 1. [Azure Portal](https://portal.azure.com)에서 [Azure AD B2C 테넌트의 컨텍스트](active-directory-b2c-navigate-to-b2c-context.md)로 전환한 다음 **Azure AD B2C**를 엽니다.
 
-2. **ID 경험 프레임워크**를 선택합니다.
+1. **ID 경험 프레임워크**를 선택합니다.
 
-3. **모든 정책**을 엽니다.
+1. **모든 정책**을 엽니다.
 
-4. **정책 업로드**를 선택합니다.
+1. **정책 업로드**를 선택합니다.
 
-5. **정책이 있는 경우 덮어쓰기** 확인란을 선택합니다.
+1. **정책이 있는 경우 덮어쓰기** 확인란을 선택합니다.
 
-6. TrustFrameworkExtensions.xml 파일을 업로드하고 유효성 검사를 통과하는지 확인합니다.
+1. TrustFrameworkExtensions.xml 파일을 업로드하고 유효성 검사를 통과하는지 확인합니다.
 
-7. SignUpOrSignIn.xml 파일을 사용하여 이전 단계를 반복합니다.
+1. SignUpOrSignIn.xml 파일을 사용하여 이전 단계를 반복합니다.
 
 ## <a name="step-8-test-the-custom-policy-by-using-run-now"></a>8단계: 지금 실행을 사용하여 사용자 지정 정책 테스트
+
 1. **Azure AD B2C 설정**을 선택한 다음 **ID 경험 프레임워크**로 이동합니다.
 
     > [!NOTE]
@@ -357,7 +369,7 @@ Web API에서 _컨트롤러_는 HTTP 요청을 처리하는 개체입니다. 컨
 4. **지정된 이름** 상자에서 ("Test" 이외의) 이름을 입력합니다.
     Azure AD B2C는 사용자를 등록한 후 전용 번호를 애플리케이션에 보냅니다. 이 JWT의 번호를 적어둡니다.
 
-```
+```JSON
 {
   "typ": "JWT",
   "alg": "RS256",
@@ -379,9 +391,16 @@ Web API에서 _컨트롤러_는 HTTP 요청을 처리하는 개체입니다. 컨
 ```
 
 ## <a name="optional-download-the-complete-policy-files-and-code"></a>(선택 사항)완성 정책 파일 및 코드 다운로드
+
 * [사용자 지정 정책 시작](active-directory-b2c-get-started-custom.md) 연습을 완료한 후에 고유한 사용자 지정 정책 파일을 사용하여 시나리오를 빌드하는 것이 좋습니다. 참조를 위해 [샘플 정책 파일](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw)을 제공했습니다.
+
 * [참조를 위한 Visual Studio 솔루션 샘플](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw/)에서 전체 코드를 다운로드할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
+
+다음 작업은 기본 또는 클라이언트 인증서 인증을 사용 하 여 RESTful API를 보호 하는 것입니다. Api를 보호 하는 방법을 알아보려면 다음 문서를 참조 하세요.
+
 * [기본 인증(사용자 이름 및 암호)을 사용하여 RESTful API 보호](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
 * [클라이언트 인증서를 사용하여 RESTful API 보호](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
+
+RESTful 기술 프로필 [에서 사용할 수 있는 모든 요소에 대 한 자세한 내용은 참조: RESTful 기술 프로필](restful-technical-profile.md).

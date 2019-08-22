@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: asrastog
-ms.openlocfilehash: 9a62001f168e0577ea07ad030923a4d0398e50af
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 28537ac2389fbb1ca43ca4014515564bddeba4ce
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534966"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69872477"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>IoT Hub 메시지 만들기 및 읽기
 
@@ -49,7 +49,7 @@ IoT Hub를 사용한 디바이스-클라우드 메시징의 특징은 다음과 
 
 ## <a name="system-properties-of-d2c-iot-hub-messages"></a>**D2C** IoT Hub 메시지의 시스템 속성
 
-| 속성 | Description  |사용자 설정 가능 여부|키워드 </br>라우팅 쿼리|
+| 속성 | 설명  |사용자 설정 가능 여부|키워드 </br>라우팅 쿼리|
 | --- | --- | --- | --- |
 | message-id |사용자가 설정할 수 있는 메시지에 대한 식별자는 요청-회신 패턴에 사용됩니다. 형식: ASCII 7 비트 영숫자 문자 + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`의 대/소문자 구분 문자열(최대 길이 128자)입니다.  | 예 | messageId |
 | iothub-enqueuedtime |IoT Hub에서 [장치-클라우드](iot-hub-devguide-d2c-guidance.md) 메시지를 받은 날짜 및 시간입니다. | 아니요 | enqueuedTime |
@@ -61,7 +61,7 @@ IoT Hub를 사용한 디바이스-클라우드 메시징의 특징은 다음과 
 
 ## <a name="system-properties-of-c2d-iot-hub-messages"></a>**C2D** IoT Hub 메시지의 시스템 속성
 
-| 속성 | 설명  |사용자 설정 가능 여부|
+| 속성 | Description  |사용자 설정 가능 여부|
 | --- | --- | --- |
 | message-id |사용자가 설정할 수 있는 메시지에 대한 식별자는 요청-회신 패턴에 사용됩니다. 형식: ASCII 7 비트 영숫자 문자 + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`의 대/소문자 구분 문자열(최대 길이 128자)입니다.  |예|
 | sequence-number |숫자(디바이스 큐 별로 고유함)는 IoT Hub에서 각 클라우드-디바이스 메시지에 할당됩니다. |아니요|
@@ -73,7 +73,7 @@ IoT Hub를 사용한 디바이스-클라우드 메시징의 특징은 다음과 
 
 ## <a name="message-size"></a>메시지 크기
 
-IoT Hub는 실제 페이로드만을 고려하여 프로토콜 진단 방식으로 메시지 크기를 측정합니다. 크기(바이트 단위)는 다음의 합계로 계산됩니다.
+IoT Hub는 실제 페이로드만을 고려하여 프로토콜 진단 방식으로 메시지 크기를 측정합니다. 바이트 단위의 크기는 다음 값의 합계로 계산 됩니다.
 
 * 본문 크기(바이트)입니다.
 * 모든 메시지 시스템 속성 값의 크기(바이트)입니다.

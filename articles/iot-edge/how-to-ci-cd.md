@@ -4,26 +4,29 @@ description: 연속 통합 및 지속적인 배포 설정 - Azure IoT Edge 및 A
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 01/22/2019
+ms.date: 08/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 659a6f5acaac848084ed1e9590a414191542b54a
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: e14025a5a7a3e81404498638d6f6f9c5ff18ed58
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414620"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650723"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Azure IoT Edge 연속 통합 및 지속적인 배포
 
 Azure Pipelines의 기본 제공 Azure IoT Edge 작업과 함께 Azure IoT Edge 애플리케이션을 사용하여 DevOps를 손쉽게 채택할 수 있습니다. 이 문서에서는 Azure Pipelines의 연속 통합 및 지속적인 배포 기능을 사용하여 애플리케이션을 빠르고 효율적으로 빌드하고 테스트한 다음, Azure IoT Edge에 배포하는 방법을 설명합니다. 
 
-이 문서에서는 Azure Pipelines의 기본 제공 Azure IoT Edge 작업을 사용하여 IoT Edge 솔루션을 위한 두 개의 파이프라인을 만드는 방법을 알아봅니다. 첫 번째 파이프라인은 코드를 사용하고 솔루션을 빌드하여 모듈 이미지를 컨테이너 레지스트리에 푸시하고 배포 매니페스트를 만듭니다. 두 번째는 대상 IoT Edge 디바이스에 모듈을 배포합니다.  
-
 ![다이어그램 - 개발 및 프로덕션을 위한 CI 및 CD 분기](./media/how-to-ci-cd/cd.png)
 
+이 문서에서는 Azure Pipelines의 기본 제공 Azure IoT Edge 작업을 사용하여 IoT Edge 솔루션을 위한 두 개의 파이프라인을 만드는 방법을 알아봅니다. Azure IoT Edge 작업에는 네 가지 동작을 사용할 수 있습니다.
+   - **Azure IoT Edge 빌드 모듈 이미지** 는 IoT Edge 솔루션 코드를 사용 하 고 컨테이너 이미지를 빌드합니다.
+   - **Azure IoT Edge Push module 이미지** 는 모듈 이미지를 지정한 컨테이너 레지스트리에 푸시합니다.
+   - **Azure IoT Edge-배포 매니페스트 생성** 은 배포 템플릿. json 파일 및 변수를 사용 하 여 최종 IoT Edge 배포 매니페스트 파일을 생성 합니다.
+   - **Azure IoT Edge-IoT Edge 장치에 배포** 하면 단일/다중 IoT Edge 장치에 대 한 IoT Edge 배포를 만들 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -77,15 +80,15 @@ Azure Repos를 사용하는 방법에 대한 자세한 내용은 [Share your cod
     
      ![빌드 에이전트 풀 구성](./media/how-to-ci-cd/configure-env.png)
 
-5. 파이프라인은 **에이전트 작업 1**이라는 작업으로 미리 구성됩니다. 더하기 기호( **+** )를 선택하여 작업(job)에 다음 세 개의 작업(task)을 추가합니다. **Azure IoT Edge** 두 번 및 **빌드 아티팩트 게시** 한 번. 각 작업 이름을 가리키면 **추가** 단추가 표시됩니다.
+5. 파이프라인은 **에이전트 작업 1**이라는 작업으로 미리 구성됩니다. 더하기 기호( **+** )를 선택하여 작업(job)에 다음 세 개의 작업(task)을 추가합니다. 두 번 Azure IoT Edge **파일** 을 한 번 복사 하 고 **빌드 아티팩트** 를 한 번 게시 합니다. 각 작업 이름을 가리키면 **추가** 단추가 표시됩니다.
 
    ![Azure IoT Edge 작업 추가](./media/how-to-ci-cd/add-iot-edge-task.png)
 
-   세 개의 작업(task)이 모두 추가되면 에이전트 작업(job)이 다음 예제와 같이 표시됩니다.
+   4 개의 작업이 모두 추가 되 면 에이전트 작업은 다음 예제와 같습니다.
     
    ![빌드 파이프라인에 있는 세 개의 작업](./media/how-to-ci-cd/add-tasks.png)
 
-6. 첫 번째 **Azure IoT Edge** 작업을 선택하여 편집합니다. 이 작업은 지정하는 대상 플랫폼을 사용하여 솔루션의 모든 모듈을 빌드하고, IoT Edge 디바이스에 배포 구성 방법을 알리는 **deployment.json** 파일도 생성합니다.
+6. 첫 번째 **Azure IoT Edge** 작업을 선택하여 편집합니다. 이 작업은 지정 된 대상 플랫폼을 사용 하 여 솔루션의 모든 모듈을 빌드합니다.
 
    * **표시 이름**: 기본 **Azure IoT Edge - 모듈 이미지 빌드**를 그대로 사용합니다.
    * **작업**: 기본 **모듈 이미지 빌드**를 그대로 사용합니다. 
@@ -93,7 +96,7 @@ Azure Repos를 사용하는 방법에 대한 자세한 내용은 [Share your cod
    * **기본 플랫폼**: 대상 IoT Edge 디바이스에 따라 모듈에 적합한 플랫폼을 선택합니다. 
    * **출력 변수**: 출력 변수에는 deployment.json 파일이 생성될 파일 경로를 구성하는 데 사용할 수 있는 참조 이름이 포함됩니다. 참조 이름을 **edge**와 같이 기억하기 쉬운 이름을 설정합니다. 
 
-7. 두 번째 **Azure IoT Edge** 작업을 선택하여 편집합니다. 이 작업은 모든 모듈 이미지를 선택된 컨테이너 레지스트리로 푸시합니다. 또한 IoT Edge 디바이스가 모듈 이미지에 액세스할 수 있도록 **deployment.json** 파일에 컨테이너 레지스트리 자격 증명을 추가합니다. 
+7. 두 번째 **Azure IoT Edge** 작업을 선택하여 편집합니다. 이 작업은 모든 모듈 이미지를 선택된 컨테이너 레지스트리로 푸시합니다.
 
    * **표시 이름**: 작업 필드가 변경되면 표시 이름이 자동으로 업데이트됩니다. 
    * **작업**: 드롭다운 목록을 사용하여 **모듈 이미지 푸시**를 선택합니다. 
@@ -103,24 +106,32 @@ Azure Repos를 사용하는 방법에 대한 자세한 내용은 [Share your cod
 
    모듈 이미지를 호스트하는 컨테이너 레지스트리가 여러 개 있는 경우 이 작업을 복제하고 다른 컨테이너 레지스트리를 선택한 다음, 고급 설정의 **모듈 무시**를 사용하여 이 특정 레지스트리에 해당되지 않는 이미지를 무시해야 합니다.
 
-8. **빌드 아티팩트 게시** 작업을 선택하여 편집합니다. 빌드 작업에서 생성된 배포 파일의 파일 경로를 제공합니다. 빌드 모듈 작업에서 설정한 출력 변수와 일치하도록 **게시할 경로** 값을 설정합니다. `$(edge.DEPLOYMENT_FILE_PATH)` )을 입력합니다. 다른 값은 기본값으로 그대로 둡니다. 
+8. **파일 복사** 작업을 선택 하 여 편집 합니다. 이 작업을 사용 하 여 아티팩트 준비 디렉터리에 파일을 복사 합니다.
 
-9. **트리거** 탭을 열고 **연속 통합 사용** 상자를 선택합니다. 코드를 포함하는 분기가 포함되어 있는지 확인합니다.
+   * **표시 이름**: 다음으로 파일 복사: 저장 폴더입니다.
+   * **내용**: 이 섹션인 및 `**/module.json`에 두 줄을 `deployment.template.json` 입력 합니다. 이러한 두 가지 유형의 파일은 IoT Edge 배포 매니페스트를 생성 하는 입력입니다. 아티팩트 준비 폴더에 복사 하 고 릴리스 파이프라인에 대해 게시 해야 합니다.
+   * **대상 폴더**: 변수 `$(Build.ArtifactStagingDirectory)`를 입력 합니다. 설명에 대 한 자세한 내용은 [빌드 변수](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables) 를 참조 하세요.
+
+9. **빌드 아티팩트 게시** 작업을 선택하여 편집합니다. 경로를 릴리스 파이프라인에 게시할 수 있도록 작업에 아티팩트 준비 디렉터리 경로를 제공 합니다.
+   
+   * **표시 이름**: 게시 아티팩트: drop.
+   * **게시할 경로**: 변수 `$(Build.ArtifactStagingDirectory)`를 입력 합니다. 설명에 대 한 자세한 내용은 [빌드 변수](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables) 를 참조 하세요.
+   * **아티팩트 이름**: drop.
+   * **아티팩트 게시 위치**: Azure Pipelines.
+
+
+10. **트리거** 탭을 열고 **연속 통합 사용** 상자를 선택합니다. 코드를 포함하는 분기가 포함되어 있는지 확인합니다.
 
     ![연속 통합 트리거 켜기](./media/how-to-ci-cd/configure-trigger.png)
 
-10. **저장** 단추로 새 빌드 파이프라인을 저장합니다.
+11. **저장** 단추로 새 빌드 파이프라인을 저장합니다.
 
 이제 이 파이프라인은 리포지토리에 새 코드를 푸시하면 자동으로 실행되도록 구성됩니다. 파이프라인 아티팩트를 게시하는 마지막 작업은 릴리스 파이프라인을 트리거합니다. 계속해서 다음 섹션에서 릴리스 파이프라인을 빌드합니다. 
 
 ## <a name="configure-continuous-deployment"></a>지속적 배포 구성
 이 섹션에서는 빌드 파이프라인이 아티팩트를 드롭하면 자동으로 실행되도록 구성된 릴리스 파이프라인을 만들고 Azure Pipelines에 배포 로그를 표시합니다.
 
-이 섹션에서는 테스트 배포 및 프로덕션 배포용으로 하나씩 두 가지 스테이지를 만듭니다. 
-
-### <a name="create-test-stage"></a>테스트 스테이지 만들기
-
-새 파이프라인을 만들고 QA(품질 보증) 배포를 위한 첫 번째 스테이지를 구성합니다. 
+새 파이프라인을 만들고 새 단계를 추가 합니다. 
 
 1. **릴리스** 탭에서 **+ 새 파이프라인**을 선택합니다. 또는 이미 릴리스 파이프라인이 있는 경우 **+ 새로 만들기** 단추를 선택하고 **+ 새 릴리스 파이프라인**을 선택합니다.  
 
@@ -130,9 +141,7 @@ Azure Repos를 사용하는 방법에 대한 자세한 내용은 [Share your cod
 
     ![빈 작업으로 시작](./media/how-to-ci-cd/start-with-empty-job.png)
 
-3. 새 릴리스 파이프라인은 **스테이지 1**이라는 하나의 스테이지로 초기화됩니다. 스테이지 1의 이름을 **QA**로 바꾸고 테스트 환경으로 사용합니다. 일반적으로 지속적인 배포 파이프라인에는 여러 스테이지가 있습니다. DevOps 사례를 기반으로 추가로 만들 수 있습니다. 이름이 바뀐 후 [스테이지 세부 정보] 창을 닫습니다. 
-
-    ![테스트 환경 스테이지 만들기](./media/how-to-ci-cd/QA-env.png)
+3. 새 릴리스 파이프라인은 **스테이지 1**이라는 하나의 스테이지로 초기화됩니다. 1 단계를 **dev** 로 바꾸고 테스트 환경으로 처리 합니다. 일반적으로 연속 배포 파이프라인에는 **개발**, **스테이징** 및 **프로덕션**을 포함 한 여러 단계가 있습니다. DevOps 사례를 기반으로 추가로 만들 수 있습니다. 이름이 바뀐 후 [스테이지 세부 정보] 창을 닫습니다. 
 
 4. 빌드 파이프라인에서 게시한 빌드 아티팩트에 릴리스를 연결합니다. 아티팩트 영역에서 **추가**를 클릭합니다.
 
@@ -146,57 +155,46 @@ Azure Repos를 사용하는 방법에 대한 자세한 내용은 [Share your cod
 
    ![지속적인 배포 트리거 구성](./media/how-to-ci-cd/add-a-trigger.png)
 
-7. **QA** 스테이지는 1개의 작업(job) 및 0개의 작업(task)으로 미리 구성됩니다. 파이프라인 메뉴에서 **작업**을 선택한 다음, **QA** 스테이지를 선택합니다.  작업(job) 및 작업(task) 수를 선택하여 이 스테이지에서 작업(task)을 구성합니다.
+7. **Dev** 단계는 하나의 작업 및 0 개의 작업으로 미리 구성 됩니다. 파이프라인 메뉴에서 **작업** 을 선택한 다음 **개발** 단계를 선택 합니다.  작업(job) 및 작업(task) 수를 선택하여 이 스테이지에서 작업(task)을 구성합니다.
 
-    ![QA 작업 구성](./media/how-to-ci-cd/view-stage-tasks.png)
+    ![개발 작업 구성](./media/how-to-ci-cd/view-stage-tasks.png)
 
-8. QA 스테이지에서 기본 **에이전트 작업**이 표시되어야 합니다. 에이전트 작업(job)의 세부 정보를 구성할 수 있지만, 배포 작업(task)은 플랫폼을 구분하지 않으므로 **에이전트 풀**(또는 직접 관리하는 다른 에이전트)에서 **Hosted VS2017** 또는 **Hosted Ubuntu 1604**를 사용할 수 있습니다. 
+8. **개발** 단계에서 기본 **에이전트 작업이**표시 됩니다. 에이전트 작업(job)의 세부 정보를 구성할 수 있지만, 배포 작업(task)은 플랫폼을 구분하지 않으므로 **에이전트 풀**(또는 직접 관리하는 다른 에이전트)에서 **Hosted VS2017** 또는 **Hosted Ubuntu 1604**를 사용할 수 있습니다. 
 
-9. 더하기 기호( **+** )를 선택하여 하나의 작업을 추가합니다. **Azure IoT Edge**를 검색하고 추가합니다. 
+9. 더하기 기호 ( **+** )를 선택 하 여 두 개의 작업을 추가 합니다. **Azure IoT Edge** 를 검색 하 고 두 번 추가 합니다.
 
-    ![QA에 대한 작업 추가](./media/how-to-ci-cd/add-task-qa.png)
+    ![개발에 대 한 작업 추가](./media/how-to-ci-cd/add-task-qa.png)
 
-10. 새 Azure IoT Edge 작업을 선택하고 다음 값으로 구성합니다.
+10. 첫 번째 **Azure IoT Edge** 작업을 선택 하 고 다음 값으로 구성 합니다.
 
     * **표시 이름**: 작업 필드가 변경되면 표시 이름이 자동으로 업데이트됩니다. 
-    * **작업**: 드롭다운 목록을 사용하여 **IoT Edge 디바이스에 배포**를 선택합니다. 작업(action) 값을 변경하면 일치하도록 작업(task) 표시 이름도 업데이트됩니다.
+    * **작업**: 드롭다운 목록을 사용 하 여 **배포 매니페스트 생성**을 선택 합니다. 작업(action) 값을 변경하면 일치하도록 작업(task) 표시 이름도 업데이트됩니다.
+    * **.template.json 파일**: 경로 `$(System.DefaultWorkingDirectory)/Drop/drop/deployment.template.json`를 입력 합니다. 경로는 빌드 파이프라인에서 게시 됩니다.
+    * **기본 플랫폼**: 모듈 이미지를 빌드할 때 동일한 값을 선택 합니다.
+    * **출력 경로**: 경로 `$(System.DefaultWorkingDirectory)/Drop/drop/configs/deployment.json`를 입력 합니다. 이 경로는 최종 IoT Edge 배포 매니페스트 파일입니다.
+
+    이러한 구성은 `deployment.template.json` 파일의 모듈 이미지 url을 대체 하는 데 도움이 됩니다. 또한 **생성 된 배포 매니페스트** 를 사용 하면 변수를 `deployment.template.json` 파일에서 정의한 정확한 값으로 바꿀 수 있습니다. VS/VS Code에서 `.env` 파일의 실제 값을 지정 합니다. Azure Pipelines의 릴리스 파이프라인 변수 탭에서 값을 설정 합니다. 변수 탭으로 이동 하 고 이름 및 값을 다음과 같이 구성 합니다.
+
+    * **ACR_ADDRESS**: Azure Container Registry 주소입니다. 
+    * **ACR_PASSWORD**: Azure Container Registry 암호입니다.
+    * **ACR_USER**: 사용자 Azure Container Registry 사용자 이름입니다.
+
+    프로젝트에 다른 변수가 있는 경우이 탭에서 이름 및 값을 지정할 수 있습니다. **배포 매니페스트 생성** 은 변수 `${VARIABLE}` 를 버전 으로만 인식할 수 있으며, `*.template.json` 파일에서이를 사용 하 고 있는지 확인 합니다.
+
+    ![릴리스 파이프라인에 대 한 변수 구성](./media/how-to-ci-cd/configure-variables.png)
+
+10. 두 번째 **Azure IoT Edge** 작업을 선택 하 고 다음 값으로 구성 합니다.
+
+    * **표시 이름**: 작업 필드가 변경되면 표시 이름이 자동으로 업데이트됩니다. 
+    * **작업**: 드롭다운 목록을 사용 하 여 **IoT Edge 장치에 배포를**선택 합니다. 작업(action) 값을 변경하면 일치하도록 작업(task) 표시 이름도 업데이트됩니다.
     * **Azure 구독**: IoT Hub를 포함하는 구독을 선택합니다.
     * **IoT Hub 이름**: IoT Hub를 선택합니다. 
     * **단일/복수 디바이스 선택**: 릴리스 파이프라인을 단일 디바이스 또는 여러 디바이스에 배포할지 여부를 선택합니다. 
       * 단일 디바이스에 배포하는 경우 **IoT Edge 디바이스 ID**를 입력합니다. 
-      * 여러 디바이스에 배포하는 경우 디바이스 **대상 조건**을 지정합니다. 대상 조건은 IoT Hub에서 Edge 디바이스 세트에 일치하는 필터입니다. 디바이스 태그를 조건으로 사용하려는 경우 IoT Hub 디바이스 쌍으로 해당 디바이스 태그를 업데이트해야 합니다. 고급 설정에서 **IoT Edge 배포 ID** 및 **IoT Edge 배포 우선 순위**를 업데이트합니다. 여러 디바이스용 배포를 만드는 방법에 대한 자세한 내용은 [IoT Edge 자동 배포 이해](module-deployment-monitoring.md)를 참조하세요.
+      * 여러 디바이스에 배포하는 경우 디바이스 **대상 조건**을 지정합니다. 대상 조건은 IoT Hub의 IoT Edge 장치 집합과 일치 하는 필터입니다. 디바이스 태그를 조건으로 사용하려는 경우 IoT Hub 디바이스 쌍으로 해당 디바이스 태그를 업데이트해야 합니다. 고급 설정에서 **IoT Edge 배포 ID** 및 **IoT Edge 배포 우선 순위**를 업데이트합니다. 여러 디바이스용 배포를 만드는 방법에 대한 자세한 내용은 [IoT Edge 자동 배포 이해](module-deployment-monitoring.md)를 참조하세요.
+    * 고급 설정을 확장 하 고, **IoT Edge 배포 ID**를 선택 `$(System.TeamProject)-$(Release.EnvironmentName)`하 고, 변수를 입력 합니다. 그러면 프로젝트와 릴리스 이름이 IoT Edge 배포 ID에 매핑됩니다.
 
 11. **저장**을 선택하여 새 릴리스 파이프라인의 변경 사항을 저장합니다. 메뉴에서 **파이프라인**을 선택하여 파이프라인 보기로 돌아갑니다. 
-
-### <a name="create-production-stage"></a>프로덕션 스테이지 만들기
-
-프로덕션 배포를 위해 릴리스 파이프라인에서 두 번째 스테이지를 만듭니다. 
-
-1. QA 스테이지를 복제하여 프로덕션의 두 번째 스테이지를 만듭니다. QA 스테이지를 커서로 가리킨 후 [복제] 단추를 선택합니다. 
-
-    ![복제 단계](./media/how-to-ci-cd/clone-stage.png)
-
-2. **QA 복사본**이라는 새 스테이지를 선택하여 해당 속성을 엽니다. 프로덕션의 경우 스테이지 이름을 **PROD**로 변경합니다. 스테이지 속성 창을 닫습니다. 
-
-3. PROD 스테이지 작업을 열려면 파이프라인 메뉴에서 **작업**을 선택한 다음, **PROD** 스테이지를 선택합니다. 
-
-4. Azure IoT Edge 작업을 선택하여 프로덕션 환경에 맞게 구성합니다. 프로덕션 환경에서 다른 디바이스 또는 디바이스 세트를 대상으로 지정한다는 점을 제외하고 QA 및 PROD의 배포 설정은 동일할 수 있습니다. [디바이스 ID] 필드 또는 프로덕션 디바이스의 [대상 조건] 및 [배포 ID] 필드를 업데이트합니다. 
-
-5. **저장** 단추로 저장합니다. 그런 다음, **파이프라인**을 선택하여 파이프라인 보기로 돌아갑니다.
-    
-6. 현재 이 릴리스 파이프라인이 구성된 방식으로, 새 빌드가 완료될 때마다 빌드 아티팩트가 **QA** 스테이지 및 **PROD** 스테이지를 차례로 트리거합니다. 그러나 일반적으로 QA 디바이스에 일부 테스트 사례를 통합하고 수동으로 프로덕션의 배포를 승인하려고 합니다. 다음 단계를 사용하여 PROD 스테이지의 승인 조건을 만듭니다.
-
-    1. **배포 전 조건** 설정 패널을 엽니다.
-
-        ![배포 전 조건 열기](./media/how-to-ci-cd/pre-deploy-conditions.png)    
-
-    2. **배포 전 승인** 조건을 **사용**으로 토글합니다. **승인자** 필드에 하나 이상의 사용자 또는 그룹을 추가하고 원하는 다른 승인 정책을 사용자 지정합니다. 변경 내용을 저장하려면 [배포 전 조건] 패널을 닫습니다.
-    
-       ![조건 설정](./media/how-to-ci-cd/set-pre-deployment-conditions.png)
-
-
-7. **저장** 단추로 릴리스 파이프라인을 저장합니다. 
-
     
 ## <a name="verify-iot-edge-cicd-with-the-build-and-release-pipelines"></a>빌드 및 릴리스 파이프라인을 사용하여 IoT Edge CI/CD 확인
 
@@ -208,17 +206,21 @@ Azure Repos를 사용하는 방법에 대한 자세한 내용은 [Share your cod
 
     ![수동 트리거](./media/how-to-ci-cd/manual-trigger.png)
 
-3. 빌드 작업을 선택하여 해당 진행 상태를 확인합니다. 빌드 파이프라인이 성공적으로 완료되면 릴리스를 **QA** 스테이지로 트리거합니다. 
+3. 빌드 작업을 선택하여 해당 진행 상태를 확인합니다. 빌드 파이프라인이 성공적으로 완료 되 면 **개발** 단계로 릴리스를 트리거합니다. 
 
     ![빌드 로그](./media/how-to-ci-cd/build-logs.png)
 
-4. **QA** 스테이지에 성공적으로 배포하면 승인자에게 알림이 트리거됩니다. QA 스테이지의 대상으로 지정한 하나 이상의 디바이스에 모듈을 성공적으로 배포했는지 확인합니다. 그런 다음, 릴리스 파이프라인으로 이동하고, **PROD** 단추를 선택한 후 **승인**을 선택하여 PROD 스테이지로 이동할 릴리스를 승인합니다. 
+4. 성공적인 **dev** 릴리스는 대상 IoT Edge 장치에 IoT Edge 배포를 만듭니다.
 
-    ![승인 보류 중](./media/how-to-ci-cd/pending-approval.png)
+    ![Dev로 릴리스](./media/how-to-ci-cd/pending-approval.png)
 
-5. 승인자가 이 변경 내용을 승인한 후 **PROD**에 배포할 수 있습니다.
+5. **개발** 단계를 클릭 하 여 릴리스 로그를 확인 합니다.
+
+    ![릴리스 로그](./media/how-to-ci-cd/release-logs.png)
+
+
 
 ## <a name="next-steps"></a>다음 단계
-
+* [IoT Edge에 대 한 Azure Devops 프로젝트](how-to-devops-project.md) 의 devops 모범 사례 샘플 IoT Edge
 * [단일 디바이스 또는 대규모 IoT Edge 배포에 대한 이해](module-deployment-monitoring.md)를 통해 IoT Edge 배포 이해
 * [대규모 IoT Edge 모듈 배포 및 모니터링](how-to-deploy-monitor.md)에서 배포를 생성, 업데이트 또는 삭제하는 단계를 연습합니다.

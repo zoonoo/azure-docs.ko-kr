@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 6bb3be3805243bba4d11037b180e7f8418a84014
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
-ms.translationtype: MT
+ms.openlocfilehash: 54d3f175e74b9f94c7845725e3d8f4531750df57
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68947212"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877565"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>FSLogix 프로필 컨테이너 및 Azure Files
 
@@ -86,7 +86,7 @@ Windows 가상 데스크톱은 고객이 사용 중인 Vm의 크기, 유형 및 
 Windows 가상 데스크톱 환경이 모범 사례를 따르는지 확인 하려면 다음을 수행 합니다.
 
 - Azure Files 저장소 계정은 세션 호스트 Vm과 동일한 지역에 있어야 합니다.
-- Azure Files 권한은 [요구 사항-프로필 컨테이너](https://docs.fslogix.com/display/20170529/Requirements+-+Profile+Containers)에 설명 된 권한과 일치 해야 합니다.
+- Azure Files 권한은 [요구 사항-프로필 컨테이너](https://docs.microsoft.com/fslogix/overview#requirements)에 설명 된 권한과 일치 해야 합니다.
 - 각 호스트 풀은 동일한 마스터 이미지를 기반으로 동일한 유형 및 크기 VM을 기반으로 빌드해야 합니다.
 - 관리, 크기 조정 및 업데이트를 지원 하려면 각 호스트 풀 VM이 동일한 리소스 그룹에 있어야 합니다.
 - 성능을 최적화 하려면 저장소 솔루션과 FSLogix 프로필 컨테이너가 동일한 데이터 센터 위치에 있어야 합니다.
@@ -99,6 +99,6 @@ Windows 가상 데스크톱 환경이 모범 사례를 따르는지 확인 하�
 - 데스크톱 가상화 솔루션 빌드를 시작 하려면 [Windows 가상 데스크톱에서 테 넌 트 만들기](tenant-setup-azure-active-directory.md)를 참조 하세요.
 - Windows 가상 데스크톱 테 넌 트 내에서 호스트 풀을 만들려면 [Azure Marketplace를 사용 하 여 호스트 풀 만들기](create-host-pools-azure-marketplace.md)를 참조 하세요.
 - 클라우드에서 완전히 관리 되는 파일 공유를 설정 하려면 [Azure Files 공유 설정](/articles/storage/files/storage-files-active-directory-enable.md)을 참조 하세요.
-- FSLogix 프로필 컨테이너를 구성 하려면 [호스트 풀의 사용자 프로필 공유 설정](create-host-pools-user-profile.md)을 참조 하세요.
+- FSLogix 프로필 컨테이너를 구성 하려면 [파일 공유를 사용 하 여 호스트 풀에 대 한 프로필 컨테이너 만들기](create-host-pools-user-profile.md)를 참조 하세요.
 - 호스트 풀에 사용자를 할당 하려면 [Windows 가상 데스크톱에 대 한 앱 그룹 관리](manage-app-groups.md)를 참조 하세요.
 - 웹 브라우저에서 Windows 가상 데스크톱 리소스에 액세스 하려면 [Windows 가상 데스크톱에 연결](connect-web.md)을 참조 하세요.

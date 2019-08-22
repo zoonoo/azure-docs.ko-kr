@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.openlocfilehash: 184cdaddc638461d50f322292d5cfaf28ab93093
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 0e60607d50722a4496dc8f4ad7d609cdf9fd5792
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950537"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877165"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>참조 - IoT Hub 할당량 및 제한
 
@@ -25,6 +25,10 @@ ms.locfileid: "68950537"
 각 IoT 허브는 특정 계층에서 특정한 단위 수로 프로비전됩니다. 계층과 단위 수는 보낼 수 있는 메시지의 최대 일일 할당량을 결정합니다. 일일 할당량을 계산하는 데 사용되는 메시지 크기는 무료 계층 허브의 경우 0.5KB이며 기타 모든 계층의 경우 4KB입니다. 자세한 내용은 [Azure IoT Hub 가격](https://azure.microsoft.com/pricing/details/iot-hub/)을 참조하세요.
 
 또한 계층은 IoT Hub가 모든 작업에 강제로 적용하는 조정 제한을 결정합니다.
+
+### <a name="iot-plug-and-play"></a>IoT 플러그 앤 플레이
+
+공개 미리 보기 중 IoT 플러그 앤 플레이 장치는 인터페이스 마다 별도의 메시지를 전송 하 여 메시지 할당량에 대해 계산 되는 메시지 수를 늘릴 수 있습니다.
 
 ## <a name="operation-throttles"></a>작업 제한
 
@@ -89,7 +93,7 @@ ms.locfileid: "68950537"
 
 IoT Hub에는 다른 작업 제한도 적용됩니다.
 
-| 작업(Operation) | 제한 |
+| 연산 | 제한 |
 | --------- | ----- |
 | 장치 | 단일 IoT hub에 연결할 수 있는 장치의 최대 수는 100만입니다. 이 한도를 늘리는 유일한 방법은 [Microsoft 지원](https://azure.microsoft.com/support/options/)에 연결 하는 것입니다.|
 | 파일 업로드 | 장치 당 10 개의 동시 파일 업로드. |

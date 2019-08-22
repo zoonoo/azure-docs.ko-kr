@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2019
+ms.date: 08/20/2019
 ms.author: spelluru
-ms.openlocfilehash: 261f337ac72a28bc2e1c74e23731242cc3bd0075
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 411037dd97350d877aff4e2d094c3408f168f9fd
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68572031"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648570"
 ---
 # <a name="classroom-labs-in-azure-lab-services---frequently-asked-questions-faq"></a>Azure Lab Services의 교실 랩-질문과 대답 (FAQ)
 Azure Lab Services에서 교실 labs에 대해 가장 일반적인 질문 중 일부에 대 한 답변을 받으세요. 
@@ -44,13 +44,13 @@ Azure Lab Services에서 교실 labs에 대해 가장 일반적인 질문 중 �
 [Azure Lab Services 블로그](https://azure.microsoft.com/blog/tag/azure-lab-services/)를 구독 합니다.
 
 ## <a name="update-notifications"></a>업데이트 알림
-[Lab Services 업데이트](https://azure.microsoft.com/updates/?product=lab-services) 를 구독 하 여 DevTest Labs의 새로운 기능에 대 한 최신 정보를 받을 수 있습니다.
+Lab services [업데이트](https://azure.microsoft.com/updates/?product=lab-services) 를 구독 하 여 lab services의 새로운 기능에 대 한 정보를 계속 받을 수 있습니다.
 
 ## <a name="general"></a>일반
 ### <a name="what-if-my-question-isnt-answered-here"></a>여기서 내 질문에 대답하지 않으면 어떻게 하나요?
 질문이 여기에 나열 되지 않은 경우 알려 주시기 바랍니다. 답변을 찾을 수 있습니다.
 
 - 이 FAQ의 끝에 질문을 게시합니다. 
-- 더 광범위한 대상에 도달하기 위해 [Azure DevTest Labs MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureDevTestLabs)에 질문을 게시하세요. 
-- 기능 요청의 경우 요청 내용과 아이디어를 [Azure DevTest Labs 사용자 의견](https://feedback.azure.com/forums/320373-azure-devtest-labs)으로 제출해 주세요.
+- 더 광범위 한 대상에 도달 하려면 [Azure Lab Services Stack Overflow 포럼](https://stackoverflow.com/questions/tagged/azure-lab-services)에 질문을 게시 하세요. 
+- 기능 요청에 대 한 요청 및 아이디어를 [Azure Lab Services 사용자 음성](https://feedback.azure.com/forums/320373-lab-services?category_id=352774)으로 제출 합니다.
 

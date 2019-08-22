@@ -8,14 +8,16 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 638be5e62c523c478f139f13185edeb24995ab3f
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: c718794528989fbc46b404617f16d3a91ade6011
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67848974"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877300"
 ---
 # <a name="create-a-new-device-template-version"></a>새 디바이스 템플릿 버전 만들기
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 Azure IoT Central을 사용하여 IoT 애플리케이션을 신속하게 개발할 수 있습니다. 측정값, 설정 또는 속성을 추가하고 편집하고 삭제하여 디바이스 템플릿 디자인을 신속하게 반복할 수 있습니다. 이러한 변경 내용 중 일부는 현재 연결된 디바이스를 방해할 수 있습니다. Azure IoT Central은 이처럼 방해가 되는 변경 내용을 식별하여 디바이스에 업데이트를 안전하게 배포하는 방법을 제공합니다.
 
@@ -65,7 +67,7 @@ Azure IoT Central을 사용하여 IoT 애플리케이션을 신속하게 개발�
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure IoT Central 애플리케이션에서 장치 템플릿 버전을 사용하는 방법을 알아보았으니, 다음과 같은 후속 단계를 진행하시기 바랍니다.
+Azure IoT Central 애플리케이션에서 디바이스 템플릿 버전을 사용하는 방법을 알아보았으니, 다음과 같은 후속 단계를 진행하시기 바랍니다.
 
 > [!div class="nextstepaction"]
 > [원격 분석 규칙을 만드는 방법](howto-create-telemetry-rules.md)

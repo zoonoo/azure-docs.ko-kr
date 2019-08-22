@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/16/2019
 ms.author: yoafr
-ms.openlocfilehash: 8e7456eff3062ef6667e7b0022ea9740c397a493
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 5ffa77a05e6019ee6b5e29c5af5ed0130e027cae
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679240"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876509"
 ---
 > [!NOTE]
 > 이 문서에서는 2019 년 7 월 31 일에 Azure Security Center에서 사용이 중지 된 기능 목록에 대해 자세히 설명 합니다.
@@ -160,7 +160,7 @@ Security Center는 [Azure에서 통합 보안 솔루션](https://docs.microsoft.
 - [Microsoft Advanced Threat Analytics](https://docs.microsoft.com/azure/sentinel/connect-azure-atp)
 - [Azure AD ID 보호](https://docs.microsoft.com/azure/sentinel/connect-azure-ad-identity-protection)
 
-사용이 중지 된 후에는 UI 또는 API에서 위의 목록에 언급 된 솔루션 유형을 추가 하거나 수정할 수 없습니다.
+사용이 중지 된 후에는 UI 또는 API에서 위의 목록에 언급 된 솔루션 유형을 추가 하거나 수정할 수 없습니다. Azure Security Center는 더 이상 앞서 언급 된 파트너 솔루션의 새 인스턴스를 검색 하지 않습니다.
 
 기존에 연결 된 솔루션이 있는 경우 Azure 센티널로 이동 하는 것이 좋습니다.
 

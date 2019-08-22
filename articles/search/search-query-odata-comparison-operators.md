@@ -1,13 +1,13 @@
 ---
-title: Azure Search-OData 비교 연산자 참조
-description: OData 비교 연산자, eq, ne, gt, lt, ge 및 Azure Search 쿼리에 le, 합니다.
+title: OData 비교 연산자 참조-Azure Search
+description: Azure Search 쿼리의 OData 비교 연산자, eq, ne, gt, lt, ge 및 le.
 ms.date: 06/13/2019
 services: search
 ms.service: search
 ms.topic: conceptual
 author: brjohnstmsft
 ms.author: brjohnst
-ms.manager: cgronlun
+manager: nitinme
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,37 +19,37 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: b51bf3d77283ae828f47fdb0355d2deb43f071a1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a8bd8b05fd874e05e5e59042d461f4a4286c81e4
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67079926"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648072"
 ---
-# <a name="odata-comparison-operators-in-azure-search---eq-ne-gt-lt-ge-and-le"></a>Azure search-OData 비교 연산자 `eq`, `ne`를 `gt`를 `lt`, `ge`, 및 `le`
+# <a name="odata-comparison-operators-in-azure-search---eq-ne-gt-lt-ge-and-le"></a>Azure Search- `eq`, `ne`, `gt`, ,및의OData비교연산자`lt` `ge``le`
 
-가장 기본적인 작업을 [OData 필터 식](query-odata-filter-orderby-syntax.md) 필드를 지정된 된 값을 비교 하는 것에서 Azure Search입니다. 두 가지 유형의 비교 가능한-는 같음 비교 및 범위 비교 합니다. 상수 값으로 필드를 비교한 다음 연산자를 사용할 수 있습니다.
+Azure Search의 [OData 필터 식](query-odata-filter-orderby-syntax.md) 에서 가장 기본적인 작업은 필드를 지정 된 값과 비교 하는 것입니다. 비교에는 같음 비교 및 범위 비교가 있습니다. 다음 연산자를 사용 하 여 필드를 상수 값과 비교할 수 있습니다.
 
 같음 연산자:
 
-- `eq`: 필드 인지 여부를 테스트 **같음** 상수 값
-- `ne`: 필드 인지 여부를 테스트 **같지 않음** 상수 값
+- `eq`: 필드가 상수 값 **과 같은지** 여부를 테스트 합니다.
+- `ne`: 필드가 상수 값 **과 같지** 않은지 테스트 합니다.
 
 범위 연산자:
 
-- `gt`: 필드 인지 여부를 테스트 **보다 큰** 상수 값
-- `lt`: 필드 인지 여부를 테스트 **보다 작거나** 상수 값
-- `ge`: 필드 인지 여부를 테스트 **보다 크거나 같은** 상수 값
-- `le`: 필드 인지 여부를 테스트 **보다 작거나 같음** 상수 값
+- `gt`: 필드가 상수 값 **보다 큰지** 여부를 테스트 합니다.
+- `lt`: 필드가 상수 값 **보다 작지** 않은지 테스트 합니다.
+- `ge`: 필드가 상수 값 **보다 크거나 같은지** 여부를 테스트 합니다.
+- `le`: 필드가 상수 값 **보다 작거나 같은지** 여부를 테스트 합니다.
 
-범위 연산자를 사용 하 여 함께에서 합니다 [논리 연산자](search-query-odata-logical-operators.md) 필드 값의 특정 범위 내에 있는지 테스트 하 합니다. 참조 된 [예제](#examples) 이 문서의 뒷부분에 나오는.
+[논리 연산자](search-query-odata-logical-operators.md) 와 함께 범위 연산자를 사용 하 여 필드가 특정 값 범위 내에 있는지 여부를 테스트할 수 있습니다. 이 문서의 뒷부분에 나오는 [예제](#examples) 를 참조 하세요.
 
 > [!NOTE]
-> 원하는 경우에 오른쪽에 있는 필드 이름과 연산자의 좌 변에 있는 상수 값을 넣을 수 있습니다. 범위 연산자에 대 한 비교 의미를 반전 됩니다. 예를 들어 상수 값이 왼쪽에서 `gt` 상수 값을 필드 보다 크면 하는지 테스트 합니다. 함수의 결과 같은 비교할 비교 연산자를 사용할 수도 있습니다 `geo.distance`, 값을 사용 하 여 합니다. 함수에 대 한 부울과 같은 `search.ismatch`, 결과를 비교 `true` 또는 `false` 선택 사항입니다.
+> 원하는 경우 연산자의 좌 변에 상수 값을 입력 하 고 오른쪽에 필드 이름을 넣을 수 있습니다. 범위 연산자의 경우 비교의 의미가 반대로 바뀝니다. 예를 들어 상수 값이 왼쪽 `gt` 에 있으면는 상수 값이 필드 보다 큰지 여부를 테스트 합니다. 비교 연산자를 사용 하 여와 `geo.distance`같은 함수의 결과를 값과 비교할 수도 있습니다. 과 `search.ismatch`같은 부울 함수의 경우 결과를 or `false` 로 비교 `true` 하는 것이 선택 사항입니다.
 
 ## <a name="syntax"></a>구문
 
-다음 EBNF ([확장 된 Backus Naur 폼](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) 비교 연산자를 사용 하는 OData 식 문법 정의 합니다.
+다음 EBNF ([Extended Backus-Backus-naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form))는 비교 연산자를 사용 하는 OData 식의 문법을 정의 합니다.
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -63,44 +63,44 @@ variable_or_function ::= variable | function_call
 comparison_operator ::= 'gt' | 'lt' | 'ge' | 'le' | 'eq' | 'ne'
 ```
 
-대화형 구문 다이어그램을 사용할 수 있는 이기도합니다.
+대화형 구문 다이어그램도 사용할 수 있습니다.
 
 > [!div class="nextstepaction"]
 > [Azure Search에 대 한 OData 구문 다이어그램](https://azuresearch.github.io/odata-syntax-diagram/#comparison_expression)
 
 > [!NOTE]
-> 참조 [Azure Search에 대 한 OData 식 구문 참조](search-query-odata-syntax-reference.md) 전체 EBNF에 대 한 합니다.
+> 전체 EBNF [Azure Search에 대 한 OData 식 구문 참조](search-query-odata-syntax-reference.md) 를 참조 하세요.
 
-비교 식의 두 가지 있습니다. 유일한 차이점은 상수에 또는 오른쪽으로 hand-왼쪽 연산자의 표시 되는지 여부를 합니다. 연산자의 반대쪽에 있는 식 이어야 합니다는 **변수** 또는 함수 호출 합니다. 경우 범위 변수 또는 필드 이름을 변수를 사용할 수는 [람다 식](search-query-odata-collection-operators.md)합니다.
+비교 식에는 두 가지 형태가 있습니다. 상수는 연산자의 왼쪽 또는 오른쪽에 표시 되는지 여부에 따라 다릅니다. 연산자의 다른 쪽에 있는 식은 **변수** 또는 함수 호출 이어야 합니다. 변수는 필드 이름 이거나 [람다 식](search-query-odata-collection-operators.md)의 경우 범위 변수일 수 있습니다.
 
-## <a name="data-types-for-comparisons"></a>비교에 대 한 데이터 형식
+## <a name="data-types-for-comparisons"></a>비교를 위한 데이터 형식
 
-비교 연산자의 양쪽 모두에 데이터 형식이 호환 되어야 합니다. 예를 들어 왼쪽 형식의 필드임 `Edm.DateTimeOffset`, 오른쪽에 있는 날짜 / 시간 상수 여야 합니다. 숫자 데이터 형식은 보다 유연 합니다. 다음 표에 설명 된 대로 변수 및 다른 형식의 숫자를 몇 가지 제한 사항이 있는 상수를 사용 하 여 숫자 형식의 함수를 비교할 수 있습니다.
+비교 연산자의 양쪽에 있는 데이터 형식은 호환 되어야 합니다. 예를 들어 좌 변에 형식의 `Edm.DateTimeOffset`필드인 경우 오른쪽은 날짜-시간 상수 여야 합니다. 숫자 데이터 형식은 더 유연 합니다. 다음 표에서 설명 하는 것 처럼 몇 가지 제한 사항으로 숫자 형식의 변수와 함수를 다른 숫자 형식의 상수와 비교할 수 있습니다.
 
 | 변수 또는 함수 형식 | 상수 값 형식 | 제한 사항 |
 | --- | --- | --- |
-| `Edm.Double` | `Edm.Double` | 비교는 [에 대 한 특수 규칙 `NaN`](#special-case-nan) |
-| `Edm.Double` | `Edm.Int64` | 상수는 변환할 `Edm.Double`로 큰 크기의 값에 대 한 정밀도 손실 |
-| `Edm.Double` | `Edm.Int32` | 해당 없음 |
-| `Edm.Int64` | `Edm.Double` | 비교 `NaN`하십시오 `-INF`, 또는 `INF` 허용 되지 않습니다 |
-| `Edm.Int64` | `Edm.Int64` | 해당 없음 |
-| `Edm.Int64` | `Edm.Int32` | 상수는 변환할 `Edm.Int64` 비교 하기 전에 |
-| `Edm.Int32` | `Edm.Double` | 비교 `NaN`하십시오 `-INF`, 또는 `INF` 허용 되지 않습니다 |
-| `Edm.Int32` | `Edm.Int64` | 해당 없음 |
-| `Edm.Int32` | `Edm.Int32` | 해당 없음 |
+| `Edm.Double` | `Edm.Double` | 비교는 다음 [에 대 한 `NaN` 특수 규칙](#special-case-nan) 을 따릅니다. |
+| `Edm.Double` | `Edm.Int64` | 상수가로 `Edm.Double`변환 되어 크기가 큰 값의 전체 자릿수가 손실 됩니다. |
+| `Edm.Double` | `Edm.Int32` | n/a |
+| `Edm.Int64` | `Edm.Double` | , `NaN` `-INF`또는 에대한비교는허용되지않습니다.`INF` |
+| `Edm.Int64` | `Edm.Int64` | n/a |
+| `Edm.Int64` | `Edm.Int32` | 상수는 비교 전에 `Edm.Int64` 로 변환 됩니다. |
+| `Edm.Int32` | `Edm.Double` | , `NaN` `-INF`또는 에대한비교는허용되지않습니다.`INF` |
+| `Edm.Int32` | `Edm.Int64` | n/a |
+| `Edm.Int32` | `Edm.Int32` | n/a |
 
-형식의 필드를 비교 하는 등 허용 하지 않는 비교를 위한 `Edm.Int64` 에 `NaN`, Azure Search REST API는 반환는 "HTTP 400: 잘못 된 요청"오류가 발생 했습니다.
+`Edm.Int64` 형식의`NaN`필드를과 비교 하는 것과 같이 허용 되지 않는 비교를 위해 Azure Search REST API는 "HTTP 400: 잘못 된 요청 "오류입니다.
 
 > [!IMPORTANT]
-> 숫자 형식 비교 유연한 인 경우에 변수 또는 함수 비교 되는 동일한 데이터 형식의 상수 값이 있도록 필터에서 비교를 쓰는 것이 좋습니다. 이 특히 중요 될 때 부동 소수점 혼합 및 정밀도 떨어질는 암시적 변환을 사용할 수 있는 정수 값입니다.
+> 숫자 형식 비교가 유연 하더라도 필터에서 비교를 작성 하는 것이 좋습니다. 이렇게 하면 상수 값이 비교할 변수나 함수와 동일한 데이터 형식이 됩니다. 이는 부동 소수점 및 정수 값을 혼합할 때 특히 정확도를 잃지 않는 암시적 변환이 가능 하다는 경우에 특히 중요 합니다.
 
 <a name="special-case-nan"></a>
 
-### <a name="special-cases-for-null-and-nan"></a>에 대 한 특수 사례 `null` 및 `NaN`
+### <a name="special-cases-for-null-and-nan"></a>및에 대 `null` 한 특수 한 경우`NaN`
 
-비교 연산자를 사용 하는 경우 잠재적으로 Azure Search에서 모든 비 컬렉션 필드 수 있음을 고려해 야는 `null`합니다. 다음 표에서 비교 식에 대 한 가능한 결과 모두 포함 하는 어느 쪽이 든 될 수 있는 `null`:
+비교 연산자를 사용 하는 경우 Azure Search의 컬렉션이 아닌 필드는 모두 잠재적으로 될 `null`수 있습니다. 다음 표에서는 둘 중 하나가 될 `null`수 있는 비교 식의 가능한 모든 결과를 보여 줍니다.
 
-| 연산자 | 필드 또는 변수는 경우의 결과 `null` | 결과 상수만 경우 `null` | 결과 모두 필드 또는 변수 및 상수 `null` |
+| 연산자 | 필드 또는 변수만 인 경우의 결과`null` | 상수가 인 경우의 결과`null` | 필드 또는 변수와 상수가 모두 인 경우의 결과`null` |
 | --- | --- | --- | --- |
 | `gt` | `false` | HTTP 400: 잘못 된 요청 오류 | HTTP 400: 잘못 된 요청 오류 |
 | `lt` | `false` | HTTP 400: 잘못 된 요청 오류 | HTTP 400: 잘못 된 요청 오류 |
@@ -109,11 +109,11 @@ comparison_operator ::= 'gt' | 'lt' | 'ge' | 'le' | 'eq' | 'ne'
 | `eq` | `false` | `false` | `true` |
 | `ne` | `true` | `true` | `false` |
 
-요약 하자면, `null` 자체에 고 덜 하지 또는 다른 값 보다 큰입니다.
+요약 하면 `null` 는 자신과 같으며 다른 값 보다 작거나 크지 않습니다.
 
-인덱스 형식의 필드가 있으면 `Edm.Double` 업로드 및 `NaN` 필터를 작성 하는 경우에 대 한 계정 해야 해당 필드에 값입니다. Azure Search 구현 처리에 대 한 IEEE 754 표준 `NaN` 값 및 이러한 값을 사용 하 여 비교는 다음 표에 나와 있는 것 처럼 확실치 않은 결과 생성 합니다.
+인덱스에 형식의 `Edm.Double` 필드가 있고 이러한 필드에 값을 `NaN` 업로드 하는 경우 필터를 작성할 때이를 고려해 야 합니다. Azure Search는 값을 처리 `NaN` 하기 위해 IEEE 754 표준을 구현 하 고, 이러한 값을 사용 하는 비교는 다음 표에 나와 있는 것 처럼 명확 하지 않은 결과를 생성 합니다.
 
-| 연산자 | 하나 이상의 피연산자가 하는 경우의 결과 `NaN` |
+| 연산자 | 하나 이상의 피연산자가 인 경우의 결과`NaN` |
 | --- | --- |
 | `gt` | `false` |
 | `lt` | `false` |
@@ -122,35 +122,35 @@ comparison_operator ::= 'gt' | 'lt' | 'ge' | 'le' | 'eq' | 'ne'
 | `eq` | `false` |
 | `ne` | `true` |
 
-요약 하자면, `NaN` 자신을 포함 한 모든 값과 같지 않습니다.
+요약 하자면 `NaN` 는 자신을 포함 하 여 어떤 값도 아닙니다.
 
-### <a name="comparing-geo-spatial-data"></a>지리 공간 데이터를 비교합니다.
+### <a name="comparing-geo-spatial-data"></a>지리적 공간 데이터 비교
 
-형식의 필드를 직접 비교할 수 없습니다 `Edm.GeographyPoint` 상수 값으로 사용할 수 있지만 `geo.distance` 함수입니다. 이 함수 형식의 값을 반환 `Edm.Double`숫자를 사용 하 여 비교할 수 있도록, 상수 지리 공간 좌표에서 거리를 기준으로 필터링 하는 상수입니다. 참조 된 [예제](#examples) 아래.
+형식의 `Edm.GeographyPoint` 필드를 상수 값과 직접 비교할 수는 없지만 함수를 `geo.distance` 사용할 수 있습니다. 이 함수는 형식의 `Edm.Double`값을 반환 하므로 상수 지역 공간 좌표에서의 거리를 기준으로 필터링 하는 숫자 상수와 비교할 수 있습니다. 아래 [예제](#examples) 를 참조 하세요.
 
 ### <a name="comparing-string-data"></a>문자열 데이터 비교
 
-사용 하 여 정확히 일치에 대 한 필터에서 문자열을 비교할 수는 `eq` 고 `ne` 연산자입니다. 이러한 비교는 대/소문자 구분 합니다.
+`eq` 및`ne` 연산자를 사용 하 여 정확 하 게 일치 하는 필터에서 문자열을 비교할 수 있습니다. 이러한 비교는 대/소문자를 구분 합니다.
 
 ## <a name="examples"></a>예
 
-일치 문서 위치를 `Rating` 필드는 3, 5 사이입니다.
+`Rating` 필드가 3에서 5 사이인 문서를 찾습니다 (포함).
 
     Rating ge 3 and Rating le 5
 
-일치 문서 위치를 `Location` 필드는 지정 된 위도 및 경도에서 2 킬로미터 미만:
+지정 된 위도 및 `Location` 경도에서 필드가 2 킬로미터 미만인 문서를 찾습니다.
 
     geo.distance(Location, geography'POINT(-122.031577 47.578581)') lt 2.0
 
-일치 문서 위치를 `LastRenovationDate` 필드는 2015 년 1 월 1 일, UTC 기준 자정 보다 크거나 같은 경우:
+`LastRenovationDate` 필드가 2015 년 1 월 1 일 (UTC) 보다 크거나 같은 문서를 찾습니다.
 
     LastRenovationDate ge 2015-01-01T00:00:00.000Z
 
-일치 위치를 문서화 합니다 `Details/Sku` 필드가 아닙니다 `null`:
+`Details/Sku` 필드가 다음과 일치 하지 않는 `null`문서를 찾습니다.
 
     Details/Sku ne null
 
-하나 이상의 공간 형식 "Deluxe 공간"에 있는 호텔에 대 한 문서를 찾습니다. 문자열은 `Rooms/Type` 필드 필터를 정확 하 게 일치:
+하나 이상의 대화방에 "Deluxe room" 유형이 있는 호텔 문서를 찾습니다. 여기서 `Rooms/Type` 필드의 문자열은 필터와 정확히 일치 합니다.
 
     Rooms/any(room: room/Type eq 'Deluxe Room')
 

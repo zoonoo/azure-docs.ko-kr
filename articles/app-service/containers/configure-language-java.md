@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/26/2019
 ms.author: brendm
 ms.custom: seodec18
-ms.openlocfilehash: 07d44bb54c288202d571f8e664822ecf9b4998be
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
-ms.translationtype: HT
+ms.openlocfilehash: 428c470eb633c7727f65c5a9a3afa76bce50b177
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639770"
+ms.locfileid: "69647256"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Azure App Service에 대 한 Linux Java 앱 구성
 
@@ -423,7 +423,7 @@ JDBC (Java Database Connectivity) 또는 jpa (Java 지 속성 API)를 사용 하
 ## <a name="configure-java-ee-wildfly"></a>Java EE 구성 (WildFly)
 
 > [!NOTE]
-> App Service Linux의 Java Enterprise Edition은 현재 미리 보기로 제공 됩니다. 프로덕션 작업에는이 스택을 사용 **하지 않는** 것이 좋습니다. Java SE 및 Tomcat 스택에 대 한 정보입니다.
+> App Service Linux의 Java Enterprise Edition은 현재 미리 보기로 제공 됩니다. 프로덕션 작업에는이 스택을 사용 **하지 않는** 것이 좋습니다.
 
 Linux에서 Azure App Service를 통해 Java 개발자는 완전히 관리 되는 Linux 기반 서비스에서 java Enterprise (Java EE) 응용 프로그램을 빌드, 배포 및 확장할 수 있습니다.  기본 Java Enterprise runtime environment는 오픈 소스 [WildFly](https://wildfly.org/) 응용 프로그램 서버입니다.
 
@@ -434,7 +434,6 @@ Linux에서 Azure App Service를 통해 Java 개발자는 완전히 관리 되�
 - [모듈 및 종속성 설치](#install-modules-and-dependencies)
 - [데이터 원본 구성](#configure-data-sources)
 - [메시징 공급자 사용](#enable-messaging-providers)
-- [세션 관리 캐싱 구성](#configure-session-management-caching)
 
 ### <a name="scale-with-app-service"></a>App Service의 크기 조정
 
@@ -652,14 +651,121 @@ Service Bus를 메시징 메커니즘으로 사용하여 메시지 기반 Bean�
 
 4. JMS 공급자에 대한 모듈 XML 설명자, .jar 종속성, JBoss CLI 명령 및 시작 스크립트를 사용하여 모듈 설치 및 종속성 섹션에 설명된 단계를 따릅니다. 4개의 파일 외에도 JMS 큐 및 토픽에 대한 JNDI 이름을 정의하는 XML 파일을 만들어야 합니다. 참조 구성 파일은 [이 리포지토리](https://github.com/JasonFreeberg/widlfly-server-configs/tree/master/appconfig)를 참조하세요.
 
-### <a name="configure-session-management-caching"></a>세션 관리 캐싱 구성
+## <a name="use-redis-as-a-session-cache-with-tomcat"></a>Tomcat를 사용 하 여 Redis를 세션 캐시로 사용
 
-기본적으로 Linux의 App Service는 기존 세션을 사용하는 클라이언트 요청이 동일한 애플리케이션 인스턴스로 라우팅되도록 세션 선호도 쿠키를 사용합니다. 이 기본 동작에는 구성이 필요하지 않지만, 다음과 같은 몇 가지 제한 사항이 있습니다.
+[Redis 용 Azure Cache](/azure/azure-cache-for-redis/)와 같은 외부 세션 저장소를 사용 하도록 Tomcat를 구성할 수 있습니다. 그러면 사용자가 앱의 다른 인스턴스로 전송 될 때 (예: 자동 크기 조정, 다시 시작 또는 장애 조치가 발생 하는 경우) 사용자 세션 상태 (예: 쇼핑 카트 데이터)를 유지할 수 있습니다.
 
-- 애플리케이션 인스턴스가 다시 시작하거나 규모가 축소되면 애플리케이션 서버의 사용자 세션 상태가 손실됩니다.
-- 애플리케이션의 세션 시간 초과 설정이 길거나 사용자 수가 고정된 경우 새 세션만 새로 시작된 인스턴스로 라우팅되므로 자동으로 크기가 조정된 새 인스턴스가 로드를 받는 데 시간이 다소 걸릴 수 있습니다.
+Redis와 함께 Tomcat를 사용 하려면 [PersistentManager](http://tomcat.apache.org/tomcat-8.5-doc/config/manager.html) 구현을 사용 하도록 앱을 구성 해야 합니다. 다음 단계에서는 [Pivotal 세션 관리자](https://github.com/pivotalsoftware/session-managers/tree/master/redis-store) 를 사용 하 여이 프로세스를 설명 합니다. redis.
 
-[Redis 용 Azure Cache](/azure/azure-cache-for-redis/)와 같은 외부 세션 저장소를 사용 하도록 WildFly를 구성할 수 있습니다. 세션 쿠키 기반 라우팅을 해제 하 고 구성 된 WildFly 세션 저장소가 간섭 없이 작동 하도록 허용 하려면 [기존 ARR 인스턴스 선호도 구성을 사용 하지 않도록 설정](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) 해야 합니다.
+1. Bash 터미널을 열고를 사용 `export <variable>=<value>` 하 여 다음과 같은 각 환경 변수를 설정 합니다.
+
+    | 변수                 | 값                                                                      |
+    |--------------------------|----------------------------------------------------------------------------|
+    | RESOURCEGROUP_NAME       | App Service 인스턴스를 포함 하는 리소스 그룹의 이름입니다.       |
+    | WEBAPP_NAME              | App Service 인스턴스의 이름입니다.                                     |
+    | WEBAPP_PLAN_NAME         | App Service 계획의 이름                                          |
+    | 지역                   | 앱이 호스트 되는 영역의 이름입니다.                           |
+    | REDIS_CACHE_NAME         | Redis 인스턴스에 대 한 Azure 캐시의 이름입니다.                           |
+    | REDIS_PORT               | Redis 캐시가 수신 하는 SSL 포트입니다.                             |
+    | REDIS_PASSWORD           | 인스턴스에 대 한 기본 액세스 키입니다.                                  |
+    | REDIS_SESSION_KEY_PREFIX | 앱에서 제공 하는 세션 키를 식별 하기 위해 지정 하는 값입니다. |
+
+    서비스 인스턴스의 **속성** 또는 **액세스 키** 섹션에서 확인 하 여 Azure Portal에 대 한 이름, 포트 및 액세스 키 정보를 찾을 수 있습니다.
+
+2. 다음 콘텐츠를 사용 하 여 앱의 *src/main/webapp/META-INF/context .xml* 파일을 만들거나 업데이트 합니다.
+
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <Context path="">
+        <!-- Specify Redis Store -->
+        <Valve className="com.gopivotal.manager.SessionFlushValve" />
+        <Manager className="org.apache.catalina.session.PersistentManager">
+            <Store className="com.gopivotal.manager.redis.RedisStore"
+                   connectionPoolSize="20"
+                   host="${REDIS_CACHE_NAME}.redis.cache.windows.net"
+                   port="${REDIS_PORT}"
+                   password="${REDIS_PASSWORD}"
+                   sessionKeyPrefix="${REDIS_SESSION_KEY_PREFIX}"
+                   timeout="2000"
+            />
+        </Manager>
+    </Context>
+    ```
+
+    이 파일은 앱에 대 한 세션 관리자 구현을 지정 하 고 구성 합니다. 이전 단계에서 설정한 환경 변수를 사용 하 여 계정 정보를 원본 파일에서 제외 합니다.
+
+3. FTP를 사용 하 여 세션 관리자의 JAR 파일을 App Service 인스턴스에 업로드 하 고 */home/tomcat/lib* 디렉터리에 배치 합니다. 자세한 내용은 [FTP/S를 사용 하 여 Azure App Service에 앱 배포](https://docs.microsoft.com/azure/app-service/deploy-ftp)를 참조 하세요.
+
+4. App Service 인스턴스에 대 한 [세션 선호도 쿠키](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) 를 사용 하지 않도록 설정 합니다. 앱으로 이동한 다음 **구성 > 일반 설정 > ARR 선호도** 를 **Off**로 설정 하 여 Azure Portal에서이 작업을 수행할 수 있습니다. 또는 다음 명령을 사용할 수 있습니다.
+
+    ```azurecli
+    az webapp update -g <resource group> -n <webapp name> --client-affinity-enabled false
+    ```
+
+    기본적으로 App Service는 세션 선호도 쿠키를 사용 하 여 기존 세션의 클라이언트 요청이 응용 프로그램의 동일한 인스턴스로 라우팅되도록 합니다. 이 기본 동작에는 구성이 필요 없지만, 앱 인스턴스를 다시 시작 하거나 트래픽을 다른 인스턴스로 다시 라우팅될 때 사용자 세션 상태를 유지할 수 없습니다. [기존 ARR 인스턴스 선호도 구성을 사용 하지 않도록 설정](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) 하 여 세션 쿠키 기반 라우팅을 해제 하면 구성 된 세션 저장소가 간섭 없이 작동할 수 있습니다.
+
+5. App Service 인스턴스의 **속성** 섹션으로 이동 하 여 **추가 아웃 바운드 IP 주소**를 찾습니다. 앱에 대 한 모든 가능한 아웃 바운드 IP 주소를 나타냅니다. 다음 단계에서 사용 하기 위해 복사 합니다.
+
+6. 각 IP 주소에 대해 Azure Cache for Redis 인스턴스에 대 한 방화벽 규칙을 만듭니다. Redis 인스턴스의 **방화벽** 섹션에서 Azure Portal에 대해이 작업을 수행할 수 있습니다. 각 규칙에 고유한 이름을 지정 하 고 **시작 ip 주소** 와 **끝 ip 주소** 값을 동일한 IP 주소로 설정 합니다.
+
+7. Redis 인스턴스의 **고급 설정** 섹션으로 이동 하 여 **SSL을 통해서만 액세스 허용** 을 **아니요**로 설정 합니다. 이렇게 하면 App Service 인스턴스가 Azure 인프라를 통해 Redis 캐시와 통신할 수 있습니다.
+
+8. Redis 계정 정보를 참조 하도록 앱의 *pom .xml* 파일에서 구성을업데이트합니다.`azure-webapp-maven-plugin` 이 파일은 이전에 설정한 환경 변수를 사용 하 여 계정 정보를 원본 파일에서 제외 합니다.
+
+    필요한 경우 `1.7.0` [Azure App Service에 대 한 Maven 플러그 인의](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme)현재 버전으로 변경 합니다.
+
+    ```xml
+    <plugin>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>azure-webapp-maven-plugin</artifactId>
+        <version>1.7.0</version>
+        <configuration>
+
+            <!-- Web App information -->
+            <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
+            <appServicePlanName>${WEBAPP_PLAN_NAME}-${REGION}</appServicePlanName>
+            <appName>${WEBAPP_NAME}-${REGION}</appName>
+            <region>${REGION}</region>
+            <linuxRuntime>tomcat 9.0-jre8</linuxRuntime>
+
+            <appSettings>
+                <property>
+                    <name>REDIS_CACHE_NAME</name>
+                    <value>${REDIS_CACHE_NAME}</value>
+                </property>
+                <property>
+                    <name>REDIS_PORT</name>
+                    <value>${REDIS_PORT}</value>
+                </property>
+                <property>
+                    <name>REDIS_PASSWORD</name>
+                    <value>${REDIS_PASSWORD}</value>
+                </property>
+                <property>
+                    <name>REDIS_SESSION_KEY_PREFIX</name>
+                    <value>${REDIS_SESSION_KEY_PREFIX}</value>
+                </property>
+                <property>
+                    <name>JAVA_OPTS</name>
+                    <value>-Xms2048m -Xmx2048m -DREDIS_CACHE_NAME=${REDIS_CACHE_NAME} -DREDIS_PORT=${REDIS_PORT} -DREDIS_PASSWORD=${REDIS_PASSWORD} IS_SESSION_KEY_PREFIX=${REDIS_SESSION_KEY_PREFIX}</value>
+                </property>
+
+            </appSettings>
+
+        </configuration>
+    </plugin>
+    ```
+
+9. 앱을 다시 빌드하고 다시 배포 합니다.
+
+    ```bash
+    mvn package
+    mvn azure-webapp:deploy
+    ```
+
+이제 앱에서 세션 관리에 Redis cache를 사용 합니다.
+
+이러한 지침을 테스트 하는 데 사용할 수 있는 샘플은 GitHub의 [확장-상태 저장-java-웹-azure](https://github.com/Azure-Samples/scaling-stateful-java-web-app-on-azure) 리포지토리를 참조 하세요.
 
 ## <a name="docker-containers"></a>Docker 컨테이너
 

@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 06/26/2019
-ms.openlocfilehash: 412a3cb32663f5bd3bfad2d565b6797f92e26b75
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: e5dc449dc51faccdd8c0e69337cc5f8ac19fa296
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69641103"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69874395"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>관리 되는 인스턴스 리소스 제한 Azure SQL Database 개요
 
@@ -56,11 +56,13 @@ Azure SQL Database 관리 되는 인스턴스는 두 가지 하드웨어 세대�
 | 최대 데이터베이스 크기 | 인스턴스당 최대 스토리지 크기에 따라 결정됨 | 인스턴스당 최대 스토리지 크기에 따라 결정됨 |
 | 인스턴스당 최대 데이터베이스 수 | 100 | 100 |
 | 인스턴스당 데이터베이스 파일의 최대 수 | 최대 280개 | 데이터베이스당 32,767개 파일 |
+| 최대 파일 크기 | 8 TB | 4 TB |
 | 데이터/로그 IOPS(근사치) | 파일당 500~7,500<br/>\*[더 많은 IOPS를 얻기 위해 파일 크기 늘리기](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11k-110 K (1375/vCore)<br/>더 나은 IO 성능을 얻으려면 vCores를 더 추가 합니다. |
 | 로그 쓰기 처리량 제한 | vCore당 3MB/초<br/>인스턴스당 최대 22 m b/초 | vCore 당 4mb/s<br/>인스턴스당 최대 48 m b/초|
 | 데이터 처리량(근사치) | 파일당 100~250MB/초<br/>\*[더 나은 IO 성능을 얻으려면 파일 크기를 늘립니다.](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 해당 사항 없음 |
 | 저장소 IO 대기 시간 (근사치) | 5~10ms | 1~2ms |
 | 최대 tempDB 크기 | 192~1,920GB(vCore당 24GB)<br/>더 많은 vCores를 추가 하 여 TempDB 공간을 더 확보 합니다. | 최대 인스턴스 저장소 크기에 의해 제한 됩니다. TempDB 로그 파일 크기는 현재 24GB/vCore로 제한 됩니다. |
+| 메모리 내 OLTP | 지원되지 않음 | 사용 가능 |
 | 최대 세션 | 30000 | 30000 |
 
 > [!NOTE]

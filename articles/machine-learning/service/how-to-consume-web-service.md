@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9b7157cd58abc7f1fecf288e72b0232c8a67b7ee
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 4aa948a785153dd0d70a9af41ae0ed25036827f8
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69512594"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69656262"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>웹 서비스로 배포된 Azure Machine Learning 모델 사용
 
@@ -43,7 +43,7 @@ Azure Container Instances, Azure Kubernetes Service 또는 FPGA (필드 프로�
 * `auth_enabled`키 인증을 `True`사용 하면이 고, `False`그렇지 않으면입니다.
 * `token_auth_enabled`토큰 인증을 `True`사용 하면이 고, `False`그렇지 않으면입니다.
 * `scoring_uri` - REST API 주소입니다.
-
+* `swagger_uri`-OpenAPI 사양의 주소입니다. 자동 스키마 생성을 사용 하도록 설정한 경우이 URI를 사용할 수 있습니다. 자세한 내용은 [Azure Machine Learning 서비스를 사용 하 여 모델 배포](how-to-deploy-and-where.md#schema)를 참조 하세요.
 
 배포된 웹 서비스에 대해 이 정보를 검색하는 세 가지 방법이 있습니다.
 
@@ -56,6 +56,7 @@ Azure Container Instances, Azure Kubernetes Service 또는 FPGA (필드 프로�
                                            image_config=image_config,
                                            workspace=ws)
     print(service.scoring_uri)
+    print(service.swagger_uri)
     ```
 
 * `Webservice.list`를 사용하여 작업 영역의 모델에 대해 배포된 웹 서비스 목록을 검색할 수 있습니다. 필터를 추가하여 반환되는 정보의 목록을 좁힐 수 있습니다. 필터링할 수 있는 항목에 대한 자세한 내용은 [Webservice.list](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py) 참조 설명서를 참조하세요.
@@ -63,6 +64,7 @@ Azure Container Instances, Azure Kubernetes Service 또는 FPGA (필드 프로�
     ```python
     services = Webservice.list(ws)
     print(services[0].scoring_uri)
+    print(services[0].swagger_uri)
     ```
 
 * 배포된 서비스의 이름을 알고 있으면 `Webservice`의 새 인스턴스 만들고 작업 영역 및 서비스 이름을 매개 변수로 제공할 수 있습니다. 새 개체에는 배포된 서비스에 대한 정보가 포함되어 있습니다.
@@ -70,11 +72,12 @@ Azure Container Instances, Azure Kubernetes Service 또는 FPGA (필드 프로�
     ```python
     service = Webservice(workspace=ws, name='myservice')
     print(service.scoring_uri)
+    print(service.swagger_uri)
     ```
 
 ### <a name="authentication-for-services"></a>서비스에 대 한 인증
 
-Azure Machine Learning은 웹 서비스에 대 한 액세스를 제어 하는 두 가지 방법을 제공 합니다. 
+Azure Machine Learning은 웹 서비스에 대 한 액세스를 제어 하는 두 가지 방법을 제공 합니다.
 
 |인증 방법|ACI|AKS|
 |---|---|---|

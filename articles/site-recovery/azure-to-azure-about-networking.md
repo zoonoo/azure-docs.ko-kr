@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/29/2019
 ms.author: sutalasi
-ms.openlocfilehash: c642640d590e1f568fb6f6c5072decd75575ab2d
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: b549e8bf53ca7728b18e04542c7291f0ce720cb0
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543641"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876451"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Azure 간 복제의 네트워킹 정보
 
@@ -149,7 +149,7 @@ Site Recovery IP 주소 범위는 다음과 같습니다.
 
    **위치** | **Site Recovery IP 주소** |  **Site Recovery 모니터링 IP 주소**
     --- | --- | ---
-   미국 중부 | 13.82.88.226 | 104.45.147.24
+   East US | 13.82.88.226 | 104.45.147.24
 
 ## <a name="network-virtual-appliance-configuration"></a>네트워크 가상 어플라이언스 구성
 

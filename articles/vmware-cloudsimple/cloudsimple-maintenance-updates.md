@@ -3,25 +3,25 @@ title: CloudSimple CloudSimple 유지 관리 및 업데이트용 Azure VMware �
 description: 예약 된 유지 관리 및 업데이트에 대 한 CloudSimple 서비스 프로세스를 설명 합니다.
 author: sharaths-cs
 ms.author: dikamath
-ms.date: 04/30/2019
+ms.date: 08/20/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 5d6eeecbecc89995c25e687cc6808ed3b0c5dc5c
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 92f02c0abef6755213d4c73189c7e0a593867ef6
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816209"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877942"
 ---
 # <a name="cloudsimple-maintenance-and-updates"></a>CloudSimple 유지 관리 및 업데이트
 
 사설 클라우드 환경은 단일 실패 지점이 없도록 설계 되었습니다.
 
-* ESXi 클러스터는 vSphere 고가용성으로 구성 됩니다. 클러스터는 복원 력을 위해 하나 이상의 예비 노드를 갖도록 크기가 지정 됩니다.
+* ESXi 클러스터는 vSphere HA (고가용성)를 사용 하 여 구성 됩니다. 클러스터는 복원 력을 위해 하나 이상의 예비 노드를 갖도록 크기가 지정 됩니다.
 * 중복 된 기본 저장소는 단일 오류에 대 한 보호를 제공 하기 위해 3 개 이상의 노드가 필요한 vSAN에 의해 제공 됩니다. 대량 클러스터에 대해 더 높은 복원 력을 제공 하도록 vSAN을 구성할 수 있습니다.
-* vCenter, PSC 및 NSX Manager Vm은 저장소 오류 로부터 보호 하기 위해 RAID 10 저장소 정책으로 구성 됩니다. Vm은 vSphere HA에의 한 노드/네트워크 오류 로부터 보호 됩니다.
+* vCenter, PSC 및 NSX Manager Vm은 저장소 오류 로부터 보호 하기 위해 RAID 10 저장소로 구성 됩니다. Vm은 vSphere HA에의 한 노드/네트워크 오류 로부터 보호 됩니다.
 * ESXi 호스트에는 중복 팬 및 Nic가 있습니다.
 * 및 스파인 스위치는 HA 쌍으로 구성 되어 복원 력을 제공 합니다.
 
@@ -57,9 +57,9 @@ CloudSimple은 사설 클라우드에서 이러한 VMware 요소를 백업, 유�
 CloudSimple 백업에는 다음이 포함 됩니다.
 
 * VCenter, PSC 및 DVS 규칙의 야간 증분 백업
-* VCenter 네이티브 Api를 사용 하 여 응용 프로그램 계층의 구성 요소를 백업 합니다.
+* 응용 프로그램 계층의 구성 요소를 백업 하기 위한 vCenter 네이티브 Api
 * VMware 관리 소프트웨어를 업데이트 하거나 업그레이드 하기 전의 자동 백업
-* TLS 1.2로 암호화 된 채널을 통해 Azure에 데이터를 전송 하기 전에 vCenter에서 원본으로 데이터를 암호화 합니다. 데이터는 지역 간에 복제 되는 Azure blob에 저장 됩니다.
+* TLS 1.2 암호화 된 채널을 통해 Azure로 데이터를 전송 하기 전에 원본에서 vCenter 데이터 암호화 데이터는 지역 간에 복제 되는 Azure blob에 저장 됩니다.
 
 [지원 요청](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)를 열어 복원을 요청할 수 있습니다.
 
@@ -105,4 +105,4 @@ CloudSimple은 VMware 소프트웨어 구성 요소에 분기별 유지 관리 �
 
 ## <a name="next-steps"></a>다음 단계
 
-[Veeam을 사용 하 여 워크 로드 vm을 백업](https://docs.azure.cloudsimple.com/backup-workloads-veeam/)합니다.
+[Veeam을 사용 하 여 워크 로드 Vm 백업](backup-workloads-veeam.md)

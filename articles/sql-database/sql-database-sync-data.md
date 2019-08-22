@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
-ms.date: 01/25/2019
-ms.openlocfilehash: 24e340d25cb57f9a35f06f6dbd5a394d60a14fad
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 08/20/2019
+ms.openlocfilehash: 7ff7712130372dcfd277750e881cccce23b36465
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566431"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648356"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>SQL 데이터 동기화를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스의 데이터 동기화
 
@@ -118,6 +118,12 @@ SQL 데이터 동기화는 여러 SQL 데이터베이스 및 SQL Server 인스�
 ### <a name="general-requirements"></a>일반 요구 사항
 
 - 각 표에는 기본 키가 있어야 합니다. 어느 행에서도 기본 키 값은 변경하지 않습니다. 기본 키 값을 변경해야 하는 경우 해당 행을 삭제한 다음 새 기본 키 값을 사용하여 행을 다시 만듭니다. 
+
+> [!IMPORTANT]
+> 기존 기본 키의 값을 변경 하면 다음과 같은 잘못 된 동작이 발생 합니다.   
+>   - 동기화가 문제를 보고 하지 않더라도 허브와 구성원 간의 데이터는 손실 될 수 있습니다.
+> - 기본 키 변경으로 인해 추적 테이블의 원본에서 존재 하지 않는 행이 있으므로 동기화가 실패할 수 있습니다.
+
 - 스냅샷 격리를 사용해야 합니다. 자세한 내용은 [SQL Server에서의 스냅샷 격리](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server)를 참조하세요.
 
 ### <a name="general-limitations"></a>일반적인 제한 사항

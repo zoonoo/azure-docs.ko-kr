@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 08/12/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a0e0508babdd9ae703e38d58b079ab5fa16f68c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f529723abd449891dba845253502b78e8666199f
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66397872"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650243"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory의 그룹에 대한 동적 멤버 자격 규칙
 
@@ -38,11 +38,17 @@ Azure AD(Azure Active Directory)에서 그룹에 대해 동적 멤버십을 사�
 
 사용자 또는 디바이스를 그룹에 자동으로 채우는 멤버 자격 규칙은 참 또는 거짓 결과를 가져오는 이진 식입니다. 간단한 규칙의 세 부분은 다음과 같습니다.
 
-* 자산
+* 속성
 * 연산자
 * 값
 
 식 내에서 이 세 부분의 순서는 구문 오류를 방지하는 데 중요합니다.
+
+### <a name="rule-builder-in-the-azure-portal"></a>Azure Portal의 규칙 작성기
+
+Azure AD는 중요 한 규칙을 더 신속 하 게 만들고 업데이트 하는 규칙 작성기를 제공 합니다. 규칙 작성기는 최대 5 개의 규칙을 지원 합니다. 여섯 번째 및 모든 후속 규칙 용어를 추가 하려면 텍스트 상자를 사용 해야 합니다. 자세한 단계별 지침은 [동적 그룹 업데이트](groups-update-rule.md)를 참조 하세요.
+
+   ![동적 그룹에 대 한 멤버 자격 규칙 추가](./media/groups-update-rule/update-dynamic-group-rule.png)
 
 ### <a name="rules-with-a-single-expression"></a>단일 식이 있는 규칙
 
@@ -68,14 +74,14 @@ user.department -eq "Sales"
 
 ### <a name="properties-of-type-boolean"></a>부울 형식의 속성
 
-| properties | 허용되는 값 | 사용 현황 |
+| 속성 | 허용되는 값 | 사용법 |
 | --- | --- | --- |
 | accountEnabled |true false |user.accountEnabled -eq true |
 | dirSyncEnabled |true false |user.dirSyncEnabled -eq true |
 
 ### <a name="properties-of-type-string"></a>문자열 형식의 속성
 
-| properties | 허용되는 값 | 사용 현황 |
+| 속성 | 허용되는 값 | 사용법 |
 | --- | --- | --- |
 | city |임의의 문자열 값 또는 *null*입니다. |(user.city -eq "value") |
 | country |임의의 문자열 값 또는 *null*입니다. |(user.country -eq "value") |
@@ -106,10 +112,10 @@ user.department -eq "Sales"
 
 ### <a name="properties-of-type-string-collection"></a>문자열 컬렉션 형식의 속성
 
-| properties | 허용되는 값 | 사용 현황 |
+| 속성 | 허용되는 값 | 사용법 |
 | --- | --- | --- |
 | otherMails |임의의 문자열 값입니다. |(user.otherMails -contains "alias@domain") |
-| proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
+| ProxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
 
 디바이스 규칙에 사용되는 속성은 [디바이스에 대한 규칙](#rules-for-devices)을 참조하세요.
 
@@ -127,7 +133,7 @@ user.department -eq "Sales"
 | 포함 |-contains |
 | 일치하지 않음 |-notMatch |
 | 일치 |-match |
-| 그런 다음 | -in |
+| 입력 | -in |
 | 속하지 않음 | -notIn |
 
 ### <a name="using-the--in-and--notin-operators"></a>-in 및 -notIn 연산자 사용
@@ -142,7 +148,7 @@ user.department -eq "Sales"
 
 
 ### <a name="using-the--match-operator"></a>-match 연산자 사용 
-**-match** 연산자는 정규식 일치에 사용됩니다. 예제:
+**-match** 연산자는 정규식 일치에 사용됩니다. 예를 들면 다음과 같습니다.
 
 ```
 user.displayName -match "Da.*"   
@@ -231,10 +237,10 @@ null 값을 참조하는 올바른 방법은 다음과 같습니다.
 
 다중 값 속성은 동일한 유형인 개체의 컬렉션입니다. 이 속성은 -any 및 -all 논리 연산자를 사용하여 멤버 자격 규칙을 만드는 데 사용할 수 있습니다.
 
-| properties | 값 | 사용 현황 |
+| 속성 | 값 | 사용법 |
 | --- | --- | --- |
 | assignedPlans | 컬렉션에 있는 각 개체는 다음 문자열 속성을 표시합니다. capabilityStatus, service, servicePlanId |user.assignedPlans -any(assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
-| proxyAddresses| SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -any (\_ -contains "contoso")) |
+| ProxyAddresses| SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -any (\_ -contains "contoso")) |
 
 ### <a name="using-the--any-and--all-operators"></a>-any 및 -all 연산자 사용
 
@@ -243,7 +249,7 @@ null 값을 참조하는 올바른 방법은 다음과 같습니다.
 * -any(컬렉션에서 적어도 하나의 항목이 조건과 일치하는 경우 충족)
 * -all(컬렉션에서 모든 항목이 조건과 일치하는 경우 충족)
 
-#### <a name="example-1"></a>예 1
+#### <a name="example-1"></a>예제 1
 
 assignedPlans는 사용자에게 할당된 모든 서비스 계획을 나열하는 다중 값 속성입니다. 다음 식은 사용 상태인 Exchange Online(계획 2) 서비스 계획을 GUID 값으로 사용하는 사용자를 선택합니다.
 
@@ -253,7 +259,7 @@ user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df
 
 이와 같은 규칙은 Office 365(또는 다른 Microsoft 온라인 서비스) 기능을 사용하도록 설정된 모든 사용자를 그룹화하는 데 사용할 수 있습니다. 그러면 일단의 정책을 그룹에 적용할 수 있습니다.
 
-#### <a name="example-2"></a>예 2
+#### <a name="example-2"></a>예제 2
 
 다음 식은 Intune 서비스("SCO" 서비스 이름으로 식별)와 연결된 서비스 계획이 있는 모든 사용자를 선택합니다.
 
@@ -261,7 +267,7 @@ user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df
 user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
-### <a name="using-the-underscore--syntax"></a>밑줄(\_) 구문 사용
+### <a name="using-the-underscore-_-syntax"></a>밑줄(\_) 구문 사용
 
 밑줄(\_) 구문은 동적 그룹에 사용자나 디바이스를 추가하기 위한 다중 값 문자열 컬렉션 속성 중 하나에서 특정 값의 발생과 일치합니다. -any 또는 -all 연산자와 함께 사용합니다.
 
@@ -283,7 +289,7 @@ user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabi
 Direct Reports for "{objectID_of_manager}"
 ```
 
-여기서 "62e19b97-8b3d-4d4a-a106-4ce66896a863"는 관리자의 objectID를 유효한 규칙의 예는 다음과 같습니다.
+"62e19b97-8b3d-4d4a-a106-4ce66896a863"가 관리자의 objectID 인 유효한 규칙의 예는 다음과 같습니다.
 
 ```
 Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
@@ -300,7 +306,7 @@ Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
 
 멤버 자격 규칙을 사용하여 테넌트 내의 모든 사용자가 포함된 그룹을 만들 수 있습니다. 나중에 테넌트에서 사용자를 추가하거나 제거하면 그룹의 멤버 자격이 자동으로 조정됩니다.
 
-"모든 사용자" 규칙-ne 연산자 및 null 값을 사용 하 여 단일 식을 사용 하 여 생성 됩니다. 이 규칙은 그룹에 멤버 사용자뿐만 아니라 B2B 게스트 사용자도 추가합니다.
+"모든 사용자" 규칙은-ne 연산자와 null 값을 사용 하 여 단일 식을 사용 하 여 생성 됩니다. 이 규칙은 그룹에 멤버 사용자뿐만 아니라 B2B 게스트 사용자도 추가합니다.
 
 ```
 user.objectid -ne null
@@ -310,7 +316,7 @@ user.objectid -ne null
 
 멤버 자격 규칙을 사용하여 테넌트 내의 모든 디바이스가 포함된 그룹을 만들 수 있습니다. 나중에 테넌트에서 디바이스를 추가하거나 제거하면 그룹의 멤버 자격이 자동으로 조정됩니다.
 
-"모든 장치" 규칙-ne 연산자 및 null 값을 사용 하 여 단일 식을 사용 하 여 생성 됩니다.
+"모든 장치" 규칙은-ne 연산자와 null 값을 사용 하 여 단일 식을 사용 하 여 생성 됩니다.
 
 ```
 device.objectid -ne null
@@ -318,7 +324,7 @@ device.objectid -ne null
 
 ## <a name="extension-properties-and-custom-extension-properties"></a>확장 속성 및 사용자 지정 확장 속성
 
-확장 특성 및 사용자 지정 확장 속성은 동적 멤버 자격 규칙에 문자열 속성으로 지원 됩니다. 확장 특성은 온-프레미스 Windows Server AD에서 동기화되고 "ExtensionAttributeX" 형식을 사용하며 여기서 X는 1 - 15입니다. 확장 특성을 속성으로 사용하는 규칙의 예제는 다음과 같습니다.
+확장 특성 및 사용자 지정 확장 속성은 동적 멤버 관리 규칙에서 문자열 속성으로 지원 됩니다. 확장 특성은 온-프레미스 Windows Server AD에서 동기화되고 "ExtensionAttributeX" 형식을 사용하며 여기서 X는 1 - 15입니다. 확장 특성을 속성으로 사용하는 규칙의 예제는 다음과 같습니다.
 
 ```
 (user.extensionAttribute15 -eq "Marketing")
@@ -343,7 +349,7 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber -eq "123"
 
 다음과 같은 디바이스 특성을 사용할 수 있습니다.
 
- 디바이스 특성  | 값 | 예
+ 디바이스 특성  | 값 | 예제
  ----- | ----- | ----------------
  accountEnabled | true false | (device.accountEnabled -eq true)
  displayName | 임의의 문자열 값입니다. |(device.displayName -eq "Rob iPhone")

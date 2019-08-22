@@ -1,23 +1,23 @@
 ---
-title: CloudSimple 별 VMware 솔루션-Azure 공용 IP 주소
-description: 공용 IP 주소 및 CloudSimple의 VMware 솔루션에서의 이점에 대해 알아봅니다.
+title: CloudSimple의 Azure VMware 솔루션-공용 IP 주소
+description: 공용 IP 주소 및 CloudSimple의 Azure VMware 솔루션에서의 이점에 대해 알아보기
 author: sharaths-cs
 ms.author: dikamath
-ms.date: 04/10/2019
+ms.date: 08/20/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 29d2bdb75a7f4409e6b3ffee2608cfe7adde6b1f
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 147ab6b5ace4493e1a0b303c320cb2e81d829b29
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812528"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877676"
 ---
 # <a name="cloudsimple-public-ip-address-overview"></a>CloudSimple 공용 IP 주소 개요
 
-공용 IP 주소를 사용 하면 인터넷 리소스에서 개인 IP 주소에 있는 사설 클라우드 리소스에 인바운드를 통신할 수 있습니다. 개인 IP 주소는 가상 머신 또는 소프트웨어 부하 분산 장치입니다. 개인 IP 주소는 사설 클라우드 vCenter에 있습니다. 공용 IP 주소를 사용 하면 사설 클라우드에서 실행 되는 서비스를 인터넷에 노출할 수 있습니다.
+공용 IP 주소를 사용 하면 인터넷 리소스가 개인 IP 주소에서 사설 클라우드 리소스에 대 한 인바운드를 통신할 수 있습니다. 개인 IP 주소는 사설 클라우드 vCenter에 있는 가상 머신 또는 소프트웨어 부하 분산 장치입니다. 공용 IP 주소를 사용 하면 사설 클라우드에서 실행 되는 서비스를 인터넷에 노출할 수 있습니다.
 
 공용 IP 주소는 할당을 취소할 때까지 개인 IP 주소 전용입니다. 공용 IP 주소는 하나의 개인 IP 주소에만 할당할 수 있습니다.
 
@@ -33,4 +33,4 @@ ms.locfileid: "68812528"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [공용 IP 주소를 할당](https://docs.azure.cloudsimple.com/public-ips/) 하는 방법 알아보기
+* [공용 IP 주소를 할당](public-ips.md) 하는 방법 알아보기

@@ -1,13 +1,13 @@
 ---
 title: OData 식 구문 참조-Azure Search
-description: Azure Search 쿼리에 OData 식 공식 문법 및 구문 사양.
+description: Azure Search 쿼리의 OData 식에 대 한 공식적인 문법 및 구문 사양입니다.
 ms.date: 06/13/2019
 services: search
 ms.service: search
 ms.topic: conceptual
 author: brjohnstmsft
 ms.author: brjohnst
-ms.manager: cgronlun
+manager: nitinme
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,29 +19,29 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: ebe41ba61ac5136900328db9c35acb8551dcd5b2
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 5d7e6456cd6a6648ff2ca38ecbb4f2de5479d7c9
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67428652"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647488"
 ---
 # <a name="odata-expression-syntax-reference-for-azure-search"></a>Azure Search에 대 한 OData 식 구문 참조
 
-다음을 사용 하 여 azure Search [OData 식](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html) API 전반에 걸쳐 매개 변수로 합니다. OData 식 가장 일반적으로 사용 되는 `$orderby` 고 `$filter` 매개 변수입니다. 이러한 식은 여러 절, 함수 및 연산자를 포함 하 복잡할 수 있습니다. 그러나 단순한 OData 식 같은 속성 경로 Azure Search REST API의 많은 부분에서 사용 됩니다. 예를 들어 경로 식 하는 데 하위 필드 목록에서 하위 필드 때와 같은 API의 어디에서 나 복잡 한 필드의 참조를 [suggester](index-add-suggesters.md), [점수 매기기 함수](index-add-scoring-profiles.md)의 `$select` 매개 변수 심지어 [Lucene 쿼리 검색 필드 지정된](query-lucene-syntax.md)합니다.
+Azure Search는 API 전체에서 [OData 식을](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html) 매개 변수로 사용 합니다. 가장 일반적으로는 OData 식이 `$orderby` 및 `$filter` 매개 변수에 사용 됩니다. 이러한 식은 여러 절, 함수 및 연산자를 포함 하는 복잡할 수 있습니다. 그러나 속성 경로와 같은 간단한 OData 식은 Azure Search REST API의 여러 부분에서 사용 됩니다. 예를 들어 경로 식은 [확인 기](index-add-suggesters.md)의 하위 필드, [점수 매기기 함수](index-add-scoring-profiles.md), `$select` 매개 변수 또는 [Lucene의 필드 지정 검색을 나열 하는 경우와 같이 API의 어디에서 나 복잡 한 필드의 하위 필드를 참조 하는 데 사용 됩니다. 쿼리](query-lucene-syntax.md).
 
-이 문서에서는 이러한 모든 형태의 OData 식에서는 정식 문법을 사용 하 여 설명 합니다. 또한는 [대화형 다이어그램](#syntax-diagram) 문법을 시각적으로 탐색할 수 있도록 합니다.
+이 문서에서는 공식적인 문법을 사용 하는 이러한 모든 형식의 OData 식에 대해 설명 합니다. 문법을 시각적으로 탐색 하는 데 도움이 되는 [대화형 다이어그램](#syntax-diagram) 도 있습니다.
 
-## <a name="formal-grammar"></a>정식 문법
+## <a name="formal-grammar"></a>공식 문법
 
-EBNF를 사용 하 여 Azure Search에서 지 원하는 OData 언어의 하위 집합을 설명할 수 있습니다 ([확장 된 Backus Naur 폼](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) 문법입니다. 규칙 "하향식", 가장 복잡 한 식으로 시작 해 서 더 기본 식으로 세분화 나열 됩니다. 맨 위에 있는 Azure Search REST API의 특정 매개 변수에 해당 하는 문법 규칙:
+EBNF ([Extended Backus-Backus-naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) 문법을 사용 하 여 Azure Search에서 지 원하는 OData 언어의 하위 집합을 설명할 수 있습니다. 규칙은 "하향식"으로 나열 되며 가장 복잡 한 식부터 시작 하 여 더 많은 기본 식으로 구분 됩니다. 위쪽에는 Azure Search REST API의 특정 매개 변수에 해당 하는 문법 규칙이 있습니다.
 
-- [`$filter`](search-query-odata-filter.md)에서 정의한는 `filter_expression` 규칙입니다.
-- [`$orderby`](search-query-odata-orderby.md)에서 정의한는 `order_by_expression` 규칙입니다.
-- [`$select`](search-query-odata-select.md)에서 정의한는 `select_expression` 규칙입니다.
-- 경로 의해 정의 된 필드는 `field_path` 규칙입니다. 필드 경로 API에서 사용 됩니다. 인덱스의 최상위 필드 중 하나 또는 하나 이상의 하위 필드를 참조할 수 있습니다 [복잡 한 필드](search-howto-complex-data-types.md) 상위 항목입니다.
+- [`$filter`](search-query-odata-filter.md)`filter_expression` 규칙으로 정의 된입니다.
+- [`$orderby`](search-query-odata-orderby.md)`order_by_expression` 규칙으로 정의 된입니다.
+- [`$select`](search-query-odata-select.md)`select_expression` 규칙으로 정의 된입니다.
+- 규칙에 의해 정의 되는 `field_path` 필드 경로입니다. 필드 경로는 API 전체에서 사용 됩니다. 인덱스의 최상위 필드 또는 하나 이상의 [복합 field](search-howto-complex-data-types.md) 상위 항목이 있는 하위 필드를 참조할 수 있습니다.
 
-EBNF를 찾아볼 수 있는 되 면 [구문 다이어그램](https://en.wikipedia.org/wiki/Syntax_diagram) 를 대화형으로 해당 규칙 간의 문법 및 관계를 탐색할 수 있도록 합니다.
+EBNF는 검색 가능한 [구문 다이어그램](https://en.wikipedia.org/wiki/Syntax_diagram) 으로, 문법을 대화형으로 탐색 하 고 해당 규칙 간의 관계를 탐색할 수 있습니다.
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -209,12 +209,12 @@ search_mode ::= "'any'" | "'all'"
 
 ## <a name="syntax-diagram"></a>구문 다이어그램
 
-Azure Search에서 지 원하는 OData 언어 문법을 시각적으로 탐색 하려면 대화형 구문 다이어그램을 시도 합니다.
+Azure Search에서 지 원하는 OData 언어 문법을 시각적으로 살펴보려면 대화형 구문 다이어그램을 사용해 보세요.
 
 > [!div class="nextstepaction"]
 > [Azure Search에 대 한 OData 구문 다이어그램](https://azuresearch.github.io/odata-syntax-diagram/)
 
-## <a name="see-also"></a>참고 항목  
+## <a name="see-also"></a>참고자료  
 
 - [Azure Search의 필터](search-filters.md)
 - [문서 검색 &#40;Azure Search 서비스 REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

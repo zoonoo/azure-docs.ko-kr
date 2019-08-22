@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 164a71354423bebc1422ba94747f2daeec33909d
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: e9c21ff5c4c94eecc7bb1a6643e46166df80edf4
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828931"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648313"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Microsoft Authenticator 앱 (미리 보기)을 사용 하 여 암호 없는 로그인 사용
 
@@ -92,7 +92,7 @@ ms.locfileid: "68828931"
 
 ### <a name="device-registration"></a>디바이스 등록
 
-이 새로운 강력한 자격 증명을 만들기 위한 필수 구성 요소 중 하나는 장치가 Azure AD 테 넌 트 내에 개별 사용자에 등록 되어야 한다는 것입니다. 현재 장치 등록 제한으로 인해 장치는 단일 테 넌 트에만 등록할 수 있습니다. 이 제한은 Microsoft Authenticator 앱에서 휴대폰 로그인에 대해 하나의 회사 또는 학교 계정만 설정할 수 있음을 의미합니다.
+이 새로운 강력한 자격 증명을 만들기 위한 필수 구성 요소 중 하나는 Microsoft Authenticator 앱이 설치 된 장치가 Azure AD 테 넌 트 내에 개별 사용자에 등록 되어야 한다는 것입니다. 현재 장치 등록 제한으로 인해 장치는 단일 테 넌 트에만 등록할 수 있습니다. 이 제한은 Microsoft Authenticator 앱에서 휴대폰 로그인에 대해 하나의 회사 또는 학교 계정만 설정할 수 있음을 의미합니다.
 
 > [!NOTE]
 > 장치 등록은 장치 관리 또는 "MDM"과 동일 하지 않습니다. Azure AD 디렉터리에서 장치 ID와 사용자 ID를 함께 연결 합니다.  

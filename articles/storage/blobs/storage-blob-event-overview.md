@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: cbrooks
-ms.openlocfilehash: 13eef9beb6c86683c56efc744dc42b4614b84fe9
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: b813ef89bb1a55f769d0ea2391855ba5d671c140
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946492"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648788"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Blob Storage 이벤트에 대응
 
@@ -32,6 +32,8 @@ Blob 저장소 이벤트는 풍부한 재시도 정책 및 배달 못 한 편지
 |Azure Portal    |[빠른 시작: Azure Portal를 사용 하 여 Blob 저장소 이벤트를 웹 끝점으로 라우팅](https://docs.microsoft.com/azure/event-grid/blob-event-quickstart-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |PowerShell    |[빠른 시작: PowerShell을 사용 하 여 웹 끝점에 저장소 이벤트 라우팅](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart-powershell?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Azure CLI    |[빠른 시작: Azure CLI를 사용 하 여 웹 끝점으로 저장소 이벤트 라우팅](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+
+계정에 계층적 네임 스페이스가 있는 경우이 자습서에서는 Azure Databricks에서 Event Grid 구독, Azure 함수 및 [작업](https://docs.azuredatabricks.net/user-guide/jobs.html) 을 함께 연결 하는 방법을 보여 줍니다. [자습서: Azure Data Lake Storage Gen2 이벤트를 사용 하 여 Databricks 델타 테이블](data-lake-storage-events.md)을 업데이트 합니다.
 
 ## <a name="the-event-model"></a>이벤트 모델
 

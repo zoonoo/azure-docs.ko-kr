@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: cce14a2f6e7f8aeca6c7f716d66520cef9484dde
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: be3917d7943f808292e5ed15978a3d6aefd3afb5
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562642"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69891841"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 파트너 및 피어링 위치
 
@@ -207,7 +207,7 @@ Express 경로 위치 (예를 들어 피어 링 위치 또는 위치 면)는 MSE
 | **상파울루** | Equinix | Venha Pra Nuvem |
 | **시애틀** |Equinix | Alaska Communications |
 | **실리콘밸리** |Coresite, | Cox Business, 스펙트럼 Enterprise, Windstream, X2nsat i n c. |
-| **싱가포르** |Equinix |1CLOUDSTAR, BICS, Epsilon Telecommunications Limited, LGA Telecom, United Information Highway (UIH) |
+| **싱가포르** |Equinix |1CLOUDSTAR, BICS, CMC 통신, 엡실론 통신 제한, LGA 텔레콤, UIH (미국 정보 고속도로) |
 | **슬라우** | Equinix | HSO|
 | **시드니** | Megaport | Macquarie Telecom Group|
 | **도쿄** | Equinix | ARTERIA Networks Corporation, BroadBand Tower, Inc. |

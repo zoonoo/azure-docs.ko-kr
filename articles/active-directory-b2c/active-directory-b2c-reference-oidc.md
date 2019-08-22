@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/20/2019
+ms.date: 08/22/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 36efdb7db57d3acfa7384d904e9be8faad4c6534
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 35abb84f92ed9a7295c45afc69b673a3be46be15
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622066"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69874124"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 OpenID Connect로 웹 로그인
 
@@ -32,7 +32,7 @@ Azure AD B2C는 단순한 인증 및 권한 부여 보다 더 많은 작업으�
 
 웹 응용 프로그램이 사용자를 인증 하 고 사용자 흐름을 실행 해야 하는 경우 사용자를 `/authorize` 끝점으로 보낼 수 있습니다. 사용자가 사용자 흐름에 따라 동작을 수행 합니다.
 
-이 요청에서 클라이언트는 `scope` 매개 변수에서 사용자 로부터 획득 해야 하는 권한을 표시 하 고 실행할 사용자 흐름을 지정 합니다. 각각 서로 다른 사용자 흐름을 사용하는 세 가지 예제가 다음 섹션에서 제공됩니다(쉽게 읽을 수 있도록 줄 바꿈 적용). 각 요청의 작동 방식에 대해 이해하려면 요청을 브라우저에 붙여 넣고 실행합니다. 가 있고 사용자 `fabrikamb2c` 흐름을 만든 테 넌 트의 이름으로 바꿀 수 있습니다. 또한을 (를) 대체 `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6`해야 합니다. 이 클라이언트 ID를 만든 응용 프로그램 등록의 앱 ID로 바꿉니다. 또한 정책 이름 ()을`{policy}`테 넌 트에 있는 정책 이름 (예: `b2c_1_sign_in`)으로 변경 합니다.
+이 요청에서 클라이언트는 `scope` 매개 변수에서 사용자 로부터 획득 해야 하는 권한을 표시 하 고 실행할 사용자 흐름을 지정 합니다. 요청이 어떻게 작동 하는지 확인 하려면 브라우저에 요청을 붙여넣은 후 실행 해 보세요. `{tenant}`을 테넌트 이름으로 바꿉니다. 을 `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` 테 넌 트에 이전에 등록 한 응용 프로그램의 앱 ID로 바꿉니다. 또한 정책 이름 ()을`{policy}`테 넌 트에 있는 정책 이름 (예: `b2c_1_sign_in`)으로 변경 합니다.
 
 ```HTTP
 GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/authorize?
@@ -48,7 +48,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | 매개 변수 | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | 넌 | 예 | Azure AD B2C 테 넌 트의 이름 |
-| policy | 예 | 실행 되는 사용자 흐름입니다. Azure AD B2C 테 넌 트에서 생성 된 사용자 흐름의 이름입니다. 사용자 흐름의 이름은으로 `b2c_1_`시작 해야 합니다. 예를 들면 `b2c_1_sign_in`, `b2c_1_sign_up`또는 `b2c_1_edit_profile`입니다. |
+| policy | 예 | 실행할 사용자 흐름입니다. Azure AD B2C 테 넌 트에서 만든 사용자 흐름의 이름을 지정 합니다. 예를 들면 `b2c_1_sign_in`, `b2c_1_sign_up`또는 `b2c_1_edit_profile`입니다. |
 | client_id | 예 | [Azure Portal](https://portal.azure.com/) 응용 프로그램에 할당 된 응용 프로그램 ID입니다. |
 | nonce | 예 | 응용 프로그램에 의해 생성 된 요청에 포함 된 값으로, 결과 ID 토큰에 클레임으로 포함 됩니다. 그러면 응용 프로그램에서이 값을 확인 하 여 토큰 재생 공격을 완화할 수 있습니다. 값은 일반적으로 요청의 출처를 식별하는 데 사용할 수 있는 임의의 고유 문자열입니다. |
 | response_type | 예 | Openid connect Connect에 대 한 ID 토큰을 포함 해야 합니다. 웹 응용 프로그램에 웹 API를 호출 하는 데 필요한 토큰만 있으면를 사용할 `code+id_token`수 있습니다. |
@@ -86,7 +86,7 @@ error=access_denied
 &state=arbitrary_data_you_can_receive_in_the_response
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | --------- | ----------- |
 | 오류 | 발생 한 오류 유형을 분류 하는 데 사용할 수 있는 코드입니다. |
 | error_description | 인증 오류의 근본 원인을 식별 하는 데 도움이 될 수 있는 특정 오류 메시지입니다. |
@@ -168,7 +168,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 }
 ```
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | --------- | ----------- |
 | not_before | epoch 시간에서 토큰은 유효한 것으로 간주되는 시간입니다. |
 | token_type | 토큰 형식 값입니다. `Bearer`는 유일 하 게 지원 되는 유형입니다. |
@@ -186,7 +186,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 }
 ```
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | --------- | ----------- |
 | 오류 | 발생 한 오류 유형을 분류 하는 데 사용할 수 있는 코드입니다. |
 | error_description | 인증 오류의 근본 원인을 식별 하는 데 도움이 될 수 있는 메시지입니다. |
@@ -213,7 +213,7 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=openid offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob&client_secret=<your-application-secret>
 ```
 
-| 매개 변수 | 필수 | 설명 |
+| 매개 변수 | 필수 | Description |
 | --------- | -------- | ----------- |
 | 넌 | 예 | Azure AD B2C 테 넌 트의 이름 |
 | policy | 예 | 원래의 새로 고침 토큰을 얻는 데 사용된 사용자 흐름입니다. 이 요청에서는 다른 사용자 흐름을 사용할 수 없습니다. 이 매개 변수를 POST 본문이 아니라 쿼리 문자열에 추가 합니다. |
@@ -237,7 +237,7 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
 }
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | --------- | ----------- |
 | not_before | epoch 시간에서 토큰은 유효한 것으로 간주되는 시간입니다. |
 | token_type | 토큰 형식 값입니다. `Bearer`는 유일 하 게 지원 되는 유형입니다. |
@@ -255,7 +255,7 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
 }
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | --------- | ----------- |
 | 오류 | 발생 한 오류 유형을 분류 하는 데 사용할 수 있는 코드입니다. |
 | error_description | 인증 오류의 근본 원인을 식별 하는 데 도움이 될 수 있는 메시지입니다. |
@@ -270,18 +270,18 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
 GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/logout?post_logout_redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
 ```
 
-| 매개 변수 | 필수 | Description |
+| 매개 변수 | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | 넌 | 예 | Azure AD B2C 테 넌 트의 이름 |
 | policy | 예 | 애플리케이션에서 사용자를 로그아웃하는 데 사용하려는 사용자 흐름입니다. |
-| id_token_hint| 아니요 | 이전에 발급 된 ID 토큰으로, 로그 아웃 끝점에 클라이언트에 대 한 최종 사용자의 현재 인증 된 세션에 대 한 힌트로 전달 됩니다. |
-| post_logout_redirect_uri | 아니요 | 성공적으로 로그 아웃 한 후에 사용자가 리디렉션되는 URL입니다. 포함 되어 있지 않으면 Azure AD B2C 사용자에 게 일반 메시지를 표시 합니다. |
+| id_token_hint| 아니요 | 이전에 발급 된 ID 토큰으로, 로그 아웃 끝점에 클라이언트에 대 한 최종 사용자의 현재 인증 된 세션에 대 한 힌트로 전달 됩니다. 는 Azure AD B2C 응용 프로그램 `post_logout_redirect_uri` 설정에서가 등록 된 회신 URL 인지 확인합니다.`id_token_hint` |
+| post_logout_redirect_uri | 아니요 | 성공적으로 로그 아웃 한 후에 사용자가 리디렉션되는 URL입니다. 포함 되어 있지 않으면 Azure AD B2C 사용자에 게 일반 메시지를 표시 합니다. `id_token_hint`를 제공 하지 않는 한 Azure AD B2C 응용 프로그램 설정에서이 url을 회신 url로 등록 하면 안 됩니다. |
 | state | 아니요 | 요청에 `state` 매개 변수가 포함되어 있으면 동일한 값이 응답에도 나타나야 합니다. 응용 프로그램은 요청 및 응답 `state` 의 값이 동일한 지 확인 해야 합니다. |
 
-### <a name="require-id-token-hint-in-logout-request"></a>로그 아웃 요청에 ID 토큰 힌트가 필요 합니다.
+### <a name="secure-your-logout-redirect"></a>로그 아웃 리디렉션 보안
 
 로그 아웃 한 후에는 응용 프로그램에 대해 지정 된 회신 `post_logout_redirect_uri` url에 관계 없이 사용자가 매개 변수에 지정 된 URI로 리디렉션됩니다. 그러나 유효한 `id_token_hint` 이 전달 되는 경우에는에서 리디렉션을 수행 하기 전에 `post_logout_redirect_uri` 응용 프로그램의 구성 된 리디렉션 uri 중 하 나와 일치 하는 값이 있는지 확인 Azure AD B2C 합니다. 응용 프로그램에 대해 일치 하는 회신 URL이 구성 되지 않은 경우 오류 메시지가 표시 되 고 사용자가 리디렉션되지 않습니다.
 
-### <a name="external-identity-provider-session"></a>외부 id 공급자 세션
+### <a name="external-identity-provider-sign-out"></a>외부 id 공급자 로그 아웃
 
 사용자를 `end_session` 끝점으로 전달 하면 Azure AD B2C를 사용 하 여 일부 사용자의 single sign-on 상태를 지우지만 사용자가 IDP (소셜 id 공급자) 세션에서 로그 아웃 하지 않습니다. 사용자가 후속 로그인 중에 동일한 IDP를 선택 하면 자격 증명을 입력 하지 않고 다시 인증 됩니다. 사용자가 응용 프로그램에서 로그 아웃 하려는 경우 반드시 Facebook 계정에서 로그 아웃 하려는 것은 아닙니다. 그러나 로컬 계정을 사용 하는 경우 사용자의 세션이 제대로 종료 됩니다.

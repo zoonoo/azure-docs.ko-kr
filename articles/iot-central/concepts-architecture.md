@@ -8,29 +8,31 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 4bc9a79576c3165585a4a2c897bd41bfb77c080c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 43357bdeb444fed20f29107d10dc31a61857fccf
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66693141"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877518"
 ---
 # <a name="azure-iot-central-architecture"></a>Azure IoT Central 아키텍처
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 이 문서에서는 Microsoft Azure IoT Central 아키텍처의 개요를 제공합니다.
 
 ![최상위 아키텍처](media/concepts-architecture/architecture.png)
 
-## <a name="devices"></a>디바이스
+## <a name="devices"></a>장치
 
-장치는 Azure IoT Central 애플리케이션과 데이터를 교환합니다. 디바이스는 다음을 수행할 수 있습니다.
+디바이스는 Azure IoT Central 애플리케이션과 데이터를 교환합니다. 디바이스는 다음을 수행할 수 있습니다.
 
 - 원격 분석 데이터 같은 측정값을 보냅니다.
 - 애플리케이션과 설정을 동기화합니다.
 
-Azure IoT Central에서, 장치가 애플리케이션과 교환할 수 있는 데이터는 장치 템플릿에 지정됩니다. 디바이스 템플릿에 대한 자세한 내용은 [메타데이터 관리](#metadata-management)를 참조하세요.
+Azure IoT Central에서, 디바이스가 애플리케이션과 교환할 수 있는 데이터는 디바이스 템플릿에 지정됩니다. 디바이스 템플릿에 대한 자세한 내용은 [메타데이터 관리](#metadata-management)를 참조하세요.
 
-장치가 Azure IoT Central 애플리케이션에 연결하는 방법에 대한 자세한 내용은 [장치 연결](concepts-connectivity.md)을 참조하세요.
+디바이스가 Azure IoT Central 애플리케이션에 연결하는 방법에 대한 자세한 내용은 [디바이스 연결](concepts-connectivity.md)을 참조하세요.
 
 ## <a name="cloud-gateway"></a>클라우드 게이트웨이
 
@@ -65,27 +67,27 @@ Azure IoT Central은 디바이스에서 보낸 측정값 데이터에 시계열 
 
 ## <a name="metadata-management"></a>메타데이터 관리
 
-Azure IoT Central 애플리케이션에서 장치 템플릿은 장치 유형의 동작 및 기능을 정의합니다. 예를 들어 냉장고 장치 템플릿은 냉장고가 애플리케이션에 보내는 원격 분석 데이터를 지정합니다.
+Azure IoT Central 애플리케이션에서 디바이스 템플릿은 디바이스 유형의 동작 및 기능을 정의합니다. 예를 들어 냉장고 디바이스 템플릿은 냉장고가 애플리케이션에 보내는 원격 분석 데이터를 지정합니다.
 
 ![템플릿 아키텍처](media/concepts-architecture/template_architecture.png)
 
 디바이스 템플릿에서:
 
-- **측정값**은 장치가 원격 분석 애플리케이션으로 보내는 원격 분석 데이터를 지정합니다.
+- **측정값**은 디바이스가 원격 분석 애플리케이션으로 보내는 원격 분석 데이터를 지정합니다.
 - **설정**은 운영자가 설정할 수 있는 구성을 지정합니다.
 - **속성**은 운영자가 설정할 수 있는 메타데이터를 지정합니다.
-- **규칙**은 장치에서 보낸 데이터를 기반으로 애플리케이션의 동작을 자동화합니다.
-- **대시보드**는 애플리케이션에서 장치를 볼 수 있는 사용자 지정 가능한 보기입니다.
+- **규칙**은 디바이스에서 보낸 데이터를 기반으로 애플리케이션의 동작을 자동화합니다.
+- **대시보드**는 애플리케이션에서 디바이스를 볼 수 있는 사용자 지정 가능한 보기입니다.
 
-각 장치 템플릿에 따라 한 애플리케이션에서 시뮬레이션된 장치 및 실제 장치를 하나 이상 사용할 수 있습니다.
+각 디바이스 템플릿에 따라 한 애플리케이션에서 시뮬레이션된 디바이스 및 실제 디바이스를 하나 이상 사용할 수 있습니다.
 
 ## <a name="data-export"></a>데이터 내보내기
 
-Azure IoT Central 응용 프로그램을 수행할 수 있습니다 [지속적으로 데이터를 내보내고](howto-export-data-event-hubs-service-bus.md) 사용자 고유의 Azure Event Hubs 및 Azure Service Bus 인스턴스에 있습니다. 정기적으로 Azure Blob 저장소 계정에 데이터를 내보낼 수 있습니다. IoT Central은 측정, 장치 및 장치 템플릿을 내보낼 수 있습니다.
+Azure IoT Central 응용 프로그램에서 사용자 고유의 Azure Event Hubs 및 Azure Service Bus 인스턴스로 [데이터를 지속적으로 내보낼](howto-export-data-event-hubs-service-bus.md) 수 있습니다. Azure Blob storage 계정에 주기적으로 데이터를 내보낼 수도 있습니다. IoT Central은 측정, 장치 및 장치 템플릿을 내보낼 수 있습니다.
 
-## <a name="batch-device-updates"></a>일괄 처리 장치 업데이트
+## <a name="batch-device-updates"></a>배치 장치 업데이트
 
-Azure IoT Central 응용 프로그램을 수행할 수 있습니다 [작업 만들기 및 실행](howto-run-a-job.md) 연결 된 장치를 관리할 수 있습니다. 이러한 작업을 사용 하면 대량 장치 속성 설정에는 업데이트 수행 하거나 명령을 실행 합니다. 예를 들어, 여러 refrigerated 별도 컴퓨터에 대 한 팬 속도 높이기 위해 작업을 만들면 됩니다.
+Azure IoT Central 응용 프로그램에서 연결 된 장치를 관리 하는 [작업을 만들고 실행할](howto-run-a-job.md) 수 있습니다. 이러한 작업을 통해 장치 속성 또는 설정에 대 한 대량 업데이트를 수행 하거나 명령을 실행할 수 있습니다. 예를 들어 여러 refrigerated 자동 판매기 컴퓨터의 팬 속도를 높이기 위한 작업을 만들 수 있습니다.
 
 ## <a name="role-based-access-control-rbac"></a>RBAC(역할 기반 액세스 제어)
 
@@ -103,10 +105,10 @@ Azure IoT Central에는 다음과 같은 보안 기능이 있습니다.
 ## <a name="ui-shell"></a>UI 셸
 
 UI 셸은 응답성이 우수한 최신 HTML5 브라우저 기반 애플리케이션입니다.
-관리자로는 사용자 지정 테마를 적용 하 고 사용자 고유의 사용자 지정 도움말 리소스를 가리키도록 도움말 링크를 수정 하 여 응용 프로그램의 UI를 사용자 지정할 수 있습니다. UI 사용자 지정 하는 방법에 대 한 자세한 내용은 참조 하세요 [Azure IoT Central UI 사용자 지정](howto-customize-ui.md) 문서.
+관리자는 사용자 지정 테마를 적용 하 고 사용자 지정 도움말 리소스를 가리키도록 도움말 링크를 수정 하 여 응용 프로그램의 UI를 사용자 지정할 수 있습니다. UI 사용자 지정에 대해 자세히 알아보려면 [Azure IOT CENTRAL Ui 사용자 지정](howto-customize-ui.md) 문서를 참조 하세요.
 
-운영자는 개인 설정 된 응용 프로그램 대시보드를 만들 수 있습니다. 다른 데이터를 표시 하 고 전환할 대시보드가 여러 개 있을 수 있습니다.
+운영자는 개인 설정 된 응용 프로그램 대시보드를 만들 수 있습니다. 여러 대시보드를 만들어 서로 다른 데이터를 표시 하 고 서로 전환할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-에 대 한 자세한 제안 된 다음 단계는 Azure IoT Central의 아키텍처에 대해 알아보았습니다 했으므로 [장치 연결](concepts-connectivity.md) Azure IoT Central의 합니다.
+이제 Azure IoT Central의 아키텍처에 대해 알아보았습니다. 제안 된 다음 단계는 Azure IoT Central의 [장치 연결](concepts-connectivity.md) 에 대해 학습 하는 것입니다.

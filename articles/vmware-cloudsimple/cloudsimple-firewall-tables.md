@@ -1,23 +1,23 @@
 ---
-title: 방화벽 테이블-CloudSimple 별 VMware 솔루션-Azure
+title: CloudSimple 방화벽 테이블에의 한 Azure VMware 솔루션
 description: CloudSimple 사설 클라우드 방화벽 테이블 및 방화벽 규칙에 대해 알아봅니다.
 author: sharaths-cs
 ms.author: dikamath
-ms.date: 04/10/2019
+ms.date: 08/20/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 9d25aa9252f061cee7f4cffdca42f00d84f719a3
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 89bef6cef48f2b972aa3f931008b0db84431b832
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812669"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877708"
 ---
 # <a name="firewall-tables-overview"></a>방화벽 테이블 개요
 
-방화벽 테이블에는 사설 클라우드 리소스에 대 한 네트워크 트래픽을 필터링 하는 규칙이 나열 됩니다. VLAN 또는 서브넷에 적용할 수 있습니다. 그런 다음이 규칙은 원본 네트워크 또는 IP 주소와 대상 네트워크 또는 IP 주소 간의 네트워크 트래픽을 제어 합니다.
+방화벽 테이블에는 사설 클라우드 리소스에 대 한 네트워크 트래픽을 필터링 하는 규칙이 나열 됩니다. VLAN/서브넷에 방화벽 테이블을 적용할 수 있습니다. 규칙은 원본 네트워크 또는 IP 주소와 대상 네트워크 또는 IP 주소 간의 네트워크 트래픽을 제어 합니다.
 
 ## <a name="firewall-rules"></a>방화벽 규칙
 
@@ -26,7 +26,7 @@ ms.locfileid: "68812669"
 | 속성 | 세부 정보 |
 | ---------| --------|
 | **이름** | 방화벽 규칙 및 용도를 고유 하 게 식별 하는 이름입니다. |
-| **Priority** | 100 ~ 4096 사이의 숫자로, 100의 우선 순위가 가장 높습니다. 규칙은 우선 순위에 따라 처리됩니다. 트래픽이 규칙 일치를 통해 들어오는 경우 규칙 처리가 중지 됩니다. 따라서 우선 순위가 더 높은 규칙과 동일한 특성을 가진 규칙이 낮은 규칙은 처리 되지 않습니다.  충돌 하는 규칙이 발생 하지 않도록 주의 하세요. |
+| **Priority** | 100 ~ 4096 사이의 숫자로, 100의 우선 순위가 가장 높습니다. 규칙은 우선 순위에 따라 처리됩니다. 트래픽이 규칙 일치를 발견 하면 규칙 처리가 중지 됩니다. 따라서 우선 순위가 더 높은 규칙과 동일한 특성을 가진 규칙이 우선 순위가 낮은 규칙은 처리 되지 않습니다.  충돌 하는 규칙이 발생 하지 않도록 주의 하세요. |
 | **상태 추적** | 추적은 상태 비저장 (사설 클라우드, 인터넷 또는 VPN) 또는 상태 저장 (공용 IP) 일 수 있습니다.  |
 | **프로토콜** | 옵션에는 Any, TCP 또는 UDP가 포함 됩니다. ICMP가 필요한 경우 Any를 사용 합니다. |
 | **Direction** | 규칙이 인바운드 또는 아웃바운드 트래픽에 적용되는지 여부입니다. |
@@ -51,9 +51,9 @@ ms.locfileid: "68812669"
 
 ### <a name="default-rules"></a>기본 규칙
 
-다음 기본 규칙은 모든 방화벽 테이블에 생성 됩니다.
+모든 방화벽 테이블에는 다음과 같은 기본 규칙이 생성 됩니다.
 
-|Priority|이름|상태 추적|Direction|트래픽 유형|프로토콜|Source|원본 포트|대상|대상 포트|Action|
+|Priority|이름|상태 추적|Direction|트래픽 유형|프로토콜|Source|원본 포트|대상|대상 포트|작업|
 |--------|----|--------------|---------|------------|--------|------|-----------|-----------|----------------|------|
 |65000|-전체-인터넷|스테이트|아웃바운드|공용 IP 또는 인터넷 트래픽|모두|임의의 값|임의의 값|임의의 값|임의의 값|Allow|
 |65001|모두 거부-인터넷|스테이트|인바운드|공용 IP 또는 인터넷 트래픽|모두|임의의 값|임의의 값|임의의 값|임의의 값|거부|
@@ -62,4 +62,4 @@ ms.locfileid: "68812669"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [방화벽 테이블 및 규칙 설정](https://docs.azure.cloudsimple.com/firewall/)
+* [방화벽 테이블 및 규칙 설정](firewall.md)

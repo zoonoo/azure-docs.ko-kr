@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 ms.date: 08/06/2019
-ms.openlocfilehash: 305a35d1d40d94d1ce8e463b4af51eb84278bc3f
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 0b0a6bec7916c056c187ed9e588dd3ac8fea8d84
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69510266"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876426"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>탄력적 풀이 여러 Azure SQL 데이터베이스를 관리하고 크기를 조정하는 데 도움을 주는 방식
 
@@ -155,8 +155,14 @@ SaaS 개발자는 여러 데이터베이스로 구성된 대규모 데이터 계
 
 Azure Portal에서 두 가지 방법으로 탄력적 풀을 만들 수 있습니다.
 
-1. **Marketplace**에서 **SQL 탄력적 풀**을 검색하거나 SQL 탄력적 풀 찾아보기 블레이드에서 **+추가**를 클릭하여 탄력적 풀을 만들 수 있습니다. 이 풀 프로비저닝 워크플로를 통해 새 서버 또는 기존 서버를 지정할 수 있습니다.
-2. 또는 기존 SQL 서버로 이동하고 해당 서버로 풀을 직접 만드는 **풀 만들기**를 클릭하여 탄력적 풀을 만들 수 있습니다. 여기에서 유일한 차이점은 풀 프로비저닝 워크플로 동안 서버를 지정하는 단계를 건너뛰는 것입니다.
+1. Azure Portal의 왼쪽 메뉴에서 **AZURE SQL** 을 선택 합니다. Azure SQL이 목록에 없는 경우 **모든 서비스**를 선택한 다음 검색 상자에 *azure sql* 을 입력 합니다.
+2. **+ 추가** 를 선택 하 여 **SQL 배포 옵션 선택** 페이지를 엽니다. **데이터베이스** 타일에 대 한 **자세한 정보 표시** 를 선택 하 여 탄력적 풀에 대 한 추가 정보를 볼 수 있습니다.
+3. **데이터베이스** 타일의 **리소스 종류** 드롭다운에서 **탄력적 풀** 을 선택 하 고 **만들기**를 선택 합니다.
+
+   ![탄력적 풀 만들기](./media/sql-database-elastic-pool/create-elastic-pool.png)
+
+
+1. 또는 기존 Azure SQL server로 이동 하 고 **+ 새 풀** 을 클릭 하 여 해당 서버에 직접 풀을 만드는 방식으로 탄력적 풀을 만들 수 있습니다.
 
 > [!NOTE]
 > 서버에 풀을 여러 개 만들 수 있지만 다른 서버에 속하는 데이터베이스를 동일한 풀에 추가할 수 없습니다.

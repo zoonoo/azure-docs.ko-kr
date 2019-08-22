@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 60b3d1dcc7d60b25319b3fa5dd740541a457927f
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
-ms.translationtype: HT
+ms.openlocfilehash: 6b5be5271e2ff579d93cb70f7c8da93d861d4dc0
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640084"
+ms.locfileid: "69648722"
 ---
 # <a name="get-started-with-azcopy"></a>AzCopy 시작
 
@@ -238,7 +238,7 @@ AzCopy 명령에서 사용 하는 각 원본 또는 대상 URL에 SAS 토큰을 
 이 예제 명령은 로컬 디렉터리에서 blob 컨테이너로 데이터를 재귀적으로 복사 합니다. 가상의 SAS 토큰이 컨테이너 URL의 끝에 추가 됩니다.
 
 ```azcopy
-azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/?sv=2018-03-28&ss=bjqt&srt=sco&sp=rwddgcup&se=2019-05-01T05:01:17Z&st=2019-04-30T21:01:17Z&spr=https&sig=MGCXiyEzbtttkr3ewJIh2AR8KrghSy1DGM9ovN734bQF4%3D" --recursive=true
+azcopy copy "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/?sv=2018-03-28&ss=bjqt&srt=sco&sp=rwddgcup&se=2019-05-01T05:01:17Z&st=2019-04-30T21:01:17Z&spr=https&sig=MGCXiyEzbtttkr3ewJIh2AR8KrghSy1DGM9ovN734bQF4%3D" --recursive=true
 ```
 
 SAS 토큰 및 SAS 토큰을 구하는 방법에 대 한 자세한 내용은 [sas (공유 액세스 서명) 사용](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)을 참조 하세요.

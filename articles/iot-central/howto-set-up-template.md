@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Central 애플리케이션에서 장치 템플릿 설정 | Microsoft Docs
+title: Azure IoT Central 애플리케이션에서 디바이스 템플릿 설정 | Microsoft Docs
 description: 측정값, 설정, 속성, 규칙 및 대시보드로 디바이스 템플릿을 설정하는 방법을 알아봅니다.
 author: viv-liu
 ms.author: viviali
@@ -8,16 +8,18 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: ede7167d570c7bd2ba7e04c3a9a703555efb35cd
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 63c0a04a6d18d6af850b1492d2efa9df9aa65219
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698531"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877374"
 ---
 # <a name="set-up-a-device-template"></a>디바이스 템플릿 설정
 
-장치 템플릿은 Azure IoT Central 애플리케이션에 연결하는 장치 유형의 특징과 동작을 정의하는 청사진입니다.
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
+
+디바이스 템플릿은 Azure IoT Central 애플리케이션에 연결하는 디바이스 유형의 특징과 동작을 정의하는 청사진입니다.
 
 예를 들어 작성기는 다음과 같은 특징을 가진 연결 된 팬의 장치 템플릿을 만들 수 있습니다.
 
@@ -62,7 +64,7 @@ ms.locfileid: "68698531"
 새 원격 분석 측정을 추가 하려면 **+ 새 측정**을 선택 하 고, 측정 유형으로 **원격 분석** 을 선택 하 고, 양식에 세부 정보를 입력 합니다.
 
 > [!NOTE]
-> 실제 장치를 연결할 때 원격 분석 측정값이 애플리케이션에 표시되려면 장치 템플릿의 필드 이름이 해당 장치 코드의 속성 이름과 일치해야 합니다. 다음 섹션에서 디바이스 템플릿 정의를 계속하면서 설정, 디바이스 속성 및 명령을 구성할 때도 동일하게 수행합니다.
+> 실제 디바이스를 연결할 때 원격 분석 측정값이 애플리케이션에 표시되려면 디바이스 템플릿의 필드 이름이 해당 디바이스 코드의 속성 이름과 일치해야 합니다. 다음 섹션에서 디바이스 템플릿 정의를 계속하면서 설정, 디바이스 속성 및 명령을 구성할 때도 동일하게 수행합니다.
 
 예를 들어 새로운 온도 원격 분석 측정값을 추가할 수 있습니다.
 
@@ -201,7 +203,7 @@ Azure IoT Central에서 위치 데이터에 지리적 컨텍스트를 제공 하
 다음 두 가지 종류의 위치 속성을 추가할 수 있습니다.
 
 - 애플리케이션에 저장되는 **애플리케이션 속성인 위치**. 응용 프로그램 속성은 응용 프로그램에만 저장 되며 장치에는 표시 되지 않습니다.
-- 장치에서 애플리케이션에 보고하는 **장치 속성인 위치**. 이 형식의 속성은 정적 위치에 사용 하는 것이 가장 좋습니다.
+- 디바이스에서 애플리케이션에 보고하는 **디바이스 속성인 위치**. 이 형식의 속성은 정적 위치에 사용 하는 것이 가장 좋습니다.
 
 > [!NOTE]
 > 속성으로 서의 위치는 기록을 기록 하지 않습니다. 기록이 필요 하면 위치 측정을 사용 합니다.
@@ -226,7 +228,7 @@ IoT Central 애플리케이션에서 Azure Maps를 사용하여 애플리케이�
    - **주소로서 위치**
    - **좌표로서 위치**
 
-4.           **저장**을 선택합니다. 운영자는 **Device Explorer**에서 위치 값을 업데이트할 수 있습니다.
+4. **저장**을 선택합니다. 운영자는 **Device Explorer**에서 위치 값을 업데이트할 수 있습니다.
 
 #### <a name="add-location-as-a-device-property"></a>디바이스 속성으로 위치 추가
 
@@ -299,7 +301,7 @@ IoT Central 애플리케이션에서 Azure Maps를 사용하여 애플리케이�
 
    ![제목 및 속성에 대한 세부 정보가 있는 "맵 구성" 양식](./media/howto-set-up-template/locationcloudproperty5map.png)
 
-1.           **저장**을 선택합니다. 이제 맵 타일이 선택한 위치를 표시합니다.
+1. **저장**을 선택합니다. 이제 맵 타일이 선택한 위치를 표시합니다.
 
 지도 타일의 크기를 조정할 수 있습니다. 운영자가 **Device Explorer**에서 대시보드를 볼 때 사용자가 구성한 모든 대시보드 타일 (위치 맵 포함)이 표시 됩니다.
 
@@ -315,7 +317,7 @@ Location 속성을 구성한 경우 장치 대시보드의 지도를 사용 하 
 
    ![제목 및 속성에 대 한 세부 정보를 사용 하 여 지도 양식 구성](./media/howto-set-up-template/locationcloudproperty6map.png)
 
-1.           **저장**을 선택합니다. 이제 맵 타일이 선택한 위치를 표시합니다.
+1. **저장**을 선택합니다. 이제 맵 타일이 선택한 위치를 표시합니다.
 
 지도 타일의 크기를 조정할 수 있습니다. 운영자가 **Device Explorer**에서 대시보드를 볼 때 사용자가 구성한 모든 대시보드 타일 (위치 맵 포함)이 표시 됩니다.
 
@@ -323,8 +325,8 @@ Azure IoT Central에서 타일을 사용 하는 방법에 대해 자세히 알�
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure IoT Central 애플리케이션에서 장치 템플릿을 설정하는 방법을 알아보았으니 다음을 수행할 수 있습니다.
+Azure IoT Central 애플리케이션에서 디바이스 템플릿을 설정하는 방법을 알아보았으니 다음을 수행할 수 있습니다.
 
 - [새 디바이스 템플릿 버전 만들기](howto-version-device-template.md)
-- [Azure IoT Central 애플리케이션에 MXChip IoT DevKit 장치 연결](howto-connect-devkit.md)
+- [Azure IoT Central 애플리케이션에 MXChip IoT DevKit 디바이스 연결](howto-connect-devkit.md)
 - [Azure IoT Central 응용 프로그램에 일반 클라이언트 응용 프로그램 연결 (node.js)](howto-connect-nodejs.md)

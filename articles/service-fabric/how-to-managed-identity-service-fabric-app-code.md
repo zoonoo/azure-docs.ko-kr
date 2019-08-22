@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 7/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: f0944e9fddc0afb28f758ba7b16232330d3bc34d
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 5095e680eb7fd33d28acb2d187f83d86db1b46bf
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/20/2019
-ms.locfileid: "69635535"
+ms.locfileid: "69656619"
 ---
 # <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services-preview"></a>Service Fabric 응용 프로그램의 관리 되는 id를 활용 하 여 Azure 서비스에 액세스 하는 방법 (미리 보기)
 
@@ -60,7 +60,7 @@ GET 'http://localhost:2377/metadata/identity/oauth2/token?api-version=2019-07-01
 | `GET` | HTTP 동사는 엔드포인트에서 데이터를 검색한다는 것을 나타냅니다. 이 경우에는 OAuth 액세스 토큰입니다. | 
 | `http://localhost:2377/metadata/identity/oauth2/token` | MSI_ENDPOINT 환경 변수를 통해 제공 되는 Service Fabric 응용 프로그램에 대 한 관리 되는 id 끝점입니다. |
 | `api-version` | 관리 되는 Id 토큰 서비스의 API 버전을 지정 하는 쿼리 문자열 매개 변수 현재 유일 하 게 허용 되 `2019-07-01-preview`는 값은 이며 변경 될 수 있습니다. |
-| `resource` | 쿼리 문자열 매개 변수는 대상 리소스의 앱 ID URI를 나타냅니다. 발급 된 토큰의 `aud` (대상) 클레임으로 반영 됩니다. 이 예제에서는 앱 ID URI가 https://keyvault.azure.com/ 인 Azure Key Vault에 액세스할 수 있는 토큰을 요청 합니다. |
+| `resource` | 쿼리 문자열 매개 변수는 대상 리소스의 앱 ID URI를 나타냅니다. 발급 된 토큰의 `aud` (대상) 클레임으로 반영 됩니다. 이 예제에서는 앱 ID URI가 https:\//keyvault.azure.com/인 Azure Key Vault에 액세스 하는 토큰을 요청 합니다. |
 | `Secret` | Service Fabric 서비스가 호출자를 인증 하기 위해 관리 되는 Service Fabric Id 토큰 서비스에서 요구 하는 HTTP 요청 헤더 필드입니다. 이 값은 MSI_SECRET 환경 변수를 통해 SF 런타임에서 제공 됩니다. |
 
 

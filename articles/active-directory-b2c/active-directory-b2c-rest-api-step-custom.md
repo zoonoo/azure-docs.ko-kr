@@ -1,5 +1,5 @@
 ---
-title: REST API 클레임 교환을-Azure Active Directory B2C
+title: REST API 클레임 교환-Azure Active Directory B2C
 description: Active Directory B2C에서 사용자 지정 정책에 REST API 클레임 교환을 추가 합니다.
 services: active-directory-b2c
 author: mmacy
@@ -7,45 +7,45 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 08/21/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0bdef508e12a3b11143149b330da73838b53f860
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 42129870c6ab2bb5e58bdf9aaa323a3d64b479f8
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67439005"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69644917"
 ---
-# <a name="add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책에 REST API 클레임 교환을 추가합니다
+# <a name="add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>에서 사용자 지정 정책에 클레임 교환을 추가 REST API Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-상호 작용 하는 RESTful API를 사용 하 여 추가할 수 있습니다 하 [사용자 지정 정책을](active-directory-b2c-overview-custom.md) Azure Active Directory (Azure AD) B2C에서. 이 문서에서는 RESTful 서비스와 상호 작용 하는 Azure AD B2C 사용자 경험을 만드는 방법을 보여 줍니다.
+Azure Active Directory (Azure AD) B2C에서 [사용자 지정 정책](active-directory-b2c-overview-custom.md) 에 RESTful API와의 상호 작용을 추가할 수 있습니다. 이 문서에서는 RESTful services와 상호 작용 하는 Azure AD B2C 사용자 경험을 만드는 방법을 보여 줍니다.
 
-REST API 클레임 및 Azure AD B2C 간에 정보를 클레임 교환을 포함 하는 상호 작용 합니다. 클레임 교환에는 다음과 같은 특징이 있습니다.
+상호 작용에는 REST API 클레임과 Azure AD B2C 간의 정보 교환 클레임 교환이 포함 됩니다. 클레임 교환의 특징은 다음과 같습니다.
 
 - 오케스트레이션 단계로 설계할 수 있습니다.
 - 외부 동작을 트리거할 수 있습니다. 예를 들어 외부 데이터베이스에 이벤트를 기록할 수 있습니다.
 - 값을 가져와서 사용자 데이터베이스에 저장하는 데 사용할 수 있습니다.
 - 실행 흐름을 변경할 수 있습니다.
 
-이 문서에 표시 되는 시나리오에는 다음 작업을 포함 합니다.
+이 문서에 표시 된 시나리오에는 다음 작업이 포함 됩니다.
 
 1. 외부 시스템에서 사용자를 찾습니다.
 2. 해당 사용자를 등록한 도시를 가져옵니다.
 3. 해당 특성을 클레임으로 애플리케이션에 반환합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [사용자 지정 정책 시작](active-directory-b2c-get-started-custom.md)의 단계를 완료합니다.
-- 상호 작용할 REST API 엔드포인트 예를 들어 간단한 Azure 함수를 사용 하는 문서입니다. Azure 함수를 만들려면 참조 [Azure portal에서 첫 번째 함수 만들기](../azure-functions/functions-create-first-azure-function.md)합니다.
+- 상호 작용할 REST API 엔드포인트 이 문서에서는 간단한 Azure 함수를 예로 사용 합니다. Azure 함수를 만들려면 [Azure Portal에서 첫 번째 함수 만들기](../azure-functions/functions-create-first-azure-function.md)를 참조 하세요.
 
-## <a name="prepare-the-api"></a>API를 준비 합니다.
+## <a name="prepare-the-api"></a>API 준비
 
-이 섹션에서는 Azure function에 대 한 값을 받도록 준비한 `email`에 대 한 값을 반환 하 고 `city` 사용할 수 있는 Azure AD B2C에 의해 클레임으로 합니다.
+이 섹션에서는에 대 한 `email`값을 받도록 Azure 함수를 준비한 다음 클레임으로 Azure AD B2C에서 사용할 수 있는에 대 한 `city` 값을 반환 합니다.
 
-다음 코드를 사용 하기 위해 만든 Azure 함수에 대 한 run.csx 파일을 변경 합니다.
+다음 코드를 사용 하기 위해 만든 Azure 함수에 대 한 실행 csx 파일을 변경 합니다.
 
 ```csharp
 #r "Newtonsoft.Json"
@@ -84,9 +84,9 @@ public class ResponseContent
 
 ## <a name="configure-the-claims-exchange"></a>클레임 교환 구성
 
-기술 프로필 클레임 교환에 대 한 구성을 제공합니다.
+기술 프로필은 클레임 교환에 대 한 구성을 제공 합니다.
 
-열기는 *TrustFrameworkExtensions.xml* 파일을 추가한 다음 **ClaimsProvider** 내에 XML 요소를 **ClaimsProviders** 요소.
+*Trustframeworkextensions.xml* 파일을 열고 **ClaimsProviders** 요소 안에 다음 **ClaimsProvider** xml 요소를 추가 합니다.
 
 ```XML
 <ClaimsProvider>
@@ -97,8 +97,10 @@ public class ResponseContent
       <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
       <Metadata>
         <Item Key="ServiceUrl">https://myfunction.azurewebsites.net/api/HttpTrigger1?code=bAZ4lLy//ZHZxmncM8rI7AgjQsrMKmVXBpP0vd9smOzdXDDUIaLljA==</Item>
-        <Item Key="AuthenticationType">None</Item>
         <Item Key="SendClaimsIn">Body</Item>
+        <!-- Set AuthenticationType to Basic or ClientCertificate in production environments -->
+        <Item Key="AuthenticationType">None</Item>
+        <!-- REMOVE the following line in production environments -->
         <Item Key="AllowInsecureAuthInProduction">true</Item>
       </Metadata>
       <InputClaims>
@@ -113,11 +115,13 @@ public class ResponseContent
 </ClaimsProvider>
 ```
 
-합니다 **InputClaims** 요소 REST 서비스에 전송 되는 클레임을 정의 합니다. 이 예제에서는 클레임의 값 `givenName` REST 서비스로 클레임으로 보낼 `email`합니다. 합니다 **OutputClaims** 요소 REST 서비스에서 예상 되는 클레임을 정의 합니다.
+**Inputclaims** 요소는 REST 서비스에 전송 되는 클레임을 정의 합니다. 이 예제에서 클레임 `givenName` 의 값은 클레임 `email`으로 REST 서비스에 전송 됩니다. **Outputclaims** 요소는 REST 서비스에서 예상 되는 클레임을 정의 합니다.
 
-## <a name="add-the-claim-definition"></a>클레임 정의 추가 합니다.
+`AuthenticationType` 위의`AllowInsecureAuthInProduction` 설명은 프로덕션 환경으로 이동할 때 수행 해야 하는 변경 내용을 지정 합니다. 프로덕션을 위해 RESTful Api를 보호 하는 방법을 알아보려면 [기본 인증을 사용 하는 RESTful Api 보안](active-directory-b2c-custom-rest-api-netfw-secure-basic.md) 및 [인증서 인증을 사용 하는 보안 RESTful api](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)를 참조 하세요.
 
-에 대 한 정의 추가 `city` 내부 합니다 **BuildingBlocks** 요소입니다. 이 요소는 TrustFrameworkExtensions.xml 파일의 시작 부분에서 찾을 수 있습니다.
+## <a name="add-the-claim-definition"></a>클레임 정의 추가
+
+BuildingBlocks 요소 내에 `city` 에 대 한 정의를 추가 합니다. 이 요소는 TrustFrameworkExtensions.xml 파일의 시작 부분에서 찾을 수 있습니다.
 
 ```XML
 <BuildingBlocks>
@@ -132,11 +136,11 @@ public class ResponseContent
 </BuildingBlocks>
 ```
 
-## <a name="add-an-orchestration-step"></a>오케스트레이션 단계를 추가 합니다.
+## <a name="add-an-orchestration-step"></a>오케스트레이션 단계 추가
 
 REST API 호출을 오케스트레이션 단계로 사용할 수 있는 사용 사례가 많이 있습니다. 오케스트레이션 단계로서 사용자가 첫 번째 등록과 같은 태스크를 성공적으로 완료한 후 외부 시스템에 대한 업데이트로 사용하거나 동기화된 정보 상태로 유지하기 위한 프로필 업데이트로 사용할 수 있습니다. 이 경우 프로필 편집 후에 애플리케이션에 제공된 정보를 보강하는 데 사용됩니다.
 
-프로필 편집 사용자 경험에 단계를 추가 합니다. 사용자 (오케스트레이션 1-4 단계는 다음과 같은 xml에서)를 인증 하 고는 사용자가 업데이트 된 프로필 정보 (5 단계)을 제공 합니다. 복사 프로필 편집 사용자 경험 XML 코드에서를 *TrustFrameworkBase.xml* 파일을 프로그램 *TrustFrameworkExtensions.xml* 파일을 **UserJourneys** 요소입니다. 6 단계로 수정을 확인 합니다.
+프로필 편집 사용자 경험에 단계를 추가 합니다. 사용자가 인증 되 면 (다음 XML의 오케스트레이션 단계 1-4) 사용자가 업데이트 된 프로필 정보 (5 단계)를 제공 합니다. *Trustframeworkbase.xml* 파일에서 **UserJourneys** 요소 내의 *trustframeworkextensions.xml* 파일로 프로필 편집 사용자 경험 XML 코드를 복사 합니다. 그런 다음, 6 단계로 수정 합니다.
 
 ```XML
 <OrchestrationStep Order="6" Type="ClaimsExchange">
@@ -146,7 +150,7 @@ REST API 호출을 오케스트레이션 단계로 사용할 수 있는 사용 �
 </OrchestrationStep>
 ```
 
-사용자 경험의 최종 XML은이 예제와 같습니다.
+사용자 경험에 대 한 최종 XML은 다음 예제와 같이 표시 됩니다.
 
 ```XML
 <UserJourney Id="ProfileEdit">
@@ -206,9 +210,9 @@ REST API 호출을 오케스트레이션 단계로 사용할 수 있는 사용 �
 
 ## <a name="add-the-claim"></a>클레임 추가
 
-편집 합니다 *ProfileEdit.xml* 파일을 추가 `<OutputClaim ClaimTypeReferenceId="city" />` 에 **OutputClaims** 요소입니다.
+*Profileedit .xml* 파일을 편집 하 고 `<OutputClaim ClaimTypeReferenceId="city" />` **outputclaims** 요소에를 추가 합니다.
 
-새 클레임을 추가한 후에 기술 프로필은이 예제와 비슷합니다.
+새 클레임을 추가한 후 기술 프로필은 다음 예제와 같습니다.
 
 ```XML
 <TechnicalProfile Id="PolicyProfile">
@@ -225,13 +229,13 @@ REST API 호출을 오케스트레이션 단계로 사용할 수 있는 사용 �
 
 ## <a name="upload-your-changes-and-test"></a>변경 내용 업로드 및 테스트
 
-1. (선택 사항) 진행 하기 전에 기존 버전을 다운로드 하 여 파일 저장 합니다.
-2. 업로드 합니다 *TrustFrameworkExtensions.xml* 하 고 *ProfileEdit.xml* 및 기존 파일을 덮어쓰려면 선택 합니다.
-3. 선택 **B2C_1A_ProfileEdit**합니다.
-4. 에 대 한 **응용 프로그램 선택** 사용자 지정 정책의 개요 페이지에서 명명 된 웹 응용 프로그램을 선택 합니다 *webapp1* 이전에 등록 합니다. 있는지 확인 합니다 **회신 URL** 는 `https://jwt.ms`합니다.
-4. 선택 **지금 실행**합니다. 계정 자격 증명을 사용 하 여 로그인 하 고 클릭 **계속**합니다.
+1. (선택 사항) 계속 하기 전에 파일의 기존 버전을 다운로드 하 여 저장 합니다.
+2. *Trustframeworkextensions.xml* 및 *profileedit .xml* 을 업로드 하 고 기존 파일을 덮어쓰도록 선택 합니다.
+3. **B2C_1A_ProfileEdit**를 선택 합니다.
+4. 사용자 지정 정책의 개요 페이지에서 **응용 프로그램 선택** 에 대해 이전에 등록 한 *webapp1* 이라는 웹 응용 프로그램을 선택 합니다. **회신 URL** 이 `https://jwt.ms`인지 확인 합니다.
+4. **지금 실행**을 선택 합니다. 계정 자격 증명을 사용 하 여 로그인 하 고 **계속**을 클릭 합니다.
 
-토큰을 새 클레임에 포함 된 모든 항목이 올바르게 설정 되었는지, 하는 경우 `city`에 값을 사용 하 여 `Redmond`입니다.
+모든 항목이 올바르게 설정 되 면 토큰에는 값 `city` `Redmond`이 인 새 클레임이 포함 됩니다.
 
 ```JSON
 {
@@ -251,5 +255,13 @@ REST API 호출을 오케스트레이션 단계로 사용할 수 있는 사용 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- 또한 상호 작용은 유효성 검사 프로필로 설계할 수 있습니다. 자세한 내용은 [연습: Azure AD B2C 사용자 경험에서 REST API 클레임 교환을 사용자 입력의 유효성 검사로 통합](active-directory-b2c-rest-api-validation-custom.md)을 참조하세요.
-- [프로필 편집을 수정하여 사용자로부터 추가 정보 수집](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
+또한 상호 작용은 유효성 검사 프로필로 설계할 수 있습니다. 자세한 내용은 [연습: Azure AD B2C 사용자 경험에서 REST API 클레임 교환을 사용자 입력의 유효성 검사로 통합](active-directory-b2c-rest-api-validation-custom.md)을 참조하세요.
+
+[프로필 편집을 수정하여 사용자로부터 추가 정보 수집](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
+
+[참조: RESTful 기술 프로필](restful-technical-profile.md)
+
+Api를 보호 하는 방법에 대해 알아보려면 다음 문서를 참조 하세요.
+
+* [기본 인증(사용자 이름 및 암호)을 사용하여 RESTful API 보호](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
+* [클라이언트 인증서를 사용하여 RESTful API 보호](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)

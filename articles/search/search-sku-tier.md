@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/15/2019
 ms.author: heidist
-ms.openlocfilehash: a874c8a1fe2e8a81e2f42b2c88447fd52b47f3ad
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 1c86649a989b16d928a46d322af3d805b6fbf832
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69611972"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647358"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Azure Search에 대한 가격 책정 계층 선택
 
@@ -53,10 +53,10 @@ Azure Search 서비스를 만들면 서비스 수명 동안 고정 된 가격 �
 
 Azure Search을 기반으로 하는 솔루션은 다음과 같은 방법으로 비용을 발생 시킬 수 있습니다.
 
-+ 최소 구성의 기본 서비스 비용
++ 최소 구성의 기본 서비스 비용 (서비스 만들기)
 + 확장 시 증분 비용 (복제본 또는 파티션 추가)
-+ 아웃 바운드 데이터 전송에 대 한 대역폭 요금
-+ Cognitive Services 리소스를 활용 하는 인식 검색
++ 대역폭 요금 (아웃 바운드 데이터 전송) 
++ 인식 검색 (AI 보강에 대 한 연결 Cognitive Services, 기술 자료 저장소에 대 한 Azure storage)
 
 ### <a name="service-costs"></a>서비스 비용
 
