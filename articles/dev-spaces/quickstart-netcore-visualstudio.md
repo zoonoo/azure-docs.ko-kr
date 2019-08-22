@@ -38,7 +38,7 @@ ms.locfileid: "68725852"
 
 1. [Azure 포털](https://portal.azure.com)
 1. *+ 리소스 만들기> Kubernetes 서비스*를 선택합니다. 
-1. _구독_, _리소스 그룹_, _Kubernetes 클러스터 이름_, _지역_, _Kubernetes 버전_ 및 _DNS 이름 접두사_를 입력합니다.
+1. _구독_, _리소스 그룹_, _Kubernetes 클러스터 이름_, _지역_, _Kubernetes 버전_ 및 _DNS 이름 접두사_ 를 입력합니다.
 
     ![Azure Portal에서 AKS 만들기](media/get-started-netcore-visualstudio/create-aks-portal.png)
 
