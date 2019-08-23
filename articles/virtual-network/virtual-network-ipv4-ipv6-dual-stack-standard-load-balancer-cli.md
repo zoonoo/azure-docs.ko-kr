@@ -1,5 +1,5 @@
 ---
-title: Azure virtual network에서 IPv6 이중 스택 응용 프로그램 배포-CLI
+title: Azure virtual network에서 표준 Load Balancer를 사용 하 여 IPv6 이중 스택 응용 프로그램 배포-CLI
 titlesuffix: Azure Virtual Network
 description: 이 문서에서는 Azure CLI를 사용 하 여 Azure 가상 네트워크에서 IPv6 이중 스택 응용 프로그램을 배포 하는 방법을 보여 줍니다.
 services: virtual-network
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/08/2019
+ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: 75af2012c4e6287a2fbe76098c2a325e6c9ae2ef
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 7b231ded3fdae7553e101beff2ee77d82fe27e6e
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640686"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68269625"
 ---
-# <a name="deploy-an-ipv6-dual-stack-application-in-azure-virtual-network---cli-preview"></a>Azure virtual network에서 IPv6 이중 스택 응용 프로그램 배포-CLI (미리 보기)
+# <a name="deploy-an-ipv6-dual-stack-application-with-standard-load-balancer-in-azure-virtual-network---cli-preview"></a>Azure virtual network에서 표준 Load Balancer를 사용 하 여 IPv6 이중 스택 응용 프로그램 배포-CLI (미리 보기)
 
 이 문서에서는 이중 스택 서브넷을 사용 하는 이중 스택 (IPv4 + IPv6) 응용 프로그램을 포함 하는 Azure의 이중 스택 (ipv4 + IPv6) 응용 프로그램을 배포 하는 방법을 보여 줍니다. 이중 IP 구성이 있는 Nic를 사용 하는 Vm과 이중 (IPv4 + IPv6) 프런트 엔드 구성이 포함 된 부하 분산 장치를 포함 합니다. 이중 네트워크 보안 그룹 규칙 및 이중 공용 Ip
 
@@ -70,8 +70,8 @@ az network public-ip create \
 --name dsPublicIP_v4  \
 --resource-group DsResourceGroup01  \
 --location eastus  \
---sku BASIC  \
---allocation-method dynamic  \
+--sku STANDARD  \
+--allocation-method static  \
 --version IPv4
 
 # Create an IPV6 IP address
@@ -79,8 +79,8 @@ az network public-ip create \
 --name dsPublicIP_v6  \
 --resource-group DsResourceGroup01  \
 --location eastus \
---sku BASIC  \
---allocation-method dynamic  \
+--sku STANDARD  \
+--allocation-method static  \
 --version IPv6
 
 ```
@@ -94,32 +94,32 @@ az network public-ip create \
 --name dsVM0_remote_access  \
 --resource-group DsResourceGroup01 \
 --location eastus  \
---sku BASIC  \
---allocation-method dynamic  \
+--sku Standard  \
+--allocation-method static  \
 --version IPv4
 
 az network public-ip create \
 --name dsVM1_remote_access  \
 --resource-group DsResourceGroup01  \
 --location eastus  \
---sku BASIC  \
---allocation-method dynamic  \
+--sku Standard  \
+--allocation-method static  \
 --version IPv4
 ```
 
-## <a name="create-basic-load-balancer"></a>기본 부하 분산 장치 만들기
+## <a name="create-standard-load-balancer"></a>표준 Load Balancer 만들기
 
-이 섹션에서는 부하 분산 장치에 대 한 이중 프런트 엔드 IP (IPv4 및 IPv6) 및 백 엔드 주소 풀을 구성한 다음 기본 Load Balancer를 만듭니다.
+이 섹션에서는 부하 분산 장치에 대 한 이중 프런트 엔드 IP (IPv4 및 IPv6) 및 백 엔드 주소 풀을 구성 하 고 표준 Load Balancer를 만듭니다.
 
 ### <a name="create-load-balancer"></a>부하 분산 장치 만들기
 
-[은 네트워크 lb 생성 ](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest)**DsLbFrontEnd_v4** 라는 프런트 엔드 풀 을 포함 하는 **dsLB**라는 프런트 엔드 풀을 포함 하는 기본 Load Balancer를 만들고 IPv4 공용 IP 주소와 연결 된 **dsLbBackEndPool_v4** 라는 백 엔드 풀을 만듭니다. 이전 단계에서 만든 **dsPublicIP_v4**입니다. 
+**DsLbFrontEnd_v4** 라는 프런트 엔드 풀을 포함 하는라는 프런트 엔드 풀을 포함 하는 **dsLbBackEndPool_v4**이라는**dsLB**라는 [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest)를 사용 하 여 표준 Load Balancer를 만듭니다. 이전 단계에서 만든 **dsPublicIP_v4**입니다. 
 
 ```azurecli
 az network lb create \
 --name dsLB  \
 --resource-group DsResourceGroup01 \
---sku Basic \
+--sku Standard \
 --location eastus \
 --frontend-ip-name dsLbFrontEnd_v4  \
 --public-ip-address dsPublicIP_v4  \
@@ -130,7 +130,7 @@ az network lb create \
 
 [Az network lb 프런트 엔드-ip create](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az-network-lb-frontend-ip-create)를 사용 하 여 IPV6 프런트 엔드 ip를 만듭니다. 다음 예제에서는 *dsLbFrontEnd_v6* 라는 프런트 엔드 IP 구성을 만들고 *dsPublicIP_v6* 주소를 연결 합니다.
 
-```azurecli
+```azurepowershell-interactive
 az network lb frontend-ip create \
 --lb-name dsLB  \
 --name dsLbFrontEnd_v6  \
@@ -198,7 +198,7 @@ az vm availability-set create \
 
 ### <a name="create-network-security-group"></a>네트워크 보안 그룹 만들기
 
-VNET에서 인바운드 및 아웃 바운드 통신을 제어 하는 규칙에 대 한 네트워크 보안 그룹을 만듭니다.
+VNet에서 인바운드 및 아웃 바운드 통신을 제어 하는 규칙에 대 한 네트워크 보안 그룹을 만듭니다.
 
 #### <a name="create-a-network-security-group"></a>네트워크 보안 그룹 만들기
 
@@ -387,4 +387,4 @@ az vm create \
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 이중 프런트 엔드 IP 구성 (IPv4 및 IPv6)을 사용 하 여 기본 Load Balancer를 만들었습니다. 또한 부하 분산 장치의 백 엔드 풀에 추가 된 Nic를 포함 하는 두 개의 가상 머신 (IPV4 + IPv6)를 만들었습니다. Azure virtual network의 IPv6 지원에 대 한 자세한 내용은 [azure Virtual Network에 대 한](ipv6-overview.md) i p v 6을 참조 하세요.
+이 문서에서는 이중 프런트 엔드 IP 구성 (IPv4 및 IPv6)을 사용 하 여 표준 Load Balancer를 만들었습니다. 또한 부하 분산 장치의 백 엔드 풀에 추가 된 Nic를 포함 하는 두 개의 가상 머신 (IPV4 + IPv6)를 만들었습니다. Azure virtual network의 IPv6 지원에 대 한 자세한 내용은 [azure Virtual Network에 대 한](ipv6-overview.md) i p v 6을 참조 하세요.

@@ -7,16 +7,16 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 6d4991a0a05bbdd7143987bfa227cc40732cda35
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 3fd593ff199ff87b1c69e1097852a81a21adc1dd
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639238"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883953"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>LUIS 모델 및 키에 대한 경계
 LUIS에는 여러 경계 영역이 있습니다. 첫 번째는 LUIS에서 의도, 엔터티 및 기능을 제어하는 [모델 경계](#model-boundaries)입니다. 두 번째 영역은 키 유형을 기반으로 하는 [할당량 한도](#key-limits)입니다. 세 번째 경계 영역은 LUIS 웹 사이트를 제어하기 위한 [키보드 조합](#keyboard-controls)입니다. 네 번째 영역은 LUIS 작성 웹 사이트와 LUIS [엔드포인트](luis-glossary.md#endpoint) API 간의 [세계 지역 매핑](luis-reference-regions.md)입니다. 
@@ -66,13 +66,13 @@ LUIS에는 여러 경계 영역이 있습니다. 첫 번째는 LUIS에서 의도
 
 ## <a name="key-limits"></a>키 제한
 
-작성 키는 작성 및 엔드포인트에 대한 제한이 다릅니다. LUIS 서비스 끝점 키는 끝점 쿼리에만 유효합니다.
+작성 키는 작성 및 엔드포인트에 대한 제한이 다릅니다. LUIS 서비스 엔드포인트 키는 엔드포인트 쿼리에만 유효합니다.
 
 
 |Key|제작|엔드포인트|용도|
 |--|--|--|--|
 |Language Understanding 작성/시작|100만/월, 5/초|1000/월, 5/초|LUIS 앱 작성|
-|Language Understanding [F0][pricing] -무료 계층 |잘못됨|10000/월, 5/초|LUIS 엔드포인트 쿼리|
+|Language Understanding [구독][pricing] F0-무료 계층 |잘못됨|10000/월, 5/초|LUIS 엔드포인트 쿼리|
 |Language Understanding [구독][pricing] -S0-기본 계층|잘못됨|50/초|LUIS 엔드포인트 쿼리|
 |인지 서비스 [구독][pricing] -S0-표준 계층|잘못됨|50/초|LUIS 엔드포인트 쿼리|
 |[감정 분석 통합](luis-how-to-publish-app.md#enable-sentiment-analysis)|잘못됨|무료|핵심 구 데이터 추출을 포함하여 감정 정보 추가 |

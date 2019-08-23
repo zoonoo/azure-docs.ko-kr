@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
-manager: craigg
 ms.date: 11/09/2018
-ms.openlocfilehash: 5f4a1962f90d54001f315827c1243e929344e3d7
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 5a09b8e589b0d4ae9daa3bbd32c38f4946d16d0e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274005"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567628"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>애플리케이션을 Azure SQL Database Managed Instance에 연결
 
@@ -45,7 +44,7 @@ VNet을 연결하는 두 가지 옵션이 있습니다.
 피어링이 Microsoft 백본 네트워크를 사용하기 때문에 피어링 옵션은 적합한 기능입니다. 따라서 연결성 관점에서 피어링된 VNet 및 동일한 VNet에 있는 가상 머신 간에 대기 시간이 눈에 띄는 차이점은 없습니다. VNet 피어링은 동일한 지역의 네트워크로 제한됩니다.  
 
 > [!IMPORTANT]
-> Managed Instance에 대한 VNet 피어링 시나리오는 [전역 가상 네트워크 피어 링 제약 조건](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)으로 인해 동일한 지역의 네트워크로 제한됩니다. 관련 섹션을 참고 합니다 [Azure 가상 네트워크 Frequently Asked Questions](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) 자세한 문서. 
+> Managed Instance에 대한 VNet 피어링 시나리오는 [전역 가상 네트워크 피어 링 제약 조건](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)으로 인해 동일한 지역의 네트워크로 제한됩니다. 자세한 내용은 [Azure Virtual Network faq](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) (질문과 대답) 문서의 관련 단원을 참조 하세요. 
 
 ## <a name="connect-an-on-premises-application"></a>온-프레미스 애플리케이션 연결
 
@@ -56,7 +55,7 @@ Managed Instance는 개인 IP 주소를 통해서만 액세스할 수 있습니�
 - 사이트 간 VPN 연결([Azure Portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), [Azure CLI](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md))
 - [ExpressRoute](../expressroute/expressroute-introduction.md) 연결  
 
-온-프레미스 Azure 연결을 성공적으로 설정 하 고 관리 되는 인스턴스에 대 한 연결을 설정할 수 없는 경우 방화벽 리디렉션에 대 한 포트 범위 11000-11999 뿐만 아니라 SQL 포트 1433에서 아웃 바운드 연결이 열려 있는지 확인 합니다.
+온-프레미스에서 Azure로 연결을 성공적으로 설정 하 고 Managed Instance에 대 한 연결을 설정할 수 없는 경우 방화벽에서 SQL 포트 1433에 대해 열려 있는 아웃 바운드 연결을 설정 하 고 리디렉션 포트의 범위를 11000-11999으로 설정 했는지 확인 합니다.
 
 ## <a name="connect-an-application-on-the-developers-box"></a>개발자 상자에서 애플리케이션 연결
 
@@ -96,7 +95,7 @@ Managed Instance는 개인 IP 주소를 통해서만 액세스할 수 있습니�
 
 연결 문제를 해결하려면 다음을 검토합니다.
 
-- 동일한 VNet 하지만 다른 서브넷 내에서 Azure 가상 머신에서 관리 되는 인스턴스에 연결할 수 없는 경우 액세스를 차단할 수 있는 VM 서브넷을 설정 하는 네트워크 보안 그룹 있는지 확인 합니다. 또한 이때 Azure 경계 내에서 리디렉션을 통해 연결 하는 데 필요한 것 이므로 범위 11000-11999의에서 포트 뿐만 아니라 SQL 포트 1433에서 아웃 바운드 연결을 열어야 합니다.
+- 동일한 VNet 내에서 다른 서브넷에 있는 Azure 가상 머신에서 Managed Instance에 연결할 수 없는 경우 액세스를 차단할 수 있는 네트워크 보안 그룹이 VM 서브넷에 설정 되어 있는지 확인 합니다. 또한 Azure 경계 내에서 리디렉션을 통해 연결 하는 데 필요 하므로 11000-11999 범위의 포트 뿐만 아니라 SQL 포트 1433에 대 한 아웃 바운드 연결을 열어야 합니다.
 - VNet과 연결된 라우트 테이블에 대해 BGP 전파를 **사용**으로 설정해야 합니다.
 - P2S VPN을 사용할 경우 Azure Portal에서 구성을 확인하여 **수신/송신** 숫자가 보이는지 확인합니다. 0이 아닌 숫자는 Azure가 온-프레미스에서 트래픽을 라우팅하는 것을 나타냅니다.
 
@@ -138,7 +137,7 @@ Managed Instance는 개인 IP 주소를 통해서만 액세스할 수 있습니�
 
 Managed Instance에 연결하려면 다음과 같은 버전 이상의 도구와 드라이버를 사용하는 것이 좋습니다.
 
-| 드라이버/도구 | Version |
+| 드라이버/도구 | 버전 |
 | --- | --- |
 |.NET Framework | 4.6.1(또는 .NET Core) |
 |ODBC 드라이버| v17 |
@@ -146,7 +145,7 @@ Managed Instance에 연결하려면 다음과 같은 버전 이상의 도구와 
 |JDBC 드라이버| 6.4.0 |
 |Node.js 드라이버| 2.1.1 |
 |OLEDB 드라이버| 18.0.2.0 |
-|SSMS| 18.0 또는 [높은](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
+|SSMS| 18.0 [이상](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
 |[SMO](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) 이상 |
 
 ## <a name="next-steps"></a>다음 단계

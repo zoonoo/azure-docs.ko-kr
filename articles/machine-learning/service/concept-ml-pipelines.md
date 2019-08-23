@@ -1,5 +1,5 @@
 ---
-title: '파이프라인: 기계 학습 워크플로 최적화'
+title: ML 파이프라인 이란?
 titleSuffix: Azure Machine Learning service
 description: 이 문서에서는 Python용 Azure Machine Learning SDK로 빌드할 수 있는 기계 학습 파이프라인 및 파이프라인 사용의 장점에 대해 알아보겠습니다. ML(기계 학습) 파이프라인은 데이터 과학자가 해당 기계 학습 워크플로를 빌드 및 최적화하고 관리하는 데 사용합니다.
 services: machine-learning
@@ -11,18 +11,16 @@ ms.author: sanpil
 author: sanpil
 ms.date: 08/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: a9965dbbca939f566048312af921061a188ee50d
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 22d1da4c194b392993b37b16ab20673120c3362e
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68884232"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68951806"
 ---
-# <a name="build-reusable-ml-pipelines-in-azure-machine-learning-service"></a>Azure Machine Learning 서비스에서 재사용 가능한 ML 파이프라인 빌드
+# <a name="what-are-ml-pipelines-in-azure-machine-learning-service"></a>Azure Machine Learning 서비스의 ML 파이프라인 이란?
 
-이 문서에서는 Python용 Azure Machine Learning SDK로 빌드할 수 있는 기계 학습 파이프라인 및 파이프라인 사용의 장점에 대해 알아보겠습니다.
-
-## <a name="what-are-machine-learning-pipelines"></a>기계 학습 파이프라인이란?
+Azure Machine Learning 서비스를 사용 하 여 빌드 및 관리할 수 있는 machine learning 파이프라인에 대해 알아봅니다. 
 
 ML(기계 학습) 파이프라인, 데이터 과학자, 데이터 엔지니어 및 IT 전문가를 사용하면 다음에 포함된 단계에서 공동 작업을 할 수 있습니다.
 + 정규화 및 변환 같은 데이터 준비
@@ -30,7 +28,7 @@ ML(기계 학습) 파이프라인, 데이터 과학자, 데이터 엔지니어 �
 + 모델 평가
 + 배포
 
-다음 다이어그램은 파이프라인 프로세스의 예를 보여 줍니다.
+[첫 번째 파이프라인을 만드는](how-to-create-your-first-pipeline.md) 방법을 알아봅니다.
 
 ![Azure Machine Learning Service의 기계 학습 파이프라인](./media/concept-ml-pipelines/pipeline-flow.png)
 
@@ -47,9 +45,7 @@ Azure 클라우드는 각각 다른 용도로 여러 다른 파이프라인을 �
 
 ## <a name="why-build-pipelines-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 파이프라인을 빌드하는 이유는 무엇인가요?
 
-[Python용 Azure Machine Learning SDK](#the-python-sdk-for-pipelines)를 사용하여 ML 파이프라인을 만들고 개별 파이프라인 실행을 제출 및 추적할 수 있습니다.
-
-파이프라인을 사용하면 단순성, 속도, 이식성 및 재사용을 통해 워크플로를 최적화할 수 있습니다. Azure Machine Learning를 사용 하 여 파이프라인을 빌드하는 경우 인프라 및 자동화 대신 전문 지식, 기계 학습에 집중할 수 있습니다.
+Machine learning 파이프라인은 인프라 및 자동화 대신 전문 지식, 기계 학습에 집중할 수 있도록 속도, 이식성 및 재사용을 통해 워크플로를 최적화 합니다.
 
 파이프라인은 파이프라인에서 고유한 계산 단위인 여러 **단계**에서 생성 됩니다. 각 단계는 독립적으로 실행 되 고 격리 된 계산 리소스를 사용할 수 있습니다. 이를 통해 여러 데이터 과학자가 과도 한 처리 시간이 소모 계산 리소스 없이 동시에 동일한 파이프라인에서 작업할 수 있으며 각 단계에 대해 다른 계산 형식/크기를 쉽게 사용할 수 있습니다.
 
@@ -63,7 +59,7 @@ Azure Portal에서 직접 [파이프라인 실험에 대한 메트릭을 추적]
 
 기계 학습 워크플로에 파이프라인을 사용 하는 경우의 주요 이점은 다음과 같습니다.
 
-|주요 장점|설명|
+|주요 장점|Description|
 |:-------:|-----------|
 |**무인&nbsp;실행**|안정적이 고 무인 방식으로 병렬로 실행 하거나 순서 대로 실행 하는 단계를 예약 합니다. 데이터 준비 및 모델링은 마지막 일 또는 몇 주, 그리고 파이프라인을 사용 하 여 프로세스가 실행 되는 동안 다른 작업에 집중할 수 있습니다. |
 |**다른 유형의 계산**|다른 유형의 확장 가능한 계산 리소스 및 저장소 위치에서 안정적으로 조정 된 여러 파이프라인을 사용 합니다. HDInsight, GPU 데이터 과학 Vm 및 Databricks 같은 다양 한 계산 대상에서 개별 파이프라인 단계를 실행 합니다. 이를 통해 사용 가능한 컴퓨팅 옵션을 효율적으로 사용할 수 있습니다.|
@@ -73,20 +69,20 @@ Azure Portal에서 직접 [파이프라인 실험에 대한 메트릭을 추적]
 
 ## <a name="the-python-sdk-for-pipelines"></a>파이프라인용 Python SDK
 
-Python을 사용하여 ML 파이프라인을 만듭니다. Azure Machine Learning SDK는 데이터 종속성이 없을 때 파이프라인의 단계를 순차적 방식 및 병렬 방식으로 처리하는 명령적 구문을 제공합니다. Jupyter 노트북 또는 다른 기본 설정 IDE에서 상호 작용할 수 있습니다.
+[PYTHON SDK를 사용](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) 하 여 선호 하는 IDE 또는 Jupyter 노트북에서 ML 파이프라인을 만듭니다. Azure Machine Learning SDK는 데이터 종속성이 없을 때 파이프라인의 단계를 순차적 방식 및 병렬 방식으로 처리하는 명령적 구문을 제공합니다. 
 
-선언적 데이터 종속성을 사용하여 작업을 최적화할 수 있습니다. 이 SDK에는 데이터 전송, 모델 게시 등의 일반적인 작업을 위해 사전 빌드된 모듈의 프레임워크가 포함되어 있습니다. 파이프라인에서 재사용할 수 있는 사용자 지정 단계를 구현하여 사용자 고유의 규칙을 모델링하도록 프레임워크를 확장할 수 있습니다. SDK에서 직접 컴퓨팅 대상 및 스토리지 리소스를 관리할 수도 있습니다.
+선언적 데이터 종속성을 사용하여 작업을 최적화할 수 있습니다. 이 SDK에는 데이터 전송, 모델 게시 등의 일반적인 작업을 위해 사전 빌드된 모듈의 프레임워크가 포함되어 있습니다. 파이프라인에서 재사용 가능한 사용자 지정 단계를 구현 하 여 사용자 고유의 규칙을 모델링 하도록 프레임 워크를 확장할 수 있습니다. SDK에서 직접 컴퓨팅 대상 및 스토리지 리소스를 관리할 수도 있습니다.
 
-일괄 처리 채점 또는 다시 학습 작업을 예약할 수 있도록 파이프라인을 템플릿으로 저장하고 REST 엔드포인트에 배포할 수 있습니다.
+파이프라인을 템플릿으로 저장 하 고 일괄 처리 점수 매기기 또는 재 학습 작업을 위해 REST 끝점에 배포 합니다.
 
-사용자 고유의 파이프라인을 빌드하는 방법은 [파이프라인에 대한 Python SDK 참조 문서](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) 및 다음 섹션의 노트북을 참조하세요.
-
-## <a name="example-notebooks"></a>노트북 예제
-
-다음 노트북은 Azure Machine Learning을 사용하여 파이프라인을 보여 줍니다. [how-to-use-azureml/machine-learning-pipelines](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines)
-
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
+파이프라인에 대한 Python 패키지에는 두 가지 [azureml-pipelines-core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) 및 [azureml-pipeline-steps](https://docs.microsoft.com/en-us/python/api/azureml-pipeline-steps/?view=azure-ml-py)가 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[첫 번째 파이프라인을 만드는](how-to-create-your-first-pipeline.md) 방법을 알아봅니다.
++ [첫 번째 파이프라인을 만드는](how-to-create-your-first-pipeline.md) 방법을 알아봅니다.
+
++ [대량 데이터에서 일괄 처리 예측을 실행](how-to-run-batch-predictions.md)하는 방법에 대해 알아봅니다.
+
++ [파이프라인에 대 한 SDK 참조 문서](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) 읽기
+
++ 예제 Jupyter 노트북 보여주는 [Azure Machine Learning 파이프라인](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines)을 사용해 보세요. 노트북을 실행 하 여 [이 서비스를 탐색](samples-notebooks.md)하는 방법을 알아봅니다.

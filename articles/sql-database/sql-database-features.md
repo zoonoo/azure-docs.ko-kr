@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 05/10/2019
-ms.openlocfilehash: 3f991d90dfdd5d31d1a7cf7119356f40458e7614
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
-ms.translationtype: MT
+ms.openlocfilehash: 7e5c33577a2d926266ae45057509b112dc27ce7b
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568235"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985715"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>기능 비교: Azure SQL Database 및 SQL Server
 
@@ -84,12 +84,12 @@ Microsoft는 Azure SQL Database에 계속해서 기능을 추가하고 있습니
 | [전체 텍스트 검색 (FT)](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) |  예, 하지만 타사 단어 분리기는 지원 되지 않습니다. | 예, 하지만 [타사 단어 분리기는 지원 되지 않습니다](sql-database-managed-instance-transact-sql-information.md#full-text-semantic-search) . |
 | [함수](https://docs.microsoft.com/sql/t-sql/functions/functions) | 대부분 - 개별 함수 참조 | 예- [저장 프로시저, 함수, 트리거 차이점](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-and-triggers) 참조 |
 | [그래프 처리 중](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview) | 예 | 예 |
-| [메모리 내 최적화](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | 예- [프리미엄 계층 및 중요 비즈니스 계층만](sql-database-in-memory.md) | 예 - [중요 비즈니스용 계층만 해당](sql-database-managed-instance.md) |
+| [메모리 내 최적화](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | 예- [프리미엄 및 중요 비즈니스용 계층은](sql-database-in-memory.md) 테이블 형식과 같은 비영구 메모리 내 개체만을 제한적으로 지원 합니다. | 예 - [중요 비즈니스용 계층만 해당](sql-database-managed-instance.md) |
 | [JSON 데이터 지원](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | [예](sql-database-json-features.md) | [예](sql-database-json-features.md) |
 | [언어 요소](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | 대부분 - 개별 요소 참조 |  예 - [T-SQL 차이점](sql-database-managed-instance-transact-sql-information.md) 참조 |
 | [연결된 서버](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | 아니요 - [탄력적 쿼리](sql-database-elastic-query-horizontal-partitioning.md) 참조 | 예. 분산 트랜잭션이 없는 [SQL Server 및 SQL Database](sql-database-managed-instance-transact-sql-information.md#linked-servers) 에만 사용 됩니다. |
 | 파일에서 읽은 [연결 된 서버](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) (CSV, Excel)| 아니요. CSV 형식 대신 [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file) 또는 [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) 을 사용 합니다. | 아니요. CSV 형식 대신 [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file) 또는 [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) 을 사용 합니다. [Managed Instance 피드백 항목](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources) 에서이 요청 추적|
-| [로그 전달](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server) | [고가용성](sql-database-high-availability.md)은 모든 데이터베이스에 포함됩니다. 재해 복구는 [Azure SQL Database의 비즈니스 연속성 개요](sql-database-business-continuity.md)에서 설명합니다. | DMS 마이그레이션 프로세스의 일부로 기본적으로 제공 됩니다. 고가용성 솔루션으로는 사용할 수 없습니다 [. 다른 고가용성](sql-database-high-availability.md) 방법이 모든 데이터베이스에 포함 되어 있으므로 로그 전달을 HA 대체로 사용 하지 않는 것이 좋습니다. 재해 복구는 [Azure SQL Database의 비즈니스 연속성 개요](sql-database-business-continuity.md)에서 설명 합니다. 데이터베이스 간 복제 메커니즘으로 사용할 수 없음- [중요 비즈니스용 계층](sql-database-service-tier-business-critical.md), [자동 장애 조치 (failover) 그룹](sql-database-auto-failover-group.md)또는 [트랜잭션 복제](sql-database-managed-instance-transactional-replication.md) 에 보조 복제본을 사용 합니다. |
+| [로그 전달](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server) | [고가용성](sql-database-high-availability.md)은 모든 데이터베이스에 포함됩니다. 재해 복구는 [Azure SQL Database의 비즈니스 연속성 개요](sql-database-business-continuity.md)에서 설명합니다. | DMS 마이그레이션 프로세스의 일부로 기본적으로 제공 됩니다. 고가용성 솔루션으로는 사용할 수 없습니다. 다른 [고가용성](sql-database-high-availability.md) 방법이 모든 데이터베이스에 포함 되어 있으므로 로그 전달을 HA 대체로 사용 하지 않는 것이 좋습니다. 재해 복구는 [Azure SQL Database의 비즈니스 연속성 개요](sql-database-business-continuity.md)에서 설명 합니다. 데이터베이스 간 복제 메커니즘으로 사용할 수 없음- [중요 비즈니스용 계층](sql-database-service-tier-business-critical.md), [자동 장애 조치 (failover) 그룹](sql-database-auto-failover-group.md)또는 [트랜잭션 복제](sql-database-managed-instance-transactional-replication.md) 에 보조 복제본을 사용 합니다. |
 | [로그인 및 사용자](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine) | 예, 하지만 `CREATE` 및 `ALTER` 로그인 문은 모든 옵션을 제공 하지 않습니다 (Windows 및 서버 수준 Azure Active Directory 로그인). `EXECUTE AS LOGIN`지원 되지 않음-대신 `EXECUTE AS USER` 을 사용 합니다.  | 예, 몇 가지 [차이점이](sql-database-managed-instance-transact-sql-information.md#logins-and-users)있습니다. Windows 로그인은 지원 되지 않으며 Azure Active Directory 로그인으로 바꾸어야 합니다. |
 | [대량 가져오기에서 최소 로깅](https://docs.microsoft.com/sql/relational-databases/import-export/prerequisites-for-minimal-logging-in-bulk-import) | 아니요, 전체 복구 모델만 지원 됩니다. | 아니요, 전체 복구 모델만 지원 됩니다. |
 | [시스템 데이터 수정](https://docs.microsoft.com/sql/relational-databases/databases/system-databases) | 아니요 | 예 |

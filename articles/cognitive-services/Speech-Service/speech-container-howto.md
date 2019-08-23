@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 0778814d4a228afe3a986426684c7d1f2080b517
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 14a360e7dc672266e8445a5ae5eb2168ae766af8
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68553233"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741875"
 ---
 # <a name="install-and-run-speech-service-containers"></a>음성 서비스 컨테이너 설치 및 실행
 
@@ -30,7 +30,7 @@ ms.locfileid: "68553233"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 음성 컨테이너를 사용하기 전에 다음 필수 조건을 충족해야 합니다.
 
@@ -169,7 +169,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-spe
 
 컨테이너가 [호스트 컴퓨터](#the-host-computer)에 있으면 다음 프로세스를 사용하여 컨테이너 작업을 수행합니다.
 
-1. 필수이지만 사용되지 않는 청구 설정을 사용하여 [컨테이너를 실행](#run-the-container-with-docker-run)합니다. `docker run` 명령의 자세한 [예제](speech-container-configuration.md#example-docker-run-commands)를 사용할 수 있습니다.
+1. 필수 청구 설정을 사용하여 [컨테이너를 실행](#run-the-container-with-docker-run)합니다. `docker run` 명령의 자세한 [예제](speech-container-configuration.md#example-docker-run-commands)를 사용할 수 있습니다.
 1. [컨테이너의 예측 끝점 쿼리](#query-the-containers-prediction-endpoint).
 
 ## <a name="run-the-container-with-docker-run"></a>`docker run`을 사용하여 컨테이너 실행
@@ -262,7 +262,7 @@ speech_config = speechsdk.SpeechConfig(
 
 ### <a name="text-to-speech"></a>텍스트 음성 변환
 
-컨테이너는 여기에서 찾을 수 있는 REST 끝점 Api를 [제공 하며](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech) [여기](https://azure.microsoft.com/resources/samples/cognitive-speech-tts/)에서 샘플을 찾을 수 있습니다.
+컨테이너는 [여기](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech)에서 찾을 수 있는 REST 끝점 Api를 제공 하며 [여기](https://azure.microsoft.com/resources/samples/cognitive-speech-tts/)에서 샘플을 찾을 수 있습니다.
 
 [!INCLUDE [Validate container is running - Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 

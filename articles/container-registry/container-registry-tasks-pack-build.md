@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 08/06/2019
 ms.author: danlep
-ms.openlocfilehash: 5100418651e24d74ad747e8c436ffce53c899a92
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4e41bcaff8faef2c4eaec9ae852955d4b7ce354b
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68500905"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839903"
 ---
 # <a name="build-and-push-an-image-from-an-app-using-a-cloud-native-buildpack"></a>클라우드 네이티브 Buildpack을 사용 하 여 앱에서 이미지 빌드 및 푸시
 
@@ -34,7 +34,7 @@ Azure Cloud Shell 또는 Azure CLI의 로컬 설치를 사용 하 여이 문서�
 * 로컬 디렉터리, GitHub 리포지토리 또는 원격 tarball 같이 ACR 작업에 대해 [지원 되는 컨텍스트 위치](container-registry-tasks-overview.md#quick-task) 중 하나입니다.
 * 와 `cloudfoundry/cnb:bionic`같은 buildpack builder 이미지의 이름입니다.  
 
-`az acr pack build`는 스트리밍 및 나중에 검색할 수 있도록 저장 된 [작업 실행 로그](container-registry-tasks-overview.md#view-task-logs) [를 비롯 하](container-registry-tasks-reference-yaml.md#run-variables) 여 ACR 작업 명령의 다른 기능을 지원 합니다.
+`az acr pack build`는 스트리밍 및 나중에 검색할 수 있도록 저장 된 [변수 실행](container-registry-tasks-reference-yaml.md#run-variables) 및 [작업 실행 로그](container-registry-tasks-overview.md#view-task-logs) 를 비롯 하 여 ACR 작업 명령의 다른 기능을 지원 합니다.
 
 ## <a name="example-build-nodejs-image-with-cloud-foundry-builder"></a>예제: Cloud Foundry builder를 사용 하 여 node.js 이미지 빌드
 
@@ -44,11 +44,13 @@ Azure Cloud Shell 또는 Azure CLI의 로컬 설치를 사용 하 여이 문서�
 az acr pack build \
     --registry myregistry \
     --image {{.Run.Registry}}/node-app:1.0 \
-    --builder cloudfoundry/cnb:bionic \
+    --pull --builder cloudfoundry/cnb:bionic \
     https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 ```
 
 이 예제에서는 `1.0` 태그로 `node-app` 이미지를 빌드하고 *myregistry* 컨테이너 레지스트리에 푸시합니다. 여기서는 대상 레지스트리 이름이 이미지 이름에 명시적으로 앞에 붙습니다. 지정 하지 않으면 레지스트리 URL이 이미지 이름에 자동으로 붙습니다.
+
+`--pull` 매개 변수는 명령이 최신 빌더 이미지를 끌어오는 것을 지정 합니다.
 
 명령 출력에 이미지를 빌드하고 푸시하는 진행률이 표시 됩니다. 
 
@@ -80,7 +82,7 @@ az acr pack build \
 
 이 예제에서는 명령의 `java-app` 실행 ID로 태그가 지정 된 이미지를 빌드하고 *myregistry* 컨테이너 레지스트리에 푸시합니다.
 
-매개 `--pull` 변수는 명령이 Heroku builder 이미지가 ACR 작업에 의해 캐시 되지 않기 때문에 필요한 최신 빌더 이미지를 끌어오는 것을 지정 합니다.
+`--pull` 매개 변수는 명령이 최신 빌더 이미지를 끌어오는 것을 지정 합니다.
 
 명령 출력에 이미지를 빌드하고 푸시하는 진행률이 표시 됩니다. 
 

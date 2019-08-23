@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: lagayhar
-ms.openlocfilehash: d3edfa1ca63560f447d2c9ea3da3588e069b7af1
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 27610280bafa6d8e9e33f84af2d3e9f6c2c9ea5c
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226833"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967827"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Java 웹 프로젝트에서 Application Insights 시작하기
 
-[Application Insights](https://azure.microsoft.com/services/application-insights/)는 라이브 애플리케이션의 성능 및 사용을 이해하는 데 도움이 되는 확장 가능한 분석 서비스입니다. 이를 통해 [요청을 자동으로 계측 하 고, 종속성을 추적 하 고, 성능 카운터를 수집](auto-collect-dependencies.md#java)하 고, 성능 문제 및 예외를 진단 [하 고,][api] 앱을 사용 하 여 사용자가 수행 하는 작업을 추적 
+[Application Insights](https://azure.microsoft.com/services/application-insights/)는 라이브 애플리케이션의 성능 및 사용을 이해하는 데 도움이 되는 확장 가능한 분석 서비스입니다. 이를 통해 [요청을 자동으로 계측하고, 종속성을 추적하고, 성능 카운터를 수집하고](auto-collect-dependencies.md#java), 성능 문제 및 예외를 진단 하 고, 앱을 사용 하 여 사용자가 수행 하는 작업을 [코드 기록][api] 추적 
 
 ![개요 샘플 데이터 스크린샷](./media/java-get-started/overview-graphs.png)
 
@@ -91,7 +91,7 @@ Spring 프레임워크를 선호하는 경우 [Application Insights 가이드를
 ```
 
 #### <a name="if-youre-using-eclipse-to-create-a-dynamic-web-project-"></a>Eclipse를 사용하여 동적 웹 프로젝트를 만드는 경우...
-[Java 용 APPLICATION INSIGHTS SDK 플러그][eclipse]인을 사용 합니다. 참고: 이 플러그 인을 사용하여 Application insights를 신속하게 실행하더라도(Maven/Gradle을 사용하지 않는다고 가정함)종속성 관리 시스템이 아닙니다. 이와 같이 플러그 인을 업데이트하더라도 프로젝트에 Application Insights 라이브러리를 자동으로 업데이트하지 않습니다.
+Java 용 Application Insights SDK 플러그 인을 사용 합니다. 참고: 이 플러그 인을 사용하여 Application insights를 신속하게 실행하더라도(Maven/Gradle을 사용하지 않는다고 가정함)종속성 관리 시스템이 아닙니다. 이와 같이 플러그 인을 업데이트하더라도 프로젝트에 Application Insights 라이브러리를 자동으로 업데이트하지 않습니다.
 
 * *빌드 또는 체크섬 유효성 검사 오류가 있나요?* `version:'2.0.n'`과(와) 같은 특정 버전을 사용해 봅니다. [SDK 릴리스 정보](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) 또는 [Maven 아티팩트](https://search.maven.org/#search%7Cga%7C1%7Capplicationinsights)에서 최신 버전을 찾을 수 있습니다.
 * *새 SDK로 업데이트하려면* 프로젝트의 종속성을 새로 고칩니다.
@@ -473,7 +473,6 @@ Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 
 [apiexceptions]: ../../azure-monitor/app/api-custom-events-metrics.md#trackexception
 [availability]: ../../azure-monitor/app/monitor-web-app-availability.md
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
-[eclipse]: ../../azure-monitor/learn/java-quick-start.md
 [javalogs]: java-trace-logs.md
 [metrics]: ../../azure-monitor/app/metrics-explorer.md
 [usage]: javascript.md

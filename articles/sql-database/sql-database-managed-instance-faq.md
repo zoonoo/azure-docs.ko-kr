@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 32da92fb3c5573d24eb18a01a4ede8fe6a0bf36a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
-ms.translationtype: MT
+ms.openlocfilehash: 3637676a330b324d5620885f0cbe50d4aa68ed51
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567452"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779041"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>SQL Database 관리 되는 인스턴스 FAQ (질문과 대답)
 
@@ -79,9 +79,9 @@ Azure SQL Database 관리 되는 인스턴스와 온-프레미스 SQL Server 간
 
 ## <a name="how-do-i-tune-performance-of-my-managed-instance"></a>관리 되는 인스턴스의 성능을 조정할 어떻게 할까요? 있나요? 
 
-범용 관리 되는 인스턴스는 성능에 중요 한 데이터 및 로그 파일의 크기 때문에 원격 저장소를 사용 합니다. 범용 서비스 계층 성능을 조정 하려면이 블로그 게시물의 지침을 따르세요.
+범용 관리 되는 인스턴스는 성능에 중요 한 데이터 및 로그 파일의 크기 때문에 원격 저장소를 사용 합니다. 자세한 내용은 범용 [Managed Instance 성능에 대 한 로그 파일 크기의 영향](https://medium.com/azure-sqldb-managed-instance/impact-of-log-file-size-on-general-purpose-managed-instance-performance-21ad170c823e)을 참조 하세요.
 
-IO를 많이 사용 하는 워크 로드의 경우 계산 집약적 워크 로드에 대해 gen 4를 사용 하는 것 보다 Gen 5 하드웨어 사용 자세한 내용은 하드웨어 세대 선택의 FAQ 섹션을 참조 하세요.
+IO를 많이 사용 하는 워크 로드의 경우 계산 집약적 워크 로드에 대해 gen 4를 사용 하는 것 보다 Gen 5 하드웨어 사용 자세한 내용은 [어떻게 할까요? gen 4와 gen 5 중에서 선택](#how-do-i-choose-between-gen-4-and-gen-5-hardware-generation-for-managed-instance)을 참조 하세요.
 
 워크 로드가 많은 작은 트랜잭션으로 구성 된 경우 연결 유형을 프록시에서 리디렉션 모드로 전환 하는 것이 좋습니다.
 
@@ -157,7 +157,7 @@ DNS 구성은 결국 새로 고쳐집니다.
 
 관리 되는 인스턴스가 처음으로 프로 비전 되 면 표준 시간대 구성을 설정할 수 있습니다. 기존 관리 되는 인스턴스의 표준 시간대를 변경 하는 것은 지원 되지 않습니다. 자세한 내용은 [표준 시간대 제한 사항](sql-database-managed-instance-timezone.md#limitations)을 참조 하세요.
 
-해결 방법에는 적절 한 표준 시간대를 사용 하 여 관리 되는 인스턴스를 새로 만든 다음 수동 백업 및 복원을 수행 하거나 권장 사항을 수행 하는 것이 포함 [됩니다.](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/07/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/)
+해결 방법에는 적절 한 표준 시간대를 사용 하 여 관리 되는 인스턴스를 새로 만든 다음 수동 백업 및 복원을 수행 하거나 권장 사항을 [cross-instance point-in-time restore](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/07/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/) 수행하는 것이 포함 됩니다.
 
 
 ## <a name="how-do-i-resolve-performance-issues-with-my-managed-instance"></a>관리 되는 인스턴스를 사용 하 여 성능 문제 해결 어떻게 할까요?

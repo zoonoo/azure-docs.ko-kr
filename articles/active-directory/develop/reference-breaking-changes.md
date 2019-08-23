@@ -12,18 +12,18 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/02/2018
+ms.topic: conceptual
+ms.date: 07/26/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ea3ec9024e4ea6a254fb6fe80f93886dc31a0ff
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 38383685f74020f5208d42df4428f896931fbe2a
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545793"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68931780"
 ---
 # <a name="whats-new-for-authentication"></a>인증의 새로운 기능? 
 
@@ -41,37 +41,76 @@ ms.locfileid: "65545793"
 
 ## <a name="upcoming-changes"></a>예정된 변경
 
-지금은 예약이 없습니다. 
+8 월 2019: URL 구문 분석 규칙에 따라 게시 의미 체계 적용-중복 된 매개 변수는 오류를 트리거하고 매개 변수의 따옴표는 더 이상 무시 되지 않으며 [BOM](https://www.w3.org/International/questions/qa-byte-order-mark) 은 무시 됩니다.
 
-## <a name="march-2019"></a>2019 년 3 월
+## <a name="july-2019"></a>7 월 2019
 
-### <a name="looping-clients-will-be-interrupted"></a>클라이언트를 루프 중단 됩니다.
+### <a name="app-only-tokens-for-single-tenant-applications-are-only-issued-if-the-client-app-exists-in-the-resource-tenant"></a>단일 테 넌 트 응용 프로그램에 대 한 앱 전용 토큰은 클라이언트 앱이 리소스 테 넌 트에 있는 경우에만 실행 됩니다.
 
-**개시 날짜**: 2019 년 3 월 25 일
+**개시 날짜**: 2019 년 7 월 26 일
+
+**영향을 받는 엔드포인트**: [V1.0](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow) 및 [v2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow) 모두
+
+**영향을 받는 프로토콜**: [클라이언트 자격 증명 (앱 전용 토큰)](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)
+
+보안 변경은 응용 프로그램 전용 토큰 (클라이언트 자격 증명 부여를 통해 권한 부여를 통해)이 발급 되는 방식을 변경 하는 7 월 26 일에 실시간으로 발생 합니다. 이전에는 응용 프로그램에서 테 넌 트의 현재 상태와 상관 없이 해당 응용 프로그램에 대 한 동의한 다른 앱을 호출 하는 토큰을 가져올 수 있었습니다.  이 동작은 리소스 (웹 Api 라고도 함)가 단일 테 넌 트 (기본값)로 설정 되도록 업데이트 되었으므로 클라이언트 응용 프로그램이 리소스 테 넌 트 내에 있어야 합니다.  클라이언트와 api 간의 기존 동의가 아직 필요 하지 않으며, 응용 프로그램에서 `roles` 클레임을 제공 하 고 API에 대 한 예상 값을 포함 하 고 있는지 확인 하기 위해 여전히 자체 권한 부여 검사를 수행 해야 합니다.
+
+이 시나리오에 대 한 오류 메시지는 현재 다음과 같습니다. 
+
+`The service principal named <appName> was not found in the tenant named <tenant_name>. This can happen if the application has not been installed by the administrator of the tenant.`
+
+이 문제를 해결 하려면 관리자 동의 환경을 사용 하 여 테 넌 트에서 클라이언트 응용 프로그램 서비스 주체를 만들거나 수동으로 만듭니다.  이 요구 사항은 테 넌 트가 테 넌 트 내에서 작동할 수 있는 응용 프로그램 권한을 부여 했는지 확인 합니다.  
+
+#### <a name="example-request"></a>요청 예
+
+`https://login.microsoftonline.com/contoso.com/oauth2/authorize?resource=https://gateway.contoso.com/api&response_type=token&client_id=14c88eee-b3e2-4bb0-9233-f5e3053b3a28&...`이 예제에서 리소스 테 넌 트 (기관)는 contoso.com이 고, 리소스 앱은 contoso 테 넌 트에 `gateway.contoso.com/api` 대해 호출 되는 단일 테 넌 트 앱 이며 `14c88eee-b3e2-4bb0-9233-f5e3053b3a28`, 클라이언트 앱입니다.  클라이언트 앱이 Contoso.com 내에 서비스 주체를 포함 하는 경우이 요청을 계속할 수 있습니다.  그러나 그렇지 않으면 위의 오류가 발생 하 여 요청이 실패 합니다.  
+
+그러나 Contoso 게이트웨이 앱이 다중 테 넌 트 응용 프로그램이 면 Contoso.com 내에서 서비스 사용자가 있는 클라이언트 앱에 관계 없이 요청이 계속 됩니다.  
+
+### <a name="redirect-uris-can-now-contain-query-string-parameters"></a>이제 리디렉션 Uri는 쿼리 문자열 매개 변수를 포함할 수 있습니다.
+
+**개시 날짜**: 2019년 7월 22일
 
 **영향을 받는 엔드포인트**: v1.0 및 v2.0 모두
 
 **영향을 받는 프로토콜**: 모든 흐름
 
-클라이언트 응용 프로그램 때로는 오동작 수는 짧은 기간 동안 수백 개의 동일한 로그인 요청을 발급 합니다.  이러한 요청 성공할 수도 있으 나 모든 영향을 주는 사용자 환경이 열악 해질 및 강화 된 워크 로드에 대 한 IDP에서 본 IDP의 가용성을 줄이고 모든 사용자에 대해 대기 시간이 증가 합니다.  이러한 응용 프로그램으로 작동 하 고 일반적인 사용의 경계 외부 및 올바르게 작동 하도록 업데이트 되어야 합니다.  
+이제 Azure AD 응용 프로그램은 [RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2)에 따라 정적 쿼리 매개 변수 (예: https://contoso.com/oauth2?idp=microsoft) OAuth 2.0 요청)로 리디렉션 (회신) uri를 등록 하 고 사용할 수 있습니다.  동적 리디렉션 uri는 보안 위험을 나타내므로 사용할 수 없으며 인증 요청에 대 한 상태 정보를 유지 하는 데 사용할 수 없습니다. 즉, `state` 매개 변수를 사용 합니다.
 
-중복 된 요청을 여러 번 실행 하는 클라이언트에 보낼지를 `invalid_grant` 오류: `AADSTS50196: The server terminated an operation because it encountered a loop while processing a request`합니다. 
+정적 쿼리 매개 변수는 리디렉션 URI의 다른 부분과 마찬가지로 리디렉션 uri에 대 한 문자열 일치가 적용 됩니다. URI로 디코딩된 redirect_uri와 일치 하는 문자열이 등록 되지 않은 경우 요청이 거부 됩니다.  앱 등록에서 URI를 찾은 경우에는 정적 쿼리 매개 변수를 포함 하 여 전체 문자열이 사용자를 리디렉션하는 데 사용 됩니다. 
 
-대부분의 클라이언트는이 오류를 방지 하려면 동작을 변경할 필요가 없습니다.  이 오류 (토큰 캐싱 없는 또는 프롬프트 루프에 이미 표시 된)만 잘못 구성 된 클라이언트의 영향을 받습니다.  클라이언트 통해 추적 됩니다 인스턴스별 기준 로컬로 (쿠키) 요소에 따라:
+이번에는 (7 월 2019 끝) Azure Portal의 앱 등록 UX에서 여전히 쿼리 매개 변수를 차단 합니다.  그러나 응용 프로그램 매니페스트를 수동으로 편집 하 여 쿼리 매개 변수를 추가 하 고 앱에서 테스트할 수 있습니다.  
 
-* 사용자 힌트에 있는 경우
 
-* 범위 또는 요청 된 리소스
+## <a name="march-2019"></a>2019년 3월
+
+### <a name="looping-clients-will-be-interrupted"></a>반복 클라이언트가 중단 됩니다.
+
+**개시 날짜**: 3 월 25 일, 2019
+
+**영향을 받는 엔드포인트**: v1.0 및 v2.0 모두
+
+**영향을 받는 프로토콜**: 모든 흐름
+
+클라이언트 응용 프로그램은 경우에 따라 짧은 시간 동안 수백 개의 동일한 로그인 요청을 실행 하 여 잘못 동작 하는 경우도 있습니다.  이러한 요청은 성공 하거나 성공 하지 않을 수도 있지만, 모든 사용자에 대 한 대기 시간이 IDP 모든 사용자의 대기 시간이 늘어나고 IDP의 가용성이 감소 합니다.  이러한 응용 프로그램은 정상적인 사용 범위를 벗어나 작동 하 고 올바르게 동작 하도록 업데이트 되어야 합니다.  
+
+중복 요청을 여러 번 실행 하는 클라이언트에 `invalid_grant` `AADSTS50196: The server terminated an operation because it encountered a loop while processing a request`오류가 전송 됩니다. 
+
+대부분의 클라이언트는이 오류를 방지 하기 위해 동작을 변경할 필요가 없습니다.  잘못 구성 된 클라이언트 (토큰 캐싱을 사용 하지 않는 클라이언트 또는 프롬프트 루프를 포함 하는 클라이언트만 이미)는이 오류의 영향을 받습니다.  클라이언트는 다음 요소에 대해 로컬로 (쿠키를 통해) 인스턴스당 추적 됩니다.
+
+* 사용자 힌트 (있는 경우)
+
+* 요청 되는 범위 또는 리소스
 
 * 클라이언트 ID
 
 * 리디렉션 URI
 
-* 응답 형식 및 모드
+* 응답 유형 및 모드
 
-짧은 시간 (5 분) 내에 여러 요청 (15 +)을 수행 하는 앱이 표시 됩니다는 `invalid_grant` 오류 메시지가 반복 됩니다.  충분히 수명이 긴 수명 (10 분 이상을 기본적으로 60 분) 따라서 반복 요청이 기간 동안 요청 된 토큰이 필요 하지 않습니다.  
+짧은 시간 (5 분) 내에 여러 요청 (15 +)을 만드는 앱은 루핑 임을 설명 `invalid_grant` 하는 오류를 받게 됩니다.  요청 되는 토큰은 충분히 수명이 긴 수명 (기본적으로 10 분, 최소 60 분) 이므로이 기간 동안 반복 되는 요청은 필요 하지 않습니다.  
 
-모든 앱을 처리 하는 `invalid_grant` 에서 자동으로 토큰을 요청 하는 것이 아니라 대화형 프롬프트를 표시 합니다.  이 오류를 방지 하기 위해 클라이언트는 올바르게 캐시 하는 받을 토큰을 확인 해야 합니다.
+모든 앱은 토큰 `invalid_grant` 을 자동으로 요청 하는 대신 대화형 프롬프트를 표시 하 여 처리 해야 합니다.  클라이언트는이 오류를 방지 하기 위해 수신 하는 토큰을 올바르게 캐싱하지 확인 해야 합니다.
 
 
 ## <a name="october-2018"></a>2018년 10월

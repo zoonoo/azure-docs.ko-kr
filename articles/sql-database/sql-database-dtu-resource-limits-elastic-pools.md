@@ -10,16 +10,15 @@ ms.topic: conceptual
 author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 03/14/2019
-ms.openlocfilehash: 6a2b3af4240a5c400bd1eaf4fd1e93b09fc702b1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 2bd193c53ee85a1423dc63bf669021de954231c8
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61075255"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568819"
 ---
-# <a name="resources-limits-for-elastic-pools-using-the-dtu-based-purchasing-model"></a>DTU를 기반 구매 모델을 사용한 탄력적 풀에 대한 리소스 제한
+# <a name="resources-limits-for-elastic-pools-using-the-dtu-based-purchasing-model"></a>DTU 기반 구매 모델을 사용한 탄력적 풀에 대한 리소스 제한
 
 이 문서에서는 DTU 기반 구매 모델을 사용하여 풀링된 데이터베이스 및 Azure SQL Database 탄력적 풀에 대한 리소스 제한을 자세히 제공합니다.
 
@@ -27,10 +26,10 @@ ms.locfileid: "61075255"
 
 ## <a name="elastic-pool-storage-sizes-and-compute-sizes"></a>탄력적 풀: 스토리지 크기 및 컴퓨팅 크기
 
-SQL Database 탄력적 풀과 관련된 다음 표는 각 서비스 계층 및 컴퓨팅 크기에 제공되는 리소스를 보여줍니다. [Azure Portal](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), [Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases) 또는 [REST API](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases)를 사용하여 서비스 계층, 계산 크기 및 저장소 용량을 설정할 수 있습니다.
+SQL Database 탄력적 풀과 관련된 다음 표는 각 서비스 계층 및 컴퓨팅 크기에 제공되는 리소스를 보여줍니다. [Azure Portal](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), [Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases) 또는 [REST API](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases)를 사용하여 서비스 계층, 컴퓨팅 크기 및 스토리지 용량을 설정할 수 있습니다.
 
 > [!IMPORTANT]
-> 크기 조정 지침과 고려 사항을 참조 하세요. [탄력적 풀 크기 조정](sql-database-elastic-pool-scale.md)
+> 크기 조정 지침 및 고려 사항은 [탄력적 풀 크기 조정](sql-database-elastic-pool-scale.md) 을 참조 하세요.
 > [!NOTE]
 > 탄력적 풀의 개별 데이터베이스에 대한 리소스 제한은 일반적으로 DTU 및 서비스 계층을 기반으로 하는 풀 외부의 단일 데이터베이스의 경우와 동일합니다. 예를 들어 S2 데이터베이스의 최대 동시 작업자 수는 120명입니다. 따라서 풀의 데이터베이스당 최대 DTU가 50DTU(S2와 동일)인 경우 표준 풀의 데이터베이스에 대한 최대 동시 작업자 수도 120명입니다.
 
@@ -70,7 +69,7 @@ SQL Database 탄력적 풀과 관련된 다음 표는 각 서비스 계층 및 �
 |:---|---:|---:|---:| ---: | ---: |
 | 풀당 포함된 저장소(GB) | 1200 | 1600 | 2000 | 2500 | 3000 |
 | 풀당 최대 저장소(GB) 옵션 | 1200, 1280, 1536, 1792, 2048, 2304, 2560 | 1600, 1792, 2048, 2304, 2560, 2816, 3072 | 2000, 2048, 2304, 2560, 2816, 3072, 3328, 3584 | 2500, 2560, 2816, 3072, 3328, 3584, 3840, 4096 | 3000, 3072, 3328, 3584, 3840, 4096 |
-| 풀당 최대 메모리 내 OLTP 저장소(GB) | N/A | 해당 사항 없음 | 해당 사항 없음 | 해당 사항 없음 | N/A |
+| 풀당 최대 메모리 내 OLTP 저장소(GB) | 해당 사항 없음 | 해당 사항 없음 | 해당 사항 없음 | 해당 사항 없음 | N/A |
 | 풀당 최대 DB | 500 | 500 | 500 | 500 | 500 |
 | 풀당 최대 동시 작업자(요청) | 2400 | 3200 | 4000 | 5,000 | 6000 |
 | 풀당 최대 동시 세션 | 30000 | 30000 | 30000 | 30000 | 30000 |
@@ -115,13 +114,13 @@ SQL Database 탄력적 풀과 관련된 다음 표는 각 서비스 계층 및 �
 탄력적 풀의 모든 DTU가 사용되었다면 풀에 있는 각 데이터베이스는 쿼리를 처리할 같은 크기의 리소스를 받습니다. SQL Database 서비스는 같은 분량의 컴퓨팅 시간을 보장하여 데이터베이스 간의 공정성을 공유할 리소스를 제공합니다. 탄력적 풀 리소스 공유 공정성은 데이터베이스당 DTU 최소값이 0이 아닌 값으로 설정될 때 각 데이터베이스에 보장된 리소스에 적용됩니다.
 
 > [!NOTE]
-> 에 대 한 `tempdb` 제한을 참조 하세요 [tempdb 제한](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database)합니다.
+> `tempdb`제한 사항은 [tempdb 제한](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database)을 참조 하세요.
 
 ### <a name="database-properties-for-pooled-databases"></a>풀링된 데이터베이스에 대한 데이터베이스 속성
 
 다음 표에서 풀링된 데이터베이스에 대한 속성을 설명합니다.
 
-| 자산 | 설명 |
+| 속성 | 설명 |
 |:--- |:--- |
 | 데이터베이스당 최대 eDTU |풀에 있는 다른 데이터베이스의 사용률에 따라 사용 가능한 경우 풀에 있는 임의 데이터베이스에서 사용할 수 있는 최대 eDTU 수입니다. 데이터베이스당 최대 eDTU는 데이터베이스에 대해 리소스를 보장하지 않습니다. 풀에 있는 모든 데이터베이스에 적용되는 전역 설정입니다. 데이터베이스 사용률의 최대치를 처리할 만큼 데이터베이스당 최대 eDTU를 충분히 높게 설정합니다. 풀은 일반적으로 모든 데이터베이스가 동시에 최대로 사용되지 않을 경우 데이터베이스에 대해 핫 및 콜드 사용률 패턴을 가정하므로 일정 수준의 오버커밋이 예상됩니다. 예를 들어, 데이터베이스당 최고 사용률이 20 eDTU이며 풀에 있는 100개의 데이터베이스 중 20%만 동시에 최대로 사용되는 것으로 가정합니다. 데이터베이스당 eDTU 최대값이 20 eDTU로 설정된 경우 풀을 5배만큼 오버커밋하고 풀당 eDTU를 400으로 설정하는 것이 적합합니다. |
 | 데이터베이스당 최소 eDTU |풀에 있는 임의 데이터베이스에 보장되는 최소 eDTU 수입니다. 풀에 있는 모든 데이터베이스에 적용되는 전역 설정입니다. 데이터베이스당 최소 eDTU를 0으로 설정할 수 있으며 기본값이기도 합니다. 이 속성은 0과 데이터베이스당 평균 기록 eDTU 사용률 사이의 값으로 설정됩니다. 풀에 있는 데이터베이스 수와 데이터베이스당 최소 eDTU를 곱한 값은 풀당 eDTU를 초과할 수 없습니다. 예를 들어, 풀에 20개의 데이터베이스가 있고 데이터베이스당 eDTU 최소값이 10 eDTU로 설정되면 풀당 eDTU는 200 eDTU 이상이어야 합니다. |

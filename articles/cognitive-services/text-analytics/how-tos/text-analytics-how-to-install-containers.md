@@ -1,6 +1,6 @@
 ---
-title: 컨테이너 설치 및 실행
-titleSuffix: Text Analytics -  Azure Cognitive Services
+title: 컨테이너 설치 및 실행-Text Analytics
+titleSuffix: Azure Cognitive Services
 description: 이 단계별 자습서에서 Text Analytics용 컨테이너를 다운로드, 설치 및 실행하는 방법입니다.
 services: cognitive-services
 author: IEvangelist
@@ -9,34 +9,36 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/21/2019
+ms.date: 07/30/2019
 ms.author: dapine
-ms.openlocfilehash: c4ef58f35b3d038f360ff962c70e92711bc205ce
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: ddbe586c03d9f722d844d06968aa25e4b4a5aac0
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446520"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815302"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Text Analytics 컨테이너 설치 및 실행
 
-Text Analytics 컨테이너는 원시 텍스트에 대한 고급 자연어 처리를 제공하며 감정 분석, 핵심 구 추출 및 언어 감지 등 세 가지 주요 기능을 포함하고 있습니다. 현재 컨테이너에 엔터티 연결이 지원되지 않습니다.
+컨테이너를 사용 하면 사용자 환경에서 텍스트 분석 Api를 실행할 수 있으며 특정 보안 및 데이터 관리 요구 사항에 적합 합니다. Text Analytics 컨테이너는 원시 텍스트에 대 한 고급 자연어 처리를 제공 하며, 감정 분석, 핵심 구 추출 및 언어 감지 라는 세 가지 주요 함수를 포함 합니다. 현재 컨테이너에 엔터티 연결이 지원되지 않습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-Text Analytics 컨테이너를 실행하려면 호스트 컴퓨터 및 컨테이너 환경이 있어야 합니다.
+Text Analytics 컨테이너를 실행 하려면 호스트 컴퓨터와 컨테이너 환경이 있어야 합니다.
 
 ## <a name="preparation"></a>준비
 
 Text Analytics 컨테이너를 사용하려면 다음 필수 조건을 충족해야 합니다.
 
-|필수|목적|
+|필수|용도|
 |--|--|
 |Docker 엔진| [호스트 컴퓨터](#the-host-computer)에 설치된 Docker 엔진이 필요합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 및 [Linux](https://docs.docker.com/engine/installation/#supported-platforms)에서 Docker 환경을 구성하는 패키지를 제공합니다. Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.docker.com/engine/docker-overview/)를 참조하세요.<br><br> Docker는 컨테이너에서 Azure에 연결하여 청구 데이터를 보낼 수 있도록 구성해야 합니다. <br><br> **Windows**에서 Docker는 Linux 컨테이너를 지원하도록 구성해야 합니다.<br><br>|
 |Docker 사용 경험 | 기본 `docker`명령에 대한 지식뿐만 아니라 레지스트리, 리포지토리, 컨테이너 및 컨테이너 이미지와 같은 Docker 개념에 대해 기본적으로 이해해야 합니다.| 
-|`Cognitive Services` 리소스 |컨테이너를 사용하려면 다음이 있어야 합니다.<br><br>연결된 청구 키 및 청구 끝점 URI를 가져올 [_Cognitive Services_](text-analytics-how-to-access-key.md) Azure 리소스. 두 값 모두 Azure portal의 Cognitive Services 개요 및 키 페이지에서 사용할 수 있으며 컨테이너를 시작하는 데 필요합니다. BILLING_ENDPOINT_URI 예제에 나와 있는 것처럼 `text/analytics/v2.0` 라우팅을 끝점 URI에 추가해야 합니다.<br><br>**{BILLING_KEY}** : 리소스 키<br><br>**{BILLING_ENDPOINT_URI}** : 끝점 URI 예제: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
+|Text Analytics 리소스 |컨테이너를 사용하려면 다음이 있어야 합니다.<br><br>연결 된 API 키와 끝점 URI를 가져오는 Azure [Text Analytics 리소스](../../cognitive-services-apis-create-account.md) 입니다. 두 값 모두 Azure Portal의 Text Analytics 개요 및 키 페이지에서 사용할 수 있으며 컨테이너를 시작하는 데 필요합니다.<br><br>**{API_KEY}** : **키** 페이지에서 사용 가능한 두 리소스 키 중 하나<br><br>**{ENDPOINT_URI}** : **개요** 페이지에 제공 된 끝점입니다.|
+
+[!INCLUDE [Gathering required parameters](../../containers/includes/container-gathering-required-parameters.md)]
 
 ### <a name="the-host-computer"></a>호스트 컴퓨터
 
@@ -48,9 +50,9 @@ Text Analytics 컨테이너를 사용하려면 다음 필수 조건을 충족해
 
 | 컨테이너 | 최소 | 권장 | TPS<br>(최소, 최대)|
 |-----------|---------|-------------|--|
-|핵심 문구 추출 | 1개 코어, 2GB 메모리 | 1개 코어, 4GB 메모리 |15, 30|
-|언어 감지 | 1개 코어, 2GB 메모리 | 1개 코어, 4GB 메모리 |15, 30|
-|감정 분석 | 1개 코어, 2GB 메모리 | 1개 코어, 4GB 메모리 |15, 30|
+|핵심 구 추출 | 1 코어, 2gb 메모리 | 1 코어, 4gb 메모리 |15, 30|
+|언어 감지 | 1 코어, 2gb 메모리 | 1 코어, 4gb 메모리 |15, 30|
+|감정 분석 | 1 코어, 2gb 메모리 | 1 코어, 4gb 메모리 |15, 30|
 
 * 각 코어는 속도가 2.6GHz 이상이어야 합니다.
 * TPS - 초당 트랜잭션 수
@@ -59,13 +61,13 @@ Text Analytics 컨테이너를 사용하려면 다음 필수 조건을 충족해
 
 ## <a name="get-the-container-image-with-docker-pull"></a>`docker pull`을 사용하여 컨테이너 이미지 가져오기
 
-Text Analytics에 대한 컨테이너 이미지는 Microsoft Container Registry에서 사용할 수 있습니다. 
+Text Analytics에 대한 컨테이너 이미지는 Microsoft Container Registry에서 사용할 수 있습니다.
 
 | 컨테이너 | 리포지토리 |
 |-----------|------------|
-|핵심 문구 추출 | `mcr.microsoft.com/azure-cognitive-services/keyphrase` |
+|핵심 구 추출 | `mcr.microsoft.com/azure-cognitive-services/keyphrase` |
 |언어 감지 | `mcr.microsoft.com/azure-cognitive-services/language` |
-|감정 분석 | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
+|감정 분석| `mcr.microsoft.com/azure-cognitive-services/sentiment` |
 
 [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) 명령을 사용하여 Microsoft 컨테이너 레지스트리에서 컨테이너 이미지를 다운로드합니다.
 
@@ -76,7 +78,6 @@ Text Analytics 컨테이너에 사용할 수 있는 태그에 대한 전체 설�
 * [감정 분석](https://go.microsoft.com/fwlink/?linkid=2018654)
 
 [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) 명령을 사용하여 컨테이너 이미지를 다운로드합니다.
-
 
 ### <a name="docker-pull-for-the-key-phrase-extraction-container"></a>핵심 구 추출 컨테이너에 대한 docker pull
 
@@ -98,43 +99,36 @@ docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:latest
 
 [!INCLUDE [Tip for using docker list](../../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
-
-## <a name="how-to-use-the-container"></a>컨테이너 사용 방법
+## <a name="how-to-use-the-container"></a>컨테이너사용 방법
 
 컨테이너가 [호스트 컴퓨터](#the-host-computer)에 있으면 다음 프로세스를 사용하여 컨테이너 작업을 수행합니다.
 
-1. 필수 청구 설정을 사용하여 [컨테이너를 실행](#run-the-container-with-docker-run)합니다. `docker run` 명령의 자세한 [예제](../text-analytics-resource-container-config.md#example-docker-run-commands)를 사용할 수 있습니다. 
-1. [컨테이너의 예측 끝점 쿼리](#query-the-containers-prediction-endpoint). 
+1. 필수 청구 설정을 사용하여 [컨테이너를 실행](#run-the-container-with-docker-run)합니다. `docker run` 명령의 자세한 [예제](../text-analytics-resource-container-config.md#example-docker-run-commands)를 사용할 수 있습니다.
+1. [컨테이너의 예측 끝점 쿼리](#query-the-containers-prediction-endpoint).
 
 ## <a name="run-the-container-with-docker-run"></a>`docker run`을 사용하여 컨테이너 실행
 
-[docker run](https://docs.docker.com/engine/reference/commandline/run/) 명령을 사용하여 세 컨테이너 중 하나를 실행합니다. 명령은 다음 매개 변수를 사용합니다.
+[docker run](https://docs.docker.com/engine/reference/commandline/run/) 명령을 사용하여 세 컨테이너 중 하나를 실행합니다. `{Endpoint_URI}` 및 `{API_Key}` 값을 가져오는 방법에 대한 자세한 내용은 [필수 매개 변수 수집](#gathering-required-parameters)을 참조 하세요.
 
-| 구분 | 값 |
-|-------------|-------|
-|{BILLING_KEY} | 이 키는 컨테이너를 시작하는 데 사용되고 Azure portal의 `Cognitive Services` [키] 페이지에서 확인할 수 있습니다.  |
-|{BILLING_ENDPOINT_URI} | 청구 끝점 URI 값은 Azure `Cognitive Services` 개요 페이지에서 확인할 수 있습니다. <br><br>예제:<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
+`docker run`명령의 [예](../text-analytics-resource-container-config.md#example-docker-run-commands)를 사용할 수 있습니다.
 
-앞의 BILLING_ENDPOINT_URI 예제에 표시된 대로 `text/analytics/v2.0` 라우팅을 끝점 URI로 추가해야 합니다.
-
-다음 예제 `docker run` 명령에서 해당 매개 변수를 사용자 고유의 값으로 바꿉니다.
+### <a name="run-container-example-of-docker-run-command"></a>Docker run 명령의 컨테이너 실행 예
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
 mcr.microsoft.com/azure-cognitive-services/keyphrase \
 Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
 ```
 
 이 명령은 다음을 수행합니다.
 
 * 컨테이너 이미지에서 핵심 구 컨테이너를 실행합니다.
 * 1개 CPU 코어 및 4GB 메모리 할당
-* TCP 5000 포트를 공개하고 컨테이너에 의사-TTY를 할당합니다.
-* 종료 후 자동으로 컨테이너를 제거합니다. 컨테이너 이미지는 호스트 컴퓨터에서 계속 사용할 수 있습니다. 
+* 5000 TCP 포트 표시 및 컨테이너에 의사-TTY 할당
+* 종료 후 자동으로 컨테이너를 제거합니다. 컨테이너 이미지는 호스트 컴퓨터에서 계속 사용할 수 있습니다.
 
-`docker run` 명령의 자세한 [예제](../text-analytics-resource-container-config.md#example-docker-run-commands)를 사용할 수 있습니다. 
 
 > [!IMPORTANT]
 > 컨테이너를 인스턴스화하려면 `Eula`, `Billing` 및 `ApiKey` 옵션을 지정해야 합니다. 그렇지 않으면 컨테이너가 시작되지 않습니다.  자세한 내용은 [Billing](#billing)를 참조하세요.
@@ -143,7 +137,7 @@ ApiKey={BILLING_KEY}
 
 ## <a name="query-the-containers-prediction-endpoint"></a>컨테이너의 예측 끝점 쿼리
 
-컨테이너는 REST 기반 쿼리 예측 끝점 API를 제공합니다. 
+컨테이너는 REST 기반 쿼리 예측 끝점 API를 제공합니다.
 
 컨테이너 API에 대한 호스트, `https://localhost:5000`을 사용합니다.
 
@@ -157,17 +151,17 @@ ApiKey={BILLING_KEY}
 
 ## <a name="troubleshooting"></a>문제 해결
 
-출력 [탑재](../text-analytics-resource-container-config.md#mount-settings) 및 활성화된 로깅을 사용하여 컨테이너를 실행하는 경우 컨테이너는 컨테이너를 시작 또는 실행하는 동안 발생하는 문제를 해결하는 데 도움이 되는 로그 파일을 생성합니다. 
+출력 [탑재](../text-analytics-resource-container-config.md#mount-settings) 및 활성화된 로깅을 사용하여 컨테이너를 실행하는 경우 컨테이너는 컨테이너를 시작 또는 실행하는 동안 발생하는 문제를 해결하는 데 도움이 되는 로그 파일을 생성합니다.
 
-## <a name="billing"></a>결제
+## <a name="billing"></a>대금 청구
 
-Text Analytics 컨테이너는 Azure 계정의 _Cognitive Services_ 리소스를 사용하여 청구 정보를 Azure로 전송합니다. 
+Text Analytics 컨테이너는 Azure 계정의 _Text Analytics_ 리소스를 사용하여 청구 정보를 Azure로 보냅니다. 
 
 [!INCLUDE [Container's Billing Settings](../../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 이러한 옵션에 대한 자세한 내용은 [컨테이너 구성](../text-analytics-resource-container-config.md)을 참조하세요.
 
-<!--blogs/samples/video coures -->
+<!--blogs/samples/video course -->
 
 [!INCLUDE [Discoverability of more container information](../../../../includes/cognitive-services-containers-discoverability.md)]
 
@@ -182,10 +176,9 @@ Text Analytics 컨테이너는 Azure 계정의 _Cognitive Services_ 리소스를
 * 컨테이너를 인스턴스화할 때 청구 정보를 지정해야 합니다.
 
 > [!IMPORTANT]
-> Cognitive Services 컨테이너는 계량을 위한 청구 끝점에 연결되지 않은 상태에서 실행할 수 있는 권한이 없습니다. 고객은 컨테이너를 항상 청구 끝점과 청구 정보를 통신할 수 있도록 설정해야 합니다. Cognitive Services 컨테이너는 고객 데이터(예: 분석 중인 이미지 또는 텍스트)를 Microsoft에 보내지 않습니다.
+> Cognitive Services 컨테이너는 측광을 위해 Azure에 연결되지 않은 상태에서 실행할 수 있는 권한이 없습니다. 고객은 컨테이너에서 항상 계량 서비스와 청구 정보를 통신할 수 있도록 설정해야 합니다. Cognitive Services 컨테이너는 고객 데이터(예: 분석 중인 이미지 또는 텍스트)를 Microsoft에 보내지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [컨테이너 구성](../text-analytics-resource-container-config.md)에서 구성 설정을 검토합니다.
 * [FAQ(질문과 대답)](../text-analytics-resource-faq.md)를 참조하여 기능과 관련된 문제를 해결합니다.
-

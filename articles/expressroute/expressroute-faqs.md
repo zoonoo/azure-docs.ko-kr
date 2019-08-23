@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 02f772d02f5cc6f188d69b5e79debc0013cf1faa
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 9a5e5dc414d487efd5f6762c89cecb77da74e3d5
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67488494"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68592066"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute FAQ
 
@@ -43,7 +43,7 @@ ExpressRoute 연결은 공용 인터넷을 통해 이동하지 않습니다. 인
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-burst-up-to-higher-speeds-if-necessary"></a>지정된 대역폭의 ExpressRoute 회로에 대해 비용을 지불한다면 필요한 경우 더 높은 속도로 버스트할 수 있나요?
 
-예. ExpressRoute 회로는 추가 비용 없이 확보한 대역폭 제한의 최대 2배까지 버스트할 수 있도록 구성됩니다. 이 기능을 지원하는지 확인하려면 해당 서비스 공급자에게 문의하세요. 이 오랜된 기간에 대 한 되지 않으며 보장 되지 않습니다. 
+예. ExpressRoute 회로는 추가 비용 없이 확보한 대역폭 제한의 최대 2배까지 버스트할 수 있도록 구성됩니다. 이 기능을 지원하는지 확인하려면 해당 서비스 공급자에게 문의하세요. 이는 지속 되는 기간에는 없으며 보장 되지 않습니다. 
 
 ### <a name="can-i-use-the-same-private-network-connection-with-virtual-network-and-other-azure-services-simultaneously"></a>가상 네트워크 및 다른 Azure 서비스와 동일한 프라이빗 네트워크 연결을 동시에 사용할 수 있나요?
 
@@ -57,7 +57,7 @@ ExpressRoute 연결은 공용 인터넷을 통해 이동하지 않습니다. 인
 
 ExpressRoute는 다양한 유형의 서비스에 대해 [세 개의 라우팅 도메인](expressroute-circuit-peerings.md)을 지원합니다.
 
-### <a name="private-peering"></a>프라이빗 피어링
+### <a name="private-peering"></a>개인 피어링
 
 * 모든 가상 머신 및 클라우드 서비스를 포함한 가상 네트워크
 
@@ -80,7 +80,7 @@ ExpressRoute는 다양한 유형의 서비스에 대해 [세 개의 라우팅 �
 
 * [Office 365](https://aka.ms/ExpressRouteOffice365)
 * Dynamics 365 
-* Power BI-Azure 지역 커뮤니티를 통해 사용할 수 있는 참조 [여기](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) Power BI 테 넌 트의 영역을 확인 하는 방법에 대 한 합니다. 
+* Power BI-Azure 지역 커뮤니티를 통해 사용할 수 있습니다. Power BI 테 넌 트의 지역을 확인 하는 방법은 [여기](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) 를 참조 하세요. 
 * Azure Active Directory
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/)(Azure 글로벌 서비스 커뮤니티)
 * 대부분의 Azure 서비스가 지원됩니다. 사용하려는 서비스의 지원 유무를 직접 확인해 보세요.<br><br>**다음 서비스는 지원되지 않습니다**.
@@ -119,21 +119,27 @@ ExpressRoute는 다양한 유형의 서비스에 대해 [세 개의 라우팅 �
 
 교차 연결 중 하나가 실패할 경우 연결이 손실되지 않습니다. 네트워크의 부하를 지원하고 ExpressRoute 회로의 고가용성을 제공하기 위해 중복 연결을 사용할 수 있습니다. 회로 수준 복원력을 얻기 위해 다른 피어링 위치에 추가로 회로를 만들 수 있습니다.
 
-### <a name="how-do-i-implement-redundancy-on-private-peering"></a>개인 피어 링에 중복을 어떻게 구현 할까요?
+### <a name="how-do-i-implement-redundancy-on-private-peering"></a>개인 피어 링에 대 한 중복성을 구현 하는 어떻게 할까요??
 
-다른 피어 링 위치에서 여러 ExpressRoute 회로 단일 회로 사용할 수 없게 되는 경우에서 고가용성을 제공 하려면 동일한 가상 네트워크에 연결할 수 있습니다. 그런 다음 [높은 가중치를 할당](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection) 우선 로컬 연결에는 특정 회로 선호 합니다. 고객은 단일 실패 지점을 방지 하려면 두 개 이상의 ExpressRoute 회로 설정 하는 것이 좋습니다. 
+서로 다른 피어 링 위치의 여러 Express 경로 회로를 동일한 가상 네트워크에 연결 하 여 단일 회로를 사용할 수 없게 되는 경우 고가용성을 제공할 수 있습니다. 그런 다음 특정 회로를 선호 하도록 로컬 연결에 [더 높은 가중치를 할당할](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection) 수 있습니다. 단일 실패 지점이 발생 하지 않도록 하기 위해 고객은 두 개 이상의 Express 경로 회로를 설치 하는 것이 좋습니다. 
 
-참조 [여기](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute) 고가용성을 위해 설계 하 고 [여기](https://docs.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering) 재해 복구를 위한 디자인에 대 한 합니다.  
+고가용성을 위한 디자인 설계는 [여기](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute)를 재해 복구를 위한 디자인은 [여기](https://docs.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering)를 참조하세요.  
 
-### <a name="how-i-do-implement-redundancy-on-microsoft-peering"></a>어떻게 Microsoft 피어 링 중복성을 구현할 수행할 수 있나요?
+### <a name="how-i-do-implement-redundancy-on-microsoft-peering"></a>Microsoft 피어 링에서 중복성을 구현 하는 방법
 
-고객이 Microsoft와 같은 Azure Storage 또는 Azure SQL, 뿐만 아니라 다른 피어 링에 여러 회로 구현 하는 Office 365에 Microsoft 피어 링을 사용 하는 고객은 Azure 공용 서비스에 액세스 하려면 피어 링을 사용 하는 경우 좋습니다. faiure 단일 지점을 방지 하는 위치입니다. 고객 중 두 회로에서 동일한 접두사를 보급 하 고 사용할 수 [AS PATH 앞에 추가](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending) 또는 온-프레미스에서 경로 확인 하도록 서로 다른 접두사를 보급 합니다.
+고객이 Microsoft 피어 링을 사용 하 여 Azure Storage 또는 Azure SQL과 같은 Azure 공용 서비스에 액세스 하는 경우와 Office 365의 Microsoft 피어 링을 사용 하는 고객은 서로 다른 피어 링에서 여러 회로를 구현 하는 경우에도 매우 권장 됩니다. 단일 실패 지점을 방지 하는 위치입니다. 고객은 두 회로에서 동일한 접두사를 보급 하 고 [경로 앞에 경로](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending) 를 사용 하거나 다른 접두사를 보급 하 여 온-프레미스에서 경로를 확인할 수 있습니다.
 
-참조 [여기](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute) 고가용성을 위해 설계 합니다.
+고가용성을 위한 설계는 [여기](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute) 를 참조 하세요.
 
 ### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>ExpressRoute에 연결된 가상 네트워크에서 고가용성을 보장하려면 어떻게 해야 하나요?
 
 다른 피어링 위치(예: Singapore, Singapore2)에 있는 ExpressRoute 회로를 가상 네트워크에 연결하여 고가용성을 달성할 수 있습니다. 한 ExpressRoute 회로가 다운되면 연결이 다른 ExpressRoute 회로로 장애 조치(Failover)됩니다. 기본적으로 가상 네트워크에서 나오는 트래픽은 ECMP(동일 비용 다중 경로 라우팅)를 기준으로 라우팅됩니다. 연결 가중치를 사용하여 특정 회로를 기본 회로로 사용할 수 있습니다. 자세한 내용은 [ExpressRoute 라우팅 최적화](expressroute-optimize-routing.md)를 참조하세요.
+
+### <a name="how-do-i-ensure-that-my-traffic-destined-for-azure-public-services-like-azure-storage-and-azure-sql-on-microsoft-or-public-peering-is-preferred-on-the-expressroute-path"></a>Azure 공용 서비스 (예: Azure Storage, Microsoft의 Azure SQL 또는 공용 피어 링)를 대상으로 하는 트래픽이 Express 경로에서 선호 되는지 어떻게 할까요??
+
+온-프레미스에서 Azure로의 경로가 항상 Express 경로 회로에서 선호 되도록 하려면 라우터에 *로컬 기본 설정* 특성을 구현 해야 합니다.
+
+BGP 경로 선택 및 공통 라우터 [구성에서 추가](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#path-selection-on-microsoft-and-public-peerings) 세부 정보를 참조 하세요. 
 
 ### <a name="onep2plink"></a>클라우드 교환에 공동 배치되지 않았으며 서비스 공급자가 점 대 점 연결을 공급하는 경우 온-프레미스 네트워크와 Microsoft 간에 두 개의 실제 연결을 주문해야 하나요?
 
@@ -158,7 +164,7 @@ ExpressRoute는 다양한 유형의 서비스에 대해 [세 개의 라우팅 �
 
 ### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-metro-can-i-link-them-to-the-same-virtual-network"></a>같은 메트로에 여러 ExpressRoute 회로를 포함할 수 있나요? 동일한 가상 네트워크에 연결할 수 있나요?
 
-예. 같거나 다른 서비스 공급자로 여러 ExpressRoute 회로를 포함할 수 있습니다. 메트로에 여러 개의 ExpressRoute 피어링 위치가 있고 다른 피어링 위치에 회로가 만들어지는 경우 이러한 회로를 동일한 가상 네트워크에 연결할 수 있습니다. 회로가 동일한 피어 링 위치에 생성 되 면 회로 최대 4 개의 동일한 가상 네트워크에 연결할 수 있습니다.
+예. 같거나 다른 서비스 공급자로 여러 ExpressRoute 회로를 포함할 수 있습니다. 메트로에 여러 개의 ExpressRoute 피어링 위치가 있고 다른 피어링 위치에 회로가 만들어지는 경우 이러한 회로를 동일한 가상 네트워크에 연결할 수 있습니다. 회로가 동일한 피어 링 위치에 만들어지면 최대 4 개의 회로를 동일한 가상 네트워크에 연결할 수 있습니다.
 
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>가상 네트워크를 ExpressRoute 회로에 연결하려면 어떻게 해야 하나요?
 
@@ -196,7 +202,7 @@ ExpressRoute는 다양한 유형의 서비스에 대해 [세 개의 라우팅 �
 
 ### <a name="can-i-have-one-virtual-network-connected-to-more-than-one-expressroute-circuit"></a>하나의 가상 네트워크를 둘 이상의 ExpressRoute 회로에 연결할 수 있나요?
 
-예. 중 하나는 동일 하거나 다른 피어 링 위치에 최대 4 개의 ExpressRoute 회로 사용 하 여 단일 가상 네트워크를 연결할 수 있습니다. 
+예. 같거나 다른 피어 링 위치에서 최대 4 개의 Express 경로 회로를 사용 하 여 단일 가상 네트워크를 연결할 수 있습니다. 
 
 ### <a name="can-i-access-the-internet-from-my-virtual-networks-connected-to-expressroute-circuits"></a>ExpressRoute 회로에 연결된 가상 네트워크에서 인터넷에 액세스할 수 있나요?
 
@@ -226,7 +232,7 @@ ExpressRoute는 다양한 유형의 서비스에 대해 [세 개의 라우팅 �
 
 ### <a name="are-there-restrictions-on-ip-ranges-i-can-advertise-over-the-bgp-session"></a>BGP 세션을 통해 보급할 수 있는 IP 범위에 제한 사항이 있나요?
 
-Microsoft 피어링 BGP 세션에 대해 프라이빗 접두사(RFC1918)는 허용하지 않습니다. 모든 접두사 크기 (최대/32) Microsoft 및 개인 피어 링을 모두 수락합니다.
+Microsoft 피어링 BGP 세션에 대해 프라이빗 접두사(RFC1918)는 허용하지 않습니다. Microsoft와 개인 피어 링 모두에서 접두사 크기 (최대/32)를 수락 합니다.
 
 ### <a name="what-happens-if-i-exceed-the-bgp-limits"></a>BGP 제한을 초과하면 어떻게 되나요?
 
@@ -258,7 +264,7 @@ ExpressRoute Premium은 다음 기능의 모음입니다.
 * ExpressRoute 회로에서 사용할 수 있는 VNet 및 ExpressRoute Global Reach 연결 수가 증가했습니다(기본값은 10). 자세한 내용은 [ExpressRoute 제한](#limits) 표를 참조하세요.
 * Office 365 및 Dynamics 365에 연결합니다.
 * Microsoft 핵심 네트워크를 통해 전역 연결합니다. 이제 한 지리적 지역의 VNet을 다른 지역의 ExpressRoute 회로와 연결할 수 있습니다.<br>
-    **예제:**
+    **예:**
 
     *  유럽 서부에서 만든 VNet을 실리콘밸리에서 만든 ExpressRoute 회로에 연결할 수 있습니다. 
     *  Microsoft 피어링에서는 실리콘밸리의 회로에서 유럽 서부의 SQL Azure에 연결할 수 있는 것처럼 다른 지리적 지역의 접두사가 보급됩니다.
@@ -290,25 +296,25 @@ ExpressRoute Premium은 REST API/PowerShell cmdlet을 호출하여 사용하지 
 
 예. ExpressRoute 프리미엄 요금은 ExpressRoute 회로 요금 및 연결 공급자에서 필요한 요금 위에 적용됩니다.
 
-## <a name="expressroute-local"></a>ExpressRoute 로컬
-### <a name="what-is-expressroute-local"></a>ExpressRoute 로컬 란?
-ExpressRoute 로컬은에서 사용할 수 있는 SKU의 ExpressRoute 회로 [ExpressRoute 직접](expressroute-erdirect-about.md)입니다. 로컬의 주요 기능에서 피어 링 위치를 사용 하면 ExpressRoute 회로 로컬에서 또는 동일한 메트로 거의 같은 하나 이상의 Azure 지역에만 액세스 하는 합니다. 반면, 표준 회로에 액세스할 수는 지정 학적 영역 및 모든 Azure 지역에 Premium 회로에서 모든 Azure 지역 전역적으로 합니다. 
+## <a name="expressroute-local"></a>Express 경로 로컬
+### <a name="what-is-expressroute-local"></a>Express 경로 로컬 이란?
+Express 경로 로컬은 [express 경로 직접](expressroute-erdirect-about.md)에서 사용할 수 있는 express 경로 회로의 SKU입니다. 로컬의 핵심 기능은 Express 경로 피어 링 위치의 로컬 회로에서 동일한 metro의 하나 또는 두 개의 Azure 지역에 대 한 액세스를 제공 한다는 것입니다. 반면, 표준 회로는 모든 Azure 지역에 대 한 지정 학적 영역 및 프리미엄 회로의 모든 Azure 지역에 대 한 액세스를 전역적으로 제공 합니다. 
 
-### <a name="what-are-the-benefits-of-expressroute-local"></a>ExpressRoute 로컬의 이점은 무엇 인가요?
-표준 또는 프리미엄 ExpressRoute 회로 대 한 송신 데이터 전송 요금을 지불 해야 하는 동안 지불 하지 않습니다 송신 데이터 전송 별도로 로컬 ExpressRoute 회로 대 한 합니다. 즉, ExpressRoute 로컬 가격은 데이터 전송 요금을 포함 합니다. ExpressRoute 로컬은 보다 경제적인 솔루션 엄청난 양의 데이터를 전송 하 고 원하는 Azure 지역에 가까운 ExpressRoute 피어 링 위치에 개인 연결을 통해 데이터를 가져올 수 있습니다. 
+### <a name="what-are-the-benefits-of-expressroute-local"></a>Express 경로 로컬의 이점은 무엇 인가요?
+Standard 또는 Premium Express 경로 회로에 대 한 송신 데이터 전송 비용을 지불 해야 하는 동안 Express 경로 로컬 회로에 대해 별도의 송신 데이터 전송을 지불 하지 않습니다. 즉, Express 경로 로컬의 가격은 데이터 전송 요금을 포함 합니다. Express 경로 로컬은 전송 하는 데 많은 양의 데이터가 있고 개인 연결을 통해 데이터를 원하는 Azure 지역 근처의 Express 경로 피어 링 위치로 가져올 수 있는 경우 보다 경제적인 솔루션입니다. 
 
-### <a name="what-features-are-available-and-what-are-not-on-expressroute-local"></a>사용할 수 있는 기능 및 ExpressRoute 로컬에서 하지 이란?
-표준 ExpressRoute 회로에 비해, 로컬 회로 동일한 기능 집합을 제외 하 고 있습니다.
-* Azure 지역에 설명 된 대로 위의 액세스 범위
-* 사용할 수 없는 ExpressRoute 글로벌 환경에서 로컬
+### <a name="what-features-are-available-and-what-are-not-on-expressroute-local"></a>사용할 수 있는 기능과 Express 경로 로컬에 없는 항목
+표준 Express 경로 회로와 비교할 때 로컬 회로에는 다음을 제외한 동일한 기능 집합이 있습니다.
+* 위에서 설명한 대로 Azure 지역에 대 한 액세스 범위
+* Express 경로 Global Reach 로컬에서 사용할 수 없습니다.
 
-ExpressRoute 로컬 역시 동일한 제한을 리소스 (예: Vnet 수가 회로 당)에서 표준으로 합니다. 
+또한 Express 경로 로컬은 표준으로 리소스 (예: 회로 당 Vnet 수)에 대 한 한도를 가집니다. 
 
-### <a name="how-to-configure-expressroute-local"></a>로컬 ExpressRoute를 구성 하는 방법 
-ExpressRoute 로컬만 ExpressRoute 직접 제공 됩니다. 먼저 ExpressRoute 직접 포트를 구성 해야 합니다. 직접 포트 생성 되 면 지침에 따라 로컬 회로 만들 수 있습니다 [여기](expressroute-howto-erdirect.md)합니다.
+### <a name="how-to-configure-expressroute-local"></a>Express 경로 로컬을 구성 하는 방법 
+Express 경로 로컬은 Express 경로 직접 에서만 사용할 수 있습니다. 따라서 먼저 Express 경로 직접 포트를 구성 해야 합니다. 직접 포트를 만든 후에는 [여기](expressroute-howto-erdirect.md)에 설명 된 지침에 따라 로컬 회로를 만들 수 있습니다.
 
-### <a name="where-is-expressroute-local-available-and-which-azure-regions-is-each-peering-location-mapped-to"></a>여기서 ExpressRoute 로컬을 사용할 수 있는 Azure 지역은 각 피어 링 위치에 매핑된?
-ExpressRoute 로컬 하나 또는 두 개의 Azure 지역에서 닫기 있는 피어 링 위치에서 사용할 수 있습니다. 사용할 수 없는 피어 링 위치에 있는 해당 상태, 시/도 또는 국가에서 Azure 지역이 없습니다. 에 정확한 매핑을 참조 하십시오 [위치 페이지](expressroute-locations-providers.md)합니다.  
+### <a name="where-is-expressroute-local-available-and-which-azure-regions-is-each-peering-location-mapped-to"></a>여기서는 Express 경로 로컬을 사용할 수 있으며 각 피어 링 위치가에 매핑되는 Azure 지역은 어디 인가요?
+Express 경로 로컬은 하나 또는 두 개의 Azure 지역이 종료 되는 피어 링 위치에서 사용할 수 있습니다. 해당 시/도 또는 국가에 Azure 지역이 없는 피어 링 위치에서는 사용할 수 없습니다. [위치 페이지](expressroute-locations-providers.md)에서 정확한 매핑을 참조 하세요.  
 
 ## <a name="expressroute-for-office-365"></a>Office 365용 ExpressRoute
 
@@ -381,6 +387,6 @@ Office 365 서비스를 사용하려면 프리미엄 추가 기능을 사용하�
 
 [!INCLUDE [ExpressRoute Direct](../../includes/expressroute-direct-faq-include.md)]
 
-## <a name="globalreach"></a>글로벌 환경
+## <a name="globalreach"></a>Global Reach
 
 [!INCLUDE [Global Reach](../../includes/expressroute-global-reach-faq-include.md)]
