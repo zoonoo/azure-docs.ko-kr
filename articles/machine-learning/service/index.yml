@@ -37,7 +37,7 @@ sections:
         style: unordered
         items:
           - html: <a href="tutorial-first-experiment-automated-ml">첫 번째 자동화된 기계 학습 실험을 학습합니다</a>.
-          - html: <a href="ui-tutorial-automobile-price-train-score">시각적 개체 인터페이스&quot;의 끌어서 놓기 UI에서 첫 번째 실험을 학습합니다.</a>
+          - html: <a href="ui-tutorial-automobile-price-train-score">시각적 개체 인터페이스의 끌어서 놓기 UI에서 첫 번째 실험을 학습합니다.</a>
       - type: paragraph
         text: 기계 학습을 위해 스크립트 및 Notebooks에서 <b>Python SDK를 사용</b>합니다.
       - type: list
