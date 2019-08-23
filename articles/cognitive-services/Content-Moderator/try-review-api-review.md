@@ -7,21 +7,21 @@ author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: sajagtap
-ms.openlocfilehash: 581ab488337cfecae3f5dd97610c7f92c75af8b5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ec45f182e24f44c2222d64f18e2aa0aeea845727
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564337"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882337"
 ---
 # <a name="create-human-reviews-rest"></a>사용자 리뷰 만들기 (REST)
 
-평가를 위해 인적 중재자의 콘텐츠 [를 저장 하](./review-api.md#reviews) 고 표시 합니다. 사용자가 검토를 완료 하면 결과가 지정 된 콜백 끝점으로 전송 됩니다. 이 가이드에서는 API 콘솔을 통해 REST Api 검토를 사용 하 여 리뷰를 설정 하는 방법을 알아봅니다. Api의 구조를 이해 하면 이러한 호출을 모든 REST 호환 플랫폼으로 쉽게 이식할 수 있습니다.
+[검토](./review-api.md#reviews)는 평가를 위해 인적 중재자의 콘텐츠를 저장 하 고 표시 합니다. 사용자가 검토를 완료 하면 결과가 지정 된 콜백 끝점으로 전송 됩니다. 이 가이드에서는 API 콘솔을 통해 REST Api 검토를 사용 하 여 리뷰를 설정 하는 방법을 알아봅니다. Api의 구조를 이해 하면 이러한 호출을 모든 REST 호환 플랫폼으로 쉽게 이식할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 - Content Moderator [검토 도구](https://contentmoderator.cognitive.microsoft.com/) 사이트에서 로그인 하거나 계정을 만드세요.
 

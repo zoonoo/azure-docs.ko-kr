@@ -44,6 +44,8 @@
               href: ./appsource-offer-publishing-guide.md
             - name: Azure Active Directory를 사용하여 AppSource와 Marketplace 목록을 사용하도록 설정
               href: ./enable-appsource-marketplace-using-azure-ad.md
+            - name: 통합된 솔루션
+              href: ./integrated-solutions-for-publishers.md
         - name: 마케팅 모범 사례
           href: ./gtm-marketing-best-practices.md
           items:

@@ -102,7 +102,9 @@
           items:
             - name: 동적 그룹 만들기
               href: groups-create-rule.md
-            - name: 동적 그룹 규칙
+            - name: 구성원 규칙 업데이트
+              href: groups-update-rule.md
+            - name: 동적 그룹 규칙 및 구문
               href: groups-dynamic-membership.md
             - name: 그룹 멤버 자격 형식 변경
               href: groups-change-type.md

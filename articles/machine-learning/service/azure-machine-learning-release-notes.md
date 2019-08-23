@@ -8,20 +8,99 @@ ms.subservice: core
 ms.topic: reference
 ms.author: jmartens
 author: j-martens
-ms.date: 07/25/2019
+ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: ec913133ef97a632b12db2859bd4ac32df70a1c5
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
-ms.translationtype: HT
+ms.openlocfilehash: 1e35baf24b59e7864982d131f44f79458e0d9015
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828627"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971500"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning 서비스의 릴리스 정보
 
-이 문서에서는 Azure Machine Learning 서비스의 릴리스에 대해 알아봅니다.  전체 SDK 참조 콘텐츠는 Azure Machine Learning의 [**Python 용 기본 SDK**](https://aka.ms/aml-sdk) 참조 페이지를 참조 하세요.
+이 문서에서는 Azure Machine Learning 서비스의 릴리스에 대해 알아봅니다.  전체 SDK 참조 콘텐츠는 Azure Machine Learning의 [**Python 용 기본 SDK**](https://aka.ms/aml-sdk) 참조 페이지를 참조 하세요. 
 
 알려진 버그 및 해결 방법에 대해 알아 보려면 [알려진 문제 목록](resource-known-issues.md)을 참조하세요.
+
+## <a name="2019-08-19"></a>2019-08-19
+
+### <a name="azure-machine-learning-sdk-for-python-v1057"></a>Azure Machine Learning SDK for Python v 1.0.57
++ **새로운 기능**
+  + AutomatedML `TabularDataset` 에서 사용 하도록 설정 됩니다. 에 `TabularDataset`대해 자세히 알아보려면를 참조 https://aka.ms/azureml/howto/createdatasets 하세요.
+  
++ **버그 수정 및 향상 된 기능**
+  + **automl-nativeclient**
+    + 학습 및/또는 유효성 검사 레이블 (y 및 y_valid)이 pandas 데이터 프레임 형식으로 제공 될 때 발생 하는 오류를 수정 했지만 numpy array로 제공 되지 않습니다.
+    + `RawDataContext` 데이터`AutoMLBaseSettings` 와 개체만 필요로 하는을 만들기 위해 인터페이스를 업데이트 했습니다.
+    +  자동 Ml 사용자가 예측 시 충분 하지 않은 학습 시리즈를 삭제할 수 있습니다. -자동 Ml 사용자가 예측 시 학습 집합에 없는 테스트 집합에서 조직를 삭제할 수 있습니다.
+  + **azure-cli-ml**
+    + 이제 Microsoft에서 생성 한 및 고객 인증서 모두 AKS 클러스터에 배포 된 점수 매기기 끝점에 대 한 SSL 인증서를 업데이트할 수 있습니다.
+  + **azureml-automl-core**
+    + 레이블이 누락 된 행이 제대로 제거 되지 않은 AutoML에서 문제가 해결 되었습니다.
+    + AutoML에서 오류 로깅이 개선 됨 이제 전체 오류 메시지는 항상 로그 파일에 기록 됩니다.
+    + Automl에서, `azureml-defaults` `azureml-explain-model`및 `azureml-dataprep`를 포함 하도록 패키지 고정을 업데이트 했습니다. Automl은 패키지 불일치에 대해 더 이상 경고 하지 않습니다 `azureml-train-automl` (패키지 제외).
+    + Cv 분할 크기가 동일 하지 않아 bin 계산이 실패 하는 시계열의 문제를 해결 했습니다.
+    + 교차 유효성 검사 학습 유형에 대해 앙상블 반복을 실행할 때 전체 데이터 집합에 대해 학습 된 모델을 다운로드 하는 데 문제가 있는 경우 모델 가중치와 투표에 제공 된 모델 간에 불일치가 발생 했습니다. 앙상블.
+    + 학습 및/또는 유효성 검사 레이블 (y 및 y_valid)이 pandas 데이터 프레임 형식으로 제공 될 때 발생 하는 오류를 수정 했지만 numpy array로 제공 되지 않습니다.
+    + 입력 테이블의 부울 열에서 아무것도 발견 되지 않은 경우 예측 태스크에 대 한 문제를 해결 했습니다.
+    + 자동 Ml 사용자가 예측 시 충분 하지 않은 학습 시리즈를 삭제할 수 있습니다. -자동 Ml 사용자가 예측 시 학습 집합에 없는 테스트 집합에서 조직를 삭제할 수 있습니다.
+  + **azureml-core**
+    + Blob_cache_timeout 매개 변수 순서 지정 문제를 해결 했습니다.
+    + 외부 맞춤 및 변환 예외 유형을 시스템 오류에 추가 했습니다.
+    + 원격 실행에 대 한 Key Vault 암호에 대 한 지원이 추가 되었습니다. 작업 영역과 연결 된 keyvault의 암호를 추가, 가져오기 및 나열 하려면 azureml를 추가 합니다. 지원 되는 작업은 다음과 같습니다.
+      + azureml. 작업 영역입니다. get _default_keyvault ()
+      + azureml. keyvault. Keyvault. set secret (name, value)
+      + azureml. 키 자격 증명 모음. 암호 설정 (_s) (secrets_dict)
+      + azureml. 키 자격 증명 모음. 암호 가져오기 (이름) (_s)
+      + azureml. 키 자격 증명 모음. 암호 가져오기 (secrets_list) (_s)
+      + list_secrets () (영문)
+    + 원격 실행 중에 기본 키 자격 증명 모음을 가져오고 암호를 가져오는 추가 방법:
+      + azureml. 작업 영역입니다. get _default_keyvault ()
+      + azureml. 실행 합니다. get _secret (name)
+      + secrets_list ()를 실행 합니다.
+    + 전송-hyperdrive CLI 명령에 추가 재정의 매개 변수를 추가 했습니다.
+    + API 호출의 안정성 향상은 일반적인 요청 라이브러리 예외에 대 한 다시 시도를 확장 합니다.
+    + 제출 된 실행에서 실행을 제출 하기 위한 지원을 추가 합니다.
+    + 초기 토큰이 만료 된 후 파일의 업로드를 중지 시킨 FileWatcher의 SAS 토큰 문제를 수정 했습니다.
+    + 데이터 집합 python SDK에서 HTTP csv/tsv 파일 가져오기를 지원 합니다.
+    + 작업 영역. setup () 메서드를 사용 하지 않습니다. 사용자에 게 create () 또는 get ()/from_config ()를 대신 사용 하도록 제안 하는 경고 메시지가 표시 됩니다.
+    + 환경을 추가 했습니다. 추가 _private_pip_wheel ()를 사용 하 여 개인 사용자 지정 python 패키지 (whl)를 작업 영역에 업로드 하 고이를 안전 하 게 사용 하 여 환경을 빌드하거나 구체화할 수 있습니다.
+    + 이제 Microsoft에서 생성 한 및 고객 인증서 모두 AKS 클러스터에 배포 된 점수 매기기 끝점에 대 한 SSL 인증서를 업데이트할 수 있습니다.
+  + **azureml-explain-model**
+    + 업로드에 대 한 설명에 모델 ID를 추가 하는 매개 변수를 추가 했습니다.
+    + 메모리 `is_raw` 의 설명에 태그를 추가 하 고 업로드 합니다.
+    + Pytorch 패키지에 대 한 지원 및 테스트가 추가 되었습니다.
+  + **azureml-opendatasets**
+    + 자동 테스트 환경 검색 및 로깅을 지원 합니다.
+    + 국가 및 zip을 기준으로 인구를 가져오도록 클래스를 추가 했습니다.
+  + **azureml-pipeline-core**
+    + 입력 및 출력 포트 정의에 레이블 속성을 추가 했습니다.
+  + **azureml-원격 분석**
+    + 잘못 된 원격 분석 구성을 수정 했습니다.
+  + **azureml-train-automl**
+    + 설치 오류가 발생 하는 동안 오류가 발생 하 여 설치 실행에 대 한 "오류" 필드가 기록 되지 않아 부모 실행 "오류"로 저장 되지 않은 버그를 수정 했습니다.
+    + 레이블이 누락 된 행이 제대로 제거 되지 않은 AutoML에서 문제가 해결 되었습니다.
+    + 자동 Ml 사용자가 예측 시 충분 하지 않은 학습 시리즈를 삭제할 수 있습니다.
+    + 자동 Ml 사용자가 예측 시 학습 집합에 없는 테스트 집합에서 조직를 삭제할 수 있도록 허용 합니다.
+    + 이제 AutoMLStep가 새 구성 매개 변수의 변경 또는 추가에 대 한 문제를 방지 하기 위해 automl config를 백 엔드에 전달 합니다.
+  + **azureml-train-core**
+    + PyTorch 평가기에서 torch 1.2 지원을 추가 했습니다.
+  + **azureml 위젯**
+    + 분류 학습을 위한 향상 된 혼동 행렬 차트
+
+### <a name="azure-machine-learning-data-prep-sdk-v1112"></a>Azure Machine Learning 데이터 준비 SDK v 1.1.12
++ **새로운 기능**
+  + 이제 문자열 목록을 메서드에 대 한 `read_*` 입력으로 전달할 수 있습니다.
+
++ **버그 수정 및 향상 된 기능**
+  + Spark에서 실행 `read_parquet` 하는 경우의 성능이 크게 향상 되었습니다.
+  + 모호한 날짜 형식의 단일 `column_type_builder` 열에 대해 실패 한 경우 문제가 해결 되었습니다.
+
+### <a name="azure-portal"></a>Azure Portal
++ **미리 보기 기능**
+  + 이제 실행 정보 페이지에 대 한 로그 및 출력 파일 스트리밍을 사용할 수 있습니다. 이 파일은 미리 보기 토글이 설정 된 경우 실시간으로 업데이트를 스트리밍합니다.
+  + 작업 영역 수준에서 할당량을 설정 하는 기능은 미리 보기로 릴리스됩니다. AmlCompute 할당량은 구독 수준에서 할당 되지만 이제 작업 영역 간에 해당 할당량을 배포 하 고 공평 하 게 공유 및 거 버 넌 스에 할당할 수 있습니다. 작업 영역의 왼쪽 탐색 모음에서 **사용량 + 할당량** 블레이드를 클릭 하 고 **할당량 구성** 탭을 선택 하면 됩니다. 작업 영역 간 작업 이므로 작업 영역 수준에서 할당량을 설정할 수 있으려면 구독 관리자 여야 합니다.
 
 ## <a name="2019-08-05"></a>2019-08-05
 

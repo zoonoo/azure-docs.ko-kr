@@ -34,8 +34,10 @@
       href: create-host-pools-powershell.md
     - name: Windows Virtual Desktop 세션 호스트에 Windows 라이선스 적용
       href: apply-windows-license.md
-    - name: 호스트 풀에 대한 사용자 프로필 공유 설정
+    - name: 파일 공유를 사용하여 호스트 풀에 대한 프로필 컨테이너 만들기
       href: create-host-pools-user-profile.md
+    - name: Azure NetApp Files를 사용하여 호스트 풀에 대한 프로필 컨테이너 만들기
+      href: create-fslogix-profile-container.md
     - name: Windows Virtual Desktop 부하 분산 방법 구성
       href: configure-host-pool-load-balancing.md
     - name: 마스터 VHD 이미지 준비 및 사용자 지정

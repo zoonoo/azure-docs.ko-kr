@@ -15,7 +15,7 @@
         - name: ID 보호
           tocHref: /azure/active-directory/identity-protection/
           topicHref: /azure/active-directory/identity-protection/
-        - name: 장치
+        - name: 디바이스
           tocHref: /azure/active-directory/devices/
           topicHref: /azure/active-directory/devices/
         - name: 조건부 액세스
@@ -55,7 +55,7 @@
           tocHref: /azure/active-directory/manage-apps/
           topicHref: /azure/active-directory/manage-apps/
           items:
-            - name: SaaS 응용 프로그램 자습서
+            - name: SaaS 애플리케이션 자습서
               tocHref: /azure/active-directory/saas-apps/
               topicHref: /azure/active-directory/saas-apps/tutorial-list
         - name: 보고 및 모니터링
@@ -173,6 +173,9 @@
         - name: IoT Edge
           tocHref: /azure/iot-edge/
           topicHref: /azure/iot-edge/
+        - name: IoT 플러그 앤 플레이
+          tocHref: /azure/iot-pnp/
+          topicHref: /azure/iot-pnp/
         - name: Azure Digital Twins
           tocHref: /azure/digital-twins/
           topicHref: /azure/digital-twins/

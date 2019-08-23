@@ -11,13 +11,13 @@ metadata:
   ms.collection: collection
   author: alkohli
   ms.author: alkohli
-  ms.date: 08/14/2019
-  ms.openlocfilehash: 03de9ceffe4495b1c3a39dad6617cc72d022fbbd
-  ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+  ms.date: 08/16/2019
+  ms.openlocfilehash: 2c42ee93804eb1e0e24b0b67925a092cc8517ceb
+  ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/16/2019
-  ms.locfileid: "69557843"
+  ms.lasthandoff: 08/20/2019
+  ms.locfileid: "69650368"
 landingContent:
 - title: Data Box 제품군 정보
   linkLists:
@@ -53,75 +53,43 @@ landingContent:
     links:
     - text: Data Box
       url: data-box-system-requirements.md
-    - text: Data Box Blob Storage의 경우
-      url: data-box-system-requirements-rest.md
     - text: Data Box Disk의 경우
       url: data-box-disk-system-requirements.md
     - text: Data Box Heavy의 경우
       url: data-box-heavy-system-requirements.md
-- title: Data Box 배포
+- title: 순서, 설정, 복사, 반환
   linkLists:
   - linkListType: tutorial
     links:
-    - text: 순서
+    - text: Data Box
       url: data-box-deploy-ordered.md
-    - text: 케이블
-      url: data-box-deploy-set-up.md
-    - text: SMB를 통한 데이터 연결, 복사
-      url: data-box-deploy-copy-data.md
-    - text: Azure 데이터 반환, 업로드, 확인
-      url: data-box-deploy-picked-up.md
-- title: Data Box Disk 배포
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: 순서
+    - text: Data Box Disk
       url: data-box-disk-deploy-ordered.md
-    - text: 잠금 해제 및 연결
-      url: data-box-disk-deploy-set-up.md
-    - text: 데이터 복사, 유효성 검사
-      url: data-box-disk-deploy-copy-data.md
-    - text: Azure 데이터 반환, 업로드, 확인
-      url: data-box-disk-deploy-picked-up.md
-- title: Data Box Heavy 배포
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: 순서
+    - text: Data Box Heavy
       url: data-box-heavy-deploy-ordered.md
-    - text: 케이블
-      url: data-box-heavy-deploy-set-up.md
-    - text: SMB를 통한 데이터 연결, 복사
-      url: data-box-heavy-deploy-copy-data.md
-    - text: Azure 데이터 반환, 업로드, 확인
-      url: data-box-heavy-deploy-picked-up.md
 - title: 디바이스 관리
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Azure의 Data Box, Data Box Heavy
+    - text: Azure의 Data Box
       url: data-box-portal-admin.md
-    - text: 로컬 UI를 통한 Data Box, Data Box Heavy
-      url: data-box-local-web-ui-admin.md
     - text: Azure의 Data Box Disk
       url: data-box-portal-ui-admin.md
-- title: FAQ
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: FAQ - Data Box
-      url: data-box-faq.md
-    - text: FAQ - Data Box Disk
-      url: data-box-disk-faq.md
+    - text: Azure의 Data Box Heavy
+      url: data-box-portal-admin.md
 - title: 문제 해결
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Data Box, Data Box Heavy
+    - text: Data Box
       url: data-box-troubleshoot.md
-    - text: Data Box Blob Storage
-      url: data-box-troubleshoot-rest.md
     - text: Data Box Disk
       url: data-box-disk-troubleshoot.md
+    - text: Data Box Heavy
+      url: data-box-troubleshoot.md
+    - text: Data Box FAQ를 통해
+      url: data-box-faq.md
+    - text: Data Box Disk FAQ를 통해
+      url: data-box-disk-faq.md
     - text: 지원 티켓 열기
       url: data-box-disk-contact-microsoft-support.md

@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 3637676a330b324d5620885f0cbe50d4aa68ed51
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
-ms.translationtype: HT
+ms.openlocfilehash: 2efeb37f8b98f4cf9a29ec8a6976146b81aab26b
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779041"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69641083"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>SQL Database 관리 되는 인스턴스 FAQ (질문과 대답)
 
@@ -36,8 +36,7 @@ Azure SQL Database 관리 되는 인스턴스와 온-프레미스 SQL Server 간
 
 ## <a name="where-can-i-find-known-issues-and-bugs"></a>알려진 문제 및 버그는 어디서 찾을 수 있나요?
 
-버그 및 알려진 문제에 대해서는 [동작 변경 사항](sql-database-managed-instance-transact-sql-information.md#Changes) 및 [알려진 문제](sql-database-managed-instance-transact-sql-information.md#Issues)를 참조 하세요.
-
+버그 및 알려진 문제에 대해서는 [알려진 문제](sql-database-managed-instance-transact-sql-information.md#Issues)를 참조 하세요.
 
 ## <a name="can-a-managed-instance-have-the-same-name-as-on-premises-sql-server"></a>관리 되는 인스턴스의 이름이 온-프레미스 SQL Server와 동일할 수 있나요?
 

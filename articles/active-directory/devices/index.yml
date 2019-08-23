@@ -1,35 +1,59 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Azure AD 디바이스 ID 설명서
+summary: Azure AD에서 디바이스 ID를 구성하고 관리하는 방법을 알아봅니다.
 metadata:
-  document_id: null
-  title: 'Azure Active Directory 디바이스 ID 관리 설명서 - 자습서, 개념, 참조 | Microsoft Docs'
+  title: Azure AD 디바이스 ID 설명서
   description: Azure AD에서 디바이스 ID를 구성하고 관리하는 방법을 알아봅니다.
   services: active-directory
-  ms.subservice: devices
-  author: MicrosoftGuyJFlo
-  manager: daveba
   ms.service: active-directory
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: devices
   ms.topic: landing-page
-  ms.date: 08/14/2018
+  author: MicrosoftGuyJFlo
   ms.author: joflore
-abstract:
-  description: 사용자는 Azure AD에서 디바이스를 통해 회사 자산에 액세스할 수 있습니다. IT 관리자는 회사의 자산을 보호하기 위해 Azure AD에서 이러한 디바이스 ID를 관리하려고 합니다. 이 기능을 사용하면 보안 및 규정 준수에 대한 표준을 충족하는 디바이스에서 사용자 리소스에 사용자가 액세스할 수 있습니다.<br>또한 디바이스 ID 관리는 디바이스 기반 조건부 액세스에 대한 기반이기도 합니다. 디바이스 기반 조건부 액세스를 사용할 경우 관리 디바이스를 통해서만 환경의 리소스에 액세스하도록 할 수 있습니다.
-sections:
-  - title: 단계별 자습서
-    items:
-      - type: paragraph
-        text: Azure AD와 온-프레미스 AD 조인 디바이스를 통합하는 방법을 알아봅니다.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: ./media/index/i_security-management.png
-            text: 관리되는 도메인
-            href: hybrid-azuread-join-managed-domains.md
-          - image:
-              src: ./media/index/i_security-management.png
-            text: 페더레이션된 도메인
-            href: hybrid-azuread-join-federated-domains.md
+  ms.date: 08/20/2019
+  ms.collection: M365-identity-device-management
+  ms.openlocfilehash: e26be2206ba63fa4721ced7ed1a2f35ddc63a5fd
+  ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 08/20/2019
+  ms.locfileid: "69648934"
+landingContent:
+- title: 디바이스 ID 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 디바이스 ID란?
+      url: overview.md
+    - text: 엔터프라이즈 상태 로밍이란?
+      url: enterprise-state-roaming-overview.md
+  - linkListType: concept
+    links:
+    - text: Azure AD 등록 디바이스
+      url: concept-azure-ad-register.md
+    - text: Azure AD 조인 디바이스
+      url: concept-azure-ad-join.md
+    - text: 하이브리드 Azure AD 가입 디바이스
+      url: concept-azure-ad-join-hybrid.md
+    - text: 온-프레미스 리소스에 대한 SSO
+      url: azuread-join-sso.md
+    - text: 기본 새로 고침 토큰
+      url: concept-primary-refresh-token.md
+- title: Azure AD 조인 디바이스 구성 및 관리
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Azure AD 조인 구현 계획
+      url: azureadjoin-plan.md
+    - text: Azure AD 조인 디바이스에서 로컬 관리자 그룹 관리
+      url: assign-local-admin.md
+    - text: Azure AD에서 부실 디바이스 찾기 및 관리
+      url: manage-stale-devices.md
+- title: 하이브리드 Azure AD 조인 디바이스 구성 및 관리
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 하이브리드 Azure AD 조인 구현 계획
+      url: hybrid-azuread-join-plan.md
+    - text: 하이브리드 Azure AD 조인 디바이스 문제 해결
+      url: troubleshoot-hybrid-join-windows-current.md

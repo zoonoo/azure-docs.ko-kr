@@ -2,14 +2,14 @@
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 07/30/2019
+ms.date: 08/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: f027f5b295d75c105e81360a10718239e5b08e4d
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
-ms.translationtype: HT
+ms.openlocfilehash: 25928ef35da1ce4b3824303a5d46749c32aa701f
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698286"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69626371"
 ---
 | 리소스 | 기본 제한 | 최대 제한 |
 | --- | --- | --- |
@@ -17,7 +17,7 @@ ms.locfileid: "68698286"
 | 배포 기록의 리소스 그룹당 배포 |800<sup>1</sup> |800 |
 | 배포당 리소스 |800 |800 |
 | 고유 범위 당 관리 잠금 |20 |20 |
-| 리소스 또는 리소스 그룹당 태그 수 |15 |15 |
+| 리소스 또는 리소스 그룹당 태그 수 |50 |50 |
 | 태그 키 길이 |512 |512 |
 | 태그 값 길이 |256 |256 |
 

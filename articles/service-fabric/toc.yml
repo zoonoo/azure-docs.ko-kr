@@ -356,6 +356,8 @@
       href: service-fabric-concept-resource-model.md
     - name: 관리 ID(미리 보기)
       href: concepts-managed-identity.md
+    - name: 컨테이너 리포지토리 인증 구성
+      href: configure-container-repository-credentials.md
 - name: 방법 가이드
   items:
     - name: 개발 환경 설정

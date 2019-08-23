@@ -5,14 +5,15 @@ author: DCtheGeek
 manager: carmonm
 ms.service: blueprints
 ms.topic: sample
-ms.date: 06/26/2019
+ms.date: 08/20/2019
 ms.author: dacoulte
-ms.openlocfilehash: e1bafdaa2883afb44aa3c609c0ccba0ce9d0a4ab
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 884777bce761f6b16581a28038bf9a28ce6a3801
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934174"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650502"
 ---
 # <a name="azure-blueprints-samples"></a>Azure Blueprints 샘플
 
@@ -22,14 +23,26 @@ ms.locfileid: "68934174"
 
 |  |  |
 |---------|---------|
-|[IRS 1075](./irs-1075/index.md)| IRS 1075 규정을 준수하기 위한 가드 레일을 제공합니다.|
+| [IRS 1075](./irs-1075/index.md) | IRS 1075 규정을 준수하기 위한 가드 레일을 제공합니다.|
 | [ISO 27001](./iso27001/index.md) | ISO 27001 규정 준수를 위한 가드레일을 제공합니다. |
 | [ISO 27001 Shared Services](./iso27001-shared/index.md) | ISO 27001 증명에 도움이 되는 일련의 호환 인프라 패턴 및 정책 가드 레일을 제공합니다. |
 | [ISO 27001 App Service Environment/SQL Database 워크로드](./iso27001-ase-sql-workload/index.md) | [ISO 27001 Shared Services](./iso27001-shared/index.md) 청사진 샘플에 추가 인프라를 제공합니다. |
 | [NIST SP 800-53 R4](./nist-sp-800-53-rev4/index.md) | NIST SP 800-53 R4 규정 준수를 위한 가드레일을 제공합니다. |
 | [PCI-DSS v3.2.1](./pci-dss-3.2.1/index.md) | PCI-SS v3.2.1 규정 준수를 위한 일련의 정책을 제공합니다. |
 | [영국 공식 및 영국 NHS 거버넌스](./ukofficial/index.md) | 영국 공식 및 영국 NHS 증명에 도움이 되는 일련의 호환 인프라 패턴 및 정책 가드 레일을 제공합니다. |
+| [CAF Foundation](./caf-foundation/index.md) | [Azure에 대한 Microsoft CAF(클라우드 채택 프레임워크)](/azure/architecture/cloud-adoption/governance/journeys/index.md)와 연계하여 클라우드 자산을 관리하는 데 도움이 되는 컨트롤 세트를 제공합니다. |
+| [CAF Migrate 방문 영역](./caf-migrate-landing-zone/index.md) | 첫 번째 워크로드 마이그레이션을 설정하고 [Azure에 대한 Microsoft CAF(클라우드 채택 프레임워크)](/azure/architecture/cloud-adoption/migrate/index.md)와 연계하여 클라우드 자산을 관리하는 데 도움이 되는 컨트롤 세트를 제공합니다. |
 
+## <a name="samples-strategy"></a>샘플 전략
+
+![청사진 샘플 전략](../media/blueprint-samples-strategy.png)
+
+CAF Foundation 및 CAF Migrate 방문 영역 청사진은 고객이 온-프레미스 자산/워크로드를 Azure로 마이그레이션하기 위해 기존의 완전한 단일 구독을 준비하는 것으로 가정합니다.
+(위 그림의 지역 A 및 B).  
+
+샘플 청사진을 반복하고 고객이 적용하는 사용자 지정의 패턴을 찾을 수 있습니다. 또한 금융 서비스 및 전자 상거래(지역 B의 위쪽 끝)와 같이 업계와 관련된 청사진을 사전에 해결할 수 있습니다. 마찬가지로, 여러 구독, 고가용성, 지역 간 리소스, 그리고 기존 구독 및 리소스(지역 C 및 D)에 대한 제어를 구현하는 고객과 같이 복잡한 아키텍처 고려 사항에 대한 청사진 작성을 계획하고 있습니다.
+
+규정 준수 요구사항이 높고 아키텍처 복잡성이 높은 고객 시나리오를 다루는 샘플 청사진이 있습니다(위 그림의 지역 E). 위의 지역 F는 샘플 청사진을 활용하여 고객 및 파트너의 고유한 요구에 맞게 맞춤화합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

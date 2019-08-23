@@ -1,0 +1,83 @@
+- name: IoT 플러그 앤 플레이 설명서
+  href: index.yml
+- name: 개요
+  items:
+    - name: IoT 플러그 앤 플레이란?
+      href: overview-iot-plug-and-play.md
+- name: 빠른 시작
+  expanded: true
+  items:
+    - name: 디바이스 기능 모델을 사용하여 디바이스 만들기
+      href: quickstart-create-pnp-device.md
+    - name: 디바이스를 IoT Hub에 연결
+      href: quickstart-connect-pnp-device.md
+    - name: 디바이스를 IoT Central에 연결
+      href: 'https://aka.ms/iot-central-connect-qs'
+    - name: 솔루션에서 디바이스에 연결
+      href: quickstart-connect-pnp-device-solution.md
+- name: 자습서
+  items:
+    - name: VS Code를 사용하여 디바이스 만들기
+      href: tutorial-pnp-visual-studio-code.md
+    - name: 인증을 위해 준비된 디바이스 빌드
+      href: tutorial-build-device-certification.md
+    - name: 디바이스 인증
+      href: tutorial-certification-test.md
+- name: 개념
+  items:
+    - name: 용어
+      href: iot-plug-and-play-glossary.md
+    - name: 개발자 가이드
+      href: concepts-developer-guide.md
+    - name: 공용 인터페이스
+      href: concepts-common-interfaces.md
+    - name: 모델 검색
+      href: concepts-model-discovery.md
+    - name: 한도 및 할당량
+      href: concepts-limits-quotas.md
+- name: 방법 가이드
+  items:
+    - name: IoT 디바이스 워크벤치 사용
+      href: howto-use-iot-device-workbench.md
+    - name: IoT Explorer 설치
+      href: howto-install-iot-explorer.md
+    - name: IoT 포털에 등록
+      href: howto-onboard-portal.md
+    - name: 모델 관리
+      href: howto-manage-models.md
+    - name: 디바이스에 연결 및 상호 작용
+      href: howto-develop-solution.md
+- name: 참고 자료
+  items:
+    - name: REST (영문)
+      href: 'https://aka.ms/iot-pnp-rest'
+    - name: REST 보안 토큰 생성
+      href: howto-generate-sas-token.md
+- name: 관련 항목
+  items:
+    - name: 솔루션
+      items:
+        - name: IoT Central
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+        - name: IoT 솔루션 가속기
+          href: /azure/iot-accelerators
+    - name: 플랫폼 서비스
+      items:
+        - name: IoT Hub
+          href: /azure/iot-hub
+        - name: IoT 플러그 앤 플레이
+          href: /azure/iot-pnp
+        - name: IoT Hub Device Provisioning Service
+          href: /azure/iot-dps
+        - name: IoT 서비스 SDK
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: 지도
+          href: /azure/azure-maps
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: IoT Edge
+      items:
+        - name: Azure IoT Edge
+          href: /azure/iot-edge
+        - name: IoT 디바이스 SDK
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'

@@ -97,9 +97,6 @@
         - name: 템플릿 모듈화
           displayName: 'linked templates, nested templates'
           href: resource-group-linked-templates.md
-        - name: 비밀 관리
-          displayname: key vault
-          href: resource-manager-keyvault-parameter.md
         - name: 여러 인스턴스 만들기
           href: resource-group-create-multiple.md
         - name: 템플릿 확장 사용
@@ -124,6 +121,13 @@
           href: secure-template-with-sas-token.md
         - name: 여러 리소스 그룹 또는 구독에 배포
           href: resource-manager-cross-resource-group-deployment.md
+    - name: 매개 변수 제공
+      items:
+        - name: 매개 변수 파일 만들기
+          href: resource-manager-parameter-files.md
+        - name: 중요한 값 전달
+          displayname: key vault
+          href: resource-manager-keyvault-parameter.md
     - name: CI/CD
       items:
         - name: 파이프라인이 있는 VS 프로젝트

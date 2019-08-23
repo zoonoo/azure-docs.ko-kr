@@ -104,6 +104,10 @@
           items:
             - name: 클래스룸 랩 액세스
               href: classroom-labs/how-to-use-classroom-lab.md
+            - name: Linux VM용 원격 데스크톱 연결 사용
+              href: classroom-labs/how-to-use-remote-desktop-linux-student.md
+            - name: 가상 머신의 암호 설정 또는 재설정
+              href: classroom-labs/how-to-set-virtual-machine-passwords-student.md
     - name: DevTest Labs
       items:
         - name: 랩 구성

@@ -7,16 +7,18 @@ ms.date: 07/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 7dd053e3a9824ac0817db528b8b053666e1ded04
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
-ms.translationtype: HT
+ms.openlocfilehash: 131d6865c47a32bbefbfbd397a5f0f88dedc9c35
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881811"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543501"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>게스트 구성 정책을 만드는 방법
 
 게스트 구성은 DSC ( [필요한 상태 구성](/powershell/dsc) ) 리소스 모듈을 사용 하 여 Azure virtual machines의 감사에 대 한 구성을 만듭니다. DSC 구성은 가상 컴퓨터가 속해야 하는 조건을 정의 합니다. 구성 평가에 실패 하는 경우 정책 효과 **감사가** 트리거되고 가상 머신은 **비준수**로 간주 됩니다.
+
+[Azure Policy 게스트 구성은](/azure/governance/policy/concepts/guest-configuration) 가상 컴퓨터 내에서 설정을 감사 하는 데만 사용할 수 있습니다. 가상 컴퓨터 내 설정의 재구성은 아직 사용할 수 없습니다.
 
 다음 작업을 사용 하 여 Azure 가상 컴퓨터의 상태를 확인 하는 고유한 구성을 만들 수 있습니다.
 

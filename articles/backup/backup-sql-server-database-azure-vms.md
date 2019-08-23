@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: b7bf9943afa2a79f98fd28d15e5ea46fa63af732
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
-ms.translationtype: MT
+ms.openlocfilehash: 6a929359c0e4e0a5c64eadbf41f565dfeb56a233
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688637"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854107"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Azure VM의 SQL Server 데이터베이스 백업
 
@@ -29,7 +29,7 @@ SQL Server 데이터베이스는 낮은 RPO (복구 지점 목표) 및 장기 �
 > * 데이터베이스에 대한 자동 보호를 설정합니다.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 SQL Server 데이터베이스를 백업 하기 전에 다음 조건을 확인 합니다.
 
@@ -168,7 +168,7 @@ VM에서 실행 되는 데이터베이스를 검색 하는 방법:
    백업 로드를 최적화하기 위해 Azure Backup은 한 백업 작업의 최대 데이터베이스 수를 50개로 설정합니다.
 
      * 50개가 넘는 데이터베이스를 보호하려면 여러 백업을 구성합니다.
-     * 전체 인스턴스 [](#enable-auto-protection) 또는 Always On 가용성 그룹을 사용 하도록 설정 합니다. **Autoprotect** 드롭다운 목록에서 **켜기**를 선택 하 고 **확인**을 선택 합니다.
+     * 전체 인스턴스 또는 Always On 가용성 그룹을 사용 하여 [](#enable-auto-protection)를 설정합니다. **Autoprotect** 드롭다운 목록에서 **켜기**를 선택 하 고 **확인**을 선택 합니다.
 
     > [!NOTE]
     > [자동 보호](#enable-auto-protection) 기능은 모든 기존 데이터베이스를 한 번에 보호할 뿐만 아니라 해당 인스턴스 또는 가용성 그룹에 추가 된 새 데이터베이스를 자동으로 보호 합니다.  
@@ -177,7 +177,7 @@ VM에서 실행 되는 데이터베이스를 검색 하는 방법:
 
     ![Always On 가용성 그룹에 대 한 자동 보호 사용](./media/backup-azure-sql-database/enable-auto-protection.png)
 
-5. **백업 정책**에서 정책을 선택 하 고 **확인**을 선택 합니다.
+5. **백업 정책**에서 정책을 선택 하 고 **확인**을 선택 합니다.
 
    - 기본 정책을 HourlyLogBackup로 선택 합니다.
    - 이전에 SQL용으로 만든 기존 백업 정책을 선택합니다.
@@ -185,11 +185,11 @@ VM에서 실행 되는 데이터베이스를 검색 하는 방법:
 
      ![백업 정책 선택](./media/backup-azure-sql-database/select-backup-policy.png)
 
-6.  **백업**에서 **백업 사용**을 선택 합니다.
+6. **백업**에서 **백업 사용**을 선택합니다.
 
     ![선택한 백업 정책 사용](./media/backup-azure-sql-database/enable-backup-button.png)
 
-7. 포털의  **알림**  영역에서 구성 진행률을 추적합니다.
+7. 포털의 **알림** 영역에서 구성 진행률을 추적합니다.
 
     ![알림 영역](./media/backup-azure-sql-database/notifications-area.png)
 
@@ -215,7 +215,7 @@ VM에서 실행 되는 데이터베이스를 검색 하는 방법:
 
    - **매일**의 경우 백업 작업이 시작될 때 시간과 표준 시간대를 선택합니다.
    - **매주**의 경우 백업 작업이 시작되는 요일, 시간 및 표준 시간대를 선택합니다.
-   - 전체 **백업 옵션을** 해제할 수 없기 때문에 전체 백업을 실행 합니다.
+   - 전체 백업 옵션을 해제할 수 없기 때문에 전체 백업을 실행 합니다.
    - 정책을 보려면 **전체 백업** 을 선택 합니다.
    - 매일 전체 백업에 대해서는 차등 백업을 만들 수 없습니다.
 
@@ -273,7 +273,7 @@ VM에서 실행 되는 데이터베이스를 검색 하는 방법:
 
 - 한 번에 자동 보호를 위해 선택할 수 있는 데이터베이스 수에는 제한이 없습니다.
 - 자동 보호를 사용 하도록 설정 하는 경우 인스턴스에서 보호 된 데이터베이스를 선택적으로 보호 하거나 제외할 수 없습니다.
-- 인스턴스에 이미 보호 된 데이터베이스가 포함 되어 있는 경우 자동 보호를 설정한 후에도 해당 정책에 따라 보호 된 상태로 유지 됩니다. 나중에 추가 된 모든 보호 되지 않은 데이터베이스에는 자동 보호를 사용 하도록 설정할 때 정의한 **백업 구성**에 나열 된 단일 정책만 있습니다. 그러나 나중에 자동으로 보호 되는 데이터베이스와 연결 된 정책을 변경할 수 있습니다.  
+- 인스턴스에 이미 보호 된 데이터베이스가 포함 되어 있는 경우 자동 보호를 설정한 후에도 해당 정책에 따라 보호 된 상태로 유지 됩니다. 나중에 추가 된 모든 보호 되지 않은 데이터베이스에는 자동 보호를 사용 하도록 설정할 때 정의한 **백업 구성**에 나열 된 단일 정책만 있습니다. 그러나 나중에 자동으로 보호 되는 데이터베이스와 연결 된 정책을 변경할 수 있습니다.  
 
 자동 보호를 사용 하도록 설정 하려면:
 
@@ -288,7 +288,7 @@ VM에서 실행 되는 데이터베이스를 검색 하는 방법:
 
 ![해당 인스턴스에서 자동 보호 사용 안 함](./media/backup-azure-sql-database/disable-auto-protection.png)
 
- 
+ 
 ## <a name="next-steps"></a>다음 단계
 
 다음 작업을 수행하는 방법을 배워 보십시오.

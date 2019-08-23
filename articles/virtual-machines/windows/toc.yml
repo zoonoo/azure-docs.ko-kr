@@ -251,6 +251,8 @@
           href: mitigate-se.md
         - name: 예약된 이벤트
           href: scheduled-events.md
+        - name: 예정된 이벤트 모니터링
+          href: scheduled-event-service.md
         - name: 모니터 메타데이터
           href: instance-metadata-service.md
         - name: 중첩된 가상화 사용
