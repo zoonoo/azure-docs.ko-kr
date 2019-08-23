@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 7/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: 5095e680eb7fd33d28acb2d187f83d86db1b46bf
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
-ms.translationtype: HT
+ms.openlocfilehash: 8e535fc581e186abd032206c2bbf78623d95967f
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656619"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899764"
 ---
 # <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services-preview"></a>Service Fabric 응용 프로그램의 관리 되는 id를 활용 하 여 Azure 서비스에 액세스 하는 방법 (미리 보기)
 
@@ -23,7 +23,7 @@ Service Fabric 응용 프로그램은 관리 되는 id를 활용 하 여 Azure A
 > 관리 id는 리소스를 포함 하는 구독과 연결 된 해당 Azure AD 테 넌 트의 Azure 리소스와 서비스 주체 간의 연결을 나타냅니다. 따라서 Service Fabric 컨텍스트에서 관리 id는 Azure 리소스로 배포 된 응용 프로그램에 대해서만 지원 됩니다. 
 
 > [!IMPORTANT]
-> Service Fabric 응용 프로그램의 관리 되는 id를 사용 하기 전에 클라이언트 응용 프로그램에 보호 된 리소스에 대 한 액세스 권한을 부여 해야 합니다. [AZURE AD 인증을 지 원하는 azure 서비스](/active-directory/managed-identities-azure-resources/services-support-managed-identities#azure-services-that-support-managed-identities-for-azure-resources) 목록을 참조 하 여 지원 여부를 확인 한 다음 특정 단계에 대 한 특정 단계에 대 한 자세한 내용을 확인 하 여 관심 있는 리소스에 대 한 id 액세스 권한을 부여 하세요. 
+> Service Fabric 응용 프로그램의 관리 되는 id를 사용 하기 전에 클라이언트 응용 프로그램에 보호 된 리소스에 대 한 액세스 권한을 부여 해야 합니다. [AZURE AD 인증을 지 원하는 azure 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources) 목록을 참조 하 여 지원 여부를 확인 한 다음 특정 단계에 대 한 특정 단계에 대 한 자세한 내용을 확인 하 여 관심 있는 리소스에 대 한 id 액세스 권한을 부여 하세요. 
 
 ## <a name="acquiring-an-access-token-using-rest-api"></a>REST API를 사용 하 여 액세스 토큰 가져오기
 관리 id에 대해 사용 하도록 설정 된 클러스터에서 Service Fabric 런타임은 응용 프로그램이 액세스 토큰을 가져오는 데 사용할 수 있는 localhost 끝점을 노출 합니다. 끝점은 클러스터의 모든 노드에서 사용할 수 있으며 해당 노드의 모든 엔터티에 액세스할 수 있습니다. 권한 있는 호출자는이 끝점을 호출 하 고 인증 코드를 제공 하 여 액세스 토큰을 가져올 수 있습니다. 코드는 각각의 개별 서비스 코드 패키지 활성화에 대해 Service Fabric 런타임에 의해 생성 되며 해당 서비스 코드 패키지를 호스팅하는 프로세스의 수명에 바인딩됩니다.
@@ -267,7 +267,7 @@ HTTP 응답 헤더의 ' 상태 코드 ' 필드는 요청의 성공 상태를 나
 
 오류가 발생 하는 경우 해당 HTTP 응답 본문에는 오류 세부 정보를 포함 하는 JSON 개체가 포함 됩니다.
 
-| 요소 | Description |
+| 요소 | 설명 |
 | ------- | ----------- |
 | code | 오류 코드입니다. |
 | correlationId | 디버깅에 사용할 수 있는 상관 관계 ID입니다. |

@@ -8,16 +8,16 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 9dbe1751ac77f370991af75ea161247c21700ff2
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 122e0636f54e066ae86ed2d19cefe5863b026293
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68886989"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972827"
 ---
-# <a name="delete-nodes-from-vmware-solution-by-cloudsimple---azure"></a>CloudSimple로 VMware 솔루션에서 노드 삭제
+# <a name="delete-nodes-from-azure-vmware-solution-by-cloudsimple"></a>CloudSimple로 Azure VMware 솔루션에서 노드 삭제
 
-CloudSimple 노드는 생성 되 면 계량 됩니다.  노드 계량을 중지 하려면 노드를 삭제 해야 합니다.  Azure Portal에서 사용 되지 않는 노드를 삭제 합니다. 
+CloudSimple 노드는 생성 되 면 계량 됩니다.  노드 계량을 중지 하려면 노드를 삭제 해야 합니다.  Azure Portal에서 사용 되지 않는 노드를 삭제 합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
@@ -25,7 +25,6 @@ CloudSimple 노드는 생성 되 면 계량 됩니다.  노드 계량을 중지 
 
 * 노드를 사용 하 여 만든 사설 클라우드는 삭제 됩니다.  사설 클라우드를 삭제 하려면 [CloudSimple 사설 클라우드에서 Azure VMware 솔루션 삭제](delete-private-cloud.md)를 참조 하세요.
 * 사설 클라우드를 축소 하 여 사설 클라우드에서 노드가 제거 되었습니다.  사설 클라우드를 축소 하려면 [CloudSimple 사설 클라우드에서 Azure VMware 솔루션 축소](shrink-private-cloud.md)를 참조 하세요.
-
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 

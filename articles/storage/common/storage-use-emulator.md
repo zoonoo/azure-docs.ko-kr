@@ -3,16 +3,16 @@ title: 개발 및 테스트에 Azure Storage 에뮬레이터 사용 | Microsoft 
 description: Azure Storage 에뮬레이터는 Azure Storage 애플리케이션에 대한 개발 및 테스트에 대해 무료 로컬 개발 환경을 제공합니다. 요청을 인증하는 방법, 애플리케이션에서 에뮬레이터에 연결하는 방법 및 명령줄 도구를 사용하는 방법을 알아봅니다.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 08/10/2018
+ms.date: 08/21/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.openlocfilehash: ee8dd9da186013dc168e20e6b8b842cca85de172
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
-ms.translationtype: HT
+ms.openlocfilehash: a50b397ffe1cfc44d4234dcfbee1618e9fb2506c
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877637"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900352"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>개발 및 테스트에 Azure Storage 에뮬레이터 사용
 
@@ -172,11 +172,11 @@ Azure Storage 계정에 리소스 주소를 지정할 때는 다음 체계를 �
 
 `AzureStorageEmulator.exe [start] [stop] [status] [clear] [init] [help]`
 
-### <a name="options"></a>변수
+### <a name="options"></a>옵션
 
 옵션 목록을 보려면 명령 프롬프트에 `/help` 을(를) 입력합니다.
 
-| 옵션 | Description | 명령 | 인수 |
+| 옵션 | 설명 | 명령 | 인수 |
 | --- | --- | --- | --- |
 | **시작** |스토리지 에뮬레이터를 시작합니다. |`AzureStorageEmulator.exe start [-inprocess]` |*-inprocess*: 새 프로세스를 만드는 대신 현재 프로세스에서 에뮬레이터를 시작합니다. |
 | **중지** |스토리지 에뮬레이터를 중지합니다. |`AzureStorageEmulator.exe stop` | |

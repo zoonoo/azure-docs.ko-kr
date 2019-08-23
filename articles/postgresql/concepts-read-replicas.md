@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/12/2019
-ms.openlocfilehash: 928a85c9d03148198fe3e965636740812ce732f7
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.date: 08/21/2019
+ms.openlocfilehash: 0884120c15b2e48566d1889400197e316bac9021
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976279"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907452"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL-단일 서버에서 복제본 읽기
 
@@ -120,33 +120,49 @@ AS total_log_delay_in_bytes from pg_stat_replication;
 > 독립 실행형 서버를 다시 복제본으로 만들 수 없습니다.
 > 읽기 복제본에서 복제를 중지하기 전에 복제본에 필요한 모든 데이터가 있는지 확인하십시오.
 
-복제를 중지하면 이전 마스터 및 다른 복제본에 대한 복제본의 모든 링크가 손실됩니다. 마스터 및 복제본 간 자동 장애 조치는 없습니다. 
+복제를 중지하면 이전 마스터 및 다른 복제본에 대한 복제본의 모든 링크가 손실됩니다.
 
 [복제본에 대한 복제를 중지](howto-read-replicas-portal.md)하는 방법을 알아봅니다.
+
+## <a name="fail-over"></a>장애 조치
+마스터 서버와 복제 서버 간에는 자동화 된 장애 조치 (failover)가 없습니다. 
+
+복제는 비동기 이므로 마스터와 복제본 사이에 지연이 발생 합니다. 지연 시간은 마스터 서버에서 실행 되는 워크 로드의 양에 따라 달라 집니다. 대부분의 경우 복제본 지연 범위는 몇 초에서 몇 분 사이입니다. 각 복제본에 대해 사용 가능한 메트릭 *복제본 지연*시간을 사용 하 여 실제 복제 지연 시간을 추적할 수 있습니다. 이 메트릭은 마지막으로 재생 된 트랜잭션 이후 경과 된 시간을 표시 합니다. 일정 기간 동안 복제본 지연 시간을 관찰 하 여 평균 지연 시간을 확인 하는 것이 좋습니다. 복제본 지연에 대 한 경고를 설정 하 여 예상 범위를 벗어나면 작업을 수행할 수 있습니다.
+
+> [!Tip]
+> 복제본으로 장애 조치 (failover) 하는 경우 마스터에서 복제본을 연결 취소 한 시간의 지연 시간은 손실 되는 데이터의 양을 표시 합니다.
+
+복제본으로 장애 조치 (failover)를 결정 한 후에는 다음을 수행 합니다. 
+
+1. 복제본에 대 한 복제를 중지 합니다 .이 단계는 복제본 서버에서 쓰기를 허용할 수 있도록 하는 데 필요 합니다. 이 프로세스의 일부로 복제본 서버가 다시 시작 되 고 마스터에서 분리 됩니다. 복제 중지를 시작한 후 백 엔드 프로세스는 일반적으로 완료 하는 데 약 2 분이 걸립니다. [복제 중지](#stop-replication)에 대해 자세히 알아보세요.
+    
+2. 응용 프로그램이 (이전) 복제본을 가리키도록 각 서버에는 고유한 연결 문자열이 있습니다. 마스터가 아닌 (이전) 복제본을 가리키도록 응용 프로그램을 업데이트 합니다.
+    
+응용 프로그램이 읽기 및 쓰기를 성공적으로 처리 하면 장애 조치 (failover)를 완료 한 것입니다. 응용 프로그램의 가동 중지 시간은 문제를 감지 하 고 위의 1 단계와 2 단계를 완료 하는 시기에 따라 달라 집니다.
 
 
 ## <a name="considerations"></a>고려 사항
 
 이 섹션에서는 읽기 복제본 기능의 고려 사항에 대한 요약이 제공됩니다.
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>필수 구성 요소
 읽기 복제본을 만들기 전에, 마스터 서버에서 `azure.replication_support` 매개 변수를 **REPLICA**로 설정해야 합니다. 이 매개 변수가 변경되면, 서버를 다시 시작해야 변경 사항이 적용됩니다. `azure.replication_support` 매개 변수는 범용 및 메모리 최적화 계층에만 적용됩니다.
 
 ### <a name="new-replicas"></a>새 복제본
 읽기 복제본은 새로운 Azure Database for PostgreSQL 서버로 생성됩니다. 기존 서버를 복제본으로 만들 수 없습니다. 다른 읽기 복제본의 복제본은 만들 수 없습니다.
 
 ### <a name="replica-configuration"></a>복제본 구성
-복제본은 마스터와 같은 서버 구성을 사용하여 생성됩니다. 복제본을 만든 후에는 마스터 서버와는 별도로 컴퓨팅 생성, vCore, 스토리지 및 백업 보존 기간 등의 일부 설정을 변경할 수 있습니다. 가격 책정도 기본 계층에서 다른 계층으로 또는 다른 계층에서 기본 계층으로 변경하는 경우를 제외하고 독립적으로 변경할 수 있습니다.
+복제본은 마스터와 동일한 계산 및 저장소 설정을 사용 하 여 생성 됩니다. 복제본을 만든 후에는 마스터 서버와는 별도로 컴퓨팅 생성, vCore, 스토리지 및 백업 보존 기간 등의 일부 설정을 변경할 수 있습니다. 가격 책정도 기본 계층에서 다른 계층으로 또는 다른 계층에서 기본 계층으로 변경하는 경우를 제외하고 독립적으로 변경할 수 있습니다.
 
 > [!IMPORTANT]
-> 마스터 서버 구성을 새 값으로 업데이트하기 전에 복제본의 구성을 같거나 더 큰 값으로 업데이트합니다. 이렇게 하면 복제본이 마스터에 대한 변경 내용을 유지할 수 있습니다.
+> 마스터 설정을 새 값으로 업데이트 하기 전에 복제본 구성을 같거나 큰 값으로 업데이트 합니다. 이렇게 하면 복제본이 마스터에 대한 변경 내용을 유지할 수 있습니다.
 
 PostgreSQL에서는 읽기 복제본의 `max_connections` 매개 변수 값이 마스터 값보다 크거나 같아야 합니다. 그렇지 않으면 해당 복제본이 시작되지 않습니다. Azure Database for PostgreSQL에서 `max_connections` 매개 변수 값은 SKU에 기반합니다. 자세한 내용은 [Azure Database for PostgreSQL의 제한](concepts-limits.md)을 참조하세요. 
 
 서버 값을 업데이트하려고 해도 한도를 지키지 않으면 오류가 발생합니다.
 
 ### <a name="max_prepared_transactions"></a>max_prepared_transactions
-[PostgreSQL](https://www.postgresql.org/docs/10/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS) 에는 읽기 복제본의 `max_prepared_transactions` 매개 변수 값이 마스터 값 보다 크거나 같아야 합니다. 그렇지 않으면 복제본이 시작 되지 않습니다. 마스터에서 변경 `max_prepared_transactions` 하려면 먼저 복제본에서 변경 하십시오.
+[PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS) 에는 읽기 복제본의 `max_prepared_transactions` 매개 변수 값이 마스터 값 보다 크거나 같아야 합니다. 그렇지 않으면 복제본이 시작 되지 않습니다. 마스터에서 변경 `max_prepared_transactions` 하려면 먼저 복제본에서 변경 하십시오.
 
 ### <a name="stopped-replicas"></a>중지된 복제본
 마스터 서버와 읽기 복제본 간의 복제를 중지하면 복제본이 다시 시작되어 변경 내용이 적용됩니다. 중지된 복제본은 읽기와 쓰기를 모두 허용하는 독립 실행형 서버가 됩니다. 독립 실행형 서버를 다시 복제본으로 만들 수 없습니다.
@@ -155,4 +171,5 @@ PostgreSQL에서는 읽기 복제본의 `max_connections` 매개 변수 값이 �
 마스터 서버를 삭제하면 이 서버의 모든 읽기 복제본이 독립 실행형 서버가 됩니다. 이 변경 내용을 반영하기 위해 복제본이 다시 시작됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-[Azure Portal에서 읽기 복제본을 만들고 관리하는 방법](howto-read-replicas-portal.md)을 알아봅니다.
+* [Azure Portal에서 읽기 복제본을 만들고 관리하는 방법](howto-read-replicas-portal.md)을 알아봅니다.
+* [Azure CLI에서 읽기 복제본을 만들고 관리](howto-read-replicas-cli.md)하는 방법에 대해 알아봅니다.

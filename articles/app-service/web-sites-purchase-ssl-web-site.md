@@ -16,12 +16,12 @@ ms.date: 10/16/2018
 ms.author: cephalin
 ms.reviewer: apurvajo
 ms.custom: seodec18
-ms.openlocfilehash: 7675a22b4b2d8b13524f06f45d6bb805c1e2fad1
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 8f55e2eb3ac7fe2e869b6b1061f6d45d11894ccf
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019144"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69905934"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Azure App Service에 대한 SSL 인증서 구입 및 구성
 
@@ -31,7 +31,7 @@ ms.locfileid: "69019144"
 > App Service Certificates는 Azure 또는 비 Azure 서비스에 대해 사용할 수 있으며 App Services로 제한되지 않습니다. 그렇게 하려면 어디서든 사용할 수 있는 App Service Certificate의 로컬 PFX 복사본을 만들어야 합니다. 자세한 내용은 [App Service Certificate의 로컬 PFX 복사본 만들기](https://blogs.msdn.microsoft.com/benjaminperkins/2017/04/12/export-an-azure-app-service-certificate-pfx-powershell/)를 참고하세요.
 >
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 방법 가이드를 수행하려면 다음이 필요합니다.
 
@@ -112,7 +112,7 @@ ms.locfileid: "69019144"
 
 다음 표를 사용하여 **SSL 바인딩** 대화 상자에서 바인딩을 구성한 다음, **바인딩 추가**를 클릭합니다.
 
-| 설정 | 설명 |
+| 설정 | Description |
 |-|-|
 | Hostname | SSL 바인딩을 추가할 도메인 이름입니다. |
 | 프라이빗 인증서 지문 | 바인딩할 인증서입니다. |
@@ -139,7 +139,7 @@ ms.locfileid: "69019144"
 
 ## <a name="renew-certificate"></a>인증서 갱신
 
-언제든 인증서 자동 갱신을 켜려면 [App Service Certificate](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) 페이지에서 인증서를 선택한 다음, 왼쪽 탐색 영역에서 **자동 갱신 설정**을 클릭합니다.
+언제든 인증서 자동 갱신을 켜려면 [App Service Certificate](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) 페이지에서 인증서를 선택한 다음, 왼쪽 탐색 영역에서 **자동 갱신 설정**을 클릭합니다. 기본적으로 App Service 인증서의 유효 기간은 1 년입니다.
 
 **켜기**를 선택하고 **저장**을 클릭합니다. 자동 갱신을 켜 놓으면 인증서가 만료 60일 전에 자동으로 갱신됩니다.
 

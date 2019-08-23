@@ -5,13 +5,13 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
-ms.date: 07/29/2019
-ms.openlocfilehash: 78dff1b9d9db4e54ab1a8f7203088753e206c610
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.date: 08/21/2019
+ms.openlocfilehash: 635b7adb8753b7e9490e8f14a0699c09297fdbbb
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68641956"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899091"
 ---
 # <a name="scenario-apache-spark-job-run-slowly-when-the-azure-storage-container-contains-many-files-in-azure-hdinsight"></a>시나리오: Azure 저장소 컨테이너에 Azure HDInsight의 많은 파일이 포함 되어 있으면 Apache Spark 작업이 느리게 실행 됩니다.
 
@@ -26,8 +26,6 @@ HDInsight 클러스터를 실행 하는 경우 파일/하위 폴더가 많은 �
 이것은 알려진 Spark 문제입니다. 속도 저하는 Spark 작업을 `ListBlob` 실행 `GetBlobProperties` 하는 동안 및 작업에서 제공 됩니다.
 
 파티션을 추적 하기 위해 Spark는 디렉터리 구조에 `FileStatusCache` 대 한 정보를 포함 하는를 유지 관리 해야 합니다. Spark는이 캐시를 사용 하 여 경로를 구문 분석 하 고 사용 가능한 파티션을 인식할 수 있습니다. 파티션을 추적 하는 경우 Spark는 데이터를 읽을 때 필요한 파일만 접촉 한다는 것입니다. 이 정보를 최신 상태로 유지 하기 위해 새 데이터를 작성할 때 Spark는 디렉터리 아래의 모든 파일을 나열 하 고이 캐시를 업데이트 해야 합니다.
-
-Spark 1.6에서는 디렉터리를 업데이트할 때마다 (1) 캐시 (2)에서 모든 파일을 재귀적으로 나열 하 고 (3) 전체 캐시를 업데이트 하는 것을 취소 합니다. 이로 인해 많은 목록 작업이 수행 됩니다.
 
 Spark 2.1에서는 모든 쓰기 후 캐시를 업데이트할 필요가 없지만 Spark는 기존 파티션 열이 현재 쓰기 요청에서 제안 된 파티션 열과 일치 하는지 여부를 확인 하므로 모든 쓰기를 시작할 때 작업을 나열 하는 작업도 수행 합니다.
 

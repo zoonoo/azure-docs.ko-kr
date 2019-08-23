@@ -7,12 +7,12 @@ ms.author: jenhayes
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 1478e8f44db2e6a1d52d069d2f52830c265b2641
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 7cda51870a98b2606a0133a61ad6f786e7e9324a
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036827"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900149"
 ---
 # <a name="create-a-new-dynamics-365-for-customer-engagement--powerapps-offer"></a>고객 Engagement & PowerApps 제품에 대 한 새 Dynamics 365 만들기
 
@@ -82,27 +82,11 @@ CRM (고객 관계 관리) 시스템을 연결 하 여 고객 연락처 정보�
 
 ## <a name="connect-lead-management"></a>리드 관리 연결
 
-CRM (고객 관계 관리) 시스템을 연결 하 여 고객과 직접 연결 합니다. 이렇게 하면 고객이 관심을 표시 하거나 제품을 배포할 때 고객 연락처 정보를 받게 됩니다.
+[!INCLUDE [Test drive content](./includes/connect-lead-management.md)]
 
-CRM 시스템에 연결 하려면 **연결**을 선택 합니다.
+자세한 내용은 [리드 관리 개요](./commercial-marketplace-get-customer-leads.md) 를 참조 하세요.
 
-### <a name="choose-a-lead-destination"></a>리드 대상 선택
-
-**연결**을 선택 하면 CRM 시스템을 선택한 다음 연결 정보를 제공할 수 있는 드롭다운 메뉴가 표시 됩니다.
-
-파트너 센터는 리드 관리를 위해 다음과 같은 CRM 시스템을 지원 합니다. 설치 지침에 대 한 링크를 선택 합니다.
-
-- [Azure 테이블](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) – 저장소 계정 연결 문자열을 제공 합니다. 
-- [Dynamics 365 For Customer Engagement (이전의 DYNAMICS CRM Online](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) – Dynamics 365 인스턴스 URL 및 인증 모드 제공 (Office 365 또는 Azure Active Directory)
-- [Https 끝점](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https) – HTTPS 끝점 URL을 제공 합니다. 
-- [Marketo](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo) – 서버 Id, MUNCHKIN 계정 id 및 양식 id를 제공 합니다.
-- [Salesforce](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce) -조직 ID를 제공 합니다. 
-
-#### <a name="additional-lead-management-resources"></a>추가 리드 관리 리소스
-
-- [리드 관리 Faq](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [일반적인 리드 구성 오류](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
-- [리드 관리 개요 1 호출기](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf)
+다음 섹션으로 이동 하기 전에 **저장** 해야 합니다.
 
 ## <a name="properties"></a>속성
 
@@ -155,7 +139,7 @@ CRM 시스템에 연결 하려면 **연결**을 선택 합니다.
 
 제품에 대 한 간단한 설명을 제공 합니다 (최대 100 자). Marketplace 검색 결과에 사용할 수 있습니다.
 
-### <a name="description"></a>Description
+### <a name="description"></a>설명
 
 제품에 대 한 더 긴 설명 (최대 3000 자)을 제공 합니다. 이 설명은 marketplace 목록 개요에서 고객에 게 표시 됩니다. 제품의 가치 제안, 주요 이점, 범주 및/또는 업계 연결, 앱 내 구매 기회 및 필요한 공개를 포함 합니다. 
 

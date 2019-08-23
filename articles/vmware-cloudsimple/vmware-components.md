@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 26f58a38ac3abe9c6e2a3c6254190dffc4a51eb9
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 51a19d867b4906aacfe58cb4fdfd08f32a16e5f3
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543717"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972349"
 ---
 # <a name="private-cloud-vmware-components"></a>사설 클라우드 VMware 구성 요소
 
@@ -45,7 +45,7 @@ VMware ESXi에 대 한 자세한 정보
 
 vCenter server 어플라이언스 (VCSA)는 CloudSimple로 VMware 솔루션에 대 한 인증, 관리 및 오케스트레이션 함수를 제공 합니다. 포함 된 PSC (Platform Services Controller)를 사용 하는 VCSA는 사설 클라우드를 만들 때 배포 됩니다.  VCSA는 사설 클라우드를 배포할 때 생성 된 vSphere 클러스터에 배포 됩니다.  각 사설 클라우드에는 자체 VCSA가 있습니다.  사설 클라우드의 확장은 사설 클라우드의 VCSA에 노드를 추가 합니다.
 
-### <a name="vcenter-single-sign-on"></a>vCenter single sign-on
+### <a name="vcenter-single-sign-on"></a>vCenter Single Sign-On
 
 VCSA의 Embedded Platform Services 컨트롤러는 **VCenter Single sign-on 도메인**에 연결 됩니다.  도메인 이름은 **cloudsimple. local**입니다.  VCenter에 액세스할 **CloudOwner@cloudsimple.com** 수 있는 기본 사용자가 만들어집니다.  [VCenter에 대 한](set-vcenter-identity.md)온-프레미스/Azure active directory id 원본을 추가할 수 있습니다.
 

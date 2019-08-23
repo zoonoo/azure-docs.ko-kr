@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 37624c79a345f956de9a289c672340e391199e2f
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
-ms.translationtype: HT
+ms.openlocfilehash: 584b9fdde33d14650c36c44b9b457a25f8a1d6f9
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650710"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900128"
 ---
 # <a name="create-a-new-saas-offer"></a>새 SaaS 제품 만들기
 
@@ -153,23 +153,9 @@ CRM (고객 관계 관리) 시스템을 연결 하 여 고객 연락처 정보�
 
 ## <a name="connect-lead-management"></a>리드 관리 연결
 
-마켓플레이스에 제품을 나열 하 고 CRM (고객 관계 관리) 시스템을 연결 하 여 고객에 게 직접 연결 하 여 고객에 게 관심이 나 배포한 후 즉시 고객 연락처 정보를 받을 수 있도록 합니다. 제품은.
+[!INCLUDE [Test drive content](./includes/connect-lead-management.md)]
 
-- **리드 대상 선택** (드롭다운 메뉴): 고객 리드를 보내려는 CRM 시스템에 대 한 연결 세부 정보를 제공 합니다. 
-
-파트너 센터는 리드 관리를 위해 다음과 같은 CRM 시스템을 지원 합니다. 설치 지침에 대 한 링크를 선택 합니다.
-
-- Azure Blob – 연락처 전자 메일, 컨테이너 이름 및 저장소 계정 연결 문자열을 제공 합니다. 
-- [Azure 테이블](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) – 연락처 전자 메일 및 저장소 계정 연결 문자열을 제공 합니다. 
-- [DYNAMICS CRM Online](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) – 연락처 전자 메일, URL 및 인증 모드 (Office 365 또는 Azure Active Directory)를 제공 합니다.
-- [Https 끝점](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https) – 연락처 전자 메일 및 HTTPS 끝점 URL을 제공 합니다. 
-- [Marketo](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo) – 연락처 전자 메일, 양식 Id, MUNCHKIN 계정 id 및 서버 id를 제공 합니다.
-- [Salesforce](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce) -연락처 전자 메일 및 조직 ID를 제공 합니다. 
-
-#### <a name="additional-lead-management-resources"></a>추가 리드 관리 리소스
-- [리드 관리 Faq](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [일반적인 리드 구성 오류](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
-- [리드 관리 개요 1 호출기](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf)
+자세한 내용은 [리드 관리 개요](./commercial-marketplace-get-customer-leads.md) 를 참조 하세요.
 
 다음 섹션으로 이동 하기 전에 **저장** 해야 합니다.
 

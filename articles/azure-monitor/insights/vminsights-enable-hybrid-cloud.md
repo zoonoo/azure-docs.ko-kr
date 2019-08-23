@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/12/2019
 ms.author: magoedte
-ms.openlocfilehash: e8241069a8671919b70dfbe44fe28c99a05358c5
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: b06fe477f551977b1357f3b1b185cb340a948052
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489742"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69905490"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-for-a-hybrid-environment"></a>하이브리드 환경에 대 한 VM용 Azure Monitor (미리 보기) 사용
 
@@ -42,6 +42,9 @@ ms.locfileid: "68489742"
 3. 성능 카운터 컬렉션을 사용하도록 설정합니다.
 
 4. VM용 Azure Monitor를 배포합니다.
+
+>[!NOTE]
+>종속성 에이전트 배포에 대 한이 문서에서 설명 하는 정보는 [서비스 맵 솔루션](service-map.md)에도 적용 됩니다.  
 
 ## <a name="install-the-dependency-agent-on-windows"></a>Windows에 종속성 에이전트 설치
 
@@ -89,7 +92,7 @@ Dependency Agent에 대한 파일은 다음 디렉터리에 있습니다.
 | 로그 파일 | /var/opt/microsoft/dependency-agent/log |
 | 구성 파일 | /etc/opt/microsoft/dependency-agent/config |
 | 서비스 실행 파일 | /opt/microsoft/dependency-agent/bin/microsoft-dependency-agent<br>/opt/microsoft/dependency-agent/bin/microsoft-dependency-agent-manager |
-| 이진 저장소 파일 | /var/opt/microsoft/dependency-agent/storage |
+| 이진 스토리지 파일 | /var/opt/microsoft/dependency-agent/storage |
 
 ## <a name="installation-script-examples"></a>설치 스크립트 예제
 

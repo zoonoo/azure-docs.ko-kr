@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 759422ea8c327ae67278354217dac4c60b32f7a9
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: c6b526cdd317e8b075d28e0fb9018501148c731c
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850330"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971289"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Runbook으로 오류 해결
 
@@ -31,11 +31,23 @@ Azure Automation에서 runbook을 실행 하는 동안 오류가 발생 하는 �
    - **구문 오류**
    - **논리 오류**
 
-2. **노드 및 자동화 작업 영역에 필요한 모듈이 있는지 확인 합니다.** Runbook이 모듈을 가져오는 경우 모듈 [가져오기](../shared-resources/modules.md#import-modules)에 나열 된 단계를 사용 하 여 automation 계정으로 사용할 수 있는지 확인 합니다. 자세한 내용은 [모듈 문제 해결](shared-resources.md#modules)을 참조 하세요.
+2. 특정 메시지의 Runbook [오류 스트림](https://docs.microsoft.com/azure/automation/automation-runbook-output-and-messages#runbook-output)을 조사하여 아래 오류와 비교합니다.
+
+3. **노드 및 자동화 작업 영역에 필요한 모듈이 있는지 확인 합니다.** Runbook이 모듈을 가져오는 경우 모듈 [가져오기](../shared-resources/modules.md#import-modules)에 나열 된 단계를 사용 하 여 automation 계정으로 사용할 수 있는지 확인 합니다. [Azure Automation에서 Azure 모듈 업데이트](..//automation-update-azure-modules.md)아래의 지침에 따라 모듈을 최신 버전으로 업데이트 합니다. 문제 해결에 대 한 자세한 내용은 [모듈 문제 해결](shared-resources.md#modules)을 참조 하세요.
+
+### <a name="if-the-runbook-is-suspended-or-unexpectedly-failed"></a>Runbook이 일시 중단 되었거나 예기치 않게 실패 한 경우
+
+여러 가지 이유로 Runbook이 일시 중단되거나 실패할 수 있습니다.
+
+* [작업 상태](https://docs.microsoft.com/azure/automation/automation-runbook-execution#job-statuses) 는 runbook 상태와 몇 가지 가능한 원인을 정의 합니다.
+* Runbook에 [추가 출력을 추가](https://docs.microsoft.com/azure/automation/automation-runbook-output-and-messages#message-streams) 하 여 runbook이 일시 중단 되기 전에 수행 되는 작업을 식별 합니다.
+* 작업에서 throw 되는 [모든 예외를 처리](https://docs.microsoft.com/azure/automation/automation-runbook-execution#handling-exceptions) 합니다.
 
 ## <a name="authentication-errors-when-working-with-azure-automation-runbooks"></a>Azure Automation Runbook을 사용할 때 인증 오류
 
 ### <a name="login-azurerm"></a>시나리오: 로그인을 실행 하 여 로그인 Connect-azurermaccount
+
+실행 계정을 사용하지 않거나 실행 계정이 만료되면 이 오류가 발생할 수 있습니다. [Azure Automation 실행 계정 관리](https://docs.microsoft.com/azure/automation/manage-runas-account)를 참조 하세요.
 
 #### <a name="issue"></a>문제점
 
@@ -574,6 +586,97 @@ Exception was thrown - Cannot invoke method. Method invocation is supported only
 * Runbook에이 오류 메시지가 있는 경우 Hybrid Runbook Worker에서 실행 합니다.
 
 이 동작 및 Runbook Azure Automation의 다른 동작에 대해 자세히 알아보려면 [runbook 동작](../automation-runbook-execution.md#runbook-behavior)을 참조 하세요.
+
+## <a name="other"></a>: 위 목록에 없는 문제가 발생함
+
+아래 섹션에는 문제를 해결 하는 데 도움이 되는 지원 설명서 외에도 다른 일반적인 오류가 나열 되어 있습니다.
+
+### <a name="hybrid-runbook-worker-doesnt-run-jobs-or-isnt-responding"></a>Hybrid Runbook Worker가 작업을 실행하지 않거나 응답하지 않음
+
+Azure Automation 대신 hybrid worker를 사용 하 여 작업을 실행 하는 경우 [hybrid worker 자체의 문제를 해결](https://docs.microsoft.com/azure/automation/troubleshoot/hybrid-runbook-worker)해야 할 수 있습니다.
+
+### <a name="runbook-fails-with-no-permission-or-some-variation"></a>"권한 없음" 또는 약간의 변형으로 인해 Runbook이 실패
+
+실행 계정에 현재 계정과 동일한 Azure 리소스 권한이 없는 것일 수 있습니다. 실행 계정에 스크립트에 사용된 [리소스에 대한 액세스 권한](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)이 있는지 확인합니다.
+
+### <a name="runbooks-were-working-but-suddenly-stopped"></a>Runbook이 작동 중에 갑자기 중지됨
+
+* Runbook이 이전에 실행 되었지만 중지 된 경우 실행 [계정이 만료 되지 않았는지 확인](https://docs.microsoft.com/azure/automation/manage-runas-account#cert-renewal)합니다.
+* webhook를 사용하여 Runbook을 시작하는 경우 [webhook가 만료되지 않았는지 확인](https://docs.microsoft.com/azure/automation/automation-webhooks#renew-webhook)합니다.
+
+### <a name="issues-passing-parameters-into-webhooks"></a>웹 후크에 매개 변수를 전달 하는 문제
+
+웹 후크에 매개 변수를 전달 하는 방법에 대 한 도움말 [은 webhook에서 Runbook 시작](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters)을 참조 하세요.
+
+### <a name="issues-using-az-modules"></a>Az modules 사용 문제
+
+Az 모듈 및 AzureRM 모듈을 같은 Automation 계정에 사용하는 것은 지원되지 않습니다. 자세한 내용은 [runbook의 Az 모듈](https://docs.microsoft.com/azure/automation/az-modules) 을 참조 하세요.
+
+### <a name="runbook-job-completed-but-with-unexpected-results-or-errors"></a>Runbook 작업이 완료 되었지만 예기치 않은 결과 또는 오류가 발생 했습니다.
+
+아래에 특정 문제 및 해결 방법이 나열되어 있지만, 다음 두 문제 해결 단계를 먼저 시도할 것을 강력하게 권장합니다.
+
+* Azure Automation에서 실행 하기 전에 [runbook을 로컬로 실행](https://docs.microsoft.com/azure/automation/troubleshoot/runbooks#runbook-fails) 해 보세요. 이렇게 하면 문제가 Runbook의 버그인지 아니면 Azure Automation 문제인지 확인할 수 있습니다.
+* 특정 메시지의 Runbook [오류 스트림](https://docs.microsoft.com/azure/automation/automation-runbook-output-and-messages#runbook-output)을 조사하여 아래 오류와 비교합니다.
+* Runbook에 [추가 출력](https://docs.microsoft.com/azure/automation/automation-runbook-output-and-messages#message-streams) 을 추가 하 여 오류가 발생 하는 위치를 식별 합니다.
+
+### <a name="inconsistent-behavior-in-runbooks"></a>Runbook의 동작이 일관적이지 않음
+
+[Runbook 실행](https://docs.microsoft.com/azure/automation/automation-runbook-execution#runbook-behavior)의 지침을 따르면 동시 작업, 여러 번 생성되는 리소스, 그 외에 시간에 민감한 Runbook의 논리와 관련된 이슈를 방지할 수 있습니다.
+
+### <a name="switching-between-multiple-subscriptions-in-a-runbook"></a>Runbook의 여러 구독 간에 전환
+
+[여러 구독 사용](https://docs.microsoft.com/azure/automation/automation-runbook-execution#working-with-multiple-subscriptions)에 대 한 지침을 따릅니다.
+
+### <a name="runbook-fails-with-error-the-subscription-cannot-be-found"></a>오류가 발생 하 여 Runbook이 실패 합니다. 구독을 찾을 수 없습니다.
+
+Runbook이 Azure 리소스에 액세스할 때 실행 계정을 사용하지 않으면 이 문제가 발생할 수 있습니다. 이 문제를 해결하려면 [시나리오: Azure 구독을 찾을 수 없음](https://docs.microsoft.com/azure/automation/troubleshoot/runbooks#unable-to-find-subscription)의 단계를 수행합니다.
+
+### <a name="error-your-azure-credentials-have-not-been-set-up-or-have-expired-please-run-connect-azurermaccount-to-set-up-your-azure-credentials"></a>오류: Azure 자격 증명이 설정 되지 않았거나 만료 되었습니다. Connect-azurermaccount를 실행 하 여 azure 자격 증명을 설정 하세요.
+
+실행 계정을 사용하지 않거나 실행 계정이 만료되면 이 오류가 발생할 수 있습니다. [Azure Automation 실행 계정 관리](https://docs.microsoft.com/azure/automation/manage-runas-account)를 참조 하세요.
+
+### <a name="error-run-login-azurermaccount-to-login"></a>오류: 로그인을 실행 하 여 로그인 Connect-azurermaccount
+
+실행 계정을 사용하지 않거나 실행 계정이 만료되면 이 오류가 발생할 수 있습니다. [Azure Automation 실행 계정 관리](https://docs.microsoft.com/azure/automation/manage-runas-account)를 참조 하세요.
+
+### <a name="runbook-fails-with-error-strong-authentication-enrollment-is-required"></a>오류가 발생 하 여 Runbook이 실패 합니다. 강력한 인증 등록이 필요 합니다.
+
+Runbook 문제 해결 가이드에서 [multi-factor Authentication을 사용 하도록 설정 되어 있으므로 Azure에 대 한 인증 실패](https://docs.microsoft.com/azure/automation/troubleshoot/runbooks#auth-failed-mfa) 를 참조 하세요.
+
+### <a name="runbook-fails-with-the-errors-no-permission-forbidden-403-or-some-variation"></a>오류가 발생 하 여 Runbook이 실패 합니다. 권한 없음, 사용 권한 없음, 403 또는 일부 변형
+
+실행 계정에 현재 계정과 동일한 Azure 리소스 권한이 없는 것일 수 있습니다. RunAs 계정에 스크립트에 사용 [된 리소스에 대 한 액세스 권한이](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) 있는지 확인 합니다.
+
+### <a name="runbooks-were-working-but-suddenly-stopped"></a>Runbook이 작동 중에 갑자기 중지됨
+
+* Runbook이 이전에 실행 되었지만 중지 된 경우 실행 계정이 [만료 되지](https://docs.microsoft.com/azure/automation/manage-runas-account#cert-renewal)않았는지 확인 합니다.
+* 웹 후크를 사용 하 여 runbook을 시작 하는 경우 webhook [가 만료 되지](https://docs.microsoft.com/azure/automation/automation-webhooks#renew-webhook)않았는지 확인 합니다.
+
+### <a name="passing-parameters-into-webhooks"></a>webhook에 매개 변수 전달
+
+웹 후크에 매개 변수를 전달 하는 방법에 대 한 도움말 [은 webhook에서 Runbook 시작](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters)을 참조 하세요.
+
+### <a name="error-the-term-is-not-recognized"></a>오류: 용어를 인식할 수 없습니다.
+
+Runbook 문제 해결 가이드에서 [인식할 수 없는 Cmdlet](https://docs.microsoft.com/azure/automation/troubleshoot/runbooks#cmdlet-not-recognized) 의 단계를 따릅니다.
+
+### <a name="errors-about-typedata"></a>Update-typedata에 대 한 오류
+
+TypeData에 대한 오류가 수신되면 워크플로를 지원하지 않는 모듈로 PowerShell 워크플로를 실행 중인 것입니다. Runbook 유형을 PowerShell로 변경해야 합니다. 자세한 내용은 [Runbook 형식](https://docs.microsoft.com/azure/automation/automation-runbook-types#powershell-runbooks) 을 참조 하세요.
+
+### <a name="using-az-modules"></a>Az 모듈 사용
+
+Az 모듈 및 AzureRM 모듈을 같은 Automation 계정에 사용하는 것은 지원되지 않습니다. 자세한 내용은 [runbook의 Az 모듈](https://docs.microsoft.com/azure/automation/az-modules) 을 참조 하세요.
+
+### <a name="using-self-signed-certificates"></a>자체 서명된 인증서 사용
+
+자체 서명 된 인증서를 사용 하려면 [새 인증서 만들기](https://docs.microsoft.com/azure/automation/shared-resources/certificates#creating-a-new-certificate)의 지침을 따라야 합니다.
+
+## <a name="recommended-documents"></a>권장되는 문서
+
+* [Azure Automation에서 Runbook 시작](https://docs.microsoft.com/azure/automation/automation-starting-a-runbook)
+* [Azure Automation에서 Runbook 실행](https://docs.microsoft.com/azure/automation/automation-runbook-execution)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,17 +1,17 @@
 ---
 title: PowerShell 및 템플릿으로 리소스 배포 | Microsoft Docs
-description: Azure Resource Manager 및 Azure PowerShell을 사용 하 여 Azure 리소스를 배포 합니다. 리소스는 Resource Manager 템플릿에 정의됩니다.
+description: Azure Resource Manager 및 Azure PowerShell를 사용 하 여 Azure에 리소스를 배포 합니다. 리소스는 Resource Manager 템플릿에 정의됩니다.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/31/2019
+ms.date: 08/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 63d729f19b0ef20d0e7a716d6857b4627095856b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1f9fb786933d03b27be47c9f778a5f1575ca17c2
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66476987"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69970901"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>리소스 관리자 템플릿과 Azure PowerShell로 리소스 배포
 
@@ -21,29 +21,29 @@ Resource Manager 템플릿으로 Azure PowerShell을 사용하여 Azure에 리�
 
 ## <a name="deployment-scope"></a>배포 범위
 
-Azure 구독 또는 구독 내에서 리소스 그룹 배포를 대상으로 지정할 수 있습니다. 대부분의 경우에서 리소스 그룹 배포를 대상으로 수 있습니다. 구독 배포를 사용 하 여 정책 및 역할 할당은 구독에서 적용 하 합니다. 또한 리소스 그룹을 만들고 리소스를 배포할 구독 배포를 사용 합니다. 배포의 범위에 따라 다른 명령을 사용할 수 있습니다.
+구독 내에서 Azure 구독 또는 리소스 그룹에 대 한 배포를 대상으로 지정할 수 있습니다. 대부분의 경우 리소스 그룹에 대 한 배포를 대상으로 합니다. 구독 배포를 사용 하 여 구독에서 정책 및 역할 할당을 적용 합니다. 또한 구독 배포를 사용 하 여 리소스 그룹을 만들고 리소스를 배포 합니다. 배포의 범위에 따라 다른 명령을 사용 합니다.
 
-배포 하는 **리소스 그룹**를 사용 하 여 [새로 만들기-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment):
+**리소스 그룹**에 배포 하려면 [AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment)를 사용 합니다.
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile <path-to-template>
 ```
 
-배포 하는 **구독**를 사용 하 여 [새로 만들기-AzDeployment](/powershell/module/az.resources/new-azdeployment):
+**구독**에 배포 하려면 [AzDeployment](/powershell/module/az.resources/new-azdeployment)를 사용 합니다.
 
 ```azurepowershell
 New-AzDeployment -Location <location> -TemplateFile <path-to-template>
 ```
 
-현재 REST API를 통해 관리 그룹 배포만 지원 됩니다. 참조 [Resource Manager 템플릿과 Resource Manager REST API를 사용 하 여 리소스 배포](resource-group-template-deploy-rest.md)합니다.
+현재 관리 그룹 배포는 REST API 통해서만 지원 됩니다. [리소스 관리자 템플릿 및 리소스 관리자 REST API를 사용 하 여 리소스 배포를](resource-group-template-deploy-rest.md)참조 하세요.
 
-이 문서의 예제에서는 리소스 그룹 배포를 사용합니다. 구독 배포에 대 한 자세한 내용은 참조 하세요. [구독 수준에서 리소스 그룹 및 리소스를 만드는](deploy-to-subscription.md)합니다.
+이 문서의 예제에서는 리소스 그룹 배포를 사용 합니다. 구독 배포에 대 한 자세한 내용은 [구독 수준에서 리소스 그룹 및 리소스 만들기](deploy-to-subscription.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-템플릿을 배포 해야 합니다. 다운로드 하 고 저장 하면 이미 계정이 없는 경우는 [예제 템플릿](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) Azure 빠른 시작 템플릿 리포지토리에서 합니다. 이 문서에 사용된 로컬 파일 이름은 **c:\MyTemplates\azuredeploy.json**입니다.
+배포할 템플릿이 필요 합니다. 아직 없는 경우 Azure 빠른 시작 템플릿 리포지토리에서 [예제 템플릿을](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) 다운로드 하 고 저장 합니다. 이 문서에 사용된 로컬 파일 이름은 **c:\MyTemplates\azuredeploy.json**입니다.
 
-템플릿을 배포 하는 Azure Cloud shell을 사용 하지 않는 한 Azure PowerShell을 설치 하 고 Azure에 연결 해야 합니다.
+Azure Cloud shell을 사용 하 여 템플릿을 배포 하지 않는 경우 Azure PowerShell를 설치 하 고 Azure에 연결 해야 합니다.
 
 - **로컬 컴퓨터에 Azure PowerShell cmdlet을 설치합니다.** 자세한 내용은 [Azure PowerShell 시작](/powershell/azure/get-started-azureps)을 참조하세요.
 - **[Connect-AZAccount](/powershell/module/az.accounts/connect-azaccount)를 사용하여 Azure에 연결합니다**. Azure 구독이 여러 개인 경우 [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext)를 실행해야 할 수도 있습니다. 자세한 내용은 [여러 Azure 구독 사용](/powershell/azure/manage-subscriptions-azureps)을 참조하세요.
@@ -99,12 +99,12 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
 
 ## <a name="redeploy-when-deployment-fails"></a>배포 실패 시 다시 배포
 
-이 기능은 라고도 *오류 발생 시 롤백*합니다. 배포가 실패하면 배포 기록에서 이전에 성공한 배포를 자동으로 다시 배포할 수 있습니다. 재배포를 지정하려면 배포 명령에 `-RollbackToLastDeployment` 또는 `-RollBackDeploymentName` 매개 변수를 사용합니다. 이 기능은 인프라 배포에 대 한 알려진된 좋은 상태로 했습니다를이 상태로 되돌리려는 경우에 유용 합니다. 주의 및 제한 사항이 있습니다.
+이 기능을 *오류 발생 시 롤백*이 라고도 합니다. 배포가 실패하면 배포 기록에서 이전에 성공한 배포를 자동으로 다시 배포할 수 있습니다. 재배포를 지정하려면 배포 명령에 `-RollbackToLastDeployment` 또는 `-RollBackDeploymentName` 매개 변수를 사용합니다. 이 기능은 인프라 배포에 대 한 알려진 양호한 상태를가지고 있으며이 상태로 되돌리려는 경우에 유용 합니다. 몇 가지 주의 사항과 제한 사항이 있습니다.
 
-- 재배포는 동일한 매개 변수를 사용 하 여 이전에 실행 했던 대로 실행 됩니다. 매개 변수를 변경할 수 없습니다.
-- 이전 배포를 사용 하 여 실행 되는 [전체 모드](./deployment-modes.md#complete-mode)합니다. 이전 배포에 포함 되지 모든 리소스가 삭제 되 고 모든 리소스 구성을 이전 상태로 설정 됩니다. 완벽 하 게 이해 해야 합니다 [배포 모드](./deployment-modes.md)합니다.
-- 리소스에만 영향을 줍니다 재배포, 모든 데이터 변경 내용은 영향을 받지 않습니다.
-- 이 기능은 리소스 그룹 배포의 경우 구독 수준 배포에만 지원 됩니다. 구독 수준 배포에 대 한 자세한 내용은 참조 하세요. [구독 수준에서 리소스 그룹 및 리소스를 만드는](./deploy-to-subscription.md)합니다.
+- 재배포는 동일한 매개 변수를 사용 하 여 이전에 실행 된 것과 동일 하 게 실행 됩니다. 매개 변수를 변경할 수 없습니다.
+- 이전 배포는 [전체 모드](./deployment-modes.md#complete-mode)를 사용 하 여 실행 됩니다. 이전 배포에 포함 되지 않은 모든 리소스는 삭제 되 고 모든 리소스 구성은 이전 상태로 설정 됩니다. [배포 모드](./deployment-modes.md)를 완전히 이해 해야 합니다.
+- 재배포는 리소스에만 영향을 주며 데이터 변경 내용은 영향을 받지 않습니다.
+- 이 기능은 구독 수준 배포가 아닌 리소스 그룹 배포 에서만 지원 됩니다. 구독 수준 배포에 대 한 자세한 내용은 [구독 수준에서 리소스 그룹 및 리소스 만들기](./deploy-to-subscription.md)를 참조 하세요.
 
 이 옵션을 사용하려면 배포가 배포 기록에서 식별될 수 있도록 고유한 이름을 지정해야 합니다. 고유한 이름이 없으면 현재 실패한 배포가 기록에서 이전에 성공한 배포를 덮어쓸 수 있습니다. 루트 수준 배포에만 이 옵션을 사용할 수 있습니다. 중첩된 템플릿의 배포는 다시 배포할 수 없습니다.
 
@@ -130,9 +130,9 @@ New-AzResourceGroupDeployment -Name ExampleDeployment02 `
 
 ## <a name="pass-parameter-values"></a>매개 변수 값 전달
 
-매개 변수 값을 전달하려면 인라인 매개 변수 또는 매개 변수 파일을 사용할 수 있습니다. 이 문서의 이전 예제에서는 인라인 매개 변수를 보여 줍니다.
+매개 변수 값을 전달하려면 인라인 매개 변수 또는 매개 변수 파일을 사용할 수 있습니다.
 
-### <a name="inline-parameters"></a>인라인 매개 변수
+### <a name="inline-parameters"></a>인라인 매개 변수입니다.
 
 인라인 매개 변수를 전달하려면 `New-AzResourceGroupDeployment` 명령을 사용하여 매개 변수 이름을 제공합니다. 예를 들어, 문자열 및 배열을 템플릿에 전달하려면 다음을 사용합니다.
 
@@ -156,7 +156,7 @@ New-AzResourceGroupDeployment -ResourceGroupName testgroup `
 
 파일에서 매개 변수 값을 가져오면 구성 값을 제공해야 하는 경우에 유용합니다. 예를 들어, [Linux 가상 머신에 대한 Cloud-Init 값](../virtual-machines/linux/using-cloud-init.md)을 제공할 수 있습니다.
 
-개체의 배열을 전달 해야 할 경우 PowerShell에서 해시 테이블을 만들기 및 배열에 추가 합니다. 배포 중 매개 변수로 해당 배열에 전달 합니다.
+개체의 배열을 전달 해야 하는 경우 PowerShell에서 해시 테이블을 만들고 배열에 추가 합니다. 배포 하는 동안 해당 배열을 매개 변수로 전달 합니다.
 
 ```powershell
 $hash1 = @{ Name = "firstSubnet"; AddressPrefix = "10.0.0.0/24"}
@@ -167,28 +167,11 @@ New-AzResourceGroupDeployment -ResourceGroupName testgroup `
   -exampleArray $subnetArray
 ```
 
-
 ### <a name="parameter-files"></a>매개 변수 파일
 
 매개 변수를 스크립트에 인라인 값으로 전달하는 것보다는, 매개 변수 값이 포함된 JSON 파일을 사용하는 것이 더 쉬울 수 있습니다. 매개 변수 파일은 로컬 파일이거나 액세스 가능한 URI가 있는 외부 파일일 수 있습니다.
 
-매개 변수 파일은 다음과 같은 형식이어야 합니다.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-     "storageAccountType": {
-         "value": "Standard_GRS"
-     }
-  }
-}
-```
-
-매개 변수 섹션에는 템플릿에 정의된 매개 변수(storageAccountType)와 일치하는 매개 변수 이름이 포함되어 있습니다. 매개 변수 파일에는 매개 변수의 값이 포함됩니다. 이 값은 배포 동안 템플릿에 자동으로 전달됩니다. 둘 이상의 매개 변수 파일을 만든 후 시나리오에 적합한 매개 변수 파일을 전달할 수 있습니다.
-
-앞의 예제를 복사하고 `storage.parameters.json`이라는 파일로 저장합니다.
+매개 변수 파일에 대 한 자세한 내용은 [리소스 관리자 매개 변수 파일 만들기](resource-manager-parameter-files.md)를 참조 하세요.
 
 로컬 매개 변수 파일을 전달하려면 **TemplateParameterFile** 매개 변수를 사용합니다.
 
@@ -206,16 +189,6 @@ New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Example
   -TemplateParameterUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.parameters.json
 ```
 
-### <a name="parameter-precedence"></a>매개 변수 우선 순위
-
-동일한 배포 작업에서 인라인 매개 변수 및 로컬 매개 변수 파일을 사용할 수 있습니다. 예를 들어 로컬 매개 변수 파일에서 일부 값을 지정하고 배포하는 동안 인라인으로 다른 값을 추가할 수 있습니다. 로컬 매개 변수 파일 및 인라인에서 매개 변수에 대한 값을 제공하는 경우 인라인 값이 우선합니다.
-
-하지만 외부 매개 변수 파일을 사용하면 인라인 또는 로컬 파일에서 다른 값을 전달할 수 없습니다. **TemplateParameterUri** 매개 변수에서 매개 변수 파일을 지정하는 경우 모든 인라인 매개 변수는 무시됩니다. 외부 파일에서 모든 매개 변수 값을 제공해야 합니다. 템플릿이 매개 변수 파일에 포함할 수 없는 중요한 값을 포함하는 경우 해당 값을 키 자격 증명 모음에 추가하고 동적으로 모든 매개 변수 값을 인라인으로 제공합니다.
-
-### <a name="parameter-name-conflicts"></a>매개 변수 이름 충돌
-
-템플릿에 PowerShell 명령의 매개 변수 중 하나와 이름이 같은 매개 변수가 포함되어 있으면 PowerShell에서 접미사가 **FromTemplate**인 템플릿에서 매개 변수를 제공합니다. 예를 들어 템플릿의 **ResourceGroupName** 매개 변수는 [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) cmdlet의 **ResourceGroupName** 매개 변수와 충돌합니다. **ResourceGroupNameFromTemplate**에 대한 값을 제공하라는 메시지가 표시됩니다. 일반적으로 배포 작업에 사용되는 매개 변수와 동일한 이름을 가진 매개 변수를 명명하지 않음으로써 이러한 혼동이 발생하지 않도록 해야 합니다.
-
 ## <a name="test-template-deployments"></a>템플릿 배포 테스트
 
 리소스를 실제로 배포하지 않고 템플릿과 매개 변수 값을 테스트하려면 [Test-AzureRmResourceGroupDeployment](/powershell/module/az.resources/test-azresourcegroupdeployment)를 사용합니다. 
@@ -225,7 +198,7 @@ Test-AzResourceGroupDeployment -ResourceGroupName ExampleResourceGroup `
   -TemplateFile c:\MyTemplates\azuredeploy.json -storageAccountType Standard_GRS
 ```
 
-오류가 감지되지 않으면 명령은 응답 없이 완료됩니다. 오류가 감지되면 명령은 오류 메시지를 반환합니다. 예를 들어, 저장소 계정 SKU에 대해 잘못된 값을 전달하면 다음 오류가 반환됩니다.
+오류가 감지되지 않으면 명령은 응답 없이 완료됩니다. 오류가 감지되면 명령은 오류 메시지를 반환합니다. 예를 들어, 스토리지 계정 SKU에 대해 잘못된 값을 전달하면 다음 오류가 반환됩니다.
 
 ```powershell
 Test-AzResourceGroupDeployment -ResourceGroupName testgroup `

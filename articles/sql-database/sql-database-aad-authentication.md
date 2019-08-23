@@ -11,12 +11,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 02/20/2019
-ms.openlocfilehash: b99dbd403de0de948527fbe74b7e1205316822c0
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 848cfc96a7da4e69ff77d16a42226a983153ac63
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019687"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69896995"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>SQL에서 인증을 위해 Azure Active Directory 인증 사용
 
@@ -116,8 +116,9 @@ Azure SQL Database, Managed Instance 또는 SQL Data Warehouse에 포함된 데�
 
 Azure Active Directory 인증에서는 Azure AD ID를 사용하여 데이터베이스에 연결하는 다음 방법을 지원합니다.
 
-- 통합 Windows 인증 사용
-- Azure AD 사용자 이름 및 암호 사용
+- Azure Active Directory 암호
+- Azure Active Directory 통합
+- Azure Active Directory MFA 지원을 통한 유니버설 인증
 - 애플리케이션 토큰 인증 사용
 
 Azure AD 서버 보안 주체(로그인)(**공개 미리 보기**)에 대해 지원되는 인증 방법은 다음과 같습니다.
@@ -125,7 +126,6 @@ Azure AD 서버 보안 주체(로그인)(**공개 미리 보기**)에 대해 지
 - Azure Active Directory 암호
 - Azure Active Directory 통합
 - Azure Active Directory MFA 지원을 통한 유니버설 인증
-- Azure Active Directory 대화형
 
 
 ### <a name="additional-considerations"></a>추가 고려 사항

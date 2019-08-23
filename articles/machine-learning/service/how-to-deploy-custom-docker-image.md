@@ -1,7 +1,7 @@
 ---
-title: 사용자 지정 Docker 이미지를 사용 하 여 모델 배포
+title: 사용자 지정 Docker 기본 이미지를 사용 하 여 모델 배포
 titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning 서비스 모델을 배포할 때 사용자 지정 Docker 이미지를 사용 하는 방법에 대해 알아봅니다. 학습 된 모델을 배포 하는 경우 서비스를 실행 하는 데 필요한 이미지, 웹 서버 및 기타 구성 요소를 호스팅하도록 Docker 이미지가 만들어집니다. Azure Machine Learning service는 기본 이미지를 제공 하지만 사용자 고유의 이미지를 사용할 수도 있습니다.
+description: Azure Machine Learning 서비스 모델을 배포할 때 사용자 지정 Docker 기본 이미지를 사용 하는 방법에 대해 알아봅니다. 학습 된 모델을 배포 하는 경우 유추를 위해 모델을 실행 하기 위해 기본 컨테이너 이미지를 배포 합니다. Azure Machine Learning service는 기본 기본 이미지를 제공 하지만 사용자 고유의 기본 이미지를 사용할 수도 있습니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,23 +9,25 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 07/11/2019
-ms.openlocfilehash: f41ccef7803366e63247e6862c59ddb983527d26
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.date: 08/22/2019
+ms.openlocfilehash: a86dd021d8f9cfe275b3af3f0cb71b99857c26d7
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990511"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971512"
 ---
-# <a name="deploy-a-model-by-using-a-custom-docker-image"></a>사용자 지정 Docker 이미지를 사용 하 여 모델 배포
+# <a name="deploy-a-model-using-a-custom-docker-base-image"></a>사용자 지정 Docker 기본 이미지를 사용 하 여 모델 배포
 
-Azure Machine Learning 서비스를 사용 하 여 학습 된 모델을 배포할 때 사용자 지정 Docker 이미지를 사용 하는 방법을 알아봅니다.
+Azure Machine Learning 서비스를 사용 하 여 학습 된 모델을 배포할 때 사용자 지정 Docker 기본 이미지를 사용 하는 방법을 알아봅니다.
 
-웹 서비스 또는 IoT Edge 장치에 학습 된 모델을 배포 하는 경우 Docker 이미지가 만들어집니다. 이 이미지는 모델, conda 환경 및 모델을 사용 하는 데 필요한 자산을 포함 합니다. 또한 웹 서비스로 배포할 때 들어오는 요청을 처리 하는 웹 서버와 Azure IoT Hub 사용 하는 데 필요한 구성 요소가 포함 되어 있습니다.
+웹 서비스 또는 IoT Edge 장치에 학습 된 모델을 배포할 때 들어오는 요청을 처리할 웹 서버를 포함 하는 패키지가 생성 됩니다.
 
-Azure Machine Learning 서비스는 기본 Docker 이미지를 제공 하므로 만들 때 걱정할 필요가 없습니다. _기본 이미지로_만든 사용자 지정 이미지를 사용할 수도 있습니다. 기본 이미지는 배포에 대해 이미지를 만들 때 시작 지점으로 사용 됩니다. 기본 운영 체제 및 구성 요소를 제공 합니다. 그런 다음 배포 프로세스에서 모델, conda 환경 및 기타 자산과 같은 추가 구성 요소를 배포 하기 전에 이미지에 추가 합니다.
+Azure Machine Learning 서비스는 기본 Docker 기본 이미지를 제공 하므로 만들 때 걱정할 필요가 없습니다. _기본 이미지로_만든 사용자 지정 기본 이미지를 사용할 수도 있습니다. 
 
-일반적으로 구성 요소 버전을 제어 하거나 배포 하는 동안 시간을 절약 하려는 경우 사용자 지정 이미지를 만듭니다. 예를 들어 특정 버전의 Python, Conda 또는 기타 구성 요소를 표준화 하려고 할 수 있습니다. 모델에 필요한 소프트웨어를 설치 하 여 설치 프로세스에 오랜 시간이 걸릴 수도 있습니다. 기본 이미지를 만들 때 소프트웨어를 설치 하면 각 배포에 대해 설치 하지 않아도 됩니다.
+기본 이미지는 배포에 대해 이미지를 만들 때 시작 지점으로 사용 됩니다. 기본 운영 체제 및 구성 요소를 제공 합니다. 그런 다음 배포 프로세스에서 모델, conda 환경 및 기타 자산과 같은 추가 구성 요소를 배포 하기 전에 이미지에 추가 합니다.
+
+일반적으로 Docker를 사용 하 여 종속성을 관리 하거나, 구성 요소 버전에 대 한 완전 한 제어를 유지 관리 하거나, 배포 하는 동안 시간을 절약 하려는 경우 사용자 지정 기본 이미지를 만듭니다. 예를 들어 특정 버전의 Python, Conda 또는 기타 구성 요소를 표준화 하려고 할 수 있습니다. 모델에 필요한 소프트웨어를 설치 하 여 설치 프로세스에 오랜 시간이 걸릴 수도 있습니다. 기본 이미지를 만들 때 소프트웨어를 설치 하면 각 배포에 대해 설치 하지 않아도 됩니다.
 
 > [!IMPORTANT]
 > 모델을 배포할 때는 웹 서버 또는 IoT Edge 구성 요소와 같은 핵심 구성 요소를 재정의할 수 없습니다. 이러한 구성 요소는 Microsoft에서 테스트 하 고 지 원하는 알려진 작업 환경을 제공 합니다.
@@ -35,8 +37,8 @@ Azure Machine Learning 서비스는 기본 Docker 이미지를 제공 하므로 
 
 이 문서는 두 개의 섹션으로 구분 되어 있습니다.
 
-* 사용자 지정 이미지를 만듭니다. 사용자 지정 이미지를 만들고 Azure CLI 및 Machine Learning CLI를 사용 하 여 Azure Container Registry에 대 한 인증을 구성 하는 데 사용 되는 관리자 및 DevOps 정보를 제공 합니다.
-* 사용자 지정 이미지 사용: Python SDK 또는 ML CLI에서 학습 된 모델을 배포할 때 사용자 지정 이미지를 사용 하 여 데이터 과학자 및 DevOps/MLOps에 정보를 제공 합니다.
+* 사용자 지정 기본 이미지를 만듭니다. 사용자 지정 이미지를 만들고 Azure CLI 및 Machine Learning CLI를 사용 하 여 Azure Container Registry에 대 한 인증을 구성 하는 데 사용 되는 관리자 및 DevOps 정보를 제공 합니다.
+* 사용자 지정 기본 이미지를 사용 하 여 모델을 배포 합니다. Python SDK 또는 ML CLI에서 학습 된 모델을 배포할 때 사용자 지정 이미지를 사용 하 여 데이터 과학자 및 DevOps/ML 엔지니어에 게 정보를 제공 합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -47,7 +49,7 @@ Azure Machine Learning 서비스는 기본 Docker 이미지를 제공 하므로 
 * 인터넷에서 액세스할 수 있는 [Azure Container Registry](/azure/container-registry) 또는 기타 Docker 레지스트리
 * 이 문서의 단계에서는 모델 배포의 일부로 __유추 구성__ 개체를 만들고 사용 하는 방법을 잘 알고 있다고 가정 합니다. 자세한 내용은 [배포할 위치 및 방법](how-to-deploy-and-where.md#prepare-to-deploy)의 "배포 준비" 섹션을 참조 하세요.
 
-## <a name="create-a-custom-image"></a>사용자 지정 이미지 만들기
+## <a name="create-a-custom-base-image"></a>사용자 지정 기본 이미지 만들기
 
 이 섹션에서는 Azure Container Registry를 사용 하 여 Docker 이미지를 저장 한다고 가정 합니다. Azure Machine Learning 서비스에 대 한 사용자 지정 이미지를 만들 계획인 경우 다음 검사 목록을 사용 합니다.
 
@@ -109,7 +111,7 @@ Azure Machine Learning 서비스를 사용 하 여 모델을 이미 학습 하�
 
     `<registry_name>` 값은 작업 영역에 대 한 Azure Container Registry의 이름입니다.
 
-### <a name="build-a-custom-image"></a>사용자 지정 이미지 빌드
+### <a name="build-a-custom-base-image"></a>사용자 지정 기본 이미지 빌드
 
 이 섹션의 단계에서는 Azure Container Registry에서 사용자 지정 Docker 이미지를 만드는 과정을 안내 합니다.
 
@@ -162,7 +164,7 @@ Azure Container Registry를 사용 하 여 이미지를 빌드하는 방법에 �
 
 Azure Container Registry에 기존 이미지를 업로드 하는 방법에 대 한 자세한 내용은 [첫 번째 이미지를 개인 Docker 컨테이너 레지스트리로 밀어넣기](/azure/container-registry/container-registry-get-started-docker-cli)를 참조 하세요.
 
-## <a name="use-a-custom-image"></a>사용자 지정 이미지 사용
+## <a name="use-a-custom-base-image"></a>사용자 지정 기본 이미지 사용
 
 사용자 지정 이미지를 사용 하려면 다음 정보가 필요 합니다.
 
@@ -174,11 +176,11 @@ Azure Container Registry에 기존 이미지를 업로드 하는 방법에 대 �
 
     이 정보가 없는 경우 관리자에 게 이미지를 포함 하는 Azure Container Registry에 대해 문의 하십시오.
 
-### <a name="publicly-available-images"></a>공개적으로 사용 가능한 이미지
+### <a name="publicly-available-base-images"></a>공개적으로 사용 가능한 기본 이미지
 
 Microsoft는 공개적으로 액세스할 수 있는 리포지토리에 여러 docker 이미지를 제공 하며,이는이 섹션의 단계에서 사용할 수 있습니다.
 
-| 이미지 | 설명 |
+| 이미지 | Description |
 | ----- | ----- |
 | `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` | Azure Machine Learning 서비스에 대 한 기본 이미지 |
 | `mcr.microsoft.com/azureml/onnxruntime:v0.4.0` | ONNX 런타임을 포함 합니다. |

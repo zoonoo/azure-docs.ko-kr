@@ -8,12 +8,12 @@ ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: eead4436a7135f6f74528cde52883ea247360fc6
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
-ms.translationtype: HT
+ms.openlocfilehash: a95e643d6561f425484a21b5032b1df585d0460b
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648786"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900338"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>AzCopy 및 Blob 저장소를 사용 하 여 데이터 전송
 
@@ -195,7 +195,7 @@ AzCopy는 [서버](https://docs.microsoft.com/rest/api/storageservices/put-block
 
 ## <a name="synchronize-files"></a>파일 동기화
 
-로컬 파일 시스템의 내용을 blob 컨테이너와 동기화 할 수 있습니다. 동기화는 단방향입니다. 즉, 이러한 두 끝점 중 원본 및 대상 끝점 중 하나를 선택 합니다.
+로컬 파일 시스템의 내용을 blob 컨테이너와 동기화 할 수 있습니다. 동기화는 단방향입니다. 즉, 이러한 두 끝점 중 원본 및 대상 끝점 중 하나를 선택 합니다. 또한 동기화는 서버 간 Api를 사용 합니다.
 
 > [!NOTE]
 > 현재이 시나리오는 계층 네임 스페이스가 없는 계정에 대해서만 지원 됩니다. 현재 AzCopy의 릴리스는 다른 원본 및 대상 간에 동기화 되지 않습니다. 예를 들면 다음과 같습니다. File storage 또는 Amazon Web Services (AWS) S3 버킷).

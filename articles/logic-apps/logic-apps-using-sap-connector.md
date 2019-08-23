@@ -8,14 +8,14 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: divswa, LADocs
 ms.topic: article
-ms.date: 05/09/2019
+ms.date: 08/20/2019
 tags: connectors
-ms.openlocfilehash: 9e46c51ae06920bd57f272248f06020dfad380e7
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 59263f74086f789e46e854ca320455e84dcb42c1
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326724"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907553"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Azure Logic Apps에서 SAP 시스템에 연결
 
@@ -109,48 +109,44 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
    **온-프레미스 SAP 연결 만들기**
 
-    1. SAP 서버에 대한 연결 정보를 입력합니다. **Data Gateway** 속성에서, 게이트웨이 설치를 위해 Azure Portal에서 만든 데이터 게이트웨이를 선택합니다.
+   SAP 서버에 대한 연결 정보를 입력합니다. **Data Gateway** 속성에서, 게이트웨이 설치를 위해 Azure Portal에서 만든 데이터 게이트웨이를 선택합니다. 완료 되 면 **만들기**를 선택 합니다. Logic Apps는 연결을 설정 하 고 테스트 하 여 연결이 제대로 작동 하는지 확인 합니다.
 
-         - **Logon Type** 속성을 **Application Server**로 설정하면 다음 속성이 필요합니다(보통은 선택 사항).
+   * **Logon Type** 속성을 **Application Server**로 설정하면 다음 속성이 필요합니다(보통은 선택 사항).
 
-            ![SAP 애플리케이션 서버 연결 만들기](media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png)
+     ![SAP 애플리케이션 서버 연결 만들기](media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png)
 
-         - **Logon Type** 속성을 **Group**으로 설정하면 다음 속성이 필요합니다(보통은 선택 사항).
+   * **Logon Type** 속성을 **Group**으로 설정하면 다음 속성이 필요합니다(보통은 선택 사항).
 
-            ![SAP 메시지 서버 연결 만들기](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
+     ![SAP 메시지 서버 연결 만들기](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
 
-           기본적으로 강력한 형식 지정은 스키마에 대해 XML 유효성 검사를 수행 하 여 잘못 된 값을 확인 하는 데 사용 됩니다. 이 동작은 이전에 발생 한 문제를 검색 하는 데 도움이 될 수 있습니다. **안전 입력** 옵션은 이전 버전과의 호환성을 위해 사용할 수 있으며 문자열 길이만 확인 합니다. [안전 입력 옵션](#safe-typing)에 대해 자세히 알아보세요.
-
-    1. 완료 되 면 **만들기**를 선택 합니다.
-
-       Logic Apps는 연결을 설정 하 고 테스트 하 여 연결이 제대로 작동 하는지 확인 합니다.
+   기본적으로 강력한 형식 지정은 스키마에 대해 XML 유효성 검사를 수행 하 여 잘못 된 값을 확인 하는 데 사용 됩니다. 이 동작은 이전에 발생 한 문제를 검색 하는 데 도움이 될 수 있습니다. **안전 입력** 옵션은 이전 버전과의 호환성을 위해 사용할 수 있으며 문자열 길이만 확인 합니다. [안전 입력 옵션](#safe-typing)에 대해 자세히 알아보세요.
 
 1. 이제 SAP 서버에서 작업을 찾아 선택합니다.
 
-    1. **SAP 작업** 상자에서 폴더 아이콘을 선택 합니다. 파일 목록에서 사용하려는 SAP 메시지를 찾아서 선택합니다. 목록을 탐색하려면 화살표를 사용합니다.
+   1. **SAP 작업** 상자에서 폴더 아이콘을 선택 합니다. 파일 목록에서 사용하려는 SAP 메시지를 찾아서 선택합니다. 목록을 탐색하려면 화살표를 사용합니다.
 
-       이 예에서는 **Orders** 형식이 포함 된 idoc를 선택 합니다.
+      이 예에서는 **Orders** 형식이 포함 된 idoc를 선택 합니다.
 
-       ![IDoc 작업을 찾아서 선택합니다.](./media/logic-apps-using-sap-connector/SAP-app-server-find-action.png)
+      ![IDoc 작업을 찾아서 선택합니다.](./media/logic-apps-using-sap-connector/SAP-app-server-find-action.png)
 
-       원하는 작업을 찾을 수 없는 경우 경로를 수동으로 입력할 수 있습니다. 예를 들면 다음과 같습니다.
+      원하는 작업을 찾을 수 없는 경우 경로를 수동으로 입력할 수 있습니다. 예를 들면 다음과 같습니다.
 
-       ![수동으로 IDoc 작업 경로 입력](./media/logic-apps-using-sap-connector/SAP-app-server-manually-enter-action.png)
+      ![수동으로 IDoc 작업 경로 입력](./media/logic-apps-using-sap-connector/SAP-app-server-manually-enter-action.png)
 
-       > [!TIP]
-       > 식 편집기를 통해 **SAP 동작** 에 대 한 값을 제공 합니다. 이렇게 하면 여러 메시지 유형에 동일한 작업을 사용할 수 있습니다.
+      > [!TIP]
+      > 식 편집기를 통해 **SAP 동작** 에 대 한 값을 제공 합니다. 이렇게 하면 여러 메시지 유형에 동일한 작업을 사용할 수 있습니다.
 
-       IDoc 작업에 대한 자세한 내용은 [IDOC 작업에 대한 메시지 스키마](https://docs.microsoft.com/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations)를 참조하세요.
+      IDoc 작업에 대한 자세한 내용은 [IDOC 작업에 대한 메시지 스키마](https://docs.microsoft.com/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations)를 참조하세요.
 
-    1. **입력 메시지** 상자 내부를 클릭하여 동적 콘텐츠 목록을 표시합니다. 해당 목록의 **HTTP 요청을 수신하는 경우** 아래에서 **본문** 필드를 선택합니다.
+   1. **입력 메시지** 상자 내부를 클릭하여 동적 콘텐츠 목록을 표시합니다. 해당 목록의 **HTTP 요청을 수신하는 경우** 아래에서 **본문** 필드를 선택합니다.
 
-       이 단계에서는 HTTP 요청 트리거의 본문 콘텐츠를 포함 하 고 해당 출력을 SAP 서버에 보냅니다.
+      이 단계에서는 HTTP 요청 트리거의 본문 콘텐츠를 포함 하 고 해당 출력을 SAP 서버에 보냅니다.
 
-       ![“본문” 필드 선택](./media/logic-apps-using-sap-connector/SAP-app-server-action-select-body.png)
+      ![“본문” 필드 선택](./media/logic-apps-using-sap-connector/SAP-app-server-action-select-body.png)
 
-       완료 되 면 SAP 작업은 다음 예제와 같습니다.
+      완료 되 면 SAP 작업은 다음 예제와 같습니다.
 
-       ![SAP 작업 완료](./media/logic-apps-using-sap-connector/SAP-app-server-complete-action.png)
+      ![SAP 작업 완료](./media/logic-apps-using-sap-connector/SAP-app-server-complete-action.png)
 
 1. 논리 앱을 저장합니다. 디자이너 도구 모음에서 **저장**을 선택 합니다.
 
@@ -217,17 +213,17 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
    **온-프레미스 SAP 연결 만들기**
 
-   - SAP 서버에 대한 연결 정보를 입력합니다. **Data Gateway** 속성에서, 게이트웨이 설치를 위해 Azure Portal에서 만든 데이터 게이트웨이를 선택합니다.
+   SAP 서버에 대한 연결 정보를 입력합니다. **Data Gateway** 속성에서, 게이트웨이 설치를 위해 Azure Portal에서 만든 데이터 게이트웨이를 선택합니다. 완료 되 면 **만들기**를 선택 합니다. Logic Apps는 연결을 설정 하 고 테스트 하 여 연결이 제대로 작동 하는지 확인 합니다.
 
-      - **Logon Type** 속성을 **Application Server**로 설정하면 다음 속성이 필요합니다(보통은 선택 사항).
+   * **Logon Type** 속성을 **Application Server**로 설정하면 다음 속성이 필요합니다(보통은 선택 사항).
 
-         ![SAP 애플리케이션 서버 연결 만들기](media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png)
+     ![SAP 애플리케이션 서버 연결 만들기](media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png)
 
-      - **Logon Type** 속성을 **Group**으로 설정하면 다음 속성이 필요합니다(보통은 선택 사항).
+   * **Logon Type** 속성을 **Group**으로 설정하면 다음 속성이 필요합니다(보통은 선택 사항).
 
-          ![SAP 메시지 서버 연결 만들기](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)  
+     ![SAP 메시지 서버 연결 만들기](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)  
 
-      기본적으로 강력한 형식 지정은 스키마에 대해 XML 유효성 검사를 수행 하 여 잘못 된 값을 확인 하는 데 사용 됩니다. 이 동작은 이전에 발생 한 문제를 검색 하는 데 도움이 될 수 있습니다. **안전 입력** 옵션은 이전 버전과의 호환성을 위해 사용할 수 있으며 문자열 길이만 확인 합니다. [안전 입력 옵션](#safe-typing)에 대해 자세히 알아보세요.
+   기본적으로 강력한 형식 지정은 스키마에 대해 XML 유효성 검사를 수행 하 여 잘못 된 값을 확인 하는 데 사용 됩니다. 이 동작은 이전에 발생 한 문제를 검색 하는 데 도움이 될 수 있습니다. **안전 입력** 옵션은 이전 버전과의 호환성을 위해 사용할 수 있으며 문자열 길이만 확인 합니다. [안전 입력 옵션](#safe-typing)에 대해 자세히 알아보세요.
 
 1. SAP 시스템 구성에 따라 필요한 매개 변수를 제공합니다.
 
@@ -262,6 +258,41 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 1. 논리 앱 메뉴에서 **개요**를 선택 합니다. 논리 앱에 대 한 모든 새 실행에 대 한 **실행 기록을** 검토 합니다.
 
 1. 가장 최근 실행을 엽니다. 그러면 SAP 시스템에서 보낸 메시지가 트리거 출력 섹션에 표시됩니다.
+
+## <a name="receive-idocs-packets-from-sap"></a>SAP에서 IDOCs 패킷 수신
+
+SAP를 설정 하 여 일괄 처리 또는 IDOCs 그룹인 [패킷으로 IDOCs를 보낼](https://help.sap.com/viewer/8f3819b0c24149b5959ab31070b64058/7.4.16/en-US/4ab38886549a6d8ce10000000a42189c.html)수 있습니다. IDOC 패킷, SAP 커넥터 및 특히 트리거를 수신 하려면 추가 구성이 필요 하지 않습니다. 그러나 트리거가 패킷을 받은 후 IDOC 패킷에서 각 항목을 처리 하려면 패킷을 개별 Idoc로 분할 하기 위해 몇 가지 추가 단계가 필요 합니다.
+
+[ `xpath()` 함수](./workflow-definition-language-functions-reference.md#xpath)를 사용 하 여 패킷에서 개별 idocs를 추출 하는 방법을 보여 주는 예제는 다음과 같습니다. 
+
+1. 시작 하기 전에 SAP 트리거를 사용 하는 논리 앱이 필요 합니다. 이 논리 앱이 아직 없는 경우이 항목의 이전 단계를 수행 하 여 [SAP 트리거를 사용 하 여 논리 앱](#receive-from-sap)을 설정 합니다. 
+
+   예를 들어:
+
+   ![SAP 트리거](./media/logic-apps-using-sap-connector/first-step-trigger.png)
+
+1. 논리 앱이 SAP에서 받는 XML IDOC에서 루트 네임 스페이스를 가져옵니다. XML 문서에서이 네임 스페이스를 추출 하려면 로컬 문자열 변수를 만드는 단계를 추가 하 고 `xpath()` 식을 사용 하 여 해당 네임 스페이스를 저장 합니다.
+
+   `xpath(xml(triggerBody()?['Content']), 'namespace-uri(/*)')`
+
+   ![네임 스페이스 가져오기](./media/logic-apps-using-sap-connector/get-namespace.png)
+
+1. 개별 idoc를 추출 하려면 배열 변수를 만들고 다른 `xpath()` 식을 사용 하 여 idoc 컬렉션을 저장 하는 단계를 추가 합니다.
+
+   `xpath(xml(triggerBody()?['Content']), '/*[local-name()="Receive"]/*[local-name()="idocData"]')` 
+
+   ![항목의 배열 가져오기](./media/logic-apps-using-sap-connector/get-array.png)
+
+   배열 변수를 사용 하면 논리 앱에서 각 IDOC를 컬렉션을 열거 하 여 개별적으로 처리할 수 있습니다. 이 예제에서 논리 앱은 루프를 사용 하 여 각 IDOC를 SFTP 서버로 전송 합니다.
+
+   ![IDOC 보내기](./media/logic-apps-using-sap-connector/loop-batch.png)
+
+   각 idoc는 루트 네임 스페이스를 포함 해야 합니다 .이는 idoc를 다운스트림 앱으로 보내기 `<Receive></Receive` 전에 루트 네임 스페이스와 함께 파일 콘텐츠를 요소 내에 래핑한 이유 이며이 경우에는 SFTP 서버입니다.
+
+> [!TIP]
+> 새 논리 앱을 만들 때 논리 앱 디자이너에서이 템플릿을 선택 하 여이 패턴에 대 한 빠른 시작 템플릿을 사용할 수 있습니다.
+>
+> ![일괄 처리 템플릿](./media/logic-apps-using-sap-connector/batch-template.png)
 
 ## <a name="generate-schemas-for-artifacts-in-sap"></a>SAP에서 아티팩트에 대한 스키마 생성
 
@@ -346,7 +377,7 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
 ### <a name="upload-schemas-to-an-integration-account"></a>통합 계정에 스키마 업로드
 
-필요에 따라 생성된 스키마를 Blob, 저장소, 통합 계정 등의 리포지토리에 다운로드하거나 저장할 수 있습니다. 통합 계정은 다른 XML 작업을 통해 최고의 환경을 제공하므로, 이 예제에서는 Azure Resource Manager 커넥터를 사용하여 동일한 논리 앱의 통합 계정에 스키마를 업로드하는 방법을 보여줍니다.
+필요에 따라 생성된 스키마를 Blob, 스토리지, 통합 계정 등의 리포지토리에 다운로드하거나 저장할 수 있습니다. 통합 계정은 다른 XML 작업을 통해 최고의 환경을 제공하므로, 이 예제에서는 Azure Resource Manager 커넥터를 사용하여 동일한 논리 앱의 통합 계정에 스키마를 업로드하는 방법을 보여줍니다.
 
 1. 논리 앱 디자이너의 트리거 아래에서 **새 단계**를 선택 합니다.
 
@@ -396,7 +427,7 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
    ![연결에서 SAP SNC 구성](media/logic-apps-using-sap-connector/configure-sapsnc.png)
 
-   | 속성 | 설명 |
+   | 속성 | Description |
    |----------| ------------|
    | **SNC 라이브러리 경로** | NCo 설치 위치나 절대 경로를 기준으로 하는 SNC 라이브러리 이름 또는 경로입니다. 예를 `sapsnc.dll` 들면 `.\security\sapsnc.dll` 또는 `c:\security\sapsnc.dll`또는입니다. |
    | **SNC SSO** | SNC를 통해 연결 하는 경우 SNC id는 일반적으로 호출자를 인증 하는 데 사용 됩니다. 또 다른 옵션은를 재정의 하 여 호출자를 인증 하는 데 사용자 및 암호 정보를 사용할 수 있지만 줄은 여전히 암호화 되도록 하는 것입니다. |
@@ -457,10 +488,6 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 ## <a name="known-issues-and-limitations"></a>알려진 문제 및 제한 사항
 
 다음은 SAP 커넥터에 대해 현재 알려진 문제와 제한 사항입니다.
-
-* 단일 송신에서 SAP 호출 또는 메시지만 tRFC와 함께 작동 합니다. 동일한 세션에서 여러 tRFC 호출을 만드는 것과 같은 BAPI 커밋 패턴은 지원 되지 않습니다.
-
-* Sap 트리거는 SAP에서 batch IDocs 수신을 지원 하지 않습니다. 이 작업은 SAP 시스템과 데이터 게이트웨이 간의 RFC 연결 오류로 이어질 수 있습니다.
 
 * SAP 트리거가 데이터 게이트웨이 클러스터를 지원하지 않습니다. 일부 장애 조치 (failover)의 경우 SAP 시스템과 통신 하는 데이터 게이트웨이 노드가 활성 노드와 다를 수 있으며이로 인해 예기치 않은 동작이 발생할 수 있습니다. 보내기 시나리오의 경우 데이터 게이트웨이 클러스터가 지원 됩니다.
 

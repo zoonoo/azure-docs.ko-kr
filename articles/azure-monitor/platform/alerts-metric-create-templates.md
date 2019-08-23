@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 9/27/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: d4430b14a93bb4cf2ccf43881ad061590f8e6815
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 0e7d25f2bc8ec32965de912f212bf77df1ee3c2c
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976692"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971485"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 메트릭 경고 만들기
 
@@ -2803,8 +2803,159 @@ az group deployment create \
     --parameters @list-of-vms-dynamic.parameters.json
 ```
 
-## <a name="next-steps"></a>다음 단계
-* [Azure의 경고](alerts-overview.md)에 대해 자세히 알아보기
-* [Resource Manager 템플릿을 사용하여 작업 그룹을 만드는](action-groups-create-resource-manager-template.md) 방법에 대해 알아보기
-* JSON 구문 및 속성의 경우 [Microsoft.Insights/metricAlerts](/azure/templates/microsoft.insights/metricalerts) 템플릿 참조를 참조하세요.
+## <a name="template-for-a-availability-test-along-with-availability-test-alert"></a>가용성 테스트 경고와 함께 가용성 테스트에 대 한 템플릿
 
+[Application Insights 가용성 테스트](../../azure-monitor/app/monitor-web-app-availability.md) 는 전 세계 다양 한 위치에서 웹 사이트/응용 프로그램의 가용성을 모니터링 하는 데 도움이 됩니다. 가용성 테스트 경고는 특정 위치 수에서 가용성 테스트가 실패할 경우 사용자에 게 알립니다.
+메트릭 경고와 동일한 리소스 종류의 가용성 테스트 경고 (metricAlerts/) 다음 샘플 Azure Resource Manager 템플릿을 사용 하 여 간단한 가용성 테스트 및 관련 경고를 설정할 수 있습니다.
+
+이 연습의 목적을 위해 아래 json을 availabilityalert로 저장 합니다.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "appName": {
+      "type": "string"
+    },
+    "pingURL": {
+      "type": "string"
+    },
+    "pingText": {
+      "type": "string",
+      "defaultValue": ""
+    },
+    "actionGroupId": {
+      "type": "string"
+    }
+  },
+  "variables": {
+    "pingTestName": "[concat('PingTest-', toLower(parameters('appName')))]",
+    "pingAlertRuleName": "[concat('PingAlert-', toLower(parameters('appName')), '-', subscription().subscriptionId)]"
+  },
+  "resources": [
+    {
+      "name": "[variables('pingTestName')]",
+      "type": "Microsoft.Insights/webtests",
+      "apiVersion": "2014-04-01",
+      "location": "West Central US",
+      "tags": {
+        "[concat('hidden-link:', resourceId('Microsoft.Insights/components', parameters('appName')))]": "Resource"
+      },
+      "properties": {
+        "Name": "[variables('pingTestName')]",
+        "Description": "Basic ping test",
+        "Enabled": true,
+        "Frequency": 300,
+        "Timeout": 120,
+        "Kind": "ping",
+        "RetryEnabled": true,
+        "Locations": [
+          {
+            "Id": "us-va-ash-azr"
+          },
+          {
+            "Id": "emea-nl-ams-azr"
+          },
+          {
+            "Id": "apac-jp-kaw-edge"
+          }
+        ],
+        "Configuration": {
+          "WebTest": "[concat('<WebTest   Name=\"', variables('pingTestName'), '\"   Enabled=\"True\"         CssProjectStructure=\"\"    CssIteration=\"\"  Timeout=\"120\"  WorkItemIds=\"\"         xmlns=\"http://microsoft.com/schemas/VisualStudio/TeamTest/2010\"         Description=\"\"  CredentialUserName=\"\"  CredentialPassword=\"\"         PreAuthenticate=\"True\"  Proxy=\"default\"  StopOnError=\"False\"         RecordedResultFile=\"\"  ResultsLocale=\"\">  <Items>  <Request Method=\"GET\"    Version=\"1.1\"  Url=\"', parameters('pingURL'),   '\" ThinkTime=\"0\"  Timeout=\"300\" ParseDependentRequests=\"True\"         FollowRedirects=\"True\" RecordResult=\"True\" Cache=\"False\"         ResponseTimeGoal=\"0\"  Encoding=\"utf-8\"  ExpectedHttpStatusCode=\"200\"         ExpectedResponseUrl=\"\" ReportingName=\"\" IgnoreHttpStatusCode=\"False\" />        </Items>  <ValidationRules> <ValidationRule  Classname=\"Microsoft.VisualStudio.TestTools.WebTesting.Rules.ValidationRuleFindText, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a\" DisplayName=\"Find Text\"         Description=\"Verifies the existence of the specified text in the response.\"         Level=\"High\"  ExecutionOrder=\"BeforeDependents\">  <RuleParameters>        <RuleParameter Name=\"FindText\" Value=\"',   parameters('pingText'), '\" />  <RuleParameter Name=\"IgnoreCase\" Value=\"False\" />  <RuleParameter Name=\"UseRegularExpression\" Value=\"False\" />  <RuleParameter Name=\"PassIfTextFound\" Value=\"True\" />  </RuleParameters> </ValidationRule>  </ValidationRules>  </WebTest>')]"
+        },
+        "SyntheticMonitorId": "[variables('pingTestName')]"
+      }
+    },
+    {
+      "name": "[variables('pingAlertRuleName')]",
+      "type": "Microsoft.Insights/metricAlerts",
+      "apiVersion": "2018-03-01",
+      "location": "global",
+      "dependsOn": [
+        "[resourceId('Microsoft.Insights/webtests', variables('pingTestName'))]"
+      ],
+      "tags": {
+        "[concat('hidden-link:', resourceId('Microsoft.Insights/components', parameters('appName')))]": "Resource",
+        "[concat('hidden-link:', resourceId('Microsoft.Insights/webtests', variables('pingTestName')))]": "Resource"
+      },
+      "properties": {
+        "description": "Alert for web test",
+        "severity": 1,
+        "enabled": true,
+        "scopes": [
+          "[resourceId('Microsoft.Insights/webtests',variables('pingTestName'))]",
+          "[resourceId('Microsoft.Insights/components',parameters('appName'))]"
+        ],
+        "evaluationFrequency": "PT1M",
+        "windowSize": "PT5M",
+        "templateType": 0,
+        "criteria": {
+          "odata.type": "Microsoft.Azure.Monitor.WebtestLocationAvailabilityCriteria",
+          "webTestId": "[resourceId('Microsoft.Insights/webtests', variables('pingTestName'))]",
+          "componentId": "[resourceId('Microsoft.Insights/components', parameters('appName'))]",
+          "failedLocationCount": 2
+        },
+        "actions": [
+          {
+            "actionGroupId": "[parameters('actionGroupId')]"
+          }
+        ]
+      }
+    }
+  ]
+}
+```
+
+명령줄 또는 매개 변수 파일을 통해 매개 변수의 값을 설정할 수 있습니다. 샘플 매개 변수 파일이 아래에 제공됩니다.
+
+Json을 availabilityalert로 저장 하 고 필요에 따라 수정 합니다.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "appName": {
+            "value": "Replace with your Application Insights component name"
+        },
+        "pingURL": {
+            "value": "https://www.yoursite.com"
+        },
+        "actionGroupId": {
+            "value": "/subscriptions/replace-with-subscription-id/resourceGroups/replace-with-resourceGroup-name/providers/microsoft.insights/actiongroups/replace-with-action-group-name"
+        }
+    }
+}
+```
+
+PowerShell 또는 Azure CLI를 사용 하 여 템플릿 및 매개 변수 파일을 사용 하 여 가용성 테스트 및 관련 경고를 만들 수 있습니다.
+
+Azure PowerShell 사용
+
+```powershell
+Connect-AzAccount
+
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
+
+New-AzResourceGroupDeployment -Name AvailabilityAlertDeployment -ResourceGroupName ResourceGroupofApplicationInsightsComponent `
+  -TemplateFile availabilityalert.json -TemplateParameterFile availabilityalert.parameters.json
+```
+
+Azure CLI 사용
+
+```azurecli
+az login
+
+az group deployment create \
+    --name AvailabilityAlertDeployment \
+    --resource-group ResourceGroupofApplicationInsightsComponent \
+    --template-file availabilityalert.json \
+    --parameters @availabilityalert.parameters.json
+```
+
+## <a name="next-steps"></a>다음 단계
+
+- [Azure의 경고](alerts-overview.md)에 대해 자세히 알아보기
+- [Resource Manager 템플릿을 사용하여 작업 그룹을 만드는](action-groups-create-resource-manager-template.md) 방법에 대해 알아보기
+- JSON 구문 및 속성의 경우 [Microsoft.Insights/metricAlerts](/azure/templates/microsoft.insights/metricalerts) 템플릿 참조를 참조하세요.

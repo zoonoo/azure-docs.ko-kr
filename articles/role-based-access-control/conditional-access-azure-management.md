@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 07/15/2019
 ms.author: rolyon
 ms.reviewer: skwan
-ms.openlocfilehash: 3aa24fdfc156c0197d724fd57729f5b11fa908ee
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: d4036b2aaa59eeb8e38a5881e465031d7a2f15e3
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278154"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899720"
 ---
 # <a name="manage-access-to-azure-management-with-conditional-access"></a>조건부 액세스를 사용 하 여 Azure 관리에 대 한 액세스 관리
 
@@ -40,6 +40,7 @@ Azure Management에 대한 정책을 만들려면 정책을 적용할 앱을 선
 - Azure PowerShell
 - Visual Studio 구독 관리자 포털
 - Azure DevOps
+- Azure Data Factory 포털
 
 정책은 Azure Resource Manager API를 호출하는 Azure PowerShell에 적용됩니다. Microsoft Graph를 호출하는 [Azure AD PowerShell](/powershell/azure/active-directory/install-adv2)에는 적용되지 않습니다.
 

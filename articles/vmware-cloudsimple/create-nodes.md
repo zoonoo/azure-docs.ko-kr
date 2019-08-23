@@ -8,14 +8,14 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 2d5b2847109149701cb6453753e52fb671ba69d0
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 5806198968d98fea4c5cbf8731358ca4041f0935
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533344"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972879"
 ---
-# <a name="provision-nodes-for-vmware-solution-by-cloudsimple---azure"></a>CloudSimple로 VMware 솔루션에 대 한 노드 프로 비전-Azure
+# <a name="provision-nodes-for-azure-vmware-solution-by-cloudsimple"></a>CloudSimple로 Azure VMware 솔루션에 대 한 노드 프로 비전
 
 Azure Portal에서 노드를 프로 비전 합니다. 그런 다음 CloudSimple 사설 클라우드 환경에 대 한 종 량 제 용량을 설정할 수 있습니다.
 

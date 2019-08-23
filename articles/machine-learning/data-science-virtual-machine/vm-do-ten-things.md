@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: vijetaj
-ms.openlocfilehash: ee63f7aae70e93dfbe857b8680d2b4a477600d72
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
-ms.translationtype: MT
+ms.openlocfilehash: cd4acdd4009a94b51807a536c28b138b86d2aced
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575099"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971928"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Windows 데이터 과학 Virtual Machine으로 할 수 있는 10가지 작업
 
@@ -64,10 +64,6 @@ Python의 경우 PTVS(Python Tools for Visual Studio) 확장 기능이 사전 �
 * **도구** -> **Python 도구** -> **Python 환경**으로 이동한 다음, Visual Studio Community Edition에서 " **+ 사용자 지정**"을 클릭하여 각 버전에 대해 사용자 지정 환경을 만듭니다.
 * 설명을 입력하고 Anaconda Python 2.7에 대해 환경 접두사 경로를 *c:\anaconda\envs\python2*로 설정합니다.
 * **자동 감지**를 클릭한 다음 **적용**을 클릭하여 환경을 저장합니다.
-
-Visual Studio에서 사용자 지정 환경 설정이 다음과 같이 표시됩니다.
-
-![선택한 Visual Studio용 Python 도구를 사용하는 Visual Studio의 스크린샷](./media/vm-do-ten-things/PTVSSetup.png)
 
 Python 환경을 만드는 방법에 대한 자세한 내용은 [PTVS 설명서](https://aka.ms/ptvsdocs) 를 참조하세요.
 
@@ -219,7 +215,7 @@ Azure 구독 및 클라우드 리소스를 관리 하기 위해 다음 두 가�
 + **Azure powershell**: Windows powershell 스크립트를 사용 합니다. 바탕 화면의 바로 가기 또는 "Microsoft Azure Powershell" 이라는 시작 메뉴에서 Azure Powershell을 실행 합니다. 자세한 내용은 [Microsoft Azure Powershell 설명서](../../powershell-azure-resource-manager.md) 를 참조 하세요. 
 
 ## <a name="5-extend-storage-with-shared-file-systems"></a>5. 공유 파일 시스템을 사용 하 여 저장소 확장
-데이터 과학자는 팀 내에서 대용량 데이터 세트, 코드 또는 기타 리소스를 공유할 수 있습니다. DSVM 자체에는 약 45GB의 사용 가능한 공간이 있습니다. 스토리지를 확장하려면 Azure 파일 서비스를 사용하여 하나 이상의 DSVM 인스턴스에 파일을 탑재하거나 REST API를 통해 액세스하면 됩니다.  [Azure Portal](../../virtual-machines/windows/attach-managed-disk-portal.md) 또는 [Azure Powershell](../../virtual-machines/windows/attach-disk-ps.md)을 사용하여 추가 전용 데이터 디스크를 추가할 수도 있습니다. 
+데이터 과학자는 팀 내에서 대용량 데이터 세트, 코드 또는 기타 리소스를 공유할 수 있습니다. DSVM 자체에는 약 45GB의 사용 가능한 공간이 있습니다. 스토리지를 확장하려면 Azure 파일 서비스를 사용하여 하나 이상의 DSVM 인스턴스에 파일을 탑재하거나 REST API를 통해 액세스하면 됩니다.  [Azure Portal](../../virtual-machines/windows/attach-managed-disk-portal.md) 를 사용 하거나 [Azure Powershell](../../virtual-machines/windows/attach-disk-ps.md) 을 사용 하 여 추가 전용 데이터 디스크를 추가할 수도 있습니다. 
 
 > [!NOTE]
 > Azure 파일 서비스 공유의 최대 공간은 5TB이고 개별 파일 크기 제한은 1TB입니다. 
@@ -295,8 +291,6 @@ Azure Blob은 크고 작은 데이터를 위한 경제적이면서 안정적인 
     AzCopy /Source:C:\myfolder /Dest:https://<mystorageaccount>.blob.core.windows.net/<mycontainer> /DestKey:<storage account key> /Pattern:abc.txt
 
 파일이 저장되는 경로를 **C:\myfolder**로, Blob 스토리지 계정 이름을 **mystorageaccount**로, 컨테이너 이름을 **mycontainer**로, Blob 스토리지 액세스 키를 **스토리지 계정 키**로 바꿉니다. 스토리지 계정 자격 증명은 [Azure 포털](https://portal.azure.com)에서 찾을 수 있습니다.
-
-![Azure Portal에서 스토리지 계정 키 및 컨테이너 정보의 스크린샷](./media/vm-do-ten-things/StorageAccountCredential_v2.png)
 
 PowerShell 또는 명령 프롬프트에서 AzCopy 명령을 실행합니다. 다음은 AzCopy 명령을 사용하는 예입니다.
 
@@ -393,9 +387,7 @@ print 'the size of the data is: %d rows and  %d columns' % df1.shape
 
 **VM에서 Data Lake: Azure Data Lake Explorer로 데이터 이동**
 
-**Azure Data Lake Explorer** 를 사용하여 Virtual Machine의 로컬 파일에서 Data Lake Storage로 데이터를 업로드할 수 있습니다.
-
-![Data Lake Explorer를 사용하여 파일을 업로드하는 스크린샷](./media/vm-do-ten-things/Azure_Data_Lake_UploadData.PNG)
+**Azure Data Lake 탐색기** 를 사용 하 여 [가상 컴퓨터의 로컬 파일에서 Data Lake 저장소로 데이터를 업로드할](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal)수 있습니다.
 
 [ADF(Azure Data Factory)](https://azure.microsoft.com/services/data-factory/)를 사용하여 Azure Data Lake와의 데이터 이동을 운용하는 데이터 파이프라인을 구축할 수도 있습니다. 데이터 파이프라인을 구축하는 단계를 안내하는 이 [문서](https://azure.microsoft.com/blog/creating-big-data-pipelines-using-azure-data-lake-and-azure-data-factory/)를 참조하세요.
 
@@ -406,8 +398,6 @@ print 'the size of the data is: %d rows and  %d columns' % df1.shape
 ![데이터 원본 추가 대화 상자의 스크린샷](./media/vm-do-ten-things/Link_Blob_to_ADLA_v2.PNG)
 
 Visual Studio에서 Blob Storage의 데이터를 읽고, 데이터를 조작하고, 기능을 엔지니어링하고, Azure Data Lake 또는 Azure Blob Storage에 결과 데이터를 출력할 수 있습니다. Blob Storage의 데이터를 참조할 때는 **wasb://** 를 사용하고, Azure Data Lake의 데이터를 참조할 때는 **swbhdfs://** 를 사용합니다.
-
-![WASB 항목이 강조 표시된 쿼리의 스크린샷](./media/vm-do-ten-things/USQL_Read_Blob_v2.PNG)
 
 Visual Studio에서 다음 U-SQL 쿼리를 사용할 수 있습니다.
 
@@ -486,7 +476,7 @@ Azure HDInsight는 클라우드에서 관리되는 Apache Hadoop, Spark, HBase �
 
 ![HDInsight 클러스터에 원격 액세스를 사용하도록 설정](./media/vm-do-ten-things/Create_HDI_dashboard_v3.PNG)
 
-* Azure Machine Learning 작업 영역을 만듭니다. Machine Learning 실험이 이 Machine Learning 작업 영역에 저장됩니다. 아래 스크린샷에 표시된 것과 같이 포털에서 강조 표시된 옵션을 선택합니다.
+* Azure Machine Learning 작업 영역을 만듭니다. Machine Learning 실험이 이 Machine Learning 작업 영역에 저장됩니다. 다음 스크린샷에 표시 된 것 처럼 포털에서 강조 표시 된 옵션을 선택 합니다.
 
 ![Azure Machine Learning 작업 영역 만들기](./media/vm-do-ten-things/Create_ML_Space.PNG)
 
@@ -880,9 +870,7 @@ in
 
 ![Power BI 데스크톱](./media/vm-do-ten-things/PowerBIVolcanoData.png)
 
-데이터 모델을 사용하여 보고서를 작성하고 시각화할 수 있습니다. 이 [Power BI 문서](../../cosmos-db/powerbi-visualize.md#build-the-reports) 의 단계에 따라 보고서를 작성할 수 있습니다. 출력은 다음과 같이 표시되는 보고서입니다.
-
-![Power BI 데스크톱 보고서 보기 - Power BI 커넥터](./media/vm-do-ten-things/power_bi_connector_pbireportview2.png)
+데이터 모델을 사용하여 보고서를 작성하고 시각화할 수 있습니다. 이 [Power BI 문서](../../cosmos-db/powerbi-visualize.md#build-the-reports) 의 단계에 따라 보고서를 작성할 수 있습니다.
 
 ## <a name="9-dynamic-dsvm-scaling"></a>9. 동적 DSVM 크기 조정 
 프로젝트 요구 사항에 맞게 DSVM을 확장 및 축소할 수 있습니다. 저녁이나 주말에 VM이 필요 없으면 [Azure 포털](https://portal.azure.com)에서 VM을 종료하면 됩니다.
@@ -894,9 +882,7 @@ in
 
 대규모 분석을 처리하고 더 많은 CPU, 메모리 및/또는 디스크 용량이 필요한 경우 CPU 코어, 딥 러닝을 위한 GPU 기반 인스턴스, 메모리 용량 및 디스크 유형(반도체 드라이브 포함)을 기준으로 컴퓨팅 성능과 예산 조건에 맞는 VM 크기를 선택할 수 있습니다. 시간당 컴퓨팅 가격을 비롯한 전체 VM 목록은 [Azure Virtual Machines 가격 책정](https://azure.microsoft.com/pricing/details/virtual-machines/) 페이지에서 확인할 수 있습니다.
 
-마찬가지로, 필요한 VM 처리 용량이 감소할 경우(예: 주요 워크로드를 Hadoop 또는 Spark 클러스터로 이동) [Azure 포털](https://portal.azure.com) 에서 VM 인스턴스 설정으로 이동하여 클러스터 규모를 축소할 수 있습니다. 다음은 스크린샷입니다.
-
-![VM 인스턴스 설정](./media/vm-do-ten-things/VMScaling.PNG)
+마찬가지로, 필요한 VM 처리 용량이 감소할 경우(예: 주요 워크로드를 Hadoop 또는 Spark 클러스터로 이동) [Azure 포털](https://portal.azure.com) 에서 VM 인스턴스 설정으로 이동하여 클러스터 규모를 축소할 수 있습니다. 
 
 ## <a name="10-add-more-tools"></a>10. 도구 더 추가
 많은 일반적인 데이터 분석 요구를 해결할 수 있는 여러 도구가 DSVM에 미리 제공되어 있습니다. 따라서 환경을 하나씩 설치 및 구성할 필요가 없으므로 시간이 절약되고, 사용하는 리소스에 대해서만 지불하면 되므로 비용도 절감할 수 있습니다.

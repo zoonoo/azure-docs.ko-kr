@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 90e3121c3f036d1abc8ca372ee349aef3485d07b
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: cfd4d65b07cf255ac2b60d6bf8376723a997374e
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69625017"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972941"
 ---
 # <a name="azure-network-connections-overview"></a>Azure 네트워크 연결 개요
 
@@ -44,7 +44,6 @@ Azure 네트워크 연결을 사용 하면 다음을 수행할 수 있습니다.
 기존 Azure Express 경로 회로를 CloudSimple 영역에 연결할 수 있습니다. Express 경로 Global Reach 기능은 두 회로를 서로 연결 하는 데 사용 됩니다.  온-프레미스와 CloudSimple Express 경로 회로 간에 연결이 설정 됩니다.  이 연결을 통해 온-프레미스 네트워크를 사설 클라우드 네트워크로 확장할 수 있습니다. CloudSimple 네트워크의 경로는 온-프레미스 네트워크와 BGP를 통해 교환 됩니다.
 
 ![온-프레미스 Express 경로 연결-Global Reach](media/cloudsimple-global-reach-connection.png)
-
 
 ## <a name="connection-to-on-premises-network-and-azure-virtual-network"></a>온-프레미스 네트워크 및 Azure virtual network에 연결
 

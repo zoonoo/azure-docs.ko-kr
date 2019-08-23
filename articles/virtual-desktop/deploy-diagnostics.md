@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/14/2019
 ms.author: helohr
-ms.openlocfilehash: 356b430e0bb9170999398eb8eb68ad31f2d5eeb6
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: d5f0dbf916096b608495c0cc1017d919616653d4
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69017310"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899696"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>진단 도구 배포
 
@@ -106,7 +106,7 @@ PowerShell 스크립트를 실행 하려면 다음을 수행 합니다.
     -   프로세서 정보 (\*)\\프로세서 시간
     -   세션당 사용자 입력 지연 (\*)\\최대 입력 지연
 
-[Azure Monitor의 Windows 및 Linux 성능 데이터 원본](/articles/azure-monitor/platform/data-sources-performance-counters.md)에서 성능 카운터에 대해 자세히 알아보세요.
+[Azure Monitor의 Windows 및 Linux 성능 데이터 원본](/azure/azure-monitor/platform/data-sources-performance-counters)에서 성능 카운터에 대해 자세히 알아보세요.
 
 >[!NOTE]
 >구성 하는 추가 카운터는 진단 도구 자체에 표시 되지 않습니다. 진단 도구에 표시 되도록 하려면 도구의 구성 파일을 구성 해야 합니다. 고급 관리를 사용 하 여이 작업을 수행 하는 방법에 대 한 지침은 GitHub의 이후 날짜로 제공 됩니다.
@@ -148,7 +148,7 @@ Vm의 상태를 볼 수 있으려면 Log Analytics 연결을 사용 하도록 �
 2. Log Analytics 작업 영역으로 이동 합니다.
 3. 왼쪽 패널의 작업 영역 데이터 원본에서 **virtual machines**를 선택 합니다.
 4. 연결 하려는 VM의 이름을 선택 합니다.
-5.           **연결**을 선택합니다.
+5. **연결**을 선택합니다.
 
 ## <a name="deploy-the-diagnostics-tool"></a>진단 도구 배포
 
@@ -189,7 +189,7 @@ Vm의 상태를 볼 수 있으려면 Log Analytics 연결을 사용 하도록 �
 
 진단 도구를 사용자에 게 제공 하기 전에 다음 권한이 있는지 확인 합니다.
 
-- 사용자는 log analytics에 대 한 읽기 권한이 필요 합니다. 자세한 내용은 Azure Monitor를 사용 하 여 [역할, 권한 및 보안 시작](/articles/azure-monitor/platform/roles-permissions-security.md)을 참조 하세요.
+- 사용자는 log analytics에 대 한 읽기 권한이 필요 합니다. 자세한 내용은 Azure Monitor를 사용 하 여 [역할, 권한 및 보안 시작](/azure/azure-monitor/platform/roles-permissions-security)을 참조 하세요.
 -  또한 사용자에 게는 Windows 가상 데스크톱 테 넌 트 (RDS Reader 역할)에 대 한 읽기 권한이 필요 합니다. 자세한 내용은 [Windows 가상 데스크톱 미리 보기의 위임 된 액세스](delegated-access-virtual-desktop.md)를 참조 하세요.
 
 또한 사용자에 게 다음 정보를 제공 해야 합니다.

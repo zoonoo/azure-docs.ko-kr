@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: mlearned
-ms.openlocfilehash: 459c11448280b63bafdfd54c13a6cad5983ef1b5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 967ca233169e2a2a213534d5b60bef2e3f44b6a9
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67615887"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69969641"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>애플리케이션에 대한 AKS(Azure Kubernetes Service)의 네트워크 개념
 
@@ -55,7 +55,7 @@ Kubernetes에서 *Services*는 IP 주소 또는 DNS 이름을 통해 특정 포�
 
 부하 분산 장치 및 서비스에 대한 IP 주소는 동적으로 할당하거나 사용할 기존 고정 IP 주소를 지정할 수 있습니다. 내부 및 외부 고정 IP 주소를 모두 할당할 수 있습니다. 이 기존 고정 IP 주소는 종종 DNS 항목에 연결됩니다.
 
-*내부* 및 *외부* 부하 분산 장치를 모두 만들 수 있습니다. 내부 부하 분산 장치에는 사설 IP 주소만 할당되므로 인터넷에서 액세스할 수 없습니다.
+*내부* 및 *외부* 부하 분산 장치를 모두 만들 수 있습니다. 내부 부하 분산 장치는 개인 IP 주소만 할당 하므로 인터넷에서 액세스할 수 없습니다.
 
 ## <a name="azure-virtual-networks"></a>Azure 가상 네트워크
 
@@ -142,7 +142,7 @@ AKS 클러스터에서 컨테이너에 대한 요청에 클라이언트 원본 I
 
 기본적으로 AKS 클러스터의 모든 pod는 트래픽을 제한 없이 송수신할 수 있습니다. 보안 향상을 위해 트래픽의 흐름을 제어하는 규칙을 정의할 수도 있습니다. 보통 백 엔드 애플리케이션은 필요한 프런트 엔드 서비스에만 제공되고, 데이터베이스 구성 요소는 연결된 애플리케이션 계층에서만 액세스할 수 있습니다.
 
-네트워크 정책은 AKS에서 pod 간의 트래픽 흐름을 제어할 수 있는 Kubernetes 기능입니다. 할당된 레이블, 네임스페이스 또는 트래픽 포트와 같은 설정에 따라 트래픽을 허용하거나 거부하도록 선택할 수 있습니다. 네트워크 보안 그룹은 Pod가 아닌 AKS 노드에 더 적합합니다. 네트워크 정책을 사용하는 것은 트래픽 흐름을 제어하는 데 있어 더 적합한 클라우드 네이티브 방식입니다. Pod는 AKS 클러스터에서 동적으로 생성되므로 필요한 네트워크 정책을 자동으로 적용할 수 있습니다.
+네트워크 정책은 AKS에서 Kubernetes pod 간의 트래픽 흐름을 제어할 수 있는 Kubernetes 기능입니다. 할당된 레이블이나 네임스페이스, 트래픽 포트와 같은 설정에 따라 트래픽을 허용하거나 거부하도록 선택할 수 있습니다. 네트워크 보안 그룹은 Pod가 아닌 AKS 노드에 더 적합합니다. 네트워크 정책을 사용하는 것은 트래픽 흐름을 제어하는 데 있어 더 적합한 클라우드 네이티브 방식입니다. Pod는 AKS 클러스터에서 동적으로 생성되므로 필요한 네트워크 정책을 자동으로 적용할 수 있습니다.
 
 자세한 내용은 [Azure Kubernetes Service에서 네트워크 정책을 사용 하 여 pod 간의 트래픽 보호 (AKS)][use-network-policies]를 참조 하세요.
 

@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 08/06/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 7bfbec194733f2f8422eef45236a64e45bb553c7
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
-ms.translationtype: HT
+ms.openlocfilehash: acb3717f0e71ca1e67f1ddec79a259935f6cc539
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656370"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69897662"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning Services를 사용하여 모델 배포
 
@@ -31,7 +31,7 @@ Azure 클라우드에서 machine learning 모델을 웹 서비스로 배포 하�
 
 배포 워크플로에 관련된 개념에 대한 자세한 내용은 [Azure Machine Learning Service를 사용하여 모델 관리, 배포 및 모니터링](concept-model-management-and-deployment.md)을 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure Machine Learning 서비스 작업 영역. 자세한 내용은 [Azure Machine Learning 서비스 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
 
@@ -723,7 +723,7 @@ Azure Machine Learning 계산을 사용한 일괄 처리 유추 연습은 [일�
 
 1. __서비스 연결__ 을 사용 하 여 Azure Machine Learning 서비스 작업 영역에 대 한 서비스 사용자 연결을 설정 하 고 모든 아티팩트에 액세스할 수 있습니다. 프로젝트 설정으로 이동 하 고 서비스 연결을 클릭 한 다음 Azure Resource Manager를 선택 합니다.
 
-    ![view-service-connection](media/how-to-deploy-and-where/view-service-connection.png) 
+    [![뷰 서비스-연결](media/how-to-deploy-and-where/view-service-connection.png)](media/how-to-deploy-and-where/view-service-connection-expanded.png) 
 
 1. AzureMLWorkspace를 __범위 수준__ 으로 정의 하 고 후속 매개 변수를 채웁니다.
 
@@ -731,11 +731,11 @@ Azure Machine Learning 계산을 사용한 일괄 처리 유추 연습은 [일�
 
 1. 그런 다음 Azure Pipelines를 사용 하 여 기계 학습 모델을 지속적으로 배포 하려면 파이프라인에서 __릴리스__를 선택 합니다. 새 아티팩트를 추가 하 고, 이전 단계에서 만든 AzureML 모델 아티팩트 및 서비스 연결을 선택 합니다. 배포를 트리거할 모델 및 버전을 선택 합니다. 
 
-    ![select-AzureMLmodel-artifact](media/how-to-deploy-and-where/enable-modeltrigger-artifact.png)
+    [![AzureMLmodel-아티팩트](media/how-to-deploy-and-where/enable-modeltrigger-artifact.png)](media/how-to-deploy-and-where/enable-modeltrigger-artifact-expanded.png)
 
 1. 모델 아티팩트에 대해 모델 트리거를 사용 하도록 설정 합니다. 지정 된 버전이 될 때마다 트리거를 설정 하 여 해당 모델의 최신 버전)이 작업 영역에 등록 되 면 Azure DevOps 릴리스 파이프라인이 트리거됩니다. 
 
-    ![enable-model-trigger](media/how-to-deploy-and-where/set-modeltrigger.png)
+    [![모델 사용-트리거](media/how-to-deploy-and-where/set-modeltrigger.png)](media/how-to-deploy-and-where/set-modeltrigger-expanded.png)
 
 더 많은 샘플 프로젝트 및 예제는 다음 샘플 리포지토리를 참조 하세요.
 

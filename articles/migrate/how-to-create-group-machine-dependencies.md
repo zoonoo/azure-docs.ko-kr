@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/17/2019
 ms.author: hamusa
-ms.openlocfilehash: 4130bb746a4faa4907353654d16f7c20c0cc7817
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: c48323bb4c8798a0f36d3fda99a4c659187e0e81
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598956"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69906383"
 ---
 # <a name="set-up-dependency-visualization-for-assessment"></a>평가에 대 한 종속성 시각화 설정
 
@@ -27,7 +27,7 @@ ms.locfileid: "68598956"
 
 종속성 시각화에 [대해 자세히 알아보세요](concepts-dependency-visualization.md#how-does-it-work) .
 
-## <a name="before-you-start"></a>시작하기 전에
+## <a name="before-you-start"></a>시작하기 전 주의 사항
 
 - Azure Migrate 프로젝트를 [만들었는지](how-to-add-tool-first-time.md) 확인 합니다.
 - 프로젝트를 이미 만든 경우 Azure Migrate을 [추가](how-to-assess.md) 했는지 확인 합니다. 서버 평가 도구를 사용하여 온-프레미스 VMware VM을 평가하는 방법을 보여 줍니다.
@@ -37,10 +37,10 @@ ms.locfileid: "68598956"
 **기능** | **참고:**
 --- | ---
 가용성 | Azure Government에서 종속성 시각화를 사용할 수 없습니다.
-서비스 맵 | 종속성 시각화는 Azure Monitor 로그에 서비스 맵 솔루션을 사용 합니다. [서비스 맵](../azure-monitor/insights/service-map-configure.md) 는 서버 간의 연결을 자동으로 검색 하 고 표시 합니다.
-에이전트 | 종속성 시각화를 사용 하려면 매핑할 컴퓨터에 두 개의 에이전트를 설치 합니다.<br/> - [Azure Log Analytics](../azure-monitor/platform/log-analytics-agent.md) 에이전트 (이전에는 MICROSOFT MONITORING AGENT (MMA) 이라고 함).<br/> -종속성 에이전트를 서비스 맵 합니다.<br/><br/> 에이전트 설치를 자동화 하려면 Azure Migrate에 대 한 에이전트 배포 솔루션이 있는 System Center Configuration Manager 또는 파트너 도구 (예: [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration))와 같은 배포 도구를 사용할 수 있습니다.
-Dependency agent | [Windows](../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems) 및 [Linux](../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems)에 대 한 종속성 에이전트 지원을 검토 합니다.<br/><br/> 스크립트를 사용 하 여 종속성 에이전트를 설치 하는 방법에 [대해 자세히 알아보세요](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) .
-Log Analytics 에이전트 (MMA) | MMA 설치 방법에 [대해 자세히 알아보세요](../azure-monitor/platform/log-analytics-agent.md#install-and-configure-agent) .<br/><br/> System Center Operations Manager 2012 R2 이상에서 모니터링 하는 컴퓨터의 경우 MMA 에이전트를 설치할 필요가 없습니다. 서비스 맵 Operations Manager와 통합 됩니다. [여기](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites)에서 지침에 따라 통합을 사용하도록 설정할 수 있습니다. 그러나 종속성 에이전트는 해당 머신에 설치해야 합니다.<br/><br/> Log Analytics 에이전트에서 지 원하는 Linux 운영 체제를 [검토](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) 합니다.
+서비스 맵 | 종속성 시각화는 Azure Monitor에서 서비스 맵 솔루션을 사용 합니다. [서비스 맵](../azure-monitor/insights/service-map.md) 는 서버 간의 연결을 자동으로 검색 하 고 표시 합니다.
+에이전트 | 종속성 시각화를 사용 하려면 매핑할 컴퓨터에 다음 에이전트를 설치 합니다.<br/> - [Log Analytics 에이전트](../azure-monitor/platform/log-analytics-agent.md) 에이전트 (이전에는 MICROSOFT MONITORING AGENT (MMA) 이라고 함).<br/> - [종속성 에이전트를 서비스 맵](../azure-monitor/insights/vminsights-enable-overview.md#the-microsoft-dependency-agent)합니다.<br/><br/> 에이전트 설치를 자동화 하려면 Azure Migrate에 대 한 에이전트 배포 솔루션이 있는 System Center Configuration Manager 또는 파트너 도구 (예: [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration))와 같은 배포 도구를 사용할 수 있습니다.
+Dependency agent | Windows 및 Linux에 대 한 [종속성 에이전트 지원](../azure-monitor/insights/vminsights-enable-overview.md#the-microsoft-dependency-agent) 을 검토 합니다.<br/><br/> 스크립트를 사용 하 여 종속성 에이전트를 설치 하는 방법에 [대해 자세히 알아보세요](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples) .
+Log Analytics 에이전트 (MMA) | MMA 설치 방법에 [대해 자세히 알아보세요](../azure-monitor/platform/log-analytics-agent.md#install-and-configure-agent) .<br/><br/> System Center Operations Manager 2012 R2 이상에서 모니터링 하는 컴퓨터의 경우 MMA 에이전트를 설치할 필요가 없습니다. 서비스 맵 Operations Manager와 통합 됩니다. [여기](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites)에서 지침에 따라 통합을 사용하도록 설정할 수 있습니다. 그러나 종속성 에이전트는 이러한 컴퓨터에 설치 되어야 합니다.<br/><br/> Log Analytics 에이전트에서 지 원하는 Linux 운영 체제를 [검토](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) 합니다.
 평가 그룹 | 종속성을 시각화하려는 그룹에는 10개 이하의 컴퓨터만 포함되어 있어야 합니다. 컴퓨터가 10 대 이상인 경우 종속성을 시각화 하기 위해 작은 그룹으로 분할 합니다.
 
 ## <a name="associate-a-log-analytics-workspace"></a>Log Analytics 작업 영역 연결

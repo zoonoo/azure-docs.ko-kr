@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6e1543d578e6812fd270bd76ec18bdfe8fe5ba6a
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: d4bf7b894a23f0054485ddb6dbb91c4df2122222
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68324054"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907333"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Azure Portal에서 Batch 계정 만들기
 
@@ -115,7 +115,7 @@ Batch 계정 및 시나리오에 대한 배경은 [기능 개요](batch-api-basi
 
 사용자 구독 모드에서 Batch 계정을 만들 때 키 자격 증명 모음에 대 한 리소스 그룹을 사용 합니다. **사용자 구독** 을 풀 할당 모드로 지정 하 고, 키 자격 증명 모음을 선택 하 고, 키 자격 증명 모음에 대 한 Azure Batch 액세스 권한을 부여 하는 확인란을 선택 합니다. 
 
-키 자격 증명 모음에 대 한 액세스 권한을 수동으로 부여 하려면 키 자격 증명 모음의 **액세스 정책** 섹션으로 이동 하 여 **Microsoft Azure Batch**을 선택 합니다. 드롭다운 메뉴를 사용 하 여 **비밀 권한을** 구성 합니다. Azure Batch에는 최소한 **Get**, **List**, **Set**및 **Delete** 권한이 제공 되어야 합니다.
+키 자격 증명 모음에 대 한 액세스 권한을 수동으로 부여 하려면 키 자격 증명 모음의 **액세스 정책** 섹션으로 이동 하 여 **액세스 정책 추가** 를 선택 하 고 **Microsoft Azure Batch**를 검색 합니다. 선택한 후에는 드롭다운 메뉴를 사용 하 여 **비밀 권한을** 구성 해야 합니다. Azure Batch에는 최소한 **Get**, **List**, **Set**및 **Delete** 권한이 제공 되어야 합니다.
 
 ![Azure Batch에 대 한 보안 권한](./media/batch-account-create-portal/secret-permissions.png)
 
@@ -140,7 +140,7 @@ Azure Portal을 사용하는 것 외에도 다음을 포함하는 도구로 Batc
 ## <a name="next-steps"></a>다음 단계
 
 * Batch 서비스의 개념 및 기능에 대한 자세한 내용은 [Batch 기능 개요](batch-api-basics.md)를 참조하세요. 이 문서에서는 풀, 컴퓨팅 노드, 작업 및 태스크 등의 기본 Batch 리소스에 대해 설명하고 대규모 컴퓨팅 워크로드를 위한 서비스 기능 개요를 제공합니다.
-* [Batch .NET 클라이언트 라이브러리](quick-run-dotnet.md) 또는 [Python](quick-run-python.md)을 사용하여 Batch 지원 응용 프로그램 개발에 대한 기본 사항을 알아봅니다. 이러한 빠른 시작에서는 Batch 서비스를 사용하여 여러 컴퓨팅 노드에서 워크로드를 실행하는 애플리케이션 예제를 단계별로 안내하며, Azure Storage를 사용하여 워크로드 파일을 준비하고 검색하는 방법을 설명합니다.
+* [Batch .NET 클라이언트 라이브러리](quick-run-dotnet.md) 또는 [Python](quick-run-python.md)을 사용하여 Batch 지원 애플리케이션 개발에 대한 기본 사항을 알아봅니다. 이러한 빠른 시작에서는 Batch 서비스를 사용하여 여러 컴퓨팅 노드에서 워크로드를 실행하는 애플리케이션 예제를 단계별로 안내하며, Azure Storage를 사용하여 워크로드 파일을 준비하고 검색하는 방법을 설명합니다.
 
 [azure_portal]: https://portal.azure.com
 [batch_pricing]: https://azure.microsoft.com/pricing/details/batch/

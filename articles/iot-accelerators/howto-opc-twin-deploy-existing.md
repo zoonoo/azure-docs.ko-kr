@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: fc70d140479be100e6aa52cf8105d3e466342cd7
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: 74b502a37081c729c5e33a0db7dc7f26cb44774b
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302657"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972277"
 ---
 # <a name="deploy-opc-twin-to-an-existing-project"></a>OPC 쌍을 기존 프로젝트에 배포
 
@@ -142,4 +142,4 @@ cd azure-iiot-components
 이제 OPC 쌍을 기존 프로젝트에 배포 하는 방법을 배웠으므로 다음 단계를 제안 합니다.
 
 > [!div class="nextstepaction"]
-> [OPC 클라이언트 및 OPC PLC의 보안 통신](howto-opc-vault-deploy-existing-client-plc-communication.md)
+> [OPC UA 클라이언트 및 OPC UA PLC의 보안 통신](howto-opc-vault-secure.md)

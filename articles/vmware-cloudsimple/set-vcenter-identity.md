@@ -8,16 +8,16 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d6229e78958fdc4995153d99ad02a15804330f1b
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: d314cc55096f681d1bcf66d33c4c30a4060751e9
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544566"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972661"
 ---
 # <a name="set-up-vcenter-identity-sources-to-use-active-directory"></a>Active Directory 사용할 vCenter id 원본 설정
 
-## <a name="about-vmware-vcenter-identity-sources"></a>VMware vCenter Id 원본 정보
+## <a name="about-vmware-vcenter-identity-sources"></a>VMware vCenter id 원본 정보
 
 VMware vCenter는 vCenter에 액세스 하는 사용자를 인증 하는 데 다양 한 id 원본을 지원 합니다.  CloudSimple 사설 클라우드 vCenter를 설정 하 여 VMware 관리자가 vCenter에 액세스할 Active Directory를 인증할 수 있습니다. 설치가 완료 되 면 **cloudowner** 사용자가 id 원본에서 vCenter에 사용자를 추가할 수 있습니다.  
 
@@ -34,7 +34,7 @@ VMware vCenter는 vCenter에 액세스 하는 사용자를 인증 하는 데 다
 
 ## <a name="identity-source-options"></a>Id 원본 옵션
 
-* [온-프레미스 Active Directory을 Single Sign-on Id 원본으로 추가](#add-on-premises-active-directory-as-a-single-sign-on-identity-source)
+* [온-프레미스 Active Directory Single Sign-On id 원본으로 추가](#add-on-premises-active-directory-as-a-single-sign-on-identity-source)
 * [사설 클라우드에서 새 Active Directory 설정](#set-up-new-active-directory-on-a-private-cloud)
 * [Azure에서 Active Directory 설정](#set-up-active-directory-on-azure)
 
@@ -63,7 +63,7 @@ Active Directory 도메인을 설정할 때 다음 표의 정보를 사용 합�
 위의 표에 나와 있는 정보를 사용할 경우 온-프레미스 Active Directory를 vCenter의 Single Sign-on id 원본으로 추가할 수 있습니다.
 
 > [!TIP]
-> <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.psc.doc/GUID-B23B1360-8838-4FF2-B074-71643C4CB040.html" target="_blank">VMware 설명서 페이지</a>에서 Single sign-on id 소스에 대 한 자세한 내용을 확인할 수 있습니다.
+> [VMware 설명서 페이지](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.psc.doc/GUID-B23B1360-8838-4FF2-B074-71643C4CB040.html)에서 Single sign-on id 소스에 대 한 자세한 내용을 확인할 수 있습니다.
 
 ## <a name="set-up-new-active-directory-on-a-private-cloud"></a>사설 클라우드에서 새 Active Directory 설정
 
@@ -100,7 +100,7 @@ Azure에서 실행 되는 Active Directory 온-프레미스에서 실행 되는 
 
 네트워크 연결이 설정 된 후 [온-프레미스 Active Directory을 Single Sign-on Id 원본으로 추가](#add-on-premises-active-directory-as-a-single-sign-on-identity-source) 의 단계에 따라 id 원본으로 추가 합니다.  
 
-## <a name="add-an-identity-source-on-vcenter"></a>VCenter에서 Id 원본 추가
+## <a name="add-an-identity-source-on-vcenter"></a>VCenter에서 id 원본 추가
 
 1. 사설 클라우드에 대 한 [권한을 에스컬레이션](escalate-private-cloud-privileges.md) 합니다.
 

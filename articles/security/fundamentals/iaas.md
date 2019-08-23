@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/05/2019
 ms.author: barclayn
-ms.openlocfilehash: c04d5fc5b455c798ffc8cb4a88948deaea0cf348
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 0e8be1675dd2b400f89ab17fe85c037066302409
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68927922"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69906030"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Azure의 IaaS 작업에 대한 보안 모범 사례
 이 문서에서는 VM 및 운영 체제에 대한 보안 모범 사례를 설명합니다.
@@ -182,7 +182,7 @@ VM 다이렉트 인터넷 연결을 모니터링 하 고 제한 합니다. 공�
 **세부 정보**: RBAC를 사용 하 여 중앙 네트워킹 그룹에만 리소스에 대 한 사용 권한이 있는지 확인 합니다.
 
 **모범 사례**: "Any" 원본 IP 주소에서 액세스를 허용 하는 노출 된 Vm을 식별 하 고 재구성 합니다.   
-**세부 정보**: Azure Security Center를 사용 합니다. 네트워크 보안 그룹에 "any" 원본 IP 주소에 대 한 액세스를 허용 하는 인바운드 규칙이 하나 이상 있는 경우 인터넷 연결 끝점을 통해 액세스를 제한 하는 것이 좋습니다. Security Center 이러한 인바운드 규칙을 편집 하 여 실제로 액세스 해야 하는 원본 IP 주소에 대 한 [액세스를 제한](../../security-center/security-center-restrict-access-through-internet-facing-endpoints.md) 하는 것이 Security Center 합니다.
+**세부 정보**: Azure Security Center를 사용 합니다. 네트워크 보안 그룹에 "any" 원본 IP 주소에 대 한 액세스를 허용 하는 인바운드 규칙이 하나 이상 있는 경우 인터넷 연결 끝점을 통해 액세스를 제한 하는 것이 좋습니다. Security Center 이러한 인바운드 규칙을 편집 하 여 실제로 액세스 해야 하는 원본 IP 주소에 대 한 [액세스를 제한](../../security-center/security-center-network-recommendations.md) 하는 것이 Security Center 합니다.
 
 **모범 사례**: 관리 포트 (RDP, SSH)를 제한 합니다.   
 **세부 정보**: [JIT (just-in-time) vm 액세스](../../security-center/security-center-just-in-time.md) 를 사용 하 여 Azure vm에 대 한 인바운드 트래픽을 잠글 수 있으며, 필요할 때 vm에 연결 하는 데 편리한 액세스를 제공 하는 동시에 공격에 대 한 노출을 줄일 수 있습니다. JIT를 사용 하도록 설정 하면 Security Center 네트워크 보안 그룹 규칙을 만들어 Azure Vm에 대 한 인바운드 트래픽을 잠급니다. VM에서 인바운드 트래픽을 잠글 포트를 선택합니다. 이러한 포트는 JIT 솔루션에 의해 제어 됩니다.

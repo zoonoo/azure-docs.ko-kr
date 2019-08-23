@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/19/2019
 ms.author: v-mohabe
-ms.openlocfilehash: c2adf9bff4c3d91305e71a7688740fa0268ad7b9
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 0704db7444756fb44c5587ae8e8e743f671c9dcc
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69531473"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907940"
 ---
 # <a name="protect-azure-data-and-storage-services-in-azure-security-center"></a>Azure Security Center에서 Azure 데이터 및 저장소 서비스 보호
 이 항목에서는 데이터 및 저장소 리소스에 대 한 보안 권장 사항을 확인 하 고 구현 하는 방법을 보여 줍니다. Azure Security Center Azure 리소스의 보안 상태를 분석할 때 이러한 권장 사항을 찾았습니다.
@@ -61,7 +61,7 @@ ms.locfileid: "69531473"
 
 ## <a name="data-and-storage-recommendations"></a>데이터 및 스토리지 권장 사항
 
-|리소스 형식|보안 점수|권장|설명|
+|리소스 형식|보안 점수|권장|Description|
 |----|----|----|----|
 |Storage 계정|20|Storage 계정에 보안 전송을 사용하도록 설정해야 합니다.|보안 전송은 사용자의 스토리지 계정이 보안 연결(HTTPS)에서 오는 요청만 수락하도록 강제 적용하는 옵션입니다. HTTPS는 서버와 서비스 간의 인증을 보장 하 고 전송 중인 데이터를 메시지 가로채기 (man-in-the-middle), 도청 및 세션 하이재킹과 같은 네트워크 계층 공격 으로부터 보호 합니다.|
 |Redis|20|Redis Cache에 보안 연결만 사용하도록 설정해야 합니다.|Azure Cache for Redis에 SSL을 통한 연결만 사용하도록 설정합니다. 보안 연결을 사용하여 서버와 서비스 간 인증을 보장하고 전송 중인 데이터를 메시지 가로채기(man-in-the-middle), 도청 및 세션 하이재킹과 같은 네트워크 계층 공격으로부터 보호합니다.|
@@ -77,7 +77,7 @@ ms.locfileid: "69531473"
 ## <a name="see-also"></a>참고자료
 다른 Azure 리소스 유형에 적용 되는 권장 사항에 대해 자세히 알아보려면 다음 항목을 참조 하세요.
 
-* [Azure Security Center에서 가상 머신 보호](security-center-virtual-machine-recommendations.md)
+* [Azure Security Center에서 머신 및 애플리케이션 보호](security-center-virtual-machine-protection.md)
 * [Azure Security Center에서 애플리케이션 보호](security-center-application-recommendations.md)
 * [Azure Security Center에서 네트워크 보호](security-center-network-recommendations.md)
 

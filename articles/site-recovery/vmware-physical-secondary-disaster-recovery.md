@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 08/22/2019
 ms.author: raynew
-ms.openlocfilehash: 9a1cb63bd2a209c72af608d23515723a63b180e1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a87abfdd70db07e4310dc6a39a280e12f664d03b
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417717"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972100"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>보조 사이트에 온-프레미스 VMware 가상 머신 또는 물리적 서버의 재해 복구 설정
 
@@ -57,7 +57,7 @@ o 물리적 머신의 경우 이 [자습서](./physical-azure-disaster-recovery.
 **지원 매트릭스** | [자세한 내용을 보려면 여기를 클릭](./vmware-physical-azure-support-matrix.md)|[ASR Scout 호환 매트릭스 다운로드](https://aka.ms/asr-scout-cm)
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 이 자습서를 완료하려면 다음이 필요합니다.
 
 - 모든 구성 요소에 대한 지원 요구 사항을 [검토합니다](vmware-physical-secondary-support-matrix.md).
@@ -69,7 +69,7 @@ o 물리적 머신의 경우 이 [자습서](./physical-azure-disaster-recovery.
  최신 [업데이트](#updates)를 검토하고 설치합니다. 업데이트는 다음 순서로 서버에 설치해야 합니다.
 
 1. RX 서버(있는 경우)
-2. 서버 구성
+2. 구성 서버
 3. 프로세스 서버
 4. 마스터 대상 서버
 5. vContinuum 서버.
@@ -146,7 +146,7 @@ o 물리적 머신의 경우 이 [자습서](./physical-azure-disaster-recovery.
 업데이트: 2018년 12월 31일 [Scout 업데이트 7](https://aka.ms/asr-scout-update7)을 다운로드합니다.
 Scout 업데이트 7은 새 설치 및 이전 업데이트(업데이트1~업데이트 6)에 있는 기존 에이전트/MT를 업그레이드하는 데 사용할 수 있는 전체 설치 관리자입니다. 여기에는 업데이트 1에서 업데이트 6까지의 모든 수정 사항 및 아래에서 설명하는 새 수정 사항 및 개선된 기능이 포함되어 있습니다.
  
-#### <a name="new-features"></a>새로운 기능
+#### <a name="new-features"></a>새 기능
 * PCI 규정 준수
 * TLS v1.2 지원
 
@@ -159,7 +159,7 @@ Scout 업데이트 7은 새 설치 및 이전 업데이트(업데이트1~업데�
 #### <a name="manual-upgrade-for-php-and-mysql-on-csps-and-rx"></a>CS,PS 및 RX에서 PHP 및 MySQL에 대한 수동 업그레이드
 PHP 스크립팅 플랫폼은 구성 서버, 프로세스 서버 및 RX 서버에서 7.2.10 버전으로 업그레이드되어야 합니다.
 MySQL 데이터베이스 관리 시스템은 구성 서버, 프로세스 서버 및 RX 서버에서 5.7.23 버전으로 업그레이드되어야 합니다.
-에 지정 된 수동 단계를 따르세요 합니다 [빠른 설치 가이드](https://aka.ms/asr-scout-quick-install-guide) PHP 및 MySQL 버전을 업그레이드 합니다.
+PHP 및 MySQL 버전을 업그레이드 하려면 [빠른 설치 가이드](https://aka.ms/asr-scout-quick-install-guide) 에서 제공 하는 수동 단계를 수행 하세요.
 
 ### <a name="site-recovery-scout-801-update-6"></a>Site Recovery Scout 8.0.1 업데이트 6 
 업데이트: 2017년 10월 12일
@@ -188,7 +188,7 @@ Scout 업데이트 6는 누적 업데이트입니다. 여기에는 업데이트 
 - UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe
 - UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
 - vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe
-- UA update4 bits for RHEL5, OL5, OL6, SUSE 10, SUSE 11: UA_\<Linux OS > _8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
+- UA update4 bits for RHEL5, OL5, OL6, SUSE 10, SUSE 11: UA_\<Linux OS > _ 8.0.4.0 _ga_update_4_9035261_26sep16 release.tar.gz
   1. .zip 파일의 압축을 풉니다.
   2. **RX 서버**: **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz**를 RX 서버에 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.
   3. **구성 서버 및 프로세스 서버**: **CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe**를 구성 서버 및 프로세스 서버에 복사합니다. 실행하려면 두 번 클릭합니다.<br>

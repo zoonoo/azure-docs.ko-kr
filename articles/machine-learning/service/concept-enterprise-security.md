@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/07/2019
-ms.openlocfilehash: ebecb69e57c620b2eb84568757c8e3e6f1cb1663
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 510f58cc0b71fb75ac6f5e15fc883c3caf4a8f9a
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946399"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69897968"
 ---
 # <a name="enterprise-security-for-azure-machine-learning-service"></a>Azure Machine Learning 서비스에 대 한 엔터프라이즈 보안
 
@@ -31,7 +31,7 @@ Multi-factor authentication은 Azure Active Directory (Azure AD)가 동일한에
 * 클라이언트는 모든 Azure Machine Learning 서비스 & Azure Resource Manager 토큰을 제공 합니다.
 * Azure Machine Learning 서비스는 사용자 계산에 대 한 Azure Machine Learning 토큰을 제공 합니다. 예를 들어 Machine Learning 컴퓨팅 합니다. 이 토큰은 실행이 완료 된 후 사용자 계산에서 Azure Machine Learning 서비스로 다시 호출 (작업 영역으로 범위 제한) 하는 데 사용 됩니다.
 
-![Azure Machine Learning 서비스에서 인증이 작동 하는 방식을 보여 주는 스크린샷](./media/enterprise-readiness/authentication.png)
+[![Azure Machine Learning 서비스에서 인증이 작동 하는 방식을 보여 주는 스크린샷](./media/enterprise-readiness/authentication.png)](./media/enterprise-readiness/authentication-expanded.png)
 
 ### <a name="authentication-for-web-service-deployment"></a>웹 서비스 배포에 대 한 인증
 
@@ -185,7 +185,7 @@ HDI HDInsight 및 VM과 같은 대상 계산에 대 한 SSH 암호 및 키는 Mi
 
 Azure Monitor 메트릭은 Azure Machine Learning 서비스 작업 영역에 대 한 메트릭을 확인 하 고 모니터링 하는 데 사용할 수 있습니다. [Azure Portal](https://portal.azure.com)에서 작업 영역을 선택한 다음 __메트릭__ 링크를 사용 합니다.
 
-![작업 영역에 대 한 예제 메트릭을 보여 주는 스크린샷](./media/enterprise-readiness/workspace-metrics.png)
+[![작업 영역에 대 한 예제 메트릭을 보여 주는 스크린샷](./media/enterprise-readiness/workspace-metrics.png)](./media/enterprise-readiness/workspace-metrics-expanded.png)
 
 메트릭은 실행, 배포 및 등록에 대 한 정보를 포함 합니다.
 
@@ -197,7 +197,7 @@ Azure Monitor 메트릭은 Azure Machine Learning 서비스 작업 영역에 대
 
 다음 스크린샷은 작업 영역에 대 한 활동 로그를 보여 줍니다.
 
-![작업 영역에서 활동 로그를 보여 주는 스크린샷](./media/enterprise-readiness/workspace-activity-log.png)
+[![작업 영역에서 활동 로그를 보여 주는 스크린샷](./media/enterprise-readiness/workspace-activity-log.png)](./media/enterprise-readiness/workspace-activity-log-expanded.png)
 
 점수 매기기 요청 정보는 작업 영역을 만드는 동안 사용자의 구독에서 생성 되는 응용 프로그램 정보에 저장 됩니다. 기록 되는 정보에는 HTTPMethod, UserAgent,,, RequestUrl, StatusCode, RequestId, Duration 등의 필드가 포함 됩니다.
 
@@ -220,14 +220,14 @@ Azure Monitor 메트릭은 Azure Machine Learning 서비스 작업 영역에 대
 
 작업 영역에 연결 된 다른 계산 (Azure Kubernetes Service, VM 등)은 필요에 따라 고객이 프로 비전 할 수도 있습니다.
 
-![작업 영역 만들기 워크플로를 보여 주는 스크린샷](./media/enterprise-readiness/create-workspace.png)
+[![작업 영역 만들기 워크플로를 보여 주는 스크린샷](./media/enterprise-readiness/create-workspace.png)](./media/enterprise-readiness/create-workspace-expanded.png)
 
 ### <a name="save-source-code-training-scripts"></a>소스 코드 저장 (학습 스크립트)
 
 다음 다이어그램에서는 코드 스냅숏 워크플로를 보여 줍니다.
 Azure Machine Learning 서비스 작업 영역과 연결 된 디렉터리 (실험)는 소스 코드 (학습 스크립트)를 포함 합니다.  이러한 스크립트는 고객의 로컬 컴퓨터와 클라우드에 저장 됩니다 (고객의 구독에서 Azure Blob Storage에 저장 됨). 코드 스냅숏은 기록 감사에 대 한 실행 또는 검사에 사용 됩니다.
 
-![작업 영역 만들기 워크플로를 보여 주는 스크린샷](./media/enterprise-readiness/code-snapshot.png)
+[![작업 영역 만들기 워크플로를 보여 주는 스크린샷](./media/enterprise-readiness/code-snapshot.png)](./media/enterprise-readiness/code-snapshot-expanded.png)
 
 ### <a name="training"></a>학습
 
@@ -253,7 +253,7 @@ Azure Machine Learning 서비스 작업 영역과 연결 된 디렉터리 (실�
 
 이 단계는 학습 계산이 Cosmos DB에 저장 된 위치에서 Azure Machine Learning 서비스로 *실행 메트릭을* 다시 쓰는 흐름에 표시 됩니다. 클라이언트는 Cosmos DB에서 메트릭을 가져와서 클라이언트에 다시 반환 하는 Azure Machine Learning 서비스를 호출할 수 있습니다.
 
-![작업 영역 만들기 워크플로를 보여 주는 스크린샷](./media/enterprise-readiness/training-and-metrics.png)
+[![작업 영역 만들기 워크플로를 보여 주는 스크린샷](./media/enterprise-readiness/training-and-metrics.png)](./media/enterprise-readiness/training-and-metrics-expanded.png)
 
 ### <a name="creating-web-services"></a>웹 서비스 만들기
 
@@ -267,7 +267,7 @@ Azure Machine Learning 서비스 작업 영역과 연결 된 디렉터리 (실�
 * 점수 매기기 요청 세부 정보는 사용자의 구독에 있는 응용 프로그램 정보에 저장 됩니다.
 * Microsoft/Azure 구독에도 원격 분석이 푸시 됨
 
-![작업 영역 만들기 워크플로를 보여 주는 스크린샷](./media/enterprise-readiness/inferencing.png)
+[![작업 영역 만들기 워크플로를 보여 주는 스크린샷](./media/enterprise-readiness/inferencing.png)](./media/enterprise-readiness/inferencing-expanded.png)
 
 ## <a name="next-steps"></a>다음 단계
 

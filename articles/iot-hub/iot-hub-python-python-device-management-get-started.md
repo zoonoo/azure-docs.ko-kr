@@ -6,14 +6,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: 52651ca592c4da9883768cd87e090985e17be47b
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 287dbd3d6da4aa2bf5bd1da652cdeaeda3136321
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780913"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907722"
 ---
 # <a name="get-started-with-device-management-python"></a>디바이스 관리 시작(Python)
 
@@ -57,9 +57,19 @@ ms.locfileid: "68780913"
 
 * reported 속성을 사용하여 디바이스 및 해당 디바이스가 마지막으로 재부팅한 시간을 확인하는 디바이스 쌍 쿼리를 사용하도록 설정
 
-1. 텍스트 편집기를 사용하여 **dmpatterns_getstarted_device.py** 파일을 만듭니다.
+1. 명령 프롬프트에서 다음 명령을 실행하여 **azure-iot-device-client** 패키지를 설치합니다.
 
-2. 다음 `import` 문을 **dmpatterns_getstarted_device.py** 파일의 시작 부분에 추가합니다.
+    ```cmd/sh
+    pip install azure-iothub-device-client
+    ```
+
+   > [!NOTE]
+   > Azure-iothub 및 iothub에 대 한 pip 패키지는 현재 Windows OS에만 사용할 수 있습니다. Linux/Mac OS의 경우 [Python 용 개발 환경 준비](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) 게시물의 linux 및 Mac OS 관련 섹션을 참조 하세요.
+   >
+
+2. 텍스트 편집기를 사용 하 여 작업 디렉터리에 **dmpatterns_getstarted_device. py** 라는 파일을 만듭니다.
+
+3. 다음 `import` 문을 **dmpatterns_getstarted_device.py** 파일의 시작 부분에 추가합니다.
 
     ```python
     import random
@@ -70,7 +80,7 @@ ms.locfileid: "68780913"
     from iothub_client import IoTHubClient, IoTHubClientError, IoTHubTransportProvider, IoTHubClientResult, IoTHubError, DeviceMethodReturnValue
     ```
 
-3. **CONNECTION_STRING** 변수 및 클라이언트 초기화를 포함한 변수를 추가합니다.  연결 문자열을 디바이스 연결 문자열로 바꿉니다.  
+4. **CONNECTION_STRING** 변수 및 클라이언트 초기화를 포함한 변수를 추가합니다.  자리 표시자 `{deviceConnectionString}` 값을 장치 연결 문자열로 바꿉니다. 이전에 [IoT hub에서 새 장치 등록](#register-a-new-device-in-the-iot-hub)에이 연결 문자열을 복사 했습니다.  
 
     ```python
     CONNECTION_STRING = "{deviceConnectionString}"
@@ -87,7 +97,7 @@ ms.locfileid: "68780913"
     METHOD_CALLBACKS = 0
     ```
 
-4. 디바이스에서 직접 메서드를 구현하도록 다음 함수 콜백을 추가합니다.
+5. 디바이스에서 직접 메서드를 구현하도록 다음 함수 콜백을 추가합니다.
 
     ```python
     def send_reported_state_callback(status_code, user_context):
@@ -117,7 +127,7 @@ ms.locfileid: "68780913"
         return device_method_return_value
     ```
 
-5. 직접 메서드 수신기를 시작하고 기다립니다.
+6. 직접 메서드 수신기를 시작하고 기다립니다.
 
     ```python
     def iothub_client_init():
@@ -150,7 +160,7 @@ ms.locfileid: "68780913"
         iothub_client_sample_run()
     ```
 
-6. **dmpatterns_getstarted_device.py** 파일을 저장하고 닫습니다.
+7. **dmpatterns_getstarted_device.py** 파일을 저장하고 닫습니다.
 
 > [!NOTE]
 > 간단히 하기 위해 이 자습서에서는 재시도 정책을 구현하지 않습니다. 프로덕션 코드에서는 문서 [일시적인 오류 처리](/azure/architecture/best-practices/transient-faults)에서 제시한 대로 다시 시도 정책(예: 지수 백오프)을 구현해야 합니다.
@@ -165,9 +175,19 @@ ms.locfileid: "68780913"
 
 이 섹션에서는 디바이스에서 직접 메서드를 사용하여 원격 다시 부팅을 시작하는 Python 콘솔 앱을 만듭니다. 앱은 디바이스 쌍 쿼리를 사용하여 해당 디바이스에 대한 마지막 다시 시작 시간을 검색합니다.
 
-1. 텍스트 편집기를 사용하여 **dmpatterns_getstarted_service.py** 파일을 만듭니다.
+1. 명령 프롬프트에서 다음 명령을 실행하여 **azure-iot-service-client** 패키지를 설치합니다.
 
-2. 다음 `import` 문을 **dmpatterns_getstarted_service.py** 파일의 시작 부분에 추가합니다.
+    ```cmd/sh
+    pip install azure-iothub-service-client
+    ```
+
+   > [!NOTE]
+   > Azure-iothub 및 iothub에 대 한 pip 패키지는 현재 Windows OS에만 사용할 수 있습니다. Linux/Mac OS의 경우 [Python 용 개발 환경 준비](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) 게시물의 linux 및 Mac OS 관련 섹션을 참조 하세요.
+   >
+
+2. 텍스트 편집기를 사용 하 여 작업 디렉터리에 **dmpatterns_getstarted_service. py** 라는 파일을 만듭니다.
+
+3. 다음 `import` 문을 **dmpatterns_getstarted_service.py** 파일의 시작 부분에 추가합니다.
 
     ```python
     import sys, time
@@ -176,7 +196,7 @@ ms.locfileid: "68780913"
     from iothub_service_client import IoTHubDeviceMethod, IoTHubError, IoTHubDeviceTwin
     ```
 
-3. 다음 변수 선언을 추가합니다. _IoTHubConnectionString_ 및 _deviceId_에 대한 자리 표시자 값만 바꿉니다.
+4. 다음 변수 선언을 추가합니다. 자리 표시자 `{IoTHubConnectionString}` 값을 이전에 [iot hub 연결 문자열 가져오기](#get-the-iot-hub-connection-string)에서 복사한 iot hub 연결 문자열로 바꿉니다. 자리 표시자 `{deviceId}` 값을 [IoT hub에서 새 장치 등록](#register-a-new-device-in-the-iot-hub)에 등록 한 장치 ID로 바꿉니다.
 
     ```python
     CONNECTION_STRING = "{IoTHubConnectionString}"
@@ -188,7 +208,7 @@ ms.locfileid: "68780913"
     WAIT_COUNT = 10
     ```
 
-4. 디바이스 메서드를 호출하여 대상 디바이스를 다시 부팅한 다음, 디바이스 쌍을 쿼리하고 마지막 다시 부팅 시간을 가져오도록 다음 함수를 추가합니다.
+5. 디바이스 메서드를 호출하여 대상 디바이스를 다시 부팅한 다음, 디바이스 쌍을 쿼리하고 마지막 다시 부팅 시간을 가져오도록 다음 함수를 추가합니다.
 
     ```python
     def iothub_devicemethod_sample_run():
@@ -239,7 +259,7 @@ ms.locfileid: "68780913"
         iothub_devicemethod_sample_run()
     ```
 
-5. **dmpatterns_getstarted_service.py** 파일을 저장하고 닫습니다.
+6. **dmpatterns_getstarted_service.py** 파일을 저장하고 닫습니다.
 
 ## <a name="run-the-apps"></a>앱 실행
 
@@ -247,16 +267,24 @@ ms.locfileid: "68780913"
 
 1. 명령 프롬프트에서 다음 명령을 실행하여 다시 부팅 직접 메서드에 대한 수신 대기를 시작합니다.
 
-    ```
+    ```cmd/sh
     python dmpatterns_getstarted_device.py
     ```
 
 2. 다른 명령 프롬프트에서 다음 명령을 실행하여 원격 다시 부팅을 트리거하고 디바이스 쌍을 쿼리하여 마지막 다시 부팅 시간을 찾습니다.
 
-    ```
+    ```cmd/sh
     python dmpatterns_getstarted_service.py
     ```
 
 3. 콘솔에서 직접 메서드에 대한 디바이스 응답을 확인합니다.
+
+   다음은 다시 부팅 직접 메서드에 대 한 장치 응답을 보여 줍니다.
+
+   ![시뮬레이션 된 장치 앱 출력](./media/iot-hub-python-python-device-management-get-started/device.png)
+
+   다음은 다시 부팅 직접 메서드를 호출 하 고 상태에 대 한 장치 쌍을 폴링하는 서비스를 보여 줍니다.
+
+   ![다시 부팅 서비스 출력 트리거](./media/iot-hub-python-python-device-management-get-started/service.png)
 
 [!INCLUDE [iot-hub-dm-followup](../../includes/iot-hub-dm-followup.md)]

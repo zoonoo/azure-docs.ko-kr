@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: f07ab41e0e495783a2d9592230336818b4a54d05
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: ab74b37fa8adc58f8641893b4168f71c453b0fdd
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69619535"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972699"
 ---
 # <a name="cloudsimple-private-cloud-permission-model-of-vmware-vcenter"></a>VMware vCenter의 CloudSimple 사설 클라우드 권한 모델
 
@@ -30,7 +30,7 @@ CloudSimple은 사설 클라우드 환경에 대 한 모든 관리 액세스를 
 
 **클라우드-소유자-그룹** 이라는 그룹은 사설 클라우드를 배포 하는 동안 만들어집니다. 이 그룹의 사용자는 사설 클라우드에서 vSphere 환경에서 다양 한 부분을 관리할 수 있습니다. 이 그룹에는 자동으로 **클라우드 소유자 역할** 권한이 부여 되며, **CloudOwner** 사용자는이 그룹의 멤버로 추가 됩니다.  CloudSimple은 관리 용이성을 위해 제한 된 권한으로 추가 그룹을 만듭니다.  이러한 미리 만든 그룹에 사용자를 추가할 수 있으며 아래에 정의 된 권한은 그룹의 사용자에 게 자동으로 할당 됩니다.
 
-### <a name="pre-created-groups"></a>사전 생성 된 그룹
+### <a name="pre-created-groups"></a>미리 만든 그룹
 
 | 그룹 이름 | 용도 | 역할 |
 | -------- | ------- | ------ |

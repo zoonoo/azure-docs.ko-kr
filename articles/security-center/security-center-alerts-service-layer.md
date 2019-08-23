@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 8/18/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 70b43c65703316e5dee8e9cf2cf86fe982a49592
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: aae2270417e0bb3bdf0dd847e2e09e7cb1999d39
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624778"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972462"
 ---
 # <a name="threat-detection-for-azure-service-layer-in-azure-security-center"></a>Azure Security Center에서 Azure 서비스 계층에 대 한 위협 감지
 
@@ -50,6 +50,10 @@ Security Center 네트워크 계층 분석은 Azure core 라우터가 수집 하
 |**악의적인 주소와의 네트워크 통신이 감지 되었습니다.**|샘플링 된 네트워크 트래픽 분석은 가능한 명령 및 제어 (C & C) 서버를 사용 하 여 배포의 리소스에서 시작 된 통신을 감지 했습니다. 이러한 유형의 활동으로 인해 외부 엔터티가 IP에 악성 플래그를 설정할 수 있습니다.|
 
 Security Center 네트워크 관련 신호를 사용 하 여 위협 방지를 적용 하는 방법을 이해 하려면 [Azure Security Center에서 추론 DNS](https://azure.microsoft.com/blog/heuristic-dns-detections-in-azure-security-center/)검색을 참조 하세요.
+
+>[!NOTE]
+>Azure Security Center에서 Azure 네트워크 계층 위협 검색 경고는 VM을 만든 후 처음 1 시간 동안 생성 되지 않습니다.
+
 ## Azure 관리 계층 (Azure Resource Manager) (미리 보기)<a name ="management-layer"></a>
 
 >[!NOTE]

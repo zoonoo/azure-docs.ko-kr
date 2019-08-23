@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 665eeb60012d5cec08b8a3ad919d7ddfdadc2d23
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 78c126559c4b919ebc81b49ed5567dd0d0196039
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68609584"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971592"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure 개발자를 위한 시작 가이드
 
@@ -37,7 +37,7 @@ Azure에서 제공하는 모든 서비스에서 솔루션 아키텍처를 지원
 
 먼저, Azure에서 애플리케이션을 호스트하는 방법을 결정해야 합니다. 전체 인프라를 VM(가상 머신)으로 관리해야 하나요? Azure에서 제공하는 플랫폼 관리 기능을 사용할 수 있나요? 코드 실행만 호스트하는 서버를 사용하지 않는 프레임워크가 필요한가요?
 
-애플리케이션에 Azure에서 몇 가지 옵션을 제공하는 클라우드 저장소가 필요합니다. Azure의 엔터프라이즈 인증을 활용할 수 있습니다. 또한 클라우드 기반 개발 및 모니터링을 위한 도구가 있으며 대부분의 호스팅 서비스는 DevOps 통합을 제공합니다.
+애플리케이션에 Azure에서 몇 가지 옵션을 제공하는 클라우드 스토리지가 필요합니다. Azure의 엔터프라이즈 인증을 활용할 수 있습니다. 또한 클라우드 기반 개발 및 모니터링을 위한 도구가 있으며 대부분의 호스팅 서비스는 DevOps 통합을 제공합니다.
 
 이제 애플리케이션에 대해 조사하기를 권장하는 특정 서비스 중 일부를 살펴보겠습니다.
 
@@ -102,9 +102,9 @@ Service Fabric은 OWIN(Open Web Interface for .NET) 및 ASP.NET Core를 사용�
 
 애플리케이션 호스팅 외에도 Azure는 기능과 개발, 클라우드 및 온-프레미스 모두에서 애플리케이션의 유지 관리를 향상시킬 수 있는 서비스 제공 사항을 제공합니다.
 
-#### <a name="hosted-storage-and-data-access"></a>호스트된 저장소 및 데이터 액세스
+#### <a name="hosted-storage-and-data-access"></a>호스트된 스토리지 및 데이터 액세스
 
-대부분의 애플리케이션은 데이터를 저장해야 하므로 Azure에서 애플리케이션을 호스트하는 방법에 관계없이 다음 저장소 및 데이터 서비스 중 하나 이상을 고려합니다.
+대부분의 애플리케이션은 데이터를 저장해야 하므로 Azure에서 애플리케이션을 호스트하는 방법에 관계없이 다음 스토리지 및 데이터 서비스 중 하나 이상을 고려합니다.
 
 - **Azure Cosmos DB**: 포괄적인 SLA로 사용자가 지리 지역 수에 따라 처리량 및 스토리지를 탄력적으로 조정할 수 있도록 설계된 전역적으로 분산된 다중 모델 데이터베이스 서비스입니다. 
   > **사용 시기:** 애플리케이션에 잘 정의된 여러 일관성 모델이 있는 문서, 테이블 또는 MongoDB 데이터베이스 등의 그래프 데이터베이스가 필요한 경우입니다. 
@@ -124,7 +124,7 @@ Service Fabric은 OWIN(Open Web Interface for .NET) 및 ASP.NET Core를 사용�
   > **시작**: [Azure Portal을 사용하여 빠르게 SQL Database를 만듭니다](../../sql-database/sql-database-get-started.md).
 
 
-[Azure Data Factory](../../data-factory/introduction.md)를 사용하여 기존 온-프레미스 데이터를 Azure로 이동할 수 있습니다. 데이터를 클라우드로 이동할 준비가 되지 않은 경우 BizTalk Services의 [하이브리드 연결](../../biztalk-services/integration-hybrid-connection-overview.md)을 사용하면 App Service 호스트된 앱을 온-프레미스 리소스에 연결할 수 있습니다. 온-프레미스 애플리케이션에서 Azure 데이터 및 저장소 서비스에 연결할 수도 있습니다.
+[Azure Data Factory](../../data-factory/introduction.md)를 사용하여 기존 온-프레미스 데이터를 Azure로 이동할 수 있습니다. 데이터를 클라우드로 이동할 준비가 되지 않은 경우 BizTalk Services의 [하이브리드 연결](../../biztalk-services/integration-hybrid-connection-overview.md)을 사용하면 App Service 호스트된 앱을 온-프레미스 리소스에 연결할 수 있습니다. 온-프레미스 애플리케이션에서 Azure 데이터 및 스토리지 서비스에 연결할 수도 있습니다.
 
 #### <a name="docker-support"></a>Docker 지원
 
@@ -227,7 +227,7 @@ Azure Portal은 Azure 리소스 및 서비스를 만들고 관리하고 제거�
 
 ### <a name="rest-apis"></a>REST API
 
-Azure는 Azure Portal UI를 지원하는 REST API 집합을 기반으로 합니다. 또한 대부분의 REST API는 인터넷 사용 장치에서 Azure 리소스와 애플리케이션을 프로그래밍 방식으로 프로비저닝하고 관리할 수 있도록 지원됩니다. 전체 REST API 설명서를 보려면 [Azure REST SDK 참조](https://docs.microsoft.com/rest/api/)를 참조하세요.
+Azure는 Azure Portal UI를 지원하는 REST API 집합을 기반으로 합니다. 또한 대부분의 REST API는 인터넷 사용 디바이스에서 Azure 리소스와 애플리케이션을 프로그래밍 방식으로 프로비저닝하고 관리할 수 있도록 지원됩니다. 전체 REST API 설명서를 보려면 [Azure REST SDK 참조](https://docs.microsoft.com/rest/api/)를 참조하세요.
 
 ### <a name="apis"></a>API
 
@@ -239,7 +239,7 @@ REST API 외에도 여러 Azure 서비스를 사용하여 다음 개발 플랫�
 -   [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README.md)
 -   [Python](https://docs.microsoft.com/python/azure)
 -   [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md)
--   [Go](https://docs.microsoft.com/go/azure)
+-   [Go](https://docs.microsoft.com/azure/go)
 
 [Mobile Apps](../../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md) 및 [Azure Media Services](../../media-services/previous/media-services-dotnet-how-to-use.md)와 같은 서비스는 웹 및 모바일 클라이언트 앱에서 서비스에 액세스할 수 있도록 해주는 클라이언트 쪽 SDK를 제공합니다.
 

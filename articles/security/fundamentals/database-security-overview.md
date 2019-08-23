@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: TomSh
-ms.openlocfilehash: 9053866b76ec1cc409c3f00d0af59bf3761d3936
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: e5ed60ea59dc8cf19b8f9ca7e96777dbc6980171
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68927975"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69906054"
 ---
 # <a name="azure-database-security-overview"></a>Azure 데이터베이스 보안 개요
 
@@ -206,7 +206,7 @@ SQL ATP(Advanced Threat Protection)은 데이터 검색 및 분류, 취약성 �
 
 [Azure Security Center](https://azure.microsoft.com/documentation/services/security-center/)를 통해 위협을 예방하고 감지하며 대응할 수 있습니다. Azure 구독에서 통합된 보안 모니터링 및 정책 관리를 제공합니다. 다른 방법으로 발견되지 않을 수 있는 위협을 감지하는 데 도움이 되고 보안 솔루션의 광범위한 환경에서 작동합니다.
 
-[Security Center](../../security-center/security-center-sql-database.md)를 사용하면 모든 서버 및 데이터베이스의 보안에 가시성을 제공하여 SQL Database에서 데이터를 보호할 수 있습니다. 보안 센터를 사용하면 다음과 같은 작업을 수행할 수 있습니다.
+[Security Center](../../security-center/security-center-alerts-data-services.md)를 사용하면 모든 서버 및 데이터베이스의 보안에 가시성을 제공하여 SQL Database에서 데이터를 보호할 수 있습니다. 보안 센터를 사용하면 다음과 같은 작업을 수행할 수 있습니다.
 
 - SQL Database 암호화 및 감사를 위한 정책을 정의합니다.
 - 모든 구독 간에 SQL Database 리소스의 보안을 모니터링합니다.

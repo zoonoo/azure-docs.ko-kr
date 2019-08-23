@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/05/2019
 ms.author: TomSh
-ms.openlocfilehash: 09caffcfdad4b132858b6ec52b36fe037f488b3a
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 4bc4e8e02c5b44c63ee531a295f2b59e91c056bd
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934717"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900460"
 ---
 # <a name="azure-best-practices-for-network-security"></a>네트워크 보안에 대 한 Azure 모범 사례
 이 문서에서는 네트워크 보안을 향상 시키기 위한 Azure 모범 사례 모음을 설명 합니다. 이러한 모범 사례는 Azure 네트워킹에 대한 Microsoft의 경험 그리고 여러분 같은 고객의 경험에서 얻은 것입니다.
@@ -114,7 +114,7 @@ Azure 네트워크 보안 어플라이언스는 네트워크 수준 제어에서
 사용할 수 있는 Azure 가상 네트워크 보안 어플라이언스를 찾으려면 [Azure Marketplace](https://azure.microsoft.com/marketplace/)로 이동하여 "보안" 및 "네트워크 보안"을 검색하세요.
 
 ## <a name="deploy-perimeter-networks-for-security-zones"></a>보안 영역에 대한 경계 네트워크 배포
-[경계 네트워크](./https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter)(DMZ이라고도 함)는 물리적 또는 논리적 네트워크 세그먼트로서 자산과 인터넷 사이에 추가 보안 계층을 제공합니다. 경계 네트워크의 가장자리에 있는 특수화된 네트워크 액세스 제어 디바이스는 가상 네트워크로 원하는 트래픽만 전송되도록 합니다.
+[경계 네트워크](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter)(DMZ이라고도 함)는 물리적 또는 논리적 네트워크 세그먼트로서 자산과 인터넷 사이에 추가 보안 계층을 제공합니다. 경계 네트워크의 가장자리에 있는 특수화된 네트워크 액세스 제어 디바이스는 가상 네트워크로 원하는 트래픽만 전송되도록 합니다.
 
 경계 네트워크를 사용하면 Azure 가상 네트워크 가장 자리에 있는 디바이스에 대한 네트워크 액세스 제어 관리, 모니터링, 로깅 및 보고에 집중할 수 있으므로 아주 유용합니다. 경계 네트워크는 일반적으로 DDoS (분산 서비스 거부) 방지, 침입 감지/침입 방지 시스템 (IDS/IPS), 방화벽 규칙 및 정책, 웹 필터링, 네트워크 맬웨어 방지 프로그램 등을 사용 하도록 설정 합니다. 네트워크 보안 디바이스는 인터넷과 Azure 가상 네트워크 사이에 위치하며 두 네트워크의 인터페이스를 갖추고 있습니다.
 

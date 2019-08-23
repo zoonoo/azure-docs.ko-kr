@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/01/2019
-ms.openlocfilehash: a5fd376a6da70ed68baedf44fd4c2cc47e68d3cf
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
-ms.translationtype: HT
+ms.openlocfilehash: ada2a19de12c2f3f6b23fcc3d759afb0c747d37d
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69872382"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69897443"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Azure App Service에 machine learning 모델 배포 (미리 보기)
 
@@ -35,7 +35,7 @@ Azure App Service에서 제공 하는 기능에 대 한 자세한 내용은 [App
 > [!IMPORTANT]
 > 배포 된 모델에 사용 되는 점수 매기기 데이터 또는 점수 매기기 결과를 기록 하는 기능이 필요한 경우에는 대신 Azure Kubernetes Service에 배포 해야 합니다. 자세한 내용은 [프로덕션 모델에서 데이터 수집](how-to-enable-data-collection.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 * Azure Machine Learning 서비스 작업 영역. 자세한 내용은 [작업 영역 만들기](how-to-manage-workspace.md) 문서를 참조 하세요.
 * 작업 영역에 등록 된 학습 된 기계 학습 모델입니다. 모델이 없는 경우 [이미지 분류 자습서: 학습 모델 학습](tutorial-train-models-with-aml.md) 및 등록을 사용 합니다.
@@ -108,11 +108,11 @@ package.wait_for_creation(show_output=True)
 
 1. [Azure Portal](https://portal.azure.com)에서 Azure Machine Learning 작업 영역을 선택 합니다. __개요__ 섹션에서 __레지스트리__ 링크를 사용 하 여 작업 영역에 대 한 Azure Container Registry에 액세스 합니다.
 
-    ![작업 영역에 대 한 개요의 스크린샷](media/how-to-deploy-app-service/workspace-overview.png)
+    [![작업 영역에 대 한 개요의 스크린샷](media/how-to-deploy-app-service/workspace-overview.png)](media/how-to-deploy-app-service/workspace-overview-expanded.png)
 
 2. Azure Container Registry에서 __리포지토리__를 선택 하 고 배포 하려는 __이미지 이름을__ 선택 합니다. 배포 하려는 버전에 대해 __...__ 항목을 선택 하 고 __웹 앱에 배포__합니다.
 
-    ![ACR에서 웹 앱으로 배포 스크린샷](media/how-to-deploy-app-service/deploy-to-web-app.png)
+    [![ACR에서 웹 앱으로 배포 스크린샷](media/how-to-deploy-app-service/deploy-to-web-app.png)](media/how-to-deploy-app-service/deploy-to-web-app-expanded.png)
 
 3. 웹 앱을 만들려면 사이트 이름, 구독, 리소스 그룹을 제공 하 고 App service 계획/위치를 선택 합니다. 마지막으로 __만들기__를 선택합니다.
 
@@ -122,7 +122,7 @@ package.wait_for_creation(show_output=True)
 
 [Azure Portal](https://portal.azure.com)에서 이전 단계에서 만든 웹 앱을 선택 합니다. __개요__ 섹션에서 __URL__을 복사 합니다. 이 값은 서비스의 __기본 URL__ 입니다.
 
-![웹 앱에 대 한 개요의 스크린샷](media/how-to-deploy-app-service/web-app-overview.png)
+[![웹 앱에 대 한 개요의 스크린샷](media/how-to-deploy-app-service/web-app-overview.png)](media/how-to-deploy-app-service/web-app-overview-expanded.png)
 
 모델에 요청을 전달 하는 웹 서비스는에 `{baseurl}/score`있습니다. `https://mywebapp.azurewebsites.net/score` )을 입력합니다. 다음 Python 코드는 URL에 데이터를 전송 하 고 응답을 표시 하는 방법을 보여 줍니다.
 

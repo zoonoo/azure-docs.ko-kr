@@ -3,16 +3,16 @@ title: 일반적인 오류 문제 해결
 description: Azure 리소스 그래프를 사용 하 여 Azure 리소스를 쿼리 하는 문제를 해결 하는 방법을 알아봅니다.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 07/24/2019
+ms.date: 08/21/2019
 ms.topic: troubleshooting
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 511d170f90e8ed34b00a3960d084223ec73d99dd
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 3c59b5c4b580604c65572364d29d4e5d10a26820
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68480554"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900001"
 ---
 # <a name="troubleshoot-errors-using-azure-resource-graph"></a>Azure 리소스 그래프를 사용 하 여 오류 문제 해결
 
@@ -60,6 +60,33 @@ foreach ($batch in $subscriptionsBatch){ $response += Search-AzGraph -Query $que
 # View the completed results of the query on all subscriptions
 $response
 ```
+
+### <a name="rest-contenttype"></a>시나리오: 지원 되지 않는 콘텐츠 형식 REST 헤더
+
+#### <a name="issue"></a>문제점
+
+Azure 리소스 그래프를 쿼리 하는 고객은 _500_ (내부 서버 오류) 응답 REST API 가져옵니다.
+
+#### <a name="cause"></a>원인
+
+Azure 리소스 그래프 REST API는 `Content-Type` **application/json**의만 지원 합니다. 일부 REST 도구 또는 에이전트는 REST API에서 지원 하지 않는 **텍스트/일반**으로 기본 됩니다.
+
+#### <a name="resolution"></a>해결 방법
+
+Azure 리소스 그래프를 쿼리 하는 데 사용 하는 도구 또는 에이전트에 `Content-Type` **application/json**에 대해 구성 된 REST API 헤더가 있는지 확인 합니다.
+### <a name="rest-403"></a>시나리오: 목록의 모든 구독에 대 한 읽기 권한이 없습니다.
+
+#### <a name="issue"></a>문제점
+
+Azure 리소스 그래프 쿼리를 사용 하 여 구독 목록을 명시적으로 전달 하는 고객은 _403_ (사용할 수 없음) 응답을 받게 됩니다.
+
+#### <a name="cause"></a>원인
+
+고객에 게 제공 된 모든 구독에 대 한 읽기 권한이 없는 경우 해당 요청은 적절 한 보안 권한이 없기 때문에 거부 됩니다.
+
+#### <a name="resolution"></a>해결 방법
+
+구독 목록에서 쿼리를 실행 하는 고객에 게 적어도 읽기 액세스 권한이 있는 구독을 하나 이상 포함 합니다. 자세한 내용은 [Azure 리소스 그래프의 권한](../overview.md#permissions-in-azure-resource-graph)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -9,12 +9,12 @@ ms.date: 08/12/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: bed95c070649785a701f9d08a98faf29c8ee1413
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 98ab93bbec8da17dde93c9c343703838b0279994
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990690"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900439"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-net-preview"></a>.NET (미리 보기)을 사용 하 여 컨테이너 또는 blob에 대 한 사용자 위임 SAS 만들기
 
@@ -44,7 +44,7 @@ Azure Id 클라이언트 라이브러리를 통해 Azure AD 자격 증명으로 
 
 Azure CLI를 사용 하 여 서비스 주체를 만들고 RBAC 역할을 할당 하려면 [az ad sp create-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) 명령을 호출 합니다. 새 서비스 사용자에 게 할당할 Azure Storage 데이터 액세스 역할을 제공 합니다. 역할은 **Microsoft. Storage/storageAccounts/blobServices/generateUserDelegationKey** 작업을 포함 해야 합니다. Azure Storage에 대해 제공 되는 기본 제공 역할에 대 한 자세한 내용은 [Azure 리소스에 대 한 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조 하세요.
 
-또한 역할 할당에 대 한 범위를 제공 합니다. 서비스 주체는 저장소 계정 수준에서 수행 된 작업 인 사용자 위임 키를 만듭니다. 따라서 역할 할당의 범위는 저장소 계정, 리소스 그룹 또는 구독 수준에서 지정 되어야 합니다. 사용자 위임 SAS를 만드는 RBAC 권한에 대 한 자세한 내용은 [사용자 위임 Sas 만들기 (REST API)](/rest/api/storageservices/create-a-user-delegation-sas)에서 **rbac를 사용 하 여 권한 할당** 섹션을 참조 하세요.
+또한 역할 할당에 대 한 범위를 제공 합니다. 서비스 주체는 저장소 계정 수준에서 수행 된 작업 인 사용자 위임 키를 만듭니다. 따라서 역할 할당의 범위는 저장소 계정, 리소스 그룹 또는 구독 수준에서 지정 되어야 합니다. 사용자 위임 SAS를 만드는 RBAC 권한에 대 한 자세한 내용은 [사용자 위임 Sas 만들기 (REST API)](/rest/api/storageservices/create-user-delegation-sas)에서 **rbac를 사용 하 여 권한 할당** 섹션을 참조 하세요.
 
 서비스 주체에 역할을 할당할 수 있는 권한이 없는 경우 계정 소유자 또는 관리자에 게 역할 할당을 수행 하도록 요청 해야 할 수 있습니다.
 
@@ -276,4 +276,4 @@ private static async Task ReadBlobWithSasAsync(Uri sasUri)
 ## <a name="see-also"></a>참고자료
 
 - [사용자 위임 키 가져오기 작업](/rest/api/storageservices/get-user-delegation-key)
-- [사용자 위임 SAS (REST API) 만들기](/rest/api/storageservices/create-a-user-delegation-sas)
+- [사용자 위임 SAS (REST API) 만들기](/rest/api/storageservices/create-user-delegation-sas)

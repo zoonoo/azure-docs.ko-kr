@@ -7,14 +7,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
-ms.date: 09/15/2017
+ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: 44dea072b9871d0be6e18549896456af2a4989f6
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: 5a0be55df9be67fcf6ff5d53e18e3eb2b0e69d7f
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69558706"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69904475"
 ---
 # <a name="get-started-with-device-management-net"></a>장치 관리 시작 (.NET)
 
@@ -34,7 +34,9 @@ ms.locfileid: "69558706"
 
 * **Triggerreboot**. 이 앱은 시뮬레이션 된 장치 앱에서 직접 메서드를 호출 하 고, 응답을 표시 하 고, 업데이트 된 보고 속성을 표시 합니다.
 
-이 자습서를 완료하려면 다음 필수 구성 요소가 필요합니다.
+## <a name="prerequisites"></a>필수 구성 요소
+
+이 자습서를 완료하려면 다음이 필요합니다.
 
 * Visual Studio.
 
@@ -81,7 +83,7 @@ ms.locfileid: "69558706"
    using Microsoft.Azure.Devices.Shared;
    ```
 
-1. **Program** 클래스에 다음 필드를 추가합니다. 자리 표시자 값을 이전에 [IoT Hub 연결 문자열 가져오기](#get-the-iot-hub-connection-string)에서 복사한 IoT Hub 연결 문자열로 바꿉니다.
+1. **Program** 클래스에 다음 필드를 추가합니다. 자리 표시자 `{iot hub connection string}` 값을 이전에 [IoT Hub 연결 문자열 가져오기](#get-the-iot-hub-connection-string)에서 복사한 IoT Hub 연결 문자열로 바꿉니다.
 
    ```csharp
    static RegistryManager registryManager;
@@ -133,7 +135,7 @@ ms.locfileid: "69558706"
 
 ## <a name="create-a-simulated-device-app"></a>시뮬레이션된 디바이스 앱 만들기
 
-이 섹션에서는 다음 작업을 수행 합니다.
+이 섹션에서는 다음을 수행합니다.
 
 * 클라우드에서 호출하는 직접 메서드에 응답하는 .NET 콘솔 앱을 만듭니다.
 
@@ -164,11 +166,10 @@ ms.locfileid: "69558706"
     using Microsoft.Azure.Devices.Shared;
     ```
 
-1. **Program** 클래스에 다음 필드를 추가합니다. 자리 표시자 값을 이전 섹션에서 메모한 디바이스 연결 문자열로 대체합니다.
+1. **Program** 클래스에 다음 필드를 추가합니다. 자리 표시자 `{device connection string}` 값을 [IoT hub에서 새 장치를 등록](#register-a-new-device-in-the-iot-hub)하기 전에 기록한 장치 연결 문자열로 바꿉니다.
 
     ```csharp
-    static string DeviceConnectionString = 
-      "HostName=<yourIotHubName>.azure-devices.net;DeviceId=<yourIotDeviceName>;SharedAccessKey=<yourIotDeviceAccessKey>";
+    static string DeviceConnectionString = "{device connection string}";
     static DeviceClient Client = null;
     ```
 
@@ -233,7 +234,7 @@ ms.locfileid: "69558706"
    }
    ```
 
-1. 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭 하 고 **시작 프로젝트 설정**을 선택 합니다. 
+1. 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭 하 고 **시작 프로젝트 설정**을 선택 합니다.
 
 1. **공용 속성** > **시작 프로젝트**에서 **단일 시작 프로젝트**를 선택한 다음 **SimulateManagedDevice** 프로젝트를 선택 합니다. **확인**을 선택하여 변경 내용을 저장합니다.
 

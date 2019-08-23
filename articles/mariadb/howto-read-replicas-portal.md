@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 07/12/2019
-ms.openlocfilehash: 902187c3462c54f728519aa1e6e60fbcc1eab20f
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.date: 08/21/2019
+ms.openlocfilehash: a7e7beb3cdef7551a1bce2a693b8044ea6ed8946
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876302"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907668"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Database for MariaDB에서 읽기 복제본을 만들고 관리 하는 방법
 
@@ -20,7 +20,7 @@ ms.locfileid: "67876302"
 > [!IMPORTANT]
 > 마스터 서버와 동일한 지역 또는 선택한 다른 Azure 지역에서 읽기 복제본을 만들 수 있습니다. 읽기 복제본 (동일한 지역 및 지역 간)은 현재 공개 미리 보기로 제공 됩니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 마스터 서버로 사용 되는 [Azure Database for MariaDB 서버](quickstart-create-mariadb-server-database-using-azure-portal.md) 입니다.
 
@@ -45,9 +45,12 @@ ms.locfileid: "67876302"
 
     ![Azure Database for MariaDB-복제본 이름](./media/howto-read-replica-portal/replica-name.png)
 
-6. 복제 서버의 위치를 선택 합니다. 모든 Azure 지역에서 복제본을 만들 수 있습니다. 기본 위치는 마스터 서버와 같습니다.
+6. 복제 서버의 위치를 선택 합니다. 기본 위치는 마스터 서버와 동일합니다.
 
     ![Azure Database for MariaDB-복제본 위치](./media/howto-read-replica-portal/replica-location.png)
+
+   > [!NOTE]
+   > 에서 복제본을 만들 수 있는 지역에 대 한 자세한 내용은 [복제본 개념 읽기 문서](concepts-read-replicas.md)를 참조 하세요. 
 
 7. **확인** 을 선택 하 여 복제본 만들기를 확인 합니다.
 

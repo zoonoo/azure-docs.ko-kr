@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/20/2019
+ms.date: 08/21/2019
 ms.author: v-adgera
-ms.openlocfilehash: 66dbfd09ef07740c07ddb010b73e33e783340e5a
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: a39663adedfdb9c00c4429f65ec1bd27286cb136
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69873635"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69904288"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Azure Digital Twins용 Postman을 구성하는 방법
 
@@ -35,9 +35,9 @@ Postman 클라이언트를 통해 솔루션 개발자는 HTTP 요청의 종류(*
 
 OAuth 2.0 암시적 허용 흐름을 사용하도록 Azure Active Directory 앱을 구성합니다.
 
-1. [이 빠른 시작](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad)의 단계에 따라 Native 형식의 Azure AD 애플리케이션을 만듭니다. 또는 기존 Native 앱 등록을 다시 사용할 수 있습니다.
+1. [빠른](./quickstart-view-occupancy-dotnet.md) 시작의 단계에 따라 Azure AD 응용 프로그램을 만듭니다. 또는 [레거시 AAD 블레이드를 사용 하 여 네이티브 앱](./how-to-use-legacy-aad.md)을 만듭니다.
 
-1. **필수 권한** 아래에서 **추가**를 선택하고 **API 액세스 추가** 아래에 **Azure Digital Twins**를 입력합니다. 검색에서 API를 찾을 수 없는 경우 **Azure Smart Spaces**을 대신 검색합니다. 그런 다음, **사용 권한 부여 > 위임된 권한**과 **완료**를 차례로 선택합니다.
+1. **API 권한**에서 **사용 권한 추가**를 선택 합니다. 그런 다음 **내 조직에서 사용 하는 api**에서 **Azure Digital twins** 가 사용 됩니다. 검색에서 API를 찾을 수 없는 경우 **Azure Smart Spaces**을 대신 검색합니다. 그런 다음 **위임 된 권한**을 선택 하 고**읽기/쓰기**를 **읽은** > 다음 **권한 추가**를 선택 합니다.
 
     [![Azure Active Directory 앱 등록 api 추가](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
 
@@ -75,7 +75,7 @@ Azure Active Directory 토큰을 가져오기 위해 Postman을 설정 하 고 �
     | 권한 부여 유형 | `Implicit` |
     | 콜백 URL | `https://www.getpostman.com/oauth2/callback` |
     | 인증 URL | 2단계의 **권한 부여 URL**을 사용합니다. |
-    | 클라이언트 ID | 이전 섹션에서 생성되거나 용도가 변경된 Azure Active Directory 앱에 대해 **애플리케이션 ID**를 사용합니다. |
+    | 클라이언트 ID | 이전 섹션에서 만들었거나 다시 사용한 Azure Active Directory 앱의 **응용 프로그램 ID** 를 사용 합니다. |
     | 범위 | 비워 둠 |
     | State | 비워 둠 |
     | 클라이언트 인증 | `Send as Basic Auth header` |

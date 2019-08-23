@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 50d896f2a835136316945b26a3191861125faa25
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 0ed7fbf5e2b4f7f9b554f718d88c62e7a266f4ad
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68306114"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69903855"
 ---
 ## <a name="supported-distributions-and-drivers"></a>지원되는 배포판 및 버전
 
@@ -34,7 +34,7 @@ Microsoft는 가상 워크스테이션 또는 가상 응용 프로그램에 사�
 
 | 배포 | 드라이버 |
 | --- | -- |
-| Ubuntu 16.04 LTS<br/><br/>7\.0 Red Hat Enterprise Linux 7.6<br/><br/>CentOS 기반 7.0 ~ 7.6<br/><br/>SUSE Linux Enterprise Server 12 SP2 | NVIDIA GRID 9.0, 드라이버 분기 R430|
+|Ubuntu 18.04 LTS<br/><br/>Ubuntu 16.04 LTS<br/><br/>7\.0 Red Hat Enterprise Linux 7.6<br/><br/>CentOS 기반 7.0 ~ 7.6<br/><br/>SUSE Linux Enterprise Server 12 SP2 | NVIDIA GRID 9.0, 드라이버 분기 R430|
 
 > [!WARNING] 
 > Red Hat 제품에 대한 타사 소프트웨어 설치는 Red Hat 지원 조건에 영향을 줄 수 있습니다. [Red Hat 기술 자료 문서](https://access.redhat.com/articles/1067)를 참조하세요.

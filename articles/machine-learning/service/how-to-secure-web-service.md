@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 08/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: e730e1b5534c4c74734816f5481247e341436b08
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
-ms.translationtype: HT
+ms.openlocfilehash: 5a2cab9dff4a075545d919cb41e72cf6e446e9d2
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656334"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69897361"
 ---
 # <a name="use-ssl-to-secure-a-web-service-through-azure-machine-learning"></a>SSL을 사용 하 여 Azure Machine Learning 통해 웹 서비스 보호
 
@@ -149,9 +149,9 @@ aci_config = AciWebservice.deploy_configuration(
   > [!WARNING]
   > *Leaf_domain_label* 를 사용 하 여 Microsoft의 인증서를 사용 하 여 서비스를 만든 경우 클러스터에 대 한 DNS 값을 수동으로 업데이트 하지 마십시오. 값은 자동으로 설정 해야 합니다.
 
-  AKS 클러스터의 공용 IP 주소에 대 한 **구성** 탭에서 DNS를 업데이트 합니다. 다음 이미지를 참조 하세요. 공용 IP 주소는 AKS 에이전트 노드 및 기타 네트워킹 리소스를 포함 하는 리소스 그룹에 생성 된 리소스 형식입니다.
+  왼쪽 창의 **설정** 아래에 있는 **구성** 탭에서 AKS 클러스터의 공용 IP 주소에 대 한 DNS를 업데이트 합니다. 다음 이미지를 참조 하세요. 공용 IP 주소는 AKS 에이전트 노드 및 기타 네트워킹 리소스를 포함 하는 리소스 그룹에 생성 된 리소스 형식입니다.
 
-  ![Azure Machine Learning 서비스: SSL로 웹 서비스 보호](./media/how-to-secure-web-service/aks-public-ip-address.png)
+  [![Azure Machine Learning 서비스: SSL을 사용 하 여 웹 서비스 보안](./media/how-to-secure-web-service/aks-public-ip-address.png)](./media/how-to-secure-web-service/aks-public-ip-address-expanded.png)
 
 ## <a name="update-the-ssl-certificate"></a>SSL 인증서 업데이트
 
@@ -230,9 +230,7 @@ az ml computetarget update aks -g "myresourcegroup" -w "myresourceworkspace" -n 
 
 ## <a name="disable-ssl"></a>SSL 사용 안 함
 
-Azure Kubernetes Service에 배포 된 모델에 대해 SSL을 사용 하지 않도록 설정 하려면 SDK 또는 CLI를 사용할 수 있습니다.
-
-**SDK 사용**
+Azure Kubernetes Service에 배포 된 모델에 대해 SSL을 사용 하지 않도록 `SslConfiguration` 설정 `status="Disabled"`하려면를 사용 하 여를 만든 다음 업데이트를 수행 합니다.
 
 ```python
 from azureml.core.compute import AksCompute
@@ -246,12 +244,6 @@ aks_target = AksCompute(ws, clustername)
 ssl_configuration = SslConfiguration(status="Disabled")
 update_config = AksUpdateConfiguration(ssl_configuration)
 aks_target.update(update_config)
-```
-
-**CLI 사용**
-
-```azurecli
- az ml computetarget update aks -g "myresourcegroup" -w "myresourceworkspace" -n "myaks" --ssl-disable True
 ```
 
 ## <a name="next-steps"></a>다음 단계

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: b1fa24f919888e4454096e1ef84d2ba2948b865a
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
-ms.translationtype: MT
+ms.openlocfilehash: c316e55700fc8a28ed39bea960a9fe2b2bbd4df1
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774287"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900384"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Azure Portal에서 Windows SQL Server 가상 머신 프로비전하는 방법
 
@@ -57,7 +57,7 @@ SQL Server 가상 머신을 만들 때 가상 머신 갤러리에서 미리 구�
    > 개발자 버전은 개발 테스트 목적으로 무료로 제공되는 SQL Server의 모든 기능을 갖춘 버전이므로 이 연습에서 사용됩니다. VM 실행 비용에 대해서만 비용을 지불합니다. 그러나 이 연습에 사용할 이미지를 자유롭게 선택할 수 있습니다. 사용 가능한 이미지에 대한 설명은 [SQL Server Windows Virtual Machines 개요](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo)를 참조하세요.
 
    > [!TIP]
-   > SQL Server의 라이선스 비용은 사용자가 만드는 VM의 초당 가격에 통합되며 에디션과 코어에 따라 다릅니다. 그러나 SQL Server 개발자 에디션은 개발/테스트(비 프로덕션)를 위한 평가판이며, SQL Express는 간단한 워크로드(1GB 미만 메모리, 10GB 미만 저장소)를 위한 평가판입니다. 또한 BYOL(사용자 라이선스 필요)할 수 있으며 VM에 대해서만 지불에 대해서만 지불합니다. 이러한 이미지 이름에는 접두사 {BYOL}이 붙습니다. 
+   > SQL Server의 라이선스 비용은 사용자가 만드는 VM의 초당 가격에 통합되며 에디션과 코어에 따라 다릅니다. 그러나 SQL Server 개발자 에디션은 개발/테스트(비 프로덕션)를 위한 평가판이며, SQL Express는 간단한 워크로드(1GB 미만 메모리, 10GB 미만 스토리지)를 위한 평가판입니다. 또한 BYOL(사용자 라이선스 필요)할 수 있으며 VM에 대해서만 지불에 대해서만 지불합니다. 이러한 이미지 이름에는 접두사 {BYOL}이 붙습니다. 
    >
    > 이러한 옵션에 대한 자세한 내용은 [SQL Server Azure VM에 대한 가격 책정 지침](virtual-machines-windows-sql-server-pricing-guidance.md)을 참조하세요.
 
@@ -83,7 +83,7 @@ SQL Server 가상 컴퓨터를 구성 하는 여러 탭이 있습니다. 이 가
 **기본** 탭에서 다음 정보를 제공합니다.
 
 * **프로젝트 세부 정보**아래에서 올바른 구독을 선택 했는지 확인 합니다. 
-*  **리소스 그룹** 섹션의 목록에서 기존 리소스 그룹을 선택 하거나 **새로 만들기** 를 선택 하 여 새 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 내 관련 리소스의 컬렉션입니다(가상 머신, 저장소 계정, 가상 네트워크 등). 
+*  **리소스 그룹** 섹션의 목록에서 기존 리소스 그룹을 선택 하거나 **새로 만들기** 를 선택 하 여 새 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 내 관련 리소스의 컬렉션입니다(가상 머신, 스토리지 계정, 가상 네트워크 등). 
 
     ![구독](media/quickstart-sql-vm-create-portal/basics-project-details.png)
 
@@ -122,7 +122,7 @@ SQL Server 가상 컴퓨터를 구성 하는 여러 탭이 있습니다. 이 가
 * **고급**아래에서 **Managed Disks**사용에서 **예** 를 선택 합니다.
 
    > [!NOTE]
-   > SQL Server에 Managed Disks를 사용하는 것이 좋습니다. Managed Disks는 배후에서 저장소를 처리해줍니다. 또한 Managed Disks가 있는 가상 머신이 동일한 가용성 집합에 속할 경우 Azure는 저장소 리소스를 배포하여 적절한 중복성을 제공합니다. 자세한 내용은 [Azure Managed Disks Overview][../managed-disks-overview.md)를 참조하세요. 가용성 집합의 managed disks에 대 한 자세한 내용은 [가용성 집합에서 Vm에 managed disks 사용] (... /manage-availability.md.
+   > SQL Server에 Managed Disks를 사용하는 것이 좋습니다. Managed Disks는 배후에서 스토리지를 처리해줍니다. 또한 Managed Disks가 있는 가상 머신이 동일한 가용성 집합에 속할 경우 Azure는 스토리지 리소스를 배포하여 적절한 중복성을 제공합니다. 자세한 내용은 [Azure Managed Disks Overview][../managed-disks-overview.md)를 참조하세요. 가용성 집합의 Managed Disks에 대한 구체적인 내용을 보려면 [가용성 집합에서 VM에 Managed Disks 사용](../manage-availability.md)을 참조하세요.
 
 ![SQL VM 디스크 설정](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-disks.png)
   
@@ -160,7 +160,7 @@ SQL Server 가상 컴퓨터를 구성 하는 여러 탭이 있습니다. 이 가
 | [연결](#connectivity) |
 | [인증](#authentication) |
 | [Azure Key Vault 통합](#azure-key-vault-integration) |
-| [Storage 구성](#storage-configuration) |
+| [스토리지 구성](#storage-configuration) |
 | [자동화된 패치](#automated-patching) |
 | [자동화된 Backup](#automated-backup) |
 | [R Services (고급 분석)](#r-services-advanced-analytics) |
@@ -217,24 +217,24 @@ SQL Server 인증을 사용하도록 설정하지 않으면, VM의 로컬 관리
 
 자세한 내용은 [Azure VM에서 SQL Server에 대한 Azure Key Vault 통합 구성](virtual-machines-windows-ps-sql-keyvault.md)을 참조하세요.
 
-### <a name="storage-configuration"></a>Storage 구성
+### <a name="storage-configuration"></a>스토리지 구성
 
 **SQL Server 설정** 탭의 **저장소 구성**에서 **구성 변경** 을 선택 하 여 저장소 요구 사항을 지정 합니다.
 
 
 > [!NOTE]
-> 표준 저장소를 사용하도록 VM을 수동으로 구성한 경우 이 옵션은 사용할 수 없습니다. 자동 스토리지 최적화는 Premium Storage에서만 사용할 수 있습니다.
+> 표준 스토리지를 사용하도록 VM을 수동으로 구성한 경우 이 옵션은 사용할 수 없습니다. 자동 스토리지 최적화는 Premium Storage에서만 사용할 수 있습니다.
 
 > [!TIP]
 > 정지 수와 각 슬라이더의 상한값은 사용자가 선택한 VM 크기에 따라 다릅니다. 더 크고 효율적인 VM이 추가 확장할 수 있습니다.
 
-초당 입/출력 작업(IOPs), 처리량(MB/s) 및 총 저장소 크기로 요구 사항을 지정할 수 있습니다. 슬라이딩 규모를 사용하여 이 값을 구성합니다. 워크로드에 따라 이러한 저장소 설정을 변경할 수 있습니다. 포털에는 이러한 요구 사항에 따라 장착 및 구성할 디스크 수를 자동으로 계산합니다.
+초당 입/출력 작업(IOPs), 처리량(MB/s) 및 총 스토리지 크기로 요구 사항을 지정할 수 있습니다. 슬라이딩 규모를 사용하여 이 값을 구성합니다. 워크로드에 따라 이러한 스토리지 설정을 변경할 수 있습니다. 포털에는 이러한 요구 사항에 따라 장착 및 구성할 디스크 수를 자동으로 계산합니다.
 
 **다음에 대해 Storage 최적화**에서 다음 옵션 중 하나를 선택합니다.
 
 * **일반**은 기본 설정이며 대부분의 워크로드를 지원합니다.
-* **트랜잭션** 처리는 기존의 데이터베이스 OLTP 워크로드용으로 저장소를 최적화합니다.
-* **데이터 웨어하우징**은 분석 및 보고 워크로드용으로 저장소를 최적화합니다.
+* **트랜잭션** 처리는 기존의 데이터베이스 OLTP 워크로드용으로 스토리지를 최적화합니다.
+* **데이터 웨어하우징** 은 분석 및 보고 워크로드용으로 스토리지를 최적화합니다.
 
 ![SQL VM 저장소 구성](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-storage-configuration.png)
 
@@ -275,7 +275,7 @@ SQL 자동화된 백업을 사용하도록 설정하면 다음 설정을 구성�
 [SQL Server R Services (고급 분석)](/sql/advanced-analytics/r/sql-server-r-services/)를 사용 하도록 설정 하는 옵션이 있습니다. 이 옵션을 사용하면 SQL Server 2017로 고급 분석을 사용할 수 있습니다. **SQL Server 설정** 창에서 **사용** 을 선택 합니다.
 
 
-## <a name="4-review--create"></a>4. 리뷰 + 만들기
+## <a name="4-review--create"></a>4. 검토 + 만들기
 
 **검토 + 만들기** 탭에서 요약을 검토하고 **만들기**를 선택하여 이 VM에 지정된 SQL Server, 리소스 그룹 및 리소스를 만듭니다.
 

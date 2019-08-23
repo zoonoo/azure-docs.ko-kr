@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 7cd555f66bb6f65f498f9b3e5db9bbeda0505a8f
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 0a8b3a8bcfc2aa8270d7be140a94e5b83973f3e5
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68384981"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972124"
 ---
 # <a name="manage-mobility-agent-on-protected-machines"></a>보호 된 컴퓨터에서 모바일 에이전트 관리
 
@@ -61,7 +61,7 @@ UI 또는 명령 프롬프트에서 제거합니다.
 
 ### <a name="on-a-linux-machine"></a>Linux 머신
 1. Linux 머신에서 **루트** 사용자로 로그인합니다.
-2. 터미널에서 /user/local/ASR로 이동합니다.
+2. 터미널에서/Usr/local/asr로 이동 합니다.
 3. 다음 명령을 실행합니다.
     ```
     uninstall.sh -Y

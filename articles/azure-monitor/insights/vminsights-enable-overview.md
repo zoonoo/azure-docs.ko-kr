@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/30/2019
 ms.author: magoedte
-ms.openlocfilehash: 039a4db11adf66e0c28826106df5845b42fedef5
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: f395ba5d63463aa177b453d187d025a4461eff28
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688242"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69905585"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>VM용 Azure Monitor 사용 (미리 보기) 개요
 
@@ -31,9 +31,12 @@ VM용 Azure Monitor을 설정 하려면:
 * PowerShell을 사용하여 지정된 구독 또는 리소스 그룹에 걸친 둘 이상의 Azure VM 또는 가상 머신 확장 집합을 사용하도록 설정합니다.
 * VM용 Azure Monitor 사용 하 여 회사 네트워크 또는 다른 클라우드 환경에서 호스트 되는 Vm 또는 물리적 컴퓨터를 모니터링할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
-시작하기 전에 다음 섹션의 정보를 이해해야 합니다.
+시작하기 전에 다음 섹션의 정보를 이해해야 합니다. 
+
+>[!NOTE]
+>이 섹션에서 설명 하는 다음 정보는 [서비스 맵 솔루션](service-map.md)에도 적용 됩니다.  
 
 ### <a name="log-analytics"></a>Log Analytics
 
@@ -46,8 +49,8 @@ VM용 Azure Monitor는 다음 지역에서 Log Analytics 작업 영역을 지원
 - 영국 남부
 - 유럽 서부
 - 동남아시아
-- 오스트레일리아 동부
-- 오스트레일리아 남동부
+- 오스트레일리아 동부<sup>1</sup>
+- 오스트레일리아 남동쪽<sup>1</sup>
 
 <sup>1</sup> 이 지역은 현재 VM용 Azure Monitor의 상태 기능을 지원하지 않습니다
 
@@ -153,6 +156,9 @@ VM용 Azure Monitor 맵 기능은 Microsoft 종속성 에이전트에서 해당 
 
 단일 Azure VM에 대해 VM용 Azure Monitor를 사용 하도록 설정 하거나 규모에 맞는 배포 방법을 사용 하 든 관계 없이 Azure VM 종속성 에이전트 확장을 사용 하 여 환경의 일부로 에이전트를 설치 합니다.
 
+>[!NOTE]
+>이 섹션에서 설명 하는 다음 정보는 [서비스 맵 솔루션](service-map.md)에도 적용 됩니다.  
+
 하이브리드 환경에서는 종속성 에이전트를 수동으로 다운로드 하 여 설치할 수 있습니다. Vm이 Azure 외부에서 호스트 되는 경우 자동화 된 배포 방법을 사용 합니다.
 
 다음 테이블은 하이브리드 환경에서 맵 기능이 지원하는 연결된 원본을 설명합니다.
@@ -167,8 +173,8 @@ VM용 Azure Monitor 맵 기능은 Microsoft 종속성 에이전트에서 해당 
 
 | 파일 | OS | 버전 | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.8.1 | 622C99924385CBF539988D759BCFDC9146BB157E7D577C997CDD2674E27E08DD |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.8.1 | 3037934A5D3FB7911D5840A9744AE9F980F87F620A7F7B407F05E276FE7AE4A8 |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.9.1 | FCF9C1D9B20AD414051B49EE79144E595CCC411EB6D444D6D5B5A7B1874DCDEC |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.9.1 | 1CB447EF30FC042FE7499A686638F3F9B4F449692FB9D80096820F8024BE4D7C |
 
 ## <a name="role-based-access-control"></a>역할 기반 액세스 제어
 
@@ -180,7 +186,7 @@ Log Analytics 작업 영역에 대한 액세스를 제어하는 방법에 대한
 
 이 표에 설명 된 방법 중 하나를 사용 하 여 VM용 Azure Monitor를 사용 하도록 설정 합니다.
 
-| 배포 상태 | 메서드 | Description |
+| 배포 상태 | 메서드 | 설명 |
 |------------------|--------|-------------|
 | 단일 Azure VM 또는 가상 머신 확장 집합 | [VM에서 사용](vminsights-enable-single-vm.md) | VM 또는 가상 머신 확장 집합에서 직접 **Insights (미리 보기)** 를 선택 하 여 단일 Azure vm을 사용 하도록 설정할 수 있습니다. |
 | 여러 Azure Vm 또는 가상 머신 확장 집합 | [Azure Policy 통해 사용](vminsights-enable-at-scale-policy.md) | Azure Policy 및 사용 가능한 정책 정의를 사용 하 여 여러 Azure Vm을 사용 하도록 설정할 수 있습니다. |
@@ -200,15 +206,15 @@ VM용 Azure Monitor Log Analytics 작업 영역을 구성 하 여 사용 하는 
 |LogicalDisk |평균 디스크 초/전송 |
 |LogicalDisk |평균 디스크 초/쓰기 |
 |LogicalDisk |디스크 바이트/초 |
-|LogicalDisk |디스크 읽기(바이트/초) |
+|LogicalDisk |디스크 읽기 바이트/초 |
 |LogicalDisk |디스크 읽기/초 |
 |LogicalDisk |디스크 전송/초 |
-|LogicalDisk |디스크 쓰기(바이트/초) |
+|LogicalDisk |디스크 쓰기 바이트/초 |
 |LogicalDisk |디스크 쓰기/초 |
 |LogicalDisk |사용 가능한 메가바이트 |
 |메모리 |사용 가능한 MB |
-|네트워크 어댑터 |수신된 바이트/초 |
-|네트워크 어댑터 |전송된 바이트/초 |
+|네트워크 어댑터 |Bytes Received/sec |
+|네트워크 어댑터 |Bytes Sent/sec |
 |프로세서 |% Processor Time |
 
 ### <a name="linux-performance-counters"></a>Linux 성능 카운터
@@ -216,10 +222,10 @@ VM용 Azure Monitor Log Analytics 작업 영역을 구성 하 여 사용 하는 
 |개체 이름 |카운터 이름 |
 |------------|-------------|
 |논리 디스크 |% 사용된 공간 |
-|논리 디스크 |디스크 읽기(바이트/초) |
+|논리 디스크 |디스크 읽기 바이트/초 |
 |논리 디스크 |디스크 읽기/초 |
 |논리 디스크 |디스크 전송/초 |
-|논리 디스크 |디스크 쓰기(바이트/초) |
+|논리 디스크 |디스크 쓰기 바이트/초 |
 |논리 디스크 |디스크 쓰기/초 |
 |논리 디스크 |사용 가능한 메가바이트 |
 |논리 디스크 |논리 디스크 바이트/초 |

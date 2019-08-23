@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 4e1642366d41906035e1ba1b7f75d0ad875c739b
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 8d4712ca57801c15510ffcaf54852ce9287d343b
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69574672"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972395"
 ---
 # <a name="create-vmware-virtual-machines-on-your-private-cloud"></a>사설 클라우드에서 VMware 가상 머신 만들기
 
@@ -102,7 +102,7 @@ CloudSimple은 사용자 이름 `cloudowner@cloudsimple.local`으로 기본 vCen
 
 사설 클라우드 환경에서 실행 되는 응용 프로그램 및 작업에는 조회 및 IP 주소 할당을 위한 이름 확인 및 DHCP 서비스가 필요 합니다. 이러한 서비스를 제공 하려면 적절 한 DHCP 및 DNS 인프라가 필요 합니다. 사설 클라우드 환경에서 이러한 서비스를 제공 하도록 vCenter의 가상 머신을 구성할 수 있습니다.
 
-전제 조건
+필수 구성 요소
 
 * VLAN이 구성 된 분산 포트 그룹
 
@@ -143,7 +143,7 @@ CloudSimple 포털의 네트워크 페이지를 사용 하 여 Vm에 대 한 방
 
     ![공용 IP](media/quick-create-pc-public-ip.png)
 
-공용 IP 주소를 할당 하는 작업이 시작 됩니다. 작업 **> 작업** 페이지에서 작업의 상태를 확인할 수 있습니다. 할당이 완료 되 면 공용 Ip 페이지에 새 항목이 표시 됩니다. 
+공용 IP 주소를 할당 하는 작업이 시작 됩니다. 작업 **> 작업** 페이지에서 작업의 상태를 확인할 수 있습니다. 할당이 완료 되 면 공용 Ip 페이지에 새 항목이 표시 됩니다.
 
 이 IP 주소를 매핑해야 하는 VM은 위에 지정 된 로컬 주소를 사용 하 여 구성 해야 합니다. IP 주소를 구성 하는 절차는 VM 운영 체제에만 적용 됩니다. 올바른 절차는 VM 운영 체제에 대 한 설명서를 참조 하세요.
 
@@ -205,7 +205,7 @@ python2.7 -m SimpleHTTPServer 80
 ```
 python3 -m http.server 80
 ```
-바탕 화면에서 브라우저를 시작 하 고 공용 IP 주소에 대 한 포트 80를 가리켜 VM의 파일을 찾아봅니다. 
+바탕 화면에서 브라우저를 시작 하 고 공용 IP 주소에 대 한 포트 80를 가리켜 VM의 파일을 찾아봅니다.
 
 ### <a name="default-cloudsimple-firewall-rules-for-public-ip"></a>공용 IP에 대 한 기본 CloudSimple 방화벽 규칙
 

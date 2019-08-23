@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 08/22/2019
 ms.author: raynew
-ms.openlocfilehash: 1ce71665a924c6681af418075d8cc635c73f8a1a
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 3dc20036ead29c62d47b4a628d7ce8101b9d31f4
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717685"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972516"
 ---
 # <a name="whats-new-in-site-recovery"></a>Site Recovery의 새로운 기능
 
@@ -24,6 +24,27 @@ Site Recovery 기능에 대한 [여러분의 의견](https://feedback.azure.com/
 ## <a name="installing-updates"></a>업데이트 설치
 
 Site Recovery 업데이트 지원 및 지침은 [이 문서를 검토](service-updates-how-to.md) 하세요.
+
+## <a name="updates-august-2019"></a>업데이트 (8 월 2019)
+
+### <a name="update-rollup-39"></a>업데이트 롤업 39
+
+[업데이트 롤업 39](https://support.microsoft.com/help/4517283/update-rollup-39-for-azure-site-recovery) 은 다음과 같은 업데이트를 제공 합니다.
+
+**Update 함수** | **세부 정보**
+--- | ---
+**공급자 및 에이전트** | Site Recovery 에이전트 및 공급자 업데이트 (롤업에 설명 된 대로)
+**문제 해결/향상** | 다양 한 수정 및 개선 사항 (롤업에 자세히 설명)
+
+
+### <a name="azure-vm-disaster-recovery"></a>Azure VM 재해 복구
+
+Azure VM 재해 복구에 대 한 새로운 기능이 표에 요약 되어 있습니다.
+
+**기능** | **세부 정보**
+--- | ---
+**Azure AD가 없는 암호화** | 이제 Azure AD 앱이 없는 암호화가 Windows를 실행 하는 관리 디스크에 대 한 Azure VM 복제에 지원 됩니다.
+**장애 조치 (failover) 용 네트워크 리소스** | 이제 다른 지역으로 장애 조치 (failover) 할 때 네트워크 리소스 설정 (NSGs, 부하 분산, 공용 IP 주소)을 VM에 연결할 수 있습니다. 
 
 ## <a name="updates-july-2019"></a>업데이트 (7 월 2019)
 

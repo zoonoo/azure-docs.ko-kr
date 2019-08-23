@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/29/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 8d0de6c68800b1a37e57aa259fd6884ee91752b5
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 9674df346ff0b5c046df26fe85bf7ba0bbb802e6
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699552"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900321"
 ---
 # <a name="use-azure-files-with-linux"></a>Linux에서 Azure Files 사용
 
@@ -40,9 +40,11 @@ ms.locfileid: "68699552"
 | Ubuntu Server | 14.04+ | 16.04+ |
 | RHEL | 7+ | 7.5+ |
 | CentOS | 7+ |  7.5+ |
-| Debian | 8+ |   |
+| Debian | 8+ | 9 +<sup>*</sup> |
 | openSUSE | 13.2+ | 42.3+ |
 | SUSE Linux Enterprise Server | 12 | 12 SP3+ |
+
+<sup>*</sup>백 포팅 커널을 사용 해야 할 수도 있습니다. `sudo apt-get install linux-image-cloud-amd64`를 사용하여 설치할 수 있습니다.
 
 Linux 배포판이 여기 나열되지 않은 경우 다음 명령을 사용하여 Linux 커널 버전을 확인할 수 있습니다.
 
@@ -110,7 +112,7 @@ uname -r
     sudo mkdir -p <storage_account_name>/<file_share_name>
     ```
 
-1. **파일 공유를 위한 사용자 이름(저장소 계정 이름) 및 암호(저장소 계정 키)를 저장할 자격 증명 파일을 만듭니다.** **< Storage_account_name >** 및 **< storage_account_key >** 를 사용자 환경에 맞는 적절 한 정보로 바꿉니다.
+1. **파일 공유를 위한 사용자 이름(스토리지 계정 이름) 및 암호(스토리지 계정 키)를 저장할 자격 증명 파일을 만듭니다.** **< Storage_account_name >** 및 **< storage_account_key >** 를 사용자 환경에 맞는 적절 한 정보로 바꿉니다.
 
     ```bash
     if [ ! -d "/etc/smbcredentials" ]; then

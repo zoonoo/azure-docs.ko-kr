@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: bd506bf1210692feb017f3b526c3b6d4bca36004
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: c8fd5309f50cfc024083cb8a05d679d04bf112dc
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877418"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972271"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-python"></a>Azure IoT Central 애플리케이션에 Raspberry Pi 연결(Python)
 
@@ -29,6 +29,9 @@ ms.locfileid: "69877418"
 
 * **샘플 Devkits** 애플리케이션 템플릿으로 만든 Azure IoT Central 애플리케이션. 자세한 내용은 참조는 [애플리케이션 빠른 시작 만들기](quick-deploy-iot-central.md)를 참조하세요.
 * Raspbian 운영 체제를 실행하는 Raspberry Pi 디바이스. Raspberry Pi는 인터넷에 연결할 수 있어야 합니다. 자세한 내용은 [Raspberry Pi 설정](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/3)을 참조 하세요.
+
+> [!TIP]
+> Raspberry Pi 장치를 설정 하 고 연결 하는 방법에 대 한 자세한 내용은 [Raspberry pi 시작](https://projects.raspberrypi.org/en/pathways/getting-started-with-raspberry-pi) 을 참조 하세요.
 
 ## <a name="sample-devkits-application"></a>**샘플 Devkits** 애플리케이션
 
@@ -63,12 +66,37 @@ Azure IoT Central 응용 프로그램에서 **Raspberry Pi** 장치 템플릿의
 * Azure IoT Central에 원격 분석 데이터 및 속성 값을 보냅니다.
 * Azure IoT Central에서 수행된 설정 변경에 응답합니다.
 
-장치를 구성 하려면 [GitHub의 단계별 지침을 따르세요](https://github.com/Azure/iot-central-firmware/blob/master/RaspberryPi/README.md).
+1. Raspberry Pi 데스크톱에서 또는 SSH를 사용 하 여 원격으로 Raspberry Pi의 셸 환경에 연결 합니다.
 
-1. 장치가 구성 되 면 장치가 원격 분석 측정을 Azure IoT Central로 보내기 시작 합니다.
+1. 다음 명령을 실행 하 여 Python 클라이언트 IoT Central를 설치 합니다.
+
+    ```sh
+    pip install iotc
+    ```
+
+1. 샘플 Python 코드를 다운로드 합니다.
+
+    ```sh
+    curl -O https://raw.githubusercontent.com/Azure/iot-central-firmware/master/RaspberryPi/app.py
+    ```
+
+1. 다운로드 한 `DEVICE_ID` `SCOPE_ID` `PRIMARY/SECONDARY device KEY` 파일을 편집 하 고, 및 자리 표시자를 이전에 적어 둔 연결 값으로 바꿉니다. `app.py` 변경 내용을 저장합니다.
+
+    > [!TIP]
+    > Raspberry Pi의 셸에서 **nano** 또는 **vi** 텍스트 편집기 중 하나를 사용할 수 있습니다.
+
+1. 다음 명령을 사용 하 여 샘플을 실행 합니다.
+
+    ```sh
+    python app.py
+    ```
+
+    Raspberry Pi는 원격 분석 측정을 Azure IoT Central로 보내기 시작 합니다.
+
 1. Azure IoT Central 애플리케이션에서, Raspberry Pi에서 실행되는 코드가 애플리케이션과 상호 작용하는 방식을 살펴볼 수 있습니다.
 
     * 실제 디바이스의 **측정값** 페이지에서, Raspberry Pi가 보낸 원격 분석 데이터를 볼 수 있습니다.
+    * **속성** 페이지에서 **주사위 번호** 장치 속성을 볼 수 있습니다.
     * **설정** 페이지에서 전압 및 팬 속도와 같은 Raspberry Pi에 대 한 설정을 변경할 수 있습니다. Raspberry Pi에서 변경을 승인 하면 설정이 **동기화**된 것으로 표시 됩니다.
 
 ## <a name="raspberry-pi-device-template-details"></a>Raspberry Pi 장치 템플릿 정보
@@ -113,7 +141,7 @@ Azure IoT Central 응용 프로그램에서 **Raspberry Pi** 장치 템플릿의
 | 형식            | Display name | 필드 이름 | 데이터 형식 |
 | --------------- | ------------ | ---------- | --------- |
 | 디바이스 속성 | 다이 번호   | dieNumber  | number    |
-| 텍스트            | 위치     | 위치   | N/A       |
+| 텍스트            | 위치     | 위치   | 해당 사항 없음       |
 
 ## <a name="next-steps"></a>다음 단계
 

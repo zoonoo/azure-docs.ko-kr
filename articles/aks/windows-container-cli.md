@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/17/2019
 ms.author: mlearned
-ms.openlocfilehash: 6c4d143bdaee0818d32b846a38a63eb48f69f717
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 879e2831dc099eabe43f1eefb81b1b7373c665dc
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69034021"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69898723"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>미리 보기-Azure CLI를 사용 하 여 AKS (Azure Kubernetes Service) 클러스터에 Windows Server 컨테이너 만들기
 
@@ -134,7 +134,7 @@ az aks create \
     --name myAKSCluster \
     --node-count 1 \
     --enable-addons monitoring \
-    --kubernetes-version 1.14.5 \
+    --kubernetes-version 1.14.6 \
     --generate-ssh-keys \
     --windows-admin-password $PASSWORD_WIN \
     --windows-admin-username azureuser \
@@ -159,7 +159,7 @@ az aks nodepool add \
     --os-type Windows \
     --name npwin \
     --node-count 1 \
-    --kubernetes-version 1.14.5
+    --kubernetes-version 1.14.6
 ```
 
 위의 명령은 *npwin* 라는 새 노드 풀을 만들고 *myAKSCluster*에 추가 합니다. Windows Server 컨테이너를 실행 하기 위해 노드 풀을 만들 때 *노드-vm 크기* 의 기본값은 *Standard_D2s_v3*입니다. *노드-vm 크기* 매개 변수를 설정 하도록 선택 하는 경우 [제한 된 vm 크기][restricted-vm-sizes]목록을 확인 하세요. 권장 되는 최소 크기는 *Standard_D2s_v3*입니다. 위의 명령은를 실행할 `az aks create`때 생성 되는 기본 vnet의 기본 서브넷도 사용 합니다.
@@ -188,8 +188,8 @@ kubectl get nodes
 
 ```
 NAME                                STATUS   ROLES   AGE    VERSION
-aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.14.5
-aksnpwin987654                      Ready    agent   108s   v1.14.5
+aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.14.6
+aksnpwin987654                      Ready    agent   108s   v1.14.6
 ```
 
 ## <a name="run-the-application"></a>애플리케이션 실행

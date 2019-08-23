@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Database 자동, 지역 중복 백업 | Microsoft Docs
-description: SQL Database는 몇 분마다 로컬 데이터베이스 백업을 자동으로 만들고 Azure 읽기 액세스 지역 중복 저장소를 사용하여 지리적 중복을 제공합니다.
+description: SQL Database는 몇 분마다 로컬 데이터베이스 백업을 자동으로 만들고 Azure 읽기 액세스 지역 중복 스토리지를 사용하여 지리적 중복을 제공합니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
@@ -10,13 +10,14 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 06/27/2019
-ms.openlocfilehash: 1afe8a2e9179c768fd639b4a208de98b0789a53f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+manager: craigg
+ms.date: 08/22/2019
+ms.openlocfilehash: 551c2c02af7b996a34a138586fd91a77a0455d92
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569453"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69904317"
 ---
 # <a name="automated-backups"></a>자동화된 백업
 
@@ -32,10 +33,10 @@ SQL Database는 SQL Server 기술을 사용 하 여 매주 [전체 백업](https
 
 - Azure Portal, Azure PowerShell, Azure CLI 또는 REST API를 사용 하 여 기존 데이터베이스를 보존 기간 내의 **특정 시점으로 복원** 합니다. 단일 데이터베이스 및 탄력적 풀에서이 작업은 원본 데이터베이스와 동일한 서버에 새 데이터베이스를 만듭니다. Managed Instance이 작업을 수행 하면 데이터베이스의 복사본 또는 동일한 구독에서 동일 하거나 다른 Managed Instance을 만들 수 있습니다.
   - 백업 정책을 구성 하려면 **[백업 보존 기간](#how-to-change-the-pitr-backup-retention-period)** 을 7 일에서 35 일로 변경 합니다.
-  - [Azure Portal](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies) 또는 [Azure PowerShell](sql-database-long-term-backup-retention-configure.md#use-powershell-to-configure-long-term-retention-policies-and-restore-backups)를 사용 하 여 Single Database 및 탄력적 풀에서 **최대 10 년까지 장기 보존 정책을 변경** 합니다.
+  - [Azure Portal](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies) 또는 [Azure PowerShell](sql-database-long-term-backup-retention-configure.md#use-powershell-to-manage-long-term-backups)를 사용 하 여 Single Database 및 탄력적 풀에서 **최대 10 년까지 장기 보존 정책을 변경** 합니다.
 - 삭제 **된 데이터베이스를 삭제 된 시간** 또는 보존 기간 내에 언제 든 지 복원 합니다. 삭제 된 데이터베이스는 원래 데이터베이스가 만들어진 동일한 논리 서버 또는 Managed Instance 에서만 복원할 수 있습니다.
 - **데이터베이스를 다른 지역으로 복원**합니다. 이러한 지리적 복원을 사용하면 서버 및 데이터베이스에 액세스할 수 없는 경우 지리적 재해로부터 복구할 수 있습니다. 그러면 전 세계 어디에서든 기존 서버에 새 데이터베이스가 만들어집니다.
-- Single Database 또는 Elastic Pool에 대 한 **특정 장기 백업에서 데이터베이스를 복원** 합니다. 단, 데이터베이스가 LTR (장기 보존 정책)로 구성 된 경우에는를 사용 합니다. LTR을 사용 하면 [Azure Portal](sql-database-long-term-backup-retention-configure.md#view-backups-and-restore-from-a-backup-using-azure-portal) 또는 [Azure PowerShell](sql-database-long-term-backup-retention-configure.md#use-powershell-to-configure-long-term-retention-policies-and-restore-backups) 를 사용 하 여 이전 버전의 데이터베이스를 복원 하 여 규정 준수 요청을 충족 하거나 이전 버전의 응용 프로그램을 실행할 수 있습니다. 자세한 내용은 [장기 보존](sql-database-long-term-retention.md)을 참조하세요.
+- Single Database 또는 Elastic Pool에 대 한 **특정 장기 백업에서 데이터베이스를 복원** 합니다. 단, 데이터베이스가 LTR (장기 보존 정책)로 구성 된 경우에는를 사용 합니다. LTR을 사용 하면 [Azure Portal](sql-database-long-term-backup-retention-configure.md#view-backups-and-restore-from-a-backup-using-azure-portal) 또는 [Azure PowerShell](sql-database-long-term-backup-retention-configure.md#use-powershell-to-manage-long-term-backups) 를 사용 하 여 이전 버전의 데이터베이스를 복원 하 여 규정 준수 요청을 충족 하거나 이전 버전의 응용 프로그램을 실행할 수 있습니다. 자세한 내용은 [장기 보존](sql-database-long-term-retention.md)을 참조하세요.
 - 복원을 수행하려면 [백업에서 데이터베이스 복원](sql-database-recovery-using-backups.md)을 참조하세요.
 
 > [!NOTE]
@@ -46,7 +47,7 @@ SQL Database는 SQL Server 기술을 사용 하 여 매주 [전체 백업](https
 | | Azure 포털 | Azure PowerShell |
 |---|---|---|
 | 백업 보존 변경 | [Single Database](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-the-azure-portal) <br/> [Managed Instance](sql-database-automated-backups.md#change-pitr-for-a-managed-instance) | [Single Database](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-powershell) <br/>[Managed Instance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
-| 장기 백업 보존 기간 변경 | [단일 데이터베이스](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>Managed Instance-해당 없음  | [Single Database](sql-database-long-term-backup-retention-configure.md#use-powershell-to-configure-long-term-retention-policies-and-restore-backups)<br/>Managed Instance-해당 없음  |
+| 장기 백업 보존 기간 변경 | [단일 데이터베이스](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>Managed Instance-해당 없음  | [Single Database](sql-database-long-term-backup-retention-configure.md#use-powershell-to-manage-long-term-backups)<br/>Managed Instance-해당 없음  |
 | 특정 시점에서 데이터베이스 복원 | [단일 데이터베이스](sql-database-recovery-using-backups.md#point-in-time-restore) | [단일 데이터베이스](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [Managed Instance](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
 | 삭제된 데이터베이스 복원 | [단일 데이터베이스](sql-database-recovery-using-backups.md#deleted-database-restore-using-the-azure-portal) | [단일 데이터베이스](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [Managed Instance](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
 | Azure Blob Storage에서 데이터베이스 복원 | 단일 데이터베이스-해당 없음 <br/>Managed Instance-해당 없음  | 단일 데이터베이스-해당 없음 <br/>[Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore) |
@@ -74,14 +75,14 @@ PITR 백업은 지역 중복 백업이며 [Azure Storage 지역 간 복제](../s
 
 ### <a name="backups-for-long-term-retention"></a>장기 보존에 대한 백업
 
-단일 및 풀링된 데이터베이스는 Azure Blob Storage에서 전체 백업의 LTR(장기 보존)을 최대 10년 동안 구성하는 옵션을 제공합니다. LTR 정책을 사용하면 매주 전체 백업이 다른 RA-GRS 저장소 컨테이너로 자동으로 복사됩니다. 서로 다른 준수 요구 사항을 충족하려면 주별, 월별 및/또는 연도별 백업에 대해 다른 보존 기간을 선택할 수 있습니다. 저장소 사용량은 선택한 백업 빈도 및 보존 기간에 따라 다릅니다. [LTR 가격 계산기](https://azure.microsoft.com/pricing/calculator/?service=sql-database)를 사용하여 LTR 저장소 비용을 추정할 수 있습니다.
+단일 및 풀링된 데이터베이스는 Azure Blob Storage에서 전체 백업의 LTR(장기 보존)을 최대 10년 동안 구성하는 옵션을 제공합니다. LTR 정책을 사용하면 매주 전체 백업이 다른 RA-GRS 스토리지 컨테이너로 자동으로 복사됩니다. 서로 다른 준수 요구 사항을 충족하려면 주별, 월별 및/또는 연도별 백업에 대해 다른 보존 기간을 선택할 수 있습니다. 스토리지 사용량은 선택한 백업 빈도 및 보존 기간에 따라 다릅니다. [LTR 가격 계산기](https://azure.microsoft.com/pricing/calculator/?service=sql-database)를 사용하여 LTR 스토리지 비용을 추정할 수 있습니다.
 
 PITR과 마찬가질 LTR 백업은 지역 중복 백업이며 [Azure Storage 지역 간 복제](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)로 보호됩니다.
 
 자세한 내용은 [장기 백업 보존](sql-database-long-term-retention.md)을 참조하세요.
 
-## <a name="storage-costs"></a>저장소 비용
-기본적으로 7일 분량의 자동화된 데이터베이스 백업이 RA-GRS Standard Blob Storage에 복사됩니다. 저장소는 주별 전체 백업, 일별 차등 백업 및 5분마다 복사되는 트랜잭션 로그 백업에 사용됩니다. 트랜잭션 로그의 크기는 데이터베이스 변동률에 따라 다릅니다. 데이터베이스 크기의 100%와 같은 최소 스토리지 용량은 추가 요금 없이 제공됩니다. 추가로 사용되는 백업 스토리지의 경우 GB/월 단위로 요금이 청구됩니다.
+## <a name="storage-costs"></a>스토리지 비용
+단일 데이터베이스의 경우 데이터베이스 크기의 100%와 같은 최소 백업 저장소 양은 추가 비용 없이 제공 됩니다. 탄력적 풀의 경우 풀에 할당 된 데이터 저장소의 100%와 같은 최소 백업 저장소 양은 추가 비용 없이 제공 됩니다. 추가로 사용되는 백업 스토리지의 경우 GB/월 단위로 요금이 청구됩니다. 이러한 추가 사용은 개별 데이터베이스의 워크 로드 및 크기에 따라 달라 집니다.
 
 스토리지 가격에 대한 자세한 내용은 [가격 책정](https://azure.microsoft.com/pricing/details/sql-database/single/) 페이지를 참조하세요. 
 

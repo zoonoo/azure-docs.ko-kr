@@ -10,22 +10,23 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 04/17/2019
-ms.openlocfilehash: 38ecd7797452c9a16b859da921287b8026f0660d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+manager: craigg
+ms.date: 08/21/2019
+ms.openlocfilehash: b90e364442e46269fc949ef4aecd9a756cff5595
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567786"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69904632"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Azure SQL Database 장기 백업 보존 관리
 
-Azure SQL Database에서는 최대 10년 동안 Azure Blob Storage에 백업을 자동으로 보관하도록 [장기 백업 보존](sql-database-long-term-retention.md) 정책(LTR)을 사용하여 단일 데이터베이스나 풀링된 데이터베이스를 구성할 수 있습니다. 그런 다음, Azure Portal이나 PowerShell에서 이러한 백업을 사용하여 데이터베이스를 복구할 수 있습니다.
+Azure SQL Database에서 [장기 백업 보존](sql-database-long-term-retention.md) 정책 (LTR)이 포함 된 단일 또는 풀링된 데이터베이스를 구성 하 여 최대 10 년 동안 별도의 Azure Blob storage 컨테이너에 데이터베이스 백업을 자동으로 유지할 수 있습니다. 그런 다음, Azure Portal이나 PowerShell에서 이러한 백업을 사용하여 데이터베이스를 복구할 수 있습니다.
 
 > [!IMPORTANT]
 > [Azure SQL Database Managed Instance](sql-database-managed-instance.md)는 현재 장기 백업 보존을 지원하지 않습니다.
 
-## <a name="use-the-azure-portal-to-configure-long-term-retention-policies-and-restore-backups"></a>Azure Portal을 사용하여 장기 보존 정책 구성 및 백업 복원
+## <a name="use-the-azure-portal-to-manage-long-term-backups"></a>Azure Portal를 사용 하 여 장기 백업을 관리 합니다.
 
 다음 섹션에서는 Azure Portal을 사용하여 장기 보존을 구성하고, 장기 보존되는 백업을 보고, 장기 보존에서 백업을 복원하는 방법을 보여줍니다.
 
@@ -62,7 +63,7 @@ LTR 정책으로 특정 데이터베이스에 보존된 백업을 보고 해당 
 
    ![복원(restore)](./media/sql-database-long-term-retention/ltr-restore.png)
 
-5. **확인**을 클릭하여 Azure SQL 저장소의 백업에서 새 데이터베이스로 데이터베이스를 복원합니다.
+5. **확인**을 클릭하여 Azure SQL 스토리지의 백업에서 새 데이터베이스로 데이터베이스를 복원합니다.
 
 6. 도구 모음에서 알림 아이콘을 클릭하여 복원 작업의 상태를 봅니다.
 
@@ -74,31 +75,37 @@ LTR 정책으로 특정 데이터베이스에 보존된 백업을 보고 해당 
 > 여기에서 SQL Server Management Studio를 사용하여 복원된 데이터베이스에 연결하여 [복원된 데이터베이스에서 일부 데이터를 추출하여 기존 데이터베이스로 복사 또는 기존 데이터베이스를 삭제하고 복원된 데이터베이스 이름을 기존 데이터베이스 이름으로 변경](sql-database-recovery-using-backups.md#point-in-time-restore)하기와 같은 필요한 작업을 수행할 수 있습니다.
 >
 
-## <a name="use-powershell-to-configure-long-term-retention-policies-and-restore-backups"></a>PowerShell을 사용하여 장기 보존 정책 구성 및 백업 복원
+## <a name="use-powershell-to-manage-long-term-backups"></a>PowerShell을 사용 하 여 장기 백업 관리
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
 > Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
 
-다음 섹션에서는 PowerShell을 사용하여 장기 백업 보존을 구성하고 Azure SQL 저장소에서 백업을 확인하고 Azure SQL 저장소의 백업에서 복원하는 방법을 보여줍니다.
+다음 섹션에서는 PowerShell을 사용하여 장기 백업 보존을 구성하고 Azure SQL 스토리지에서 백업을 확인하고 Azure SQL 스토리지의 백업에서 복원하는 방법을 보여줍니다.
 
 
 ### <a name="rbac-roles-to-manage-long-term-retention"></a>장기 보존을 관리하는 RBAC 역할
 
-LTR 백업을 관리하려면 다음 역할에 속해야 합니다. 
-- 구독 소유자 또는
-- **구독** 범위의 SQL Server 참가자 역할 또는
-- **구독** 범위의 SQL Database 참가자 역할
+**AzSqlDatabaseLongTermRetentionBackup** 및 **AzSqlDatabase**의 경우 다음 역할 중 하나가 있어야 합니다.
 
-역할을 더 세부적으로 제어해야 하는 경우 사용자 지정 RBAC 역할을 만들어 **구독** 범위에 할당할 수 있습니다. 
+- 구독 소유자 역할 또는
+- SQL Server 참가자 역할 또는
+- 다음 권한이 있는 사용자 지정 역할:
 
-**AzSqlDatabaseLongTermRetentionBackup** 및 **AzSqlDatabase** 의 경우 역할에 다음 권한이 있어야 합니다.
-
-Microsoft.Sql/locations/longTermRetentionBackups/read Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionBackups/read Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/read
+   Microsoft .Sql/위치/longTermRetentionBackups/읽기 longTermRetentionServers/longTermRetentionBackups/read Microsoft .Sql/위치/longTermRetentionServers/longTermRetentionDatabases/ longTermRetentionBackups/읽기
  
-**AzSqlDatabaseLongTermRetentionBackup** 의 경우 역할에 다음 권한이 있어야 합니다.
+**AzSqlDatabaseLongTermRetentionBackup**의 경우 다음 역할 중 하나가 있어야 합니다.
 
-Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/delete
+- 구독 소유자 역할 또는
+- 다음 권한이 있는 사용자 지정 역할:
+
+   Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/delete
+
+
+> [!NOTE]
+> SQL Server 참여자 역할에는 LTR 백업을 삭제할 수 있는 권한이 없습니다.
+
+RBAC 권한은 *구독* 또는 *리소스 그룹* 범위에서 부여할 수 있습니다. 그러나 삭제 된 서버에 속하는 LTR 백업에 액세스 하려면 해당 서버의 *구독* 범위에서 사용 권한을 부여 해야 합니다.
 
 
 ### <a name="create-an-ltr-policy"></a>LTR 정책 만들기
@@ -145,23 +152,33 @@ Set-AzSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -Database
 이 예제에서는 서버 내의 LTR 백업을 나열하는 방법을 보여줍니다. 
 
 ```powershell
-# Get the list of all LTR backups in a specific Azure region 
-# The backups are grouped by the logical database id.
-# Within each group they are ordered by the timestamp, the earliest
-# backup first.  
+# List all LTR backups under the current subscription in a specific Azure region 
+# The list includes backups for existing servers and dropped servers grouped by the logical database id.
+# Within each group they are ordered by the timestamp, the earliest backup first.
+# Requires Subscription scope permission
 $ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $server.Location 
 
-# Get the list of LTR backups from the Azure region under 
-# the named server. 
-$ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $server.Location -ServerName $serverName
+# List the LTR backups under a specific resource group in a specific Azure region 
+# The list includes backups from the existing servers only grouped by the logical database id.
+# Within each group they are ordered by the timestamp, the earliest backup first. 
+$ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $server.Location -ResourceGroupName $resourceGroup
 
-# Get the LTR backups for a specific database from the Azure region under the named server 
+# List the LTR backups under an existing server
+# The list includes backups from the existing servers only grouped by the logical database id.
+# Within each group they are ordered by the timestamp, the earliest backup first. 
+$ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $server.Location -ResourceGroupName $resourceGroup -ServerName $serverName
+
+# List the LTR backups for a specific database 
+# The backups are ordered by the timestamp, the earliest backup first. 
 $ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $server.Location -ServerName $serverName -DatabaseName $dbName
 
 # List LTR backups only from live databases (you have option to choose All/Live/Deleted)
+# The list includes backups for existing servers and dropped servers grouped by the logical database id.
+# Within each group they are ordered by the timestamp, the earliest backup first.  
+# Requires Subscription scope permission
 $ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $server.Location -DatabaseState Live
 
-# Only list the latest LTR backup for each database 
+# Only list the latest LTR backup for each database under a server
 $ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $server.Location -ServerName $serverName -OnlyLatestPerDatabase
 ```
 
@@ -170,21 +187,25 @@ $ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $server.Locatio
 이 예제에서는 백업 목록에서 LTR 백업을 삭제하는 방법을 보여줍니다.
 
 ```powershell
-# remove the earliest backup 
+# Remove the earliest backup from the list of backups
 $ltrBackup = $ltrBackups[0]
 Remove-AzSqlDatabaseLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId
 ```
 > [!IMPORTANT]
-> LTR 백업을 삭제하면 되돌릴 수 없습니다. ‘장기 보존 백업 삭제’ 작업으로 필터링하여 Azure Monitor에서 각 삭제에 대한 알림을 설정할 수 있습니다. 활동 로그에는 요청한 사람과 시기에 대한 정보가 포함되어 있습니다. 자세한 지침은 [활동 로그 경고 만들기](../azure-monitor/platform/alerts-activity-log.md)를 참조하세요.
+> LTR 백업을 삭제하면 되돌릴 수 없습니다. 서버를 삭제 한 후 LTR 백업을 삭제 하려면 구독 범위 권한이 있어야 합니다. ‘장기 보존 백업 삭제’ 작업으로 필터링하여 Azure Monitor에서 각 삭제에 대한 알림을 설정할 수 있습니다. 활동 로그에는 요청한 사람과 시기에 대한 정보가 포함되어 있습니다. 자세한 지침은 [활동 로그 경고 만들기](../azure-monitor/platform/alerts-activity-log.md)를 참조하세요.
 >
 
 ### <a name="restore-from-ltr-backups"></a>LTR 백업에서 복원
 이 예제에서는 LTR 백업에서 복원하는 방법을 보여줍니다. 이 인터페이스는 변경되지 않았지만 이제 리소스 ID 매개 변수에 LTR 백업 리소스 ID가 필요합니다. 
 
 ```powershell
-# Restore LTR backup as an S3 database
-Restore-AzSqlDatabase -FromLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId -ServerName $serverName -ResourceGroupName $resourceGroup -TargetDatabaseName $dbName -ServiceObjectiveName S3
+# Restore a specific LTR backup as an P1 database on the server $serverName of the resource group $resourceGroup 
+Restore-AzSqlDatabase -FromLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId -ServerName $serverName -ResourceGroupName $resourceGroup -TargetDatabaseName $dbName -ServiceObjectiveName P1
 ```
+
+> [!IMPORTANT]
+> 서버를 삭제 한 후 LTR 백업에서 복원 하려면 서버 구독으로 범위가 지정 된 사용 권한이 있어야 하 고 해당 구독이 활성 상태 여야 합니다. 또한 선택적-ResourceGroupName 매개 변수를 생략 해야 합니다.  
+>
 
 > [!NOTE]
 > 여기에서 SQL Server Management Studio를 사용하여 복원된 데이터베이스에 연결하고, 이 데이터베이스에서 약간의 데이터를 추출하여 기존 데이터베이스에 복사하거나 기존 데이터베이스를 삭제하고 복원된 데이터베이스 이름을 기존 데이터베이스 이름으로 변경하는 등 필요한 작업을 수행할 수 있습니다. [특정 시점 복원](sql-database-recovery-using-backups.md#point-in-time-restore)을 참조하세요.

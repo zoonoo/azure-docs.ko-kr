@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: b9060ecbb9ca9e77d994a8f20378e2c53927586a
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 8e8ea11da0339103375009709be8795cdede2448
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69617367"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972922"
 ---
 # <a name="use-azure-ad-as-an-identity-provider-for-vcenter-on-cloudsimple-private-cloud"></a>Azure AD를 CloudSimple 사설 클라우드에서 vCenter에 대 한 id 공급자로 사용
 
@@ -98,4 +98,4 @@ VCenter를 사용 하 여 Azure AD를 id 원본으로 사용 하려면 Azure ad 
 
 3. 권한이 에스컬레이션 된 후 사설 클라우드 vCenter에 로그인 합니다.
 4. 이전 단계의 값을 사용 하 여 [vCenter에서 id 원본 추가](set-vcenter-identity.md#add-an-identity-source-on-vcenter) 의 지침에 따라 Azure Active Directory를 id 원본으로 설정 합니다.
-5. VMware 토픽 <a href="https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-CDEA6F32-7581-4615-8572-E0B44C11D80D.html" target="_blank">Vcenter Single Sign-on 그룹에 멤버 추가</a>에 설명 된 대로 Azure AD의 사용자/그룹을 vcenter 그룹에 추가 합니다.
+5. VMware 토픽 [Vcenter Single Sign-on 그룹에 멤버 추가](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-CDEA6F32-7581-4615-8572-E0B44C11D80D.html)에 설명 된 대로 Azure AD의 사용자/그룹을 vcenter 그룹에 추가 합니다.

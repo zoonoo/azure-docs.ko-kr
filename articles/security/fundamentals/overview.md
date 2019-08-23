@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: e87fc74b3fa989471f9074a33fc66d8cb8250aa0
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 2cc8f4f81ad95376dcbc10c2952c1b2ed95ffe42
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68927848"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907906"
 ---
 # <a name="introduction-to-azure-security"></a>Azure 보안 소개
 ## <a name="overview"></a>개요
@@ -270,6 +270,7 @@ Application Gateway에 CPU 집약적인 SSL 종료를 오프로드하여("SSL �
 
 
 웹 공격으로부터 보호하는 중앙 집중식 웹 애플리케이션 방화벽은 보안 관리가 훨씬 간단하고 침입 위협으로부터 애플리케이션을 더욱 효과적으로 보호합니다. 또한 WAF 솔루션은 각각의 웹 애플리케이션을 보호하는 대신 중앙의 위치에서 알려진 취약점에 패치를 적용하여 보다 신속하게 보안 위협에 대응할 수 있습니다. 기존 애플리케이션 게이트웨이는 웹 애플리케이션 방화벽을 통해 애플리케이션 게이트웨이로 쉽게 변환될 수 있습니다.
+
 ### <a name="traffic-manager"></a>Traffic Manager
 Microsoft [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md)를 사용하면 여러 데이터 센터에 있는 서비스 엔드포인트에 대한 사용자 트래픽의 배포를 제어할 수 있습니다. Traffic Manager에서 지원하는 서비스 엔드포인트에는 Azure VM, Web Apps 및 클라우드 서비스가 포함됩니다. 또한 외부, Azure가 아닌 엔드포인트로 Traffic Manager를 사용할 수 있습니다. Traffic Manager는 DNS(Domain Name System)를 사용하여 클라이언트 요청을 [트래픽 라우팅 메서드](../../traffic-manager/traffic-manager-routing-methods.md) 및 엔드포인트의 상태를 기반으로 가장 적절한 엔드포인트로 리디렉션합니다.
 
@@ -295,18 +296,8 @@ NSG에 대한 다음 진단 로그 범주를 활성화할 수 있습니다.
 -   규칙 카운터: 트래픽을 허용하거나 거부하기 위해 각 NSG 규칙이 적용된 횟수에 대한 항목을 포함합니다.
 
 ### <a name="azure-security-center"></a>Azure Security Center
-Security Center는 위협을 예방, 검색 및 대응하는 데 도움이 되며, Azure 리소스의 보안에 대한 향상된 가시성과 제어를 제공합니다. Azure 구독을 통해 통합된 보안 모니터링 및 정책 관리를 제공하고, 달리 발견되지 않을 수도 있는 위협을 검색하는 데 도움이 되며, 보안 솔루션의 광범위한 에코시스템에서 작동합니다. 네트워크 권장 사항은 방화벽, 네트워크 보안 그룹, 인바운드 트래픽 규칙 구성 등에 초점을 맞추고 있습니다.
 
-사용 가능한 네트워크 권장 사항은 다음과 같습니다.
-
--   [차세대 방화벽 추가](../../security-center/security-center-add-next-generation-firewall.md) - Microsoft 파트너의 차세대 방화벽(NGFW)을 추가하여 보안 보호를 증가시키는 것이 좋습니다.
-
--   [NGFW를 통해서만 트래픽 라우팅](../../security-center/security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only) - NGFW를 통해 VM에 인바운드 트래픽을 강제 적용하는 NSG(네트워크 보안 그룹) 규칙을 구성하는 것이 좋습니다.
-
--   [서브넷 또는 가상 머신에서 네트워크 보안 그룹 사용](../../security-center/security-center-enable-network-security-groups.md) - 서브넷 또는 VM에서 NSG를 사용하는 것이 좋습니다.
-
--   [인터넷 연결 엔드포인트를 통한 액세스 제한](../../security-center/security-center-restrict-access-through-internet-facing-endpoints.md) - NSG에 대한 인바운드 트래픽 규칙을 구성하는 것이 좋습니다.
-
+[Azure Security Center](../../security-center/security-center-intro.md) 는 네트워크 보안 모범 사례에 대 한 Azure 리소스의 보안 상태를 지속적으로 분석 합니다. Security Center에서 잠재적인 보안 취약점을 식별 하는 경우 리소스를 강화 하 고 보호 하는 데 필요한 컨트롤을 구성 하는 과정을 안내 하는 [권장 사항을](../../security-center/security-center-recommendations.md) 만듭니다.
 
 ## <a name="compute"></a>컴퓨팅
 
@@ -387,7 +378,7 @@ Microsoft는 제품 및 서비스 전반에 여러 가지 보안 사례와 기�
 - [Azure Active Directory 애플리케이션 프록시](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-get-started/) - 온-프레미스에 호스팅되는 웹 애플리케이션에 대해 SSO(Single Sign-On) 및 보안된 원격 액세스를 제공합니다.
 
 ## <a name="next-steps"></a>다음 단계
-- [Microsoft Azure 보안 시작](./https://docs.microsoft.com/azure/security)
+- [Microsoft Azure 보안 시작](https://docs.microsoft.com/azure/security)
 
 Azure 내에서 서비스와 데이터를 보호 하기 위해 사용할 수 있는 Azure 서비스 및 기능
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/25/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 1fd08efd12e723a16445eba1d341f017a86a212e
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: e55b191e937b6c9f8183b3878b264eb50401b3f1
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68481505"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69903962"
 ---
 <a name="azure-resource-manager-virtual-networking-limits"></a>네트워킹 제한-Azure Resource Manager 다음 제한은 구독 당 지역 별로 **Azure Resource Manager** 를 통해 관리 되는 네트워킹 리소스에 대해서만 적용 됩니다. [구독 제한을 기준으로 현재 리소스 사용량을 보는](../articles/networking/check-usage-against-limits.md) 방법을 알아봅니다.
 
@@ -78,7 +78,7 @@ ms.locfileid: "68481505"
 | 리소스 | 기본 제한 | 최대 제한 |
 | --- | --- | --- |
 | 가상 네트워크 |100 |100 |
-| 로컬 네트워크 사이트 수 |20 |지원에 문의 |
+| 로컬 네트워크 사이트 수 |20 |50 |
 | 가상 네트워크 당 DNS 서버 |20 |20 |
 | 가상 네트워크 당 개인 IP 주소 |4,096 |4,096 |
 | 가상 머신 또는 역할 인스턴스의 NIC당 동시 TCP 또는 UDP 흐름 |50만, 둘 이상의 Nic의 경우 최대 100만입니다. |50만, 둘 이상의 Nic의 경우 최대 100만입니다. |

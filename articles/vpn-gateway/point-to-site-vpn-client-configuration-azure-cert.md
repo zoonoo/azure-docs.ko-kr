@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 08/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: 79e7027d308d389aa672d164de91df61b1142e32
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 07d48ed195f74c9aef5d34de1925ab8fc2a3ae21
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534157"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899906"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Azure 기본 인증서 인증 P2S 구성용 VPN 클라이언트 구성 파일 만들기 및 설치
 
@@ -133,13 +133,13 @@ Ubuntu 18.0.4에서 다음 지침이 생성 되었습니다. Ubuntu 16.0.10은 s
    ```
    sudo apt install network-manager-strongswan
    ```
-2. **네트워크 관리자** 아이콘(위쪽 화살표/아래쪽 화살표)을 선택한 다음, **연결 편집**을 선택합니다.
+2. **설정** 을 선택한 다음 **네트워크**를 선택 합니다.
 
    ![연결 편집](./media/point-to-site-vpn-client-configuration-azure-cert/editconnections.png)
-3. **추가** 단추를 클릭하여 새 연결을 만듭니다.
+3. 단추를 **+** 클릭 하 여 새 연결을 만듭니다.
 
    ![연결 추가](./media/point-to-site-vpn-client-configuration-azure-cert/addconnection.png)
-4. 드롭다운 메뉴에서 **IPsec/IKEv2(strongswan)** 를 선택한 다음, **만들기**를 클릭합니다. 이 단계에서 연결의 이름을 바꿀 수 있습니다.
+4. 메뉴에서 **IPsec/IKEv2 (strongSwan)** 를 선택 하 고를 두 번 클릭 합니다. 이 단계에서 연결의 이름을 지정할 수 있습니다.
 
    ![연결 형식 선택](./media/point-to-site-vpn-client-configuration-azure-cert/choosetype.png)
 5. 다운로드한 클라이언트 구성 파일에 포함된 **일반** 폴더에서 **VpnSettings.xml** 파일을 엽니다. **VpnServer**라는 태그를 찾아 'azuregateway'로 시작하고 '.cloudapp.net'으로 끝나는 이름을 복사합니다.
@@ -148,8 +148,8 @@ Ubuntu 18.0.4에서 다음 지침이 생성 되었습니다. Ubuntu 16.0.10은 s
 6. **게이트웨이** 섹션에서 새 VPN 연결의 **주소** 필드에 이 이름을 붙여넣습니다. 다음으로, **인증서** 필드 끝에 있는 폴더 아이콘을 클릭하고 **Generic** 폴더로 이동하여 **VpnServerRoot** 파일을 선택합니다.
 7. 연결의 **클라이언트** 섹션에서 **인증**에 대해 **인증서/개인 키**를 선택합니다. **인증서** 및 **프라이빗 키**에 대해 이전에 만든 인증서 및 프라이빗 키를 선택합니다. **옵션**에서 **내부 IP 주소 요청**을 선택합니다. 그런 다음 **추가**를 클릭합니다.
 
-   ![내부 IP 주소 요청](./media/point-to-site-vpn-client-configuration-azure-cert/inneripreq.png)
-8. **네트워크 관리자** 아이콘(위쪽 화살표/아래쪽 화살표)을 클릭하고 **VPN 연결**을 마우스로 가리킵니다. 만든 VPN 연결이 표시됩니다. 클릭하여 연결을 시작합니다.
+   ![내부 IP 주소 요청](./media/point-to-site-vpn-client-configuration-azure-cert/turnon.png)
+8. 연결을 설정합니다.
 
 ## <a name="linuxinstallcli"></a>Linux(strongSwan CLI)
 

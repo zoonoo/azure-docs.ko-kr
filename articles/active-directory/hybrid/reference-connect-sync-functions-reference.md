@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b21c5f8630598a4b7117d23ad7c8da46de07d2fa
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 5c3102480e316c634930c356ae02f769767b7d08
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204488"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900035"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect 동기화: 함수 참조
 Azure AD Connect에서 동기화 중에 특성 값을 조작하려면 함수를 사용합니다.  
@@ -82,7 +82,7 @@ Azure AD Connect에서 동기화 중에 특성 값을 조작하려면 함수를 
 | **Program Flow** | | | | |
 | [오류](#error) |[IIF](#iif) |[선택](#select) |[스위치](#switch) | |
 | [Where](#where) |[With](#with) | | | |
-| **Text** | | | | |
+| **텍스트** | | | | |
 | [GUID](#guid) |[InStr](#instr) |[InStrRev](#instrrev) |[LCase](#lcase) | |
 | [Left](#left) |[Len](#len) |[LTrim.](#ltrim) |[Mid](#mid) | |
 | [padLeft](#padleft) |[PadRight](#padright) |[PCase](#pcase) |[Replace](#replace) | |
@@ -102,7 +102,7 @@ BitAnd 함수는 값에 지정된 비트를 설정합니다.
 **설명**  
 이 함수는 두 매개 변수를 전부 이진 표현으로 변환시키고 비트를 다음과 같이 설정합니다.
 
-* 0 - *마스크* 및 *플래그* 내의 하나 혹은 둘 모두 해당하는 비트는 0입니다.
+* 0- *value1* 및 *value2* 의 해당 비트 중 하나 또는 둘 다가 0 인 경우
 * 1 - 2개 모두 해당 비트일 경우 1입니다.
 
 즉, 두 매개 변수의 해당 비트가 1일 경우를 제외하는 모든 경우에는 0을 반환합니다.
@@ -133,7 +133,7 @@ CBool 함수는 계산된 식에 따라 부울을 반환합니다.
 `bool CBool(exp Expression)`
 
 **설명**  
-수식이 0이 아닌 값으로 계산하는 경우 CBool은 True로, 그 외의 경우에는 False로 반환합니다.
+식이 0이 아닌 값으로 계산 되는 경우 CBool은 True를 반환 하 고 그렇지 않으면 False를 반환 합니다.
 
 **예제:**  
 `CBool([attrib1] = [attrib2])`  
@@ -846,7 +846,7 @@ ItemOrNull 함수는 다중값 특성의 항목에 대한 인덱스를 반환하
 인덱스가 범위를 초과하는 경우 Null 값을 반환합니다.
 
 ---
-### <a name="join"></a>Join
+### <a name="join"></a>참여
 **설명:**  
 Join 함수는 다중값 문자열을 사용하여 각 항목 사이에 지정된 구분 기호를 삽입하여 단일 값 문자열을 반환합니다.
 
@@ -1217,7 +1217,7 @@ StringFromSid 함수는 보안 식별자를 포함한 바이트 배열을 문자
 `str StringFromSid(bin ObjectSID)`  
 
 ---
-### <a name="switch"></a>Switch
+### <a name="switch"></a>스위치
 **설명:**  
 Switch 함수는 계산 조건에 따라 단일 값을 반환하는 데 사용됩니다.
 
@@ -1291,7 +1291,7 @@ UCase 함수는 문자열의 모든 문자를 대문자로 변환합니다.
 만료되지 않은 userCertificate 다중값 특성의 인증서 값을 반환합니다.
 
 ---
-### <a name="with"></a>With
+### <a name="with"></a>방법
 **설명:**  
 With 함수는 복합 식에서 한 번 이상 나타나는 하위 식을 변수로 표현하여 복합 식을 단순화하는 방법을 제공합니다.
 

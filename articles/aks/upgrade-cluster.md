@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: mlearned
-ms.openlocfilehash: 4cf959c5218160a8fe341e6ffdfdf459c1a19247
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 50264b1364f40ff5e68ae4a93783d62837c167b3
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019165"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69898823"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>AKS(Azure Kubernetes Service) 클러스터 업그레이드
 
@@ -40,22 +40,22 @@ az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --outpu
 >
 > *1.14* -> 에서 업그레이드 하려면 -> 먼저1.12.x1.13.x에서업그레이드한다음1.13.x1.14에서업그레이드 -> 합니다.
 
-다음 예제 출력에서는 클러스터를 버전 *1.13.9*으로 업그레이드할 수 있음을 보여 줍니다.
+다음 예제 출력에서는 *1.13.9* 및 *1.13.10*버전으로 클러스터를 업그레이드할 수 있음을 보여 줍니다.
 
 ```console
-Name     ResourceGroup    MasterVersion    NodePoolVersion    Upgrades
--------  ---------------  ---------------  -----------------  --------------
-default  myResourceGroup  1.12.8           1.12.8             1.13.9
+Name     ResourceGroup     MasterVersion    NodePoolVersion    Upgrades
+-------  ----------------  ---------------  -----------------  ---------------
+default  myResourceGroup   1.12.8           1.12.8             1.13.9, 1.13.10
 ```
 
 ## <a name="upgrade-an-aks-cluster"></a>AKS 클러스터 업그레이드
 
 AKS 클러스터에 사용할 수 있는 버전의 목록을 사용 하 여 업그레이드 하려면 [az AKS upgrade][az-aks-upgrade] 명령을 사용 합니다. 업그레이드 프로세스가 진행 되는 동안 AKS는 지정 된 Kubernetes 버전을 실행 하는 클러스터에 새 노드를 추가한 다음 실행 중인 응용 프로그램의 중단을 최소화 하기 위해 이전 노드 중 하나를 중단 [하 고 드레이닝][kubernetes-drain] 합니다. 새 노드가 application pod를 실행 하는 것으로 확인 되 면 이전 노드가 삭제 됩니다. 이 프로세스는 클러스터의 모든 노드가 업그레이드 될 때까지 반복 됩니다.
 
-다음 예제에서는 클러스터를 *1.13.9*버전으로 업그레이드 합니다.
+다음 예제에서는 클러스터를 *1.13.10*버전으로 업그레이드 합니다.
 
 ```azurecli-interactive
-az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.13.9
+az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.13.10
 ```
 
 노드 수에 따라 클러스터를 업그레이드하는 데 몇 분 정도 걸립니다.
@@ -66,12 +66,12 @@ az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes
 az aks show --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
-다음 예제 출력에서는 클러스터가 이제 *1.13.9*를 실행 하는 방법을 보여 줍니다.
+다음 예제 출력에서는 클러스터가 이제 *1.13.10*를 실행 하는 방법을 보여 줍니다.
 
 ```json
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
 ------------  ----------  ---------------  -------------------  -------------------  ---------------------------------------------------------------
-myAKSCluster  eastus      myResourceGroup  1.13.9               Succeeded            myaksclust-myresourcegroup-19da35-90efab95.hcp.eastus.azmk8s.io
+myAKSCluster  eastus      myResourceGroup  1.13.10               Succeeded            myaksclust-myresourcegroup-19da35-90efab95.hcp.eastus.azmk8s.io
 ```
 
 ## <a name="next-steps"></a>다음 단계

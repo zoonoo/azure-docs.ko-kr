@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e434065feb218b0a46220b95cc6bfd9a7033de30
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 120ab94ce62010acf4e742bd5220405961dad6db
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816117"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972717"
 ---
 # <a name="key-concepts-for-administration-of-azure-vmware-solution-by-cloudsimple"></a>CloudSimple의 Azure VMware 솔루션 관리를 위한 주요 개념
 
@@ -34,7 +34,6 @@ CloudSimple 서비스를 사용 하 여 Azure Portal에서 CloudSimple로 VMware
 ## <a name="cloudsimple-node"></a>CloudSimple 노드
 
 CloudSimple 노드는 VMware ESXi 하이퍼바이저가 배포 되는 전용 운영 체제 미 설치 계산 및 저장소 호스트입니다. 그런 다음이 노드는 VMware vSphere, vCenter, vSAN 및 NSX 플랫폼에 통합 됩니다. CloudSimple 네트워킹 서비스 및에 지 네트워킹 서비스도 사용할 수 있습니다. 각 노드는 [Cloudsimple 사설 클라우드](cloudsimple-private-cloud.md)를 만들기 위해 프로 비전 할 수 있는 계산 및 저장소 용량 단위로 사용 됩니다. CloudSimple 서비스를 사용할 수 있는 지역에서 노드를 프로 비전 하거나 예약 합니다.
-
 
 [Cloudsimple 노드에](cloudsimple-node.md)대해 자세히 알아보세요.
 

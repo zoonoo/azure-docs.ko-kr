@@ -7,16 +7,16 @@ ms.author: jenhayes
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 8dbb25f0b854f1ebbc9d8871689a87d4d5b1cfbe
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 0d6721c2ef24665035cc4a99c9bf3804b312fe75
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036840"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900156"
 ---
 # <a name="create-a-new-dynamics-365-business-central-offer"></a>새 Dynamics 365 비즈니스 센터 제품 만들기
 
-이 항목에서는 새 Dynamics 365 비즈니스 센터 제품을 만드는 방법에 대해 설명 합니다. [Microsoft Dynamics 365 Business Central](https://dynamics.microsoft.com/business-central) 은 재무, 운영, 공급망, CRM, 프로젝트 관리 및 전자 상거래를 비롯 한 다양 한 비즈니스 프로세스를 처리 하는 ERP (엔터프라이즈 리소스 계획) 시스템입니다. 프리미엄 패키지는 서비스 관리 및 제조도 지원합니다. Dynamics 365 Business Central의 모든 제안은 인증 프로세스를 통과 해야 합니다.
+이 항목에서는 새 Dynamics 365 비즈니스 센터 제품을 만드는 방법에 대해 설명 합니다. [Microsoft Dynamics 365 Business Central](https://dynamics.microsoft.com/business-central) 은 재무, 운영, 공급망, CRM, 프로젝트 관리 및 전자 상거래를 비롯 한 다양 한 비즈니스 프로세스를 처리 하는 ERP (엔터프라이즈 리소스 계획) 시스템입니다. 프리미엄 패키지는 클래식 배포 모델 및 제조도 지원 합니다. Dynamics 365 Business Central의 모든 제안은 인증 프로세스를 통과 해야 합니다.
 
 Dynamics 365 비즈니스 센터 제품을 만들기 시작 하려면 먼저 [파트너 센터 계정을 만들고](./create-account.md) **개요** 페이지가 선택 된 상태로 [상용 마켓플레이스 대시보드](https://partner.microsoft.com/dashboard/commercial-marketplace/offers)를 열어야 합니다.
 
@@ -28,7 +28,7 @@ Dynamics 365 비즈니스 센터 제품을 만들기 시작 하려면 먼저 [�
 
 ### <a name="offer-id-and-alias"></a>제품 ID 및 별칭
 
-- **제품 ID**: 계정의 각 제품에 대 한 고유 식별자입니다. 이 ID는 marketplace 제품 및 Azure Resource Manager 템플릿 (해당 하는 경우)에 대 한 URL 주소의 고객에 게 표시 됩니다. 제품 ID는 소문자 영숫자 (하이픈 및 밑줄을 포함 하지만 공백 없음) 여야 합니다. 이는 50 자로 제한 되며, **만들기**를 선택한 후에는 변경할 수 없습니다.  예를 들어 여기에서 *테스트-1* 을 입력 하면 제품 URL은가 `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`됩니다.
+- **제품 ID**: 계정의 각 제품에 대 한 고유 식별자입니다. 이 ID는 marketplace 제품 및 Azure Resource Manager 템플릿 (해당 하는 경우)에 대 한 URL 주소의 고객에 게 표시 됩니다. 제품 ID는 소문자 영숫자 (하이픈 및 밑줄, 공백 없음) 여야 하 고, 50 문자로 제한 되며, **만들기**를 선택한 후에는 변경할 수 없습니다.  예를 들어 여기에서 *테스트-1* 을 입력 하면 제품 URL은가 `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`됩니다.
 
 - **제품 별칭**: 파트너 센터 내에서 제품을 참조 하는 데 사용 되는 이름입니다. 이 이름은 marketplace에서 사용 되지 않으며 고객에 게 표시 되는 제품 이름 및 기타 값과 다릅니다. **만들기**를 선택한 후에는이 값을 변경할 수 없습니다.
 
@@ -61,7 +61,7 @@ CRM (고객 관계 관리) 시스템을 연결 하 여 고객 연락처 정보�
 
 시험 사용한 고객에 게 제품을 고객에 게 제공 하는 좋은 방법은 ' 구매 전 시도 '를 선택 하 여 변환 및 높은 우량 잠재 고객을 생성 하는 옵션을 제공 하는 것입니다. [테스트 드라이브에 대해 자세히 알아보세요.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)
 
-테스트 드라이브를 사용 하도록 설정 하려면 **테스트 드라이브 사용** 확인란을 선택 합니다. 그런 다음 고객에 게 일정 기간 동안 제품을 사용해 볼 수 있도록 구성 된 [기술 구성 테스트](#test-drive-technical-configuration) 에서 데모 환경을 구성 해야 합니다. 
+테스트 드라이브를 사용 하도록 설정 하려면 **테스트 드라이브 사용** 확인란을 선택 합니다. 그런 다음, [테스트 드라이브 기술 구성](#test-drive-technical-configuration) 에서 데모 환경을 구성 해야 합니다 .이 구성에서는 고객이 고정 기간 동안 제품을 사용해 볼 수 있습니다. 
 
 #### <a name="type-of-test-drive"></a>테스트 드라이브의 유형입니다.
 
@@ -82,27 +82,11 @@ CRM (고객 관계 관리) 시스템을 연결 하 여 고객 연락처 정보�
 
 ## <a name="connect-lead-management"></a>리드 관리 연결
 
-CRM (고객 관계 관리) 시스템을 연결 하 여 고객과 직접 연결 합니다. 이렇게 하면 고객이 관심을 표시 하거나 제품을 배포할 때 고객 연락처 정보를 받게 됩니다.
+[!INCLUDE [Test drive content](./includes/connect-lead-management.md)]
 
-CRM 시스템에 연결 하려면 **연결**을 선택 합니다.
+자세한 내용은 [리드 관리 개요](./commercial-marketplace-get-customer-leads.md)를 참조 하세요.
 
-### <a name="choose-a-lead-destination"></a>리드 대상 선택
-
-**연결**을 선택 하면 CRM 시스템을 선택한 다음 연결 정보를 제공할 수 있는 드롭다운 메뉴가 표시 됩니다.
-
-파트너 센터는 리드 관리를 위해 다음과 같은 CRM 시스템을 지원 합니다. 설치 지침에 대 한 링크를 선택 합니다.
-
-- [Azure 테이블](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) – 저장소 계정 연결 문자열을 제공 합니다. 
-- [Dynamics 365 For Customer Engagement (이전의 DYNAMICS CRM Online](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) – Dynamics 365 인스턴스 URL 및 인증 모드 제공 (Office 365 또는 Azure Active Directory)
-- [Https 끝점](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https) – HTTPS 끝점 URL을 제공 합니다. 
-- [Marketo](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo) – 서버 Id, MUNCHKIN 계정 id 및 양식 id를 제공 합니다.
-- [Salesforce](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce) -조직 ID를 제공 합니다.
-
-#### <a name="additional-lead-management-resources"></a>추가 리드 관리 리소스
-
-- [리드 관리 Faq](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [일반적인 리드 구성 오류](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
-- [리드 관리 개요 1 호출기](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf)
+다음 섹션으로 이동 하기 전에 **저장** 해야 합니다.
 
 ## <a name="properties"></a>속성
 
@@ -110,7 +94,7 @@ CRM 시스템에 연결 하려면 **연결**을 선택 합니다.
 
 ### <a name="category"></a>범주
 
-최소 1 자에서 최대 3 개의 범주를 선택 합니다. 이러한 기능은 제품을 적절 한 마켓플레이스 검색 영역에 추가 하는 데 사용 됩니다. 제품이 제품 설명에서 이러한 범주를 어떻게 지원 하는지 확인 해야 합니다. 
+제품을 적절 한 마켓플레이스 검색 영역에 추가 하는 데 사용 되는 최소 1 개 및 최대 3 개 범주를 선택 합니다. 제품이 제품 설명에서 이러한 범주를 어떻게 지원 하는지 확인 해야 합니다. 
 
 ### <a name="industry"></a>업종
 
@@ -149,7 +133,7 @@ CRM 시스템에 연결 하려면 **연결**을 선택 합니다.
 
 ### <a name="short-description"></a>간단한 설명
 
-제품에 대 한 간단한 설명을 제공 합니다 (최대 100 자). Marketplace 검색 결과에 사용할 수 있습니다.
+Marketplace 검색 결과에서 사용할 수 있는 제품에 대 한 간략 한 설명을 제공 합니다 (최대 100 자).
 
 ### <a name="description"></a>Description
 
@@ -157,7 +141,7 @@ CRM 시스템에 연결 하려면 **연결**을 선택 합니다.
 
 설명 작성에 대 한 몇 가지 팁은 다음과 같습니다.  
 
-- 설명의 처음 몇 문장에서 제품의 가치 제안을 명확하게 설명합니다. 값 제안에는 다음을 포함 합니다.
+- 설명의 처음 몇 문장에서 제품의 가치 제안을 명확하게 설명합니다. 값 제안에 다음 항목을 포함 합니다.
   - 제품 설명
   - 제품을 활용 하는 사용자의 유형입니다.
   - 고객이 요구 하거나 제품의 문제를 해결 하는 어려움
@@ -194,7 +178,7 @@ CRM 시스템에 연결 하려면 **연결**을 선택 합니다.
 
 ### <a name="supporting-documents"></a>지원 문서
 
-백서, 브로슈어, 검사 목록, 프레젠테이션 등의 관련 마케팅 문서를 하나 이상 제공 해야 합니다. 이러한 문서는 .pdf 형식 이어야 합니다.
+백서, 브로슈어, 검사 목록, 프레젠테이션 등의 관련 마케팅 문서를 하나 이상 제공 합니다. 이러한 문서는 .pdf 형식 이어야 합니다.
 
 ### <a name="marketplace-images"></a>Marketplace 이미지
 
@@ -202,7 +186,7 @@ CRM 시스템에 연결 하려면 **연결**을 선택 합니다.
 
 #### <a name="store-logos"></a>매장 로고
 
-다음 두 가지 크기로 제품 로고를 제공 해야 합니다. **작음 (48 x 48)** 및 **큼 (216 x 216)** .
+제품 로고를 두 가지 크기로 제공 합니다. **작음 (48 x 48)** 및 **큼 (216 x 216)** .
 
 #### <a name="hero"></a>영웅
 
@@ -226,7 +210,7 @@ CRM 시스템에 연결 하려면 **연결**을 선택 합니다.
 
 ### <a name="markets"></a>시장
 
-이 섹션에서는 제품을 사용할 수 있는 시장을 지정할 수 있습니다. 이렇게 하려면 **시장 편집을 선택 합니다.** **시장 선택** 팝업 창이 표시 됩니다.
+이 섹션에서는 제품을 사용할 수 있는 시장을 지정할 수 있습니다. 이렇게 하려면 시장 **편집**을 선택 합니다. 그러면 **시장 선택** 팝업 창이 표시 됩니다.
 
 기본적으로 시장을 선택 하지 않지만 제품을 게시 하려면 시장을 하나 이상 선택 해야 합니다. **모두 선택** 을 클릭 하 여 가능한 모든 시장에서 제품을 사용할 수 있도록 하거나 추가 하려는 특정 시장을 선택 합니다. 완료 되 면 **저장**을 선택 합니다.
 
@@ -235,7 +219,7 @@ CRM 시스템에 연결 하려면 **연결**을 선택 합니다.
 > [!IMPORTANT]
 > 이러한 요구 사항이 여기 나 파트너 센터에 나열 되지 않은 경우에도 로컬 법적 요구 사항을 충족 하는 것은 사용자의 책임입니다.
 
-모든 시장을 선택 하는 경우에도 지역 법률 및 제한 사항이 나 기타 요인을 통해 특정 제품이 일부 국가 및 지역에 나열 되지 않을 수 있습니다.
+모든 시장, 지방 법률, 제한 또는 기타 요인을 선택 하더라도 일부 국가 및 지역에는 특정 제품이 나열 되지 않을 수 있습니다.
 
 ### <a name="preview-audience"></a>사용자 미리 보기
 
@@ -256,7 +240,7 @@ CRM 시스템에 연결 하려면 **연결**을 선택 합니다.
 
 ### <a name="file-upload"></a>파일 업로드
 
-위에서 **추가** 를 선택한 경우 여기에서 종속성이 있는 모든 확장에 대 한 패키지 파일과 함께 제품의 패키지 파일을 업로드 합니다.
+위에서 **추가** 를 선택한 경우 제품의 패키지 파일 및 종속성이 있는 모든 확장에 대 한 패키지 파일을 업로드 합니다.
 
 #### <a name="extensions-package-file"></a>확장 패키지 파일
 
@@ -268,7 +252,7 @@ CRM 시스템에 연결 하려면 **연결**을 선택 합니다.
 
 #### <a name="dependency-package-file"></a>종속성 패키지 파일
 
-제품을 marketplace에 이미 게시 된 다른 확장과 함께 설치 해야 하는 경우에 필요 합니다. 그럴 경우 여기에 해당 앱 또는 .zip 파일을 업로드 합니다.
+제품을 marketplace에 이미 게시 된 다른 확장과 함께 설치 해야 하는 경우에 필요 합니다. 그렇다면 `.app` 또는`.zip` 파일을 여기에 업로드 합니다.
 
 ### <a name="url-to-app-installation"></a>앱 설치 URL
 
@@ -301,7 +285,7 @@ CRM 시스템에 연결 하려면 **연결**을 선택 합니다.
 
 - **테스트 드라이브 Azure Resource Manager 템플릿**: Azure Resource Manager 템플릿을 포함 하는 .zip을 업로드 합니다.  빠른 시작 문서 [Azure Portal를 사용 하 여 Azure Resource Manager 템플릿을 만들고 배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal)하는 방법에 대 한 자세한 정보를 Azure Resource Manager.
 
-- **테스트 드라이브 기간** (필수): 테스트 드라이브가 활성 상태로 유지 되는 기간 (시간)을 입력 합니다. 이 기간이 끝나면 시험 사용이 자동으로 종료됩니다. 이 기간에는 전체 시간 (예: "2" 시간, "1.5"은 유효 하지 않습니다.
+- **테스트 드라이브 기간** (필수): 테스트 드라이브가 활성 상태로 유지 되는 기간 (시간)을 입력 합니다. 이 기간이 끝나면 시험 사용이 자동으로 종료됩니다. 이 기간은 전체 시간 (예: "2" 시간, "1.5"은 유효 하지 않음)으로 설정 된 경우에만 사용할 수 있습니다.
 
 ### <a name="technical-configuration-for-dynamics-365-test-drive"></a>Dynamics 365 시험 드라이브에 대 한 기술 구성
 
@@ -309,19 +293,19 @@ Microsoft는이 유형의 테스트 드라이브를 사용 하 여 서비스 프
 
 - **최대 동시 테스트 드라이브** (필수): 테스트 드라이브를 한 번에 사용할 수 있는 최대 고객 수를 설정 합니다. 테스트 드라이브가 활성화 된 상태에서 각 동시 사용자는 Dynamics 365 라이선스를 사용 하므로 최대 제한 집합을 지 원하는 데 사용할 수 있는 충분 한 라이선스가 있는지 확인 해야 합니다. 권장 값은 3~5입니다.
 
-- **테스트 드라이브 기간** (필수): 테스트 드라이브가 활성 상태로 유지 되는 시간을 시간 수를 정의 하 여 입력 합니다. 이 시간이 지난 후에는 세션이 종료 되 고 더 이상 라이선스 중 하나를 사용 하지 않습니다. 제품의 복잡도에 따라 2-24 시간 값을 설정 하는 것이 좋습니다. 이 기간에는 전체 시간 (예: "2" 시간, "1.5"은 유효 하지 않습니다.  사용자는 시간이 부족 하 고 테스트 드라이브에 다시 액세스 하려는 경우 새 세션을 요청할 수 있습니다.
+- **테스트 드라이브 기간** (필수): 테스트 드라이브가 활성 상태로 유지 되는 시간을 시간 수를 정의 하 여 입력 합니다. 이 시간이 지난 후에는 세션이 종료 되 고 더 이상 라이선스 중 하나를 사용 하지 않습니다. 제품의 복잡도에 따라 2-24 시간 값을 설정 하는 것이 좋습니다. 이 기간은 전체 시간 (예: "2" 시간, "1.5"은 유효 하지 않음)으로 설정 된 경우에만 사용할 수 있습니다.  사용자는 시간이 부족 하 고 테스트 드라이브에 다시 액세스 하려는 경우 새 세션을 요청할 수 있습니다.
 
-- **인스턴스 URL** (필수): 고객이 시험 드라이브를 시작 하는 URL입니다. 일반적으로 샘플 데이터가 설치 된 앱을 실행 하는 Dynamics 365 인스턴스의 URL입니다 (예 https://testdrive.crm.dynamics.com):).
+- **인스턴스 URL** (필수): 고객이 시험 드라이브를 시작 하는 URL입니다. 일반적으로 샘플 데이터가 설치 된 앱을 실행 하는 Dynamics 365 인스턴스의 URL https://testdrive.crm.dynamics.com) 입니다 (예:).
 
-- **인스턴스 웹 API URL** (필수): Microsoft 365 계정에 로그인 하 고 **설정** \&gt;로 이동 하 여 Dynamics 365 인스턴스의 Web API URL을 검색 합니다. **사용자 지정** \&gt; **개발자 리소스** \&gt; **인스턴스 웹 API (서비스 루트 URL)** 에서 여기에 있는 url (예: https://testdrive.crm.dynamics.com/api/data/v9.0) )을 복사 합니다.
+- **인스턴스 웹 API URL** (필수): Microsoft 365 계정에 로그인 하 고 **설정** \&gt;로 이동 하 여 Dynamics 365 인스턴스의 Web API URL을 검색 합니다. **사용자 지정** \&gt; **개발자 리소스** \&gt; **인스턴스 웹 API (서비스 루트 URL)** 에서 여기에 있는 URL을 복사 https://testdrive.crm.dynamics.com/api/data/v9.0) 합니다 (예:).
 
-- **역할 이름** (필수): 사용자 지정 Dynamics 365 테스트 드라이브에서 정의한 보안 역할 이름을 제공 합니다. 이는 테스트 드라이브 (예: 테스트-드라이브-역할) 중에 사용자에 게 할당 됩니다.
+- **역할 이름** (필수): 사용자 지정 Dynamics 365 시험 사용에서 정의한 보안 역할 이름을 입력 합니다 .이 드라이브는 시험 사용 중에 사용자에 게 할당 됩니다 (예: 테스트 드라이브-역할).
 
 ### <a name="technical-configuration-for-logic-app-test-drive"></a>논리 앱 테스트 드라이브에 대 한 기술 구성
 
 모든 사용자 지정 제품은 다양 한 복잡 한 솔루션 아키텍처를 포함 하는이 유형의 테스트 드라이브 배포 템플릿을 사용 해야 합니다. 논리 앱 테스트 드라이브를 설정 하는 방법에 대 한 자세한 내용은 GitHub의 [작업](https://github.com/Microsoft/AppSource/blob/master/Setup-your-Azure-subscription-for-Dynamics365-Operations-Test-Drives.md) 및 [고객 참여](https://github.com/Microsoft/AppSource/wiki/Setting-up-Test-Drives-for-Dynamics-365-app) 를 참조 하세요.
 
-- **영역** (필수, 단일 선택 드롭다운 목록): 현재 테스트 드라이브를 사용 하도록 설정할 수 있는 26 개의 Azure 지원 지역이 있습니다. 논리 앱에 대 한 리소스는 선택한 지역에 배포 됩니다. 논리 앱에 특정 지역에 저장 된 사용자 지정 리소스가 있는 경우 여기에서 해당 지역이 선택 되어 있는지 확인 합니다. 이 작업을 수행 하는 가장 좋은 방법은 포털의 Azure 구독에서 논리 앱을 로컬로 완전히 배포 하 고이를 선택 하기 전에 제대로 작동 하는지 확인 하는 것입니다.
+- **영역** (필수, 단일 선택 드롭다운 목록): 현재 테스트 드라이브를 사용 하도록 설정할 수 있는 26 개의 Azure 지원 지역이 있습니다. 논리 앱에 대 한 리소스는 선택한 지역에 배포 됩니다. 논리 앱에 특정 지역에 저장 된 사용자 지정 리소스가 있는 경우 여기에서 해당 지역이 선택 되어 있는지 확인 합니다. 가장 좋은 방법은 포털의 Azure 구독에서 논리 앱을 로컬로 완전히 배포 하 고이를 선택 하기 전에 제대로 작동 하는지 확인 하는 것입니다.
 
 - **최대 동시 테스트 드라이브** (필수): 테스트 드라이브를 한 번에 사용할 수 있는 최대 고객 수를 설정 합니다. 이러한 테스트 드라이브는 이미 배포 되어 있으므로 고객이 배포를 기다리지 않고 즉시 액세스할 수 있습니다.
 
@@ -339,15 +323,15 @@ Microsoft는이 유형의 테스트 드라이브를 사용 하 여 서비스 프
 
 ### <a name="deployment-subscription-details"></a>배포 구독 정보
 
-사용자를 대신 하 여 테스트 드라이브를 배포 하기 위해 별도의 고유한 Azure 구독을 만들어 제공 하세요. (Power BI 테스트 드라이브에는 필요 하지 않음)
+사용자를 대신 하 여 테스트 드라이브를 배포 하기 위해 별도의 고유한 Azure 구독을 만들고 제공 합니다. (Power BI 테스트 드라이브에는 필요 하지 않음)
 
-- **Azure 구독 ID** (Azure Resource Manager 및 논리 앱에 필요): 리소스 사용량 보고 및 청구를 위해 Azure 계정 서비스에 대 한 액세스 권한을 부여 하려면 구독 ID를 입력 합니다. 아직 없는 경우 테스트 드라이브에 사용할 [별도의 Azure 구독을 만드는](https://docs.microsoft.com/azure/billing/billing-create-subscription) 것이 좋습니다. [Azure Portal](https://portal.azure.com/) 에 로그인 하 고 왼쪽 메뉴의 **구독** 탭으로 이동 하 여 Azure 구독 ID를 찾을 수 있습니다. 탭을 선택 하면 구독 ID (예: "a83645ac-1234-5ab6-6789-1h234g764
+- **Azure 구독 ID** (Azure Resource Manager 및 논리 앱에 필요): 리소스 사용량 보고 및 청구를 위해 Azure 계정 서비스에 대 한 액세스 권한을 부여 하려면 구독 ID를 입력 합니다. 아직 없는 경우 테스트 드라이브에 사용할 [별도의 Azure 구독을 만드는](https://docs.microsoft.com/azure/billing/billing-create-subscription) 것이 좋습니다. [Azure Portal](https://portal.azure.com/) 에 로그인 하 고 왼쪽 메뉴의 **구독** 탭으로 이동 하 여 Azure 구독 ID를 찾을 수 있습니다. 이 탭을 선택 하면 구독 ID (예: "a83645ac-1234-5ab6-6789-1h234g764ghty")가 표시 됩니다.
 
-- **AZURE AD 테 넌 트 ID** (필수): AD (Azure Active Directory) [테 넌 트 ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)를 입력 합니다. 이 ID를 찾으려면 [Azure Portal](https://portal.azure.com/)에 로그인 하 고, 왼쪽 메뉴에서 Active Directory 탭을 선택 하 고, **속성** 을 선택한 다음, 나열 된 **디렉터리 ID** 번호 (예: 50c464d3-4930-494c-963c-1e951d15360e)를 확인 합니다. 에서 도메인 이름 URL을 사용 하 여 조직의 테 넌 트 ID를 조회할 수도 있습니다 [https://www.whatismytenantid.com](https://www.whatismytenantid.com).
+- **AZURE AD 테 넌 트 ID** (필수): AD (Azure Active Directory) [테 넌 트 ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)를 입력 합니다. 이 ID를 찾으려면 [Azure Portal](https://portal.azure.com/)에 로그인 하 고 왼쪽 메뉴에서 Active Directory 탭을 선택한 다음 * * 속성을 선택 하 고 나열 된 **디렉터리 ID** 번호 (예: 50c464d3-4930-494c-963c-1e951d15360e)를 찾습니다. 에서 도메인 이름 URL을 사용 하 여 조직의 테 넌 트 ID를 조회할 수도 있습니다 [https://www.whatismytenantid.com](https://www.whatismytenantid.com).
 
 - **AZURE AD 테 넌 트 이름** (동적 365에 필요): Azure Active Directory (AD) 이름을 입력 합니다. 이 이름을 찾으려면 [Azure Portal](https://portal.azure.com/)에 로그인 하 고, 오른쪽 위 모서리에 있는 테 넌 트 이름이 계정 이름 아래에 나열 됩니다.
 
-- **AZURE AD 앱 ID** (필수): Azure Active Directory (AD) [응용 프로그램 ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)를 입력 합니다. 이 ID를 찾으려면 [Azure Portal](https://portal.azure.com/)에 로그인 하 고 왼쪽 메뉴에서 Active Directory 탭을 선택한 다음 **앱 등록**를 선택 하 고 나열 된 **응용 프로그램 ID** 번호 (예: 50c464d3-4930-494c-963c-1e951d15360e)를 확인 합니다.
+- **AZURE AD 앱 ID** (필수): Azure Active Directory (AD) [응용 프로그램 ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)를 입력 합니다. 이 ID를 찾으려면 [Azure Portal](https://portal.azure.com/)에 로그인 하 고 왼쪽 메뉴에서 Active Directory 탭을 선택한 다음 **앱 등록**를 선택 하 고 나열 된 **응용 프로그램 ID** 번호 (예: 50c464d3-4930-494c-963c-1e951d15360e)를 찾습니다.
 
 - **AZURE AD 앱 클라이언트 암호** (필수): Azure AD 응용 프로그램 [클라이언트 암호](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#certificates-and-secrets)를 입력 합니다. 이 값을 찾으려면 [Azure Portal](https://portal.azure.com/)에 로그인 합니다. 왼쪽 메뉴에서 **Azure Active Directory** 탭을 선택 하 고 **앱 등록**을 선택한 다음 테스트 드라이브 앱을 선택 합니다. 그런 다음 **인증서 및 비밀**을 선택 하 고, **새 클라이언트 암호**를 선택 하 고 , 설명을 입력 하 고, **만료**됨을 선택 하 고, **추가**를 선택 합니다. 값을 복사 해야 합니다. 이 작업을 수행 하기 전에 페이지에서 다른 곳으로 이동 하지 마세요. 그렇지 않으면 값에 액세스할 수 없습니다.
 
@@ -363,10 +347,10 @@ Microsoft는이 유형의 테스트 드라이브를 사용 하 여 서비스 프
 
 - **사용자 설명서** (필수): 테스트 드라이브 환경을 자세히 연습 합니다. 사용자 설명서는 시험 사용에 대 한 고객의 의견을 정확 하 게 파악 하 고 있을 수 있는 질문에 대 한 참조로 사용할 수 있습니다. 업로드 후 파일은 PDF 형식 이어야 하며 (최대 255 자) 이름이 지정 되어야 합니다.
 
-- **비디오 비디오** 추가 (선택 사항): 비디오는 YouTube 또는 Vimeo에 업로드 하 고 링크 및 미리 보기 이미지 (533 x 324 픽셀)를 사용 하 여 여기에서 참조할 수 있으므로 고객은의 기능을 사용 하는 방법을 비롯 하 여 테스트 드라이브를 보다 잘 이해할 수 있도록 정보를 단계별로 볼 수 있습니다. 혜택을 강조 하는 시나리오를 제공 하 고 이해 합니다.
+- **비디오 비디오** 추가 (선택 사항): 비디오는 YouTube 또는 Vimeo에 업로드 하 고 링크 및 미리 보기 이미지 (533 x 324 픽셀)를 사용 하 여 여기에서 참조할 수 있으므로 고객은의 기능을 사용 하는 방법을 비롯 하 여 테스트 드라이브를 보다 잘 이해할 수 있도록 정보를 단계별로 볼 수 있습니다. 혜택을 강조 하는 제품 및 이해 시나리오입니다.
   - **이름** 하다
   - **URL (YouTube 또는 Vimeo만 해당)** 하다
-  - **축소판 그림 (533 x 324px)** : 이미지 파일은 PNG 형식 이어야 합니다.
+  - **미리 보기 (533 x 324 px)** : 이미지 파일은 PNG 형식 이어야 합니다.
 
 ## <a name="supplemental-content"></a>추가 콘텐츠
 
@@ -382,11 +366,11 @@ Microsoft는이 유형의 테스트 드라이브를 사용 하 여 서비스 프
 
 ### <a name="key-usage-scenario"></a>주요 사용 시나리오
 
-문서에 나열 된 제품의 키 사용 시나리오를 나열 하는 .pdf 파일 (.pdf 형식)을 업로드 해야 합니다. Marketplace에 대 한 제품을 승인 하기 전에 유효성 검사 팀에서 여기에 나열 된 모든 시나리오를 확인할 수 있습니다.
+문서에 `.pdf` 나열 된 제품의 주요 사용 시나리오를 나열 하는 파일 (.pdf 형식)을 업로드 합니다. Marketplace에 대 한 제품을 승인 하기 전에 유효성 검사 팀에서 여기에 나열 된 모든 시나리오를 확인할 수 있습니다.
 
 ### <a name="app-tests-automation"></a>앱 테스트 자동화
 
-**앱 테스트 자동화** 파일 (. app)도 업로드 해야 합니다.
+**앱 테스트 자동화** 파일 (. app)도 업로드 합니다.
 
 ### <a name="test-accounts"></a>테스트 계정
 
@@ -396,16 +380,16 @@ Microsoft는이 유형의 테스트 드라이브를 사용 하 여 서비스 프
 
 ### <a name="submit-offer-to-preview"></a>미리 보기로 제품 제출
 
-제품의 필수 섹션을 모두 완료 한 후 포털의 오른쪽 위 모서리에서 **게시** 를 선택 합니다. **검토 및 게시** 페이지로 다시 이동 됩니다. 
+제품의 필수 섹션을 모두 완료 한 후 포털의 오른쪽 위 모서리에서 **게시** 를 선택 합니다. **검토 및 게시** 페이지로 리디렉션됩니다. 
 
-이 제품을 처음으로 게시 하는 경우 다음을 수행할 수 있습니다.
+이 제품을 처음 게시 하는 경우 다음을 수행할 수 있습니다.
 
 - 제품의 각 섹션에 대 한 완료 상태를 확인 합니다.
     - *시작 되지 않음* -섹션이 작업 되지 않아 완료 해야 함을 의미 합니다.
-    - *불완전* -섹션에 수정 해야 하는 오류가 있거나 추가 정보를 제공 해야 함을 의미 합니다. 섹션으로 돌아가서 업데이트 하세요.
+    - *불완전* -섹션에 수정 해야 하는 오류가 있거나 추가 정보를 제공 해야 함을 의미 합니다. 섹션으로 돌아가서 업데이트 합니다.
     - *Complete* – 섹션이 완료 되었고 필요한 모든 데이터가 제공 되었으며 오류가 없음을 의미 합니다. 제품의 모든 섹션은 제품을 제출 하기 전에 완전 한 상태 여야 합니다.
 - **인증에 대 한 참고 사항** 섹션에서는 앱을 이해 하는 데 도움이 되는 보조 노트 뿐만 아니라 앱이 올바르게 테스트 되었는지 확인 하기 위해 인증 팀에 테스트 지침을 제공 합니다.
-- **제출**을 선택 하 여 게시에 대 한 제품을 제출 합니다. 제품의 미리 보기 버전을 검토 하 고 승인할 수 있는 시기를 알려 주는 전자 메일을 보내 드리겠습니다. 파트너 센터로 돌아가서 제품을 공개 (또는 개인 제품의 경우 비공개 사용자에 게 공개)에 게시 하려면 [ **라이브]** 를 선택 해야 합니다.
+- **제출**을 선택 하 여 게시에 대 한 제품을 제출 합니다. 제품의 미리 보기 버전을 검토 하 고 승인할 수 있는 경우 전자 메일을 보냅니다. 파트너 센터로 돌아가서 제품을 공개 (또는 개인 제품의 경우 비공개 사용자에 게 공개)에 게시 하기 위해 **live live** 를 선택 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

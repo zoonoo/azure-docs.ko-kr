@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08e27052c3583ddea7a2fb6fe96fa6b48cd6c372
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 5d2247aab872a71f250bd0b4b52714e402d2102d
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68333871"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69905206"
 ---
 # <a name="azure-active-directory-identity-protection-risk-events-reference"></a>Azure Active Directory ID Protection 위험 이벤트 참조
 
@@ -57,14 +57,14 @@ ms.locfileid: "68333871"
 ## <a name="malware-linked-ip-address"></a>맬웨어 연결 IP 주소
 
 **검색 유형:** 오프라인  
-**이전 이름:** 감염된 디바이스에서의 로그인
+**이전 이름:** 감염된 디바이스에서 로그인
 
 이 위험 이벤트 유형은 봇 서버와 실제로 통신하는 것으로 확인된 맬웨어에 감염된 IP 주소에서 수행하는 로그인을 나타냅니다. 봇 서버가 활성 상태인 동안 해당 서버와 연결되어 있던 IP 주소와 사용자 디바이스의 IP 주소 상관 관계를 설정하는 방식으로 이러한 로그인을 확인합니다.
 
 ## <a name="unfamiliar-sign-in-properties"></a>익숙하지 않은 로그인 속성
 
 **검색 유형:** 실시간  
-**이전 이름:** 일반적이지 않은 위치에서의 로그인
+**이전 이름:** 알 수 없는 위치에서 로그인
 
 이 위험 이벤트 유형은 과거 로그인 기록 (IP, 위도/경도 및 ASN)을 고려 하 여 비정상적인 로그인을 찾습니다. 시스템은 사용자가 사용한 이전 위치에 대한 정보를 저장하고 이러한 "익숙한" 위치를 고려합니다. 로그인이 익숙한 위치 목록에 없는 위치에서 발생하는 경우 위험 이벤트가 트리거됩니다. 새로 만든 사용자는 알고리즘이 사용자의 행동을 파악 하는 동안 익숙하지 않은 로그인 속성 위험 이벤트를 해제 하는 일정 기간 동안 "학습 모드"로 설정 됩니다. 학습 모드 기간은 동적 이며, 사용자의 로그인 패턴에 대 한 충분 한 정보를 수집 하는 데 얼마나 많은 시간이 사용 되는지에 따라 달라 집니다. 최소 기간은 5 일입니다. 오랫동안 사용 하지 않는 사용자는 학습 모드로 돌아갈 수 있습니다. 또한 시스템은 익숙한 디바이스 및 익숙한 위치에 지리적으로 가까운 위치에서 시도한 로그인을 무시합니다. 
 
@@ -76,3 +76,8 @@ ms.locfileid: "68333871"
 **이전 이름:** 이 검색은 레거시 Azure AD ID 보호 보고서 (위험에 대해 플래그가 지정 된 사용자, 위험 이벤트)에 ' 자격 증명이 유출 된 사용자 '로 표시 됩니다.
 
 이 위험 이벤트 유형은 지정 된 사용자에 게 비정상적인 사용자 활동을 나타내며 Microsoft의 내부 및 외부 위협 인텔리전스 소스를 기반으로 하는 알려진 공격 패턴과 일치 합니다.
+
+## <a name="admin-confirmed-user-compromised"></a>관리자가 사용자 손상을 확인함
+
+**검색 유형:** 오프라인 <br>
+이 검색은 관리자가 위험한 사용자 UI 또는 riskyUsers API를 사용 하 여 ' 사용자가 손상 확인 '을 선택 했음을 나타냅니다. 이 사용자가 확인 한 관리자를 확인 하려면 UI 또는 API를 통해 사용자의 위험 기록을 확인 합니다.

@@ -6,18 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 08/02/2019
+ms.date: 08/06/2019
 ms.author: alkohli
-ms.openlocfilehash: 734ad263356ab9f91c7cb92ab174a14e0c5dd867
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: daf7b01725a931b8fa76be14e06e2b32cffe5da6
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68775185"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900644"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge"></a>C# IoT Edge 모듈을 개발 하 여 Data Box Edge에서 파일 이동
 
-이 문서에서는 Data Box Edge 디바이스를 사용하여 배포를 위해 IoT Edge 모듈을 만드는 방법을 단계별로 안내합니다. Azure Data Box Edge는 데이터를 처리하여 네트워크를 통해 Azure로 전송할 수 있는 저장소 솔루션입니다.
+이 문서에서는 Data Box Edge 디바이스를 사용하여 배포를 위해 IoT Edge 모듈을 만드는 방법을 단계별로 안내합니다. Azure Data Box Edge는 데이터를 처리하여 네트워크를 통해 Azure로 전송할 수 있는 스토리지 솔루션입니다.
 
 Data Box Edge로 Azure IoT Edge 모듈을 사용하여 데이터를 Azure로 이동할 수 있습니다. 이 문서에서 사용되는 모듈은 Data Box Edge 디바이스의 로컬 공유에서 클라우드 공유로 파일을 복사하는 논리를 구현합니다.
 
@@ -40,7 +40,7 @@ Data Box Edge 디바이스는 IoT Edge 모듈을 배포 및 실행할 수 있습
 
 파일이 클라우드 공유에 있으면 Azure Storage 계정으로 자동으로 업로드됩니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음을 확인합니다.
 
@@ -127,8 +127,10 @@ Azure Container Registry는 프라이빗 Docker 컨테이너 이미지를 저장
 2. **FileCopyModule 네임스페이스**의 맨 위에서 나중에 사용되는 유형에 다음 using 문을 추가합니다. **Microsoft.Azure.Devices.Client.Transport.Mqtt**는 IoT Edge Hub에 메시지를 보내는 프로토콜입니다.
 
     ```
-    using Microsoft.Azure.Devices.Client.Transport.Mqtt;
-    using Newtonsoft.Json;
+    namespace FileCopyModule
+    {
+        using Microsoft.Azure.Devices.Client.Transport.Mqtt;
+        using Newtonsoft.Json;
     ```
 3. Program 클래스에 **InputFolderPath** 및 **OutputFolderPath** 변수를 추가합니다.
 
@@ -140,7 +142,7 @@ Azure Container Registry는 프라이빗 Docker 컨테이너 이미지를 저장
             private const string OutputFolderPath = "/home/output";
     ```
 
-4. **Fileevent** 클래스를 추가 하 여 메시지 본문을 정의 합니다.
+4. 이전 단계 바로 다음에 **Fileevent** 클래스를 추가 하 여 메시지 본문을 정의 합니다.
 
     ```
     /// <summary>
@@ -156,7 +158,7 @@ Azure Container Registry는 프라이빗 Docker 컨테이너 이미지를 저장
     }
     ```
 
-5. **Init** 메서드에서 코드는 **ModuleClient** 개체를 만들고 구성합니다. 이 개체를 사용하면 메시지를 주고받기 위해 MQTT 프로토콜을 사용하여 로컬 Azure IoT Edge 런타임에 모듈을 연결할 수 있습니다. Init 메서드에 사용된 연결 문자열이 IoT Edge 런타임에 의해 모듈에 제공됩니다. 코드는 **input1** 엔드포인트를 통해 IoT Edge 허브에서 메시지를 수신하는 FileCopy 콜백을 등록합니다.
+5. **Init 메서드에서**코드는 **ModuleClient** 개체를 만들고 구성 합니다. 이 개체를 사용하면 메시지를 주고받기 위해 MQTT 프로토콜을 사용하여 로컬 Azure IoT Edge 런타임에 모듈을 연결할 수 있습니다. Init 메서드에 사용된 연결 문자열이 IoT Edge 런타임에 의해 모듈에 제공됩니다. 코드는 **input1** 엔드포인트를 통해 IoT Edge 허브에서 메시지를 수신하는 FileCopy 콜백을 등록합니다. **Init 메서드** 를 다음 코드로 바꿉니다.
 
     ```
     /// <summary>
@@ -178,11 +180,11 @@ Azure Container Registry는 프라이빗 Docker 컨테이너 이미지를 저장
     }
     ```
 
-6. **FileCopy**에 코드를 삽입합니다.
+6. **파이프 메시지 메서드에** 대 한 코드를 제거 하 고 **FileCopy**에 대 한 코드를 삽입 합니다.
 
     ```
         /// <summary>
-        /// This method is called whenever the module is sent a message from the IoT Edge Hub. 
+        /// This method is called whenever the module is sent a message from the IoT Edge Hub.
         /// This method deserializes the file event, extracts the corresponding relative file path, and creates the absolute input file path using the relative file path and the InputFolderPath.
         /// This method also forms the absolute output file path using the relative file path and the OutputFolderPath. It then copies the input file to output file and deletes the input file after the copy is complete.
         /// </summary>
@@ -236,6 +238,7 @@ Azure Container Registry는 프라이빗 Docker 컨테이너 이미지를 저장
     ```
 
 7. 이 파일을 저장합니다.
+8. 이 프로젝트에 대 한 [기존 코드 샘플을 다운로드할](https://azure.microsoft.com/resources/samples/data-box-edge-csharp-modules/?cdn=disable) 수도 있습니다. 그런 다음이 샘플의 **program.cs** 파일에 대해 저장 한 파일의 유효성을 검사할 수 있습니다.
 
 ## <a name="build-your-iot-edge-solution"></a>IoT Edge 솔루션 빌드
 
@@ -246,7 +249,7 @@ Azure Container Registry는 프라이빗 Docker 컨테이너 이미지를 저장
 
     `docker login <ACR login server> -u <ACR username>`
 
-    컨테이너 레지스트리에서 복사한 로그인 서버 및 사용자 이름을 사용합니다. 
+    컨테이너 레지스트리에서 복사한 로그인 서버 및 사용자 이름을 사용합니다.
 
     ![IoT Edge 솔루션 빌드 및 푸시](./media/data-box-edge-create-iot-edge-module/build-iot-edge-solution-1.png)
 

@@ -5,15 +5,15 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 7/22/2019
+ms.date: 8/19/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 52d7b84fe6210d8a4d46814ad6749bed0463478e
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: a0b0df9110f062b5f9c23840cb21308b634c9c81
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405656"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69898177"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure Portal에서 작업 그룹 만들기 및 관리
 작업 그룹은 Azure 구독 소유자가 정의한 알림 기본 설정 컬렉션입니다. Azure Monitor 및 Service Health 경고는 작업 그룹을 사용하여 경고가 트리거되었음을 사용자에게 알립니다. 사용자의 요구 사항에 따라 다양한 경고가 동일한 작업 그룹을 사용할 수도 있고 서로 다른 작업 그룹을 사용할 수도 있습니다. 구독에서는 작업 그룹을 2,000개까지 구성할 수 있습니다.
@@ -76,6 +76,11 @@ Azure 리소스 관리자 템플릿을 사용하여 작업 그룹을 구성하�
 > [!NOTE]
 > 아래의 각 항목에 대 한 숫자 제한 [모니터링에 대 한 구독 서비스 제한](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-monitor-limits) 을 참조 하세요.  
 
+### <a name="automation-runbook"></a>자동화 Runbook
+Runbook 페이로드에 대 한 제한은 [Azure 구독 서비스](../../azure-subscription-service-limits.md) 제한을 참조 하세요.
+
+작업 그룹에 제한 된 수의 Runbook 작업이 있을 수 있습니다. 
+
 ### <a name="azure-app-push-notifications"></a>Azure 앱 푸시 알림
 작업 그룹에 제한 된 수의 Azure 앱 작업이 있을 수 있습니다.
 
@@ -87,6 +92,16 @@ Azure 리소스 관리자 템플릿을 사용하여 작업 그룹을 구성하�
 
 작업 그룹에 제한 된 수의 전자 메일 작업이 있을 수 있습니다. [Rate 제한 정보](./../../azure-monitor/platform/alerts-rate-limiting.md) 문서를 참조 하세요.
 
+### <a name="email-azure-resource-manager-role"></a>메일 Azure Resource Manager 역할
+구독 역할의 멤버에 게 전자 메일을 보냅니다.
+
+작업 그룹에 제한 된 수의 전자 메일 작업이 있을 수 있습니다. [Rate 제한 정보](./../../azure-monitor/platform/alerts-rate-limiting.md) 문서를 참조 하세요.
+
+### <a name="function"></a>함수
+작업으로 구성 된 함수 앱에 대 한 함수 키는 현재 v2 함수 앱을 사용 하 여 앱 설정 "AzureWebJobsSecretStorageType"을 "파일"로 구성 하는 함수 API를 통해 읽습니다. 자세한 내용은 [함수 V2에서 키 관리의 변경 내용]( https://aka.ms/funcsecrets)을 참조 하세요.
+
+작업 그룹에 제한 된 수의 함수 작업이 있을 수 있습니다.
+
 ### <a name="itsm"></a>ITSM
 ITSM 작업에는 ITSM 연결이 필요합니다. [ITSM 연결](../../azure-monitor/platform/itsmc-overview.md)을 만드는 방법에 대해 알아봅니다.
 
@@ -95,51 +110,7 @@ ITSM 작업에는 ITSM 연결이 필요합니다. [ITSM 연결](../../azure-moni
 ### <a name="logic-app"></a>논리 앱
 작업 그룹에는 제한 된 수의 논리 앱 작업이 있을 수 있습니다.
 
-### <a name="function"></a>함수
-작업으로 구성 된 함수 앱에 대 한 함수 키는 현재 v2 함수 앱을 사용 하 여 앱 설정 "AzureWebJobsSecretStorageType"을 "파일"로 구성 하는 함수 API를 통해 읽습니다. 자세한 내용은 [함수 V2에서 키 관리의 변경 내용]( https://aka.ms/funcsecrets)을 참조 하세요.
-
-작업 그룹에 제한 된 수의 함수 작업이 있을 수 있습니다.
-
-### <a name="automation-runbook"></a>자동화 Runbook
-Runbook 페이로드에 대 한 제한은 [Azure 구독 서비스](../../azure-subscription-service-limits.md) 제한을 참조 하세요.
-
-작업 그룹에 제한 된 수의 Runbook 작업이 있을 수 있습니다. 
-
-### <a name="sms"></a>SMS
-추가 중요 정보는 [요금 제한 정보](./../../azure-monitor/platform/alerts-rate-limiting.md) 및 [SMS 경고 동작](../../azure-monitor/platform/alerts-sms-behavior.md) 을 참조 하세요.
-
-작업 그룹에서 제한 된 수의 SMS 작업이 있을 수 있습니다.  
-
-### <a name="voice"></a>음성
-[Rate 제한 정보](./../../azure-monitor/platform/alerts-rate-limiting.md) 문서를 참조 하세요.
-
-작업 그룹에 제한 된 수의 음성 작업이 있을 수 있습니다.
-
-### <a name="webhook"></a>Webhook
-웹 후크는 다음 규칙을 사용 하 여 다시 시도 됩니다. 다음 HTTP 상태 코드가 반환 되 면 webhook 호출은 최대 2 번 다시 시도 됩니다. 408, 429, 503, 504가 반환되거나 HTTP 엔드포인트가 응답하지 않으면 최대 2번 다시 시도됩니다. 10초 후에 첫 번째 다시 시도가 발생합니다. 두 번째 다시 시도는 100초 후에 진행됩니다. 두 번 실패 한 후에는 작업 그룹에서 30 분 동안 끝점을 호출 하지 않습니다. 
-
-원본 IP 주소 범위
- - 13.72.19.232
- - 13.106.57.181
- - 13.106.54.3
- - 13.106.54.19
- - 13.106.38.142
- - 13.106.38.148
- - 13.106.57.196
- - 13.106.57.197
- - 52.244.68.117
- - 52.244.65.137
- - 52.183.31.0
- - 52.184.145.166
- - 51.4.138.199
- - 51.5.148.86
- - 51.5.149.19
-
-이러한 IP 주소의 변경 내용에 대 한 업데이트를 수신 하려면 작업 그룹 서비스에 대 한 정보 알림을 모니터링 하는 Service Health 경고를 구성 하는 것이 좋습니다.
-
-작업 그룹에는 제한 된 수의 Webhook 작업이 있을 수 있습니다.
-
-#### <a name="secure-webhook"></a>보안 Webhook
+### <a name="secure-webhook"></a>보안 Webhook
 **보안 Webhook 기능은 현재 미리 보기 상태입니다.**
 
 작업 그룹 웹 후크 작업을 사용 하면 Azure Active Directory를 활용 하 여 작업 그룹과 보호 된 웹 API (웹 후크 끝점) 간의 연결을 보호할 수 있습니다. 이 기능을 활용 하는 전체 워크플로는 아래에 설명 되어 있습니다. Azure AD 응용 프로그램 및 서비스 주체에 대 한 개요는 v2.0 [(Microsoft identity platform) 개요](https://docs.microsoft.com/azure/active-directory/develop/v2-overview)를 참조 하세요.
@@ -156,12 +127,12 @@ Runbook 페이로드에 대 한 제한은 [Azure 구독 서비스](../../azure-s
     - PowerShell 스크립트의 변수 $myAzureADApplicationObjectId 수정 하 여 Azure AD 응용 프로그램의 개체 ID를 사용 합니다.
     - 수정 된 스크립트를 실행 합니다.
     
-1. 작업 그룹 Webhook 작업을 구성 합니다.
+1. 작업 그룹 보안 Webhook 작업을 구성 합니다.
     - 스크립트에서 $myApp 값을 복사 하 고 Webhook 작업 정의의 응용 프로그램 개체 ID 필드에 입력 합니다.
     
     ![보안 Webhook 작업](./media/action-groups/action-groups-secure-webhook.png)
 
-##### <a name="secure-webhook-powershell-script"></a>보안 Webhook PowerShell 스크립트
+#### <a name="secure-webhook-powershell-script"></a>보안 Webhook PowerShell 스크립트
 
 ```PowerShell
 Connect-AzureAD -TenantId "<provide your Azure AD tenant ID here>"
@@ -229,6 +200,41 @@ Write-Host "My Azure AD Application ($myApp.ObjectId): " + $myApp.ObjectId
 Write-Host "My Azure AD Application's Roles"
 Write-Host $myApp.AppRoles
 ```
+
+### <a name="sms"></a>SMS
+추가 중요 정보는 [요금 제한 정보](./../../azure-monitor/platform/alerts-rate-limiting.md) 및 [SMS 경고 동작](../../azure-monitor/platform/alerts-sms-behavior.md) 을 참조 하세요.
+
+작업 그룹에서 제한 된 수의 SMS 작업이 있을 수 있습니다.  
+
+### <a name="voice"></a>음성
+[Rate 제한 정보](./../../azure-monitor/platform/alerts-rate-limiting.md) 문서를 참조 하세요.
+
+작업 그룹에 제한 된 수의 음성 작업이 있을 수 있습니다.
+
+### <a name="webhook"></a>Webhook
+웹 후크는 다음 규칙을 사용 하 여 다시 시도 됩니다. 다음 HTTP 상태 코드가 반환 되 면 webhook 호출은 최대 2 번 다시 시도 됩니다. 408, 429, 503, 504가 반환되거나 HTTP 엔드포인트가 응답하지 않으면 최대 2번 다시 시도됩니다. 10초 후에 첫 번째 다시 시도가 발생합니다. 두 번째 다시 시도는 100초 후에 진행됩니다. 두 번 실패 한 후에는 작업 그룹에서 30 분 동안 끝점을 호출 하지 않습니다. 
+
+원본 IP 주소 범위
+ - 13.72.19.232
+ - 13.106.57.181
+ - 13.106.54.3
+ - 13.106.54.19
+ - 13.106.38.142
+ - 13.106.38.148
+ - 13.106.57.196
+ - 13.106.57.197
+ - 52.244.68.117
+ - 52.244.65.137
+ - 52.183.31.0
+ - 52.184.145.166
+ - 51.4.138.199
+ - 51.5.148.86
+ - 51.5.149.19
+
+이러한 IP 주소의 변경 내용에 대 한 업데이트를 수신 하려면 작업 그룹 서비스에 대 한 정보 알림을 모니터링 하는 Service Health 경고를 구성 하는 것이 좋습니다.
+
+작업 그룹에는 제한 된 수의 Webhook 작업이 있을 수 있습니다.
+
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 2fa9db20554df813e5da94e2bbea122ac6cc9b60
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 602e4356ccd9eb45855462a7a25e0966dc176b4f
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946539"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899935"
 ---
 # <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Azure 보안 및 준수 청사진 - UK OFFICIAL에 대한 3계층 IaaS 웹 애플리케이션
 
@@ -186,7 +186,7 @@ ms.locfileid: "68946539"
 
 [Azure Virtual Machines에 Windows Server Active Directory를 배포하기 위한 지침](https://msdn.microsoft.com/library/azure/jj156090.aspx)
 
-**Active Directory 통합**: 고객은 전용 AD DS 아키텍처 대신 [Azure Active Directory](/azure/architecture/reference-architectures/identity.md) 통합 또는 [온-프레미스 포리스트에 가입된 Azure의 Active Directory](/azure/architecture/reference-architectures/identity.md)를 사용하는 것이 좋습니다.
+**Active Directory 통합**: 고객은 전용 AD DS 아키텍처 대신 [Azure Active Directory](/azure/architecture/reference-architectures/identity) 통합 또는 [온-프레미스 포리스트에 가입된 Azure의 Active Directory](/azure/architecture/reference-architectures/identity)를 사용하는 것이 좋습니다.
 
 ### <a name="security"></a>보안
 
@@ -200,9 +200,9 @@ ms.locfileid: "68946539"
 
 **IP 범위**: 아키텍처의 IP 범위는 제안된 범위입니다. 고객은 고유한 환경을 고려하고 적절한 범위를 사용하는 것이 좋습니다.
 
-**하이브리드 연결**: 클라우드 기반 워크로드는 Azure VPN Gateway를 사용하여 IPSEC VPN을 통해 온-프레미스 데이터 센터에 연결됩니다. 고객은 Azure에 연결할 적절한 VPN Gateway를 사용하고 있는지 확인해야 합니다. 예제 - [VPN Gateway Resource Manager 템플릿](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/vpn-gateway-vpn-connection). 빅 데이터 요구 사항을 포함하는 대규모의 중요 업무용 워크로드를 실행하는 고객은 Microsoft 클라우드 서비스에 대한 프라이빗 네트워크 연결에 [ExpressRoute](/azure/architecture/reference-architectures/hybrid-networking/expressroute.md)를 사용하는 하이브리드 네트워크 아키텍처를 사용하는 것이 좋습니다.
+**하이브리드 연결**: 클라우드 기반 워크로드는 Azure VPN Gateway를 사용하여 IPSEC VPN을 통해 온-프레미스 데이터 센터에 연결됩니다. 고객은 Azure에 연결할 적절한 VPN Gateway를 사용하고 있는지 확인해야 합니다. 예제 - [VPN Gateway Resource Manager 템플릿](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/vpn-gateway-vpn-connection). 빅 데이터 요구 사항을 포함하는 대규모의 중요 업무용 워크로드를 실행하는 고객은 Microsoft 클라우드 서비스에 대한 프라이빗 네트워크 연결에 [ExpressRoute](/azure/architecture/reference-architectures/hybrid-networking/expressroute)를 사용하는 하이브리드 네트워크 아키텍처를 사용하는 것이 좋습니다.
 
-**문제의 분리** 이 참조 아키텍처는 관리 작업 및 비즈니스 운영에 대한 VNet을 분리합니다. 별도 VNet 및 서브넷은 [Microsoft 클라우드 서비스 및 네트워크 보안](/azure/architecture/vdc/networking-virtual-datacenter.md) 모범 사례를 따르는 네트워크 세그먼트 간에 NSG를 사용하여 트래픽 수신 및 송신 제한을 비롯한 트래픽 관리를 허용합니다.
+**문제의 분리** 이 참조 아키텍처는 관리 작업 및 비즈니스 운영에 대한 VNet을 분리합니다. 별도 VNet 및 서브넷은 [Microsoft 클라우드 서비스 및 네트워크 보안](/azure/architecture/vdc/networking-virtual-datacenter) 모범 사례를 따르는 네트워크 세그먼트 간에 NSG를 사용하여 트래픽 수신 및 송신 제한을 비롯한 트래픽 관리를 허용합니다.
 
 **리소스 관리**: VM, VNet 및 부하 분산 장치와 같은 Azure 리소스는 [Azure 리소스 그룹](../../azure-resource-manager/resource-group-overview.md)으로 함께 그룹화하여 관리됩니다. 리소스 기반 액세스 제어 역할을 각 리소스 그룹에 할당하여 권한 있는 사용자에 대한 액세스만을 제한할 수 있습니다.
 

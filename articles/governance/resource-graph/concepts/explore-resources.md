@@ -1,19 +1,19 @@
 ---
 title: Azure 리소스 검색
-description: Resource Graph 쿼리 언어를 사용하여 리소스를 탐색하고 리소스가 연결되는 방식을 파악하는 방법에 대해 알아봅니다.
+description: 리소스 그래프 쿼리 언어를 사용 하 여 리소스를 탐색 하 고 연결 방법을 검색 하는 방법을 알아봅니다.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 04/23/2019
+ms.date: 08/22/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 0b4a75558f5e82b707ae5d012acef4d2c5c4b7a0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7c6fdebad3cd84699e1ac7d06bb58a33d1522af1
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64723817"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972322"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>Resource Graph로 Azure 리소스 탐색
 
@@ -110,7 +110,7 @@ JSON 결과는 다음 예제와 비슷한 구조로 되어 있습니다.
 ]
 ```
 
-정보 속성 태그, 디스크, OS, SKU에서 모든 가상 머신 리소스 자체에 대 한 추가 정보를 제공 하는 입력 및 멤버인 것이 리소스 그룹 및 구독 합니다.
+속성은 가상 머신 리소스 자체, SKU, OS, 디스크, 태그, 리소스 그룹 및 구독에 속하는 모든 항목에 대 한 추가 정보를 알려 줍니다.
 
 ### <a name="virtual-machines-by-location"></a>위치별 가상 머신
 
@@ -179,7 +179,7 @@ where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile
 ```
 
 > [!NOTE]
-> **aliases** 속성 **Microsoft.Compute/virtualMachines/sku.name**을 사용하여 SKU를 가져올 수도 있습니다. 참조를 [별칭 표시](../samples/starter.md#show-aliases) 하 고 [고유 별칭 값을 표시](../samples/starter.md#distinct-alias-values) 예제입니다.
+> **aliases** 속성 **Microsoft.Compute/virtualMachines/sku.name**을 사용하여 SKU를 가져올 수도 있습니다. [별칭 표시](../samples/starter.md#show-aliases) 및 [고유 별칭 값 표시](../samples/starter.md#distinct-alias-values) 예를 참조 하세요.
 
 ```azurecli-interactive
 az graph query -q "where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | extend disk = properties.storageProfile.osDisk.managedDisk | where disk.storageAccountType == 'Premium_LRS' | project disk.id"
@@ -259,17 +259,25 @@ JSON 결과는 다음 예제와 비슷한 구조로 되어 있습니다.
 
 ## <a name="explore-virtual-machines-to-find-public-ip-addresses"></a>가상 머신을 탐색하여 공용 IP 주소 찾기
 
-이 Azure CLI 쿼리 집합은 먼저 가상 머신에 연결된 모든 NIC(네트워크 인터페이스) 리소스를 찾아 저장합니다. 그런 다음, NIC 목록을 사용하여 공용 IP 주소인 각 IP 주소 리소스를 찾아 해당 값을 저장합니다. 마지막으로, 공용 IP 주소 목록을 제공합니다.
+이 쿼리 집합은 먼저 가상 컴퓨터에 연결 된 모든 NIC (네트워크 인터페이스) 리소스를 찾아 저장 합니다. 그런 다음 쿼리는 Nic 목록을 사용 하 여 공용 IP 주소인 각 IP 주소 리소스를 찾고 해당 값을 저장 합니다. 마지막으로 쿼리는 공용 IP 주소 목록을 제공 합니다.
 
 ```azurecli-interactive
-# Use Resource Graph to get all NICs and store in the 'nic' variable
+# Use Resource Graph to get all NICs and store in the 'nics.txt' file
 az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | project nic = tostring(properties['networkProfile']['networkInterfaces'][0]['id']) | where isnotempty(nic) | distinct nic | limit 20" --output table | tail -n +3 > nics.txt
 
 # Review the output of the query stored in 'nics.txt'
 cat nics.txt
 ```
 
-다음 쿼리에서 `nics.txt` 파일을 사용하여 관련 네트워크 인터페이스 리소스 정보를 가져옵니다. 이 세부 정보에 NIC에 연결된 공용 IP 주소가 포함되어 있습니다.
+```azurepowershell-interactive
+# Use Resource Graph to get all NICs and store in the $nics variable
+$nics = Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | project nic = tostring(properties['networkProfile']['networkInterfaces'][0]['id']) | where isnotempty(nic) | distinct nic | limit 20"
+
+# Review the output of the query stored in the variable
+$nics.nic
+```
+
+다음 쿼리에서 파일 (Azure CLI) 또는 변수 (Azure PowerShell)를 사용 하 여 NIC에 연결 된 공용 IP 주소가 있는 관련 네트워크 인터페이스 리소스 세부 정보를 가져옵니다.
 
 ```azurecli-interactive
 # Use Resource Graph with the 'nics.txt' file to get all related public IP addresses and store in 'publicIp.txt' file
@@ -279,11 +287,24 @@ az graph query -q="where type =~ 'Microsoft.Network/networkInterfaces' | where i
 cat ips.txt
 ```
 
-마지막으로 `ips.txt`에 저장된 공용 IP 주소 리소스 목록을 사용해 실제 공용 IP 주소를 가져와서 표시합니다.
+```azurepowershell-interactive
+# Use Resource Graph  with the $nics variable to get all related public IP addresses and store in $ips variable
+$ips = Search-AzGraph -Query "where type =~ 'Microsoft.Network/networkInterfaces' | where id in ('$($nics.nic -join "','")') | project publicIp = tostring(properties['ipConfigurations'][0]['properties']['publicIPAddress']['id']) | where isnotempty(publicIp) | distinct publicIp"
+
+# Review the output of the query stored in the variable
+$ips.publicIp
+```
+
+마지막으로, 파일에 저장 된 공용 IP 주소 리소스 목록 (Azure CLI) 또는 변수 (Azure PowerShell)를 사용 하 여 관련 개체와 표시에서 실제 공용 IP 주소를 가져옵니다.
 
 ```azurecli-interactive
 # Use Resource Graph with the 'ips.txt' file to get the IP address of the public IP address resources
 az graph query -q="where type =~ 'Microsoft.Network/publicIPAddresses' | where id in ('$(awk -vORS="','" '{print $0}' ips.txt | sed 's/,$//')') | project ip = tostring(properties['ipAddress']) | where isnotempty(ip) | distinct ip" --output table
+```
+
+```azurepowershell-interactive
+# Use Resource Graph with the $ips variable to get the IP address of the public IP address resources
+Search-AzGraph -Query "where type =~ 'Microsoft.Network/publicIPAddresses' | where id in ('$($ips.publicIp -join "','")') | project ip = tostring(properties['ipAddress']) | where isnotempty(ip) | distinct ip"
 ```
 
 ## <a name="next-steps"></a>다음 단계

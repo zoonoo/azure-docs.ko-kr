@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 88c27b920817da5edc2cefe780903c2b94695807
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 8b7b02c164021ac084dccf5663122620b2af1b15
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877647"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972899"
 ---
 # <a name="vpn-gateways-overview"></a>VPN gateway 개요
 
@@ -21,10 +21,10 @@ VPN gateway는 온-프레미스 위치의 CloudSimple 영역 네트워크 간이
 
 CloudSimple은 두 가지 종류의 VPN 게이트웨이를 제공 합니다.
 
-* 사이트 간 VPN 게이트웨이
-* 지점-사이트 간 VPN Gateway
+* 사이트 간 VPN gateway
+* 지점 및 사이트 간 VPN gateway
 
-## <a name="site-to-site-vpn-gateway"></a>사이트 간 VPN 게이트웨이
+## <a name="site-to-site-vpn-gateway"></a>사이트 간 VPN gateway
 
 사이트 간 VPN 게이트웨이는 CloudSimple 영역 네트워크와 온-프레미스 데이터 센터 간에 암호화 된 트래픽을 보내는 데 사용 됩니다. 이 연결을 사용 하 여 온-프레미스 네트워크와 CloudSimple 영역 네트워크 간의 네트워크 트래픽에 대 한 서브넷/CIDR 범위를 정의 합니다.
 
@@ -64,7 +64,7 @@ VPN gateway를 사용 하면 사설 클라우드의 온-프레미스 서비스�
 | 수명 시간 | 1800 초 | 1800 초 | 1800 초 |
 | 데이터 크기 | 4GB | 4GB | 4GB |
 
-## <a name="point-to-site-vpn-gateway"></a>지점-사이트 간 VPN Gateway
+## <a name="point-to-site-vpn-gateway"></a>지점 및 사이트 간 VPN gateway
 
 지점 및 사이트 간 VPN은 CloudSimple 영역 네트워크와 클라이언트 컴퓨터 간에 암호화 된 트래픽을 보내는 데 사용 됩니다.  지점 및 사이트 간 VPN은 사설 클라우드 vCenter 및 워크 로드 Vm을 포함 하 여 사설 클라우드 네트워크에 액세스 하는 가장 쉬운 방법입니다.  원격으로 사설 클라우드에 연결 하는 경우 지점 및 사이트 간 VPN 연결을 사용 합니다.
 
