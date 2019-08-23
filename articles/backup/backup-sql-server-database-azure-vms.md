@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 6a929359c0e4e0a5c64eadbf41f565dfeb56a233
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
-ms.translationtype: HT
+ms.openlocfilehash: 3c16d8b5f1611c6c05e60d65551f73eb2d395668
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854107"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69872901"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Azure VM의 SQL Server 데이터베이스 백업
 
@@ -51,22 +51,29 @@ SQL Server 데이터베이스를 백업 하기 전에 다음 조건을 확인 �
 
 - **Azure 데이터 센터 IP 범위를 허용**합니다. 이 옵션을 선택 하면 다운로드의 [IP 범위가](https://www.microsoft.com/download/details.aspx?id=41653) 허용 됩니다. NSG (네트워크 보안 그룹)에 액세스 하려면 AzureNetworkSecurityRule cmdlet을 사용 합니다. 안전 받는 사람이 지역 특정 Ip만을 나열 하는 경우 인증을 사용 하도록 설정 하려면 수신 받는 사람 목록에 Azure Active Directory (Azure AD) 서비스 태그를 업데이트 해야 합니다.
 
-- **NSG 태그를 사용 하 여 액세스를 허용**합니다. NSGs를 사용 하 여 연결을 제한 하는 경우이 옵션은 AzureBackup 태그를 사용 하 여 Azure Backup에 대 한 아웃 바운드 액세스를 허용 하는 규칙을 NSGS에 추가 합니다. 이 태그 외에도 Azure AD에 대 한 해당 [규칙](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) 및 인증 및 데이터 전송에 대 한 연결을 허용 하는 Azure Storage 필요 합니다. AzureBackup 태그는 현재 PowerShell 에서만 사용할 수 있습니다. AzureBackup 태그를 사용 하 여 규칙을 만들려면 다음을 수행 합니다.
+- **NSG 태그를 사용 하 여 액세스를 허용**합니다.  NSG를 사용 하 여 연결을 제한 하는 경우 AzureBackup 서비스 태그를 사용 하 여 Azure Backup에 대 한 아웃 바운드 액세스를 허용 해야 합니다. 또한 Azure AD 및 Azure Storage에 대 한 [규칙](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) 을 사용 하 여 인증 및 데이터 전송에 대 한 연결을 허용 해야 합니다. 포털 또는 PowerShell에서이 작업을 수행할 수 있습니다.
 
-    - Azure 계정 자격 증명을 추가 하 고 국가를 업데이트 합니다.<br/>
-    `Add-AzureRmAccount`
+    포털을 사용 하 여 규칙을 만들려면:
+    
+    - **모든 서비스**에서 **네트워크 보안** 그룹으로 이동 하 여 네트워크 보안 그룹을 선택 합니다.
+    - **설정**에서 **아웃 바운드 보안 규칙** 을 선택 합니다.
+    - **추가**를 선택합니다. [보안 규칙 설정](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings)에 설명 된 대로 새 규칙을 만드는 데 필요한 모든 세부 정보를 입력 합니다. **대상** 옵션을 **서비스 태그로** 설정 하 고 **대상 서비스 태그** 를 **azurebackup**으로 설정 했는지 확인 합니다.
+    - **추가**를 클릭 하 여 새로 만든 아웃 바운드 보안 규칙을 저장 합니다.
+    
+   Powershell을 사용 하 여 규칙을 만들려면
 
-    - NSG 구독 선택<br/>
-    `Select-AzureRmSubscription "<Subscription Id>"`
-
-     - NSG 선택<br/>
-    `$nsg = Get-AzureRmNetworkSecurityGroup -Name "<NSG name>" -ResourceGroupName "<NSG resource group name>"`
-
-    - Azure Backup 서비스 태그에 아웃 바운드 규칙 허용 추가<br/>
-    `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "AzureBackupAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "AzureBackup" -DestinationPortRange 443 -Description "Allow outbound traffic to Azure Backup service"`
-
+   - Azure 계정 자격 증명을 추가 하 고 국가를 업데이트 합니다.<br/>
+    ``Add-AzureRmAccount``
+  - NSG 구독 선택<br/>
+    ``Select-AzureRmSubscription "<Subscription Id>"``
+  - NSG 선택<br/>
+    ```$nsg = Get-AzureRmNetworkSecurityGroup -Name "<NSG name>" -ResourceGroupName "<NSG resource group name>"```
+  - Azure Backup 서비스 태그에 아웃 바운드 규칙 허용 추가<br/>
+   ```Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "AzureBackupAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "AzureBackup" -DestinationPortRange 443 -Description "Allow outbound traffic to Azure Backup service"```
   - NSG 저장<br/>
-    `Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg`
+    ```Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg```
+
+   
 - **Azure 방화벽 태그를 사용 하 여 액세스를 허용**합니다. Azure 방화벽을 사용 하는 경우 AzureBackup [FQDN 태그](https://docs.microsoft.com/azure/firewall/fqdn-tags)를 사용 하 여 응용 프로그램 규칙을 만듭니다. 이렇게 하면 Azure Backup에 대 한 아웃 바운드 액세스가 가능 합니다.
 - **트래픽을 라우팅하는 HTTP 프록시 서버를 배포**합니다. Azure VM에서 SQL Server 데이터베이스를 백업 하면 VM의 백업 확장이 HTTPS Api를 사용 하 여 Azure Backup 및 데이터에 대 한 관리 명령을 Azure Storage 보냅니다. 또한 백업 확장은 인증에 Azure AD를 사용 합니다. HTTP 프록시를 통해 이 세 가지 서비스에 대한 백업 확장 트래픽을 라우팅합니다. 확장의 공용 인터넷에 액세스하도록 구성된 유일한 구성 요소입니다.
 
@@ -168,7 +175,7 @@ VM에서 실행 되는 데이터베이스를 검색 하는 방법:
    백업 로드를 최적화하기 위해 Azure Backup은 한 백업 작업의 최대 데이터베이스 수를 50개로 설정합니다.
 
      * 50개가 넘는 데이터베이스를 보호하려면 여러 백업을 구성합니다.
-     * 전체 인스턴스 또는 Always On 가용성 그룹을 사용 하여 [](#enable-auto-protection)를 설정합니다. **Autoprotect** 드롭다운 목록에서 **켜기**를 선택 하 고 **확인**을 선택 합니다.
+     * 전체 인스턴스 또는 Always On 가용성 그룹을 [사용 하도록 설정](#enable-auto-protection) 하려면 **autoprotect** 드롭다운 목록에서 **켜기**를 선택 하 고 **확인**을 선택 합니다.
 
     > [!NOTE]
     > [자동 보호](#enable-auto-protection) 기능은 모든 기존 데이터베이스를 한 번에 보호할 뿐만 아니라 해당 인스턴스 또는 가용성 그룹에 추가 된 새 데이터베이스를 자동으로 보호 합니다.  

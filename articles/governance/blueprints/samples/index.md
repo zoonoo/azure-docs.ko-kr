@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 08/20/2019
 ms.author: dacoulte
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 884777bce761f6b16581a28038bf9a28ce6a3801
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 8a91ae0c576299e139cf036f1f20b90470f51349
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650502"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972299"
 ---
 # <a name="azure-blueprints-samples"></a>Azure Blueprints 샘플
 
@@ -30,8 +30,8 @@ ms.locfileid: "69650502"
 | [NIST SP 800-53 R4](./nist-sp-800-53-rev4/index.md) | NIST SP 800-53 R4 규정 준수를 위한 가드레일을 제공합니다. |
 | [PCI-DSS v3.2.1](./pci-dss-3.2.1/index.md) | PCI-SS v3.2.1 규정 준수를 위한 일련의 정책을 제공합니다. |
 | [영국 공식 및 영국 NHS 거버넌스](./ukofficial/index.md) | 영국 공식 및 영국 NHS 증명에 도움이 되는 일련의 호환 인프라 패턴 및 정책 가드 레일을 제공합니다. |
-| [CAF Foundation](./caf-foundation/index.md) | [Azure에 대한 Microsoft CAF(클라우드 채택 프레임워크)](/azure/architecture/cloud-adoption/governance/journeys/index.md)와 연계하여 클라우드 자산을 관리하는 데 도움이 되는 컨트롤 세트를 제공합니다. |
-| [CAF Migrate 방문 영역](./caf-migrate-landing-zone/index.md) | 첫 번째 워크로드 마이그레이션을 설정하고 [Azure에 대한 Microsoft CAF(클라우드 채택 프레임워크)](/azure/architecture/cloud-adoption/migrate/index.md)와 연계하여 클라우드 자산을 관리하는 데 도움이 되는 컨트롤 세트를 제공합니다. |
+| [CAF Foundation](./caf-foundation/index.md) | [Azure에 대한 Microsoft CAF(클라우드 채택 프레임워크)](/azure/architecture/cloud-adoption/governance/journeys/index)와 연계하여 클라우드 자산을 관리하는 데 도움이 되는 컨트롤 세트를 제공합니다. |
+| [CAF Migrate 방문 영역](./caf-migrate-landing-zone/index.md) | 첫 번째 워크로드 마이그레이션을 설정하고 [Azure에 대한 Microsoft CAF(클라우드 채택 프레임워크)](/azure/architecture/cloud-adoption/migrate/index)와 연계하여 클라우드 자산을 관리하는 데 도움이 되는 컨트롤 세트를 제공합니다. |
 
 ## <a name="samples-strategy"></a>샘플 전략
 
