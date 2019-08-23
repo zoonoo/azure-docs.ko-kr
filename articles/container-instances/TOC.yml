@@ -121,6 +121,8 @@
       href: /javascript/api/overview/azure/containerinstances
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.containerinstance/containergroups
+    - name: 커넥터
+      href: /connectors/aci
 - name: 리소스
   items:
     - name: Microsoft Learn을 통해 기술 쌓기

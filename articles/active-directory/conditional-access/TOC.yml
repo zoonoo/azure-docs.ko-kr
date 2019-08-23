@@ -42,7 +42,7 @@
       href: plan-conditional-access.md
     - name: 모범 사례
       href: best-practices.md
-    - name: 공통 정책 템플릿
+    - name: 일반 조건부 액세스 정책
       items:
         - name: 관리자용 MFA 필요
           href: howto-conditional-access-policy-admin-mfa.md

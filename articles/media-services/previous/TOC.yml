@@ -67,12 +67,12 @@
               href: media-services-portal-manage-streaming-endpoints.md
             - name: .NET
               href: media-services-dotnet-manage-streaming-endpoints.md
-        - name: Storage
+        - name: 스토리지
           items:
-            - name: 저장소 액세스 키 롤링 후 Media Services 업데이트
+            - name: 스토리지 액세스 키 롤링 후 Media Services 업데이트
               href: media-services-roll-storage-access-keys.md
             - name: 여러 스토리지 계정 간 자산 관리
-              href: meda-services-managing-multiple-storage-accounts.md
+              href: media-services-managing-multiple-storage-accounts.md
         - name: 할당량 및 제한 사항
           href: media-services-quotas-and-limitations.md
     - name: Postman 구성
@@ -94,8 +94,6 @@
               href: media-services-dotnet-upload-files.md
             - name: REST (영문)
               href: media-services-rest-upload-files.md
-        - name: Aspera를 사용하여 대용량 파일 업로드
-          href: media-services-upload-files-with-aspera.md
         - name: StorSimple을 사용하여 파일 업로드
           href: media-services-upload-files-from-storsimple.md
         - name: 기존 Blob 복사
@@ -270,7 +268,7 @@
     - name: 콘텐츠 보호
       href: media-services-content-protection-overview.md
       items:
-        - name: 저장소 암호화
+        - name: 스토리지 암호화
           href: media-services-rest-storage-encryption.md
         - name: AES-128 암호화
           href: media-services-protect-with-aes128.md

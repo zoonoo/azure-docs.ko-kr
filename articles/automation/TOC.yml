@@ -331,6 +331,8 @@
       href: automation-deploy-template-runbook.md
     - name: Azure Automation과 Event Grid 통합
       href: ../event-grid/ensure-tags-exists-on-new-virtual-machines.md?toc=%2fazure%2fautomation%2ftoc.json
+    - name: Azure-SSIS IR을 시작/중지하는 Azure Automation Runbook 만들기 및 예약
+      href: '../data-factory/how-to-schedule-azure-ssis-integration-runtime.md#create-and-schedule-azure-automation-runbook-that-startsstops-azure-ssis-ir'
 - name: 모니터
   items:
     - name: Log Analytics에 Azure Automation 작업 데이터 전달

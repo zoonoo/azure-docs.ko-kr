@@ -74,8 +74,6 @@
               items:
                 - name: 사용
                   href: ../azure-monitor/insights/service-map.md
-                - name: 구성
-                  href: ../azure-monitor/insights/service-map-configure.md
                 - name: Operations Manager와 통합
                   href: ../azure-monitor/insights/service-map-scom.md
             - name: SQL 평가
