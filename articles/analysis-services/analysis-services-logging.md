@@ -77,11 +77,11 @@ Analysis Services 솔루션의 중요한 기능은 서버가 작동하는 방법
 
     ![Azure Portal에서 Azure Cosmos DB에 대한 진단 로깅 설정](./media/analysis-services-logging/aas-logging-turn-on-diagnostics.png)
 
-2.           **진단 설정**에서 다음 옵션을 지정합니다. 
+2. **진단 설정**에서 다음 옵션을 지정합니다. 
 
     * **이름**. 만들 로그에 대한 이름을 입력합니다.
 
-    * **스토리지 계정에 보관**. 이 옵션을 사용하려면 연결할 기존 스토리지 계정이 필요합니다. [스토리지 계정 만들기](../storage/common/storage-create-storage-account.md)를 참조하세요. 지침에 따라 리소스 관리자와 범용 계정을 만든 다음 포털에서 이 페이지로 돌아가 해당 스토리지 계정을 선택합니다. 새로 만들어진 스토리지 계정이 드롭다운 메뉴에 나타나는 데 몇 분이 걸릴 수 있습니다.
+    * **스토리지 계정에 보관**. 이 옵션을 사용하려면 연결할 기존 스토리지 계정이 필요합니다. [스토리지 계정 만들기](../storage/common/storage-create-storage-account.md)를 참조하세요. 지침에 따라 리소스 관리자와 범용 계정을 만든 다음 포털에서 이 페이지로 돌아가 해당 스토리지 계정을 선택합니다. 새로 만든 스토리지 계정이 드롭다운 메뉴에 나타나기까지 몇 분 정도 걸릴 수 있습니다.
     * **이벤트 허브로 스트림**. 이 옵션을 사용하려면 연결할 기존 Event Hub 네임스페이스 및 이벤트 허브가 필요합니다. 자세한 내용은 [Azure Portal을 사용하여 이벤트 허브 네임스페이스 및 이벤트 허브 만들기](../event-hubs/event-hubs-create.md)를 참조하세요. 그런 다음 포털의 이 페이지로 돌아가 Event Hub 네임스페이스 및 정책 이름을 선택합니다.
     * **Azure Monitor(Log Analytics 작업 영역)로 보내기**. 이 옵션을 사용하려면 기존 작업 영역을 사용하거나, 포털에서 [새 작업 영역 만들기](../azure-monitor/learn/quick-create-workspace.md) 리소스를 사용합니다. 로그를 보는 방법에 대한 자세한 내용은 이 문서의 [Log Analytics 작업 영역에서 로그 보기](#view-logs-in-log-analytics-workspace)를 참조하세요.
 
@@ -137,15 +137,15 @@ PowerShell을 사용하여 메트릭 및 진단 로깅을 사용하도록 설정
 
 ### <a name="rest-api"></a>REST API
 
-          [Azure Monitor REST API를 사용하여 진단 설정을 변경](https://docs.microsoft.com/rest/api/monitor/)하는 방법을 알아봅니다. 
+[Azure Monitor REST API를 사용하여 진단 설정을 변경](https://docs.microsoft.com/rest/api/monitor/)하는 방법을 알아봅니다. 
 
 ### <a name="resource-manager-template"></a>Resource Manager 템플릿
 
-          [Resource Manager 템플릿을 사용하여 리소스 생성 시 진단 설정을 사용하도록 설정](../azure-monitor/platform/diagnostic-logs-stream-template.md)하는 방법을 알아봅니다. 
+[Resource Manager 템플릿을 사용하여 리소스 생성 시 진단 설정을 사용하도록 설정](../azure-monitor/platform/diagnostic-logs-stream-template.md)하는 방법을 알아봅니다. 
 
 ## <a name="manage-your-logs"></a>로그 관리
 
-로그는 일반적으로 로깅을 설정하는 몇 시간 내에 사용할 수 있습니다. 스토리지 계정에서 로그를 관리하는 것은 사용자의 책임입니다.
+로그는 일반적으로 로깅을 설정하는 몇 시간 내에 사용할 수 있습니다. 스토리지 계정의 로그 관리에 따라 다릅니다.
 
 * 표준 Azure 액세스 제어 방법을 사용하여 액세스할 수 있는 사용자를 제한하는 방식으로 로그를 보호합니다.
 * 스토리지 계정에 더 이상 보존하지 않을 로그를 삭제합니다.

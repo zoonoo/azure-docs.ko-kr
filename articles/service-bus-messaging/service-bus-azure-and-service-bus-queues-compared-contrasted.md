@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 32c903e5d469a9a3e7b98bd406b5512d752bb210
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
-ms.translationtype: MT
+ms.openlocfilehash: 0ebf18fe2dc6906bc2c06d94388d126fb55c6024
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69017800"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981410"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Azure 큐 및 Service Bus 큐 - 비교 및 대조
 이 문서에서는 현재 Microsoft Azure에서 제공하는 두 가지 유형의 큐인 Storage 큐와 Service Bus 큐 사이의 차이점과 유사점을 분석합니다. 이 정보를 사용하여 각각의 기술을 비교 및 대조하고 요구에 가장 적합한 솔루션이 어떤 것인지 더 합리적으로 결정할 수 있습니다.
@@ -68,10 +68,10 @@ Storage 큐와 Service Bus 큐는 모두 현재 Microsoft Azure에서 제공하�
 | 비교 기준 | 저장소 큐 | Service Bus 큐 |
 | --- | --- | --- |
 | 순서 보장 |**아니요** <br/><br>자세한 내용은 “추가 정보” 섹션의 첫 번째 참고를 참조하세요.</br> |**예 - 선입선출(FIFO)**<br/><br>(메시징 세션의 사용을 통해) |
-| 전달 보장 |**최소 1회(At-Least-Once)** |**최소 1회(At-Least-Once)**<br/><br/>**최대 1회(At-Most-Once)** |
-| 원자성 작업 지원 |**아니요** |**예**<br/><br/> |
+| 전달 보장 |**최소 1회(At-Least-Once)** |**최소 한 번** (PeekLock receive 모드 사용-기본값) <br/><br/>**한 번 이상** (ReceiveAndDelete 수신 모드 사용) <br/> <br/> 다양 한 [수신 모드](service-bus-queues-topics-subscriptions.md#receive-modes) 에 대해 자세히 알아보기  |
+| 원자성 작업 지원 |**아니오** |**예**<br/><br/> |
 | 수신 동작 |**비중단**<br/><br/>(새 메시지가 없을 경우 즉시 완료) |**시간 제한 있는/없는 차단**<br/><br/>(장기 폴링 또는 ["Comet 기술"](https://go.microsoft.com/fwlink/?LinkId=613759) 제공)<br/><br/>**비중단**<br/><br/>(.NET 관리 API만을 사용하여) |
-| 푸시 스타일 API |**아니요** |**예**<br/><br/>[OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage#Microsoft_ServiceBus_Messaging_QueueClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__) 및 **OnMessage** 세션 .NET API |
+| 푸시 스타일 API |**아니오** |**예**<br/><br/>[OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage#Microsoft_ServiceBus_Messaging_QueueClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__) 및 **OnMessage** 세션 .NET API |
 | 수신 모드 |**보기 및 임대** |**보기 및 잠금**<br/><br/>**수신 및 삭제** |
 | 단독 액세스 모드 |**임대 기반** |**잠금 기반** |
 | 임대/잠금 기간 |**30초(기본값)**<br/><br/>**7일(최대값)** ([UpdateMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.updatemessage) API를 사용하여 메시지 임대를 갱신하거나 해제할 수 있음) |**60초(기본값)**<br/><br/>[RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) API를 사용하여 메시지 잠금을 갱신할 수 있습니다. |
@@ -101,20 +101,20 @@ Storage 큐와 Service Bus 큐는 모두 현재 Microsoft Azure에서 제공하�
 | 비교 기준 | 저장소 큐 | Service Bus 큐 |
 | --- | --- | --- |
 | 예약 배달 |**예** |**예** |
-| 배달 못한 메시지 자동 처리 |**아니요** |**예** |
+| 배달 못한 메시지 자동 처리 |**아니오** |**예** |
 | 큐 TTL(Time-to-Live) 값 증가 |**예**<br/><br/>(표시 시간 제한의 전체 업데이트를 통해) |**예**<br/><br/>(전용 API 함수를 통해 제공됨) |
 | 포이즌 메시지 지원 |**예** |**예** |
 | 전체 업데이트 |**예** |**예** |
-| 서버 측 트랜잭션 로그 |**예** |**아니요** |
+| 서버 측 트랜잭션 로그 |**예** |**아니오** |
 | Storage 메트릭 |**예**<br/><br/>**순간 메트릭**: 가용성, TPS, API 호출 횟수, 오류 수 등에 대한 실시간 메트릭을 모두 실시간으로 제공합니다(분 단위로 집계되며 프로덕션에서 방금 발생한 일이 몇 분 안에 보고됨). 자세한 내용은 [스토리지 분석 메트릭 정보](/rest/api/storageservices/fileservices/About-Storage-Analytics-Metrics)를 참조하세요. |**예**<br/><br/>([GetQueues](/dotnet/api/microsoft.servicebus.namespacemanager.getqueues#Microsoft_ServiceBus_NamespaceManager_GetQueues)를 호출하여 대량 쿼리) |
-| 상태 관리 |**아니요** |**예**<br/><br/>[Microsoft.ServiceBus.Messaging.EntityStatus.Active](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.Disabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.SendDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.ReceiveDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus) |
-| 메시지 자동 전달 |**아니요** |**예** |
-| 큐 삭제 기능 |**예** |**아니요** |
-| 메시지 그룹 |**아니요** |**예**<br/><br/>(메시징 세션의 사용을 통해) |
-| 메시지 그룹당 애플리케이션 상태 |**아니요** |**예** |
-| 중복 검색 |**아니요** |**예**<br/><br/>(보낸 사람 쪽에서 구성 가능) |
-| 메시지 그룹 찾아보기 |**아니요** |**예** |
-| ID별로 메시지 세션 가져오기 |**아니요** |**예** |
+| 상태 관리 |**아니오** |**예**<br/><br/>[Microsoft.ServiceBus.Messaging.EntityStatus.Active](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.Disabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.SendDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.ReceiveDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus) |
+| 메시지 자동 전달 |**아니오** |**예** |
+| 큐 삭제 기능 |**예** |**아니오** |
+| 메시지 그룹 |**아니오** |**예**<br/><br/>(메시징 세션의 사용을 통해) |
+| 메시지 그룹당 애플리케이션 상태 |**아니오** |**예** |
+| 중복 검색 |**아니오** |**예**<br/><br/>(보낸 사람 쪽에서 구성 가능) |
+| 메시지 그룹 찾아보기 |**아니오** |**예** |
+| ID별로 메시지 세션 가져오기 |**아니오** |**예** |
 
 ### <a name="additional-information"></a>추가 정보
 * 두 큐 기술 모두 메시지를 나중에 배달하도록 예약하는 기능을 제공합니다.
@@ -157,7 +157,7 @@ Storage 큐와 Service Bus 큐는 모두 현재 Microsoft Azure에서 제공하�
 | Java API |**예** |**예** |
 | PHP API |**예** |**예** |
 | Node.js API |**예** |**예** |
-| 임의 메타데이터 지원 |**예** |**아니요** |
+| 임의 메타데이터 지원 |**예** |**아니오** |
 | 큐 명명 규칙 |**최대 길이 63자**<br/><br/>(큐 이름의 문자는 소문자여야 함) |**최대 길이 260자**<br/><br/>(큐 경로 및 이름은 대/소문자가 구분되지 않음) |
 | 큐 길이 가져오기 함수 |**예**<br/><br/>(메시지가 삭제되지 않고 TTL을 초과하여 만료되는 경우 근사값) |**예**<br/><br/>(정확한 지정 시간 값) |
 | 엿보기 기능 |**예** |**예** |
@@ -176,7 +176,7 @@ Storage 큐와 Service Bus 큐는 모두 현재 Microsoft Azure에서 제공하�
 | --- | --- | --- |
 | 인증 |**대칭 키** |**대칭 키** |
 | 보안 모델 |SAS 토큰을 통해 위임된 액세스. |SAS |
-| ID 공급자 페더레이션 |**아니요** |**예** |
+| ID 공급자 페더레이션 |**아니오** |**예** |
 
 ### <a name="additional-information"></a>추가 정보
 * 각 큐 기술에 대한 모든 요청은 인증되어야 합니다. 익명 액세스 가능한 공개 큐는 지원되지 않습니다. [SAS](service-bus-sas.md)를 사용하면 쓰기 전용 SAS, 읽기 전용 SAS 또는 모든 권한 SAS를 게시하여 이러한 시나리오에 대응할 수 있습니다.

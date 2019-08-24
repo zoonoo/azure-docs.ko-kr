@@ -176,7 +176,7 @@ Double | Double | 문자열 | 문자열 | Double
 문자열 | String | String | String | 문자열 
 DateTime | 문자열 | 문자열 |  DateTime | 문자열
 
-## <a name="table-storage"></a>테이블 스토리지
+## <a name="table-storage"></a>Table Storage
 
 [Azure Table Storage](../storage/common/storage-introduction.md)는 가용성이 높고 확장성이 큰 스토리지를 제공하므로, 애플리케이션이 사용자 요구에 맞게 자동으로 확장할 수 있습니다. 테이블 저장소는 Microsoft의 NoSQL 키/특성 저장소로, 스키마에 대 한 제약 조건이 더 작은 구조화 된 데이터에 사용할 수 있습니다. Azure Table Storage는 지속적이고 효율적인 검색을 위해 데이터를 저장하는 데 사용할 수 있습니다.
 

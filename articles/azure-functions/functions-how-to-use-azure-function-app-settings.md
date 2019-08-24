@@ -1,24 +1,22 @@
 ---
 title: Azure 함수 앱 설정 구성 | Microsoft Docs
 description: Azure 함수 앱 설정을 구성하는 방법에 알아봅니다.
-services: ''
-documentationcenter: .net
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 92ca09040836dfc55a9d709b12a0ee01192d6bac
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 27e56c3bcaa08fee25c362cdfed64c61b92873cb
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65957400"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982650"
 ---
-# <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Azure Portal에서 함수 앱을 관리하는 방법 
+# <a name="how-to-manage-a-function-app"></a>함수 앱을 관리 하는 방법
 
 Azure Functions에서 함수 앱은 개별 함수에 대한 실행 컨텍스트를 제공합니다. 함수 앱 동작은 지정된 함수 앱에서 호스트하는 모든 함수에 적용됩니다. 이 항목에서는 Azure Portal에서 함수 앱을 구성 및 관리하는 방법을 설명합니다.
 
@@ -26,21 +24,21 @@ Azure Functions에서 함수 앱은 개별 함수에 대한 실행 컨텍스트�
 
 ![Azure Portal의 함수 앱 개요](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
 
-특히 개요 페이지에서 함수 앱을 관리 하는 데 필요한 모든 이동할 수 있습니다 합니다 **[응용 프로그램 설정](#settings)** 하 고 **[플랫폼기능](#platform-features)** .
+개요 페이지, 특히 **[응용 프로그램 설정](#settings)** 및 **[플랫폼 기능](#platform-features)** 에서 함수 앱을 관리 하는 데 필요한 모든 항목으로 이동할 수 있습니다.
 
 ## <a name="settings"></a>애플리케이션 설정
 
-합니다 **응용 프로그램 설정** 탭에는 함수 앱에서 사용 되는 설정을 유지 합니다.
+**응용 프로그램 설정** 탭은 함수 앱에서 사용 하는 설정을 유지 합니다.
 
-![Azure portal에서 함수 앱 설정입니다.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
+![Azure Portal의 함수 앱 설정입니다.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
 
-이러한 설정은 암호화 저장 됩니다 하 고 선택 해야 합니다 **값을 표시** 포털에서 값을 확인할 수 있습니다.
+이러한 설정은 암호화 되어 저장 되므로 **값 표시** 를 선택 하 여 포털에서 값을 확인 해야 합니다.
 
-설정을 추가 하려면 **새 응용 프로그램 설정을** 새 키-값 쌍을 추가 합니다.
+설정을 추가 하려면 **새 응용 프로그램 설정** 을 선택 하 고 새 키-값 쌍을 추가 합니다.
 
 [!INCLUDE [functions-environment-variables](../../includes/functions-environment-variables.md)]
 
-로컬 함수 앱을 개발할 때 이러한 값 local.settings.json 프로젝트 파일에 유지 됩니다.
+함수 앱을 로컬로 개발 하는 경우 이러한 값은 로컬 설정 json 프로젝트 파일에서 유지 관리 됩니다.
 
 ## <a name="platform-features"></a>플랫폼 기능
 

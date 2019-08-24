@@ -1,6 +1,6 @@
 ---
 title: 최신 세대 Azure SQL Data Warehouse로 업그레이드 | Microsoft Docs
-description: Azure SQL Data Warehouse를 Azure 하드웨어와 저장소 아키텍처 최신 세대로 업그레이드합니다.
+description: Azure SQL Data Warehouse를 최신 세대 Azure 하드웨어와 스토리지 아키텍처로 업그레이드합니다.
 services: sql-data-warehouse
 author: mlee3gsd
 manager: craigg
@@ -19,7 +19,7 @@ ms.locfileid: "69575293"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>SQL Data Warehouse를 업그레이드하여 성능 최적화
 
-Azure SQL Data Warehouse를 Azure 하드웨어와 저장소 아키텍처 최신 세대로 업그레이드합니다.
+Azure SQL Data Warehouse를 최신 세대 Azure 하드웨어와 스토리지 아키텍처로 업그레이드합니다.
 
 ## <a name="why-upgrade"></a>업그레이드가 필요한 이유
 

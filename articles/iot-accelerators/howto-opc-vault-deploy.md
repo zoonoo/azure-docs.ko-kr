@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: b626f906738e3a6e65053408cfdc2002d459a6e2
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
-ms.translationtype: MT
+ms.openlocfilehash: 347e7c2aa2ff4fb4f188847b81d03006c1909166
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69973858"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997641"
 ---
-# <a name="build-and-deploy-the-opc-ua-certificate-management-service"></a>OPC UA 인증서 관리 서비스 빌드 및 배포
+# <a name="build-and-deploy-the-opc-vault-certificate-management-service"></a>OPC 자격 증명 모음 인증서 관리 서비스 빌드 및 배포
 
-이 문서에서는 Azure에서 OPC UA 인증서 관리 서비스를 배포 하는 방법을 설명 합니다.
+이 문서에서는 Azure에서 OPC 자격 증명 모음 인증서 관리 서비스를 배포 하는 방법을 설명 합니다.
 
 > [!NOTE]
 > 배포 세부 정보 및 지침에 대 한 자세한 내용은 GitHub [OPC 자격 증명 모음 리포지토리](https://github.com/Azure/azure-iiot-opc-vault-service)를 참조 하세요.
@@ -59,20 +59,20 @@ Powershell 스크립트는 OPC 자격 증명 모음 마이크로 서비스 및 �
 7. 이 배포를 사용 하 여 개발 하려는 경우를 `-development 1` 추가 하 여 Swagger UI를 사용 하도록 설정 하 고 디버그 빌드를 배포 합니다.
 6. 스크립트의 지침에 따라 구독에 로그인 하 고 추가 정보를 제공 합니다.
 9. 빌드 및 배포 작업에 성공 하면 다음과 같은 메시지가 표시 됩니다.
+   ```
+   To access the web client go to:
+   https://myResourceGroup.azurewebsites.net
 
-```
-To access the web client go to:
-https://myResourceGroup.azurewebsites.net
+   To access the web service go to:
+   https://myResourceGroup-service.azurewebsites.net
 
-To access the web service go to:
-https://myResourceGroup-service.azurewebsites.net
+   To start the local docker GDS server:
+   .\myResourceGroup-dockergds.cmd
 
-To start the local docker GDS server:
-.\myResourceGroup-dockergds.cmd
+   To start the local dotnet GDS server:
+   .\myResourceGroup-gds.cmd
+   ```
 
-To start the local dotnet GDS server:
-.\myResourceGroup-gds.cmd
-```
 문제가 발생 하는 경우 [다음](#troubleshooting-deployment-failures)단계를 수행 합니다.
 
 8. 즐겨 찾는 브라우저를 열고 응용 프로그램 페이지를 엽니다.`https://myResourceGroup.azurewebsites.net`
@@ -86,7 +86,7 @@ Sidenote는 정확히 동일한 설정을 사용 하 여 빌드를 다시 배포
 
 성공적으로 배포 되 면 서비스를 사용 하 여 시작 합니다. [OPC 자격 증명 모음 인증서 관리 서비스를 관리 하는 방법](howto-opc-vault-manage.md)
 
-## <a name="delete-the-certificate-management-services-from-the-subscription"></a>구독에서 인증서 관리 서비스 삭제
+## <a name="delete-the-certificate-management-service-from-the-subscription"></a>구독에서 인증서 관리 서비스 삭제
 
 1. Azure Portal에 로그인 `https://portal.azure.com`합니다.
 2. 서비스가 배포 된 리소스 그룹으로 이동 합니다.

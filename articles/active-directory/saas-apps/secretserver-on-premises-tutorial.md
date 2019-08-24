@@ -90,7 +90,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     > [!NOTE]
     > 위에 표시된 엔터티 ID는 예제일 뿐이며 Azure AD에서 Secret Server 인스턴스를 식별하는 모든 고유한 값을 선택할 수 있습니다. 이 엔터티 ID를 [Secret Server(온-프레미스) 클라이언트 지원 팀](https://thycotic.force.com/support/s/)에 보내면 지원 팀에서 구성합니다. 자세한 내용은 [이 문서](https://thycotic.force.com/support/s/article/Configuring-SAML-in-Secret-Server)를 읽어 보세요.
 
-1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
+1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
     **로그인 URL** 텍스트 상자에서 `https://<SecretServerURL>/login.aspx` 패턴을 사용하여 URL을 입력합니다.
 

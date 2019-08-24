@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 08/05/2019
-ms.openlocfilehash: 4722cda0506493671ff872d75e7376f3de74b1b8
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 2d7cc217ff8ae45491c0f9d6b54ea8afea19cd2e
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68886651"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981235"
 ---
 # <a name="azure-sql-database-and-data-warehouse-network-access-controls"></a>Azure SQL Database 및 데이터 웨어하우스 네트워크 액세스 제어
 
@@ -33,6 +33,7 @@ ms.locfileid: "68886651"
 
 - Virtual Network 방화벽 규칙:-이 기능을 사용 하 여 Azure 경계 내에서 특정 Virtual Network의 트래픽을 허용 합니다.
 
+> [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/Data-Exposed--SQL-Database-Connectivity-Explained/player?WT.mc_id=dataexposed-c9-niner]
 
 ## <a name="allow-azure-services"></a>Azure 서비스 허용 
 [Azure Portal에서](sql-database-single-database-get-started.md)새 Azure SQL Server를 만드는 동안이 설정은 선택 하지 않은 상태로 유지 됩니다.

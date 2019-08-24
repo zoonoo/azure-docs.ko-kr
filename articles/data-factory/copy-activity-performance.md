@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2019
 ms.author: jingwang
-ms.openlocfilehash: 7b5c0a045fe932db38666559ee415d7b27aa11e4
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 05ecfdc4f082aaa44fe54e6b807a1c5faf84eb8d
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69614202"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996453"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>복사 작업 성능 및 확장성 가이드
 > [!div class="op_single_selector" title1="사용 중인 Azure Data Factory의 버전을 선택 합니다."]
@@ -41,30 +41,30 @@ ms.locfileid: "69614202"
 
 ADF는 서로 다른 수준에서 병렬 처리를 허용 하는 서버 리스 아키텍처를 제공 합니다 .이 아키텍처를 통해 개발자는 네트워크 대역폭과 저장소 IOPS 및 대역폭을 완벽 하 게 활용 하 여 환경에 대 한 데이터 이동 처리량을 최대화할 수 있습니다.  즉, 원본 및 대상 사이에서 원본 데이터 저장소, 대상 데이터 저장소 및 네트워크 대역폭에서 제공 되는 최소 처리량을 측정 하 여 달성할 수 있는 처리량을 예상할 수 있습니다.  아래 표에서는 사용자 환경에 대 한 데이터 크기 및 대역폭 제한에 따라 복사 기간을 계산 합니다. 
 
-| 데이터 크기 \ 대역폭 | 50Mbps    | 100Mbps  | 200Mbps  | 500Mbps  | 1Gbps   | 10Gbps  |
-| --------------------- | ---------- | --------- | --------- | --------- | -------- | -------- |
-| 1GB                  | 2.7 분    | 1.4 분   | 0.7 분   | 0.3 분   | 0.1 분  | 0.0 분  |
-| 10GB                 | 27.3 분   | 13.7 분  | 6.8 분   | 2.7 분   | 1.3 분  | 0.1 분  |
-| 100GB                | 4.6 시간    | 2.3 시간   | 1.1 시간   | 0.5 시간   | 0.2 시간  | 0.0 시간  |
-| 1TB                  | 46.6 시간   | 23.3 시간  | 11.7 시간  | 4.7 시간   | 2.3 시간  | 0.2 시간  |
-| 10TB                 | 19.4 일  | 9.7 일  | 4.9 일  | 1.9 일  | 0.9 일 | 0.1 일 |
-| 100TB                | 194.2 일 | 97.1 일 | 48.5 일 | 19.4 일 | 9.5 일 | 0.9 일 |
-| 1PB                  | 64.7 mo    | 32.4 mo   | 16.2 mo   | 6.5 mo    | 3.2 mo   | 0.3 mo   |
-| 10GB                 | 647.3 mo   | 323.6 mo  | 161.8 mo  | 64.7 mo   | 31.6 mo  | 3.2 mo   |
+| 데이터 크기/ <br/> 대역폭 | 50Mbps    | 100Mbps  | 500Mbps  | 1Gbps   | 5Gbps   | 10Gbps  | 50Gbps   |
+| --------------------------- | ---------- | --------- | --------- | -------- | -------- | -------- | --------- |
+| **1GB**                    | 2.7 분    | 1.4 분   | 0.3 분   | 0.1 분  | 0.03 분 | 0.01 분 | 0.0 분   |
+| **10GB**                   | 27.3 분   | 13.7 분  | 2.7 분   | 1.3 분  | 0.3 분  | 0.1 분  | 0.03 분  |
+| **100 GB**                  | 4.6 시간    | 2.3 시간   | 0.5 시간   | 0.2 시간  | 0.05 시간 | 0.02 시간 | 0.0 시간   |
+| **1 TB**                    | 46.6 시간   | 23.3 시간  | 4.7 시간   | 2.3 시간  | 0.5 시간  | 0.2 시간  | 0.05 시간  |
+| **10TB**                   | 19.4 일  | 9.7 일  | 1.9 일  | 0.9 일 | 0.2 일 | 0.1 일 | 0.02 일 |
+| **100 TB**                  | 194.2 일 | 97.1 일 | 19.4 일 | 9.7 일 | 1.9 일 | 1 일   | 0.2 일  |
+| **1 PB**                    | 64.7 mo    | 32.4 mo   | 6.5 mo    | 3.2 mo   | 0.6 mo   | 0.3 mo   | 0.06 mo   |
+| **10GB**                   | 647.3 mo   | 323.6 mo  | 64.7 mo   | 31.6 mo  | 6.5 mo   | 3.2 mo   | 0.6 mo    |
 
 ADF 복사본은 다양 한 수준에서 확장 가능 합니다.
 
 ![ADF 복사본 크기 조정 방법](media/copy-activity-performance/adf-copy-scalability.png)
 
-- 단일 복사 작업은 확장 가능한 계산 리소스를 활용할 수 있습니다. Azure Integration Runtime를 사용 하는 경우 서버를 사용 하지 않는 방식으로 각 복사 작업에 대해 [최대 256 DIUs를](#data-integration-units) 지정할 수 있습니다. 자체 호스트 된 Integration Runtime를 사용 하는 경우 수동으로 컴퓨터를 확장 하거나 여러 컴퓨터로 확장할 수 있습니다 ([최대 4 개 노드](create-self-hosted-integration-runtime.md#high-availability-and-scalability)). 단일 복사 작업은 모든 노드에 걸쳐 해당 파일 집합을 분할 합니다.
-- 단일 복사 작업은 여러 스레드를 사용 하 여 데이터 저장소에서 읽고 씁니다.
 - ADF 제어 흐름은 [For each 루프](control-flow-for-each-activity.md)를 사용 하는 등의 여러 복사 작업을 병렬로 시작할 수 있습니다.
+- 단일 복사 작업은 확장 가능한 계산 리소스를 활용할 수 있습니다. Azure Integration Runtime를 사용 하는 경우 서버를 사용 하지 않는 방식으로 각 복사 작업에 대해 [최대 256 DIUs를](#data-integration-units) 지정할 수 있습니다. 자체 호스트 된 Integration Runtime를 사용 하는 경우 수동으로 컴퓨터를 확장 하거나 여러 컴퓨터로 확장할 수 있습니다 ([최대 4 개 노드](create-self-hosted-integration-runtime.md#high-availability-and-scalability)). 단일 복사 작업은 모든 노드에 걸쳐 해당 파일 집합을 분할 합니다.
+- 단일 복사 작업은 여러 스레드를 [병렬로](#parallel-copy)사용 하 여 데이터 저장소에서 읽고 씁니다.
 
 ## <a name="performance-tuning-steps"></a>성능 튜닝 단계
 
 이러한 단계를 수행 하 여 복사 작업으로 Azure Data Factory 서비스의 성능을 조정 합니다.
 
-1. **기준선을 설정 합니다.** 개발 단계에서 대표 데이터 샘플에 대 한 복사 작업을 사용 하 여 파이프라인을 테스트 합니다. [복사 작업 모니터링](copy-activity-overview.md#monitoring)을 수행 하 여 실행 세부 정보 및 성능 특징을 수집 합니다.
+1. **테스트 데이터 집합을 선택 하 고 기준선을 설정 합니다.** 개발 단계에서 대표 데이터 샘플에 대 한 복사 작업을 사용 하 여 파이프라인을 테스트 합니다. 선택한 데이터 집합은 일반적인 데이터 패턴 (폴더 구조, 파일 패턴, 데이터 스키마 등)을 나타내고 복사 성능을 평가할 만큼 충분히 큽니다. 예를 들어 복사 작업을 완료 하는 데 10 분 이상 소요 됩니다. [복사 작업 모니터링](copy-activity-overview.md#monitoring)을 수행 하 여 실행 세부 정보 및 성능 특징을 수집 합니다.
 
 2. **단일 복사 작업의 성능을 최대화 하는 방법**:
 
@@ -78,7 +78,7 @@ ADF 복사본은 다양 한 수준에서 확장 가능 합니다.
 
    DIU 설정에 따라 복사 작업은 거의 완전히 정확 하 게 조정 해야 합니다.  DIU 설정을 두 배로 늘리면 처리량 배가 표시 되지 않고 다음 두 가지 현상이 발생할 수 있습니다.
 
-   - 실행 하는 특정 복사 패턴은 더 많은 DIUs를 추가 하는 것을 유용 하 게 사용할 수 없습니다.  더 큰 DIU 값을 지정 했더라도 실제 DIU는 동일 하 게 유지 되므로 이전과 동일한 처리량을 얻을 수 있습니다.  이 경우 단계로 이동 #3
+   - 실행 하는 특정 복사 패턴은 더 많은 DIUs를 추가 하는 것을 유용 하 게 사용할 수 없습니다.  더 큰 DIU 값을 지정 했더라도 실제 DIU는 동일 하 게 유지 되므로 이전과 동일한 처리량을 얻을 수 있습니다.  이 경우 3 단계를 동시에 참조 하는 여러 복사본을 실행 하 여 집계 처리량을 최대화 합니다.
    - 더 많은 DIUs (더 많은 마 력)를 추가 하 여 데이터 추출, 전송 및 로드 속도가 더 높아질 수 있습니다. 원본 데이터 저장소, 간의 네트워크 또는 대상 데이터 저장소는 병목 상태에 도달 했을 수 있으며 제한 될 수 있습니다.  이 경우 데이터 저장소 관리자 또는 네트워크 관리자에 게 문의 하 여 상한 값을 높이 거 나 또는 조정을 중지할 때까지 DIU 설정을 줄이십시오.
 
    **복사 작업이 자체 호스트 된 Integration Runtime에서 실행 되는 경우:**
@@ -90,7 +90,7 @@ ADF 복사본은 다양 한 수준에서 확장 가능 합니다.
    높은 처리량을 얻으려면 자체 호스팅 IR을 강화 하거나 규모를 확장할 수 있습니다.
 
    - 자체 호스팅 IR 노드의 CPU 및 사용 가능한 메모리가 완전히 활용 되지 않지만 동시 작업의 실행이 한도에 도달 하는 경우에는 노드에서 실행할 수 있는 동시 작업 수를 늘려서 확장 해야 합니다.  지침은 [여기](create-self-hosted-integration-runtime.md#scale-up) 를 참조 하세요.
-   - 반면에 CPU가 자체 호스팅 IR 노드에 있고 사용 가능한 메모리가 부족 한 경우에는 새 노드를 추가 하 여 여러 노드에 걸쳐 부하를 확장할 수 있습니다.  지침은 [여기](create-self-hosted-integration-runtime.md#high-availability-and-scalability) 를 참조 하세요.
+   - 반면에 CPU가 자체 호스팅 IR 노드에 있는 경우 또는 사용 가능한 메모리가 부족 한 경우에는 새 노드를 추가 하 여 여러 노드 간에 부하를 확장할 수 있습니다.  지침은 [여기](create-self-hosted-integration-runtime.md#high-availability-and-scalability) 를 참조 하세요.
 
    자체 호스팅 IR의 용량을 확장 하거나 규모를 확장 하는 동안 성능 테스트 실행을 반복 하 여 처리량이 점차 증가 하는지 확인 합니다.  처리량이 향상 되 면 원본 데이터 저장소, between의 네트워크 또는 대상 데이터 저장소가 병목 상태에 도달 하 여 제한 되기 시작 합니다. 이 경우 데이터 저장소 관리자 또는 네트워크 관리자에 게 문의 하 여 상한을 높이 거 나 또는 자체 호스팅 IR에 대 한 이전 크기 조정 설정으로 돌아갑니다. 
 
@@ -98,9 +98,7 @@ ADF 복사본은 다양 한 수준에서 확장 가능 합니다.
 
    이제 단일 복사 작업의 성능을 최대화 했으므로 네트워크, 원본 데이터 저장소 및 대상 데이터 저장소 환경의 처리량 상한을 아직 획득 하지 않은 경우 ADF를 사용 하 여 여러 개의 복사 작업을 병렬로 실행할 수 있습니다. [For each 루프](control-flow-for-each-activity.md)와 같은 제어 흐름 생성자.
 
-4. **성능을 진단 하 고 최적화 합니다.** 관찰 하는 성능이 예상과 일치 하지 않으면 성능 병목 상태를 확인 합니다. 그런 다음 성능을 최적화하여 병목 현상의 효과를 제거하거나 줄입니다.
-
-   경우에 따라 복사 작업을 Azure Data Factory 실행 하면 다음 예제와 같이 [복사 작업 모니터링](copy-activity-overview.md#monitor-visually)위에 "성능 튜닝 팁" 메시지가 표시 됩니다. 메시지는 지정 된 복사 실행에 대해 확인 된 병목 상태를 알려 줍니다. 또한 복사 처리량을 향상 시키기 위해 변경 해야 하는 사항에 대해 안내 합니다. 성능 튜닝 팁은 현재 다음과 같은 제안 사항을 제공 합니다.
+4. **성능 튜닝 팁 및 최적화 기능.** 경우에 따라 복사 작업을 Azure Data Factory 실행 하면 다음 예제와 같이 [복사 작업 모니터링](copy-activity-overview.md#monitor-visually)위에 "성능 튜닝 팁" 메시지가 표시 됩니다. 메시지는 지정 된 복사 실행에 대해 확인 된 병목 상태를 알려 줍니다. 또한 복사 처리량을 향상 시키기 위해 변경 해야 하는 사항에 대해 안내 합니다. 성능 튜닝 팁은 현재 다음과 같은 제안 사항을 제공 합니다.
 
    - 데이터를 Azure SQL Data Warehouse에 복사할 때 PolyBase를 사용 합니다.
    - 데이터 저장소 쪽의 리소스가 병목 상태일 때 Azure Cosmos DB 요청 단위 또는 Azure SQL Database Dtu (데이터베이스 처리량 단위)를 늘립니다.
@@ -114,12 +112,11 @@ ADF 복사본은 다양 한 수준에서 확장 가능 합니다.
 
    ![성능 튜닝 팁을 사용한 복사 모니터링](media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
 
-   성능 튜닝과 함께 일반적으로 고려해야 하는 사항은 다음과 같습니다. 이 문서에서는 성능 진단에 대해 자세히 설명하지는 않습니다.
+   또한 다음과 같은 몇 가지 성능 최적화 기능을 알고 있어야 합니다.
 
-   - 성능 최적화 기능:
-     - [병렬 복사](#parallel-copy)
-     - [데이터 통합 단위](#data-integration-units)
-     - [준비된 복사](#staged-copy)
+   - [병렬 복사](#parallel-copy)
+   - [데이터 통합 단위](#data-integration-units)
+   - [준비된 복사](#staged-copy)
    - [자체 호스팅 통합 런타임 확장성](concepts-integration-runtime.md#self-hosted-integration-runtime)
 
 5. **전체 데이터 집합에 대 한 구성을 확장 합니다.** 실행 결과 및 성능에 만족 하는 경우 정의 및 파이프라인을 확장 하 여 전체 데이터 집합을 포함할 수 있습니다.
@@ -136,7 +133,9 @@ Azure Data Factory는 다음과 같은 성능 최적화 기능을 제공 합니�
 
 데이터 통합 단위는 Azure Data Factory의 단일 단위에 대 한 전원 (CPU, 메모리 및 네트워크 리소스 할당의 조합)을 나타내는 척도입니다. 데이터 통합 단위는 [Azure integration runtime](concepts-integration-runtime.md#azure-integration-runtime)에만 적용 되 고 [자체 호스팅 통합 런타임에](concepts-integration-runtime.md#self-hosted-integration-runtime)는 적용 되지 않습니다.
 
-복사 작업 실행을 강화 하는 데 허용 되는 DIUs는 2에서 256 사이입니다. 지정되지 않은 경우, 다양한 복사 시나리오에서 사용되는 기본 DIU가 나열된 다음 표를 참조하세요.
+**사용 \* 된 dius \* 복사 기간 단가/dius 시간에 대 한**요금이 청구 됩니다. [여기](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)에서 현재 가격을 참조 하세요. 로컬 통화 및 별도의 크기 구독 유형별로 적용 될 수 있습니다.
+
+복사 작업 실행을 강화 하는 데 허용 되는 DIUs는 **2에서 256 사이**입니다. 지정 하지 않거나 UI에서 "Auto"를 선택 하면 소스 싱크 쌍 및 데이터 패턴에 따라 최적의 DIU 설정을 동적으로 적용할 Data Factory. 다음 표에서는 다양 한 복사 시나리오에서 사용 되는 기본 DIUs를 나열 합니다.
 
 | 복사 시나리오 | 서비스에 따라 결정되는 기본 DIU |
 |:--- |:--- |
@@ -151,7 +150,7 @@ Azure Data Factory는 다음과 같은 성능 최적화 기능을 제공 합니�
 > [!NOTE]
 > Azure Storage, Azure Data Lake Storage, Amazon S3, Google Cloud Storage, cloud FTP 또는 cloud SFTP에서 다른 클라우드 데이터 저장소로 여러 파일을 복사 하는 경우에만 현재 4 개 보다 큰 DIUs 설정이 적용 됩니다.
 
-**예제**
+**예제:**
 
 ```json
 "activities":[
@@ -173,10 +172,6 @@ Azure Data Factory는 다음과 같은 성능 최적화 기능을 제공 합니�
 ]
 ```
 
-#### <a name="data-integration-units-billing-impact"></a>데이터 통합 단위 청구 영향
-
-복사 작업의 총 시간을 기준으로 요금이 청구 됩니다. 데이터 이동에 대해 청구 되는 총 기간은 DIUs의 기간 합계입니다. 두 클라우드 단위로 1시간이 걸렸던 복사 작업이 이제 8개의 클라우드에서 15분이 소요된다면 전체 청구 금액은 거의 동일한 상태로 유지됩니다.
-
 ### <a name="parallel-copy"></a>병렬 복사
 
 **ParallelCopies** 속성을 사용 하 여 복사 작업에서 사용 하려는 병렬 처리를 나타낼 수 있습니다. 이 속성은 소스에서 읽거나 싱크 데이터 저장소에 동시에 쓸 수 있는 복사 작업 내의 최대 스레드 수로 간주할 수 있습니다.
@@ -193,6 +188,15 @@ Azure Data Factory는 다음과 같은 성능 최적화 기능을 제공 합니�
 > 파일 기반 저장소 간에 데이터를 복사 하는 경우 기본 동작은 일반적으로 최상의 처리량을 제공 합니다. 기본 동작은 소스 파일 패턴에 따라 자동으로 결정 됩니다.
 
 데이터 저장소를 호스트 하는 컴퓨터에서 로드를 제어 하거나 복사 성능을 조정 하기 위해 기본값을 재정의 하 고 **parallelCopies** 속성에 대 한 값을 지정할 수 있습니다. 값은 1 이상의 정수여야 합니다. 런타임 시 최상의 성능을 위해 복사 작업은 사용자가 설정한 값 보다 작거나 같은 값을 사용 합니다.
+
+**주의할 사항:**
+
+- 파일 기반 저장소 간에 데이터를 복사 하는 경우 **parallelCopies** 는 파일 수준에서 병렬 처리를 결정 합니다. 단일 파일 내의 청크는 자동으로 투명 하 게 발생 합니다. 지정 된 원본 데이터 저장소 형식에 가장 적합 한 청크 크기를 사용 하 여 데이터를 병렬로 로드 하 고 **parallelCopies**에 직교 하도록 디자인 되었습니다. 런타임 시 데이터 이동 서비스에서 복사 작업에 사용하는 병렬 복사의 실제 수는 사용자가 보유한 파일의 수를 넘지 않습니다. 복사 동작이 **Mergefile**인 경우 복사 작업은 파일 수준 병렬 처리를 사용할 수 없습니다.
+- 파일 기반이 아닌 저장소 ( [Oracle](connector-oracle.md#oracle-as-source), [Teradata](connector-teradata.md#teradata-as-source), [Sap 테이블](connector-sap-table.md#sap-table-as-source)및 [sap Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source) 커넥터를 사용 하는 원본으로 데이터 분할을 사용 하는 원본으로)에서 데이터를 복사 하는 경우 데이터 이동 서비스 **parallelCopies** 속성을 무시 합니다. 병렬 처리를 지정하더라도 이 경우에는 적용되지 않습니다.
+- **ParallelCopies** 속성은 **dataIntegrationUnits**와 직교 합니다. 전자는 모든 데이터 통합 단위에서 계산됩니다.
+- **ParallelCopies** 속성의 값을 지정 하는 경우 원본 및 싱크 데이터 저장소에 대 한 부하 증가를 고려해 야 합니다. 또한 하이브리드 복사의 경우와 같이 복사 작업을 통해 권한을 부여 하는 경우 자체 호스팅 통합 런타임에 대 한 부하 증가를 고려해 야 합니다. 이러한 부하가 증가 하는 것은 특히 동일한 데이터 저장소에 대해 실행 되는 동일한 활동의 여러 활동 또는 동시 실행이 있는 경우에 발생 합니다. 데이터 저장소 또는 자체 호스팅 통합 런타임이 부하가 많은 경우에는 부하를 완화 하기 위해 **parallelCopies** 값을 줄입니다.
+
+**예제:**
 
 ```json
 "activities":[
@@ -213,13 +217,6 @@ Azure Data Factory는 다음과 같은 성능 최적화 기능을 제공 합니�
     }
 ]
 ```
-
-**주의할 사항:**
-
-* 파일 기반 저장소 간에 데이터를 복사 하는 경우 **parallelCopies** 는 파일 수준에서 병렬 처리를 결정 합니다. 단일 파일 내의 청크는 자동으로 투명 하 게 발생 합니다. 지정 된 원본 데이터 저장소 형식에 가장 적합 한 청크 크기를 사용 하 여 데이터를 병렬로 로드 하 고 **parallelCopies**에 직교 하도록 디자인 되었습니다. 런타임 시 데이터 이동 서비스에서 복사 작업에 사용하는 병렬 복사의 실제 수는 사용자가 보유한 파일의 수를 넘지 않습니다. 복사 동작이 **Mergefile**인 경우 복사 작업은 파일 수준 병렬 처리를 사용할 수 없습니다.
-* 파일 기반이 아닌 저장소 ( [Oracle](connector-oracle.md#oracle-as-source), [Teradata](connector-teradata.md#teradata-as-source), [Sap 테이블](connector-sap-table.md#sap-table-as-source)및 [sap Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source) 커넥터를 사용 하는 원본으로 데이터 분할을 사용 하는 원본으로)에서 데이터를 복사 하는 경우 데이터 이동 서비스 **parallelCopies** 속성을 무시 합니다. 병렬 처리를 지정하더라도 이 경우에는 적용되지 않습니다.
-* **ParallelCopies** 속성은 **dataIntegrationUnits**와 직교 합니다. 전자는 모든 데이터 통합 단위에서 계산됩니다.
-* **ParallelCopies** 속성의 값을 지정 하는 경우 원본 및 싱크 데이터 저장소에 대 한 부하 증가를 고려해 야 합니다. 또한 하이브리드 복사의 경우와 같이 복사 작업을 통해 권한을 부여 하는 경우 자체 호스팅 통합 런타임에 대 한 부하 증가를 고려해 야 합니다. 이러한 부하가 증가 하는 것은 특히 동일한 데이터 저장소에 대해 실행 되는 동일한 활동의 여러 활동 또는 동시 실행이 있는 경우에 발생 합니다. 데이터 저장소 또는 자체 호스팅 통합 런타임이 부하가 많은 경우에는 부하를 완화 하기 위해 **parallelCopies** 값을 줄입니다.
 
 ### <a name="staged-copy"></a>준비된 복사
 
@@ -305,5 +302,5 @@ Azure Data Factory는 다음과 같은 성능 최적화 기능을 제공 합니�
 다른 복사 작업 문서를 참조 하세요.
 
 - [복사 작업 개요](copy-activity-overview.md)
-- [복사 활동 스키마 매핑](copy-activity-schema-and-type-mapping.md)
-- [복사 작업 내결함성](copy-activity-fault-tolerance.md)
+- [Azure Data Factory를 사용 하 여 data lake 또는 데이터 웨어하우스의 데이터를 Azure로 마이그레이션](data-migration-guidance-overview.md)
+- [Amazon s 3에서 Azure Storage로 데이터 마이그레이션](data-migration-guidance-s3-azure-storage.md)

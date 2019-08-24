@@ -16,7 +16,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 08/14/2019
 ms.locfileid: "69016322"
 ---
-# <a name="create-a-storage-account"></a>저장소 계정 만들기
+# <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
 Azure Storage 계정에는 Blob, 파일, 큐, 테이블, 디스크 등 모든 Azure Storage 데이터 개체가 포함됩니다. 저장소 계정은 Azure Storage 데이터에 대한 고유한 네임 스페이스를 제공하며 전 세계 어디에서나 HTTP 또는 HTTPS를 통해 접근할 수 있게 합니다. Azure Storage 계정의 데이터는 내구성 및 고가용성을 제공하며 안전하고 대규모로 확장 가능합니다.
 
@@ -93,7 +93,7 @@ N/A
 
 ---
 
-## <a name="create-a-storage-account"></a>저장소 계정 만들기
+## <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
 이제 스토리지 계정을 만들 준비가 되었습니다.
 

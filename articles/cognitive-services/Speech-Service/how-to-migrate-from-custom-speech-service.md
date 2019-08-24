@@ -20,7 +20,7 @@ ms.locfileid: "68562759"
 ---
 # <a name="migrate-from-the-custom-speech-service-to-the-speech-service"></a>Custom Speech Service에서 음성 서비스로 마이그레이션
 
-이 문서를 사용하여 Custom Speech Service에서 음성 서비스로 마이그레이션합니다.
+이 문서를 사용하여 Custom Speech Service에서 Speech Service로 마이그레이션합니다.
 
 Custom Speech Service는 이제 음성 서비스의 일부입니다. 최신 기능 및 품질 업데이트의 이점을 활용하도록 음성 서비스로 전환합니다.
 

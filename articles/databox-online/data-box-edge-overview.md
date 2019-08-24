@@ -76,11 +76,11 @@ Data Box Edge 솔루션은 Data Box Edge 리소스, Data Box Edge 물리적 디�
 
 ## <a name="region-availability"></a>지역 가용성
 
-데이터를 전송하는 Data Box Edge 물리적 디바이스, Azure 리소스 및 대상 저장소 계정이 모두 같은 지역에 있지 않아도 됩니다.
+데이터를 전송하는 Data Box Edge 물리적 디바이스, Azure 리소스 및 대상 스토리지 계정이 모두 같은 지역에 있지 않아도 됩니다.
 
 - **리소스 가용성** - Data Box Edge 리소스를 사용할 수 있는 모든 지역 목록을 보려면 [지역별로 사용 가능한 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all)으로 이동합니다. Data Box Edge는 Azure Government 클라우드에도 배포할 수 있습니다. 자세한 내용은 [Azure Government란?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)을 참조하세요.
     
-- **대상 저장소 계정** - 데이터를 저장하는 저장소 계정은 모든 Azure 지역에서 사용할 수 있습니다. 성능을 최적화하려면 스토리지 계정이 Data Box Edge 데이터를 저장하는 지역이 디바이스를 사용하는 지역 근처여야 합니다. 저장소 계정의 지역과 디바이스의 지역 간 거리가 멀면 대기 시간이 길어지고 성능이 저하됩니다. 
+- **대상 스토리지 계정** - 데이터를 저장하는 스토리지 계정은 모든 Azure 지역에서 사용할 수 있습니다. 성능을 최적화하려면 스토리지 계정이 Data Box Edge 데이터를 저장하는 지역이 디바이스를 사용하는 지역 근처여야 합니다. 스토리지 계정의 지역과 디바이스의 지역 간 거리가 멀면 대기 시간이 길어지고 성능이 저하됩니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

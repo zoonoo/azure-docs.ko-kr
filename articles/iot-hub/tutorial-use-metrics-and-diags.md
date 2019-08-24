@@ -55,7 +55,7 @@ ms.locfileid: "66162406"
 
 2. IoT Hub를 만듭니다.
 
-3. Standard_LRS 복제본을 사용하여 표준 V1 저장소 계정을 만듭니다.
+3. Standard_LRS 복제본을 사용하여 표준 V1 스토리지 계정을 만듭니다.
 
 4. 허브에 메시지를 보내는 시뮬레이션된 디바이스에 사용할 디바이스 ID를 만듭니다. 테스트 단계에 대한 키를 저장합니다.
 
@@ -141,7 +141,7 @@ az iot hub device-identity show --device-id $iotDeviceName \
 
 4. 이제 **진단 켜기**를 클릭합니다. 진단 설정 창이 표시됩니다. 진단 로그 설정의 이름을 “진단 허브”로 지정합니다.
 
-5. **저장소 계정에 보관**을 선택합니다. 
+5. **스토리지 계정에 보관**을 선택합니다. 
 
    ![스토리지 계정에 보관하는 진단 설정을 보여주는 스크린샷.](./media/tutorial-use-metrics-and-diags/03-diagnostic-settings-storage.png)
 

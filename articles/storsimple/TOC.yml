@@ -69,7 +69,7 @@
               href: storsimple-virtual-array-service-summary.md
             - name: 디바이스 요약 보기
               href: storsimple-virtual-array-device-summary.md
-            - name: 저장소 계정 관리
+            - name: 스토리지 계정 관리
               href: storsimple-virtual-array-manage-storage-accounts.md
             - name: ACR 관리
               href: storsimple-virtual-array-manage-acrs.md
@@ -185,7 +185,7 @@
                   href: storsimple-8000-manage-backup-catalog.md
                 - name: 백업 정책 관리
                   href: storsimple-8000-manage-backup-policies-u2.md
-                - name: 저장소 계정 관리
+                - name: 스토리지 계정 관리
                   href: storsimple-8000-manage-storage-accounts.md
                 - name: 볼륨 컨테이너 관리
                   href: storsimple-8000-manage-volume-containers.md
@@ -323,7 +323,7 @@
                   href: storsimple-8000-migrate-from-5000-7000.md
                 - name: Azure 파일 동기화로
                   href: storsimple-5000-7000-afs-migration.md
-            - name: 다른 저장 디바이스에서
+            - name: 다른 스토리지 디바이스에서
               href: 'https://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf'
         - name: 주 지역에서
           items:

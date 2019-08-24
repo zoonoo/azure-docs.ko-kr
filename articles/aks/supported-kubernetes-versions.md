@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/20/2019
 ms.author: saudas
-ms.openlocfilehash: 0f2d3079de43767e61dfc1c8d77244da19f13a40
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
-ms.translationtype: HT
+ms.openlocfilehash: 0e26b9b5aee61f399a39c032cdbd2084884538c9
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/22/2019
-ms.locfileid: "69898873"
+ms.locfileid: "69982705"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 지원되는 Kubernetes 버전
 
@@ -30,7 +30,6 @@ Kubernetes는 표준 [의미 체계 버전](https://semver.org/) 관리 체계�
 Example:
   1.12.14
   1.12.15
-  1.13.7
 ```
 
 버전의 각 번호는 이전 버전과의 호환성을 나타냅니다.
@@ -39,7 +38,7 @@ Example:
 * 사소한 버전은 다른 부 릴리스와 이전 버전과 호환 되는 기능이 변경 될 때 변경 됩니다.
 * 이전 버전과 호환 되는 버그 수정이 수행 될 때 패치 버전이 변경 됩니다.
 
-일반적으로 사용자는 실행 중인 부 버전의 최신 패치 릴리스를 실행 하도록 노력 해야 합니다. 예를 들어 프로덕션 클러스터가 *1.13.6* 에 있고 *1.13.7* 가 *1.13* 시리즈에 사용할 수 있는 최신 패치 버전입니다. 클러스터가 완전히 패치 되 고 지원 되는지 확인 하는 즉시 *1.13.7* 로 업그레이드 해야 합니다.
+일반적으로 사용자는 실행 중인 부 버전의 최신 패치 릴리스를 실행 하도록 노력 해야 합니다. 예를 들어 프로덕션 클러스터가 *1.12.14* 에 있고 *1.12.15* 가 *1.12* 시리즈에 사용할 수 있는 최신 패치 버전입니다. 클러스터가 완전히 패치 되 고 지원 되는지 확인 하는 즉시 *1.12.15* 로 업그레이드 해야 합니다.
 
 ## <a name="kubernetes-version-support-policy"></a>Kubernetes 버전 지원 정책
 
@@ -160,7 +159,7 @@ KubernetesVersion    Upgrades
 
 **고객이 지원되지 않는 부 버전을 사용하여 Kubernetes 클러스터를 업그레이드하면 어떻게 되나요?**
 
-*N-4* 버전을 사용할 경우에는 지원 되지 않으며 업그레이드 하 라는 메시지가 표시 됩니다. 버전 n-4에서 n-3으로 업그레이드 하는 경우 이제 지원 정책에 포함 됩니다. 예:
+*N-4* 버전을 사용할 경우에는 지원 되지 않으며 업그레이드 하 라는 메시지가 표시 됩니다. 버전 n-4에서 n-3으로 업그레이드 하는 경우 이제 지원 정책에 포함 됩니다. 예를 들어:
 
 - 지원 되는 AKS 버전이 *1.13. x*, *1.12* + .*b*, *1.11. c* + *1.11 d*및 *1.10. e* + *1.10 f* 와 사용자가 *1.9* 또는 *1.9. h*를 사용할 때 지원 되지 않습니다.
 - *1.9* 또는 *1.9* 에서 *1.10. e* 로 업그레이드 하는 경우 또는 *1.10. f* 에 성공 하면 지원 정책 내에서로 돌아갑니다.

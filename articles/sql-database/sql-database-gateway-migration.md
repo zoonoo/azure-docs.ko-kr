@@ -1,5 +1,5 @@
 ---
-title: Gen2에서 Gen3로의 Azure SQL Database에 대 한 게이트웨이 마이그레이션 알림 | Microsoft Docs
+title: Azure SQL Database에 대 한 게이트웨이 트래픽 마이그레이션 알림 Microsoft Docs
 description: 문서에서는 사용자에 게 Azure SQL Database 게이트웨이 IP 주소 마이그레이션에 대 한 알림을 제공 합니다.
 services: sql-database
 ms.service: sql-database
@@ -10,23 +10,23 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 85691464684ff327c01a85bf357514f447564dd7
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1fc6c054b32c62fbebaa2af738e25ef0dec362ac
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568108"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981297"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>최신 게이트웨이로 트래픽 마이그레이션 Azure SQL Database
 
-Azure 인프라가 개선 됨에 따라 Microsoft는 최상의 고객 환경을 제공 하기 위해 정기적으로 하드웨어를 새로 고칩니다. 향후 몇 개월 동안 새로운 하드웨어 세대를 기반으로 하는 게이트웨이를 추가 하 고 일부 지역에서 이전 하드웨어를 기반으로 하는 게이트웨이를 서비스 해제할 계획입니다.  
+Azure 인프라가 개선 됨에 따라 Microsoft는 최상의 고객 환경을 제공 하기 위해 정기적으로 하드웨어를 새로 고칩니다. 향후 몇 개월 동안 새로운 하드웨어 세대를 기반으로 하는 게이트웨이를 추가 하 고, 트래픽을 마이그레이션하고, 궁극적으로는 일부 지역에서 이전 하드웨어를 기반으로 하는 게이트웨이를 서비스 해제할 계획입니다.  
 
 고객은 각 지역에서 사용 가능한 게이트웨이를 변경 하는 것 보다 먼저 전자 메일 및 Azure Portal에 대 한 알림이 표시 됩니다. 최신 정보는 [Azure SQL Database GATEWAY IP addresses](sql-database-connectivity-architecture.md#azure-sql-database-gateway-ip-addresses) 테이블에서 유지 관리 됩니다.
 
 ## <a name="impact-of-this-change"></a>이 변경의 영향
 
-게이트웨이 서비스 해제의 첫 번째 라운드는 다음 지역에서 2019 년 9 월 1 일에 대해 예약 됩니다.
-
+새 게이트웨이에 대 한 트래픽 마이그레이션의 첫 번째 라운드는 다음 지역에서 **2019 년 10 월 14 일** 에 대해 예약 됩니다.
+- 브라질 남부
 - 미국 서부
 - 유럽 서부
 - East US
@@ -40,12 +40,14 @@ Azure 인프라가 개선 됨에 따라 Microsoft는 최상의 고객 환경을 
 - 미국 동부 2
 - 아시아 동부
 
-서비스 해제 된 IP 주소는 트래픽 수락을 중지 하 고 새 연결 시도는 해당 지역의 게이트웨이 중 하나로 라우팅됩니다.
+트래픽 마이그레이션은 DNS가 SQL Database에 대해 확인 하는 공용 IP 주소를 변경 합니다.
+다음이 있는 경우 영향을 받게 됩니다.
+- 온-프레미스 방화벽의 특정 게이트웨이에 대 한 IP 주소 하드 코딩
+- Microsoft .SQL를 서비스 엔드포인트로 사용 하지만 게이트웨이 IP 주소와 통신할 수 없는 모든 서브넷
 
-이 변경 내용의 영향이 표시 되지 않는 경우:
-
-- 연결 정책으로 리디렉션을 사용 하는 고객은 영향을 주지 않습니다.
-- Azure 내부 및 서비스 태그를 사용 하 여 SQL Database에 대 한 연결은 영향을 받지 않습니다.
+다음이 있는 경우에는 영향을 받지 않습니다. 
+- 연결 정책으로 리디렉션
+- Azure 내부에서 SQL Database 하 고 서비스 태그를 사용 하 여 연결
 - SQL Server에 대해 지원 되는 버전의 JDBC 드라이버를 사용 하 여 만든 연결은 영향을 받지 않습니다. 지원 되는 JDBC 버전은 [SQL Server 용 MICROSOFT JDBC Driver 다운로드](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server)를 참조 하세요.
 
 ## <a name="what-to-do-you-do-if-youre-affected"></a>영향을 받는 경우 수행할 작업

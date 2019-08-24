@@ -51,7 +51,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ### <a name="deploy-the-app-to-the-service-fabric-cluster"></a>Service Fabric 클러스터에 앱 배포
 
-응용 프로그램이 다운로드되면 Visual Studio에서 클러스터에 직접 배포할 수 있습니다.
+애플리케이션이 다운로드되면 Visual Studio에서 클러스터에 직접 배포할 수 있습니다.
 
 1. Visual Studio 열기
 
@@ -69,7 +69,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ## <a name="next-steps"></a>다음 단계
 
-시리즈의 3부에서 클러스터에 응용 프로그램을 배포하는 방법을 알아보았습니다.
+시리즈의 3부에서 클러스터에 애플리케이션을 배포하는 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * 샘플 앱 다운로드

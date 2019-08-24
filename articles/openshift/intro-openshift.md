@@ -34,7 +34,7 @@ Azure Red Hat OpenShift는 Red Hat과 Microsoft가 공동으로 설계, 운영 �
 
 ## <a name="cluster-and-node"></a>클러스터 및 노드
 
-Azure Red Hat OpenShift 노드는 Azure 가상 머신에서 실행됩니다. 저장소를 노드 및 Pod에 연결하고, 클러스터 구성 요소를 업그레이드하고, GPU를 사용할 수 있습니다.
+Azure Red Hat OpenShift 노드는 Azure 가상 머신에서 실행됩니다. 스토리지를 노드 및 Pod에 연결하고, 클러스터 구성 요소를 업그레이드하고, GPU를 사용할 수 있습니다.
 
 ## <a name="virtual-networks-and-ingress"></a>가상 네트워크 및 수신
 

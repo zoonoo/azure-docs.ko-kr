@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: a5bfc664c412c93bbf3e522b01528e8247be3291
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: 1f1db1c347709ed7c8587ed8b5523a231e373999
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016065"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991878"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 사용에 대한 모범 사례
 
@@ -31,11 +31,11 @@ Data Lake Storage Gen2에서 빅 데이터로 작업 하는 경우 서비스 주
 
 ### <a name="security-for-groups"></a>그룹에 대한 보안
 
-관리자 또는 사용자가 계층 구조 네임스페이스를 사용하도록 설정된 스토리지 계정의 데이터에 액세스해야 하는 경우 Azure Active Directory 보안 그룹을 사용하는 것이 가장 좋습니다. 시작 하는 데 권장 되는 일부 그룹은 파일 시스템의 루트에 대 한 **ReadOnlyUsers**, **Writeaccessusers**및 **fullaccessusers** 일 수 있으며, 키 하위 디렉터리의 경우에도 마찬가지입니다. 나중에 추가될 수 있지만 아직은 확인되지 않은 것으로 예상되는 다른 사용자 그룹이 있는 경우, 특정 폴더에 대한 액세스 권한이 있는 더미 보안 그룹을 만드는 것을 고려할 수 있습니다. 보안 그룹을 사용하면 수천 개의 파일에 새 권한을 할당할 때 처리 시간이 오래 걸리지 않도록 방지할 수 있습니다.
+관리자 또는 사용자가 계층 구조 네임스페이스를 사용하도록 설정된 스토리지 계정의 데이터에 액세스해야 하는 경우 Azure Active Directory 보안 그룹을 사용하는 것이 가장 좋습니다. 시작 하는 데 권장 되는 일부 그룹은 컨테이너의 루트에 대 한 **ReadOnlyUsers**, **Writeaccessusers**및 **fullaccessusers** 일 수 있으며, 키 하위 디렉터리의 경우에도 마찬가지입니다. 나중에 추가될 수 있지만 아직은 확인되지 않은 것으로 예상되는 다른 사용자 그룹이 있는 경우, 특정 폴더에 대한 액세스 권한이 있는 더미 보안 그룹을 만드는 것을 고려할 수 있습니다. 보안 그룹을 사용하면 수천 개의 파일에 새 권한을 할당할 때 처리 시간이 오래 걸리지 않도록 방지할 수 있습니다.
 
 ### <a name="security-for-service-principals"></a>서비스 사용자에 대한 보안
 
-Azure Active Directory 서비스 사용자는 일반적으로 Azure Databricks와 같은 서비스에서 Data Lake Storage Gen2의 데이터에 액세스하는 데 사용됩니다. 대부분의 고객에 게는 단일 Azure Active Directory 서비스 사용자가 적합할 수 있으며 Data Lake Storage Gen2 파일 시스템의 루트에서 전체 사용 권한을 가질 수 있습니다. 한 클러스터에는 데이터에 대한 모든 액세스 권한이 있고 다른 클러스터에는 읽기 전용 액세스 권한이 있는 다른 고객에게는 서로 다른 서비스 사용자가 있는 여러 클러스터가 필요할 수 있습니다. 
+Azure Active Directory 서비스 사용자는 일반적으로 Azure Databricks와 같은 서비스에서 Data Lake Storage Gen2의 데이터에 액세스하는 데 사용됩니다. 대부분의 고객에 게는 단일 Azure Active Directory 서비스 사용자가 적합할 수 있으며 Data Lake Storage Gen2 컨테이너의 루트에 대 한 모든 권한을 가질 수 있습니다. 한 클러스터에는 데이터에 대한 모든 액세스 권한이 있고 다른 클러스터에는 읽기 전용 액세스 권한이 있는 다른 고객에게는 서로 다른 서비스 사용자가 있는 여러 클러스터가 필요할 수 있습니다. 
 
 ### <a name="enable-the-data-lake-storage-gen2-firewall-with-azure-service-access"></a>Azure 서비스 액세스 권한으로 Data Lake Storage Gen2 방화벽 사용
 

@@ -1,24 +1,86 @@
 ---
 title: 리소스 그룹 및 리소스 삭제 - Azure Resource Manager
-description: 리소스 그룹을 삭제할 때 Azure Resource Manager가 리소스 삭제를 명령하는 방법을 설명합니다. 응답 코드 및 Resource Manager가 응답 코드를 처리하여 삭제 성공 여부를 확인하는 방법을 설명합니다.
+description: 리소스 그룹 및 리소스를 삭제 하는 방법을 설명 합니다. 리소스 그룹을 삭제할 때 Azure Resource Manager 리소스 삭제를 정렬 하는 방법을 설명 합니다. 응답 코드 및 Resource Manager가 응답 코드를 처리하여 삭제 성공 여부를 확인하는 방법을 설명합니다.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 12/09/2018
+ms.date: 08/22/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 18990b51b5ff2184197db48fd139d63750626663
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 75cdeb88a68dece59d6b037592f7212fa895e821
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204214"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991673"
 ---
-# <a name="azure-resource-manager-resource-group-deletion"></a>Azure Resource Manager 리소스 그룹 삭제
+# <a name="azure-resource-manager-resource-group-and-resource-deletion"></a>리소스 그룹 및 리소스 삭제 Azure Resource Manager
 
-이 문서에서는 리소스 그룹을 삭제할 때 Azure Resource Manager가 리소스 삭제를 명령하는 방법을 설명합니다.
+이 문서에서는 리소스 그룹 및 리소스를 삭제 하는 방법을 보여 줍니다. 리소스 그룹을 삭제할 때 Azure Resource Manager 리소스 삭제를 정렬 하는 방법을 설명 합니다.
 
-## <a name="determine-order-of-deletion"></a>삭제 순서 결정
+## <a name="delete-resource-group"></a>리소스 그룹 삭제
+
+다음 방법 중 하나를 사용 하 여 리소스 그룹을 삭제 합니다.
+
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name <resource-group-name>
+```
+
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+az group delete --name <resource-group-name>
+```
+
+# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
+
+1. [포털](https://portal.azure.com)에서 삭제 하려는 리소스 그룹을 선택 합니다.
+
+1. **리소스 그룹 삭제**를 선택합니다.
+
+   ![리소스 그룹 삭제](./media/resource-group-delete/delete-group.png)
+
+1. 삭제를 확인 하려면 리소스 그룹의 이름을 입력 합니다.
+
+---
+
+## <a name="delete-resource"></a>리소스 삭제
+
+다음 방법 중 하나를 사용 하 여 리소스를 삭제 합니다.
+
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+Remove-AzResource `
+  -ResourceGroupName ExampleResourceGroup `
+  -ResourceName ExampleVM `
+  -ResourceType Microsoft.Compute/virtualMachines
+```
+
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+az resource delete \
+  --resource-group ExampleResourceGroup \
+  --name ExampleVM \
+  --resource-type "Microsoft.Compute/virtualMachines"
+```
+
+# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
+
+1. [포털](https://portal.azure.com)에서 삭제 하려는 리소스를 선택 합니다.
+
+1. **삭제**를 선택합니다. 다음 스크린샷에서는 가상 컴퓨터에 대 한 관리 옵션을 보여 줍니다.
+
+   ![리소스 삭제](./media/resource-group-delete/delete-resource.png)
+
+1. 메시지가 표시되면 삭제를 확인합니다.
+
+---
+
+## <a name="how-order-of-deletion-is-determined"></a>삭제 순서를 결정 하는 방법
 
 리소스 그룹을 삭제하면 Resource Manager가 리소스 삭제 순서를 결정합니다. 다음 순서가 사용됩니다.
 
@@ -27,8 +89,6 @@ ms.locfileid: "67204214"
 2. 그 다음에는 다른 리소스를 관리하는 리소스가 삭제됩니다. 리소스의 `managedBy` 속성을 설정하여 다른 리소스에 의해 관리됨을 나타낼 수 있습니다. 이 속성을 설정하면 다른 리소스를 관리하는 리소스가 삭제된 후 다른 리소스가 삭제됩니다.
 
 3. 나머지 리소스는 이전 두 범주 이후에 삭제됩니다.
-
-## <a name="resource-deletion"></a>리소스 삭제
 
 순서가 결정되면 Resource Manager는 각 리소스에 대한 DELETE 작업을 실행합니다. Manager는 종속 요소가 완료될 때까지 기다렸다가 작업을 계속 진행합니다.
 

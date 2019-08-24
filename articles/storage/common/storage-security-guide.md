@@ -164,7 +164,7 @@ Azure Storage에서 데이터 개체에 대한 액세스를 인증하는 데 다
 
 권한 부여를 통해 액세스를 제한할 뿐 아니라 [방화벽 및 가상 네트워크](storage-network-security.md)를 사용하여 네트워크 규칙에 따라 스토리지 계정에 대한 액세스를 제한할 수도 있습니다.  이 방법을 통해 공용 인터넷 트래픽에 대한 액세스를 거부하고 특정 Azure Virtual Network 또는 공용 인터넷 IP 주소 범위에 대한 액세스 권한만 부여할 수 있습니다.
 
-### <a name="storage-account-keys"></a>Storage 계정 키
+### <a name="storage-account-keys"></a>스토리지 계정 키
 Storage 계정 키는 Azure에서 생성되는 512비트 문자열로, Storage 계정에 저장된 데이터 개체에 액세스하기 위해 Storage 계정 이름과 함께 사용될 수 있습니다.
 
 예를 들어, Blob을 읽고, 큐에 쓰고, 테이블을 만들고, 파일을 수정할 수 있습니다. Azure 포털을 통해 또는 많은 Storage Explorer 애플리케이션 중 하나를 사용하여 이러한 많은 작업을 수행할 수 있습니다. REST API 또는 Storage 클라이언트 라이브러리 중 하나를 사용하여 이러한 작업을 수행하기 위한 코드를 작성할 수도 있습니다.

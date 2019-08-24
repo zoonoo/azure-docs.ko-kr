@@ -372,7 +372,7 @@ ms.locfileid: "68945542"
 > | 액션(Action) | Microsoft.ApiManagement/service/read | API Management 서비스 인스턴스에 대한 메타데이터 읽기 |
 > | 작업 | Microsoft.ApiManagement/service/regions/read | 서비스가 존재 하는 모든 azure 지역을 나열 합니다. |
 > | 작업 | Microsoft.ApiManagement/service/reports/read | 기간별로 집계된 보고서를 가져오거나 지역별로 집계된 보고서를 가져오거나 개발자별로 집계된 보고서를 가져옵니다.<br>또는 제품별로 집계된 보고서를 가져옵니다.<br>또는 API별로 집계된 보고서를 가져오거나 작업별로 집계된 보고서를 가져오거나 구독별로 집계된 보고서를 가져옵니다.<br>또는 데이터 보고 요청을 가져옵니다. |
-> | 액션(Action) | Microsoft.ApiManagement/service/restore/action | 사용자가 제공한 스토리지 계정의 지정된 컨테이너에서 API Management 서비스 복원 |
+> | 액션(Action) | Microsoft.ApiManagement/service/restore/action | 사용자가 제공한 스토리지 계정의 지정된 컨테이너에서 API Management 서비스를 복원합니다. |
 > | 액션(Action) | Microsoft.ApiManagement/service/subscriptions/delete | 지정 된 구독을 삭제 합니다. |
 > | Action | Microsoft.ApiManagement/service/subscriptions/read | API Management 서비스 인스턴스에 대 한 모든 구독을 나열 합니다. 또는 지정 된 구독 엔터티를 가져옵니다. |
 > | 작업 | Microsoft.ApiManagement/service/subscriptions/regeneratePrimaryKey/action | API Management 서비스 인스턴스에 대 한 기존 구독의 기본 키를 다시 생성 합니다. |

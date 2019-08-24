@@ -10,18 +10,18 @@ ms.subservice: manage
 ms.date: 03/22/2019
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 73e7312eacd11fbec052d2b0b7781528c3b3d50f
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 176762e0d1c007f924d779a1b77dd52c7ed56e01
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575377"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981498"
 ---
 # <a name="monitor-workload---azure-portal"></a>워크 로드 모니터링-Azure Portal
 
 이 문서에서는 워크로드를 모니터링하기 위해 Azure portal을 사용하는 방법을 설명합니다. 여기에는 [Azure SQL Data Warehouse](https://azure.microsoft.com/blog/workload-insights-with-sql-data-warehouse-delivered-through-azure-monitor-diagnostic-logs-pass/)용 log analytics를 사용하여 쿼리 실행 및 작업 추세를 조사하기 위한 Azure Monitor 로그 설정이 포함됩니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 - Azure SQL Data Warehouse: SQL Data Warehouse에 대 한 로그를 수집 합니다. 프로 비전 된 SQL Data Warehouse 없는 경우 [SQL Data Warehouse 만들기](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-tutorial)의 지침을 참조 하세요.
@@ -36,7 +36,7 @@ Log Analytics 작업 영역에 대한 찾아보기 블레이드로 이동하고 
 
 ![분석 작업 영역 추가](media/sql-data-warehouse-monitor/add_analytics_workspace_2.png)
 
-작업 영역에 대한 자세한 내용은 다음 [설명서](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#create-a-workspace)를 참조하세요.
+작업 영역에 대한 자세한 내용은 다음 [설명서](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace#create-a-workspace)를 참조하세요.
 
 ## <a name="turn-on-diagnostic-logs"></a>진단 로그 켜기 
 

@@ -67,12 +67,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     |자산  |설명  |
     |---------|---------|
     |기본 스토리지 유형    | 이 문서에서는 Azure 스토리지를 선택하여 기본 스토리지 계정으로 Azure Storage Blob을 사용합니다. 또한 Azure Data Lake Storage를 기본 스토리지로 사용할 수 있습니다. |
-    |선택 방법     |  이 문서에서는 **내 구독**을 선택하여 Azure 구독에서 저장소 계정을 사용합니다. 다른 구독에서 저장소 계정을 사용하려면 **액세스 키**를 선택한 다음, 해당 계정에 대한 액세스 키를 입력합니다. |
+    |선택 방법     |  이 문서에서는 **내 구독**을 선택하여 Azure 구독에서 스토리지 계정을 사용합니다. 다른 구독에서 스토리지 계정을 사용하려면 **액세스 키**를 선택한 다음, 해당 계정에 대한 액세스 키를 입력합니다. |
     |스토리지 계정 선택   | **스토리지 계정 선택**을 선택하여 기존 스토리지 계정을 선택하거나, **새로 만들기**를 선택합니다. 새 계정을 만드는 경우 이름의 길이가 3~24자여야 하고, 숫자 및 소문자만 포함할 수 있습니다.|
 
     다른 모든 기본값을 그대로 사용하고 **다음**을 선택하여 요약 페이지로 이동합니다.
 
-    ![HDInsight Linux에서 클러스터 저장소 값 제공 시작](./media/apache-hadoop-linux-create-cluster-get-started-portal/quick-create-storage.png "HDInsight 클러스터를 만들기 위한 저장소 값 제공")
+    ![HDInsight Linux에서 클러스터 스토리지 값 제공 시작](./media/apache-hadoop-linux-create-cluster-get-started-portal/quick-create-storage.png "HDInsight 클러스터를 만들기 위한 스토리지 값 제공")
 
 1. **요약** 탭에서 이전 단계에서 선택한 값을 확인합니다.
 
@@ -84,7 +84,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     ![HDInsight Linux 시작 - 클러스터 설정](./media/apache-hadoop-linux-create-cluster-get-started-portal/cluster-overview.png "HDInsight 클러스터 속성")    
 
-    각 클러스터에는 [Azure Storage 계정](../hdinsight-hadoop-use-blob-storage.md) 또는 [Azure Data Lake 계정](../hdinsight-hadoop-use-data-lake-store.md) 종속성이 있습니다. 이 저장소 계정을 기본 저장소 계정이라고 합니다. HDInsight 클러스터와 해당 기본 스토리지 계정은 같은 Azure 지역에 있어야 합니다. 클러스터를 삭제해도 저장소 계정은 삭제되지 않습니다.
+    각 클러스터에는 [Azure Storage 계정](../hdinsight-hadoop-use-blob-storage.md) 또는 [Azure Data Lake 계정](../hdinsight-hadoop-use-data-lake-store.md) 종속성이 있습니다. 이 스토리지 계정을 기본 스토리지 계정이라고 합니다. HDInsight 클러스터와 해당 기본 스토리지 계정은 같은 Azure 지역에 있어야 합니다. 클러스터를 삭제해도 스토리지 계정은 삭제되지 않습니다.
 
     > [!NOTE]  
     > 기타 클러스터 생성 방법 및 이 빠른 시작에 사용된 속성에 대한 이해는 [HDInsight 클러스터 만들기](../hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
@@ -123,7 +123,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     SELECT * FROM hivesampletable;
     ```
 
-7. 또한 쿼리 결과를 저장할 수 있습니다. 오른쪽의 메뉴 단추를 선택하고, 결과를 CSV 파일로 다운로드할 것인지 아니면 클러스터와 연결된 저장소 계정에 저장할 것인지 지정합니다.
+7. 또한 쿼리 결과를 저장할 수 있습니다. 오른쪽의 메뉴 단추를 선택하고, 결과를 CSV 파일로 다운로드할 것인지 아니면 클러스터와 연결된 스토리지 계정에 저장할 것인지 지정합니다.
 
     ![Hive 쿼리 결과 저장](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-hive-view-save-results.png "Hive 쿼리 결과 저장")
 
@@ -131,20 +131,20 @@ Hive 작업을 완료한 후에 [결과를 Azure SQL 데이터베이스 또는 S
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-빠른 시작을 완료한 후 클러스터를 삭제하는 것이 좋습니다. HDInsight를 사용하면 데이터가 Azure Storage에 저장되기 때문에 클러스터를 사용하지 않을 때 안전하게 삭제할 수 있습니다. HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩니다. 클러스터에 대한 요금이 저장소에 대한 요금보다 몇 배 더 많기 때문에, 클러스터를 사용하지 않을 때는 삭제하는 것이 경제적인 면에서 더 합리적입니다.
+빠른 시작을 완료한 후 클러스터를 삭제하는 것이 좋습니다. HDInsight를 사용하면 데이터가 Azure Storage에 저장되기 때문에 클러스터를 사용하지 않을 때 안전하게 삭제할 수 있습니다. HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩니다. 클러스터에 대한 요금이 스토리지에 대한 요금보다 몇 배 더 많기 때문에, 클러스터를 사용하지 않을 때는 삭제하는 것이 경제적인 면에서 더 합리적입니다.
 
 > [!NOTE]  
 > HDInsight에서 Hadoop을 사용하여 ETL 작업을 실행하는 방법을 알아보기 위해 다음 문서를 ‘즉시’ 진행하는 경우 클러스터가 실행되도록 유지할 수 있습니다.  자습서에서 Hadoop 클러스터를 다시 만들어야 하기 때문입니다. 그러나 다음 문서로 바로 진행하지 않는 경우 이제 클러스터를 삭제해야 합니다.
 
 ### <a name="to-delete-the-cluster-andor-the-default-storage-account"></a>클러스터 및/또는 기본 스토리지 계정을 삭제하려면
 
-1. Azure Portal이 있는 브라우저 탭으로 돌아갑니다. 그러면 클러스터 개요 페이지가 표시됩니다. 클러스터는 삭제하지만 기본 저장소 계정은 유지하려는 경우 **삭제**를 선택합니다.
+1. Azure Portal이 있는 브라우저 탭으로 돌아갑니다. 그러면 클러스터 개요 페이지가 표시됩니다. 클러스터는 삭제하지만 기본 스토리지 계정은 유지하려는 경우 **삭제**를 선택합니다.
 
     ![HDInsight 클러스터 삭제](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-delete-cluster.png "HDInsight 클러스터 삭제")
 
-2. 클러스터와 기본 저장소 계정을 삭제하려는 경우 리소스 그룹 이름(이전 스크린샷에서 강조 표시됨)을 선택하여 리소스 그룹 페이지를 엽니다.
+2. 클러스터와 기본 스토리지 계정을 삭제하려는 경우 리소스 그룹 이름(이전 스크린샷에서 강조 표시됨)을 선택하여 리소스 그룹 페이지를 엽니다.
 
-3. **리소스 그룹 삭제**를 선택하여 클러스터와 기본 저장소 계정을 포함하는 리소스 그룹을 삭제합니다. 리소스 그룹을 삭제하면 저장소 계정이 삭제됩니다. 저장소 계정을 유지하려면 클러스터만 삭제하세요.
+3. **리소스 그룹 삭제**를 선택하여 클러스터와 기본 스토리지 계정을 포함하는 리소스 그룹을 삭제합니다. 리소스 그룹을 삭제하면 스토리지 계정이 삭제됩니다. 스토리지 계정을 유지하려면 클러스터만 삭제하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

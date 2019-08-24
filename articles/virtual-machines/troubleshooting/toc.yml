@@ -110,7 +110,7 @@
       items:
         - name: CMD 및 PowerShell 명령
           href: serial-console-cmd-ps-commands.md
-- name: 저장소 리소스 삭제 시 오류
+- name: 스토리지 리소스 삭제 시 오류
   href: storage-resource-deletion-errors.md
 - name: 클래식 스토리지 리소스 삭제 시 오류
   href: storage-classic-cannot-delete-storage-account-container-vhd.md
@@ -134,7 +134,7 @@
       href: troubleshoot-deploy-vm-linux.md
     - name: Windows
       href: troubleshoot-deploy-vm-windows.md
-- name: 장치 이름이 변경됨
+- name: 디바이스 이름이 변경됨
   href: troubleshoot-device-names-problems.md
 - name: VM 복구 액세스
   items:

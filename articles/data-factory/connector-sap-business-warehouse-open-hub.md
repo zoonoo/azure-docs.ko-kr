@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 08/23/2019
 ms.author: jingwang
-ms.openlocfilehash: e94c4f179174a3957aef8828687ebf1fbb299903
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 0c4a70f337166a304bd8664da2180fcda29ca8ac
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967433"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996647"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Open Hub를 통해 SAP Business Warehouse에서 데이터 복사
 
@@ -65,7 +65,7 @@ ADF SAP BW 열린 허브 커넥터는 두 가지 선택적 속성인 `excludeLas
 
 적절 한 델타 처리를 위해 동일한 열려 있는 허브 테이블에 있는 다른 DTPs의 요청 Id를 가질 수 없습니다. 따라서 각 OHD (개방형 허브 대상)에 대해 두 개 이상의 DTP를 만들지 않아야 합니다. 동일한 InfoProvider에서 전체 및 델타 추출을 필요로 하는 경우 동일한 InfoProvider에 대해 두 개의 OHDs를 만들어야 합니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 이 SAP Business Warehouse 커넥터를 사용하려면 다음 작업을 수행해야 합니다.
 
@@ -174,7 +174,7 @@ SAP BW Open Hub 간에 데이터를 복사하려면 데이터 세트의 형식 �
 
 SAP BW Open Hub에서 데이터를 복사하려면 복사 작업의 원본 형식을 **SapOpenHubSource**로 설정합니다. 복사 작업 **원본** 섹션에 필요한 추가 형식별 속성이 없습니다.
 
-데이터 로드 속도를 높이기 위해 복사 작업에서를 [`parallelCopies`](copy-activity-performance.md#parallel-copy) 설정 하 여 SAP BW 열려 있는 허브에서 데이터를 병렬로 로드할 수 있습니다. 예를 들어를 4로 `parallelCopies` 설정 하는 경우 Data Factory는 네 개의 rfc 호출을 동시에 실행 하 고 각 RFC 호출은 DTP 요청 id 및 패키지 id로 분할 된 SAP BW 열린 허브 테이블에서 데이터의 일부를 검색 합니다. 고유 DTP 요청 ID + 패키지 ID 수가의 값 보다 큰 경우에 `parallelCopies`적용 됩니다.
+데이터 로드 속도를 높이기 위해 복사 작업에서를 [`parallelCopies`](copy-activity-performance.md#parallel-copy) 설정 하 여 SAP BW 열려 있는 허브에서 데이터를 병렬로 로드할 수 있습니다. 예를 들어를 4로 `parallelCopies` 설정 하는 경우 Data Factory는 네 개의 rfc 호출을 동시에 실행 하 고 각 RFC 호출은 DTP 요청 id 및 패키지 id로 분할 된 SAP BW 열린 허브 테이블에서 데이터의 일부를 검색 합니다. 고유 DTP 요청 ID + 패키지 ID 수가의 값 보다 큰 경우에 `parallelCopies`적용 됩니다. 파일 기반 데이터 저장소로 데이터를 복사 하는 경우에는 폴더에 여러 파일로 기록 (폴더 이름만 지정) 하는 것이 좋습니다 .이 경우에는 단일 파일에 쓰는 것 보다 성능이 좋습니다.
 
 **예제:**
 

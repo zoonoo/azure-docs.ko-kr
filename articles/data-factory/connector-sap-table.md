@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 08/23/2019
 ms.author: jingwang
-ms.openlocfilehash: da7dbdee4a376d88219a7a621ed7e3867873a37c
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 8d98405cfbabdff25c40d41b209d79761e699396
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967398"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996585"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 SAP 테이블에서 데이터 복사
 
@@ -223,11 +223,11 @@ SAP 테이블에서 데이터를 복사 하기 위해 지원 되는 속성은 �
 <br/>
 >`maxPartitionsNumber` `partitionLowerBound` `partitionUpperBound` 예를 들어, 각 파티션에 있는 행의 수는 다음 수식으로 계산 됩니다. (총 행 수와)/. `partitionOption` `partitionOnInt`<br/>
 <br/>
->복사 속도를 높이기 위해 데이터 파티션을 병렬로 로드 하려면 복사 작업의 [`parallelCopies`](copy-activity-performance.md#parallel-copy) 설정에 따라 병렬 처리 수준이 제어 됩니다. 예를 들어를 4로 `parallelCopies` 설정 하는 경우 Data Factory는 지정 된 파티션 옵션 및 설정을 기반으로 4 개의 쿼리를 동시에 생성 하 고 실행 하며 각 쿼리는 SAP 테이블에서 데이터의 일부를 검색 합니다. 속성의 값을 `maxPartitionsNumber` 여러 개 만드는 것이 좋습니다. `parallelCopies`
+>복사 속도를 높이기 위해 데이터 파티션을 병렬로 로드 하려면 복사 작업의 [`parallelCopies`](copy-activity-performance.md#parallel-copy) 설정에 따라 병렬 처리 수준이 제어 됩니다. 예를 들어를 4로 `parallelCopies` 설정 하는 경우 Data Factory는 지정 된 파티션 옵션 및 설정을 기반으로 4 개의 쿼리를 동시에 생성 하 고 실행 하며 각 쿼리는 SAP 테이블에서 데이터의 일부를 검색 합니다. 속성의 값을 `maxPartitionsNumber` 여러 개 만드는 것이 좋습니다. `parallelCopies` 파일 기반 데이터 저장소로 데이터를 복사 하는 경우에는 폴더에 여러 파일로 기록 (폴더 이름만 지정) 하는 것이 좋습니다 .이 경우에는 단일 파일에 쓰는 것 보다 성능이 좋습니다.
 
 에서 `rfcTableOptions`다음과 같은 일반적인 SAP 쿼리 연산자를 사용 하 여 행을 필터링 할 수 있습니다.
 
-| 연산자 | Description |
+| 연산자 | 설명 |
 | :------- | :------- |
 | `EQ` | 같음 |
 | `NE` | 같지 않음 |

@@ -42,16 +42,16 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     |**클러스터 로그인 암호**| 클러스터 로그인 암호를 입력합니다. |
     |**SSH(보안 셸) 사용자 이름**| SSH 사용자 이름을 입력합니다. 이 빠른 시작에 사용되는 SSH 사용자 이름은 **sshuser**입니다. 기본적으로 이 계정에는 *클러스터 로그인 사용자 이름* 계정과 동일한 암호를 공유합니다. |
     |**리소스 그룹**     | 새 리소스 그룹을 만들지, 아니면 기존 그룹을 사용할지 여부를 지정합니다. 리소스 그룹은 Azure 솔루션에 관련된 리소스를 보유하는 컨테이너입니다. 이 빠른 시작에 사용되는 리소스 그룹 이름은 **myspark20180403rg**입니다. |
-    |**위치**:     | 리소스 그룹의 위치를 선택합니다. 템플릿에서는 기본 클러스터 저장소뿐만 아니라 클러스터를 만드는 데 이 위치를 사용합니다. 이 빠른 시작에 사용되는 위치는 **미국 동부 2**입니다. |
+    |**위치**:     | 리소스 그룹의 위치를 선택합니다. 템플릿에서는 기본 클러스터 스토리지뿐만 아니라 클러스터를 만드는 데 이 위치를 사용합니다. 이 빠른 시작에 사용되는 위치는 **미국 동부 2**입니다. |
 
     ![HDInsight Spark 클러스터 기본 구성 만들기](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-hdinsight-spark-cluster-basic2.png "HDInsight 기본 구성에서 Spark 클러스터 만들기")
 
-    **다음**을 선택하여 **저장소** 페이지를 계속합니다.
-3. **저장소**에서 다음 값을 입력합니다.
+    **다음**을 선택하여 **스토리지** 페이지를 계속합니다.
+3. **스토리지**에서 다음 값을 입력합니다.
 
-   - **저장소 계정 선택**: **새로 만들기**를 선택한 다음, 새 저장소 계정에 이름을 지정합니다. 이 빠른 시작에 사용되는 저장소 계정 이름은 **myspark20180403store**입니다.
+   - **스토리지 계정 선택**: **새로 만들기**를 선택한 다음, 새 스토리지 계정에 이름을 지정합니다. 이 빠른 시작에 사용되는 스토리지 계정 이름은 **myspark20180403store**입니다.
 
-     ![HDInsight Spark 클러스터 저장소 구성 만들기](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-hdinsight-spark-cluster-storage.png "HDInsight 저장소 구성에서 Spark 클러스터 만들기")
+     ![HDInsight Spark 클러스터 스토리지 구성 만들기](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-hdinsight-spark-cluster-storage.png "HDInsight 스토리지 구성에서 Spark 클러스터 만들기")
 
      > [!NOTE]  
      > 스크린샷에 **기존 항목 선택**이 표시됩니다. 링크는 **새로 만들기**와 **기존 항목 선택**을 토글합니다.
@@ -120,13 +120,13 @@ SQL(구조적 쿼리 언어)은 데이터 쿼리 및 정의에 가장 일반적�
 2. Notebook의 **파일** 메뉴에서 **닫기 및 중지**를 선택합니다. Notebook을 종료하면 클러스터 리소스가 릴리스됩니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
-HDInsight는 Azure Storage 또는 Azure Data Lake Storage에 데이터를 저장하므로 클러스터를 사용하지 않을 때 안전하게 삭제할 수 있습니다. HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩니다. 클러스터에 대한 요금이 저장소에 대한 요금보다 몇 배 더 많기 때문에, 클러스터를 사용하지 않을 때는 삭제하는 것이 경제적인 면에서 더 합리적입니다. [다음 단계](#next-steps)에 나열된 자습서를 즉시 수행하려는 경우 클러스터를 유지할 수 있습니다.
+HDInsight는 Azure Storage 또는 Azure Data Lake Storage에 데이터를 저장하므로 클러스터를 사용하지 않을 때 안전하게 삭제할 수 있습니다. HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩니다. 클러스터에 대한 요금이 스토리지에 대한 요금보다 몇 배 더 많기 때문에, 클러스터를 사용하지 않을 때는 삭제하는 것이 경제적인 면에서 더 합리적입니다. [다음 단계](#next-steps)에 나열된 자습서를 즉시 수행하려는 경우 클러스터를 유지할 수 있습니다.
 
 Azure Portal로 다시 전환하고, **삭제**를 선택합니다.
 
 ![HDInsight 클러스터 삭제](./media/apache-spark-jupyter-spark-sql/hdinsight-azure-portal-delete-cluster.png "HDInsight 클러스터 삭제")
 
-또한 리소스 그룹 이름을 선택하여 리소스 그룹 페이지를 연 다음, **리소스 그룹 삭제**를 선택할 수도 있습니다. 리소스 그룹을 삭제하여 HDInsight Spark 클러스터와 기본 저장소 계정을 삭제합니다.
+또한 리소스 그룹 이름을 선택하여 리소스 그룹 페이지를 연 다음, **리소스 그룹 삭제**를 선택할 수도 있습니다. 리소스 그룹을 삭제하여 HDInsight Spark 클러스터와 기본 스토리지 계정을 삭제합니다.
 
 ## <a name="next-steps"></a>다음 단계 
 

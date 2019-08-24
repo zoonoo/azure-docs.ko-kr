@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 945d123c0901722a527e7cc8181c91f09e4e95ec
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 71e08f00600bebcc21eba32d991353c9bcaeaa97
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69014518"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991934"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Mapping Data Flow 디버그 모드
 
@@ -53,7 +53,14 @@ Azure Data Factory 매핑 데이터 흐름의 디버그 모드는 디자인 화�
 
 ![데이터 미리 보기](media/data-flow/datapreview.png "데이터 미리 보기")
 
+> [!NOTE]
+> 파일 원본은 읽을 행이 아닌 표시 되는 행만 제한 합니다. 매우 큰 데이터 집합의 경우 해당 파일의 작은 부분을 가져와서 테스트에 사용 하는 것이 좋습니다. 파일 데이터 집합 형식인 각 원본에 대 한 디버그 설정에서 임시 파일을 선택할 수 있습니다.
+
 Data Flow에서 디버그 모드로 실행하는 경우에는 데이터가 싱크 변환에 기록되지 않습니다. 디버그 세션은 변환에 대 한 테스트 도구 역할을 하기 위한 것입니다. 디버그 중에는 싱크가 필요하지 않으며 데이터 흐름에서 무시됩니다. 싱크에서 데이터 작성을 테스트 하려는 경우 Azure Data Factory 파이프라인에서 데이터 흐름을 실행 하 고 파이프라인에서 디버그 실행을 사용 합니다.
+
+### <a name="testing-join-conditions"></a>조인 조건 테스트
+
+단위 테스트 조인, 존재 또는 조회 변환을 수행 하는 경우 테스트에 대해 몇 가지 알려진 데이터 집합을 사용 해야 합니다. 위의 디버그 설정 옵션을 사용 하 여 테스트에 사용할 임시 파일을 설정할 수 있습니다. 이는 많은 데이터 집합에서 행을 제한 하거나 샘플링 하는 경우 테스트를 위해 흐름으로 읽어올 행과 키를 예측할 수 없기 때문에 필요 합니다. 결과는 명확 하지 않으므로 조인 조건이 실패할 수 있습니다.
 
 ### <a name="quick-actions"></a>빠른 작업
 

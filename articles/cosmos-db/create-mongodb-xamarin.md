@@ -50,7 +50,7 @@ Mac에서 작업하려는 경우 [Mac용 Visual Studio](https://visualstudio.mic
 
 ## <a name="clone-the-sample-app"></a>샘플 앱 복제
 
-먼저 GitHub에서 샘플 앱을 다운로드합니다. 이 앱은 MongoDB의 문서 저장소 모델을 사용하여 todo 앱을 구현합니다.
+먼저 GitHub에서 샘플 앱을 다운로드합니다. 이 앱은 MongoDB의 문서 스토리지 모델을 사용하여 todo 앱을 구현합니다.
 
 1. 명령 프롬프트를 git-samples라는 새 폴더를 만든 다음 명령 프롬프트를 닫습니다.
 
@@ -172,12 +172,12 @@ git을 사용하지 않으려면 [프로젝트를 ZIP 파일로 다운로드](ht
 4. F5 키를 눌러 애플리케이션 디버깅을 시작합니다.
 5. iOS에서 실행하려는 경우 먼저 컴퓨터는 Mac에 연결됩니다(수행하는 방법에 대한 [지침](https://docs.microsoft.com/xamarin/ios/get-started/installation/windows/introduction-to-xamarin-ios-for-visual-studio)은 다음과 같음).
 6. **TaskList.iOS** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 선택합니다.
-7. F5 키를 클릭하여 응용 프로그램 디버깅을 시작합니다.
+7. F5 키를 클릭하여 애플리케이션 디버깅을 시작합니다.
 
 ### <a name="visual-studio-for-mac"></a>Mac용 Visual Studio
 
 1. 플랫폼 드롭다운 목록에서 실행할 플랫폼에 따라 TaskList.iOS 또는 TaskList.Android를 선택합니다.
-2. cmd+Enter 키를 눌러 응용 프로그램 디버깅을 시작합니다.
+2. cmd+Enter 키를 눌러 애플리케이션 디버깅을 시작합니다.
 
 ## <a name="review-slas-in-the-azure-portal"></a>Azure Portal에서 SLA 검토
 

@@ -96,7 +96,7 @@ ms.locfileid: "68698003"
 * 검색 서비스
 * Cognitive Service
 * App service
-* 필요에 따라 Application Insights 서비스 및 Application Insights 데이터용 저장소를 포함할 수도 있습니다.
+* 필요에 따라 Application Insights 서비스 및 Application Insights 데이터용 스토리지를 포함할 수도 있습니다.
 
 
 ## <a name="related-to-qna-maker-bots"></a>QnA Maker 봇 관련

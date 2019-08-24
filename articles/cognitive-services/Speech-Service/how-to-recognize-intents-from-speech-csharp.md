@@ -24,7 +24,7 @@ Cognitive Services [Speech SDK](~/articles/cognitive-services/speech-service/spe
 > [!NOTE]
 > LUIS 애플리케이션은 인식할 의도와 엔터티를 정의합니다. 음성 서비스를 사용하는 C# 애플리케이션과는 다릅니다. 이 문서에서 "앱"은 LUIS 앱을 의미하고, "애플리케이션"은 C# 코드를 의미합니다.
 
-이 자습서에서는 Speech SDK를 사용하여 장치의 마이크를 통해 사용자의 말에서 의도를 추론하는 C# 콘솔 애플리케이션을 개발합니다. 이 문서에서 배울 내용은 다음과 같습니다.
+이 자습서에서는 Speech SDK를 사용하여 디바이스의 마이크를 통해 사용자의 말에서 의도를 추론하는 C# 콘솔 애플리케이션을 개발합니다. 이 문서에서 배울 내용은 다음과 같습니다.
 
 > [!div class="checklist"]
 > * Speech SDK NuGet 패키지를 참조하는 Visual Studio 프로젝트 만들기

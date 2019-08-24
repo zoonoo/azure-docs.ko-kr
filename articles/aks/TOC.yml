@@ -60,7 +60,7 @@
       items: null
     - name: 네트워킹
       href: concepts-network.md
-    - name: Storage
+    - name: 스토리지
       href: concepts-storage.md
     - name: 확장
       href: concepts-scale.md

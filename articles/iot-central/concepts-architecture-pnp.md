@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: abc09ac1a13537c31fe96fae14edefd0d06b6aef
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: fab65828228bdea8f0367f8928b83934bf0a7a4f
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69880255"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69995884"
 ---
 # <a name="azure-iot-central-architecture-preview-features"></a>Azure IoT Central 아키텍처 (미리 보기 기능)
 
@@ -73,7 +73,7 @@ Azure IoT Central 애플리케이션에서 디바이스 템플릿은 디바이�
 
 IoT Central Preview 응용 프로그램 장치 템플릿에서:
 
-- **장치 기능 모델** 은 송신 원격 분석, 장치 상태를 정의 하는 속성 및 장치가 응답 하는 명령과 같은 장치의 기능을 지정 합니다. 장치 기능은 하나 이상의 인터페이스로 구성 됩니다. 장치 기능 모델에 대 한 자세한 내용은 [IoT 플러그 앤 플레이](https://aka.ms/iot-pnp-docs) 설명서를 참조 하세요.
+- **장치 기능 모델** 은 송신 원격 분석, 장치 상태를 정의 하는 속성 및 장치가 응답 하는 명령과 같은 장치의 기능을 지정 합니다. 장치 기능은 하나 이상의 인터페이스로 구성 됩니다. 장치 기능 모델에 대 한 자세한 내용은 [IoT 플러그 앤 플레이](../iot-pnp/overview-iot-plug-and-play.md) 설명서를 참조 하세요.
 - **클라우드 속성** 은 장치에 대 한 저장소 IoT Central 속성을 지정 합니다. 이러한 속성은 IoT Central에만 저장 되며 장치에 전송 되지 않습니다.
 - **보기** 는 운영자가 장치를 모니터링 하 고 관리할 수 있도록 작성기에서 만드는 대시보드 및 폼을 지정 합니다.
 - **사용자 지정** 을 통해 빌더는 장치 기능 모델의 일부 정의를 재정의 하 여 IoT Central 응용 프로그램에 더 적합 하 게 만들 수 있습니다.

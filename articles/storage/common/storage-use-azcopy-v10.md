@@ -59,7 +59,7 @@ AD (Azure Active Directory)를 사용 하거나 SAS (공유 액세스 서명) �
 
 이 표를 가이드로 사용 합니다.
 
-| 스토리지 형식 | 현재 지원 되는 권한 부여 방법 |
+| 스토리지 유형 | 현재 지원 되는 권한 부여 방법 |
 |--|--|
 |**Blob Storage** | Azure AD & SAS |
 |**Blob 저장소 (계층적 네임 스페이스)** | Azure AD & SAS |

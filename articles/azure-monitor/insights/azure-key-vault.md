@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: bwren
-ms.openlocfilehash: b7d9ff760bac06602d8d770a358c8a2e22a72c81
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 1e0e9a0d76e644ec48ecd423a105dd89629d290c
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68849208"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997696"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Azure Monitor의 Azure Key Vault 분석 솔루션
 
@@ -105,26 +105,26 @@ Azure Key Vault 솔루션은 Azure Diagnostics에서 [AuditEvent logs](../../key
 
 | 속성 | Description |
 |:--- |:--- |
-| 형식 |*AzureDiagnostics* |
-| SourceSystem |*Azure* |
-| callerIpAddress |요청한 클라이언트의 IP 주소입니다. |
-| 범주 | *AuditEvent* |
-| CorrelationId |클라이언트가 서비스 쪽(키 자격 증명 모음) 로그를 사용하여 클라이언트 쪽 로그 상관 관계를 지정하도록 전달할 수 있는 선택적 GUID입니다. |
-| DurationMs |밀리초 단위로 REST API 요청을 처리하는 데 걸린 시간입니다. 이 시간에는 네트워크 대기 시간이 포함되지 않으므로 클라이언트 쪽에서 측정한 시간이 이 시간과 일치하지 않을 수도 있습니다. |
-| httpStatusCode_d |요청에서 반환한 HTTP 상태 코드(예: *200*)입니다. |
-| id_s |요청의 고유 ID |
-| identity_claim_appid_g | 응용 프로그램 ID의 GUID입니다. |
-| OperationName |[Azure Key Vault 로깅](../../key-vault/key-vault-logging.md)에 설명된 대로 작업의 이름입니다. |
-| OperationVersion |클라이언트에서 요청한 REST API 버전(예: *2015-06-01*)입니다. |
-| requestUri_s |요청의 URI입니다. |
-| 리소스 |Key Vault의 이름입니다. |
-| ResourceGroup |Key Vault의 리소스 그룹입니다. |
-| resourceId |Azure 리소스 관리자 리소스 ID. Key Vault 로그의 경우 이는 Key Vault 리소스 ID입니다. |
-| ResourceProvider |*MICROSOFT.KEYVAULT* |
-| ResourceType | *VAULTS* |
-| ResultSignature |HTTP 상태(예: *확인*) |
-| ResultType |REST API 요청의 결과(예: *성공*) |
-| SubscriptionId |Key Vault를 포함하는 구독의 Azure 구독 ID입니다. |
+| `Type` |*AzureDiagnostics* |
+| `SourceSystem` |*Azure* |
+| `CallerIpAddress` |요청한 클라이언트의 IP 주소입니다. |
+| `Category` | *AuditEvent* |
+| `CorrelationId` |클라이언트가 서비스 쪽(키 자격 증명 모음) 로그를 사용하여 클라이언트 쪽 로그 상관 관계를 지정하도록 전달할 수 있는 선택적 GUID입니다. |
+| `DurationMs` |밀리초 단위로 REST API 요청을 처리하는 데 걸린 시간입니다. 이 시간에는 네트워크 대기 시간이 포함되지 않으므로 클라이언트 쪽에서 측정한 시간이 이 시간과 일치하지 않을 수도 있습니다. |
+| `httpStatusCode_d` |요청에서 반환한 HTTP 상태 코드(예: *200*)입니다. |
+| `id_s` |요청의 고유 ID |
+| `identity_claim_appid_g` | 응용 프로그램 ID의 GUID입니다. |
+| `OperationName` |[Azure Key Vault 로깅](../../key-vault/key-vault-logging.md)에 설명된 대로 작업의 이름입니다. |
+| `OperationVersion` |클라이언트에서 요청한 REST API 버전(예: *2015-06-01*)입니다. |
+| `requestUri_s` |요청의 URI입니다. |
+| `Resource` |Key Vault의 이름입니다. |
+| `ResourceGroup` |Key Vault의 리소스 그룹입니다. |
+| `ResourceId` |Azure 리소스 관리자 리소스 ID. Key Vault 로그의 경우 이는 Key Vault 리소스 ID입니다. |
+| `ResourceProvider` |*MICROSOFT.KEYVAULT* |
+| `ResourceType` | *VAULTS* |
+| `ResultSignature` |HTTP 상태(예: *확인*) |
+| `ResultType` |REST API 요청의 결과(예: *성공*) |
+| `SubscriptionId` |Key Vault를 포함하는 구독의 Azure 구독 ID입니다. |
 
 ## <a name="migrating-from-the-old-key-vault-solution"></a>이전 Key Vault 솔루션에서 마이그레이션
 2017년 1월 Key Vault에서 Log Analytics로 로그를 보내도록 지원하는 방법이 변경되었습니다. 이러한 변경은 다음과 같은 이점을 제공합니다.

@@ -64,7 +64,7 @@ backup-retention | 7 | 장기 백업이 보존되는 방법입니다. 단위는 
 geo-redundant-backup | 사용 안 함 | 이 서버에 지역 중복 백업을 사용할 것인지 여부를 결정합니다.
 location | westus2 | 서버에 대한 Azure 위치입니다.
 ssl-enforcement | 사용 안 함 | 이 서버에 ssl을 사용할 것인지 여부를 결정합니다.
-storage-size | 5120 | 서버의 저장소 용량입니다(단위는 메가바이트).
+storage-size | 5120 | 서버의 스토리지 용량입니다(단위는 메가바이트).
 버전 | 10 | PostgreSQL 주 버전입니다.
 admin-user | 시스템 생성 | 관리자의 사용자 이름입니다.
 admin-password | 시스템 생성 | 관리자 사용자의 암호입니다.

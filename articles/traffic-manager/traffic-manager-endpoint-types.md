@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: allensu
-ms.openlocfilehash: 1b72fc510543ff57f5fac1b03e76df7ffed3fbfe
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 9de5b161c6bb1897058898dddd620ad093f148be
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68333833"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981064"
 ---
 # <a name="traffic-manager-endpoints"></a>Traffic Manager 엔드포인트
 
@@ -101,7 +101,7 @@ Traffic Manager 포털, PowerShell, CLI 또는 REST API를 통해 엔드포인�
 
 * [동일한 지역에서 둘 이상의 웹 앱과 Traffic Manager를 사용할 수 있나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region)
 
-* [내 Traffic Manager 프로필의 Azure 끝점을 다른 리소스 그룹으로 이동 어떻게 할까요? 있나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group)
+* [내 Traffic Manager 프로필의 Azure 끝점을 다른 리소스 그룹으로 이동 어떻게 할까요? 있나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group-or-subscription)
 
 ## <a name="next-steps"></a>다음 단계
 

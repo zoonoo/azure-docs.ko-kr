@@ -64,7 +64,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 테넌트에서 등록된 애플리케이션을 사용하도록 샘플을 변경해야 하며, 여기에는 애플리케이션 ID와 이전에 기록한 키가 포함됩니다. 또한 만든 사용자 흐름도 구성해야 합니다. 샘플은 Web.config 파일에서 구성 값을 설정으로 정의합니다. 설정을 변경하려면 다음을 수행합니다.
 
 1. Visual Studio에서 **B2C-WebAPI-DotNet** 솔루션을 엽니다.
-2. **TaskWebApp** 프로젝트에서 **Web.config** 파일을 엽니다. `ida:Tenant`의 값을 앞에서 만든 테넌트 이름으로 바꿉니다. `ida:ClientId`의 값을 앞에서 기록한 응용 프로그램 ID로 바꿉니다. `ida:ClientSecret`의 값을 앞에서 기록한 키로 바꿉니다. Web.config에 추가하기 전에 클라이언트 암호를 XML로 인코딩해야 합니다.
+2. **TaskWebApp** 프로젝트에서 **Web.config** 파일을 엽니다. `ida:Tenant`의 값을 앞에서 만든 테넌트 이름으로 바꿉니다. `ida:ClientId`의 값을 앞에서 기록한 애플리케이션 ID로 바꿉니다. `ida:ClientSecret`의 값을 앞에서 기록한 키로 바꿉니다. Web.config에 추가하기 전에 클라이언트 암호를 XML로 인코딩해야 합니다.
 3. **Web.config** 파일에서 `ida:SignUpSignInPolicyId`의 값을 `b2c_1_signupsignin1`으로 바꿉니다. `ida:EditProfilePolicyId`의 값을 `b2c_1_profileediting1`로 바꿉니다. `ida:ResetPasswordPolicyId`의 값을 `b2c_1_passwordreset1`로 바꿉니다.
 
 

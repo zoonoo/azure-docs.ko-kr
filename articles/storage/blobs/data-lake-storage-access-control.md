@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: aa2cfbee6feeacf46003fdc244f0aeea5df0f41a
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 51a51e63f1d45d67cda63d4491a3bac572434dc0
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847356"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991904"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2의 액세스 제어
 
@@ -31,7 +31,7 @@ RBAC는 역할 할당을 사용 하 여 *보안 주체*에 대 한 권한 집합
 
 ### <a name="the-impact-of-role-assignments-on-file-and-directory-level-access-control-lists"></a>파일 및 디렉터리 수준 액세스 제어 목록에 대 한 역할 할당의 영향
 
-RBAC 역할 할당을 사용 하는 것은 액세스 권한을 제어 하는 강력한 메커니즘 이지만 Acl을 기준으로 하는 매우 coarsely 세분화 된 메커니즘입니다. RBAC에 대한 최소 세분성은 파일 시스템 수준이며, 이는 ACL보다 더 높은 우선 순위로 평가됩니다. 따라서 파일 시스템의 범위에서 보안 주체에 역할을 할당 하는 경우 해당 보안 주체는 ACL 할당에 관계 없이 해당 파일 시스템의 모든 디렉터리 및 파일에 대해 해당 역할과 연결 된 권한 부여 수준을 갖습니다.
+RBAC 역할 할당을 사용 하는 것은 액세스 권한을 제어 하는 강력한 메커니즘 이지만 Acl을 기준으로 하는 매우 coarsely 세분화 된 메커니즘입니다. RBAC에 대 한 가장 작은 세분성은 컨테이너 수준에서 이며 Acl 보다 높은 우선 순위로 평가 됩니다. 따라서 컨테이너 범위에서 보안 주체에 역할을 할당 하는 경우 해당 보안 주체는 ACL 할당에 관계 없이 해당 컨테이너의 모든 디렉터리 및 파일에 대해 해당 역할과 연결 된 권한 부여 수준을 갖습니다.
 
 보안 주체에 [기본 제공 역할](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues)또는 사용자 지정 역할을 통해 RBAC 데이터 권한이 부여 된 경우 요청에 대 한 권한 부여 시 먼저 이러한 권한이 평가 됩니다. 요청 된 작업이 보안 주체의 RBAC 할당에 의해 권한이 부여 되 면 권한 부여가 즉시 해결 되며 추가 ACL 검사가 수행 되지 않습니다. 또는 보안 주체에 RBAC 할당이 없거나 요청의 작업이 할당 된 권한과 일치 하지 않는 경우에는 ACL 검사를 수행 하 여 보안 주체가 요청 된 작업을 수행할 수 있는 권한을 부여 받았는지 확인 합니다.
 
@@ -81,7 +81,7 @@ SAS 토큰에는 토큰의 일부로 허용된 권한이 포함됩니다. SAS �
 
 ### <a name="levels-of-permission"></a>권한 수준
 
-파일 시스템 개체에 대한 권한은 **읽기**, **쓰기** 및 **실행**이며, 아래 표와 같이 파일과 디렉터리에서 사용할 수 있습니다.
+컨테이너 개체에 대 한 사용 권한은 **읽기**, **쓰기**및 **실행**이며 다음 표에 나와 있는 것 처럼 파일 및 디렉터리에서 사용할 수 있습니다.
 
 |            |    파일     |   디렉터리 |
 |------------|-------------|----------|
@@ -90,7 +90,7 @@ SAS 토큰에는 토큰의 일부로 허용된 권한이 포함됩니다. SAS �
 | **실행(X)** | Data Lake Storage Gen2의 컨텍스트에서는 의미가 없습니다. | 디렉터리의 자식 항목을 트래버스하는 데 필요합니다. |
 
 > [!NOTE]
-> Acl만 사용 하 여 사용 권한을 부여 하는 경우 (RBAC 없음) 서비스 사용자에 게 파일에 대 한 읽기 또는 쓰기 액세스 권한을 부여 하려면 파일 시스템에 대 한 서비스 사용자 **실행** 권한과 폴더 계층 구조에 있는 각 폴더에 파일로 이어질 수 있습니다.
+> Acl만 사용 하 여 권한을 부여 하는 경우 (RBAC 없음) 서비스 사용자에 게 파일에 대 한 읽기 또는 쓰기 액세스 권한을 부여 하려면 컨테이너에 대 한 서비스 사용자 **실행** 권한과 폴더의 계층 구조에 있는 각 폴더에 파일로 이어질 수 있습니다.
 
 #### <a name="short-forms-for-permissions"></a>사용 권한에 대한 짧은 형식
 
@@ -154,7 +154,7 @@ POSIX ACL에서 모든 사용자는 *주 그룹*과 연결됩니다. 예를 들�
 
 ##### <a name="assigning-the-owning-group-for-a-new-file-or-directory"></a>새 파일 또는 디렉터리에 대한 소유 그룹 할당
 
-* **사례 1**: 루트 디렉터리("/")입니다. 이 디렉터리는 Data Lake Storage Gen2 파일 시스템을 만들 때 만들어집니다. 이 경우 소유 그룹은 OAuth를 사용하여 파일 시스템을 만든 사용자로 설정됩니다. 공유 키, 계정 SAS 또는 서비스 SAS를 사용 하 여 파일 시스템을 만든 경우 소유자 및 소유 그룹은 **$superuser**로 설정 됩니다.
+* **사례 1**: 루트 디렉터리("/")입니다. 이 디렉터리는 Data Lake Storage Gen2 컨테이너를 만들 때 생성 됩니다. 이 경우 소유 그룹은 OAuth를 사용 하 여 완료 된 경우 컨테이너를 만든 사용자로 설정 됩니다. 공유 키, 계정 SAS 또는 서비스 SAS를 사용 하 여 컨테이너를 만든 경우 소유자 및 소유 그룹은 **$superuser**로 설정 됩니다.
 * **사례 2**(다른 모든 경우): 새 항목을 만들 때 소유 그룹이 부모 디렉터리에서 복사됩니다.
 
 ##### <a name="changing-the-owning-group"></a>소유 그룹 변경
@@ -216,13 +216,13 @@ return ( (desired_perms & perms & mask ) == desired_perms)
 액세스 검사 알고리즘에서 설명한 대로 마스크는 명명된 사용자, 소유 그룹 및 명명된 그룹에 대한 액세스를 제한합니다.  
 
 > [!NOTE]
-> 새 Data Lake Storage Gen2 파일 시스템의 경우 루트 디렉터리("/")의 액세스 ACL에 대한 마스크는 기본적으로 디텍터리에 대해 750, 파일에 대해 640으로 설정됩니다. 저장소 전용 시스템의 파일과는 관련이 없으므로 파일은 X비트를 받지 않습니다.
+> 새 Data Lake Storage Gen2 컨테이너의 경우 루트 디렉터리 ("/")의 액세스 ACL에 대 한 마스크는 기본적으로 디렉터리의 경우 750이 고 파일의 경우 640입니다. 저장소 전용 시스템의 파일과는 관련이 없으므로 파일은 X비트를 받지 않습니다.
 >
 > 마스크는 호출별로 지정할 수 있습니다. 이렇게 하면 클러스터와 같은 다양한 소비 시스템에서 파일 작업에 대한 다른 유효한 마스크를 갖출 수 있습니다. 지정된 요청에 마스크가 지정되면 기본 마스크를 완전히 재정의합니다.
 
 #### <a name="the-sticky-bit"></a>고정 비트
 
-고정 비트는 POSIX 파일 시스템의 고급 기능입니다. Data Lake Storage Gen2의 컨텍스트에서는 고정 비트가 필요하지 않을 수 있습니다. 요약하면, 디렉터리에서 고정 비트를 사용하도록 설정되는 경우 자식 항목의 소유 사용자만 자식 항목을 삭제하거나 이름을 바꿀 수 있습니다.
+고정 비트는 POSIX 컨테이너의 고급 기능입니다. Data Lake Storage Gen2의 컨텍스트에서는 고정 비트가 필요하지 않을 수 있습니다. 요약하면, 디렉터리에서 고정 비트를 사용하도록 설정되는 경우 자식 항목의 소유 사용자만 자식 항목을 삭제하거나 이름을 바꿀 수 있습니다.
 
 고정 비트는 Azure Portal에 표시 되지 않습니다.
 
@@ -291,7 +291,7 @@ HNS가 해제된 경우에도 Azure RBAC 권한 부여 규칙이 여전히 적�
 
 ### <a name="who-is-the-owner-of-a-file-or-directory"></a>파일 또는 디렉터리의 소유자는 누구인가요?
 
-파일 또는 디렉터리의 작성자는 소유자가 됩니다. 루트 디렉터리의 경우 소유자는 파일 시스템을 만든 사용자의 ID입니다.
+파일 또는 디렉터리의 작성자는 소유자가 됩니다. 루트 디렉터리의 경우 컨테이너를 만든 사용자의 id입니다.
 
 ### <a name="which-group-is-set-as-the-owning-group-of-a-file-or-directory-at-creation"></a>만드는 파일 또는 디렉터리의 소유 그룹으로 설정되는 그룹은 무엇인가요?
 
@@ -320,7 +320,7 @@ $ az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
 
 ### <a name="does-data-lake-storage-gen2-support-inheritance-of-acls"></a>Data Lake Storage Gen2에서 ACL의 상속을 지원하나요?
 
-Azure RBAC 할당은 상속됩니다. 할당은 구독, 리소스 그룹 및 스토리지 계정 리소스에서 파일 시스템 리소스로 전달됩니다.
+Azure RBAC 할당은 상속됩니다. 할당은 구독, 리소스 그룹 및 저장소 계정 리소스에서 컨테이너 리소스로 흐릅니다.
 
 ACL은 상속되지 않습니다. 그러나 기본 ACL을 사용하여 부모 디렉터리 아래에 만들어진 자식 하위 디렉터리 및 파일에 대한 ACL을 설정할 수 있습니다. 
 

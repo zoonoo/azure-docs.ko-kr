@@ -100,7 +100,7 @@
               href: connect-google-account.md
             - name: AWS 계정 연결
               href: connect-aws-account.md
-            - name: 저장소 계정 구성
+            - name: 스토리지 계정 구성
               href: storage-accounts.md
             - name: Cloudyn 보고서 사용
               href: use-reports.md

@@ -119,7 +119,7 @@
               href: ../hdinsight-hadoop-manage-ambari-rest-api.md?toc=/azure/hdinsight/storm/toc.json&bc=/azure/hdinsight/storm/breadcrumb/toc.json
         - name: HDInsight 클러스터에 대한 로그 관리
           href: ../hdinsight-log-management.md?toc=/azure/hdinsight/storm/toc.json&bc=/azure/hdinsight/storm/breadcrumb/toc.json
-        - name: 저장소 계정 추가
+        - name: 스토리지 계정 추가
           href: ../hdinsight-hadoop-add-storage.md?toc=/azure/hdinsight/storm/toc.json&bc=/azure/hdinsight/storm/breadcrumb/toc.json
         - name: Apache Hadoop 작업용 데이터 업로드
           href: ../hdinsight-upload-data.md?toc=/azure/hdinsight/storm/toc.json&bc=/azure/hdinsight/storm/breadcrumb/toc.json

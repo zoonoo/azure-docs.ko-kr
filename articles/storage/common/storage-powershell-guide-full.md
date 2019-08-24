@@ -24,7 +24,7 @@ PowerShell 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관�
 > [!div class="checklist"]
 > * 스토리지 계정 나열
 > * 기존 스토리지 계정에 대한 참조 가져오기
-> * 저장소 계정 만들기
+> * 스토리지 계정 만들기
 > * 스토리지 계정 속성 설정
 > * 액세스 키를 검색하고 다시 생성
 > * 스토리지 계정에 대한 액세스 보호
@@ -76,7 +76,7 @@ $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroup `
 
 이제 기존 스토리지 계정을 가리키는 $storageAccount가 있습니다.
 
-### <a name="create-a-storage-account"></a>저장소 계정 만들기
+### <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
 다음 스크립트는 [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount)를 사용하여 범용 스토리지 계정을 만드는 방법을 보여 줍니다. 계정을 만든 후 이후의 명령에서 각각의 호출에 대한 인증을 지정하는 대신 사용할 수 있는 컨텍스트를 검색합니다.
 
@@ -242,7 +242,7 @@ Remove-AzResourceGroup -Name $resourceGroup
 > [!div class="checklist"]
 > * 스토리지 계정 나열
 > * 기존 스토리지 계정에 대한 참조 가져오기
-> * 저장소 계정 만들기
+> * 스토리지 계정 만들기
 > * 스토리지 계정 속성 설정
 > * 액세스 키를 검색하고 다시 생성
 > * 스토리지 계정에 대한 액세스 보호

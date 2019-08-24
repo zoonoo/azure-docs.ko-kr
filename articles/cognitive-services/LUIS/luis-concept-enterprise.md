@@ -42,7 +42,7 @@ LUIS app request rate가 허용 된 [할당량](https://azure.microsoft.com/pric
 활성 학습에 대 한 [끝점 길이 발언](luis-how-to-review-endpoint-utterances.md) 의 모든 2 주마다 정기적으로 검토 한 다음 다시 학습 및 다시 게시를 예약 합니다. 
 
 ### <a name="assign-multiple-luis-keys-to-same-app"></a>동일한 앱에 여러 LUIS 키 할당
-LUIS 앱이 단일 키 할당량이 허용하는 것보다 많은 엔드포인트 적중 횟수를 수신하는 경우, 더 많은 키를 만들고 LUIS 앱에 할당합니다. 트래픽 관리자 또는 부하 분산 장치를 만들어 여러 끝점 키에서 끝점 쿼리를 관리합니다. 
+LUIS 앱이 단일 키 할당량이 허용하는 것보다 많은 엔드포인트 적중 횟수를 수신하는 경우, 더 많은 키를 만들고 LUIS 앱에 할당합니다. 트래픽 관리자 또는 부하 분산 디바이스를 만들어 여러 엔드포인트 키에서 엔드포인트 쿼리를 관리합니다. 
 
 ## <a name="when-your-monolithic-app-returns-wrong-intent"></a>모놀리식 앱이 잘못된 의도를 반환하는 경우
 앱이 다양한 사용자 발화를 예측하도록 하려면 [디스패치 모델](#dispatch-tool-and-model)을 구현하는 것이 좋습니다. 모놀리식 앱을 분할하면 LUIS는 부모 앱과 자식 앱에서 의도를 혼동하지 않고 성공적으로 의도 간 검색에 초점을 맞출 수 있습니다. 

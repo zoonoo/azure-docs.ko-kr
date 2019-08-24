@@ -18,7 +18,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 08/15/2019
 ms.locfileid: "69512550"
 ---
-# <a name="azure-active-directory-b2b-collaboration-licensing-guidance"></a>Azure Active Directory B2B 협업 라이선스 지침
+# <a name="azure-active-directory-b2b-collaboration-licensing-guidance"></a>Azure Active Directory B2B collaboration 라이선싱 지침
 
 Azure AD(Active Directory) B2B(기업 간) 협업 시에는 유료 Azure AD 서비스를 사용하도록 외부 사용자("게스트 사용자")를 초대할 수 있습니다. 일부 기능은 무료 이지만 유료 Azure AD 기능에 대해 테 넌 트의 직원 또는 비 게스트 사용자에 대해 소유 하 고 있는 각 Azure AD 버전 라이선스에 대해 최대 5 명의 게스트 사용자를 초대할 수 있습니다.
 

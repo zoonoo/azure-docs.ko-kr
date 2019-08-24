@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: b08358680793ccdadca27c5f2aa57fbffe89b53a
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: f35836f60fae11c0955c128e96a4cea188681942
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69973793"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997656"
 ---
-# <a name="how-to-run-the-opc-ua-certificate-management-service-securely"></a>OPC UA 인증서 관리 서비스를 안전 하 게 실행 하는 방법
+# <a name="how-to-run-the-opc-vault-certificate-management-service-securely"></a>OPC 자격 증명 모음 인증서 관리 서비스를 안전 하 게 실행 하는 방법
 
-이 문서에서는 Azure에서 OPC UA 인증서 관리 서비스를 안전 하 게 실행 하는 방법과 고려해 야 할 기타 보안 지침을 설명 합니다.
+이 문서에서는 Azure에서 OPC 자격 증명 모음 인증서 관리 서비스를 안전 하 게 실행 하는 방법 및 고려할 기타 보안 지침을 설명 합니다.
 
 ## <a name="roles"></a>역할
 
@@ -32,7 +32,7 @@ OPC 자격 증명 모음 마이크로 서비스는 고유 역할이 서비스의
 
 ### <a name="certificate-management-service-roles"></a>인증서 관리 서비스 역할
 
-마이크로 서비스는 다음 역할을 정의 합니다.
+OPC 자격 증명 모음 마이크로 서비스는 다음 역할을 정의 합니다.
 
 - **읽기 권한자**: 기본적으로 테 넌 트의 모든 인증 된 사용자에 게는 읽기 권한이 있습니다. 
   - 응용 프로그램 및 인증서 요청에 대 한 읽기 액세스입니다. 응용 프로그램 및 인증서 요청을 나열 하 고 쿼리할 수 있습니다. 또한 장치 검색 정보 및 공용 인증서에는 읽기 액세스 권한으로 액세스할 수 있습니다.
@@ -132,14 +132,14 @@ IoT Edge 장치의 경우 호스트 이름 및 IP 주소를 문서화 해야 합
 
 CA 계층 구조 설명서는 서비스에서 관리 하지 않는 경우에도 관련 된 모든 하위 Ca, 부모 Ca 및 루트 Ca를 포함 하 여 모든 운영 Ca를 포함 해야 합니다. 정식 설명서 대신 만료 되지 않은 모든 CA 인증서의 완전 한 집합이 제공 될 수 있습니다.
 
-> [!IMPORTANT]
+> [!NOTE]
 > OPC 자격 증명 모음 샘플 응용 프로그램은 설명서 용 서비스에서 사용 및 생성 된 모든 인증서를 다운로드할 수 있도록 지원 합니다.
 
 ### <a name="document-the-issued-certificates-by-all-certification-authorities-cas"></a>모든 Ca (인증 기관)에 의해 발급 된 인증서 문서화
 
 설명서를 위해 지난 12 개월 동안 발급 된 모든 인증서의 완전 한 집합을 제공 해야 합니다.
 
-> [!IMPORTANT]
+> [!NOTE]
 > OPC 자격 증명 모음 샘플 응용 프로그램은 설명서 용 서비스에서 사용 및 생성 된 모든 인증서를 다운로드할 수 있도록 지원 합니다.
 
 ### <a name="document-the-sop-for-securely-deleting-cryptographic-keys"></a>암호화 키를 안전 하 게 삭제 하기 위한 SOP 문서화
@@ -220,7 +220,7 @@ OPC 자격 증명 모음 마이크로 서비스 SOP는 [개요](overview-opc-vau
 
 인증서 해지 프로세스는 [개요](overview-opc-vault-architecture.md) 및 문서 [를 관리](howto-opc-vault-manage.md) 하는 방법에 설명 되어 있습니다.
     
-### <a name="document-certification-authority-key-generation-ceremony"></a>인증 기관 키 생성 문서화 공식 절차 
+### <a name="document-certification-authority-ca-key-generation-ceremony"></a>CA (인증 기관) 키 생성 공식 절차 문서화 
 
 OPC 자격 증명 모음 마이크로 서비스의 발급자 CA 키 생성은 Azure KeyVault의 보안 저장소로 인해 간소화 되 고 설명서 [를 관리 하는 방법](howto-opc-vault-manage.md) 에 설명 되어 있습니다.
 

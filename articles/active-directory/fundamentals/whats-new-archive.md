@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b338ad90c01c109cc9b2e222f1d7bcaa09f20346
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
-ms.translationtype: HT
+ms.openlocfilehash: a978e2755818e88cad580753e041eacd50a9e6d2
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812959"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69980474"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능 보관
 
@@ -215,7 +215,7 @@ ID 보호 관련 사용자 및 로그인 위험 평가 엔진이 개선되어 �
 
 - 문자 메시지
 
-Microsoft 인증자 앱을 사용하여 암호를 재설정하는 방법에 대한 자세한 내용은 [Azure AD 셀프 서비스 암호 재설정 - 모바일 앱 및 SSPR(미리 보기)](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-howitworks#mobile-app-and-sspr-preview)을 참조하세요.
+Microsoft 인증자 앱을 사용하여 암호를 재설정하는 방법에 대한 자세한 내용은 [Azure AD 셀프 서비스 암호 재설정 - 모바일 앱 및 SSPR(미리 보기)](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-howitworks#mobile-app-and-sspr)을 참조하세요.
 
 ---
 
@@ -1183,7 +1183,7 @@ Azure AD 앱 갤러리에 애플리케이션을 나열하는 방법에 대한 �
 **서비스 범주:** 기타  
 **제품 기능:** 디렉터리
  
-SSPR (셀프 서비스 암호 재설정), SSO (single sign-on), CA (조건부 액세스), 앱 프록시, 사용자 프로 비전, Active Directory Federation Services (ADFS)를 비롯 하 여 Azure Active Directory (Azure AD)를 배포 하는 방법에 대 한 단계별 지침을 제공 합니다. PTA (통과 인증) 및 ADFS (암호 해시 동기화).
+SSPR (셀프 서비스 암호 재설정), Single Sign-On (SSO), CA (조건부 액세스), 앱 프록시, 사용자 프로 비전, Active Directory Federation Services (ADFS)를 비롯 한 Azure Active Directory (Azure AD)를 배포 하는 방법에 대 한 단계별 지침을 제공 합니다. PTA (통과 인증) 및 ADFS (암호 해시 동기화).
 
 배포 가이드를 보려면 GitHub의 [Identity Deployment Guides](https://aka.ms/DeploymentPlans)(ID 배포 가이드) 리포지토리로 이동하세요. 배포 가이드에 대한 피드백을 제공하려면 [배포 계획 사용자 의견 양식](https://aka.ms/deploymentplanfeedback)을 참조하세요. 배포 가이드에 대한 질문이 있는 경우 [IDGitDeploy](mailto:idgitdeploy@microsoft.com)에 문의하세요.
 

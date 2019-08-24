@@ -65,11 +65,11 @@ Stream Analytics 작업을 정의하기 전에 나중에 작업 입력으로 구
 
 ## <a name="create-blob-storage"></a>Blob Storage 만들기
 
-1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기** > **저장소** > **저장소 계정**을 선택합니다.
+1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기** > **스토리지** > **스토리지 계정**을 선택합니다.
 
 2. **스토리지 계정 만들기** 창에서 스토리지 계정 이름, 위치 및 리소스 그룹을 입력합니다. 자신이 만든 IoT Hub와 동일한 위치 및 리소스 그룹을 선택합니다. 그런 다음, **검토 + 만들기**를 클릭하여 계정을 만듭니다.
 
-   ![저장소 계정 만들기](./media/stream-analytics-quick-create-portal/create-storage-account.png)
+   ![스토리지 계정 만들기](./media/stream-analytics-quick-create-portal/create-storage-account.png)
 
 3. 스토리지 계정이 생성되면 **개요** 창에서 **Blob** 타일을 선택합니다.
 
@@ -132,9 +132,9 @@ Azure Stream Analytics 프로젝트에 포함된 요소를 확인합니다.
    |출력 별칭  |  출력   |  작업의 출력을 식별하는 이름을 입력합니다.   |
    |sink   |  Blob Storage |  적합한 싱크를 선택하세요.    |
    |리소스  |  데이터 원본 설정 수동 제공 |  기존 계정을 선택하거나 데이터를 수동으로 입력하도록 선택합니다.   |
-   |구독  |  \<구독\>   | 만든 저장소 계정이 있는 Azure 구독을 선택합니다. 동일한 또는 다른 구독에 저장소 계정이 있을 수 있습니다. 이 예제에서는 동일한 구독에 저장소 계정을 만들었다고 가정합니다.   |
-   |저장소 계정  |  asaquickstartstorage   |  저장소 계정의 이름을 선택하거나 입력합니다. 저장소 계정 이름은 동일한 구독에 만들어진 경우에 자동으로 감지됩니다.   |
-   |컨테이너  |  container1   |  저장소 계정에서 만든 기존 컨테이너를 선택합니다.   |
+   |구독  |  \<구독\>   | 만든 스토리지 계정이 있는 Azure 구독을 선택합니다. 동일한 또는 다른 구독에 스토리지 계정이 있을 수 있습니다. 이 예제에서는 동일한 구독에 스토리지 계정을 만들었다고 가정합니다.   |
+   |스토리지 계정  |  asaquickstartstorage   |  스토리지 계정의 이름을 선택하거나 입력합니다. 스토리지 계정 이름은 동일한 구독에 만들어진 경우에 자동으로 감지됩니다.   |
+   |컨테이너  |  container1   |  스토리지 계정에서 만든 기존 컨테이너를 선택합니다.   |
    |경로 패턴  |  output   |  컨테이너 내에서 만들 파일 경로 이름을 입력합니다.   |
    
 3. 다른 옵션을 기본값으로 유지하고 **저장**을 선택하여 설정을 저장합니다.  
@@ -186,7 +186,7 @@ Azure Stream Analytics 프로젝트에 포함된 요소를 확인합니다.
 
    ![Stream Analytics 작업 실행](./media/stream-analytics-quick-create-vs/stream-analytics-job-running.png)
 
-4. 결과를 보려면 **보기** 메뉴에서 **클라우드 탐색기**를 선택하고, 리소스 그룹의 저장소 계정으로 이동합니다. **Blob 컨테이너** 아래에서 **container1** 및 **출력** 파일 경로를 차례로 두 번 클릭합니다.
+4. 결과를 보려면 **보기** 메뉴에서 **클라우드 탐색기**를 선택하고, 리소스 그룹의 스토리지 계정으로 이동합니다. **Blob 컨테이너** 아래에서 **container1** 및 **출력** 파일 경로를 차례로 두 번 클릭합니다.
 
    ![결과 보기](./media/stream-analytics-quick-create-vs/stream-analytics-vs-results.png)
 

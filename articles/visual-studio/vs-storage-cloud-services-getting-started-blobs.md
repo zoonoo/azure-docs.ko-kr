@@ -48,7 +48,7 @@ Azure Blob Storage는 HTTP 또는 HTTPS를 통해 전 세계 어디에서나 액
    
         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("<storage account name>_AzureStorageConnectionString"));
-3. 스토리지 계정의 기존 컨테이너를 참조할 **CloudBlobClient** 개체를 가져옵니다.
+3. 스토리지 계정의 기존 컨테이너를 참조하는 **CloudBlobClient** 개체를 가져옵니다.
    
         // Create a blob client.
         CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();

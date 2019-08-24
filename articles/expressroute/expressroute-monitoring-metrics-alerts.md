@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 08/22/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: d78c110f3317f4dd9f16cbe243aeca437e9890a1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 92ec03e20fb6e681a0afd14048449ad004ebca0c
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60364710"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991458"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>ExpressRoute 모니터링, 메트릭 및 경고
 
@@ -25,15 +25,59 @@ ms.locfileid: "60364710"
 
 ## <a name="circuit-metrics"></a>회로 메트릭
 
-**메트릭**으로 이동하려면 모니터링할 회로에 대한 ExpressRoute 페이지를 클릭합니다. **모니터링**에서 **메트릭**을 볼 수 있습니다. BitsInPerSecond 또는 BitsOutPerSecond 및 집계를 선택합니다. 경우에 따라 피어링당 메트릭을 표시하는 분할을 적용할 수도 있습니다.
+**메트릭**으로 이동하려면 모니터링할 회로에 대한 ExpressRoute 페이지를 클릭합니다. **모니터링**에서 **메트릭**을 볼 수 있습니다. 아래에 나열 된 메트릭에 대해 선택 합니다. 기본 집계가 적용 됩니다. 필요에 따라 분할을 적용할 수 있습니다 .이 경우 다른 차원의 메트릭이 표시 됩니다.
+
+### <a name="metrics-available"></a>사용 가능한 메트릭: 
+* **Availability** 
+    * Arp 가용성
+      * 사용 가능한 차원:
+        * 피어 (기본/보조 Express 경로 라우터)
+        * 피어 링 유형 (비공개/공용/Microsoft)
+    * Bgp 가용성
+      * 사용 가능한 차원:
+        * 피어 (기본/보조 Express 경로 라우터)
+        * 피어 링 유형 (비공개/공용/Microsoft)
+* **교통**
+    * BitsInPerSecond
+      * 사용 가능한 차원:
+        * 피어 링 유형 (비공개/공용/Microsoft)
+    * BitsOutPerSecond
+      * 사용 가능한 차원:
+        * 피어 링 유형 (비공개/공용/Microsoft)
+    * GlobalReachBitsInPerSecond
+      * 사용 가능한 차원:
+        * 피어 링 회로 Skey (서비스 키)
+    * GlobalReachBitsOutPerSecond
+      * 사용 가능한 차원:
+        * 피어 링 회로 Skey (서비스 키)
+
+>[!NOTE]
+>*GlobalGlobalReachBitsInPerSecond* 및 *GlobalGlobalReachBitsOutPerSecond* 를 사용 하는 것은 하나 이상의 Global Reach 연결이 설정 된 경우에만 표시 됩니다.
+>
+
+## <a name="bits-in-and-out---metrics-across-all-peerings"></a>모든 피어 링에서의 비트 및 외부 메트릭
+
+지정 된 Express 경로 회로의 모든 피어 링에서 메트릭을 볼 수 있습니다.
 
 ![회로 메트릭](./media/expressroute-monitoring-metrics-alerts/ermetricspeering.jpg)
 
-## <a name="metrics-per-peering"></a>피어링당 메트릭
+## <a name="bits-in-and-out---metrics-per-peering"></a>비트 and Out-피어 링 당 메트릭
 
 프라이빗, 공용 및 Microsoft 피어링에 대한 메트릭을 비트/초 단위로 볼 수 있습니다.
 
 ![피어링당 메트릭](./media/expressroute-monitoring-metrics-alerts/erpeeringmetrics.jpg) 
+
+## <a name="bgp-availability---split-by-peer"></a>BGP 가용성-피어로 분할  
+
+피어 링 및 피어 (기본 및 보조 Express 경로 라우터)에서 BGP의 실시간 가용성을 확인할 수 있습니다. 이 대시보드는 개인 피어 링에 대 한 기본 BGP 세션과 개인 피어 링에 대 한 두 번째 BGP 세션을 보여 줍니다. 
+
+![피어 당 BGP 가용성](./media/expressroute-monitoring-metrics-alerts/erBgpAvailabilityMetrics.jpg) 
+
+## <a name="arp-availability---split-by-peering"></a>ARP 가용성-피어 링으로 분할  
+
+피어 링 및 피어 (기본 및 보조 Express 경로 라우터)에서 [ARP](https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-arp-resource-manager) 의 실시간 가용성을 확인할 수 있습니다. 이 대시보드는 두 피어에서 개인 피어 링 ARP 세션을 보여 주지만 피어 링에서 Microsoft 피어 링을 완료 합니다. 두 피어에서 기본 집계 (평균)를 활용 했습니다.  
+
+![피어 당 ARP 가용성](./media/expressroute-monitoring-metrics-alerts/erArpAvailabilityMetrics.jpg) 
 
 ## <a name="expressroute-gateway-connections-in-bitsseconds"></a>ExpressRoute 게이트웨이 연결(비트/초)
 
@@ -47,7 +91,7 @@ ms.locfileid: "60364710"
 
 2. **+대상 선택**을 클릭하고 ExpressRoute 게이트웨이 연결 리소스를 선택합니다.
 
-   ![대상]( ./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg)
+   ![target]( ./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg)
 3. 경고 세부 정보를 정의합니다.
 
    ![작업 그룹](./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg)

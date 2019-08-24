@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 23ae7b5cfec26fb2483a3e4ac13a1220888d76ee
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 59ac4b36a4bc2b3ff454b3a2ae98ce60f6bfcb5f
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69614254"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996616"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure Data Factory의 복사 작업
 
@@ -263,9 +263,6 @@ ADF에서 복사 작업을 실행하면 다음 예제에 나와 있는 것처럼
 
 ## <a name="incremental-copy"></a>증분 복사
 Data Factory은 원본 데이터 저장소에서 싱크 데이터 저장소로 델타 데이터를 증분 복사 하는 시나리오를 지원 합니다. [자습서: 증분 방식으로 데이터 복사](tutorial-incremental-copy-overview.md)를 참조하세요.
-
-## <a name="read-and-write-partitioned-data"></a>분할된 데이터 읽기 및 쓰기
-버전 1에서 Azure Data Factory는 SliceStart/SliceEnd/WindowStart/WindowEnd 시스템 변수를 사용하여 분할된 데이터 읽기 또는 쓰기를 지원했습니다. 현재 버전에서는 파이프라인 매개 변수와 트리거의 시작 시간/예약된 시간을 매개 변수의 값으로 사용하여 이 동작을 수행할 수 있습니다. 자세한 내용은 [분할된 데이터를 읽거나 쓰는 방법](how-to-read-write-partitioned-data.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 다음 퀵 스타트, 자습서 및 샘플을 참조하세요.

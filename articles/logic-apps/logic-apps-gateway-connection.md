@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
-ms.openlocfilehash: 0580fe09c2cb6569724a9b4365233a3142645a47
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 029dc8daaf456c155d46eefa699772882bdabee5
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65546269"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982878"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Azure Logic Apps에서 온-프레미스 데이터 원본에 연결
 
@@ -30,7 +30,7 @@ ms.locfileid: "65546269"
 * [Microsoft PowerApps 온-프레미스 데이터 게이트웨이](https://powerapps.microsoft.com/tutorials/gateway-management/)
 * [Azure Analysis Services 온-프레미스 데이터 게이트웨이](../analysis-services/analysis-services-gateway.md)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [로컬 컴퓨터에 데이터 게이트웨이를 다운로드하고 설치](../logic-apps/logic-apps-gateway-install.md)했어야 합니다.
 
@@ -63,16 +63,16 @@ ms.locfileid: "65546269"
 
 3. **연결 게이트웨이 만들기** 페이지에서 게이트웨이 리소스에 대해 다음 정보를 제공합니다.
 
-   | 자산 | 설명 | 
+   | 속성 | 설명 | 
    |----------|-------------|
-   | **Name** | 게이트웨이 리소스의 이름입니다. | 
+   | **리소스 이름** | 문자, 숫자, 하이픈 (`-`), 밑줄 (`_`), 괄호 (`(`, `)`) 및 마침표 (`.`)만 포함할 수 있는 게이트웨이 리소스 이름입니다. | 
    | **구독** | 논리 앱과 동일한 구독이어야 하는 Azure 구독의 이름입니다. 기본 구독은 로그인하는 데 사용한 Azure 계정을 기준으로 합니다. | 
    | **리소스 그룹** | 관련 리소스를 구성하기 위한 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)의 이름입니다. | 
-   | **Location**: | Azure에서는 이 위치를 [게이트웨이 설치](../logic-apps/logic-apps-gateway-install.md) 중에 게이트웨이 클라우드 서비스에 대해 선택한 동일한 지역으로 제한합니다. <p>**참고**: 이 게이트웨이 리소스 위치가 게이트웨이 클라우드 서비스 위치와 일치하는지 확인합니다. 그렇지 않은 경우 게이트웨이 설치는 다음 단계에서 선택하도록 설치된 게이트웨이 목록에 나타나지 않을 수 있습니다. 게이트웨이 리소스 및 논리 앱에 서로 다른 지역을 사용할 수 있습니다. | 
+   | **위치** | Azure에서는 이 위치를 [게이트웨이 설치](../logic-apps/logic-apps-gateway-install.md) 중에 게이트웨이 클라우드 서비스에 대해 선택한 동일한 지역으로 제한합니다. <p>**참고**: 이 게이트웨이 리소스 위치가 게이트웨이 클라우드 서비스 위치와 일치하는지 확인합니다. 그렇지 않은 경우 게이트웨이 설치는 다음 단계에서 선택하도록 설치된 게이트웨이 목록에 나타나지 않을 수 있습니다. 게이트웨이 리소스 및 논리 앱에 서로 다른 지역을 사용할 수 있습니다. | 
    | **설치 이름** | 게이트웨이 설치가 선택되어 있지 않으면 이전에 설치한 게이트웨이를 선택합니다. | 
    | | | 
 
-   다음은 예제입니다.
+   다음 예를 참조하세요.
 
    ![온-프레미스 데이터 게이트웨이를 만들기 위해 세부 정보 제공](./media/logic-apps-gateway-connection/createblade.png)
 
@@ -105,7 +105,7 @@ ms.locfileid: "65546269"
 
       고유한 연결 이름을 통해 나중에, 특히 여러 연결을 만들 때 해당 연결을 쉽게 식별할 수 있습니다. 해당하는 경우 사용자 이름의 정규화된 도메인도 포함됩니다.
    
-      다음은 예제입니다.
+      다음 예를 참조하세요.
 
       ![논리 앱과 데이터 게이트웨이 간에 연결 만들기](./media/logic-apps-gateway-connection/blankconnection.png)
 

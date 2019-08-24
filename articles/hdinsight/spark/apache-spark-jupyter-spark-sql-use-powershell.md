@@ -35,7 +35,7 @@ PowerShell [Az 모듈](https://docs.microsoft.com/powershell/azure/overview)이 
 다음과 같은 Azure 개체와 리소스 만들기를 포함하는 HDInsight 클러스터를 만듭니다.
 
 - Azure 리소스 그룹. Azure 리소스 그룹은 Azure 리소스에 대한 컨테이너입니다. 
-- Azure 스토리지 계정 또는 Azure Data Lake Storage.  각 HDInsight 클러스터에는 종속 데이터 저장소가 필요합니다. 이 빠른 시작에서는 저장소 계정을 만듭니다.
+- Azure 스토리지 계정 또는 Azure Data Lake Storage.  각 HDInsight 클러스터에는 종속 데이터 스토리지가 필요합니다. 이 빠른 시작에서는 스토리지 계정을 만듭니다.
 - 다른 클러스터 유형의 HDInsight 클러스터.  이 빠른 시작에서는 Spark 2.3 클러스터를 만듭니다.
 
 PowerShell 스크립트를 사용하여 리소스를 만듭니다.  스크립트를 실행하는 경우 다음 값을 입력하라는 메시지가 표시됩니다.
@@ -44,7 +44,7 @@ PowerShell 스크립트를 사용하여 리소스를 만듭니다.  스크립트
 |------|------|
 |Azure 리소스 그룹 이름 | 리소스 그룹에 사용할 고유한 이름을 입력합니다.|
 |위치| 예를 들면 ‘미국 중부’와 같은 Azure 영역을 지정합니다. |
-|기본 저장소 계정 이름 | 저장소 계정에 고유한 이름을 제공합니다. |
+|기본 스토리지 계정 이름 | 스토리지 계정에 고유한 이름을 제공합니다. |
 |클러스터 이름 | HDInsight Spark 클러스터에 사용할 고유한 이름을 입력합니다.|
 |클러스터 로그인 자격 증명 | 빠른 시작의 뒷부분에 나오는 클러스터 대시보드에 연결하려면 이 계정을 사용합니다.|
 |SSH 사용자 자격 증명 | SSH 클라이언트를 HDInsight 클러스터와 함께 원격 명령줄 세션을 만드는 데 사용할 수 있습니다.|
@@ -185,13 +185,13 @@ SQL(구조적 쿼리 언어)은 데이터 쿼리 및 정의에 가장 일반적�
 2. Notebook의 **파일** 메뉴에서 **닫기 및 중지**를 선택합니다. Notebook을 종료하면 클러스터 리소스가 릴리스됩니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
-HDInsight는 Azure Storage 또는 Azure Data Lake Storage에 데이터를 저장하므로 클러스터를 사용하지 않을 때 안전하게 삭제할 수 있습니다. HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩니다. 클러스터에 대한 요금이 저장소에 대한 요금보다 몇 배 더 많기 때문에, 클러스터를 사용하지 않을 때는 삭제하는 것이 경제적인 면에서 더 합리적입니다. [다음 단계](#next-steps)에 나열된 자습서를 즉시 수행하려는 경우 클러스터를 유지할 수 있습니다.
+HDInsight는 Azure Storage 또는 Azure Data Lake Storage에 데이터를 저장하므로 클러스터를 사용하지 않을 때 안전하게 삭제할 수 있습니다. HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩니다. 클러스터에 대한 요금이 스토리지에 대한 요금보다 몇 배 더 많기 때문에, 클러스터를 사용하지 않을 때는 삭제하는 것이 경제적인 면에서 더 합리적입니다. [다음 단계](#next-steps)에 나열된 자습서를 즉시 수행하려는 경우 클러스터를 유지할 수 있습니다.
 
 Azure Portal로 다시 전환하고, **삭제**를 선택합니다.
 
 ![HDInsight 클러스터 삭제](./media/apache-spark-jupyter-spark-sql/hdinsight-azure-portal-delete-cluster.png "HDInsight 클러스터 삭제")
 
-또한 리소스 그룹 이름을 선택하여 리소스 그룹 페이지를 연 다음, **리소스 그룹 삭제**를 선택할 수도 있습니다. 리소스 그룹을 삭제하여 HDInsight Spark 클러스터와 기본 저장소 계정을 삭제합니다.
+또한 리소스 그룹 이름을 선택하여 리소스 그룹 페이지를 연 다음, **리소스 그룹 삭제**를 선택할 수도 있습니다. 리소스 그룹을 삭제하여 HDInsight Spark 클러스터와 기본 스토리지 계정을 삭제합니다.
 
 ### <a name="piecemeal-clean-up-with-powershell-az-module"></a>PowerShell Az 모듈로 부분 정리
 

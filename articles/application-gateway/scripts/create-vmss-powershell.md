@@ -23,7 +23,7 @@ ms.locfileid: "65202850"
 ---
 # <a name="manage-web-traffic-with-azure-powershell"></a>Azure PowerShell을 사용하여 웹 트래픽 관리
 
-이 스크립트는 백 엔드 서버에 가상 머신 확장 집합을 사용하는 애플리케이션 게이트웨이를 만듭니다. 그런 다음, 웹 트래픽을 관리하도록 애플리케이션 게이트웨이를 구성할 수 있습니다. 스크립트를 실행한 후에는 공용 IP 주소를 사용하여 응용 프로그램 게이트웨이를 테스트할 수 있습니다.
+이 스크립트는 백 엔드 서버에 가상 머신 확장 집합을 사용하는 애플리케이션 게이트웨이를 만듭니다. 그런 다음, 웹 트래픽을 관리하도록 애플리케이션 게이트웨이를 구성할 수 있습니다. 스크립트를 실행한 후에는 공용 IP 주소를 사용하여 애플리케이션 게이트웨이를 테스트할 수 있습니다.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
@@ -35,7 +35,7 @@ ms.locfileid: "65202850"
 
 ## <a name="clean-up-deployment"></a>배포 정리 
 
-다음 명령을 실행하여 리소스 그룹, 응용 프로그램 게이트웨이 및 모든 관련 리소스를 제거할 수 있습니다.
+다음 명령을 실행하여 리소스 그룹, 애플리케이션 게이트웨이 및 모든 관련 리소스를 제거할 수 있습니다.
 
 ```powershell
 Remove-AzResourceGroup -Name myResourceGroupAG
@@ -60,7 +60,7 @@ Remove-AzResourceGroup -Name myResourceGroupAG
 | [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule) | 라우팅 규칙을 만듭니다. |
 | [New-AzApplicationGatewaySku](/powershell/module/az.network/new-azapplicationgatewaysku) | 애플리케이션 게이트웨이의 계층 및 용량을 지정합니다. |
 | [New-AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway) | 애플리케이션 게이트웨이를 만듭니다. |
-| [집합 AzVmssStorageProfile](/powershell/module/az.compute/set-azvmssstorageprofile) | 확장 집합의 저장소 프로필을 만듭니다. |
+| [집합 AzVmssStorageProfile](/powershell/module/az.compute/set-azvmssstorageprofile) | 확장 집합의 스토리지 프로필을 만듭니다. |
 | [Set-AzVmssOsProfile](/powershell/module/az.compute/set-azvmssosprofile) | 확장 집합의 운영 체제를 정의합니다. |
 | [Add-AzVmssNetworkInterfaceConfiguration](/powershell/module/az.compute/add-azvmssnetworkinterfaceconfiguration) | 확장 집합의 네트워크 인터페이스를 정의합니다. |
 | [New-AzVmss](/powershell/module/az.compute/new-azvm) | 가상 머신 확장 집합을 만듭니다. |

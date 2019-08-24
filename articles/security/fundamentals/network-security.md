@@ -367,7 +367,7 @@ Azure 네트워크 보안 어플라이언스는 VNet 보안 및 네트워크 기
 
 -   Multi-Factor Authentication
 
-#### <a name="application-gateway"></a>애플리케이션 게이트웨이
+#### <a name="application-gateway"></a>프런트 엔드
 
 [Microsoft Azure Application Gateway](../../application-gateway/overview.md)는 ADC(애플리케이션 배달 컨트롤러)를 서비스로 제공하는 전용 가상 어플라이언스입니다.
 
@@ -441,7 +441,7 @@ Azure Load Balancer를 다음과 같이 구성할 수 있습니다.
 
  **Traffic Manager**
 
-Microsoft Azure Traffic Manager를 사용하면 다양한 데이터 센터에서 서비스 엔드포인트에 대한 사용자 트래픽의 배포를 제어할 수 있습니다. Traffic Manager에서 지원되는 서비스 엔드포인트는 Azure VM, Web Apps 및 클라우드 서비스를 포함합니다. 또한 외부, Azure가 아닌 엔드포인트로 Traffic Manager를 사용할 수 있습니다.
+Microsoft Azure Traffic Manager를 사용하면 다양한 데이터 센터에서 서비스 엔드포인트에 대한 사용자 트래픽의 배포를 제어할 수 있습니다. Traffic Manager에서 지원되는 서비스 엔드포인트는 Azure VM, Web Apps 및 클라우드 서비스를 포함합니다. 외부의 비 Azure 엔드포인트에도 Traffic Manager를 사용할 수 있습니다.
 
 Traffic Manager는 DNS(Domain Name System)를 사용하여 클라이언트 요청을 [트래픽 라우팅 메서드](../../traffic-manager/traffic-manager-routing-methods.md) 및 엔드포인트의 상태를 기반으로 가장 적절한 엔드포인트로 리디렉션합니다. Traffic Manager는 다양한 애플리케이션 요구 사항, 엔드포인트 상태 [모니터링](../../traffic-manager/traffic-manager-monitoring.md) 및 자동 장애 조치에 잘 맞는 트래픽 라우팅 메서드를 제공합니다. Traffic Manager는 전체 Azure 지역의 오류를 포함한, 오류에 대해 복원력을 갖습니다.
 

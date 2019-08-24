@@ -18,7 +18,7 @@ ms.locfileid: "65604298"
 ---
 # <a name="migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Event Grid 및 Azure Functions를 사용하여 캡처된 Event Hubs 데이터를 SQL Data Warehouse로 마이그레이션
 
-Event Hubs [캡처](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)는 Event Hubs에 스트림된 데이터를 Azure Blob Storage 또는 Azure Data Lake 스토리지에 자동으로 전달하는 가장 쉬운 방법입니다. 이후에 데이터를 SQL Data Warehouse 또는 Cosmos DB와 같이 원하는 다른 저장소 대상으로 처리하고 전달할 수 있습니다. 이 자습서에서는 [이벤트 그리드](https://docs.microsoft.com/azure/event-grid/overview)에서 트리거된 Azure 함수를 사용하여 데이터를 이벤트 허브에서 SQL 데이터 웨어하우스로 캡처하는 방법을 알아봅니다.
+Event Hubs [캡처](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)는 Event Hubs에 스트림된 데이터를 Azure Blob Storage 또는 Azure Data Lake 스토리지에 자동으로 전달하는 가장 쉬운 방법입니다. 이후에 데이터를 SQL Data Warehouse 또는 Cosmos DB와 같이 원하는 다른 스토리지 대상으로 처리하고 전달할 수 있습니다. 이 자습서에서는 [이벤트 그리드](https://docs.microsoft.com/azure/event-grid/overview)에서 트리거된 Azure 함수를 사용하여 데이터를 이벤트 허브에서 SQL 데이터 웨어하우스로 캡처하는 방법을 알아봅니다.
 
 ![Visual Studio](./media/store-captured-data-data-warehouse/EventGridIntegrationOverview.PNG)
 
@@ -48,7 +48,7 @@ Event Hubs [캡처](https://docs.microsoft.com/azure/event-hubs/event-hubs-captu
 Azure PowerShell 또는 Azure CLI를 사용하여 이 [Azure Resource Manager 템플릿](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json)을 통해 이 자습서에 필요한 인프라를 배포합니다. 이 템플릿은 다음과 같은 리소스를 만듭니다.
 
 -   캡처 기능을 사용하도록 설정된 Event Hub
--   캡처된 이벤트 데이터에 대한 저장소 계정
+-   캡처된 이벤트 데이터에 대한 스토리지 계정
 -   Functions 앱 호스팅에 대한 Azure 앱 서비스 계획
 -   캡처한 이벤트 파일을 처리하는 함수 앱
 -   Data Warehouse 호스팅용 SQL Server

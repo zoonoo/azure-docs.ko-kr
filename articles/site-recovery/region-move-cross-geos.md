@@ -68,8 +68,8 @@ Azure 계정에 Azure로 VM을 복제하기 위한 권한이 있는지 확인합
 
 [Azure Storage 계정](../storage/common/storage-quickstart-create-account.md)을 설정합니다.
 
-- Site Recovery는 온-프레미스 컴퓨터를 Azure Storage에 복제합니다. 장애 조치가 발생한 후에 스토리지에서 Azure VM을 만듭니다.
-- 스토리지 계정은 Recovery Services 자격 증명 모음과 동일한 영역에 있어야 합니다.
+- Site Recovery는 온-프레미스 컴퓨터를 Azure Storage에 복제합니다. 장애 조치(failover)가 발생한 후에 스토리지에서 Azure VM을 만듭니다.
+- 스토리지 계정은 Recovery Services 자격 증명 모음과 동일한 지역에 있어야 합니다.
 
 
 ## <a name="prepare-the-source-vms"></a>원본 VM 준비

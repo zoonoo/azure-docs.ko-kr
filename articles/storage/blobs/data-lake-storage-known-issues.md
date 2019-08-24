@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 369069ef9a9c562ef6ba88a46dc0ef82c4debba1
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 951b1f3749807ac6aee78a96ae7eb38877ca6acc
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950674"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991802"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에서 알려진 문제
 
@@ -32,7 +32,7 @@ Blob Storage Api가 Azure Data Lake Gen2 Api와 상호 운용할 수 없기 때�
 
 이러한 방법 중 하나를 사용 하 여 Blob Api를 사용 하 고이를 사용 하 여 계정에 업로드 하는 모든 콘텐츠를 사용 하려는 경우에는 두 가지 옵션이 있습니다.
 
-* **옵션 1**: Blob Api Azure Data Lake Gen2 Api와 상호 운용할 수 있을 때까지 Blob storage 계정에서 계층적 네임 스페이스를 사용 하지 마세요. 계층적 네임 스페이스 없이 저장소 계정을 사용 하면 디렉터리 및 파일 시스템 액세스 제어 목록과 같은 Data Lake Storage Gen2 특정 기능에 액세스할 수 없습니다.
+* **옵션 1**: Blob Api Azure Data Lake Gen2 Api와 상호 운용할 수 있을 때까지 Blob storage 계정에서 계층적 네임 스페이스를 사용 하지 마세요. 계층적 네임 스페이스 없이 저장소 계정을 사용 하면 디렉터리 및 컨테이너 액세스 제어 목록과 같은 Data Lake Storage Gen2 특정 기능에 액세스할 수 없습니다.
 
 * **옵션 2**: [Data Lake Storage에서 다중 프로토콜 액세스](data-lake-storage-multi-protocol-access.md)의 공개 미리 보기에 등록 합니다. Blob Api를 호출 하는 도구 및 응용 프로그램과 진단 로그와 같은 Blob 저장소 기능은 계층 구조 네임 스페이스를 가진 계정에서 작동할 수 있습니다.
 

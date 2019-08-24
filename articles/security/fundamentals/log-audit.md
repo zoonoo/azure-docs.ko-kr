@@ -167,7 +167,7 @@ Azure AD 감사 보고서의 이벤트 보존은 테 넌 트와 연결 된 라�
 
 ### <a name="storage-analytics"></a>스토리지 분석
 
-[Azure 스토리지 분석](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)은 스토리지 계정에 대한 메트릭 데이터를 기록하고 제공합니다. 이 데이터를 사용하여 요청을 추적하고 사용량 추세를 분석하며 스토리지 계정에 대한 문제를 진단할 수 있습니다. 스토리지 분석 로깅은 [Azure Blob, Azure Queue 및 Azure Table Storage 서비스](../../storage/common/storage-introduction.md)에서 사용할 수 있습니다. 스토리지 분석은 Storage 서비스에 대해 성공한 요청과 실패한 요청 관련 상세 정보를 기록합니다.
+[Azure 스토리지 분석](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)은 스토리지 계정에 대한 메트릭 데이터를 기록하고 제공합니다. 이 데이터를 사용하여 요청을 추적하고, 사용 추세를 분석하며, 스토리지 계정 문제를 진단할 수 있습니다. 스토리지 분석 로깅은 [Azure Blob, Azure Queue 및 Azure Table Storage 서비스](../../storage/common/storage-introduction.md)에서 사용할 수 있습니다. 스토리지 분석은 Storage 서비스에 대해 성공한 요청과 실패한 요청 관련 상세 정보를 기록합니다.
 
 이 정보를 사용하여 개별 요청을 모니터링하고 스토리지 서비스 관련 문제를 진단할 수 있습니다. 요청은 최상의 노력을 기준으로 기록됩니다. 서비스 엔드포인트에 대한 요청이 있는 경우에만 로그 항목이 만들어집니다. 예를 들어 스토리지 계정에 Blob 엔드포인트의 활동은 있지만 테이블 또는 큐 엔드포인트의 활동이 없는 경우 Blob Storage 서비스와 관련된 로그만 만들어집니다.
 

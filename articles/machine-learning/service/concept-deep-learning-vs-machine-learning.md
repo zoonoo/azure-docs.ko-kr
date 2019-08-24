@@ -1,5 +1,5 @@
 ---
-title: 심층 학습 및 기계 학습 소개
+title: 심층 학습 및 기계 학습
 titleSuffix: Azure Machine Learning service
 description: 심층 학습 vs machine learning과 인공 지능 범주에 들어가는 방법 간의 관계에 대해 알아봅니다. 이 문서에서는 사기 감지, 음성 및 얼굴 인식, 감정 분석, 시계열 예측 등 심층 학습에서 시나리오를 해결 하는 방법을 설명 합니다.
 services: machine-learning
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 08/07/2019
-ms.openlocfilehash: 186ba03142e01c4b9340fc5b492621cc17575104
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 5301be493ef22fc2d74cc337d88b04caf391fdaa
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934284"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982800"
 ---
-# <a name="introduction-to-deep-learning-vs-machine-learning"></a>심층 학습 및 기계 학습 소개
+# <a name="deep-learning-vs-machine-learning"></a>심층 학습 및 기계 학습
 
 이 문서는 심층 학습 vs machine learning 간의 관계를 이해 하는 데 도움이 됩니다. 두 개념을 비교 하는 방법 및 이러한 개념을 더 광범위 한 인공 지능 범주에 맞추는 방법에 대해 알아봅니다. 마지막으로이 문서에서는 사기 감지, 음성 및 얼굴 인식, 감정 분석, 시계열 예측 등의 실제 시나리오에 딥 러닝을 적용할 수 있는 방법을 설명 합니다.
 

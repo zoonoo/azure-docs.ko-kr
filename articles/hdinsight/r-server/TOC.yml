@@ -33,13 +33,13 @@
           href: r-server-hdinsight-manage.md
         - name: ML 서비스 클러스터 운영
           href: r-server-operationalize.md
-        - name: 저장소 옵션
+        - name: 스토리지 옵션
           href: r-server-storage.md
         - name: Compute 컨텍스트
           href: r-server-compute-contexts.md
         - name: ScaleR 및 SparkR
           href: ../hdinsight-hadoop-r-scaler-sparkr.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
-    - name: 클러스터 저장소 사용
+    - name: 클러스터 스토리지 사용
       items:
         - name: Azure Storage 사용
           href: ../hdinsight-hadoop-use-blob-storage.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
@@ -143,7 +143,7 @@
               href: ../hdinsight-hadoop-manage-ambari-rest-api.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
         - name: HDInsight 클러스터에 대한 로그 관리
           href: ../hdinsight-log-management.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
-        - name: 저장소 계정 추가
+        - name: 스토리지 계정 추가
           href: ../hdinsight-hadoop-add-storage.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
         - name: Apache Hadoop 작업용 데이터 업로드
           href: ../hdinsight-upload-data.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json

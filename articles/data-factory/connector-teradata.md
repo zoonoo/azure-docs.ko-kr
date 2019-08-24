@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 08/23/2019
 ms.author: jingwang
-ms.openlocfilehash: 134302bffdadc27cf202a43e7dc4cc94704bb5b3
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: ddce94cab0067c34ad056a40251d79c5470ba460
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69557874"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996578"
 ---
 # <a name="copy-data-from-teradata-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Teradata에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -41,7 +41,7 @@ Teradata 데이터베이스에서 지원 되는 모든 싱크 데이터 저장�
 >
 > 자체 호스팅 integration runtime v 3.18의 릴리스 후에는 Teradata 커넥터가 업그레이드 Azure Data Factory. 이전 Teradata 커넥터를 사용 하는 기존 작업은 계속 지원 됩니다. 그러나 새 워크 로드의 경우 새 워크 로드를 사용 하는 것이 좋습니다. 새 경로에는 연결 된 서비스, 데이터 집합 및 복사 원본의 다른 집합이 필요 합니다. 구성 세부 정보는 다음에 나오는 해당 섹션을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -189,7 +189,7 @@ Teradata에서 데이터를 복사 하려면 다음 속성이 지원 됩니다.
 ### <a name="teradata-as-source"></a>Teradata를 원본으로
 
 >[!TIP]
->데이터 분할을 사용 하 여 Teradata에서 데이터를 효율적으로 로드 하려면 [teradata에서 Parallel 복사](#parallel-copy-from-teradata) 섹션을 참조 하세요.
+>데이터 분할을 사용 하 여 Teradata에서 데이터를 효율적으로 로드 하려면 [teradata의 Parallel copy](#parallel-copy-from-teradata) 섹션에서 자세히 알아보세요.
 
 Teradata에서 데이터를 복사 하려면 복사 작업 **원본** 섹션에서 다음 속성을 지원 합니다.
 
@@ -245,9 +245,9 @@ Data Factory Teradata 커넥터는 Teradata에서 병렬로 데이터를 복사 
 
 ![파티션 옵션의 스크린샷](./media/connector-teradata/connector-teradata-partition-options.png)
 
-분할 된 복사를 사용 하도록 설정 하면 Data Factory는 Teradata 원본에 대해 병렬 쿼리를 실행 하 여 파티션당 데이터를 로드 합니다. 병렬 수준은 복사 작업의 [`parallelCopies`](copy-activity-performance.md#parallel-copy) 설정에 의해 제어 됩니다. 예를 들어를 4로 `parallelCopies` 설정 하는 경우 Data Factory는 지정 된 파티션 옵션 및 설정에 따라 4 개의 쿼리를 동시에 생성 하 고 실행 합니다. 각 쿼리는 Teradata 데이터베이스에서 데이터의 일부를 검색 합니다.
+분할 된 복사를 사용 하도록 설정 하면 Data Factory는 Teradata 원본에 대해 병렬 쿼리를 실행 하 여 파티션당 데이터를 로드 합니다. 병렬 수준은 복사 작업의 [`parallelCopies`](copy-activity-performance.md#parallel-copy) 설정에 의해 제어 됩니다. 예를 들어를 4로 `parallelCopies` 설정 하는 경우 Data Factory는 지정 된 파티션 옵션 및 설정을 기반으로 4 개의 쿼리를 동시에 생성 하 고 실행 하며 각 쿼리는 Teradata 데이터베이스에서 데이터의 일부를 검색 합니다.
 
-특히 Teradata 데이터베이스에서 대량의 데이터를 로드 하는 경우 데이터 분할으로 병렬 복사를 사용 하도록 설정 하는 것이 좋습니다. 다음은 다양 한 시나리오에 권장 되는 구성입니다.
+특히 Teradata 데이터베이스에서 대량의 데이터를 로드 하는 경우 데이터 분할으로 병렬 복사를 사용 하도록 설정 하는 것이 좋습니다. 다음은 다양 한 시나리오에 권장 되는 구성입니다. 파일 기반 데이터 저장소로 데이터를 복사 하는 경우 폴더에 여러 파일 (폴더 이름만 지정)로 기록 하는 것이 좋습니다 .이 경우에는 단일 파일에 쓰는 것 보다 성능이 좋습니다.
 
 | 시나리오                                                     | 제안 된 설정                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -293,8 +293,8 @@ Teradata에서 데이터를 복사 하는 경우 다음 매핑이 적용 됩니�
 | Blob |Byte[] |
 | Byte |Byte[] |
 | ByteInt |Int16 |
-| Char |String |
-| Clob |문자열 |
+| Char |문자열 |
+| Clob |String |
 | 날짜 |DateTime |
 | Decimal |Decimal |
 | Double |Double |

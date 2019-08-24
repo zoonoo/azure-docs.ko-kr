@@ -12,18 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/2/2019
+ms.date: 08/22/2019
 ms.author: johndeu
-ms.openlocfilehash: 444d5ca996c014bdbf2e62cacf2563c7b63372e4
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 19d3fe4285cf6bf316a0d445e49a398ed5d66a35
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "69015716"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991791"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>라이브 스트리밍의 신호 타이밍 메타데이터 
 
-마지막으로 업데이트한 날짜: 2019-07-02
+마지막 업데이트: 2019-08-22
 
 ### <a name="conformance-notation"></a>적합성 표기
 
@@ -74,6 +74,7 @@ ms.locfileid: "69015716"
 | AMF0            | ["작업 메시지 형식 AMF0"](https://download.macromedia.com/pub/labs/amf/amf0_spec_121207.pdf) |
 | [IOP]     | 대시 업계 포럼 Interop 지침 v 4.2[https://dashif-documents.azurewebsites.net/DASH-IF-IOP/master/DASH-IF-IOP.html](https://dashif-documents.azurewebsites.net/DASH-IF-IOP/master/DASH-IF-IOP.html) |
 | [HLS-TMD]         | HTTP 라이브 스트리밍에 대 한 시간 제한 메타 데이터-[https://developer.apple.com/streaming](https://developer.apple.com/streaming) |
+| [CMAF-ID3]         | [CMAF (Common Media Application Format)의 시간 제한 된 메타 데이터](https://aomediacodec.github.io/av1-id3/)
 | [ID3v2]           | ID3 태그 버전 2.4.0[http://id3.org/id3v2.4.0-structure](http://id3.org/id3v2.4.0-structure) |
 | [ISO-14496-12]    | ISO/IEC 14496-12: 12 부 ISO 기본 미디어 파일 형식, FourthEdition 2012-07-15  |
 | [MPEGDASH]        | 정보 기술-HTTP를 통한 동적 적응 스트리밍 (대시)--1 부: 미디어 프레젠테이션 설명 및 세그먼트 형식 2014 년 5 월 게시할지. URL: https://www.iso.org/standard/65274.html |
@@ -95,33 +96,158 @@ ms.locfileid: "69015716"
 
 ## <a name="2-timed-metadata-ingest"></a>2. 시간 제한 메타 데이터 수집
 
-## <a name="21-rtmp-ingest"></a>2.1 RTMP 수집
+Azure Media Services는 [RTMP] 및 부드러운 스트리밍 [MS SSTR] 프로토콜에 대 한 실시간 대역 내 메타 데이터를 지원 합니다. 실시간 메타 데이터는 고유한 사용자 지정 스키마 (JSON, 이진, XML) 뿐만 아니라 고유한 사용자 지정 스키마 (JSON, 이진, XML)를 사용 하 여 사용자 지정 이벤트를 정의 하는 데 사용 될 수 있으며, 브로드캐스트 스트림의 광고 신호에 대해 ID3 또는 SCTE-35과 같은 업계 정의 형식 
 
-[RTMP]를 사용 하면 [RTMP] 스트림에 포함 된 [AMF0] 큐 메시지로 시간이 지정 된 메타 데이터 신호를 보낼 수 있습니다. 실제 이벤트 또는 [SCTE35] ad 스플라이스 신호를 발생 시키려면 먼저 큐 메시지를 보낼 수 있습니다. 이 시나리오를 지원 하기 위해 이벤트의 실제 시간은 큐 메시지 내에서 전송 됩니다. 자세한 내용은 [AMF0]을 참조하세요.
+이 문서에서는 Media Services 지원 되는 수집 프로토콜을 사용 하 여 사용자 지정 시간 제한 메타 데이터 신호를 보내는 방법에 대 한 세부 정보를 제공 합니다. 또한 HLS, 대시 및 부드러운 스트리밍에 대 한 매니페스트를 시간 지정 된 메타 데이터 신호로 데코레이팅하는 방법 뿐만 아니라 HLS를 위한 CMAF (MP4 조각) 또는 TS (Transport Stream) 세그먼트를 사용 하 여 콘텐츠를 전달할 때 대역 내에 전달 되는 방법에 대해서도 설명 합니다. 
+
+시간이 지정 되는 메타 데이터에 대 한 일반적인 사용 사례 시나리오는 다음과 같습니다.
+
+ - 라이브 이벤트 또는 선형 브로드캐스트에서 광고 중단을 트리거하는 SCTE-35 ad 신호
+ - 클라이언트 응용 프로그램에서 이벤트를 트리거할 수 있는 사용자 지정 ID3 메타 데이터 (브라우저, iOS 또는 Android)
+ - 클라이언트 응용 프로그램에서 이벤트를 트리거하기 위해 정의 된 사용자 지정 JSON, 이진 또는 XML 메타 데이터
+ - 라이브 인코더, IP 카메라 또는 Drone에서 원격 분석
+ - 동작, 얼굴 감지 등과 같은 IP 카메라의 이벤트
+ - 작업 카메라, 드 론 또는 장치 이동의 지리적 위치 정보
+ - 노래 가사
+ - 선형 라이브 피드의 프로그램 경계
+ - 라이브 피드에 표시할 이미지 또는 보강 된 메타 데이터
+ - 스포츠 점수 또는 게임 클록 정보
+ - 브라우저에서 비디오와 함께 표시 될 대화형 광고 패키지
+ - 퀴즈 또는 설문 조사
+  
+Azure Media Services 라이브 이벤트 및 패키지 작성 도구는 이러한 시간이 지정 된 메타 데이터 신호를 수신 하 여 HLS 및 대시 같은 표준 기반 프로토콜을 사용 하 여 클라이언트 응용 프로그램에 연결할 수 있는 메타 데이터 스트림으로 변환할 수 있습니다.
+
+
+## <a name="21-rtmp-timed-metadata"></a>2.1 RTMP 시간 제한 메타 데이터
+
+[RTMP] 프로토콜을 사용 하면 사용자 지정 메타 데이터 및 SCTE-35 ad 신호를 비롯 한 다양 한 시나리오에 대해 시간 지정 된 메타 데이터 신호를 보낼 수 있습니다. 
+
+광고 신호 (큐 메시지)는 [RTMP] 스트림 내에 포함 된 [AMF0] 큐 메시지로 전송 됩니다. 실제 이벤트 또는 [SCTE35] ad 스플라이스 신호를 발생 시키려면 먼저 큐 메시지를 보낼 수 있습니다. 이 시나리오를 지원 하기 위해 이벤트의 실제 시간은 큐 메시지 내에서 전송 됩니다. 자세한 내용은 [AMF0]을 참조하세요.
+
+다음 [AMF0] 명령은 RTMP 수집에 대해 Azure Media Services에서 지원 됩니다.
+
+- **Onuserdataevent** -사용자 지정 메타 데이터 또는 [ID3v2] 타이밍 메타 데이터에 사용 됩니다.
+- **Onadcue** -라이브 스트림의 광고 배치 기회에 주로 신호를 보내는 데 사용 됩니다. 간단한 모드와 "SCTE-35" 모드의 두 가지 형태의 큐가 지원 됩니다. 
+- **onCuePoint** -[SCTE35] 메시지에 신호를 보내기 위해 정령 Live encoder와 같은 특정 온-프레미스 하드웨어 인코더에서 지원 됩니다. 
+  
 
 다음 표에서는 Media Services "simple" 및 [SCTE35] 메시지 모드 모두를 수집 하는 AMF 메시지 페이로드의 형식을 설명 합니다.
 
 [AMF0] 메시지의 이름은 동일한 유형의 여러 이벤트 스트림을 구별 하는 데 사용할 수 있습니다.  [SCTE-35] 메시지와 "simple" 모드 모두에서 AMF 메시지의 이름은 [Adobe-Primetime] 사양에 필요한 대로 "onAdCue" 여야 합니다.  아래에 나열 되지 않은 필드는 수집 시 Azure Media Services에서 무시 해야 합니다.
 
-## <a name="211-rtmp-signal-syntax"></a>2.1.1 RTMP 신호 구문
+## <a name="211-rtmp-with-custom-metadata-using-onuserdataevent"></a>"onUserDataEvent"를 사용 하는 사용자 지정 메타 데이터가 포함 된 2.1.1 RTMP
+
+RTMP 프로토콜을 사용 하 여 업스트림 인코더, IP 카메라, 드 론 또는 장치에서 사용자 지정 메타 데이터 피드를 제공 하려면 "onUserDataEvent" [AMF0] 데이터 메시지 명령 유형을 사용 합니다.
+
+**"Onuserdataevent"** 데이터 메시지 명령은 Media Services에서 캡처되고 HLS, 대시 및 부드러운 매니페스트 뿐만 아니라 대역내 파일 형식으로 패키징하는 다음 정의가 포함 된 메시지 페이로드를 전달 해야 합니다.
+시간 제한 메타 데이터 메시지를 0.5 초 (500ms) 마다 한 번만 전송 하는 것이 좋습니다. 프레임 수준 메타 데이터를 제공 해야 하는 경우 각 메시지는 여러 프레임의 메타 데이터를 집계할 수 있습니다. 다중 비트 전송률 스트림을 보내는 경우에는 대역폭을 줄이고 비디오/오디오 처리에 방해가 되지 않도록 단일 비트 전송률에 메타 데이터를 제공 하는 것이 좋습니다. 
+
+**"Onuserdataevent"** 의 페이로드는 [MPEGDASH] EventStream XML 형식 메시지 여야 합니다. 이렇게 하면 HLS 또는 대시 프로토콜을 통해 제공 되는 CMAF [MPEGCMAF] 콘텐츠에 대 한 ' emsg ' 페이로드의 대역 내에서 수행할 수 있는 사용자 지정 정의 스키마를 쉽게 전달할 수 있습니다. 각 대시 이벤트 스트림 메시지는 URN 메시지 체계 식별자로 작동 하 고 메시지의 페이로드를 정의 하는 schemeIdUri를 포함 합니다. [ID3v2]에 대 https://aomedia.org/emsg/ID3 한 "", 또는 **urn: scte: scte35:2013: bin 35의 urn: scte:: 2013: bin** 과 같은 일부 구성표는 상호 운용성을 위해 업계 consortia 표준화 됩니다. 모든 응용 프로그램 공급자는 사용자가 제어 하는 URL (소유 도메인)을 사용 하 여 고유한 사용자 지정 체계를 정의할 수 있으며, 선택 하는 경우 해당 URL에 대 한 사양을 제공할 수 있습니다. 플레이어에 정의 된 스키마에 대 한 처리기가 있는 경우이 구성 요소는 페이로드 및 프로토콜을 이해 해야 합니다.
+
+[MPEG-2] EventStream XML 페이로드에 대 한 스키마는 (대시 ISO-IEC-23009-1-3 버전에서 발췌)로 정의 됩니다. 현재 "EventStream" 당 하나의 "EventType"만 지원 됩니다. **EventStream**에서 여러 이벤트를 제공 하는 경우 첫 번째 **이벤트** 요소만 처리 됩니다.
+
+```xml
+  <!-- Event Stream -->
+  <xs:complexType name="EventStreamType">
+    <xs:sequence>
+      <xs:element name="Event" type="EventType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute ref="xlink:href"/>
+    <xs:attribute ref="xlink:actuate" default="onRequest"/>
+    <xs:attribute name="schemeIdUri" type="xs:anyURI" use="required"/>
+    <xs:attribute name="value" type="xs:string"/>
+    <xs:attribute name="timescale" type="xs:unsignedInt"/>
+  </xs:complexType>
+  <!-- Event  -->
+  <xs:complexType name="EventType">
+    <xs:sequence>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="presentationTime" type="xs:unsignedLong" default="0"/>
+    <xs:attribute name="duration" type="xs:unsignedLong"/>
+    <xs:attribute name="id" type="xs:unsignedInt"/>
+    <xs:attribute name="contentEncoding" type="ContentEncodingType"/>
+    <xs:attribute name="messageData" type="xs:string"/>
+    <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:complexType>
+```
+
+
+### <a name="example-xml-event-stream-with-id3-schema-id-and-base64-encoded-data-payload"></a>ID3 스키마 ID 및 b a s e 64로 인코딩된 데이터 페이로드가 포함 된 예제 XML 이벤트 스트림입니다.  
+```xml
+   <?xml version="1.0" encoding="UTF-8"?>
+   <EventStream schemeIdUri="https://aomedia.org/emsg/ID3">
+         <Event contentEncoding="Base64">
+          -- base64 encoded ID3v2 full payload here per [CMAF-TMD] --
+         </Event>
+   <EventStream>
+```
+
+### <a name="example-event-stream-with-custom-schema-id-and-base64-encoded-binary-data"></a>사용자 지정 스키마 ID 및 b a s e 64로 인코딩된 이진 데이터를 사용 하는 예제 이벤트 스트림  
+```xml
+   <?xml version="1.0" encoding="UTF-8"?>
+   <EventStream schemeIdUri="urn:example.org:custom:binary">
+         <Event contentEncoding="Base64">
+          -- base64 encoded custom binary data message --
+         </Event>
+   <EventStream>
+```
+
+### <a name="example-event-stream-with-custom-schema-id-and-custom-json"></a>사용자 지정 스키마 ID 및 사용자 지정 JSON을 사용 하는 예제 이벤트 스트림  
+```xml
+   <?xml version="1.0" encoding="UTF-8"?>
+   <EventStream schemeIdUri="urn:example.org:custom:JSON">
+         <Event>
+          [
+            {"key1" : "value1"},
+            {"key2" : "value2"}
+          ]
+         </Event>
+   <EventStream>
+```
+
+### <a name="built-in-supported-scheme-id-uris"></a>기본 제공 지원 스키마 ID Uri
+| 스키마 ID URI                 |  설명                                             |
+|-------------------------------|----------------------------------------------------------|
+| https://aomedia.org/emsg/ID3   | [ID3v2] 메타 데이터를 CMAF 호환 [MPEGCMAF] 조각화 된 MP4에서 timed metadata로 전달 하는 방법을 설명 합니다. 자세한 내용은 [CMAF (Common Media Application Format)의 시간 제한 된 메타 데이터](https://aomediacodec.github.io/av1-id3/) 를 참조 하세요. |
+
+### <a name="event-processing-and-manifest-signaling"></a>이벤트 처리 및 매니페스트 신호
+
+유효한 **"Onuserdataevent"** 이벤트가 수신 되 면 Azure Media Services에서 EventStreamType ([MPEGDASH]에 정의 됨)과 일치 하는 유효한 xml 페이로드를 찾고 xml 페이로드를 구문 분석 한 다음에 대 한 [MPEGCMAF] MP4 조각 ' emsg ' 버전 1 상자로 변환 합니다. live archive의 저장소 및 Media Services 패키지에 전송   패키지 작성 도구는 라이브 스트림에서 ' emsg ' 상자를 검색 하 고 다음을 수행 합니다.
+
+- (a) HLS 시간 제한 메타 데이터 사양 [HLS-TMD]을 준수 하 여 HLS 클라이언트에 배달 하기 위해 TS 세그먼트로 "동적 패키지"
+- (b) HLS 또는 대시를 통해 CMAF 조각에서 배달을 위해 전달 하거나 
+- (c) 부드러운 스트리밍 [MS SSTR]를 통해 배달할 스파스 트랙 신호로 변환 합니다.
+
+HLS에 대 한 MPD (대역 외) ' emsg ' 형식 CMAF 또는 TS PE 패킷 외에도 대시 () 및 부드러운 스트리밍에 대 한 매니페스트는 대역 내 이벤트 스트림 (부드러운 스트리밍의 스파스 스트림 트랙 라고도 함)에 대 한 참조를 포함 합니다. 
+
+개별 이벤트 또는 해당 데이터 페이로드는 HLS, 대시 또는 부드러운 매니페스트에 직접 출력 되지 않습니다. 
+
+### <a name="additional-informational-constraints-and-defaults-for-onuserdataevent-events"></a>OnUserDataEvent 이벤트의 추가 정보 제약 조건 및 기본값
+
+- EventStream 요소에 시간 간격을 설정 하지 않으면 기본적으로 RTMP 1Khz 시간 표시줄이 사용 됩니다.
+- OnUserDataEvent 메시지 배달은 500ms max 마다 한 번만 제한 됩니다. 자주 이벤트를 전송 하는 경우 라이브 피드의 대역폭과 안정성에 영향을 줄 수 있습니다.
+
+## <a name="212-rtmp-ad-cue-signaling-with-oncuepoint"></a>2.1.2 RTMP ad 큐 신호 ("onCuePoint")
 
 Azure Media Services는 라이브 스트림에서 여러 실시간 동기화 메타 데이터에 신호를 보내는 데 사용할 수 있는 여러 [AMF0] 메시지 유형을 수신 하 고 응답할 수 있습니다.  [Adobe-Primetime] 사양에서는 "simple" 및 "SCTE-35" 모드 라는 두 가지 큐 유형을 정의 합니다. "Simple" 모드의 경우, Media Services "Simple Mode" 신호에 대해 정의 된 아래 테이블과 일치 하는 페이로드를 사용 하 여 "onAdCue" 라는 단일 AMF 큐 메시지를 지원 합니다.  
 
 다음 섹션에서는 HLS, 대시 및 Microsoft 부드러운 스트리밍의 클라이언트 매니페스트로 전달 되는 기본 "spliceOut" 광고 신호를 신호 하는 데 사용할 수 있는 RTMP "simple" mode "페이로드를 보여 줍니다. 이는 고객에 게 복잡 한 SCTE-35 기반 광고 신호 배포 나 삽입 시스템이 없고 API를 통해 기본 온-프레미스 인코더를 사용 하 여 큐 메시지에 보내는 시나리오에 매우 유용 합니다. 일반적으로 온-프레미스 인코더는이 신호를 트리거하기 위한 REST 기반 API를 지원 합니다 .이 신호는 IDR 프레임을 비디오에 삽입 하 고 새 GOP를 시작 하 여 비디오 스트림을 "스플라이스" 할 수도 있습니다.
 
-## <a name="212--simple-mode-ad-signaling-with-rtmp"></a>2.1.2 Simple Mode Ad 신호 RTMP
+## <a name="213--rtmp-ad-cue-signaling-with-oncuepoint---simple-mode"></a>2.1.3 RTMP ad 큐 신호 ("onCuePoint"-단순 모드)
 
 | 필드 이름 | 필드 형식 | 필수 여부 | 설명                                                                                                             |
 |------------|------------|----------|--------------------------------------------------------------------------------------------------------------------------|
-| cue        | String     | 필수 | 이벤트 메시지입니다.  단순 모드 스플라이스를 지정하려면 "SpliceOut"이어야 합니다.                                              |
-| id         | String     | 필수 | 스플라이스 또는 세그먼트를 설명하는 고유 식별자입니다. 메시지의 이 인스턴스를 식별합니다.                            |
+| cue        | 문자열     | 필수 | 이벤트 메시지입니다.  단순 모드 스플라이스를 지정하려면 "SpliceOut"이어야 합니다.                                              |
+| id         | 문자열     | 필수 | 스플라이스 또는 세그먼트를 설명하는 고유 식별자입니다. 메시지의 이 인스턴스를 식별합니다.                            |
 | duration   | 숫자     | 필수 | 스플라이스의 재생 시간입니다. 단위는 소수 자릿수 초입니다.                                                                |
 | elapsed    | 숫자     | Optional | 선국(tune in)을 지원하기 위해 신호가 반복되는 경우. 이 필드는 스플라이스가 시작된 이후 경과한 프레젠테이션 시간의 양이어야 합니다. 단위는 소수 자릿수 초입니다. 단순 모드를 사용하는 경우, 이 값은 스플라이스의 원래 재생 시간을 초과하지 않아야 합니다.                                                  |
 | Time       | 숫자     | 필수 | 프레젠테이션 시간에 있는 스플라이스의 시간이어야 합니다. 단위는 소수 자릿수 초입니다.                                     |
 
 ---
  
-## <a name="213-scte-35-mode-ad-signaling-with-rtmp"></a>2.1.3 SCTE-35 모드 Ad 신호 RTMP
+## <a name="214-rtmp-ad-cue-signaling-with-oncuepoint---scte-35-mode"></a>2.1.4 RTMP ad 큐 신호를 "onCuePoint"-SCTE-35 모드로 전환
 
 전체 SCTE-35 페이로드 메시지를 HLS 또는 대시 매니페스트로 전달 해야 하는 고급 브로드캐스트 프로덕션 워크플로를 사용 하는 경우 [Primetime] 사양의 "SCTE-35 모드"를 사용 하는 것이 가장 좋습니다.  이 모드는 온-프레미스 라이브 인코더에 직접 전송 되는 대역 내 SCTE-35 신호를 지원 합니다. 그러면이 신호는 [Adobe-Primetime] 사양에 지정 된 "SCTE-35 모드"를 사용 하 여 RTMP 스트림으로 신호를 인코딩합니다. 
 
@@ -139,14 +265,14 @@ Azure Media Services는 라이브 스트림에서 여러 실시간 동기화 메
 | Time       | 숫자     | 필수 | 이벤트 또는 광고 스플라이스의 프레젠테이션 시간입니다.  프레젠테이션 시간과 기간은 [ISO-14496-12] 부록 I에서 정의한 대로 유형 1 또는 2의 SAP (스트림 액세스 점수)와 일치 **해야 합니다** . HLS 송신의 경우 시간과 기간이 세그먼트 경계와 일치 **해야** 합니다. 동일한 이벤트 스트림 내의 다른 이벤트 메시지에 대한 프레젠테이션 시간과 재생 시간은 겹치지 않아야 합니다. 단위는 소수 자릿수 초입니다.
 
 ---
-## <a name="214-elemental-live-oncuepoint-ad-markers-with-rtmp"></a>RTMP를 사용 하는 2.1.4 정령 Live "onCuePoint" Ad 마커
+## <a name="215-rtmp-ad-signaling-with-oncuepoint-for-elemental-live"></a>2.1.5 RTMP Ad 신호를 "onCuePoint"로 사용
 
 정령 Live 온-프레미스 인코더는 RTMP 신호의 광고 표식을 지원 합니다. 현재 Azure Media Services는 RTMP에 대 한 "onCuePoint" Ad 표식 유형만 지원 합니다.  이는 "**ad_markers**"를 "onCuePoint"로 설정 하 여 RTMP 미디어 라이브 인코더 설정 또는 API의 Adobe 그룹 설정에서 사용 하도록 설정할 수 있습니다.  자세한 내용은 정령 Live 설명서를 참조 하세요. RTMP 그룹에서이 기능을 사용 하도록 설정 하면 Azure Media Services에서 처리할 Adobe RTMP 출력에 SCTE-35 신호를 전달 합니다.
 
 "OnCuePoint" 메시지 유형은 [Adobe-Flash]에서 정의 되며, RTMP 출력에서 전송 될 때 다음과 같은 페이로드 구조가 있습니다.
 
 
-| 속성  |설명  |
+| 속성  |Description  |
 |---------|---------|
 |  name     | 이름은 '**scte35**'이 고, |
 |Time     |  타임 라인 중 비디오 파일에서 큐 지점이 발생 하는 시간 (초)입니다. |
@@ -156,7 +282,7 @@ Azure Media Services는 라이브 스트림에서 여러 실시간 동기화 메
 
 이 모드의 ad 표식을 사용 하면 HLS 매니페스트 출력이 Adobe "Simple" 모드와 유사 합니다. 
 
-### <a name="215-cancellation-and-updates"></a>2.1.5 취소 및 업데이트
+### <a name="216-cancellation-and-updates"></a>2.1.6 취소 및 업데이트
 
 동일한 프레젠테이션 시간과 ID를 사용하여 여러 개의 메시지를 보내면 메시지를 취소하거나 업데이트할 수 있습니다. 프레젠테이션 시간과 ID는 이벤트를 고유하게 식별하며, 미리 받기 제약 조건을 충족하는 특정 프레젠테이션 시간 동안 받은 마지막 메시지는 처리되는 메시지입니다. 업데이트된 이벤트는 이전에 받은 메시지를 대체합니다. 미리 받기 제약 조건은 4초입니다. 프레젠테이션 시간보다 최소 4초 전에 받은 메시지가 처리됩니다.
 
@@ -177,7 +303,7 @@ Azure Media Services는 라이브 스트림에서 여러 실시간 동기화 메
 | systemBitrate      | 숫자         | 필수      | "0" 이어야 **합니다** . 알 수 없는 가변 비트 전송률이 있는 트랙을 나타냅니다.                                                                                                                                                                                                 |
 | parentTrackName    | String         | 필수      | 는 스파스 트랙 시간 코드의 날짜/시간 정렬 기준이 되는 부모 트랙의 이름 이어야 **합니다** . 부모 트랙은 스파스 트랙이 될 수 없습니다.                                                                                                                    |
 | manifestOutput     | Boolean        | 필수      | 스파스 트랙이 부드러운 클라이언트 매니페스트에 포함 될 것임을 나타내려면 "true" 여야 **합니다** .                                                                                                                                                               |
-| Subtype            | 문자열         | 필수      | 4 자 코드 "DATA" 여야 합니다.                                                                                                                                                                                                                        |
+| Subtype            | String         | 필수      | 4 자 코드 "DATA" 여야 합니다.                                                                                                                                                                                                                        |
 | Scheme             | String         | 필수      | 메시지 구성표를 식별 하는 URN 또는 URL 이어야 합니다. [SCTE-35] 메시지의 경우 "urn: scte: scte35:2013: bin"을 사용 하 여 메시지를 HLS, Smooth 및 파선 클라이언트에 게 전송 하려면 [SCTE-35]를 준수 **해야 합니다** . |
 | trackName          | String         | 필수      | 은 스파스 트랙의 이름 이어야 합니다. trackName은 동일한 구성표를 사용하여 여러 이벤트 스트림을 구별하는 데 사용할 수 있습니다. 고유한 각 이벤트 스트림에는 고유한 트랙 이름이 **있어야** 합니다.                                                                           |
 | timescale          | 숫자         | Optional      | 부모 트랙의 시간 간격 **이어야** 합니다.                                                                                                                                                                                                                      |
@@ -465,6 +591,13 @@ RTMP 수집의 경우 AMF 메시지의 cue 특성은 [SCTE-35]에 정의 된 b a
 Azure Media Services 플랫폼을 사용 하 여 구현을 테스트할 때 인코딩 라이브 테스트로 이동 하기 전에 먼저 "통과" 라이브 테스트를 시작 하세요.
 
 ---
+
+## <a name="change-history"></a>변경 내역
+
+| 날짜     | 변경 내용                                                                            |
+|----------|------------------------------------------------------------------------------------|
+| 07/2/19  | SCTE35 지원에 대 한 RTMP 수집을 수정 했습니다. 정령 Live의 RTMP "onCuePoint"를 추가 했습니다. | 
+| 08/22/19 | 사용자 지정 메타 데이터에 대 한 OnUserDataEvent를 RTMP에 추가 하도록 업데이트 되었습니다.                         |
 
 ## <a name="next-steps"></a>다음 단계
 Media Services 학습 경로 보기.
