@@ -86,5 +86,5 @@ Data Lake Storage Gen2는 몇 가지 오픈 소스 플랫폼에서 지원합니�
 다음 문서에서는 Data Lake Storage Gen2의 기본 개념을 설명하고 데이터를 저장, 액세스, 관리하고 데이터에서 인사이트를 얻는 방법을 자세히 살펴봅니다.
 
 -   [계층 구조 네임스페이스](data-lake-storage-namespace.md)
--   [스토리지 계정을 만드는](data-lake-storage-quickstart-create-account.md)
+-   [스토리지 계정 만들기](data-lake-storage-quickstart-create-account.md)
 -   [Azure Databricks에서 Data Lake Storage Gen2 계정 사용](data-lake-storage-quickstart-create-databricks-account.md)

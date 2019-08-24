@@ -39,7 +39,7 @@ HANA 설치를 시작 하기 전에 다음의 유효성을 검사 합니다.
 - [HLI 단위](#validate-the-hana-large-instance-units)
 - [운영 체제 구성](#operating-system)
 - [네트워크 구성](#networking)
-- [Storage 구성](#storage)
+- [스토리지 구성](#storage)
 
 
 ## <a name="validate-the-hana-large-instance-units"></a>HANA 대규모 인스턴스 단위 유효성 검사
@@ -130,7 +130,7 @@ SAP NetWeaver 아키텍처를 기반으로 빌드된 SAP 애플리케이션은 S
 
 Azure의 SAP HANA(대규모 인스턴스)에서는 Azure에서 수행되는 시간 동기화가 대규모 인스턴스 스탬프의 컴퓨팅 단위에 적용되지 않습니다. 네이티브 Azure VM에서 SAP 애플리케이션을 실행하는 경우에는 이 동기화를 적용할 수 없습니다. Azure에서 시스템 시간이 적절하게 동기화되도록 하기 때문입니다. 
 
-결과적으로 Azure VM에서 실행되는 SAP 애플리케이션 서버와 HANA 대규모 인스턴스에서 실행되는 SAP HANA 데이터베이스 인스턴스에서 사용할 수 있는 별도의 시간 서버를 설정해야 합니다. 대규모 인스턴스 스탬프의 저장소 인프라는 NTP 서버와 시간 동기화됩니다.
+결과적으로 Azure VM에서 실행되는 SAP 애플리케이션 서버와 HANA 대규모 인스턴스에서 실행되는 SAP HANA 데이터베이스 인스턴스에서 사용할 수 있는 별도의 시간 서버를 설정해야 합니다. 대규모 인스턴스 스탬프의 스토리지 인프라는 NTP 서버와 시간 동기화됩니다.
 
 
 ## <a name="networking"></a>네트워킹
@@ -143,21 +143,21 @@ Azure 가상 네트워크를 설계하고 해당 가상 네트워크를 HANA 대
 
 아키텍처의 이더넷 세부 정보에 대한 자세한 내용은 [HLI 지원 시나리오](hana-supported-scenario.md)를 참조하세요.
 
-## <a name="storage"></a>저장 공간
+## <a name="storage"></a>스토리지
 
-Azure (Large Instances)의 SAP HANA에 대 한 저장소 레이아웃은 SAP 권장 지침을 `service management` 통해 azure에서 SAP HANA에 의해 구성 됩니다. 이 지침은 [SAP HANA 저장소 요구 사항](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) 백서에 나와 있습니다. 
+Azure (Large Instances)의 SAP HANA에 대 한 저장소 레이아웃은 SAP 권장 지침을 `service management` 통해 azure에서 SAP HANA에 의해 구성 됩니다. 이 지침은 [SAP HANA 스토리지 요구 사항](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) 백서에 나와 있습니다. 
 
 각기 다른 HANA 대규모 인스턴스 SKU가 포함된 다양한 볼륨의 대략적인 크기는 [Azure의 SAP HANA(대규모 인스턴스) 개요 및 아키텍처](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에 문서화되어 있습니다.
 
-저장소 볼륨에 대한 명명 규칙은 아래 테이블에 나열되어 있습니다.
+스토리지 볼륨에 대한 명명 규칙은 아래 테이블에 나열되어 있습니다.
 
-| 저장소 사용 | 탑재 이름 | 볼륨 이름 | 
+| 스토리지 사용 | 탑재 이름 | 볼륨 이름 | 
 | --- | --- | ---|
-| HANA data | /hana/data/SID/mnt0000\<m> | 저장소 IP:/hana_data_SID_mnt00001_tenant_vol |
-| HANA log | /hana/log/SID/mnt0000\<m> | 저장소 IP:/hana_log_SID_mnt00001_tenant_vol |
-| HANA log backup | /hana/log/backups | 저장소 IP:/hana_log_backups_SID_mnt00001_tenant_vol |
-| HANA shared | /hana/shared/SID | 저장소 IP:/hana_shared_SID_mnt00001_tenant_vol/shared |
-| usr/sap | /usr/sap/SID | 저장소 IP:/hana_shared_SID_mnt00001_tenant_vol/usr_sap |
+| HANA data | /hana/data/SID/mnt0000\<m> | 스토리지 IP:/hana_data_SID_mnt00001_tenant_vol |
+| HANA log | /hana/log/SID/mnt0000\<m> | 스토리지 IP:/hana_log_SID_mnt00001_tenant_vol |
+| HANA log backup | /hana/log/backups | 스토리지 IP:/hana_log_backups_SID_mnt00001_tenant_vol |
+| HANA shared | /hana/shared/SID | 스토리지 IP:/hana_shared_SID_mnt00001_tenant_vol/shared |
+| usr/sap | /usr/sap/SID | 스토리지 IP:/hana_shared_SID_mnt00001_tenant_vol/usr_sap |
 
 *SID*는 HANA 인스턴스 시스템 ID입니다. 
 
@@ -165,20 +165,20 @@ Azure (Large Instances)의 SAP HANA에 대 한 저장소 레이아웃은 SAP 권
 
 HANA usr/sap는 동일한 볼륨을 공유합니다. 탑재 지점의 명명법에는 HANA 인스턴스의 시스템 ID와 탑재 번호가 포함됩니다. 확장 배포의 경우 탑재가 하나(예: mnt00001)만 있습니다. 반면에 스케일 아웃 배포의 경우 보유한 작업자 및 마스터 노드 개수만큼 탑재가 표시됩니다. 
 
-스케일 아웃 환경에서는 데이터, 로그 및 로그 백업 볼륨이 공유되고 스케일 아웃 구성의 각 노드에 연결됩니다. 여러 SAP 인스턴스로 이루어진 구성에서는 다른 볼륨 세트가 만들어져 HANA 대규모 인스턴스 단위에 연결됩니다. 시나리오에 대한 저장소 레이아웃 정보는 [HLI 지원 시나리오](hana-supported-scenario.md)를 참조하세요.
+스케일 아웃 환경에서는 데이터, 로그 및 로그 백업 볼륨이 공유되고 스케일 아웃 구성의 각 노드에 연결됩니다. 여러 SAP 인스턴스로 이루어진 구성에서는 다른 볼륨 세트가 만들어져 HANA 대규모 인스턴스 단위에 연결됩니다. 시나리오에 대한 스토리지 레이아웃 정보는 [HLI 지원 시나리오](hana-supported-scenario.md)를 참조하세요.
 
-HANA 대규모 인스턴스 단위를 살펴보면 단위에서 HANA/data의 디스크 볼륨이 상당히 크고 HANA/log/backup 볼륨이 있다는 것을 발견합니다. HANA/data를 크게 만든 이유는 고객에게 제공되는 저장소 스냅샷이 동일한 디스크 볼륨을 사용하기 때문입니다. 저장소 스냅샷을 더 많이 수행할수록 할당된 저장소 볼륨에서 더 많은 공간이 스냅샷에 사용됩니다. 
+HANA 대규모 인스턴스 단위를 살펴보면 단위에서 HANA/data의 디스크 볼륨이 상당히 크고 HANA/log/backup 볼륨이 있다는 것을 발견합니다. HANA/data를 크게 만든 이유는 고객에게 제공되는 스토리지 스냅샷이 동일한 디스크 볼륨을 사용하기 때문입니다. 스토리지 스냅샷을 더 많이 수행할수록 할당된 스토리지 볼륨에서 더 많은 공간이 스냅샷에 사용됩니다. 
 
 HANA/log/backup 볼륨은 데이터베이스 백업용 볼륨으로 지원되지 않습니다. HANA 트랜잭션 로그 백업용 백업 볼륨으로 사용되도록 크기가 설정되었습니다. 자세한 내용은 [SAP HANA on Azure(대규모 인스턴스) 고가용성 및 재해 복구](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요. 
 
-제공된 저장소 외에도 1TB 단위로 추가 저장소 용량을 구입할 수 있습니다. 이 추가 저장소는 HANA 대규모 인스턴스에 새 볼륨으로 추가할 수 있습니다.
+제공된 스토리지 외에도 1TB 단위로 추가 스토리지 용량을 구입할 수 있습니다. 이 추가 스토리지는 HANA 대규모 인스턴스에 새 볼륨으로 추가할 수 있습니다.
 
 Azure `service management`에서 SAP HANA를 사용 하 여 온 보 딩 하는 동안 고객은 sidadm 사용자 및 sapsys 그룹에 대 한 사용자 ID (UID) 및 그룹 id (GID)를 지정 합니다. 예를 들면 다음과 같습니다. 지정합니다(예: 1000,500). SAP HANA 시스템을 설치하는 동안 동일한 값을 사용해야 합니다. 한 단위에 여러 개의 HANA 인스턴스를 배포하려고 하므로 다수의 볼륨 세트(인스턴스당 하나씩)를 갖게 됩니다. 결과적으로 배포 시 다음을 정의해야 합니다.
 
 - 다양한 HANA 인스턴스의 SID(sidadm은 여기서 파생됨)
 - 다양한 HANA 인스턴스의 메모리 크기. 인스턴스당 메모리 크기는 각각의 개별적인 볼륨 세트에서 볼륨 크기를 정의합니다.
 
-저장소 공급자 권장 사항에 따라 탑재된 모든 볼륨(부팅 LUN 제외)에 대해 다음 탑재 옵션이 구성됩니다.
+스토리지 공급자 권장 사항에 따라 탑재된 모든 볼륨(부팅 LUN 제외)에 대해 다음 탑재 옵션이 구성됩니다.
 
 - nfs    rw, vers=4, hard, timeo=600, rsize=1048576, wsize=1048576, intr, noatime, lock 0 0
 
@@ -191,9 +191,9 @@ S72m HANA 대규모 인스턴스 단위에 대한 df -h 명령의 출력은 다�
 ![HANA 큰 인스턴스 유닛의 탑재된 볼륨의 fstab](./media/hana-installation/image2_df_output.PNG)
 
 
-큰 인스턴스 스탬프의 저장소 컨트롤러와 노드는 NTP 서버와 동기화됩니다. NTP 서버를 기준으로 Azure의 SAP HANA(대규모 인스턴스) 단위와 Azure VM을 동기화하는 경우 Azure 또는 대규모 인스턴스 스탬프의 인프라 및 컴퓨팅 단위 간에 큰 시간 차이가 없어야 합니다.
+큰 인스턴스 스탬프의 스토리지 컨트롤러와 노드는 NTP 서버와 동기화됩니다. NTP 서버를 기준으로 Azure의 SAP HANA(대규모 인스턴스) 단위와 Azure VM을 동기화하는 경우 Azure 또는 대규모 인스턴스 스탬프의 인프라 및 컴퓨팅 단위 간에 큰 시간 차이가 없어야 합니다.
 
-아래 사용된 저장소에 대해 SAP HANA를 최적화하려면 다음 SAP HANA 구성 매개 변수를 설정합니다.
+아래 사용된 스토리지에 대해 SAP HANA를 최적화하려면 다음 SAP HANA 구성 매개 변수를 설정합니다.
 
 - max_parallel_io_requests 128
 - async_read_submit on
@@ -217,7 +217,7 @@ HANA 큰 인스턴스에 사용 되는 저장소에는 파일 크기 제한이 �
 
 SAP HANA 2.0에서는 hdbparam 프레임워크가 사용되지 않습니다. 따라서 SQL 명령을 사용하여 매개 변수를 설정해야 합니다. 자세한 내용은 [SAP 참고 사항 #2399079: HANA 2에서 hdbparam 제거](https://launchpad.support.sap.com/#/notes/2399079)를 참조하세요.
 
-아키텍처의 저장소 레이아웃에 대한 자세한 내용은 [HLI 지원 시나리오](hana-supported-scenario.md)를 참조하세요.
+아키텍처의 스토리지 레이아웃에 대한 자세한 내용은 [HLI 지원 시나리오](hana-supported-scenario.md)를 참조하세요.
 
 
 **다음 단계**

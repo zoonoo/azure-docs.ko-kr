@@ -55,7 +55,7 @@ GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsof
 | ![이 이미지는](media/sample-v2-code/logo_angular.png) [msal AngularJS (](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs) 각도 JS 로고 JavaScript)를 보여 줍니다.| Microsoft Graph 호출  | [MsalAngularjsDemoApp](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-angularjs/samples/MsalAngularjsDemoApp)
 | ![이 이미지는 각도 로고](media/sample-v2-code/logo_angular.png) [JavaScript (msal 각도)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular) 를 보여 줍니다.| Microsoft Graph 호출  | [MSALAngularDemoApp](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-angular/samples/MSALAngularDemoApp) |
 
-## <a name="web-applications"></a>웹 응용 프로그램
+## <a name="web-applications"></a>웹 애플리케이션
 
 다음 샘플은 사용자를 로그인하는 웹 애플리케이션을 보여 줍니다. 일부 샘플은 사용자 ID를 사용하여 Microsoft Graph 또는 사용자 고유의 웹 API를 호출하는 애플리케이션도 보여 줍니다.
 
@@ -90,7 +90,7 @@ GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsof
 
 ## <a name="headless-applications"></a>헤드리스 애플리케이션
 
-다음 샘플은 웹 브라우저가 없는 장치에서 실행되는 공용 클라이언트 애플리케이션을 보여 줍니다. 앱은 명령줄 도구, Linux 또는 Mac에서 실행 되는 앱 또는 IoT 응용 프로그램 일 수 있습니다. 이 샘플은 다른 장치 (예: 휴대폰)에서 대화형으로 로그인 한 사용자의 이름으로 Microsoft Graph API에 액세스 하는 앱의 기능을 제공 합니다. 이 클라이언트 응용 프로그램은 MSAL (Microsoft 인증 라이브러리)을 사용 합니다.
+다음 샘플은 웹 브라우저가 없는 디바이스에서 실행되는 공용 클라이언트 애플리케이션을 보여 줍니다. 앱은 명령줄 도구, Linux 또는 Mac에서 실행 되는 앱 또는 IoT 응용 프로그램 일 수 있습니다. 이 샘플은 다른 장치 (예: 휴대폰)에서 대화형으로 로그인 한 사용자의 이름으로 Microsoft Graph API에 액세스 하는 앱의 기능을 제공 합니다. 이 클라이언트 응용 프로그램은 MSAL (Microsoft 인증 라이브러리)을 사용 합니다.
 
 | 클라이언트 애플리케이션 | 플랫폼 | 흐름/권한 부여 | Microsoft Graph 호출 |
 | ------------------ | -------- |  ----------| ---------- |

@@ -36,15 +36,15 @@ Azure Cosmos DB 테이블 API와 Azure Table storage는 동일한 테이블 데�
 
 Table API를 사용하여 작업하는 방법에 관한 추가 정보는 [FAQ: Table API를 사용하여 개발](faq.md#table) 문서에서 제공됩니다.
 
-## <a name="developing-with-azure-table-storage"></a>Azure Table Storage를 사용하여 개발
+## <a name="developing-with-azure-table-storage"></a>Azure Table 스토리지를 사용하여 개발
 
 Azure Table Storage에는 개발에 사용할 수 있는 다음과 같은 SDK가 있습니다.
 
-- [WindowsAzure.Storage .NET SDK](https://www.nuget.org/packages/WindowsAzure.Storage/). 이 라이브러리를 통해 저장소 Table 서비스를 사용할 수 있습니다.
+- [WindowsAzure.Storage .NET SDK](https://www.nuget.org/packages/WindowsAzure.Storage/). 이 라이브러리를 통해 스토리지 Table 서비스를 사용할 수 있습니다.
 - [Python SDK](https://github.com/Azure/azure-cosmos-table-python). Python용 Azure Cosmos DB Table SDK는 Table Storage 서비스를 지원합니다(Azure Table Storage 및 Cosmos DB의 Table API는 동일한 기능과 함수를 공유하므로 SDK 개발 노력을 고려하기 위해 이 SDK를 사용하는 것이 좋습니다).
 - [Java용 Azure Storage SDK](https://github.com/azure/azure-storage-java). 이 Azure Storage SDK는 Java에서 Azure Table 저장소를 사용하기 위한 클라이언트 라이브러리를 제공합니다.
-- [Node.js SDK](https://github.com/Azure/azure-storage-node). 이 SDK는 저장소 Table 서비스를 사용하기 위한 Node.js 패키지 및 브라우저 호환 JavaScript 클라이언트 라이브러리를 제공합니다.
-- [AzureRmStorageTable PowerShell 모듈](https://www.powershellgallery.com/packages/AzureRmStorageTable). 이 PowerShell 모듈에는 저장소 테이블과 함께 작동하는 cmdlet이 있습니다.
+- [Node.js SDK](https://github.com/Azure/azure-storage-node). 이 SDK는 스토리지 Table 서비스를 사용하기 위한 Node.js 패키지 및 브라우저 호환 JavaScript 클라이언트 라이브러리를 제공합니다.
+- [AzureRmStorageTable PowerShell 모듈](https://www.powershellgallery.com/packages/AzureRmStorageTable). 이 PowerShell 모듈에는 스토리지 테이블과 함께 작동하는 cmdlet이 있습니다.
 - [C++용 Azure Storage 클라이언트 라이브러리](https://github.com/Azure/azure-storage-cpp/). 이 라이브러리를 사용하면 Azure Storage에 애플리케이션을 빌드할 수 있습니다.
 - [Ruby용 Azure Storage Table 클라이언트 라이브러리](https://github.com/azure/azure-storage-ruby/tree/master/table). 이 프로젝트는 Azure Storage Table 서비스에 쉽게 액세스할 수 있게 해주는 Ruby 패키지를 제공합니다.
 - [Azure Storage Table PHP 클라이언트 라이브러리](https://github.com/Azure/azure-storage-php/tree/master/azure-storage-table). 이 프로젝트는 Azure Storage Table 서비스에 쉽게 액세스할 수 있게 해주는 PHP 클라이언트 라이브러리를 제공합니다.
