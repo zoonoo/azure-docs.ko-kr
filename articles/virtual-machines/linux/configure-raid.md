@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/02/2017
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: a7e6c0b2f260976842a0b3ac1f7f69fa859e2283
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
-ms.translationtype: HT
+ms.openlocfilehash: d194f4d883063c27da05c9ddf63de2b225a8c10a
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671676"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69980980"
 ---
 # <a name="configure-software-raid-on-linux"></a>Linux에서 소프트웨어 RAID 구성
 Azure에서 Linux 가상 머신의 소프트웨어 RAID를 사용하여 연결된 여러 데이터 디스크를 단일 RAID 디바이스로 나타내는 것이 일반적인 시나리오입니다. 일반적으로 이 시나리오는 단일 디스크만 사용하는 경우와 비교하여 성능을 개선하고 처리량을 향상하기 위해 사용할 수 있습니다.
@@ -122,19 +122,19 @@ RAID 디바이스를 구성하는 데 두 개 이상의 빈 데이터 디스크�
 
 1. 새 RAID 디바이스에서 파일 시스템 만들기
    
-    a. **CentOS, Oracle Linux, SLES 12, openSUSE 및 Ubuntu**
+    **CentOS, Oracle Linux, SLES 12, openSUSE 및 Ubuntu**
 
     ```bash   
     sudo mkfs -t ext4 /dev/md127
     ```
    
-    b. **SLES 11**
+    **SLES 11**
 
     ```bash
     sudo mkfs -t ext3 /dev/md127
     ```
    
-    c. **SLES 11** - boot.md 사용 및 mdadm.conf 만들기
+    **SLES 11** - boot.md 사용 및 mdadm.conf 만들기
 
     ```bash
     sudo -i chkconfig --add boot.md
@@ -144,7 +144,7 @@ RAID 디바이스를 구성하는 데 두 개 이상의 빈 데이터 디스크�
    > [!NOTE]
    > SUSE 시스템에서 이렇게 변경한 후에는 다시 부팅해야 할 수 있습니다. SLES 12에서는 이 단계가 필요하지 *않습니다* .
    > 
-   > 
+   
 
 ## <a name="add-the-new-file-system-to-etcfstab"></a>/etc/fstab에 새 파일 시스템 추가
 > [!IMPORTANT]

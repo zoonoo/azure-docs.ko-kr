@@ -8,12 +8,12 @@ ms.date: 09/13/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 91cde6965f3635d6d2acfaf581f570779020f8ff
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 0aa70e591c7aac977fe13ed638f8ee56b88e4bd1
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60445306"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982905"
 ---
 # <a name="azure-iot-edge-certificate-usage-detail"></a>Azure IoT Edge 인증서 사용 현황 세부 정보
 
@@ -93,17 +93,17 @@ New-CACertsCertChain rsa
 또한 이러한 명령은 “디바이스 CA 인증서”를 생성합니다.
 
 ```bash
-./certGen.sh create_edge_device_certificate "<gateway device name>"
+./certGen.sh create_edge_device_ca_certificate "<gateway device name>"
 ```
 
 ```Powershell
-New-CACertsEdgeDevice "<gateway device name>"
+New-CACertsEdgeDeviceCA "<gateway device name>"
 ```
 
-* 해당 스크립트로 전달되는 **\<gateway device name\>** 은 config.yaml에서 “hostname” 매개 변수와 **달라야 합니다**. 이러한 스크립트를 사용하면 사용자가 두 위치에 같은 이름을 사용하여 IoT Edge를 설정하는 경우 이름이 충돌하지 않도록 **\<게이트웨이 디바이스 이름\>** 에 ".ca" 문자열이 추가됨으로써 발생하는 문제를 방지할 수 있습니다. 하지만 같은 이름은 사용하지 않는 것이 좋습니다.
+* 해당 스크립트로 전달 되는 **\<게이트웨이 장치 이름은\>** 구성의 "hostname" 매개 변수와 달라 야 합니다. 이러한 스크립트를 사용하면 사용자가 두 위치에 같은 이름을 사용하여 IoT Edge를 설정하는 경우 이름이 충돌하지 않도록 **\<게이트웨이 디바이스 이름\>** 에 ".ca" 문자열이 추가됨으로써 발생하는 문제를 방지할 수 있습니다. 하지만 같은 이름은 사용하지 않는 것이 좋습니다.
 
 >[!Tip]
-> 장치 IoT “리프” 장치 및 IoT Edge를 통해 IoT 장치 SDK를 사용하는 애플리케이션에 연결하려면 장치의 연결 문자열의 끝에 선택적 GatewayHostName 매개 변수를 추가해야 합니다. Edge Hub 서버 인증서는 생성될 때 config.yaml의 소문자 버전 호스트 이름을 기반으로 하므로, 이름을 일치시키고 TLS 인증서 확인에 성공하려면 GatewayHostName 매개 변수를 소문자로 입력해야 합니다.
+> 디바이스 IoT “리프” 디바이스 및 IoT Edge를 통해 IoT 디바이스 SDK를 사용하는 애플리케이션에 연결하려면 디바이스의 연결 문자열의 끝에 선택적 GatewayHostName 매개 변수를 추가해야 합니다. Edge Hub 서버 인증서는 생성될 때 config.yaml의 소문자 버전 호스트 이름을 기반으로 하므로, 이름을 일치시키고 TLS 인증서 확인에 성공하려면 GatewayHostName 매개 변수를 소문자로 입력해야 합니다.
 
 ## <a name="example-of-iot-edge-certificate-hierarchy"></a>IoT Edge 인증서 계층 구조의 예
 

@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 05/21/2019
-ms.openlocfilehash: a1475188d2e1ab0db3dfd9775fc37d3fc0a17158
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
-ms.translationtype: HT
+ms.openlocfilehash: 1b35533eeb4c4a364588dbea11f74e8d6b76df3b
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567273"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69998217"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 메트릭 및 진단 로깅
 
@@ -96,7 +96,7 @@ Azure Portal에서 각 단일 풀링된 데이터베이스 또는 인스턴스 �
 
 탄력적 풀 및 탄력적 풀의 데이터베이스에 대 한 진단 원격 분석 스트리밍을 구성 하려면 다음 **두** 가지를 별도로 구성 해야 합니다.
 
-- 탄력적 풀에 대 한 진단 원격 분석의 스트리밍을 사용 하도록 **설정 합니다.**
+- 탄력적 풀에 대 한 진단 원격 분석의 스트리밍을 사용 하도록 설정 합니다.
 - 탄력적 풀의 각 데이터베이스에 대 한 진단 원격 분석의 스트리밍을 사용 하도록 설정
 
 탄력적 풀은 개별 데이터베이스 원격 분석과 분리 된 자체 원격 분석이 있는 데이터베이스 컨테이너 이기 때문입니다.
@@ -158,7 +158,7 @@ Azure Portal에서 각 단일 풀링된 데이터베이스 또는 인스턴스 �
 
 관리 되는 인스턴스 및 인스턴스 데이터베이스의 진단 원격 분석 스트리밍을 구성 하려면 다음 **두 가지** 를 별도로 구성 해야 합니다.
 
-- 관리 되는 인스턴스에 대 한 진단 원격 분석의 스트리밍을 사용 하도록 **설정 합니다.**
+- 관리 되는 인스턴스에 대 한 진단 원격 분석 의 스트리밍을 사용 하도록 설정 합니다.
 - 각 인스턴스 데이터베이스에 대 한 진단 원격 분석의 스트리밍을 사용 하도록 설정
 
 이는 관리 되는 인스턴스가 개별 인스턴스 데이터베이스 원격 분석과는 별개의 원격 분석이 있는 데이터베이스 컨테이너 이기 때문입니다.
@@ -344,9 +344,12 @@ Azure SQL 분석을 사용하여 SQL Database 세트를 모니터링할 수 있�
 
 또한 탄력적 풀 또는 관리되는 인스턴스를 사용하는 경우 진단 원격 분석이 작업 영역으로 스트리밍될 수 있도록 이러한 리소스에서 진단 설정을 구성해야 합니다.
 
-### <a name="use-the-sql-analytics-solution"></a>SQL Analytics 솔루션 사용
+### <a name="use-the-sql-analytics-solution-for-monitoring-and-alerting"></a>SQL Analytics 솔루션을 사용 하 여 모니터링 및 경고
 
-SQL 분석을 계층 구조 대시보드로 사용하여 SQL Database 리소스를 볼 수 있습니다. SQL Analytics 솔루션 사용 방법은 [SQL Analytics 솔루션을 사용한 SQL Database 모니터링](../log-analytics/log-analytics-azure-sql.md)을 참조하세요.
+SQL 분석을 계층 구조 대시보드로 사용하여 SQL Database 리소스를 볼 수 있습니다.
+
+- SQL Analytics 솔루션 사용 방법은 [SQL Analytics 솔루션을 사용한 SQL Database 모니터링](../log-analytics/log-analytics-azure-sql.md)을 참조하세요.
+- SQL Analytics에 따라 SQL Database 및 관리 되는 인스턴스에 대 한 경고를 설정 하는 방법을 알아보려면 [SQL Database 및 관리 되는 인스턴스에 대 한 경고 만들기](../azure-monitor/insights/azure-sql.md#analyze-data-and-create-alerts)를 참조 하세요.
 
 ## <a name="stream-into-event-hubs"></a>Event Hubs로 스트림
 
@@ -432,7 +435,7 @@ Azure SQL Database, 탄력적 풀 및 관리 되는 인스턴스에 사용할 �
 
 ### <a name="resource-usage-stats-for-managed-instance"></a>관리 되는 인스턴스의 리소스 사용 통계
 
-|속성|설명|
+|속성|Description|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure|
@@ -457,7 +460,7 @@ Azure SQL Database, 탄력적 풀 및 관리 되는 인스턴스에 사용할 �
 
 ### <a name="query-store-runtime-statistics"></a>쿼리 저장소 런타임 통계
 
-|속성|설명|
+|속성|Description|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
@@ -546,7 +549,7 @@ Azure SQL Database, 탄력적 풀 및 관리 되는 인스턴스에 사용할 �
 
 ### <a name="errors-dataset"></a>오류 데이터 세트
 
-|속성|설명|
+|속성|Description|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
@@ -651,7 +654,7 @@ Azure SQL Database, 탄력적 풀 및 관리 되는 인스턴스에 사용할 �
 
 ### <a name="deadlocks-dataset"></a>교착 상태 데이터 세트
 
-|속성|Description|
+|속성|설명|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
@@ -715,3 +718,7 @@ Event Hubs에 대해 알아보려면 다음을 확인합니다.
 
 - [Azure Event Hubs 정의](../event-hubs/event-hubs-what-is-event-hubs.md)
 - [Event Hubs 시작](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+
+Log analytics의 원격 분석을 기반으로 경고를 설정 하는 방법을 알아보려면 다음을 참조 하세요.
+
+- [SQL Database 및 관리 되는 인스턴스에 대 한 경고 만들기](../azure-monitor/insights/azure-sql.md#analyze-data-and-create-alerts)

@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: jingwang
-ms.openlocfilehash: 7b47aadc28a5e2ea6dbf2a7a8a23cdb713a0b981
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
-ms.translationtype: HT
+ms.openlocfilehash: ecdd560997391a4dfed8b01f30825eb9b3845792
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839893"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996710"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Amazon 단순 스토리지 서비스에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -24,6 +24,8 @@ ms.locfileid: "68839893"
 > * [현재 버전](connector-amazon-simple-storage-service.md)
 
 이 문서에서는 amazon S3 (Amazon Simple Storage Service)에서 데이터를 복사 하는 방법을 설명 합니다. Azure Data Factory에 대해 자세히 알아보려면 [소개 문서](introduction.md)를 참조하세요.
+
+Amazon s 3에서 Azure Storage 데이터 마이그레이션 시나리오의 경우 [Azure Data Factory를 사용 하 여 amazon s 3에서 Azure Storage로 데이터를 마이그레이션하](data-migration-guidance-s3-azure-storage.md)는 방법에 대해 자세히 알아보세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 

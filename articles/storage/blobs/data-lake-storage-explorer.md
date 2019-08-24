@@ -1,6 +1,6 @@
 ---
 title: Azure Storage Explorer를 사용하여 Azure Data Lake Storage Gen2에서 데이터 관리
-description: 이 빠른 시작에서는 Azure Storage Explorer를 사용하여 Azure Data Lake Storage Gen2 계정의 파일 시스템과 디렉터리 및 파일을 만드는 방법을 알아봅니다. 그런 다음, 파일을 로컬 컴퓨터로 다운로드하는 방법과 디렉터리의 모든 파일을 보는 방법을 알아봅니다.
+description: 이 빠른 시작에서는 Azure Storage 탐색기를 사용 하 여 디렉터리 및 파일 뿐만 아니라 Azure Data Lake Storage Gen2 계정에 컨테이너를 만드는 방법에 대해 알아봅니다. 그런 다음, 파일을 로컬 컴퓨터로 다운로드하는 방법과 디렉터리의 모든 파일을 보는 방법을 알아봅니다.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/19/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 3450de26c12d91f4be00fe39bd5703564c786190
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
-ms.translationtype: HT
+ms.openlocfilehash: 95d7a58c8188e8c6633f6be50af608aed437edff
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855603"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991412"
 ---
 # <a name="use-azure-storage-explorer-to-manage-data-in-an-azure-data-lake-storage-gen2-account"></a>Azure Storage Explorer를 사용하여 Azure Data Lake Storage Gen2 계정에서 데이터 관리
 
@@ -41,13 +41,13 @@ ms.locfileid: "68855603"
 
 ![Microsoft Azure Storage Explorer - 연결 창](media/storage-quickstart-blobs-storage-explorer/mainpage.png)
 
-## <a name="create-a-file-system"></a>파일 시스템 만들기
+## <a name="create-a-container"></a>컨테이너 만들기
 
 Blob은 항상 디렉터리에 업로드됩니다. 컴퓨터의 폴더에서 파일을 구성하는 것처럼 컨테이너를 사용하여 Blob 그룹을 구성할 수 있습니다.
 
-디렉터리를 만들려면 진행 단계에서 만든 스토리지 계정을 확장합니다. **Blob 컨테이너**를 선택하고, 마우스 오른쪽 단추로 클릭하여 **Blob 컨테이너 만들기**를 선택합니다. 파일 시스템에 대한 이름을 입력합니다. 완료되면 **Enter**를 눌러 파일 시스템을 만듭니다. Blob 디렉터리가 성공적으로 만들어졌다면 선택한 스토리지 계정에 대해 **Blob 컨테이너** 폴더 아래에 표시됩니다.
+디렉터리를 만들려면 진행 단계에서 만든 스토리지 계정을 확장합니다. **Blob 컨테이너**를 선택하고, 마우스 오른쪽 단추로 클릭하여 **Blob 컨테이너 만들기**를 선택합니다. 컨테이너의 이름을 입력 합니다. 완료 되 면 **enter** 키를 눌러 컨테이너를 만듭니다. Blob 디렉터리가 성공적으로 만들어졌다면 선택한 스토리지 계정에 대해 **Blob 컨테이너** 폴더 아래에 표시됩니다.
 
-![Microsoft Azure Storage Explorer - 파일 시스템 만들기](media/storage-quickstart-blobs-storage-explorer/creating-a-filesystem.png)
+![Microsoft Azure Storage 탐색기-컨테이너 만들기](media/storage-quickstart-blobs-storage-explorer/creating-a-filesystem.png)
 
 ## <a name="upload-blobs-to-the-directory"></a>디렉터리에 Blob 업로드
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/06/2019
-ms.openlocfilehash: ce6fc5d32fc9e17499a56cec7f4db2849370a1ec
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
-ms.translationtype: HT
+ms.openlocfilehash: d9d70444adee26eab77c0e3d256cd8f340a1b4c8
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566722"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981155"
 ---
 # <a name="hyperscale-service-tier-for-up-to-100-tb"></a>최대 100 TB에 대 한 하이퍼 크기 조정 서비스 계층
 
@@ -110,7 +110,7 @@ Azure Storage 노드는 페이지 서버에 있는 데이터의 최종 대상입
 
 하이퍼스케일 데이터베이스는 [Azure Portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) 또는 [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create)를 사용하여 만들 수 있습니다. 하이퍼스케일 데이터베이스는 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 사용해야만 사용이 가능합니다.
 
-다음 T-SQL 명령은 하이퍼스케일 데이터베이스를 생성합니다. `CREATE DATABASE` 문에 버전 및 서비스 목표를 둘 다 지정해야 합니다. 유효한 서비스 목표 목록은 [리소스 제한을](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases#hyperscale-service-tier) 참조 하세요.
+다음 T-SQL 명령은 하이퍼스케일 데이터베이스를 생성합니다. `CREATE DATABASE` 문에 버전 및 서비스 목표를 둘 다 지정해야 합니다. 유효한 서비스 목표 목록은 [리소스 제한을](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases#hyperscale-service-tier-for-provisioned-compute) 참조 하세요.
 
 ```sql
 -- Create a HyperScale Database
@@ -232,7 +232,7 @@ Azure SQL Database Hyperscale 계층은 현재 다음 지역에서 사용할 수
 | 탄력적 풀 |  탄력적 풀은 현재 SQL Database Hyperscale에서 지원 되지 않습니다.|
 | 하이퍼스케일로 마이그레이션은 현재 단방향 작업입니다. | 데이터베이스가 하이퍼스케일로 마이그레이션되고 나면 하이퍼스케일이 아닌 서비스 계층에 직접 마이그레이션할 수 없습니다. 현재 하이퍼스케일에서 하이퍼스케일이 아닌 곳으로 데이터베이스를 마이그레이션하는 유일한 방법은 BACPAC 파일을 사용하여 내보내기/가져오기를 수행하는 것 입니다.|
 | 영구적 메모리 내 개체가 있는 데이터베이스 마이그레이션 | Hyperscale은 비영구 메모리 내 개체 (테이블 형식, 네이티브 SPs 및 함수)만 지원 합니다.  데이터베이스를 Hyperscale service 계층으로 마이그레이션하기 전에 메모리 내 영구 테이블 및 기타 개체를 삭제 하 고 메모리 내 개체로 다시 만들어야 합니다.|
-| 변경 데이터 추적 | Hyperscale 데이터베이스에는 변경 데이터 추적을 사용할 수 없습니다. |
+| 변경 내용 추적 | Hyperscale 데이터베이스에 변경 내용 추적를 사용할 수 없습니다. |
 | 지역에서 복제  | Azure SQL Database Hyperscale에 대해 지역에서 복제를 구성할 수 없습니다.  지역 복원을 수행할 수 있습니다 (DR 또는 기타 목적을 위해 다른 지리에서 데이터베이스 복원). |
 | TDE/AKV 통합 | Azure Key Vault를 사용 하는 투명 한 데이터베이스 암호화 (일반적으로 사용자 지정 키 또는 BYOK 라고도 함)는 Azure SQL Database Hyperscale에 대해 아직 지원 되지 않지만 서비스 관리 키를 사용 하는 TDE는 완전히 지원 됩니다. |
 |Intelligent Database 기능 | 1. Create Index, Drop Index 고문 모델은 Hyperscale Db에 대해 학습 되지 않습니다. <br/>2. 스키마 문제, DbParameterization 변수화-최근에 추가한 관리자는 Hyperscale 데이터베이스에 대해 지원 되지 않습니다.|

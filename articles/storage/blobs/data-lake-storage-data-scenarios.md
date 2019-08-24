@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: cafe761d2b566a7bddce503765c11bf9f8e00f2a
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
-ms.translationtype: HT
+ms.openlocfilehash: 2954f0bfcfe78243c2df12182f45034f46c8391d
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847448"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991887"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>빅 데이터 요구 사항을 위한 Azure Data Lake Storage Gen2 사용
 
@@ -25,7 +25,7 @@ ms.locfileid: "68847448"
 > * 데이터 다운로드
 > * 데이터 시각화
 
-먼저 스토리지 계정과 파일 시스템을 만듭니다. 그런 다음, 데이터에 대한 액세스 권한을 부여합니다. 이 문서의 앞부분에 나오는 몇 개 섹션에서는 이러한 작업을 수행하는 방법을 설명합니다. 나머지 섹션에서는 각 처리 단계의 옵션 및 도구를 집중적으로 살펴봅니다.
+먼저 저장소 계정 및 컨테이너를 만듭니다. 그런 다음, 데이터에 대한 액세스 권한을 부여합니다. 이 문서의 앞부분에 나오는 몇 개 섹션에서는 이러한 작업을 수행하는 방법을 설명합니다. 나머지 섹션에서는 각 처리 단계의 옵션 및 도구를 집중적으로 살펴봅니다.
 
 ## <a name="create-a-data-lake-storage-gen2-account"></a>Data Lake Storage Gen2 계정 만들기
 
@@ -33,16 +33,16 @@ Data Lake Storage Gen2 계정은 계층 구조 네임스페이스가 있는 스�
 
 만드는 방법은 [빠른 시작: Azure Data Lake Storage Gen2 스토리지 계정 만들기](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 참조하세요.
 
-## <a name="create-a-file-system"></a>파일 시스템 만들기
+## <a name="create-a-container"></a>컨테이너 만들기
 
-*파일 시스템*은 폴더와 파일을 담는 컨테이너입니다. 스토리지 계정에서 데이터 수집을 시작하려면 적어도 하나 이상의 파일 시스템이 필요합니다.  다음은 파일 시스템을 만드는 데 사용할 수 있는 도구 목록입니다.
+다음은 파일에 대 한 컨테이너를 만드는 데 사용할 수 있는 도구 목록입니다.
 
 |도구 | 지침 |
 |---|--|
-|Azure Storage Explorer | [Storage Explorer를 사용하여 파일 시스템 만들기](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-explorer#create-a-file-system) |
+|Azure Storage Explorer | [Storage 탐색기를 사용 하 여 컨테이너 만들기](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-explorer#create-a-file-system) |
 |AzCopy | [AzCopyV10을 사용하여 Blob 컨테이너 또는 파일 공유 만들기](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10#transfer-files)|
-|HDInsight가 포함된 HDFS(Hadoop File System) CLI(명령줄 인터페이스) |[HDInsight가 포함된 HDFS를 사용하여 파일 시스템 만들기](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-hdfs-data-lake-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-file-system) |
-|Azure Databricks Notebook의 코드|[스토리지 계정 파일 시스템 만들기(Scala)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-databricks-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-storage-account-file-system) <br><br> [파일 시스템을 만들고 탑재(Python)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-databricks-spark?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-file-system-and-mount-it)|
+|HDInsight를 사용 하는 Hadoop 컨테이너 (HDFS) 명령줄 인터페이스 (CLI) |[HDInsight에서 HDFS를 사용 하 여 컨테이너 만들기](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-hdfs-data-lake-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-file-system) |
+|Azure Databricks Notebook의 코드|[저장소 계정 컨테이너 만들기 (Scala)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-databricks-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-storage-account-file-system) <br><br> [컨테이너 만들기 및 탑재 (Python)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-databricks-spark?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-file-system-and-mount-it)|
 
 Storage Explorer 또는 AzCopy를 사용하여 파일 시스템을 만드는 방법이 가장 쉽습니다. HDInsight 및 Databricks를 사용하여 파일 시스템을 만들려면 좀 더 많은 작업이 필요합니다. 하지만 HDInsight 또는 Databricks 클러스터를 사용하여 데이터를 처리할 계획이라면 클러스터를 먼저 만들고, HDFS CLI를 사용하여 파일 시스템을 만들어도 됩니다.  
 
