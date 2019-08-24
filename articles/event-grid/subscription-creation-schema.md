@@ -23,7 +23,7 @@ Event Grid 구독을 만들려면 이벤트 만들기 구독 작업에 요청을
 PUT /subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/{resource-provider}/{resource-type}/{resource-name}/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2018-01-01
 ``` 
 
-예를 들어 `examplegroup`이라는 리소스 그룹의 `examplestorage`라는 저장소 계정에 대한 이벤트 구독을 만들려면 다음 형식을 사용합니다.
+예를 들어 `examplegroup`이라는 리소스 그룹의 `examplestorage`라는 스토리지 계정에 대한 이벤트 구독을 만들려면 다음 형식을 사용합니다.
 
 ```HTTP
 PUT /subscriptions/{subscription-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageaccounts/examplestorage/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2018-01-01

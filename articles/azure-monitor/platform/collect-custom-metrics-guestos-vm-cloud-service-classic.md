@@ -35,11 +35,11 @@ Azure Monitor [진단 확장](diagnostics-extension-overview.md)을 사용하여
 
 - [Azure PowerShell](/powershell/azure) 또는 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)이 설치되어 있어야 합니다.
 
-## <a name="provision-a-cloud-service-and-storage-account"></a>클라우드 서비스 및 저장소 계정 프로비전 
+## <a name="provision-a-cloud-service-and-storage-account"></a>클라우드 서비스 및 스토리지 계정 프로비전 
 
 1. 클래식 클라우드 서비스를 만들고 배포합니다. 샘플 클래식 Cloud Services 애플리케이션 및 배포는 [Azure Cloud Services 및 ASP.NET 시작](../../cloud-services/cloud-services-dotnet-get-started.md)에서 확인할 수 있습니다. 
 
-2. 기존 저장소 계정을 사용하거나 새 저장소 계정을 배포할 수 있습니다. 직접 만든 클래식 클라우드 서비스와 동일한 지역에 저장소 계정이 있는 것이 가장 좋습니다. Azure Portal에서 **저장소 계정** 리소스 블레이드로 이동한 다음, **키**를 선택합니다. 저장소 계정 이름과 저장소 계정 키를 적어 둡니다. 이 정보는 이후 단계에서 필요합니다.
+2. 기존 스토리지 계정을 사용하거나 새 스토리지 계정을 배포할 수 있습니다. 직접 만든 클래식 클라우드 서비스와 동일한 지역에 스토리지 계정이 있는 것이 가장 좋습니다. Azure Portal에서 **스토리지 계정** 리소스 블레이드로 이동한 다음, **키**를 선택합니다. 스토리지 계정 이름과 스토리지 계정 키를 적어 둡니다. 이 정보는 이후 단계에서 필요합니다.
 
    ![Storage 계정 키](./media/collect-custom-metrics-guestos-vm-cloud-service-classic/storage-keys.png)
 
@@ -146,7 +146,7 @@ PowerShell을 시작하고 Azure에 로그인합니다.
 Login-AzAccount 
 ```
 
-다음 명령을 사용하여 앞에서 만든 저장소 계정의 세부 정보를 저장합니다. 
+다음 명령을 사용하여 앞에서 만든 스토리지 계정의 세부 정보를 저장합니다. 
 
 ```powershell
 $storage_account = <name of your storage account from step 3> 
@@ -166,7 +166,7 @@ Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -Sto
 ```
 
 > [!NOTE] 
-> 여전히 진단 확장 설치 중에 저장소 계정을 제공해야 합니다. 진단 구성 파일에 지정된 모든 로그 또는 성능 카운터는 지정한 저장소 계정에 기록됩니다.  
+> 여전히 진단 확장 설치 중에 스토리지 계정을 제공해야 합니다. 진단 구성 파일에 지정된 모든 로그 또는 성능 카운터는 지정한 스토리지 계정에 기록됩니다.  
 
 ## <a name="plot-metrics-in-the-azure-portal"></a>Azure Portal에서 메트릭 구성 
 

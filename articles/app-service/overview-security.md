@@ -26,7 +26,7 @@ ms.locfileid: "66475870"
 
 이 문서에서는 [Azure App Service](overview.md)에서 웹앱, 모바일 앱 백 엔드, API 앱 및 [함수 앱](/azure/azure-functions/)의 보안을 유지하는 방법을 보여 줍니다. 또한 기본 제공 App Service 기능을 사용하여 앱의 보안을 추가로 유지할 수 있는 방법도 보여 줍니다.
 
-Azure VM, 저장소, 네트워크 연결, 웹 프레임워크, 관리 및 통합 기능을 포함한 App Service의 플랫폼 구성 요소는 적극적으로 보호되고 강화됩니다. App Service는 다음 사항을 확인하기 위해 지속적으로 활발한 준수 확인을 수행합니다.
+Azure VM, 스토리지, 네트워크 연결, 웹 프레임워크, 관리 및 통합 기능을 포함한 App Service의 플랫폼 구성 요소는 적극적으로 보호되고 강화됩니다. App Service는 다음 사항을 확인하기 위해 지속적으로 활발한 준수 확인을 수행합니다.
 
 - 사용자의 앱 리소스는 다른 고객의 Azure 리소스로부터 [보호](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox)됩니다.
 - 새로 검색된 취약성을 처리하기 위해 [VM 인스턴스 및 런타임 소프트웨어가 정기적으로 업데이트됩니다](overview-patch-os-runtime.md). 

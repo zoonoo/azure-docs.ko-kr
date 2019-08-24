@@ -119,8 +119,8 @@ Azure의 가상 네트워크에 대한 자세한 내용은 [가상 네트워크 
 
 **확인**을 클릭합니다.
 
-### <a name="virtual-machine-size-storage-settings"></a>가상 컴퓨터 크기, 저장소 설정
-**VM 크기, 저장소 설정**에서 SQL Server 가상 머신 크기를 선택하고 다른 설정을 검토합니다.
+### <a name="virtual-machine-size-storage-settings"></a>가상 컴퓨터 크기, 스토리지 설정
+**VM 크기, 스토리지 설정**에서 SQL Server 가상 머신 크기를 선택하고 다른 설정을 검토합니다.
 
 * **SQL Server 가상 머신 크기**는 SQL Server를 실행하는 두 가상 머신의 크기입니다. 워크로드에 적합한 가상 머신 크기를 선택합니다. 자습서에서 이 환경을 빌드하는 경우 **DS2**를 사용합니다. 프로덕션 워크로드에서 워크로드를 지원할 수 있는 가상 머신 크기를 선택합니다. 대부분의 프로덕션 워크로드에서는 **DS4** 이상이 필요합니다. 템플릿은 이 크기의 두 가상 머신을 빌드하고 각 컴퓨터에 SQL Server를 설치합니다. 자세한 내용은 [가상 머신의 크기](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
@@ -134,7 +134,7 @@ Azure의 가상 네트워크에 대한 자세한 내용은 [가상 네트워크 
 * **SQL Storage 계정**은 SQL Server 데이터 및 운영 체제 디스크를 유지하는 Storage 계정의 이름입니다. 이 자습서에서는 **alwaysonsql01**을 사용합니다.
 * **DC Storage 계정** 은 도메인 컨트롤러에 대한 Storage 계정의 이름입니다. 이 자습서에서는 **alwaysondc01**을 사용합니다.
 * **SQL Server 데이터 디스크 크기** (TB 단위)는 SQL Server 데이터 디스크의 크기(TB 단위)입니다. 1~4 사이에서 숫자를 지정합니다. 이 자습서에서는 **1**을 사용합니다.
-* **저장소 최적화**는 워크로드 형식에 따라 SQL Server 가상 머신에 대한 특정 저장소 구성 설정을 설정합니다. 이 시나리오에서 모든 SQL Server 가상 머신은 읽기 전용으로 설정된 Azure 디스크 호스트 캐시로 Premium Storage를 사용합니다. 또한 이러한 세 가지 설정 중 하나를 선택하여 워크로드에 대한 SQL Server 설정을 최적화할 수 있습니다.
+* **스토리지 최적화**는 워크로드 형식에 따라 SQL Server 가상 머신에 대한 특정 스토리지 구성 설정을 설정합니다. 이 시나리오에서 모든 SQL Server 가상 머신은 읽기 전용으로 설정된 Azure 디스크 호스트 캐시로 Premium Storage를 사용합니다. 또한 이러한 세 가지 설정 중 하나를 선택하여 워크로드에 대한 SQL Server 설정을 최적화할 수 있습니다.
 
   * **일반 워크로드**는 특정 구성 설정을 설정하지 않음
   * **트랜잭션 처리**는 추적 플래그 1117 및 1118을 설정함
@@ -142,12 +142,12 @@ Azure의 가상 네트워크에 대한 자세한 내용은 [가상 네트워크 
 
 이 자습서에서는 **일반 워크로드**를 사용합니다.
 
-![VM 크기 저장소 설정](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/4-vm.png)
+![VM 크기 스토리지 설정](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/4-vm.png)
 
 설정을 검토한 다음 **확인**을 클릭합니다.
 
-#### <a name="a-note-about-storage"></a>저장소에 대한 정보
-추가 최적화는 SQL Server 데이터 디스크의 크기에 따라 달라집니다. 데이터 디스크의 각 테라바이트에 대해 Azure는 1TB Premium Storage를 더 추가합니다. 서버에 2TB 이상이 필요한 경우 템플릿은 각 SQL Server 가상 머신에 저장소 풀을 만듭니다. 저장소 풀은 여러 디스크가 높은 용량, 복원력 및 성능을 제공하도록 구성된 저장소 가상화의 형태입니다.  그런 다음 템플릿은 저장소 풀에 저장소 공간을 만들고 운영 체제에 단일 데이터 디스크를 표시합니다. 템플릿은 SQL Server에서 이 디스크를 데이터 디스크로 지정합니다. 템플릿은 다음 설정을 사용하여 SQL Server에 대한 저장소 풀을 조정합니다.
+#### <a name="a-note-about-storage"></a>스토리지에 대한 정보
+추가 최적화는 SQL Server 데이터 디스크의 크기에 따라 달라집니다. 데이터 디스크의 각 테라바이트에 대해 Azure는 1TB Premium Storage를 더 추가합니다. 서버에 2TB 이상이 필요한 경우 템플릿은 각 SQL Server 가상 머신에 스토리지 풀을 만듭니다. 스토리지 풀은 여러 디스크가 높은 용량, 복원력 및 성능을 제공하도록 구성된 스토리지 가상화의 형태입니다.  그런 다음 템플릿은 스토리지 풀에 스토리지 공간을 만들고 운영 체제에 단일 데이터 디스크를 표시합니다. 템플릿은 SQL Server에서 이 디스크를 데이터 디스크로 지정합니다. 템플릿은 다음 설정을 사용하여 SQL Server에 대한 스토리지 풀을 조정합니다.
 
 * 줄무늬 크기는 가상 디스크에 대한 인터리빙 설정입니다. 트랜잭션 워크로드에는 64KB가 사용되고, 데이터 웨어하우징 워크로드에는 256KB가 사용됩니다.
 * 복원력은 단순합니다(복원력 없음).
@@ -157,11 +157,11 @@ Azure의 가상 네트워크에 대한 자세한 내용은 [가상 네트워크 
 >
 >
 
-* 열 개수는 저장소 풀의 디스크 수와 같습니다.
+* 열 개수는 스토리지 풀의 디스크 수와 같습니다.
 
-저장소 공간 및 저장소 풀에 대한 자세한 내용은 다음을 참조하세요.
+스토리지 공간 및 스토리지 풀에 대한 자세한 내용은 다음을 참조하세요.
 
-* [저장소 공간 개요](https://technet.microsoft.com/library/hh831739.aspx)
+* [스토리지 공간 개요](https://technet.microsoft.com/library/hh831739.aspx)
 * [Windows Server Backup 및 Storage 풀](https://technet.microsoft.com/library/dn390929.aspx)
 
 SQL Server 구성 모범 사례에 대한 자세한 내용은 [Azure 가상 머신의 SQL Server에 대한 성능 모범 사례](virtual-machines-windows-sql-performance.md)를 참조하세요.

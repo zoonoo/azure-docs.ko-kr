@@ -36,7 +36,7 @@ Cloud Shell은 Azure CLI 및 Azure PowerShell에 대한 계정 액세스를 안�
 ### <a name="home-persistence-across-sessions"></a>여러 세션에 걸친 $HOME 지속성
 
 세션 간에 파일을 유지하기 위해 Cloud Shell에서는 처음 시작할 때 Azure 파일 공유 연결을 안내합니다.
-작업이 완료되면 Azure Cloud Shell은 이후의 모든 세션에 대해 저장소(`$HOME\clouddrive`로 장착됨)를 자동으로 연결합니다.
+작업이 완료되면 Azure Cloud Shell은 이후의 모든 세션에 대해 스토리지(`$HOME\clouddrive`로 장착됨)를 자동으로 연결합니다.
 또한 `$HOME` 디렉터리는 Azure 파일 공유에서 .img로 유지됩니다.
 `$HOME` 외부에 있는 파일 및 컴퓨터 상태는 세션 간에 지속 되지 않습니다. SSH 키와 같은 비밀을 저장하는 경우 모범 사례를 사용합니다. [Azure Key Vault와 같은 서비스에는 설치에 대한 자습서가 있습니다](https://docs.microsoft.com/azure/key-vault/key-vault-manage-with-cli2#prerequisites).
 

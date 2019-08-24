@@ -16,7 +16,7 @@ ms.lasthandoff: 08/02/2019
 ms.locfileid: "68735464"
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>Azure Stack의 파일 및 애플리케이션 백업
-Azure Backup을 사용하여 Azure Stack의 파일 및 애플리케이션을 보호(또는 백업)합니다. 파일 및 애플리케이션을 백업하려면 Microsoft Azure Backup Server를 Azure Stack에서 실행되는 가상 머신으로 설치합니다. 동일한 가상 네트워크의 Azure Stack 서버에서 파일을 보호할 수 있습니다. Azure Backup Server를 설치하면 Azure 디스크를 추가하여 단기 백업 데이터에 사용할 수 있는 로컬 저장소를 증가시킵니다. Azure Backup Server는 장기 보존을 위해 Azure Storage를 사용합니다.
+Azure Backup을 사용하여 Azure Stack의 파일 및 애플리케이션을 보호(또는 백업)합니다. 파일 및 애플리케이션을 백업하려면 Microsoft Azure Backup Server를 Azure Stack에서 실행되는 가상 머신으로 설치합니다. 동일한 가상 네트워크의 Azure Stack 서버에서 파일을 보호할 수 있습니다. Azure Backup Server를 설치하면 Azure 디스크를 추가하여 단기 백업 데이터에 사용할 수 있는 로컬 스토리지를 증가시킵니다. Azure Backup Server는 장기 보존을 위해 Azure Storage를 사용합니다.
 
 > [!NOTE]
 > Azure Backup Server 및 System Center DPM(Data Protection Manager)은 유사하지만 DPM은 Azure Stack에서 사용하도록 지원되지 않습니다.
@@ -69,9 +69,9 @@ Azure Stack 가상 머신에서 파일을 보호하도록 Azure Backup Server를
 
     **파일 복구 지점**에 대해 복구 지점을 만들 시기를 지정합니다. 복구 지점을 만드는 시간 및 요일을 설정하려면 **수정**을 클릭합니다.
 
-6. **디스크 할당 검토** 화면에서 보호 그룹에 할당된 저장소 풀 디스크 공간을 검토합니다.
+6. **디스크 할당 검토** 화면에서 보호 그룹에 할당된 스토리지 풀 디스크 공간을 검토합니다.
 
-    **총 데이터 크기**는 백업할 데이터 크기이고 Azure Backup Server에 **프로비전할 디스크 공간**은 보호 그룹에 권장되는 공간입니다. Azure Backup Server는 설정에 따라 가장 적합한 백업 볼륨을 선택합니다. 하지만 사용자가 디스크 할당 세부 정보에서 백업 볼륨 선택을 편집할 수 있습니다. 워크로드의 경우 드롭다운 메뉴에서 원하는 저장소를 선택합니다. 편집을 통해 [사용 가능한 디스크 저장소] 창에서 [총 저장소] 및 [사용 가능한 저장소]의 값을 변경합니다. 미달 프로비전된 공간은 향후 원활한 백업이 가능하도록 Azure Backup Server가 볼륨에 추가하도록 제안하는 저장소 용량입니다.
+    **총 데이터 크기**는 백업할 데이터 크기이고 Azure Backup Server에 **프로비전할 디스크 공간**은 보호 그룹에 권장되는 공간입니다. Azure Backup Server는 설정에 따라 가장 적합한 백업 볼륨을 선택합니다. 하지만 사용자가 디스크 할당 세부 정보에서 백업 볼륨 선택을 편집할 수 있습니다. 워크로드의 경우 드롭다운 메뉴에서 원하는 스토리지를 선택합니다. 편집을 통해 [사용 가능한 디스크 스토리지] 창에서 [총 스토리지] 및 [사용 가능한 스토리지]의 값을 변경합니다. 미달 프로비전된 공간은 향후 원활한 백업이 가능하도록 Azure Backup Server가 볼륨에 추가하도록 제안하는 스토리지 용량입니다.
 
 7. **복제본 만들기 방법 선택**에서 초기 전체 데이터 복제를 처리하는 방법을 선택합니다. 네트워크를 통해 복제하기로 선택할 경우 Azure는 사용량이 적은 시간을 선택할 것을 권장합니다. 대용량 데이터이거나 네트워크 상태가 최적화되지 않은 경우 이동식 미디어를 사용하여 데이터 복제를 고려하세요.
 

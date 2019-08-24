@@ -33,7 +33,7 @@ Azure DevTest Labs에서는 VHD 파일을 사용하여 가상 머신을 프로�
 
 1. [Microsoft Azure Storage 탐색기 최신 버전을 다운로드하여 설치합니다](https://www.storageexplorer.com).
 
-1. Azure Portal을 사용하여 랩의 저장소 계정 이름을 가져옵니다.
+1. Azure Portal을 사용하여 랩의 스토리지 계정 이름을 가져옵니다.
 
     1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
     
@@ -53,17 +53,17 @@ Azure DevTest Labs에서는 VHD 파일을 사용하여 가상 머신을 프로�
     
         ![PowerShell을 사용하여 VHD 업로드][0]
     
-    1. **PowerShell을 사용하여 이미지 업로드** 블레이드는 **Add-AzureVhd** cmdlet에 대한 호출을 표시합니다. 첫 번째 매개 변수(*대상*)는 다음 형식으로 랩에 대한 저장소 계정 이름을 포함합니다.
+    1. **PowerShell을 사용하여 이미지 업로드** 블레이드는 **Add-AzureVhd** cmdlet에 대한 호출을 표시합니다. 첫 번째 매개 변수(*대상*)는 다음 형식으로 랩에 대한 스토리지 계정 이름을 포함합니다.
     
         `https://<STORAGE-ACCOUNT-NAME>.blob.core.windows.net/uploads/...`
 
-    1. 이후 단계에서 사용되므로 저장소 계정 이름을 기록해 둡니다.
+    1. 이후 단계에서 사용되므로 스토리지 계정 이름을 기록해 둡니다.
     
 1. Storage Explorer를 사용하여 Azure 구독 계정에 연결합니다.
 
     > [!TIP] 
     > 
-    > Storage Explorer는 여러 가지 연결 옵션을 지원합니다. 이 섹션에서는 Azure 구독과 연결된 저장소 계정에 연결하는 방법을 보여 줍니다. Storage Explorer에서 지원하는 다른 연결 옵션을 보려면 [Storage Explorer 시작](../vs-azure-tools-storage-manage-with-storage-explorer.md) 문서를 참조하세요.
+    > Storage Explorer는 여러 가지 연결 옵션을 지원합니다. 이 섹션에서는 Azure 구독과 연결된 스토리지 계정에 연결하는 방법을 보여 줍니다. Storage Explorer에서 지원하는 다른 연결 옵션을 보려면 [Storage Explorer 시작](../vs-azure-tools-storage-manage-with-storage-explorer.md) 문서를 참조하세요.
  
     1. Storage Explorer를 엽니다.
     
@@ -79,17 +79,17 @@ Azure DevTest Labs에서는 VHD 파일을 사용하여 가상 머신을 프로�
     
         ![Azure 구독 선택][3]
     
-    1. 왼쪽 창은 선택한 Azure 구독과 연결된 저장소 계정을 표시합니다.
+    1. 왼쪽 창은 선택한 Azure 구독과 연결된 스토리지 계정을 표시합니다.
     
         ![선택한 Azure 구독][4]
 
-1. 랩의 저장소 계정 찾기:
+1. 랩의 스토리지 계정 찾기:
 
     1. Storage Explorer 왼쪽 창에서 랩을 소유한 Azure 구독에 해당하는 노드를 찾아 확장합니다.
     
     1. 구독 노드 아래에서 **Storage 계정**을 확장합니다.
 
-    1. **Blob 컨테이너**, **파일 공유**, **큐** 및 **테이블**에 대한 노드가 나타나도록 랩의 저장소 계정 노드를 확장합니다.
+    1. **Blob 컨테이너**, **파일 공유**, **큐** 및 **테이블**에 대한 노드가 나타나도록 랩의 스토리지 계정 노드를 확장합니다.
     
     1. **Blob 컨테이너** 노드를 확장합니다.
     

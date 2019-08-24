@@ -21,7 +21,7 @@ ms.locfileid: "60370290"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-sql-databases"></a>Azure SQL Database에 예약 할인은 적용 하는 방법
 
-Azure SQL Database 예약된 용량을 구입한 후 예약 할인이 예약의 특성 및 수량과 일치하는 SQL Database에 자동으로 적용됩니다. 예약은 SQL Database의 컴퓨팅 비용을 포함합니다. 정상 요금으로 소프트웨어, 저장소 및 네트워킹에 대한 요금이 청구됩니다. [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)을 사용하여 SQL Database에 대한 라이선스 비용을 처리할 수 있습니다.
+Azure SQL Database 예약된 용량을 구입한 후 예약 할인이 예약의 특성 및 수량과 일치하는 SQL Database에 자동으로 적용됩니다. 예약은 SQL Database의 컴퓨팅 비용을 포함합니다. 정상 요금으로 소프트웨어, 스토리지 및 네트워킹에 대한 요금이 청구됩니다. [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)을 사용하여 SQL Database에 대한 라이선스 비용을 처리할 수 있습니다.
 
 Reserved Virtual Machine Instances의 경우 [Azure Reserved VM Instances 할인 이해](billing-understand-vm-reservation-charges.md)를 참조하세요.
 

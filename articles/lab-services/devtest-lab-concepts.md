@@ -49,7 +49,7 @@ VM이 프로비전된 후 애플리케이션을 배포하고 구성하기 위해
 
 * VM에 설치하려는 도구(예: 에이전트, Fiddler 및 Visual Studio)
 * VM에서 실행하려는 작업(예: 리포지토리 복제)
-* 테스트하려는 애플리케이션
+* 테스트하려는 애플리케이션.
 
 아티팩트는 배포를 수행하고 구성을 적용하기 위한 지침이 포함된 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) JSON 파일입니다.
 

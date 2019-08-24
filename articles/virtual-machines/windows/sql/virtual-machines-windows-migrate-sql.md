@@ -61,13 +61,13 @@ Azure VM에서 온-프레미스 SQL Server 사용자 데이터베이스를 SQL S
 
 | 방법 | 원본 데이터베이스 버전 | 대상 데이터베이스 버전 | 원본 데이터베이스 백업 크기 제약 조건 | 메모 |
 | --- | --- | --- | --- | --- |
-| [압축을 사용하여 온-프레미스 백업을 수행하고 Azure 가상 머신에 백업 파일을 수동으로 복사](#backup-and-restore) |SQL Server 2005 이상 |SQL Server 2005 이상 |[Azure VM 저장소 제한](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) | 컴퓨터 간에 데이터베이스를 이동하는 매우 간단하고 검증된 방법입니다. |
+| [압축을 사용하여 온-프레미스 백업을 수행하고 Azure 가상 머신에 백업 파일을 수동으로 복사](#backup-and-restore) |SQL Server 2005 이상 |SQL Server 2005 이상 |[Azure VM 스토리지 제한](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) | 컴퓨터 간에 데이터베이스를 이동하는 매우 간단하고 검증된 방법입니다. |
 | [URL에 백업을 수행하고 URL에서 Azure 가상 머신으로 복원](#backup-to-url-and-restore) |SQL Server 2012 SP1 CU2 이상 |SQL Server 2012 SP1 CU2 이상 |SQL Server 2016의 경우 12.8TB 미만, 그렇지 않은 경우 1TB 미만 | 이 방법은 Azure Storage를 사용하여 VM에 백업 파일을 이동하는 또 다른 방법입니다. |
-| [데이터와 로그 파일을 분리하여 Azure Blob Storage에 복사한 후 URL로 Azure 가상 머신의 SQL Server에 첨부](#detach-and-attach-from-url) |SQL Server 2005 이상 |SQL Server 2014 이상 |[Azure VM 저장소 제한](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Azure File Storage를 DSVM에 탑재하려면 [데이터 과학 팀에 대한 팀 리더 작업](https://msdn.microsoft.com/library/dn385720.aspx)의 섹션 4에서 설명하는 지침을 참조하세요. |
-| 이 가이드는 Microsoft Azure File Storage 서비스에서 기본 작업을 수행하는 방법을 알려줍니다. |SQL Server 2005 이상 |SQL Server 2005 이상 |[Azure VM 저장소 제한](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |[자체 SQL Server 라이선스를 소유](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md)하는 경우, 이전 버전의 SQL Server에서 실행되는 데이터베이스를 마이그레이션하는 경우, 또는 다른 사용자 데이터베이스 및/또는 시스템 데이터베이스에 종속되는 데이터베이스 마이그레이션의 일부로 시스템과 사용자 데이터베이스를 함께 마이그레이션하는 경우에 사용합니다. |
-| [Windows Import/Export 서비스를 사용하여 하드 드라이브 제공](#ship-hard-drive) |SQL Server 2005 이상 |SQL Server 2005 이상 |[Azure VM 저장소 제한](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |매우 큰 데이터베이스에 사용하는 경우와 같이 수동 복사 메서드가 너무 느린 경우 [Windows Import/Export 서비스](../../../storage/common/storage-import-export-service.md) 를 사용 |
-| [Azure Replica Wizard 추가 사용](../sqlclassic/virtual-machines-windows-classic-sql-onprem-availability.md) |SQL Server 2012 이상 |SQL Server 2012 이상 |[Azure VM 저장소 제한](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |가동 중지 시간을 최소화하고 Always On 온-프레미스 배포가 있는 경우 사용 |
-| [SQL Server 트랜잭션 복제 사용](https://msdn.microsoft.com/library/ms151176.aspx) |SQL Server 2005 이상 |SQL Server 2005 이상 |[Azure VM 저장소 제한](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |가동 중지 시간을 최소화하고 Always On 온-프레미스 배포가 없는 경우 사용 |
+| [데이터와 로그 파일을 분리하여 Azure Blob Storage에 복사한 후 URL로 Azure 가상 머신의 SQL Server에 첨부](#detach-and-attach-from-url) |SQL Server 2005 이상 |SQL Server 2014 이상 |[Azure VM 스토리지 제한](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Azure File Storage를 DSVM에 탑재하려면 [데이터 과학 팀에 대한 팀 리더 작업](https://msdn.microsoft.com/library/dn385720.aspx)의 섹션 4에서 설명하는 지침을 참조하세요. |
+| 이 가이드는 Microsoft Azure File Storage 서비스에서 기본 작업을 수행하는 방법을 알려줍니다. |SQL Server 2005 이상 |SQL Server 2005 이상 |[Azure VM 스토리지 제한](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |[자체 SQL Server 라이선스를 소유](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md)하는 경우, 이전 버전의 SQL Server에서 실행되는 데이터베이스를 마이그레이션하는 경우, 또는 다른 사용자 데이터베이스 및/또는 시스템 데이터베이스에 종속되는 데이터베이스 마이그레이션의 일부로 시스템과 사용자 데이터베이스를 함께 마이그레이션하는 경우에 사용합니다. |
+| [Windows Import/Export 서비스를 사용하여 하드 드라이브 제공](#ship-hard-drive) |SQL Server 2005 이상 |SQL Server 2005 이상 |[Azure VM 스토리지 제한](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |매우 큰 데이터베이스에 사용하는 경우와 같이 수동 복사 메서드가 너무 느린 경우 [Windows Import/Export 서비스](../../../storage/common/storage-import-export-service.md) 를 사용 |
+| [Azure Replica Wizard 추가 사용](../sqlclassic/virtual-machines-windows-classic-sql-onprem-availability.md) |SQL Server 2012 이상 |SQL Server 2012 이상 |[Azure VM 스토리지 제한](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |가동 중지 시간을 최소화하고 Always On 온-프레미스 배포가 있는 경우 사용 |
+| [SQL Server 트랜잭션 복제 사용](https://msdn.microsoft.com/library/ms151176.aspx) |SQL Server 2005 이상 |SQL Server 2005 이상 |[Azure VM 스토리지 제한](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |가동 중지 시간을 최소화하고 Always On 온-프레미스 배포가 없는 경우 사용 |
 
 ## <a name="backup-and-restore"></a>Backup 및 복원
 압축을 사용하여 데이터베이스를 백업하고 VM에 백업을 복사한 다음 데이터베이스를 복원합니다. 백업 파일이 1TB를 초과하는 경우에는 VM 디스크의 최대 크기가 1TB이므로 백업 파일을 스트라이핑해야 합니다. 수동 메서드를 사용하여 사용자 데이터베이스를 마이그레이션하려면 다음과 같은 일반적인 단계를 사용합니다.
@@ -98,7 +98,7 @@ Azure VM에서 온-프레미스 SQL Server 사용자 데이터베이스를 SQL S
 > 전체 애플리케이션을 마이그레이션하려면 [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md)사용을 고려합니다.
 
 ## <a name="ship-hard-drive"></a>하드 드라이브를 제공합니다.
-팀 리더 및/또는 프로젝트 리더가 DSVM에 탑재해야 하는 Azure File Storage를 만든 경우 해당 Azure 파일 스토리지 정보를 가져와야 합니다. 이 서비스를 사용하여 해당 데이터가 포함된 하나 이상의 하드 드라이브를 Azure 데이터 센터로 보내서 데이터를 저장소 계정으로 업로드할 수 있습니다.
+팀 리더 및/또는 프로젝트 리더가 DSVM에 탑재해야 하는 Azure File Storage를 만든 경우 해당 Azure 파일 스토리지 정보를 가져와야 합니다. 이 서비스를 사용하여 해당 데이터가 포함된 하나 이상의 하드 드라이브를 Azure 데이터 센터로 보내서 데이터를 스토리지 계정으로 업로드할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 Azure Virtual Machines의 SQL Server 실행에 대한 자세한 내용은 [Azure Virtual Machines의 SQL Server 개요](virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.

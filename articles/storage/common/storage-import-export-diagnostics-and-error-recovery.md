@@ -16,7 +16,7 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "61478813"
 ---
 # <a name="diagnostics-and-error-recovery-for-azure-importexport-jobs"></a>Azure Import/Export 작업에 대한 진단 및 오류 복구
-처리된 각 드라이브의 경우 Azure Import/Export 서비스가 연결된 저장소 계정에 오류 로그를 만듭니다. [작업 배치](/rest/api/storageimportexport/jobs) 또는 [업데이트 작업 속성](/rest/api/storageimportexport/jobs) 작업을 호출할 때 `LogLevel` 속성을 `Verbose`로 설정하여 자세한 정보 로깅을 사용하도록 설정할 수도 있습니다.
+처리된 각 드라이브의 경우 Azure Import/Export 서비스가 연결된 스토리지 계정에 오류 로그를 만듭니다. [작업 배치](/rest/api/storageimportexport/jobs) 또는 [업데이트 작업 속성](/rest/api/storageimportexport/jobs) 작업을 호출할 때 `LogLevel` 속성을 `Verbose`로 설정하여 자세한 정보 로깅을 사용하도록 설정할 수도 있습니다.
 
  기본적으로 로그는 `waimportexport`라는 컨테이너에 기록됩니다. `Put Job` 또는 `Update Job Properties` 조작을 호출할 때 `DiagnosticsPath` 속성을 설정하여 다른 이름을 지정할 수 있습니다. 로그는 다음 명명 규칙을 사용하여 블록 Blob으로 저장됩니다. `waies/jobname_driveid_timestamp_logtype.xml`.
 

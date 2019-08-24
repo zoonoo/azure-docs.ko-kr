@@ -25,7 +25,7 @@ ms.locfileid: "60900396"
 Power BI에 Application Insights 데이터를 내보내는 세 가지 방법이 있습니다.
 
 * [**Analytics 쿼리 내보내기**](#export-analytics-queries). 이것은 기본적으로 사용되는 방법입니다. 원하는 쿼리를 작성하여 Power BI에 내보냅니다. 이 쿼리를 다른 데이터와 함께 대시보드에 배치할 수 있습니다.
-* [**연속 내보내기 및 Azure Stream Analytics**](../../azure-monitor/app/export-stream-analytics.md). 이 방법은 데이터를 오랜 기간 저장하려는 경우에 유용합니다. 데이터를 오랜 기간 보존해야 할 필요가 없다면 분석 쿼리를 내보내는 방법을 사용하세요. 연속 내보내기 및 Stream Analytics의 경우 추가 설정 작업이 필요하고 저장 오버헤드가 추가로 발생합니다.
+* [**연속 내보내기 및 Azure Stream Analytics**](../../azure-monitor/app/export-stream-analytics.md). 이 방법은 데이터를 오랜 기간 저장하려는 경우에 유용합니다. 데이터를 오랜 기간 보존해야 할 필요가 없다면 분석 쿼리를 내보내는 방법을 사용하세요. 연속 내보내기 및 Stream Analytics의 경우 추가 설정 작업이 필요하고 스토리지 오버헤드가 추가로 발생합니다.
 * **Power BI 어댑터**. 일련의 차트가 미리 정의되어 있으나, 다른 원본에서 직접 쿼리를 추가할 수 있습니다.
 
 > [!NOTE]

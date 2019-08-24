@@ -90,4 +90,4 @@ VS Code에서 다음 절차에 따라 직렬 모니터를 열고 설정합니다
 이제 MXChip Iot DevKit를 MQTT 클라이언트로 구성하고, MQTT 클라이언트 라이브러리를 사용하여 메시지를 MQTT broker에 보내는 방법을 알아보았으므로 여기서 제안되는 단계는 다음과 같습니다.
 
 * [Azure IoT 원격 모니터링 솔루션 가속기 개요](https://docs.microsoft.com/azure/iot-suite/)
-* [Azure IoT Central 애플리케이션에 MXChip IoT DevKit 장치 연결](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)
+* [Azure IoT Central 애플리케이션에 MXChip IoT DevKit 디바이스 연결](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)

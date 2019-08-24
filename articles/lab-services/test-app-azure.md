@@ -27,7 +27,7 @@ ms.locfileid: "65872479"
 ## <a name="prerequisites"></a>필수 조건 
 1. Azure 구독이 아직 없는 경우에는 [Azure 구독을 만들고](https://azure.microsoft.com/free/) [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. [이 문서](devtest-lab-create-lab.md)의 지침에 따라 Azure DevTest Labs를 사용하여 랩을 만듭니다. 나중에 로그인할 때 쉽게 찾을 수 있도록 랩을 대시보드에 고정합니다. Azure DevTest Labs를 사용하면 폐기물을 최소화하고 비용을 제어하여 Azure 내에서 리소스를 빠르게 만들 수 있습니다. DevTest Labs에 대한 자세한 내용은 [개요](devtest-lab-overview.md)를 참조하세요. 
-3. [스토리지 계정 만들기](../storage/common/storage-create-storage-account.md) 문서의 지침에 따라 랩의 리소스 그룹에 Azure Storage 계정을 만듭니다. **저장소 계정 만들기** 페이지에서 **리소스 그룹**에 **기존 사용**을 선택하고 **랩 리소스 그룹**을 선택합니다. 
+3. [스토리지 계정 만들기](../storage/common/storage-create-storage-account.md) 문서의 지침에 따라 랩의 리소스 그룹에 Azure Storage 계정을 만듭니다. **스토리지 계정 만들기** 페이지에서 **리소스 그룹**에 **기존 사용**을 선택하고 **랩 리소스 그룹**을 선택합니다. 
 4. [Azure 파일에 파일 공유 만들기](../storage/files/storage-how-to-create-file-share.md) 문서에 있는 지침에 따라 Azure Storage에서 파일 공유를 만듭니다. 
 
 ## <a name="mount-the-file-share-on-your-local-machine"></a>로컬 컴퓨터에 파일 공유 탑재

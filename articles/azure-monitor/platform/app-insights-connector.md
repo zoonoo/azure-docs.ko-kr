@@ -54,7 +54,7 @@ Application Insights 커넥터 솔루션은 성능 문제를 진단하고 [Appli
 | [Windows 에이전트](../../azure-monitor/platform/agent-windows.md) | 아니요 | 솔루션이 Windows 에이전트에서 정보를 수집하지 않습니다. |
 | [Linux 에이전트](../../azure-monitor/learn/quick-collect-linux-computer.md) | 아니요 | 솔루션이 Linux 에이전트에서 정보를 수집하지 않습니다. |
 | [SCOM 관리 그룹](../../azure-monitor/platform/om-agents.md) | 아니요 | 솔루션이 연결된 SCOM 관리 그룹의 에이전트에서 정보를 수집하지 않습니다. |
-| [Azure 저장소 계정](collect-azure-metrics-logs.md) | 아니요 | 솔루션이 Azure Storage에서 정보를 수집하지 않습니다. |
+| [Azure Storage 계정](collect-azure-metrics-logs.md) | 아니요 | 솔루션이 Azure Storage에서 정보를 수집하지 않습니다. |
 
 ## <a name="prerequisites"></a>필수 구성 요소
 

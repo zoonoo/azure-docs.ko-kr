@@ -57,17 +57,17 @@ az network vpn-connection list --resource-group resourceGroupName
 az network vpn-connection show --resource-group resourceGroupName --ids vpnConnectionIds
 ```
 
-## <a name="create-a-storage-account"></a>저장소 계정 만들기
+## <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
-리소스 문제 해결은 리소스의 상태에 대한 데이터를 반환하고 검토할 스토리지 계정에 로그를 저장합니다. 이 단계에서는 저장소 계정을 만듭니다. 기존 저장소 계정이 있는 경우 사용할 수 있습니다.
+리소스 문제 해결은 리소스의 상태에 대한 데이터를 반환하고 검토할 스토리지 계정에 로그를 저장합니다. 이 단계에서는 스토리지 계정을 만듭니다. 기존 스토리지 계정이 있는 경우 사용할 수 있습니다.
 
-1. 저장소 계정 만들기
+1. 스토리지 계정 만들기
 
     ```azurecli
     az storage account create --name storageAccountName --location westcentralus --resource-group resourceGroupName --sku Standard_LRS
     ```
 
-1. 저장소 계정 키 가져오기
+1. 스토리지 계정 키 가져오기
 
     ```azurecli
     az storage account keys list --resource-group resourcegroupName --account-name storageAccountName
@@ -81,7 +81,7 @@ az network vpn-connection show --resource-group resourceGroupName --ids vpnConne
 
 ## <a name="run-network-watcher-resource-troubleshooting"></a>Network Watcher 리소스 문제 해결 실행
 
-`az network watcher troubleshooting` cmdlet을 사용하여 리소스의 문제를 해결합니다. 리소스 그룹, Network Watcher의 이름, 연결의 ID, 저장소 계정의 ID 및 Blob에 대한 경로에 cmdlet을 전달하여 문제 해결 결과를 저장합니다.
+`az network watcher troubleshooting` cmdlet을 사용하여 리소스의 문제를 해결합니다. 리소스 그룹, Network Watcher의 이름, 연결의 ID, 스토리지 계정의 ID 및 Blob에 대한 경로에 cmdlet을 전달하여 문제 해결 결과를 저장합니다.
 
 ```azurecli
 az network watcher troubleshooting start --resource-group resourceGroupName --resource resourceName --resource-type {vnetGateway/vpnConnection} --storage-account storageAccountName  --storage-path https://{storageAccountName}.blob.core.windows.net/{containerName}

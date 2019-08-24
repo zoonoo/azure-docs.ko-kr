@@ -366,7 +366,7 @@ VPAID는 실행 가능한 광고 단위가 비디오 플레이어와 통신하�
 실행 가능한 광고는 VAST 응답의 `<Linear>` 또는 `<NonLinear>` 요소 내에서 `<AdParameters>` 요소를 사용하여 초기화할 수 있습니다. `<AdParameters>` 요소에 대한 자세한 내용은 [VAST 3.0](https://www.iab.net/media/file/VASTv3.0.pdf)(영문)을 참조하세요. VPAID API에 대한 자세한 내용은 [VPAID 2.0](https://www.iab.net/media/file/VPAID_2.0_Final_04-10-2012.pdf)(영문)을 참조하세요.
 
 ## <a name="implementing-a-windows-or-windows-phone-8-player-with-ad-support"></a>광고 지원이 포함된 Windows 또는 Windows Phone 8 플레이어 구현
-Microsoft Media Platform: Windows 8 및 Windows Phone 8용 플레이어 프레임워크에는 프레임워크를 사용하여 비디오 플레이어 응용 프로그램을 구현하는 방법을 보여 주는 샘플 응용 프로그램 컬렉션이 포함됩니다. [Windows 8 및 Windows Phone 8용 플레이어 프레임워크](https://playerframework.codeplex.com)에서 플레이어 프레임워크와 샘플을 다운로드할 수 있습니다.
+Microsoft Media Platform: Windows 8 및 Windows Phone 8용 플레이어 프레임워크에는 프레임워크를 사용하여 비디오 플레이어 애플리케이션을 구현하는 방법을 보여 주는 샘플 애플리케이션 컬렉션이 포함됩니다. [Windows 8 및 Windows Phone 8용 플레이어 프레임워크](https://playerframework.codeplex.com)에서 플레이어 프레임워크와 샘플을 다운로드할 수 있습니다.
 
 Microsoft.PlayerFramework.Xaml.Samples 솔루션을 열면 프로젝트 내에 많은 폴더가 표시됩니다. Advertising 폴더에는 광고 지원이 있는 비디오 플레이어를 만드는 방법과 관련된 샘플 코드가 들어 있습니다. Advertising 폴더 내에는 각각 광고를 다르게 삽입하는 방법을 보여 주는 다양한 XAML/cs 파일이 있습니다. 다음 목록은 각각에 대해 설명합니다.
 

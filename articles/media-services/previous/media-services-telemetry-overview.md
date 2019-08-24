@@ -31,7 +31,7 @@ AMS(Azure Media Services)를 사용하면 해당 서비스에 대한 원격 분�
 
 원격 분석은 지정된 Azure Storage 계정의 스토리지 테이블에 기록됩니다(일반적으로 AMS 계정과 연결된 스토리지 계정 사용). 
 
-원격 분석 시스템은 데이터 보존을 관리하지 않습니다. 저장소 테이블을 삭제하여 이전 원격 분석 데이터를 제거할 수 있습니다.
+원격 분석 시스템은 데이터 보존을 관리하지 않습니다. 스토리지 테이블을 삭제하여 이전 원격 분석 데이터를 제거할 수 있습니다.
 
 이 항목에서는 AMS 원격 분석을 구성 및 사용하는 방법을 설명합니다.
 
@@ -47,15 +47,15 @@ AMS(Azure Media Services)를 사용하면 해당 서비스에 대한 원격 분�
 
 ## <a name="consuming-telemetry-information"></a>이
 
-원격 분석은 Media Services 계정에 대해 원격 분석을 구성할 때 지정된 스토리지 계정의 Azure Storage 테이블에 기록됩니다. 이 섹션에서는 메트릭에 대한 저장소 테이블을 설명합니다.
+원격 분석은 Media Services 계정에 대해 원격 분석을 구성할 때 지정된 스토리지 계정의 Azure Storage 테이블에 기록됩니다. 이 섹션에서는 메트릭에 대한 스토리지 테이블을 설명합니다.
 
 다음 방법 중 하나를 사용하여 원격 분석 데이터를 사용할 수 있습니다.
 
-- Azure Table Storage에서 직접 데이터를 읽습니다(예: Storage SDK 사용). 원격 분석 저장소 테이블에 대한 설명을 보려면 **이** 항목의 [원격 분석 정보 사용](https://msdn.microsoft.com/library/mt742089.aspx) 을 참조하세요.
+- Azure Table Storage에서 직접 데이터를 읽습니다(예: Storage SDK 사용). 원격 분석 스토리지 테이블에 대한 설명을 보려면 **이** 항목의 [원격 분석 정보 사용](https://msdn.microsoft.com/library/mt742089.aspx) 을 참조하세요.
 
 또는
 
-- [이](media-services-dotnet-telemetry.md) 항목에 설명된 것처럼 저장소 데이터를 읽기 위한 Media Services .NET SDK의 지원을 사용합니다. 
+- [이](media-services-dotnet-telemetry.md) 항목에 설명된 것처럼 스토리지 데이터를 읽기 위한 Media Services .NET SDK의 지원을 사용합니다. 
 
 
 아래에 설명된 원격 분석 스키마는 Azure Table Storage 한도 내에서 적절한 성능을 제공하도록 설계되었습니다.
@@ -76,7 +76,7 @@ AMS(Azure Media Services)를 사용하면 해당 서비스에 대한 원격 분�
 
 자산|값|예제/참고 사항
 ---|---|---
-PartitionKey|{account ID}_{entity ID}|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66<br/<br/>계정 ID는 여러 Media Services 계정이 동일한 저장소 계정에 기록되는 워크플로를 간소화하기 위해 파티션 키에 포함됩니다.
+PartitionKey|{account ID}_{entity ID}|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66<br/<br/>계정 ID는 여러 Media Services 계정이 동일한 스토리지 계정에 기록되는 워크플로를 간소화하기 위해 파티션 키에 포함됩니다.
 RowKey|{seconds to midnight}_{random value}|01688_00199<br/><br/>행 키는 파티션 내의 상위 n개 스타일 쿼리를 허용하기 위해 자정까지 남은 시간(초)부터 시작됩니다. 자세한 내용은 [이](../../cosmos-db/table-storage-design-guide.md#log-tail-pattern) 문서를 참조하세요. 
 타임 스탬프|날짜/시간|Azure 테이블에서의 자동 타임스탬프 2016-09-09T22:43:42.241Z
 Type|원격 분석 데이터를 제공하는 엔터티 형식|Channel/StreamingEndpoint/Archive<br/><br/>이벤트 형식은 문자열 값입니다.
@@ -109,7 +109,7 @@ StatusCode|레코드 HTTP 상태|200
 ResultCode|결과 코드 세부 정보|S_OK
 RequestCount|집계의 총 요청|3
 BytesSent|집계된 보낸 바이트 수|2987358
-ServerLatency|평균 서버 대기 시간(저장소 포함)|129
+ServerLatency|평균 서버 대기 시간(스토리지 포함)|129
 E2ELatency|평균 엔드투엔드 대기 시간|250
 
 **라이브 채널**
@@ -159,7 +159,7 @@ Healthy|FragmentDiscardedCount == 0 && ArchiveAcquisitionError == False인 경�
 
 ### <a name="how-to-consume-metrics-data"></a>메트릭 데이터를 사용하는 방법
 
-메트릭 데이터는 고객의 저장소 계정의 여러 Azure 테이블에 저장됩니다. 이 데이터는 다음과 같은 도구로 사용할 수 있습니다.
+메트릭 데이터는 고객의 스토리지 계정의 여러 Azure 테이블에 저장됩니다. 이 데이터는 다음과 같은 도구로 사용할 수 있습니다.
 
 - AMS SDK
 - Microsoft Azure Storage Explorer(쉼표로 구분된 값 형식으로 내보내고 Excel에서 처리되도록 지원)
@@ -176,7 +176,7 @@ Healthy|FragmentDiscardedCount == 0 && ArchiveAcquisitionError == False인 경�
 
 ### <a name="how-to-find-average-requestssecond"></a>평균 요청 수/초를 확인하는 방법
 
-평균 요청 수/초를 확인하려면 특정 기간 동안의 평균 요청 수(RequestCount)를 계산합니다.
+평균 요청 수/초를 확인하려면 특정 기간 동안의 평균 요청 수(RequestCount)를 컴퓨팅합니다.
 
 ### <a name="how-to-define-channel-health"></a>채널 상태를 정의하는 방법
 
@@ -214,7 +214,7 @@ Healthy|FragmentDiscardedCount == 0 && ArchiveAcquisitionError == False인 경�
 
 ### <a name="how-to-manage-data-retention"></a>데이터 보존을 관리하는 방법
 
-원격 분석 시스템에서는 데이터 보존 관리 또는 이전 레코드의 자동 삭제를 제공하지 않습니다. 따라서 저장소 테이블에서 이전 레코드를 관리하고 삭제해야 합니다. 해당 방법을 보려면 저장소 SDK를 참조할 수 있습니다.
+원격 분석 시스템에서는 데이터 보존 관리 또는 이전 레코드의 자동 삭제를 제공하지 않습니다. 따라서 스토리지 테이블에서 이전 레코드를 관리하고 삭제해야 합니다. 해당 방법을 보려면 스토리지 SDK를 참조할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

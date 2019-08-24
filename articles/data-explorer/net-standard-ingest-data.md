@@ -165,7 +165,7 @@ using (var kustoClient = KustoClientFactory.CreateCslAdminProvider(kustoConnecti
 
 ## <a name="queue-a-message-for-ingestion"></a>수집을 위해 메시지를 큐에 넣음
 
-BLOB 저장소에서 데이터를 끌어온 후 ADX에 수집하기 위해 메시지를 큐에 넣습니다.
+Blob Storage에서 데이터를 끌어온 후 ADX에 수집하기 위해 메시지를 큐에 넣습니다.
 
 ```csharp
 var ingestUri = "https://ingest-<ClusterName>.<Region>.kusto.windows.net:443/";

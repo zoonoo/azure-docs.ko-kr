@@ -121,9 +121,9 @@ Systemd와 Upstart 간의 차이점을 이해하려면 [Upstart 사용자에 대
 구독의 Azure Storage 계정에 모든 것을 다운로드하고 보관하는 것이 좋습니다.
 
 > [!IMPORTANT]  
-> 사용된 저장소 계정은 클러스터의 기본 저장소 계정 또는 다른 모든 저장소 계정의 공용 읽기 전용 컨테이너에 있어야 합니다.
+> 사용된 스토리지 계정은 클러스터의 기본 스토리지 계정 또는 다른 모든 스토리지 계정의 공용 읽기 전용 컨테이너에 있어야 합니다.
 
-예를 들어 Microsoft에서 제공하는 샘플은 [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) 저장소 계정에 저장됩니다. 이 위치는 HDInsight 팀에서 유지 관리하는 공용, 읽기 전용 컨테이너입니다.
+예를 들어 Microsoft에서 제공하는 샘플은 [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) 스토리지 계정에 저장됩니다. 이 위치는 HDInsight 팀에서 유지 관리하는 공용, 읽기 전용 컨테이너입니다.
 
 ### <a name="bPS4"></a>사전 컴파일한 리소스 사용
 
@@ -152,7 +152,7 @@ Linux 기반 HDInsight 클러스터는 클러스터 내에서 활성화 되는 �
 hdfs dfs -put /usr/hdp/current/hadoop-client/hadoop-common.jar /example/jars/
 ```
 
-이 예제에서 `hdfs` 명령은 기본 클러스터 저장소를 투명하게 사용합니다. 일부 작업의 경우 URI를 지정해야 할 수도 있습니다. 예를 들어 Azure Data Lake Storage Gen1은 `adl:///example/jars`, Data Lake Storage Gen2는 `abfs:///example/jars`, Azure Storage는 `wasb:///example/jars`입니다.
+이 예제에서 `hdfs` 명령은 기본 클러스터 스토리지를 투명하게 사용합니다. 일부 작업의 경우 URI를 지정해야 할 수도 있습니다. 예를 들어 Azure Data Lake Storage Gen1은 `adl:///example/jars`, Data Lake Storage Gen2는 `abfs:///example/jars`, Azure Storage는 `wasb:///example/jars`입니다.
 
 ### <a name="bPS7"></a>STDOUT 및 STDERR에 정보 쓰기
 
@@ -284,7 +284,7 @@ echo "HADOOP_CONF_DIR=/etc/hadoop/conf" | sudo tee -a /etc/environment
 
 * 클러스터와 연결된 __Azure Storage 계정__
 
-* 클러스터와 연결된 __추가 저장소 계정__
+* 클러스터와 연결된 __추가 스토리지 계정__
 
 * __공개적으로 읽을 수 있는 URI__ 예를 들어 OneDrive, Dropbox 또는 다른 파일 호스팅 서비스에 저장된 데이터에 대한 URL
 
@@ -298,13 +298,13 @@ echo "HADOOP_CONF_DIR=/etc/hadoop/conf" | sudo tee -a /etc/environment
 Azure Storage 계정 또는 Azure Data Lake Storage에서 파일을 저장하면 Azure 네트워크 내에서 두 가지 모두 빠른 액세스를 제공합니다.
 
 > [!NOTE]  
-> 스크립트를 참조하는 데 사용되는 URI 형식은 사용 중인 서비스에 따라 다릅니다. HDInsight 클러스터와 연결된 저장소 계정의 경우 `wasb://` 또는 `wasbs://`를 사용합니다. 공개적으로 읽을 수 있는 URI의 경우 `http://` 또는 `https://`를 사용합니다. Data Lake Storage의 경우 `adl://`을 사용합니다.
+> 스크립트를 참조하는 데 사용되는 URI 형식은 사용 중인 서비스에 따라 다릅니다. HDInsight 클러스터와 연결된 스토리지 계정의 경우 `wasb://` 또는 `wasbs://`를 사용합니다. 공개적으로 읽을 수 있는 URI의 경우 `http://` 또는 `https://`를 사용합니다. Data Lake Storage의 경우 `adl://`을 사용합니다.
 
 ## <a name="deployScript"></a>스크립트 작업 배포를 위한 검사 목록
 
 이러한 스크립트 배포를 준비할 때 수행하는 단계는 다음과 같습니다.
 
-* 사용자 지정 스크립트가 포함된 파일을 배포 중 클러스터 노드에서 액세스할 수 있는 위치에 배치합니다. 예를 들어 클러스터의 기본 저장소입니다. 공개적으로 읽을 수 있는 호스팅 서비스에 파일을 저장할 수도 있습니다.
+* 사용자 지정 스크립트가 포함된 파일을 배포 중 클러스터 노드에서 액세스할 수 있는 위치에 배치합니다. 예를 들어 클러스터의 기본 스토리지입니다. 공개적으로 읽을 수 있는 호스팅 서비스에 파일을 저장할 수도 있습니다.
 * 스크립트가 idempotent인지 확인합니다. 이렇게 하면 스크립트가 동일한 노드에서 여러 번 실행될 수 있습니다.
 * 임시 파일 디렉터리 /tmp를 사용하여 스크립트에서 사용되는 다운로드된 파일을 보관하고 스크립트가 실행된 후 이 파일을 정리합니다.
 * OS 수준 설정 또는 Hadoop 서비스 구성 파일이 변경되면 HDInsight 서비스를 다시 시작할 수 있습니다.

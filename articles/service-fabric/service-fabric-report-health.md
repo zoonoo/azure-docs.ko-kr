@@ -302,7 +302,7 @@ HealthEvents          :
 원하는 엔터티로 이동하는 POST 요청과 REST를 사용하고 본문에 상태 보고서 설명을 넣어서 상태 보고서를 보냅니다. 예를 들어, REST [클러스터 상태 보고서](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-cluster) 또는 [서비스 상태 보고서](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-service)를 보내는 방법을 참조하세요. 모든 엔터티가 지원됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-상태 데이터를 기반으로 서비스 작성자 및 클러스터/응용 프로그램 관리자는 정보를 소비하는 방식에 대해 생각할 수 있습니다. 예를 들어 성능 상태를 기반으로 경고를 설정하면 서비스가 중단되기 전에 심각한 문제를 포착할 수 있습니다. 또한 관리자는 자동으로 문제를 해결하는 복구 시스템을 설정할 수 있습니다.
+상태 데이터를 기반으로 서비스 작성자 및 클러스터/애플리케이션 관리자는 정보를 소비하는 방식에 대해 생각할 수 있습니다. 예를 들어 성능 상태를 기반으로 경고를 설정하면 서비스가 중단되기 전에 심각한 문제를 포착할 수 있습니다. 또한 관리자는 자동으로 문제를 해결하는 복구 시스템을 설정할 수 있습니다.
 
 [서비스 패브릭 상태 모니터링 소개](service-fabric-health-introduction.md)
 

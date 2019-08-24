@@ -16,7 +16,7 @@ ms.locfileid: "68695625"
 ---
 # <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Azure CLI를 사용하여 Linux VM에서 가상 하드 디스크 확장
 
-이 문서에서는 Azure CLI를 사용하여 Linux VM(가상 머신)에서 관리 디스크를 확장하는 방법에 대해 설명합니다. 추가 저장소 공간을 제공하기 위해 [데이터 디스크를 추가](add-disk.md)할 수 있고, 기존 데이터 디스크를 확장할 수도 있습니다. OS(운영 체제)에 대한 기본 가상 하드 디스크 크기는 Azure의 Linux VM에서 일반적으로 30GB입니다. 
+이 문서에서는 Azure CLI를 사용하여 Linux VM(가상 머신)에서 관리 디스크를 확장하는 방법에 대해 설명합니다. 추가 스토리지 공간을 제공하기 위해 [데이터 디스크를 추가](add-disk.md)할 수 있고, 기존 데이터 디스크를 확장할 수도 있습니다. OS(운영 체제)에 대한 기본 가상 하드 디스크 크기는 Azure의 Linux VM에서 일반적으로 30GB입니다. 
 
 > [!WARNING]
 > 항상 파일 시스템이 정상 상태 인지 확인 하 고, 디스크 파티션 테이블 형식이 새 크기를 지원 하며, 디스크 크기 조정 작업을 수행 하기 전에 데이터를 백업 해야 합니다. 자세한 내용은 [Azure에서 Linux VM 백업](tutorial-backup-vms.md)을 참조하세요. 
@@ -141,5 +141,5 @@ ms.locfileid: "68695625"
     ```
 
 ## <a name="next-steps"></a>다음 단계
-* 추가 저장소가 필요하면 [Linux VM에 데이터 디스크를 추가](add-disk.md)할 수도 있습니다. 
+* 추가 스토리지가 필요하면 [Linux VM에 데이터 디스크를 추가](add-disk.md)할 수도 있습니다. 
 * 디스크 암호화에 대한 자세한 내용은 [Azure CLI를 사용하여 Linux VM에서 디스크 암호화](encrypt-disks.md)를 참조하세요.

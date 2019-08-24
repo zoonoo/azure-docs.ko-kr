@@ -1,6 +1,6 @@
 ---
 title: AzCopy를 사용하여 Azure DevTest Labs에 VHD 업로드 | Microsoft Docs
-description: AzCopy를 사용하여 랩의 저장소 계정에 VHD 파일 업로드
+description: AzCopy를 사용하여 랩의 스토리지 계정에 VHD 파일 업로드
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -21,11 +21,11 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "60634991"
 ---
-# <a name="upload-vhd-file-to-labs-storage-account-using-azcopy"></a>AzCopy를 사용하여 랩의 저장소 계정에 VHD 파일 업로드
+# <a name="upload-vhd-file-to-labs-storage-account-using-azcopy"></a>AzCopy를 사용하여 랩의 스토리지 계정에 VHD 파일 업로드
 
 [!INCLUDE [devtest-lab-upload-vhd-selector](../../includes/devtest-lab-upload-vhd-selector.md)]
 
-Azure DevTest Labs에서는 VHD 파일을 사용하여 가상 머신을 프로비저닝을 사용하는 데 사용하는 사용자 지정 이미지를 만들 수 있습니다. 다음 단계는 AzCopy 명령줄 유틸리티를 사용하여 VHD 파일을 랩의 저장소 계정에 업로드하는 과정을 안내합니다. VHD 파일을 업로드하면 [다음 단계 섹션](#next-steps)은 업로드된 VHD 파일에서 사용자 지정 이미지를 만드는 방법을 자세히 설명하는 일부 문서를 나열합니다. Azure의 디스크 및 VHD에 대한 자세한 내용은 [관리 디스크 소개](../virtual-machines/linux/managed-disks-overview.md)를 참조하세요.
+Azure DevTest Labs에서는 VHD 파일을 사용하여 가상 머신을 프로비저닝을 사용하는 데 사용하는 사용자 지정 이미지를 만들 수 있습니다. 다음 단계는 AzCopy 명령줄 유틸리티를 사용하여 VHD 파일을 랩의 스토리지 계정에 업로드하는 과정을 안내합니다. VHD 파일을 업로드하면 [다음 단계 섹션](#next-steps)은 업로드된 VHD 파일에서 사용자 지정 이미지를 만드는 방법을 자세히 설명하는 일부 문서를 나열합니다. Azure의 디스크 및 VHD에 대한 자세한 내용은 [관리 디스크 소개](../virtual-machines/linux/managed-disks-overview.md)를 참조하세요.
 
 > [!NOTE] 
 >  
@@ -35,7 +35,7 @@ Azure DevTest Labs에서는 VHD 파일을 사용하여 가상 머신을 프로�
 
 다음 단계는 [AzCopy](https://aka.ms/downloadazcopy)를 사용하여 Azure DevTest Labs로 VHD 파일을 업로드하는 과정을 안내합니다. 
 
-1. Azure Portal을 사용하여 랩의 저장소 계정 이름을 가져옵니다.
+1. Azure Portal을 사용하여 랩의 스토리지 계정 이름을 가져옵니다.
 
 1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 
@@ -73,7 +73,7 @@ Azure DevTest Labs에서는 VHD 파일을 사용하여 가상 머신을 프로�
     %ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy
     ```
 
-1. 저장소 계정 키 및 Blob 컨테이너 URI를 사용하여 명령 프롬프트에서 다음 명령을 실행합니다. *vhdFileName* 값은 따옴표로 표시해야 합니다. VHD 파일을 업로드하는 프로세스는 VHD 파일 크기 및 연결 속도에 따라 시간이 오래 걸릴 수 있습니다.   
+1. 스토리지 계정 키 및 Blob 컨테이너 URI를 사용하여 명령 프롬프트에서 다음 명령을 실행합니다. *vhdFileName* 값은 따옴표로 표시해야 합니다. VHD 파일을 업로드하는 프로세스는 VHD 파일 크기 및 연결 속도에 따라 시간이 오래 걸릴 수 있습니다.   
 
     ```command-line
     AzCopy /Source:<sourceDirectory> /Dest:<blobContainerUri> /DestKey:<storageAccountKey> /Pattern:"<vhdFileName>" /BlobType:page

@@ -57,7 +57,7 @@ Azure에서 VM을 배포하는 데 익숙하지 않은 경우, Azure에서 가�
 
 ## <a name="service-level-agreements-for-azure-components"></a>Azure 구성 요소에 대한 서비스 수준 계약
 
-Azure는 네트워킹, 저장소 및 VM과 같은 다양한 구성 요소에 대해 서로 다른 가용성 SLA를 제공합니다. SLA는 모두 문서화되어 있습니다. 자세한 내용은 [Microsoft Azure 서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/)을 참조하세요. 
+Azure는 네트워킹, 스토리지 및 VM과 같은 다양한 구성 요소에 대해 서로 다른 가용성 SLA를 제공합니다. SLA는 모두 문서화되어 있습니다. 자세한 내용은 [Microsoft Azure 서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/)을 참조하세요. 
 
 [Virtual Machines에 대한 SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_6/)에서는 다음 두 가지 구성에 대한 별개의 두 가지 SLA에 대해 설명하고 있습니다.
 

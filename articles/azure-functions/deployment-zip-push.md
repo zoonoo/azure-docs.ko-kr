@@ -82,7 +82,7 @@ az functionapp deployment source config-zip  -g myResourceGroup -n \
 
 이 명령은 다운로드한 .zip 파일의 프로젝트 파일을 Azure의 함수 앱에 배포합니다. 그런 다음, 앱을 다시 시작합니다. 이 함수 앱에 대한 배포 목록을 보려면 REST API를 사용해야 합니다.
 
-로컬 컴퓨터에서 Azure CLI를 사용하는 경우 `<zip_file_path>`는 컴퓨터에 있는 .zip 파일의 경로입니다. [Azure Cloud Shell](../cloud-shell/overview.md)에서 Azure CLI를 실행할 수도 있습니다. Cloud Shell을 사용할 경우 먼저 Cloud Shell과 연결된 Azure Files 계정에 배포 .zip 파일을 업로드해야 합니다. 이 경우 `<zip_file_path>`는 Cloud Shell 계정에서 사용하는 저장소 위치입니다. 자세한 내용은 [Azure Cloud Shell에서 파일 유지](../cloud-shell/persisting-shell-storage.md)를 참조하세요.
+로컬 컴퓨터에서 Azure CLI를 사용하는 경우 `<zip_file_path>`는 컴퓨터에 있는 .zip 파일의 경로입니다. [Azure Cloud Shell](../cloud-shell/overview.md)에서 Azure CLI를 실행할 수도 있습니다. Cloud Shell을 사용할 경우 먼저 Cloud Shell과 연결된 Azure Files 계정에 배포 .zip 파일을 업로드해야 합니다. 이 경우 `<zip_file_path>`는 Cloud Shell 계정에서 사용하는 스토리지 위치입니다. 자세한 내용은 [Azure Cloud Shell에서 파일 유지](../cloud-shell/persisting-shell-storage.md)를 참조하세요.
 
 [!INCLUDE [app-service-deploy-zip-push-rest](../../includes/app-service-deploy-zip-push-rest.md)]
 

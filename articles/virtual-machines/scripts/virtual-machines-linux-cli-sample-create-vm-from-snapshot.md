@@ -50,7 +50,7 @@ az group delete --name myResourceGroup
 | 명령 | 메모 |
 |---|---|
 | [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot) | 스냅샷 이름 및 리소스 그룹 이름을 사용하여 스냅샷을 가져옵니다. 반환된 개체의 Id 속성은 관리 디스크를 만드는 데 사용됩니다.  |
-| [az disk create](https://docs.microsoft.com/cli/azure/disk) | 스냅샷 Id, 디스크 이름, 저장소 유형 및 크기를 사용하여 스냅샷에서 관리 디스크를 만듭니다.  |
+| [az disk create](https://docs.microsoft.com/cli/azure/disk) | 스냅샷 Id, 디스크 이름, 스토리지 유형 및 크기를 사용하여 스냅샷에서 관리 디스크를 만듭니다.  |
 | [az vm create](https://docs.microsoft.com/cli/azure/vm) | 관리 OS 디스크를 사용하여 VM을 만듭니다. |
 
 ## <a name="next-steps"></a>다음 단계

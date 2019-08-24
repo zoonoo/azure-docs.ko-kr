@@ -59,7 +59,7 @@ Azure Site Recovery를 사용하여 새 Virtual Machine을 Azure에 복제할 �
 |  |  | Microsoft.Network/virtualNetworks/subnets/join/action |
 |  | 클래식 | Microsoft.ClassicNetwork/virtualNetworks/read |
 |  |  | Microsoft.ClassicNetwork/virtualNetworks/join/action |
-| Storage | Resource Manager | Microsoft.Storage/storageAccounts/read |
+| 스토리지 | Resource Manager | Microsoft.Storage/storageAccounts/read |
 |  |  | Microsoft.Storage/storageAccounts/listkeys/action |
 |  | 클래식 | Microsoft.ClassicStorage/storageAccounts/read |
 |  |  | Microsoft.ClassicStorage/storageAccounts/listKeys/action |

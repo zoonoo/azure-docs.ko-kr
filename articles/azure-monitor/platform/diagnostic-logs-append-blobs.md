@@ -18,7 +18,7 @@ ms.locfileid: "60237644"
 # <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>스토리지 계정에 보관된 Azure Monitor 진단 로그에 대한 형식 변경 준비
 
 > [!WARNING]
-> [리소스 진단 설정을 사용하여 Azure 리소스 진단 로그 또는 메트릭을 저장소 계정](./../../azure-monitor/platform/archive-diagnostic-logs.md)에 전송하는 경우 또는 [로그 프로필을 사용하여 활동 로그를 저장소 계정](./../../azure-monitor/platform/archive-activity-log.md)에 전송하는 경우, 2018년 11월 1일에 저장소 계정의 데이터 형식이 JSON 줄로 변경됩니다. 아래 지침에서는 새 형식을 처리하도록 도구를 업데이트하는 방법 및 영향에 대해 설명합니다. 
+> [리소스 진단 설정을 사용하여 Azure 리소스 진단 로그 또는 메트릭을 스토리지 계정](./../../azure-monitor/platform/archive-diagnostic-logs.md)에 전송하는 경우 또는 [로그 프로필을 사용하여 활동 로그를 스토리지 계정](./../../azure-monitor/platform/archive-activity-log.md)에 전송하는 경우, 2018년 11월 1일에 스토리지 계정의 데이터 형식이 JSON 줄로 변경됩니다. 아래 지침에서는 새 형식을 처리하도록 도구를 업데이트하는 방법 및 영향에 대해 설명합니다. 
 >
 > 
 
@@ -36,7 +36,7 @@ Azure Monitor는 Azure storage 계정, Event Hubs 네임 스페이스 또는 Azu
   * [로그 프로필을 통해 내보내지는 Azure 활동 로그 데이터](./../../azure-monitor/platform/archive-activity-log.md)
 * 다음 경우에는 이 변경의 영향을 받지 않습니다.
   * 네트워크 흐름 로그
-  * Azure Monitor를 통해 사용할 수 없는 Azure 서비스 로그(예: Azure App Service 진단 로그, 저장소 분석 로그)
+  * Azure Monitor를 통해 사용할 수 없는 Azure 서비스 로그(예: Azure App Service 진단 로그, 스토리지 분석 로그)
   * 다른 대상(Event Hubs, Log Analytics)으로 Azure 진단 로그 및 활동 로그 라우팅
 
 ### <a name="how-to-see-if-you-are-impacted"></a>영향을 받는지 확인하는 방법
@@ -49,11 +49,11 @@ Azure Storage 계정에 데이터를 보내는 리소스 진단 설정이 있는
 
 ![Azure Monitor 진단 설정 블레이드](./media/diagnostic-logs-append-blobs/portal-diag-settings.png)
 
-진단 상태가 사용으로 설정된 경우, 해당 리소스에 활성 진단 설정이 있습니다. 리소스를 클릭하여 저장소 계정에 데이터를 보내는 진단 설정이 있는지 확인합니다.
+진단 상태가 사용으로 설정된 경우, 해당 리소스에 활성 진단 설정이 있습니다. 리소스를 클릭하여 스토리지 계정에 데이터를 보내는 진단 설정이 있는지 확인합니다.
 
-![저장소 계정 사용](./media/diagnostic-logs-append-blobs/portal-storage-enabled.png)
+![스토리지 계정 사용](./media/diagnostic-logs-append-blobs/portal-storage-enabled.png)
 
-이러한 리소스 진단 설정을 사용하여 저장소 계정에 데이터를 보내는 리소스가 있는 경우, 해당 저장소 계정의 데이터 형식은 이 변경의 영향을 받습니다. 이러한 저장소 계정으로 작동하는 사용자 지정 도구가 없으면 형식 변경이 영향을 주지 않습니다.
+이러한 리소스 진단 설정을 사용하여 스토리지 계정에 데이터를 보내는 리소스가 있는 경우, 해당 스토리지 계정의 데이터 형식은 이 변경의 영향을 받습니다. 이러한 스토리지 계정으로 작동하는 사용자 지정 도구가 없으면 형식 변경이 영향을 주지 않습니다.
 
 ### <a name="details-of-the-format-change"></a>형식 변경 세부 정보
 
@@ -136,5 +136,5 @@ Azure Blob Storage에 있는 PT1H.json 파일의 현재 형식은 레코드의 J
 ## <a name="next-steps"></a>다음 단계
 
 * [리소스 진단 로그를 저장소 계정에 보관](./../../azure-monitor/platform/archive-diagnostic-logs.md)하는 방법을 알아봅니다.
-* [활동 로그 데이터를 저장소 계정에 보관](./../../azure-monitor/platform/archive-activity-log.md)하는 방법을 알아봅니다.
+* [활동 로그 데이터를 스토리지 계정에 보관](./../../azure-monitor/platform/archive-activity-log.md)하는 방법을 알아봅니다.
 

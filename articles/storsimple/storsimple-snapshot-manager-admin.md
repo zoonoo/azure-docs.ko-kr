@@ -24,7 +24,7 @@ ms.locfileid: "60630022"
 # <a name="use-storsimple-snapshot-manager-to-administer-your-storsimple-solution"></a>StorSimple 스냅샷 관리자를 사용하여 StorSimple 솔루션 관리
 
 ## <a name="overview"></a>개요
-StorSimple 스냅샷 관리자는 Microsoft Azure StorSimple 환경에서 데이터 보호 및 백업 관리를 간소화하는 Microsoft Management Console(MMC) 스냅인입니다. StorSimple 스냅샷 관리자를 사용하면 데이터 센터와 클라우드에서 단일 통합 저장소 솔루션으로 Microsoft Azure StorSimple 데이터를 관리할 수 있으므로 백업 프로세스가 간소화되고 비용이 절감됩니다.
+StorSimple 스냅샷 관리자는 Microsoft Azure StorSimple 환경에서 데이터 보호 및 백업 관리를 간소화하는 Microsoft Management Console(MMC) 스냅인입니다. StorSimple 스냅샷 관리자를 사용하면 데이터 센터와 클라우드에서 단일 통합 스토리지 솔루션으로 Microsoft Azure StorSimple 데이터를 관리할 수 있으므로 백업 프로세스가 간소화되고 비용이 절감됩니다.
 
 StorSimple 스냅샷 관리자의 중앙 관리 콘솔은 로컬 및 클라우드 데이터의 일관된 지정 시간 백업 복사본을 만드는 데 사용할 수 있습니다. 예를 들어 콘솔을 사용하여 다음을 수행할 수 있습니다.
 

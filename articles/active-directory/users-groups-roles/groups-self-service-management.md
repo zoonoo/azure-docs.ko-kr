@@ -62,6 +62,6 @@ ms.locfileid: "60469864"
 
 * [Azure Active Directory 그룹을 사용하여 리소스에 대한 액세스 관리](../fundamentals/active-directory-manage-groups.md)
 * [그룹 설정을 구성하는 Azure Active Directory cmdlets](groups-settings-cmdlets.md)
-* [Azure Active Directory의 응용 프로그램 관리](../manage-apps/what-is-application-management.md)
+* [Azure Active Directory의 애플리케이션 관리](../manage-apps/what-is-application-management.md)
 * [Azure Active Directory란?](../fundamentals/active-directory-whatis.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](../hybrid/whatis-hybrid-identity.md)

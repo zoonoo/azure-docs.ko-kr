@@ -28,7 +28,7 @@ ms.locfileid: "64680883"
 
 현재 Azure는 [Azure 가용성 영역](https://docs.microsoft.com/azure/availability-zones/az-overview)을 제공하고 있습니다. 이 문서에서는 가용성 영역에 대해 자세히 설명하지 않습니다. 그러나 가용성 집합과 가용성 영역을 사용하는 방법에 대한 일반적인 내용이 설명되어 있습니다.
 
-가용성 영역이 제공되는 Azure 지역에는 여러 데이터 센터가 있습니다. 데이터 센터는 전원, 냉각 및 네트워크의 공급 장치와 독립적입니다. 단일 Azure 지역 내에 서로 다른 영역을 제공하는 이유는 제공되는 2-3개 가용성 영역에 응용 프로그램을 배포하기 위해서입니다. 영역에 배포할 때 전원 및 네트워크의 문제가 하나의 Azure 가용성 영역 인프라에만 영향을 준다면, Azure 지역 내 응용 프로그램 배포는 계속 작동합니다. 일부 용량이 줄어들 수도 있습니다. 예를 들어 한 영역의 VM이 손실될 수 있지만 다른 두 영역의 VM은 계속 가동되어 실행됩니다. 
+가용성 영역이 제공되는 Azure 지역에는 여러 데이터 센터가 있습니다. 데이터 센터는 전원, 냉각 및 네트워크의 공급 장치와 독립적입니다. 단일 Azure 지역 내에 서로 다른 영역을 제공하는 이유는 제공되는 2-3개 가용성 영역에 애플리케이션을 배포하기 위해서입니다. 영역에 배포할 때 전원 및 네트워크의 문제가 하나의 Azure 가용성 영역 인프라에만 영향을 준다면, Azure 지역 내 애플리케이션 배포는 계속 작동합니다. 일부 용량이 줄어들 수도 있습니다. 예를 들어 한 영역의 VM이 손실될 수 있지만 다른 두 영역의 VM은 계속 가동되어 실행됩니다. 
  
 Azure 가용성 집합은 가용성 집합 내에 배치한 VM 리소스를 Azure 데이터 센터에 배포할 때 서로 간에 오류가 격리되도록 하는 데 도움이 되는 논리적 그룹화 기능입니다. Azure는 가용성 집합 내에 배치한 VM을 여러 물리적 서버, 컴퓨팅 랙, 스토리지 단위 및 네트워크 스위치에서 실행되도록 합니다. 일부 Azure 문서에서 이 구성은 다른 [업데이트 및 장애 도메인](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability)의 배치라고 합니다. 이러한 배치는 일반적으로 Azure 데이터 센터 내에 있습니다. 전원 및 네트워크 문제가 배포하는 데이터 센터에 영향을 준다고 가정하면, 한 Azure 지역의 모든 용량에 영향을 줍니다.
 
@@ -36,7 +36,7 @@ Azure 가용성 영역을 나타내는 데이터 센터의 배치는 여러 영�
 
 ## <a name="single-vm-scenario"></a>단일 VM 시나리오
 
-단일 VM 시나리오에서는 SAP HANA 인스턴스에 대한 Azure VM을 만듭니다. Azure Premium Storage를 사용하여 운영 체제 및 모든 데이터 디스크를 호스팅합니다. 99\.9%의 Azure 가동 시간 SLA와 다른 Azure 구성 요소의 SLA는 고객을 위한 가용성 SLA를 충족시키는 데 충분합니다. 이 시나리오에서는 DBMS 계층을 실행하는 VM에 대한 Azure 가용성 집합을 활용하지 않아도 됩니다. 여기서는 서로 다른 두 가지 기능을 사용합니다.
+단일 VM 시나리오에서는 SAP HANA 인스턴스에 대한 Azure VM을 만듭니다. Azure Premium Storage를 사용하여 운영 체제 및 모든 데이터 디스크를 호스팅합니다. 99.9%의 Azure 가동 시간 SLA와 다른 Azure 구성 요소의 SLA는 고객을 위한 가용성 SLA를 충족시키는 데 충분합니다. 이 시나리오에서는 DBMS 계층을 실행하는 VM에 대한 Azure 가용성 집합을 활용하지 않아도 됩니다. 여기서는 서로 다른 두 가지 기능을 사용합니다.
 
 - Azure VM 자동 다시 시작(Azure 서비스 복구라고도 함)
 - SAP HANA 자동 다시 시작
@@ -79,7 +79,7 @@ SAP HANA 스케일 아웃 구성의 고가용성은 VM이 다시 가동될 때 A
 
 아키텍처는 다음과 같습니다.
 
-![저장소 복제가 있는 두 VM의 다이어그램](./media/sap-hana-availability-one-region/two_vm_storage_replication.PNG) 
+![스토리지 복제가 있는 두 VM의 다이어그램](./media/sap-hana-availability-one-region/two_vm_storage_replication.PNG) 
 
 이 설정은 중요한 RPO(복구 지점 목표) 및 RTO(복구 시간목표) 시간을 달성하는 데 적합하지 않습니다. 특히 RTO 시간은 복사된 백업을 사용하여 전체 데이터베이스를 완전히 복원해야 하므로 어려움을 겪습니다. 그러나 이 설정은 주 인스턴스에서 의도하지 않은 데이터 삭제를 복구하는 데 유용합니다. 이 설정을 사용하면 언제든지 특정 시점으로 복원하고, 데이터를 추출하며, 삭제된 데이터를 주 인스턴스로 가져올 수 있습니다. 따라서 다른 고가용성 기능과 함께 백업 복사본 방법을 사용해야 합니다. 
 
@@ -98,7 +98,7 @@ SAP HANA 스케일 아웃 구성의 고가용성은 VM이 다시 가동될 때 A
  
 시나리오는 다음과 같습니다.
 
-![저장소 복제가 있는 두 VM의 다이어그램](./media/sap-hana-availability-one-region/two_vm_HSR_sync_nopreload.PNG)
+![스토리지 복제가 있는 두 VM의 다이어그램](./media/sap-hana-availability-one-region/two_vm_HSR_sync_nopreload.PNG)
 
 > [!NOTE]
 > HANA 시스템 복제 대상에서 데이터 미리 로드를 사용하지 않는 경우에도 64GB 이상의 메모리가 필요합니다. 또한 64GB 외에도, rowstore 데이터를 대상 인스턴스의 메모리에 유지하기 위해 충분한 메모리가 필요합니다.
@@ -115,9 +115,9 @@ SAP HANA 측면에서 볼 때, 사용되는 복제 모드가 동기화되고 자
 
 전체 구성은 다음과 같습니다.
 
-![저장소 복제 및 장애 조치가 있는 두 VM의 다이어그램](./media/sap-hana-availability-one-region/two_vm_HSR_sync_auto_pre_preload.PNG)
+![스토리지 복제 및 장애 조치가 있는 두 VM의 다이어그램](./media/sap-hana-availability-one-region/two_vm_HSR_sync_auto_pre_preload.PNG)
 
-RPO=0 및 낮은 RTO 시간을 달성할 수 있기 때문에 이 솔루션은 선택할 수 있습니다. SAP HANA 클라이언트에서 가상 IP 주소를 사용하여 HANA 시스템 복제 구성에 연결하도록 SAP HANA 클라이언트 연결을 구성합니다. 이러한 구성은 보조 노드에 장애 조치하는 경우 응용 프로그램을 다시 구성할 필요가 없습니다. 이 시나리오에서는 주 VM 또는 보조 VM에 대한 Azure VM SKU가 동일해야 합니다.
+RPO=0 및 낮은 RTO 시간을 달성할 수 있기 때문에 이 솔루션은 선택할 수 있습니다. SAP HANA 클라이언트에서 가상 IP 주소를 사용하여 HANA 시스템 복제 구성에 연결하도록 SAP HANA 클라이언트 연결을 구성합니다. 이러한 구성은 보조 노드에 장애 조치하는 경우 애플리케이션을 다시 구성할 필요가 없습니다. 이 시나리오에서는 주 VM 또는 보조 VM에 대한 Azure VM SKU가 동일해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

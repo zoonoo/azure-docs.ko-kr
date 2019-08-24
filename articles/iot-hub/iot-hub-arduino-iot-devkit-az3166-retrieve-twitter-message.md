@@ -126,7 +126,7 @@ static const char* iot_event = "{\"topic\":\"iot\"}";
 
 ### <a name="arduino-application-initializing"></a>Arduino 애플리케이션 초기화 중...
 
-![Arduino 응용 프로그램 초기화 중](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/result-1.png)
+![Arduino 애플리케이션 초기화 중](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/result-1.png)
 
 ### <a name="press-a-to-shake"></a>흔들려면 A 단추 누르기...
 

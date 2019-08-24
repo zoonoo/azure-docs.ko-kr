@@ -32,7 +32,7 @@ ms.locfileid: "62130622"
 Azure App Service Environment는 크게 몇 가지 주요 구성 요소로 이루어져 있습니다.
 
 * App Service 환경 호스티드 서비스에서 실행되는 컴퓨팅 리소스
-* Storage
+* 스토리지
 * 데이터베이스
 * 클래식(V1) 또는 Resource Manager(V2) Azure Virtual Network(VNet) 
 * App Service Environment 호스티드 서비스가 실행되고 있는 서브넷
@@ -73,8 +73,8 @@ Azure App Service Environment는 크게 몇 가지 주요 구성 요소로 이�
 
 컴퓨팅 리소스 풀 메트릭을 기준으로 자동 크기 조정 규칙을 설정하려는 경우 프로비전에 필요한 시간을 고려해야 합니다. App Service Environment의 자동 크기 조정에 대한 자세한 내용은 [App Service Environment에서 자동 크기 조정을 구성하는 방법][ASEAutoscale]을 참조하세요.
 
-### <a name="storage"></a>Storage
-ASE 각각은 500GB의 저장소로 구성됩니다. 이 공간은 ASE의 모든 앱에서 사용됩니다. 이 저장소 공간은 ASE의 일부이며 현재는 사용자의 저장소 공간을 사용하도록 전환할 수 없습니다. 가상 네트워크 라우팅 또는 보안에 대해 조정하는 경우 Azure Storage에 대한 액세스를 허용하지 않으면 ASE가 작동되지 않습니다.
+### <a name="storage"></a>스토리지
+ASE 각각은 500GB의 스토리지로 구성됩니다. 이 공간은 ASE의 모든 앱에서 사용됩니다. 이 스토리지 공간은 ASE의 일부이며 현재는 사용자의 스토리지 공간을 사용하도록 전환할 수 없습니다. 가상 네트워크 라우팅 또는 보안에 대해 조정하는 경우 Azure Storage에 대한 액세스를 허용하지 않으면 ASE가 작동되지 않습니다.
 
 ### <a name="database"></a>데이터베이스
 데이터베이스는 내부에서 실행 중인 앱의 환경뿐만 아니라 세부 정보를 정의하는 정보를 가집니다. 이러한 기능 또한 Azure 보유 구독의 일부입니다. 사용자가 직접 조작할 수는 없는 부분입니다. 가상 네트워크 라우팅 또는 보안에 대해 조정하는 경우 SQL Azure에 대한 액세스를 허용하지 않으면 ASE가 작동되지 않습니다.

@@ -78,7 +78,7 @@ ms.locfileid: "62096124"
 
 **Q: Azure AD Connect Health Agent를 개별 서버에 설치하면 어떤 영향이 있나요?**
 
-Microsoft Azure AD Connect Health 에이전트, AD FS, 웹 애플리케이션 프록시 서버, Azure AD Connect(sycn) 서버, 도메인 컨트롤러를 설치해도 CPU, 메모리 사용량, 네트워크 대역폭 및 저장소에는 최소한의 영향만 미칩니다.
+Microsoft Azure AD Connect Health 에이전트, AD FS, 웹 애플리케이션 프록시 서버, Azure AD Connect(sycn) 서버, 도메인 컨트롤러를 설치해도 CPU, 메모리 사용량, 네트워크 대역폭 및 스토리지에는 최소한의 영향만 미칩니다.
 
 다음 숫자는 근사값입니다.
 
@@ -90,7 +90,7 @@ Microsoft Azure AD Connect Health 에이전트, AD FS, 웹 애플리케이션 �
 >
 >
 
-* Azure AD Connect Health 에이전트의 로컬 버퍼 저장소: ~20MB.
+* Azure AD Connect Health 에이전트의 로컬 버퍼 스토리지: ~20MB.
 * AD FS 서버의 경우 모든 감사 데이터를 덮어쓰기 전에 처리하려면 Azure AD Connect Health 에이전트의 AD FS 감사 채널에 1,024MB(1GB)의 디스크 공간을 프로비전하는 것이 좋습니다.
 
 **Q: Azure AD Connect Health Agent를 설치하는 동안 내 서버를 다시 부팅해야 하나요?**

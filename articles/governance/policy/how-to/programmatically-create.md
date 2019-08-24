@@ -43,7 +43,7 @@ ms.locfileid: "65979303"
 
 ## <a name="create-and-assign-a-policy-definition"></a>정책 정의 만들기 및 할당
 
-리소스의 가시성을 향상시키는 첫 번째 단계는 리소스에 대한 정책을 만들어 할당하는 것입니다. 다음은 프로그래밍 방식으로 정책을 만들고 할당 하는 방법을 알아보는 단계입니다. 예제 정책은 PowerShell, Azure CLI 및 HTTP 요청을 사용하여 모든 공용 네트워크에 개방된 저장소 계정을 감사합니다.
+리소스의 가시성을 향상시키는 첫 번째 단계는 리소스에 대한 정책을 만들어 할당하는 것입니다. 다음은 프로그래밍 방식으로 정책을 만들고 할당 하는 방법을 알아보는 단계입니다. 예제 정책은 PowerShell, Azure CLI 및 HTTP 요청을 사용하여 모든 공용 네트워크에 개방된 스토리지 계정을 감사합니다.
 
 ### <a name="create-and-assign-a-policy-definition-with-powershell"></a>PowerShell을 사용하여 정책 정의 만들기 및 할당
 
@@ -76,7 +76,7 @@ ms.locfileid: "65979303"
    New-AzPolicyDefinition -Name 'AuditStorageAccounts' -DisplayName 'Audit Storage Accounts Open to Public Networks' -Policy 'AuditStorageAccounts.json'
    ```
 
-   이 명령은 _공용 네트워크에 대해 열린 저장소 계정 감사_라는 정책 정의를 작성합니다.
+   이 명령은 _공용 네트워크에 대해 열린 스토리지 계정 감사_라는 정책 정의를 작성합니다.
    사용할 수 있는 다른 매개 변수에 대한 자세한 내용은 [New-AzPolicyDefinition](/powershell/module/az.resources/new-azpolicydefinition)을 참조하세요.
 
    위치 매개 변수 없이 호출할 경우 `New-AzPolicyDefinition`은 기본적으로 선택한 세션 컨텍스트 구독에 정책 정의를 저장하도록 지정됩니다. 정의를 다른 위치에 저장하려면 다음 매개 변수를 사용합니다.
@@ -209,7 +209,7 @@ Azure Resource Manager PowerShell 모듈을 사용하여 리소스 정책을 관
    az policy definition create --name 'audit-storage-accounts-open-to-public-networks' --display-name 'Audit Storage Accounts Open to Public Networks' --description 'This policy ensures that storage accounts with exposures to public networks are audited.' --rules '<path to json file>' --mode All
    ```
 
-   이 명령은 _공용 네트워크에 대해 열린 저장소 계정 감사_라는 정책 정의를 작성합니다.
+   이 명령은 _공용 네트워크에 대해 열린 스토리지 계정 감사_라는 정책 정의를 작성합니다.
    사용할 수 있는 다른 매개 변수에 대한 자세한 내용은 [az policy definition create](/cli/azure/policy/definition#az-policy-definition-create)를 참조하세요.
 
    위치 매개 변수 없이 호출할 경우 `az policy definition creation`은 기본적으로 선택한 세션 컨텍스트 구독에 정책 정의를 저장하도록 지정됩니다. 정의를 다른 위치에 저장하려면 다음 매개 변수를 사용합니다.

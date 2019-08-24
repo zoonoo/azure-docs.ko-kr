@@ -50,7 +50,7 @@ ms.locfileid: "60829806"
 [Azure Cache for Redis를 ASP.NET SignalR에 대한 규모 확장 백플레인으로 사용](https://github.com/rustd/RedisSamples/tree/master/RedisAsSignalRBackplane) 샘플에서 Azure Cache for Redis를 SignalR 백플레인으로 사용하는 방법을 보여 줍니다. 백플레인에 대한 자세한 내용은 [Redis를 사용한 SignalR 규모 확장](https://www.asp.net/signalr/overview/performance/scaleout-with-redis)을 참조하세요.
 
 ## <a name="azure-cache-for-redis-customer-query-sample"></a>Azure Cache for Redis 고객 쿼리 샘플
-이 샘플은 캐시의 데이터 액세스와 영구적 저장소의 데이터 액세스 간 성능 비교를 보여 줍니다. 이 샘플에는 두 개의 프로젝트가 있습니다.
+이 샘플은 캐시의 데이터 액세스와 영구적 스토리지의 데이터 액세스 간 성능 비교를 보여 줍니다. 이 샘플에는 두 개의 프로젝트가 있습니다.
 
 * [Azure Cache for Redis에서 데이터를 캐싱하여 성능을 향상시키는 방법 데모](https://github.com/rustd/RedisSamples/tree/master/RedisCacheCustomerQuerySample)
 * [데모를 위한 데이터베이스 및 캐시 시드](https://github.com/rustd/RedisSamples/tree/master/SeedCacheForCustomerQuerySample)

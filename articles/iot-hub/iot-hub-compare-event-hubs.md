@@ -32,10 +32,10 @@ Azure IoT Hub는 IoT 장치 수집 데이터와 비즈니스 통찰력 및 자�
 | 디바이스-클라우드 메시징 | ![확인][checkmark] | ![확인][checkmark] | ![확인][checkmark] |
 | Protocols: webSocket을 통한 HTTPS, AMQP, AMQP | ![확인][checkmark] | ![확인][checkmark] | ![확인][checkmark] |
 | Protocols: MQTT, webSocket을 통한 MQTT | ![확인][checkmark] | ![확인][checkmark] |  |
-| 장치 단위 ID | ![확인][checkmark] | ![확인][checkmark] |  |
+| 디바이스 단위 ID | ![확인][checkmark] | ![확인][checkmark] |  |
 | 디바이스에서 파일 업로드 | ![확인][checkmark] | ![확인][checkmark] |  |
 | Device Provisioning Service | ![확인][checkmark] | ![확인][checkmark] |  |
-| 클라우드-장치 메시징 | ![확인][checkmark] |  |  |
+| 클라우드-디바이스 메시징 | ![확인][checkmark] |  |  |
 | 디바이스 쌍 및 디바이스 관리 | ![확인][checkmark] |  |  |
 | 디바이스 스트림(미리 보기) | ![확인][checkmark] |  |  |
 | IoT Edge | ![확인][checkmark] |  |  |

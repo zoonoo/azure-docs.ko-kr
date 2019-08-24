@@ -23,7 +23,7 @@ ms.locfileid: "61217509"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Media Services에서 Azure Functions 개발
 
-이 문서에서는 Media Services를 사용하여 Azure Functions 만들기를 시작하는 방법을 보여 줍니다. 이 문서에 정의된 Azure 함수는 새 MP4 파일에 대한 저장소 계정 컨테이너 **input**을 모니터링합니다. 파일이 저장소 컨테이너에 포함되면 blob 트리거가 함수를 실행합니다. Azure Functions를 검토하려면 **Azure Functions** 섹션에서 [개요](../../azure-functions/functions-overview.md) 및 기타 항목을 참조하세요.
+이 문서에서는 Media Services를 사용하여 Azure Functions 만들기를 시작하는 방법을 보여 줍니다. 이 문서에 정의된 Azure 함수는 새 MP4 파일에 대한 스토리지 계정 컨테이너 **input**을 모니터링합니다. 파일이 스토리지 컨테이너에 포함되면 blob 트리거가 함수를 실행합니다. Azure Functions를 검토하려면 **Azure Functions** 섹션에서 [개요](../../azure-functions/functions-overview.md) 및 기타 항목을 참조하세요.
 
 Azure Media Services를 사용하는 기존 Azure Functions를 탐색하고 배포하려는 경우 [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)를 확인하세요. 이 리포지토리는 Blob Storage에서 직접 콘텐츠를 수집하고 Blob Storage에 콘텐츠를 인코딩 및 작성하는 데 관련된 워크플로를 표시하는 데 Media Services를 사용하는 예제를 포함합니다. 또한 WebHooks 및 Azure 큐를 통해 작업 알림을 모니터링하는 방법의 예도 포함되어 있습니다. [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration) 리포지토리의 예제를 기반으로 함수를 개발할 수도 있습니다. 함수를 배포하려면 **Azure에 배포** 단추를 누릅니다.
 
@@ -126,7 +126,7 @@ project.json에 다음과 같은 정의를 추가합니다.
     
 ### <a name="runcsx"></a>run.csx
 
-함수에 대한 C# 코드입니다.  아래 정의된 함수는 새 MP4 파일에 대한 저장소 계정 컨테이너 **input**(경로에 지정됨)을 모니터링합니다. 파일이 저장소 컨테이너에 포함되면 blob 트리거가 함수를 실행합니다.
+함수에 대한 C# 코드입니다.  아래 정의된 함수는 새 MP4 파일에 대한 스토리지 계정 컨테이너 **input**(경로에 지정됨)을 모니터링합니다. 파일이 스토리지 컨테이너에 포함되면 blob 트리거가 함수를 실행합니다.
     
 이 섹션에 정의된 예제는 다음을 보여 줍니다. 
 
@@ -330,7 +330,7 @@ public static async Task<IAsset> CreateAssetFromBlobAsync(CloudBlockBlob blob, s
 
 ## <a name="test-your-function"></a>함수 테스트
 
-함수를 테스트하려면 연결 문자열에 지정한 저장소 계정의 **input** 컨테이너에 MP4 파일을 업로드해야 합니다.  
+함수를 테스트하려면 연결 문자열에 지정한 스토리지 계정의 **input** 컨테이너에 MP4 파일을 업로드해야 합니다.  
 
 1. **StorageConnection** 환경 변수에 지정된 스토리지 계정을 선택합니다.
 2. **Blob**을 클릭합니다.

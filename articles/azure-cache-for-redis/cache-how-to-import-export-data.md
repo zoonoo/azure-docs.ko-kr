@@ -47,9 +47,9 @@ ms.locfileid: "60542348"
 1. 내보낸 캐시 Blob을 하나 이상 가져오려면 Azure Portal에서 [캐시로 이동](cache-configure.md#configure-azure-cache-for-redis-settings)하여 **리소스 메뉴**에서 **데이터 가져오기**를 클릭합니다.
 
     ![데이터 가져오기][cache-import-data]
-2. **Blob 선택** 을 클릭하고 가져올 데이터를 포함하는 저장소 계정을 선택합니다.
+2. **Blob 선택** 을 클릭하고 가져올 데이터를 포함하는 스토리지 계정을 선택합니다.
 
-    ![저장소 계정 선택][cache-import-choose-storage-account]
+    ![스토리지 계정 선택][cache-import-choose-storage-account]
 3. 가져올 데이터를 포함하는 컨테이너를 클릭합니다.
 
     ![컨테이너 선택][cache-import-choose-container]
@@ -72,10 +72,10 @@ ms.locfileid: "60542348"
 ## <a name="export"></a>내보내기
 내보내기를 사용하면 Azure Cache for Redis에 저장된 데이터를 Redis 호환 RDB 파일로 내보낼 수 있습니다. 이 기능을 사용하여 데이터를 Azure Cache for Redis 인스턴스에서 다른 인스턴스 또는 다른 Redis 서버로 이동할 수 있습니다. 내보내기 프로세스 중에는 임시 파일이 Azure Cache for Redis 서버 인스턴스를 호스팅하는 VM에 만들어지고, 지정된 스토리지 계정에 업로드됩니다. 성공 또는 실패 상태로 내보내기 작업이 완료되면, 임시 파일은 삭제됩니다.
 
-1. 캐시의 현재 콘텐츠를 저장소로 내보내려면 Azure Portal에서 [캐시로 이동](cache-configure.md#configure-azure-cache-for-redis-settings)하여 **리소스 메뉴**에서 **데이터 내보내기**를 클릭합니다.
+1. 캐시의 현재 콘텐츠를 스토리지로 내보내려면 Azure Portal에서 [캐시로 이동](cache-configure.md#configure-azure-cache-for-redis-settings)하여 **리소스 메뉴**에서 **데이터 내보내기**를 클릭합니다.
 
-    ![저장소 컨테이너 선택][cache-export-data-choose-storage-container]
-2. **스토리지 컨테이너 선택**을 클릭하고 원하는 스토리지 계정을 선택합니다. 저장소 계정은 캐시와 동일한 구독 및 지역 내에 있어야 합니다.
+    ![스토리지 컨테이너 선택][cache-export-data-choose-storage-container]
+2. **스토리지 컨테이너 선택**을 클릭하고 원하는 스토리지 계정을 선택합니다. 스토리지 계정은 캐시와 동일한 구독 및 지역 내에 있어야 합니다.
 
    > [!IMPORTANT]
    > 내보내기는 페이지 Blob을 사용하고, 클래식 및 Resource Manager 스토리지 계정 양쪽 모두에서 지원되지만, Blob Storage 계정에서는 현재 지원되지 않습니다. 자세한 내용은 [Azure Storage 계정 개요](../storage/common/storage-account-overview.md)를 참조하세요.
@@ -85,7 +85,7 @@ ms.locfileid: "60542348"
     ![Storage 계정][cache-export-data-choose-account]
 3. 원하는 Blob 컨테이너를 선택하고 **선택**을 클릭합니다. 새 컨테이너를 사용하려면 **컨테이너 추가** 를 클릭하여 컨테이너를 추가한 다음 목록에서 선택합니다.
 
-    ![저장소 컨테이너 선택][cache-export-data-container]
+    ![스토리지 컨테이너 선택][cache-export-data-container]
 4. **Blob 이름 접두사**를 입력하고 **내보내기**를 클릭하여 내보내기 프로세스를 시작합니다. Blob 이름 접두사는 내보내기 작업에 의해 생성되는 파일의 이름에 접두사를 붙이는 데 사용됩니다.
 
     ![내보내기][cache-export-data]

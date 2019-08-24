@@ -32,11 +32,11 @@ Data Box Edge를 사용하기 위한 시스템 요구 사항은 다음과 같습
 
 [!INCLUDE [Supported protocols for clients accessing device](../../includes/data-box-edge-gateway-supported-client-protocols.md)]
 
-## <a name="supported-storage-accounts"></a>지원되는 저장소 계정
+## <a name="supported-storage-accounts"></a>지원되는 스토리지 계정
 
 [!INCLUDE [Supported storage accounts](../../includes/data-box-edge-gateway-supported-storage-accounts.md)]
 
-## <a name="supported-storage-types"></a>지원되는 저장소 형식
+## <a name="supported-storage-types"></a>지원되는 스토리지 형식
 
 [!INCLUDE [Supported storage types](../../includes/data-box-edge-gateway-supported-storage-types.md)]
 

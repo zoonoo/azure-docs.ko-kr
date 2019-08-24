@@ -24,7 +24,7 @@ ms.locfileid: "68404378"
 HDInsight 클러스터 용량 계획을 만들기 위한 주요 선택 항목은 다음과 같습니다.
 
 - **지역 선택** - Azure 지역은 클러스터가 물리적으로 프로비전되는 위치를 결정합니다. 읽기 및 쓰기 대기 시간을 최소화하려면 클러스터가 데이터와 동일한 지역에 있어야 합니다.
-- **저장소 위치 및 크기 선택** - 기본 저장소는 클러스터와 동일한 지역에 있어야 합니다. 48 노드 클러스터의 경우 4~8개의 저장소 계정을 갖는 것이 좋습니다. 총 스토리지 이미 충분할 수 있지만 각 스토리지 계정이 계산 노드에 대해 추가 네트워킹 대역폭을 제공합니다. 저장소 계정이 여러 개 있는 경우 각 저장소 계정에 대해 접두사 없는 임의 이름을 사용합니다. 임의 이름을 지정하는 목적은 모든 계정에서 저장소 병목 상태(제한) 또는 일반 모드 오류가 발생할 가능성을 줄이려는 것입니다. 성능 향상을 위해서는 저장소 계정당 하나의 컨테이너만 사용합니다.
+- **스토리지 위치 및 크기 선택** - 기본 스토리지는 클러스터와 동일한 지역에 있어야 합니다. 48 노드 클러스터의 경우 4~8개의 스토리지 계정을 갖는 것이 좋습니다. 총 스토리지 이미 충분할 수 있지만 각 스토리지 계정이 계산 노드에 대해 추가 네트워킹 대역폭을 제공합니다. 스토리지 계정이 여러 개 있는 경우 각 스토리지 계정에 대해 접두사 없는 임의 이름을 사용합니다. 임의 이름을 지정하는 목적은 모든 계정에서 스토리지 병목 상태(제한) 또는 일반 모드 오류가 발생할 가능성을 줄이려는 것입니다. 성능 향상을 위해서는 스토리지 계정당 하나의 컨테이너만 사용합니다.
 - **VM 크기 및 유형 선택(이제 G-시리즈 지원)** - 각 클러스터 유형마다 노드 유형 집합이 있으며 각 노드 유형은 해당 VM 크기 및 유형에 대한 특정 옵션을 제공합니다. VM 크기와 유형은 CPU 처리 성능, RAM 크기 및 네트워크 대기 시간에 따라 결정됩니다. 각 노드 유형에 대한 최적의 VM 크기 및 유형을 결정하는 데 시뮬레이트된 워크로드를 사용할 수 있습니다.
 - **작업자 노드 수 선택** - 시뮬레이트된 워크로드를 사용하여 작업자 노드의 초기 수를 결정할 수 있습니다. 최대 부하 요구 사항에 맞게 더 많은 작업자 노드를 추가하여 나중에 클러스터를 확장할 수 있습니다. 추가 작업자 노드가 필요하지 않을 때 클러스터를 나중에 축소할 수 있습니다.
 
@@ -172,7 +172,7 @@ HDInsight를 새 또는 기존 Azure Virtual Network에 추가할 수 있습니�
 
 ## <a name="securely-connect-to-azure-services-with-azure-virtual-network-service-endpoints"></a>Azure Virtual Network 서비스 엔드포인트를 사용하여 Azure 서비스에 안전하게 연결
 
-HDInsight는 Azure Blob Storage, Azure Data Lake Storage Gen2, Cosmos DB 및 SQL 데이터베이스에 안전 하 게 연결할 수 있도록 하는 [가상 네트워크 서비스 끝점](../../virtual-network/virtual-network-service-endpoints-overview.md)을 지원 합니다. Azure HDInsight에 대한 서비스 엔드포인트를 활성화하여 트래픽은 Azure 데이터 센터 내에서 보안된 경로를 통해 흐릅니다. 네트워킹 계층에서 이 향상된 수준의 보안을 사용하여 빅 데이터 저장소 계정을 지정된 VNET(Virtual Network)으로 잠글 수 있으며 여전히 HDInsight 클러스터를 원활하게 사용하여 해당 데이터에 액세스하고 처리할 수 있습니다.
+HDInsight는 Azure Blob Storage, Azure Data Lake Storage Gen2, Cosmos DB 및 SQL 데이터베이스에 안전 하 게 연결할 수 있도록 하는 [가상 네트워크 서비스 끝점](../../virtual-network/virtual-network-service-endpoints-overview.md)을 지원 합니다. Azure HDInsight에 대한 서비스 엔드포인트를 활성화하여 트래픽은 Azure 데이터 센터 내에서 보안된 경로를 통해 흐릅니다. 네트워킹 계층에서 이 향상된 수준의 보안을 사용하여 빅 데이터 스토리지 계정을 지정된 VNET(Virtual Network)으로 잠글 수 있으며 여전히 HDInsight 클러스터를 원활하게 사용하여 해당 데이터에 액세스하고 처리할 수 있습니다.
 
 자세한 내용은 다음 문서를 참조하세요.
 
@@ -193,4 +193,4 @@ Azure Virtual Network와 VPN 게이트웨이를 사용하여 HDInsight를 온-�
 
 이 시리즈의 다음 문서를 읽어보세요.
 
-- [온-프레미스에서 Azure HDInsight Hadoop 마이그레이션에 대한 저장소 모범 사례](apache-hadoop-on-premises-migration-best-practices-storage.md)
+- [온-프레미스에서 Azure HDInsight Hadoop 마이그레이션에 대한 스토리지 모범 사례](apache-hadoop-on-premises-migration-best-practices-storage.md)

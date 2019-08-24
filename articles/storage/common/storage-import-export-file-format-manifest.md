@@ -129,4 +129,4 @@ block-list ::=
   
 ## <a name="next-steps"></a>다음 단계
  
-* [저장소 Import/Export REST API](/rest/api/storageimportexport/)
+* [스토리지 Import/Export REST API](/rest/api/storageimportexport/)

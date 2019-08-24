@@ -61,14 +61,14 @@ Azure Monitor에서 메트릭을 사용하는 방법에 대한 자세한 내용�
 <a name="how-to-view-metrics-and-customize-chart"></a>
 <a name="enable-cache-diagnostics"></a>
 ## <a name="export-cache-metrics"></a>캐시 메트릭 내보내기
-기본적으로 Azure Monitor의 캐시 메트릭은 [30일 동안 저장](../azure-monitor/platform/data-platform-metrics.md)된 후 삭제됩니다. 캐시 메트릭을 30일보다 더 오래 유지하려면 [저장소 계정을 지정](../azure-monitor/platform/archive-diagnostic-logs.md)하고 캐시 메트릭에 대한 **보존(일)** 정책을 지정할 수 있습니다. 
+기본적으로 Azure Monitor의 캐시 메트릭은 [30일 동안 저장](../azure-monitor/platform/data-platform-metrics.md)된 후 삭제됩니다. 캐시 메트릭을 30일보다 더 오래 유지하려면 [스토리지 계정을 지정](../azure-monitor/platform/archive-diagnostic-logs.md)하고 캐시 메트릭에 대한 **보존(일)** 정책을 지정할 수 있습니다. 
 
-캐시 메트릭에 대한 저장소 계정을 구성하려면
+캐시 메트릭에 대한 스토리지 계정을 구성하려면
 
 1. **Azure Cache for Redis** 블레이드의 **리소스 메뉴**에서 **진단**을 클릭합니다.
 2. **설정**을 클릭합니다.
-3. **저장소 계정에 보관**을 선택합니다.
-4. 캐시 메트릭을 저장할 저장소 계정을 선택합니다.
+3. **스토리지 계정에 보관**을 선택합니다.
+4. 캐시 메트릭을 저장할 스토리지 계정을 선택합니다.
 5. **1분** 확인란을 선택하고 **보존(일)** 정책을 지정합니다. 보존 정책 적용 및 데이터 무기한 보존을 원하지 않는 경우 **보존(일)** 을 **0**으로 설정합니다.
 6. **Save**을 클릭합니다.
 
@@ -82,7 +82,7 @@ Azure Monitor에서 메트릭을 사용하는 방법에 대한 자세한 내용�
 메트릭에 액세스하려면 이 문서 앞부분에서 설명한 대로 Azure Portal에서 보고 [Azure Monitor 메트릭 REST API](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)를 사용하여 액세스할 수도 있습니다.
 
 > [!NOTE]
-> 저장소 계정을 변경하는 경우 이전에 구성된 저장소 계정의 데이터는 계속 다운로드할 수는 있으나 Azure 포털에 표시되지는 않습니다.  
+> 스토리지 계정을 변경하는 경우 이전에 구성된 스토리지 계정의 데이터는 계속 다운로드할 수는 있으나 Azure 포털에 표시되지는 않습니다.  
 > 
 > 
 

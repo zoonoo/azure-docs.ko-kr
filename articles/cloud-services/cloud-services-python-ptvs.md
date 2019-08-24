@@ -59,7 +59,7 @@ Azure 클라우드 서비스 마법사에서 새 웹 및 작업자 역할 만들
 
 ![역할 추가 명령](./media/cloud-services-python-ptvs/add-new-or-existing-role.png)
 
-클라우드 서비스는 여러 언어로 구현된 역할을 포함할 수 있습니다.  예를 들어 Django로 구현된 Python 웹 역할과 Python 또는 C# 작업자 역할이 포함될 수 있습니다.  Service Bus 큐 또는 저장소 큐를 사용하면 역할 간에 쉽게 통신할 수 있습니다.
+클라우드 서비스는 여러 언어로 구현된 역할을 포함할 수 있습니다.  예를 들어 Django로 구현된 Python 웹 역할과 Python 또는 C# 작업자 역할이 포함될 수 있습니다.  Service Bus 큐 또는 스토리지 큐를 사용하면 역할 간에 쉽게 통신할 수 있습니다.
 
 ## <a name="install-python-on-the-cloud-service"></a>클라우드 서비스에 Python 설치
 > [!WARNING]

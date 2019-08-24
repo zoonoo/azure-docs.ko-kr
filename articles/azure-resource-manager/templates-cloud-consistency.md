@@ -436,29 +436,29 @@ API 프로필은 템플릿의 필수 요소가 아닙니다. 요소를 추가해
 
 다음 두 예는 리소스를 만들 때 명시적으로 지정해야 하는 공통 엔드포인트 네임스페이스입니다.
 
-* 저장소 계정(Blob, 큐, 테이블 및 파일)
+* 스토리지 계정(Blob, 큐, 테이블 및 파일)
 * 데이터베이스 및 Azure Cache for Redis에 대한 연결 문자열
 
 배포가 완료되면 사용자를 위한 정보로 템플릿 출력에 엔드포인트 네임스페이스를 사용할 수도 있습니다. 다음은 일반적인 예입니다.
 
-* 저장소 계정(Blob, 큐, 테이블 및 파일)
+* 스토리지 계정(Blob, 큐, 테이블 및 파일)
 * 연결 문자열(MySql, SQLServer, SQLAzure, Custom, NotificationHub, ServiceBus, EventHub, ApiHub, DocDb, RedisCache, PostgreSQL)
 * Traffic Manager
 * 공용 IP 주소의 domainNameLabel
 * 클라우드 서비스
 
-일반적으로, 템플릿에 하드 코딩된 엔드포인트를 사용하면 안 됩니다. 모범 사례는 reference 템플릿 함수를 사용하여 엔드포인트를 동적으로 검색하는 것입니다. 예를 들어, 가장 일반적으로 하드 코딩되는 엔드포인트는 저장소 계정의 엔드포인트 네임스페이스입니다. 각 저장소 계정에는 저장소 계정 이름과 엔드포인트 네임스페이스를 연결하여 생성된 고유 FQDN이 있습니다. mystorageaccount1이라는 Blob Storage 계정은 클라우드에 따라 다른 FQDN을 생성합니다.
+일반적으로, 템플릿에 하드 코딩된 엔드포인트를 사용하면 안 됩니다. 모범 사례는 reference 템플릿 함수를 사용하여 엔드포인트를 동적으로 검색하는 것입니다. 예를 들어, 가장 일반적으로 하드 코딩되는 엔드포인트는 스토리지 계정의 엔드포인트 네임스페이스입니다. 각 스토리지 계정에는 스토리지 계정 이름과 엔드포인트 네임스페이스를 연결하여 생성된 고유 FQDN이 있습니다. mystorageaccount1이라는 Blob Storage 계정은 클라우드에 따라 다른 FQDN을 생성합니다.
 
 * 전역 Azure 클라우드에 만든 경우, **mystorageaccount1.blob.core.windows.net**
 * Azure 중국 클라우드에 만든 경우, **mystorageaccount1.blob.core.chinacloudapi.cn**
 
-다음 reference 템플릿 함수는 저장소 리소스 공급자에서 엔드포인트 네임스페이스를 검색합니다.
+다음 reference 템플릿 함수는 스토리지 리소스 공급자에서 엔드포인트 네임스페이스를 검색합니다.
 
 ```json
 "diskUri":"[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2015-06-15').primaryEndpoints.blob, 'container/myosdisk.vhd')]"
 ```
 
-저장소 계정 엔드포인트의 하드 코딩된 값을 `reference` 템플릿 함수로 바꾸면 엔드포인트 참조를 변경하지 않고도 동일한 템플릿을 사용하여 다른 환경에 배포할 수 있습니다.
+스토리지 계정 엔드포인트의 하드 코딩된 값을 `reference` 템플릿 함수로 바꾸면 엔드포인트 참조를 변경하지 않고도 동일한 템플릿을 사용하여 다른 환경에 배포할 수 있습니다.
 
 ### <a name="refer-to-existing-resources-by-unique-id"></a>고유 ID로 기존 리소스 참조
 
@@ -501,7 +501,7 @@ Get-AzureRmVMImagePublisher -Location "West Europe" | Get-AzureRmVMImageOffer | 
 
 이 명령은 몇 분 후에 전역 Azure 클라우드의 유럽 서부 지역에서 사용 가능한 모든 이미지를 반환합니다.
 
-Azure Stack이 이러한 VM 이미지를 사용할 수 있도록 설정하면 사용 가능한 모든 저장소가 사용됩니다. 가장 작은 배율 단위까지 수용하기 위해, Azure Stack을 사용하여 환경에 추가할 이미지를 선택할 수 있습니다.
+Azure Stack이 이러한 VM 이미지를 사용할 수 있도록 설정하면 사용 가능한 모든 스토리지가 사용됩니다. 가장 작은 배율 단위까지 수용하기 위해, Azure Stack을 사용하여 환경에 추가할 이미지를 선택할 수 있습니다.
 
 다음 코드 샘플은 Azure Resource Manager 템플릿의 publisher, offer 및 SKU 매개 변수를 참조하는 일관된 방법을 보여 줍니다.
 
@@ -536,7 +536,7 @@ Get-AzureRmVMSize -Location "West Europe"
 
 ### <a name="check-use-of-azure-managed-disks-in-azure-stack"></a>Azure Stack에서 Azure Managed Disks 사용 확인
 
-관리 디스크는 Azure 테넌트의 저장소를 처리합니다. 명시적으로 저장소 계정을 만들고 VHD(가상 하드 디스크)의 URI를 지정하는 대신, VM을 배포할 때 관리 디스크를 사용하여 암시적으로 이러한 작업을 수행할 수 있습니다. 관리 디스크는 동일한 가용성 집합에 있는 VM의 모든 디스크를 여러 다른 저장 단위에 배치하여 가용성을 향상합니다. 또한 훨씬 짧은 가동 중지 시간으로 기존 VHD를 표준 스토리지에서 Premium Storage로 변환할 수 있습니다.
+관리 디스크는 Azure 테넌트의 스토리지를 처리합니다. 명시적으로 스토리지 계정을 만들고 VHD(가상 하드 디스크)의 URI를 지정하는 대신, VM을 배포할 때 관리 디스크를 사용하여 암시적으로 이러한 작업을 수행할 수 있습니다. 관리 디스크는 동일한 가용성 집합에 있는 VM의 모든 디스크를 여러 다른 스토리지 단위에 배치하여 가용성을 향상합니다. 또한 훨씬 짧은 가동 중지 시간으로 기존 VHD를 표준 스토리지에서 Premium Storage로 변환할 수 있습니다.
 
 관리 디스크는 Azure Stack에 대한 로드맵에 있지만 현재 지원되지 않습니다. 지원될 때까지, 다음과 같이 VM 리소스에 대한 템플릿에서 `vhd` 요소를 통해 명시적으로 VHD를 지정하면 Azure Stack용 클라우드 일치 템플릿을 개발할 수 있습니다.
 

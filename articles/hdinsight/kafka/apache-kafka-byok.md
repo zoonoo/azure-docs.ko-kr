@@ -18,7 +18,7 @@ ms.locfileid: "65233571"
 
 Azure HDInsight에는 Apache Kafka에 대한 BYOK(Bring Your Own Key) 지원이 포함됩니다. 이 기능을 사용하면 미사용 데이터를 암호화하는 데 사용되는 키를 소유하고 관리할 수 있습니다.
 
-HDInsight의 모든 관리 디스크는 Azure SSE(저장소 서비스 암호화)로 보호됩니다. 기본적으로 해당 디스크의 데이터는 Microsoft 관리 키를 사용하여 암호화됩니다. BYOK를 사용하도록 설정한 경우 HDInsight에 대한 암호화 키를 제공하여 Azure Key Vault를 통해 사용하고 관리합니다.
+HDInsight의 모든 관리 디스크는 Azure SSE(스토리지 서비스 암호화)로 보호됩니다. 기본적으로 해당 디스크의 데이터는 Microsoft 관리 키를 사용하여 암호화됩니다. BYOK를 사용하도록 설정한 경우 HDInsight에 대한 암호화 키를 제공하여 Azure Key Vault를 통해 사용하고 관리합니다.
 
 BYOK 암호화는 추가 비용 없이 클러스터를 만드는 동안 처리되는 1단계 프로세스입니다. Azure Key Vault를 통해 HDInsight를 관리 ID로 등록하고 클러스터를 만들 때 암호화 키를 추가하면 됩니다.
 

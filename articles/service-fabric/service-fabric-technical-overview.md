@@ -52,7 +52,7 @@ Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하�
 
 애플리케이션 리소스의 일부로 정의된 모든 코드 패키지를 배포하고 그룹으로 함께 활성화합니다.
 
-**볼륨**: 볼륨은 상태를 유지하는 데 사용할 수 있는 컨테이너 인스턴스 내에 탑재된 디렉터리입니다. Azure Files 볼륨 드라이버는 Azure Files 공유를 컨테이너에 탑재하고 파일 저장소를 지원하는 모든 API를 통해 신뢰할 수 있는 데이터 저장소를 제공합니다. 볼륨은 애플리케이션에서 참조하는 배포 가능한 리소스입니다.
+**볼륨**: 볼륨은 상태를 유지하는 데 사용할 수 있는 컨테이너 인스턴스 내에 탑재된 디렉터리입니다. Azure Files 볼륨 드라이버는 Azure Files 공유를 컨테이너에 탑재하고 파일 스토리지를 지원하는 모든 API를 통해 신뢰할 수 있는 데이터 스토리지를 제공합니다. 볼륨은 애플리케이션에서 참조하는 배포 가능한 리소스입니다.
 
 ### <a name="service-fabric-native-application-concepts"></a>Service Fabric 네이티브 애플리케이션 개념
 
@@ -74,7 +74,7 @@ Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하�
 
 서비스의 두 가지 형식이 있습니다.
 
-* **상태 비저장**: Azure Storage, Azure SQL Database 또는 Azure Cosmos DB와 같은 외부 스토리지 서비스에 서비스의 영구적 상태를 저장할 때 상태 비저장 서비스를 사용합니다. 서비스에 영구 저장소가 없는 경우 상태 비저장 서비스를 사용합니다. 예를 들어, 값을 서비스에 전달하는 계산기 서비스는 이러한 값을 사용하여 계산을 수행하고 결과를 반환합니다.
+* **상태 비저장**: Azure Storage, Azure SQL Database 또는 Azure Cosmos DB와 같은 외부 스토리지 서비스에 서비스의 영구적 상태를 저장할 때 상태 비저장 서비스를 사용합니다. 서비스에 영구 스토리지가 없는 경우 상태 비저장 서비스를 사용합니다. 예를 들어, 값을 서비스에 전달하는 계산기 서비스는 이러한 값을 사용하여 계산을 수행하고 결과를 반환합니다.
 * **상태 저장**: Service Fabric으로 Reliable Collections 또는 Reliable Actors 프로그래밍 모델을 통해 서비스의 상태를 관리하려는 경우 상태 저장 서비스를 사용합니다. 명명된 서비스를 만들 때 상태를 확산하려는 파티션 수를 지정합니다(확장성을 위해). 또한 노드 간에 상태를 복제할 횟수를 지정합니다(안정성을 위해). 명명된 서비스 각각에는 하나의 기본 복제본과 여러 보조 복제본이 있습니다. 기본 복제본에 써서 명명된 서비스의 상태를 수정합니다. 그러면 Service Fabric은 이 상태를 모든 보조 복제본에 복제하여 상태를 동기화합니다. 기본 복제본이 실패하는 경우 서비스 패브릭은 자동으로 이를 감지하고 기존 보조 복제본을 기본 복제본으로 승격합니다. 그러면 서비스 패브릭은 새로운 보조 복제본을 만듭니다.  
 
 **복제본 또는 인스턴스**는 배포되어 실행 중인 서비스의 코드(및 상태 저장 서비스의 상태)를 가리킵니다. [복제본 및 인스턴스](service-fabric-concepts-replica-lifecycle.md)를 참조하세요.
@@ -147,7 +147,7 @@ Service Fabric에서 기존 애플리케이션을 실행할 수도 있습니다.
 자세한 내용은 [서비스에 대한 프로그래밍 모델 선택](service-fabric-choose-framework.md) 문서를 참조하세요.
 
 ### <a name="docker-compose"></a>Docker Compose 
-[Docker Compose](https://docs.docker.com/compose/)는 Docker 프로젝트의 일부입니다. Service Fabric은 [Docker Compose 모델을 사용한 응용 프로그램 배포](service-fabric-docker-compose.md)를 제한적으로 지원합니다.
+[Docker Compose](https://docs.docker.com/compose/)는 Docker 프로젝트의 일부입니다. Service Fabric은 [Docker Compose 모델을 사용한 애플리케이션 배포](service-fabric-docker-compose.md)를 제한적으로 지원합니다.
 
 ## <a name="environments"></a>환경
 

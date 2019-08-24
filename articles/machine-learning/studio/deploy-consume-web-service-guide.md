@@ -59,7 +59,7 @@ Cmdlet을 사용 하려면 먼저 등록 해야 PowerShell 환경 내에서 Azur
 
 * Storage 계정 이름 및 키
 
-    [Azure Portal](https://portal.azure.com/)에서 저장소 계정 이름 및 키를 가져올 수 있습니다.
+    [Azure Portal](https://portal.azure.com/)에서 스토리지 계정 이름 및 키를 가져올 수 있습니다.
 * 약정 계획 ID
 
     로그인하고 계획 이름을 클릭하여 [Azure Machine Learning 웹 서비스](https://services.azureml.net) 포털에서 계획 ID를 얻을 수 있습니다.

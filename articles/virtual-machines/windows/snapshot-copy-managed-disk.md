@@ -73,7 +73,7 @@ ms.locfileid: "64692212"
    ```
    
    > [!NOTE]
-   > 스냅샷을 영역 중복 저장소에 저장하려는 경우 [가용성 영역](../../availability-zones/az-overview.md)을 지원하고 `-SkuName Standard_ZRS` 매개 변수를 포함하는 지역에 만듭니다.   
+   > 스냅샷을 영역 중복 스토리지에 저장하려는 경우 [가용성 영역](../../availability-zones/az-overview.md)을 지원하고 `-SkuName Standard_ZRS` 매개 변수를 포함하는 지역에 만듭니다.   
    
 4. 스냅샷을 만듭니다.
 

@@ -24,7 +24,7 @@ ms.locfileid: "68827676"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Azure에서 일반화된 VM의 관리 이미지 만들기
 
-저장소 계정에 관리 디스크 또는 비관리 디스크로 저장되는 일반화된 VM(가상 머신)에서 관리 이미지 리소스를 만들 수 있습니다. 여러 VM을 만드는 데 이미지를 사용할 수 있습니다. 관리형 이미지의 청구 방법에 대한 자세한 내용은 [Managed Disks 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks/)을 참조하세요. 
+스토리지 계정에 관리 디스크 또는 비관리 디스크로 저장되는 일반화된 VM(가상 머신)에서 관리 이미지 리소스를 만들 수 있습니다. 여러 VM을 만드는 데 이미지를 사용할 수 있습니다. 관리형 이미지의 청구 방법에 대한 자세한 내용은 [Managed Disks 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks/)을 참조하세요. 
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
@@ -51,7 +51,7 @@ Windows VM을 일반화하려면 다음 단계를 수행합니다.
    
 4. **종료 옵션**에서 **종료**를 선택합니다.
    
-5.           **확인**을 선택합니다.
+5. **확인**을 선택합니다.
    
     ![Sysprep 시작](./media/upload-generalized-managed/sysprepgeneral.png)
 
@@ -92,7 +92,7 @@ VM에서 직접 이미지를 만들면 OS 디스크와 데이터 디스크를 �
 
 
 > [!NOTE]
-> 이미지를 영역 중복 저장소에 저장하려는 경우 [가용성 영역](../../availability-zones/az-overview.md)을 지원하고 이미지 구성에 `-ZoneResilient` 매개 변수(`New-AzImageConfig` 명령)를 포함하는 지역에 이미지를 만들어야 합니다.
+> 이미지를 영역 중복 스토리지에 저장하려는 경우 [가용성 영역](../../availability-zones/az-overview.md)을 지원하고 이미지 구성에 `-ZoneResilient` 매개 변수(`New-AzImageConfig` 명령)를 포함하는 지역에 이미지를 만들어야 합니다.
 
 VM 이미지를 만들려면 다음 단계를 수행합니다.
 
@@ -206,9 +206,9 @@ OS 디스크의 이미지만 만들려면 관리 디스크 ID를 OS 디스크로
     ``` 
 
 
-## <a name="create-an-image-from-a-vhd-in-a-storage-account"></a>저장소 계정의 VHD에서 이미지 만들기
+## <a name="create-an-image-from-a-vhd-in-a-storage-account"></a>스토리지 계정의 VHD에서 이미지 만들기
 
-저장소 계정의 일반화된 OS VHD에서 관리되는 이미지를 만듭니다. 스토리지 계정에 있는 VHD의 URI가 필요합니다. 이 URI는 https://*mystorageaccount*.blob.core.windows.net/*vhdcontainer*/*vhdfilename.vhd* 형식입니다. 이 예제의 VHD는 *vhdcontainer* 컨테이너의 *mystorageaccount*에 있으며 VHD 파일 이름은 *vhdfilename.vhd*입니다.
+스토리지 계정의 일반화된 OS VHD에서 관리되는 이미지를 만듭니다. 스토리지 계정에 있는 VHD의 URI가 필요합니다. 이 URI는 https://*mystorageaccount*.blob.core.windows.net/*vhdcontainer*/*vhdfilename.vhd* 형식입니다. 이 예제의 VHD는 *vhdcontainer* 컨테이너의 *mystorageaccount*에 있으며 VHD 파일 이름은 *vhdfilename.vhd*입니다.
 
 
 1.  일부 변수를 만듭니다.

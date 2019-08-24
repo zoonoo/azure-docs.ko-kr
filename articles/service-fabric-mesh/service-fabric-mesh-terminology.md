@@ -18,7 +18,7 @@ ms.locfileid: "60810595"
 ---
 # <a name="service-fabric-mesh-terminology"></a>Service Fabric Mesh 용어
 
-Azure Service Fabric Mesh는 개발자가 가상 머신, 저장소 또는 네트워킹을 관리하지 않고 마이크로 서비스 애플리케이션을 배포할 수 있는 완전히 관리되는 서비스입니다. 이 문서에서는 문서에 사용된 용어를 이해할 수 있도록 Azure Service Fabric Mesh에서 사용되는 용어를 자세히 설명합니다.
+Azure Service Fabric Mesh는 개발자가 가상 머신, 스토리지 또는 네트워킹을 관리하지 않고 마이크로 서비스 애플리케이션을 배포할 수 있는 완전히 관리되는 서비스입니다. 이 문서에서는 문서에 사용된 용어를 이해할 수 있도록 Azure Service Fabric Mesh에서 사용되는 용어를 자세히 설명합니다.
 
 ## <a name="service-fabric"></a>Service Fabric
 

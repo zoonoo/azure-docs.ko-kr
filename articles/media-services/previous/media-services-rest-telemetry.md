@@ -30,7 +30,7 @@ ms.locfileid: "60761780"
 
 이 항목에서 설명하는 단계는 다음과 같습니다.
 
-- 저장소 계정을 Media Services 계정에 연결
+- 스토리지 계정을 Media Services 계정에 연결
 - 알림 엔드포인트 가져오기
 - 모니터링을 위한 알림 엔드포인트 만들기 
 
@@ -44,7 +44,7 @@ ms.locfileid: "60761780"
 
 
  
-## <a name="get-the-storage-account-associated-with-a-media-services-account"></a>저장소 계정을 Media Services 계정에 연결
+## <a name="get-the-storage-account-associated-with-a-media-services-account"></a>스토리지 계정을 Media Services 계정에 연결
 
 ### <a name="request"></a>요청
 

@@ -23,8 +23,8 @@ ms.locfileid: "66161408"
 
 > [!div class="op_single_selector"]
 > * [Azure Portal 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
-> * [PowerShell 사용(기본 저장소의 경우)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
-> * [PowerShell 사용(추가 저장소의 경우)](data-lake-store-hdinsight-hadoop-use-powershell.md)
+> * [PowerShell 사용(기본 스토리지의 경우)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+> * [PowerShell 사용(추가 스토리지의 경우)](data-lake-store-hdinsight-hadoop-use-powershell.md)
 > * [Resource Manager 사용](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 
 Azure PowerShell을 통해 Azure Data Lake Storage Gen1을 기본 스토리지로 사용하여 Azure HDInsight 클러스터를 구성하는 방법을 알아봅니다. Data Lake Storage Gen1을 추가 스토리지로 사용하여 HDInsight 클러스터를 만드는 방법에 대한 지침은 [Data Lake Storage Gen1을 추가 스토리지로 사용하여 HDInsight 클러스터 만들기](data-lake-store-hdinsight-hadoop-use-powershell.md)를 참조하세요.
@@ -33,7 +33,7 @@ Data Lake Storage Gen1에서 HDInsight를 사용하는 경우 다음 중요 사�
 
 * 기본 스토리지인 Data Lake Storage Gen1에 액세스할 수 있는 HDInsight 클러스터를 만드는 옵션은 HDInsight 버전 3.5 및 3.6에서 사용할 수 있습니다.
 
-* 기본 스토리지인 Data Lake Storage Gen1에 액세스할 수 있는 HDInsight 클러스터를 만드는 옵션은 HDInsight Premium 클러스터에서 ‘사용할 수 없습니다’. 
+* 기본 스토리지인 Data Lake Storage Gen1에 액세스할 수 있는 HDInsight 클러스터를 만드는 옵션은 HDInsight Premium 클러스터에서 ‘사용할 수 없습니다’.
 
 PowerShell을 사용하여 Data Lake Storage Gen1을 사용하도록 HDInsight를 구성하려면 다음 5개 섹션의 지침을 따릅니다.
 

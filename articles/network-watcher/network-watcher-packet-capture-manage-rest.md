@@ -300,7 +300,7 @@ armclient delete "https://management.azure.com/subscriptions/${subscriptionId}/R
 ```
 
 > [!NOTE]
-> 패킷 캡처를 삭제해도 저장소 계정에서 파일을 삭제하지 않습니다.
+> 패킷 캡처를 삭제해도 스토리지 계정에서 파일을 삭제하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

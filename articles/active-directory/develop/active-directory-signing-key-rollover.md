@@ -309,7 +309,7 @@ WIF v1.0에서 애플리케이션을 빌드한 경우 새 키를 사용하도록
 키가 어딘가에 저장되거나 애플리케이션에 하드 코딩되는 경우 이 지침 문서의 끝에 있는 지침에 따라 수동 롤오버를 수행하여 수동으로 키를 검색하고 적절하게 업데이트할 수 있습니다. Azure AD의 롤오버 케이던스가 늘어나거나 긴급 대역외 롤오버가 발생하는 경우, 향후 작업 중단 및 오버헤드를방지 하기 위해 이 문서에 설명된 방법 중 하나를 사용하여 **자동 롤오버를 지원하도록 애플리케이션을 향상하는 것이 아주 좋습니다**.
 
 ## <a name="how-to-test-your-application-to-determine-if-it-will-be-affected"></a>애플리케이션을 테스트하여 영향을 받을지 확인하는 방법
-스크립트를 다운로드하고 [이 GitHub 리포지토리](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey)의 지침에 따라 애플리케이션이 자동 키 롤오버를 지원하는지 여부를 확인할 수 있습니다.
+스크립트를 다운로드하고 [이 GitHub 리포지토리](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey)
 
 ## <a name="how-to-perform-a-manual-rollover-if-your-application-does-not-support-automatic-rollover"></a>애플리케이션이 자동 롤오버를 지원하지 않는 경우 수동 롤오버를 수행하는 방법
 애플리케이션이 자동 롤오버를 지원하지 **않는** 경우 주기적으로 Azure AD의 서명 키를 모니터링하고 적절하게 수동 롤오버를 수행하는 프로세스를 설정해야 합니다. [이 GitHub 리포지토리](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey) 는 이 작업을 수행하는 방법에 대한 스크립트 및 지침을 포함합니다.

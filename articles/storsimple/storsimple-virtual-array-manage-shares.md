@@ -49,7 +49,7 @@ StorSimple 공유는 다음과 같을 수 있습니다.
 
 ## <a name="the-shares-blade"></a>공유 블레이드
 
-StorSimple 서비스 요약 블레이드의 **공유** 메뉴에서는 지정된 StorSimple 배열의 저장소 공유의 목록을 표시하고 관리할 수 있습니다.
+StorSimple 서비스 요약 블레이드의 **공유** 메뉴에서는 지정된 StorSimple 배열의 스토리지 공유의 목록을 표시하고 관리할 수 있습니다.
 
 ![공유 블레이드](./media/storsimple-virtual-array-manage-shares/shares-blade.png)
 

@@ -142,7 +142,7 @@ ms.locfileid: "66512292"
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | Id | 아닙니다. | 정책 파일의 다른 요소에서 참조되는 특정 키 쌍의 고유 식별자입니다. |
-| StorageReferenceId | 예 | 정책 파일의 다른 요소에서 참조되는 저장소 키 컨테이너의 식별자입니다. |
+| StorageReferenceId | 예 | 정책 파일의 다른 요소에서 참조되는 스토리지 키 컨테이너의 식별자입니다. |
 
 ### <a name="inputclaimstransformations"></a>InputClaimsTransformations
 

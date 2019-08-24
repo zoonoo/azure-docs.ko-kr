@@ -101,7 +101,7 @@ Azure Portal을 사용하여 EventGrid 리소스 공급자를 등록합니다.
 Azure 연결이 실패한 경우 수동으로 연결하여 문제를 해결할 수 있습니다.
 
 > [!NOTE]
-> Media Services 계정과 연결하는 Video Indexer 계정, 그리고 같은 Media Services 계정에 연결된 Azure 저장소 계정의 3개 계정은 같은 지역에 있는 것이 좋습니다.
+> Media Services 계정과 연결하는 Video Indexer 계정, 그리고 같은 Media Services 계정에 연결된 Azure Storage 계정의 3개 계정은 같은 지역에 있는 것이 좋습니다.
 
 ### <a name="create-and-configure-a-media-services-account"></a>Media Services 계정을 만들고 구성
 

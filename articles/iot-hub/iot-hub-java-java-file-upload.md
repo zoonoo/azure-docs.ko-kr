@@ -26,7 +26,7 @@ ms.locfileid: "68668079"
 
 * IoT Hub 파일 업로드 알림을 사용하여 앱 백 엔드에서 파일 처리를 트리거합니다.
 
-[장치에서 IoT hub로 원격 분석 전송 빠른 시작](quickstart-send-telemetry-java.md) 및 [IoT Hub를 사용 하 여 클라우드-장치 메시지 보내기](iot-hub-java-java-c2d.md) 자습서에서는 IoT Hub의 기본 장치-클라우드 및 클라우드-장치 메시징 기능을 보여 줍니다. [IoT Hub로 메시지 라우팅 구성](tutorial-routing.md) 자습서에서는 장치-클라우드 메시지를 Azure Blob Storage에 안정적으로 저장하는 방법에 대해 설명합니다. 그러나 일부 시나리오에서는 디바이스에서 전송하는 데이터를 IoT Hub에서 허용하는 비교적 작은 디바이스-클라우드 메시지에 쉽게 매핑할 수 없습니다. 예를 들어:
+[장치에서 IoT hub로 원격 분석 전송 빠른 시작](quickstart-send-telemetry-java.md) 및 [IoT Hub를 사용 하 여 클라우드-장치 메시지 보내기](iot-hub-java-java-c2d.md) 자습서에서는 IoT Hub의 기본 장치-클라우드 및 클라우드-장치 메시징 기능을 보여 줍니다. [IoT Hub로 메시지 라우팅 구성](tutorial-routing.md) 자습서에서는 디바이스-클라우드 메시지를 Azure Blob Storage에 안정적으로 저장하는 방법에 대해 설명합니다. 그러나 일부 시나리오에서는 디바이스에서 전송하는 데이터를 IoT Hub에서 허용하는 비교적 작은 디바이스-클라우드 메시지에 쉽게 매핑할 수 없습니다. 예를 들어:
 
 * 이미지가 포함된 대형 파일
 * 비디오
@@ -37,7 +37,7 @@ ms.locfileid: "68668079"
 
 이 자습서의 끝 부분에서는 다음 두 개의 Java 콘솔 앱을 실행합니다.
 
-* **시뮬레이션 된 장치-** [IoT Hub를 사용 하 여 클라우드-장치 메시지 보내기] 자습서에서 만든 앱의 수정 된 버전입니다. 이 앱은 IoT Hub에서 제공하는 SAS URI를 사용하여 저장소에 파일을 업로드합니다.
+* **시뮬레이션 된 장치-** [IoT Hub를 사용 하 여 클라우드-장치 메시지 보내기] 자습서에서 만든 앱의 수정 된 버전입니다. 이 앱은 IoT Hub에서 제공하는 SAS URI를 사용하여 스토리지에 파일을 업로드합니다.
 
 * **read-file-upload-notification** - IoT Hub에서 파일 업로드 알림을 받습니다.
 
@@ -260,7 +260,7 @@ mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
 
 ![read-file-upload-notification 앱의 출력](media/iot-hub-java-java-upload/read-file-upload-notification.png)
 
-포털을 사용하면 구성한 저장소 컨테이너에 업로드된 파일을 볼 수 있습니다.
+포털을 사용하면 구성한 스토리지 컨테이너에 업로드된 파일을 볼 수 있습니다.
 
 ![업로드된 파일](media/iot-hub-java-java-upload/uploaded-file.png)
 

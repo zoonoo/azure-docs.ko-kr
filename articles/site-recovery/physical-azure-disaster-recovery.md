@@ -35,7 +35,7 @@ ms.locfileid: "66400113"
 - 이 시나리오에 대한 [아키텍처 및 구성 요소](physical-azure-architecture.md)를 이해해야 합니다.
 - 모든 구성 요소에 대한 [지원 요구 사항](vmware-physical-secondary-support-matrix.md)을 검토합니다.
 - 복제할 서버가 [Azure VM 요구 사항](vmware-physical-secondary-support-matrix.md#replicated-vm-support)을 준수해야 합니다.
-- Azure를 준비합니다. Azure 구독, Azure Virtual Network 및 저장소 계정이 필요합니다.
+- Azure를 준비합니다. Azure 구독, Azure Virtual Network 및 스토리지 계정이 필요합니다.
 - 복제하려는 각 서버에서 모바일 서비스를 자동으로 설치하기 위해 계정을 준비합니다.
 
 시작하기 전에 다음 사항을 확인합니다.
@@ -72,12 +72,12 @@ Azure 계정에 Azure로 VM을 복제하기 위한 권한이 있는지 확인합
 - 네트워크가 Recovery Services 자격 증명 모음과 같은 지역에 있어야 합니다.
 
 
-## <a name="set-up-an-azure-storage-account"></a>Azure 저장소 계정을 설정
+## <a name="set-up-an-azure-storage-account"></a>Azure Storage 계정을 설정
 
 [Azure Storage 계정](../storage/common/storage-quickstart-create-account.md)을 설정합니다.
 
-- Site Recovery는 온-프레미스 컴퓨터를 Azure Storage에 복제합니다. 장애 조치(failover)가 발생한 후에 저장소에서 Azure VM을 만듭니다.
-- 저장소 계정은 Recovery Services 자격 증명 모음과 동일한 영역에 있어야 합니다.
+- Site Recovery는 온-프레미스 컴퓨터를 Azure Storage에 복제합니다. 장애 조치(failover)가 발생한 후에 스토리지에서 Azure VM을 만듭니다.
+- 스토리지 계정은 Recovery Services 자격 증명 모음과 동일한 지역에 있어야 합니다.
 
 
 ### <a name="prepare-an-account-for-mobility-service-installation"></a>모바일 서비스 설치를 위한 계정 준비
@@ -129,8 +129,8 @@ Azure 계정에 Azure로 VM을 복제하기 위한 권한이 있는지 확인합
 
 IP 주소 기반 방화벽 규칙은 HTTPS(443) 포트를 통해 위에 나열된 모든 Azure URL에 대한 통신을 허용해야 합니다. IP 범위를 간소화하고 제한하려면 URL 필터링을 수행하는 것이 좋습니다.
 
-- **상업용 IP** - [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/confirmation.aspx?id=41653) 및 HTTPS(443) 포트를 허용합니다. AAD, 백업, 복제 및 저장소 URL을 지원하기 위해 구독의 Azure 지역에 대한 IP 주소 범위를 허용합니다.  
-- **정부 IP** - AAD, 백업, 복제 및 저장소 URL을 지원하기 위해 모든 USGov 지역(버지니아, 텍사스, 애리조나 및 아이오와)의 [Azure Government 데이터 센터 IP 범위](https://www.microsoft.com/en-us/download/details.aspx?id=57063) 및 HTTPS(443) 포트를 허용합니다.  
+- **상업용 IP** - [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/confirmation.aspx?id=41653) 및 HTTPS(443) 포트를 허용합니다. AAD, 백업, 복제 및 스토리지 URL을 지원하기 위해 구독의 Azure 지역에 대한 IP 주소 범위를 허용합니다.  
+- **정부 IP** - AAD, 백업, 복제 및 스토리지 URL을 지원하기 위해 모든 USGov 지역(버지니아, 텍사스, 애리조나 및 아이오와)의 [Azure Government 데이터 센터 IP 범위](https://www.microsoft.com/en-us/download/details.aspx?id=57063) 및 HTTPS(443) 포트를 허용합니다.  
 
 #### <a name="run-setup"></a>설치 프로그램 실행
 로컬 관리자 권한으로 통합 설치를 실행하여 구성 서버를 설치합니다. 프로세스 서버 및 마스터 대상 서버도 기본적으로 구성 서버에 설치됩니다.
@@ -145,7 +145,7 @@ IP 주소 기반 방화벽 규칙은 HTTPS(443) 포트를 통해 위에 나열�
 
 1. **인프라 준비** > **대상**을 클릭하고 사용하려는 Azure 구독을 선택합니다.
 2. 대상 배포 모델을 지정합니다.
-3. Site Recovery가 호환되는 Azure 저장소 계정 및 네트워크가 하나 이상 있는지 확인합니다.
+3. Site Recovery가 호환되는 Azure Storage 계정 및 네트워크가 하나 이상 있는지 확인합니다.
 
    ![대상](./media/physical-azure-disaster-recovery/network-storage.png)
 

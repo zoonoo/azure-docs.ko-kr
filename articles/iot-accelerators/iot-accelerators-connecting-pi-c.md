@@ -1,6 +1,6 @@
 ---
 title: C를 사용하여 원격 모니터링으로 Raspberry Pi 프로비전 - Azure | Microsoft Docs
-description: C에 작성된 애플리케이션을 사용하여 원격 모니터링 솔루션 가속기에 Raspberry Pi 장치를 연결하는 방법을 설명합니다.
+description: C에 작성된 애플리케이션을 사용하여 원격 모니터링 솔루션 가속기에 Raspberry Pi 디바이스를 연결하는 방법을 설명합니다.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -19,7 +19,7 @@ ms.locfileid: "61454505"
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-이 자습서는 원격 모니터링 솔루션 가속기에 실제 디바이스를 연결하는 방법을 보여 줍니다. 제한된 장치에서 실행되는 포함된 애플리케이션과 마찬가지로 Raspberry Pi 장치 애플리케이션에 대한 클라이언트 코드는 C에서 작성되었습니다. 이 자습서에서는 Raspbian OS를 실행 중인 Raspberry Pi에서 애플리케이션을 빌드합니다.
+이 자습서는 원격 모니터링 솔루션 가속기에 실제 디바이스를 연결하는 방법을 보여 줍니다. 제한된 디바이스에서 실행되는 포함된 애플리케이션과 마찬가지로 Raspberry Pi 디바이스 애플리케이션에 대한 클라이언트 코드는 C에서 작성되었습니다. 이 자습서에서는 Raspbian OS를 실행 중인 Raspberry Pi에서 애플리케이션을 빌드합니다.
 
 디바이스를 시뮬레이션하려면 [새 시뮬레이션된 디바이스 만들기 및 테스트](iot-accelerators-remote-monitoring-create-simulated-device.md)를 참조하세요.
 
@@ -73,11 +73,11 @@ Raspberry Pi의 명령줄에 원격으로 액세스할 수 있도록 데스크�
 
 ## <a name="build-and-run-the-application"></a>애플리케이션 빌드 및 실행
 
-다음 단계에서는 *CMake*를 사용하여 클라이언트 응용 프로그램을 빌드하는 방법을 설명합니다. 원격 모니터링 클라이언트 애플리케이션은 SDK 빌드 프로세스의 일부로 빌드됩니다.
+다음 단계에서는 *CMake*를 사용하여 클라이언트 애플리케이션을 빌드하는 방법을 설명합니다. 원격 모니터링 클라이언트 애플리케이션은 SDK 빌드 프로세스의 일부로 빌드됩니다.
 
 1. **remote_monitoring.c** 파일을 편집하여 `<connectionstring>`을 이 방법 가이드 시작 부분에서 솔루션 가속기에 디바이스를 추가할 때 적어 둔 디바이스 연결 문자열로 바꿉니다.
 
-1. [Azure IoT C SDK 리포지토리](https://github.com/Azure/azure-iot-sdk-c)의 복제된 복사본 루트로 이동한 후에 다음 명령을 실행하여 클라이언트 응용 프로그램을 빌드합니다.
+1. [Azure IoT C SDK 리포지토리](https://github.com/Azure/azure-iot-sdk-c)의 복제된 복사본 루트로 이동한 후에 다음 명령을 실행하여 클라이언트 애플리케이션을 빌드합니다.
 
     ```sh
     mkdir cmake

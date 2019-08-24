@@ -37,7 +37,7 @@ ms.locfileid: "68325702"
 | [공용 IP를 사용 하는 Linux 컨테이너][net-publicip] | 공용 IP를 통해 액세스할 수 있는 단일 Linux 컨테이너를 배포합니다. |
 | [가상 네트워크 (미리 보기)를 사용 하 여 컨테이너 그룹 배포][net-vnet] | 새 가상 네트워크, 서브넷, 네트워크 프로필 및 컨테이너 그룹을 배포 합니다. |
 | **Azure 리소스** ||
-| [Azure Storage 계정 및 파일 공유 만들기][az-files] | 컨테이너 인스턴스에서 Azure CLI를 사용하여 저장소 계정 및 Azure 파일 공유를 만듭니다.
+| [Azure Storage 계정 및 파일 공유 만들기][az-files] | 컨테이너 인스턴스에서 Azure CLI를 사용하여 스토리지 계정 및 Azure 파일 공유를 만듭니다.
 
 ## <a name="deployment"></a>배포
 

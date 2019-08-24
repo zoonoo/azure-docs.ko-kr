@@ -61,7 +61,7 @@ Windows PowerShell 인터페이스를 사용하여 StorSimple 디바이스에 �
 ## <a name="set-the-storsimple-snapshot-manager-password"></a>StorSimple 스냅샷 관리자 암호 설정
 StorSimple Snapshot Manager 소프트웨어는 Windows 호스트에 상주하며 관리자가 로컬및 클라우드 스냅샷의 형태로 StorSimple 디바이스의 백업을 관리할 수 있습니다.
 
-StorSimple 스냅샷 관리자에서 디바이스를 구성하면, 디바이스 IP 주소 및 암호를 입력하여 저장소 디바이스를 인증하라는 메시지가 표시됩니다.
+StorSimple 스냅샷 관리자에서 디바이스를 구성하면, 디바이스 IP 주소 및 암호를 입력하여 스토리지 디바이스를 인증하라는 메시지가 표시됩니다.
 
 Azure Portal을 통해 StorSimple Snapshot Manager에 대한 암호를 설정하거나 변경할 수 있습니다. 다음 단계를 수행하여 StorSimple Snapshot Manager 암호를 설정하거나 변경합니다.
 

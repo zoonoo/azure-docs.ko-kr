@@ -29,7 +29,7 @@ ms.locfileid: "64919958"
 
 - **사용자 지정 이미지 배포**: 즉시 실행 가능한 패키지에 모든 파일 및 종속성을 포함하는 Docker 이미지로 앱을 “Docker화”합니다.
 - **다중 컨테이너 배포**: "Docker 화" 앱을 Docker Compose 구성 파일을 사용 하 여 여러 컨테이너입니다.
-- **기본 제공 플랫폼 이미지를 사용한 앱 배포**: 기본 제공 플랫폼 이미지는 노드 및 PHP와 같은 일반적인 웹앱 런타임 및 종속성을 포함합니다. [Azure App Service 배포 방법](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) 중 하나를 사용하여 앱을 웹앱의 저장소에 배포한 후 기본 제공 플랫폼 이미지를 사용하여 실행합니다.
+- **기본 제공 플랫폼 이미지를 사용한 앱 배포**: 기본 제공 플랫폼 이미지는 노드 및 PHP와 같은 일반적인 웹앱 런타임 및 종속성을 포함합니다. [Azure App Service 배포 방법](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) 중 하나를 사용하여 앱을 웹앱의 스토리지에 배포한 후 기본 제공 플랫폼 이미지를 사용하여 실행합니다.
 
 ## <a name="which-method-is-right-for-your-app"></a>앱에 적합한 방법은 무엇인가요? 
 

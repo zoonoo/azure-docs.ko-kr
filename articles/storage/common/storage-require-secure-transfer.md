@@ -18,37 +18,37 @@ ms.locfileid: "65148567"
 ---
 # <a name="require-secure-transfer-in-azure-storage"></a>Azure Storage에서 보안 전송 필요
 
-"보안 전송 필요" 옵션으로 안전한 연결에서 계정으로만 요청을 허용하여 저장소 계정의 보안을 강화합니다. 예를 들어 저장소 계정에 액세스하는 데 REST API를 호출하는 경우 HTTPS를 사용하여 연결해야 합니다. "보안 전송 필요"는 HTTP를 사용하는 요청을 거부합니다.
+"보안 전송 필요" 옵션으로 안전한 연결에서 계정으로만 요청을 허용하여 저장소 계정의 보안을 강화합니다. 예를 들어 스토리지 계정에 액세스하는 데 REST API를 호출하는 경우 HTTPS를 사용하여 연결해야 합니다. "보안 전송 필요"는 HTTP를 사용하는 요청을 거부합니다.
 
 Azure 파일 서비스를 사용하는 경우 "보안 전송 필요"가 설정된 경우 암호화되지 않은 모든 연결이 실패합니다. 여기에는 암호화되지 않은 SMB 2.1, SMB 3.0을 사용하는 시나리오와 Linux SMB 클라이언트의 일부 버전이 포함됩니다. 
 
 SDK로 스토리지 계정을 만들면 기본적으로 "보안 전송 필요" 옵션이 비활성화됩니다. Azure Portal에서 스토리지 계정을 만들면 기본적으로 활성화됩니다.
 
 > [!NOTE]
-> Azure Storage에서 사용자 지정 도메인 이름에 대해 HTTPS를 지원하지 않으므로 사용자 지정 도메인 이름을 사용할 때 이 옵션이 적용되지 않습니다. 또한 클래식 저장소 계정은 지원되지 않습니다.
+> Azure Storage에서 사용자 지정 도메인 이름에 대해 HTTPS를 지원하지 않으므로 사용자 지정 도메인 이름을 사용할 때 이 옵션이 적용되지 않습니다. 또한 클래식 스토리지 계정은 지원되지 않습니다.
 
 ## <a name="enable-secure-transfer-required-in-the-azure-portal"></a>Azure Portal에서 "보안 전송 필요"를 사용하도록 설정
 
-[Azure Portal](https://portal.azure.com)에서 저장소 계정을 만들 경우 "보안 전송 필요" 설정을 설정할 수 있습니다. 기존 저장소 계정을 활성화할 수도 있습니다.
+[Azure Portal](https://portal.azure.com)에서 저장소 계정을 만들 경우 "보안 전송 필요" 설정을 설정할 수 있습니다. 기존 스토리지 계정을 활성화할 수도 있습니다.
 
-### <a name="require-secure-transfer-for-a-new-storage-account"></a>새 저장소 계정에 대해 보안 전송 필요
+### <a name="require-secure-transfer-for-a-new-storage-account"></a>새 스토리지 계정에 대해 보안 전송 필요
 
-1. Azure Portal에서 **저장소 계정 만들기** 창을 엽니다.
+1. Azure Portal에서 **스토리지 계정 만들기** 창을 엽니다.
 1. **보안 전송 필요** 아래에서 **사용**을 선택합니다.
 
-   ![저장소 계정 만들기 블레이드](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_1.png)
+   ![스토리지 계정 만들기 블레이드](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_1.png)
 
-### <a name="require-secure-transfer-for-an-existing-storage-account"></a>기존 저장소 계정에 대해 보안 전송 필요
+### <a name="require-secure-transfer-for-an-existing-storage-account"></a>기존 스토리지 계정에 대해 보안 전송 필요
 
-1. Azure Portal에서 기존 저장소 계정을 선택합니다.
-1. 저장소 계정 메뉴 창의 **설정** 아래에서 **구성**을 선택합니다.
+1. Azure Portal에서 기존 스토리지 계정을 선택합니다.
+1. 스토리지 계정 메뉴 창의 **설정** 아래에서 **구성**을 선택합니다.
 1. **보안 전송 필요** 아래에서 **사용**을 선택합니다.
 
-   ![저장소 계정 메뉴 창](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_2.png)
+   ![스토리지 계정 메뉴 창](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_2.png)
 
 ## <a name="enable-secure-transfer-required-programmatically"></a>프로그래밍 방식으로 "보안 전송 필요" 사용
 
-보안 전송을 프로그래밍 방식으로 요구하려면 REST API, 도구 또는 라이브러리를 사용하여 저장소 계정 속성에서 설정 _supportsHttpsTrafficOnly_를 사용합니다.
+보안 전송을 프로그래밍 방식으로 요구하려면 REST API, 도구 또는 라이브러리를 사용하여 스토리지 계정 속성에서 설정 _supportsHttpsTrafficOnly_를 사용합니다.
 
 * [REST API](https://docs.microsoft.com/rest/api/storagerp/storageaccounts)(버전: 2016-12-01)
 * [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/set-azstorageaccount)(버전: 0.7)
@@ -121,4 +121,4 @@ EnableHttpsTrafficOnly : True
 ```
 
 ## <a name="next-steps"></a>다음 단계
-Azure Storage는 여러 개발자가 보안 애플리케이션을 함께 빌드할 수 있도록 하는 포괄적인 보안 기능을 제공합니다. 자세한 내용은 [저장소 보안 가이드](storage-security-guide.md)를 참조하세요.
+Azure Storage는 여러 개발자가 보안 애플리케이션을 함께 빌드할 수 있도록 하는 포괄적인 보안 기능을 제공합니다. 자세한 내용은 [스토리지 보안 가이드](storage-security-guide.md)를 참조하세요.

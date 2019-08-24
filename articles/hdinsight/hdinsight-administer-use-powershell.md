@@ -50,7 +50,7 @@ Get-AzHDInsightCluster -ClusterName <Cluster Name>
 Remove-AzHDInsightCluster -ClusterName <Cluster Name>
 ```
 
-또한 클러스터를 포함하는 리소스 그룹을 제거하여 클러스터를 삭제할 수도 있습니다. 리소스 그룹을 삭제하면 기본 저장소 계정을 포함한 그룹 내 모든 리소스가 삭제됩니다.
+또한 클러스터를 포함하는 리소스 그룹을 제거하여 클러스터를 삭제할 수도 있습니다. 리소스 그룹을 삭제하면 기본 스토리지 계정을 포함한 그룹 내 모든 리소스가 삭제됩니다.
 
 ```powershell
 Remove-AzResourceGroup -Name <Resource Group Name>
@@ -147,8 +147,8 @@ Grant-AzHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredential $c
 ## <a name="update-http-user-credentials"></a>HTTP 사용자 자격 증명 업데이트
 HTTP 액세스 권한 부여/해지와 같은 절차입니다. 클러스터에 HTTP 액세스 권한이 부여된 경우 먼저 해당 권한을 해지해야 합니다.  그런 다음 새 HTTP 사용자 자격 증명을 사용하여 액세스 권한을 부여합니다.
 
-## <a name="find-the-default-storage-account"></a>기본 저장소 계정 찾기
-다음 PowerShell 스크립트에서는 클러스터에 대한 기본 저장소 계정 이름 및 관련 정보를 가져오는 방법을 보여 줍니다.
+## <a name="find-the-default-storage-account"></a>기본 스토리지 계정 찾기
+다음 PowerShell 스크립트에서는 클러스터에 대한 기본 스토리지 계정 이름 및 관련 정보를 가져오는 방법을 보여 줍니다.
 
 ```powershell
 #Connect-AzAccount

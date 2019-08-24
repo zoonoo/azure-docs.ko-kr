@@ -72,7 +72,7 @@ App Service Environment의 수동 크기 조정, 관리 및 모니터링에 대�
 
 자동 크기 조정에 대한 자세한 내용은 다음 가이드를 참조하세요. [App Service Environment에 대해 자동 크기 조정을 구성하는 방법][ASEAutoscale]
 
-데이터베이스 및 저장소와 같은 사용자 지정 항목에 사용할 수 없는 추가 종속성이 있습니다. 이러한 종속성은 Azure에 의해 처리되며 시스템과 함께 제공됩니다. 시스템 저장소는 전체 App Service Environment에 대해 최대 500GB를 지원하고 데이터베이스는 시스템 규모의 필요에 따라 Azure에서 조정됩니다.
+데이터베이스 및 스토리지와 같은 사용자 지정 항목에 사용할 수 없는 추가 종속성이 있습니다. 이러한 종속성은 Azure에 의해 처리되며 시스템과 함께 제공됩니다. 시스템 스토리지는 전체 App Service Environment에 대해 최대 500GB를 지원하고 데이터베이스는 시스템 규모의 필요에 따라 Azure에서 조정됩니다.
 
 ## <a name="getting-started"></a>시작
 App Service Environment v1을 시작하려면 [App Service Environment v1 소개][WhatisASE]를 참조하세요.

@@ -59,7 +59,7 @@ from azure.storage.file import FileService
 ```
 
 ## <a name="set-up-a-connection-to-azure-files"></a>Azure Files에 대한 연결 설정 
-`FileService` 개체를 사용하면 공유, 디렉터리 및 파일 작업을 수행할 수 있습니다. 다음 코드는 저장소 계정 이름 및 계정 키를 사용하는 `FileService` 개체를 만듭니다. `<myaccount>` 및 `<mykey>`를 사용자의 계정 이름 및 키로 바꾸세요.
+`FileService` 개체를 사용하면 공유, 디렉터리 및 파일 작업을 수행할 수 있습니다. 다음 코드는 스토리지 계정 이름 및 계정 키를 사용하는 `FileService` 개체를 만듭니다. `<myaccount>` 및 `<mykey>`를 사용자의 계정 이름 및 키로 바꾸세요.
 
 ```python
 file_service = FileService(account_name='myaccount', account_key='mykey')
@@ -73,7 +73,7 @@ file_service.create_share('myshare')
 ```
 
 ## <a name="create-a-directory"></a>디렉터리 만들기
-또한 루트 디렉터리에 이들 모두를 포함하는 대신 하위 디렉터리 내에서 파일을 배치하여 저장소를 구성할 수 있습니다. Azure Files를 사용하면 계정이 허용하는 만큼 많은 디렉터리를 만들 수 있습니다. 아래 코드는 루트 디렉터리 아래에 **sampledir** 라는 이름의 하위 디렉터리를 만듭니다.
+또한 루트 디렉터리에 이들 모두를 포함하는 대신 하위 디렉터리 내에서 파일을 배치하여 스토리지를 구성할 수 있습니다. Azure Files를 사용하면 계정이 허용하는 만큼 많은 디렉터리를 만들 수 있습니다. 아래 코드는 루트 디렉터리 아래에 **sampledir** 라는 이름의 하위 디렉터리를 만듭니다.
 
 ```python
 file_service.create_directory('myshare', 'sampledir')
@@ -89,7 +89,7 @@ for file_or_dir in generator:
 ```
 
 ## <a name="upload-a-file"></a>파일 업로드 
-Azure 파일 공유에는 파일이 상주할 수 있는 최소한의 루트 디렉터리가 포함되어 있습니다. 이 섹션에서는 로컬 저장소에서 공유의 루트 디렉터리로 파일을 업로드하는 방법을 배웁니다.
+Azure 파일 공유에는 파일이 상주할 수 있는 최소한의 루트 디렉터리가 포함되어 있습니다. 이 섹션에서는 로컬 스토리지에서 공유의 루트 디렉터리로 파일을 업로드하는 방법을 배웁니다.
 
 파일을 만들고 데이터를 업로드하려면 `create_file_from_path`, `create_file_from_stream`, `create_file_from_bytes` 또는 `create_file_from_text` 메서드를 사용합니다. 이러한 메서드는 데이터의 크기가 64MB를 초과할 경우 필요한 청크를 수행하는 고급 메서드입니다.
 

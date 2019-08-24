@@ -153,8 +153,8 @@ ms.locfileid: "68728406"
 | **SDL 단계**               | 배포 |  
 | **적용 가능한 기술** | 제네릭 |
 | **특성**              | 해당 사항 없음 |
-| **참조**              | [저장소 분석을 사용하여 인증 유형 모니터링](https://azure.microsoft.com/documentation/articles/storage-security-guide/#storage-analytics) |
-| **단계** | <p>각 Storage 계정에 대해 Azure Storage 분석을 사용하도록 설정하여 로깅을 수행하고 메트릭 데이터를 저장할 수 있습니다. 스토리지 분석 로그는 누군가가 스토리지에 액세스할 때 사용한 인증 방법 등의 중요한 정보를 제공합니다.</p><p>저장소에 대한 액세스를 엄격히 관리하는 경우에는 이 방법이 도움이 될 수 있습니다. 예를 들어, Blob Storage에서 모든 컨테이너를 프라이빗으로 설정하고 애플리케이션 전체에서 SAS 서비스를 사용을 구현할 수 있습니다. 그런 다음, 스토리지 계정 키를 사용하여 Blob에 액세스하는지(보안 위반을 의미할 수 있음) 또는 Blob이 공용이지만 공용이면 안 되는지 알아보기 위해 로그를 주기적으로 확인할 수 있습니다.</p>|
+| **참조**              | [스토리지 분석을 사용하여 인증 유형 모니터링](https://azure.microsoft.com/documentation/articles/storage-security-guide/#storage-analytics) |
+| **단계** | <p>각 Storage 계정에 대해 Azure Storage 분석을 사용하도록 설정하여 로깅을 수행하고 메트릭 데이터를 저장할 수 있습니다. 스토리지 분석 로그는 누군가가 스토리지에 액세스할 때 사용한 인증 방법 등의 중요한 정보를 제공합니다.</p><p>스토리지에 대한 액세스를 엄격히 관리하는 경우에는 이 방법이 도움이 될 수 있습니다. 예를 들어, Blob Storage에서 모든 컨테이너를 프라이빗으로 설정하고 애플리케이션 전체에서 SAS 서비스를 사용을 구현할 수 있습니다. 그런 다음, 스토리지 계정 키를 사용하여 Blob에 액세스하는지(보안 위반을 의미할 수 있음) 또는 Blob이 공용이지만 공용이면 안 되는지 알아보기 위해 로그를 주기적으로 확인할 수 있습니다.</p>|
 
 ## <a id="sufficient-logging"></a>충분한 로깅 구현
 
@@ -243,4 +243,4 @@ ms.locfileid: "68728406"
 | **적용 가능한 기술** | 제네릭 |
 | **특성**              | N/A  |
 | **참조**              | [IoT Hub 작업 모니터링 소개](https://azure.microsoft.com/documentation/articles/iot-hub-operations-monitoring/) |
-| **단계** | <p>IoT Hub 작업 모니터링을 통해 모은 감사 데이터를 수집하고 저장하도록 설계합니다. 다음 모니터링 범주를 사용하도록 설정합니다.</p><ul><li>디바이스 ID 작업</li><li>디바이스-클라우드 통신</li><li>클라우드-장치 통신</li><li>Connections</li><li>파일 업로드</li></ul>|
+| **단계** | <p>IoT Hub 작업 모니터링을 통해 모은 감사 데이터를 수집하고 저장하도록 설계합니다. 다음 모니터링 범주를 사용하도록 설정합니다.</p><ul><li>디바이스 ID 작업</li><li>디바이스-클라우드 통신</li><li>클라우드-디바이스 통신</li><li>Connections</li><li>파일 업로드</li></ul>|

@@ -36,7 +36,7 @@ ms.locfileid: "68726441"
 |[Microsoft Azure의 컨테이너 보안](abstract-container-security.md)|컨테이너, 컨테이너 배포 및 관리, 네이티브 플랫폼 서비스를 설명합니다. 또한 Azure 플랫폼에서 컨테이너 사용과 관련하여 발생하는 런타임 보안 문제를 설명합니다. |
 |[Azure 운영 보안](abstract-operational-security.md)|Azure에서 사용할 수 있는 고객용 운영 보안 기술 및 서비스에 대해 포괄적으로 설명합니다.|
 |[Azure 보안 기술 기능](technical-capabilities.md)|Azure Storage, Azure SQL Database, Azure 가상 머신 모델 및 이 모두를 관리하는 도구와 인프라를 지원하는 보안 기능 및 특성에 대해 중점적으로 설명합니다.|
-|[Azure Storage 보안 가이드](https://docs.microsoft.com/azure/storage/common/storage-security-guide?toc=%2fazure%2fsecurity%2ftoc.json) |Azure Storage에서 사용할 수 있는 각 보안 기능에 대해 간략히 설명합니다. 관리 평면 보안, 데이터 평면 보안, 미사용 시 암호화, 즉시 암호화, 저장소 분석 등을 다룹니다.|
+|[Azure Storage 보안 가이드](https://docs.microsoft.com/azure/storage/common/storage-security-guide?toc=%2fazure%2fsecurity%2ftoc.json) |Azure Storage에서 사용할 수 있는 각 보안 기능에 대해 간략히 설명합니다. 관리 평면 보안, 데이터 평면 보안, 미사용 시 암호화, 즉시 암호화, 스토리지 분석 등을 다룹니다.|
 |[클라우드 준비를 위한 데이터 분류](https://gallery.technet.microsoft.com/Data-Classification-for-51252f03/file/172083/1/Data%20Classification%20for%20Cloud%20Readiness%20(2017-04-11).pdf)  |이 문서는 다운로드할 수 있으며 클라우드 컴퓨팅 컨텍스트에서 데이터 분류의 기본 사항과 가치를 소개합니다. 향후 사용할 클라우드 컴퓨팅을 평가하는 조직이나 현재 클라우드 서비스를 사용 중이며 데이터 관리를 최적화하는 방법을 찾고 있는 조직은 이 문서를 참조하면 도움을 얻을 수 있습니다.|
 |[Azure에서 거버넌스](/azure/governance/)|Azure에 기본적으로 제공되는 보안 및 거버넌스 기능에 대해 설명합니다. 논의되는 주요 거버넌스 문제는 조직 목표를 위한 정책, 프로세스 및 절차 구현, 보안 및 지속적인 조직 표준 준수, 경고 및 모니터링입니다.
 |[Azure 공용 클라우드에서 격리](isolation-choices.md)|Azure에서 악의적인 사용자와 비악의적인 사용자 둘 다에 대해 격리를 제공하는 방법을 설명합니다. 설계자에게 다양한 격리 선택 사항을 제공하여 클라우드 솔루션 설계 가이드 역할을 합니다. 고객용 보안 제어에 중점을 두며 SLA, 가격 책정 모델 및 DevOps 구현 고려 사항은 다루지 않습니다.|

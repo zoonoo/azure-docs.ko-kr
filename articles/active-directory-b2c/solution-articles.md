@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory B2C 솔루션 및 학습 | Microsoft Docs
-description: 이 문서에서는 Azure Active Directory B2C를 이해하고 종단 간 솔루션에 사용하는 데 도움이 되는 솔루션 및 학습 정보에 대한 링크를 제공합니다.
+description: 이 문서에서는 Azure Active Directory B2C를 이해하고 엔드투엔드 솔루션에 사용하는 데 도움이 되는 솔루션 및 학습 정보에 대한 링크를 제공합니다.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg

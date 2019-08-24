@@ -13,7 +13,7 @@ ms.date: 05/10/2019
 ms.custom: seodec18
 ms.openlocfilehash: 8754eedc8284aab01006ea71bfd870064b91ea17
 ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "65851131"
@@ -83,8 +83,8 @@ Azure Machine Learning 컴퓨팅의 경우 구독의 영역당 허용되는 코�
 
 좀 더 구체적인 최신 할당량 한도 목록은 [여기](https://docs.microsoft.com/azure/azure-subscription-service-limits#container-instances-limits)서 Azure 전체 할당량 문서를 참조하세요.
 
-### <a name="storage"></a>Storage
-영역당 및 특정 구독당 저장소 계정의 수가 제한되어 있습니다. 기본 제한은 200이고 표준 및 Premium Storage 계정이 모두 포함됩니다. 지정된 지역에서 저장소 계정이 200개 이상 필요한 경우 [Azure 지원](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/)에 요청합니다. Azure Storage 팀이 비즈니스 사례를 검토하고 지정된 지역에 대해 Storage 계정을 250개까지 승인할 수 있습니다.
+### <a name="storage"></a>스토리지
+영역당 및 특정 구독당 스토리지 계정의 수가 제한되어 있습니다. 기본 제한은 200이고 표준 및 Premium Storage 계정이 모두 포함됩니다. 지정된 지역에서 스토리지 계정이 200개 이상 필요한 경우 [Azure 지원](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/)에 요청합니다. Azure Storage 팀이 비즈니스 사례를 검토하고 지정된 지역에 대해 Storage 계정을 250개까지 승인할 수 있습니다.
 
 
 ## <a name="find-your-quotas"></a>할당량 찾기

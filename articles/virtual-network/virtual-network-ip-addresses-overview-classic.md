@@ -92,7 +92,7 @@ Azure [애플리케이션 게이트웨이](../application-gateway/application-ga
 | 클라우드 서비스 |예 |예 |예 |
 | IaaS VM 또는 PaaS 역할 인스턴스 |예 |아니오 |아닙니다. |
 | VPN 게이트웨이 |예 |아니오 |아닙니다. |
-| 애플리케이션 게이트웨이 |예 |아니오 |아닙니다. |
+| 프런트 엔드 |예 |아니오 |아닙니다. |
 
 ## <a name="private-ip-addresses"></a>개인 IP 주소
 개인 IP 주소를 사용하면 Azure 리소스가 인터넷 연결이 가능한 IP 주소를 사용하지 않고 VPN 게이트웨이 또는 ExpressRoute 회로를 통해 클라우드 서비스 또는 [가상 네트워크](virtual-networks-overview.md)(VNet) 또는 온-프레미스 네트워크의 다른 리소스와 통신할 수 있습니다.
@@ -101,7 +101,7 @@ Azure 클래식 배포 모델에서 개인 IP 주소는 다음의 Azure 리소�
 
 * IaaS VM 및 PaaS 역할 인스턴스
 * 내부 부하 분산 장치
-* 애플리케이션 게이트웨이
+* 프런트 엔드
 
 ### <a name="iaas-vms-and-paas-role-instances"></a>IaaS VM 및 PaaS 역할 인스턴스
 클래식 배포 모델을 사용하여 만든 가상 머신(VM)는 항상 PaaS 역할 인스턴스와 유사한 클라우드 서비스에 배치됩니다. 따라서 개인 IP 주소의 동작은 이러한 리소스와 비슷합니다.

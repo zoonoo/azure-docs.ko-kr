@@ -26,7 +26,7 @@ SharePoint, Dynamics AX 및 SAP와 같은 엔터프라이즈 애플리케이션�
 
 ## <a name="prerequisites"></a>필수 조건
 
-* Azure에 복제하는 경우 구독, Azure Virtual Network, 저장소 계정 및 Recovery Services 자격 증명 모음을 비롯한 [Azure 리소스를 준비](tutorial-prepare-azure.md)합니다.
+* Azure에 복제하는 경우 구독, Azure Virtual Network, 스토리지 계정 및 Recovery Services 자격 증명 모음을 비롯한 [Azure 리소스를 준비](tutorial-prepare-azure.md)합니다.
 * 모든 구성 요소에 대한 [지원 요구 사항](site-recovery-support-matrix-to-azure.md)을 검토합니다.
 
 ## <a name="replicate-the-domain-controller"></a>도메인 컨트롤러 복제

@@ -563,7 +563,7 @@ Azure 빠른 시작 템플릿 갤러리에는 다음과 같이 Log Analytics를 
 * [Log Analytics VM 확장을 사용하여 Linux를 실행하는 가상 머신 배포](https://azure.microsoft.com/documentation/templates/201-oms-extension-ubuntu-vm/)
 * [기존 Log Analytics 작업 영역을 사용하여 Azure Site Recovery 모니터링](https://azure.microsoft.com/documentation/templates/asr-oms-monitoring/)
 * [기존 Log Analytics 작업 영역을 사용하여 Azure Web Apps 모니터링](https://azure.microsoft.com/documentation/templates/101-webappazure-oms-monitoring/)
-* [기존 저장소 계정을 Log Analytics에 추가](https://azure.microsoft.com/resources/templates/oms-existing-storage-account/)
+* [기존 스토리지 계정을 Log Analytics에 추가](https://azure.microsoft.com/resources/templates/oms-existing-storage-account/)
 
 ## <a name="next-steps"></a>다음 단계
 

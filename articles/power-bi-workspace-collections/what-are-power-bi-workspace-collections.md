@@ -48,7 +48,7 @@ Azure의 다른 서비스와 같이 Power BI 작업 영역 컬렉션의 리소�
 
 ## <a name="workspace"></a>작업 영역
 
-**작업 영역** 은 데이터 세트 및 보고서를 포함할 수 있는 Power BI 콘텐츠의 컨테이너입니다. **작업 영역** 은 처음 만들 때 비어 있습니다. Power BI Desktop을 사용하여 콘텐츠를 작성하고 [Power BI REST API](https://msdn.microsoft.com/library/mt711504.aspx)를 사용하여 프로그래밍 방식으로 PBIX를 작업 영역에 배치합니다. 또한 Power BI Desktop을 사용하는 대신 프로그래밍 방식으로 데이터 집합을 만든 다음 애플리케이션 내에서 보고서를 만들 수 있습니다.
+**작업 영역** 은 데이터 세트 및 보고서를 포함할 수 있는 Power BI 콘텐츠의 컨테이너입니다. **작업 영역** 은 처음 만들 때 비어 있습니다. Power BI Desktop을 사용하여 콘텐츠를 작성하고 [Power BI REST API](https://msdn.microsoft.com/library/mt711504.aspx)를 사용하여 프로그래밍 방식으로 PBIX를 작업 영역에 배치합니다. 또한 Power BI Desktop을 사용하는 대신 프로그래밍 방식으로 데이터 세트을 만든 다음 애플리케이션 내에서 보고서를 만들 수 있습니다.
 
 ## <a name="using-workspace-collections-and-workspaces"></a>작업 영역 컬렉션 및 작업 영역 사용
 

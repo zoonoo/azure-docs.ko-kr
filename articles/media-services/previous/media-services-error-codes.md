@@ -72,7 +72,7 @@ Microsoft Azure Media Services를 사용할 경우 Media Services에서 지원�
 * 존재하지 않는 엔터티를 삭제하려는 시도가 있었습니다.
 * 존재하지 않는 엔터티에 연결하는 엔터티를 만들려는 시도가 있었습니다.
 * 존재하지 않는 엔터티를 GET하려는 시도가 있었습니다.
-* Media Services 계정과 연결되지 않은 저장소 계정을 지정하려는 시도가 있었습니다.  
+* Media Services 계정과 연결되지 않은 스토리지 계정을 지정하려는 시도가 있었습니다.  
 
 ## <a name="409-conflict"></a>409 충돌
 요청은 다음과 같은 이유로 허용되지않습니다.
@@ -82,11 +82,11 @@ Microsoft Azure Media Services를 사용할 경우 Media Services에서 지원�
 * 이미 사용된 지정 Id를 사용하여 ContentKey를 만들려는 시도가 있었습니다.
 * 이미 사용된 지정 Id를 사용하여 Locator를 만들려는 시도가 있었습니다.
 * 둘 이상의 IngestManifestFile에 IngestManifest 내에서 지정된 이름이 있습니다.
-* 두 번째 저장소 암호화 ContentKey를 저장소 암호화된 Asset에 연결하려는 시도가 있었습니다.
+* 두 번째 스토리지 암호화 ContentKey를 스토리지 암호화된 Asset에 연결하려는 시도가 있었습니다.
 * 동일한 ContentKey를 Asset에 연결하려는 시도가 있었습니다.
-* 저장소 컨테이너가 누락되었거나 더 이상 해당 Asset과 연결되지 않은 Asset에 로케이터를 만들려는 시도가 있었습니다.
+* 스토리지 컨테이너가 누락되었거나 더 이상 해당 Asset과 연결되지 않은 Asset에 로케이터를 만들려는 시도가 있었습니다.
 * 사용 중인 로케이터가 5개 있는 Asset에 로케이터를 만들려는 시도가 있었습니다. (Azure Storage는 한 개의 스토리지 컨테이너에 다섯 개의 공유 액세스 정책이란 제한을 적용합니다.)
-* Asset을 IngestManifestAsset에 연결하는 저장소 계정은 상위 IngestManifest에서 사용되는 저장소 계정과는 다릅니다.  
+* Asset을 IngestManifestAsset에 연결하는 스토리지 계정은 상위 IngestManifest에서 사용되는 스토리지 계정과는 다릅니다.  
 
 ## <a name="500-internal-server-error"></a>500 내부 서버 오류
 요청을 처리하는 동안 Media Services가 처리를 계속 실행하는 것을 막는 오류가 발생합니다. 다음 이유 중 하나 때문일 수 있습니다.

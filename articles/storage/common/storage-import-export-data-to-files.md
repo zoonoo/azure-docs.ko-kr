@@ -26,7 +26,7 @@ Import/Export 서비스는 Azure Storage로 Azure Files의 가져오기만을 �
 가져오기 작업을 만들어 Azure Files로 데이터를 전송하기 전에 다음 필수 조건 목록을 신중하게 검토하고 완료해야 합니다. 다음이 필요합니다.
 
 - Import/Export 서비스에 사용할 활성 Azure 구독이 있어야 합니다.
-- Azure Storage 계정이 하나 이상 있어야 합니다. [Import/Export 서비스에 지원되는 저장소 계정 및 저장소 형식](storage-import-export-requirements.md) 목록을 참조하세요. 새 Storage 계정 만들기에 대한 자세한 내용은 [Storage 계정을 만드는 방법](storage-quickstart-create-account.md)(영문)을 참조하세요.
+- Azure Storage 계정이 하나 이상 있어야 합니다. [Import/Export 서비스에 지원되는 스토리지 계정 및 스토리지 형식](storage-import-export-requirements.md) 목록을 참조하세요. 새 Storage 계정 만들기에 대한 자세한 내용은 [Storage 계정을 만드는 방법](storage-quickstart-create-account.md)(영문)을 참조하세요.
 - [지원되는 형식](storage-import-export-requirements.md#supported-disks)에 속한 적절한 개수의 디스크가 있어야 합니다. 
 - [지원되는 OS 버전](storage-import-export-requirements.md#supported-operating-systems)을 실행하는 Windows 시스템이 있어야 합니다.
 - Windows 시스템에서 [WAImportExport 버전 2를 다운로드](https://aka.ms/waiev2)합니다. `waimportexport` 기본 폴더에 압축을 풉니다. 예: `C:\WaImportExport`
@@ -42,7 +42,7 @@ Import/Export 서비스는 Azure Storage로 Azure Files의 가져오기만을 �
 
 ## <a name="step-1-prepare-the-drives"></a>1단계: 드라이브 준비
 
-이 단계에서는 업무 일지 파일을 생성합니다. 업무 일지 파일에는 드라이브 일련 번호, 암호화 키 및 저장소 계정 세부 정보와 같은 기본 정보가 저장됩니다.
+이 단계에서는 업무 일지 파일을 생성합니다. 업무 일지 파일에는 드라이브 일련 번호, 암호화 키 및 스토리지 계정 세부 정보와 같은 기본 정보가 저장됩니다.
 
 다음 단계를 수행하여 드라이브를 준비합니다.
 
@@ -138,8 +138,8 @@ Import/Export 서비스는 Azure Storage로 Azure Files의 가져오기만을 �
 3. **작업 세부 정보**에서:
     
     - 이전 [1단계: 드라이브 준비](#step-1-prepare-the-drives) 중에 만든 업무 일지 파일을 업로드합니다. 
-    - 데이터를 가져올 수 있는 저장소 계정을 선택합니다. 
-    - 하차 위치는 선택한 저장소 계정의 지역을 기반으로 자동으로 채워집니다.
+    - 데이터를 가져올 수 있는 스토리지 계정을 선택합니다. 
+    - 하차 위치는 선택한 스토리지 계정의 지역을 기반으로 자동으로 채워집니다.
    
        ![가져오기 작업 만들기 - 2단계](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
 
@@ -193,7 +193,7 @@ Import/Export 서비스는 Azure Storage로 Azure Files의 가져오기만을 �
 
 추가 데이터를 동일한 드라이브 집합에 추가하려면 후속 복사 세션에 PrepImport 명령을 사용하여 추가 파일/디렉터리를 복사합니다.
 
-*InitialDriveset.csv* 파일에서 지정된 동일한 하드 디스크 드라이브에 대한 후속 복사 세션의 경우 **동일한 업무 일지 파일** 이름을 지정하고, **새 세션 ID**를 제공합니다. 저장소 계정 키를 제공하지 않아도 됩니다.
+*InitialDriveset.csv* 파일에서 지정된 동일한 하드 디스크 드라이브에 대한 후속 복사 세션의 경우 **동일한 업무 일지 파일** 이름을 지정하고, **새 세션 ID**를 제공합니다. 스토리지 계정 키를 제공하지 않아도 됩니다.
 
     ```
     WAImportExport PrepImport /j:<JournalFile> /id:<SessionId> /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] DataSet:<dataset.csv>

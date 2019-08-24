@@ -18,11 +18,11 @@ ms.locfileid: "68618824"
 
 이 문서는 Hyper-V에서 Azure로 프로덕션 배포에 대한 Azure Site Recovery Deployment Planner 사용자 가이드입니다.
 
-Site Recovery를 사용하여 Hyper-V VM(가상 머신) 보호를 시작하기 전에, 원하는 RPO(복구 지점 목표)를 충족하도록 일일 데이터 변경률을 기반으로 충분한 대역폭을 할당하고, 온-프레미스 Hyper-V 저장소의 각 볼륨에 사용 가능한 저장소 공간을 충분히 할당합니다.
+Site Recovery를 사용하여 Hyper-V VM(가상 머신) 보호를 시작하기 전에, 원하는 RPO(복구 지점 목표)를 충족하도록 일일 데이터 변경률을 기반으로 충분한 대역폭을 할당하고, 온-프레미스 Hyper-V 스토리지의 각 볼륨에 사용 가능한 스토리지 공간을 충분히 할당합니다.
 
-또한 올바른 유형 및 수의 Azure Storage 계정을 만들어야 합니다. 시간이 지남에 따라 사용량이 증가하므로 원본 프로덕션 서버상의 증가를 고려하여 표준 또는 Premium Storage 계정을 만듭니다. 워크로드 특성(예: 읽기/쓰기 IOPS(초당 I/O 작업 수) 또는 데이터 변동) 및 Azure Site Recovery 제한을 기반으로 VM별 저장소 유형을 선택합니다. 
+또한 올바른 유형 및 수의 Azure Storage 계정을 만들어야 합니다. 시간이 지남에 따라 사용량이 증가하므로 원본 프로덕션 서버상의 증가를 고려하여 표준 또는 Premium Storage 계정을 만듭니다. 워크로드 특성(예: 읽기/쓰기 IOPS(초당 I/O 작업 수) 또는 데이터 변동) 및 Azure Site Recovery 제한을 기반으로 VM별 스토리지 유형을 선택합니다. 
 
-Azure Site Recovery Deployment Planner는 Hyper-V에서 Azure로 및 VMware에서 Azure로의 재해 복구 시나리오 모두에 대한 명령줄 도구입니다. 이 도구를 사용하여 여러 Hyper-V 호스트에 있는 Hyper-V VM을 원격으로 프로파일링하여(프로덕션에 전혀 영향을 미치지 않음) 성공적인 복제 및 테스트 장애 조치(failover)/장애 조치(failover)를 위한 Azure 저장소 요구 사항 및 대역폭을 파악할 수 있습니다. Azure Site Recovery 구성 요소를 온-프레미스에 설치하지 않고도 도구를 실행할 수 있습니다. 단, 달성된 처리량 결과를 정확히 얻으려면 하드웨어 구성이 Azure로 재해 복구 보호에 사용할 Hyper-V 서버 중 하나와 동일한 Windows Server에서 Planner를 실행하는 것이 좋습니다. 
+Azure Site Recovery Deployment Planner는 Hyper-V에서 Azure로 및 VMware에서 Azure로의 재해 복구 시나리오 모두에 대한 명령줄 도구입니다. 이 도구를 사용하여 여러 Hyper-V 호스트에 있는 Hyper-V VM을 원격으로 프로파일링하여(프로덕션에 전혀 영향을 미치지 않음) 성공적인 복제 및 테스트 장애 조치(failover)/장애 조치(failover)를 위한 Azure Storage 요구 사항 및 대역폭을 파악할 수 있습니다. Azure Site Recovery 구성 요소를 온-프레미스에 설치하지 않고도 도구를 실행할 수 있습니다. 단, 달성된 처리량 결과를 정확히 얻으려면 하드웨어 구성이 Azure로 재해 복구 보호에 사용할 Hyper-V 서버 중 하나와 동일한 Windows Server에서 Planner를 실행하는 것이 좋습니다. 
 
 이 도구는 다음과 같은 세부 정보를 제공합니다.
 
@@ -43,7 +43,7 @@ Azure Site Recovery Deployment Planner는 Hyper-V에서 Azure로 및 VMware에�
 * 각 VM에 대한 스토리지 유형(표준 또는 Premium Storage 계정) 요구 사항
 * 복제를 위해 설정해야 할 표준 및 Premium Storage 계정의 총 수
 * Azure Storage 지침에 따른 스토리지 계정 명명 제안
-* 모든 VM에 대한 저장소 계정 위치
+* 모든 VM에 대한 스토리지 계정 위치
 * 테스트 장애 조치 또는 구독에 대한 장애 조치 이전에 설정해야 할 Azure 코어의 수
 * 각 온-프레미스 VM에 대한 Azure VM 권장 크기
 
@@ -77,7 +77,7 @@ Azure Site Recovery Deployment Planner는 Hyper-V에서 Azure로 및 VMware에�
 지원되는 구성|vCenter, ESXi| Hyper-V 클러스터, Hyper-V 호스트|NA|Hyper-V 클러스터, Hyper-V 호스트|NA|
 Azure Site Recovery Deployment Planner 실행 인스턴스당 프로파일링할 수 있는 서버 수 |한 개(하나의 vCenter Server 또는 하나의 ESXi 서버에 속하는 VM을 한 번에 프로파일링할 수 있습니다.)|여러 개(여러 호스트 또는 호스트 클러스터의 VM을 한 번에 프로파일링할 수 있습니다.)| NA |여러 개(여러 호스트 또는 호스트 클러스터의 VM을 한 번에 프로파일링할 수 있습니다.)| NA
 
-*이 도구는 주로 Hyper-V에서 Azure로 재해 복구 시나리오용입니다. Hyper-V에서 보조 사이트로 재해 복구에 대하여, 필요한 네트워크 대역폭, 각 원본 Hyper-V 서버에 필요한 사용 가능한 저장소 공간 및 초기 복제 일괄 처리 번호 및 일괄 처리 정의와 같은 원본 측 권장 사항을 이해하는 데에만 사용할 수 있습니다.  보고서의 Azure 권장 사항 및 비용은 무시하세요. 또한 처리량 가져오기 작업은 Hyper-V에서 보조 사이트로 재해 복구 시나리오에는 적용할 수 없습니다.
+*이 도구는 주로 Hyper-V에서 Azure로 재해 복구 시나리오용입니다. Hyper-V에서 보조 사이트로 재해 복구에 대하여, 필요한 네트워크 대역폭, 각 원본 Hyper-V 서버에 필요한 사용 가능한 스토리지 공간 및 초기 복제 일괄 처리 번호 및 일괄 처리 정의와 같은 원본 측 권장 사항을 이해하는 데에만 사용할 수 있습니다.  보고서의 Azure 권장 사항 및 비용은 무시하세요. 또한 처리량 가져오기 작업은 Hyper-V에서 보조 사이트로 재해 복구 시나리오에는 적용할 수 없습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 도구에는 VM 목록 가져오기, 프로파일링 및 보고서 생성이라는 Hyper-V의 세 가지 주요 단계가 있습니다. 또한 처리량만 계산하는 네 번째 옵션도 있습니다. 서로 다른 단계가 실행되어야 하는 서버에 대한 요구 사항은 다음 테이블에 있습니다.
@@ -109,7 +109,7 @@ Azure Site Recovery Deployment Planner 실행 인스턴스당 프로파일링할
 1.  최신 버전의 [Azure Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner)를 다운로드합니다.
 이 도구는 .zip 폴더에 패키지되어 있습니다. 동일한 도구가 VMware에서 Azure로 및 Hyper-V에서 Azure로 재해 복구 시나리오를 모두 지원합니다. 이 도구를 Hyper-V에서 보조 사이트로 재해 복구 시나리오에도 사용할 수 있지만 보고서의 Azure 인프라 권장 사항은 무시합니다.
 
-1.  .zip 폴더를 도구를 실행할 Windows Server에 복사합니다. 도구는 Windows Server 2012 R2 또는 Windows Server 2016에서 실행할 수 있습니다. 프로파일링할 VM을 보유하고 있는 Hyper-V 클러스터 또는 Hyper-V 호스트에 연결하려면 서버에 네트워크 액세스 권한이 있어야 합니다. 보호할 Hyper-V 서버와 도구를 실행할 VM의 하드웨어 구성이 동일한 것이 좋습니다. 이렇게 구성하면 도구가 보고하는 달성된 처리량이 Azure Site Recovery에서 복제 중에 달성할 수 있는 실제 처리량과 확실히 일치합니다. 처리량 계산은 서버의 사용 가능한 네트워크 대역폭 및 서버의 하드웨어 구성(CPU, 저장소 등)에 따라 달라집니다. 처리량은 도구가 Azure로 실행되는 서버에서 계산됩니다. 서버의 하드웨어 구성이 Hyper-V 서버와 다른 경우 도구가 보고하는 처리량이 정확하지 않습니다.
+1.  .zip 폴더를 도구를 실행할 Windows Server에 복사합니다. 도구는 Windows Server 2012 R2 또는 Windows Server 2016에서 실행할 수 있습니다. 프로파일링할 VM을 보유하고 있는 Hyper-V 클러스터 또는 Hyper-V 호스트에 연결하려면 서버에 네트워크 액세스 권한이 있어야 합니다. 보호할 Hyper-V 서버와 도구를 실행할 VM의 하드웨어 구성이 동일한 것이 좋습니다. 이렇게 구성하면 도구가 보고하는 달성된 처리량이 Azure Site Recovery에서 복제 중에 달성할 수 있는 실제 처리량과 확실히 일치합니다. 처리량 계산은 서버의 사용 가능한 네트워크 대역폭 및 서버의 하드웨어 구성(CPU, 스토리지 등)에 따라 달라집니다. 처리량은 도구가 Azure로 실행되는 서버에서 계산됩니다. 서버의 하드웨어 구성이 Hyper-V 서버와 다른 경우 도구가 보고하는 처리량이 정확하지 않습니다.
 권장되는 VM 구성: 8개 vCPU, 16GB RAM, 300GB HDD.
 
 1.  .zip 폴더의 압축을 풉니다.

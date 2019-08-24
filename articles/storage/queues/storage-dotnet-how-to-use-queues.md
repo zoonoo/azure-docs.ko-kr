@@ -23,7 +23,7 @@ ms.locfileid: "68721554"
 
 ## <a name="overview"></a>개요
 
-Azure Queue Storage는 응용 프로그램 구성 요소 간에 클라우드 메시징을 제공합니다. 규모를 고려하여 애플리케이션을 디자인할 때는 애플리케이션 구성 요소를 개별적으로 확장할 수 있도록 각 구성 요소를 분리하는 경우가 많습니다. Queue Storage는 클라우드, 데스크톱, 온-프레미스 서버 또는 모바일 장치에서 실행 중인지와 관계 없이 응용 프로그램 구성 요소 간에 통신을 위한 비동기 메시징을 제공합니다. Queue Storage는 또한 비동기 작업 관리와 프로세스 워크플로 작성을 지원합니다.
+Azure Queue Storage는 애플리케이션 구성 요소 간에 클라우드 메시징을 제공합니다. 규모를 고려하여 애플리케이션을 디자인할 때는 애플리케이션 구성 요소를 개별적으로 확장할 수 있도록 각 구성 요소를 분리하는 경우가 많습니다. Queue Storage는 클라우드, 데스크톱, 온-프레미스 서버 또는 모바일 디바이스에서 실행 중인지와 관계 없이 애플리케이션 구성 요소 간에 통신을 위한 비동기 메시징을 제공합니다. Queue Storage는 또한 비동기 작업 관리와 프로세스 워크플로 작성을 지원합니다.
 
 ### <a name="about-this-tutorial"></a>이 자습서 정보
 
@@ -37,7 +37,7 @@ Azure Queue Storage는 응용 프로그램 구성 요소 간에 클라우드 메
 * [.NET 용 Azure Storage 공용 클라이언트 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
 * [.NET 용 Azure Storage 큐 클라이언트 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/)
 * [.NET용 Azure 구성 관리자](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/)
-* [Azure 저장소 계정](../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
+* [Azure Storage 계정](../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -87,21 +87,21 @@ NuGet을 사용 하 여 이러한 패키지를 가져올 수 있습니다. 다�
 이 가이드의 예제를 실행하기 위해 다음과 같은 두 가지 환경 옵션이 있습니다.
 
 * 클라우드에서 Azure Storage 계정에 대한 코드를 실행할 수 있습니다.
-* Azure 저장소 에뮬레이터에 대해 코드를 실행할 수 있습니다. 스토리지 에뮬레이터는 클라우드에서 Azure Storage 계정을 에뮬레이트하는 로컬 환경입니다. 에뮬레이터는 애플리케이션을 개발하는 동안 코드의 테스트 및 디버깅하기 위한 무료 옵션입니다. 에뮬레이터는 잘 알려진 계정 및 키를 사용합니다. 자세한 내용은 [개발 및 테스트에 Azure Storage 에뮬레이터 사용](../common/storage-use-emulator.md)을 참조하세요.
+* Azure Storage 에뮬레이터에 대해 코드를 실행할 수 있습니다. 스토리지 에뮬레이터는 클라우드에서 Azure Storage 계정을 에뮬레이트하는 로컬 환경입니다. 에뮬레이터는 애플리케이션을 개발하는 동안 코드의 테스트 및 디버깅하기 위한 무료 옵션입니다. 에뮬레이터는 잘 알려진 계정 및 키를 사용합니다. 자세한 내용은 [개발 및 테스트에 Azure Storage 에뮬레이터 사용](../common/storage-use-emulator.md)을 참조하세요.
 
-클라우드에서 저장소 계정을 대상으로 하는 경우 Azure Portal에서 저장소 계정에 대한 기본 선택키를 복사합니다. 자세한 내용은 [액세스 키](../common/storage-account-manage.md#access-keys)를 참조하세요.
+클라우드에서 스토리지 계정을 대상으로 하는 경우 Azure Portal에서 스토리지 계정에 대한 기본 선택키를 복사합니다. 자세한 내용은 [액세스 키](../common/storage-account-manage.md#access-keys)를 참조하세요.
 
 > [!NOTE]
-> Azure Storage와 연결하여 비용이 초래되지 않도록 스토리지 에뮬레이터를 대상으로 할 수 있습니다. 그러나 클라우드에서 Azure 저장소 계정을 대상으로 하도록 선택하는 경우 이 자습서를 수행하는 비용은 무시됩니다.
+> Azure Storage와 연결하여 비용이 초래되지 않도록 스토리지 에뮬레이터를 대상으로 할 수 있습니다. 그러나 클라우드에서 Azure Storage 계정을 대상으로 하도록 선택하는 경우 이 자습서를 수행하는 비용은 무시됩니다.
 
-### <a name="configure-your-storage-connection-string"></a>저장소 연결 문자열 구성
+### <a name="configure-your-storage-connection-string"></a>스토리지 연결 문자열 구성
 
-.NET 용 Azure Storage 클라이언트 라이브러리는 저장소 연결 문자열을 사용 하 여 저장소 서비스에 액세스 하기 위한 끝점 및 자격 증명을 구성 합니다. 저장소 연결 문자열을 유지하는 가장 좋은 방법은 구성 파일 안에 있습니다.
+.NET 용 Azure Storage 클라이언트 라이브러리는 저장소 연결 문자열을 사용 하 여 저장소 서비스에 액세스 하기 위한 끝점 및 자격 증명을 구성 합니다. 스토리지 연결 문자열을 유지하는 가장 좋은 방법은 구성 파일 안에 있습니다.
 
 연결 문자열에 대한 자세한 내용은 [Azure Storage에 연결 문자열 구성](../common/storage-configure-connection-string.md)을 참조하세요.
 
 > [!NOTE]
-> 저장소 계정 키는 저장소 계정의 루트 암호와 비슷합니다. 항상 저장소 계정 키를 보호해야 합니다. 다른 사용자에게 배포하거나 하드 코딩하거나 다른 사람이 액세스할 수 있는 일반 텍스트 파일에 저장하지 마십시오. 손상되었다고 생각되면 Azure Portal을 사용하여 키를 다시 생성합니다.
+> 스토리지 계정 키는 스토리지 계정의 루트 암호와 비슷합니다. 항상 스토리지 계정 키를 보호해야 합니다. 다른 사용자에게 배포하거나 하드 코딩하거나 다른 사람이 액세스할 수 있는 일반 텍스트 파일에 저장하지 마십시오. 손상되었다고 생각되면 Azure Portal을 사용하여 키를 다시 생성합니다.
 
 연결 문자열을 구성 하려면 Visual Studio의 솔루션 탐색기에서 **app.config** 파일을 엽니다. 아래 표시 된 **\<appSettings\>** 요소의 콘텐츠를 추가 합니다. *계정 이름* 을 저장소 계정의 이름으로 바꾸고 계정 *키* 를 계정 액세스 키로 바꿉니다.
 
@@ -122,7 +122,7 @@ NuGet을 사용 하 여 이러한 패키지를 가져올 수 있습니다. 다�
 <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=GMuzNHjlB3S9itqZJHHCnRkrokLkcSyW7yK9BRbGp0ENePunLPwBgpxV1Z/pVo9zpem/2xSHXkMqTHHLcx8XRA==" />
 ```
 
-저장소 에뮬레이터를 대상으로 하려면 잘 알려진 계정 이름 및 키에 매핑되는 바로 가기를 사용할 수 있습니다. 이 경우에 연결 문자열 설정은 다음과 같습니다.
+스토리지 에뮬레이터를 대상으로 하려면 잘 알려진 계정 이름 및 키에 매핑되는 바로 가기를 사용할 수 있습니다. 이 경우에 연결 문자열 설정은 다음과 같습니다.
 
 ```xml
 <add key="StorageConnectionString" value="UseDevelopmentStorage=true;" />
@@ -140,11 +140,11 @@ using Microsoft.Azure.Storage.Queue; // Namespace for Queue storage types
 
 ### <a name="copy-your-credentials-from-the-azure-portal"></a>Azure Portal에서 자격 증명 복사
 
-샘플 코드에서 저장소 계정에 대한 액세스 권한을 부여해야 합니다. 권한을 부여하려면 연결 문자열 형태로 저장소 계정 자격 증명을 애플리케이션에 제공합니다. 저장소 계정 자격 증명을 보려면:
+샘플 코드에서 스토리지 계정에 대한 액세스 권한을 부여해야 합니다. 권한을 부여하려면 연결 문자열 형태로 스토리지 계정 자격 증명을 애플리케이션에 제공합니다. 스토리지 계정 자격 증명을 보려면:
 
 1. [Azure Portal](https://portal.azure.com)로 이동합니다.
-2. 저장소 계정을 찾습니다.
-3. 저장소 계정 개요의 **설정** 섹션에서 **액세스 키**를 선택합니다. 계정 액세스 키는 물론 각 키의 전체 연결 문자열이 나타납니다.
+2. 스토리지 계정을 찾습니다.
+3. 스토리지 계정 개요의 **설정** 섹션에서 **액세스 키**를 선택합니다. 계정 액세스 키는 물론 각 키의 전체 연결 문자열이 나타납니다.
 4. **key1** 아래에서 **연결 문자열** 값을 찾고, **복사** 단추를 클릭하여 연결 문자열을 복사합니다. 다음 단계에서 연결 문자열 값을 환경 변수에 추가합니다.
 
     ![Azure Portal에서 연결 문자열을 복사하는 방법을 보여주는 스크린샷](media/storage-dotnet-how-to-use-queues/portal-connection-string.png)

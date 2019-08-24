@@ -1,6 +1,6 @@
 ---
 title: 렌더링을 위한 스토리지 및 데이터 이동 - Azure Batch
-description: 워크로드를 렌더링하기 위한 저장소 및 데이터 이동 옵션
+description: 워크로드를 렌더링하기 위한 스토리지 및 데이터 이동 옵션
 services: batch
 ms.service: batch
 author: mscurrell
@@ -14,7 +14,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "60773998"
 ---
-# <a name="storage-and-data-movement-options-for-rendering-asset-and-output-files"></a>자산 및 출력 파일을 렌더링하기 위한 저장소 및 데이터 이동 옵션
+# <a name="storage-and-data-movement-options-for-rendering-asset-and-output-files"></a>자산 및 출력 파일을 렌더링하기 위한 스토리지 및 데이터 이동 옵션
 
 풀 VM에서 렌더링하는 애플리케이션에 장면 및 자산 파일을 사용할 수 있도록 하는 옵션이 있습니다.
 
@@ -22,7 +22,7 @@ ms.locfileid: "60773998"
   * 장면 및 자산 파일은 로컬 파일 시스템에서 Blob Storage로 업로드됩니다. 애플리케이션이 작업에 의해 실행되면 필수 파일이 Blob Storage에서 VM으로 복사되므로 렌더링하는 애플리케이션에서 액세스할 수 있습니다. 출력 파일은 렌더링하는 애플리케이션에 의해 VM 디스크에 기록된 다음, Blob Storage로 복사됩니다.  필요한 경우 Blob Storage에서 로컬 파일 시스템으로 출력 파일을 다운로드할 수 있습니다.
   * Azure Blob Storage는 소규모 프로젝트에 대한 간단하고 비용 효율적인 옵션입니다.  각 풀 VM에 모든 자산에 파일이 필요하므로 자산 파일의 크기와 수가 증가되면 파일 전송이 최대한 효율적으로 수행되도록 주의해야 합니다.  
 * [blobfuse](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux)를 사용하는 파일 시스템인 Azure Storage입니다.
-  * Linux VM의 경우 blobfuse 가상 파일 시스템 드라이버를 사용할 때 저장소 계정을 노출하고 파일 시스템으로 사용할 수 있습니다.
+  * Linux VM의 경우 blobfuse 가상 파일 시스템 드라이버를 사용할 때 스토리지 계정을 노출하고 파일 시스템으로 사용할 수 있습니다.
   * 이 옵션은 아주 비용 효과적인 장점이 있습니다. 파일 시스템에 대한 VM이 필요하지 않고, VM의 blobfuse 캐싱을 통해 여러 작업 및 태스크에 대해 동일한 파일을 반복적으로 다운로드하지 않도록 방지합니다.  파일이 Blob이면 데이터 이동도 간단하며 표준 API 및 도구(예: azcopy)를 사용하여 온-프레미스 파일 시스템과 Azure Storage 간에 파일을 복사할 수 있습니다.
 * 파일 시스템 또는 파일 공유:
   * VM 운영 체제 및 성능/크기 조정 요구 사항에 따라 옵션에는 [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)가 포함되어 NFS에서 연결된 디스크와 VM을 사용하거나, GlusterFS와 같은 분산 파일 시스템에서 여러 VM을 사용하거나, 타사 제품을 사용합니다.
@@ -32,7 +32,7 @@ ms.locfileid: "60773998"
 
 ## <a name="using-azure-blob-storage"></a>Azure Blob Storage 사용
 
-Blob Storage 계정 또는 범용 v2 스토리지 계정을 사용해야 합니다.  이러한 두 저장소 계정 형식은 [이 블로그 게시물](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/)에 설명된 대로 범용 v1 저장소 계정에 비해 훨씬 높은 한도로 구성할 수 있습니다.  항목이 구성되면 특히 다수의 풀 VM이 저장소 계정에 액세스하는 경우 높은 제한을 통해 훨씬 더 나은 성능 및 확장성을 활용할 수 있습니다.
+Blob Storage 계정 또는 범용 v2 스토리지 계정을 사용해야 합니다.  이러한 두 스토리지 계정 형식은 [이 블로그 게시물](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/)에 설명된 대로 범용 v1 스토리지 계정에 비해 훨씬 높은 한도로 구성할 수 있습니다.  항목이 구성되면 특히 다수의 풀 VM이 스토리지 계정에 액세스하는 경우 높은 제한을 통해 훨씬 더 나은 성능 및 확장성을 활용할 수 있습니다.
 
 ### <a name="copying-files-between-client-and-blob-storage"></a>클라이언트와 Blob Storage 간에 파일 복사
 
@@ -61,11 +61,11 @@ Azure Storage 간에 파일을 복사하려면 Storage Blob API, [Azure Storage 
 * 작업 준비 태스크는 AZ_BATCH_NODE_SHARED_DIR 환경 변수로 지정된 VM 공유 폴더에 대해 /XO 매개 변수를 포함한 azcopy를 사용하여 복사를 수행합니다.  그러면 각 VM에 변경된 파일만 복사합니다.
 * 풀 VM의 임시 드라이브에 맞을 수 있도록 모든 자산의 크기를 지정해야 합니다.
 
-Azure Batch는 저장소 계정과 Batch 풀 VM 간에 파일을 복사하는 지원을 기본 제공합니다.  태스크 [리소스 파일](https://docs.microsoft.com/rest/api/batchservice/job/add#resourcefile)은 저장소에서 풀 VM으로 파일을 복사하고 작업 준비 태스크에 대해 지정될 수 있습니다.  그러나 파일이 수백 개인 경우 제한에 도달하여 작업이 실패할 수 있습니다.  자산 수가 많은 경우 작업 준비 태스크에서 azcopy 명령줄을 사용하는 것이 좋습니다. 여기서는 제한 없이 와일드 카드를 사용할 수 있습니다.
+Azure Batch는 스토리지 계정과 Batch 풀 VM 간에 파일을 복사하는 지원을 기본 제공합니다.  태스크 [리소스 파일](https://docs.microsoft.com/rest/api/batchservice/job/add#resourcefile)은 스토리지에서 풀 VM으로 파일을 복사하고 작업 준비 태스크에 대해 지정될 수 있습니다.  그러나 파일이 수백 개인 경우 제한에 도달하여 작업이 실패할 수 있습니다.  자산 수가 많은 경우 작업 준비 태스크에서 azcopy 명령줄을 사용하는 것이 좋습니다. 여기서는 제한 없이 와일드 카드를 사용할 수 있습니다.
 
 ### <a name="copying-output-files-to-blob-storage-from-batch-pool-vms"></a>Batch 풀 VM에서 Blob Storage로 출력 파일 복사
 
-[출력 파일](https://docs.microsoft.com/rest/api/batchservice/task/add#outputfile)을 사용하여 풀 VM에서 저장소에 파일을 복사할 수 있습니다.  작업이 완료되면 하나 이상의 파일을 VM에서 지정된 저장소 계정으로 복사할 수 있습니다.  렌더링된 출력을 복사해야 하지만 로그 파일을 저장하는 것도 좋습니다.
+[출력 파일](https://docs.microsoft.com/rest/api/batchservice/task/add#outputfile)을 사용하여 풀 VM에서 스토리지에 파일을 복사할 수 있습니다.  작업이 완료되면 하나 이상의 파일을 VM에서 지정된 스토리지 계정으로 복사할 수 있습니다.  렌더링된 출력을 복사해야 하지만 로그 파일을 저장하는 것도 좋습니다.
 
 ## <a name="using-a-blobfuse-virtual-file-system-for-linux-vm-pools"></a>Linux VM 풀에 blobfuse 가상 파일 시스템 사용
 
@@ -130,7 +130,7 @@ Azure Files는 Azure Storage를 지원하는 기본 API 및 도구에서 지원�
 
 ## <a name="next-steps"></a>다음 단계
 
-저장소 옵션에 대한 자세한 내용은 심층 설명서를 참조하세요.
+스토리지 옵션에 대한 자세한 내용은 심층 설명서를 참조하세요.
 
 * [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction)
 * [Blobfuse](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux)

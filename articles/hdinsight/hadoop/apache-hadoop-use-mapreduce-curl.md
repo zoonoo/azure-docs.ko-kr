@@ -138,7 +138,7 @@ Apache Hive WebHCat REST API를 사용 하 여 HDInsight 클러스터에는 Apac
    > [!NOTE]  
    > 이 Curl 요청은 작업에 대한 정보가 포함된 JSON 문서를 반환합니다. Jq는 상태 값을 검색하는 데에만 사용됩니다.
 
-6. 작업 상태가 `SUCCEEDED`로 변경되면 Azure Blob Storage에서 작업 결과를 검색할 수 있습니다. 쿼리와 함께 전달되는 `statusdir` 매개 변수에는 출력 파일의 위치가 포함됩니다. 이 예제에서 위치는 `/example/curl`입니다. 이 주소는 작업의 출력을 클러스터 기본 저장소인 `/example/curl`에 저장합니다.
+6. 작업 상태가 `SUCCEEDED`로 변경되면 Azure Blob Storage에서 작업 결과를 검색할 수 있습니다. 쿼리와 함께 전달되는 `statusdir` 매개 변수에는 출력 파일의 위치가 포함됩니다. 이 예제에서 위치는 `/example/curl`입니다. 이 주소는 작업의 출력을 클러스터 기본 스토리지인 `/example/curl`에 저장합니다.
 
 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)를 사용하여 이러한 파일을 나열하고 다운로드할 수 있습니다. Azure CLI에서 Blob을 사용하는 방법에 대한 자세한 내용은 [Azure Storage에서 Azure CLI 사용](../../storage/common/storage-azure-cli.md#create-and-manage-blobs) 문서를 참조하세요.
 

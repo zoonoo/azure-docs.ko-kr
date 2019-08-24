@@ -64,7 +64,7 @@ IoT Hub를 개발하는 방법에 대한 자세한 내용은 다음 문서를 �
 
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
-* [Azure IoT Edge를 사용하여 Edge 디바이스에 AI 배포][lnk-iotedge]
+* [Azure IoT Edge를 사용하여 에지 디바이스에 AI 배포][lnk-iotedge]
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/

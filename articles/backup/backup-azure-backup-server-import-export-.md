@@ -16,7 +16,7 @@ ms.lasthandoff: 08/02/2019
 ms.locfileid: "68737245"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>DPM 및 Azure Backup Server에 대한 오프라인 백업 워크플로
-Azure Backup은 데이터를 Azure에 처음 전체 백업하는 동안 네트워크 및 저장소 비용을 절약하는 여러 가지 기본 제공 효율성 향상 기능이 있습니다. 초기 "전체" 백업은 일반적으로 많은 양의 데이터를 전송하며 델타/증분만 전송하는 후속 백업에 비해 네트워크 대역폭을 더 많이 요구합니다. Azure Backup은 초기 백업을 압축합니다. 오프라인 시드의 프로세스를 통해 Azure Backup은 디스크를 사용하여 오프라인으로 압축된 초기 백업 데이터를 Azure에 업로드할 수 있습니다.
+Azure Backup은 데이터를 Azure에 처음 전체 백업하는 동안 네트워크 및 스토리지 비용을 절약하는 여러 가지 기본 제공 효율성 향상 기능이 있습니다. 초기 "전체" 백업은 일반적으로 많은 양의 데이터를 전송하며 델타/증분만 전송하는 후속 백업에 비해 네트워크 대역폭을 더 많이 요구합니다. Azure Backup은 초기 백업을 압축합니다. 오프라인 시드의 프로세스를 통해 Azure Backup은 디스크를 사용하여 오프라인으로 압축된 초기 백업 데이터를 Azure에 업로드할 수 있습니다.
 
 Azure Backup의 오프라인 시드 프로세스는 디스크를 사용하여 데이터를 Azure에 전송할 수 있는 [Azure Import/Export 서비스](../storage/common/storage-import-export-service.md) 와 밀접하게 통합됩니다. 긴 대기 시간 및 낮은 대역폭 네트워크를 통해 전송해야 하는 TB(테라바이트)의 초기 백업 데이터가 있다면 오프라인 시드 워크플로를 사용하여 하나 이상의 하드 드라이브에 있는 초기 백업 복사본을 Azure 데이터 센터로 배송할 수 있습니다. 이 문서는 System Center DPM 및 Azure Backup Server에 대한 워크플로를 완료하는 개요 및 세부 단계를 제공합니다.
 
@@ -55,7 +55,7 @@ Azure Backup의 오프라인 시드 기능 및 Azure Import/Export를 사용하�
 
 * *클래식* 배포 모델이 있는 Azure Storage 계정이 아래와 같이 게시 설정 파일을 다운로드한 구독에 만들어졌습니다.
 
-  ![클래식 저장소 계정 만들기](./media/backup-azure-backup-import-export/storageaccountclassiccreate.png)
+  ![클래식 스토리지 계정 만들기](./media/backup-azure-backup-import-export/storageaccountclassiccreate.png)
 
 * 네트워크 공유 또는 컴퓨터의 추가 드라이브에 있을 수 있는, 초기 복사본을 저장할 충분한 디스크 공간이 있는 내부 또는 외부의 스테이징 위치가 생성됩니다. 예를 들어 500GB 파일 서버를 백업하려는 경우 준비 영역이 500GB인지 확인합니다. (압축으로 인해 더 작은 양이 사용됩니다.)
 * Azure로 전송되는 디스크의 경우 2.5인치 SSD 또는, 2.5인치 또는 3.5인치 SATA II/III 내부 하드 드라이브가 사용되는지 확인합니다. 최대 10TB의 하드 드라이브를 사용할 수 있습니다. [Azure Import/Export 서비스 설명서](../storage/common/storage-import-export-requirements.md#supported-hardware)에서 서비스가 지원하는 최신 드라이브를 집합을 확인하세요.
@@ -178,13 +178,13 @@ Azure Backup의 오프라인 시드 기능 및 Azure Import/Export를 사용하�
    > [!IMPORTANT]
    > *AzureOfflineBackupDiskPrep* 유틸리티를 사용하여 배송 정보를 제공하고 2주 내에 드라이브가 Azure 데이터 센터에 도달하는지 확인합니다. 이렇게 하지 않으면 드라이브가 처리되지 않을 수 있습니다.  
 
-위의 단계를 완료하면 Azure 데이터 센터는 드라이브를 받고 백업 데이터를 드라이브에서 사용자가 만든 기본 형식 Azure 저장소 계정에 전송하도록 처리할 준비가 됩니다.
+위의 단계를 완료하면 Azure 데이터 센터는 드라이브를 받고 백업 데이터를 드라이브에서 사용자가 만든 기본 형식 Azure Storage 계정에 전송하도록 처리할 준비가 됩니다.
 
 ### <a name="time-to-process-the-drives"></a>드라이브 처리 시간
-Azure 가져오기 작업을 처리하는 데 소요되는 총 시간은 배송 시간, 작업 유형, 복사되는 데이터 유형 및 크기, 제공된 디스크 크기와 같은 다양한 요소에 따라 다릅니다. Azure Import/Export 서비스에는 SLA가 없지만 이 서비스는 디스크가 수신되고 7~10일 내에 Azure 저장소 계정으로 백업 데이터 복사를 완료하려고 합니다. 다음 섹션은 Azure 가져오기 작업의 상태를 모니터링하는 방법에 대해 자세히 설명합니다.
+Azure 가져오기 작업을 처리하는 데 소요되는 총 시간은 배송 시간, 작업 유형, 복사되는 데이터 유형 및 크기, 제공된 디스크 크기와 같은 다양한 요소에 따라 다릅니다. Azure Import/Export 서비스에는 SLA가 없지만 이 서비스는 디스크가 수신되고 7~10일 내에 Azure Storage 계정으로 백업 데이터 복사를 완료하려고 합니다. 다음 섹션은 Azure 가져오기 작업의 상태를 모니터링하는 방법에 대해 자세히 설명합니다.
 
 ### <a name="monitoring-azure-import-job-status"></a>Azure 가져오기 작업 상태 모니터링
-드라이브가 전송 중이거나 저장소 계정으로 복사될 Azure 데이터 센터에 있는 동안 Azure Backup 에이전트 또는 SC DPM 또는 원본 컴퓨터의 Azure Backup 서버 콘솔은 예약된 백업에 대한 다음 작업 상태를 나타냅니다.
+드라이브가 전송 중이거나 스토리지 계정으로 복사될 Azure 데이터 센터에 있는 동안 Azure Backup 에이전트 또는 SC DPM 또는 원본 컴퓨터의 Azure Backup 서버 콘솔은 예약된 백업에 대한 다음 작업 상태를 나타냅니다.
 
   `Waiting for Azure Import Job to complete. Please check on Azure Management portal for more information on job status`
 
@@ -200,12 +200,12 @@ Azure 가져오기 작업을 처리하는 데 소요되는 총 시간은 배송 
 Azure 가져오기 작업의 다양한 상태에 대한 자세한 내용은 [이 문서](../storage/common/storage-import-export-view-drive-status.md)를 참조하세요.
 
 ### <a name="complete-the-workflow"></a>워크플로 완료
-가져오기 작업이 완료된 후 사용자의 저장소 계정에서 초기 백업 데이터를 사용할 수 있습니다. 다음 예약된 백업 시 Azure 백업은 아래와 같이 데이터의 콘텐츠를 저장소 계정에서 Recovery Services 자격 증명 모음으로 복사합니다.
+가져오기 작업이 완료된 후 사용자의 스토리지 계정에서 초기 백업 데이터를 사용할 수 있습니다. 다음 예약된 백업 시 Azure 백업은 아래와 같이 데이터의 콘텐츠를 스토리지 계정에서 Recovery Services 자격 증명 모음으로 복사합니다.
 
    ![Recovery Services 자격 증명 모음에 데이터 복사](./media/backup-azure-backup-import-export/copyingfromstorageaccounttoazurebackup.png)<br/>
 
 다음 예약된 백업 시 Azure Backup은 초기 백업 복사본을 통해 증분 백업을 수행합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* Azure 가져오기/내보내기 워크플로에 대한 질문은 [Microsoft Azure Import/Export 서비스를 사용하여 Blob 저장소에 데이터 전송](../storage/common/storage-import-export-service.md)을 참조하세요.
+* Azure 가져오기/내보내기 워크플로에 대한 질문은 [Microsoft Azure Import/Export 서비스를 사용하여 Blob Storage에 데이터 전송](../storage/common/storage-import-export-service.md)을 참조하세요.
 * 워크플로에 대한 질문이 있으면 Azure Backup [FAQ](backup-azure-backup-faq.md) 의 오프라인 백업 섹션을 참조하세요.

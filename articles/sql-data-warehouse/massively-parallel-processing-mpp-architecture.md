@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Data Warehouse - MPP 아키텍처 | Microsoft Docs
-description: Azure SQL Data Warehouse가 고성능 및 확장성을 달성하도록 MPP(Massively Parallel Processing)와 Azure 저장소를 결합하는 방법을 알아봅니다.
+description: Azure SQL Data Warehouse가 고성능 및 확장성을 달성하도록 MPP(Massively Parallel Processing)와 Azure Storage를 결합하는 방법을 알아봅니다.
 services: sql-data-warehouse
 author: mlee3gsd
 manager: craigg
@@ -18,7 +18,7 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "66515806"
 ---
 # <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>Azure SQL Data Warehouse - MPP(Massively Parallel Processing) 아키텍처
-Azure SQL Data Warehouse가 고성능 및 확장성을 달성하도록 MPP(Massively Parallel Processing)와 Azure 저장소를 결합하는 방법을 알아봅니다. 
+Azure SQL Data Warehouse가 고성능 및 확장성을 달성하도록 MPP(Massively Parallel Processing)와 Azure Storage를 결합하는 방법을 알아봅니다. 
 
 > [!VIDEO https://www.youtube.com/embed/PlyQ8yOb8kc]
 
@@ -36,8 +36,8 @@ SQL Data Warehouse는 노드 기반 아키텍처를 사용합니다. 애플리�
 * 데이터를 그대로 둔 채 계산 용량을 일시 중지하여 스토리지 비용만 지불합니다.
 * 운영 시간 동안 컴퓨팅 용량을 다시 시작합니다.
 
-### <a name="azure-storage"></a>Azure 저장소
-SQL Data Warehouse는 Azure 저장소를 사용하여 사용자 데이터를 안전하게 유지합니다.  Azure 저장소에서 데이터가 저장되고 관리되기 때문에 SQL Data Warehouse는 저장소 사용량에 대해 별도의 요금을 부과합니다. 데이터 자체는 시스템의 성능을 최적화하기 위해 **분산**으로 분할됩니다. 테이블을 정의할 때 데이터 분산에 사용할 분할 패턴을 선택할 수 있습니다. SQL Data Warehouse는 다음과 같은 분할 패턴을 지원합니다.
+### <a name="azure-storage"></a>Azure Storage
+SQL Data Warehouse는 Azure Storage를 사용하여 사용자 데이터를 안전하게 유지합니다.  Azure Storage에서 데이터가 저장되고 관리되기 때문에 SQL Data Warehouse는 스토리지 사용량에 대해 별도의 요금을 부과합니다. 데이터 자체는 시스템의 성능을 최적화하기 위해 **분산**으로 분할됩니다. 테이블을 정의할 때 데이터 분산에 사용할 분할 패턴을 선택할 수 있습니다. SQL Data Warehouse는 다음과 같은 분할 패턴을 지원합니다.
 
 * 해시
 * 라운드 로빈
@@ -58,7 +58,7 @@ DMS(데이터 이동 서비스)는 컴퓨팅 노드 간의 데이터 이동을 �
 
 ## <a name="distributions"></a>배포
 
-분산은 분산 데이터에 실행되는 병렬 쿼리의 저장 및 처리의 기본 단위입니다. SQL Data Warehouse가 쿼리를 실행하면 병렬로 실행되는 60개의 작은 쿼리로 작업이 나뉩니다. 60개의 작은 쿼리는 각각 데이터 분산 중 하나에서 실행됩니다. 각 컴퓨팅 노드는 60개 중 하나 이상의 분산을 관리합니다. 컴퓨팅 리소스가 최대인 데이터 웨어하우스는 컴퓨팅 노드당 하나의 분산이 있습니다. 컴퓨팅 리소스가 최소인 데이터 웨어하우스는 하나의 컴퓨팅 노드에 모든 분산이 포함됩니다.  
+분산은 분산 데이터에 실행되는 병렬 쿼리의 스토리지 및 처리의 기본 단위입니다. SQL Data Warehouse가 쿼리를 실행하면 병렬로 실행되는 60개의 작은 쿼리로 작업이 나뉩니다. 60개의 작은 쿼리는 각각 데이터 분산 중 하나에서 실행됩니다. 각 컴퓨팅 노드는 60개 중 하나 이상의 분산을 관리합니다. 컴퓨팅 리소스가 최대인 데이터 웨어하우스는 컴퓨팅 노드당 하나의 분산이 있습니다. 컴퓨팅 리소스가 최소인 데이터 웨어하우스는 하나의 컴퓨팅 노드에 모든 분산이 포함됩니다.  
 
 ## <a name="hash-distributed-tables"></a>해시 분산 테이블
 해시 분산 테이블은 대형 테이블의 조인 및 집계에 대해 가장 높은 쿼리 성능을 제공할 수 있습니다. 

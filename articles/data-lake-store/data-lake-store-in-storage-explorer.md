@@ -165,7 +165,7 @@ Data Lake Storage Gen1 계정을 만든 후 다음 작업을 수행할 수 있�
 ![폴더를 복사하기 위한 선택 항목](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-copy-paste.png)
 
 > [!NOTE]
-> 저장소 형식에서의 복사/붙여넣기 작업은 지원되지 않습니다. Data Lake Storage Gen1 폴더 또는 파일을 복사해 다른 Data Lake Storage Gen1 계정에 붙여넣을 수 있습니다. Azure Blob Storage에 또는 다른 방법으로는 Data Lake Storage Gen1 폴더나 파일을 복사해 붙여넣을 *수 없습니다*.
+> 스토리지 형식에서의 복사/붙여넣기 작업은 지원되지 않습니다. Data Lake Storage Gen1 폴더 또는 파일을 복사해 다른 Data Lake Storage Gen1 계정에 붙여넣을 수 있습니다. Azure Blob Storage에 또는 다른 방법으로는 Data Lake Storage Gen1 폴더나 파일을 복사해 붙여넣을 *수 없습니다*.
 > 
 > 복사-붙여넣기 작업은 폴더 또는 파일을 로컬 컴퓨터로 다운로드한 다음, 대상에 업로드하여 작동합니다. 도구는 백 엔드에서 작업을 수행*하지 않습니다*. 큰 파일의 복사-붙여넣기 작업은 느립니다. 고성능 파일 복사-이동 최적화는 현재 진행 중입니다.
 

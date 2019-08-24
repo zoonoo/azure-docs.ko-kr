@@ -18,7 +18,7 @@ ms.date: 12/10/2018
 ms.author: vijetaj
 ms.openlocfilehash: 44983de87ce2e774356bf506e3a868da922a3ba3
 ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/26/2019
 ms.locfileid: "68558049"
@@ -49,7 +49,7 @@ az group deployment create --resource-group  [[NAME OF RESOURCE GROUP ABOVE]]  -
 * 확장 집합의 인스턴스에 지정된 값을 포함한 매개 변수 파일의 복사본
 * VM 인스턴스 수
 * Azure Files 공유에 대한 포인터
-* 각 VM에 탑재될 저장소 계정의 자격 증명 
+* 각 VM에 탑재될 스토리지 계정의 자격 증명 
 
 매개 변수 파일은 명령에서 로컬로 참조됩니다. 매개 변수를 인라인으로 전달하거나 스크립트에서 그에 대한 프롬프트를 표시할 수도 있습니다.  
 

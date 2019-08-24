@@ -30,18 +30,18 @@ ms.locfileid: "61464949"
 
 다음 방법 중 하나를 사용하여 원격 분석 데이터를 사용할 수 있습니다.
 
-- Azure Table Storage에서 직접 데이터를 읽습니다(예: Storage SDK 사용). 원격 분석 저장소 테이블에 대한 설명을 보려면 [이](https://msdn.microsoft.com/library/mt742089.aspx) 항목의 **원격 분석 정보 사용**을 참조하세요.
+- Azure Table Storage에서 직접 데이터를 읽습니다(예: Storage SDK 사용). 원격 분석 스토리지 테이블에 대한 설명을 보려면 [이](https://msdn.microsoft.com/library/mt742089.aspx) 항목의 **원격 분석 정보 사용**을 참조하세요.
 
 또는
 
-- 저장소 데이터를 읽기 위한 Media Services .NET SDK의 지원을 사용합니다. 이 문서에서는 지정된 AMS 계정에 대해 원격 분석을 사용하도록 설정하고 Azure Media Services .NET SDK를 사용하여 메트릭을 쿼리하는 방법을 보여 줍니다.  
+- 스토리지 데이터를 읽기 위한 Media Services .NET SDK의 지원을 사용합니다. 이 문서에서는 지정된 AMS 계정에 대해 원격 분석을 사용하도록 설정하고 Azure Media Services .NET SDK를 사용하여 메트릭을 쿼리하는 방법을 보여 줍니다.  
 
 ## <a name="configuring-telemetry-for-a-media-services-account"></a>Media Services 계정에 대해 원격 분석 구성
 
 원격 분석을 사용하도록 설정하려면 다음 단계가 필요합니다.
 
-- Media Services 계정에 연결된 저장소 계정의 자격 증명을 가져옵니다. 
-- **EndPointType**이 **AzureTable**로 설정되고 endPointAddress가 저장소 테이블을 가리키는 알림 엔드포인트를 만듭니다.
+- Media Services 계정에 연결된 스토리지 계정의 자격 증명을 가져옵니다. 
+- **EndPointType**이 **AzureTable**로 설정되고 endPointAddress가 스토리지 테이블을 가리키는 알림 엔드포인트를 만듭니다.
 
 ```csharp
         INotificationEndPoint notificationEndPoint = 

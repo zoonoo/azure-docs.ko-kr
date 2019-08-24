@@ -24,7 +24,7 @@ Azure SQL Data Warehouse를 사용하여 데이터를 로드하기 위한 권장
 
 ## <a name="preparing-data-in-azure-storage"></a>Azure Storage에 데이터 준비
 
-대기 시간을 최소화하려면 저장소 계층과 데이터 웨어하우스를 함께 배치합니다.
+대기 시간을 최소화하려면 스토리지 계층과 데이터 웨어하우스를 함께 배치합니다.
 
 ORC 파일 형식으로 데이터를 내보낼 때 큰 텍스트 열이 있으면 Java 메모리 부족 오류가 발생할 수 있습니다. 이러한 제한 사항을 해결하려면 열의 하위 집합만 내보냅니다.
 
@@ -117,13 +117,13 @@ create statistics [Speed] on [Customer_Speed] ([Speed]);
 create statistics [YearMeasured] on [Customer_Speed] ([YearMeasured]);
 ```
 
-## <a name="rotate-storage-keys"></a>저장 키 회전
+## <a name="rotate-storage-keys"></a>스토리지 키 회전
 
 정기적으로 Blob Storage 액세스 키를 변경하는 것은 좋은 보안 방법입니다. Blob Storage 계정에 두 개의 스토리지 키가 있으므로 키 전환이 가능합니다.
 
 Azure Storage 계정 키를 회전하려면:
 
-키가 변경된 각 저장소 계정에 대해 [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql)을 실행합니다.
+키가 변경된 각 스토리지 계정에 대해 [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql)을 실행합니다.
 
 예제:
 

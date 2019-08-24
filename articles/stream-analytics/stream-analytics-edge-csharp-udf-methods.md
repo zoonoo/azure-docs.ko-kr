@@ -28,7 +28,7 @@ UDF를 구현하는 다음 세 가지 방법이 있습니다.
 
 * ASA 프로젝트의 CodeBehind 파일
 * 로컬 프로젝트의 UDF
-* Azure 저장소 계정의 기존 패키지
+* Azure Storage 계정의 기존 패키지
 
 ## <a name="package-path"></a>패키지 경로
 
@@ -48,7 +48,7 @@ UDF를 구현하는 다음 세 가지 방법이 있습니다.
 |dictionary<string, object>  |  IRecord   |
 
 ## <a name="codebehind"></a>CodeBehind
-사용자 정의 함수는 **Script.asql** CodeBehind에 작성할 수 있습니다. Visual Studio 도구에서 CodeBehind 파일을 어셈블리 파일로 자동으로 컴파일합니다. 어셈블리는 Zip 파일로 패키지되고, Azure에 작업을 제출할 때 저장소 계정에 업로드됩니다. [Stream Analytics Edge 작업에 대한 C# UDF](stream-analytics-edge-csharp-udf.md) 자습서에 따라 CodeBehind를 사용하여 C# UDF를 작성하는 방법을 알아볼 수 있습니다. 
+사용자 정의 함수는 **Script.asql** CodeBehind에 작성할 수 있습니다. Visual Studio 도구에서 CodeBehind 파일을 어셈블리 파일로 자동으로 컴파일합니다. 어셈블리는 Zip 파일로 패키지되고, Azure에 작업을 제출할 때 스토리지 계정에 업로드됩니다. [Stream Analytics Edge 작업에 대한 C# UDF](stream-analytics-edge-csharp-udf.md) 자습서에 따라 CodeBehind를 사용하여 C# UDF를 작성하는 방법을 알아볼 수 있습니다. 
 
 ## <a name="local-project"></a>로컬 프로젝트
 사용자 정의 함수는 Azure Stream Analytics 쿼리에서 나중에 참조되는 어셈블리에 작성할 수 있습니다. 이는 절차적 논리 또는 재귀와 같은 식 언어 이외의 .NET Standard 언어의 모든 기능이 필요한 복잡한 함수에 권장되는 옵션입니다. 로컬 프로젝트의 UDF는 여러 Azure Stream Analytics 쿼리에서 함수 논리를 공유해야 하는 경우에도 사용할 수 있습니다. UDF를 로컬 프로젝트에 추가하면 Visual Studio에서 함수를 로컬로 디버그하고 테스트할 수 있습니다.
@@ -57,7 +57,7 @@ UDF를 구현하는 다음 세 가지 방법이 있습니다.
 
 1. 새 클래스 라이브러리를 솔루션에 만듭니다.
 2. 코드를 클래스에 작성합니다. 클래스는 *public*으로, 개체는 *static public*으로 정의해야 합니다. 
-3. 프로젝트를 빌드합니다. 도구에서 bin 폴더의 모든 아티팩트를 Zip 파일로 패키지하고 이 Zip 파일을 저장소 계정에 업로드합니다. 외부 참조의 경우 NuGet 패키지 대신 어셈블리 참조를 사용합니다.
+3. 프로젝트를 빌드합니다. 도구에서 bin 폴더의 모든 아티팩트를 Zip 파일로 패키지하고 이 Zip 파일을 스토리지 계정에 업로드합니다. 외부 참조의 경우 NuGet 패키지 대신 어셈블리 참조를 사용합니다.
 4. Azure Stream Analytics 프로젝트에서 새 클래스를 참조합니다.
 5. 새 함수를 Azure Stream Analytics 프로젝트에 추가합니다.
 6. 어셈블리 경로를 `JobConfig.json` 작업 구성 파일에 구성합니다. [어셈블리 경로]를 **로컬 프로젝트 참조 또는 CodeBehind**로 설정합니다.
@@ -103,9 +103,9 @@ UDF를 구현하는 다음 세 가지 방법이 있습니다.
 
 ## <a name="existing-packages"></a>기존 패키지
 
-선택한 IDE에서 .NET Standard UDF를 작성하고 Azure Stream Analytics 쿼리에서 호출할 수 있습니다. 먼저 코드를 컴파일하고 모든 DLL을 패키지합니다. 패키지의 형식은 `/UserCustomCode/CLR/*` 경로입니다. 그런 다음, Azure 저장소 계정의 컨테이너 루트에 `UserCustomCode.zip`을 업로드합니다.
+선택한 IDE에서 .NET Standard UDF를 작성하고 Azure Stream Analytics 쿼리에서 호출할 수 있습니다. 먼저 코드를 컴파일하고 모든 DLL을 패키지합니다. 패키지의 형식은 `/UserCustomCode/CLR/*` 경로입니다. 그런 다음, Azure Storage 계정의 컨테이너 루트에 `UserCustomCode.zip`을 업로드합니다.
 
-어셈블리 zip 패키지가 Azure 저장소 계정에 업로드되면 Azure Stream Analytics 쿼리에서 함수를 사용할 수 있습니다. Stream Analytics Edge 작업 구성에 저장소 정보를 포함하기만 하면 됩니다. Visual Studio 도구에서 패키지를 다운로드하지 않으므로 이 옵션을 사용하여 함수를 로컬로 테스트할 수 없습니다. 패키지 경로는 서비스에 직접 구문 분석됩니다. 
+어셈블리 zip 패키지가 Azure Storage 계정에 업로드되면 Azure Stream Analytics 쿼리에서 함수를 사용할 수 있습니다. Stream Analytics Edge 작업 구성에 스토리지 정보를 포함하기만 하면 됩니다. Visual Studio 도구에서 패키지를 다운로드하지 않으므로 이 옵션을 사용하여 함수를 로컬로 테스트할 수 없습니다. 패키지 경로는 서비스에 직접 구문 분석됩니다. 
 
 `JobConfig.json` 작업 구성 파일에서 어셈블리 경로를 구성하려면 다음을 수행합니다.
 
@@ -116,8 +116,8 @@ UDF를 구현하는 다음 세 가지 방법이 있습니다.
  |어셈블리 원본  | 클라우드의 기존 어셈블리 패키지    |
  |Resource  |  현재 계정의 데이터 선택   |
  |구독  |  구독을 선택합니다.   |
- |Storage 계정  |  저장소 계정 선택   |
- |컨테이너  |  저장소 계정에서 만든 컨테이너 선택   |
+ |스토리지 계정  |  스토리지 계정 선택   |
+ |컨테이너  |  스토리지 계정에서 만든 컨테이너 선택   |
 
 ![Visual Studio의 Azure Stream Analytics Edge 작업 구성](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-job-config.png)
 

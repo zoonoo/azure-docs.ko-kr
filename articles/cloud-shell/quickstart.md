@@ -32,7 +32,7 @@ ms.locfileid: "68741979"
 1. Azure Portal의 위쪽 탐색 모음에서 **Cloud Shell**을 시작합니다. <br>
 ![](media/quickstart/shell-icon.png)
 
-2. 구독을 선택하여 저장소 계정 및 Microsoft Azure Files 공유를 만듭니다.
+2. 구독을 선택하여 스토리지 계정 및 Microsoft Azure Files 공유를 만듭니다.
 3. "저장소 만들기"를 선택합니다.
 
 > [!TIP]

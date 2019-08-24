@@ -165,12 +165,12 @@ Azure Monitor 로그를 사용 하 여 논리 앱의 진단 데이터를 다른 
 * [Event Hub에서 Stream Analytics로 데이터 스트림](../stream-analytics/stream-analytics-define-inputs.md)
 * [Stream Analytics를 사용하여 스트리밍 데이터 분석 및 Power BI에서 실시간 분석 대시보드 만들기](../stream-analytics/stream-analytics-power-bi-dashboard.md)
 
-설정하려는 옵션에 따라 먼저 [Azure 저장소 계정을 만들](../storage/common/storage-create-storage-account.md)거나 [Azure 이벤트 허브를 만들](../event-hubs/event-hubs-create.md)어야 합니다. 그런 다음 진단 데이터를 전송하려는 위치에 대한 옵션을 선택합니다.
+설정하려는 옵션에 따라 먼저 [Azure Storage 계정을 만들](../storage/common/storage-create-storage-account.md)거나 [Azure 이벤트 허브를 만들](../event-hubs/event-hubs-create.md)어야 합니다. 그런 다음 진단 데이터를 전송하려는 위치에 대한 옵션을 선택합니다.
 
-![Azure 저장소 계정 또는 이벤트 허브로 데이터 보내기](./media/logic-apps-monitor-your-logic-apps/storage-account-event-hubs.png)
+![Azure Storage 계정 또는 이벤트 허브로 데이터 보내기](./media/logic-apps-monitor-your-logic-apps/storage-account-event-hubs.png)
 
 > [!NOTE]
-> 보존 기간은 저장소 계정을 사용하도록 선택한 경우에만 적용됩니다.
+> 보존 기간은 스토리지 계정을 사용하도록 선택한 경우에만 적용됩니다.
 
 <a name="add-azure-alerts"></a>
 

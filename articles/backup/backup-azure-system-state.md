@@ -11,7 +11,7 @@ ms.date: 05/23/2018
 ms.author: saurse
 ms.openlocfilehash: 6d8cbac7eab797662896a96ed588c9d6370cb230
 ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "60782727"
@@ -24,7 +24,7 @@ Azure Backup에 대해 자세히 알아보려면 이 [개요](backup-overview.md
 Azure 구독이 없는 경우 모든 Azure 서비스에 액세스할 수 있는 [무료 계정](https://azure.microsoft.com/free/) 을 만듭니다.
 
 ## <a name="create-a-recovery-services-vault"></a>복구 서비스 자격 증명 모음 만들기
-Windows Server 시스템 상태를 백업하려면 데이터를 저장하려는 지역에 Recovery Services 자격 증명 모음을 만들어야 합니다. 저장소를 복제할 방식도 결정해야 합니다.
+Windows Server 시스템 상태를 백업하려면 데이터를 저장하려는 지역에 Recovery Services 자격 증명 모음을 만들어야 합니다. 스토리지를 복제할 방식도 결정해야 합니다.
 
 ### <a name="to-create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음을 만들려면
 1. [Azure Portal](https://portal.azure.com/) 에 아직 로그인하지 않은 경우 Azure 구독을 사용하여 로그인합니다.
@@ -61,10 +61,10 @@ Windows Server 시스템 상태를 백업하려면 데이터를 저장하려는 
 
     ![새로 고침 단추 클릭](./media/backup-try-azure-backup-in-10-mins/refresh-button.png)</br>
 
-    Recovery Services 자격 증명 모음 목록에 사용자의 자격 증명 모음이 보이면 저장소 중복을 설정할 준비가 된 것입니다.
+    Recovery Services 자격 증명 모음 목록에 사용자의 자격 증명 모음이 보이면 스토리지 중복을 설정할 준비가 된 것입니다.
 
-### <a name="set-storage-redundancy-for-the-vault"></a>자격 증명 모음에 저장소 중복 설정
-Recovery Services 자격 증명 모음을 만드는 경우 저장소 중복을 원하는 대로 구성해야 합니다.
+### <a name="set-storage-redundancy-for-the-vault"></a>자격 증명 모음에 스토리지 중복 설정
+Recovery Services 자격 증명 모음을 만드는 경우 스토리지 중복을 원하는 대로 구성해야 합니다.
 
 1. **Recovery Services 자격 증명 모음** 블레이드에서 새 자격 증명 모음을 클릭합니다.
 
@@ -72,17 +72,17 @@ Recovery Services 자격 증명 모음을 만드는 경우 저장소 중복을 �
 
     자격 증명 모음을 선택하면 **Recovery Services 자격 증명 모음** 블레이드가 좁아지고 설정 블레이드(*맨 위에 자격 증명 모음 이름이 있음*) 및 자격 증명 모음 세부 정보 블레이드가 열립니다.
 
-    ![새 자격 증명 모음의 저장소 구성 보기](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration-2.png)
+    ![새 자격 증명 모음의 스토리지 구성 보기](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration-2.png)
 2. 새 자격 증명 모음의 설정 블레이드에서 세로 슬라이드를 사용하여 관리 섹션 쪽으로 아래로 스크롤하여 **Backup 인프라**를 클릭합니다.
     [Backup 인프라] 블레이드가 열립니다.
 3. [Backup 인프라] 블레이드에서 **Backup 구성**을 클릭하여 **Backup 구성** 블레이드를 엽니다.
 
-    ![새 자격 증명 모음의 저장소 구성 설정](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration.png)
-4. 자격 증명 모음에 대해 적절한 저장소 복제 옵션을 선택합니다.
+    ![새 자격 증명 모음의 스토리지 구성 설정](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration.png)
+4. 자격 증명 모음에 대해 적절한 스토리지 복제 옵션을 선택합니다.
 
-    ![저장소 구성 선택 항목](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
+    ![스토리지 구성 선택 항목](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-    기본적으로 사용자 자격 증명 모음에는 지역 중복 저장소가 있습니다. Azure를 기본 백업 저장소 엔드포인트로 사용하는 경우 **지역 중복**을 계속 사용합니다. Azure를 기본 백업 스토리지 엔드포인트로 사용하지 않는 경우 Azure Storage 비용이 감소되는 **로컬 중복**을 선택합니다. [지역 중복](../storage/common/storage-redundancy-grs.md) 및 [로컬 중복](../storage/common/storage-redundancy-lrs.md) 저장소 옵션에 대한 자세한 내용은 [저장소 중복 개요](../storage/common/storage-redundancy.md)를 참조하세요.
+    기본적으로 사용자 자격 증명 모음에는 지역 중복 스토리지가 있습니다. Azure를 기본 백업 스토리지 엔드포인트로 사용하는 경우 **지역 중복**을 계속 사용합니다. Azure를 기본 백업 스토리지 엔드포인트로 사용하지 않는 경우 Azure Storage 비용이 감소되는 **로컬 중복**을 선택합니다. [지역 중복](../storage/common/storage-redundancy-grs.md) 및 [로컬 중복](../storage/common/storage-redundancy-lrs.md) 스토리지 옵션에 대한 자세한 내용은 [스토리지 중복 개요](../storage/common/storage-redundancy.md)를 참조하세요.
 
 이제 자격 증명 모음을 만들었으므로 Windows 시스템 상태를 백업하도록 구성합니다.
 

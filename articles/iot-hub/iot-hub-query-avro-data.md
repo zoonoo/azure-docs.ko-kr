@@ -58,7 +58,7 @@ U-SQL에는 Avro용 "추출기"가 있습니다. 자세한 내용은 [U-SQL Avro
 
    !U-SQL 프로젝트 만들기](./media/iot-hub-query-avro-data/query-avro-data-6.png)
 
-7. 다음과 같은 스크립트의 콘텐츠를 새로 만든 파일로 붙여넣습니다. Data Lake Analytics 계정, 연결된 DLL 파일 경로 및 저장소 계정에 대한 올바른 경로 등 3개의 강조 표시된 섹션을 수정합니다.
+7. 다음과 같은 스크립트의 콘텐츠를 새로 만든 파일로 붙여넣습니다. Data Lake Analytics 계정, 연결된 DLL 파일 경로 및 스토리지 계정에 대한 올바른 경로 등 3개의 강조 표시된 섹션을 수정합니다.
 
    ![수정될 세 개의 섹션](./media/iot-hub-query-avro-data/query-avro-data-7a.png)
 

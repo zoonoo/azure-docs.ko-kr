@@ -82,7 +82,7 @@ Azure SQL Database의 관리형 인스턴스에서는 다음과 같은 기능이
 
 다음 형식으로 저장소 액세스 키를 복사 합니다.`DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net`
 
- 자세한 내용은 [저장소 액세스 키 보기 및 복사](../storage/common/storage-account-manage.md#access-keys)를 참조하세요. 
+ 자세한 내용은 [스토리지 액세스 키 보기 및 복사](../storage/common/storage-account-manage.md#access-keys)를 참조하세요. 
 
 ## <a name="4---create-a-publisher-database"></a>4-게시자 데이터베이스 만들기
 

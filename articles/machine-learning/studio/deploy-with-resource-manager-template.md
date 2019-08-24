@@ -28,8 +28,8 @@ Azure 리소스 그룹을 만든 다음, Resource Manager 템플릿을 사용하
 
 ### <a name="create-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿 만들기
 
-Machine Learning 작업 영역은 연결된 데이터 세트를 저장하려면 Azure 저장소 계정이 필요합니다.
-다음 템플릿은 리소스 그룹의 이름을 사용하여 저장소 계정 이름 및 작업 영역 이름을 생성합니다.  또한 작업 영역을 만들 때 속성으로 저장소 계정 이름을 사용합니다.
+Machine Learning 작업 영역은 연결된 데이터 세트를 저장하려면 Azure Storage 계정이 필요합니다.
+다음 템플릿은 리소스 그룹의 이름을 사용하여 스토리지 계정 이름 및 작업 영역 이름을 생성합니다.  또한 작업 영역을 만들 때 속성으로 스토리지 계정 이름을 사용합니다.
 
 ```json
 {
@@ -113,7 +113,7 @@ $rg
 ```
 
 리소스 그룹이 올바르게 프로비전되었는지 확인합니다. **ProvisioningState** 는 "Succeeded"여야 합니다.
-리소스 그룹 이름은 저장소 계정 이름을 생성하는 템플릿에 의해 사용됩니다. 저장소 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 사용해야 합니다.
+리소스 그룹 이름은 스토리지 계정 이름을 생성하는 템플릿에 의해 사용됩니다. 스토리지 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 사용해야 합니다.
 
 ![리소스 그룹](./media/deploy-with-resource-manager-template/resourcegroupprovisioning.png)
 

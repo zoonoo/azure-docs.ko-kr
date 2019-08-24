@@ -201,7 +201,7 @@ modelInput AS (
 ),
 ```
 
-Azure Stream Analytics에 기본 제공 선형 회귀 함수가 없기 때문에 **SUM** 및 **AVG** 집계를 사용하여 선형 모델에 대한 계수를 계산합니다.
+Azure Stream Analytics에 기본 제공 선형 회귀 함수가 없기 때문에 **SUM** 및 **AVG** 집계를 사용하여 선형 모델에 대한 계수를 컴퓨팅합니다.
 
 ![선형 회귀 수학 수식](./media/stream-analytics-high-frequency-trading/linear-regression-formula.png)
 

@@ -10,7 +10,7 @@ ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: cafe761d2b566a7bddce503765c11bf9f8e00f2a
 ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/08/2019
 ms.locfileid: "68847448"
@@ -102,7 +102,7 @@ Storage Explorer 또는 AzCopy를 사용하여 파일 시스템을 만드는 방
 
 ### <a name="streamed-data"></a>스트리밍된 데이터
 
-애플리케이션, 장치, 센서 등 다양한 원본을 통해 생성할 수 있는 데이터를 나타냅니다. 이 데이터는 다양한 도구를 통해 Data Lake Storage Gen2에 수집할 수 있습니다. 이러한 도구는 일반적으로 데이터를 이벤트별로 실시간으로 캡처하고 처리한 다음, 이벤트를 추가로 처리할 수 있도록 해당 이벤트를 Data Lake Storage Gen2에 일괄적으로 씁니다.
+애플리케이션, 디바이스, 센서 등 다양한 원본을 통해 생성할 수 있는 데이터를 나타냅니다. 이 데이터는 다양한 도구를 통해 Data Lake Storage Gen2에 수집할 수 있습니다. 이러한 도구는 일반적으로 데이터를 이벤트별로 실시간으로 캡처하고 처리한 다음, 이벤트를 추가로 처리할 수 있도록 해당 이벤트를 Data Lake Storage Gen2에 일괄적으로 씁니다.
 
 다음은 스트리밍된 데이터를 수집하는 데 사용할 수 있는 도구 목록입니다.
 

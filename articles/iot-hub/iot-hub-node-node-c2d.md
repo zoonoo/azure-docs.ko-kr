@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub(노드)를 사용한 클라우드-장치 메시지 | Microsoft Docs
+title: Azure IoT Hub(노드)를 사용한 클라우드-디바이스 메시지 | Microsoft Docs
 description: Node.js용 Azure IoT SDK를 사용하여 Azure IoT Hub에서 클라우드-디바이스 메시지를 보내는 방법입니다. 클라우드-디바이스 메시지를 수신하도록 시뮬레이션된 디바이스 앱을 수정하고 클라우드-디바이스 메시지를 보내도록 백 엔드 앱을 수정합니다.
 author: wesmc7777
 manager: philmea
@@ -84,7 +84,7 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
 
 [!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
-## <a name="send-a-cloud-to-device-message"></a>클라우드-장치 메시지 보내기
+## <a name="send-a-cloud-to-device-message"></a>클라우드-디바이스 메시지 보내기
 
 이 섹션에서는 클라우드-디바이스 메시지를 시뮬레이트된 디바이스 앱으로 보내는 Node.js 콘솔 앱을 만듭니다. [장치에서 IoT hub로 원격 분석 전송 빠른 시작](quickstart-send-telemetry-node.md) 에서 추가한 장치의 장치 ID가 필요 합니다. 이전에 [iot hub 연결 문자열 가져오기](#get-the-iot-hub-connection-string)에서 복사한 iot hub 연결 문자열도 필요 합니다.
 
@@ -180,7 +180,7 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
     node SendCloudToDeviceMessage.js
     ```
 
-    ![앱을 실행하여 클라우드-장치 명령 보내기](./media/iot-hub-node-node-c2d/sendc2d.png)
+    ![앱을 실행하여 클라우드-디바이스 명령 보내기](./media/iot-hub-node-node-c2d/sendc2d.png)
 
    > [!NOTE]
    > 간단히 하기 위해이 자습서에서는 재시도 정책을 구현 하지 않습니다. 프로덕션 코드에서는 문서 [일시적인 오류 처리](/azure/architecture/best-practices/transient-faults)에서 제시한 대로 재시도 정책(예: 지수 백오프)을 구현해야 합니다.
@@ -188,7 +188,7 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서 클라우드-장치 메시지를 보내고 받는 방법을 알아보았습니다.
+이 자습서에서 클라우드-디바이스 메시지를 보내고 받는 방법을 알아보았습니다.
 
 IoT Hub를 사용하는 완전한 엔드투엔드 솔루션의 예를 보려면 [Azure IoT 원격 모니터링 솔루션 가속기](https://azure.microsoft.com/documentation/suites/iot-suite/)를 참조하세요.
 

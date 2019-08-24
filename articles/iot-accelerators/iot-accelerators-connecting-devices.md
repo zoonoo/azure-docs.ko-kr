@@ -1,6 +1,6 @@
 ---
 title: C로 Windows 디바이스를 원격 모니터링에 프로비전 - Azure | Microsoft Docs
-description: Windows에서 실행 중인 C로 작성한 애플리케이션을 Linux에서 실행하여 원격 모니터링 솔루션 가속기에 장치를 연결하는 방법을 설명합니다.
+description: Windows에서 실행 중인 C로 작성한 애플리케이션을 Linux에서 실행하여 원격 모니터링 솔루션 가속기에 디바이스를 연결하는 방법을 설명합니다.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -21,7 +21,7 @@ ms.locfileid: "61450232"
 
 이 자습서는 원격 모니터링 솔루션 가속기에 실제 디바이스를 연결하는 방법을 보여 줍니다.
 
-제한된 장치에서 실행되는 대부분의 임베디드 애플리케이션과 마찬가지로, 장치 애플리케이션의 클라이언트 코드는 C로 작성됩니다. 이 자습서에서는 Windows를 실행하는 머신에서 장치 클라이언트 애플리케이션을 빌드합니다.
+제한된 디바이스에서 실행되는 대부분의 임베디드 애플리케이션과 마찬가지로, 디바이스 애플리케이션의 클라이언트 코드는 C로 작성됩니다. 이 자습서에서는 Windows를 실행하는 머신에서 디바이스 클라이언트 애플리케이션을 빌드합니다.
 
 디바이스를 시뮬레이션하려면 [새 시뮬레이션된 디바이스 만들기 및 테스트](iot-accelerators-remote-monitoring-create-simulated-device.md)를 참조하세요.
 
@@ -45,7 +45,7 @@ ms.locfileid: "61450232"
 
 ## <a name="build-and-run-the-sample"></a>샘플 빌드 및 실행
 
-1. **remote_monitoring.c** 파일을 편집하여 `<connectionstring>`을 이 방법 가이드 시작 부분에서 솔루션 가속기에 장치를 추가할 때 적어 둔 장치 연결 문자열로 바꿉니다.
+1. **remote_monitoring.c** 파일을 편집하여 `<connectionstring>`을 이 방법 가이드 시작 부분에서 솔루션 가속기에 디바이스를 추가할 때 적어 둔 디바이스 연결 문자열로 바꿉니다.
 
 1. [Windows에서 C SDK 빌드](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#build-the-c-sdk-in-windows)의 단계에 따라 SDK 및 원격 모니터링 클라이언트 애플리케이션을 빌드합니다.
 

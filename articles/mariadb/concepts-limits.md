@@ -1,6 +1,6 @@
 ---
 title: Azure Database for MariaDB의 제한 사항
-description: 이 문서에서는 Azure Database for MariaDB에 대한 연결 수 및 저장소 엔진 옵션과 같은 제한 사항을 설명합니다.
+description: 이 문서에서는 Azure Database for MariaDB에 대한 연결 수 및 스토리지 엔진 옵션과 같은 제한 사항을 설명합니다.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
@@ -14,7 +14,7 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "65550502"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 제한 사항
-다음 섹션에서는 데이터베이스 서비스의 용량, 저장소 엔진 지원, 권한 지원, 데이터 조작 명령문 지원 및 기능 제한 사항에 대해 설명합니다.
+다음 섹션에서는 데이터베이스 서비스의 용량, 스토리지 엔진 지원, 권한 지원, 데이터 조작 명령문 지원 및 기능 제한 사항에 대해 설명합니다.
 
 ## <a name="maximum-connections"></a>최대 연결 수
 가격 책정 계층 및 vCore당 최대 연결 수는 다음과 같습니다.
@@ -38,7 +38,7 @@ ms.locfileid: "65550502"
 연결 한도를 초과하면 다음과 같은 오류가 발생할 수 있습니다.
 > 오류 1040(08004): 연결이 너무 많음
 
-## <a name="storage-engine-support"></a>저장소 엔진 지원
+## <a name="storage-engine-support"></a>스토리지 엔진 지원
 
 ### <a name="supported"></a>지원됨
 - [InnoDB](https://mariadb.com/kb/en/library/xtradb-and-innodb/)
@@ -59,7 +59,7 @@ ms.locfileid: "65550502"
 ## <a name="data-manipulation-statement-support"></a>데이터 조작 명령문 지원
 
 ### <a name="supported"></a>지원됨
-- `LOAD DATA INFILE`은 지원되지만 `[LOCAL]` 매개 변수를 지정하고 UNC 경로(SMB를 통해 탑재된 Azure 저장소)로 전달해야 합니다.
+- `LOAD DATA INFILE`은 지원되지만 `[LOCAL]` 매개 변수를 지정하고 UNC 경로(SMB를 통해 탑재된 Azure Storage)로 전달해야 합니다.
 
 ### <a name="unsupported"></a>지원되지 않음
 - `SELECT ... INTO OUTFILE`
@@ -68,7 +68,7 @@ ms.locfileid: "65550502"
 
 ### <a name="scale-operations"></a>크기 조정 작업
 - 기본 가격 책정 계층 간의 동적 크기 조정은 현재 지원되지 않습니다.
-- 서버 저장소 크기를 줄이는 것은 지원되지 않습니다.
+- 서버 스토리지 크기를 줄이는 것은 지원되지 않습니다.
 
 ### <a name="server-version-upgrades"></a>서버 버전 업그레이드
 - 주 데이터베이스 엔진 버전 간에 자동화된 마이그레이션은 현재 지원되지 않습니다.
@@ -83,7 +83,7 @@ ms.locfileid: "65550502"
 ### <a name="vnet-service-endpoints"></a>VNet 서비스 엔드포인트
 - VNet 서비스 엔드포인트는 범용 및 메모리 최적화 서버에 대해서만 지원됩니다.
 
-### <a name="storage-size"></a>저장소 크기
+### <a name="storage-size"></a>스토리지 크기
 - 가격 계층별 저장소 크기 제한에 대해서는 [가격 책정 계층](concepts-pricing-tiers.md)을 참조하세요.
 
 ## <a name="current-known-issues"></a>현재 알려진 문제

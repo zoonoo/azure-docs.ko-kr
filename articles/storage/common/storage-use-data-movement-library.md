@@ -36,7 +36,7 @@ Microsoft Azure Storage 데이터 이동 라이브러리는 Azure Storage Blob �
 **필요한 항목**
 
 * [Visual Studio Code](https://code.visualstudio.com/)
-* [Azure 저장소 계정](storage-quickstart-create-account.md)
+* [Azure Storage 계정](storage-quickstart-create-account.md)
 
 > [!NOTE]
 > 이 가이드는 [Azure Storage](https://azure.microsoft.com/services/storage/)에 대해 잘 알고 있다는 것을 가정합니다. 그렇지 않은 경우 [Azure Storage 소개](storage-introduction.md) 설명서가 도움이 됩니다. 가장 중요한 점은 데이터 이동 라이브러리의 사용을 시작하려면 [Storage 계정을 만들어야](storage-quickstart-create-account.md) 합니다.
@@ -557,7 +557,7 @@ public static async Task TransferAzureBlobToAzureBlob(CloudStorageAccount accoun
 }
 ```
 
-이 예제에서는 `TransferManager.CopyAsync`의 부울 매개 변수를 `false`로 설정하여 동기 복사를 수행하려고 한다는 것을 나타냅니다. 즉 리소스를 로컬 시스템에 먼저 다운로드한 다음 Azure Blob으로 업로드합니다. 동기 복사 옵션은 복사 작업을 일관된 속도로 수행하도록 보장하는 좋은 방법입니다. 반면에 비동기 서버 쪽 복사 속도는 서버에서 사용할 수 있는 네트워크 대역폭에 따라 다르며 변동될 수 있습니다. 그러나 동기 복사는 비동기 복사에 비해 추가적인 송신 비용이 발생할 수 있습니다. 원본 저장소 계정과 동일한 지역에 있는 Azure VM에서 동기 복사를 사용하여 송신 비용이 발생하지 않도록 하는 것이 좋습니다.
+이 예제에서는 `TransferManager.CopyAsync`의 부울 매개 변수를 `false`로 설정하여 동기 복사를 수행하려고 한다는 것을 나타냅니다. 즉 리소스를 로컬 시스템에 먼저 다운로드한 다음 Azure Blob으로 업로드합니다. 동기 복사 옵션은 복사 작업을 일관된 속도로 수행하도록 보장하는 좋은 방법입니다. 반면에 비동기 서버 쪽 복사 속도는 서버에서 사용할 수 있는 네트워크 대역폭에 따라 다르며 변동될 수 있습니다. 그러나 동기 복사는 비동기 복사에 비해 추가적인 송신 비용이 발생할 수 있습니다. 원본 스토리지 계정과 동일한 지역에 있는 Azure VM에서 동기 복사를 사용하여 송신 비용이 발생하지 않도록 하는 것이 좋습니다.
 
 ## <a name="conclusion"></a>결론
 이제 데이터 이동 애플리케이션이 완료되었습니다. [전체 코드 샘플은 GitHub에서 사용할 수 있습니다](https://github.com/azure-samples/storage-dotnet-data-movement-library-app).

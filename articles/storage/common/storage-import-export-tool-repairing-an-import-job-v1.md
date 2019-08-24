@@ -22,7 +22,7 @@ Microsoft Azure Import/Export 서비스는 Microsoft Azure Blob service에 파�
   
 -   손상된 드라이브  
   
--   파일이 전송되는 동안 저장소 계정 키가 변경되었습니다.  
+-   파일이 전송되는 동안 스토리지 계정 키가 변경되었습니다.  
   
 가져오기 작업의 복사 로그 파일을 사용하여 Microsoft Azure Import/Export 도구를 실행할 수 있습니다. 이 도구는 누락된 파일(또는 파일의 일부)을 Microsoft Azure Storage 계정으로 업로드하여 가져오기 작업을 완료합니다.  
   
@@ -36,14 +36,14 @@ Microsoft Azure Import/Export 서비스는 Microsoft Azure Blob service에 파�
 |**/logdir:** <LogDirectory\>|**선택** 로그 디렉터리입니다. 이 디렉터리에 자세한 로그 파일이 기록됩니다. 로그 디렉터리를 지정하지 않는 경우 현재 디렉터리가 로그 디렉터리로 사용됩니다.|  
 |**/d:** <TargetDirectories\>|**필수** 가져온 원본 파일을 포함하는 하나 이상의 세미콜론으로 구분된 디렉터리. 가져오기 드라이브도 사용할 수 있으나 원본 파일의 대체 위치를 사용할 수 있는 경우 필요하지 않습니다.|  
 |**/bk:** <BitLockerKey\>|**선택** 이 도구를 사용하여 원본 파일을 사용할 수 있는 암호화된 드라이브의 잠금을 해제하려면 BitLocker 키를 지정해야 합니다.|  
-|**/sn:** <StorageAccountName\>|**필수** 가져오기 작업에 대한 저장소 계정의 이름입니다.|  
-|**/sk:** <StorageAccountKey\>|컨테이너 SAS가 지정되지 않은 경우에만 **필수**입니다. 가져오기 작업에 대한 저장소 계정의 계정 키입니다.|  
-|**/csas:** <ContainerSas\>|저장소 계정 키가 지정되지 않은 경우에만 **필수**입니다. 가져오기 작업과 연결된 blob에 액세스하기 위한 컨테이너 SAS입니다.|  
+|**/sn:** <StorageAccountName\>|**필수** 가져오기 작업에 대한 스토리지 계정의 이름입니다.|  
+|**/sk:** <StorageAccountKey\>|컨테이너 SAS가 지정되지 않은 경우에만 **필수**입니다. 가져오기 작업에 대한 스토리지 계정의 계정 키입니다.|  
+|**/csas:** <ContainerSas\>|스토리지 계정 키가 지정되지 않은 경우에만 **필수**입니다. 가져오기 작업과 연결된 blob에 액세스하기 위한 컨테이너 SAS입니다.|  
 |**/CopyLogFile:** <DriveCopyLogFile\>|**필수** 드라이브 복사 로그 파일(자세한 로그 또는 오류 로그)의 경로입니다. 이 파일은 Microsoft Azure Import/Export 서비스에 의해 생성되고 작업과 연결된 Blob Storage에서 다운로드할 수 있습니다. 복사 로그 파일에는 복구해야 하는 실패한 blob 또는 파일에 대한 정보가 포함되어 있습니다.|  
 |**/PathMapFile:** <DrivePathMapFile\>|**선택** 같은 작업에서 가져오는 여러 파일이 같은 이름을 갖는 경우 모호성을 해결하기 위해 사용할 수 있는 텍스트 파일의 경로입니다. 이 도구는 처음 실행될 때 모호한 모든 이름으로 이 파일을 채울 수 있습니다. 이 도구를 이후에 실행하면 이 파일이 모호성을 해결하는 데 사용됩니다.|  
   
 ## <a name="using-the-repairimport-command"></a>RepairImport 명령 사용  
-네트워크를 통해 데이터를 스트리밍하여 가져오기 데이터를 복구하려면 `/d` 매개 변수를 사용하여 가져오는 원본 파일을 포함하는 디렉터리를 지정해야 합니다. 또한 저장소 계정에서 다운로드한 복사 로그 파일도 지정해야 합니다. 부분적으로 실패한 가져오기 작업을 복구하는 일반적인 명령줄은 다음과 같습니다.  
+네트워크를 통해 데이터를 스트리밍하여 가져오기 데이터를 복구하려면 `/d` 매개 변수를 사용하여 가져오는 원본 파일을 포함하는 디렉터리를 지정해야 합니다. 또한 스토리지 계정에서 다운로드한 복사 로그 파일도 지정해야 합니다. 부분적으로 실패한 가져오기 작업을 복구하는 일반적인 명령줄은 다음과 같습니다.  
   
 ```  
 WAImportExport.exe RepairImport /r:C:\WAImportExport\9WM35C2V.rep /d:C:\Users\bob\Pictures;X:\BobBackup\photos /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /CopyLogFile:C:\WAImportExport\9WM35C2V.log  

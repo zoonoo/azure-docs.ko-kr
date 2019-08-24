@@ -25,7 +25,7 @@ Import/Export 서비스에서 기록할 수 있는 로그에는 두 가지가 �
 -   세부 정보 표시 로그는 기본적으로 해제되어 있지만 [작업 배치](/rest/api/storageimportexport/jobs) 또는 [작업 속성 업데이트](/rest/api/storageimportexport/jobs) 작업에서 `EnableVerboseLog` 속성을 설정하여 사용할 수 있습니다.  
   
 ## <a name="log-file-location"></a>로그 파일 위치  
-로그는 `Put Job` 작업에서 설정할 수 있는 `ImportExportStatesPath` 설정에서 지정한 컨테이너 또는 가상 디렉터리의 블록 Blob에 작성됩니다. 로그가 기록되는 위치는 `ImportExportStatesPath`에 지정된 값과 함께 작업에 인증을 지정하는 방법에 따라 달라집니다. 저장소 계정 키 또는 컨테이너 SAS(공유 액세스 서명)를 통해 작업에 대한 인증을 지정할 수 있습니다.  
+로그는 `Put Job` 작업에서 설정할 수 있는 `ImportExportStatesPath` 설정에서 지정한 컨테이너 또는 가상 디렉터리의 블록 Blob에 작성됩니다. 로그가 기록되는 위치는 `ImportExportStatesPath`에 지정된 값과 함께 작업에 인증을 지정하는 방법에 따라 달라집니다. 스토리지 계정 키 또는 컨테이너 SAS(공유 액세스 서명)를 통해 작업에 대한 인증을 지정할 수 있습니다.  
   
 컨테이너나 가상 디렉터리의 이름은 기본 이름 `waimportexport` 또는 지정한 다른 컨테이너나 가상 디렉터리 이름 중 하나일 수 있습니다.  
   
@@ -168,7 +168,7 @@ properties-status ::=
 |`ManifestDriveIdMismatch`|매니페스트 파일의 드라이브 ID가 드라이브에서 읽은 ID와 일치하지 않습니다.|  
 |`ReadManifestFailed`|매니페스트를 읽는 동안 디스크 I/O 오류가 발생했습니다.|  
 |`BlobListFormatInvalid`|내보내기 Blob 목록 Blob이 필수 형식에 맞지 않습니다.|  
-|`BlobRequestForbidden`|저장소 계정에 있는 Blob에 액세스할 수 없습니다. 잘못된 저장소 계정 키 또는 컨테이너 SAS 때문일 수 있습니다.|  
+|`BlobRequestForbidden`|스토리지 계정에 있는 Blob에 액세스할 수 없습니다. 잘못된 스토리지 계정 키 또는 컨테이너 SAS 때문일 수 있습니다.|  
 |`InternalError`|드라이브를 처리하는 동안 내부 오류가 발생했습니다.|  
   
 ## <a name="blob-status-codes"></a>Blob 상태 코드  
@@ -183,7 +183,7 @@ properties-status ::=
 |`FileNotFound`|파일을 찾을 수 없습니다.|  
 |`FileAccessDenied`|파일에 대한 액세스가 거부되었습니다.|  
 |`BlobRequestFailed`|Blob에 액세스하는 Blob service 요청이 실패했습니다.|  
-|`BlobRequestForbidden`|Blob에 액세스하는 Blob service 요청을 사용할 수 없습니다. 잘못된 저장소 계정 키 또는 컨테이너 SAS 때문일 수 있습니다.|  
+|`BlobRequestForbidden`|Blob에 액세스하는 Blob service 요청을 사용할 수 없습니다. 잘못된 스토리지 계정 키 또는 컨테이너 SAS 때문일 수 있습니다.|  
 |`RenameFailed`|Blob(가져오기 작업의 경우) 또는 파일(내보내기 작업의 경우)의 이름을 바꾸지 못했습니다.|  
 |`BlobUnexpectedChange`|Blob(내보내기 작업의 경우)에서 예기치 않은 변경이 발생했습니다.|  
 |`LeasePresent`|Blob에 임대가 있습니다.|  
@@ -353,4 +353,4 @@ properties-status ::=
   
 ## <a name="next-steps"></a>다음 단계
  
-* [저장소 Import/Export REST API](/rest/api/storageimportexport/)
+* [스토리지 Import/Export REST API](/rest/api/storageimportexport/)

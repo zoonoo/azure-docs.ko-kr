@@ -33,7 +33,7 @@ REST API와 메시징을 통합하면 외부 시스템에서 Azure Blockchain Wo
 
 ## <a name="rest-api-based-integration"></a>REST API 기반 통합
 
-Azure Blockchain Workbench에서 생성된 웹 애플리케이션의 기능은 REST API를 통해 공개됩니다. 기능에는 Azure Blockchain Workbench 업로드, 응용 프로그램 구성 및 관리, 트랜잭션을 분산 원장으로 전송, 응용 프로그램 메타데이터 및 원장 데이터 쿼리가 포함됩니다.
+Azure Blockchain Workbench에서 생성된 웹 애플리케이션의 기능은 REST API를 통해 공개됩니다. 기능에는 Azure Blockchain Workbench 업로드, 애플리케이션 구성 및 관리, 트랜잭션을 분산 원장으로 전송, 애플리케이션 메타데이터 및 원장 데이터 쿼리가 포함됩니다.
 
 REST API는 주로 웹, 모바일 및 봇 애플리케이션과 같은 대화형 클라이언트에 사용됩니다.
 
@@ -208,15 +208,15 @@ Azure Blockchain Workbench는 REST 및 메시지 기반 API 외에도 분산 원
 
 데이터 통합은 잘 알려져 있습니다.
 
--   Azure Blockchain Workbench는 응용 프로그램, 워크플로, 계약 및 트랜잭션에 대한 메타데이터를 정상 작동 동작의 일부로 저장합니다.
+-   Azure Blockchain Workbench는 애플리케이션, 워크플로, 계약 및 트랜잭션에 대한 메타데이터를 정상 작동 동작의 일부로 저장합니다.
 -   외부 시스템 또는 도구는 하나 이상의 대화 상자를 제공하여 데이터베이스 서버 이름, 데이터베이스 이름, 인증 유형, 로그인 자격 증명 및 활용할 데이터베이스 뷰와 같은 데이터베이스 관련 정보 수집을 용이하게 합니다.
 -   외부 시스템, 서비스, 보고, 개발자 도구 및 엔터프라이즈 생산성 도구에 의한 다운스트림 사용을 용이하게 하기 위해 SQL 데이터베이스 뷰에 대해 쿼리가 작성됩니다.
 
-## <a name="storage-integration"></a>저장소 통합
+## <a name="storage-integration"></a>스토리지 통합
 
 많은 시나리오에서는 증명할 수 있는 파일을 통합해야 할 필요가 있습니다. 여러 이유로 인해 파일을 블록체인에 포함하는 것은 적절하지 않습니다. 대신 일반적인 접근 방식은 파일에 대해 암호화 해시(예: SHA-256)를 수행하고 분산 원장에서 해시를 공유하는 것입니다. 나중에 언제든지 해시를 다시 수행하면 동일한 결과가 반환됩니다. 파일이 수정되면 이미지에서 한 픽셀만 수정되더라도 해시는 다른 값을 반환합니다.
 
-![저장소 통합](./media/integration-patterns/storage-integration.png)
+![스토리지 통합](./media/integration-patterns/storage-integration.png)
 
 패턴은 다음과 같이 구현될 수 있습니다.
 

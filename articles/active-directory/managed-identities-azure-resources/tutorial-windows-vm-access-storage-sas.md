@@ -28,11 +28,11 @@ ms.locfileid: "66226477"
 
 이 자습서에서는 Windows VM(가상 머신)에 대한 시스템 할당 ID를 사용하여 SAS(공유 액세스 서명) 자격 증명을 얻는 방법을 보여줍니다. 특히 [서비스 SAS 자격 증명](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures)에 대한 내용을 다룹니다. 
 
-서비스 SAS는 계정 액세스 키를 노출하지 않고 제한된 시간 동안 특정 서비스(이 경우 Blob service)에 대해 저장소 계정의 개체에 대해 제한된 액세스 권한을 부여하는 기능을 제공합니다. Storage SDK를 사용하는 등의 Storage 작업을 수행할 때 일반적인 방식으로 SAS 자격 증명을 사용할 수 있습니다. 이 자습서에서는 Azure Storage PowerShell을 사용하여 Blob을 업로드 및 다운로드하는 과정을 보여 줍니다. 다음 방법을 알게 됩니다.
+서비스 SAS는 계정 액세스 키를 노출하지 않고 제한된 시간 동안 특정 서비스(이 경우 Blob service)에 대해 스토리지 계정의 개체에 대해 제한된 액세스 권한을 부여하는 기능을 제공합니다. Storage SDK를 사용하는 등의 Storage 작업을 수행할 때 일반적인 방식으로 SAS 자격 증명을 사용할 수 있습니다. 이 자습서에서는 Azure Storage PowerShell을 사용하여 Blob을 업로드 및 다운로드하는 과정을 보여 줍니다. 다음 방법을 알게 됩니다.
 
 > [!div class="checklist"]
-> * 저장소 계정 만들기
-> * Resource Manager의 저장소 계정 SAS에 대한 VM 액세스 권한 부여 
+> * 스토리지 계정 만들기
+> * Resource Manager의 스토리지 계정 SAS에 대한 VM 액세스 권한 부여 
 > * VM ID를 사용하여 액세스 토큰을 가져오고 리소스 관리자에서 SAS를 검색하는 데 사용 
 
 ## <a name="prerequisites"></a>필수 조건
@@ -41,35 +41,35 @@ ms.locfileid: "66226477"
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
-## <a name="create-a-storage-account"></a>저장소 계정 만들기 
+## <a name="create-a-storage-account"></a>스토리지 계정 만들기 
 
-저장소 계정이 아직 없는 경우 이제 하나 만들게 됩니다. 또한 이 단계를 건너뛰고 기존 저장소 계정의 SAS 자격 증명에 대한 VM의 시스템 할당 관리 ID 액세스 권한을 부여할 수 있습니다. 
+스토리지 계정이 아직 없는 경우 이제 하나 만들게 됩니다. 또한 이 단계를 건너뛰고 기존 스토리지 계정의 SAS 자격 증명에 대한 VM의 시스템 할당 관리 ID 액세스 권한을 부여할 수 있습니다. 
 
 1. Azure Portal의 왼쪽 위에 있는 **+/새 서비스 만들기** 단추를 클릭합니다.
 2. **저장소**를 클릭하면 **저장소 계정**, 새 “저장소 계정 만들기” 패널이 표시됩니다.
-3. 나중에 사용할 저장소 계정에 대한 이름을 입력합니다.  
+3. 나중에 사용할 스토리지 계정에 대한 이름을 입력합니다.  
 4. **배포 모델** 및 **계정 종류**는 각각 “리소스 관리자” 및 “범용”으로 설정해야 합니다. 
 5. **구독** 및 **리소스 그룹**은 이전 단계에서 VM을 만들 때 지정한 것과 일치합니다.
 6. **만들기**를 클릭합니다.
 
-    ![새 저장소 계정 만들기](./media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
+    ![새 스토리지 계정 만들기](./media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
-## <a name="create-a-blob-container-in-the-storage-account"></a>저장소 계정에 Blob 컨테이너 만들기
+## <a name="create-a-blob-container-in-the-storage-account"></a>스토리지 계정에 Blob 컨테이너 만들기
 
-나중에 새 저장소 계정에 파일을 업로드 및 다운로드합니다. 파일은 Blob Storage가 필요하기 때문에 파일을 저장할 Blob 컨테이너를 만들어야 합니다.
+나중에 새 스토리지 계정에 파일을 업로드 및 다운로드합니다. 파일은 Blob Storage가 필요하기 때문에 파일을 저장할 Blob 컨테이너를 만들어야 합니다.
 
-1. 새로 만든 저장소 계정으로 다시 이동합니다.
+1. 새로 만든 스토리지 계정으로 다시 이동합니다.
 2. 왼쪽 패널에서 “Blob service” 아래에 있는 **컨테이너** 링크를 클릭합니다.
 3. 페이지 맨 위에 있는 **+ 컨테이너**를 클릭하면 “새 컨테이너” 패널이 나타납니다.
 4. 컨테이너에 이름을 지정하고 액세스 수준을 선택한 다음 **확인**을 클릭합니다. 지정한 이름은 이 자습서의 뒷부분에 사용됩니다. 
 
-    ![저장소 컨테이너 만들기](./media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
+    ![스토리지 컨테이너 만들기](./media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
-## <a name="grant-your-vms-system-assigned-managed-identity-access-to-use-a-storage-sas"></a>저장소 SAS를 사용하도록 VM의 시스템 할당 관리 ID 액세스 부여 
+## <a name="grant-your-vms-system-assigned-managed-identity-access-to-use-a-storage-sas"></a>스토리지 SAS를 사용하도록 VM의 시스템 할당 관리 ID 액세스 부여 
 
-Azure Storage는 Azure AD 인증을 기본적으로 지원하지 않습니다.  그러나 관리 ID를 사용하여 Resource Manager에서 저장소 SAS를 검색한 다음, 해당 SAS를 사용하여 저장소에 액세스할 수 있습니다.  이 단계에서 저장소 계정 SAS에 대한 VM의 시스템 할당 관리 ID 액세스 권한을 부여합니다.   
+Azure Storage는 Azure AD 인증을 기본적으로 지원하지 않습니다.  그러나 관리 ID를 사용하여 Resource Manager에서 스토리지 SAS를 검색한 다음, 해당 SAS를 사용하여 스토리지에 액세스할 수 있습니다.  이 단계에서 스토리지 계정 SAS에 대한 VM의 시스템 할당 관리 ID 액세스 권한을 부여합니다.   
 
-1. 새로 만든 저장소 계정으로 다시 이동합니다.   
+1. 새로 만든 스토리지 계정으로 다시 이동합니다.   
 2. 왼쪽 패널의 **액세스 제어(IAM)** 링크를 클릭합니다.  
 3. 페이지의 위쪽에서 **+ 역할 할당 추가**를 클릭하여 VM에 대한 새 역할 할당을 추가합니다.
 4. 페이지 오른쪽에서 **역할**을 "저장소 계정 참가자"로 설정합니다.  
@@ -108,9 +108,9 @@ Azure Storage는 Azure AD 인증을 기본적으로 지원하지 않습니다.  
     $ArmToken = $content.access_token
     ```
 
-## <a name="get-a-sas-credential-from-azure-resource-manager-to-make-storage-calls"></a>저장소 호출을 위해 Azure Resource Manager에서 SAS 자격 증명 가져오기 
+## <a name="get-a-sas-credential-from-azure-resource-manager-to-make-storage-calls"></a>스토리지 호출을 위해 Azure Resource Manager에서 SAS 자격 증명 가져오기 
 
-이제 PowerShell을 사용하여 이전 섹션에서 검색한 액세스 토큰으로 리소스 관리자를 호출하고 저장소 SAS 자격 증명을 만듭니다. SAS 자격 증명이 있으면 저장소 작업을 호출할 수 있습니다.
+이제 PowerShell을 사용하여 이전 섹션에서 검색한 액세스 토큰으로 리소스 관리자를 호출하고 스토리지 SAS 자격 증명을 만듭니다. SAS 자격 증명이 있으면 스토리지 작업을 호출할 수 있습니다.
 
 이 요청을 위해 다음 HTTP 요청 매개 변수를 사용하여 SAS 자격 증명을 만듭니다.
 
@@ -126,7 +126,7 @@ Azure Storage는 Azure AD 인증을 기본적으로 지원하지 않습니다.  
 
 이러한 매개 변수는 SAS 자격 증명에 대한 요청 POST 본문에 포함됩니다. SAS 자격 증명을 만들기 위한 매개 변수에 대한 자세한 내용은 [서비스 SAS REST 목록 참조](/rest/api/storagerp/storageaccounts/listservicesas)를 참조하세요.
 
-가장 먼저 매개 변수를 JSON으로 변환한 다음 저장소 `listServiceSas` 엔드포인트를 호출하여 SAS 자격 증명을 만듭니다.
+가장 먼저 매개 변수를 JSON으로 변환한 다음 스토리지 `listServiceSas` 엔드포인트를 호출하여 SAS 자격 증명을 만듭니다.
 
 ```powershell
 $params = @{canonicalizedResource="/blob/<STORAGE-ACCOUNT-NAME>/<CONTAINER-NAME>";signedResource="c";signedPermission="rcw";signedProtocol="https";signedExpiry="2017-09-23T00:00:00Z"}

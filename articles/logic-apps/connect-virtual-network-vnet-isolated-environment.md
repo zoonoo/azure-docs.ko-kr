@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 07/26/2019
 ms.openlocfilehash: 5991aec681b00583a9c66328aed601593c864c63
 ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/26/2019
 ms.locfileid: "68517209"
@@ -76,7 +76,7 @@ ISE는 실행 지속 시간, 저장소 보존, 처리량, HTTP 요청 및 응답
 |---------|-----------|-------|--------------------|-------------------------|-------|
 | Azure Logic Apps에서 받는 통신 | 아웃바운드 | 80 및 443 | VirtualNetwork | 인터넷 | 포트는 Logic Apps 서비스가 통신 하는 외부 서비스에 의존 합니다. |
 | Azure Active Directory | 아웃바운드 | 80 및 443 | VirtualNetwork | AzureActiveDirectory | |
-| Azure Storage 종속성 | 아웃바운드 | 80 및 443 | VirtualNetwork | 저장 공간 | |
+| Azure Storage 종속성 | 아웃바운드 | 80 및 443 | VirtualNetwork | 스토리지 | |
 | 상호 서브넷 통신 | 인바운드 및 아웃바운드 | 80 및 443 | VirtualNetwork | VirtualNetwork | 서브넷 간 통신 |
 | Azure Logic Apps로 보내는 통신 | 인바운드 | 443 | 내부 액세스 끝점: <br>VirtualNetwork <p><p>외부 액세스 끝점: <br>인터넷 <p><p>**참고**: 이러한 끝점은 [ISE 생성 시 선택](#create-environment)된 끝점 설정을 참조 합니다. 자세한 내용은 [끝점 액세스](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access)를 참조 하세요. | VirtualNetwork | 논리 앱에 있는 요청 트리거 또는 webhook를 호출 하는 컴퓨터 또는 서비스의 IP 주소입니다. 이 포트를 닫거나 차단 하면 요청 트리거를 사용 하 여 논리 앱에 대 한 HTTP 호출을 수행할 수 없습니다. |
 | 논리 앱 실행 기록 | 인바운드 | 443 | 내부 액세스 끝점: <br>VirtualNetwork <p><p>외부 액세스 끝점: <br>인터넷 <p><p>**참고**: 이러한 끝점은 [ISE 생성 시 선택](#create-environment)된 끝점 설정을 참조 합니다. 자세한 내용은 [끝점 액세스](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access)를 참조 하세요. | VirtualNetwork | 논리 앱의 실행 기록을 확인 하는 컴퓨터의 IP 주소입니다. 이 포트를 닫거나 차단 해도 실행 기록이 표시 되지 않지만 해당 실행 기록의 각 단계에 대 한 입력 및 출력은 볼 수 없습니다. |

@@ -1,5 +1,5 @@
 ---
-title: Azure AD의 엔터프라이즈 응용 프로그램에 대해 SAML 토큰에서 발급된 역할 클레임 구성 | Microsoft Docs
+title: Azure AD의 엔터프라이즈 애플리케이션에 대해 SAML 토큰에서 발급된 역할 클레임 구성 | Microsoft Docs
 description: Azure Active Directory의 엔터프라이즈 애플리케이션에 SAML 토큰에서 발급된 역할 클레임을 구성하는 방법 알아보기
 services: active-directory
 documentationcenter: ''
@@ -178,7 +178,7 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
 
     e. **원본 특성** 목록에서 해당 행에 표시된 특성 값을 입력합니다.
 
-    f.           **저장**을 선택합니다.
+    f. **저장**을 선택합니다.
 
 10. ID 공급자로 시작한 Single Sign-On에서 애플리케이션을 테스트하려면 [액세스 패널](https://myapps.microsoft.com)에 로그인하고 애플리케이션 타일을 선택합니다. SAML 토큰에서 지정한 클레임 이름의 사용자에게 할당된 모든 역할이 표시됩니다.
 

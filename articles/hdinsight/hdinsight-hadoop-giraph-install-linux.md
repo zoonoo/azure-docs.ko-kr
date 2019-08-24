@@ -40,7 +40,7 @@ HDInsight 클러스터에 Apache Giraph를 설치하는 방법을 알아봅니�
 
 * Giraph를 `/usr/hdp/current/giraph`에 설치합니다.
 
-* 클러스터에 대한 기본 저장소(WASB)에 `giraph-examples.jar` 파일을 복사합니다. `/example/jars/giraph-examples.jar`
+* 클러스터에 대한 기본 스토리지(WASB)에 `giraph-examples.jar` 파일을 복사합니다. `/example/jars/giraph-examples.jar`
 
 ## <a name="install"></a>스크립트 동작을 사용하여 Giraph 설치
 
@@ -115,7 +115,7 @@ HDInsight 클러스터에서 Giraph를 설치하는 샘플 스크립트는 다�
 
 3. 파일을 저장하려면 **Ctrl + X**, **Y**, 마지막으로 **Enter**를 차례로 사용하여 파일 이름을 적용합니다.
 
-4. 다음을 사용하여 HDInsight 클러스터에 대한 주 저장소로 데이터를 저장합니다.
+4. 다음을 사용하여 HDInsight 클러스터에 대한 주 스토리지로 데이터를 저장합니다.
 
     ```bash
     hdfs dfs -put tiny_graph.txt /example/data/tiny_graph.txt

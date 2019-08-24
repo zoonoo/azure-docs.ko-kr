@@ -1,5 +1,5 @@
 ---
-title: Azure Application Insights 데이터 보존 및 저장소 | Microsoft Docs
+title: Azure Application Insights 데이터 보존 및 스토리지 | Microsoft Docs
 description: 보존 및 개인 정보 취급 방침
 services: application-insights
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.date: 05/09/2019
 ms.author: mbullwin
 ms.openlocfilehash: 38723a5dd306c2a4b594d95e5cc660d117966bc4
 ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "65518836"
 ---
-# <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights 데이터 수집, 보존 및 저장소
+# <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights 데이터 수집, 보존 및 스토리지
 
 앱에 [Azure Application Insights][start] SDK를 설치하는 경우 앱에 대한 원격 분석을 클라우드로 보냅니다. 담당하는 개발자는 전송되는 데이터가 정확한 내용, 데이터에 발생한 내용, 데이터를 제어할 수 있는 방법을 알고자 합니다. 특히 중요한 데이터를 보낼 수 있는지, 저장되었는지 및 얼마나 안전한지를 파악합니다. 
 
@@ -83,14 +83,14 @@ Visual Studio를 사용하여 앱을 개발하는 경우 디버그(F5) 모드에
 [원격 분석 프로세서 플러그 인](../../azure-monitor/app/api-filtering-sampling.md)을 작성하여 수행할 수 있습니다.
 
 ## <a name="how-long-is-the-data-kept"></a>데이터가 얼마 동안 보존되나요?
-원시 데이터 요소(즉, Analytics에서 쿼리하고 Search에서 검사할 수 있는 항목)는 최대 90일 동안 보관됩니다. 이보다 더 오래 데이터를 보존해야 하는 경우 [연속 내보내기](../../azure-monitor/app/export-telemetry.md) 를 사용하여 해당 데이터를 저장소 계정에 복사할 수 있습니다.
+원시 데이터 요소(즉, Analytics에서 쿼리하고 Search에서 검사할 수 있는 항목)는 최대 90일 동안 보관됩니다. 이보다 더 오래 데이터를 보존해야 하는 경우 [연속 내보내기](../../azure-monitor/app/export-telemetry.md) 를 사용하여 해당 데이터를 스토리지 계정에 복사할 수 있습니다.
 
 집계 데이터(즉, 메트릭 탐색기에 표시되는 개수, 평균 및 기타 통계 데이터)는 90일 동안 1분 단위로 보존됩니다.
 
 > [!NOTE]
 > Application Insights에 대 한 변수 보존 이제 미리 보기입니다. [여기](https://feedback.azure.com/forums/357324-application-insights/suggestions/17454031)를 참조하세요. 
 
-[디버그 스냅숏](../../azure-monitor/app/snapshot-debugger.md) 15 일 동안 저장 됩니다. 이 보존 정책은 응용 프로그램 단위로 설정됩니다. 이 값을 늘려야 하는 경우 Azure Portal에서 지원 사례를 열어 증가를 요청할 수 있습니다.
+[디버그 스냅숏](../../azure-monitor/app/snapshot-debugger.md) 15 일 동안 저장 됩니다. 이 보존 정책은 애플리케이션 단위로 설정됩니다. 이 값을 늘려야 하는 경우 Azure Portal에서 지원 사례를 열어 증가를 요청할 수 있습니다.
 
 ## <a name="who-can-access-the-data"></a>데이터에 액세스할 수 있는 사용자는 누구인가요?
 데이터는 사용자 및 조직 계정이 있는 경우 팀 멤버에게 표시됩니다. 
@@ -126,11 +126,11 @@ Microsoft 직원의 사용자 데이터에 대한 액세스는 제한되어 있�
 #### <a name="is-the-data-encrypted-in-transit-from-my-application-to-application-insights-servers"></a>내 애플리케이션에서 Application Insights 서버로 전송 중에 데이터가 암호화되나요?
 예. 웹 서버, 디바이스 및 HTTPS 웹 페이지를 포함하여 거의 모든 SDK에서 https를 사용하여 포털로 데이터를 보냅니다. 유일한 예외는 일반 HTTP 웹 페이지에서 전송된 데이터입니다.
 
-## <a name="does-the-sdk-create-temporary-local-storage"></a>SDK에서 임시 로컬 저장소를 작성하나요?
+## <a name="does-the-sdk-create-temporary-local-storage"></a>SDK에서 임시 로컬 스토리지를 작성하나요?
 
 예, 엔드포인트에 도달할 수 없는 경우 특정 원격 분석 채널은 로컬에 데이터를 지속합니다. 영향을 받는 프레임워크 및 원격 분석 채널을 확인하려면 아래를 검토하세요.
 
-로컬 저장소를 이용하는 원격 분석 채널은 사용자 애플리케이션을 실행하는 특정 계정으로 제한된 TEMP 또는 APPDATA 디렉터리에 임시 파일을 작성합니다. 이는 엔드포인트를 일시적으로 사용할 수 없거나 조정 제한에 도달했을 때 발생할 수 있습니다. 이 문제가 해결되면 원격 분석 채널이 모든 새 지속 데이터 및 지속된 데이터 전송을 재개합니다.
+로컬 스토리지를 이용하는 원격 분석 채널은 사용자 애플리케이션을 실행하는 특정 계정으로 제한된 TEMP 또는 APPDATA 디렉터리에 임시 파일을 작성합니다. 이는 엔드포인트를 일시적으로 사용할 수 없거나 조정 제한에 도달했을 때 발생할 수 있습니다. 이 문제가 해결되면 원격 분석 채널이 모든 새 지속 데이터 및 지속된 데이터 전송을 재개합니다.
 
 이 지속 된 데이터를 로컬로 암호화 되지 않습니다. 중요 한 경우 데이터를 검토 하 고 개인 데이터의 컬렉션을 제한 합니다. (자세한 정보는 [프라이빗 데이터를 내보내고 삭제하는 방법](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data#how-to-export-and-delete-private-data)을 참조하세요.)
 
@@ -165,7 +165,7 @@ Microsoft 직원의 사용자 데이터에 대한 액세스는 제한되어 있�
 
 ### <a name="netcore"></a>NetCore
 
-기본적으로 `ServerTelemetryChannel`은 현재 사용자의 로컬 앱 데이터 폴더 `%localAppData%\Microsoft\ApplicationInsights` 또는 임시 폴더`%TMP%`를 사용합니다. (여기서 [구현](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) 참조) Linux 환경에서는 저장소 폴더를 지정하지 않으면 로컬 저장소가 비활성화됩니다.
+기본적으로 `ServerTelemetryChannel`은 현재 사용자의 로컬 앱 데이터 폴더 `%localAppData%\Microsoft\ApplicationInsights` 또는 임시 폴더`%TMP%`를 사용합니다. (여기서 [구현](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) 참조) Linux 환경에서는 스토리지 폴더를 지정하지 않으면 로컬 스토리지가 비활성화됩니다.
 
 다음 코드 조각은  `Startup.cs`  클래스의 `ConfigureServices()`  메서드에서 `ServerTelemetryChannel.StorageFolder`를 설정하는 방법을 보여줍니다.
 

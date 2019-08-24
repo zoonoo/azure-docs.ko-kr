@@ -226,9 +226,9 @@ Security Center에는 모든 보안 정책을 포함하는 기본 제공 이니�
 |SQL 암호화 |Azure Security Center에서 암호화되지 않은 SQL 데이터베이스 모니터링 |sqlEncryptionMonitoringEffect| 
 |SQL 감사 |Azure Security Center에서 감사되지 않은 SQL 데이터베이스 모니터링 |sqlAuditingMonitoringEffect|
 |시스템 업데이트 |Azure Security Center에서 누락된 시스템 업데이트 모니터링 |systemUpdatesMonitoringEffect|
-|저장소 암호화 |스토리지 계정에 대해 누락된 Blob 암호화 감사 |storageEncryptionMonitoringEffect|
+|스토리지 암호화 |스토리지 계정에 대해 누락된 Blob 암호화 감사 |storageEncryptionMonitoringEffect|
 |JIT 네트워크 액세스 |Azure Security Center에서 가능한 네트워크 JIT(Just-In-time) 액세스 모니터링 |jitNetworkAccessMonitoringEffect |
-|적응형 애플리케이션 제어 |Azure Security Center에서 가능한 앱 허용 목록 모니터링 |adaptiveApplicationControlsMonitoringEffect|
+|적응 애플리케이션 컨트롤 |Azure Security Center에서 가능한 앱 허용 목록 모니터링 |adaptiveApplicationControlsMonitoringEffect|
 |네트워크 보안 그룹 |Azure Security Center에서 관대한 네트워크 액세스 모니터링 |networkSecurityGroupsMonitoringEffect| 
 |보안 구성 |Azure Security Center에서 OS 취약성 모니터링 |systemConfigurationsMonitoringEffect| 
 |Endpoint Protection |Azure Security Center에서 누락된 Endpoint Protection 모니터링 |endpointProtectionMonitoringEffect |

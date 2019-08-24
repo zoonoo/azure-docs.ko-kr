@@ -64,7 +64,7 @@ Service Fabric 애플리케이션은 여러 가지 서비스로 구성되며, �
 ## <a name="learn-about-configuring-application-security"></a>애플리케이션 보안 구성에 대해 알아보기
 다른 사용자 계정으로 클러스터에서 실행 중인 애플리케이션을 보호할 수 있습니다. 또한 Service Fabric으로 배포 시 파일, 디렉터리, 인증서 등과 같은 사용자 계정을 통해 애플리케이션에서 사용하는 리소스도 보호합니다. 따라서 공유되는 호스티드 환경에서도 서로 더욱 안전하게 애플리케이션을 실행할 수 있습니다.  [애플리케이션에 대한 보안 정책을 구성](service-fabric-application-runas-security.md)하는 방법을 알아봅니다.
 
-애플리케이션에는 저장소 연결 문자열, 암호, 일반 텍스트로 처리하면 안 되는 값 등 중요한 정보가 포함되어 있을 수 있습니다. [애플리케이션에서 비밀을 관리](service-fabric-application-secret-management.md)하는 방법을 알아봅니다.
+애플리케이션에는 스토리지 연결 문자열, 암호, 일반 텍스트로 처리하면 안 되는 값 등 중요한 정보가 포함되어 있을 수 있습니다. [애플리케이션에서 비밀을 관리](service-fabric-application-secret-management.md)하는 방법을 알아봅니다.
 
 ## <a name="learn-about-the-application-lifecycle"></a>애플리케이션 수명 주기에 대해 알아보기
 다른 플랫폼과 마찬가지로, Service Fabric 애플리케이션은 일반적으로 디자인, 개발, 테스트, 배포, 업그레이드, 유지 관리 및 제거 단계를 거칩니다. [이 문서](service-fabric-application-lifecycle.md)에서는 Service Fabric 애플리케이션 수명 주기의 모든 단계에서 여러 역할이 사용되는 방법 및 API에 대한 개요를 제공합니다.

@@ -315,29 +315,29 @@ Azure Data Lake Analytics 리소스에 액세스하여 계정을 나열하고, �
  - VS Code의 Azure Data Lake Store에 직접 파일 업로드
  - VS Code의 Azure Data Lake Store에서 직접 파일 다운로드
 
-### <a name="list-the-storage-path"></a>저장소 경로 나열 
+### <a name="list-the-storage-path"></a>스토리지 경로 나열 
 
-**명령 팔레트를 통해 저장소 경로를 나열하려면**
+**명령 팔레트를 통해 스토리지 경로를 나열하려면**
 
 1. 스크립트 편집기를 마우스 오른쪽 단추로 클릭하고 **ADL: List Path**를 선택합니다.
 2. 목록에서 폴더를 선택하거나 **Enter a path**(경로 입력) 또는 **Browse from root path**(루트 경로에서 찾아보기)를 선택합니다. 예제에서는 **Enter a path**(경로 입력)를 사용합니다. 
 3. Data Lake Analytics 계정을 선택합니다.
-4. 저장소 폴더 경로를 찾거나 입력합니다(예: /output/).  
+4. 스토리지 폴더 경로를 찾거나 입력합니다(예: /output/).  
 
 입력에 따라 명령 팔레트에 경로 정보가 나열됩니다.
 
-![저장소 경로 결과](./media/data-lake-analytics-data-lake-tools-for-vscode/list-storage-path.png)
+![스토리지 경로 결과](./media/data-lake-analytics-data-lake-tools-for-vscode/list-storage-path.png)
 
 상대 경로를 나열하는 더 편리한 다른 방법은 바로 가기 메뉴를 통해 이루어집니다.
 
-**바로 가기 메뉴를 통해 저장소 경로를 나열하려면**
+**바로 가기 메뉴를 통해 스토리지 경로를 나열하려면**
 
 경로 문자열을 마우스 오른쪽 단추로 클릭하고 **List Path**(경로 나열)를 선택합니다.
 
 ![바로 가기 메뉴의 “List Path”(경로 나열)](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-right-click-path.png)
 
 
-### <a name="preview-the-storage-file"></a>저장소 파일 미리 보기
+### <a name="preview-the-storage-file"></a>스토리지 파일 미리 보기
 
 1. 스크립트 편집기를 마우스 오른쪽 단추로 클릭하고 **ADL: Preview File**을 선택합니다.
 2. Data Lake Analytics 계정을 선택합니다. 
@@ -345,7 +345,7 @@ Azure Data Lake Analytics 리소스에 액세스하여 계정을 나열하고, �
 
 파일이 VS Code에서 열립니다.
 
-![저장소 파일을 미리 보기 위한 단계 및 결과](./media/data-lake-analytics-data-lake-tools-for-vscode/preview-storage-file.png)
+![스토리지 파일을 미리 보기 위한 단계 및 결과](./media/data-lake-analytics-data-lake-tools-for-vscode/preview-storage-file.png)
 
 파일을 미리 보는 또 다른 방법은 스크립트 편집기에서 파일의 전체 경로 또는 파일의 상대 경로에 대한 바로 가기 메뉴를 통해 이루어집니다. 
 
@@ -353,14 +353,14 @@ Azure Data Lake Analytics 리소스에 액세스하여 계정을 나열하고, �
 
 1. 스크립트 편집기를 마우스 오른쪽 단추로 클릭하고 **Upload File**(파일 업로드) 또는 **Upload Folder**(폴더 업로드)를 선택합니다.
 2. **Upload File**(파일 업로드)를 선택한 경우 하나 이상의 파일을 선택하고, **Upload Folder**(폴더 업로드)를 선택한 경우 전체 폴더를 선택합니다. 그런 다음, **Upload**(업로드)를 선택합니다. 
-3. 목록에서 저장소 폴더를 선택하거나 **Enter a path**(경로 입력) 또는 **Browse from root path**(루트 경로에서 찾아보기)를 선택합니다. 예제에서는 **Enter a path**(경로 입력)를 사용합니다. 
+3. 목록에서 스토리지 폴더를 선택하거나 **Enter a path**(경로 입력) 또는 **Browse from root path**(루트 경로에서 찾아보기)를 선택합니다. 예제에서는 **Enter a path**(경로 입력)를 사용합니다. 
 4. Data Lake Analytics 계정을 선택합니다. 
-5. 저장소 폴더 경로를 찾거나 입력합니다(예: /output/). 
+5. 스토리지 폴더 경로를 찾거나 입력합니다(예: /output/). 
 6. **Choose Current Folder**(현재 폴더 선택)를 선택하여 업로드 대상을 지정합니다.
 
 ![파일 또는 폴더 업로드 단계 및 결과](./media/data-lake-analytics-data-lake-tools-for-vscode/upload-file.png)    
 
-저장소에 파일을 업로드하는 또 다른 방법은 스크립트 편집기에서 파일의 전체 경로 또는 파일의 상대 경로에 대한 바로 가기 메뉴를 통해 이루어집니다.
+스토리지에 파일을 업로드하는 또 다른 방법은 스크립트 편집기에서 파일의 전체 경로 또는 파일의 상대 경로에 대한 바로 가기 메뉴를 통해 이루어집니다.
 
 [업로드 상태를 모니터링](#check-storage-tasks-status)할 수 있습니다.
 
@@ -385,15 +385,15 @@ Azure Data Lake Analytics 리소스에 액세스하여 계정을 나열하고, �
 1. 스크립트 편집기를 마우스 오른쪽 단추로 클릭하고 **Download File**(파일 다운로드)을 선택한 다음, **Select Folder**(폴더 선택) 대화 상자에서 대상 폴더를 선택합니다.
 2. 목록에서 폴더를 선택하거나 **Enter a path**(경로 입력) 또는 **Browse from root path**(루트 경로에서 찾아보기)를 선택합니다. 예제에서는 **Enter a path**(경로 입력)를 사용합니다. 
 3. Data Lake Analytics 계정을 선택합니다. 
-4. 저장소 폴더 경로(예: /output/)를 찾거나 입력하고 다운로드할 파일을 선택합니다.
+4. 스토리지 폴더 경로(예: /output/)를 찾거나 입력하고 다운로드할 파일을 선택합니다.
 
 ![파일 다운로드 단계 및 결과](./media/data-lake-analytics-data-lake-tools-for-vscode/download-file.png) 
 
-저장소 파일을 다운로드하는 또 다른 방법은 스크립트 편집기에서 파일의 전체 경로 또는 파일의 상대 경로에 대한 바로 가기 메뉴를 통해 이루어집니다.
+스토리지 파일을 다운로드하는 또 다른 방법은 스크립트 편집기에서 파일의 전체 경로 또는 파일의 상대 경로에 대한 바로 가기 메뉴를 통해 이루어집니다.
 
 [다운로드 상태를 모니터링](#check-storage-tasks-status)할 수 있습니다.
 
-### <a name="check-storage-tasks-status"></a>저장소 작업의 상태 확인
+### <a name="check-storage-tasks-status"></a>스토리지 작업의 상태 확인
 업로드 및 다운로드 상태가 상태 표시줄에 나타납니다. 상태 표시줄을 선택하면 **출력** 탭에 상태가 표시됩니다.
 
 ![상태 표시줄 및 출력 정보](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-status.png)

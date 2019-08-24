@@ -31,9 +31,9 @@ Visual Studio를 사용하여 Azure Data Lake Analytics 계정을 만들고, [U-
 
 ## <a name="install-azure-data-lake-tools-for-visual-studio-2017"></a>Azure Data Lake Tools for Visual Studio 2017 설치
 
-Azure Data Lake Tools for Visual Studio는 Visual Studio 2017 15.3 이상에서 지원됩니다. 도구는 Visual Studio 설치 관리자에서 **데이터 저장소 및 처리** 및 **Azure 개발** 워크로드의 일부입니다. Visual Studio 설치의 일부로 이러한 두 워크로드 중 하나를 사용하도록 설정합니다.  
+Azure Data Lake Tools for Visual Studio는 Visual Studio 2017 15.3 이상에서 지원됩니다. 도구는 Visual Studio 설치 관리자에서 **데이터 스토리지 및 처리** 및 **Azure 개발** 워크로드의 일부입니다. Visual Studio 설치의 일부로 이러한 두 워크로드 중 하나를 사용하도록 설정합니다.  
 
-다음과 같이 **데이터 저장 및 처리** 워크로드를 사용하도록 설정합니다. ![데이터 저장소 및 처리 워크 로드를 사용 하도록 설정](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-tools-for-vs-2017-install-01.png)
+다음과 같이 **데이터 스토리지 및 처리** 워크로드를 사용하도록 설정합니다. ![데이터 저장소 및 처리 워크 로드를 사용 하도록 설정](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-tools-for-vs-2017-install-01.png)
 
 다음과 같이 **Azure 개발** 워크로드를 사용하도록 설정합니다. ![Azure 개발 워크 로드를 사용 하도록 설정](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-tools-for-vs-2017-install-02.png)
 

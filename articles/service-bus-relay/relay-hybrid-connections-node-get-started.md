@@ -62,7 +62,7 @@ ms.locfileid: "60553884"
 2. Node.js 명령 프롬프트 형식 `node sender.js`의 클라이언트 애플리케이션을 실행하고 일부 텍스트를 입력합니다.
 3. 서버 애플리케이션 콘솔이 클라이언트 애플리케이션에 입력된 텍스트를 출력하는지 확인합니다.
 
-    ![응용 프로그램 실행](./media/relay-hybrid-connections-node-get-started/running-applications.png)
+    ![애플리케이션 실행](./media/relay-hybrid-connections-node-get-started/running-applications.png)
 
 축하합니다. Node.js를 사용하여 엔드투엔드 하이브리드 연결 애플리케이션을 만들었습니다.
 

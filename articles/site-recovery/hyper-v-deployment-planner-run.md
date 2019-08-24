@@ -22,7 +22,7 @@ ms.locfileid: "60748965"
 -   보고서 생성
 -   [처리량 가져오기](#get-throughput)
 
-먼저 도구를 실행하여 한 개 또는 여러 개의 Hyper-V 호스트에서 VM 목록을 가져옵니다. 그런 다음 프로파일링 모드로 도구를 실행하여 VM 데이터 변동 및 IOPS를 수집합니다. 그런 다음 네트워크 대역폭 및 저장소 요구 사항을 확인하기 위해 도구를 실행하여 보고서를 생성합니다.
+먼저 도구를 실행하여 한 개 또는 여러 개의 Hyper-V 호스트에서 VM 목록을 가져옵니다. 그런 다음 프로파일링 모드로 도구를 실행하여 VM 데이터 변동 및 IOPS를 수집합니다. 그런 다음 네트워크 대역폭 및 스토리지 요구 사항을 확인하기 위해 도구를 실행하여 보고서를 생성합니다.
 
 ## <a name="get-the-vm-list-for-profiling-hyper-v-vms"></a>Hyper-V VM을 프로파일링하기 위해 VM 목록 가져오기
 먼저 프로파일링할 VM의 목록이 필요합니다. Deployment Planner 도구의 GetVMList 모드를 사용하여 단일 명령으로 여러 Hyper-V 호스트에 있는 VM 목록을 생성합니다. 전체 목록을 생성한 후에는 출력 파일에서 프로파일링하지 않을 VM을 제거할 수 있습니다. 그런 다음 다른 모든 작업(프로파일링, 보고서 생성 및 처리량 가져오기)에 출력 파일을 사용합니다.
@@ -72,7 +72,7 @@ ASRDeploymentPlanner.exe -Operation GetVMList -Directory "E:\Hyper-V_ProfiledDat
 
 도구는 프로파일링 정확성을 위해 Hyper-V 호스트를 15초마다 쿼리합니다. 성능 카운터 데이터의 분당 평균을 저장합니다.
 
-이 도구는 클러스터의 한 노드에서 다른 노드로 VM 마이그레이션과 호스트 내의 저장소 마이그레이션을 원활하게 처리합니다.
+이 도구는 클러스터의 한 노드에서 다른 노드로 VM 마이그레이션과 호스트 내의 스토리지 마이그레이션을 원활하게 처리합니다.
 
 ### <a name="getting-the-vm-list-to-profile"></a>프로파일링할 VM 목록 가져오기
 프로파일링할 VM 목록을 만들려면 GetVMList 작업을 참조하세요.
@@ -96,15 +96,15 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-Virtualization|가상화 유형(VMware 또는 Hyper-V)입니다.|
 |-Directory|(선택 사항) 프로파일링 도중 생성된 프로파일링 데이터를 저장하기 위한 UNC 또는 로컬 디렉터리 경로입니다. 이름을 지정하지 않으면 현재 경로 아래에 ProfiledData라는 디렉터리가 기본 디렉터리로 사용됩니다.|
 |-암호|(선택 사항) Hyper-V 호스트에 연결하기 위한 암호입니다. 매개 변수로 지정하지 않으면 명령을 실행하는 경우 메시지가 표시됩니다.|
-|-StorageAccountName|(선택 사항) 온-프레미스 환경에서 Azure로의 데이터 복제에서 달성할 수 있는 처리량을 확인하기 위해 사용되는 저장소 계정 이름입니다. 도구에서 이 저장소 계정에 테스트 데이터를 업로드하여 처리량을 계산합니다. 저장소 계정은 GPv1(범용 v1) 형식이어야 합니다.|
-|-StorageAccountKey|(선택 사항) 저장소 계정에 액세스하는 데 사용되는 키입니다. Azure Portal > **저장소 계정** > *저장소-계정 이름* > **설정** > **액세스 키** > **키1**(또는 클래식 저장소 계정용 기본 액세스 키)로 이동합니다.|
+|-StorageAccountName|(선택 사항) 온-프레미스 환경에서 Azure로의 데이터 복제에서 달성할 수 있는 처리량을 확인하기 위해 사용되는 스토리지 계정 이름입니다. 도구에서 이 스토리지 계정에 테스트 데이터를 업로드하여 처리량을 계산합니다. 스토리지 계정은 GPv1(General-purpose v1) 형식이어야 합니다.|
+|-StorageAccountKey|(선택 사항) 스토리지 계정에 액세스하는 데 사용되는 키입니다. Azure Portal > **저장소 계정** > *저장소-계정 이름* > **설정** > **액세스 키** > **키1**(또는 클래식 저장소 계정용 기본 액세스 키)로 이동합니다.|
 |-Environment|(선택 사항) Azure Storage 계정을 위한 대상 환경입니다. 다음 세 값 중 하나일 수 있습니다. AzureCloud, AzureUSGovernment 또는 AzureChinaCloud. 기본값은 AzureCloud입니다. 대상 지역이 Azure 미국 정부 또는 Azure 중국 21Vianet 때 매개 변수를 사용 합니다.|
 
 VM을 7일 이상 프로파일링하는 것이 좋습니다. 한 달 내에 변동 패턴이 다양한 경우, 변동폭이 최대인 주에 프로파일링하는 것이 좋습니다. 가장 좋은 방법은 31일 동안 프로파일링하여 보다 나은 권장 사항을 확보하는 것입니다. 
 
 ASRDeploymentPlanner.exe는 프로파일링 기간 동안 계속 실행됩니다. 도구에서는 프로파일링 시간을 일 단위로 입력합니다. 개념 증명 또는 도구에 대한 빠른 테스트를 위해서 몇 시간 또는 몇 분 동안 프로파일링이 가능합니다. 허용되는 최소 프로파일링 시간은 30분입니다. 
 
-프로파일링 중에 Hyper-V 서버에서 Azure로 복제할 때 Azure Site Recovery에서 달성할 수 있는 처리량을 확인하기 위해 저장소 계정 이름과 키를 선택적으로 전달할 수 있습니다. 저장소 계정 이름과 키가 프로파일링 중에 전달되지 않으면 도구에서 달성할 수 있는 처리량을 계산하지 않습니다.
+프로파일링 중에 Hyper-V 서버에서 Azure로 복제할 때 Azure Site Recovery에서 달성할 수 있는 처리량을 확인하기 위해 스토리지 계정 이름과 키를 선택적으로 전달할 수 있습니다. 스토리지 계정 이름과 키가 프로파일링 중에 전달되지 않으면 도구에서 달성할 수 있는 처리량을 계산하지 않습니다.
 
 여러 VM 집합에 대해서는 도구의 여러 인스턴스를 실행할 수 있습니다. VM 이름이 프로파일링 집합에서 반복되지 않도록 합니다. 예를 들어 10개의 VM을 프로파일링한 경우가 있습니다(VM1부터 VM10). 며칠 후 다른 5개 VM을 프로파일링하려고 합니다(VM11부터 VM15). VM의 두 번째 집합에 대해 다른 명령줄 콘솔에서 도구를 실행할 수 있습니다(VM11부터 VM15). 
 
@@ -152,7 +152,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization Hyper-V -Dire
 
 도구가 실행 중인 서버를 다시 부팅하거나 충돌이 발생하는 경우 또는 Ctrl + C를 사용하여 도구를 닫는 경우 프로파일링된 데이터가 유지됩니다. 그러나 프로파일링된 데이터의 마지막 15분이 누락되는 경우가 있습니다. 그러한 경우 서버를 다시 시작한 후에 프로파일링 모드에서 도구를 다시 실행합니다.
 
-저장소 계정 이름과 키가 전달되면 도구는 프로파일링의 마지막 단계에서 처리량을 측정합니다. 프로파일링을 완료하기 전에 도구가 닫히면 처리량이 계산되지 않습니다. 보고서를 생성하기 전에 처리량을 확인하려면 명령줄 콘솔에서GetThroughput 작업을 실행할 수 있습니다. 그렇지 않은 경우 생성된 보고서에 처리량 정보가 포함되지 않습니다.
+스토리지 계정 이름과 키가 전달되면 도구는 프로파일링의 마지막 단계에서 처리량을 측정합니다. 프로파일링을 완료하기 전에 도구가 닫히면 처리량이 계산되지 않습니다. 보고서를 생성하기 전에 처리량을 확인하려면 명령줄 콘솔에서GetThroughput 작업을 실행할 수 있습니다. 그렇지 않은 경우 생성된 보고서에 처리량 정보가 포함되지 않습니다.
 
 Azure Site Recovery는 iSCSI 및 통과 디스크가 있는 VM을 지원하지 않습니다. 이 도구는 VM에 연결된 iSCSI 및 통과 디스크를 검색 및 프로파일링할 수 없습니다.
 
@@ -180,7 +180,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport /?
 | -StartDate | (선택 사항) MM-DD-YYYY:HH:MM(24시간) 단위의 시작 날짜 및 시간 형식입니다. StartDate는 EndDate와 함께 지정해야 합니다. StartDate를 지정한 경우 StartDate와 EndDate 사이에 수집한 프로파일링된 데이터에 대한 보고서를 생성합니다. |
 | -EndDate | (선택 사항) MM-DD-YYYY:HH:MM(24시간) 형식의 종료 날짜 및 시간입니다. EndDate는 StartDate와 함께 지정해야 합니다. EndDate를 지정한 경우 StartDate와 EndDate 사이에 수집한 프로파일링된 데이터에 대한 보고서가 생성됩니다. |
 | -GrowthFactor | (선택 사항) 백분율로 표시된 증가율입니다. 기본값은 30%입니다. |
-| -UseManagedDisks | (선택 사항) UseManagedDisks: 예/아니요. 기본값은 Yes입니다. 단일 저장소 계정에 배치할 수 있는 가상 머신의 수는 가상 머신의 장애 조치(failover)/테스트 장애 조치가 관리되지 않는 디스크가 아닌 관리 디스크에서 수행되었음을 고려하여 계산됩니다. |
+| -UseManagedDisks | (선택 사항) UseManagedDisks: 예/아니요. 기본값은 Yes입니다. 단일 스토리지 계정에 배치할 수 있는 가상 머신의 수는 가상 머신의 장애 조치(failover)/테스트 장애 조치가 관리되지 않는 디스크가 아닌 관리 디스크에서 수행되었음을 고려하여 계산됩니다. |
 |-SubscriptionId |(선택 사항) 구독 GUID입니다. 구독, 구독과 연결된 제품 및 특정 대상 Azure 지역의 제품에 기반한 최신 가격과 지정된 통화로 비용 예측 보고서를 생성하려면 이 매개 변수를 사용합니다.|
 |-TargetRegion|(선택 사항) 복제 대상이 되는 Azure 지역입니다. Azure는 지역마다 비용이 다르기 때문에 특정 대상 Azure 지역으로 보고서를 생성하려면 이 매개 변수를 사용합니다. 기본값은 WestUS2 또는 마지막으로 사용된 대상 지역입니다. [지원되는 대상 지역](hyper-v-deployment-planner-cost-estimation.md#supported-target-regions) 목록을 참조하세요.|
 |-OfferId|(선택 사항) 구독과 연결된 제품입니다. 기본값은 MS-AZR-0003P(종량제)입니다.|
@@ -232,7 +232,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Dire
 
 
 ### <a name="percentile-value-used-for-the-calculation"></a>계산에 사용된 백분위 수 값
-이 도구는 보고서를 생성할 때 읽기/쓰기 IOPS, 쓰기 IOPS 및 데이터 변동에 대해 95 백분위수 값을 기본값으로 설정합니다. 이러한 값은 모든 VM을 프로파일링하는 동안 수집됩니다. 이 메트릭은 사용자의 VM이 일시적 이벤트 때문에 볼 수 있는 100의 백분위수 급증을 대상 저장소 계정 및 원본 대역폭 요구 사항을 결정하는 데 사용되지 않도록 합니다. 예를 들어 일시적 이벤트는 하루에 한 번 실행하는 백업 작업, 주기적 데이터베이스 인덱싱 또는 분석 보고서 생성 작업 또는 기타 유사한 단기적 시점 이벤트일 수 있습니다.
+이 도구는 보고서를 생성할 때 읽기/쓰기 IOPS, 쓰기 IOPS 및 데이터 변동에 대해 95 백분위수 값을 기본값으로 설정합니다. 이러한 값은 모든 VM을 프로파일링하는 동안 수집됩니다. 이 메트릭은 사용자의 VM이 일시적 이벤트 때문에 볼 수 있는 100의 백분위수 급증을 대상 스토리지 계정 및 원본 대역폭 요구 사항을 결정하는 데 사용되지 않도록 합니다. 예를 들어 일시적 이벤트는 하루에 한 번 실행하는 백업 작업, 주기적 데이터베이스 인덱싱 또는 분석 보고서 생성 작업 또는 기타 유사한 단기적 시점 이벤트일 수 있습니다.
 
 95 백분위수 값을 사용하면 실제 워크로드 특성을 정확히 보여 주며, Azure에서 워크로드를 실행할 때 최상의 성능을 제공합니다. 당사는 사용자가 이 숫자를 변경해야 한다고 예상하지 않습니다. 값을 변경(예를 들어 90 백분위수로)하는 경우 기본 폴더의 구성 파일인 ASRDeploymentPlanner.exe.config를 업데이트하고 저장하여 기존 프로파일링된 데이터에 대한 새 보고서를 생성할 수 있습니다.
 ```
@@ -242,24 +242,24 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Dire
 ```
 
 ### <a name="considerations-for-growth-factor"></a>증가율 고려 사항
-시간이 지남에 따라 잠재적 사용량이 증가할 것으로 가정할 때 워크로드 특성의 증가를 고려하는 것이 중요합니다. 보호가 설정된 후 워크로드 특성이 변경되는 경우 보호를 해제하고 다시 사용하도록 설정하지 않고는 다른 저장소 계정으로 전환하여 보호할 수 없기 때문입니다.
+시간이 지남에 따라 잠재적 사용량이 증가할 것으로 가정할 때 워크로드 특성의 증가를 고려하는 것이 중요합니다. 보호가 설정된 후 워크로드 특성이 변경되는 경우 보호를 해제하고 다시 사용하도록 설정하지 않고는 다른 스토리지 계정으로 전환하여 보호할 수 없기 때문입니다.
 
-예를 들어 현재 VM이 표준 저장소 복제 계정에 적합하다고 가정해 보겠습니다. 다음 3개월 동안 다음과 같은 변경 사항이 발생할 가능성이 있습니다.
+예를 들어 현재 VM이 표준 스토리지 복제 계정에 적합하다고 가정해 보겠습니다. 다음 3개월 동안 다음과 같은 변경 사항이 발생할 가능성이 있습니다.
 
 1. VM에서 실행되는 애플리케이션의 사용자 수가 증가합니다.
-2. VM에서 변동이 증가하므로 Azure Site Recovery 복제가 일어날 수 있도록 VM을 프리미엄 저장소로 이동해야 합니다.
-3. 따라서 프리미엄 저장소 계정에 대한 보호를 해제하고 다시 사용하도록 설정해야 합니다.
+2. VM에서 변동이 증가하므로 Azure Site Recovery 복제가 일어날 수 있도록 VM을 프리미엄 스토리지로 이동해야 합니다.
+3. 따라서 프리미엄 스토리지 계정에 대한 보호를 해제하고 다시 사용하도록 설정해야 합니다.
 
-배포 계획 중에 증가에 대해 계획할 것을 적극 권장합니다. 기본값이 30%여도 애플리케이션 사용 패턴 및 증가 프로젝션의 전문가입니다. 보고서를 생성하는 동안 이 숫자를 적절하게 변경할 수 있습니다. 또한 프로파일링된 동일한 데이터로 다양한 성장 요소를 사용하여 여러 보고서를 생성할 수 있습니다. 그러면 가장 적합한 대상 저장소 및 소스 대역폭 권장 사항을 확인할 수 있습니다. 
+배포 계획 중에 증가에 대해 계획할 것을 적극 권장합니다. 기본값이 30%여도 애플리케이션 사용 패턴 및 증가 프로젝션의 전문가입니다. 보고서를 생성하는 동안 이 숫자를 적절하게 변경할 수 있습니다. 또한 프로파일링된 동일한 데이터로 다양한 성장 요소를 사용하여 여러 보고서를 생성할 수 있습니다. 그러면 가장 적합한 대상 스토리지 및 소스 대역폭 권장 사항을 확인할 수 있습니다. 
 
 생성된 Microsoft Excel 보고서에는 다음과 같은 정보가 포함되어 있습니다.
 
 * [온-프레미스 요약](hyper-v-deployment-planner-analyze-report.md#on-premises-summary)
 * [권장 사항](hyper-v-deployment-planner-analyze-report.md#recommendations)
-* [VM-저장소 배치](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation)
+* [VM-스토리지 배치](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation)
 * [호환되는 VM](hyper-v-deployment-planner-analyze-report.md#compatible-vms)
 * [호환되지 않는 VM](hyper-v-deployment-planner-analyze-report.md#incompatible-vms)
-* [온-프레미스 저장소 요구 사항](hyper-v-deployment-planner-analyze-report.md#on-premises-storage-requirement)
+* [온-프레미스 스토리지 요구 사항](hyper-v-deployment-planner-analyze-report.md#on-premises-storage-requirement)
 * [IR 일괄 처리](hyper-v-deployment-planner-analyze-report.md#initial-replication-batching)
 * [비용 예측](hyper-v-deployment-planner-cost-estimation.md)
 
@@ -280,8 +280,8 @@ ASRDeploymentPlanner.exe -Operation GetThroughput /?
 | -Operation | GetThroughput |
 |-Virtualization|가상화 유형(VMware 또는 Hyper-V)입니다.|
 |-Directory|(선택 사항) 프로파일링된 데이터(프로파일링 중에 생성된 파일)가 저장되는 UNC 또는 로컬 디렉터리 경로입니다. 이 데이터는 보고서를 생성하는 데 필요합니다. 이름을 지정하지 않으면 현재 경로 아래에 ProfiledData라는 디렉터리가 기본 디렉터리로 사용됩니다.|
-| -StorageAccountName | 온-프레미스 환경에서 Azure로의 데이터 복제에서 사용되는 대역폭을 확인하기 위해 사용하는 저장소 계정 이름입니다. 도구에서 이 저장소 계정에 테스트 데이터를 업로드하여 사용되는 대역폭을 찾습니다. 저장소 계정은 GPv1(범용 v1) 형식이어야 합니다.|
-| -StorageAccountKey | 저장소 계정에 액세스하는 데 사용되는 저장소 계정 키입니다. Azure Portal > **저장소 계정** > *저장소-계정 이름* > **설정** > **액세스 키** > **키1**로 이동합니다.|
+| -StorageAccountName | 온-프레미스 환경에서 Azure로의 데이터 복제에서 사용되는 대역폭을 확인하기 위해 사용하는 스토리지 계정 이름입니다. 도구에서 이 스토리지 계정에 테스트 데이터를 업로드하여 사용되는 대역폭을 찾습니다. 스토리지 계정은 GPv1(General-purpose v1) 형식이어야 합니다.|
+| -StorageAccountKey | 스토리지 계정에 액세스하는 데 사용되는 스토리지 계정 키입니다. Azure Portal > **저장소 계정** > *저장소-계정 이름* > **설정** > **액세스 키** > **키1**로 이동합니다.|
 | -VMListFile | 사용되는 대역폭을 계산하기 위해 프로파일링할 VM의 목록을 포함하고 있는 파일입니다. 파일 경로는 절대 경로 또는 상대 경로일 수 있습니다. Hyper-V의 경우 이 파일은 GetVMList 작업의 출력 파일입니다. 수동으로 준비하는 경우 파일에 뒤에 VM 이름이 붙는 서버 이름이나 IP 주소가 포함되어야 합니다(줄마다 \ 로 구분). 파일에 지정된 VM 이름은 Hyper-V 호스트의 VM 이름과 동일해야 합니다.<br><br>**예제:** VMList.txt에는 다음과 같은 VM이 포함됩니다.<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
 |-Environment|(선택 사항) Azure Storage 계정을 위한 대상 환경입니다. 다음 세 값 중 하나일 수 있습니다. AzureCloud, AzureUSGovernment 또는 AzureChinaCloud. 기본값은 AzureCloud입니다. 대상 Azure 지역이 Azure 미국 정부 또는 Azure 중국 21Vianet 때 매개 변수를 사용 합니다.|
 
@@ -292,20 +292,20 @@ ASRDeploymentPlanner.exe -Operation GetThroughput -Virtualization Hyper-V -Direc
 
 ### <a name="throughput-considerations"></a>처리량 고려 사항
 
-이 도구는 지정된 디렉터리에 여러 개의 asrvhdfile*number*.vhd(여기서 *number*는 파일 수) 64MB 파일을 만듭니다. 도구에서 처리량을 확인하기 위해 저장소 계정에 파일을 업로드합니다. 처리량이 측정된 후 저장소 계정과 로컬 서버에서 이러한 파일을 모두 삭제합니다. 도구가 처리량을 계산하는 동안 어떤 이유로든 종료되는 경우에는 저장소 계정 또는 로컬 서버에서 파일을 삭제하지 않습니다. 직접 삭제해야 합니다.
+이 도구는 지정된 디렉터리에 여러 개의 asrvhdfile*number*.vhd(여기서 *number*는 파일 수) 64MB 파일을 만듭니다. 도구에서 처리량을 확인하기 위해 스토리지 계정에 파일을 업로드합니다. 처리량이 측정된 후 스토리지 계정과 로컬 서버에서 이러한 파일을 모두 삭제합니다. 도구가 처리량을 계산하는 동안 어떤 이유로든 종료되는 경우에는 스토리지 계정 또는 로컬 서버에서 파일을 삭제하지 않습니다. 직접 삭제해야 합니다.
 
 처리량은 지정된 기간의 시간 단위로 측정됩니다. 기타 모든 요소가 동일하게 유지되는 경우 Azure Site Recovery가 복제 시 얻을 수 있는 최대 처리량입니다. 예를 들어 애플리케이션이 동일한 네트워크에서 더 많은 대역폭을 사용하기 시작하면 복제 중에 실제 처리량이 달라집니다. VM에 높은 데이터 변동이 있을 때 GetThroughput 작업이 실행되는 경우 측정된 처리량의 결과가 다릅니다. 
 
 다양한 시간에서 어떤 처리량 수준을 달성할 수 있는지 이해하려면 프로파일링 중에 여러 시점에서 도구를 실행하는 것이 좋습니다. 보고서에는 도구에서 마지막으로 측정한 처리량이 표시됩니다.
 
 > [!NOTE]
-> Hyper-V 서버와 저장소 및 CPU 특징이 동일한 서버에서 도구를 실행합니다.
+> Hyper-V 서버와 스토리지 및 CPU 특징이 동일한 서버에서 도구를 실행합니다.
 
 복제의 경우 RPO 시간 100%를 충족하기 위해 권장되는 대역폭을 설정합니다. 올바른 대역폭을 설정한 후 도구에서 보고한 달성된 처리량이 증가하지 않으면 다음을 수행합니다.
 
 1. 네트워크 QoS(서비스 품질) 문제로 인해 Azure Site Recovery 처리량이 제한되고 있는지 확인합니다.
 2. 네트워크 대기 시간을 최소화하기 위해 Azure Site Recovery 자격 증명 모음이 물리적으로 지원되는 가장 가까운 Microsoft Azure 지역에 있는지 확인합니다.
-3. 로컬 저장소 특성을 확인하여 하드웨어(예를 들어 SSD HDD)를 향상시킬 수 있는지 여부를 결정합니다.
+3. 로컬 스토리지 특성을 확인하여 하드웨어(예를 들어 SSD HDD)를 향상시킬 수 있는지 여부를 결정합니다.
 
     
 ## <a name="next-steps"></a>다음 단계

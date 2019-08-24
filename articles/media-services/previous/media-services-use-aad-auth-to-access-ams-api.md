@@ -85,7 +85,7 @@ Azure Media Services와 함께 Azure AD 인증을 사용할 때 두 가지 인�
    * Media Services(원시) 애플리케이션 리디렉션 URI.
    * REST Media Services의 리소스 URI.
         
-       REST API 끝점을 나타내는 URI(예: https://test03.restv2.westus.media.azure.net/api/) )입니다.
+       REST API 엔드포인트을 나타내는 URI(예: https://test03.restv2.westus.media.azure.net/api/) )입니다.
 
      이러한 매개 변수 값을 가져오려면 사용자 인증 옵션과 [Azure Portal을 사용하여 Azure AD 인증 설정 액세스](media-services-portal-get-started-with-aad.md)를 참조하세요.
 
@@ -125,7 +125,7 @@ Azure AD 애플리케이션을 만든 후 다음 설정에 대한 값을 가져�
 
    * REST Media Services의 리소스 URI.
 
-       REST API 끝점을 나타내는 URI(예: https://test03.restv2.westus.media.azure.net/api/) )입니다.
+       REST API 엔드포인트을 나타내는 URI(예: https://test03.restv2.westus.media.azure.net/api/) )입니다.
 
    * Azure AD 애플리케이션 값: 클라이언트 ID 및 클라이언트 암호.
     

@@ -45,7 +45,7 @@ IoT Hub 엔드포인트에 액세스하려면 적절한 권한이 있어야 합�
   | registryRead | **RegistryRead** 권한 |
   | registryReadWrite | **RegistryRead** 및 **RegistryWrite** 권한 |
 
-* **장치 단위 보안 자격 증명**. 각 IoT Hub에는 [ID 레지스트리](iot-hub-devguide-identity-registry.md)가 포함됩니다. 이 ID 레지스트리의 각 디바이스에 대해 해당 디바이스 엔드포인트로 범위가 지정된 **DeviceConnect** 권한을 부여하는 보안 자격 증명을 구성할 수 있습니다.
+* **디바이스 단위 보안 자격 증명**. 각 IoT Hub에는 [ID 레지스트리](iot-hub-devguide-identity-registry.md)가 포함됩니다. 이 ID 레지스트리의 각 디바이스에 대해 해당 디바이스 엔드포인트로 범위가 지정된 **DeviceConnect** 권한을 부여하는 보안 자격 증명을 구성할 수 있습니다.
 
 예를 들어 일반적인 IoT 솔루션에서는 다음이 적용됩니다.
 
@@ -118,7 +118,7 @@ IoT Hub는 네트워크에서 토큰이 전송되는 것을 피하기 위해 보
 
 * MQTT, AMQP 또는 HTTPS 표면을 직접 사용합니다.
 
-* [사용자 지정 장치 인증](iot-hub-devguide-security.md#custom-device-and-module-authentication)에 설명된 대로 토큰 서비스 패턴을 구현합니다.
+* [사용자 지정 디바이스 인증](iot-hub-devguide-security.md#custom-device-and-module-authentication)에 설명된 대로 토큰 서비스 패턴을 구현합니다.
 
 또한 IoT Hub를 사용하면 디바이스가 [X.509 인증서](iot-hub-devguide-security.md#supported-x509-certificates)를 통해 IoT Hub에 인증할 수 있습니다.
 
@@ -250,7 +250,7 @@ public static string generateSasToken(string resourceUri, string key, string pol
 | 엔드포인트 | 기능 |
 | --- | --- |
 | `{iot hub host name}/devices/{deviceId}/messages/events` |디바이스-클라우드 메시지를 보냅니다. |
-| `{iot hub host name}/devices/{deviceId}/messages/devicebound` |클라우드-장치 메시지를 받습니다. |
+| `{iot hub host name}/devices/{deviceId}/messages/devicebound` |클라우드-디바이스 메시지를 받습니다. |
 
 ### <a name="use-a-symmetric-key-in-the-identity-registry"></a>ID 레지스트리에서 대칭 키 사용
 
@@ -323,8 +323,8 @@ device1의 모든 기능에 액세스 권한을 부여하는 결과는 다음과
 | --- | --- |
 | `{iot hub host name}/devices` |디바이스 ID를 만들기, 업데이트, 검색 및 삭제합니다. |
 | `{iot hub host name}/messages/events` |디바이스-클라우드 메시지를 받습니다. |
-| `{iot hub host name}/servicebound/feedback` |클라우드-장치 메시지에 대한 피드백을 받습니다. |
-| `{iot hub host name}/devicebound` |클라우드-장치 메시지를 보냅니다. |
+| `{iot hub host name}/servicebound/feedback` |클라우드-디바이스 메시지에 대한 피드백을 받습니다. |
+| `{iot hub host name}/devicebound` |클라우드-디바이스 메시지를 보냅니다. |
 
 예를 들어 **registryRead** 라는 미리 생성된 공유 액세스 정책을 사용하여 생성하는 서비스는 다음 매개 변수로 토큰을 만듭니다.
 
@@ -363,7 +363,7 @@ var token = generateSasToken(endpoint, policyKey, policyName, 60);
 
 ### <a name="register-an-x509-certificate-for-a-device"></a>디바이스에 대해 X.509 인증서 등록
 
-[C#용 Azure IoT 서비스 SDK](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/service)(버전 1.0.8 이상)는 인증에 X.509 인증서를 사용하는 장치의 등록을 지원합니다. 디바이스 가져오기/내보내기 같은 기타 API에서도 X.509 인증서를 지원합니다.
+[C#용 Azure IoT 서비스 SDK](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/service)(버전 1.0.8 이상)는 인증에 X.509 인증서를 사용하는 디바이스의 등록을 지원합니다. 디바이스 가져오기/내보내기 같은 기타 API에서도 X.509 인증서를 지원합니다.
 
 CLI 확장 명령 [az iot hub device-identity](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest)를 사용하여 디바이스에 대한 X.509 인증서를 구성할 수도 있습니다.
 
@@ -390,7 +390,7 @@ await registryManager.AddDeviceAsync(device);
 
 ### <a name="use-an-x509-certificate-during-run-time-operations"></a>런타임 작업 중에 X.509 인증서 사용
 
-[.NET용 Azure IoT 장치 SDK](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/device)(버전 1.0.11 이상)는 X.509 인증서의 사용을 지원합니다.
+[.NET용 Azure IoT 디바이스 SDK](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/device)(버전 1.0.11 이상)는 X.509 인증서의 사용을 지원합니다.
 
 ### <a name="c-support"></a>C\# 지원
 
@@ -406,7 +406,7 @@ var deviceClient = DeviceClient.Create("<IotHub DNS HostName>", authMethod);
 
 ## <a name="custom-device-and-module-authentication"></a>사용자 지정 디바이스 및 모듈 인증
 
-IoT Hub [ID 레지스트리](iot-hub-devguide-identity-registry.md)를 사용하여 [토큰](iot-hub-devguide-security.md#security-tokens)을 통해 장치/모듈별 보안 자격 증명 및 액세스 제어를 구성할 수 있습니다. IoT 솔루션에 이미 사용자 지정 ID 레지스트리 및/또는 인증 체계가 있는 경우 *토큰 서비스*를 만들어 이 인프라를 IoT Hub와 통합할 수 있습니다. 이러한 방식으로 솔루션에서 다른 IoT 기능을 사용할 수 있습니다.
+IoT Hub [ID 레지스트리](iot-hub-devguide-identity-registry.md)를 사용하여 [토큰](iot-hub-devguide-security.md#security-tokens)을 통해 디바이스/모듈별 보안 자격 증명 및 액세스 제어를 구성할 수 있습니다. IoT 솔루션에 이미 사용자 지정 ID 레지스트리 및/또는 인증 체계가 있는 경우 *토큰 서비스*를 만들어 이 인프라를 IoT Hub와 통합할 수 있습니다. 이러한 방식으로 솔루션에서 다른 IoT 기능을 사용할 수 있습니다.
 
 토큰 서비스는 사용자 지정 클라우드 서비스입니다. **DeviceConnect** 또는 **ModuleConnect** 권한으로 IoT Hub *공유 액세스 정책*을 사용하여 *device-scoped* 또는 *module-scoped* 토큰을 만듭니다. 이러한 토큰은 디바이스 및 모듈에서 IoT Hub에 연결할 수 있게 해줍니다.
 
@@ -473,5 +473,5 @@ IoT Hub 액세스를 제어하는 방법에 대해 알아봤으니 다음과 같
 이 문서에서 설명한 일부 개념을 시도해 보려면 다음과 같은 IoT Hub 자습서를 참조하세요.
 
 * [Azure IoT Hub 시작](quickstart-send-telemetry-node.md)
-* [IoT Hub를 사용하여 클라우드와 장치 간에 메시지를 보내는 방법](iot-hub-csharp-csharp-c2d.md)
+* [IoT Hub를 사용하여 클라우드와 디바이스 간에 메시지를 보내는 방법](iot-hub-csharp-csharp-c2d.md)
 * [IoT Hub 디바이스와 클라우드 간의 메시지를 처리하는 방법](tutorial-routing.md)

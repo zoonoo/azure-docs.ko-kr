@@ -205,5 +205,5 @@ WAD를 통해 성능 카운터를 수집하려면 클러스터의 Resource Manag
 
 ## <a name="next-steps"></a>다음 단계
 * 클러스터에 대한 더 많은 성능 카운터를 수집합니다. 수집해야 하는 카운터 목록은 [성능 메트릭](service-fabric-diagnostics-event-generation-perf.md)을 참조하세요.
-* [Windows VM 및 Azure Resource Manager 템플릿으로 모니터링 및 진단을 사용](../virtual-machines/windows/extensions-diagnostics-template.md)하여 진단 데이터를 보내는 추가 저장소 계정 구성을 포함한 `WadCfg`에 대한 추가 수정을 수행합니다.
+* [Windows VM 및 Azure Resource Manager 템플릿으로 모니터링 및 진단을 사용](../virtual-machines/windows/extensions-diagnostics-template.md)하여 진단 데이터를 보내는 추가 스토리지 계정 구성을 포함한 `WadCfg`에 대한 추가 수정을 수행합니다.
 * [Diagnostics.wadcfg builder](https://azure.github.io/azure-diagnostics-tools/config-builder/) 를 방문 하 여 처음부터 템플릿을 빌드하고 구문이 올바른지 확인 합니다. 템플릿을 처음부터 작성하고구문이올바른지확인합니다. https://azure.github.io/azure-diagnostics-tools/config-builder/)

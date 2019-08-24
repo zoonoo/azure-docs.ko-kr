@@ -108,13 +108,13 @@ Salesforce는 모든 파일, 첨부 파일 및 사용자 정의 필드의 암호
 명령 채널은 Data Factory의 데이터 이동 서비스와 자체 호스팅 통합 런타임 간의 통신을 허용합니다. 통신에는 활동과 관련된 정보가 들어 있습니다. 데이터 채널은 온-프레미스 데이터 저장소와 클라우드 데이터 저장소 간에 데이터를 전송하는 데 사용됩니다.    
 
 ### <a name="on-premises-data-store-credentials"></a>온-프레미스 데이터 저장소 자격 증명
-온-프레미스 데이터 저장소의 자격 증명은 항상 암호화되어 저장됩니다. 자체 호스팅 통합 런타임 컴퓨터에 로컬로 저장되거나 Azure Data Factory 관리 저장소(클라우드 저장소 자격 증명처럼)에 저장될 수 있습니다. 
+온-프레미스 데이터 저장소의 자격 증명은 항상 암호화되어 저장됩니다. 자체 호스팅 통합 런타임 컴퓨터에 로컬로 저장되거나 Azure Data Factory 관리 스토리지(클라우드 스토리지 자격 증명처럼)에 저장될 수 있습니다. 
 
 - **자격 증명을 로컬로 저장**합니다. 자체 호스팅 통합 런타임에서 로컬로 자격 증명을 암호화하고 저장하려면 [Azure Data Factory에서 온-프레미스 데이터 저장소에 대한 자격 증명 암호화](encrypt-credentials-self-hosted-integration-runtime.md)의 단계를 따르십시오. 모든 커넥터가 이 옵션을 지원합니다. 자체 호스팅 통합 런타임은 Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx)를 사용하여 중요한 데이터 및 자격 증명 정보를 암호화합니다. 
 
    **AzDataFactoryV2LinkedServiceEncryptedCredential** cmdlet을 사용 하 여 연결 된 서비스 자격 증명 및 연결 된 서비스의 중요 한 세부 정보를 암호화할 수 있습니다. 그런 다음 반환 된 JSON (연결 문자열의 **Encryptedcredential** 요소 포함)을 사용 하 여 **AzDataFactoryV2LinkedService** cmdlet을 사용 하 여 연결 된 서비스를 만들 수 있습니다.  
 
-- **Azure Data Factory 관리 저장소에 저장**합니다. JSON에서 연결 문자열 및 자격 증명을 사용 하 여 **AzDataFactoryV2LinkedService** cmdlet을 직접 사용 하는 경우 연결 된 서비스는 암호화 되어 Azure Data Factory 관리 저장소에 저장 됩니다. 중요한 정보는 여전히 인증서로 암호화되며 이러한 인증서는 Microsoft에서 관리합니다.
+- **Azure Data Factory 관리 스토리지에 저장**합니다. JSON에서 연결 문자열 및 자격 증명을 사용 하 여 **AzDataFactoryV2LinkedService** cmdlet을 직접 사용 하는 경우 연결 된 서비스는 암호화 되어 Azure Data Factory 관리 저장소에 저장 됩니다. 중요한 정보는 여전히 인증서로 암호화되며 이러한 인증서는 Microsoft에서 관리합니다.
 
 
 

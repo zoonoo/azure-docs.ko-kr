@@ -70,9 +70,9 @@ Resource Manager UI의 왼쪽 메뉴에서 **스케줄러**를 선택합니다. 
 
 ![Resource Manager UI 메뉴 연결](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui.png)
 
-## <a name="storage-throttling"></a>저장소 제한
+## <a name="storage-throttling"></a>스토리지 제한
 
-저장소 수준에서 클러스터의 성능 병목 상태가 발생할 수 있습니다. 이러한 병목 상태의 주요 원인은 IO(입력/출력) 작업 *차단*이며, 작업 차단은 실행 중인 작업에서 저장소 서비스의 처리량을 초과하는 IO를 보낼 때 발생합니다. 작업이 차단되면 현재 IO를 처리한 후 처리될 때까지 대기하는 IO 요청 큐가 생성됩니다. 이 차단은 *저장소 제한* 때문에 발생하는데, 물리적 제한이 아닌 SLA(서비스 수준 계약)에 따른 저장소 서비스의 제한에 의해 발생합니다. 이 제한은 단일 클라이언트 또는 테넌트가 서비스를 독점하지 못하게 방지하는 역할을 합니다. SLA는 Azure Storage의 IOPS(초당 IO 수)를 제한하며, 자세한 내용은 [Azure Storage 확장성 및 성능 목표](https://docs.microsoft.com/azure/storage/storage-scalability-targets)를 참조하세요.
+스토리지 수준에서 클러스터의 성능 병목 상태가 발생할 수 있습니다. 이러한 병목 상태의 주요 원인은 IO(입력/출력) 작업 *차단*이며, 작업 차단은 실행 중인 작업에서 스토리지 서비스의 처리량을 초과하는 IO를 보낼 때 발생합니다. 작업이 차단되면 현재 IO를 처리한 후 처리될 때까지 대기하는 IO 요청 큐가 생성됩니다. 이 차단은 *스토리지 제한* 때문에 발생하는데, 물리적 제한이 아닌 SLA(서비스 수준 계약)에 따른 스토리지 서비스의 제한에 의해 발생합니다. 이 제한은 단일 클라이언트 또는 테넌트가 서비스를 독점하지 못하게 방지하는 역할을 합니다. SLA는 Azure Storage의 IOPS(초당 IO 수)를 제한하며, 자세한 내용은 [Azure Storage 확장성 및 성능 목표](https://docs.microsoft.com/azure/storage/storage-scalability-targets)를 참조하세요.
 
 Azure Storage를 사용하는 경우 제한을 포함하여 스토리지 관련 문제 모니터링에 대한 자세한 내용은 [Microsoft Azure Storage 모니터링, 진단 및 문제 해결](https://docs.microsoft.com/azure/storage/storage-monitoring-diagnosing-troubleshooting)을 참조하세요.
 

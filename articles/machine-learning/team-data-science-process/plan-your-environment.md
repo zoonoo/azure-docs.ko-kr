@@ -41,7 +41,7 @@ ms.locfileid: "64704496"
 * Azure의 목표 대상
 * 일정, 양 및 관련된 리소스를 포함하여 데이터 이동을 위한 요구 사항
 
-분석 프로세스 동안 데이터를 여러 번 이동해야 할 수 있습니다. 일반적인 시나리오는 로컬 데이터를 Azure에 있는 일정 형태의 저장소로 이동한 후 Machine Learning Studio로 이동하는 것입니다.
+분석 프로세스 동안 데이터를 여러 번 이동해야 할 수 있습니다. 일반적인 시나리오는 로컬 데이터를 Azure에 있는 일정 형태의 스토리지로 이동한 후 Machine Learning Studio로 이동하는 것입니다.
 
 ### <a name="what-is-your-data-source"></a>데이터 원본은 무엇인가요?
 
@@ -67,7 +67,7 @@ ms.locfileid: "64704496"
 
 다양한 스토리지 및 처리 환경에 데이터를 수집하거나 로드하기 위한 절차와 리소스에 대해서는 다음을 참조하세요.
 
-* [분석용 저장소 환경에 데이터 로드](ingest-data.md)
+* [분석용 스토리지 환경에 데이터 로드](ingest-data.md)
 * [다양한 데이터 원본에서 Azure Machine Learning Studio로 학습 데이터를 가져오기](../studio/import-data.md)
 
 ### <a name="does-the-data-need-to-be-moved-on-a-regular-schedule-or-modified-during-migration"></a>데이터를 정기적으로 이동해야 하나요? 마이그레이션 중에 수정되어야 하나요?
@@ -81,7 +81,7 @@ ms.locfileid: "64704496"
 
 ### <a name="how-much-of-the-data-is-to-be-moved-to-azure"></a>얼마나 많은 양의 데이터를 Azure로 이동해야 하나요?
 
-대량의 데이터 세트는 특정 환경의 저장소 용량을 초과할 수 있습니다. 예를 들어, 다음 섹션에서 Machine Learning Studio의 크기 제한에 대한 논의를 참조하세요. 이런 경우, 분석하는 동안 데이터 샘플을 사용할 수 있습니다. 다양한 Azure 환경에서 데이터 세트를 다운 샘플링하는 방법에 대한 자세한 내용은 [팀 데이터 과학 프로세스의 데이터 샘플링](sample-data.md)을 참조하세요.
+대량의 데이터 세트는 특정 환경의 스토리지 용량을 초과할 수 있습니다. 예를 들어, 다음 섹션에서 Machine Learning Studio의 크기 제한에 대한 논의를 참조하세요. 이런 경우, 분석하는 동안 데이터 샘플을 사용할 수 있습니다. 다양한 Azure 환경에서 데이터 세트를 다운 샘플링하는 방법에 대한 자세한 내용은 [팀 데이터 과학 프로세스의 데이터 샘플링](sample-data.md)을 참조하세요.
 
 ## <a name="data-characteristics-questions-type-format-and-size"></a>데이터 특성 질문: 유형, 형식, 크기
 

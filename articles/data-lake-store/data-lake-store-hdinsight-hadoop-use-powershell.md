@@ -22,8 +22,8 @@ ms.locfileid: "66161388"
 
 > [!div class="op_single_selector"]
 > * [포털 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
-> * [PowerShell 사용(기본 저장소의 경우)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
-> * [PowerShell 사용(추가 저장소의 경우)](data-lake-store-hdinsight-hadoop-use-powershell.md)
+> * [PowerShell 사용(기본 스토리지의 경우)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+> * [PowerShell 사용(추가 스토리지의 경우)](data-lake-store-hdinsight-hadoop-use-powershell.md)
 > * [Resource Manager 사용](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 >
 >
@@ -193,7 +193,7 @@ Data Lake Storage Gen1에 대한 Active Directory 인증을 설정하려면 다�
 1. 구독 테넌트 ID 검색을 시작합니다. 나중에 필요합니다.
 
         $tenantID = (Get-AzContext).Tenant.TenantId
-2. 이 릴리스에서 Hadoop 클러스터의 경우 Data Lake Storage Gen1은 클러스터에 대해 추가 스토리지로만 사용될 수 있습니다. 기본 저장소는 여전히 Azure 저장소 Blob(WASB)이 됩니다. 따라서 먼저 클러스터에 필요한 저장소 계정 및 저장소 컨테이너를 만들어 보겠습니다.
+2. 이 릴리스에서 Hadoop 클러스터의 경우 Data Lake Storage Gen1은 클러스터에 대해 추가 스토리지로만 사용될 수 있습니다. 기본 스토리지는 여전히 Azure Storage Blob(WASB)이 됩니다. 따라서 먼저 클러스터에 필요한 스토리지 계정 및 스토리지 컨테이너를 만들어 보겠습니다.
 
         # Create an Azure storage account
         $location = "East US 2"

@@ -204,7 +204,7 @@ serviceBusLogger.LogInformation($"{currentActivity.OperationName} is finished, D
 
 #### <a name="filtering-and-sampling"></a>필터링 및 샘플링
 
-이벤트의 일부만 기록하여 성능 오버헤드 또는 저장소 소비량을 줄이는 것이 바람직한 경우도 있습니다. 앞의 예제와 같이 ‘Stop’ 이벤트만 기록하거나 이벤트의 샘플 비율을 기록할 수 있습니다. 
+이벤트의 일부만 기록하여 성능 오버헤드 또는 스토리지 소비량을 줄이는 것이 바람직한 경우도 있습니다. 앞의 예제와 같이 ‘Stop’ 이벤트만 기록하거나 이벤트의 샘플 비율을 기록할 수 있습니다. 
 `DiagnosticSource`는 `IsEnabled` 조건자로 이 작업을 수행하는 방법을 제공합니다. 자세한 내용은 [DiagnosticSource의 컨텍스트 기반 필터링](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md#context-based-filtering)을 참조하세요.
 
 성능 영향을 최소화하기 위해 단일 작업에 대해 `IsEnabled`를 여러 번 호출할 수 있습니다.

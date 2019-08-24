@@ -39,7 +39,7 @@ Application Insights를 사용하는 경우 Application Insights 계측 키입�
 
 ## <a name="azurewebjobsdashboard"></a>AzureWebJobsDashboard
 
-로그를 저장하고 포털의 **모니터** 탭에 표시하기 위한 선택적인 스토리지 계정 연결 문자열입니다. 저장소 계정은 Blob, 큐 및 테이블을 지원하는 범용 계정이어야 합니다. [저장소 계정](functions-infrastructure-as-code.md#storage-account) 및 [저장소 계정 요구 사항](functions-create-function-app-portal.md#storage-account-requirements)을 참조하세요.
+로그를 저장하고 포털의 **모니터** 탭에 표시하기 위한 선택적인 스토리지 계정 연결 문자열입니다. 스토리지 계정은 Blob, 큐 및 테이블을 지원하는 범용 계정이어야 합니다. [스토리지 계정](functions-infrastructure-as-code.md#storage-account) 및 [스토리지 계정 요구 사항](functions-create-function-app-portal.md#storage-account-requirements)을 참조하세요.
 
 |Key|샘플 값|
 |---|------------|
@@ -78,7 +78,7 @@ Application Insights를 사용하는 경우 Application Insights 계측 키입�
 
 ## <a name="azurewebjobssecretstoragetype"></a>AzureWebJobsSecretStorageType
 
-키 저장소에 사용할 리포지토리 또는 공급자를 지정합니다. 현재 지원되는 리포지토리는 Blob Storage(&quot;Blob&quot;) 및 로컬 파일 시스템(&quot;Files&quot;)입니다. 기본값은 버전 2에서는 Blob, 버전 1에서는 파일 시스템입니다.
+키 스토리지에 사용할 리포지토리 또는 공급자를 지정합니다. 현재 지원되는 리포지토리는 Blob Storage(&quot;Blob&quot;) 및 로컬 파일 시스템(&quot;Files&quot;)입니다. 기본값은 버전 2에서는 Blob, 버전 1에서는 파일 시스템입니다.
 
 |Key|샘플 값|
 |---|------------|
@@ -86,7 +86,7 @@ Application Insights를 사용하는 경우 Application Insights 계측 키입�
 
 ## <a name="azurewebjobsstorage"></a>AzureWebJobsStorage
 
-Azure Functions 런타임은 HTTP 트리거 함수를 제외한 모든 함수에 대해 이 저장소 계정 연결 문자열을 사용합니다. 저장소 계정은 Blob, 큐 및 테이블을 지원하는 범용 계정이어야 합니다. [저장소 계정](functions-infrastructure-as-code.md#storage-account) 및 [저장소 계정 요구 사항](functions-create-function-app-portal.md#storage-account-requirements)을 참조하세요.
+Azure Functions 런타임은 HTTP 트리거 함수를 제외한 모든 함수에 대해 이 스토리지 계정 연결 문자열을 사용합니다. 스토리지 계정은 Blob, 큐 및 테이블을 지원하는 범용 계정이어야 합니다. [스토리지 계정](functions-infrastructure-as-code.md#storage-account) 및 [스토리지 계정 요구 사항](functions-create-function-app-portal.md#storage-account-requirements)을 참조하세요.
 
 |Key|샘플 값|
 |---|------------|
@@ -135,7 +135,7 @@ Azure Portal에서 편집할 수 있는지 여부를 지정 합니다. 유효한
 
 ## <a name="website_contentazurefileconnectionstring"></a>WEBSITE_CONTENTAZUREFILECONNECTIONSTRING
 
-소비 & 프리미엄 요금제에만 해당 합니다. 함수 앱 코드 및 구성이 저장된 저장소 계정의 연결 문자열입니다. [함수 앱 만들기](functions-infrastructure-as-code.md#create-a-function-app)를 참조하세요.
+소비 & 프리미엄 요금제에만 해당 합니다. 함수 앱 코드 및 구성이 저장된 스토리지 계정의 연결 문자열입니다. [함수 앱 만들기](functions-infrastructure-as-code.md#create-a-function-app)를 참조하세요.
 
 |Key|샘플 값|
 |---|------------|

@@ -101,13 +101,13 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 \* Append, DeployIfNotExist 및 AuditIfNotExist 효과는 IF 문이 TRUE여야 합니다.
 또한 이 효과는 비준수가 되려면 존재 조건이 FALSE가 되어야 합니다. TRUE인 경우 IF 조건이 관련 리소스에 대한 존재 조건의 평가를 트리거합니다.
 
-예를 들어, 공용 네트워크에 노출되는 일부 저장소 계정(빨간색으로 강조 표시됨)이 있는 리소스 그룹이 ContosoRG라고 가정해 보겠습니다.
+예를 들어, 공용 네트워크에 노출되는 일부 스토리지 계정(빨간색으로 강조 표시됨)이 있는 리소스 그룹이 ContosoRG라고 가정해 보겠습니다.
 
-![공용 네트워크에 노출된 저장소 계정](../media/getting-compliance-data/resource-group01.png)
+![공용 네트워크에 노출된 스토리지 계정](../media/getting-compliance-data/resource-group01.png)
 
-이 예에서는 보안 위험에 주의해야 합니다. 정책 할당을 만들었으므로 ContosoRG 리소스 그룹에서 모든 스토리지 계정에 대해 평가합니다. 이 정책 할당은 비준수 저장소 계정 3개를 감사하여 해당 상태를 **비준수**로 변경합니다.
+이 예에서는 보안 위험에 주의해야 합니다. 정책 할당을 만들었으므로 ContosoRG 리소스 그룹에서 모든 스토리지 계정에 대해 평가합니다. 이 정책 할당은 비준수 스토리지 계정 3개를 감사하여 해당 상태를 **비준수**로 변경합니다.
 
-![감사된 비준수 저장소 계정](../media/getting-compliance-data/resource-group03.png)
+![감사된 비준수 스토리지 계정](../media/getting-compliance-data/resource-group03.png)
 
 정책과 리소스에는 **준수** 및 **비준수** 외에도 다음의 세 가지 상태 중 하나일 수 있습니다.
 

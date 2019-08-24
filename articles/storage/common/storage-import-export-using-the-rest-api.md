@@ -51,4 +51,4 @@ Import/Export 서비스에 대한 요청은 `api-version` 매개 변수를 지�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [저장소 Import/Export REST](/rest/api/storageimportexport)
+* [스토리지 Import/Export REST](/rest/api/storageimportexport)

@@ -100,9 +100,9 @@ a. StorSimple 5000-7000 시리즈 사용자는 시나리오에 따라 다음과 
 
 Microsoft 지원에 문의하여 여기서 설명하지 않은 마이그레이션 옵션에 대해 논의할 수 있습니다.
 
-### <a name="q-is-migration-to-other-storage-solutions-supported"></a>Q. 다른 저장소 솔루션으로 마이그레이션할 수 있나요?
+### <a name="q-is-migration-to-other-storage-solutions-supported"></a>Q. 다른 스토리지 솔루션으로 마이그레이션할 수 있나요?
 
-a. 예. 데이터의 호스트 복사본을 사용하여 다른 저장소 솔루션으로 마이그레이션할 수 있습니다.
+a. 예. 데이터의 호스트 복사본을 사용하여 다른 스토리지 솔루션으로 마이그레이션할 수 있습니다.
 
 ### <a name="q-is-migration-supported-by-microsoft"></a>Q. Microsoft에서 마이그레이션을 지원하나요? 
 
@@ -112,7 +112,7 @@ a. 5000 또는 7000 시리즈에서 마이그레이션하는 작업은 완벽하
 
 a. 마이그레이션 비용은 선택한 옵션에 따라 다릅니다. 마이그레이션 자체에는 추가 비용이 들지 않지만, StorSimple 8000 시리즈로 업그레이드하려는 경우 하드웨어 디바이스 비용이 발생하게 됩니다. 
 
-마찬가지로 Azure 파일 동기화를 사용하는 경우 서비스 독 요금이 적용될 수 있습니다. 고객은 각각의 경우에서 진행 중인 저장소 비용을 지불해야 합니다. 예상 비용은 다음을 참조하세요. 
+마찬가지로 Azure 파일 동기화를 사용하는 경우 서비스 독 요금이 적용될 수 있습니다. 고객은 각각의 경우에서 진행 중인 스토리지 비용을 지불해야 합니다. 예상 비용은 다음을 참조하세요. 
 - [StorSimple 가격 책정](https://azure.microsoft.com/pricing/details/storsimple/)  
 - [AFS 가격 책정]( https://azure.microsoft.com/pricing/details/storage/files/)
 

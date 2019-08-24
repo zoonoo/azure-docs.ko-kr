@@ -1,6 +1,6 @@
 ---
 title: Service Fabric 서비스 분할 | Microsoft Docs
-description: Service Fabric 상태 저장 서비스를 분할하는 방법을 설명합니다. 파티션을 사용하면 로컬 머신에 데이터가 저장되므로 데이터와 계산을 함께 확장할 수 있습니다.
+description: Service Fabric 상태 저장 서비스를 분할하는 방법을 설명합니다. 파티션을 사용하면 로컬 머신에 데이터가 스토리지되므로 데이터와 컴퓨팅을 함께 확장할 수 있습니다.
 services: service-fabric
 documentationcenter: .net
 author: athinanthny
@@ -84,7 +84,7 @@ Service Fabric은 파티션 상태(데이터)에 최상의 방법을 제공하�
 
 * 네트워크 대역폭 제한
 * 시스템 메모리 제한
-* 디스크 저장소 제한
+* 디스크 스토리지 제한
 
 그렇다면 실행 중인 클러스터에 리소스 제약이 발생하는 경우 어떻게 됩니까? 단순히 새 요구 사항에 맞게 클러스터를 확장할 수 있습니다.
 

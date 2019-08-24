@@ -30,7 +30,7 @@ ms.locfileid: "68721438"
 ## <a name="create-a-php-application"></a>PHP 애플리케이션 만들기
 Azure Queue storage에 액세스 하는 PHP 응용 프로그램을 만들기 위한 유일한 요구 사항은 코드 내에서 [php 용 Azure Storage 클라이언트 라이브러리][download] 의 클래스를 참조 하는 것입니다. 애플리케이션을 만드는 데는 메모장을 포함한 어떠한 개발 도구도 사용할 수 있습니다.
 
-이 가이드에서는 PHP 응용 프로그램 내에서 로컬로 또는 Azure 웹 역할, 작업자 역할 또는 웹 사이트 내에서 실행되는 코드에서 호출할 수 있는 Queue Storage 서비스 기능을 사용합니다.
+이 가이드에서는 PHP 애플리케이션 내에서 로컬로 또는 Azure 웹 역할, 작업자 역할 또는 웹 사이트 내에서 실행되는 코드에서 호출할 수 있는 Queue Storage 서비스 기능을 사용합니다.
 
 ## <a name="get-the-azure-client-libraries"></a>Azure 클라이언트 라이브러리 가져오기
 ### <a name="install-via-composer"></a>작성기를 통해 설치
@@ -52,7 +52,7 @@ Azure Queue storage에 액세스 하는 PHP 응용 프로그램을 만들기 위
 
 또는 GitHub의 [AZURE STORAGE PHP 클라이언트 라이브러리로][download] 이동 하 여 소스 코드를 복제 합니다.
 
-## <a name="configure-your-application-to-access-queue-storage"></a>Queue Storage에 액세스하도록 응용 프로그램 구성
+## <a name="configure-your-application-to-access-queue-storage"></a>Queue Storage에 액세스하도록 애플리케이션 구성
 Azure Queue Storage에 대한 API를 사용하려면 다음을 수행해야 합니다.
 
 1. [require_once] 문을 사용하여 자동 로더 파일을 참조합니다.
@@ -67,7 +67,7 @@ use MicrosoftAzure\Storage\Queue\QueueRestProxy;
 
 다음 예제에서 `require_once` 문은 항상 표시되지만 예제를 실행하는 데 필요한 클래스만 참조됩니다.
 
-## <a name="set-up-an-azure-storage-connection"></a>Azure 저장소 연결 설정
+## <a name="set-up-an-azure-storage-connection"></a>Azure Storage 연결 설정
 Azure Queue Storage 클라이언트를 인스턴스화하려면 먼저 유효한 연결 문자열이 있어야 합니다. 큐 저장소 연결 문자열 형식은 다음과 같습니다.
 
 Live 서비스에 액세스하는 경우:
@@ -76,7 +76,7 @@ Live 서비스에 액세스하는 경우:
 DefaultEndpointsProtocol=[http|https];AccountName=[yourAccount];AccountKey=[yourKey]
 ```
 
-에뮬레이터 저장소에 액세스하는 경우:
+에뮬레이터 스토리지에 액세스하는 경우:
 
 ```php
 UseDevelopmentStorage=true

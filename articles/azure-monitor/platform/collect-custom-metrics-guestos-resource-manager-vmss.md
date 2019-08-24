@@ -57,7 +57,7 @@ Azure Diagnostics 확장은 **데이터 싱크**라는 기능을 사용하여 �
 ###  <a name="modify-azuredeployjson"></a>Azuredeploy.json을 수정합니다.
 **azuredeploy.json** 파일을 엽니다. 
 
-Resource Manager 템플릿에서 저장소 계정 정보를 보유하는 변수를 추가합니다. 진단 구성 파일에 지정된 모든 로그 또는 성능 카운터는 Azure Monitor 메트릭 저장소와 여기서 지정한 저장소 계정 둘 다에 기록됩니다. 
+Resource Manager 템플릿에서 스토리지 계정 정보를 보유하는 변수를 추가합니다. 진단 구성 파일에 지정된 모든 로그 또는 성능 카운터는 Azure Monitor 메트릭 스토리지와 여기서 지정한 스토리지 계정 둘 다에 기록됩니다. 
 
 ```json
 "variables": { 
@@ -197,7 +197,7 @@ Resource Manager 템플릿에서 저장소 계정 정보를 보유하는 변수�
 ```
 
 
-저장소 계정에 대한 **dependsOn**을 추가하여 올바른 순서로 생성되도록 합니다. 
+스토리지 계정에 대한 **dependsOn**을 추가하여 올바른 순서로 생성되도록 합니다. 
 
 ```json
 "dependsOn": [ 
@@ -207,7 +207,7 @@ Resource Manager 템플릿에서 저장소 계정 정보를 보유하는 변수�
 "[concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]" 
 ```
 
-템플릿에서 저장소 계정을 아직 만들지 않은 경우 만듭니다. 
+템플릿에서 스토리지 계정을 아직 만들지 않은 경우 만듭니다. 
 
 ```json
 "resources": [

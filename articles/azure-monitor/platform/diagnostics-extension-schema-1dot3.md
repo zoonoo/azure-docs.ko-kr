@@ -404,7 +404,7 @@ PublicConfig와 PrivateConfig는 구분되는데, 대부분의 json 사용 사�
  다음 태그는 대략 앞의 예제에 표시된 순서를 따릅니다.  필요한 위치에 전체 설명이 표시되지 않으면 요소 또는 특성에 대한 페이지를 검색합니다.  
 
 ## <a name="common-attribute-types"></a>일반 특성 유형  
- **scheduledTransferPeriod** 특성이 몇 가지 요소에 나타납니다. 저장소에 예약된 전송 사이의 간격은 가장 가까운 시간(분)으로 반올림됩니다. 값은 [XML "기간 데이터 형식"](https://www.w3schools.com/xml/schema_dtypes_date.asp)입니다.
+ **scheduledTransferPeriod** 특성이 몇 가지 요소에 나타납니다. 스토리지에 예약된 전송 사이의 간격은 가장 가까운 시간(분)으로 반올림됩니다. 값은 [XML "기간 데이터 형식"](https://www.w3schools.com/xml/schema_dtypes_date.asp)입니다.
 
 
 ## <a name="diagnosticsconfiguration-element"></a>DiagnosticsConfiguration 요소  
@@ -459,7 +459,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |자식 요소|설명|  
 |--------------------|-----------------|  
 |**CrashDumps**|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
-|**DiagnosticInfrastructureLogs**|Azure Diagnostics에 의해 생성된 로그의 컬렉션을 사용하도록 설정합니다. 진단 인프라 로그는 진단 시스템 자체의 문제 해결에 유용합니다. 선택적 특성은 다음과 같습니다.<br /><br /> - **scheduledTransferLogLevelFilter** - 수집된 로그의 최소 심각도 수준을 구성합니다.<br /><br /> - **scheduledTransferPeriod** - 저장소에 예약된 전송 사이의 간격으로 가장 가까운 시간(분)으로 반올림됩니다. 값은 [XML "기간 데이터 형식"](https://www.w3schools.com/xml/schema_dtypes_date.asp)입니다. |  
+|**DiagnosticInfrastructureLogs**|Azure Diagnostics에 의해 생성된 로그의 컬렉션을 사용하도록 설정합니다. 진단 인프라 로그는 진단 시스템 자체의 문제 해결에 유용합니다. 선택적 특성은 다음과 같습니다.<br /><br /> - **scheduledTransferLogLevelFilter** - 수집된 로그의 최소 심각도 수준을 구성합니다.<br /><br /> - **scheduledTransferPeriod** - 스토리지에 예약된 전송 사이의 간격으로 가장 가까운 시간(분)으로 반올림됩니다. 값은 [XML "기간 데이터 형식"](https://www.w3schools.com/xml/schema_dtypes_date.asp)입니다. |  
 |**Directories**|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
 |**EtwProviders**|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
 |**Metrics**(메트릭)|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
@@ -532,8 +532,8 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |자식 요소|설명|  
 |--------------------|-----------------|  
-|**EtwEventSourceProviderConfiguration**|[EventSource 클래스](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx)에서 생성된 이벤트 컬렉션을 구성합니다. 필수 특성:<br /><br /> **provider** - EventSource 이벤트의 클래스 이름입니다.<br /><br /> 선택적 특성은 다음과 같습니다.<br /><br /> - **scheduledTransferLogLevelFilter** - 저장소 계정으로 전송할 최소 심각도 수준입니다.<br /><br /> - **scheduledTransferPeriod** - 저장소에 예약된 전송 사이의 간격으로 가장 가까운 시간(분)으로 반올림됩니다. 값은 [XML "기간 데이터 형식"](https://www.w3schools.com/xml/schema_dtypes_date.asp)입니다. |  
-|**EtwManifestProviderConfiguration**|필수 특성:<br /><br /> **provider** - 이벤트 공급자의 GUID<br /><br /> 선택적 특성은 다음과 같습니다.<br /><br /> - **scheduledTransferLogLevelFilter** - 저장소 계정으로 전송할 최소 심각도 수준입니다.<br /><br /> - **scheduledTransferPeriod** - 저장소에 예약된 전송 사이의 간격으로 가장 가까운 시간(분)으로 반올림됩니다. 값은 [XML "기간 데이터 형식"](https://www.w3schools.com/xml/schema_dtypes_date.asp)입니다. |  
+|**EtwEventSourceProviderConfiguration**|[EventSource 클래스](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx)에서 생성된 이벤트 컬렉션을 구성합니다. 필수 특성:<br /><br /> **provider** - EventSource 이벤트의 클래스 이름입니다.<br /><br /> 선택적 특성은 다음과 같습니다.<br /><br /> - **scheduledTransferLogLevelFilter** - 스토리지 계정으로 전송할 최소 심각도 수준입니다.<br /><br /> - **scheduledTransferPeriod** - 스토리지에 예약된 전송 사이의 간격으로 가장 가까운 시간(분)으로 반올림됩니다. 값은 [XML "기간 데이터 형식"](https://www.w3schools.com/xml/schema_dtypes_date.asp)입니다. |  
+|**EtwManifestProviderConfiguration**|필수 특성:<br /><br /> **provider** - 이벤트 공급자의 GUID<br /><br /> 선택적 특성은 다음과 같습니다.<br /><br /> - **scheduledTransferLogLevelFilter** - 스토리지 계정으로 전송할 최소 심각도 수준입니다.<br /><br /> - **scheduledTransferPeriod** - 스토리지에 예약된 전송 사이의 간격으로 가장 가까운 시간(분)으로 반올림됩니다. 값은 [XML "기간 데이터 형식"](https://www.w3schools.com/xml/schema_dtypes_date.asp)입니다. |  
 
 
 
@@ -568,7 +568,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |자식 요소|Description|  
 |--------------------|-----------------|  
-|**MetricAggregation**|필수 특성:<br /><br /> **scheduledTransferPeriod** - 저장소에 예약된 전송 사이의 간격으로 가장 가까운 시간(분)으로 반올림됩니다. 값은 [XML "기간 데이터 형식"](https://www.w3schools.com/xml/schema_dtypes_date.asp)입니다. |  
+|**MetricAggregation**|필수 특성:<br /><br /> **scheduledTransferPeriod** - 스토리지에 예약된 전송 사이의 간격으로 가장 가까운 시간(분)으로 반올림됩니다. 값은 [XML "기간 데이터 형식"](https://www.w3schools.com/xml/schema_dtypes_date.asp)입니다. |  
 
 
 
@@ -612,7 +612,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |특성|형식|설명|  
 |---------------|----------|-----------------|  
-|**bufferQuotaInMB**|**unsignedInt**|선택 사항입니다. 지정된 데이터에 사용할 수 있는 파일 시스템 저장소의 최대 크기를 지정합니다.<br /><br /> 기본값은 0입니다.|  
+|**bufferQuotaInMB**|**unsignedInt**|선택 사항입니다. 지정된 데이터에 사용할 수 있는 파일 시스템 스토리지의 최대 크기를 지정합니다.<br /><br /> 기본값은 0입니다.|  
 |**scheduledTransferLogLevelFilter**|**string**|선택 사항입니다. 전송되는 로그 항목에 대한 최소 심각도 수준을 지정합니다. 기본값은 **Undefined**로, 모든 로그를 전송합니다. 정보가 적은 순서대로 사용 가능한 다른 값을 나열하면 다음과 같습니다. **자세한 정보**, **정보**, **경고**, **오류**, **중요**|  
 |**scheduledTransferPeriod**|**duration**|선택 사항입니다. 예약된 데이터 전송 사이의 간격(가장 가까운 시간(분)으로 반올림)을 지정합니다.<br /><br /> 기본값은 PT0S입니다.|  
 |**sinks** |**string**| 1\.5에 추가되었습니다. 선택 사항입니다. 또한 진단 데이터를 보내는 싱크 위치를 가리킵니다. Application Insights 또는 Event Hubs를 예로 들 수 있습니다.|  
@@ -686,7 +686,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |자식 요소|설명|  
 |--------------------|-----------------|  
-|**StorageAccount**|사용할 저장소 계정입니다. 다음과 같은 특성이 필요<br /><br /> - **이름** - 저장소 계정의 이름입니다.<br /><br /> - **키** - 저장소 계정의 키입니다.<br /><br /> - **엔드포인트** - 저장소 계정에 액세스하는 엔드포인트입니다. <br /><br /> -**sasToken**(1.8.1에 추가됨) - 프라이빗 구성에서 스토리지 계정 키 대신 SAS 토큰을 지정할 수 있습니다. 제공된 경우 저장소 계정 키가 무시됩니다. <br />SAS 토큰에 대한 요구 사항: <br />- 계정 SAS 토큰만 지원합니다. <br />- *b*, *t* 서비스 형식이 필요합니다. <br /> - *a*, *c*, *u*, *w* 권한이 필요합니다. <br /> - *c*, *o* 리소스 형식이 필요합니다. <br /> - HTTPS 프로토콜만 지원합니다. <br /> - 시작 및 만료 시간이 유효해야 합니다.|  
+|**StorageAccount**|사용할 스토리지 계정입니다. 다음과 같은 특성이 필요<br /><br /> - **이름** - 스토리지 계정의 이름입니다.<br /><br /> - **키** - 스토리지 계정의 키입니다.<br /><br /> - **엔드포인트** - 스토리지 계정에 액세스하는 엔드포인트입니다. <br /><br /> -**sasToken**(1.8.1에 추가됨) - 프라이빗 구성에서 스토리지 계정 키 대신 SAS 토큰을 지정할 수 있습니다. 제공된 경우 스토리지 계정 키가 무시됩니다. <br />SAS 토큰에 대한 요구 사항: <br />- 계정 SAS 토큰만 지원합니다. <br />- *b*, *t* 서비스 형식이 필요합니다. <br /> - *a*, *c*, *u*, *w* 권한이 필요합니다. <br /> - *c*, *o* 리소스 형식이 필요합니다. <br /> - HTTPS 프로토콜만 지원합니다. <br /> - 시작 및 만료 시간이 유효해야 합니다.|  
 
 
 ## <a name="isenabled-element"></a>IsEnabled 요소  

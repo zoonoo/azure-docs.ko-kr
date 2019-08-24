@@ -74,7 +74,7 @@ ms.locfileid: "61478473"
 ### <a name="azure-importexport-tool-syntax-for-an-import-job"></a>가져오기 작업을 위한 Azure Import/Export 도구 구문
  가져오기 작업을 위해 드라이브를 준비하려면 **PrepImport** 명령을 사용하여 Azure Import/Export 도구를 호출합니다. 포함할 매개 변수는 첫 번째 복사 세션인지 또는 후속 복사 세션인지의 여부에 따라 다릅니다.
 
- 드라이브의 첫 번째 복사 세션에는 저장소 계정 키, 대상 드라이브 문자, 드라이브 포맷 여부, 드라이브 암호화 여부 및 암호화하는 경우 사용할 BitLocker 키 및 로그 디렉터리를 지정하는 몇 가지 추가 매개 변수가 필요합니다. 다음은 디렉터리 또는 단일 파일을 복사하기 위한 초기 복사 세션의 구문입니다.
+ 드라이브의 첫 번째 복사 세션에는 스토리지 계정 키, 대상 드라이브 문자, 드라이브 포맷 여부, 드라이브 암호화 여부 및 암호화하는 경우 사용할 BitLocker 키 및 로그 디렉터리를 지정하는 몇 가지 추가 매개 변수가 필요합니다. 다음은 디렉터리 또는 단일 파일을 복사하기 위한 초기 복사 세션의 구문입니다.
 
  **단일 디렉터리를 복사하는 첫 번째 복사 세션**
 
@@ -104,8 +104,8 @@ ms.locfileid: "61478473"
 
 |명령줄 매개 변수|설명|
 |-----------------------------|-----------------|
-|**/sk:** <StorageAccountKey\>|`Optional.` 데이터를 가져올 저장소 계정의 저장소 계정 키입니다. 명령에 **/sk:** <StorageAccountKey\> 또는 **/csas:** <ContainerSas\> 중 하나를 포함해야 합니다.|
-|**/csas:** <ContainerSas\>|`Optional`. 저장소 계정에 데이터를 가져오는 데 사용할 컨테이너 SAS입니다. 명령에 **/sk:** <StorageAccountKey\> 또는 **/csas:** <ContainerSas\> 중 하나를 포함해야 합니다.<br /><br /> 이 매개 변수의 값은 컨테이너 이름, 물음표(?) 및 SAS 토큰으로 시작해야 합니다. 예를 들면 다음과 같습니다.<br /><br /> `mycontainer?sv=2014-02-14&sr=c&si=abcde&sig=LiqEmV%2Fs1LF4loC%2FJs9ZM91%2FkqfqHKhnz0JM6bqIqN0%3D&se=2014-11-20T23%3A54%3A14Z&sp=rwdl`<br /><br /> URL 또는 저장된 액세스 정책에 지정되어 있는지 여부에 관계없이 권한은 가져오기 작업의 경우 읽기(Read), 쓰기(Write) 및 삭제(Delete), 내보내기 작업의 경우 읽기, 쓰기 및 목록 작성(List)을 포함해야 합니다.<br /><br /> 이 매개 변수를 지정하면 가져오거나 내보낼 모든 Blob은 공유 액세스 서명에 지정된 컨테이너 내에 있어야 합니다.|
+|**/sk:** <StorageAccountKey\>|`Optional.` 데이터를 가져올 스토리지 계정의 스토리지 계정 키입니다. 명령에 **/sk:** <StorageAccountKey\> 또는 **/csas:** <ContainerSas\> 중 하나를 포함해야 합니다.|
+|**/csas:** <ContainerSas\>|`Optional`. 스토리지 계정에 데이터를 가져오는 데 사용할 컨테이너 SAS입니다. 명령에 **/sk:** <StorageAccountKey\> 또는 **/csas:** <ContainerSas\> 중 하나를 포함해야 합니다.<br /><br /> 이 매개 변수의 값은 컨테이너 이름, 물음표(?) 및 SAS 토큰으로 시작해야 합니다. 예를 들면 다음과 같습니다.<br /><br /> `mycontainer?sv=2014-02-14&sr=c&si=abcde&sig=LiqEmV%2Fs1LF4loC%2FJs9ZM91%2FkqfqHKhnz0JM6bqIqN0%3D&se=2014-11-20T23%3A54%3A14Z&sp=rwdl`<br /><br /> URL 또는 저장된 액세스 정책에 지정되어 있는지 여부에 관계없이 권한은 가져오기 작업의 경우 읽기(Read), 쓰기(Write) 및 삭제(Delete), 내보내기 작업의 경우 읽기, 쓰기 및 목록 작성(List)을 포함해야 합니다.<br /><br /> 이 매개 변수를 지정하면 가져오거나 내보낼 모든 Blob은 공유 액세스 서명에 지정된 컨테이너 내에 있어야 합니다.|
 |**/t:** <TargetDriveLetter\>|`Required.` 현재 복사 세션의 대상 하드 드라이브 문자입니다(후행 콜론 없음).|
 |**/format**|`Optional.` 드라이브를 포맷해야 하는 경우 이 매개 변수를 지정합니다. 그렇지 않으면 생략합니다. 이 도구는 드라이브를 포맷하기 전에 콘솔에서 확인 메시지를 표시합니다. 확인을 하지 않으려면 /silentmode 매개 변수를 지정합니다.|
 |**/silentmode**|`Optional.` 대상 드라이브에 대 한 확인 하지 않으려면이 매개 변수를 지정 합니다.|
@@ -128,7 +128,7 @@ ms.locfileid: "61478473"
 |명령줄 매개 변수|설명|
 |----------------------------|-----------------|
 |**/srcdir:** <SourceDirectory\>|`Required.` 대상 드라이브에 복사할 파일이 들어 있는 원본 디렉터리입니다. 디렉터리 경로는 절대 경로(상대 경로 아님)이어야 합니다.|
-|**/dstdir:** <DestinationBlobVirtualDirectory\>|`Required.` Microsoft Azure 저장소 계정의 대상 가상 디렉터리에 대한 경로입니다. 가상 디렉터리가 이미 있거나 없을 수도 있습니다.<br /><br /> `music/70s/`와 같이 컨테이너 또는 Blob 접두사를 지정할 수 있습니다. 대상 디렉터리는 컨테이너 이름과 "/"(슬래시)로 시작해야 하며 선택적으로 "/"로 끝나는 가상 Blob 디렉터리를 포함할 수도 있습니다.<br /><br /> 대상 컨테이너가 루트 컨테이너인 경우 슬래시를 포함하여 `$root/`로 루트 컨테이너를 명시적으로 지정해야 합니다. 루트 컨테이너 아래의 Blob에는 이름에 "/"를 포함할 수 없으므로 대상 디렉터리가 루트 컨테이너인 경우 원본 디렉터리의 모든 하위 디렉터리는 복사되지 않습니다.<br /><br /> 대상 가상 디렉터리 또는 BLOB를 지정할 때는 유효한 컨테이너 이름을 사용해야 합니다. 컨테이너 이름은 소문자여야 합니다. 컨테이너 명명 규칙에 대해서는 [컨테이너, Blob, 메타데이터의 명명 및 참조](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)(영문)를 참조하세요.|
+|**/dstdir:** <DestinationBlobVirtualDirectory\>|`Required.` Microsoft Azure Storage 계정의 대상 가상 디렉터리에 대한 경로입니다. 가상 디렉터리가 이미 있거나 없을 수도 있습니다.<br /><br /> `music/70s/`와 같이 컨테이너 또는 Blob 접두사를 지정할 수 있습니다. 대상 디렉터리는 컨테이너 이름과 "/"(슬래시)로 시작해야 하며 선택적으로 "/"로 끝나는 가상 Blob 디렉터리를 포함할 수도 있습니다.<br /><br /> 대상 컨테이너가 루트 컨테이너인 경우 슬래시를 포함하여 `$root/`로 루트 컨테이너를 명시적으로 지정해야 합니다. 루트 컨테이너 아래의 Blob에는 이름에 "/"를 포함할 수 없으므로 대상 디렉터리가 루트 컨테이너인 경우 원본 디렉터리의 모든 하위 디렉터리는 복사되지 않습니다.<br /><br /> 대상 가상 디렉터리 또는 BLOB를 지정할 때는 유효한 컨테이너 이름을 사용해야 합니다. 컨테이너 이름은 소문자여야 합니다. 컨테이너 명명 규칙에 대해서는 [컨테이너, Blob, 메타데이터의 명명 및 참조](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)(영문)를 참조하세요.|
 |**/Disposition:** <rename&#124;no-overwrite&#124;overwrite>|`Optional.` 지정된 주소의 Blob이 이미 있는 경우 동작을 지정합니다. 이 매개 변수의 유효한 값은 `rename`, `no-overwrite` 및 `overwrite`입니다. 이러한 값은 대/소문자를 구분합니다. 값을 지정하지 않을 경우 기본값은 `rename`입니다.<br /><br /> 이 매개 변수에 지정된 값은 `/srcdir` 매개 변수로 지정된 디렉터리의 모든 파일에 영향을 줍니다.|
 |**/BlobType:** <BlockBlob&#124;PageBlob>|`Optional.` 대상 Blob의 Blob 유형을 지정합니다. 유효한 값은 `BlockBlob` 및 `PageBlob`입니다. 이러한 값은 대/소문자를 구분합니다. 값을 지정하지 않을 경우 기본값은 `BlockBlob`입니다.<br /><br /> 대부분의 경우 `BlockBlob`이 권장됩니다. `PageBlob`을 지정하면 디렉터리에 있는 각 파일의 길이는 페이지 Blob의 페이지 크기인 512의 배수여야 합니다.|
 |**/PropertyFile:** <PropertyFile\>|`Optional.` 대상 Blob에 대한 속성 파일의 경로입니다. 자세한 내용은 [Import/Export 서비스의 메타데이터 및 속성 파일 형식](../storage-import-export-file-format-metadata-and-properties.md)을 참조하세요.|
@@ -140,7 +140,7 @@ ms.locfileid: "61478473"
 |명령줄 매개 변수|설명|
 |----------------------------|-----------------|
 |**/srcfile:** <SourceFile\>|`Required.` 복사할 파일의 전체 경로입니다. 디렉터리 경로는 절대 경로(상대 경로 아님)이어야 합니다.|
-|**/dstblob:** <DestinationBlobPath\>|`Required.` Microsoft Azure 저장소 계정의 대상 Blob에 대한 경로입니다. Blob이 이미 있거나 없을 수도 있습니다.<br /><br /> 컨테이너 이름으로 시작하는 Blob 이름을 지정합니다. Blob 이름은 "/" 또는 저장소 계정 이름으로 시작할 수 없습니다. Blob 명명 규칙에 대해서는 [컨테이너, Blob, 메타데이터의 명명 및 참조](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)(영문)를 참조하세요.<br /><br /> 대상 컨테이너가 루트 컨테이너인 경우 `$root/sample.txt`와 같이 `$root`를 컨테이너로 명시적으로 지정해야 합니다. 루트 컨테이너 아래의 Blob은 이름에 "/"를 포함할 수 없습니다.|
+|**/dstblob:** <DestinationBlobPath\>|`Required.` Microsoft Azure Storage 계정의 대상 Blob에 대한 경로입니다. Blob이 이미 있거나 없을 수도 있습니다.<br /><br /> 컨테이너 이름으로 시작하는 Blob 이름을 지정합니다. Blob 이름은 "/" 또는 저장소 계정 이름으로 시작할 수 없습니다. Blob 명명 규칙에 대해서는 [컨테이너, Blob, 메타데이터의 명명 및 참조](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)(영문)를 참조하세요.<br /><br /> 대상 컨테이너가 루트 컨테이너인 경우 `$root/sample.txt`와 같이 `$root`를 컨테이너로 명시적으로 지정해야 합니다. 루트 컨테이너 아래의 Blob은 이름에 "/"를 포함할 수 없습니다.|
 |**/Disposition:** <rename&#124;no-overwrite&#124;overwrite>|`Optional.` 지정된 주소의 Blob이 이미 있는 경우 동작을 지정합니다. 이 매개 변수의 유효한 값은 `rename`, `no-overwrite` 및 `overwrite`입니다. 이러한 값은 대/소문자를 구분합니다. 값을 지정하지 않을 경우 기본값은 `rename`입니다.|
 |**/BlobType:** <BlockBlob&#124;PageBlob>|`Optional.` 대상 Blob의 Blob 유형을 지정합니다. 유효한 값은 `BlockBlob` 및 `PageBlob`입니다. 이러한 값은 대/소문자를 구분합니다. 값을 지정하지 않을 경우 기본값은 `BlockBlob`입니다.<br /><br /> 대부분의 경우 `BlockBlob`이 권장됩니다. `PageBlob`을 지정하면 디렉터리에 있는 각 파일의 길이는 페이지 Blob의 페이지 크기인 512의 배수여야 합니다.|
 |**/PropertyFile:** <PropertyFile\>|`Optional.` 대상 Blob에 대한 속성 파일의 경로입니다. 자세한 내용은 [Import/Export 서비스의 메타데이터 및 속성 파일 형식](../storage-import-export-file-format-metadata-and-properties.md)을 참조하세요.|

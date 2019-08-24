@@ -27,7 +27,7 @@ U-SQL 스크립트를 개발하는 경우 스크립트를 로컬로 실행하여
 
 |구성 요소|로컬 실행|클라우드 실행|
 |---------|---------|---------|
-|Storage|로컬 데이터 루트 폴더|기본 Azure Data Lake Store 계정|
+|스토리지|로컬 데이터 루트 폴더|기본 Azure Data Lake Store 계정|
 |컴퓨팅|U-SQL 로컬 실행 엔진|Azure Data Lake Analytics 서비스|
 |실행 환경|로컬 컴퓨터의 작업 디렉터리|Azure Data Lake Analytics 클러스터|
 

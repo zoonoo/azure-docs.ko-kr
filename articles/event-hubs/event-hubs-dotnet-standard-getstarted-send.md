@@ -23,7 +23,7 @@ ms.lasthandoff: 08/02/2019
 ms.locfileid: "68742164"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-core"></a>.NET Core를 사용 하 여 Azure Event Hubs에서 이벤트 전송 또는 수신
-Event Hubs는 연결된 장치 및 애플리케이션에서 많은 양의 이벤트 데이터(원격 분석)를 처리하는 서비스입니다. Event Hubs에 데이터를 수집한 후 저장소 클러스터를 사용하여 데이터를 저장하거나 실시간 분석 공급자를 사용하여 변환할 수 있습니다. 이 대규모 이벤트 수집 및 처리 기능은 IoT(사물 인터넷)를 포함하여 최신 애플리케이션 아키텍처의 핵심 구성 요소입니다. Event Hubs에 대한 자세한 개요는 [Event Hubs 개요](event-hubs-about.md) 및 [Event Hubs 기능](event-hubs-features.md)을 참조하세요.
+Event Hubs는 연결된 디바이스 및 애플리케이션에서 많은 양의 이벤트 데이터(원격 분석)를 처리하는 서비스입니다. Event Hubs에 데이터를 수집한 후 스토리지 클러스터를 사용하여 데이터를 저장하거나 실시간 분석 공급자를 사용하여 변환할 수 있습니다. 이 대규모 이벤트 수집 및 처리 기능은 IoT(사물 인터넷)를 포함하여 최신 애플리케이션 아키텍처의 핵심 구성 요소입니다. Event Hubs에 대한 자세한 개요는 [Event Hubs 개요](event-hubs-about.md) 및 [Event Hubs 기능](event-hubs-features.md)을 참조하세요.
 
 이 자습서에서는에서 C# .net Core 응용 프로그램을 만들어 이벤트 허브에서 이벤트를 보내거나 이벤트를 수신 하는 방법을 보여 줍니다. 
 
@@ -273,7 +273,7 @@ Visual Studio를 시작합니다. **파일** 메뉴에서 **새로 만들기**�
     using System.Threading.Tasks;
     ```
 
-2. 이벤트 허브 연결 문자열, 이벤트 허브 이름, 저장소 계정 컨테이너 이름, 저장소 계정 이름, 저장소 계정 키의 `Program` 클래스에 상수를 추가합니다. 자리 표시자를 해당 값으로 바꾸어 다음 코드를 추가합니다.
+2. 이벤트 허브 연결 문자열, 이벤트 허브 이름, 스토리지 계정 컨테이너 이름, 스토리지 계정 이름, 스토리지 계정 키의 `Program` 클래스에 상수를 추가합니다. 자리 표시자를 해당 값으로 바꾸어 다음 코드를 추가합니다.
 
     ```csharp
     private const string EventHubConnectionString = "{Event Hubs connection string}";

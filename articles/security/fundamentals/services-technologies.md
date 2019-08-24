@@ -40,16 +40,16 @@ ms.locfileid: "68726552"
 
 <!---|[Azure&nbsp;Disk&nbsp;Encryption](/azure/azure-security-disk-encryption-overview)| THIS WILL GO TO THE NEW OVERVIEW TOPIC MEGHAN STEWART IS WRITING|--->
 
-## <a name="storage-security"></a>저장소 보안
+## <a name="storage-security"></a>스토리지 보안
 |서비스|설명|
 |------|--------|
 | [Azure&nbsp;Storage&nbsp;서비스&nbsp;암호화](/azure/storage/common/storage-service-encryption)|Azure Storage의 데이터를 자동으로 암호화하는 보안 기능입니다.   |
-|[StorSimple 암호화된 하이브리드 저장소](/azure/storsimple/storsimple-ova-overview)| 온-프레미스 디바이스 및 Azure 클라우드 저장소 간의 저장소 태스크를 관리하는 통합된 저장소 솔루션입니다.|
+|[StorSimple 암호화된 하이브리드 스토리지](/azure/storsimple/storsimple-ova-overview)| 온-프레미스 디바이스 및 Azure 클라우드 스토리지 간의 스토리지 태스크를 관리하는 통합된 스토리지 솔루션입니다.|
 |[Azure 클라이언트 쪽 암호화](/azure/storage/common/storage-client-side-encryption)| Azure Storage에 업로드하기 전에 클라이언트 애플리케이션 내의 데이터를 암호화하고, 다운로드하는 동안 데이터를 해독하는 클라이언트 쪽 암호화 솔루션입니다. |
-| [Azure Storage 공유 액세스 서명](/azure/storage/common/storage-dotnet-shared-access-signature-part-1)|공유 액세스 서명은 저장소 계정의 리소스에 대한 위임된 권한을 제공합니다.  |
+| [Azure Storage 공유 액세스 서명](/azure/storage/common/storage-dotnet-shared-access-signature-part-1)|공유 액세스 서명은 스토리지 계정의 리소스에 대한 위임된 권한을 제공합니다.  |
 |[Azure Storage 계정 키](/azure/storage/common/storage-create-storage-account)| 스토리지 계정에 액세스할 때 인증에 사용되는 Azure Storage에 대한 액세스 제어 방법입니다. |
 |[SMB 3.0 암호화를 사용한 Azure 파일 공유](/azure/storage/files/storage-files-introduction)|SMB(서버 메시지 블록) 파일 공유 프로토콜에 자동 네트워크 암호화를 사용하는 네트워크 보안 기술입니다. |
-|[Azure Storage 분석](/rest/api/storageservices/Storage-Analytics)| 저장소 계정의 데이터에 대한 로깅 및 메트릭 생성 기술입니다. |
+|[Azure Storage 분석](/rest/api/storageservices/Storage-Analytics)| 스토리지 계정의 데이터에 대한 로깅 및 메트릭 생성 기술입니다. |
 
 <!------>
 
@@ -60,7 +60,7 @@ ms.locfileid: "68726552"
 |[Azure&nbsp;SQL&nbsp;셀&nbsp;수준 암호화](https://blogs.msdn.microsoft.com/sqlsecurity/2015/05/12/recommendations-for-using-cell-level-encryption-in-azure-sql-database/)| 세부적인 수준에서 암호화를 제공하는 데이터베이스 보안 기술입니다.  |
 | [Azure&nbsp;SQL&nbsp;연결 암호화](/azure/sql-database/sql-database-control-access)|SQL Database는 보안을 제공하기 위해 IP 주소로 연결을 제한하는 방화벽 규칙, 사용자가 해당 ID를 증명하도록 하는 인증 메커니즘 및 특정 작업 및 데이터에 대한 사용자를 제한하는 권한 부여 메커니즘을 사용하여 액세스를 제어합니다. |
 | [Azure SQL 항상 암호화](/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017)|Azure SQL Database 또는 SQL Server 데이터베이스에 저장된 신용 카드 번호 또는 주민 등록 번호(예: 미국 사회 보장 번호)와 같은 중요한 데이터를 보호합니다.  |
-| [Azure&nbsp;SQL&nbsp;투명한 데이터 암호화](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?view=azuresqldb-current)| 전체 데이터베이스의 저장소를 암호화하는 데이터베이스 보안 기능입니다. |
+| [Azure&nbsp;SQL&nbsp;투명한 데이터 암호화](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?view=azuresqldb-current)| 전체 데이터베이스의 스토리지를 암호화하는 데이터베이스 보안 기능입니다. |
 | [Azure SQL Database 감사](/azure/sql-database/sql-database-auditing)|데이터베이스 이벤트를 추적하고 이를 Azure Storage 계정의 감사 로그에 기록하는 데이터베이스 감사 기능입니다.  |
 
 

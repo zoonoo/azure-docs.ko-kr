@@ -155,9 +155,9 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 | BytesSent |바이트 |
 
 ## <a name="commonly-used-storage-metrics"></a>일반적으로 사용되는 Storage 메트릭
-저장소 큐의 메시지 수인 저장소 큐 길이의 크기를 조정할 수 있습니다. 저장소 큐 길이는 특수한 메트릭이고 임계값은 인스턴스당 메시지 수입니다. 예를 들어 인스턴스가 두 개이고 임계값이 100으로 설정된 경우 큐에서 총 메시지 수가 200일 때 크기가 조정됨을 의미합니다. 인스턴스당 메시지는 100개, 120개 및 80개, 또는 최대 200개 이상을 추가하는 임의의 기타 조합이 될 수 있습니다.
+스토리지 큐의 메시지 수인 스토리지 큐 길이의 크기를 조정할 수 있습니다. 스토리지 큐 길이는 특수한 메트릭이고 임계값은 인스턴스당 메시지 수입니다. 예를 들어 인스턴스가 두 개이고 임계값이 100으로 설정된 경우 큐에서 총 메시지 수가 200일 때 크기가 조정됨을 의미합니다. 인스턴스당 메시지는 100개, 120개 및 80개, 또는 최대 200개 이상을 추가하는 임의의 기타 조합이 될 수 있습니다.
 
-Azure Portal의 **설정** 블레이드에서 이 설정을 구성합니다. VM Scale Sets의 경우 *metricName*을 *ApproximateMessageCount*로 사용하고 저장소 큐 ID를 *metricResourceUri*로 전달하도록 Resource Manager 템플릿에서 자동 크기 조정 설정을 업데이트할 수 있습니다.
+Azure Portal의 **설정** 블레이드에서 이 설정을 구성합니다. VM Scale Sets의 경우 *metricName*을 *ApproximateMessageCount*로 사용하고 스토리지 큐 ID를 *metricResourceUri*로 전달하도록 Resource Manager 템플릿에서 자동 크기 조정 설정을 업데이트할 수 있습니다.
 
 예를 들어 클래식 Storage 계정을 사용하면 자동 크기 조정 설정 metricTrigger는 다음을 포함합니다.
 
@@ -167,7 +167,7 @@ Azure Portal의 **설정** 블레이드에서 이 설정을 구성합니다. VM 
  "metricResourceUri": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RES_GROUP_NAME/providers/Microsoft.ClassicStorage/storageAccounts/STORAGE_ACCOUNT_NAME/services/queue/queues/QUEUE_NAME"
  ```
 
-(클래식이 아닌) 저장소 계정의 경우 metricTrigger는 다음을 포함합니다.
+(클래식이 아닌) 스토리지 계정의 경우 metricTrigger는 다음을 포함합니다.
 
 ```
 "metricName": "ApproximateMessageCount",
@@ -178,7 +178,7 @@ Azure Portal의 **설정** 블레이드에서 이 설정을 구성합니다. VM 
 ## <a name="commonly-used-service-bus-metrics"></a>자주 사용되는 Service Bus 메트릭
 Service Bus 큐의 메시지 수인 Service Bus 큐 길이의 크기를 조정할 수 있습니다. Service Bus 큐 길이는 특수한 메트릭이고 임계값은 인스턴스당 메시지 수입니다. 예를 들어 인스턴스가 두 개이고 임계값이 100으로 설정된 경우 큐에서 총 메시지 수가 200일 때 크기가 조정됨을 의미합니다. 인스턴스당 메시지는 100개, 120개 및 80개, 또는 최대 200개 이상을 추가하는 임의의 기타 조합이 될 수 있습니다.
 
-VM Scale Sets의 경우 *metricName*을 *ApproximateMessageCount*로 사용하고 저장소 큐 ID를 *metricResourceUri*로 전달하도록 Resource Manager 템플릿에서 자동 크기 조정 설정을 업데이트할 수 있습니다.
+VM Scale Sets의 경우 *metricName*을 *ApproximateMessageCount*로 사용하고 스토리지 큐 ID를 *metricResourceUri*로 전달하도록 Resource Manager 템플릿에서 자동 크기 조정 설정을 업데이트할 수 있습니다.
 
 ```
 "metricName": "MessageCount",

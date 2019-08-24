@@ -37,7 +37,7 @@ ms.locfileid: "66258941"
 
 ### <a name="marketplace-api-endpoint-and-api-version"></a>Marketplace API 엔드포인트 및 API 버전
 
-Azure Marketplace API의 끝점은 `https://marketplaceapi.microsoft.com`입니다.
+Azure Marketplace API의 엔드포인트은 `https://marketplaceapi.microsoft.com`입니다.
 
 현재 API 버전은 `api-version=2017-04-15`입니다.
 

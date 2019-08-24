@@ -45,8 +45,8 @@ SAS URL은 다음 도구를 사용하여 일반적인 두 가지 방법으로 �
    ```
     
 3. 파일을 편집하여 다음 매개 변수 값을 제공합니다.  날짜는 UTC 날짜/시간 형식(예: `10-25-2016T00:00:00Z`)으로 제공해야 합니다.
-   - `<account-name>` -Azure 저장소 계정 이름
-   - `<account-key>` - Azure 저장소 계정 키
+   - `<account-name>` -Azure Storage 계정 이름
+   - `<account-key>` - Azure Storage 계정 키
    - `<vhd-name>` - VHD 이름
    - `<start-date>` - VHD 액세스 권한의 시작 날짜입니다. 현재 날짜보다 하루 전의 날짜를 제공합니다. 
    - `<expiry-date>` - VHD 액세스 권한의 만료 날짜입니다.  현재 날짜보다 최소 3주 후의 날짜를 제공합니다. 
@@ -86,10 +86,10 @@ SAS URL은 다음 도구를 사용하여 일반적인 두 가지 방법으로 �
 
 다음 단계를 사용하여 따라 Microsoft Azure Storage Explorer를 통해 SAS URI를 생성합니다.
 
-1. [Microsoft Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)를 다운로드하고 설치합니다.
+1. [Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)를 다운로드하고 설치합니다.
 2. 탐색기를 열고, 왼쪽 메뉴 모음에서 **계정 추가** 아이콘을 클릭합니다.  **Azure Storage에 연결** 대화 상자가 표시됩니다.
 3. **Azure 계정 추가**를 선택하고 **로그인**을 클릭합니다.  Azure 계정에 로그인하는 데 필요한 단계를 계속 수행합니다.
-4. 왼쪽의 **탐색기** 창에서 **저장소 계정**으로 이동하고, 이 노드를 펼칩니다.
+4. 왼쪽의 **탐색기** 창에서 **스토리지 계정**으로 이동하고, 이 노드를 펼칩니다.
 5. VHD를 마우스 오른쪽 단추로 클릭하고, 상황에 맞는 메뉴에서 **공유 액세스 서명 가져오기**를 선택합니다. 
 
     ![Azure 탐색기에서 SAS 항목 가져오기](./media/publishvm_034.png)

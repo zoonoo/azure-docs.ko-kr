@@ -26,7 +26,7 @@ ms.locfileid: "64938709"
 
 |  **매개 변수**        |   **설명**                                 |
 |  -------------        |   ---------------                                 |
-| newStorageAccountName | 저장소 계정 이름                       |
+| newStorageAccountName | 스토리지 계정 이름                       |
 | dnsNameForPublicIP    | 공용 IP에 대한 DNS 이름입니다. 소문자여야 합니다.    |
 | adminUserName         | 관리자의 사용자 이름입니다.                          |
 | adminPassword         | 관리자 암호입니다.                          |

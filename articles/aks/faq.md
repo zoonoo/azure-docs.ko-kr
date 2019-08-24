@@ -62,7 +62,7 @@ Windows Server 노드(현재 AKS에서 프리뷰)에 대한 Windows Update는 �
 각 AKS 배포는 두 리소스 그룹에 걸쳐 있습니다.
 
 1. 첫 번째 리소스 그룹을 만듭니다. 이 그룹에는 Kubernetes service 리소스만 포함 됩니다. AKS 리소스 공급자는 배포 하는 동안 두 번째 리소스 그룹을 자동으로 만듭니다. 두 번째 리소스 그룹의 예는 *MC_myResourceGroup_myAKSCluster_eastus*입니다. 이 두 번째 리소스 그룹의 이름을 지정 하는 방법에 대 한 자세한 내용은 다음 섹션을 참조 하세요.
-1. *노드 리소스 그룹*이라고 하는 두 번째 리소스 그룹에는 클러스터와 연결 된 모든 인프라 리소스가 포함 되어 있습니다. 이러한 리소스에는 Kubernetes 노드 VM, 가상 네트워킹 및 저장소가 포함됩니다. 기본적으로 노드 리소스 그룹의 이름은 *MC_myResourceGroup_myAKSCluster_eastus*와 같습니다. AKS는 클러스터가 삭제 될 때마다 노드 리소스를 자동으로 삭제 하므로 클러스터의 수명 주기를 공유 하는 리소스에 대해서만 사용 해야 합니다.
+1. *노드 리소스 그룹*이라고 하는 두 번째 리소스 그룹에는 클러스터와 연결 된 모든 인프라 리소스가 포함 되어 있습니다. 이러한 리소스에는 Kubernetes 노드 VM, 가상 네트워킹 및 스토리지가 포함됩니다. 기본적으로 노드 리소스 그룹의 이름은 *MC_myResourceGroup_myAKSCluster_eastus*와 같습니다. AKS는 클러스터가 삭제 될 때마다 노드 리소스를 자동으로 삭제 하므로 클러스터의 수명 주기를 공유 하는 리소스에 대해서만 사용 해야 합니다.
 
 ## <a name="can-i-provide-my-own-name-for-the-aks-node-resource-group"></a>AKS node 리소스 그룹에 대 한 고유한 이름을 제공할 수 있나요?
 

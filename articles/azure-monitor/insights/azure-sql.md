@@ -37,7 +37,7 @@ Azure SQL Analytics는 단일, 풀링, Managed Instance 데이터베이스 등 A
 | 연결된 소스 | 지원됨 | 설명 |
 | --- | --- | --- |
 | [Azure 진단](../platform/collect-azure-metrics-logs.md) | **예** | Azure 메트릭 및 로그 데이터는 Azure에서 직접 Azure Monitor 로그로 전송 됩니다. |
-| [Azure 저장소 계정](../platform/collect-azure-metrics-logs.md) | 아닙니다. | Azure Monitor는 저장소 계정에서 데이터를 읽지 않습니다. |
+| [Azure Storage 계정](../platform/collect-azure-metrics-logs.md) | 아닙니다. | Azure Monitor는 저장소 계정에서 데이터를 읽지 않습니다. |
 | [Windows 에이전트](../platform/agent-windows.md) | 아닙니다. | 직접 Windows 에이전트는 솔루션에서 사용되지 않습니다. |
 | [Linux 에이전트](../learn/quick-collect-linux-computer.md) | 아닙니다. | 직접 Linux 에이전트는 솔루션에서 사용되지 않습니다. |
 | [System Center Operations Manager 관리 그룹](../platform/om-agents.md) | 아닙니다. | Operations Manager 에이전트에서 Azure Monitor로 직접 연결은 솔루션에서 사용 되지 않습니다. |
@@ -268,7 +268,7 @@ AzureDiagnostics
 
 > [!NOTE]
 > - 이 경고를 설정하려면 모니터링되는 Managed Instance에서 ResourceUsageStats 로그의 스트리밍을 솔루션에 대해 사용하도록 설정해야 합니다.
-> - 쿼리에 결과가 있는 경우(> 0 결과) 이 쿼리에서는 경고 규칙이 경고를 해제하도록 설정해야 합니다. 그러면 조건이 Managed Instance에 있음을 나타냅니다. Managed Instance의 저장소 비율 사용이 출력됩니다.
+> - 쿼리에 결과가 있는 경우(> 0 결과) 이 쿼리에서는 경고 규칙이 경고를 해제하도록 설정해야 합니다. 그러면 조건이 Managed Instance에 있음을 나타냅니다. Managed Instance의 스토리지 비율 사용이 출력됩니다.
 
 #### <a name="managed-instance-cpu-average-consumption-is-above-95-in-the-last-1-hr"></a>Managed Instance CPU 평균 소비가 최근 1시간 동안 95% 초과
 

@@ -183,7 +183,7 @@ AcquireToken 오류를 처리하는 경우 애플리케이션이 달성하려고
 
 - 네이티브 클라이언트 애플리케이션(iOS, Android, .NET Desktop 또는 Xamarin)
 - 리소스 API를 호출하는 웹 애플리케이션(.NET)
-- 단일 페이지 응용 프로그램(JavaScript)
+- 단일 페이지 애플리케이션(JavaScript)
 - 서비스 간 애플리케이션(.NET, Java)
   - On-behalf-of를 포함한 모든 시나리오
   - On-Behalf-of 특정 시나리오

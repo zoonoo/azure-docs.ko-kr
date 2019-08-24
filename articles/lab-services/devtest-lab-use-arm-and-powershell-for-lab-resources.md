@@ -43,7 +43,7 @@ DevTest Labs는 새 랩을 빠르게 자동 생성하거나 기존 랩을 수정
 PowerShell을 사용하여 자동화할 수 있는 다양한 일반 작업이 있습니다. 다음 섹션에서는 이러한 작업을 수행하는 데 필요한 단계에 대해 간단히 설명합니다.
 
 * [PowerShell을 사용하여 VHD 파일에서 사용자 지정 이미지 만들기](devtest-lab-create-custom-image-from-vhd-using-powershell.md)
-* [PowerShell을 사용하여 랩의 저장소 계정에 VHD 파일 업로드](devtest-lab-upload-vhd-using-powershell.md)
+* [PowerShell을 사용하여 랩의 스토리지 계정에 VHD 파일 업로드](devtest-lab-upload-vhd-using-powershell.md)
 * [PowerShell을 사용하여 랩에 외부 사용자 추가](devtest-lab-add-devtest-user.md#add-an-external-user-to-a-lab-using-powershell)
 * [PowerShell을 사용하여 랩 사용자 지정 역할 만들기](devtest-lab-grant-user-permissions-to-specific-lab-policies.md#creating-a-lab-custom-role-using-powershell)
 

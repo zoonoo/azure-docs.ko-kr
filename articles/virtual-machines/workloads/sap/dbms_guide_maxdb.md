@@ -329,7 +329,7 @@ Azure에서 지원되는 SAP MaxDB DBMS용 Microsoft Windows 버전을 찾으려
 SAP Note [767598]
 
 ### <a name="sap-maxdb-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Azure VM의 SAP 설치에 대한 SAP MaxDB 구성 지침
-#### <a name="b48cfe3b-48e9-4f5b-a783-1d29155bd573"></a>저장소 구성
+#### <a name="b48cfe3b-48e9-4f5b-a783-1d29155bd573"></a>스토리지 구성
 SAP MaxDB에 대한 Azure 스토리지 모범 사례는 [RDBMS 배포를 위한 VM의 스토리지 구조](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64) 챕터에서 설명한 일반 추천을 따릅니다.
 
 > [!IMPORTANT]
@@ -343,7 +343,7 @@ SAP MaxDB에 대한 Azure 스토리지 모범 사례는 [RDBMS 배포를 위한 
 * 로그 볼륨(로그 파일)에 대한 IO 경로에서 SAP MaxDB 데이터 볼륨(데이터 파일)에 대한 IO 경로를 분리합니다. 즉, 하나의 논리 드라이브에 SAP MaxDB 데이터 볼륨(데이터 파일)을 설치하고, 다른 논리 드라이브에 SAP MaxDB 로그 볼륨(로그 파일)을 설치해야 합니다.
 * [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)에서 설명한 대로, SAP MaxDB 데이터 또는 로그 볼륨(데이터 및 로그 파일)을 사용하는지와 Azure Standard 또는 Azure Premium Storage를 사용하는지 여부에 따라 각 디스크에 적절한 캐싱 유형을 설정합니다.
 * 디스크당 현재 IOPS 할당량이 요구 사항을 충족하는 경우 탑재된 단일 디스크의 모든 데이터 볼륨을 저장하고 다른 탑재된 단일 디스크에 모든 데이터베이스 로그 볼륨을 저장할 수 있습니다.
-* 더 많은 IOPS 및/또는 공간이 필요한 경우 Microsoft Window 저장소 풀(Microsoft Windows Server 2012 이상에서만 사용 가능)을 사용하여 탑재된 여러 디스크에 대해 하나의 큰 논리적 디바이스를 만드는 것이 좋습니다. 자세한 내용은 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)도 참조하세요. 이 방법을 사용하면 디스크 공간 관리를 위한 관리 오버헤드를 간소화하고 탑재된 여러 디스크에 파일을 수동으로 배포하는 수고를 덜 수 있습니다.
+* 더 많은 IOPS 및/또는 공간이 필요한 경우 Microsoft Window 스토리지 풀(Microsoft Windows Server 2012 이상에서만 사용 가능)을 사용하여 탑재된 여러 디스크에 대해 하나의 큰 논리적 디바이스를 만드는 것이 좋습니다. 자세한 내용은 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)도 참조하세요. 이 방법을 사용하면 디스크 공간 관리를 위한 관리 오버헤드를 간소화하고 탑재된 여러 디스크에 파일을 수동으로 배포하는 수고를 덜 수 있습니다.
 * MaxDB 배포에 Azure Premium Storage를 사용하는 것이 좋습니다. 
 
 ![SAP MaxDB DBMS에 대한 Azure IaaS VM의 참조 구성](./media/dbms_maxdb_deployment_guide/Simple_disk_structure_maxdb.PNG)
@@ -401,8 +401,8 @@ SAP에서 지원하는 Azure VM 형식(SAP Note [1928533])의 경우, VM에 할�
 
 이러한 관점에서 가장 최근의 Dv2, Dv3, Ev3 및 M 시리즈 VM을 사용하는 것이 좋습니다. 다른 VM 유형의 선택은 liveCache에 필요한 메모리와 필요한 CPU 리소스에 따라 다릅니다. 다른 모든 DBMS 배포와 마찬가지로 성능이 중요한 볼륨에 Azure Premium Storage를 활용하는 것이 좋습니다.
 
-#### <a name="storage-configuration-for-livecache-in-azure"></a>Azure에서 liveCache용 저장소 구성
-SAP liveCache는 SAP MaxDB 기술을 기반으로 하므로 이 문서에서 설명된 SAP MaxDB에 대해 언급한 모든 Azure 저장소 모범 사례 권장 사항이 SAP liveCache에도 적용됩니다. 
+#### <a name="storage-configuration-for-livecache-in-azure"></a>Azure에서 liveCache용 스토리지 구성
+SAP liveCache는 SAP MaxDB 기술을 기반으로 하므로 이 문서에서 설명된 SAP MaxDB에 대해 언급한 모든 Azure Storage 모범 사례 권장 사항이 SAP liveCache에도 적용됩니다. 
 
 #### <a name="dedicated-azure-vm-for-livecache-scenario"></a>liveCache 시나리오 전용 Azure VM
 SAP liveCache는 컴퓨팅 기능을 집중적으로 사용하므로 생산적인 사용을 위해 전용 Azure Virtual Machine에 배포하는 것이 좋습니다. 
@@ -442,7 +442,7 @@ Azure의 SAP Content Server에서 지원되는 Windows 버전을 확인하려면
 #### <a name="storage-configuration-for-content-server-in-azure"></a>Azure의 콘텐츠 서버에 대 한 저장소 구성
 SAP MaxDB 데이터베이스에 파일을 저장하도록 SAP Content Server를 구성하는 경우 이 문서에서 SAP MaxDB에 대해 언급한 모든 Azure Storage 모범 사례 권장 사항이 SAP Content Server 시나리오에도 적용됩니다. 
 
-파일 시스템에 파일을 저장하도록 SAP Content Server를 구성한 경우 전용 논리 드라이브를 사용하는 것이 좋습니다. Windows 저장소 공간을 사용하면 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)에서 설명한 대로 논리 디스크 크기 및 IOPS 처리량을 늘릴 수 있습니다. 
+파일 시스템에 파일을 저장하도록 SAP Content Server를 구성한 경우 전용 논리 드라이브를 사용하는 것이 좋습니다. Windows 스토리지 공간을 사용하면 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)에서 설명한 대로 논리 디스크 크기 및 IOPS 처리량을 늘릴 수 있습니다. 
 
 #### <a name="sap-content-server-location"></a>SAP Content Server 위치
 SAP Content Server는 SAP 시스템이 배포된 것과 동일한 Azure VNET 및 Azure 지역에 배포되어야 합니다. SAP Content Server 구성 요소는 전용 Azure VM 또는 SAP 시스템이 실행 중인 동일한 VM에 배포할 수 있습니다. 

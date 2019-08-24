@@ -67,7 +67,7 @@ Oracle은 Oracle Linux 기반 가상 머신 이미지의 Azure에서 Oracle DB 1
 
 ### <a name="attached-disk-configuration-options"></a>연결된 디스크 구성 옵션
 
-연결된 디스크는 Azure Blob Storage 서비스에 의존합니다. 각 표준 디스크는 이론적으로 최대 초당 500개의 입력/출력 작업(IOPS)을 할 수 있습니다. 프리미엄 디스크 제품은 고성능 데이터베이스 워크로드에 적합하며 디스크당 최대 5000개의 IOPS를 제공할 수 있습니다. 성능 요구 사항을 충족 하는 경우 단일 디스크를 사용할 수 있습니다. 그러나 여러 개의 연결 된 디스크를 사용 하 여 데이터베이스 데이터를 분산 하 고 Oracle ASM (자동 저장소 관리)을 사용 하는 경우에는 유효 IOPS 성능을 향상 시킬 수 있습니다. Oracle ASM 관련 정보는 [Oracle 자동 저장소 개요](https://www.oracle.com/technetwork/database/index-100339.html)를 참조하세요. Linux Azure VM에서 Oracle ASM을 설치 하 고 구성 하는 방법에 대 한 예는 [Oracle 자동화 된 저장소 관리 설치 및 구성](configure-oracle-asm.md) 자습서를 참조 하세요.
+연결된 디스크는 Azure Blob Storage 서비스에 의존합니다. 각 표준 디스크는 이론적으로 최대 초당 500개의 입력/출력 작업(IOPS)을 할 수 있습니다. 프리미엄 디스크 제품은 고성능 데이터베이스 워크로드에 적합하며 디스크당 최대 5000개의 IOPS를 제공할 수 있습니다. 성능 요구 사항을 충족 하는 경우 단일 디스크를 사용할 수 있습니다. 그러나 여러 개의 연결 된 디스크를 사용 하 여 데이터베이스 데이터를 분산 하 고 Oracle ASM (자동 저장소 관리)을 사용 하는 경우에는 유효 IOPS 성능을 향상 시킬 수 있습니다. Oracle ASM 관련 정보는 [Oracle 자동 스토리지 개요](https://www.oracle.com/technetwork/database/index-100339.html)를 참조하세요. Linux Azure VM에서 Oracle ASM을 설치 하 고 구성 하는 방법에 대 한 예는 [Oracle 자동화 된 저장소 관리 설치 및 구성](configure-oracle-asm.md) 자습서를 참조 하세요.
 
 ### <a name="shared-storage-configuration-options"></a>공유 저장소 구성 옵션
 

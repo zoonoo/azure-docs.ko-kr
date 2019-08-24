@@ -9,7 +9,7 @@ ms.date: 08/20/2018
 ms.author: pabutler
 ms.openlocfilehash: 6113c10cd152a22bd31e7212d86925b0c2107e58
 ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938406"
@@ -19,7 +19,7 @@ ms.locfileid: "64938406"
 이 섹션에서는 Azure Marketplace의 VM(가상 머신) 제안에 대한 기술 자산을 만들고 구성하는 방법을 안내합니다.  VM에는 솔루션 VHD(가상 하드 디스크)와 선택적인 연결된 데이터 디스크의 두 가지 구성 요소가 있습니다.  
 
 - *VHD(가상 하드 디스크)* - Azure Marketplace 제안을 통해 배포할 운영 체제와 솔루션이 포함되어 있습니다. VHD가 Linux 기반, Windows 기반 또는 사용자 지정 기반 VM인지 여부에 따라 VHD를 준비하는 프로세스가 달라집니다.
-- *데이터 디스크* - 가상 머신에 대한 전용 영구 저장소를 나타냅니다. 솔루션 VHD(예: `C:` 드라이브)는 영구 정보를 저장하는 데 사용하지 *않습니다*.
+- *데이터 디스크* - 가상 머신에 대한 전용 영구 스토리지를 나타냅니다. 솔루션 VHD(예: `C:` 드라이브)는 영구 정보를 저장하는 데 사용하지 *않습니다*.
 
 VM 이미지에는 운영 체제 디스크 하나와 0개 이상의 데이터 디스크가 포함되어 있습니다. 디스크당 VHD 하나가 필요합니다. 데이터 디스크가 비어 있는 경우에도 VHD를 만들어야 합니다.
 VM OS, VM 크기, 개방할 포트 및 최대 15개의 연결된 데이터 디스크를 구성해야 합니다.

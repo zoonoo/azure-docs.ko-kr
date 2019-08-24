@@ -20,7 +20,7 @@ ms.locfileid: "68515003"
 
 Azure AD(Azure Active Directory)에서는 [RBAC(역할 기반 액세스 제어)](../../role-based-access-control/overview.md)를 통해 보호된 리소스에 액세스 권한을 부여합니다. Azure Storage는 blob 또는 큐 데이터에 액세스 하는 데 사용 되는 일반 사용 권한 집합을 포함 하는 기본 제공 RBAC 역할 집합을 정의 합니다. 
 
-RBAC 역할이 Azure AD 보안 주체에 할당 되 면 Azure는 해당 보안 주체에 대 한 해당 리소스에 대 한 액세스 권한을 부여 합니다. 액세스 권한은 구독, 리소스 그룹, 저장소 계정 또는 개별 컨테이너나 큐의 수준에 범위를 지정할 수 있습니다. Azure AD 보안 주체는 사용자, 그룹, 응용 프로그램 서비스 주체 또는 [azure 리소스에 대 한 관리 되는 id](../../active-directory/managed-identities-azure-resources/overview.md)일 수 있습니다.
+RBAC 역할이 Azure AD 보안 주체에 할당 되 면 Azure는 해당 보안 주체에 대 한 해당 리소스에 대 한 액세스 권한을 부여 합니다. 액세스 권한은 구독, 리소스 그룹, 스토리지 계정 또는 개별 컨테이너나 큐의 수준에 범위를 지정할 수 있습니다. Azure AD 보안 주체는 사용자, 그룹, 응용 프로그램 서비스 주체 또는 [azure 리소스에 대 한 관리 되는 id](../../active-directory/managed-identities-azure-resources/overview.md)일 수 있습니다.
 
 이 문서에서는 Azure Portal를 사용 하 여 RBAC 역할을 할당 하는 방법을 설명 합니다. Azure Portal는 RBAC 역할을 할당 하 고 저장소 리소스에 대 한 액세스를 관리 하기 위한 간단한 인터페이스를 제공 합니다. 또한 Azure 명령줄 도구 또는 Azure Storage 관리 Api를 사용 하 여 blob 및 큐 리소스에 대 한 RBAC 역할을 할당할 수 있습니다. 저장소 리소스에 대 한 RBAC 역할에 대 한 자세한 내용은 [Azure Active Directory를 사용 하 여 Azure blob 및 큐에 대 한 액세스 인증](storage-auth-aad.md)을 참조 하세요. 
 
@@ -43,7 +43,7 @@ RBAC 역할이 Azure AD 보안 주체에 할당 되 면 Azure는 해당 보안 �
 다음 섹션에서는 이러한 각 단계에 대해 자세히 설명 합니다.
 
 > [!NOTE]
-> Azure Storage 계정 소유자인 경우 자동으로 데이터에 액세스할 수 있는 권한이 할당되지 않습니다. Azure Storage에 RBAC 역할을 직접 명시적으로 할당해야 합니다. 구독, 리소스 그룹, 저장소 계정 또는 컨테이너나 큐 수준으로 지정할 수 있습니다.
+> Azure Storage 계정 소유자인 경우 자동으로 데이터에 액세스할 수 있는 권한이 할당되지 않습니다. Azure Storage에 RBAC 역할을 직접 명시적으로 할당해야 합니다. 구독, 리소스 그룹, 스토리지 계정 또는 컨테이너나 큐 수준으로 지정할 수 있습니다.
 > 
 > 저장소 계정에 계층 네임 스페이스가 사용 하도록 설정 된 경우 컨테이너 또는 큐에 범위가 지정 된 역할을 할당할 수 없습니다.
 
@@ -53,7 +53,7 @@ RBAC 역할이 Azure AD 보안 주체에 할당 되 면 Azure는 해당 보안 �
 
 여기에 표시된 프로시저는 컨테이너로 범위가 지정된 역할을 할당하지만 큐로 범위가 지정된 역할을 할당하기 위해 동일한 단계를 수행할 수 있습니다. 
 
-1. [Azure Portal](https://portal.azure.com)에서 저장소 계정으로 이동하고 계정에 대한 **개요**를 표시합니다.
+1. [Azure Portal](https://portal.azure.com)에서 스토리지 계정으로 이동하고 계정에 대한 **개요**를 표시합니다.
 1. 서비스 아래에서 **Blob**을 선택합니다. 
 1. 역할을 할당하려는 컨테이너를 찾아 컨테이너의 설정을 표시합니다. 
 1. **액세스 제어(IAM)** 를 선택하여 컨테이너에 대한 액세스 제어 설정을 표시합니다. **역할 할당** 탭을 선택하여 역할 할당 목록을 봅니다.
@@ -83,7 +83,7 @@ Azure Storage에 대 한 기본 제공 또는 사용자 지정 역할을 보안 
 
 사용자가 Azure Portal에서 blob에 액세스할 수 있도록 다음 단계를 수행 하 여 **판독기** 역할을 할당 합니다. 이 예제에서 할당의 범위는 저장소 계정입니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 저장소 계정으로 이동합니다.
+1. [Azure Portal](https://portal.azure.com)에서 스토리지 계정으로 이동합니다.
 1. **액세스 제어 (IAM)** 를 선택 하 여 저장소 계정에 대 한 액세스 제어 설정을 표시 합니다. **역할 할당** 탭을 선택하여 역할 할당 목록을 봅니다.
 1. **역할 할당 추가** 창에서 **판독기** 역할을 선택 합니다. 
 1. **액세스 할당** 필드에서 **Azure AD 사용자, 그룹 또는 서비스 주체**를 선택 합니다.
@@ -101,4 +101,4 @@ Azure Storage에 대 한 기본 제공 또는 사용자 지정 역할을 보안 
     - [Azure PowerShell을 사용하여 RBAC(역할 기반 액세스 제어) 관리](../../role-based-access-control/role-assignments-powershell.md)
     - [Azure CLI를 사용하여 RBAC(역할 기반 액세스 제어) 관리](../../role-based-access-control/role-assignments-cli.md)
     - [REST API를 사용하여 RBAC(역할 기반 액세스 제어) 관리](../../role-based-access-control/role-assignments-rest.md)
-- 스토리지 응용 프로그램 내에서 컨테이너와 큐에 대한 액세스 권한을 부여하는 방법을 알아보려면 [Azure Storage 응용 프로그램에서 Azure AD 사용](storage-auth-aad-app.md)을 참조하세요.
+- 스토리지 애플리케이션 내에서 컨테이너와 큐에 대한 액세스 권한을 부여하는 방법을 알아보려면 [Azure Storage 애플리케이션에서 Azure AD 사용](storage-auth-aad-app.md)을 참조하세요.

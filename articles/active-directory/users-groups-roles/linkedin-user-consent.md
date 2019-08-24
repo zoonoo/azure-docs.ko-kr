@@ -80,4 +80,4 @@ LinkedIn에서 개인 데이터를 사용하는 자세한 내용은 [LinkedIn �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [회사 또는 학교 계정을 사용한 Microsoft 응용 프로그램의 LinkedIn](https://www.linkedin.com/help/linkedin/answer/84077)
+* [회사 또는 학교 계정을 사용한 Microsoft 애플리케이션의 LinkedIn](https://www.linkedin.com/help/linkedin/answer/84077)

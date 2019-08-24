@@ -17,7 +17,7 @@ ms.locfileid: "61440151"
 ---
 # <a name="detect-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Azure IoT Hub의 연결 끊김 문제 감지지 및 해결
 
-IoT 디바이스의 연결 문제는 가능한 실패 지점이 많기 때문에 문제 해결이 어려울 수 있습니다. 장치 쪽 애플리케이션 로직, 물리적 네트워크, 프로토콜, 하드웨어 및 Azure IoT Hub 모두 문제를 일으킬 수 있습니다. 이 문서에서는 클라우드 쪽(디바이스 쪽에 대한 반대 개념)에서 디바이스 연결 문제를 감지 및 해결하는 방법에 대한 권장 사항을 제공합니다.
+IoT 디바이스의 연결 문제는 가능한 실패 지점이 많기 때문에 문제 해결이 어려울 수 있습니다. 디바이스 쪽 애플리케이션 로직, 물리적 네트워크, 프로토콜, 하드웨어 및 Azure IoT Hub 모두 문제를 일으킬 수 있습니다. 이 문서에서는 클라우드 쪽(디바이스 쪽에 대한 반대 개념)에서 디바이스 연결 문제를 감지 및 해결하는 방법에 대한 권장 사항을 제공합니다.
 
 ## <a name="get-alerts-and-error-logs"></a>경고 및 오류 로그 얻기
 
@@ -43,7 +43,7 @@ IoT 디바이스의 연결 문제는 가능한 실패 지점이 많기 때문에
 
 자세히 알아보려면 [Azure IoT Hub 상태 모니터링 및 신속한 문제 진단](iot-hub-monitor-resource-health.md)을 참조하세요.
 
-### <a name="set-up-alerts-for-the-connected-devices-count-metric"></a>_연결된 디바이스_ 개수 메트릭에 대한 경고 설정
+### <a name="set-up-alerts-for-the-_connected-devices_-count-metric"></a>_연결된 디바이스_ 개수 메트릭에 대한 경고 설정
 
 장치 연결을 끊을 때 경고를 받으려면,에서 경고를 구성 합니다 **연결 된 장치 (미리 보기)** 메트릭.
 

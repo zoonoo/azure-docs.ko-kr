@@ -25,7 +25,7 @@ ms.locfileid: "68568254"
 ## <a name="considerations-when-exporting-an-azure-sql-database"></a>Azure SQL 데이터베이스를 내보낼 경우 고려 사항
 
 - 내보내기 작업에서 트랜잭션이 일치하도록 내보내기 중에나 Azure SQL 데이터베이스의 [트랜잭션 일치 복사본](sql-database-copy.md)에서 내보내는 중에는 쓰기 활동이 발생하지 않도록 해야 합니다.
-- Blob Storage로 내보내는 경우 BACPAC 파일의 최대 크기는 200GB입니다. 더 큰 BACPAC 파일을 보관하려면 로컬 저장소로 내보냅니다.
+- Blob Storage로 내보내는 경우 BACPAC 파일의 최대 크기는 200GB입니다. 더 큰 BACPAC 파일을 보관하려면 로컬 스토리지로 내보냅니다.
 - 이 문서에서 설명하는 방법을 사용하여 Azure Premium Storage에서 BACPAC 파일을 내보낼 수는 없습니다.
 - 방화벽 뒤의 저장소는 현재 지원 되지 않습니다.
 - Azure SQL Database에서 내보내기 작업이 20시간을 초과하면 취소될 수 있습니다. 내보내는 중에 성능을 향상시키기 위해 다음을 수행할 수 있습니다.

@@ -66,7 +66,7 @@ trip\_data와 trip\_fare를 조인할 고유 키는 medallion, hack\_licence 및
 
 Azure 데이터 과학 환경을 설정하려면
 
-1. [저장소 계정 만들기](../../storage/common/storage-quickstart-create-account.md)
+1. [스토리지 계정을 만드는](../../storage/common/storage-quickstart-create-account.md)
 2. [Azure Machine Learning 작업 영역 만들기](../studio/create-workspace.md)
 3. [데이터 과학 Virtual Machine 프로비전](../data-science-virtual-machine/setup-sql-server-virtual-machine.md)(SQL Server 및 IPython Notebook 서버 제공)
    
@@ -172,7 +172,7 @@ Azure Machine Learning을 진행할 준비가 되었으면 다음을 수행할 �
     GROUP BY medallion
     HAVING COUNT(*) > 100
 
-#### <a name="exploration-trip-distribution-by-medallion-and-hacklicense"></a>탐색: medallion 및 hack_license별 여정 분포
+#### <a name="exploration-trip-distribution-by-medallion-and-hack_license"></a>탐색: medallion 및 hack_license별 여정 분포
     SELECT medallion, hack_license, COUNT(*)
     FROM nyctaxi_fare
     WHERE pickup_datetime BETWEEN '20130101' AND '20130131'
@@ -282,7 +282,7 @@ Azure Machine Learning을 진행할 준비가 되었으면 다음을 수행할 �
     CONNECTION_STRING = 'DRIVER={'+DRIVER+'};SERVER='+SERVER_NAME+';DATABASE='+DATABASE_NAME+';UID='+USERID+';PWD='+PASSWORD
     conn = pyodbc.connect(CONNECTION_STRING)
 
-#### <a name="report-number-of-rows-and-columns-in-table-nyctaxitrip"></a>nyctaxi_trip 테이블의 행 및 열 수 보고
+#### <a name="report-number-of-rows-and-columns-in-table-nyctaxi_trip"></a>nyctaxi_trip 테이블의 행 및 열 수 보고
     nrows = pd.read_sql('''
         SELECT SUM(rows) FROM sys.partitions
         WHERE object_id = OBJECT_ID('nyctaxi_trip')
@@ -567,7 +567,7 @@ Azure Machine Learning을 진행할 준비가 되었으면 다음을 수행할 �
 6. 해결할 학습 문제에 따라 하나 이상의 기계 학습 알고리즘을 선택하세요. 이진 분류, 다중 클래스 분류, 회귀)을 선택합니다.
 7. 학습 데이터 세트를 사용하여 하나 이상의 모델을 학습합니다.
 8. 학습된 모델을 사용하여 유효성 검사 데이터 세트의 점수를 매깁니다.
-9. 모델을 평가하여 학습 문제에 대한 관련 메트릭을 계산합니다.
+9. 모델을 평가하여 학습 문제에 대한 관련 메트릭을 컴퓨팅합니다.
 10. 모델을 미세 조정하고 배포할 가장 적합한 모델을 선택합니다.
 
 이 연습에서는 이미 SQL Server에서 데이터를 탐색 및 엔지니어링하고 Azure Machine Learning에서 수집할 샘플 크기를 결정했습니다. 결정한 예측 모델 중 하나 이상을 빌드하려면 다음을 수행합니다.

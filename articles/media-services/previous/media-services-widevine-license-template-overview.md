@@ -89,7 +89,7 @@ use_policy_overrides_exclusively 옵션에 관계없이 모든 트랙에 대해 
 | 이름 | 값 | 설명 |
 | --- | --- | --- |
 | policy_overrides. can_play |Boolean, true 또는 false |콘텐츠의 재생이 허용됨을 나타냅니다. 기본값은 false입니다. |
-| policy_overrides. can_persist |Boolean, true 또는 false |라이선스를 오프라인 용도로 비휘발성 저장소에 저장할 수 있음을 나타냅니다. 기본값은 false입니다. |
+| policy_overrides. can_persist |Boolean, true 또는 false |라이선스를 오프라인 용도로 비휘발성 스토리지에 저장할 수 있음을 나타냅니다. 기본값은 false입니다. |
 | policy_overrides. can_renew |Boolean, true 또는 false |이 라이선스의 갱신이 허용됨을 나타냅니다. true이면 라이선스의 기간을 하트비트로 확장할 수 있습니다. 기본값은 false입니다. |
 | policy_overrides. license_duration_seconds |int64 |이 특정 라이선스에 대한 기간을 나타냅니다. 값 0은 기간에 제한이 없음을 나타냅니다. 기본값은 0입니다. |
 | policy_overrides. rental_duration_seconds |int64 |재생이 허용되는 동안 기간을 나타냅니다. 값 0은 기간에 제한이 없음을 나타냅니다. 기본값은 0입니다. |

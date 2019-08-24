@@ -79,7 +79,7 @@ Office 365 구독에서 수집할 정보:
 
 ### <a name="create-an-office-365-application-in-azure-active-directory"></a>Azure Active Directory에서 Office 365 애플리케이션 만들기
 
-첫 번째 단계는 Azure Active Directory에 관리 솔루션이 Office 365 솔루션에 액세스할 때 사용할 응용 프로그램을 만드는 것입니다.
+첫 번째 단계는 Azure Active Directory에 관리 솔루션이 Office 365 솔루션에 액세스할 때 사용할 애플리케이션을 만드는 것입니다.
 
 1. Azure Portal([https://portal.azure.com](https://portal.azure.com/))에 로그인합니다.
 1. **Azure Active Directory**를 선택한 다음, **앱 등록**을 선택합니다.
@@ -89,7 +89,7 @@ Office 365 구독에서 수집할 정보:
 1. 애플리케이션 **이름** 및 **로그온 URL**을 입력합니다.  이름은 구체적이어야 합니다.  URL `http://localhost` 에 대해를 사용 하 고 **응용 프로그램 형식** 에 대해 _웹 앱/_ a p i를 유지 합니다.
     
     ![애플리케이션 만들기](media/solution-office-365/create-application.png)
-1. **만들기**를 클릭하고 응용 프로그램 정보의 유효성을 검사합니다.
+1. **만들기**를 클릭하고 애플리케이션 정보의 유효성을 검사합니다.
 
     ![앱 등록](media/solution-office-365/registered-app.png)
 
@@ -105,7 +105,7 @@ Office 365 구독에서 수집할 정보:
 
     ![API 선택](media/solution-office-365/select-api.png)
 
-1. **권한 선택** 아래에서 **응용 프로그램 권한** 및 **위임된 권한**에 대해 다음 옵션을 선택합니다.
+1. **권한 선택** 아래에서 **애플리케이션 권한** 및 **위임된 권한**에 대해 다음 옵션을 선택합니다.
    - 조직의 서비스 상태 정보 읽기
    - 조직의 활동 데이터 읽기
    - 조직의 활동 보고서 읽기
@@ -117,7 +117,7 @@ Office 365 구독에서 수집할 정보:
 
     ![권한 부여](media/solution-office-365/grant-permissions.png)
 
-### <a name="add-a-key-for-the-application"></a>응용 프로그램 키 추가
+### <a name="add-a-key-for-the-application"></a>애플리케이션 키 추가
 
 1. **설정** 메뉴에서 **키**를 선택합니다.
 1. 새 키의 **설명** 및 **기간**을 입력합니다.

@@ -33,7 +33,7 @@ Azure 리소스 명명 규칙의 패턴 및 사례에 대한 자세한 내용은
 
 전체 템플릿은 다음 GitHub 링크를 클릭합니다.
 
-- [이벤트 허브 및 저장소 템플릿에 캡처 사용][Event Hub and enable Capture to Storage template] 
+- [이벤트 허브 및 스토리지 템플릿에 캡처 사용][Event Hub and enable Capture to Storage template] 
 - [이벤트 허브 및 Azure Data Lake Store 템플릿에 캡처 사용][Event Hub and enable Capture to Azure Data Lake Store template]
 
 > [!NOTE]

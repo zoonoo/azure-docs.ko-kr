@@ -33,25 +33,25 @@ ms.locfileid: "68699570"
 
 이제 저장소 계정을 만들 준비가 되었습니다.
 
-모든 저장소 계정은 Azure 리소스 그룹에 속해야 합니다. 리소스 그룹은 Azure 리소스를 그룹화하기 위한 논리적 컨테이너입니다. 저장소 계정을 만들 때 새 리소스 그룹을 만들거나 기존 리소스 그룹을 사용할 수 있는 옵션이 있습니다. 이 문서에서는 새 리소스 그룹을 만드는 방법을 보여 줍니다.
+모든 스토리지 계정은 Azure 리소스 그룹에 속해야 합니다. 리소스 그룹은 Azure 리소스를 그룹화하기 위한 논리적 컨테이너입니다. 스토리지 계정을 만들 때 새 리소스 그룹을 만들거나 기존 리소스 그룹을 사용할 수 있는 옵션이 있습니다. 이 문서에서는 새 리소스 그룹을 만드는 방법을 보여 줍니다.
 
 1. Azure Portal의 왼쪽 메뉴에서 **저장소 계정** 을 선택 합니다.
 
     ![Azure Portal 기본 페이지 저장소 계정 선택](media/storage-how-to-create-premium-fileshare/azure-portal-storage-accounts.png)
 
 1. 나타나는 **Storage 계정** 창에서 **추가**를 선택합니다.
-1. 저장소 계정을 만들 구독을 선택합니다.
+1. 스토리지 계정을 만들 구독을 선택합니다.
 1. **리소스 그룹** 필드 아래에서 **새로 만들기**를 선택합니다. 다음 이미지에 표시된 대로 새 리소스 그룹의 이름을 입력합니다.
 
-1. 그런 다음, 저장소 계정의 이름을 입력합니다. 선택하는 이름이 Azure에서 고유해야 합니다. 또한 이름의 길이가 3~24자여야 하고, 숫자 및 소문자만 포함할 수 있습니다.
-1. 저장소 계정의 위치를 선택하거나 기본 위치를 사용합니다.
+1. 그런 다음, 스토리지 계정의 이름을 입력합니다. 선택하는 이름이 Azure에서 고유해야 합니다. 또한 이름의 길이가 3~24자여야 하고, 숫자 및 소문자만 포함할 수 있습니다.
+1. 스토리지 계정의 위치를 선택하거나 기본 위치를 사용합니다.
 1. **성능을** 위해 **프리미엄**을 선택 합니다.
 1. **계정 종류** 를 선택 하 고 **FileStorage**를 선택 합니다.
 1. **복제** 를 기본값인 **LRS (로컬 중복 저장소)** 로 설정 된 상태로 둡니다.
 
     ![프리미엄 파일 공유에 대 한 저장소 계정을 만드는 방법](media/storage-how-to-create-premium-fileshare/create-filestorage-account.png)
 
-1. **검토 + 만들기**를 선택하여 저장소 계정 설정을 검토하고 계정을 만듭니다.
+1. **검토 + 만들기**를 선택하여 스토리지 계정 설정을 검토하고 계정을 만듭니다.
 1. **만들기**를 선택합니다.
 
 저장소 계정 리소스를 만든 후으로 이동 합니다.
@@ -173,9 +173,9 @@ az storage account create `
     --kind FileStorage
 ```
 
-### <a name="get-the-storage-account-key"></a>저장소 계정 키 가져오기
+### <a name="get-the-storage-account-key"></a>스토리지 계정 키 가져오기
 
-저장소 계정 키는 저장소 계정의 리소스에 대 한 액세스를 제어 합니다 .이 문서에서는 프리미엄 파일 공유를 만들기 위해 키를 사용 합니다. 키는 저장소 계정을 만들 때 자동으로 만들어집니다. [az storage account keys list](/cli/azure/storage/account/keys) 명령을 사용하여 스토리지 계정에 대한 스토리지 계정 키를 가져올 수 있습니다.
+저장소 계정 키는 저장소 계정의 리소스에 대 한 액세스를 제어 합니다 .이 문서에서는 프리미엄 파일 공유를 만들기 위해 키를 사용 합니다. 키는 스토리지 계정을 만들 때 자동으로 만들어집니다. [az storage account keys list](/cli/azure/storage/account/keys) 명령을 사용하여 스토리지 계정에 대한 스토리지 계정 키를 가져올 수 있습니다.
 
 ```azurecli-interactive 
 STORAGEKEY=$(az storage account keys list \
@@ -200,7 +200,7 @@ az storage share create \
 
 ### <a name="clean-up-resources"></a>리소스 정리
 
-새 저장소 계정을 포함하여 리소스 그룹과 관련 리소스를 제거하려면 [az group delete](/cli/azure/group) 명령을 사용합니다.
+새 스토리지 계정을 포함하여 리소스 그룹과 관련 리소스를 제거하려면 [az group delete](/cli/azure/group) 명령을 사용합니다.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

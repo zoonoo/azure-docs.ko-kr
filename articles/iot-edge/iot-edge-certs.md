@@ -10,7 +10,7 @@ ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 91cde6965f3635d6d2acfaf581f570779020f8ff
 ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "60445306"
@@ -67,7 +67,7 @@ IoT Edge Hub 서버 인증서는 IoT Edge에 필요한 TLS 연결을 설정하�
 
 제조와 운영 프로세스는 분리되어 있으므로 프로덕션 디바이스를 준비할 때는 다음 사항을 고려합니다.
 
-* 모든 인증서 기반 프로세스에서는 IoT Edge 디바이스를 롤아웃하는 전체 프로세스 동안 루트 CA 인증서 및 중간 CA 인증서를 보호하고 모니터링해야 합니다. IoT Edge 디바이스 제조업체는 중간 인증서를 적절하게 저장하고 사용할 수 있도록 강력한 프로세스를 갖추어야 합니다. 또한 디바이스 CA 인증서는 디바이스 자체, 특히 하드웨어 보안 모듈에 최대한 안전하게 저장해야 합니다.
+* 모든 인증서 기반 프로세스에서는 IoT Edge 디바이스를 롤아웃하는 전체 프로세스 동안 루트 CA 인증서 및 중간 CA 인증서를 보호하고 모니터링해야 합니다. IoT Edge 디바이스 제조업체는 중간 인증서를 적절하게 스토리지하고 사용할 수 있도록 강력한 프로세스를 갖추어야 합니다. 또한 디바이스 CA 인증서는 디바이스 자체, 특히 하드웨어 보안 모듈에 최대한 안전하게 스토리지해야 합니다.
 
 * IoT Edge Hub에서 IoT Edge Hub 서버 인증서를 연결 대상 클라이언트 디바이스와 모듈에 제시합니다. 디바이스 CA 인증서의 CN(일반 이름)은 IoT Edge 디바이스의 config.yaml에서 사용할 "hostname"과 같을 수 **없습니다**. 예를 들어 연결 문자열의 GatewayHostName 매개 변수 또는 MQTT의 CONNECT 명령을 통해 IoT Edge에 연결할 클라이언트에서 사용하는 이름은 디바이스 CA 인증서에 사용되는 일반 이름과 같을 수 **없습니다**. 이 제한이 적용되는 이유는 클라이언트에서 확인할 수 있도록 IoT Edge Hub가 전체 인증서 체인을 표시하기 때문입니다. IoT Edge Hub 서버 인증서와 디바이스 CA 인증서의 CN이 같은 경우에는 확인이 계속 반복되어 인증서가 무효화됩니다.
 

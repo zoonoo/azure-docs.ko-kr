@@ -65,12 +65,12 @@ SSH 사용자에 대해 지정한 값은 클러스터의 SSH 사용자를 만드
 
 또한 `New-AzHDInsightClusterConfig` cmdlet을 사용하여 HDInsight 구성 개체를 만들 수 있습니다. 그런 다음 이 구성 개체를 수정하여 클러스터에 대한 추가 구성 옵션을 사용하도록 설정합니다. 마지막으로 `New-AzHDInsightCluster` cmdlet의 `-Config` 매개 변수를 사용하여 구성을 사용합니다.
 
-다음 스크립트는 HDInsight 클러스터 유형에 R Server를 구성하기 위해 구성 개체를 만듭니다. 이 구성은 에지 노드, RStudio, 추가 저장소 계정을 활성화합니다.
+다음 스크립트는 HDInsight 클러스터 유형에 R Server를 구성하기 위해 구성 개체를 만듭니다. 이 구성은 에지 노드, RStudio, 추가 스토리지 계정을 활성화합니다.
 
 [!code-powershell[main](../../powershell_scripts/hdinsight/create-cluster/create-cluster-with-config.ps1?range=59-99)]
 
 > [!WARNING]  
-> HDInsight 클러스터와 다른 위치에서는 저장소 계정을 사용할 수 없습니다. 이 예제를 사용할 경우 서버와 동일한 위치에 추가 저장소 계정을 만듭니다.
+> HDInsight 클러스터와 다른 위치에서는 스토리지 계정을 사용할 수 없습니다. 이 예제를 사용할 경우 서버와 동일한 위치에 추가 스토리지 계정을 만듭니다.
 
 ## <a name="customize-clusters"></a>클러스터 사용자 지정
 

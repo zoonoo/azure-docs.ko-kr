@@ -41,7 +41,7 @@ Site Recovery는 최소한의 가동 중지 시간 또는 가동 중지 시간 �
 
   1. 원본 VM에서 복제 데이터를 수신합니다.
   2. 캐싱, 압축 및 암호화를 사용하여 데이터를 최적화합니다.
-  3. 데이터를 저장소 계정에 전송합니다. 
+  3. 데이터를 스토리지 계정에 전송합니다. 
 
   또한 원본 VM에 대한 모바일 서비스의 푸시 설치를 처리하며 원본 VM의 자동 복구를 수행합니다. 기본 프로세스 서버가 구성 서버에 설치됩니다. 추가 독립 실행형 프로세스 서버를 배포하여 배포를 확장할 수 있습니다. [프로세스 서버 배포에 대한 모범 사례](https://azure.microsoft.com/blog/best-practices-for-process-server-deployment-when-protecting-vmware-and-physical-workloads-with-azure-site-recovery/) 및 [추가 프로세스 서버 배포](../../site-recovery/site-recovery-plan-capacity-vmware.md#deploy-additional-process-servers)를 읽어보세요. 프로세스 서버를 한 번만 구성하면 동일한 지역에 대한 모든 마이그레이션에 사용할 수 있습니다.
 
@@ -52,7 +52,7 @@ Site Recovery는 최소한의 가동 중지 시간 또는 가동 중지 시간 �
 ![Site Recovery 구성 요소의 상호 작용][15]
 
 > [!NOTE]
-> Site Recovery는 저장소 공간 디스크의 마이그레이션을 지원하지 않습니다.
+> Site Recovery는 스토리지 공간 디스크의 마이그레이션을 지원하지 않습니다.
 
 다른 시나리오에 대한 추가 구성 요소는 [시나리오 아키텍처](../../site-recovery/vmware-walkthrough-overview.md)를 참조하세요.
 
@@ -63,7 +63,7 @@ Site Recovery는 최소한의 가동 중지 시간 또는 가동 중지 시간 �
 * Azure 구독.
 * 복제된 데이터를 저장할 Azure Premium Storage 계정
 * 장애 조치(failover) 시 만든 경우 VM에서 연결할 Azure 가상 네트워크 Azure 가상 네트워크는 Site Recovery가 실행되는 동일한 지역에 있어야 합니다.
-* 복제 로그를 저장할 Azure 표준 스토리지 계정 마이그레이션되는 VM 디스크와 동일한 저장소 계정일 수 있습니다.
+* 복제 로그를 저장할 Azure 표준 스토리지 계정 마이그레이션되는 VM 디스크와 동일한 스토리지 계정일 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -80,7 +80,7 @@ Site Recovery를 사용하여 지역 간 또는 동일한 지역 내에서 Azure
 2. **리소스 만들기** > **관리** > **Backup 및 Site Recovery(OMS)** 를 선택합니다. 또는 **찾아보기** > **Recovery Services 자격 증명 모음** > **추가**를 선택하면 됩니다.
    >[!NOTE]
    >Backup 및 Site Recovery는 이전에 ![OMS 제품군](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand)에 포함되었습니다.
-1. VM이 복제될 지역을 지정합니다. 동일한 지역에 마이그레이션하려는 경우 원본 VM 및 원본 저장소 계정이 있는 영역을 선택합니다. 
+1. VM이 복제될 지역을 지정합니다. 동일한 지역에 마이그레이션하려는 경우 원본 VM 및 원본 스토리지 계정이 있는 영역을 선택합니다. 
 
 ### <a name="step-2-choose-your-protection-goals"></a>2단계: 보호 목표 선택 
 
@@ -132,7 +132,7 @@ Site Recovery를 사용하여 지역 간 또는 동일한 지역 내에서 Azure
 
 ![대상 창][10]
 
-Site Recovery가 호환되는 Azure 저장소 계정 및 네트워크가 하나 이상 있는지 확인합니다. 
+Site Recovery가 호환되는 Azure Storage 계정 및 네트워크가 하나 이상 있는지 확인합니다. 
 
 > [!NOTE]
 > 복제된 데이터에 Premium Storage 계정을 사용하는 경우 복제 로그를 저장할 추가 표준 스토리지 계정을 설정해야 합니다.
@@ -143,7 +143,7 @@ Site Recovery가 호환되는 Azure 저장소 계정 및 네트워크가 하나 
 
 ### <a name="step-6-plan-capacity"></a>6단계: 용량 계획
 
-1. [Capacity Planner](../../site-recovery/site-recovery-capacity-planner.md)를 사용하여 복제 요구 사항에 맞도록 네트워크 대역폭, 저장소 및 기타 요구 사항을 정확하게 예측합니다. 
+1. [Capacity Planner](../../site-recovery/site-recovery-capacity-planner.md)를 사용하여 복제 요구 사항에 맞도록 네트워크 대역폭, 스토리지 및 기타 요구 사항을 정확하게 예측합니다. 
 2. 작업을 마쳤으면 **용량 계획을 완료하셨나요?** 에서 **예, 그렇습니다**를 선택합니다.
 
    ![용량 계획을 완료했는지 확인하는 상자][11]
@@ -170,9 +170,9 @@ Site Recovery가 호환되는 Azure 저장소 계정 및 네트워크가 하나 
 
    ![선택한 원본과 복제 창 사용][13]
 
-Azure Storage 환경을 디자인할 때 가용성 집합의 각 VM에 대해 별도의 스토리지 계정을 사용하는 것이 좋습니다. [각 가용성 집합에 여러 저장소 계정 사용](../linux/manage-availability.md)을 위해서는 저장소 계층의 모범 사례를 따는 것이 좋습니다. 여러 저장소 계정에 VM 디스크를 배포하면 저장소의 가용성이 향상되고 Azure 저장소 인프라 전반에 걸쳐 I/O가 배포됩니다.
+Azure Storage 환경을 디자인할 때 가용성 집합의 각 VM에 대해 별도의 스토리지 계정을 사용하는 것이 좋습니다. [각 가용성 집합에 여러 스토리지 계정 사용](../linux/manage-availability.md)을 위해서는 스토리지 계층의 모범 사례를 따는 것이 좋습니다. 여러 스토리지 계정에 VM 디스크를 배포하면 스토리지의 가용성이 향상되고 Azure Storage 인프라 전반에 걸쳐 I/O가 배포됩니다.
 
-VM이 모든 VM의 디스크를 하나의 저장소 계정으로 복제하는 대신 가용성 집합에 있는 경우 여러 VM을 여러 번 마이그레이션하는 것이 좋습니다. 그러면 동일한 가용성 집합에 있는 VM이 단일 저장소 계정을 공유하지 않습니다. **복제 사용** 창을 사용하여 한 번에 하나씩 각 VM에 대해 대상 저장소 계정을 설정합니다.
+VM이 모든 VM의 디스크를 하나의 스토리지 계정으로 복제하는 대신 가용성 집합에 있는 경우 여러 VM을 여러 번 마이그레이션하는 것이 좋습니다. 그러면 동일한 가용성 집합에 있는 VM이 단일 스토리지 계정을 공유하지 않습니다. **복제 사용** 창을 사용하여 한 번에 하나씩 각 VM에 대해 대상 스토리지 계정을 설정합니다.
  
 필요에 따라 장애 조치(failover) 후 배포 모델을 선택할 수 있습니다. 장애 조치(failover) 후 배포 모델로 Azure Resource Manager를 선택하면 VM(Resource Manager)을 VM(Resource Manager)에 장애 조치하거나 VM(클래식)을 VM(Resource Manager)에 장애 조치할 수 있습니다.
 
@@ -201,7 +201,7 @@ Site Recovery는 Premium Storage 사용 가능 VM에 형식이 동일하거나 �
    * 클래식 배포 모델을 통해 만든 VM: Azure Portal의 가용성 집합에 VM을 추가합니다. 자세한 단계는 [기존 가상 머신을 가용성 집합에 추가](../linux/classic/configure-availability-classic.md)로 이동하세요.
    * Resource Manager 배포 모델을 통해 만든 VM: VM 구성을 저장하고 VM을 삭제한 후에 가용성 집합에 다시 만듭니다. 이렇게 하려면 [Azure Resource Manager VM 가용성 집합 설정](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4)에서 스크립트를 사용합니다. 이 스크립트를 실행하기 전에 제한 사항을 확인하고 작동 중단 시간을 계획합니다.
 
-2. **이전 VM 및 디스크를 삭제합니다**. 프리미엄 디스크가 원본 디스크와 일치하고 새 VM이 원본 VM과 동일한 기능을 수행해야 합니다. VM을 삭제하고 Azure Portal의 원본 저장소 계정에서 디스크를 삭제합니다. VM을 삭제했는데도 디스크가 삭제되지 않는 문제가 발생하는 경우 [저장소 리소스 삭제 오류 해결](storage-resource-deletion-errors.md)을 참조하세요.
+2. **이전 VM 및 디스크를 삭제합니다**. 프리미엄 디스크가 원본 디스크와 일치하고 새 VM이 원본 VM과 동일한 기능을 수행해야 합니다. VM을 삭제하고 Azure Portal의 원본 스토리지 계정에서 디스크를 삭제합니다. VM을 삭제했는데도 디스크가 삭제되지 않는 문제가 발생하는 경우 [스토리지 리소스 삭제 오류 해결](storage-resource-deletion-errors.md)을 참조하세요.
 
 3. **Azure Site Recovery 인프라를 정리합니다**. Site Recovery가 더 이상 필요하지 않은 경우 인프라를 정리할 수 있습니다. 복제된 항목, 구성 서버 및 복구 정책을 삭제한 후 Azure Site Recovery 자격 증명 모음을 삭제합니다.
 

@@ -24,7 +24,7 @@ Azure Database for PostgreSQL에서는 쿼리 및 오류 로그를 생성합니�
 이러한 매개 변수에 대한 자세한 내용은 PostgreSQL의 [오류 보고 및 로깅](https://www.postgresql.org/docs/current/static/runtime-config-logging.html) 설명서를 참조하세요. Azure Database for PostgreSQL 매개 변수를 구성하는 방법을 알아보려면 [포털 설명서](howto-configure-server-parameters-using-portal.md) 또는 [CLI 설명서](howto-configure-server-parameters-using-cli.md)를 참조하세요.
 
 ## <a name="access-server-logs-through-portal-or-cli"></a>포털 또는 CLI를 통해 서버 로그 액세스
-로그를 사용하도록 설정한 경우 [Azure Portal](howto-configure-server-logs-in-portal.md), [Azure CLI](howto-configure-server-logs-using-cli.md) 및 Azure REST API를 사용하여 Azure Database for PostgreSQL 로그 저장소에서 로그에 액세스할 수 있습니다. 로그 파일은 1시간마다 또는 100MB 크기가 될 때마다(둘 중 먼저 도달할 때) 순환됩니다. 서버에 연결된  **log\_retention\_period** 매개 변수를 사용하여 이 로그 스토리지의 보존 기간을 설정할 수 있습니다. 기본값은 3일이며 최대값은 7일입니다. 로그 파일을 저장하기에 충분한 저장소를 서버에 할당해야 합니다. Azure 진단 로그는 이 보존 매개 변수를 통해 제어되지 않습니다.
+로그를 사용하도록 설정한 경우 [Azure Portal](howto-configure-server-logs-in-portal.md), [Azure CLI](howto-configure-server-logs-using-cli.md) 및 Azure REST API를 사용하여 Azure Database for PostgreSQL 로그 스토리지에서 로그에 액세스할 수 있습니다. 로그 파일은 1시간마다 또는 100MB 크기가 될 때마다(둘 중 먼저 도달할 때) 순환됩니다. 서버에 연결된  **log\_retention\_period** 매개 변수를 사용하여 이 로그 스토리지의 보존 기간을 설정할 수 있습니다. 기본값은 3일이며 최대값은 7일입니다. 로그 파일을 저장하기에 충분한 스토리지를 서버에 할당해야 합니다. Azure 진단 로그는 이 보존 매개 변수를 통해 제어되지 않습니다.
 
 
 ## <a name="diagnostic-logs"></a>진단 로그

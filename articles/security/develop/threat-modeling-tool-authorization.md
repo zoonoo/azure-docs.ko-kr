@@ -35,7 +35,7 @@ ms.locfileid: "68728377"
 | **Service Fabric 신뢰 경계** | <ul><li>[RBAC를 사용하여 클러스터 작업에 대한 클라이언트 액세스 제한](#cluster-rbac)</li></ul> |
 | **Dynamics CRM** | <ul><li>[보안 모델링 수행 및 필요한 경우 필드 수준 보안 사용](#modeling-field)</li></ul> |
 | **Dynamics CRM 포털** | <ul><li>[포털의 보안 모델이 CRM의 나머지 부분과 다르다는 점을 감안하여 포털 계정의 보안 모델링 수행](#portal-security)</li></ul> |
-| **Azure Storage** | <ul><li>[Azure Table Storage의 엔터티 범위에 대해 세분화된 권한 부여](#permission-entities)</li><li>[Azure Resource Manager를 사용하여 Azure 저장소 계정에 역할 기반 Access Control(RBAC)을 사용하도록 설정](#rbac-azure-manager)</li></ul> |
+| **Azure Storage** | <ul><li>[Azure Table Storage의 엔터티 범위에 대해 세분화된 권한 부여](#permission-entities)</li><li>[Azure Resource Manager를 사용하여 Azure Storage 계정에 역할 기반 Access Control(RBAC)을 사용하도록 설정](#rbac-azure-manager)</li></ul> |
 | **모바일 클라이언트** | <ul><li>[암시적 무단 해제 또는 루팅 검색 구현](#rooting-detection)</li></ul> |
 | **WCF** | <ul><li>[WCF - 약한 클래스 참조](#weak-class-wcf)</li><li>[WCF - 권한 부여 제어 구현](#wcf-authz)</li></ul> |
 | **앱 API** | <ul><li>[ASP.NET Web API에서 적절한 권한 부여 메커니즘 구현](#authz-aspnet)</li></ul> |
@@ -106,7 +106,7 @@ ms.locfileid: "68728377"
 | **적용 가능한 기술** | 제네릭 |
 | **특성**              | 해당 사항 없음  |
 | **참조**              | 해당 사항 없음  |
-| **단계** | <p>사용자 작업에 필수적인 권한만 사용자 계정에 부여한다는 것이 원칙입니다. 예를 들어 백업 사용자는 소프트웨어를 설치할 필요가 없습니다. 따라서 백업 사용자에게는 백업 및 백업 관련 애플리케이션만 실행할 수 있는 권한이 있습니다. 새 소프트웨어 설치와 같은 다른 모든 권한은 차단됩니다. 이 원칙은 일반 사용자 계정에서 작업하는 개인용 컴퓨터 사용자에게도 일반적으로 적용되며, 반드시 요구되는 경우에만 권한이 있는 암호로 보호된 계정(슈퍼 사용자)을 엽니다. </p><p>또한 이 원칙은 웹 응용 프로그램에도 적용할 수 있습니다. 세션을 사용하는 역할 기반 인증 방법에만 의존하는 대신 데이터베이스 기반 인증 시스템을 통해 사용자에게 권한을 할당하려고 합니다. 사용자가 시스템에서 수행할 권한이 있는 작업을 확인하기 위해 권한을 부여한 특정 역할을 해당 사용자에게 할당하는 대신 사용자가 올바르게 로그인했는지 확인하기 위해 세션을 계속 사용합니다. 또한 이 방법의 가장 큰 이점은 사용자가 적은 권한을 할당받아야 할 때마다 할당이 먼저 만료된 세션에 의존하지 않으므로 변경 내용이 즉시 적용된다는 것입니다.</p>|
+| **단계** | <p>사용자 작업에 필수적인 권한만 사용자 계정에 부여한다는 것이 원칙입니다. 예를 들어 백업 사용자는 소프트웨어를 설치할 필요가 없습니다. 따라서 백업 사용자에게는 백업 및 백업 관련 애플리케이션만 실행할 수 있는 권한이 있습니다. 새 소프트웨어 설치와 같은 다른 모든 권한은 차단됩니다. 이 원칙은 일반 사용자 계정에서 작업하는 개인용 컴퓨터 사용자에게도 일반적으로 적용되며, 반드시 요구되는 경우에만 권한이 있는 암호로 보호된 계정(슈퍼 사용자)을 엽니다. </p><p>또한 이 원칙은 웹 애플리케이션에도 적용할 수 있습니다. 세션을 사용하는 역할 기반 인증 방법에만 의존하는 대신 데이터베이스 기반 인증 시스템을 통해 사용자에게 권한을 할당하려고 합니다. 사용자가 시스템에서 수행할 권한이 있는 작업을 확인하기 위해 권한을 부여한 특정 역할을 해당 사용자에게 할당하는 대신 사용자가 올바르게 로그인했는지 확인하기 위해 세션을 계속 사용합니다. 또한 이 방법의 가장 큰 이점은 사용자가 적은 권한을 할당받아야 할 때마다 할당이 먼저 만료된 세션에 의존하지 않으므로 변경 내용이 즉시 적용된다는 것입니다.</p>|
 
 ## <a id="logic-request-parameters"></a>들어오는 요청 매개 변수를 기반으로 하지 않는 비즈니스 논리 및 리소스 액세스 권한 부여 결정
 
@@ -280,10 +280,10 @@ WHERE userID=:id < - session var
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 제네릭 |
 | **특성**              | StorageType - 테이블 |
-| **참조**              | [SAS를 사용하여 Azure 저장소 계정의 개체에 대한 액세스 권한을 위임하는 방법](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_data-plane-security) |
+| **참조**              | [SAS를 사용하여 Azure Storage 계정의 개체에 대한 액세스 권한을 위임하는 방법](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_data-plane-security) |
 | **단계** | 특정 비즈니스 시나리오에서 Azure Table Storage는 다른 당사자에게 제공하는 중요한 데이터(예: 다른 국가에 관한 중요한 데이터)를 예를 들어, 다양 한 국가/지역과 관련 된 중요 한 데이터입니다. 이러한 경우, 사용자가 특정 국가/지역과 관련 된 데이터에 액세스할 수 있도록 파티션 및 행 키 범위를 지정 하 여 SAS 서명을 생성할 수 있습니다.| 
 
-## <a id="rbac-azure-manager"></a>Azure Resource Manager를 사용하여 Azure 저장소 계정에 역할 기반 Access Control(RBAC)을 사용하도록 설정
+## <a id="rbac-azure-manager"></a>Azure Resource Manager를 사용하여 Azure Storage 계정에 역할 기반 Access Control(RBAC)을 사용하도록 설정
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
@@ -291,8 +291,8 @@ WHERE userID=:id < - session var
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 제네릭 |
 | **특성**              | N/A  |
-| **참조**              | [RBAC(역할 기반 Access Control)를 사용하여 저장소 계정의 보안을 유지하는 방법](https://azure.microsoft.com/documentation/articles/storage-security-guide/#management-plane-security) |
-| **단계** | <p>새 저장소 계정을 만들 때 클래식 배포 모델 또는 Azure Resource Manager 배포 모델 중에서 선택합니다. Azure에서 리소스를 만드는 기본 모델에서만 구독 및 저장소 계정에 대한 완전한 액세스를 허용합니다.</p><p>Azure Resource Manager 모델에서는 Azure Active Directory를 사용하여 리소스 그룹에 저장소 계정을 추가하고 해당 특정 저장소 계정의 관리 평면에 대한 액세스를 제어합니다. 예를 들어 특정 사용자에게는 저장소 계정 키에 액세스할 수 있는 기능을 제공하고 다른 사용자에게는 저장소 계정에 대한 정보는 볼 수 있지만 저장소 계정 키에는 액세스하지 못하게 할 수 있습니다.</p>|
+| **참조**              | [RBAC(역할 기반 Access Control)를 사용하여 스토리지 계정의 보안을 유지하는 방법](https://azure.microsoft.com/documentation/articles/storage-security-guide/#management-plane-security) |
+| **단계** | <p>새 스토리지 계정을 만들 때 클래식 배포 모델 또는 Azure Resource Manager 배포 모델 중에서 선택합니다. Azure에서 리소스를 만드는 기본 모델에서만 구독 및 스토리지 계정에 대한 완전한 액세스를 허용합니다.</p><p>Azure Resource Manager 모델에서는 Azure Active Directory를 사용하여 리소스 그룹에 스토리지 계정을 추가하고 해당 특정 스토리지 계정의 관리 평면에 대한 액세스를 제어합니다. 예를 들어 특정 사용자에게는 스토리지 계정 키에 액세스할 수 있는 기능을 제공하고 다른 사용자에게는 스토리지 계정에 대한 정보는 볼 수 있지만 스토리지 계정 키에는 액세스하지 못하게 할 수 있습니다.</p>|
 
 ## <a id="rooting-detection"></a>암시적 무단 해제 또는 루팅 검색 구현
 

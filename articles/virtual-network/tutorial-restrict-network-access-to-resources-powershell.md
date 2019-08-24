@@ -78,7 +78,7 @@ $virtualNetwork | Set-AzVirtualNetwork
 
 ## <a name="enable-a-service-endpoint"></a>서비스 엔드포인트 사용
 
-서비스 엔드포인트를 지원하는 서비스에 대해서만 서비스 엔드포인트를 사용하도록 설정할 수 있습니다. 서비스 끝점 지원 서비스를 사용할 수 있는 사용 하 여 Azure 위치에서 볼 [Get AzVirtualNetworkAvailableEndpointService](/powershell/module/az.network/get-azvirtualnetworkavailableendpointservice)합니다. 다음 예제에서는 *eastus* 지역에서 사용할 수 있는 서비스 끝점 지원 서비스 목록을 반환합니다. 반환되는 서비스 목록은 시간이 지나면서 서비스 엔드포인트를 사용할 수 있는 Azure 서비스가 증가함에 따라 확장됩니다.
+서비스 엔드포인트를 지원하는 서비스에 대해서만 서비스 엔드포인트를 사용하도록 설정할 수 있습니다. 서비스 끝점 지원 서비스를 사용할 수 있는 사용 하 여 Azure 위치에서 볼 [Get AzVirtualNetworkAvailableEndpointService](/powershell/module/az.network/get-azvirtualnetworkavailableendpointservice)합니다. 다음 예제에서는 *eastus* 지역에서 사용할 수 있는 서비스 엔드포인트 지원 서비스 목록을 반환합니다. 반환되는 서비스 목록은 시간이 지나면서 서비스 엔드포인트를 사용할 수 있는 Azure 서비스가 증가함에 따라 확장됩니다.
 
 ```azurepowershell-interactive
 Get-AzVirtualNetworkAvailableEndpointService -Location eastus | Select Name
@@ -170,7 +170,7 @@ $virtualNetwork | Set-AzVirtualNetwork
 
 서비스 엔드포인트에 사용할 수 있는 Azure 서비스를 통해 만든 리소스에 대한 네트워크 액세스를 제한하는 데 필요한 단계는 서비스에 따라 다릅니다. 각 서비스에 대한 특정 단계는 개별 서비스의 설명서를 참조하세요. 이 문서의 나머지 부분에는 Azure Storage 계정에 대한 네트워크 액세스를 제한하는 단계가 예제로 포함되어 있습니다.
 
-### <a name="create-a-storage-account"></a>저장소 계정 만들기
+### <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
 사용 하 여 Azure storage 계정을 만듭니다 [새로 만들기-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount)합니다. `<replace-with-your-unique-storage-account-name>`을 모든 Azure 위치에서 고유한 이름으로 바꿉니다. 이름은 3~24자 사이여야 하고 숫자와 소문자만 사용할 수 있습니다.
 
@@ -195,9 +195,9 @@ $storageAcctKey = (Get-AzStorageAccountKey `
 
 이 키는 이후 단계에서 파일 공유를 만드는 데 사용됩니다. `$storageAcctKey`를 입력하고 값을 적어 둡니다. 이후 단계에서 파일 공유를 VM의 드라이브에 매핑할 때도 이 값을 수동으로 입력해야 합니다.
 
-### <a name="create-a-file-share-in-the-storage-account"></a>저장소 계정에 파일 공유 만들기
+### <a name="create-a-file-share-in-the-storage-account"></a>스토리지 계정에 파일 공유 만들기
 
-저장소 계정 컨텍스트 만들기 및 사용 하 여 키 [새로 만들기-AzStorageContext](/powershell/module/az.storage/new-AzStoragecontext)합니다. 이 컨텍스트는 저장소 계정 이름 및 계정 키를 캡슐화합니다.
+저장소 계정 컨텍스트 만들기 및 사용 하 여 키 [새로 만들기-AzStorageContext](/powershell/module/az.storage/new-AzStoragecontext)합니다. 이 컨텍스트는 스토리지 계정 이름 및 계정 키를 캡슐화합니다.
 
 ```azurepowershell-interactive
 $storageContext = New-AzStorageContext $storageAcctName $storageAcctKey
@@ -207,9 +207,9 @@ $storageContext = New-AzStorageContext $storageAcctName $storageAcctKey
 
 $share = New-AzStorageShare my-file-share -Context $storageContext
 
-### <a name="deny-all-network-access-to-a-storage-account"></a>저장소 계정에 대한 모든 네트워크 액세스 거부
+### <a name="deny-all-network-access-to-a-storage-account"></a>스토리지 계정에 대한 모든 네트워크 액세스 거부
 
-기본적으로 저장소 계정은 네트워크에 있는 클라이언트의 네트워크 연결을 허용합니다. 선택한 네트워크에 대 한 액세스를 제한 하려면 기본 동작을 변경 *Deny* 사용 하 여 [업데이트 AzStorageAccountNetworkRuleSet](/powershell/module/az.storage/update-azstorageaccountnetworkruleset)합니다. 네트워크 액세스가 거부되면 네트워크에서 저장소 계정에 액세스할 수 없습니다.
+기본적으로 스토리지 계정은 네트워크에 있는 클라이언트의 네트워크 연결을 허용합니다. 선택한 네트워크에 대 한 액세스를 제한 하려면 기본 동작을 변경 *Deny* 사용 하 여 [업데이트 AzStorageAccountNetworkRuleSet](/powershell/module/az.storage/update-azstorageaccountnetworkruleset)합니다. 네트워크 액세스가 거부되면 네트워크에서 스토리지 계정에 액세스할 수 없습니다.
 
 ```azurepowershell-interactive
 Update-AzStorageAccountNetworkRuleSet  `
@@ -241,7 +241,7 @@ Add-AzStorageAccountNetworkRule `
 
 ## <a name="create-virtual-machines"></a>가상 머신 만들기
 
-저장소 계정에 대한 네트워크 액세스를 테스트하려면 각 서브넷에 VM을 배포합니다.
+스토리지 계정에 대한 네트워크 액세스를 테스트하려면 각 서브넷에 VM을 배포합니다.
 
 ### <a name="create-the-first-virtual-machine"></a>첫 번째 가상 머신 만들기
 
@@ -280,7 +280,7 @@ New-AzVm `
 
 Azure가 VM을 만드는 데 몇 분이 걸립니다. Azure가 VM 만들기를 완료하고 PowerShell에 출력을 반환할 때까지 다음 단계로 이동하지 마세요.
 
-## <a name="confirm-access-to-storage-account"></a>저장소 계정에 대한 액세스 확인
+## <a name="confirm-access-to-storage-account"></a>스토리지 계정에 대한 액세스 확인
 
 [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress)를 사용하여 VM의 공용 IP 주소를 반환합니다. 다음 예제에서는 *myVmPrivate* VM의 공용 IP 주소를 반환합니다.
 
@@ -299,7 +299,7 @@ mstsc /v:<publicIpAddress>
 
 원격 데스크톱 프로토콜(.rdp) 파일이 만들어지고 컴퓨터에 다운로드됩니다. 다운로드한 rdp 파일을 엽니다. 메시지가 표시되면 **연결**을 선택합니다. VM을 만들 때 지정한 사용자 이름과 암호를 입력합니다. **추가 선택 사항**, **다른 계정 사용**을 차례로 선택하여 VM을 만들 때 입력한 자격 증명을 지정해야 할 수도 있습니다. **확인**을 선택합니다. 로그인 프로세스 중에 인증서 경고가 나타날 수 있습니다. 경고 메시지가 표시되면 **예** 또는 **계속**을 선택하여 연결을 계속합니다.
 
-*myVmPrivate* VM에서 PowerShell을 사용하여 Azure 파일 공유를 Z 드라이브에 매핑합니다. 뒤에 나오는 명령을 실행하기 전에, `<storage-account-key>` 및 `<storage-account-name>`을 [저장소 계정 만들기](#create-a-storage-account)에서 지정했거나 검색한 값으로 바꿉니다.
+*myVmPrivate* VM에서 PowerShell을 사용하여 Azure 파일 공유를 Z 드라이브에 매핑합니다. 뒤에 나오는 명령을 실행하기 전에, `<storage-account-key>` 및 `<storage-account-name>`을 [스토리지 계정 만들기](#create-a-storage-account)에서 지정했거나 검색한 값으로 바꿉니다.
 
 ```powershell
 $acctKey = ConvertTo-SecureString -String "<storage-account-key>" -AsPlainText -Force
@@ -327,7 +327,7 @@ ping bing.com
 
 *myVmPrivate* VM에 대한 원격 데스크톱 세션을 닫습니다.
 
-## <a name="confirm-access-is-denied-to-storage-account"></a>저장소 계정에 대한 액세스가 거부되는지 확인
+## <a name="confirm-access-is-denied-to-storage-account"></a>스토리지 계정에 대한 액세스가 거부되는지 확인
 
 *myVmPublic* VM의 공용 IP 주소를 가져옵니다.
 
@@ -344,7 +344,7 @@ Get-AzPublicIpAddress `
 mstsc /v:<publicIpAddress>
 ```
 
-*myVmPublic* VM에서 Azure 파일 공유를 Z 드라이브에 매핑하려고 시도합니다. 뒤에 나오는 명령을 실행하기 전에, `<storage-account-key>` 및 `<storage-account-name>`을 [저장소 계정 만들기](#create-a-storage-account)에서 지정했거나 검색한 값으로 바꿉니다.
+*myVmPublic* VM에서 Azure 파일 공유를 Z 드라이브에 매핑하려고 시도합니다. 뒤에 나오는 명령을 실행하기 전에, `<storage-account-key>` 및 `<storage-account-name>`을 [스토리지 계정 만들기](#create-a-storage-account)에서 지정했거나 검색한 값으로 바꿉니다.
 
 ```powershell
 $acctKey = ConvertTo-SecureString -String "<storage-account-key>" -AsPlainText -Force
@@ -356,7 +356,7 @@ New-PSDrive -Name Z -PSProvider FileSystem -Root "\\<storage-account-name>.file.
 
 *myVmPublic* VM에 대한 원격 데스크톱 세션을 닫습니다.
 
-컴퓨터에서 다음 명령을 사용하여 저장소 계정의 파일 공유를 보려고 시도합니다.
+컴퓨터에서 다음 명령을 사용하여 스토리지 계정의 파일 공유를 보려고 시도합니다.
 
 ```powershell-interactive
 Get-AzStorageFile `

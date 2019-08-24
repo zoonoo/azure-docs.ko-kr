@@ -86,7 +86,7 @@ SaaS 애플리케이션은 클라우드에서 방대한 양의 테넌트 데이�
 ### <a name="deploy-sql-data-warehouse-data-factory-and-blob-storage"></a>SQL Data Warehouse, Data Factory 및 Blob Storage 배포 
 Wingtip Tickets 앱에서 테넌트의 트랜잭션 데이터는 많은 데이터베이스에 배포됩니다. ADF(Azure Data Factory)는 데이터 웨어하우스로 이 데이터의 ELT(추출, 로드, 변환)를 오케스트레이션하는 데 사용됩니다. SQL Data Warehouse로 데이터를 가장 효율적으로 로드하려면 ADF는 데이터를 중간 BLOB 파일로 추출한 다음, [PolyBase](https://docs.microsoft.com/azure/sql-data-warehouse/design-elt-data-loading)를 사용하여 데이터를 데이터웨어하우스로 로드합니다.   
 
-이 단계에서는 자습서에서 사용되는 추가 리소스를 배포합니다. 즉, _tenantanalytics_이라는 SQL Data Warehouse, _dbtodwload-\<user\>_ 라는 Azure Data Factory 및 _wingtipstaging\<user\>_ 라는 Azure 저장소 계정입니다. 저장소 계정은 데이터 웨어하우스에 로드하기 전에 추출된 데이터 파일을 BLOB으로 임시 보유하는 데 사용됩니다. 또한 이 단계에서는 데이터 웨어하우스 스키마를 배포하고 ELT 프로세스를 오케스트레이션하는 ADF 파이프라인을 정의합니다.
+이 단계에서는 자습서에서 사용되는 추가 리소스를 배포합니다. 즉, _tenantanalytics_이라는 SQL Data Warehouse, _dbtodwload-\<user\>_ 라는 Azure Data Factory 및 _wingtipstaging\<user\>_ 라는 Azure Storage 계정입니다. 스토리지 계정은 데이터 웨어하우스에 로드하기 전에 추출된 데이터 파일을 BLOB으로 임시 보유하는 데 사용됩니다. 또한 이 단계에서는 데이터 웨어하우스 스키마를 배포하고 ELT 프로세스를 오케스트레이션하는 ADF 파이프라인을 정의합니다.
 1. PowerShell ISE에서 *…\Learning Modules\Operational Analytics\Tenant Analytics DW\Demo-TenantAnalyticsDW.ps1*을 열고 다음을 설정합니다.
     - **$DemoScenario** = **2** 테넌트 분석 데이터 웨어하우스, Blob Storage 및 데이터 팩터리 배포 
 1. **F5** 키를 눌러 데모 스크립트를 실행하고 Azure 리소스를 배포합니다. 
@@ -109,12 +109,12 @@ Wingtip Tickets 앱에서 테넌트의 트랜잭션 데이터는 많은 데이�
 
 ![DWtables](media/saas-tenancy-tenant-analytics/DWtables.JPG)
 
-#### <a name="blob-storage"></a>Blob 스토리지
-1. [Azure Portal](https://ms.portal.azure.com)에서 애플리케이션을 배포하는 데 사용한 리소스 그룹으로 이동합니다. **wingtipstaging\<user\>** 이라는 저장소 계정이 추가되었는지 확인합니다.
+#### <a name="blob-storage"></a>Blob Storage
+1. [Azure Portal](https://ms.portal.azure.com)에서 애플리케이션을 배포하는 데 사용한 리소스 그룹으로 이동합니다. **wingtipstaging\<user\>** 이라는 스토리지 계정이 추가되었는지 확인합니다.
 
    ![DWtables](media/saas-tenancy-tenant-analytics/adf-staging-storage.PNG)
 
-1. **wingtipstaging\<user\>** 저장소 계정을 클릭하여 존재하는 개체를 탐색합니다.
+1. **wingtipstaging\<user\>** 스토리지 계정을 클릭하여 존재하는 개체를 탐색합니다.
 1. **Blob** 타일 클릭
 1. 컨테이너 **configfile** 클릭
 1. **configfile**이 **TableConfig.json**라는 JSON 파일을 포함하는지 확인합니다. 이 파일에는 원본 및 대상 테이블 이름, 열 이름 및 추적기 열 이름이 포함됩니다.

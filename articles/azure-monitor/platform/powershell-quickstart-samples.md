@@ -310,7 +310,7 @@ Remove-AzAutoscalesetting -ResourceGroup myrg1 -Name MyScaleVMSSSetting
 ```
 
 ## <a name="manage-log-profiles-for-activity-log"></a>활동 로그에 대한 로그 프로필 관리
-*로그 프로필*을 만들어 활동 로그에서 저장소 계정으로 데이터를 내보내고 해당 데이터의 보존 기간을 구성할 수 있습니다. 필요에 따라 이벤트 허브로 데이터를 스트리밍할 수도 있습니다. 이 기능은 현재 미리 보기 버전이며 구독당 로그 프로필을 하나만 만들 수 있습니다. 현재 구독과 함께 다음 cmdlet을 사용하여 로그 프로필을 만들고 관리할 수 있습니다. 또한 특정 구독을 선택할 수 있습니다. PowerShell이 현재 구독의 기본값이지만 언제든지 `Set-AzContext`명령을 사용하여 변경할 수 있습니다. 해당 구독 내의 저장소 계정 또는 이벤트 허브로 데이터를 라우팅하도록 활동 로그를 구성할 수 있습니다. 데이터는 JSON 형식의 blob 파일로 기록됩니다.
+*로그 프로필*을 만들어 활동 로그에서 스토리지 계정으로 데이터를 내보내고 해당 데이터의 보존 기간을 구성할 수 있습니다. 필요에 따라 이벤트 허브로 데이터를 스트리밍할 수도 있습니다. 이 기능은 현재 미리 보기 버전이며 구독당 로그 프로필을 하나만 만들 수 있습니다. 현재 구독과 함께 다음 cmdlet을 사용하여 로그 프로필을 만들고 관리할 수 있습니다. 또한 특정 구독을 선택할 수 있습니다. PowerShell이 현재 구독의 기본값이지만 언제든지 `Set-AzContext`명령을 사용하여 변경할 수 있습니다. 해당 구독 내의 스토리지 계정 또는 이벤트 허브로 데이터를 라우팅하도록 활동 로그를 구성할 수 있습니다. 데이터는 JSON 형식의 blob 파일로 기록됩니다.
 
 ### <a name="get-a-log-profile"></a>로그 프로필 가져오기
 기존 로그 프로필을 가져오려면 `Get-AzLogProfile` cmdlet을 사용합니다.
@@ -333,7 +333,7 @@ Add-AzLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s1/res
 ```
 
 ### <a name="add-log-profile-with-retention-and-eventhub"></a>보존 및 이벤트 허브를 사용하여 로그 프로필 추가
-데이터를 저장소 계정으로 라우팅하는 방법 외에도 데이터를 이벤트 허브에 스트리밍할 수 있습니다. 이 미리 보기 릴리스에서 저장소 계정 구성은 필수지만 이벤트 허브 구성은 선택 사항입니다.
+데이터를 스토리지 계정으로 라우팅하는 방법 외에도 데이터를 이벤트 허브에 스트리밍할 수 있습니다. 이 미리 보기 릴리스에서 스토리지 계정 구성은 필수지만 이벤트 허브 구성은 선택 사항입니다.
 
 ```powershell
 Add-AzLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia -RetentionInDays 90
@@ -345,7 +345,7 @@ Add-AzLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s1/res
  - Event Hubs로 전송
  - Log Analytics 작업 영역으로 전송됩니다. 
 
-이 작업은 리소스 수준에서만 수행할 수 있습니다. 저장소 계정 또는 이벤트 허브가 진단 설정이 구성되는 대상 리소스와 같은 지역에 있어야 합니다.
+이 작업은 리소스 수준에서만 수행할 수 있습니다. 스토리지 계정 또는 이벤트 허브가 진단 설정이 구성되는 대상 리소스와 같은 지역에 있어야 합니다.
 
 ### <a name="get-diagnostic-setting"></a>진단 설정 가져오기
 ```powershell
