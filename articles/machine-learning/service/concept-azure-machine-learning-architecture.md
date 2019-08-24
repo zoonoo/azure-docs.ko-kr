@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: ea5e476680b07a6a7ba2b57e94f1f0b99cc10987
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 8987c14fab141a71ba2dd9f1ed228a56ce419bce
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990092"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982832"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning 서비스 작동 방법: 아키텍처 및 개념
 
@@ -66,7 +66,7 @@ Azure Machine Learning 다음 도구를 사용 합니다.
 + <a href="#github-tracking-and-integration">Git 추적</a>
 + <a href="#snapshots">스냅숏</a>
 + <a href="#activities">활동</a>
-+ <a href="#images">이미지</a>
++ <a href="#images">Image</a>
 + <a href="#deployment">배포</a>
 + <a href="#web-service-deployments">웹 서비스</a>
 + <a href="#iot-module-deployments">IoT 모듈</a>
@@ -133,7 +133,7 @@ PyTorch, TensorFlow 및 체 이너 Azure Machine Learning 작업의 경우 이�
 
 데이터 집합은 또는 `from_delimited_files()` `to_pandas_dataframe()`을 사용 하는 것과 같이 널리 사용 되는 형식으로 데이터 작업을 위한 메서드를 제공 합니다
 
-자세한 내용은 [Azure Machine Learning 데이터 집합 만들기 및 등록](how-to-create-register-datasets.md)을 참조 하세요.  데이터 집합을 사용 하는 추가 예제는 [샘플 노트북](https://github.com/Azure/MachineLearningNotebooks/tree/master/work-with-data/datasets)을 참조 하세요.
+자세한 내용은 [Azure Machine Learning 데이터 집합 만들기 및 등록](how-to-create-register-datasets.md)을 참조 하세요.  데이터 집합을 사용 하는 추가 예제는 [샘플 노트북](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/datasets)을 참조 하세요.
 
 **데이터** 저장소는 Azure storage 계정에 대 한 저장소 추상화입니다. 데이터 저장소는 Azure Blob 컨테이너 또는 Azure 파일 공유 중 하나를 백 엔드 스토리지로 사용할 수 있습니다. 각 작업 영역에는 기본 데이터 저장소가 있으며 추가 데이터 저장소를 등록할 수 있습니다. Python SDK API 또는 Azure Machine Learning CLI를 사용하여 데이터 저장소의 파일을 저장하고 검색합니다.
 
@@ -164,7 +164,7 @@ PyTorch, TensorFlow 및 체 이너 Azure Machine Learning 작업의 경우 이�
 
 원본 디렉터리가 로컬 Git 리포지토리 인 학습 실행을 시작 하면 리포지토리에 대 한 정보가 실행 기록에 저장 됩니다. 예를 들어 리포지토리의 현재 커밋 ID는 기록의 일부로 기록 됩니다. 평가기, ML 파이프라인 또는 스크립트 실행을 사용 하 여 제출 된 실행에서 작동 합니다. SDK 또는 Machine Learning CLI에서 제출 된 실행에 대해서도 작동 합니다.
 
-### <a name="snapshots"></a>스냅샷
+### <a name="snapshots"></a>스냅숏
 
 실행을 제출하면 Azure Machine Learning은 스크립트를 포함하는 디렉터리를 zip 파일로 압축하여 컴퓨팅 대상으로 보냅니다. 그런 다음, zip 파일이 추출되고 스크립트가 실행됩니다. 또한 Azure Machine Learning은 zip 파일을 실행 기록의 일부인 스냅샷으로 저장합니다. 작업 영역에 대한 액세스 권한이 있는 사용자는 실행 기록을 찾아보고 스냅샷을 다운로드할 수 있습니다.
 
