@@ -36,7 +36,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-- **Azure Storage 계정**. Hive 스크립트를 만들어 Azure 저장소에 업로드합니다. Hive 스크립트의 출력은 이 저장소 계정에 저장됩니다. 이 샘플에서 HDInsight 클러스터는 이 Azure Storage 계정을 기본 스토리지로 사용합니다. 
+- **Azure Storage 계정**. Hive 스크립트를 만들어 Azure Storage에 업로드합니다. Hive 스크립트의 출력은 이 스토리지 계정에 저장됩니다. 이 샘플에서 HDInsight 클러스터는 이 Azure Storage 계정을 기본 스토리지로 사용합니다. 
 - **Azure Virtual Network** - 아직 없는 경우 [이 지침](../virtual-network/quick-create-portal.md)에 따라 Azure Virtual Network를 만듭니다. 이 샘플에서 HDInsight는 Azure Virtual Network에 있습니다. 다음은 Azure Virtual Network의 샘플 구성입니다. 
 
     ![가상 네트워크 만들기](media/tutorial-transform-data-using-hive-in-vnet-portal/create-virtual-network.png)
@@ -149,7 +149,7 @@ Hadoop 클러스터는 가상 네트워크 내에 있으므로 동일한 가상 
 ## <a name="create-linked-services"></a>연결된 서비스 만들기
 
 이 섹션에서는 두 개의 연결된 서비스를 작성하고 배포합니다.
-- Azure Storage 계정을 데이터 팩터리에 연결하는 **Azure Storage 연결된 서비스**. 이 저장소는 HDInsight 클러스터에서 사용하는 기본 저장소입니다. 이 경우 이 Azure Storage 계정을 사용하여 Hive 스크립트와 스크립트 출력을 저장합니다.
+- Azure Storage 계정을 데이터 팩터리에 연결하는 **Azure Storage 연결된 서비스**. 이 스토리지는 HDInsight 클러스터에서 사용하는 기본 스토리지입니다. 이 경우 이 Azure Storage 계정을 사용하여 Hive 스크립트와 스크립트 출력을 저장합니다.
 - **HDInsight 연결된 서비스**. Azure Data Factory에서 Hive 스크립트를 이 HDInsight 클러스터에 제출하여 실행합니다.
 
 ### <a name="create-azure-storage-linked-service"></a>Azure Storage 연결된 서비스 만들기
@@ -165,7 +165,7 @@ Hadoop 클러스터는 가상 네트워크 내에 있으므로 동일한 가상 
     1. **이름**에 대해 **AzureStorageLinkedService**를 입력합니다.
     2. **통합 런타임을 통해 연결**에 대해 **MySelfHostedIR**을 선택합니다.
     3. **스토리지 계정 이름**에 대해 Azure Storage 계정을 선택합니다. 
-    4. 저장소 계정에 대한 연결을 테스트하려면 **연결 테스트**를 클릭합니다.
+    4. 스토리지 계정에 대한 연결을 테스트하려면 **연결 테스트**를 클릭합니다.
     5. **저장**을 클릭합니다.
    
         ![Azure Blob Storage 계정 지정](./media/tutorial-transform-data-using-hive-in-vnet-portal/specify-azure-storage-account.png)
@@ -215,9 +215,9 @@ Hadoop 클러스터는 가상 네트워크 내에 있으므로 동일한 가상 
 4. **스크립트** 탭으로 전환하고 다음 단계를 수행합니다. 
 
     1. **스크립트 연결된 서비스**에 대해 **AzureStorageLinkedService**를 선택합니다. 
-    2. **파일 경로**에서 **저장소 찾아보기**를 클릭합니다. 
+    2. **파일 경로**에서 **스토리지 찾아보기**를 클릭합니다. 
  
-        ![저장소 찾아보기](./media/tutorial-transform-data-using-hive-in-vnet-portal/browse-storage-hive-script.png)
+        ![스토리지 찾아보기](./media/tutorial-transform-data-using-hive-in-vnet-portal/browse-storage-hive-script.png)
     3. **파일 또는 폴더 선택** 창에서 **adftutorial** 컨테이너의 **hivescripts** 폴더로 이동하고, **hivescript.hql**을 선택하고, **마침**을 클릭합니다.  
         
         ![파일 또는 폴더 선택](./media/tutorial-transform-data-using-hive-in-vnet-portal/choose-file-folder.png) 

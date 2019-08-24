@@ -84,7 +84,7 @@ git clone --recurse-submodules https://github.com/Microsoft/Cognitive-Face-Windo
 1. 다음에 샘플 앱을 실행할 때 구독 키 및 엔드포인트 URL을 입력하지 않도록 하려면 **설정 저장**을 선택하여 구독 키 및 엔드포인트 URL을 사용자 컴퓨터에 저장합니다. 이전에 저장된 구독 키 및 엔드포인트 URL을 삭제하려면 **설정 삭제**를 선택합니다.
 
    > [!NOTE]
-   > 샘플 앱은 구독 키 및 엔드포인트 URL을 저장하는 데 격리된 저장소 및 `System.IO.IsolatedStorage`를 사용합니다.
+   > 샘플 앱은 구독 키 및 엔드포인트 URL을 저장하는 데 격리된 스토리지 및 `System.IO.IsolatedStorage`를 사용합니다.
 
 1. 탐색 창의 **시나리오 선택**에서 현재 샘플 앱에 포함된 시나리오 중 하나를 선택합니다.  
 

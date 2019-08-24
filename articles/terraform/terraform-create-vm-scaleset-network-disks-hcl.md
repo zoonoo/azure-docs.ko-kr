@@ -3,7 +3,7 @@ title: Terraform을 사용하여 Azure Virtual Machine Scale Set 만들기
 description: Terraform을 사용하여 가상 네트워크 및 관리되는 연결 디스크로 구성된 Azure 가상 머신 확장 집합을 구성하고 버전을 지정하는 작업에 대한 자습서
 services: terraform
 ms.service: azure
-keywords: terraform, devops, 가상 머신, Azure, 확장 집합, 네트워크, 저장소, 모듈
+keywords: terraform, devops, 가상 머신, Azure, 확장 집합, 네트워크, 스토리지, 모듈
 author: tomarchermsft
 ms.author: tarcher
 ms.topic: tutorial

@@ -85,7 +85,7 @@ ms.locfileid: "58118309"
 
     ![](./media/notification-hubs-geofence/bing-maps-data-info.png)
 
-    **쿼리 URL**은 장치가 현재 위치의 경계 내에 있는지 여부를 확인하기 위해 쿼리를 실행할 수 있는 엔드포인트입니다. 이 검사를 수행하려면 추가된 다음 매개 변수를 사용하여 쿼리 URL에 대한 가져오기 호출을 실행합니다.
+    **쿼리 URL**은 디바이스가 현재 위치의 경계 내에 있는지 여부를 확인하기 위해 쿼리를 실행할 수 있는 엔드포인트입니다. 이 검사를 수행하려면 추가된 다음 매개 변수를 사용하여 쿼리 URL에 대한 가져오기 호출을 실행합니다.
 
     ```text
     ?spatialFilter=intersects(%27POINT%20LONGITUDE%20LATITUDE)%27)&$format=json&key=QUERY_KEY
@@ -187,7 +187,7 @@ ms.locfileid: "58118309"
         }
     }
     ```
-6. 응용 프로그램을 실행하고 사용자의 위치에 액세스할 수 있도록 허용합니다.
+6. 애플리케이션을 실행하고 사용자의 위치에 액세스할 수 있도록 허용합니다.
 
     ![](./media/notification-hubs-geofence/notification-hubs-location-access.png)
 7. 애플리케이션이 시작되면 **출력** 창에서 좌표를 볼 수 있어야 합니다.
@@ -346,7 +346,7 @@ ms.locfileid: "58118309"
     ```
 
     > [!NOTE]
-    > `POST_URL`을 배포된 웹 응용 프로그램의 위치로 설정합니다. 이제 로컬에서 실행해도 되지만 공용 버전을 배포할 경우 외부 공급자로 호스트해야 합니다.
+    > `POST_URL`을 배포된 웹 애플리케이션의 위치로 설정합니다. 이제 로컬에서 실행해도 되지만 공용 버전을 배포할 경우 외부 공급자로 호스트해야 합니다.
 2. 푸시 알림을 위해 UWP 앱을 등록합니다. Visual Studio에서 **프로젝트** > **저장** > **스토어와 앱 연결**을 선택합니다.
 
     ![](./media/notification-hubs-geofence/vs-associate-with-store.png)

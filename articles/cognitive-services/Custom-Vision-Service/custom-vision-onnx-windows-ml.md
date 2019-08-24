@@ -51,7 +51,7 @@ Windows ML을 사용하여 Custom Vision Service에서 내보낸 ONNX 모델을 
 
 1. `F5` 키를 사용하여 Visual Studio에서 애플리케이션을 시작합니다. 개발자 모드를 사용하도록 설정하라는 메시지가 표시될 수 있습니다. 자세한 내용은 [개발을 위해 디바이스를 사용하도록 설정](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development) 문서를 참조하세요.
 
-1. 응용 프로그램이 시작되면 단추를 사용하여 채점할 이미지를 선택합니다.
+1. 애플리케이션이 시작되면 단추를 사용하여 채점할 이미지를 선택합니다.
 
 ## <a name="use-your-own-model"></a>사용자 고유의 모델 사용
 

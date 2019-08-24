@@ -71,7 +71,7 @@ ms.locfileid: "68563299"
 
     [![의도에 새 발언을 추가하는 LUIS 스크린샷](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png "의도에 새 발언을 추가하는 LUIS 스크린샷")](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png#lightbox)
 
-    의도의 발언에서 Employee 엔터티 대신 keyPhrase 엔터티가 레이블로 지정되더라도 걱정하지 마세요. 두 엔터티 모두 테스트 창 및 끝점에서 올바르게 예측됩니다. 
+    의도의 발언에서 Employee 엔터티 대신 keyPhrase 엔터티가 레이블로 지정되더라도 걱정하지 마세요. 두 엔터티 모두 테스트 창 및 엔드포인트에서 올바르게 예측됩니다. 
 
 5. 왼쪽 탐색 영역에서 **의도**를 선택합니다.
 
@@ -255,7 +255,7 @@ Human Resource 도메인의 특성 때문에 조직에서 직원 관계를 묻�
     |Who does {Employee} supervise[?]|
     |Who does {Employee} boss[?]|
 
-## <a name="query-endpoint-when-patterns-are-used"></a>패턴이 사용될 때의 끝점 쿼리
+## <a name="query-endpoint-when-patterns-are-used"></a>패턴이 사용될 때의 엔드포인트 쿼리
 
 이제 패턴이 앱에 추가되었으므로 예측 런타임 엔드포인트에서 앱을 학습, 게시 및 쿼리합니다.
 
