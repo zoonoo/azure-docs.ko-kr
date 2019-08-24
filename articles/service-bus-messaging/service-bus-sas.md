@@ -4,7 +4,6 @@ description: 공유 액세스 서명을 사용한 Azure Service Bus 액세스 �
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
-manager: timlt
 editor: spelluru
 ms.assetid: ''
 ms.service: service-bus-messaging
@@ -12,20 +11,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2018
+ms.date: 08/22/2019
 ms.author: aschhab
-ms.openlocfilehash: d2cd7c8e24571f66fa73ceaa9a70ce33d6105e9c
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: ac240fee9a71714f2c7368b43e60f4e6c5d7093d
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69017750"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013063"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>공유 액세스 서명을 사용한 Service Bus 액세스 제어
 
 *공유 액세스 서명*(SAS)은 Service Bus 메시징의 기본 보안 메커니즘입니다. 이 문서에서는 SAS, 그 작동 방법 및 플랫폼과 상관 없는 방식으로 사용하는 방법에 대해 설명합니다.
 
 SAS는 권한 부여 규칙에 따라 Service Bus에 대한 액세스를 보호합니다. 네임스페이스 또는 메시징 엔터티(릴레이, 큐 또는 항목)에서 구성됩니다. 권한 부여 규칙에는 특정 권한과 연결된 이름이 있으며 암호화 키 쌍을 전달합니다. Service Bus SDK를 통해 또는 사용자 고유의 코드에서 규칙의 이름 및 키를 사용하여 SAS 토큰을 생성합니다. 그런 다음, 클라이언트는 토큰을 Service Bus에 전달하여 요청된 작업에 대한 권한 부여를 증명할 수 있습니다.
+
+> [!NOTE]
+> Azure Service Bus는 Azure Active Directory (Azure AD)를 사용 하 여 Service Bus 네임 스페이스 및 해당 엔터티에 대 한 액세스 권한을 부여 합니다. Azure AD에서 반환 된 OAuth 2.0 토큰을 사용 하는 사용자 또는 응용 프로그램에 대 한 권한 부여는 SAS (공유 액세스 서명)를 통해 뛰어난 보안과 사용 편의성을 제공 합니다. Azure AD를 사용 하는 경우 코드에 토큰을 저장 하 고 잠재적인 보안 취약점을 초래할 필요가 없습니다.
+>
+> 가능 하면 Azure Service Bus 응용 프로그램에서 Azure AD를 사용 하는 것이 좋습니다. 자세한 내용은 다음 문서를 참조하세요.
+> - [Azure Active Directory를 사용 하 여 응용 프로그램을 인증 하 고 권한을 부여 하 여 Azure Service Bus 엔터티에 액세스](authenticate-application.md)합니다.
+> - [Azure Service Bus 리소스에 액세스 하기 위해 Azure Active Directory를 사용 하 여 관리 id 인증](service-bus-managed-service-identity.md)
 
 ## <a name="overview-of-sas"></a>SAS 개요
 
@@ -57,7 +63,7 @@ Service Bus 네임스페이스를 만들 때 **RootManageSharedAccessKey**라는
 
 ## <a name="configuration-for-shared-access-signature-authentication"></a>공유 액세스 서명 인증을 위한 구성
 
-Service Bus 네임스페이스, 큐 또는 항목에 대한 [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 규칙을 구성할 수 있습니다. Service Bus 구독에서 [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 의 구성은 현재 지원되지 않지만 네임스페이스 또는 항목에 구성된 규칙을 사용하여 구독에 액세스할 수 있습니다. 이 절차를 설명 하는 작업 예제는 [관리 Azure Service Bus 큐 관리](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/ManagingEntities/SASAuthorizationRule) 샘플을 참조 하세요.
+Service Bus 네임스페이스, 큐 또는 항목에 대한 [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 규칙을 구성할 수 있습니다. Service Bus 구독에서 [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 의 구성은 현재 지원되지 않지만 네임스페이스 또는 항목에 구성된 규칙을 사용하여 구독에 액세스할 수 있습니다. 이 절차를 설명하는 작업 샘플은 [Service Bus 구독으로 공유 액세스 서명(SAS) 인증 사용](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c) 샘플을 참조하세요.
 
 ![SAS](./media/service-bus-sas/service-bus-namespace.png)
 
@@ -88,7 +94,7 @@ SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 
 리소스 URI은 액세스를 하려는 Service Bus 리소스의 전체 URI입니다. 예를 들면 `http://<namespace>.servicebus.windows.net/<entityPath>` 또는 `sb://<namespace>.servicebus.windows.net/<entityPath>`입니다. 즉, `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`과 같습니다. 
 
-**URI는 [%로 인코딩해야](/dotnet/api/system.web.httputility.urlencode?view=netframework-4.8)합니다.**
+**URI는 [%로 인코딩해야](https://msdn.microsoft.com/library/4fkewx0t.aspx)합니다.**
 
 이 URI로 또는 부모 계층 중 하나에 의해 지정된 엔터티에 서명에 사용된 공유 액세스 권한 부여 규칙을 구성해야 합니다. 예를 들어 이전 예에서 `http://contoso.servicebus.windows.net/contosoTopics/T1` 또는 `http://contoso.servicebus.windows.net`입니다.
 
@@ -104,8 +110,8 @@ SAS 토큰은 `signature-string`에서 사용된 `<resourceURI>`를 접두사로
 
 다음과 같이 설명된 시나리오는 권한 부여 규칙의 구성, SAS 토큰의 생성 및 클라이언트 권한 부여를 포함합니다.
 
-구성을 보여 주고 SAS 권한 부여를 사용 하는 Service Bus 응용 프로그램의 전체 작업 샘플은 GitHub 리포지토리에서 다음 샘플을 참조 하세요. [Azure Service Bus 큐 관리](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/ManagingEntities/SASAuthorizationRule)
- 
+구성을 설명하고 SAS 권한 부여를 사용하는 Service Bus 애플리케이션의 작업 샘플 전체는 [Service Bus를 사용하여 공유 액세스 서명 인증](https://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8)을 참조하세요. 네임스페이스 또는 토픽에 구성된 SAS 권한 부여 규칙을 사용하여 Service Bus 구독을 보호하는 방법을 설명하는 관련 샘플은 [Service Bus 구독으로 SAS(공유 액세스 서명) 인증 사용](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c)에서 확인할 수 있습니다.
+
 ## <a name="access-shared-access-authorization-rules-on-an-entity"></a>엔터티에 대한 공유 액세스 권한 부여 규칙 액세스
 
 Service Bus .NET Framework 라이브러리를 사용하여 해당하는 [QueueDescription](/dotnet/api/microsoft.servicebus.messaging.queuedescription) 또는 [TopicDescription](/dotnet/api/microsoft.servicebus.messaging.topicdescription)에서 [AuthorizationRules](/dotnet/api/microsoft.servicebus.messaging.authorizationrules) 컬렉션을 통해 Service Bus 큐나 토픽에 구성된 [Microsoft.ServiceBus.Messaging.SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 개체에 액세스할 수 있습니다.
@@ -255,21 +261,21 @@ AMQP 메시지는 간단한 메시지보다 정보가 많고 속성이 많습니
 
 다음 테이블에서는 Service Bus 리소스의 다양한 작업에 필요한 액세스 권한을 보여줍니다.
 
-| 작업(Operation) | 필요한 클레임 | 클레임 범위 |
+| 연산 | 필요한 클레임 | 클레임 범위 |
 | --- | --- | --- |
 | **네임스페이스** | | |
 | 네임스페이스에서 권한 부여 규칙 구성 |관리 |네임스페이스 주소 |
 | **서비스 레지스트리** | | |
 | 프라이빗 정책 열거 |관리 |네임스페이스 주소 |
 | 네임스페이스에서 수신 시작 |수신 |네임스페이스 주소 |
-| 네임스페이스에서 수신기로 메시지 보내기 |보내기 |네임스페이스 주소 |
+| 네임스페이스에서 수신기로 메시지 보내기 |Send |네임스페이스 주소 |
 | **큐** | | |
 | 큐 만들기 |관리 |네임스페이스 주소 |
 | 큐 삭제 |관리 |유효한 큐 주소 |
 | 큐 열거 |관리 |/$Resources/Queues |
 | 큐 설명 가져오기 |관리 |유효한 큐 주소 |
 | 큐에서 권한 부여 규칙 구성 |관리 |유효한 큐 주소 |
-| 큐로 보내기 |보내기 |유효한 큐 주소 |
+| 큐로 보내기 |Send |유효한 큐 주소 |
 | 큐에서 메시지 받기 |수신 |유효한 큐 주소 |
 | 메시지 보기-잠금 모드에서 메시지를 받은 후에 중단 또는 완료 |수신 |유효한 큐 주소 |
 | 나중에 검색에 대한 메시지 연기 |수신 |유효한 큐 주소 |
@@ -283,7 +289,7 @@ AMQP 메시지는 간단한 메시지보다 정보가 많고 속성이 많습니
 | 항목 열거 |관리 |/$Resources/Topics |
 | 항목 설명 가져오기 |관리 |유효한 항목 주소 |
 | 항목에서 권한 부여 규칙 구성 |관리 |유효한 항목 주소 |
-| 항목으로 보내기 |보내기 |유효한 항목 주소 |
+| 항목으로 보내기 |Send |유효한 항목 주소 |
 | **구독** | | |
 | 구독 만들기 |관리 |네임스페이스 주소 |
 | 구독 삭제 |관리 |../myTopic/Subscriptions/mySubscription |

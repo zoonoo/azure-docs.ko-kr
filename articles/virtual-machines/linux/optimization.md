@@ -17,17 +17,17 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: ea8f3f1860223e102aeccf81f72b5294283b83f6
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: ad512baad86133cc1aad80438a6b68d2a31a6cc6
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640748"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013601"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Azure에서 Linux VM 최적화
 Linux 가상 머신(VM) 만들기는 명령줄 또는 포털에서 수행하는 것이 쉽습니다. 이 자습서에서는 Microsoft Azure Platform에서 해당 성능을 최적화하도록 설정하는 방법을 보여줍니다. 이 항목에서는 Ubuntu Server VM을 사용 하지만 [템플릿으로 사용자 고유의 이미지](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 사용하여 Linux 가상 머신을 만들 수도 있습니다.  
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 이 항목에서는 사용하는 Azure 구독([무료 평가판 등록](https://azure.microsoft.com/pricing/free-trial/))이 이미 있으며 Azure 구독에 VM을 이미 프로비전했다고 가정합니다. [VM을 만들기](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 전에 최신 [Azure CLI](/cli/azure/install-az-cli2)를 설치하고 [az login](/cli/azure/reference-index)을 사용하여 Azure 구독에 로그인했는지 확인합니다.
 
 ## <a name="azure-os-disk"></a>Azure OS 디스크
@@ -53,7 +53,7 @@ Azure CLI를 사용하여 VM을 만들 때 기본 작업은 Azure Managed Disks�
 ## <a name="your-vm-temporary-drive"></a>VM 임시 드라이브
 기본적으로 VM을 만들 때 Azure는 OS 디스크( **/dev/sda**)와 임시 디스크( **/dev/sdb**)를 제공합니다.  추가한 모든 추가 디스크는 **/dev/sdc**, **/dev/sdd**, **/dev/sde** 등으로 나타납니다. 임시 디스크( **/dev/sdb**)의 모든 데이터는 영구적이지 않으며 VM 크기 조정, 다시 배포 또는 유지 관리와 같은 특정 이벤트가 강제로 VM을 다시 시작하는 경우 손실될 수 있습니다.  임시 디스크의 크기 및 유형은 배포 시에 선택한 VM 크기와 관련이 있습니다. 모든 프리미엄 크기 VM(DS, G 및 DS_V2 시리즈)의 경우 임시 드라이브는 최대 48,000IOps의 추가 성능을 가진 로컬 SSD에서 지원됩니다. 
 
-## <a name="linux-swap-file"></a>Linux 스왑 파일
+## <a name="linux-swap-partition"></a>Linux 스왑 파티션
 Azure VM을 Ubuntu 또는 CoreOS 이미지에서 가져온 경우 CustomData를 사용하여 cloud-config를 cloud-init으로 보낼 수 있습니다. cloud-init를 사용하는 [사용자 지정 Linux 이미지를 업로드](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)한 경우에도 cloud-init를 사용하여 스왑 파티션을 구성할 수 있습니다.
 
 Ubuntu Cloud Images에서는 cloud-init를 사용하여 스왑 파티션을 구성하해야 합니다. 자세한 내용은 [AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions)을 참조하세요.
@@ -127,6 +127,8 @@ echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 
 ## <a name="using-software-raid-to-achieve-higher-iops"></a>소프트웨어 RAID를 사용하여 높은 I/Ops 달성
 워크로드가 단일 디스크에서 제공하는 것보다 많은 IOps를 필요로 하는 경우 여러 디스크의 소프트웨어 RAID 구성을 사용해야 합니다. Azure는 이미 로컬 패브릭 계층에서 디스크 복구를 수행하기 때문에 가장 높은 수준의 성능 RAID-0 스트라이프 구성을 얻게 됩니다.  Azure 환경에서 디스크를 프로비전하고 만들며 드라이브를 분할하고 서식을 지정하며 탑재하기 전에 Linux VM에 연결합니다.  Azure에서 Linux VM의 소프트웨어 RAID 설정을 구성하는 방법에 대한 자세한 내용은 **[Linux에서 소프트웨어 RAID 구성](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** 문서에서 찾을 수 있습니다.
+
+기존 RAID 구성 대신 단일 스트라이프 논리적 저장소 볼륨에 여러 개의 실제 디스크를 구성 하기 위해 LVM (논리 볼륨 관리자)을 설치 하도록 선택할 수도 있습니다. 이 구성에서는 읽기 및 쓰기가 볼륨 그룹에 포함 된 여러 디스크에 배포 됩니다 (RAID0와 유사). 성능상의 이유로 논리 볼륨을 스트라이프하여 읽기 및 쓰기가 연결된 모든 데이터 디스크를 사용하는 것이 좋습니다.  Azure의 Linux VM에서 스트라이프 논리 볼륨을 구성 하는 방법에 대 한 자세한 내용은 **[azure에서 LINUX vm에 Lvm 구성](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** 문서를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 모든 최적화에 관련된 토론 대로 변경 사항이 가져올 영향을 측정하기 위해 각 변경 사항의 전후에 테스트를 수행해야 합니다.  최적화는 환경에서 여러 컴퓨터에 다른 결과를 발생시키는 단계별 프로세스입니다.  하나의 구성에 작동한 최적화가 다른 사용자에게는 작동하지 않을 수 있습니다.

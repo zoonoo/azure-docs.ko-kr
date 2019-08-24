@@ -92,8 +92,10 @@
               href: media-services-portal-upload-files.md
             - name: .NET
               href: media-services-dotnet-upload-files.md
+              displayName: invalid character
             - name: REST (영문)
               href: media-services-rest-upload-files.md
+              displayName: invalid character
         - name: StorSimple을 사용하여 파일 업로드
           href: media-services-upload-files-from-storsimple.md
         - name: 기존 Blob 복사

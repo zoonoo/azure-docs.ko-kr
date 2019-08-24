@@ -1,5 +1,5 @@
 ---
-title: Azure virtual network에서 IPv6 이중 스택 응용 프로그램 배포-CLI
+title: Azure에서 기본 Load Balancer를 사용 하 여 IPv6 이중 스택 응용 프로그램 배포-CLI
 titlesuffix: Azure Virtual Network
 description: 이 문서에서는 Azure CLI를 사용 하 여 Azure 가상 네트워크에서 IPv6 이중 스택 응용 프로그램을 배포 하는 방법을 보여 줍니다.
 services: virtual-network
@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/08/2019
 ms.author: kumud
-ms.openlocfilehash: 75af2012c4e6287a2fbe76098c2a325e6c9ae2ef
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 265a14fa216741a5a5994389e671e7558a527261
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640686"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013726"
 ---
-# <a name="deploy-an-ipv6-dual-stack-application-in-azure-virtual-network---cli-preview"></a>Azure virtual network에서 IPv6 이중 스택 응용 프로그램 배포-CLI (미리 보기)
+# <a name="deploy-an-ipv6-dual-stack-application-using-basic-load-balancer---cli-preview"></a>Basic Load Balancer-CLI (미리 보기)를 사용 하 여 IPv6 이중 스택 응용 프로그램 배포
 
-이 문서에서는 이중 스택 서브넷을 사용 하는 이중 스택 (IPv4 + IPv6) 응용 프로그램을 포함 하는 Azure의 이중 스택 (ipv4 + IPv6) 응용 프로그램을 배포 하는 방법을 보여 줍니다. 이중 IP 구성이 있는 Nic를 사용 하는 Vm과 이중 (IPv4 + IPv6) 프런트 엔드 구성이 포함 된 부하 분산 장치를 포함 합니다. 이중 네트워크 보안 그룹 규칙 및 이중 공용 Ip
+이 문서에서는 이중 스택 서브넷을 사용 하는 이중 스택 가상 네트워크, 이중 (IPv4 + IPv6) 프런트 엔드 구성, Nic가 있는 Vm을 사용 하는 기본 Load Balancer를 포함 하는 Azure CLI를 사용 하 여 기본 Load Balancer으로 이중 스택 (IPv4 + IPv6) 응용 프로그램을 배포 하는 방법을 보여 줍니다. 여기에는 이중 IP 구성, 이중 네트워크 보안 그룹 규칙 및 이중 공용 Ip가 있습니다.
+
+표준 Load Balancer를 사용 하 여 이중 스택 (IPV4 + IPv6) 응용 프로그램을 배포 하려면 [Azure CLI를 사용 하 여 표준 Load Balancer를 사용 하 여 ipv6 이중 스택 응용 프로그램 배포](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md)를 참조 하세요.
 
 > [!Important]
 > Azure Virtual Network에 대 한 IPv6 이중 스택은 현재 공개 미리 보기로 제공 됩니다. 이 미리 보기는 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.

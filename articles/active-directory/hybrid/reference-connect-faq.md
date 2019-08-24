@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 05/03/2019
+ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6b551ee9a0a9c7ef9a8f5ff1bd7452a24dc04b7
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 0442b987c502533bfbd55990f201a5c02b119804
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69014187"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70011306"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect FAQ
 
@@ -270,3 +270,7 @@ Office 팀은 Office 포털 업데이트에서 현재 제품 이름을 반영하
 * [Azure AD 커뮤니티](https://social.msdn.microsoft.com/Forums/azure/en-US/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required)로 이동하여 기술 관련 질문 및 대답을 검색하거나 직접 질문하세요.
 
 [Azure AD에 대한 지원 받기](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto)
+
+**Q: 동기화 단계 오류가 발생 한 후 이벤트 6311 및 6401이 표시 되는 이유는 무엇 인가요?**
+
+이벤트 6311- **서버에서 콜백 및 6401를 수행 하는 동안 예기치 않은 오류가 발생 했습니다** . **관리 에이전트 컨트롤러에서 예기치 않은 오류가** 발생 했습니다. 동기화 단계 오류가 발생 한 후에 항상 기록 됩니다. 이러한 오류를 해결 하려면 동기화 단계 오류를 정리 해야 합니다.  자세한 내용은 [동기화 중 오류 문제 해결](tshoot-connect-sync-errors.md) 및 [Azure AD Connect 동기화를 사용 하 여 개체 동기화 문제](/tshoot-connect-objectsync.md) 해결을 참조 하세요.

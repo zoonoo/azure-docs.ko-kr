@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 08/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 22d1da4c194b392993b37b16ab20673120c3362e
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: 160be4224e31793b5bb172f5b913c364ae2c8a59
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68951806"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013034"
 ---
 # <a name="what-are-ml-pipelines-in-azure-machine-learning-service"></a>Azure Machine Learning 서비스의 ML 파이프라인 이란?
 
@@ -69,7 +69,7 @@ Azure Portal에서 직접 [파이프라인 실험에 대한 메트릭을 추적]
 
 ## <a name="the-python-sdk-for-pipelines"></a>파이프라인용 Python SDK
 
-[PYTHON SDK를 사용](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) 하 여 선호 하는 IDE 또는 Jupyter 노트북에서 ML 파이프라인을 만듭니다. Azure Machine Learning SDK는 데이터 종속성이 없을 때 파이프라인의 단계를 순차적 방식 및 병렬 방식으로 처리하는 명령적 구문을 제공합니다. 
+[PYTHON SDK를 사용](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) 하 여 선호 하는 IDE (통합 개발 환경) 또는 Jupyter 노트북에서 ML 파이프라인을 만들 수 있습니다. Azure Machine Learning SDK는 데이터 종속성이 없을 때 파이프라인의 단계를 순차적 방식 및 병렬 방식으로 처리하는 명령적 구문을 제공합니다. 
 
 선언적 데이터 종속성을 사용하여 작업을 최적화할 수 있습니다. 이 SDK에는 데이터 전송, 모델 게시 등의 일반적인 작업을 위해 사전 빌드된 모듈의 프레임워크가 포함되어 있습니다. 파이프라인에서 재사용 가능한 사용자 지정 단계를 구현 하 여 사용자 고유의 규칙을 모델링 하도록 프레임 워크를 확장할 수 있습니다. SDK에서 직접 컴퓨팅 대상 및 스토리지 리소스를 관리할 수도 있습니다.
 

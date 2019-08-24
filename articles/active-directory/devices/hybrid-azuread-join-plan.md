@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ff24acd58d00f737a4342a7f45ddd22261a55be
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 62496aceb1454283449e952c0ed86623597e9e66
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562108"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70011680"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>방법: 하이브리드 Azure Active Directory 조인 구현 계획
 
@@ -87,11 +87,13 @@ Windows 데스크톱 운영 체제를 실행 하는 장치의 경우 지원 되�
 
 VM (가상 머신) 스냅숏을 사용 하 여 추가 Vm을 만드는 경우, Azure AD에 이미 등록 된 VM의 스냅숏이 하이브리드 Azure AD 조인으로 사용 되지 않는지 확인 합니다.
 
-Windows 10 도메인 조인 디바이스에서 이미 [Azure AD를 테넌트에 등록](overview.md#getting-devices-in-azure-ad)한 경우 먼저 해당 상태를 제거한 후에 하이브리드 Azure AD 조인을 사용하도록 설정할 것을 적극 권장합니다. Windows 10 1809 릴리스에서 이 이중 상태를 방지하기 위해 다음과 같이 변경되었습니다.
+Windows 10 도메인 가입 장치가 테 넌 트에 [등록 된 azure](overview.md#getting-devices-in-azure-ad) ad 인 경우 하이브리드 azure ad 조인 및 azure ad 등록 장치의 이중 상태가 될 수 있습니다. 이 시나리오를 자동으로 해결 하려면 Windows 10 1803 (KB4489894 적용 됨) 이상으로 업그레이드 하는 것이 좋습니다. 1803 이전 버전에서는 하이브리드 Azure AD 조인을 사용 하도록 설정 하기 전에 Azure AD 등록 상태를 수동으로 제거 해야 합니다. 1803 이상 릴리스에서는 이러한 이중 상태를 방지 하기 위해 다음과 같이 변경 되었습니다.
 
-- 디바이스가 하이브리드 Azure AD에 조인되면 기존의 Azure AD 등록됨 상태가 자동으로 제거됩니다.
+- 모든 기존 Azure AD 등록 상태는 <i>장치가 하이브리드 AZURE ad에 가입 된 후</i>자동으로 제거 됩니다.
 - 이 레지스트리 키 (HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin" = dword: 00000001)를 추가 하 여 도메인 가입 장치가 Azure AD에 등록 되지 않도록 할 수 있습니다.
-- 이제 KB4489894이 적용 된 Windows 10 1803 릴리스에서이 변경 내용을 사용할 수 있습니다. 그러나 비즈니스용 Windows Hello가 구성 된 경우에는 이중 상태 정리 후 비즈니스용 Windows Hello를 다시 설정 해야 합니다.
+- Windows 10 1803에서 비즈니스용 Windows Hello가 구성 된 경우 사용자는 이중 상태 정리 후 비즈니스용 Windows Hello를 다시 설정 해야 합니다. 이 문제는 KB4512509로 해결 되었습니다.
+
+
 
 ## <a name="review-controlled-validation-of-hybrid-azure-ad-join"></a>하이브리드 Azure AD 조인에 대 한 제어 된 유효성 검사 검토
 
@@ -143,7 +145,7 @@ Id 인프라와 일치 하는 시나리오에 따라 다음을 참조 하세요.
 
 아래 표에서는 Windows 10 하이브리드 Azure AD 조인에서 이러한 온-프레미스 AD UPN에 대한 지원을 자세히 설명합니다.
 
-| 온-프레미스 AD UPN 유형 | 도메인 유형 | Windows 10 버전 | Description |
+| 온-프레미스 AD UPN 유형 | 도메인 유형 | Windows 10 버전 | 설명 |
 | ----- | ----- | ----- | ----- |
 | 라우팅 가능 | 페더레이션 | 1703 릴리스 | 일반 공급 |
 | 라우팅 불가능 | 페더레이션 | 1803 릴리스 | 일반 공급 |

@@ -1,7 +1,7 @@
 ---
-title: 'MLOps: 관리, 배포 및 ML 모델 모니터링'
+title: 'MLOps: ML 모델 관리, 배포, & 모니터링'
 titleSuffix: Azure Machine Learning service
-description: 'MLOps에 대 한 Azure Machine Learning 서비스를 사용 하는 방법 알아보기: 배포, 관리 및 지속적으로 개선 하려면 모델을 모니터링 합니다. Azure Machine Learning Service를 사용하여 학습시킨 모델을 로컬 컴퓨터 또는 다른 원본에서 배포할 수 있습니다.'
+description: MLOps에 대해 Azure Machine Learning 서비스를 사용 하는 방법에 대해 알아봅니다. 모델을 배포, 관리 및 모니터링 하 여 지속적으로 개선 합니다. Azure Machine Learning Service를 사용하여 학습시킨 모델을 로컬 컴퓨터 또는 다른 원본에서 배포할 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,154 +11,154 @@ author: jpe316
 ms.author: jordane
 ms.date: 06/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 11a4a17d7816d2302b6549cffb9517e10ad1258d
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 270ebb6247e812d42ac84698d0073b41c639cb9a
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442341"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70011584"
 ---
 # <a name="mlops-manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>MLOps: Azure Machine Learning Service를 사용하여 모델 관리, 배포 및 모니터링
 
-이 문서에서는 Azure Machine Learning 서비스를 사용 하 여 모델의 수명 주기를 관리 하는 방법에 알아봅니다. Azure Machine Learning에 기계 학습 솔루션의 일관성을 확인 하 고 품질을 개선 하는 Machine Learning 작업 (MLOps) 접근 방식을 사용 합니다. 
+이 문서에서는 Azure Machine Learning 서비스를 사용 하 여 모델의 수명 주기를 관리 하는 방법에 대해 알아봅니다. Azure Machine Learning는 MLOps (Machine Learning 작업) 방법을 사용 하 여 Machine Learning 솔루션의 품질과 일관성을 향상 시킵니다. 
 
-Azure Machine Learning 서비스는 다음 MLOps 기능을 제공합니다.
+Azure Machine Learning 서비스는 다음과 같은 MLOps 기능을 제공 합니다.
 
 - **어디에서 나 ML 프로젝트 배포**
-- **기계 학습 응용 프로그램에 대 한 모니터링 operational ML 관련 문제 및** -모델 입력 교육 및 유추 간의 비교, 모델 관련 메트릭을 탐색 및 ML 인프라의 모니터링 및 경고를 제공 합니다.
-- **기계 학습 수명 주기의 종단 간 감사 내역을 설정 하는 데 필요한 데이터를 캡처**등 모델을 게시 하는 사용자, 이유 변경, 모델 배포 되거나 프로덕션 환경에서 사용 된 경우.
-- **Azure Machine Learning 및 Azure DevOps를 사용 하 여 종단 간 기계 학습 수명 주기를 자동화** 모델을 자주 업데이트 하려면 새 모델을 테스트 하 고 다른 응용 프로그램 및 서비스와 함께 새 기계 학습 모델을 지속적으로 롤아웃할 합니다.
+- **운영 및 ml 관련 문제에 대 한 ml 응용 프로그램 모니터링** -학습 및 유추 간 모델 입력을 비교 하 고, 모델 관련 메트릭을 탐색 하 고, ML 인프라에 대 한 모니터링 및 경고를 제공 합니다.
+- 모델을 게시 하는 사람, 변경 하는 이유 및 프로덕션 환경에서 모델을 배포 하거나 사용한 경우를 포함 하 여 **ML 수명 주기에 대 한 종단 간 감사 내역을 설정 하는 데 필요한 데이터를 캡처합니다**.
+- **Azure Machine Learning 및 Azure DevOps를 사용 하 여 종단 간 ML 수명 주기를 자동화** 하 여 모델을 자주 업데이트 하 고, 새 모델을 테스트 하 고, 다른 응용 프로그램 및 서비스와 함께 새 ML 모델을 지속적으로 롤아웃 하세요.
 
-MLOps 및 Azure Machine Learning 서비스에 적용 되는 개념에 더 귀를 다음 비디오를 시청 합니다.
+MLOps의 개념 및이를 Azure Machine Learning 서비스에 적용 하는 방법에 대 한 자세한 내용은 다음 동영상을 시청 하세요.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GX]
 
 ## <a name="deploy-ml-projects-from-anywhere"></a>어디에서 나 ML 프로젝트 배포
 
-### <a name="turn-your-training-process-into-a-reproducible-pipeline"></a>학습 프로세스를 재현할 수 있는 파이프라인으로 설정
-Azure Machine Learning에서 기계 학습 파이프라인을 사용 하 여 함께 연결할 모든 모델 평가를 튜닝 하는 하이퍼 매개 변수 기능 추출 데이터 준비에서 모델 학습 프로세스의 단계입니다.
+### <a name="turn-your-training-process-into-a-reproducible-pipeline"></a>학습 프로세스를 재현 가능한 파이프라인으로 전환
+Azure Machine Learning의 ML 파이프라인을 사용 하 여 데이터 준비부터 기능 추출부터 모델 평가까지 모델 학습 프로세스와 관련 된 모든 단계를 함께 연결 합니다.
 
-자세한 내용은 [ML 파이프라인](concept-ml-pipelines.md)합니다.
+자세한 내용은 [ML 파이프라인](concept-ml-pipelines.md)을 참조 하세요.
 
-### <a name="register-and-track-ml-models"></a>등록 하 고 기계 학습 모델 추적
+### <a name="register-and-track-ml-models"></a>ML 모델 등록 및 추적
 
 모델을 등록하면 작업 영역에서 Azure 클라우드의 모델을 저장하고 버전을 지정할 수 있습니다. 모델 레지스트리에서는 학습된 모델을 쉽게 구성하고 추적할 수 있습니다.
 
 > [!TIP]
-> 등록 된 모델은 모델을 구성 하는 하나 이상의 파일에 대 한 논리적 컨테이너입니다. 예를 들어, 여러 파일에 저장 된 모델에 있으면 등록할 수 있습니다를 단일 모델로 Azure Machine Learning 작업 영역에서 합니다. 등록이 완료 되 면 다음 또는 등록 된 모델을 배포할 수 있으며 등록 된 모든 파일을 수신 합니다.
+> 등록 된 모델은 모델을 구성 하는 하나 이상의 파일에 대 한 논리적 컨테이너입니다. 예를 들어 여러 파일에 저장 된 모델의 경우 Azure Machine Learning 작업 영역에서 단일 모델로 등록할 수 있습니다. 등록 후 등록 된 모델을 다운로드 하거나 배포 하 고 등록 된 모든 파일을 받을 수 있습니다.
  
-등록된 모델은 이름 및 버전으로 식별됩니다. 모델을 기존 이름과 동일한 이름으로 등록할 때마다 레지스트리에서 버전을 증가시킵니다. 또한 모델을 검색할 때 사용할 수 있는 추가 메타데이터 태그를 등록 중에 제공할 수도 있습니다. Azure Machine Learning 서비스는 Python 3.5.2를 사용 하 여 로드 이상이 될 수 있는 모든 모델을 지원 합니다.
+등록된 모델은 이름 및 버전으로 식별됩니다. 모델을 기존 이름과 동일한 이름으로 등록할 때마다 레지스트리에서 버전을 증가시킵니다. 또한 모델을 검색할 때 사용할 수 있는 추가 메타데이터 태그를 등록 중에 제공할 수도 있습니다. Azure Machine Learning 서비스는 Python 3.5.2 이상을 사용 하 여 로드할 수 있는 모든 모델을 지원 합니다.
 
 > [!TIP]
-> 또한 Azure Machine Learning 서비스 외부에서 학습 모델을 등록할 수 있습니다.
+> Azure Machine Learning 서비스 외부에서 학습 한 모델을 등록할 수도 있습니다.
 
-활성 배포에 사용 되는 등록 된 모델을 삭제할 수 없습니다.
+활성 배포에서 사용 중인 등록 된 모델은 삭제할 수 없습니다.
 자세한 내용은 [모델 배포](how-to-deploy-and-where.md#registermodel)의 모델 등록 섹션을 참조하세요.
 
-### <a name="package-and-debug-models"></a>모델 패키지 및 디버그
+### <a name="package-and-debug-models"></a>패키지 및 디버그 모델
 
-모델을 프로덕션 환경에 배포 하기 전에 Docker 이미지로 패키지 됩니다. 대부분의 경우에서 이미지 만들기 과정 자동으로 백그라운드에서 배포 합니다. 고급 시나리오에 대 한 이미지를 수동으로 지정할 수 있습니다.
+모델을 프로덕션 환경에 배포 하기 전에는 Docker 이미지로 패키지 됩니다. 대부분의 경우 이미지 생성은 배포 중에 백그라운드에서 자동으로 수행 됩니다. 고급 시나리오의 경우 이미지를 수동으로 지정할 수 있습니다.
 
-배포 관련 문제를 실행 하는 경우 문제 해결 및 디버깅에 대 한 로컬 개발 환경에 배포할 수 있습니다.
+배포에 문제가 발생 하는 경우 문제 해결 및 디버깅을 위해 로컬 개발 환경에를 배포할 수 있습니다.
 
-자세한 내용은 [모델을 배포할](how-to-deploy-and-where.md#registermodel) 하 고 [배포 문제 해결](how-to-troubleshoot-deployment.md)합니다.
+자세한 내용은 [배포 모델](how-to-deploy-and-where.md#registermodel) 및 [배포 문제 해결](how-to-troubleshoot-deployment.md)을 참조 하세요.
 
-### <a name="validate-and-profile-models"></a>유효성 검사 및 모델을 프로 파일링
+### <a name="validate-and-profile-models"></a>모델 유효성 검사 및 프로 파일링
 
-Azure Machine Learning 서비스 모델을 배포할 때 사용할 이상적인 CPU 및 메모리 설정을 확인 하려면 프로 파일링을 사용할 수 있습니다. 모델 유효성 검사는 사용자가 제공한 데이터를 사용 하 여 프로 파일링 프로세스에 대 한이 프로세스의 일부로 발생 합니다.
+Azure Machine Learning 서비스는 프로 파일링을 사용 하 여 모델을 배포할 때 사용할 이상적인 CPU 및 메모리 설정을 결정할 수 있습니다. 모델 유효성 검사는 프로 파일링 프로세스에 제공 하는 데이터를 사용 하 여이 프로세스의 일부로 수행 됩니다.
 
-### <a name="convert-and-optimize-models"></a>변환 하 고 모델 최적화
+### <a name="convert-and-optimize-models"></a>모델 변환 및 최적화
 
-모델을 변환 [열고 신경망 네트워크 Exchange](https://onnx.ai) (ONNX) 성능이 향상 될 수 있습니다. 평균적으로 ONNX 변환할 2 배로 성능 향상 시킬 수 있습니다.
+모델을 onnx ( [신경망 교환](https://onnx.ai) )를 열도록 변환 하면 성능이 향상 될 수 있습니다. 평균적으로 ONNX로 변환 하면 성능이 2 배 늘어날 수 있습니다.
 
-Azure Machine Learning 서비스를 사용 하 여 ONNX에 자세한 내용은 참조는 [만들기 및 ML 모델을 가속화](concept-onnx.md) 문서.
+Azure Machine Learning 서비스를 사용 하는 ONNX에 대 한 자세한 내용은 [ML 모델 만들기 및 가속화](concept-onnx.md) 문서를 참조 하세요.
 
 ### <a name="use-models"></a>모델 사용
 
-클라우드 또는 로컬 개발 환경에서 웹 서비스로 학습 된 기계 학습 모델을 배포할 수 있습니다. 또한 Azure IoT Edge 장치로 모델을 배포할 수 있습니다. 배포는 추론을 위해 CPU, GPU, 또는 현장에서 프로그래밍 FPGA gate array ()를 사용할 수 있습니다. 또한 Power BI에서 모델을 사용할 수 있습니다.
+학습 된 기계 학습 모델은 클라우드에서 웹 서비스로 배포 하거나 개발 환경에서 로컬로 배포할 수 있습니다. 또한 Azure IoT Edge 장치에 모델을 배포할 수 있습니다. 배포에서는 추론에 대해 CPU, GPU 또는 FPGA (필드 프로그래밍 가능 게이트 배열)를 사용할 수 있습니다. Power BI에서 모델을 사용할 수도 있습니다.
 
-모델을 웹 서비스나 IoT Edge 장치를 사용할 때 다음 항목을 제공 합니다.
+모델을 웹 서비스 또는 IoT Edge 장치로 사용 하는 경우 다음 항목을 제공 합니다.
 
 * 서비스/장치에 전송 된 데이터의 점수를 매기는 데 사용 되는 모델입니다.
-* 시작 스크립트가 있습니다. 이 스크립트는 요청을 수락, 모델을 사용 하 여 데이터 점수 매기기 및 응답을 반환 합니다.
-* 모델 및 입력 스크립트에 필요한 종속성을 설명 하는 conda 환경 파일입니다.
-* 모든 추가 자산 텍스트, 데이터 등 모델 및 입력 스크립트에 필요한 합니다.
+* 항목 스크립트입니다. 이 스크립트는 요청을 수락 하 고, 모델을 사용 하 여 데이터의 점수를 매기고, 응답을 반환 합니다.
+* 모델 및 항목 스크립트에 필요한 종속성을 설명 하는 conda 환경 파일입니다.
+* 모델 및 항목 스크립트에 필요한 텍스트, 데이터 등의 추가 자산입니다.
 
-이러한 자산을 Docker 이미지로 패키지 되 고 웹 서비스 또는 IoT Edge 모듈 배포 합니다.
+이러한 자산은 Docker 이미지로 패키지 되 고 웹 서비스 또는 IoT Edge 모듈로 배포 됩니다.
 
-필요에 따라 추가 배포를 조정 하려면 다음 매개 변수를 사용할 수 있습니다.
+필요에 따라 다음 매개 변수를 사용 하 여 배포를 추가로 조정할 수 있습니다.
 
-* GPU를 사용 하도록 설정 합니다. Docker 이미지에 GPU 지원을 사용 하도록 설정 하는 데 사용 합니다. Azure Container Instances, Azure Kubernetes Service, Azure Machine Learning Compute 또는 Azure Virtual Machines와 같은 Microsoft Azure 서비스에서 이미지를 사용 해야 합니다.
+* GPU 사용: Docker 이미지에서 GPU 지원을 사용 하도록 설정 하는 데 사용 됩니다. 이미지는 Azure Container Instances, Azure Kubernetes Service, Azure Machine Learning 계산 또는 Azure Virtual Machines와 같은 Microsoft Azure 서비스에서 사용 해야 합니다.
 * 추가 docker 파일 단계: Docker 이미지를 만들 때 실행할 추가 Docker 단계를 포함 하는 파일입니다.
-* 기본 이미지: 기본 이미지로 사용 하는 사용자 지정 이미지입니다. 사용자 지정 이미지를 사용 하지 않는 경우 기본 이미지는 Azure Machine Learning 서비스에서 제공 됩니다.
+* 기본 이미지: 기본 이미지로 사용할 사용자 지정 이미지입니다. 사용자 지정 이미지를 사용 하지 않는 경우 기본 이미지는 Azure Machine Learning 서비스에서 제공 됩니다.
 
-대상 배포 플랫폼의 구성을 제공할 수도 있습니다. 예를 들어 VM 제품군 형식, 사용 가능한 메모리 및 Azure Kubernetes Service에 배포 하는 경우에 코어 수입니다.
+또한 대상 배포 플랫폼의 구성을 제공 합니다. 예를 들어 Azure Kubernetes Service에 배포할 때 VM 제품군 유형, 사용 가능한 메모리 및 코어 수가 있습니다.
 
-이미지가 만들어지고, Azure Machine Learning 서비스에 필요한 구성 요소도 추가 됩니다. 예를 들어, 자산 웹 서비스를 실행 하 고 IoT Edge를 사용 하 여 상호 작용 해야 합니다.
+이미지를 만들 때 Azure Machine Learning 서비스에 필요한 구성 요소도 추가 됩니다. 예를 들어, 웹 서비스를 실행 하 고 IoT Edge와 상호 작용 하는 데 필요한 자산이 있습니다.
 
 > [!NOTE]
-> 수정 하거나 웹 서버 또는 Docker 이미지에서 사용 하는 IoT Edge 구성 요소를 변경할 수 없습니다. Azure Machine Learning 서비스는 웹 서버 구성 및 테스트 하 고 Microsoft에서 지원 되는 IoT Edge 구성 요소를 사용 합니다.
+> Docker 이미지에 사용 되는 웹 서버 또는 IoT Edge 구성 요소를 수정 하거나 변경할 수 없습니다. Azure Machine Learning 서비스는 웹 서버 구성을 사용 하 고 Microsoft에서 테스트 하 고 지 원하는 구성 요소를 IoT Edge 합니다.
 
 #### <a name="web-service"></a>웹 서비스
 
-모델을 사용할 수 있습니다 **웹 서비스** 다음을 사용 하 여 계산 대상:
+다음 계산 대상을 사용 하 여 **웹 서비스** 에서 모델을 사용할 수 있습니다.
 
-* Azure Container Instance
+* Azure Container Instances
 * Azure Kubernetes Service
 * 로컬 개발 환경
 
-웹 서비스로 모델을 배포 하려면 다음 항목을 제공 해야 합니다.
+모델을 웹 서비스로 배포 하려면 다음 항목을 제공 해야 합니다.
 
 * 모델 또는 모델의 앙상블입니다.
-* 모델을 사용 하는 데 필요한 종속성입니다. 예를 들어 요청을 수락 하 고 모델, conda 종속성을 호출 하는 스크립트 등입니다.
-* 배포 구성 방법 및 위치를 설명 하는 모델을 배포 하려면.
+* 모델을 사용 하려면 종속성이 필요 합니다. 예를 들어 요청을 수락 하 고 모델, conda 종속성 등을 호출 하는 스크립트입니다.
+* 모델을 배포 하는 방법 및 위치를 설명 하는 배포 구성입니다.
 
-자세한 내용은 [모델을 배포할](how-to-deploy-and-where.md)합니다.
+자세한 내용은 [모델 배포](how-to-deploy-and-where.md)를 참조 하세요.
 
-#### <a name="iot-edge-devices"></a>IoT Edge 장치
+#### <a name="iot-edge-devices"></a>IoT Edge 디바이스
 
-통해 IoT 장치를 사용 하 여 모델을 사용할 수 있습니다 **Azure IoT Edge 모듈**합니다. IoT Edge 모듈은 유추 또는 장치에서 점수 매기기 모델을 사용 하도록 설정 하는 하드웨어 장치에 배포 됩니다.
+**Azure IoT Edge 모듈**을 통해 IoT 장치에서 모델을 사용할 수 있습니다. IoT Edge 모듈은 장치에서 유추 또는 모델 점수 매기기를 사용 하도록 설정 하는 하드웨어 장치에 배포 됩니다.
 
-자세한 내용은 [모델을 배포할](how-to-deploy-and-where.md)합니다.
+자세한 내용은 [모델 배포](how-to-deploy-and-where.md)를 참조 하세요.
 
 ### <a name="analytics"></a>분석
 
-Microsoft Power BI는 데이터 분석을 위해 기계 학습 모델을 사용 하 여 지원 합니다. 자세한 내용은 [Power BI (미리 보기)에서 Azure Machine Learning 통합](https://docs.microsoft.com/power-bi/service-machine-learning-integration)합니다.
+Microsoft Power BI는 데이터 분석을 위해 기계 학습 모델을 사용할 수 있도록 지원 합니다. 자세한 내용은 [Power BI (미리 보기)의 Azure Machine Learning 통합](https://docs.microsoft.com/power-bi/service-machine-learning-integration)을 참조 하세요.
 
 
-## <a name="monitor-ml-applications-for-operational-and-ml-related-issues"></a>기계 학습 응용 프로그램에 대 한 모니터링 작업 및 ML 관련 문제
+## <a name="monitor-ml-applications-for-operational-and-ml-related-issues"></a>운영 및 ML 관련 문제에 대 한 ML 응용 프로그램 모니터링
 
-모니터링을 사용 하면 반환 되는 예측 모델을 전송 되는 어떤 데이터를 이해할 수 있습니다.
+모니터링을 사용 하면 모델에 전송 되는 데이터 및 반환 하는 예측을 이해할 수 있습니다.
 
-이 정보가 모델에 사용 되는 방식을 이해 하도록 도와줍니다. 수집 된 입력된 데이터를 모델의 학습 이후 버전에서는 유용할 수도 있습니다.
+이 정보는 모델을 사용 하는 방법을 이해 하는 데 도움이 됩니다. 수집 된 입력 데이터는 모델의 이후 버전을 학습 하는 데 유용할 수도 있습니다.
 
 자세한 내용은 [모델 데이터 컬렉션을 사용하도록 설정하는 방법](how-to-enable-data-collection.md)을 참조하세요.
 
 
-## <a name="capture-an-end-to-end-audit-trail-of-the-ml-lifecycle"></a>기계 학습 수명 주기의 종단 간 감사 추적 캡처
+## <a name="capture-an-end-to-end-audit-trail-of-the-ml-lifecycle"></a>ML 수명 주기의 종단 간 감사 내역 캡처
 
-Azure ML ML 자산의 모든 종단 간 감사 내역을 추적 하는 기능을 제공 합니다. 구체적으로 살펴보면 다음과 같습니다.
+Azure ML은 모든 ML 자산의 종단 간 감사 내역을 추적 하는 기능을 제공 합니다. 구체적으로는 다음과 같습니다.
 
-- Azure ML Git 리포지토리 정보를 추적 / 분기에 코드 준 커밋에 통합 됩니다.
-- Azure ML 데이터 집합 추적할 수 및 버전 데이터입니다.
-- Azure ML 실행 기록 코드, 데이터 및 모델을 학습 하는 데 사용 되는 계산을 관리 합니다.
-- Azure ML 모델 레지스트리 (어떤 실험 학습 되 고 배포 된,이 경우 해당 배포 정상) 모델을 사용 하 여 연결 된 모든을 캡처합니다.
+- Azure ML [은 Git와 통합 되어](how-to-set-up-training-targets.md#gitintegration) 코드를 가져온 리포지토리/분기/커밋 정보를 추적 합니다.
+- [AZURE ML 데이터 집합](how-to-create-register-datasets.md) 을 통해 데이터를 추적 하 고 버전 데이터를 관리할 수 있습니다.
+- Azure ML 실행 기록은 모델 학습에 사용 되는 코드, 데이터 및 계산에 대 한 스냅숏을 저장 합니다.
+- Azure ML 모델 레지스트리는 모델과 연결 된 모든 메타 데이터를 캡처합니다 (배포 하는 경우 실험을 통해 배포 되는 위치, 배포가 정상 인 경우).
 
-## <a name="automate-the-end-to-end-ml-lifecycle"></a>종단 간 기계 학습 수명 주기 자동화 
+## <a name="automate-the-end-to-end-ml-lifecycle"></a>종단 간 ML 수명 주기 자동화 
 
-GitHub 및 Azure 파이프라인 모델을 학습 하는 지속적인 통합 프로세스를 사용할 수 있습니다. 일반적인 시나리오는 데이터 과학자가 프로젝트의 경우 Git 리포지토리로 변경 확인 하는 경우 Azure 파이프라인 교육 실행을 시작 합니다. 그런 다음 학습된 된 모델의 성능 특징을 보려면 실행의 결과 검사할 수 있습니다. 모델을 웹 서비스로 배포 하는 파이프라인을 만들 수도 있습니다.
+GitHub 및 Azure Pipelines를 사용 하 여 모델을 학습 하는 연속 통합 프로세스를 만들 수 있습니다. 일반적인 시나리오에서 데이터 과학자 프로젝트에 대 한 Git 리포지토리 변경을 확인 하면 Azure 파이프라인이 학습 실행을 시작 합니다. 그런 다음 실행 결과를 검사 하 여 학습 된 모델의 성능 특성을 확인할 수 있습니다. 모델을 웹 서비스로 배포 하는 파이프라인을 만들 수도 있습니다.
 
-합니다 [Azure Machine Learning 확장](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml) 쉽게 Azure 파이프라인을 사용 하 여 작동 합니다. 다음과 같은 향상 기능이 Azure 파이프라인을 제공합니다.
+[Azure Machine Learning 확장](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml) 을 사용 하면 Azure Pipelines 더 쉽게 작업할 수 있습니다. Azure Pipelines에 대 한 다음과 같은 향상 된 기능을 제공 합니다.
 
-* 서비스 연결을 정의 하는 경우 작업 영역 선택할을 수 있습니다.
-* 하면 학습 된 모델을 학습 하는 파이프라인의 생성에 의해 트리거되도록 하는 파이프라인을 해제 합니다.
+* 서비스 연결을 정의할 때 작업 영역을 선택할 수 있습니다.
+* 학습 파이프라인에서 생성 된 학습 된 모델을 사용 하 여 릴리스 파이프라인을 트리거할 수 있습니다.
 
-Azure Machine Learning을 사용 하 여 Azure 파이프라인을 사용 하 여에 대 한 자세한 내용은 참조는 [Azure 파이프라인을 사용 하 여 기계 학습 모델의 연속 통합 및 배포](/azure/devops/pipelines/targets/azure-machine-learning) 문서 및 [Azure Machine Learning 서비스 MLOps](https://aka.ms/mlops) 리포지토리.
+Azure Machine Learning에서 Azure Pipelines를 사용 하는 방법에 대 한 자세한 내용은 Azure Pipelines 문서 및 [Azure Machine Learning Service MLOps](https://aka.ms/mlops) 리포지토리를 사용 하 여 [ML 모델의 연속 통합 및 배포](/azure/devops/pipelines/targets/azure-machine-learning) 를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning 서비스를 사용하여 [모델을 배포할 수 있는 방법과 위치](how-to-deploy-and-where.md)에 대해 자세히 알아봅니다. 배포의 예제를 참조 하세요. [자습서: Azure Container Instances에서 이미지 분류 모델을 배포할](tutorial-deploy-models-with-aml.md)합니다.
+Azure Machine Learning 서비스를 사용하여 [모델을 배포할 수 있는 방법과 위치](how-to-deploy-and-where.md)에 대해 자세히 알아봅니다. 배포 예제를 보려면 [자습서: Azure Container Instances](tutorial-deploy-models-with-aml.md)에서 이미지 분류 모델을 배포 합니다.
 
-만드는 방법을 알아봅니다 [Azure 파이프라인을 사용 하 여 기계 학습 모델의 연속 통합 및 배포](/azure/devops/pipelines/targets/azure-machine-learning)합니다. 
+Azure Pipelines를 사용 하 [여 ML 모델의 지속적인 통합 및 배포](/azure/devops/pipelines/targets/azure-machine-learning)를 만드는 방법에 대해 알아봅니다. 
 
 [웹 서비스로 배포된 모델을 사용](how-to-consume-web-service.md)하는 클라이언트 애플리케이션과 서비스를 만드는 방법을 알아봅니다.

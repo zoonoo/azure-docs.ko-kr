@@ -6,110 +6,24 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/23/2019
-ms.openlocfilehash: 93cc02fafcfa153c452f37c2bc69bb47e2629f1d
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
-ms.translationtype: HT
+ms.openlocfilehash: 04b17d2e3acba7f003325ca7fdef2107108aea4d
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/23/2019
-ms.locfileid: "69998074"
+ms.locfileid: "70013407"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 PostgreSQL 확장-단일 서버
 PostgreSQL은 확장을 사용하여 데이터베이스의 기능을 확장하는 방법을 제공합니다. 확장은 단일 명령을 사용 하 여 데이터베이스에서 로드 하거나 제거할 수 있는 단일 패키지에서 여러 관련 SQL 개체를 함께 번들로 묶습니다. 데이터베이스에 로드 된 후 확장은 기본 제공 기능 처럼 작동 합니다.
 
 ## <a name="how-to-use-postgresql-extensions"></a>PostgreSQL 확장을 사용하는 방법
-PostgreSQL 확장을 사용하려면 먼저 데이터베이스에 설치해야 합니다. 특정 확장을 설치하려면 psql 도구에서  [CREATE EXTENSION](https://www.postgresql.org/docs/current/static/sql-createextension.html)  명령을 실행하여 패키지 개체를 데이터베이스에 로드합니다.
+PostgreSQL 확장을 사용하려면 먼저 데이터베이스에 설치해야 합니다. 특정 확장을 설치하려면 psql 도구에서  [CREATE EXTENSION](https://www.postgresql.org/docs/current/sql-createextension.html)  명령을 실행하여 패키지 개체를 데이터베이스에 로드합니다.
 
-Azure Database for PostgreSQL은 아래에 나열 된 대로 키 확장의 하위 집합을 지원 합니다. 나열 된 확장 이외의 확장은 지원 되지 않습니다. Azure Database for PostgreSQL에서 사용자 고유의 확장을 만들 수 없습니다.
-
-## <a name="extensions-supported-by-azure-database-for-postgresql"></a>PostgreSQL용 Azure 데이터베이스에서 지원하는 확장
-다음 표에는 PostgreSQL용 Azure 데이터베이스에서 현재 지원하는 표준 PostgreSQL 확장이 나와 있습니다. 이 정보를 `SELECT * FROM pg_available_extensions;`를 실행하여 얻을 수도 있습니다.
-
-### <a name="data-types-extensions"></a>데이터 형식 확장
-
-> [!div class="mx-tableFixed"]
-> | **확장명** | **설명** |
-> |---|---|
-> | [chkpass](https://www.postgresql.org/docs/9.6/static/chkpass.html) | 자동으로 암호화된 암호에 대한 데이터 형식을 제공합니다. |
-> | [citext](https://www.postgresql.org/docs/9.6/static/citext.html) | 대/소문자 구분 문자 문자열 형식을 제공합니다. |
-> | [cube](https://www.postgresql.org/docs/9.6/static/cube.html) | 다차원 큐브의 데이터 형식을 제공합니다. |
-> | [hstore](https://www.postgresql.org/docs/9.6/static/hstore.html) | 키/값 쌍 집합을 저장하기 위한 데이터 형식을 제공합니다. |
-> | [isn](https://www.postgresql.org/docs/9.6/static/isn.html) | 국제 제품 번호 매기기 표준에 대한 데이터 형식을 제공합니다. |
-> | [ltree](https://www.postgresql.org/docs/9.6/static/ltree.html) | 계층적 트리 구조에 대한 데이터 형식을 제공합니다. |
-
-### <a name="functions-extensions"></a>함수 확장
-
-> [!div class="mx-tableFixed"]
-> | **확장** | **설명** |
-> |---|---|
-> | [earthdistance](https://www.postgresql.org/docs/9.6/static/earthdistance.html) | 지구 표면의 대원 거리를 계산하는 방법을 제공합니다. |
-> | [fuzzystrmatch](https://www.postgresql.org/docs/9.6/static/fuzzystrmatch.html) | 문자열 간 유사성 및 거리를 확인하기 위한 몇 가지 함수를 제공합니다. |
-> | [intarray](https://www.postgresql.org/docs/9.6/static/intarray.html) | null 없는 정수 배열을 조작하기 위한 함수 및 연산자를 제공합니다. |
-> | [pgcrypto](https://www.postgresql.org/docs/9.6/static/pgcrypto.html) | 암호화 함수를 제공합니다. |
-> | [pg\_partman](https://pgxn.org/dist/pg_partman/doc/pg_partman.html) | 시간 또는 ID로 분할된 테이블을 관리합니다. |
-> | [pg\_trgm](https://www.postgresql.org/docs/9.6/static/pgtrgm.html) | trigram 일치를 기준으로 영숫자 텍스트의 유사성을 확인하기 위한 함수 및 연산자를 제공합니다. |
-> | [tablefunc](https://www.postgresql.org/docs/9.6/static/tablefunc.html) | 크로스탭을 비롯하여 전체 테이블을 조작하는 함수를 제공합니다. |
-> | [uuid-ossp](https://www.postgresql.org/docs/9.6/static/uuid-ossp.html) | UUID(범용 고유 식별자)를 생성합니다. (이 확장에 대한 설명은 아래를 참조하세요.) |
-> | [orafce](https://github.com/orafce/orafce) | 상업용 데이터베이스에서 에뮬레이트된 함수 및 패키지의 하위 집합을 제공 합니다. |
-
-### <a name="full-text-search-extensions"></a>전체 텍스트 검색 확장
-
-> [!div class="mx-tableFixed"]
-> | **확장명** | **설명** |
-> |---|---|
-> | [dict\_int](https://www.postgresql.org/docs/9.6/static/dict-int.html) | 정수에 대한 텍스트 검색 사전 템플릿을 제공합니다. |
-> | [unaccent](https://www.postgresql.org/docs/9.6/static/unaccent.html) | Lexemes에서 악센트(분음 기호)를 제거하는 텍스트 검색 사전입니다. |
-
-### <a name="index-types-extensions"></a>인덱스 형식 확장
-
-> [!div class="mx-tableFixed"]
-> | **확장명** | **설명** |
-> |---|---|
-> | [btree\_gin](https://www.postgresql.org/docs/9.6/static/btree-gin.html) | 특정 데이터 형식에 대해 B-트리 유사 동작을 구현하는 샘플 GIN 연산자 클래스를 제공합니다. |
-> | [btree\_gist](https://www.postgresql.org/docs/9.6/static/btree-gist.html) | B-트리를 구현하는 GiST 인덱스 연산자 클래스를 제공합니다. |
-
-### <a name="language-extensions"></a>언어 확장
-
-> [!div class="mx-tableFixed"]
-> | **확장명** | **설명** |
-> |---|---|
-> | [plpgsql](https://www.postgresql.org/docs/9.6/static/plpgsql.html) | PL/pgSQL 로드 가능 절차 언어. |
-> | [plv8](https://plv8.github.io/) | 저장 프로시저, 트리거 등에 사용할 수 있는 PostgreSQL용 Javascript 언어 확장입니다. |
-
-### <a name="miscellaneous-extensions"></a>기타 확장
-
-> [!div class="mx-tableFixed"]
-> | **확장명** | **설명** |
-> |---|---|
-> | [pg\_buffercache](https://www.postgresql.org/docs/9.6/static/pgbuffercache.html) | 공유 버퍼 캐시에서 일어나는 작업을 실시간으로 검사하기 위한 수단을 제공합니다. |
-> | [pg\_prewarm](https://www.postgresql.org/docs/9.6/static/pgprewarm.html) | 관계 데이터를 버퍼 캐시에 로드하는 방법을 제공합니다. |
-> | [pg\_stat\_statements](https://www.postgresql.org/docs/9.6/static/pgstatstatements.html) | 서버에서 실행되는 모든 SQL 문의 실행 통계를 추적하는 수단을 제공합니다. (이 확장에 대한 설명은 아래를 참조하세요.) |
-> | [pgrowlocks](https://www.postgresql.org/docs/9.6/static/pgrowlocks.html) | 행 수준 잠금 정보를 표시하는 방법을 제공합니다. |
-> | [pgstattuple](https://www.postgresql.org/docs/9.6/static/pgstattuple.html) | 튜플 수준 통계를 표시하는 방법을 제공합니다. |
-> | [postgres\_fdw](https://www.postgresql.org/docs/9.6/static/postgres-fdw.html) | 외부 PostgreSQL 서버에 저장된 데이터에 액세스하는 데 사용되는 외부 데이터 래퍼입니다. (이 확장에 대한 설명은 아래를 참조하세요.)|
-> | [hypopg](https://hypopg.readthedocs.io/en/latest/) | CPU나 디스크 비용이 들지 않는 가상의 인덱스를 만드는 방법을 제공합니다. |
-> | [dblink](https://www.postgresql.org/docs/current/dblink.html) | 데이터베이스 세션 내에서 다른 PostgreSQL 데이터베이스로의 연결을 지원하는 모듈입니다. (이 확장에 대한 설명은 아래를 참조하세요.) |
-
-
-### <a name="postgis-extensions"></a>PostGIS 확장
-
-> [!div class="mx-tableFixed"]
-> | **확장명** | **설명** |
-> |---|---|
-> | [PostGIS](https://www.postgis.net/), postgis\_topology, postgis\_tiger\_geocoder, postgis\_sfcgal | PostgreSQL에 대한 공간 및 지리적 개체입니다. |
-> | address\_standardizer, address\_standardizer\_data\_us | 주소를 구성 요소로 구문 분석하는 데 사용됩니다. 지오코딩 주소 정규화 단계를 지원하는 데 사용됩니다. |
-> | [pgrouting](https://pgrouting.org/) | 지리 공간적 라우팅 기능을 제공하기 위해 PostGIS / PostgreSQL 지리 공간적 데이터베이스를 확장합니다. |
-
-
-### <a name="time-series-extensions"></a>시계열 확장
-
-> [!div class="mx-tableFixed"]
-> | **확장명** | **설명** |
-> |---|---|
-> | [TimescaleDB](https://docs.timescale.com/latest) | 빠른 수집 및 쿼리에 대 한 자동화 된 분할을 지 원하는 시계열 SQL 데이터베이스입니다. 시계열 워크 로드에 대 한 시간 기반 분석 함수, 최적화 및 크기 조정 PostgreSQL 제공 합니다. TimescaleDB는에서 개발 되 고 [, 날짜/시간, i n c.](https://www.timescale.com/) 의 등록 상표입니다. (이 확장에 대한 설명은 아래를 참조하세요.) |
+Azure Database for PostgreSQL은 아래에 나열 된 대로 키 확장의 하위 집합을 지원 합니다. 이 정보를 `SELECT * FROM pg_available_extensions;`를 실행하여 얻을 수도 있습니다. 나열 된 확장 이외의 확장은 지원 되지 않습니다. Azure Database for PostgreSQL에서 사용자 고유의 확장을 만들 수 없습니다.
 
 ## <a name="postgres-11-extensions"></a>Postgres 11 확장
 
-다음 확장은 Postgres 버전 11이 있는 Azure Database for PostgreSQL 서버에서 사용할 수 있습니다.
+다음 확장은 Postgres 버전 11이 있는 Azure Database for PostgreSQL 서버에서 사용할 수 있습니다. 
 
 > [!div class="mx-tableFixed"]
 > | **확장명**| **확장 버전** | **설명** |
@@ -118,37 +32,170 @@ Azure Database for PostgreSQL은 아래에 나열 된 대로 키 확장의 하�
 > |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.5.1           | Address Standardizer US 데이터 집합 예제|
 > |[btree_gin](https://www.postgresql.org/docs/11/btree-gin.html)                    | 1.3             | GIN의 공통 데이터 형식 인덱싱 지원|
 > |[btree_gist](https://www.postgresql.org/docs/11/btree-gist.html)                   | 1.5             | 요점의 공통 데이터 형식 인덱싱 지원|
-> |[citext](https://www.postgresql.org/docs/11/static/citext.html)                       | 1.5             | 대/소문자를 구분 하지 않는 문자열의 데이터 형식|
-> |[cube](https://www.postgresql.org/docs/11/static/cube.html)                         | 1.4             | 다차원 큐브에 대 한 데이터 형식|
+> |[citext](https://www.postgresql.org/docs/11/citext.html)                       | 1.5             | 대/소문자를 구분 하지 않는 문자열의 데이터 형식|
+> |[cube](https://www.postgresql.org/docs/11/cube.html)                         | 1.4             | 다차원 큐브에 대 한 데이터 형식|
 > |[dblink](https://www.postgresql.org/docs/11/dblink.html)                       | 1.2             | 데이터베이스 내에서 다른 PostgreSQL 데이터베이스에 연결|
-> |[dict_int](https://www.postgresql.org/docs/11/static/dict-int.html)                     | 1.0             | 정수에 대 한 텍스트 검색 사전 템플릿|
-> |[earthdistance](https://www.postgresql.org/docs/11/static/earthdistance.html)                | 1.1             | 지구 표면에서 큰 원 거리를 계산 합니다.|
-> |[fuzzystrmatch](https://www.postgresql.org/docs/11/static/fuzzystrmatch.html)                | 1.1             | 문자열 간의 유사성 및 거리 결정|
-> |[hstore](https://www.postgresql.org/docs/11/static/hstore.html)                       | 1.5             | (키, 값) 쌍 집합을 저장 하기 위한 데이터 형식|
+> |[dict_int](https://www.postgresql.org/docs/11/dict-int.html)                     | 1.0             | 정수에 대 한 텍스트 검색 사전 템플릿|
+> |[earthdistance](https://www.postgresql.org/docs/11/earthdistance.html)                | 1.1             | 지구 표면에서 큰 원 거리를 계산 합니다.|
+> |[fuzzystrmatch](https://www.postgresql.org/docs/11/fuzzystrmatch.html)                | 1.1             | 문자열 간의 유사성 및 거리 결정|
+> |[hstore](https://www.postgresql.org/docs/11/hstore.html)                       | 1.5             | (키, 값) 쌍 집합을 저장 하기 위한 데이터 형식|
 > |[hypopg](https://hypopg.readthedocs.io/en/latest/)                       | 1.1.2           | PostgreSQL에 대 한 가상 인덱스|
-> |[intarray](https://www.postgresql.org/docs/11/static/intarray.html)                     | 1.2             | 정수의 1 차원 배열에 대 한 함수, 연산자 및 인덱스 지원|
-> |[isn](https://www.postgresql.org/docs/11/static/isn.html)                          | 1.2             | 국제 제품 번호 매기기 표준에 대 한 데이터 형식|
-> |[ltree](https://www.postgresql.org/docs/11/static/ltree.html)                        | 1.1             | 계층적 트리 구조에 대 한 데이터 형식|
+> |[intarray](https://www.postgresql.org/docs/11/intarray.html)                     | 1.2             | 정수의 1 차원 배열에 대 한 함수, 연산자 및 인덱스 지원|
+> |[isn](https://www.postgresql.org/docs/11/isn.html)                          | 1.2             | 국제 제품 번호 매기기 표준에 대 한 데이터 형식|
+> |[ltree](https://www.postgresql.org/docs/11/ltree.html)                        | 1.1             | 계층적 트리 구조에 대 한 데이터 형식|
 > |[orafce](https://github.com/orafce/orafce)                       | 3.7             | 상용 RDBMS에서 함수 및 패키지의 하위 집합을 에뮬레이트하는 함수 및 연산자|
-> |[pgcrypto](https://www.postgresql.org/docs/11/static/pgcrypto.html)                     | 1.3             | 암호화 함수|
+> |[pgcrypto](https://www.postgresql.org/docs/11/pgcrypto.html)                     | 1.3             | 암호화 함수|
 > |[pgrouting](https://pgrouting.org/)                    | 2.6.2 critical           | pgRouting|
-> |[pgrowlocks](https://www.postgresql.org/docs/11/static/pgrowlocks.html)                   | 1.2             | 행 수준 잠금 정보 표시|
-> |[pgstattuple](https://www.postgresql.org/docs/11/static/pgstattuple.html)                  | 1.5             | 튜플 수준 통계 표시|
-> |[pg_buffercache](https://www.postgresql.org/docs/11/static/pgbuffercache.html)               | 1.3             | 공유 버퍼 캐시를 검사 합니다.|
+> |[pgrowlocks](https://www.postgresql.org/docs/11/pgrowlocks.html)                   | 1.2             | 행 수준 잠금 정보 표시|
+> |[pgstattuple](https://www.postgresql.org/docs/11/pgstattuple.html)                  | 1.5             | 튜플 수준 통계 표시|
+> |[pg_buffercache](https://www.postgresql.org/docs/11/pgbuffercache.html)               | 1.3             | 공유 버퍼 캐시를 검사 합니다.|
 > |[pg_partman](https://github.com/pgpartman/pg_partman)                   | 4.0.0           | 시간 또는 ID로 분할 된 테이블을 관리 하기 위한 확장|
 > |[pg_prewarm](https://www.postgresql.org/docs/11/pgprewarm.html)                   | 1.2             | 사전 웜 관계 데이터|
-> |[pg_stat_statements](https://www.postgresql.org/docs/11/static/pgstatstatements.html)           | 1.6             | 실행 된 모든 SQL 문의 실행 통계 추적|
-> |[pg_trgm](https://www.postgresql.org/docs/11/static/pgtrgm.html)                      | 1.4             | trigrams을 기반으로 하는 텍스트 유사성 측정 및 인덱스 검색|
-> |[plpgsql](https://www.postgresql.org/docs/11/static/plpgsql.html)                      | 1.0             | PL/pgSQL 절차적 언어|
+> |[pg_stat_statements](https://www.postgresql.org/docs/11/pgstatstatements.html)           | 1.6             | 실행 된 모든 SQL 문의 실행 통계 추적|
+> |[pg_trgm](https://www.postgresql.org/docs/11/pgtrgm.html)                      | 1.4             | trigrams을 기반으로 하는 텍스트 유사성 측정 및 인덱스 검색|
+> |[plpgsql](https://www.postgresql.org/docs/11/plpgsql.html)                      | 1.0             | PL/pgSQL 절차적 언어|
 > |[plv8](https://plv8.github.io/)                         | 2.3.11          | PL/JavaScript (v8) 신뢰할 수 있는 절차적 언어|
 > |[postgis](https://www.postgis.net/)                      | 2.5.1           | PostGIS geometry, geography 및 래스터 공간 형식 및 함수|
 > |[postgis_sfcgal](https://www.postgis.net/)               | 2.5.1           | PostGIS SFCGAL 함수|
 > |[postgis_tiger_geocoder](https://www.postgis.net/)       | 2.5.1           | PostGIS tiger geocoder 및 reverse geocoder|
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.5.1           | PostGIS 토폴로지 공간 형식 및 함수|
-> |[postgres_fdw](https://www.postgresql.org/docs/11/static/postgres-fdw.html)                 | 1.0             | remote PostgreSQL servers에 대 한 외부 데이터 래퍼|
-> |[tablefunc](https://www.postgresql.org/docs/11/static/tablefunc.html)                    | 1.0             | 크로스탭을 포함 하 여 전체 테이블을 조작 하는 함수|
-> |[unaccent](https://www.postgresql.org/docs/11/static/unaccent.html)                     | 1.1             | 강조를 제거 하는 텍스트 검색 사전|
-> |[uuid-ossp](https://www.postgresql.org/docs/11/static/uuid-ossp.html)                    | 1.1             | Uuid (범용 고유 식별자)를 생성 합니다.|
+> |[postgres_fdw](https://www.postgresql.org/docs/11/postgres-fdw.html)                 | 1.0             | remote PostgreSQL servers에 대 한 외부 데이터 래퍼|
+> |[tablefunc](https://www.postgresql.org/docs/11/tablefunc.html)                    | 1.0             | 크로스탭을 포함 하 여 전체 테이블을 조작 하는 함수|
+> |[unaccent](https://www.postgresql.org/docs/11/unaccent.html)                     | 1.1             | 강조를 제거 하는 텍스트 검색 사전|
+> |[uuid-ossp](https://www.postgresql.org/docs/11/uuid-ossp.html)                    | 1.1             | Uuid (범용 고유 식별자)를 생성 합니다.|
+
+## <a name="postgres-10-extensions"></a>Postgres 10 확장 
+
+다음 확장은 Postgres 버전 10이 있는 Azure Database for PostgreSQL 서버에서 사용할 수 있습니다.
+
+> [!div class="mx-tableFixed"]
+> | **확장명**| **확장 버전** | **설명** |
+> |---|---|---|
+> |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.5.1           | 주소를 구성 요소로 구문 분석하는 데 사용됩니다. |
+> |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.5.1           | Address Standardizer US 데이터 집합 예제|
+> |[btree_gin](https://www.postgresql.org/docs/10/btree-gin.html)                    | 1.3             | GIN의 공통 데이터 형식 인덱싱 지원|
+> |[btree_gist](https://www.postgresql.org/docs/10/btree-gist.html)                   | 1.5             | 요점의 공통 데이터 형식 인덱싱 지원|
+> |[chkpass](https://www.postgresql.org/docs/10/chkpass.html)                       | 1.0             | 자동 암호화 된 암호에 대 한 데이터 형식|
+> |[citext](https://www.postgresql.org/docs/10/citext.html)                       | 1.4             | 대/소문자를 구분 하지 않는 문자열의 데이터 형식|
+> |[cube](https://www.postgresql.org/docs/10/cube.html)                         | 1.2             | 다차원 큐브에 대 한 데이터 형식|
+> |[dblink](https://www.postgresql.org/docs/10/dblink.html)                       | 1.2             | 데이터베이스 내에서 다른 PostgreSQL 데이터베이스에 연결|
+> |[dict_int](https://www.postgresql.org/docs/10/dict-int.html)                     | 1.0             | 정수에 대 한 텍스트 검색 사전 템플릿|
+> |[earthdistance](https://www.postgresql.org/docs/10/earthdistance.html)                | 1.1             | 지구 표면에서 큰 원 거리를 계산 합니다.|
+> |[fuzzystrmatch](https://www.postgresql.org/docs/10/fuzzystrmatch.html)                | 1.1             | 문자열 간의 유사성 및 거리 결정|
+> |[hstore](https://www.postgresql.org/docs/10/hstore.html)                       | 1.4             | (키, 값) 쌍 집합을 저장 하기 위한 데이터 형식|
+> |[hypopg](https://hypopg.readthedocs.io/en/latest/)                       | 1.1.1           | PostgreSQL에 대 한 가상 인덱스|
+> |[intarray](https://www.postgresql.org/docs/10/intarray.html)                     | 1.2             | 정수의 1 차원 배열에 대 한 함수, 연산자 및 인덱스 지원|
+> |[isn](https://www.postgresql.org/docs/10/isn.html)                          | 1.1             | 국제 제품 번호 매기기 표준에 대 한 데이터 형식|
+> |[ltree](https://www.postgresql.org/docs/10/ltree.html)                        | 1.1             | 계층적 트리 구조에 대 한 데이터 형식|
+> |[orafce](https://github.com/orafce/orafce)                       | 3.7             | 상용 RDBMS에서 함수 및 패키지의 하위 집합을 에뮬레이트하는 함수 및 연산자|
+> |[pgcrypto](https://www.postgresql.org/docs/10/pgcrypto.html)                     | 1.3             | 암호화 함수|
+> |[pgrouting](https://pgrouting.org/)                    | 2.5.2           | pgRouting|
+> |[pgrowlocks](https://www.postgresql.org/docs/10/pgrowlocks.html)                   | 1.2             | 행 수준 잠금 정보 표시|
+> |[pgstattuple](https://www.postgresql.org/docs/10/pgstattuple.html)                  | 1.5             | 튜플 수준 통계 표시|
+> |[pg_buffercache](https://www.postgresql.org/docs/10/pgbuffercache.html)               | 1.3             | 공유 버퍼 캐시를 검사 합니다.|
+> |[pg_partman](https://github.com/pgpartman/pg_partman)                   | 2.6.3           | 시간 또는 ID로 분할 된 테이블을 관리 하기 위한 확장|
+> |[pg_prewarm](https://www.postgresql.org/docs/10/pgprewarm.html)                   | 1.1             | 사전 웜 관계 데이터|
+> |[pg_stat_statements](https://www.postgresql.org/docs/10/pgstatstatements.html)           | 1.6             | 실행 된 모든 SQL 문의 실행 통계 추적|
+> |[pg_trgm](https://www.postgresql.org/docs/10/pgtrgm.html)                      | 1.3             | trigrams을 기반으로 하는 텍스트 유사성 측정 및 인덱스 검색|
+> |[plpgsql](https://www.postgresql.org/docs/10/plpgsql.html)                      | 1.0             | PL/pgSQL 절차적 언어|
+> |[plv8](https://plv8.github.io/)                         | 2.1.0          | PL/JavaScript (v8) 신뢰할 수 있는 절차적 언어|
+> |[postgis](https://www.postgis.net/)                      | 2.4.3           | PostGIS geometry, geography 및 래스터 공간 형식 및 함수|
+> |[postgis_sfcgal](https://www.postgis.net/)               | 2.4.3           | PostGIS SFCGAL 함수|
+> |[postgis_tiger_geocoder](https://www.postgis.net/)       | 2.4.3           | PostGIS tiger geocoder 및 reverse geocoder|
+> |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.4.3           | PostGIS 토폴로지 공간 형식 및 함수|
+> |[postgres_fdw](https://www.postgresql.org/docs/10/postgres-fdw.html)                 | 1.0             | remote PostgreSQL servers에 대 한 외부 데이터 래퍼|
+> |[tablefunc](https://www.postgresql.org/docs/10/tablefunc.html)                    | 1.0             | 크로스탭을 포함 하 여 전체 테이블을 조작 하는 함수|
+> |[timescaledb](https://docs.timescale.com/latest)                    | 1.1.1             | 시계열 데이터에 대 한 확장 가능한 삽입 및 복잡 한 쿼리를 사용 합니다.|
+> |[unaccent](https://www.postgresql.org/docs/10/unaccent.html)                     | 1.1             | 강조를 제거 하는 텍스트 검색 사전|
+> |[uuid-ossp](https://www.postgresql.org/docs/10/uuid-ossp.html)                    | 1.1             | Uuid (범용 고유 식별자)를 생성 합니다.|
+
+## <a name="postgres-96-extensions"></a>Postgres 9.6 확장 
+
+다음 확장은 Postgres 버전 9.6이 있는 Azure Database for PostgreSQL 서버에서 사용할 수 있습니다.
+
+> [!div class="mx-tableFixed"]
+> | **확장명**| **확장 버전** | **설명** |
+> |---|---|---|
+> |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.3.2           | 주소를 구성 요소로 구문 분석하는 데 사용됩니다. |
+> |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.3.2           | Address Standardizer US 데이터 집합 예제|
+> |[btree_gin](https://www.postgresql.org/docs/9.6/btree-gin.html)                    | 1.0             | GIN의 공통 데이터 형식 인덱싱 지원|
+> |[btree_gist](https://www.postgresql.org/docs/9.6/btree-gist.html)                   | 1.2             | 요점의 공통 데이터 형식 인덱싱 지원|
+> |[chkpass](https://www.postgresql.org/docs/9.6/chkpass.html)                       | 1.0             | 자동 암호화 된 암호에 대 한 데이터 형식|
+> |[citext](https://www.postgresql.org/docs/9.6/citext.html)                       | 1.3             | 대/소문자를 구분 하지 않는 문자열의 데이터 형식|
+> |[cube](https://www.postgresql.org/docs/9.6/cube.html)                         | 1.2             | 다차원 큐브에 대 한 데이터 형식|
+> |[dblink](https://www.postgresql.org/docs/9.6/dblink.html)                       | 1.2             | 데이터베이스 내에서 다른 PostgreSQL 데이터베이스에 연결|
+> |[dict_int](https://www.postgresql.org/docs/9.6/dict-int.html)                     | 1.0             | 정수에 대 한 텍스트 검색 사전 템플릿|
+> |[earthdistance](https://www.postgresql.org/docs/9.6/earthdistance.html)                | 1.1             | 지구 표면에서 큰 원 거리를 계산 합니다.|
+> |[fuzzystrmatch](https://www.postgresql.org/docs/9.6/fuzzystrmatch.html)                | 1.1             | 문자열 간의 유사성 및 거리 결정|
+> |[hstore](https://www.postgresql.org/docs/9.6/hstore.html)                       | 1.4             | (키, 값) 쌍 집합을 저장 하기 위한 데이터 형식|
+> |[hypopg](https://hypopg.readthedocs.io/en/latest/)                       | 1.1.1           | PostgreSQL에 대 한 가상 인덱스|
+> |[intarray](https://www.postgresql.org/docs/9.6/intarray.html)                     | 1.2             | 정수의 1 차원 배열에 대 한 함수, 연산자 및 인덱스 지원|
+> |[isn](https://www.postgresql.org/docs/9.6/isn.html)                          | 1.1             | 국제 제품 번호 매기기 표준에 대 한 데이터 형식|
+> |[ltree](https://www.postgresql.org/docs/9.6/ltree.html)                        | 1.1             | 계층적 트리 구조에 대 한 데이터 형식|
+> |[orafce](https://github.com/orafce/orafce)                       | 3.7             | 상용 RDBMS에서 함수 및 패키지의 하위 집합을 에뮬레이트하는 함수 및 연산자|
+> |[pgcrypto](https://www.postgresql.org/docs/9.6/pgcrypto.html)                     | 1.3             | 암호화 함수|
+> |[pgrouting](https://pgrouting.org/)                    | 2.3.2           | pgRouting|
+> |[pgrowlocks](https://www.postgresql.org/docs/9.6/pgrowlocks.html)                   | 1.2             | 행 수준 잠금 정보 표시|
+> |[pgstattuple](https://www.postgresql.org/docs/9.6/pgstattuple.html)                  | 1.4             | 튜플 수준 통계 표시|
+> |[pg_buffercache](https://www.postgresql.org/docs/9.6/pgbuffercache.html)               | 1.2             | 공유 버퍼 캐시를 검사 합니다.|
+> |[pg_partman](https://github.com/pgpartman/pg_partman)                   | 2.6.3           | 시간 또는 ID로 분할 된 테이블을 관리 하기 위한 확장|
+> |[pg_prewarm](https://www.postgresql.org/docs/9.6/pgprewarm.html)                   | 1.1             | 사전 웜 관계 데이터|
+> |[pg_stat_statements](https://www.postgresql.org/docs/9.6/pgstatstatements.html)           | 1.4             | 실행 된 모든 SQL 문의 실행 통계 추적|
+> |[pg_trgm](https://www.postgresql.org/docs/9.6/pgtrgm.html)                      | 1.3             | trigrams을 기반으로 하는 텍스트 유사성 측정 및 인덱스 검색|
+> |[plpgsql](https://www.postgresql.org/docs/9.6/plpgsql.html)                      | 1.0             | PL/pgSQL 절차적 언어|
+> |[plv8](https://plv8.github.io/)                         | 2.1.0          | PL/JavaScript (v8) 신뢰할 수 있는 절차적 언어|
+> |[postgis](https://www.postgis.net/)                      | 2.3.2           | PostGIS geometry, geography 및 래스터 공간 형식 및 함수|
+> |[postgis_sfcgal](https://www.postgis.net/)               | 2.3.2           | PostGIS SFCGAL 함수|
+> |[postgis_tiger_geocoder](https://www.postgis.net/)       | 2.3.2           | PostGIS tiger geocoder 및 reverse geocoder|
+> |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.3.2           | PostGIS 토폴로지 공간 형식 및 함수|
+> |[postgres_fdw](https://www.postgresql.org/docs/9.6/postgres-fdw.html)                 | 1.0             | remote PostgreSQL servers에 대 한 외부 데이터 래퍼|
+> |[tablefunc](https://www.postgresql.org/docs/9.6/tablefunc.html)                    | 1.0             | 크로스탭을 포함 하 여 전체 테이블을 조작 하는 함수|
+> |[timescaledb](https://docs.timescale.com/latest)                    | 1.1.1             | 시계열 데이터에 대 한 확장 가능한 삽입 및 복잡 한 쿼리를 사용 합니다.|
+> |[unaccent](https://www.postgresql.org/docs/9.6/unaccent.html)                     | 1.1             | 강조를 제거 하는 텍스트 검색 사전|
+> |[uuid-ossp](https://www.postgresql.org/docs/9.6/uuid-ossp.html)                    | 1.1             | Uuid (범용 고유 식별자)를 생성 합니다.|
+
+## <a name="postgres-95-extensions"></a>Postgres 9.5 확장 
+
+다음 확장은 Postgres 버전 9.5이 있는 Azure Database for PostgreSQL 서버에서 사용할 수 있습니다.
+
+> [!div class="mx-tableFixed"]
+> | **확장명**| **확장 버전** | **설명** |
+> |---|---|---|
+> |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.3.0           | 주소를 구성 요소로 구문 분석하는 데 사용됩니다. |
+> |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.3.0           | Address Standardizer US 데이터 집합 예제|
+> |[btree_gin](https://www.postgresql.org/docs/9.5/btree-gin.html)                    | 1.0             | GIN의 공통 데이터 형식 인덱싱 지원|
+> |[btree_gist](https://www.postgresql.org/docs/9.5/btree-gist.html)                   | 1.1             | 요점의 공통 데이터 형식 인덱싱 지원|
+> |[chkpass](https://www.postgresql.org/docs/9.5/chkpass.html)                       | 1.0             | 자동 암호화 된 암호에 대 한 데이터 형식|
+> |[citext](https://www.postgresql.org/docs/9.5/citext.html)                       | 1.1             | 대/소문자를 구분 하지 않는 문자열의 데이터 형식|
+> |[cube](https://www.postgresql.org/docs/9.5/cube.html)                         | 1.0             | 다차원 큐브에 대 한 데이터 형식|
+> |[dblink](https://www.postgresql.org/docs/9.5/dblink.html)                       | 1.1             | 데이터베이스 내에서 다른 PostgreSQL 데이터베이스에 연결|
+> |[dict_int](https://www.postgresql.org/docs/9.5/dict-int.html)                     | 1.0             | 정수에 대 한 텍스트 검색 사전 템플릿|
+> |[earthdistance](https://www.postgresql.org/docs/9.5/earthdistance.html)                | 1.0             | 지구 표면에서 큰 원 거리를 계산 합니다.|
+> |[fuzzystrmatch](https://www.postgresql.org/docs/9.5/fuzzystrmatch.html)                | 1.0             | 문자열 간의 유사성 및 거리 결정|
+> |[hstore](https://www.postgresql.org/docs/9.5/hstore.html)                       | 1.3             | (키, 값) 쌍 집합을 저장 하기 위한 데이터 형식|
+> |[hypopg](https://hypopg.readthedocs.io/en/latest/)                       | 1.1.1           | PostgreSQL에 대 한 가상 인덱스|
+> |[intarray](https://www.postgresql.org/docs/9.5/intarray.html)                     | 1.0             | 정수의 1 차원 배열에 대 한 함수, 연산자 및 인덱스 지원|
+> |[isn](https://www.postgresql.org/docs/9.5/isn.html)                          | 1.0             | 국제 제품 번호 매기기 표준에 대 한 데이터 형식|
+> |[ltree](https://www.postgresql.org/docs/9.5/ltree.html)                        | 1.0             | 계층적 트리 구조에 대 한 데이터 형식|
+> |[orafce](https://github.com/orafce/orafce)                       | 3.7             | 상용 RDBMS에서 함수 및 패키지의 하위 집합을 에뮬레이트하는 함수 및 연산자|
+> |[pgcrypto](https://www.postgresql.org/docs/9.5/pgcrypto.html)                     | 1.2             | 암호화 함수|
+> |[pgrouting](https://pgrouting.org/)                    | 2.3.0           | pgRouting|
+> |[pgrowlocks](https://www.postgresql.org/docs/9.5/pgrowlocks.html)                   | 1.1             | 행 수준 잠금 정보 표시|
+> |[pgstattuple](https://www.postgresql.org/docs/9.5/pgstattuple.html)                  | 1.3             | 튜플 수준 통계 표시|
+> |[pg_buffercache](https://www.postgresql.org/docs/9.5/pgbuffercache.html)               | 1.1             | 공유 버퍼 캐시를 검사 합니다.|
+> |[pg_partman](https://github.com/pgpartman/pg_partman)                   | 2.6.3           | 시간 또는 ID로 분할 된 테이블을 관리 하기 위한 확장|
+> |[pg_prewarm](https://www.postgresql.org/docs/9.5/pgprewarm.html)                   | 1.0             | 사전 웜 관계 데이터|
+> |[pg_stat_statements](https://www.postgresql.org/docs/9.5/pgstatstatements.html)           | 1.3             | 실행 된 모든 SQL 문의 실행 통계 추적|
+> |[pg_trgm](https://www.postgresql.org/docs/9.5/pgtrgm.html)                      | 1.1             | trigrams을 기반으로 하는 텍스트 유사성 측정 및 인덱스 검색|
+> |[plpgsql](https://www.postgresql.org/docs/9.5/plpgsql.html)                      | 1.0             | PL/pgSQL 절차적 언어|
+> |[postgis](https://www.postgis.net/)                      | 2.3.0           | PostGIS geometry, geography 및 래스터 공간 형식 및 함수|
+> |[postgis_sfcgal](https://www.postgis.net/)               | 2.3.0           | PostGIS SFCGAL 함수|
+> |[postgis_tiger_geocoder](https://www.postgis.net/)       | 2.3.0           | PostGIS tiger geocoder 및 reverse geocoder|
+> |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.3.0           | PostGIS 토폴로지 공간 형식 및 함수|
+> |[postgres_fdw](https://www.postgresql.org/docs/9.5/postgres-fdw.html)                 | 1.0             | remote PostgreSQL servers에 대 한 외부 데이터 래퍼|
+> |[tablefunc](https://www.postgresql.org/docs/9.5/tablefunc.html)                    | 1.0             | 크로스탭을 포함 하 여 전체 테이블을 조작 하는 함수|
+> |[unaccent](https://www.postgresql.org/docs/9.5/unaccent.html)                     | 1.0             | 강조를 제거 하는 텍스트 검색 사전|
+> |[uuid-ossp](https://www.postgresql.org/docs/9.5/uuid-ossp.html)                    | 1.0             | Uuid (범용 고유 식별자)를 생성 합니다.|
 
 
 ## <a name="pg_stat_statements"></a>pg_stat_statements

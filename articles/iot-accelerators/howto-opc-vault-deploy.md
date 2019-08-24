@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 347e7c2aa2ff4fb4f188847b81d03006c1909166
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
-ms.translationtype: HT
+ms.openlocfilehash: 1625f0e6f9bfe8297cae2770e63107bf4f19f95e
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997641"
+ms.locfileid: "70012995"
 ---
 # <a name="build-and-deploy-the-opc-vault-certificate-management-service"></a>OPC 자격 증명 모음 인증서 관리 서비스 빌드 및 배포
 
@@ -86,7 +86,7 @@ Sidenote는 정확히 동일한 설정을 사용 하 여 빌드를 다시 배포
 
 성공적으로 배포 되 면 서비스를 사용 하 여 시작 합니다. [OPC 자격 증명 모음 인증서 관리 서비스를 관리 하는 방법](howto-opc-vault-manage.md)
 
-## <a name="delete-the-certificate-management-service-from-the-subscription"></a>구독에서 인증서 관리 서비스 삭제
+## <a name="delete-the-services-from-the-subscription"></a>구독에서 서비스 삭제
 
 1. Azure Portal에 로그인 `https://portal.azure.com`합니다.
 2. 서비스가 배포 된 리소스 그룹으로 이동 합니다.

@@ -14,20 +14,20 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: f2c82c8ff353889f06dfc1c2ff5c3f316013c54b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8769979fe3e5107e4ca788f65ff1e721b266776b
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66171254"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013071"
 ---
 # <a name="create-a-service-bus-authorization-rule-for-namespace-and-queue-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 네임스페이스 및 큐에 대한 Service Bus 권한 부여 규칙 만들기
 
-이 문서에서는 Service Bus 네임스페이스 및 큐에 대한 [권한 부여 규칙](service-bus-authentication-and-authorization.md#shared-access-signature-authentication)을 만드는 Azure Resource Manager 템플릿을 사용하는 방법을 보여 줍니다. 이 문서는 어떤 리소스를 배포할지 지정하는 방법 및 배포를 실행할 때 지정되는 매개 변수를 정의하는 방법을 설명합니다. 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정을 할 수 있습니다.
+이 문서에서는 Service Bus 네임스페이스 및 큐에 대한 [권한 부여 규칙](service-bus-authentication-and-authorization.md#shared-access-signature)을 만드는 Azure Resource Manager 템플릿을 사용하는 방법을 보여 줍니다. 이 문서는 어떤 리소스를 배포할지 지정하는 방법 및 배포를 실행할 때 지정되는 매개 변수를 정의하는 방법을 설명합니다. 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정을 할 수 있습니다.
 
 템플릿을 만들기에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성][Authoring Azure Resource Manager templates]을 참조하세요.
 
-전체 템플릿은 GitHub에서 [Service Bus 권한 부여 규칙 템플릿][Service Bus auth rule template]을 참조하세요.
+전체 템플릿은 GitHub의 [Service Bus 권한 부여 규칙 템플릿][Service Bus auth rule template] 을 참조 하세요.
 
 > [!NOTE]
 > 다음 Azure Resource Manager 템플릿은 다운로드하여 배포할 수 있습니다.
@@ -37,7 +37,7 @@ ms.locfileid: "66171254"
 > * [토픽 및 구독이 있는 Service Bus 네임스페이스 만들기](service-bus-resource-manager-namespace-topic.md)
 > * [토픽, 구독 및 규칙이 있는 Service Bus 네임스페이스 만들기](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> 최신 템플릿을 확인하려면 [Azure 퀵 스타트 템플릿][Azure Quickstart Templates] 갤러리를 방문하여 **Service Bus**를 검색합니다.
+> 최신 템플릿을 확인 하려면 [Azure 빠른 시작 템플릿][Azure Quickstart Templates] 갤러리를 방문 하 여 **Service Bus**를 검색 합니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

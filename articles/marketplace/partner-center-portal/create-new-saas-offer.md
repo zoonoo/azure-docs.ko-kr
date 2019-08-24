@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 584b9fdde33d14650c36c44b9b457a25f8a1d6f9
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 7dd57e41144ec33aec6eb716716d0794d92071f5
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900128"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013082"
 ---
 # <a name="create-a-new-saas-offer"></a>새 SaaS 제품 만들기
 
@@ -79,25 +79,29 @@ Microsoft를 통해 판매 되는 고객 검색 및 취득은 Microsoft에서 �
 - 제품에서 SaaS 처리 [api](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) 를 사용 하 여 Azure Marketplace와 통합 해야 합니다.
 - 더 광범위 한 요구 사항은 [SaaS 제품 게시 가이드](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide)를 참조 하세요.
 
-#### <a name="saas-on-azure-billing-infrastructure-costs"></a>Azure 청구 인프라의 SaaS 비용
-SaaS 제품이 Azure에서 호스트 되는 경우 게시자는 Azure 인프라 사용 요금 및 소프트웨어 라이선스 요금을 단일 비용 항목으로 고려 해야 합니다. 이 비용은 고객에 게 고정 된 월간 요금으로 표현 됩니다. Azure 인프라 사용은 사용자, 파트너, 직접 관리 및 청구 됩니다. 실제 인프라 사용 요금은 고객에게 표시되지 않습니다. 일반적으로 게시자는 Azure 인프라 사용 요금을 소프트웨어 라이선스 가격 책정에 추가하는 것을 선택합니다. 
+#### <a name="saas-pricing-and-billing-options"></a>SaaS 가격 및 청구 옵션
+SaaS 솔루션을 게시자의 Azure 구독에서 실행 하는 경우 고객이 지불 하는 라이선스 요금은 소프트웨어를 배포 하는 인프라 비용을 포함 합니다. Azure 인프라 사용은 사용자, 파트너, 직접 관리 및 청구 됩니다. 실제 인프라 사용 요금은 고객에게 표시되지 않습니다. 게시자는 Azure 인프라 사용 요금을 소프트웨어 라이선스 가격으로 번들 해야 합니다. 
 
-소프트웨어 라이선스 요금은 월별 반복 되는 사이트 기반 구독 정액 요금으로 제공 되며 요금제 또는 소비 기반이 아닙니다.
+SaaS는 요금제 청구 서비스를 사용 하 여 정액 요금, 사용자 당 요금 또는 소비 요금을 기준으로 월별 또는 연간 요금 청구를 지원 합니다. Microsoft의 상용 marketplace는 에이전시 모델에서 작동 합니다. 즉, 게시자가 가격을 설정 하 고, Microsoft 청구서 고객을 원천 하 고, Microsoft는 고객 요금을 지불 하는 동시에 게시자에 게 수익을
+
+다음 표에서는 에이전시 모델을 보여 주기 위해 비용 및 지급의 분할 예를 보여 줍니다.
 
 |**라이선스 비용**|**$100/월**|
 |:---|:---|
 |Azure 사용량 비용(D1/1개 코어)|고객이 아닌 게시자에게 직접 청구됩니다.|
 |Microsoft에서 청구 하는 고객|월 $100.00 (게시자는 라이선스 요금으로 발생 하거나 통과 한 인프라 비용을 고려해 야 함)|
 
-- 이 시나리오에서 Microsoft는 소프트웨어 라이선스에 대해 $100.00를 청구하고, 게시자에게 $80.00를 지급합니다.
+|**Microsoft에 청구되는 요금**|**$100/월**|
+|:---|:---|
+|Microsoft는 라이선스 비용의 80%를 지불합니다. <br>**Microsoft는 정규화 된 SaaS 앱에 대해 90%의 라이선스 비용을 지불 합니다.*|매월 $80.00 <br>*$* 월 90.00 *|
+
+- 이 예제에서 Microsoft는 귀하의 소프트웨어 라이선스에 대해 고객에 게 $100.00를 청구 하 고 게시자에 게 $80.00을 지불 합니다.
 - **줄어든 Marketplace 서비스 요금** 으로 한정 된 파트너는 2019 년 5 월 2020 일까 야 년 5 월부터 SaaS 제품에 대 한 트랜잭션 요금이 감소 하는 것을 볼 수 있습니다. 이 시나리오에서 Microsoft는 귀하의 소프트웨어 라이선스에 대해 $100.00를 청구 하 고 게시자에 게 $90.00을 지불 합니다.
 
 > [!NOTE]
 > **Marketplace 서비스 요금 감소**: 상업적 Marketplace에 게시 한 특정 SaaS 제품의 경우 Microsoft는 Microsoft 게시자 계약에 설명 된 대로 20%에서 Marketplace 서비스 요금을 10%까지 줄일 수 있습니다. 제안을 받으려면 Microsoft에서 하나 이상의 제품을 IP 공동 판매 준비 또는 IP 공동 판매 우선 순위로 지정 해야 합니다.  해당 월에 대해이 감소 한 Marketplace 서비스 요금을 받으려면 각 월이 끝날 때까지 영업일 (5) 이상 이어야 합니다.  낮은 Marketplace 서비스 요금은 Vm, 관리 되는 앱 또는 상용 Marketplace를 통해 제공 되는 기타 제품에는 적용 되지 않습니다.  줄어든 Marketplace 서비스 요금은 2020 년 5 월 1 일부 터 2019 년 6 월 30 일 사이 Microsoft에서 수집한 라이선스 요금에 대 한 한정 된 제품에만 제공 됩니다.  이 시간 후에 Marketplace 서비스 요금은 일반적인 금액으로 반환 됩니다. 
 
-|**Microsoft에 청구되는 요금**|**$100/월**|
-|:---|:---|
-|Microsoft는 라이선스 비용의 80%를 지불합니다. <br>**Microsoft는 정규화 된 SaaS 앱에 대해 90%의 라이선스 비용을 지불 합니다.*|매월 $80.00 <br>*$* 월 90.00 *|
+
 
 
 #### <a name="csp-program-opt-in"></a>CSP 프로그램 옵트인
@@ -153,9 +157,23 @@ CRM (고객 관계 관리) 시스템을 연결 하 여 고객 연락처 정보�
 
 ## <a name="connect-lead-management"></a>리드 관리 연결
 
-[!INCLUDE [Test drive content](./includes/connect-lead-management.md)]
+마켓플레이스에 제품을 나열 하 고 CRM (고객 관계 관리) 시스템을 연결 하 여 고객에 게 직접 연결 하 여 고객에 게 관심이 나 배포한 후 즉시 고객 연락처 정보를 받을 수 있도록 합니다. 제품은.
 
-자세한 내용은 [리드 관리 개요](./commercial-marketplace-get-customer-leads.md) 를 참조 하세요.
+- **리드 대상 선택** (드롭다운 메뉴): 고객 리드를 보내려는 CRM 시스템에 대 한 연결 세부 정보를 제공 합니다. 
+
+파트너 센터는 리드 관리를 위해 다음과 같은 CRM 시스템을 지원 합니다. 설치 지침에 대 한 링크를 선택 합니다.
+
+- Azure Blob – 연락처 전자 메일, 컨테이너 이름 및 저장소 계정 연결 문자열을 제공 합니다. 
+- [Azure 테이블](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) – 연락처 전자 메일 및 저장소 계정 연결 문자열을 제공 합니다. 
+- [DYNAMICS CRM Online](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) – 연락처 전자 메일, URL 및 인증 모드 (Office 365 또는 Azure Active Directory)를 제공 합니다.
+- [Https 끝점](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https) – 연락처 전자 메일 및 HTTPS 끝점 URL을 제공 합니다. 
+- [Marketo](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo) – 연락처 전자 메일, 양식 Id, MUNCHKIN 계정 id 및 서버 id를 제공 합니다.
+- [Salesforce](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce) -연락처 전자 메일 및 조직 ID를 제공 합니다. 
+
+#### <a name="additional-lead-management-resources"></a>추가 리드 관리 리소스
+- [리드 관리 Faq](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
+- [일반적인 리드 구성 오류](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
+- [리드 관리 개요 1 호출기](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf)
 
 다음 섹션으로 이동 하기 전에 **저장** 해야 합니다.
 

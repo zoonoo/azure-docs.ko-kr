@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f89e7307d75b159886cb47bde3e1fceb5ed557f5
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
-ms.translationtype: HT
+ms.openlocfilehash: bd587bfed7fcfea8e8cd99ca155ee9d86222ae3d
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699330"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013529"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure 파일 동기화 배포에 대한 계획
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -254,12 +254,15 @@ Azure 파일 동기화는 다음 지역에서만 사용할 수 있습니다.
 | East US | Virginia |
 | 미국 동부2 | Virginia |
 | 프랑스 중부 | 파리 |
-| 한국 중부| 서울 |
-| 한국 남부| 부산 |
+| 프랑스 남부 * | 마르세유 |
+| 한국 중부 | 서울 |
+| 한국 남부 | 부산 |
 | 일본 동부 | 도쿄, 사이타마 |
 | 일본 서부 | 오사카 |
 | 미국 중북부 | Illinois |
 | 유럽 북부 | 아일랜드 |
+| 남아프리카 북부 | 요하네스버그 |
+| 남아프리카 공화국 * | 케이프타운 |
 | 미국 중남부 | Texas |
 | 인도 남부 | 첸나이 |
 | 동남아시아 | 싱가포르 |
@@ -274,6 +277,8 @@ Azure 파일 동기화는 다음 지역에서만 사용할 수 있습니다.
 | 미국 서부 2 | Washington |
 
 Azure 파일 동기화에서는 Storage 동기화 서비스와 동일한 지역에 있는 Azure 파일 공유와의 동기화만 지원합니다.
+
+별표로 표시 된 영역의 경우 해당 지역에서 Azure Storage에 대 한 액세스를 요청 하려면 Azure 지원에 문의 해야 합니다. 이 프로세스는 [이 문서](https://azure.microsoft.com/global-infrastructure/geographies/)에 설명 되어 있습니다.
 
 ### <a name="azure-disaster-recovery"></a>Azure 재해 복구
 Azure 지역의 손실에 대해 보호하려면 Azure 파일 동기화가 [GRS(지역 중복 스토리지) 중복](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) 옵션과 통합해야 합니다. GRS 스토리지는 일반적으로 상호 작용하는 주 지역의 스토리지 및 쌍을 이루는 보조 지역의 스토리지 간에 비동기 블록 복제를 사용하여 작동합니다. Azure 지역이 일시적 또는 영구적으로 오프라인으로 전환하게 하는 재해 발생 시 Microsoft는 쌍을 이루는 하위 지역에 스토리지를 장애 조치(Failover)합니다. 
@@ -296,12 +301,15 @@ Azure 지역의 손실에 대해 보호하려면 Azure 파일 동기화가 [GRS(
 | East US             | 미국 서부            |
 | 미국 동부 2           | 미국 중부         |
 | 프랑스 중부      | 프랑스 남부       |
+| 프랑스 남부        | 프랑스 중부     |
 | 일본 동부          | 일본 서부         |
 | 일본 서부          | 일본 동부         |
 | 한국 중부       | 한국 남부        |
 | 한국 남부         | 한국 중부      |
 | 유럽 북부        | 유럽 서부        |
 | 미국 중북부    | 미국 중남부   |
+| 남아프리카 북부  | 남아프리카 서부  |
+| 남아프리카 서부   | 남아프리카 북부 |
 | 미국 중남부    | 미국 중북부   |
 | 인도 남부         | 인도 중부      |
 | 동남아시아      | 아시아 동부          |

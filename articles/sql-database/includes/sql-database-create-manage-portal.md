@@ -3,18 +3,18 @@ author: stevestein
 ms.service: sql-database
 ms.subservice: operations
 ms.topic: include
-ms.date: 08/09/2019
+ms.date: 08/23/2019
 ms.author: sstein
-ms.openlocfilehash: f7b385f359311217595352be31ba0687ca87bf40
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 9e189d0582d2e81193c892cb349b475ed0d68df8
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69873681"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70014793"
 ---
 ## <a name="create-and-manage-azure-sql-resources-with-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure SQL 리소스 만들기 및 관리
 
-Azure Portal는 SQL 가상 머신을 비롯 한 [모든 AZURE sql 리소스](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Sql%2Fazuresql) 를 관리할 수 있는 단일 페이지를 제공 합니다.
+Azure Portal는 SQL 가상 머신을 비롯 한 [모든 AZURE sql 리소스](https://go.microsoft.com/fwlink/?linkid=2100641) 를 관리할 수 있는 단일 페이지를 제공 합니다.
 
 **AZURE sql 리소스** 페이지에 액세스 하려면 Azure Portal의 왼쪽 메뉴에서 **azure sql** 을 선택 합니다. **AZURE sql** 이 목록에 없는 경우 **모든 서비스**를 선택한 다음 검색 상자에 *azure sql* 을 입력 합니다.
 

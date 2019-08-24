@@ -10,12 +10,12 @@ ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 07/24/2019
-ms.openlocfilehash: 9cf39230d6a2c615925222b6545a091a4be941ac
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 08ceb5d795465a5759d0130618eafdccdc8c3c91
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847977"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70011514"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>GPU를 사용 하 여 유추를 위한 심층 학습 모델 배포
 
@@ -23,13 +23,16 @@ ms.locfileid: "68847977"
 
 유추 또는 모델 점수 매기기는 배포 된 모델을 사용 하 여 예측을 수행 하는 단계입니다. Cpu 대신 Gpu를 사용 하면 매우 병렬화 계산에서 성능상의 이점이 있습니다.
 
+> [!IMPORTANT]
+> GPU 유추는 Azure Kubernetes Service 에서만 지원 됩니다.
+
 > [!TIP]
 > 이 문서의 코드 조각에서는 TensorFlow 모델을 사용할 수 있지만, Gpu를 지 원하는 모든 기계 학습 프레임 워크에 정보를 적용할 수 있습니다.
 
 > [!NOTE]
 > 이 문서의 정보는 [Azure Kubernetes Service에 배포 하는 방법](how-to-deploy-azure-kubernetes-service.md) 문서에 있는 정보를 기반으로 합니다. 이 문서는 일반적으로 AKS에 대 한 배포를 다루는이 문서에서는 GPU 특정 배포에 대해 설명 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 * Azure Machine Learning 서비스 작업 영역. 자세한 내용은 [Azure Machine Learning 서비스 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
 

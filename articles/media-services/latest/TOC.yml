@@ -149,7 +149,7 @@
       items:
         - name: 개요
           href: media-services-apis-overview.md
-          displayName: 'accessing, naming, long-running'
+          displayName: 'accessing, naming, long-running, invalid character'
         - name: '엔터티 필터링, 순서 지정 및 페이징'
           href: entities-overview.md
         - name: RBAC

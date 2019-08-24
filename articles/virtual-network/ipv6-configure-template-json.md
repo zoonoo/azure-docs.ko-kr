@@ -12,16 +12,18 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 06/26/2019
 ms.author: kumud
-ms.openlocfilehash: e97a5a478871d94e074b59558a11df1ec752b0f9
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: b397c874045a89f5992aeadacfbbd4434a486977
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249855"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70012829"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-with-basic-load-balancer-in-azure---template-preview"></a>Azure에서 기본 Load Balancer를 사용 하 여 IPv6 이중 스택 응용 프로그램 배포-템플릿 (미리 보기)
 
-이 문서에서는에 적용 되는 Azure Resource Manager VM 템플릿의 일부가 포함 된 IPv6 구성 작업 목록을 제공 합니다. 이 문서에서 설명 하는 템플릿을 사용 하 여 Azure에서 IPv4 및 IPv6 서브넷을 포함 하는 이중 스택 가상 네트워크, 이중 (IPv4 + IPv6) 프런트 엔드 구성이 포함 된 부하 분산 장치, 이중 IP가 있는 Nic가 있는 Vm을 포함 하는 이중 스택 (IPv4 + IPv6) 응용 프로그램을 배포 합니다. 구성, 네트워크 보안 그룹 및 공용 Ip를 구성 합니다. 
+이 문서에서는에 적용 되는 Azure Resource Manager VM 템플릿의 일부가 포함 된 IPv6 구성 작업 목록을 제공 합니다. 이 문서에서 설명 하는 템플릿을 사용 하 여 이중 스택 (ipv4 + IPv6) 응용 프로그램을 배포 하는 기본 Load Balancer IPv4 및 IPv6 서브넷을 포함 하는 기본 Load Balancer, 이중 (IPv4 + IPv6) 프런트 엔드 구성의 기본, Vm 이중 IP 구성, 네트워크 보안 그룹 및 공용 Ip가 있는 Nic
+
+표준 Load Balancer를 사용 하 여 이중 스택 (IPV4 + IPv6) 응용 프로그램을 배포 하려면 표준 Load Balancer를 사용 하 [여 ipv6 이중 스택 응용 프로그램 배포](ipv6-configure-standard-load-balancer-template-json.md)를 참조 하세요.
 
 ## <a name="required-configurations"></a>필수 구성
 
@@ -107,7 +109,7 @@ ms.locfileid: "68249855"
             }
 ```
 
-## <a name="optional-configuration"></a>선택적 구성
+## <a name="optional-configuration"></a>옵션 구성
 
 ### <a name="ipv6-internet-access-for-the-virtual-network"></a>가상 네트워크에 대 한 IPv6 인터넷 액세스
 
@@ -176,7 +178,7 @@ ms.locfileid: "68249855"
 ```
 
 ## <a name="sample-vm-template-json"></a>샘플 VM 템플릿 JSON
-Azure Resource Manager 템플릿을 사용 하 여 Azure 가상 네트워크에서 IPv6 이중 스택 응용 프로그램을 배포 하려면 [여기](https://azure.microsoft.com/resources/templates/ipv6-in-vnet/)에서 샘플 템플릿을 참조 하세요.
+Azure Resource Manager 템플릿을 사용 하 여 Azure virtual network에서 기본 Load Balancer를 사용 하 여 IPv6 이중 스택 응용 프로그램을 배포 하려면 [여기](https://azure.microsoft.com/resources/templates/ipv6-in-vnet/)에서 샘플 템플릿을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: spelluru
-ms.openlocfilehash: 9ea22dfc83883238923de06a764d7ef1f11cb475
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
-ms.translationtype: HT
+ms.openlocfilehash: 818bebdb7555d1b515a5c4a3439d11d4a4766e56
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992992"
+ms.locfileid: "70011982"
 ---
 # <a name="authenticate-an-application-with-azure-active-directory-to-access-event-hubs-resources"></a>Azure Active Directory를 사용 하 여 응용 프로그램을 인증 Event Hubs 리소스에 액세스
 Microsoft Azure는 Azure AD(Active Directory)를 기반으로 하는 리소스 및 애플리케이션에 대해 통합된 액세스 제어 관리 기능을 제공합니다. Azure Event Hubs에서 Azure AD를 사용 하는 경우의 주요 이점은 더 이상 코드에 자격 증명을 저장할 필요가 없다는 것입니다. 대신 Microsoft Id 플랫폼에서 OAuth 2.0 액세스 토큰을 요청할 수 있습니다. Azure AD는 응용 프로그램을 실행 하는 보안 주체 (사용자, 그룹 또는 서비스 사용자)를 인증 합니다. 인증에 성공 하면 Azure AD는 응용 프로그램에 액세스 토큰을 반환 하 고 응용 프로그램은 액세스 토큰을 사용 하 여 Azure Event Hubs 리소스에 대 한 요청에 권한을 부여할 수 있습니다.
@@ -26,9 +26,9 @@ Azure AD 보안 주체에 역할을 할당 하는 경우 Azure는 해당 보안 
 ## <a name="built-in-roles-for-azure-event-hubs"></a>Azure Event Hubs에 대 한 기본 제공 역할
 Azure는 Azure AD 및 OAuth를 사용 하 여 Event Hubs 데이터에 대 한 액세스 권한을 부여 하는 다음과 같은 기본 제공 RBAC 역할을 제공 합니다.
 
-- [Azure Event Hubs 데이터 소유자](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner-preview): 이 역할을 사용 하 여 Event Hubs 리소스에 대 한 완전 한 액세스 권한을 부여할 수 있습니다.
-- [Azure Event Hubs 데이터 발신자](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender-preview): 이 역할을 사용 하 여 Event Hubs 리소스에 대 한 송신 액세스를 제공 합니다.
-- [Azure Event Hubs 데이터 수신기](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver-preview): 이 역할을 사용 하 여 Event Hubs 리소스에 대 한 액세스 권한을 부여할 수 있습니다.   
+- [Azure Event Hubs 데이터 소유자](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner): 이 역할을 사용 하 여 Event Hubs 리소스에 대 한 완전 한 액세스 권한을 부여할 수 있습니다.
+- [Azure Event Hubs 데이터 발신자](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender): 이 역할을 사용 하 여 Event Hubs 리소스에 대 한 송신 액세스를 제공 합니다.
+- [Azure Event Hubs 데이터 수신기](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver): 이 역할을 사용 하 여 Event Hubs 리소스에 대 한 액세스 권한을 부여할 수 있습니다.   
 
 > [!IMPORTANT]
 > Preview 릴리스는 소유자 또는 참가자 역할에 Event Hubs 데이터 액세스 권한을 추가 하는 것을 지원 합니다. 그러나 소유자 및 참여자 역할에 대 한 데이터 액세스 권한은 더 이상 허용 되지 않습니다. 소유자 또는 참가자 역할을 사용 하는 경우 Azure Event Hubs 데이터 소유자 역할을 사용 하도록 전환 합니다.

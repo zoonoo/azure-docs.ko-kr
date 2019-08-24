@@ -1,5 +1,5 @@
 ---
-title: Service Fabric Azure Files 볼륨 드라이버(미리 보기) | Microsoft Docs
+title: GA (Service Fabric Azure Files 볼륨 드라이버) | Microsoft Docs
 description: Service Fabric은 컨테이너에서 볼륨을 백업하도록 Azure Files 사용을 지원합니다. 현재 미리 보기로 제공되고 있습니다.
 services: service-fabric
 author: athinanthny
@@ -9,21 +9,23 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 6/10/2018
 ms.author: atsenthi
-ms.openlocfilehash: eb45dda9886450d217355d876ae35af954d99845
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 70784e2c8c91d39c34ba503cc3ebfcf3469939d9
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68955587"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013489"
 ---
 # <a name="service-fabric-azure-files-volume-driver"></a>Service Fabric Azure Files 볼륨 드라이버
-Azure Files 볼륨 플러그 인은 Docker 컨테이너에 대한 [Azure Files](/azure/storage/files/storage-files-introduction) 기반 볼륨을 제공하는 [Docker 볼륨 플러그 인](https://docs.docker.com/engine/extend/plugins_volume/)입니다. 이 Docker 볼륨 플러그 인은 Service Fabric 클러스터에 배포할 수 있는 Service Fabric 애플리케이션으로 패키지됩니다. 이는 클러스터에 배포 되는 다른 Service Fabric 컨테이너 응용 프로그램에 대해 Azure Files 기반 볼륨을 제공 하는 것입니다.
+Docker 컨테이너에 대 한 [Azure Files](/azure/storage/files/storage-files-introduction) 기반 볼륨을 제공 하는 [docker 볼륨 플러그](https://docs.docker.com/engine/extend/plugins_volume/) 인 Azure Files 볼륨 플러그 인은 이제 **GA (일반적으로 사용 가능)** 입니다.
+
+이 Docker 볼륨 플러그 인은 Service Fabric 클러스터에 배포할 수 있는 Service Fabric 애플리케이션으로 패키지됩니다. 이는 클러스터에 배포 되는 다른 Service Fabric 컨테이너 응용 프로그램에 대해 Azure Files 기반 볼륨을 제공 하는 것입니다.
 
 > [!NOTE]
-> Azure Files 볼륨 플러그 인의 버전 6.5.516.9494은이 문서에서 사용할 수 있는 미리 보기 릴리스입니다. 미리 보기 릴리스로 프로덕션 환경에서 사용할 수 있도록 지원하지 **않습니다**.
+> Azure Files 볼륨 플러그 인의 버전 6.5.661.9590 GA (일반 공급) 릴리스입니다. 
 >
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 * Windows 버전의 Azure Files 볼륨 플러그 인은 [Windows Server 버전 1709](/windows-server/get-started/whats-new-in-windows-server-1709), [Windows 10 버전 1709](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1709) 이상 운영 체제에서만 작동합니다.
 
 * Linux 버전의 Azure Files 볼륨 플러그 인은 Service Fabric에서 지원하는 모든 운영 체제 버전에서 작동합니다.
@@ -119,11 +121,11 @@ Linux에 대 한 Azure Resource Manager 배포 명령:
 4. **ListenPort** 응용 프로그램 매개 변수 값에 주의를 기울이고 응용 프로그램을 만듭니다. 이 값은 Azure Files 볼륨 플러그 인이 Docker 디먼의 요청을 수신 대기 하는 포트입니다. 응용 프로그램에 제공 된 포트가 ClusterManifest의 VolumePluginPorts와 일치 하 고 클러스터 또는 응용 프로그램에서 사용 하는 다른 포트와 충돌 하지 않는지 확인 합니다.
 
     ```powershell
-    New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.5.516.9494  -ApplicationParameter @{ListenPort='19100'}
+    New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.5.661.9590   -ApplicationParameter @{ListenPort='19100'}
     ```
 
     ```bash
-    sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.5.516.9494 --parameter '{"ListenPort":"19100"}'
+    sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.5.661.9590  --parameter '{"ListenPort":"19100"}'
     ```
 
 > [!NOTE]
@@ -136,11 +138,11 @@ Linux에 대 한 Azure Resource Manager 배포 명령:
  Azure Files 볼륨 플러그 인 애플리케이션에 대한 기본 서비스 인스턴스 수는 -1로, 클러스터의 각 노드에 배포된 서비스의 인스턴스가 있다는 것을 의미합니다. 그러나 로컬 개발 클러스터에서 Azure Files 볼륨 플러그 인 애플리케이션을 배포할 때 서비스 인스턴스 수는 1로 지정되어야 합니다. **InstanceCount** 애플리케이션 매개 변수를 통해 이를 수행할 수 있습니다. 따라서 로컬 개발 클러스터에서 Azure Files 볼륨 플러그 인 응용 프로그램을 만드는 명령은 다음과 같습니다.
 
 ```powershell
-New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.5.516.9494 -ApplicationParameter @{ListenPort='19100';InstanceCount='1'}
+New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.5.661.9590  -ApplicationParameter @{ListenPort='19100';InstanceCount='1'}
 ```
 
 ```bash
-sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.5.516.9494 --parameter '{"ListenPort": "19100","InstanceCount": "1"}'
+sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.5.661.9590  --parameter '{"ListenPort": "19100","InstanceCount": "1"}'
 ```
 
 ## <a name="configure-your-applications-to-use-the-volume"></a>볼륨을 사용할 애플리케이션 구성

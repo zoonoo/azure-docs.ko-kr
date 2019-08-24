@@ -15,12 +15,12 @@ ms.date: 08/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 09551eb2620349fa2445c1da3a7e0d66062ebaf0
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 776b8303e3454b40979691ea32fdcca11be4fa71
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899730"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013382"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Azure 리소스에 대한 기본 제공 역할
 
@@ -54,15 +54,15 @@ ms.locfileid: "69899730"
 | [Automation Runbook 연산자](#automation-runbook-operator) | Runbook 작업을 만들려면 Runbook 속성을 읽어보세요. |
 | [Avere 기여자](#avere-contributor) | Avere vFXT 클러스터를 만들고 관리할 수 있습니다. |
 | [Avere 연산자](#avere-operator) | Avere vFXT 클러스터에서 클러스터를 관리 하는 데 사용 됩니다. |
-| [Azure Event Hubs 데이터 소유자 (미리 보기)](#azure-event-hubs-data-owner-preview) | Azure Event Hubs 리소스에 대 한 모든 액세스를 허용 합니다. |
-| [Azure Event Hubs 데이터 수신기 (미리 보기)](#azure-event-hubs-data-receiver-preview) | Azure Event Hubs 리소스에 대 한 수신 액세스를 허용 합니다. |
-| [Azure Event Hubs 데이터 발신자 (미리 보기)](#azure-event-hubs-data-sender-preview) | Azure Event Hubs 리소스에 대 한 액세스를 보낼 수 있습니다. |
+| [Azure Event Hubs 데이터 소유자](#azure-event-hubs-data-owner) | Azure Event Hubs 리소스에 대 한 모든 액세스를 허용 합니다. |
+| [Azure Event Hubs 데이터 수신기](#azure-event-hubs-data-receiver) | Azure Event Hubs 리소스에 대 한 수신 액세스를 허용 합니다. |
+| [Azure Event Hubs 데이터 발신자](#azure-event-hubs-data-sender) | Azure Event Hubs 리소스에 대 한 액세스를 보낼 수 있습니다. |
 | [Azure Kubernetes Service 클러스터 관리자 역할](#azure-kubernetes-service-cluster-admin-role) | 클러스터 관리자 자격 증명 작업을 나열합니다. |
 | [Azure Kubernetes Service 클러스터 사용자 역할](#azure-kubernetes-service-cluster-user-role) | 클러스터 사용자 자격 증명 작업을 나열합니다. |
 | [데이터 판독기 Azure Maps (미리 보기)](#azure-maps-data-reader-preview) | Azure maps 계정에서 맵 관련 데이터를 읽을 수 있는 액세스 권한을 부여 합니다. |
-| [Azure Service Bus 데이터 소유자 (미리 보기)](#azure-service-bus-data-owner-preview) | Azure Service Bus 리소스에 대 한 모든 액세스를 허용 합니다. |
-| [Azure Service Bus 데이터 수신기 (미리 보기)](#azure-service-bus-data-receiver-preview) | Azure Service Bus 리소스에 대 한 수신 액세스를 허용 합니다. |
-| [Azure Service Bus 데이터 발신자 (미리 보기)](#azure-service-bus-data-sender-preview) | Azure Service Bus 리소스에 대 한 액세스를 보낼 수 있습니다. |
+| [Azure Service Bus 데이터 소유자](#azure-service-bus-data-owner) | Azure Service Bus 리소스에 대 한 모든 액세스를 허용 합니다. |
+| [Azure Service Bus 데이터 수신기](#azure-service-bus-data-receiver) | Azure Service Bus 리소스에 대 한 수신 액세스를 허용 합니다. |
+| [Azure Service Bus 데이터 발신자](#azure-service-bus-data-sender) | Azure Service Bus 리소스에 대 한 액세스를 보낼 수 있습니다. |
 | [Azure Stack 등록 소유자](#azure-stack-registration-owner) | Azure Stack 등록을 관리할 수 있습니다. |
 | [Backup 기여자](#backup-contributor) | 백업 서비스를 관리할 수 있지만 자격 증명 모음을 만들고 다른 사용자에 게 액세스 권한을 부여할 수 없습니다. |
 | [Backup 운영자](#backup-operator) | 백업 제거를 제외한 백업 서비스를 관리하고 자격 증명 모음 만들고 다른 사람에게 액세스 권한을 부여할 수 있습니다. |
@@ -556,7 +556,7 @@ ms.locfileid: "69899730"
 > | **NotDataActions** |  |
 > | *none* |  |
 
-## <a name="azure-event-hubs-data-owner-preview"></a>Azure Event Hubs 데이터 소유자 (미리 보기)
+## <a name="azure-event-hubs-data-owner"></a>Azure Event Hubs 데이터 소유자
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -571,7 +571,7 @@ ms.locfileid: "69899730"
 > | **NotDataActions** |  |
 > | *none* |  |
 
-## <a name="azure-event-hubs-data-receiver-preview"></a>Azure Event Hubs 데이터 수신기 (미리 보기)
+## <a name="azure-event-hubs-data-receiver"></a>Azure Event Hubs 데이터 수신기
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -586,7 +586,7 @@ ms.locfileid: "69899730"
 > | **NotDataActions** |  |
 > | *none* |  |
 
-## <a name="azure-event-hubs-data-sender-preview"></a>Azure Event Hubs 데이터 발신자 (미리 보기)
+## <a name="azure-event-hubs-data-sender"></a>Azure Event Hubs 데이터 발신자
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -646,7 +646,7 @@ ms.locfileid: "69899730"
 > | **NotDataActions** |  |
 > | *none* |  |
 
-## <a name="azure-service-bus-data-owner-preview"></a>Azure Service Bus 데이터 소유자 (미리 보기)
+## <a name="azure-service-bus-data-owner"></a>Azure Service Bus 데이터 소유자
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -661,7 +661,7 @@ ms.locfileid: "69899730"
 > | **NotDataActions** |  |
 > | *none* |  |
 
-## <a name="azure-service-bus-data-receiver-preview"></a>Azure Service Bus 데이터 수신기 (미리 보기)
+## <a name="azure-service-bus-data-receiver"></a>Azure Service Bus 데이터 수신기
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -678,7 +678,7 @@ ms.locfileid: "69899730"
 > | **NotDataActions** |  |
 > | *none* |  |
 
-## <a name="azure-service-bus-data-sender-preview"></a>Azure Service Bus 데이터 발신자 (미리 보기)
+## <a name="azure-service-bus-data-sender"></a>Azure Service Bus 데이터 발신자
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |

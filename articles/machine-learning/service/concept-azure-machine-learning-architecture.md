@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8987c14fab141a71ba2dd9f1ed228a56ce419bce
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
-ms.translationtype: HT
+ms.openlocfilehash: b7cb4f1a106d8caa2c43f5f17c5efa16a3ee6df2
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982832"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70011634"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning 서비스 작동 방법: 아키텍처 및 개념
 
@@ -151,7 +151,7 @@ PyTorch, TensorFlow 및 체 이너 Azure Machine Learning 작업의 경우 이�
 
 ### <a name="runs"></a>실행
 
-실행은 다음 정보를 포함하는 레코드입니다.
+실행은 학습 스크립트를 한 번 실행 하는 것입니다. Azure Machine Learning 모든 실행을 기록 하 고 다음 정보를 저장 합니다.
 
 * 실행에 대한 메타데이터(타임스탬프, 기간 등)
 * 스크립트를 통해 기록된 메트릭

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 0ebf18fe2dc6906bc2c06d94388d126fb55c6024
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
-ms.translationtype: HT
+ms.openlocfilehash: bf2b83725f8ce8e712974c182c9a11e8ed0d04f0
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981410"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013230"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Azure 큐 및 Service Bus 큐 - 비교 및 대조
 이 문서에서는 현재 Microsoft Azure에서 제공하는 두 가지 유형의 큐인 Storage 큐와 Service Bus 큐 사이의 차이점과 유사점을 분석합니다. 이 정보를 사용하여 각각의 기술을 비교 및 대조하고 요구에 가장 적합한 솔루션이 어떤 것인지 더 합리적으로 결정할 수 있습니다.
@@ -52,7 +52,9 @@ Storage 큐와 Service Bus 큐는 모두 현재 Microsoft Azure에서 제공하�
 * 애플리케이션이 메시지를 병렬 장기 실행 스트림(메시지의 [SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid) 속성을 사용하여 메시지가 스트림과 연결됨)으로 처리하는 것이 좋습니다. 이 모델에서는 소비 애플리케이션의 각 노드가 메시지가 아니라 스트림에 대해 경쟁합니다. 소비 노드에 스트림이 전달되면 해당 노드는 트랜잭션을 사용하여 애플리케이션 스트림 상태를 검사할 수 있습니다.
 * 큐에서 여러 메시지를 송신 또는 수신할 경우 솔루션에 트랜잭션 동작 및 원자성이 필요합니다.
 * 애플리케이션은 64KB를 초과하지만 256KB의 한도에 접근할 가능성은 없는 메시지를 처리합니다.
-* 큐에 대한 역할 기반 액세스 모델, 보낸 사람과 받는 사람에 대해 서로 다른 권한을 제공해야 하는 조건을 처리해야 합니다. 자세한 내용은 [역할 기반 Access Control Active Directory (미리 보기)](service-bus-role-based-access-control.md) 를 참조 하세요.
+* 큐에 대한 역할 기반 액세스 모델, 보낸 사람과 받는 사람에 대해 서로 다른 권한을 제공해야 하는 조건을 처리해야 합니다. 자세한 내용은 다음 문서를 참조하세요.
+    - [관리 id를 사용 하 여 인증](service-bus-managed-service-identity.md)
+    - [응용 프로그램에서 인증](authenticate-application.md)
 * 큐 크기는 80GB보다 크게 증가하지 않습니다.
 * AMQP 1.0 표준 기반 메시징 프로토콜을 사용하는 것이 좋습니다. AMQP에 대한 자세한 내용은 [Service Bus AMQP 개요](service-bus-amqp-overview.md)를 참조하세요.
 * 궁극적으로는 큐 기반의 지점 간 통신에서 큐에 전송된 일부 또는 전체 메시지의 개별 복사본을 수신하는 추가 수신자(구독자)의 원활한 통합을 지원하는 메시지 교환 패턴으로 마이그레이션하는 것도 기대할 수 있습니다. 후자는 Service Bus에서 기본적으로 제공하는 게시/구독 기능입니다.

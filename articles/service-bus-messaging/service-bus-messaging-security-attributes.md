@@ -4,17 +4,16 @@ description: Azure Service Bus 메시지를 평가 하기 위한 보안 특성�
 services: service-bus-messaging
 ms.service: service-bus-messaging
 documentationcenter: ''
-author: msmbaldwin
-manager: barbkess
+author: axisc
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: mbaldwin
-ms.openlocfilehash: 0e1d6e041b47a261b549fb8b608cf09d0d6362dd
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.author: aschhab
+ms.openlocfilehash: 875754282f9e7a2b8dd92b0eb2d7e277ac842696
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68443892"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013103"
 ---
 # <a name="security-attributes-for-azure-service-bus-messaging"></a>Azure Service Bus 메시징의 보안 특성
 
@@ -52,7 +51,7 @@ ms.locfileid: "68443892"
 | 보안 특성 | 예/아니요 | 참고|
 |---|---|--|
 | 인증| 예 | [Azure Active Directory 관리 서비스 ID](service-bus-managed-service-identity.md)를 통해 관리 [Service Bus 인증 및 권한 부여를](service-bus-authentication-and-authorization.md)참조 하세요.|
-| Authorization| 예 | [RBAC](service-bus-role-based-access-control.md) (미리 보기) 및 SAS 토큰을 통해 권한 부여를 지원 합니다. [Service Bus 인증 및 권한 부여를](service-bus-authentication-and-authorization.md)참조 하세요. |
+| Authorization| 예 | [RBAC](authenticate-application.md) 및 SAS 토큰을 통해 권한 부여를 지원 합니다. [Service Bus 인증 및 권한 부여를](service-bus-authentication-and-authorization.md)참조 하세요. |
 
 
 

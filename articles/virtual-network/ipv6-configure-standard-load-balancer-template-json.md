@@ -1,5 +1,5 @@
 ---
-title: Azure virtual network에서 표준 부하 분산 장치를 사용 하 여 IPv6 이중 스택 응용 프로그램 배포-리소스 관리자 템플릿 (미리 보기)
+title: Azure virtual network에서 IPv6 이중 스택 응용 프로그램 배포-리소스 관리자 템플릿 (미리 보기)
 titlesuffix: Azure Virtual Network
 description: 이 문서에서는 Azure Resource Manager VM 템플릿을 사용 하 여 Azure virtual network에 표준 Load Balancer를 사용 하 여 IPv6 이중 스택 응용 프로그램을 배포 하는 방법을 보여 줍니다.
 services: virtual-network
@@ -12,16 +12,16 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: fa39285eea14856db1bceba9e90f92b19afabfd0
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 8f2c6bc7fb7ab0939da20932fd531c158549ce7a
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68295423"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70012843"
 ---
-# <a name="deploy-an-ipv6-dual-stack-application-with-standard-load-balancer-in-azure---template-preview"></a>Azure에서 표준 Load Balancer를 사용 하 여 IPv6 이중 스택 응용 프로그램 배포-템플릿 (미리 보기)
+# <a name="deploy-an-ipv6-dual-stack-application-in-azure-virtual-network---template-preview"></a>Azure virtual network에서 IPv6 이중 스택 응용 프로그램 배포-템플릿 (미리 보기)
 
-이 문서에서는에 적용 되는 Azure Resource Manager VM 템플릿의 일부가 포함 된 IPv6 구성 작업 목록을 제공 합니다. 이 문서에서 설명 하는 템플릿을 사용 하 여 Azure에서 IPv4 및 IPv6 서브넷을 포함 하는 이중 스택 가상 네트워크, 이중 (IPv4 + IPv6) 프런트 엔드 구성이 포함 된 부하 분산 장치, 이중 IP가 있는 Nic가 있는 Vm을 포함 하는 이중 스택 (IPv4 + IPv6) 응용 프로그램을 배포 합니다. 구성, 네트워크 보안 그룹 및 공용 Ip를 구성 합니다. 
+이 문서에서는에 적용 되는 Azure Resource Manager VM 템플릿의 일부가 포함 된 IPv6 구성 작업 목록을 제공 합니다. 이 문서에서 설명 하는 템플릿을 사용 하 여 Azure에서 표준 Load Balancer 사용 하는 이중 스택 (ipv4 + IPv6) 응용 프로그램을 배포 합니다. 여기에는 IPv4 및 IPv6 서브넷이 포함 된 이중 스택 가상 네트워크, 이중 (IPv4 + IPv6) 프런트 엔드가 포함 된 표준 Load Balancer 구성, Nic를 사용 하는 Vm에는 이중 IP 구성, 네트워크 보안 그룹 및 공용 Ip가 있습니다. 
 
 ## <a name="required-configurations"></a>필수 구성
 
@@ -107,7 +107,7 @@ ms.locfileid: "68295423"
             }
 ```
 
-## <a name="optional-configuration"></a>선택적 구성
+## <a name="optional-configuration"></a>옵션 구성
 
 ### <a name="ipv6-internet-access-for-the-virtual-network"></a>가상 네트워크에 대 한 IPv6 인터넷 액세스
 

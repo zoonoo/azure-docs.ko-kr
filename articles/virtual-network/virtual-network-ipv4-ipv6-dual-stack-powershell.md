@@ -1,5 +1,5 @@
 ---
-title: Azure virtual network에서 IPv6 이중 스택 응용 프로그램 배포-PowerShell
+title: Azure에서 기본 Load Balancer를 사용 하 여 IPv6 이중 스택 응용 프로그램 배포-PowerShell
 titlesuffix: Azure Virtual Network
 description: 이 문서에서는 azure Powershell을 사용 하 여 Azure 가상 네트워크에서 IPv6 이중 스택 응용 프로그램을 배포 하는 방법을 보여 줍니다.
 services: virtual-network
@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/08/2019
 ms.author: kumud
-ms.openlocfilehash: b9a6b0ee6796acc2b9adc88480f6933af413e4e6
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 0ce051892cde9cb50b43a6d4f66ed3d461e71285
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68260858"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70011441"
 ---
-# <a name="deploy-an-ipv6-dual-stack-application-in-azure---powershell-preview"></a>Azure에서 IPv6 이중 스택 응용 프로그램 배포-PowerShell (미리 보기)
+# <a name="deploy-an-ipv6-dual-stack-application-using-basic-load-balancer---powershell-preview"></a>기본 Load Balancer를 사용 하 여 IPv6 이중 스택 응용 프로그램 배포-PowerShell (미리 보기)
 
-이 문서에서는 이중 스택 가상 네트워크 및 서브넷, 이중 (IPv4 + IPv6) 프런트 엔드 구성이 포함 된 부하 분산 장치, 이중 IP 구성이 있는 Nic를 사용 하는 Vm, 네트워크를 포함 하는 이중 스택 (IPv4 + IPv6) 응용 프로그램을 Azure에 배포 하는 방법을 보여 줍니다. 보안 그룹 및 공용 Ip.
+이 문서에서는 이중 스택 가상 네트워크 및 서브넷을 포함 하는 Azure CLI를 사용 하 여 이중 스택 (IPv4 + IPv6) 응용 Load Balancer 프로그램을 배포 하는 방법, 이중 (IPv4 + IPv6) 프런트 엔드 구성이 포함 된 기본 Load Balancer,이 있는 Nic가 있는 Vm 이중 IP 구성, 네트워크 보안 그룹 및 공용 Ip
+
+표준 Load Balancer를 사용 하 여 이중 스택 (IPV4 + IPv6) 응용 프로그램을 배포 하려면 [Azure PowerShell를 사용 하 여 표준 Load Balancer를 사용 하 여 ipv6 이중 스택 응용 프로그램 배포](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md)를 참조 하세요.
 
 > [!Important]
 > Azure Virtual Network에 대 한 IPv6 지원은 현재 공개 미리 보기 상태입니다. 이 미리 보기는 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
@@ -31,7 +33,7 @@ ms.locfileid: "68260858"
 
 PowerShell을 로컬로 설치 하 고 사용 하도록 선택 하는 경우이 문서에는 Azure PowerShell 모듈 버전 6.9.0 이상이 필요 합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 Azure에서 이중 스택 응용 프로그램을 배포 하기 전에 다음 Azure PowerShell를 사용 하 여이 미리 보기 기능에 대 한 구독을 구성 해야 합니다.
 
 다음과 같이 등록 합니다.

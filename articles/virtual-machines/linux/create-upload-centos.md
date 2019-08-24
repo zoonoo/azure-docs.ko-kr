@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: szark
-ms.openlocfilehash: 72ed518af579bb6b95d3b13400f2fbf6679cd036
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 6f7175e24f4eb85229847470bc37a6224ac6dd6e
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68248183"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013679"
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Azure용 CentOS 기반 가상 머신 준비
 
@@ -174,11 +174,14 @@ CentOS 기반 Linux 운영 체제가 포함된 Azure VHD(가상 하드 디스크
 
     또는 [LIS 다운로드 페이지](https://go.microsoft.com/fwlink/?linkid=403033)의 수동 설치 지침에 따르고 VM에 RPM을 설치할 수 있습니다.
 
-12. Azure Linux 에이전트 및 종속성을 설치합니다.
+12. Azure Linux 에이전트 및 종속성을 설치 합니다. Waagent 서비스를 시작 하 고 사용 하도록 설정 합니다.
 
     ```bash
     sudo yum install python-pyasn1 WALinuxAgent
+    sudo service waagent start
+    sudo chkconfig waagent on
     ```
+
 
     WALinuxAgent 패키지는 3단계에서 설명한 대로 NetworkManager 및 NetworkManager-gnome 패키지가 아직 제거되지 않은 경우 이러한 패키지를 제거합니다.
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: f8203cade1d2e34a9852e945df03dc2fddc1fbe5
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 4e1d83d99f6df9407e24e2ae57af70f68858092d
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359422"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70012747"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>라이브 메트릭 스트림: 1초 대기 시간으로 모니터링 및 진단
 
@@ -107,7 +107,12 @@ Application Insights 원격 분석 외에, 스트림 옵션 중에서 선택하�
 ![샘플링된 라이브 실패](./media/live-stream/live-stream-filter.png)
 
 ## <a name="sdk-requirements"></a>SDK 요구 사항
+
+### <a name="net"></a>.NET
 사용자 지정 라이브 메트릭 스트림은 버전 2.4.0-beta2 또는 최신 버전의 [웹용 Application Insights SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/)에서 사용할 수 있습니다. NuGet 패키지 관리자에서 "시험판 포함" 옵션을 선택해야 합니다.
+
+### <a name="nodejs"></a>Node.js
+라이브 메트릭 스트림는 [node.js 용 APPLICATION INSIGHTS SDK](https://npmjs.com/package/applicationinsights)의 버전 1.3.0 이상에서 사용할 수 있습니다. 코드에서 SDK `setSendLiveMetrics(true)` 를 구성 하는 동안를 사용 해야 합니다.
 
 ## <a name="secure-the-control-channel"></a>컨트롤 채널 보호
 지정한 사용자 지정 필터 조건이 Application Insights SDK의 라이브 메트릭 구성 요소에 다시 전송됩니다. 필터는 customerid와 같은 잠재적으로 중요한 정보를 포함할 수 있습니다. 계측 키 외에도 비밀 API 키를 사용해서 채널 보안을 유지할 수 있습니다.

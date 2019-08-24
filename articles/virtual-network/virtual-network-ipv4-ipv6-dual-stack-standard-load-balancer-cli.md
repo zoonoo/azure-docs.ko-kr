@@ -1,5 +1,5 @@
 ---
-title: Azure virtual network에서 표준 Load Balancer를 사용 하 여 IPv6 이중 스택 응용 프로그램 배포-CLI
+title: Azure virtual network에서 IPv6 이중 스택 응용 프로그램 배포-CLI
 titlesuffix: Azure Virtual Network
 description: 이 문서에서는 Azure CLI를 사용 하 여 Azure 가상 네트워크에서 IPv6 이중 스택 응용 프로그램을 배포 하는 방법을 보여 줍니다.
 services: virtual-network
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: 7b231ded3fdae7553e101beff2ee77d82fe27e6e
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: f67494b229a14b66b593950903184e54e4a8ab8c
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68269625"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013696"
 ---
-# <a name="deploy-an-ipv6-dual-stack-application-with-standard-load-balancer-in-azure-virtual-network---cli-preview"></a>Azure virtual network에서 표준 Load Balancer를 사용 하 여 IPv6 이중 스택 응용 프로그램 배포-CLI (미리 보기)
+# <a name="deploy-an-ipv6-dual-stack-application-in-azure-virtual-network---cli-preview"></a>Azure virtual network에서 IPv6 이중 스택 응용 프로그램 배포-CLI (미리 보기)
 
-이 문서에서는 이중 스택 서브넷을 사용 하는 이중 스택 (IPv4 + IPv6) 응용 프로그램을 포함 하는 Azure의 이중 스택 (ipv4 + IPv6) 응용 프로그램을 배포 하는 방법을 보여 줍니다. 이중 IP 구성이 있는 Nic를 사용 하는 Vm과 이중 (IPv4 + IPv6) 프런트 엔드 구성이 포함 된 부하 분산 장치를 포함 합니다. 이중 네트워크 보안 그룹 규칙 및 이중 공용 Ip
+이 문서에서는 이중 스택 서브넷을 사용 하는 이중 스택 가상 네트워크, 이중 (IPv4 + IPv6) 프런트 엔드 구성, Vm이 포함 된 표준 Load Balancer를 포함 하는 Azure의 표준 Load Balancer를 사용 하 여 이중 스택 (IPv4 + IPv6) 응용 프로그램을 배포 하는 방법을 보여 줍니다. 이중 IP 구성, 이중 네트워크 보안 그룹 규칙 및 이중 공용 Ip를 포함 하는 Nic
 
 > [!Important]
 > Azure Virtual Network에 대 한 IPv6 이중 스택은 현재 공개 미리 보기로 제공 됩니다. 이 미리 보기는 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.

@@ -5,14 +5,14 @@ services: batch
 ms.service: batch
 author: mscurrell
 ms.author: markscu
-ms.date: 07/16/2019
+ms.date: 08/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9481263773cc919fecacce80191cf209ec2a1282
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: d115b7d56609b95f2ea10b3fee2f8900102b94e4
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359251"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70012480"
 ---
 # <a name="check-for-pool-and-node-errors"></a>풀 및 노드 오류 확인
 
@@ -64,7 +64,7 @@ Azure Batch 풀을 만들고 관리할 때 일부 작업은 즉시 수행됩니�
 
 ## <a name="pool-compute-node-errors"></a>풀 컴퓨팅 노드 오류
 
-일괄 처리가 풀에서 노드를 성공적으로 할당 하는 경우에도 여러 가지 문제로 인해 일부 노드가 비정상 상태가 되 고 작업을 실행할 수 없게 될 수 있습니다. 이러한 노드에는 여전히 요금이 부과 되므로 사용할 수 없는 노드에 대해 지불 하지 않는 문제를 검색 하는 것이 중요 합니다.
+일괄 처리가 풀에서 노드를 성공적으로 할당 하는 경우에도 여러 가지 문제로 인해 일부 노드가 비정상 상태가 되 고 작업을 실행할 수 없게 될 수 있습니다. 이러한 노드에는 여전히 요금이 부과 되므로 사용할 수 없는 노드에 대해 지불 하지 않는 문제를 검색 하는 것이 중요 합니다. 일반적인 노드 오류 외에도 현재 [작업 상태](https://docs.microsoft.com/rest/api/batchservice/job/get#jobstate) 를 파악 하는 것이 문제 해결에 유용 합니다.
 
 ### <a name="start-task-failures"></a>작업 실패 시작
 
@@ -94,7 +94,7 @@ Node [errors](https://docs.microsoft.com/rest/api/batchservice/computenode/get#c
 
 Azure Batch에서는 여러 가지 이유로 [노드 상태](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate)를 **unusable**로 설정할 수 있습니다. 노드 상태를 **unusable**로 설정하면 작업을 노드로 예약할 수 없지만 요금은 여전히 부과됩니다.
 
-[오류가](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) **없는 상태의 노드** 는 일괄 처리가 VM과 통신할 수 없음을 의미 합니다. 이 경우 Batch는 항상 VM을 복구 하려고 시도 합니다. 일괄 처리는 상태를 **사용할**수 없는 경우에도 응용 프로그램 패키지 또는 컨테이너를 설치 하지 못한 vm은 자동으로 복구 하려고 시도 하지 않습니다.
+[오류가](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) 없는 상태의 노드는 일괄 처리가 VM과 통신할 수 없음을 의미 합니다. 이 경우 Batch는 항상 VM을 복구 하려고 시도 합니다. 일괄 처리는 상태를 **사용할**수 없는 경우에도 응용 프로그램 패키지 또는 컨테이너를 설치 하지 못한 vm은 자동으로 복구 하려고 시도 하지 않습니다.
 
 Batch가 원인을 확인할 수 있으면 노드 [errors](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) 속성이 그 원인을 보고합니다.
 
@@ -118,7 +118,7 @@ Batch가 원인을 확인할 수 있으면 노드 [errors](https://docs.microsof
 
 ### <a name="node-disk-full"></a>노드 디스크가 꽉 찼습니다.
 
-풀 노드 VM에 대 한 임시 드라이브는 Batch에서 작업 파일, 태스크 파일 및 공유 파일에 사용 됩니다. 
+풀 노드 VM에 대 한 임시 드라이브는 Batch에서 작업 파일, 태스크 파일 및 공유 파일에 사용 됩니다.
 
 - 응용 프로그램 패키지 파일
 - 작업 리소스 파일
