@@ -165,5 +165,5 @@ Azure Cosmos DB는 Gremlin 작업의 결과를 반환할 때 [GraphSON 형식](h
 Azure Cosmos DB에서 제공하는 쓰기 최적화 엔진은 기본적으로 꼭짓점 및 에지 내의 모든 속성에 대한 자동 인덱싱을 지원합니다. 따라서 필터가 있는 쿼리, 범위 쿼리, 속성에 대한 정렬 또는 집계가 인덱스에서 처리되고 효율적으로 제공됩니다. Azure Cosmos DB에서 인덱싱이 작동하는 방식에 대한 자세한 내용은 [스키마 독립적 인덱싱](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-* [SDK를 사용하여](create-graph-dotnet.md) 그래프 응용 프로그램 빌드 시작 
+* [SDK를 사용하여](create-graph-dotnet.md) 그래프 애플리케이션 빌드 시작 
 * Azure Cosmos DB에서 [그래프 지원](graph-introduction.md)에 대해 알아보기

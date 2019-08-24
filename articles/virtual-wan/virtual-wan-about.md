@@ -64,8 +64,8 @@ Virtual WAN 사이트 간 연결을 만드는 경우 사용 가능한 파트너�
 Virtual WAN 파트너를 사용하는 경우 워크플로는 다음과 같습니다.
 
 1. 분기 디바이스(VPN/SDWAN) 컨트롤러가 [Azure 서비스 주체](../active-directory/develop/howto-create-service-principal-portal.md)를 사용하여 Azure에 사이트 중심 정보를 내보내도록 인증됩니다.
-2. 분기 장치(VPN/SDWAN) 컨트롤러는 Azure 연결 구성을 가져오고 로컬 장치를 업데이트합니다. 구성 다운로드, 온-프레미스 VPN 장치의 편집 및 업데이트를 자동화합니다.
-3. 장치에 올바른 Azure 구성이 적용되면 Azure WAN에 대한 사이트 간 연결(활성 터널 2개)이 설정됩니다. Azure는 IKEv1 및 IKEv2를 둘 다 지원합니다. BGP는 선택 사항입니다.
+2. 분기 디바이스(VPN/SDWAN) 컨트롤러는 Azure 연결 구성을 가져오고 로컬 디바이스를 업데이트합니다. 구성 다운로드, 온-프레미스 VPN 디바이스의 편집 및 업데이트를 자동화합니다.
+3. 디바이스에 올바른 Azure 구성이 적용되면 Azure WAN에 대한 사이트 간 연결(활성 터널 2개)이 설정됩니다. Azure는 IKEv1 및 IKEv2를 둘 다 지원합니다. BGP는 선택 사항입니다.
 
 #### <a name="partners"></a>사이트 간 Virtual WAN 연결 파트너
 

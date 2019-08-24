@@ -16,7 +16,7 @@ ms.locfileid: "59271461"
 ---
 # <a name="sample---allowed-storage-account-skus"></a>샘플 - 허용되는 스토리지 계정 SKU
 
-이 정책에서는 저장소 계정이 승인된 SKU를 사용해야 합니다. 승인된 SKU 배열을 지정합니다.
+이 정책에서는 스토리지 계정이 승인된 SKU를 사용해야 합니다. 승인된 SKU 배열을 지정합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -30,7 +30,7 @@ ms.locfileid: "59271461"
 
 [![Azure에 Policy 샘플 배포](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fallowed-storageaccount-sku%2Fazurepolicy.json)
 
-## <a name="deploy-with-powershell"></a>PowerShell을 사용하여 배포 
+## <a name="deploy-with-powershell"></a>PowerShell을 사용하여 배포
 
 [!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 

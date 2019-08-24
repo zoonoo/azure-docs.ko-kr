@@ -83,14 +83,14 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     b. **회신 URL** 텍스트 상자에서 `https://YOURDOMAIN.deskradar.cloud/auth/sso/saml/consume` 패턴을 사용하여 URL을 입력합니다.
 
-1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
+1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
     **로그인 URL** 텍스트 상자에서 `https://YOURDOMAIN.deskradar.cloud/auth/sso/saml/login` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 식별자, 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. **YOURDOMAIN**을 Deskradar 인스턴스 도메인으로 바꿉니다. 이러한 값을 얻으려면 [Deskradar 클라이언트 지원 팀](mailto:support@deskradar.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-1. Deskradar 애플리케이션에는 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 응용 프로그램 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 단추를 클릭하여 **사용자 특성** 대화 상자를 엽니다.
+1. Deskradar 애플리케이션에는 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 애플리케이션 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 단추를 클릭하여 **사용자 특성** 대화 상자를 엽니다.
 
     ![이미지](common/edit-attribute.png)
 

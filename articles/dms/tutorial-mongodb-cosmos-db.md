@@ -128,7 +128,7 @@ Azure Database Migration Service를 사용하여 오프라인(1회)으로 데이
      https://blobnameurl/container?SASKEY
      ```
 
-     이 Blob 컨테이너 SAS 연결 문자열은 Azure Storage 탐색기에서 찾을 수 있습니다. 관련 컨테이너의 SAS를 만들면 위에서 요청한 형식으로 URL이 제공됩니다.
+     이 Blob 컨테이너 SAS 연결 문자열은 Azure Storage Explorer에서 찾을 수 있습니다. 관련 컨테이너의 SAS를 만들면 위에서 요청한 형식으로 URL이 제공됩니다.
      
      또한 Azure Storage의 형식 덤프 정보에 기반하여 다음 세부 정보를 유념해 두세요.
 

@@ -37,7 +37,7 @@ Azure AD에 디바이스를 가져오면 클라우드와 온-프레미스 리소
 > [!div class="checklist"]
 > * 하이브리드 Azure AD 조인 구성
 > * Windows 하위 수준 디바이스 설정
-> * 가입 장치 확인
+> * 가입 디바이스 확인
 > * 문제 해결
 
 ## <a name="prerequisites"></a>필수 조건

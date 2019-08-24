@@ -92,7 +92,7 @@
                       href: azure-security-disk-encryption-linux-aad.md
     - name: Azure Storage 보안
       href: ./fundamentals/storage-overview.md
-    - name: 저장소 보안 지침
+    - name: 스토리지 보안 지침
       href: ../storage/common/storage-security-guide.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: 고객 Lockbox
       href: ./fundamentals/customer-lockbox-overview.md

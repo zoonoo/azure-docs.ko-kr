@@ -16,11 +16,11 @@ ms.locfileid: "68597681"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Azure Cosmos DB 에뮬레이터 빌드 작업을 사용하여 Azure DevOps에서 CI/CD 파이프라인 설정
 
-Azure Cosmos DB 에뮬레이터는 개발 목적으로 Azure Cosmos DB 서비스를 에뮬레이트하는 로컬 환경을 제공합니다. 이 에뮬레이터를 사용하면 Azure 구독을 구입하거나 비용을 발생시키지 않고도 로컬에서 응용 프로그램을 테스트할 수 있습니다. 
+Azure Cosmos DB 에뮬레이터는 개발 목적으로 Azure Cosmos DB 서비스를 에뮬레이트하는 로컬 환경을 제공합니다. 이 에뮬레이터를 사용하면 Azure 구독을 구입하거나 비용을 발생시키지 않고도 로컬에서 애플리케이션을 테스트할 수 있습니다. 
 
 Azure DevOps에 대한 Azure Cosmos DB 에뮬레이터 빌드 작업을 사용하면 CI 환경에서와 동일한 작업을 수행할 수 있습니다. 빌드 작업을 사용하면 빌드 및 릴리스 워크플로의 일부로 에뮬레이터에 대한 테스트를 실행할 수 있습니다. 이 작업은 에뮬레이터가 이미 실행 중인 Docker 컨테이너를 스핀업하고, 빌드 정의의 나머지 부분에서 사용할 수 있는 엔드포인트를 제공합니다. 별도 컨테이너에서 실행되는 필요한 만큼 많은 에뮬레이터의 인스턴스를 만들고 시작할 수 있습니다. 
 
-이 문서에서는 Cosmos DB 에뮬레이터 빌드 작업을 사용하여 테스트를 실행하는 ASP.NET 응용 프로그램에 대해 Azure DevOps에서 CI 파이프라인을 설정하는 방법을 설명합니다. 유사한 방법을 사용하여 Node.js 또는 Python 애플리케이션에 대한 CI 파이프라인을 설정할 수 있습니다. 
+이 문서에서는 Cosmos DB 에뮬레이터 빌드 작업을 사용하여 테스트를 실행하는 ASP.NET 애플리케이션에 대해 Azure DevOps에서 CI 파이프라인을 설정하는 방법을 설명합니다. 유사한 방법을 사용하여 Node.js 또는 Python 애플리케이션에 대한 CI 파이프라인을 설정할 수 있습니다. 
 
 ## <a name="install-the-emulator-build-task"></a>에뮬레이터 빌드 작업 설치
 

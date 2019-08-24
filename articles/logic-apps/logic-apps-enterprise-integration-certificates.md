@@ -11,12 +11,12 @@ ms.assetid: 4cbffd85-fe8d-4dde-aa5b-24108a7caa7d
 ms.suite: integration
 ms.topic: article
 ms.date: 08/17/2018
-ms.openlocfilehash: 38bc1615c0849a33ddfa5790a66fc05d681ce339
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: be3dbc386b0ac89a85bc1719081df944523c28ce
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66167134"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997828"
 ---
 # <a name="secure-b2b-messages-with-certificates"></a>인증서를 사용하여 B2B 메시지 보호
 
@@ -47,10 +47,10 @@ B2B 기능이 포함된 논리 앱에서 *공용 인증서*를 사용하려면 �
 
 3. **인증서** 아래에서 **추가**를 선택합니다. **인증서 추가** 아래에서 인증서에 대한 세부 정보를 입력합니다. 작업을 완료하면 **확인**을 선택합니다.
 
-   | 자산 | 값 | 설명 | 
+   | 속성 | 값 | 설명 | 
    |----------|-------|-------------|
-   | **Name** | <*certificate-name*> | 사용자의 인증서 이름(이 예제의 "publicCert")입니다. | 
-   | **인증서 종류** | 공용 | 인증서의 종류입니다. |
+   | **이름** | <*certificate-name*> | 사용자의 인증서 이름(이 예제의 "publicCert")입니다. | 
+   | **인증서 종류** | Public | 인증서의 종류입니다. |
    | **인증서** | <*certificate-file-name*> | 업로드하려는 인증서 파일을 찾아 선택하려면 **인증서** 상자 옆에 있는 폴더 아이콘을 선택합니다. |
    ||||
 
@@ -67,9 +67,9 @@ B2B 기능이 포함된 논리 앱에서 *프라이빗 인증서*를 사용하�
 사용자가 만드는 [규약](logic-apps-enterprise-integration-agreements.md)에서 해당 속성을 정의한 후에 인증서를 사용하여 B2B 메시지를 안전하게 보호할 수 있습니다.
 
 > [!NOTE]
-> 개인 인증서의 경우 메시지에 서명하고 암호화하기 위해 [AS2 규약](logic-apps-enterprise-integration-as2.md) **보내기 및 받기** 설정에서 표시하도록 해당 공용 인증서를 추가해야 합니다.
+> 프라이빗 인증서의 경우 메시지에 서명하고 암호화하기 위해 [AS2 규약](logic-apps-enterprise-integration-as2.md)**보내기 및 받기** 설정에서 표시하도록 해당 공용 인증서를 추가해야 합니다.
 
-1. [개인 키를 Azure Key Vault에 추가](../key-vault/certificate-scenarios.md#import-a-certificate)하고 **키 이름**을 입력합니다.
+1. [프라이빗 키를 Azure Key Vault에 추가](../key-vault/certificate-scenarios.md#import-a-certificate)하고 **키 이름**을 입력합니다.
    
 2. Azure Logic Apps에 Azure Key Vault에서 작업을 수행할 수 있는 권한을 부여합니다. Logic Apps 서비스 주체에게 액세스 권한을 부여하려면 다음 예제처럼 [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) PowerShell 명령을 사용합니다.
 
@@ -86,11 +86,11 @@ B2B 기능이 포함된 논리 앱에서 *프라이빗 인증서*를 사용하�
 
 5. **인증서** 아래에서 **추가**를 선택합니다. **인증서 추가** 아래에서 인증서에 대한 세부 정보를 입력합니다. 작업을 완료하면 **확인**을 선택합니다.
 
-   | 자산 | 값 | 설명 | 
+   | 속성 | 값 | Description | 
    |----------|-------|-------------|
-   | **Name** | <*certificate-name*> | 사용자의 인증서 이름(이 예제의 "privateCert")입니다. | 
-   | **인증서 종류** | 비공개 | 인증서의 종류입니다. |
-   | **인증서** | <*certificate-file-name*> | 업로드하려는 인증서 파일을 찾아 선택하려면 **인증서** 상자 옆에 있는 폴더 아이콘을 선택합니다. | 
+   | **이름** | <*certificate-name*> | 사용자의 인증서 이름(이 예제의 "privateCert")입니다. | 
+   | **인증서 종류** | 프라이빗 | 인증서의 종류입니다. |
+   | **인증서** | <*certificate-file-name*> | 업로드하려는 인증서 파일을 찾아 선택하려면 **인증서** 상자 옆에 있는 폴더 아이콘을 선택합니다. 개인 키에 대해 키 자격 증명 모음을 사용 하는 경우 업로드 된 파일은 공용 인증서가 됩니다. | 
    | **리소스 그룹** | <*integration-account-resource-group*> | 통합 계정의 리소스 그룹(이 예제의 "MyResourceGroup")입니다. | 
    | **Key Vault** | <*key-vault-name*> | Azure Key Vault의 이름입니다. |
    | **키 이름** | <*key-name*> | 키의 이름입니다. |

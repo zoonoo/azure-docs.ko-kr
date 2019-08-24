@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
-ms.date: 05/02/2019
+ms.date: 08/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: a82a44127a470b6366eeffc60c73f762d5a8f525
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 6c5068512f8ba26f7710bca7c0fccb98e0a5be33
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348573"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996738"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning-service"></a>Azure Machine Learning 서비스용 CLI 확장 사용
 
@@ -30,7 +30,7 @@ Azure Machine Learning CLI는 Azure 플랫폼용 플랫폼 간 명령줄 인터�
 
 CLI는 Azure Machine Learning SDK를 대체하는 것이 아닙니다. 자동화에 잘 맞는 매우 중요 한 작업을 처리 하도록 최적화 된 보완 도구입니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 * CLI를 사용하려면 Azure 구독이 있어야 합니다. Azure 구독이 아직 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 지금 사용해 보세요.
 
@@ -112,7 +112,14 @@ az extension remove -n azure-cli-ml
 
     자세한 내용은 [az ml 데이터 저장소 연결-blob](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/datastore?view=azure-cli-latest#ext-azure-cli-ml-az-ml-datastore-attach-blob)을 참조 하세요.
 
-    
++ 데이터 저장소에 파일을 업로드 합니다.
+
+    ```azurecli-interactive
+    az ml datastore upload  -n datastorename -p sourcepath
+    ```
+
+    자세한 내용은 [az ml 데이터 저장소 업로드](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/datastore?view=azure-cli-latest#ext-azure-cli-ml-az-ml-datastore-upload)를 참조 하세요.
+
 + AKS 클러스터를 계산 대상으로 연결 합니다.
 
     ```azurecli-interactive
@@ -153,6 +160,42 @@ az extension remove -n azure-cli-ml
     ```
 
     자세한 내용은 [az ml 실험 list](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/experiment?view=azure-cli-latest#ext-azure-cli-ml-az-ml-experiment-list)를 참조 하세요.
+
+## <a name="environment-management"></a>환경 관리
+
+다음 명령에서는 작업 영역에 대 한 Azure Machine Learning 서비스 [환경을](how-to-configure-environment.md) 만들고 등록 하 고 나열 하는 방법을 보여 줍니다.
+
++ 환경에 대 한 스 캐 폴딩 파일 만들기:
+
+    ```azurecli-interactive
+    az ml environment scaffold -n myenv -d myenvdirectory
+    ```
+
+    자세한 내용은 [az ml environment 스 캐 폴드](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/environment?view=azure-cli-latest#ext-azure-cli-ml-az-ml-environment-scaffold)를 참조 하세요.
+
++ 환경 등록:
+
+    ```azurecli-interactive
+    az ml environment register -d myenvdirectory
+    ```
+
+    자세한 내용은 [az ml environment register](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/environment?view=azure-cli-latest#ext-azure-cli-ml-az-ml-environment-register)를 참조 하세요.
+
++ 등록 된 환경 나열:
+
+    ```azurecli-interactive
+    az ml environment list
+    ```
+
+    자세한 내용은 [az ml environment list](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/environment?view=azure-cli-latest#ext-azure-cli-ml-az-ml-environment-list)를 참조 하세요.
+
++ 등록 된 환경 다운로드:
+
+    ```azurecli-interactive
+    az ml environment download -n myenv -d downloaddirectory
+    ```
+
+    자세한 내용은 [az ml environment 다운로드](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/environment?view=azure-cli-latest#ext-azure-cli-ml-az-ml-environment-download)를 참조 하세요.
 
 ## <a name="model-registration-profiling-deployment"></a>모델 등록, 프로 파일링, 배포
 

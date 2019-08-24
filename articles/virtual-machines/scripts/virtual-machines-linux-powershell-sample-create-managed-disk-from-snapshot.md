@@ -43,7 +43,7 @@ ms.locfileid: "66728153"
 | 명령 | 메모 |
 |---|---|
 | [Get-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/Get-AzSnapshot) | 스냅샷 속성을 가져옵니다.  |
-| [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/New-AzDiskConfig) | 디스크 만들기에 사용되는 디스크 구성을 만듭니다. 부모 스냅샷의 리소스 ID, 부모 스냅샷의 위치와 같은 위치 및 저장소 형식을 포함합니다.  |
+| [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/New-AzDiskConfig) | 디스크 만들기에 사용되는 디스크 구성을 만듭니다. 부모 스냅샷의 리소스 ID, 부모 스냅샷의 위치와 같은 위치 및 스토리지 형식을 포함합니다.  |
 | [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/New-AzDisk) | 매개 변수로 전달된 디스크 구성, 디스크 이름 및 리소스 그룹 이름을 사용하여 디스크를 만듭니다. |
 
 ## <a name="next-steps"></a>다음 단계

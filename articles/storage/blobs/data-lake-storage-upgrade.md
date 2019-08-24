@@ -8,12 +8,12 @@ ms.date: 02/07/2019
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: rugopala
-ms.openlocfilehash: 850d580d4eb1ca41932a28005d3375ced709db60
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: 7c018ad15ee653bcdc903492028ec5ed058dbd14
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016384"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992228"
 ---
 # <a name="upgrade-your-big-data-analytics-solutions-from-azure-data-lake-storage-gen1-to-azure-data-lake-storage-gen2"></a>빅 데이터 분석 솔루션을 Azure Data Lake Storage Gen1에서 Azure Data Lake Storage Gen2로 업그레이드
 
@@ -218,7 +218,7 @@ Data Lake Storage Gen1은 파이프라인을 운영하는 데 도움이 되는 �
 
 #### <a name="tools-guidance"></a>도구 지침
 
-| 전략                       | Tools                                                                                                             | 전문가                                                                                                                             | 고려 사항                                                                                                                                                                                                                                                                                                                |
+| 전략                       | 도구                                                                                                             | 전문가                                                                                                                             | 고려 사항                                                                                                                                                                                                                                                                                                                |
 |------------------------------------|-----------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **리프트 앤 시프트**                 | [Azure 데이터 팩터리](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-storage-gen2-from-gen1) | 관리형 클라우드 서비스                                                                                                                | 데이터와 Acl은 현재를 통해 복사할 수 있습니다.                                                                                                                                                                                                                                                                      |
 |                                    | [Distcp](https://hadoop.apache.org/docs/r1.2.1/distcp.html)                                                           | 잘 알려진 Hadoop 제공 도구 권한 - 이 도구를 사용하여 ACL을 복사할 수 있음                                                   | Data Lake Storage Gen1과 Gen2 모두에 동시에 연결할 수 있는 클러스터가 필요합니다.                                                                                                                                                                                   |
@@ -235,7 +235,7 @@ Data Lake Storage Gen1은 파이프라인을 운영하는 데 도움이 되는 �
 
 * ACL을 복사하지 않거나 ACL을 통해 복사하지 않으려면 대상의 ACL을 적절한 최상위 수준에서 수동으로 설정해야 합니다. 이 작업은 Storage Explorer를 사용하여 수행할 수 있습니다. 이러한 ACL이 기본 ACL이므로 복사한 파일 및 폴더에서 해당 ACL을 상속합니다.
 
-* Data Lake Storage Gen1에서 ACL을 설정할 수 있는 최상위 수준은 계정의 루트에 있습니다. 그러나 Data Lake Storage Gen2에서 Acl을 설정할 수 있는 가장 높은 수준은 전체 계정이 아닌 파일 시스템의 루트 폴더에 있습니다. 따라서 계정 수준에서 기본 ACL을 설정하려면 Data Lake Storage Gen2 계정의 모든 파일 시스템에서 해당 ACL을 복제해야 합니다.
+* Data Lake Storage Gen1에서 ACL을 설정할 수 있는 최상위 수준은 계정의 루트에 있습니다. 그러나 Data Lake Storage Gen2에서 Acl을 설정할 수 있는 가장 높은 수준은 전체 계정이 아니라 컨테이너의 루트 폴더에 있습니다. 따라서 계정 수준에서 기본 ACL을 설정하려면 Data Lake Storage Gen2 계정의 모든 파일 시스템에서 해당 ACL을 복제해야 합니다.
 
 * 파일 명명 제한 사항은 두 스토리지 시스템 간에 서로 다릅니다. 이러한 차이는 특히 Data Lake Storage Gen2에서 Data Lake Storage Gen1로 복사할 때 발생합니다. 이는 Data Lake Storage Gen1에 더 강제적인 제한 사항이 있기 때문입니다.
 

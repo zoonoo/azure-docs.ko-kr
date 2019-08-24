@@ -39,7 +39,7 @@ mstsc /v:<publicIpAddress>
 
 ## <a name="update-the-application"></a>애플리케이션 업데이트
 
-이전 자습서에서는 저장소 계정에 파일만 업로드했습니다. 텍스트 편집기에서 `D:\git\storage-dotnet-perf-scale-app\Program.cs` 파일을 엽니다. `Main` 메서드를 다음 샘플로 바꿉니다. 이 예제에서는 업로드 작업을 주석 처리하고, 완료 시 다운로드 작업 및 저장소 계정의 콘텐츠를 삭제하는 작업의 주석을 제거합니다.
+이전 자습서에서는 스토리지 계정에 파일만 업로드했습니다. 텍스트 편집기에서 `D:\git\storage-dotnet-perf-scale-app\Program.cs` 파일을 엽니다. `Main` 메서드를 다음 샘플로 바꿉니다. 이 예제에서는 업로드 작업을 주석 처리하고, 완료 시 다운로드 작업 및 스토리지 계정의 콘텐츠를 삭제하는 작업의 주석을 제거합니다.
 
 ```csharp
 public static void Main(string[] args)
@@ -95,7 +95,7 @@ dotnet build
 dotnet run
 ```
 
-응용 프로그램은 **storageconnectionstring**에 지정된 스토리지 계정에 있는 컨테이너를 읽습니다. 컨테이너에 있는 [ListBlobsSegmented](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer) 메서드를 사용하여 한 번에 Blob을 10개 반복하고 [DownloadToFileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadtofileasync) 메서드를 사용하여 로컬 컴퓨터로 다운로드합니다.
+애플리케이션은 **storageconnectionstring**에 지정된 스토리지 계정에 있는 컨테이너를 읽습니다. 컨테이너에 있는 [ListBlobsSegmented](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer) 메서드를 사용하여 한 번에 Blob을 10개 반복하고 [DownloadToFileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadtofileasync) 메서드를 사용하여 로컬 컴퓨터로 다운로드합니다.
 다음 표에서는 다운로드된 각 Blob에 대해 정의된 [BlobRequestOptions](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions)를 보여 줍니다.
 
 |자산|값|설명|
@@ -189,7 +189,7 @@ private static async Task DownloadFilesAsync()
 
 ### <a name="validate-the-connections"></a>연결 유효성 검사
 
-파일을 다운로드하는 동안 저장소 계정에 대한 동시 연결 수를 확인할 수 있습니다. `Command Prompt`를 열고 `netstat -a | find /c "blob:https"`를 입력합니다. 이 명령은 `netstat`를 사용하여 현재 열린 연결 수를 표시합니다. 다음 예제는 자습서를 직접 실행할 때 표시되는 것과 유사한 출력을 보여 줍니다. 예제에서 볼 수 있듯이 저장소 계정에서 무작위 파일을 다운로드할 때 280개가 넘는 연결이 열려 있었습니다.
+파일을 다운로드하는 동안 스토리지 계정에 대한 동시 연결 수를 확인할 수 있습니다. `Command Prompt`를 열고 `netstat -a | find /c "blob:https"`를 입력합니다. 이 명령은 `netstat`를 사용하여 현재 열린 연결 수를 표시합니다. 다음 예제는 자습서를 직접 실행할 때 표시되는 것과 유사한 출력을 보여 줍니다. 예제에서 볼 수 있듯이 스토리지 계정에서 무작위 파일을 다운로드할 때 280개가 넘는 연결이 열려 있었습니다.
 
 ```
 C:\>netstat -a | find /c "blob:https"
@@ -200,7 +200,7 @@ C:\>
 
 ## <a name="next-steps"></a>다음 단계
 
-시리즈 3부에서는 다음 방법을 통해 저장소 계정에서 대량의 임의 데이터를 다운로드하는 방법에 대해 배웠습니다.
+시리즈 3부에서는 다음 방법을 통해 스토리지 계정에서 대량의 임의 데이터를 다운로드하는 방법에 대해 배웠습니다.
 
 > [!div class="checklist"]
 > * 애플리케이션 실행

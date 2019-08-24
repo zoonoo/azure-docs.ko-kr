@@ -79,7 +79,7 @@
     - name: 데이터 과학 환경 설정
       href: environment-setup.md
       items:
-        - name: Azure 저장소 계정
+        - name: Azure Storage 계정
           href: /azure/storage/common/storage-create-storage-account?context=azure/machine-learning/team-data-science-process/context/ml-context
         - name: 플랫폼 및 도구
           href: platforms-and-tools.md

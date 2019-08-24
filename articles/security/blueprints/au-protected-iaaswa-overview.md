@@ -151,7 +151,7 @@ Azure Security Center에서는 우선 순위가 지정된 보안 경고 및 인�
 
 **Azure Application Gateway**: 이 아키텍처는 웹 애플리케이션 방화벽이 구성되어 있고 OWASP 규칙 집합을 사용할 수 있는 Azure Application Gateway를 통해 보안 취약성의 위험을 줄입니다. 추가적인 기능은 다음과 같습니다.
 
-- [End-to-end-SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
+- [엔드투엔드 SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - [SSL 오프로드](../../application-gateway/create-ssl-portal.md) 사용
 - [TLS v1.0 및 v1.1](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell) 사용 안 함
 - [웹 애플리케이션 방화벽](../../application-gateway/waf-overview.md)(방지 모드)

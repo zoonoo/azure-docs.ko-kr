@@ -125,7 +125,7 @@
     - name: 유지 관리 및 업데이트
       href: ../virtual-machines/windows/maintenance-and-updates.md
       maintainContext: true
-    - name: 디스크 저장소
+    - name: 디스크 스토리지
       items:
         - name: Managed Disks
           href: ../virtual-machines/windows/managed-disks-overview.md

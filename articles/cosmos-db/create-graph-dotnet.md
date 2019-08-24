@@ -44,7 +44,7 @@ Visual Studio 2019가 아직 설치되지 않은 경우 **체험판** [Visual St
 
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
-## <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
+## <a name="clone-the-sample-application"></a>샘플 애플리케이션 복제
 
 이제 GitHub에서 Gremlin API 앱을 복제하고, 연결 문자열을 설정하고, 실행해 보겠습니다. 프로그래밍 방식으로 데이터를 사용하여 얼마나 쉽게 작업할 수 있는지 알게 될 것입니다. 
 
@@ -192,7 +192,7 @@ Visual Studio 2019가 아직 설치되지 않은 경우 **체험판** [Visual St
 
 ## <a name="run-the-console-app"></a>콘솔 앱 실행
 
-Ctrl+F5를 눌러 응용 프로그램을 실행합니다. 응용 프로그램이 Gremlin 쿼리 명령과 콘솔의 결과를 모두 인쇄합니다.
+Ctrl+F5를 눌러 애플리케이션을 실행합니다. 애플리케이션이 Gremlin 쿼리 명령과 콘솔의 결과를 모두 인쇄합니다.
 
    그래프에 추가된 꼭짓점 및 에지가 콘솔 창에 표시됩니다. 스크립트가 완료되면 ENTER 키를 눌러 콘솔 창을 닫습니다.
 

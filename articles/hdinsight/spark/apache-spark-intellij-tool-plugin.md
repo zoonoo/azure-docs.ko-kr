@@ -126,7 +126,7 @@ Scala 플러그인을 설치하려면 다음 단계를 수행하세요.
     
         }
 
-    이 코드는 HVAC.csv(모든 HDInsight Spark 클러스터에서 사용 가능)에서 데이터를 읽고, CSV 파일의 일곱 번째 열에 한 자리 수만 있는 행을 검색하고, 출력을 클러스터의 기본 저장 컨테이너 아래의 `/HVACOut`에 씁니다.
+    이 코드는 HVAC.csv(모든 HDInsight Spark 클러스터에서 사용 가능)에서 데이터를 읽고, CSV 파일의 일곱 번째 열에 한 자리 수만 있는 행을 검색하고, 출력을 클러스터의 기본 스토리지 컨테이너 아래의 `/HVACOut`에 씁니다.
 
 ## <a name="connect-to-your-hdinsight-cluster"></a>HDInsight 클러스터 연결
 [Azure 구독에 로그인](#sign-in-to-your-azure-subscription)하거나 Ambari 사용자 이름/암호 또는 도메인 가입 자격 증명을 사용하여 [HDInsight 클러스터에 연결](#link-a-cluster)할 수 있습니다.
@@ -165,7 +165,7 @@ Scala 플러그인을 설치하려면 다음 단계를 수행하세요.
 
     ![Azure 탐색기의 HDInsight Spark 클러스터](./media/apache-spark-intellij-tool-plugin/view-explorer-3.png)
 
-9.  클러스터와 연결된 리소스(예: 저장소 계정)를 표시하려면 클러스터 이름 노드를 더 확장할 수 있습니다.
+9.  클러스터와 연결된 리소스(예: 스토리지 계정)를 표시하려면 클러스터 이름 노드를 더 확장할 수 있습니다.
 
     ![확장된 클러스터-이름 노드](./media/apache-spark-intellij-tool-plugin/view-explorer-4.png)
 
@@ -236,10 +236,10 @@ Scala 애플리케이션을 작성한 후 이를 클러스터에 제출할 수 �
     |명령줄 인수|필요한 경우 기본 클래스에 대해 공백으로 구분된 인수를 입력할 수 있습니다.|
     |참조된 Jar 및 참조된 파일|참조되는 Jar 및 파일(있는 경우)의 경로를 입력할 수 있습니다. Azure 가상 파일 시스템의 파일을 찾아 볼 수도 있습니다. 여기에는 현재 ADLS Gen 2 클러스터만 지원됩니다. 자세한 내용은 다음을 참조하세요. [Apache Spark 구성](https://spark.apache.org/docs/latest/configuration.html#runtime-environment)  [클러스터에 리소스를 업로드하는 방법](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer)을 참조하세요.|
     |작업 업로드 스토리지|추가 옵션을 표시하려면 확장합니다.|
-    |저장소 유형|드롭다운 목록에서 **Azure Blob을 사용하여 업로드**를 선택합니다.|
-    |저장소 계정|스토리지 계정을 입력합니다.|
+    |스토리지 유형|드롭다운 목록에서 **Azure Blob을 사용하여 업로드**를 선택합니다.|
+    |스토리지 계정|스토리지 계정을 입력합니다.|
     |스토리지 키|스토리지 키를 입력합니다.|
-    |저장소 컨테이너|**스토리지 계정** 및 **스토리지 키**를 입력했으면 드롭다운 목록에서 스토리지 컨테이너를 선택합니다.|
+    |스토리지 컨테이너|**스토리지 계정** 및 **스토리지 키**를 입력했으면 드롭다운 목록에서 스토리지 컨테이너를 선택합니다.|
 
     ![Spark 제출 대화 상자](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-02.png)
 

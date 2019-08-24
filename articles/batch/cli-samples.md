@@ -30,7 +30,7 @@ ms.locfileid: "68322560"
 |  |  |
 |---|---|
 |**Batch 계정 만들기**||
-| [Batch 서비스 모드에서 Batch 계정 만들기](./scripts/batch-cli-sample-create-account.md) | 기본 모드에서 Batch 계정을 만들고 저장소 계정과 연결합니다. |
+| [Batch 서비스 모드에서 Batch 계정 만들기](./scripts/batch-cli-sample-create-account.md) | 기본 모드에서 Batch 계정을 만들고 스토리지 계정과 연결합니다. |
 | [사용자 구독 모드에서 Batch 계정 만들기](./scripts/batch-cli-sample-create-user-subscription-account.md) | 사용자 구독 모드에서 Batch 계정을 만듭니다. |
 |**애플리케이션 추가**||
 | [Batch 계정에 애플리케이션 추가](./scripts/batch-cli-sample-add-application.md) | 애플리케이션을 추가하고 패키지된 이진 파일을 업로드합니다.|

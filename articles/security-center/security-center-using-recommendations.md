@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/26/2019
+ms.date: 8/22/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 79a5f9a1269bdfc63d9d0b6fffd8458d011b777b
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 13d6eb64b2089cf93f08c294cc9b6a2034b64fa0
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640869"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69990554"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Azure Security Center 권장 사항을 사용하여 보안 강화
 보안 정책을 구성한 다음 Azure Security Center에서 제공한 권장 사항을 구현하여 중요한 보안 이벤트의 가능성을 줄일 수 있습니다. 이 문서에서는 Security Center에서 보안 정책 및 권장 사항을 사용하여 보안 공격을 완화할 수 있는 방법을 보여 줍니다. 
@@ -75,6 +75,6 @@ Security Center에서 권장 사항을 모니터링하면 공격이 발생하기
 ## <a name="next-steps"></a>다음 단계
 모니터링 프로세스가 제대로 설정되었는지 확인하고, 계속해서 리소스를 안전하게 유지할 수 있도록 Security Center에서 권장 사항을 정기적으로 확인해야 합니다.
 
-이 시나리오에서는 Security Center에서 보안 정책 및 권장 사항을 사용하여 보안 공격을 완화할 수 있는 방법을 보여 줍니다. [사고 대응 시나리오](security-center-incident-response.md)에서 공격이 발생하기 전에 사고 대응 계획을 적절히 수립하는 방법을 참조하세요.
+이 시나리오에서는 Security Center에서 보안 정책 및 권장 사항을 사용하여 보안 공격을 완화할 수 있는 방법을 보여 줍니다.
 
-[인시던트 응답](security-center-incident-response.md)을 사용하여 위협에 대응하는 방법을 알아봅니다.
+[보안 경고를 관리 하 고 대응](security-center-managing-and-responding-alerts.md)하 여 위협에 대응 하는 방법을 알아봅니다.

@@ -121,7 +121,7 @@ Azure 게스트 에이전트에 대한 액세스가 없는 경우 Azure에서 Wi
      
    2. *VHD 파일*을 선택한 다음 원본 VM을 포함하는 스토리지 계정을 선택합니다.
      
-      ![저장소 계정 선택](./media/reset-local-password-without-agent/disks-select-storage-account-classic.png)
+      ![스토리지 계정 선택](./media/reset-local-password-without-agent/disks-select-storage-account-classic.png)
      
    3. *클래식 저장소 계정 표시*확인란을 선택 하 고 원본 컨테이너를 선택 합니다. 원본 컨테이너는 일반적으로 *vhds*입니다.
      

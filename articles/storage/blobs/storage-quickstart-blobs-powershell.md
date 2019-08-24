@@ -1,6 +1,6 @@
 ---
-title: Azure 빠른 시작 - Azure PowerShell을 사용하여 개체 저장소에 Blob 만들기 | Microsoft Docs
-description: 이 빠른 시작에서는 개체(Blob) 저장소에서 Azure PowerShell을 사용합니다. 그런 다음, PowerShell을 사용하여 Azure Storage에 BLOB을 업로드하고, BLOB을 다운로드하고, 컨테이너의 BLOB을 나열합니다.
+title: Azure 빠른 시작 - Azure PowerShell을 사용하여 개체 스토리지에 Blob 만들기 | Microsoft Docs
+description: 이 빠른 시작에서는 개체(Blob) 스토리지에서 Azure PowerShell을 사용합니다. 그런 다음, PowerShell을 사용하여 Azure Storage에 BLOB을 업로드하고, BLOB을 다운로드하고, 컨테이너의 BLOB을 나열합니다.
 services: storage
 author: tamram
 ms.custom: mvc
@@ -110,7 +110,7 @@ Get-AzStorageBlobContent -Blob "Image002.png" `
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-만든 자산을 모두 제거합니다. 자산을 제거하는 가장 쉬운 방법은 리소스 그룹을 삭제하는 것입니다. 리소스 그룹을 제거하면 그룹 안에 포함된 모든 리소스가 삭제됩니다. 다음 예제에서 리소스 그룹을 제거하면 저장소 계정 및 리소스 그룹 자체가 제거됩니다.
+만든 자산을 모두 제거합니다. 자산을 제거하는 가장 쉬운 방법은 리소스 그룹을 삭제하는 것입니다. 리소스 그룹을 제거하면 그룹 안에 포함된 모든 리소스가 삭제됩니다. 다음 예제에서 리소스 그룹을 제거하면 스토리지 계정 및 리소스 그룹 자체가 제거됩니다.
 
 ```powershell
 Remove-AzResourceGroup -Name $resourceGroup
@@ -125,7 +125,7 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 ### <a name="microsoft-azure-powershell-storage-cmdlets-reference"></a>Microsoft Azure PowerShell Storage cmdlet 참조
 
-* [Storage PowerShell cmdlet](/powershell/module/az.storage)
+* [스토리지 PowerShell cmdlet](/powershell/module/az.storage)
 
 ### <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure Storage Explorer
 

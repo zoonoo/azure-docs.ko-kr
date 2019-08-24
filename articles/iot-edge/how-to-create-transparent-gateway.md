@@ -4,17 +4,17 @@ description: Azure IoT Edge 디바이스를 다운스트림 디바이스의 정�
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/07/2019
+ms.date: 08/17/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a91860e9ec8d503a01d079925466093d19bbbccf
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: e61ddd6cb51795fad564b6246fb24ea4ce48f028
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698616"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982946"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>IoT Edge 디바이스를 투명 게이트웨이로 작동하도록 구성
 
@@ -47,13 +47,11 @@ ms.locfileid: "68698616"
 
 다음 단계는 인증서를 만들어 게이트웨이의 올바른 위치에 설치 하는 과정을 안내 합니다. 머신을 사용하여 인증서를 생성한 다음, IoT Edge 디바이스로 복사할 수 있습니다. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure IoT Edge 디바이스를 게이트웨이로 구성합니다. 다음 운영 체제 중 하나에 IoT Edge 설치 단계를 사용 합니다.
   * [Windows](how-to-install-iot-edge-windows.md)
   * [Linux](how-to-install-iot-edge-linux.md)
-
-이 문서는 여러 지점에서 *게이트웨이 호스트 이름을* 참조 합니다. 게이트웨이 호스트 이름은 IoT Edge 게이트웨이 장치에서 config.xml 파일의 **hostname** 매개 변수에 선언 됩니다. 이 문서에서 인증서를 만드는 데 사용 되며 다운스트림 장치의 연결 문자열에서 참조 됩니다. IP 주소는 DNS 또는 호스트 파일 항목을 사용 하 여 게이트웨이 호스트 이름을 확인할 수 있어야 합니다.
 
 ## <a name="generate-certificates-with-windows"></a>Windows를 사용하여 인증서 생성
 
@@ -142,15 +140,18 @@ Azure IoT Edge git 리포지토리에는 테스트 인증서를 생성 하는 �
    이 스크립트 명령은 여러 인증서 및 키 파일을 만들지만,이 문서의 뒷부분에서 설명 하 고 있습니다.
    * `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
 
-2. 다음 명령을 사용 하 여 IoT Edge 장치 CA 인증서와 개인 키를 만듭니다. 게이트웨이 장치에 있는 iotedge\config.yaml 파일에서 찾을 수 있는 게이트웨이 호스트 이름을 제공 합니다. 게이트웨이 호스트 이름은 파일의 이름을 및 인증서를 생성 하는 동안 사용 됩니다. 
+2. 다음 명령을 사용 하 여 IoT Edge 장치 CA 인증서와 개인 키를 만듭니다. CA 인증서의 이름 (예: **MyEdgeDeviceCA**)을 입력 합니다. 이름은 파일의 이름을 및 인증서를 생성 하는 동안 사용 됩니다. 
 
    ```powershell
-   New-CACertsEdgeDevice "<gateway hostname>"
+   New-CACertsEdgeDeviceCA "MyEdgeDeviceCA"
    ```
 
    이 스크립트 명령은이 문서의 뒷부분에서 참조할 두 가지 인증서 및 키 파일을 만듭니다.
-   * `<WRKDIR>\certs\iot-edge-device-<gateway hostname>-full-chain.cert.pem`
-   * `<WRKDIR>\private\iot-edge-device-<gateway hostname>.key.pem`
+   * `<WRKDIR>\certs\iot-edge-device-ca-MyEdgeDeviceCA-full-chain.cert.pem`
+   * `<WRKDIR>\private\iot-edge-device-ca-MyEdgeDeviceCA.key.pem`
+
+   >[!TIP]
+   >**MyEdgeDeviceCA**이외의 이름을 제공 하는 경우이 명령으로 만든 인증서와 키는 해당 이름을 반영 합니다. 
 
 이제 인증서가 있으므로 [게이트웨이에서 인증서 설치](#install-certificates-on-the-gateway) 로 건너뜁니다.
 
@@ -193,6 +194,8 @@ Azure IoT Edge git 리포지토리에는 테스트 인증서를 생성 하는 �
 
 1. 루트 CA 인증서와 하나의 중간 인증서를 만듭니다. 이러한 인증서는 *\<WRKDIR>* 에 배치됩니다.
 
+   이 작업 디렉터리에 루트 및 중간 인증서를 이미 만든 경우에는이 스크립트를 다시 실행 하지 마세요. 이 스크립트를 다시 실행 하면 기존 인증서가 덮어쓰여집니다. 대신 다음 단계를 진행 합니다. 
+
    ```bash
    ./certGen.sh create_root_and_intermediate
    ```
@@ -200,15 +203,18 @@ Azure IoT Edge git 리포지토리에는 테스트 인증서를 생성 하는 �
    이 스크립트는 여러 인증서와 키를 만듭니다. 다음 섹션에서 참조할 정보를 적어 둡니다.
    * `<WRKDIR>/certs/azure-iot-test-only.root.ca.cert.pem`
 
-2. 다음 명령을 사용 하 여 IoT Edge 장치 CA 인증서와 개인 키를 만듭니다. 게이트웨이 장치의 iotedge/config.xml 파일에서 찾을 수 있는 게이트웨이 호스트 이름을 제공 합니다. 게이트웨이 호스트 이름은 파일의 이름을 및 인증서를 생성 하는 동안 사용 됩니다. 
+2. 다음 명령을 사용 하 여 IoT Edge 장치 CA 인증서와 개인 키를 만듭니다. CA 인증서의 이름 (예: **MyEdgeDeviceCA**)을 입력 합니다. 이름은 파일의 이름을 및 인증서를 생성 하는 동안 사용 됩니다. 
 
    ```bash
-   ./certGen.sh create_edge_device_certificate "<gateway hostname>"
+   ./certGen.sh create_edge_device_ca_certificate "MyEdgeDeviceCA"
    ```
 
    이 스크립트는 여러 인증서와 키를 만듭니다. 다음 섹션에서 참조할 2를 기록해 둡니다. 
-   * `<WRKDIR>/certs/iot-edge-device-<gateway hostname>-full-chain.cert.pem`
-   * `<WRKDIR>/private/iot-edge-device-<gateway hostname>.key.pem`
+   * `<WRKDIR>/certs/iot-edge-device-ca-MyEdgeDeviceCA-full-chain.cert.pem`
+   * `<WRKDIR>/private/iot-edge-device-ca-MyEdgeDeviceCA.key.pem`
+
+   >[!TIP]
+   >**MyEdgeDeviceCA**이외의 이름을 제공 하는 경우이 명령으로 만든 인증서와 키는 해당 이름을 반영 합니다. 
 
 ## <a name="install-certificates-on-the-gateway"></a>게이트웨이에 인증서 설치
 
@@ -216,8 +222,8 @@ Azure IoT Edge git 리포지토리에는 테스트 인증서를 생성 하는 �
 
 1. *\<WRKDIR>* 에서 다음 파일을 복사합니다. IoT Edge 디바이스 아무데나 저장합니다. IoT Edge 디바이스에 있는 대상 디렉터리를 *\<CERTDIR>* 이라고 하겠습니다. 
 
-   * 디바이스 CA 인증서 - `<WRKDIR>\certs\iot-edge-device-<gateway hostname>-full-chain.cert.pem`
-   * 디바이스 CA 프라이빗 키 - `<WRKDIR>\private\iot-edge-device-<gateway hostname>.key.pem`
+   * 디바이스 CA 인증서 - `<WRKDIR>\certs\iot-edge-device-ca-MyEdgeDeviceCA-full-chain.cert.pem`
+   * 디바이스 CA 프라이빗 키 - `<WRKDIR>\private\iot-edge-device-ca-MyEdgeDeviceCA.key.pem`
    * 루트 CA-`<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
 
    [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) 와 같은 서비스를 사용 하거나 [보안 복사 프로토콜과](https://www.ssh.com/ssh/scp/) 같은 기능을 사용 하 여 인증서 파일을 이동할 수 있습니다.  IoT Edge 장치 자체에서 인증서를 생성 한 경우이 단계를 건너뛰고 작업 디렉터리에 대 한 경로를 사용할 수 있습니다.
@@ -233,16 +239,16 @@ Azure IoT Edge git 리포지토리에는 테스트 인증서를 생성 하는 �
 
       ```yaml
       certificates:
-        device_ca_cert: "<CERTDIR>\\certs\\iot-edge-device-<gateway hostname>-full-chain.cert.pem"
-        device_ca_pk: "<CERTDIR>\\private\\iot-edge-device-<gateway hostname>.key.pem"
+        device_ca_cert: "<CERTDIR>\\certs\\iot-edge-device-ca-MyEdgeDeviceCA-full-chain.cert.pem"
+        device_ca_pk: "<CERTDIR>\\private\\iot-edge-device-ca-MyEdgeDeviceCA.key.pem"
         trusted_ca_certs: "<CERTDIR>\\certs\\azure-iot-test-only.root.ca.cert.pem"
       ```
    
    * Linux: 
       ```yaml
       certificates:
-        device_ca_cert: "<CERTDIR>/certs/iot-edge-device-<gateway hostname>-full-chain.cert.pem"
-        device_ca_pk: "<CERTDIR>/private/iot-edge-device-<gateway hostname>.key.pem"
+        device_ca_cert: "<CERTDIR>/certs/iot-edge-device-ca-MyEdgeDeviceCA-full-chain.cert.pem"
+        device_ca_pk: "<CERTDIR>/private/iot-edge-device-ca-MyEdgeDeviceCA.key.pem"
         trusted_ca_certs: "<CERTDIR>/certs/azure-iot-test-only.root.ca.cert.pem"
       ```
 

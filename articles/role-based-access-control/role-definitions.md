@@ -15,12 +15,12 @@ ms.date: 06/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: ece5d8f9733dde57c2990bfbb6bb90305d8bc37d
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 2ec3872b9e11830f7891e98f5fc0182b99e1586d
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68977196"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997338"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Azure 리소스에 대한 역할 정의 이해
 
@@ -88,7 +88,7 @@ JSON 형식의 [기여자](built-in-roles.md#contributor) 역할 정의가 있�
 - Blob 컨테이너 만들기, 업데이트 또는 삭제
 - 리소스 그룹 및 해당하는 모든 리소스 삭제
 
-관리 액세스 권한은 데이터에 상속되지 않습니다. 이렇게 분리하면 와일드카드(`*`)가 있는 역할에서 데이터에 무제한으로 액세스할 수 없게 됩니다. 예를 들어 구독에 [읽기 권한자](built-in-roles.md#reader) 역할이 있는 사용자는 스토리지 계정을 볼 수 있지만 기본적으로 기본 데이터는 볼 수 없습니다.
+컨테이너 인증 방법이 "액세스 키"가 아닌 "Azure AD 사용자 계정"으로 설정 된 경우 관리 액세스는 데이터에 상속 되지 않습니다. 이렇게 분리하면 와일드카드(`*`)가 있는 역할에서 데이터에 무제한으로 액세스할 수 없게 됩니다. 예를 들어 구독에 [읽기 권한자](built-in-roles.md#reader) 역할이 있는 사용자는 스토리지 계정을 볼 수 있지만 기본적으로 기본 데이터는 볼 수 없습니다.
 
 이전에는 역할 기반 액세스 제어가 데이터 작업에 사용되지 않았습니다. 데이터 작업에 대한 권한 부여는 리소스 공급자에 따라 다양합니다. 관리 작업에 사용 되는 것과 동일한 역할 기반 액세스 제어 권한 부여 모델이 데이터 작업으로 확장 되었습니다.
 

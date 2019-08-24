@@ -54,7 +54,7 @@ Storm에서는 친숙한 [Apache Hadoop MapReduce](https://hadoop.apache.org/doc
 
 * Spout 구성 요소는 데이터를 토폴로지로 가져옵니다. 하나 이상의 스트림을 토폴로지에 내보냅니다.
 
-* Bolt 구성 요소는 Spout 또는 다른 Bolt에서 내보낸 스트림을 사용합니다. Bolt는 필요에 따라 스트림을 토폴로지로 내보낼 수 있습니다. 또한 Bolt는 HDFS, Kafka 또는 HBase와 같은 외부 서비스 또는 저장소에 데이터를 쓰는 역할을 수행합니다.
+* Bolt 구성 요소는 Spout 또는 다른 Bolt에서 내보낸 스트림을 사용합니다. Bolt는 필요에 따라 스트림을 토폴로지로 내보낼 수 있습니다. 또한 Bolt는 HDFS, Kafka 또는 HBase와 같은 외부 서비스 또는 스토리지에 데이터를 쓰는 역할을 수행합니다.
 
 ## <a name="reliability"></a>안정성
 

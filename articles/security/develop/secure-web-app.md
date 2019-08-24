@@ -118,7 +118,7 @@ Application Gateway는 위협 모델에서 발견 된 DDoS 및 SQL 삽입 위협
 Azure 리소스 및 MFA에 대 한 관리 되는 id를 사용 하면 악의적 사용자가 권한을 획득 하 고 시스템에서 해당 권한을 에스컬레이션 하기가 더 어려워집니다. 위협 모델에서이 위협을 지적 했습니다.
 앱은 oauth를 사용 하 여 OAuth 응용 프로그램에 등록 된 사용자가 앱에 로그인 할 수 있도록 합니다.
 
-### <a name="storage"></a>저장 공간
+### <a name="storage"></a>스토리지
 PostgreSQL 데이터베이스의 데이터는 Azure Database for PostgreSQL에 의해 자동으로 암호화 됩니다. 이 데이터베이스는 배포 된 App Service 웹 앱만 올바른 인증 자격 증명을 사용 하 여 데이터베이스 리소스에 액세스할 수 있도록 App Service IP 주소에 권한을 부여 합니다.
 
 ### <a name="logging-and-auditing"></a>로깅 및 감사
@@ -903,7 +903,7 @@ Azure 센티널을 설정 하려면 먼저 다양 한 리소스에서 수집 된
 
       *Application Gateway 진단 추가*
 
-   4. **진단 설정** 페이지에서 사용자가 만든 Log Analytics 작업 영역을 선택 하 고 수집 하 여 Azure 센티널로 보낼 모든 메트릭을 선택 합니다.           **저장**을 선택합니다.
+   4. **진단 설정** 페이지에서 사용자가 만든 Log Analytics 작업 영역을 선택 하 고 수집 하 여 Azure 센티널로 보낼 모든 메트릭을 선택 합니다. **저장**을 선택합니다.
 
         ![Azure 센티널 커넥터 설정](./media/secure-web-app/sentinel-connector-settings.png)
 

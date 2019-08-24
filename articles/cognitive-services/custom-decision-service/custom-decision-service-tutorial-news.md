@@ -57,7 +57,7 @@ Custom Decision Service는 고객이 제공한 RSS 또는 Atom 피드를 통해 
 
     ![Custom Decision Service 포털](./media/custom-decision-service-tutorial/portal.png)
 
-3. **앱 ID** 텍스트 상자에서 애플리케이션에 고유한 이름을 입력합니다. 다른 고객이 이 이름을 이미 사용하는 경우 시스템은 다른 앱 ID를 선택하도록 요청합니다. **고급** 확인란을 선택하고, Azure 저장소 계정에 대한 [연결 문자열](../../storage/common/storage-configure-connection-string.md)을 입력합니다. 일반적으로 모든 애플리케이션에 동일한 저장소 계정을 사용합니다.
+3. **앱 ID** 텍스트 상자에서 애플리케이션에 고유한 이름을 입력합니다. 다른 고객이 이 이름을 이미 사용하는 경우 시스템은 다른 앱 ID를 선택하도록 요청합니다. **고급** 확인란을 선택하고, Azure Storage 계정에 대한 [연결 문자열](../../storage/common/storage-configure-connection-string.md)을 입력합니다. 일반적으로 모든 애플리케이션에 동일한 스토리지 계정을 사용합니다.
 
     ![새 앱 대화 상자](./media/custom-decision-service-tutorial/new-app-dialog.png)
 

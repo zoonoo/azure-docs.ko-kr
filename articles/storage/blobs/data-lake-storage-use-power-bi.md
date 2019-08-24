@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: normesta
 ms.reviewer: bensack
-ms.openlocfilehash: cb82d47be11570baf7865468c804162a20a7685f
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 59574f0a07f4ecc145f2b0efd430e65cbdebcc65
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855477"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991571"
 ---
 # <a name="analyze-data-in-azure-data-lake-storage-gen2-by-using-power-bi"></a>Power BI를 사용 하 여 Azure Data Lake Storage Gen2 데이터 분석
 
@@ -39,7 +39,7 @@ ms.locfileid: "68855477"
 
     ![데이터 가져오기 페이지](media/data-lake-storage-use-power-bi/get-data-page.png)
 
-4. **Azure Data Lake Storage Gen2** 대화 상자에서 파일 시스템 끝점 형식을 사용 하 여 Azure Data Lake Storage Gen2 계정, 파일 시스템 또는 하위 폴더에 대 한 URL을 제공할 수 있습니다. Data Lake Storage Gen2에 대 한 url에는 `https://<accountname>.dfs.core.windows.net/<filesystemname>/<subfolder>` 다음 패턴이 있으며 **확인**을 클릭 합니다.
+4. **Azure Data Lake Storage Gen2** 대화 상자에서 컨테이너 끝점 형식을 사용 하 여 Azure Data Lake Storage Gen2 계정, 파일 시스템 또는 하위 폴더에 대 한 URL을 제공할 수 있습니다. Data Lake Storage Gen2에 대 한 url에는 `https://<accountname>.dfs.core.windows.net/<filesystemname>/<subfolder>` 다음 패턴이 있으며 **확인**을 클릭 합니다.
 
     ![URL](media/data-lake-storage-use-power-bi/adls-url.png)
 

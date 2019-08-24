@@ -24,7 +24,7 @@ ms.locfileid: "62103670"
 
 Azure Resource Manager 템플릿을 만들어서 여러 리소스를 배포하고 배포 순서를 구성하는 방법을 알아봅니다. 템플릿을 만든 후에는 Azure Portal에서 Cloud shell을 사용하여 템플릿을 배포합니다.
 
-이 자습서에서는 저장소 계정, 가상 머신, 가상 네트워크 및 몇 가지 다른 종속 리소스를 만듭니다. 일부 리소스는 다른 리소스가 존재하기 전에는 배포할 수 없습니다. 예를 들어 저장소 계정 및 네트워크 인터페이스가 없으면 가상 머신을 만들 수 없습니다. 한 리소스를 다른 리소스의 종속 리소스로 만들어서 이 관계를 정의할 수 있습니다. Resource Manager는 리소스 간의 종속성을 평가한 후 종속된 순서에 따라 리소스를 배포합니다. 리소스가 서로 종속되어 있지 않은 경우 Resource Manager는 이를 병렬로 배포합니다. 자세한 내용은 [Azure Resource Manager 템플릿에서 리소스를 배포하는 순서 정의](./resource-group-define-dependencies.md)를 참조하세요.
+이 자습서에서는 스토리지 계정, 가상 머신, 가상 네트워크 및 몇 가지 다른 종속 리소스를 만듭니다. 일부 리소스는 다른 리소스가 존재하기 전에는 배포할 수 없습니다. 예를 들어 스토리지 계정 및 네트워크 인터페이스가 없으면 가상 머신을 만들 수 없습니다. 한 리소스를 다른 리소스의 종속 리소스로 만들어서 이 관계를 정의할 수 있습니다. Resource Manager는 리소스 간의 종속성을 평가한 후 종속된 순서에 따라 리소스를 배포합니다. 리소스가 서로 종속되어 있지 않은 경우 Resource Manager는 이를 병렬로 배포합니다. 자세한 내용은 [Azure Resource Manager 템플릿에서 리소스를 배포하는 순서 정의](./resource-group-define-dependencies.md)를 참조하세요.
 
 ![리소스 관리자 템플릿 종속 리소스 배포 순서 다이어그램](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-dependent-resources-diagram.png)
 
@@ -41,7 +41,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 이 문서를 완료하려면 다음이 필요합니다.
 
-* Resource Manager Tools 확장이 있는 [Visual Studio Code](https://code.visualstudio.com/)   [확장 설치](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)를 참조하세요.
+* Resource Manager Tools 확장이 있는 [Visual Studio Code](https://code.visualstudio.com/)  [확장 설치](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)를 참조하세요.
 * 보안을 강화하려면 가상 머신 관리자 계정에 생성된 암호를 사용합니다. 암호를 생성하는 방법에 대한 샘플은 다음과 같습니다.
 
     ```azurecli-interactive
@@ -67,7 +67,7 @@ Azure 퀵 스타트 템플릿은 Resource Manager 템플릿용 저장소입니�
 이 섹션의 템플릿을 탐색하는 경우 다음 질문에 대답해 보세요.
 
 * 이 템플릿에 정의되는 Azure 리소스는 얼마나 되나요?
-* 리소스 중 하나는 Azure 저장소 계정입니다.  마지막 자습서에서 사용한 것과 비슷한 같은 정의인가요?
+* 리소스 중 하나는 Azure Storage 계정입니다.  마지막 자습서에서 사용한 것과 비슷한 같은 정의인가요?
 * 이 템플릿에 정의된 리소스에 대한 템플릿 참조를 찾을 수 있나요?
 * 리소스의 종속성을 찾을 수 있나요?
 
@@ -85,9 +85,9 @@ Azure 퀵 스타트 템플릿은 Resource Manager 템플릿용 저장소입니�
 
      템플릿을 사용자 지정하기 전에 템플릿의 몇 가지 기본적인 내용을 이해하면 유용합니다.
 
-2. 첫 번째 리소스를 확장합니다. 저장소 계정입니다. 리소스 정의를 [템플릿 참조](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts)와 비교합니다.
+2. 첫 번째 리소스를 확장합니다. 스토리지 계정입니다. 리소스 정의를 [템플릿 참조](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts)와 비교합니다.
 
-    ![Visual Studio Code Azure Resource Manager 템플릿 - 저장소 계정 정의](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-storage-account-definition.png)
+    ![Visual Studio Code Azure Resource Manager 템플릿 - 스토리지 계정 정의](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-storage-account-definition.png)
 
 3. 두 번째 리소스를 확장합니다. 리소스 종류는 `Microsoft.Network/publicIPAddresses`입니다. 리소스 정의를 [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses)와 비교합니다.
 
@@ -110,7 +110,7 @@ Azure 퀵 스타트 템플릿은 Resource Manager 템플릿용 저장소입니�
 
 ![Visual Studio Code Azure Resource Manager 템플릿 종속성 다이어그램](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code-dependency-diagram.png)
 
-종속성을 지정하면 Resource Manager가 솔루션을 효율적으로 배포합니다. 종속성이 없기 때문에 저장소 계정, 공용 IP 주소 및 가상 네트워크가 병렬로 배포됩니다. 공용 IP 주소 및 가상 네트워크가 배포된 후에는 네트워크 인터페이스가 생성됩니다. 다른 모든 리소스가 배포되면 Resource Manager는 가상 머신을 배포합니다.
+종속성을 지정하면 Resource Manager가 솔루션을 효율적으로 배포합니다. 종속성이 없기 때문에 스토리지 계정, 공용 IP 주소 및 가상 네트워크가 병렬로 배포됩니다. 공용 IP 주소 및 가상 네트워크가 배포된 후에는 네트워크 인터페이스가 생성됩니다. 다른 모든 리소스가 배포되면 Resource Manager는 가상 머신을 배포합니다.
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 

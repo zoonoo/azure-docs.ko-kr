@@ -37,7 +37,7 @@ ms.locfileid: "68827958"
 ## <a name="prerequisites"></a>필수 조건
 
 * **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/) 을 만듭니다.
-* **Azure Storage 계정**: Blob 스토리지를 _원본_ 데이터 저장소로 사용합니다. Azure 저장소 계정이 없는 경우 [저장소 계정 만들기](../storage/common/storage-quickstart-create-account.md)의 지침을 참조하세요.
+* **Azure Storage 계정**: Blob 스토리지를 _원본_ 데이터 저장소로 사용합니다. Azure Storage 계정이 없는 경우 [스토리지 계정 만들기](../storage/common/storage-quickstart-create-account.md)의 지침을 참조하세요.
 * **Azure SQL Database**: SQL 데이터베이스를 _싱크_ 데이터 저장소로 사용합니다. SQL 데이터베이스가 없는 경우 [SQL 데이터베이스 만들기](../sql-database/sql-database-get-started-portal.md)의 지침을 참조하세요.
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Blob 및 SQL 테이블 만들기
@@ -116,7 +116,7 @@ ms.locfileid: "68827958"
 
     b. 갤러리에서 **Azure Blob Storage**를 선택한 다음, **계속**을 선택합니다.
 
-    다. **새로 연결된 서비스** 페이지의 **저장소 계정 이름** 목록에서 저장소 계정을 선택한 다음, **마침**을 선택합니다.
+    다. **새로 연결된 서비스** 페이지의 **스토리지 계정 이름** 목록에서 스토리지 계정을 선택한 다음, **마침**을 선택합니다.
 
     d. 새로 만든 연결된 서비스를 원본으로 선택하고 **다음**을 클릭합니다.
 

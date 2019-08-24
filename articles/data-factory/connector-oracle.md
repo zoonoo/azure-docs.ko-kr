@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 08/23/2019
 ms.author: jingwang
-ms.openlocfilehash: 142c99b2471a9010a00bf9b5d50549c5e84548f1
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 9c27b81717c32ccf4c78143a3d3d31de7181c5fe
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966456"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996621"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Oracle 간 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -46,7 +46,7 @@ Oracle 데이터베이스에서 지원되는 모든 싱크 데이터 저장소�
 > [!Note]
 > Oracle 프록시 서버는 지원되지 않습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)] 
 
@@ -198,7 +198,7 @@ Oracle 간에 데이터를 복사 하려면 데이터 집합의 type 속성을�
 ### <a name="oracle-as-source"></a>Oracle을 원본으로
 
 >[!TIP]
->데이터 분할을 사용 하 여 Oracle에서 데이터를 효율적으로 로드 하려면 [oracle의 병렬 복사](#parallel-copy-from-oracle)를 참조 하세요.
+>데이터 분할을 사용 하 여 Oracle에서 데이터를 효율적으로 로드 하려면 [oracle의 병렬 복사](#parallel-copy-from-oracle)에서 자세히 알아보세요.
 
 Oracle에서 데이터를 복사 하려면 복사 작업의 원본 형식을로 `OracleSource`설정 합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
@@ -293,9 +293,9 @@ Data Factory Oracle 커넥터는 Oracle의 데이터를 병렬로 복사 하기 
 
 ![파티션 옵션의 스크린샷](./media/connector-oracle/connector-oracle-partition-options.png)
 
-분할 된 복사를 사용 하도록 설정 하면 Data Factory Oracle 원본에 대해 병렬 쿼리를 실행 하 여 파티션으로 데이터를 로드 합니다. 병렬 수준은 복사 작업의 [`parallelCopies`](copy-activity-performance.md#parallel-copy) 설정에 의해 제어 됩니다. 예를 들어를 4로 `parallelCopies` 설정 하는 경우 Data Factory는 지정 된 파티션 옵션 및 설정에 따라 4 개의 쿼리를 동시에 생성 하 고 실행 합니다. 각 쿼리는 Oracle 데이터베이스에서 데이터의 일부를 검색 합니다.
+분할 된 복사를 사용 하도록 설정 하면 Data Factory Oracle 원본에 대해 병렬 쿼리를 실행 하 여 파티션으로 데이터를 로드 합니다. 병렬 수준은 복사 작업의 [`parallelCopies`](copy-activity-performance.md#parallel-copy) 설정에 의해 제어 됩니다. 예를 들어를 4로 `parallelCopies` 설정 하는 경우 Data Factory는 지정 된 파티션 옵션 및 설정을 기반으로 4 개의 쿼리를 동시에 생성 하 고 실행 하며 각 쿼리는 Oracle 데이터베이스에서 데이터의 일부를 검색 합니다.
 
-특히 Oracle 데이터베이스에서 많은 양의 데이터를 로드 하는 경우 데이터 분할을 사용 하 여 병렬 복사를 사용 하는 것이 좋습니다. 다음은 다양 한 시나리오에 권장 되는 구성입니다.
+특히 Oracle 데이터베이스에서 많은 양의 데이터를 로드 하는 경우 데이터 분할을 사용 하 여 병렬 복사를 사용 하는 것이 좋습니다. 다음은 다양 한 시나리오에 권장 되는 구성입니다. 파일 기반 데이터 저장소로 데이터를 복사 하는 경우 폴더에 여러 파일 (폴더 이름만 지정)로 기록 하는 것이 좋습니다 .이 경우에는 단일 파일에 쓰는 것 보다 성능이 좋습니다.
 
 | 시나리오                                                     | 제안 된 설정                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -351,14 +351,14 @@ Oracle에서 Oracle로 데이터를 복사 하는 경우 다음 매핑이 적용
 | LONG |String |
 | LONG RAW |Byte[] |
 | NCHAR |String |
-| NCLOB |문자열 |
+| NCLOB |String |
 | NUMBER |Decimal, 문자열(전체 자릿수의 경우 > 28) |
-| NVARCHAR2 |String |
+| NVARCHAR2 |문자열 |
 | RAW |Byte[] |
 | ROWID |String |
 | TIMESTAMP |DateTime |
 | TIMESTAMP WITH LOCAL TIME ZONE |String |
-| TIMESTAMP WITH TIME ZONE |String |
+| TIMESTAMP WITH TIME ZONE |문자열 |
 | UNSIGNED INTEGER |NUMBER |
 | VARCHAR2 |String |
 | XML |String |

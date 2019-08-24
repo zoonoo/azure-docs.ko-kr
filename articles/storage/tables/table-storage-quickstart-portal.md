@@ -17,13 +17,13 @@ ms.locfileid: "55462718"
 ---
 # <a name="quickstart-create-an-azure-storage-table-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Storage 테이블 만들기 
 
-이 빠른 시작에서는 웹 기반 Azure Portal에서 테이블과 엔터티를 만드는 방법을 보여 줍니다. 또한 Azure 저장소 계정을 만드는 방법도 보여 줍니다.
+이 빠른 시작에서는 웹 기반 Azure Portal에서 테이블과 엔터티를 만드는 방법을 보여 줍니다. 또한 Azure Storage 계정을 만드는 방법도 보여 줍니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 빠른 시작을 완료하려면 먼저 [Azure Portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM)에서 Azure 저장소 계정을 만듭니다. 저장소 계정을 만드는 데 도움이 필요한 경우 [저장소 계정 만들기](../common/storage-quickstart-create-account.md)를 참조하세요.
+이 빠른 시작을 완료하려면 먼저 [Azure Portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM)에서 Azure Storage 계정을 만듭니다. 스토리지 계정을 만드는 데 도움이 필요한 경우 [스토리지 계정 만들기](../common/storage-quickstart-create-account.md)를 참조하세요.
 
 ## <a name="add-a-table"></a>테이블 추가
 

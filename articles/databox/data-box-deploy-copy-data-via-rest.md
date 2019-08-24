@@ -148,7 +148,7 @@ RHEL, Fedora 및 CentOS의 최신 버전은 `update-ca-trust` 명령을 사용�
 
 Data Box Blob 스토리지에 연결한 후 다음 단계는 데이터를 복사하는 것입니다. 데이터를 복사하기 전에, 다음 고려 사항을 검토합니다.
 
--  데이터를 복사하는 동안 데이터 크기가 [Azure 저장소 및 Data Box 제한](data-box-limits.md)에 설명된 크기 제한을 준수해야 합니다.
+-  데이터를 복사하는 동안 데이터 크기가 [Azure Storage 및 Data Box 제한](data-box-limits.md)에 설명된 크기 제한을 준수해야 합니다.
 - Data Box에 의해 업로드되는 데이터가 Data Box 외부의 다른 애플리케이션에 의해 동시에 업로드되는 경우 업로드 작업이 실패하고 데이터 손상이 발생할 수 있습니다.
 
 이 자습서에서는 Data Box Blob 스토리지에 데이터를 복사하는 데 AzCopy를 사용합니다. Azure Storage 탐색기(GUI 기반 도구를 선호하는 경우) 또는 파트너 소프트웨어를 사용하여 데이터를 복사할 수도 있습니다.
@@ -166,7 +166,7 @@ Data Box Blob 스토리지에 연결한 후 다음 단계는 데이터를 복사
 Blob은 항상 컨테이너에 업로드하므로 첫 번째 단계는 컨테이너 만들기입니다. 컨테이너는 컴퓨터의 디렉터리에서 파일을 구성하는 것처럼 Blob을 구성합니다. 다음 단계에 따라 Blob 컨테이너를 만듭니다.
 
 1. 저장소 탐색기를 엽니다.
-2. 왼쪽 창에서 blob 컨테이너를 만들고자 하는 곳의 저장소 계정을 확장합니다.
+2. 왼쪽 창에서 blob 컨테이너를 만들고자 하는 곳의 스토리지 계정을 확장합니다.
 3. 마우스 오른쪽 단추로 **Blob 컨테이너**를 클릭하고, 상황에 맞는 메뉴에서 **Blob 컨테이너 만들기**를 선택합니다.
 
    ![Blob 컨테이너 상황에 맞는 메뉴 만들기](media/data-box-deploy-copy-data-via-rest/create-blob-container-1.png)
@@ -213,7 +213,7 @@ AzCopy를 사용하여 마지막 수정 시간을 기반으로 파일을 업로�
     --recursive \
     --exclude-older
 
-#### <a name="windows"></a> Windows
+#### <a name="windows"></a>Windows
 
     AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S /XO
 

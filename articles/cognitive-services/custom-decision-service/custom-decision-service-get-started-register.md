@@ -35,7 +35,7 @@ ms.locfileid: "68704560"
 
 4. 작업 집합 API를 지정합니다. 이 설정은 애플리케이션에 사용 가능한 콘텐츠를 Custom Decision Service로 전달하는 RSS 또는 Atom 피드입니다. 피드 이름을 입력하고 피드를 제공하는 URL을 입력합니다. 나중에 이 단계를 수행하려면 **피드** 단추를 클릭하고 **새 피드** 단추를 클릭합니다. RSS 피드를 만드는 예제는 나중에 설명합니다.
 
-5. 애플리케이션을 등록하려면 왼쪽 아래에 있는 **사용자 지정 앱** 확인란을 선택합니다. 애플리케이션 데이터가 기록되는 Azure 저장소 계정에 대한 [연결 문자열](../../storage/common/storage-configure-connection-string.md)을 입력합니다. 저장소 계정을 만드는 방법에 대한 자세한 내용은 [저장소 계정을 만들거나, 관리하거나, 삭제하는 방법](../../storage/common/storage-create-storage-account.md)을 참조하세요.
+5. 애플리케이션을 등록하려면 왼쪽 아래에 있는 **사용자 지정 앱** 확인란을 선택합니다. 애플리케이션 데이터가 기록되는 Azure Storage 계정에 대한 [연결 문자열](../../storage/common/storage-configure-connection-string.md)을 입력합니다. 스토리지 계정을 만드는 방법에 대한 자세한 내용은 [스토리지 계정을 만들거나, 관리하거나, 삭제하는 방법](../../storage/common/storage-create-storage-account.md)을 참조하세요.
 
 ### <a name="next-steps"></a>다음 단계
 

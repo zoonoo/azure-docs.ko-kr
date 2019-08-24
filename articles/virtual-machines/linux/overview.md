@@ -23,7 +23,7 @@ ms.lasthandoff: 07/09/2019
 ms.locfileid: "67671052"
 ---
 # <a name="azure-and-linux"></a>Azure와 Linux
-Microsoft Azure는 분석, 가상 머신, 데이터베이스, 모바일, 네트워킹, 저장소 및 웹을 포함하여 성장하고 있는 통합된 퍼블릭 클라우드 서비스 모음이며, 솔루션 호스팅에 적합합니다.  Microsoft Azure는 온-프레미스 하드웨어 없이도 확장할 수 있는 컴퓨팅 플랫폼을 제공하며, 필요한 때, 사용한 만큼 비용을 지불하면 됩니다.  Azure는 솔루션을 강화하고 클라이언트의 요구를 맞추기 위해 필요한 규모에 준비되어 있습니다.
+Microsoft Azure는 분석, 가상 머신, 데이터베이스, 모바일, 네트워킹, 스토리지 및 웹을 포함하여 성장하고 있는 통합된 퍼블릭 클라우드 서비스 모음이며, 솔루션 호스팅에 적합합니다.  Microsoft Azure는 온-프레미스 하드웨어 없이도 확장할 수 있는 컴퓨팅 플랫폼을 제공하며, 필요한 때, 사용한 만큼 비용을 지불하면 됩니다.  Azure는 솔루션을 강화하고 클라이언트의 요구를 맞추기 위해 필요한 규모에 준비되어 있습니다.
 
 Amazon의 AWS의 다양한 기능에 익숙한 경우 Azure과 AWS 비교 [정의 매핑 문서](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/)를 검토할 수 있습니다.
 
@@ -33,13 +33,13 @@ Microsoft Azure 리소스는 전 세계 여러 지리적 지역에 걸쳐 분산
 * [Azure 지역](https://azure.microsoft.com/regions/)
 
 ## <a name="availability"></a>가용성
-Azure는 모든 디스크에 프리미엄 저장소를 사용하여 VM을 배포하는 경우 업계 최고의 99.9% 단일 인스턴스 가상 머신 Service Level Agreement(서비스 수준 약정)를 발표했습니다.  배포에서 표준 99.95% VM 서비스 수준 약정을 충족하려면 가용성 집합 내부에서 워크로드를 실행하는 VM을 둘 이상 계속 배포해야 합니다. 가용성 집합을 사용하면 VM이 Azure 데이터 센터에서 여러 오류 도메인 간에 분산될 뿐만 아니라 다양한 유지 관리 창이 있는 호스트에 배포됩니다. 전체 [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)는 Azure의 보장된 가용성에 대해 전반적으로 설명합니다.
+Azure는 모든 디스크에 프리미엄 스토리지를 사용하여 VM을 배포하는 경우 업계 최고의 99.9% 단일 인스턴스 가상 머신 Service Level Agreement(서비스 수준 약정)를 발표했습니다.  배포에서 표준 99.95% VM 서비스 수준 약정을 충족하려면 가용성 집합 내부에서 워크로드를 실행하는 VM을 둘 이상 계속 배포해야 합니다. 가용성 집합을 사용하면 VM이 Azure 데이터 센터에서 여러 오류 도메인 간에 분산될 뿐만 아니라 다양한 유지 관리 창이 있는 호스트에 배포됩니다. 전체 [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)는 Azure의 보장된 가용성에 대해 전반적으로 설명합니다.
 
 ## <a name="managed-disks"></a>Managed Disks
 
-Managed Disks는 백그라운드에서 Azure Storage 계정 만들기 및 관리 작업을 처리하기 때문에 저장소 계정의 확장성 제한에 걱정할 필요가 없습니다. 디스크 크기와 성능 계층(표준 또는 프리미엄)을 지정하면, Azure가 디스크를 만들고 관리합니다. 디스크를 추가하거나 VM을 확장하고 축소하면 사용 중인 저장소에 대해 걱정할 필요가 없습니다. 새 VM을 만드는 경우 [Azure CLI를 사용](quick-create-cli.md)하거나 Azure Portal을 사용하여 관리되는 OS 및 데이터 디스크로 VM을 만듭니다. 관리되지 않는 디스크가 있는 VM이 있는 경우 [Managed Disks로 지원되도록 VM을 변환](convert-unmanaged-to-managed-disks.md)할 수 있습니다.
+Managed Disks는 백그라운드에서 Azure Storage 계정 만들기 및 관리 작업을 처리하기 때문에 저장소 계정의 확장성 제한에 걱정할 필요가 없습니다. 디스크 크기와 성능 계층(표준 또는 프리미엄)을 지정하면, Azure가 디스크를 만들고 관리합니다. 디스크를 추가하거나 VM을 확장하고 축소하면 사용 중인 스토리지에 대해 걱정할 필요가 없습니다. 새 VM을 만드는 경우 [Azure CLI를 사용](quick-create-cli.md)하거나 Azure Portal을 사용하여 관리되는 OS 및 데이터 디스크로 VM을 만듭니다. 관리되지 않는 디스크가 있는 VM이 있는 경우 [Managed Disks로 지원되도록 VM을 변환](convert-unmanaged-to-managed-disks.md)할 수 있습니다.
 
-또한 Azure 지역당 하나의 저장소 계정에서 사용자 지정 이미지를 관리하고 동일한 구독에서 수백 개의 VM을 만드는 데 사용할 수도 있습니다. 관리 디스크에 대한 자세한 내용은 [Managed Disks 개요](../linux/managed-disks-overview.md)를 참조하세요.
+또한 Azure 지역당 하나의 스토리지 계정에서 사용자 지정 이미지를 관리하고 동일한 구독에서 수백 개의 VM을 만드는 데 사용할 수도 있습니다. 관리 디스크에 대한 자세한 내용은 [Managed Disks 개요](../linux/managed-disks-overview.md)를 참조하세요.
 
 ## <a name="azure-virtual-machines--instances"></a>Azure Virtual Machines 및 인스턴스
 Microsoft Azure는 많은 파트너가 제공하고 유지 관리하는 다양하고 인기 있는 Linux 배포를 지원합니다.  Azure Marketplace에서 Red Hat Enterprise, CentOS, SUSE Linux Enterprise, Debian, Ubuntu, CoreOS, RancherOS, FreeBSD 등과 같은 배포를 찾을 수 있습니다. Microsoft에서는 다양한 Linux 커뮤니티와 적극적으로 작업하여 [Azure 인증 Linux 배포판](endorsed-distros.md) 목록에 다양한 옵션을 추가합니다.
@@ -49,9 +49,9 @@ Microsoft Azure는 많은 파트너가 제공하고 유지 관리하는 다양�
 Azure 가상 컴퓨터를 사용하면 다양한 컴퓨팅 솔루션을 민첩하게 배포할 수 있습니다. 거의 모든 운영 체제(Windows, Linux 또는 증가하는 파트너 목록 중 하나에서 사용자 지정으로 만든 운영 체제)에서 거의 모든 워크로드 및 언어를 배포할 수 있습니다. 그래도 원하는 내용이 표시되지 않나요?  걱정하지 마세요. 온-프레미스에서 고유한 이미지를 가져올 수 있습니다.
 
 ## <a name="vm-sizes"></a>VM 크기
-사용할 VM의 [크기](sizes.md)는 실행하려는 워크로드를 기준으로 결정됩니다. 그런 다음 선택하는 크기는 처리 성능, 메모리 및 저장소 용량 등의 요소를 결정합니다. Azure는 다양한 크기를 제공하여 다양한 유형의 사용을 지원합니다.
+사용할 VM의 [크기](sizes.md)는 실행하려는 워크로드를 기준으로 결정됩니다. 그런 다음 선택하는 크기는 처리 성능, 메모리 및 스토리지 용량 등의 요소를 결정합니다. Azure는 다양한 크기를 제공하여 다양한 유형의 사용을 지원합니다.
 
-Azure는 VM의 크기와 운영 체제에 기반한 [시간당 가격](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)을 청구합니다. 부분 시간의 경우 Azure는 사용 시간(분)에 대해서만 청구합니다. 저장소는 가격이 책정되며 개별적으로 청구됩니다.
+Azure는 VM의 크기와 운영 체제에 기반한 [시간당 가격](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)을 청구합니다. 부분 시간의 경우 Azure는 사용 시간(분)에 대해서만 청구합니다. 스토리지는 가격이 책정되며 개별적으로 청구됩니다.
 
 ## <a name="automation"></a>Automation
 적절한 DevOps 문화권을 얻으려면 모든 인프라가 코드여야 합니다.  모든 인프라가 코드로 되어 있으면 쉽게 다시 만들 수 있습니다(Phoenix 서버).  Azure는 Ansible, Chef, SaltStack 및 Puppet과 같은 모든 주요 자동화 도구와 함께 작동합니다.  또한 Azure는 자체 자동화 도구도 제공합니다.
@@ -110,7 +110,7 @@ Azure 웹 포털에서 Linux VM을 만들 경우 배포를 진행하기 위한 �
 VM은 현재 Azure에서 실행되고 있으며 로그인할 수 있습니다.  암호를 사용하여 SSH를 통해 로그인하는 것은 안전하지 않으며 시간이 많이 소요됩니다.  SSH 키를 사용하는 것이 가장 안전하고 로그인하는 데 가장 빠른 방법입니다.  포털 또는 CLI를 통해 Linux VM을 만들 경우 두 가지 인증 중에서 선택해야 합니다.  SSH에 대한 암호를 선택하면 Azure에서 암호를 통한 로그인을 허용하도록 VM이 구성됩니다.  SSH 공개 키를 사용하기로 선택한 경우 Azure에서 SSH 키를 통한 로그인만 허용하도록 VM을 구성하고 암호 로그인은 사용할 수 없게 설정합니다. SSH 키 로그인만 허용하여 Linux VM을 보호하려면 포털 또는 CLI에서 VM을 만드는 동안 SSH 공개 키 옵션을 사용합니다.
 
 ## <a name="related-azure-components"></a>관련 Azure 구성 요소
-## <a name="storage"></a>Storage
+## <a name="storage"></a>스토리지
 * [Microsoft Azure Storage 소개](../../storage/common/storage-introduction.md)
 * [azure-cli를 사용하여 Linux VM에 디스크 추가](add-disk.md)
 * [Azure Portal에서 Linux VM에 데이터 디스크를 연결하는 방법](attach-disk-portal.md)

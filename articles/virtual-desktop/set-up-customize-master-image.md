@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: helohr
-ms.openlocfilehash: abde79ab131719fe4f2963db98c7a6daa3419424
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 8127c0a42ec42a661af31cc489964cc40cb4937d
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876847"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981071"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>마스터 VHD 이미지 준비 및 사용자 지정
 
@@ -112,7 +112,7 @@ Windows Server에서 Windows Defender를 구성 하는 방법에 대 한 자세�
 1. **관리 템플릿**Windows구성 > 요소**원격 데스크톱 서비스** **원격 데스크톱 세션 호스트 세션 시간 제한**으로 이동 합니다. >  >  > 
 2. 오른쪽 패널에서 **활성 및 유휴 원격 데스크톱 서비스 세션에 대 한 시간 제한 설정** 정책을 선택 합니다.
 3. 모달 창이 표시 되 면 정책 옵션을 **구성 되지 않음** 에서 **사용** 으로 변경 하 여 정책을 활성화 합니다.
-4. 드롭다운 메뉴의 정책 옵션 아래에서 시간 크기를 **4 시간**으로 설정 합니다.
+4. 드롭다운 메뉴의 정책 옵션 아래에서 시간을 **3 시간**으로 설정 합니다.
 
 다음 명령을 실행 하 여 원격 세션 정책을 수동으로 구성할 수도 있습니다.
 
@@ -122,7 +122,7 @@ reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fRese
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxConnectionTime /t REG_DWORD /d 10800000 /f
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v RemoteAppLogoffTimeLimit /t REG_DWORD /d 0 /f
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxDisconnectionTime /t REG_DWORD /d 5000 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxIdleTime /t REG_DWORD /d 7200000 /f
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxIdleTime /t REG_DWORD /d 10800000 /f
 ```
 
 ### <a name="set-up-time-zone-redirection"></a>표준 시간대 리디렉션 설정

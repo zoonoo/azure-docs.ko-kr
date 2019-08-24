@@ -3,7 +3,7 @@ title: Terratest를 사용하여 Azure에서 Terraform 모듈 테스트
 description: Terratest를 사용하여 Terraform 모듈을 테스트하는 방법을 알아보세요.
 services: terraform
 ms.service: azure
-keywords: terraform, devops, 저장소 계정, azure, terratest, 단위 테스트, 통합 테스트
+keywords: terraform, devops, 스토리지 계정, azure, terratest, 단위 테스트, 통합 테스트
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher

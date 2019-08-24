@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2019
+ms.date: 08/22/2019
 ms.author: spelluru
-ms.openlocfilehash: 29af70a2713e7b4aebf611d8f2b547e38c6c5d3d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8b7a72c03d41d54aa80505e781b6f6d32cd2a2c0
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60623145"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991362"
 ---
 # <a name="diagnose-artifact-failures-in-the-lab"></a>랩에서 아티팩트 실패 진단 
 아티팩트를 만든 후에 성공 또는 실패 여부를 확인할 수 있습니다. Azure DevTest Labs의 아티팩트 로그는 아티팩트 실패를 진단하는 데 사용할 수 있는 정보를 제공합니다. Windows VM에 대한 아티팩트 로그 정보를 보기 위한 두 가지 옵션이 있습니다.
@@ -52,7 +52,8 @@ ms.locfileid: "60623145"
 
 3. **상태** 파일을 엽니다.
 
-[!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+**Linux** VM에서 로그 파일을 찾는 방법에 대 한 지침은 다음 문서를 참조 하세요. [Linux virtual machines에서 Azure 사용자 지정 스크립트 확장 버전 2 사용](../virtual-machines/extensions/custom-script-linux.md#troubleshooting)
+
 
 ## <a name="related-blog-posts"></a>관련 블로그 게시물
 * [DevTest Labs에서 Resource Manager 템플릿을 사용하여 기존 Active Directory 도메인에 VM 가입](https://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)

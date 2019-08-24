@@ -201,7 +201,7 @@ Azure Database Migration Service를 사용하면 최소한의 가동 중지 시�
     |**사용자 이름** | Windows 사용자가 위에서 입력한 네트워크 공유에 대한 전체 제어 권한을 갖고 있는지 확인합니다. Azure Database Migration Service는 사용자 자격 증명을 가장하여 복원 작업을 위한 Azure Storage 컨테이너에 백업 파일을 업로드합니다. |
     |**암호** | 사용자에 대한 암호입니다. |
     |**Azure Storage 계정의 구독** | Azure Storage 계정이 포함된 구독을 선택합니다. |
-    |**Azure Storage 계정** | DMS가 SMB 네트워크 공유에서 백업 파일을 업로드하고 데이터베이스 마이그레이션에 사용할 수 있는 Azure Storage 계정을 선택합니다.  최적의 파일 업로드 성능을 위해서는 DMS 서비스와 동일한 지역에서 저장소 계정을 선택하는 것이 좋습니다. |
+    |**Azure Storage 계정** | DMS가 SMB 네트워크 공유에서 백업 파일을 업로드하고 데이터베이스 마이그레이션에 사용할 수 있는 Azure Storage 계정을 선택합니다.  최적의 파일 업로드 성능을 위해서는 DMS 서비스와 동일한 지역에서 스토리지 계정을 선택하는 것이 좋습니다. |
 
     ![마이그레이션 설정 구성](media/tutorial-sql-server-to-managed-instance-online/dms-configure-migration-settings4.png)
 

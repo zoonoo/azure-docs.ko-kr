@@ -1,5 +1,5 @@
 ---
-title: OPC 자격 증명 모음 인증서 관리 서비스를 관리 하는 방법-Azure | Microsoft Docs
+title: OPC 자격 증명 모음 인증서 서비스를 관리 하는 방법-Azure | Microsoft Docs
 description: OPC 자격 증명 모음 루트 CA 인증서 및 사용자 권한을 관리 합니다.
 author: mregen
 ms.author: mregen
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 6e53914b16bc126cdab7300d918dbb7b6b868728
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 4420e5b0d895f8ea30dbd39fc50dd7480d57d086
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69973806"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996002"
 ---
-# <a name="how-to-manage-the-opc-ua-certificate-service"></a>OPC UA 인증서 서비스를 관리 하는 방법
+# <a name="how-to-manage-the-opc-vault-certificate-service"></a>OPC 자격 증명 모음 인증서 서비스를 관리 하는 방법
 
-이 문서에서는 Azure의 OPC UA 인증서 관리 서비스에 대 한 관리 작업, 발급자 CA 인증서를 갱신 하는 방법, CRL (인증서 해지 목록)을 갱신 하는 방법 및 사용자 액세스 권한을 부여 하 고 취소 하는 방법을 설명 합니다.
+이 문서에서는 Azure의 OPC 자격 증명 모음 인증서 관리 서비스, 발급자 CA 인증서를 갱신 하는 방법, CRL (인증서 해지 목록)을 갱신 하는 방법 및 사용자 액세스 권한을 부여 하 고 취소 하는 방법에 대 한 관리 작업을 설명 합니다.
 
 ## <a name="create-or-renew-the-root-ca-certificate"></a>루트 CA 인증서를 만들거나 갱신 합니다.
 
@@ -76,7 +76,7 @@ OPC 자격 증명 모음 마이크로 서비스의 사용자 역할은 Azure Act
 8. `Assign` 단추를 누릅니다.
 9. `Administrator` 또는`Approver` 역할의 사용자에 대해 Azure Key Vault 액세스 정책 추가를 계속 합니다.
 
-### <a name="remove-user"></a>사용자 제거
+### <a name="remove-user"></a>사용자 삭제
 
 1. 에서 `portal.azure.com`Azure Portal를 엽니다.
 2. `Azure Active Directory`/`Enterprise applications`으로 이동합니다.

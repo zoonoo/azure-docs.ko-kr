@@ -174,14 +174,14 @@ eventHubClient.closeSync();
 
 **EventProcessorHost**는 영구적 검사점을 관리하여 Event Hubs의 이벤트 수신을 간소화하고 이러한 Event Hubs에서 병렬 수신하는 Java 클래스입니다. EventProcessorHost를 사용하면 다른 노드에 호스트된 경우라도 여러 수신기 간에 이벤트를 분할할 수 있습니다. 이 예제에서는 단일 수신기에 대해 EventProcessorHost를 사용하는 방법을 보여 줍니다.
 
-### <a name="create-a-storage-account"></a>저장소 계정 만들기
+### <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
 EventProcessorHost를 사용 하려면 [Azure Storage 계정] [Azure Storage 계정]이 있어야 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인 하 고 화면의 왼쪽에서 **리소스 만들기** 를 선택 합니다.
 2. **저장소**를 선택 하 고 **저장소 계정**을 선택 합니다. **스토리지 계정 만들기** 창에서 스토리지 계정에 사용할 이름을 입력합니다. 나머지 필드를 완료 하 고 원하는 지역을 선택한 후 **만들기**를 선택 합니다.
    
-    ![저장소 계정 만들기](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
+    ![스토리지 계정 만들기](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
 
 3. 새로 만든 저장소 계정을 선택 하 고 **액세스 키**를 선택 합니다.
    

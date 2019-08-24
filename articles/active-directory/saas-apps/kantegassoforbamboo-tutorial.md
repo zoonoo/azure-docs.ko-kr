@@ -31,7 +31,7 @@ Kantega SSO for Bamboo를 Azure AD와 통합하면 다음과 같은 이점이 �
 * 사용자가 자신의 Azure AD 계정으로 Kantega SSO for Bamboo에 자동으로 로그인(Single Sign-On) 되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -57,7 +57,7 @@ Kantega SSO for Bamboo가 Azure AD에 통합되도록 구성하려면 갤러리�
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 응용 프로그램**으로 이동한 다음, **모든 응용 프로그램** 옵션을 선택합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -109,7 +109,7 @@ Kantega SSO for Bamboo에서 Azure AD Single Sign-On을 구성하려면 다음 �
 
     b. **회신 URL** 텍스트 상자에서 `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login` 패턴을 사용하여 URL을 입력합니다.
 
-5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
+5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
     ![Kantega SSO for Bamboo 도메인 및 URL Single Sign-On 정보](common/metadata-upload-additional-signon.png)
 

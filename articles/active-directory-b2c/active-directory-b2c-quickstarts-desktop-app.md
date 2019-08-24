@@ -20,7 +20,7 @@ ms.locfileid: "67835453"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-desktop-app-using-azure-active-directory-b2c"></a>빠른 시작: Azure Active Directory B2C를 사용하여 데스크톱 앱에 대한 로그인 설정
 
-Azure AD(Azure Active Directory) B2C는 애플리케이션, 비즈니스 및 고객을 보호하기 위한 클라우드 ID 관리 기능을 제공합니다. Azure AD B2C를 사용하면 응용 프로그램에서 개방형 표준 프로토콜을 사용하여 소셜 계정 및 엔터프라이즈 계정을 인증할 수 있습니다. 이 빠른 시작에서는 WPF(Windows Presentation Foundation) 데스크톱 응용 프로그램에서 소셜 ID 공급자를 사용하여 로그인하고 Azure AD B2C 보호 웹 API를 호출합니다.
+Azure AD(Azure Active Directory) B2C는 애플리케이션, 비즈니스 및 고객을 보호하기 위한 클라우드 ID 관리 기능을 제공합니다. Azure AD B2C를 사용하면 애플리케이션에서 개방형 표준 프로토콜을 사용하여 소셜 계정 및 엔터프라이즈 계정을 인증할 수 있습니다. 이 빠른 시작에서는 WPF(Windows Presentation Foundation) 데스크톱 애플리케이션에서 소셜 ID 공급자를 사용하여 로그인하고 Azure AD B2C 보호 웹 API를 호출합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -34,10 +34,10 @@ Azure AD(Azure Active Directory) B2C는 애플리케이션, 비즈니스 및 고
     git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.git
     ```
 
-## <a name="run-the-application-in-visual-studio"></a>Visual Studio에서 응용 프로그램 실행
+## <a name="run-the-application-in-visual-studio"></a>Visual Studio에서 애플리케이션 실행
 
-1. 샘플 응용 프로그램 프로젝트 폴더에서 Visual Studio를 통해 **active-directory-b2c-wpf.sln** 솔루션을 엽니다.
-2. **F5** 키를 눌러 응용 프로그램을 디버그합니다.
+1. 샘플 애플리케이션 프로젝트 폴더에서 Visual Studio를 통해 **active-directory-b2c-wpf.sln** 솔루션을 엽니다.
+2. **F5** 키를 눌러 애플리케이션을 디버그합니다.
 
 ## <a name="sign-in-using-your-account"></a>계정을 사용하여 로그인
 

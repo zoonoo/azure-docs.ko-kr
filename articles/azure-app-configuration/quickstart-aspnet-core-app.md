@@ -23,7 +23,7 @@ ms.locfileid: "68326639"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>빠른 시작: App Configuration을 사용하여 ASP.NET Core 앱 만들기
 
-이 빠른 시작에서는 Azure App Configuration을 ASP.NET Core 앱에 통합하여 코드와 별도로 애플리케이션 설정의 저장 및 관리를 중앙 집중화합니다. ASP.NET Core는 애플리케이션에서 지정한 하나 이상의 데이터 원본의 설정을 사용하여 단일 키-값 기반 구성 개체를 작성합니다. 이러한 데이터 원본은 *구성 공급자*라고 합니다. App Configuration의 .NET Core 클라이언트가 이러한 공급자로 구현되므로 서비스가 다른 데이터 원본처럼 표시됩니다.
+이 빠른 시작에서는 Azure App Configuration을 ASP.NET Core 앱에 통합하여 코드와 별도로 애플리케이션 설정의 스토리지 및 관리를 중앙 집중화합니다. ASP.NET Core는 애플리케이션에서 지정한 하나 이상의 데이터 원본의 설정을 사용하여 단일 키-값 기반 구성 개체를 작성합니다. 이러한 데이터 원본은 *구성 공급자*라고 합니다. App Configuration의 .NET Core 클라이언트가 이러한 공급자로 구현되므로 서비스가 다른 데이터 원본처럼 표시됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

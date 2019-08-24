@@ -41,8 +41,8 @@ az login
 az group create --name myResourceGroup --location eastus
 ```
 
-## <a name="create-a-storage-account"></a>저장소 계정 만들기
-저장소 계정은 Azure 파일 공유 또는 Blob이나 큐와 같은 다른 저장소 리소스를 배포할 수 있는 저장소의 공유 풀입니다. 저장소 계정에 포함될 수 있는 파일 공유 수에는 제한이 없습니다. 공유에 저장할 수 있는 파일 수에는 제한이 없으며, 저장소 계정의 최대 용량까지 저장할 수 있습니다.
+## <a name="create-a-storage-account"></a>스토리지 계정 만들기
+스토리지 계정은 Azure 파일 공유 또는 Blob이나 큐와 같은 다른 스토리지 리소스를 배포할 수 있는 스토리지의 공유 풀입니다. 스토리지 계정에 포함될 수 있는 파일 공유 수에는 제한이 없습니다. 공유에 저장할 수 있는 파일 수에는 제한이 없으며, 스토리지 계정의 최대 용량까지 저장할 수 있습니다.
 
 다음 예제에서는 [az storage account create](/cli/azure/storage/account) 명령을 사용하여 *mystorageaccount\<난수\>* 라는 스토리지 계정을 만든 다음, 해당 스토리지 계정의 이름을 `$STORAGEACCT` 변수에 배치합니다. 스토리지 계정 이름은 고유해야 하므로 "mystorageacct"를 고유 이름으로 바꾸어야 합니다.
 
@@ -55,8 +55,8 @@ STORAGEACCT=$(az storage account create \
     --query "name" | tr -d '"')
 ```
 
-### <a name="get-the-storage-account-key"></a>저장소 계정 키 가져오기
-저장소 계정 키는 저장소 계정에서 리소스에 대한 액세스를 제어합니다. 키는 저장소 계정을 만들 때 자동으로 만들어집니다. [az storage account keys list](/cli/azure/storage/account/keys) 명령을 사용하여 스토리지 계정에 대한 스토리지 계정 키를 가져올 수 있습니다. 
+### <a name="get-the-storage-account-key"></a>스토리지 계정 키 가져오기
+스토리지 계정 키는 스토리지 계정에서 리소스에 대한 액세스를 제어합니다. 키는 스토리지 계정을 만들 때 자동으로 만들어집니다. [az storage account keys list](/cli/azure/storage/account/keys) 명령을 사용하여 스토리지 계정에 대한 스토리지 계정 키를 가져올 수 있습니다. 
 
 ```azurecli-interactive 
 STORAGEKEY=$(az storage account keys list \
@@ -283,7 +283,7 @@ az group delete --name "myResourceGroup"
         --delete-snapshots include
     ```
 
-- 저장소 계정 자체를 제거하려면 (이는 만든 Azure 파일 공유 및 Azure Blob Storage 컨테이너와 같은 다른 스토리지 리소스를 암시적으로 제거합니다.)
+- 스토리지 계정 자체를 제거하려면 (이는 만든 Azure 파일 공유 및 Azure Blob Storage 컨테이너와 같은 다른 스토리지 리소스를 암시적으로 제거합니다.)
 
     ```azurecli-interactive
     az storage account delete \

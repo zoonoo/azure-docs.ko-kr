@@ -23,7 +23,7 @@ ms.locfileid: "68442341"
 > [!div class="checklist"]
 > * WAF를 사용하는 애플리케이션 게이트웨이 만들기
 > * 백 엔드 서버로 사용되는 가상 머신 만들기
-> * 저장소 계정 만들기 및 진단 구성
+> * 스토리지 계정 만들기 및 진단 구성
 > * 애플리케이션 게이트웨이 테스트
 
 ![웹 애플리케이션 방화벽 예제](./media/application-gateway-web-application-firewall-portal/scenario-waf.png)
@@ -207,9 +207,9 @@ Azure Portal의 왼쪽 메뉴에서 **리소스 만들기**를 선택합니다. 
 
 7. 배포가 완료될 때까지 기다렸다가 다음 단계로 진행합니다.
 
-## <a name="create-a-storage-account-and-configure-diagnostics"></a>저장소 계정 만들기 및 진단 구성
+## <a name="create-a-storage-account-and-configure-diagnostics"></a>스토리지 계정 만들기 및 진단 구성
 
-### <a name="create-a-storage-account"></a>저장소 계정 만들기
+### <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
 이 문서의 애플리케이션 게이트웨이는 스토리지 계정을 사용하여 검색 및 방지 목적으로 데이터를 저장합니다. Azure Monitor 로그 또는 Event Hub를 사용하여 데이터를 기록할 수도 있습니다.
 

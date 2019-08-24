@@ -29,14 +29,14 @@ ms.locfileid: "54033980"
 ## <a name="create-an-azure-service-account"></a>Azure 서비스 계정 만들기
 [!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
-### <a name="create-an-azure-storage-account"></a>Azure 저장소 계정 만들기
+### <a name="create-an-azure-storage-account"></a>Azure Storage 계정 만들기
 [!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
 ### <a name="create-an-azure-cosmos-db-table-api-account"></a>Azure Cosmos DB Table API 계정 만들기
 [!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
-## <a name="create-a-c-application"></a>C++ 응용 프로그램 만들기
-이 가이드에서는 C++ 애플리케이션 내에서 실행할 수 있는 저장소 기능을 사용합니다. 이 기능을 사용하려면, Azure Storage Client Library for C++를 설치하고 Azure 구독에서 Azure 저장소 계정을 만들어야 합니다.  
+## <a name="create-a-c-application"></a>C++ 애플리케이션 만들기
+이 가이드에서는 C++ 애플리케이션 내에서 실행할 수 있는 스토리지 기능을 사용합니다. 이 기능을 사용하려면, Azure Storage Client Library for C++를 설치하고 Azure 구독에서 Azure 저장소 계정을 만들어야 합니다.  
 
 Azure Storage Client Library for C++를 설치하려면 다음 메서드를 사용할 수 있습니다.
 
@@ -46,14 +46,14 @@ Azure Storage Client Library for C++를 설치하려면 다음 메서드를 사�
      Install-Package wastorage
 
 ## <a name="configure-access-to-the-table-client-library"></a>테이블 클라이언트 라이브러리에 대한 액세스 구성
-테이블에 액세스하기 위해 Azure 저장소 API를 사용하려는 C++ 파일의 맨 위에 다음 include 문을 추가합니다.  
+테이블에 액세스하기 위해 Azure Storage API를 사용하려는 C++ 파일의 맨 위에 다음 include 문을 추가합니다.  
 
 ```cpp
 #include <was/storage_account.h>
 #include <was/table.h>
 ```
 
-Azure Storage 클라이언트 또는 Cosmos DB 클라이언트는 연결 문자열을 사용하여 데이터 관리 서비스에 액세스하기 위한 엔드포인트 및 자격 증명을 저장합니다. 클라이언트 응용 프로그램을 실행할 때 적절한 형식의 저장소 연결 문자열 또는 Azure Cosmos DB 연결 문자열을 제공해야 합니다.
+Azure Storage 클라이언트 또는 Cosmos DB 클라이언트는 연결 문자열을 사용하여 데이터 관리 서비스에 액세스하기 위한 엔드포인트 및 자격 증명을 저장합니다. 클라이언트 애플리케이션을 실행할 때 적절한 형식의 스토리지 연결 문자열 또는 Azure Cosmos DB 연결 문자열을 제공해야 합니다.
 
 ## <a name="set-up-an-azure-storage-connection-string"></a>Azure Storage 연결 문자열 설정
  *AccountName* 및 *AccountKey* 값에 대해 [Azure Portal](https://portal.azure.com)에 나열된 Storage 계정에서 Storage 계정 이름 및 액세스 키를 사용합니다. Storage 계정 및 액세스 키에 대한 자세한 내용은 [Azure Storage 계정 정보](../storage/common/storage-create-storage-account.md)를 참조하세요. 이 예제에서는 고정 필드가 Azure Storage 연결 문자열을 보유하도록 선언하는 방법을 보여줍니다.  
@@ -72,26 +72,26 @@ const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=ht
 ```
 
 
-로컬 Windows 기반 컴퓨터에서 응용 프로그램을 테스트하려면 [Azure SDK](https://azure.microsoft.com/downloads/)와 함께 설치된 Azure [저장소 에뮬레이터](../storage/common/storage-use-emulator.md)를 사용할 수 있습니다. 저장소 에뮬레이터는 로컬 개발 컴퓨터에서 사용할 수 있는 Azure Blob, 큐 및 Table service를 시뮬레이션하는 유틸리티입니다. 다음 예제에서는 로컬 저장소 에뮬레이터에 연결 문자열을 포함할 수 있도록 정적 필드를 선언하는 방법을 보여줍니다.  
+로컬 Windows 기반 컴퓨터에서 애플리케이션을 테스트하려면 [Azure SDK](https://azure.microsoft.com/downloads/)와 함께 설치된 Azure [스토리지 에뮬레이터](../storage/common/storage-use-emulator.md)를 사용할 수 있습니다. 스토리지 에뮬레이터는 로컬 개발 컴퓨터에서 사용할 수 있는 Azure Blob, 큐 및 Table service를 시뮬레이션하는 유틸리티입니다. 다음 예제에서는 로컬 스토리지 에뮬레이터에 연결 문자열을 포함할 수 있도록 정적 필드를 선언하는 방법을 보여줍니다.  
 
 ```cpp
 // Define the connection string with Azure storage emulator.
 const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
 ```
 
-Azure 저장소 에뮬레이터를 시작하려면 **시작** 단추를 클릭하거나 Windows 키를 누릅니다. **Azure Storage 에뮬레이터** 입력을 시작한 다음, 애플리케이션 목록에서 **Microsoft Azure Storage 에뮬레이터**를 선택합니다.  
+Azure Storage 에뮬레이터를 시작하려면 **시작** 단추를 클릭하거나 Windows 키를 누릅니다. **Azure Storage 에뮬레이터** 입력을 시작한 다음 애플리케이션 목록에서 **Microsoft Azure Storage 에뮬레이터**를 선택합니다.  
 
-다음 샘플에서는 저장소 연결 문자열을 가져오기 위해 위의 두 메서드 중 하나를 사용한 것으로 가정합니다.  
+다음 샘플에서는 스토리지 연결 문자열을 가져오기 위해 위의 두 메서드 중 하나를 사용한 것으로 가정합니다.  
 
 ## <a name="retrieve-your-connection-string"></a>연결 문자열 검색
-**cloud_storage_account** 클래스를 사용하여 저장소 계정 정보를 나타낼 수 있습니다. 저장소 연결 문자열에서 저장소 계정 정보를 검색하려면 **구문 분석** 메서드를 사용할 수 있습니다.
+**cloud_storage_account** 클래스를 사용하여 저장소 계정 정보를 나타낼 수 있습니다. 스토리지 연결 문자열에서 스토리지 계정 정보를 검색하려면 **구문 분석** 메서드를 사용할 수 있습니다.
 
 ```cpp
 // Retrieve the storage account from the connection string.
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 ```
 
-다음으로, 테이블 및 Table Storage 서비스 내에 저장된 엔터티에 대한 참조 개체를 가져올 수 있도록 **cloud_table_client** 클래스에 대한 참조를 가져옵니다. 다음 코드는 위에서 검색한 저장소 계정 개체를 사용하여 **cloud_table_client** 개체를 만듭니다.  
+다음으로, 테이블 및 Table Storage 서비스 내에 저장된 엔터티에 대한 참조 개체를 가져올 수 있도록 **cloud_table_client** 클래스에 대한 참조를 가져옵니다. 다음 코드는 위에서 검색한 스토리지 계정 개체를 사용하여 **cloud_table_client** 개체를 만듭니다.  
 
 ```cpp
 // Create the table client.
@@ -116,7 +116,7 @@ table.create_if_not_exists();
 ```
 
 ## <a name="add-an-entity-to-a-table"></a>테이블에 엔터티 추가
-테이블에 엔터티를 추가하려면 새 **table_entity** 개체를 만들어 **table_operation::insert_entity**에 전달합니다. 다음 코드는 고객의 이름을 행키로 사용하고 고객의 성을 파티션 키로 사용합니다. 엔터티의 파티션과 행 키가 결합되어 테이블에서 엔터티를 고유하게 식별합니다. 동일한 파티션 키를 가진 엔터티는 다른 파티션 키를 가진 엔터티보다 더 빨리 쿼리할 수 있지만 다양한 파티션 키를 사용하면 병렬 작업 확장성이 커집니다. 자세한 내용은 [Microsoft Azure 저장소 성능 및 확장성 검사 목록](../storage/common/storage-performance-checklist.md)을 참조하세요.
+테이블에 엔터티를 추가하려면 새 **table_entity** 개체를 만들어 **table_operation::insert_entity**에 전달합니다. 다음 코드는 고객의 이름을 행키로 사용하고 고객의 성을 파티션 키로 사용합니다. 엔터티의 파티션과 행 키가 결합되어 테이블에서 엔터티를 고유하게 식별합니다. 동일한 파티션 키를 가진 엔터티는 다른 파티션 키를 가진 엔터티보다 더 빨리 쿼리할 수 있지만 다양한 파티션 키를 사용하면 병렬 작업 확장성이 커집니다. 자세한 내용은 [Microsoft Azure Storage 성능 및 확장성 검사 목록](../storage/common/storage-performance-checklist.md)을 참조하세요.
 
 다음 코드에서는 **table_entity**의 새 인스턴스를 저장될 일부 고객 데이터와 함께 만듭니다. 그런 다음 **table_operation::insert_entity**를 호출하여 **table_operation** 개체를 만들고 엔터티를 테이블에 삽입하고, 새 테이블 엔터티와 연결합니다. 마지막으로, **cloud_table** 개체에서 execute 메서드를 호출합니다. 새로운 **table_operation**은 "people" 테이블에 새 고객 엔터티를 삽입하는 Table service에 요청을 보냅니다.  
 
@@ -241,7 +241,7 @@ for (; it != end_of_results; ++it)
 }  
 ```
 
-이 예의 쿼리는 필터 조건과 일치하는 모든 엔터티를 제공합니다. 큰 테이블 및 테이블 엔터티를 자주 다운로드할 필요가 있다면 데이터를 Azure 저장소 Blob에 대신 저장하는 것이 좋습니다.
+이 예의 쿼리는 필터 조건과 일치하는 모든 엔터티를 제공합니다. 큰 테이블 및 테이블 엔터티를 자주 다운로드할 필요가 있다면 데이터를 Azure Storage Blob에 대신 저장하는 것이 좋습니다.
 
 ## <a name="retrieve-a-range-of-entities-in-a-partition"></a>파티션의 엔터티 범위 검색
 파티션의 모든 엔터티를 쿼리하지 않으려면 파티션 키 필터를 행 키 필터와 결합하여 범위를 지정할 수 있습니다. 다음 코드 예제에서는 두 개의 필터를 사용하여 행 키(이름)가 알파벳에서 'E'보다 앞에 오는 문자로 시작하는 'Smith' 파티션의 모든 엔터티를 가져온 다음 쿼리 결과를 출력합니다.  
@@ -309,7 +309,7 @@ std::wcout << U("PartitionKey: ") << entity.partition_key() << U(", RowKey: ") <
 ```
 
 ## <a name="replace-an-entity"></a>엔터티 바꾸기
-엔터티를 바꾸려면 Table service에서 검색하고 엔터티 개체를 수정한 다음 변경 내용을 다시 Table service에 다시 저장합니다. 다음 코드에서는 기존 고객의 전화 번호와 메일 주소를 변경합니다. **table_operation::insert_entity**를 호출하는 대신, 이 코드에서는 **table_operation::replace_entity**를 사용합니다. 이렇게 하면 서버의 엔터티가 검색된 후 변경되어 작업이 실패하는 경우를 제외하고 서버에서 엔터티가 완전히 바뀝니다. 이러한 실패는 응용 프로그램이 검색 및 업데이트 사이에 다른 응용 프로그램 구성 요소에 의해 변경된 내용을 실수로 덮어쓰는 것을 방지합니다. 이 실패를 올바르게 처리하려면 엔터티를 다시 검색하고 변경한 다음(유효한 경우) 다른 **table_operation::replace_entity** 작업을 수행합니다. 다음 섹션에서는 이 동작을 재정의하는 방법을 보여 줍니다.  
+엔터티를 바꾸려면 Table service에서 검색하고 엔터티 개체를 수정한 다음 변경 내용을 다시 Table service에 다시 저장합니다. 다음 코드에서는 기존 고객의 전화 번호와 메일 주소를 변경합니다. **table_operation::insert_entity**를 호출하는 대신, 이 코드에서는 **table_operation::replace_entity**를 사용합니다. 이렇게 하면 서버의 엔터티가 검색된 후 변경되어 작업이 실패하는 경우를 제외하고 서버에서 엔터티가 완전히 바뀝니다. 이러한 실패는 애플리케이션이 검색 및 업데이트 사이에 다른 애플리케이션 구성 요소에 의해 변경된 내용을 실수로 덮어쓰는 것을 방지합니다. 이 실패를 올바르게 처리하려면 엔터티를 다시 검색하고 변경한 다음(유효한 경우) 다른 **table_operation::replace_entity** 작업을 수행합니다. 다음 섹션에서는 이 동작을 재정의하는 방법을 보여 줍니다.  
 
 ```cpp
 // Retrieve the storage account from the connection string.
@@ -440,7 +440,7 @@ azure::storage::table_result delete_result = table.execute(delete_operation);
 ```
 
 ## <a name="delete-a-table"></a>테이블 삭제
-마지막으로, 다음 코드 예제에서는 저장소 계정에서 테이블을 삭제합니다. 삭제된 테이블은 삭제 후 일정 기간 동안 다시 만들 수 없습니다.  
+마지막으로, 다음 코드 예제에서는 스토리지 계정에서 테이블을 삭제합니다. 삭제된 테이블은 삭제 후 일정 기간 동안 다시 만들 수 없습니다.  
 
 ```cpp
 // Retrieve the storage account from the connection string.

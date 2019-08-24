@@ -45,7 +45,7 @@ ms.locfileid: "68501238"
                                     </div>
                                 </div>
                                 <div class="cardText">
-                                    <span class="likeAnH3">Azure 응용 프로그램 아키텍처 가이드</span>
+                                    <span class="likeAnH3">Azure 애플리케이션 아키텍처 가이드</span>
                                 </div>
                             </div>
                         </div>
@@ -198,7 +198,7 @@ ms.locfileid: "68501238"
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/cosmos-db/">Azure Cosmos DB</a></li>
                                                 </ul>
-                                                <h4>Storage</h4>
+                                                <h4>스토리지</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/storage/">Blob Storage</a></li>
                                                 </ul>
@@ -1343,7 +1343,7 @@ ms.locfileid: "68501238"
                                         <li>
                                             <a href="/azure/managed-applications">
                                                 <img src="media/index/i_managed-application.svg" alt="" />
-                                                <p>Azure 관리되는 응용 프로그램</p>
+                                                <p>Azure 관리되는 애플리케이션</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1714,12 +1714,12 @@ ms.locfileid: "68501238"
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Storage</h3>
+                                    <h3>스토리지</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/storage/">
                                                 <img src="media/index/Storage.svg" alt="" />
-                                                <p>Storage</p>
+                                                <p>스토리지</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1749,7 +1749,7 @@ ms.locfileid: "68501238"
                                         <li>
                                             <a href="/azure/virtual-machines/windows/managed-disks-overview">
                                                 <img src="media/index/Disks-color.svg" alt="" />
-                                                <p>Disk Storage</p>
+                                                <p>디스크 스토리지</p>
                                             </a>
                                         </li>
                                         <li>
@@ -2326,7 +2326,7 @@ ms.locfileid: "68501238"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Event Hubs</h3>
-                                                    <p>수백만 개의 장치에서 원격 분석 수신</p>
+                                                    <p>수백만 개의 디바이스에서 원격 분석 수신</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2345,7 +2345,7 @@ ms.locfileid: "68501238"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Power BI Embedded</h3>
-                                                    <p>응용 프로그램에 완벽하고 뛰어난 대화형 데이터 시각화를 포함</p>
+                                                    <p>애플리케이션에 완벽하고 뛰어난 대화형 데이터 시각화를 포함</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2792,7 +2792,7 @@ ms.locfileid: "68501238"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Cloud Services</h3>
-                                                    <p>가용성과 확장성이 뛰어난 클라우드 응용 프로그램 및 API 만들기</p>
+                                                    <p>가용성과 확장성이 뛰어난 클라우드 애플리케이션 및 API 만들기</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3182,7 +3182,7 @@ ms.locfileid: "68501238"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Cache for Redis</h3>
-                                                    <p>높은 처리량과 짧은 대기 시간으로 응용 프로그램에 강력한 성능 부여</p>
+                                                    <p>높은 처리량과 짧은 대기 시간으로 애플리케이션에 강력한 성능 부여</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3572,7 +3572,7 @@ ms.locfileid: "68501238"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Visual Studio App Center</h3>
-                                                    <p>응용 프로그램 수명 주기를 자동화하여 더 빠르게 앱 제공</p>
+                                                    <p>애플리케이션 수명 주기를 자동화하여 더 빠르게 앱 제공</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3910,7 +3910,7 @@ ms.locfileid: "68501238"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>IoT Edge</h3>
-                                                    <p>클라우드로부터 에지 장치까지 인텔리전스 확장</p>
+                                                    <p>클라우드로부터 에지 디바이스까지 인텔리전스 확장</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4062,7 +4062,7 @@ ms.locfileid: "68501238"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Machine Learning</h3>
-                                                    <p>실험 및 모델 관리를 갖춘 종단 간 확장 가능하고 신뢰할 수 있는 플랫폼 사용자에게 AI 적용</p>
+                                                    <p>실험 및 모델 관리를 갖춘 엔드투엔드 확장 가능하고 신뢰할 수 있는 플랫폼 사용자에게 AI 적용</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4617,7 +4617,7 @@ ms.locfileid: "68501238"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure 관리되는 응용 프로그램</h3>
+                                                    <h3>Azure 관리되는 애플리케이션</h3>
                                                     <p>클라우드 제품 관리 간소화</p>
                                                 </div>
                                             </div>
@@ -4718,7 +4718,7 @@ ms.locfileid: "68501238"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Live and on-demand streaming</h3>
-                                                    <p>사실상 모든 장치에 비즈니스 요구에 맞는 규모로 콘텐츠 전송</p>
+                                                    <p>사실상 모든 디바이스에 비즈니스 요구에 맞는 규모로 콘텐츠 전송</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5271,7 +5271,7 @@ ms.locfileid: "68501238"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Load Balancer</h3>
-                                                    <p>응용 프로그램에 고가용성 및 네트워크 성능 제공</p>
+                                                    <p>애플리케이션에 고가용성 및 네트워크 성능 제공</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5328,7 +5328,7 @@ ms.locfileid: "68501238"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure DDoS Protection</h3>
-                                                    <p>DDoS(배포된 서비스 거부) 공격으로부터 응용 프로그램 보호</p>
+                                                    <p>DDoS(배포된 서비스 거부) 공격으로부터 애플리케이션 보호</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5523,7 +5523,7 @@ ms.locfileid: "68501238"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure DDoS Protection</h3>
-                                                    <p>DDoS(배포된 서비스 거부) 공격으로부터 응용 프로그램 보호</p>
+                                                    <p>DDoS(배포된 서비스 거부) 공격으로부터 애플리케이션 보호</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5779,8 +5779,8 @@ ms.locfileid: "68501238"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Storage</h3>
-                                                    <p>내구성과 가용성이 높고 대량으로 확장 가능한 클라우드 저장소</p>
+                                                    <h3>스토리지</h3>
+                                                    <p>내구성과 가용성이 높고 대량으로 확장 가능한 클라우드 스토리지</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5799,7 +5799,7 @@ ms.locfileid: "68501238"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>StorSimple</h3>
-                                                    <p>엔터프라이즈 하이브리드 클라우드 저장소 솔루션으로 비용 절감</p>
+                                                    <p>엔터프라이즈 하이브리드 클라우드 스토리지 솔루션으로 비용 절감</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5875,7 +5875,7 @@ ms.locfileid: "68501238"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Blob Storage</h3>
-                                                    <p>구조화되지 않은 데이터용 REST 기반 개체 저장소</p>
+                                                    <p>구조화되지 않은 데이터용 REST 기반 개체 스토리지</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5893,7 +5893,7 @@ ms.locfileid: "68501238"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Disk Storage</h3>
+                                                    <h3>디스크 스토리지</h3>
                                                     <p>가상 머신을 지원하고 영속성과 안전성을 갖춘 디스크 옵션</p>
                                                 </div>
                                             </div>
@@ -5913,7 +5913,7 @@ ms.locfileid: "68501238"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Managed Disks</h3>
-                                                    <p>Azure 가상 머신을 위한 영구 보안 디스크 저장소</p>
+                                                    <p>Azure 가상 머신을 위한 영구 보안 디스크 스토리지</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5970,7 +5970,7 @@ ms.locfileid: "68501238"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Box 제품군</h3>
-                                                    <p>오프라인 또는 네트워크 기반 데이터 전송으로 사용하는 저장소 장치 제품군</p>
+                                                    <p>오프라인 또는 네트워크 기반 데이터 전송으로 사용하는 스토리지 디바이스 제품군</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -6027,7 +6027,7 @@ ms.locfileid: "68501238"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Storage Explorer</h3>
-                                                    <p>Windows, macOS 및 Linux로 어디에서나 쉽게 저장소 관리</p>
+                                                    <p>Windows, macOS 및 Linux로 어디에서나 쉽게 스토리지 관리</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -6046,7 +6046,7 @@ ms.locfileid: "68501238"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Archive Storage</h3>
-                                                    <p>드물게 액세스하는 데이터를 위한 저비용의 보안 클라우드 저장소</p>
+                                                    <p>드물게 액세스하는 데이터를 위한 저비용의 보안 클라우드 스토리지</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -6497,7 +6497,7 @@ Azure CLI </h3>
                                                     <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions">Azure Functions</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage">Storage</a>
+                                                    <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage">스토리지</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb">Cosmos DB</a>
@@ -6743,7 +6743,7 @@ Azure Dev 공간 </h3>
                             <li>
                                 <div class="container intro">
                                     <p>
-Azure 아키텍처 센터에는 Microsoft Azure에서 엔드투엔드 솔루션을 빌드하는 방법에 대한 지침이 있습니다. 여기에서 참조 아키텍처, 모범 사례, 디자인 패턴, 시나리오 가이드 및 참조 구현을 확인할 수 있습니다.
+Azure 아키텍처 센터에는 Microsoft Azure에서 엔드투엔드 솔루션을 구축하는 방법에 대한 지침이 있습니다. 여기에서 참조 아키텍처, 모범 사례, 디자인 패턴, 시나리오 가이드 및 참조 구현을 확인할 수 있습니다.
                                     </p>
                                 </div>
                             </li>
@@ -6759,7 +6759,7 @@ Azure 아키텍처 센터에는 Microsoft Azure에서 엔드투엔드 솔루션�
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure 아키텍처 센터</h3>
-                                                    <p>Microsoft Azure에서 종단 간 솔루션을 구축하는 방법에 대한 지침입니다.</p>
+                                                    <p>Microsoft Azure에서 엔드투엔드 솔루션을 구축하는 방법에 대한 지침입니다.</p>
                                                 </div>
                                             </div>
                                         </div>

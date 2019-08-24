@@ -33,8 +33,8 @@ Custom Vision service에는 두 개의 키 계층이 있으며 Azure Portal을 �
 |태그 당 최소 레이블이 지정된 이미지, 분류(50개 이상 권장) |5|5|
 |태그 당 최소 레이블이 지정된 이미지, 개체 감지(50개 이상 권장)|15|15|
 |예측 이미지 저장 기간|30일|30일|
-|저장소가 있는 [예측](https://go.microsoft.com/fwlink/?linkid=865445) 작업(초당 트랜잭션 수)|2|10|
-|저장소가 없는 [예측](https://go.microsoft.com/fwlink/?linkid=865445) 작업(초당 트랜잭션 수)|2|20|
+|스토리지가 있는 [예측](https://go.microsoft.com/fwlink/?linkid=865445) 작업(초당 트랜잭션 수)|2|10|
+|스토리지가 없는 [예측](https://go.microsoft.com/fwlink/?linkid=865445) 작업(초당 트랜잭션 수)|2|20|
 |[TrainProject](https://go.microsoft.com/fwlink/?linkid=865446)(초당 API 호출 수)|2|10|
 |[기타 API 호출](https://go.microsoft.com/fwlink/?linkid=865446)(초당 트랜잭션 수)|10|10|
 |최대 이미지 크기(학습 이미지 업로드) |6MB|6MB|

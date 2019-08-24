@@ -60,7 +60,7 @@ $location = Read-Host -Prompt "Enter the Azure region to use"
 New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
 
-## <a name="create-a-storage-account"></a>저장소 계정 만들기
+## <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
 HDInsight의 Kafka는 Azure Managed 디스크를 사용하여 Kafka 데이터를 저장하는 한편 클러스터는 Azure Storage를 사용하여 로그와 같은 정보를 저장합니다. [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount)를 사용하여 새 스토리지 계정을 만듭니다.
 
@@ -79,7 +79,7 @@ New-AzStorageAccount `
     -EnableHttpsTrafficOnly 1
 ```
 
-HDInsight는 BLOB 컨테이너의 저장소 계정에 데이터를 저장합니다. [New-AzStorageContainer](/powershell/module/Az.Storage/New-AzStorageContainer)를 사용하여 새 컨테이너를 만듭니다.
+HDInsight는 BLOB 컨테이너의 스토리지 계정에 데이터를 저장합니다. [New-AzStorageContainer](/powershell/module/Az.Storage/New-AzStorageContainer)를 사용하여 새 컨테이너를 만듭니다.
 
 ```azurepowershell-interactive
 $containerName = Read-Host -Prompt "Enter the container name"
@@ -131,7 +131,7 @@ New-AzHDInsightCluster `
 
 HDInsight 클러스터를 만드는 데 최대 20분이 걸릴 수 있습니다.
 
-`-DisksPerWorkerNode` 매개 변수는 HDInsight의 Kafka 확장성을 구성합니다. HDInsight의 Kafka는 클러스터에서 가상 머신의 로컬 디스크를 사용하여 데이터를 저장합니다. Kafka는 입출력이 많으므로 높은 처리량과 노드당 더 많은 저장소를 제공하기 위해 [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md)를 사용합니다.
+`-DisksPerWorkerNode` 매개 변수는 HDInsight의 Kafka 확장성을 구성합니다. HDInsight의 Kafka는 클러스터에서 가상 머신의 로컬 디스크를 사용하여 데이터를 저장합니다. Kafka는 입출력이 많으므로 높은 처리량과 노드당 더 많은 스토리지를 제공하기 위해 [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md)를 사용합니다.
 
 관리 디스크 유형은 __표준__(HDD) 또는 __프리미엄__(SSD)일 수 있습니다. 디스크 유형은 작업자 노드(Kafka broker)에서 사용하는 VM 크기에 따라 달라집니다. 프리미엄 디스크는 DS 및 GS 시리즈 VM에 자동으로 사용됩니다. 다른 모든 VM 유형은 표준을 사용합니다. `-WorkerNodeSize` 매개 변수를 사용하여 VM 유형을 설정할 수 있습니다. 매개 변수에 대한 자세한 내용은 [New-AzHDInsightCluster](/powershell/module/az.HDInsight/New-azHDInsightCluster) 설명서를 참조하세요.
 

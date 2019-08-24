@@ -7,12 +7,12 @@ ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
-ms.openlocfilehash: 5fc611af75a7f733576f9343a4375fb56cacc030
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: aab93204c850223756f28a56ea550f912e28e0d2
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "67593159"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996766"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-reference"></a>Verizon 프리미엄 규칙 엔진 참조의 Azure CDN
 
@@ -51,7 +51,7 @@ ms.locfileid: "67593159"
 
 와일드카드 값으로 해석되는 텍스트는 특수 문자에 추가적인 의미를 할당합니다. 다음 표에서는 다음 문자 집합이 해석되는 방식을 설명합니다.
 
-문자 | Description
+문자 | 설명
 ----------|------------
 \ | 백슬래시는 이 테이블에 지정된 문자를 이스케이프하는 데 사용됩니다. 백슬래시는 이스케이프해야 하는 특수 문자 바로 앞에 지정되어야 합니다.<br/>예를 들어 다음 구문은 별표를 이스케이프합니다.`\*`
 % | 백분율 기호는 URL 인코딩을 나타내는 데 사용됩니다(예: `%20`).
@@ -63,13 +63,15 @@ Space | 공백 문자는 지정된 값 또는 패턴에 의해 일치 조건이 
 
 정규식은 텍스트 값 내에서 검색될 패턴을 정의합니다. 정규식 표기법은 다양한 기호에 대한 특정 의미를 정의합니다. 다음 표에서는 특수 문자가 정규식을 지원하는 일치 조건 및 기능에 의해 처리되는 방식을 나타냅니다.
 
-특수 문자 | Description
+특수 문자 | 설명
 ------------------|------------
 \ | 백슬래시는 뒤에 오는 문자를 이스케이프합니다. 그러면 해당 문자가 정규식 의미를 갖지 않고 리터럴 값으로 처리됩니다. 예를 들어 다음 구문은 별표를 이스케이프합니다.`\*`
 % | 백분율 기호의 의미는 사용법에 따라 달라집니다.<br/><br/> `%{HTTPVariable}`: 이 구문은 HTTP 변수를 식별 합니다.<br/>`%{HTTPVariable%Pattern}`: 이 구문은 백분율 기호를 사용 하 여 HTTP 변수와 구분 기호를 식별 합니다.<br />`\%`: 백분율 기호를 이스케이프 하면 리터럴 값으로 사용 되거나 URL 인코딩을 나타낼 수 있습니다 (예: `\%20`).
 \* | 별표를 사용하면 앞에 오는 문자의 일치 여부가 0번 이상 확인될 수 있습니다.
 공백 | 공백 문자는 일반적으로 리터럴 문자로 취급됩니다.
 'value' | 작은따옴표는 리터럴 문자로 처리됩니다. 작은따옴표 쌍은 특별한 의미가 없습니다.
+
+정규식을 지 원하는 일치 조건 및 기능은 Perl 호환 정규식 (PCRE)에서 정의한 패턴을 허용 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -48,5 +48,5 @@ Queue Storage의 일반적인 사용은 다음과 같습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [저장소 계정을 만드는](../storage-create-storage-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
+* [스토리지 계정을 만드는](../storage-create-storage-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
 * [.NET을 사용하여 큐 시작하기](storage-dotnet-how-to-use-queues.md)

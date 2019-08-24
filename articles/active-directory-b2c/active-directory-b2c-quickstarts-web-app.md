@@ -19,7 +19,7 @@ ms.locfileid: "67835473"
 ---
 # <a name="quickstart-set-up-sign-in-for-an-aspnet-application-using-azure-active-directory-b2c"></a>빠른 시작: Azure Active Directory B2C를 사용하여 ASP.NET 애플리케이션에 대한 로그인 설정
 
-Azure AD(Azure Active Directory) B2C는 애플리케이션, 비즈니스 및 고객을 보호하기 위한 클라우드 ID 관리 기능을 제공합니다. Azure AD B2C를 사용하면 응용 프로그램에서 개방형 표준 프로토콜을 사용하여 소셜 계정 및 엔터프라이즈 계정을 인증할 수 있습니다. 이 빠른 시작에서는 ASP.NET 응용 프로그램에서 소셜 ID 공급자를 사용하여 로그인하고 Azure AD B2C로 보호되는 웹 API를 호출합니다.
+Azure AD(Azure Active Directory) B2C는 애플리케이션, 비즈니스 및 고객을 보호하기 위한 클라우드 ID 관리 기능을 제공합니다. Azure AD B2C를 사용하면 애플리케이션에서 개방형 표준 프로토콜을 사용하여 소셜 계정 및 엔터프라이즈 계정을 인증할 수 있습니다. 이 빠른 시작에서는 ASP.NET 애플리케이션에서 소셜 ID 공급자를 사용하여 로그인하고 Azure AD B2C로 보호되는 웹 API를 호출합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -27,7 +27,7 @@ Azure AD(Azure Active Directory) B2C는 애플리케이션, 비즈니스 및 고
 
 - **ASP.NET 및 웹 개발** 워크로드가 있는 [Visual Studio 2019](https://www.visualstudio.com/downloads/)
 - Facebook, Google, Microsoft 또는 Twitter의 소셜 계정입니다.
-- GitHub에서 [Zip 파일을 다운로드](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip)하거나 샘플 웹 응용 프로그램을 복제합니다.
+- GitHub에서 [Zip 파일을 다운로드](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip)하거나 샘플 웹 애플리케이션을 복제합니다.
 
     ```
     git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
@@ -44,10 +44,10 @@ Azure AD(Azure Active Directory) B2C는 애플리케이션, 비즈니스 및 고
 2. 이 빠른 시작에서는 **TaskWebApp** 및 **TaskService** 프로젝트를 동시에 실행합니다. 솔루션 탐색기에서 **B2C-WebAPI-DotNet** 솔루션을 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트 설정**을 선택합니다.
 3. **여러 시작 프로젝트**를 선택하고 두 프로젝트의 **동작**을 **시작**으로 변경합니다.
 4. **확인**을 클릭합니다.
-5. **F5** 키를 눌러 두 응용 프로그램을 모두 디버깅합니다. 각 응용 프로그램은 고유한 브라우저 탭에서 열립니다.
+5. **F5** 키를 눌러 두 애플리케이션을 모두 디버깅합니다. 각 애플리케이션은 고유한 브라우저 탭에서 열립니다.
 
-    - `https://localhost:44316/` - ASP.NET 웹 응용 프로그램입니다. 빠른 시작에서 이 응용 프로그램과 직접 상호 작용합니다.
-    - `https://localhost:44332/` - ASP.NET 웹 응용 프로그램에서 호출되는 웹 API입니다.
+    - `https://localhost:44316/` - ASP.NET 웹 애플리케이션입니다. 빠른 시작에서 이 애플리케이션과 직접 상호 작용합니다.
+    - `https://localhost:44332/` - ASP.NET 웹 애플리케이션에서 호출되는 웹 API입니다.
 
 ## <a name="sign-in-using-your-account"></a>계정을 사용하여 로그인
 

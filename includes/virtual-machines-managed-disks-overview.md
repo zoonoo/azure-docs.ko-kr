@@ -29,7 +29,7 @@ ms.locfileid: "68320005"
 
 ### <a name="integration-with-availability-sets"></a>가용성 집합과 통합
 
-관리 디스크는 가용성 집합과 통합되어 단일 실패 지점을 피할 만큼 [가용성 집합의 VM](../articles/virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) 디스크가 서로 충분히 격리되도록 해줍니다. 디스크는 다른 저장소 배율 단위(스탬프)에 자동으로 배치됩니다. 스탬프가 하드웨어 또는 소프트웨어 오류로 인해 실패하는 경우 해당 스탬프의 디스크가 있는 VM 인스턴스만 실패합니다. 예를 들어 애플리케이션을 5개의 VM에서 실행 중이고 VM이 가용성 집합 내에 있다고 가정해 보겠습니다. 이러한 VM의 디스크는 동일한 스탬프에 저장되지 않습니다. 따라서 스탬프 하나가 작동이 중단되면 다른 애플리케이션 인스턴스가 계속해서 실행됩니다.
+관리 디스크는 가용성 집합과 통합되어 단일 실패 지점을 피할 만큼 [가용성 집합의 VM](../articles/virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) 디스크가 서로 충분히 격리되도록 해줍니다. 디스크는 다른 스토리지 배율 단위(스탬프)에 자동으로 배치됩니다. 스탬프가 하드웨어 또는 소프트웨어 오류로 인해 실패하는 경우 해당 스탬프의 디스크가 있는 VM 인스턴스만 실패합니다. 예를 들어 애플리케이션을 5개의 VM에서 실행 중이고 VM이 가용성 집합 내에 있다고 가정해 보겠습니다. 이러한 VM의 디스크는 동일한 스탬프에 저장되지 않습니다. 따라서 스탬프 하나가 작동이 중단되면 다른 애플리케이션 인스턴스가 계속해서 실행됩니다.
 
 ### <a name="integration-with-availability-zones"></a>가용성 영역과 통합
 
@@ -41,7 +41,7 @@ ms.locfileid: "68320005"
 
 ### <a name="granular-access-control"></a>세부적인 액세스 제어
 
-[Azure RBAC(역할 기반 액세스 제어)](../articles/role-based-access-control/overview.md)를 사용하여 관리 디스크에 대한 특정 권한을 한 명 이상의 사용자에게 할당할 수 있습니다. 관리 디스크는 읽기, 쓰기(만들기/업데이트), 삭제, [SAS(공유 액세스 서명) URI](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md) 검색 등 디스크에 대한 다양한 작업을 공개합니다. 업무를 수행하는 데 필요한 작업에만 액세스 권한을 부여할 수 있습니다. 예를 들어 관리 디스크를 저장소 계정에 복사하지 말아야 하는 경우에는 해당 관리 디스크에 대한 내보내기 작업에 액세스를 부여하지 않도록 선택할 수 있습니다. SAS URI를 사용하여 관리 디스크를 복사할 수 없도록 하기 위해 관리 디스크에 해당 권한을 부여하지 않도록 선택할 수 있습니다.
+[Azure RBAC(역할 기반 액세스 제어)](../articles/role-based-access-control/overview.md)를 사용하여 관리 디스크에 대한 특정 권한을 한 명 이상의 사용자에게 할당할 수 있습니다. 관리 디스크는 읽기, 쓰기(만들기/업데이트), 삭제, [SAS(공유 액세스 서명) URI](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md) 검색 등 디스크에 대한 다양한 작업을 공개합니다. 업무를 수행하는 데 필요한 작업에만 액세스 권한을 부여할 수 있습니다. 예를 들어 관리 디스크를 스토리지 계정에 복사하지 말아야 하는 경우에는 해당 관리 디스크에 대한 내보내기 작업에 액세스를 부여하지 않도록 선택할 수 있습니다. SAS URI를 사용하여 관리 디스크를 복사할 수 없도록 하기 위해 관리 디스크에 해당 권한을 부여하지 않도록 선택할 수 있습니다.
 
 ## <a name="encryption"></a>암호화
 
@@ -63,7 +63,7 @@ Azure에는 데이터 디스크, OS 디스크 및 임시 디스크라는 3가지
 
 ### <a name="data-disk"></a>데이터 디스크
 
-데이터 디스크는 애플리케이션 데이터 또는 사용자가 보존해야 하는 기타 데이터를 저장하기 위해 가상 머신에 연결된 관리 디스크입니다. 데이터 디스크는 SCSI 드라이브로 등록되며 사용자가 선택한 문자로 레이블이 지정됩니다. 각 데이터 디스크의 최대 용량은 32,767GiB(기비바이트)입니다. 가상 머신의 크기에 따라 사용자가 해당 가상 머신에 연결할 수 있는 데이터의 디스크의 용량과 디스크를 호스트하기 위해 사용할 수 있는 저장소 유형이 결정됩니다.
+데이터 디스크는 애플리케이션 데이터 또는 사용자가 보존해야 하는 기타 데이터를 저장하기 위해 가상 머신에 연결된 관리 디스크입니다. 데이터 디스크는 SCSI 드라이브로 등록되며 사용자가 선택한 문자로 레이블이 지정됩니다. 각 데이터 디스크의 최대 용량은 32,767GiB(기비바이트)입니다. 가상 컴퓨터의 크기에 따라 사용자가 해당 가상 컴퓨터에 연결할 수 있는 데이터의 디스크의 용량과 디스크를 호스트하기 위해 사용할 수 있는 스토리지 유형이 결정됩니다.
 
 ### <a name="os-disk"></a>OS 디스크
 
@@ -73,7 +73,7 @@ Azure에는 데이터 디스크, OS 디스크 및 임시 디스크라는 3가지
 
 ### <a name="temporary-disk"></a>임시 디스크
 
-모든 VM 디스크는 관리 디스크가 아닌 임시 디스크를 포함합니다. 이러한 임시 디스크는 애플리케이션 및 프로세스에 대한 단기 저장소를 제공하며 페이지 또는 스왑 파일과 같은 데이터 저장에 사용됩니다. 임시 디스크의 데이터는 [유지 관리 이벤트](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) 기간에 또는 [VM을 다시 배포](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json)할 때 손실될 수 있습니다. Azure Linux VM의 임시 디스크는 기본적으로 /dev/sdb이고, Windows VM의 임시 디스크는 기본적으로 D:입니다. VM을 정상적으로 재부팅하는 동안 임시 디스크의 데이터는 유지됩니다.
+모든 VM 디스크는 관리 디스크가 아닌 임시 디스크를 포함합니다. 이러한 임시 디스크는 애플리케이션 및 프로세스에 대한 단기 스토리지를 제공하며 페이지 또는 스왑 파일과 같은 데이터 저장에 사용됩니다. 임시 디스크의 데이터는 [유지 관리 이벤트](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) 기간에 또는 [VM을 다시 배포](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json)할 때 손실될 수 있습니다. Azure Linux VM의 임시 디스크는 기본적으로 /dev/sdb이고, Windows VM의 임시 디스크는 기본적으로 D:입니다. VM을 정상적으로 재부팅하는 동안 임시 디스크의 데이터는 유지됩니다.
 
 ## <a name="managed-disk-snapshots"></a>관리 디스크 스냅샷
 
@@ -86,7 +86,7 @@ Azure에는 데이터 디스크, OS 디스크 및 임시 디스크라는 3가지
 
 ### <a name="images"></a>이미지
 
-관리 디스크는 관리되는 사용자 지정 이미지 만들기도 지원합니다. 스토리지 계정의 사용자 지정 VHD에서 이미지를 만들거나 일반화된(시스템에서 준비된) VM에서 직접 만들 수 있습니다. 이 프로세스는 단일 이미지를 캡처합니다. 이 이미지는 OS와 데이터 디스크를 모두 포함하여 VM과 연결된 모든 관리 디스크를 포함합니다. 이 관리되는 사용자 지정 이미지를 사용하면 저장소 계정을 복사하거나 관리할 필요 없이 사용자 지정 이미지를 사용하여 수백 개의 VM을 만들 수 있습니다.
+관리 디스크는 관리되는 사용자 지정 이미지 만들기도 지원합니다. 스토리지 계정의 사용자 지정 VHD에서 이미지를 만들거나 일반화된(시스템에서 준비된) VM에서 직접 만들 수 있습니다. 이 프로세스는 단일 이미지를 캡처합니다. 이 이미지는 OS와 데이터 디스크를 모두 포함하여 VM과 연결된 모든 관리 디스크를 포함합니다. 이 관리되는 사용자 지정 이미지를 사용하면 스토리지 계정을 복사하거나 관리할 필요 없이 사용자 지정 이미지를 사용하여 수백 개의 VM을 만들 수 있습니다.
 
 이미지 만들기에 대한 내용은 다음 문서를 참조하세요.
 

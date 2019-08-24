@@ -28,7 +28,7 @@ ms.locfileid: "67594007"
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>필수 조건
-이 빠른 시작의 목적상 원본 호스트 이름에 사용한 *mystorageacct123*이라는 스토리지 계정을 만들었어야 합니다. 자세한 내용은 [Azure CDN과 Azure 저장소 계정 통합](cdn-create-a-storage-account-with-cdn.md)을 참조하세요.
+이 빠른 시작의 목적상 원본 호스트 이름에 사용한 *mystorageacct123*이라는 스토리지 계정을 만들었어야 합니다. 자세한 내용은 [Azure CDN과 Azure Storage 계정 통합](cdn-create-a-storage-account-with-cdn.md)을 참조하세요.
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
 Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
@@ -54,7 +54,7 @@ CDN 프로필을 만든 후에 엔드포인트를 만드는 데 사용할 수 �
     | 설정 | 값 |
     | ------- | ----- |
     | **Name** | 엔드포인트 호스트 이름에 *my-endpoint-123*을 입력합니다. 이 이름은 전역적으로 고유해야 합니다. 이미 사용 중인 경우 다른 이름을 입력할 수 있습니다. 이 이름은 _&lt;엔드포인트 이름&gt;_ .azureedge.net 도메인의 캐시된 리소스에 액세스하기 위해 사용됩니다.|
-    | **원본 형식** | **저장소**를 선택합니다. | 
+    | **원본 형식** | **스토리지**를 선택합니다. | 
     | **원본 호스트 이름** | 호스트 이름에 *mystorageacct123.blob.core.windows.net*을 입력합니다. 이 이름은 전역적으로 고유해야 합니다. 이미 사용 중인 경우 다른 이름을 입력할 수 있습니다. |
     | **원본 경로** | 비워 둡니다. |
     | **원본 호스트 헤더** | 생성된 기본값을 그대로 둡니다. |  

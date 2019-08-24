@@ -56,7 +56,7 @@ ms.locfileid: "68854397"
         - [직렬 콘솔 NMI/SysRq](serial-console-nmi-sysrq.md)
     - [Windows VM](serial-console-windows.md)
         - [CMD 및 PowerShell 명령](serial-console-cmd-ps-commands.md)
-- [저장소 리소스 삭제 시 오류](storage-resource-deletion-errors.md      )
+- [스토리지 리소스 삭제 시 오류](storage-resource-deletion-errors.md      )
 - [VHD가 연결된 VM이 예기치 않게 다시 부팅되는 경우](unexpected-reboots-attached-vhds.md)
 - [Windows 정품 인증 문제](troubleshoot-activation-problems.md)
 - [애플리케이션 액세스 문제](troubleshoot-app-connection.md)

@@ -253,7 +253,7 @@ Data Box Edge에 컴퓨팅을 구성하려면 IoT Hub 리소스를 만들어야 
 
     ![데이터 변환 확인](./media/data-box-edge-deploy-configure-compute-advanced/verify-data-4.png)  
 
-    그런 다음, 데이터가 클라우드 공유에서 스토리지 계정으로 푸시됩니다. 데이터를 보려면 스토리지 계정으로 이동하고 **스토리지 탐색기**를 선택합니다. 스토리지 계정에 업로드된 데이터를 볼 수 있습니다.
+    그런 다음, 데이터가 클라우드 공유에서 스토리지 계정으로 푸시됩니다. 데이터를 보려면 스토리지 계정으로 이동하고 **Storage Explorer**를 선택합니다. 스토리지 계정에 업로드된 데이터를 볼 수 있습니다.
 
     ![데이터 변환 확인](./media/data-box-edge-deploy-configure-compute-advanced/verify-data-5.png)
  

@@ -40,7 +40,7 @@ ms.locfileid: "68593861"
     | **구독** | 구독 선택 | 사용할 Azure 구독입니다. |
     | **[리소스 그룹](../articles/azure-resource-manager/resource-group-overview.md)** | myResourceGroup |  함수 앱을 만들 리소스 그룹의 이름입니다. **새로 만들기**를 선택하여 새 리소스 그룹을 만듭니다.|
     | **[호스팅 계획](../articles/azure-functions/functions-scale.md)** | 소비 계획 | **새로 만들기**를 선택하여 서버리스 계획을 만든 후에 **크기** 아래에서 **사용량**을 선택해야 합니다. 또한 사용자 근처 또는 함수가 액세스할 기타 서비스에 가까운 [지역](https://azure.microsoft.com/regions/)의 **위치**를 선택합니다. **소비** 이외의 계획에서 실행하는 경우 [함수 앱의 크기 조정](../articles/azure-functions/functions-scale.md)을 관리해야 합니다.  |
-    | **[Azure Storage](../articles/storage/common/storage-quickstart-create-account.md)** | 범용 스토리지 계정 | Functions 런타임에는 Azure Storage 계정이 필요합니다. **새로 만들기**를 선택하여 범용 스토리지 계정을 만듭니다. [저장소 계정 요구 사항](../articles/azure-functions/functions-scale.md#storage-account-requirements)을 충족하는 기존 계정을 사용할 수도 있습니다.  |
+    | **[Azure Storage](../articles/storage/common/storage-quickstart-create-account.md)** | 범용 스토리지 계정 | Functions 런타임에는 Azure Storage 계정이 필요합니다. **새로 만들기**를 선택하여 범용 스토리지 계정을 만듭니다. [스토리지 계정 요구 사항](../articles/azure-functions/functions-scale.md#storage-account-requirements)을 충족하는 기존 계정을 사용할 수도 있습니다.  |
 
 5. **만들기**를 선택하여 이러한 설정으로 Azure에서 함수 앱 및 관련 리소스를 만들고, 함수 프로젝트 코드를 배포합니다. 
 

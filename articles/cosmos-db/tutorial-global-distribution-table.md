@@ -28,7 +28,7 @@ ms.locfileid: "68693354"
 
 ## <a name="connecting-to-a-preferred-region-using-the-table-api"></a>Table API를 사용하여 기본 설정 지역에 연결
 
-[전역 배포](distribute-data-globally.md)를 활용하기 위해 클라이언트 응용 프로그램은 문서 작업을 수행하는 데 사용할 정렬된 기본 지역 목록을 지정할 수 있습니다. [TableConnectionPolicy.PreferredLocations](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.preferredlocations?view=azure-dotnet) 속성을 설정하여 이 작업을 수행할 수 있습니다. Azure Cosmos DB Table API SDK는 계정 구성, 현재 가용성 및 제공된 기본 설정 목록에 따라 최상의 엔드포인트를 선택하여 통신합니다.
+[전역 배포](distribute-data-globally.md)를 활용하기 위해 클라이언트 애플리케이션은 문서 작업을 수행하는 데 사용할 정렬된 기본 지역 목록을 지정할 수 있습니다. [TableConnectionPolicy.PreferredLocations](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.preferredlocations?view=azure-dotnet) 속성을 설정하여 이 작업을 수행할 수 있습니다. Azure Cosmos DB Table API SDK는 계정 구성, 현재 가용성 및 제공된 기본 설정 목록에 따라 최상의 엔드포인트를 선택하여 통신합니다.
 
 PreferredLocations에는 읽기에 대해 기본 설정된(멀티 홈) 위치를 쉼표로 구분한 목록이 있어야 합니다. 각 클라이언트 인스턴스는 대기 시간이 짧은 읽기에 대해 기본 설정된 순서대로 이러한 지역의 하위 집합을 지정할 수 있습니다. 지역 이름은 [표시 이름](https://msdn.microsoft.com/library/azure/gg441293.aspx)(예: `West US`)을 사용하여 지정해야 합니다.
 

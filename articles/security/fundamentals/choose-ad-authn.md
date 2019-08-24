@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 22a5a2e157c0b2095673e75e7a3bc9ccb80f8ffd
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: ba9cda5aeebaf0764068a463cdb55f3ef5542ea3
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68928023"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997813"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Azure Active Directory 하이브리드 ID 솔루션에 적합한 인증 방법 선택 
 
@@ -66,6 +66,9 @@ Azure AD에서는 하이브리드 ID 솔루션에 대해 다음과 같은 인증
 다음 섹션은 의사 결정 트리를 사용하여 적합한 인증 방법을 결정하는 데 도움이 됩니다. 즉, Azure AD 하이브리드 ID 솔루션에 대해 클라우드 인증을 배포할지 또는 페더레이션 인증을 배포할지 결정하는 데 도움이 됩니다.
 
 ## <a name="decision-tree"></a>의사 결정 트리
+
+> [!NOTE]
+> PTA는 대체 id로 UserPrincipalName을 선택한 경우에만 대체 ID로 작동 합니다. 그러면 온-프레미스 UserPrincipalName AD에서 AAD로 동기화 됩니다. 자세한 내용은 [통과 인증 지원 "userPrincipalName" 대신 사용자 이름으로 "대체 ID" 지원](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-pta-faq#does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname)을 참조 하세요.
 
 ![Azure AD 인증 의사 결정 트리](./media/choose-ad-authn/azure-ad-authn-image1.png)
 

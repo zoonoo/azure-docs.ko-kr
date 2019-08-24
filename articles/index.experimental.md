@@ -678,12 +678,12 @@ ms.locfileid: "54425681"
                             </li>
                             <li>
                                 <div class="group">
-                                    <h3>Storage</h3>
+                                    <h3>스토리지</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/storage/">
                                                 <img src="media/index/Storage.svg" alt="" />
-                                                <p>Storage</p>
+                                                <p>스토리지</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1400,7 +1400,7 @@ ms.locfileid: "54425681"
                         </ul>
                     </li>
                     <li>
-                        <a href="#storage">Storage</a>
+                        <a href="#storage">스토리지</a>
                         <ul id="storage" class="cardsA">
                             <li>
                                 <a href="/azure/storage/">
@@ -1413,8 +1413,8 @@ ms.locfileid: "54425681"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Storage</h3>
-                                                    <p>내구성과 가용성이 높고 대량으로 확장 가능한 클라우드 저장소</p>
+                                                    <h3>스토리지</h3>
+                                                    <p>내구성과 가용성이 높고 대량으로 확장 가능한 클라우드 스토리지</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1452,7 +1452,7 @@ ms.locfileid: "54425681"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>StorSimple</h3>
-                                                    <p>엔터프라이즈를 위한 하이브리드 클라우드 저장소로 데이터 보안 향상</p>
+                                                    <p>엔터프라이즈를 위한 하이브리드 클라우드 스토리지로 데이터 보안 향상</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2494,7 +2494,7 @@ ms.locfileid: "54425681"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>StorSimple</h3>
-                                                    <p>엔터프라이즈를 위한 하이브리드 클라우드 저장소로 데이터 보안 향상</p>
+                                                    <p>엔터프라이즈를 위한 하이브리드 클라우드 스토리지로 데이터 보안 향상</p>
                                                 </div>
                                             </div>
                                         </div>

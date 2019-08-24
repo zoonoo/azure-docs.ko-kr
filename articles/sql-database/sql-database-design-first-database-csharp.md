@@ -69,7 +69,7 @@ Azure SQL Database의 단일 데이터베이스는 정의된 컴퓨팅 및 스�
     ![create database-server](./media/sql-database-design-first-database/create-database-server.png)
 
 5. **선택**을 클릭합니다.
-6. **가격 책정 계층**을 클릭하여 서비스 계층, DTU나 vCore 개수 및 저장소 크기를 지정합니다. 각 서비스 계층에 대해 사용할 수 있는 DTU/vCore 및 스토리지 수에 대한 옵션을 살펴볼 수 있습니다.
+6. **가격 책정 계층**을 클릭하여 서비스 계층, DTU나 vCore 개수 및 스토리지 크기를 지정합니다. 각 서비스 계층에 대해 사용할 수 있는 DTU/vCore 및 스토리지 수에 대한 옵션을 살펴볼 수 있습니다.
 
     서버 계층, DTU 또는 vCore 수, 스토리지 양을 선택한 후 **적용**을 클릭합니다.
 

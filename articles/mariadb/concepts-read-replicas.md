@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 08/12/2019
-ms.openlocfilehash: a01f6cbb20d084864d3a7f64aa8c90d2bc3405f2
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.date: 08/21/2019
+ms.openlocfilehash: 8cfda202e57dcee4f7a783de893fb712501dfd26
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68977064"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992177"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 복제본 읽기
 
@@ -50,7 +50,7 @@ GTID 복제에 대 한 자세한 내용은 [Mariadb 복제 설명서](https://ma
 
 
 ### <a name="paired-regions"></a>쌍을 이루는 지역
-유니버설 복제본 영역 외에도 마스터 서버의 Azure 쌍을 이루는 지역에서 읽기 복제본을 만들 수 있습니다. 지역 쌍을 모를 경우 [Azure 쌍을 이루는 지역 문서](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)에서 자세히 알아볼 수 있습니다.
+유니버설 복제본 영역 외에도 마스터 서버의 Azure 쌍을 이루는 지역에서 읽기 복제본을 만들 수 있습니다. 지역 쌍을 모를 경우 [Azure 쌍을 이루는 지역 문서](../best-practices-availability-paired-regions.md)에서 자세히 알아볼 수 있습니다.
 
 재해 복구 계획에 지역 간 복제본을 사용 하는 경우 다른 지역 중 하나가 아닌 쌍을 이루는 지역에 복제본을 만드는 것이 좋습니다. 쌍을 이루는 지역은 동시 업데이트를 방지 하 고 물리적 격리 및 데이터 상주의 우선 순위를 지정 합니다.  
 

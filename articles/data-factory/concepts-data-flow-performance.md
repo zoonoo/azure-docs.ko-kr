@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.date: 05/16/2019
-ms.openlocfilehash: 090c229c5e97ede8eb7a397ce8f4d13d8735a346
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 8eb244a0eff1569ac27feae68104db613373463a
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68404615"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992337"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>데이터 흐름 매핑 성능 및 튜닝 가이드
 
@@ -117,6 +117,10 @@ ms.locfileid: "68404615"
 * ADF에서 사용할 파티션 수를 제어할 수 있습니다. 각 원본 & 싱크 변환 뿐만 아니라 각 개별 변환에서 파티션 구성표를 설정할 수 있습니다. 작은 파일의 경우 Spark에 작은 파일을 분할 하 라고 요청 하는 것 보다 "단일 파티션"을 선택 하는 것이 더 빠르고 빠르게 작동할 수 있습니다.
 * 원본 데이터에 대 한 정보가 충분 하지 않은 경우 "라운드 로빈" 분할을 선택 하 고 파티션 수를 설정할 수 있습니다.
 * 데이터를 탐색 하 고 적절 한 해시 키가 될 수 있는 열이 있는 경우 해시 분할 옵션을 사용 합니다.
+* 데이터 미리 보기 및 파이프라인 디버그에서 디버그할 때 파일 기반 원본 데이터 집합의 제한 및 샘플링 크기는 읽은 행 수를 나타내는 것이 아니라 반환 되는 행 수에만 적용 됩니다. 이는 디버그 실행의 성능에 영향을 미칠 수 있으며 흐름이 실패 하는 원인이 될 수 있기 때문에 주의 해야 합니다.
+* 디버그 클러스터는 기본적으로 작은 단일 노드 클러스터 이므로 디버깅에 임시 작은 파일을 사용 해야 합니다. 디버그 설정으로 이동 하 여 임시 파일을 사용 하 여 데이터의 작은 하위 집합을 가리킵니다.
+
+![디버그 설정](media/data-flow/debugsettings3.png "디버그 설정")
 
 ### <a name="file-naming-options"></a>파일 명명 옵션
 

@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - Windows에서 AzCopy를 사용하여 저장소 계정 간에 Blob 마이그레이션 | Microsoft Docs
+title: Azure PowerShell 스크립트 샘플 - Windows에서 AzCopy를 사용하여 스토리지 계정 간에 Blob 마이그레이션 | Microsoft Docs
 description: AzCopy를 사용하여 한 Azure Storage 계정의 Blob 내용을 다른 스토리지 계정에 복사합니다.
 services: storage
 documentationcenter: na
@@ -20,11 +20,11 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58487135"
 ---
-# <a name="migrate-blobs-across-storage-accounts-using-azcopy-on-windows"></a>Windows에서 AzCopy를 사용하여 저장소 계정 간에 Blob 마이그레이션
+# <a name="migrate-blobs-across-storage-accounts-using-azcopy-on-windows"></a>Windows에서 AzCopy를 사용하여 스토리지 계정 간에 Blob 마이그레이션
 
-이 샘플에서는 모든 Blob 개체를 사용자가 제공한 원본 저장소 계정에서 사용자가 제공한 대상 저장소 계정으로 복사합니다. 
+이 샘플에서는 모든 Blob 개체를 사용자가 제공한 원본 스토리지 계정에서 사용자가 제공한 대상 스토리지 계정으로 복사합니다. 
 
-이 작업은 저장소 계정의 모든 컨테이너를 나열하는 `Get-AzStorageContainer` 명령을 사용하여 수행됩니다. 그런 다음 샘플에서 AzCopy 명령을 실행하여 각 컨테이너를 원본 저장소 계정에서 대상 저장소 계정으로 복사합니다. 오류가 발생하면 샘플에서 $retryTimes를 다시 시도 합니다(기본값은 3이며, `-RetryTimes` 매개 변수로 수정할 수 있음). 다시 시도할 때마다 실패하는 경우 사용자는 `-LastSuccessContainerName` 매개 변수를 사용하여 마지막으로 성공적으로 복사된 컨테이너를 샘플에 제공함으로써 스크립트를 다시 실행할 수 있습니다. 그런 다음 샘플은 해당 지점에서 컨테이너를 계속 복사합니다.
+이 작업은 스토리지 계정의 모든 컨테이너를 나열하는 `Get-AzStorageContainer` 명령을 사용하여 수행됩니다. 그런 다음 샘플에서 AzCopy 명령을 실행하여 각 컨테이너를 원본 스토리지 계정에서 대상 스토리지 계정으로 복사합니다. 오류가 발생하면 샘플에서 $retryTimes를 다시 시도 합니다(기본값은 3이며, `-RetryTimes` 매개 변수로 수정할 수 있음). 다시 시도할 때마다 실패하는 경우 사용자는 `-LastSuccessContainerName` 매개 변수를 사용하여 마지막으로 성공적으로 복사된 컨테이너를 샘플에 제공함으로써 스크립트를 다시 실행할 수 있습니다. 그런 다음 샘플은 해당 지점에서 컨테이너를 계속 복사합니다.
 
 이 샘플에는 Azure PowerShell 스토리지 모듈 버전 **0.7** 이상이 필요합니다. `Get-Module -ListAvailable Az.storage`를 사용하여 설치된 버전을 확인할 수 있습니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요. 
 
@@ -32,7 +32,7 @@ ms.locfileid: "58487135"
 
 또한 이 샘플에는 [Windows에서 최신 버전의 AzCopy](https://aka.ms/downloadazcopy)가 필요합니다. 기본 설치 디렉터리는 `C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\`입니다.
 
-이 샘플에서는 원본 저장소 계정 이름과 키, 대상 저장소 계정 이름과 키 및 AzCopy.exe의 전체 파일 경로(기본 디렉터리에 설치되지 않은 경우)를 사용합니다.
+이 샘플에서는 원본 스토리지 계정 이름과 키, 대상 스토리지 계정 이름과 키 및 AzCopy.exe의 전체 파일 경로(기본 디렉터리에 설치되지 않은 경우)를 사용합니다.
 
 이 샘플에 대한 입력 예제는 다음과 같습니다.
 
@@ -64,7 +64,7 @@ AzCopyPath: C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\AzCopy.exe
 
 ## <a name="script-explanation"></a>스크립트 설명
 
-이 스크립트는 다음 명령을 사용하여 한 저장소 계정에서 다른 저장소 계정으로 데이터를 복사합니다. 표에 있는 각 항목은 명령 관련 설명서에 연결됩니다.
+이 스크립트는 다음 명령을 사용하여 한 스토리지 계정에서 다른 스토리지 계정으로 데이터를 복사합니다. 표에 있는 각 항목은 명령 관련 설명서에 연결됩니다.
 
 | 명령 | 메모 |
 |---|---|

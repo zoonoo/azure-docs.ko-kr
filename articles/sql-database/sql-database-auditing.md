@@ -95,7 +95,7 @@ SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
 
 6. 스토리지 계정에 감사 로그 작성을 구성하려면 **스토리지**를 선택하고 **스토리지 세부 정보**를 엽니다. 로그를 저장할 Azure 스토리지 계정을 선택한 다음, 보존 기간을 선택합니다. 이전 로그는 삭제됩니다. 그런 다음 **확인**을 클릭합니다.
 
-    ![스토리지 계정](./media/sql-database-auditing-get-started/auditing_select_storage.png)
+    ![스토리지 계정 만들기](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
 7. Log Analytics 작업 영역에 감사 로그를 쓰도록 구성하려면 **Log Analytics(미리 보기)** 를 선택하고 **Log Analytics 세부 정보**를 엽니다. 로그를 쓸 Log Analytics 작업 영역을 선택하거나 만든 다음, **확인**을 클릭합니다.
 
@@ -208,7 +208,7 @@ Azure Storage 계정에 감사 로그를 작성하도록 선택한 경우 로그
 
 ## <a name="additional-information"></a>추가 정보
 
-- 로그 형식, 저장소 폴더의 계층 구조 및 명명 규칙에 대한 자세한 내용은 [Blob 감사 로그 형식 참조](https://go.microsoft.com/fwlink/?linkid=829599)를 확인하세요.
+- 로그 형식, 스토리지 폴더의 계층 구조 및 명명 규칙에 대한 자세한 내용은 [Blob 감사 로그 형식 참조](https://go.microsoft.com/fwlink/?linkid=829599)를 참조하세요.
 
     > [!IMPORTANT]
     > Azure SQL 데이터베이스 감사는 감사 레코드의 문자 필드에 대해 4000자의 데이터를 저장합니다. 감사가 가능한 작업에서 반환된 **statement** 또는 **data_sensitivity_information** 값에 4000자가 넘게 포함되면 처음 4000자를 초과하는 문자는 **잘리고 감사되지 않습니다**.

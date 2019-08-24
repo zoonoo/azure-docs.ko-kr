@@ -30,7 +30,7 @@ ms.locfileid: "68608085"
 
 ## <a name="common-scenarios"></a>일반적인 시나리오
 
-모바일 우선, 클라우드 우선 세계에서 Azure Active Directory는 어디에서나 디바이스, 앱 및 서비스에 대한 Single Sign-On을 가능하게 합니다. 장치(BYOD 포함), 기업 네트워크 외 근무 및 타사 SaaS 앱의 확산에 따라 다음과 같이 서로 대립하는 두 가지 목표에 직면하게 되었습니다.
+모바일 우선, 클라우드 우선 세계에서 Azure Active Directory는 어디에서나 디바이스, 앱 및 서비스에 대한 Single Sign-On을 가능하게 합니다. 디바이스(BYOD 포함), 기업 네트워크 외 근무 및 타사 SaaS 앱의 확산에 따라 다음과 같이 서로 대립하는 두 가지 목표에 직면하게 되었습니다.
 
 - 사용자가 언제 어디서나 생산성을 높일 수 있도록 지원
 - 언제든지 회사 자산 보호
@@ -79,7 +79,7 @@ Azure AD 조건부 액세스를 사용하여 권한 있는 사용자가 클라�
 
 구성된 조건부 액세스 정책에 다단계 인증이 필요할 경우 Azure AD의 기본값은 Azure MFA를 사용하는 것입니다. MFA에 대해 페디레이션 서비스를 사용할 경우 [PowerShell](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings)에서 `-SupportsMFA`를 `$true`로 설정하여 페더레이션 서비스로 리디렉션하도록 Azure AD를 구성할 수 있습니다 이 설정은 `wauth= http://schemas.microsoft.com/claims/multipleauthn`을 사용하여 Azure AD에서 발행한 MFA 과제 요청을 지원하는 페더레이션된 인증 서비스에 적용됩니다.
 
-사용자가 페더레이션된 인증 서비스에 로그인한 후 Azure AD는 장치 준수, 승인된 애플리케이션 같은 다른 정책 요구 사항을 처리합니다.
+사용자가 페더레이션된 인증 서비스에 로그인한 후 Azure AD는 디바이스 준수, 승인된 애플리케이션 같은 다른 정책 요구 사항을 처리합니다.
 
 ## <a name="license-requirements"></a>라이선스 요구 사항
 

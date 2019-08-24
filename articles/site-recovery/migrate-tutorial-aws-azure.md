@@ -53,14 +53,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="prepare-azure-resources"></a>Azure 리소스 준비
 
-마이그레이션된 EC2 인스턴스가 사용할 몇 가지 리소스를 Azure에서 준비해야 합니다. 여기에는 저장소 계정, 자격 증명 모음, 가상 네트워크가 포함됩니다.
+마이그레이션된 EC2 인스턴스가 사용할 몇 가지 리소스를 Azure에서 준비해야 합니다. 여기에는 스토리지 계정, 자격 증명 모음, 가상 네트워크가 포함됩니다.
 
-### <a name="create-a-storage-account"></a>저장소 계정 만들기
+### <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
-복제된 컴퓨터의 이미지는 Azure Storage에 유지됩니다. 온-프레미스에서 Azure로 장애 조치할 때 저장소에서 Azure VM이 만들어집니다.
+복제된 컴퓨터의 이미지는 Azure Storage에 유지됩니다. 온-프레미스에서 Azure로 장애 조치할 때 스토리지에서 Azure VM이 만들어집니다.
 
 1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **리소스 만들기** > **Storage** > **Storage 계정**을 선택합니다.
-2. 저장소 계정의 이름을 입력합니다. 이 자습서에서는 **awsmigrated2017**이라는 이름을 사용합니다. 이름은 다음과 같아야 합니다.
+2. 스토리지 계정의 이름을 입력합니다. 이 자습서에서는 **awsmigrated2017**이라는 이름을 사용합니다. 이름은 다음과 같아야 합니다.
     - Azure에서 고유해야 함
     - 3자에서 24자 사이여야 함
     - 숫자와 소문자만 포함해야 함
@@ -69,7 +69,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 6. 이 자습서에 대해 사용하려는 구독을 선택합니다.
 7. **리소스 그룹**에 대해 **새로 만들기**를 선택합니다. 이 예에서는 리소스 그룹 이름에 **migrationRG**를 사용합니다.
 8. **위치**로 **유럽 서부**를 선택합니다.
-9. **만들기**를 선택하여 저장소 계정을 만듭니다.
+9. **만들기**를 선택하여 스토리지 계정을 만듭니다.
 
 ### <a name="create-a-vault"></a>자격 증명 모음 만들기
 
@@ -152,7 +152,7 @@ Azure Portal의 자격 증명 모음 페이지에 있는 **시작** 섹션에서
 
 1. **구독**에서 [Azure 준비](tutorial-prepare-azure.md) 자습서에 사용한 Azure 구독을 선택합니다.
 2. **Resource Manager** 를 배포 모델로 선택합니다.
-3. Site Recovery가 호환되는 Azure 저장소 계정 및 네트워크가 하나 이상 있는지 확인합니다. 이는 이 자습서 앞부분의 [Azure 리소스 준비](#prepare-azure-resources)에서 만든 리소스여야 합니다.
+3. Site Recovery가 호환되는 Azure Storage 계정 및 네트워크가 하나 이상 있는지 확인합니다. 이는 이 자습서 앞부분의 [Azure 리소스 준비](#prepare-azure-resources)에서 만든 리소스여야 합니다.
 4. 완료되면 **확인**을 선택합니다.
 
 ### <a name="5-prepare-replication-settings"></a>5: 복제 설정 준비
@@ -189,7 +189,7 @@ Azure Portal의 자격 증명 모음 페이지에 있는 **시작** 섹션에서
      | 구독: | 사용해 온 구독을 선택합니다.|
      | 사후 장애 조치(failover) 리소스 그룹:| [Azure 리소스 준비](#prepare-azure-resources)에서 만든 리소스 그룹을 사용합니다.|
      | 사후 장애 조치(failover) 배포 모델: | **리소스 관리자**를 선택합니다.|
-     | 저장소 계정: | [Azure 리소스 준비](#prepare-azure-resources)에서 만든 저장소 계정을 선택합니다.|
+     | 스토리지 계정: | [Azure 리소스 준비](#prepare-azure-resources)에서 만든 스토리지 계정을 선택합니다.|
      | Azure 네트워크: | **선택한 컴퓨터에 대해 지금 구성합니다**를 선택합니다.|
      | 사후 장애 조치(failover) Azure 네트워크: | [Azure 리소스 준비](#prepare-azure-resources)에서 만든 네트워크를 선택합니다.|
      | 서브넷: | 드롭다운 목록에서 **기본값**을 선택합니다.|

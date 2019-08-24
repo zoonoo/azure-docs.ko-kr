@@ -164,11 +164,11 @@ Content-Length: 0
 
 클라이언트 애플리케이션이 음성 서비스에 보낸 각 메시지는 *X-Timestamp* 헤더를 포함*해야 합니다*. 이 헤더에 대한 값은 클라이언트가 메시지를 보내는 시간입니다. *X-Timestamp* 헤더가 없거나 잘못된 형식을 사용하는 헤더 값을 가진 요청은 서비스가 WebSocket 연결을 종료하게 합니다.
 
-*X-Timestamp* 헤더 값은 'yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fffffffZ' 형식이어야 합니다. 단, 'fffffff'는 초의 분수입니다. 예를 들어 '12.5'는 '12 + 5/10초'를 의미하며 '12.526'은 '12 plus 526/1000초'를 의미합니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)를 준수하며 표준 HTTP *Date* 헤더와 달리 밀리초 분해능을 제공할 수 있습니다. 클라이언트 애플리케이션은 타임스탬프를 가장 가까운 밀리초로 반올림할 수 있습니다. 클라이언트 애플리케이션은 [NTP(Network Time Protocol) 서버](https://en.wikipedia.org/wiki/Network_Time_Protocol)를 사용하여 장치 시계가 시간을 정확히 추적하도록 해야 합니다.
+*X-Timestamp* 헤더 값은 'yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fffffffZ' 형식이어야 합니다. 단, 'fffffff'는 초의 분수입니다. 예를 들어 '12.5'는 '12 + 5/10초'를 의미하며 '12.526'은 '12 plus 526/1000초'를 의미합니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)를 준수하며 표준 HTTP *Date* 헤더와 달리 밀리초 분해능을 제공할 수 있습니다. 클라이언트 애플리케이션은 타임스탬프를 가장 가까운 밀리초로 반올림할 수 있습니다. 클라이언트 애플리케이션은 [NTP(Network Time Protocol) 서버](https://en.wikipedia.org/wiki/Network_Time_Protocol)를 사용하여 디바이스 시계가 시간을 정확히 추적하도록 해야 합니다.
 
 ### <a name="message-speechconfig"></a>메시지 `speech.config`
 
-음성 서비스가 최상의 예상 음성 인식을 제공하려면 애플리케이션의 특성을 알아야 합니다. 필요한 특성 데이터는 애플리케이션을 구동하는 장치 및 OS에 관한 정보를 포함합니다. 이 정보를 `speech.config` 메시지에 제공합니다.
+음성 서비스가 최상의 예상 음성 인식을 제공하려면 애플리케이션의 특성을 알아야 합니다. 필요한 특성 데이터는 애플리케이션을 구동하는 디바이스 및 OS에 관한 정보를 포함합니다. 이 정보를 `speech.config` 메시지에 제공합니다.
 
 클라이언트는 음성 서비스에 대한 연결을 설정한 후 `audio` 메시지를 보내기 전에 `speech.config` 메시지를 *보내야 합니다*. `speech.config` 메시지를 연결당 한 번만 보내야 합니다.
 
@@ -213,7 +213,7 @@ Content-Length: 0
 
 ##### <a name="system-element"></a>시스템 요소
 
-`speech.config` 메시지의 system.version 요소는 클라이언트 애플리케이션 또는 장치가 사용한 음성 SDK 소프트웨어의 버전을 포함합니다. 이 값은 *major.minor.build.branch* 형식입니다. *branch* 구성 요소는 해당하지 않는 경우 생략할 수 있습니다.
+`speech.config` 메시지의 system.version 요소는 클라이언트 애플리케이션 또는 디바이스가 사용한 음성 SDK 소프트웨어의 버전을 포함합니다. 이 값은 *major.minor.build.branch* 형식입니다. *branch* 구성 요소는 해당하지 않는 경우 생략할 수 있습니다.
 
 ##### <a name="os-element"></a>OS 요소
 

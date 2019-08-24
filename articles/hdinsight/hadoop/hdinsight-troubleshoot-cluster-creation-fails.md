@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
-ms.date: 08/06/2019
-ms.openlocfilehash: c7092b2cbcef01ef71261b6f5498cde56a40c358
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
-ms.translationtype: HT
+ms.date: 08/22/2019
+ms.openlocfilehash: 476b8cff23d09d81fe356a6445e27794b267d9a2
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68857249"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69998098"
 ---
 # <a name="troubleshoot-cluster-creation-failures-with-azure-hdinsight"></a>Azure HDInsight를 사용 하 여 클러스터 만들기 오류 문제 해결
 
@@ -29,7 +29,7 @@ ms.locfileid: "68857249"
 
 ## <a name="permissions-issues"></a>권한 이슈
 
-Gen 2 Data Lake Storage 사용 하는 경우 HDInsight 클러스터에 할당 된 사용자 할당 관리 id가 **저장소 Blob 데이터 참가자** 역할 또는 **저장소 Blob 데이터 소유자 역할**에 있는지 확인 합니다. 전체 설치 지침은 [Azure HDInsight 클러스터와 Azure Data Lake Storage Gen2 사용](../hdinsight-hadoop-use-data-lake-storage-gen2.md#set-up-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2-account) 을 참조 하세요.
+Azure Data Lake Storage Gen 2를 사용 하는 경우 "이 요청에는이 권한을 사용 하 여이 작업을 수행할 수 있는 권한이 없습니다." 라는 오류 메시지가 표시 되 면 Azure Portal를 열고 저장소 계정으로 이동한 다음 Access Control (IAM)에서 저장소 Blob이 있는지 확인 합니다.  **데이터 참가자** 또는 **저장소 Blob 데이터 소유자 역할** 역할이 구독에 대해 **사용자 할당 관리 id** 에 대 한 액세스 권한을 할당 했습니다. 자세한 지침은 [Data Lake Storage Gen2 계정에서 관리 되는 id에 대 한 사용 권한 설정](../hdinsight-hadoop-use-data-lake-storage-gen2.md#set-up-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2-account) 을 참조 하세요.
 
 [여기](../hdinsight-hadoop-use-data-lake-store.md)에서 Data Lake Storage Gen 1을 사용 하는 경우 설치 및 구성 지침을 참조 하세요. Data Lake Storage Gen 1은 HBase 클러스터에 대해 지원 되지 않으며 HDInsight 버전 4.0에서 지원 되지 않습니다.
 
@@ -73,6 +73,8 @@ Express 경로 또는 사용자 지정 DNS 서버를 사용 하는 경우 [Azure
 ## <a name="storage-account-name-restrictions"></a>저장소 계정 이름 제한
 
 저장소 계정 이름은 24 자이 하 여야 하며 특수 문자를 포함할 수 없습니다. 이러한 제한은 스토리지 계정의 기본 컨테이너 이름에도 적용됩니다.
+
+클러스터를 만드는 경우에도 다른 명명 제한이 적용 됩니다. 자세한 내용은 [클러스터 이름 제한](../hdinsight-hadoop-provision-linux-clusters.md#cluster-name)을 참조 하세요.
 
 ## <a name="service-outages"></a>서비스 중단
 

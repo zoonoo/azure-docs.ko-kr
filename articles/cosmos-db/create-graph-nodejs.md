@@ -46,7 +46,7 @@ Azure Cosmos DB는 Microsoft에서 제공하는 전 세계로 분산된 다중 �
 
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
-## <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
+## <a name="clone-the-sample-application"></a>샘플 애플리케이션 복제
 
 이제 GitHub에서 Gremlin API 앱을 복제하고, 연결 문자열을 설정하고, 실행해 보겠습니다. 프로그래밍 방식으로 데이터를 사용하여 얼마나 쉽게 작업할 수 있는지 알게 될 것입니다. 
 
@@ -187,7 +187,7 @@ module.exports = config;
 
 2. `npm install`을 실행하여 필요한 npm 모듈(`gremlin` 포함)을 설치합니다.
 
-3. 터미널에서 `node app.js`을 실행하여 노드 응용 프로그램을 시작합니다.
+3. 터미널에서 `node app.js`을 실행하여 노드 애플리케이션을 시작합니다.
 
 ## <a name="browse-with-data-explorer"></a>데이터 탐색기 검색
 

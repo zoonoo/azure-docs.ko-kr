@@ -194,7 +194,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 9. **새 연결된 서비스** 창에서 다음 단계를 수행합니다. 
 
     1. **이름**에 대해 **AzureStorageLinkedService**를 입력합니다.
-    2. **저장소 계정 이름**에 대해 Azure 저장소 계정을 선택합니다.
+    2. **스토리지 계정 이름**에 대해 Azure Storage 계정을 선택합니다.
     3. **저장**을 클릭합니다.
 
    ![새 Azure Storage 연결된 서비스](./media/tutorial-control-flow-portal/new-azure-storage-linked-service.png)

@@ -58,11 +58,11 @@ Conversation Learner를 일부 초기 상태 및 반환 값을 가져오는 함�
 
 이러한 엔터티가 사용되는 방식을 이해하려면 파일 `C:\<installedpath>\src\demos\tutorialHybrid.ts`를 열어 콜백을 확인합니다.
 
-`OnSessionStartCallback`의 코드는 BotBuilder 대화 저장소의 `storeIsOpen` 값을 Conversation Learner에서 사용할 수 있도록 `isOpen` 엔터티의 값으로 복사합니다. 다음 코드를 확인합니다.
+`OnSessionStartCallback`의 코드는 BotBuilder 대화 스토리지의 `storeIsOpen` 값을 Conversation Learner에서 사용할 수 있도록 `isOpen` 엔터티의 값으로 복사합니다. 다음 코드를 확인합니다.
 
 ![](../media/tutorial17_sessionstart.PNG)
 
-마찬가지로 `OnSessionEndCallback`의 코드(단지 시간 초과 때문이 아니라 학습된 활동 때문에 세션이 종료된 경우)는 엔터티 `purchaseItem`의 값을 BotBuilder 저장소 `purchaseItem`으로 복사합니다. 다음 코드를 확인합니다.
+마찬가지로 `OnSessionEndCallback`의 코드(단지 시간 초과 때문이 아니라 학습된 활동 때문에 세션이 종료된 경우)는 엔터티 `purchaseItem`의 값을 BotBuilder 스토리지 `purchaseItem`으로 복사합니다. 다음 코드를 확인합니다.
 
 ![](../media/tutorial17_sessionend.PNG)
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Storage 코드 샘플 | Microsoft Docs
-description: Azure Storage에 대한 샘플 코드 및 애플리케이션을 확인하고 다운로드하여 실행합니다. .NET, Java, Node.js 및 C++ 저장소 클라이언트 라이브러리를 사용하여 blob, 큐, 테이블 및 파일에 대한 예제 시작을 검색합니다.
+description: Azure Storage에 대한 샘플 코드 및 애플리케이션을 확인하고 다운로드하여 실행합니다. .NET, Java, Node.js 및 C++ 스토리지 클라이언트 라이브러리를 사용하여 blob, 큐, 테이블 및 파일에 대한 예제 시작을 검색합니다.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 06/03/2017
@@ -29,7 +29,7 @@ Had to remove this article, it refers to the VS quickstarts, and they've stopped
 -->
 
 ## <a name="net-samples"></a>.NET 샘플
-.NET 샘플을 탐색하려면 [.NET Storage 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage/) 를 NuGet에서 다운로드합니다. .NET 저장소 클라이언트 라이브러리를 [Azure SDK for.NET](https://azure.microsoft.com/downloads/)에서도 사용할 수 있습니다.
+.NET 샘플을 탐색하려면 [.NET Storage 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage/) 를 NuGet에서 다운로드합니다. .NET 스토리지 클라이언트 라이브러리를 [Azure SDK for.NET](https://azure.microsoft.com/downloads/)에서도 사용할 수 있습니다.
 
 * [.NET을 사용한 Azure Storage 샘플](storage-samples-dotnet.md)
 
@@ -60,10 +60,10 @@ C++ 샘플을 탐색하려면 [C++ Storage 클라이언트 라이브러리](http
 
 | 언어 | API 참조 | 소스 코드 |
 |----------|---------------|-------------|
-| .NET | [.NET 클라이언트 라이브러리 참조](https://msdn.microsoft.com/library/azure/mt347887.aspx) | [.NET 저장소 클라이언트 라이브러리에 대한 소스 코드](https://github.com/Azure/azure-storage-net) |
-| Java | [Java 클라이언트 라이브러리 참조](https://docs.microsoft.com/java/api/overview/azure/storage) | [Java 저장소 클라이언트 라이브러리에 대한 소스 코드](https://github.com/azure/azure-storage-java) |
-| Node.js | [Node.js 클라이언트 라이브러리 참조](https://azure.github.io/azure-storage-node) | [Node.js 저장소 클라이언트 라이브러리에 대한 소스 코드](https://github.com/Azure/azure-storage-node) |
-| C++ | [C++ 클라이언트 라이브러리 참조](https://azure.github.io/azure-storage-cpp/) | [C++ 저장소 클라이언트 라이브러리에 대한 소스 코드](https://github.com/Azure/azure-storage-cpp)|
+| .NET | [.NET 클라이언트 라이브러리 참조](https://msdn.microsoft.com/library/azure/mt347887.aspx) | [.NET 스토리지 클라이언트 라이브러리에 대한 소스 코드](https://github.com/Azure/azure-storage-net) |
+| Java | [Java 클라이언트 라이브러리 참조](https://docs.microsoft.com/java/api/overview/azure/storage) | [Java 스토리지 클라이언트 라이브러리에 대한 소스 코드](https://github.com/azure/azure-storage-java) |
+| Node.js | [Node.js 클라이언트 라이브러리 참조](https://azure.github.io/azure-storage-node) | [Node.js 스토리지 클라이언트 라이브러리에 대한 소스 코드](https://github.com/Azure/azure-storage-node) |
+| C++ | [C++ 클라이언트 라이브러리 참조](https://azure.github.io/azure-storage-cpp/) | [C++ 스토리지 클라이언트 라이브러리에 대한 소스 코드](https://github.com/Azure/azure-storage-cpp)|
 
 ## <a name="next-steps"></a>다음 단계
 

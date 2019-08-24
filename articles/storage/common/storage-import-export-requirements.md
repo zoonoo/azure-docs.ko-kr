@@ -57,7 +57,7 @@ Azure Import/Export 서비스는 다음과 같은 유형의 스토리지 계정�
 다음 스토리지 유형 목록은 Azure Import/Export 서비스를 지원합니다.
 
 
-|작업  |저장소 서비스 |지원됨  |지원되지 않음  |
+|작업  |스토리지 서비스 |지원됨  |지원되지 않음  |
 |---------|---------|---------|---------|
 |가져오기     |  Azure Blob 스토리지 <br><br> Azure File Storage       | 블록 Blob 및 페이지 Blob 지원됨 <br><br> 파일 지원됨          |
 |내보내기     |   Azure Blob 스토리지       | 블록 Blob, 페이지 Blob 및 추가 Blob 지원됨         | Azure Files 지원되지 않음

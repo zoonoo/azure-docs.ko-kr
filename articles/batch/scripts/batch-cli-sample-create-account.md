@@ -49,7 +49,7 @@ az group delete --name myResourceGroup
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [az batch account create](/cli/azure/batch/account#az-batch-account-create) | Batch 계정을 만듭니다. |
-| [az storage account create](/cli/azure/storage/account#az-storage-account-create) | 저장소 계정을 만듭니다. |
+| [az storage account create](/cli/azure/storage/account#az-storage-account-create) | 스토리지 계정을 만듭니다. |
 | [az batch account set](/cli/azure/batch/account#az-batch-account-set) | Batch 계정의 속성을 업데이트합니다.  |
 | [az batch account show](/cli/azure/batch/account#az-batch-account-show) | 지정된 Batch 계정의 세부 정보를 검색합니다.  |
 | [az batch account keys list](/cli/azure/batch/account/keys#az-batch-account-keys-list) | 지정된 Batch 계정의 액세스 키를 검색합니다.  |

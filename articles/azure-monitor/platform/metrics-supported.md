@@ -589,7 +589,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |memory_percent|메모리 백분율|Percent|Average|메모리 백분율|차원 없음|
 |io_consumption_percent|IO 백분율|Percent|Average|IO 백분율|차원 없음|
 |storage_percent|스토리지 비율|Percent|Average|스토리지 비율|차원 없음|
-|storage_used|사용된 스토리지|바이트|Average|사용된 스토리지|차원 없음|
+|storage_used|스토리지 사용됨|바이트|Average|스토리지 사용됨|차원 없음|
 |storage_limit|스토리지 제한|바이트|Average|스토리지 제한|차원 없음|
 |serverlog_storage_percent|서버 로그 스토리지 비율|Percent|Average|서버 로그 스토리지 비율|차원 없음|
 |serverlog_storage_percent|사용된 서버 로그 스토리지|바이트|Average|사용된 서버 로그 스토리지|차원 없음|
@@ -609,7 +609,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |memory_percent|메모리 백분율|Percent|Average|메모리 백분율|차원 없음|
 |io_consumption_percent|IO 백분율|Percent|Average|IO 백분율|차원 없음|
 |storage_percent|스토리지 비율|Percent|Average|스토리지 비율|차원 없음|
-|storage_used|사용된 스토리지|바이트|Average|사용된 스토리지|차원 없음|
+|storage_used|스토리지 사용됨|바이트|Average|스토리지 사용됨|차원 없음|
 |storage_limit|스토리지 제한|바이트|Average|스토리지 제한|차원 없음|
 |serverlog_storage_percent|서버 로그 스토리지 비율|Percent|Average|서버 로그 스토리지 비율|차원 없음|
 |serverlog_storage_percent|사용된 서버 로그 스토리지|바이트|Average|사용된 서버 로그 스토리지|차원 없음|
@@ -629,7 +629,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |memory_percent|메모리 백분율|Percent|Average|메모리 백분율|차원 없음|
 |io_consumption_percent|IO 백분율|Percent|Average|IO 백분율|차원 없음|
 |storage_percent|스토리지 비율|Percent|Average|스토리지 비율|차원 없음|
-|storage_used|사용된 스토리지|바이트|Average|사용된 스토리지|차원 없음|
+|storage_used|스토리지 사용됨|바이트|Average|스토리지 사용됨|차원 없음|
 |storage_limit|스토리지 제한|바이트|Average|스토리지 제한|차원 없음|
 |serverlog_storage_percent|서버 로그 스토리지 비율|Percent|Average|서버 로그 스토리지 비율|차원 없음|
 |serverlog_storage_percent|사용된 서버 로그 스토리지|바이트|Average|사용된 서버 로그 스토리지|차원 없음|
@@ -650,7 +650,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |memory_percent|메모리 백분율|Percent|Average|메모리 백분율|차원 없음|
 |사서함당|IOPS|Count|Average|초당 IO 작업 수|차원 없음|
 |storage_percent|스토리지 비율|Percent|Average|스토리지 비율|차원 없음|
-|storage_used|사용된 스토리지|바이트|Average|사용된 스토리지|차원 없음|
+|storage_used|스토리지 사용됨|바이트|Average|스토리지 사용됨|차원 없음|
 |active_connections|활성 연결 수|Count|Average|활성 연결 수|차원 없음|
 |network_bytes_egress|네트워크 출력|바이트|Total|활성 연결에서 네트워크 출력|차원 없음|
 |network_bytes_ingress|네트워크 입력|바이트|Total|활성 연결에서 네트워크 입력|차원 없음|
@@ -1477,7 +1477,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |eDTU_limit|eDTU 제한|Count|Average|eDTU 제한|차원 없음|
 |storage_limit|데이터의 최대 크기|바이트|Average|스토리지 제한|차원 없음|
 |eDTU_used|eDTU 사용|Count|Average|eDTU 사용|차원 없음|
-|storage_used|사용되는 데이터 공간|바이트|Average|사용된 스토리지|차원 없음|
+|storage_used|사용되는 데이터 공간|바이트|Average|스토리지 사용됨|차원 없음|
 |xtp_storage_percent|메모리 내 OLTP 스토리지 백분율|Percent|Average|메모리 내 OLTP 스토리지 백분율|차원 없음|
 |cpu_limit|CPU 제한|Count|Average|CPU 제한|차원 없음|
 |cpu_used|사용 되는 CPU|Count|Average|사용 되는 CPU|차원 없음|
@@ -1501,69 +1501,69 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
 |UsedCapacity|사용된 용량|바이트|평균|계정 사용 용량|차원 없음|
-|트랜잭션|트랜잭션|카운트|합계|저장소 서비스 또는 지정된 API 작업에 대해 제기된 요청 수입니다. 이 수는 성공 및 실패 요청뿐만 아니라 오류를 발생시킨 요청도 포함합니다. 다른 종류의 응답 수에 ResponseType 차원을 사용합니다.|ResponseType, GeoType, ApiName, Authentication|
+|트랜잭션|트랜잭션|카운트|합계|스토리지 서비스 또는 지정된 API 작업에 대해 제기된 요청 수입니다. 이 수는 성공 및 실패 요청뿐만 아니라 오류를 발생시킨 요청도 포함합니다. 다른 종류의 응답 수에 ResponseType 차원을 사용합니다.|ResponseType, GeoType, ApiName, Authentication|
 |수신|수신|바이트|합계|수신 데이터 양(바이트)입니다. 이 수는 외부 클라이언트에서 Azure Storage로 수신뿐만 아니라 Azure 내의 수신도 포함합니다.|GeoType, ApiName, Authentication|
 |송신|송신|바이트|합계|송신 데이터 양(바이트)입니다. 이 수는 외부 클라이언트에서 Azure Storage로 송신뿐만 아니라 Azure 내의 송신도 포함합니다. 따라서 이 수는 청구 가능한 송신을 반영하지 않습니다.|GeoType, ApiName, Authentication|
 |SuccessServerLatency|성공 서버 대기 시간|밀리초|평균|Azure Storage에서 성공적인 요청을 처리하는 데 사용한 평균 대기 시간(밀리초)입니다. 이 값은 AverageE2ELatency에 지정된 네트워크 대기 시간을 포함하지 않습니다.|GeoType, ApiName, Authentication|
 |SuccessE2ELatency|성공 E2E 대기 시간|밀리초|평균|저장소 서비스 또는 지정된 API 작업에 대해 제기된 성공적인 요청의 평균 종단 간 대기 시간(밀리초)입니다. 이 값은 Azure Storage 내에서 요청을 읽고 응답을 보내고 응답 확인을 수신하는 데 필요한 처리 시간을 포함합니다.|GeoType, ApiName, Authentication|
-|가용성|가용성|백분율|평균|저장소 서비스 또는 지정된 API 작업에 대한 가용성 백분율입니다. 가용성은 TotalBillableRequests 값을 적용 가능한 요청 수로 나누어서 계산합니다(예기치 않은 오류를 발생시킨 요청 포함). 모든 예기치 않은 오류는 저장소 서비스 또는 지정된 API 작업에 대한 가용성을 감소시킵니다.|GeoType, ApiName, Authentication|
+|가용성|가용성|백분율|평균|스토리지 서비스 또는 지정된 API 작업에 대한 가용성 백분율입니다. 가용성은 TotalBillableRequests 값을 적용 가능한 요청 수로 나누어서 계산합니다(예기치 않은 오류를 발생시킨 요청 포함). 모든 예기치 않은 오류는 스토리지 서비스 또는 지정된 API 작업에 대한 가용성을 감소시킵니다.|GeoType, ApiName, Authentication|
 
 ## <a name="microsoftstoragestorageaccountsblobservices"></a>Microsoft.Storage/storageAccounts/blobServices
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
-|BlobCapacity|Blob 용량|바이트|Average|저장소 계정의 Blob service가 사용하는 저장소의 양(바이트)입니다.|BlobType, Tier|
-|BlobCount|Blob 수|카운트|합계|저장소 계정의 Blob service에 있는 Blob 수입니다.|BlobType|       |BlobCount|Blob 수|Count|Average|저장소 계정의 Blob service에 있는 Blob 수입니다.|BlobType, Tier|
-|ContainerCount|Blob 컨테이너 수|카운트|평균|저장소 계정의 Blob service에 있는 컨테이너 수입니다.|차원 없음|
+|BlobCapacity|Blob 용량|바이트|Average|스토리지 계정의 Blob service가 사용하는 스토리지의 양(바이트)입니다.|BlobType, Tier|
+|BlobCount|Blob 수|카운트|합계|스토리지 계정의 Blob service에 있는 Blob 수입니다.|BlobType|       |BlobCount|Blob 수|Count|Average|스토리지 계정의 Blob service에 있는 Blob 수입니다.|BlobType, Tier|
+|ContainerCount|Blob 컨테이너 수|카운트|평균|스토리지 계정의 Blob service에 있는 컨테이너 수입니다.|차원 없음|
 |IndexCapacity|인덱스 용량|바이트|Average|ADLS Gen2 (계층적) 인덱스에서 사용 하는 저장소의 양 (바이트)입니다.|차원 없음|
-|트랜잭션|트랜잭션|카운트|합계|저장소 서비스 또는 지정된 API 작업에 대해 제기된 요청 수입니다. 이 수는 성공 및 실패 요청뿐만 아니라 오류를 발생시킨 요청도 포함합니다. 다른 종류의 응답 수에 ResponseType 차원을 사용합니다.|ResponseType, GeoType, ApiName, Authentication|
+|트랜잭션|트랜잭션|카운트|합계|스토리지 서비스 또는 지정된 API 작업에 대해 제기된 요청 수입니다. 이 수는 성공 및 실패 요청뿐만 아니라 오류를 발생시킨 요청도 포함합니다. 다른 종류의 응답 수에 ResponseType 차원을 사용합니다.|ResponseType, GeoType, ApiName, Authentication|
 |수신|수신|바이트|합계|수신 데이터 양(바이트)입니다. 이 수는 외부 클라이언트에서 Azure Storage로 수신뿐만 아니라 Azure 내의 수신도 포함합니다.|GeoType, ApiName, Authentication|
 |송신|송신|바이트|합계|송신 데이터 양(바이트)입니다. 이 수는 외부 클라이언트에서 Azure Storage로 송신뿐만 아니라 Azure 내의 송신도 포함합니다. 따라서 이 수는 청구 가능한 송신을 반영하지 않습니다.|GeoType, ApiName, Authentication|
 |SuccessServerLatency|성공 서버 대기 시간|밀리초|평균|Azure Storage에서 성공적인 요청을 처리하는 데 사용한 평균 대기 시간(밀리초)입니다. 이 값은 AverageE2ELatency에 지정된 네트워크 대기 시간을 포함하지 않습니다.|GeoType, ApiName, Authentication|
 |SuccessE2ELatency|성공 E2E 대기 시간|밀리초|평균|저장소 서비스 또는 지정된 API 작업에 대해 제기된 성공적인 요청의 평균 종단 간 대기 시간(밀리초)입니다. 이 값은 Azure Storage 내에서 요청을 읽고 응답을 보내고 응답 확인을 수신하는 데 필요한 처리 시간을 포함합니다.|GeoType, ApiName, Authentication|
-|가용성|가용성|백분율|평균|저장소 서비스 또는 지정된 API 작업에 대한 가용성 백분율입니다. 가용성은 TotalBillableRequests 값을 적용 가능한 요청 수로 나누어서 계산합니다(예기치 않은 오류를 발생시킨 요청 포함). 모든 예기치 않은 오류는 저장소 서비스 또는 지정된 API 작업에 대한 가용성을 감소시킵니다.|GeoType, ApiName, Authentication|
+|가용성|가용성|백분율|평균|스토리지 서비스 또는 지정된 API 작업에 대한 가용성 백분율입니다. 가용성은 TotalBillableRequests 값을 적용 가능한 요청 수로 나누어서 계산합니다(예기치 않은 오류를 발생시킨 요청 포함). 모든 예기치 않은 오류는 스토리지 서비스 또는 지정된 API 작업에 대한 가용성을 감소시킵니다.|GeoType, ApiName, Authentication|
 
 ## <a name="microsoftstoragestorageaccountsfileservices"></a>Microsoft.Storage/storageAccounts/fileServices
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
-|FileCapacity|파일 용량|바이트|Average|스토리지 계정의 파일 서비스에서 사용하는 스토리지 양(바이트 단위)입니다.|차원 없음|
+|FileCapacity|파일 용량|바이트|Average|스토리지 계정의 파일 서비스가 사용하는 스토리지의 양(바이트)입니다.|차원 없음|
 |FileCount|파일 수|Count|Average|스토리지 계정의 파일 서비스에 있는 파일 수입니다.|차원 없음|
 |FileShareCount|파일 공유 수|Count|Average|스토리지 계정의 파일 서비스에 있는 파일 공유 수입니다.|차원 없음|
-|트랜잭션|트랜잭션|카운트|합계|저장소 서비스 또는 지정된 API 작업에 대해 제기된 요청 수입니다. 이 수는 성공 및 실패 요청뿐만 아니라 오류를 발생시킨 요청도 포함합니다. 다른 종류의 응답 수에 ResponseType 차원을 사용합니다.|ResponseType, GeoType, ApiName, Authentication|
+|트랜잭션|트랜잭션|카운트|합계|스토리지 서비스 또는 지정된 API 작업에 대해 제기된 요청 수입니다. 이 수는 성공 및 실패 요청뿐만 아니라 오류를 발생시킨 요청도 포함합니다. 다른 종류의 응답 수에 ResponseType 차원을 사용합니다.|ResponseType, GeoType, ApiName, Authentication|
 |수신|수신|바이트|합계|수신 데이터 양(바이트)입니다. 이 수는 외부 클라이언트에서 Azure Storage로 수신뿐만 아니라 Azure 내의 수신도 포함합니다.|GeoType, ApiName, Authentication|
 |송신|송신|바이트|합계|송신 데이터 양(바이트)입니다. 이 수는 외부 클라이언트에서 Azure Storage로 송신뿐만 아니라 Azure 내의 송신도 포함합니다. 따라서 이 수는 청구 가능한 송신을 반영하지 않습니다.|GeoType, ApiName, Authentication|
 |SuccessServerLatency|성공 서버 대기 시간|밀리초|평균|Azure Storage에서 성공적인 요청을 처리하는 데 사용한 평균 대기 시간(밀리초)입니다. 이 값은 AverageE2ELatency에 지정된 네트워크 대기 시간을 포함하지 않습니다.|GeoType, ApiName, Authentication|
 |SuccessE2ELatency|성공 E2E 대기 시간|밀리초|평균|저장소 서비스 또는 지정된 API 작업에 대해 제기된 성공적인 요청의 평균 종단 간 대기 시간(밀리초)입니다. 이 값은 Azure Storage 내에서 요청을 읽고 응답을 보내고 응답 확인을 수신하는 데 필요한 처리 시간을 포함합니다.|GeoType, ApiName, Authentication|
-|가용성|가용성|백분율|평균|저장소 서비스 또는 지정된 API 작업에 대한 가용성 백분율입니다. 가용성은 TotalBillableRequests 값을 적용 가능한 요청 수로 나누어서 계산합니다(예기치 않은 오류를 발생시킨 요청 포함). 모든 예기치 않은 오류는 저장소 서비스 또는 지정된 API 작업에 대한 가용성을 감소시킵니다.|GeoType, ApiName, Authentication|
+|가용성|가용성|백분율|평균|스토리지 서비스 또는 지정된 API 작업에 대한 가용성 백분율입니다. 가용성은 TotalBillableRequests 값을 적용 가능한 요청 수로 나누어서 계산합니다(예기치 않은 오류를 발생시킨 요청 포함). 모든 예기치 않은 오류는 스토리지 서비스 또는 지정된 API 작업에 대한 가용성을 감소시킵니다.|GeoType, ApiName, Authentication|
 
 ## <a name="microsoftstoragestorageaccountsqueueservices"></a>Microsoft.Storage/storageAccounts/queueServices
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
-|QueueCapacity|큐 용량|바이트|평균|저장소 계정의 큐 서비스가 사용하는 저장소의 양(바이트)입니다.|차원 없음|
-|QueueCount|큐 수|카운트|평균|저장소 계정의 큐 서비스에 있는 큐 수입니다.|차원 없음|
-|QueueMessageCount|큐 메시지 수|카운트|평균|저장소 계정의 큐 서비스에 있는 대략적인 큐 메시지 수입니다.|차원 없음|
-|트랜잭션|트랜잭션|카운트|합계|저장소 서비스 또는 지정된 API 작업에 대해 제기된 요청 수입니다. 이 수는 성공 및 실패 요청뿐만 아니라 오류를 발생시킨 요청도 포함합니다. 다른 종류의 응답 수에 ResponseType 차원을 사용합니다.|ResponseType, GeoType, ApiName, Authentication|
+|QueueCapacity|큐 용량|바이트|평균|스토리지 계정의 큐 서비스가 사용하는 스토리지의 양(바이트)입니다.|차원 없음|
+|QueueCount|큐 수|카운트|평균|스토리지 계정의 큐 서비스에 있는 큐 수입니다.|차원 없음|
+|QueueMessageCount|큐 메시지 수|카운트|평균|스토리지 계정의 큐 서비스에 있는 대략적인 큐 메시지 수입니다.|차원 없음|
+|트랜잭션|트랜잭션|카운트|합계|스토리지 서비스 또는 지정된 API 작업에 대해 제기된 요청 수입니다. 이 수는 성공 및 실패 요청뿐만 아니라 오류를 발생시킨 요청도 포함합니다. 다른 종류의 응답 수에 ResponseType 차원을 사용합니다.|ResponseType, GeoType, ApiName, Authentication|
 |수신|수신|바이트|합계|수신 데이터 양(바이트)입니다. 이 수는 외부 클라이언트에서 Azure Storage로 수신뿐만 아니라 Azure 내의 수신도 포함합니다.|GeoType, ApiName, Authentication|
 |송신|송신|바이트|합계|송신 데이터 양(바이트)입니다. 이 수는 외부 클라이언트에서 Azure Storage로 송신뿐만 아니라 Azure 내의 송신도 포함합니다. 따라서 이 수는 청구 가능한 송신을 반영하지 않습니다.|GeoType, ApiName, Authentication|
 |SuccessServerLatency|성공 서버 대기 시간|밀리초|평균|Azure Storage에서 성공적인 요청을 처리하는 데 사용한 평균 대기 시간(밀리초)입니다. 이 값은 AverageE2ELatency에 지정된 네트워크 대기 시간을 포함하지 않습니다.|GeoType, ApiName, Authentication|
 |SuccessE2ELatency|성공 E2E 대기 시간|밀리초|평균|저장소 서비스 또는 지정된 API 작업에 대해 제기된 성공적인 요청의 평균 종단 간 대기 시간(밀리초)입니다. 이 값은 Azure Storage 내에서 요청을 읽고 응답을 보내고 응답 확인을 수신하는 데 필요한 처리 시간을 포함합니다.|GeoType, ApiName, Authentication|
-|가용성|가용성|백분율|평균|저장소 서비스 또는 지정된 API 작업에 대한 가용성 백분율입니다. 가용성은 TotalBillableRequests 값을 적용 가능한 요청 수로 나누어서 계산합니다(예기치 않은 오류를 발생시킨 요청 포함). 모든 예기치 않은 오류는 저장소 서비스 또는 지정된 API 작업에 대한 가용성을 감소시킵니다.|GeoType, ApiName, Authentication|
+|가용성|가용성|백분율|평균|스토리지 서비스 또는 지정된 API 작업에 대한 가용성 백분율입니다. 가용성은 TotalBillableRequests 값을 적용 가능한 요청 수로 나누어서 계산합니다(예기치 않은 오류를 발생시킨 요청 포함). 모든 예기치 않은 오류는 스토리지 서비스 또는 지정된 API 작업에 대한 가용성을 감소시킵니다.|GeoType, ApiName, Authentication|
 
 ## <a name="microsoftstoragestorageaccountstableservices"></a>Microsoft.Storage/storageAccounts/tableServices
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
-|TableCapacity|테이블 용량|바이트|평균|저장소 계정의 Table service가 사용하는 저장소의 양(바이트)입니다.|차원 없음|
-|TableCount|테이블 수|카운트|평균|저장소 계정의 Table service에 있는 테이블 수입니다.|차원 없음|
-|TableEntityCount|테이블 엔터티 수|카운트|평균|저장소 계정의 Table service에 있는 테이블 엔터티 수입니다.|차원 없음|
-|의|트랜잭션|카운트|합계|저장소 서비스 또는 지정된 API 작업에 대해 제기된 요청 수입니다. 이 수는 성공 및 실패 요청뿐만 아니라 오류를 발생시킨 요청도 포함합니다. 다른 종류의 응답 수에 ResponseType 차원을 사용합니다.|ResponseType, GeoType, ApiName, Authentication|
+|TableCapacity|테이블 용량|바이트|평균|스토리지 계정의 Table service가 사용하는 스토리지의 양(바이트)입니다.|차원 없음|
+|TableCount|테이블 수|카운트|평균|스토리지 계정의 Table service에 있는 테이블 수입니다.|차원 없음|
+|TableEntityCount|테이블 엔터티 수|카운트|평균|스토리지 계정의 Table service에 있는 테이블 엔터티 수입니다.|차원 없음|
+|의|트랜잭션|카운트|합계|스토리지 서비스 또는 지정된 API 작업에 대해 제기된 요청 수입니다. 이 수는 성공 및 실패 요청뿐만 아니라 오류를 발생시킨 요청도 포함합니다. 다른 종류의 응답 수에 ResponseType 차원을 사용합니다.|ResponseType, GeoType, ApiName, Authentication|
 |수신|수신|바이트|합계|수신 데이터 양(바이트)입니다. 이 수는 외부 클라이언트에서 Azure Storage로 수신뿐만 아니라 Azure 내의 수신도 포함합니다.|GeoType, ApiName, Authentication|
 |송신|송신|바이트|합계|송신 데이터 양(바이트)입니다. 이 수는 외부 클라이언트에서 Azure Storage로 송신뿐만 아니라 Azure 내의 송신도 포함합니다. 따라서 이 수는 청구 가능한 송신을 반영하지 않습니다.|GeoType, ApiName, Authentication|
 |SuccessServerLatency|성공 서버 대기 시간|밀리초|평균|Azure Storage에서 성공적인 요청을 처리하는 데 사용한 평균 대기 시간(밀리초)입니다. 이 값은 AverageE2ELatency에 지정된 네트워크 대기 시간을 포함하지 않습니다.|GeoType, ApiName, Authentication|
 |SuccessE2ELatency|성공 E2E 대기 시간|밀리초|평균|저장소 서비스 또는 지정된 API 작업에 대해 제기된 성공적인 요청의 평균 종단 간 대기 시간(밀리초)입니다. 이 값은 Azure Storage 내에서 요청을 읽고 응답을 보내고 응답 확인을 수신하는 데 필요한 처리 시간을 포함합니다.|GeoType, ApiName, Authentication|
-|가용성|가용성|백분율|평균|저장소 서비스 또는 지정된 API 작업에 대한 가용성 백분율입니다. 가용성은 TotalBillableRequests 값을 적용 가능한 요청 수로 나누어서 계산합니다(예기치 않은 오류를 발생시킨 요청 포함). 모든 예기치 않은 오류는 저장소 서비스 또는 지정된 API 작업에 대한 가용성을 감소시킵니다.|GeoType, ApiName, Authentication|
+|가용성|가용성|백분율|평균|스토리지 서비스 또는 지정된 API 작업에 대한 가용성 백분율입니다. 가용성은 TotalBillableRequests 값을 적용 가능한 요청 수로 나누어서 계산합니다(예기치 않은 오류를 발생시킨 요청 포함). 모든 예기치 않은 오류는 스토리지 서비스 또는 지정된 API 작업에 대한 가용성을 감소시킵니다.|GeoType, ApiName, Authentication|
 
 ## <a name="microsoftstoragesyncstoragesyncservices"></a>microsoft.storagesync/storageSyncServices
 

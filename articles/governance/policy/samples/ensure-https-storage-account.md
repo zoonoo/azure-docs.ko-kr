@@ -16,7 +16,7 @@ ms.locfileid: "59279145"
 ---
 # <a name="sample---ensure-https-traffic-only-for-storage-account"></a>샘플 - 스토리지 계정에 대해서만 HTTPS 트래픽 확인
 
-이 정책에서는 저장소 계정이 HTTPS 트래픽을 사용해야 합니다.
+이 정책에서는 스토리지 계정이 HTTPS 트래픽을 사용해야 합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -30,7 +30,7 @@ ms.locfileid: "59279145"
 
 [![Azure에 Policy 샘플 배포](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FStorage%2Fhttps-traffic-only%2Fazurepolicy.json)
 
-## <a name="deploy-with-powershell"></a>PowerShell을 사용하여 배포 
+## <a name="deploy-with-powershell"></a>PowerShell을 사용하여 배포
 
 [!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 

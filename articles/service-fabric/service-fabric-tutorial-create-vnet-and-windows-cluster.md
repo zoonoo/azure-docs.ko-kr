@@ -687,7 +687,7 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
 
 이제 보안 클러스터에 연결할 준비가 되었습니다.
 
-**Service Fabric** PowerShell 모듈은 Service Fabric 클러스터, 응용 프로그램 및 서비스를 관리하기 위한 많은 cmdlet을 제공합니다. [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) cmdlet을 사용하여 보안 클러스터에 연결합니다. 인증서 SHA1 지문 및 연결 엔드포인트 세부 정보는 이전 단계의 출력에 있습니다.
+**Service Fabric** PowerShell 모듈은 Service Fabric 클러스터, 애플리케이션 및 서비스를 관리하기 위한 많은 cmdlet을 제공합니다. [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) cmdlet을 사용하여 보안 클러스터에 연결합니다. 인증서 SHA1 지문 및 연결 엔드포인트 세부 정보는 이전 단계의 출력에 있습니다.
 
 이전에 Azure AD 클라이언트 인증을 설정한 경우 다음 명령을 실행합니다. 
 ```powershell

@@ -37,9 +37,9 @@ Resource Manager 템플릿을 처음부터 새로 만드는 작업은 쉽지 않
 숙련된 많은 템플릿 개발자는 익숙하지 않은 Azure 리소스를 배포하려고 할 때 이 메서드를 사용하여 템플릿을 생성합니다. 포털을 사용하여 템플릿을 내보내는 방법에 대한 자세한 내용은 [템플릿에 리소스 그룹 내보내기](./manage-resource-groups-portal.md#export-resource-groups-to-templates)를 참조하세요. 작업 템플릿을 찾는 다른 방법은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/)에서 찾는 것입니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. **리소스 만들기** > **저장소** > **저장소 계정 - Blob, 파일, 테이블, 큐**를 차례로 선택합니다.
+2. **리소스 만들기** > **스토리지** > **스토리지 계정 - Blob, 파일, 테이블, 큐**를 차례로 선택합니다.
 
-    ![Azure Portal을 사용하여 Azure 저장소 계정 만들기](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-portal.png)
+    ![Azure Portal을 사용하여 Azure Storage 계정 만들기](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-portal.png)
 3. 다음 정보를 입력합니다.
 
     |이름|값|
@@ -49,7 +49,7 @@ Resource Manager 템플릿을 처음부터 새로 만드는 작업은 쉽지 않
 
     나머지 속성에는 기본값을 사용할 수 있습니다.
 
-    ![Azure Portal을 사용하여 Azure 저장소 계정 구성 만들기](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account.png)
+    ![Azure Portal을 사용하여 Azure Storage 계정 구성 만들기](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account.png)
 
     > [!NOTE]
     > 내보낸 템플릿 중 일부는 배포하기 전에 편집해야 합니다.
@@ -61,7 +61,7 @@ Resource Manager 템플릿을 처음부터 새로 만드는 작업은 쉽지 않
 
     기본 창에 템플릿이 표시됩니다. 6개의 최상위 요소(`schema`, `contentVersion`, `parameters`, `variables`, `resources` 및 `output`)가 있는 JSON 파일입니다. 자세한 내용은 [Azure Resource Manager 템플릿의 구조 및 구문 이해](./resource-group-authoring-templates.md)를 참조하세요.
 
-    매개 변수 6개가 정의되어 있습니다. 그 중 하나는 **storageAccountName**입니다. 이전 스크린샷에서 강조 표시된 두 번째 부분은 템플릿에서 이 매개 변수를 참조하는 방법을 보여줍니다. 다음 섹션에서는 생성된 이름을 저장소 계정에 사용하도록 템플릿을 편집합니다.
+    매개 변수 6개가 정의되어 있습니다. 그 중 하나는 **storageAccountName**입니다. 이전 스크린샷에서 강조 표시된 두 번째 부분은 템플릿에서 이 매개 변수를 참조하는 방법을 보여줍니다. 다음 섹션에서는 생성된 이름을 스토리지 계정에 사용하도록 템플릿을 편집합니다.
 
     템플릿에는 Azure 리소스 하나가 정의되어 있습니다. 유형은 `Microsoft.Storage/storageAccounts`입니다. 리소스가 정의되는 방법 및 정의 구조를 살펴보세요.
 6. 화면 맨 위에서 **다운로드**를 선택하세요.
@@ -179,7 +179,7 @@ Azure의 각 Azure 서비스에는 고유한 이름이 필요합니다. 이미 �
 
     ![Azure Resource Manager 템플릿 배포 리소스 그룹](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-portal-deployment-resource-group.png)
 
-    배포 상태가 성공이고 리소스 그룹에 하나의 저장소 계정이 있는 것을 확인할 수 있습니다. 저장소 계정 이름은 템플릿에 의해 생성된 고유한 문자열입니다. 스토리지 계정 사용에 대한 자세한 내용은 [빠른 시작: Azure Portal을 사용하여 Blob 업로드, 다운로드 및 나열](../storage/blobs/storage-quickstart-blobs-portal.md)을 참조하세요.
+    배포 상태가 성공이고 리소스 그룹에 하나의 스토리지 계정이 있는 것을 확인할 수 있습니다. 스토리지 계정 이름은 템플릿에 의해 생성된 고유한 문자열입니다. 스토리지 계정 사용에 대한 자세한 내용은 [빠른 시작: Azure Portal을 사용하여 Blob 업로드, 다운로드 및 나열](../storage/blobs/storage-quickstart-blobs-portal.md)을 참조하세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -187,7 +187,7 @@ Azure 리소스가 더 이상 필요하지 않은 경우 리소스 그룹을 삭
 
 1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**을 선택합니다.
 2. **이름으로 필터링** 필드에서 리소스 그룹 이름을 입력합니다.
-3. 해당 리소스 그룹 이름을 선택합니다.  리소스 그룹에 저장소 계정이 표시됩니다.
+3. 해당 리소스 그룹 이름을 선택합니다.  리소스 그룹에 스토리지 계정이 표시됩니다.
 4. 최상위 메뉴에서 **리소스 그룹** 삭제를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계

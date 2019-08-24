@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/24/2019
+ms.date: 08/23/2019
 ms.author: jingwang
-ms.openlocfilehash: 3b50b0e81103f0b4c8ffa757673c9ec0ef652fc0
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 45f7db943499b8a722b8e203d676d1d80eb5091e
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69614132"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996671"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure SQL Data Warehouse 간 데이터 복사 
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스의 버전을 선택 합니다."]
@@ -431,12 +431,14 @@ PolyBase SQL Data Warehouse Azure Blob, Azure Data Lake Storage Gen1 및 Azure D
 2. **원본 데이터 형식은** 다음과 같은 구성 **으로 Parquet**, **ORC**또는 **구분 된 텍스트**입니다.
 
    1. 폴더 경로에 와일드 카드 필터가 포함 되어 있지 않습니다.
-   2. 파일 이름이 단일 파일을 가리키거나 또는 `*` `*.*`인 경우
-   3. `rowDelimiter`는 **\n**이어야 합니다.
-   4. `nullValue`는 **빈 문자열**("")로 설정되거나 기본값으로 남아 있고, `treatEmptyAsNull`은 기본값으로 남아 있거나 true로 설정됩니다.
-   5. `encodingName`이 기본값인 **utf-8**로 설정되어 있습니다.
+   2. 파일 이름이 비어 있거나 단일 파일을 가리킵니다. 복사 활동에서 와일드 카드 파일 이름을 지정 하는 경우 `*` 또는 `*.*`만 가능 합니다.
+   3. `rowDelimiter`**기본값**, **\n**, **\r\n**또는 **\r**입니다.
+   4. `nullValue`는 기본값 이거나 **빈 문자열** ("") `treatEmptyAsNull` 로 설정 된 상태로 유지 되며 기본값 이거나 true로 설정 됩니다.
+   5. `encodingName`는 기본값으로 유지 되거나 **u t f-8**로 설정 됩니다.
    6. `quoteChar`, `escapeChar` 및`skipLineCount` 가 지정 되지 않았습니다. PolyBase 지원은 ADF에서 `firstRowAsHeader`로 구성될 수 있는 머리글 행을 건너뜁니다.
    7. `compression`은 **no compression**, **GZip** 또는 **Deflate**일 수 있습니다.
+
+3. 원본이 폴더 `recursive` 이면 복사 작업에서을 true로 설정 해야 합니다.
 
 ```json
 "activities":[
@@ -445,7 +447,7 @@ PolyBase SQL Data Warehouse Azure Blob, Azure Data Lake Storage Gen1 및 Azure D
         "type": "Copy",
         "inputs": [
             {
-                "referenceName": "BlobDataset",
+                "referenceName": "ParquetDataset",
                 "type": "DatasetReference"
             }
         ],
@@ -457,7 +459,11 @@ PolyBase SQL Data Warehouse Azure Blob, Azure Data Lake Storage Gen1 및 Azure D
         ],
         "typeProperties": {
             "source": {
-                "type": "BlobSource",
+                "type": "ParquetSource",
+                "storeSettings":{
+                    "type": "AzureBlobStorageReadSetting",
+                    "recursive": true
+                }
             },
             "sink": {
                 "type": "SqlDWSink",

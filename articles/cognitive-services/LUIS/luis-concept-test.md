@@ -38,7 +38,7 @@ ms.locfileid: "68619786"
 한 번에 둘 이상의 발화를 테스트하는 경우, [일괄 테스트](luis-concept-batch-test.md)를 참조하세요.
 
 ## <a name="endpoint-testing"></a>엔드포인트 테스트
-최대 두 개의 앱 버전과 함께 [엔드포인트](luis-glossary.md#endpoint)를 사용하여 테스트할 수 있습니다. **프로덕션** 엔드포인트로 설정된 기본 또는 라이브 버전 앱을 사용하여 두 번째 버전을 **스테이징** 엔드포인트에 추가합니다. 이 접근법은 세 개의 발화 버전인 [LUIS](luis-reference-regions.md) 웹 사이트 [테스트] 창의 현재 모델 및 두 개의 다른 끝점에 있는 두 개의 버전을 제공합니다. 
+최대 두 개의 앱 버전과 함께 [엔드포인트](luis-glossary.md#endpoint)를 사용하여 테스트할 수 있습니다. **프로덕션** 엔드포인트로 설정된 기본 또는 라이브 버전 앱을 사용하여 두 번째 버전을 **스테이징** 엔드포인트에 추가합니다. 이 접근법은 세 개의 발화 버전인 [LUIS](luis-reference-regions.md) 웹 사이트 [테스트] 창의 현재 모델 및 두 개의 다른 엔드포인트에 있는 두 개의 버전을 제공합니다. 
 
 모든 엔드포인트 테스트에서는 사용 할당량을 계산합니다. 
 
@@ -48,7 +48,7 @@ ms.locfileid: "68619786"
 ## <a name="where-to-find-utterances"></a>발화를 찾을 수 있는 위치
 LUIS는 [LUIS](luis-reference-regions.md) 웹 사이트 **앱** 목록 페이지 및 LUIS [작성 API](https://go.microsoft.com/fwlink/?linkid=2092087)에서 다운로드할 수 있는 쿼리 로그에 모든 기록된 발화를 저장합니다. 
 
-LUIS가 확신하지 않는 모든 발언은 [LUIS](luis-reference-regions.md) 웹 사이트의 **[끝점 발언 검토](luis-how-to-review-endpoint-utterances.md)** 페이지에 나열됩니다. 
+LUIS가 확신하지 않는 모든 발언은 [LUIS](luis-reference-regions.md) 웹 사이트의 **[엔드포인트 발언 검토](luis-how-to-review-endpoint-utterances.md)** 페이지에 나열됩니다. 
 
 ![엔드포인트 utterances 검토](./media/luis-concept-test/review-endpoint-utterances.png)
  

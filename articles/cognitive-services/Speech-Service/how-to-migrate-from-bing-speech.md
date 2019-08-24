@@ -67,7 +67,7 @@ WebSocket 프로토콜 | :heavy_check_mark: | :heavy_check_mark: | Speech Servic
 
 음성 서비스 Websocket 프로토콜도 Bing Speech와 호환됩니다. 새로 개발할 때에는 Websocket보다 Speech SDK를 사용하는 것이 좋습니다. 기존 코드를 SDK로 마이그레이션하는 것도 좋은 생각입니다. 그러나 REST API와 마찬가지로, WebSocket을 통해 Bing Speech를 사용하는 기존 코드에서는 끝점과 업데이트된 키만 변경하면 됩니다.
 
-특정 프로그래밍 언어에 대해 Bing Speech 클라이언트 라이브러리를 사용하는 경우, API가 다르기 때문에 [Speech SDK](speech-sdk.md)로 마이그레이션하는 경우 응용 프로그램을 변경해야 합니다. Speech SDK로 새 기능에 액세스하고, 코드를 더 간단히 만들 수 있습니다.
+특정 프로그래밍 언어에 대해 Bing Speech 클라이언트 라이브러리를 사용하는 경우 API가 다르기 때문에 [Speech SDK](speech-sdk.md)에서 사용 중인 애플리케이션으로 변경해야 합니다. Speech SDK로 새 기능에 액세스하고, 코드를 더 간단히 만들 수 있습니다.
 
 현재 Speech SDK는 ([세부 정보](https://aka.ms/csspeech)), Java (Android 및 사용자 지정 장치), 목표 C (iOS), C++ (Windows 및 Linux) 및 JavaScript를 지원 C# 합니다. 모든 플랫폼의 API는 비슷하며, 다중 플랫폼 개발을 용이하게 수행할 수 있습니다.
 

@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Service Fabric Mesh에 대한 다중 서비스 응용 프로그램 만들기, 디버그, 배포 및 모니터링 | Microsoft Docs
+title: 자습서 - Service Fabric Mesh에 대한 다중 서비스 애플리케이션 만들기, 디버그, 배포 및 모니터링 | Microsoft Docs
 description: 이 자습서에서는 백 엔드 웹 서비스와 통신하고, 로컬로 디버그하고, Azure에 게시하는 ASP.NET Core 웹 사이트로 구성된 다중 서비스 Azure Service Fabric Mesh 애플리케이션을 만듭니다.
 services: service-fabric-mesh
 documentationcenter: .net
@@ -28,7 +28,7 @@ ms.locfileid: "56805429"
 
 작업이 완료되면 앱 수명 주기 관리의 대부분 단계를 수행하고 Service Fabric Mesh 앱에서 서비스 간 호출을 보여 주는 앱을 빌드하게 됩니다.
 
-할 일 응용 프로그램을 수동으로 만들지 않으려면 완성된 응용 프로그램에 대한 [소스 코드를 다운로드](https://github.com/azure-samples/service-fabric-mesh)하고 [로컬로 응용 프로그램을 디버그](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)하도록 건너뛸 수 있습니다.
+할 일 애플리케이션을 수동으로 만들지 않으려면 완성된 애플리케이션에 대한 [소스 코드를 다운로드](https://github.com/azure-samples/service-fabric-mesh)하고 [로컬로 애플리케이션을 디버그](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)하도록 건너뛸 수 있습니다.
 
 시리즈 1부에서는 다음 방법에 대해 알아봅니다.
 
@@ -62,7 +62,7 @@ ms.locfileid: "56805429"
 
 Visual Studio를 열고 **파일** > **새로 만들기** > **프로젝트...** 를 차례로 선택합니다.
 
-**새 프로젝트** 대화 상자 위쪽의 **검색** 상자에서 `mesh`를 입력합니다. **Service Fabric Mesh 응용 프로그램** 템플릿을 선택합니다. 템플릿이 표시되지 않으면 [개발 환경 설정](service-fabric-mesh-howto-setup-developer-environment-sdk.md)에서 설명한 대로 Mesh SDK 및 VS 도구 미리 보기를 설치했는지 확인합니다.  
+**새 프로젝트** 대화 상자 위쪽의 **검색** 상자에서 `mesh`를 입력합니다. **Service Fabric Mesh 애플리케이션** 템플릿을 선택합니다. 템플릿이 표시되지 않으면 [개발 환경 설정](service-fabric-mesh-howto-setup-developer-environment-sdk.md)에서 설명한 대로 Mesh SDK 및 VS 도구 미리 보기를 설치했는지 확인합니다.  
 
 **이름** 상자에서 `todolistapp`을 입력하고, **위치** 상자에서 폴더 경로를 프로젝트에 대한 파일을 저장하려는 위치로 설정합니다.
 
@@ -80,7 +80,7 @@ Visual Studio를 열고 **파일** > **새로 만들기** > **프로젝트...** 
 
 ![Visual Studio의 새 Service Fabric Mesh 프로젝트 대화 상자](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-service-fabric-service.png)
 
-그러면, 새 ASP.NET Core 웹 애플리케이션 대화 상자가 표시됩니다. **웹 응용 프로그램**을 선택하고 **확인**을 클릭합니다.
+그러면, 새 ASP.NET Core 웹 애플리케이션 대화 상자가 표시됩니다. **웹 애플리케이션**을 선택하고 **확인**을 클릭합니다.
 
 ![Visual Studio의 새 ASP.NET Core 애플리케이션](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-aspnetcore-app.png)
 
@@ -389,7 +389,7 @@ service.yaml 파일에서 `environmentVariables:` 아래에 다음 변수를 추
 ![WebFrontEnd 프로젝트의 Service.yaml](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-serviceyaml-envvars.png)
 
 
-이제 백 엔드 웹 서비스와 함께 Service Fabric Mesh 응용 프로그램의 이미지를 로컬 클러스터에 빌드하고 배포할 준비가 되었습니다.
+이제 백 엔드 웹 서비스와 함께 Service Fabric Mesh 애플리케이션의 이미지를 로컬 클러스터에 빌드하고 배포할 준비가 되었습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -405,4 +405,4 @@ service.yaml 파일에서 `environmentVariables:` 아래에 다음 변수를 추
 
 다음 자습서를 진행합니다.
 > [!div class="nextstepaction"]
-> [로컬 개발 클러스터에서 실행 중인 Service Fabric Mesh 응용 프로그램 디버그](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
+> [로컬 개발 클러스터에서 실행 중인 Service Fabric Mesh 애플리케이션 디버그](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)

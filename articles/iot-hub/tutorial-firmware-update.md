@@ -23,7 +23,7 @@ ms.locfileid: "67485825"
 
 IoT Hub에 연결된 디바이스에서 펌웨어를 업데이트해야 합니다. 예를 들어 펌웨어에 새로운 기능을 추가하거나 보안 패치를 적용하려고 합니다. 여러 IoT 시나리오에서는 물리적으로 방문한 다음, 디바이스에 펌웨어 업데이트를 수동으로 적용하는 것은 실용적이지 않습니다. 이 자습서에서는 허브에 연결된 백 엔드 애플리케이션을 통해 원격으로 펌웨어 업데이트 프로세스를 시작하고 모니터링할 수 있는 방법을 보여줍니다.
 
-펌웨어 업데이트 프로세스를 만들고 모니터링하기 위해 이 자습서의 백 엔드 애플리케이션은 IoT Hub에서 _구성_을 만듭니다. IoT Hub [자동 디바이스 관리](iot-hub-auto-device-config.md)는 이 구성을 사용하여 모든 냉각기 디바이스에 대한 일련의 _디바이스 쌍 desired 속성_을 업데이트합니다. desired 속성은 필요한 펌웨어 업데이트의 세부 정보를 지정합니다. 냉각기 장치가 펌웨어 업데이트 프로세스를 실행하는 동안 _장치 쌍 reported 속성_을 사용하여 백 엔드 애플리케이션에 해당 상태를 보고합니다. 백 엔드 애플리케이션은 구성을 사용하여 장치에서 전송된 reported 속성을 모니터링하고 완료될 때까지 펌웨어 업데이트 프로세스를 추적할 수 있습니다.
+펌웨어 업데이트 프로세스를 만들고 모니터링하기 위해 이 자습서의 백 엔드 애플리케이션은 IoT Hub에서 _구성_을 만듭니다. IoT Hub [자동 디바이스 관리](iot-hub-auto-device-config.md)는 이 구성을 사용하여 모든 냉각기 디바이스에 대한 일련의 _디바이스 쌍 desired 속성_을 업데이트합니다. desired 속성은 필요한 펌웨어 업데이트의 세부 정보를 지정합니다. 냉각기 디바이스가 펌웨어 업데이트 프로세스를 실행하는 동안 _디바이스 쌍 reported 속성_을 사용하여 백 엔드 애플리케이션에 해당 상태를 보고합니다. 백 엔드 애플리케이션은 구성을 사용하여 디바이스에서 전송된 reported 속성을 모니터링하고 완료될 때까지 펌웨어 업데이트 프로세스를 추적할 수 있습니다.
 
 ![펌웨어 업데이트 프로세스](media/tutorial-firmware-update/Process.png)
 
@@ -134,9 +134,9 @@ az iot hub device-identity show-connection-string --device-id MyFirmwareUpdateDe
 
 ### <a name="respond-to-the-firmware-upgrade-request-on-the-device"></a>디바이스에 대한 펌웨어 업그레이드 요청에 응답
 
-백 엔드 애플리케이션에서 전송된 펌웨어 desired 속성을 처리하는 시뮬레이션된 장치 코드를 보려면 다운로드한 샘플 Node.js 프로젝트의 **iot-hub/Tutorials/FirmwareUpdate** 폴더로 이동합니다. 그런 다음, 텍스트 편집기에서 SimulatedDevice.js 파일을 엽니다.
+백 엔드 애플리케이션에서 전송된 펌웨어 desired 속성을 처리하는 시뮬레이션된 디바이스 코드를 보려면 다운로드한 샘플 Node.js 프로젝트의 **iot-hub/Tutorials/FirmwareUpdate** 폴더로 이동합니다. 그런 다음, 텍스트 편집기에서 SimulatedDevice.js 파일을 엽니다.
 
-시뮬레이션된 장치 애플리케이션은 장치 쌍에서 **properties.desired.firmware** desired 속성에 대한 업데이트의 처리기를 만듭니다. 처리기에서 업데이트 프로세스를 시작하기 전에 desired 속성에 대해 몇 가지 기본 검사를 수행합니다.
+시뮬레이션된 디바이스 애플리케이션은 디바이스 쌍에서 **properties.desired.firmware** desired 속성에 대한 업데이트의 처리기를 만듭니다. 처리기에서 업데이트 프로세스를 시작하기 전에 desired 속성에 대해 몇 가지 기본 검사를 수행합니다.
 
 [!code-javascript[Handle desired property update](~/iot-samples-node/iot-hub/Tutorials/FirmwareUpdate/SimulatedDevice.js?name=initiateUpdate "Handle desired property update")]
 
@@ -150,17 +150,17 @@ az iot hub device-identity show-connection-string --device-id MyFirmwareUpdateDe
 
 [!code-javascript[Reported properties](~/iot-samples-node/iot-hub/Tutorials/FirmwareUpdate/SimulatedDevice.js?name=reportedProperties "Reported properties")]
 
-다음 코드 조각에서는 다운로드 단계의 구현을 보여줍니다. 시뮬레이션된 장치는 다운로드 단계 중에 reported 속성을 사용하여 백 엔드 애플리케이션에 상태 정보를 전송합니다.
+다음 코드 조각에서는 다운로드 단계의 구현을 보여줍니다. 시뮬레이션된 디바이스는 다운로드 단계 중에 reported 속성을 사용하여 백 엔드 애플리케이션에 상태 정보를 전송합니다.
 
 [!code-javascript[Download image phase](~/iot-samples-node/iot-hub/Tutorials/FirmwareUpdate/SimulatedDevice.js?name=downloadimagephase "Download image phase")]
 
 ## <a name="run-the-sample"></a>샘플 실행
 
-이 섹션에서는 두 개의 애플리케이션 예제를 실행하여 백 엔드 애플리케이션이 시뮬레이션된 장치에서 펌웨어 업데이트 프로세스를 관리하도록 구성을 만드는 과정을 관찰합니다.
+이 섹션에서는 두 개의 애플리케이션 예제를 실행하여 백 엔드 애플리케이션이 시뮬레이션된 디바이스에서 펌웨어 업데이트 프로세스를 관리하도록 구성을 만드는 과정을 관찰합니다.
 
-시뮬레이션된 장치 및 백 엔드 애플리케이션을 실행하려면 장치 및 서비스 연결 문자열이 필요합니다. 이 자습서의 시작에서 리소스를 만들 때 연결 문자열을 적어두었습니다.
+시뮬레이션된 디바이스 및 백 엔드 애플리케이션을 실행하려면 디바이스 및 서비스 연결 문자열이 필요합니다. 이 자습서의 시작에서 리소스를 만들 때 연결 문자열을 적어두었습니다.
 
-시뮬레이션된 장치 애플리케이션을 실행하려면 셸 또는 명령 프롬프트 창을 열고 다운로드한 Node.js 프로젝트의 **iot-hub/Tutorials/FirmwareUpdate** 폴더로 이동합니다. 그런 다음, 다음 명령을 실행합니다.
+시뮬레이션된 디바이스 애플리케이션을 실행하려면 셸 또는 명령 프롬프트 창을 열고 다운로드한 Node.js 프로젝트의 **iot-hub/Tutorials/FirmwareUpdate** 폴더로 이동합니다. 그런 다음, 다음 명령을 실행합니다.
 
 ```cmd/sh
 npm install
@@ -174,7 +174,7 @@ npm install
 node ServiceClient.js "{your service connection string}"
 ```
 
-다음 스크린샷에서는 시뮬레이션된 장치 애플리케이션의 출력을 보여주고, 백 엔드 애플리케이션의 펌웨어 desired 속성 업데이트에 응답하는 방법을 보여줍니다.
+다음 스크린샷에서는 시뮬레이션된 디바이스 애플리케이션의 출력을 보여주고, 백 엔드 애플리케이션의 펌웨어 desired 속성 업데이트에 응답하는 방법을 보여줍니다.
 
 ![시뮬레이션된 디바이스](./media/tutorial-firmware-update/SimulatedDevice.png)
 
@@ -182,7 +182,7 @@ node ServiceClient.js "{your service connection string}"
 
 ![백 엔드 애플리케이션](./media/tutorial-firmware-update/BackEnd1.png)
 
-다음 스크린샷에서는 백 엔드 애플리케이션의 출력을 보여주고, 시뮬레이션된 장치의 펌웨어 업데이트 메트릭을 모니터링하는 방법을 강조 표시합니다.
+다음 스크린샷에서는 백 엔드 애플리케이션의 출력을 보여주고, 시뮬레이션된 디바이스의 펌웨어 업데이트 메트릭을 모니터링하는 방법을 강조 표시합니다.
 
 ![백 엔드 애플리케이션](./media/tutorial-firmware-update/BackEnd2.png)
 

@@ -86,9 +86,9 @@ HDInsight 클러스터에 Apache Kafka를 만들려면 다음 단계를 수행�
 
    ![가상 네트워크에 클러스터 추가](./media/apache-kafka-get-started/kafka-security-config.png)
 
-7. **Storage**에서 Storage 계정을 선택하거나 만듭니다. 이 문서의 단계에서는 다른 필드를 기본값으로 둡니다. __다음__ 단추를 사용하여 저장소 구성을 저장합니다. Data Lake Storage Gen2를 사용하는 방법에 대한 자세한 내용은 [빠른 시작: HDInsight에서 클러스터 설정](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)을 참조하세요.
+7. **Storage**에서 Storage 계정을 선택하거나 만듭니다. 이 문서의 단계에서는 다른 필드를 기본값으로 둡니다. __다음__ 단추를 사용하여 스토리지 구성을 저장합니다. Data Lake Storage Gen2를 사용하는 방법에 대한 자세한 내용은 [빠른 시작: HDInsight에서 클러스터 설정](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)을 참조하세요.
 
-   ![HDInsight에 대한 저장소 계정 설정 지정](./media/apache-kafka-get-started/storage-configuration.png)
+   ![HDInsight에 대한 스토리지 계정 설정 지정](./media/apache-kafka-get-started/storage-configuration.png)
 
 8. __애플리케이션(선택 사항)__ 에서 __다음__을 선택하여 기본 설정을 사용해서 계속 진행합니다.
 
@@ -96,7 +96,7 @@ HDInsight 클러스터에 Apache Kafka를 만들려면 다음 단계를 수행�
 
     HDInsight에서 Apache Kafka의 가용성을 보장하려면 __작업자 노드 수__ 항목을 3 이상으로 설정해야 합니다. 기본값은 4입니다.
 
-    **작업자 노드 항목당 디스크**에 따라 HDInsight에서 Apache Kafka의 확장성이 구성됩니다. HDInsight의 Apache Kafka는 클러스터에서 가상 머신의 로컬 디스크를 사용하여 데이터를 저장합니다. Apache Kafka는 입출력이 많으므로 높은 처리량과 노드당 더 많은 저장소를 제공하기 위해 [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md)를 사용합니다. 관리 디스크 유형은 __표준__(HDD) 또는 __프리미엄__(SSD)일 수 있습니다. 디스크 유형은 작업자 노드(Apache Kafka broker)에서 사용하는 VM 크기에 따라 달라집니다. 프리미엄 디스크는 DS 및 GS 시리즈 VM에 자동으로 사용됩니다. 다른 모든 VM 유형은 표준을 사용합니다.
+    **작업자 노드 항목당 디스크**에 따라 HDInsight에서 Apache Kafka의 확장성이 구성됩니다. HDInsight의 Apache Kafka는 클러스터에서 가상 머신의 로컬 디스크를 사용하여 데이터를 저장합니다. Apache Kafka는 입출력이 많으므로 높은 처리량과 노드당 더 많은 스토리지를 제공하기 위해 [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md)를 사용합니다. 관리 디스크 유형은 __표준__(HDD) 또는 __프리미엄__(SSD)일 수 있습니다. 디스크 유형은 작업자 노드(Apache Kafka broker)에서 사용하는 VM 크기에 따라 달라집니다. 프리미엄 디스크는 DS 및 GS 시리즈 VM에 자동으로 사용됩니다. 다른 모든 VM 유형은 표준을 사용합니다.
 
    ![Apache Kafka 클러스터 크기 설정](./media/apache-kafka-get-started/kafka-cluster-size.png)
 

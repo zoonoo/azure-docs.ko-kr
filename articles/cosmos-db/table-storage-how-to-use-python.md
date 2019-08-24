@@ -23,10 +23,10 @@ ms.locfileid: "68356273"
 
 Azure Table Storage 및 Azure Cosmos DB는 클라우드에 구조화된 NoSQL 데이터를 저장하는 서비스로, 스키마 없이 디자인된 키/특성 저장소를 제공합니다. Table Storage 및 Azure Cosmos DB는 모두 스키마가 없기 때문에 애플리케이션의 요구 사항이 변화함에 따라 데이터를 쉽게 적응시킬 수 있습니다. Table Storage 및 Table API 데이터에 대한 액세스는 많은 애플리케이션 유형에 대해 빠르고 비용 효율적이며 비슷한 양의 데이터일 때 일반적으로 전통적인 SQL에 비해 비용이 매우 낮습니다.
 
-Table Storage 또는 Azure Cosmos DB를 사용하여 웹 애플리케이션의 사용자 데이터, 주소록, 장치 정보 및 서비스에 필요한 다른 유형의 메타데이터와 같은 유연한 데이터 집합을 저장할 수 있습니다. 테이블에 저장할 수 있는 엔터티 수에는 제한이 없으며, 저장소 계정에 포함할 수 있는 테이블의 수에는 저장소 계정의 최대 용량 한도까지 제한이 없습니다.
+Table Storage 또는 Azure Cosmos DB를 사용하여 웹 애플리케이션의 사용자 데이터, 주소록, 디바이스 정보 및 서비스에 필요한 다른 유형의 메타데이터와 같은 유연한 데이터 세트을 저장할 수 있습니다. 테이블에 저장할 수 있는 엔터티 수에는 제한이 없으며, 스토리지 계정에 포함할 수 있는 테이블의 수에는 스토리지 계정의 최대 용량 한도까지 제한이 없습니다.
 
 ### <a name="about-this-sample"></a>이 샘플 정보
-이 샘플에서는 몇 가지 일반적인 Azure Table Storage 시나리오에서 [Python용 Azure Cosmos DB Table SDK](https://pypi.python.org/pypi/azure-cosmosdb-table/)을 사용하는 방법을 보여 줍니다. SDK의 이름은 Azure Cosmos DB에 사용할 것임을 의미하지만 이 SDK는 Azure Cosmos DB와 Azure Tables 저장소 모두에서 작동하며 각 서비스에 고유한 엔드포인트가 있습니다. 다음 방법을 설명하는 Python 예제를 통해 이러한 시나리오를 살펴보겠습니다.
+이 샘플에서는 몇 가지 일반적인 Azure Table Storage 시나리오에서 [Python용 Azure Cosmos DB Table SDK](https://pypi.python.org/pypi/azure-cosmosdb-table/)을 사용하는 방법을 보여 줍니다. SDK의 이름은 Azure Cosmos DB에 사용할 것임을 의미하지만 이 SDK는 Azure Cosmos DB와 Azure Tables 스토리지 모두에서 작동하며 각 서비스에 고유한 엔드포인트가 있습니다. 다음 방법을 설명하는 Python 예제를 통해 이러한 시나리오를 살펴보겠습니다.
 * 테이블 만들기 및 삭제
 * 엔터티 삽입 및 쿼리
 * 엔터티 수정
@@ -44,7 +44,7 @@ Table Storage 또는 Azure Cosmos DB를 사용하여 웹 애플리케이션의 �
 ## <a name="create-an-azure-service-account"></a>Azure 서비스 계정 만들기
 [!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
-### <a name="create-an-azure-storage-account"></a>Azure 저장소 계정 만들기
+### <a name="create-an-azure-storage-account"></a>Azure Storage 계정 만들기
 [!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
 ### <a name="create-an-azure-cosmos-db-table-api-account"></a>Azure Cosmos DB Table API 계정 만들기
@@ -114,7 +114,7 @@ table_service.insert_entity('tasktable', task)
 
 모든 엔터티에 대해 **PartitionKey** 및 **RowKey** 속성을 둘 다 지정해야 합니다. 이러한 속성이 함께 모여 엔터티의 기본 키를 형성하므로 엔터티의 고유 식별자에 해당합니다. 이러한 속성만 인덱싱되므로 다른 엔터티 속성보다 이러한 값을 사용하면 훨씬 더 빠르게 쿼리할 수 있습니다.
 
-Table service에서는 **PartitionKey**를 사용하여 저장소 노드에서 테이블 엔터티를 지능적으로 분산합니다. 동일한 **PartitionKey**를 가진 엔터티는 동일한 노드에 저장됩니다. **RowKey** 는 엔터티가 속하는 파티션 내에서 엔터티의 고유한 ID입니다.
+Table service에서는 **PartitionKey**를 사용하여 스토리지 노드에서 테이블 엔터티를 지능적으로 분산합니다. 동일한 **PartitionKey**를 가진 엔터티는 동일한 노드에 저장됩니다. **RowKey** 는 엔터티가 속하는 파티션 내에서 엔터티의 고유한 ID입니다.
 
 ## <a name="update-an-entity"></a>엔터티 업데이트
 
@@ -203,7 +203,7 @@ for task in tasks:
 다음 코드의 쿼리는 테이블에 있는 엔터티의 설명만 반환합니다.
 
 > [!NOTE]
-> 다음 코드 조각은 Azure Storage에 대해서만 작동하며 저장소 에뮬레이터에서 지원되지 않습니다.
+> 다음 코드 조각은 Azure Storage에 대해서만 작동하며 스토리지 에뮬레이터에서 지원되지 않습니다.
 
 ```python
 tasks = table_service.query_entities(

@@ -5,14 +5,14 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.author: rimman
+ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: dba29ea2d4d0ad18f021e0271c6131f9473cbe8b
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 27961413d0dddc165f90ebde1c5e1aee6b8d9fd3
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827806"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981846"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-sql-api-account-using-striim"></a>Striim를 사용 하 여 SQL API 계정 Azure Cosmos DB으로 데이터 마이그레이션
  
@@ -40,7 +40,7 @@ Azure marketplace의 Striim 이미지는 데이터 웨어하우스 및 데이터
 
 1. **Striim 클러스터 설정** 창에서 Striim 배포 유형과 가상 머신 크기를 선택 합니다.
 
-   |설정 | 값 | Description |
+   |설정 | 값 | 설명 |
    | ---| ---| ---|
    |Striim 배포 유형 |독립 실행형 | Striim는 **독립 실행형** 또는 **클러스터** 배포 유형에 서 실행할 수 있습니다. 독립 실행형 모드는 단일 가상 컴퓨터에 Striim 서버를 배포 하 고 데이터 볼륨에 따라 Vm의 크기를 선택할 수 있습니다. 클러스터 모드는 선택한 크기를 가진 둘 이상의 Vm에 Striim 서버를 배포 합니다. 노드가 3 개 이상인 클러스터 환경은 자동 고가용성 및 장애 조치 (failover)를 제공 합니다.</br></br> 이 자습서에서는 독립 실행형 옵션을 선택할 수 있습니다. 기본 "Standard_F4s" 크기 VM을 사용 합니다.  | 
    | Striim 클러스터의 이름|    < Striim_cluster_Name >|  Striim 클러스터의 이름입니다.|

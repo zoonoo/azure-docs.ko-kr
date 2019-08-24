@@ -18,7 +18,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 07/30/2019
 ms.locfileid: "68639228"
 ---
-# <a name="data-storage-and-removal-in-language-understanding-luis-cognitive-services"></a>Language Understanding(LUIS) Cognitive Services의 데이터 저장 및 제거
+# <a name="data-storage-and-removal-in-language-understanding-luis-cognitive-services"></a>Language Understanding(LUIS) Cognitive Services의 데이터 스토리지 및 제거
 LUIS는 키를 통해 지정된 지역에 해당하는 Azure 데이터 저장소에 암호화된 데이터를 저장합니다. 이 데이터는 30일 동안 저장됩니다. 
 
 ## <a name="export-and-delete-app"></a>앱 내보내기 및 삭제

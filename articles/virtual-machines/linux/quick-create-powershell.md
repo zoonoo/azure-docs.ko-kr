@@ -47,7 +47,7 @@ ssh-keygen -t rsa -b 2048
 
 PuTTy 사용을 포함하여 SSH 키 쌍을 만드는 방법에 대한 자세한 내용은 [Windows에 SSH 키를 사용하는 방법](ssh-from-windows.md)을 참조하세요.
 
-Cloud Shell을 사용하여 SSH 키 쌍을 만드는 경우 [Cloud Shell에서 자동으로 만들어지는 저장소 계정](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage)의 컨테이너 이미지에 저장됩니다. 키를 검색할 때까지 저장소 계정이나 파일 공유를 삭제하지 마세요. VM에 대한 액세스를 잃게 됩니다. 
+Cloud Shell을 사용하여 SSH 키 쌍을 만드는 경우 [Cloud Shell에서 자동으로 만들어지는 스토리지 계정](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage)의 컨테이너 이미지에 저장됩니다. 키를 검색할 때까지 스토리지 계정이나 파일 공유를 삭제하지 마세요. VM에 대한 액세스를 잃게 됩니다. 
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 

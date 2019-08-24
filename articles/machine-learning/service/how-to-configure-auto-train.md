@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6e29e0f89d9270a143d48cf6e85b479813e19d9d
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: a73d048a66c70eaf22caf6b33c4a495df6d730dd
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69013655"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997913"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Python에서 자동화 된 ML 실험 구성
 
@@ -207,6 +207,8 @@ Azure Databricks 있는 노트북 예는 [GitHub 사이트](https://github.com/A
 ### <a name="primary-metric"></a>기본 메트릭
 기본 메트릭 위의 예제에 나와 있는 것 처럼 최적화를 위해 모델 학습 중에 사용할 메트릭을 결정 합니다. 선택할 수 있는 기본 메트릭은 선택한 작업 유형에 따라 결정 됩니다. 다음은 사용 가능한 메트릭의 목록입니다.
 
+[자동화 된 기계 학습 결과 이해](how-to-understand-automated-ml.md)에서 이러한 정의에 대해 알아봅니다.
+
 |분류 | 회귀 | 시계열 예측
 |-- |-- |--
 |accuracy| spearman_correlation | spearman_correlation
@@ -222,7 +224,7 @@ Azure Databricks 있는 노트북 예는 [GitHub 사이트](https://github.com/A
 이 기능화를 사용 하도록 설정 `"preprocess": True` 하려면 [ `AutoMLConfig` 클래스](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py)에 대해를 지정 합니다.
 
 > [!NOTE]
-> 자동화 된 기계 학습 사전 처리 단계 (기능 정규화, 누락 된 데이터 처리, 텍스트를 숫자로 변환 등)는 기본 모델의 일부가 됩니다. 예측에 모델을 사용 하는 경우 학습 중에 적용 되는 동일한 전처리 단계는 입력 데이터에 자동으로 적용 됩니다.
+> 자동화된 기계 학습 사전 처리 단계(기능 정규화, 누락된 데이터 처리, 텍스트를 숫자로 변환 등)는 기본 모델의 일부가 됩니다. 예측에 모델을 사용하는 경우 학습 중에 적용되는 동일한 전처리 단계가 입력 데이터에 자동으로 적용됩니다.
 
 ### <a name="time-series-forecasting"></a>시계열 예측
 시계열 예측 작업 유형에는 정의할 추가 매개 변수가 있습니다.
@@ -377,7 +379,7 @@ best_run, fitted_model = automl_run.get_output()
 
 + API 1: `get_engineered_feature_names()` 엔지니어링 된 기능 이름의 목록을 반환 합니다.
 
-  사용 현황:
+  Usage:
   ```python
   fitted_model.named_steps['timeseriestransformer']. get_engineered_feature_names ()
   ```
@@ -393,7 +395,7 @@ best_run, fitted_model = automl_run.get_output()
 
 + API 2: `get_featurization_summary()` 모든 입력 기능에 대 한 기능화 요약을 반환 합니다.
 
-  사용 현황:
+  Usage:
   ```python
   fitted_model.named_steps['timeseriestransformer'].get_featurization_summary()
   ```

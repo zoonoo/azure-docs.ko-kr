@@ -43,12 +43,12 @@ Azure CLI를 로컬로 사용하는 경우 버전 2.0 이상을 설치해서 사
 
 ## <a name="script-explanation"></a>스크립트 설명
 
-이 스크립트는 다음 명령을 사용하여 리소스 그룹, 저장소 계정, 함수 앱 및 모든 관련된 리소스를 만듭니다. 테이블에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
+이 스크립트는 다음 명령을 사용하여 리소스 그룹, 스토리지 계정, 함수 앱 및 모든 관련된 리소스를 만듭니다. 테이블에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
 
 | 명령 | 메모 |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-create) | 함수 앱에 필요한 저장소 계정을 만듭니다. |
+| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-create) | 함수 앱에 필요한 스토리지 계정을 만듭니다. |
 | [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az-functionapp-create) | 서버를 사용하지 않는 [소비 계획](../functions-scale.md#consumption-plan)에서 함수 앱을 만듭니다. |
 | [az functionapp deployment source config](https://docs.microsoft.com/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config) | Git 또는 Mercurial 리포지토리를 사용하여 함수 앱에 연결합니다. |
 

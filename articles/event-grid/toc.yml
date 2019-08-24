@@ -25,7 +25,7 @@
           href: custom-event-quickstart-powershell.md
         - name: 포털
           href: custom-event-quickstart-portal.md
-    - name: 이벤트 처리기인 큐 저장소
+    - name: 이벤트 처리기인 Queue storage
       href: custom-event-to-queue-storage.md
     - name: 이벤트 처리기인 Event Hubs
       href: custom-event-to-eventhub.md
@@ -39,7 +39,7 @@
       href: resize-images-on-storage-blob-upload-event.md
     - name: Automation Runbook 트리거
       href: ensure-tags-exists-on-new-virtual-machines.md
-    - name: IoT Hub 장치 추가 시 이메일 보내기
+    - name: IoT Hub 디바이스 추가 시 이메일 보내기
       href: publish-iot-hub-events-to-logic-apps.md
     - name: Service Bus 이벤트에 응답
       href: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json
@@ -150,7 +150,7 @@
       items:
         - name: Azure 구독
           href: event-schema-subscriptions.md
-        - name: Blob 저장소
+        - name: Blob Storage
           href: event-schema-blob-storage.md
         - name: Container Registry
           href: event-schema-container-registry.md

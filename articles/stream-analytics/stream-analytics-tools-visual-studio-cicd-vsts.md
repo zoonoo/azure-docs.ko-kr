@@ -31,7 +31,7 @@ ms.locfileid: "56727590"
 시작하기 전에 다음이 필요합니다.
 
 * Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-* [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) 및 **Azure 개발** 또는 **데이터 저장소 및 처리** 워크로드를 설치합니다.
+* [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) 및 **Azure 개발** 또는 **데이터 스토리지 및 처리** 워크로드를 설치합니다.
 * [Visual Studio에서 Stream Analytics 프로젝트](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-vs)를 만듭니다.
 * [Azure DevOps 조직](https://visualstudio.microsoft.com/team-services/)을 만듭니다.
 

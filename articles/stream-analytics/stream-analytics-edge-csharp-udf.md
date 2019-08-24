@@ -32,12 +32,12 @@ Visual Studio에서 만든 C# UDF(사용자 정의 함수)를 사용하면 원�
 시작하기 전에 다음 필수 조건을 모두 갖추었는지 확인합니다.
 
 * Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-* [Visual Studio용 Stream Analytics 도구](stream-analytics-tools-for-visual-studio-install.md) 및 **Azure 개발** 또는 **데이터 저장소 및 처리** 워크로드를 설치합니다.
+* [Visual Studio용 Stream Analytics 도구](stream-analytics-tools-for-visual-studio-install.md) 및 **Azure 개발** 또는 **데이터 스토리지 및 처리** 워크로드를 설치합니다.
 * 기존 [Stream Analytics Edge 개발 가이드](stream-analytics-tools-for-visual-studio-edge-jobs.md)를 살펴봅니다.
 
-## <a name="create-a-container-in-your-azure-storage-account"></a>Azure 저장소 계정에 컨테이너 만들기
+## <a name="create-a-container-in-your-azure-storage-account"></a>Azure Storage 계정에 컨테이너 만들기
 
-여기서 만드는 컨테이너는 컴파일된 C# 패키지를 저장하고 IoT Edge 디바이스에 해당 패키지를 배포하는 데 사용됩니다. 각 Stream Analytics 작업 전용 컨테이너를 사용하세요. 여러 Stream Analytics Edge 작업에 같은 컨테이너를 다시 사용할 수는 없습니다. 기존 컨테이너가 포함된 저장소 계정이 이미 있는 경우에는 해당 컨테이너를 사용하면 됩니다. 그렇지 않은 경우에는 [새 컨테이너를 만드세요](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal). 
+여기서 만드는 컨테이너는 컴파일된 C# 패키지를 저장하고 IoT Edge 디바이스에 해당 패키지를 배포하는 데 사용됩니다. 각 Stream Analytics 작업 전용 컨테이너를 사용하세요. 여러 Stream Analytics Edge 작업에 같은 컨테이너를 다시 사용할 수는 없습니다. 기존 컨테이너가 포함된 스토리지 계정이 이미 있는 경우에는 해당 컨테이너를 사용하면 됩니다. 그렇지 않은 경우에는 [새 컨테이너를 만드세요](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal). 
 
 ## <a name="create-a-stream-analytics-edge-project-in-visual-studio"></a>Visual Studio에서 Stream Analytics Edge 프로젝트 만들기
 
@@ -64,14 +64,14 @@ Visual Studio에서 만든 C# UDF(사용자 정의 함수)를 사용하면 원�
     |어셈블리 원본  |  로컬 프로젝트 참조 또는 CodeBehind   |
     |리소스  |  현재 계정의 데이터 선택   |
     |구독  |  구독을 선택합니다.   |
-    |저장소 계정  |  저장소 계정 선택   |
-    |컨테이너  |  저장소 계정에서 만든 컨테이너 선택   |
+    |스토리지 계정  |  스토리지 계정 선택   |
+    |컨테이너  |  스토리지 계정에서 만든 컨테이너 선택   |
 
     ![Visual Studio의 Azure Stream Analytics Edge 작업 구성](./media/stream-analytics-edge-csharp-udf/stream-analytics-edge-job-config.png)
 
 
 ## <a name="write-a-c-udf-with-codebehind"></a>CodeBehind를 사용하여 C# UDF 작성
-CodeBehind 파일은 ASA Edge 쿼리 스크립트 하나와 연결된 C# 파일입니다. 제출하는 CodeBehind 파일은 Visual Studio에서 자동 압축되어 Azure 저장소 계정에 업로드됩니다. 모든 클래스는 *public*으로, 모든 개체는 *static public*으로 정의해야 합니다.
+CodeBehind 파일은 ASA Edge 쿼리 스크립트 하나와 연결된 C# 파일입니다. 제출하는 CodeBehind 파일은 Visual Studio에서 자동 압축되어 Azure Storage 계정에 업로드됩니다. 모든 클래스는 *public*으로, 모든 개체는 *static public*으로 정의해야 합니다.
 
 1. **솔루션 탐색기**에서 **Script.asql**를 확장하여 **Script.asaql.cs** CodeBehind 파일을 찾습니다.
 

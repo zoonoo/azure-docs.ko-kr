@@ -31,7 +31,7 @@ ms.locfileid: "67055561"
 > * Web App for Containers에서 작동하도록 Docker Compose 구성 변환
 > * Azure에 다중 컨테이너 앱 배포
 > * 애플리케이션 설정 추가
-> * 컨테이너용 영구 저장소 사용
+> * 컨테이너용 영구 스토리지 사용
 > * Azure Database for MySQL에 연결
 > * 오류 문제 해결
 
@@ -43,7 +43,7 @@ ms.locfileid: "67055561"
 
 ## <a name="download-the-sample"></a>샘플 다운로드
 
-이 자습서에서는 [Docker](https://docs.docker.com/compose/wordpress/#define-the-project)의 작성 파일을 사용하지만 Azure Database for MySQL, 영구 저장소 및 Redis를 포함하도록 수정합니다. 구성 파일은 [Azure 샘플](https://github.com/Azure-Samples/multicontainerwordpress)에 있습니다.
+이 자습서에서는 [Docker](https://docs.docker.com/compose/wordpress/#define-the-project)의 작성 파일을 사용하지만 Azure Database for MySQL, 영구 스토리지 및 Redis를 포함하도록 수정합니다. 구성 파일은 [Azure 샘플](https://github.com/Azure-Samples/multicontainerwordpress)에 있습니다.
 
 [!code-yml[Main](../../../azure-app-service-multi-container/docker-compose-wordpress.yml)]
 
@@ -308,9 +308,9 @@ az webapp config container set --resource-group myResourceGroup --name <app-name
 
 ![Web App for Containers의 샘플 다중 컨테이너 앱][1]
 
-## <a name="add-persistent-storage"></a>영구 저장소 추가
+## <a name="add-persistent-storage"></a>영구 스토리지 추가
 
-이제 다중 컨테이너가 Web App for Containers에서 실행됩니다. 그러나 지금 WordPress를 설치하고 나중에 앱을 다시 시작하면 WordPress 설치가 없어진 것을 알게 됩니다. 이는 Docker Compose 구성이 현재 컨테이너 내의 저장소 위치를 가리키기 때문에 발생합니다. 컨테이너에 설치된 파일은 앱을 다시 시작할 때까지 유지되지 않습니다. 이 섹션에서는 WordPress 컨테이너에 [영구 스토리지를 추가](configure-custom-container.md#use-persistent-shared-storage)합니다.
+이제 다중 컨테이너가 Web App for Containers에서 실행됩니다. 그러나 지금 WordPress를 설치하고 나중에 앱을 다시 시작하면 WordPress 설치가 없어진 것을 알게 됩니다. 이는 Docker Compose 구성이 현재 컨테이너 내의 스토리지 위치를 가리키기 때문에 발생합니다. 컨테이너에 설치된 파일은 앱을 다시 시작할 때까지 유지되지 않습니다. 이 섹션에서는 WordPress 컨테이너에 [영구 스토리지를 추가](configure-custom-container.md#use-persistent-shared-storage)합니다.
 
 ### <a name="configure-environment-variables"></a>환경 변수 구성
 
@@ -342,7 +342,7 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app-na
 
 Cloud Shell에서 `nano docker-compose-wordpress.yml`을 입력하여 Nano 텍스트 편집기를 엽니다.
 
-`volumes` 옵션은 파일 시스템을 컨테이너 내의 디렉터리에 매핑합니다. `${WEBAPP_STORAGE_HOME}`은 앱의 영구 저장소에 매핑되는 App Service의 환경 변수입니다. WordPress 파일이 컨테이너 대신 영구 저장소에 설치되도록 이 환경 변수를 volumes 옵션에 사용합니다. 파일을 다음과 같이 수정합니다.
+`volumes` 옵션은 파일 시스템을 컨테이너 내의 디렉터리에 매핑합니다. `${WEBAPP_STORAGE_HOME}`은 앱의 영구 스토리지에 매핑되는 App Service의 환경 변수입니다. WordPress 파일이 컨테이너 대신 영구 스토리지에 설치되도록 이 환경 변수를 volumes 옵션에 사용합니다. 파일을 다음과 같이 수정합니다.
 
 `wordpress` 섹션에서 다음 코드와 같이 `volumes` 옵션을 추가합니다.
 
@@ -387,7 +387,7 @@ az webapp config container set --resource-group myResourceGroup --name <app-name
 
 (`http://<app-name>.azurewebsites.net`)에 배포된 앱으로 이동합니다.
 
-이제 WordPress 컨테이너에서 Azure Database for MySQL과 영구 저장소를 사용합니다.
+이제 WordPress 컨테이너에서 Azure Database for MySQL과 영구 스토리지를 사용합니다.
 
 ## <a name="add-redis-container"></a>Redis 컨테이너 추가
 
@@ -492,7 +492,7 @@ WordPress가 Redis 서버에 연결됩니다. 연결 **상태**가 동일한 페
 
 ![WordPress가 Redis 서버에 연결됩니다. 연결 ** 상태 **가 동일한 페이지에 표시됩니다.][6]
 
-**축하합니다!** WordPress가 Redis에 연결되었습니다. 이제 프로덕션 준비가 완료된 앱에서 **Azure Database for MySQL, 영구 저장소 및 Redis**를 사용합니다. 그리고 App Service 계획을 여러 인스턴스로 확장할 수 있습니다.
+**축하합니다!** WordPress가 Redis에 연결되었습니다. 이제 프로덕션 준비가 완료된 앱에서 **Azure Database for MySQL, 영구 스토리지 및 Redis**를 사용합니다. 그리고 App Service 계획을 여러 인스턴스로 확장할 수 있습니다.
 
 ## <a name="find-docker-container-logs"></a>Docker 컨테이너 로그 찾기
 
@@ -523,7 +523,7 @@ WordPress가 Redis 서버에 연결됩니다. 연결 **상태**가 동일한 페
 > * Web App for Containers에서 작동하도록 Docker Compose 구성 변환
 > * Azure에 다중 컨테이너 앱 배포
 > * 애플리케이션 설정 추가
-> * 컨테이너용 영구 저장소 사용
+> * 컨테이너용 영구 스토리지 사용
 > * Azure Database for MySQL에 연결
 > * 오류 문제 해결
 

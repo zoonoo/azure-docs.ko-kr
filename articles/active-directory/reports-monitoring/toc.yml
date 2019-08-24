@@ -17,7 +17,7 @@
       href: quickstart-configure-named-locations.md
     - name: Power BI 콘텐츠 팩 설치
       href: quickstart-install-power-bi-content-pack.md
-    - name: 저장소 계정으로 로그 라우팅
+    - name: 스토리지 계정으로 로그 라우팅
       href: quickstart-azure-monitor-route-logs-to-storage-account.md
 - name: 자습서
   items:

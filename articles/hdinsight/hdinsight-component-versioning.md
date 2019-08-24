@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 06/07/2019
-ms.openlocfilehash: 30eb922e17810ddd53166a702b5fc513684f2140
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: b451769f5f98bf64ca340504c983f16d1db36647
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742371"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991547"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>HDInsight에서 사용할 수 있는 Apache Hadoop 구성 요소 및 버전은?
 
@@ -109,7 +109,7 @@ HDInsight 클러스터 버전과 연결된 Hadoop 에코시스템 구성 요소 
 
     이전에 로컬 관리 사용자 및 로컬 SSH 사용자인 경우에만 HDInsight 클러스터를 만들 수 있었습니다. 로컬 관리 사용자는 모든 파일, 폴더, 테이블 및 열에 액세스할 수 있습니다.  엔터프라이즈 보안 패키지에서 HDInsight 클러스터를 고유한 Active Directory와 통합하여 역할 기반 액세스 제어를 사용할 수 있습니다. 여기에는 온-프레미스 Active Directory, Azure Active Directory Domain Services 또는 IaaS 가상 머신의 Active Directory가 포함됩니다. 클러스터의 도메인 관리자는 사용자가 클러스터에 액세스하도록 고유한 회사 (도메인) 사용자 이름 및 암호를 부여할 수 있습니다. 
 
-    참조 항목:
+    자세한 내용은 다음을 참조하세요.
 
     - [도메인에 가입된 HDInsight 클러스터를 사용하는 Apache Hadoop 보안 소개](./domain-joined/hdinsight-security-overview.md)
     - [HDInsight에서 Azure 도메인에 가입된 Apache Hadoop 클러스터 계획](./domain-joined/apache-domain-joined-architecture.md)
@@ -121,7 +121,7 @@ HDInsight 클러스터 버전과 연결된 Hadoop 에코시스템 구성 요소 
   - Hive, Spark SQL 및 Yarn 큐의 권한 부여를 위해 Apache Ranger와 통합합니다.
   - 파일 및 폴더에 대한 액세스 제어를 설정할 수 있습니다.
 
-    참조 항목:
+    자세한 내용은 다음을 참조하세요.
 
   - [도메인에 가입된 HDInsight에서 Apache Hive 정책 구성](./domain-joined/apache-domain-joined-run-hive.md)
 
@@ -178,6 +178,9 @@ _사용 중지 날짜_는 HDInsight에서 해당 클러스터 버전을 만들 �
 ## <a name="default-node-configuration-and-virtual-machine-sizes-for-clusters"></a>클러스터에 대한 기본 노드 구성 및 가상 머신 크기
 
 다음 표에는 HDInsight 클러스터에 대한 기본 VM(가상 머신) 크기가 나와 있습니다.  이 차트는 PowerShell 또는 Azure CLI 스크립트를 만들어 HDInsight 클러스터를 배포할 때 사용할 VM 크기를 파악하는 데 필요합니다.
+
+> [!NOTE]
+> 데이터 디스크가 있는 유일한 클러스터 유형은 Kafka 고 가속화 된 쓰기 기능이 설정 된 HBase 클러스터입니다. HDInsight는 이러한 시나리오에서 P30 및 S30 디스크 크기를 지원 합니다.
 
 > [!IMPORTANT]  
 > 클러스터에 필요한 작업자 노드 수가 32개를 초과하는 경우 최소한 코어 8개와 14GB RAM을 가진 헤드 노드 크기를 선택해야 합니다.

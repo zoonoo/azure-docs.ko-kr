@@ -1,6 +1,6 @@
 ---
 title: '자습서: Blob Storage에서 고가용성 애플리케이션 빌드 - Azure Storage'
-description: 읽기 액세스 지역 중복 저장소를 사용하여 애플리케이션 데이터의 고가용성을 지원하세요.
+description: 읽기 액세스 지역 중복 스토리지를 사용하여 애플리케이션 데이터의 고가용성을 지원하세요.
 services: storage
 author: tamram
 ms.service: storage
@@ -30,7 +30,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 시리즈 1부에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * 저장소 계정 만들기
+> * 스토리지 계정 만들기
 > * 연결 문자열 설정
 > * 콘솔 애플리케이션 실행
 
@@ -65,29 +65,29 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-## <a name="create-a-storage-account"></a>저장소 계정 만들기
+## <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
 스토리지 계정은 Azure Storage 데이터 개체의 저장 및 액세스를 위한 고유한 네임스페이스를 제공합니다.
 
-아래 단계에 따라 읽기 액세스 지역 중복 저장소 계정을 만듭니다.
+아래 단계에 따라 읽기 액세스 지역 중복 스토리지 계정을 만듭니다.
 
 1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기** 단추를 선택합니다.
 2. **새로 만들기** 페이지에서 **스토리지**를 선택합니다.
 3. **추천**에서 **스토리지 계정 - Blob, 파일, 테이블, 큐**를 선택합니다.
-4. 다음 정보로 저장소 계정 양식을 작성하고(아래 이미지 참조) **만들기**를 선택합니다.
+4. 다음 정보로 스토리지 계정 양식을 작성하고(아래 이미지 참조) **만들기**를 선택합니다.
 
    | 설정       | 제안 값 | 설명 |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **Name** | mystorageaccount | 저장소 계정의 고유한 값 |
+   | **Name** | mystorageaccount | 스토리지 계정의 고유한 값 |
    | **배포 모델** | 리소스 관리자  | 리소스 관리자에는 최신 기능이 포함되어 있습니다.|
-   | **계정 종류** | StorageV2 | 계정 유형에 대한 세부 정보는 [저장소 계정 유형](../common/storage-introduction.md#types-of-storage-accounts)을 참조하세요. |
+   | **계정 종류** | StorageV2 | 계정 유형에 대한 세부 정보는 [스토리지 계정 유형](../common/storage-introduction.md#types-of-storage-accounts)을 참조하세요. |
    | **성능** | Standard | Standard는 샘플 시나리오에 충분합니다. |
-   | **복제**| RA-GRS(읽기 액세스 지역 중복 저장소) | 샘플 작동에 필요합니다. |
+   | **복제**| RA-GRS(읽기 액세스 지역 중복 스토리지) | 샘플 작동에 필요합니다. |
    |**구독** | 사용자의 구독 |구독에 대한 자세한 내용은 [구독](https://account.azure.com/Subscriptions)을 참조하세요. |
    |**ResourceGroup** | myResourceGroup |유효한 리소스 그룹 이름은 [명명 규칙 및 제한 사항](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요. |
    |**위치**: | 미국 동부 | 위치를 선택합니다. |
 
-![저장소 계정 만들기](media/storage-create-geo-redundant-storage/createragrsstracct.png)
+![스토리지 계정 만들기](media/storage-create-geo-redundant-storage/createragrsstracct.png)
 
 ## <a name="download-the-sample"></a>샘플 다운로드
 
@@ -131,7 +131,7 @@ git clone https://github.com/Azure-Samples/storage-java-V10-ha-ra-grs
 
 애플리케이션에서 스토리지 계정에 대한 연결 문자열을 제공해야 합니다. 애플리케이션을 실행하는 로컬 컴퓨터의 환경 변수 내에 이 연결 문자열을 저장할 수 있습니다. 운영 체제에 따라 아래 예제 중 하나를 따라 환경 변수를 만듭니다.
 
-Azure Portal에서 저장소 계정으로 이동합니다. 저장소 계정의 **설정** 아래에서 **액세스 키**를 선택합니다. 기본 또는 보조 키에서 **연결 문자열**을 복사합니다. 운영 체제에 따라 다음 명령 중 하나를 실행하여 \<yourconnectionstring\>을 실제 연결 문자열로 바꿉니다. 이 명령은 로컬 컴퓨터에 환경 변수를 저장합니다. Windows에서 사용 중인 **명령 프롬프트** 또는 셸을 다시 로드할 때까지 환경 변수를 사용할 수 없습니다.
+Azure Portal에서 스토리지 계정으로 이동합니다. 스토리지 계정의 **설정** 아래에서 **액세스 키**를 선택합니다. 기본 또는 보조 키에서 **연결 문자열**을 복사합니다. 운영 체제에 따라 다음 명령 중 하나를 실행하여 \<yourconnectionstring\>을 실제 연결 문자열로 바꿉니다. 이 명령은 로컬 컴퓨터에 환경 변수를 저장합니다. Windows에서 사용 중인 **명령 프롬프트** 또는 셸을 다시 로드할 때까지 환경 변수를 사용할 수 없습니다.
 
 ### <a name="linux"></a>Linux
 
@@ -149,7 +149,7 @@ setx storageconnectionstring "<yourconnectionstring>"
 
 애플리케이션에서 스토리지 계정 자격 증명을 반드시 제공해야 합니다. 애플리케이션을 실행하는 로컬 머신의 환경 변수에 이 정보를 저장할 수 있습니다. 운영 체제에 따라 아래 예제 중 하나를 참고하여 환경 변수를 만듭니다.
 
-Azure Portal에서 저장소 계정으로 이동합니다. 저장소 계정의 **설정** 아래에서 **액세스 키**를 선택합니다. **스토리지 계정 이름**과 **키** 값을 다음 명령에 붙여넣어, \<youraccountname\>과 \<youraccountkey\> 자리 표시자를 바꿉니다. 이 명령은 로컬 머신에 환경 변수를 저장합니다. Windows에서 사용 중인 **명령 프롬프트** 또는 셸을 다시 로드할 때까지 환경 변수를 사용할 수 없습니다.
+Azure Portal에서 스토리지 계정으로 이동합니다. 스토리지 계정의 **설정** 아래에서 **액세스 키**를 선택합니다. **스토리지 계정 이름**과 **키** 값을 다음 명령에 붙여넣어, \<youraccountname\>과 \<youraccountkey\> 자리 표시자를 바꿉니다. 이 명령은 로컬 머신에 환경 변수를 저장합니다. Windows에서 사용 중인 **명령 프롬프트** 또는 셸을 다시 로드할 때까지 환경 변수를 사용할 수 없습니다.
 
 ### <a name="linux"></a>Linux
 
@@ -204,21 +204,21 @@ AZURE_STORAGE_ACCOUNT_ACCESS_KEY=<replace with your storage account access key>
 
 Visual Studio에서 **F5** 키를 누르거나 **시작**을 클릭하여 애플리케이션 디버깅을 시작합니다. Visual Studio는 구성된 경우 누락된 NuGet 패키지를 자동으로 복원합니다. 자세한 내용은 [패키지 복원으로 패키지 설치 및 다시 설치](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview)에서 확인하세요.
 
-콘솔 창에서 시작하고 애플리케이션이 실행을 시작합니다. 애플리케이션은 **HelloWorld.png** 이미지를 솔루션에서 저장소 계정으로 업로드합니다. 애플리케이션은 해당 이미지를 보조 RA-GRS 엔드포인트로 복제했는지 확인합니다. 그런 다음, 이미지를 최대 999회까지 다운로드를 시작합니다. 읽기는 각각 **P** 또는 **S**로 나타납니다. 여기서 **P**는 기본 엔드포인트를 나타내고 **S**는 보조 엔드포인트를 나타냅니다.
+콘솔 창에서 시작하고 애플리케이션이 실행을 시작합니다. 애플리케이션은 **HelloWorld.png** 이미지를 솔루션에서 스토리지 계정으로 업로드합니다. 애플리케이션은 해당 이미지를 보조 RA-GRS 엔드포인트로 복제했는지 확인합니다. 그런 다음, 이미지를 최대 999회까지 다운로드를 시작합니다. 읽기는 각각 **P** 또는 **S**로 나타납니다. 여기서 **P**는 기본 엔드포인트을 나타내고 **S**는 보조 엔드포인트을 나타냅니다.
 
 ![콘솔 앱 실행](media/storage-create-geo-redundant-storage/figure3.png)
 
-샘플 코드에서 `Program.cs` 파일의 `RunCircuitBreakerAsync` 작업은 [DownloadToFileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadtofileasync) 메서드를 사용하여 저장소 계정에서 이미지를 다운로드하는 데 사용합니다. 다운로드하기 전에 [OperationContext](/dotnet/api/microsoft.azure.cosmos.table.operationcontext)가 정의됩니다. 작업 컨텍스트는 다운로드가 성공적으로 완료되거나, 다운로드가 실패하고 다시 시도하는 경우 생성되는 이벤트 처리기를 정의합니다.
+샘플 코드에서 `Program.cs` 파일의 `RunCircuitBreakerAsync` 작업은 [DownloadToFileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadtofileasync) 메서드를 사용하여 스토리지 계정에서 이미지를 다운로드하는 데 사용합니다. 다운로드하기 전에 [OperationContext](/dotnet/api/microsoft.azure.cosmos.table.operationcontext)가 정의됩니다. 작업 컨텍스트는 다운로드가 성공적으로 완료되거나, 다운로드가 실패하고 다시 시도하는 경우 생성되는 이벤트 처리기를 정의합니다.
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-터미널 또는 명령 프롬프트에서 애플리케이션을 실행하려면 **circuitbreaker.py** 디렉터리로 이동한 다음, `python circuitbreaker.py`를 입력합니다. 애플리케이션은 **HelloWorld.png** 이미지를 솔루션에서 저장소 계정으로 업로드합니다. 애플리케이션은 해당 이미지를 보조 RA-GRS 엔드포인트로 복제했는지 확인합니다. 그런 다음, 이미지를 최대 999회까지 다운로드를 시작합니다. 읽기는 각각 **P** 또는 **S**로 나타납니다. 여기서 **P**는 기본 엔드포인트를 나타내고 **S**는 보조 엔드포인트를 나타냅니다.
+터미널 또는 명령 프롬프트에서 애플리케이션을 실행하려면 **circuitbreaker.py** 디렉터리로 이동한 다음, `python circuitbreaker.py`를 입력합니다. 애플리케이션은 **HelloWorld.png** 이미지를 솔루션에서 스토리지 계정으로 업로드합니다. 애플리케이션은 해당 이미지를 보조 RA-GRS 엔드포인트로 복제했는지 확인합니다. 그런 다음, 이미지를 최대 999회까지 다운로드를 시작합니다. 읽기는 각각 **P** 또는 **S**로 나타납니다. 여기서 **P**는 기본 엔드포인트을 나타내고 **S**는 보조 엔드포인트을 나타냅니다.
 
 ![콘솔 앱 실행](media/storage-create-geo-redundant-storage/figure3.png)
 
-샘플 코드에서 `circuitbreaker.py` 파일의 `run_circuit_breaker` 메서드는 [get_blob_to_path](https://azure.github.io/azure-storage-python/ref/azure.storage.blob.baseblobservice.html) 메서드를 사용하여 저장소 계정에서 이미지를 다운로드하는 데 사용됩니다.
+샘플 코드에서 `circuitbreaker.py` 파일의 `run_circuit_breaker` 메서드는 [get_blob_to_path](https://azure.github.io/azure-storage-python/ref/azure.storage.blob.baseblobservice.html) 메서드를 사용하여 스토리지 계정에서 이미지를 다운로드하는 데 사용됩니다.
 
-Storage 개체 retry 함수는 선형 다시 시도 정책으로 설정됩니다. retry 함수는 요청을 다시 시도할지 여부를 결정하고, 요청을 다시 시도할 때까지 전에 대기할 시간(초)을 지정합니다. 1차 시도에 대한 초기 요청이 실패했을 때 2차 시도에 대해 다시 요청해야 하는 경우 **retry\_to\_secondary** 값을 true로 설정합니다. 샘플 애플리케이션에서 사용자 지정 다시 시도 정책은 저장소 개체의 `retry_callback` 함수에 정의되어 있습니다.
+Storage 개체 retry 함수는 선형 다시 시도 정책으로 설정됩니다. retry 함수는 요청을 다시 시도할지 여부를 결정하고, 요청을 다시 시도할 때까지 전에 대기할 시간(초)을 지정합니다. 1차 시도에 대한 초기 요청이 실패했을 때 2차 시도에 대해 다시 요청해야 하는 경우 **retry\_to\_secondary** 값을 true로 설정합니다. 샘플 애플리케이션에서 사용자 지정 다시 시도 정책은 스토리지 개체의 `retry_callback` 함수에 정의되어 있습니다.
 
 다운로드하기 전에 Service 개체 [retry_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) 및 [response_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) 함수가 정의됩니다. 이러한 함수는 다운로드가 성공적으로 완료되거나, 다운로드가 실패하고 다시 시도할 때 발생하는 이벤트 처리기를 정의합니다.
 
@@ -301,7 +301,7 @@ Deleted container newcontainer1550799840726
 
 ### <a name="retry-event-handler"></a>이벤트 처리기 다시 시도
 
-이미지 다운로드가 실패하고 다시 시도하도록 설정된 경우 `OperationContextRetrying` 이벤트 처리기가 호출됩니다. 애플리케이션에 정의된 최대 다시 시도 횟수에 도달하면 요청의 [LocationMode](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.locationmode)가 `SecondaryOnly`로 변경됩니다. 이 설정을 사용하면 애플리케이션이 보조 끝점에서 이미지 다운로드를 강제로 시도합니다. 이 구성은 기본 엔드포인트가 무한으로 다시 시도되지 않으므로 이미지를 요청하는 데 소요되는 시간이 줄여줍니다.
+이미지 다운로드가 실패하고 다시 시도하도록 설정된 경우 `OperationContextRetrying` 이벤트 처리기가 호출됩니다. 애플리케이션에 정의된 최대 다시 시도 횟수에 도달하면 요청의 [LocationMode](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.locationmode)가 `SecondaryOnly`로 변경됩니다. 이 설정을 사용하면 애플리케이션이 보조 엔드포인트에서 이미지 다운로드를 강제로 시도합니다. 이 구성은 기본 엔드포인트가 무한으로 다시 시도되지 않으므로 이미지를 요청하는 데 소요되는 시간이 줄여줍니다.
 
 ```csharp
 private static void OperationContextRetrying(object sender, RequestEventArgs e)
@@ -329,7 +329,7 @@ private static void OperationContextRetrying(object sender, RequestEventArgs e)
 
 ### <a name="request-completed-event-handler"></a>완료된 이미지 처리기 요청
 
-이미지 다운로드가 성공하면 `OperationContextRequestCompleted` 이벤트 처리기가 호출됩니다. 애플리케이션에서 보조 끝점을 사용하고 있는 경우 애플리케이션은 최대 20회까지 이 끝점을 계속 사용합니다. 20회 후에 이 애플리케이션은 [LocationMode](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.locationmode)를 `PrimaryThenSecondary`로 다시 설정하고 기본 끝점을 다시 반복합니다. 요청이 성공하면 애플리케이션은 기본 엔드포인트에서 읽기를 계속합니다.
+이미지 다운로드가 성공하면 `OperationContextRequestCompleted` 이벤트 처리기가 호출됩니다. 애플리케이션에서 보조 엔드포인트을 사용하고 있는 경우 애플리케이션은 최대 20회까지 이 엔드포인트을 계속 사용합니다. 20회 후에 이 애플리케이션은 [LocationMode](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.locationmode)를 `PrimaryThenSecondary`로 다시 설정하고 기본 엔드포인트을 다시 반복합니다. 요청이 성공하면 애플리케이션은 기본 엔드포인트에서 읽기를 계속합니다.
 
 ```csharp
 private static void OperationContextRequestCompleted(object sender, RequestEventArgs e)
@@ -352,7 +352,7 @@ private static void OperationContextRequestCompleted(object sender, RequestEvent
 
 ### <a name="retry-event-handler"></a>이벤트 처리기 다시 시도
 
-이미지 다운로드가 실패하고 다시 시도하도록 설정된 경우 `retry_callback` 이벤트 처리기가 호출됩니다. 애플리케이션에 정의된 최대 다시 시도 횟수에 도달하면 요청의 [LocationMode](https://docs.microsoft.com/python/api/azure.storage.common.models.locationmode?view=azure-python)가 `SECONDARY`로 변경됩니다. 이 설정을 사용하면 애플리케이션이 보조 끝점에서 이미지 다운로드를 강제로 시도합니다. 이 구성은 기본 엔드포인트가 무한으로 다시 시도되지 않으므로 이미지를 요청하는 데 소요되는 시간이 줄여줍니다.
+이미지 다운로드가 실패하고 다시 시도하도록 설정된 경우 `retry_callback` 이벤트 처리기가 호출됩니다. 애플리케이션에 정의된 최대 다시 시도 횟수에 도달하면 요청의 [LocationMode](https://docs.microsoft.com/python/api/azure.storage.common.models.locationmode?view=azure-python)가 `SECONDARY`로 변경됩니다. 이 설정을 사용하면 애플리케이션이 보조 엔드포인트에서 이미지 다운로드를 강제로 시도합니다. 이 구성은 기본 엔드포인트가 무한으로 다시 시도되지 않으므로 이미지를 요청하는 데 소요되는 시간이 줄여줍니다.
 
 ```python
 def retry_callback(retry_context):
@@ -376,7 +376,7 @@ def retry_callback(retry_context):
 
 ### <a name="request-completed-event-handler"></a>완료된 이미지 처리기 요청
 
-이미지 다운로드가 성공하면 `response_callback` 이벤트 처리기가 호출됩니다. 애플리케이션에서 보조 끝점을 사용하고 있는 경우 애플리케이션은 최대 20회까지 이 끝점을 계속 사용합니다. 20회 후에 이 애플리케이션은 [LocationMode](https://docs.microsoft.com/python/api/azure.storage.common.models.locationmode?view=azure-python)를 `PRIMARY`로 다시 설정하고 기본 끝점을 다시 반복합니다. 요청이 성공하면 애플리케이션은 기본 엔드포인트에서 읽기를 계속합니다.
+이미지 다운로드가 성공하면 `response_callback` 이벤트 처리기가 호출됩니다. 애플리케이션에서 보조 엔드포인트을 사용하고 있는 경우 애플리케이션은 최대 20회까지 이 엔드포인트을 계속 사용합니다. 20회 후에 이 애플리케이션은 [LocationMode](https://docs.microsoft.com/python/api/azure.storage.common.models.locationmode?view=azure-python)를 `PRIMARY`로 다시 설정하고 기본 엔드포인트을 다시 반복합니다. 요청이 성공하면 애플리케이션은 기본 엔드포인트에서 읽기를 계속합니다.
 
 ```python
 def response_callback(response):
@@ -435,4 +435,4 @@ const pipeline = StorageURL.newPipeline(sharedKeyCredential, {
 시리즈의 파트 2로 진행하여 오류를 시뮬레이션하고 보조 RA-GRS 엔드포인트를 사용하도록 애플리케이션을 강제하는 방법을 알아 보세요.
 
 > [!div class="nextstepaction"]
-> [기본 저장소 끝점 연결 오류 시뮬레이션](storage-simulate-failure-ragrs-account-app.md)
+> [기본 스토리지 엔드포인트 연결 오류 시뮬레이션](storage-simulate-failure-ragrs-account-app.md)

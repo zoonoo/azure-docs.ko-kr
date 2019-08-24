@@ -45,7 +45,7 @@ CLI를 로컬로 설치하고 사용하려는 경우 Azure CLI 버전 2.0 이상
 | 명령 | 메모 |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-create) | 함수 앱에 필요한 저장소 계정을 만듭니다. |
+| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-create) | 함수 앱에 필요한 스토리지 계정을 만듭니다. |
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az-appservice-plan-create) | 사용자 지정 도메인을 매핑하는 데 필요한 App Service 계획을 만듭니다. |
 | [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az-functionapp-create) | App Service 계획의 함수 앱을 만듭니다. |
 | [az functionapp config hostname add](https://docs.microsoft.com/cli/azure/functionapp/config/hostname#az-functionapp-config-hostname-add) | 함수 앱에 사용자 지정 도메인을 매핑합니다. |

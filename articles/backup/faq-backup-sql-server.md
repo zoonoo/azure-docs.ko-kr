@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: dacurwin
-ms.openlocfilehash: a600c50e97f0d069443112a59d529c0d6f6fecad
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 6e3ce21419e131ceef65939202eb70a98f10b040
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737072"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982428"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Azure VM 백업에서 실행 되는 SQL Server 데이터베이스에 대 한 FAQ
 
@@ -37,9 +37,10 @@ ms.locfileid: "68737072"
 기본적으로 모든 사용자에 게 기능이 설정 되어 있으므로 자동 치료 그러나 옵트아웃 (opt out)을 선택 하는 경우에는 다음을 수행 합니다.
 
   * SQL Server 인스턴스의 *C:\Program Files\Azure 워크 로드 Backup\bin* 폴더에서 **ExtensionSettingsOverrides** 파일을 만들거나 편집 합니다.
-  *  **ExtensionSettingsOverrides**에서 *{"EnableAutoHealer": false}* 를 설정 합니다.
+  * **ExtensionSettingsOverrides**에서 *{"EnableAutoHealer": false}* 를 설정 합니다.
   * 변경 내용을 저장하고 파일을 닫습니다.
-  * SQL Server 인스턴스에서 **작업 관리** 를 열고 **AzureWLBackupCoordinatorSvc** 서비스를 다시 시작 합니다.  
+  * SQL Server 인스턴스에서 **작업 관리** 를 열고 **AzureWLBackupCoordinatorSvc** 서비스를 다시 시작 합니다.
+   
 
 ## <a name="can-i-control-as-to-how-many-concurrent-backups-run-on-the-sql-server"></a>SQL server에서 실행 되는 동시 백업 수를 제어할 수 있나요?
 
@@ -71,12 +72,12 @@ Azure Backup Recovery Services 자격 증명 모음은 자격 증명 모음과 �
 **백업 작업** 메뉴에는 임시 백업 작업만 표시 됩니다. 예약 된 작업의 경우 [Azure Monitor를 사용 하 여 모니터링](backup-azure-monitoring-use-azuremonitor.md)을 사용 합니다.
 
 ## <a name="are-future-databases-automatically-added-for-backup"></a>이후 데이터베이스가 백업을 위해 자동으로 추가되나요?
-예, [자동 보호](backup-sql-server-database-azure-vms.md#enable-auto-protection)를 사용 하 여이 기능을 달성할 수 있습니다.  
+예, [자동 보호](backup-sql-server-database-azure-vms.md#enable-auto-protection)를 사용 하 여이 기능을 달성할 수 있습니다.  
 
 ## <a name="if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups"></a>Autoprotected 인스턴스에서 데이터베이스를 삭제 하는 경우 백업에 어떤 일이 발생 하나요?
 Autoprotected 인스턴스에서 데이터베이스를 삭제 하면 데이터베이스 백업이 계속 시도 됩니다. 이는 삭제 된 데이터베이스가 **백업 항목** 에서 비정상 상태로 표시 되기 시작 하 고 계속 보호 됨을 의미 합니다.
 
-이 데이터베이스의 보호를 중지 하는 올바른 방법은이 데이터베이스에서 **데이터를 삭제** 하는 **백업 중지** 를 수행 하는 것입니다.  
+이 데이터베이스의 보호를 중지 하는 올바른 방법은이 데이터베이스에서 **데이터를 삭제** 하는 **백업 중지** 를 수행 하는 것입니다.  
 
 ## <a name="if-i-do-stop-backup-operation-of-an-autoprotected-database-what-will-be-its-behavior"></a>Autoprotected 데이터베이스의 백업 작업을 중지 하는 경우 해당 동작이 어떻게 되나요?
 **데이터 보관을 사용 하 여 백업을 중지**하면 이후 백업이 수행 되지 않으며 기존 복구 지점은 그대로 유지 됩니다. 데이터베이스는 여전히 보호 된 것으로 간주 되며 **백업 항목**아래에 표시 됩니다.

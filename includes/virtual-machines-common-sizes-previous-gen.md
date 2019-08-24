@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/16/2019
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: 8d90d71b8d29d26f09ef617ddd56ce91eb4e5e2e
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 632b23a726b8e006152662ef7814aa4b7ef887fc
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69541508"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69984551"
 ---
 이 섹션에서는 이전 세대의 가상 컴퓨터 크기에 대 한 정보를 제공 합니다. 이러한 크기를 계속 사용할 수 있지만 새로운 세대도 사용 가능합니다. 
 
@@ -61,7 +61,7 @@ MBps = 초당 10^6바이트, GiB = 1024^3바이트
 
 ## <a name="nvv2-series"></a>NVv2 시리즈
 
-**새 크기 권장 사항**: [NVv3 시리즈](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#nvv3-series-preview-1)
+**새 크기 권장 사항**: [NVv3 시리즈](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#nvv3-series--1)
 
 NVv2 시리즈 가상 머신은 [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU 및 NVIDIA GRID 기술을 기반으로 하며 Intel Broadwell CPU를 탑재하고 있습니다. 이러한 가상 머신은 고객이 데이터를 시각화하고 결과를 시뮬레이트하여 보고 CAD에서 작업하거나 콘텐츠를 렌더링 및 스트림하려고 하는 GPU 가속 그래픽 애플리케이션 및 가상 데스크톱을 대상으로 합니다. 또한 이러한 가상 머신은 인코딩 및 렌더링과 같은 단정밀도 워크로드를 실행할 수 있습니다. NVv2 가상 머신은 Premium Storage를 지원하며 이전 NV 시리즈와 비교했을 때 두 배의 시스템 메모리(RAM)를 제공합니다.  
 

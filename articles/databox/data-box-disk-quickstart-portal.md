@@ -112,7 +112,7 @@ Data Box Disk는 UPS Express 상자에 배송됩니다. 상자를 열고 상자�
 
 1. 드라이브에 *PageBlob*, *BlockBlob*, *AzureFile*, *ManagedDisk* 및 *DataBoxDiskImport* 폴더가 포함됩니다. 블록 Blob으로 가져와야 하는 데이터를 *BlockBlob* 폴더로 끌어서 놓아 복사합니다. 마찬가지로 VHD/VHDX와 같은 데이터를 *PageBlob* 폴더로 끌어다 놓고 해당 데이터를 *AzureFile*로 끌어다 놓습니다. Managed Disks로 업로드하려는 VHD를 *ManagedDisk* 아래의 폴더에 복사합니다.
 
-    *BlockBlob* 및 *PageBlob* 폴더 아래에 각 하위 폴더에 대한 Azure 저장소 계정에 컨테이너가 만들어집니다. *AzureFile* 아래의 하위 폴더에 대해 파일 공유가 생성됩니다.
+    *BlockBlob* 및 *PageBlob* 폴더 아래에 각 하위 폴더에 대한 Azure Storage 계정에 컨테이너가 만들어집니다. *AzureFile* 아래의 하위 폴더에 대해 파일 공유가 생성됩니다.
 
     *BlockBlob* 및 *PageBlob* 폴더 아래의 모든 파일은 Azure Storage 계정 아래의 기본 컨테이너 `$root`로 복사됩니다. *AzureFile* 내의 폴더로 파일을 복사합니다. *AzureFile* 폴더로 직접 복사된 모든 파일에 오류가 발생하고 블록 blob으로 업로드됩니다.
 
@@ -140,7 +140,7 @@ Data Box Disk 서비스가 이메일 알림을 보내고 Azure Portal에서 작�
 2. Azure Data Box 서비스는 Azure Portal을 통해 데이터 복사가 완료되었음을 알립니다.
     
     1. 모든 오류에 대한 오류 로그를 확인하고 적절한 조치를 수행합니다.
-    2. 원본에서 데이터를 삭제하기 전에 데이터 저장소 계정에 있는지 확인합니다.
+    2. 원본에서 데이터를 삭제하기 전에 데이터 스토리지 계정에 있는지 확인합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

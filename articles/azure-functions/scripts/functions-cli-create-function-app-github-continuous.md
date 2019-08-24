@@ -49,7 +49,7 @@ Azure CLI를 로컬로 사용하는 경우 버전 2.0 이상을 설치해서 사
 | 명령 | 메모 |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-create) | 함수 앱에 필요한 저장소 계정을 만듭니다. |
+| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-create) | 함수 앱에 필요한 스토리지 계정을 만듭니다. |
 | [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az-functionapp-create) | 서버를 사용하지 않는 [소비 계획](../functions-scale.md#consumption-plan)에서 함수 앱을 만들어 Git 또는 Mercurial 리포지토리와 연결합니다. |
 
 ## <a name="next-steps"></a>다음 단계

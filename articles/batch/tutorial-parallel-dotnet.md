@@ -101,7 +101,7 @@ Visual Studio 또는 명령줄에서 `dotnet build` 및 `dotnet run` 명령을 �
 
 * 메시지가 표시되면 모든 NuGet 패키지 복원을 확인합니다. 누락된 패키지를 다운로드해야 하는 경우 [NuGet 패키지 관리자](https://docs.nuget.org/consume/installing-nuget)가 설치되어 있는지 확인합니다.
 
-그런 다음 실행합니다. 샘플 애플리케이션을 실행하는 경우 콘솔 출력은 다음과 유사합니다. 실행 중에 풀의 컴퓨팅 노드가 시작되는 동안 `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...`에서 일시 중지가 발생합니다. 
+그런 다음 실행합니다. 샘플 애플리케이션을 실행하는 경우 콘솔 출력은 다음과 비슷합니다. 실행 중에 풀의 컴퓨팅 노드가 시작되는 동안 `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...`에서 일시 중지가 발생합니다. 
 
 ```
 Sample start: 11/19/2018 3:20:21 PM
@@ -164,7 +164,7 @@ using (BatchClient batchClient = BatchClient.Open(sharedKeyCredentials))
 
 ### <a name="upload-input-files"></a>입력 파일 업로드
 
-이 앱은 `CreateContainerIfNotExistAsync` 메서드에 `blobClient` 개체를 전달하여 입력 파일(MP4 형식)에 대한 저장소 컨테이너와 태스크 출력에 대한 컨테이너를 만듭니다.
+이 앱은 `CreateContainerIfNotExistAsync` 메서드에 `blobClient` 개체를 전달하여 입력 파일(MP4 형식)에 대한 스토리지 컨테이너와 태스크 출력에 대한 컨테이너를 만듭니다.
 
 ```csharp
 CreateContainerIfNotExistAsync(blobClient, inputContainerName;
@@ -190,7 +190,7 @@ List<ResourceFile> inputFiles = await UploadFilesToContainerAsync(
   inputFilePaths);
 ```
 
-.NET을 사용하여 파일을 Blob으로 저장소 계정에 업로드하는 방법에 대한 자세한 내용은 [.NET을 사용하여 Blob 업로드, 다운로드 및 나열](../storage/blobs/storage-quickstart-blobs-dotnet.md)을 참조하세요.
+.NET을 사용하여 파일을 Blob으로 스토리지 계정에 업로드하는 방법에 대한 자세한 내용은 [.NET을 사용하여 Blob 업로드, 다운로드 및 나열](../storage/blobs/storage-quickstart-blobs-dotnet.md)을 참조하세요.
 
 ### <a name="create-a-pool-of-compute-nodes"></a>컴퓨팅 노드 풀 만들기
 
@@ -248,7 +248,7 @@ await job.CommitAsync();
 
 이 샘플은 [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) 개체 목록을 만드는 `AddTasksAsync` 메서드를 호출하여 작업에 태스크를 만듭니다. 각 `CloudTask`는 [CommandLine](/dotnet/api/microsoft.azure.batch.cloudtask.commandline) 속성을 사용하여 입력된 `ResourceFile` 개체를 처리하는 ffmpeg를 실행합니다. ffmpeg는 이전에 풀이 생성될 때 각 노드에 설치되었습니다. 여기서 명령줄은 fmpeg를 실행하여 입력된 각 MP4(비디오) 파일을 MP3(오디오) 파일로 변환합니다.
 
-이 샘플에서는 명령줄을 실행한 후 MP3 파일에 대한 [OutputFile](/dotnet/api/microsoft.azure.batch.outputfile) 개체를 만듭니다. 각 태스크의 출력 파일(이 경우에는 하나)은 태스크의 [OutputFiles](/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles) 속성을 사용하여 연결된 저장소 계정의 컨테이너에 업로드됩니다. 이전 코드 샘플에서는 출력 컨테이너에 대한 쓰기 액세스를 제공하기 위해 공유 액세스 서명 URL(`outputContainerSasUrl`)을 획득했습니다. `outputFile` 개체에 설정된 조건을 잘 보세요. 작업이 성공적으로 완료된 후 (`OutputFileUploadCondition.TaskSuccess`) 작업의 출력 파일이 컨테이너에만 업로드됩니다. 자세한 구현 정보는 GitHub에서 전체 [코드 샘플](https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial)을 참조하세요.
+이 샘플에서는 명령줄을 실행한 후 MP3 파일에 대한 [OutputFile](/dotnet/api/microsoft.azure.batch.outputfile) 개체를 만듭니다. 각 태스크의 출력 파일(이 경우에는 하나)은 태스크의 [OutputFiles](/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles) 속성을 사용하여 연결된 스토리지 계정의 컨테이너에 업로드됩니다. 이전 코드 샘플에서는 출력 컨테이너에 대한 쓰기 액세스를 제공하기 위해 공유 액세스 서명 URL(`outputContainerSasUrl`)을 획득했습니다. `outputFile` 개체에 설정된 조건을 잘 보세요. 작업이 성공적으로 완료된 후 (`OutputFileUploadCondition.TaskSuccess`) 작업의 출력 파일이 컨테이너에만 업로드됩니다. 자세한 구현 정보는 GitHub에서 전체 [코드 샘플](https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial)을 참조하세요.
 
 그런 다음, 샘플에서는 [AddTaskAsync](/dotnet/api/microsoft.azure.batch.joboperations.addtaskasync) 메서드를 사용하여 작업에 태스크를 추가하고, 해당 태스크를 컴퓨팅 노드에서 실행할 때까지 큐에서 대기합니다.
 
@@ -314,9 +314,9 @@ batchClient.JobOperations.TerminateJob(jobId);
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-앱은 태스크를 실행한 후 생성된 입력 저장소 컨테이너를 자동으로 삭제하고 사용자에게 Batch 풀 및 작업을 삭제하는 옵션을 제공합니다. BatchClient의 [JobOperations](/dotnet/api/microsoft.azure.batch.batchclient.joboperations) 및 [PoolOperations](/dotnet/api/microsoft.azure.batch.batchclient.pooloperations) 클래스에는 해당하는 삭제 메서드가 있고 이는 삭제를 확인하는 경우 호출됩니다. 작업 및 태스크 자체에 대한 요금이 부과되지 않지만 컴퓨팅 노드에 대한 요금이 청구됩니다. 따라서 풀을 필요할 때만 할당하는 것이 좋습니다. 풀을 삭제하면 노드의 모든 태스크 출력이 삭제됩니다. 그러나 출력 파일은 저장소 계정에 남아 있습니다.
+앱은 태스크를 실행한 후 생성된 입력 스토리지 컨테이너를 자동으로 삭제하고 사용자에게 Batch 풀 및 작업을 삭제하는 옵션을 제공합니다. BatchClient의 [JobOperations](/dotnet/api/microsoft.azure.batch.batchclient.joboperations) 및 [PoolOperations](/dotnet/api/microsoft.azure.batch.batchclient.pooloperations) 클래스에는 해당하는 삭제 메서드가 있고 이는 삭제를 확인하는 경우 호출됩니다. 작업 및 태스크 자체에 대한 요금이 부과되지 않지만 컴퓨팅 노드에 대한 요금이 청구됩니다. 따라서 풀을 필요할 때만 할당하는 것이 좋습니다. 풀을 삭제하면 노드의 모든 태스크 출력이 삭제됩니다. 그러나 출력 파일은 스토리지 계정에 남아 있습니다.
 
-더 이상 필요하지 않으면 리소스 그룹, 배치 계정 및 저장소 계정을 삭제합니다. Azure Portal에서 이렇게 하려면 배치 계정에 대한 리소스 그룹을 선택하고 **리소스 그룹 삭제**를 클릭합니다.
+더 이상 필요하지 않은 경우 리소스 그룹, Batch 계정 및 스토리지 계정을 삭제합니다. Azure Portal에서 이렇게 하려면 배치 계정에 대한 리소스 그룹을 선택하고 **리소스 그룹 삭제**를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

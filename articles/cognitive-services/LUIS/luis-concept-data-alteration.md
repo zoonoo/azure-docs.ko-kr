@@ -33,7 +33,7 @@ LUIS는 [Bing Spell Check API V7](../Bing-Spell-Check/overview.md)을 사용하�
 |매개 변수|값|
 |--|--|
 |`spellCheck`|boolean|
-|`bing-spell-check-subscription-key`|[Bing Spell Check API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) 끝점 키|
+|`bing-spell-check-subscription-key`|[Bing Spell Check API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) 엔드포인트 키|
 
 [Bing Spell Check API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/)에서 오류를 검색하면 원래 발화와 수정된 발화가 엔드포인트의 예측과 함께 반환됩니다.
 

@@ -10,7 +10,7 @@
       items:
         - name: 컴퓨팅
           href: concepts/mainframe-compute-azure.md
-        - name: Storage
+        - name: 스토리지
           href: concepts/mainframe-storage-azure.md
     - name: Micro Focus
       items:

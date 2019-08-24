@@ -3,7 +3,7 @@ title: Azure Cloud Shell에서 Terraform 사용
 description: Azure Cloud Shell로 Terraform을 사용하여 인증 및 템플릿 구성을 간소합니다.
 services: terraform
 ms.service: azure
-keywords: terraform, devops, 확장 집합, 가상 머신, 네트워크, 저장소, 모듈
+keywords: terraform, devops, 확장 집합, 가상 머신, 네트워크, 스토리지, 모듈
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher

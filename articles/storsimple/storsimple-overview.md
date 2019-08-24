@@ -300,7 +300,7 @@ Microsoft Azure StorSimple 솔루션을 배포하기 전에 다음 용어와 정
 | 서비스 등록 키 |키는 StorSimple 디바이스 관리자 서비스를 사용하여 StorSimple 디바이스를 등록하도록 도와줌으로써 Azure Portal의 추가 관리 작업에 표시됩니다. |
 | Small Computer System Interface(SCSI) |컴퓨터를 물리적으로 연결하고 컴퓨터 간에 데이터를 전달하기 위한 표준 집합입니다. |
 | 반도체 드라이브(SSD) |움직이는 부분이 없는 디스크(예: 플래시 드라이브)입니다. |
-| 스토리지 계정 |지정된 클라우드 서비스 공급자에 대해 스토리지 계정에 연결된 액세스 자격 증명 집합입니다. |
+| 스토리지 계정 만들기 |지정된 클라우드 서비스 공급자에 대해 스토리지 계정에 연결된 액세스 자격 증명 집합입니다. |
 | SharePoint용 StorSimple 어댑터 |StorSimple 스토리지 및 데이터 보호 기능을 SharePoint 서버 팜으로 투명하게 확장하는 Microsoft Azure StorSimple 구성 요소입니다. |
 | StorSimple 디바이스 관리자 서비스 |Azure Portal의 확장은 StorSimple 온-프레미스 및 가상 디바이스를 관리할 수 있게 해줍니다. |
 | StorSimple Snapshot Manager |Microsoft Azure StorSimple에서 백업 및 복원 작업을 관리하기 위한 MMC(Microsoft Management Console) 스냅인입니다. |

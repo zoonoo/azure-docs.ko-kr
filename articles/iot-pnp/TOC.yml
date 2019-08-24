@@ -12,7 +12,7 @@
     - name: 디바이스를 IoT Hub에 연결
       href: quickstart-connect-pnp-device.md
     - name: 디바이스를 IoT Central에 연결
-      href: 'https://aka.ms/iot-central-connect-qs'
+      href: ../iot-central/quick-create-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
     - name: 솔루션에서 디바이스에 연결
       href: quickstart-connect-pnp-device-solution.md
 - name: 자습서
@@ -50,7 +50,7 @@
 - name: 참고 자료
   items:
     - name: REST (영문)
-      href: 'https://aka.ms/iot-pnp-rest'
+      href: 'https://docs.microsoft.com/rest/api/iothub/digitaltwinmodel/createorupdatemodel'
     - name: REST 보안 토큰 생성
       href: howto-generate-sas-token.md
 - name: 관련 항목
@@ -58,7 +58,7 @@
     - name: 솔루션
       items:
         - name: IoT Central
-          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+          href: /azure/iot-central
         - name: IoT 솔루션 가속기
           href: /azure/iot-accelerators
     - name: 플랫폼 서비스

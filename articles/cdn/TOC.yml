@@ -10,7 +10,7 @@
   items:
     - name: 프로필 및 엔드포인트 만들기
       href: cdn-create-new-endpoint.md
-    - name: 저장소 계정 통합
+    - name: 스토리지 계정 통합
       href: cdn-create-a-storage-account-with-cdn.md
     - name: Azure Resource Manager 템플릿을 사용하여 프로필 만들기
       href: create-profile-resource-manager-template.md
@@ -87,7 +87,7 @@
               href: cdn-manage-expiration-of-blob-content.md
         - name: 토큰 인증
           href: cdn-token-auth.md
-        - name: SAS 저장소 지원
+        - name: SAS 스토리지 지원
           href: cdn-sas-storage-support.md
         - name: 크로스-원본 자원 공유
           href: cdn-cors.md

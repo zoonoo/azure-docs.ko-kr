@@ -19,7 +19,7 @@ ms.locfileid: "68561074"
 ---
 # <a name="export-your-model-for-use-with-mobile-devices"></a>모바일 디바이스에 사용할 모델 내보내기
 
-Custom Vision Service를 사용하면 분류자를 내보내서 오프라인으로 실행할 수 있습니다. 내보낸 분류자를 애플리케이션에 포함하여 장치에서 실행하면 실시간 분류가 가능합니다.
+Custom Vision Service를 사용하면 분류자를 내보내서 오프라인으로 실행할 수 있습니다. 내보낸 분류자를 애플리케이션에 포함하여 디바이스에서 실행하면 실시간 분류가 가능합니다.
 
 Custom Vision Service는 다음과 같은 내보내기를 지원합니다.
 

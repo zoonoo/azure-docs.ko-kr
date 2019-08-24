@@ -21,7 +21,7 @@ ms.locfileid: "67205715"
 
 Deployment Manager를 사용하려면 두 개의 템플릿을 만들어야 합니다.
 
-* **토폴로지 템플릿**: 응용 프로그램을 구성하는 Azure 리소스와 이러한 리소스를 배포할 위치를 설명합니다.
+* **토폴로지 템플릿**: 애플리케이션을 구성하는 Azure 리소스와 이러한 리소스를 배포할 위치를 설명합니다.
 * **롤아웃 템플릿**: 애플리케이션을 배포할 때 수행하는 단계를 설명합니다.
 
 > [!IMPORTANT]
@@ -76,7 +76,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ![Azure Deployment Manager 자습서 시나리오 다이어그램](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-scenario-diagram.png)
 
-미국 서부 및 동부 지역에 할당된 두 가지 서비스가 있습니다.  각 서비스에는 웹 애플리케이션 프런트 엔드와 저장소 계정 백 엔드의 두 가지 서비스 단위가 있습니다. 서비스 단위 정의에는 웹 애플리케이션 및 저장소 계정을 만들기 위한 템플릿 및 매개 변수 파일에 대한 링크가 포함됩니다.
+미국 서부 및 동부 지역에 할당된 두 가지 서비스가 있습니다.  각 서비스에는 웹 애플리케이션 프런트 엔드와 스토리지 계정 백 엔드의 두 가지 서비스 단위가 있습니다. 서비스 단위 정의에는 웹 애플리케이션 및 스토리지 계정을 만들기 위한 템플릿 및 매개 변수 파일에 대한 링크가 포함됩니다.
 
 ## <a name="download-the-tutorial-files"></a>자습서 파일 다운로드
 
@@ -92,7 +92,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
   * CreateADMRollout.Parameters.json
 * **ArtifactStore**: 템플릿 아티팩트와 이진 아티팩트가 모두 포함되어 있습니다. [아티팩트 준비](#prepare-the-artifacts)를 참조하세요.
 
-두 집합의 템플릿이 있습니다.  한 집합은 서비스 토폴로지 및 롤아웃을 배포하는 데 사용되는 Deployment Manager 템플릿이며, 다른 하나의 집합은 서비스 단위에서 호출되어 웹 서비스와 저장소 계정을 만듭니다.
+두 집합의 템플릿이 있습니다.  한 집합은 서비스 토폴로지 및 롤아웃을 배포하는 데 사용되는 Deployment Manager 템플릿이며, 다른 하나의 집합은 서비스 단위에서 호출되어 웹 서비스와 스토리지 계정을 만듭니다.
 
 ## <a name="prepare-the-artifacts"></a>아티팩트 준비
 
@@ -100,12 +100,12 @@ ArtifactStore 다운로드 폴더에는 다음 두 개의 폴더가 있습니다
 
 ![Azure Deployment Manager 자습서 아티팩트 소스 다이어그램](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-artifact-source-diagram.png)
 
-* **templates** 폴더: 템플릿 아티팩트가 포함되어 있습니다. **1.0.0.0** 및 **1.0.0.1**은 이진 아티팩트의 두 버전을 나타냅니다. 각 버전 내에는 각 서비스(Service East U.S. 및 Service West U.S.)에 대한 폴더가 있습니다. 각 서비스에는 저장소 계정을 만들기 위한 템플릿과 매개 변수 파일의 쌍과 웹 애플리케이션을 만들기 위한 또 다른 쌍이 있습니다. 웹 애플리케이션 템플릿은 웹 애플리케이션 파일이 포함된 압축 패키지를 호출합니다. 압축된 파일은 binaries 폴더에 저장된 이진 아티팩트입니다.
+* **templates** 폴더: 템플릿 아티팩트가 포함되어 있습니다. **1.0.0.0** 및 **1.0.0.1**은 이진 아티팩트의 두 버전을 나타냅니다. 각 버전 내에는 각 서비스(Service East U.S. 및 Service West U.S.)에 대한 폴더가 있습니다. 각 서비스에는 스토리지 계정을 만들기 위한 템플릿과 매개 변수 파일의 쌍과 웹 애플리케이션을 만들기 위한 또 다른 쌍이 있습니다. 웹 애플리케이션 템플릿은 웹 애플리케이션 파일이 포함된 압축 패키지를 호출합니다. 압축된 파일은 binaries 폴더에 저장된 이진 아티팩트입니다.
 * **binaries** 폴더: 이진 아티팩트가 포함되어 있습니다. **1.0.0.0** 및 **1.0.0.1**은 이진 아티팩트의 두 버전을 나타냅니다. 각 버전에는 미국 서부 지역과 동부 지역에 웹 애플리케이션을 만들기 위한 하나의 Zip 파일이 각각 있습니다.
 
 두 버전(1.0.0.0 및 1.0.0.1)은 [수정 버전 배포](#deploy-the-revision)에 해당하는 것입니다. 템플릿 아티팩트와 이진 아티팩트에 모두 두 버전이 있지만, 두 버전 간에는 이진 아티팩트만 다릅니다. 실제로 이진 아티팩트는 템플릿 아티팩트에 비해 더 자주 업데이트됩니다.
 
-1. 텍스트 편집기에서 **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateStorageAccount.json**을 엽니다. 저장소 계정을 만들기 위한 기본 템플릿입니다.
+1. 텍스트 편집기에서 **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateStorageAccount.json**을 엽니다. 스토리지 계정을 만들기 위한 기본 템플릿입니다.
 2. **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateWebApplication.json**을 엽니다.
 
     ![Azure Deployment Manager 자습서에서는 웹 애플리케이션 템플릿을 만듭니다.](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-create-web-application-packageuri.png)
@@ -133,10 +133,10 @@ ArtifactStore 다운로드 폴더에는 다음 두 개의 폴더가 있습니다
     이 html에서는 위치와 버전 정보를 보여 줍니다. 1\.0.0.1 폴더의 이진 파일에서 "Version 1.0.0.1"을 표시합니다. 서비스가 배포되면 이러한 페이지를 찾아볼 수 있습니다.
 5. 다른 아티팩트 파일을 확인합니다. 그러면 시나리오를 더 잘 이해할 수 있습니다.
 
-템플릿 아티팩트는 서비스 토폴로지 템플릿에서 사용되며, 이진 아티팩트는 롤아웃 템플릿에서 사용됩니다. 토폴로지 템플릿과 롤아웃 템플릿은 모두 Resource Manager를 템플릿 및 배포에 사용되는 이진 아티팩트로 가리키는 데 사용되는 리소스인 아티팩트 소스 Azure 리소스를 정의합니다. 자습서를 간소화하기 위해 하나의 저장소 계정을 사용하여 템플릿 아티팩트와 이진 아티팩트를 모두 저장합니다. 두 아티팩트 소스는 모두 동일한 저장소 계정을 가리킵니다.
+템플릿 아티팩트는 서비스 토폴로지 템플릿에서 사용되며, 이진 아티팩트는 롤아웃 템플릿에서 사용됩니다. 토폴로지 템플릿과 롤아웃 템플릿은 모두 Resource Manager를 템플릿 및 배포에 사용되는 이진 아티팩트로 가리키는 데 사용되는 리소스인 아티팩트 소스 Azure 리소스를 정의합니다. 자습서를 간소화하기 위해 하나의 스토리지 계정을 사용하여 템플릿 아티팩트와 이진 아티팩트를 모두 저장합니다. 두 아티팩트 소스는 모두 동일한 스토리지 계정을 가리킵니다.
 
-1. Azure 저장소 계정 만들기 지침은 [빠른 시작: Azure Portal을 사용하여 Blob 업로드, 다운로드 및 나열](../storage/blobs/storage-quickstart-blobs-portal.md)을 참조하세요.
-2. Blob 컨테이너를 저장소 계정에 만듭니다.
+1. Azure Storage 계정을 만듭니다. 지침은 [빠른 시작: Azure Portal을 사용하여 Blob 업로드, 다운로드 및 나열](../storage/blobs/storage-quickstart-blobs-portal.md)을 참조하세요.
+2. Blob 컨테이너를 스토리지 계정에 만듭니다.
 3. 두 폴더(binaries 및 templates) 및 두 폴더의 콘텐츠를 Blob 컨테이너에 복사합니다. [Microsoft Azure Storage Explorer](https://go.microsoft.com/fwlink/?LinkId=708343&clcid=0x409)는 끌어서 놓기 기능을 지원합니다.
 4. 다음 지침에 따라 컨테이너의 SAS 위치를 가져옵니다.
 
@@ -148,7 +148,7 @@ ArtifactStore 다운로드 폴더에는 다음 두 개의 폴더가 있습니다
 
 ## <a name="create-the-user-assigned-managed-identity"></a>사용자가 할당한 관리 ID 만들기
 
-이 자습서의 뒷부분에서 롤아웃을 배포합니다. 사용자가 할당한 관리 ID는 배포 작업(예: 웹 애플리케이션 및 저장소 계정 배포)을 수행하는 데 필요합니다. 이 ID에는 서비스를 배포할 Azure 구독에 대한 액세스 권한이 부여되어야 하며 아티팩트 배포를 수행할 수 있는 충분한 권한이 있어야 합니다.
+이 자습서의 뒷부분에서 롤아웃을 배포합니다. 사용자가 할당한 관리 ID는 배포 작업(예: 웹 애플리케이션 및 스토리지 계정 배포)을 수행하는 데 필요합니다. 이 ID에는 서비스를 배포할 Azure 구독에 대한 액세스 권한이 부여되어야 하며 아티팩트 배포를 수행할 수 있는 충분한 권한이 있어야 합니다.
 
 사용자가 할당한 관리 ID를 만들고 구독에 대한 액세스 제어를 구성해야 합니다.
 
@@ -163,7 +163,7 @@ ArtifactStore 다운로드 폴더에는 다음 두 개의 폴더가 있습니다
 
     ![Azure Deployment Manager 자습서 - 사용자가 할당한 관리 ID 액세스 제어](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-access-control.png)
 
-    * **역할**: 아티팩트 배포(웹 응용 프로그램 및 저장소 계정)를 수행할 수 있는 충분한 권한을 부여합니다. 이 자습서에서는 **기여자**를 선택합니다. 실제로는 최소 권한으로 제한하는 것이 좋습니다.
+    * **역할**: 아티팩트 배포(웹 애플리케이션 및 스토리지 계정)를 수행할 수 있는 충분한 권한을 부여합니다. 이 자습서에서는 **기여자**를 선택합니다. 실제로는 최소 권한으로 제한하는 것이 좋습니다.
     * **할당된 액세스 권한**: **사용자가 할당한 관리 ID**를 선택합니다.
     * 자습서 앞부분에서 만든 사용자가 할당한 관리 ID를 선택합니다.
 6. **저장**을 선택합니다.
@@ -190,7 +190,7 @@ variables 섹션에서는 리소스 이름, 두 서비스 **Service WUS** 및 **
 
 ![Azure Deployment Manager 자습서 - 토폴로지 템플릿 변수](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-topology-template-variables.png)
 
-아티팩트 경로를 저장소 계정에 업로드한 폴더 구조와 비교합니다. 아티팩트 경로는 상대 경로입니다. 전체 경로는 **artifactSourceSASLocation**, **templateArtifactRoot** 및 **templateArtifactSourceRelativePath**(또는 **parametersArtifactSourceRelativePath**)를 연결하여 생성됩니다.
+아티팩트 경로를 스토리지 계정에 업로드한 폴더 구조와 비교합니다. 아티팩트 경로는 상대 경로입니다. 전체 경로는 **artifactSourceSASLocation**, **templateArtifactRoot** 및 **templateArtifactSourceRelativePath**(또는 **parametersArtifactSourceRelativePath**)를 연결하여 생성됩니다.
 
 ### <a name="the-resources"></a>resources
 
@@ -222,7 +222,7 @@ variables 섹션에서는 리소스 이름, 두 서비스 **Service WUS** 및 **
     * **targetScriptionID**: Azure 구독 ID를 입력합니다.
 
 > [!IMPORTANT]
-> 토폴로지 템플릿과 롤아웃 템플릿은 몇 가지 공통 매개 변수를 공유합니다. 이러한 매개 변수에는 동일한 값이 있어야 합니다. 이러한 매개 변수로 **namePrefix**, **azureResourceLocation** 및 **artifactSourceSASLocation**이 있습니다(이 자습서에서는 두 아티팩트 소스에서 동일한 저장소 계정을 공유함).
+> 토폴로지 템플릿과 롤아웃 템플릿은 몇 가지 공통 매개 변수를 공유합니다. 이러한 매개 변수에는 동일한 값이 있어야 합니다. 이러한 매개 변수로 **namePrefix**, **azureResourceLocation** 및 **artifactSourceSASLocation**이 있습니다(이 자습서에서는 두 아티팩트 소스에서 동일한 스토리지 계정을 공유함).
 
 ## <a name="create-the-rollout-template"></a>롤아웃 템플릿 만들기
 
@@ -287,7 +287,7 @@ duration(기간)은 [ISO 8601 표준](https://en.wikipedia.org/wiki/ISO_8601#Dur
         ```
 
 > [!IMPORTANT]
-> 토폴로지 템플릿과 롤아웃 템플릿은 몇 가지 공통 매개 변수를 공유합니다. 이러한 매개 변수에는 동일한 값이 있어야 합니다. 이러한 매개 변수로 **namePrefix**, **azureResourceLocation** 및 **artifactSourceSASLocation**이 있습니다(이 자습서에서는 두 아티팩트 소스에서 동일한 저장소 계정을 공유함).
+> 토폴로지 템플릿과 롤아웃 템플릿은 몇 가지 공통 매개 변수를 공유합니다. 이러한 매개 변수에는 동일한 값이 있어야 합니다. 이러한 매개 변수로 **namePrefix**, **azureResourceLocation** 및 **artifactSourceSASLocation**이 있습니다(이 자습서에서는 두 아티팩트 소스에서 동일한 스토리지 계정을 공유함).
 
 ## <a name="deploy-the-templates"></a>템플릿 배포
 
@@ -405,7 +405,7 @@ Azure PowerShell을 사용하여 템플릿을 배포할 수 있습니다.
 ## <a name="verify-the-deployment"></a>배포 확인
 
 1. [Azure Portal](https://portal.azure.com)을 엽니다.
-2. 롤아웃 배포에서 만든 새 리소스 그룹 아래에 새로 만들어진 웹 응용 프로그램으로 이동합니다.
+2. 롤아웃 배포에서 만든 새 리소스 그룹 아래에 새로 만들어진 웹 애플리케이션으로 이동합니다.
 3. 웹 브라우저에서 웹 애플리케이션을 엽니다. index.html 파일에서 위치와 버전을 확인합니다.
 
 ## <a name="deploy-the-revision"></a>수정 버전 배포

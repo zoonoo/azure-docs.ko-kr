@@ -16,18 +16,18 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9073e00f5c3702e43665541bd8ff9e66c2bc505b
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: ca2b7f2b0e20e85e1e62f8efabb81eddd5f901f2
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68968502"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991109"
 ---
 # <a name="enable-remote-access-to-power-bi-mobile-with-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시를 사용 하 여 Power BI Mobile에 대 한 원격 액세스 사용
 
 이 문서에서는 Azure AD 응용 프로그램 프록시를 사용 하 여 Power BI mobile 앱이 Power BI Report Server (PBIRS) 및 SQL Server Reporting Services (SSRS) 2016 이상에 연결 하도록 설정 하는 방법을 설명 합니다. 이러한 통합을 통해 회사 네트워크를 벗어난 사용자는 Power BI 모바일 앱에서 해당 Power BI 보고서에 액세스 하 고 Azure AD 인증으로 보호할 수 있습니다. 이 보호에는 조건부 액세스 및 multi-factor authentication과 같은 [보안 이점이](application-proxy-security.md#security-benefits) 포함 됩니다.  
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에서는 이미 보고서 서비스를 배포 하 고 [응용 프로그램 프록시를 사용 하도록 설정](application-proxy-add-on-premises-application.md)했다고 가정 합니다.
 
@@ -103,25 +103,28 @@ KCD를 구성 하려면 각 커넥터 컴퓨터에 대해 다음 단계를 반�
 
 응용 프로그램 설정을 완료 하려면 [ **사용자 및 그룹** ] 섹션으로 이동 하 여이 응용 프로그램에 액세스할 사용자를 할당 합니다.
 
-## <a name="step-3-register-the-native-app-and-grant-access-to-the-api"></a>3단계: 네이티브 앱을 등록 하 고 API에 대 한 액세스 권한 부여
+## <a name="step-3-grant-power-bi-mobile-access-to-report-services"></a>3단계: Report Services에 대 한 Power BI Mobile 액세스 권한 부여
 
-네이티브 앱은 플랫폼 또는 장치에서 사용 하도록 개발 된 프로그램입니다. Power BI 모바일 앱에서 API에 연결 하 여 액세스 하려면 먼저 Azure AD에 등록 해야 합니다.  
+Power BI 모바일 앱에서 연결 하 여 보고서 서비스에 액세스 하려면 먼저 Azure AD에 등록 해야 합니다.  
 
-1. Native client 응용 프로그램을 사용 하 여 [프록시 응용 프로그램과 상호 작용 하는 방법의 2 단계](application-proxy-configure-native-client-application.md#step-2-register-your-native-application)를 수행 하 여 Azure AD에 응용 프로그램을 등록 합니다.
+1. Azure Active Directory **개요** 페이지에서 **앱 등록**를 선택 합니다.
+2. **모든 응용 프로그램** 탭 아래에서 2 단계에서 만든 응용 프로그램을 검색 합니다.
+3. 응용 프로그램을 선택한 다음 **인증**을 선택 합니다.
+4. 사용 중인 플랫폼에 따라 다음 리디렉션 Uri를 추가 합니다.
 
-   **IOS**Power BI Mobile 앱을 등록 하는 경우 다음 리디렉션 uri를 추가 합니다.
+   **IOS**Power BI Mobile에 대 한 앱을 등록 하는 경우 공용 클라이언트 형식 (모바일 & 데스크톱)의 다음 리디렉션 uri를 추가 합니다.
    - `msauth://code/mspbi-adal%3a%2f%2fcom.microsoft.powerbimobile`
    - `msauth://code/mspbi-adalms%3a%2f%2fcom.microsoft.powerbimobilems`
    - `mspbi-adal://com.microsoft.powerbimobile`
    - `mspbi-adalms://com.microsoft.powerbimobilems`
    
-   **Android**Power BI Mobile에 대 한 앱을 등록 하는 경우 다음 리디렉션 uri를 추가 합니다.
+   **Android**Power BI Mobile에 대 한 앱을 등록 하는 경우 공용 클라이언트 형식 (모바일 & 데스크톱)의 다음 리디렉션 uri를 추가 합니다.
    - `urn:ietf:wg:oauth:2.0:oob`
 
    > [!IMPORTANT]
-   > 응용 프로그램이 올바르게 작동 하려면 리디렉션 Uri를 추가 해야 합니다.
+   > 응용 프로그램이 올바르게 작동 하려면 리디렉션 Uri를 추가 해야 합니다. IOS 및 Android 모두에 대해이를 구성 하는 경우 **단일** 응용 프로그램을 등록 하 고 Ios와 android 모두에 대 한 리디렉션 uri를 추가 하기만 하면 됩니다. 각 플랫폼에 대해 별도의 응용 프로그램이 필요한 경우 두 앱 `mspbi-adal://com.microsoft.powerbimobile` 에 대 한 리디렉션 URI를 포함 해야 합니다.
 
-이제 네이티브 응용 프로그램을 등록 했으므로 디렉터리의 다른 응용 프로그램에 대 한 액세스 권한을 제공할 수 있습니다 .이 경우 응용 프로그램 프록시를 통해 게시 된 보고서 서비스에 액세스할 수 있습니다. 3 [단계의 단계를 따릅니다. 프록시 응용 프로그램](application-proxy-configure-native-client-application.md#step-3-grant-access-to-your-proxy-application)에 대 한 액세스 권한을 부여 합니다.
+2. 이제 네이티브 응용 프로그램을 등록 했으므로 디렉터리의 다른 응용 프로그램에 대 한 액세스 권한을 제공할 수 있습니다 .이 경우 응용 프로그램 프록시를 통해 게시 된 보고서 서비스에 액세스할 수 있습니다. 3 [단계의 단계를 따릅니다. 프록시 응용 프로그램](application-proxy-configure-native-client-application.md#step-3-grant-access-to-your-proxy-application)에 대 한 액세스 권한을 부여 합니다.
 
 ## <a name="step-4-connect-from-the-power-bi-mobile-app"></a>4단계: Power BI Mobile 앱에서 연결
 
@@ -129,7 +132,7 @@ KCD를 구성 하려면 각 커넥터 컴퓨터에 대해 다음 단계를 반�
 
    ![외부 URL을 사용 하 여 모바일 앱 Power BI](media/application-proxy-integrate-with-power-bi/app-proxy-power-bi-mobile-app.png)
 
-2.           **연결**을 선택합니다. Azure Active Directory 로그인 페이지로 이동 합니다.
+2. **연결**을 선택합니다. Azure Active Directory 로그인 페이지로 이동 합니다.
 
 3. 사용자에 대 한 올바른 자격 증명을 입력 하 고 **로그인**을 선택 합니다. Reporting Services 서버의 요소가 표시 됩니다.
 

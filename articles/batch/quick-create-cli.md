@@ -39,7 +39,7 @@ az group create \
     --location eastus2
 ```
 
-## <a name="create-a-storage-account"></a>저장소 계정 만들기
+## <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
 Azure Storage 계정과 배치 계정을 연결할 수 있습니다. 스토리지 계정은 이 빠른 시작에서 필요하지 않지만, 애플리케이션을 배포하고 대부분의 실제 작업에 대한 입력 및 출력 데이터를 저장하는 데 유용합니다. [az storage account create](/cli/azure/storage/account#az-storage-account-create) 명령을 사용하여 리소스 그룹에 스토리지 계정을 만듭니다.
 
@@ -55,7 +55,7 @@ az storage account create \
 
 [az batch account create](/cli/azure/batch/account#az-batch-account-create) 명령을 사용하여 배치 계정을 만듭니다. 컴퓨팅 리소스(컴퓨팅 노드의 풀) 및 Batch 작업을 만들려면 계정이 필요합니다.
 
-다음 예제에서는 *mybatchaccount*라는 배치 계정을 *myResourceGroup*에 만들고, 만든 저장소 계정을 연결합니다.  
+다음 예제에서는 *mybatchaccount*라는 배치 계정을 *myResourceGroup*에 만들고, 만든 스토리지 계정을 연결합니다.  
 
 ```azurecli-interactive 
 az batch account create \
@@ -190,7 +190,7 @@ AZ_BATCH_ACCOUNT_NAME=mybatchaccount
 AZ_BATCH_TASK_USER_IDENTITY=PoolNonAdmin
 ```
 ## <a name="clean-up-resources"></a>리소스 정리
-Batch 자습서 및 샘플을 계속 사용하려면 이 빠른 시작에서 만든 배치 계정 및 연결된 저장소 계정을 사용합니다. 배치 계정 자체에는 요금이 부과되지 않습니다.
+Batch 자습서 및 샘플을 계속 사용하려면 이 빠른 시작에서 만든 배치 계정 및 연결된 스토리지 계정을 사용합니다. 배치 계정 자체에는 요금이 부과되지 않습니다.
 
 작업이 예약되지 않은 경우에도 노드가 실행되는 동안은 풀에 대한 요금이 부과됩니다. 더 이상 풀이 필요하지 않으면 [az batch pool delete](/cli/azure/batch/pool#az-batch-pool-delete) 명령을 사용하여 삭제합니다. 풀을 삭제하면 노드의 모든 태스크 출력이 삭제됩니다. 
 

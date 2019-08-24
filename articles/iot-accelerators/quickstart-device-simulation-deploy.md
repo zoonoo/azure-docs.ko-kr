@@ -30,7 +30,7 @@ Azure 구독에 디바이스 시뮬레이션을 배포할 때 일부 구성 옵�
 
 Azure 계정 자격 증명을 사용하여 [azureiotsolutions.com](https://www.azureiotsolutions.com/Accelerators)에 로그인합니다.
 
-**장치 시뮬레이션** 타일을 클릭합니다.
+**디바이스 시뮬레이션** 타일을 클릭합니다.
 
 ![디바이스 시뮬레이션 선택](./media/quickstart-device-simulation-deploy/devicesimulation.png)
 

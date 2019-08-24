@@ -37,7 +37,7 @@ ms.locfileid: "68826617"
 
 ## <a name="prerequisites"></a>필수 조건
 * **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
-* **Azure Storage 계정**. Blob Storage를 *원본* 데이터 스토리지로 사용합니다. 저장소 계정이 없는 경우 [Azure 저장소 계정 만들기](../storage/common/storage-quickstart-create-account.md)를 참조하세요.
+* **Azure Storage 계정**. Blob Storage를 *원본* 데이터 스토리지로 사용합니다. 스토리지 계정이 없는 경우 [Azure Storage 계정 만들기](../storage/common/storage-quickstart-create-account.md)를 참조하세요.
 * **Azure SQL Database**. 데이터베이스를 *싱크* 데이터 저장소로 사용합니다. SQL 데이터베이스가 없는 경우 [SQL 데이터베이스 만들기](../sql-database/sql-database-get-started-portal.md)를 참조하세요.
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Blob 및 SQL 테이블 만들기
@@ -123,7 +123,7 @@ ms.locfileid: "68826617"
 
 1. **원본** 탭으로 이동합니다. **+ 새로 만들기**를 선택하여 원본 데이터 세트를 만듭니다. 
 
-1. **새 데이터 세트** 대화 상자에서 **Azure Blob Storage**를 선택한 다음, **계속**을 선택합니다. 원본 데이터는 Blob 스토리지에 있으므로 원본 데이터 집합으로 **Azure Blob Storage**를 선택합니다. 
+1. **새 데이터 세트** 대화 상자에서 **Azure Blob Storage**를 선택한 다음, **계속**을 선택합니다. 원본 데이터는 Blob 스토리지에 있으므로 원본 데이터 세트으로 **Azure Blob Storage**를 선택합니다. 
 
 1. **형식 선택** 대화 상자에서 데이터의 형식 유형을 선택한 다음, **계속**을 선택합니다.
 

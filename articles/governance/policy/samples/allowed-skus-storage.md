@@ -16,7 +16,7 @@ ms.locfileid: "59274572"
 ---
 # <a name="sample---allowed-skus-for-storage-accounts-and-virtual-machines"></a>샘플 - 스토리지 계정 및 가상 머신에 대해 허용된 SKU
 
-이 정책에서는 저장소 계정 및 가상 머신이 승인된 SKU를 사용해야 합니다. 승인된 SKU를 확보하려면 기본 제공 정책을 사용합니다. 승인된 가상 머신 SKU 배열 및 승인된 저장소 계정 SKU 배열을 지정합니다.
+이 정책에서는 스토리지 계정 및 가상 머신이 승인된 SKU를 사용해야 합니다. 승인된 SKU를 확보하려면 기본 제공 정책을 사용합니다. 승인된 가상 머신 SKU 배열 및 승인된 스토리지 계정 SKU 배열을 지정합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -30,7 +30,7 @@ ms.locfileid: "59274572"
 
 [![Azure에 Policy 샘플 배포](https://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
 
-## <a name="deploy-with-powershell"></a>PowerShell을 사용하여 배포 
+## <a name="deploy-with-powershell"></a>PowerShell을 사용하여 배포
 
 [!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 

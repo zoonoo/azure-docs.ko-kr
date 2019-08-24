@@ -36,8 +36,8 @@ ms.locfileid: "58337768"
 > [!div class="checklist"]
 > * [템플릿을 사용하여 Service Fabric Mesh에 애플리케이션 배포](service-fabric-mesh-tutorial-template-deploy-app.md)
 > * Service Fabric Mesh에서 실행 중인 애플리케이션 크기 조정
-> * [Service Fabric Mesh에서 실행되는 애플리케이션 업그레이드](service-fabric-mesh-tutorial-template-upgrade-app.md)
-> * [응용 프로그램 제거](service-fabric-mesh-tutorial-template-remove-app.md)
+> * [Service Fabric Mesh에서 실행 중인 애플리케이션 업그레이드](service-fabric-mesh-tutorial-template-upgrade-app.md)
+> * [애플리케이션 제거](service-fabric-mesh-tutorial-template-remove-app.md)
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
@@ -65,7 +65,7 @@ ToDoService 서비스에 대해 실행 중인 복제본 수를 보려면 다음�
 az mesh service show --resource-group myResourceGroup --name ToDoService --app-name todolistapp --query "replicaCount"
 ```
 
-애플리케이션 리소스에 대한 배포 템플릿에서, 각 서비스에는 서비스 배포 횟수를 설정하는 데 사용할 수 있는 *replicaCount* 속성이 있습니다. 애플리케이션은 함께 배포되고 관리되는 여러 서비스로 구성될 수 있으며, 각 서비스에는 고유한 *replicaCount* 수가 있습니다. 서비스 복제본의 수를 조정하려면 배포 템플릿 또는 매개 변수 파일에서 조정하려는 서비스의 *replicaCount* 값을 수정합니다.  그런 후 애플리케이션을 업그레이드합니다.
+애플리케이션 리소스에 대한 배포 템플릿에서, 각 서비스에는 서비스 배포 횟수를 설정하는 데 사용할 수 있는 *replicaCount* 속성이 있습니다. 애플리케이션은 함께 배포되고 관리되는 여러 서비스로 구성될 수 있으며, 각 서비스에는 고유한 *replicaCount* 수가 있습니다. 서비스 복제본의 수를 조정하려면 배포 템플릿 또는 매개 변수 파일에서 조정하려는 서비스의 *replicaCount* 값을 수정합니다.  그런 다음, 애플리케이션을 업그레이드합니다.
 
 ### <a name="modify-the-deployment-template-parameters"></a>배포 템플릿 매개 변수 수정
 
@@ -172,4 +172,4 @@ az mesh service show --resource-group myResourceGroup --name ToDoService --app-n
 
 다음 자습서를 진행합니다.
 > [!div class="nextstepaction"]
-> [Service Fabric Mesh에서 실행되는 애플리케이션 업그레이드](service-fabric-mesh-tutorial-template-upgrade-app.md)
+> [Service Fabric Mesh에서 실행 중인 애플리케이션 업그레이드](service-fabric-mesh-tutorial-template-upgrade-app.md)

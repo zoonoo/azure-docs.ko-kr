@@ -63,9 +63,9 @@ az vm create \
 
 ## <a name="enable-boot-diagnostics"></a>부팅 진단을 사용하도록 설정
 
-Linux VM이 부팅할 때 부팅 진단 확장에서는 부팅 출력을 캡처하여 Azure 저장소에 저장합니다. 이 데이터는 VM 부팅 문제를 해결하는 데 사용할 수 있습니다. Azure CLI를 사용하여 Linux VM을 만들 때 부팅 진단을 사용하도록 자동으로 설정되지 않습니다.
+Linux VM이 부팅할 때 부팅 진단 확장에서는 부팅 출력을 캡처하여 Azure Storage에 저장합니다. 이 데이터는 VM 부팅 문제를 해결하는 데 사용할 수 있습니다. Azure CLI를 사용하여 Linux VM을 만들 때 부팅 진단을 사용하도록 자동으로 설정되지 않습니다.
 
-부팅 진단을 사용하도록 설정하기 전에 먼저 부팅 로그를 저장할 스토리지 계정을 만들어야 합니다. Storage 계정은 전역적으로 고유한 이름을 가져야 하며, 3-24자 사이의 숫자와 소문자만 포함해야 합니다. [az storage account create](/cli/azure/storage/account#az-storage-account-create)를 사용하여 저장소 계정을 만듭니다. 이 예제에서는 임의의 문자열을 사용하여 고유한 저장소 계정 이름을 만듭니다.
+부팅 진단을 사용하도록 설정하기 전에 먼저 부팅 로그를 저장할 스토리지 계정을 만들어야 합니다. Storage 계정은 전역적으로 고유한 이름을 가져야 하며, 3-24자 사이의 숫자와 소문자만 포함해야 합니다. [az storage account create](/cli/azure/storage/account#az-storage-account-create)를 사용하여 저장소 계정을 만듭니다. 이 예제에서는 임의의 문자열을 사용하여 고유한 스토리지 계정 이름을 만듭니다.
 
 ```azurecli-interactive
 storageacct=mydiagdata$RANDOM
@@ -77,7 +77,7 @@ az storage account create \
   --location eastus
 ```
 
-부팅 진단을 사용하도록 설정하는 경우 Blob 저장소 컨테이너에 대한 URI가 필요합니다. 다음 명령은 저장소 계정을 쿼리하여 이 URI를 반환합니다. URI 값은 *bloburi* 변수 이름에 저장되며 다음 단계에서 사용됩니다.
+부팅 진단을 사용하도록 설정하는 경우 Blob Storage 컨테이너에 대한 URI가 필요합니다. 다음 명령은 스토리지 계정을 쿼리하여 이 URI를 반환합니다. URI 값은 *bloburi* 변수 이름에 저장되며 다음 단계에서 사용됩니다.
 
 ```azurecli-interactive
 bloburi=$(az storage account show --resource-group myResourceGroupMonitor --name $storageacct --query 'primaryEndpoints.blob' -o tsv)
@@ -126,7 +126,7 @@ Linux VM에는 Azure에서 상호 작용하는 전용 호스트가 있습니다.
 기본 호스트 메트릭을 사용할 수 있지만, 더 세분화된 VM 관련 메트릭을 보려면 VM에 Azure 진단 확장을 설치해야 합니다. Azure 진단 확장을 사용하면 VM에서 추가 모니터링 및 진단 데이터를 검색할 수 있습니다. 이러한 성능 메트릭을 보고 VM 성능에 따라 경고를 만들 수 있습니다. 진단 확장은 다음과 같이 Azure Portal을 통해 설치됩니다.
 
 1. Azure Portal에서 **리소스 그룹**을 선택하고, **myResourceGroupMonitor**를 선택한 다음, 리소스 목록에서 **myVM**을 선택합니다.
-1. **진단 설정**을 선택합니다. *저장소 계정 선택* 드롭 다운 메뉴에서 아직 선택하지 않은 경우 이전 섹션에서 만든 *mydiagdata[1234]* 계정을 선택합니다.
+1. **진단 설정**을 선택합니다. *스토리지 계정 선택* 드롭 다운 메뉴에서 아직 선택하지 않은 경우 이전 섹션에서 만든 *mydiagdata[1234]* 계정을 선택합니다.
 1. **게스트 수준 모니터링 사용** 단추를 선택합니다.
 
     ![진단 메트릭 보기](./media/tutorial-monitoring/enable-diagnostics-extension.png)

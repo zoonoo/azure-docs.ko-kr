@@ -6,12 +6,12 @@ ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: grgale
-ms.openlocfilehash: a9451b5dcd572eee27809cf66df889f06da960ed
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e2a94f82e4830bd1e9c96039f5ef8fe6546b0d0b
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68571498"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982672"
 ---
 # <a name="role-based-access-control-rbac-and-privileged-identity-management-pim"></a>RBAC (역할 기반 Access Control) 및 Privileged Identity Management (PIM)
 
@@ -27,7 +27,7 @@ Microsoft는 Microsoft Azure 내에서 적시에 액세스를 구현 하는 컨�
 
 ![RBAC-개요](media/rbac-overview.png)
 
-* **보안 주체**: 보안 주체는 다음 중 하나일 수 있습니다. 사용자, 그룹, [서비스 사용자 또는 [관리 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)입니다. 보안 주체는 Azure Active Directory 그룹을 사용 하 여 권한을 할당 해야 합니다.
+* **보안 주체**: 보안 주체는 다음 중 하나일 수 있습니다. 사용자, 그룹, [서비스 주체](https://docs.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals)또는 [관리 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)입니다. 보안 주체는 Azure Active Directory 그룹을 사용 하 여 권한을 할당 해야 합니다.
 
 * **역할 정의**: 역할 (역할)이 라고도 하는 역할 정의는 사용 권한 컬렉션입니다. 이러한 권한은 역할 정의에 할당 된 보안 주체에서 수행할 수 있는 작업을 정의 합니다. 이 기능은 Azure 리소스 역할 및 Azure Active Directory 관리자 역할에 의해 제공 됩니다. Azure는 사용자 지정 역할로 확대할 수 있는 기본 제공 역할 (링크)의 집합과 함께 제공 됩니다.
 

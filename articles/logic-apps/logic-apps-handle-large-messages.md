@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ''
 ms.topic: article
 ms.date: 4/27/2018
 ms.author: shhurst
-ms.openlocfilehash: 4a37345cf33cbb02a6bd9a70b0253a55ee4c9478
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: ed086c4c36711f92ba654a64856b43a5fdaadf5f
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035587"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989917"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Azure Logic Apps에서 청크 분할을 사용하여 큰 메시지 처리
 
@@ -119,16 +119,16 @@ HTTP 작업에서 청크 분할 콘텐츠를 업로드하려면 작업의 `runti
 
    | Logic Apps 요청 헤더 필드 | 값 | 형식 | Description |
    |---------------------------------|-------|------|-------------|
-   | **x-ms-transfer-mode** | chunked | String | 콘텐츠가 청크로 업로드됨을 나타냅니다. |
+   | **x-ms-transfer-mode** | chunked | 문자열 | 콘텐츠가 청크로 업로드됨을 나타냅니다. |
    | **x-ms-content-length** | <*content-length*> | Integer | 청크 분할 이전의 전체 콘텐츠 크기(바이트)입니다. |
    ||||
 
 2. 엔드포인트에서 "200" 성공 상태 코드와 다음과 같은 선택적 정보로 응답합니다.
 
-   | 엔드포인트 응답 헤더 필드 | 형식 | 필수 | Description |
+   | 엔드포인트 응답 헤더 필드 | 형식 | 필수 | 설명 |
    |--------------------------------|------|----------|-------------|
    | **x-ms-chunk-size** | Integer | 아니요 | 제안된 청크 크기(바이트)입니다. |
-   | **Location**: | String | 아니요 | HTTP PATCH 메시지를 보낼 URL 위치입니다. |
+   | **Location**: | String | 예 | HTTP PATCH 메시지를 보낼 URL 위치입니다. |
    ||||
 
 3. 논리 앱에서 각각 다음 정보가 포함된 후속 HTTP PATCH 메시지를 만들어 보냅니다.
@@ -139,14 +139,14 @@ HTTP 작업에서 청크 분할 콘텐츠를 업로드하려면 작업의 `runti
 
      | Logic Apps 요청 헤더 필드 | 값 | 형식 | Description |
      |---------------------------------|-------|------|-------------|
-     | **Content-Range** | <*range*> | 문자열 | 시작 값, 끝 값 및 전체 콘텐츠 크기를 포함하여 현재 콘텐츠 청크에 대한 바이트 범위입니다(예: "bytes=0-1023/10100"). |
+     | **Content-Range** | <*range*> | String | 시작 값, 끝 값 및 전체 콘텐츠 크기를 포함하여 현재 콘텐츠 청크에 대한 바이트 범위입니다(예: "bytes=0-1023/10100"). |
      | **Content-Type** | <*content-type*> | String | 청크 분할 콘텐츠의 형식입니다. |
      | **Content-Length** | <*content-length*> | 문자열 | 현재 청크의 길이(바이트 크기)입니다. |
      |||||
 
 4. 각 패치 요청 후 끝점은 "200" 상태 코드 및 다음 응답 헤더를 사용 하 여 각 청크를 확인 합니다.
 
-   | 엔드포인트 응답 헤더 필드 | 형식 | 필수 | 설명 |
+   | 엔드포인트 응답 헤더 필드 | 형식 | 필수 | Description |
    |--------------------------------|------|----------|-------------|
    | **범위** | 문자열 | 예 | 끝점에서 받은 콘텐츠의 바이트 범위입니다 (예: "bytes = 0-1023"). |   
    | **x-ms-chunk-size** | Integer | 아니요 | 제안된 청크 크기(바이트)입니다. |

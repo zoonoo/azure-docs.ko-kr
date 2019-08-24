@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: c316e55700fc8a28ed39bea960a9fe2b2bbd4df1
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
-ms.translationtype: HT
+ms.openlocfilehash: 52f6e7ebb1cbae14878b1897bd8c59c73dd0f493
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900384"
+ms.locfileid: "69981019"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Azure Portal에서 Windows SQL Server 가상 머신 프로비전하는 방법
 
@@ -70,7 +70,7 @@ SQL Server 가상 머신을 만들 때 가상 머신 갤러리에서 미리 구�
 
 SQL Server 가상 컴퓨터를 구성 하는 여러 탭이 있습니다. 이 가이드에서는 다음에 대해 집중적으로 설명 합니다. 
 
-| 단계 | Description |
+| 단계 | 설명 |
 | --- | --- |
 | **기본 사항** |[기본 설정 구성](#1-configure-basic-settings) |
 | **선택적 기능** |[선택적 기능 구성](#2-configure-optional-features) |
@@ -122,7 +122,7 @@ SQL Server 가상 컴퓨터를 구성 하는 여러 탭이 있습니다. 이 가
 * **고급**아래에서 **Managed Disks**사용에서 **예** 를 선택 합니다.
 
    > [!NOTE]
-   > SQL Server에 Managed Disks를 사용하는 것이 좋습니다. Managed Disks는 배후에서 스토리지를 처리해줍니다. 또한 Managed Disks가 있는 가상 머신이 동일한 가용성 집합에 속할 경우 Azure는 스토리지 리소스를 배포하여 적절한 중복성을 제공합니다. 자세한 내용은 [Azure Managed Disks Overview][../managed-disks-overview.md)를 참조하세요. 가용성 집합의 Managed Disks에 대한 구체적인 내용을 보려면 [가용성 집합에서 VM에 Managed Disks 사용](../manage-availability.md)을 참조하세요.
+   > SQL Server에 Managed Disks를 사용하는 것이 좋습니다. Managed Disks는 배후에서 스토리지를 처리해줍니다. 또한 Managed Disks가 있는 가상 머신이 동일한 가용성 집합에 속할 경우 Azure는 스토리지 리소스를 배포하여 적절한 중복성을 제공합니다. 자세한 내용은 [Azure Managed Disks 개요](../managed-disks-overview.md)를 참조 하세요. 가용성 집합의 Managed Disks에 대한 구체적인 내용을 보려면 [가용성 집합에서 VM에 Managed Disks 사용](../manage-availability.md)을 참조하세요.
 
 ![SQL VM 디스크 설정](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-disks.png)
   

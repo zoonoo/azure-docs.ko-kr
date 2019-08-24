@@ -61,7 +61,7 @@ NuGet 패키지를 가져오려면 다음 단계를 수행합니다.
 
 1. 온라인에서 `Microsoft.Azure.Cosmos.Table`, `Microsoft.Extensions.Configuration`, `Microsoft.Extensions.Configuration.Json`, `Microsoft.Extensions.Configuration.Binder`를 검색하고 **설치**를 선택하여 Microsoft Azure Cosmos DB Table Library를 설치합니다.
 
-## <a name="configure-your-storage-connection-string"></a>저장소 연결 문자열 구성
+## <a name="configure-your-storage-connection-string"></a>스토리지 연결 문자열 구성
 
 1. [Azure Portal](https://portal.azure.com/)에서 Azure Cosmos 계정 또는 Table Storage 계정으로 이동합니다. 
 

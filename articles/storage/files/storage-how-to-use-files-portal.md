@@ -19,15 +19,15 @@ ms.locfileid: "68699520"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="create-a-storage-account"></a>저장소 계정 만들기
+## <a name="create-a-storage-account"></a>스토리지 계정 만들기
 [!INCLUDE [storage-files-create-storage-account-portal](../../../includes/storage-files-create-storage-account-portal.md)]
 
 ## <a name="create-an-azure-file-share"></a>Azure 파일 공유 만들기
 Azure 파일 공유 만들려면:
 
-1. 대시보드에서 저장소 계정을 선택합니다.
-2. 저장소 계정 페이지의 **서비스** 섹션에서 **파일**을 선택합니다.
-    ![저장소 계정의 서비스 섹션에서 파일 서비스 선택에 대한 스크린샷](media/storage-how-to-use-files-portal/create-file-share-1.png)
+1. 대시보드에서 스토리지 계정을 선택합니다.
+2. 스토리지 계정 페이지의 **서비스** 섹션에서 **파일**을 선택합니다.
+    ![스토리지 계정의 서비스 섹션에서 파일 서비스 선택에 대한 스크린샷](media/storage-how-to-use-files-portal/create-file-share-1.png)
 
 3. **파일 서비스** 페이지 위쪽의 메뉴에서 **+ 파일 공유**를 클릭합니다. **새 파일 공유** 페이지가 드롭다운 방식으로 펼쳐집니다.
 4. **이름**에서 *myshare*를 입력합니다.

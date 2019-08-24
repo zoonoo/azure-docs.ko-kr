@@ -23,7 +23,7 @@ Azure Queue storage는 분산된 애플리케이션의 구성 요소 간에 통�
 
 > [!div class="checklist"]
 >
-> - Azure 저장소 계정 만들기
+> - Azure Storage 계정 만들기
 > - 앱 만들기
 > - 비동기 코드에 대한 지원 추가
 > - 큐 만들기
@@ -39,7 +39,7 @@ Azure Queue storage는 분산된 애플리케이션의 구성 요소 간에 통�
 - [.NET Core SDK](https://dotnet.microsoft.com/download)를 다운로드하여 설치합니다.
 - 현재 Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
-## <a name="create-an-azure-storage-account"></a>Azure 저장소 계정 만들기
+## <a name="create-an-azure-storage-account"></a>Azure Storage 계정 만들기
 
 먼저, Azure 스토리지 계정을 만듭니다. 스토리지 계정을 만드는 방법에 대한 단계별 지침은 [스토리지 계정 만들기](../common/storage-quickstart-create-account.md?toc=%2Fazure%2Fstorage%2Fqueues%2Ftoc.json) 빠른 시작을 참조하세요.
 
@@ -151,7 +151,7 @@ Azure Queue storage는 분산된 애플리케이션의 구성 요소 간에 통�
 
 1. 웹 브라우저에서 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-2. Azure Portal의 저장소 계정으로 이동합니다.
+2. Azure Portal의 스토리지 계정으로 이동합니다.
 
 3. **액세스 키**를 선택합니다.
 

@@ -35,10 +35,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* **Azure Storage 계정**. Python 스크립트와 입력 파일을 만들고 Azure Storage에 업로드합니다. Spark 프로그램의 출력은 이 저장소 계정에 저장됩니다. 주문형 Spark 클러스터는 기본 저장소와 동일한 저장소 계정을 사용합니다.  
+* **Azure Storage 계정**. Python 스크립트와 입력 파일을 만들고 Azure Storage에 업로드합니다. Spark 프로그램의 출력은 이 스토리지 계정에 저장됩니다. 주문형 Spark 클러스터는 기본 스토리지와 동일한 스토리지 계정을 사용합니다.  
 
 > [!NOTE]
-> HdInsight는 표준 계층을 포함하는 범용 저장소 계정만 지원합니다. 계정이 프리미엄 또는 BLOB 전용 저장소 계정인지 확인합니다.
+> HdInsight는 표준 계층을 포함하는 범용 스토리지 계정만 지원합니다. 계정이 프리미엄 또는 BLOB 전용 스토리지 계정인지 확인합니다.
 
 * **Azure PowerShell**. [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/install-Az-ps)의 지침을 따르세요.
 
@@ -115,7 +115,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 ## <a name="create-linked-services"></a>연결된 서비스 만들기
 이 섹션에서는 두 개의 연결된 서비스를 작성합니다. 
     
-- Azure Storage 계정을 데이터 팩터리에 연결하는 **Azure Storage 연결된 서비스**. 이 저장소는 주문형 HDInsight 클러스터에서 사용됩니다. 실행될 Spark 스크립트도 포함되어 있습니다. 
+- Azure Storage 계정을 데이터 팩터리에 연결하는 **Azure Storage 연결된 서비스**. 이 스토리지는 주문형 HDInsight 클러스터에서 사용됩니다. 실행될 Spark 스크립트도 포함되어 있습니다. 
 - **주문형 HDInsight 연결된 서비스**. Azure Data Factory는 HDInsight 클러스터를 자동으로 만들고 Spark 프로그램을 실행합니다. 그런 다음 클러스터가 미리 구성된 시간 동안 유휴 상태를 유지하면 HDInsight 클러스터를 삭제합니다. 
 
 ### <a name="create-an-azure-storage-linked-service"></a>Azure Storage 연결된 서비스 만들기
@@ -130,9 +130,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. **새 연결된 서비스** 창에서 **데이터 저장소** > **Azure Blob Storage**를 선택한 다음, **계속**을 선택합니다. 
 
    !["Azure Blob Storage" 타일 선택](./media/tutorial-transform-data-spark-portal/select-azure-storage.png)
-1. **저장소 계정 이름**의 목록에서 이름을 선택한 후 **저장**을 선택합니다. 
+1. **스토리지 계정 이름**의 목록에서 이름을 선택한 후 **저장**을 선택합니다. 
 
-   ![저장소 계정 이름을 지정하는 상자](./media/tutorial-transform-data-spark-portal/new-azure-storage-linked-service.png)
+   ![스토리지 계정 이름을 지정하는 상자](./media/tutorial-transform-data-spark-portal/new-azure-storage-linked-service.png)
 
 
 ### <a name="create-an-on-demand-hdinsight-linked-service"></a>주문형 HDInsight 연결된 서비스 만들기
@@ -191,7 +191,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
    a. **작업 연결 서비스**에 **AzureBlobStorage1**을 선택합니다.
    
-   b. **저장소 찾아보기**를 선택합니다.
+   b. **스토리지 찾아보기**를 선택합니다.
 
    !["스크립트/Jar" 탭에서 Spark 스크립트 지정](./media/tutorial-transform-data-spark-portal/specify-spark-script.png)
    

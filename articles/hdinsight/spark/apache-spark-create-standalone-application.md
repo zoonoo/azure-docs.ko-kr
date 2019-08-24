@@ -130,7 +130,7 @@ Scala 플러그인을 설치하려면 다음 단계를 수행하세요.
 
 17. 왼쪽 창에서 **src** > **main** > **scala** > **com.microsoft.spark.example**로 이동하고 **앱**을 두 번 클릭하여 App.scala를 엽니다.
 
-18. 기존 샘플 코드를 다음 코드로 바꾸고 변경 내용을 저장합니다. 이 코드는 HVAC.csv(모든 HDInsight Spark 클러스터에서 사용 가능)에서 데이터를 읽고, 여섯 번째 열에 한 자리만 있는 행을 검색하고, 출력을 클러스터의 기본 저장 컨테이너 아래의 **/HVACOut** 에 씁니다.
+18. 기존 샘플 코드를 다음 코드로 바꾸고 변경 내용을 저장합니다. 이 코드는 HVAC.csv(모든 HDInsight Spark 클러스터에서 사용 가능)에서 데이터를 읽고, 여섯 번째 열에 한 자리만 있는 행을 검색하고, 출력을 클러스터의 기본 스토리지 컨테이너 아래의 **/HVACOut** 에 씁니다.
 
         package com.microsoft.spark.example
    
@@ -203,7 +203,7 @@ Scala 플러그인을 설치하려면 다음 단계를 수행하세요.
 
 클러스터에서 애플리케이션을 실행하려면 다음 방법을 사용할 수 있습니다.
 
-* **Azure 저장소 Blob에 애플리케이션 jar을 복사**합니다. [**AzCopy**](../../storage/common/storage-use-azcopy.md) 명령줄 유틸리티를 사용하면 이렇게 할 수 있습니다. 데이터를 업로드하는 데 사용할 수 있는 다른 클라이언트도 많이 있습니다. [HDInsight에서 Apache Hadoop 작업용 데이터 업로드](../hdinsight-upload-data.md)에서 자세한 정보를 찾을 수 있습니다.
+* **Azure Storage Blob에 애플리케이션 jar을 복사**합니다. [**AzCopy**](../../storage/common/storage-use-azcopy.md) 명령줄 유틸리티를 사용하면 이렇게 할 수 있습니다. 데이터를 업로드하는 데 사용할 수 있는 다른 클라이언트도 많이 있습니다. [HDInsight에서 Apache Hadoop 작업용 데이터 업로드](../hdinsight-upload-data.md)에서 자세한 정보를 찾을 수 있습니다.
 
 * **Apache Livy를 사용하여 애플리케이션 작업을 원격으로** Spark 클러스터에 제출합니다. HDInsight의 Spark 클러스터에는 Spark 작업을 원격으로 제출하는 REST 엔드포인트를 노출하는 Livy가 포함됩니다. 자세한 내용은 [HDInsight의 Spark 클러스터와 함께 Apache Livy를 사용하여 원격으로 Apache Spark 작업 제출](apache-spark-livy-rest-interface.md)을 참조하세요.
 

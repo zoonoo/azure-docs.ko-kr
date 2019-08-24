@@ -114,7 +114,7 @@ ms.locfileid: "60313208"
 1. 다음 콘텐츠가 포함된 **AzureStorageLinkedService.json**이라는 JSON 파일을 **C:\ADFv2QuickStartPSH** 폴더에 만듭니다. (아직 없는 경우 ADFv2QuickStartPSH 폴더를 만듭니다.)
 
     > [!IMPORTANT]
-    > 파일을 저장하기 전에 &lt;accountName&gt;과 &lt;accountKey&gt;를 Azure 저장소 계정의 이름과 키로 바꿉니다.
+    > 파일을 저장하기 전에 &lt;accountName&gt;과 &lt;accountKey&gt;를 Azure Storage 계정의 이름과 키로 바꿉니다.
 
     ```json
     {

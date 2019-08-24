@@ -21,7 +21,7 @@ ms.locfileid: "52963371"
 ---
 # <a name="create-a-function-app-that-connects-to-an-azure-storage-account"></a>Azure Storage 계정에 연결하는 함수 앱 만들기
 
-이 Azure Functions 샘플 스크립트는 함수 앱을 만들고 해당 함수를 Azure Storage 계정에 연결합니다. 연결을 포함하는 생성된 앱 설정을 [저장소 트리거 또는 바인딩](../functions-bindings-storage-blob.md)에 사용할 수 있습니다. 
+이 Azure Functions 샘플 스크립트는 함수 앱을 만들고 해당 함수를 Azure Storage 계정에 연결합니다. 연결을 포함하는 생성된 앱 설정을 [스토리지 트리거 또는 바인딩](../functions-bindings-storage-blob.md)에 사용할 수 있습니다. 
 
 [!INCLUDE [upgrade runtime](../../../includes/functions-cli-version-note.md)]
 
@@ -33,7 +33,7 @@ ms.locfileid: "52963371"
 
 ## <a name="sample-script"></a>샘플 스크립트
 
-이 샘플은 Azure 함수 앱을 만들고 앱 설정에 저장소 연결 문자열을 추가합니다.
+이 샘플은 Azure 함수 앱을 만들고 앱 설정에 스토리지 연결 문자열을 추가합니다.
 
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-connect-to-storage/create-function-app-connect-to-storage-account.sh "Integrate Function App into Azure Storage Account")]
 
@@ -51,7 +51,7 @@ ms.locfileid: "52963371"
 | 명령 | 메모 |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | 위치를 사용하여 리소스 그룹을 만듭니다. |
-| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-create) | 저장소 계정을 만듭니다. |
+| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-create) | 스토리지 계정을 만듭니다. |
 | [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az-functionapp-create) | 서버를 사용하지 않는 [소비 계획](../functions-scale.md#consumption-plan)에서 함수 앱을 만듭니다. |
 
 ## <a name="next-steps"></a>다음 단계

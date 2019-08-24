@@ -137,7 +137,7 @@ Your cluster is successfully created! You can connect and manage your cluster us
 
 ## <a name="next-steps"></a>다음 단계
 
-시리즈 2부에서는 다음 방법을 통해 저장소 계정에 대량의 임의 데이터를 병렬로 업로드하는 방법에 대해 배웠습니다.
+시리즈 2부에서는 다음 방법을 통해 스토리지 계정에 대량의 임의 데이터를 병렬로 업로드하는 방법에 대해 배웠습니다.
 
 > [!div class="checklist"]
 > * 연결 문자열 구성

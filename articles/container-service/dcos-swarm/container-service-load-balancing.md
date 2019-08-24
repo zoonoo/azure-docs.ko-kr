@@ -122,7 +122,7 @@ Azure Load Balancer는 기본적으로 포트 80, 8080 및 443을 노출합니�
 > * 부하 분산 장치를 사용하여 애플리케이션 배포
 > * Azure Load Balancer 구성
 
-다음 자습서로 넘어가서 Azure에서 Azure 저장소를 DC/OS와 통합하는 방법을 알아보세요.
+다음 자습서로 넘어가서 Azure에서 Azure Storage를 DC/OS와 통합하는 방법을 알아보세요.
 
 > [!div class="nextstepaction"]
 > [DC/OS 클러스터에 Azure File Share 탑재](container-service-dcos-fileshare.md)

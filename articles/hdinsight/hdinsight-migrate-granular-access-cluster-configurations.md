@@ -6,23 +6,23 @@ ms.author: tyfox
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 08/09/2019
-ms.openlocfilehash: a77310d0e45f095260d77ead0cfe14a3ce0ebd8e
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.date: 08/22/2019
+ms.openlocfilehash: 03bea7b9df929914e25ca97b382dc5c120b5a769
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69623837"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69983029"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>클러스터 구성에 대한 세밀한 역할 기반 액세스로 마이그레이션
 
-중요 한 정보를 얻기 위해 보다 세분화 된 역할 기반 액세스를 지원 하기 위해 몇 가지 중요 한 변경 사항을 소개 합니다. 이러한 변경의 일환으로 [영향을 받는 엔터티/시나리오](#am-i-affected-by-these-changes)중 하나를 사용 하는 경우 일부 **작업이 필요할 수 있습니다** .
+중요 한 정보를 얻기 위해 보다 세분화 된 역할 기반 액세스를 지원 하기 위해 몇 가지 중요 한 변경 사항을 소개 합니다. 이러한 변경의 일환으로 [영향을 받는 엔터티/시나리오](#am-i-affected-by-these-changes)중 하나를 사용 하는 경우 **2019 년 9 월 3 일** 에 일부 작업이 필요할 수 있습니다.
 
 ## <a name="what-is-changing"></a>변경되는 내용
 
 이전에는 `*/read` 사용자가 권한을 가진 모든 사용자가 사용할 수 있기 때문에 클러스터 사용자가 소유자, 참가자 또는 읽기 권한자 [역할](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)을 처리 개체로 HDInsight API를 통해 암호를 가져올 수 있었습니다. 비밀은 사용자의 역할이 허용 해야 하는 것 보다 높은 수준의 액세스를 얻는 데 사용할 수 있는 값으로 정의 됩니다. 여기에는 클러스터 게이트웨이 HTTP 자격 증명, 저장소 계정 키, 데이터베이스 자격 증명 등의 값이 포함 됩니다.
 
-앞으로 이러한 비밀에 액세스 하려면 `Microsoft.HDInsight/clusters/configurations/action` 권한이 필요 합니다. 즉, 사용자가 읽기 권한자 역할을 사용 하 여 더 이상 액세스할 수 없습니다. 이 권한이 있는 역할은 참가자, 소유자 및 새 HDInsight 클러스터 운영자 역할 (아래 참조)입니다.
+2019 9 월 3 일부 터 이러한 비밀에 액세스 하려면 `Microsoft.HDInsight/clusters/configurations/action` 권한이 필요 합니다. 즉, 사용자가 읽기 권한자 역할을 사용 하 여 더 이상 액세스할 수 없습니다. 이 권한이 있는 역할은 참가자, 소유자 및 새 HDInsight 클러스터 운영자 역할 (아래 참조)입니다.
 
 또한 참가자 또는 소유자의 관리 권한을 부여 하지 않고도 암호를 검색할 수 있는 새 [HDInsight 클러스터 운영자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) 역할을 도입 하 고 있습니다. 요약하면
 
@@ -59,13 +59,13 @@ ms.locfileid: "69623837"
 
 - [ **/Configurations/{configurationName} 가져오기**](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#get-configuration) (중요 한 정보 제거)
     - 이전에는 개별 구성 유형 (암호 포함)을 가져오는 데 사용 되었습니다.
-    - 이 API 호출은 이제 암호가 생략 된 개별 구성 유형을 반환 합니다. 비밀을 비롯 한 모든 구성을 얻으려면 새 사후/구성 호출을 사용 합니다. 게이트웨이 설정만 가져오려면 새 POST/getGatewaySettings 호출을 사용 합니다.
+    - 2019 년 9 월 3 일부 터이 API 호출은 암호가 생략 된 개별 구성 유형을 반환 합니다. 비밀을 비롯 한 모든 구성을 얻으려면 새 사후/구성 호출을 사용 합니다. 게이트웨이 설정만 가져오려면 새 POST/getGatewaySettings 호출을 사용 합니다.
 - [ **/구성 가져오기**](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#get-configuration) mapi
     - 이전에 모든 구성 (암호 포함)을 가져오는 데 사용 됨
-    - 이 API 호출은 더 이상 지원 되지 않습니다. 앞으로 진행 되는 모든 구성을 가져오려면 새 사후/구성 호출을 사용 합니다. 중요 한 매개 변수가 생략 된 구성을 얻으려면 GET/configurations/{configurationName} 호출을 사용 합니다.
+    - 2019 년 9 월 3 일부 터이 API 호출은 더 이상 지원 되지 않으며 더 이상 지원 되지 않습니다. 앞으로 진행 되는 모든 구성을 가져오려면 새 사후/구성 호출을 사용 합니다. 중요 한 매개 변수가 생략 된 구성을 얻으려면 GET/configurations/{configurationName} 호출을 사용 합니다.
 - [ **/Configurations/{configurationName} 게시**](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#update-gateway-settings) mapi
     - 이전에 게이트웨이 자격 증명을 업데이트 하는 데 사용 되었습니다.
-    - 이 API 호출은 더 이상 지원 되지 않으며 더 이상 지원 되지 않습니다. 대신 새 POST/Vvgsettings를 사용 합니다.
+    - 2019 년 9 월 3 일부 터이 API 호출은 더 이상 지원 되지 않으며 더 이상 지원 되지 않습니다. 대신 새 POST/Vvgsettings를 사용 합니다.
 
 다음과 같은 대체 Api가 추가 되었습니다.</span>
 
@@ -201,7 +201,7 @@ az role assignment create --role "HDInsight Cluster Operator" --assignee user@do
 
 ### <a name="what-will-happen-if-i-take-no-action"></a>작업을 수행 하지 않으면 어떻게 되나요?
 
-및 호출은 더 이상 정보를 `GET /configurations/{configurationName}` 반환 하지 않으며, 호출은 저장소 계정 키 또는 클러스터 암호와 같은 중요 한 매개 변수를 더 이상 반환 하지 않습니다. `POST /configurations/gateway` `GET /configurations` 해당 SDK 메서드 및 PowerShell cmdlet의 경우에도 마찬가지입니다.
+2019 `GET /configurations` 년9`GET /configurations/{configurationName}` 월 3 일부 터 호출은더이상정보를반환하지않으며호출은저장소계정키또는클러스터암호와같은중요한매개변수를더이상반환하지않습니다.`POST /configurations/gateway` 해당 SDK 메서드 및 PowerShell cmdlet의 경우에도 마찬가지입니다.
 
 이전 버전의 도구 중 하나를 사용 하는 경우에는 위에서 언급 한 것 처럼 이전 버전의 도구를 사용 하는 경우를 업데이트할 때까지 더 이상 작동 하지 않습니다.
 

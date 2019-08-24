@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: c782629d422eb8846b209fed7ab6b5a5c015de25
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 80dbb4f3d0c8b993beab5f6344d6034d6c2b6895
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69612286"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69990585"
 ---
 # <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>Azure의 Ubuntu 가상 머신을 관리되는 도메인에 가입
 이 문서에서는 Ubuntu Linux 가상 컴퓨터를 Azure AD Domain Services 관리되는 도메인에 가입하는 방법을 보여 줍니다.
@@ -88,7 +88,7 @@ sudo vi /etc/hosts
 3. Kerberos를 설치하는 동안 분홍색 화면이 표시됩니다. 'krb5-user' 패키지 설치는 영역 이름(모두 대문자)에 대한 메시지를 표시합니다. 설치는 /etc/krb5.conf에서 [realm] 및 [domain_realm] 섹션을 작성합니다.
 
     > [!TIP]
-    > 관리 되는 도메인의 이름이 contoso.com 인 경우 contoso.COM를 영역으로 입력 합니다. 영역 이름을 대문자로 지정해야 합니다.
+    > 관리 되는 도메인의 이름이 contoso.com 인 경우 CONTOSO.COM를 영역으로 입력 합니다. 영역 이름을 대문자로 지정해야 합니다.
 
 
 ## <a name="configure-the-ntp-network-time-protocol-settings-on-the-linux-virtual-machine"></a>Linux 가상 머신에서 NTP(Network Time Protocol) 설정 구성
@@ -121,7 +121,7 @@ sudo systemctl start ntp
 1. AAD 도메인 서비스 관리되는 도메인을 검색합니다. SSH 터미널에서 다음 명령을 입력합니다.
 
     ```console
-    sudo realm discover contoso.COM
+    sudo realm discover CONTOSO.COM
     ```
 
    > [!NOTE]
@@ -138,7 +138,7 @@ sudo systemctl start ntp
     >
 
     ```console
-    kinit bob@contoso.COM
+    kinit bob@CONTOSO.COM
     ```
 
 3. 컴퓨터를 도메인에 가입합니다. SSH 터미널에서 다음 명령을 입력합니다.
@@ -149,7 +149,7 @@ sudo systemctl start ntp
     > VM이 도메인에 가입할 수 없는 경우 VM의 네트워크 보안 그룹이 TCP + UDP 포트 464의 아웃 바운드 Kerberos 트래픽을 Azure AD DS 관리 되는 도메인에 대 한 가상 네트워크 서브넷으로 허용 하는지 확인 합니다.
 
     ```console
-    sudo realm join --verbose contoso.COM -U 'bob@contoso.COM' --install=/
+    sudo realm join --verbose CONTOSO.COM -U 'bob@CONTOSO.COM' --install=/
     ```
 
 컴퓨터가 관리되는 도메인에 성공적으로 가입되면 메시지("Successfully enrolled machine in realm")가 표시됩니다.
@@ -192,10 +192,10 @@ session required pam_mkhomedir.so skel=/etc/skel/ umask=0077
 ## <a name="verify-domain-join"></a>도메인 가입 확인
 컴퓨터가 관리되는 도메인에 성공적으로 가입되었는지 여부를 확인합니다. 다른 SSH 연결을 사용하여 도메인에 가입된 Ubuntu VM에 연결합니다. 도메인 사용자 계정을 사용하고 사용자 계정이 올바른지 확인합니다.
 
-1. SSH 터미널에서 다음 명령을 입력하고 SSH를 사용하여 도메인에 가입된 Ubuntu 가상 컴퓨터에 연결합니다. 관리되는 도메인에 속하는 도메인 계정을 사용합니다(예: 여기서는 ‘bob@contoso.COM’).
+1. SSH 터미널에서 다음 명령을 입력하고 SSH를 사용하여 도메인에 가입된 Ubuntu 가상 컴퓨터에 연결합니다. 관리되는 도메인에 속하는 도메인 계정을 사용합니다(예: 여기서는 ‘bob@CONTOSO.COM’).
     
     ```console
-    ssh -l bob@contoso.COM contoso-ubuntu.contoso.com
+    ssh -l bob@CONTOSO.COM contoso-ubuntu.contoso.com
     ```
 
 2. SSH 터미널에서 다음 명령을 입력하여 홈 디렉터리가 올바르게 초기화되었는지 확인합니다.

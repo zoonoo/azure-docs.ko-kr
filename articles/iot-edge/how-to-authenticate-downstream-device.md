@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 4d6c7665d281ff7c27fd8b61537804b6803b3b43
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 1634d7cd3dfe8d118e220fa8620ef6467c15ea2c
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360161"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69983015"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Azure IoT Hub에 다운스트림 디바이스 인증
 
@@ -29,6 +29,12 @@ ms.locfileid: "68360161"
 다운스트림 장치는 대칭 키 (공유 액세스 키 라고도 함), x.509 자체 서명 된 인증서 또는 x.509 CA (인증 기관) 서명 된 인증서의 세 가지 방법 중 하나를 사용 하 여 IoT Hub 인증할 수 있습니다. 인증 단계는 IoT Hub를 사용 하 여 비 IoT Edge 장치를 설정 하는 데 사용 되는 단계와 비슷하며,이는 게이트웨이 관계를 선언 하는 데 약간의 차이가 있습니다.
 
 이 문서의 단계에서는 Azure IoT Hub 장치 프로 비전 서비스를 사용 하 여 자동으로 프로 비전 하는 것이 아니라 수동 장치 프로 비전을 보여 줍니다. 
+
+## <a name="prerequisites"></a>필수 구성 요소
+
+[투명 게이트웨이 역할을 하도록 IoT Edge 장치 구성](how-to-create-transparent-gateway.md)의 단계를 완료 합니다.
+
+이 문서는 여러 지점에서 *게이트웨이 호스트 이름을* 참조 합니다. 게이트웨이 호스트 이름은 IoT Edge 게이트웨이 장치에서 config.xml 파일의 **hostname** 매개 변수에 선언 됩니다. 이 문서에서 인증서를 만드는 데 사용 되며 다운스트림 장치의 연결 문자열에서 참조 됩니다. IP 주소는 DNS 또는 호스트 파일 항목을 사용 하 여 게이트웨이 호스트 이름을 확인할 수 있어야 합니다.
 
 ## <a name="symmetric-key-authentication"></a>대칭 키 인증
 
@@ -77,7 +83,7 @@ az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway 
 HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz;GatewayHostName=myGatewayDevice
 ```
 
-이 다운스트림 장치에 대 한 부모/자식 관계를 설정한 경우 게이트웨이를 연결 호스트로 직접 호출 하 여 연결 문자열을 단순화할 수 있습니다. 예를 들어: 
+이 다운스트림 장치에 대 한 부모/자식 관계를 설정한 경우 게이트웨이를 연결 호스트로 직접 호출 하 여 연결 문자열을 단순화할 수 있습니다. 예: 
 
 ```
 HostName=myGatewayDevice;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz
@@ -133,7 +139,7 @@ X.509 자체 서명 된 인증의 경우 (지문 인증이 라고도 함) IoT �
    * `<WRKDIR>\certs\iot-device-<device name>*-full-chain.cert.pem`
    * `<WRKDIR>\private\iot-device-<device name>*.key.pem`
 
-   IoT Hub에 연결 하는 리프 장치 응용 프로그램에서 이러한 파일을 참조 합니다. [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) 와 같은 서비스를 사용 하거나 [Secure copy 두](https://www.ssh.com/ssh/scp/) 와 같은 기능을 사용 하 여 인증서 파일을 이동할 수 있습니다.
+   IoT Hub에 연결 하는 리프 장치 응용 프로그램에서 이러한 파일을 참조 합니다. [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) 와 같은 서비스를 사용 하거나 [보안 복사 프로토콜과](https://www.ssh.com/ssh/scp/) 같은 기능을 사용 하 여 인증서 파일을 이동할 수 있습니다.
 
 [Azure CLI에 대 한 IoT 확장](https://github.com/Azure/azure-iot-cli-extension) 을 사용 하 여 동일한 장치 만들기 작업을 완료할 수 있습니다. 다음 예제에서는 x.509 자체 서명 된 인증을 사용 하 여 새 IoT 장치를 만들고 부모 장치를 할당 합니다. 
 
@@ -166,7 +172,7 @@ X.509 CA (인증 기관) 서명 된 인증의 경우 IoT 장치에 대 한 인�
 
 2. *Azure iot hub에서 x.509 보안 설정*의 [IoT hub에 대 한 x.509 장치 만들기](../iot-hub/iot-hub-security-x509-get-started.md#create-an-x509-device-for-your-iot-hub) 섹션의 지침을 따릅니다. 해당 섹션에서 다음 단계를 수행 합니다. 
 
-   1. 새 디바이스를 추가합니다. **장치 ID**에 대해 소문자 이름을 제공 하 고 인증 유형으로 **서명 된 x.509 CA**를 선택 합니다. 
+   1. 새 장치를 추가 합니다. **장치 ID**에 대해 소문자 이름을 제공 하 고 인증 유형으로 **서명 된 x.509 CA**를 선택 합니다. 
    2. 부모 장치를 설정 합니다. 다운스트림 장치에서 **부모 장치 설정** 을 선택 하 고 IoT Hub 연결을 제공할 IoT Edge 게이트웨이 장치를 선택 합니다. 
 
 3. 다운스트림 장치에 대 한 인증서 체인을 만듭니다. IoT Hub 위해 업로드 한 것과 동일한 루트 CA 인증서를 사용 하 여이 체인을 만듭니다. 포털에서 장치 id에 제공한 것과 동일한 소문자 장치 ID를 사용 합니다.
@@ -187,7 +193,7 @@ X.509 CA (인증 기관) 서명 된 인증의 경우 IoT 장치에 대 한 인�
    * `<WRKDIR>\certs\iot-device-<device id>*-full-chain.cert.pem`
    * `<WRKDIR>\private\iot-device-<device id>*.key.pem`
 
-   IoT Hub에 연결 하는 리프 장치 응용 프로그램에서 이러한 파일을 참조 합니다. [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) 와 같은 서비스를 사용 하거나 [Secure copy 두](https://www.ssh.com/ssh/scp/) 와 같은 기능을 사용 하 여 인증서 파일을 이동할 수 있습니다.
+   IoT Hub에 연결 하는 리프 장치 응용 프로그램에서 이러한 파일을 참조 합니다. [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) 와 같은 서비스를 사용 하거나 [보안 복사 프로토콜과](https://www.ssh.com/ssh/scp/) 같은 기능을 사용 하 여 인증서 파일을 이동할 수 있습니다.
 
 [Azure CLI에 대 한 IoT 확장](https://github.com/Azure/azure-iot-cli-extension) 을 사용 하 여 동일한 장치 만들기 작업을 완료할 수 있습니다. 다음 예제에서는 x.509 CA 서명 인증을 사용 하 여 새 IoT 장치를 만들고 부모 장치를 할당 합니다. 
 

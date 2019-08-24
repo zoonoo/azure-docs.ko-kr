@@ -540,22 +540,22 @@ Azure 공급자를 선언하는 Terraform 구성 파일을 만듭니다.
     :wq
     ```
 
-## <a name="set-up-azure-storage-to-store-terraform-state"></a>Terraform 상태를 저장하도록 Azure 저장소 설정
-Terraform은 `terraform.tfstate` 파일을 통해 로컬로 상태를 추적합니다. 이 패턴은 단일 작업자 환경에서 잘 작동합니다. 그러나 실제의 다중 작업자 환경에서는 [Azure 스토리지](/azure/storage/)를 사용하여 서버의 상태를 추적해야 합니다. 이 섹션에서는 필요한 저장소 계정 정보(계정 이름 및 계정 키)를 검색하고 Terraform 상태 정보를 저장할 저장소 컨테이너를 만듭니다.
+## <a name="set-up-azure-storage-to-store-terraform-state"></a>Terraform 상태를 저장하도록 Azure Storage 설정
+Terraform은 `terraform.tfstate` 파일을 통해 로컬로 상태를 추적합니다. 이 패턴은 단일 작업자 환경에서 잘 작동합니다. 그러나 실제의 다중 작업자 환경에서는 [Azure 스토리지](/azure/storage/)를 사용하여 서버의 상태를 추적해야 합니다. 이 섹션에서는 필요한 스토리지 계정 정보(계정 이름 및 계정 키)를 검색하고 Terraform 상태 정보를 저장할 스토리지 컨테이너를 만듭니다.
 
 1. Azure Portal에서 왼쪽 메뉴에 있는 **모든 서비스**를 선택합니다.
 
-1. **저장소 계정**을 선택합니다.
+1. **스토리지 계정**을 선택합니다.
 
-1. **저장소 계정** 탭에서 Terraform가 상태를 저장하도록 설정할 저장소 계정의 이름을 선택합니다. 예를 들어, Cloud Shell을 처음 열 때 만들어진 저장소 계정을 사용할 수 있습니다.  Cloud Shell에서 만든 저장소 계정 이름은 일반적으로 `cs`로 시작되고 그 뒤에 숫자 및 문자로 이루어진 임의의 문자열이 나옵니다. **선택한 스토리지 계정의 이름은 나중에 필요하므로 적어 둡니다.**
+1. **스토리지 계정** 탭에서 Terraform가 상태를 저장하도록 설정할 스토리지 계정의 이름을 선택합니다. 예를 들어, Cloud Shell을 처음 열 때 만들어진 스토리지 계정을 사용할 수 있습니다.  Cloud Shell에서 만든 스토리지 계정 이름은 일반적으로 `cs`로 시작되고 그 뒤에 숫자 및 문자로 이루어진 임의의 문자열이 나옵니다. **선택한 스토리지 계정의 이름은 나중에 필요하므로 적어 둡니다.**
 
-1. [저장소 계정] 탭에서 **액세스 키**를 선택합니다.
+1. [스토리지 계정] 탭에서 **액세스 키**를 선택합니다.
 
-    ![저장소 계정 메뉴](./media/terraform-k8s-cluster-appgw-with-tf-aks/storage-account.png)
+    ![스토리지 계정 메뉴](./media/terraform-k8s-cluster-appgw-with-tf-aks/storage-account.png)
 
 1. **key1** **key** 값을 기록해 웁니다. (키 오른쪽에 있는 아이콘을 선택하면 값이 클립보드에 복사됩니다.)
 
-    ![저장소 계정 액세스 키](./media/terraform-k8s-cluster-appgw-with-tf-aks/storage-account-access-key.png)
+    ![스토리지 계정 액세스 키](./media/terraform-k8s-cluster-appgw-with-tf-aks/storage-account-access-key.png)
 
 1. Cloud Shell에서 Azure Storage 계정에 컨테이너를 만듭니다. &lt;YourAzureStorageAccountName> 및 &lt;YourAzureStorageAccountAccessKey> 자리 표시자를 Azure Storage 계정에 해당하는 값으로 바꾸면 됩니다.
 

@@ -39,7 +39,7 @@ ms.locfileid: "67595812"
 ## <a name="connect-to-data-box-heavy"></a>Data Box Heavy에 연결
 
 선택한 스토리지 계정에 따라 Data Box Heavy에서 만드는 최대 항목 수는 다음과 같습니다.
-- GPv1 및 GPv2에서 연결된 각 저장소에 대한 공유 3개.
+- GPv1 및 GPv2에서 연결된 각 스토리지에 대한 공유 3개.
 - Premium Storage에 대한 공유 1개
 - Blob 스토리지 계정에 대한 공유 1개
 

@@ -96,10 +96,10 @@ ms.locfileid: "67839125"
 데이터 팩터리에서 파이프라인을 만들기 전에 먼저 몇 가지 데이터 팩터리 엔터티를 만들어야 합니다. 먼저 연결된 서비스를 만들어서 데이터 저장소/컴퓨터를 데이터 저장소에 연결합니다. 그런 다음, 입력 및 출력 데이터 세트를 정의하여 연결된 데이터 저장소에 입력/출력 데이터를 나타냅니다. 마지막으로 이러한 데이터 세트를 사용하는 작업이 있는 파이프라인을 만듭니다.
 
 ## <a name="create-linked-services"></a>연결된 서비스 만들기
-이 단계에서는 Azure Storage 계정 및 주문형 HDInsight 클러스터를 데이터 팩터리에 연결합니다. 저장소 계정은 이 샘플의 파이프라인에 대한 입력 및 출력 데이터를 가집니다. HDInsight 연결된 서비스는 이 샘플에서 파이프라인의 활동에 지정된 Hive 스크립트를 실행하는 데 사용됩니다. 어떤 [데이터 저장소](data-factory-data-movement-activities.md)/[계산 서비스](data-factory-compute-linked-services.md)가 시나리오에서 사용되는지 식별합니다. 그런 다음 연결된 서비스를 만들어 해당 서비스를 데이터 팩터리에 연결합니다.  
+이 단계에서는 Azure Storage 계정 및 주문형 HDInsight 클러스터를 데이터 팩터리에 연결합니다. 스토리지 계정은 이 샘플의 파이프라인에 대한 입력 및 출력 데이터를 가집니다. HDInsight 연결된 서비스는 이 샘플에서 파이프라인의 활동에 지정된 Hive 스크립트를 실행하는 데 사용됩니다. 어떤 [데이터 저장소](data-factory-data-movement-activities.md)/[계산 서비스](data-factory-compute-linked-services.md)가 시나리오에서 사용되는지 식별합니다. 그런 다음 연결된 서비스를 만들어 해당 서비스를 데이터 팩터리에 연결합니다.  
 
 ### <a name="create-a-storage-linked-service"></a>Storage 연결된 서비스 만들기
-이 단계에서는 저장소 계정을 데이터 팩터리에 연결합니다. 이 자습서에서는 동일한 저장소 계정을 사용하여 입력/출력 데이터 및 HQL 스크립트 파일을 저장합니다.
+이 단계에서는 스토리지 계정을 데이터 팩터리에 연결합니다. 이 자습서에서는 동일한 스토리지 계정을 사용하여 입력/출력 데이터 및 HQL 스크립트 파일을 저장합니다.
 
 1. **GetStartedDF**에 대한 **데이터 팩터리** 블레이드에서 **작성자 및 배포**를 선택합니다. 데이터 팩터리 편집기가 표시됩니다.
 
@@ -113,7 +113,7 @@ ms.locfileid: "67839125"
 
    ![Storage 연결된 서비스](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
-1. **account name**을 저장소 계정 이름으로 바꿉니다. **account key**를 저장소 계정의 액세스 키로 바꿉니다. 저장소 액세스 키를 가져오는 방법은 [저장소 계정 관리](../../storage/common/storage-account-manage.md#access-keys)에서 저장소 액세스 키의 보기, 복사 및 재생성 방법을 참조하세요.
+1. **계정 이름**을 스토리지 계정 이름으로 바꿉니다. **계정 키**를 스토리지 계정의 액세스 키로 바꿉니다. 스토리지 액세스 키를 가져오는 방법은 [스토리지 계정 관리](../../storage/common/storage-account-manage.md#access-keys)에서 스토리지 액세스 키의 보기, 복사 및 재생성 방법을 참조하세요.
 
 1. 명령 모음에서 **배포**를 선택하여 연결된 서비스를 배포합니다.
 
@@ -164,7 +164,7 @@ ms.locfileid: "67839125"
 
      다. HDInsight 클러스터는 JSON 속성(**linkedServiceName**)에서 지정한 Blob Storage에 기본 컨테이너를 만듭니다. HDInsight는 클러스터가 삭제될 때 이 컨테이너를 삭제하지 않습니다. 이 동작은 의도된 것입니다. 주문형 HDInsight 연결된 서비스에서는 기존 라이브 클러스터(**timeToLive**)가 없는 경우 조각을 처리할 때마다 HDInsight 클러스터가 만들어집니다. 클러스터는 처리가 완료되면 자동으로 삭제됩니다.
 
-     많은 조각이 처리될수록 Blob Storage에 컨테이너가 많아집니다. 작업의 문제 해결에 이 항목들이 필요하지 않다면 저장소 비용을 줄이기 위해 삭제할 수 있습니다. 이러한 컨테이너의 이름은 “adf**yourdatafactoryname**-**linkedservicename**-datetimestamp” 패턴을 따릅니다. [Azure Storage Explorer](https://storageexplorer.com/)와 같은 도구를 사용하여 Blob Storage에서 컨테이너를 삭제합니다.
+     많은 조각이 처리될수록 Blob Storage에 컨테이너가 많아집니다. 작업의 문제 해결에 이 항목들이 필요하지 않다면 스토리지 비용을 줄이기 위해 삭제할 수 있습니다. 이러한 컨테이너의 이름은 “adf**yourdatafactoryname**-**linkedservicename**-datetimestamp” 패턴을 따릅니다. [Azure Storage Explorer](https://storageexplorer.com/)와 같은 도구를 사용하여 Blob Storage에서 컨테이너를 삭제합니다.
 
      자세한 내용은 [주문형 HDInsight 연결된 서비스](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)를 참조하세요.
 
@@ -177,10 +177,10 @@ ms.locfileid: "67839125"
     ![연결된 서비스와 트리 뷰](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-linked-services.png)
 
 ## <a name="create-datasets"></a>데이터 세트 만들기
-이 단계에서는 Hive 처리에 대한 입력 및 출력 데이터를 나타내는 데이터 세트를 만듭니다. 이러한 데이터 세트는 이 자습서의 앞부분에서 만든 AzureStorageLinkedService를 참조합니다. 연결된 서비스는 저장소 계정으로 연결됩니다. 데이터 세트는 입력 및 출력 데이터가 있는 저장소의 컨테이너, 폴더 및 파일 이름을 지정합니다.   
+이 단계에서는 Hive 처리에 대한 입력 및 출력 데이터를 나타내는 데이터 세트를 만듭니다. 이러한 데이터 세트는 이 자습서의 앞부분에서 만든 AzureStorageLinkedService를 참조합니다. 연결된 서비스는 스토리지 계정으로 연결됩니다. 데이터 세트는 입력 및 출력 데이터가 있는 스토리지의 컨테이너, 폴더 및 파일 이름을 지정합니다.   
 
 ### <a name="create-the-input-dataset"></a>입력 데이터 세트 만들기
-1. 데이터 팩터리 편집기에서 **자세히** > **새 데이터 집합** > **Azure Blob Storage**를 차례로 선택합니다.
+1. 데이터 팩터리 편집기에서 **자세히** > **새 데이터 세트** > **Azure Blob Storage**를 차례로 선택합니다.
 
     ![새 데이터 세트](./media/data-factory-build-your-first-pipeline-using-editor/new-data-set.png)
 
@@ -229,7 +229,7 @@ ms.locfileid: "67839125"
 ### <a name="create-the-output-dataset"></a>출력 데이터 세트 만들기
 이제 Blob Storage에 저장된 출력 데이터를 나타내는 출력 데이터 세트를 만듭니다.
 
-1. 데이터 팩터리 편집기에서 **자세히** > **새 데이터 집합** > **Azure Blob Storage**를 차례로 선택합니다.
+1. 데이터 팩터리 편집기에서 **자세히** > **새 데이터 세트** > **Azure Blob Storage**를 차례로 선택합니다.
 
 1. 다음 코드 조각을 복사하여 Draft-1 창에 붙여넣습니다. JSON 코드 조각에서 **AzureBlobOutput**이라는 데이터 세트를 만들고 Hive 스크립트에 의해 생성되는 데이터의 구조를 지정합니다. 또한 결과가 **adfgetstarted**라는 Blob 컨테이너와 **partitioneddata**라는 폴더에 저장되도록 지정합니다. **availability** 섹션에서는 출력 데이터 세트를 매일 생성하도록 지정합니다.
 

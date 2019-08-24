@@ -84,7 +84,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     b. **릴레이 상태** 텍스트 상자에 URL을 입력합니다. `<TENANTCODE>`
 
-    다. **SP** 시작 모드로 응용 프로그램을 구성하려는 경우 **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://app.appraisd.com/saml/<TENANTCODE>`
+    다. **SP** 시작 모드로 애플리케이션을 구성하려는 경우 **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://app.appraisd.com/saml/<TENANTCODE>`
 
     > [!NOTE]
     > 자습서 뒷부분에서 설명하는 Appraisd SSO 구성 페이지에서 실제 로그온 URL 및 릴레이 상태 값을 확인합니다.

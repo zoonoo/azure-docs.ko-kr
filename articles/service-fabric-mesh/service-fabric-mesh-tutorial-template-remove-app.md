@@ -34,9 +34,9 @@ ms.locfileid: "58339672"
 
 이 자습서 시리즈에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
-> * [템플릿을 사용하여 Service Fabric Mesh에 응용 프로그램 배포](service-fabric-mesh-tutorial-template-deploy-app.md)
-> * [Service Fabric Mesh에서 실행 중인 애플리케이션 확장](service-fabric-mesh-tutorial-template-scale-services.md)
-> * [Service Fabric Mesh에서 실행되는 애플리케이션 업그레이드](service-fabric-mesh-tutorial-template-upgrade-app.md)
+> * [템플릿을 사용하여 Service Fabric Mesh에 애플리케이션 배포](service-fabric-mesh-tutorial-template-deploy-app.md)
+> * [Service Fabric Mesh에서 실행되는 애플리케이션 크기 조정](service-fabric-mesh-tutorial-template-scale-services.md)
+> * [Service Fabric Mesh에서 실행 중인 애플리케이션 업그레이드](service-fabric-mesh-tutorial-template-upgrade-app.md)
 > * 애플리케이션 제거
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]

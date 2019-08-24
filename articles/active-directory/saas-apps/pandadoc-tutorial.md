@@ -85,13 +85,13 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![PandaDoc 도메인 및 URL Single Sign-On 정보](common/preintegrated.png)
 
-1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
+1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
     ![PandaDoc 도메인 및 URL Single Sign-On 정보](common/metadata-upload-additional-signon.png)
 
     **로그온 URL** 텍스트 상자에 `https://app.pandadoc.com/sso-login/` URL을 입력합니다.
 
-1. PandaDoc 애플리케이션은 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 응용 프로그램 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 단추를 클릭하여 **사용자 특성** 대화 상자를 엽니다.
+1. PandaDoc 애플리케이션은 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 애플리케이션 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 단추를 클릭하여 **사용자 특성** 대화 상자를 엽니다.
 
     ![이미지](common/edit-attribute.png)
 

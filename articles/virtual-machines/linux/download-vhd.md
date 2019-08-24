@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2018
+ms.date: 08/21/2019
 ms.author: cynthn
-ms.openlocfilehash: 5639571739f3eb6263f62444e7ab02186e2ca945
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 21720ead788a505f86c4d35eb5a39943ff4a2e12
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742573"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981011"
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Azure에서 Linux VHD 다운로드
 
@@ -58,9 +58,9 @@ VHD를 다른 VM을 만들기 위한 이미지로 사용하려면 다음 단계�
 VHD를 기존 VM의 새 인스턴스에 대한 디스크 또는 데이터 디스크로 사용하려면 다음 단계를 완료합니다.
 
 1.  [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2.  허브 메뉴에서 **Virtual Machines**를 클릭합니다.
+2.  왼쪽 메뉴에서 **Virtual Machines**를 선택합니다.
 3.  목록에서 VM을 선택합니다.
-4.  VM에 대한 블레이드에서 **중지**를 클릭합니다.
+4.  VM에 대 한 페이지에서 **중지**를 선택 합니다.
 
     ![VM 중지](./media/download-vhd/export-stop.png)
 
@@ -68,21 +68,21 @@ VHD를 기존 VM의 새 인스턴스에 대한 디스크 또는 데이터 디스
 
 VHD 파일을 다운로드하려면 [SAS(공유 액세스 서명)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) URL을 생성해야 합니다. URL이 생성될 때 만료 시간이 URL에 할당됩니다.
 
-1.  VM에 대한 블레이드 메뉴에서 **디스크**를 클릭합니다.
-2.  VM에 대 한 운영 체제 디스크를 선택 하 고 **디스크 내보내기**를 클릭 합니다.
-3.  **URL 생성**을 클릭합니다.
+1.  VM에 대 한 페이지의 메뉴에서 **디스크**를 선택 합니다.
+2.  VM에 대 한 운영 체제 디스크를 선택 하 고 **디스크 내보내기**를 선택 합니다.
+3.  **URL 생성**을 선택 합니다.
 
     ![URL 생성](./media/download-vhd/export-generate.png)
 
 ## <a name="download-vhd"></a>VHD 다운로드
 
-1.  생성된 URL에서 VHD 파일 다운로드를 클릭합니다.
-
+1.  생성 된 URL에서 **VHD 파일 다운로드**를 선택 합니다.
+**
     ![VHD 다운로드](./media/download-vhd/export-download.png)
 
-2.  다운로드를 시작하려면 브라우저에서 **저장**을 클릭해야 합니다. VHD 파일에 대한 기본 이름은 *abcd*입니다.
+2.  다운로드를 시작 하려면 브라우저에서 **저장** 을 선택 해야 할 수도 있습니다. VHD 파일에 대한 기본 이름은 *abcd*입니다.
 
-    ![브라우저에서 저장 클릭](./media/download-vhd/export-save.png)
+    ![브라우저에서 저장을 선택 합니다.](./media/download-vhd/export-save.png)
 
 ## <a name="next-steps"></a>다음 단계
 

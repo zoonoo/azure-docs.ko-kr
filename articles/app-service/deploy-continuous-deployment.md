@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 08/23/2019
 ms.author: cephalin
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 3c4811d990cfe107bc3bc4e6d359659b1935c6a4
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 9d611717ad8fee5f810a8d0876f1ebd5995249a7
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297198"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996803"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Azure App Service에 지속적인 배포
 
@@ -28,13 +28,11 @@ ms.locfileid: "68297198"
 
 원본 제어 서비스에 대 한 자세한 내용은 [리포지토리 만들기(GitHub)], [리포지토리 만들기(BitBucket)]또는 [새 Git 리포지토리 만들기 (Azure Repos)]를 참조 하세요.
 
-[Gitlab](https://gitlab.com/)과 같이 포털이 직접 지원 하지 않는 클라우드 리포지토리에서 연속 배포를 수동으로 구성 하려면 [수동 단계를 사용 하 여 연속 배포 설정](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps)을 참조 하세요.
-
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
 ## <a name="authorize-azure-app-service"></a>권한 부여 Azure App Service 
 
-Azure Repos를 사용 하려면 Azure DevOps 조직이 Azure 구독에 연결 되어 있는지 확인 합니다. 자세한 내용은 [웹 앱에 배포할 수 있도록 Azure DevOps Services 계정 설정](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)을 참조 하세요.
+Azure Repos를 사용 하려면 Azure DevOps 조직이 Azure 구독에 연결 되어 있는지 확인 합니다. 자세한 내용은 [웹 앱에 배포할 수 있도록 Azure DevOps Services 계정 설정](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops)을 참조 하세요.
 
 Bitbucket 또는 GitHub의 경우 리포지토리에 연결할 Azure App Service 권한을 부여 합니다. 소스 제어 서비스를 한 번만 사용 하 여 권한을 부여 해야 합니다. 
 
@@ -63,7 +61,7 @@ Bitbucket 또는 GitHub의 경우 리포지토리에 연결할 Azure App Service
 1. **Deployment Center** 페이지에서 권한이 부여 된 원본 제어 공급자를 선택 하 고 **계속**을 선택 합니다. GitHub 또는 Bitbucket의 경우 **계정 변경** 을 선택 하 여 권한 있는 계정을 변경할 수도 있습니다. 
    
    > [!NOTE]
-   > Azure Repos을 사용 하려면 Azure DevOps Services 조직이 Azure 구독에 연결 되어 있는지 확인 합니다. 자세한 내용은 [웹 앱에 배포할 수 있도록 Azure DevOps Services 계정 설정](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)을 참조 하세요.
+   > Azure Repos을 사용 하려면 Azure DevOps Services 조직이 Azure 구독에 연결 되어 있는지 확인 합니다. 자세한 내용은 [웹 앱에 배포할 수 있도록 Azure DevOps Services 계정 설정](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops)을 참조 하세요.
    
 1. GitHub 또는 Azure Repos의 경우 **빌드 공급자** 페이지에서 **App Service 빌드 서비스**를 선택 하 고 **계속**을 선택 합니다. Bitbucket는 항상 App Service 빌드 서비스를 사용 합니다.
    
@@ -81,7 +79,7 @@ Bitbucket 또는 GitHub의 경우 리포지토리에 연결할 Azure App Service
    - Azure Repos의 경우 지속적으로 배포 하려는 **Azure DevOps 조직**, **프로젝트**, **리포지토리**및 **분기** 를 선택 합니다.
      
      > [!NOTE]
-     > Azure DevOps 조직이 나열 되지 않은 경우 Azure 구독에 연결 되어 있는지 확인 합니다. 자세한 내용은 [웹 앱에 배포할 수 있도록 Azure DevOps Services 계정 설정](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)을 참조 하세요.
+     > Azure DevOps 조직이 나열 되지 않은 경우 Azure 구독에 연결 되어 있는지 확인 합니다. 자세한 내용은 [웹 앱에 배포할 수 있도록 Azure DevOps Services 계정 설정](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops)을 참조 하세요.
      
 1. 선택 **계속**합니다.
    
@@ -127,7 +125,7 @@ Azure Pipelines (미리 보기)를 구성 하려면:
      
 1. 선택 **계속**합니다.
    
-1. Azure Repos **빌드 섹션에서** 빌드 작업을 실행 하는 데 사용 해야 Azure Pipelines 언어 프레임 워크를 지정 하 고 **계속**을 선택 합니다.
+1. Azure Repos 빌드 섹션에서 빌드 작업을 실행 하는 데 사용 해야 Azure Pipelines 언어 프레임 워크를 지정 하 고 **계속**을 선택 합니다.
    
 1. **테스트** 페이지에서 부하 테스트를 사용할지 여부를 선택 하 고 **계속**을 선택 합니다.
    
@@ -149,6 +147,10 @@ Azure Pipelines (미리 보기)를 구성 하려면:
 ![지속적 배포 사용 안 함](media/app-service-continuous-deployment/disable.png)
 
 [!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
+
+## <a name="use-unsupported-repos"></a>지원 되지 않는 리포지토리 사용
+
+Windows 앱의 경우 포털이 직접 지원 하지 않는 클라우드 Git 또는 Mecurial 리포지토리에서 (예: [Gitlab](https://gitlab.com/)) 연속 배포를 수동으로 구성할 수 있습니다. 이렇게 하려면 **Deployment Center** 페이지에서 외부 상자를 선택 합니다. 자세한 내용은 [수동 단계를 사용 하 여 연속 배포 설정](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps)을 참조 하세요.
 
 ## <a name="additional-resources"></a>추가 자료
 

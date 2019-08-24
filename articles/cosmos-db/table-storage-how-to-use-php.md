@@ -27,7 +27,7 @@ ms.locfileid: "58111500"
 
 [!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
-### <a name="create-an-azure-storage-account"></a>Azure 저장소 계정 만들기
+### <a name="create-an-azure-storage-account"></a>Azure Storage 계정 만들기
 
 [!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
@@ -88,8 +88,8 @@ Azure Cosmos DB Table 클라이언트를 인스턴스화하려면 먼저 유효�
 $connectionString = "DefaultEndpointsProtocol=[https];AccountName=[myaccount];AccountKey=[myaccountkey];TableEndpoint=[https://myendpoint/]";
 ```
 
-## <a name="add-a-storage-emulator-connection"></a>저장소 에뮬레이터 연결 추가
-에뮬레이터 저장소에 액세스하려면 다음을 수행합니다.
+## <a name="add-a-storage-emulator-connection"></a>스토리지 에뮬레이터 연결 추가
+에뮬레이터 스토리지에 액세스하려면 다음을 수행합니다.
 
 ```php
 UseDevelopmentStorage = true
@@ -140,7 +140,7 @@ catch(ServiceException $e){
 테이블 이름의 제한 사항에 대한 자세한 내용은 [테이블 서비스 데이터 모델 이해][table-data-model]를 참조하세요.
 
 ## <a name="add-an-entity-to-a-table"></a>테이블에 엔터티 추가
-테이블에 엔터티를 추가하려면 새 **항목** 개체를 만들어 **TableRestProxy->insertEntity**에 전달합니다. 엔터티를 만들 때 `PartitionKey` 및 `RowKey`를 지정해야 한다는 점에 주의하세요. 이 두 키는 엔터티의 고유한 식별자이며, 다른 엔터티 속성보다 훨씬 더 빠르게 쿼리할 수 있는 값입니다. 시스템은 `PartitionKey`를 사용하여 여러 저장소 노드를 통해 테이블의 엔터티를 자동으로 분산합니다. 동일한 `PartitionKey` 의 엔터티는 동일한 노드에 저장됩니다. 동일한 노드에 저장된 여러 엔터티에 대해 작업을 수행하는 것이 여러 노드에 걸쳐 저장된 엔터티에 대해 작업을 수행하는 것보다 성능 면에서 우수합니다. `RowKey`는 파티션 내에서 엔터티의 고유한 ID입니다.
+테이블에 엔터티를 추가하려면 새 **항목** 개체를 만들어 **TableRestProxy->insertEntity**에 전달합니다. 엔터티를 만들 때 `PartitionKey` 및 `RowKey`를 지정해야 한다는 점에 주의하세요. 이 두 키는 엔터티의 고유한 식별자이며, 다른 엔터티 속성보다 훨씬 더 빠르게 쿼리할 수 있는 값입니다. 시스템은 `PartitionKey`를 사용하여 여러 스토리지 노드를 통해 테이블의 엔터티를 자동으로 분산합니다. 동일한 `PartitionKey` 의 엔터티는 동일한 노드에 저장됩니다. 동일한 노드에 저장된 여러 엔터티에 대해 작업을 수행하는 것이 여러 노드에 걸쳐 저장된 엔터티에 대해 작업을 수행하는 것보다 성능 면에서 우수합니다. `RowKey`는 파티션 내에서 엔터티의 고유한 ID입니다.
 
 ```php
 require_once 'vendor/autoload.php';

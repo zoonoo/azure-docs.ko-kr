@@ -66,7 +66,7 @@ LUIS 컨텍스트에서 **도메인**은 정보 영역입니다. 도메인은 �
 |--|--|
 |영역(region)| [게시된 지역](luis-reference-regions.md#publishing-regions) |
 |appID | LUIS 앱 ID |
-|subscriptionID | Azure Portal에서 생성된 LUIS 끝점(구독) 키 |
+|subscriptionID | Azure Portal에서 생성된 LUIS 엔드포인트(구독) 키 |
 |q | 발화 |
 |timezoneOffset| 분|
 
@@ -159,7 +159,7 @@ Bing Spell Checker를 사용하여 예측 전에 발화에서 맞춤법이 잘�
 
 ## <a name="subscription-key"></a>구독 키
 
-구독 키는 [Azure에서 만든](luis-how-to-azure-subscription.md) LUIS 서비스와 연결된 **끝점** 키입니다. 이 키는 [작성 키](#programmatic-key)가 아닙니다. 끝점 키가 있는 경우 작성 키 대신 모든 끝점 요청에 사용해야 합니다. [LUIS](luis-reference-regions.md) 웹 사이트의 [**키 및 엔드포인트** 페이지](luis-how-to-azure-subscription.md) 아래쪽에 있는 엔드포인트 URL 내부에서 현재 엔드포인트 키를 확인할 수 있습니다. 이는 **subscription-key** 이름/값 쌍의 값입니다.
+구독 키는 [Azure에서 만든](luis-how-to-azure-subscription.md) LUIS 서비스와 연결된 **엔드포인트** 키입니다. 이 키는 [작성 키](#programmatic-key)가 아닙니다. 엔드포인트 키가 있는 경우 작성 키 대신 모든 엔드포인트 요청에 사용해야 합니다. [LUIS](luis-reference-regions.md) 웹 사이트의 [**키 및 엔드포인트** 페이지](luis-how-to-azure-subscription.md) 아래쪽에 있는 엔드포인트 URL 내부에서 현재 엔드포인트 키를 확인할 수 있습니다. 이는 **subscription-key** 이름/값 쌍의 값입니다.
 
 ## <a name="test"></a>테스트
 

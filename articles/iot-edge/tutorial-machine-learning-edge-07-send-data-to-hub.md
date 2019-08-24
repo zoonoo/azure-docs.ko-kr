@@ -107,7 +107,7 @@ IoT Edge 디바이스를 살펴보면 avroFileWriter 모듈의 출력을 쉽게 
 
 5. 10분이 경과하면 모듈이 파일을 업로드합니다. 업로드가 성공하면 모듈은 디스크에서 파일을 삭제합니다.
 
-### <a name="azure-storage"></a>Azure 저장소
+### <a name="azure-storage"></a>Azure Storage
 
 데이터가 라우팅될 스토리지 계정을 살펴보면 데이터를 보내는 리프 디바이스의 결과를 관찰할 수 있습니다.
 

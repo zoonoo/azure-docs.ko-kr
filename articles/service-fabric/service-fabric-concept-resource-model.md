@@ -38,7 +38,7 @@ Azure Resource Manager 응용 프로그램 리소스 모델을 사용 하 여 �
 ### <a name="create-a-storage-account"></a>Storage 계정 만들기 
 응용 프로그램 이미지를 준비 하려면 리소스 관리자 템플릿에서 응용 프로그램을 배포 하려면 저장소 계정이 필요 합니다. 기존 저장소 계정을 다시 사용 하거나 새 저장소 계정을 만들어 응용 프로그램을 준비할 수 있습니다. 기존 저장소 계정을 사용 하려는 경우이 단계를 건너뛸 수 있습니다. 
 
-![저장소 계정 만들기][CreateStorageAccount]
+![스토리지 계정 만들기][CreateStorageAccount]
 
 ### <a name="configure-storage-account"></a>저장소 계정 구성 
 저장소 계정을 만든 후에는 응용 프로그램이 준비 될 수 있는 blob 컨테이너를 만들어야 합니다. Azure Portal에서 응용 프로그램을 저장 하려는 저장소 계정으로 이동 합니다. **Blob** 블레이드를 선택 하 고 **컨테이너 추가** 단추를 클릭 합니다. Blob 공용 액세스 수준을 사용 하 여 새 컨테이너를 추가 합니다.

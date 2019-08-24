@@ -323,7 +323,7 @@ Azure에서 실행되는 함수 앱에는 Azure Storage 계정이 필요합니�
     | 위치 | 다른 리소스와 동일한 위치 선택 |
     | 성능 | Standard |
     | 계정 종류 | StorageV2(범용 V2) |
-    | 복제 | LRS(로컬 중복 저장소) |
+    | 복제 | LRS(로컬 중복 스토리지) |
     | 액세스 계층 | 핫 |
 
 1. **검토 + 만들기**와 **만들기**를 차례로 클릭합니다.
@@ -415,7 +415,7 @@ App Service 인증은 Azure Active Directory, Facebook, Twitter, Microsoft 계�
 
 1. **요청이 인증되지 않은 경우 수행할 작업**에서 "{이전에 선택한 인증 공급자}를 사용하여 로그인"을 선택합니다.
 
-1. **허용되는 외부 리디렉션 URL**에서 앞에서 적어 둔 저장소 계정 기본 웹 엔드포인트의 URL을 입력합니다.
+1. **허용되는 외부 리디렉션 URL**에서 앞에서 적어 둔 스토리지 계정 기본 웹 엔드포인트의 URL을 입력합니다.
 
 1. 선택한 로그인 공급자에 대한 설명서에 따라 구성을 완료합니다.
 
@@ -439,7 +439,7 @@ App Service 인증은 Azure Active Directory, Facebook, Twitter, Microsoft 계�
 
 1. 파일을 저장합니다.
 
-### <a name="deploy-the-web-application-to-blob-storage"></a>Blob Storage에 웹 응용 프로그램 배포
+### <a name="deploy-the-web-application-to-blob-storage"></a>Blob Storage에 웹 애플리케이션 배포
 
 웹 애플리케이션은 Azure Blob Storage의 정적 웹 사이트 기능을 사용하여 호스팅됩니다.
 
@@ -477,7 +477,7 @@ CORS 설정은 **local.settings.json**에 있지만 Azure의 함수 앱에 전�
 
 ### <a name="try-the-application"></a>애플리케이션 사용해 보기
 
-1. 브라우저에서 저장소 계정의 기본 웹 엔드포인트로 이동합니다.
+1. 브라우저에서 스토리지 계정의 기본 웹 엔드포인트로 이동합니다.
 
 1. **로그인**을 선택하여 선택한 인증 공급자를 통해 인증합니다.
 

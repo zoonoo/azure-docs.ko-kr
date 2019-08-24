@@ -111,7 +111,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 |\[미리 보기\]: Windows VMSS(VM Scale Sets)용 Log Analytics 에이전트 배포|정책 할당|선택 사항: 범위에 추가할 Windows OS를 지원하는 VM 이미지 목록|빈 배열(\[\])을 사용하여 선택적 매개 변수가 없음을 나타낼 수 있습니다.|
 |\[미리 보기\]: Windows VM용 Log Analytics 에이전트 배포|정책 할당|Windows VM용 Log Analytics 작업 영역|이 작업 영역이 할당 범위를 벗어나는 경우 ‘Log Analytics 기여자’ 권한(또는 그와 유사한 권한)을 정책 할당의 Principal ID에 수동으로 부여해야 합니다.|
 |\[미리 보기\]: Windows VM용 Log Analytics 에이전트 배포|정책 할당|선택 사항: 범위에 추가할 Windows OS를 지원하는 VM 이미지 목록|빈 배열(\[\])을 사용하여 선택적 매개 변수가 없음을 나타낼 수 있습니다.|
-|허용되는 저장소 계정 SKU|정책 할당|허용되는 스토리지 SKU의 목록|스토리지 계정에 대해 지정할 수 있는 SKU 목록입니다.|
+|허용되는 스토리지 계정 SKU|정책 할당|허용되는 스토리지 SKU의 목록|스토리지 계정에 대해 지정할 수 있는 SKU 목록입니다.|
 |허용되는 가상 머신 SKU|정책 할당|허용되는 가상 머신 SKU의 목록|가상 머신에 지정할 수 있는 SKU의 목록입니다.|
 |ISO 27001의 청사진 이니셔티브|정책 할당|진단 로그를 사용해야 하는 리소스 종류 목록|진단 로그 설정을 사용하도록 설정하지 않은 경우 감사할 리소스 종류의 목록입니다. 허용되는 값은 [Azure Monitor 진단 로그 스키마](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type)에서 확인할 수 있습니다.|
 

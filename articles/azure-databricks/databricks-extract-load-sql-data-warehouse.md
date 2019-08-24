@@ -51,7 +51,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 * Azure SQL Data Warehouse에 대한 데이터베이스 마스터 키를 만듭니다. [데이터베이스 마스터 키 만들기](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key)를 참조하세요.
 
-* Azure Blob Storage 계정을 만들고, 그 안에 컨테이너를 만듭니다. 또한 저장소 계정에 액세스하는 데 사용되는 액세스 키를 검색합니다. [빠른 시작: Azure Portal을 사용하여 BLOB 업로드, 다운로드 및 나열](../storage/blobs/storage-quickstart-blobs-portal.md)
+* Azure Blob Storage 계정을 만들고, 그 안에 컨테이너를 만듭니다. 또한 스토리지 계정에 액세스하는 데 사용되는 액세스 키를 검색합니다. [빠른 시작: Azure Portal을 사용하여 BLOB 업로드, 다운로드 및 나열](../storage/blobs/storage-quickstart-blobs-portal.md)
 
 * Azure Data Lake Storage Gen2 스토리지 계정을 만듭니다. [빠른 시작: Azure Data Lake Storage Gen2 스토리지 계정 만들기](../storage/blobs/data-lake-storage-quickstart-create-account.md)를 참조하세요.
 
@@ -317,7 +317,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 이 섹션에서는 변환된 데이터를 Azure SQL Data Warehouse로 업로드합니다. Azure Databricks용 Azure SQL Data Warehouse 커넥터를 사용하여 데이터 프레임을 SQL 데이터 웨어하우스의 테이블로 직접 업로드합니다.
 
-앞서 언급했듯이, SQL Data Warehouse 커넥터는 Azure Blob 스토리지를 임시 스토리지로 사용하여 Azure Databricks와 Azure SQL Data Warehouse 간에 데이터를 업로드합니다. 따라서 저장소 계정에 연결하는 구성을 먼저 제공해야 합니다. 이 문서의 필수 구성 요소로 이미 계정을 만들어 두셨을 것입니다.
+앞서 언급했듯이, SQL Data Warehouse 커넥터는 Azure Blob 스토리지를 임시 스토리지로 사용하여 Azure Databricks와 Azure SQL Data Warehouse 간에 데이터를 업로드합니다. 따라서 스토리지 계정에 연결하는 구성을 먼저 제공해야 합니다. 이 문서의 필수 구성 요소로 이미 계정을 만들어 두셨을 것입니다.
 
 1. Azure Databricks에서 Azure Storage 계정에 액세스하기 위한 구성을 입력합니다.
 

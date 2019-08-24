@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.reviewer: mbullwin
-ms.date: 08/19/2019
+ms.date: 08/22/2019
 ms.author: dalek
-ms.openlocfilehash: c3da37d89da8c70f6acdfb1b5ab9c5b10edb86f0
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 45a8f8a7ee4d887503aeaf8e0e285c45a21c4bcc
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624388"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982599"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Application Insights의 사용량 및 비용 관리
 
@@ -65,30 +65,43 @@ Application Insights 요금은 Azure 청구서에 추가됩니다. Azure 청구�
 
 ![왼쪽 메뉴에서 청구를 선택합니다.](./media/pricing/02-billing.png)
 
-## <a name="data-rate"></a>데이터 속도
-보내는 데이터의 볼륨은 세 가지 방법으로 제한됩니다.
+## <a name="managing-your-data-volume"></a>데이터 볼륨 관리 
 
-* **샘플링**: 샘플링을 사용하여 메트릭 왜곡을 최소화하면서 서버 및 클라이언트 앱에서 전송되는 원격 분석의 양을 줄일 수 있습니다. 샘플링은 보내는 데이터의 양을 조정하는 데 사용할 수 있는 기본 도구입니다. [샘플링 기능](../../azure-monitor/app/sampling.md)에 대해 자세히 알아보세요. 
-* **일일 한도**: Azure Portal에서 Application Insights 리소스를 만들 때 일일 한도는 100GB/일로 설정됩니다. Visual Studio에서 Application Insights 리소스를 만들 때 기본값은 적습니다(불과 32.3MB/일). 일일 한도 기본값은 테스트가 용이하도록 설정됩니다. 앱을 프로덕션에 배포하기 전에 사용자가 일일 한도를 높여야 합니다. 
-
-    트래픽이 많은 애플리케이션에 대해 더 높은 최대값을 요구하지 않으면 최대 한도는 하루 1,000GB입니다. 
-
-    일일 한도를 설정할 때 주의해야 합니다. *일일 한도에 도달하지 않도록* 해야 합니다. 일일 한도에 도달하는 경우 해당 날짜의 남은 기간 동안 데이터가 손실되고 애플리케이션을 모니터링할 수 없습니다. 일일 한도를 변경하려면 **일일 볼륨 한도** 옵션을 사용합니다. **사용량 및 예상 비용** 창에서 이 옵션에 액세스할 수 있습니다(문서의 뒷부분에 자세히 설명되어 있음).
-    Application Insights에 대해 사용될 수 없는 크레딧이 있는 일부 구독 유형에 대한 제한을 제거했습니다. 이전에 구독에 지출 한도가 있는 경우 일일 한도 대화 상자에 지출 한도를 제거하고 일일 한도가 하루 32.3MB가 넘도록 설정하는 지침이 표시됩니다.
-* **제한**: 제한은 데이터 속도를 계측 키당 평균 1분 이상 초당 32,000개 이벤트로 제한합니다.
-
-*내 앱에서 제한 속도를 초과하면 어떻게 되나요?*
-
-* 앱에 보내는 데이터의 양은 1분마다 평가됩니다. 해당 분에 대한 평균 초당 속도를 초과하면 서버는 일부 요청을 거부합니다. SDK는 데이터를 버퍼링한 다음, 다시 전송하도록 시도합니다. 몇 분 동안 급증을 분산시킵니다. 앱이 제한율 이상으로 일관되게 데이터를 보내는 경우 일부 데이터가 삭제됩니다. (ASP.NET, Java 및 JavaScript SDK는 이러한 방식으로 데이터 재전송을 시도합니다. SDK는 제한된 데이터를 제거하기만 합니다.) 제한이 발생하는 경우 이를 경고하는 알림이 표시됩니다.
-
-*앱에서 보내는 데이터의 양을 어떻게 알 수 있습니까?*
-
-다음 옵션 중 하나를 사용하여 앱에서 보내는 데이터 양을 확인할 수 있습니다.
+앱에서 전송 하는 데이터의 양을 이해 하려면 다음을 수행할 수 있습니다.
 
 * **사용량 및 예상 비용** 창으로 이동하여 일일 데이터 볼륨 차트를 표시합니다. 
 * 메트릭 탐색기에서 새 차트를 추가합니다. 차트 메트릭의 경우 **데이터 요소 볼륨**을 선택합니다. **그룹화**를 킨 다음, **데이터 형식**을 기준으로 그룹화합니다.
+* `systemEvents` 데이터 형식을 사용 합니다. 예를 들어, 마지막 날의 데이터 볼륨 수집를 확인 하기 위해 쿼리는 다음과 같습니다.
 
-## <a name="reduce-your-data-rate"></a>데이터 속도 줄이기
+```kusto
+systemEvents 
+| where timestamp >= ago(1d)
+| where type == "Billing" 
+| extend BillingTelemetryType = tostring(dimensions["BillingTelemetryType"])
+| extend BillingTelemetrySizeInBytes = todouble(measurements["BillingTelemetrySize"])
+| summarize sum(BillingTelemetrySizeInBytes)
+```
+
+이 쿼리는 [Azure 로그 경고](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log) 에서 데이터 볼륨에 대 한 경고를 설정 하는 데 사용할 수 있습니다. 
+
+전송 되는 데이터의 볼륨은 다음 세 가지 방법으로 관리할 수 있습니다.
+
+* **샘플링**: 샘플링을 사용하여 메트릭 왜곡을 최소화하면서 서버 및 클라이언트 앱에서 전송되는 원격 분석의 양을 줄일 수 있습니다. 샘플링은 보내는 데이터의 양을 조정하는 데 사용할 수 있는 기본 도구입니다. [샘플링 기능](../../azure-monitor/app/sampling.md)에 대해 자세히 알아보세요.
+ 
+* **일일 한도**: Azure Portal에서 Application Insights 리소스를 만들 때 일일 한도는 100GB/일로 설정됩니다. Visual Studio에서 Application Insights 리소스를 만들 때 기본값은 적습니다(불과 32.3MB/일). 일일 한도 기본값은 테스트가 용이하도록 설정됩니다. 앱을 프로덕션에 배포하기 전에 사용자가 일일 한도를 높여야 합니다. 
+
+    트래픽이 많은 애플리케이션에 대해 더 높은 최대값을 요구하지 않으면 최대 한도는 하루 1,000GB입니다. 
+    
+    경고 일일 상한에 대 한 전자 메일은 Application Insights 리소스에 대해 이러한 역할의 멤버인 계정으로 전송 됩니다. "ServiceAdmin", "AccountAdmin", "CoAdmin", "Owner".
+
+    일일 한도를 설정할 때 주의해야 합니다. *일일 한도에 도달하지 않도록* 해야 합니다. 일일 한도에 도달하는 경우 해당 날짜의 남은 기간 동안 데이터가 손실되고 애플리케이션을 모니터링할 수 없습니다. 일일 한도를 변경하려면 **일일 볼륨 한도** 옵션을 사용합니다. **사용량 및 예상 비용** 창에서 이 옵션에 액세스할 수 있습니다(문서의 뒷부분에 자세히 설명되어 있음).
+    
+    Application Insights에 대해 사용될 수 없는 크레딧이 있는 일부 구독 유형에 대한 제한을 제거했습니다. 이전에 구독에 지출 한도가 있는 경우 일일 한도 대화 상자에 지출 한도를 제거하고 일일 한도가 하루 32.3MB가 넘도록 설정하는 지침이 표시됩니다.
+    
+* **제한**: 제한은 데이터 속도를 계측 키당 평균 1분 이상 초당 32,000개 이벤트로 제한합니다. 앱에 보내는 데이터의 양은 1분마다 평가됩니다. 해당 분에 대한 평균 초당 속도를 초과하면 서버는 일부 요청을 거부합니다. SDK는 데이터를 버퍼링한 다음, 다시 전송하도록 시도합니다. 몇 분 동안 급증을 분산시킵니다. 앱이 제한율 이상으로 일관되게 데이터를 보내는 경우 일부 데이터가 삭제됩니다. (ASP.NET, Java 및 JavaScript SDK는 이러한 방식으로 데이터 재전송을 시도합니다. SDK는 제한된 데이터를 제거하기만 합니다.) 제한이 발생하는 경우 이를 경고하는 알림이 표시됩니다.
+
+## <a name="reduce-your-data-volume"></a>데이터 볼륨 줄이기
+
 다음 작업을 수행하여 데이터 볼륨을 줄일 수 있습니다.
 
 * [샘플링](../../azure-monitor/app/sampling.md)을 사용합니다. 이 기술은 메트릭을 기울이지 않고 데이터의 속도를 줄입니다. 검색에서 관련된 항목 간을 탐색하는 기능을 손실하지 않습니다. 서버 앱에서는 샘플링이 자동으로 수행됩니다.

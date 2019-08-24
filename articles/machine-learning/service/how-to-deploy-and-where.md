@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 08/06/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: acb3717f0e71ca1e67f1ddec79a259935f6cc539
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: a4146e20efae87287b77687e4a1d3b0196cb1c95
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69897662"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997956"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning Services를 사용하여 모델 배포
 
@@ -416,7 +416,20 @@ def run(request):
 
 유추 구성에서는 예측을 만들도록 모델을 구성 하는 방법을 설명 합니다. 이 구성은 입력 스크립트에 포함 되지 않습니다. 항목 스크립트를 참조 하 고 배포에 필요한 모든 리소스를 찾는 데 사용 됩니다. 나중에 모델을 배포할 때 사용 됩니다.
 
-다음 예제에서는 유추 구성을 만드는 방법을 보여 줍니다. 이 구성은 런타임, 항목 스크립트 및 conda 환경 파일 (선택 사항)을 지정 합니다.
+유추 구성은 Azure Machine Learning 환경을 사용 하 여 배포에 필요한 소프트웨어 종속성을 정의할 수 있습니다. 환경을 사용 하 여 교육 및 배포에 필요한 소프트웨어 종속성을 만들고, 관리 하 고, 재사용할 수 있습니다. 다음 예제에서는 작업 영역에서 환경을 로드 한 다음이를 유추 구성과 함께 사용 하는 방법을 보여 줍니다.
+
+```python
+from azureml.core import Environment
+from azureml.core.model import InferenceConfig
+
+deploy_env = Environment.get(workspace=ws,name="myenv",version="1")
+inference_config = InferenceConfig(entry_script="x/y/score.py",
+                                   environment=deploy_env)
+```
+
+환경에 대 한 자세한 내용은 [교육 및 배포를 위한 환경 만들기 및 관리](how-to-use-environments.md)를 참조 하세요.
+
+환경을 사용 하지 않고 종속성을 직접 지정할 수도 있습니다. 다음 예제에서는 conda 파일에서 소프트웨어 종속성을 로드 하는 유추 구성을 만드는 방법을 보여 줍니다.
 
 ```python
 from azureml.core.model import InferenceConfig
@@ -468,10 +481,40 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 from azureml.core.webservice import AciWebservice, AksWebservice, LocalWebservice
 ```
 
-> [!TIP]
-> 모델을 서비스로 배포 하기 전에이를 프로 파일링 하 여 최적의 CPU 및 메모리 요구 사항을 확인 하는 것이 좋습니다. SDK 또는 CLI를 사용 하 여 모델을 프로 파일링 할 수 있습니다. 자세한 내용은 [profile ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-) 및 [az ml model profile](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-profile) reference를 참조 하세요.
->
-> 모델 프로 파일링 결과를 `Run` 개체로 내보냅니다. 자세한 내용은 [Modelprofile](https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py) 클래스 참조를 참조 하세요.
+#### <a name="profiling"></a>프로파일링
+
+모델을 서비스로 배포 하기 전에이를 프로 파일링 하 여 최적의 CPU 및 메모리 요구 사항을 확인 하는 것이 좋습니다. SDK 또는 CLI를 사용 하 여 모델을 프로 파일링 할 수 있습니다. 다음 예제에서는 SDK에서 프로 파일링을 사용 하는 방법을 보여 줍니다.
+
+> [!IMPORTANT]
+> 프로 파일링을 사용 하는 경우 사용자가 제공 하는 유추 구성은 Azure Machine Learning 환경을 참조할 수 없습니다. 대신 `conda_file` 개체`InferenceConfig` 의 매개 변수를 사용 하 여 소프트웨어 종속성을 정의 합니다.
+
+```python
+import json
+test_sample = json.dumps({'data': [
+    [1,2,3,4,5,6,7,8,9,10]
+]})
+
+profile = Model.profile(ws, "profilemymodel", [model], inference_config, test_data)
+profile.wait_for_profiling(true)
+profiling_results = profile.get_results()
+print(profiling_results)
+```
+
+이 코드는 다음 텍스트와 유사한 결과를 표시 합니다.
+
+```python
+{'cpu': 1.0, 'memoryInGB': 0.5}
+```
+
+모델 프로 파일링 결과를 `Run` 개체로 내보냅니다.
+
+CLI에서 프로 파일링을 사용 하는 방법에 대 한 자세한 내용은 [az ml model profile](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-profile)을 참조 하세요.
+
+자세한 내용은 다음 참조 문서를 참조 하세요.
+
+* [ModelProfile](https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py)
+* [profile ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--model~s--inference-config--input-data-)
+* [유추 구성 파일 스키마](reference-azure-machine-learning-cli.md#inference-configuration-schema)
 
 ## <a name="deploy-to-target"></a>대상에 배포
 
@@ -742,7 +785,136 @@ Azure Machine Learning 계산을 사용한 일괄 처리 유추 연습은 [일�
 * [https://github.com/Microsoft/MLOps](https://github.com/Microsoft/MLOps)
 * [https://github.com/Microsoft/MLOpsPython](https://github.com/microsoft/MLOpsPython)
 
+## <a name="package-models"></a>패키지 모델
+
+경우에 따라 모델을 배포 하지 않고 Docker 이미지를 만들 수 있습니다. 예를 들어 [Azure App Service 배포](how-to-deploy-app-service.md)를 계획 하는 경우입니다. 또는 이미지를 다운로드 하 고 로컬 Docker 설치에서 실행할 수 있습니다. 이미지를 빌드하고 검사 하 고 수정 하 고 수동으로 빌드하는 데 사용 되는 파일을 다운로드할 수도 있습니다.
+
+모델 패키징을 사용 하면 두 작업을 모두 수행할 수 있습니다. 모델을 웹 서비스로 호스트 하는 데 필요한 모든 자산을 패키지 하 고 완전히 빌드된 Docker 이미지 또는 하나를 빌드하는 데 필요한 파일을 다운로드할 수 있습니다. 모델 패키징을 사용 하는 방법에는 다음 두 가지가 있습니다.
+
+* __패키지 된 모델 다운로드__: 웹 서비스로 호스트 하는 데 필요한 모델 및 기타 파일을 포함 하는 Docker 이미지를 다운로드 합니다.
+* __Dockerfile 생성__: Docker 이미지를 작성 하는 데 필요한 dockerfile, model, entry script 및 기타 자산을 다운로드 합니다. 그런 다음 이미지를 로컬로 빌드하기 전에 파일을 검사 하거나 변경할 수 있습니다.
+
+두 패키지 모두 로컬 Docker 이미지를 가져오는 데 사용할 수 있습니다. 
+
+> [!TIP]
+> 패키지를 만드는 것은 등록 된 모델 및 유추 구성을 사용 하므로 모델을 배포 하는 것과 비슷합니다.
+
+> [!IMPORTANT]
+> 완전히 빌드된 이미지를 다운로드 하거나 로컬로 이미지를 작성 하는 등의 기능을 사용 하려면 개발 환경에 [Docker](https://www.docker.com) 를 설치 해야 합니다.
+
+### <a name="download-a-packaged-model"></a>패키지 된 모델 다운로드
+
+다음 예제에서는 작업 영역에 대 한 Azure Container Registry에 등록 된 이미지를 빌드하는 방법을 보여 줍니다.
+
+```python
+package = Model.package(ws, [model], inference_config)
+package.wait_for_creation(show_output=True)
+```
+
+패키지를 만든 후를 사용 `package.pull()` 하 여 이미지를 로컬 Docker 환경으로 끌어올 수 있습니다. 이 명령의 출력에 이미지 이름이 표시 됩니다. `Status: Downloaded newer image for myworkspacef78fd10.azurecr.io/package:20190822181338` )을 입력합니다. 다운로드 한 후 `docker images` 명령을 사용 하 여 로컬 이미지를 나열 합니다.
+
+```text
+REPOSITORY                               TAG                 IMAGE ID            CREATED             SIZE
+myworkspacef78fd10.azurecr.io/package    20190822181338      7ff48015d5bd        4 minutes ago       1.43GB
+```
+
+이 이미지를 사용 하 여 로컬 컨테이너를 시작 하려면 다음 명령을 사용 하 여 셸 또는 명령줄에서 명명 된 컨테이너를 시작 합니다. 다음 `<imageid>` 명령`docker images` 에서 반환 된 이미지 ID로 값을 바꿉니다.
+
+```bash
+docker run -p 6789:5001 --name mycontainer <imageid>
+```
+
+이 명령은 라는 `myimage`최신 버전의 이미지를 시작 합니다. 6789의 로컬 포트를 웹 서비스가 수신 대기 하는 컨테이너 (5001)의 포트에 매핑합니다. 또한 컨테이너에 이름을 `mycontainer` 할당 하 여 더 쉽게 중지할 수 있습니다. 시작 되 면에 `http://localhost:6789/score`요청을 제출할 수 있습니다.
+
+### <a name="generate-dockerfile-and-dependencies"></a>Dockerfile 및 종속성 생성
+
+다음 예제에서는 이미지를 로컬에 빌드하는 데 필요한 dockerfile, model 및 기타 자산을 다운로드 하는 방법을 보여 줍니다. 매개 `generate_dockerfile=True` 변수는 완전히 빌드된 이미지가 아니라 파일을 원하는 것으로 표시 합니다.
+
+```python
+package = Model.package(ws, [model], inference_config, generate_dockerfile=True)
+package.wait_for_creation(show_output=True)
+# Download the package
+package.save("./imagefiles")
+# Get the Azure Container Registry that the model/dockerfile uses
+acr=package.get_container_registry()
+print("Address:", acr.address)
+print("Username:", acr.username)
+print("Password:", acr.password)
+```
+
+이 코드는 `imagefiles` 디렉터리에 이미지를 빌드하는 데 필요한 파일을 다운로드 합니다. 저장 파일에 포함 된 dockerfile은 Azure Container Registry에 저장 된 기본 이미지를 참조 합니다. 로컬 Docker 설치에서 이미지를 작성 하는 경우 주소, 사용자 이름 및 암호를 사용 하 여이 레지스트리를 인증 해야 합니다. 로컬 Docker 설치를 사용 하 여 이미지를 빌드하려면 다음 단계를 사용 합니다.
+
+1. 셸 또는 명령줄 세션에서 다음 명령을 사용 하 여 Azure Container Registry에서 Docker를 인증 합니다. , `<address>`및 `<username>` `package.get_container_registry()`을를 사용 하 여 검색 된 값으로 바꿉니다. `<password>`
+
+    ```bash
+    docker login <address> -u <username> -p <password>
+    ```
+
+2. 이미지를 빌드하려면 다음 명령을 사용 합니다. 를 `<imagefiles>` 파일을 `package.save()` 저장 한 디렉터리의 경로로 바꿉니다.
+
+    ```bash
+    docker build --tag myimage <imagefiles>
+    ```
+
+    이 명령은 이미지 이름을로 `myimage`설정 합니다.
+
+이미지가 빌드 되었는지 확인 하려면 `docker images` 명령을 사용 합니다. 목록에 `myimage` 이미지가 표시 됩니다.
+
+```text
+REPOSITORY      TAG                 IMAGE ID            CREATED             SIZE
+<none>          <none>              2d5ee0bf3b3b        49 seconds ago      1.43GB
+myimage         latest              739f22498d64        3 minutes ago       1.43GB
+```
+
+이 이미지를 기반으로 새 컨테이너를 시작 하려면 다음 명령을 사용 합니다.
+
+```bash
+docker run -p 6789:5001 --name mycontainer myimage:latest
+```
+
+이 명령은 라는 `myimage`최신 버전의 이미지를 시작 합니다. 6789의 로컬 포트를 웹 서비스가 수신 대기 하는 컨테이너 (5001)의 포트에 매핑합니다. 또한 컨테이너에 이름을 `mycontainer` 할당 하 여 더 쉽게 중지할 수 있습니다. 시작 되 면에 `http://localhost:6789/score`요청을 제출할 수 있습니다.
+
+### <a name="example-client-to-test-the-local-container"></a>로컬 컨테이너를 테스트 하는 예제 클라이언트
+
+다음 코드는 컨테이너에서 사용할 수 있는 Python 클라이언트의 예입니다.
+
+```python
+import requests
+import json
+
+# URL for the web service
+scoring_uri = 'http://localhost:6789/score'
+
+# Two sets of data to score, so we get two results back
+data = {"data":
+        [
+            [ 1,2,3,4,5,6,7,8,9,10 ],
+            [ 10,9,8,7,6,5,4,3,2,1 ]
+        ]
+        }
+# Convert to JSON string
+input_data = json.dumps(data)
+
+# Set the content type
+headers = {'Content-Type': 'application/json'}
+
+# Make the request and display the response
+resp = requests.post(scoring_uri, input_data, headers=headers)
+print(resp.text)
+```
+
+다른 프로그래밍 언어의 다른 클라이언트 예제는 [웹 서비스로 배포 된 모델 사용](how-to-consume-web-service.md)을 참조 하세요.
+
+### <a name="stop-the-docker-container"></a>Docker 컨테이너를 중지 합니다.
+
+컨테이너를 중지 하려면 다른 셸 또는 명령줄에서 다음 명령을 사용 합니다.
+
+```bash
+docker kill mycontainer
+```
+
 ## <a name="clean-up-resources"></a>리소스 정리
+
 배포된 웹 서비스를 삭제하려면 `service.delete()`를 사용합니다.
 등록된 모델을 삭제하려면 `model.delete()`를 사용합니다.
 

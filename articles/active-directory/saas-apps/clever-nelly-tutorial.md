@@ -97,7 +97,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     | 프로덕션 | `https://secure.elephantsdontforget.com/plato/callback?client_name=SAML2Client` |
     | | |
 
-1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
+1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
     **로그온 URL** 텍스트 상자에 다음 URL을 입력합니다.
 

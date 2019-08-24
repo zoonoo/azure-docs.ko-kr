@@ -15,7 +15,7 @@ ms.locfileid: "67331411"
 ---
 # <a name="quickstart-create-and-encrypt-a-linux-virtual-machine-in-azure-with-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure에서 Linux 가상 머신 만들기 및 암호화
 
-PowerShell 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure PowerShell 모듈이 사용됩니다. 이 빠른 시작에서는 Azure PowerShell 모듈을 사용하여 Linux 가상 머신을 만들고 암호화 키 저장소용 Key Vault를 만들고 VM을 암호화하는 방법을 보여 줍니다. 이 빠른 시작에서는 Canonical 및 VM Standard_D2S_V3 크기의 Ubuntu 16.04 LTS 마켓플레이스 이미지를 사용합니다. 
+PowerShell 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure PowerShell 모듈이 사용됩니다. 이 빠른 시작에서는 Azure PowerShell 모듈을 사용하여 Linux 가상 머신을 만들고 암호화 키 스토리지용 Key Vault를 만들고 VM을 암호화하는 방법을 보여 줍니다. 이 빠른 시작에서는 Canonical 및 VM Standard_D2S_V3 크기의 Ubuntu 16.04 LTS 마켓플레이스 이미지를 사용합니다. 
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 

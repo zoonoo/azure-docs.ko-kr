@@ -8,18 +8,15 @@ ms.author: spelluru
 ms.date: 07/09/2019
 ms.topic: article
 ms.service: event-hubs
-ms.openlocfilehash: 003e68b36ff71fb2991cf087ef33f72aba73a8be
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 531426656fe833752c9c4685688c00de3894895b
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68233971"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991939"
 ---
-# <a name="process-data-from-your-event-hub-using-azure-stream-analytics-preview"></a>Azure Stream Analytics를 사용 하 여 이벤트 허브에서 데이터 처리 (미리 보기)
+# <a name="process-data-from-your-event-hub-using-azure-stream-analytics"></a>Azure Stream Analytics를 사용 하 여 이벤트 허브에서 데이터 처리 
 Azure Stream Analytics 서비스를 사용 하면 Azure Event Hubs에서 스트리밍 데이터를 쉽게 수집, 처리 및 분석할 수 있으므로 강력한 통찰력을 통해 실시간 작업을 지원할 수 있습니다. 이러한 통합을 통해 핫 경로 분석 파이프라인을 신속 하 게 만들 수 있습니다. Azure Portal를 사용 하 여 들어오는 데이터를 시각화 하 고 Stream Analytics 쿼리를 작성할 수 있습니다. 쿼리가 준비 되 면 몇 번의 클릭 만으로 프로덕션으로 이동할 수 있습니다. 
-
-> [!NOTE]
-> 이 기능은 현재 미리 보기로 제공됩니다. 
 
 ## <a name="key-benefits"></a>주요 이점
 Azure Event Hubs 및 Azure Stream Analytics 통합의 주요 이점은 다음과 같습니다. 

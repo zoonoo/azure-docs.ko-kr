@@ -1,6 +1,6 @@
 ---
-title: Azure 빠른 시작 - Azure CLI를 사용하여 개체 저장소에 Blob 만들기 | Microsoft Docs
-description: 이 빠른 시작에서는 개체(Blob) 저장소에서 Azure CLI를 사용합니다. 그런 다음, CLI를 사용하여 Azure Storage에 BLOB을 업로드하고, BLOB을 다운로드하고, 컨테이너의 BLOB을 나열합니다.
+title: Azure 빠른 시작 - Azure CLI를 사용하여 개체 스토리지에 Blob 만들기 | Microsoft Docs
+description: 이 빠른 시작에서는 개체(Blob) 스토리지에서 Azure CLI를 사용합니다. 그런 다음, CLI를 사용하여 Azure Storage에 BLOB을 업로드하고, BLOB을 다운로드하고, 컨테이너의 BLOB을 나열합니다.
 services: storage
 author: tamram
 ms.custom: mvc
@@ -108,7 +108,7 @@ azcopy \
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 빠른 시작에서 만든 저장소 계정을 비롯하여 리소스 그룹의 어떠한 리소스도 더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group) 명령으로 리소스 그룹을 삭제합니다.
+이 빠른 시작에서 만든 스토리지 계정을 비롯하여 리소스 그룹의 어떠한 리소스도 더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group) 명령으로 리소스 그룹을 삭제합니다.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

@@ -66,7 +66,7 @@ PowerShell 스크립트를 사용하여 이러한 단계를 자동화하려면 [
 
 [BACPAC 파일](https://armtutorials.blob.core.windows.net/sqlextensionbacpac/SQLDatabaseExtension.bacpac)을 다운로드하고 **SQLDatabaseExtension.bacpac**라는 동일한 이름으로 로컬 컴퓨터에 파일을 저장합니다.
 
-### <a name="create-a-storage-account"></a>저장소 계정 만들기
+### <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
 1. 다음 이미지를 선택하여 Azure Portal에서 Resource Manager 템플릿을 엽니다.
 
@@ -89,7 +89,7 @@ PowerShell 스크립트를 사용하여 이러한 단계를 자동화하려면 [
 
 파일을 업로드하려면 먼저 Blob 컨테이너가 필요합니다.
 
-1. 저장소 계정을 선택하여 엽니다. 리소스 그룹에 나열된 스토리지 계정이 표시됩니다. 스토리지 계정 이름은 다음 스크린샷에 표시된 것과 다릅니다.
+1. 스토리지 계정을 선택하여 엽니다. 리소스 그룹에 나열된 스토리지 계정이 표시됩니다. 스토리지 계정 이름은 다음 스크린샷에 표시된 것과 다릅니다.
 
     ![Resource Manager 자습서 스토리지 계정](./media/resource-manager-tutorial-secure-artifacts/resource-manager-tutorial-storage-account.png)
 

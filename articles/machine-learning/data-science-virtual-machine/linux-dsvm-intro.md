@@ -65,7 +65,7 @@ Linux 데이터 과학 Virtual Machine을 사용하면 이러한 부담을 상�
 Linux 데이터 과학 Virtual Machine을 만들려면 먼저 다음이 있어야 합니다.
 
 * **Azure 구독**: 다운로드하려면 [Azure 평가판 받기](https://azure.microsoft.com/free/)를 참조하세요.
-* **Azure 스토리지 계정**: 계정을 만들려면 [Azure 스토리지 계정 만들기](../../storage/common/storage-quickstart-create-account.md)를 참조하세요. 기존 계정을 사용하지 않으려는 경우에는 VM 만들기 프로세스의 일부분으로 저장소 계정을 만들 수 있습니다.
+* **Azure 스토리지 계정**: 계정을 만들려면 [Azure 스토리지 계정 만들기](../../storage/common/storage-quickstart-create-account.md)를 참조하세요. 기존 계정을 사용하지 않으려는 경우에는 VM 만들기 프로세스의 일부분으로 스토리지 계정을 만들 수 있습니다.
 
 ## <a name="create-your-linux-data-science-virtual-machine"></a>Linux 데이터 과학 Virtual Machine 만들기
 Linux 데이터 과학 Virtual Machine의 인스턴스를 만드는 단계는 다음과 같습니다.

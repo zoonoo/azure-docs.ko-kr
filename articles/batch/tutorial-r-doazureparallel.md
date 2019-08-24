@@ -26,7 +26,7 @@ R 세션에서 Azure Batch를 직접 사용할 수 있는 간단한 R 패키지�
  
 
 > [!div class="checklist"]
-> * doAzureParallel을 설치하고 배치 계정 및 저장소 계정에 액세스하도록 구성
+> * doAzureParallel을 설치하고 배치 계정 및 스토리지 계정에 액세스하도록 구성
 > * R 세션에 대한 병렬 백 엔드로 Batch 풀 만들기
 > * 풀에서 병렬 시뮬레이션 샘플 실행
 
@@ -68,7 +68,7 @@ library(doAzureParallel)
 generateCredentialsConfig("credentials.json") 
 ``` 
 
-이 파일을 배치 계정 및 저장소 계정의 이름과 키로 채웁니다. `githubAuthenticationToken` 설정은 변경하지 않고 그대로 둡니다.
+이 파일을 배치 계정 및 스토리지 계정의 이름과 키로 채웁니다. `githubAuthenticationToken` 설정은 변경하지 않고 그대로 둡니다.
 
 완료되면 자격 증명 파일은 다음과 비슷합니다. 
 
@@ -260,7 +260,7 @@ stopCluster(cluster)
 이 자습서에서는 다음을 수행하는 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
-> doAzureParallel을 설치하고 배치 계정 및 저장소 계정에 액세스하도록 구성
+> doAzureParallel을 설치하고 배치 계정 및 스토리지 계정에 액세스하도록 구성
 > * R 세션에 대한 병렬 백 엔드로 Batch 풀 만들기
 > * 풀에서 병렬 시뮬레이션 샘플 실행
 

@@ -72,7 +72,7 @@ ms.locfileid: "67838437"
 
 초대를 수락하지 않으려면 *거부*를 선택합니다. 
 
-## <a name="configure-storage"></a>저장소 구성
+## <a name="configure-storage"></a>스토리지 구성
 *대상 스토리지 설정* 아래에서 데이터를 받도록 하려는 구독, 리소스 그룹 및 스토리지 계정을 선택합니다. 
 
 ![대상 스토리지 설정](./media/target-storage-settings.png "대상 스토리지") 

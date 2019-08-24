@@ -26,7 +26,7 @@ Azure Cosmos DB의 Gremlin API는 그래프 데이터베이스 알고리즘의 �
 
 ## <a name="features-of-azure-cosmos-db-graph-database"></a>Azure Cosmos DB 그래프 데이터베이스의 기능
  
-Azure Cosmos DB는 전역 배포, 저장소 및 처리량의 탄력적인 확장, 자동 인덱싱 및 쿼리, 튜닝 가능한 일관성 수준을 제공하고 TinkerPop 표준을 지원하는 완전히 관리되는 그래프 데이터베이스입니다. 
+Azure Cosmos DB는 전역 배포, 스토리지 및 처리량의 탄력적인 확장, 자동 인덱싱 및 쿼리, 튜닝 가능한 일관성 수준을 제공하고 TinkerPop 표준을 지원하는 완전히 관리되는 그래프 데이터베이스입니다. 
 
 Azure Cosmos DB Gremlin API에서 제공하는 차별화된 기능은 다음과 같습니다.
 
@@ -99,7 +99,7 @@ Azure Cosmos DB Gremlin API에서 제공하는 차별화된 기능은 다음과 
 그래프 데이터베이스는 스키마 또는 제한된 데이터 모델에 대한 종속성이 없으므로 일반적으로 NoSQL 또는 비관계형 데이터베이스 범주에 포함됩니다. 이처럼 스키마가 없으므로 연결된 구조를 자연스럽고 효율적으로 모델링 및 저장할 수 있습니다. 
 
 ### <a name="gremlin-by-example"></a>Gremlin 예제
-샘플 그래프를 사용하여 Gremlin에서 쿼리를 표현할 수 있는 방법을 살펴봅니다. 다음 그림에서는 사용자, 관심 영역 및 디바이스에 대한 데이터를 그래프 형태로 관리하는 비즈니스 응용 프로그램을 보여줍니다.  
+샘플 그래프를 사용하여 Gremlin에서 쿼리를 표현할 수 있는 방법을 살펴봅니다. 다음 그림에서는 사용자, 관심 영역 및 디바이스에 대한 데이터를 그래프 형태로 관리하는 비즈니스 애플리케이션을 보여줍니다.  
 
 ![사람, 디바이스 및 관심 분야를 보여주는 샘플 데이터베이스](./media/gremlin-support/sample-graph.png) 
 

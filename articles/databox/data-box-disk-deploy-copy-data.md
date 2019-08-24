@@ -34,7 +34,7 @@ ms.locfileid: "68414650"
 - [자습서: Azure Data Box Disk 설치 및 구성](data-box-disk-deploy-set-up.md)을 완료했습니다.
 - 디스크를 잠금 해제하고 클라이언트 컴퓨터에 연결합니다.
 - 데이터를 디스크에 복사하는 데 사용되는 클라이언트 컴퓨터에서 [지원되는 운영 체제](data-box-disk-system-requirements.md##supported-operating-systems-for-clients)를 실행해야 합니다.
-- 데이터의 의도된 저장소 유형이 [지원되는 저장소 유형](data-box-disk-system-requirements.md#supported-storage-types-for-upload)과 일치하는지 확인합니다.
+- 데이터의 의도된 스토리지 유형이 [지원되는 스토리지 유형](data-box-disk-system-requirements.md#supported-storage-types-for-upload)과 일치하는지 확인합니다.
 - [Azure 개체 크기 제한의 관리 디스크 제한](data-box-disk-limits.md#azure-object-size-limits)을 검토합니다.
 
 
@@ -42,8 +42,8 @@ ms.locfileid: "68414650"
 
 데이터를 디스크에 복사하기 전에 다음 사항을 고려합니다.
 
-- 적절한 데이터 형식에 해당하는 폴더에 데이터를 복사하는지 확인해야 합니다. 예를 들어 블록 Blob에 대한 폴더에 블록 Blob 데이터를 복사합니다. 데이터 형식이 적절한 폴더(저장소 형식)와 일치하지 않는 경우 이후 단계에서 Azure에 대한 데이터 업로드가 실패합니다.
-- 데이터를 복사하는 동안 데이터 크기가 [Azure 저장소 및 Data Box Disk 제한](data-box-disk-limits.md)에 설명된 크기 제한을 준수하는지 확인합니다.
+- 적절한 데이터 형식에 해당하는 폴더에 데이터를 복사하는지 확인해야 합니다. 예를 들어 블록 Blob에 대한 폴더에 블록 Blob 데이터를 복사합니다. 데이터 형식이 적절한 폴더(스토리지 형식)와 일치하지 않는 경우 이후 단계에서 Azure에 대한 데이터 업로드가 실패합니다.
+- 데이터를 복사하는 동안 데이터 크기가 [Azure Storage 및 Data Box Disk 제한](data-box-disk-limits.md)에 설명된 크기 제한을 준수하는지 확인합니다.
 - Data Box Disk에 의해 업로드되는 데이터가 Data Box Disk 외부의 다른 애플리케이션에 의해 동시에 업로드되는 경우 업로드 작업이 실패하고 데이터 손상이 발생할 수 있습니다.
 
    > [!IMPORTANT]
@@ -72,7 +72,7 @@ ms.locfileid: "68414650"
  
 2. *BlockBlob* 폴더에서 블록 Blob으로 가져와야 하는 데이터를 복사합니다. 마찬가지로 VHD/VHDX와 같은 데이터를 *PageBlob* 폴더, *AzureFile* 폴더로 복사합니다.
 
-    BlockBlob 및 PageBlob 폴더 아래에 각 하위 폴더에 대한 Azure 저장소 계정에 컨테이너가 만들어집니다. BlockBlob 및 PageBlob 폴더 아래의 모든 파일은 Azure Storage 계정 아래의 기본 컨테이너 `$root`로 복사됩니다. `$root` 컨테이너 있는 모든 파일은 항상 블록 Blob으로 업로드됩니다.
+    BlockBlob 및 PageBlob 폴더 아래에 각 하위 폴더에 대한 Azure Storage 계정에 컨테이너가 만들어집니다. BlockBlob 및 PageBlob 폴더 아래의 모든 파일은 Azure Storage 계정 아래의 기본 컨테이너 `$root`로 복사됩니다. `$root` 컨테이너 있는 모든 파일은 항상 블록 Blob으로 업로드됩니다.
 
    *AzureFile* 폴더 내의 폴더로 파일을 복사합니다. *AzureFile* 폴더 내의 하위 폴더는 파일 공유를 만듭니다. *AzureFile* 폴더로 직접 복사된 모든 파일에 오류가 발생하고 블록 Blob으로 업로드됩니다.
 
@@ -212,7 +212,7 @@ ms.locfileid: "68414650"
  
 5. `SampleConfig.json` 파일을 수정합니다.
  
-   - 작업 이름을 제공합니다. Data Box Disk에 폴더가 만들어지고 이 디스크와 연결된 Azure 저장소 계정의 컨테이너가 됩니다. 작업 이름은 Azure 컨테이너 명명 규칙을 따라야 합니다. 
+   - 작업 이름을 제공합니다. Data Box Disk에 폴더가 만들어지고 이 디스크와 연결된 Azure Storage 계정의 컨테이너가 됩니다. 작업 이름은 Azure 컨테이너 명명 규칙을 따라야 합니다. 
    - `SampleConfigFile.json`에서 경로 형식을 기록하는 소스 경로를 제공합니다. 
    - 대상 디스크에 해당하는 드라이브 문자를 입력합니다. 소스 경로의 데이터를 가져다가 여러 디스크에 복사됩니다.
    - 로그 파일에 대한 경로를 제공합니다. 기본적으로 `.exe` 파일이 있는 현재 디렉터리로 전송됩니다.
@@ -301,7 +301,7 @@ Data Box Disk를 반환하고 Azure에 대한 데이터 업로드를 확인하�
 1. 잠금 해제된 드라이브의 콘텐츠를 봅니다. 드라이브에서 사전 생성된 폴더 및 하위 폴더 목록은 Data Box Disk 주문 시 선택한 옵션에 따라 다릅니다.
 2. 적절한 데이터 형식에 해당하는 폴더에 데이터를 복사해야 합니다. 예를 들어 비정형 데이터는 *BlockBlob* 폴더에 복사하고, VHD 또는 VHDX 데이터는 *PageBlob* 폴더에 복사하고, 파일은 *AzureFile*에 복사합니다. 데이터 형식이 적절한 폴더(스토리지 형식)와 일치하지 않는 경우 이후 단계에서 Azure에 대한 데이터 업로드가 실패합니다.
 
-    - BlockBlob 및 PageBlob 폴더 아래에 각 하위 폴더에 대한 Azure 저장소 계정에 컨테이너가 만들어집니다. *BlockBlob* 및 *PageBlob* 폴더 아래의 모든 파일은 Azure Storage 계정 아래의 기본 컨테이너 $root로 복사됩니다. 
+    - BlockBlob 및 PageBlob 폴더 아래에 각 하위 폴더에 대한 Azure Storage 계정에 컨테이너가 만들어집니다. *BlockBlob* 및 *PageBlob* 폴더 아래의 모든 파일은 Azure Storage 계정 아래의 기본 컨테이너 $root로 복사됩니다. 
     - $root 컨테이너 있는 모든 파일은 항상 블록 Blob으로 업로드됩니다.
     - *AzureFile* 폴더 내의 폴더로 파일을 복사합니다. *AzureFile* 폴더 내의 하위 폴더는 파일 공유를 만듭니다. *AzureFile* 폴더로 직접 복사된 모든 파일에 오류가 발생하고 블록 Blob으로 업로드됩니다.
     - 파일 및 폴더가 루트 디렉터리에 있는 경우 데이터 복사를 시작하기 전에 다른 폴더로 이동해야 합니다.

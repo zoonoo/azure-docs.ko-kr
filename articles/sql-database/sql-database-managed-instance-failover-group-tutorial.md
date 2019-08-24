@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: sashan, carlrab
 manager: jroth
 ms.date: 06/27/2019
-ms.openlocfilehash: e4b7de3931c0d3508e5af6aa6bf85dfa18641aee
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 059a614dff7fc0eab5419e3e2ffdeaeecb79ad99
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624977"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981378"
 ---
 # <a name="tutorial-add-a-sql-database-managed-instance-to-a-failover-group"></a>자습서: 장애 조치 (failover) 그룹에 SQL Database 관리 되는 인스턴스 추가
 
@@ -47,7 +47,7 @@ ms.locfileid: "69624977"
 1. **만들기** 를 선택 하 여 **SQL 관리 되는 인스턴스** 생성 페이지를 시작 합니다. 
 1. **Azure SQL Database Managed Instance 만들기** 페이지의 **기본 사항** 탭에서
     1. **프로젝트 세부 정보**아래의 드롭다운에서 **구독** 을 선택한 다음 새 리소스 그룹을 **만들도록** 선택 합니다. 리소스 그룹의 이름 (예: `myResourceGroup`)을 입력 합니다. 
-    1. **Managed Instance 세부 정보**에서 관리 되는 인스턴스의 이름 및 관리 되는 인스턴스를 배포할 영역을 제공 합니다. [쌍을 이루는 지역이](/azure/best-practices-availability-paired-regions)있는 지역을 선택 해야 합니다. **계산 + 저장소** 는 기본값을 유지 합니다. 
+    1. **Managed Instance 세부 정보**에서 관리 되는 인스턴스의 이름 및 관리 되는 인스턴스를 배포할 영역을 제공 합니다. **계산 + 저장소** 는 기본값을 유지 합니다. 
     1. **관리자 계정**에서와 같은 `azureuser`관리자 로그인 및 복잡 한 관리자 암호를 제공 합니다. 
 
     ![기본 MI 만들기](media/sql-database-managed-instance-failover-group-tutorial/primary-sql-mi-values.png)
@@ -79,7 +79,7 @@ ms.locfileid: "69624977"
     | **이름** |  와 `vnet-sql-mi-secondary`같은 보조 관리 되는 인스턴스에서 사용할 가상 네트워크의 이름입니다. |
     | **주소 공간** | 과 `10.128.0.0/16`같은 가상 네트워크의 주소 공간입니다. | 
     | **구독** | 기본 관리 되는 인스턴스 및 리소스 그룹이 상주 하는 구독입니다. |
-    | **Region** | 보조 관리 되는 인스턴스를 배포할 위치입니다. 이는 [쌍을 이루는 지역](/azure/best-practices-availability-paired-regions) 에서 기본 관리 되는 인스턴스에 있어야 합니다.  |
+    | **Region** | 보조 관리 되는 인스턴스를 배포할 위치입니다. |
     | **서브넷** | 서브넷의 이름입니다. `default`는 기본적으로 제공 됩니다. |
     | **주소 범위**| 서브넷의 주소 범위입니다. 이는와 `10.128.0.0/24`같이 기본 관리 되는 인스턴스의 가상 네트워크에서 사용 하는 서브넷 주소 범위와 달라 야 합니다.  |
     | &nbsp; | &nbsp; |
@@ -92,7 +92,6 @@ ms.locfileid: "69624977"
 
 두 번째 관리 되는 인스턴스는 다음을 수행 해야 합니다.
 - 비어 있어야 합니다. 
-- [쌍을 이루는 지역](/azure/best-practices-availability-paired-regions) 내에서 기본 관리 되는 인스턴스를 찾을 수 있습니다. 
 - 기본 관리 되는 인스턴스와 다른 서브넷 및 IP 범위를 포함 합니다. 
 
 보조 관리 되는 인스턴스를 만들려면 다음 단계를 수행 합니다. 
@@ -108,7 +107,7 @@ ms.locfileid: "69624977"
     | **구독** |  기본 관리 되는 인스턴스가 있는 구독입니다. |
     | **리소스 그룹**| 기본 관리 되는 인스턴스가 있는 리소스 그룹입니다. |
     | **관리되는 인스턴스 이름** | 새 보조 관리 되는 인스턴스의 이름입니다 (예:).`sql-mi-secondary`  | 
-    | **Region**| 보조 관리 되는 인스턴스의 [쌍을 이루는 지역](/azure/best-practices-availability-paired-regions) 위치입니다.  |
+    | **Region**| 보조 관리 되는 인스턴스의 위치입니다.  |
     | **Managed Instance 관리자 로그인** | 와 `azureuser`같이 새 보조 관리 되는 인스턴스에 사용할 로그인입니다. |
     | **암호** | 새 보조 관리 되는 인스턴스의 관리자 로그인에 사용 되는 복잡 한 암호입니다.  |
     | &nbsp; | &nbsp; |

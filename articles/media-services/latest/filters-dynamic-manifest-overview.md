@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 07/11/2019
 ms.author: juliako
-ms.openlocfilehash: bbbb570cc042d5faa16b66c42aef9792b24fdb12
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: dc9f59894da071e956283591cf7206bc371650b7
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854064"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991441"
 ---
 # <a name="pre-filtering-manifests-by-using-dynamic-packager"></a>동적 포장기를 사용 하 여 매니페스트 미리 필터링
 
@@ -48,7 +48,7 @@ REST 예제를 보려면 REST를 [사용 하 여 파일 업로드, 인코딩 및
 
 ### <a name="monitor-the-bitrate-of-a-video-stream"></a>비디오 스트림의 비트 전송률 모니터링
 
-[Azure Media Player 데모 페이지](https://aka.ms/azuremediaplayer)를 사용하여 비디오 스트림의 비트 전송률을 모니터링할 수 있습니다. 데모 페이지는 **진단 탭에** 진단 정보를 표시 합니다.
+[Azure Media Player 데모 페이지](https://aka.ms/azuremediaplayer)를 사용하여 비디오 스트림의 비트 전송률을 모니터링할 수 있습니다. 데모 페이지는 진단 탭에 진단 정보 를 표시 합니다.
 
 ![Azure Media Player 진단][amp_diagnostics]
  
@@ -107,7 +107,7 @@ ABR 스트리밍 프로토콜에 필터를 적용할 수 있습니다. HLS, MPEG
 
 ## <a name="adjusting-the-presentation-window-dvr"></a>프레젠테이션 창 (DVR) 조정
 
-현재 Azure Media Services는 기간을 5 분에서 25 시간 사이로 구성할 수 있는 순환 보관을 제공 합니다. 매니페스트 필터링을 사용하면 미디어를 삭제하지 않고도 보관 위에 롤링 DVR 창을 만들 수 있습니다. 브로드캐스터가 라이브 에지와 함께 이동하는 제한된 DVR 창을 제공하는 동시에 더 큰 보관 창을 유지하는 등의 여러 시나리오가 있습니다. 브로드캐스터는 DVR 창 외부의 데이터를 사용하여 클립을 강조하거나 여러 디바이스에 대해 서로 다른 DVR 창을 제공하려고 할 수 있습니다. 예를 들어 대부분의 모바일 장치는 큰 DVR 창을 처리 하지 않습니다. 모바일 장치의 경우 2 분 DVR 창을 사용할 수 있고 데스크톱 클라이언트의 경우 1 시간을 사용할 수 있습니다.
+현재 Azure Media Services는 기간을 1 분에서 25 시간 사이로 구성할 수 있는 순환 보관을 제공 합니다. 매니페스트 필터링을 사용하면 미디어를 삭제하지 않고도 보관 위에 롤링 DVR 창을 만들 수 있습니다. 브로드캐스터가 라이브 에지와 함께 이동하는 제한된 DVR 창을 제공하는 동시에 더 큰 보관 창을 유지하는 등의 여러 시나리오가 있습니다. 브로드캐스터는 DVR 창 외부의 데이터를 사용하여 클립을 강조하거나 여러 디바이스에 대해 서로 다른 DVR 창을 제공하려고 할 수 있습니다. 예를 들어 대부분의 모바일 디바이스는 큰 DVR 창을 처리하지 못합니다. 모바일 디바이스의 경우 2분, 데스크톱 클라이언트의 경우 1시간 동안 DVR 창을 표시할 수 있습니다.
 
 ![DVR 창][dvr_filter]
 

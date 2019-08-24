@@ -95,7 +95,7 @@ Machine Learning Studio에 포함된 샘플 데이터 세트의 목록은 [Azure
 모듈은 데이터에 대해 수행할 수 있는 알고리즘입니다. Machine Learning Studio에는 데이터 가져오기 함수부터 학습, 점수 매기기 및 유효성 검사 프로세스에 이르는 다양한 모듈이 있습니다. 포함된 모듈의 몇 가지 예제는 다음과 같습니다.
 
 * [ARFF로 변환][convert-to-arff] - .NET 직렬화된 데이터 세트를 ARFF(Attribute-Relation File Format) 형식으로 변환합니다.
-* [기본 통계 계산][elementary-statistics] - 평균, 표준 편차 등의 기본 통계를 계산합니다.
+* [기본 통계 컴퓨팅][elementary-statistics] - 평균, 표준 편차 등의 기본 통계를 컴퓨팅합니다.
 * [선형 회귀][linear-regression] - 온라인 기울기 하강 기반 선형 회귀 모델을 만듭니다.
 * [모델 점수 매기기][score-model] - 학습된 분류 또는 회귀 모델의 점수를 매깁니다.
 

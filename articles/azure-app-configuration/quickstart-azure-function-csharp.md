@@ -23,7 +23,7 @@ ms.locfileid: "68326573"
 ---
 # <a name="quickstart-create-an-azure-function-with-azure-app-configuration"></a>빠른 시작: Azure App Configuration으로 Azure 함수 만들기
 
-이 빠른 시작에서는 Azure App Configuration 서비스를 Azure 함수에 통합하여 코드와 별도로 애플리케이션 설정의 저장 및 관리를 중앙 집중화합니다.
+이 빠른 시작에서는 Azure App Configuration 서비스를 Azure 함수에 통합하여 코드와 별도로 애플리케이션 설정의 스토리지 및 관리를 중앙 집중화합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

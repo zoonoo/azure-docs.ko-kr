@@ -26,7 +26,7 @@ ms.locfileid: "68841426"
 # <a name="create-a-vm-with-a-virtual-hard-disk"></a>가상 하드 디스크를 사용하여 VM 만들기
 
 이 예제는 VHD를 사용하여 가상 머신을 만듭니다.
-리소스 그룹, 저장소 계정 및 컨테이너를 만들고 VHD를 컨테이너로 업로드하여 VM을 만듭니다.
+리소스 그룹, 스토리지 계정 및 컨테이너를 만들고 VHD를 컨테이너로 업로드하여 VM을 만듭니다.
 VM에 액세스할 수 있도록 SSH 공개 키를 사용자 공개 키로 바꿉니다.
 
 부팅 가능 VHD가 필요합니다. 스크립트는 `~/sample.vhd`를 검색합니다.
@@ -54,11 +54,11 @@ az group delete -n az-cli-vhd
 | 명령 | 메모 |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [az storage account list](https://docs.microsoft.com/cli/azure/storage/account) | 저장소 계정을 나열합니다. |
-| [az storage account check-name](https://docs.microsoft.com/cli/azure/storage/account) | 저장소 계정 이름이 유효하고 이미 존재하는 계정인지 확인합니다. |
-| [az storage account keys list](https://docs.microsoft.com/cli/azure/storage/account/keys) | 저장소 계정의 키를 나열합니다. |
+| [az storage account list](https://docs.microsoft.com/cli/azure/storage/account) | 스토리지 계정을 나열합니다. |
+| [az storage account check-name](https://docs.microsoft.com/cli/azure/storage/account) | 스토리지 계정 이름이 유효하고 이미 존재하는 계정인지 확인합니다. |
+| [az storage account keys list](https://docs.microsoft.com/cli/azure/storage/account/keys) | 스토리지 계정의 키를 나열합니다. |
 | [az storage blob exists](https://docs.microsoft.com/cli/azure/storage/blob) | Blob이 있는지 확인합니다. |
-| [az storage container create](https://docs.microsoft.com/cli/azure/storage/container) | 저장소 계정으로 컨테이너를 만듭니다. |
+| [az storage container create](https://docs.microsoft.com/cli/azure/storage/container) | 스토리지 계정으로 컨테이너를 만듭니다. |
 | [az storage blob upload](https://docs.microsoft.com/cli/azure/storage/blob) | VHD를 업로드하여 컨테이너에서 Blob을 만듭니다. |
 | [az vm list](https://docs.microsoft.com/cli/azure/vm) | `--query`와 함께 사용하여 VM 이름이 사용 중인지 확인합니다. | 
 | [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set) | 가상 머신을 만듭니다. |

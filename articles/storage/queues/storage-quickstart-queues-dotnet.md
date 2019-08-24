@@ -56,7 +56,7 @@ git clone https://github.com/Azure-Samples/storage-queues-dotnet-quickstart.git
 
 [!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]
 
-## <a name="configure-your-storage-connection-string"></a>저장소 연결 문자열 구성
+## <a name="configure-your-storage-connection-string"></a>스토리지 연결 문자열 구성
 
 애플리케이션을 실행하려면 스토리지 계정에 대한 연결 문자열을 제공해야 합니다. 이 애플리케이션 예제는 환경 변수의 연결 문자열을 읽어서 Azure Storage에 대한 요청 권한을 부여하는 데 사용합니다.
 

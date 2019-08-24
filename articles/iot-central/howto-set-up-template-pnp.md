@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 982ebf28a0f99a6eace2448676c934855cd99d1f
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: fd7cd8f73f602953573b7e6edab32bf2a6aecc05
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69879735"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69998113"
 ---
 # <a name="set-up-and-manage-a-device-template-preview-features"></a>장치 템플릿 설정 및 관리 (미리 보기 기능)
 
@@ -36,7 +36,7 @@ ms.locfileid: "69879735"
 > [!NOTE]
 > 작성자와 관리자만이 디바이스 템플릿을 만들고, 편집하고, 삭제할 수 있습니다. 모든 사용자는 기존 장치 템플릿의 **장치** 페이지에서 장치를 만들 수 있습니다.
 
-[IoT 플러그 앤 플레이](https://aka.ms/iot-pnp-docs) 를 사용 하면 IoT Central 포함 된 장치 코드를 작성 하지 않고도 장치를 통합할 수 있습니다. IoT 플러그 앤 플레이의 핵심은 장치 기능을 설명 하는 장치 기능 모델 스키마입니다. IoT Central 미리 보기 응용 프로그램에서 장치 템플릿은 이러한 IoT 플러그 앤 플레이 장치 기능 모델을 사용 합니다.
+[IoT 플러그 앤 플레이](../iot-pnp/overview-iot-plug-and-play.md) 를 사용 하면 IoT Central 포함 된 장치 코드를 작성 하지 않고도 장치를 통합할 수 있습니다. IoT 플러그 앤 플레이의 핵심은 장치 기능을 설명 하는 장치 기능 모델 스키마입니다. IoT Central 미리 보기 응용 프로그램에서 장치 템플릿은 이러한 IoT 플러그 앤 플레이 장치 기능 모델을 사용 합니다.
 
 빌더는 장치 템플릿을 만들기 위한 몇 가지 옵션을 사용할 수 있습니다.
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Notification Hubs를 사용하여 Xamarin.iOS 앱에 알림 푸시 | Microsoft Docs
-description: 이 자습서에서 Azure Notification Hubs를 사용하여 Xamarin iOS 응용 프로그램에 푸시 알림을 보내는 방법을 알아봅니다.
+description: 이 자습서에서 Azure Notification Hubs를 사용하여 Xamarin iOS 애플리케이션에 푸시 알림을 보내는 방법을 알아봅니다.
 services: notification-hubs
 keywords: ios 푸시 알림, 푸시 메시지, 푸시 알림, 푸시 메시지
 documentationcenter: xamarin
@@ -51,7 +51,7 @@ ms.locfileid: "68775030"
 * [Mac용 Visual Studio]
   
   > [!NOTE]
-  > iOS 푸시 알림에 대한 구성 요구 사항 때문에 시뮬레이터 대신 실제 iOS 장치(iPhone 또는 iPad)에서 애플리케이션 예제를 배포 및 테스트해야 합니다.
+  > iOS 푸시 알림에 대한 구성 요구 사항 때문에 시뮬레이터 대신 실제 iOS 디바이스(iPhone 또는 iPad)에서 애플리케이션 예제를 배포 및 테스트해야 합니다.
 
 먼저 이 자습서를 완료해야 Xamarin.iOS 앱에 대한 다른 모든 Notification Hubs 자습서를 진행할 수 있습니다.
 

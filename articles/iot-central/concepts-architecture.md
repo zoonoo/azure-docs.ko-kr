@@ -23,7 +23,7 @@ ms.locfileid: "69877518"
 
 ![최상위 아키텍처](media/concepts-architecture/architecture.png)
 
-## <a name="devices"></a>장치
+## <a name="devices"></a>디바이스
 
 디바이스는 Azure IoT Central 애플리케이션과 데이터를 교환합니다. 디바이스는 다음을 수행할 수 있습니다.
 

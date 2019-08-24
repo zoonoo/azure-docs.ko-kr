@@ -11,12 +11,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: b6414ac41b1bb43e3fe1470a7ae2b1358126003a
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: a14926dea576e0331cb8c0f8010f060f47faa3e7
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68569686"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991154"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>SQL을 사용하여 Azure Active Directory 인증 구성 및 관리
 
@@ -242,7 +242,7 @@ REST API를 사용하여 Azure Active Directory 관리자를 프로비전할 수
 
 또한 다음 CLI 명령을 호출하여 Azure AD 관리자를 구축할 수도 있습니다.
 
-| 명령 | 설명 |
+| 명령 | Description |
 | --- | --- |
 |[az sql server ad-admin create](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create) |Azure SQL Server 또는 Azure SQL Data Warehouse에 대한 Azure Active Directory 관리자를 프로비전합니다. (현재 구독 설정에서 수행되어야 함). |
 |[az sql server ad-admin delete](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-delete) |Azure SQL Server 또는 Azure SQL Data Warehouse에 대한 Azure Active Directory 관리자를 제거합니다. |
@@ -412,6 +412,9 @@ conn.Open();
 ### <a name="sqlcmd"></a>sqlcmd
 
 다음 문은 [다운로드 센터](https://go.microsoft.com/fwlink/?LinkID=825643)에서 사용할 수 있는 sqlcmd 버전 13.1을 사용하여 연결합니다.
+
+> [!NOTE]
+> `sqlcmd``-G` 에서 명령을 사용 하면 시스템 id에서 작동 하지 않으며 사용자 계정 로그인이 필요 합니다.
 
 ```cmd
 sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net  -G  

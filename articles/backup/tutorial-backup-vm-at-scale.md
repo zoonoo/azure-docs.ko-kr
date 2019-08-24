@@ -54,7 +54,7 @@ Recovery Services 자격 증명 모음은 보호 중인 가상 머신과 동일�
 
 Recovery Services 자격 증명 모음을 만드는 데 몇 분 정도 걸릴 수 있습니다. 포털의 오른쪽 위 영역에 있는 상태 알림을 모니터링합니다. 자격 증명 모음이 생성되면 Recovery Services 자격 증명 모음 목록에 표시됩니다.
 
-Recovery Services 자격 증명 모음을 만들면 기본적으로 자격 증명 모음에 지역 중복 저장소도 만들어집니다. 데이터 복원력을 제공하기 위해 지역 중복 저장소는 두 Azure 영역 간에 여러 번 데이터를 복제합니다.
+Recovery Services 자격 증명 모음을 만들면 기본적으로 자격 증명 모음에 지역 중복 스토리지도 만들어집니다. 데이터 복원력을 제공하기 위해 지역 중복 스토리지는 두 Azure 영역 간에 여러 번 데이터를 복제합니다.
 
 ## <a name="set-backup-policy-to-protect-vms"></a>VM을 보호하기 위한 백업 정책 설정
 

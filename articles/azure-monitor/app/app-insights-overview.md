@@ -71,7 +71,7 @@ Application Insights는 애플리케이션 팀에서 앱의 작동 방식과 사
 | [**스냅샷 디버거**](../../azure-monitor/app/snapshot-debugger.md)<br/>실시간 작업에서 샘플링된 스냅샷을 매개 변수 값으로 디버그합니다.|![Visual studio](./media/app-insights-overview/snapshot.png) |
 | [**Power BI**](../../azure-monitor/app/export-power-bi.md )<br/>사용 현황 메트릭을 다른 비즈니스 인텔리전스와 통합합니다.| ![Power BI](./media/app-insights-overview/power-bi.png)|
 | [**REST API**](https://dev.applicationinsights.io/)<br/>메트릭 및 원시 데이터에 대한 쿼리를 실행하는 코드를 작성합니다.| ![REST API](./media/app-insights-overview/rest-tn.png) |
-| [**연속 내보내기**](../../azure-monitor/app/export-telemetry.md)<br/>원시 데이터가 도착하는 즉시 저장소에 대량으로 내보냅니다. |![내보내기](./media/app-insights-overview/export-tn.png) |
+| [**연속 내보내기**](../../azure-monitor/app/export-telemetry.md)<br/>원시 데이터가 도착하는 즉시 스토리지에 대량으로 내보냅니다. |![내보내기](./media/app-insights-overview/export-tn.png) |
 
 ## <a name="how-do-i-use-application-insights"></a>Application Insights를 어떻게 사용하나요?
 

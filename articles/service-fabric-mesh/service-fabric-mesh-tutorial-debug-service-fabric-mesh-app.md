@@ -1,5 +1,5 @@
 ---
-title: 자습서 - 로컬 개발 클러스터에서 실행 중인 Azure Service Fabric Mesh 웹 응용 프로그램 디버그 | Microsoft Docs
+title: 자습서 - 로컬 개발 클러스터에서 실행 중인 Azure Service Fabric Mesh 웹 애플리케이션 디버그 | Microsoft Docs
 description: 이 자습서에서는 로컬 클러스터에서 실행 중인 Azure Service Fabric Mesh 애플리케이션을 디버그합니다.
 services: service-fabric-mesh
 documentationcenter: .net
@@ -29,7 +29,7 @@ ms.locfileid: "56805123"
 이 자습서에서는 다음에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * Azure Service Fabric Mesh 응용 프로그램을 빌드할 때 발생하는 결과
+> * Azure Service Fabric Mesh 애플리케이션을 빌드할 때 발생하는 결과
 > * 서비스 간 호출을 관찰하도록 중단점을 설정하는 방법
 
 이 자습서 시리즈에서는 다음 방법에 대해 알아봅니다.
@@ -50,7 +50,7 @@ ms.locfileid: "56805123"
 
 * Service Fabric 런타임, SDK, Docker 및 Visual Studio 2017 설치가 포함된 [개발 환경을 설정](service-fabric-mesh-howto-setup-developer-environment-sdk.md)했는지 확인합니다.
 
-## <a name="download-the-to-do-sample-application"></a>할 일 응용 프로그램 예제 다운로드
+## <a name="download-the-to-do-sample-application"></a>할 일 애플리케이션 예제 다운로드
 
 [이 자습서 시리즈의 1부](service-fabric-mesh-tutorial-create-dotnetcore.md)에서 할 일 애플리케이션 예제를 만들지 않은 경우 다운로드할 수 있습니다. 명령 창에서 다음 명령을 실행하여 로컬 컴퓨터에 샘플 앱 리포지토리를 복제합니다.
 
@@ -58,7 +58,7 @@ ms.locfileid: "56805123"
 git clone https://github.com/azure-samples/service-fabric-mesh
 ```
 
-응용 프로그램은 `src\todolistapp` 디렉터리 아래에 있습니다.
+애플리케이션은 `src\todolistapp` 디렉터리 아래에 있습니다.
 
 ## <a name="build-and-debug-on-your-local-cluster"></a>로컬 클러스터에서 빌드 및 디버그
 

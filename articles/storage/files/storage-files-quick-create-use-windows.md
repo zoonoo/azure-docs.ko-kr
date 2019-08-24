@@ -31,9 +31,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 - Azure 스토리지 계정 및 파일 공유
 - Windows Server 2016 Datacenter VM
 
-### <a name="create-a-storage-account"></a>저장소 계정 만들기
+### <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
-Azure 파일 공유를 사용하려면 먼저 Azure 스토리지 계정을 만들어야 합니다. 범용 v2 스토리지 계정은 모든 Azure Storage 서비스(BLOB, 파일, 큐, 테이블)에 대한 액세스를 제공합니다. 빠른 시작에서는 범용 v2 스토리지 계정을 만들지만 모든 유형의 스토리지 계정을 만드는 단계는 비슷합니다. 저장소 계정에 포함될 수 있는 공유 수에는 제한이 없습니다. 공유에 저장할 수 있는 파일 수에는 제한이 없으며, 저장소 계정의 최대 용량까지 저장할 수 있습니다.
+Azure 파일 공유를 사용하려면 먼저 Azure 스토리지 계정을 만들어야 합니다. 범용 v2 스토리지 계정은 모든 Azure Storage 서비스(BLOB, 파일, 큐, 테이블)에 대한 액세스를 제공합니다. 빠른 시작에서는 범용 v2 스토리지 계정을 만들지만 모든 유형의 스토리지 계정을 만드는 단계는 비슷합니다. 스토리지 계정에 포함될 수 있는 공유 수에는 제한이 없습니다. 공유에 저장할 수 있는 파일 수에는 제한이 없으며, 스토리지 계정의 최대 용량까지 저장할 수 있습니다.
 
 [!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 

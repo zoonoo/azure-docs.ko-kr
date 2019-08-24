@@ -11,12 +11,12 @@ ms.assetid: d6d14f5f-2126-4e33-808e-41de08e6721f
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 68378c87e18df874059579445352b8fd1b2b6c13
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 944bac44c1fc6504dfe1a93df5760ccf4ee46fa0
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62105583"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982203"
 ---
 # <a name="exchange-messages-in-the-cloud-with-azure-service-bus-and-azure-logic-apps"></a>Azure Service Bus 및 Azure Logic Apps를 사용하여 클라우드에서 메시지 교환
 
@@ -29,11 +29,11 @@ Azure Logic Apps 및 Azure Service Bus 커넥터를 사용하면 영업 및 구�
 * 큐 및 토픽 구독에서 메시지 및 세션에 대한 잠금을 갱신합니다.
 * 큐 및 토픽에서 세션을 닫습니다.
 
-트리거를 사용하여 Service Bus에서 응답을 가져오고 논리 앱의 다른 작업에서 출력을 사용하도록 할 수 있습니다. 또한 다른 작업에서 Service Bus 작업의 출력을 사용하도록 할 수 있습니다. Service Bus 및 Logic Apps가 처음인 경우 [Azure Service Bus란?](../service-bus-messaging/service-bus-messaging-overview.md) 및 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토하세요.
+트리거를 사용하여 Service Bus에서 응답을 가져오고 논리 앱의 다른 작업에서 출력을 사용하도록 할 수 있습니다. 또한 다른 작업에서 Service Bus 작업의 출력을 사용하도록 할 수 있습니다. Service Bus 및 Logic Apps가 처음인 경우 [Azure Service Bus란?](../service-bus-messaging/service-bus-messaging-overview.md) 및 [Azure Logic Apps 무엇 인가요?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-* Azure 구독. Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다. 
+* Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다. 
 
 * Service Bus 네임스페이스 및 메시징 엔터티(예: 큐). 이러한 항목에 없는 경우 [Service Bus 네임스페이스 및 큐를 만드는](../service-bus-messaging/service-bus-create-namespace-portal.md) 방법을 알아봅니다. 
 
@@ -74,7 +74,7 @@ Azure Logic Apps 및 Azure Service Bus 커넥터를 사용하면 영업 및 구�
 
 1. *트리거*를 빈 논리 앱에 추가하려면 검색 상자에 “Azure Service Bus”를 필터로 입력합니다. 트리거 목록에서 원하는 트리거를 선택합니다. 
 
-   예를 들어 새 항목이 Service Bus 큐로 보내질 때 논리 앱 트리거이 트리거를 선택 합니다. **(자동 완성) 큐에 메시지를 받을 때**
+   예를 들어 Service Bus 큐에 새 항목이 전송 될 때 논리 앱을 트리거하려면 다음 트리거를 선택 합니다. **큐에서 메시지를 수신 하는 경우 (자동 완성)**
 
    ![Service Bus 트리거 선택](./media/connectors-create-api-azure-service-bus/select-service-bus-trigger.png)
 
@@ -95,7 +95,7 @@ Azure Logic Apps 및 Azure Service Bus 커넥터를 사용하면 영업 및 구�
    1. 검색 상자에서 “Azure Service Bus”를 필터로 입력합니다. 
    작업 목록에서 원하는 작업을 선택합니다. 
  
-      예를 들어,이 작업을 선택 합니다. **메시지 보내기**
+      예를 들어 다음 작업을 선택 합니다. **메시지 보내기**
 
       ![Service Bus 동작 선택](./media/connectors-create-api-azure-service-bus/select-service-bus-send-message-action.png) 
 
@@ -118,14 +118,14 @@ Azure Logic Apps 및 Azure Service Bus 커넥터를 사용하면 영업 및 구�
 
 1. 트리거 또는 작업에 필요한 세부 정보를 입력합니다. 이 예제의 경우 트리거 또는 작업에 대해 관련 단계를 수행합니다. 
 
-   * **샘플 트리거에 대 한**: 폴링 간격 및 큐 점검을 위한 빈도 설정 합니다.
+   * **샘플 트리거의 경우**: 큐를 확인 하는 폴링 간격 및 빈도를 설정 합니다.
 
      ![폴링 간격 설정](./media/connectors-create-api-azure-service-bus/service-bus-trigger-details.png)
 
      완료되면 원하는 작업을 추가하여 논리 앱의 워크플로를 계속 빌드합니다. 예를 들어 새 메시지가 도착하면 이메일을 보내는 작업을 추가할 수 있습니다.
      트리거가 큐를 확인하고 새 메시지를 발견하는 경우 논리 앱은 찾은 메시지에 대해 사용자가 선택한 작업을 실행합니다.
 
-   * **샘플 작업에 대 한**: 메시지 콘텐츠 및 기타 세부 정보를 입력 합니다. 
+   * **샘플 작업의 경우**: 메시지 내용과 기타 세부 정보를 입력 합니다. 
 
      ![메시지 콘텐츠 및 세부 정보를 입력합니다.](./media/connectors-create-api-azure-service-bus/service-bus-send-message-details.png)
 
@@ -135,12 +135,7 @@ Azure Logic Apps 및 Azure Service Bus 커넥터를 사용하면 영업 및 구�
 
 ## <a name="connector-reference"></a>커넥터 참조
 
-커넥터의 OpenAPI(이전의 Swagger) 설명서에 설명된 트리거, 작업 및 제한에 대한 기술 정보는 커넥터의 [참조 페이지](/connectors/servicebus/)를 검토하세요.
-
-## <a name="get-support"></a>지원 받기
-
-* 질문이 있는 경우 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문해 보세요.
-* 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)를 방문하세요.
+Service Bus 커넥터는 Service Bus에서 커넥터 캐시로 최대 1500 개의 고유 세션을 저장할 수 있습니다. 세션 수가이 한도를 초과 하면 이전 세션이 캐시에서 제거 됩니다. 커넥터의 OpenAPI (이전의 Swagger) 설명에서 설명 하는 트리거, 작업 및 제한에 대 한 기타 기술 정보는 커넥터의 [참조 페이지를 참조](/connectors/servicebus/)하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

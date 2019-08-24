@@ -433,7 +433,7 @@ Azure Marketplace에서 이미지를 사용하여 새 가상 머신을 만드는
      지원되는 VM 유형 목록은 SAP Note [1928533]을 참조하세요. Azure Premium Storage를 사용하려면 올바른 VM 유형을 선택해야 합니다. 모든 VM 유형이 Premium Storage를 지원하지는 않습니다. 자세한 내용은 [스토리지: Azure의 Microsoft Azure Storage 및][planning-guide-storage-microsoft-azure-storage-and-data-disks] 데이터 디스크와 [azure Premium Storage][planning-guide-azure-premium-storage] [는 SAP NetWeaver에 대 한 계획 및 구현을 Virtual Machines][planning-guide].
 
 1. **설정**:
-   * **저장소**
+   * **스토리지**
      * **디스크 유형**: OS 디스크의 디스크 유형을 선택합니다. 데이터 디스크로 Premium Storage를 사용하려는 경우 OS 디스크에도 Premium Storage를 사용하는 것이 좋습니다.
      * **Managed Disks 사용**: Managed Disks를 사용하려는 경우 예를 선택합니다. Managed Disks에 대 한 자세한 내용은 계획 가이드의 [Managed Disks][planning-guide-managed-disks] 장을 참조 하십시오.
      * **스토리지 계정**: 기존 스토리지 계정을 선택하거나 새 스토리지 계정을 만듭니다. 모든 스토리지 유형이 SAP 애플리케이션 실행을 위해 작동하지는 않습니다. 스토리지 유형에 대한 자세한 내용은 [RDBMS 배포의 VM 스토리지 구조](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64)를 참조하세요.
@@ -573,7 +573,7 @@ Managed Disk 이미지에서 새 가상 머신을 만드는 가장 쉬운 방법
      지원되는 VM 유형 목록은 SAP Note [1928533]을 참조하세요. Azure Premium Storage를 사용하려면 올바른 VM 유형을 선택해야 합니다. 모든 VM 유형이 Premium Storage를 지원하지는 않습니다. 자세한 내용은 [스토리지: Azure의 Microsoft Azure Storage 및][planning-guide-storage-microsoft-azure-storage-and-data-disks] 데이터 디스크와 [azure Premium Storage][planning-guide-azure-premium-storage] [는 SAP NetWeaver에 대 한 계획 및 구현을 Virtual Machines][planning-guide].
 
 1. **설정**:
-   * **저장소**
+   * **스토리지**
      * **디스크 유형**: OS 디스크의 디스크 유형을 선택합니다. 데이터 디스크로 Premium Storage를 사용하려는 경우 OS 디스크에도 Premium Storage를 사용하는 것이 좋습니다.
      * **Managed Disks 사용**: Managed Disks를 사용하려는 경우 예를 선택합니다. Managed Disks에 대 한 자세한 내용은 계획 가이드의 [Managed Disks][planning-guide-managed-disks] 장을 참조 하십시오.
    * **Network**

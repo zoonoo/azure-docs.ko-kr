@@ -20,7 +20,7 @@ ms.locfileid: "68840082"
 
 Azure IoT Edge를 실행하는 Linux 디바이스에 데이터를 저장하는 SQL Server 모듈을 배포합니다.
 
-Azure IoT Edge 및 SQL Server를 사용하여 에지에 데이터를 저장하고 쿼리합니다. Azure IoT Edge는 디바이스가 오프라인 상태인 경우 메시지를 캐시한 후, 연결이 다시 설정될 때 전달하는 기본 스토리지 기능을 제공합니다. 그러나 데이터를 로컬로 쿼리하는 등 고급 저장소 기능을 추가할 수 있습니다. IoT Edge 디바이스는 로컬 데이터베이스를 사용하여 IoT Hub에 대한 연결을 유지 관리하지 않고 더 복잡한 컴퓨팅을 수행할 수 있습니다. 
+Azure IoT Edge 및 SQL Server를 사용하여 에지에 데이터를 저장하고 쿼리합니다. Azure IoT Edge는 디바이스가 오프라인 상태인 경우 메시지를 캐시한 후, 연결이 다시 설정될 때 전달하는 기본 스토리지 기능을 제공합니다. 그러나 데이터를 로컬로 쿼리하는 등 고급 스토리지 기능을 추가할 수 있습니다. IoT Edge 디바이스는 로컬 데이터베이스를 사용하여 IoT Hub에 대한 연결을 유지 관리하지 않고 더 복잡한 컴퓨팅을 수행할 수 있습니다. 
 
 이 문서에서는 SQL Server 데이터베이스를 IoT Edge 디바이스에 배포하는 지침을 제공합니다. Azure Functions는 IoT Edge 디바이스에서 실행되며, 들어오는 데이터를 구조화한 다음, 데이터베이스로 보냅니다. 이 문서의 단계는 컨테이너에서 작동하는 다른 데이터베이스(예: MySQL 또는 PostgreSQL)에도 적용할 수 있습니다.
 
@@ -28,8 +28,8 @@ Azure IoT Edge 및 SQL Server를 사용하여 에지에 데이터를 저장하�
 
 > [!div class="checklist"]
 > * Visual Studio Code를 사용하여 Azure 함수 만들기
-> * IoT Edge 장치에 SQL 데이터베이스 배포
-> * Visual Studio Code를 사용하여 모듈 빌드 및 IoT Edge 장치에 배포
+> * IoT Edge 디바이스에 SQL 데이터베이스 배포
+> * Visual Studio Code를 사용하여 모듈 빌드 및 IoT Edge 디바이스에 배포
 > * 생성된 데이터 보기
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -260,7 +260,7 @@ IoT Hub를 통해 디바이스에서 모듈을 설정할 수 있지만 Visual St
 
 배포가 성공하는 경우 VS Code 출력에 확인 메시지가 출력됩니다. 
 
-VS Code의 Azure IoT Hub Devices 섹션에서 디바이스의 상태를 새로 고칩니다. 새 모듈이 나열되고, 컨테이너가 설치되고 시작됨에 따라 다음 몇 분 동안 '실행 중'이라고 보고되기 시작합니다. 모든 모듈이 디바이스에서 실행되는지를 확인할 수도 있습니다. IoT Edge 장치에서 다음 명령을 실행하여 모듈의 상태를 확인합니다. 
+VS Code의 Azure IoT Hub Devices 섹션에서 디바이스의 상태를 새로 고칩니다. 새 모듈이 나열되고, 컨테이너가 설치되고 시작됨에 따라 다음 몇 분 동안 '실행 중'이라고 보고되기 시작합니다. 모든 모듈이 디바이스에서 실행되는지를 확인할 수도 있습니다. IoT Edge 디바이스에서 다음 명령을 실행하여 모듈의 상태를 확인합니다. 
 
    ```cmd/sh
    iotedge list
@@ -297,11 +297,11 @@ IoT Edge 디바이스에서 다음 명령을 실행합니다. 이러한 명령�
    GO
    ```
 
-SQL Server가 여러 IoT Edge 장치에 배포되도록 자동으로 설정하도록 SQL Server Docker 파일을 사용자 지정할 수 있습니다. 자세한 내용은 [Microsoft SQL Server 컨테이너 데모 프로젝트](https://github.com/twright-msft/mssql-node-docker-demo-app)를 참조하세요. 
+SQL Server가 여러 IoT Edge 디바이스에 배포되도록 자동으로 설정하도록 SQL Server Docker 파일을 사용자 지정할 수 있습니다. 자세한 내용은 [Microsoft SQL Server 컨테이너 데모 프로젝트](https://github.com/twright-msft/mssql-node-docker-demo-app)를 참조하세요. 
 
 ## <a name="view-the-local-data"></a>로컬 데이터 보기
 
-테이블을 만들면 sqlFunction 모듈이 IoT Edge 장치의 로컬 SQL Server 2017 데이터베이스에 데이터를 저장하기 시작합니다. 
+테이블을 만들면 sqlFunction 모듈이 IoT Edge 디바이스의 로컬 SQL Server 2017 데이터베이스에 데이터를 저장하기 시작합니다. 
 
 SQL 명령 도구 내에서 다음 명령을 실행하여 형식이 지정된 테이블 데이터를 봅니다. 
 
@@ -316,7 +316,7 @@ SQL 명령 도구 내에서 다음 명령을 실행하여 형식이 지정된 �
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-권장되는 다음 문서를 계속 진행하려는 경우 만든 리소스와 구성을 그대로 유지하고 다시 사용할 수 있습니다. 테스트 장치와 동일한 IoT Edge 장치를 계속 사용해도 됩니다. 
+권장되는 다음 문서를 계속 진행하려는 경우 만든 리소스와 구성을 그대로 유지하고 다시 사용할 수 있습니다. 테스트 디바이스와 동일한 IoT Edge 디바이스를 계속 사용해도 됩니다. 
 
 그렇지 않은 경우 요금 청구를 방지하도록 이 문서에서 만든 로컬 구성 및 Azure 리소스를 삭제할 수 있습니다. 
 
@@ -325,7 +325,7 @@ SQL 명령 도구 내에서 다음 명령을 실행하여 형식이 지정된 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 IoT Edge 장치에서 생성된 원시 데이터를 필터링하는 코드가 포함된 Azure Functions 모듈을 만들었습니다. 고유한 모듈을 빌드할 준비가 되면 [Visual Studio Code에 대한 Azure IoT Edge를 사용하여 Azure Functions를 개발](how-to-develop-csharp-function.md)하는 방법에 대해 자세히 알아볼 수 있습니다. 
+이 자습서에서는 IoT Edge 디바이스에서 생성된 원시 데이터를 필터링하는 코드가 포함된 Azure Functions 모듈을 만들었습니다. 고유한 모듈을 빌드할 준비가 되면 [Visual Studio Code에 대한 Azure IoT Edge를 사용하여 Azure Functions를 개발](how-to-develop-csharp-function.md)하는 방법에 대해 자세히 알아볼 수 있습니다. 
 
 에지에서 다른 스토리지 메서드를 시도하려는 경우 IoT Edge의 Azure Blob Storage를 사용하는 방법을 읽어보세요. 
 

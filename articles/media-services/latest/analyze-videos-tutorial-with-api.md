@@ -86,8 +86,8 @@ Media Services v3에서는 Azure Storage API를 사용하여 파일을 업로드
 다음 함수는 아래와 같은 작업을 수행합니다.
 
 * Asset 만들기 
-* [저장소에 있는 자산 컨테이너](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container)에 대해 쓰기가 가능한 [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) 가져오기
-* SAS URL을 사용하여 저장소의 컨테이너에 파일 업로드
+* [스토리지에 있는 자산 컨테이너](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container)에 대해 쓰기가 가능한 [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) 가져오기
+* SAS URL을 사용하여 스토리지의 컨테이너에 파일 업로드
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CreateInputAsset)]
 
@@ -158,7 +158,7 @@ Ctrl+F5 키를 눌러 *AnalyzeVideos* 애플리케이션을 실행합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 자습서에서 만든 Media Services 및 저장소 계정을 포함하여 리소스 그룹의 리소스가 더 이상 필요하지 않으면, 앞서 만든 리소스 그룹을 삭제합니다. 
+이 자습서에서 만든 Media Services 및 스토리지 계정을 포함하여 리소스 그룹의 리소스가 더 이상 필요하지 않으면, 앞서 만든 리소스 그룹을 삭제합니다. 
 
 다음 CLI 명령을 실행합니다.
 

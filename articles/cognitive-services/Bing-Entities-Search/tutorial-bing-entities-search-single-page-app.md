@@ -84,7 +84,7 @@ HTML에는 사용자가 쿼리를 입력하고 검색 옵션을 선택하는 검
 > [!NOTE]
 > 이 앱을 사용하려면 Bing Search API와 Bing Maps API 둘 다의 구독 키가 필요합니다. [평가판 Bing Search 키](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) 및 [기본 Bing 지도 키](https://www.microsoft.com/maps/create-a-bing-maps-key)를 사용할 수 있습니다.
 
-Bing Search 및 Bing 지도 API 구독 키를 코드에 포함할 필요가 없도록, 여기서는 브라우저의 영구적 저장소를 사용하여 키를 저장합니다. 키가 저장되지 않은 경우 확인 메시지를 표시하고, 나중에 사용할 수 있도록 저장합니다. 키가 나중에 API에서 거부될 경우 저장된 키를 무효화하므로, 사용자가 다음에 검색할 때 키가 요청됩니다.
+Bing Search 및 Bing 지도 API 구독 키를 코드에 포함할 필요가 없도록, 여기서는 브라우저의 영구적 스토리지를 사용하여 키를 저장합니다. 키가 저장되지 않은 경우 확인 메시지를 표시하고, 나중에 사용할 수 있도록 저장합니다. 키가 나중에 API에서 거부될 경우 저장된 키를 무효화하므로, 사용자가 다음에 검색할 때 키가 요청됩니다.
 
 `localStorage` 개체(브라우저가 지원하는 경우) 또는 쿠키를 사용하는 `storeValue` 및 `retrieveValue` 함수를 정의합니다. `getSubscriptionKey()` 함수는 이러한 함수를 사용하여 사용자 키를 저장하고 검색합니다.
 

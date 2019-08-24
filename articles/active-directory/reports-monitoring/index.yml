@@ -28,7 +28,7 @@ sections:
           - html: <a href="/azure/active-directory/reports-monitoring/quickstart-download-sign-in-report">로그인 보고서 다운로드</a>
           - html: <a href="/azure/active-directory/reports-monitoring/quickstart-download-audit-report">감사 보고서 다운로드</a>
           - html: <a href="/azure/active-directory/reports-monitoring/quickstart-install-power-bi-content-pack">보고서를 위한 Power BI 콘텐츠 팩 설치</a>
-          - html: <a href="/azure/active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account">저장소 계정으로 로그 라우팅</a>
+          - html: <a href="/azure/active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account">스토리지 계정으로 로그 라우팅</a>
   - title: 단계별 자습서
     items:
       - type: paragraph

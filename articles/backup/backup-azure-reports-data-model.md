@@ -149,7 +149,7 @@ Power BI는 [데이터 모델을 사용하여 보고서를 만들](https://power
 | ProtectedServerName |텍스트 |백업 항목이 속한 보호된 서버의 이름 |
 | RegisteredContainerId |텍스트 |백업에 대해 등록된 컨테이너의 ID |
 
-### <a name="storage"></a>저장 공간
+### <a name="storage"></a>스토리지
 이 표에서는 다양한 스토리지 관련 필드를 통해 기본 필드 및 집계를 제공합니다.
 
 | 필드 | 데이터 형식 | Description |

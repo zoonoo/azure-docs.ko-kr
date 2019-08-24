@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/19/2019
 ms.author: genli
-ms.openlocfilehash: 21122847c1b417b00cfe8c69b8324a2f73bf31ea
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 0e5669e32f01a260b5a260b548cfe508ad47cf11
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69641122"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997981"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Azure Portal을 사용하여 OS 디스크를 복구 VM에 연결함으로써 Linux VM 문제 해결
 Linux 가상 머신(VM)에 부팅 또는 디스크 오류가 발생하는 경우 가상 하드 디스크에서 바로 문제 해결 단계를 수행해야 합니다. 일반적인 예로는 `/etc/fstab`의 잘못된 항목으로 인해 VM이 성공적으로 부팅되지 않는 경우입니다. 이 문서에는 가상 하드 디스크를 다른 Linux VM에 연결하여 모든 오류를 수정한 후 원래 VM을 다시 만들기 위해 Azure Portal을 사용하는 방법을 자세히 설명합니다.
@@ -76,8 +76,8 @@ VM 스크린샷의 캡처를 다운로드하려면 부팅 진단 로그의 위�
     #Provide the size of the disks in GB. It should be greater than the VHD file size. In this sample, the size of the snapshot is 127 GB. So we set the disk size to 128 GB.
     $diskSize = '128'
     
-    #Provide the storage type for Managed Disk. PremiumLRS or StandardLRS.
-    $storageType = 'StandardLRS'
+    #Provide the storage type for Managed Disk. Premium_LRS or Standard_LRS.
+    $storageType = 'Standard_LRS'
     
     #Provide the Azure region (e.g. westus) where Managed Disks will be located.
     #This location should be same as the snapshot location

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 551f140c22677bea363ad5d8f43bf9670f783a1d
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: ec25abbdaa160976928a9ea0fea29a4d1fbf823a
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68725613"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992136"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Azure의 SUSE Linux Enterprise Server에서 Pacemaker 설정
 
@@ -532,7 +532,7 @@ STONITH 디바이스에서는 서비스 주체를 사용하여 Microsoft Azure�
 
 ### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]** 펜스 에이전트에 대한 사용자 지정 역할 만들기
 
-서비스 주체에는 기본적으로 Azure 리소스에 액세스할 수 있는 권한이 없습니다. 서비스 주체에 클러스터의 모든 가상 머신을 시작 및 중지(할당 취소)하기 위한 권한을 제공해야 합니다. 사용자 지정 역할을 아직 만들지 않은 경우 [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell) 또는 [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)를 사용하여 만들 수 있습니다.
+서비스 주체에는 기본적으로 Azure 리소스에 액세스할 수 있는 권한이 없습니다. 서비스 주체에 클러스터의 모든 가상 머신을 시작 및 중지(할당 취소)하기 위한 권한을 제공해야 합니다. 사용자 지정 역할을 아직 만들지 않은 경우 [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-powershell#create-a-custom-role) 또는 [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-cli)를 사용하여 만들 수 있습니다.
 
 입력 파일에 다음 콘텐츠를 사용합니다. 구독에 맞게 콘텐츠를 조정해야 합니다. 즉 c276fc76-9cd4-44c9-99a7-4fd71546436e 및 e91d47c4-76f3-4271-a796-21b4ecfe3624를 구독의 ID로 교체해야 합니다. 구독이 하나만 있는 경우 AssignableScopes에서 두 번째 항목을 제거합니다.
 

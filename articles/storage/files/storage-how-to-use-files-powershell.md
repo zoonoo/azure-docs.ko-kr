@@ -36,10 +36,10 @@ New-AzResourceGroup `
     -Location EastUS
 ```
 
-## <a name="create-a-storage-account"></a>저장소 계정 만들기
-저장소 계정은 Azure 파일 공유 또는 Blob나 큐와 같은 다른 저장소 리소스를 배포하는 데 사용할 수 있는 저장소의 공유 풀입니다. 저장소 계정에 포함할 수 있는 공유 수에는 제한이 없으며, 공유에 저장할 수 있는 파일 수에는 저장소 계정의 최대 용량 한도까지 제한이 없습니다.
+## <a name="create-a-storage-account"></a>스토리지 계정 만들기
+스토리지 계정은 Azure 파일 공유 또는 Blob나 큐와 같은 다른 스토리지 리소스를 배포하는 데 사용할 수 있는 스토리지의 공유 풀입니다. 스토리지 계정에 포함할 수 있는 공유 수에는 제한이 없으며, 공유에 저장할 수 있는 파일 수에는 스토리지 계정의 최대 용량 한도까지 제한이 없습니다.
 
-이 예제에서는 [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) cmdlet을 사용하여 스토리지 계정을 만듭니다. 스토리지 계정의 이름은 *mystorageaccount\<임의 번호>* 이며, 해당 스토리지 계정에 대한 참조는 **$storageAcct** 변수에 저장됩니다. 저장소 계정 이름은 고유해야 합니다. 따라서 `Get-Random`를 사용하여 고유하게 만들 이름에 숫자를 추가합니다. 
+이 예제에서는 [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) cmdlet을 사용하여 스토리지 계정을 만듭니다. 스토리지 계정의 이름은 *mystorageaccount\<임의 번호>* 이며, 해당 스토리지 계정에 대한 참조는 **$storageAcct** 변수에 저장됩니다. 스토리지 계정 이름은 고유해야 합니다. 따라서 `Get-Random`를 사용하여 고유하게 만들 이름에 숫자를 추가합니다. 
 
 ```azurepowershell-interactive 
 $storageAcct = New-AzStorageAccount `

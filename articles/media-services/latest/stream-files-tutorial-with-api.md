@@ -71,7 +71,7 @@ Azure Media Services를 사용하면 다양한 브라우저 및 디바이스에�
 6. **스트리밍 로케이터**를 만듭니다.
 7. 스트리밍 URL을 빌드합니다.
 
-### <a name="a-idstartusingdotnet-start-using-media-services-apis-with-net-sdk"></a><a id="start_using_dotnet" />.NET SDK로 Media Services API 사용하기
+### <a name="a-idstart_using_dotnet-start-using-media-services-apis-with-net-sdk"></a><a id="start_using_dotnet" />.NET SDK로 Media Services API 사용하기
 
 .NET으로 Media Services API를 사용하려면 **AzureMediaServicesClient** 개체를 만들어야 합니다. 개체를 만들려면 Azure AD를 사용하여 클라이언트가 Azure에 연결하는 데 필요한 자격 증명을 제공해야 합니다. 아티클의 시작 부분에서 복제한 코드에서 **GetCredentialsAsync** 함수는 로컬 구성 파일에 제공된 자격 증명에 따라 ServiceClientCredentials 개체를 만듭니다. 
 
@@ -87,7 +87,7 @@ Media Services v3에서는 Azure Storage API를 사용하여 파일을 업로드
 
 * **자산** 만들기 
 * [스토리지의 자산 컨테이너](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container)에 쓰기가 가능한 [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) 가져오기
-* SAS URL을 사용하여 저장소의 컨테이너에 파일 업로드
+* SAS URL을 사용하여 스토리지의 컨테이너에 파일 업로드
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
 
@@ -189,7 +189,7 @@ Azure Media Player는 테스트용으로 사용할 수 있지만 프로덕션 �
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 자습서에서 만든 Media Services 및 저장소 계정을 포함하여 리소스 그룹의 리소스가 더 이상 필요하지 않으면, 앞서 만든 리소스 그룹을 삭제합니다.
+이 자습서에서 만든 Media Services 및 스토리지 계정을 포함하여 리소스 그룹의 리소스가 더 이상 필요하지 않으면, 앞서 만든 리소스 그룹을 삭제합니다.
 
 다음 CLI 명령을 실행합니다.
 

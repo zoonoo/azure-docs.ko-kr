@@ -64,7 +64,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="prerequisites"></a>필수 조건
 * **Azure SQL Database**. 데이터베이스를 원본 데이터 저장소로 사용합니다. SQL 데이터베이스가 없는 경우 만드는 단계를 [Azure SQL 데이터베이스 만들기](../sql-database/sql-database-get-started-portal.md)에서 참조하세요.
-* **Azure Storage**. Blob Storage를 싱크 데이터 스토리지로 사용합니다. 저장소 계정이 없는 경우, 계정을 만드는 단계는 [저장소 계정 만들기](../storage/common/storage-quickstart-create-account.md)를 참조하세요. adftutorial이라는 컨테이너를 만듭니다. 
+* **Azure Storage**. Blob Storage를 싱크 데이터 스토리지로 사용합니다. 스토리지 계정이 없는 경우, 계정을 만드는 단계는 [스토리지 계정 만들기](../storage/common/storage-quickstart-create-account.md)를 참조하세요. adftutorial이라는 컨테이너를 만듭니다. 
 
 ### <a name="create-a-data-source-table-in-your-sql-database"></a>SQL 데이터베이스에 데이터 원본 테이블 만들기
 1. SQL Server Management Studio를 엽니다. **서버 탐색기**에서 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.

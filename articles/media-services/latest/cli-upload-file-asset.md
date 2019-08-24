@@ -23,7 +23,7 @@ ms.locfileid: "65209603"
 ---
 # <a name="cli-example-upload-a-local-file-to-a-container"></a>CLI 예제: 컨테이너에 로컬 파일 업로드 
 
-이 문서의 Azure CLI 스크립트는 로컬 파일을 저장 컨테이너에 업로드하는 방법을 보여줍니다.
+이 문서의 Azure CLI 스크립트는 로컬 파일을 스토리지 컨테이너에 업로드하는 방법을 보여줍니다.
 
 ## <a name="prerequisites"></a>필수 조건 
 

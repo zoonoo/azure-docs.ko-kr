@@ -63,7 +63,7 @@ sections:
           - html: <a href="service-fabric-content-roadmap">큰 그림</a>
           - html: <a href="service-fabric-application-scenarios">애플리케이션 시나리오</a>
           - html: <a href="service-fabric-technical-overview">용어</a>
-          - html: <a href="service-fabric-choose-framework">응용 프로그램 빌드 개요</a>
+          - html: <a href="service-fabric-choose-framework">애플리케이션 빌드 개요</a>
           - html: <a href="service-fabric-deploy-anywhere">클러스터 개요</a>
   - title: 샘플
     items:

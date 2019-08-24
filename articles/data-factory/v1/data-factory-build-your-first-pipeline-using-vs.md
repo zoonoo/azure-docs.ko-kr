@@ -83,7 +83,7 @@ ms.locfileid: "67836699"
 ### <a name="create-linked-services"></a>연결된 서비스 만들기
 이 단계에서는 두 개의 연결된 서비스 **Azure Storage** 및 **주문형 HDInsight**를 만듭니다. 
 
-Azure Storage 연결된 서비스는 연결 정보를 제공하여 Azure Storage 계정을 데이터 팩터리에 연결합니다. 데이터 팩터리 서비스는 런타임 시 Azure storage에 연결하기 위해 연결된 서비스 설정에서 연결 문자열을 사용합니다. 이 저장소는 파이프라인의 입력 및 출력 데이터와 Hive 작업에서 사용한 Hive 스크립트 파일을 보유합니다. 
+Azure Storage 연결된 서비스는 연결 정보를 제공하여 Azure Storage 계정을 데이터 팩터리에 연결합니다. 데이터 팩터리 서비스는 런타임 시 Azure storage에 연결하기 위해 연결된 서비스 설정에서 연결 문자열을 사용합니다. 이 스토리지는 파이프라인의 입력 및 출력 데이터와 Hive 작업에서 사용한 Hive 스크립트 파일을 보유합니다. 
 
 입력 데이터를 처리할 준비가 된 경우 런타임 시 HDInsight 클러스터가 주문형 HDInsight 연결된 서비스를 사용하여 자동으로 만들어집니다. 클러스터의 처리가 완료되고 지정된 시간 동안 유휴 상태를 유지한 후에 삭제됩니다. 
 
@@ -94,7 +94,7 @@ Azure Storage 연결된 서비스는 연결 정보를 제공하여 Azure Storage
 1. 솔루션 탐색기에서 **연결된 서비스**를 마우스 오른쪽 단추로 클릭하고 **추가**를 가리킨 다음 **새 항목**을 클릭합니다.      
 2. **새 항목 추가** 대화 상자의 목록에서 **Azure Storage 연결된 서비스**를 선택한 다음 **추가**를 클릭합니다.
     ![Azure Storage 연결 서비스](./media/data-factory-build-your-first-pipeline-using-vs/new-azure-storage-linked-service.png)
-3. `<accountname>` 및 `<accountkey>`를 Azure Storage 계정 이름 및 해당 키로 바꿉니다. 저장소 액세스 키를 가져오는 방법은 [저장소 계정 관리](../../storage/common/storage-account-manage.md#access-keys)의 저장소 액세스 키 보기, 복사 및 생성 방법 정보를 참조하세요.
+3. `<accountname>` 및 `<accountkey>`를 Azure Storage 계정 이름 및 해당 키로 바꿉니다. 스토리지 액세스 키를 가져오는 방법은 [스토리지 계정 관리](../../storage/common/storage-account-manage.md#access-keys)의 스토리지 액세스 키 보기, 복사 및 생성 방법 정보를 참조하세요.
     ![Azure Storage 연결 서비스](./media/data-factory-build-your-first-pipeline-using-vs/azure-storage-linked-service.png)
 4. **AzureStorageLinkedService1.json** 파일을 저장합니다.
 
@@ -130,13 +130,13 @@ Azure Storage 연결된 서비스는 연결 정보를 제공하여 Azure Storage
     > [!IMPORTANT]
     > HDInsight 클러스터는 JSON(linkedServiceName)에서 지정한 Blob Storage에 **기본 컨테이너**를 만듭니다. HDInsight는 클러스터가 삭제될 때 이 컨테이너를 삭제하지 않습니다. 이 동작은 의도된 것입니다. 주문형 HDInsight 연결된 서비스에서는 기존 라이브 클러스터(timeToLive)가 없는 경우 슬라이스를 처리할 때마다 HDInsight 클러스터가 만들어집니다. 클러스터는 처리가 완료되면 자동으로 삭제됩니다.
     > 
-    > 온-프레미스 응용 프로그램은 File Storage REST API를 호출하여 파일 공유의 데이터에 액세스할 수 있습니다. 작업의 문제 해결을 위해 이 항목들이 필요하지 않다면 저장소 비용을 줄이기 위해 삭제할 수 있습니다. 이러한 컨테이너의 이름은 `adf<yourdatafactoryname>-<linkedservicename>-datetimestamp` 패턴을 따릅니다. [Microsoft Storage Explorer](https://storageexplorer.com/) 같은 도구를 사용하여 Azure Blob Storage에서 컨테이너를 삭제합니다.
+    > 온-프레미스 응용 프로그램은 File Storage REST API를 호출하여 파일 공유의 데이터에 액세스할 수 있습니다. 작업의 문제 해결을 위해 이 항목들이 필요하지 않다면 스토리지 비용을 줄이기 위해 삭제할 수 있습니다. 이러한 컨테이너의 이름은 `adf<yourdatafactoryname>-<linkedservicename>-datetimestamp` 패턴을 따릅니다. [Microsoft Storage Explorer](https://storageexplorer.com/) 같은 도구를 사용하여 Azure Blob Storage에서 컨테이너를 삭제합니다.
 
     JSON 속성에 대한 자세한 내용은 [컴퓨팅 연결 서비스](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)를 참조하세요. 
 4. **HDInsightOnDemandLinkedService1.json** 파일을 저장합니다.
 
 ### <a name="create-datasets"></a>데이터 세트 만들기
-이 단계에서는 Hive 처리에 대한 입력 및 출력 데이터를 나타내는 데이터 세트를 만듭니다. 이러한 데이터 세트는 이 자습서의 앞부분에서 만든 **AzureStorageLinkedService1** 를 참조합니다. 연결된 서비스는 Azure Storage 계정을 가리키고 데이터 집합은 입력 및 출력 데이터를 가진 스토리지의 컨테이너, 폴더, 파일 이름을 지정합니다.   
+이 단계에서는 Hive 처리에 대한 입력 및 출력 데이터를 나타내는 데이터 세트를 만듭니다. 이러한 데이터 세트는 이 자습서의 앞부분에서 만든 **AzureStorageLinkedService1** 를 참조합니다. 연결된 서비스는 Azure Storage 계정을 가리키고 데이터 세트은 입력 및 출력 데이터를 가진 스토리지의 컨테이너, 폴더, 파일 이름을 지정합니다.   
 
 #### <a name="create-input-dataset"></a>입력 데이터 세트 만들기
 1. **솔루션 탐색기**에서 **테이블**을 마우스 오른쪽 단추로 클릭하고 **추가**를 가리킨 다음 **새 항목**을 클릭합니다.
@@ -223,7 +223,7 @@ Azure Storage 연결된 서비스는 연결 정보를 제공하여 Azure Storage
 3. **JSON**을 다음 코드 조각으로 바꿉니다.
 
     > [!IMPORTANT]
-    > `<storageaccountname>`을 저장소 계정 이름으로 바꿉니다.
+    > `<storageaccountname>`을 스토리지 계정 이름으로 바꿉니다.
 
     ```json
     {
@@ -271,7 +271,7 @@ Azure Storage 연결된 서비스는 연결 정보를 제공하여 Azure Storage
     ```
 
     > [!IMPORTANT]
-    > `<storageaccountname>`을 저장소 계정 이름으로 바꿉니다.
+    > `<storageaccountname>`을 스토리지 계정 이름으로 바꿉니다.
 
     JSON 코드 조각은 단일 작업(Hive 작업)으로 구성된 파이프라인을 정의합니다. 이 작업은 주문형 HDInsight 클러스터에서 입력 데이터를 처리하여 출력 데이터를 생성하는 Hive 스크립트를 실행합니다. 파이프라인 JSON의 작업 섹션에서는 **HDInsightHive**로 설정된 형식을 가진 배열에 하나의 작업만이 표시됩니다. 
 
@@ -414,7 +414,7 @@ Azure 포털을 사용하여 이 자습서에서 만든 파이프라인 및 데�
 -  데이터 팩터리는 앞의 JSON으로 사용자에게 **Linux 기반** HDInsight 클러스터를 만들어 줍니다. 자세한 내용은 [주문형 HDInsight 연결된 서비스](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) 를 참조하세요.
 - HDInsight 클러스터는 JSON(linkedServiceName)에서 지정한 Blob Storage에 **기본 컨테이너**를 만듭니다. HDInsight는 클러스터가 삭제될 때 이 컨테이너를 삭제하지 않습니다. 이 동작은 의도된 것입니다. 주문형 HDInsight 연결된 서비스에서는 기존 라이브 클러스터(timeToLive)가 없는 경우 슬라이스를 처리할 때마다 HDInsight 클러스터가 만들어집니다. 클러스터는 처리가 완료되면 자동으로 삭제됩니다.
     
-    온-프레미스 응용 프로그램은 File Storage REST API를 호출하여 파일 공유의 데이터에 액세스할 수 있습니다. 작업의 문제 해결을 위해 이 항목들이 필요하지 않다면 저장소 비용을 줄이기 위해 삭제할 수 있습니다. 이러한 컨테이너의 이름은 `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp` 패턴을 따릅니다. [Microsoft Storage Explorer](https://storageexplorer.com/) 같은 도구를 사용하여 Azure Blob Storage에서 컨테이너를 삭제합니다.
+    온-프레미스 응용 프로그램은 File Storage REST API를 호출하여 파일 공유의 데이터에 액세스할 수 있습니다. 작업의 문제 해결을 위해 이 항목들이 필요하지 않다면 스토리지 비용을 줄이기 위해 삭제할 수 있습니다. 이러한 컨테이너의 이름은 `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp` 패턴을 따릅니다. [Microsoft Storage Explorer](https://storageexplorer.com/) 같은 도구를 사용하여 Azure Blob Storage에서 컨테이너를 삭제합니다.
 - 현재 출력 데이터 세트가 일정을 결정하므로 작업이 출력을 생성하지 않는 경우 출력 데이터 세트를 만들어야 합니다. 활동이 입력을 가져오지 않으면 입력 데이터 세트 만들기를 건너뛸 수 있습니다. 
 - 이 자습서에서는 Azure Data Factory를 사용하여 데이터를 복사하는 방법을 표시하지 않습니다. Azure Data Factory를 사용하여 데이터를 복사하는 방법에 대한 자습서는 [자습서: Blob Storage에서 SQL Database로 데이터 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 

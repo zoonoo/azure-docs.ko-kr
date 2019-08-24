@@ -23,7 +23,7 @@ Azure Blockchain Workbench는 비즈니스 프로세스 및 데이터를 다른 
 
 ## <a name="create-blockchain-applications"></a>블록체인 애플리케이션 만들기
 
-Blockchain Workbench를 통해 구성 및 스마트 컨트랙트 코드 작성을 사용하여 블록체인 응용 프로그램을 정의할 수 있습니다. 블록체인 응용 프로그램 개발에 착수하고, 인프라 및 설정 지원 서비스를 작성하는 대신 계약을 정의하고 비즈니스 로직를 작성하는 데 집중할 수 있습니다.
+Blockchain Workbench를 통해 구성 및 스마트 컨트랙트 코드 작성을 사용하여 블록체인 애플리케이션을 정의할 수 있습니다. 블록체인 애플리케이션 개발에 착수하고, 인프라 및 설정 지원 서비스를 작성하는 대신 계약을 정의하고 비즈니스 로직를 작성하는 데 집중할 수 있습니다.
 
 ## <a name="manage-applications-and-users"></a>애플리케이션 및 사용자 관리
 
@@ -31,7 +31,7 @@ Azure Blockchain Workbench는 블록체인 애플리케이션과 사용자를 �
 
 ## <a name="integrate-blockchain-with-applications"></a>블록체인과 애플리케이션의 통합
 
-Blockchain Workbench REST API와 메시지 기반 API를 사용하여 기존 시스템과 통합할 수 있습니다. API는 여러 분산 원장 기술, 저장소 및 데이터베이스 제공물을 대체하거나 사용할 수 있도록 하는 인터페이스를 제공합니다.
+Blockchain Workbench REST API와 메시지 기반 API를 사용하여 기존 시스템과 통합할 수 있습니다. API는 여러 분산 원장 기술, 스토리지 및 데이터베이스 제공물을 대체하거나 사용할 수 있도록 하는 인터페이스를 제공합니다.
 
 Blockchain Workbench는 메시지 기반 API에 보내진 메시지를 변환하여 트랜잭션을 해당 블록체인의 네이티브 API에 필요한 형식으로 빌드할 수 있습니다.  Workbench는 트랜잭션을 적절한 블록체인에 서명하고 라우팅할 수 있습니다. 
 
@@ -45,9 +45,9 @@ Azure Blockchain Workbench는 Azure Resource Manager 솔루션 템플릿을 사�
 
 기존 블록체인 프로토콜을 사용하면 블록체인 ID가 네트워크의 주소로 표시됩니다. Azure Blockchain Workbench는 Active Directory ID와 연결하여 블록체인 ID를 추상화하므로, Active Directory ID를 사용하여 엔터프라이즈 애플리케이션을 더 쉽게 빌드할 수 있습니다.
 
-## <a name="synchronize-on-chain-data-with-off-chain-storage"></a>온 체인 데이터를 오프 체인 저장소와 동기화
+## <a name="synchronize-on-chain-data-with-off-chain-storage"></a>온 체인 데이터를 오프 체인 스토리지와 동기화
 
-Azure Blockchain Workbench를 사용하면 블록체인의 데이터를 오프 체인 저장소에 자동으로 동기화하여 블록체인 이벤트와 데이터를 더 쉽게 분석할 수 있습니다. 블록체인에서 데이터를 직접 추출하는 대신 SQL Server와 같은 오프 체인 데이터베이스 시스템을 쿼리할 수 있습니다. 데이터 분석 작업을 수행하는 최종 사용자에게는 블록체인에 대한 전문 지식이 필요하지 않습니다.
+Azure Blockchain Workbench를 사용하면 블록체인의 데이터를 오프 체인 스토리지에 자동으로 동기화하여 블록체인 이벤트와 데이터를 더 쉽게 분석할 수 있습니다. 블록체인에서 데이터를 직접 추출하는 대신 SQL Server와 같은 오프 체인 데이터베이스 시스템을 쿼리할 수 있습니다. 데이터 분석 작업을 수행하는 최종 사용자에게는 블록체인에 대한 전문 지식이 필요하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

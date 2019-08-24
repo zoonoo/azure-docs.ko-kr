@@ -69,15 +69,15 @@ LUIS 엔드포인트는 두 가지 쿼리를 허용하고, 두 가지 쿼리는 
 ## <a name="api-usage-of-ocp-apim-subscription-key"></a>Ocp-Apim-Subscription-Key의 API 사용법
 LUIS API는 `Ocp-Apim-Subscription-Key` 헤더를 사용합니다. 헤더 이름은 사용 중인 키 및 API 집합에 따라 변경되지 않습니다. 헤더를 작성 API의 작성 키로 설정합니다. 엔드포인트를 사용하는 경우, 헤더를 엔드포인트 키로 설정합니다. 
 
-작성 API의 엔드포인트 키를 전달할 수는 없습니다. 전달할 경우 다음 401 오류가 표시됩니다. 잘못된 끝점 키로 인해 액세스가 거부되었습니다. 
+작성 API의 엔드포인트 키를 전달할 수는 없습니다. 전달할 경우 다음 401 오류가 표시됩니다. 잘못된 엔드포인트 키로 인해 액세스가 거부되었습니다. 
 
 ## <a name="key-limits"></a>키 제한
-[키 제한](luis-boundaries.md#key-limits) 및 [Azure 지역](luis-reference-regions.md)을 참조하세요. 작성 키는 무료이며 작성에 사용됩니다. LUIS 끝점 키는 체험 계층을 포함하지만, 사용자가 만들고 **게시** 페이지에서 LUIS 앱과 연결되어야 합니다. 구독 키는 작성에 사용할 수 없고 엔드포인트 쿼리에만 사용할 수 있습니다.
+[키 제한](luis-boundaries.md#key-limits) 및 [Azure 지역](luis-reference-regions.md)을 참조하세요. 작성 키는 무료이며 작성에 사용됩니다. LUIS 엔드포인트 키는 체험 계층을 포함하지만, 사용자가 만들고 **게시** 페이지에서 LUIS 앱과 연결되어야 합니다. 구독 키는 작성에 사용할 수 없고 엔드포인트 쿼리에만 사용할 수 있습니다.
 
 게시 지역은 작성 지역과 다릅니다. 원하는 게시 지역에 해당하는 작성 지역에서 앱을 만들어야 합니다.
 
 ## <a name="key-limit-errors"></a>키 제한 오류
-초당 할당량을 초과하는 경우, HTTP 429 오류가 표시됩니다. 월별 할당량을 초과하는 경우, HTTP 403 오류가 표시됩니다. LUIS [끝점](#endpoint-key) 키를 가져오고 [LUIS](luis-reference-regions.md#luis-website) 웹 사이트의 **게시** 페이지에서 앱에 키를 [할당](luis-how-to-azure-subscription.md)하여 이러한 오류를 수정합니다.
+초당 할당량을 초과하는 경우, HTTP 429 오류가 표시됩니다. 월별 할당량을 초과하는 경우, HTTP 403 오류가 표시됩니다. LUIS [엔드포인트](#endpoint-key) 키를 가져오고 [LUIS](luis-reference-regions.md#luis-website) 웹 사이트의 **게시** 페이지에서 앱에 키를 [할당](luis-how-to-azure-subscription.md)하여 이러한 오류를 수정합니다.
 
 ## <a name="assignment-of-the-endpoint-key"></a>엔드포인트 키 할당
 

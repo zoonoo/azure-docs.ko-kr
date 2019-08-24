@@ -20,8 +20,8 @@ ms.locfileid: "68721941"
 
 | | |
 |---|---|
-|**저장소 계정**||
-| [저장소 계정 만들기 및 액세스 키 검색/회전](../scripts/storage-common-rotate-account-keys-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Azure Storage 계정을 만들고 해당 액세스 키 검색 및 회전합니다. |
+|**스토리지 계정**||
+| [스토리지 계정 만들기 및 액세스 키 검색/회전](../scripts/storage-common-rotate-account-keys-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Azure Storage 계정을 만들고 해당 액세스 키 검색 및 회전합니다. |
 |**Blob Storage**||
 | [Blob Storage 컨테이너의 전체 크기 계산](../scripts/storage-blobs-container-calculate-size-cli.md?toc=%2fcli%2fazure%2ftoc.json) | 컨테이너에 있는 모든 Blob의 전체 크기를 계산합니다. |
 | [특정 접두사가 있는 컨테이너 삭제](../scripts/storage-blobs-container-delete-by-prefix-cli.md?toc=%2fcli%2fazure%2ftoc.json) | 지정된 문자열로 시작되는 컨테이너를 삭제합니다. |

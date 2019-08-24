@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: b0c9d55846a0240dde92de16ea17e9403a112c3e
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 9264aa6d24256b991abefe35b41045caa2e76d67
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699225"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997777"
 ---
 # <a name="migrate-bulk-data-to-azure-file-sync"></a>대량 데이터를 Azure File Sync으로 마이그레이션
 다음 두 가지 방법으로 대량 데이터를 Azure File Sync로 마이그레이션할 수 있습니다.
@@ -22,9 +22,10 @@ ms.locfileid: "68699225"
 
 이 문서에서는 Azure File Sync와 호환 되는 방식으로 오프 라인으로 파일을 마이그레이션하는 방법을 설명 합니다. 다음 지침에 따라 파일 충돌을 방지 하 고 동기화를 사용 하도록 설정한 후 파일 및 폴더 Acl (access control 목록) 및 타임 스탬프를 유지 합니다.
 
-## <a name="online-migration-tools"></a>온라인 마이그레이션 도구
-이 문서에서 설명 하는 프로세스는 Data Box 뿐만 아니라 오프 라인 마이그레이션 도구에도 적용 됩니다. AzCopy, Robocopy 또는 파트너 도구 및 서비스와 같은 온라인 도구에 대해서도 작동 합니다. 그러나 초기 업로드 챌린지를 해결 한 후에는이 문서의 단계에 따라 이러한 도구를 Azure File Sync와 호환 되는 방식으로 사용 합니다.
+## <a name="migration-tools"></a>마이그레이션 도구
+이 문서에서 설명 하는 프로세스는 Data Box 뿐만 아니라 오프 라인 마이그레이션 도구에도 적용 됩니다. 또한 인터넷을 통해 직접 작업 하는 AzCopy, Robocopy 또는 파트너 도구 및 서비스와 같은 도구에도 작동 합니다. 그러나 초기 업로드 챌린지를 극복 하려면이 문서의 단계를 수행 하 여 Azure File Sync와 호환 되는 방식으로 이러한 도구를 사용 합니다.
 
+경우에 따라 Azure File Sync를 도입 하기 전에 Windows Server 간에 이동 해야 합니다. [저장소 마이그레이션 서비스](https://aka.ms/storagemigrationservice) (SMS)는이를 지원할 수 있습니다. Azure File Sync (Windows Server 2012R2 이상)에서 지원 되는 서버 OS 버전으로 마이그레이션해야 하는지 아니면 단순히 마이그레이션해야 하는지 여부는 Azure File Sync에 대 한 새 시스템을 구입 하기 때문에 SMS에는 migr을 가져오는 데 도움이 되는 다양 한 기능 및 이점이 있습니다. 순조롭게 수행 되었습니다.
 
 ## <a name="benefits-of-using-a-tool-to-transfer-data-offline"></a>도구를 사용 하 여 오프 라인으로 데이터 전송의 이점
 오프 라인 마이그레이션에 Data Box와 같은 전송 도구를 사용할 경우의 주요 이점은 다음과 같습니다.
@@ -48,7 +49,7 @@ Azure Data Box와 같은 대량 마이그레이션 도구와 호환 되는 방�
 
 ![Azure File Sync를 설정 하는 방법을 보여 주는 다이어그램](media/storage-sync-files-offline-data-transfer/data-box-integration-1-600.png)
 
-| 단계 | Detail |
+| 단계 | 자세히 |
 |---|---------------------------------------------------------------------------------------|
 | ![1단계](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [Data Box를 주문](../../databox/data-box-deploy-ordered.md)합니다. Data Box 제품군은 요구 사항에 맞는 [여러 제품](https://azure.microsoft.com/services/storage/databox/data) 을 제공 합니다. Data Box 수신 되 면 해당 설명서에 따라 Data Box의이 UNC 경로에 [데이터를 복사](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box) 합니다.  *\\< DeviceIPAddres StorageAccountName_AzFile\> \>\<\< ShareName\>* . 여기서 *ShareName* 은 준비 공유의 이름입니다. Data Box를 Azure로 다시 보냅니다. |
 | ![2단계](media/storage-sync-files-offline-data-transfer/bullet_2.png) | 임시 준비 공유로 선택한 Azure 파일 공유에 파일이 표시 될 때까지 기다립니다. *이러한 공유에 대 한 동기화를 사용 하도록 설정 하지 마세요.* |

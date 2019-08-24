@@ -90,7 +90,7 @@ ms.locfileid: "59523327"
 
 이 코드 조각에서는 논문의 *Title* 및 *Year* 특성을 각각 JSON 문자열과 숫자로 지정합니다. 다중 값은 JSON 배열을 사용하여 나타냅니다. *Author*는 복합 특성이므로 해당 하위 특성으로 구성된 JSON 개체를 사용하여 각 값을 나타냅니다. 누락된 값이 있는 특성(이 예제에서는 *Keyword*)은 JSON 표현에서 제외될 수 있습니다.
 
-각 논문의 발생 가능성을 구분하려면 기본 제공 *logprob* 특성을 사용하여 상대 로그 확률을 지정합니다. 확률 *p*를 0에서 1 사이의 값이라고 가정하여, 로그 확률을 log(*p*)로 계산합니다. 여기서 log()는 자연 로그 함수입니다.
+각 논문의 발생 가능성을 구분하려면 기본 제공 *logprob* 특성을 사용하여 상대 로그 확률을 지정합니다. 확률 *p*를 0에서 1 사이의 값이라고 가정하여, 로그 확률을 log(*p*)로 컴퓨팅합니다. 여기서 log()는 자연 로그 함수입니다.
 
 자세한 내용은 [데이터 형식](DataFormat.md)을 참조하세요.
 
@@ -217,8 +217,8 @@ XML 문법 사양이 준비되면 [`kes.exe build_grammar`](CommandLine.md#build
 
 * [http://localhost:8000/interpret?query=papers by susan t dumais](http://localhost:8000/interpret?query=papers%20by%20susan%20t%20dumais)
 * [http://localhost:8000/interpret?query=papers by susan t d&complete=1](http://localhost:8000/interpret?query=papers%20by%20susan%20t%20d&complete=1)
-* [http://localhost:8000/evaluate?expr=Composite(Author.Name=='susan t dumais')&attributes=Title,Year,Author.Name,Author.Id&count=2](http://localhost:8000/evaluate?expr=Composite%28Author.Name==%27susan%20t%20dumais%27%29&attributes=Title,Year,Author.Name,Author.Id&count=2)
-* [http://localhost:8000/calchistogram?expr=And(Composite(Author.Name=='susan t dumais'),Year>=2013)&attributes=Year,Keyword&count=4](http://localhost:8000/calchistogram?expr=And%28Composite%28Author.Name=='susan%20t%20dumais'%29,Year>=2013%29&attributes=Year,Keyword&count=4)
+* [http://localhost:8000/evaluate?expr=Composite(Author.Name== 'susan t dumais')&attributes=Title,Year,Author.Name,Author.Id&count=2](http://localhost:8000/evaluate?expr=Composite%28Author.Name==%27susan%20t%20dumais%27%29&attributes=Title,Year,Author.Name,Author.Id&count=2)
+* [http://localhost:8000/calchistogram?expr=And(Composite(Author.Name== 'susan t dumais'),Year>=2013)&attributes=Year,Keyword&count=4](http://localhost:8000/calchistogram?expr=And%28Composite%28Author.Name=='susan%20t%20dumais'%29,Year>=2013%29&attributes=Year,Keyword&count=4)
 
 Azure 외부에서는 [`kes.exe host_service`](CommandLine.md#host_service-command)가 최대 10,000개의 개체 인덱스로 제한됩니다. 기타 한도에는 초당 10개 요청의 API 속도, 프로세스가 자동으로 종료되기까지 총 1000개의 요청 등이 있습니다. 이러한 제한을 무시하려면 [Azure의 Windows VM](../../../articles/virtual-machines/windows/quick-create-portal.md) 내에서 명령을 실행하거나, [`kes.exe deploy_service`](CommandLine.md#deploy_service-command) 명령을 사용하여 Azure 클라우드 서비스에 배포합니다. 자세한 내용은 서비스 배포를 참조하세요.
 

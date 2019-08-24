@@ -75,7 +75,7 @@ HDInsight의 Spark 클러스터는 다음과 같은 주요 시나리오를 사�
 
 - 대화형 데이터 분석 및 BI
 
-    HDInsight의 Apache Spark는 Azure Storage 또는 Azure Data Lake Storage에 데이터를 저장합니다. 비즈니스 전문가 및 주요 의사 결정권자는 해당 데이터에 대한 보고서를 분석 및 작성하고 Microsoft Power BI를 사용하여 분석된 데이터에서 대화형 보고서를 작성합니다. 분석자는 클러스터 저장소의 비구조적/반구조적 데이터부터 시작하여 노트북으로 데이터에 대한 스키마를 정의한 다음 Microsoft Power BI를 사용하여 데이터 모델을 작성할 수 있습니다. HDInsight에서 Spark 클러스터는 Tableau와 같은 많은 타사 BI 도구를 지원하므로 데이터 분석가, 비즈니스 전문가 및 핵심 의사 결정자가 쉽게 사용할 수 있습니다.
+    HDInsight의 Apache Spark는 Azure Storage 또는 Azure Data Lake Storage에 데이터를 저장합니다. 비즈니스 전문가 및 주요 의사 결정권자는 해당 데이터에 대한 보고서를 분석 및 작성하고 Microsoft Power BI를 사용하여 분석된 데이터에서 대화형 보고서를 작성합니다. 분석자는 클러스터 스토리지의 비구조적/반구조적 데이터부터 시작하여 노트북으로 데이터에 대한 스키마를 정의한 다음 Microsoft Power BI를 사용하여 데이터 모델을 작성할 수 있습니다. HDInsight에서 Spark 클러스터는 Tableau와 같은 많은 타사 BI 도구를 지원하므로 데이터 분석가, 비즈니스 전문가 및 핵심 의사 결정자가 쉽게 사용할 수 있습니다.
 
     [자습서: Power BI를 사용하여 Spark 데이터 시각화](apache-spark-use-bi-tools.md)
 
