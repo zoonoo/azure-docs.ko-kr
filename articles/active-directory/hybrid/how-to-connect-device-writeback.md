@@ -34,7 +34,7 @@ ms.locfileid: "67109495"
 * 사용 하도록 설정 [Windows Hello 인증서 신뢰 하이브리드 배포를 사용 하 여 비즈니스에 대 한](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust-prereqs#device-registration)
 * ADFS에 대 한 장치 기반 조건부 액세스 사용 (2012 R2 이상) 보호 된 응용 프로그램 (신뢰 당사자 트러스트).
 
-애플리케이션에 대한 액세스 권한이 신뢰할 수 있는 장치에 부여된 추가 보안 및 보증을 제공합니다. 조건부 액세스에 대 한 자세한 내용은 참조 하세요. [조건부 액세스를 사용 하 여 위험 관리](../active-directory-conditional-access-azure-portal.md) 하 고 [Azure Active Directory Device Registration을 사용 하 여 온-프레미스 조건부 액세스 설정](../../active-directory/active-directory-device-registration-on-premises-setup.md)합니다.
+애플리케이션에 대한 액세스 권한이 신뢰할 수 있는 디바이스에 부여된 추가 보안 및 보증을 제공합니다. 조건부 액세스에 대 한 자세한 내용은 참조 하세요. [조건부 액세스를 사용 하 여 위험 관리](../active-directory-conditional-access-azure-portal.md) 하 고 [Azure Active Directory Device Registration을 사용 하 여 온-프레미스 조건부 액세스 설정](../../active-directory/active-directory-device-registration-on-premises-setup.md)합니다.
 
 > [!IMPORTANT]
 > <li>디바이스는 사용자와 동일한 포리스트에 있어야 합니다. 디바이스가 단일 포리스트에 쓰기 저장해야 하기 때문에 이 기능은 현재 여러 사용자 포리스트에서 배포를 지원하지 않습니다.</li>

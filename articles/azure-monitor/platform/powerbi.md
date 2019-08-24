@@ -43,7 +43,7 @@ ms.locfileid: "67626111"
 3. 텍스트 파일을 열고 내용을 복사합니다.
 
 ## <a name="import-query-into-power-bi-desktop"></a>Power BI Desktop으로 쿼리 가져오기
-Power BI Desktop은 Power BI에 게시할 수 있는 데이터 집합 및 보고서를 만들 수 있는 데스크톱 애플리케이션입니다.  Azure Monitor에서 내보낸 파워 쿼리 언어를 사용 하 여 쿼리를 만들려면 사용할 수 있습니다. 
+Power BI Desktop은 Power BI에 게시할 수 있는 데이터 세트 및 보고서를 만들 수 있는 데스크톱 애플리케이션입니다.  Azure Monitor에서 내보낸 파워 쿼리 언어를 사용 하 여 쿼리를 만들려면 사용할 수 있습니다. 
 
 1. 아직 설치하지 않았으면 [Power BI Desktop](https://powerbi.microsoft.com/desktop/)을 설치하고 애플리케이션을 엽니다.
 2. **데이터 가져오기** > **빈 쿼리**를 선택하여 새 쿼리를 엽니다.  그런 다음 **고급 편집기**를 선택하고 내보낸 파일의 내용을 쿼리에 붙여넣습니다. **완료**를 클릭합니다.

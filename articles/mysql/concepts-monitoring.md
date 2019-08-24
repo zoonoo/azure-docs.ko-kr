@@ -1,6 +1,6 @@
 ---
 title: Azure Database for MySQL에서 모니터링
-description: 이 문서에서는 CPU, 저장소 및 연결 통계를 포함하여 Azure Database for MySQL을 모니터링하고 경고하는 메트릭을 설명합니다.
+description: 이 문서에서는 CPU, 스토리지 및 연결 통계를 포함하여 Azure Database for MySQL을 모니터링하고 경고하는 메트릭을 설명합니다.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
@@ -27,12 +27,12 @@ Azure Database for MySQL에서는 다음 메트릭을 사용할 수 있습니다
 |cpu_percent|CPU 백분율|Percent|사용 중인 CPU의 비율|
 |memory_percent|메모리 백분율|Percent|사용 중인 메모리의 비율|
 |io_consumption_percent|IO 백분율|Percent|사용 중인 IO의 비율|
-|storage_percent|저장소 비율|Percent|서버의 최대값을 초과하여 사용된 저장소의 비율|
-|storage_used|사용된 스토리지|바이트|사용 중인 저장소의 양 서비스에서 사용되는 저장소에는 데이터베이스 파일, 트랜잭션 로그 및 서버 로그가 포함될 수 있습니다.|
-|serverlog_storage_percent|서버 로그 저장소 비율|Percent|서버의 최대 서버 로그 저장소에서 사용된 서버 로그 저장소의 백분율입니다.|
-|serverlog_storage_percent|사용된 서버 로그 저장소|바이트|서버 로그 저장소에서 사용된 크기입니다.|
-|serverlog_storage_limit|서버 로그 저장소 제한|바이트|이 서버에 대한 서버 로그 저장소의 최대 크기입니다.|
-|storage_limit|저장소 제한|바이트|이 서버의 최대 저장소|
+|storage_percent|스토리지 비율|Percent|서버의 최대값을 초과하여 사용된 스토리지의 비율|
+|storage_used|사용된 스토리지|바이트|사용 중인 스토리지의 양 서비스에서 사용되는 스토리지에는 데이터베이스 파일, 트랜잭션 로그 및 서버 로그가 포함될 수 있습니다.|
+|serverlog_storage_percent|서버 로그 스토리지 비율|Percent|서버의 최대 서버 로그 스토리지에서 사용된 서버 로그 스토리지의 백분율입니다.|
+|serverlog_storage_percent|사용된 서버 로그 스토리지|바이트|서버 로그 스토리지에서 사용된 크기입니다.|
+|serverlog_storage_limit|서버 로그 스토리지 제한|바이트|이 서버에 대한 서버 로그 스토리지의 최대 크기입니다.|
+|storage_limit|스토리지 제한|바이트|이 서버의 최대 스토리지|
 |active_connections|활성 연결 수|개수|서버에 대한 활성 연결 수|
 |connections_failed|연결 실패|개수|서버에 대해 실패한 연결 수|
 |seconds_behind_master|복제 지연 시간(초)|개수|마스터 서버에 대해 복제본 서버가 지연되는 시간(초)입니다.|
@@ -44,7 +44,7 @@ Azure Database for MySQL에서는 다음 메트릭을 사용할 수 있습니다
 서버에서 느리게 쿼리 및 감사 로깅을 사용 하도록 설정할 수 있습니다. 이러한 로그는 Azure Monitor 로그, Event Hubs 및 저장소 계정의 Azure 진단 로그를 통해 사용할 수도 있습니다. 로깅에 대 한 자세한 내용은 [감사 로그](concepts-audit-logs.md) 및 [쿼리 로그 느림](concepts-server-logs.md) 문서를 참조 하세요.
 
 ## <a name="query-store"></a>쿼리 저장소
-[쿼리 저장소](concepts-query-store.md)는 쿼리 런타임 통계 및 대기 이벤트를 포함하여 시간 경과에 따라 쿼리 성능을 추적하는 공개 미리 보기 기능입니다. 기능은 **mysql** 스키마에서 쿼리 런타임 성능 정보를 유지 합니다. 데이터 수집 및 저장은 다양한 구성 노브를 통해 제어할 수 있습니다.
+[쿼리 저장소](concepts-query-store.md)는 쿼리 런타임 통계 및 대기 이벤트를 포함하여 시간 경과에 따라 쿼리 성능을 추적하는 공개 미리 보기 기능입니다. 기능은 **mysql** 스키마에서 쿼리 런타임 성능 정보를 유지 합니다. 데이터 수집 및 스토리지은 다양한 구성 노브를 통해 제어할 수 있습니다.
 
 ## <a name="query-performance-insight"></a>Query Performance Insight
 [Query Performance Insight](concepts-query-performance-insight.md)는 쿼리 저장소와 함께 작동하여 Azure Portal에서 액세스할 수 있는 시각화를 제공합니다. 이러한 차트를 사용하면 성능에 영향을 주는 주요 쿼리를 식별할 수 있습니다. Query Performance Insight는 공개 미리 보기로 제공 되며 Azure Database for MySQL 서버 포털 페이지의 **지능형 성능** 섹션에서 액세스할 수 있습니다.

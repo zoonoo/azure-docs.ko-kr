@@ -82,8 +82,8 @@ Service Fabric 클러스터 내부 또는 외부에서 Jenkins를 설정할 수 
    ```
 
 1. 다음과 같이 파일 공유에서 Jenkins 컨테이너의 상태를 유지합니다.
-   1. 클러스터와 **동일한 지역**에서 Azure 저장소 계정을 `sfjenkinsstorage1`과 같은 이름으로 만듭니다.
-   1. `sfjenkins` 같은 이름의 저장소 계정에서 **파일 공유**를 만듭니다.
+   1. 클러스터와 **동일한 지역**에서 Azure Storage 계정을 `sfjenkinsstorage1`과 같은 이름으로 만듭니다.
+   1. `sfjenkins` 같은 이름의 스토리지 계정에서 **파일 공유**를 만듭니다.
    1. 파일 공유에 대한 **연결**을 클릭하고 **Linux에서 연결** 아래에 표시된 값을 적어둡니다. 이 값은 다음과 비슷합니다.
 
       ```sh
@@ -94,7 +94,7 @@ Service Fabric 클러스터 내부 또는 외부에서 Jenkins를 설정할 수 
    > cifs 공유를 마운트하려면 클러스터 노드에 cifs-utils 패키지를 설치해야 합니다.      
    >
 
-1. `setupentrypoint.sh` 스크립트의 자리 표시자 값을 2단계의 Azure Storage 세부 정보로 업데이트합니다.
+1. `setupentrypoint.sh` 스크립트의 자리 표시자 값을 2단계의 Azure 스토리지 세부 정보로 업데이트합니다.
    ```sh
    vi JenkinsSF/JenkinsOnSF/Code/setupentrypoint.sh
    ```

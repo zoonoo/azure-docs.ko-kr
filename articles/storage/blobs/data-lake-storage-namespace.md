@@ -43,4 +43,4 @@ Azure Data Lake Storage Gen2를 사용하여 개체 스토리지 규모 및 가�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [저장소 계정 만들기](./data-lake-storage-quickstart-create-account.md)
+- [스토리지 계정 만들기](./data-lake-storage-quickstart-create-account.md)

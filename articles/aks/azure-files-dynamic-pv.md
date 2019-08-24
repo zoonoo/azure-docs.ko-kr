@@ -16,7 +16,7 @@ ms.locfileid: "67665981"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Azure Files를 사용하여 영구 볼륨을 동적으로 만들어 사용
 
-영구적 볼륨은 Kubernetes Pod와 함께 사용하기 위해 프로비전된 저장소 부분을 나타냅니다. 하나 이상의 Pod에서 영구적 볼륨을 사용할 수 있으며 동적 또는 정적으로 프로비전할 수 있습니다. 여러 pod가 동일한 저장소 볼륨에 동시에 액세스 해야 하는 경우 Azure Files를 사용 하 여 [SMB (서버 메시지 블록) 프로토콜][smb-overview]을 사용 하 여 연결할 수 있습니다. 이 문서에서는 AKS(Azure Kubernetes Service) 클러스터에서 여러 Pod에 사용할 Azure Files공유를 동적으로 만드는 방법을 설명합니다.
+영구적 볼륨은 Kubernetes Pod와 함께 사용하기 위해 프로비전된 스토리지 부분을 나타냅니다. 하나 이상의 Pod에서 영구적 볼륨을 사용할 수 있으며 동적 또는 정적으로 프로비전할 수 있습니다. 여러 pod가 동일한 저장소 볼륨에 동시에 액세스 해야 하는 경우 Azure Files를 사용 하 여 [SMB (서버 메시지 블록) 프로토콜][smb-overview]을 사용 하 여 연결할 수 있습니다. 이 문서에서는 AKS(Azure Kubernetes Service) 클러스터에서 여러 Pod에 사용할 Azure Files공유를 동적으로 만드는 방법을 설명합니다.
 
 Kubernetes 볼륨에 대 한 자세한 내용은 [AKS의 응용 프로그램에 대 한 저장소 옵션][concepts-storage]을 참조 하세요.
 
@@ -26,9 +26,9 @@ Kubernetes 볼륨에 대 한 자세한 내용은 [AKS의 응용 프로그램에 
 
 또한 Azure CLI 버전 2.0.59 이상이 설치 및 구성 되어 있어야 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드 해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조 하세요.
 
-## <a name="create-a-storage-class"></a>저장소 클래스 만들기
+## <a name="create-a-storage-class"></a>스토리지 클래스 만들기
 
-저장소 클래스는 Azure 파일 공유를 만드는 방법을 정의하는 데 사용됩니다. 저장소 계정은 Azure 파일 공유를 저장 하기 위해 저장소 클래스와 함께 사용 하기 위해 [노드 리소스 그룹][node-resource-group] 에 자동으로 만들어집니다. 다음 [Azure storage 중복성][storage-skus] 기능을 선택 합니다 *.*
+스토리지 클래스는 Azure 파일 공유를 만드는 방법을 정의하는 데 사용됩니다. 저장소 계정은 Azure 파일 공유를 저장 하기 위해 저장소 클래스와 함께 사용 하기 위해 [노드 리소스 그룹][node-resource-group] 에 자동으로 만들어집니다. 다음 [Azure storage 중복성][storage-skus] 기능을 선택 합니다 *.*
 
 * *Standard_LRS* - 표준 LRS(로컬 중복 스토리지)
 * *Standard_GRS* - 표준 GRS(지역 중복 스토리지)
@@ -66,7 +66,7 @@ kubectl apply -f azure-file-sc.yaml
 
 AKS 클러스터는 Kubernetes RBAC(역할 기반 액세스 제어)를 사용하여 수행할 수 있는 작업을 제한합니다. *역할*은 부여할 사용 권한을 정의하고 *바인딩*은 원하는 사용자에게 역할을 적용합니다. 이러한 할당은 주어진 네임스페이스 또는 전체 클러스터에 적용될 수 있습니다. 자세한 내용은 [RBAC 권한 부여 사용][kubernetes-rbac]을 참조 하세요.
 
-필요한 저장소 리소스를 만들도록 Azure 플랫폼을 허용하려면 *ClusterRole* 및 *ClusterRoleBinding*을 만듭니다. `azure-pvc-roles.yaml`이라는 파일을 만들고 다음 YAML에 복사합니다.
+필요한 스토리지 리소스를 만들도록 Azure 플랫폼을 허용하려면 *ClusterRole* 및 *ClusterRoleBinding*을 만듭니다. `azure-pvc-roles.yaml`이라는 파일을 만들고 다음 YAML에 복사합니다.
 
 ```yaml
 ---
@@ -101,7 +101,7 @@ kubectl apply -f azure-pvc-roles.yaml
 
 ## <a name="create-a-persistent-volume-claim"></a>영구적 볼륨 클레임 만들기
 
-PVC(영구적 볼륨 클레임)는 저장소 클래스 개체를 사용하여 Azure 파일 공유를 동적으로 프로비전합니다. 다음 YAML을 사용하여 크기가 *5GB*이고 *ReadWriteMany* 액세스 권한을 가진 영구적 볼륨 클레임을 만들 수 있습니다. 액세스 모드에 대 한 자세한 내용은 [Kubernetes 영구 볼륨][access-modes] 설명서를 참조 하세요.
+PVC(영구적 볼륨 클레임)는 스토리지 클래스 개체를 사용하여 Azure 파일 공유를 동적으로 프로비전합니다. 다음 YAML을 사용하여 크기가 *5GB*이고 *ReadWriteMany* 액세스 권한을 가진 영구적 볼륨 클레임을 만들 수 있습니다. 액세스 모드에 대 한 자세한 내용은 [Kubernetes 영구 볼륨][access-modes] 설명서를 참조 하세요.
 
 이제 `azure-file-pvc.yaml`이라는 파일을 만들고 다음 YAML에 복사합니다. *storageClassName*이 마지막 단계에서 만든 스토리지 클래스와 일치하는지 확인합니다.
 
@@ -206,7 +206,7 @@ Volumes:
 | v1.9.0 | 0700 |
 | v1.9.1 이상 | 0755 |
 
-클러스터 버전 1.8.5 이상을 사용하고 저장소 클래스를 사용하여 동적으로 영구적 볼륨을 만드는 경우 저장소 클래스 개체에서 마운트 옵션을 지정할 수 있습니다. 다음 예제에서는 *0777*을 설정합니다.
+클러스터 버전 1.8.5 이상을 사용하고 스토리지 클래스를 사용하여 동적으로 영구적 볼륨을 만드는 경우 스토리지 클래스 개체에서 마운트 옵션을 지정할 수 있습니다. 다음 예제에서는 *0777*을 설정합니다.
 
 ```yaml
 kind: StorageClass

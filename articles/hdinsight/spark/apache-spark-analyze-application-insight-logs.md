@@ -41,7 +41,7 @@ HDInsight에서 [Apache Spark](https://spark.apache.org/)를 사용하여 Applic
 
 ![File Storage는 이제 일반적으로 사용 가능하며 SMB 2.1과 SMB 3.0을 모두 지원합니다.](./media/apache-spark-analyze-application-insight-logs/appinsightshdinsight.png)
 
-### <a name="azure-storage"></a>Azure 저장소
+### <a name="azure-storage"></a>Azure Storage
 
 Application Insights가 Blob에 원격 분석 정보를 지속적으로 내보내도록 구성될 수 있습니다. 그러면 HDInsight는 Blob에 저장된 데이터를 읽을 수 있습니다. 그러나 따라야 할 몇 가지 요구 사항이 있습니다.
 
@@ -52,7 +52,7 @@ Application Insights가 Blob에 원격 분석 정보를 지속적으로 내보�
 
 * **Blob 유형**: HDInsight는 블록 Blob만을 지원합니다. Application Insights의 기본값은 블록 Blob을 사용하므로 기본적으로 HDInsight와 함께 사용해야 합니다.
 
-기존 클러스터에 저장소를 추가하는 방법에 대한 정보는 [추가 저장소 계정 추가](../hdinsight-hadoop-add-storage.md) 문서를 참조하세요.
+기존 클러스터에 스토리지를 추가하는 방법에 대한 정보는 [추가 스토리지 계정 추가](../hdinsight-hadoop-add-storage.md) 문서를 참조하세요.
 
 ### <a name="data-schema"></a>데이터 스키마
 
@@ -64,7 +64,7 @@ Application Insights는 Blob으로 내보낸 원격 분석 데이터 형식에 �
 
 ## <a name="configure-hdinsight-to-access-the-data"></a>HDInsight를 구성하여 데이터에 액세스
 
-HDInsight 클러스터를 만드는 경우에 클러스터를 만드는 동안 저장소 계정을 추가합니다.
+HDInsight 클러스터를 만드는 경우에 클러스터를 만드는 동안 스토리지 계정을 추가합니다.
 
 Azure Storage 계정을 기존 클러스터에 추가하려면 [추가 스토리지 계정 추가](../hdinsight-hadoop-add-storage.md) 문서의 내용을 사용하세요.
 

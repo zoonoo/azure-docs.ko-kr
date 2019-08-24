@@ -65,7 +65,7 @@ VMware ESXi 5.0, 5.5, 6.0 또는 6.5를 실행하는 호스트 시스템에 가�
 2. 하이퍼바이저에서 가상 디바이스를 프로비전합니다.
 3. 가상 디바이스를 시작하고 IP 주소를 가져옵니다.
 
-## <a name="step-1-ensure-host-system-meets-minimum-virtual-device-requirements"></a>1단계: 호스트 시스템이 최소 가상 장치 요구 사항을 충족하는지 확인
+## <a name="step-1-ensure-host-system-meets-minimum-virtual-device-requirements"></a>1단계: 호스트 시스템이 최소 가상 디바이스 요구 사항을 충족하는지 확인
 가상 디바이스를 만들려면 다음이 필요합니다.
 
 * VMware ESXi Server 5.0, 5.5, 6.0 또는 6.5를 실행하는 호스트 시스템에 대한 액세스
@@ -90,7 +90,7 @@ VMware ESXi 5.0, 5.5, 6.0 또는 6.5를 실행하는 호스트 시스템에 가�
 3. vSphere 클라이언트 왼쪽 창의 인벤토리 섹션에서 ESXi 서버를 선택합니다.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image2.png)
-4. ESXi 서버에 VMDK를 업로드합니다. 오른쪽 창의 **구성** 탭으로 이동합니다. **하드웨어** 아래에서 **저장소**를 선택합니다.
+4. ESXi 서버에 VMDK를 업로드합니다. 오른쪽 창의 **구성** 탭으로 이동합니다. **하드웨어** 아래에서 **스토리지**를 선택합니다.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image3.png)
 5. 오른쪽 창의 **데이터 저장소**아래에서 VMDK를 업로드할 데이터 저장소를 선택합니다. 데이터 저장소에는 OS 및 데이터 디스크에 충분한 여유 공간이 있어야 합니다.
@@ -128,7 +128,7 @@ VMware ESXi 5.0, 5.5, 6.0 또는 6.5를 실행하는 호스트 시스템에 가�
 16. **이름 및 위치** 페이지에서 가상 머신의 이름을 지정합니다. 이 이름은 앞서 8단계에서 지정한 폴더 이름(권장 모범 사례)과 일치해야 합니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image17.png)
-17. **저장소** 페이지에서 VM을 프로비전하는 데 사용할 데이터 저장소를 선택합니다.
+17. **스토리지** 페이지에서 VM을 프로비전하는 데 사용할 데이터 스토리지를 선택합니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image18.png)
 18. **Virtual Machine 버전** 페이지에서 **Virtual Machine 버전: 8**을 선택합니다.

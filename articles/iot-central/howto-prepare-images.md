@@ -23,7 +23,7 @@ ms.locfileid: "67850155"
 
 이 문서의 단계를 완료하려면 다음이 필요합니다.
 
-1. Azure IoT Central 애플리케이션. 자세한 내용은 참조는 [애플리케이션 빠른 시작 만들기](quick-deploy-iot-central.md)를 참조하세요.
+1. Azure IoT Central 애플리케이션. 자세한 내용은 [애플리케이션 만들기 빠른 시작](quick-deploy-iot-central.md)을 참조하세요.
 1. 이미지 파일의 배율과 크기를 조정하는 데 사용되는 도구.
 
 ## <a name="choose-where-to-use-custom-images"></a>사용자 지정 이미지를 사용할 위치 선택
@@ -120,4 +120,4 @@ Azure IoT Central 애플리케이션에서 다음 위치에 사용자 지정 이
 
 * [Azure IoT Central UI 사용자 지정](./howto-customize-ui.md)
 * [응용 프로그램 대시보드 구성](./howto-configure-homepage.md)
-* [Azure IoT Central 애플리케이션에서 장치 관리](howto-manage-devices.md)
+* [Azure IoT Central 애플리케이션에서 디바이스 관리](howto-manage-devices.md)

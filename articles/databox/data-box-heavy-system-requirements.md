@@ -36,11 +36,11 @@ ms.locfileid: "67839774"
 
 [!INCLUDE [data-box-supported-file-systems-clients](../../includes/data-box-supported-file-systems-clients.md)]
 
-### <a name="supported-storage-accounts"></a>지원되는 저장소 계정
+### <a name="supported-storage-accounts"></a>지원되는 스토리지 계정
 
 [!INCLUDE [data-box-supported-storage-accounts](../../includes/data-box-supported-storage-accounts.md)]
 
-### <a name="supported-storage-types"></a>지원되는 저장소 형식
+### <a name="supported-storage-types"></a>지원되는 스토리지 형식
 
 [!INCLUDE [data-box-supported-storage-types](../../includes/data-box-supported-storage-types.md)]
 

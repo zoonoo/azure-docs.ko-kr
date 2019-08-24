@@ -70,7 +70,7 @@ Azure AD DS를 사용하면 Azure에서 완전히 관리되는 서비스를 제�
 
    a. [Azure Files 공유 만들기](../../storage/files/storage-how-to-create-file-share.md)
     
-   b. Linux DSVM에 탑재합니다. Azure Portal의 저장소 계정에서 Azure Files 공유에 대해 **연결** 단추를 선택하면 Linux DSVM의 bash 셸에서 실행할 명령이 나타납니다. 이 명령은 다음과 같습니다.
+   b. Linux DSVM에 탑재합니다. Azure Portal의 스토리지 계정에서 Azure Files 공유에 대해 **연결** 단추를 선택하면 Linux DSVM의 bash 셸에서 실행할 명령이 나타납니다. 이 명령은 다음과 같습니다.
    
    ```
    sudo mount -t cifs //[STORAGEACCT].file.core.windows.net/workspace [Your mount point] -o vers=3.0,username=[STORAGEACCT],password=[Access Key or SAS],dir_mode=0777,file_mode=0777,sec=ntlmssp

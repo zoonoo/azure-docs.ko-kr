@@ -1,6 +1,6 @@
 ---
 title: 공유 액세스 서명을 사용하여 액세스 제한 - Azure HDInsight
-description: 공유 액세스 서명을 사용하여 Azure 저장소 Blob에 저장된 데이터에 대한 HDInsight 액세스를 제한하는 방법에 대해 알아봅니다.
+description: 공유 액세스 서명을 사용하여 Azure Storage Blob에 저장된 데이터에 대한 HDInsight 액세스를 제한하는 방법에 대해 알아봅니다.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -17,13 +17,13 @@ ms.locfileid: "65409556"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Azure Storage 공유 액세스 서명을 사용하여 HDInsight에서 데이터 액세스 제한
 
-HDInsight는 클러스터와 연결된 Azure Storage 계정의 데이터에 대해 모든 액세스 권한을 갖습니다. blob 컨테이너에서 공유 액세스 서명을 사용하여 데이터에 대한 액세스를 제한할 수 있습니다. 공유 액세스 서명(SAS)은 데이터에 대한 액세스를 제한할 수 있는 Azure 저장소 계정의 기능입니다. 예를 들어 데이터에 대한 읽기 전용 액세스를 제공합니다.
+HDInsight는 클러스터와 연결된 Azure Storage 계정의 데이터에 대해 모든 액세스 권한을 갖습니다. blob 컨테이너에서 공유 액세스 서명을 사용하여 데이터에 대한 액세스를 제한할 수 있습니다. 공유 액세스 서명(SAS)은 데이터에 대한 액세스를 제한할 수 있는 Azure Storage 계정의 기능입니다. 예를 들어 데이터에 대한 읽기 전용 액세스를 제공합니다.
 
 > [!IMPORTANT]  
 > Apache Ranger를 사용하는 솔루션의 경우 도메인에 가입된 HDInsight를 사용하는 것이 좋습니다. 자세한 내용은 [도메인에 가입된 HDInsight 구성](./domain-joined/apache-domain-joined-configure.md) 문서를 참조하세요.
 
 > [!WARNING]  
-> HDInsight는 클러스터의 기본 저장소에 대해 모든 액세스 권한이 있어야 합니다.
+> HDInsight는 클러스터의 기본 스토리지에 대해 모든 액세스 권한이 있어야 합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -47,8 +47,8 @@ HDInsight는 클러스터와 연결된 Azure Storage 계정의 데이터에 대�
 
 * [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature)의 예제 파일 이 리포지토리에는 다음 항목이 포함됩니다.
 
-  * HDInsight에 사용할 저장소 컨테이너, 저장된 정책 및 SAS를 만들 수 있는 Visual Studio 프로젝트
-  * HDInsight에 사용할 저장소 컨테이너, 저장된 정책 및 SAS를 만들 수 있는 Python 스크립트
+  * HDInsight에 사용할 스토리지 컨테이너, 저장된 정책 및 SAS를 만들 수 있는 Visual Studio 프로젝트
+  * HDInsight에 사용할 스토리지 컨테이너, 저장된 정책 및 SAS를 만들 수 있는 Python 스크립트
   * HDInsight 클러스터를 만들고 SAS를 사용하도록 구성할 수 있는 PowerShell 스크립트 업데이트 된 버전에는 아래 추가 합니다.
   * 샘플 파일: `hdinsight-dotnet-python-azure-storage-shared-access-signature-master\sampledata\sample.log`
 
@@ -213,7 +213,7 @@ Set-AzStorageblobcontent `
 
 3. **설정** 을 선택하고 다음 항목에 대한 값을 추가합니다.
 
-   * StorageConnectionString: 저장된 정책 및 SAS를 만들 스토리지 계정에 대한 연결 문자열입니다. 형식은 `DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey`여야 하며 여기서 `myaccount`는 사용자의 저장소 계정 이름이고 `mykey`는 저장소 계정에 대한 키입니다.
+   * StorageConnectionString: 저장된 정책 및 SAS를 만들 스토리지 계정에 대한 연결 문자열입니다. 형식은 `DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey`여야 하며 여기서 `myaccount`는 사용자의 스토리지 계정 이름이고 `mykey`는 스토리지 계정에 대한 키입니다.
 
    * ContainerName: 액세스를 제한할 스토리지 계정의 컨테이너입니다.
 
@@ -221,11 +221,11 @@ Set-AzStorageblobcontent `
 
    * FileToUpload: 컨테이너에 업로드되는 파일의 경로입니다.
 
-4. 프로젝트를 실행합니다. SAS 정책 토큰, 저장소 계정 이름 및 컨테이너 이름을 저장합니다. 저장소 계정을 HDInsight 클러스터에 연결할 때 이러한 값이 사용됩니다.
+4. 프로젝트를 실행합니다. SAS 정책 토큰, 스토리지 계정 이름 및 컨테이너 이름을 저장합니다. 스토리지 계정을 HDInsight 클러스터에 연결할 때 이러한 값이 사용됩니다.
 
 ## <a name="use-the-sas-with-hdinsight"></a>HDInsight에 SAS 사용
 
-HDInsight 클러스터를 만들 때 기본 저장소 계정을 지정해야 하며 필요에 따라 추가 저장소 계정을 지정할 수 있습니다. 저장소를 추가하는 이 두 가지 방법 모두에 사용된 저장소 계정 및 컨테이너에 대한 모든 권한이 필요합니다.
+HDInsight 클러스터를 만들 때 기본 스토리지 계정을 지정해야 하며 필요에 따라 추가 스토리지 계정을 지정할 수 있습니다. 스토리지를 추가하는 이 두 가지 방법 모두에 사용된 스토리지 계정 및 컨테이너에 대한 모든 권한이 필요합니다.
 
 공유 액세스 서명을 사용하여 컨테이너에 대한 액세스를 제한하려면 클러스터에 대한 **core-site** 구성에 사용자 지정 항목을 추가합니다. PowerShell을 사용 하 여 클러스터를 만드는 동안 또는 Ambari를 사용 하 여 클러스터를 만든 후 항목을 추가할 수 있습니다.
 
@@ -418,7 +418,7 @@ SAS 저장소 계정에만 읽기 및 목록 항목 수를 확인 하려면 다�
 
     이 명령은 파일을 **testfile.txt**라는 로컬 파일에 다운로드합니다.
 
-5. 다음 명령을 사용하여 로컬 파일을 SAS 저장소의 새 **testupload.txt** 파일에 업로드합니다.
+5. 다음 명령을 사용하여 로컬 파일을 SAS 스토리지의 새 **testupload.txt** 파일에 업로드합니다.
 
     ```bash
     hdfs dfs -put testfile.txt wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/testupload.txt
@@ -428,7 +428,7 @@ SAS 저장소 계정에만 읽기 및 목록 항목 수를 확인 하려면 다�
 
         put: java.io.IOException
 
-    저장소 위치가 읽기 + 목록 전용이므로 이 오류가 발생합니다. 다음 명령을 사용하여 쓰기 가능한 클러스터의 기본 저장소에 데이터를 저장합니다.
+    스토리지 위치가 읽기 + 목록 전용이므로 이 오류가 발생합니다. 다음 명령을 사용하여 쓰기 가능한 클러스터의 기본 스토리지에 데이터를 저장합니다.
 
     ```bash
     hdfs dfs -put testfile.txt wasbs:///testupload.txt
@@ -438,7 +438,7 @@ SAS 저장소 계정에만 읽기 및 목록 항목 수를 확인 하려면 다�
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 HDInsight 클러스터에 액세스가 제한된 저장소를 추가하는 방법을 배웠으므로 클러스터에서 데이터에 대해 작업하는 다른 방법에 알아보겠습니다.
+이제 HDInsight 클러스터에 액세스가 제한된 스토리지를 추가하는 방법을 배웠으므로 클러스터에서 데이터에 대해 작업하는 다른 방법에 알아보겠습니다.
 
 * [HDInsight에서 Apache Hive 사용](hadoop/hdinsight-use-hive.md)
 * [HDInsight에서 Apache Pig 사용](hadoop/hdinsight-use-pig.md)

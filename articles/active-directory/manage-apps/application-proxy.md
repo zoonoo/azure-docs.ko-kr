@@ -38,7 +38,7 @@ Azure AD 애플리케이션 프록시는:
 
 * 인증을 위해 [Windows 통합 인증](application-proxy-configure-single-sign-on-with-kcd.md)을 사용하는 웹 애플리케이션  
 * 폼 기반 또는 [헤더 기반](application-proxy-configure-single-sign-on-with-ping-access.md) 액세스를 사용하는 웹 애플리케이션  
-* 여러 장치에서 다양한 애플리케이션을 표시하려는 웹 API  
+* 여러 디바이스에서 다양한 애플리케이션을 표시하려는 웹 API  
 * [원격 데스크톱 게이트웨이](application-proxy-integrate-with-remote-desktop-services.md) 뒤에서 호스트되는 애플리케이션  
 * ADAL(Active Directory 인증 라이브러리)과 통합되는 리치 클라이언트 앱
 

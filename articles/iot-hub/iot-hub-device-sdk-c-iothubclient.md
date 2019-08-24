@@ -25,7 +25,7 @@ ms.locfileid: "68883168"
 
 디바이스 자격 증명에 대한 자세한 정보 및 구성 옵션을 통해 **IoTHubClient** 의 동작을 변경하는 방법 등 몇 가지 기타 항목을 다루는 것으로 문서를 마무리합니다.
 
-이 항목을 설명하기 위해 **IoTHubClient** SDK 샘플을 사용하겠습니다. 따라서 따라하려면 C용 Azure IoT 장치 SDK에 포함된 **iothub\_client\_sample\_http** 및 **iothub\_client\_sample\_amqp** 애플리케이션을 참조하세요. 다음 섹션에 설명된 모든 내용은 이 샘플에 나와 있습니다.
+이 항목을 설명하기 위해 **IoTHubClient** SDK 샘플을 사용하겠습니다. 따라서 따라하려면 C용 Azure IoT 디바이스 SDK에 포함된 **iothub\_client\_sample\_http** 및 **iothub\_client\_sample\_amqp** 애플리케이션을 참조하세요. 다음 섹션에 설명된 모든 내용은 이 샘플에 나와 있습니다.
 
 GitHub 리포지토리에서 [**C용 Azure IoT 디바이스 SDK**](https://github.com/Azure/azure-iot-sdk-c)를 찾고 [C API 참조](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)에서 API의 세부 정보를 볼 수 있습니다.
 
@@ -133,7 +133,7 @@ IoTHubClient_LL_Destroy(iotHubClientHandle);
 
 반대의 경우도 마찬가지입니다. **IoTHubClient\_CreateFromConnectionString**으로 시작한 후 비-LL API를 사용하여 추가 처리를 계속합니다.
 
-C용 Azure IoT 장치 SDK에서 하위 수준 API에 대한 전체 예제는 **iothub\_client\_sample\_http** 애플리케이션을 참조하세요. 비-LL API의 전체 예제는 **iothub\_client\_sample\_amqp** 애플리케이션을 참조하면 됩니다.
+C용 Azure IoT 디바이스 SDK에서 하위 수준 API에 대한 전체 예제는 **iothub\_client\_sample\_http** 애플리케이션을 참조하세요. 비-LL API의 전체 예제는 **iothub\_client\_sample\_amqp** 애플리케이션을 참조하면 됩니다.
 
 ## <a name="property-handling"></a>속성 처리
 

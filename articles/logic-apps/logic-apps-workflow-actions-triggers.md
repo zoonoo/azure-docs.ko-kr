@@ -27,9 +27,9 @@ ms.locfileid: "68689661"
 
 모든 워크플로에는 워크플로를 인스턴스화하고 시작 하는 호출을 정의 하는 트리거가 포함 되어 있습니다. 일반 트리거 범주는 다음과 같습니다.
 
-* *폴링* 트리거 - 정기적인 간격으로 서비스의 끝점을 검사합니다.
+* *폴링* 트리거 - 정기적인 간격으로 서비스의 엔드포인트을 검사합니다.
 
-* *푸시* 트리거 - 끝점에 대한 구독을 만들고 *콜백 URL*을 제공하여 지정된 이벤트가 발생하거나 데이터를 사용할 수 있을 때 끝점이 트리거에 알릴 수 있도록 합니다. 그러면 트리거는 발생하기 전에 끝점의 응답을 기다립니다. 
+* *푸시* 트리거 - 엔드포인트에 대한 구독을 만들고 *콜백 URL*을 제공하여 지정된 이벤트가 발생하거나 데이터를 사용할 수 있을 때 엔드포인트이 트리거에 알릴 수 있도록 합니다. 그러면 트리거는 발생하기 전에 엔드포인트의 응답을 기다립니다. 
 
 트리거에는 이러한 최상위 요소가 있습니다. 단, 일부는 선택 사항입니다.  
   
@@ -77,8 +77,8 @@ ms.locfileid: "68689661"
 
 | 트리거 형식 | Description | 
 |--------------|-------------| 
-| [**HTTP**](#http-trigger) | 끝점을 검사하거나 *폴링*합니다. 이 끝점은 “202” 비동기 패턴을 사용하거나 배열을 반환하여 특정 트리거 계약을 준수해야 합니다. | 
-| [**HTTPWebhook**](#http-webhook-trigger) | 논리 앱에 대한 호출 가능 끝점을 만들지만 지정된 URL을 호출하여 등록하거나 등록을 취소합니다. |
+| [**HTTP**](#http-trigger) | 엔드포인트을 검사하거나 *폴링*합니다. 이 끝점은 “202” 비동기 패턴을 사용하거나 배열을 반환하여 특정 트리거 계약을 준수해야 합니다. | 
+| [**HTTPWebhook**](#http-webhook-trigger) | 논리 앱에 대한 호출 가능 엔드포인트을 만들지만 지정된 URL을 호출하여 등록하거나 등록을 취소합니다. |
 | [**Recurrence**](#recurrence-trigger) | 정의된 일정에 따라 실행합니다. 이 트리거를 발생시키기 위한 미래의 날짜 및 시간을 설정할 수 있습니다. 빈도에 따라 워크플로를 실행할 시간 및 요일을 지정할 수도 있습니다. | 
 | [**Request**](#request-trigger)  | 논리 앱에 대한 호출 가능 끝점을 만들며 “수동” 트리거로도 알려져 있습니다. 예를 들어 [HTTP 엔드포인트를 통해 워크플로 호출, 트리거 또는 중첩](../logic-apps/logic-apps-http-endpoint.md)을 참조하세요. | 
 ||| 
@@ -87,8 +87,8 @@ ms.locfileid: "68689661"
 
 | 트리거 형식 | Description | 
 |--------------|-------------| 
-| [**ApiConnection**](#apiconnection-trigger) | [Microsoft 관리 API](../connectors/apis-list.md)를 사용하여 끝점을 검사하거나 *폴링*합니다. | 
-| [**ApiConnectionWebhook**](#apiconnectionwebhook-trigger) | 구독 및 구독을 취소하는 [Microsoft 관리 API](../connectors/apis-list.md)를 호출하여 논리 앱에 대한 호출 가능 끝점을 만듭니다. | 
+| [**ApiConnection**](#apiconnection-trigger) | [Microsoft 관리 API](../connectors/apis-list.md)를 사용하여 엔드포인트을 검사하거나 *폴링*합니다. | 
+| [**ApiConnectionWebhook**](#apiconnectionwebhook-trigger) | 구독 및 구독을 취소하는 [Microsoft 관리 API](../connectors/apis-list.md)를 호출하여 논리 앱에 대한 호출 가능 엔드포인트을 만듭니다. | 
 ||| 
 
 ## <a name="triggers---detailed-reference"></a>트리거 - 자세한 참조
@@ -97,7 +97,7 @@ ms.locfileid: "68689661"
 
 ### <a name="apiconnection-trigger"></a>APIConnection 트리거  
 
-이 트리거는 [Microsoft 관리 API](../connectors/apis-list.md)를 사용하여 끝점을 검사하거나 *폴링*하므로 이 트리거의 매개 변수는 끝점에 따라 다를 수 있습니다. 이 트리거 정의의 여러 섹션은 선택 사항입니다. 트리거의 동작은 섹션은 포함 여부에 따라 달라집니다.
+이 트리거는 [Microsoft 관리 API](../connectors/apis-list.md)를 사용하여 엔드포인트을 검사하거나 *폴링*하므로 이 트리거의 매개 변수는 엔드포인트에 따라 다를 수 있습니다. 이 트리거 정의의 여러 섹션은 선택 사항입니다. 트리거의 동작은 섹션은 포함 여부에 따라 달라집니다.
 
 ```json
 "<APIConnection_trigger_name>": {
@@ -194,7 +194,7 @@ ms.locfileid: "68689661"
 
 ### <a name="apiconnectionwebhook-trigger"></a>ApiConnectionWebhook 트리거
 
-이 트리거는 [Microsoft 관리 API](../connectors/apis-list.md)를 사용하여 끝점으로 구독 요청을 전송하고, 끝점이 응답을 전송할 수 있는 *콜백 URL*을 제공하고, 끝점이 응답할 때까지 기다립니다. 자세한 내용은 [끝점 구독](#subscribe-unsubscribe)을 참조하세요.
+이 트리거는 [Microsoft 관리 API](../connectors/apis-list.md)를 사용하여 엔드포인트으로 구독 요청을 전송하고, 엔드포인트이 응답을 전송할 수 있는 *콜백 URL*을 제공하고, 엔드포인트이 응답할 때까지 기다립니다. 자세한 내용은 [엔드포인트 구독](#subscribe-unsubscribe)을 참조하세요.
 
 ```json
 "<ApiConnectionWebhook_trigger_name>": {
@@ -244,7 +244,7 @@ ms.locfileid: "68689661"
 
 *예제*
 
-이 트리거 정의는 Office 365 Outlook API를 구독하고, API 끝점에 대한 콜백 URL을 제공하고, 새 이메일이 도착할 때 끝점이 응답할 때까지 기다립니다.
+이 트리거 정의는 Office 365 Outlook API를 구독하고, API 엔드포인트에 대한 콜백 URL을 제공하고, 새 이메일이 도착할 때 엔드포인트이 응답할 때까지 기다립니다.
 
 ```json
 "When_a_new_email_arrives_(webhook)": {
@@ -273,7 +273,7 @@ ms.locfileid: "68689661"
 
 ### <a name="http-trigger"></a>HTTP 트리거
 
-이 트리거는 지정된 되풀이 일정에 따라 지정된 끝점을 검사하거나 폴링합니다. 끝점의 응답은 워크플로가 실행될지 여부를 결정합니다.
+이 트리거는 지정된 되풀이 일정에 따라 지정된 엔드포인트을 검사하거나 폴링합니다. 엔드포인트의 응답은 워크플로가 실행될지 여부를 결정합니다.
 
 ```json
 "HTTP": {
@@ -305,8 +305,8 @@ ms.locfileid: "68689661"
 
 | 값 | 형식 | 설명 | 
 |-------|------|-------------| 
-| <*method-type*> | 문자열 | 지정된 끝점을 폴링하는 데 사용할 HTTP 메서드: “GET”, “PUT”, “POST”, “PATCH”, “DELETE” | 
-| <*endpoint-URL*> | String | 끝점이 폴링할 HTTP 또는 HTTPS URL입니다. <p>최대 문자열 크기: 2KB | 
+| <*method-type*> | 문자열 | 지정된 엔드포인트을 폴링하는 데 사용할 HTTP 메서드: “GET”, “PUT”, “POST”, “PATCH”, “DELETE” | 
+| <*endpoint-URL*> | String | 엔드포인트이 폴링할 HTTP 또는 HTTPS URL입니다. <p>최대 문자열 크기: 2KB | 
 | <*time-unit*> | String | 트리거가 실행되는 빈도를 설명하는 시간 단위로, “초”, “분”, “시간”, “일”, “주” 또는 “월”이 있습니다. | 
 | <*number-of-time-units*> | 정수 | 트리거가 다시 실행될 때까지 기다리는 시간 단위 수를 나타내는 빈도에 따라 트리거가 얼마나 자주 발생하는지를 지정하는 값입니다. <p>다음은 최소 및 최대 간격입니다. <p>- 월: 1-16개월 </br>- 일: 1-500일 </br>- 시간: 1-12,000시간 </br>- 분: 1-72,000분 </br>- 초: 1-9,999,999초<p>예를 들어, 간격이 6이고 빈도가 “월”이면 되풀이 간격은 6개월마다입니다. | 
 |||| 
@@ -336,7 +336,7 @@ ms.locfileid: "68689661"
 
 *들어오는 요청에 대한 요구 사항*
 
-논리 앱에서 잘 작동하려면 끝점은 특정 트리거 패턴 또는 계약을 준수하고, 다음 속성을 인식해야 합니다.  
+논리 앱에서 잘 작동하려면 엔드포인트은 특정 트리거 패턴 또는 계약을 준수하고, 다음 속성을 인식해야 합니다.  
   
 | 응답 | 필수 | 설명 | 
 |----------|----------|-------------| 
@@ -360,7 +360,7 @@ ms.locfileid: "68689661"
 
 ### <a name="httpwebhook-trigger"></a>HTTPWebhook 트리거  
 
-이 트리거는 지정된 끝점 URL을 호출하여 구독을 등록할 수 있는 끝점을 만들어 논리 앱이 호출 가능해지도록 만듭니다. 워크플로에서 이 트리거를 만들 때 나가는 요청은 호출을 수행하여 구독을 등록합니다. 이러한 방식으로 트리거는 이벤트 수신을 시작할 수 있습니다. 작업에서 이 트리거가 유효해지지 않을 경우 나가는 요청은 자동으로 호출을 수행하여 구독을 취소합니다. 자세한 내용은 [끝점 구독](#subscribe-unsubscribe)을 참조하세요.
+이 트리거는 지정된 엔드포인트 URL을 호출하여 구독을 등록할 수 있는 엔드포인트을 만들어 논리 앱이 호출 가능해지도록 만듭니다. 워크플로에서 이 트리거를 만들 때 나가는 요청은 호출을 수행하여 구독을 등록합니다. 이러한 방식으로 트리거는 이벤트 수신을 시작할 수 있습니다. 작업에서 이 트리거가 유효해지지 않을 경우 나가는 요청은 자동으로 호출을 수행하여 구독을 취소합니다. 자세한 내용은 [엔드포인트 구독](#subscribe-unsubscribe)을 참조하세요.
 
 **HTTPWebhook** 트리거에 대해 [비동기 제한](#asynchronous-limits)을 지정할 수도 있습니다.
 트리거 동작은 사용하거나 생략하는 섹션에 따라 달라집니다. 
@@ -403,7 +403,7 @@ ms.locfileid: "68689661"
 | 값 | 형식 | 설명 | 
 |-------|------|-------------| 
 | <*method-type*> | String | 구독 요청에 사용되는 HTTP 메서드: “GET”, “PUT”, “POST”, “PATCH”, “DELETE” | 
-| <*endpoint-subscribe-URL*> | String | 구독 요청을 전송할 끝점 URL입니다. | 
+| <*endpoint-subscribe-URL*> | String | 구독 요청을 전송할 엔드포인트 URL입니다. | 
 |||| 
 
 *선택 사항*
@@ -411,7 +411,7 @@ ms.locfileid: "68689661"
 | 값 | 형식 | Description | 
 |-------|------|-------------| 
 | <*method-type*> | String | 취소 요청에 사용하는 HTTP 메서드: “GET”, “PUT”, “POST”, “PATCH”, “DELETE” | 
-| <*endpoint-unsubscribe-URL*> | String | 취소 요청을 보낼 끝점 URL입니다. | 
+| <*endpoint-unsubscribe-URL*> | String | 취소 요청을 보낼 엔드포인트 URL입니다. | 
 | <*body-content*> | String | 구독 또는 취소 요청에 전송할 메시지 콘텐츠입니다. | 
 | <*authentication-method*> | JSON 개체 | 요청이 인증에 사용하는 메서드입니다. 자세한 내용은 [스케줄러 아웃바운드 인증](../scheduler/scheduler-outbound-authentication.md)을 참조하세요. |
 | <*retry-behavior*> | JSON 개체 | 상태 코드 408, 429 및 5XX와 연결 예외가 있는 일시적 오류에 대한 재시도 동작을 사용자 지정합니다. 자세한 내용은 [다시 시도 정책](../logic-apps/logic-apps-exception-handling.md#retry-policies)을 참조하세요. | 
@@ -431,7 +431,7 @@ ms.locfileid: "68689661"
 
 *예제*
 
-이 트리거는 지정된 끝점에 대한 구독을 만들고, 고유한 콜백 URL을 제공하고, 새로 게시된 기술 문서를 기다립니다.
+이 트리거는 지정된 엔드포인트에 대한 구독을 만들고, 고유한 콜백 URL을 제공하고, 새로 게시된 기술 문서를 기다립니다.
 
 ```json
 "HTTP_Webhook": {
@@ -570,7 +570,7 @@ ms.locfileid: "68689661"
 
 ### <a name="request-trigger"></a>요청 트리거
 
-이 트리거는 들어오는 요청을 수락할 수 있는 끝점을 만들어서 논리 앱을 호출할 수 있게 합니다. 이 트리거의 경우 트리거가 들어오는 요청에서 수신하는 입력 또는 페이로드에 대해 설명하고 유효성을 검사하는 JSON 스키마를 제공합니다. 또한 이 스키마는 워크플로의 이후 작업에서 트리거 속성을 보다 쉽게 참조할 수 있도록 합니다. 
+이 트리거는 들어오는 요청을 수락할 수 있는 엔드포인트을 만들어서 논리 앱을 호출할 수 있게 합니다. 이 트리거의 경우 트리거가 들어오는 요청에서 수신하는 입력 또는 페이로드에 대해 설명하고 유효성을 검사하는 JSON 스키마를 제공합니다. 또한 이 스키마는 워크플로의 이후 작업에서 트리거 속성을 보다 쉽게 참조할 수 있도록 합니다. 
 
 이 트리거를 호출하려면 [워크플로 서비스 REST API](https://docs.microsoft.com/rest/api/logic/workflows)에 설명된 `listCallbackUrl` API를 사용해야 합니다. HTTP 엔드포인트로 이 트리거를 사용하는 방법을 알아보려면 [HTTP 엔드포인트를 사용하여 워크플로 호출, 트리거 또는 중첩](../logic-apps/logic-apps-http-endpoint.md)을 참조하세요.
 
@@ -614,7 +614,7 @@ ms.locfileid: "68689661"
 | 값 | 형식 | 설명 | 
 |-------|------|-------------| 
 | <*method-type*> | String | 들어오는 요청에서 논리 앱을 호출하는 데 사용해야 하는 메서드: “GET”, “PUT”, “POST”, “PATCH”, “DELETE” |
-| <*relative-path-for-accepted-parameter*> | 문자열 | 끝점의 URL이 수락할 수 있는 매개 변수에 대한 상대 경로입니다. | 
+| <*relative-path-for-accepted-parameter*> | 문자열 | 엔드포인트의 URL이 수락할 수 있는 매개 변수에 대한 상대 경로입니다. | 
 | <*required-properties*> | 배열 | 값이 필요한 하나 이상의 속성 | 
 | <*max-runs*> | 정수 | 기본적으로 워크플로 인스턴스는 모두 동시에 실행 되거나 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)까지 동시에 실행 됩니다. 새로운 <*count*> 값을 설정하여 이 제한을 변경하려면 [트리거 동시성 변경](#change-trigger-concurrency)을 참조하세요. | 
 | <*max-runs-queue*> | 정수 | 워크플로에서 최대 인스턴스 수를 이미 실행 중인 경우 ( `runtimeConfiguration.concurrency.runs` 속성에 따라 변경 가능) 새 실행은 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)까지이 큐에 배치 됩니다. 기본 제한을 변경하려면 [대기 실행 제한 변경](#change-waiting-runs)을 참조하세요. | 
@@ -800,7 +800,7 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 
 * [기본 제공 작업 유형](#built-in-actions)(다음 예제 참조) 
 
-  * [**HTTP**](#http-action): HTTP 또는 HTTPS에 대해 끝점을 호출하는 데 사용됩니다.
+  * [**HTTP**](#http-action): HTTP 또는 HTTPS에 대해 엔드포인트을 호출하는 데 사용됩니다.
 
   * [**Response**](#response-action): 요청에 응답하는 데 사용됩니다.
 
@@ -825,7 +825,7 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 | [**Compose**](#compose-action) | 입력에서 단일 출력을 만듭니다. 다양한 형식을 가질 수 있습니다. | 
 | [**JavaScript 코드 실행**](#run-javascript-code) | 특정 조건에 맞는 JavaScript 코드 조각을 실행 합니다. 코드 요구 사항 및 자세한 내용은 [인라인 코드를 사용 하 여 코드 조각 추가 및 실행](../logic-apps/logic-apps-add-run-inline-code.md)을 참조 하세요. |
 | [**Function**](#function-action) | Azure 함수를 호출합니다. | 
-| [**HTTP**](#http-action) | HTTP 끝점을 호출합니다. | 
+| [**HTTP**](#http-action) | HTTP 엔드포인트을 호출합니다. | 
 | [**Join**](#join-action) | 배열의 모든 항목에서 문자열을 만들고, 지정한 구분 기호를 사용하여 해당 항목을 구분합니다. | 
 | [**Parse JSON**](#parse-json-action) | JSON 콘텐츠의 속성에서 친숙한 토큰을 만듭니다. 논리 앱에 토큰을 포함하여 해당 속성을 참조할 수 있습니다. | 
 | [**Query**](#query-action) | 조건 또는 필터를 기준으로 다른 배열에 있는 항목에서 배열을 만듭니다. | 
@@ -843,7 +843,7 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 
 | 작업 유형 | Description | 
 |-------------|-------------|  
-| [**ApiConnection**](#apiconnection-action) | [Microsoft 관리 API](../connectors/apis-list.md)를 사용하여 HTTP 끝점을 호출합니다. | 
+| [**ApiConnection**](#apiconnection-action) | [Microsoft 관리 API](../connectors/apis-list.md)를 사용하여 HTTP 엔드포인트을 호출합니다. | 
 | [**ApiConnectionWebhook**](#apiconnectionwebhook-action) | HTTP 웹후크처럼 작동하지만 [Microsoft 관리 API](../connectors/apis-list.md)를 사용합니다. | 
 ||| 
 
@@ -939,7 +939,7 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 
 ### <a name="apiconnectionwebhook-action"></a>APIConnectionWebhook 작업
 
-이 작업은 [Microsoft 관리 API](../connectors/apis-list.md)를 사용하여 HTTP를 통해 끝점으로 구독 요청을 전송하고, 끝점이 응답을 전송할 수 있는 *콜백 URL*을 제공하고, 끝점이 응답할 때까지 기다립니다. 자세한 내용은 [끝점 구독](#subscribe-unsubscribe)을 참조하세요.
+이 작업은 [Microsoft 관리 API](../connectors/apis-list.md)를 사용하여 HTTP를 통해 엔드포인트으로 구독 요청을 전송하고, 엔드포인트이 응답을 전송할 수 있는 *콜백 URL*을 제공하고, 엔드포인트이 응답할 때까지 기다립니다. 자세한 내용은 [엔드포인트 구독](#subscribe-unsubscribe)을 참조하세요.
 
 ```json
 "<action-name>": {
@@ -975,7 +975,7 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 | 값 | 형식 | Description | 
 |-------|------|-------------| 
 | <*action-name*> | String | 커넥터에서 제공하는 작업의 이름입니다. | 
-| <*method-type*> | String | 끝점을 구독하거나 끝점에서 구독 취소하는 데 사용하는 HTTP 메서드: “GET”, “PUT”, “POST”, “PATCH”, “DELETE” | 
+| <*method-type*> | String | 엔드포인트을 구독하거나 엔드포인트에서 구독 취소하는 데 사용하는 HTTP 메서드: “GET”, “PUT”, “POST”, “PATCH”, “DELETE” | 
 | <*api-subscribe-URL*> | String | API를 구독하는 데 사용할 URI입니다. | 
 |||| 
 
@@ -1206,7 +1206,7 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 
 ### <a name="http-action"></a>HTTP 동작
 
-이 작업은 지정된 끝점으로 요청을 전송하고 응답을 확인하여 워크플로를 실행할지 여부를 결정합니다. 
+이 작업은 지정된 엔드포인트으로 요청을 전송하고 응답을 확인하여 워크플로를 실행할지 여부를 결정합니다. 
 
 ```json
 "HTTP": {
@@ -1224,7 +1224,7 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 | 값 | 형식 | Description | 
 |-------|------|-------------| 
 | <*method-type*> | String | 요청을 보내는 데 사용하는 메서드: “GET”, “PUT”, “POST”, “PATCH”, “DELETE” | 
-| <*HTTP-or-HTTPS-endpoint-URL*> | String | 호출할 HTTP 또는 HTTPS 끝점입니다. 최대 문자열 크기: 2KB | 
+| <*HTTP-or-HTTPS-endpoint-URL*> | String | 호출할 HTTP 또는 HTTPS 엔드포인트입니다. 최대 문자열 크기: 2KB | 
 |||| 
 
 *선택 사항*
@@ -1241,7 +1241,7 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 
 *예제*
 
-이 작업 정의는 지정된 끝점에 요청을 보내 최신 뉴스를 가져옵니다.
+이 작업 정의는 지정된 엔드포인트에 요청을 보내 최신 뉴스를 가져옵니다.
 
 ```json
 "HTTP": {
@@ -2339,7 +2339,7 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 
 ## <a name="webhooks-and-subscriptions"></a>웹후크 및 구독
 
-웹후크 기반 트리거 및 작업은 끝점을 주기적으로 검사하지 않지만, 대신 해당 끝점의 특정 이벤트 또는 데이터를 기다립니다. 이러한 트리거 및 작업은 끝점이 응답을 보낼 수 있는 *콜백 URL*을 제공하여 끝점을 *구독*합니다.
+웹후크 기반 트리거 및 작업은 엔드포인트을 주기적으로 검사하지 않지만, 대신 해당 엔드포인트의 특정 이벤트 또는 데이터를 기다립니다. 이러한 트리거 및 작업은 엔드포인트이 응답을 보낼 수 있는 *콜백 URL*을 제공하여 엔드포인트을 *구독*합니다.
 
 `subscribe` 호출은 예를 들어 자격 증명이 갱신되거나 트리거 또는 작업의 입력 매개 변수가 변경될 때와 같이 워크플로가 어떤 식으로든 변경될 때 발생합니다. 이 호출은 표준 HTTP 작업과 동일한 매개 변수를 사용합니다. 
 

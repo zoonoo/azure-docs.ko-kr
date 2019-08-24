@@ -137,7 +137,7 @@ PuTTY를 통해 생성한 Linux VM에 연결합니다. Azure Linux VM을 처음 
 
     # cp linux /etc/init.d/postgresql
 
-/Etc/init.d/postgresql 파일에서 두 변수를 수정합니다. 접두사가 PostgreSQL의 설치 경로인 **/opt/pgsql**로 설정됩니다. PGDATA가 PostgreSQL의 데이터 저장소 경로인 **/opt/pgsql_data**로 설정됩니다.
+/Etc/init.d/postgresql 파일에서 두 변수를 수정합니다. 접두사가 PostgreSQL의 설치 경로인 **/opt/pgsql**로 설정됩니다. PGDATA가 PostgreSQL의 데이터 스토리지 경로인 **/opt/pgsql_data**로 설정됩니다.
 
     # sed -i '32s#usr/local#opt#' /etc/init.d/postgresql
 

@@ -31,7 +31,7 @@ Event Hubs의 크기를 조정하는 핵심은 분할된 소비자라는 개념�
 
 예제 시나리오로 100,000호의 집을 모니터링하는 보안 회사를 가정합니다. 1분마다 각 집에 설치된 다양한 센서(예: 동작 탐지기, 도어/창 열기 센서, 유리 파손 감지기 등)의 데이터를 가져옵니다. 회사는 거주자가 거의 실시간으로 해당 집의 활동을 모니터링하는 웹 사이트를 제공합니다.
 
-각 센서는 데이터를 이벤트 허브로 푸시합니다. 이벤트 허브는 16개의 파티션으로 구성됩니다. 사용한 후에 이러한 이벤트를 읽고, 통합(필터, 집계 등)하고, 저장소 Blob에 집계를 덤프할 수 있는 메커니즘이 필요합니다. 그런 다음, 사용자 중심 웹 페이지에 프로젝션합니다.
+각 센서는 데이터를 이벤트 허브로 푸시합니다. 이벤트 허브는 16개의 파티션으로 구성됩니다. 사용한 후에 이러한 이벤트를 읽고, 통합(필터, 집계 등)하고, 스토리지 Blob에 집계를 덤프할 수 있는 메커니즘이 필요합니다. 그런 다음, 사용자 중심 웹 페이지에 프로젝션합니다.
 
 ## <a name="write-the-consumer-application"></a>소비자 애플리케이션 작성
 
@@ -108,7 +108,7 @@ public class SimpleEventProcessor : IEventProcessor
 
 ## <a name="partition-ownership-tracking"></a>파티션 소유권 추적
 
-EPH 인스턴스(또는 소비자)에 대한 파티션의 소유권은 추적을 위해 제공되는 Azure Storage 계정을 통해 추적됩니다. 다음과 같이 간단한 테이블로 추적을 시각화할 수 있습니다. 제공된 저장소 계정에서 Blob을 검사하여 실제 구현을 확인할 수 있습니다.
+EPH 인스턴스(또는 소비자)에 대한 파티션의 소유권은 추적을 위해 제공되는 Azure Storage 계정을 통해 추적됩니다. 다음과 같이 간단한 테이블로 추적을 시각화할 수 있습니다. 제공된 스토리지 계정에서 Blob을 검사하여 실제 구현을 확인할 수 있습니다.
 
 | **소비자 그룹 이름** | **파티션 ID** | **호스트 이름(소유자)** | **임대(또는 소유권) 획득 시간** | **파티션(검사점)의 오프셋** |
 | --- | --- | --- | --- | --- |
@@ -133,7 +133,7 @@ EPH 인스턴스(또는 소비자)에 대한 파티션의 소유권은 추적을
 
 [CheckpointAsync](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext.checkpointasync) 메서드에는 두 개의 오버로드가 포함됩니다. 첫 번째는 매개 변수 없이 [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync)에서 반환한 컬렉션 내의 가장 높은 이벤트 오프셋에 대한 검사점입니다. 이 오프셋은 "상위 워터" 마크이며 호출할 때 모든 최신 이벤트를 처리한다고 가정합니다. 이러한 방식으로 이 메서드를 사용하는 경우 다른 이벤트 처리 코드가 반환된 후에 호출해야 합니다. 두 번째 오버로드를 통해 검사점에 대한 [EventData](/dotnet/api/microsoft.azure.eventhubs.eventdata) 인스턴스를 지정할 수 있습니다. 이 메서드를 사용하면 검사점에 대한 워터 마크의 다양한 형식을 사용할 수 있습니다. 이 워터 마크를 사용하여 "하위 워터" 마크를 구현할 수 있습니다. 확신하는 가장 낮은 시퀀스의 이벤트가 처리되었습니다. 이 오버로드는 오프셋 관리에서 유연하게 사용할 수 있도록 제공됩니다.
 
-검사점을 수행할 때 파티션 별 정보(특히, 오프셋)를 포함한 JSON 파일은 [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost)에 대한 생성자에서 제공된 저장소 계정에 작성됩니다. 이 파일이 지속적으로 업데이트됩니다. 컨텍스트에서 검사점을 사용해야 합니다. 모든 메시지를 검사점으로 지정하지 않는 것이 좋습니다. 아마도 검사점에 사용된 저장소 계정은 이 부하를 처리하지 않지만 무엇보다도 모든 단일 이벤트를 검사점으로 지정하면 큐에 대기한 메시지 패턴을 나타냅니다. 이런 이유로 Service Bus 큐가 이벤트 허브보다 더 나은 옵션일 수 있습니다. Event Hubs의 기본 개념은 대규모로 "최소한 한 번" 제공받는다는 것입니다. 다운스트림 시스템 멱등원을 만들어서 쉽게 오류로부터 복구하거나 여러 번 수신되는 동일한 이벤트에서 해당 결과를 다시 시작할 수 있습니다.
+검사점을 수행할 때 파티션 별 정보(특히, 오프셋)를 포함한 JSON 파일은 [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost)에 대한 생성자에서 제공된 스토리지 계정에 작성됩니다. 이 파일이 지속적으로 업데이트됩니다. 컨텍스트에서 검사점을 사용해야 합니다. 모든 메시지를 검사점으로 지정하지 않는 것이 좋습니다. 아마도 검사점에 사용된 스토리지 계정은 이 부하를 처리하지 않지만 무엇보다도 모든 단일 이벤트를 검사점으로 지정하면 큐에 대기한 메시지 패턴을 나타냅니다. 이런 이유로 Service Bus 큐가 이벤트 허브보다 더 나은 옵션일 수 있습니다. Event Hubs의 기본 개념은 대규모로 "최소한 한 번" 제공받는다는 것입니다. 다운스트림 시스템 멱등원을 만들어서 쉽게 오류로부터 복구하거나 여러 번 수신되는 동일한 이벤트에서 해당 결과를 다시 시작할 수 있습니다.
 
 ## <a name="thread-safety-and-processor-instances"></a>스레드 안전성 및 프로세서 인스턴스
 
@@ -157,7 +157,7 @@ EventProcessorHost 인스턴스에 이벤트 프로세서 클래스를 등록하
 - [MaxBatchSize](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.maxbatchsize): [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync)의 호출에서 수신하려는 컬렉션의 최대 크기입니다. 이 크기는 최소가 아닌 최대 크기만 해당됩니다. 수신될 메시지가 거의 없으면 **ProcessEventsAsync**는 사용할 수 있는 만큼 많이 사용하여 실행합니다.
 - [PrefetchCount](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.prefetchcount): 클라이언트가 수신해야 하는 메시지 수의 상한을 결정하기 위해 기본 AMQP 채널에서 사용하는 값입니다. 이 값은 [MaxBatchSize](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.maxbatchsize) 이상이어야 합니다.
 - [InvokeProcessorAfterReceiveTimeout](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.invokeprocessorafterreceivetimeout): 이 매개 변수가 **true**인 경우 [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync)는 파티션에서 이벤트를 수신하는 기본 호출의 시간이 초과할 때 호출됩니다. 이 메서드는 파티션에서 비활성 기간 동안 시간 기반 작업을 수행하는 데 유용합니다.
-- [InitialOffsetProvider](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.initialoffsetprovider): 함수 포인터 또는 람다 식을 설정할 수 있으며 판독기가 파티션을 읽기 시작할 때 초기 오프셋을 제공하도록 호출됩니다. 오프셋을 사용하는 JSON 파일이 [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) 생성자에 제공된 저장소 계정에 저장되지 않으면 판독기는 이 오프셋을 지정하지 않고 가장 오래된 이벤트에서 시작됩니다. 이 메서드는 판독기 시작 동작을 변경하려는 경우에 유용합니다. 이 메서드를 호출할 때 개체 매개 변수에는 판독기를 시작하기 위한 파티션 ID가 포함됩니다.
+- [InitialOffsetProvider](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.initialoffsetprovider): 함수 포인터 또는 람다 식을 설정할 수 있으며 판독기가 파티션을 읽기 시작할 때 초기 오프셋을 제공하도록 호출됩니다. 오프셋을 사용하는 JSON 파일이 [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) 생성자에 제공된 스토리지 계정에 저장되지 않으면 판독기는 이 오프셋을 지정하지 않고 가장 오래된 이벤트에서 시작됩니다. 이 메서드는 판독기 시작 동작을 변경하려는 경우에 유용합니다. 이 메서드를 호출할 때 개체 매개 변수에는 판독기를 시작하기 위한 파티션 ID가 포함됩니다.
 - [ExceptionReceivedEventArgs](/dotnet/api/microsoft.azure.eventhubs.processor.exceptionreceivedeventargs): [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost)에서 발생하는 내부 예외에 대한 알림을 받을 수 있습니다. 작업이 예상한 대로 작동하지 않는 경우 이 이벤트를 찾기 시작하는 것이 좋습니다.
 
 ## <a name="epoch"></a>Epoch

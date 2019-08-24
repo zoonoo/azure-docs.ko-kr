@@ -35,11 +35,11 @@ ms.locfileid: "67671025"
 | [WordPress가 설치된 VM 만들기](./../scripts/virtual-machines-linux-powershell-sample-create-vm-wordpress.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | 가상 머신을 만들고 Azure 사용자 지정 스크립트 확장을 사용하여 WordPress를 설치합니다. |
 | [관리되는 OS 디스크에서 VM 만들기](./../scripts/virtual-machines-linux-powershell-sample-create-vm-from-managed-os-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | 기존 관리되는 디스크를 OS 디스크로 연결하여 가상 머신을 만듭니다. |
 | [스냅샷에서 VM 만들기](./../scripts/virtual-machines-linux-powershell-sample-create-vm-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | 먼저 스냅샷에서 관리 디스크를 만든 다음, 새 관리 디스크를 OS 디스크로 연결하여 스냅샷에서 가상 머신을 만듭니다. |
-|**저장소 관리**||
+|**스토리지 관리**||
 | [동일하거나 다른 구독에 VHD의 관리 디스크 만들기](../scripts/virtual-machines-linux-powershell-sample-create-managed-disk-from-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | 동일하거나 다른 구독에 특수화된 VHD의 관리 디스크를 OS 디스크로 만들거나 데이터 VHD의 관리 디스크를 데이터 디스크로 만듭니다.  |
 | [스냅샷에서 관리 디스크 만들기](../scripts/virtual-machines-linux-powershell-sample-create-managed-disk-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | 스냅샷에서 관리 디스크를 만듭니다. |
-| [저장소 계정에 스냅샷을 VHD로 내보내기](../scripts/virtual-machines-linux-powershell-sample-copy-snapshot-to-storage-account.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | 다른 지역의 저장소 계정에 관리 스냅샷을 VHD로 내보냅니다. |
-| [관리 디스크의 VHD를 저장소 계정으로 내보내기](../scripts/virtual-machines-linux-powershell-sample-copy-managed-disks-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | 관리 디스크의 기본 VHD를 다른 지역의 저장소 계정으로 내보냅니다. |
+| [스토리지 계정에 스냅샷을 VHD로 내보내기](../scripts/virtual-machines-linux-powershell-sample-copy-snapshot-to-storage-account.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | 다른 지역의 스토리지 계정에 관리 스냅샷을 VHD로 내보냅니다. |
+| [관리 디스크의 VHD를 스토리지 계정으로 내보내기](../scripts/virtual-machines-linux-powershell-sample-copy-managed-disks-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | 관리 디스크의 기본 VHD를 다른 지역의 스토리지 계정으로 내보냅니다. |
 | [VHD에서 스냅샷 만들기](../scripts/virtual-machines-linux-powershell-sample-create-snapshot-from-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | VHD에서 스냅샷을 만든 다음, 해당 스냅샷을 사용하여 동일한 여러 관리 디스크를 빠르게 만듭니다.  |
 | [동일하거나 다른 구독에 스냅샷 복사](../scripts/virtual-machines-linux-powershell-sample-copy-snapshot-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | 부모 스냅샷과 동일한 지역에 있는 동일하거나 다른 구독에 스냅샷을 복사합니다. |
 |**가상 머신 모니터링**||

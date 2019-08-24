@@ -30,7 +30,7 @@ Azure Queue Storage는 HTTP 또는 HTTPS를 통해 전 세계 어디에서나 �
 
 이 방법에는 Azure PowerShell 모듈 Az 버전 0.7 이상이 필요합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요.
 
-큐에 대한 데이터 평면의 PowerShell cmdlet는 없습니다. 메시지 추가, 메시지 읽기, 메시지 삭제 등과 같은 데이터 평면 작업을 수행하려면 PowerShell에서 노출되는 .NET 저장소 클라이언트 라이브러리를 사용해야 합니다. 메시지 개체를 만든 다음 AddMessage 등의 명령을 사용하여 해당 메시지에 대한 작업을 수행합니다. 이 문서에서 이 작업을 수행하는 방법을 보여 줍니다.
+큐에 대한 데이터 평면의 PowerShell cmdlet는 없습니다. 메시지 추가, 메시지 읽기, 메시지 삭제 등과 같은 데이터 평면 작업을 수행하려면 PowerShell에서 노출되는 .NET 스토리지 클라이언트 라이브러리를 사용해야 합니다. 메시지 개체를 만든 다음 AddMessage 등의 명령을 사용하여 해당 메시지에 대한 작업을 수행합니다. 이 문서에서 이 작업을 수행하는 방법을 보여 줍니다.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -62,9 +62,9 @@ $resourceGroup = "howtoqueuesrg"
 New-AzResourceGroup -ResourceGroupName $resourceGroup -Location $location
 ```
 
-## <a name="create-storage-account"></a>저장소 계정 만들기
+## <a name="create-storage-account"></a>스토리지 계정 만들기
 
-[New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount)를 사용하여 LRS(로컬 중복 스토리지)에 표준 범용 스토리지 계정을 만듭니다. 사용할 저장소 계정을 정의하는 저장소 계정 컨텍스트를 가져옵니다. 저장소 계정에서 작업할 때 반복적으로 자격 증명을 제공하는 대신 컨텍스트를 참조합니다.
+[New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount)를 사용하여 LRS(로컬 중복 스토리지)에 표준 범용 스토리지 계정을 만듭니다. 사용할 스토리지 계정을 정의하는 스토리지 계정 컨텍스트를 가져옵니다. 스토리지 계정에서 작업할 때 반복적으로 자격 증명을 제공하는 대신 컨텍스트를 참조합니다.
 
 ```powershell
 $storageAccountName = "howtoqueuestorage"
@@ -103,7 +103,7 @@ Get-AzStorageQueue -Context $ctx | select Name
 
 ## <a name="add-a-message-to-a-queue"></a>큐에 메시지 추가
 
-큐의 실제 메시지에 영향을 미치는 작업은 PowerShell에 노출된 대로 .NET 저장소 클라이언트 라이브러리를 사용합니다. 큐에 메시지를 추가 하려면 [CloudQueueMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue._cloud_queue_message) 클래스와 같은 메시지 개체의 새 인스턴스를 만듭니다. 그런 다음, [AddMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue._cloud_queue.addmessage) 메서드를 호출합니다. 문자열(UTF-8 형식) 또는 바이트 배열에서 CloudQueueMessage를 만들 수 있습니다.
+큐의 실제 메시지에 영향을 미치는 작업은 PowerShell에 노출된 대로 .NET 스토리지 클라이언트 라이브러리를 사용합니다. 큐에 메시지를 추가 하려면 [CloudQueueMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue._cloud_queue_message) 클래스와 같은 메시지 개체의 새 인스턴스를 만듭니다. 그런 다음, [AddMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue._cloud_queue.addmessage) 메서드를 호출합니다. 문자열(UTF-8 형식) 또는 바이트 배열에서 CloudQueueMessage를 만들 수 있습니다.
 
 다음 예제에서는 큐에 메시지를 추가하는 방법을 보여 줍니다.
 
@@ -173,7 +173,7 @@ Remove-AzStorageQueue –Name $queueName –Context $ctx
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 연습에서 만든 자산을 모두 제거하려면 리소스 그룹을 제거합니다. 이렇게 하면 그룹 내에 포함된 모든 리소스가 삭제됩니다. 이 사례에서는 만든 저장소 계정 및 리소스 그룹 자체가 제거됩니다.
+이 연습에서 만든 자산을 모두 제거하려면 리소스 그룹을 제거합니다. 이렇게 하면 그룹 내에 포함된 모든 리소스가 삭제됩니다. 이 사례에서는 만든 스토리지 계정 및 리소스 그룹 자체가 제거됩니다.
 
 ```powershell
 Remove-AzResourceGroup -Name $resourceGroup
@@ -194,7 +194,7 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 ### <a name="microsoft-azure-powershell-storage-cmdlets"></a>Microsoft Azure PowerShell Storage cmdlet
 
-* [Storage PowerShell cmdlet](/powershell/module/az.storage)
+* [스토리지 PowerShell cmdlet](/powershell/module/az.storage)
 
 ### <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure Storage Explorer
 

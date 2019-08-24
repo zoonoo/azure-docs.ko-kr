@@ -13,7 +13,7 @@ ms.reviewer: jrasnik, carlrab
 ms.date: 05/21/2019
 ms.openlocfilehash: a1475188d2e1ab0db3dfd9775fc37d3fc0a17158
 ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/26/2019
 ms.locfileid: "68567273"
@@ -114,7 +114,7 @@ Azure Portal에서 각 단일 풀링된 데이터베이스 또는 인스턴스 �
 1. Log analytics의 경우 **구성** 을 선택 하 고 새 작업 영역 **만들기**를 선택 하 여 새 작업 영역을 만들거나 기존 작업 영역을 선택 합니다.
 1. 탄력적 풀 진단 원격 분석에 대해 다음 확인란을 선택합니다. **기본** 메트릭.
    ![탄력적 풀에 대 한 진단 구성](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-selection.png)
-1.           **저장**을 선택합니다.
+1. **저장**을 선택합니다.
 1. 또한 다음 섹션에서 설명 하는 단계에 따라 모니터링 하려는 탄력적 풀 내의 각 데이터베이스에 대해 진단 원격 분석의 스트리밍을 구성 합니다.
 
 > [!IMPORTANT]
@@ -138,7 +138,7 @@ Azure Portal에서 각 단일 풀링된 데이터베이스 또는 인스턴스 �
 1. 표준 이벤트 기반 모니터링 환경의 경우 데이터베이스 진단 로그 원격 분석에 대해 다음 확인란을 선택합니다. **SQLInsights**, **AutomaticTuning**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics**, **Errors**, **DatabaseWaitStatistics**, **Timeouts**, **Blocks** 및 **Deadlocks**.
 1. 1 분 분량의 고급 모니터링 환경을 위해 **기본** 메트릭에 대 한 확인란을 선택 합니다.
    ![단일 풀링된 데이터베이스 또는 인스턴스 데이터베이스의 진단 구성](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
-1.           **저장**을 선택합니다.
+1. **저장**을 선택합니다.
 1. 모니터링할 각 데이터베이스에 대해 이러한 단계를 반복 합니다.
 
 > [!NOTE]
@@ -176,7 +176,7 @@ Azure Portal에서 각 단일 풀링된 데이터베이스 또는 인스턴스 �
 1. Log analytics의 경우 **구성** 을 선택 하 고 새 작업 영역 **만들기**를 선택 하 여 새 작업 영역을 만들거나 기존 작업 영역을 사용 합니다.
 1. 인스턴스 진단 원격 분석에 대해 다음 확인란을 선택합니다. **ResourceUsageStats**.
    ![관리 되는 인스턴스에 대 한 진단 구성](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
-1.           **저장**을 선택합니다.
+1. **저장**을 선택합니다.
 1. 또한 다음 섹션에 설명 된 단계에 따라 모니터링 하려는 관리 되는 인스턴스 내의 각 인스턴스 데이터베이스에 대 한 진단 원격 분석의 스트리밍을 구성 합니다.
 
 > [!IMPORTANT]
@@ -200,7 +200,7 @@ Azure Portal에서 각 단일 풀링된 데이터베이스 또는 인스턴스 �
 1. 스트리밍 진단 데이터의 대상 리소스를 선택합니다. **스토리지 계정에 보관**, **이벤트 허브로의 스트림** 또는 **Log Analytics에 보내기**.
 1. 데이터베이스 진단 원격 분석에 대해 다음 확인란을 선택합니다. **SQLInsights**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics** 및 **Errors**.
    ![인스턴스 데이터베이스의 진단 구성](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
-1.           **저장**을 선택합니다.
+1. **저장**을 선택합니다.
 1. 모니터링 하려는 각 인스턴스 데이터베이스에 대해 이러한 단계를 반복 합니다.
 
 > [!TIP]
@@ -371,9 +371,9 @@ Event Hubs의 스트림된 메트릭을 사용하여 다음을 수행할 수 있
 
 Azure Portal에서 기본 제공되는 **스토리지 계정에 보관** 옵션을 사용하여 SQL Database 메트릭 및 진단 로그를 Azure Storage에 저장할 수 있습니다. PowerShell cmdlet, Azure CLI 또는 Azure Monitor REST API를 통해 진단 설정을 사용하여 Storage를 사용하도록 설정할 수도 있습니다.
 
-### <a name="schema-of-metrics-and-diagnostics-logs-in-the-storage-account"></a>저장소 계정의 메트릭 및 진단 로그 스키마
+### <a name="schema-of-metrics-and-diagnostics-logs-in-the-storage-account"></a>스토리지 계정의 메트릭 및 진단 로그 스키마
 
-메트릭 및 진단 로그 수집을 설정하면 첫 번째 데이터 행을 사용할 수 있을 때 선택한 저장소 계정에 저장소 컨테이너가 만들어집니다. Blob의 구조는 다음과 같습니다.
+메트릭 및 진단 로그 수집을 설정하면 첫 번째 데이터 행을 사용할 수 있을 때 선택한 스토리지 계정에 스토리지 컨테이너가 만들어집니다. Blob의 구조는 다음과 같습니다.
 
 ```powershell
 insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/ RESOURCEGROUPS/{resource group name}/PROVIDERS/Microsoft.SQL/servers/{resource_server}/ databases/{database_name}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
@@ -418,13 +418,13 @@ Azure SQL Database, 탄력적 풀 및 관리 되는 인스턴스에 사용할 �
 
 |**Resource**|**Metrics**(메트릭)|
 |---|---|
-|Elastic Pool|eDTU 백분율, 사용된 eDTU, eDTU 제한, CPU 백분율, 실제 데이터 읽기 백분율, 로그 쓰기 백분율, 세션 백분율, 작업자 백분율, 저장소, 저장소 백분율, 저장소 용량 한도, XTP 저장소 백분율을 포함합니다. |
+|Elastic Pool|eDTU 백분율, 사용된 eDTU, eDTU 제한, CPU 백분율, 실제 데이터 읽기 백분율, 로그 쓰기 백분율, 세션 백분율, 작업자 백분율, 스토리지, 스토리지 백분율, 스토리지 용량 한도, XTP 스토리지 백분율을 포함합니다. |
 
 ### <a name="basic-metrics-for-azure-sql-databases"></a>Azure SQL Database에 대 한 기본 메트릭
 
 |**Resource**|**Metrics**(메트릭)|
 |---|---|
-|Azure SQL 데이터베이스|DTU 백분율, 사용된 DTU, DTU 제한, CPU 백분율, 실제 데이터 읽기 백분율, 로그 쓰기 백분율, 성공/실패/방화벽 연결에 의해 차단됨, 세션 백분율, 작업자 백분율, 저장소, 저장소 백분율, XTP 저장소 백분율, 교착 상태를 포함합니다. |
+|Azure SQL 데이터베이스|DTU 백분율, 사용된 DTU, DTU 제한, CPU 백분율, 실제 데이터 읽기 백분율, 로그 쓰기 백분율, 성공/실패/방화벽 연결에 의해 차단됨, 세션 백분율, 작업자 백분율, 스토리지, 스토리지 백분율, XTP 스토리지 백분율, 교착 상태를 포함합니다. |
 
 ## <a name="basic-logs"></a>기본 로그
 

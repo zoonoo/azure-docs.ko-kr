@@ -54,7 +54,7 @@ $Location = "SouthCentralUS"
 $ResourceGroupName = "sqlvm2"
 ```
 
-### <a name="storage-properties"></a>저장소 속성
+### <a name="storage-properties"></a>스토리지 속성
 가상 머신에서 사용할 스토리지 계정 및 스토리지 유형을 정의합니다.
 
 원하는 대로 수정한 후 다음 cmdlet을 실행하여 이러한 변수를 초기화합니다. 프로덕션 워크로드에는 [프리미엄 SSD](../disks-types.md#premium-ssd)를 사용하는 것이 좋습니다.
@@ -139,8 +139,8 @@ $OSDiskName = $VMName + "OSDisk"
 New-AzResourceGroup -Name $ResourceGroupName -Location $Location
 ```
 
-## <a name="create-a-storage-account"></a>저장소 계정 만들기
-가상 머신에 운영 체제 디스크와 SQL Server 데이터 및 로그 파일에 대한 저장소 리소스가 필요합니다. 간단히 하기 위해 둘 다에 대한 단일 디스크를 만듭니다. SQL Server 데이터와 로그 파일을 전용 디스크에 배치하기 위해 [Add-Azure Disk](https://docs.microsoft.com/powershell/module/servicemanagement/azure/add-azuredisk) cmdlet을 사용하여 나중에 추가 디스크를 연결할 수 있습니다. [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) cmdlet을 사용하여 새 리소스 그룹에 표준 스토리지 계정을 만듭니다. 스토리지 계정 이름, 스토리지 SKU 이름 및 위치에 대해 이전에 초기화한 변수를 지정합니다.
+## <a name="create-a-storage-account"></a>스토리지 계정 만들기
+가상 머신에 운영 체제 디스크와 SQL Server 데이터 및 로그 파일에 대한 스토리지 리소스가 필요합니다. 간단히 하기 위해 둘 다에 대한 단일 디스크를 만듭니다. SQL Server 데이터와 로그 파일을 전용 디스크에 배치하기 위해 [Add-Azure Disk](https://docs.microsoft.com/powershell/module/servicemanagement/azure/add-azuredisk) cmdlet을 사용하여 나중에 추가 디스크를 연결할 수 있습니다. [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) cmdlet을 사용하여 새 리소스 그룹에 표준 스토리지 계정을 만듭니다. 스토리지 계정 이름, 스토리지 SKU 이름 및 위치에 대해 이전에 초기화한 변수를 지정합니다.
 
 다음 cmdlet을 실행하여 새 스토리지 계정을 만듭니다.
 
@@ -151,7 +151,7 @@ $StorageAccount = New-AzStorageAccount -ResourceGroupName $ResourceGroupName `
 ```
 
 > [!TIP]
-> 저장소 계정을 만들려면 몇 분 정도 걸릴 수 있습니다.
+> 스토리지 계정을 만들려면 몇 분 정도 걸릴 수 있습니다.
 
 ## <a name="create-network-resources"></a>네트워크 리소스 만들기
 가상 머신에 네트워크 연결을 위해 여러 네트워크 리소스가 필요합니다.
@@ -429,7 +429,7 @@ Set-AzVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName
 
 - RDP를 사용하여 가상 머신에 연결
 - 다음을 포함하여 VM에 대한 SQL Server 설정을 포털에서 구성합니다.
-   - [저장소 설정](virtual-machines-windows-sql-server-storage-configuration.md) 
+   - [스토리지 설정](virtual-machines-windows-sql-server-storage-configuration.md) 
    - [자동화된 관리 작업](virtual-machines-windows-sql-server-agent-extension.md)
 - [연결 구성](virtual-machines-windows-sql-connect.md).
 - 새 SQL Server 인스턴스에 클라이언트 및 애플리케이션 연결

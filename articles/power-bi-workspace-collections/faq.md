@@ -26,7 +26,7 @@ Power BI 작업 영역 컬렉션은 사용자 컨트롤을 처음부터 빌드�
 
 ## <a name="who-would-want-to-use-microsoft-power-bi-workspace-collections-and-why"></a>Microsoft Power BI 작업 영역 컬렉션을 누가 사용하고 사용하는 이유는 무엇인가요?
 
-Microsoft Power BI 작업 영역 컬렉션은 사용자가 직접 빌드하지 않아도 모든 장치에 걸쳐 사용자에게 뛰어난 대화형 데이터 시각화 환경을 제공하려는 애플리케이션 개발자를 위한 것입니다. Power BI 작업 영역 컬렉션으로 개발자는 직접 쿼리를 사용하여 항상 최신 보기를 제공할 수 있습니다. 개발자는 또한 프로그래밍 방식으로 Azure Resource Manager API 및 Power BI API를 사용하여 Power BI를 배포, 관리 및 자동화할 수도 있습니다. 모든 Power BI와 마찬가지로 포함된 서비스는 애플리케이션의 사용량 및 수요에 맞게 자동으로 조정됩니다. Power BI 작업 영역 컬렉션 서비스는 종량제 사용량 기반 가격 책정 모델 기능을 갖추고 있습니다.
+Microsoft Power BI 작업 영역 컬렉션은 사용자가 직접 빌드하지 않아도 모든 디바이스에 걸쳐 사용자에게 뛰어난 대화형 데이터 시각화 환경을 제공하려는 애플리케이션 개발자를 위한 것입니다. Power BI 작업 영역 컬렉션으로 개발자는 직접 쿼리를 사용하여 항상 최신 보기를 제공할 수 있습니다. 개발자는 또한 프로그래밍 방식으로 Azure Resource Manager API 및 Power BI API를 사용하여 Power BI를 배포, 관리 및 자동화할 수도 있습니다. 모든 Power BI와 마찬가지로 포함된 서비스는 애플리케이션의 사용량 및 수요에 맞게 자동으로 조정됩니다. Power BI 작업 영역 컬렉션 서비스는 종량제 사용량 기반 가격 책정 모델 기능을 갖추고 있습니다.
 
 ## <a name="how-does-power-bi-workspace-collections-relate-to-the-power-bi-service"></a>Power BI 작업 영역 컬렉션은 Power BI 서비스와 어떤 관련이 있나요?
 

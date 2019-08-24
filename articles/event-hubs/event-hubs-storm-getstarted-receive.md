@@ -135,7 +135,7 @@ Event Hubs 수신기 패턴에 대한 자세한 내용은 [Event Hubs 개요][Ev
     }
     ```
     
-    이 Storm 볼트는 수신된 이벤트의 콘텐츠를 기록합니다. 튜플을 저장소 서비스에 저장하도록 간단히 확장할 수 있습니다. [이벤트 허브를 사용한 HDInsight Storm 예제]에서도 이와 동일한 방법을 사용하여 Azure Storage 및 Power BI에 데이터를 저장합니다.
+    이 Storm 볼트는 수신된 이벤트의 콘텐츠를 기록합니다. 튜플을 스토리지 서비스에 저장하도록 간단히 확장할 수 있습니다. [이벤트 허브를 사용한 HDInsight Storm 예제]에서도 이와 동일한 방법을 사용하여 Azure Storage 및 Power BI에 데이터를 저장합니다.
 11. 다음 코드를 포함하는 **LogTopology**라는 클래스를 만듭니다.
     
     ```java

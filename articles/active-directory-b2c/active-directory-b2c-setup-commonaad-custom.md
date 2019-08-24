@@ -12,7 +12,7 @@ ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 1938164e957daa84b22fa83e9cb9fa8d51ffeb15
 ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/08/2019
 ms.locfileid: "67654091"
@@ -185,12 +185,12 @@ ms.locfileid: "67654091"
 
 ## <a name="create-an-azure-ad-b2c-application"></a>Azure AD B2C 애플리케이션 만들기
 
-Azure AD B2C와의 통신은 테넌트에서 만드는 애플리케이션을 통해 수행됩니다. 이 섹션에서는 테스트 애플리케이션을 아직 만들지 않은 경우 이를 만들기 위해 완료할 수 있는 선택적 단계를 설명합니다.
+Azure AD B2C와의 통신은 테넌트에서 만드는 애플리케이션을 통해 수행됩니다. 이 섹션에는 아직 만들지 않은 경우 테스트 애플리케이션을 만들기 위해 완료할 수 있는 선택적 단계가 나와 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 테넌트가 포함된 디렉터리를 선택합니다.
 3. Azure Portal의 왼쪽 위에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
-4. **응용 프로그램**을 선택하고 **추가**를 선택합니다.
+4. **애플리케이션**을 선택하고 **추가**를 선택합니다.
 5. 애플리케이션 이름(예: *testapp1*)을 입력합니다.
 6. **웹앱/웹 API**에서 `Yes`를 선택하고 **회신 URL**에 `https://jwt.ms`를 입력합니다.
 7. **만들기**를 클릭합니다.
@@ -204,4 +204,4 @@ Azure AD B2C와의 통신은 테넌트에서 만드는 애플리케이션을 통
 3. **PublicPolicyUri** 값을 정책의 URI로 업데이트합니다. 예: `http://contoso.com/B2C_1A_signup_signin_contoso`
 4. 새로 만든 사용자 경험의 ID(SignUpSignContoso)와 일치하도록 **DefaultUserJourney**의 **ReferenceId** 특성을 업데이트합니다.
 5. 변경 내용을 저장하고 파일을 업로드한 다음, 목록에서 새 정책을 선택합니다.
-6. **응용 프로그램 선택** 필드에서 직접 만든 Azure AD B2C 응용 프로그램이 선택되어 있는지 확인하고 **지금 실행**을 클릭하여 테스트를 진행합니다.
+6. **애플리케이션 선택** 필드에서 직접 만든 Azure AD B2C 애플리케이션이 선택되어 있는지 확인하고 **지금 실행**을 클릭하여 테스트를 진행합니다.

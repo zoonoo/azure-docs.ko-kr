@@ -113,8 +113,8 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | category| String| 로그 범주 및 해당 보존 정책의 배열입니다. |
 | timeGrain | String | ISO 8601 기간 형식으로 캡처된 메트릭의 세분성입니다. PT1M(1분)이어야 합니다.|
 | enabled| Boolean | 이 리소스에 대한 해당 메트릭 또는 로그 범주의 수집을 사용할지 여부를 지정합니다.|
-| retentionPolicy| 복합 형식| 메트릭 또는 로그 범주에 대한 보존 정책을 설명합니다. 저장소 계정 옵션에만 사용됩니다.|
-| days| Int| 메트릭 또는 로그를 보존할 기간(일)입니다. 0 값은 로그를 무기한 보존합니다. 저장소 계정 옵션에만 사용됩니다. |
+| retentionPolicy| 복합 형식| 메트릭 또는 로그 범주에 대한 보존 정책을 설명합니다. 스토리지 계정 옵션에만 사용됩니다.|
+| days| Int| 메트릭 또는 로그를 보존할 기간(일)입니다. 0 값은 로그를 무기한 보존합니다. 스토리지 계정 옵션에만 사용됩니다. |
 
 **응답**
 

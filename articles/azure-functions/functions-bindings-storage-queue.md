@@ -255,7 +255,7 @@ def main(msg: func.QueueMessage):
   }
   ```
 
-  다음 예와 같이 사용할 저장소 계정을 지정하도록 `Connection` 속성을 설정할 수 있습니다.
+  다음 예와 같이 사용할 스토리지 계정을 지정하도록 `Connection` 속성을 설정할 수 있습니다.
 
   ```csharp
   [FunctionName("QueueTrigger")]
@@ -271,7 +271,7 @@ def main(msg: func.QueueMessage):
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
 
-  사용할 저장소 계정을 지정하는 다른 방법을 제공합니다. 생성자는 저장소 연결 문자열을 포함하는 앱 설정의 이름을 사용합니다. 매개 변수, 메서드 또는 클래스 수준에서 특성을 적용할 수 있습니다. 다음 예제에서는 클래스 수준 및 메서드 수준을 보여줍니다.
+  사용할 스토리지 계정을 지정하는 다른 방법을 제공합니다. 생성자는 스토리지 연결 문자열을 포함하는 앱 설정의 이름을 사용합니다. 매개 변수, 메서드 또는 클래스 수준에서 특성을 적용할 수 있습니다. 다음 예제에서는 클래스 수준 및 메서드 수준을 보여줍니다.
 
   ```csharp
   [StorageAccount("ClassLevelStorageAppSetting")]
@@ -285,7 +285,7 @@ def main(msg: func.QueueMessage):
   }
   ```
 
-사용할 저장소 계정은 다음과 같은 순서로 결정됩니다.
+사용할 스토리지 계정은 다음과 같은 순서로 결정됩니다.
 
 * `QueueTrigger` 특성의 `Connection` 속성
 * `QueueTrigger` 특성과 동일한 매개 변수에 적용된 `StorageAccount` 특성
@@ -303,7 +303,7 @@ def main(msg: func.QueueMessage):
 |**direction**| n/a | *function.json* 파일에서만 적용됩니다. `in`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. |
 |**name** | n/a |함수 코드에서 큐 항목 페이로드를 포함하는 변수 이름입니다.  |
 |**queueName** | **QueueName**| 폴링할 큐의 이름입니다. |
-|**연결** | **연결** |이 바인딩에 사용할 저장소 연결 문자열을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어 `connection`을 "MyStorage"로 설정한 경우 함수 런타임 기능은 "AzureWebJobsMyStorage"라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 저장소 연결 문자열을 사용합니다.|
+|**연결** | **연결** |이 바인딩에 사용할 스토리지 연결 문자열을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어 `connection`을 "MyStorage"로 설정한 경우 함수 런타임 기능은 "AzureWebJobsMyStorage"라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 스토리지 연결 문자열을 사용합니다.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -342,7 +342,7 @@ JavaScript에서 `context.bindings.<name>`을 사용하여 큐 항목 페이로�
 
 ## <a name="trigger---polling-algorithm"></a>트리거 - 폴링 알고리즘
 
-큐 트리거는 무작위 지수 백오프 알고리즘을 구현하여 유휴 큐 폴링이 저장소 트랜잭션 비용에 미치는 영향을 줄입니다.  메시지가 발견되면 런타임은 2초 대기하고 다른 메시지가 있는지 확인하며, 메시지가 발견되지 않으면 4초 정도 대기하고 나서 다시 시도합니다. 후속 시도로 큐 메시지를 가져오지 못하면 최대 대기 시간(기본값 1분)에 도달할 때까지 대기 시간이 계속 증가합니다. 최대 대기 시간은 [host.json 파일](functions-host-json.md#queues)의 `maxPollingInterval` 속성을 통해 구성할 수 있습니다.
+큐 트리거는 무작위 지수 백오프 알고리즘을 구현하여 유휴 큐 폴링이 스토리지 트랜잭션 비용에 미치는 영향을 줄입니다.  메시지가 발견되면 런타임은 2초 대기하고 다른 메시지가 있는지 확인하며, 메시지가 발견되지 않으면 4초 정도 대기하고 나서 다시 시도합니다. 후속 시도로 큐 메시지를 가져오지 못하면 최대 대기 시간(기본값 1분)에 도달할 때까지 대기 시간이 계속 증가합니다. 최대 대기 시간은 [host.json 파일](functions-host-json.md#queues)의 `maxPollingInterval` 속성을 통해 구성할 수 있습니다.
 
 ## <a name="trigger---concurrency"></a>트리거 - 동시성
 
@@ -595,7 +595,7 @@ public static string Run([HttpTrigger] dynamic input,  ILogger log)
 }
 ```
 
-다음 예와 같이 사용할 저장소 계정을 지정하도록 `Connection` 속성을 설정할 수 있습니다.
+다음 예와 같이 사용할 스토리지 계정을 지정하도록 `Connection` 속성을 설정할 수 있습니다.
 
 ```csharp
 [FunctionName("QueueOutput")]
@@ -608,7 +608,7 @@ public static string Run([HttpTrigger] dynamic input,  ILogger log)
 
 전체 예제는 [출력 - C# 예제](#output---c-example)를 참조하세요.
 
-`StorageAccount` 특성을 사용하여 클래스, 메서드 또는 매개 변수 수준에서 저장소 계정을 지정합니다. 자세한 내용은 트리거 - 특성을 참조하세요.
+`StorageAccount` 특성을 사용하여 클래스, 메서드 또는 매개 변수 수준에서 스토리지 계정을 지정합니다. 자세한 내용은 트리거 - 특성을 참조하세요.
 
 ## <a name="output---configuration"></a>출력 - 구성
 
@@ -620,7 +620,7 @@ public static string Run([HttpTrigger] dynamic input,  ILogger log)
 |**direction** | n/a | `out`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. |
 |**name** | n/a | 함수 코드에서 큐를 나타내는 변수의 이름입니다. `$return`으로 설정하여 함수 반환 값을 참조합니다.|
 |**queueName** |**QueueName** | 큐의 이름입니다. |
-|**연결** | **연결** |이 바인딩에 사용할 저장소 연결 문자열을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어 `connection`을 "MyStorage"로 설정한 경우 함수 런타임 기능은 "AzureWebJobsMyStorage"라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 저장소 연결 문자열을 사용합니다.|
+|**연결** | **연결** |이 바인딩에 사용할 스토리지 연결 문자열을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어 `connection`을 "MyStorage"로 설정한 경우 함수 런타임 기능은 "AzureWebJobsMyStorage"라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 스토리지 연결 문자열을 사용합니다.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -648,7 +648,7 @@ JavaScript 함수에서 `context.bindings.<name>`을 사용하여 출력 큐 메
 | 바인딩 |  참조 |
 |---|---|
 | 큐 | [큐 오류 코드](https://docs.microsoft.com/rest/api/storageservices/queue-service-error-codes) |
-| Blob, 테이블, 큐 | [저장소 오류 코드](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
+| Blob, 테이블, 큐 | [스토리지 오류 코드](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
 | Blob, 테이블, 큐 |  [문제 해결](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 
 <a name="host-json"></a>  

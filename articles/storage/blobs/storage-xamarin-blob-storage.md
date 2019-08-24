@@ -1,5 +1,5 @@
 ---
-title: Xamarin에서 개체(Blob) 저장소를 사용하는 방법 | Microsoft Docs
+title: Xamarin에서 개체(Blob) 스토리지를 사용하는 방법 | Microsoft Docs
 description: Xamarin용 Azure Storage 클라이언트 라이브러리를 사용하면 개발자들이 기본 사용자 인터페이스를 가진 iOS, Android 및 Windows Store 앱을 만들 수 있습니다. 이 스토리지를 만든 후에 쉽게 액세스할 수 있도록 하려면 Azure File Storage 정보를 텍스트 파일에 저장하고 해당 위치에 대한 경로를 기록합니다.
 author: mhopkins-msft
 ms.author: mhopkins

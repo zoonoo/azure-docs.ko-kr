@@ -120,7 +120,7 @@ ms.locfileid: "68570451"
 
 ### <a name="azure-traffic-manager"></a>Azure Traffic Manager
 
-Wingtip 응용 프로그램에서는  [*Azure Traffic Manager*](../traffic-manager/traffic-manager-overview.md)를 사용하여 들어오는 요청의 분산을 제어합니다. 특정 테넌트의 이벤트 페이지에 액세스하는 URL은 다음 형식을 사용합니다.
+Wingtip 애플리케이션에서는  [*Azure Traffic Manager*](../traffic-manager/traffic-manager-overview.md)를 사용하여 들어오는 요청의 분산을 제어합니다. 특정 테넌트의 이벤트 페이지에 액세스하는 URL은 다음 형식을 사용합니다.
 
 - http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/fabrikamjazzclub
 
@@ -254,7 +254,7 @@ Events Hub를 새로 고치면 목록에 새 테넌트가 나타납니다.
 - 자세한 내용은 [Wingtip Tickets SaaS 테넌트당 데이터베이스 애플리케이션을 기반으로 빌드되는 추가 자습서](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)를 참조하세요.
 - 탄력적 풀에 대한 자세한 내용은  [Azure SQL 탄력적 풀이란?](sql-database-elastic-pool.md)을 참조하세요.
 - 탄력적 작업에 대한 자세한 내용은  [스케일 아웃된 클라우드 데이터베이스 관리](elastic-jobs-overview.md)를 참조하세요.
-- 다중 테넌트 SaaS 응용 프로그램에 대한 자세한 내용은  [다중 테넌트 SaaS 응용 프로그램에 대한 디자인 패턴](saas-tenancy-app-design-patterns.md)을 참조하세요.
+- 다중 테넌트 SaaS 애플리케이션에 대한 자세한 내용은  [다중 테넌트 SaaS 애플리케이션에 대한 디자인 패턴](saas-tenancy-app-design-patterns.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

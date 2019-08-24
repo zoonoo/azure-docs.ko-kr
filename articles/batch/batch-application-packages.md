@@ -22,7 +22,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 07/18/2019
 ms.locfileid: "68323842"
 ---
-# <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>애플리케이션을 배포하여 Batch 애플리케이션 패키지에서 노드 계산
+# <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>애플리케이션을 배포하여 Batch 애플리케이션 패키지에서 노드 컴퓨팅
 
 Azure Batch의 애플리케이션 패키지 기능은 풀의 컴퓨팅 노드에 태스크 애플리케이션 및 해당 배포를 간편하게 관리할 수 있는 방법을 제공합니다. 애플리케이션 패키지를 사용하여 지원 파일을 비롯하여 태스크에서 실행하는 여러 애플리케이션 버전을 업로드하고 관리할 수 있습니다. 풀의 컴퓨팅 노드에 이러한 애플리케이션을 하나 이상 자동으로 배포할 수 있습니다.
 
@@ -79,13 +79,13 @@ Azure Storage 또는 노드에서 애플리케이션 파일의 여러 버전을 
 다음 섹션에서는 먼저 Storage 계정을 연결하는 방법을 보여 준 다음 애플리케이션 및 패키지를 추가하고 포털에서 관리하는 방법을 설명합니다. Storage 계정 연결
 
 ### <a name="link-a-storage-account"></a>애플리케이션 패키지를 사용하려면 먼저 [Azure Storage 계정](batch-api-basics.md#azure-storage-account)을 Batch 계정에 연결해야 합니다.
-Storage 계정을 아직 구성하지 않은 경우 Batch 계정에서 **애플리케이션** 타일을 처음으로 클릭하면 Azure Portal에서 경고를 표시합니다. ![Azure Portal의 '저장소 계정이 구성되지 않음' 경고][9]
+Storage 계정을 아직 구성하지 않은 경우 Batch 계정에서 **애플리케이션** 타일을 처음으로 클릭하면 Azure Portal에서 경고를 표시합니다. ![Azure Portal의 '스토리지 계정이 구성되지 않음' 경고][9]
 
 
 
 Batch 서비스는 연결된 Storage 계정을 사용하여 애플리케이션 패키지를 저장합니다.
 
-계정 두 개를 연결한 후에 Batch는 연결된 스토리지 계정에 저장된 패키지를 계산 노드에 자동으로 배포할 수 있습니다. Storage 계정을 Batch 계정에 연결하려면 **경고** 창에서 **Storage 계정**을 클릭한 다음, **Storage 계정**을 다시 클릭합니다. ![Azure portal에서 저장소 계정 블레이드 선택][10]
+계정 두 개를 연결한 후에 Batch는 연결된 스토리지 계정에 저장된 패키지를 계산 노드에 자동으로 배포할 수 있습니다. Storage 계정을 Batch 계정에 연결하려면 **경고** 창에서 **Storage 계정**을 클릭한 다음, **Storage 계정**을 다시 클릭합니다. ![Azure portal에서 스토리지 계정 블레이드 선택][10]
 
 *특별히* Batch 계정과 함께 사용할 Storage 계정을 만들었으면 여기에서 선택하는 것이 좋습니다.
 
@@ -374,7 +374,7 @@ foreach (ApplicationSummary app in applications)
 [7]: ./media/batch-application-packages/app_pkg_07.png "Azure portal의 패키지 업데이트 또는 삭제 드롭다운"
 [8]: ./media/batch-application-packages/app_pkg_08.png "Azure portal의 새 애플리케이션 패키지 블레이드"
 [9]: ./media/batch-application-packages/app_pkg_09.png "연결된 Storage 계정 없음 경고"
-[10]: ./media/batch-application-packages/app_pkg_10.png "포털에서 저장소 계정 블레이드 선택"
+[10]: ./media/batch-application-packages/app_pkg_10.png "포털에서 스토리지 계정 블레이드 선택"
 [11]: ./media/batch-application-packages/app_pkg_11.png "Azure portal의 패키지 업데이트 블레이드"
 [12]: ./media/batch-application-packages/app_pkg_12.png "Azure portal의 패키지 삭제 확인 대화 상자"
 [13]: ./media/batch-application-packages/package-file-structure.png "Azure Portal의 계산 노드 정보"

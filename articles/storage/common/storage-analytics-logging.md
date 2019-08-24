@@ -17,9 +17,9 @@ ms.locfileid: "68854610"
 ---
 # <a name="azure-storage-analytics-logging"></a>Azure Storage 분석 로깅
 
-스토리지 분석은 Storage 서비스에 대해 성공한 요청과 실패한 요청 관련 상세 정보를 기록합니다. 이 정로를 사용하면 개별 요청을 모니터링하고 저장소 서비스의 문제를 진단할 수 있습니다. 요청은 최상의 노력을 기준으로 기록됩니다.
+스토리지 분석은 Storage 서비스에 대해 성공한 요청과 실패한 요청 관련 상세 정보를 기록합니다. 이 정로를 사용하면 개별 요청을 모니터링하고 스토리지 서비스의 문제를 진단할 수 있습니다. 요청은 최상의 노력을 기준으로 기록됩니다.
 
- 저장소 계정에 대 한 스토리지 분석 로깅은 기본적으로 사용 하도록 설정 되어 있지 않습니다. 이 작업은 [Azure Portal](https://portal.azure.com/)에서 수행할 수 있습니다. 자세한 내용은 [Azure Portal에서 저장소 계정 모니터링](/azure/storage/storage-monitor-storage-account)을 참조하세요. REST API 또는 클라이언트 라이브러리를 통해 프로그래밍 방식으로 저장소 분석을 사용하도록 설정할 수도 있습니다. [Blob service](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API)속성 가져오기, [큐 서비스 속성 가져오기](https://docs.microsoft.com/rest/api/storageservices/Get-Queue-Service-Properties)및 [테이블 서비스 속성 가져오기](https://docs.microsoft.com/rest/api/storageservices/Get-Table-Service-Properties) 작업을 사용 하 여 각 서비스에 대해 스토리지 분석를 사용 하도록 설정할 수 있습니다.
+ 저장소 계정에 대 한 스토리지 분석 로깅은 기본적으로 사용 하도록 설정 되어 있지 않습니다. 이 작업은 [Azure Portal](https://portal.azure.com/)에서 수행할 수 있습니다. 자세한 내용은 [Azure Portal에서 스토리지 계정 모니터링](/azure/storage/storage-monitor-storage-account)을 참조하세요. REST API 또는 클라이언트 라이브러리를 통해 프로그래밍 방식으로 스토리지 분석을 사용하도록 설정할 수도 있습니다. [Blob service](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API)속성 가져오기, [큐 서비스 속성 가져오기](https://docs.microsoft.com/rest/api/storageservices/Get-Queue-Service-Properties)및 [테이블 서비스 속성 가져오기](https://docs.microsoft.com/rest/api/storageservices/Get-Table-Service-Properties) 작업을 사용 하 여 각 서비스에 대해 스토리지 분석를 사용 하도록 설정할 수 있습니다.
 
  서비스 엔드포인트에 대한 요청이 있는 경우에만 로그 항목이 만들어집니다. 예를 들어 저장소 계정에 Blob 끝점의 활동이 있지만 테이블 또는 큐 끝점에는 없는 경우 Blob service 관련 된 로그만 생성 됩니다.
 
@@ -38,7 +38,7 @@ ms.locfileid: "68854610"
 - 실패 및 성공한 요청을 포함 하 여 SAS (공유 액세스 서명) 또는 OAuth를 사용 하는 요청
 - 분석 데이터에 대한 요청
 
-  로그 만들기/삭제 등 저장소 분석 자체에서 수행한 요청은 기록되지 않습니다. 기록되는 데이터의 전체 목록은 [저장소 분석에서 기록한 작업 및 상태 메시지](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) 및 [저장소 분석 로그 형식](/rest/api/storageservices/storage-analytics-log-format) 항목에 나와 있습니다.
+  로그 만들기/삭제 등 스토리지 분석 자체에서 수행한 요청은 기록되지 않습니다. 기록되는 데이터의 전체 목록은 [스토리지 분석에서 기록한 작업 및 상태 메시지](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) 및 [스토리지 분석 로그 형식](/rest/api/storageservices/storage-analytics-log-format) 항목에 나와 있습니다.
 
 ### <a name="logging-anonymous-requests"></a>익명 요청 로깅
 
@@ -49,7 +49,7 @@ ms.locfileid: "68854610"
 - 클라이언트와 서버 모두에 대 한 시간 제한 오류
 - 오류 코드가 304(수정되지 않음)인 실패한 GET 요청
 
-  기타 모든 실패한 익명 요청은 기록되지 않습니다. 기록되는 데이터의 전체 목록은 [저장소 분석에서 기록한 작업 및 상태 메시지](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) 및 [저장소 분석 로그 형식](/rest/api/storageservices/storage-analytics-log-format) 항목에 나와 있습니다.
+  기타 모든 실패한 익명 요청은 기록되지 않습니다. 기록되는 데이터의 전체 목록은 [스토리지 분석에서 기록한 작업 및 상태 메시지](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) 및 [스토리지 분석 로그 형식](/rest/api/storageservices/storage-analytics-log-format) 항목에 나와 있습니다.
 
 ## <a name="how-logs-are-stored"></a>로그 저장 방법
 
@@ -58,7 +58,7 @@ ms.locfileid: "68854610"
 > [!NOTE]
 >  컨테이너 `$logs` 는 컨테이너 나열 작업과 같은 컨테이너 목록 작업을 수행할 때 표시 되지 않습니다. 직접 액세스해야 합니다. 예를 들어 blob 나열 작업을 사용 하 여 `$logs` 컨테이너의 blob에 액세스할 수 있습니다.
 
-요청을 기록할 때 저장소 분석은 중간 결과를 블록으로 업로드합니다. 그리고 이러한 블록을 정기적으로 커밋하여 Blob로 제공합니다. 저장소 서비스가 로그 기록기를 플러시하는 빈도 때문에 **$logs** 컨테이너의 blob에 로그 데이터가 표시 되는 데 최대 한 시간이 걸릴 수 있습니다. 같은 시간에 생성되는 로그의 경우 중복 레코드가 있을 수 있습니다. **RequestId** 및 **Operation** 번호를 검사하여 레코드 중복 여부를 확인할 수 있습니다.
+요청을 기록할 때 스토리지 분석은 중간 결과를 블록으로 업로드합니다. 그리고 이러한 블록을 정기적으로 커밋하여 Blob로 제공합니다. 저장소 서비스가 로그 기록기를 플러시하는 빈도 때문에 **$logs** 컨테이너의 blob에 로그 데이터가 표시 되는 데 최대 한 시간이 걸릴 수 있습니다. 같은 시간에 생성되는 로그의 경우 중복 레코드가 있을 수 있습니다. **RequestId** 및 **Operation** 번호를 검사하여 레코드 중복 여부를 확인할 수 있습니다.
 
 각 시간에 대해 여러 파일을 포함 하는 대량의 로그 데이터가 있는 경우 blob 메타 데이터를 사용 하 여 blob 메타 데이터 필드를 검사 하 여 로그에 포함 되는 데이터를 확인할 수 있습니다. 이는 데이터가 로그 파일에 기록 되는 동안 지연이 발생할 수 있으므로 유용 합니다. blob 메타 데이터는 blob 이름 보다 blob 콘텐츠를 보다 정확 하 게 표시 합니다.
 
@@ -90,13 +90,13 @@ ms.locfileid: "68854610"
 
 |특성|Description|
 |---------------|-----------------|
-|`<service-name>`|저장소 서비스의 이름입니다. 예: `blob`, `table`또는`queue`|
+|`<service-name>`|스토리지 서비스의 이름입니다. 예: `blob`, `table`또는`queue`|
 |`YYYY`|로그의 4 자리 연도입니다. 예: `2011`|
 |`MM`|로그의 두 자릿수 월입니다. 예: `07`|
 |`DD`|로그의 두 자리 일입니다. 예: `31`|
 |`hh`|로그의 시작 시간 (24 시간 UTC 형식)을 나타내는 두 자릿수 시간입니다. 예: `18`|
 |`mm`|로그의 시작 분을 나타내는 두 자리 숫자입니다. **참고:**  이 값은 현재 버전의 스토리지 분석에서 지원 되지 않으며 해당 값은 항상 `00`입니다.|
-|`<counter>`|1시간 동안 저장소 서비스에 대해 생성되는 로그 Blob의 수를 나타내는 0부터 시작되는 6자리 카운터입니다. 이 카운터는에서 `000000`시작 합니다. 예: `000001`|
+|`<counter>`|1시간 동안 스토리지 서비스에 대해 생성되는 로그 Blob의 수를 나타내는 0부터 시작되는 6자리 카운터입니다. 이 카운터는에서 `000000`시작 합니다. 예: `000001`|
 
  다음은 위의 예를 조합 하는 전체 샘플 로그 이름입니다.
 
@@ -106,7 +106,7 @@ ms.locfileid: "68854610"
 
  `https://<accountname>.blob.core.windows.net/$logs/blob/2011/07/31/1800/000001.log`
 
- 저장소 요청이 기록되면 생성되는 로그 이름과 요청한 작업이 완료된 시간 간의 상관 관계가 지정됩니다. 예를 들어 GetBlob 요청이 7/31/2011에서 오전 6 시 30 분에 완료 된 경우 로그는 다음 접두사를 사용 하 여 기록 됩니다.`blob/2011/07/31/1800/`
+ 스토리지 요청이 기록되면 생성되는 로그 이름과 요청한 작업이 완료된 시간 간의 상관 관계가 지정됩니다. 예를 들어 GetBlob 요청이 7/31/2011에서 오전 6 시 30 분에 완료 된 경우 로그는 다음 접두사를 사용 하 여 기록 됩니다.`blob/2011/07/31/1800/`
 
 ### <a name="log-metadata"></a>로그 메타데이터
 
@@ -204,6 +204,6 @@ AzCopy 'http://<yourstorageaccount>.blob.core.windows.net/$logs/queue'  'C:\Logs
 
 ## <a name="next-steps"></a>다음 단계
 
-* [저장소 분석 로그 형식](/rest/api/storageservices/storage-analytics-log-format)
-* [저장소 분석에서 기록한 작업 및 상태 메시지](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)
+* [스토리지 분석 로그 형식](/rest/api/storageservices/storage-analytics-log-format)
+* [스토리지 분석에서 기록한 작업 및 상태 메시지](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)
 * [스토리지 분석 메트릭 (클래식)](storage-analytics-metrics.md)

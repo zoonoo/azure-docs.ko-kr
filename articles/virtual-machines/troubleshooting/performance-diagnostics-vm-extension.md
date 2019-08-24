@@ -33,7 +33,7 @@ Azure 성능 진단 VM 확장을 통해 Windows VM의 성능 진단 데이터를
 이 확장은 Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 및 Windows Server 2016에 설치될 수 있습니다. Windows 8.1 및 Windows 10에 설치할 수도 있습니다.
 
 ## <a name="extension-schema"></a>확장 스키마
-다음 JSON은 Azure 성능 진단 VM 확장에 대한 스키마를 나타냅니다. 이 확장에는 진단 출력과 보고서를 저장하기 위해 저장소 계정의 이름과 키가 필요합니다. 이러한 값은 중요합니다. 저장소 계정 키는 보호되는 설정 구성 안에 저장되어야 합니다. Azure VM 확장으로 보호되는 설정 데이터는 암호화되어 대상 가상 머신에서만 해독됩니다. **storageAccountName** 및 **storageAccountKey**는 대소문자를 구분합니다. 다른 필수 매개 변수는 다음 섹션에 나열됩니다.
+다음 JSON은 Azure 성능 진단 VM 확장에 대한 스키마를 나타냅니다. 이 확장에는 진단 출력과 보고서를 저장하기 위해 스토리지 계정의 이름과 키가 필요합니다. 이러한 값은 중요합니다. 스토리지 계정 키는 보호되는 설정 구성 안에 저장되어야 합니다. Azure VM 확장으로 보호되는 설정 데이터는 암호화되어 대상 가상 머신에서만 해독됩니다. **storageAccountName** 및 **storageAccountKey**는 대소문자를 구분합니다. 다른 필수 매개 변수는 다음 섹션에 나열됩니다.
 
 ```JSON
     {
@@ -82,8 +82,8 @@ Azure 성능 진단 VM 확장을 통해 Windows VM의 성능 진단 데이터를
 |srNumber|123452016365929|사용 가능한 경우 지원 티켓 번호입니다. 값이 없으면 비워 둡니다.
 |requestTimeUtc|2017-09-28T22:08:53.736Z|현재 날짜 시간(UTC). 포털을 사용하여 이 확장을 설치하는 경우 이 값을 제공하지 않아도 됩니다.
 |resourceId|/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}|VM의 고유 식별자
-|storageAccountName|mystorageaccount|진단 로그 및 결과를 저장할 저장소 계정의 이름입니다.
-|storageAccountKey|lDuVvxuZB28NNP…hAiRF3voADxLBTcc==|저장소 계정의 키입니다.
+|storageAccountName|mystorageaccount|진단 로그 및 결과를 저장할 스토리지 계정의 이름입니다.
+|storageAccountKey|lDuVvxuZB28NNP…hAiRF3voADxLBTcc==|스토리지 계정의 키입니다.
 
 ## <a name="install-the-extension"></a>확장 설치
 
@@ -234,7 +234,7 @@ PerfInsights 도구는 선택한 시나리오에 따라 다양한 로그, 구성
 
 ## <a name="view-and-share-the-results"></a>결과 확인 및 공유
 
-확장의 출력은 설치 중 지정된 저장소 계정에 업로드된 zip 파일에서 찾을 수 있으며 [SAS(공유 액세스 서명)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md)를 사용하여 30일 동안 공유됩니다. 이 zip 파일은 진단 로그 및 결과 및 권장 사항이 있는 보고서를 포함합니다. 출력 zip 파일에 대한 SAS 링크는 폴더 **C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics\\\<version>** 아래의 *zipfilename*_saslink.txt라는 텍스트 파일 내에서 찾을 수 있습니다. 이 링크가 있는 모든 사람은 zip 파일을 다운로드할 수 있습니다.
+확장의 출력은 설치 중 지정된 스토리지 계정에 업로드된 zip 파일에서 찾을 수 있으며 [SAS(공유 액세스 서명)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md)를 사용하여 30일 동안 공유됩니다. 이 zip 파일은 진단 로그 및 결과 및 권장 사항이 있는 보고서를 포함합니다. 출력 zip 파일에 대한 SAS 링크는 폴더 **C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics\\\<version>** 아래의 *zipfilename*_saslink.txt라는 텍스트 파일 내에서 찾을 수 있습니다. 이 링크가 있는 모든 사람은 zip 파일을 다운로드할 수 있습니다.
 
 Microsoft에서는 지원 티켓에서 작업하는 지원 엔지니어를 지원하기 위해 이 SAS 링크를 사용하여 진단 데이터를 다운로드할 수 있습니다.
 

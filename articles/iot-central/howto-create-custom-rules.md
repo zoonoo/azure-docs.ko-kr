@@ -93,7 +93,7 @@ IoT Central 응용 프로그램에서 만들기를 [Azure IoT Central-내 응용
 | 호스팅 계획 | 소비 계획 |
 | Location | 미국 동부 |
 | 런타임 스택 | .NET |
-| Storage | 새로 만들기 |
+| 스토리지 | 새로 만들기 |
 
 ### <a name="sendgrid-account"></a>SendGrid 계정
 

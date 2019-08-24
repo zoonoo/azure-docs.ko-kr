@@ -52,7 +52,7 @@ Azure Container Instances는 두 가지 유형의 Azure 관리 ID인 사용자 �
 
 ### <a name="use-a-managed-identity"></a>관리 ID 사용
 
-관리 ID를 사용하려면 처음부터 ID에 구독에 있는 하나 이상의 Azure 서비스 리소스(예: 웹앱, Key Vault 또는 저장소 계정)에 대한 액세스 권한을 부여해야 합니다. 실행 중인 컨테이너에서 Azure 리소스에 액세스하려면 코드는 Azure AD 엔드포인트에서 *액세스 토큰*을 획득해야 합니다. 그런 후에 코드는 Azure AD 인증을 지원하는 서비스에 대한 호출에서 액세스 토큰을 전송합니다. 
+관리 ID를 사용하려면 처음부터 ID에 구독에 있는 하나 이상의 Azure 서비스 리소스(예: 웹앱, Key Vault 또는 스토리지 계정)에 대한 액세스 권한을 부여해야 합니다. 실행 중인 컨테이너에서 Azure 리소스에 액세스하려면 코드는 Azure AD 엔드포인트에서 *액세스 토큰*을 획득해야 합니다. 그런 후에 코드는 Azure AD 인증을 지원하는 서비스에 대한 호출에서 액세스 토큰을 전송합니다. 
 
 실행 중인 컨테이너에서 관리 ID를 사용하는 것은 Azure VM에서 ID를 사용하는 것과 기본적으로 동일합니다. [토큰](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md), [Azure PowerShell 또는 Azure CLI](../active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in.md) 또는 [Azure SDK](../active-directory/managed-identities-azure-resources/how-to-use-vm-sdk.md)를 사용하기 위한 VM 지침을 참조하세요.
 

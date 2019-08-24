@@ -29,7 +29,7 @@ ms.locfileid: "68568660"
 여기에서 다음 변경 내용의 조합을 만들고 하나의 일괄 처리에 모두를 저장할 수 있습니다.
 
 1. 풀의 서비스 계층 변경
-2. 성능(DTU 또는 vCore) 및 저장소 확장 또는 축소
+2. 성능(DTU 또는 vCore) 및 스토리지 확장 또는 축소
 3. 풀에/에서 데이터베이스 추가 또는 제거
 4. 풀의 데이터베이스에 대한 최소(보장) 및 최대 성능 제한 설정
 5. 새 선택의 결과로 청구서에 대한 변경 내용을 보기 위해 비용 요약 검토
@@ -76,7 +76,7 @@ Azure PowerShell을 사용하여 SQL Database 탄력적 풀 및 풀링된 데이
 |[az sql elastic-pool create](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-create)|탄력적 풀을 만듭니다.|
 |[az sql elastic-pool list](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list)|서버에서 탄력적 풀의 목록을 반환합니다.|
 |[az sql elastic-pool list-dbs](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list-dbs)|탄력적 풀에서 데이터베이스의 목록을 반환합니다.|
-|[az sql elastic-pool list-editions](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list-editions)|사용 가능한 풀 DTU 설정, 저장소 용량 한도 및 데이터베이스별 설정이 포함됩니다. 세부 정보 표시를 줄이기 위해 추가 저장소 용량 한도 및 데이터베이스별 설정은 기본적으로 숨겨져 있습니다.|
+|[az sql elastic-pool list-editions](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list-editions)|사용 가능한 풀 DTU 설정, 스토리지 용량 한도 및 데이터베이스별 설정이 포함됩니다. 세부 정보 표시를 줄이기 위해 추가 스토리지 용량 한도 및 데이터베이스별 설정은 기본적으로 숨겨져 있습니다.|
 |[az sql elastic-pool update](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update)|탄력적 풀을 업데이트합니다.|
 |[az sql elastic-pool delete](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-delete)|탄력적 풀을 삭제합니다.|
 
@@ -93,7 +93,7 @@ Azure PowerShell을 사용하여 SQL Database 탄력적 풀 및 풀링된 데이
 |[데이터베이스 만들기(Azure SQL Database)](/sql/t-sql/statements/create-database-azure-sql-database)|기존 풀 또는 단일 데이터베이스에서 새 데이터베이스를 만듭니다. 새 데이터베이스를 만들려면 master 데이터베이스에 연결되어 있어야 합니다.|
 | [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) |탄력적 풀 간에 데이터베이스를 이동합니다.|
 |[DROP DATABASE(Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|데이터베이스를 삭제합니다.|
-|[sys.elastic_pool_resource_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|SQL Database 서버에서 모든 탄력적 풀에 대한 리소스 사용량 통계를 반환합니다. 각 탄력적 풀에는 15초의 보고 기간마다 행이 하나씩 있습니다(분당 행 4개) 여기에는 풀의 모든 데이터베이스에 의한 CPU, IO, 로그, 저장소 계산 및 동시 요청/세션 사용률이 포함됩니다.|
+|[sys.elastic_pool_resource_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|SQL Database 서버에서 모든 탄력적 풀에 대한 리소스 사용량 통계를 반환합니다. 각 탄력적 풀에는 15초의 보고 기간마다 행이 하나씩 있습니다(분당 행 4개) 여기에는 풀의 모든 데이터베이스에 의한 CPU, IO, 로그, 스토리지 계산 및 동시 요청/세션 사용률이 포함됩니다.|
 |[sys.database_service_objectives(Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Azure SQL 데이터베이스 또는 Azure SQL Data Warehouse가 있는 경우 버전(서비스 계층), 서비스 목표(가격 책정 계층) 및 탄력적 풀 이름을 반환합니다. Azure SQL Database 서버의 마스터 데이터베이스에 로그인하면 모든 데이터베이스에 대한 정보를 반환합니다. Azure SQL Data Warehouse의 경우 마스터 데이터베이스에 연결되어 있어야 합니다.|
 
 ## <a name="rest-api-manage-elastic-pools-and-pooled-databases"></a>REST API: 탄력적 풀 및 풀링된 데이터베이스 관리

@@ -63,8 +63,8 @@ Microsoft는 기존 클래식 API와 리소스 모델을 중단할 계획이 없
 
 가상 머신을 Resource Manager 모드로 마이그레이션하려면 
 
-1. VM에서 백업/스냅숏 확장을 삭제합니다.
-2. 클래식 모드에서 Resource Manager 모드로 가상 머신을 마이그레이션합니다. 가상 머신에 해당하는 저장소 및 네트워크 정보가 Resource Manager 모드로 마이그레이션되도록 합니다.
+1. VM에서 백업/스냅샷 확장을 삭제합니다.
+2. 클래식 모드에서 Resource Manager 모드로 가상 머신을 마이그레이션합니다. 가상 머신에 해당하는 스토리지 및 네트워크 정보가 Resource Manager 모드로 마이그레이션되도록 합니다.
 
 또한 마이그레이션된 VM을 백업하려는 경우 가상 머신 관리 블레이드로 이동하여 [백업을 사용하도록 설정](../articles/backup/quick-backup-vm-portal.md#enable-backup-on-a-vm)합니다.
 

@@ -165,7 +165,7 @@ CREATE PROCEDURE schemaname.procedurename
 ## <a name="step-7-post-implementation-monitoring"></a>7단계: 구현 후 모니터링
 프로덕션에서 메모리 내 구현의 성능 효과를 모니터링하는 것이 좋습니다.
 
-* [메모리 내 저장소 모니터링](sql-database-in-memory-oltp-monitoring.md).
+* [메모리 내 스토리지 모니터링](sql-database-in-memory-oltp-monitoring.md).
 * [동적 관리 뷰를 사용하여 Azure SQL Database 모니터링](sql-database-monitoring-with-dmvs.md)
 
 ## <a name="related-links"></a>관련 링크

@@ -136,9 +136,9 @@ BYOL과 함께 SQL Server VM을 사용하려면 SQL Server Standard 또는 Enter
 
 ### <a id="machinesize"></a>정확한 VM 크기
 
-SQL Server 라이선싱 비용은 vCPU 수와 직접적인 관련이 있습니다. 예상되는 CPU, 메모리, 저장소 및 I/O 대역폭에 부합하는 VM 크기를 선택합니다. 전체 컴퓨터 크기 옵션 목록은 [Windows VM 크기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) 및 [Linux VM 크기](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
+SQL Server 라이선싱 비용은 vCPU 수와 직접적인 관련이 있습니다. 예상되는 CPU, 메모리, 스토리지 및 I/O 대역폭에 부합하는 VM 크기를 선택합니다. 전체 컴퓨터 크기 옵션 목록은 [Windows VM 크기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) 및 [Linux VM 크기](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 
-특정 유형의 SQL Server 워크로드에 잘 맞는 새로운 컴퓨터 크기가 있습니다. 이러한 컴퓨터 크기는 높은 수준의 메모리, 저장소 및 I/O 대역폭을 유지하지만 가상화된 코어 수는 더 적습니다. 예를 들어 다음 예제를 고려해 보겠습니다.
+특정 유형의 SQL Server 워크로드에 잘 맞는 새로운 컴퓨터 크기가 있습니다. 이러한 컴퓨터 크기는 높은 수준의 메모리, 스토리지 및 I/O 대역폭을 유지하지만 가상화된 코어 수는 더 적습니다. 예를 들어 다음 예제를 고려해 보겠습니다.
 
 | VM 크기 | vCPU | 메모리 | 최대 디스크 수 | 최대 I/O 처리량 | SQL 라이선싱 비용 | 총 비용(컴퓨팅 + 라이선싱) |
 |---|---|---|---|---|---|---|

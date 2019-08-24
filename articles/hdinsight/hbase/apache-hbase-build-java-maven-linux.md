@@ -661,7 +661,7 @@ Azure PowerShell를 사용 하 여 다음 단계 [AZ 모듈](https://docs.micros
     Add-HDInsightFile -localPath target\hbaseapp-1.0-SNAPSHOT.jar -destinationPath example/jars/hbaseapp-1.0-SNAPSHOT.jar -clusterName $myCluster
     ```
 
-    메시지가 표시되면 클러스터 로그인(관리자) 이름 및 암호를 입력합니다. 이 명령은 `hbaseapp-1.0-SNAPSHOT.jar`을 클러스터용 기본 저장소에서 `example/jars` 위치에 업로드합니다.
+    메시지가 표시되면 클러스터 로그인(관리자) 이름 및 암호를 입력합니다. 이 명령은 `hbaseapp-1.0-SNAPSHOT.jar`을 클러스터용 기본 스토리지에서 `example/jars` 위치에 업로드합니다.
 
 5. `hbaseapp`을 사용하는 테이블을 만들려면 다음 명령을 사용합니다.
 

@@ -24,7 +24,7 @@ ms.locfileid: "67508597"
 
 경로 필터는 Microsoft 피어링을 통해 지원되는 서비스의 하위 집합을 사용하는 방법입니다. 이 문서의 단계는 ExpressRoute 회로에 대한 경로 필터를 구성하고 관리하는 데 도움이 됩니다.
 
-Dynamics 365 서비스, Exchange Online, SharePoint Online, 비즈니스용 Skype 같은 Office 365 서비스 그리고 저장소 및 SQL DB 같은 Azure 서비스는 Microsoft 피어링을 통해 액세스할 수 있습니다. Microsoft 피어링이 ExpressRoute 회로에 구성되면 설정된 BGP 세션을 통해 이러한 서비스와 관련된 모든 접두사가 보급됩니다. BGP 커뮤니티 값은 접두사를 통해 제공되는 서비스를 식별하는 모든 접두사에 연결됩니다. BGP 커뮤니티 값과 매핑되는 서비스의 목록은 [BGP 커뮤니티](expressroute-routing.md#bgp)를 참조하세요.
+Dynamics 365 서비스, Exchange Online, SharePoint Online, 비즈니스용 Skype 같은 Office 365 서비스 그리고 스토리지 및 SQL DB 같은 Azure 서비스는 Microsoft 피어링을 통해 액세스할 수 있습니다. Microsoft 피어링이 ExpressRoute 회로에 구성되면 설정된 BGP 세션을 통해 이러한 서비스와 관련된 모든 접두사가 보급됩니다. BGP 커뮤니티 값은 접두사를 통해 제공되는 서비스를 식별하는 모든 접두사에 연결됩니다. BGP 커뮤니티 값과 매핑되는 서비스의 목록은 [BGP 커뮤니티](expressroute-routing.md#bgp)를 참조하세요.
 
 모든 서비스에 연결해야 하는 경우 많은 수의 접두사가 BGP를 통해 보급됩니다. 그러면 네트워크 내의 라우터에서 유지 관리되는 경로 테이블의 크기가 상당히 증가합니다. Microsoft 피어링을 통해 제공되는 서비스의 하위 집합만 사용하려는 경우 두 가지 방법으로 경로 테이블의 크기를 줄일 수 있습니다. 다음을 수행할 수 있습니다.
 

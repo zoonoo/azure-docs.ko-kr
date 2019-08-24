@@ -23,7 +23,7 @@ ms.locfileid: "68722113"
 Site Recovery를 사용하면 Azure VM 데이터를 Azure에 복제하여 Azure VM의 재해를 복구할 수 있습니다.
 
 - Azure VM이 [Azure 관리 디스크](../virtual-machines/windows/managed-disks-overview.md)인 경우 VM 데이터는 보조 하위 지역의 복제된 관리 디스크에 복제됩니다.
-- Azure VM이 관리 디스크를 사용하지 않는 경우 VM 데이터는 Azure 저장소 계정에 복제됩니다.
+- Azure VM이 관리 디스크를 사용하지 않는 경우 VM 데이터는 Azure Storage 계정에 복제됩니다.
 - 복제 엔드포인트는 공용이지만 Azure VM에 대한 복제 트래픽은 인터넷을 벗어나지 않습니다.
 
 ExpressRoute를 사용하면 연결 공급자가 지원하는 프라이빗 연결을 통해 온-프레미스 네트워크를 Microsoft Azure 클라우드로 확장할 수 있습니다. ExpressRoute를 구성한 경우 다음과 같이 Site Recovery와 통합합니다.

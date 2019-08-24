@@ -20,7 +20,7 @@ ms.locfileid: "68566991"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>테스트 및 프로토타입 생성을 위한 공용 데이터 집합
 
-저장소 및 분석 서비스/솔루션의 프로토타입을 생성하는 데 사용할 수 있는 데이터를 이 공용 데이터 집합에서 찾아봅니다.
+스토리지 및 분석 서비스/솔루션의 프로토타입을 생성하는 데 사용할 수 있는 데이터를 이 공용 데이터 세트에서 찾아봅니다.
 
 ## <a name="us-government-and-agency-data"></a>미국 정부 및 에이전시 데이터
 

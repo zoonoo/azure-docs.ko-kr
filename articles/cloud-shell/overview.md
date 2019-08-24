@@ -70,7 +70,7 @@ Cloud Shell은 다음에서 사용할 수 있는 유연한 도구입니다.
 * [Azure 모바일 앱](https://azure.microsoft.com/features/azure-portal/mobile-app/)
 * [Visual Studio Code Azure 계정 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
-### <a name="connect-your-microsoft-azure-files-storage"></a>Microsoft Azure Files 저장소 연결
+### <a name="connect-your-microsoft-azure-files-storage"></a>Microsoft Azure Files 스토리지 연결
 Cloud Shell 컴퓨터는 임시 이지만 파일은 디스크 이미지와 이라는 `clouddrive`탑재 된 파일 공유를 통해 두 가지 방법으로 유지 됩니다.  처음 시작할 때 사용자를 대신 하 여 리소스 그룹, 저장소 계정 및 Azure Files 공유를 만들라는 메시지를 Cloud Shell 합니다. 이는 일회성 단계이며 모든 세션에서 자동으로 연결됩니다. Azure Cloud Shell의 Bash 및 PowerShell 모두에 의해 단일 파일 공유가 매핑될 수 있으며 사용될 것입니다.
 
 자세한 내용은 [새 또는 기존 저장소 계정을](persisting-shell-storage.md) 탑재 하거나 [Cloud Shell에 사용 되는 지 속성 메커니즘](persisting-shell-storage.md#how-cloud-shell-storage-works)에 대해 알아보는 방법을 알아보세요.
@@ -87,7 +87,7 @@ Cloud Shell 컴퓨터는 임시 이지만 파일은 디스크 이미지와 이�
 [Azure Cloud Shell의 Bash](features.md)와 [Azure Cloud Shell의 PowerShell](features-powershell.md)에 들어 있는 기능에 대해 자세히 알아 보세요.
 
 ## <a name="pricing"></a>가격 책정
-탑재된 Azure Files 공유의 필수 구성 요소를 포함하여 Azure Cloud Shell을 호스트하는 컴퓨터는 추가 비용 없이 사용할 수 있습니다. 일반 저장소 비용이 적용됩니다.
+탑재된 Azure Files 공유의 필수 구성 요소를 포함하여 Azure Cloud Shell을 호스트하는 컴퓨터는 추가 비용 없이 사용할 수 있습니다. 일반 스토리지 비용이 적용됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 [Cloud Shell의 Bash 빠른 시작](quickstart.md) <br>

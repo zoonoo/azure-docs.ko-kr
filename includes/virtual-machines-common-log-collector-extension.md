@@ -11,7 +11,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 06/18/2019
 ms.locfileid: "67182227"
 ---
-Microsoft Azure 클라우드 서비스 관련 문제를 진단하려면 문제가 발생할 때 가상 머신에서 서비스의 로그 파일을 수집해야 합니다. 필요에 따라 AzureLogCollector 확장을 사용하여 VM에 원격으로 로그온하지 않고 웹 역할 및 작업자 역할 둘 다로 하나 이상의 클라우드 서비스 VM에서 일회성 로그 수집을 수행하고 수집한 파일을 Azure 저장소 계정으로 보낼 수 있습니다.
+Microsoft Azure 클라우드 서비스 관련 문제를 진단하려면 문제가 발생할 때 가상 머신에서 서비스의 로그 파일을 수집해야 합니다. 필요에 따라 AzureLogCollector 확장을 사용하여 VM에 원격으로 로그온하지 않고 웹 역할 및 작업자 역할 둘 다로 하나 이상의 클라우드 서비스 VM에서 일회성 로그 수집을 수행하고 수집한 파일을 Azure Storage 계정으로 보낼 수 있습니다.
 
 > [!NOTE]
 > 대부분의 로깅된 정보에 대한 설명은 http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.asp 에서 확인할 수 있습니다.
@@ -40,7 +40,7 @@ Microsoft Azure 클라우드 서비스 관련 문제를 진단하려면 문제�
 
 [!INCLUDE [updated-for-az](./updated-for-az.md)]
 
-* 생성된 zip 파일을 저장하려면 확장에 대한 저장소 계정이 있어야 합니다.
+* 생성된 zip 파일을 저장하려면 확장에 대한 스토리지 계정이 있어야 합니다.
 * Azure PowerShell. 참조 [Azure PowerShell 설치](/powershell/azure/install-az-ps)] 설치 지침에 대 한 합니다.
 
 ## <a name="add-the-extension"></a>확장 추가
@@ -132,7 +132,7 @@ Virtual Machines의 경우 기존 Azure Powershell cmdlet인 **Set-AzureVMExtens
    > 고정된 드라이브를 사용하지 않으므로 토큰 `%roleroot%`을(를) 사용하여 역할 루트 드라이브를 지정할 수 있습니다.
    > 
    > 
-4. 업로드될 수집된 파일에 Azure 저장소 계정 이름 및 키를 제공합니다.
+4. 업로드될 수집된 파일에 Azure Storage 계정 이름 및 키를 제공합니다.
 
    ```powershell
    $StorageAccountName = 'YourStorageAccountName'
@@ -224,7 +224,7 @@ param (
         #more locations can be added....
    ```
   
-2. 업로드될 수집된 파일에 Azure 저장소 계정 이름 및 키를 제공합니다.
+2. 업로드될 수집된 파일에 Azure Storage 계정 이름 및 키를 제공합니다.
 
    ```powershell
    $StorageAccountName = 'YourStorageAccountName'

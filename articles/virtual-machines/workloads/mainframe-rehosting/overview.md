@@ -92,7 +92,7 @@ VM과 같은 Azure IaaS를 사용 하 여 특정 시스템 함수는 장애 조�
 
 메인프레임은 일반적으로 강화되는 반면 클라우드 환경은 스케일 아웃됩니다. Azure는 요구 사항에 맞는 다양 한 [Linux](/azure/virtual-machines/linux/sizes) 및 [Windows](/azure/virtual-machines/windows/sizes) 크기를 제공 합니다. 또한 클라우드는 정확한 사용자 사양과 일치 하도록 확장 하거나 축소 합니다. 사용량 기반 청구 모델에서 요청 시 전원, 저장소 및 서비스의 [규모](/azure/architecture/best-practices/auto-scaling) 를 계산 합니다.
 
-### <a name="storage"></a>저장 공간
+### <a name="storage"></a>스토리지
 
 클라우드에서는 유연 하 고 확장 가능한 저장소 옵션을 사용할 수 있으며 필요한 만큼만 요금을 지불 하면 됩니다. [Azure Storage](/azure/storage/common/storage-introduction)는 데이터 개체용으로 대폭 확장 가능한 개체 저장소, 클라우드용 파일 시스템 서비스, 안정적인 메시징 저장소 및 NoSQL 저장소를 제공합니다. VM의 경우에는 관리형 디스크와 비관리형 디스크에서 안전한 영구 디스크 스토리지가 제공됩니다.
 

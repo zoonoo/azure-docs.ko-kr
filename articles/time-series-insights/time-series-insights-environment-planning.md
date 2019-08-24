@@ -37,13 +37,13 @@ Time Series Insights를 시작 하려면 분 단위로 푸시 해야 하는 데�
 
 장기 성공을 위해 Time Series Insights 환경을 최적으로 계획 하려면 다음 특성을 고려 합니다.
 
-- <a href="#storage-capacity">저장소 용량</a>
+- <a href="#storage-capacity">스토리지 용량</a>
 - <a href="#data-retention">데이터 보존 기간</a>
 - <a href="#ingress-capacity">수신 용량</a>
 - <a href="#shape-your-events">이벤트 모양 지정</a>
 - <a href="#ensure-that-you-have-reference-data">참조 데이터가 준비 되었는지 확인</a>
 
-## <a name="storage-capacity"></a>Storage 용량
+## <a name="storage-capacity"></a>스토리지 용량
 
 기본적으로 Time Series Insights는 프로 비전 하는 저장소 용량 ( &#215; 단위당 저장소 크기) 및 수신에 따라 데이터를 보존 합니다.
 

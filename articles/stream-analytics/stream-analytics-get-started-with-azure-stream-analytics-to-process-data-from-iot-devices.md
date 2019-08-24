@@ -48,12 +48,12 @@ Contoso는 산업용 자동화 공간의 회사로, 제조 프로세스를 완�
    
     ![새 Stream Analytics 작업 만들기](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-02.png)
 2. 고유한 작업 이름을 입력하고 해당 작업에 대한 구독이 유효한지 확인합니다. 그런 다음 새 리소스 그룹을 만들거나 구독에 속한 기존 리소스 그룹을 선택합니다.
-3. 작업의 위치를 선택합니다. 데이터 전송의 처리 속도와 비용 감소를 위해 리소스 그룹 및 의도한 저장소 계정으로 동일한 위치를 선택하는 것이 좋습니다.
+3. 작업의 위치를 선택합니다. 데이터 전송의 처리 속도와 비용 감소를 위해 리소스 그룹 및 의도한 스토리지 계정으로 동일한 위치를 선택하는 것이 좋습니다.
    
     ![새 Stream Analytics 작업 만들기 세부 정보](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03.png)
    
    > [!NOTE]
-   > 이 저장소 계정은 지역당 한 번만 만들어야 합니다. 이 저장소는 해당 지역에 생성되는 모든 Stream Analytics 작업에서 공유됩니다.
+   > 이 스토리지 계정은 지역당 한 번만 만들어야 합니다. 이 스토리지는 해당 지역에 생성되는 모든 Stream Analytics 작업에서 공유됩니다.
    > 
    > 
 4. 대시보드에서 작업을 배치할 확인란을 선택한 다음 **만들기**를 클릭합니다.

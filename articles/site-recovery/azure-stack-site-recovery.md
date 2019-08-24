@@ -47,7 +47,7 @@ Site Recovery는 BCDR(비즈니스 연속성 및 재해 복구 개선) 전략에
 --- | --- | ---
 **구성 서버** | 단일 Azure Stack VM에서 실행됩니다. | 각 구독에서 구성 서버 VM을 설정합니다. 이 VM은 다음 Site Recovery 구성 요소를 실행합니다.<br/><br/> - 구성 서버: 온-프레미스와 Azure 간의 통신을 조정하여 데이터 복제를 관리합니다. - 프로세스 서버: 복제 게이트웨이의 역할을 합니다. 복제 데이터를 수신하고, 캐싱, 압축 및 암호화를 사용하여 최적화하며, Azure Storage로 보냅니다.<br/><br/> 복제하려는 VM이 아래에 설명된 제한을 초과하는 경우 별도의 독립 실행형 프로세스 서버를 설정할 수 있습니다. [자세히 알아보기](https://docs.microsoft.com/azure/site-recovery/vmware-azure-set-up-process-server-scale).
 **모바일 서비스** | 복제하려는 각 VM에 설치됩니다. | 이 문서의 단계에서는 복제가 사용되도록 설정될 경우 VM에 모바일 서비스가 자동으로 설치되도록 계정을 준비합니다. 이 서비스를 자동으로 설치하지 않으려는 경우 다양한 다른 방법을 사용할 수 있습니다. [자세히 알아보기](https://docs.microsoft.com/azure/site-recovery/vmware-azure-install-mobility-service).
-**Azure** | Azure에는 Recovery Services 저장소, 저장소 계정 및 가상 네트워크가 필요합니다. |  복제된 데이터는 저장소 계정에 저장됩니다. 장애 조치(Failover)가 발생하면 Azure VM이 Azure 네트워크에 추가됩니다. 
+**Azure** | Azure에는 Recovery Services 스토리지, 스토리지 계정 및 가상 네트워크가 필요합니다. |  복제된 데이터는 스토리지 계정에 저장됩니다. 장애 조치(Failover)가 발생하면 Azure VM이 Azure 네트워크에 추가됩니다. 
 
 
 복제는 다음과 같이 작동합니다.
@@ -199,7 +199,7 @@ VM에서 표에 요약된 운영 체제 중 하나가 실행되고 있는지 확
 
 1. **인프라 준비** > **대상**에서 사용하려는 Azure 구독을 선택합니다.
 2. 대상 배포 모델을 지정합니다.
-3. Site Recovery가 호환되는 Azure 저장소 계정 및 네트워크가 하나 이상 있는지 확인합니다. 호환되는 항목을 찾지 못하면 마법사를 완료하기 위해 하나 이상의 저장소 계정 및 가상 네트워크를 만들어야 합니다.
+3. Site Recovery가 호환되는 Azure Storage 계정 및 네트워크가 하나 이상 있는지 확인합니다. 호환되는 항목을 찾지 못하면 마법사를 완료하기 위해 하나 이상의 스토리지 계정 및 가상 네트워크를 만들어야 합니다.
 
 
 ## <a name="step-5-enable-replication"></a>5단계: 복제 사용

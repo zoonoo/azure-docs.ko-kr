@@ -109,8 +109,8 @@ Service Bus 가격 책정에 대한 전체 내용은 [Service Bus 가격 책정 
 ### <a name="what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not"></a>Service Bus를 어떻게 사용하면 데이터가 전송의 대상이 되나요? 어떤 경우에 대상이 아닌가요?
 지정된 Azure 지역 내에서 데이터 전송은 비용뿐만 아니라 인바운드 데이터 전송 없이 제공됩니다. 지역 외부의 데이터 전송은 [여기](https://azure.microsoft.com/pricing/details/bandwidth/)에서 찾을 수 있는 송신 요금이 청구됩니다.
 
-### <a name="does-service-bus-charge-for-storage"></a>Service Bus는 저장소에 대한 요금을 청구하나요?
-아니요, Service Bus는 저장소에 대한 요금을 청구하지 않습니다. 하지만 큐/항목 당 지속될 수 있는 데이터의 최대 크기를 제한하는 할당량이 있습니다. 다음 FAQ를 참조하세요.
+### <a name="does-service-bus-charge-for-storage"></a>Service Bus는 스토리지에 대한 요금을 청구하나요?
+아니요, Service Bus는 스토리지에 대한 요금을 청구하지 않습니다. 하지만 큐/항목 당 지속될 수 있는 데이터의 최대 크기를 제한하는 할당량이 있습니다. 다음 FAQ를 참조하세요.
 
 ## <a name="quotas"></a>할당량
 

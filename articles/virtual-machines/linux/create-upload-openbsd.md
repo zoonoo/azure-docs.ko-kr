@@ -102,7 +102,7 @@ VHDX 형식은 Azure에서 지원되지 않습니다. **고정된 VHD**만 지�
 Convert-VHD OpenBSD61.vhdx OpenBSD61.vhd -VHDType Fixed
 ```
 
-## <a name="create-storage-resources-and-upload"></a>저장소 리소스 만들기 및 업로드
+## <a name="create-storage-resources-and-upload"></a>스토리지 리소스 만들기 및 업로드
 먼저 [az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
 ```azurecli

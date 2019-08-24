@@ -194,4 +194,4 @@ HANA 대규모 인스턴스 및 VM 간에 전송되는 데이터는 암호화되
 > 여러 개의 ExpressRoute 회로를 사용한 경우 트래픽을 적절하게 라우팅할 수 있도록 선행 AS 경로 추가 및 로컬 기본 BGP 설정을 사용해야 합니다.
 
 **다음 단계**
-- [SAP HANA(대규모 인스턴스) 저장소 아키텍처](hana-storage-architecture.md) 참조
+- [SAP HANA(대규모 인스턴스) 스토리지 아키텍처](hana-storage-architecture.md) 참조

@@ -31,7 +31,7 @@ MySQL Workbench, mysqldump, Toad 또는 Navicat과 같은 일반 유틸리티 �
 몇 가지 일반적인 시나리오에서 mysqldump 및 mysqlpump와 같은 MySQL 유틸리티를 사용하여 데이터베이스를 Azure MySQL Database로 덤프 및 로드할 수 있습니다. 다른 시나리오에서 대신 [가져오기 및 내보내기](concepts-migrate-import-export.md) 방법을 사용할 수 있습니다.
 
 - 전체 데이터베이스를 마이그레이션할 때 데이터베이스 덤프를 사용합니다. 이 권장 사항은 많은 양의 MySQL 데이터를 이동하거나 실시간 사이트 또는 애플리케이션에 대한 서비스 중단을 최소화하려는 경우 유지합니다. 
--  데이터베이스의 모든 테이블이 데이터를 Azure Database for MySQL로 로드할 때 InnoDB 저장소 엔진을 사용하도록 합니다. Azure Database for MySQL은 InnoDB 저장소 엔진만을 지원하므로 대체 저장소 엔진을 지원하지 않습니다. 테이블이 다른 저장소 엔진으로 구성된 경우 Azure Database for MySQL로 마이그레이션 전에 InnoDB 엔진 형식으로 변환합니다.
+-  데이터베이스의 모든 테이블이 데이터를 Azure Database for MySQL로 로드할 때 InnoDB 스토리지 엔진을 사용하도록 합니다. Azure Database for MySQL은 InnoDB 스토리지 엔진만을 지원하므로 대체 스토리지 엔진을 지원하지 않습니다. 테이블이 다른 스토리지 엔진으로 구성된 경우 Azure Database for MySQL로 마이그레이션 전에 InnoDB 엔진 형식으로 변환합니다.
    예를 들어 MyISAM 테이블을 사용하는 WordPress 또는 WebApp이 있는 경우 Azure Database for MySQL로 복원하기 전에 InnoDB 형식으로 마이그레이션하여 먼저 해당 테이블을 변환합니다. `ENGINE=InnoDB` 절을 사용하여 새 테이블을 만들 때 사용되는 엔진을 설정한 다음 복원 전에 데이터를 호환되는 테이블로 전송합니다. 
 
    ```sql
@@ -42,7 +42,7 @@ MySQL Workbench, mysqldump, Toad 또는 Navicat과 같은 일반 유틸리티 �
 ## <a name="performance-considerations"></a>성능 고려 사항
 성능을 최적화하려면 큰 데이터베이스를 덤프할 때 이러한 고려 사항을 숙지합니다.
 -   데이터베이스를 덤프할 때 mysqldump에서 `exclude-triggers` 옵션을 사용합니다. 데이터 복원 중 발생하는 트리거 명령을 방지하기 위해 덤프 파일에서 트리거를 제외합니다. 
--   `single-transaction` 옵션을 사용하여 트랜잭션 격리 모드를 REPEATABLE READ로 설정하고 데이터를 덤프하기 전에 START TRANSACTION SQL 문을 서버로 보냅니다. 단일 트랜잭션 내에서 많은 테이블을 덤프하면 복원 중 저장소가 추가로 소비됩니다. LOCK TABLES는 보류 중인 트랜잭션을 암시적으로 커밋되도록 하기 때문에 `single-transaction` 옵션과 `lock-tables` 옵션은 상호 배타적입니다. 대형 테이블을 덤프하려면 `single-transaction` 옵션을 `quick` 옵션과 결합합니다. 
+-   `single-transaction` 옵션을 사용하여 트랜잭션 격리 모드를 REPEATABLE READ로 설정하고 데이터를 덤프하기 전에 START TRANSACTION SQL 문을 서버로 보냅니다. 단일 트랜잭션 내에서 많은 테이블을 덤프하면 복원 중 스토리지가 추가로 소비됩니다. LOCK TABLES는 보류 중인 트랜잭션을 암시적으로 커밋되도록 하기 때문에 `single-transaction` 옵션과 `lock-tables` 옵션은 상호 배타적입니다. 대형 테이블을 덤프하려면 `single-transaction` 옵션을 `quick` 옵션과 결합합니다. 
 -   여러 VALUE 목록을 포함하는 `extended-insert` 여러 행 구문을 사용합니다. 그러면 덤프 파일이 작아지고 파일을 다시 로드할 때 삽입 속도가 빨라집니다.
 -  데이터가 기본 키 순서로 스크립팅되도록 데이터베이스를 덤프할 때 mysqldump에서 `order-by-primary` 옵션을 사용합니다.
 -   로드 전에 외래 키 제약 조건을 비활성화하려면 데이터를 덤프할 때 mysqldump에서 `disable-keys` 옵션을 사용합니다. 외래 키 검사 비활성화는 성능 향상을 제공합니다. 제약 조건을 활성화하고 참조 무결성을 확인하도록 로드 후 데이터를 확인합니다.

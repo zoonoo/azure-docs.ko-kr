@@ -16,7 +16,7 @@ ms.date: 10/18/2018
 ms.author: damaerte
 ms.openlocfilehash: 36683d04b6f087f1d326458a07b043a0932191f1
 ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/02/2019
 ms.locfileid: "68741999"
@@ -125,9 +125,9 @@ TestVm2   westus     Succeeded         Standard_DS1_v2 WindowsServer 2016-Datace
 > 이는 자식 항목이 향상된 사용자 환경을 위해 메모리에 캐시되기 때문입니다.
 그렇지만, 새로운 데이터를 가져오기 위해 언제나 `dir -Force`을 사용할 수 있습니다.
 
-### <a name="navigate-storage-resources"></a>저장소 리소스 이동
+### <a name="navigate-storage-resources"></a>스토리지 리소스 이동
 
-`StorageAccounts` 디렉터리에 들어가면 모든 저장소 리소스를 쉽게 탐색할 수 있습니다.
+`StorageAccounts` 디렉터리에 들어가면 모든 스토리지 리소스를 쉽게 탐색할 수 있습니다.
 
 ```azurepowershell-interactive
 PS Azure:\MySubscriptionName\StorageAccounts\MyStorageAccountName\Files> dir

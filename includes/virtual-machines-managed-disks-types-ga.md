@@ -24,7 +24,7 @@ Azure 프리미엄 SSD는 IO(입출력) 집약적 워크로드가 있는 VM(가�
 ### <a name="disk-size"></a>디스크 크기
 [!INCLUDE [disk-storage-premium-ssd-sizes](disk-storage-premium-ssd-sizes.md)]
 
-Premium Storage 디스크를 프로비전하면 표준 스토리지와 달리, 해당 디스크의 용량, IOPS 및 처리량이 보장됩니다. 예를 들어 P50 디스크를 만들면 Azure에서 해당 디스크에 저장소 용량 4,095GB, 7,500 IOPS, 250MB/초 처리량이 프로비전됩니다. 애플리케이션에서 용량 및 성능의 전체 또는 일부를 사용할 수 있습니다. Premium SSD 디스크 IOPS 및 처리량 앞 테이블 99.9%의 시간에 설명 된 대상 및 낮은 자리 밀리초 대기 시간을 제공 하도록 설계 되었습니다.
+Premium Storage 디스크를 프로비전하면 표준 스토리지와 달리, 해당 디스크의 용량, IOPS 및 처리량이 보장됩니다. 예를 들어 P50 디스크를 만들면 Azure에서 해당 디스크에 스토리지 용량 4,095GB, 7,500 IOPS, 250MB/초 처리량이 프로비전됩니다. 애플리케이션에서 용량 및 성능의 전체 또는 일부를 사용할 수 있습니다. Premium SSD 디스크 IOPS 및 처리량 앞 테이블 99.9%의 시간에 설명 된 대상 및 낮은 자리 밀리초 대기 시간을 제공 하도록 설계 되었습니다.
 
 ### <a name="transactions"></a>트랜잭션
 

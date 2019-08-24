@@ -105,7 +105,7 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 
 ### <a name="updating-the-application-manifest"></a>애플리케이션 매니페스트 업데이트
 
-인증서가 있을 때 다음을 계산해야 합니다.
+인증서가 있을 때 다음을 컴퓨팅해야 합니다.
 
 - `$base64Thumbprint` - 인증서 해시의 base64 인코딩
 - `$base64Value` - 인증서 원시 데이터의 해시의 base64 인코딩

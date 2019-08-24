@@ -34,9 +34,9 @@ ms.locfileid: "67621049"
     
     1. **문제점 유형** 드롭다운 목록에서 **기술**을 선택합니다.
     2. **구독**을 선택합니다.
-    3. **서비스**에서 **내 서비스**를 확인합니다. 드롭다운 목록에서 **저장소 계정 관리**, **Blob** 또는 **파일** 등의 옵션 중 하나를 선택할 수 있습니다. 
-        - **저장소 계정 관리**를 선택한 경우 **리소스** 및 **지원 요금제**를 선택합니다.
-            ![저장소 계정 관리 선택](./media/storage-import-export-contact-microsoft-support/import-export-support3.png)
+    3. **서비스**에서 **내 서비스**를 확인합니다. 드롭다운 목록에서 **스토리지 계정 관리**, **Blob** 또는 **파일** 등의 옵션 중 하나를 선택할 수 있습니다. 
+        - **스토리지 계정 관리**를 선택한 경우 **리소스** 및 **지원 요금제**를 선택합니다.
+            ![스토리지 계정 관리 선택](./media/storage-import-export-contact-microsoft-support/import-export-support3.png)
         - **Blob**를 선택한 경우 **리소스**, **컨테이너 이름**(선택 사항) 및 **지원 요금제**를 선택합니다.
             ![Blob 선택](./media/storage-import-export-contact-microsoft-support/import-export-support2.png)
         - **파일**을 선택하면 **리소스**, **파일 공유 이름**(선택 사항) 및 **지원 요금제**를 선택하고 ![파일을 선택](./media/storage-import-export-contact-microsoft-support/import-export-support4.png)합니다.

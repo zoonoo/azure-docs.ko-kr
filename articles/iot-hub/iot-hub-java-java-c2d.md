@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub(Java)를 사용한 클라우드-장치 메시지 | Microsoft Docs
+title: Azure IoT Hub(Java)를 사용한 클라우드-디바이스 메시지 | Microsoft Docs
 description: Java용 Azure IoT SDK를 사용하여 Azure IoT Hub에서 디바이스로 클라우드-디바이스 메시지를 보내는 방법입니다. 클라우드-디바이스 메시지를 받는 시뮬레이트된 디바이스 앱을 수정하고 클라우드-디바이스 메시지를 보내는 백 엔드 앱을 수정합니다.
 author: wesmc7777
 manager: philmea
@@ -16,7 +16,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 07/29/2019
 ms.locfileid: "68618489"
 ---
-# <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>IoT Hub(Java)를 사용하여 클라우드-장치 메시지 보내기
+# <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>IoT Hub(Java)를 사용하여 클라우드-디바이스 메시지 보내기
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
@@ -32,7 +32,7 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
 
 * 솔루션 백 엔드에서 IoT Hub 장치에 전송 된 메시지에 대 한 배달 승인 (*피드백*)을 요청 합니다.
 
-[IoT Hub 개발자 가이드에서 클라우드-장치 메시지](iot-hub-devguide-messaging.md)에 대한 자세한 내용을 찾아볼 수 있습니다.
+[IoT Hub 개발자 가이드에서 클라우드-디바이스 메시지](iot-hub-devguide-messaging.md)에 대한 자세한 내용을 찾아볼 수 있습니다.
 
 이 자습서의 끝 부분에서는 다음 두 개의 Java 콘솔 앱을 실행합니다.
 
@@ -97,7 +97,7 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
 
 [!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
-## <a name="send-a-cloud-to-device-message"></a>클라우드-장치 메시지 보내기
+## <a name="send-a-cloud-to-device-message"></a>클라우드-디바이스 메시지 보내기
 
 이 섹션에서는 클라우드-디바이스 메시지를 시뮬레이트된 디바이스 앱으로 보내는 Java 콘솔 응용 프로그램을 만듭니다. [장치에서 IoT hub로 원격 분석 전송 빠른 시작](quickstart-send-telemetry-java.md) 에서 추가한 장치의 장치 ID가 필요 합니다. 이전에 [iot hub 연결 문자열 가져오기](#get-the-iot-hub-connection-string)에서 복사한 iot hub 연결 문자열도 필요 합니다.
 
@@ -196,17 +196,17 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
 
     ![시뮬레이션된 디바이스 앱 실행](./media/iot-hub-java-java-c2d/receivec2d.png)
 
-2. 명령 프롬프트의 send-c2d-messages 폴더에서 다음 명령을 실행하여 클라우드-장치 메시지를 보내고 피드백 승인을 대기합니다.
+2. 명령 프롬프트의 send-c2d-messages 폴더에서 다음 명령을 실행하여 클라우드-디바이스 메시지를 보내고 피드백 승인을 대기합니다.
 
     ```cmd/sh
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![명령을 실행하여 클라우드-장치 메시지 보내기](media/iot-hub-java-java-c2d/sendc2d.png)
+    ![명령을 실행하여 클라우드-디바이스 메시지 보내기](media/iot-hub-java-java-c2d/sendc2d.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서 클라우드-장치 메시지를 보내고 받는 방법을 알아보았습니다.
+이 자습서에서 클라우드-디바이스 메시지를 보내고 받는 방법을 알아보았습니다.
 
 IoT Hub를 사용하는 전체 엔드투엔드 솔루션의 예를 보려면 [Azure IoT 솔루션 액셀러레이터](https://azure.microsoft.com/documentation/suites/iot-suite/)를 참조하세요.
 

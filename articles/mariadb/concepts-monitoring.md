@@ -29,12 +29,12 @@ Azure Database for MariaDB에서는 다음 메트릭을 사용할 수 있습니�
 |cpu_percent|CPU 백분율|Percent|사용 중인 CPU의 비율|
 |memory_percent|메모리 백분율|Percent|사용 중인 메모리의 비율|
 |io_consumption_percent|IO 백분율|Percent|사용 중인 IO의 비율|
-|storage_percent|저장소 비율|Percent|서버의 최대값을 초과하여 사용된 저장소의 비율|
-|storage_used|저장소 사용됨|바이트|사용 중인 저장소의 양 서비스에서 사용되는 저장소에는 데이터베이스 파일, 트랜잭션 로그 및 서버 로그가 포함될 수 있습니다.|
-|serverlog_storage_percent|서버 로그 저장소 비율|Percent|서버의 최대 서버 로그 저장소에서 사용된 서버 로그 저장소의 백분율입니다.|
-|serverlog_storage_percent|사용된 서버 로그 저장소|바이트|서버 로그 저장소에서 사용된 크기입니다.|
-|serverlog_storage_limit|서버 로그 저장소 제한|바이트|이 서버에 대한 서버 로그 저장소의 최대 크기입니다.|
-|storage_limit|저장소 제한|바이트|이 서버의 최대 저장소|
+|storage_percent|스토리지 비율|Percent|서버의 최대값을 초과하여 사용된 스토리지의 비율|
+|storage_used|사용된 스토리지|바이트|사용 중인 스토리지의 양 서비스에서 사용되는 스토리지에는 데이터베이스 파일, 트랜잭션 로그 및 서버 로그가 포함될 수 있습니다.|
+|serverlog_storage_percent|서버 로그 스토리지 비율|Percent|서버의 최대 서버 로그 스토리지에서 사용된 서버 로그 스토리지의 백분율입니다.|
+|serverlog_storage_percent|사용된 서버 로그 스토리지|바이트|서버 로그 스토리지에서 사용된 크기입니다.|
+|serverlog_storage_limit|서버 로그 스토리지 제한|바이트|이 서버에 대한 서버 로그 스토리지의 최대 크기입니다.|
+|storage_limit|스토리지 제한|바이트|이 서버의 최대 스토리지|
 |active_connections|활성 연결 수|개수|서버에 대한 활성 연결 수|
 |connections_failed|실패한 연결|개수|서버에 대해 실패한 연결 수|
 |network_bytes_egress|네트워크 아웃|바이트|활성 연결을 통한 네트워크 출력의 크기입니다.|
@@ -46,7 +46,7 @@ Azure Database for MariaDB에서는 다음 메트릭을 사용할 수 있습니�
 
 ## <a name="query-store"></a>쿼리 저장소
 
-[쿼리 저장소](concepts-query-store.md)는 쿼리 런타임 통계 및 대기 이벤트를 포함하여 시간 경과에 따라 쿼리 성능을 추적하는 공개 미리 보기 기능입니다. 기능에서 쿼리 런타임 성능 정보를 유지 합니다 **mysql** 스키마입니다. 데이터 수집 및 저장은 다양한 구성 노브를 통해 제어할 수 있습니다.
+[쿼리 저장소](concepts-query-store.md)는 쿼리 런타임 통계 및 대기 이벤트를 포함하여 시간 경과에 따라 쿼리 성능을 추적하는 공개 미리 보기 기능입니다. 기능에서 쿼리 런타임 성능 정보를 유지 합니다 **mysql** 스키마입니다. 데이터 수집 및 스토리지은 다양한 구성 노브를 통해 제어할 수 있습니다.
 
 ## <a name="query-performance-insight"></a>쿼리
 

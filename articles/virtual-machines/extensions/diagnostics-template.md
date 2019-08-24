@@ -82,10 +82,10 @@ Virtual Machine Scale Sets 확장 구성은 *VirtualMachineProfile*의 *extensio
 
 *settings* 요소는 설정하고 확장에서 다시 읽어올 수 있는(공용 구성으로 참조되기도 하는) 확장에 대한 구성 속성을 포함합니다. *xmlcfg* 속성은 진단 에이전트에 의해 수집되는 진단 로그, 성능 카운터 등에 대한 XML 기반 구성을 포함합니다. XML 스키마 자체에 대한 자세한 내용은 [진단 구성 스키마](https://msdn.microsoft.com/library/azure/dn782207.aspx) 를 참조하세요. 실제 XML 구성은 Azure 리소스 관리자 템플릿에 변수로 저장한 후 연결하여 base64로 인코딩하여 *xmlcfg*에 대한 값을 설정하는 것이 일반적인 방식입니다. 변수에 xml을 저장하는 방법에 대한 자세한 내용은 [진단 구성 변수](#diagnostics-configuration-variables) 섹션을 참조하세요. *storageAccount* 속성은 진단 데이터가 전송되는 스토리지 계정의 이름을 지정합니다. 
 
-*protectedSettings* 의 속성은(프라이빗 구성으로 참조되기도 하는) 설정할 수 있지만 설정된 후에는 다시 읽어올 수 없습니다. *protectedSettings*는 쓰기 전용이므로 진단 데이터를 기록하는 저장소 계정 키와 같은 중요한 비밀을 저장하는 데 유용합니다.    
+*protectedSettings* 의 속성은(프라이빗 구성으로 참조되기도 하는) 설정할 수 있지만 설정된 후에는 다시 읽어올 수 없습니다. *protectedSettings*는 쓰기 전용이므로 진단 데이터를 기록하는 스토리지 계정 키와 같은 중요한 비밀을 저장하는 데 유용합니다.    
 
-## <a name="specifying-diagnostics-storage-account-as-parameters"></a>진단 저장소 계정을 매개 변수로 지정
-위의 진단 스토리지 JSON 코드 조각은 *existingdiagnosticsStorageAccountName* 및 *existingdiagnosticsStorageResourceGroup*이라는 두 가지 매개 변수를 사용하여 진단 데이터가 저장되는 진단 스토리지 계정을 지정합니다. 진단 저장소 계정을 매개 변수로 지정하면 다양한 환경에서 진단 저장소 계정을 간편하게 변경할 수 있습니다. 예를 들어, 테스트와 프로덕션 배포에 서로 다른 진단 저장소 계정을 사용할 수 있습니다.  
+## <a name="specifying-diagnostics-storage-account-as-parameters"></a>진단 스토리지 계정을 매개 변수로 지정
+위의 진단 스토리지 JSON 코드 조각은 *existingdiagnosticsStorageAccountName* 및 *existingdiagnosticsStorageResourceGroup*이라는 두 가지 매개 변수를 사용하여 진단 데이터가 저장되는 진단 스토리지 계정을 지정합니다. 진단 스토리지 계정을 매개 변수로 지정하면 다양한 환경에서 진단 스토리지 계정을 간편하게 변경할 수 있습니다. 예를 들어, 테스트와 프로덕션 배포에 서로 다른 진단 스토리지 계정을 사용할 수 있습니다.  
 
 ```json
 "existingdiagnosticsStorageAccountName": {
@@ -102,15 +102,15 @@ Virtual Machine Scale Sets 확장 구성은 *VirtualMachineProfile*의 *extensio
 }
 ```
 
-가상 머신에 대한 리소스 그룹에 진단 저장소 계정을 지정하는 것보다는 리소스 그룹별로 진단 저장소 계정을 지정하는 것이 가장 바람직합니다. 리소스 그룹은 자체적인 수명을 갖는 배포 단위라고 간주할 수 있으며, 가상 머신은 배포되었다가 구성 업데이트가 새로 생성되면 다시 배포될 수 있지만, 이렇게 가상 머신이 배포되더라도 동일한 저장소 계정에 진단 데이터를 계속 저장하기를 바라는 경우가 일반적입니다. 다른 리소스에 저장소 계정을 지정해 두면, 저장소 계정은 다양한 가상 머신 배포로부터 데이터를 받아들이기 때문에 다양한 버전에서 손쉽게 문제를 해결하는 것이 가능해집니다.
+가상 머신에 대한 리소스 그룹에 진단 스토리지 계정을 지정하는 것보다는 리소스 그룹별로 진단 스토리지 계정을 지정하는 것이 가장 바람직합니다. 리소스 그룹은 자체적인 수명을 갖는 배포 단위라고 간주할 수 있으며, 가상 머신은 배포되었다가 구성 업데이트가 새로 생성되면 다시 배포될 수 있지만, 이렇게 가상 머신이 배포되더라도 동일한 스토리지 계정에 진단 데이터를 계속 저장하기를 바라는 경우가 일반적입니다. 다른 리소스에 스토리지 계정을 지정해 두면, 스토리지 계정은 다양한 가상 머신 배포로부터 데이터를 받아들이기 때문에 다양한 버전에서 손쉽게 문제를 해결하는 것이 가능해집니다.
 
 > [!NOTE]
-> Visual Studio에서 Windows 가상 머신 템플릿을 만드는 경우 기본 저장소 계정이 가상 머신 VHD가 업로드되는 동일한 저장소 계정을 사용하도록 설정할 수 있습니다. 이것은 VM 초기 설정을 간소화하기 위한 것입니다. 매개 변수로 전달될 수 있는 다른 저장소 계정을 사용하려면 템플릿을 리팩터링합니다. 
+> Visual Studio에서 Windows 가상 머신 템플릿을 만드는 경우 기본 스토리지 계정이 가상 머신 VHD가 업로드되는 동일한 스토리지 계정을 사용하도록 설정할 수 있습니다. 이것은 VM 초기 설정을 간소화하기 위한 것입니다. 매개 변수로 전달될 수 있는 다른 스토리지 계정을 사용하려면 템플릿을 리팩터링합니다. 
 > 
 > 
 
 ## <a name="diagnostics-configuration-variables"></a>진단 구성 변수
-앞의 진단 확장 JSON 코드 조각은 진단 저장소에 대한 저장소 계정 키 생성을 간소화하기 위해서 *accountid* 변수를 정의합니다.   
+앞의 진단 확장 JSON 코드 조각은 진단 스토리지에 대한 스토리지 계정 키 생성을 간소화하기 위해서 *accountid* 변수를 정의합니다.   
 
 ```json
 "accountid": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/',parameters('existingdiagnosticsStorageResourceGroup'), '/providers/','Microsoft.Storage/storageAccounts/', parameters('existingdiagnosticsStorageAccountName'))]"
@@ -155,8 +155,8 @@ Virtual Machine Scale Sets 확장 구성은 *VirtualMachineProfile*의 *extensio
 
 MetricAggregation의 *PT1M* 및 *PT1H* 값은 각각 1분간의 집계와 1시간의 집계를 나타냅니다.
 
-## <a name="wadmetrics-tables-in-storage"></a>저장소의 WADMetrics 테이블
-위의 Metrics 구성은 다음과 같은 명명 규칙으로 진단 저장소 계정에 테이블을 생성합니다.
+## <a name="wadmetrics-tables-in-storage"></a>스토리지의 WADMetrics 테이블
+위의 Metrics 구성은 다음과 같은 명명 규칙으로 진단 스토리지 계정에 테이블을 생성합니다.
 
 * **WADMetrics**: 모든 WADMetrics 테이블에 대한 표준 접두사입니다.
 * **PT1H** 또는 **PT1M**: 테이블에 1시간 또는 1분 동안 집계된 데이터가 포함되어 있음을 나타냅니다.

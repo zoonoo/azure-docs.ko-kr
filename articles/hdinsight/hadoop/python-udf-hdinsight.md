@@ -36,7 +36,7 @@ HDInsight에는 Java로 작성된 Python 구현인 Jython도 포함되어 있습
 > [!NOTE]  
 > 이 문서에 사용 된 저장소 계정은 [보안 전송](../../storage/common/storage-require-secure-transfer.md) 설정에 Azure Storage 되어 있으므로 `wasbs` 이 문서 전체에서 사용 됩니다.
 
-## <a name="storage-configuration"></a>Storage 구성
+## <a name="storage-configuration"></a>스토리지 구성
 사용 된 저장소 계정이 유형 `Storage (general purpose v1)` 또는 `StorageV2 (general purpose v2)`인 경우 아무 작업도 필요 하지 않습니다.  이 문서의 프로세스는 최소한 `/tezstaging`의 출력을 생성 합니다.  기본 hadoop 구성은 `/tezstaging` `core-site.xml` for service `fs.azure.page.blob.dir` 의구성변수에포함됩니다.`HDFS`  이 구성을 수행 하면 디렉터리의 출력이 저장소 계정 종류 `BlobStorage`에 대해 지원 되지 않는 페이지 blob이 됩니다.  이 문서 `BlobStorage` 에를 사용 하려면 `fs.azure.page.blob.dir` 구성 `/tezstaging` 변수에서을 제거 합니다.  [AMBARI UI](../hdinsight-hadoop-manage-ambari.md)에서 구성에 액세스할 수 있습니다.  그렇지 않으면 다음과 같은 오류 메시지가 표시 됩니다.`Page blob is not supported for this account type.`
 
 > [!WARNING]  
@@ -571,7 +571,7 @@ Get-AzHDInsightJobOutput `
 
 [!code-powershell[main](../../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=135-139)]
 
-오류 정보(STDERR) 및 작업의 결과(STDOUT)도 HDInsight 저장소에 로깅됩니다.
+오류 정보(STDERR) 및 작업의 결과(STDOUT)도 HDInsight 스토리지에 로깅됩니다.
 
 | 이 작업의 경우 | Blob 컨테이너에서 이러한 파일을 찾습니다. |
 | --- | --- |

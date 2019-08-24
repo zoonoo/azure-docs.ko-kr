@@ -140,13 +140,13 @@ ms.locfileid: "67612248"
 다음 코드는 **기존** Stream Analytics 작업에 모니터링을 사용합니다. 코드의 첫 번째 부분은 Stream Analytics 서비스에 대해 GET 요청을 수행하여 특정 Stream Analytics 작업에 대한 정보를 검색합니다. 사용 된 *ID* 두 번째 Stream Analytics 작업에 대 한 모니터링을 사용 하도록 Insights 서비스에 요청을 PUT을 전송 하는 코드의 절반에서 Put 메서드에 매개 변수로 속성 (GET 요청에서 검색 됨).
 
 > [!WARNING]
-> Azure Portal을 통해 또는 아래 코드를 통해 프로그래밍 방식으로 서로 다른 Stream Analytics 작업에 대한 모니터링을 이전에 설정한 경우, **이전에 모니터링을 활성화했을 때 사용했던 동일한 저장소 계정 이름을 제공하는 것이 좋습니다.**
+> Azure Portal을 통해 또는 아래 코드를 통해 프로그래밍 방식으로 서로 다른 Stream Analytics 작업에 대한 모니터링을 이전에 설정한 경우, **이전에 모니터링을 활성화했을 때 사용했던 동일한 스토리지 계정 이름을 제공하는 것이 좋습니다.**
 > 
-> 저장소 계정은 작업 자체에 특정되지 않고 Stream Analytics 작업에서 만든 지역에 연결됩니다.
+> 스토리지 계정은 작업 자체에 특정되지 않고 Stream Analytics 작업에서 만든 지역에 연결됩니다.
 > 
-> 동일 지역의 모든 Stream Analytics 작업(및 다른 모든 Azure 리소스)은 이 저장소 계정을 공유하여 모니터링 데이터를 저장합니다. 사용자가 다른 저장소 계정을 제공하면, 다른 Stream Analytics 작업 또는 다른 Azure 리소스에 대한 모니터링에 의도하지 않은 부작용이 발생할 수 있습니다.
+> 동일 지역의 모든 Stream Analytics 작업(및 다른 모든 Azure 리소스)은 이 스토리지 계정을 공유하여 모니터링 데이터를 저장합니다. 사용자가 다른 스토리지 계정을 제공하면, 다른 Stream Analytics 작업 또는 다른 Azure 리소스에 대한 모니터링에 의도하지 않은 부작용이 발생할 수 있습니다.
 > 
-> 다음 코드의 `<YOUR STORAGE ACCOUNT NAME>`을 바꾸는 데 사용한 저장소 계정 이름은 모니터링을 사용할 Stream Analytics 작업과 동일한 구독에 있는 저장소 계정이어야 합니다.
+> 다음 코드의 `<YOUR STORAGE ACCOUNT NAME>`을 바꾸는 데 사용한 스토리지 계정 이름은 모니터링을 사용할 Stream Analytics 작업과 동일한 구독에 있는 스토리지 계정이어야 합니다.
 > 
 > 
 >    ```csharp

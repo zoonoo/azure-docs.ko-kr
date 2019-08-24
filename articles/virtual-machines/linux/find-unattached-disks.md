@@ -105,7 +105,7 @@ done
 
 ## <a name="next-steps"></a>다음 단계
 
-[저장소 계정 삭제](../../storage/common/storage-create-storage-account.md)
+[스토리지 계정 삭제](../../storage/common/storage-create-storage-account.md)
 
 
 

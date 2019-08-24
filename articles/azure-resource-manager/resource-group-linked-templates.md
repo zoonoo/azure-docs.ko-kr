@@ -96,7 +96,7 @@ ms.locfileid: "68311697"
 
 ### <a name="external-template-and-external-parameters"></a>외부 템플릿 및 외부 매개 변수
 
-외부 템플릿과 매개 변수 파일에 연결하려면 **templateLink** 및 **parametersLink**를 사용합니다. 템플릿에 연결할 때 Resource Manager 서비스가 해당 템플릿에 액세스할 수 있어야 합니다. 로컬 네트워크에서만 사용 가능한 파일이나 로컬 파일은 지정할 수 없습니다. **http** 또는 **https** 중 하나를 포함하는 URI 값만 제공할 수 있습니다. 한 가지 옵션은 연결된 템플릿을 저장소 계정에 배치하고 해당 항목의 URI를 사용하는 것입니다.
+외부 템플릿과 매개 변수 파일에 연결하려면 **templateLink** 및 **parametersLink**를 사용합니다. 템플릿에 연결할 때 Resource Manager 서비스가 해당 템플릿에 액세스할 수 있어야 합니다. 로컬 네트워크에서만 사용 가능한 파일이나 로컬 파일은 지정할 수 없습니다. **http** 또는 **https** 중 하나를 포함하는 URI 값만 제공할 수 있습니다. 한 가지 옵션은 연결된 템플릿을 스토리지 계정에 배치하고 해당 항목의 URI를 사용하는 것입니다.
 
 ```json
 "resources": [
@@ -557,4 +557,4 @@ az group deployment create --resource-group ExampleGroup --template-uri $url?$to
 * 자습서를 진행하려면 [자습서: 연결된 Azure Resource Manager 템플릿 만들기](./resource-manager-tutorial-create-linked-templates.md)를 참조하세요.
 * 리소스 배포 순서를 정의하는 방법을 알아보려면 [Azure Resource Manager 템플릿에서 종속성 정의](resource-group-define-dependencies.md)를 참조하세요.
 * 하나의 리소스를 정의하되 해당 리소스의 여러 인스턴스를 만드는 방법을 알아보려면 [Azure Resource Manager에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요.
-* 저장소 계정에서 템플릿을 설정하고 SAS 토큰을 생성하는 절차는 [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](resource-group-template-deploy.md) 또는 [Resource Manager 템플릿과 Azure CLI로 리소스 배포](resource-group-template-deploy-cli.md)를 참조하세요.
+* 스토리지 계정에서 템플릿을 설정하고 SAS 토큰을 생성하는 절차는 [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](resource-group-template-deploy.md) 또는 [Resource Manager 템플릿과 Azure CLI로 리소스 배포](resource-group-template-deploy-cli.md)를 참조하세요.

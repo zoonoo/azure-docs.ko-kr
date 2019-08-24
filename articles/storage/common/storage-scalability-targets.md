@@ -17,7 +17,7 @@ ms.locfileid: "68326965"
 ---
 # <a name="azure-storage-scalability-and-performance-targets-for-storage-accounts"></a>저장소 계정에 대 한 확장성 및 성능 목표 Azure Storage
 
-이 문서에서는 Azure Storage 계정의 확장성 및 성능 목표에 대해 자세히 설명합니다. 여기에 나열된 확장성 및 성능 목표는 최첨단 목표이지만 달성할 수 있습니다. 모든 경우, 계정 사용량에 따라 달성된 요청 속도 및 대역폭은 저장된 개채의 크기 및 애플리케이션이 수행한 작업 형태에 따릅니다.
+이 문서에서는 Azure Storage 계정의 확장성 및 성능 목표에 대해 자세히 설명합니다. 여기에 나열된 확장성 및 성능 목표는 최첨단 목표이지만 달성할 수 있습니다. 모든 경우, 계정 사용량에 따라 달성된 요청 속도 및 대역폭은 스토리지된 개채의 크기 및 애플리케이션이 수행한 작업 형태에 따릅니다.
 
 해당 성능이 요구 사항을 충족시키는지 여부를 확인 하려면 서비스를 반드시 테스트해야 합니다. 가능하면 트래픽 속도가 갑자기 증가하지 않고 파티션 간의 트래픽이 적절하게 분산되도록 보장합니다.
 
@@ -67,7 +67,7 @@ Azure 파일 동기화는 무제한 사용을 목적으로 설계되었으나 �
 
 [!INCLUDE [storage-sync-files-scale-targets](../../../includes/storage-sync-files-scale-targets.md)]
 
-## <a name="azure-queue-storage-scale-targets"></a>Azure Queue 저장소 크기 조정 목표
+## <a name="azure-queue-storage-scale-targets"></a>Azure Queue storage 크기 조정 목표
 
 [!INCLUDE [storage-queues-scale-targets](../../../includes/storage-queues-scale-targets.md)]
 
@@ -77,7 +77,7 @@ Azure 파일 동기화는 무제한 사용을 목적으로 설계되었으나 �
 
 ## <a name="see-also"></a>참고자료
 
-- [저장소 가격 정보](https://azure.microsoft.com/pricing/details/storage/)
+- [스토리지 가격 정보](https://azure.microsoft.com/pricing/details/storage/)
 - [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../../azure-subscription-service-limits.md)
 - [Azure Storage 복제](../storage-redundancy.md)
 - [Microsoft Azure Storage 성능 및 확장성 검사 목록](../storage-performance-checklist.md)

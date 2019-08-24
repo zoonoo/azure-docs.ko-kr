@@ -80,13 +80,13 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
 | SQL 데이터베이스(SQL database) | physical_data_read_percent | 데이터 IO 비율 | 평균 | 5분 |
 | SQL 데이터베이스(SQL database) | log_write_percent | 로그 IO 비율 | 평균 | 5분 |
 | SQL 데이터베이스(SQL database) | dtu_consumption_percent | DTU 백분율 | 평균 | 5분 |
-| SQL 데이터베이스(SQL database) | 저장소 | 총 데이터베이스 크기 | 최대값 | 30분 |
+| SQL 데이터베이스(SQL database) | 스토리지 | 총 데이터베이스 크기 | 최대값 | 30분 |
 | SQL 데이터베이스(SQL database) | connection_successful | 성공적인 연결 | Total | 10분 |
 | SQL 데이터베이스(SQL database) | connection_failed | 연결 실패 | Total | 10분 |
 | SQL 데이터베이스(SQL database) | blocked_by_firewall | 방화벽에서 차단됨 | Total | 10분 |
 | SQL 데이터베이스(SQL database) | 교착 상태 | 교착 상태 | Total | 10분 |
 | SQL 데이터베이스(SQL database) | storage_percent | 데이터베이스 크기 비율 | 최대값 | 30분 |
-| SQL 데이터베이스(SQL database) | xtp_storage_percent | 메모리 내 OLTP 저장소 백분율(미리 보기) | 평균 | 5분 |
+| SQL 데이터베이스(SQL database) | xtp_storage_percent | 메모리 내 OLTP 스토리지 백분율(미리 보기) | 평균 | 5분 |
 | SQL 데이터베이스(SQL database) | workers_percent | 작업자 비율 | 평균 | 5분 |
 | SQL 데이터베이스(SQL database) | sessions_percent | 세션 백분율 | 평균 | 5분 |
 | SQL 데이터베이스 | dtu_limit | DTU 제한 | 평균 | 5분 |
@@ -96,10 +96,10 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
 | Elastic Pool | physical_data_read_percent | 데이터 IO 비율 | 평균 | 10분 |
 | Elastic Pool | log_write_percent | 로그 IO 비율 | 평균 | 10분 |
 | Elastic Pool | dtu_consumption_percent | DTU 백분율 | 평균 | 10분 |
-| Elastic Pool | storage_percent | 저장소 비율 | 평균 | 10분 |
+| Elastic Pool | storage_percent | 스토리지 비율 | 평균 | 10분 |
 | Elastic Pool | workers_percent | 작업자 비율 | 평균 | 10분 |
 | Elastic Pool | eDTU_limit | eDTU 제한 | 평균 | 10분 |
-| Elastic Pool | storage_limit | 저장소 제한 | 평균 | 10분 |
+| Elastic Pool | storage_limit | 스토리지 제한 | 평균 | 10분 |
 | Elastic Pool | eDTU_used | eDTU 사용 | 평균 | 10분 |
 | Elastic Pool | storage_used | 사용된 스토리지 | 평균 | 10분 |
 ||||||               

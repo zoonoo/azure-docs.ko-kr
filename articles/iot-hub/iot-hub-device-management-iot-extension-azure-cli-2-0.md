@@ -55,7 +55,7 @@ ms.locfileid: "68640562"
   - 구독 중인 Azure IoT Hub
   - 메시지를 Azure IoT Hub로 보내는 클라이언트 애플리케이션
 
-* 이 자습서를 진행하는 동안 장치가 클라이언트 애플리케이션을 사용해서 실행되고 있어야 합니다.
+* 이 자습서를 진행하는 동안 디바이스가 클라이언트 애플리케이션을 사용해서 실행되고 있어야 합니다.
 
 * [Python 2.7x 또는 Python 3.x](https://www.python.org/downloads/)
 

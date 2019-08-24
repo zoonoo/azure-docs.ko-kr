@@ -46,32 +46,32 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 > [!NOTE]
 > Azure 무료 계정과 함께 기본 서비스 계층에서 azure SQL database를 사용 하 여 Azure를 탐색할 수 있습니다. 자세한 내용은 [Azure 체험 계정으로 관리되는 클라우드 데이터베이스 만들기](https://azure.microsoft.com/free/services/sql-database/)를 참조하세요.
 
-## <a name="single-database-dtu-and-storage-limits"></a>단일 데이터베이스 DTU 및 저장소 제한
+## <a name="single-database-dtu-and-storage-limits"></a>단일 데이터베이스 DTU 및 스토리지 제한
 
 컴퓨팅 크기는 단일 데이터베이스에 대해서는 DTU(데이터베이스 트랜잭션 단위), 탄력적 풀에 대해서는 eDTU(탄력적 데이터베이스 트랜잭션 단위)로 표현됩니다. DTU 및 eDTU에 대한 자세한 내용은 [DTU 기반 구매 모델](sql-database-purchase-models.md#dtu-based-purchasing-model)을 참조하세요.
 
 ||Basic|표준|Premium|
 | :-- | --: | --: | --: |
-| 최대 저장소 크기 | 2GB | 1TB | 4 TB  |
+| 최대 스토리지 크기 | 2GB | 1TB | 4 TB  |
 | 최대 DTU | 5 | 3000 | 4000 | 
 |||||
 
 > [!IMPORTANT]
 > 경우에 따라 사용하지 않는 공간을 회수하기 위해 데이터베이스를 축소해야 할 수도 있습니다. 자세한 내용은 [Azure SQL Database의 파일 공간 관리](sql-database-file-space-management.md)를 참조하세요.
 
-## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>탄력적 풀 eDTU, 저장소 및 풀링된 데이터베이스 제한
+## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>탄력적 풀 eDTU, 스토리지 및 풀링된 데이터베이스 제한
 
 | | **기본** | **Standard** | **Premium** |
 | :-- | --: | --: | --: |
-| 데이터베이스당 최대 저장소 크기  | 2GB | 1TB | 1TB |
-| 풀당 최대 저장소 크기 | 156GB | 4 TB | 4 TB |
+| 데이터베이스당 최대 스토리지 크기  | 2GB | 1TB | 1TB |
+| 풀당 최대 스토리지 크기 | 156GB | 4 TB | 4 TB |
 | 데이터베이스당 최대 eDTU | 5 | 3000 | 4000 |
 | 풀당 최대 eDTU | 1600 | 3000 | 4000 |
 | 풀당 최대 데이터베이스 수 | 500  | 500 | 100 |
 |||||
 
 > [!IMPORTANT]
-> 현재 다음 지역을 제외한 모든 지역에서 프리미엄 계층의 스토리지 1TB 이상을 사용할 수 있습니다. 중국 동부, 중국 북부, 독일 중부, 독일 북동부, 미국 중서부, 미국 DoD 지역 및 미국 중앙 정부 이러한 지역에서 프리미엄 계층 저장소 최대 크기는 1TB로 제한됩니다.  자세한 내용은 [P11-P15 현재 제한 사항](sql-database-single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb)을 참조하세요.  
+> 현재 다음 지역을 제외한 모든 지역에서 프리미엄 계층의 스토리지 1TB 이상을 사용할 수 있습니다. 중국 동부, 중국 북부, 독일 중부, 독일 북동부, 미국 중서부, 미국 DoD 지역 및 미국 중앙 정부 이러한 지역에서 프리미엄 계층 스토리지 최대 크기는 1TB로 제한됩니다.  자세한 내용은 [P11-P15 현재 제한 사항](sql-database-single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb)을 참조하세요.  
 > [!IMPORTANT]
 > 경우에 따라 사용하지 않는 공간을 회수하기 위해 데이터베이스를 축소해야 할 수도 있습니다. 자세한 내용은 [Azure SQL Database의 파일 공간 관리](sql-database-file-space-management.md)를 참조하세요.
 

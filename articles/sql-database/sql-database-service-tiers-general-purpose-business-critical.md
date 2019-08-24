@@ -31,7 +31,7 @@ Azure SQL Database는 인프라 오류가 발생 한 경우에도 99.99%의 가�
 > [!NOTE]
 > Vcore 기반 구매 모델의 하이퍼 크기 조정 서비스 계층에 대 한 자세한 내용은 [대규모 service 계층](sql-database-service-tier-hyperscale.md)을 참조 하세요. vCore 기반 구매 모델과 DTU 기반 구매 모델의 비교는 [Azure SQL Database 구매 모델 및 리소스](sql-database-purchase-models.md)를 참조하세요.
 
-## <a name="data-and-log-storage"></a>데이터 및 로그 저장
+## <a name="data-and-log-storage"></a>데이터 및 로그 스토리지
 
 데이터 및 로그 파일에 사용 되는 저장소 크기에 영향을 주는 요소는 다음과 같습니다.
 
@@ -53,9 +53,9 @@ MDF 및 LDF 파일의 현재 총 크기를 모니터링 하려면 [sp_spaceused]
 > [!IMPORTANT]
 > 경우에 따라 사용하지 않는 공간을 회수하기 위해 데이터베이스를 축소해야 할 수도 있습니다. 자세한 내용은 [Azure SQL Database의 파일 공간 관리](sql-database-file-space-management.md)를 참조하세요.
 
-## <a name="backups-and-storage"></a>백업 및 저장소
+## <a name="backups-and-storage"></a>백업 및 스토리지
 
-데이터베이스 백업용 저장소는 SQL Database의 PITR (지정 시간 복원) 및 [LTR (장기 보존)](sql-database-long-term-retention.md) 기능을 지원 하기 위해 할당 됩니다. 이 저장소는 각 데이터베이스에 대해 개별적으로 할당되며 데이터베이스당 별도의 두 가지 요금으로 청구됩니다.
+데이터베이스 백업용 저장소는 SQL Database의 PITR (지정 시간 복원) 및 [LTR (장기 보존)](sql-database-long-term-retention.md) 기능을 지원 하기 위해 할당 됩니다. 이 스토리지는 각 데이터베이스에 대해 개별적으로 할당되며 데이터베이스당 별도의 두 가지 요금으로 청구됩니다.
 
 - **PITR**: 개별 데이터베이스 백업은 [읽기 액세스 지역 중복 (GRS) 저장소](../storage/common/storage-designing-ha-apps-with-ragrs.md) 에 자동으로 복사 됩니다. 저장소 크기는 새 백업이 생성 될 때 동적으로 늘어납니다. 저장소는 매주 전체 백업, 일별 차등 백업 및 5 분 마다 복사 되는 트랜잭션 로그 백업에 사용 됩니다. 저장소 사용량은 데이터베이스의 변경 률과 백업 보존 기간에 따라 달라 집니다. 각 데이터베이스에 대한 개별적인 보존 기간은 7-35일 사이에서 구성할 수 있습니다. 데이터베이스 크기의 100% (1x)와 같은 최소 저장소 크기는 추가 요금 없이 제공 됩니다. 대부분의 데이터베이스에서 이 크기는 7일간의 백업을 저장하기에 충분합니다.
 - **LTR**: SQL Database은 최대 10 년 동안 전체 백업의 장기 보존을 구성 하는 옵션을 제공 합니다. LTR 정책을 설정 하는 경우 이러한 백업은 RA GRS 저장소에 자동으로 저장 되지만 백업 복사 빈도를 제어할 수 있습니다. 서로 다른 규정 준수 요구 사항을 충족 하기 위해 주별, 월별 및/또는 매년 백업에 대해 서로 다른 보존 기간을 선택할 수 있습니다. 선택한 구성에 따라 LTR 백업에 사용 되는 저장소의 양이 결정 됩니다. LTR 저장소의 비용을 예상 하려면 LTR 가격 계산기를 사용할 수 있습니다. 자세한 내용은 [장기 보존 SQL Database](sql-database-long-term-retention.md)를 참조 하세요.

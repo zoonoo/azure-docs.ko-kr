@@ -261,9 +261,9 @@ send_client = uamqp.SendClient(uri, debug=True)
 
 | 만든 사람 | 링크 형식 | 링크 경로 | Description |
 |------------|-----------|-----------|-------------|
-| 장치 | 받는 사람 링크 | `/devices/<deviceID>/messages/devicebound` | 장치를 대상으로 하는 클라우드-장치 메시지는 각 대상 장치에 의해이 링크에 수신 됩니다. |
-| 장치 | 보낸 사람 링크 | `/devices/<deviceID>messages/events` | 장치에서 전송 되는 장치-클라우드 메시지는이 링크를 통해 전송 됩니다. |
-| 장치 | 보낸 사람 링크 | `/messages/serviceBound/feedback` | 장치에서이 링크를 통해 서비스로 전송 되는 클라우드-장치 메시지 피드백입니다. |
+| 디바이스 | 받는 사람 링크 | `/devices/<deviceID>/messages/devicebound` | 장치를 대상으로 하는 클라우드-장치 메시지는 각 대상 장치에 의해이 링크에 수신 됩니다. |
+| 디바이스 | 보낸 사람 링크 | `/devices/<deviceID>messages/events` | 장치에서 전송 되는 장치-클라우드 메시지는이 링크를 통해 전송 됩니다. |
+| 디바이스 | 보낸 사람 링크 | `/messages/serviceBound/feedback` | 장치에서이 링크를 통해 서비스로 전송 되는 클라우드-장치 메시지 피드백입니다. |
 
 ### <a name="receive-cloud-to-device-commands-device-client"></a>클라우드-장치 명령 받기 (장치 클라이언트)
 

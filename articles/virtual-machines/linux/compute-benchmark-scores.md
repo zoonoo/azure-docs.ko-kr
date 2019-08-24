@@ -105,7 +105,7 @@ ms.locfileid: "67870878"
 | Standard_D32_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 32 | 1 | 125.9 | 312472 | 3173 | 1.02% | 511 |
 | Standard_D64_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 64 | 2 | 251.9 | 627,470 | 9651 | 1.54% | 700 |
 
-## <a name="dsv2---storage-optimized"></a>DSv2 - 저장소 최적화
+## <a name="dsv2---storage-optimized"></a>DSv2 - 스토리지 최적화
 (오전 3/15/2019 12:53:13 시 pbi 3897709)
 
 | VM 크기 | CPU | vCPU | NUMA 노드 | 메모리(GiB) | Avg 점수 | StdDev | StdDev% | #실행 |
@@ -268,7 +268,7 @@ ms.locfileid: "67870878"
 | Standard_F16 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 16 | 2 | 31.4 | 226,683 | 4723 | 2.08% | 133 |
 | Standard_F16 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 16 | 1 | 31.4 | 228,592 | 2371 | 1.04% | 392 |
 
-## <a name="gs---storage-optimized"></a>GS - 저장소 최적화
+## <a name="gs---storage-optimized"></a>GS - 스토리지 최적화
 (3/12/2019 10:22:33 PM pbi 3897709)
 
 | VM 크기 | CPU | vCPU | NUMA 노드 | 메모리(GiB) | Avg 점수 | StdDev | StdDev% | #실행 |
@@ -317,7 +317,7 @@ ms.locfileid: "67870878"
 | Standard_L64s_v2 | AMD EPYC 7551 32-코어 프로세서 | 64 | 8 | 503.9 | 595,140 | 14572 | 2.45% | 112 |
 | Standard_L80s_v2 | AMD EPYC 7551 32-코어 프로세서 | 80 | 10 | 629.9 | 773171 | 19559 | 2.53% | 119 |
 
-## <a name="ls---storage-optimized"></a>Ls - 저장소 최적화
+## <a name="ls---storage-optimized"></a>Ls - 스토리지 최적화
 (3/12/2019 10:22:29 PM pbi 3897709)
 
 | VM 크기 | CPU | vCPU | NUMA 노드 | 메모리(GiB) | Avg 점수 | StdDev | StdDev% | #실행 |
@@ -412,6 +412,6 @@ ms.locfileid: "67870878"
 Linux 숫자는 Ubuntu에서 [CoreMark](https://www.eembc.org/coremark/faq.php) 를 실행하여 계산됩니다. CoreMark는 가상 CPU의 수에 설정된 스레드 수와 PThread에 설정된 동시성 수로 구성 되었습니다. 대상 반복 횟수는 20초 이상(일반적으로 훨씬 더 김)의 런타임을 제공하기 위해 예상되는 성능에 따라 조정되었습니다. 최종 점수는 완료된 반복 횟수를 테스트를 실행하는 데 걸린 시간(초)으로 나누어 나타냅니다. 각 테스트는 각 VM에서 적어도 7번 실행되었습니다. 위에 표시된 테스트 실행 날짜 실행된 날짜에서 VM이 지원된 Azure 공용 지역의 여러 VM에 대한 테스트 실행 기본 A와 B(버스터블) 시리즈는 성능이 변수이므로 표시되지 않습니다. N 시리즈는 GPU 중심이고 Coremark는 GPU 성능을 측정하지 않으므로 표시되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* 저장 용량, 디스크 세부 정보 및 VM 크기 선택시 추가적인 고려 사항에 관한 자세한 내용은 [가상 머신의 크기](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
+* 스토리지 용량, 디스크 세부 정보 및 VM 크기 선택시 추가적인 고려 사항에 관한 자세한 내용은 [가상 머신의 크기](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 * Linux VM에서 CoreMark 스크립트를 실행하려면 [CoreMark 스크립트 팩](https://download.microsoft.com/download/3/0/5/305A3707-4D3A-4599-9670-AAEB423B4663/AzureCoreMarkScriptPack.zip)을 다운로드합니다.
 

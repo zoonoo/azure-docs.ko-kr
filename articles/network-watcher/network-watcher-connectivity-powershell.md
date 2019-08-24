@@ -253,9 +253,9 @@ Hops             : [
                    ]
 ```
 
-## <a name="check-connectivity-to-a-storage-endpoint"></a>저장소 엔드포인트에 대한 연결 확인
+## <a name="check-connectivity-to-a-storage-endpoint"></a>스토리지 엔드포인트에 대한 연결 확인
 
-다음 예제에서는 가상 머신에서 Blob 저장소 계정으로의 연결을 확인합니다. 이 예제에서는 원본 VM이 포함된 지역에서 Network Watcher를 사용할 수 있어야 합니다.  
+다음 예제에서는 가상 머신에서 Blob 스토리지 계정으로의 연결을 확인합니다. 이 예제에서는 원본 VM이 포함된 지역에서 Network Watcher를 사용할 수 있어야 합니다.  
 
 ### <a name="example"></a>예
 
@@ -275,7 +275,7 @@ Test-AzNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1
 
 ### <a name="response"></a>response
 
-다음 json은 이전 cmdlet 실행에서 가져온 예제 응답입니다. 대상에 연결할 수 있으므로 `ConnectionStatus` 속성은 **Reachable**로 표시됩니다.  저장소 BLOB 및 대기 시간에 도달하는 데 필요한 홉 수에 대한 세부 정보가 제공됩니다.
+다음 json은 이전 cmdlet 실행에서 가져온 예제 응답입니다. 대상에 연결할 수 있으므로 `ConnectionStatus` 속성은 **Reachable**로 표시됩니다.  스토리지 BLOB 및 대기 시간에 도달하는 데 필요한 홉 수에 대한 세부 정보가 제공됩니다.
 
 ```json
 ConnectionStatus : Reachable

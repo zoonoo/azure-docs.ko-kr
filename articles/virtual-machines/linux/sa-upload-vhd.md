@@ -26,7 +26,7 @@ ms.locfileid: "67708361"
 
 이 문서에서는 Azure CLI를 사용하여 VHD(가상 하드 디스크)를 Azure Storage 계정에 업로드하고 이 사용자 지정 디스크에서 Linux VM을 만드는 방법을 설명합니다. 이 기능을 사용하면 Linux 배포판을 요구에 맞게 설치 및 구성하고 해당 VHD를 사용하여 Azure 가상 머신 (Vm)를 신속하게 만들 수 있습니다.
 
-이 항목에서는 최종 VHD에 대한 저장소 계정을 사용하지만 [Managed Disks](upload-vhd.md)를 사용하여 이러한 단계를 수행할 수도 있습니다. 
+이 항목에서는 최종 VHD에 대한 스토리지 계정을 사용하지만 [Managed Disks](upload-vhd.md)를 사용하여 이러한 단계를 수행할 수도 있습니다. 
 
 ## <a name="quick-commands"></a>빠른 명령
 작업을 빠르게 완료해야 하는 경우 다음 섹션에서 Azure에 VHD를 업로드하는 기본 명령에 대해 자세히 알아보세요. 각 단계에 대한 보다 자세한 내용 및 상황 설명은 [여기서부터](#requirements) 문서 끝까지 참조하세요.
@@ -41,7 +41,7 @@ ms.locfileid: "67708361"
 az group create --name myResourceGroup --location westus
 ```
 
-[az storage account create](/cli/azure/storage/account)를 사용하여 가상 디스크를 보유할 스토리지 계정을 만듭니다. 다음 예제에서는 `mystorageaccount`라는 저장소 계정을 만듭니다.
+[az storage account create](/cli/azure/storage/account)를 사용하여 가상 디스크를 보유할 스토리지 계정을 만듭니다. 다음 예제에서는 `mystorageaccount`라는 스토리지 계정을 만듭니다.
 
 ```azurecli
 az storage account create --resource-group myResourceGroup --location westus \
@@ -54,7 +54,7 @@ az storage account create --resource-group myResourceGroup --location westus \
 az storage account keys list --resource-group myResourceGroup --account-name mystorageaccount
 ```
 
-[az storage container create](/cli/azure/storage/container)를 사용하여 획득한 스토리지 키를 사용하여 스토리지 계정 내에 컨테이너를 만듭니다. 다음 예제에서는 `key1`의 저장소 키 값을 사용하여 `mydisks`라는 컨테이너를 만듭니다.
+[az storage container create](/cli/azure/storage/container)를 사용하여 획득한 스토리지 키를 사용하여 스토리지 계정 내에 컨테이너를 만듭니다. 다음 예제에서는 `key1`의 스토리지 키 값을 사용하여 `mydisks`라는 컨테이너를 만듭니다.
 
 ```azurecli
 az storage container create --account-name mystorageaccount \
@@ -79,7 +79,7 @@ az vm create --resource-group myResourceGroup --location westus \
     --use-unmanaged-disk
 ```
 
-대상 저장소 계정은 가상 디스크를 업로드한 곳과 같아야 합니다. 또한 가상 네트워크, 공용 IP 주소, 사용자 이름 및 SSH 키와 같은 **az vm create** 명령이 필요로 하는 모든 추가 매개 변수를 지정하거나 프롬프트에 응답할 수 있습니다. [사용 가능한 CLI Resource Manager 매개 변수](../azure-cli-arm-commands.md#azure-vm-commands-to-manage-your-azure-virtual-machines)에 대해 자세히 알아볼 수 있습니다.
+대상 스토리지 계정은 가상 디스크를 업로드한 곳과 같아야 합니다. 또한 가상 네트워크, 공용 IP 주소, 사용자 이름 및 SSH 키와 같은 **az vm create** 명령이 필요로 하는 모든 추가 매개 변수를 지정하거나 프롬프트에 응답할 수 있습니다. [사용 가능한 CLI Resource Manager 매개 변수](../azure-cli-arm-commands.md#azure-vm-commands-to-manage-your-azure-virtual-machines)에 대해 자세히 알아볼 수 있습니다.
 
 ## <a name="requirements"></a>요구 사항
 다음 단계를 완료하려면 다음이 필요합니다.
@@ -93,8 +93,8 @@ az vm create --resource-group myResourceGroup --location westus \
 > 
 > 
 
-* 사용자 지정 디스크에서 생성된 VM은 디스크 자체와 동일한 저장소 계정에 있어야 합니다.
-  * 사용자 지정 디스크와 생성된 VM을 모두 저장할 저장소 계정 및 컨테이너 만들기
+* 사용자 지정 디스크에서 생성된 VM은 디스크 자체와 동일한 스토리지 계정에 있어야 합니다.
+  * 사용자 지정 디스크와 생성된 VM을 모두 저장할 스토리지 계정 및 컨테이너 만들기
   * 모든 VM을 만든 후 디스크를 안전하게 삭제할 수 있습니다.
 
 최신 [Azure CLI](/cli/azure/install-az-cli2)를 설치했고 [az login](/cli/azure/reference-index)을 사용하여 Azure 계정에 로그인했는지 확인합니다.
@@ -122,7 +122,7 @@ Azure에서는 다양한 Linux 배포를 지원합니다( [보증 배포판](end
 > 
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
-리소스 그룹은 가상 네트워킹 및 저장소와 같은 가상 머신을 지원하기 위해 논리적으로 모든 Azure 리소스를 모읍니다. 리소스 그룹에 대한 자세한 내용은 [리소스 그룹 개요](../../azure-resource-manager/resource-group-overview.md)를 참조하세요. 사용자 지정 디스크를 업로드하고 VM을 만들기 전에 먼저 [az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만들어야 합니다.
+리소스 그룹은 가상 네트워킹 및 스토리지와 같은 가상 머신을 지원하기 위해 논리적으로 모든 Azure 리소스를 모읍니다. 리소스 그룹에 대한 자세한 내용은 [리소스 그룹 개요](../../azure-resource-manager/resource-group-overview.md)를 참조하세요. 사용자 지정 디스크를 업로드하고 VM을 만들기 전에 먼저 [az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만들어야 합니다.
 
 다음 예제에서는 `westus` 위치에 `myResourceGroup`이라는 리소스 그룹을 만듭니다.
 
@@ -130,21 +130,21 @@ Azure에서는 다양한 Linux 배포를 지원합니다( [보증 배포판](end
 az group create --name myResourceGroup --location westus
 ```
 
-## <a name="create-a-storage-account"></a>저장소 계정 만들기
+## <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
-[az storage account create](/cli/azure/storage/account)를 사용하여 사용자 지정 디스크 및 VM에 대한 스토리지 계정을 만듭니다. 사용자 지정 디스크에서 관리되지 않는 디스크를 만든 모든 VM은 그 디스크와 동일한 저장소 계정에 있어야 합니다. 
+[az storage account create](/cli/azure/storage/account)를 사용하여 사용자 지정 디스크 및 VM에 대한 스토리지 계정을 만듭니다. 사용자 지정 디스크에서 관리되지 않는 디스크를 만든 모든 VM은 그 디스크와 동일한 스토리지 계정에 있어야 합니다. 
 
-다음 예제에서는 이전에 만든 리소스 그룹에 `mystorageaccount`라는 저장소 계정을 만듭니다.
+다음 예제에서는 이전에 만든 리소스 그룹에 `mystorageaccount`라는 스토리지 계정을 만듭니다.
 
 ```azurecli
 az storage account create --resource-group myResourceGroup --location westus \
   --name mystorageaccount --kind Storage --sku Standard_LRS
 ```
 
-## <a name="list-storage-account-keys"></a>저장소 계정 키 나열
-Azure는 각 저장소 계정에 대해 두 개의 512 비트 선택키를 생성합니다. 이러한 선택키는 쓰기 작업을 수행할 때와 같이 저장소 계정에 인증할 때에 사용됩니다. [여기서 저장소에 대한 액세스 관리](../../storage/common/storage-account-manage.md#access-keys)에 대해 자세히 알아 봅니다. [az storage account keys list](/cli/azure/storage/account/keys)를 사용하여 액세스 키를 확인합니다.
+## <a name="list-storage-account-keys"></a>스토리지 계정 키 나열
+Azure는 각 스토리지 계정에 대해 두 개의 512 비트 선택키를 생성합니다. 이러한 선택키는 쓰기 작업을 수행할 때와 같이 스토리지 계정에 인증할 때에 사용됩니다. [여기서 스토리지에 대한 액세스 관리](../../storage/common/storage-account-manage.md#access-keys)에 대해 자세히 알아 봅니다. [az storage account keys list](/cli/azure/storage/account/keys)를 사용하여 액세스 키를 확인합니다.
 
-만든 저장소 계정에 대한 선택키를 봅니다.
+만든 스토리지 계정에 대한 선택키를 봅니다.
 
 ```azurecli
 az storage account keys list --resource-group myResourceGroup --account-name mystorageaccount
@@ -161,10 +161,10 @@ data:    key1  d4XAvZzlGAgWdvhlWfkZ9q4k9bYZkXkuPCJ15NTsQOeDeowCDAdB80r9zA/tUINAp
 data:    key2  Ww0T7g4UyYLaBnLYcxIOTVziGAAHvU+wpwuPvK4ZG0CDFwu/mAxS/YYvAQGHocq1w7/3HcalbnfxtFdqoXOw8g==  Full
 info:    storage account keys list command OK
 ```
-다음 단계에서 저장소 계정과 상호 작용하는 데 사용할 수 있도록 `key1` 을 기록해 둡니다.
+다음 단계에서 스토리지 계정과 상호 작용하는 데 사용할 수 있도록 `key1` 을 기록해 둡니다.
 
-## <a name="create-a-storage-container"></a>저장소 컨테이너 만들기
-로컬 파일 시스템을 논리적으로 구성하기 위해 서로 다른 디렉터리를 만드는 것과 같은 방식으로 디스크를 구성하기 위해 저장소 계정 내에 컨테이너를 만듭니다. 저장소 계정에 포함할 수 있는 컨테이너의 수에는 제한이 없습니다. [az storage container create](/cli/azure/storage/container)를 사용하여 컨테이너를 만듭니다.
+## <a name="create-a-storage-container"></a>스토리지 컨테이너 만들기
+로컬 파일 시스템을 논리적으로 구성하기 위해 서로 다른 디렉터리를 만드는 것과 같은 방식으로 디스크를 구성하기 위해 스토리지 계정 내에 컨테이너를 만듭니다. 스토리지 계정에 포함할 수 있는 컨테이너의 수에는 제한이 없습니다. [az storage container create](/cli/azure/storage/container)를 사용하여 컨테이너를 만듭니다.
 
 다음 예제에서는 `mydisks`라는 컨테이너를 만듭니다.
 
@@ -188,7 +188,7 @@ az storage blob upload --account-name mystorageaccount \
 ## <a name="create-the-vm"></a>VM 만들기
 관리되지 않는 디스크로 VM을 만들려면 [az vm create](/cli/azure/vm)를 사용하여 디스크(`--image`)에 URI를 지정합니다. 다음 예제에서는 이전에 업로드한 가상 디스크를 사용하여 `myVM`이라는 VM을 만듭니다.
 
-[az vm create](/cli/azure/vm)를 사용하여 `--image` 매개 변수가 사용자 지정 디스크를 가리키도록 지정합니다. `--storage-account`가 사용자 지정 디스크가 저장된 저장소 계정과 일치하는지 확인합니다. 사용자 지정 디스크와 동일한 컨테이너를 사용하여 VM을 저장할 필요는 없습니다. 사용자 지정 디스크를 업로드하기 전에 이전 단계와 동일한 방식으로 모든 추가 컨테이너를 만들어야 합니다.
+[az vm create](/cli/azure/vm)를 사용하여 `--image` 매개 변수가 사용자 지정 디스크를 가리키도록 지정합니다. `--storage-account`가 사용자 지정 디스크가 저장된 스토리지 계정과 일치하는지 확인합니다. 사용자 지정 디스크와 동일한 컨테이너를 사용하여 VM을 저장할 필요는 없습니다. 사용자 지정 디스크를 업로드하기 전에 이전 단계와 동일한 방식으로 모든 추가 컨테이너를 만들어야 합니다.
 
 다음 예제에서는 사용자 지정 디스크에서 `myVM`이라는 VM을 만듭니다.
 

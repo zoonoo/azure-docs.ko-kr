@@ -88,7 +88,7 @@ Docker 타일을 클릭합니다.
 ![예제](./media/docker/14.png)
 
 ### <a name="docker-context-added-to-app-telemetry"></a>앱 원격 분석에 추가되는 Docker 컨텍스트
-AI SDK를 사용하여 계측되는 응용 프로그램에서 보내는 요청 원격 분석은 Docker 컨텍스트 정보를 사용하여 보강됩니다.
+AI SDK를 사용하여 계측되는 애플리케이션에서 보내는 요청 원격 분석은 Docker 컨텍스트 정보를 사용하여 보강됩니다.
 
 ## <a name="q--a"></a>질문과 대답
 *Docker에서 얻을 수 없는 어떤 기능을 Application Insights가 제공하나요?*

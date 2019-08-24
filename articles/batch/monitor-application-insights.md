@@ -33,7 +33,7 @@ ms.locfileid: "68322576"
 ## <a name="prerequisites"></a>전제 조건
 * [Visual Studio 2017 이상](https://www.visualstudio.com/vs)
 
-* [Batch 계정 및 연결된 저장소 계정](batch-account-create-portal.md)
+* [Batch 계정 및 연결된 스토리지 계정](batch-account-create-portal.md)
 
 * [Application Insights 리소스](../azure-monitor/app/create-new-resource.md )
   

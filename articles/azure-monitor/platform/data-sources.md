@@ -112,7 +112,7 @@ Azure [활동 로그](activity-logs-overview.md) 에는 azure 구독의 리소�
 | Destination | 설명 | 참조 |
 |:---|:---|:---|
 | Azure Monitor 로그 | 다른 수집 된 로그 데이터를 사용 하 여 분석을 위해 Azure Monitor 로그에 진단 로그를 보냅니다. 일부 리소스는 Log Analytics 작업 영역으로 가져오기 전에 저장소 계정에 쓰는 동안 Azure Monitor에 직접 쓸 수 있습니다. | [Azure Monitor에서 Log Analytics 작업 영역으로 Azure 진단 로그 스트림](diagnostic-logs-stream-log-store.md)<br>[Azure Portal를 사용 하 여 Azure Storage에서 로그 수집](azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage)  |
-| 저장 공간 | 보관을 위해 Azure Storage 진단 로그를 보냅니다. | [Azure 진단 로그 보관](archive-diagnostic-logs.md) |
+| 스토리지 | 보관을 위해 Azure Storage 진단 로그를 보냅니다. | [Azure 진단 로그 보관](archive-diagnostic-logs.md) |
 | Event Hubs | Event Hubs를 사용 하 여 진단 로그를 다른 위치로 스트림 합니다. |[이벤트 허브로 Azure 진단 로그 스트림](diagnostic-logs-stream-event-hubs.md) |
 
 ## <a name="operating-system-guest"></a>운영 체제 (게스트)
@@ -125,7 +125,7 @@ Azure Virtual machines에 대해 Azure 진단 확장을 사용 하도록 설정 
 
 | Destination | Description | 참조 |
 |:---|:---|:---|
-| 저장 공간 | 진단 확장을 사용 하도록 설정 하면 기본적으로 저장소 계정에 기록 됩니다. | [Azure Storage에서 진단 데이터 저장 및 보기](diagnostics-extension-to-storage.md) |
+| 스토리지 | 진단 확장을 사용 하도록 설정 하면 기본적으로 저장소 계정에 기록 됩니다. | [Azure Storage에서 진단 데이터 저장 및 보기](diagnostics-extension-to-storage.md) |
 | Azure Monitor 메트릭 | 성능 카운터를 수집 하도록 진단 확장을 구성 하면 Azure Monitor 메트릭 데이터베이스에 기록 됩니다. | [Windows 가상 머신에 대 한 리소스 관리자 템플릿을 사용 하 여 Azure Monitor 메트릭 저장소에 게스트 OS 메트릭 보내기](collect-custom-metrics-guestos-resource-manager-vm.md) |
 | Application Insights 로그 | 다른 응용 프로그램 데이터를 사용 하 여 분석할 응용 프로그램을 지 원하는 계산 리소스에서 로그 및 성능 카운터를 수집 합니다. | [클라우드 서비스, 가상 머신 또는 Service Fabric 진단 데이터를 Application Insights으로 보내기](diagnostics-extension-to-application-insights.md) |
 | Event Hubs | Event Hubs를 사용 하 여 다른 위치로 데이터를 스트리밍하는 진단 확장을 구성 합니다.  | [Event Hubs를 사용 하 여 실행 부하 과다 경로의 데이터 스트리밍 Azure 진단](diagnostics-extension-stream-event-hubs.md) |

@@ -75,7 +75,7 @@ ms.locfileid: "67707222"
 * [Linux (이 문서)에서 SAP 용 azure Virtual Machines 배포][deployment-guide]
 * [Linux에서 SAP 용 azure Virtual Machines DBMS 배포][dbms-guide]
 * [SUSE Linux Enterprise 높은 가용성 확장 12 SP3 모범 사례 가이드][sles-hae-guides]
-  * DRBD 및 Pacemaker를 사용하는 고가용성 NFS 저장소
+  * DRBD 및 Pacemaker를 사용하는 고가용성 NFS 스토리지
 * [SUSE Linux Enterprise Server SAP 응용 프로그램 12 sp3 모범 사례 가이드][sles-for-sap-bp]
 * [고가용성 확장 SUSE 12 SP3 릴리스 정보][suse-ha-12sp3-relnotes]
 

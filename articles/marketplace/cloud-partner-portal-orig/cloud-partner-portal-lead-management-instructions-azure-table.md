@@ -27,7 +27,7 @@ ms.locfileid: "68227895"
     1. **새** 창에서 **저장소**를 선택 합니다. **중요** 한 목록이 오른쪽에 열립니다.
     1. **Storage 계정**을 선택합니다. 그런 다음 [저장소 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)의 지침을 따릅니다.
 
-    ![Azure 저장소 계정 만들기](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragecreate.png)
+    ![Azure Storage 계정 만들기](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragecreate.png)
 
     저장소 계정에 대 한 자세한 내용은 [빠른 시작 자습서](https://docs.microsoft.com/azure/storage/)를 참조 하세요. 가격 책정 정보는 [Azure storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/)을 참조 하세요.
 
@@ -43,7 +43,7 @@ ms.locfileid: "68227895"
     DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net
     ```
 
-      ![Azure 저장소 키](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragekeys.png)
+      ![Azure Storage 키](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragekeys.png)
 
 [Azure Storage 탐색기](https://azurestorageexplorer.codeplex.com/) 또는 유사한 도구를 사용 하 여 테이블 저장소의 데이터를 볼 수 있습니다. 데이터를 내보낼 수도 있습니다.
 
@@ -111,7 +111,7 @@ ms.locfileid: "68227895"
      ![조건 컨트롤 추가](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-action-condition-control.png)
 
 1. **조건** 창에서 **값 선택**을 선택 하 고 팝업 창에서 **식** 을 선택 합니다.
-1. Fx `length(body('Get_entities')?['value'])` 필드에 **** 붙여넣습니다. **확인**을 선택하여 이 함수를 추가합니다. 
+1. Fx `length(body('Get_entities')?['value'])` 필드에 붙여넣습니다. **확인**을 선택하여 이 함수를 추가합니다. 
 
 
 

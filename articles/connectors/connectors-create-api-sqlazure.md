@@ -104,7 +104,7 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
    ![테이블 이름 및 행 ID 입력](./media/connectors-create-api-sqlazure/table-row-id.png)
    
    이 예에서는 선택한 테이블에서 한 행만 반환하며, 그 외에는 아무 것도 반환하지 않습니다. 
-   이 행의 데이터를 보려면 나중에 검토할 수 있도록 행의 필드가 있는 파일을 만드는 다른 작업을 추가하고 해당 파일을 클라우드 저장소 계정에 저장합니다. 이 커넥터 또는 다른 커넥터의 다른 작업에 대한 자세한 내용은 [Logic Apps 커넥터](../connectors/apis-list.md)를 참조하세요.
+   이 행의 데이터를 보려면 나중에 검토할 수 있도록 행의 필드가 있는 파일을 만드는 다른 작업을 추가하고 해당 파일을 클라우드 스토리지 계정에 저장합니다. 이 커넥터 또는 다른 커넥터의 다른 작업에 대한 자세한 내용은 [Logic Apps 커넥터](../connectors/apis-list.md)를 참조하세요.
 
 4. 완료되면 디자이너 도구 모음에서 **저장**을 선택합니다. 
 

@@ -203,7 +203,7 @@ Ambari 웹 UI를 연결할 때 페이지에 인증하라는 메시지가 나옵�
 
 Ambari Views를 사용하면 개발자가 [Apache Ambari Views 프레임워크](https://cwiki.apache.org/confluence/display/AMBARI/Views)를 사용하여 Ambari 웹 UI에 UI 요소를 삽입할 수 있습니다. HDInsight은 Hadoop 클러스터 종류를 사용하여 다음 뷰를 제공합니다.
 
-* Hive 보기: Hive 보기를 사용하면 웹 브라우저에서 직접 Hive 쿼리를 실행할 수 있습니다. 쿼리를 저장하고 결과 확인하며 클러스터 저장소에 결과를 저장하거나 로컬 시스템에 다운로드할 수 있습니다. Hive 보기 사용에 대한 자세한 내용은 [HDInsight와 함께 Apache Hive 보기 사용](hadoop/apache-hadoop-use-hive-ambari-view.md)을 참조하세요.
+* Hive 보기: Hive 보기를 사용하면 웹 브라우저에서 직접 Hive 쿼리를 실행할 수 있습니다. 쿼리를 저장하고 결과 확인하며 클러스터 스토리지에 결과를 저장하거나 로컬 시스템에 다운로드할 수 있습니다. Hive 보기 사용에 대한 자세한 내용은 [HDInsight와 함께 Apache Hive 보기 사용](hadoop/apache-hadoop-use-hive-ambari-view.md)을 참조하세요.
 
 * Tez 보기: Tez 보기를 사용하면 작업을 더 잘 이해하고 최적화할 수 있습니다. Tez 작업 실행 방법 및 사용되는 리소스에 대한 정보를 볼 수 있습니다.
 

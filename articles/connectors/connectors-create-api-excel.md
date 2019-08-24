@@ -38,7 +38,7 @@ Azure Logic Apps 및 Excel Online 커넥터를 사용하여 비즈니스 또는 
 
 * 작업 계정 또는 개인 Microsoft 계정에 대한 [Office 365 계정](https://www.office.com/)
 
-  Excel 데이터는 저장소 폴더(예: OneDrive)에 쉼표로 구분된 값(CSV)으로 존재할 수 있습니다. 
+  Excel 데이터는 스토리지 폴더(예: OneDrive)에 쉼표로 구분된 값(CSV)으로 존재할 수 있습니다. 
   또한 동일한 CSV 파일을 [플랫 파일 커넥터](../logic-apps/logic-apps-enterprise-integration-flatfile.md)와 함께 사용할 수도 있습니다.
 
 * [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식

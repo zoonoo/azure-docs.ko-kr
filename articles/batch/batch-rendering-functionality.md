@@ -42,7 +42,7 @@ Windows 2016 이미지 및 CentOS 이미지가 있습니다.  [Azure Marketplace
 * [애플리케이션 패키지](https://docs.microsoft.com/azure/batch/batch-application-packages).
   * 하나 이상의 ZIP 파일을 사용하여 애플리케이션 파일을 패키지 처리하고, Azure Portal을 통해 업로드하고, 풀 구성에서 패키지를 지정합니다. 풀 VM이 생성되면 ZIP 파일이 다운로드되고 파일이 추출됩니다.
 * 리소스 파일.
-  * Azure Blob Storage에 응용 프로그램 파일이 업로드되면, [풀 시작 태스크](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask)에서 파일 참조를 지정합니다. 풀 VM을 만들면 리소스 파일이 각 VM에 다운로드됩니다.
+  * Azure Blob Storage에 애플리케이션 파일이 업로드되면, [풀 시작 태스크](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask)에서 파일 참조를 지정합니다. 풀 VM을 만들면 리소스 파일이 각 VM에 다운로드됩니다.
 
 ### <a name="pay-for-use-licensing-for-pre-installed-applications"></a>미리 설치된 애플리케이션에 대한 사용량 과금 라이선스
 
@@ -52,11 +52,11 @@ Windows 2016 이미지 및 CentOS 이미지가 있습니다.  [Azure Marketplace
 * 하나 이상의 애플리케이션을 지정하면 해당 애플리케이션의 비용은 VM 비용에 추가됩니다.  애플리케이션 가격은 [Azure Batch 가격 책정 페이지](https://azure.microsoft.com/pricing/details/batch/#graphic-rendering)에 나열되어 있습니다.
 
 > [!NOTE]
-> 대신 라이선스 서버에 연결하여 렌더링 응용 프로그램을 사용하는 경우에는 `applicationLicenses` 속성을 지정하지 마세요.
+> 대신 라이선스 서버에 연결하여 렌더링 애플리케이션을 사용하는 경우에는 `applicationLicenses` 속성을 지정하지 마세요.
 
 애플리케이션을 선택하고 애플리케이션 가격을 표시하려면 Azure Portal 또는 Batch Explorer를 사용할 수 있습니다.
 
-응용 프로그램을 사용하려고 하는데 응용 프로그램이 풀 구성의 `applicationLicenses` 속성에 지정되지 않았거나 라이선스 서버에 연결하지 않는 경우 응용 프로그램 실행이 실패하며 라이선스 오류와 0이 아닌 종료 코드가 표시됩니다.
+애플리케이션을 사용하려고 하는데 애플리케이션이 풀 구성의 `applicationLicenses` 속성에 지정되지 않았거나 라이선스 서버에 연결하지 않는 경우 애플리케이션 실행이 실패하며 라이선스 오류와 0이 아닌 종료 코드가 표시됩니다.
 
 ### <a name="environment-variables-for-pre-installed-applications"></a>미리 설치된 애플리케이션에 대한 환경 변수
 

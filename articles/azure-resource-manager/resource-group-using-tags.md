@@ -254,7 +254,7 @@ done
 
 ### <a name="apply-a-literal-value-to-the-tag-name"></a>태그 이름에 리터럴 값 적용
 
-다음 예제에서는 리터럴 값으로 설정된 두 개의 태그(`Dept` 및 `Environment`)가 있는 저장소 계정을 보여 줍니다.
+다음 예제에서는 리터럴 값으로 설정된 두 개의 태그(`Dept` 및 `Environment`)가 있는 스토리지 계정을 보여 줍니다.
 
 ```json
 {

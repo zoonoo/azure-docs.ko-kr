@@ -44,7 +44,7 @@ Media Services 계정을 만들 경우 **기본** 스트리밍 엔드포인트�
 |type|배율 단위|Description|
 |--------|--------|--------|  
 |**Standard**|0|기본 스트리밍 끝점은 **표준** 형식이 며를 조정 `scaleUnits`하 여 프리미엄 형식으로 변경할 수 있습니다.|
-|**Premium**|>0|**프리미엄** 스트리밍 끝점은 고급 워크 로드에 적합 하며, 확장 가능한 전용 대역폭 용량을 제공 합니다. (스트리밍 단위)  를 조정 `scaleUnits` 하 여 프리미엄 유형으로 이동 합니다. `scaleUnits`는 200Mbps 단위로 구입할 수 있는 전용 송신 용량을 제공합니다. **프리미엄** 유형을 사용할 경우 설정된 각 단위가 애플리케이션에 대한 추가 대역폭 용량을 제공합니다. |
+|**Premium**|>0|**프리미엄** 스트리밍 끝점은 고급 워크 로드에 적합 하며, 확장 가능한 전용 대역폭 용량을 제공 합니다. (스트리밍 단위) 를 조정 `scaleUnits` 하 여 프리미엄 유형으로 이동 합니다. `scaleUnits`는 200Mbps 단위로 구입할 수 있는 전용 송신 용량을 제공합니다. **프리미엄** 유형을 사용할 경우 설정된 각 단위가 애플리케이션에 대한 추가 대역폭 용량을 제공합니다. |
 
 > [!NOTE]
 > 대량 인터넷 사용자에 게 콘텐츠를 배달 하려는 고객의 경우 스트리밍 끝점에서 CDN을 사용 하도록 설정 하는 것이 좋습니다.
@@ -80,7 +80,7 @@ IP 필터링/G20/사용자 지정 호스트 <sup>1</sup>|예|예
   - 현재 지역에서 CDN 기능을 `HTTP Error Code 412` 사용할 수 없으므로 "스트리밍 끝점 cdnenabled 속성을 true로 설정할 수 없습니다." 라는 메시지와 함께 (preconditionfailed)에 대해 반환 된 결과를 확인 합니다. 
 
     이 오류가 발생하면 데이터 센터가 통합을 지원하지 않는 것입니다. 다른 데이터 센터를 시도해보세요.
-- `cdnProfile`-이 `cdnEnabled` true로 설정 된 경우 값을 전달할 `cdnProfile` 수도 있습니다. `cdnProfile`은 CDN 엔드포인트가 생성되는 CDN 프로필의 이름입니다. 기존 cdnProfile을 제공하거나 새로 만들 수 있습니다. 값이 NULL이고 `cdnEnabled`가 true이면 기본값 “AzureMediaStreamingPlatformCdnProfile”이 사용됩니다. 제공된 `cdnProfile`이 이미 있으면 그 아래에 엔드포인트가 생성됩니다. 프로필이 없으면 새 프로필이 자동으로 만들어집니다.
+- `cdnProfile`-이 `cdnEnabled` true로 설정 된 경우 값을 전달할 `cdnProfile` 수도 있습니다. `cdnProfile`은 CDN 엔드포인트이 생성되는 CDN 프로필의 이름입니다. 기존 cdnProfile을 제공하거나 새로 만들 수 있습니다. 값이 NULL이고 `cdnEnabled`가 true이면 기본값 “AzureMediaStreamingPlatformCdnProfile”이 사용됩니다. 제공된 `cdnProfile`이 이미 있으면 그 아래에 엔드포인트가 생성됩니다. 프로필이 없으면 새 프로필이 자동으로 만들어집니다.
 - `cdnProvider`-CDN을 사용 하는 경우 값을 전달할 `cdnProvider` 수도 있습니다. `cdnProvider`는 사용할 공급자를 제어합니다. 현재 "StandardVerizon", "PremiumVerizon" 및 "StandardAkamai"의 세 값이 지원됩니다. 값을 제공 `cdnEnabled` 하지 않고가 true 이면 "standardverizon"이 사용 됩니다 (기본값).
 - `crossSiteAccessPolicies`-다양 한 클라이언트에 대해 사이트 간 액세스 정책을 지정 하는 데 사용 됩니다. 자세한 내용은 [도메인 간 정책 파일 사양](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) 및 [여러 도메인 간에 서비스를 사용하도록 지정](https://msdn.microsoft.com/library/cc197955\(v=vs.95\).aspx)을 참조하세요.<br/>설정은 부드러운 스트리밍에만 적용 됩니다.
 - `customHostNames`-사용자 지정 호스트 이름으로 전송 된 트래픽을 허용 하도록 스트리밍 끝점을 구성 하는 데 사용 됩니다.  이 속성은 표준 및 프리미엄 스트리밍 끝점에 유효 하며: false 인 경우 `cdnEnabled`설정할 수 있습니다.

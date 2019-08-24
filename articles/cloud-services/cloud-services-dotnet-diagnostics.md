@@ -182,7 +182,7 @@ Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -Diagnostic
 ```
 
 ### <a name="step-6-look-at-your-telemetry-data"></a>6단계: 원격 분석 데이터 확인
-Visual Studio **서버 탐색기**에서 wadexample 저장소 계정으로 이동합니다. 클라우드 서비스가 5분 정도 실행된 후에는 **WADEnumsTable**, **WADHighFreqTable**, **WADMessageTable**, **WADPerformanceCountersTable** 및 **WADSetOtherTable** 테이블이 표시됩니다. 수집된 원격 분석을 보려는 테이블 중 하나를 두 번 클릭합니다.
+Visual Studio **서버 탐색기**에서 wadexample 스토리지 계정으로 이동합니다. 클라우드 서비스가 5분 정도 실행된 후에는 **WADEnumsTable**, **WADHighFreqTable**, **WADMessageTable**, **WADPerformanceCountersTable** 및 **WADSetOtherTable** 테이블이 표시됩니다. 수집된 원격 분석을 보려는 테이블 중 하나를 두 번 클릭합니다.
 
 ![CloudServices_diag_tables](./media/cloud-services-dotnet-diagnostics/WadExampleTables.png)
 

@@ -104,7 +104,7 @@ Azure Event Grid 구성 가능한 속성에서 찾을 수 있습니다 합니다
 }
 ```
 
-[저장소 에뮬레이터](https://docs.microsoft.com/azure/storage/common/storage-use-emulator)가 작동하는지 확인합니다. 실행하기 전에 `AzureStorageEmulator.exe clear all` 명령을 실행하는 것이 좋습니다.
+[스토리지 에뮬레이터](https://docs.microsoft.com/azure/storage/common/storage-use-emulator)가 작동하는지 확인합니다. 실행하기 전에 `AzureStorageEmulator.exe clear all` 명령을 실행하는 것이 좋습니다.
 
 ## <a name="create-functions-that-listen-for-events"></a>이벤트를 수신 대기하는 함수 만들기
 

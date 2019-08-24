@@ -91,7 +91,7 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 | **gatewayName** |Data Factory 서비스에서 온-프레미스 DB2 데이터베이스에 연결하는 데 사용해야 하는 게이트웨이의 이름입니다. |예 |
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
-데이터 세트를 정의하는 데 사용할 수 있는 섹션 및 속성 목록은 [데이터 세트 만들기](data-factory-create-datasets.md) 문서를 참조하세요. JSON 데이터 집합에 대한 **structure**, **availability** 및 **policy**과 같은 섹션은 모든 데이터 집합 유형(Azure SQL, Azure Blob Storage, Azure Table Storage 등)에서 비슷합니다.
+데이터 세트를 정의하는 데 사용할 수 있는 섹션 및 속성 목록은 [데이터 세트 만들기](data-factory-create-datasets.md) 문서를 참조하세요. JSON 데이터 세트에 대한 **structure**, **availability** 및 **policy**과 같은 섹션은 모든 데이터 세트 유형(Azure SQL, Azure Blob Storage, Azure Table Storage 등)에서 비슷합니다.
 
 **typeProperties** 섹션은 데이터 세트의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대한 정보를 제공합니다. DB2 데이터 세트를 포함하는 **RelationalTable** 형식의 데이터 세트에 대한 **typeProperties** 섹션에는 다음과 같은 속성이 있습니다.
 

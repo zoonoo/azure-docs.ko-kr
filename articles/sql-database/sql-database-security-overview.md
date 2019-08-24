@@ -56,7 +56,7 @@ Azure SQL Database는 [가상 네트워크 규칙](sql-database-vnet-service-end
 
 - **Azure Active Directory 인증**:
 
-    Azure Active Directory 인증은 Azure AD(Azure Active Directory)의 ID를 사용하여 [Azure SQL Database](sql-database-technical-overview.md) 및 [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)에 연결하는 메커니즘입니다. 관리자는 Azure AD 인증을 통해 데이터베이스 사용자의 ID 및 권한과 기타 Microsoft 서비스를 중앙 위치 한 곳에서 관리할 수 있습니다. 그러면 저장해야 하는 암호를 최소화하고 중앙 집중식 암호 순환 정책을 사용할 수 있습니다.
+    Azure Active Directory 인증은 Azure AD(Azure Active Directory)의 ID를 사용하여 [Azure SQL Database](sql-database-technical-overview.md) 및 [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)에 연결하는 메커니즘입니다. 관리자는 Azure AD 인증을 통해 데이터베이스 사용자의 ID 및 권한과 기타 Microsoft 서비스를 중앙 위치 한 곳에서 관리할 수 있습니다. 그러면 스토리지해야 하는 암호를 최소화하고 중앙 집중식 암호 순환 정책을 사용할 수 있습니다.
 
      SQL Database를 사용한 Azure AD 인증을 사용하려면 서버 관리자 **Active Directory 관리자**를 만들어야 합니다. 자세한 내용은 [Azure Active Directory 인증을 사용하여 SQL Database에 연결](sql-database-aad-authentication.md)을 참조하세요. Azure AD 인증에서는 관리 계정과 페더레이션된 계정이 모두 지원됩니다. 페더레이션된 계정은 Azure AD와 페더레이션된 고객 도메인용 Windows 사용자 및 그룹을 지원합니다.
 

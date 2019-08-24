@@ -41,7 +41,7 @@ Resource Manager 배포 모델을 통해 만든 기존 VM에서 진단 확장을
 
 *$diagnosticsconfig_path*는 아래 [샘플](#sample-diagnostics-configuration)에 설명된 XML의 진단 구성이 포함된 파일의 경로입니다.  
 
-진단 구성 파일이 스토리지 계정 이름으로 **StorageAccount** 요소를 지정할 경우 *Set-AzVMDiagnosticsExtension* 스크립트에서 해당 스토리지 계정으로 진단 데이터를 보내도록 진단 확장을 자동으로 설정합니다. 이렇게 작동하려면, 저장소 계정이 VM과 동일한 구독 내에 있어야 합니다.
+진단 구성 파일이 스토리지 계정 이름으로 **StorageAccount** 요소를 지정할 경우 *Set-AzVMDiagnosticsExtension* 스크립트에서 해당 스토리지 계정으로 진단 데이터를 보내도록 진단 확장을 자동으로 설정합니다. 이렇게 작동하려면, 스토리지 계정이 VM과 동일한 구독 내에 있어야 합니다.
 
 진단 구성에 **StorageAccount** 가 지정되지 않은 경우 cmdlet에 *StorageAccountName* 매개 변수를 전달해야 합니다. *StorageAccountName* 매개 변수가 지정된 경우 cmdlet은 항상 진단 구성 파일에 지정된 스토리지 계정이 아닌 매개 변수에 지정된 스토리지 계정을 사용합니다.
 

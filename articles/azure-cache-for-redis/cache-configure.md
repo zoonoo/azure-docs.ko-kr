@@ -149,9 +149,9 @@ Azure Cache for Redis 설정은 **리소스 메뉴**를 사용하여 **Azure Cac
 
 `maxmemory` 정책에 대한 자세한 내용은 [제거 정책](https://redis.io/topics/lru-cache#eviction-policies)을 참조하세요.
 
-**maxmemory-reserved** 설정은 장애 조치(Failover) 중 복제와 같은 비캐시 작업을 위해 예약되는 메모리의 양을 MB 단위로 구성합니다. 이 값을 설정하면 부하가 달라져도 Redis 서버 환경이 더 일관되도록 할 수 있습니다. 이 값은 쓰기 작업이 많은 워크로드에서 더 높게 설정되어야 합니다. 이러한 작업을 위해 메모리가 예약된 경우 캐시된 데이터의 저장에는 사용할 수 없습니다.
+**maxmemory-reserved** 설정은 장애 조치(Failover) 중 복제와 같은 비캐시 작업을 위해 예약되는 메모리의 양을 MB 단위로 구성합니다. 이 값을 설정하면 부하가 달라져도 Redis 서버 환경이 더 일관되도록 할 수 있습니다. 이 값은 쓰기 작업이 많은 워크로드에서 더 높게 설정되어야 합니다. 이러한 작업을 위해 메모리가 예약된 경우 캐시된 데이터의 스토리지에는 사용할 수 없습니다.
 
-**maxfragmentationmemory-reserved** 설정은 메모리 조각화를 고려하여 예약된 메모리 양을 MB 단위로 구성합니다. 이 값을 설정하면 캐시가 가득 찼거나 거의 가득 찼고 조각화 비율이 높을 때 더욱 일관된 Redis 서버 환경을 갖출 수 있습니다. 이러한 작업을 위해 메모리가 예약된 경우 캐시된 데이터의 저장에는 사용할 수 없습니다.
+**maxfragmentationmemory-reserved** 설정은 메모리 조각화를 고려하여 예약된 메모리 양을 MB 단위로 구성합니다. 이 값을 설정하면 캐시가 가득 찼거나 거의 가득 찼고 조각화 비율이 높을 때 더욱 일관된 Redis 서버 환경을 갖출 수 있습니다. 이러한 작업을 위해 메모리가 예약된 경우 캐시된 데이터의 스토리지에는 사용할 수 없습니다.
 
 새 메모리 예약 값(**maxmemory-reserved** 또는 **maxfragmentationmemory-reserved**)을 선택할 때 고려해야 할 사항 중 하나는 이러한 변경이 이미 많은 양의 데이터로 실행 중인 캐시에 미칠 수 있는 영향력입니다. 예를 들어 49GB의 데이터가 있는 53GB 캐시가 있는 경우 예약 값을 8GB로 변경하면 시스템에 사용 가능한 최대 메모리가 45GB로 줄어듭니다. 현재 `used_memory` 또는 `used_memory_rss` 값이 새 제한인 45GB보다 높으면 시스템에서 `used_memory`과 `used_memory_rss` 모두가 45GB 미만이 될 때까지 데이터를 제거해야 합니다. 제거는 서버 부하 및 메모리 조각화를 증가시킬 수 있습니다. `used_memory` 및 `used_memory_rss`와 같은 캐시 메트릭에 대한 자세한 내용은 [사용 가능한 메트릭 및 보고 간격](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)을 참조하세요.
 
@@ -356,7 +356,7 @@ Redis keyspace 알림은 **고급 설정** 블레이드에서 구성됩니다. K
 
 ### <a name="diagnostics"></a>진단
 
-기본적으로 Azure Monitor의 캐시 메트릭은 [30일 동안 저장](../azure-monitor/platform/data-platform-metrics.md)되었다가 삭제됩니다. 30일 이후에도 캐시 메트릭을 유지하려면 **진단**을 클릭하여 캐시 진단을 저장하는 데 사용되는 [저장소 계정을 구성](cache-how-to-monitor.md#export-cache-metrics)합니다.
+기본적으로 Azure Monitor의 캐시 메트릭은 [30일 동안 저장](../azure-monitor/platform/data-platform-metrics.md)되었다가 삭제됩니다. 30일 이후에도 캐시 메트릭을 유지하려면 **진단**을 클릭하여 캐시 진단을 저장하는 데 사용되는 [스토리지 계정을 구성](cache-how-to-monitor.md#export-cache-metrics)합니다.
 
 >[!NOTE]
 >캐시 메트릭을 저장소에 보관 하는 것 외에도 할 수도 있습니다 [이벤트 허브로 스트림 하거나 Azure Monitor 로그를 보낼](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)합니다.

@@ -21,7 +21,7 @@ ms.locfileid: "68667861"
 
 이 문서에서는 [IoT Hub의 파일 업로드 기능](iot-hub-devguide-file-upload.md)을 사용하여 [Azure Blob Storage](../storage/index.yml)에 파일을 업로드하는 방법에 대해 설명합니다. 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
 
-* 파일을 업로드하기 위해 저장소 컨테이너를 안전하게 제공합니다.
+* 파일을 업로드하기 위해 스토리지 컨테이너를 안전하게 제공합니다.
 
 * Python 클라이언트를 사용하여 IoT 허브를 통해 파일을 업로드합니다.
 
@@ -32,7 +32,7 @@ ms.locfileid: "68667861"
 
 이 자습서의 끝 부분에서 Python 콘솔 앱을 실행합니다.
 
-* **FileUpload.py**는 Python 디바이스 SDK를 사용하여 파일을 저장소로 업로드합니다.
+* **FileUpload.py**는 Python 디바이스 SDK를 사용하여 파일을 스토리지로 업로드합니다.
 
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
@@ -139,7 +139,7 @@ ms.locfileid: "68667861"
 
     ![simulated-device 앱의 출력](./media/iot-hub-python-python-file-upload/1.png)
 
-3. 포털을 사용하면 구성한 저장소 컨테이너에 업로드된 파일을 볼 수 있습니다.
+3. 포털을 사용하면 구성한 스토리지 컨테이너에 업로드된 파일을 볼 수 있습니다.
 
     ![업로드된 파일](./media/iot-hub-python-python-file-upload/2.png)
 

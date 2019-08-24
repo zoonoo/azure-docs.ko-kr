@@ -1,6 +1,6 @@
 ---
 title: Azure Site Recovery로 StorSimple 파일 공유 DR 자동화 | Microsoft Docs
-description: Microsoft Azure StorSimple 저장소에서 호스팅되는 파일 공유에 대한 재해 복구 솔루션을 만들기 위한 단계와 모범 사례에 대해 설명합니다.
+description: Microsoft Azure StorSimple 스토리지에서 호스팅되는 파일 공유에 대한 재해 복구 솔루션을 만들기 위한 단계와 모범 사례에 대해 설명합니다.
 services: storsimple
 documentationcenter: NA
 author: vidarmsft
@@ -26,29 +26,29 @@ ms.locfileid: "67875386"
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>개요
-Microsoft Azure StorSimple은 일반적으로 파일 공유와 연결된 구조화되지 않은 데이터의 복잡성을 해결하는 하이브리드 클라우드 저장소 솔루션입니다. StorSimple은 온-프레미스 솔루션의 확장으로 클라우드 저장소를 사용하여 자동으로 온-프레미스 솔루션 및 클라우드 저장소에서 데이터를 계층화합니다. 로컬 및 클라우드 스냅샷과 함께 통합 데이터 보호 기능은 제멋대로 늘어나는 저장소 인프라의 필요성을 없애줍니다.
+Microsoft Azure StorSimple은 일반적으로 파일 공유와 연결된 구조화되지 않은 데이터의 복잡성을 해결하는 하이브리드 클라우드 스토리지 솔루션입니다. StorSimple은 온-프레미스 솔루션의 확장으로 클라우드 스토리지를 사용하여 자동으로 온-프레미스 솔루션 및 클라우드 스토리지에서 데이터를 계층화합니다. 로컬 및 클라우드 스냅샷과 함께 통합 데이터 보호 기능은 제멋대로 늘어나는 스토리지 인프라의 필요성을 없애줍니다.
 
 [Azure Site Recovery](../site-recovery/site-recovery-overview.md) 는 가상 머신의 복제, 장애 조치(failover) 및 복구를 오케스트레이션하여 DR(재해 복구) 기능을 제공하는 Azure 기반 서비스입니다. Azure Site Recovery는 가상 머신 및 애플리케이션을 일관되게 복제하고 보호하며 프라이빗/공용 클라우드 또는 호스트된 클라우드로 원활하게 장애 조치(failover)하기 위한 다양한 복제 기술을 지원합니다.
 
 Azure Site Recovery, 가상 머신 복제 및 StorSimple 클라우드 스냅샷 기능을 사용하여 전체 파일 서버 환경을 보호할 수 있습니다. 중단이 발생할 경우 클릭 한 번으로 단 몇 분 만에 Azure에서 파일 공유를 온라인 상태로 만들 수 있습니다.
 
-이 문서에서는 StorSimple 저장소에서 호스트되는 파일 공유를 위한 재해 복구 솔루션을 만들고 원클릭 복구 계획을 사용하여 계획된 장애 조치(failover), 계획되지 않은 장애 조치(failover) 및 테스트 장애 조치(failover)를 수행하는 방법을 자세히 설명합니다. 기본적으로 Azure Site Recovery 자격 증명 모음에서 복구 계획을 수정하여 재해 시나리오 중에 StorSimple 장애 조치(failover)를 사용하도록 설정하는 방법을 보여 줍니다. 또한 지원되는 구성 및 필수 조건을 설명합니다. 이 문서에서는 사용자가 Azure Site Recovery 및 StorSimple 아키텍처의 기본 사항을 잘 알고 있다고 가정합니다.
+이 문서에서는 StorSimple 스토리지에서 호스트되는 파일 공유를 위한 재해 복구 솔루션을 만들고 원클릭 복구 계획을 사용하여 계획된 장애 조치(failover), 계획되지 않은 장애 조치(failover) 및 테스트 장애 조치(failover)를 수행하는 방법을 자세히 설명합니다. 기본적으로 Azure Site Recovery 자격 증명 모음에서 복구 계획을 수정하여 재해 시나리오 중에 StorSimple 장애 조치(failover)를 사용하도록 설정하는 방법을 보여 줍니다. 또한 지원되는 구성 및 필수 조건을 설명합니다. 이 문서에서는 사용자가 Azure Site Recovery 및 StorSimple 아키텍처의 기본 사항을 잘 알고 있다고 가정합니다.
 
 ## <a name="supported-azure-site-recovery-deployment-options"></a>지원되는 Azure Site Recovery 배포 옵션
-고객은 파일 서버를 Hyper-V 또는 VMware에서 실행되는 물리적 서버 또는 VM(가상 머신)으로 배포한 다음 StorSimple 저장소의 잘라낸 볼륨에서 파일 공유를 만들 수 있습니다. Azure Site Recovery는 보조 사이트 또는 Azure에 대한 실제 배포와 가상 배포를 모두 보호할 수 있습니다. 이 문서에서는 Hyper-V에서 호스트되는 파일 서버 VM에 대한 복구 사이트로 Azure를 사용하고 StorSimple 저장소의 파일 공유를 사용하는 DR 솔루션의 세부 정보를 다룹니다. 파일 서버 VM이 VMware VM 또는 물리적 컴퓨터에 있는 다른 시나리오도 유사하게 구현할 수 있습니다.
+고객은 파일 서버를 Hyper-V 또는 VMware에서 실행되는 물리적 서버 또는 VM(가상 머신)으로 배포한 다음 StorSimple 스토리지의 잘라낸 볼륨에서 파일 공유를 만들 수 있습니다. Azure Site Recovery는 보조 사이트 또는 Azure에 대한 실제 배포와 가상 배포를 모두 보호할 수 있습니다. 이 문서에서는 Hyper-V에서 호스트되는 파일 서버 VM에 대한 복구 사이트로 Azure를 사용하고 StorSimple 스토리지의 파일 공유를 사용하는 DR 솔루션의 세부 정보를 다룹니다. 파일 서버 VM이 VMware VM 또는 물리적 컴퓨터에 있는 다른 시나리오도 유사하게 구현할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
-StorSimple 저장소에서 호스트되는 파일 공유에 Azure Site Recovery를 사용하는 원클릭 재해 복구 솔루션을 구현할 경우 다음과 같은 필수 조건이 있습니다.
+StorSimple 스토리지에서 호스트되는 파일 공유에 Azure Site Recovery를 사용하는 원클릭 재해 복구 솔루션을 구현할 경우 다음과 같은 필수 조건이 있습니다.
 
    - Hyper-V 또는 VMware나 물리적 컴퓨터에서 호스트되는 온-프레미스 Windows Server 2012 R2 파일 서버 VM
-   - Azure StorSimple Manager에 등록된 온-프레미스 StorSimple 저장소 디바이스
+   - Azure StorSimple Manager에 등록된 온-프레미스 StorSimple 스토리지 디바이스
    - Azure StorSimple Manager에서 만들어진 StorSimple Cloud Appliance 어플라이언스를 종료 상태로 유지할 수 있습니다.
-   - StorSimple 저장소 디바이스에 구성된 볼륨에서 호스트되는 파일 공유
+   - StorSimple 스토리지 디바이스에 구성된 볼륨에서 호스트되는 파일 공유
    - [Azure Site Recovery 서비스 자격 증명 모음](../site-recovery/site-recovery-vmm-to-vmm.md)
 
 또한 Azure가 복구 사이트인 경우 VM에서 [Azure Virtual Machine 준비 평가 도구](https://azure.microsoft.com/downloads/vm-readiness-assessment/)를 실행하여 Azure VM 및 Azure Site Recovery 서비스와 호환되는지 확인합니다.
 
-대기 시간 문제(많은 비용을 유발할 수 있음)를 방지하려면 StorSimple Cloud Appliance, 자동화 계정 및 저장소 계정을 같은 지역에서 만들도록 합니다.
+대기 시간 문제(많은 비용을 유발할 수 있음)를 방지하려면 StorSimple Cloud Appliance, 자동화 계정 및 스토리지 계정을 같은 지역에서 만들도록 합니다.
 
 ## <a name="enable-dr-for-storsimple-file-shares"></a>StorSimple 파일 공유에 DR 사용
 완전한 복제 및 복구를 위해서는 온-프레미스 환경의 각 구성 요소를 보호해야 합니다. 이 섹션에서는 다음 방법을 설명합니다.
@@ -94,7 +94,7 @@ DR 사이트에서 도메인 컨트롤러를 사용할 수 있도록 설정하�
 1. **다음**을 클릭합니다.
 1. **Terms of Agreement(계약 조건)** 에 동의하고 **다음**을 클릭합니다.
 1. **마침**을 클릭합니다.
-1. StorSimple 저장소의 잘라낸 볼륨을 사용하여 파일 공유를 만듭니다. 자세한 내용은 [StorSimple Manager 서비스를 사용하여 볼륨 관리](storsimple-manage-volumes.md)를 참조하세요.
+1. StorSimple 스토리지의 잘라낸 볼륨을 사용하여 파일 공유를 만듭니다. 자세한 내용은 [StorSimple Manager 서비스를 사용하여 볼륨 관리](storsimple-manage-volumes.md)를 참조하세요.
    
    1. 온-프레미스 VM에서 Windows 키+Q를 누르고 **iSCSI**를 검색합니다.
    1. **iSCSI 초기자**를 선택합니다.
@@ -178,7 +178,7 @@ ASR에서 복구 계획을 만들어 파일 공유의 장애 조치(failover) �
    - _RecoveryPlanName_ **-VolumeContainers**: 장애 조치해야 하는 디바이스에 있는 볼륨 컨테이너의 쉼표로 구분된 문자열입니다(예: volcon1,volcon2, volcon3).
    - _RecoveryPlanName_ **-TargetDeviceName**: 컨테이너를 장애 조치하게 되는 StorSimple 클라우드 어플라이언스입니다.
    - _RecoveryPlanName_ **-TargetDeviceIpAddress**: 대상 디바이스의 IP 주소입니다(**Virtual Machine** 섹션 &gt; **설정** 그룹 &gt; **네트워킹** 탭에서 확인할 수 있음).
-   - _RecoveryPlanName_ **-StorageAccountName**: 장애 조치된 VM에서 실행해야 하는 스크립트가 저장되는 스토리지 계정 이름입니다. 이 계정 이름은 스크립트를 임시로 저장할 공간이 있는 모든 저장소 계정일 수 있습니다.
+   - _RecoveryPlanName_ **-StorageAccountName**: 장애 조치된 VM에서 실행해야 하는 스크립트가 저장되는 스토리지 계정 이름입니다. 이 계정 이름은 스크립트를 임시로 저장할 공간이 있는 모든 스토리지 계정일 수 있습니다.
    - _RecoveryPlanName_ **-StorageAccountKey**: 스토리지 계정에 대한 액세스 키입니다.
    - _RecoveryPlanName_ **-VMGUIDS**: VM을 보호할 때 Azure Site Recovery에서 장애 조치된 VM에 대한 세부 정보를 제공하는 모든 VM에 고유 ID를 할당합니다. VMGUID를 가져오려면 **Recovery Services** 탭을 선택하고 **보호된 항목** &gt; **보호 그룹** &gt; **컴퓨터** &gt; **속성**을 클릭합니다. 여러 VM이 있는 경우 GUID를 쉼표로 구분된 문자열로 추가합니다.
 
@@ -324,7 +324,7 @@ ASR에서 복구 계획을 만들어 파일 공유의 장애 조치(failover) �
 ## <a name="best-practices"></a>최선의 구현 방법
 ### <a name="capacity-planning-and-readiness-assessment"></a>용량 계획 및 준비 평가
 #### <a name="hyper-v-site"></a>Hyper-V 사이트
-[User Capacity planner tool(사용자 Capacity Planner 도구)](https://www.microsoft.com/download/details.aspx?id=39057) 을 사용하여 Hyper-V 복제본 환경에 대한 서버, 저장소 및 네트워크 인프라를 디자인합니다.
+[User Capacity planner tool(사용자 Capacity Planner 도구)](https://www.microsoft.com/download/details.aspx?id=39057) 을 사용하여 Hyper-V 복제본 환경에 대한 서버, 스토리지 및 네트워크 인프라를 디자인합니다.
 
 #### <a name="azure"></a>Azure
 VM에서 [Azure Virtual Machine 준비 평가 도구](https://azure.microsoft.com/downloads/vm-readiness-assessment/)를 실행하여 VM이 Azure VM 및 Azure Site Recovery Services와 호환되는지 확인할 수 있습니다. 준비 평가 도구는 VM 구성을 확인하고 구성이 Azure와 호환되지 않는 경우 경고합니다. 예를 들어 C: 드라이브가 127GB 보다 큰 경우 경고가 발생합니다.
@@ -362,4 +362,4 @@ VM에서 [Azure Virtual Machine 준비 평가 도구](https://azure.microsoft.co
 
 
 ## <a name="summary"></a>요약
-Azure Site Recovery를 사용하여 StorSimple 저장소에 호스트된 파일 공유가 있는 파일 서버 VM에 대한 전체 자동화된 재해 복구 계획을 만들 수 있습니다. 중단이 발생할 경우 어디서나 몇 초 이내에 장애 조치(failover)를 시작하고 몇 분 만에 애플리케이션을 가동할 수 있습니다.
+Azure Site Recovery를 사용하여 StorSimple 스토리지에 호스트된 파일 공유가 있는 파일 서버 VM에 대한 전체 자동화된 재해 복구 계획을 만들 수 있습니다. 중단이 발생할 경우 어디서나 몇 초 이내에 장애 조치(failover)를 시작하고 몇 분 만에 애플리케이션을 가동할 수 있습니다.

@@ -39,7 +39,7 @@ ms.locfileid: "68567730"
       > [!IMPORTANT]
       > 동일한 지역의 스토리지 계정을 관리되는 인스턴스로 사용하여 지역 간 읽기/쓰기를 방지합니다.
 
-   1. 저장소 계정에서 **개요**로 이동한 다음, **Blob**을 클릭합니다.
+   1. 스토리지 계정에서 **개요**로 이동한 다음, **Blob**을 클릭합니다.
 
       ![Azure Blob 위젯](./media/sql-managed-instance-auditing/1_blobs_widget.png)
 
@@ -67,7 +67,7 @@ ms.locfileid: "68567730"
 
         - 이전 단계에서 컨테이너를 만든 Azure Storage 계정으로 이동합니다.
 
-        - 저장소 설정 메뉴에서 **공유 액세스 서명**을 클릭합니다.
+        - 스토리지 설정 메뉴에서 **공유 액세스 서명**을 클릭합니다.
 
           ![스토리지 설정 메뉴의 공유 액세스 서명 아이콘](./media/sql-managed-instance-auditing/6_storage_settings_menu.png)
 
@@ -204,7 +204,7 @@ ms.locfileid: "68567730"
 
 - 시스템 함수 `sys.fn_get_audit_file`(T-SQL)을 사용하여 테이블 형식의 감사 로그 데이터를 반환할 수 있습니다. 이 함수 사용에 대한 자세한 내용은 [sys.fn_get_audit_file 설명서](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql)를 참조하세요.
 
-- [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) 등의 도구를 사용하여 감사 로그를 살펴볼 수 있습니다. Azure Storage에서 감사 로그는 감사 로그를 저장하도록 정의된 컨테이너 내부에 Blob 파일 컬렉션으로 저장됩니다. 저장소 폴더의 계층 구조, 명명 규칙 및 로그 형식에 대한 자세한 내용은 [BLOB 감사 로그 형식 참조](https://go.microsoft.com/fwlink/?linkid=829599)를 참조하세요.
+- [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) 등의 도구를 사용하여 감사 로그를 살펴볼 수 있습니다. Azure Storage에서 감사 로그는 감사 로그를 저장하도록 정의된 컨테이너 내부에 Blob 파일 컬렉션으로 저장됩니다. 스토리지 폴더의 계층 구조, 명명 규칙 및 로그 형식에 대한 자세한 내용은 [BLOB 감사 로그 형식 참조](https://go.microsoft.com/fwlink/?linkid=829599)를 참조하세요.
 
 - 감사 로그 사용 방법의 전체 목록은 [SQL 데이터베이스 감사 시작](sql-database-auditing.md)을 참조하세요.
 

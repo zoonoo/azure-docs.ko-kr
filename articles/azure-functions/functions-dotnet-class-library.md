@@ -106,7 +106,7 @@ public static class SimpleExampleWithOutput
 }
 ```
 
-바인딩 참조 문서(예: [저장소 큐](functions-bindings-storage-queue.md))는 트리거, 입력 또는 출력 바인딩 특성에 사용할 수 있는 매개 변수 형식을 설명합니다.
+바인딩 참조 문서(예: [스토리지 큐](functions-bindings-storage-queue.md))는 트리거, 입력 또는 출력 바인딩 특성에 사용할 수 있는 매개 변수 형식을 설명합니다.
 
 ### <a name="binding-expressions-example"></a>바인딩 식 예제
 

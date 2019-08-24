@@ -64,7 +64,7 @@ Media Services API에 액세스하려면 다음 데이터 요소를 수집해야
 
 |설정|예제|설명|
 |---|-------|-----|
-|Azure Active Directory 테넌트 도메인|microsoft.onmicrosoft.com|STS(보안 토큰 서비스) 끝점처럼 Azure AD는 <https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token> 형식을 사용하여 만들어집니다. Azure AD는 리소스(액세스 토큰)에 액세스하기 위해 JWT를 발급합니다.|
+|Azure Active Directory 테넌트 도메인|microsoft.onmicrosoft.com|STS(보안 토큰 서비스) 엔드포인트처럼 Azure AD는 <https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token> 형식을 사용하여 만들어집니다. Azure AD는 리소스(액세스 토큰)에 액세스하기 위해 JWT를 발급합니다.|
 |REST API 엔드포인트|<https://amshelloworld.restv2.westus.media.azure.net/api/>|애플리케이션에서 모든 Media Services REST API 호출이 수행되는 엔드포인트입니다.|
 |클라이언트 ID(애플리케이션 ID)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|Azure AD 애플리케이션(클라이언트) ID입니다. 액세스 토큰을 가져오려면 클라이언트 ID가 필요합니다. |
 |클라이언트 암호|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Azure AD 애플리케이션 키(클라이언트 암호)입니다. 액세스 토큰을 가져오려면 클라이언트 암호가 필요합니다.|
@@ -164,7 +164,7 @@ Media Services API에 액세스하려면 다음 데이터 요소를 수집해야
 
 1. **Postman**을 엽니다.
 2. **GET**을 선택합니다.
-3. REST API 끝점 붙여넣기(예: https://amshelloworld.restv2.westus.media.azure.net/api/Assets) )
+3. REST API 엔드포인트 붙여넣기(예: https://amshelloworld.restv2.westus.media.azure.net/api/Assets) )
 4. **Authorization** 탭을 선택합니다. 
 5. **Bearer Token**을 선택합니다.
 6. 이전 섹션에서 만든 토큰을 붙여 넣습니다.

@@ -27,16 +27,16 @@ ACR(Azure Container Registry)은 여러 서비스 계층(즉, [SKU](container-re
 
 기존의 관리 되지 않는 레지스트리에 대해 계획 된 사용 중단 및 제한 된 기능으로 인해 모든 클래식 레지스트리를 관리 되는 레지스트리 (Basic, Standard 또는 Premium)로 업그레이드 해야 합니다. 이러한 더 높은 수준의 SKU는 레지스트리를 Azure 기능에 더 깊이 통합합니다. 여러 서비스 계층의 가격 및 기능에 대 한 자세한 내용은 [Container Registry sku](container-registry-skus.md)를 참조 하세요.
 
-클래식 레지스트리는 해당 레지스트리를 만들 때 Azure 구독에서 Azure가 자동으로 프로비전한 저장소 계정에 따라 다릅니다. 반면, Basic, Standard 및 Premium SKU는 사용자의 이미지 저장소를 투명하게 처리하여 Azure의 [고급 저장소 기능](container-registry-storage.md)을 활용합니다. 별도 저장소 계정이 고유한 구독에서 생성되지 않습니다.
+클래식 레지스트리는 해당 레지스트리를 만들 때 Azure 구독에서 Azure가 자동으로 프로비전한 스토리지 계정에 따라 다릅니다. 반면, Basic, Standard 및 Premium SKU는 사용자의 이미지 스토리지를 투명하게 처리하여 Azure의 [고급 스토리지 기능](container-registry-storage.md)을 활용합니다. 별도 스토리지 계정이 고유한 구독에서 생성되지 않습니다.
 
-관리되는 레지스트리 저장소는 다음과 같은 이점을 제공합니다.
+관리되는 레지스트리 스토리지는 다음과 같은 이점을 제공합니다.
 
 * 컨테이너 이미지는 [암호화된 상태로 유지](container-registry-storage.md#encryption-at-rest)됩니다.
 * 이미지는 [지역 중복 저장소](container-registry-storage.md#geo-redundant-storage)를 사용 하 여 저장 되며, 다중 지역 복제를 사용 하 여 이미지의 백업을 보장 합니다 (Premium SKU에만 해당).
 * 자유로운 [SKU 간 이동](container-registry-skus.md#changing-skus) 기능으로 더 높은 수준의 SKU를 선택하면 더 높은 처리량을 지원할 수 있습니다. 각 SKU를 사용하여 ACR은 요구 사항 증가에 따라 처리량 요구 사항을 충족할 수 있습니다.
-* 레지스트리 및 해당 저장소에 대한 통합 보안 모델은 간소화된 권한 관리를 제공합니다. 또한 별도 저장소 계정에 대한 사용 권한을 관리할 필요 없이, 컨테이너 레지스트리의 사용 권한만 관리하면 됩니다.
+* 레지스트리 및 해당 스토리지에 대한 통합 보안 모델은 간소화된 권한 관리를 제공합니다. 또한 별도 스토리지 계정에 대한 사용 권한을 관리할 필요 없이, 컨테이너 레지스트리의 사용 권한만 관리하면 됩니다.
 
-ACR의 이미지 저장소에 대한 자세한 내용은 [Azure Container Registry의 컨테이너 이미지 저장소](container-registry-storage.md)를 참조하세요.
+ACR의 이미지 스토리지에 대한 자세한 내용은 [Azure Container Registry의 컨테이너 이미지 스토리지](container-registry-storage.md)를 참조하세요.
 
 ## <a name="migration-considerations"></a>마이그레이션 고려 사항
 
@@ -44,9 +44,9 @@ ACR의 이미지 저장소에 대한 자세한 내용은 [Azure Container Regist
 
 변환 과정에서 마이그레이션의 마지막 `docker push` 10% 동안 작업을 사용할 수 없습니다. `docker pull`는 계속 정상적으로 작동 합니다.
 
-변환 프로세스 동안 Classic 레지스트리를 지원하는 저장소 계정의 콘텐츠는 삭제하거나 수정하지 마세요. 이렇게 하면 컨테이너 이미지가 손상될 수 있습니다.
+변환 프로세스 동안 Classic 레지스트리를 지원하는 스토리지 계정의 콘텐츠는 삭제하거나 수정하지 마세요. 이렇게 하면 컨테이너 이미지가 손상될 수 있습니다.
 
-마이그레이션이 완료 되 면 원래 클래식 레지스트리를 백업한 구독의 저장소 계정이 Azure Container Registry에서 더 이상 사용 되지 않습니다. 마이그레이션에 성공했는지 확인한 후에는 비용을 최소화하기 위해 저장소 계정을 삭제하는 것이 좋습니다.
+마이그레이션이 완료 되 면 원래 클래식 레지스트리를 백업한 구독의 저장소 계정이 Azure Container Registry에서 더 이상 사용 되지 않습니다. 마이그레이션에 성공했는지 확인한 후에는 비용을 최소화하기 위해 스토리지 계정을 삭제하는 것이 좋습니다.
 
 >[!IMPORTANT]
 > Classic에서 관리되는 SKU 중 하나로 업그레이드하는 과정은 **단방향 프로세스**입니다. 일단 Classic 레지스트리를 Basic, Standard 또는 Premium으로 변환하면 Classic으로 되돌릴 수 없습니다. 그러나 레지스트리에 대해 충분한 용량이 있는 관리되는 SKU 간에는 자유롭게 이동할 수 있습니다.
@@ -112,7 +112,7 @@ Azure Portal을 사용하여 Classic 레지스트리를 업그레이드하려면
 
 ## <a name="next-steps"></a>다음 단계
 
-클래식 레지스트리를 관리 되는 레지스트리로 업그레이드 한 후에는 Azure에서 원래 클래식 레지스트리를 지 원하는 저장소 계정을 더 이상 사용 하지 않습니다. 비용을 줄이기 위해 이전 컨테이너 이미지를 포함하는 저장소 계정 또는 계정 내의 Blob 컨테이너를 삭제하는 것이 좋습니다.
+클래식 레지스트리를 관리 되는 레지스트리로 업그레이드 한 후에는 Azure에서 원래 클래식 레지스트리를 지 원하는 저장소 계정을 더 이상 사용 하지 않습니다. 비용을 줄이기 위해 이전 컨테이너 이미지를 포함하는 스토리지 계정 또는 계정 내의 Blob 컨테이너를 삭제하는 것이 좋습니다.
 
 <!-- IMAGES -->
 [update-classic-01-upgrade]: ./media/container-registry-upgrade/update-classic-01-upgrade.png

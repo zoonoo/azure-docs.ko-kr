@@ -23,7 +23,7 @@ ms.locfileid: "68840575"
 
 이 문서에서는 Azure Time Series Insights [explorer 웹 앱](https://insights.timeseries.azure.com/)에 대 한 일반 가용성의 기능 및 옵션을 설명 합니다. Time Series Insights 탐색기는 서비스에서 제공 하는 강력한 데이터 시각화 기능을 보여 주며 사용자 환경 내에서 액세스할 수 있습니다.
 
-Azure Time Series Insights는 완전히 관리되는 분석, 저장 및 시각화 서비스이며 수십억 개의 IoT 이벤트를 동시에 간편하게 탐색 및 분석할 수 있습니다. 데이터에 대한 글로벌 보기를 제공하므로 사용자는 IoT 솔루션의 유효성을 빠르게 검사할 수 있으며, 숨겨진 동향을 찾고, 문제를 찾아내고, 거의 실시간으로 근본 원인 분석을 수행할 수 있도록 지원하는 기능을 통해, 큰 비용이 수반되는 중요 업무용 장치의 가동 중지 시간을 방지할 수 있습니다. Time Series Insights 탐색기는 현재 공개 미리 보기로 제공됩니다.
+Azure Time Series Insights는 완전히 관리되는 분석, 스토리지 및 시각화 서비스이며 수십억 개의 IoT 이벤트를 동시에 간편하게 탐색 및 분석할 수 있습니다. 데이터에 대한 글로벌 보기를 제공하므로 사용자는 IoT 솔루션의 유효성을 빠르게 검사할 수 있으며, 숨겨진 동향을 찾고, 문제를 찾아내고, 거의 실시간으로 근본 원인 분석을 수행할 수 있도록 지원하는 기능을 통해, 큰 비용이 수반되는 중요 업무용 장치의 가동 중지 시간을 방지할 수 있습니다. Time Series Insights 탐색기는 현재 공개 미리 보기로 제공됩니다.
 
 > [!TIP]
 > 데모 환경에서 둘러보기를 보려면 [Azure Time Series Insights 빠른](time-series-quickstart.md)시작을 참조 하세요.

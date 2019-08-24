@@ -138,7 +138,7 @@ Stream Analytics 작업에서 선택 **개요**을 선택한 후 **시작** > **
 
 ## <a name="create-and-publish-a-power-bi-report-to-visualize-the-data"></a>Power BI 보고서를 만들고 게시하여 데이터 시각화
 
-1. 애플리케이션 예제가 사용자 장치에서 실행 중인지 확인합니다. 그렇지 않은 경우 [사용자 디바이스 설정](https://docs.microsoft.com/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started)에 있는 자습서를 참조할 수 있습니다.
+1. 애플리케이션 예제가 사용자 디바이스에서 실행 중인지 확인합니다. 그렇지 않은 경우 [사용자 디바이스 설정](https://docs.microsoft.com/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started)에 있는 자습서를 참조할 수 있습니다.
 
 2. [Power BI](https://powerbi.microsoft.com/en-us/) 계정에 로그인합니다.
 

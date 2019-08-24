@@ -683,7 +683,7 @@ SQL Database에는 [단일 데이터베이스](/azure/sql-database/sql-database-
 | 검색: 위협 검색 | 예 | [Azure SQL Database에 대 한 Advanced Threat Protection을](/azure/sql-database/sql-database-threat-detection-overview)참조 하세요. |
 
 
-## <a name="storageazurestoragecommonstorage-security-attributes"></a>[저장소](/azure/storage/common/storage-security-attributes)
+## <a name="storageazurestoragecommonstorage-security-attributes"></a>[스토리지](/azure/storage/common/storage-security-attributes)
 
 ### <a name="preventative"></a>예방
 

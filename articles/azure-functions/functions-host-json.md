@@ -237,7 +237,7 @@ Application Insights를 포함한 함수 앱의 로깅 동작을 제어합니다
 
 ## <a name="queues"></a>queues
 
-구성 설정은 [저장소 큐 트리거 및 바인딩](functions-bindings-storage-queue.md#host-json)에서 찾을 수 있습니다.  
+구성 설정은 [스토리지 큐 트리거 및 바인딩](functions-bindings-storage-queue.md#host-json)에서 찾을 수 있습니다.  
 
 ## <a name="sendgrid"></a>sendGrid
 

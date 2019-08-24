@@ -49,7 +49,7 @@ IoT Hub는 네트워크에서 토큰이 전송되는 것을 피하기 위해 보
 
 * [디바이스로 SAS 토큰 사용](../articles/iot-hub/iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app)
 
-각 IoT Hub에는 진행 중인 클라우드-디바이스 메시지를 포함하는 큐와 같은 서비스에 디바이스 단위 리소스를 만들고 디바이스 지향 엔드포인트에 대한 액세스를 허용하는 데 사용할 수 있는 [ID 레지스트리](../articles/iot-hub/iot-hub-devguide-identity-registry.md)가 있습니다. IoT Hub ID 레지스트리는 디바이스 ID에 대한 보안 저장소와 솔루션을 위한 보안 키를 제공합니다. 개별 또는 그룹 디바이스 ID를 허용 목록 또는 차단 목록에 추가하여 디바이스 액세스를 완벽하게 제어할 수 있습니다. 다음 문서에서는 ID 레지스트리의 구조 및 지원되는 작업에 대한 자세한 내용을 제공합니다.
+각 IoT Hub에는 진행 중인 클라우드-디바이스 메시지를 포함하는 큐와 같은 서비스에 디바이스 단위 리소스를 만들고 디바이스 지향 엔드포인트에 대한 액세스를 허용하는 데 사용할 수 있는 [ID 레지스트리](../articles/iot-hub/iot-hub-devguide-identity-registry.md)가 있습니다. IoT Hub ID 레지스트리는 디바이스 ID에 대한 보안 스토리지와 솔루션을 위한 보안 키를 제공합니다. 개별 또는 그룹 디바이스 ID를 허용 목록 또는 차단 목록에 추가하여 디바이스 액세스를 완벽하게 제어할 수 있습니다. 다음 문서에서는 ID 레지스트리의 구조 및 지원되는 작업에 대한 자세한 내용을 제공합니다.
 
 [IoT Hub는 MQTT, AMQP 및 HTTP와 같은 프로토콜을 지원합니다](../articles//iot-hub/iot-hub-devguide-security.md). 이러한 각 프로토콜은 IoT 디바이스에서 IoT Hub로의 보안 토큰을 다음과 같이 다르게 사용합니다.
 
@@ -59,7 +59,7 @@ IoT Hub는 네트워크에서 토큰이 전송되는 것을 피하기 위해 보
 
 * HTTP: 유효한 토큰은 권한 부여 요청 헤더입니다.
 
-IoT Hub ID 레지스트리를 사용하여 장치별 보안 자격 증명 및 액세스 제어를 구성할 수 있습니다. 그러나 [사용자 지정 디바이스 ID 레지스트리 및/또는 인증 체계](../articles/iot-hub/iot-hub-devguide-security.md#custom-device-and-module-authentication)에 이미 상당한 투자를 한 IoT 솔루션의 경우 토큰 서비스를 만들어 IoT Hub가 있는 기존 인프라로 통합할 수 있습니다.
+IoT Hub ID 레지스트리를 사용하여 디바이스별 보안 자격 증명 및 액세스 제어를 구성할 수 있습니다. 그러나 [사용자 지정 디바이스 ID 레지스트리 및/또는 인증 체계](../articles/iot-hub/iot-hub-devguide-security.md#custom-device-and-module-authentication)에 이미 상당한 투자를 한 IoT 솔루션의 경우 토큰 서비스를 만들어 IoT Hub가 있는 기존 인프라로 통합할 수 있습니다.
 
 ### <a name="x509-certificate-based-device-authentication"></a>X.509 인증서 기반 디바이스 인증
 

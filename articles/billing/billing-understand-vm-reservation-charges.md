@@ -25,7 +25,7 @@ Azure Reserved Virtual Machine Instance를 구입한 후, 예약 할인이 예�
 
 SQL Database 예약된 용량의 경우 [Azure Reserved Instances 할인](billing-understand-reservation-charges.md)을 참조하세요.
 
-다음 표에서는 Reserved VM Instance를 구입한 후의 가상 머신에 대한 비용을 설명합니다. 모든 경우에는 정상 요금으로 저장소 및 네트워킹에 대한 요금이 청구됩니다.
+다음 표에서는 Reserved VM Instance를 구입한 후의 가상 머신에 대한 비용을 설명합니다. 모든 경우에는 정상 요금으로 스토리지 및 네트워킹에 대한 요금이 청구됩니다.
 
 | 가상 머신 형식  | Reserved VM Instance 요금 |
 |-----------------------|--------------------------------------------|

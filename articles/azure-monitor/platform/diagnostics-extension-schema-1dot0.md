@@ -104,7 +104,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |특성  |형식   |필수| 기본값 | Description|  
 |-----------|-------|--------|---------|------------|  
 |**configurationChangePollInterval**|duration|Optional | PT1M| 진단 모니터가 진단 구성 변경을 폴링하는 간격을 지정합니다.|  
-|**overallQuotaInMB**|unsignedInt|Optional| 4000MB 값을 제공하는 경우 이 크기를 초과하지 않아야 합니다. |모든 로깅 버퍼에 할당된 파일 시스템 저장소의 총 크기입니다.|  
+|**overallQuotaInMB**|unsignedInt|Optional| 4000MB 값을 제공하는 경우 이 크기를 초과하지 않아야 합니다. |모든 로깅 버퍼에 할당된 파일 시스템 스토리지의 총 크기입니다.|  
 
 ## <a name="diagnosticinfrastructurelogs-element"></a>DiagnosticInfrastructureLogs 요소  
 기본 진단 인프라에서 생성하는 로그의 버퍼 구성을 정의합니다.
@@ -115,7 +115,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |특성|형식|Description|  
 |---------|----|-----------------|  
-|**bufferQuotaInMB**|unsignedInt|선택 사항입니다. 지정된 데이터에 사용할 수 있는 파일 시스템 저장소의 최대 크기를 지정합니다.<br /><br /> 기본값은 0입니다.|  
+|**bufferQuotaInMB**|unsignedInt|선택 사항입니다. 지정된 데이터에 사용할 수 있는 파일 시스템 스토리지의 최대 크기를 지정합니다.<br /><br /> 기본값은 0입니다.|  
 |**scheduledTransferLogLevelFilter**|string|선택 사항입니다. 전송되는 로그 항목에 대한 최소 심각도 수준을 지정합니다. 기본값은 **Undefined**입니다. 사용 가능한 다른 값은 **Verbose**, **Information**, **Warning**, **Error**, 및 **Critical**입니다.|  
 |**scheduledTransferPeriod**|duration|선택 사항입니다. 예약된 데이터 전송 사이의 간격(가장 가까운 시간(분)으로 반올림)을 지정합니다.<br /><br /> 기본값은 PT0S입니다.|  
 
@@ -128,7 +128,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |특성|형식|Description|  
 |---------------|----------|-----------------|  
-|**bufferQuotaInMB**|unsignedInt|선택 사항입니다. 지정된 데이터에 사용할 수 있는 파일 시스템 저장소의 최대 크기를 지정합니다.<br /><br /> 기본값은 0입니다.|  
+|**bufferQuotaInMB**|unsignedInt|선택 사항입니다. 지정된 데이터에 사용할 수 있는 파일 시스템 스토리지의 최대 크기를 지정합니다.<br /><br /> 기본값은 0입니다.|  
 |**scheduledTransferLogLevelFilter**|string|선택 사항입니다. 전송되는 로그 항목에 대한 최소 심각도 수준을 지정합니다. 기본값은 **Undefined**입니다. 사용 가능한 다른 값은 **Verbose**, **Information**, **Warning**, **Error**, 및 **Critical**입니다.|  
 |**scheduledTransferPeriod**|duration|선택 사항입니다. 예약된 데이터 전송 사이의 간격(가장 가까운 시간(분)으로 반올림)을 지정합니다.<br /><br /> 기본값은 PT0S입니다.|  
 
@@ -142,7 +142,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |특성|형식|설명|  
 |---------------|----------|-----------------|  
-|**bufferQuotaInMB**|unsignedInt|선택 사항입니다. 지정된 데이터에 사용할 수 있는 파일 시스템 저장소의 최대 크기를 지정합니다.<br /><br /> 기본값은 0입니다.|  
+|**bufferQuotaInMB**|unsignedInt|선택 사항입니다. 지정된 데이터에 사용할 수 있는 파일 시스템 스토리지의 최대 크기를 지정합니다.<br /><br /> 기본값은 0입니다.|  
 |**scheduledTransferPeriod**|duration|선택 사항입니다. 예약된 데이터 전송 사이의 간격(가장 가까운 시간(분)으로 반올림)을 지정합니다.<br /><br /> 기본값은 PT0S입니다.|  
 
 ## <a name="crashdumps-element"></a>CrashDumps 요소  
@@ -232,7 +232,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |특성|형식|Description|  
 |---------------|----------|-----------------|  
-|**bufferQuotaInMB**|unsignedInt|선택 사항입니다. 지정된 데이터에 사용할 수 있는 파일 시스템 저장소의 최대 크기를 지정합니다.<br /><br /> 기본값은 0입니다.|  
+|**bufferQuotaInMB**|unsignedInt|선택 사항입니다. 지정된 데이터에 사용할 수 있는 파일 시스템 스토리지의 최대 크기를 지정합니다.<br /><br /> 기본값은 0입니다.|  
 |**scheduledTransferPeriod**|duration|선택 사항입니다. 예약된 데이터 전송 사이의 간격(가장 가까운 시간(분)으로 반올림)을 지정합니다.<br /><br /> 기본값은 PT0S입니다.|  
 
 ## <a name="performancecounterconfiguration-element"></a>PerformanceCounterConfiguration 요소  
@@ -256,7 +256,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |특성|형식|Description|  
 |---------------|----------|-----------------|  
-|**bufferQuotaInMB**|unsignedInt|선택 사항입니다. 지정된 데이터에 사용할 수 있는 파일 시스템 저장소의 최대 크기를 지정합니다.<br /><br /> 기본값은 0입니다.|  
+|**bufferQuotaInMB**|unsignedInt|선택 사항입니다. 지정된 데이터에 사용할 수 있는 파일 시스템 스토리지의 최대 크기를 지정합니다.<br /><br /> 기본값은 0입니다.|  
 |**scheduledTransferLogLevelFilter**|string|선택 사항입니다. 전송되는 로그 항목에 대한 최소 심각도 수준을 지정합니다. 기본값은 **Undefined**입니다. 사용 가능한 다른 값은 **Verbose**, **Information**, **Warning**, **Error**, 및 **Critical**입니다.|  
 |**scheduledTransferPeriod**|duration|선택 사항입니다. 예약된 데이터 전송 사이의 간격(가장 가까운 시간(분)으로 반올림)을 지정합니다.<br /><br /> 기본값은 PT0S입니다.|  
 

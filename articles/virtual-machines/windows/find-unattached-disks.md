@@ -87,4 +87,4 @@ foreach($storageAccount in $storageAccounts){
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 [저장소 계정 삭제](../../storage/common/storage-create-storage-account.md) 및 [PowerShell을 사용하여 분리된 디스크 확인](https://blogs.technet.microsoft.com/ukplatforms/2018/02/21/azure-cost-optimisation-series-identify-orphaned-disks-using-powershell/)을 참조하세요.
+자세한 내용은 [스토리지 계정 삭제](../../storage/common/storage-create-storage-account.md) 및 [PowerShell을 사용하여 분리된 디스크 확인](https://blogs.technet.microsoft.com/ukplatforms/2018/02/21/azure-cost-optimisation-series-identify-orphaned-disks-using-powershell/)을 참조하세요.

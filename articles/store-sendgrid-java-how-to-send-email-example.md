@@ -214,7 +214,7 @@ ms.locfileid: "67876475"
 
 이 코드는 Azure의 Java에서 SendGrid를 사용하는 방법을 보여 줍니다. Azure를 프로덕션에 배포하기 전에 더 많은 오류 처리 또는 기타 기능을 추가할 수 있습니다. 예를 들어: 
 
-* 웹 양식을 사용하는 대신 Azure 저장소 Blob 또는 SQL Database를 사용하여 전자 메일 주소 및 전자 메일 메시지를 저장할 수 있습니다. Java에서 Azure Storage Blob 사용에 대한 내용은 [Java에서 Blob Storage 서비스를 사용하는 방법](https://azure.microsoft.com/develop/java/how-to-guides/blob-storage/)(영문)을 참조하십시오. Java에서 SQL Database 사용에 대한 내용은 [Java에서 SQL Database 사용](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-java)(영문)을 참조하십시오.
+* 웹 양식을 사용하는 대신 Azure Storage Blob 또는 SQL Database를 사용하여 전자 메일 주소 및 전자 메일 메시지를 저장할 수 있습니다. Java에서 Azure Storage Blob 사용에 대한 내용은 [Java에서 Blob Storage 서비스를 사용하는 방법](https://azure.microsoft.com/develop/java/how-to-guides/blob-storage/)(영문)을 참조하십시오. Java에서 SQL Database 사용에 대한 내용은 [Java에서 SQL Database 사용](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-java)(영문)을 참조하십시오.
 * Java의 SendGrid 사용에 대한 자세한 내용은 [Java의 SendGrid를 사용하여 전자 메일을 보내는 방법](store-sendgrid-java-how-to-send-email.md)을 참조하십시오.
 
 [emailform]: ./media/store-sendgrid-java-how-to-send-email-example/SendGridJavaEmailform.jpg

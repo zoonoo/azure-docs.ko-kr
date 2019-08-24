@@ -89,7 +89,7 @@ Azure 스토리지에 데이터를 두려면 [Azure Blob Storage](../storage/blo
 
 ## <a name="3-prepare-the-data-for-loading"></a>3. 로드할 데이터 준비
 
-데이터를 SQL Data Warehouse에 로드하기 전에 저장소 계정에서 데이터를 준비하고 정리해야 할 수 있습니다. 데이터가 원본에 있는 동안, 데이터를 텍스트 파일로 내보낼 때 또는 Azure Storage로 이동한 후 데이터 준비를 수행할 수 있습니다.  가능한 경우 프로세스의 초기에 데이터로 작업하는 것이 가장 쉽습니다.  
+데이터를 SQL Data Warehouse에 로드하기 전에 스토리지 계정에서 데이터를 준비하고 정리해야 할 수 있습니다. 데이터가 원본에 있는 동안, 데이터를 텍스트 파일로 내보낼 때 또는 Azure Storage로 이동한 후 데이터 준비를 수행할 수 있습니다.  가능한 경우 프로세스의 초기에 데이터로 작업하는 것이 가장 쉽습니다.  
 
 ### <a name="define-external-tables"></a>외부 테이블 정의
 

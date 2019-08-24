@@ -63,7 +63,7 @@ ms.locfileid: "67839382"
 5. **Storage 계정 이름** 텍스트 상자 옆에 있는 **복사**(이미지) 단추를 클릭하고 텍스트 파일 등에 저장/붙여넣습니다.
 6. 이전 단계를 반복하여 복사하거나 **key1**을 적어둡니다.
 
-    ![저장소 액세스 키](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/storage-access-key.png)
+    ![스토리지 액세스 키](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/storage-access-key.png)
 7. **X**를 클릭하여 모든 블레이드를 닫습니다.
 
 ## <a name="collect-sql-server-database-user-names"></a>SQL server, 데이터베이스, 사용자 이름 수집

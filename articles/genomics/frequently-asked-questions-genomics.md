@@ -54,8 +54,8 @@ Azure Portal로 이동하여 Genomics 계정 페이지를 여세요. **관리** 
 ## <a name="why-do-i-need-two-access-keys"></a>두 개의 액세스 키가 필요한 이유는 무엇인가요?
 서비스 사용을 중단하지 않고 업데이트(재생성)하려면 두 개의 액세스 키가 필요합니다. 예를 들어 첫 번째 키를 업데이트하려는 경우 모든 새 워크플로에서 두 번째 키를 사용해야 합니다. 그런 다음, 첫 번째 키를 업데이트하기 전에 첫 번째 키를 사용하는 모든 워크플로가 완료될 때까지 기다립니다.
 
-## <a name="do-you-save-my-storage-account-keys"></a>내 저장소 계정 키를 저장하나요?
-저장소 계정 키는 Microsoft Genomics 서비스에 대한 단기 액세스 토큰을 만들어 입력 파일을 읽고 출력 파일을 쓰는 데 사용됩니다. 기본 토큰 지속 기간은 48시간입니다. 토큰 지속 기간은 submit 명령의 `-sas/--sas-duration` 옵션으로 변경할 수 있습니다. 값은 시간 단위입니다.
+## <a name="do-you-save-my-storage-account-keys"></a>내 스토리지 계정 키를 저장하나요?
+스토리지 계정 키는 Microsoft Genomics 서비스에 대한 단기 액세스 토큰을 만들어 입력 파일을 읽고 출력 파일을 쓰는 데 사용됩니다. 기본 토큰 지속 기간은 48시간입니다. 토큰 지속 기간은 submit 명령의 `-sas/--sas-duration` 옵션으로 변경할 수 있습니다. 값은 시간 단위입니다.
 
 ## <a name="what-genome-references-can-i-use"></a>어떤 게놈 참조를 사용할 수 있나요?
 

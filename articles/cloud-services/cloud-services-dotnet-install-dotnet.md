@@ -73,7 +73,7 @@ ms.locfileid: "68359641"
     </Startup>
     ```
    
-    위 구성은 .NET Framework를 설치하기 위해 관리자 권한으로 `install.cmd` 콘솔 명령을 실행합니다. 이 구성에서는 이름이 **NETFXInstall**인 **LocalStorage** 요소도 만듭니다. 시작 스크립트는 이 로컬 저장소 리소스를 사용하도록 temp 폴더를 설정합니다. 
+    위 구성은 .NET Framework를 설치하기 위해 관리자 권한으로 `install.cmd` 콘솔 명령을 실행합니다. 이 구성에서는 이름이 **NETFXInstall**인 **LocalStorage** 요소도 만듭니다. 시작 스크립트는 이 로컬 스토리지 리소스를 사용하도록 temp 폴더를 설정합니다. 
     
     > [!IMPORTANT]
     > 프레임워크가 올바르게 설치되도록 하려면 이 리소스의 크기를 1024MB 이상으로 설정합니다.
@@ -217,7 +217,7 @@ ms.locfileid: "68359641"
 </DataSources>
 ```
 
-이 XML은 log 디렉터리의 **NETFXInstall** 리소스에 있는 파일을 **netfx-install** Blob 컨테이너 내 진단 저장소 계정으로 전송하도록 진단을 구성합니다.
+이 XML은 log 디렉터리의 **NETFXInstall** 리소스에 있는 파일을 **netfx-install** Blob 컨테이너 내 진단 스토리지 계정으로 전송하도록 진단을 구성합니다.
 
 ## <a name="deploy-your-cloud-service"></a>클라우드 서비스 배포
 클라우드 서비스를 배포하면 .NET Framework가 아직 설치되어 있지 않은 경우 시작 작업이 .NET Framework를 설치합니다. 프레임워크가 설치되고 있는 동안에는 클라우드 서비스 역할이 *사용 중* 상태입니다. 프레임워크 설치를 다시 시작해야 하는 경우 서비스 역할도 다시 시작될 수 있습니다. 

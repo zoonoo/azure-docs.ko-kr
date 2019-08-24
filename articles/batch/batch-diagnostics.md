@@ -17,7 +17,7 @@ ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: 63d0196609e432b081e91a49b5b1410431223632
 ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/18/2019
 ms.locfileid: "68323620"
@@ -85,7 +85,7 @@ Azure Portal에서 배치 계정에 대한 메트릭을 봅니다. 기본적으�
 
 ### <a name="log-destinations"></a>로그 대상
 
-일반적인 시나리오는 로그 대상으로 Azure Storage 계정을 선택하는 것입니다. Azure Storage에 로그를 저장하려면 로그 컬렉션을 사용하도록 설정하기 전에 계정을 만듭니다. 저장소 계정을 배치 계정과 연결한 경우 해당 계정을 로그 대상으로 선택할 수 있습니다. 
+일반적인 시나리오는 로그 대상으로 Azure Storage 계정을 선택하는 것입니다. Azure Storage에 로그를 저장하려면 로그 컬렉션을 사용하도록 설정하기 전에 계정을 만듭니다. 스토리지 계정을 배치 계정과 연결한 경우 해당 계정을 로그 대상으로 선택할 수 있습니다. 
 
 진단 로그에 대한 다른 선택적 대상:
 
@@ -103,7 +103,7 @@ Azure Portal에서 배치 계정에 대한 메트릭을 봅니다. 기본적으�
 2. **모니터링**에서 **진단 로그** > **진단 켜기**를 클릭합니다.
 3. **진단 설정**에서 설정의 이름을 입력 하 고 로그 대상 (기존 저장소 계정, 이벤트 허브 또는 Azure Monitor 로그)을 선택 합니다. **ServiceLog**와 **AllMetrics** 중 하나를 선택하거나 두 개를 모두 선택합니다.
 
-    저장소 계정을 선택하는 경우 필요에 따라 보존 정책을 설정합니다. 보존 일 수를 지정하지 않으면 데이터는 저장소 계정의 수명 동안 보존됩니다.
+    스토리지 계정을 선택하는 경우 필요에 따라 보존 정책을 설정합니다. 보존 일 수를 지정하지 않으면 데이터는 스토리지 계정의 수명 동안 보존됩니다.
 
 4. **Save**을 클릭합니다.
 
@@ -133,7 +133,7 @@ BATCHACCOUNTS/MYBATCHACCOUNT/y=2018/m=03/d=05/h=22/m=00/PT1H.json
 각 PT1H.json Blob 파일에는 Blob URL에 지정된 시간 내에서 발생한 JSON 형식의 이벤트가 포함됩니다(예: h=12). 현재 시간 동안 이벤트는 발생하는 순서대로 PT1H.json 파일에 추가됩니다. 진단 로그 이벤트는 시간당 개별 Blob으로 나뉘므로 분 값(m=00)은 항상 00입니다. (모든 시간은 UTC입니다.)
 
 
-저장소 계정에서 진단 로그의 스키마에 대한 자세한 내용은 [Azure 진단 로그 보관](../azure-monitor/platform/archive-diagnostic-logs.md#schema-of-diagnostic-logs-in-the-storage-account)을 참조하세요.
+스토리지 계정에서 진단 로그의 스키마에 대한 자세한 내용은 [Azure 진단 로그 보관](../azure-monitor/platform/archive-diagnostic-logs.md#schema-of-diagnostic-logs-in-the-storage-account)을 참조하세요.
 
 스토리지 계정에서 로그를 프로그래밍 방식으로 액세스하려면 Storage API를 사용합니다. 
 

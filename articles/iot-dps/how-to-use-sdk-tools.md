@@ -26,7 +26,7 @@ TPM 시뮬레이터를 사용하기 위한 단계는 다음과 같습니다.
    git clone https://github.com/Azure/azure-iot-sdk-java.git
    ```
 2. ```azure-iot-sdk-java/provisioning/provisioning-tool/tpm-simulator/``` 아래에 있는 TPM 시뮬레이터 폴더로 이동합니다.
-3. 장치를 프로비전하기 위해 클라이언트 애플리케이션을 실행하기 전에 Simulator.exe를 실행합니다.
+3. 디바이스를 프로비전하기 위해 클라이언트 애플리케이션을 실행하기 전에 Simulator.exe를 실행합니다.
 4. 등록 ID 및 인증 키를 가져오기 위해 프로비전 프로세스 전체에서 백그라운드에 시뮬레이터를 실행합니다.  두 값은 실행의 한 인스턴스에서만 유효합니다.
 
 ## <a name="x509-certificate-generator"></a>X.509 인증서 생성기

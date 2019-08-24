@@ -25,7 +25,7 @@ IoT Hub에는 백 엔드 서비스가 디바이스에서 원격 분석 메시지
 
 또한 IoT Hub는 [메시지 라우팅](iot-hub-devguide-messages-d2c.md)을 사용하여 디바이스 원격 분석 데이터 및 이벤트를 Azure 서비스에 보내도록 사용자가 정의할 수 있는 [사용자 지정 엔드포인트](iot-hub-devguide-endpoints.md#custom-endpoints)를 지원합니다.
 
-## <a name="sending-cloud-to-device-messages-from-iot-hub"></a>IoT Hub에서 클라우드-장치 메시지 보내기
+## <a name="sending-cloud-to-device-messages-from-iot-hub"></a>IoT Hub에서 클라우드-디바이스 메시지 보내기
 
 솔루션 백 엔드에서 디바이스로 [클라우드-디바이스](iot-hub-devguide-messages-c2d.md) 메시지를 보낼 수 있습니다.
 
@@ -39,10 +39,10 @@ IoT Hub 메시징 기능의 핵심 속성은 메시지의 안정성 및 내구�
 
 * [디바이스-클라우드 통신 지침](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-d2c-guidance)을 참조하여 디바이스-클라우드 메시지, 보고된 속성 또는 파일 업로드 중에서 선택합니다.
 
-* [클라우드-장치 통신 지침](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-c2d-guidance)을 참조하여 클라우드-장치 메시지, 원하는 속성 또는 직접 메서드 중에서 선택합니다.
+* [클라우드-디바이스 통신 지침](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-c2d-guidance)을 참조하여 클라우드-디바이스 메시지, 원하는 속성 또는 직접 메서드 중에서 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * IoT Hub [메시지 라우팅](iot-hub-devguide-messages-d2c.md)에 대해 알아봅니다.
 
-* IoT Hub [클라우드-장치 메시징](iot-hub-devguide-messages-c2d.md)에 대해 알아봅니다.
+* IoT Hub [클라우드-디바이스 메시징](iot-hub-devguide-messages-c2d.md)에 대해 알아봅니다.

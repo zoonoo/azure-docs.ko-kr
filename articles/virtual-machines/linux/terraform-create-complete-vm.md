@@ -157,8 +157,8 @@ resource "azurerm_network_interface" "myterraformnic" {
 ```
 
 
-## <a name="create-storage-account-for-diagnostics"></a>진단을 위한 저장소 계정 만들기
-VM을 위한 부트 진단을 저장하려면 저장소 계정이 필요합니다. 이러한 부트 진단은 문제를 해결하고 VM의 상태를 모니터링하는 데 도움을 줄 수 있습니다. 사용자가 만든 저장소 계정은 부팅 진단 데이터를 저장하기 위한 것입니다. 각 저장소 계정에는 고유한 이름이 있어야 합니다. 다음 섹션에서는 일부 임의 텍스트를 생성합니다.
+## <a name="create-storage-account-for-diagnostics"></a>진단을 위한 스토리지 계정 만들기
+VM을 위한 부트 진단을 저장하려면 스토리지 계정이 필요합니다. 이러한 부트 진단은 문제를 해결하고 VM의 상태를 모니터링하는 데 도움을 줄 수 있습니다. 사용자가 만든 스토리지 계정은 부팅 진단 데이터를 저장하기 위한 것입니다. 각 스토리지 계정에는 고유한 이름이 있어야 합니다. 다음 섹션에서는 일부 임의 텍스트를 생성합니다.
 
 ```tf
 resource "random_id" "randomId" {
@@ -171,7 +171,7 @@ resource "random_id" "randomId" {
 }
 ```
 
-이제 저장소 계정을 만들 수 있습니다. 다음 섹션에서는 이전 단계에서 생성되는 임의의 텍스트에 따른 이름으로 저장소 계정을 만듭니다.
+이제 스토리지 계정을 만들 수 있습니다. 다음 섹션에서는 이전 단계에서 생성되는 임의의 텍스트에 따른 이름으로 스토리지 계정을 만듭니다.
 
 ```tf
 resource "azurerm_storage_account" "mystorageaccount" {

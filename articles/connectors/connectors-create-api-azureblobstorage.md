@@ -1,6 +1,6 @@
 ---
 title: Azure blob storage-Azure Logic Apps에 연결
-description: Azure Logic Apps를 사용하여 Azure 저장소에서 Blob 만들기 및 관리
+description: Azure Logic Apps를 사용하여 Azure Storage에서 Blob 만들기 및 관리
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -19,12 +19,12 @@ ms.locfileid: "67296634"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Azure Blob Storage에서 Blob 만들기 및 관리
 
-이 문서에서는 Azure Blob Storage 커넥터를 사용하여 논리 앱 내에서 Azure 스토리지 계정의 Blob으로 저장된 파일에 액세스하고 관리하는 방법을 보여줍니다. 이러한 방식으로 파일을 관리하는 작업 및 워크플로를 자동화하는 논리 앱을 만들 수 있습니다. 예를 들어 저장소 계정에서 파일을 만들고, 가져오고, 업데이트하고, 삭제하는 논리 앱을 빌드할 수 있습니다.
+이 문서에서는 Azure Blob Storage 커넥터를 사용하여 논리 앱 내에서 Azure 스토리지 계정의 Blob으로 저장된 파일에 액세스하고 관리하는 방법을 보여줍니다. 이러한 방식으로 파일을 관리하는 작업 및 워크플로를 자동화하는 논리 앱을 만들 수 있습니다. 예를 들어 스토리지 계정에서 파일을 만들고, 가져오고, 업데이트하고, 삭제하는 논리 앱을 빌드할 수 있습니다.
 
 Azure 웹 사이트에서 업데이트되는 도구가 있다고 가정해 보겠습니다. 이 도구는 논리 앱에 대한 트리거의 역할을 합니다. 이 이벤트가 발생하면 논리 앱에서 Blob Storage 컨테이너의 일부 파일을 업데이트하도록 할 수 있습니다. 이는 논리 앱의 작업입니다.
 
 > [!NOTE]
-> Logic Apps는 방화벽을 통해 Azure Storage 계정에 직접 연결하도록 지원하지 않습니다. 이러한 저장소 계정에 액세스하려면 다음 옵션 중 하나를 사용합니다.
+> Logic Apps는 방화벽을 통해 Azure Storage 계정에 직접 연결하도록 지원하지 않습니다. 이러한 스토리지 계정에 액세스하려면 다음 옵션 중 하나를 사용합니다.
 >
 > * [통합 서비스 환경](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)을 만듭니다. Azure Virtual Network의 리소스에 연결할 수 있습니다.
 >
@@ -46,7 +46,7 @@ Azure 웹 사이트에서 업데이트되는 도구가 있다고 가정해 보�
 
 * Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
-* [Azure 저장소 계정 및 저장소 컨테이너](../storage/blobs/storage-quickstart-blobs-portal.md)
+* [Azure Storage 계정 및 스토리지 컨테이너](../storage/blobs/storage-quickstart-blobs-portal.md)
 
 * Azure Blob Storage 계정에 액세스해야 하는 논리 앱 Azure Blob Storage 트리거를 통해 논리 앱을 시작하려면 [빈 논리 앱](../logic-apps/quickstart-create-first-logic-app-workflow.md)이 필요합니다.
 
@@ -120,7 +120,7 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
 <a name="create-connection"></a>
 
-## <a name="connect-to-storage-account"></a>저장소 계정에 연결
+## <a name="connect-to-storage-account"></a>스토리지 계정에 연결
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 

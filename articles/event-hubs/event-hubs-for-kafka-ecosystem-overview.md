@@ -18,7 +18,7 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "60821710"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Apache Kafka 애플리케이션에서 Azure Event Hubs 사용
-Event Hubs는 기존 Kafka 기반 애플리케이션이 사용자 고유의 Kafka 클러스터 실행에 대한 대안으로 사용할 수 있는 Kafka 끝점을 제공합니다. Event Hubs는 [Apache Kafka 프로토콜 1.0 이상](https://kafka.apache.org/documentation/)을 지원하고 MirrorMaker를 포함하여 기존 Kafka 애플리케이션과 작동합니다.  
+Event Hubs는 기존 Kafka 기반 애플리케이션이 사용자 고유의 Kafka 클러스터 실행에 대한 대안으로 사용할 수 있는 Kafka 엔드포인트을 제공합니다. Event Hubs는 [Apache Kafka 프로토콜 1.0 이상](https://kafka.apache.org/documentation/)을 지원하고 MirrorMaker를 포함하여 기존 Kafka 애플리케이션과 작동합니다.  
 
 ## <a name="what-does-event-hubs-for-kafka-provide"></a>Kafka용 Event Hubs는 무엇을 제공하나요?
 

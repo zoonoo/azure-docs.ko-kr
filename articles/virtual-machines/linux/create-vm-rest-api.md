@@ -68,7 +68,7 @@ REST API 요청 작업에 대한 일반 내용은 [REST API 요청/응답 구성
 | location                   | True     | string                                                                              | 리소스 위치. |
 | name                       |          | string                                                                              | 가상 머신의 이름. |
 | properties.hardwareProfile |          | [HardwareProfile](/rest/api/compute/virtualmachines/createorupdate#hardwareprofile) | 가상 머신에 대한 하드웨어 설정을 지정합니다. |
-| properties.storageProfile  |          | [StorageProfile](/rest/api/compute/virtualmachines/createorupdate#storageprofile)   | 가상 머신 디스크에 대한 저장소 설정을 지정합니다. |
+| properties.storageProfile  |          | [StorageProfile](/rest/api/compute/virtualmachines/createorupdate#storageprofile)   | 가상 머신 디스크에 대한 스토리지 설정을 지정합니다. |
 | properties.osProfile       |          | [OSProfile](/rest/api/compute/virtualmachines/createorupdate#osprofile)             | 가상 머신에 대한 운영 체제 설정을 지정합니다. |
 | properties.networkProfile  |          | [NetworkProfile](/rest/api/compute/virtualmachines/createorupdate#networkprofile)   | 가상 머신의 네트워크 인터페이스를 지정합니다. |
 

@@ -65,21 +65,21 @@ __Azure Storage__: WestCentralUS, WestUS2, NorthCentralUS, SouthCentralUS, Centr
   > 인프라 요구 사항에 따라 가상 네트워크(예: Azure HDInsight), Azure 서비스(예: Azure Storage)에 배포된 Azure 서비스. 엔드포인트 정책을 특정 리소스로 제한하면 가상 네트워크에 배포된 서비스에 대해 해당 인프라 리소스 액세스가 끊길 수 있습니다. 특정 서비스에 대한 내용은 [제한 사항](#limitations)을 참조하세요. 미리 보기 중에는 가상 네트워크에 배포된 관리 Azure 서비스에 대해 서비스 엔드포인트 정책이 지원되지 않습니다.
 
 - Azure Storage: 
-  -  저장소 계정의 Azure Resource Manager *resourceId*를 나열하여 액세스를 제한할 수 있습니다. Blob, 테이블, 큐, 파일 및 Azure Data Lake Storage Gen2 트래픽에 적용됩니다.
+  -  스토리지 계정의 Azure Resource Manager *resourceId*를 나열하여 액세스를 제한할 수 있습니다. Blob, 테이블, 큐, 파일 및 Azure Data Lake Storage Gen2 트래픽에 적용됩니다.
 
      예제에서는 Azure Storage 계정을 다음과 같이 엔드포인트 정책에 나열할 수 있습니다.
     
-     특정 저장소 계정을 허용하려면         
+     특정 스토리지 계정을 허용하려면         
      `subscriptions/subscriptionId/resourceGroups/resourceGroup/providers/Microsoft.Storage/storageAccounts/storageAccountName`
       
      구독 및 리소스 그룹에서 모든 계정을 허용하려면: `/subscriptions/subscriptionId/resourceGroups/resourceGroup`
      
      구독에서 모든 계정을 허용하려면: `/subscriptions/subscriptionId`
     
-- Azure Resource Model을 사용하는 저장소 계정만 엔드포인트 정책에서 지정할 수 있습니다.  
+- Azure Resource Model을 사용하는 스토리지 계정만 엔드포인트 정책에서 지정할 수 있습니다.  
 
   > [!NOTE]  
-  > 클래식 저장소 계정에 대한 액세스는 엔드포인트 정책에서 차단됩니다.
+  > 클래식 스토리지 계정에 대한 액세스는 엔드포인트 정책에서 차단됩니다.
 
 - 나열된 계정의 기본 위치는 서브넷에 대해 서비스 엔드포인트의 지역 쌍 지역에 있어야 합니다. 
 
@@ -87,7 +87,7 @@ __Azure Storage__: WestCentralUS, WestUS2, NorthCentralUS, SouthCentralUS, Centr
   > 정책에서는 다른 지역의 서비스 리소스 지정이 허용됩니다. Azure 서비스에 대한 가상 네트워크 액세스는 지리 쌍 지역에 대해서만 필터링됩니다. 네트워크 보안 그룹이 Azure Storage에 대한 지리 쌍 지역으로 제한되지 않은 경우 가상 네트워크가 지리 쌍 지역 밖의 모든 스토리지 계정에 액세스할 수 있습니다.
 
 - 기본 계정이 나열되면 RA-GRS 보조 액세스가 자동으로 허용됩니다. 
-- 저장소 계정은 가상 네트워크와 동일하거나 다른 구독 또는 Azure Active Directory 테넌트에 있을 수 있습니다. 
+- 스토리지 계정은 가상 네트워크와 동일하거나 다른 구독 또는 Azure Active Directory 테넌트에 있을 수 있습니다. 
 
 ## <a name="limitations"></a>제한 사항
 
@@ -119,7 +119,7 @@ __Azure Storage__: WestCentralUS, WestUS2, NorthCentralUS, SouthCentralUS, Centr
      - Azure Application Gateway(클래식)
      - Azure VPN Gateway(클래식)
 
-- Azure Storage: 클래식 스토리지 계정은 엔드포인트 정책에서 지원되지 않습니다. 정책은 기본적으로 모든 클래식 저장소 계정에 대한 액세스를 거부합니다. 애플리케이션이 Azure Resource Manager 및 클래식 저장소 계정에 액세스해야 하는 경우 해당 트래픽에 엔드포인트 정책을 사용해서는 안 됩니다. 
+- Azure Storage: 클래식 스토리지 계정은 엔드포인트 정책에서 지원되지 않습니다. 정책은 기본적으로 모든 클래식 스토리지 계정에 대한 액세스를 거부합니다. 애플리케이션이 Azure Resource Manager 및 클래식 스토리지 계정에 액세스해야 하는 경우 해당 트래픽에 엔드포인트 정책을 사용해서는 안 됩니다. 
 
 ## <a name="nsgs-with-service-endpoint-policies"></a>서비스 엔드포인트 정책이 있는 NSG
 - 기본적으로 NSG는 Azure 서비스로의 가상 네트워크 트래픽을 포함한 아웃바운드 인터넷 트래픽을 허용합니다.
@@ -152,7 +152,7 @@ __Azure Storage__: WestCentralUS, WestUS2, NorthCentralUS, SouthCentralUS, Centr
 서비스 엔드포인트 정책에 중앙 집중식 로깅을 사용할 수 없습니다. 서비스 진단 로그는 [서비스 엔드포인트 로깅](virtual-network-service-endpoints-overview.md#logging-and-troubleshooting)을 참조하세요.
 
 ### <a name="troubleshooting-scenarios"></a>문제 해결 시나리오
-- 엔드포인트 정책에 나열되지 않은 저장소 정책에 대한 액세스 허용
+- 엔드포인트 정책에 나열되지 않은 스토리지 정책에 대한 액세스 허용
   - 네트워크 보안 그룹이 다른 지역의 Azure Storage 계정이나 인터넷에 대한 액세스를 허용할 수 있습니다.
   - 네트워크 보안 그룹은 모든 아웃바운드 인터넷 트래픽을 거부하고 특정 Azure Storage 지역에 대한 트래픽만 허용하도록 구성되어야 합니다. 자세한 내용은 네트워크 보안 그룹을 참조하세요.
 - 엔드포인트 정책에 나열된 계정에 대한 액세스 거부
@@ -167,7 +167,7 @@ __Azure Storage__: WestCentralUS, WestUS2, NorthCentralUS, SouthCentralUS, Centr
     - Azure 지원에 문의하세요.
 - 서비스 엔드포인트 정책에 나열되지 않은 계정에 대한 액세스 거부
   - 네트워크 보안 그룹 또는 방화벽 필터링이 액세스를 차단할 수 있습니다. *Azure Storage* 서비스 태그가 엔드포인트 지역에 허용되었는지 확인합니다. 정책 제한은 [제한 사항](#limitations)을 참조하세요.
-  예를 들어, 정책을 적용하면 클래식 저장소 계정은 액세스가 거부됩니다.
+  예를 들어, 정책을 적용하면 클래식 스토리지 계정은 액세스가 거부됩니다.
   - Azure 서비스가 가상 네트워크로부터 또는 엔드포인트를 경유한 액세스를 구성하도록 허용되었거나 리소스 기본 정책이 *모두 허용*으로 구성되었는지 유효성을 검사합니다.
 
 ## <a name="provisioning"></a>프로비전

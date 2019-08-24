@@ -94,7 +94,7 @@ Azure PowerShell을 사용하여 Azure SQL Database 서버, 단일 및 풀링된
 | --- | --- |
 |[az sql db create](/cli/azure/sql/db#az-sql-db-create) |데이터베이스 만들기|
 |[az sql db list](/cli/azure/sql/db#az-sql-db-list)|서버의 모든 데이터베이스 및 데이터 웨어하우스 또는 탄력적 풀의 모든 데이터베이스 나열|
-|[az sql db list-editions](/cli/azure/sql/db#az-sql-db-list-editions)|사용 가능한 서비스 목표 및 저장소 용량 제한 나열|
+|[az sql db list-editions](/cli/azure/sql/db#az-sql-db-list-editions)|사용 가능한 서비스 목표 및 스토리지 용량 제한 나열|
 |[az sql db list-usages](/cli/azure/sql/db#az-sql-db-list-usages)|데이터베이스 사용 정보 반환|
 |[az sql db show](/cli/azure/sql/db#az-sql-db-show)|데이터베이스 또는 데이터 웨어하우스 가져오기|
 |[az sql db update](/cli/azure/sql/db#az-sql-db-update)|데이터베이스 업데이트|

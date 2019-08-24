@@ -27,7 +27,7 @@ ms.locfileid: "68358593"
 ## <a name="prerequisites"></a>전제 조건
 이 문서에서는 사용자가 다음 작업을 수행한 것으로 가정합니다.
 
-* Azure 저장소 계정을 만들었습니다. 지침이 필요한 경우 [Azure Storage 계정 만들기](../../storage/common/storage-quickstart-create-account.md)를 참조하세요.
+* Azure Storage 계정을 만들었습니다. 지침이 필요한 경우 [Azure Storage 계정 만들기](../../storage/common/storage-quickstart-create-account.md)를 참조하세요.
 * Azure Blob Storage 계정에 데이터를 저장합니다. 지침이 필요한 경우 [Azure Storage에서 데이터 이동](../../storage/common/storage-moving-data.md)
 
 ## <a name="load-the-data-into-a-pandas-dataframe"></a>pandas DataFrame에 데이터 로드

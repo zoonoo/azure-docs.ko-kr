@@ -241,12 +241,12 @@ REM   If an error occurred, return the errorlevel.
 EXIT /B %errorlevel%
 ```
 
-## <a name="create-files-in-local-storage-from-a-startup-task"></a>시작 작업에서 로컬 저장소에 파일을 만듭니다.
-로컬 저장소 리소스를 사용하여 애플리케이션에 의해 나중에 액세스하는 시작 태스크에서 만든 파일을 저장할 수 있습니다.
+## <a name="create-files-in-local-storage-from-a-startup-task"></a>시작 작업에서 로컬 스토리지에 파일을 만듭니다.
+로컬 스토리지 리소스를 사용하여 애플리케이션에 의해 나중에 액세스하는 시작 태스크에서 만든 파일을 저장할 수 있습니다.
 
-로컬 스토리지 리소스를 만들려면 [LocalResources] 섹션을 [ServiceDefinition.csdef] 파일에 추가한 다음 [LocalStorage] 자식 요소를 추가합니다. 로컬 저장소 리소스에 고유한 이름을 부여하고 시작 작업에 대한 적절한 크기를 부여합니다.
+로컬 스토리지 리소스를 만들려면 [LocalResources] 섹션을 [ServiceDefinition.csdef] 파일에 추가한 다음 [LocalStorage] 자식 요소를 추가합니다. 로컬 스토리지 리소스에 고유한 이름을 부여하고 시작 작업에 대한 적절한 크기를 부여합니다.
 
-시작 작업에서 로컬 저장소 리소스를 사용하려면 로컬 저장소 리소스 위치를 참조하는 환경 변수를 만들어야 합니다. 그러면 시작 태스크 및 애플리케이션이 로컬 저장소 리소스에 파일을 읽고 쓸 수 있게 됩니다.
+시작 작업에서 로컬 스토리지 리소스를 사용하려면 로컬 스토리지 리소스 위치를 참조하는 환경 변수를 만들어야 합니다. 그러면 시작 태스크 및 애플리케이션이 로컬 스토리지 리소스에 파일을 읽고 쓸 수 있게 됩니다.
 
 **ServiceDefinition.csdef** 파일의 관련 섹션은 다음과 같습니다.
 
@@ -287,7 +287,7 @@ REM   Exit the batch file with ERRORLEVEL 0.
 EXIT /b 0
 ```
 
-[GetLocalResource](/previous-versions/azure/reference/ee772845(v=azure.100)) 메서드를 사용하여 Azure SDK에서 로컬 저장소 폴더에 액세스할 수 있습니다.
+[GetLocalResource](/previous-versions/azure/reference/ee772845(v=azure.100)) 메서드를 사용하여 Azure SDK에서 로컬 스토리지 폴더에 액세스할 수 있습니다.
 
 ```csharp
 string localStoragePath = Microsoft.WindowsAzure.ServiceRuntime.RoleEnvironment.GetLocalResource("StartupLocalStorage").RootPath;
@@ -490,8 +490,8 @@ EXIT %ERRORLEVEL%
 ### <a name="expect-startup-tasks-to-run-more-than-once"></a>시작 작업이 두 번 이상 실행되도록 예상
 모든 역할 재활용은 재부팅을 포함하지 않으므로 모든 역할 재활용은 모든 시작 작업 실행을 포함합니다. 이는 시작 작업이 문제 없이 재부팅 사이 여러 번 실행될 수 있어야 함을 의미합니다. 이에 대해서는 [앞의 섹션](#detect-that-your-task-has-already-run)에서 설명합니다.
 
-### <a name="use-local-storage-to-store-files-that-must-be-accessed-in-the-role"></a>로컬 저장소를 사용하여 역할에 액세스할 수 있어야 하는 파일을 저장합니다.
-그런 다음 역할에 액세스할 수 있는 시작 작업 중 파일을 복사하거나 만들려는 경우 해당 파일이 로컬 저장소에 배치되어 있어야 합니다. [앞의 섹션](#create-files-in-local-storage-from-a-startup-task)을 참조하세요.
+### <a name="use-local-storage-to-store-files-that-must-be-accessed-in-the-role"></a>로컬 스토리지를 사용하여 역할에 액세스할 수 있어야 하는 파일을 저장합니다.
+그런 다음 역할에 액세스할 수 있는 시작 작업 중 파일을 복사하거나 만들려는 경우 해당 파일이 로컬 스토리지에 배치되어 있어야 합니다. [앞의 섹션](#create-files-in-local-storage-from-a-startup-task)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 클라우드 [서비스 모델 및 패키지](cloud-services-model-and-package.md)

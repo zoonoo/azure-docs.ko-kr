@@ -298,7 +298,7 @@ SELECT * FROM devices.jobs
     AND devices.jobs.createdTimeUtc > '2016-09-01'
 ```
 
-단일 작업의 장치별 결과를 검색할 수도 있습니다.
+단일 작업의 디바이스별 결과를 검색할 수도 있습니다.
 
 ```sql
 SELECT * FROM devices.jobs

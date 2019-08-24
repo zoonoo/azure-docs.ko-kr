@@ -232,7 +232,7 @@ firstRowOnly | 첫 번째 행만 반환할 것인지 아니면 모든 행을 반
 ```
 
 ### <a name="azure-storage-linked-service"></a>Azure Storage 연결된 서비스
-이 저장소 계정에는 SQL 테이블의 이름을 사용하는 JSON 파일이 포함되어 있습니다. 
+이 스토리지 계정에는 SQL 테이블의 이름을 사용하는 JSON 파일이 포함되어 있습니다. 
 
 ```json
 {

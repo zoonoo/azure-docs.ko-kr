@@ -76,7 +76,7 @@ SQL Data Warehouse의 기본 기능으로서 [분산](massively-parallel-process
 자세한 내용은 [분산 테이블에 대한 디자인 지침](sql-data-warehouse-tables-distribute.md)을 참조하세요.
 
 ### <a name="replicated-tables"></a>복제된 테이블
-복제된 테이블에는 모든 컴퓨팅 노드에서 사용할 수 있는 테이블의 전체 복사본이 있습니다. 복제된 테이블을 조인할 때는 데이터를 이동할 필요가 없으므로 복제된 테이블에 대한 쿼리는 빠르게 실행됩니다. 하지만 복제 시 추가 저장소가 필요하며 대형 테이블에는 비효율적입니다. 
+복제된 테이블에는 모든 컴퓨팅 노드에서 사용할 수 있는 테이블의 전체 복사본이 있습니다. 복제된 테이블을 조인할 때는 데이터를 이동할 필요가 없으므로 복제된 테이블에 대한 쿼리는 빠르게 실행됩니다. 하지만 복제 시 추가 스토리지가 필요하며 대형 테이블에는 비효율적입니다. 
 
 자세한 내용은 [복제된 테이블에 대한 디자인 지침](design-guidance-for-replicated-tables.md)을 참조하세요.
 
@@ -102,7 +102,7 @@ ALTER TABLE SalesFact_DailyFinalLoad SWITCH PARTITION 256 TO SalesFact PARTITION
 ```
 
 ## <a name="columnstore-indexes"></a>Columnstore 인덱스
-기본적으로 SQL Data Warehouse는 테이블을 클러스터형 columnstore 인덱스로 저장합니다. 이러한 형태의 데이터 저장소는 대형 테이블에서 데이터 압축률과 쿼리 성능이 높습니다.  일반적으로 클러스터형 columnstore 인덱스가 가장 좋은 옵션이지만 클러스터형 인덱스 또는 힙이 적절한 저장소 구조인 경우도 있습니다.  힙 테이블은 최종 테이블로 변환되는 스테이징 테이블 같은 임시 데이터를 로드하는 경우 특히 유용할 수 있습니다.
+기본적으로 SQL Data Warehouse는 테이블을 클러스터형 columnstore 인덱스로 저장합니다. 이러한 형태의 데이터 스토리지는 대형 테이블에서 데이터 압축률과 쿼리 성능이 높습니다.  일반적으로 클러스터형 columnstore 인덱스가 가장 좋은 옵션이지만 클러스터형 인덱스 또는 힙이 적절한 스토리지 구조인 경우도 있습니다.  힙 테이블은 최종 테이블로 변환되는 스테이징 테이블 같은 임시 데이터를 로드하는 경우 특히 유용할 수 있습니다.
 
 columnstore 기능 목록은 [columnstore 인덱스의 새로운 기능](/sql/relational-databases/indexes/columnstore-indexes-what-s-new)을 참조하세요. columnstore 인덱스 성능을 향상하려면 [columnstore 인덱스의 행 그룹 품질 최대화](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)를 참조하세요.
 

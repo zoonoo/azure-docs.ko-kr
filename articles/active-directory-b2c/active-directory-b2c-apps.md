@@ -39,7 +39,7 @@ Azure AD B2C로 전송 되는 각 요청은 **사용자 흐름** (기본 제공 
 
 이러한 단계는 빌드 중인 애플리케이션의 유형에 따라 약간씩 다를 수 있습니다.
 
-## <a name="web-applications"></a>웹 응용 프로그램
+## <a name="web-applications"></a>웹 애플리케이션
 
 서버에서 호스트되며 브라우저를 통해 액세스하는 웹 애플리케이션(.NET, PHP, Java, Ruby, Python, Node.js 등)의 경우, Azure AD B2C는 모든 사용자 환경에 [OpenID Connect](active-directory-b2c-reference-protocols.md)를 지원합니다. OpenID Connect의 Azure AD B2C 구현에서 웹 애플리케이션은 Azure AD로 인증 요청을 발급하여 사용자 환경을 시작합니다. 요청의 결과는 `id_token`입니다. 이 보안 토큰은 사용자의 ID를 나타냅니다. 또한 클레임 형태로 사용자에 대한 정보를 제공합니다.
 
@@ -106,7 +106,7 @@ Azure AD B2C를 사용하여 Web API를 보호하는 방법을 알아보려면 [
 
 ## <a name="mobile-and-native-applications"></a>모바일 및 네이티브 애플리케이션
 
-모바일 및 데스크톱 애플리케이션과 같은 장치에 설치된 애플리케이션은 사용자 대신 백 엔드 서비스 또는 Web API에 액세스해야 하는 경우가 많습니다. 네이티브 애플리케이션에 사용자 지정된 ID 관리 환경을 추가하고 Azure AD B2C 및 [OAuth 2.0 권한 부여 코드 흐름](active-directory-b2c-reference-oauth-code.md)을 사용하여 안전하게 백 엔드 서비스를 호출할 수 있습니다.
+모바일 및 데스크톱 애플리케이션과 같은 디바이스에 설치된 애플리케이션은 사용자 대신 백 엔드 서비스 또는 Web API에 액세스해야 하는 경우가 많습니다. 네이티브 애플리케이션에 사용자 지정된 ID 관리 환경을 추가하고 Azure AD B2C 및 [OAuth 2.0 권한 부여 코드 흐름](active-directory-b2c-reference-oauth-code.md)을 사용하여 안전하게 백 엔드 서비스를 호출할 수 있습니다.
 
 이 흐름에서 애플리케이션은 [정책](active-directory-b2c-reference-policies.md)을 실행하고 사용자가 정책을 완료하면 Azure AD에서 `authorization_code`를 수신합니다. `authorization_code`는 현재 로그인한 사용자를 대신하여 백 엔드 서비스를 호출할 애플리케이션의 사용 권한을 나타냅니다. 그러면 애플리케이션은 백그라운드에서 `access_token` 및 `refresh_token`에 대한 `authorization_code`를 교환할 수 있습니다.  애플리케이션은 HTTP 요청에서 백 엔드 Web API를 인증하는 데 `access_token`을 사용할 수 있습니다. 또한 이전 항목이 만료된 경우 `refresh_token`을 사용하여 새 `access_token`을 가져올 수도 있습니다.
 

@@ -27,7 +27,7 @@ Stream Analytics 작업의 입력 또는 출력에 대한 자격 증명을 다�
 ### <a name="blob-storagetable-storage"></a>Blob Storage/Table Storage
 1. Azure Portal에 로그인하고 Stream Analytics 작업에 대한 입/출력으로 사용한 저장소 계정으로 이동합니다.    
 2. 설정 섹션에서 **액세스 키**를 엽니다. 두 개의 기본 키(key1, key2) 중에서 작업에서 사용하지 않은 키를 선택하고 다시 생성합니다.  
-   ![저장소 계정에 대한 키 다시 생성](media/stream-analytics-login-credentials-inputs-outputs/regenerate-storage-keys.png)
+   ![스토리지 계정에 대한 키 다시 생성](media/stream-analytics-login-credentials-inputs-outputs/regenerate-storage-keys.png)
 3. 새로 생성한 키를 복사합니다.    
 4. Azure Portal에서 Stream Analytics 작업으로 이동한 후 **중지**를 선택하고 작업이 중지될 때까지 기다립니다.    
 5. 자격 증명을 업데이트하려는 Blob/Table Storage 입/출력을 찾습니다.    

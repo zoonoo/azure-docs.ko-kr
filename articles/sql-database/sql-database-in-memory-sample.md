@@ -198,7 +198,7 @@ whereas for SQL 2016+
 
 
 
-### <a name="run-the-inmem-stress-workload-first"></a>먼저 *_inmem* 스트레스 워크로드를 실행합니다.
+### <a name="run-the-_inmem-stress-workload-first"></a>먼저 *_inmem* 스트레스 워크로드를 실행합니다.
 
 
 *RML Cmd Prompt* 창을 사용하여 ostress.exe 명령줄을 실행할 수 있습니다. 명령줄 매개 변수는 `ostress`에게 다음을 명령합니다.
@@ -236,7 +236,7 @@ ostress.exe -n100 -r50 -S<servername>.database.windows.net -U<login> -P<password
 `11/12/15 00:35:00.873 [0x000030A8] OSTRESS exiting normally, elapsed time: 00:01:31.867`
 
 
-#### <a name="reset-edit-for-ondisk-then-rerun"></a>*_ondisk*에 대해 다시 설정하고 편집한 다음 다시 실행합니다.
+#### <a name="reset-edit-for-_ondisk-then-rerun"></a>*_ondisk*에 대해 다시 설정하고 편집한 다음 다시 실행합니다.
 
 
 *_inmem* 실행에서 결과를 얻은 후 *_ondisk* 실행에 대해 다음 단계를 수행합니다.
@@ -386,7 +386,7 @@ P2 가격 책정 계층의 데이터베이스에서 클러스터형 columnstore 
 
 - [기존 Azure SQL 애플리케이션에서 메모리 내 OLTP 사용](sql-database-in-memory-oltp-migration.md)
 
-- 메모리 내 OLTP에 대한 [메모리 내 OLTP 저장소 모니터링](sql-database-in-memory-oltp-monitoring.md).
+- 메모리 내 OLTP에 대한 [메모리 내 OLTP 스토리지 모니터링](sql-database-in-memory-oltp-monitoring.md).
 
 
 ## <a name="additional-resources"></a>추가 자료

@@ -57,7 +57,7 @@ echo Storage account name: $AKS_PERS_STORAGE_ACCOUNT_NAME
 echo Storage account key: $STORAGE_KEY
 ```
 
-스크립트 출력의 끝에 표시된 저장소 계정 이름 및 키를 기록해 두세요. 다음 단계 중 하나로 Kubernetes 볼륨을 작성할 때 이 값이 필요합니다.
+스크립트 출력의 끝에 표시된 스토리지 계정 이름 및 키를 기록해 두세요. 다음 단계 중 하나로 Kubernetes 볼륨을 작성할 때 이 값이 필요합니다.
 
 ## <a name="create-a-kubernetes-secret"></a>Kubernetes 비밀 만들기
 

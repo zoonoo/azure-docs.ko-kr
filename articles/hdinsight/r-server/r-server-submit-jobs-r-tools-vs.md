@@ -111,13 +111,13 @@ PuTTY가 장착된 Windows 컴퓨터에서 Microsoft ML Server/Microsoft R Clien
 
 1. `rxHadoopCopy`가 예제 데이터 폴더의 `people.json` 파일을 새로 만든 `/user/RevoShare/newUser` 폴더로 복사했는지 확인합니다.
 
-    1. Azure의 HDInsight ML 서비스 클러스터 창의 왼쪽 메뉴에서 **저장소 계정**을 선택합니다.
+    1. Azure의 HDInsight ML 서비스 클러스터 창의 왼쪽 메뉴에서 **스토리지 계정**을 선택합니다.
 
         ![Storage 계정](./media/r-server-submit-jobs-r-tools-vs/storage-accounts.png)
 
-    2. 클러스터의 기본 저장소 계정을 선택하고 컨테이너/디렉터리 이름을 적어둡니다.
+    2. 클러스터의 기본 스토리지 계정을 선택하고 컨테이너/디렉터리 이름을 적어둡니다.
 
-    3. 저장소 계정 창의 왼쪽 메뉴에서 **컨테이너**를 선택합니다.
+    3. 스토리지 계정 창의 왼쪽 메뉴에서 **컨테이너**를 선택합니다.
 
         ![컨테이너](./media/r-server-submit-jobs-r-tools-vs/containers.png)
 

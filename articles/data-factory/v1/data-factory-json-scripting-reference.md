@@ -321,7 +321,7 @@ structure:
 | frequency |데이터 세트 조각 생성을 위한 시간 단위를 지정합니다.<br/><br/><b>지원되는 빈도</b>: Minute, Hour, Day, Week, Month |예 |NA |
 | interval |빈도 승수를 지정합니다.<br/><br/>"빈도 x 간격"은 조각을 생성하는 빈도를 결정합니다.<br/><br/>데이터 세트를 시간 단위로 조각화해야 하는 경우 <b>frequency</b>를 <b>Hour</b>로, <b>interval</b>을 <b>1</b>로 설정합니다.<br/><br/><b>참고</b>: 빈도를 Minute(분)으로 지정하면 15 이상으로 간격을 설정하는 것이 좋습니다. |예 |NA |
 | style |간격의 시작/끝에 조각을 생성해야 하는지를 지정합니다.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Frequency를 Month로 설정하고 style을 EndOfInterval로 설정하는 경우 조각을 월의 마지막 날에 생성합니다. style을 StartOfInterval로 설정하는 경우 조각을 달의 첫 번째 날에 생성합니다.<br/><br/>frequency를 Day로 설정하고 style을 EndOfInterval로 설정하는 경우 조각을 일의 마지막 시간에 생성합니다.<br/><br/>Frequency를 Hour로 설정하고 style을 EndOfInterval로 설정하는 경우 조각을 시간의 끝에 생성합니다. 예를 들어 오후 1~2시 기간에 대한 조각은 오후 2시에 생성됩니다. |아니요 |EndOfInterval |
-| anchorDateTime |스케줄러에서 사용하는 시간에 절대 위치를 정의하여 데이터 세트 조각 경계를 계산합니다. <br/><br/><b>참고</b>: AnchorDateTime에 빈도보다 더 세분화된 날짜 부분이 있는 경우 더 세분화된 부분을 무시합니다. <br/><br/>예를 들어 <b>간격</b>이 <b>매시간</b>으로 설정됩니다(frequency: hour and interval: 1)이고 <b>AnchorDateTime</b>에서 <b>분 및 초</b>를 포함하는 경우 AnchorDateTime의 <b>분 및 초</b> 부분은 무시됩니다. |아니요 |01/01/0001 |
+| anchorDateTime |스케줄러에서 사용하는 시간에 절대 위치를 정의하여 데이터 세트 조각 경계를 컴퓨팅합니다. <br/><br/><b>참고</b>: AnchorDateTime에 빈도보다 더 세분화된 날짜 부분이 있는 경우 더 세분화된 부분을 무시합니다. <br/><br/>예를 들어 <b>간격</b>이 <b>매시간</b>으로 설정됩니다(frequency: hour and interval: 1)이고 <b>AnchorDateTime</b>에서 <b>분 및 초</b>를 포함하는 경우 AnchorDateTime의 <b>분 및 초</b> 부분은 무시됩니다. |아니요 |01/01/0001 |
 | offset |모든 데이터 세트 조각의 시작과 끝이 이동에 의한 Timespan입니다. <br/><br/><b>참고</b>: anchorDateTime 및 offset이 모두 지정되면 결과적으로 이동이 결합됩니다. |아니요 |NA |
 
 다음 availability 섹션에서는 출력 데이터 세트를 시간마다 생성하거나 (또는) 입력 데이터 세트를 시간마다 사용할 수 있도록 지정합니다.
@@ -415,7 +415,7 @@ structure:
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| connectionString |connectionString 속성에 대한 Azure 저장소에 연결하는 데 필요한 정보를 지정합니다. |예 |
+| connectionString |connectionString 속성에 대한 Azure Storage에 연결하는 데 필요한 정보를 지정합니다. |예 |
 
 ##### <a name="example"></a>예제
 
@@ -432,7 +432,7 @@ structure:
 ```
 
 #### <a name="azure-storage-sas-linked-service"></a>Azure Storage SAS 연결된 서비스
-Azure Storage SAS 연결된 서비스에서 SAS(공유 액세스 서명)을 사용하여 Azure Storage 계정을 Azure Data Factory에 연결할 수 있습니다. 이 서비스는 저장소의 모든/특정 리소스(Blob/컨테이너)에 대해 제한된/시간 제한 액세스를 데이터 팩터리에 제공합니다. 공유 액세스 서명을 사용하여 Azure 스토리지 계정을 데이터 팩터리에 연결하려면 Azure Storage SAS 연결된 서비스를 만듭니다. Azure Storage SAS 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **AzureStorageSas**로 설정합니다. 그런 다음 **typeProperties** 섹션에서 다음 속성을 지정하면 됩니다.
+Azure Storage SAS 연결된 서비스에서 SAS(공유 액세스 서명)을 사용하여 Azure Storage 계정을 Azure Data Factory에 연결할 수 있습니다. 이 서비스는 스토리지의 모든/특정 리소스(Blob/컨테이너)에 대해 제한된/시간 제한 액세스를 데이터 팩터리에 제공합니다. 공유 액세스 서명을 사용하여 Azure 스토리지 계정을 데이터 팩터리에 연결하려면 Azure Storage SAS 연결된 서비스를 만듭니다. Azure Storage SAS 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **AzureStorageSas**로 설정합니다. 그런 다음 **typeProperties** 섹션에서 다음 속성을 지정하면 됩니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
@@ -1401,7 +1401,7 @@ Azure Search 인덱스에 데이터를 복사하는 경우 복사 활동의 **si
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type |type 속성을 다음으로 설정해야 합니다. **AzureStorage** |예 |
-| connectionString |connectionString 속성에 대한 Azure 저장소에 연결하는 데 필요한 정보를 지정합니다. |예 |
+| connectionString |connectionString 속성에 대한 Azure Storage에 연결하는 데 필요한 정보를 지정합니다. |예 |
 
 **예제:**
 
@@ -1418,7 +1418,7 @@ Azure Search 인덱스에 데이터를 복사하는 경우 복사 활동의 **si
 ```
 
 #### <a name="azure-storage-sas-linked-service"></a>Azure Storage SAS 연결된 서비스
-Azure Storage SAS 연결된 서비스에서 SAS(공유 액세스 서명)을 사용하여 Azure Storage 계정을 Azure Data Factory에 연결할 수 있습니다. 이 서비스는 저장소의 모든/특정 리소스(Blob/컨테이너)에 대해 제한된/시간 제한 액세스를 데이터 팩터리에 제공합니다. 공유 액세스 서명을 사용하여 Azure 스토리지 계정을 데이터 팩터리에 연결하려면 Azure Storage SAS 연결된 서비스를 만듭니다. Azure Storage SAS 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **AzureStorageSas**로 설정합니다. 그런 다음 **typeProperties** 섹션에서 다음 속성을 지정하면 됩니다.
+Azure Storage SAS 연결된 서비스에서 SAS(공유 액세스 서명)을 사용하여 Azure Storage 계정을 Azure Data Factory에 연결할 수 있습니다. 이 서비스는 스토리지의 모든/특정 리소스(Blob/컨테이너)에 대해 제한된/시간 제한 액세스를 데이터 팩터리에 제공합니다. 공유 액세스 서명을 사용하여 Azure 스토리지 계정을 데이터 팩터리에 연결하려면 Azure Storage SAS 연결된 서비스를 만듭니다. Azure Storage SAS 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **AzureStorageSas**로 설정합니다. 그런 다음 **typeProperties** 섹션에서 다음 속성을 지정하면 됩니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
@@ -1540,7 +1540,7 @@ Azure Table Storage에 데이터를 복사하는 경우 복사 활동의 **sink 
 | azureTableRowKeyName |해당 열 값이 행 키로 사용되는 열의 이름을 지정합니다. 지정하지 않으면 각 행에 GUID를 사용합니다. |열 이름 |아니요 |
 | azureTableInsertType |Azure 테이블에 데이터를 삽입하는 모드입니다.<br/><br/>이 속성은 출력 테이블에서 파티션 및 행 키가 일치하는 기존 행의 값을 바꿀지 또는 병합할지 제어합니다. <br/><br/>이러한 설정(병합 및 바꾸기)이 작동하는 방법을 알아보려면 [엔터티 삽입 또는 병합](https://msdn.microsoft.com/library/azure/hh452241.aspx) 및 [엔터티 삽입 또는 바꾸기](https://msdn.microsoft.com/library/azure/hh452242.aspx)를 참조하세요. <br/><br> 이 설정은 테이블 수준이 아니라 행 수준에서 적용되며, 두 옵션 모두 출력 테이블에서 입력에 존재하지 않는 행을 삭제하지 않습니다. |병합(기본값)<br/>replace |아니요 |
 | writeBatchSize |WriteBatchSize 또는 writeBatchTimeout에 도달하면 Azure 테이블에 데이터를 삽입합니다. |정수(행 수) |아니요(기본값: 10000) |
-| writeBatchTimeout |WriteBatchSize 또는 writeBatchTimeout에 도달하면 Azure 테이블에 데이터를 삽입합니다. |TimeSpan<br/><br/>예제: “00:20:00”(20분) |No (기본적으로 저장소 클라이언트 기본 시간 제한 값인 90초로 설정) |
+| writeBatchTimeout |WriteBatchSize 또는 writeBatchTimeout에 도달하면 Azure 테이블에 데이터를 삽입합니다. |TimeSpan<br/><br/>예제: “00:20:00”(20분) |No (기본적으로 스토리지 클라이언트 기본 시간 제한 값인 90초로 설정) |
 
 #### <a name="example"></a>예제
 
@@ -4831,7 +4831,7 @@ Salesforce에서 데이터를 복사하는 경우 복사 활동의 **source type
 | [Azure SQL Database](#azure-sql-database-1), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-1), [SQL Server](#sql-server-1) |[저장 프로시저](#stored-procedure-activity) |
 
 ## <a name="on-demand-azure-hdinsight-cluster"></a>주문형 Azure HDInsight 클러스터
-Azure 데이터 팩터리 서비스는 데이터를 처리하는 Windows/Linux 기반 주문형 HDInsight 클러스터를 자동으로 만들 수 있습니다. 클러스터는 클러스터와 연결된 저장소 계정(JSON에서 linkedServiceName 속성)과 동일한 하위 지역에 만들어집니다. 이 연결된 서비스에서는 변환 활동, 즉 [.NET 사용자 지정 활동](#net-custom-activity), [Hive 활동](#hdinsight-hive-activity), [Pig 활동](#hdinsight-pig-activity), [MapReduce 활동](#hdinsight-mapreduce-activity), Hadoop 스트리밍 활동, [Spark 활동](#hdinsight-spark-activity)을 실행할 수 있습니다.
+Azure 데이터 팩터리 서비스는 데이터를 처리하는 Windows/Linux 기반 주문형 HDInsight 클러스터를 자동으로 만들 수 있습니다. 클러스터는 클러스터와 연결된 스토리지 계정(JSON에서 linkedServiceName 속성)과 동일한 하위 지역에 만들어집니다. 이 연결된 서비스에서는 변환 활동, 즉 [.NET 사용자 지정 활동](#net-custom-activity), [Hive 활동](#hdinsight-hive-activity), [Pig 활동](#hdinsight-pig-activity), [MapReduce 활동](#hdinsight-mapreduce-activity), Hadoop 스트리밍 활동, [Spark 활동](#hdinsight-spark-activity)을 실행할 수 있습니다.
 
 ### <a name="linked-service"></a>연결된 서비스
 다음 표에서는 주문형 HDInsight 연결된 서비스의 Azure JSON 정의에 사용된 속성에 대해 설명합니다.
@@ -4842,8 +4842,8 @@ Azure 데이터 팩터리 서비스는 데이터를 처리하는 Windows/Linux �
 | clusterSize |클러스터의 작업자/데이터 노드 수 HDInsight 클러스터는 속성에 지정한 작업자 노드의 수와 함께 2개의 헤드 노드로 생성됩니다. 노드의 크기는 4개 코어를 포함한 Standard_D3이므로, 4개 작업자 노드 클러스터에서 24개 코어(작업자 노드용 4\*4 = 16코어 및 헤드 노드용 2\*4 = 8코어)를 사용합니다. Standard_D3 계층에 대한 자세한 내용은 [HDInsight에서 Linux 기반 Hadoop 클러스터 만들기](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요. |예 |
 | timetolive |주문형 HDInsight 클러스터에 대한 허용된 유휴 시간입니다. 클러스터에 다른 활성 작업이 없으면 작업이 완료된 후에 주문형 HDInsight 클러스터가 유지될 기간을 지정합니다.<br/><br/>예를 들어 활동 실행에 6분이 걸리고 timetolive이 5분으로 설정된 경우 클러스터는 활동을 처리하는 6분 동안 실행된 후에 5분 동안 유지됩니다. 다른 활동 실행이 6분 창을 실행하는 경우 동일한 클러스터에 의해 처리됩니다.<br/><br/>주문형 HDInsight 클러스터를 만드는 데는 많은 시간이 걸려 값 비싼 작업이 되므로 필요할 때마다 이 설정을 사용하여 주문형 HDInsight 클러스터를 다시 사용함으로써 데이터 팩터리의 성능을 향상시킵니다.<br/><br/>timetolive 값을 0으로 설정한 경우 클러스터는 활동이 처리되는 즉시 삭제됩니다. 반면 높은 값을 설정하는 경우 클러스터는 불필요하게 많은 비용이 발생하는 유휴 상태에 머무를 수 있습니다. 따라서 필요에 따라 적절한 값을 설정하는 것이 중요합니다.<br/><br/>timetolive 속성 값이 적절하게 설정되는 경우 여러 파이프라인은 주문형 HDInsight 클러스터의 동일한 인스턴스를 공유할 수 있습니다. |예 |
 | version |HDInsight 클러스터의 버전입니다. 자세한 내용은 [Azure Data Factory에서 지원되는 HDInsight 버전](data-factory-compute-linked-services.md#supported-hdinsight-versions-in-azure-data-factory)을 참조하세요. |아니요 |
-| linkedServiceName |데이터를 저장 및 처리하기 위해 주문형 클러스터에서 사용하는 Azure Storage 연결 서비스입니다. <p>현재 Azure Data Lake Store를 저장소로 사용하는 주문형 HDInsight 클러스터를 만들 수 없습니다. HDInsight 처리의 결과 데이터를 Azure Data Lake Store에 저장하려면 복사 작업을 사용하여 Azure Blob Storage의 데이터를 Azure Data Lake Store로 복사합니다.</p>  | 예 |
-| additionalLinkedServiceNames |HDInsight 연결된 서비스에 대한 추가 저장소 계정을 지정하므로 데이터 팩터리 서비스가 사용자를 대신해 계정을 등록할 수 있습니다. |아니요 |
+| linkedServiceName |데이터를 저장 및 처리하기 위해 주문형 클러스터에서 사용하는 Azure Storage 연결 서비스입니다. <p>현재 Azure Data Lake Store를 스토리지로 사용하는 주문형 HDInsight 클러스터를 만들 수 없습니다. HDInsight 처리의 결과 데이터를 Azure Data Lake Store에 저장하려면 복사 작업을 사용하여 Azure Blob Storage의 데이터를 Azure Data Lake Store로 복사합니다.</p>  | 예 |
+| additionalLinkedServiceNames |HDInsight 연결된 서비스에 대한 추가 스토리지 계정을 지정하므로 데이터 팩터리 서비스가 사용자를 대신해 계정을 등록할 수 있습니다. |아니요 |
 | osType |운영 체제 유형입니다. 허용되는 값은 다음과 같습니다. Windows(기본값) 및 Linux |아니요 |
 | hcatalogLinkedServiceName |HCatalog 데이터베이스를 가리키는 Azure SQL 연결된 서비스 이름입니다. 주문형 HDInsight 클러스터는 Azure SQL 데이터베이스를 metastore로 사용하여 만들어집니다. |아니요 |
 
@@ -5356,7 +5356,7 @@ Spark 활동 JSON 정의에서 다음 속성을 지정할 수 있습니다. 활�
 | proxyUser | Spark 프로그램 실행을 가장하는 사용자 계정 | 아니요 |
 | sparkConfig | Spark 구성 속성입니다. | 아니요 |
 | getDebugInfo | sparkJobLinkedService에 지정되었거나 HDInsight 클러스터에 사용된 Azure Storage에 Spark 로그 파일을 언제 복사할지 지정합니다. 허용되는 값은 다음과 같습니다. 없음, 항상 또는 실패. 기본값: 없음 | 아니요 |
-| sparkJobLinkedService | Spark 작업 파일, 종속성 및 로그를 보유하는 Azure Storage 연결된 서비스입니다.  이 속성에 대한 값을 지정하지 않으면 HDInsight 클러스터와 연결된 저장소가 사용됩니다. | 아니요 |
+| sparkJobLinkedService | Spark 작업 파일, 종속성 및 로그를 보유하는 Azure Storage 연결된 서비스입니다.  이 속성에 대한 값을 지정하지 않으면 HDInsight 클러스터와 연결된 스토리지가 사용됩니다. | 아니요 |
 
 ### <a name="json-example"></a>JSON 예제
 
@@ -5528,7 +5528,7 @@ U-SQL 활동 JSON 정의에서 다음 속성을 지정할 수 있습니다. 활�
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | scriptPath |U-SQL 스크립트가 포함된 폴더 경로입니다. 파일 이름은 대/소문자를 구분합니다. |아니요(스크립트를 사용하는 경우) |
-| scriptLinkedService |스크립트가 포함된 저장소를 Data Factory에 연결하는 연결된 서비스입니다. |아니요(스크립트를 사용하는 경우) |
+| scriptLinkedService |스크립트가 포함된 스토리지를 Data Factory에 연결하는 연결된 서비스입니다. |아니요(스크립트를 사용하는 경우) |
 | 스크립트(script) |scriptPath 및 scriptLinkedService를 지정하는 대신 인라인 스크립트를 지정합니다. 예: "script": "CREATE DATABASE test". |아니요(scriptPath 및 scriptLinkedService를 사용하는 경우) |
 | degreeOfParallelism |작업을 실행하는 데 동시에 사용되는 최대 노드 수입니다. |아니요 |
 | priority |대기열에 있는 모든 작업 중에서 먼저 실행해야 하는 작업을 결정합니다. 번호가 낮을수록 우선 순위가 높습니다. |아니요 |

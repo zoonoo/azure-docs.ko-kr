@@ -72,7 +72,7 @@ Data Lake Storage Gen1의 POSIX 권한 및 감사에는 수많은 작은 파일�
 
 ### <a name="large-file-sizes-and-potential-performance-impact"></a>큰 파일 크기 및 성능에 대한 잠재적 영향
 
-Data Lake Storage Gen1은 최대 페타바이트 크기의 큰 파일을 지원하지만 최적의 성능을 위해 데이터 읽기 프로세스에 따라 평균 2GB를 초과하지 않는 것이 좋을 수 있습니다. 예를 들어 **Distcp**를 사용하여 위치 또는 다른 저장소 계정 간에 데이터를 복사하는 경우 파일은 매핑 작업을 결정하는 데 사용되는 최상의 세분성 수준입니다. 따라서 각각 1TB인 파일 10개를 복사하는 경우 최대 10개의 매퍼가 할당됩니다. 또한 매퍼가 할당된 많은 파일이 있는 경우 처음에는 매퍼가 병렬로 작동하여 큰 파일을 이동합니다. 그러나 작업이 종료되기 시작하면 몇 개의 매퍼만 할당된 상태로 유지되고 큰 파일에 할당된 단일 매퍼를 사용하여 멈출 수 있습니다. Microsoft는 이후의 Hadoop 버전에서 이 문제를 해결하기 위해 Distcp에 대한 향상된 기능을 제출했습니다.
+Data Lake Storage Gen1은 최대 페타바이트 크기의 큰 파일을 지원하지만 최적의 성능을 위해 데이터 읽기 프로세스에 따라 평균 2GB를 초과하지 않는 것이 좋을 수 있습니다. 예를 들어 **Distcp**를 사용하여 위치 또는 다른 스토리지 계정 간에 데이터를 복사하는 경우 파일은 매핑 작업을 결정하는 데 사용되는 최상의 세분성 수준입니다. 따라서 각각 1TB인 파일 10개를 복사하는 경우 최대 10개의 매퍼가 할당됩니다. 또한 매퍼가 할당된 많은 파일이 있는 경우 처음에는 매퍼가 병렬로 작동하여 큰 파일을 이동합니다. 그러나 작업이 종료되기 시작하면 몇 개의 매퍼만 할당된 상태로 유지되고 큰 파일에 할당된 단일 매퍼를 사용하여 멈출 수 있습니다. Microsoft는 이후의 Hadoop 버전에서 이 문제를 해결하기 위해 Distcp에 대한 향상된 기능을 제출했습니다.
 
 고려해야 할 또 다른 예는 Data Lake Storage Gen1에서 Azure Data Lake Analytics를 사용하는 경우입니다. 추출기에서 수행되는 처리에 따라 분할할 수 없는 일부 파일(예: XML, JSON)은 2GB보다 큰 경우 성능이 저하될 수 있습니다. 추출기에서 파일(예: CSV)을 분할할 수 있는 경우 큰 파일을 사용하도록 기본 설정됩니다.
 
@@ -82,7 +82,7 @@ Azure Data Lake Storage Gen1은 Blob Storage 계정에 적용된 하드 IO 제�
 
 ### <a name="optimize-writes-with-the-data-lake-storage-gen1-driver-buffer"></a>Data Lake Storage Gen1 드라이버 버퍼로 “쓰기” 최적화
 
-Hadoop에서 Data Lake Storage Gen1에 쓸 때 성능을 최적화하고 IOPS를 줄이려면 Data Lake Storage Gen1 드라이버 버퍼 크기에 최대한 가깝게 쓰기 작업을 수행합니다. Apache Storm 또는 Spark 스트리밍 작업을 사용하여 스트리밍하는 경우와 같이 플러시하기 전에 버퍼 크기를 초과하지 않도록 합니다. HDInsight/Hadoop에서 Data Lake Storage Gen1에 쓰는 경우 4MB 버퍼가 있는 드라이버가 Data Lake Storage Gen1에 있음을 알고 있어야 합니다. 많은 파일 시스템 드라이버와 마찬가지로, 이 버퍼는 4MB 크기에 도달하기 전에 수동으로 플러시할 수 있습니다. 그렇지 않으면 다음 쓰기에서 버퍼의 최대 크기를 초과하면 저장소에 즉시 플러시됩니다. 가능한 경우 개수 또는 시간 범위에 따라 정책을 동기화/플러시할 때 버퍼의 오버런 또는 중요한 언더런을 방지해야 합니다.
+Hadoop에서 Data Lake Storage Gen1에 쓸 때 성능을 최적화하고 IOPS를 줄이려면 Data Lake Storage Gen1 드라이버 버퍼 크기에 최대한 가깝게 쓰기 작업을 수행합니다. Apache Storm 또는 Spark 스트리밍 작업을 사용하여 스트리밍하는 경우와 같이 플러시하기 전에 버퍼 크기를 초과하지 않도록 합니다. HDInsight/Hadoop에서 Data Lake Storage Gen1에 쓰는 경우 4MB 버퍼가 있는 드라이버가 Data Lake Storage Gen1에 있음을 알고 있어야 합니다. 많은 파일 시스템 드라이버와 마찬가지로, 이 버퍼는 4MB 크기에 도달하기 전에 수동으로 플러시할 수 있습니다. 그렇지 않으면 다음 쓰기에서 버퍼의 최대 크기를 초과하면 스토리지에 즉시 플러시됩니다. 가능한 경우 개수 또는 시간 범위에 따라 정책을 동기화/플러시할 때 버퍼의 오버런 또는 중요한 언더런을 방지해야 합니다.
 
 ## <a name="resiliency-considerations"></a>복원력 고려 사항
 
@@ -124,7 +124,7 @@ Distcp와 마찬가지로, AdlCopy는 Azure Automation 또는 Windows 작업 스
 
 ## <a name="monitoring-considerations"></a>모니터링 고려 사항
 
-Data Lake Storage Gen1은 자세한 진단 로그 및 감사 기능을 제공합니다. Data Lake Storage Gen1은 Azure Portal의 Data Lake Storage Gen1 계정 및 Azure Monitor에서 몇 가지 기본 메트릭을 제공합니다. Data Lake Storage Gen1의 가용성은 Azure Portal에 표시됩니다. 그러나 이 메트릭은 7분마다 새로 고쳐지고 공개적으로 노출된 API를 통해 쿼리할 수 없습니다. Data Lake Storage Gen1 계정의 최신 가용성을 확인하려면 사용자 고유의 가상 테스트를 실행하여 가용성의 유효성을 검사해야 합니다. 총 저장소 사용률, 읽기/쓰기 요청 수 및 수신/송신과 같은 다른 메트릭은 새로 고치는 데 최대 24시간이 걸릴 수 있습니다. 따라서 최신 메트릭은 Hadoop 명령줄 도구 또는 로그 정보 집계를 통해 수동으로 계산해야 합니다. 가장 최근의 저장소 사용률을 가져오는 가장 빠른 방법은 Hadoop 클러스터 노드(예: 헤드 노드)에서 이 HDFS 명령을 실행하는 것입니다.
+Data Lake Storage Gen1은 자세한 진단 로그 및 감사 기능을 제공합니다. Data Lake Storage Gen1은 Azure Portal의 Data Lake Storage Gen1 계정 및 Azure Monitor에서 몇 가지 기본 메트릭을 제공합니다. Data Lake Storage Gen1의 가용성은 Azure Portal에 표시됩니다. 그러나 이 메트릭은 7분마다 새로 고쳐지고 공개적으로 노출된 API를 통해 쿼리할 수 없습니다. Data Lake Storage Gen1 계정의 최신 가용성을 확인하려면 사용자 고유의 가상 테스트를 실행하여 가용성의 유효성을 검사해야 합니다. 총 스토리지 사용률, 읽기/쓰기 요청 수 및 수신/송신과 같은 다른 메트릭은 새로 고치는 데 최대 24시간이 걸릴 수 있습니다. 따라서 최신 메트릭은 Hadoop 명령줄 도구 또는 로그 정보 집계를 통해 수동으로 계산해야 합니다. 가장 최근의 스토리지 사용률을 가져오는 가장 빠른 방법은 Hadoop 클러스터 노드(예: 헤드 노드)에서 이 HDFS 명령을 실행하는 것입니다.
 
     hdfs dfs -du -s -h adl://<adlsg1_account_name>.azuredatalakestore.net:443/
 

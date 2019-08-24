@@ -111,5 +111,5 @@ ms.locfileid: "67719266"
 
 ## <a name="next-steps"></a>다음 단계
 
-[데이터 디스크](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 더 추가하여 VM에 저장소를 좀 더 추가합니다.
+[데이터 디스크](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 더 추가하여 VM에 스토리지를 좀 더 추가합니다.
 

@@ -104,7 +104,7 @@ Azure에서 다양한 유형의 로그를 사용하여 Application Gateway를 �
 
 로그 저장에는 세 가지 옵션이 있습니다.
 
-* **스토리지 계정**: 로그를 장기간 저장하고 필요할 때 검토하는 경우에 가장 적합합니다.
+* **스토리지 계정**: 로그를 장기간 스토리지하고 필요할 때 검토하는 경우에 가장 적합합니다.
 * **Event Hubs**: 다른 SEIM(보안 정보 및 이벤트 관리) 도구와 통합하여 리소스에 대한 알림을 얻을 수 있는 좋은 옵션입니다.
 * **Azure Monitor 로그**: Azure Monitor 로그는 일반적으로 애플리케이션을 실시간으로 모니터링하거나 추세를 파악하는 데 가장 적합합니다.
 
@@ -112,9 +112,9 @@ Azure에서 다양한 유형의 로그를 사용하여 Application Gateway를 �
 
 활동 로깅은 모든 Resource Manager 리소스에 대해 사용하도록 설정됩니다. 이러한 로그를 통해 사용 가능한 데이터 수집을 시작하려면 액세스 및 성능 로깅을 사용하도록 설정해야 합니다. 로깅을 사용하려면 다음 단계를 사용합니다.
 
-1. 로그 데이터를 저장할 저장소 계정의 리소스 ID를 적어 둡니다. 이 값의 형식은 /subscriptions/\<subscriptionId\>/resourceGroups/\<리소스 그룹 이름\>/providers/Microsoft.Storage/storageAccounts/\<스토리지 계정 이름\>입니다. 구독의 모든 저장소 계정을 사용할 수 있습니다. Azure Portal을 사용하여 이 정보를 찾을 수 있습니다.
+1. 로그 데이터를 저장할 스토리지 계정의 리소스 ID를 적어 둡니다. 이 값의 형식은 /subscriptions/\<subscriptionId\>/resourceGroups/\<리소스 그룹 이름\>/providers/Microsoft.Storage/storageAccounts/\<스토리지 계정 이름\>입니다. 구독의 모든 스토리지 계정을 사용할 수 있습니다. Azure Portal을 사용하여 이 정보를 찾을 수 있습니다.
 
-    ![포털: 저장소 계정의 리소스 ID](./media/application-gateway-diagnostics/diagnostics1.png)
+    ![포털: 스토리지 계정의 리소스 ID](./media/application-gateway-diagnostics/diagnostics1.png)
 
 2. 로깅을 사용할 Application Gateway의 리소스 ID를 적어 둡니다. 이 값은 형식은 /subscriptions/\<subscriptionId\>/resourceGroups/\<리소스 그룹 이름\>/providers/Microsoft.Network/applicationGateways/\<응용 프로그램 게이트웨이 이름\>입니다. 포털을 사용하여 이 정보를 찾을 수 있습니다.
 
@@ -127,7 +127,7 @@ Azure에서 다양한 유형의 로그를 사용하여 Application Gateway를 �
     ```
     
 > [!TIP] 
->활동 로그에는 별도의 스토리지 계정이 필요하지 않습니다. 액세스 및 성능 로깅에 저장소를 사용할 경우 서비스 요금이 부과됩니다.
+>활동 로그에는 별도의 스토리지 계정이 필요하지 않습니다. 액세스 및 성능 로깅에 스토리지를 사용할 경우 서비스 요금이 부과됩니다.
 
 ### <a name="enable-logging-through-the-azure-portal"></a>Azure Portal을 통한 로깅 사용
 
@@ -155,7 +155,7 @@ Azure에서는 기본적으로 활동 로그를 생성합니다. 이러한 로�
 
 ### <a name="access-log"></a>액세스 로그
 
-이전 단계에서 설명한 대로 액세스 로그는 각 Application Gateway 인스턴스에서 이러한 로그를 사용하도록 설정한 경우에만 생성됩니다. 데이터는 로깅을 사용하도록 설정할 때 지정한 저장소 계정에 저장됩니다. Application Gateway에 대 한 각 액세스는 v1에 대 한 다음 예제와 같이 JSON 형식으로 기록 됩니다.
+이전 단계에서 설명한 대로 액세스 로그는 각 Application Gateway 인스턴스에서 이러한 로그를 사용하도록 설정한 경우에만 생성됩니다. 데이터는 로깅을 사용하도록 설정할 때 지정한 스토리지 계정에 저장됩니다. Application Gateway에 대 한 각 액세스는 v1에 대 한 다음 예제와 같이 JSON 형식으로 기록 됩니다.
 
 |값  |설명  |
 |---------|---------|
@@ -252,7 +252,7 @@ Application Gateway 및 WAF v 2의 경우 로그에 약간의 추가 정보가 �
 
 ### <a name="performance-log"></a>성능 로그
 
-이전 단계에서 설명한 대로 성능 로그는 각 Application Gateway 인스턴스에서 이러한 로그를 사용하도록 설정한 경우에만 생성됩니다. 데이터는 로깅을 사용하도록 설정할 때 지정한 저장소 계정에 저장됩니다. 성능 로그 데이터는 1분 간격으로 생성됩니다. 다음 데이터가 로깅됩니다.
+이전 단계에서 설명한 대로 성능 로그는 각 Application Gateway 인스턴스에서 이러한 로그를 사용하도록 설정한 경우에만 생성됩니다. 데이터는 로깅을 사용하도록 설정할 때 지정한 스토리지 계정에 저장됩니다. 성능 로그 데이터는 1분 간격으로 생성됩니다. 다음 데이터가 로깅됩니다.
 
 
 |값  |Description  |
@@ -289,7 +289,7 @@ Application Gateway 및 WAF v 2의 경우 로그에 약간의 추가 정보가 �
 
 ### <a name="firewall-log"></a>방화벽 로그
 
-이전 단계에서 설명한 대로 방화벽 로그는 각 애플리케이션 게이트웨이에서 이러한 로그를 사용하도록 설정한 경우에만 생성됩니다. 또한 이 로그를 사용하려면 애플리케이션 게이트웨이에서 웹 애플리케이션 방화벽을 구성해야 합니다. 데이터는 로깅을 사용하도록 설정할 때 지정한 저장소 계정에 저장됩니다. 다음 데이터가 로깅됩니다.
+이전 단계에서 설명한 대로 방화벽 로그는 각 애플리케이션 게이트웨이에서 이러한 로그를 사용하도록 설정한 경우에만 생성됩니다. 또한 이 로그를 사용하려면 애플리케이션 게이트웨이에서 웹 애플리케이션 방화벽을 구성해야 합니다. 데이터는 로깅을 사용하도록 설정할 때 지정한 스토리지 계정에 저장됩니다. 다음 데이터가 로깅됩니다.
 
 
 |값  |Description  |
@@ -349,7 +349,7 @@ Application Gateway 및 WAF v 2의 경우 로그에 약간의 추가 정보가 �
 
 [Azure Monitor 로그](../azure-monitor/insights/azure-networking-analytics.md)는 Blob Storage 계정에서 카운터 및 이벤트 로그 파일을 수집할 수 있습니다. 여기에는 로그를 분석하는 시각화 및 강력한 검색 기능이 포함되어 있습니다.
 
-저장소 계정에 연결하고 액세스 및 성능 로그에 대한 JSON 로그 항목을 검색할 수도 있습니다. JSON 파일을 다운로드한 후 CSV로 변환하여 Excel, Power BI 또는 기타 데이터 시각화 도구에서 볼 수 있습니다.
+스토리지 계정에 연결하고 액세스 및 성능 로그에 대한 JSON 로그 항목을 검색할 수도 있습니다. JSON 파일을 다운로드한 후 CSV로 변환하여 Excel, Power BI 또는 기타 데이터 시각화 도구에서 볼 수 있습니다.
 
 > [!TIP]
 > Visual Studio를 익숙하게 사용할 수 있고 C#에서 상수 및 변수에 대한 값 변경에 대한 기본 개념이 있는 경우 GitHub에서 제공하는 [로그 변환기 도구](https://github.com/Azure-Samples/networking-dotnet-log-converter)를 사용할 수 있습니다.

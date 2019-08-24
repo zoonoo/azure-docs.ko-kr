@@ -26,7 +26,7 @@ ms.locfileid: "68322837"
 
 Batch 서비스 API에서 가상 머신 구성으로 풀에서 실행되는 태스크 및 작업 관리자 태스크의 출력 데이터를 Azure Storage에 유지하도록 지원합니다. 태스크를 추가할 때 Azure Storage의 컨테이너를 태스크 출력의 대상으로 지정할 수 있습니다. 그런 다음 태스크가 완료되면 Batch 서비스에서 해당 컨테이너에 출력 데이터를 씁니다.
 
-Batch 서비스 API를 사용하여 태스크 출력을 유지하는 이점은 태스크가 실행되는 애플리케이션을 수정할 필요가 없다는 것입니다. 대신 클라이언트 응용 프로그램을 약간만 수정하면 태스크를 만드는 동일한 코드 내에서 태스크 출력을 유지할 수 있습니다.
+Batch 서비스 API를 사용하여 태스크 출력을 유지하는 이점은 태스크가 실행되는 애플리케이션을 수정할 필요가 없다는 것입니다. 대신 클라이언트 애플리케이션을 약간만 수정하면 태스크를 만드는 동일한 코드 내에서 태스크 출력을 유지할 수 있습니다.
 
 ## <a name="when-do-i-use-the-batch-service-api-to-persist-task-output"></a>Batch 서비스 API를 사용하여 태스크 출력을 유지하는 경우는?
 
@@ -160,7 +160,7 @@ Message: One of the specified Azure container(s) was not found while attempting 
 
 ## <a name="diagnose-file-upload-performance"></a>파일 업로드 성능 진단
 
-`fileuploadout.txt` 파일은 업로드 진행률을 기록합니다. 이 파일을 검사하면 파일 업로드에 소요된 시간에 대해 자세히 확인할 수 있습니다. 노드 크기, 업로드 시 노드의 다른 활동, 대상 컨테이너가 Batch 풀과 동일한 지역에 있는지 여부, 저장소 계정에 동시에 업로드되는 노드 수 등 업로드 성능에 영향을 주는 많은 요인들이 있음에 유의하세요.
+`fileuploadout.txt` 파일은 업로드 진행률을 기록합니다. 이 파일을 검사하면 파일 업로드에 소요된 시간에 대해 자세히 확인할 수 있습니다. 노드 크기, 업로드 시 노드의 다른 활동, 대상 컨테이너가 Batch 풀과 동일한 지역에 있는지 여부, 스토리지 계정에 동시에 업로드되는 노드 수 등 업로드 성능에 영향을 주는 많은 요인들이 있음에 유의하세요.
 
 ## <a name="use-the-batch-service-api-with-the-batch-file-conventions-standard"></a>Batch 파일 규칙 표준과 함께 Batch 서비스 API 사용
 
@@ -178,7 +178,7 @@ C# 이외의 언어로 개발하는 경우 파일 규칙 표준을 직접 구현
 
 ## <a name="code-sample"></a>코드 샘플
 
-[Persistoutputs][github_persistoutputs] 샘플 프로젝트는 GitHub의 [Azure Batch 코드 샘플][github_samples] 중 하나입니다. 이 Visual Studio 솔루션에서는 .NET용 Batch 클라이언트 라이브러리를 사용하여 영구 저장소에 태스크 출력을 유지하는 방법을 보여 줍니다. 샘플을 실행하려면 다음 단계를 수행합니다.
+[Persistoutputs][github_persistoutputs] 샘플 프로젝트는 GitHub의 [Azure Batch 코드 샘플][github_samples] 중 하나입니다. 이 Visual Studio 솔루션에서는 .NET용 Batch 클라이언트 라이브러리를 사용하여 영구 스토리지에 태스크 출력을 유지하는 방법을 보여 줍니다. 샘플을 실행하려면 다음 단계를 수행합니다.
 
 1. **Visual Studio 2019**에서 프로젝트를 엽니다.
 2. Microsoft.Azure.Batch.Samples.Common 프로젝트에서 Batch 및 Storage **계정 자격 증명**을 **AccountSettings.settings**에 추가합니다.

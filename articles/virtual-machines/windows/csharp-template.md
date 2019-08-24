@@ -253,9 +253,9 @@ var resourceGroup = azure.ResourceGroups.Define(groupName)
     .Create();
 ```
 
-## <a name="create-a-storage-account"></a>저장소 계정 만들기
+## <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
-템플릿 및 매개 변수는 Azure의 저장소 계정에서 배포됩니다. 이 단계에서는 계정을 만들고 파일을 업로드합니다. 
+템플릿 및 매개 변수는 Azure의 스토리지 계정에서 배포됩니다. 이 단계에서는 계정을 만들고 파일을 업로드합니다. 
 
 계정을 만들려면 Main 메서드에 다음 코드를 추가합니다.
 
@@ -295,7 +295,7 @@ paramblob.UploadFromFileAsync("..\\..\\Parameters.json").Result();
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 
-만든 저장소 계정에서 템플릿 및 매개 변수를 배포합니다. 
+만든 스토리지 계정에서 템플릿 및 매개 변수를 배포합니다. 
 
 템플릿을 배포하려면 Main 메서드에 다음 코드를 추가합니다.
 

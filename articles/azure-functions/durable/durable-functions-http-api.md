@@ -95,7 +95,7 @@ Location: https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d84
 | 매개 변수        | 매개 변수 유형  | Description |
 |------------------|-----------------|-------------|
 | **`taskHub`**    | 쿼리 문자열    | [작업 허브](durable-functions-task-hubs.md)의 이름입니다. 지정하지 않으면 현재 함수 앱의 작업 허브 이름이 사용됩니다. |
-| **`connection`** | 쿼리 문자열    | 저장소 계정에 대한 연결 문자열의 **이름**입니다. 지정하지 않으면 함수 앱에 대한 기본 연결 문자열이 사용됩니다. |
+| **`connection`** | 쿼리 문자열    | 스토리지 계정에 대한 연결 문자열의 **이름**입니다. 지정하지 않으면 함수 앱에 대한 기본 연결 문자열이 사용됩니다. |
 | **`systemKey`**  | 쿼리 문자열    | API를 호출하는 데 필요한 권한 부여 키입니다. |
 
 `systemKey`는 Azure Functions 호스트에서 자동 생성된 권한 부여 키입니다. 특히 지속성 작업 확장 API에 대한 액세스 권한을 부여하고 [다른 권한 부여 키](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API)와 동일한 방식으로 관리할 수 있습니다. `systemKey` 값을 검색하는 가장 간단한 방법은 앞에서 언급한 `CreateCheckStatusResponse` API를 사용하는 것입니다.

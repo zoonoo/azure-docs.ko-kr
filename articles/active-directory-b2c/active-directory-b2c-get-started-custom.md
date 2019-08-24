@@ -55,7 +55,7 @@ ms.locfileid: "68302482"
 
 ### <a name="create-the-facebook-key"></a>Facebook 키 만들기
 
-[Facebook 응용 프로그램 비밀](active-directory-b2c-setup-fb-app.md)이 이미 있을 경우 해당 비밀을 정책 키로 테넌트에 추가합니다. 그렇지 않으면 정책이 유효성 검사를 통과하도록 자리 표시자 값이 있는 키를 만들어야 합니다.
+[Facebook 애플리케이션 비밀](active-directory-b2c-setup-fb-app.md)이 이미 있을 경우 해당 비밀을 정책 키로 테넌트에 추가합니다. 그렇지 않으면 정책이 유효성 검사를 통과하도록 자리 표시자 값이 있는 키를 만들어야 합니다.
 
 1. **정책 키**, **추가**를 차례로 선택합니다.
 2. **옵션**으로는 `Manual`을 선택합니다.
@@ -76,17 +76,17 @@ Azure AD B2C를 사용하려면 사용자 가입 및 로그인에 사용되고 I
 1. 왼쪽 메뉴의 **관리** 에서 **앱 등록 (레거시)** 를 선택 합니다.
 1. **새 애플리케이션 등록**을 선택합니다.
 1. **이름**에 `IdentityExperienceFramework`를 입력합니다.
-1. **응용 프로그램 종류**로 **웹앱/API**를 선택합니다.
+1. **애플리케이션 종류**로 **웹앱/API**를 선택합니다.
 1. **로그온 URL**에 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`을 입력합니다. 여기서 `your-tenant-name`은 Azure AD B2C 테넌트 도메인 이름입니다. 이제 모든 URL은 [b2clogin.com](b2clogin.md)을 사용해야 합니다.
-1. **만들기**를 클릭합니다. 생성된 응용 프로그램 ID를 복사한 후 나중에 사용할 수 있도록 저장합니다.
+1. **만들기**를 클릭합니다. 생성된 애플리케이션 ID를 복사한 후 나중에 사용할 수 있도록 저장합니다.
 
 ### <a name="register-the-proxyidentityexperienceframework-application"></a>ProxyIdentityExperienceFramework 애플리케이션 등록
 
 1. **앱 등록 (레거시)** 에서 **새 응용 프로그램 등록**을 선택 합니다.
 2. **이름**에 `ProxyIdentityExperienceFramework`를 입력합니다.
-3. **응용 프로그램 종류**로 **네이티브**를 선택합니다.
+3. **애플리케이션 종류**로 **네이티브**를 선택합니다.
 4. **리디렉션 URI**에 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`을 입력합니다. 여기서 `your-tenant-name`는 Azure AD B2C 테넌트입니다.
-5. **만들기**를 클릭합니다. 생성된 응용 프로그램 ID를 복사한 후 나중에 사용할 수 있도록 저장합니다.
+5. **만들기**를 클릭합니다. 생성된 애플리케이션 ID를 복사한 후 나중에 사용할 수 있도록 저장합니다.
 6. 설정 페이지에서 **필요한 권한**, **추가**를 차례로 선택합니다.
 7. **API 선택**을 선택 하 고 **IdentityExperienceFramework**를 검색 한 다음 선택을 클릭 **합니다.**
 9. **IdentityExperienceFramework 액세스** 옆의 확인란을 선택한 다음 **선택**, **완료**를 차례로 클릭합니다.

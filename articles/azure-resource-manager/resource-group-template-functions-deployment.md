@@ -285,7 +285,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ### <a name="remarks"></a>설명
 
-일반적으로 복잡한 값을 한 번만 구성하여 템플릿을 간소화하기 위해 변수를 사용합니다. 다음 예제에서는 저장소 계정에 대한 고유한 이름을 생성합니다.
+일반적으로 복잡한 값을 한 번만 구성하여 템플릿을 간소화하기 위해 변수를 사용합니다. 다음 예제에서는 스토리지 계정에 대한 고유한 이름을 생성합니다.
 
 ```json
 "variables": {

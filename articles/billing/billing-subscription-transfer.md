@@ -15,7 +15,7 @@ ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 7d41e32065e3de37eb8f01ab1b836040e7f57b12
 ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/08/2019
 ms.locfileid: "67657922"
@@ -93,7 +93,7 @@ Azure 구독의 청구 소유권을 수락한 경우에 다음 단계를 검토 
 1. 서비스 관리자, 공동 관리자 및 다른 RBAC 역할을 검토하고 업데이트합니다. 자세한 내용은 [Azure 구독 관리자 추가 또는 변경](billing-add-change-azure-subscription-administrator.md) 및 [RBAC 및 Azure Portal을 사용하여 액세스 관리](../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 1. 다음을 비롯한 이 구독의 서비스와 연결된 자격 증명을 업데이트합니다.
    1. 구독 리소스에 대한 관리자 권한을 사용자에게 부여하는 관리 인증서. 자세한 내용은 [Azure 용 관리 인증서 만들기 및 업로드](../cloud-services/cloud-services-certs-create.md)
-   1. 저장소와 같은 서비스에 대한 액세스 키. 자세한 내용은 [Azure Storage 계정 정보](../storage/common/storage-create-storage-account.md)를 참조하세요.
+   1. 스토리지와 같은 서비스에 대한 액세스 키. 자세한 내용은 [Azure Storage 계정 정보](../storage/common/storage-create-storage-account.md)를 참조하세요.
    1. Azure Virtual Machines 같은 서비스에 대한 원격 액세스 자격 증명.
 1. 파트너와 함께 작업하는 경우 이 구독에서 파트너 ID를 업데이트하는 것이 좋습니다. [Azure Portal](https://portal.azure.com)에서 파트너 ID를 업데이트할 수 있습니다. 자세한 내용은 참조 하세요. [Azure 계정에 파트너 ID 연결](billing-partner-admin-link-started.md)
 
@@ -177,7 +177,7 @@ Azure portal의 구독 이전이 아래에 나열 된 구독 유형에 사용할
 다른 Azure AD 테 넌 트, 모든 사용자, 그룹 및 가진 서비스 주체에서 계정에 구독을 양도할 경우 [역할 기반 액세스 (RBAC)](../role-based-access-control/overview.md) 구독에서 리소스를 관리 하는 액세스할 수 없게 합니다. 그러나 RBAC 액세스 권한이 더 이상, 경우에 포함 하는 일부 보안 메커니즘을 통해 구독에 대 한 액세스를 겪을 수 있습니다 이러한.
 
 * 구독 리소스에 대한 관리자 권한을 사용자에게 부여하는 관리 인증서. 자세한 내용은 [Azure용 관리 인증서 만들기 및 업로드](../cloud-services/cloud-services-certs-create.md)를 참조하세요.
-* 저장소와 같은 서비스에 대한 액세스 키. 자세한 내용은 [Azure 저장소 계정 정보](../storage/common/storage-create-storage-account.md)를 참조하세요.
+* 스토리지와 같은 서비스에 대한 액세스 키. 자세한 내용은 [Azure Storage 계정 정보](../storage/common/storage-create-storage-account.md)를 참조하세요.
 * Azure Virtual Machines 같은 서비스에 대한 원격 액세스 자격 증명.
 
 받는 사람을 제한, 해당 리소스에 액세스 하는 경우 서비스와 연결 된 암호를 업데이트 하는 중 것이 좋습니다. 다음 단계를 사용하여 대부분의 리소스를 업데이트할 수 있습니다.

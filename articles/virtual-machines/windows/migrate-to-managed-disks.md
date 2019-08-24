@@ -1,6 +1,6 @@
 ---
 title: Managed Disks로 Azure VM 마이그레이션 | Microsoft Docs
-description: 저장소 계정에서 관리되지 않는 디스크를 사용하여 만든 Azure 가상 머신을 마이그레이션하여 Managed Disks를 사용합니다.
+description: 스토리지 계정에서 관리되지 않는 디스크를 사용하여 만든 Azure 가상 머신을 마이그레이션하여 Managed Disks를 사용합니다.
 author: roygara
 ms.service: virtual-machines-windows
 ms.topic: conceptual
@@ -16,7 +16,7 @@ ms.locfileid: "68693492"
 ---
 # <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>Azure VM을 Azure의 Managed Disks로 마이그레이션
 
-Azure Managed Disks는 저장소 계정을 별도로 관리하지 않아도 되기 때문에 저장소 관리를 간소화합니다.  또한 기존 Azure VM을 Managed Disks에 마이그레이션하여 가용성 집합에서 VM의 안정성을 향상시킬 수 있습니다. 단일 실패 지점을 방지 하기 위해 가용성 집합에 있는 다른 Vm의 디스크가 서로 충분히 격리 되어 있는지 확인 합니다. 서로 다른 저장소 배율 단위(스탬프)인 자동 가용성 집합에서 다른 VM의 디스크를 자동으로 배치합니다. 그러면 하드웨어 및 소프트웨어 오류로 인해 발생한 단일 저장소 배율 단위 오류의 영향을 제한합니다.
+Azure Managed Disks는 스토리지 계정을 별도로 관리하지 않아도 되기 때문에 스토리지 관리를 간소화합니다.  또한 기존 Azure VM을 Managed Disks에 마이그레이션하여 가용성 집합에서 VM의 안정성을 향상시킬 수 있습니다. 단일 실패 지점을 방지 하기 위해 가용성 집합에 있는 다른 Vm의 디스크가 서로 충분히 격리 되어 있는지 확인 합니다. 서로 다른 스토리지 배율 단위(스탬프)인 자동 가용성 집합에서 다른 VM의 디스크를 자동으로 배치합니다. 그러면 하드웨어 및 소프트웨어 오류로 인해 발생한 단일 스토리지 배율 단위 오류의 영향을 제한합니다.
 필요에 따라 4가지 유형의 스토리지 옵션 중에 하나를 선택할 수 있습니다. 사용 가능한 디스크 유형에 대한 자세한 내용은 [디스크 유형 선택](disks-types.md) 문서를 참조하세요.
 
 ## <a name="migration-scenarios"></a>마이그레이션 시나리오

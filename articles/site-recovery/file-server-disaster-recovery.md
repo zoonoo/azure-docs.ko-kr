@@ -45,7 +45,7 @@ DFSR은 RDC(원격 차등 압축)라는 압축 알고리즘을 사용합니다. 
 
     * VM에 Site Recovery에서 지원되지 않는 구성이 있는 경우 이 방법을 사용할 수 있습니다. 예는 경우에 따라 일반적으로 파일 서버 환경에서 사용되는 공유 클러스터 디스크입니다. DFSR은 중간 변동률을 사용하여 대역폭이 낮은 환경에서도 잘 작동합니다. Azure VM을 사용하고 항상 실행하는 추가 비용을 고려해야 합니다. 
 
-* **Azure File Sync를 사용하여 파일 복제**: 클라우드를 사용하려는 경우 또는 Azure VM을 이미 사용하는 경우 Azure 파일 동기화를 사용할 수 있습니다. Azure 파일 동기화는 산업 표준 SMB([서버 메시지 블록](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)) 프로토콜을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유의 동기화를 제공합니다. Azure 파일 공유는 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포를 통해 동시에 탑재될 수 있습니다. 
+* **Azure 파일 동기화를 사용하여 파일 복제**: 클라우드를 사용하려는 경우 또는 Azure VM을 이미 사용하는 경우 Azure 파일 동기화를 사용할 수 있습니다. Azure 파일 동기화는 산업 표준 SMB([서버 메시지 블록](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)) 프로토콜을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유의 동기화를 제공합니다. Azure 파일 공유는 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포를 통해 동시에 탑재될 수 있습니다. 
 
 다음 다이어그램을 사용하여 파일 서버 환경에 사용할 전략을 결정할 수 있습니다.
 
@@ -97,7 +97,7 @@ Azure Files는 기존의 온-프레미스 파일 서버 또는 NAS 디바이스�
 
 다음 단계는 파일 동기화를 사용하는 방법을 간단하게 설명합니다.
 
-1. [Azure에서 저장소 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) 저장소 계정에 대해 읽기 액세스 지역 중복 저장소를 선택한 경우 재해 발생 시 보조 지역의 데이터에 대한 읽기 권한을 가집니다. 자세한 내용은 [Azure Storage에서 재해 복구 및 강제 장애 조치(Failover)(미리 보기)](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json)를 참조하세요.
+1. [Azure에서 스토리지 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) 스토리지 계정에 대해 읽기 액세스 지역 중복 스토리지를 선택한 경우 재해 발생 시 보조 지역의 데이터에 대한 읽기 권한을 가집니다. 자세한 내용은 [Azure Storage에서 재해 복구 및 강제 장애 조치(Failover)(미리 보기)](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json)를 참조하세요.
 2. [파일 공유 만들기](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 3. Azure 파일 서버에서 [파일 동기화를 시작합니다](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide).
 4. 동기화 그룹을 만듭니다. 동기화 그룹 내 엔드포인트는 서로 동기화된 상태를 유지합니다. 동기화 그룹은 Azure 파일 공유를 나타내는 하나 이상의 클라우드 엔드포인트를 포함해야 합니다. 또한 동기화 그룹은 Windows 서버의 경로를 나타내는 하나의 서버 엔드포인트를 포함해야 합니다.
@@ -146,7 +146,7 @@ Site Recovery와 파일 동기화를 통합하려면:
 
 파일 동기화를 사용하려면 다음 단계를 수행합니다.
 
-1. [Azure에서 저장소 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) 저장소 계정에 대해 읽기 액세스 지역 중복 저장소(권장)를 선택한 경우 재해 발생 시 보조 지역의 데이터에 대한 읽기 권한을 가집니다. 자세한 내용은 [Azure Storage에서 재해 복구 및 강제 장애 조치(Failover)(미리 보기)](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json)를 참조하세요.
+1. [Azure에서 스토리지 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) 스토리지 계정에 대해 읽기 액세스 지역 중복 스토리지(권장)를 선택한 경우 재해 발생 시 보조 지역의 데이터에 대한 읽기 권한을 가집니다. 자세한 내용은 [Azure Storage에서 재해 복구 및 강제 장애 조치(Failover)(미리 보기)](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json)를 참조하세요.
 2. [파일 공유 만들기](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 3. 온-프레미스 파일 서버에서 [파일 동기화를 배포합니다](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide).
 4. 동기화 그룹을 만듭니다. 동기화 그룹 내 엔드포인트는 서로 동기화된 상태를 유지합니다. 동기화 그룹은 Azure 파일 공유를 나타내는 하나 이상의 클라우드 엔드포인트를 포함해야 합니다. 또한 동기화 그룹은 온-프레미스 Windows 서버의 경로를 나타내는 하나의 서버 엔드포인트를 포함해야 합니다.

@@ -37,9 +37,9 @@ $workerrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "Worke
 New-AzureDeployment -ServiceName $service_name -Slot Production -Package $service_package -Configuration $service_config -ExtensionConfiguration @($webrole_diagconfig,$workerrole_diagconfig)
 ```
 
-진단 구성 파일이 저장소 계정 이름으로 `StorageAccount` 요소를 지정할 경우 `New-AzureServiceDiagnosticsExtensionConfig` cmdlet에서 해당 저장소 계정을 자동으로 사용합니다. 이렇게 작동하려면, 저장소 계정이 배포된 클라우드 서비스와 동일한 구독에 있어야 합니다.
+진단 구성 파일이 스토리지 계정 이름으로 `StorageAccount` 요소를 지정할 경우 `New-AzureServiceDiagnosticsExtensionConfig` cmdlet에서 해당 스토리지 계정을 자동으로 사용합니다. 이렇게 작동하려면, 스토리지 계정이 배포된 클라우드 서비스와 동일한 구독에 있어야 합니다.
 
-Azure SDK 2.6 이후부터 MSBuild 게시 대상 출력에 의해 생성된 확장 구성 파일은 서비스 구성 파일(.cscfg)에 지정된 진단 구성 문자열에 기반한 저장소 계정 이름을 포함합니다. 아래의 스크립트에서는 게시 대상 출력에서 확장 구성 파일을 구문 분석하고 클라우드 서비스를 배포할 때 각 역할에 대한 진단 확장을 구성하는 방법을 보여줍니다.
+Azure SDK 2.6 이후부터 MSBuild 게시 대상 출력에 의해 생성된 확장 구성 파일은 서비스 구성 파일(.cscfg)에 지정된 진단 구성 문자열에 기반한 스토리지 계정 이름을 포함합니다. 아래의 스크립트에서는 게시 대상 출력에서 확장 구성 파일을 구문 분석하고 클라우드 서비스를 배포할 때 각 역할에 대한 진단 확장을 구성하는 방법을 보여줍니다.
 
 ```powershell
 $service_name = "MyService"

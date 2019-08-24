@@ -30,7 +30,7 @@ ms.locfileid: "67720123"
 
 VM은 반드시 중지/할당 취소되어야 합니다. 그래야만 관리 디스크의 리소스 ID를 다른 관리 디스크의 리소스 ID로 바꿀 수 있습니다.
 
-VM 크기 및 저장소 유형이 연결할 디스크와 호환되어야 합니다. 예를 들어, 사용하려는 디스크가 Premium Storage에 있으면, VM이 Premium Storage를 지원할 수 있어야 합니다(예: DS 시리즈 크기). 
+VM 크기 및 스토리지 유형이 연결할 디스크와 호환되어야 합니다. 예를 들어, 사용하려는 디스크가 Premium Storage에 있으면, VM이 Premium Storage를 지원할 수 있어야 합니다(예: DS 시리즈 크기). 
 
 [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk)를 사용하여 리소스 그룹에서 디스크 목록 가져오기
 

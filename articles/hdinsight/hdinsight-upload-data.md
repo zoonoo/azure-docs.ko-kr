@@ -53,7 +53,7 @@ Microsoft는 Azure Storage에서 작업할 다음 유틸리티를 제공합니�
 
 Hadoop 명령을 사용 하려면 먼저 [SSH 또는 PuTTY](hdinsight-hadoop-linux-use-ssh-unix.md)를 사용 하 여 헤드 노드에 연결 해야 합니다.
 
-연결된 후에 저장소에 파일을 업로드하려면 다음 구문을 사용할 수 있습니다.
+연결된 후에 스토리지에 파일을 업로드하려면 다음 구문을 사용할 수 있습니다.
 
 ```bash
 hadoop fs -copyFromLocal <localFilePath> <storageFilePath>
@@ -72,7 +72,7 @@ HDInsight에 대 한 기본 파일 시스템은 Azure Storage 이므로 실제�
 파일로 작업하는 다른 Hadoop 명령의 목록은 [https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html)을 참조하세요.
 
 > [!WARNING]  
-> Apache HBase 클러스터에서 데이터 쓰기 시 사용되는 기본 블록 크기는 256KB입니다. HBase API 또는 REST API를 사용할 때는 잘 작동하는 반면 `hadoop` 또는 `hdfs dfs` 명령을 사용하여 12GB를 초과하는 데이터를 기록하면 오류가 발생합니다. 자세한 내용은 이 문서의 [Blob에서 쓰기를 위한 저장소 예외](#storageexception) 섹션을 참조하세요.
+> Apache HBase 클러스터에서 데이터 쓰기 시 사용되는 기본 블록 크기는 256KB입니다. HBase API 또는 REST API를 사용할 때는 잘 작동하는 반면 `hadoop` 또는 `hdfs dfs` 명령을 사용하여 12GB를 초과하는 데이터를 기록하면 오류가 발생합니다. 자세한 내용은 이 문서의 [Blob에서 쓰기를 위한 스토리지 예외](#storageexception) 섹션을 참조하세요.
 
 ## <a name="graphical-clients"></a>그래픽 클라이언트
 Azure Storage를 사용하기 위한 그래픽 인터페이스를 제공하는 몇몇 애플리케이션이 있습니다. 다음 테이블은 이러한 애플리케이션 중 일부의 목록입니다.
@@ -92,9 +92,9 @@ Azure Storage를 사용하기 위한 그래픽 인터페이스를 제공하는 �
 
 ## <a name="upload-using-services"></a>서비스를 사용하여 업로드
 ### <a name="azure-data-factory"></a>Azure Data Factory
-Azure 데이터 팩터리 서비스는 데이터 저장소, 처리 및 이동 서비스를 효율적이고 확장 가능하며 안정적인 데이터 프로덕션 파이프라인으로 구성하기 위한 완전히 관리되는 서비스입니다.
+Azure 데이터 팩터리 서비스는 데이터 스토리지, 처리 및 이동 서비스를 효율적이고 확장 가능하며 안정적인 데이터 프로덕션 파이프라인으로 구성하기 위한 완전히 관리되는 서비스입니다.
 
-|스토리지 형식|설명서|
+|스토리지 유형|설명서|
 |----|----|
 |Azure Blob 스토리지|[Azure Data Factory를 사용하여 Azure Blob Storage에(서) 데이터 복사](../data-factory/connector-azure-blob-storage.md)|
 |Azure Data Lake Storage Gen1|[Azure Data Factory를 사용하여 Azure Data Lake Storage Gen1에(서) 데이터 복사](../data-factory/connector-azure-data-lake-store.md)|
@@ -118,7 +118,7 @@ Azure Storage는 다음 프로그래밍 언어에서 Azure SDK를 사용하여 �
 Azure SDK 설치에 대한 자세한 내용은 [Azure 다운로드](https://azure.microsoft.com/downloads/)
 
 ## <a name="troubleshooting"></a>문제 해결
-### <a id="storageexception"></a>Blob에서 쓰기를 위한 저장소 예외
+### <a id="storageexception"></a>Blob에서 쓰기를 위한 스토리지 예외
 **증상**: `hadoop` 또는 `hdfs dfs` 명령을 사용하여 HBase 클러스터에12GB를 초과하는 데이터를 기록하면 다음 오류가 발생할 수 있습니다.
 
     ERROR azure.NativeAzureFileSystem: Encountered Storage Exception for write on Blob : example/test_large_file.bin._COPYING_ Exception details: null Error Code : RequestBodyTooLarge

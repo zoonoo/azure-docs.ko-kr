@@ -166,14 +166,14 @@ CLI 또는 Azure 포털을 사용하여 준비된 가상 머신에 대한 구성
 
     azure network vnet commit-migration <virtualNetworkName>
 
-## <a name="step-5-migrate-a-storage-account"></a>5단계: 저장소 계정 마이그레이션
-가상 머신 마이그레이션이 완료되면 저장소 계정을 마이그레이션하는 것이 좋습니다.
+## <a name="step-5-migrate-a-storage-account"></a>5단계: 스토리지 계정 마이그레이션
+가상 머신 마이그레이션이 완료되면 스토리지 계정을 마이그레이션하는 것이 좋습니다.
 
-다음 명령을 사용하여 마이그레이션을 위한 저장소 계정을 준비합니다.
+다음 명령을 사용하여 마이그레이션을 위한 스토리지 계정을 준비합니다.
 
     azure storage account prepare-migration <storageAccountName>
 
-CLI 또는 Azure 포털을 사용하여 준비된 저장소 계정에 대한 구성을 확인합니다. 마이그레이션할 준비가 되지 않았으며 이전 상태로 되돌아가려면 다음 명령을 사용합니다.
+CLI 또는 Azure 포털을 사용하여 준비된 스토리지 계정에 대한 구성을 확인합니다. 마이그레이션할 준비가 되지 않았으며 이전 상태로 되돌아가려면 다음 명령을 사용합니다.
 
     azure storage account abort-migration <storageAccountName>
 

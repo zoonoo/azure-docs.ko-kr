@@ -61,7 +61,7 @@ Azure AD 모니터링 및 보고를 배포 하려면 Azure AD 테 넌 트의 전
 
 로그 데이터의 최종 대상에 따라 다음 중 하나가 필요 합니다.
 
-* ListKeys 권한이 있는 Azure 저장소 계정입니다. Blob 저장소 계정이 아닌 일반 저장소 계정을 사용하는 것이 좋습니다. 스토리지 가격 책정 정보는 [Azure Storage 가격 계산기](https://azure.microsoft.com/pricing/calculator/?service=storage)를 참조하세요.
+* ListKeys 권한이 있는 Azure 저장소 계정입니다. Blob Storage 계정이 아닌 일반 스토리지 계정을 사용하는 것이 좋습니다. 스토리지 가격 책정 정보는 [Azure Storage 가격 계산기](https://azure.microsoft.com/pricing/calculator/?service=storage)를 참조하세요.
 
 * 타사 SIEM 솔루션과 통합할 Azure Event Hubs 네임 스페이스입니다.
 
@@ -117,7 +117,7 @@ Azure AD 모니터링을 사용 하 여 Azure AD 활동 로그를 비즈니스 �
 
 로그를 Azure storage 계정에 라우팅하여 [보존 정책](https://docs.microsoft.com/azure/active-directory/reports-monitoring/reference-reports-data-retention)에 설명 된 기본 보존 기간 보다 오래 유지할 수 있습니다. 로그를 보관 해야 하지만 SIEM 시스템과 통합 하지 않아도 되 고 진행 중인 쿼리 및 분석을 수행 하지 않아도 되는 경우이 방법을 사용 합니다. 요청 시 검색을 계속 수행할 수 있습니다.
 
-[데이터를 저장소 계정으로 라우팅](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account)하는 방법을 알아보세요.
+[데이터를 스토리지 계정으로 라우팅](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account)하는 방법을 알아보세요.
 
 #### <a name="send-logs-to-azure-monitor-logs"></a>Azure Monitor 로그에 로그 보내기
 

@@ -164,7 +164,7 @@ Python용 Azure 프로비저닝 디바이스 및 서비스 SDK:
 
 Azure IoT SDK는 개발을 도와주는 도구 집합도 제공합니다.
 * [iothub 진단](https://github.com/Azure/iothub-diagnostics): IoT Hub 연결 관련 문제를 진단할 수 있는 플랫폼 간 명령줄 도구입니다.
-* [장치 탐색기](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer): IoT Hub에 연결하는 Windows 데스크톱 애플리케이션입니다.
+* [디바이스 탐색기](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer): IoT Hub에 연결하는 Windows 데스크톱 애플리케이션입니다.
 
 Azure IoT SDK를 사용한 개발과 관련된 문서
 * IoT Hub 디바이스 SDK를 사용하여 [연결 및 신뢰할 수 있는 메시지를 관리하는 방법](iot-hub-reliability-features-in-sdks.md)에 대해 알아보세요.

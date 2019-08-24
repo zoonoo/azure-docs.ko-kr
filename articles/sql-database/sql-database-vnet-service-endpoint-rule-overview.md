@@ -13,7 +13,7 @@ ms.reviewer: vanto, genemi
 ms.date: 03/12/2019
 ms.openlocfilehash: 9b28a8efcc09954d9046ad1dda3ba5f10f45bdfa
 ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/06/2019
 ms.locfileid: "68840465"
@@ -163,7 +163,7 @@ Azure SQL Database 쿼리 편집기는 Azure의 VM에 배포됩니다. 이러한
 
 Azure SQL Database에는 Azure IP를 사용하여 데이터베이스에 연결하는 데이터 동기화 기능이 있습니다. 서비스 엔드포인트를 사용하는 경우 SQL Database 서버에 대한 **Azure 서비스의 서버 액세스 허용** 액세스 권한을 해제할 가능성이 높습니다. 이 경우 데이터 동기화 기능이 중단됩니다.
 
-## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Azure 저장소에서 VNet 서비스 엔드포인트 사용의 영향
+## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Azure Storage에서 VNet 서비스 엔드포인트 사용의 영향
 
 Azure Storage는 사용자가 Azure Storage 계정에 대한 연결성을 제한하도록 허용하는 동일한 기능을 구현했습니다. Azure SQL Server에서 사용 중인 Azure Storage 계정에서 이 기능을 사용하도록 선택한 경우 문제가 발생할 수 있습니다. 다음은 이로 인해 영향을 받는 Azure SQL Database 및 Azure SQL Data Warehouse 기능의 목록 및 논의 내용입니다.
 

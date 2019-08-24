@@ -55,15 +55,15 @@ Oracle Linux Server 6.10 [`*`], 7.3, 7.6, 7.5 (Oracle-Database-Ee 13.8 marketpla
 
     > [!NOTE]
     > 이 스크린샷에서 VM 이름의 블레이드가 숨겨집니다.
-1. 저장소 계정 선택(선택 사항)
+1. 스토리지 계정 선택(선택 사항)
 
-    여러 VM에 대한 성능 진단 결과를 저장하기 위해 단일 저장소 계정을 사용하려는 경우 도구 모음에서 **설정** 단추를 클릭하여 저장소 계정을 선택할 수 있습니다. 저장소 계정을 선택하면 **확인** 단추를 클릭합니다.
+    여러 VM에 대한 성능 진단 결과를 저장하기 위해 단일 스토리지 계정을 사용하려는 경우 도구 모음에서 **설정** 단추를 클릭하여 스토리지 계정을 선택할 수 있습니다. 스토리지 계정을 선택하면 **확인** 단추를 클릭합니다.
 
-    저장소 계정을 지정하지 않은 경우 기본적으로 새 저장소 계정이 만들어집니다.
+    스토리지 계정을 지정하지 않은 경우 기본적으로 새 스토리지 계정이 만들어집니다.
 
     ![설정 도구 모음 단추가 강조 표시된 성능 진단 블레이드의 스크린샷](media/performance-diagnostics/settings-button.png)
 
-    ![성능 진단 설정 블레이드에서 저장소 계정을 선택하는 스크린샷](media/performance-diagnostics/select-storage-account.png)
+    ![성능 진단 설정 블레이드에서 스토리지 계정을 선택하는 스크린샷](media/performance-diagnostics/select-storage-account.png)
 
 1. **성능 진단 설치** 단추를 선택합니다.
 1. 설치가 완료된 후 진단을 실행하려면 **진단 실행** 확인란을 선택합니다. 이 확인란을 선택하면 성능 분석 시나리오 및 관련 옵션을 선택할 수 있습니다.
@@ -107,7 +107,7 @@ Oracle Linux Server 6.10 [`*`], 7.3, 7.6, 7.5 (Oracle-Database-Ee 13.8 marketpla
 
 성능 진단이 설치를 시작하면 알림이 표시됩니다. 설치가 완료되면 성공적으로 설치되었음을 나타내는 알림이 표시됩니다. 그런 다음, 선택한 분석이 지정 기간 동안 실행됩니다. 이 기간은 정확한 시간에 진단 데이터를 캡처할 수 있도록 성능 문제를 재현하기에 적합합니다.
 
-분석이 완료되면 다음 항목을 Azure 테이블 및 지정된 저장소 계정의 BLOB(Binary Large Object) 컨테이너에 업로드합니다.
+분석이 완료되면 다음 항목을 Azure 테이블 및 지정된 스토리지 계정의 BLOB(Binary Large Object) 컨테이너에 업로드합니다.
 
 * 실행에 대한 모든 인사이트 및 관련 정보
 * Windows의 출력 압축 (.zip) 파일 ( **PerformanceDiagnostics_yyyy-MM-dd_hh-mm-ss-fff** ) 및 로그 파일을 포함 하는 Linux의 tar 구슬 파일 ( **PerformanceDiagnostics_yyyy-MM-dd_hh-mm-ss-fff. release.tar.gz** )
@@ -119,7 +119,7 @@ Oracle Linux Server 6.10 [`*`], 7.3, 7.6, 7.5 (Oracle-Database-Ee 13.8 marketpla
 
 ## <a name="how-to-change-performance-diagnostics-settings"></a>성능 진단 설정을 변경하는 방법
 
-**설정** 도구 모음 단추를 사용하여 진단 정보 및 출력을 저장할 수 있는 저장소 계정을 변경합니다. 성능 진단을 사용하는 여러 VM에 대해 동일한 저장소 계정을 사용할 수 있습니다. 저장소 계정을 변경하는 경우 이전 보고서 및 정보는 삭제되지 않습니다. 그러나 이전 보고서 및 정보는 진단 보고서 목록에 더 이상 표시되지 않습니다.
+**설정** 도구 모음 단추를 사용하여 진단 정보 및 출력을 저장할 수 있는 스토리지 계정을 변경합니다. 성능 진단을 사용하는 여러 VM에 대해 동일한 스토리지 계정을 사용할 수 있습니다. 스토리지 계정을 변경하는 경우 이전 보고서 및 정보는 삭제되지 않습니다. 그러나 이전 보고서 및 정보는 진단 보고서 목록에 더 이상 표시되지 않습니다.
 
 ## <a name="review-insights-and-performance-diagnostics-report"></a>인사이트 및 성능 진단 보고서 검토
 
@@ -155,7 +155,7 @@ Oracle Linux Server 6.10 [`*`], 7.3, 7.6, 7.5 (Oracle-Database-Ee 13.8 marketpla
 
 ## <a name="how-to-uninstall-performance-diagnostics"></a>성능 진단을 제거하는 방법
 
-VM에서 성능 진단을 제거할 수 있습니다. 이 작업을 통하면 VM 확장이 제거되지만 저장소 계정에 있는 모든 진단 데이터가 영향을 받지는 않습니다.
+VM에서 성능 진단을 제거할 수 있습니다. 이 작업을 통하면 VM 확장이 제거되지만 스토리지 계정에 있는 모든 진단 데이터가 영향을 받지는 않습니다.
 
 ![제거 단추가 강조 표시된 성능 진단 블레이드 도구 모음의 스크린샷](media/performance-diagnostics/uninstal-button.png)
 
@@ -163,21 +163,21 @@ VM에서 성능 진단을 제거할 수 있습니다. 이 작업을 통하면 VM
 
 ### <a name="where-is-the-diagnostics-data-from-my-vm-stored"></a>내 VM에서 진단 데이터를 저장 하는 위치
 
-모든 성능 진단 정보 및 보고서는 사용자 고유의 저장소 계정에 저장됩니다. 인사이트는 Azure 테이블 내에 저장됩니다. 보고서 압축 파일은 azdiagextnresults이라는 BLOB(Binary Large Object) 컨테이너에 저장됩니다.
+모든 성능 진단 정보 및 보고서는 사용자 고유의 스토리지 계정에 저장됩니다. 인사이트는 Azure 테이블 내에 저장됩니다. 보고서 압축 파일은 azdiagextnresults이라는 BLOB(Binary Large Object) 컨테이너에 저장됩니다.
 
-도구 모음에서 설정 단추를 사용하여 저장소 계정 정보를 볼 수 있습니다.
+도구 모음에서 설정 단추를 사용하여 스토리지 계정 정보를 볼 수 있습니다.
 
 ### <a name="how-do-i-share-this-data-with-microsoft-customer-support"></a>Microsoft 고객 지원 서비스와이 데이터를 공유 어떻게 할까요?
 
 Microsoft와 진단 보고서를 공유하는 방법은 여러 가지가 있습니다.
 
 **옵션 1:** 자동으로 최신 보고서 공유  
-Microsoft에서 지원 티켓을 여는 경우 성능 진단 보고서를 공유하는 것이 중요합니다. 진단을 실행하는 동안("**Microsoft와 진단 정보 공유에 동의합니다**" 확인란을 선택하여) Microsoft와 이 정보를 공유하려는 경우 Microsoft는 실행일로부터 최대 30일 동안 출력 Zip 파일에 대한 SAS 링크를 사용하여 저장소에서 보고서에 액세스할 수 있습니다. 지원 엔지니어에게는 최신 보고서만 제공됩니다.
+Microsoft에서 지원 티켓을 여는 경우 성능 진단 보고서를 공유하는 것이 중요합니다. 진단을 실행하는 동안(&quot;**Microsoft와 진단 정보 공유에 동의합니다**&quot; 확인란을 선택하여) Microsoft와 이 정보를 공유하려는 경우 Microsoft는 실행일로부터 최대 30일 동안 출력 Zip 파일에 대한 SAS 링크를 사용하여 스토리지에서 보고서에 액세스할 수 있습니다. 지원 엔지니어에게는 최신 보고서만 제공됩니다.
 
 **옵션 2:** 진단 보고서 압축 파일에 대 한 공유 액세스 서명 생성  
 공유 액세스 서명을 사용하여 보고서 압축 파일에 대한 링크를 공유할 수 있습니다. 이렇게 하려면 다음 단계를 수행합니다.
 
-1. Azure Portal에서 진단 데이터 저장되는 저장소 계정으로 이동합니다.
+1. Azure Portal에서 진단 데이터 저장되는 스토리지 계정으로 이동합니다.
 1. **Blob 서비스** 섹션에서 **Blob**을 선택합니다.
 1. **azdiagextnresults** 컨테이너를 선택합니다.
 1. 공유하려는 성능 진단 출력 압축 파일을 선택합니다.

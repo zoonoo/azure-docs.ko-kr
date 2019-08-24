@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos DB에서 성능 및 스토리지 메트릭 모니터링
-description: '성능 메트릭(예: 요청 및 서버 오류) 및 사용 메트릭(예: 저장소 사용)에 대해 Azure Cosmos DB 계정을 모니터링하는 방법을 알아봅니다.'
+description: '성능 메트릭(예: 요청 및 서버 오류) 및 사용 메트릭(예: 스토리지 사용)에 대해 Azure Cosmos DB 계정을 모니터링하는 방법을 알아봅니다.'
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -16,7 +16,7 @@ ms.locfileid: "68855717"
 ---
 # <a name="monitor-performance-and-storage-metrics-in-azure-cosmos-db"></a>Azure Cosmos DB에서 성능 및 스토리지 메트릭 모니터링
 
-[Azure Portal](https://portal.azure.com/)에서 Azure Cosmos DB 계정을 모니터링할 수 있습니다. 각 Azure Cosmos DB 계정의 경우 처리량, 저장소, 가용성, 대기 시간 및 일관성을 모니터링하는 데 메트릭의 전체 도구 모음을 사용할 수 있습니다.
+[Azure Portal](https://portal.azure.com/)에서 Azure Cosmos DB 계정을 모니터링할 수 있습니다. 각 Azure Cosmos DB 계정의 경우 처리량, 스토리지, 가용성, 대기 시간 및 일관성을 모니터링하는 데 메트릭의 전체 도구 모음을 사용할 수 있습니다.
 
 계정 페이지, 새 메트릭 페이지 또는 Azure Monitor에서 메트릭을 검토할 수 있습니다.
 
@@ -25,7 +25,7 @@ ms.locfileid: "68855717"
 2. 새 페이지가 로드되면 리소스 메뉴의 **모니터링**에서 **메트릭**을 클릭합니다.
 3. 메트릭 페이지가 열리면 **컬렉션** 드롭다운에서 검토할 컬렉션을 선택합니다.
 
-   Azure Portal에 사용할 수 있는 컬렉션 메트릭의 도구 모음이 표시됩니다. 처리량, 저장소, 가용성, 대기 시간 및 일관성 메트릭은 별도 탭에 제공됨을 유의하세요. 메트릭에 제공되는 추가 세부 정보를 가져오려면 각 메트릭 창의 오른쪽 위에 있는 이중 화살표를 클릭합니다.
+   Azure Portal에 사용할 수 있는 컬렉션 메트릭의 도구 모음이 표시됩니다. 처리량, 스토리지, 가용성, 대기 시간 및 일관성 메트릭은 별도 탭에 제공됨을 유의하세요. 메트릭에 제공되는 추가 세부 정보를 가져오려면 각 메트릭 창의 오른쪽 위에 있는 이중 화살표를 클릭합니다.
 
    ![메트릭 도구 모음을 보여 주는 모니터링 렌즈의 스크린샷](./media/monitor-accounts/metrics-suite.png)
 
@@ -41,7 +41,7 @@ ms.locfileid: "68855717"
 2. **모니터링** 렌즈에는 기본적으로 다음 타일이 표시됩니다.
    
    * 오늘의 총 요청 수
-   * 사용된 저장소.
+   * 사용된 스토리지.
    
    ![요청 및 저장소 사용량을 보여 주는 모니터링 렌즈의 스크린샷](./media/monitor-accounts/documentdb-total-requests-and-usage.png)
 3. **요청** 타일의 오른쪽 위에 있는 이중 화살표를 클릭하면 자세한 **메트릭** 페이지가 열립니다.
@@ -68,7 +68,7 @@ ms.locfileid: "68855717"
      ![경고 규칙 추가 페이지의 스크린샷](./media/monitor-accounts/madocdb12.png)
 
 ## <a name="monitor-azure-cosmos-db-programmatically"></a>프로그래밍 방식으로 Azure Cosmos DB 모니터링
-포털에서 제공되는 계정 수준 메트릭(예: 계정 저장소 사용 및 총 요청)은 SQL API를 통해 사용할 수 없습니다. 그러나 SQL API를 사용하여 컬렉션 수준에서 사용 데이터를 검색할 수 있습니다. 컬렉션 수준 데이터를 검색하려면 다음을 수행합니다.
+포털에서 제공되는 계정 수준 메트릭(예: 계정 스토리지 사용 및 총 요청)은 SQL API를 통해 사용할 수 없습니다. 그러나 SQL API를 사용하여 컬렉션 수준에서 사용 데이터를 검색할 수 있습니다. 컬렉션 수준 데이터를 검색하려면 다음을 수행합니다.
 
 * REST API를 사용하려면 [컬렉션에 대해 GET을 수행](https://msdn.microsoft.com/library/mt489073.aspx)합니다. 컬렉션에 대한 할당량 및 사용량 정보는 응답의 x-ms-resource-quota 및 x-ms-resource-usage 헤더에서 반환됩니다.
 * .NET SDK를 사용하려면 [DocumentClient.ReadDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.readdocumentcollectionasync.aspx) 메서드를 사용합니다. 이 메서드는 **CollectionSizeUsage**, **DatabaseUsage**, **DocumentUsage** 등의 여러 사용량 속성이 포함된 [ResourceResponse](https://msdn.microsoft.com/library/dn799209.aspx)를 반환합니다.

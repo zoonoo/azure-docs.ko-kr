@@ -202,7 +202,7 @@ ms.locfileid: "67620516"
 ## <a name="report-total-time-for-each-car"></a>각 자동차에 대한 총 시간 보고
 자동차가 요금소를 통과하는 데 필요한 평균 시간은 프로세스의 효율성과 고객 경험을 평가하는 데 도움이 됩니다.
 
-총 시간을 확인하려면 ExitTime 스트림과 EntryTime 스트림을 조인합니다. 동일하게 일치하는 TollId 및 LicencePlate 열에서 두 개의 입력 스트림을 조인합니다. **JOIN** 연산자에서는 조인된 이벤트 간에 허용할 수 있는 시간 차이를 설명하는 일시적인 시간 여유를 지정해야 합니다. **DATEDIFF** 함수를 사용하여 이벤트 사이의 간격이 15분 이하가 되도록 지정합니다. **DATEDIFF** 함수를 진출과 진입 시간에 적용하여 차량이 요금소에서 사용하는 실제 시간을 계산합니다. **SELECT** 문에서 **DATEDIFF**를 사용할 때 **JOIN** 조건에서 사용하는 것에 비해 어떤 차이가 있는지 적어둡니다.
+총 시간을 확인하려면 ExitTime 스트림과 EntryTime 스트림을 조인합니다. 동일하게 일치하는 TollId 및 LicencePlate 열에서 두 개의 입력 스트림을 조인합니다. **JOIN** 연산자에서는 조인된 이벤트 간에 허용할 수 있는 시간 차이를 설명하는 일시적인 시간 여유를 지정해야 합니다. **DATEDIFF** 함수를 사용하여 이벤트 사이의 간격이 15분 이하가 되도록 지정합니다. **DATEDIFF** 함수를 진출과 진입 시간에 적용하여 차량이 요금소에서 사용하는 실제 시간을 컴퓨팅합니다. **SELECT** 문에서 **DATEDIFF**를 사용할 때 **JOIN** 조건에서 사용하는 것에 비해 어떤 차이가 있는지 적어둡니다.
 
 ```sql
 SELECT EntryStream.TollId, EntryStream.EntryTime, ExitStream.ExitTime, EntryStream.LicensePlate, DATEDIFF (minute, EntryStream.EntryTime, ExitStream.ExitTime) AS DurationInMinutes
@@ -309,7 +309,7 @@ GROUP BY TUMBLINGWINDOW(minute,3), TollId, PartitionId
 5. 추가 규모 조정을 보여주는 스트리밍 작업을 **시작**합니다. Azure Stream Analytics에서는 추가 컴퓨팅 리소스에 작업을 분산하고 더 많은 처리량을 달성할 뿐만 아니라 PARTITION BY 절에 지정된 열을 사용하여 리소스에 작업을 분할합니다.
 
 ## <a name="monitor-the-job"></a>작업 모니터링
-**모니터링** 영역에는 실행 중인 작업에 대한 통계가 들어 있습니다. 동일한 지역에서 저장소 계정을 사용하는 데 처음으로 구성이 필요합니다(이 문서의 나머지 부분과 같은 이름 toll).
+**모니터링** 영역에는 실행 중인 작업에 대한 통계가 들어 있습니다. 동일한 지역에서 스토리지 계정을 사용하는 데 처음으로 구성이 필요합니다(이 문서의 나머지 부분과 같은 이름 toll).
 
 ![Azure Stream Analytics 작업 모니터링](media/stream-analytics-build-an-iot-solution-using-stream-analytics/stream-analytics-job-monitoring.png)
 

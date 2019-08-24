@@ -28,14 +28,14 @@ ms.locfileid: "68323395"
 이 문서에 설명된 단계를 진행하기 전에 [Azure Batch 기술 개요](batch-technical-overview.md)를 읽어 보시기 바랍니다.
 
 ## <a name="the-tutorial-scenario"></a>자습서 시나리오
-일괄 처리 워크플로 시나리오를 살펴보겠습니다. Azure Blob Storage 컨테이너에서 모든 csv 파일을 다운로드하여 JSON으로 변환하는 Python으로 작성된 간단한 스크립트가 있습니다. 여러 저장소 계정 컨테이너를 병렬로 처리하려면 스크립트를 Azure Batch 작업으로 배포하면 됩니다.
+일괄 처리 워크플로 시나리오를 살펴보겠습니다. Azure Blob Storage 컨테이너에서 모든 csv 파일을 다운로드하여 JSON으로 변환하는 Python으로 작성된 간단한 스크립트가 있습니다. 여러 스토리지 계정 컨테이너를 병렬로 처리하려면 스크립트를 Azure Batch 작업으로 배포하면 됩니다.
 
 ## <a name="azure-batch-architecture"></a>Azure Batch 아키텍처
 다음 다이어그램은 Azure Batch 및 Node.js 클라이언트를 사용하여 Python 스크립트를 확장하는 방법을 보여 줍니다.
 
 ![Azure Batch 시나리오](./media/batch-nodejs-get-started/BatchScenario.png)
 
-Node.js 클라이언트는 저장소 계정에 있는 컨테이너의 수에 따라 준비 작업(나중에 자세히 설명)과 작업 집합을 사용하여 일괄 처리 작업을 배포합니다. GitHub 리포지토리에서 스크립트를 다운로드할 수 있습니다.
+Node.js 클라이언트는 스토리지 계정에 있는 컨테이너의 수에 따라 준비 작업(나중에 자세히 설명)과 작업 집합을 사용하여 일괄 처리 작업을 배포합니다. GitHub 리포지토리에서 스크립트를 다운로드할 수 있습니다.
 
 * [Node.js 클라이언트](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/nodejs_batch_client_sample.js)
 * [준비 작업 셸 스크립트](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/startup_prereq.sh)

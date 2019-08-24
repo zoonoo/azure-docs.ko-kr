@@ -78,8 +78,8 @@ ms.locfileid: "68639708"
 |Hyper-v 호스트-MABS 보호 에이전트 (hyper-v 호스트 서버, 클러스터 또는 VM)|Windows Server 2012 - Datacenter 및 Standard|물리적 서버<br /><br />온-프레미스 Hyper-V 가상 머신|Y|Y|보호: Hyper-V 컴퓨터, CSV(클러스터 공유 볼륨)<br /><br />복구: 가상 머신, 파일 및 폴더의 항목 수준 복구, 볼륨, 가상 하드 드라이브|
 |Hyper-v 호스트-MABS 보호 에이전트 (hyper-v 호스트 서버, 클러스터 또는 VM)|Windows Server 2008 R2 SP1 - Enterprise 및 Standard|물리적 서버<br /><br />온-프레미스 Hyper-V 가상 머신|Y|Y|보호: Hyper-V 컴퓨터, CSV(클러스터 공유 볼륨)<br /><br />복구: 가상 머신, 파일 및 폴더의 항목 수준 복구, 볼륨, 가상 하드 드라이브|
 |Hyper-v 호스트-MABS 보호 에이전트 (hyper-v 호스트 서버, 클러스터 또는 VM)|Windows Server 2008 SP2|물리적 서버<br /><br />온-프레미스 Hyper-V 가상 머신|N|N|보호: Hyper-V 컴퓨터, CSV(클러스터 공유 볼륨)<br /><br />복구: 가상 머신, 파일 및 폴더의 항목 수준 복구, 볼륨, 가상 하드 드라이브|
-|VMware VM|VMware vCenter/vSphere ESX/ESXi License 버전 5.5/6.0/6.5 |물리적 서버, <br/>온-프레미스 Hyper-V VM, <br/> VMWare의 Windows VM|Y|Y|클러스터 공유 볼륨(CSVs), NFS 및 SAN 저장소의 VMware VM<br /> 파일 및 폴더의 항목 수준 복구는 Windows VM에만 사용 가능하며, VMware vApps는 지원되지 않습니다.|
-|VMware VM|[VMware vSphere 라이선스 버전 6.7](backup-azure-backup-server-vmware.md#vmware-vsphere-67) |물리적 서버, <br/>온-프레미스 Hyper-V VM, <br/> VMWare의 Windows VM|Y|N|클러스터 공유 볼륨(CSVs), NFS 및 SAN 저장소의 VMware VM<br /> 파일 및 폴더의 항목 수준 복구는 Windows VM에만 사용 가능하며, VMware vApps는 지원되지 않습니다.|
+|VMware VM|VMware vCenter/vSphere ESX/ESXi License 버전 5.5/6.0/6.5 |물리적 서버, <br/>온-프레미스 Hyper-V VM, <br/> VMWare의 Windows VM|Y|Y|클러스터 공유 볼륨(CSVs), NFS 및 SAN 스토리지의 VMware VM<br /> 파일 및 폴더의 항목 수준 복구는 Windows VM에만 사용 가능하며, VMware vApps는 지원되지 않습니다.|
+|VMware VM|[VMware vSphere 라이선스 버전 6.7](backup-azure-backup-server-vmware.md#vmware-vsphere-67) |물리적 서버, <br/>온-프레미스 Hyper-V VM, <br/> VMWare의 Windows VM|Y|N|클러스터 공유 볼륨(CSVs), NFS 및 SAN 스토리지의 VMware VM<br /> 파일 및 폴더의 항목 수준 복구는 Windows VM에만 사용 가능하며, VMware vApps는 지원되지 않습니다.|
 |Linux|Hyper-V 또는 VMware 게스트로 실행되는 Linux|물리적 서버, <br/>온-프레미스 Hyper-V VM, <br/> VMWare의 Windows VM|Y|Y|Hyper-V는 Windows Server 2012 R2 또는 Windows Server 2016에서 실행되어야 합니다. 보호: 전체 가상 머신<br /><br />복구: 전체 가상 머신 <br/><br/> 지원되는 Linux 배포 및 버전의 전체 목록은 [Azure 보증 배포판의 Linux](../virtual-machines/linux/endorsed-distros.md)를 참조하세요.|
 
 ## <a name="azure-expressroute-support"></a>Azure Express 경로 지원

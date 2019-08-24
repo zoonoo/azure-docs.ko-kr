@@ -47,7 +47,7 @@ Always Encrypted는 클라이언트와 서버 사이의 이동 중에, 그리고
 ## <a name="create-a-blank-sql-database"></a>빈 SQL 데이터베이스 만들기
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. **리소스 만들기** > **데이터 + 저장소** > **SQL Database**로 이동합니다.
+2. **리소스 만들기** > **데이터 + 스토리지** > **SQL Database**로 이동합니다.
 3. 새 서버 또는 기존 서버에 **클리닉**이라는 **빈** 데이터베이스를 만듭니다. Azure Portal에서 데이터베이스를 만드는 자세한 지침은 [첫 번째 Azure SQL 데이터베이스](sql-database-single-database-get-started.md)를 참조하세요.
 
     ![빈 데이터베이스 만들기](./media/sql-database-always-encrypted/create-database.png)

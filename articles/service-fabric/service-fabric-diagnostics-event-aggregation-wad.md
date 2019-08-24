@@ -43,7 +43,7 @@ Azure Service Fabric 클러스터를 실행할 때 모든 노드의 로그를 �
 * [Azure Resource Manager 템플릿](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="service-fabric-platform-events"></a>Service Fabric 플랫폼 이벤트
-Service Fabric은 몇 가지 [기본 로깅 채널](service-fabric-diagnostics-event-generation-infra.md)을 제공하며, 다음 채널은 확장을 사용하여 모니터링 및 진단 데이터를 저장소 테이블이나 다른 곳에 보내도록 사전 구성되어 있습니다.
+Service Fabric은 몇 가지 [기본 로깅 채널](service-fabric-diagnostics-event-generation-infra.md)을 제공하며, 다음 채널은 확장을 사용하여 모니터링 및 진단 데이터를 스토리지 테이블이나 다른 곳에 보내도록 사전 구성되어 있습니다.
   * [작업 이벤트](service-fabric-diagnostics-event-generation-operational.md): Service Fabric 플랫폼이 수행하는 상위 수준 작업입니다. 애플리케이션 및 서비스 만들기, 노드 상태 변경, 업그레이드 정보 등을 예로 들 수 있습니다. 이러한 이벤트를 ETW(Windows용 이벤트 추적) 로그로 내보냅니다.
   * [Reliable Actors 프로그래밍 모델 이벤트](service-fabric-reliable-actors-diagnostics.md)
   * [Reliable Services 프로그래밍 모델 이벤트](service-fabric-reliable-services-diagnostics.md)
@@ -79,7 +79,7 @@ Resource Manager 템플릿에서 진단 설정을 표시하려면 azuredeploy.js
 ### <a name="add-the-diagnostics-extension-to-an-existing-cluster"></a>기존 클러스터에 진단 확장 추가
 진단이 배포되지 않은 기존 클러스터가 있는 경우 클러스터 템플릿을 통해 기존 클러스터를 추가하거나 업데이트할 수 있습니다. 기존 클러스터를 만드는 데 사용되는 Resource Manager 템플릿을 수정하거나 앞의 설명대로 포털에서 템플릿을 다운로드합니다. 다음 작업을 수행하여 template.json 파일을 수정합니다.
 
-리소스 섹션에 추가하여 새 저장소 리소스를 템플릿에 추가합니다.
+리소스 섹션에 추가하여 새 스토리지 리소스를 템플릿에 추가합니다.
 
 ```json
 {
@@ -98,7 +98,7 @@ Resource Manager 템플릿에서 진단 설정을 표시하려면 azuredeploy.js
 },
 ```
 
- 저장소 계정 정의 바로 뒤 `supportLogStorageAccountName` 사이의 매개 변수 섹션에 추가합니다. 자리 표시자 텍스트 *storage account name goes here*를 원하는 스토리지 계정의 이름으로 바꿉니다.
+ 스토리지 계정 정의 바로 뒤 `supportLogStorageAccountName` 사이의 매개 변수 섹션에 추가합니다. 자리 표시자 텍스트 *storage account name goes here*를 원하는 스토리지 계정의 이름으로 바꿉니다.
 
 ```json
     "applicationDiagnosticsStorageAccountType": {
@@ -191,7 +191,7 @@ template.json 파일을 설명대로 수정한 후에는 Resource Manager 템플
 >},
 >```
 
-### <a name="update-storage-quota"></a>저장소 할당량 업데이트
+### <a name="update-storage-quota"></a>스토리지 할당량 업데이트
 
 확장으로 채워진 테이블은 할당량에 도달할 때까지 계속 확장되므로 할당량 크기를 줄이는 방안을 고려해 볼 수 있습니다. 기본값은 50GB이며 `DiagnosticMonitorConfiguration` 아래의 `overallQuotaInMB` 필드에 있는 템플릿에서 구성할 수 있습니다.
 
@@ -226,7 +226,7 @@ template.json 파일을 설명대로 수정한 후에는 Resource Manager 템플
   ```
 
 >[!NOTE]
->이 채널에는 많은 이벤트가 있으므로 이 상세 채널에서 이벤트 수집을 설정하면 많은 추적이 빠르게 생성되어 저장소 용량을 소비할 수 있습니다. 반드시 필요한 경우에만 이 옵션을 설정하세요.
+>이 채널에는 많은 이벤트가 있으므로 이 상세 채널에서 이벤트 수집을 설정하면 많은 추적이 빠르게 생성되어 스토리지 용량을 소비할 수 있습니다. 반드시 필요한 경우에만 이 옵션을 설정하세요.
 
 
 **기본 작동 채널**을 사용하도록 설정하려면 노이즈가 가장 적은 포괄적인 로깅을 사용하는 것이 좋습니다. 템플릿의 `WadCfg`에 있는 `EtwManifestProviderConfiguration`은 다음과 같습니다.

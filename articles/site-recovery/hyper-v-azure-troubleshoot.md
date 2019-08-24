@@ -63,11 +63,11 @@ Hyper-V VM에 대해 보호를 사용하도록 설정할 경우 문제가 발생
 
 1. 사용자 환경에 대역폭 제약 또는 제한 문제가 있는지 [확인](https://support.microsoft.com/help/3056159/how-to-manage-on-premises-to-azure-protection-network-bandwidth-usage)합니다.
 2. [Deployment Planner 프로파일러](hyper-v-deployment-planner-run.md)를 실행합니다.
-3. 프로파일러를 실행한 후 [대역폭](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) 및 [저장소](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation) 권장 사항을 따릅니다.
+3. 프로파일러를 실행한 후 [대역폭](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) 및 [스토리지](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation) 권장 사항을 따릅니다.
 4. [데이터 변동 제한 사항](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits)을 확인합니다. VM에서 높은 데이터 변동이 확인되면 다음을 수행합니다.
    - VM이 재동기화용으로 표시되어 있는지 여부를 확인합니다.
    - [이 단계](https://blogs.technet.microsoft.com/virtualization/2014/02/02/hyper-v-replica-debugging-why-are-very-large-log-files-generated/)에 따라 변동의 원본을 조사합니다.
-   - HRL 로그 파일이 사용 가능한 디스크 공간의 50%를 초과하면 변동이 발생할 수 있습니다. 이것이 문제인 경우 문제가 발생하는 모든 VM에 대해 더 많은 저장소 공간을 프로비전합니다.
+   - HRL 로그 파일이 사용 가능한 디스크 공간의 50%를 초과하면 변동이 발생할 수 있습니다. 이것이 문제인 경우 문제가 발생하는 모든 VM에 대해 더 많은 스토리지 공간을 프로비전합니다.
    - 복제가 일시 중지되지 않았는지 확인합니다. 일시 중지된 경우 HRL 파일에 변경 내용이 계속 써지므로 파일 크기가 커질 수 있습니다.
  
 
@@ -114,10 +114,10 @@ Hyper-V VM에 대해 보호를 사용하도록 설정할 경우 문제가 발생
         - 범주: “Hyper-V 가상 스토리지 디바이스”
         - 카운터: “쓰기 바이트/초”</br>
         - 이 데이터 변동률은 VM 및 해당 앱의 작업량에 따라 증가하거나 높은 수준을 유지합니다.
-        - 평균 원본 디스크 데이터 변동은 Site Recovery용 표준 저장소에 대해 2MB/s입니다. [자세히 알아보기](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits)
-    - 또한 [저장소 확장성 목표를 확인](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets)할 수 있습니다.
+        - 평균 원본 디스크 데이터 변동은 Site Recovery용 표준 스토리지에 대해 2MB/s입니다. [자세히 알아보기](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits)
+    - 또한 [스토리지 확장성 목표를 확인](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets)할 수 있습니다.
 8. [Deployment Planner](hyper-v-deployment-planner-run.md)를 실행합니다.
-9. [네트워크](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) 및 [저장소](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input)에 대한 권장 사항을 검토합니다.
+9. [네트워크](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) 및 [스토리지](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input)에 대한 권장 사항을 검토합니다.
 
 
 ### <a name="vss-failing-inside-the-hyper-v-host"></a>Hyper-V 호스트 내부의 VSS 실패

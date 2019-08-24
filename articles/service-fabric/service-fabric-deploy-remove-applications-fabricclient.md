@@ -98,7 +98,7 @@ Visual Studio에서 *MyApplication*이라는 애플리케이션을 빌드하고 
 > 이 작업은 되돌릴 수 없으며 애플리케이션 상태는 복구할 수 없습니다.
 
 ## <a name="unregister-an-application-type"></a>애플리케이션 유형 등록 취소
-특정 버전의 애플리케이션 형식이 더 이상 필요하지 않으면 [Unregister-ServiceFabricApplicationType](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.unprovisionapplicationasync) API를 사용하여 해당 애플리케이션 형식의 버전을 등록 취소해야 합니다. 사용하지 않는 애플리케이션 형식의 버전을 등록 취소하면 이미지 저장소에서 사용하는 저장 공간이 해제됩니다. 응용 프로그램 유형의 버전은 해당 응용 프로그램 유형의 해당 버전에 대해 인스턴스화되지 않은 응용 프로그램이 없는 한 등록 취소할 수 있습니다. 또한 응용 프로그램 유형은 보류 중인 응용 프로그램에서 해당 버전의 응용 프로그램을 참조 하는 업그레이드를 포함할 수 없습니다.
+특정 버전의 애플리케이션 형식이 더 이상 필요하지 않으면 [Unregister-ServiceFabricApplicationType](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.unprovisionapplicationasync) API를 사용하여 해당 애플리케이션 형식의 버전을 등록 취소해야 합니다. 사용하지 않는 애플리케이션 형식의 버전을 등록 취소하면 이미지 스토리지에서 사용하는 저장 공간이 해제됩니다. 응용 프로그램 유형의 버전은 해당 응용 프로그램 유형의 해당 버전에 대해 인스턴스화되지 않은 응용 프로그램이 없는 한 등록 취소할 수 있습니다. 또한 응용 프로그램 유형은 보류 중인 응용 프로그램에서 해당 버전의 응용 프로그램을 참조 하는 업그레이드를 포함할 수 없습니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 ### <a name="copy-servicefabricapplicationpackage-asks-for-an-imagestoreconnectionstring"></a>Copy-ServiceFabricApplicationPackage가 ImageStoreConnectionString을 요청함
@@ -137,7 +137,7 @@ ImageStoreConnectionString은 클러스터 매니페스트에 있습니다.
 - [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) 메서드에 `timeout` 매개 변수를 사용하여 더 긴 시간 제한을 지정합니다. 기본적으로 시간 제한은 30분입니다.
 - 원본 컴퓨터와 클러스터 간의 네트워크 연결을 확인합니다. 연결 속도가 느린 경우 네트워크 연결 상태가 좋은 컴퓨터를 사용하는 것이 좋습니다.
 클라이언트 컴퓨터가 클러스터가 아닌 다른 지역에 있는 경우 해당 클러스터와 가깝거나 동일한 지역에 있는 클라이언트 컴퓨터를 사용하는 것이 좋습니다.
-- 외부 제한에 도달하고 있는지 확인합니다. 예를 들어 Azure 저장소를 사용하도록 이미지 저장소를 구성한 경우 업로드가 제한될 수 있습니다.
+- 외부 제한에 도달하고 있는지 확인합니다. 예를 들어 Azure Storage를 사용하도록 이미지 스토리지를 구성한 경우 업로드가 제한될 수 있습니다.
 
 문제: 패키지 업로드가 성공적으로 완료 되었지만 [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) API 시간이 초과 되었습니다. 다음을 시도해 보세요.
 - 이미지 저장소에 복사하기 전에 [패키지를 압축합니다](service-fabric-package-apps.md#compress-a-package).

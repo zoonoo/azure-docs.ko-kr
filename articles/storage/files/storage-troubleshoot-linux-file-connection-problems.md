@@ -58,7 +58,7 @@ ms.locfileid: "68699195"
 
 ### <a name="cause-1-unencrypted-communication-channel"></a>원인 1: 암호화되지 않은 통신 채널
 
-보안상 이유로, 통신 채널이 암호화되지 않고 Azure 파일 공유가 있는 같은 데이터 센터에서 연결 시도가 이루어지지 않을 경우 Azure 파일 공유에 대한 연결이 차단됩니다. 저장소 계정에서 [보안 전송 필요](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) 설정을 사용하도록 설정한 경우에도 동일한 데이터 센터 내의 암호화되지 않은 연결을 차단할 수 있습니다. 사용자의 클라이언트 OS가 SMB 암호화를 지원하는 경우에만 암호화된 통신 채널이 제공됩니다.
+보안상 이유로, 통신 채널이 암호화되지 않고 Azure 파일 공유가 있는 같은 데이터 센터에서 연결 시도가 이루어지지 않을 경우 Azure 파일 공유에 대한 연결이 차단됩니다. 스토리지 계정에서 [보안 전송 필요](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) 설정을 사용하도록 설정한 경우에도 동일한 데이터 센터 내의 암호화되지 않은 연결을 차단할 수 있습니다. 사용자의 클라이언트 OS가 SMB 암호화를 지원하는 경우에만 암호화된 통신 채널이 제공됩니다.
 
 자세한 내용은 [Linux 및 cifs-utils 패키지와 함께 Azure 파일 공유를 탑재하기 위한 필수 조건](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-linux#prerequisites-for-mounting-an-azure-file-share-with-linux-and-the-cifs-utils-package)을 참조하세요. 
 
@@ -211,7 +211,7 @@ COPYFILE에서 force 플래그 **f**로 인해 Unix에서 **cp -p -f**가 실행
 
 ### <a name="workaround"></a>해결 방법
 
-파일 복사를 위해 저장소 계정 사용자를 사용합니다.
+파일 복사를 위해 스토리지 계정 사용자를 사용합니다.
 
 - `Useadd : [storage account name]`
 - `Passwd [storage account name]`

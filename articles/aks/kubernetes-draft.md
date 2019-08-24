@@ -39,7 +39,7 @@ az aks create -g MyResourceGroup -n MyAKS --location eastus --node-vm-size Stand
 ```
 
 ## <a name="create-an-azure-container-registry"></a>Azure Container Registry 만들기
-Draft를 사용 하 여 AKS 클러스터에서 응용 프로그램을 실행 하려면 컨테이너 이미지를 저장 하는 Azure Container Registry 필요 합니다. 아래 예제에서는 [az acr create][az-acr-create] 를 사용 하 여 *기본* SKU를 사용 하 여 *Myresourcegroup* 리소스 그룹에 *MyDraftACR* 라는 acr을 만듭니다. 고유한 레지스트리 이름을 제공 해야 합니다. 레지스트리 이름은 Azure 내에서 고유해야 하며, 5-50자의 영숫자만 포함해야 합니다. *기본* SKU는 개발을 위해 비용에 최적화된 진입점으로, 저장소와 처리량의 균형을 적절하게 맞추었습니다.
+Draft를 사용 하 여 AKS 클러스터에서 응용 프로그램을 실행 하려면 컨테이너 이미지를 저장 하는 Azure Container Registry 필요 합니다. 아래 예제에서는 [az acr create][az-acr-create] 를 사용 하 여 *기본* SKU를 사용 하 여 *Myresourcegroup* 리소스 그룹에 *MyDraftACR* 라는 acr을 만듭니다. 고유한 레지스트리 이름을 제공 해야 합니다. 레지스트리 이름은 Azure 내에서 고유해야 하며, 5-50자의 영숫자만 포함해야 합니다. *기본* SKU는 개발을 위해 비용에 최적화된 진입점으로, 스토리지와 처리량의 균형을 적절하게 맞추었습니다.
 
 ```azurecli
 az acr create --resource-group MyResourceGroup --name MyDraftACR --sku Basic

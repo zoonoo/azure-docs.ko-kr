@@ -92,7 +92,7 @@ az container logs --resource-group myResourceGroup --name mycontainer
  ('HAMLET', 386)]
 ```
 
-이 예제는 스크립트가 STDOUT으로 보낸 출력을 보여 줍니다. 그러나 컨테이너 작업은 나중에 검색하기 위해 출력을 영구적 저장소에 쓸 수도 있습니다. 예를 들어 [Azure 파일 공유](container-instances-mounting-azure-files-volume.md)에 쓸 수 있습니다.
+이 예제는 스크립트가 STDOUT으로 보낸 출력을 보여 줍니다. 그러나 컨테이너 작업은 나중에 검색하기 위해 출력을 영구적 스토리지에 쓸 수도 있습니다. 예를 들어 [Azure 파일 공유](container-instances-mounting-azure-files-volume.md)에 쓸 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

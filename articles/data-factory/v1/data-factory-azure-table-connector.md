@@ -107,7 +107,7 @@ Azure 테이블 열이 날짜/시간 형식인 경우:
 | azureTableRowKeyName |해당 열 값이 행 키로 사용되는 열의 이름을 지정합니다. 지정하지 않으면 각 행에 GUID를 사용합니다. |열 이름 |아니요 |
 | azureTableInsertType |Azure 테이블에 데이터를 삽입하는 모드입니다.<br/><br/>이 속성은 출력 테이블에서 파티션 및 행 키가 일치하는 기존 행의 값을 바꿀지 또는 병합할지 제어합니다. <br/><br/>이러한 설정(병합 및 바꾸기)이 작동하는 방법을 알아보려면 [엔터티 삽입 또는 병합](https://msdn.microsoft.com/library/azure/hh452241.aspx) 및 [엔터티 삽입 또는 바꾸기](https://msdn.microsoft.com/library/azure/hh452242.aspx)를 참조하세요. <br/><br> 이 설정은 테이블 수준이 아니라 행 수준에서 적용되며, 두 옵션 모두 출력 테이블에서 입력에 존재하지 않는 행을 삭제하지 않습니다. |병합(기본값)<br/>replace |아니요 |
 | writeBatchSize |WriteBatchSize 또는 writeBatchTimeout에 도달하면 Azure 테이블에 데이터를 삽입합니다. |정수(행 수) |아니요(기본값: 10000) |
-| writeBatchTimeout |WriteBatchSize 또는 writeBatchTimeout에 도달하면 Azure 테이블에 데이터를 삽입합니다. |TimeSpan<br/><br/>예제: “00:20:00”(20분) |No (기본적으로 저장소 클라이언트 기본 시간 제한 값인 90초로 설정) |
+| writeBatchTimeout |WriteBatchSize 또는 writeBatchTimeout에 도달하면 Azure 테이블에 데이터를 삽입합니다. |TimeSpan<br/><br/>예제: “00:20:00”(20분) |No (기본적으로 스토리지 클라이언트 기본 시간 제한 값인 90초로 설정) |
 
 ### <a name="azuretablepartitionkeyname"></a>azureTablePartitionKeyName
 대상 열을 azureTablePartitionKeyName으로 사용할 수 있기 전에 JSON 속성 변환기를 사용하여 원본 열을 대상 열에 매핑합니다.
@@ -143,7 +143,7 @@ DivisionID는 파티션 키로 지정됩니다.
 
 샘플은 매시간 Azure 테이블의 기본 파티션에 속하는 데이터를 blob로 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
 
-**Azure 저장소 연결된 서비스:**
+**Azure Storage 연결된 서비스:**
 
 ```JSON
 {

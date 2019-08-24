@@ -181,7 +181,7 @@ $clusterName
 
     작업이 완료된 경우 상태는 **SUCCEEDED**입니다.
 
-1. 작업 상태가 **SUCCEEDED**로 변경되면 Azure Blob Storage에서 작업 결과를 검색할 수 있습니다. 쿼리와 함께 전달된 `statusdir` 매개 변수에는 출력 파일의 위치(이 경우 `/example/rest`)가 포함됩니다. 이 주소는 클러스터 기본 저장소의 `example/curl` 디렉터리에 출력을 저장합니다.
+1. 작업 상태가 **SUCCEEDED**로 변경되면 Azure Blob Storage에서 작업 결과를 검색할 수 있습니다. 쿼리와 함께 전달된 `statusdir` 매개 변수에는 출력 파일의 위치(이 경우 `/example/rest`)가 포함됩니다. 이 주소는 클러스터 기본 스토리지의 `example/curl` 디렉터리에 출력을 저장합니다.
 
     [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)를 사용하여 이러한 파일을 나열하고 다운로드할 수 있습니다. Azure Storage에서 Azure CLI를 사용하는 방법에 대한 자세한 내용은 [Azure Storage에서 Azure CLI 사용](https://docs.microsoft.com/azure/storage/storage-azure-cli#create-and-manage-blobs) 문서를 참조하세요.
 

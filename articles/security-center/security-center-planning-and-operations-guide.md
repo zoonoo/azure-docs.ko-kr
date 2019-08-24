@@ -16,7 +16,7 @@ ms.date: 04/11/2019
 ms.author: v-mohabe
 ms.openlocfilehash: ca96ba4c6b0de8ad39866a0783e7091fb4755164
 ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/09/2019
 ms.locfileid: "67706244"
@@ -30,7 +30,7 @@ ms.locfileid: "67706244"
 
 * 보안 역할 및 Access Control
 * 보안 정책 및 권장 사항
-* 데이터 수집 및 저장
+* 데이터 수집 및 스토리지
 * 진행 중인 비 Azure 리소스
 * 지속적인 보안 모니터링
 * 사고 대응
@@ -133,7 +133,7 @@ Security Center는 각 Azure 구독에 대한 기본 보안 정책을 자동으�
 
 보안 정책을 구성하기 전에 각각의 [보안 권장 사항](https://docs.microsoft.com/azure/security-center/security-center-recommendations)을 검토하여 이들 정책이 다양한 구독 및 리소스 그룹에 적합한지 판단합니다. 보안 권장 사항을 확인하기 위해 취해야 하는 조치 및 조직에서 새 권장 사항을 모니터링하고 필요한 단계를 수행하는 담당자를 알아야 합니다.
 
-## <a name="data-collection-and-storage"></a>데이터 수집 및 저장
+## <a name="data-collection-and-storage"></a>데이터 수집 및 스토리지
 Azure Security Center는 Microsoft Monitoring Agent – 가상 머신에서 보안 데이터를 수집 하는 Azure Monitor 서비스에서 사용 되는 것과 동일한 에이전트입니다. 이 에이전트에서 [수집된 데이터](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection)는 Log Analytics 작업 영역에 저장됩니다.
 
 ### <a name="agent"></a>에이전트

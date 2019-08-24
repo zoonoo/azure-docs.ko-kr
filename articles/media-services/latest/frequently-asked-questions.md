@@ -88,7 +88,7 @@ STS에서 사용자 프로필에 따라 서로 다른 클레임(예: "프리미�
 - [액세스 제어가 포함된 다중 DRM 콘텐츠 보호 시스템 설계](design-multi-drm-system-with-access-control.md)
 
 ### <a name="http-or-https"></a>HTTP 또는 HTTPS
-ASP.NET MVC 플레이어 응용 프로그램은 다음을 지원해야 합니다.
+ASP.NET MVC 플레이어 애플리케이션은 다음을 지원해야 합니다.
 
 * Azure AD를 통한 사용자 인증이 HTTPS를 사용해야 함
 * 클라이언트 및 Azure AD 간 JWT 교환이 HTTPS를 사용해야 함
@@ -123,7 +123,7 @@ Media Services를 Storage SDK 종속성과 분리하기 위해 AssetFiles가 AMS
 
 자세한 내용은 [Media Services v3로 마이그레이션](migrate-from-v2-to-v3.md)을 참조하세요.
 
-### <a name="where-did-client-side-storage-encryption-go"></a>클라이언트 쪽 저장소 암호화는 어디에 있나요?
+### <a name="where-did-client-side-storage-encryption-go"></a>클라이언트 쪽 스토리지 암호화는 어디에 있나요?
 
 이제 서버 쪽 스토리지 암호화(기본적으로 설정됨)를 사용하는 것이 좋습니다. 자세한 내용은 [미사용 데이터에 대한 Azure Storage 서비스 암호화](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)를 참조하세요.
 

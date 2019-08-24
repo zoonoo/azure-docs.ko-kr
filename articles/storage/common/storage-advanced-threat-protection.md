@@ -96,7 +96,7 @@ Rest API 명령을 사용 하 여 특정 저장소 계정에 대 한 Advanced Th
 
 ## <a name="explore-security-anomalies"></a>보안 비정상 탐색
 
-저장소 작업에서 잘못된 부분이 발생하면 의심스러운 보안 이벤트에 대한 정보가 포함된 이메일 알림을 받게 됩니다. 이벤트 세부 정보에는 다음과 같은 내용이 포함됩니다.
+스토리지 작업에서 잘못된 부분이 발생하면 의심스러운 보안 이벤트에 대한 정보가 포함된 이메일 알림을 받게 됩니다. 이벤트 세부 정보에는 다음과 같은 내용이 포함됩니다.
 
 * 변칙의 특성
 * 스토리지 계정 이름입니다.
@@ -117,7 +117,7 @@ Azure Security Center의 [보안 경고 타일](../../security-center/security-c
 
 ## <a name="protection-alerts"></a>보호 경고
 
-경고는 평소와 다르고 잠재적 위험이 있는 액세스 시도 또는 저장소 계정 악용에 의해 생성됩니다. 이러한 경고 목록은 [Azure Storage](../../security-center/security-center-alerts-data-services.md#azure-storage) 경고를 참조 하세요.
+경고는 평소와 다르고 잠재적 위험이 있는 액세스 시도 또는 스토리지 계정 악용에 의해 생성됩니다. 이러한 경고 목록은 [Azure Storage](../../security-center/security-center-alerts-data-services.md#azure-storage) 경고를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -65,11 +65,11 @@ Resource Manager에서 리소스에 대한 속성을 검색해야 하지만 구�
 
    ![배포 이벤트 선택](./media/resource-manager-not-found-errors/select-deployment-events.png)
 
-3. 각 리소스에 대한 이벤트의 시퀀스를 검사합니다. 각 작업의 상태에 주의합니다. 예를 들어 다음 이미지는 병렬로 배포된 3개의 저장소 계정을 보여 줍니다. 3개의 저장소 계정이 동시에 시작되었다는 것을 볼 수 있습니다.
+3. 각 리소스에 대한 이벤트의 시퀀스를 검사합니다. 각 작업의 상태에 주의합니다. 예를 들어 다음 이미지는 병렬로 배포된 3개의 스토리지 계정을 보여 줍니다. 3개의 스토리지 계정이 동시에 시작되었다는 것을 볼 수 있습니다.
 
    ![병렬 배포](./media/resource-manager-not-found-errors/deployment-events-parallel.png)
 
-   다음 이미지는 동시에 배포되지 않은 3개의 저장소 계정을 보여줍니다. 두 번째 저장소 계정은 첫 번째 저장소 계정에 종속되고 세 번째 저장소 계정은 두 번째 저장소 계정에 종속됩니다. 다음 저장소 계정이 시작되기 전에 첫 번째 저장소 계정이 시작, 승인, 완료됩니다.
+   다음 이미지는 동시에 배포되지 않은 3개의 스토리지 계정을 보여줍니다. 두 번째 스토리지 계정은 첫 번째 스토리지 계정에 종속되고 세 번째 스토리지 계정은 두 번째 스토리지 계정에 종속됩니다. 다음 스토리지 계정이 시작되기 전에 첫 번째 스토리지 계정이 시작, 승인, 완료됩니다.
 
    ![순차 배포](./media/resource-manager-not-found-errors/deployment-events-sequence.png)
 
@@ -86,7 +86,7 @@ Resource Manager에서 리소스에 대한 속성을 검색해야 하지만 구�
 
 ## <a name="solution-3---check-reference-function"></a>해결 방법 3 - reference 함수 검사
 
-[reference](resource-group-template-functions-resource.md#reference) 함수를 포함하는 식을 찾습니다. 리소스가 동일한 템플릿, 리소스 그룹 및 구독에 있는지 여부에 따라 제공하는 값이 다릅니다. 시나리오에 필요한 매개 변수 값을 제공하는지 다시 한 번 확인합니다. 리소스가 다른 리소스 그룹에 있으면 전체 리소스 ID를 제공합니다. 예를 들어 다른 리소스 그룹의 저장소 계정을 참조하려면 다음을 사용합니다.
+[reference](resource-group-template-functions-resource.md#reference) 함수를 포함하는 식을 찾습니다. 리소스가 동일한 템플릿, 리소스 그룹 및 구독에 있는지 여부에 따라 제공하는 값이 다릅니다. 시나리오에 필요한 매개 변수 값을 제공하는지 다시 한 번 확인합니다. 리소스가 다른 리소스 그룹에 있으면 전체 리소스 ID를 제공합니다. 예를 들어 다른 리소스 그룹의 스토리지 계정을 참조하려면 다음을 사용합니다.
 
 ```json
 "[reference(resourceId('exampleResourceGroup', 'Microsoft.Storage/storageAccounts', 'myStorage'), '2017-06-01')]"

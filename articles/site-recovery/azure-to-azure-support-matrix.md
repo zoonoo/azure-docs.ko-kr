@@ -34,7 +34,7 @@ ms.locfileid: "68884115"
 **리소스 작업** | **세부 정보**
 --- | --- | ---
 **리소스 그룹 간 자격 증명 모음 이동** | 지원되지 않음
-**리소스 그룹 간에 계산/저장소/네트워크 리소스 이동** | 지원되지 않습니다.<br/><br/> VM 복제 후 VM 또는 저장소/네트워크와 같은 관련 구성 요소를 이동하는 경우 VM에 대한 복제를 사용하지 않도록 설정했다가 다시 사용하도록 설정해야 합니다.
+**리소스 그룹 간에 계산/스토리지/네트워크 리소스 이동** | 지원되지 않습니다.<br/><br/> VM 복제 후 VM 또는 스토리지/네트워크와 같은 관련 구성 요소를 이동하는 경우 VM에 대한 복제를 사용하지 않도록 설정했다가 다시 사용하도록 설정해야 합니다.
 **재해 복구를 위해 한 구독에서 다른 구독으로 Azure VM 복제** | 동일한 Azure Active Directory 테넌트 내에서 지원됩니다.
 **지원되는 지역별 클러스터 내의 여러 지역 간에 VM 마이그레이션(구독 내/구독 간)** | 동일한 Azure Active Directory 테넌트 내에서 지원됩니다.
 **동일한 지역 내에서 VM 마이그레이션** | 지원되지 않습니다.
@@ -50,7 +50,7 @@ ms.locfileid: "68884115"
 Europe | 영국 서부, 영국 남부, 북아메리카 유럽, 유럽 서부, 프랑스 중부, 프랑스 남부, 남아프리카 공화국 서 부, 남아프리카 공화국 북부
 아시아 | 인도 남부, 인도 중부, 인도 서 부, 동남 아시아, 동아시아, 일본 동부, 일본 서 부, 대한민국 중부, 대한민국 남부, 아랍에미리트 중부, 아랍에미리트 북부
 오스트레일리아   | 오스트레일리아 동부, 오스트레일리아 남동부, 오스트레일리아 중부, 오스트레일리아 중부 2
-Azure Government    | 미국 버지니아 주 정부, 미국 아이오와 주 정부, 미국 애리조나 주 정부, 미국 텍사스 주 정부, US DoD 동부, US DoD 중부 
+Azure Government    | US Gov 버지니아, US Gov 아이오와, US Gov 애리조나, US Gov 텍사스, US DoD 동부, US DoD 중부 
 독일 | 독일 중부, 독일 북동부
 중국 | 중국 동부, 중국 북부, 중국 북부 2, 중국 동부 2
 
@@ -64,13 +64,13 @@ Azure Government    | 미국 버지니아 주 정부, 미국 아이오와 주 �
 
 
 
-## <a name="cache-storage"></a>캐시 저장소
+## <a name="cache-storage"></a>캐시 스토리지
 
-이 표에서는 복제하는 동안 Site Recovery에서 사용하는 캐시 저장소 계정에 대한 지원을 요약해서 보여 줍니다.
+이 표에서는 복제하는 동안 Site Recovery에서 사용하는 캐시 스토리지 계정에 대한 지원을 요약해서 보여 줍니다.
 
 **설정** | **지원** | **세부 정보**
 --- | --- | ---
-범용 V2 저장소 계정(핫 및 쿨 계층) | 지원됨 | V 2에 대 한 트랜잭션 비용은 V1 저장소 계정 보다 훨씬 더 GPv2 사용 하지 않는 것이 좋습니다.
+범용 V2 스토리지 계정(핫 및 쿨 계층) | 지원됨 | V 2에 대 한 트랜잭션 비용은 V1 저장소 계정 보다 훨씬 더 GPv2 사용 하지 않는 것이 좋습니다.
 가상 네트워크의 Azure Storage 방화벽  | 지원됨 | 방화벽 지원 캐시 스토리지 계정 또는 대상 스토리지 계정을 사용하는 경우 ['신뢰할 수 있는 Microsoft 서비스 허용'](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)을 선택해야 합니다.
 
 
@@ -142,7 +142,7 @@ SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9.25 | SP1 3.12.49-11-def
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9.24 | SP1 3.12.49-11-default에서 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default에서 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default에서 4.4.120-92.70-default</br></br>SP2 (LTSS) 4.4.121-92.73-default to 4.4.121-92.104-default</br></br>SP3 4.4.73-기본값-4.4.176-94.88-default</br></br>SP4 4.12.14-94.41-default to 4.12.14-95.13-default |
 
 
-## <a name="replicated-machines---linux-file-systemguest-storage"></a>복제된 컴퓨터 - Linux 파일 시스템/게스트 저장소
+## <a name="replicated-machines---linux-file-systemguest-storage"></a>복제된 컴퓨터 - Linux 파일 시스템/게스트 스토리지
 
 * 파일 시스템: ext3, ext4, ReiserFS(Suse Linux Enterprise Server만), XFS, BTRFS
 * 볼륨 관리자: LVM2
@@ -172,12 +172,12 @@ RBAC 정책 | 지원되지 않음 | Vm의 RBAC (역할 기반 액세스 제어) 
 복제된 VM에서 디스크 크기 조정 | 지원됨
 복제된 VM에 디스크 추가 | 지원됨
 
-## <a name="replicated-machines---storage"></a>복제된 컴퓨터 - 저장소
+## <a name="replicated-machines---storage"></a>복제된 컴퓨터 - 스토리지
 
 이 표에서는 Azure VM OS 디스크, 데이터 디스크 및 임시 디스크에 대한 지원을 요약해서 표시합니다.
 
 - 성능 문제를 방지하려면 [Linux](../virtual-machines/linux/disk-scalability-targets.md) 및 [Windows](../virtual-machines/windows/disk-scalability-targets.md) VM의 VM 디스크 제한 및 목표를 확인하는 것이 중요합니다.
-- 기본 설정을 사용하여 배포하는 경우 Site Recovery는 원본 설정에 따라 디스크 및 저장소 계정을 자동으로 만듭니다.
+- 기본 설정을 사용하여 배포하는 경우 Site Recovery는 원본 설정에 따라 디스크 및 스토리지 계정을 자동으로 만듭니다.
 - 사용자 지정하는 경우 지침을 따릅니다.
 
 **구성 요소** | **지원** | **세부 정보**
@@ -194,23 +194,23 @@ Managed Disk - Standard | Azure Site Recovery가 지원되는 Azure 지역에서
 Managed Disk - Premium | Azure Site Recovery가 지원되는 Azure 지역에서 지원됩니다. |
 표준 SSD | 지원됨 |
 중복 | LRS 및 GRS가 지원됩니다.<br/><br/> ZRS는 지원되지 않습니다.
-콜드 및 핫 저장소 | 지원되지 않음 | VM 디스크는 콜드 및 핫 저장소에서 지원되지 않습니다.
-저장소 공간 | 지원됨 |
-미사용 암호화(SSE) | 지원됨 | SSE은 저장소 계정의 기본 설정입니다.   
+콜드 및 핫 스토리지 | 지원되지 않음 | VM 디스크는 콜드 및 핫 스토리지에서 지원되지 않습니다.
+스토리지 공간 | 지원됨 |
+미사용 암호화(SSE) | 지원됨 | SSE은 스토리지 계정의 기본 설정입니다.   
 Windows OS용 ADE(Azure Disk Encryption) | 관리 디스크가 있는 Vm에 대해 지원 됩니다. 관리 되지 않는 디스크를 사용 하는 Vm은 지원 되지 않습니다. |
 Linux OS용 ADE(Azure Disk Encryption) | 지원되지 않음 |
 핫 추가 | 지원됨 | 복제 된 Azure VM에 추가 하는 데이터 디스크에 대 한 복제를 사용 하도록 설정 하는 것은 managed disks를 사용 하는 Vm에 대해 지원 됩니다.
 디스크 핫 제거 | 지원되지 않음 | VM에서 데이터 디스크를 제거 하는 경우 복제를 사용 하지 않도록 설정 하 고 VM에 대해 복제를 다시 사용 하도록 설정 해야 합니다.
 디스크 제외 | 지원은. [Powershell](azure-to-azure-exclude-disks.md) 을 사용 하 여를 구성 해야 합니다. |  임시 디스크는 기본적으로 제외 됩니다.
-저장소 공간 다이렉트  | 크래시 일관성이 있는 복구 지점을 지원합니다. 애플리케이션 일관성이 있는 복구 지점은 지원되지 않습니다. |
+직접 스토리지 공간  | 크래시 일관성이 있는 복구 지점을 지원합니다. 애플리케이션 일관성이 있는 복구 지점은 지원되지 않습니다. |
 스케일 아웃 파일 서버  | 크래시 일관성이 있는 복구 지점을 지원합니다. 애플리케이션 일관성이 있는 복구 지점은 지원되지 않습니다. |
 LRS | 지원됨 |
 GRS | 지원됨 |
 RA-GRS | 지원됨 |
 ZRS | 지원되지 않음 |
-콜드 및 핫 저장소 | 지원되지 않음 | 가상 머신 디스크는 콜드 및 핫 저장소에서 지원되지 않습니다.
+콜드 및 핫 스토리지 | 지원되지 않음 | 가상 머신 디스크는 콜드 및 핫 스토리지에서 지원되지 않습니다.
 가상 네트워크의 Azure Storage 방화벽  | 지원됨 | 저장소 계정에 대 한 가상 네트워크 액세스를 제한 하는 경우 [트러스트 된 Microsoft 서비스 허용](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)을 사용 하도록 설정 합니다.
-범용 V2 저장소 계정(핫 및 쿨 계층 모두) | 예 | 범용 V1 Storage 계정에 비해 상당한 트랜잭션 비용 증가
+범용 V2 스토리지 계정(핫 및 쿨 계층 모두) | 예 | 범용 V1 Storage 계정에 비해 상당한 트랜잭션 비용 증가
 
 >[!IMPORTANT]
 > 성능 문제를 방지 하려면 [Linux](../virtual-machines/linux/disk-scalability-targets.md) 또는 [WINDOWS](../virtual-machines/windows/disk-scalability-targets.md) vm의 vm 디스크 확장성 및 성능 목표를 준수 하는지 확인 합니다. 기본 설정을 사용 하는 경우 Site Recovery은 원본 구성에 따라 필요한 디스크 및 저장소 계정을 만듭니다. 사용자 고유의 설정을 사용자 지정 하 고 선택 하는 경우 원본 Vm에 대 한 디스크 확장성 및 성능 목표를 따릅니다.

@@ -12,7 +12,7 @@ ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 5c46d3153bdc5768836bce198af115f82e8469f3
 ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "67056290"
@@ -37,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 테넌트가 포함된 디렉터리를 선택합니다.
 2. Azure Portal의 왼쪽 위에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
-3. **응용 프로그램**을 선택하고 **추가**를 선택합니다.
+3. **애플리케이션**을 선택하고 **추가**를 선택합니다.
 4. 애플리케이션의 이름을 입력합니다. 예를 들어 *webapp1*과 같습니다.
 5. **웹앱/웹 API 포함** 및 **암시적 흐름 허용**에 **예**를 선택합니다.
 6. **회신 URL**에는 Azure AD B2C에서 애플리케이션이 요청한 토큰을 반환하는 엔드포인트를 입력합니다. 예를 들어, 로컬에서 수신 하도록 설정할 수 있습니다 `https://localhost:44316`합니다. 포트 번호를 아직 모르는 경우 자리 표시자 값을 입력한 후 나중에 변경할 수 있습니다.

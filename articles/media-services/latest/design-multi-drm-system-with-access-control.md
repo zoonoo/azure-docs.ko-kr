@@ -32,7 +32,7 @@ OTT(Over-the-Top) 또는 온라인 스트리밍 솔루션을 위한 DRM(디지�
 콘텐츠 보호에 대해 기본 다중 DRM을 사용하는 이점은 다음과 같습니다.
 
 * 기본 DRM을 포함하는 다양한 플랫폼을 대상으로 단일 암호화 처리가 사용되므로 암호화 비용이 절감됩니다.
-* 저장소에서 자산의 복사본이 하나만 필요하므로 자산의 관리 비용이 절감됩니다.
+* 스토리지에서 자산의 복사본이 하나만 필요하므로 자산의 관리 비용이 절감됩니다.
 * 기본 플랫폼에서 기본 DRM 클라이언트는 일반적으로 무료로 제공되므로 DRM 클라이언트 라이선스 비용이 없습니다.
 
 ### <a name="goals-of-the-article"></a>문서의 목표
@@ -54,7 +54,7 @@ OTT(Over-the-Top) 또는 온라인 스트리밍 솔루션을 위한 DRM(디지�
 | **macOS** | FairPlay | FairPlay용 Safari(Safari 9 이후+Mac OS X 10.11에서+El Capitan)|
 | **tvOS** | FairPlay | |
 
-각 DRM에 대한 배포의 현재 상태를 고려하면 서비스는 일반적으로 가장 좋은 방법으로 모든 유형의 엔드포인트를 해결하도록 2개 또는 3개의 DRM을 구현해야 합니다.
+각 DRM에 대한 배포의 현재 상태를 고려하면 서비스는 일반적으로 가장 좋은 방법으로 모든 유형의 엔드포인트을 해결하도록 2개 또는 3개의 DRM을 구현해야 합니다.
 
 다양한 클라이언트에서 사용자 환경의 특정 수준에 도달하는 데 서비스 논리의 복잡성과 클라이언트 쪽의 복잡성 사이의 장단점이 있습니다.
 
@@ -118,11 +118,11 @@ DRM 하위 시스템은 다음 구성 요소를 포함할 수 있습니다.
 
 * 월간 구독: 영구 라이선스와 일대다(1–to-Many) 콘텐츠 키 대 자산 매핑을 사용합니다. 예를 들어, 모든 어린이용 영화의 경우 암호화에 단일 콘텐츠 키를 사용합니다. 이 경우:
 
-    모든 어린이용 영화에 요청된 전체 라이선스 수/장치 = 1
+    모든 어린이용 영화에 요청된 전체 라이선스 수/디바이스 = 1
 
 * 월간 구독: 비영구 라이선스와 콘텐츠 키 및 자산 간에 일대일(1–to-1) 매핑을 사용합니다. 이 경우:
 
-    모든 어린이용 영화에 요청된 전체 라이선스 수/장치 = [본 영화 수] x [세션 수]
+    모든 어린이용 영화에 요청된 전체 라이선스 수/디바이스 = [본 영화 수] x [세션 수]
 
 두 가지 서로 다른 디자인으로 인해 라이선스 요청 패턴이 매우 달라집니다. 라이선스 배달 서비스가 Media Services와 같은 퍼블릭 클라우드에서 제공되는 경우 패턴이 다르면 라이선스 배달 비용이 달라집니다.
 
@@ -229,7 +229,7 @@ Azure AD에 대한 내용:
 
     ![JWT](./media/design-multi-drm-system-with-access-control/media-services-1st-gotcha.png)
 
-* 응용 프로그램의 **구성** 탭에서 Azure AD의 응용 프로그램에 권한을 추가합니다. 각 응용 프로그램(로컬 및 배포된 버전)에 사용 권한이 필요합니다.
+* 애플리케이션의 **구성** 탭에서 Azure AD의 애플리케이션에 권한을 추가합니다. 각 애플리케이션(로컬 및 배포된 버전)에 사용 권한이 필요합니다.
 
     ![사용 권한](./media/design-multi-drm-system-with-access-control/media-services-perms-to-other-apps.png)
 
@@ -241,7 +241,7 @@ Azure AD에 대한 내용:
 
         <add key="ida:issuer" value="https://willzhanad.onmicrosoft.com/" />
 
-    GUID는 Azure AD 테넌트 ID입니다. Azure Porta의 **끝점** 팝업 창에서 GUID를 찾을 수 있습니다.
+    GUID는 Azure AD 테넌트 ID입니다. Azure Porta의 **엔드포인트** 팝업 창에서 GUID를 찾을 수 있습니다.
 
 * 그룹 멤버 자격 클레임 권한을 부여합니다. Azure AD 애플리케이션 매니페스트 파일에서 다음이 있는지 확인합니다. 
 
@@ -265,7 +265,7 @@ Azure AD에 대한 내용:
 
     * 동영상 자산이 Media Services에서 동적 DRM 보호 하에 있고 토큰 인증 및 Azure AD가 생성하는 JWT가 있는 경우 로그인해야 합니다.
 
-플레이어 웹 응용 프로그램 및 해당 로그인에 대해서는 [이 웹 사이트](https://openidconnectweb.azurewebsites.net/)를 참조하세요.
+플레이어 웹 애플리케이션 및 해당 로그인에 대해서는 [이 웹 사이트](https://openidconnectweb.azurewebsites.net/)를 참조하세요.
 
 ### <a name="user-sign-in"></a>사용자 로그인
 엔드투엔드 통합된 DRM 시스템을 테스트하려면 계정을 만들거나 추가해야 합니다.
@@ -312,7 +312,7 @@ Windows 8.1 이상의 Internet Explorer 11, Windows 10의 Microsoft Edge 브라�
 
 Windows 10의 Microsoft Edge 및 Internet Explorer 11에 있는 EME를 통해 이를 지원하는 Windows 10 디바이스에서 [PlayReady SL3000](https://www.microsoft.com/playready/features/EnhancedContentProtection.aspx/)을 호출할 수 있습니다. PlayReady SL3000은 향상된 프리미엄 콘텐츠(4K, HDR) 흐름 및 새 콘텐츠 배달 모델(향상된 콘텐츠용)의 잠금을 해제합니다.
 
-Windows 디바이스에 집중: PlayReady는 Windows 디바이스(PlayReady SL3000)에서 사용 가능한 하드웨어의 유일한 DRM입니다. 스트리밍 서비스는 EME 또는 유니버설 Windows 플랫폼 애플리케이션을 통해 PlayReady를 사용하고 PlayReady SL3000을 사용하여 다른 DRM보다 더 높은 화질을 제공할 수 있습니다. 일반적으로 2K 이내의 콘텐츠는 Chrome 또는 Firefox를 통해 흐르고, 4K 이내의 콘텐츠는 동일한 디바이스의 Microsoft Edge/Internet Explorer 11 또는 유니버설 Windows 플랫폼 응용 프로그램을 통해 흐릅니다. 그 양은 서비스 설정 및 구현에 따라 다릅니다.
+Windows 디바이스에 집중: PlayReady는 Windows 디바이스(PlayReady SL3000)에서 사용 가능한 하드웨어의 유일한 DRM입니다. 스트리밍 서비스는 EME 또는 유니버설 Windows 플랫폼 애플리케이션을 통해 PlayReady를 사용하고 PlayReady SL3000을 사용하여 다른 DRM보다 더 높은 화질을 제공할 수 있습니다. 일반적으로 2K 이내의 콘텐츠는 Chrome 또는 Firefox를 통해 흐르고, 4K 이내의 콘텐츠는 동일한 디바이스의 Microsoft Edge/Internet Explorer 11 또는 유니버설 Windows 플랫폼 애플리케이션을 통해 흐릅니다. 그 양은 서비스 설정 및 구현에 따라 다릅니다.
 
 #### <a name="use-eme-for-widevine"></a>Widevine에 EME 사용
 

@@ -51,7 +51,7 @@ HSR을 사용하여 HANA 대규모 인스턴스를 설정하는 경우 Microsoft
 - 고객 이름(예: Microsoft)
 - SID - HANA 시스템 식별자(예: H11)
 
-STONITH 디바이스가 구성되면 Microsoft 서비스 관리 팀에서 STONITH 설정을 구성하는 데 사용할 수 있는 iSCSI 저장소의 SBD 디바이스 이름과 IP 주소를 제공합니다. 
+STONITH 디바이스가 구성되면 Microsoft 서비스 관리 팀에서 STONITH 설정을 구성하는 데 사용할 수 있는 iSCSI 스토리지의 SBD 디바이스 이름과 IP 주소를 제공합니다. 
 
 STONITH를 사용하여 종단 간 HA를 설정하려면 다음 단계를 따라야 합니다.
 
@@ -537,6 +537,6 @@ cat /root/.ssh/id_rsa.pub >> /root/.ssh/authorized_keys
 다음 문서에서 SUSE HA 설정에 관한 추가 정보를 찾을 수 있습니다. 
 
 - [SAP HANA SR 성능 최적화된 시나리오](https://www.suse.com/docrep/documents/ir8w88iwu7/suse_linux_enterprise_server_for_sap_applications_12_sp1.pdf )
-- [저장소 기반 울타리](https://www.suse.com/documentation/sle_ha/book_sleha/data/sec_ha_storage_protect_fencing.html)
+- [스토리지 기반 울타리](https://www.suse.com/documentation/sle_ha/book_sleha/data/sec_ha_storage_protect_fencing.html)
 - [블로그 - SAP HANA에 Pacemaker 클러스터 사용- 1부](https://blogs.sap.com/2017/11/19/be-prepared-for-using-pacemaker-cluster-for-sap-hana-part-1-basics/)
 - [블로그 - SAP HANA에 Pacemaker 클러스터 사용- 2부](https://blogs.sap.com/2017/11/19/be-prepared-for-using-pacemaker-cluster-for-sap-hana-part-2-failure-of-both-nodes/)

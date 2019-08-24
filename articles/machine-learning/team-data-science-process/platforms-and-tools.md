@@ -89,9 +89,9 @@ Azure HDInsight Hive 클러스터에 대한 자세한 내용은 [HDInsight의 Ha
 
 ## <a name="azure-file-storage"></a>Azure File Storage 
 
-Azure File Storage는 표준 SMB(서버 메시지 블록) 프로토콜을 사용하여 클라우드에서 파일 공유를 제공하는 서비스입니다. SMB 2.1과 SMB 3.0 모두를 지원합니다. Azure File Storage를 사용하여 파일 공유에 의존하는 레거시 응용 프로그램을 비경제적인 다시 쓰기 작업 없이 빠르게 Azure로 마이그레이션할 수 있습니다. Azure 가상 머신 또는 클라우드 서비스 또는 온-프레미스 클라이언트에서 실행되는 애플리케이션은 데스크톱 애플리케이션이 일반적인 SMB 공유를 탑재하는 것처럼 클라우드에 파일 공유를 탑재할 수 있습니다. File Storage 공유를 동시에 탑재하고 액세스할 수 있는 응용 프로그램 구성 요소 수에는 제한이 없습니다.
+Azure File Storage는 표준 SMB(서버 메시지 블록) 프로토콜을 사용하여 클라우드에서 파일 공유를 제공하는 서비스입니다. SMB 2.1과 SMB 3.0 모두를 지원합니다. Azure File Storage를 사용하여 파일 공유에 의존하는 레거시 애플리케이션을 비경제적인 다시 쓰기 작업 없이 빠르게 Azure로 마이그레이션할 수 있습니다. Azure 가상 머신 또는 클라우드 서비스 또는 온-프레미스 클라이언트에서 실행되는 애플리케이션은 데스크톱 애플리케이션이 일반적인 SMB 공유를 탑재하는 것처럼 클라우드에 파일 공유를 탑재할 수 있습니다. File Storage 공유를 동시에 탑재하고 액세스할 수 있는 애플리케이션 구성 요소 수에는 제한이 없습니다.
 
-Azure 파일 저장소를 프로젝트 팀 구성원과 프로젝트 데이터를 공유할 수 있는 장소로 만드는 기능은 특히 데이터 과학 프로젝트에 유용합니다. 그러면 각 구성원이 Azure File Storage에 있는 동일한 데이터 복사본에 액세스할 수 있습니다. 또한 이 파일 저장소를 사용하여 프로젝트 실행 중에 생성된 기능 집합을 공유할 수도 있습니다. 클라이언트가 참여하는 프로젝트인 경우 클라이언트에서 자체의 Azure 구독으로 Azure File Storage를 만들어 프로젝트 데이터와 기능을 공유할 수 있습니다. 클라이언트에는 이러한 방식으로 프로젝트 데이터 자산에 대한 모든 권한이 있게 됩니다. Azure File Storage에 대한 자세한 내용은 [Windows에서 Azure File Storage 시작](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-files) 또는 [Linux에서 Azure File Storage를 사용하는 방법](../../storage/files/storage-how-to-use-files-linux.md)을 참조하세요.
+Azure 파일 저장소를 프로젝트 팀 구성원과 프로젝트 데이터를 공유할 수 있는 장소로 만드는 기능은 특히 데이터 과학 프로젝트에 유용합니다. 그러면 각 구성원이 Azure File Storage에 있는 동일한 데이터 복사본에 액세스할 수 있습니다. 또한 이 파일 스토리지를 사용하여 프로젝트 실행 중에 생성된 기능 집합을 공유할 수도 있습니다. 클라이언트가 참여하는 프로젝트인 경우 클라이언트에서 자체의 Azure 구독으로 Azure File Storage를 만들어 프로젝트 데이터와 기능을 공유할 수 있습니다. 클라이언트에는 이러한 방식으로 프로젝트 데이터 자산에 대한 모든 권한이 있게 됩니다. Azure File Storage에 대한 자세한 내용은 [Windows에서 Azure File Storage 시작](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-files) 또는 [Linux에서 Azure File Storage를 사용하는 방법](../../storage/files/storage-how-to-use-files-linux.md)을 참조하세요.
 
 
 ## <a name="sql-server-2016-r-services"></a>SQL Server 2016 R Services

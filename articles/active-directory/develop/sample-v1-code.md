@@ -49,7 +49,7 @@ GitHub에서 샘플에 참여할 수도 있습니다. 자세한 방법은 [Micro
 ![이 이미지는 JavaScript 로고를 표시 합니다.](media/sample-v2-code/logo_js.png) | [javascript-singlepageapp](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |
 ![이 이미지는 각도 JS 로고를 표시 합니다.](media/sample-v2-code/logo_angular.png) | [angularjs-singlepageapp](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) | [angularjs-singlepageapp-cors](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp-dotnet-webapi)
 
-## <a name="web-applications"></a>웹 응용 프로그램
+## <a name="web-applications"></a>웹 애플리케이션
 
 ### <a name="web-applications-signing-in-users-calling-microsoft-graph-or-a-web-api-with-the-users-identity"></a>웹 애플리케이션은 사용자 ID로 사용자를 로그인하고 Microsoft Graph 또는 Web API를 호출
 
@@ -73,7 +73,7 @@ GitHub에서 샘플에 참여할 수도 있습니다. 자세한 방법은 [Micro
 
 ## <a name="desktop-and-mobile-public-client-applications-calling-microsoft-graph-or-a-web-api"></a>Microsoft Graph 또는 Web API를 호출하는 데스크톱 및 모바일 공용 클라이언트의 애플리케이션
 
-다음 샘플에서는 Microsoft Graph 또는 사용자 이름에서 Web API에 액세스 하는 공용 클라이언트 응용 프로그램 (deskto/pmobile 응용 프로그램)을 보여 줍니다. 장치 및 플랫폼에 따라 애플리케이션에서 다른 방식(흐름/권한 부여)으로 사용자를 로그인할 수 있습니다.
+다음 샘플에서는 Microsoft Graph 또는 사용자 이름에서 Web API에 액세스 하는 공용 클라이언트 응용 프로그램 (deskto/pmobile 응용 프로그램)을 보여 줍니다. 디바이스 및 플랫폼에 따라 애플리케이션에서 다른 방식(흐름/권한 부여)으로 사용자를 로그인할 수 있습니다.
 
 - 하는데
 - 자동 (Windows에서 windows 통합 인증 또는 사용자 이름/암호 사용)

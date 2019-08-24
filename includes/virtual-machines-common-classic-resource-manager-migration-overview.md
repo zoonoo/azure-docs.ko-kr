@@ -42,7 +42,7 @@ Resource Manager는 템플릿을 사용하여 복잡한 애플리케이션을 �
 
 * [가상 머신 마이그레이션(가상 네트워크가 아님)](#migration-of-virtual-machines-not-in-a-virtual-network)
 * [가상 머신 마이그레이션(가상 네트워크에서)](#migration-of-virtual-machines-in-a-virtual-network)
-* [저장소 계정 마이그레이션](#migration-of-storage-accounts)
+* [스토리지 계정 마이그레이션](#migration-of-storage-accounts)
 * [연결되지 않은 리소스 마이그레이션](#migration-of-unattached-resources)
 
 ### <a name="migration-of-virtual-machines-not-in-a-virtual-network"></a>가상 머신 마이그레이션(가상 네트워크가 아님)
@@ -56,7 +56,7 @@ Resource Manager 배포 모델에서는 기본적으로 애플리케이션 보�
 >
 
 ### <a name="migration-of-virtual-machines-in-a-virtual-network"></a>가상 머신 마이그레이션(가상 네트워크에서)
-대부분의 VM 구성에서는 클래식과 Resource Manager 배포 모델 간에 메타데이터만 마이그레이션됩니다. 기본 VM은 동일한 네트워크의 동일한 하드웨어에서 동일한 저장소로 실행됩니다. 마이그레이션 중 특정 시간 동안 관리 평면 작업이 허용되지 않을 수 있습니다. 그러나 데이터 평면은 계속 작동합니다. 즉, 마이그레이션 중 VM(클래식) 상에서 실행되는 애플리케이션에 가동 중지 시간이 발생하지 않습니다.
+대부분의 VM 구성에서는 클래식과 Resource Manager 배포 모델 간에 메타데이터만 마이그레이션됩니다. 기본 VM은 동일한 네트워크의 동일한 하드웨어에서 동일한 스토리지로 실행됩니다. 마이그레이션 중 특정 시간 동안 관리 평면 작업이 허용되지 않을 수 있습니다. 그러나 데이터 평면은 계속 작동합니다. 즉, 마이그레이션 중 VM(클래식) 상에서 실행되는 애플리케이션에 가동 중지 시간이 발생하지 않습니다.
 
 현재 지원되지 않는 구성은 다음과 같습니다. 향후 이에 대한 지원을 추가할 경우 이 구성의 일부 VM에서 가동 중지 시간(VM 작업 중지, 할당 취소, 다시 시작 진행)이 발생할 수 있습니다.
 
@@ -67,17 +67,17 @@ Resource Manager 배포 모델에서는 기본적으로 애플리케이션 보�
 > 이 마이그레이션 범위에서는 마이그레이션 중 특정 시간 동안 관리 평면이 허용되지 않을 수 있습니다. 앞서 설명한 특정 구성의 경우 데이터 평면 가동 중지 시간이 발생합니다.
 >
 
-### <a name="migration-of-storage-accounts"></a>저장소 계정 마이그레이션
-원활한 마이그레이션을 위해 클래식 저장소 계정에 Resource Manager VM을 배포할 수 있습니다. 이 기능을 사용하면 계산 및 네트워크 리소스를 스토리지 계정과 상관없이 마이그레이션할 수 있으며 이러한 방식이 바람직합니다. Virtual Machines 및 Virtual Network에 대해 마이그레이션한 후에는 저장소 계정에 대해 마이그레이션을 수행하여 마이그레이션 프로세스를 완료해야 합니다.
+### <a name="migration-of-storage-accounts"></a>스토리지 계정 마이그레이션
+원활한 마이그레이션을 위해 클래식 스토리지 계정에 Resource Manager VM을 배포할 수 있습니다. 이 기능을 사용하면 계산 및 네트워크 리소스를 스토리지 계정과 상관없이 마이그레이션할 수 있으며 이러한 방식이 바람직합니다. Virtual Machines 및 Virtual Network에 대해 마이그레이션한 후에는 스토리지 계정에 대해 마이그레이션을 수행하여 마이그레이션 프로세스를 완료해야 합니다.
 
-저장소 계정에 연결된 디스크 또는 Virtual Machines 데이터가 없고 Blob, 파일, 테이블 및 큐만 있는 경우, Azure Resource Manager로의 마이그레이션을 종속성 없는 독립형 마이그레이션으로 수행할 수 있습니다.
+스토리지 계정에 연결된 디스크 또는 Virtual Machines 데이터가 없고 Blob, 파일, 테이블 및 큐만 있는 경우, Azure Resource Manager로의 마이그레이션을 종속성 없는 독립형 마이그레이션으로 수행할 수 있습니다.
 
 > [!NOTE]
-> Resource Manager 배포 모델에는 기본 이미지 및 디스크 개념이 적용되지 않습니다. 저장소 계정이 마이그레이션되면 클래식 이미지와 디스크가 Resource Manager 스택에 표시되지 않지만 백업 VHD는 저장소 계정에 남아 있습니다.
+> Resource Manager 배포 모델에는 기본 이미지 및 디스크 개념이 적용되지 않습니다. 스토리지 계정이 마이그레이션되면 클래식 이미지와 디스크가 Resource Manager 스택에 표시되지 않지만 백업 VHD는 스토리지 계정에 남아 있습니다.
 
 다음 스크린샷은 Azure portal을 사용 하 여 Azure Resource Manager 저장소 계정에는 클래식 저장소 계정을 업그레이드 하는 방법을 보여 줍니다.
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 저장소 계정으로 이동합니다.
+2. 스토리지 계정으로 이동합니다.
 3. 에 **설정을** 섹션에서 클릭 **ARM 마이그레이션**합니다.
 4. 클릭할 **유효성 검사** 마이그레이션 적합성을 확인 하려면.
 5. 유효성 검사에 통과 하는 경우 클릭 **준비** 마이그레이션된 저장소 계정을 만들 수 있습니다.
@@ -90,7 +90,7 @@ Resource Manager 배포 모델에서는 기본적으로 애플리케이션 보�
     ![저장소 계정 마이그레이션 완료](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-3.png)
 
 ### <a name="migration-of-unattached-resources"></a>연결되지 않은 리소스 마이그레이션
-연결된 디스크 또는 Virtual Machines 데이터가 없는 저장소 계정은 독립적으로 마이그레이션할 수 있습니다.
+연결된 디스크 또는 Virtual Machines 데이터가 없는 스토리지 계정은 독립적으로 마이그레이션할 수 있습니다.
 
 Virtual Machines 및 Virtual Network에 연결되지 않은 네트워크 보안 그룹, 경로 테이블 및 예약 IP도 독립적으로 마이그레이션할 수 있습니다.
 

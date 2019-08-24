@@ -181,7 +181,7 @@ Stream Analytics 작업을 제공 하기 위해 선택할 수 있는 두 가지 
 
 #### <a name="account-level-access"></a>계정 수준 액세스
 
-1. 저장소 계정으로 이동합니다.
+1. 스토리지 계정으로 이동합니다.
 
 2. 왼쪽에서 **Access Control (IAM)** 을 선택 합니다.
 

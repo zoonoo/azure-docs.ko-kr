@@ -1,6 +1,6 @@
 ---
 title: Azure Data Factory를 사용 하 여 Amazon Simple Storage Service (S3)에서 데이터 복사 Microsoft Docs
-description: Azure Data Factory를 사용하여 Amazon S3(단순 저장 서비스)에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
+description: Azure Data Factory를 사용하여 Amazon S3(단순 저장 서비스)에서 지원되는 싱크 데이터 스토리지로 데이터를 복사하는 방법에 대해 알아봅니다.
 services: data-factory
 author: linda33wj
 manager: craigg
@@ -12,12 +12,12 @@ ms.date: 08/06/2019
 ms.author: jingwang
 ms.openlocfilehash: 7b47aadc28a5e2ea6dbf2a7a8a23cdb713a0b981
 ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/06/2019
 ms.locfileid: "68839893"
 ---
-# <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Amazon 단순 저장소 서비스에서 데이터 복사
+# <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Amazon 단순 스토리지 서비스에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 >
 > * [버전 1](v1/data-factory-amazon-simple-storage-service-connector.md)

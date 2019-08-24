@@ -108,21 +108,21 @@ Azure에 배포하는 데 필요한 네트워크 인프라는 단일 Business On
 사용자가 Azure에 대한 프라이빗 연결 없이 인터넷을 통해 연결하는 경우, Azure의 네트워크 디자인은 [Azure 및 인터넷 간의 DMZ](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-dmz)에 대한 Azure 참조 아키텍처에 문서화된 원칙을 따라야 합니다.
 
 ### <a name="business-one-database-server"></a>Business One 데이터베이스 서버
-데이터베이스 유형으로 SQL Server 및 SAP HANA를 사용할 수 있습니다. DBMS에 관계없이, [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general)(SAP 워크로드에 대한 Azure Virtual Machines DBMS 배포의 고려 사항) 문서를 읽고 Azure VM의 DBMS 배포와 관련 네트워킹 및 저장소 항목을 전반적으로 이해해야 합니다.
+데이터베이스 유형으로 SQL Server 및 SAP HANA를 사용할 수 있습니다. DBMS에 관계없이, [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general)(SAP 워크로드에 대한 Azure Virtual Machines DBMS 배포의 고려 사항) 문서를 읽고 Azure VM의 DBMS 배포와 관련 네트워킹 및 스토리지 항목을 전반적으로 이해해야 합니다.
 
 특정 및 일반 데이터베이스 문서에서 이미 강조되었지만, 다음을 숙지해야 합니다.
 
 - [Azure에서 Windows 가상 머신의 가용성 관리](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability) 및 [Azure에서 Linux 가상 머신의 가용성 관리](https://docs.microsoft.com/azure/virtual-machines/linux/manage-availability)
 - [Virtual Machines에 대한 SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/)
 
-이러한 문서는 저장소 유형 및 고가용성 구성을 선택하는 데 도움이 됩니다.
+이러한 문서는 스토리지 유형 및 고가용성 구성을 선택하는 데 도움이 됩니다.
 
 원칙적으로, 다음 지침을 따라야 합니다.
 
 - 표준 HDD보다 프리미엄 SSD를 사용합니다. 사용 가능한 디스크 유형에 대한 자세한 내용은 [디스크 유형 선택](../../windows/disks-types.md) 문서를 참조하세요.
 - 비관리형 디스크보다 Azure Managed Disks 사용
 - 디스크 구성을 사용하여 충분한 IOPS 및 I/O 처리량이 구성되었는지 확인
-- 비용 효율적인 저장소 구성을 위해 /hana/data 및 /hana/log 볼륨 결합
+- 비용 효율적인 스토리지 구성을 위해 /hana/data 및 /hana/log 볼륨 결합
 
 
 #### <a name="sql-server-as-dbms"></a>SQL Server를 DBMS로 사용
@@ -148,7 +148,7 @@ SAP HANA 백업 및 복원 전략은 [Azure Virtual Machines의 SAP HANA 백업 
 
  
 ### <a name="business-one-client-server"></a>Business One 클라이언트 서버
-이러한 구성 요소에서 저장소 고려 사항은 중요하지 않습니다. 그래도 신뢰할 수 있는 플랫폼을 구현하는 것이 좋습니다. 따라서 기본 VHD의 경우에도 이 VM에 Azure Premium Storage를 사용해야 합니다. [SAP Business One Hardware Requirements Guide](https://help.sap.com/http.svc/rc/011000358700000244612011e/9.3/en-US/B1_Hardware_Requirements_Guide.pdf)(SAP Business One 하드웨어 요구 사항 가이드)에 제공된 데이터를 사용하여 VM 크기를 조정합니다. Azure의 경우, 문서의 2.4 장에 명시된 요구 사항을 사용하여 계산하고 집중해야 합니다. 요구 사항을 계산할 때 다음 문서와 비교하여 이상적인 VM을 찾아야 합니다.
+이러한 구성 요소에서 스토리지 고려 사항은 중요하지 않습니다. 그래도 신뢰할 수 있는 플랫폼을 구현하는 것이 좋습니다. 따라서 기본 VHD의 경우에도 이 VM에 Azure Premium Storage를 사용해야 합니다. [SAP Business One Hardware Requirements Guide](https://help.sap.com/http.svc/rc/011000358700000244612011e/9.3/en-US/B1_Hardware_Requirements_Guide.pdf)(SAP Business One 하드웨어 요구 사항 가이드)에 제공된 데이터를 사용하여 VM 크기를 조정합니다. Azure의 경우, 문서의 2.4 장에 명시된 요구 사항을 사용하여 계산하고 집중해야 합니다. 요구 사항을 계산할 때 다음 문서와 비교하여 이상적인 VM을 찾아야 합니다.
 
 - [Azure에서 Windows 가상 머신에 대한 크기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)
 - [SAP Note #1928533](https://launchpad.support.sap.com/#/notes/1928533)(SAP 노트 #1928533)

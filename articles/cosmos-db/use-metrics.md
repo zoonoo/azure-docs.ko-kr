@@ -16,7 +16,7 @@ ms.locfileid: "67275669"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Azure Cosmos DB에서 메트릭을 사용하여 모니터링 및 디버그
 
-Azure Cosmos DB는 처리량, 저장소, 일관성, 가용성 및 대기 시간에 대한 메트릭을 제공합니다. Azure portal에는 이러한 메트릭의 집계 보기를 제공합니다. 또한 Azure Monitor API에서 Azure Cosmos DB 메트릭을 볼 수 있습니다. Azure monitor에서 메트릭을 보는 방법에 대 한 자세한 내용은 참조는 [Azure Monitor에서 메트릭 가져오기](cosmos-db-azure-monitor-metrics.md) 문서. 
+Azure Cosmos DB는 처리량, 스토리지, 일관성, 가용성 및 대기 시간에 대한 메트릭을 제공합니다. Azure portal에는 이러한 메트릭의 집계 보기를 제공합니다. 또한 Azure Monitor API에서 Azure Cosmos DB 메트릭을 볼 수 있습니다. Azure monitor에서 메트릭을 보는 방법에 대 한 자세한 내용은 참조는 [Azure Monitor에서 메트릭 가져오기](cosmos-db-azure-monitor-metrics.md) 문서. 
 
 이 문서에서는 일반적인 사용 사례와 Azure Cosmos DB 메트릭을 사용하여 이러한 문제를 분석 및 디버그할 수 있는 방법을 안내합니다. 메트릭은 5분마다 수집되고 7일 동안 유지됩니다.
 
@@ -54,7 +54,7 @@ Azure Cosmos DB는 처리량, 저장소, 일관성, 가용성 및 대기 시간�
 
 ## <a name="determine-the-throughput-distribution-across-partitions"></a>파티션의 처리량 배포 확인
 
-파티션 키의 좋은 카디널리티 사용은 확장 가능한 모든 애플리케이션에 필요합니다. 모든 분할된 컨테이너의 처리량 배포를 파티션으로 분석하여 확인하려면 [Azure Portal](https://portal.azure.com)의 **메트릭 블레이드**로 이동합니다. **처리량** 탭에서 저장소 분석은 **각 실제 파티션별 사용된 최대 RU/초** 차트에 표시됩니다. 다음 그림은 맨 왼쪽에 있는 불일치 파티션에서 표시된 것과 같이 잘못된 데이터 배포의 예제를 보여줍니다.
+파티션 키의 좋은 카디널리티 사용은 확장 가능한 모든 애플리케이션에 필요합니다. 모든 분할된 컨테이너의 처리량 배포를 파티션으로 분석하여 확인하려면 [Azure Portal](https://portal.azure.com)의 **메트릭 블레이드**로 이동합니다. **처리량** 탭에서 스토리지 분석은 **각 실제 파티션별 사용된 최대 RU/초** 차트에 표시됩니다. 다음 그림은 맨 왼쪽에 있는 불일치 파티션에서 표시된 것과 같이 잘못된 데이터 배포의 예제를 보여줍니다.
 
 ![오후 3시 05분에 높은 사용량을 표시하는 단일 파티션](media/use-metrics/metrics-17.png)
 
@@ -74,7 +74,7 @@ Azure Cosmos DB는 처리량, 저장소, 일관성, 가용성 및 대기 시간�
 
 ## <a name="compare-data-size-against-index-size"></a>데이터 크기 및 인덱스 크기 비교
 
-Azure Cosmos DB에서 사용된 총 저장소는 데이터 크기와 인덱스 크기의 조합입니다. 일반적으로 인덱스 크기는 데이터 크기의 비율입니다. [Azure Portal](https://portal.azure.com)의 메트릭 블레이드에서, 저장소 탭에는 저장소 사용량이 데이터 및 인덱스에 따라 분석되어 표시됩니다.
+Azure Cosmos DB에서 사용된 총 스토리지는 데이터 크기와 인덱스 크기의 조합입니다. 일반적으로 인덱스 크기는 데이터 크기의 비율입니다. [Azure Portal](https://portal.azure.com)의 메트릭 블레이드에서, 스토리지 탭에는 스토리지 사용량이 데이터 및 인덱스에 따라 분석되어 표시됩니다.
 
 ```csharp
 // Measure the document size usage (which includes the index size)  

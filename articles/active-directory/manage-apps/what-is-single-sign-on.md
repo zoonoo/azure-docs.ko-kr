@@ -44,7 +44,7 @@ Single Sign-On을 위해 애플리케이션을 구성하는 방법은 여러 가
 | :------ | :------- | :----- |
 | [OpenID Connect 및 OAuth](#openid-connect-and-oauth) | 클라우드 전용 | 새 애플리케이션을 개발하는 경우 OpenID Connect 및 OAuth를 사용합니다. 이 프로토콜은 애플리케이션 구성을 간소화하고, 사용하기 쉬운 SDK를 보유하며, 애플리케이션에서 MS Graph를 사용하도록 설정합니다.
 | [SAML](#saml-sso) | 클라우드 및 온-프레미스 | OpenID Connect 또는 OAuth를 사용하지 않는 기존 애플리케이션에 대해 언제나 사용 가능한 SAML을 선택합니다. SAML은 SAML 프로토콜 중 하나를 사용하여 인증하는 애플리케이션에 대해 작동합니다.|
-| [암호 기반](#password-based-sso) | 클라우드 및 온-프레미스 | 애플리케이션이 사용자 이름 및 암호를 사용하여 인증하는 경우 암호 기반을 선택합니다. 암호 기반 Single Sign-On을 사용하면 웹 브라우저 확장 또는 모바일 앱을 사용하여 안전하게 애플리케이션 암호를 저장하고 재생할 수 있습니다. 이 방법은 애플리케이션에서 제공하는 기존 로그인 프로세스를 사용하지만, 관리자가 암호를 관리할 수 있습니다. |
+| [암호 기반](#password-based-sso) | 클라우드 및 온-프레미스 | 애플리케이션이 사용자 이름 및 암호를 사용하여 인증하는 경우 암호 기반을 선택합니다. 암호 기반 Single Sign-On을 사용하면 웹 브라우저 확장 또는 모바일 앱을 사용하여 안전하게 애플리케이션 암호를 스토리지하고 재생할 수 있습니다. 이 방법은 애플리케이션에서 제공하는 기존 로그인 프로세스를 사용하지만, 관리자가 암호를 관리할 수 있습니다. |
 | [연결됨](#linked-sign-on) | 클라우드 및 온-프레미스 | 응용 프로그램이 다른 id 공급자 서비스에서 single sign-on에 대해 구성 된 경우 연결 된 로그온을 선택 합니다. 이 옵션은 애플리케이션에 Single Sign-On을 추가하지 않습니다. 하지만 애플리케이션에 이미 Active Directory Federation Services와 같은 다른 서비스를 사용하여 Single Sign-On이 구현되어 있을 수도 있습니다.|
 | [Disabled](#disabled-sso) | 클라우드 및 온-프레미스 | 앱을 Single Sign-On에 대해 구성할 준비가 되지 않은 경우 사용 안 함 Single Sign-On을 선택합니다. 사용자는 이 애플리케이션을 시작할 때마다 사용자 이름 및 암호를 입력해야 합니다.|
 | [IWA(Windows 통합 인증)](#integrated-windows-authentication-iwa-sso) | 온-프레미스만 | IWA Single Sign-On 방법은 [IWA(Windows 통합 인증)](/aspnet/web-api/overview/security/integrated-windows-authentication)를 사용하는 애플리케이션 또는 클레임 인식 애플리케이션에 선택합니다. IWA의 경우 애플리케이션 프록시 커넥터는 애플리케이션에 사용자를 인증하는 데 KCD(Kerberos 제한된 위임)를 사용합니다. |

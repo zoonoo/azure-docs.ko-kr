@@ -65,12 +65,12 @@ Windows 7, 8, 8.1 및 10을 실행 하는 컴퓨터의 경우 사용자가 Windo
 
 ### <a name="enable-for-windows-10-using-intune"></a>Intune을 사용 하 여 Windows 10 사용
 
-Intune을 사용하여 로그인 화면에서 암호 재설정을 사용하도록 설정하는 가장 유연한 방법은 구성 변경을 배포하는 것입니다. Intune을 사용하면 여러분이 정의하는 특정 머신 그룹에 구성 변경 내용을 배포할 수 있습니다. 이 메서드는 장치의 Intune 등록이 필요합니다.
+Intune을 사용하여 로그인 화면에서 암호 재설정을 사용하도록 설정하는 가장 유연한 방법은 구성 변경을 배포하는 것입니다. Intune을 사용하면 여러분이 정의하는 특정 머신 그룹에 구성 변경 내용을 배포할 수 있습니다. 이 메서드는 디바이스의 Intune 등록이 필요합니다.
 
-#### <a name="create-a-device-configuration-policy-in-intune"></a>Intune에서 장치 구성 정책 만들기
+#### <a name="create-a-device-configuration-policy-in-intune"></a>Intune에서 디바이스 구성 정책 만들기
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하고 **Intune** 클릭
-1. **장치 구성** > **프로필** > **프로필 만들기**로 이동하여 새 장치 구성 프로필 만들기
+1. **디바이스 구성** > **프로필** > **프로필 만들기**로 이동하여 새 디바이스 구성 프로필 만들기
    - 프로필의 의미 있는 이름 입력
    - 필요에 따라 프로필에 대한 의미 있는 설명 입력
    - 플랫폼 **Windows 10 이상**

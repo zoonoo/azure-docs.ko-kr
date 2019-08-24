@@ -41,7 +41,7 @@ Azure AD의 기능을 사용하려는 모든 애플리케이션이 먼저 Azure 
 4.  만들기 페이지에서 애플리케이션의 등록\' 정보를 입력합니다.
     -   **이름**: 의미 있는 애플리케이션 이름을 입력합니다.
     -   **애플리케이션 형식**: 
-        - 장치에 로컬로 설치된 [클라이언트 애플리케이션](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application)의 경우 **네이티브**를 선택합니다. 이 설정은 OAuth 공개 [네이티브 클라이언트](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#native-client)에 사용됩니다.
+        - 디바이스에 로컬로 설치된 [클라이언트 애플리케이션](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application)의 경우 **네이티브**를 선택합니다. 이 설정은 OAuth 공개 [네이티브 클라이언트](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#native-client)에 사용됩니다.
         - 보안 서버에 설치된 [클라이언트 애플리케이션](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) 및 [리소스/API 애플리케이션](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server)의 경우 **웹앱/API**를 선택합니다. 이 설정은 OAuth 기밀 [웹 클라이언트](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client) 및 공용 [사용자 에이전트 기반 클라이언트](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client)에 사용됩니다.
         동일한 애플리케이션이 클라이언트와 리소스/API를 모두 노출할 수도 있습니다.
     -   **로그온 URL**: 웹앱/API 애플리케이션에서 앱의 기준 URL을 제공합니다.웹 애플리케이션의 경우 앱의 기준 URL을 제공합니다. 예를 들어 **http://localhost:31544** 은 로컬 컴퓨터에서 실행 중인 웹앱의 URL일 수 있습니다. 사용자는 이 URL을 사용하여 웹 클라이언트 애플리케이션에 로그인합니다.

@@ -95,7 +95,7 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 
 계획을 만들거나 크기를 조정할 때 세 가지 인스턴스 크기 중에서 선택할 수 있습니다.  총 코어 수와 초당 사용 된 메모리에 대 한 요금이 청구 됩니다.  필요에 따라 앱이 여러 인스턴스로 자동 확장 될 수 있습니다.  
 
-|SKU|코어|메모리|저장 공간|
+|SKU|코어|메모리|스토리지|
 |--|--|--|--|
 |EP1|1|3.5GB|250GB|
 |EP2|2|7GB|250GB|

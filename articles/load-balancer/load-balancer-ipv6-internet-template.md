@@ -50,7 +50,7 @@ Azure 부하 분산 장치는 계층 4(TCP, UDP) 부하 분산 장치입니다. 
 
 이 문서에서는 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/201-load-balancer-ipv6-create/) 갤러리에 게시된 템플릿을 참조합니다. 갤러리에서 템플릿을 다운로드하거나 갤러리에서 직접 Azure에 배포를 시작할 수 있습니다. 이 문서에서는 템플릿을 로컬 컴퓨터에 다운로드했다고 가정합니다.
 
-1. Azure Portal을 열고 Azure 구독 내에서 VM 및 네트워킹 리소스를 만들 권한이 있는 계정으로 로그인합니다. 또한 기존 리소스를 사용하고 있는 것이 아니라면 리소스 그룹 및 저장소 계정을 만들기 위해서는 계정에 권한이 필요합니다.
+1. Azure Portal을 열고 Azure 구독 내에서 VM 및 네트워킹 리소스를 만들 권한이 있는 계정으로 로그인합니다. 또한 기존 리소스를 사용하고 있는 것이 아니라면 리소스 그룹 및 스토리지 계정을 만들기 위해서는 계정에 권한이 필요합니다.
 2. 메뉴에서 "+새"를 클릭한 다음 검색 상자에 "템플릿"을 입력합니다. 검색 결과에서 "템플릿 배포"를 선택합니다.
 
     ![lb-ipv6-portal-step2](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step2.png)
@@ -117,7 +117,7 @@ Azure Resource Manager 템플릿은 요구에 맞게 사용자 지정할 수 있
 | dnsNameforIPv6LbIP |부하 분산 장치의 공개 이름으로 할당하려는 DNS 호스트 이름을 지정합니다. 이 이름은 부하 분산 장치의 공용 IPv6 주소로 바뀝니다. 이름은 소문자이어야 하며 다음 정규식과 일치해야 합니다. ^[a-z][a-z0-9-]{1,61}[a-z0-9]$ 이 이름은 IPv4 주소와 같은 이름일 수 있습니다. 클라이언트가 이 이름에 대한 DNS 쿼리를 보낼 때 Azure는 이름이 공유된 경우 A 및 AAAA 기록 모두를 반환합니다. |
 | vmNamePrefix |VM 이름 접두사를 지정합니다. VM이 만들어질 때 템플릿은 이름에 번호(0, 1, 등)를 추가합니다. |
 | nicNamePrefix |네트워크 인터페이스 이름 접두사를 지정합니다. 네트워크 인터페이스가 만들어질 때 템플릿은 이름에 번호(0, 1, 등)를 추가합니다. |
-| storageAccountName |기존 저장소 계정의 이름을 입력하거나 템플릿으로 만든 새 이름을 지정합니다. |
+| storageAccountName |기존 스토리지 계정의 이름을 입력하거나 템플릿으로 만든 새 이름을 지정합니다. |
 | availabilitySetName |그런 다음 VM에 사용하도록 설정할 가용성 집합의 이름을 입력합니다. |
 | addressPrefix |Virtual Network의 주소 범위를 정의하는 데 사용되는 주소 접두사 |
 | subnetName |VNet에 대해 생성되는 서브넷의 이름 |

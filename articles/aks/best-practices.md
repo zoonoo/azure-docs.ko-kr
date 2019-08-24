@@ -73,7 +73,7 @@ AKS(Azure Kubernetes Service)에서 애플리케이션을 성공적으로 구축
 * [액세스 및 ID](concepts-identity.md)
 * [보안 개념](concepts-security.md)
 * [네트워크 개념](concepts-network.md)
-* [저장소 옵션](concepts-storage.md)
+* [스토리지 옵션](concepts-storage.md)
 * [크기 조정 옵션](concepts-scale.md)
 
 ## <a name="next-steps"></a>다음 단계

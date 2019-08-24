@@ -22,7 +22,7 @@ ms.lasthandoff: 07/05/2019
 ms.locfileid: "67595661"
 ---
 # <a name="using-nodejs-modules-with-azure-applications"></a>Azure 애플리케이션에 Node.js 모듈 사용
-이 문서에서는 Azure에서 호스트되는 애플리케이션에 Node.js 모듈을 사용하는 방법에 대해 안내합니다. 또한 응용 프로그램에서 특정 버전의 모듈을 사용하고 Azure를 통해 네이티브 모듈을 사용하도록 하는 방법에 대한 지침을 제공합니다.
+이 문서에서는 Azure에서 호스트되는 애플리케이션에 Node.js 모듈을 사용하는 방법에 대해 안내합니다. 또한 애플리케이션에서 특정 버전의 모듈을 사용하고 Azure를 통해 네이티브 모듈을 사용하도록 하는 방법에 대한 지침을 제공합니다.
 
 Node.js 모듈, **package.json** 및 **npm-shrinkwrap.json** 파일 사용법을 이미 잘 알고 있는 경우 다음 정보를 통해 이 문서에서 설명하는 내용의 요약을 빠르게 확인할 수 있습니다.
 

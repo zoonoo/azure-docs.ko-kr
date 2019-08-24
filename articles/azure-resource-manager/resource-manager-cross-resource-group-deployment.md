@@ -45,7 +45,7 @@ ms.locfileid: "67205479"
 
 리소스 그룹이 동일한 구독에 있는 경우 **subscriptionId** 값을 제거할 수 있습니다.
 
-다음 예제에서는 배포 중에 지정한 리소스 그룹 및 `secondResourceGroup` 매개 변수에 지정한 리소스 그룹에 각각 하나씩 두 개의 저장소 계정을 배포합니다.
+다음 예제에서는 배포 중에 지정한 리소스 그룹 및 `secondResourceGroup` 매개 변수에 지정한 리소스 그룹에 각각 하나씩 두 개의 스토리지 계정을 배포합니다.
 
 ```json
 {
@@ -164,12 +164,12 @@ ms.locfileid: "67205479"
 
 |Template  |설명  |
 |---------|---------|
-|[구독 간 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crosssubscription.json) |하나의 저장소 계정을 어떤 리소스 그룹에 배포하고 다른 저장소 계정을 두 번째 리소스 그룹에 배포합니다. 다른 구독에 두 번째 리소스 그룹이 있는 경우 구독 ID에 대한 값을 포함합니다. |
+|[구독 간 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crosssubscription.json) |하나의 스토리지 계정을 어떤 리소스 그룹에 배포하고 다른 스토리지 계정을 두 번째 리소스 그룹에 배포합니다. 다른 구독에 두 번째 리소스 그룹이 있는 경우 구독 ID에 대한 값을 포함합니다. |
 |[리소스 그룹 속성 간 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crossresourcegroupproperties.json) |`resourceGroup()` 함수를 확인하는 방법을 보여줍니다. 여기서는 리소스를 배포하지 않습니다. |
 
 ### <a name="powershell"></a>PowerShell
 
-PowerShell의 경우 두 개의 저장소 계정을 **동일한 구독**의 두 리소스 그룹에 배포하려면 다음을 사용합니다.
+PowerShell의 경우 두 개의 스토리지 계정을 **동일한 구독**의 두 리소스 그룹에 배포하려면 다음을 사용합니다.
 
 ```azurepowershell-interactive
 $firstRG = "primarygroup"
@@ -186,7 +186,7 @@ New-AzResourceGroupDeployment `
   -secondStorageLocation eastus
 ```
 
-PowerShell의 경우 두 개의 저장소 계정을 **두 개의 구독**에 배포하려면 다음을 사용합니다.
+PowerShell의 경우 두 개의 스토리지 계정을 **두 개의 구독**에 배포하려면 다음을 사용합니다.
 
 ```azurepowershell-interactive
 $firstRG = "primarygroup"
@@ -255,7 +255,7 @@ New-AzResourceGroupDeployment `
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Azure CLI의 경우 두 개의 저장소 계정을 **동일한 구독**의 두 리소스 그룹에 배포하려면 다음을 사용합니다.
+Azure CLI의 경우 두 개의 스토리지 계정을 **동일한 구독**의 두 리소스 그룹에 배포하려면 다음을 사용합니다.
 
 ```azurecli-interactive
 firstRG="primarygroup"
@@ -270,7 +270,7 @@ az group deployment create \
   --parameters storagePrefix=tfstorage secondResourceGroup=$secondRG secondStorageLocation=eastus
 ```
 
-Azure CLI의 경우 두 개의 저장소 계정을 **두 개의 구독**에 배포하려면 다음을 사용합니다.
+Azure CLI의 경우 두 개의 스토리지 계정을 **두 개의 구독**에 배포하려면 다음을 사용합니다.
 
 ```azurecli-interactive
 firstRG="primarygroup"

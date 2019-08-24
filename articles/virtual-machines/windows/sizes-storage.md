@@ -1,6 +1,6 @@
 ---
-title: Azure Windows VM 크기 - 저장소 | Microsoft Docs
-description: Azure의 Windows 가상 머신에 사용할 수 있는 다양한 Storage에 최적화 크기를 나열합니다. 이 시리즈의 크기에 대한 저장소 처리량 및 네트워크 대역폭뿐만 아니라 vCPU, 데이터 디스크 및 NIC의 수에 대한 정보를 제공합니다.
+title: Azure Windows VM 크기 - 스토리지 | Microsoft Docs
+description: Azure의 Windows 가상 머신에 사용할 수 있는 다양한 Storage에 최적화 크기를 나열합니다. 이 시리즈의 크기에 대한 스토리지 처리량 및 네트워크 대역폭뿐만 아니라 vCPU, 데이터 디스크 및 NIC의 수에 대한 정보를 제공합니다.
 services: virtual-machines-windows
 documentationcenter: ''
 author: jonbeck7
@@ -22,7 +22,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 07/09/2019
 ms.locfileid: "67710131"
 ---
-# <a name="storage-optimized-virtual-machine-sizes"></a>저장소 최적화 가상 컴퓨터 크기
+# <a name="storage-optimized-virtual-machine-sizes"></a>스토리지 최적화 가상 컴퓨터 크기
 
 [!INCLUDE [virtual-machines-common-sizes-storage](../../../includes/virtual-machines-common-sizes-storage.md)]
 

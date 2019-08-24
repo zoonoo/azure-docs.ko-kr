@@ -29,7 +29,7 @@ ms.locfileid: "68883726"
 * **UpdateModuleTwinReportedProperties**. 이 앱은 업데이트 된 모듈 쌍으로 보고 된 속성을 IoT hub에 보냅니다.
 
 > [!NOTE]
-> 장치와 솔루션 백 엔드에서 실행하기 위해 두 애플리케이션을 빌드하는 데 사용할 수 있는 Azure IoT SDK에 관한 정보는 [Azure IoT SDK](iot-hub-devguide-sdks.md)를 참조하세요.
+> 디바이스와 솔루션 백 엔드에서 실행하기 위해 두 애플리케이션을 빌드하는 데 사용할 수 있는 Azure IoT SDK에 관한 정보는 [Azure IoT SDK](iot-hub-devguide-sdks.md)를 참조하세요.
 
 이 자습서를 완료하려면 다음 필수 구성 요소가 필요합니다.
 

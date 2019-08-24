@@ -24,7 +24,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 06/25/2019
 ms.locfileid: "67358146"
 ---
-# <a name="tutorials-for-integrating-saas-applications-with-azure-active-directory"></a>SaaS 응용 프로그램과 Azure Active Directory를 통합하는 방법에 대한 자습서
+# <a name="tutorials-for-integrating-saas-applications-with-azure-active-directory"></a>SaaS 애플리케이션과 Azure Active Directory를 통합하는 방법에 대한 자습서
 
 Azure Active Directory와 클라우드 지원 [SaaS(Software as a Service)](https://azure.microsoft.com/overview/what-is-saas/) 애플리케이션을 통합할 수 있도록 구성 과정을 안내하는 자습서 모음을 개발했습니다.
 
@@ -79,4 +79,4 @@ Azure AD에 사전 통합된 SaaS 앱 전체 목록은 [Active Directory Marketp
 
 ## <a name="next-steps"></a>다음 단계
 
-응용 프로그램 관리에 대한 자세한 내용은 [응용 프로그램 관리란?](../manage-apps/what-is-application-management.md)을 참조하세요.
+애플리케이션 관리에 대한 자세한 내용은 [애플리케이션 관리란?](../manage-apps/what-is-application-management.md)을 참조하세요.

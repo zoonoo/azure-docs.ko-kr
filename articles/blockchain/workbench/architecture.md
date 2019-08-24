@@ -19,7 +19,7 @@ ms.locfileid: "67060911"
 ---
 # <a name="azure-blockchain-workbench-architecture"></a>Azure Blockchain Workbench 아키텍처
 
-Azure Blockchain Workbench는 여러 Azure 구성 요소를 사용하는 솔루션을 제공함으로써 블록체인 애플리케이션 개발을 간소화합니다. Azure Marketplace에서 솔루션 템플릿을 사용하여 Blockchain Workbench를 배포할 수 있습니다. 템플릿을 사용하면 블록체인 스택, 클라이언트 응용 프로그램 종류, IoT 통합을 포함하여 배포할 구성 요소 및 모듈을 선택할 수 있습니다. Blockchain Workbench가 배포되면 웹앱, iOS 앱 및 Android 앱에 액세스할 수 있습니다.
+Azure Blockchain Workbench는 여러 Azure 구성 요소를 사용하는 솔루션을 제공함으로써 블록체인 애플리케이션 개발을 간소화합니다. Azure Marketplace에서 솔루션 템플릿을 사용하여 Blockchain Workbench를 배포할 수 있습니다. 템플릿을 사용하면 블록체인 스택, 클라이언트 애플리케이션 종류, IoT 통합을 포함하여 배포할 구성 요소 및 모듈을 선택할 수 있습니다. Blockchain Workbench가 배포되면 웹앱, iOS 앱 및 Android 앱에 액세스할 수 있습니다.
 
 ![Blockchain Workbench 아키텍처](./media/architecture/architecture.png)
 
@@ -64,7 +64,7 @@ Blockchain Workbench로 직접 메시지를 보내려는 개발자는 직접 메
 
 애플리케이션의 수명 주기 동안 이벤트가 발생합니다. 게이트웨이 API 또는 원장에서 이벤트를 트리거할 수 있습니다. 이벤트 알림은 이벤트를 기반으로 다운스트림 코드를 시작할 수 있습니다.
 
-Blockchain Workbench는 두 가지 유형의 이벤트 소비자를 자동으로 배포합니다. 한 소비자는 블록체인 이벤트에 의해 트리거되어 오프 체인 SQL 저장소를 채웁니다. 다른 소비자는 문서의 업로드 및 저장과 관련하여 API에서 생성된 이벤트에 대한 메타데이터를 캡처하는 것입니다.
+Blockchain Workbench는 두 가지 유형의 이벤트 소비자를 자동으로 배포합니다. 한 소비자는 블록체인 이벤트에 의해 트리거되어 오프 체인 SQL 저장소를 채웁니다. 다른 소비자는 문서의 업로드 및 스토리지과 관련하여 API에서 생성된 이벤트에 대한 메타데이터를 캡처하는 것입니다.
 
 ## <a name="message-consumers"></a>메시지 소비자
 
@@ -78,9 +78,9 @@ DLT(분산 원장 기술) 메시지에는 블록체인에 쓰여지는 트랜잭
 
 데이터베이스 소비자는 Service Bus에서 메시지를 가져와 데이터를 연결된 데이터베이스(예: SQL 데이터베이스)로 푸시합니다.
 
-### <a name="storage-consumer"></a>저장소 소비자
+### <a name="storage-consumer"></a>스토리지 소비자
 
-저장소 소비자는 Service Bus에서 메시지를 가져와 데이터를 연결된 저장소로 푸시합니다. 예를 들어 해시된 문서를 Azure Storage에 저장합니다.
+스토리지 소비자는 Service Bus에서 메시지를 가져와 데이터를 연결된 스토리지로 푸시합니다. 예를 들어 해시된 문서를 Azure Storage에 저장합니다.
 
 ## <a name="transaction-builder-and-signer"></a>트랜잭션 작성기 및 서명자
 
@@ -103,7 +103,7 @@ DLT(분산 원장 기술) 감시자는 Blockchain Workbench에 연결된 블록�
 
 Blockchain Workbench에 연결된 Azure SQL 데이터베이스는 계약 정의, 구성 메타데이터 및 블록체인에 저장된 SQL 액세스 가능 데이터 복제본을 저장합니다. 데이터베이스에 직접 액세스하면 이 데이터를 쉽게 쿼리, 시각화 또는 분석할 수 있습니다. 개발자 및 다른 사용자는 보고, 분석 또는 기타 데이터 중심 통합을 위해 데이터베이스를 사용할 수 있습니다. 예를 들어 사용자는 Power BI를 사용하여 트랜잭션 데이터를 시각화할 수 있습니다.
 
-이 오프 체인 저장소는 엔터프라이즈 조직이 블록체인 원장이 아닌 SQL로 데이터를 쿼리할 수 있는 기능을 제공합니다. 또한 오프 체인 저장소는 블록체인 기술 스택에 대해 독립적인 표준 스키마를 표준화함으로써 프로젝트, 시나리오 및 조직 전체에서 보고서 및 기타 아티팩트를 재사용할 수 있게 해줍니다.
+이 오프 체인 스토리지는 엔터프라이즈 조직이 블록체인 원장이 아닌 SQL로 데이터를 쿼리할 수 있는 기능을 제공합니다. 또한 오프 체인 스토리지는 블록체인 기술 스택에 대해 독립적인 표준 스키마를 표준화함으로써 프로젝트, 시나리오 및 조직 전체에서 보고서 및 기타 아티팩트를 재사용할 수 있게 해줍니다.
 
 ## <a name="azure-storage"></a>Azure Storage
 

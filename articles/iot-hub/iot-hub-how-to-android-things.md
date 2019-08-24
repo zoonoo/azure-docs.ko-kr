@@ -42,7 +42,7 @@ ms.locfileid: "68883124"
 
    **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
-   **MyAndroidThingsDevice** : 등록된 디바이스에 지정된 이름입니다. MyAndroidThingsDevice를 표시된 것처럼 사용합니다. 다른 장치 이름을 선택하는 경우 이 문서 전체에서 해당 이름을 사용해야 하고, 샘플 애플리케이션에서 장치 이름을 업데이트한 후 실행해야 합니다.
+   **MyAndroidThingsDevice** : 등록된 디바이스에 지정된 이름입니다. MyAndroidThingsDevice를 표시된 것처럼 사용합니다. 다른 디바이스 이름을 선택하는 경우 이 문서 전체에서 해당 이름을 사용해야 하고, 샘플 애플리케이션에서 디바이스 이름을 업데이트한 후 실행해야 합니다.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
@@ -87,7 +87,7 @@ ms.locfileid: "68883124"
 
 ## <a name="read-the-telemetry-from-your-hub"></a>허브에서 원격 분석 읽기
 
-IoT Hub를 통해 데이터를 받은 상태 그대로 볼 수 있습니다. IoT Hub CLI 확장은 IoT Hub의 서비스 쪽 **이벤트** 엔드포인트에 연결할 수 있습니다. 이 확장은 시뮬레이트된 디바이스에서 보낸 디바이스-클라우드 메시지를 받습니다. IoT Hub 백 엔드 애플리케이션은 일반적으로 클라우드에서 실행되며 장치-클라우드 메시지를 수신하고 처리합니다.
+IoT Hub를 통해 데이터를 받은 상태 그대로 볼 수 있습니다. IoT Hub CLI 확장은 IoT Hub의 서비스 쪽 **이벤트** 엔드포인트에 연결할 수 있습니다. 이 확장은 시뮬레이트된 디바이스에서 보낸 디바이스-클라우드 메시지를 받습니다. IoT Hub 백 엔드 애플리케이션은 일반적으로 클라우드에서 실행되며 디바이스-클라우드 메시지를 수신하고 처리합니다.
 
 Azure Cloud Shell에서 다음 명령을 실행하고, `YourIoTHubName`을 해당 IoT 허브 이름으로 바꿉니다.
 

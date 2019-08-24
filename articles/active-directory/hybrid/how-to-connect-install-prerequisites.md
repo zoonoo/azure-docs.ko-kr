@@ -191,7 +191,7 @@ Azure AD Connect를 사용하여 웹 애플리케이션 프록시 또는 Active 
   * ID는 dNSName 유형의 주체 대체 이름(SAN)의 확장 유형이거나, SAN 항목이 없는 경우 공통 이름으로 지정된 주제 이름입니다.  
   * 그 중 하나가 페더레이션 서비스 이름과 일치하는 경우 여러 SAN 항목이 인증서에 있을 수 있습니다.
   * 작업 공간 연결을 사용하도록 하려는 경우 **enterpriseregistration** 값과 함께 추가 SAN이 필요합니다. 이어서 조직의 사용자 이름(UPN) 접미사를(예:  **enterpriseregistration.contoso.com**) 붙입니다.
-* CryptoAPI 다음 세대(CNG) 및 키 저장소 공급자를 기반으로 하는 인증서는 지원되지 않습니다. 즉, KSP(키 저장소 공급자)가 아닌 CSP(암호화 서비스 공급자)를 기반으로 인증서를 사용해야 합니다.
+* CryptoAPI 다음 세대(CNG) 및 키 스토리지 공급자를 기반으로 하는 인증서는 지원되지 않습니다. 즉, KSP(키 스토리지 공급자)가 아닌 CSP(암호화 서비스 공급자)를 기반으로 인증서를 사용해야 합니다.
 * 와일드카드 인증서가 지원됩니다.
 
 ### <a name="name-resolution-for-federation-servers"></a>페더레이션 서버에 대한 이름 확인

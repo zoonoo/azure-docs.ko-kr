@@ -88,18 +88,18 @@ Azure Virtual Network 서비스 엔드포인트<br/> (Azure Storage 방화벽 �
 가속 네트워킹 | 아니요 | 아니요
 
 
-## <a name="hyper-v-host-storage"></a>Hyper-V 호스트 저장소
+## <a name="hyper-v-host-storage"></a>Hyper-V 호스트 스토리지
 
-**저장소** | **Hyper-V(Virtual Machine Manager 있음)** | **Hyper-V(Virtual Machine Manager 없음)**
+**스토리지** | **Hyper-V(Virtual Machine Manager 있음)** | **Hyper-V(Virtual Machine Manager 없음)**
 --- | --- | --- 
 NFS | NA | NA
 SMB 3.0 | yes | 예
 SAN(ISCSI) | 예 | 예
 다중 경로(MPIO). 테스트에 사용된 소프트웨어:<br></br> Microsoft DSM, EMC PowerPath 5.7 SP4<br/><br/> EMC PowerPath DSM for CLARiiON | 예 | 예
 
-## <a name="hyper-v-vm-guest-storage"></a>Hyper-V VM 게스트 저장소
+## <a name="hyper-v-vm-guest-storage"></a>Hyper-V VM 게스트 스토리지
 
-**저장소** | **Hyper-V(Virtual Machine Manager 있음)** | **Hyper-V(Virtual Machine Manager 없음)**
+**스토리지** | **Hyper-V(Virtual Machine Manager 있음)** | **Hyper-V(Virtual Machine Manager 없음)**
 --- | --- | ---
 VMDK | NA | NA
 VHD/VHDX | 예 | 예
@@ -115,7 +115,7 @@ RDM | NA | NA
 디스크: 4K 논리/512바이트 물리 섹터 | 예 |  예
 논리 볼륨 관리(LVM)입니다. LVM은 데이터 디스크에서만 지원됩니다. Azure는 단일 OS 디스크만 제공합니다. | 예 | 예
 스트라이프 디스크 포함 볼륨 1TB 이상 | 예 | 예
-저장소 공간 | 아니요 | 아니요
+스토리지 공간 | 아니요 | 아니요
 디스크 핫 추가/제거 | 아니요 | 아니요
 디스크 제외 | 예 | 예
 다중 경로(MPIO) | 예 | 예
@@ -124,14 +124,14 @@ RDM | NA | NA
 
 **구성 요소** | **Hyper-V(Virtual Machine Manager 있음)** | **Hyper-V(Virtual Machine Manager 없음)**
 --- | --- | ---
-로컬 중복 저장소 | 예 | 예
-지역 중복 저장소 | 예 | 예
-읽기 액세스 지역 중복 저장소 | 예 | 예
-쿨 저장소 | 아니요 | 아니요
-핫 저장소| 아니요 | 아니요
+로컬 중복 스토리지 | 예 | 예
+지역 중복 스토리지 | 예 | 예
+읽기 액세스 지역 중복 스토리지 | 예 | 예
+쿨 스토리지 | 아니요 | 아니요
+핫 스토리지| 아니요 | 아니요
 블록 Blob | 아니요 | 아니요
 미사용 암호화(SSE)| 예 | 예
-Premium Storage | 예 | 예
+프리미엄 스토리지 | 예 | 예
 Import/Export 서비스 | 아니요 | 아니요
 대상 스토리지/캐시 스토리지(복제 데이터 저장에 사용됨) 계정에 구성된 가상 네트워크용 Azure Storage 방화벽 | 아니요 | 아니요
 
@@ -169,7 +169,7 @@ VM 형식 | 1세대<br/><br/> 2세대--Windows | 기본 OS 디스크 형식이 �
 **동작** |  **Hyper-V(Virtual Machine Manager 있음)** | **Hyper-V(Virtual Machine Manager 없음)**
 --- | --- | ---
 리소스 그룹 간 자격 증명 모음 이동<br/><br/> 구독 내 및 구독 간 | 아니요 | 아니요
-저장소 그룹 간 저장소, 네트워크, Azure VM 이동<br/><br/> 구독 내 및 구독 간 | 아니요 | 아니요
+스토리지 그룹 간 스토리지, 네트워크, Azure VM 이동<br/><br/> 구독 내 및 구독 간 | 아니요 | 아니요
 
 > [!NOTE]
 > 온-프레미스에서 Azure로 Hyper-VM(SCVMM을 사용하거나 사용하지 않고 관리)을 복제할 때 하나의 특정 환경(해당하는 경우 Hyper-V 사이트 또는 SCVMM)에서 하나의 AD 테넌트에만 복제할 수 있습니다.

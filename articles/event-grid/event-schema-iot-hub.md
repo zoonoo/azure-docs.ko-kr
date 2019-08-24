@@ -202,8 +202,8 @@ DeviceCreated 및 DeviceDeleted 이벤트에 대한 스키마는 구조가 동�
 | primaryThumbprint | string | x509 인증서에 대한 주된 지문입니다. |
 | secondaryThumbprint | 문자열 | x509 인증서에 대한 보조 지문입니다. | 
 | version | 정수 | 디바이스 쌍이 업데이트될 때마다 하나씩 증가하는 정수입니다. |
-| desired | 개체(object) | 애플리케이션 백 엔드에서만 작성할 수 있고 장치에서 읽을 수 있는 속성의 일부입니다. | 
-| reported | 개체(object) | 장치에서만 작성할 수 있고 애플리케이션 백 엔드에서 읽을 수 있는 속성의 일부입니다. |
+| desired | 개체(object) | 애플리케이션 백 엔드에서만 작성할 수 있고 디바이스에서 읽을 수 있는 속성의 일부입니다. | 
+| reported | 개체(object) | 디바이스에서만 작성할 수 있고 애플리케이션 백 엔드에서 읽을 수 있는 속성의 일부입니다. |
 | lastUpdated | 문자열 | 마지막 디바이스 쌍 속성 업데이트의 ISO8601 타임 스탬프입니다. | 
 
 ## <a name="next-steps"></a>다음 단계

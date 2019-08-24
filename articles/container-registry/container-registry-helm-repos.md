@@ -19,7 +19,7 @@ ms.locfileid: "68309505"
 
 Kubernetes에 대 한 응용 프로그램을 신속 하 게 관리 하 고 배포 하기 위해 [오픈 소스 투구 패키지 관리자][helm]를 사용할 수 있습니다. Helm 사용 시 애플리케이션은 Helm 차트 리포지토리에 저장되는 *차트*로 정의됩니다. 이러한 차트는 구성 및 종속성을 정의하며, 애플리케이션의 전체 수명 주기에 걸쳐 차트의 버전을 관리할 수 있습니다. Helm 차트 리포지토리용 호스트로 Azure Container Registry를 사용할 수 있습니다.
 
-Azure Container Registry를 사용하는 경우 빌드 파이프라인 또는 기타 Azure 서비스와 통합할 수 있는 프라이빗 보안 Helm 차트 리포지토리가 제공됩니다. Azure Container Registry의 Helm 차트 리포지토리에는 차트를 배포한 응용 프로그램과 가까운 위치에 보관하고 중복성을 유지하기 위한 지역 복제 기능이 포함되어 있습니다. 차트는 모든 Azure Container Registry 기준 가격에서 사용 가능하며, 차트에서 사용한 저장소 양만큼만 요금을 결제하면 됩니다.
+Azure Container Registry를 사용하는 경우 빌드 파이프라인 또는 기타 Azure 서비스와 통합할 수 있는 프라이빗 보안 Helm 차트 리포지토리가 제공됩니다. Azure Container Registry의 Helm 차트 리포지토리에는 차트를 배포한 응용 프로그램과 가까운 위치에 보관하고 중복성을 유지하기 위한 지역 복제 기능이 포함되어 있습니다. 차트는 모든 Azure Container Registry 기준 가격에서 사용 가능하며, 차트에서 사용한 스토리지 양만큼만 요금을 결제하면 됩니다.
 
 이 문서에서는 Azure Container Registry에 저장된 Helm 차트 리포지토리를 사용하는 방법을 설명합니다.
 
@@ -36,7 +36,7 @@ Azure Container Registry를 사용하는 경우 빌드 파이프라인 또는 �
 
 ## <a name="add-a-repository-to-helm-client"></a>Helm 클라이언트에 리포지토리 추가
 
-Helm 리포지토리는 Helm 차트를 저장할 수 있는 HTTP 서버입니다. Azure Container Registry는 Helm 차트용으로 이 저장소를 제공할 수 있으며, 리포지토리에 차트를 추가하고 제거할 때 인덱스 정의를 관리합니다.
+Helm 리포지토리는 Helm 차트를 저장할 수 있는 HTTP 서버입니다. Azure Container Registry는 Helm 차트용으로 이 스토리지를 제공할 수 있으며, 리포지토리에 차트를 추가하고 제거할 때 인덱스 정의를 관리합니다.
 
 Azure Container Registry를 Helm 차트 리포지토리로 추가하려면 Azure CLI를 사용합니다. 이 방식을 사용하는 경우 Helm 클라이언트는 Azure Container Registry를 통해 지원되는 리포지토리용 URI와 자격 증명을 사용하여 업데이트됩니다. 이 리포지토리 정보는 수동으로 지정할 필요가 없으므로 명령 기록 등에 자격 증명이 노출되지 않습니다.
 

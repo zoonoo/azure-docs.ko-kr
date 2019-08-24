@@ -16,7 +16,7 @@ ms.locfileid: "67616090"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Azure 디스크를 사용하여 영구 볼륨을 동적으로 만들어 사용
 
-영구적 볼륨은 Kubernetes Pod와 함께 사용하기 위해 프로비전된 저장소 부분을 나타냅니다. 하나 이상의 Pod에서 영구적 볼륨을 사용할 수 있으며 동적 또는 정적으로 프로비전할 수 있습니다. 이 문서에서는 AKS(Azure Kubernetes Service) 클러스터에서 한 Pod에 사용할 Azure 디스크가 포함된 영구 볼륨을 동적으로 만드는 방법을 설명합니다.
+영구적 볼륨은 Kubernetes Pod와 함께 사용하기 위해 프로비전된 스토리지 부분을 나타냅니다. 하나 이상의 Pod에서 영구적 볼륨을 사용할 수 있으며 동적 또는 정적으로 프로비전할 수 있습니다. 이 문서에서는 AKS(Azure Kubernetes Service) 클러스터에서 한 Pod에 사용할 Azure 디스크가 포함된 영구 볼륨을 동적으로 만드는 방법을 설명합니다.
 
 > [!NOTE]
 > Azure 디스크는 *액세스 모드* 형식 *ReadWriteOnce*만 사용하여 탑재할 수 있으며, 이렇게 탑재한 디스크는 AKS의 한 Pod에서만 사용 가능합니다. 여러 pod에서 영구적 볼륨을 공유 해야 하는 경우 [Azure Files][azure-files-pvc]를 사용 합니다.
@@ -29,20 +29,20 @@ Kubernetes 볼륨에 대 한 자세한 내용은 [AKS의 응용 프로그램에 
 
 또한 Azure CLI 버전 2.0.59 이상이 설치 및 구성 되어 있어야 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드 해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조 하세요.
 
-## <a name="built-in-storage-classes"></a>기본 제공 저장소 클래스
+## <a name="built-in-storage-classes"></a>기본 제공 스토리지 클래스
 
-저장소 클래스를 사용하여 영구적 볼륨에서 저장소 단위를 동적으로 생성되는 방법을 정의합니다. Kubernetes 저장소 클래스에 대 한 자세한 내용은 [Kubernetes 저장소 클래스][kubernetes-storage-classes]를 참조 하세요.
+스토리지 클래스를 사용하여 영구적 볼륨에서 스토리지 단위를 동적으로 생성되는 방법을 정의합니다. Kubernetes 저장소 클래스에 대 한 자세한 내용은 [Kubernetes 저장소 클래스][kubernetes-storage-classes]를 참조 하세요.
 
-모든 AKS 클러스터에는 Azure 디스크에서 작동하도록 구성된 2개의 미리 만들어진 저장소 클래스가 포함되어 있습니다.
+모든 AKS 클러스터에는 Azure 디스크에서 작동하도록 구성된 2개의 미리 만들어진 스토리지 클래스가 포함되어 있습니다.
 
-* *default* 저장소 클래스는 표준 Azure 디스크를 프로비전합니다.
-    * 표준 저장소는 HDD에 의해 지원되며 성능은 그대로이면서 비용 효율적인 저장소를 제공합니다. 표준 디스크는 비용 효율적인 개발 및 테스트 워크로드에 적합합니다.
-* *managed-premium* 저장소 클래스는 프리미엄 Azure 디스크를 프로비전합니다.
+* *default* 스토리지 클래스는 표준 Azure 디스크를 프로비전합니다.
+    * 표준 스토리지는 HDD에 의해 지원되며 성능은 그대로이면서 비용 효율적인 스토리지를 제공합니다. 표준 디스크는 비용 효율적인 개발 및 테스트 워크로드에 적합합니다.
+* *managed-premium* 스토리지 클래스는 프리미엄 Azure 디스크를 프로비전합니다.
     * 프리미엄 디스크는 SSD 기반 고성능의 대기 시간이 짧은 디스크에서 지원합니다. 프로덕션 워크로드를 실행하는 VM에 완벽한 디스크입니다. 클러스터의 AKS 노드가 Premium Storage를 사용하는 경우 *managed-premium* 클래스를 선택합니다.
     
 이러한 기본 저장소 클래스를 사용 하면 만든 볼륨 크기를 업데이트할 수 없습니다. 이 기능을 사용 하도록 설정 하려면 기본 저장소 클래스 중 하나에 *allowVolumeExpansion: true* 줄을 추가 하거나 사용자 지정 저장소 클래스를 직접 만듭니다. `kubectl edit sc` 명령을 사용 하 여 기존 저장소 클래스를 편집할 수 있습니다. 저장소 클래스에 대 한 자세한 내용 및 직접 만들기에 대 한 자세한 내용은 [AKS의 응용 프로그램에 대 한 저장소 옵션][storage-class-concepts]을 참조 하세요.
 
-[Kubectl get sc][kubectl-get] 명령을 사용 하 여 미리 만든 저장소 클래스를 확인 합니다. 다음 예제에서는 AKS 클러스터 내에서 사용할 수 있는 미리 생성된 저장소 클래스를 보여 줍니다.
+[Kubectl get sc][kubectl-get] 명령을 사용 하 여 미리 만든 저장소 클래스를 확인 합니다. 다음 예제에서는 AKS 클러스터 내에서 사용할 수 있는 미리 생성된 스토리지 클래스를 보여 줍니다.
 
 ```console
 $ kubectl get sc
@@ -57,9 +57,9 @@ managed-premium     kubernetes.io/azure-disk   1h
 
 ## <a name="create-a-persistent-volume-claim"></a>영구적 볼륨 클레임 만들기
 
-PVC(영구적 볼륨 클레임)을 사용하여 저장소 클래스를 기반으로 하는 저장소를 자동으로 프로비전합니다. 이 경우에 PVC는 미리 생성된 저장소 클래스 중 하나를 사용하여 표준 또는 프리미엄 Azure 관리 디스크를 만들 수 있습니다.
+PVC(영구적 볼륨 클레임)을 사용하여 스토리지 클래스를 기반으로 하는 스토리지를 자동으로 프로비전합니다. 이 경우에 PVC는 미리 생성된 스토리지 클래스 중 하나를 사용하여 표준 또는 프리미엄 Azure 관리 디스크를 만들 수 있습니다.
 
-파일 `azure-premium.yaml`을 만들고 다음 매니페스트에 복사합니다. 클레임은 *ReadWriteOnce* 액세스 권한이 *5GB* 크기의 `azure-managed-disk`이라는 디스크를 요구합니다. *managed-premium* 저장소 클래스를 저장소 클래스로 지정합니다.
+파일 `azure-premium.yaml`을 만들고 다음 매니페스트에 복사합니다. 클레임은 *ReadWriteOnce* 액세스 권한이 *5GB* 크기의 `azure-managed-disk`이라는 디스크를 요구합니다. *managed-premium* 스토리지 클래스를 스토리지 클래스로 지정합니다.
 
 ```yaml
 apiVersion: v1
@@ -76,7 +76,7 @@ spec:
 ```
 
 > [!TIP]
-> 표준 저장소를 사용하는 디스크를 만들려면 *managed-premium* 대신 `storageClassName: default`를 사용합니다.
+> 표준 스토리지를 사용하는 디스크를 만들려면 *managed-premium* 대신 `storageClassName: default`를 사용합니다.
 
 [Kubectl apply][kubectl-apply] 명령을 사용 하 여 영구 볼륨 클레임을 만들고 *azure-premium. yaml* 파일을 지정 합니다.
 

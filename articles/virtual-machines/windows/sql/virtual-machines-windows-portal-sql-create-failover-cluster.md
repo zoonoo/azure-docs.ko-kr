@@ -25,7 +25,7 @@ ms.locfileid: "67607293"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Azure Virtual Machines에 SQL Server 장애 조치(Failover) 클러스터 인스턴스 구성
 
-이 문서에서는 리소스 관리자 모델에서 Azure 가상 머신에 SQL Server FCI(장애 조치(Failover) 클러스터 인스턴스)를 만드는 방법을 설명합니다. 이 솔루션에서는 Windows 클러스터에서 노드(Azure VM) 간 저장소(데이터 디스크)를 동기화하는 소프트웨어 기반 가상 SAN으로 [Windows Server 2016 Datacenter 버전 저장소 공간 다이렉트 \(S2D\)](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview)를 사용합니다. S2D는 Windows Server 2016의 새로운 기능입니다.
+이 문서에서는 리소스 관리자 모델에서 Azure 가상 머신에 SQL Server FCI(장애 조치(Failover) 클러스터 인스턴스)를 만드는 방법을 설명합니다. 이 솔루션에서는 Windows 클러스터에서 노드(Azure VM) 간 스토리지(데이터 디스크)를 동기화하는 소프트웨어 기반 가상 SAN으로 [Windows Server 2016 Datacenter 버전 스토리지 공간 다이렉트 \(S2D\)](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview)를 사용합니다. S2D는 Windows Server 2016의 새로운 기능입니다.
 
 다음 다이어그램에서는 Azure 가상 머신에 완전한 솔루션을 보여 줍니다.
 
@@ -35,8 +35,8 @@ ms.locfileid: "67607293"
 
 - Windows 장애 조치(Failover) 클러스터에 있는 두 개의 Azure Virtual Machines 가상 머신이 장애 조치 클러스터에 있는 경우 *클러스터 노드* 또는 *노드*라고도 합니다.
 - 각 가상 머신에는 두 개 이상의 데이터 디스크가 있습니다.
-- S2D는 데이터 디스크의 데이터를 동기화하고 저장소 풀로 동기화된 저장소를 제공합니다.
-- 저장소 풀은 장애 조치 클러스터에 CSV(클러스터 공유 볼륨)를 제공합니다.
+- S2D는 데이터 디스크의 데이터를 동기화하고 스토리지 풀로 동기화된 스토리지를 제공합니다.
+- 스토리지 풀은 장애 조치 클러스터에 CSV(클러스터 공유 볼륨)를 제공합니다.
 - SQL Server FCI 클러스터 역할은 데이터 드라이브에 CSV를 사용합니다.
 - SQL Server FCI에 대한 IP 주소를 저장하는 Azure 부하 분산 장치.
 - Azure 가용성 집합은 모든 리소스를 보유합니다.
@@ -44,9 +44,9 @@ ms.locfileid: "67607293"
    >[!NOTE]
    >다이어그램의 모든 Azure 리소스는 동일한 리소스 그룹에 있습니다.
 
-S2D에 대한 자세한 내용은 [Windows Server 2016 Datacenter 버전 저장소 공간 다이렉트 \(S2D\)](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview)를 참조하세요.
+S2D에 대한 자세한 내용은 [Windows Server 2016 Datacenter 버전 스토리지 공간 다이렉트 \(S2D\)](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview)를 참조하세요.
 
-S2D는 두 가지 유형의 아키텍처 수렴형 및 하이퍼 수렴형을 지원합니다. 이 문서의 아키텍처는 하이퍼 수렴형입니다. 하이퍼 수렴형 인프라는 클러스터형 애플리케이션을 호스트하는 동일한 서버에 저장소를 배치합니다. 이 아키텍처에서 저장소는 각 SQL Server FCI 노드에 있습니다.
+S2D는 두 가지 유형의 아키텍처 수렴형 및 하이퍼 수렴형을 지원합니다. 이 문서의 아키텍처는 하이퍼 수렴형입니다. 하이퍼 수렴형 인프라는 클러스터형 애플리케이션을 호스트하는 동일한 서버에 스토리지를 배치합니다. 이 아키텍처에서 스토리지는 각 SQL Server FCI 노드에 있습니다.
 
 ## <a name="licensing-and-pricing"></a>라이선싱 및 가격 책정
 
@@ -62,7 +62,7 @@ SQL Server 라이선싱에 대한 자세한 내용은 [가격 책정](https://ww
 
 ### <a name="example-azure-template"></a>예제 Azure 템플릿
 
-템플릿에서 Azure에 전체 솔루션을 만들 수 있습니다. 템플릿의 예제는 GitHub [Azure 빠른 시작 템플릿](https://github.com/MSBrett/azure-quickstart-templates/tree/master/sql-server-2016-fci-existing-vnet-and-ad)에서 사용 가능합니다. 이 예제는 특정 작업에 대해 설계되거나 테스트되지 않았습니다. 템플릿을 실행하여 도메인에 연결된 S2D 저장소를 사용하여 SQL Server FCI를 만들 수 있습니다. 템플릿을 평가하고 용도에 맞게 수정할 수 있습니다.
+템플릿에서 Azure에 전체 솔루션을 만들 수 있습니다. 템플릿의 예제는 GitHub [Azure 빠른 시작 템플릿](https://github.com/MSBrett/azure-quickstart-templates/tree/master/sql-server-2016-fci-existing-vnet-and-ad)에서 사용 가능합니다. 이 예제는 특정 작업에 대해 설계되거나 테스트되지 않았습니다. 템플릿을 실행하여 도메인에 연결된 S2D 스토리지를 사용하여 SQL Server FCI를 만들 수 있습니다. 템플릿을 평가하고 용도에 맞게 수정할 수 있습니다.
 
 ## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
@@ -78,7 +78,7 @@ SQL Server 라이선싱에 대한 자세한 내용은 [가격 책정](https://ww
 
 또한 다음 기술에 대한 기본적인 지식이 있어야 합니다.
 
-- [Windows Server 2016의 저장소 공간 다이렉트를 사용하는 하이퍼 수렴형 솔루션](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
+- [Windows Server 2016의 스토리지 공간 다이렉트를 사용하는 하이퍼 수렴형 솔루션](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
 - [Azure 리소스 그룹](../../../azure-resource-manager/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
@@ -180,7 +180,7 @@ SQL Server 라이선싱에 대한 자세한 내용은 [가격 책정](https://ww
    | SQL Server | 1433 | SQL Server의 기본 인스턴스에 대한 표준 포트입니다. 갤러리에서 이미지를 사용한 경우 이 포트는 자동으로 열립니다.
    | 상태 프로브 | 59999 | 모든 공개 TCP 포트입니다. 이후 단계에서 이 포트를 사용하려면 부하 분산 장치 [상태 프로브](#probe) 및 클러스터를 구성합니다.  
 
-1. 가상 컴퓨터에 저장소를 추가합니다. 자세한 내용은 [저장소 추가](../disks-types.md)를 참조하세요.
+1. 가상 컴퓨터에 스토리지를 추가합니다. 자세한 내용은 [스토리지 추가](../disks-types.md)를 참조하세요.
 
    두 가상 머신에 두 개 이상의 데이터 디스크가 필요합니다.
 
@@ -192,7 +192,7 @@ SQL Server 라이선싱에 대한 자세한 내용은 [가격 책정](https://ww
 
    호스트 캐싱을 **읽기 전용**으로 설정합니다.
 
-   프로덕션 환경에서 사용하는 저장소 용량은 작업에 따라 달라집니다. 이 문서에서 설명하는 값은 데모 및 테스트용입니다.
+   프로덕션 환경에서 사용하는 스토리지 용량은 작업에 따라 달라집니다. 이 문서에서 설명하는 값은 데모 및 테스트용입니다.
 
 1. [기존 도메인에 가상 머신을 추가합니다](virtual-machines-windows-portal-sql-availability-group-prereq.md#joinDomain).
 
@@ -206,7 +206,7 @@ SQL Server 라이선싱에 대한 자세한 내용은 [가격 책정](https://ww
 1. 클러스터 유효성 검사
 1. 장애 조치 클러스터 만들기
 1. 클라우드 감시 만들기
-1. 저장소 추가
+1. 스토리지 추가
 
 ### <a name="add-windows-failover-clustering-feature"></a>Windows 장애 조치(Failover) 클러스터링 기능 추가
 
@@ -227,7 +227,7 @@ SQL Server 라이선싱에 대한 자세한 내용은 [가격 책정](https://ww
    Invoke-Command  $nodes {Install-WindowsFeature Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools}
    ```
 
-참고로 다음 단계는 [Windows Server 2016의 저장소 공간 다이렉트를 사용하는 하이퍼 수렴형 솔루션](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-3-configure-storage-spaces-direct)의 3단계 지침을 따릅니다.
+참고로 다음 단계는 [Windows Server 2016의 스토리지 공간 다이렉트를 사용하는 하이퍼 수렴형 솔루션](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-3-configure-storage-spaces-direct)의 3단계 지침을 따릅니다.
 
 ### <a name="validate-the-cluster"></a>클러스터 유효성 검사
 
@@ -242,7 +242,7 @@ UI를 사용하여 클러스터의 유효성을 검사하려면 가상 머신 �
 1. **다음**을 클릭합니다.
 1. **서버 또는 클러스터 선택**에서 두 가상 머신의 이름을 입력합니다.
 1. **테스트 옵션**에서 **선택한 테스트만 실행**을 선택합니다. **다음**을 클릭합니다.
-1. **테스트 선택**에서 **저장소**를 제외한 모든 테스트를 포함합니다. 다음 그림을 참조하세요.
+1. **테스트 선택**에서 **스토리지**를 제외한 모든 테스트를 포함합니다. 다음 그림을 참조하세요.
 
    ![유효성 검사 테스트](./media/virtual-machines-windows-portal-sql-create-failover-cluster/10-validate-cluster-test.png)
 
@@ -286,23 +286,23 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 1. 장애 조치(Failover) 클러스터 쿼럼 감시를 구성합니다. UI에서 [사용자 인터페이스에서 쿼럼 감시 구성](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness)을 참조하세요.
 
-### <a name="add-storage"></a>저장소 추가
+### <a name="add-storage"></a>스토리지 추가
 
 S2D용 디스크는 비어 있고 파티션 또는 기타 데이터가 없어야 합니다. 디스크를 정리하려면 [이 가이드의 단계](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-34-clean-disks)를 따릅니다.
 
 1. [저장소 공간 다이렉트 \(S2D\)](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-35-enable-storage-spaces-direct)를 활성화합니다.
 
-   다음 PowerShell은 저장소 공간 다이렉트를 활성화합니다.  
+   다음 PowerShell은 스토리지 공간 다이렉트를 활성화합니다.  
 
    ```powershell
    Enable-ClusterS2D
    ```
 
-   **장애 조치(Failover) 클러스터 관리자**에서 이제 저장소 풀을 볼 수 있습니다.
+   **장애 조치(Failover) 클러스터 관리자**에서 이제 스토리지 풀을 볼 수 있습니다.
 
 1. [볼륨을 만듭니다](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-36-create-volumes).
 
-   S2D의 기능 중 하나는 이를 활성화할 때 저장소 풀을 자동으로 만드는 것입니다. 이제 볼륨을 만들 준비가 되었습니다. PowerShell commandlet `New-Volume`은 서식 지정, 클러스터에 추가 및 CSV(클러스터 공유 볼륨) 만들기를 포함하는 볼륨 생성 프로세스를 자동화합니다. 다음 예제에서는 800GB(기가바이트) CSV를 만듭니다.
+   S2D의 기능 중 하나는 이를 활성화할 때 스토리지 풀을 자동으로 만드는 것입니다. 이제 볼륨을 만들 준비가 되었습니다. PowerShell commandlet `New-Volume`은 서식 지정, 클러스터에 추가 및 CSV(클러스터 공유 볼륨) 만들기를 포함하는 볼륨 생성 프로세스를 자동화합니다. 다음 예제에서는 800GB(기가바이트) CSV를 만듭니다.
 
    ```powershell
    New-Volume -StoragePoolFriendlyName S2D* -FriendlyName VDisk01 -FileSystem CSVFS_REFS -Size 800GB
@@ -316,11 +316,11 @@ S2D용 디스크는 비어 있고 파티션 또는 기타 데이터가 없어야
 
 ## <a name="step-3-test-failover-cluster-failover"></a>3단계: 장애 조치(failover) 클러스터의 장애 조치(failover) 테스트
 
-장애 조치(Failover) 클러스터 관리자에서 저장소 리소스를 다른 클러스터 노드로 이동할 수 있는지 확인합니다. **장애 조치(Failover) 클러스터 관리자**를 사용하여 장애 조치 클러스터에 연결하고 한 노드에서 다른 노드로 저장소를 이동할 수 있는 경우 이제 FCI를 구성할 준비가 되었습니다.
+장애 조치(Failover) 클러스터 관리자에서 스토리지 리소스를 다른 클러스터 노드로 이동할 수 있는지 확인합니다. **장애 조치(Failover) 클러스터 관리자**를 사용하여 장애 조치 클러스터에 연결하고 한 노드에서 다른 노드로 스토리지를 이동할 수 있는 경우 이제 FCI를 구성할 준비가 되었습니다.
 
 ## <a name="step-4-create-sql-server-fci"></a>4단계: SQL Server FCI 만들기
 
-장애 조치 클러스터 및 저장소를 포함한 모든 클러스터 구성 요소를 구성한 후 SQL Server FCI를 만들 수 있습니다.
+장애 조치 클러스터 및 스토리지를 포함한 모든 클러스터 구성 요소를 구성한 후 SQL Server FCI를 만들 수 있습니다.
 
 1. RDP를 사용하여 첫 번째 가상 컴퓨터에 연결합니다.
 
@@ -332,7 +332,7 @@ S2D용 디스크는 비어 있고 파티션 또는 기타 데이터가 없어야
 
 1. **새 SQL Server 장애 조치(failover) 클러스터 설치**를 클릭합니다. 마법사의 지침에 따라 SQL Server FCI를 설치합니다.
 
-   FCI 데이터 디렉터리는 클러스터형 저장소에 있어야 합니다. S2D를 사용하는 경우 공유 디스크가 아니고 각 서버의 볼륨에 대한 탑재 지점입니다. S2D는 두 노드 간의 볼륨을 동기화합니다. 볼륨은 클러스터 공유 볼륨으로 클러스터에 표시됩니다. 데이터 디렉터리에 CSV 탑재 지점을 사용합니다.
+   FCI 데이터 디렉터리는 클러스터형 스토리지에 있어야 합니다. S2D를 사용하는 경우 공유 디스크가 아니고 각 서버의 볼륨에 대한 탑재 지점입니다. S2D는 두 노드 간의 볼륨을 동기화합니다. 볼륨은 클러스터 공유 볼륨으로 클러스터에 표시됩니다. 데이터 디렉터리에 CSV 탑재 지점을 사용합니다.
 
    ![DataDirectories](./media/virtual-machines-windows-portal-sql-create-failover-cluster/20-data-dicrectories.png)
 
@@ -484,19 +484,19 @@ FCI의 장애 조치(failover)를 테스트하여 클러스터 기능의 유효�
 
 ## <a name="limitations"></a>제한 사항
 
-Azure Virtual Machines는 가상 머신 CSV(클러스터형 공유 볼륨)의 저장소와 [표준 Load Balancer](../../../load-balancer/load-balancer-standard-overview.md)가 있는 Windows Server 2019에서 MSDTC(Microsoft Distributed Transaction Coordinator)를 지원합니다.
+Azure Virtual Machines는 가상 머신 CSV(클러스터형 공유 볼륨)의 스토리지와 [표준 Load Balancer](../../../load-balancer/load-balancer-standard-overview.md)가 있는 Windows Server 2019에서 MSDTC(Microsoft Distributed Transaction Coordinator)를 지원합니다.
 
 Azure Virtual Machines의 Windows Server 2016 및 이전 버전에서는 다음과 같은 이유로 MSDTC가 지원되지 않습니다.
 
-- 클러스터형 MSDTC 리소스는 공유 저장소를 사용하도록 구성할 수 없습니다. Windows Server 2016에서 MSDTC 리소스를 만드는 경우 공유 저장소가 있더라도 사용 가능한 공유 저장소가 표시되지 않습니다. 이 문제는 Windows Server 2019에서 수정되었습니다.
+- 클러스터형 MSDTC 리소스는 공유 스토리지를 사용하도록 구성할 수 없습니다. Windows Server 2016에서 MSDTC 리소스를 만드는 경우 공유 스토리지가 있더라도 사용 가능한 공유 스토리지가 표시되지 않습니다. 이 문제는 Windows Server 2019에서 수정되었습니다.
 - 기본 Load Balancer는 RPC 포트를 처리하지 않습니다.
 
 ## <a name="see-also"></a>참고 항목
 
 [원격 데스크톱(Azure)을 사용하여 S2D 설치](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-storage-spaces-direct-deployment)
 
-[저장소 공간 다이렉트를 사용하는 하이퍼 수렴형 솔루션](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
+[스토리지 공간 다이렉트를 사용하는 하이퍼 수렴형 솔루션](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
 
-[저장소 공간 다이렉트 개요](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview)
+[스토리지 공간 다이렉트 개요](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview)
 
 [S2D에 대한 SQL Server 지원](https://blogs.technet.microsoft.com/dataplatforminsider/2016/09/27/sql-server-2016-now-supports-windows-server-2016-storage-spaces-direct/)

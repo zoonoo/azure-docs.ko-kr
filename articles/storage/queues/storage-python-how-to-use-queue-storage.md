@@ -58,7 +58,7 @@ Azure Queues에서 Python을 사용하는 방법을 보여주는 샘플 애플�
 from azure.storage.queue import QueueService
 ```
 
-다음 코드는 저장소 계정 이름 및 계정 키를 사용하는 **QueueService** 개체를 만듭니다. 'myaccount' 및 'mykey'를 사용자의 계정 이름 및 키로 바꾸세요.
+다음 코드는 스토리지 계정 이름 및 계정 키를 사용하는 **QueueService** 개체를 만듭니다. 'myaccount' 및 'mykey'를 사용자의 계정 이름 및 키로 바꾸세요.
 
 ```python
 queue_service = QueueService(account_name='myaccount', account_key='mykey')

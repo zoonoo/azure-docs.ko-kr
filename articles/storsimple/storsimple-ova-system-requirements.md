@@ -27,11 +27,11 @@ ms.locfileid: "68516695"
 
 ## <a name="overview"></a>개요
 
-이 문서에서는 Microsoft Azure StorSimple Virtual Array 및 배열에 액세스하는 저장소 클라이언트의 중요한 시스템 요구 사항에 대해 설명합니다. StorSimple 시스템을 배포하기 전에 정보를 신중하게 검토하고 배포 및 후속 작업 중 필요에 따라 다시 검토하는 것이 좋습니다.
+이 문서에서는 Microsoft Azure StorSimple Virtual Array 및 배열에 액세스하는 스토리지 클라이언트의 중요한 시스템 요구 사항에 대해 설명합니다. StorSimple 시스템을 배포하기 전에 정보를 신중하게 검토하고 배포 및 후속 작업 중 필요에 따라 다시 검토하는 것이 좋습니다.
 
 시스템 요구 사항에는 다음 내용이 포함됩니다.
 
-* **저장소 클라이언트에 대한 소프트웨어 요구 사항** - 지원되는 가상화 플랫폼, 웹 브라우저, iSCSI 초기자, SMB 클라이언트, 최소 가상 디바이스 요구 사항, 운영 체제에 대한 추가적인 요구 사항을 설명합니다.
+* **스토리지 클라이언트에 대한 소프트웨어 요구 사항** - 지원되는 가상화 플랫폼, 웹 브라우저, iSCSI 초기자, SMB 클라이언트, 최소 가상 디바이스 요구 사항, 운영 체제에 대한 추가적인 요구 사항을 설명합니다.
 * **StorSimple 디바이스에 대한 네트워킹 요구 사항** - iSCSI, 클라우드 또는 관리 트래픽을 허용하도록 방화벽에서 열려야 하는 포트에 대한 정보를 제공합니다.
 
 이 문서에 게시된 StorSimple 시스템 요구 사항 정보는 StorSimple 가상 배열에만 적용됩니다.
@@ -71,7 +71,7 @@ ms.locfileid: "68516695"
 | Internet Explorer |최신 버전 |Internet Explorer 11로 테스트함 |
 | Google Chrome |최신 버전 |Chrome 46으로 테스트함 |
 
-### <a name="supported-storage-clients"></a>지원되는 저장소 클라이언트
+### <a name="supported-storage-clients"></a>지원되는 스토리지 클라이언트
 다음 소프트웨어 요구 사항은 StorSimple 가상 배열(iSCSI 서버로 구성됨)에 액세스하는 iSCSI 초기자에 대한 것입니다.
 
 | **지원되는 운영 체제** | **필요한 버전** | **추가 요구 사항/메모** |
@@ -90,7 +90,7 @@ ms.locfileid: "68516695"
 > Windows EFS(파일 시스템 암호화)에 의해 보호되는 파일을 StorSimple Virtual Array 파일 서버에 복사하거나 저장하지 마십시오. 그러면 지원되지 않는 구성이 발생합니다.
 
 
-### <a name="supported-storage-format"></a>지원되는 저장소 형식
+### <a name="supported-storage-format"></a>지원되는 스토리지 형식
 Azure 블록 Blob Storage만 지원됩니다. 페이지 Blob은 지원되지 않습니다. [블록 Blob 및 페이지 Blob에 대한](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) 자세한 내용입니다.
 
 ## <a name="networking-requirements"></a>네트워킹 요구 사항
@@ -130,7 +130,7 @@ StorSimple 고정 IP 주소에 따라 대부분의 경우에서 자유롭게 아
 | `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` <br>`https://login.windows.net`|StorSimple 디바이스 관리자 서비스<br>Access Control Service<br>Azure Service Bus<br>인증 서비스|
 | `http://*.backup.windowsazure.com` |디바이스 등록 |
 | `https://crl.microsoft.com/pki/*`<br>`https://www.microsoft.com/pki/*` |인증서 해지 |
-| `https://*.core.windows.net/*`<br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure 저장소 계정 및 모니터링 |
+| `https://*.core.windows.net/*`<br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure Storage 계정 및 모니터링 |
 | `https://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`https://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`https://download.microsoft.com`<br>`http://wustat.windows.com`<br>`https://ntservicepack.microsoft.com` |Microsoft 업데이트 서버<br> |
 | `http://*.deploy.akamaitechnologies.com` |Akamai CDN |
 | `https://*.partners.extranet.microsoft.com/*` |지원 패키지 |

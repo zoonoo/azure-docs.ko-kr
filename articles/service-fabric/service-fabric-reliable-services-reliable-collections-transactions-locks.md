@@ -48,8 +48,8 @@ ms.locfileid: "68599321"
 
 | 작업 \ 역할 | 기본 연산자 | 보조 |
 | --- |:--- |:--- |
-| 단일 엔터티 읽기 |반복 가능한 읽기 |스냅숏 |
-| 열거형, 개수 |스냅숏 |스냅숏 |
+| 단일 엔터티 읽기 |반복 가능한 읽기 |스냅샷 |
+| 열거형, 개수 |스냅샷 |스냅샷 |
 
 > [!NOTE]
 > 단일 엔터티 작업에 대한 일반적인 예제는 `IReliableDictionary.TryGetValueAsync`, `IReliableQueue.TryPeekAsync`입니다.

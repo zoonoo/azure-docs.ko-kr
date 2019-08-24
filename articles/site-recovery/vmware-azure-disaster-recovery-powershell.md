@@ -314,11 +314,11 @@ Tasks            : {Adding vCenter server}
 Errors           : {}
 ```
 
-## <a name="create-storage-accounts-for-replication"></a>복제에 사용할 저장소 계정 만들기
+## <a name="create-storage-accounts-for-replication"></a>복제에 사용할 스토리지 계정 만들기
 
 **사용 하 여 관리 디스크에 쓸 [Powershell Az.RecoveryServices 모듈 2.0.0](https://www.powershellgallery.com/packages/Az.RecoveryServices/2.0.0-preview) 이상.** 로그 저장소 계정 만들기만 필요합니다. 임시 로그만 저장에 사용 되기 때문에 표준 계정 형식 및 LRS 중복을 사용 하는 것이 좋습니다. 저장소 계정 자격 증명 모음과 동일한 Azure 지역에 만들어졌는지 확인 합니다.
 
-2\.0.0 보다 오래 된 Az.RecoveryServices 모듈의 버전을 사용 하는 경우 다음 단계를 사용 하 여 저장소 계정을 만들어야 합니다. 이 저장소 계정은 나중에 가상 머신을 복제하는 데 사용됩니다. 저장소 계정을 자격 증명 모음과 동일한 Azure 지역에 만들어야 합니다. 복제에 기존 저장소 계정을 사용하려는 경우 이 단계를 건너뛸 수 있습니다.
+2\.0.0 보다 오래 된 Az.RecoveryServices 모듈의 버전을 사용 하는 경우 다음 단계를 사용 하 여 저장소 계정을 만들어야 합니다. 이 스토리지 계정은 나중에 가상 머신을 복제하는 데 사용됩니다. 스토리지 계정을 자격 증명 모음과 동일한 Azure 지역에 만들어야 합니다. 복제에 기존 스토리지 계정을 사용하려는 경우 이 단계를 건너뛸 수 있습니다.
 
 > [!NOTE]
 > 온-프레미스 가상 머신을 Premium Storage 계정에 복제하는 동안 표준 스토리지 계정을 추가로 지정해야 합니다(로그 스토리지 계정). 로그 스토리지 계정에는 Premium Storage 대상에 로그가 적용될 때까지 복제 로그가 중간 스토리지로 보관됩니다.
@@ -351,7 +351,7 @@ vCenter Server에서 가상 머신을 검색하는 데 15~20분 정도 걸립니
 이제 이 테이블에 지정된 설정을 사용하여 다음 가상 머신을 복제합니다.
 
 
-|가상 머신  |프로세스 서버        |Storage 계정              |로그 저장소 계정  |정책           |모바일 서비스 설치를 위한 계정|대상 리소스 그룹  | 대상 가상 네트워크  |대상 서브넷  |
+|가상 머신  |프로세스 서버        |스토리지 계정              |로그 스토리지 계정  |정책           |모바일 서비스 설치를 위한 계정|대상 리소스 그룹  | 대상 가상 네트워크  |대상 서브넷  |
 |-----------------|----------------------|-----------------------------|---------------------|-----------------|-----------------------------------------|-----------------------|-------------------------|---------------|
 |CentOSVM1       |ConfigurationServer   |N/A| logstorageaccount1                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |
 |Win2K12VM1       |ScaleOut-ProcessServer|premiumstorageaccount1       |logstorageaccount1   |ReplicationPolicy|WindowsAccount                           |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |   

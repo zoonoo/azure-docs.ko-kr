@@ -165,7 +165,7 @@ SQL Database의 클라우드 환경에 적합한 몇 가지 보안 관련 차이
 
 **CREATE EVENT SESSION** 문을 실행하려면 데이터베이스에 **제어** 권한이 있어야 합니다. 데이터베이스 소유자(dbo)는 **제어** 권한이 있습니다.
 
-### <a name="storage-container-authorizations"></a>저장소 컨테이너 권한
+### <a name="storage-container-authorizations"></a>스토리지 컨테이너 권한
 
 Azure Storage 컨테이너에 대해 만드는 SAS 토큰은 권한에 대해 **rwl** 을 지정해야 합니다. **rwl** 값은 다음과 같은 권한을 제공합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: iOS에서 개체(Blob) 저장소를 사용하는 방법 - Azure | Microsoft Docs
+title: iOS에서 개체(Blob) 스토리지를 사용하는 방법 - Azure | Microsoft Docs
 description: Azure Blob Storage(개체 스토리지)를 사용하여 클라우드에 구조화되지 않은 데이터를 저장합니다.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -135,7 +135,7 @@ Azure Storage의 모든 Blob는 컨테이너에 있어야 합니다. 다음 예�
 
 - **프라이빗**: 계정 소유자만 컨테이너 및 Blob 데이터를 읽을 수 있습니다.
 - **Blob**: 이 컨테이너 내의 Blob 데이터는 익명 요청을 통해 읽을 수 있으나 컨테이너 데이터는 읽을 수 없습니다. 클라이언트는 익명 요청을 통해 컨테이너 내의 Blob을 열거할 수 없습니다.
-- **컨테이너**: 익명 요청을 통해 컨테이너와 Blob 데이터를 읽을 수 있습니다. 클라이언트는 익명 요청을 통해 컨테이너 내에서 Blob을 열거할 수 있지만 저장소 계정 내에서 컨테이너를 열거할 수는 없습니다.
+- **컨테이너**: 익명 요청을 통해 컨테이너와 Blob 데이터를 읽을 수 있습니다. 클라이언트는 익명 요청을 통해 컨테이너 내에서 Blob을 열거할 수 있지만 스토리지 계정 내에서 컨테이너를 열거할 수는 없습니다.
 
 다음 예제에서는 인터넷에서 모든 사용자의 공용, 읽기 전용 액세스를 허용할 **컨테이너** 액세스 권한으로 컨테이너를 만드는 방법을 보여 줍니다.
 
@@ -222,7 +222,7 @@ NSString에서 블록 Blob을 업로드하는 것 외에도 이와 유사한 메
 
 - **continuationToken** - 연속 토큰은 목록 작업을 시작할 위치를 나타냅니다. 토큰이 제공되지 않는 경우 처음부터 Blob를 나열합니다. 0에서 최대 설정까지 개수에 관계 없이 Blob를 나열할 수 있습니다. 이 메서드가 0개의 결과를 반환하더라도 `results.continuationToken` 이 nil이 아니면 서비스에 나열되지 않은 더 많은 Blob이 있을 수 있습니다.
 - **prefix** - Blob 목록에 사용할 접두사를 지정할 수 있습니다. 이 접두사로 시작하는 Blob만 나열됩니다.
-- **useFlatBlobListing** - [컨테이너 및 Blob 이름 명명 및 참조](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) 섹션에서 설명한 것처럼 Blob service가 플랫 저장소 스키마인 경우에도 경로 정보로 Blob 이름을 지정하여 가상 계층 구조를 만들 수 있습니다. 그러나 현재는 플랫이 아닌 목록은 지원되지 않습니다. 이 기능은 곧 제공됩니다. 현재 이 값은 **YES**여야 합니다.
+- **useFlatBlobListing** - [컨테이너 및 Blob 이름 명명 및 참조](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) 섹션에서 설명한 것처럼 Blob service가 플랫 스토리지 스키마인 경우에도 경로 정보로 Blob 이름을 지정하여 가상 계층 구조를 만들 수 있습니다. 그러나 현재는 플랫이 아닌 목록은 지원되지 않습니다. 이 기능은 곧 제공됩니다. 현재 이 값은 **YES**여야 합니다.
 - **blobListingDetails** - Blob을 나열할 때 포함할 항목을 지정할 수 있습니다.
   - _AZSBlobListingDetailsNone_: 커밋된 Blob만 나열하고 Blob 메타데이터는 반환하지 않습니다.
   - _AZSBlobListingDetailsSnapshots_: 커밋된 Blob 및 Blob 스냅샷을 나열합니다.

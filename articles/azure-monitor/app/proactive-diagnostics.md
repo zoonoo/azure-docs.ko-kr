@@ -27,7 +27,7 @@ ms.locfileid: "67465907"
 ## <a name="review-your-smart-detections"></a>스마트 감지 검토
 두 가지 방법으로 자동 관리 검색을 검색할 수 있습니다.
 
-* Application Insights에서 **전자 메일을 받습니다**. 일반적인 예는 다음과 같습니다.
+* **전자 메일을 받습니다** . 일반적인 예는 다음과 같습니다.
   
     ![전자 메일 경고](./media/proactive-diagnostics/03.png)
   

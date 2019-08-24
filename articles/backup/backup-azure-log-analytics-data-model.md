@@ -154,7 +154,7 @@ Log Analytics 데이터 모델을 사용 하 여 Log Analytics에서 사용자 �
 | JobStatus_s |텍스트 |완료된 작업의 상태(예: Completed, Failed) |
 | JobFailureCode_s |텍스트 |발생한 작업 실패로 인한 오류 코드 문자열 |
 | JobStartDateTime_s |Date/Time |작업 실행이 시작된 날짜 및 시간 |
-| BackupStorageDestination_s |텍스트 |백업 저장소의 대상(예: Cloud, Disk)  |
+| BackupStorageDestination_s |텍스트 |백업 스토리지의 대상(예: Cloud, Disk)  |
 | AdHocOrScheduledJob_s |텍스트 | 작업이 임시 작업 인지 또는 예약 된 작업 인지 지정 하는 필드 |
 | JobDurationInSecs_s | 숫자 |총 작업 기간(초) |
 | DataTransferredInMB_s | 숫자 |이 작업에 대해 전송되는 데이터 크기(MB 단위)|
@@ -259,23 +259,23 @@ Log Analytics 데이터 모델을 사용 하 여 Log Analytics에서 사용자 �
 | ProtectedContainerType_s |텍스트 |보호 된 컨테이너가 서버 인지 아니면 컨테이너 인지 |
 | ProtectedContainerProtectionState_s’  |텍스트 |보호 된 컨테이너의 보호 상태 |
 
-### <a name="storage"></a>저장 공간
+### <a name="storage"></a>스토리지
 
-이 표에서는 저장소 관련 필드에 대한 세부 정보를 제공합니다.
+이 표에서는 스토리지 관련 필드에 대한 세부 정보를 제공합니다.
 
 | 필드 | 데이터 형식 | 설명 |
 | --- | --- | --- |
 | CloudStorageInBytes_s |10진수 |최근 값을 기준으로 계산 되는 백업에서 사용 하는 클라우드 백업 저장소 (이 필드는 v1 스키마에만 해당 됨)|
-| ProtectedInstances_s |10진수 |청구에서 프런트 엔드 저장소 계산에 사용된 보호된 인스턴스 수이며, 최신 값을 기준으로 하여 계산됩니다. |
+| ProtectedInstances_s |10진수 |청구에서 프런트 엔드 스토리지 계산에 사용된 보호된 인스턴스 수이며, 최신 값을 기준으로 하여 계산됩니다. |
 | EventName_s |텍스트 |이 이벤트의 이름을 나타내며, 항상 AzureBackupCentralReport입니다. |
 | SchemaVersion_s |텍스트 |이 필드는 스키마의 현재 버전을 나타내며, **V2** 입니다. |
-| State_s |텍스트 |저장소 개체의 현재 상태(예: Active, Deleted) |
+| State_s |텍스트 |스토리지 개체의 현재 상태(예: Active, Deleted) |
 | BackupManagementType_s |텍스트 |백업 작업을 수행하는 서버에 대한 공급자 유형(예: IaaSVM, FileFolder) |
 | OperationName |텍스트 |현재 작업의 이름(Storage)을 나타냅니다. |
 | 범주 |텍스트 |이 필드는 Azure Monitor 로그에 푸시되는 진단 데이터의 범주를 나타냅니다. AzureBackupReport입니다. |
 | 리소스 |텍스트 |데이터가 수집되는 리소스이며, Recovery Services 자격 증명 모음 이름이 표시됩니다. |
-| ProtectedServerUniqueId_s |텍스트 |저장소가 계산되는 보호된 서버의 고유 ID |
-| VaultUniqueId_s |텍스트 |저장소가 계산되는 자격 증명 모음의 고유 ID |
+| ProtectedServerUniqueId_s |텍스트 |스토리지가 계산되는 보호된 서버의 고유 ID |
+| VaultUniqueId_s |텍스트 |스토리지가 계산되는 자격 증명 모음의 고유 ID |
 | SourceSystem |텍스트 |현재 데이터의 원본 시스템(Azure) |
 | resourceId |텍스트 |수집되는 데이터에 대한 리소스 식별자(예: Recovery Services 자격 증명 모음 리소스 ID) |
 | SubscriptionId |텍스트 |데이터가 수집되는 리소스의 구독 식별자(예: Recovery Services 자격 증명 모음) |
@@ -316,7 +316,7 @@ Log Analytics 데이터 모델을 사용 하 여 Log Analytics에서 사용자 �
 | VaultUniqueId_s |텍스트 |자격 증명 모음의 고유 ID |
 | VaultName_s |텍스트 |자격 증명 모음의 이름 |
 | AzureDataCenter_s |텍스트 |자격 증명 모음이 위치한 데이터 센터 |
-| StorageReplicationType_s |텍스트 |자격 증명 모음에 대한 저장소 복제 유형(예: GeoRedundant) |
+| StorageReplicationType_s |텍스트 |자격 증명 모음에 대한 스토리지 복제 유형(예: GeoRedundant) |
 | SourceSystem |텍스트 |현재 데이터의 원본 시스템(Azure) |
 | resourceId |텍스트 |수집되는 데이터에 대한 리소스 식별자(예: Recovery Services 자격 증명 모음 리소스 ID) |
 | SubscriptionId |텍스트 |데이터가 수집되는 리소스의 구독 식별자(예: Recovery Services 자격 증명 모음) |

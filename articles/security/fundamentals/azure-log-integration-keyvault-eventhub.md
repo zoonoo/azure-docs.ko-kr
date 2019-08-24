@@ -38,7 +38,7 @@ Azure 로그를 통합하는 가장 좋은 방법은 SIEM 공급업체의 Azure 
 이 자습서에서는 Azure Key Vault 활동이 이벤트 허브에 기록되도록 하고 JSON 파일로 SIEM 시스템에 제공하는 프로세스를 안내합니다. 그런 다음 JSON 파일을 처리하도록 SIEM 시스템을 구성할 수 있습니다.
 
 >[!NOTE]
->이 자습서의 단계는 대부분 Key Vault, 저장소 계정 및 이벤트 허브 구성과 관련이 있습니다. 특정 Azure 로그 통합 단계는 이 자습서의 끝에 나와 있습니다. 프로덕션 환경에서 다음 단계를 수행하지 마세요. 랩 환경 전용으로 작성되었습니다. 프러덕션 환경에서 사용하기 전에 단계를 사용자 지정해야 합니다.
+>이 자습서의 단계는 대부분 Key Vault, 스토리지 계정 및 이벤트 허브 구성과 관련이 있습니다. 특정 Azure 로그 통합 단계는 이 자습서의 끝에 나와 있습니다. 프로덕션 환경에서 다음 단계를 수행하지 마세요. 랩 환경 전용으로 작성되었습니다. 프러덕션 환경에서 사용하기 전에 단계를 사용자 지정해야 합니다.
 
 함께 제공되는 정보는 각 단계를 수행하는 이유를 이해하는 데 도움이 됩니다. 다른 아티클에 대한 링크는 특정 토픽에 대한 자세한 정보를 제공합니다.
 
@@ -94,7 +94,7 @@ Azure 로그를 통합하는 가장 좋은 방법은 SIEM 공급업체의 Azure 
     - ```$location = 'West US'```(이 변수는 리소스를 만들 위치를 전달하는 데 사용됩니다. 이 변수를 선택한 위치로 변경할 수 있습니다.)
     - ```$random = Get-Random```
     - ```$name = 'azlogtest' + $random```(이름은 임의로 지정할 수 있지만 소문자와 숫자만 포함해야 합니다.)
-    - ```$storageName = $name```(이 변수는 저장소 계정 이름에 사용됩니다.)
+    - ```$storageName = $name```(이 변수는 스토리지 계정 이름에 사용됩니다.)
     - ```$rgname = $name```(이 변수는 리소스 그룹 이름에 사용됩니다.)
     - ```$eventHubNameSpaceName = $name```(이벤트 허브 네임스페이스의 이름입니다.)
 1. 작업할 구독을 지정합니다.
@@ -107,7 +107,7 @@ Azure 로그를 통합하는 가장 좋은 방법은 SIEM 공급업체의 Azure 
    이때 `$rg`를 입력하면 이 스크린샷과 유사한 출력이 나타납니다.
 
    ![리소스 그룹 생성 후 출력](./media/azure-log-integration-keyvault-eventhub/create-rg.png)
-1. 상태 정보를 추적하는 데 사용할 저장소 계정을 만듭니다.
+1. 상태 정보를 추적하는 데 사용할 스토리지 계정을 만듭니다.
     
     ```$storage = New-AzStorageAccount -ResourceGroupName $rgname -Name $storagename -Location $location -SkuName Standard_LRS```
 1. 이벤트 허브 네임스페이스를 만듭니다. 이 네임스페이스는 이벤트 허브를 만드는 데 필요합니다.
@@ -147,7 +147,7 @@ Azure 로그를 통합하는 가장 좋은 방법은 SIEM 공급업체의 Azure 
 
 로그 작업을 생성하려면 Key Vault에 요청을 보내야 합니다. 키 생성, 암호 저장 또는 Key Vault에서 암호 읽기 등의 작업은 로그 항목을 만듭니다.
 
-1. 현재 저장소 키를 표시합니다.
+1. 현재 스토리지 키를 표시합니다.
     
    ```Get-AzStorageAccountKey -Name $storagename -ResourceGroupName $rgname  | ft -a```
 1. 새로운 **key2**를 생성합니다.

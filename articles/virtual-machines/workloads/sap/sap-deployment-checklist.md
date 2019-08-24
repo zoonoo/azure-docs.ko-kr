@@ -99,7 +99,7 @@ ms.locfileid: "68234218"
       3.  최대 스토리지 처리량과 계획 단계에서 선택한 여러 다른 VM 유형의 네트워크 처리량에 대한 Azure VM의 크기 조정을 평가하고 테스트합니다. 해당 데이터는 다음 위치에서 찾을 수 있습니다.
           1.  [Azure의 Windows 가상 머신 크기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). 크기 조정을 위해서는 **캐시되지 않은 최대 디스크 처리량**을 고려하는 것이 중요합니다.
           2.  [Azure의 Linux 가상 머신 크기](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). 크기 조정을 위해서는 **캐시되지 않은 최대 디스크 처리량**을 고려하는 것이 중요합니다.
-   2. 저장 공간
+   2. 스토리지
       1.  SAP 응용 프로그램 계층을 나타내는 Vm에 대 한 [Azure 표준 SSD 저장소](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#standard-ssd) 및 성능에 민감한 DBMS 배포를 위한 최소 사용
       2.  [Azure 표준 HDD 디스크](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#standard-hdd) 를 일반적으로 사용 하지 않는 것이 좋습니다.
       2.  원격으로 성능이 중요 한 모든 DBMS Vm에 대해 [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#premium-ssd) 사용

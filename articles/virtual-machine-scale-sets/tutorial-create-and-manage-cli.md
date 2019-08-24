@@ -273,7 +273,7 @@ az vmss show \
 az vmss stop --resource-group myResourceGroup --name myScaleSet --instance-ids 1
 ```
 
-중지된 VM 인스턴스는 할당된 상태로 유지되며 컴퓨팅 요금이 계속 발생합니다. 대신 VM 인스턴스의 할당을 취소하고 저장소 요금만 발생하도록 하려면 [az vmss deallocate](/cli/azure/vmss)를 사용합니다. 다음 예제에서는 *1* 인스턴스를 중지하고 할당을 취소합니다.
+중지된 VM 인스턴스는 할당된 상태로 유지되며 컴퓨팅 요금이 계속 발생합니다. 대신 VM 인스턴스의 할당을 취소하고 스토리지 요금만 발생하도록 하려면 [az vmss deallocate](/cli/azure/vmss)를 사용합니다. 다음 예제에서는 *1* 인스턴스를 중지하고 할당을 취소합니다.
 
 ```azurecli-interactive
 az vmss deallocate --resource-group myResourceGroup --name myScaleSet --instance-ids 1

@@ -1,6 +1,6 @@
 ---
 title: Azure Linux VM 크기 - 이전 세대 | Microsoft Docs
-description: Azure에서 Linux 가상 머신에 사용할 수 있는 크기의 이전 세대를 나열합니다. 이 시리즈의 크기에 대한 저장소 처리량 및 네트워크 대역폭뿐만 아니라 vCPU, 데이터 디스크 및 NIC의 수에 대한 정보를 제공합니다.
+description: Azure에서 Linux 가상 머신에 사용할 수 있는 크기의 이전 세대를 나열합니다. 이 시리즈의 크기에 대한 스토리지 처리량 및 네트워크 대역폭뿐만 아니라 vCPU, 데이터 디스크 및 NIC의 수에 대한 정보를 제공합니다.
 services: virtual-machines-linux
 documentationcenter: ''
 author: jonbeck7

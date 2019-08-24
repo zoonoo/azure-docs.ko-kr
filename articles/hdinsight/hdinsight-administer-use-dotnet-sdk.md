@@ -235,9 +235,9 @@ _hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Clu
 
 HTTP 액세스 권한 부여/해지와 같은 절차입니다.  클러스터에 HTTP 액세스 권한이 부여된 경우 먼저 해당 권한을 해지해야 합니다.  그런 다음 새 HTTP 사용자 자격 증명을 사용하여 액세스 권한을 부여합니다.
 
-## <a name="find-the-default-storage-account"></a>기본 저장소 계정 찾기
+## <a name="find-the-default-storage-account"></a>기본 스토리지 계정 찾기
 
-다음 코드 조각에서는 클러스터에 대한 기본 저장소 계정 이름 및 기본 저장소 계정 키를 가져오는 방법을 보여 줍니다.
+다음 코드 조각에서는 클러스터에 대한 기본 스토리지 계정 이름 및 기본 스토리지 계정 키를 가져오는 방법을 보여 줍니다.
 
 ```csharp
 var results = _hdiManagementClient.Clusters.GetClusterConfigurations(<Resource Group Name>, <Cluster Name>, "core-site");

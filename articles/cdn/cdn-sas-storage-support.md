@@ -16,24 +16,24 @@ ms.date: 06/21/2018
 ms.author: magattus
 ms.openlocfilehash: 999bffe9650f3d2f2a04dba728a9aa41fa46a6b0
 ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/05/2019
 ms.locfileid: "67593404"
 ---
 # <a name="using-azure-cdn-with-sas"></a>SAS로 Azure CDN 사용
 
-캐시 콘텐츠를 사용하도록 Azure CDN(Content Delivery Network)에 대한 저장소 계정을 설정하는 경우 기본적으로 저장소 컨테이너에 대한 URL을 알고 있는 사람은 업로드한 파일에 액세스할 수 있습니다. 스토리지 계정의 파일을 보호하기 위해 공용에서 프라이빗으로 스토리지 컨테이너의 액세스를 설정할 수 있습니다. 그러나 그렇게 하는 경우 아무도 파일에 액세스할 수 없습니다. 
+캐시 콘텐츠를 사용하도록 Azure CDN(Content Delivery Network)에 대한 스토리지 계정을 설정하는 경우 기본적으로 스토리지 컨테이너에 대한 URL을 알고 있는 사람은 업로드한 파일에 액세스할 수 있습니다. 스토리지 계정의 파일을 보호하기 위해 공용에서 프라이빗으로 스토리지 컨테이너의 액세스를 설정할 수 있습니다. 그러나 그렇게 하는 경우 아무도 파일에 액세스할 수 없습니다. 
 
-프라이빗 스토리지 컨테이너에 제한된 액세스를 부여하려는 경우 Azure 스토리지 계정의 SAS(공유 액세스 서명) 기능을 사용할 수 있습니다. SAS는 계정 키를 노출하지 않고 Azure Storage 리소스에 대한 제한된 액세스 권한을 부여하는 URI입니다. 저장소 계정 키로 신뢰하지 않지만 특정 저장소 계정 리소스에 대한 액세스를 위임하려는 클라이언트에 SAS를 제공할 수 있습니다. 이러한 클라이언트에 공유 액세스 서명 URI를 배포하여 지정된 기간 동안 리소스에 액세스하도록 할 수 있습니다.
+프라이빗 스토리지 컨테이너에 제한된 액세스를 부여하려는 경우 Azure 스토리지 계정의 SAS(공유 액세스 서명) 기능을 사용할 수 있습니다. SAS는 계정 키를 노출하지 않고 Azure Storage 리소스에 대한 제한된 액세스 권한을 부여하는 URI입니다. 스토리지 계정 키로 신뢰하지 않지만 특정 스토리지 계정 리소스에 대한 액세스를 위임하려는 클라이언트에 SAS를 제공할 수 있습니다. 이러한 클라이언트에 공유 액세스 서명 URI를 배포하여 지정된 기간 동안 리소스에 액세스하도록 할 수 있습니다.
  
 SAS를 사용하여 Blob의 액세스 권한에 대해 시작 및 만료 시간, 사용 권한(읽기/쓰기), IP 범위 등과 같은 다양한 매개 변수를 정의할 수 있습니다. 이 문서에서는 Azure CDN과 함께 SAS를 사용하는 방법에 대해 설명합니다. SAS를 만드는 방법과 해당 매개 변수 옵션 등 SAS에 대한 자세한 내용은 [SAS(공유 액세스 서명) 사용](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)을 참조하세요.
 
-## <a name="setting-up-azure-cdn-to-work-with-storage-sas"></a>저장소 SAS를 사용하도록 Azure CDN 설정
+## <a name="setting-up-azure-cdn-to-work-with-storage-sas"></a>스토리지 SAS를 사용하도록 Azure CDN 설정
 Azure CDN에서 SAS를 사용하는 경우 다음 세 가지 옵션을 사용하는 것이 좋습니다. 모든 옵션에서는 작동하는 SAS를 이미 만들었다고 가정합니다(필수 조건 참조). 
  
 ### <a name="prerequisites"></a>필수 구성 요소
-시작하려면 저장소 계정을 만든 다음, 자산에 대한 SAS를 생성합니다. 서비스 SAS, 계정 SAS 등 두 가지 유형의 저장된 액세스 서명을 생성할 수 있습니다. 자세한 내용은 [공유 액세스 서명 유형](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1#types-of-shared-access-signatures)을 참조하세요.
+시작하려면 스토리지 계정을 만든 다음, 자산에 대한 SAS를 생성합니다. 서비스 SAS, 계정 SAS 등 두 가지 유형의 저장된 액세스 서명을 생성할 수 있습니다. 자세한 내용은 [공유 액세스 서명 유형](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1#types-of-shared-access-signatures)을 참조하세요.
 
 SAS 토큰을 생성한 후 URL에 `?sv=<SAS token>`을 추가하여 Blob Storage 파일에 액세스할 수 있습니다. 이 URL의 형식은 다음과 같습니다. 
 
@@ -56,7 +56,7 @@ https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-07-29&
 
     ![CDN 캐싱 규칙](./media/cdn-sas-storage-support/cdn-caching-rules.png)
 
-2. 저장소 계정에서 SAS를 설정한 후 CDN 엔드포인트 및 원본 서버 URL과 함께 SAS 토큰을 사용하여 파일에 액세스해야 합니다. 
+2. 스토리지 계정에서 SAS를 설정한 후 CDN 엔드포인트 및 원본 서버 URL과 함께 SAS 토큰을 사용하여 파일에 액세스해야 합니다. 
    
    결과 CDN 엔드포인트 URL의 형식은 다음과 같습니다. `https://<endpoint hostname>.azureedge.net/<container>/<file>?sv=<SAS token>`
 
@@ -69,7 +69,7 @@ https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-07-29&
 
 ### <a name="option-2-hidden-cdn-sas-token-using-a-rewrite-rule"></a>옵션 2: 다시 쓰기 규칙을 사용 하 여 숨겨진된 CDN SAS 토큰
  
-이 옵션은 **Verizon의 Azure CDN Premium** 프로필에서만 사용할 수 있습니다. 이 옵션을 사용하여 원본 서버에서 Blob Storage를 보호할 수 있습니다. 파일에 대한 특정 액세스 제한이 필요하지 않지만 사용자가 저장소 원본에 직접 액세스하지 못하게 하여 Azure CDN 오프로드 시간을 개선하려는 경우 이 옵션을 사용할 수 있습니다. 원본 서버의 지정된 컨테이너에서 파일에 액세스하는 모든 사용자에게 알려지지 않은 SAS 토큰이 필요합니다. 그러나 URL 다시 쓰기 규칙으로 인해 SAS 토큰은 CDN 엔드포인트에 필요하지 않습니다.
+이 옵션은 **Verizon의 Azure CDN Premium** 프로필에서만 사용할 수 있습니다. 이 옵션을 사용하여 원본 서버에서 Blob Storage를 보호할 수 있습니다. 파일에 대한 특정 액세스 제한이 필요하지 않지만 사용자가 스토리지 원본에 직접 액세스하지 못하게 하여 Azure CDN 오프로드 시간을 개선하려는 경우 이 옵션을 사용할 수 있습니다. 원본 서버의 지정된 컨테이너에서 파일에 액세스하는 모든 사용자에게 알려지지 않은 SAS 토큰이 필요합니다. 그러나 URL 다시 쓰기 규칙으로 인해 SAS 토큰은 CDN 엔드포인트에 필요하지 않습니다.
  
 1. [규칙 엔진](cdn-rules-engine.md)을 사용하여 URL 다시 쓰기 규칙을 만듭니다. 새 규칙을 전파하는 데 최대 4시간이 소요됩니다.
 

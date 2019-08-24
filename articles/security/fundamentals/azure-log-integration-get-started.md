@@ -53,10 +53,10 @@ Azure Log Integration 서비스는 Windows Server 2008 R2 이상(Windows Server 
 최소한 Azure Log Integration을 설치하려면 다음 항목이 필요합니다.
 
 * **Azure 구독**. 계정이 없는 경우 [무료 계정](https://azure.microsoft.com/free/)에 등록할 수 있습니다.
-* WAD(Windows Azure Diagnostics) 로깅에 사용할 수 있는 **스토리지 계정**. 미리 구성된 저장소 계정을 사용하거나 새 저장소 계정을 만들 수 있습니다. 저장소 계정을 구성하는 방법은 이 문서의 뒷부분에서 설명합니다.
+* WAD(Windows Azure Diagnostics) 로깅에 사용할 수 있는 **스토리지 계정**. 미리 구성된 스토리지 계정을 사용하거나 새 스토리지 계정을 만들 수 있습니다. 스토리지 계정을 구성하는 방법은 이 문서의 뒷부분에서 설명합니다.
 
   > [!NOTE]
-  > 시나리오에 따라 저장소 계정이 필요하지 않을 수도 있습니다. 이 문서에서 다루는 Azure Diagnostics 시나리오의 경우 스토리지 계정이 필요합니다.
+  > 시나리오에 따라 스토리지 계정이 필요하지 않을 수도 있습니다. 이 문서에서 다루는 Azure Diagnostics 시나리오의 경우 스토리지 계정이 필요합니다.
 
 * **두 대의 시스템**: 
   * Azure Log Integration 서비스를 실행하는 컴퓨터. 이 컴퓨터는 나중에 SIEM으로 가져오는 모든 로그 정보를 수집합니다. 이 시스템에 해당되는 사항:
@@ -77,7 +77,7 @@ Azure Portal을 사용하여 가상 머신을 만드는 방법에 대한 빠른 
 Azure Log Integration 서비스의 인스턴스를 여러 개 실행할 수 있습니다. 그러나 물리적 또는 가상 머신별로 서비스 인스턴스를 하나만 실행할 수 있습니다. 또한 WAD용 Azure Diagnostics 스토리지 계정의 부하를 분산할 수 있습니다. 인스턴스에 제공할 구독 수는 용량을 기준으로 합니다.
 
 > [!NOTE]
-> 현재, Azure Log Integration 컴퓨터(즉, Azure Log Integration 서비스를 실행하는 컴퓨터)의 인스턴스를 확장할 시기 또는 저장소 계정이나 구독에 대한 구체적인 권장 사항은 없습니다. 확장 결정은 이러한 각 영역에서의 성능 관찰을 기반으로 해야 합니다.
+> 현재, Azure Log Integration 컴퓨터(즉, Azure Log Integration 서비스를 실행하는 컴퓨터)의 인스턴스를 확장할 시기 또는 스토리지 계정이나 구독에 대한 구체적인 권장 사항은 없습니다. 확장 결정은 이러한 각 영역에서의 성능 관찰을 기반으로 해야 합니다.
 
 성능을 향상을 위해 Azure Log Integration 서비스를 강화하는 옵션도 제공됩니다. 다음 성능 메트릭은 Azure Log Integration 서비스를 실행하기 위해 선택한 컴퓨터의 크기를 조정하는 데 도움이 될 수 있습니다.
 
@@ -124,7 +124,7 @@ Azure Log Integration 서비스는 서비스가 설치된 컴퓨터에서 원격
    > [!NOTE]
    > 명령이 성공하면 피드백이 수신되지 않습니다. 
 
-4. 시스템을 모니터링하려면 Azure Diagnostics에 사용 중인 스토리지 계정의 이름이 필요합니다. Azure Portal에서 **가상 머신**으로 이동합니다. 모니터링할 Windows 가상 머신을 찾습니다. **속성** 섹션에서 **진단 설정**을 선택합니다.  그런 다음, **에이전트**를 선택합니다. 지정된 저장소 계정 이름을 기록합니다. 이후 단계에서 이 계정 이름이 필요합니다.
+4. 시스템을 모니터링하려면 Azure Diagnostics에 사용 중인 스토리지 계정의 이름이 필요합니다. Azure Portal에서 **가상 머신**으로 이동합니다. 모니터링할 Windows 가상 머신을 찾습니다. **속성** 섹션에서 **진단 설정**을 선택합니다.  그런 다음, **에이전트**를 선택합니다. 지정된 스토리지 계정 이름을 기록합니다. 이후 단계에서 이 계정 이름이 필요합니다.
 
    ![Azure Diagnostics 설정 창 스크린샷](./media/azure-log-integration-get-started/storage-account-large.png) 
 
@@ -142,30 +142,30 @@ Azure Log Integration 서비스는 서비스가 설치된 컴퓨터에서 원격
 
    ![Storage Explorer의 스토리지 계정 스크린샷](./media/azure-log-integration-get-started/storage-explorer.png)
 
-   1. 저장소 계정 아래에 몇 가지 옵션이 나타납니다. **테이블**에 **WADWindowsEventLogsTable**라는 테이블이 표시되어야 합니다.
+   1. 스토리지 계정 아래에 몇 가지 옵션이 나타납니다. **테이블**에 **WADWindowsEventLogsTable**라는 테이블이 표시되어야 합니다.
 
    가상 머신을 만들 때 모니터링을 사용하도록 설정하지 않은 경우 앞서 설명된 것처럼 사용하도록 설정할 수 있습니다.
 
 
 ## <a name="integrate-windows-vm-logs"></a>Windows VM 로그 통합
 
-이 단계에서는 로그 파일이 포함된 저장소 계정에 연결하도록 Azure Log Integration 서비스를 실행하는 컴퓨터를 구성합니다.
+이 단계에서는 로그 파일이 포함된 스토리지 계정에 연결하도록 Azure Log Integration 서비스를 실행하는 컴퓨터를 구성합니다.
 
 이 단계를 완료하려면 다음과 같은 몇 가지 항목이 필요합니다.  
 * **FriendlyNameForSource**: Azure Diagnostics의 정보를 저장하도록 가상 머신을 구성한 스토리지 계정에 적용할 수 있는 친숙한 이름입니다.
 * **StorageAccountName**: Azure Diagnostics를 구성할 때 지정한 스토리지 계정의 이름입니다.  
 * **StorageKey**: Azure Diagnostics 정보가 이 가상 머신에 저장되는 스토리지 계정의 스토리지 키입니다.  
 
-저장소 키를 가져오려면 다음 단계를 수행합니다.
+스토리지 키를 가져오려면 다음 단계를 수행합니다.
 1. [Azure 포털](https://portal.azure.com)로 이동합니다.
 2. 탐색 창에서 **모든 서비스**를 선택합니다.
-3. **필터** 상자에 **저장소**를 입력합니다. 그런 후 **저장소 계정**을 선택합니다.
+3. **필터** 상자에 **스토리지**를 입력합니다. 그런 후 **스토리지 계정**을 선택합니다.
 
-   ![모든 서비스의 저장소 계정을 표시하는 스크린샷](./media/azure-log-integration-get-started/filter.png)
+   ![모든 서비스의 스토리지 계정을 표시하는 스크린샷](./media/azure-log-integration-get-started/filter.png)
 
-4. 저장소 계정 목록이 나타납니다. 로그 저장소에 할당한 계정을 두 번 클릭합니다.
+4. 스토리지 계정 목록이 나타납니다. 로그 스토리지에 할당한 계정을 두 번 클릭합니다.
 
-   ![저장소 계정 목록을 표시하는 스크린샷](./media/azure-log-integration-get-started/storage-accounts.png)
+   ![스토리지 계정 목록을 표시하는 스크린샷](./media/azure-log-integration-get-started/storage-accounts.png)
 
 5. **설정** 아래에서 **액세스 키**를 선택합니다.
 
@@ -189,7 +189,7 @@ Azure Log Integration 서비스는 서비스가 설치된 컴퓨터에서 원격
    `Azlog source add Azlogtest.YourSubscriptionID WAD Azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==`
 
 > [!NOTE]
-> 최대 60분 정도 기다렸다가 저장소 계정에서 가져온 이벤트를 확인합니다. 이벤트를 보려면 Azure Log Integration에서 **이벤트 뷰어** > **Windows 로그** > **전달된 이벤트**를 선택합니다.
+> 최대 60분 정도 기다렸다가 스토리지 계정에서 가져온 이벤트를 확인합니다. 이벤트를 보려면 Azure Log Integration에서 **이벤트 뷰어** > **Windows 로그** > **전달된 이벤트**를 선택합니다.
 
 다음 비디오에서는 이전 단계를 다룹니다.<br /><br />
 
@@ -206,8 +206,8 @@ Azure Log Integration 서비스는 서비스가 설치된 컴퓨터에서 원격
    3. C:\users\Azlog를 마우스 오른쪽 단추로 클릭합니다.
    4. **보안**을 선택합니다.
    5. **NT Service\Azlog**를 선택합니다. 계정에 대한 사용 권한을 확인합니다. 이 탭에서 계정이 누락되거나 적절한 사용 권한이 표시되지 않은 경우 이 탭에서 계정 권한을 부여할 수 있습니다.
-3. `Azlog source list` 명령을 실행할 때 `Azlog source add` 명령에 추가된 저장소 계정이 출력에 표시되는지 확인합니다.
-4. Azure Log Integration 서비스에서 오류가 보고되었는지 확인하려면 **이벤트 뷰어** > **Windows 로그** > **응용 프로그램**으로 이동합니다.
+3. `Azlog source list` 명령을 실행할 때 `Azlog source add` 명령에 추가된 스토리지 계정이 출력에 표시되는지 확인합니다.
+4. Azure Log Integration 서비스에서 오류가 보고되었는지 확인하려면 **이벤트 뷰어** > **Windows 로그** > **애플리케이션**으로 이동합니다.
 
 설치 및 구성 중에 문제가 있는 경우 [지원 요청](../../azure-supportability/how-to-create-azure-support-request.md)을 만들 수 있습니다. 서비스로 **Log Integration**을 선택합니다.
 

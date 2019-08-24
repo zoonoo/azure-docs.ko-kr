@@ -25,9 +25,9 @@ ms.locfileid: "67710406"
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Azure VM에서 관리되지 않는 VM 이미지를 만드는 방법
 
-이 문서에서는 저장소 계정을 사용하여 설명합니다. 저장소 계정 대신 관리 디스크 및 관리되는 이미지를 사용하는 것이 좋습니다. 자세한 내용은 [Azure에서 일반화된 VM의 관리되는 이미지 캡처](capture-image-resource.md)를 참조하세요.
+이 문서에서는 스토리지 계정을 사용하여 설명합니다. 스토리지 계정 대신 관리 디스크 및 관리되는 이미지를 사용하는 것이 좋습니다. 자세한 내용은 [Azure에서 일반화된 VM의 관리되는 이미지 캡처](capture-image-resource.md)를 참조하세요.
 
-이 문서에서는 저장소 계정을 사용하여 일반화된 Azure VM 이미지를 만드는 데 Azure PowerShell을 사용하는 방법을 보여 줍니다. 그런 다음 이미지를 사용하여 다른 VM을 만들 수 있습니다. 이 이미지에는 OS 디스크를 비롯해 가상 머신에 연결된 데이터 디스크가 포함됩니다. 새 VM을 만들 때 해당 리소스를 설정해야 하므로 이미지는 가상 네트워크 리소스를 포함하지 않습니다. 
+이 문서에서는 스토리지 계정을 사용하여 일반화된 Azure VM 이미지를 만드는 데 Azure PowerShell을 사용하는 방법을 보여 줍니다. 그런 다음 이미지를 사용하여 다른 VM을 만들 수 있습니다. 이 이미지에는 OS 디스크를 비롯해 가상 머신에 연결된 데이터 디스크가 포함됩니다. 새 VM을 만들 때 해당 리소스를 설정해야 하므로 이미지는 가상 네트워크 리소스를 포함하지 않습니다. 
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
@@ -104,7 +104,7 @@ ms.locfileid: "67710406"
 
 ## <a name="create-the-image"></a>이미지 만들기
 
-이 명령을 사용하여 대상 저장소 컨테이너에서 관리되지 않는 가상 머신 이미지를 만듭니다. 이미지는 원래 가상 컴퓨터와 동일한 저장소 계정에 만들어집니다. `-Path` 매개 변수는 원본 VM에 대한 JSON 템플릿의 복사본을 로컬 컴퓨터에 저장합니다. `-DestinationContainerName` 매개 변수는 이미지를 유지할 컨테이너의 이름입니다. 컨테이너가 없으면 컨테이너가 만들어집니다.
+이 명령을 사용하여 대상 스토리지 컨테이너에서 관리되지 않는 가상 머신 이미지를 만듭니다. 이미지는 원래 가상 머신과 동일한 스토리지 계정에 만들어집니다. `-Path` 매개 변수는 원본 VM에 대한 JSON 템플릿의 복사본을 로컬 컴퓨터에 저장합니다. `-DestinationContainerName` 매개 변수는 이미지를 유지할 컨테이너의 이름입니다. 컨테이너가 없으면 컨테이너가 만들어집니다.
    
 ```powershell
 Save-AzVMImage -ResourceGroupName <resourceGroupName> -Name <vmName> `
@@ -114,7 +114,7 @@ Save-AzVMImage -ResourceGroupName <resourceGroupName> -Name <vmName> `
    
 JSON 파일 템플릿에서 이미지의 URL을 얻을 수 있습니다. 이미지의 전체 경로에 대한 **resources** > **storageProfile** > **osDisk** > **image** > **uri** 섹션으로 이동합니다. 이미지의 URL은 `https://<storageAccountName>.blob.core.windows.net/system/Microsoft.Compute/Images/<imagesContainer>/<templatePrefix-osDisk>.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`과 같습니다.
    
-포털에서 URI를 확인할 수도 있습니다. 이미지는 저장소 계정에서 **시스템** 라는 컨테이너에 복사됩니다. 
+포털에서 URI를 확인할 수도 있습니다. 이미지는 스토리지 계정에서 **시스템** 라는 컨테이너에 복사됩니다. 
 
 ## <a name="create-a-vm-from-the-image"></a>이미지에서 VM 만들기
 

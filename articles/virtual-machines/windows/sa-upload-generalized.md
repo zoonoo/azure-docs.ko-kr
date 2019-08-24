@@ -25,11 +25,11 @@ ms.locfileid: "67710379"
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>Azure에 일반화된 VHD를 업로드하여 새 VM 만들기
 
-이 항목에서는 일반화된 관리되지 않는 디스크를 저장소 계정에 업로드한 다음 업로드된 디스크를 사용하여 새 VM을 만드는 방법에 대해 설명합니다. 일반화된 VHD 이미지에는 Sysprep을 사용하여 제거된 모든 개인 계정 정보가 포함되어 있습니다. 
+이 항목에서는 일반화된 관리되지 않는 디스크를 스토리지 계정에 업로드한 다음 업로드된 디스크를 사용하여 새 VM을 만드는 방법에 대해 설명합니다. 일반화된 VHD 이미지에는 Sysprep을 사용하여 제거된 모든 개인 계정 정보가 포함되어 있습니다. 
 
-저장소 계정의 전문화된 VHD에서 VM을 만들려는 경우 [전문화된 VHD에서 VM 만들기](sa-create-vm-specialized.md)를 참조하세요.
+스토리지 계정의 전문화된 VHD에서 VM을 만들려는 경우 [전문화된 VHD에서 VM 만들기](sa-create-vm-specialized.md)를 참조하세요.
 
-이 항목에서는 저장소 계정을 사용하지만 고객은 대신 Managed Disks를 사용하는 것이 좋습니다. 관리 디스크를 사용하여 새 VM을 준비, 업로드 및 만드는 방법에 대한 전체 연습을 보려면 [Managed Disks를 사용하여 Azure에 업로드된 일반화된 VHD에서 새 VM 만들기](upload-generalized-managed.md)를 참조하세요.
+이 항목에서는 스토리지 계정을 사용하지만 고객은 대신 Managed Disks를 사용하는 것이 좋습니다. 관리 디스크를 사용하여 새 VM을 준비, 업로드 및 만드는 방법에 대한 전체 연습을 보려면 [Managed Disks를 사용하여 Azure에 업로드된 일반화된 VHD에서 새 VM 만들기](upload-generalized-managed.md)를 참조하세요.
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
@@ -88,10 +88,10 @@ PowerShell 버전 1.4 이상을 아직 설치하지 않은 경우 [Azure PowerSh
     Select-AzSubscription -SubscriptionId "<subscriptionID>"
     ```
 
-### <a name="get-the-storage-account"></a>저장소 계정 가져오기
-업로드한 VM 이미지를 저장할 Azure 저장소 계정이 필요합니다. 기존 저장소 계정을 사용하거나 새 계정을 만들 수 있습니다. 
+### <a name="get-the-storage-account"></a>스토리지 계정 가져오기
+업로드한 VM 이미지를 저장할 Azure 스토리지 계정이 필요합니다. 기존 스토리지 계정을 사용하거나 새 계정을 만들 수 있습니다. 
 
-사용 가능한 저장소 계정을 표시하려면 다음을 입력합니다.
+사용 가능한 스토리지 계정을 표시하려면 다음을 입력합니다.
 
 ```powershell
 Get-AzStorageAccount
@@ -99,9 +99,9 @@ Get-AzStorageAccount
 
 기존 스토리지 계정을 사용하려면 VM 이미지 업로드 섹션으로 이동합니다.
 
-저장소 계정을 만들어야 하는 경우 다음 단계를 따릅니다.
+스토리지 계정을 만들어야 하는 경우 다음 단계를 따릅니다.
 
-1. 저장소 계정을 만들어야 하는 리소스 그룹의 이름을 알아야 합니다. 구독의 모든 리소스 그룹을 찾으려면 다음을 입력합니다.
+1. 스토리지 계정을 만들어야 하는 리소스 그룹의 이름을 알아야 합니다. 구독의 모든 리소스 그룹을 찾으려면 다음을 입력합니다.
    
     ```powershell
     Get-AzResourceGroup

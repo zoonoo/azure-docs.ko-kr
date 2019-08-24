@@ -42,7 +42,7 @@ App Service Environment는 다양한 프라이빗 고객 엔드포인트와 통�
 > 
 > 
 
-App Service Environment 역시 관리 및 운영에 필요한 sql DB 및 Azure Storage와 통신할 수 있습니다.  App Service Environment와 통신하는 일부 SQL 및 저장소 리소스는 App Service Environment는와 같은 지역에 위치해 있는 반면, 나머지는 Azure 지역과 멀리 위치해 있습니다.  결과적으로, 인터넷에 대한 아웃 바운드 연결은 항상 제대로 작동하는 App Service Environment에 필요 합니다. 
+App Service Environment 역시 관리 및 운영에 필요한 sql DB 및 Azure Storage와 통신할 수 있습니다.  App Service Environment와 통신하는 일부 SQL 및 스토리지 리소스는 App Service Environment는와 같은 지역에 위치해 있는 반면, 나머지는 Azure 지역과 멀리 위치해 있습니다.  결과적으로, 인터넷에 대한 아웃 바운드 연결은 항상 제대로 작동하는 App Service Environment에 필요 합니다. 
 
 서브넷에 배포된 App Service Environment 때문에, 네트워크 보안 그룹은 서브넷에 인바운드 트래픽을 제어할 때 사용할 수 있습니다.  App Service 환경에 대한 인바운드 트래픽을 제어하는 방법에 대한 자세한 내용은 다음 [문서][controllinginboundtraffic]를 참조하세요.
 

@@ -18,13 +18,13 @@ ms.locfileid: "67478641"
 ---
 # <a name="view-contents-of-a-file-that-is-being-tracked-with-change-tracking"></a>변경 내용 추적으로 추적 중인 파일의 콘텐츠 보기
 
-파일 콘텐츠 추적을 사용하면 변경 내용 추적으로 추적하고 있는 변경 전후의 파일 콘텐츠를 볼 수 있습니다. 이렇게 하려면 각 변경 작업 수행 후 저장소 계정에 파일 콘텐츠를 저장합니다.
+파일 콘텐츠 추적을 사용하면 변경 내용 추적으로 추적하고 있는 변경 전후의 파일 콘텐츠를 볼 수 있습니다. 이렇게 하려면 각 변경 작업 수행 후 스토리지 계정에 파일 콘텐츠를 저장합니다.
 
 ## <a name="requirements"></a>요구 사항
 
-* 파일 콘텐츠를 저장하려면 Resource Manager 배포 모델을 사용하는 표준 저장소 계정이 필요합니다. 프리미엄 및 클래식 배포 모델 저장소 계정은 사용하면 안 됩니다. 저장소 계정에 대한 자세한 내용은 [Azure 저장소 계정 정보](../storage/common/storage-create-storage-account.md)를 참조하세요.
+* 파일 콘텐츠를 저장하려면 Resource Manager 배포 모델을 사용하는 표준 스토리지 계정이 필요합니다. 프리미엄 및 클래식 배포 모델 스토리지 계정은 사용하면 안 됩니다. 스토리지 계정에 대한 자세한 내용은 [Azure Storage 계정 정보](../storage/common/storage-create-storage-account.md)를 참조하세요.
 
-* 사용된 저장소 계정에는 Automation 계정 하나만 연결할 수 있습니다.
+* 사용된 스토리지 계정에는 Automation 계정 하나만 연결할 수 있습니다.
 
 * [변경 내용 추적](automation-change-tracking.md)은 Automation 계정에서 사용할 수 있습니다.
 
@@ -36,11 +36,11 @@ ms.locfileid: "67478641"
 
    ![enable](./media/change-tracking-file-contents/enable.png)
 
-4. 파일 콘텐츠를 저장하는 데 사용할 구독 및 저장소 계정을 선택합니다. 기존의 모든 추적된 파일에 대해 파일 콘텐츠 추적을 사용하려면 **모든 설정에 대한 파일 콘텐츠 업로드**에 대해 **켜기**를 선택합니다. 나중에 각 파일 경로에 대해 이 설정을 변경할 수 있습니다.
+4. 파일 콘텐츠를 저장하는 데 사용할 구독 및 스토리지 계정을 선택합니다. 기존의 모든 추적된 파일에 대해 파일 콘텐츠 추적을 사용하려면 **모든 설정에 대한 파일 콘텐츠 업로드**에 대해 **켜기**를 선택합니다. 나중에 각 파일 경로에 대해 이 설정을 변경할 수 있습니다.
 
-   ![저장소 계정 설정](./media/change-tracking-file-contents/storage-account.png)
+   ![스토리지 계정 설정](./media/change-tracking-file-contents/storage-account.png)
 
-5. 사용하도록 설정하면 저장소 계정 및 SAS URI가 표시됩니다. SAS URI는 365일 후에 만료되며 **다시 생성** 단추를 클릭하여 다시 만들 수 있습니다.
+5. 사용하도록 설정하면 스토리지 계정 및 SAS URI가 표시됩니다. SAS URI는 365일 후에 만료되며 **다시 생성** 단추를 클릭하여 다시 만들 수 있습니다.
 
    ![계정 키 나열](./media/change-tracking-file-contents/account-keys.png)
 

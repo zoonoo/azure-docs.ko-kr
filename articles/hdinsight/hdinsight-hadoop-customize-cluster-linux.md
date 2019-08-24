@@ -44,13 +44,13 @@ HDInsight 클러스터를 만드는 경우 Azure 구독에 대한 [기여자] �
 
 스크립트 작업은 HDInsight 클러스터의 노드에서 실행되는 Bash 스크립트입니다. 스크립트 동작의 특징과 기능은 다음과 같습니다.
 
-* HDInsight 클러스터에서 액세스할 수 있는 URI에 저장해야 합니다. 가능한 저장소 위치는 다음과 같습니다.
+* HDInsight 클러스터에서 액세스할 수 있는 URI에 저장해야 합니다. 가능한 스토리지 위치는 다음과 같습니다.
     
     * 일반 클러스터:
     
       * ADLS Gen1: HDInsight에서 Data Lake Storage에 액세스하는 데 사용하는 서비스 주체에는 스크립트에 대한 읽기 권한이 있어야 합니다. Data Lake Storage Gen1에 저장되는 스크립트에 대한 URI 형식은 `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`입니다.
       
-      * HDInsight 클러스터에 대한 기본 또는 추가 스토리지 계정인 Azure Storage 계정의 Blob. HDInsight는 클러스터를 만드는 동안 이러한 두 유형의 저장소 계정 모두에 대해 액세스 권한을 부여받습니다.
+      * HDInsight 클러스터에 대한 기본 또는 추가 스토리지 계정인 Azure Storage 계정의 Blob. HDInsight는 클러스터를 만드는 동안 이러한 두 유형의 스토리지 계정 모두에 대해 액세스 권한을 부여받습니다.
 
         > [!IMPORTANT]  
         > 후속 스크립트 작업 실패를 저장 하는 스크립트를 사용 하 여 발생 하므로이 Azure Storage 계정에 대해 저장소 키를 회전 하지 않습니다.
@@ -446,7 +446,7 @@ Ambari 웹 UI를 사용하여 스크립트 동작에서 기록한 정보를 볼 
 
     **STDOUT** 및 **STDERR** 출력을 보려면 **run\customscriptaction** 항목을 선택하고 링크를 통해 드릴다운합니다. 이 출력은 스크립트가 실행될 때 생성되며, 여기에는 유용한 정보가 있을 수 있습니다.
 
-### <a name="access-logs-from-the-default-storage-account"></a>기본 저장소 계정에서 로그 액세스
+### <a name="access-logs-from-the-default-storage-account"></a>기본 스토리지 계정에서 로그 액세스
 
 스크립트 오류로 인해 클러스터를 만드는 데 실패하면 해당 로그가 클러스터 스토리지 계정에 보관됩니다.
 
@@ -518,6 +518,6 @@ SSH를 사용하여 클러스터에 연결하는 방법에 대한 자세한 내�
 
 * [HDInsight용 스크립트 동작 스크립트 개발](hdinsight-hadoop-script-actions-linux.md)
 * [HDInsight 클러스터에 Apache Giraph 설치 및 사용](hdinsight-hadoop-giraph-install-linux.md)
-* [HDInsight 클러스터에 추가 저장소 추가](hdinsight-hadoop-add-storage.md)
+* [HDInsight 클러스터에 추가 스토리지 추가](hdinsight-hadoop-add-storage.md)
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "클러스터를 만드는 동안의 단계"

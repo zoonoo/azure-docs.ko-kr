@@ -142,8 +142,8 @@ ms.locfileid: "67442601"
 | Microsoft.Solutions | [Azure Managed Applications](../managed-applications/index.yml) |
 | Microsoft.Sql | [Azure SQL Database](../sql-database/index.yml) |
 | Microsoft.SqlVirtualMachine | [Azure Virtual Machines의 SQL Server](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md) |
-| Microsoft.Storage | [Storage](../storage/index.yml) |
-| Microsoft.StorageSync | [Storage](../storage/index.yml) |
+| Microsoft.Storage | [스토리지](../storage/index.yml) |
+| Microsoft.StorageSync | [스토리지](../storage/index.yml) |
 | Microsoft.StorSimple | [StorSimple](/azure/storsimple/) |
 | Microsoft.StreamAnalytics | [Stream Analytics](../stream-analytics/index.yml) |
 | Microsoft.Subscription | core |

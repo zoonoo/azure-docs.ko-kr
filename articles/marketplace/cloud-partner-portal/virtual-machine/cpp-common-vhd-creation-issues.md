@@ -75,7 +75,7 @@ Azure Resource Manager 배포 모델을 사용하는 경우 VPN을 설정하는 
 일반적으로 그렇지 않습니다.  Azure VM에 지원되는 운영 체제 및 표준 서비스는 모두 64비트입니다.  그러나 기술적인 관점에서 대부분의 64비트 운영 체제는 이전 버전과의 호환성을 위해 32비트 버전의 애플리케이션을 실행할 수 있습니다.  그러나 32비트 애플리케이션은 VM 솔루션의 일부로 사용하도록 지원되지 않으므로 *매우 권장되지 않습니다*.  대신 애플리케이션을 64비트 프로젝트로 다시 컴파일하세요.
 
 자세한 내용은 다음 문서를 참조하세요.
-- [32비트 응용 프로그램 실행](https://docs.microsoft.com/windows/desktop/WinProg64/running-32-bit-applications)
+- [32비트 애플리케이션 실행](https://docs.microsoft.com/windows/desktop/WinProg64/running-32-bit-applications)
 - [Azure 가상 머신에 32비트 운영 체제 지원](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines)
 - [Microsoft Azure 가상 머신에 대한 Microsoft 서버 소프트웨어 지원](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)
 

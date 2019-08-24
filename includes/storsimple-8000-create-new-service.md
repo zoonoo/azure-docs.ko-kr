@@ -19,7 +19,7 @@ ms.locfileid: "67182252"
 
     ![StorSimple 디바이스 관리자 만들기](./media/storsimple-8000-create-new-service/createssdevman1.png)
 
-    _StorSimple 실제_를 검색합니다. **StorSimple 실제 디바이스 시리즈**를 선택하여 클릭한 후 **만들기**를 클릭합니다. 또는 Azure Portal에서 **+** 를 클릭한 다음 **저장소** 아래에서 **StorSimple 실제 디바이스 시리즈**를 클릭합니다.
+    _StorSimple 실제_를 검색합니다. **StorSimple 실제 디바이스 시리즈**를 선택하여 클릭한 후 **만들기**를 클릭합니다. 또는 Azure Portal에서 **+** 를 클릭한 다음 **스토리지** 아래에서 **StorSimple 실제 디바이스 시리즈**를 클릭합니다.
 
     ![StorSimple 디바이스 관리자 만들기](./media/storsimple-8000-create-new-service/createssdevman11.png)
 
@@ -34,9 +34,9 @@ ms.locfileid: "67182252"
    4. 서비스의 **위치** 를 지정합니다. 일반적으로 디바이스를 배포하려는 지리적 지역에 가장 가까운 위치를 선택합니다. 다음 사항을 고려할 수도 있습니다. 
       
       * StorSimple 디바이스로 배포하려는 Azure에 부하가 있는 경우, 해당 데이터 센터를 사용해야 합니다.
-      * StorSimple 디바이스 관리자 서비스와 Azure Storage는 두 개의 별도 위치에 있을 수 있습니다. 이 경우, StorSimple 디바이스 관리자 및 Azure Storage 계정을 별도로 만들어야 합니다. Azure Storage 계정을 만들려면 Azure Portal의 Azure Storage 서비스로 이동하고 [Azure Storage 계정 만들기](../articles/storage/common/storage-quickstart-create-account.md)의 단계를 수행합니다. 이 계정을 만든 후에 [서비스에 대한 새 저장소 계정 구성](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#configure-a-new-storage-account-for-the-service)의 단계를 수행하여 StorSimple 디바이스 관리자 서비스에 추가합니다.
+      * StorSimple 디바이스 관리자 서비스와 Azure Storage는 두 개의 별도 위치에 있을 수 있습니다. 이 경우, StorSimple 디바이스 관리자 및 Azure Storage 계정을 별도로 만들어야 합니다. Azure Storage 계정을 만들려면 Azure Portal의 Azure Storage 서비스로 이동하고 [Azure Storage 계정 만들기](../articles/storage/common/storage-quickstart-create-account.md)의 단계를 수행합니다. 이 계정을 만든 후에 [서비스에 대한 새 스토리지 계정 구성](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#configure-a-new-storage-account-for-the-service)의 단계를 수행하여 StorSimple 디바이스 관리자 서비스에 추가합니다.
 
-   5. **새 저장소 계정 만들기** 를 선택하여 서비스를 포함하는 저장소 계정을 자동으로 만듭니다. 이 저장소 계정에 대해 이름을 지정합니다. 다른 위치에 있는 데이터가 필요하면 확인란의 선택을 취소합니다.
+   5. **새 스토리지 계정 만들기** 를 선택하여 서비스를 포함하는 스토리지 계정을 자동으로 만듭니다. 이 스토리지 계정에 대해 이름을 지정합니다. 다른 위치에 있는 데이터가 필요하면 확인란의 선택을 취소합니다.
 
    6. 대시보드에서 이 서비스에 대한 빠른 링크가 필요한 경우 **대시보드에 고정**을 확인하세요.
       

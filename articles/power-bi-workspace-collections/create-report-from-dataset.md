@@ -1,6 +1,6 @@
 ---
 title: Power BI 작업 영역 컬렉션의 데이터 세트에서 새 보고서 만들기 | Microsoft Docs
-description: Power BI 작업 영역 컬렉션 보고서를 이제 자체 애플리케이션의 데이터 집합에서 만들 수 있습니다.
+description: Power BI 작업 영역 컬렉션 보고서를 이제 자체 애플리케이션의 데이터 세트에서 만들 수 있습니다.
 services: power-bi-workspace-collections
 ms.service: power-bi-embedded
 author: rkarlin
@@ -17,7 +17,7 @@ ms.locfileid: "67672459"
 ---
 # <a name="create-a-new-report-from-a-dataset-in-power-bi-workspace-collections"></a>Power BI 작업 영역 컬렉션의 데이터 세트에서 새 보고서 만들기
 
-Power BI 작업 영역 컬렉션 보고서를 이제 자체 애플리케이션의 데이터 집합에서 만들 수 있습니다.
+Power BI 작업 영역 컬렉션 보고서를 이제 자체 애플리케이션의 데이터 세트에서 만들 수 있습니다.
 
 > [!IMPORTANT]
 > Power BI 작업 영역 컬렉션은 2018년 6월 또는 계약에서 명시한 때까지만 사용할 수 있으며 이후에는 사용되지 않습니다. 애플리케이션에서 중단을 방지하기 위해 Power BI Embedded에 대한 마이그레이션을 계획하는 것이 좋습니다. Power BI Embedded에 데이터를 마이그레이션하는 방법에 대한 자세한 내용은 [Power BI Embedded에 Power BI 작업 영역 컬렉션 콘텐츠를 마이그레이션하는 방법](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/)을 참조하세요.

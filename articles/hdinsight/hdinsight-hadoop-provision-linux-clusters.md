@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 07/15/2019
 ms.openlocfilehash: 4159eed04ff1a4e81ea36a4d7f06f342a63fe367
 ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/24/2019
 ms.locfileid: "68442021"
@@ -105,18 +105,18 @@ SSH 사용자 이름에는 다음과 같은 제한 사항이 있습니다.
 
 엔터프라이즈 보안 패키지를 사용하면 Active Directory 및 Apache Ranger와 HDInsight를 통합할 수 있습니다. Enterprise Security Package를 사용하여 여러 사용자를 만들 수 있습니다.
 
-## <a name="location"></a>클러스터 및 저장소 위치(영역)
+## <a name="location"></a>클러스터 및 스토리지 위치(영역)
 
 클러스터 위치를 명시적으로 지정할 필요는 없습니다. 클러스터는 기본 스토리지와 동일한 위치에 있습니다. 지원되는 지역 목록은 **HDInsight 가격** 에서 [지역](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409)드롭다운 목록을 클릭하세요.
 
-## <a name="storage-endpoints-for-clusters"></a>클러스터에 대한 저장소 엔드포인트
+## <a name="storage-endpoints-for-clusters"></a>클러스터에 대한 스토리지 엔드포인트
 
-Hadoop의 온-프레미스 설치가 클러스터의 저장소에 HDFS(Hadoop 분산 파일 시스템)를 사용하고 있더라도 클라우드에서는 클러스터에 연결된 저장소 엔드포인트를 사용합니다. HDInsight 클러스터는 [Azure Data Lake Storage](hdinsight-hadoop-use-data-lake-store.md) 또는 [Azure Storage의 Blob](hdinsight-hadoop-use-blob-storage.md)을 사용합니다. Azure Storage 또는 Data Lake Storage를 사용하면 데이터를 보존하면서 계산에 사용한 HDInsight 클러스터를 안전하게 삭제할 수 있습니다. 
+Hadoop의 온-프레미스 설치가 클러스터의 스토리지에 HDFS(Hadoop 분산 파일 시스템)를 사용하고 있더라도 클라우드에서는 클러스터에 연결된 스토리지 엔드포인트를 사용합니다. HDInsight 클러스터는 [Azure Data Lake Storage](hdinsight-hadoop-use-data-lake-store.md) 또는 [Azure Storage의 Blob](hdinsight-hadoop-use-blob-storage.md)을 사용합니다. Azure Storage 또는 Data Lake Storage를 사용하면 데이터를 보존하면서 계산에 사용한 HDInsight 클러스터를 안전하게 삭제할 수 있습니다. 
 
 > [!WARNING]  
-> HDInsight 클러스터와 다른 위치에서는 추가 저장소 계정을 사용할 수 없습니다.
+> HDInsight 클러스터와 다른 위치에서는 추가 스토리지 계정을 사용할 수 없습니다.
 
-구성하는 동안 기본 스토리지 엔드포인트에 대해 Azure Storage 계정 또는 Data Lake Storage의 Blob 컨테이너를 지정합니다. 기본 스토리지에는 애플리케이션 및 시스템 로그가 포함되어 있습니다. 필요에 따라 클러스터에서 액세스할 수 있는 추가 연결된 Azure Storage 계정 및 Data Lake Storage 계정을 지정할 수 있습니다. HDInsight 클러스터와 종속된 저장소 계정은 같은 Azure 위치에 있어야 합니다.
+구성하는 동안 기본 스토리지 엔드포인트에 대해 Azure Storage 계정 또는 Data Lake Storage의 Blob 컨테이너를 지정합니다. 기본 스토리지에는 애플리케이션 및 시스템 로그가 포함되어 있습니다. 필요에 따라 클러스터에서 액세스할 수 있는 추가 연결된 Azure Storage 계정 및 Data Lake Storage 계정을 지정할 수 있습니다. HDInsight 클러스터와 종속된 스토리지 계정은 같은 Azure 위치에 있어야 합니다.
 
 ![클러스터 스토리지 설정: HDFS 호환 스토리지 엔드포인트](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-creation-storage.png)
 

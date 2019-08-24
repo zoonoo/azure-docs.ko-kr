@@ -167,7 +167,7 @@ ContentKeyPolicy에는 ContentKeyIdentifierClaim을 사용하는데 이는 키 �
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 자습서에서 만든 Media Services 및 저장소 계정을 포함하여 리소스 그룹의 리소스가 더 이상 필요하지 않으면, 앞서 만든 리소스 그룹을 삭제합니다. 
+이 자습서에서 만든 Media Services 및 스토리지 계정을 포함하여 리소스 그룹의 리소스가 더 이상 필요하지 않으면, 앞서 만든 리소스 그룹을 삭제합니다. 
 
 다음 CLI 명령을 실행합니다.
 

@@ -84,7 +84,7 @@ SAP HANA 데이터베이스에 의해 할당된 메모리 양이 예상보다 �
 - 이름 서버의 메모리 사용량(경고 12)
 - 열 저장소 테이블의 총 메모리 사용량(경고 40)
 - 서비스의 메모리 사용량(경고 43)
-- 열 저장소 테이블 중 기본 저장소의 메모리 사용량(경고 45)
+- 열 스토리지 테이블 중 기본 스토리지의 메모리 사용량(경고 45)
 - 런타임 덤프 파일(경고 46)
 
 참조 된 [SAP HANA 문제 해결: 메모리 문제](https://help.sap.com/saphelp_hanaplatform/helpdata/en/db/6ca50424714af8b370960c04ce667b/content.htm?frameset=/en/59/5eaa513dde43758b51378ab3315ebb/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=26&amp;show_children=false) 자세한 문제 해결 단계에 대 한 사이트입니다.
@@ -106,7 +106,7 @@ SAP HANA 데이터베이스에 의해 할당된 메모리 양이 예상보다 �
 
 참조 된 [SAP HANA 문제 해결: 네트워킹 성능 및 연결 문제](https://help.sap.com/saphelp_hanaplatform/helpdata/en/a3/ccdff1aedc4720acb24ed8826938b6/content.htm?frameset=/en/dc/6ff98fa36541e997e4c719a632cbd8/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=142&amp;show_children=false) 자세한 문제 해결 단계에 대 한 사이트입니다.
 
-## <a name="storage"></a>저장 공간
+## <a name="storage"></a>스토리지
 
 최종 사용자 관점에서 응용 프로그램 (또는 시스템 전체의) 느리게 실행, 응답성이 뛰어난 아니거나 I/O 성능 문제가 있는 경우 응답을 중지 하도록 보일 수 있습니다. SAP HANA Studio의 **볼륨** 탭에서 연결된 볼륨 및 각 서비스에서 사용하는 볼륨을 확인할 수 있습니다.
 

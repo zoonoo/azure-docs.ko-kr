@@ -291,7 +291,7 @@ ms.locfileid: "68638580"
 * 정제된 요청에 대한 재시도 지원이 추가되었습니다.  사용자가 ConnectionPolicy.RetryOptions 속성을 구성하여 재시도 횟수와 최대 대기 시간을 지정할 수 있습니다.
 * 모든 DocumentClient 속성 및 메서드의 시그니처를 정의하는 새로운 IDocumentClient 인터페이스가 추가되었습니다.  이러한 변경의 일환으로 DocumentClient 클래스 자체에서 IQueryable과 IOrderedQueryable을 메서드로 만드는 확장 메서드도 변경되었습니다.
 * 특정 Azure Cosmos DB 엔드포인트 Uri에 대해 ServicePoint.ConnectionLimit를 설정하는 구성 옵션이 추가되었습니다.  ConnectionPolicy.MaxConnectionLimit를 사용하여 기본값(50)을 변경합니다.
-* IPartitionResolver와 해당 구현의 사용이 중단되었습니다.  IPartitionResolver 지원이 중단되었습니다. 보다 큰 저장소 및 처리량에는 파티션된 컬렉션을 사용하는 것이 좋습니다.
+* IPartitionResolver와 해당 구현의 사용이 중단되었습니다.  IPartitionResolver 지원이 중단되었습니다. 보다 큰 스토리지 및 처리량에는 파티션된 컬렉션을 사용하는 것이 좋습니다.
 
 ### <a name="a-name171171"></a><a name="1.7.1"/>1.7.1
 * RequestOptions를 매개 변수로 사용하는 Uri 기반 ExecuteStoredProcedureAsync 메서드에 오버로드가 추가되었습니다.

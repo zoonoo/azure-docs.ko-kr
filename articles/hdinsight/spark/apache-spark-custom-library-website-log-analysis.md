@@ -58,7 +58,7 @@ ms.locfileid: "67448752"
         from pyspark.sql.types import *
 
 
-1. 클러스터에서 이미 사용할 수 있는 샘플 로그 데이터를 사용하는 RDD를 만듭니다. **\HdiSamples\HdiSamples\WebsiteLogSampleData\SampleLog\909f2b.log**에서 클러스터와 연결된 기본 저장소 계정의 데이터에 액세스할 수 있습니다.
+1. 클러스터에서 이미 사용할 수 있는 샘플 로그 데이터를 사용하는 RDD를 만듭니다. **\HdiSamples\HdiSamples\WebsiteLogSampleData\SampleLog\909f2b.log**에서 클러스터와 연결된 기본 스토리지 계정의 데이터에 액세스할 수 있습니다.
 
         logs = sc.textFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log')
 

@@ -1,6 +1,6 @@
 ---
-title: Azure HDInsight에서 보안 전송 저장소 계정으로 Hadoop 클러스터 만들기
-description: 보안 전송이 활성화된 Azure 저장소 계정을 사용하여 HDInsight 클러스터를 만드는 방법을 알아봅니다.
+title: Azure HDInsight에서 보안 전송 스토리지 계정으로 Hadoop 클러스터 만들기
+description: 보안 전송이 활성화된 Azure Storage 계정을 사용하여 HDInsight 클러스터를 만드는 방법을 알아봅니다.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -23,8 +23,8 @@ ms.locfileid: "67433596"
 이 문서를 시작 하기 전에 있어야 합니다.
 
 * **Azure 구독**: 1개월 평가판 계정을 만들려면 [azure.microsoft.com/free](https://azure.microsoft.com/free)로 이동합니다.
-* **보안 전송이 활성화된 Azure Storage 계정**. 자세한 지침은 [저장소 계정 만들기](../storage/common/storage-quickstart-create-account.md) 및 [보안 전송 필요](../storage/common/storage-require-secure-transfer.md)를 참조하세요.
-* **저장소 계정의 Blob 컨테이너**.
+* **보안 전송이 활성화된 Azure Storage 계정**. 자세한 지침은 [스토리지 계정 만들기](../storage/common/storage-quickstart-create-account.md) 및 [보안 전송 필요](../storage/common/storage-require-secure-transfer.md)를 참조하세요.
+* **스토리지 계정의 Blob 컨테이너**.
 
 ## <a name="create-cluster"></a>클러스터 만들기
 
@@ -40,9 +40,9 @@ ms.locfileid: "67433596"
 2. 지침에 따라 다음과 같은 사양의 클러스터를 만듭니다. 
 
     - HDInsight 버전 3.6을 지정합니다. 3\.6 이상 버전이 필요합니다.
-    - 보안 전송이 활성화된 저장소 계정을 지정합니다.
-    - 저장소 계정에 짧은 이름을 사용합니다.
-    - 저장소 계정과 blob 컨테이너를 미리 만들어 두어야 합니다.
+    - 보안 전송이 활성화된 스토리지 계정을 지정합니다.
+    - 스토리지 계정에 짧은 이름을 사용합니다.
+    - 스토리지 계정과 blob 컨테이너를 미리 만들어 두어야 합니다.
 
       자세한 지침은 [클러스터 만들기](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster)를 참조하세요.
 
@@ -52,13 +52,13 @@ ms.locfileid: "67433596"
 - spark.eventLog.dir 
 - spark.history.fs.logDirectory
 
-## <a name="add-additional-storage-accounts"></a>추가 저장소 계정 추가
+## <a name="add-additional-storage-accounts"></a>추가 스토리지 계정 추가
 
-보안 전송이 활성화된 저장소 계정을 추가할 수 있는 여러 옵션이 있습니다.
+보안 전송이 활성화된 스토리지 계정을 추가할 수 있는 여러 옵션이 있습니다.
 
 - 마지막 섹션에서 Azure Resource Manager 템플릿을 수정합니다.
-- [Azure Portal](https://portal.azure.com)을 사용하여 클러스터를 만들고 연결된 저장소 계정을 지정합니다.
-- 스크립트 동작을 사용하여 보안 전송이 활성화된 저장소 계정을 기존 HDInsight 클러스터에 추가합니다. 자세한 내용은 [HDInsight에 추가 저장소 계정 추가](hdinsight-hadoop-add-storage.md)를 참조하세요.
+- [Azure Portal](https://portal.azure.com)을 사용하여 클러스터를 만들고 연결된 스토리지 계정을 지정합니다.
+- 스크립트 동작을 사용하여 보안 전송이 활성화된 스토리지 계정을 기존 HDInsight 클러스터에 추가합니다. 자세한 내용은 [HDInsight에 추가 스토리지 계정 추가](hdinsight-hadoop-add-storage.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 HDInsight 클러스터를 만들고 저장소 계정에 보안 전송을 사용 하도록 설정 하는 방법을 배웠습니다.

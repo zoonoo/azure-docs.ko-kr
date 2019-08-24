@@ -64,7 +64,7 @@ import org.apache.commons.cli.*;
 ```
 
 ## <a name="send-messages-to-a-queue"></a>큐에 메시지 보내기
-Service Bus 큐에 메시지를 보내기 위해 응용 프로그램은 **QueueClient** 개체를 인스턴스화하고 메시지를 비동기식으로 전송합니다. 다음 코드는 포털을 통해 만든 큐에 메시지를 보내는 방법을 보여 줍니다.
+Service Bus 큐에 메시지를 보내기 위해 애플리케이션은 **QueueClient** 개체를 인스턴스화하고 메시지를 비동기식으로 전송합니다. 다음 코드는 포털을 통해 만든 큐에 메시지를 보내는 방법을 보여 줍니다.
 
 ```java
 public void run() throws Exception {
@@ -112,7 +112,7 @@ public void run() throws Exception {
 
 ```
 
-Service Bus 큐로 보내고 받은 메시지는 [Message](/java/api/com.microsoft.azure.servicebus.message?view=azure-java-stable) 클래스 인스턴스입니다. Message 개체에는 표준 속성 집합(예: Label 및 TimeToLive), 애플리케이션별 사용자 지정 속성을 저장하는 데 사용되는 사전 및 임의 애플리케이션 데이터 본문이 있습니다. 응용 프로그램은 Message의 생성자에 직렬화 가능 개체를 전달하여 메시지 본문을 설정할 수 있으며, 그러면 적절한 직렬 변환기가 개체를 직렬화하는 데 사용됩니다. 또는 **java.IO.InputStream** 개체를 제공할 수 있습니다.
+Service Bus 큐로 보내고 받은 메시지는 [Message](/java/api/com.microsoft.azure.servicebus.message?view=azure-java-stable) 클래스 인스턴스입니다. Message 개체에는 표준 속성 집합(예: Label 및 TimeToLive), 애플리케이션별 사용자 지정 속성을 저장하는 데 사용되는 사전 및 임의 애플리케이션 데이터 본문이 있습니다. 애플리케이션은 Message의 생성자에 직렬화 가능 개체를 전달하여 메시지 본문을 설정할 수 있으며, 그러면 적절한 직렬 변환기가 개체를 직렬화하는 데 사용됩니다. 또는 **java.IO.InputStream** 개체를 제공할 수 있습니다.
 
 
 Service Bus 큐는 [표준 계층](service-bus-premium-messaging.md)에서 256KB의 최대 메시지 크기를 [프리미엄 계층](service-bus-premium-messaging.md)에서 1MB를 지원합니다. 표준 및 사용자 지정 애플리케이션 속성이 포함된 헤더의 최대 크기는 64KB입니다. 한 큐에 저장되는 메시지 수에는 제한이 없지만 한 큐에 저장되는 총 메시지 크기는 제한됩니다. 이 큐 크기는 생성 시 정의되며 상한이 5GB입니다.

@@ -10,7 +10,7 @@ ms.date: 04/11/2019
 ms.author: glenga
 ms.openlocfilehash: 17550e148ea61eb69a20fc6a3215dfb63b65f18e
 ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 06/28/2019
 ms.locfileid: "67452697"
@@ -235,7 +235,7 @@ Visual Studio Code에서 게시할 때 두 가지 배포 방법 중 하나 사�
     | 호스팅 계획 선택 | 소비 계획 | 서버 리스 [사용 계획 호스팅은](functions-scale.md#consumption-plan) 사용 됩니다. |
     | 새 앱에 대 한 런타임을 선택합니다 | 프로젝트 언어 | 런타임 프로젝트를 게시 하는 일치 해야 합니다. |
     | 새 리소스에 대 한 리소스 그룹 선택 | 새 리소스 그룹 만들기 | 다음 프롬프트에서 리소스 그룹 이름의 같은 입력 `myResourceGroup`, 및 enter 키를 누릅니다. 기존 리소스 그룹을 선택할 수도 있습니다. |
-    | 저장소 계정 선택 | 새 저장소 계정 만들기 | 다음 프롬프트에서 새 저장소 계정 유형을 전역적으로 고유한 이름을 사용한 함수 앱 및 Enter 키를 누릅니다. Storage 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 포함할 수 있습니다. 기존 계정을 선택할 수도 있습니다. |
+    | 저장소 계정 선택 | 새 스토리지 계정 만들기 | 다음 프롬프트에서 새 저장소 계정 유형을 전역적으로 고유한 이름을 사용한 함수 앱 및 Enter 키를 누릅니다. Storage 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 포함할 수 있습니다. 기존 계정을 선택할 수도 있습니다. |
     | 새 리소스에 대 한 위치를 선택 합니다. | 영역(region) | 사용자 근처 또는 함수가 액세스할 기타 서비스에 가까운 [지역](https://azure.microsoft.com/regions/)의 위치를 선택합니다. |
 
     함수 앱을 만들고 배포 패키지가 적용되면 알림이 표시됩니다. 이 알림에서 **출력 보기**를 선택하여 사용자가 만든 Azure 리소스를 포함한 만들기 및 배포 결과를 표시합니다.
@@ -292,7 +292,7 @@ Functions 런타임은 HTTP 및 웹 후크 이외의 모든 트리거 형식에 
 
 이 섹션에서는 합니다 [Visual Studio Code 용 Azure Storage 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) 사용 하 여 [Microsoft Azure Storage 탐색기](https://storageexplorer.com/) 연결 하 고 저장소 연결 문자열을 검색 합니다.   
 
-저장소 계정 연결 문자열을 설정하려면 다음을 수행합니다.
+스토리지 계정 연결 문자열을 설정하려면 다음을 수행합니다.
 
 1. Visual Studio에서 **클라우드 탐색기**를 열고 **Storage 계정** > **Storage 계정**을 확장한 후 **속성**을 선택하고 **기본 연결 문자열** 값을 복사합니다.
 

@@ -75,16 +75,16 @@ ms.locfileid: "68359011"
 | XPath |xpath="/RoleEnvironment/CurrentInstance/ConfigurationSettings/ConfigurationSetting[@name='Setting1']/@value" |
 | 코드 |var setting = RoleEnvironment.GetConfigurationSettingValue("Setting1"); |
 
-## <a name="local-storage-path"></a>로컬 저장소 경로
-인스턴스에 대한 로컬 저장소 경로를 검색합니다.
+## <a name="local-storage-path"></a>로컬 스토리지 경로
+인스턴스에 대한 로컬 스토리지 경로를 검색합니다.
 
 | 형식 | 예제 |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='LocalStore1']/@path" |
 | 코드 |var localResourcePath = RoleEnvironment.GetLocalResource("LocalStore1").RootPath; |
 
-## <a name="local-storage-size"></a>로컬 저장소 크기
-인스턴스의 로컬 저장소 크기를 검색합니다.
+## <a name="local-storage-size"></a>로컬 스토리지 크기
+인스턴스의 로컬 스토리지 크기를 검색합니다.
 
 | 형식 | 예제 |
 | --- | --- |

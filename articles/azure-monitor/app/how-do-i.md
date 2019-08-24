@@ -130,7 +130,7 @@ ms.locfileid: "67795521"
 * [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)에서 성능 카운터 수집기 등 필요하지 않은 모듈을 모두 사용하지 않도록 설정합니다.
 * SDK에서 [샘플링 및 필터링](../../azure-monitor/app/api-filtering-sampling.md)을 사용합니다.
 * 웹 페이지에서 모든 페이지 뷰에 대해 보고되는 Ajax 호출 수를 제한합니다. 스크립트 조각에서 `instrumentationKey:...` 뒤에 `,maxAjaxCallsPerView:3`(또는 적절한 숫자)을 삽입합니다.
-* [TrackMetric](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric)을 사용하는 경우 결과를 보내기 전에 메트릭 값의 배치 집계를 계산합니다. 이를 제공하는 TrackMetric() 오버로드가 있습니다.
+* [TrackMetric](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric)을 사용하는 경우 결과를 보내기 전에 메트릭 값의 배치 집계를 컴퓨팅합니다. 이를 제공하는 TrackMetric() 오버로드가 있습니다.
 
 [가격 책정 및 할당량](../../azure-monitor/app/pricing.md)에 대해 자세히 확인합니다.
 

@@ -49,7 +49,7 @@ Azure Batch는 태스크 출력을 유지하는 한 가지 이상의 방법을 �
 
 [Batch 파일 규칙 표준](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions)(영문)은 출력 파일이 작성되는 대상 컨테이너 및 Blob 경로에 대한 이름 지정 체계를 제공합니다. 파일 규칙 표준을 준수하는 Azure Storage에 유지된 파일은 Azure Portal에서 자동으로 볼 수 있습니다. 포털에서는 명명 규칙을 인식하고 있으므로 이 표준을 준수하는 파일을 표시할 수 있습니다.
 
-.NET용 파일 규칙 라이브러리는 파일 규칙 표준에 따라 저장소 컨테이너와 태스크 출력 파일의 이름을 자동으로 지정합니다. 또한 파일 규칙 라이브러리는 작업 ID, 태스크 ID 또는 용도에 따라 Azure Storage의 출력 파일을 쿼리하는 메서드를 제공합니다.
+.NET용 파일 규칙 라이브러리는 파일 규칙 표준에 따라 스토리지 컨테이너와 태스크 출력 파일의 이름을 자동으로 지정합니다. 또한 파일 규칙 라이브러리는 작업 ID, 태스크 ID 또는 용도에 따라 Azure Storage의 출력 파일을 쿼리하는 메서드를 제공합니다.
 
 .NET 이외의 언어로 개발하는 경우 애플리케이션에서 파일 규칙 표준을 직접 구현할 수 있습니다. 자세한 내용은 [Batch 파일 규칙 표준 구현](batch-task-output.md#implement-the-batch-file-conventions-standard)을 참조하세요.
 
@@ -69,9 +69,9 @@ Azure Batch는 태스크 출력을 유지하는 한 가지 이상의 방법을 �
 Azure Storage의 컨테이너와 Blob 사용에 대한 자세한 내용은 [.NET을 사용하여 Azure Blob 스토리지 시작](../storage/blobs/storage-dotnet-how-to-use-blobs.md)을 참조하세요.
 
 > [!WARNING]
-> 파일 규칙 라이브러리를 사용하여 유지되는 모든 작업 및 태스크 출력은 동일한 컨테이너에 저장됩니다. 많은 수의 태스크에서 동시에 파일을 유지하려고 시도하면 [저장소 제한](../storage/common/storage-performance-checklist.md#blobs)이 적용될 수 있습니다.
+> 파일 규칙 라이브러리를 사용하여 유지되는 모든 작업 및 태스크 출력은 동일한 컨테이너에 저장됩니다. 많은 수의 태스크에서 동시에 파일을 유지하려고 시도하면 [스토리지 제한](../storage/common/storage-performance-checklist.md#blobs)이 적용될 수 있습니다.
 
-### <a name="create-storage-container"></a>저장소 컨테이너 만들기
+### <a name="create-storage-container"></a>스토리지 컨테이너 만들기
 
 Azure Storage에 작업 출력을 유지 하려면 먼저 [Cloudjob][net_cloudjob]을 호출 하 여 컨테이너를 만듭니다. [PrepareOutputStorageAsync][net_prepareoutputasync]. 이 확장 메서드는 [Cloudstorageaccount][net_cloudstorageaccount] 개체를 매개 변수로 사용 합니다. Azure Portal과 이 문서의 뒷부분에서 설명하는 검색 메서드에서 해당 콘텐츠를 검색할 수 있도록 파일 규칙 표준에 따라 명명된 컨테이너를 만듭니다.
 
@@ -135,7 +135,7 @@ await jobOutputStorage.SaveAsync(JobOutputKind.JobPreview, "mymovie_preview.mp4"
 
 ### <a name="store-task-logs"></a>태스크 로그 저장
 
-태스크 또는 작업이 완료될 때 영구 저장소에 파일을 유지하는 것 외에도 태스크를 실행하는 동안 업데이트된 파일(로그 파일 또는 `stdout.txt` 및 `stderr.txt`)을 유지해야 할 수도 있습니다. 이러한 목적을 위해 Azure Batch 파일 규칙 라이브러리에서는 [Taskoutputstorage][net_taskoutputstorage]를 제공 합니다. [SaveTrackedAsync][net_savetrackedasync] 메서드입니다. [SaveTrackedAsync][net_savetrackedasync]를 사용 하면 지정 된 간격으로 노드의 파일에 대 한 업데이트를 추적 하 여 Azure Storage에 대 한 업데이트를 유지할 수 있습니다.
+태스크 또는 작업이 완료될 때 영구 스토리지에 파일을 유지하는 것 외에도 태스크를 실행하는 동안 업데이트된 파일(로그 파일 또는 `stdout.txt` 및 `stderr.txt`)을 유지해야 할 수도 있습니다. 이러한 목적을 위해 Azure Batch 파일 규칙 라이브러리에서는 [Taskoutputstorage][net_taskoutputstorage]를 제공 합니다. [SaveTrackedAsync][net_savetrackedasync] 메서드입니다. [SaveTrackedAsync][net_savetrackedasync]를 사용 하면 지정 된 간격으로 노드의 파일에 대 한 업데이트를 추적 하 여 Azure Storage에 대 한 업데이트를 유지할 수 있습니다.
 
 다음 코드 조각에서는 [SaveTrackedAsync][net_savetrackedasync] 를 사용 하 여 작업을 `stdout.txt` 실행 하는 동안 15 초 마다 Azure Storage를 업데이트 합니다.
 
@@ -173,7 +173,7 @@ using (ITrackedSaveOperation stdout =
 
 Azure Batch 파일 규칙 라이브러리를 사용하여 보관된 출력을 검색할 때는 태스크 및 작업 중심 방식으로 검색합니다. Azure Storage 또는 해당 파일 이름에서 경로를 알지 못하더라도 지정된 태스크 또는 작업에 대한 출력을 요청할 수 있습니다. 대신 태스크별 또는 작업 ID별로 출력 파일을 요청할 수 있습니다.
 
-다음 코드 조각에서는 작업의 태스크를 반복하고, 태스크의 출력 파일에 대한 정보 일부를 출력한 다음, 저장소에서 해당 파일을 다운로드합니다.
+다음 코드 조각에서는 작업의 태스크를 반복하고, 태스크의 출력 파일에 대한 정보 일부를 출력한 다음, 스토리지에서 해당 파일을 다운로드합니다.
 
 ```csharp
 foreach (CloudTask task in myJob.ListTasks())
@@ -198,7 +198,7 @@ Azure Portal에서는 [Batch 파일 규칙 표준](https://github.com/Azure/azur
 포털에서 출력 파일을 표시하려면 다음 요구 사항을 충족해야 합니다.
 
 1. Batch 계정에 Azure Storage 계정을 연결합니다.
-1. 출력을 보관할 때 저장소 컨테이너 및 파일에 대한 미리 정의된 명명 규칙을 따릅니다. 이러한 규칙의 정의는 파일 규칙 라이브러리 [추가 정보][github_file_conventions_readme]에서 찾을 수 있습니다. [Azure Batch 파일 규칙][nuget_package] 라이브러리를 사용 하 여 출력을 유지 하는 경우 파일 규칙 표준에 따라 파일이 유지 됩니다.
+1. 출력을 보관할 때 스토리지 컨테이너 및 파일에 대한 미리 정의된 명명 규칙을 따릅니다. 이러한 규칙의 정의는 파일 규칙 라이브러리 [추가 정보][github_file_conventions_readme]에서 찾을 수 있습니다. [Azure Batch 파일 규칙][nuget_package] 라이브러리를 사용 하 여 출력을 유지 하는 경우 파일 규칙 표준에 따라 파일이 유지 됩니다.
 
 Azure Portal에서 태스크 출력 파일과 로그를 보려면 관심 있는 출력의 태스크로 이동한 다음 **저장된 출력 파일** 또는 **저장된 로그**를 클릭합니다. 이 이미지는 ID가 "007"인 태스크에 대한 **저장된 출력 파일** 을 보여 줍니다.
 
@@ -206,7 +206,7 @@ Azure Portal에서 태스크 출력 파일과 로그를 보려면 관심 있는 
 
 ## <a name="code-sample"></a>코드 샘플
 
-[Persistoutputs][github_persistoutputs] 샘플 프로젝트는 GitHub의 [Azure Batch 코드 샘플][github_samples] 중 하나입니다. 이 Visual Studio 솔루션은 Azure Batch 파일 규칙 라이브러리를 사용하여 영구 저장소에 태스크 출력을 보관하는 방법을 보여 줍니다. 샘플을 실행하려면 다음 단계를 수행합니다.
+[Persistoutputs][github_persistoutputs] 샘플 프로젝트는 GitHub의 [Azure Batch 코드 샘플][github_samples] 중 하나입니다. 이 Visual Studio 솔루션은 Azure Batch 파일 규칙 라이브러리를 사용하여 영구 스토리지에 태스크 출력을 보관하는 방법을 보여 줍니다. 샘플을 실행하려면 다음 단계를 수행합니다.
 
 1. **Visual Studio 2019**에서 프로젝트를 엽니다.
 2. Microsoft.Azure.Batch.Samples.Common 프로젝트에서 Batch 및 Storage **계정 자격 증명**을 **AccountSettings.settings**에 추가합니다.

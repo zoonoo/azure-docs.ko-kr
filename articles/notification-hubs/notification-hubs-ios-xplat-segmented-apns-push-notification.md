@@ -133,7 +133,7 @@ ms.locfileid: "68663831"
     }
     ```
 
-    이 클래스는 로컬 저장소를 사용하여 이 디바이스에서 받을 뉴스의 범주를 저장하고 검색합니다. 또한 [템플릿](notification-hubs-templates-cross-platform-push-messages.md) 등록을 사용하여 이러한 범주에 등록하는 메서드도 포함되어 있습니다.
+    이 클래스는 로컬 스토리지를 사용하여 이 디바이스에서 받을 뉴스의 범주를 저장하고 검색합니다. 또한 [템플릿](notification-hubs-templates-cross-platform-push-messages.md) 등록을 사용하여 이러한 범주에 등록하는 메서드도 포함되어 있습니다.
 
 7. `AppDelegate.h` 파일에서 `Notifications.h`에 대한 import 문을 추가하고 `Notifications` 클래스의 인스턴스에 대한 속성을 추가합니다.
 
@@ -240,7 +240,7 @@ ms.locfileid: "68663831"
     if ([categories containsObject:@"Sports"]) self.SportsSwitch.on = true;
     ```
 
-이제 앱은 앱이 시작할 때마다 알림 허브에 등록하는 데 사용한 디바이스 로컬 저장소에 범주 집합을 저장할 수 있습니다. 사용자는 런타임 시 범주 선택 사항을 변경하고 `subscribe` 메서드를 클릭하여 디바이스에 대한 등록을 업데이트할 수 있습니다. 다음으로 앱 자체에서 직접 속보 알림을 보내도록 앱을 업데이트합니다.
+이제 앱은 앱이 시작할 때마다 알림 허브에 등록하는 데 사용한 디바이스 로컬 스토리지에 범주 집합을 저장할 수 있습니다. 사용자는 런타임 시 범주 선택 사항을 변경하고 `subscribe` 메서드를 클릭하여 디바이스에 대한 등록을 업데이트할 수 있습니다. 다음으로 앱 자체에서 직접 속보 알림을 보내도록 앱을 업데이트합니다.
 
 ## <a name="optional-send-tagged-notifications"></a>(선택 사항) 태그가 지정된 알림 보내기
 

@@ -41,7 +41,7 @@ Azure SQL Database의 단일 및 풀링된 데이터베이스를 사용하면, �
 
 ### <a name="monitoring-file-space-usage"></a>파일 공간 사용량 모니터링
 
-Azure Portal 및 다음 API에 표시되는 대부분의 저장소 공간 메트릭은 사용한 데이터 페이지의 크기만 측정합니다.
+Azure Portal 및 다음 API에 표시되는 대부분의 스토리지 공간 메트릭은 사용한 데이터 페이지의 크기만 측정합니다.
 
 - PowerShell [get-metrics](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetric)를 포함한 Azure Resource Manager 기반 메트릭 API
 - T-SQL: [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
@@ -58,9 +58,9 @@ SQL Database 서비스는 사용되지 않은 할당된 공간을 회수하기 �
 > [!NOTE]
 > 데이터 파일과 달리 SQL Database 서비스는 로그 파일을 자동으로 축소합니다. 이 작업은 데이터베이스 성능에 영향을 미치지 않기 때문입니다. 
 
-## <a name="understanding-types-of-storage-space-for-a-database"></a>데이터베이스의 저장소 공간 유형 이해
+## <a name="understanding-types-of-storage-space-for-a-database"></a>데이터베이스의 스토리지 공간 유형 이해
 
-다음 저장소 공간 수량을 이해하는 것은 데이터베이스의 파일 공간을 관리하는 데 중요합니다.
+다음 스토리지 공간 수량을 이해하는 것은 데이터베이스의 파일 공간을 관리하는 데 중요합니다.
 
 |데이터베이스 수량|정의|주석|
 |---|---|---|
@@ -70,9 +70,9 @@ SQL Database 서비스는 사용되지 않은 할당된 공간을 회수하기 �
 |**데이터 최대 크기**|데이터베이스 데이터 저장에 사용할 수 있는 최대 공간의 크기입니다.|할당된 데이터 공간 크기는 데이터 최대 크기를 초과할 수 없습니다.|
 ||||
 
-다음 다이어그램에서는 데이터베이스에 대한 여러 저장소 공간 유형 간의 관계를 보여 줍니다.
+다음 다이어그램에서는 데이터베이스에 대한 여러 스토리지 공간 유형 간의 관계를 보여 줍니다.
 
-![저장소 공간 유형 및 관계](./media/sql-database-file-space-management/storage-types.png)
+![스토리지 공간 유형 및 관계](./media/sql-database-file-space-management/storage-types.png)
 
 ## <a name="query-a-single-database-for-storage-space-information"></a>스토리지 공간 정보에 대해 단일 데이터베이스 쿼리
 
@@ -115,9 +115,9 @@ HAVING type_desc = 'ROWS'
 SELECT DATABASEPROPERTYEX('db1', 'MaxSizeInBytes') AS DatabaseDataMaxSizeInBytes
 ```
 
-## <a name="understanding-types-of-storage-space-for-an-elastic-pool"></a>탄력적 풀을 위한 저장소 공간 유형 이해
+## <a name="understanding-types-of-storage-space-for-an-elastic-pool"></a>탄력적 풀을 위한 스토리지 공간 유형 이해
 
-다음 저장소 공간 수량을 이해하는 것은 탄력적 풀의 파일 공간을 관리하는 데 중요합니다.
+다음 스토리지 공간 수량을 이해하는 것은 탄력적 풀의 파일 공간을 관리하는 데 중요합니다.
 
 |탄력적 풀 수량|정의|주석|
 |---|---|---|
@@ -127,9 +127,9 @@ SELECT DATABASEPROPERTYEX('db1', 'MaxSizeInBytes') AS DatabaseDataMaxSizeInBytes
 |**데이터 최대 크기**|해당 데이터베이스 모두에 대해 탄력적 풀에서 사용할 수 있는 최대 데이터 공간의 크기입니다.|탄력적 풀에 할당된 공간은 탄력적 풀 최대 크기를 초과할 수 없습니다.  이 상태가 발생하면 데이터베이스 데이터 파일을 축소하여 사용되지 않은 할당된 공간을 회수할 수 있습니다.|
 ||||
 
-## <a name="query-an-elastic-pool-for-storage-space-information"></a>저장소 공간 정보를 탄력적 풀에 쿼리
+## <a name="query-an-elastic-pool-for-storage-space-information"></a>스토리지 공간 정보를 탄력적 풀에 쿼리
 
-탄력적 풀에 대한 저장소 공간 수량을 확인하려면 다음 쿼리를 사용할 수 있습니다.  
+탄력적 풀에 대한 스토리지 공간 수량을 확인하려면 다음 쿼리를 사용할 수 있습니다.  
 
 ### <a name="elastic-pool-data-space-used"></a>사용되는 탄력적 풀 데이터 공간
 

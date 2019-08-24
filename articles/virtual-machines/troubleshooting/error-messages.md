@@ -72,8 +72,8 @@ Azure VM은 오류 응답에 다음 JSON 형식을 사용합니다.
 |  충돌  |  디스크 크기 조정은 VM을 만들거나 VM의 할당을 취소할 때만 허용됩니다.  |
 |  ConflictingUserInput  |  디스크 '{0}'은(는) VM '{1}'에서 이미 소유한 디스크로 연결될 수 없습니다.  |
 |  ConflictingUserInput  |  원본 및 대상 리소스 그룹이 동일합니다.  |
-|  ConflictingUserInput  |  디스크 {0}에 대한 원본 저장소 계정과 대상 저장소 계정이 서로 다릅니다.  |
-|  ContainerAlreadyOnLease  |  URI가 {0}인 Blob을 보관하는 저장소 컨테이너에 임대가 이미 있습니다.  |
+|  ConflictingUserInput  |  디스크 {0}에 대한 원본 스토리지 계정과 대상 스토리지 계정이 서로 다릅니다.  |
+|  ContainerAlreadyOnLease  |  URI가 {0}인 Blob을 보관하는 스토리지 컨테이너에 임대가 이미 있습니다.  |
 |  CrossSubscriptionMoveWithKeyVaultResources  |  리소스 이동 요청에는 요청에서 하나 이상의 {0}에 의해 참조되는 KeyVault 리소스가 포함됩니다. 현재 이 기능은 구독 간 이동에서 지원되지 않습니다. KeyVault 리소스 ID의 오류 세부 정보를 확인하세요.  |
 |  DiagnosticsOperationInternalError  |  VM {0}의 진단 프로필을 처리하는 동안 내부 오류가 발생했습니다.  |
 |  DiskBlobAlreadyInUseByAnotherDisk  |  Blob {0}은(는) VM '{1}'에 속한 다른 디스크에서 이미 사용 중입니다. 디스크 참조 정보에 대한 Blob 메타데이터를 검사할 수 있습니다.  |
@@ -90,7 +90,7 @@ Azure VM은 오류 응답에 다음 JSON 형식을 사용합니다.
 |  IncorrectDiskBlobType  |  디스크 Blob은 유형 페이지 Blob일 수 있습니다. Blob {0}은(는) '{1}' 유형입니다.  |
 |  IncorrectImageBlobType  |  디스크 Blob은 유형 페이지 Blob일 수 있습니다. 디스크 '{1}'에 대한 Blob {0}은(는) 유형 블록 Blob입니다.  |
 |  IncorrectImageBlobType  |  디스크 Blob은 유형 페이지 Blob일 수 있습니다. Blob {0}은(는) '{1}' 유형입니다.  |
-|  InternalOperationError  |  저장소 계정 {0}을(를) 확인할 수 없습니다. 이 계정이 컴퓨팅 리소스와 동일한 위치에 있는 Storage 리소스 공급자를 통해 생성되었는지 확인하세요.  |
+|  InternalOperationError  |  스토리지 계정 {0}을(를) 확인할 수 없습니다. 이 계정이 컴퓨팅 리소스와 동일한 위치에 있는 Storage 리소스 공급자를 통해 생성되었는지 확인하세요.  |
 |  InternalOperationError  |  {0} 목표 검색 태스크에 실패했습니다.  |
 |  InternalOperationError  |  VM '{0}'의 네트워크 프로필을 검사하는 동안 오류가 발생했습니다.  |
 |  InvalidAccountType  |  AccountType {0}은(는) 올바르지 않습니다.  |
@@ -124,7 +124,7 @@ Azure VM은 오류 응답에 다음 JSON 형식을 사용합니다.
 |  InvalidParameter  |  Windows 관리자 사용자 이름은 길이가 {0}자 이하이거나 마침표(.)로 끝나거나 문자 {1}을(를) 포함할 수 없습니다.  |
 |  InvalidParameter  |  Windows 컴퓨터 이름은 길이가 {0}자 이하이거나 전체가 숫자이거나 문자 {1}을(를) 포함할 수 없습니다.  |
 |  MissingMoveDependentResources  |  리소스 이동 요청에는 모든 종속 리소스가 포함되지 않습니다. 누락된 리소스 ID에 대한 오류 세부 정보를 확인하세요.  |
-|  MoveResourcesHaveInvalidState  |  리소스 이동 요청에는 잘못된 저장소 계정에 연결되어 있는 VM이 포함됩니다. 이러한 리소스 ID 및 참조된 저장소 계정 이름에 대한 세부 정보를 확인하세요.  |
+|  MoveResourcesHaveInvalidState  |  리소스 이동 요청에는 잘못된 스토리지 계정에 연결되어 있는 VM이 포함됩니다. 이러한 리소스 ID 및 참조된 스토리지 계정 이름에 대한 세부 정보를 확인하세요.  |
 |  MoveResourcesHavePendingOperations  |  작업이 보류 중인 동안 리소스 이동 요청은 리소스를 포함합니다. 이러한 리소스 ID에 대한 세부 정보를 확인하세요. 보류 중인 작업을 완료하면 작업을 다시 시도합니다.  |
 |  MoveResourcesNotFound  |  리소스 이동 요청은 찾을 수 없는 리소스를 포함합니다. 이러한 리소스 ID에 대한 세부 정보를 확인하세요.  |
 |  NetworkingInternalOperationError  |  알 수 없는 네트워크 할당 오류입니다.  |
@@ -180,16 +180,16 @@ Azure VM은 오류 응답에 다음 JSON 형식을 사용합니다.
 |  OSProvisioningTimedOut  |  할당된 시간에 VM '{0}'에 대한 OS의 프로비전을 완료하지 못했습니다. 그러나 VM 게스트 에이전트가 실행되는 것을 감지했습니다. 즉, 게스트 OS는 VM 이미지로 사용되도록 제대로 준비되지 않았습니다(CreateOption=FromImage를 사용하여). 이 문제를 해결하려면 CreateOption=Attach와 함께 VHD를 있는 그대로 사용하거나 이미지 형식으로 사용할 수 있도록 제대로 준비합니다.   <ul><li>Windows에 대한 지침: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/ </li><li> Linux에 대한 지침: https://azure.microsoft.com/documentation/articles/virtual-machines-linux-capture-image/</li></ul>  |
 |  OverConstrainedAllocationRequest  |  요청한 VM 크기를 선택한 위치에서 현재 사용할 수 없습니다.  |
 |  ResourceUpdateBlockedOnPlatformUpdate  |  지금은 진행 중인 플랫폼 업데이트로 인해 리소스를 업데이트할 수 없습니다. 나중에 다시 시도하세요.  |
-|  StorageAccountLimitation  |  저장소 계정 '{0}'은(는) 디스크를 만드는 데 필요한 페이지 Blob을 지원하지 않습니다.  |
-|  StorageAccountLimitation  |  저장소 계정 '{0}'이(가) 할당된 할당량을 초과했습니다.  |
-|  StorageAccountLocationMismatch  |  저장소 계정 {0}을(를) 확인할 수 없습니다. 이 계정이 컴퓨팅 리소스와 동일한 위치에 있는 Storage 리소스 공급자를 통해 생성되었는지 확인하세요.  |
-|  StorageAccountNotFound  |  저장소 계정 {0}을(를) 찾을 수 없음 저장소 계정이 삭제되지 않았고 VM과 동일한 Azure 위치에 속하는지 확인하세요.  |
+|  StorageAccountLimitation  |  스토리지 계정 '{0}'은(는) 디스크를 만드는 데 필요한 페이지 Blob을 지원하지 않습니다.  |
+|  StorageAccountLimitation  |  스토리지 계정 '{0}'이(가) 할당된 할당량을 초과했습니다.  |
+|  StorageAccountLocationMismatch  |  스토리지 계정 {0}을(를) 확인할 수 없습니다. 이 계정이 컴퓨팅 리소스와 동일한 위치에 있는 Storage 리소스 공급자를 통해 생성되었는지 확인하세요.  |
+|  StorageAccountNotFound  |  스토리지 계정 {0}을(를) 찾을 수 없음 스토리지 계정이 삭제되지 않았고 VM과 동일한 Azure 위치에 속하는지 확인하세요.  |
 |  StorageAccountNotRecognized  |  Storage 리소스 공급자가 관리하는 Storage 계정을 사용하세요. {0}의 사용은 지원되지 않습니다.  |
-|  StorageAccountOperationInternalError  |  저장소 계정 {0}에 액세스하는 동안 내부 오류가 발생했습니다.  |
-|  StorageAccountSubscriptionMismatch  |  저장소 계정 {0}은(는) 구독 {1}에 포함되지 않습니다.  |
-|  StorageAccountTooBusy  |  저장소 계정 '{0}'은(는) 현재 사용량이 너무 많습니다. 다른 계정을 사용하는 것이 좋습니다.  |
-|  StorageAccountTypeNotSupported  |  {0} 디스크는 Blob Storage 계정인 {1}을(를) 사용합니다. 범용 저장소 계정을 사용하여 다시 시도하세요.  |
-|  StorageAccountTypeNotSupported  |  저장소 계정 {0}은(는) {1} 형식입니다. 부팅 진단은 저장소 계정 유형 {2}을(를) 지원합니다.  <ul><li>부팅 진단에 Premium Storage 계정을 사용하는 경우 이 오류가 발생합니다. 자세한 내용은 [부팅 진단 사용 방법](boot-diagnostics.md)을 참조하세요. </li></ul> |
+|  StorageAccountOperationInternalError  |  스토리지 계정 {0}에 액세스하는 동안 내부 오류가 발생했습니다.  |
+|  StorageAccountSubscriptionMismatch  |  스토리지 계정 {0}은(는) 구독 {1}에 포함되지 않습니다.  |
+|  StorageAccountTooBusy  |  스토리지 계정 '{0}'은(는) 현재 사용량이 너무 많습니다. 다른 계정을 사용하는 것이 좋습니다.  |
+|  StorageAccountTypeNotSupported  |  {0} 디스크는 Blob Storage 계정인 {1}을(를) 사용합니다. 범용 스토리지 계정을 사용하여 다시 시도하세요.  |
+|  StorageAccountTypeNotSupported  |  스토리지 계정 {0}은(는) {1} 형식입니다. 부팅 진단은 스토리지 계정 유형 {2}을(를) 지원합니다.  <ul><li>부팅 진단에 Premium Storage 계정을 사용하는 경우 이 오류가 발생합니다. 자세한 내용은 [부팅 진단 사용 방법](boot-diagnostics.md)을 참조하세요. </li></ul> |
 |  SubscriptionNotAuthorizedForImage  |  구독이 인증되지 않았습니다.  |
 |  TargetDiskBlobAlreadyExists  |  Blob {0}이(가) 이미 있습니다. 다른 Blob URI를 제공하여 새로운 빈 데이터 디스크 '{1}'을(를) 만드세요.  |
 |  TargetDiskBlobAlreadyExists  |  대상 이미지 Blob {0}이(가) 이미 있고 VHD Blob을 덮어쓰는 플래그가 설정되어 있지 않아서 캡처 작업을 완료할 수 없습니다. Blob을 삭제하거나 VHD Blob을 덮어쓰는 플래그를 설정하고 다시 시도하세요.  |

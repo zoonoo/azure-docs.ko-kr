@@ -21,9 +21,9 @@ ms.locfileid: "67182587"
 
    ![리소스 그룹 선택](./media/resource-manager-cloud-shell-deploy/select-cs-resource-group.png)
 
-1. Cloud Shell용 저장소 계정을 선택합니다.
+1. Cloud Shell용 스토리지 계정을 선택합니다.
 
-   ![저장소 계정 선택](./media/resource-manager-cloud-shell-deploy/select-storage.png)
+   ![스토리지 계정 선택](./media/resource-manager-cloud-shell-deploy/select-storage.png)
 
 1. **Blob**을 선택합니다.
 

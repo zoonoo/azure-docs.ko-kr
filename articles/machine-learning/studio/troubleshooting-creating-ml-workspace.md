@@ -35,7 +35,7 @@ Machine Learning은 현재 제한된 지역에서 사용할 수 있습니다. �
 구독에 영역을 추가하도록 요청하려면 Azure Portal에서 Microsoft 지원 요청을 만들고 문제 유형으로 **청구**를 선택한 다음 프롬프트에 따라 요청을 제출합니다.
 
 ## <a name="storage-account"></a>Storage 계정
-Machine Learning 서비스에서 데이터를 저장하려면 저장소 계정이 필요합니다. 기존 스토리지 계정을 사용하거나, 새 스토리지 계정을 만들 수 있는 할당량이 있는 경우 새 Machine Learning Studio 작업 영역을 만들 때 새 스토리지 계정을 만들 수 있습니다.
+Machine Learning 서비스에서 데이터를 저장하려면 스토리지 계정이 필요합니다. 기존 스토리지 계정을 사용하거나, 새 스토리지 계정을 만들 수 있는 할당량이 있는 경우 새 Machine Learning Studio 작업 영역을 만들 때 새 스토리지 계정을 만들 수 있습니다.
 
 새 Machine Learning Studio 작업 영역이 만들어진 후에 작업 영역을 만드는 데 사용한 Microsoft 계정으로 Machine Learning Studio에 로그인할 수 있습니다. "작업 영역을 찾을 수 없음"(다음 스크린샷과 유사) 오류 메시지가 나타나는 경우 다음 단계를 사용하여 브라우저 쿠키를 삭제하세요.
 

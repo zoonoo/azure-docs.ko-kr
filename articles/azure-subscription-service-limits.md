@@ -101,7 +101,7 @@ Azure 가격 책정에 대해 자세히 알아보려면 [azure 가격 책정 개
 * [사이트 복구](#site-recovery-limits)
 * [SQL Database](#sql-database-limits)
 * [SQL Data Warehouse](#sql-data-warehouse-limits)
-* [저장소](#storage-limits)
+* [스토리지](#storage-limits)
 * [StorSimple 시스템](#storsimple-system-limits)
 * [Stream Analytics](#stream-analytics-limits)
 * [구독](#subscription-limits)
@@ -181,7 +181,7 @@ Azure Machine Learning 계산 할당량의 최신 값은 [Azure Machine Learning
 #### <a name="azure-front-door-service-limits"></a>Azure Front Door Service 제한
 [!INCLUDE [azure-front-door-service-limits](../includes/front-door-limits.md)]
 
-### <a name="storage-limits"></a>저장소 제한
+### <a name="storage-limits"></a>스토리지 제한
 <!--like # storage accts -->
 [!INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
 
@@ -202,7 +202,7 @@ Azure Files 제한에 대 한 자세한 내용은 [Azure Files 확장성 및 성
 #### <a name="azure-file-sync-limits"></a>Azure 파일 동기화 한도
 [!INCLUDE [storage-sync-files-scale-targets](../includes/storage-sync-files-scale-targets.md)]
 
-#### <a name="azure-queue-storage-limits"></a>Azure Queue 저장소 용량 한도
+#### <a name="azure-queue-storage-limits"></a>Azure Queue storage 용량 한도
 [!INCLUDE [storage-queues-scale-targets](../includes/storage-queues-scale-targets.md)]
 
 #### <a name="azure-table-storage-limits"></a>Azure Table Storage 용량 한도

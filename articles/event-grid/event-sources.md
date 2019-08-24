@@ -117,7 +117,7 @@ Service Bus 이벤트를 구독하여 활성 수신기 없이 메시지에 응�
 | [개요: Azure Service Bus와 Event Grid 통합](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Event Grid와 Service Bus 통합의 개요입니다. |
 | [이벤트 스키마](event-schema-service-bus.md) | Service Bus 이벤트의 필드를 표시합니다. |
 
-## <a name="storage"></a>저장 공간
+## <a name="storage"></a>스토리지
 
 Blob Storage 이벤트를 구독하여 만든 blob 및 삭제된 이벤트에 대해 응답합니다.
 

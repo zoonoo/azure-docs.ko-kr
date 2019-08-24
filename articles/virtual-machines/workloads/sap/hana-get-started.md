@@ -223,7 +223,7 @@ Azure에서 Linux VM의 루트 파일 시스템의 크기는 제한됩니다. �
 Azure premium Ssd를 사용 하 여 디스크 캐싱 모드를 정의할 수 있습니다. /Hana/data 및 /hana/log을 보유 하는 스트라이프 집합, 디스크 캐싱을 사용 하지 않도록 설정 합니다. 다른 볼륨에 대해, 디스크 캐싱 모드를 설정 합니다 **ReadOnly**합니다.
 
 Vm을 만드는 데 사용할 샘플 JSON 템플릿, 참조를 [Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates)합니다.
-vm-simple-sles 템플릿은 기본 템플릿입니다. 여기에는 100GB 추가 데이터 디스크가 포함된 저장소 섹션이 있습니다. 이 템플릿을 기반으로 사용 합니다. 특정 구성에 맞게 템플릿을 조정할 수 있습니다.
+vm-simple-sles 템플릿은 기본 템플릿입니다. 여기에는 100GB 추가 데이터 디스크가 포함된 스토리지 섹션이 있습니다. 이 템플릿을 기반으로 사용 합니다. 특정 구성에 맞게 템플릿을 조정할 수 있습니다.
 
 > [!NOTE]
 > 에 설명 된 대로 UUID를 사용 하 여 Azure 저장소 디스크를 연결 하는 것이 반드시 [Microsoft Azure SUSE Linux Vm에서 SAP NetWeaver 실행](suse-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)합니다.
@@ -257,7 +257,7 @@ SAP HANA 커널을 영구적으로 설정하려면 SLES 12에서 **grub2**를 �
 ![YaST 부팅 로더의 커널 매개 변수 설정 탭](./media/hana-get-started/image007.jpg)
 
 ### <a name="file-systems"></a>파일 시스템
-다음 스크린샷에서는 2개 Azure 표준 저장소 디스크에 연결된 SAP 앱 서버 VM에 만들어진 2개 파일 시스템을 보여 줍니다. 두 파일 시스템의 형식은 XFS 및 며 /sapdata 및 /sapsoftware에 탑재 됩니다.
+다음 스크린샷에서는 2개 Azure Standard Storage 디스크에 연결된 SAP 앱 서버 VM에 만들어진 2개 파일 시스템을 보여 줍니다. 두 파일 시스템의 형식은 XFS 및 며 /sapdata 및 /sapsoftware에 탑재 됩니다.
 
 이 방법으로 파일 시스템을 구성 하는 것이 반드시 합니다. 디스크 공간을 구성 하는 방법에 대 한 다른 옵션이 있습니다. 가장 중요한 고려 사항은 루트 파일 시스템의 여유 공간이 부족하지 않도록 하는 것입니다.
 

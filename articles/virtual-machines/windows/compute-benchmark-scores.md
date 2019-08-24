@@ -95,7 +95,7 @@ ms.locfileid: "67876547"
 | Standard_D32_v3 | 32 | 2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 7 | 538.6 | 9.4 | 
 | Standard_D64_v3 | 64 | 2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 32 | 1070.6 | 12.4 | 
 
-## <a name="dsv2---storage-optimized"></a>DSv2 - 저장소 최적화
+## <a name="dsv2---storage-optimized"></a>DSv2 - 스토리지 최적화
 | 크기 | vCPU | NUMA 노드 | CPU | 실행 | 평균 기본 요금 | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_DS1_v2 | 1 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 12 | 33.0 | 1.1 | 
@@ -237,7 +237,7 @@ ms.locfileid: "67876547"
 | Standard_F16 | 16 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 32 | 467.8 | 11.1 | 
 | Standard_F16 | 16 | 2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 6 | 472.3 | 13.2 | 
 
-## <a name="gs---storage-optimized"></a>GS - 저장소 최적화
+## <a name="gs---storage-optimized"></a>GS - 스토리지 최적화
 | 크기 | vCPU | NUMA 노드 | CPU | 실행 | 평균 기본 요금 | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_GS1 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 29 | 63.6 | 4.7 | 
@@ -269,7 +269,7 @@ ms.locfileid: "67876547"
 | Standard_H16mr | 16 | 2 | Intel(R) Xeon(R) CPU E5-2667 v3 @ 3.20GHz | 18 | 563.6 | 3.7 | 
 | Standard_H16r | 16 | 2 | Intel(R) Xeon(R) CPU E5-2667 v3 @ 3.20GHz | 17 | 562.2 | 4.2 | 
 
-## <a name="ls---storage-optimized"></a>Ls - 저장소 최적화
+## <a name="ls---storage-optimized"></a>Ls - 스토리지 최적화
 | 크기 | vCPU | NUMA 노드 | CPU | 실행 | 평균 기본 요금 | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_L4s | 4 | 1 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 29 | 122.7 | 6.6 | 
@@ -349,5 +349,5 @@ ms.locfileid: "67876547"
 Windows 번호는 Windows Server에서 [SPECint 2006](https://www.spec.org/cpu2006/results/rint2006.html) 을 실행하여 계산합니다. SPECint는 vCPU당 하나의 복사본과 함께 기본 요율 옵션(SPECint_rate2006)을 사용하여 실행합니다. SPECint은 12번의 별도 테스트로 각기 세 번 실행되도록 구성되며, 각 테스트에서 중간값을 취해 가중치를 주어 종합 점수를 형성합니다. 그런 다음 여러 VM에서 실행하여 평균값을 구합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* 저장 용량, 디스크 세부 정보 및 VM 크기 선택시 추가적인 고려 사항에 관한 자세한 내용은 [가상 머신의 크기](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+* 스토리지 용량, 디스크 세부 정보 및 VM 크기 선택시 추가적인 고려 사항에 관한 자세한 내용은 [가상 머신의 크기](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 

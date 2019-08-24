@@ -25,7 +25,7 @@ ms.locfileid: "68688200"
 > * 네트워크 설정
 > * WAF를 사용하는 애플리케이션 게이트웨이 만들기
 > * 가상 머신 확장 집합 만들기
-> * 저장소 계정 만들기 및 진단 구성
+> * 스토리지 계정 만들기 및 진단 구성
 
 ![웹 애플리케이션 방화벽 예제](./media/tutorial-restrict-web-traffic-cli/scenario-waf.png)
 
@@ -138,11 +138,11 @@ az vmss extension set \
   --settings '{ "fileUris": ["https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/install_nginx.sh"],"commandToExecute": "./install_nginx.sh" }'
 ```
 
-## <a name="create-a-storage-account-and-configure-diagnostics"></a>저장소 계정 만들기 및 진단 구성
+## <a name="create-a-storage-account-and-configure-diagnostics"></a>스토리지 계정 만들기 및 진단 구성
 
 이 문서에서 애플리케이션 게이트웨이는 스토리지 계정을 사용하여 검색 및 방지 목적으로 데이터를 저장합니다. Azure Monitor 로그 또는 Event Hub를 사용하여 데이터를 기록할 수도 있습니다. 
 
-### <a name="create-a-storage-account"></a>저장소 계정 만들기
+### <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
 [az storage account create](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create)를 사용하여 *myagstore1*이라는 스토리지 계정을 만듭니다.
 

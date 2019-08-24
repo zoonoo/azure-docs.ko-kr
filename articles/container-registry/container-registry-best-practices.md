@@ -76,7 +76,7 @@ Size      536870912000  185444288        Bytes
 Webhooks  100                            Count
 ```
 
-Azure Portal의 레지스트리 **개요**에서도 현재 저장소 사용량을 확인할 수 있습니다.
+Azure Portal의 레지스트리 **개요**에서도 현재 스토리지 사용량을 확인할 수 있습니다.
 
 ![Azure Portal의 레지스트리 사용량 정보][registry-overview-quotas]
 

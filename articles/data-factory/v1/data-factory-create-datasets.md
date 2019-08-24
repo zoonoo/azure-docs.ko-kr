@@ -36,11 +36,11 @@ ms.locfileid: "67839366"
 ## <a name="overview"></a>개요
 데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. **파이프라인**은 함께 하나의 작업을 수행하는 **활동**의 논리적 그룹화입니다. 파이프라인의 활동은 데이터에 수행할 작업을 정의합니다. 예를 들어 복사 활동을 사용하여 온-프레미스 SQL Server에서 Azure Blob Storage로 데이터를 복사할 수 있습니다. 그런 다음 Azure HDInsight 클러스터에서 Hive 스크립트를 실행하는 Hive 활동을 사용하여 출력 데이터를 생성하도록 Blob Storage의 데이터를 처리합니다. 마지막으로 두 번째 복사 활동을 사용하여 BI(비즈니스 인텔리전스) 보고 솔루션의 기반이 되는 Azure SQL Data Warehouse로 출력 데이터를 복사합니다. 파이프라인 및 활동에 대한 자세한 내용은 [Azure Data Factory의 파이프라인 및 활동](data-factory-create-pipelines.md) 문서를 참조하세요.
 
-활동은 0개 이상의 입력 **데이터 세트**를 받고, 하나 이상의 출력 데이터 세트를 생성할 수 있습니다. 파이프라인에서 입력 데이터 세트는 활동에 대한 입력을 나타내고, 출력 데이터 세트는 활동에 대한 출력을 나타냅니다. 데이터 세트는 테이블, 파일, 폴더, 문서를 비롯한 다양한 데이터 저장소 내의 데이터를 식별합니다. 예를 들어 Azure Blob 데이터 집합은 파이프라인에서 데이터를 읽어들여야 하는 Blob Storage의 Blob 컨테이너와 폴더를 지정합니다.
+활동은 0개 이상의 입력 **데이터 세트**를 받고, 하나 이상의 출력 데이터 세트를 생성할 수 있습니다. 파이프라인에서 입력 데이터 세트는 활동에 대한 입력을 나타내고, 출력 데이터 세트는 활동에 대한 출력을 나타냅니다. 데이터 세트는 테이블, 파일, 폴더, 문서를 비롯한 다양한 데이터 저장소 내의 데이터를 식별합니다. 예를 들어 Azure Blob 데이터 세트은 파이프라인에서 데이터를 읽어들여야 하는 Blob Storage의 Blob 컨테이너와 폴더를 지정합니다.
 
 데이터 세트를 만들기 전에 **연결된 서비스**를 만들어 데이터 저장소를 데이터 팩터리에 연결합니다. 연결된 서비스는 Data Factory에서 외부 리소스에 연결하는 데 필요한 연결 정보를 정의하는 연결 문자열과 같습니다. 데이터 세트는 SQL 테이블, 파일, 폴더, 문서를 비롯한 연결된 데이터 저장소 내의 데이터를 식별합니다. 예를 들어 Azure Storage 연결된 서비스는 스토리지 계정을 데이터 팩터리에 연결합니다. Azure Blob 데이터 세트는 blob 컨테이너 및 처리할 입력 blob이 포함된 폴더를 나타냅니다.
 
-샘플 시나리오는 다음과 같습니다. Blob Storage에서 SQL Database로 데이터를 복사하려면 두 개의 연결된 서비스, 즉, Azure Storage 및 Azure SQL Database를 만듭니다. 그런 다음, 두 개의 데이터 세트, 즉 Azure Blob 데이터 세트(Azure Storage 연결된 서비스 참조), Azure SQL 테이블 데이터 세트(Azure SQL Database 연결된 서비스 참조)를 만듭니다. Azure Storage 및 Azure SQL Database 연결된 서비스에는 Data Factory가 런타임에 Azure Storage 및 Azure SQL Database 각각에 연결하는 데 사용하는 연결 문자열이 포함되어 있습니다. Azure Blob 데이터 집합은 Blob Storage에 입력 Blob을 포함하는 Blob 컨테이너와 Blob 폴더를 지정합니다. Azure SQL 테이블 데이터 세트는 데이터를 복사할 Azure SQL Database의 SQL 테이블을 지정합니다.
+샘플 시나리오는 다음과 같습니다. Blob Storage에서 SQL Database로 데이터를 복사하려면 두 개의 연결된 서비스, 즉, Azure Storage 및 Azure SQL Database를 만듭니다. 그런 다음, 두 개의 데이터 세트, 즉 Azure Blob 데이터 세트(Azure Storage 연결된 서비스 참조), Azure SQL 테이블 데이터 세트(Azure SQL Database 연결된 서비스 참조)를 만듭니다. Azure Storage 및 Azure SQL Database 연결된 서비스에는 Data Factory가 런타임에 Azure Storage 및 Azure SQL Database 각각에 연결하는 데 사용하는 연결 문자열이 포함되어 있습니다. Azure Blob 데이터 세트은 Blob Storage에 입력 Blob을 포함하는 Blob 컨테이너와 Blob 폴더를 지정합니다. Azure SQL 테이블 데이터 세트는 데이터를 복사할 Azure SQL Database의 SQL 테이블을 지정합니다.
 
 다음 다이어그램에서는 Data Factory의 파이프라인, 활동, 데이터 세트 및 연결된 서비스 간의 관계를 보여 줍니다.
 
@@ -238,7 +238,7 @@ structure의 각 열에는 다음과 같은 속성이 포함됩니다.
 | frequency |데이터 세트 조각 생성을 위한 시간 단위를 지정합니다.<br/><br/><b>지원되는 빈도</b>: Minute, Hour, Day, Week, Month |예 |NA |
 | interval |빈도에 대한 승수를 지정합니다.<br/><br/>"frequency x interval"은 조각을 생성하는 빈도를 결정합니다. 예를 들어 데이터 세트를 매시간 조각화해야 하는 경우 <b>frequency</b>를 <b>Hour</b>로, <b>interval</b>을 <b>1</b>로 설정합니다.<br/><br/>**frequency**를 **Minute**로 지정하는 경우 interval을 15 이상으로 설정해야 합니다. |예 |NA |
 | style |간격의 시작/끝에서 조각을 생성해야 하는지 여부를 지정합니다.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>**frequency**를 **Month**로 설정하고 **style**을 **EndOfInterval**로 설정하는 경우 조각을 매월 마지막 일에 생성합니다. **style**을 **StartOfInterval**로 설정하는 경우 조각을 매월 첫째 일에 생성합니다.<br/><br/>**frequency**를 **Day**로 설정하고 **style**을 **EndOfInterval**로 설정하는 경우 조각을 매일 마지막 시간에 생성합니다.<br/><br/>**frequency**를 **Hour**로 설정하고 **style**을 **EndOfInterval**로 설정하는 경우 조각을 매시간 끝에 생성합니다. 예를 들어 오후 1-2시 기간에 대한 조각은 오후 2시에 생성됩니다. |아니요 |EndOfInterval |
-| anchorDateTime |스케줄러에서 사용하는 시간에 절대 위치를 정의하여 데이터 세트 조각 경계를 계산합니다. <br/><br/>참고가이 속성에 지정된 된 frequency 보다 더 세부적인 날짜 부분이 있으면 더 세부적인 부분은 무시 됩니다. 예를 들어 **간격**이 **매시간**으로 설정됩니다(frequency: hour and interval: 1)이고 **anchorDateTime**에서 **분 및 초**를 포함하는 경우 **anchorDateTime**의 분 및 초 부분은 무시됩니다. |아니요 |01/01/0001 |
+| anchorDateTime |스케줄러에서 사용하는 시간에 절대 위치를 정의하여 데이터 세트 조각 경계를 컴퓨팅합니다. <br/><br/>참고가이 속성에 지정된 된 frequency 보다 더 세부적인 날짜 부분이 있으면 더 세부적인 부분은 무시 됩니다. 예를 들어 **간격**이 **매시간**으로 설정됩니다(frequency: hour and interval: 1)이고 **anchorDateTime**에서 **분 및 초**를 포함하는 경우 **anchorDateTime**의 분 및 초 부분은 무시됩니다. |아니요 |01/01/0001 |
 | offset |모든 데이터 세트 조각의 시작과 끝이 이동에 의한 Timespan입니다. <br/><br/>**anchorDateTime** 및 **offset**이 모두 지정되면 결합된 결과로 나타납니다. |아니요 |NA |
 
 ### <a name="offset-example"></a>offset example

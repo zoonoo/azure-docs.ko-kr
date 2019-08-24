@@ -49,18 +49,18 @@ ms.locfileid: "67621537"
 5. 텍스트 입력의 감정을 결정하기 위해 이 웹 서비스를 함수로 호출하는 Stream Analytics 작업을 만듭니다.
 6. Stream Analytics 작업을 시작하고 출력을 확인합니다.
 
-## <a name="create-a-storage-container-and-upload-the-csv-input-file"></a>저장소 컨테이너 만들기 및 CSV 입력 파일 업로드
+## <a name="create-a-storage-container-and-upload-the-csv-input-file"></a>스토리지 컨테이너 만들기 및 CSV 입력 파일 업로드
 이 단계의 경우 GitHub에서 사용할 수 있는 파일과 같은 모든 CSV 파일을 사용할 수 있습니다.
 
-1. Azure Portal에서 **리소스 만들기** > **저장소** > **저장소 계정**을 클릭합니다.
+1. Azure Portal에서 **리소스 만들기** > **스토리지** > **스토리지 계정**을 클릭합니다.
 
 2. 이름을 입력합니다(`samldemo` 예제에서). 이름으로 소문자 및 숫자만 사용할 수 있으며 Azure 전체에서 고유해야 합니다. 
 
 3. 기존 리소스 그룹을 지정하고 위치를 지정합니다. 위치의 경우 이 자습서에서 만든 모든 리소스가 동일한 위치를 사용하는 것이 좋습니다.
 
-    ![저장소 계정 세부 정보 입력](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account1.png)
+    ![스토리지 계정 세부 정보 입력](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account1.png)
 
-4. Azure Portal에서 저장소 계정을 선택합니다. 스토리지 계정 블레이드에서 **컨테이너**를 클릭하고 **+&nbsp;컨테이너**를 클릭하여 Blob Storage를 만듭니다.
+4. Azure Portal에서 스토리지 계정을 선택합니다. 스토리지 계정 블레이드에서 **컨테이너**를 클릭하고 **+&nbsp;컨테이너**를 클릭하여 Blob Storage를 만듭니다.
 
     ![입력에 대한 Blob Storage 컨테이너 만들기](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account2.png)
 
@@ -139,7 +139,7 @@ ms.locfileid: "67621537"
    |필드  |값  |
    |---------|---------|
    |**입력 별칭** | 이름 `datainput`을 사용하고 **구독에서 Blob Storage 선택**을 선택합니다.       |
-   |**저장소 계정**  |  이전에 만든 저장소 계정을 선택합니다.  |
+   |**저장소 계정**  |  이전에 만든 스토리지 계정을 선택합니다.  |
    |**컨테이너**  | 앞에서 만든 컨테이너를 선택합니다(`azuresamldemoblob`).        |
    |**이벤트 직렬화 형식**  |  **CSV**를 선택합니다.       |
 
@@ -159,7 +159,7 @@ ms.locfileid: "67621537"
    |필드  |값  |
    |---------|---------|
    |**출력 별칭** | 이름 `datamloutput`을 사용하고 **구독에서 Blob Storage 선택**을 선택합니다.       |
-   |**저장소 계정**  |  이전에 만든 저장소 계정을 선택합니다.  |
+   |**저장소 계정**  |  이전에 만든 스토리지 계정을 선택합니다.  |
    |**컨테이너**  | 앞에서 만든 컨테이너를 선택합니다(`azuresamldemoblob`).        |
    |**이벤트 직렬화 형식**  |  **CSV**를 선택합니다.       |
 
@@ -232,7 +232,7 @@ Stream Analytics는 선언적인 SQL 기반 쿼리를 사용하여 입력을 검
 
 2. 일반적으로 Blob Storage의 내용을 검사하는 데 사용하는 도구가 있는 경우 해당 도구를 사용하여 `azuresamldemoblob` 컨테이너를 검사합니다. 또는 Azure Portal에서 다음 단계를 수행합니다.
 
-    1. 포털에서 `samldemo` 저장소 계정을 찾고 계정 내에서 `azuresamldemoblob` 컨테이너를 찾습니다. 컨테이너에 두 개의 파일이 표시됩니다. 하나는 샘플 트윗을 포함하는 파일이고 다른 하나는 Stream Analytics 작업에 의해 생성된 CSV 파일입니다.
+    1. 포털에서 `samldemo` 스토리지 계정을 찾고 계정 내에서 `azuresamldemoblob` 컨테이너를 찾습니다. 컨테이너에 두 개의 파일이 표시됩니다. 하나는 샘플 트윗을 포함하는 파일이고 다른 하나는 Stream Analytics 작업에 의해 생성된 CSV 파일입니다.
     2. 생성된 파일을 마우스 오른쪽 단추로 클릭한 다음 **다운로드**를 선택합니다. 
 
    ![Blob Storage에서 CSV 작업 출력 다운로드](./media/stream-analytics-machine-learning-integration-tutorial/download-output-csv-file.png)  

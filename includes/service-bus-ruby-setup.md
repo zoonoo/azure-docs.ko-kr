@@ -15,14 +15,14 @@ ms.locfileid: "67182436"
 자세한 내용은 [Azure에서 Ruby 애플리케이션 만들기](../articles/virtual-machines/linux/classic/ruby-rails-web-app.md)를 참조하세요.
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Service Bus를 사용하도록 애플리케이션 구성
-Service Bus를 사용하려면 저장소 REST 서비스와 통신하는 편리한 라이브러리 집합이 포함된 Azure Ruby 패키지를 다운로드하여 사용합니다.
+Service Bus를 사용하려면 스토리지 REST 서비스와 통신하는 편리한 라이브러리 집합이 포함된 Azure Ruby 패키지를 다운로드하여 사용합니다.
 
 ### <a name="use-rubygems-to-obtain-the-package"></a>RubyGems를 사용하여 패키지 가져오기
 1. **PowerShell**(Windows), **Terminal**(Mac) 또는 **Bash**(Unix)와 같은 명령줄 인터페이스를 사용합니다.
 2. 명령 창에 "gem install azure"를 입력하여 gem 및 종속성을 설치합니다.
 
 ### <a name="import-the-package"></a>패키지 가져오기
-원하는 텍스트 편집기를 사용하여 저장소를 사용하려는 Ruby 파일의 맨 위에 다음을 추가합니다.
+원하는 텍스트 편집기를 사용하여 스토리지를 사용하려는 Ruby 파일의 맨 위에 다음을 추가합니다.
 
 ```ruby
 require "azure"

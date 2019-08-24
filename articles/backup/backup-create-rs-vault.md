@@ -48,7 +48,7 @@ Recovery Services 자격 증명 모음을 만들려면:
    - **위치**: 자격 증명 모음에 대한 지리적 지역을 선택합니다. 가상 머신을 보호할 자격 증명 모음을 만들려면, 자격 증명 모음이 **반드시** 가상 머신과 동일한 지역에 있어야 합니다.
 
       > [!IMPORTANT]
-      > VM의 위치를 잘 모를 경우 대화 상자를 닫습니다. 포털에서 가상 머신의 목록으로 이동합니다. 가상 머신이 여러 지역에 있는 경우 각 지역에 Recovery Services 자격 증명 모음을 만듭니다. 첫 번째 위치에서 자격 증명 모음을 만든 후에 다른 위치에 대한 자격 증명 모음을 만듭니다. 백업 데이터를 저장할 저장소 계정을 지정하지 않아도 됩니다. Recovery Services 자격 증명 모음 및 Azure Backup 서비스는 이를 자동으로 처리합니다.
+      > VM의 위치를 잘 모를 경우 대화 상자를 닫습니다. 포털에서 가상 머신의 목록으로 이동합니다. 가상 머신이 여러 지역에 있는 경우 각 지역에 Recovery Services 자격 증명 모음을 만듭니다. 첫 번째 위치에서 자격 증명 모음을 만든 후에 다른 위치에 대한 자격 증명 모음을 만듭니다. 백업 데이터를 저장할 스토리지 계정을 지정하지 않아도 됩니다. Recovery Services 자격 증명 모음 및 Azure Backup 서비스는 이를 자동으로 처리합니다.
       >
       >
 
@@ -60,7 +60,7 @@ Recovery Services 자격 증명 모음을 만들려면:
 
      ![백업 자격 증명 모음 목록 새로 고침](./media/backup-create-rs-vault/refresh-button.png)
 
-## <a name="set-storage-redundancy"></a>저장소 중복 설정
+## <a name="set-storage-redundancy"></a>스토리지 중복 설정
 
 Azure Backup는 자격 증명 모음에 대 한 저장소를 자동으로 처리 합니다. 저장소를 복제 하는 방법을 지정 해야 합니다.
 
@@ -69,7 +69,7 @@ Azure Backup는 자격 증명 모음에 대 한 저장소를 자동으로 처리
 
 3. 저장소 복제 유형을 선택 하 고 **저장**을 클릭 합니다.
 
-     ![새 자격 증명 모음의 저장소 구성 설정](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
+     ![새 자격 증명 모음의 스토리지 구성 설정](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
 
    - Azure를 기본 백업 저장소 끝점으로 사용 하는 경우 기본 **지역 중복** 설정을 계속 사용 하는 것이 좋습니다.
    - Azure를 기본 백업 스토리지 엔드포인트로 사용하지 않는 경우 Azure Storage 비용이 감소되는 **로컬 중복**을 선택합니다.

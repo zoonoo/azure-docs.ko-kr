@@ -70,7 +70,7 @@ ws = Workspace.from_config()
                                                   create_if_not_exists=True)
   ```
 
-####  <a name="storage-guidance"></a>저장소 지침
+####  <a name="storage-guidance"></a>스토리지 지침
 
 Azure Blob 컨테이너를 권장 합니다. Blob에는 standard 및 premium storage를 모두 사용할 수 있습니다. 비용이 더 많이 들지만, 특히 큰 데이터 집합에 대해 학습 하는 경우 학습 실행 속도를 향상 시킬 수 있는 더 빠른 처리량 속도 때문에 premium storage를 제안 합니다. 저장소 계정 비용 정보는 [Azure 가격 계산기](https://azure.microsoft.com/pricing/calculator/?service=machine-learning-service) 를 참조 하세요.
 

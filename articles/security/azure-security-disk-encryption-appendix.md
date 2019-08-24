@@ -164,7 +164,7 @@ Azure Disk Encryption에 대한 필수 구성 요소에 이미 익숙한 경우 
 - [갤러리 이미지에서 암호화된 Windows IaaS 관리 디스크 VM 새로 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image-managed-disks)
     - 이 템플릿은 Windows Server 2012 갤러리 이미지를 사용하여 관리 디스크로 암호화된 Windows VM을 새로 만듭니다.
 
-- [미리 암호화된 VHD/저장소 Blob에서 새로운 암호화된 관리 디스크 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-create-encrypted-managed-disk)
+- [미리 암호화된 VHD/스토리지 Blob에서 새로운 암호화된 관리 디스크 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-create-encrypted-managed-disk)
     - 미리 암호화된 VHD 및 해당 암호화 설정을 제공하는 새로운 암호화된 관리 디스크 만들기
 
 - [Azure AD 클라이언트 인증서 지문을 사용하여 실행 중인 Windows VM에서 디스크 암호화 사용](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm-aad-client-cert)
@@ -528,7 +528,7 @@ Azure로 작업할 암호화를 구성하려면 다음 단계를 수행합니다
 ![CentOS 7 설치 - /usr/sbin/dracut -f -v 실행](./media/azure-security-disk-encryption/centos-encrypt-fig5.png)
 
 ## <a name="bkmk_UploadVHD"></a> Azure Storage 계정에 암호화된 VHD 업로드
-BitLocker 암호화 또는 DM-Crypt 암호화를 사용하도록 설정한 후에는 로컬 암호화된 VHD를 저장소 계정에 업로드해야 합니다.
+BitLocker 암호화 또는 DM-Crypt 암호화를 사용하도록 설정한 후에는 로컬 암호화된 VHD를 스토리지 계정에 업로드해야 합니다.
 ```powershell
     Add-AzVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo> [[-NumberOfUploaderThreads] <Int32> ] [[-BaseImageUriToPatch] <Uri> ] [[-OverWrite]] [ <CommonParameters>]
 ```

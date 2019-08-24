@@ -14,7 +14,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 07/31/2019
 ms.locfileid: "68698840"
 ---
-# <a name="update-the-storage-type-of-a-managed-disk"></a>관리 디스크의 저장소 형식 업데이트
+# <a name="update-the-storage-type-of-a-managed-disk"></a>관리 디스크의 스토리지 형식 업데이트
 
 Azure managed disks의 네 가지 디스크 유형은 다음과 같습니다. Azure ultra ssd (미리 보기), 프리미엄 SSD, 표준 SSD 및 표준 HDD를 제공 합니다. 성능 요구 사항에 따라 세 가지 GA 디스크 유형 (프리미엄 SSD, 표준 SSD 및 표준 HDD) 간을 전환할 수 있습니다. 아직 또는에서 ultra SSD로 전환할 수 없습니다. 새 항목을 배포 해야 합니다.
 

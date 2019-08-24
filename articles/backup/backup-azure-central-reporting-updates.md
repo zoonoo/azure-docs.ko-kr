@@ -46,9 +46,9 @@ Azure Backup 콘텐츠 팩과 함께 제공되는 미리 구성된 보고서는 
 
 ![호환](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Compliance.png)
 
-### <a name="storage"></a>저장 공간
+### <a name="storage"></a>스토리지
 
-![저장 공간](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Storage.png)
+![스토리지](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Storage.png)
 
 ### <a name="backup-items"></a>백업 항목
 ![백업 항목](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-BackupItem.png)

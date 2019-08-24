@@ -44,7 +44,7 @@ Azure 로그를 통합하는 가장 좋은 방법은 SIEM 공급업체의 Azure 
 
 현재 Azure 상용 및 Azure Government에서 사용할 수 있으며 중국 또는 독일에서는 사용할 수 없습니다.
 
-## <a name="how-can-i-see-the-storage-accounts-from-which-azure-log-integration-is-pulling-azure-vm-logs"></a>Azure 로그 통합이 Azure VM 로그를 가져오는 원본 저장소 계정을 확인하려면 어떻게 하나요?
+## <a name="how-can-i-see-the-storage-accounts-from-which-azure-log-integration-is-pulling-azure-vm-logs"></a>Azure 로그 통합이 Azure VM 로그를 가져오는 원본 스토리지 계정을 확인하려면 어떻게 하나요?
 
 **AzLog source list** 명령을 실행합니다.
 
@@ -60,7 +60,7 @@ Azure Active Directory 감사 로그에는 테넌트 ID가 이름의 일부로 �
 
 ## <a name="how-can-i-update-the-proxy-configuration"></a>프록시 구성을 업데이트하려면 어떻게 해야 합니까?
 
-프록시 설정에서 Azure 저장소에 대한 직접 액세스를 허용하지 않으면 **c:\Program Files\Microsoft Azure Log Integration**에 있는 **AZLOG.EXE.CONFIG** 파일을 엽니다. 조직의 프록시 주소를 사용하여 **defaultProxy** 섹션을 포함하도록 이 파일을 업데이트합니다. 업데이트가 완료되면 **net stop AzLog** 및 **net start AzLog** 명령을 사용하여 서비스를 중지하고 시작합니다.
+프록시 설정에서 Azure Storage에 대한 직접 액세스를 허용하지 않으면 **c:\Program Files\Microsoft Azure Log Integration**에 있는 **AZLOG.EXE.CONFIG** 파일을 엽니다. 조직의 프록시 주소를 사용하여 **defaultProxy** 섹션을 포함하도록 이 파일을 업데이트합니다. 업데이트가 완료되면 **net stop AzLog** 및 **net start AzLog** 명령을 사용하여 서비스를 중지하고 시작합니다.
 
     <?xml version="1.0" encoding="utf-8"?>
     <configuration>
@@ -141,7 +141,7 @@ Azure Diagnostics 구성을 가져오고, 수정하고, 설정하는 방법에 �
     $diagnosticsconfig_path = "d:\WADConfig.xml"
     Set-AzVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient -DiagnosticsConfigurationPath $diagnosticsconfig_path -StorageAccountName log3121 -StorageAccountKey <storage key>
 
-변경한 후에는 저장소 계정을 검사하여 올바른 이벤트가 수집되는지 확인합니다.
+변경한 후에는 스토리지 계정을 검사하여 올바른 이벤트가 수집되는지 확인합니다.
 
 설치 및 구성 중에 문제가 있는 경우 [지원 요청](/azure/azure-supportability/how-to-create-azure-support-request)을 여세요. 지원을 요청하려면 서비스로 **로그 통합**을 선택합니다.
 

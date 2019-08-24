@@ -38,7 +38,7 @@ ms.locfileid: "67870934"
 
 **Salesforce** - 리드 확보를 위해 Salesforce 인스턴스를 설정하는 방법을 보려면 [여기를 클릭](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce)하세요.
 
-**Azure 테이블** – Azure 테이블에서 리드 확보를 위해 Azure 저장소 계정을 설정하는 방법을 보려면 [여기를 클릭](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table)하세요.
+**Azure 테이블** – Azure 테이블에서 리드 확보를 위해 Azure Storage 계정을 설정하는 방법을 보려면 [여기를 클릭](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table)하세요.
 
 **Https 엔드포인트** - 잠재 고객 확보를 위한 Https 엔드포인트를 설정하기 위한 지침을 보려면 [여기를 클릭](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https)하세요.
 
@@ -145,14 +145,14 @@ title = MSFT_TEST_636573304831318844
 
 각 리드는 선택한 리드 대상의 필드로 데이터가 전달되게 하며 리드는 **Source-Action|Offer** 형식으로 제공됩니다. 
 
-  원본:  :
+  원본::
 
     “AzureMarketplace”, 
     “AzurePortal”, 
     “TestDrive”,  
     “SPZA” (acronym for AppSource) 
 
-  작업: 
+  작업:
 
     “INS” – Stands for Installation. This is on Azure Marketplace or AppSource whenever a customer hits the button to acquire your product. 
     “PLT” – Stands for Partner Led Trial. This is on AppSource whenever a customer hits the Contact me button. 
@@ -164,7 +164,7 @@ title = MSFT_TEST_636573304831318844
     “StartTestDrive” – This is for Test Drives only and is whenever a customer starts their test drive. 
 
 
-  제품: 
+  제품:
 
     “checkpoint.check-point-r77-10sg-byol”, 
     “bitnami.openedxcypress”, 
@@ -172,7 +172,7 @@ title = MSFT_TEST_636573304831318844
 
  
 
-  다음은 고객 정보의 샘플 데이터입니다. 
+  다음은 고객 정보의 샘플 데이터입니다.
 
     { 
 

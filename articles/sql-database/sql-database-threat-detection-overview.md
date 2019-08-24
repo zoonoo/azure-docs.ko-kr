@@ -31,7 +31,7 @@ Advanced Threat Protection은 고급 SQL 보안 기능을 위한 통합 패키�
 
  Advanced Threat Protection은 비정상적인 활동에 대 한 보안 경고를 제공 하 여 고객이 발생할 때 잠재적 위협을 감지 하 고 대응할 수 있도록 하는 새로운 보안 계층을 제공 합니다. 사용자는 의심스러운 데이터베이스 활동, 잠재적 취약성 및 SQL 삽입 공격뿐만 아니라 비정상적인 데이터베이스 액세스 및 쿼리 패턴에 대한 경고도 받습니다. Advanced Threat Protection은 경고를 [Azure Security Center](https://azure.microsoft.com/services/security-center/)와 통합 하 여 의심 스러운 활동의 세부 정보를 포함 하 고 위협을 조사 하 고 완화 하는 방법에 대 한 작업을 권장 합니다. Advanced Threat Protection을 사용 하면 보안 전문가가 되거나 고급 보안 모니터링 시스템을 관리할 필요 없이 데이터베이스에 대 한 잠재적 위협을 쉽게 해결할 수 있습니다.
 
-완전한 조사 환경을 위해, Azure 저장소 계정의 감사 로그에 데이터베이스 이벤트를 쓰는 [SQL Database 감사](sql-database-auditing.md)를 사용하도록 설정하는 것이 좋습니다.  
+완전한 조사 환경을 위해, Azure Storage 계정의 감사 로그에 데이터베이스 이벤트를 쓰는 [SQL Database 감사](sql-database-auditing.md)를 사용하도록 설정하는 것이 좋습니다.  
 
 ## <a name="advanced-threat-protection-alerts"></a>Advanced Threat Protection 경고
 

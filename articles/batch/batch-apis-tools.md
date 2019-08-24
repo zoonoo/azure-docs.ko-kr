@@ -31,7 +31,7 @@ Azure Batch를 통한 병렬 워크로드 처리는 일반적으로 Batch API �
 Batch 솔루션을 개발할 경우 Azure 구독에서는 다음 계정을 사용합니다.
 
 * **Batch 계정** - 풀, 계산 노드, 작업 및 태스크를 포함하여 Azure Batch 리소스는 Azure [Batch 계정](batch-api-basics.md#account)과 연결됩니다. 애플리케이션에서 Batch 서비스를 요청할 때는 Azure Batch 계정 이름, 계정의 URL 및 액세스 키 또는 Azure Active Directory 토큰을 사용하여 요청을 인증합니다. Azure Portal 또는 프로그래밍 방식으로 [Batch 계정을 만들](batch-account-create-portal.md) 수 있습니다.
-* **저장소 계정** -Batch는 [Azure Storage][azure_storage]파일을 사용 하기 위한 기본 제공 지원을 포함 합니다. 거의 모든 Batch 시나리오에서는 Azure Blob Storage를 사용하여 태스크에서 실행하는 프로그램 및 프로그램에서 처리하는 데이터를 준비하고, 생성되는 출력 데이터를 저장합니다. Batch의 저장소 계정 옵션은 [Batch 기능 개요](batch-api-basics.md#azure-storage-account)를 참조하세요.
+* **저장소 계정** -Batch는 [Azure Storage][azure_storage]파일을 사용 하기 위한 기본 제공 지원을 포함 합니다. 거의 모든 Batch 시나리오에서는 Azure Blob Storage를 사용하여 태스크에서 실행하는 프로그램 및 프로그램에서 처리하는 데이터를 준비하고, 생성되는 출력 데이터를 저장합니다. Batch의 스토리지 계정 옵션은 [Batch 기능 개요](batch-api-basics.md#azure-storage-account)를 참조하세요.
 
 ## <a name="batch-service-apis"></a>Batch 서비스 API
 

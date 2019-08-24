@@ -45,7 +45,7 @@ Data Factory를 사용하면 온-프레미스와 클라우드 데이터 저장�
 ### <a name="what-is-the-data-factorys-region-availability"></a>Data Factory를 사용할 수 있는 지역은 어디인가요?
 Data Factory는 **미국 서부** 및 **북유럽**에서 사용할 수 있습니다. 데이터 팩터리에서 사용되는 컴퓨팅 및 스토리지 서비스는 다른 지역에 있을 수 있습니다. [지원되는 지역](data-factory-introduction.md#supported-regions)을 참조하세요.
 
-### <a name="what-are-the-limits-on-number-of-data-factoriespipelinesactivitiesdatasets"></a>데이터 팩터리/파이프라인/작업/데이터 집합의 수에 대한 제한은 어떻게 되나요?
+### <a name="what-are-the-limits-on-number-of-data-factoriespipelinesactivitiesdatasets"></a>데이터 팩터리/파이프라인/작업/데이터 세트의 수에 대한 제한은 어떻게 되나요?
 **Azure 구독 및 서비스 제한, 할당량 및 제약 조건** 문서의 [Azure Data Factory 제한](../../azure-subscription-service-limits.md#data-factory-limits) 섹션을 참조하세요.
 
 ### <a name="what-is-the-authoringdeveloper-experience-with-azure-data-factory-service"></a>Azure Data Factory 서비스를 사용한 제작/개발자 환경이란 무엇인가요?
@@ -110,15 +110,15 @@ MVP(Most Valued Professionals) 중 한 명인 Reza Rad가 제공한 [Azure Data 
 다음 문서의 지리적 가용성 섹션을 참조 하세요: 또는 [HDInsight 가격 책정 세부 정보][hdinsight-supported-regions]합니다.
 
 ### <a name="what-region-is-used-by-an-on-demand-hdinsight-cluster"></a>주문형 HDInsight 클러스터가 사용되는 지역은 어디인가요?
-주문형 HDInsight 클러스터는 클러스터에서 사용하도록 지정한 저장소가 있는 지역과 동일한 지역에 생성됩니다.    
+주문형 HDInsight 클러스터는 클러스터에서 사용하도록 지정한 스토리지가 있는 지역과 동일한 지역에 생성됩니다.    
 
-### <a name="how-to-associate-additional-storage-accounts-to-your-hdinsight-cluster"></a>추가 저장소 계정을 HDInsight 클러스터에 연결하려면 어떻게 해야 하나요?
+### <a name="how-to-associate-additional-storage-accounts-to-your-hdinsight-cluster"></a>추가 스토리지 계정을 HDInsight 클러스터에 연결하려면 어떻게 해야 하나요?
 사용자 고유의 HDInsight 클러스터를 사용하는 경우(BYOC - 자체 클러스터 가져오기) 다음 항목을 참조하세요.
 
 * [대체 Storage 계정 및 Metastore를 사용 하 여 HDInsight 클러스터를 사용 하 여][hdinsight-alternate-storage]
 * [HDInsight Hive와 추가 Storage 계정 사용][hdinsight-alternate-storage-2]
 
-데이터 팩터리 서비스에서 만든 주문형 클러스터를 사용하는 경우 데이터 팩터리 서비스가 사용자를 대신해서 등록할 수 있도록 HDInsight 연결된 서비스에 대한 추가 저장소 계정을 지정합니다. 주문형 연결된 서비스에 대한 JSON 정의에서, 다음 JSON 조각과 같이 **additionalLinkedServiceNames** 속성을 사용하여 대체 저장소 계정을 지정합니다.
+데이터 팩터리 서비스에서 만든 주문형 클러스터를 사용하는 경우 데이터 팩터리 서비스가 사용자를 대신해서 등록할 수 있도록 HDInsight 연결된 서비스에 대한 추가 스토리지 계정을 지정합니다. 주문형 연결된 서비스에 대한 JSON 정의에서, 다음 JSON 조각과 같이 **additionalLinkedServiceNames** 속성을 사용하여 대체 스토리지 계정을 지정합니다.
 
 ```JSON
 {
@@ -137,7 +137,7 @@ MVP(Most Valued Professionals) 중 한 명인 Reza Rad가 제공한 [Azure Data 
     }
 }
 ```
-위의 예제에서 otherLinkedServiceName1 및 otherLinkedServiceName2는 HDInsight 클러스터가 대체 저장소 계정에 액세스하는 데 필요한 자격 증명이 해당 정의에 포함된 연결된 서비스를 나타냅니다.
+위의 예제에서 otherLinkedServiceName1 및 otherLinkedServiceName2는 HDInsight 클러스터가 대체 스토리지 계정에 액세스하는 데 필요한 자격 증명이 해당 정의에 포함된 연결된 서비스를 나타냅니다.
 
 ## <a name="slices---faq"></a>조각 - FAQ
 ### <a name="why-are-my-input-slices-not-in-ready-state"></a>내 입력 조각이 준비 상태가 아닌 이유는 무엇인가요?

@@ -226,7 +226,7 @@ CPU 사용량이 높은 실행 관련 성능 문제가 아닌 것으로 확인�
 
 마지막으로, 데이터베이스의 성능을 향상시킬 수 있는 실행 가능한 항목이 더 없으면 Azure SQL Database에서 사용할 수 있는 리소스의 양을 변경할 수 있습니다. 단일 데이터베이스의 [DTU 서비스 계층](sql-database-service-tiers-dtu.md)을 변경하여 더 많은 리소스를 할당하거나 탄력적 풀의 eDTU를 언제든지 늘릴 수 있습니다. 또는 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 사용하는 경우, 서비스 계층을 변경하거나 데이터베이스에 할당된 리소스를 늘릴 수 있습니다.
 
-1. 단일 데이터베이스의 경우 필요에 따라 [서비스 계층을 변경](sql-database-single-database-scale.md)하거나 [리소스를 계산](sql-database-single-database-scale.md)하여 데이터베이스 성능을 향상시킬 수 있습니다.
+1. 단일 데이터베이스의 경우 필요에 따라 [서비스 계층을 변경](sql-database-single-database-scale.md)하거나 [리소스를 컴퓨팅](sql-database-single-database-scale.md)하여 데이터베이스 성능을 향상시킬 수 있습니다.
 2. 여러 데이터베이스의 경우 [탄력적 풀](sql-database-elastic-pool-guidance.md)을 사용하여 자동으로 리소스 규모를 조정할 수 있습니다.
 
 ## <a name="tune-and-refactor-application-or-database-code"></a>애플리케이션 또는 데이터베이스 코드 조정 및 리팩터링

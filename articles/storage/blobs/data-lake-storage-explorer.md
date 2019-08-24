@@ -10,7 +10,7 @@ ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: 3450de26c12d91f4be00fe39bd5703564c786190
 ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/08/2019
 ms.locfileid: "68855603"
@@ -23,7 +23,7 @@ ms.locfileid: "68855603"
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-이 빠른 시작을 사용하려면 Azure Storage Explore를 설치해야 합니다. Windows, Macintosh 또는 Linux용 Azure Storage Explorer를 설치하려면 [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)를 참조하세요.
+이 빠른 시작을 사용하려면 Azure Storage Explorer를 설치해야 합니다. Windows, Macintosh 또는 Linux용 Azure Storage Explorer를 설치하려면 [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)를 참조하세요.
 
 ## <a name="sign-in-to-storage-explorer"></a>Storage Explorer에 로그인
 

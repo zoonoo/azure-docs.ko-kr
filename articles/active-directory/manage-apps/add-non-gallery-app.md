@@ -24,7 +24,7 @@ ms.locfileid: "68477254"
 [AZURE AD 응용 프로그램 갤러리](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/)의 선택 사항 외에도 **비 갤러리 응용 프로그램**을 추가 하는 옵션이 있습니다. 조직에 이미 있는 응용 프로그램이 나 아직 Azure AD 갤러리에 속하지 않은 공급 업체의 타사 응용 프로그램을 추가할 수 있습니다. [사용권 계약](https://azure.microsoft.com/pricing/details/active-directory/)에 따라 다음과 같은 기능을 사용할 수 있습니다.
 
 - [Security Assertion Markup Language (SAML) 2.0](https://wikipedia.org/wiki/SAML_2.0) id 공급자를 지 원하는 모든 응용 프로그램의 셀프 서비스 통합 (SP 시작 또는 IdP 시작)
-- [암호 기반 SSO](what-is-single-sign-on.md#password-based-sso)를 사용하는 HTML 기반 로그인 페이지가 있는 모든 웹 애플리케이션의 셀프 서비스 통합
+- [암호 기반 SSO](what-is-single-sign-on.md#password-based-sso)
 - [사용자 프로 비전을 위해 SCIM (도메인 간 Id 관리) 프로토콜에 시스템](use-scim-to-provision-users-and-groups.md) 을 사용 하는 응용 프로그램의 셀프 서비스 연결
 - [Office 365 앱 시작 관리자](https://www.microsoft.com/microsoft-365/blog/2014/10/16/organize-office-365-new-app-launcher-2/) 또는 [Azure AD 액세스 패널](what-is-single-sign-on.md#linked-sign-on)에서 애플리케이션에 대한 링크를 추가하는 기능
 

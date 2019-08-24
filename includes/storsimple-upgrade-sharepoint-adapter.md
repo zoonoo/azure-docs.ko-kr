@@ -13,7 +13,7 @@ ms.locfileid: "67182246"
 ---
 ### <a name="upgrade-sharepoint-2010-to-sharepoint-2013-and-then-install-the-storsomple-adapter-for-sharepoint"></a>SharePoint 2010에서 SharePoint 2013으로 업그레이드한 다음 SharePoint용 StorSomple 어댑터 설치
 > [!IMPORTANT]
-> 업그레이드가 완료되고 RBS 기능을 다시 사용하도록 설정할 때까지 이전에 RBS를 통해 외부 저장소에 이동된 모든 파일은 사용할 수 없습니다. 사용자 영향을 제한하려면 계획된 유지 관리 기간 동안 업그레이드 또는 다시 설치를 수행합니다.
+> 업그레이드가 완료되고 RBS 기능을 다시 사용하도록 설정할 때까지 이전에 RBS를 통해 외부 스토리지에 이동된 모든 파일은 사용할 수 없습니다. 사용자 영향을 제한하려면 계획된 유지 관리 기간 동안 업그레이드 또는 다시 설치를 수행합니다.
 > 
 > 
 

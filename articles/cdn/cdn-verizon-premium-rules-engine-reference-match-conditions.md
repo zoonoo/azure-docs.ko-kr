@@ -53,11 +53,11 @@ ms.locfileid: "67593212"
 
 ## <a name="origin-match-conditions"></a>원본 일치 조건
 
-원본 일치 조건은 Content Delivery Network 저장소 또는 고객 원본 서버를 가리키는 요청을 식별합니다.
+원본 일치 조건은 Content Delivery Network 스토리지 또는 고객 원본 서버를 가리키는 요청을 식별합니다.
 
 이름 | 용도
 -----|--------
-[CDN 원본](#cdn-origin) | Content Delivery Network 저장소에 저장된 콘텐츠에 대한 요청을 식별합니다.
+[CDN 원본](#cdn-origin) | Content Delivery Network 스토리지에 저장된 콘텐츠에 대한 요청을 식별합니다.
 [고객 원본](#customer-origin) | 특정 고객 원본 서버에 저장된 콘텐츠에 대한 요청을 식별합니다.
 
 ## <a name="request-match-conditions"></a>요청 일치 조건
@@ -139,7 +139,7 @@ AS 숫자 네트워크는 해당 ASN(자치 시스템 번호)으로 정의됩니
 
 다음 조건이 모두 충족될 때 CDN 원본 일치 조건이 충족됩니다.
 
-- CDN 저장소의 콘텐츠가 요청되었습니다.
+- CDN 스토리지의 콘텐츠가 요청되었습니다.
 - 요청 URI는 이 일치 조건에서 정의된 콘텐츠 액세스 포인트 유형(예: /000001)을 사용합니다.
   - CDN URL: 요청 URI에 선택한 콘텐츠 액세스 포인트가 포함되어야 합니다.
   - 에지 CNAME URL: 해당 에지 CNAME 구성은 선택한 콘텐츠 액세스 포인트를 가리켜야 합니다.

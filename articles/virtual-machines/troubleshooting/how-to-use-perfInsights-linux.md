@@ -43,7 +43,7 @@ PerfInsights는 여러 종류의 정보를 수집하고 분석할 수 있습니�
 
 - 구성 파일
 
-- 저장소 정보
+- 스토리지 정보
 
 - Azure 가상 머신 구성 ( [azure Instance Metadata Service](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)를 사용 하 여 수집)
 
@@ -84,7 +84,7 @@ Linux 가상 머신, 운영 체제, 블록 장치, 높은 리소스 소비자, �
   - 네트워크 라우팅 테이블
   - 열린 포트 및 상태
 
-- 저장 공간
+- 스토리지
   - 장치 목록 차단
   - 파티션 목록
   - 탑재 위치 목록
@@ -230,9 +230,9 @@ PerformanceDiagnostics hh-mm-ss-fff.zip release.tar.gz 파일 내에서 PerfInsi
 
 ![PerfInsights 보고서 CPU 탭의 스크린샷](media/how-to-use-perfinsights-linux/perfinsights-linux-cpu-tab.png)
 
-### <a name="storage-tab"></a>저장소 탭
+### <a name="storage-tab"></a>스토리지 탭
 
-**검색 결과** 섹션은 저장소와 관련된 다양한 검색 결과 및 권장 사항을 표시합니다.
+**검색 결과** 섹션은 스토리지와 관련된 다양한 검색 결과 및 권장 사항을 표시합니다.
 
 **블록 장치** 및 기타 관련 섹션 (예: **파티션**, **lvm**및 **mdadm** 탭)에는 차단 장치를 구성 하 고 서로 관련 하는 방법이 설명 되어 있습니다.
 

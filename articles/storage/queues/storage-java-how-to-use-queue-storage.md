@@ -32,10 +32,10 @@ ms.locfileid: "68721427"
 ## <a name="create-a-java-application"></a>Java 애플리케이션 만들기
 이 가이드에서는 Java 애플리케이션 내에서 로컬로 실행할 수 있거나 Azure의 웹 역할 또는 작업자 역할 내에서 실행되는 코드에서 실행할 수 있는 스토리지 기능을 사용합니다.
 
-그러려면 JDK(Java Development Kit)를 설치하고 Azure 구독에서 Azure 저장소 계정을 만들어야 합니다. 그러고 나면 개발 시스템에서 GitHub의 [Java용 Azure Storage SDK][Azure Storage SDK for Java] 리포지토리에 있는 최소 요구 사항과 종속성을 충족하는지 확인해야 합니다. 시스템에서 해당 요구 사항을 충족하는 경우에는 리포지토리에서 시스템의 Java용 Azure Storage Library를 다운로드 및 설치하기 위한 지침을 따를 수 있습니다. 작업을 완료하고 나면 이 문서의 예를 사용하는 Java 애플리케이션을 만들 수 있습니다.
+그러려면 JDK(Java Development Kit)를 설치하고 Azure 구독에서 Azure Storage 계정을 만들어야 합니다. 그러고 나면 개발 시스템에서 GitHub의 [Java용 Azure Storage SDK][Azure Storage SDK for Java] 리포지토리에 있는 최소 요구 사항과 종속성을 충족하는지 확인해야 합니다. 시스템에서 해당 요구 사항을 충족하는 경우에는 리포지토리에서 시스템의 Java용 Azure Storage Library를 다운로드 및 설치하기 위한 지침을 따를 수 있습니다. 작업을 완료하고 나면 이 문서의 예를 사용하는 Java 애플리케이션을 만들 수 있습니다.
 
-## <a name="configure-your-application-to-access-queue-storage"></a>Queue Storage에 액세스하도록 응용 프로그램 구성
-Azure 저장소 API를 사용하여 큐에 액세스하려는 Java 파일의 맨 위에 다음 import 문을 추가합니다.
+## <a name="configure-your-application-to-access-queue-storage"></a>Queue Storage에 액세스하도록 애플리케이션 구성
+Azure Storage API를 사용하여 큐에 액세스하려는 Java 파일의 맨 위에 다음 import 문을 추가합니다.
 
 ```java
 // Include the following imports to use queue APIs.
@@ -43,8 +43,8 @@ import com.microsoft.azure.storage.*;
 import com.microsoft.azure.storage.queue.*;
 ```
 
-## <a name="setup-an-azure-storage-connection-string"></a>Azure 저장소 연결 문자열 설정
-Azure 저장소 클라이언트는 저장소 연결 문자열을 사용하여 데이터 관리 서비스에 액세스하기 위한 엔드포인트 및 자격 증명을 저장합니다. 클라이언트 애플리케이션에서 실행할 경우 *AccountName*과 *AccountKey* 값에 대해 [Azure Portal](https://portal.azure.com)에 나열된 저장소 계정의 이름과 기본 액세스 키를 사용하여 다음 형식의 저장소 연결 문자열을 제공해야 합니다. 이 예제는 정적 필드가 연결 문자열을 포함할 수 있도록 선언하는 방법을 보여 줍니다.
+## <a name="setup-an-azure-storage-connection-string"></a>Azure Storage 연결 문자열 설정
+Azure Storage 클라이언트는 스토리지 연결 문자열을 사용하여 데이터 관리 서비스에 액세스하기 위한 엔드포인트 및 자격 증명을 저장합니다. 클라이언트 애플리케이션에서 실행할 경우 *AccountName*과 *AccountKey* 값에 대해 [Azure Portal](https://portal.azure.com)에 나열된 스토리지 계정의 이름과 기본 액세스 키를 사용하여 다음 형식의 스토리지 연결 문자열을 제공해야 합니다. 이 예제는 정적 필드가 연결 문자열을 포함할 수 있도록 선언하는 방법을 보여 줍니다.
 
 ```java
 // Define the connection-string with your values.
@@ -62,7 +62,7 @@ String storageConnectionString =
     RoleEnvironment.getConfigurationSettings().get("StorageConnectionString");
 ```
 
-다음 샘플에서는 저장소 연결 문자열을 가져오기 위해 위의 두 메서드 중 하나를 사용한 것으로 가정합니다.
+다음 샘플에서는 스토리지 연결 문자열을 가져오기 위해 위의 두 메서드 중 하나를 사용한 것으로 가정합니다.
 
 ## <a name="how-to-create-a-queue"></a>방법: 큐 만들기
 **CloudQueueClient** 개체를 통해 큐에 대한 참조 개체를 가져올 수 있습니다. 다음 코드는 **CloudQueueClient** 개체를 만듭니다. (참고: **CloudStorageAccount** 개체를 만들 수 있는 방법이 더 있습니다. 자세한 내용은 [Azure Storage 클라이언트 SDK 참조]에서 **CloudStorageAccout**를 참조하세요.

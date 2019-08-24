@@ -102,7 +102,7 @@ Azure에서는 .NET 애플리케이션을 호스트하는 여러 제품을 제�
 
 Azure App Services의 경우에는 현재 게스트 OS 업그레이드가 지원되지 않습니다. Azure Virtual Machines의 경우 VM에 로그인하여 최신 .NET Framework용 설치 관리자를 실행하기만 하면 됩니다. Azure Cloud Services의 경우 최신 .NET 버전의 설치를 배포의 시작 작업에 포함해야 합니다. 개념 및 단계는 [클라우드 서비스 역할에 .NET 설치](../cloud-services/cloud-services-dotnet-install-dotnet.md)에 문서화되어 있습니다.  
 
-.NET 4.6.1용 설치 관리자는 Azure 클라우드 서비스에서 프로세스를 부트스트랩하는 과정에서 .NET 4.6용 설치 관리자보다 더 많은 임시 저장 공간을 필요로 할 수 있습니다. 성공적인 설치를 위해 다음 예에서처럼 LocalResources 섹션의 ServiceDefinition.csdef 파일과 시작 작업의 환경 설정에서 Azure 클라우드 서비스의 임시 저장 공간을 늘려야 합니다.
+.NET 4.6.1용 설치 관리자는 Azure 클라우드 서비스에서 프로세스를 부트스트랩하는 과정에서 .NET 4.6용 설치 관리자보다 더 많은 임시 스토리지 공간을 필요로 할 수 있습니다. 성공적인 설치를 위해 다음 예에서처럼 LocalResources 섹션의 ServiceDefinition.csdef 파일과 시작 작업의 환경 설정에서 Azure 클라우드 서비스의 임시 스토리지 공간을 늘려야 합니다.
 
     <LocalResources>
     ...

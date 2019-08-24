@@ -12,7 +12,7 @@ ms.lasthandoff: 06/18/2019
 ms.locfileid: "67182540"
 ---
 ## <a name="transfer-local-files-to-cloud-shell"></a>Cloud Shell에 로컬 파일 전송
-`clouddrive` 디렉터리가 Azure Portal 저장소 블레이드에 동기화됩니다. 이 블레이드를 사용하여 파일 공유 간에 로컬 파일을 전송합니다. Cloud Shell 내의 파일을 업데이트하면 블레이드를 새로 고칠 때 파일 스토리지 GUI에 반영됩니다.
+`clouddrive` 디렉터리가 Azure Portal 스토리지 블레이드에 동기화됩니다. 이 블레이드를 사용하여 파일 공유 간에 로컬 파일을 전송합니다. Cloud Shell 내의 파일을 업데이트하면 블레이드를 새로 고칠 때 파일 스토리지 GUI에 반영됩니다.
 
 ### <a name="download-files"></a>파일 다운로드
 

@@ -1,6 +1,6 @@
 ---
 title: Azure 클래식 CLI를 사용하여 전체 Linux 환경 만들기 | Microsoft Docs
-description: Azure 클래식 CLI를 사용하여 저장소, Linux VM, 가상 네트워크 및 서브넷, 부하 분산 장치, NIC, 공용 IP, 네트워크 보안 그룹을 모두 처음부터 새로 만듭니다.
+description: Azure 클래식 CLI를 사용하여 스토리지, Linux VM, 가상 네트워크 및 서브넷, 부하 분산 디바이스, NIC, 공용 IP, 네트워크 보안 그룹을 모두 처음부터 새로 만듭니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -66,14 +66,14 @@ JSON 파서를 사용하여 리소스 그룹을 확인합니다.
 azure group show myResourceGroup --json | jq '.'
 ```
 
-저장소 계정을 만듭니다. 다음 예제에서는 `mystorageaccount`라는 저장소 계정을 만듭니다. (저장소 계정 이름은 고유해야 하므로 자신만의 이름을 제공하세요.)
+스토리지 계정을 만듭니다. 다음 예제에서는 `mystorageaccount`라는 스토리지 계정을 만듭니다. 스토리지 계정 이름은 고유해야 하므로 자신만의 이름을 제공하세요.
 
 ```azurecli
 azure storage account create -g myResourceGroup -l westeurope \
   --kind Storage --sku-name GRS mystorageaccount
 ```
 
-JSON 파서를 사용하여 저장소 계정을 확인합니다.
+JSON 파서를 사용하여 스토리지 계정을 확인합니다.
 
 ```azurecli
 azure storage account show -g myResourceGroup mystorageaccount --json | jq '.'
@@ -301,10 +301,10 @@ data:
 info:    group create command OK
 ```
 
-## <a name="create-a-storage-account"></a>저장소 계정 만들기
-VM 디스크 및 추가하려는 추가 데이터 디스크에 대한 저장소 계정이 필요합니다. 리소스 그룹을 만든 후 거의 즉시 저장소 계정을 만들게 됩니다.
+## <a name="create-a-storage-account"></a>스토리지 계정 만들기
+VM 디스크 및 추가하려는 추가 데이터 디스크에 대한 스토리지 계정이 필요합니다. 리소스 그룹을 만든 후 거의 즉시 스토리지 계정을 만들게 됩니다.
 
-여기서는 `azure storage account create` 명령을 사용하여 계정 위치, 계정을 제어할 리소스 그룹, 원하는 저장소 지원 형식을 전달합니다. 다음 예제에서는 `mystorageaccount`라는 저장소 계정을 만듭니다.
+여기서는 `azure storage account create` 명령을 사용하여 계정 위치, 계정을 제어할 리소스 그룹, 원하는 스토리지 지원 형식을 전달합니다. 다음 예제에서는 `mystorageaccount`라는 스토리지 계정을 만듭니다.
 
 ```azurecli
 azure storage account create \  
@@ -360,13 +360,13 @@ azure group show myResourceGroup --json | jq '.'
 }
 ```
 
-CLI를 사용하여 저장소 계정을 조사하려면 먼저 계정 이름과 키를 설정해야 합니다. 다음 예제의 저장소 계정 이름을 원하는 이름으로 바꿉니다.
+CLI를 사용하여 스토리지 계정을 조사하려면 먼저 계정 이름과 키를 설정해야 합니다. 다음 예제의 스토리지 계정 이름을 원하는 이름으로 바꿉니다.
 
 ```bash
 export AZURE_STORAGE_CONNECTION_STRING="$(azure storage account connectionstring show mystorageaccount --resource-group myResourceGroup --json | jq -r '.string')"
 ```
 
-그러면 저장소 정보를 쉽게 볼 수 있습니다.
+그러면 스토리지 정보를 쉽게 볼 수 있습니다.
 
 ```azurecli
 azure storage container list
@@ -1112,7 +1112,7 @@ azure availset create --resource-group myResourceGroup --location westeurope
 [VM의 가용성 관리](manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에 대한 자세한 내용을 참조하세요.
 
 ## <a name="create-the-linux-vms"></a>Linux VM 만들기
-인터넷에서 액세스 가능한 VM을 지원하기 위해 저장소 및 네트워크 리소스를 만들었습니다. 이제 해당 VM을 만들고 암호 없이 SSH 키를 사용하여 VM을 보호하겠습니다. 이 예에서는 가장 최근의 LTS를 기반으로 Ubuntu VM을 만들겠습니다. [Azure VM 이미지 찾기](../windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에 설명된 대로 `azure vm image list`를 사용하여 해당 이미지 정보를 찾을 것입니다.
+인터넷에서 액세스 가능한 VM을 지원하기 위해 스토리지 및 네트워크 리소스를 만들었습니다. 이제 해당 VM을 만들고 암호 없이 SSH 키를 사용하여 VM을 보호하겠습니다. 이 예에서는 가장 최근의 LTS를 기반으로 Ubuntu VM을 만들겠습니다. [Azure VM 이미지 찾기](../windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에 설명된 대로 `azure vm image list`를 사용하여 해당 이미지 정보를 찾을 것입니다.
 
 `azure vm image list westeurope canonical | grep LTS`명령을 사용하여 이미지는 선택했습니다. 이 경우 `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`을 사용합니다. 나중에 항상 가장 최근 빌드를 가져오도록 마지막 필드에는 `latest` 를 제공합니다. (사용하는 문자열은 `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`입니다.)
 
@@ -1286,7 +1286,7 @@ azure group deployment create --resource-group myNewResourceGroup \
   --template-file myResourceGroup.json
 ```
 
-[템플릿에서 배포하는 방법에 대해 자세히 읽어볼 수 있습니다](../../resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 환경을 점진적으로 업데이트하고, 매개 변수 파일을 사용하고, 단일 저장소 위치에서 템플릿에 액세스하는 방법을 알아봅니다.
+[템플릿에서 배포하는 방법에 대해 자세히 읽어볼 수 있습니다](../../resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 환경을 점진적으로 업데이트하고, 매개 변수 파일을 사용하고, 단일 스토리지 위치에서 템플릿에 액세스하는 방법을 알아봅니다.
 
 ## <a name="next-steps"></a>다음 단계
 이제 여러 네트워킹 구성 요소 및 VM을 사용할 준비가 되셨습니다. 이 샘플 환경에 사용하여 여기에 소개된 핵심 구성 요소로 애플리케이션을 빌드할 수 있습니다.

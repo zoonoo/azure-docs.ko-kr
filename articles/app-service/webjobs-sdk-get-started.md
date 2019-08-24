@@ -197,7 +197,7 @@ ASP.NET Core에서 호스트 구성은 [`HostBuilder`](/dotnet/api/microsoft.ext
 
    `message` 매개 변수는 문자열일 필요는 없습니다. JSON 개체, 바이트 배열 또는 [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) 개체에 바인딩할 수도 있습니다. [큐 트리거 사용을 참조하세요](../azure-functions/functions-bindings-storage-queue.md#trigger---usage). 각 바인딩 형식(예: 큐, Blob 또는 테이블)에는 바인딩할 수 있는 다른 매개 변수 형식 집합이 있습니다.
 
-## <a name="create-a-storage-account"></a>저장소 계정 만들기
+## <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
 로컬로 실행되는 Azure Storage 에뮬레이터에는 WebJobs SDK에 필요한 모든 기능이 없습니다. 따라서이 섹션에서는 Azure에서 저장소 계정을 만들고이 계정을 사용 하도록 프로젝트를 구성 합니다. 저장소 계정이 이미 있는 경우 6 단계로 건너뜁니다.
 
@@ -239,7 +239,7 @@ WebJobs SDK는 Azure의 애플리케이션 설정에서 스토리지 연결 문�
     }
     ```
 
-1. *{저장소 연결 문자열}* 을 앞에서 복사한 연결 문자열로 바꿉니다.
+1. *{스토리지 연결 문자열}* 을 앞에서 복사한 연결 문자열로 바꿉니다.
 
 1. 솔루션 탐색기에서 *appsettings* 파일을 선택 하 고 **속성** 창에서 **출력 디렉터리로 복사** 를 **새 버전이 면 복사**로 설정 합니다.
 
@@ -269,7 +269,7 @@ WebJobs SDK는 Azure의 애플리케이션 설정에서 스토리지 연결 문�
 
 1. 콘솔 창을 닫습니다.
 
-1. Visual Studio의 **서버 탐색기**에서 새 저장소 계정에 대한 노드를 펼친 다음, **큐**를 마우스 오른쪽 단추로 클릭합니다.
+1. Visual Studio의 **서버 탐색기**에서 새 스토리지 계정에 대한 노드를 펼친 다음, **큐**를 마우스 오른쪽 단추로 클릭합니다.
 
 1. **큐 만들기**를 선택합니다.
 
@@ -317,7 +317,7 @@ WebJobs SDK는 Azure의 애플리케이션 설정에서 스토리지 연결 문�
 이 섹션에서는 Azure에 배포하기 전에 Application Insights 로깅을 설정하기 위해 다음 작업을 수행합니다.
 
 * 사용할 App Service 앱과 Application Insights 인스턴스가 있는지 확인합니다.
-* Application Insights 인스턴스와 이전에 만든 저장소 계정을 사용하도록 App Service 앱을 구성합니다.
+* Application Insights 인스턴스와 이전에 만든 스토리지 계정을 사용하도록 App Service 앱을 구성합니다.
 * Application Insights에 로깅할 프로젝트를 설정합니다.
 
 ### <a name="create-app-service-app-and-application-insights-instance"></a>App Service 앱 및 Application Insights 인스턴스 만들기
@@ -350,7 +350,7 @@ WebJobs SDK는 Azure의 애플리케이션 설정에서 스토리지 연결 문�
 
 1. *{계측 키}* 를 사용 중인 Application Insights 리소스의 계측 키로 바꿉니다.
 
-1.           **저장**을 선택합니다.
+1. **저장**을 선택합니다.
 
 1. 로컬로 실행할 수 있도록 Application Insights 연결을 프로젝트에 추가 합니다. *appsettings.json* 파일에서 다음 예제와 같이 `APPINSIGHTS_INSTRUMENTATIONKEY` 필드를 추가합니다.
 
@@ -488,9 +488,9 @@ WebJobs SDK는 Azure의 애플리케이션 설정에서 스토리지 연결 문�
    using System.IO;
    ```
 
-1. 저장소 계정에 Blob 컨테이너를 만듭니다.
+1. 스토리지 계정에 Blob 컨테이너를 만듭니다.
 
-   a. Visual Studio의 **서버 탐색기**에서 저장소 계정에 대한 노드를 펼치고, **Blob**을 마우스 오른쪽 단추로 클릭한 다음, **Blob 컨테이너 만들기**를 선택합니다.
+   a. Visual Studio의 **서버 탐색기**에서 스토리지 계정에 대한 노드를 펼치고, **Blob**을 마우스 오른쪽 단추로 클릭한 다음, **Blob 컨테이너 만들기**를 선택합니다.
 
    b. **Blob 컨테이너 만들기** 대화 상자에서 *container*를 컨테이너 이름으로 입력한 다음, **확인**을 클릭합니다.
 

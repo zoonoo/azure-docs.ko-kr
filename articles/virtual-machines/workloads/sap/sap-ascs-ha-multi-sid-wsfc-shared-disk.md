@@ -387,7 +387,7 @@ Write-Host "Successfully added new IP '$ILBIP' to the internal load balancer '$I
 
 다음을 수행합니다.
 1. 각 클러스터 노드에 추가 디스크 또는 동일한 크기의 디스크(스트라이프해야 하는)를 추가하고 서식을 지정합니다.
-2. SIOS DataKeeper를 사용하여 저장소 복제를 구성합니다.
+2. SIOS DataKeeper를 사용하여 스토리지 복제를 구성합니다.
 
 이 절차는 WSFC 클러스터 컴퓨터에 SIOS DataKeeper를 이미 설치했다고 가정합니다. 설치한 경우 이제 컴퓨터 간의 복제를 구성해야 합니다. 프로세스에서 자세히 설명 되어 [SAP ASCS/SCS 클러스터 공유 디스크용 SIOS DataKeeper Cluster Edition 설치][sap-high-availability-infrastructure-wsfc-shared-disk-install-sios]합니다.  
 

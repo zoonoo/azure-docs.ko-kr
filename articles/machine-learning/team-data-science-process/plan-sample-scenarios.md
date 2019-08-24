@@ -33,7 +33,7 @@ ms.locfileid: "67202750"
 > **이 모든 시나리오에서 다음을 수행해야 합니다.**
 > <br/>
 > 
-> * [저장소 계정을 만드는](../../storage/common/storage-quickstart-create-account.md)
+> * [스토리지 계정을 만드는](../../storage/common/storage-quickstart-create-account.md)
 >   <br/>
 > * [Azure Machine Learning 작업 영역 만들기](../studio/create-workspace.md)
 > 
@@ -52,8 +52,8 @@ ms.locfileid: "67202750"
 
 #### <a name="additional-azure-resources-azure-virtual-machine-ipython-notebook-server"></a>추가 Azure 리소스: Azure Virtual Machine(IPython Notebook 서버)
 1. IPython Notebook을 실행하는 Azure Virtual Machine을 만듭니다.
-1. Azure 저장소 컨테이너에 데이터를 업로드 합니다.
-1. IPython Notebook에서 데이터를 사전 처리하고 정리하며, Azure 저장소 컨테이너에서 데이터에 액세스합니다.
+1. Azure Storage 컨테이너에 데이터를 업로드 합니다.
+1. IPython Notebook에서 데이터를 사전 처리하고 정리하며, Azure Storage 컨테이너에서 데이터에 액세스합니다.
 1. 데이터를 정리된 테이블 형식으로 변환합니다.
 1. Azure Blob에 변환된 데이터를 저장합니다.
 1. [Azure Machine Learning Studio](https://studio.azureml.net/)에 로그인합니다.
@@ -65,7 +65,7 @@ ms.locfileid: "67202750"
 
 #### <a name="additional-azure-resources-azure-virtual-machine-ipython-notebook-server"></a>추가 Azure 리소스: Azure Virtual Machine(IPython Notebook 서버)
 1. IPython Notebook을 실행하는 Azure Virtual Machine을 만듭니다.
-1. Azure 저장소 컨테이너에 데이터를 업로드 합니다.
+1. Azure Storage 컨테이너에 데이터를 업로드 합니다.
 1. IPython Notebook에서 데이터를 사전 처리하고 정리하며, Azure Blob에서 데이터에 액세스합니다.
 1. 필요한 경우, 데이터를 정리된 테이블 형식으로 변환합니다.
 1. 데이터를 탐색하고 필요에 따라 기능을 만듭니다.
@@ -80,8 +80,8 @@ ms.locfileid: "67202750"
 
 #### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>추가 Azure 리소스: Azure Virtual Machine(SQL Server / IPython Notebook 서버)
 1. SQL Server + IPython Notebook을 실행하는 Azure Virtual Machine을 만듭니다.
-1. Azure 저장소 컨테이너에 데이터를 업로드 합니다.
-1. IPython Notebook을 사용하여 Azure 저장소 컨테이너에서 데이터를 사전 처리하고 정리합니다.
+1. Azure Storage 컨테이너에 데이터를 업로드 합니다.
+1. IPython Notebook을 사용하여 Azure Storage 컨테이너에서 데이터를 사전 처리하고 정리합니다.
 1. 필요한 경우, 데이터를 정리된 테이블 형식으로 변환합니다.
 1. VM 로컬 파일에 데이터 저장합니다(IPython Notebook이 VM에서 실행되고, 로컬 드라이브가 VM 드라이브를 참조).
 1. Azure VM에서 실행되는 SQL Server 데이터베이스에 데이터를 로드 합니다.
@@ -110,7 +110,7 @@ ms.locfileid: "67202750"
 
 #### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>추가 Azure 리소스: Azure Virtual Machine(SQL Server / IPython Notebook 서버)
 1. SQL Server 및 IPython Notebook 서버를 실행하는 Azure Virtual Machine을 만듭니다.
-1. Azure 저장소 컨테이너에 데이터를 업로드 합니다.
+1. Azure Storage 컨테이너에 데이터를 업로드 합니다.
 1. (선택 사항) 데이터를 사전 처리하고 정리합니다.
    
    a.  IPython Notebook에서 데이터를 사전 처리하고 정리하며, Azure에서 데이터에 액세스합니다.
@@ -157,12 +157,12 @@ ms.locfileid: "67202750"
    > Azure에서 SQL Server 인스턴스로 전체 데이터베이스를 이동 하는 대체 (빠른) 메서드로 온-프레미스 데이터베이스에서 모든 데이터를 이동 하기로 했습니다. 데이터를 내보내고, 데이터베이스를 만들고 대상 데이터베이스로 데이터를 로드/가져오기하는 단계를 건너뛰고 대체 메서드를 따릅니다.
    > 
    > 
-1. Azure 저장소 컨테이너로 덤프 파일을 업로드합니다.
+1. Azure Storage 컨테이너로 덤프 파일을 업로드합니다.
 1. Azure Virtual Machine에서 실행 중인 SQL Server 데이터베이스에 데이터를 로드합니다.
    
    a.  SQL Server VM에 로그인합니다.
    
-   b.  Azure 저장소 컨테이너에서 로컬 VM 폴더로 데이터 파일을 다운로드합니다.
+   b.  Azure Storage 컨테이너에서 로컬 VM 폴더로 데이터 파일을 다운로드합니다.
    
    다.  SQL Server Management Studio를 실행합니다.
    

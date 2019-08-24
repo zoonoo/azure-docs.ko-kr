@@ -27,7 +27,7 @@ ms.locfileid: "67671896"
 > - PowerShell 세션에 대한 자격 증명 모음 컨텍스트를 설정합니다.
 > - Azure Virtual Machines 복제를 시작하려면 자격 증명 모음을 준비합니다.
 > - 네트워크 매핑을 만듭니다.
-> - 가상 머신을 복제할 대상 저장소 계정을 만듭니다.
+> - 가상 머신을 복제할 대상 스토리지 계정을 만듭니다.
 > - 재해 복구에 대한 복구 지역에 Azure Virtual Machines를 복제합니다.
 > - 테스트 장애 조치(failover), 유효성 검사 및 테스트 장애 조치(failover) 정리를 수행합니다.
 > - 복구 지역으로 장애 조치(failover)합니다.
@@ -306,16 +306,16 @@ while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStart
 Write-Output $TempASRJob.State
 ```
 
-## <a name="create-cache-storage-accounts-and-target-storage-accounts"></a>캐시 저장소 계정 및 대상 저장소 계정 만들기
+## <a name="create-cache-storage-accounts-and-target-storage-accounts"></a>캐시 스토리지 계정 및 대상 스토리지 계정 만들기
 
-캐시 저장소 계정은 복제되는 가상 머신과 같은 Azure 지역에 있는 표준 저장소 계정입니다. 캐시 저장소 계정은 변경 내용을 복구 Azure 지역으로 이동하기 전에 변경 내용 복제를 일시적으로 보류하는 데 사용됩니다. 가상 머신의 다른 디스크에 대한 다양한 캐시 저장소 계정을 지정하도록 선택할 수 있습니다(단, 필수는 아님).
+캐시 스토리지 계정은 복제되는 가상 머신과 같은 Azure 지역에 있는 표준 스토리지 계정입니다. 캐시 스토리지 계정은 변경 내용을 복구 Azure 지역으로 이동하기 전에 변경 내용 복제를 일시적으로 보류하는 데 사용됩니다. 가상 머신의 다른 디스크에 대한 다양한 캐시 스토리지 계정을 지정하도록 선택할 수 있습니다(단, 필수는 아님).
 
 ```azurepowershell
 #Create Cache storage account for replication logs in the primary region
 $EastUSCacheStorageAccount = New-AzStorageAccount -Name "a2acachestorage" -ResourceGroupName "A2AdemoRG" -Location 'East US' -SkuName Standard_LRS -Kind Storage
 ```
 
-**관리 디스크를 사용하지 않는** 가상 머신의 경우 대상 저장소 계정은 가상 머신의 디스크가 복제되는 복구 지역에 있는 저장소 계정입니다. 대상 스토리지 계정은 표준 스토리지 계정 또는 Premium Storage 계정 중 하나일 수 있습니다. 디스크의 데이터 변경률(IO 쓰기 속도) 및 Azure Site Recovery에서 지원되는 저장소 유형에 대한 변동 제한을 기준으로 필요한 저장소 계정의 유형을 선택합니다.
+**관리 디스크를 사용하지 않는** 가상 머신의 경우 대상 스토리지 계정은 가상 머신의 디스크가 복제되는 복구 지역에 있는 스토리지 계정입니다. 대상 스토리지 계정은 표준 스토리지 계정 또는 Premium Storage 계정 중 하나일 수 있습니다. 디스크의 데이터 변경률(IO 쓰기 속도) 및 Azure Site Recovery에서 지원되는 스토리지 유형에 대한 변동 제한을 기준으로 필요한 스토리지 계정의 유형을 선택합니다.
 
 ```azurepowershell
 #Create Target storage account in the recovery region. In this case a Standard Storage account

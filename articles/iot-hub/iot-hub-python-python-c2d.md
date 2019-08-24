@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub(Python)를 사용한 클라우드-장치 메시지 | Microsoft Docs
+title: Azure IoT Hub(Python)를 사용한 클라우드-디바이스 메시지 | Microsoft Docs
 description: Python용 Azure IoT SDK를 사용하여 Azure IoT Hub에서 디바이스로 클라우드-디바이스 메시지를 보내는 방법입니다. 클라우드-디바이스 메시지를 수신하도록 시뮬레이션된 디바이스 앱을 수정하고 클라우드-디바이스 메시지를 보내도록 백 엔드 앱을 수정합니다.
 author: robinsh
 ms.service: iot-hub
@@ -15,7 +15,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 07/30/2019
 ms.locfileid: "68667901"
 ---
-# <a name="send-cloud-to-device-messages-with-iot-hub-python"></a>IoT Hub(Python)를 사용하여 클라우드-장치 메시지 보내기
+# <a name="send-cloud-to-device-messages-with-iot-hub-python"></a>IoT Hub(Python)를 사용하여 클라우드-디바이스 메시지 보내기
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
@@ -164,7 +164,7 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
 
 [!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
-## <a name="send-a-cloud-to-device-message"></a>클라우드-장치 메시지 보내기
+## <a name="send-a-cloud-to-device-message"></a>클라우드-디바이스 메시지 보내기
 
 이 섹션에서는 클라우드-디바이스 메시지를 시뮬레이션된 디바이스 앱으로 보내는 Python 콘솔 응용 프로그램을 만듭니다. [장치에서 IoT hub로 원격 분석 전송 빠른 시작](quickstart-send-telemetry-python.md) 에서 추가한 장치의 장치 ID가 필요 합니다. 이전에 [iot hub 연결 문자열 가져오기](#get-the-iot-hub-connection-string)에서 복사한 iot hub 연결 문자열도 필요 합니다.
 
@@ -268,7 +268,7 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
     pip install azure-iothub-device-client
     ```
 
-2. 명령 프롬프트에서 다음 명령을 실행하여 클라우드-장치 메시지를 수신합니다.
+2. 명령 프롬프트에서 다음 명령을 실행하여 클라우드-디바이스 메시지를 수신합니다.
 
     ```shell
     python SimulatedDevice.py
@@ -282,13 +282,13 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
     pip install azure-iothub-service-client
     ```
 
-4. 명령 프롬프트에서 다음 명령을 실행하여 클라우드-장치 메시지를 보내고 메시지 피드백을 대기합니다.
+4. 명령 프롬프트에서 다음 명령을 실행하여 클라우드-디바이스 메시지를 보내고 메시지 피드백을 대기합니다.
 
     ```shell
     python SendCloudToDeviceMessage.py
     ```
 
-    ![앱을 실행하여 클라우드-장치 명령 보내기](./media/iot-hub-python-python-c2d/send-command.png)
+    ![앱을 실행하여 클라우드-디바이스 명령 보내기](./media/iot-hub-python-python-c2d/send-command.png)
 
 5. 디바이스에서 수신한 메시지를 기록해 둡니다.
 
@@ -296,7 +296,7 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서 클라우드-장치 메시지를 보내고 받는 방법을 알아보았습니다.
+이 자습서에서 클라우드-디바이스 메시지를 보내고 받는 방법을 알아보았습니다.
 
 IoT Hub를 사용하는 완전한 엔드투엔드 솔루션의 예를 보려면 [Azure IoT 원격 모니터링 솔루션 가속기](https://azure.microsoft.com/documentation/suites/iot-suite/)를 참조하세요.
 

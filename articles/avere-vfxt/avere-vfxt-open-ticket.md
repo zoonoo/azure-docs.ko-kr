@@ -39,7 +39,7 @@ Avere vFXT를 배포하거나 사용하는 동안 문제가 발생하면 Azure P
 
     ![이전 스크린샷의 VM에 대한 Azure Portal VM 페이지의 스크린샷 아래쪽으로 스크롤되고 원으로 표시된 "새 지원 요청"이 있는 왼쪽 메뉴](media/avere-vfxt-ticket-request.png)
 
-1. 지원 요청 페이지 중 하나에서 **모든 서비스**를 클릭하고, **저장소** 아래에서 **Avere vFXT**를 선택합니다.
+1. 지원 요청 페이지 중 하나에서 **모든 서비스**를 클릭하고, **스토리지** 아래에서 **Avere vFXT**를 선택합니다.
 
     !["기본 사항" 머리글 및 주위가 원으로 표시된 "서비스" 항목이 있는 Azure Portal 새 지원 요청 화면의 스크린샷. "모든 서비스" 단추가 선택되고 드롭다운 메뉴 필드의 값이 "Avere vFXT"입니다.](media/avere-vfxt-ticket-service.png)
 

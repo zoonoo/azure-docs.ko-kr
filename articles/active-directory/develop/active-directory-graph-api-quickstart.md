@@ -1,6 +1,6 @@
 ---
 title: Azure AD Graph API 사용 방법
-description: Azure AD(Active Directory) Graph API는 OData REST API 끝점을 통해 Azure AD에 프로그래밍 방식으로 액세스할 수 있게 합니다. 애플리케이션은 Azure AD Graph API를 사용하여 디렉터리 데이터 및 개체에 대한 CRUD(만들기, 읽기, 업데이트 및 삭제) 작업을 수행할 수 있습니다.
+description: Azure AD(Active Directory) Graph API는 OData REST API 엔드포인트을 통해 Azure AD에 프로그래밍 방식으로 액세스할 수 있게 합니다. 애플리케이션은 Azure AD Graph API를 사용하여 디렉터리 데이터 및 개체에 대한 CRUD(만들기, 읽기, 업데이트 및 삭제) 작업을 수행할 수 있습니다.
 services: active-directory
 documentationcenter: n/a
 author: rwike77
@@ -28,7 +28,7 @@ ms.locfileid: "68853379"
 ---
 # <a name="how-to-use-the-azure-ad-graph-api"></a>방법: Azure AD Graph API 사용
 
-Azure AD(Active Directory) Graph API는 OData REST API 끝점을 통해 Azure AD에 프로그래밍 방식으로 액세스할 수 있게 합니다. 애플리케이션은 Azure AD Graph API를 사용하여 디렉터리 데이터 및 개체에 대한 CRUD(만들기, 읽기, 업데이트 및 삭제) 작업을 수행할 수 있습니다. 예를 들어 Azure AD Graph API를 사용하여 새 사용자를 만들고, 사용자 속성을 보거나 업데이트하고, 사용자 암호를 변경하고, 역할 기반 액세스를 위한 그룹 멤버 자격을 확인하고, 사용자를 사용하지 않도록 설정 또는 삭제할 수 있습니다. Azure AD Graph API 기능 및 애플리케이션 시나리오에 대한 자세한 내용은 [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) 및 [Azure AD Graph API 필수 조건](https://msdn.microsoft.com/library/hh974476.aspx)을 참조하세요.
+Azure AD(Active Directory) Graph API는 OData REST API 엔드포인트을 통해 Azure AD에 프로그래밍 방식으로 액세스할 수 있게 합니다. 애플리케이션은 Azure AD Graph API를 사용하여 디렉터리 데이터 및 개체에 대한 CRUD(만들기, 읽기, 업데이트 및 삭제) 작업을 수행할 수 있습니다. 예를 들어 Azure AD Graph API를 사용하여 새 사용자를 만들고, 사용자 속성을 보거나 업데이트하고, 사용자 암호를 변경하고, 역할 기반 액세스를 위한 그룹 멤버 자격을 확인하고, 사용자를 사용하지 않도록 설정 또는 삭제할 수 있습니다. Azure AD Graph API 기능 및 애플리케이션 시나리오에 대한 자세한 내용은 [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) 및 [Azure AD Graph API 필수 조건](https://msdn.microsoft.com/library/hh974476.aspx)을 참조하세요.
 
 이 문서는 Azure AD Graph API에 적용됩니다. Microsoft Graph API와 관련된 유사한 정보는 [Microsoft Graph API 사용](https://developer.microsoft.com/graph/docs/concepts/use_the_api)을 참조하세요.
 

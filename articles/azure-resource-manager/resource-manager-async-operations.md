@@ -154,16 +154,16 @@ https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{res
 {"status":"Succeeded"}
 ```
 
-### <a name="create-storage-account-202-with-location-and-retry-after"></a>저장소 계정 만들기(위치 및 Retry-After에서 202)
+### <a name="create-storage-account-202-with-location-and-retry-after"></a>스토리지 계정 만들기(위치 및 Retry-After에서 202)
 
-이 예제에서는 저장소 계정의 **만들기** 작업 상태를 확인하는 방법을 보여 줍니다. 초기 요청은 다음 형식으로 되어 있습니다.
+이 예제에서는 스토리지 계정의 **만들기** 작업 상태를 확인하는 방법을 보여 줍니다. 초기 요청은 다음 형식으로 되어 있습니다.
 
 ```HTTP
 PUT
 https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.Storage/storageAccounts/{storage-name}?api-version=2016-01-01
 ```
 
-그리고 요청 본문은 저장소 계정의 속성을 포함합니다.
+그리고 요청 본문은 스토리지 계정의 속성을 포함합니다.
 
 ```json
 { "location": "South Central US", "properties": {}, "sku": { "name": "Standard_LRS" }, "kind": "Storage" }
@@ -183,7 +183,7 @@ GET
 https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.Storage/operations/{operation-id}?monitor=true&api-version=2016-01-01
 ```
 
-요청을 계속 실행하는 경우 상태 코드 202를 받게 됩니다. 요청이 완료된 경우 사용자는 상태 코드 200를 수신하고 응답의 본문에는 생성된 저장소 계정의 속성이 포함됩니다.
+요청을 계속 실행하는 경우 상태 코드 202를 받게 됩니다. 요청이 완료된 경우 사용자는 상태 코드 200를 수신하고 응답의 본문에는 생성된 스토리지 계정의 속성이 포함됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

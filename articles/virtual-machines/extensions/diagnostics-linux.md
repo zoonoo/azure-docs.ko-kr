@@ -27,12 +27,12 @@ ms.locfileid: "67871919"
 
 Linux 진단 확장을 통해 사용자는 Microsoft Azure에서 실행하는 Linux VM의 상태를 모니터링할 수 있습니다. 제공되는 기능은 다음과 같습니다.
 
-* VM에서 시스템 성능 메트릭을 수집하여 지정된 저장소 계정의 특정 테이블에 저장합니다.
-* syslog에서 로그 이벤트를 검색하여 지정된 저장소 계정의 특정 테이블에 저장합니다.
+* VM에서 시스템 성능 메트릭을 수집하여 지정된 스토리지 계정의 특정 테이블에 저장합니다.
+* syslog에서 로그 이벤트를 검색하여 지정된 스토리지 계정의 특정 테이블에 저장합니다.
 * 사용자가 수집 및 업로드된 데이터 메트릭을 사용자 지정할 수 있도록 설정합니다.
 * 사용자가 수집 및 업로드된 이벤트의 심각도 수준과 syslog 기능을 사용자 지정할 수 있도록 설정합니다.
-* 사용자가 지정된 저장소 테이블에 지정된 로그 파일을 업로드할 수 있도록 설정합니다.
-* 지정된 저장소 계정의 JSON 형식 Blob 및 임의 EventHub 엔드포인트로 메트릭과 로그 이벤트 전송을 지원합니다.
+* 사용자가 지정된 스토리지 테이블에 지정된 로그 파일을 업로드할 수 있도록 설정합니다.
+* 지정된 스토리지 계정의 JSON 형식 Blob 및 임의 EventHub 엔드포인트로 메트릭과 로그 이벤트 전송을 지원합니다.
 
 이 확장은 Azure 배포 모델 모두에서 작동합니다.
 
@@ -54,7 +54,7 @@ Azure PowerShell cmdlet, Azure CLI 스크립트, ARM 템플릿 또는 Azure Port
 * **Azure Linux 에이전트 버전 2.2.0 이상**. 대부분의 Azure VM Linux 갤러리 이미지에는 2.2.7 이후 버전이 포함되어 있습니다. VM에 설치된 버전을 확인하려면 `/usr/sbin/waagent -version`을 실행합니다. VM이 게스트 에이전트의 이전 버전을 실행 중인 경우 [이 지침](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent)에 따라 업데이트합니다.
 * **Azure CLI** 머신에 [Azure CLI 환경을 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)합니다.
 * wget 명령. 아직 없는 경우 `sudo apt-get install wget`을 실행합니다.
-* 데이터를 저장할 기존 Azure 구독 및 기존 저장소 계정
+* 데이터를 저장할 기존 Azure 구독 및 기존 스토리지 계정
 * 지원되는 Linux 배포 목록은 https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic#supported-linux-distributions 에 있습니다.
 
 ### <a name="sample-installation"></a>샘플 설치
@@ -109,13 +109,13 @@ az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnost
 * 자동 부 버전 업그레이드를 사용하도록 설정하여 확장을 설치합니다.
   * 클래식 배포 모델 VM에서는 Azure XPLAT CLI 또는 Powershell을 통해 확장을 설치하는 경우 버전으로 '3.*'를 지정합니다.
   * Azure Resource Manager 배포 모델 VM에서는 VM 배포 템플릿에 '"autoUpgradeMinorVersion": true'를 포함합니다.
-* LAD 3.0에 대해 새 저장소 계정 또는 다른 저장소 계정을 사용합니다. LAD 2.3과 LAD 3.0 간에 다음과 같은 몇 가지 사소한 비호환성 문제가 있어 계정 공유에 문제가 발생합니다.
+* LAD 3.0에 대해 새 스토리지 계정 또는 다른 스토리지 계정을 사용합니다. LAD 2.3과 LAD 3.0 간에 다음과 같은 몇 가지 사소한 비호환성 문제가 있어 계정 공유에 문제가 발생합니다.
   * LAD 3.0은 syslog 이벤트를 이름이 다른 테이블에 저장합니다.
   * `builtin` 메트릭에 대한 counterSpecifier 문자열이 LAD 3.0에서 다릅니다.
 
 ## <a name="protected-settings"></a>보호 설정
 
-이 구성 정보 집합에는 공용 보기로부터 보호해야 하는 중요한 정보(예: 저장소 자격 증명)가 포함되어 있습니다. 이러한 설정은 확장에 의해 전송되어 암호화된 형태로 저장됩니다.
+이 구성 정보 집합에는 공용 보기로부터 보호해야 하는 중요한 정보(예: 스토리지 자격 증명)가 포함되어 있습니다. 이러한 설정은 확장에 의해 전송되어 암호화된 형태로 저장됩니다.
 
 ```json
 {
@@ -129,19 +129,19 @@ az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnost
 
 이름 | 값
 ---- | -----
-storageAccountName | 확장에 의해 데이터가 기록될 저장소 계정의 이름입니다.
-storageAccountEndPoint | (선택 사항) 저장소 계정이 있는 클라우드를 식별하는 엔드포인트입니다. 이 설정이 없는 경우 LAD는 Azure 퍼블릭 클라우드, `https://core.windows.net`으로 기본 설정됩니다. Azure Germany, Azure Government 또는 Azure China에서 저장소 계정을 사용하려면 이 값을 적절하게 설정합니다.
+storageAccountName | 확장에 의해 데이터가 기록될 스토리지 계정의 이름입니다.
+storageAccountEndPoint | (선택 사항) 스토리지 계정이 있는 클라우드를 식별하는 엔드포인트입니다. 이 설정이 없는 경우 LAD는 Azure 퍼블릭 클라우드, `https://core.windows.net`으로 기본 설정됩니다. Azure Germany, Azure Government 또는 Azure China에서 스토리지 계정을 사용하려면 이 값을 적절하게 설정합니다.
 storageAccountSasToken | Blob service 및 Table service(`ss='bt'`)용으로, 컨테이너 및 개체(`srt='co'`)에 적용할 수 있고, 추가, 생성, 나열, 업데이트 및 쓰기 권한(`sp='acluw'`)을 부여하는 [계정 SAS 토큰](https://azure.microsoft.com/blog/sas-update-account-sas-now-supports-all-storage-services/)입니다. 앞에 물음표(?)를 포함하지 *마세요*.
-mdsdHttpProxy | (선택 사항) 지정된 저장소 계정 및 엔드포인트에 연결할 확장을 사용하도록 설정하는 데 필요한 HTTP 프록시 정보입니다.
+mdsdHttpProxy | (선택 사항) 지정된 스토리지 계정 및 엔드포인트에 연결할 확장을 사용하도록 설정하는 데 필요한 HTTP 프록시 정보입니다.
 sinksConfig | (선택 사항) 메트릭 및 이벤트를 전달할 수 있는 대체 대상의 세부 정보입니다. 확장에서 지원되는 각 데이터 싱크의 특정 세부 정보는 다음에 나오는 섹션에 설명되어 있습니다.
 
 
 > [!NOTE]
-> Azure 배포 템플릿을 사용하여 확장을 배포할 때는 저장소 계정 및 SAS 토큰을 미리 만든 후 템플릿에 전달해야 합니다. 단일 템플릿에서 VM, 저장소 계정 배포와 확장 구성을 함께 수행할 수 없습니다. 템플릿 내에서 SAS 토큰을 만드는 방식은 현재 지원되지 않습니다.
+> Azure 배포 템플릿을 사용하여 확장을 배포할 때는 스토리지 계정 및 SAS 토큰을 미리 만든 후 템플릿에 전달해야 합니다. 단일 템플릿에서 VM, 스토리지 계정 배포와 확장 구성을 함께 수행할 수 없습니다. 템플릿 내에서 SAS 토큰을 만드는 방식은 현재 지원되지 않습니다.
 
 Azure Portal을 통해 필요한 SAS 토큰을 쉽게 생성할 수 있습니다.
 
-1. 확장에서 쓰게 할 범용 저장소 계정을 선택합니다.
+1. 확장에서 쓰게 할 범용 스토리지 계정을 선택합니다.
 1. 왼쪽 메뉴의 설정 부분에서 "공유 액세스 서명"을 선택합니다.
 1. 앞에서 설명한 대로 적절한 섹션을 만듭니다.
 1. "SAS 생성" 단추를 클릭합니다.
@@ -231,7 +231,7 @@ JsonBlob 싱크로 전달되는 데이터는 Azure Storage의 Blob에 저장됩�
 
 요소 | 값
 ------- | -----
-StorageAccount | 확장에 의해 데이터가 기록될 저장소 계정의 이름입니다. [보호 설정](#protected-settings)에서 지정된 이름과 동일해야 합니다.
+StorageAccount | 확장에 의해 데이터가 기록될 스토리지 계정의 이름입니다. [보호 설정](#protected-settings)에서 지정된 이름과 동일해야 합니다.
 mdsdHttpProxy | (선택 사항) [보호 설정](#protected-settings)에서와 동일해야 합니다. 공용 값은 프라이빗 값(설정된 경우)으로 재정의됩니다. [보호 설정](#protected-settings)에서 비밀(예: 암호)을 포함하는 프록시 설정을 배치합니다.
 
 남아 있는 요소는 다음 섹션에 자세히 설명되어 있습니다.
@@ -254,7 +254,7 @@ mdsdHttpProxy | (선택 사항) [보호 설정](#protected-settings)에서와 �
 
 요소 | 값
 ------- | -----
-eventVolume | (선택 사항) 저장소 테이블 내에서 만든 파티션의 수를 제어합니다. `"Large"`, `"Medium"` 또는 `"Small"` 중 하나여야 합니다. 기본값은 지정 하지 않으면 `"Medium"`합니다.
+eventVolume | (선택 사항) 스토리지 테이블 내에서 만든 파티션의 수를 제어합니다. `"Large"`, `"Medium"` 또는 `"Small"` 중 하나여야 합니다. 기본값은 지정 하지 않으면 `"Medium"`합니다.
 sampleRateInSeconds | (선택 사항) 원시(집계되지 않은) 메트릭 컬렉션 간의 기본 간격입니다. 지원되는 가장 작은 샘플 속도는 15초입니다. 지정하지 않으면 기본값 `15`입니다.
 
 #### <a name="metrics"></a>metrics
@@ -535,13 +535,13 @@ az vm extension set *resource_group_name* *vm_name* LinuxDiagnostic Microsoft.Az
 
 ## <a name="an-example-lad-30-configuration"></a>LAD 3.0 구성 예제
 
-이전 정의를 기반으로 몇 가지 설명이 포함된 샘플 LAD 3.0 확장 구성이 나와 있습니다. 이 샘플을 사례에 적용하려면 사용자 고유의 저장소 계정 이름, 계정 SAS 토큰 및 EventHubs SAS 토큰을 사용해야 합니다.
+이전 정의를 기반으로 몇 가지 설명이 포함된 샘플 LAD 3.0 확장 구성이 나와 있습니다. 이 샘플을 사례에 적용하려면 사용자 고유의 스토리지 계정 이름, 계정 SAS 토큰 및 EventHubs SAS 토큰을 사용해야 합니다.
 
 ### <a name="privateconfigjson"></a>PrivateConfig.json
 
 프라이빗 설정은 다음을 구성합니다.
 
-* 저장소 계정
+* 스토리지 계정
 * 일치하는 계정 SAS 토큰
 * 여러 싱크(SAS 토큰이 있는 EventHubs 또는 JsonBlob)
 
@@ -692,14 +692,14 @@ Azure Portal을 사용하여 성능 데이터를 보거나 경고를 설정합�
 
 `performanceCounters` 데이터는 항상 Azure Storage 테이블에 저장됩니다. Azure Storage API는 다양한 언어 및 플랫폼에 사용할 수 있습니다.
 
-JsonBlob 싱크로 전송된 데이터는 [보호 설정](#protected-settings)에서 명명된 저장소 계정의 Blob에 저장됩니다. Azure Blob Storage API를 사용하여 Blob 데이터를 사용할 수 있습니다.
+JsonBlob 싱크로 전송된 데이터는 [보호 설정](#protected-settings)에서 명명된 스토리지 계정의 Blob에 저장됩니다. Azure Blob Storage API를 사용하여 Blob 데이터를 사용할 수 있습니다.
 
 또한 다음 UI 도구를 사용하여 Azure Storage의 데이터에 액세스할 수 있습니다.
 
 * Visual Studio 서버 탐색기.
 * [Microsoft Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer").
 
-Microsoft Azure Storage 탐색기의 이 스냅샷 세션은 테스트 VM에서 올바르게 구성된 LAD 3.0 확장에서 생성된 Azure Storage 테이블 및 컨테이너를 보여 줍니다. 이미지가 [샘플 LAD 3.0 구성](#an-example-lad-30-configuration)과 정확히 일치하지는 않습니다.
+Microsoft Azure Storage Explorer의 이 스냅샷 세션은 테스트 VM에서 올바르게 구성된 LAD 3.0 확장에서 생성된 Azure Storage 테이블 및 컨테이너를 보여 줍니다. 이미지가 [샘플 LAD 3.0 구성](#an-example-lad-30-configuration)과 정확히 일치하지는 않습니다.
 
 ![image](./media/diagnostics-linux/stg_explorer.png)
 

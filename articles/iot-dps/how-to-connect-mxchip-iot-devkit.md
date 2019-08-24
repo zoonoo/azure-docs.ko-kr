@@ -120,7 +120,7 @@ DevKit의 **다시 설정** 단추를 누릅니다. DevKit 화면에 **DPS 연�
 1. 디바이스가 Device Provisioning Service에 등록 요청을 보냅니다.
 1. Device Provisioning Service에서 디바이스가 응답하는 등록 챌린지를 다시 보냅니다.
 1. 등록에 성공하면 Device Provisioning Service는 IoT Hub URI, 디바이스 ID 및 암호화된 키를 디바이스로 다시 보냅니다.
-1. 장치의 IoT Hub 클라이언트 애플리케이션이 사용자 허브에 연결됩니다.
+1. 디바이스의 IoT Hub 클라이언트 애플리케이션이 사용자 허브에 연결됩니다.
 1. 허브에 성공적으로 연결되면 IoT Hub의 Device Explorer에 디바이스가 표시됩니다.
   ![등록된 디바이스](./media/how-to-connect-mxchip-iot-devkit/device-registered.png)
 

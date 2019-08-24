@@ -224,9 +224,9 @@ pNic0/ipConfigurations/ipconfig1",
 }
 ```
 
-## <a name="check-connectivity-to-a-storage-endpoint"></a>저장소 엔드포인트에 대한 연결 확인
+## <a name="check-connectivity-to-a-storage-endpoint"></a>스토리지 엔드포인트에 대한 연결 확인
 
-다음 예제에서는 가상 컴퓨터에서 BLOB 저장소 계정으로의 연결을 확인합니다.
+다음 예제에서는 가상 컴퓨터에서 BLOB 스토리지 계정으로의 연결을 확인합니다.
 
 ### <a name="example"></a>예
 
@@ -236,7 +236,7 @@ az network watcher test-connectivity --resource-group ContosoRG --source-resourc
 
 ### <a name="response"></a>response
 
-다음 json은 이전 cmdlet 실행에서 가져온 예제 응답입니다. 확인에 성공했으므로 `connectionStatus` 속성이 **Reachable**로 표시됩니다.  저장소 BLOB 및 대기 시간에 도달하는 데 필요한 홉 수에 대한 세부 정보가 제공됩니다.
+다음 json은 이전 cmdlet 실행에서 가져온 예제 응답입니다. 확인에 성공했으므로 `connectionStatus` 속성이 **Reachable**로 표시됩니다.  스토리지 BLOB 및 대기 시간에 도달하는 데 필요한 홉 수에 대한 세부 정보가 제공됩니다.
 
 ```json
 {

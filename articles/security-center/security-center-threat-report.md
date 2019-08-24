@@ -16,7 +16,7 @@ ms.date: 11/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: ba5ab7ce85933545a41f23e2ecd913acbb7e72d1
 ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "60703914"
@@ -62,7 +62,7 @@ Security Center에는 세 가지 유형의 위협 보고서가 있는데 공격�
     ![보안 경고 세부 정보](./media/security-center-threat-report/security-center-threat-report-fig2.png)
 4. 각 보안 경고에 제공되는 정보 량은 경고 유형에 따라 달라집니다. **보고서** 필드에는 위협 인텔리전스 보고서에 대한 링크가 있습니다. 해당 링크를 클릭하면 다른 브라우저 창에서 PDF 파일을 표시합니다.
 
-   ![저장소 선택](./media/security-center-threat-report/security-center-threat-report-fig3.png)
+   ![스토리지 선택](./media/security-center-threat-report/security-center-threat-report-fig3.png)
 
 여기서는 해당 보고서의 PDF 파일을 다운로드하여 감지된 보안 문제에 대해 자세히 파악하고 제공된 정보에 기반한 조치를 수행할 수 있습니다.
 

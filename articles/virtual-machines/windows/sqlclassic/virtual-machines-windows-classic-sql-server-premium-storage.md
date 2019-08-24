@@ -32,7 +32,7 @@ ms.locfileid: "60583273"
 > [!IMPORTANT]
 > Azure에는 리소스를 만들고 사용하기 위한 [Resource Manager 및 클래식](../../../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
 
-이 문서에서는 SQL Server를 실행하는 Virtual Machine이 Premium Storage를 사용하도록 마이그레이션하기 위한 계획 및 지침을 제공합니다. 여기에는 Azure 인프라(네트워킹, 저장소) 및 게스트 Windows VM 관련 단계가 포함됩니다. [부록](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) 의 예제에서는 PowerShell을 통해 개선된 로컬 SSD 저장소를 활용하도록 대규모 VM을 이동하는 전체 마이그레이션 방법을 보여 줍니다.
+이 문서에서는 SQL Server를 실행하는 Virtual Machine이 Premium Storage를 사용하도록 마이그레이션하기 위한 계획 및 지침을 제공합니다. 여기에는 Azure 인프라(네트워킹, 스토리지) 및 게스트 Windows VM 관련 단계가 포함됩니다. [부록](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) 의 예제에서는 PowerShell을 통해 개선된 로컬 SSD 스토리지를 활용하도록 대규모 VM을 이동하는 전체 마이그레이션 방법을 보여 줍니다.
 
 IAAS VM의 SQL Server에서 Azure Premium Storage를 활용하는 엔드투엔드 프로세스를 이해해야 합니다. 다음 내용이 포함됩니다.
 
@@ -113,13 +113,13 @@ Premium Storage 계정의 일부분인 디스크를 만들 때의 기본적인 �
 
 VHD를 연결한 후에는 캐시 설정을 변경할 수 없습니다. 업데이트된 캐시 설정으로 VHD를 분리했다가 다시 연결해야 합니다.
 
-### <a name="windows-storage-spaces"></a>Windows 저장소 공간
+### <a name="windows-storage-spaces"></a>Windows 스토리지 공간
 
 이전 Standard Storage와 같이 [Windows 스토리지 공간](https://technet.microsoft.com/library/hh831739.aspx)을 사용할 수 있습니다. 그러면 이미 스토리지 공간을 사용 중인 VM을 마이그레이션할 수 있습니다. [부록](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage)의 예제(9단계부터)에서는 여러 VHD가 연결된 VM을 추출하고 가져오는 PowerShell 코드를 보여 줍니다.
 
 스토리지 풀은 처리량을 높이고 대기 시간을 줄이기 위해 표준 Azure Storage 계정에서 사용되었습니다. 새 배포의 경우 Premium Storage에서도 스토리지 풀을 사용해 볼 수 있습니다. 그러나 이렇게 하면 스토리지 설정이 더 복잡해집니다.
 
-#### <a name="how-to-find-which-azure-virtual-disks-map-to-storage-pools"></a>저장소 풀에 매핑되는 Azure 가상 디스크를 찾는 방법
+#### <a name="how-to-find-which-azure-virtual-disks-map-to-storage-pools"></a>스토리지 풀에 매핑되는 Azure 가상 디스크를 찾는 방법
 
 연결된 VHD에 따라 각기 다른 캐시 설정을 사용하는 것이 좋으므로 VHD를 Premium Storage 계정에 복사할 수 있습니다. 그러나 새 DS 시리즈 VM에 VHD를 다시 연결할 때는 캐시 설정을 변경해야 할 수 있습니다. SQL 데이터 파일 및 로그 파일이 모두 포함된 VHD를 하나 사용하기보다는 두 파일에 대해 각각 별도의 VHD를 사용하는 경우 Premium Storage 권장 캐시 설정을 보다 간편하게 적용할 수 있습니다.
 
@@ -128,9 +128,9 @@ VHD를 연결한 후에는 캐시 설정을 변경할 수 없습니다. 업데�
 >
 >
 
-그러나 여러 VHD로 구성된 Windows 저장소 공간을 사용하는 경우에는 원본 스크립트를 확인하여 연결된 어떤 VHD가 어떤 특정 풀에 있는지 파악해야 각 디스크에 적절한 캐시 설정을 지정할 수 있습니다.
+그러나 여러 VHD로 구성된 Windows 스토리지 공간을 사용하는 경우에는 원본 스크립트를 확인하여 연결된 어떤 VHD가 어떤 특정 풀에 있는지 파악해야 각 디스크에 적절한 캐시 설정을 지정할 수 있습니다.
 
-저장소 풀에 매핑되는 VHD를 보여 주는 원본 스크립트를 사용할 수 없는 경우에는 다음 단계에 따라 디스크/저장소 풀 매핑을 확인할 수 있습니다.
+스토리지 풀에 매핑되는 VHD를 보여 주는 원본 스크립트를 사용할 수 없는 경우에는 다음 단계에 따라 디스크/스토리지 풀 매핑을 확인할 수 있습니다.
 
 각 디스크에 대해 다음 단계를 수행합니다.
 
@@ -143,14 +143,14 @@ Get-AzureVM -ServiceName <servicename> -Name <vmname> | Get-AzureDataDisk
 1. DiskName과 LUN을 note 합니다.
 
     ![DisknameAndLUN][2]
-1. VM에 원격 데스크톱으로 연결합니다. 그런 다음 **컴퓨터 관리** | **장치 관리자** | **디스크 드라이브**로 이동합니다. 각 ‘Microsoft 가상 디스크'의 속성을 확인합니다.
+1. VM에 원격 데스크톱으로 연결합니다. 그런 다음 **컴퓨터 관리** | **디바이스 관리자** | **디스크 드라이브**로 이동합니다. 각 ‘Microsoft 가상 디스크'의 속성을 확인합니다.
 
     ![VirtualDiskProperties][3]
 1. 여기서 LUN 번호는 VHD를 VM에 연결할 때 지정하는 LUN 번호에 대한 참조입니다.
-1. 'Microsoft 가상 디스크'의 경우 **세부 정보** 탭으로 이동한 다음 **속성** 목록에서 **드라이버 키**로 이동합니다. **값**에서 **오프셋**을 확인합니다. 아래 스크린샷에서 오프셋은 0002입니다. 0002는 저장소 풀이 참조하는 PhysicalDisk2를 나타냅니다.
+1. 'Microsoft 가상 디스크'의 경우 **세부 정보** 탭으로 이동한 다음 **속성** 목록에서 **드라이버 키**로 이동합니다. **값**에서 **오프셋**을 확인합니다. 아래 스크린샷에서 오프셋은 0002입니다. 0002는 스토리지 풀이 참조하는 PhysicalDisk2를 나타냅니다.
 
     ![VirtualDiskPropertyDetails][4]
-1. 각 저장소 풀에 대해 연결된 디스크를 덤프합니다.
+1. 각 스토리지 풀에 대해 연결된 디스크를 덤프합니다.
 
 ```powershell
 Get-StoragePool -FriendlyName AMS1pooldata | Get-PhysicalDisk
@@ -158,13 +158,13 @@ Get-StoragePool -FriendlyName AMS1pooldata | Get-PhysicalDisk
 
 ![GetStoragePool][5]
 
-이제 이 정보를 사용하여 연결된 VHD를 저장소 풀의 실제 디스크에 연결할 수 있습니다.
+이제 이 정보를 사용하여 연결된 VHD를 스토리지 풀의 실제 디스크에 연결할 수 있습니다.
 
 스토리지 풀의 실제 디스크에 매핑한 VHD는 분리하여 Premium Storage 계정으로 복사한 다음 올바른 캐시 설정을 사용하여 연결할 수 있습니다. [부록](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) 8~12단계의 예제를 참조하세요. 이러한 단계에서는 VM에 연결된 VHD 디스크 구성을 CSV파일에 추출하고 VHD를 복사한 다음 디스크 구성 캐시 설정을 변경하고 마지막으로 모든 연결된 디스크와 함께 VM을 DS 시리즈 VM으로 다시 배포하는 방법을 보여 줍니다.
 
-### <a name="vm-storage-bandwidth-and-vhd-storage-throughput"></a>VM 저장소 대역폭 및 VHD 저장소 처리량
+### <a name="vm-storage-bandwidth-and-vhd-storage-throughput"></a>VM 스토리지 대역폭 및 VHD 스토리지 처리량
 
-저장소 성능은 지정한 DS* VM 크기와 VHD 크기에 따라 달라집니다. VM마다 연결할 수 있는 VHD 수와 지원하는 최대 대역폭(MB/s)이 다릅니다. 구체적인 대역폭 수치는 [Azure를 위한 Virtual Machine 및 클라우드 서비스 크기](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+스토리지 성능은 지정한 DS* VM 크기와 VHD 크기에 따라 달라집니다. VM마다 연결할 수 있는 VHD 수와 지원하는 최대 대역폭(MB/s)이 다릅니다. 구체적인 대역폭 수치는 [Azure를 위한 Virtual Machine 및 클라우드 서비스 크기](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
 디스크가 클수록 IOPS가 높아집니다. 마이그레이션 경로를 고려할 때는 이 점에 유의해야 합니다. 자세한 내용은 [IOPS 및 디스크 유형의 테이블을 참조하세요](../disks-types.md#premium-ssd).
 
@@ -174,7 +174,7 @@ Get-StoragePool -FriendlyName AMS1pooldata | Get-PhysicalDisk
 
 다음 두 섹션에서는 SQL Server VM을 Premium Storage로 배포하는 방법을 설명합니다. 앞에서 설명한 것처럼 OS 디스크를 반드시 Premium Storage에 배치할 필요는 없습니다. IO를 많이 사용하는 작업을 OS VHD에서 수행하려는 경우에는 OS 디스크를 프리미엄 저장소에 배치할 수 있습니다.
 
-첫 번째 예제에서는 기존 Azure 갤러리 이미지를 사용하는 방법을 보여 줍니다. 두 번째 예제에서는 기존 표준 저장소 계정 내의 사용자 지정 VM 이미지를 사용하는 방법을 보여 줍니다.
+첫 번째 예제에서는 기존 Azure 갤러리 이미지를 사용하는 방법을 보여 줍니다. 두 번째 예제에서는 기존 표준 스토리지 계정 내의 사용자 지정 VM 이미지를 사용하는 방법을 보여 줍니다.
 
 > [!NOTE]
 > 이러한 예제에서는 지역 VNET을 이미 만들었다고 가정합니다.
@@ -448,14 +448,14 @@ Microsoft Azure에서는 VM의 NIC에 IP 주소를 하나만 할당할 수 있�
 * 클러스터 유효성 검사 시
 * 새 보조 복제본에 대해 Always On 장애 조치(failover) 테스트 시
 
-IO 처리량을 높이기 위해 VM 내에서 Windows 저장소 풀을 사용하는 경우 전체 클러스터 유효성 검사 중에 해당 풀이 오프라인으로 설정됩니다. 클러스터에 노드를 추가할 때는 유효성 검사 테스트를 수행해야 합니다. 테스트를 실행하는 데 걸리는 시간은 경우에 따라 다르므로 대표 테스트 환경에서 이 테스트를 수행하여 소요 시간을 대략적으로 파악해야 합니다.
+IO 처리량을 높이기 위해 VM 내에서 Windows 스토리지 풀을 사용하는 경우 전체 클러스터 유효성 검사 중에 해당 풀이 오프라인으로 설정됩니다. 클러스터에 노드를 추가할 때는 유효성 검사 테스트를 수행해야 합니다. 테스트를 실행하는 데 걸리는 시간은 경우에 따라 다르므로 대표 테스트 환경에서 이 테스트를 수행하여 소요 시간을 대략적으로 파악해야 합니다.
 
 새로 추가한 노드에서 수동 장애 조치(failover) 및 문제 상황 테스트를 수행할 수 있는 시간을 배정하여 Always On 고가용성 기능이 정상적으로 작동하는지를 확인해야 합니다.
 
 ![DeploymentUseAlways On2][7]
 
 > [!NOTE]
-> 유효성 검사를 실행하기 전에 저장소 풀이 사용되는 모든 SQL Server 인스턴스를 중지해야 합니다.
+> 유효성 검사를 실행하기 전에 스토리지 풀이 사용되는 모든 SQL Server 인스턴스를 중지해야 합니다.
 >
 > ##### <a name="high-level-steps"></a>대략적인 단계
 >
@@ -469,8 +469,8 @@ IO 처리량을 높이기 위해 VM 내에서 Windows 저장소 풀을 사용하
    > 계속하기 전에 모든 노드의 엔드포인트 구성이 올바른지 확인합니다.
    >
    >
-5. 저장소 풀을 사용 중인 경우 SQL Server에 대한 사용자/응용 프로그램 액세스를 중지합니다.
-6. 저장소 풀을 사용 중인 경우 모든 노드에서 SQL Server Engine Services를 중지합니다.
+5. 스토리지 풀을 사용 중인 경우 SQL Server에 대한 사용자/애플리케이션 액세스를 중지합니다.
+6. 스토리지 풀을 사용 중인 경우 모든 노드에서 SQL Server Engine Services를 중지합니다.
 7. 새 노드를 클러스터에 추가하고 전체 유효성 검사를 실행합니다.
 8. 유효성 검사가 정상적으로 완료되면 모든 SQL Server 서비스를 시작합니다.
 9. 트랜잭션 로그를 백업하고 사용자 데이터베이스를 복원합니다.
@@ -483,12 +483,12 @@ IO 처리량을 높이기 위해 VM 내에서 Windows 저장소 풀을 사용하
 ##### <a name="advantages"></a>장점
 
 * 새 SQL Server(SQL Server 및 애플리케이션)를 Always On에 추가하기 전에 테스트할 수 있습니다.
-* VM 크기를 변경할 수 있으며 정확한 요구 사항에 맞게 저장소를 사용자 지정할 수 있습니다. 그러나 모든 SQL 파일 경로는 동일하게 유지하는 것이 좋습니다.
+* VM 크기를 변경할 수 있으며 정확한 요구 사항에 맞게 스토리지를 사용자 지정할 수 있습니다. 그러나 모든 SQL 파일 경로는 동일하게 유지하는 것이 좋습니다.
 * 보조 복제본에 DB 백업이 전송이 시작되는 시간을 제어할 수 있습니다. 이 방식은 Azure **Start-AzureStorageBlobCopy** commandlet을 사용하여 VHD를 복사하는 비동기 복사와는 다릅니다.
 
 ##### <a name="disadvantages"></a>단점
 
-* Windows 저장소 풀을 사용할 경우 새 추가 노드에 대한 전체 클러스터 유효성 검사를 수행하는 동안 클러스터의 가동이 중지됩니다.
+* Windows 스토리지 풀을 사용할 경우 새 추가 노드에 대한 전체 클러스터 유효성 검사를 수행하는 동안 클러스터의 가동이 중지됩니다.
 * SQL Server 버전 및 기존 보조 복제본의 수에 따라서는 기존 보조 복제본을 제거해야 보조 복제본을 더 추가할 수 있는 경우도 있습니다.
 * 보조 복제본을 설정하는 동안 SQL 데이터 전송 시간이 길어질 수 있습니다.
 * 새 컴퓨터를 병렬로 실행하면 마이그레이션 중에 추가 비용이 발생할 수 있습니다.
@@ -507,7 +507,7 @@ IO 처리량을 높이기 위해 VM 내에서 Windows 저장소 풀을 사용하
 ##### <a name="advantages"></a>장점
 
 * 실제 프로덕션 환경, SQL Serve 및 OS 빌드 변경 내용을 테스트할 수 있습니다.
-* 저장소를 사용자 지정할 수 있으며 VM의 크기도 줄일 수 있습니다. 따라서 비용을 절감할 수 있습니다.
+* 스토리지를 사용자 지정할 수 있으며 VM의 크기도 줄일 수 있습니다. 따라서 비용을 절감할 수 있습니다.
 * 이 과정에서 SQL Server 빌드 또는 버전을 업데이트할 수 있습니다. 운영 체제도 업그레이드할 수 있습니다.
 * 이전 Always On 클러스터를 명확한 롤백 대상으로 사용할 수 있습니다.
 
@@ -587,8 +587,8 @@ IO 처리량을 높이기 위해 VM 내에서 Windows 저장소 풀을 사용하
 ##### <a name="advantages"></a>장점
 
 * 기존 인프라를 활용할 수 있습니다.
-* DR Azure DC에서 Azure 저장소를 먼저 업그레이드할 수 있습니다.
-* DR Azure DC 저장소를 다시 구성할 수 있습니다.
+* DR Azure DC에서 Azure Storage를 먼저 업그레이드할 수 있습니다.
+* DR Azure DC 스토리지를 다시 구성할 수 있습니다.
 * 테스트 장애 조치(failover)를 제외하면 마이그레이션 중에 최소한 두 번의 장애 조치(failover)가 수행됩니다.
 * 백업과 복원 시에 SQL Server 데이터를 이동할 필요가 없습니다.
 
@@ -601,7 +601,7 @@ IO 처리량을 높이기 위해 VM 내에서 Windows 저장소 풀을 사용하
   * Azure 예약 유지 관리를 수행하지 않는 시간에 마이그레이션을 실행합니다.
   * 클러스터 쿼럼을 올바르게 구성했는지 확인합니다.
 
-이 시나리오에서는 사용자가 설치 작업을 문서화했으며 최적의 디스크 캐시 설정을 적용할 수 있도록 변경하기 위해 저장소를 매핑하는 방법을 알고 있다고 가정합니다.
+이 시나리오에서는 사용자가 설치 작업을 문서화했으며 최적의 디스크 캐시 설정을 적용할 수 있도록 변경하기 위해 스토리지를 매핑하는 방법을 알고 있다고 가정합니다.
 
 ##### <a name="high-level-steps"></a>대략적인 단계
 
@@ -626,7 +626,7 @@ IO 처리량을 높이기 위해 VM 내에서 Windows 저장소 풀을 사용하
 
 * Windows 2012/SQL 2012
 * SP의 DB 파일 하나
-* 노드당 저장소 풀 2개
+* 노드당 스토리지 풀 2개
 
 ![Appendix1][11]
 

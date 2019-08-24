@@ -104,7 +104,7 @@ ms.locfileid: "68302082"
 
 | 요청 메서드 | URL | 본문 | 헤더 |
 |----------------|-----|------|---------| 
-| **POST** | <*endpoint-URL*> | **원시** <p>**JSON(응용 프로그램/json)** <p>**원시** 상자에 요청에서 보낼 페이로드를 입력합니다. <p>**참고**: 이 설정은 **헤더** 값을 자동으로 구성 합니다. | **키**: Content-Type <br>**값**: 응용 프로그램/json
+| **POST** | <*endpoint-URL*> | **원시** <p>**JSON(애플리케이션/json)** <p>**원시** 상자에 요청에서 보낼 페이로드를 입력합니다. <p>**참고**: 이 설정은 **헤더** 값을 자동으로 구성 합니다. | **키**: Content-Type <br>**값**: 애플리케이션/json
  |||| 
 
 ![수동으로 논리 앱을 트리거하는 요청 보내기](./media/migrate-from-scheduler-to-logic-apps/postman-send-post-request.png)

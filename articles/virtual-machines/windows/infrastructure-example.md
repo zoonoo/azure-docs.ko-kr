@@ -61,8 +61,8 @@ Adventure Works Cycles는 Azure에서 다음으로 구성된 온라인 스토어
 ## <a name="azure-subscriptions-and-accounts"></a>Azure 구독 및 계정
 Adventure Works Cycles는 이 IT 작업에 대한 청구를 제공하기 위해 Adventure Works Enterprise Subscription이라는 엔터프라이즈 구독을 사용합니다.
 
-## <a name="storage"></a>저장 공간
-Adventure Works Cycles에서는 Azure Managed Disks를 사용해야 한다고 결정했습니다. VM을 만들 때 사용 가능한 두 저장소 계층이 모두 사용됩니다.
+## <a name="storage"></a>스토리지
+Adventure Works Cycles에서는 Azure Managed Disks를 사용해야 한다고 결정했습니다. VM을 만들 때 사용 가능한 두 스토리지 계층이 모두 사용됩니다.
 
 * **Standard Storage** - 웹 서버, 애플리케이션 서버 및 도메인 컨트롤러와 해당 데이터 디스크
 * **Premium Storage** - SQL Server VM과 해당 데이터 디스크
@@ -86,7 +86,7 @@ Azure 포털을 사용하여 다음 설정을 포함한 클라우드 전용 가�
 온라인 스토어에서 모든 네 개 계층의 고가용성을 유지하기 위해 Adventure Works Cycles는 다음과 같은 네 개의 가용성 집합으로 결정했습니다.
 
 * **azos-use-as-web**
-* 애플리케이션 서버용 **azos-use-as-app**
+* **azos-use-as-app**
 * **azos-use-as-sql**
 * **azos-use-as-dc**
 

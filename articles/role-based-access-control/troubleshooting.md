@@ -17,7 +17,7 @@ ms.reviewer: bagovind
 ms.custom: seohack1
 ms.openlocfilehash: 59ece9c37a563efba6329a30c06c1b596b1a5d57
 ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "67058161"
@@ -142,7 +142,7 @@ Azure Resource Manager는 경우에 따라 성능 향상을 위해 구성 및 �
 
 * 웹앱의 가격 책정 계층 보기(무료 또는 표준)  
 * 크기 조정 구성(인스턴스 수, 가상 머신 크기, 자동 크기 조정 설정)  
-* 할당량(저장소, 대역폭, CPU)  
+* 할당량(스토리지, 대역폭, CPU)  
 
 다음 항목을 사용하려면 웹 사이트를 포함하는 전체 **리소스 그룹**에 대한 **쓰기** 권한이 필요합니다.  
 
@@ -156,7 +156,7 @@ Azure Resource Manager는 경우에 따라 성능 향상을 위해 구성 및 �
 
 웹앱과 마찬가지로 가상 머신 블레이드의 일부 기능 역시 가상 머신 또는 리소스 그룹의 기타 리소스에 대한 쓰기 권한이 있어야 사용할 수 있습니다.
 
-가상 머신은 도메인 이름, 가상 네트워크, 저장소 계정 및 경고 규칙과 관련이 있습니다.
+가상 머신은 도메인 이름, 가상 네트워크, 스토리지 계정 및 경고 규칙과 관련이 있습니다.
 
 다음 항목을 사용하려면 **가상 머신**에 대한 **쓰기** 권한이 필요합니다.
 

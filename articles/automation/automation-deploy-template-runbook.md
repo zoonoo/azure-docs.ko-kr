@@ -233,7 +233,7 @@ $job = Start-AzureRmAutomationRunbook @startParams
 Runbook이 실행되고 `$job.Status`를 실행하여 상태를 확인할 수 있습니다.
 
 Runbook은 Resource Manager 템플릿을 가져와서 새 Azure Storage 계정을 배포하는 데 사용합니다.
-다음 명령을 실행하여 새 저장소 계정을 만들었음을 확인할 수 있습니다.
+다음 명령을 실행하여 새 스토리지 계정을 만들었음을 확인할 수 있습니다.
 ```powershell
 Get-AzureRmStorageAccount
 ```

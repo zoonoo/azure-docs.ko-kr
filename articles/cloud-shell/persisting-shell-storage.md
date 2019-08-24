@@ -23,7 +23,7 @@ ms.locfileid: "68742030"
 ---
 [!INCLUDE [PersistingStorage-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
-## <a name="how-cloud-shell-storage-works"></a>Cloud Shell 저장소 작동 방법 
+## <a name="how-cloud-shell-storage-works"></a>Cloud Shell 스토리지 작동 방법 
 Cloud Shell은 다음 방법 모두를 통해 파일을 유지합니다. 
 * `$Home` 디렉터리 내에 모든 콘텐츠를 유지하기 위해 해당 디렉터리의 디스크 이미지를 만듭니다. 디스크 이미지는 `fileshare.storage.windows.net/fileshare/.cloudconsole/acc_<User>.img`에서 `acc_<User>.img`로 지정된 파일 공유에 저장되고 변경 내용을 자동으로 동기화합니다. 
 * 직접 파일 공유의 상호 작용을 위해 `$Home` 디렉터리에서 지정된 파일 공유를 `clouddrive`로 마운트합니다. `/Home/<User>/clouddrive`은 `fileshare.storage.windows.net/fileshare`에 매핑됩니다.
@@ -42,7 +42,7 @@ Azure Cloud Shell의 Bash에서 `clouddrive` 명령을 실행하여 Azure Cloud 
 #### <a name="prerequisites-for-manual-mounting"></a>수동 마운트를 위한 필수 구성 요소
 `clouddrive mount` 명령을 사용하여 Cloud Shell과 연결된 파일 공유를 업데이트할 수 있습니다.
 
-기존 파일 공유를 탑재할 경우 저장소 계정은 선택하는 Cloud Shell 영역에 있어야 합니다. Bash에서 `env`를 실행하고 `ACC_LOCATION`을 확인하여 위치를 검색합니다.
+기존 파일 공유를 탑재할 경우 스토리지 계정은 선택하는 Cloud Shell 영역에 있어야 합니다. Bash에서 `env`를 실행하고 `ACC_LOCATION`을 확인하여 위치를 검색합니다.
 
 #### <a name="the-clouddrive-mount-command"></a>`clouddrive mount` 명령
 
@@ -70,12 +70,12 @@ clouddrive mount -s mySubscription -g myRG -n storageAccountName -f fileShareNam
 ![‘clouddrive unmount’ 명령 실행](media/persisting-shell-storage/unmount-h.png)
 
 > [!WARNING]
-> 이 명령을 실행해도 리소스가 삭제되는 것은 아니지만 Cloud Shell에 매핑된 리소스 그룹, 저장소 계정 또는 파일 공유를 수동으로 삭제하면 `$Home` 디렉터리 디스크 이미지 및 파일 공유의 모든 파일이 지워집니다. 이 작업은 실행 취소할 수 없습니다.
+> 이 명령을 실행해도 리소스가 삭제되는 것은 아니지만 Cloud Shell에 매핑된 리소스 그룹, 스토리지 계정 또는 파일 공유를 수동으로 삭제하면 `$Home` 디렉터리 디스크 이미지 및 파일 공유의 모든 파일이 지워집니다. 이 작업은 실행 취소할 수 없습니다.
 
 ### <a name="list-clouddrive"></a>목록 `clouddrive`
 `clouddrive`로 마운트된 파일 공유를 확인하려면 `df` 명령을 실행합니다. 
 
-clouddrive에 대한 파일 경로는 URL에서 저장소 계정 이름 및 파일 공유를 표시합니다. 예를 들면 `//storageaccountname.file.core.windows.net/filesharename`
+clouddrive에 대한 파일 경로는 URL에서 스토리지 계정 이름 및 파일 공유를 표시합니다. 예를 들면 `//storageaccountname.file.core.windows.net/filesharename`
 
 ```
 justin@Azure:~$ df
@@ -97,7 +97,7 @@ justin@Azure:~$
 ### <a name="unmount-clouddrive"></a>`clouddrive` 마운트 해제
 언제든지 Cloud Shell에 마운트된 Azure 파일 공유의 마운트를 해제할 수 있습니다. Azure 파일 공유가 제거된 경우 다음 세션에서 새 Azure 파일 공유를 만들고 탑재하라는 메시지가 표시됩니다.
 
-`Dismount-CloudDrive` cmdlet은 현재 저장소 계정에서 Azure 파일 공유를 탑재 해제합니다. `clouddrive`를 탑재 해제하면 현재 세션이 종료됩니다. 사용자에게 다음 세션에서 새 Azure 파일 공유를 만들고 탑재하라는 메시지가 표시됩니다.
+`Dismount-CloudDrive` cmdlet은 현재 스토리지 계정에서 Azure 파일 공유를 탑재 해제합니다. `clouddrive`를 탑재 해제하면 현재 세션이 종료됩니다. 사용자에게 다음 세션에서 새 Azure 파일 공유를 만들고 탑재하라는 메시지가 표시됩니다.
 ![CloudDrive 탑재 해제 실행](media/persisting-shell-storage-powershell/Dismount-Clouddrive.png)
 
 [!INCLUDE [PersistingStorage-endblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
@@ -107,5 +107,5 @@ justin@Azure:~$
 ## <a name="next-steps"></a>다음 단계
 [Azure Cloud Shell의 Bash 빠른 시작](quickstart.md) <br>
 [Cloud Shell의 PowerShell 빠른 시작](quickstart-powershell.md) <br>
-[Microsoft Azure Files 저장소에 대해 알아보기](https://docs.microsoft.com/azure/storage/storage-introduction) <br>
-[저장소 태그에 대해 알아보기](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>
+[Microsoft Azure Files 스토리지에 대해 알아보기](https://docs.microsoft.com/azure/storage/storage-introduction) <br>
+[스토리지 태그에 대해 알아보기](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>

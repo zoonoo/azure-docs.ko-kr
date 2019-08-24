@@ -1,6 +1,6 @@
 ---
 title: Azure CLI를 사용하여 Linux 환경 만들기 | Microsoft Docs
-description: Azure CLI를 사용하여 저장소, Linux VM, 가상 네트워크 및 서브넷, 부하 분산 장치, NIC, 공용 IP, 네트워크 보안 그룹을 모두 처음부터 새로 만듭니다.
+description: Azure CLI를 사용하여 스토리지, Linux VM, 가상 네트워크 및 서브넷, 부하 분산 디바이스, NIC, 공용 IP, 네트워크 보안 그룹을 모두 처음부터 새로 만듭니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -575,7 +575,7 @@ az group deployment create \
     --template-file myResourceGroup.json
 ```
 
-[템플릿에서 배포하는 방법에 대해 자세히 읽어볼 수 있습니다](../../resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 환경을 점진적으로 업데이트하고, 매개 변수 파일을 사용하고, 단일 저장소 위치에서 템플릿에 액세스하는 방법을 알아봅니다.
+[템플릿에서 배포하는 방법에 대해 자세히 읽어볼 수 있습니다](../../resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 환경을 점진적으로 업데이트하고, 매개 변수 파일을 사용하고, 단일 스토리지 위치에서 템플릿에 액세스하는 방법을 알아봅니다.
 
 ## <a name="next-steps"></a>다음 단계
 이제 여러 네트워킹 구성 요소 및 VM을 사용할 준비가 되셨습니다. 이 샘플 환경에 사용하여 여기에 소개된 핵심 구성 요소로 애플리케이션을 빌드할 수 있습니다.

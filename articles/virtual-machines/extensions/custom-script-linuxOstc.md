@@ -136,8 +136,8 @@ ms.locfileid: "67706041"
 * `fileUris`: (선택 사항 문자열 배열) 스크립트의 URI 목록
 * `enableInternalDNSCheck`: (선택 사항, bool) 기본값은 True이며 DNS 확인을 해제하려면 False로 설정합니다.
 * `commandToExecute`: (선택 사항, 문자열) 실행할 진입점 스크립트.
-* `storageAccountName`: (선택 사항, 문자열) 저장소 계정의 이름
-* `storageAccountKey`: (선택 사항, 문자열) 저장소 계정의 액세스 키
+* `storageAccountName`: (선택 사항, 문자열) 스토리지 계정의 이름
+* `storageAccountKey`: (옵션, 문자열) 스토리지 계정의 액세스 키입니다.
 
 공용 또는 보호된 설정에서 다음 값을 설정할 수 있습니다. 공용 및 보호된 설정 모두에서 이러한 값을 설정하지 않아야 합니다.
 

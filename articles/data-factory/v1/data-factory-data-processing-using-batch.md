@@ -79,7 +79,7 @@ Data Factory는 기본 제공 작업을 포함합니다. 예를 들어 복사 �
 
 * **Data Factory는 보조 위치에 병렬로 처리되는 데이터를 복사합니다** .
 
-* **Data Factory는 Batch에서 할당한 풀을 사용하여 사용자 지정 작업을 실행합니다.** 데이터 팩터리는 작업을 동시에 실행할 수 있습니다. 각 작업은 데이터 조각을 처리합니다. 결과는 저장소에 저장됩니다.
+* **Data Factory는 Batch에서 할당한 풀을 사용하여 사용자 지정 작업을 실행합니다.** 데이터 팩터리는 작업을 동시에 실행할 수 있습니다. 각 작업은 데이터 조각을 처리합니다. 결과는 스토리지에 저장됩니다.
 
 * 앱을 통해 배포하거나 다른 도구에서 추가로 처리하기 위한 목적으로 **Data Factory는 최종 결과를 세 번째 위치로 이동시킵니다**.
 
@@ -93,7 +93,7 @@ Data Factory는 기본 제공 작업을 포함합니다. 예를 들어 복사 �
 Azure 구독이 없는 경우 신속하게 평가판 계정을 만들 수 있습니다. 자세한 내용은 [평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
 #### <a name="azure-storage-account"></a>Azure Storage 계정
-저장소 계정을 사용하여 이 자습서에 있는 데이터를 저장합니다. 저장소 계정이 없는 경우 [저장소 계정 만들기](../../storage/common/storage-quickstart-create-account.md)를 참조하세요. 샘플 솔루션은 Blob Storage를 사용합니다.
+스토리지 계정을 사용하여 이 자습서에 있는 데이터를 저장합니다. 스토리지 계정이 없는 경우 [스토리지 계정 만들기](../../storage/common/storage-quickstart-create-account.md)를 참조하세요. 샘플 솔루션은 Blob Storage를 사용합니다.
 
 #### <a name="azure-batch-account"></a>Azure Batch 계정
 [Azure Portal](https://portal.azure.com/)을 사용하여 Batch 계정을 만듭니다. 자세한 내용은 [Batch 계정 만들기 및 관리](../../batch/batch-account-create-portal.md)를 참조하세요. Batch 계정 이름 및 계정 키를 적어둡니다. 사용할 수도 있습니다는 [새로 만들기-AzBatchAccount](https://docs.microsoft.com/powershell/module/az.batch/new-azbatchaccount) Batch 계정을 만들려면 cmdlet. 이 cmdlet 사용 방법에 대한 자세한 지침은 [Batch PowerShell cmdlet 시작](../../batch/batch-powershell-cmdlets-get-started.md)을 참조하세요.
@@ -447,7 +447,7 @@ public IDictionary<string, string> Execute(
     // Get the output dataset by using the name of the dataset matched to a name in the Activity output collection.
     Dataset outputDataset = datasets.Single(dataset => dataset.Name == activity.Outputs.Single().Name);
     ```
-1. 이 코드는 **GetFolderPath** 도우미 메서드도 호출하여 폴더 경로(저장소 컨테이너 이름)를 검색합니다.
+1. 이 코드는 **GetFolderPath** 도우미 메서드도 호출하여 폴더 경로(스토리지 컨테이너 이름)를 검색합니다.
 
     ```csharp
     folderPath = GetFolderPath(outputDataset);
@@ -484,7 +484,7 @@ public IDictionary<string, string> Execute(
 ### <a name="create-the-data-factory"></a>데이터 팩터리 만들기
 [사용자 지정 작업 만들기](#create-the-custom-activity) 섹션에서 사용자 지정 작업을 만들고 이진 파일과 함께 zip 파일을 업로드하고 PDB 파일을 Blob 컨테이너에 업로드했습니다. 이 섹션에서는 사용자 지정 작업을 사용하는 파이프라인으로 Data Factory를 만듭니다.
 
-사용자 지정 작업에 대한 입력 데이터 집합은 Blob Storage에서 입력 폴더(`mycontainer\\inputfolder`)의 Blob(파일)을 나타냅니다. 이 작업에 대한 출력 데이터 집합은 Blob Storage에서 출력 폴더(`mycontainer\\outputfolder`)의 출력 Blob을 나타냅니다.
+사용자 지정 작업에 대한 입력 데이터 세트은 Blob Storage에서 입력 폴더(`mycontainer\\inputfolder`)의 Blob(파일)을 나타냅니다. 이 작업에 대한 출력 데이터 세트은 Blob Storage에서 출력 폴더(`mycontainer\\outputfolder`)의 출력 Blob을 나타냅니다.
 
 입력 폴더에 있는 하나 이상의 파일을 삭제합니다.
 
@@ -549,7 +549,7 @@ test custom activity Microsoft test custom activity Microsoft
    ![Data Factory 페이지](./media/data-factory-data-processing-using-batch/image6.png)
 
 #### <a name="step-2-create-linked-services"></a>2단계: 연결된 서비스 만들기
-연결된 서비스는 데이터 저장소 또는 컴퓨팅 서비스를 Data Factory에 연결합니다. 이 단계에서는 저장소 계정 및 Batch 계정을 Data Factory에 연결합니다.
+연결된 서비스는 데이터 저장소 또는 컴퓨팅 서비스를 Data Factory에 연결합니다. 이 단계에서는 스토리지 계정 및 Batch 계정을 Data Factory에 연결합니다.
 
 #### <a name="create-an-azure-storage-linked-service"></a>Azure Storage 연결된 서비스 만들기
 1. **CustomActivityFactory**에 대한 **Data Factory** 블레이드에서 **작성 및 배포** 타일을 선택합니다. Data Factory 편집기가 표시됩니다.
@@ -558,7 +558,7 @@ test custom activity Microsoft test custom activity Microsoft
 
    ![새 데이터 저장소](./media/data-factory-data-processing-using-batch/image7.png)
 
-1. **계정 이름**을 저장소 계정 이름으로 바꿉니다. **계정 키**를 저장소 계정의 액세스 키로 바꿉니다. 저장소 액세스 키를 확보하는 방법을 알아보려면 [저장소 액세스 키 보기, 복사 및 다시 생성](../../storage/common/storage-account-manage.md#access-keys)을 참조하세요.
+1. **계정 이름**을 스토리지 계정 이름으로 바꿉니다. **계정 키**를 스토리지 계정의 액세스 키로 바꿉니다. 스토리지 액세스 키를 확보하는 방법을 알아보려면 [스토리지 액세스 키 보기, 복사 및 다시 생성](../../storage/common/storage-account-manage.md#access-keys)을 참조하세요.
 
 1. 명령 모음에서 **배포**를 선택하여 연결된 서비스를 배포합니다.
 
@@ -796,7 +796,7 @@ test custom activity Microsoft test custom activity Microsoft
    * 파이프라인에는 **DotNetActivity** 형식인 하나의 작업만이 있습니다.
    * **AssemblyName**은 DLL **MyDotNetActivity.dll** 이름으로 설정합니다.
    * **EntryPoint**는 **MyDotNetActivityNS.MyDotNetActivity**로 설정합니다. 기본적으로 코드에 있는 \<namespace\>.\<classname\>입니다.
-   * **PackageLinkedService**가 사용자 지정 작업 zip 파일을 포함하는 Blob Storage를 가리키는 **StorageLinkedService**로 설정됩니다. 입/출력 파일 및 사용자 지정 작업 zip 파일에 대해 서로 다른 스토리지 계정을 사용하는 경우 다른 Storage 연결된 서비스를 만들어야 합니다. 이 문서에서는 동일한 저장소 계정을 사용한다고 가정합니다.
+   * **PackageLinkedService**가 사용자 지정 작업 zip 파일을 포함하는 Blob Storage를 가리키는 **StorageLinkedService**로 설정됩니다. 입/출력 파일 및 사용자 지정 작업 zip 파일에 대해 서로 다른 스토리지 계정을 사용하는 경우 다른 Storage 연결된 서비스를 만들어야 합니다. 이 문서에서는 동일한 스토리지 계정을 사용한다고 가정합니다.
    * **PackageFile**은 **customactivitycontainer/MyDotNetActivity.zip**으로 설정합니다. \<containerforthezip\>/\<nameofthezip.zip\> 형식입니다.
    * 사용자 지정 작업은 입력으로 **InputDataset**, 출력으로 **OutputDataset**을 사용합니다.
    * 사용자 지정 작업의 **linkedServiceName** 속성은 **AzureBatchLinkedService**를 가리키며 Data Factory에 사용자 지정 작업을 Batch에서 실행해야 함을 알려줍니다.
@@ -832,7 +832,7 @@ test custom activity Microsoft test custom activity Microsoft
 
 1. 출력 파일이 Blob Storage의 `outputfolder`에 있는 `mycontainer` 아래에 표시됩니다.
 
-   ![저장소의 출력 파일](./media/data-factory-data-processing-using-batch/image15.png)
+   ![스토리지의 출력 파일](./media/data-factory-data-processing-using-batch/image15.png)
 
    각 입력 조각에 대해 하나씩 5개의 출력 파일이 나열됩니다. 각 출력 파일은 다음 출력과 유사한 콘텐츠를 포함합니다.
 

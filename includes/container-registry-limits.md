@@ -27,7 +27,7 @@ ms.locfileid: "67182567"
 | 지역에서 복제 | N/A | 해당 사항 없음 | [지원됨][geo-replication] |
 | 콘텐츠 신뢰 | 해당 사항 없음 | 해당 사항 없음 | [지원됨][content-trust] |
 
-<sup>1</sup> 지정 된 저장소 제한은 각 계층에 대해 *포함* 된 저장소의 크기입니다. 이러한 한도 초과 이미지 저장소에 대해 GiB당 추가 일별 요금이 청구됩니다. 요금 정보는 [Azure Container Registry 가격 책정][pricing]을 참조 하세요.
+<sup>1</sup> 지정 된 저장소 제한은 각 계층에 대해 *포함* 된 저장소의 크기입니다. 이러한 한도 초과 이미지 스토리지에 대해 GiB당 추가 일별 요금이 청구됩니다. 요금 정보는 [Azure Container Registry 가격 책정][pricing]을 참조 하세요.
 
 <sup>2</sup> *Readops*, *Writeops*및 *대역폭* 은 최소 추정치입니다. Azure Container Registry은 사용에 필요한 성능 개선을 위해 노력 하 고 있습니다.
 

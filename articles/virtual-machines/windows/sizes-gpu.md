@@ -1,6 +1,6 @@
 ---
 title: Azure Windows VM 크기 - GPU | Microsoft Docs
-description: Azure의 Windows 가상 머신에 사용할 수 있는 다양한 GPU 최적화 크기를 나열합니다. 이 시리즈의 크기에 대한 저장소 처리량 및 네트워크 대역폭뿐만 아니라 vCPU, 데이터 디스크 및 NIC의 수에 대한 정보를 제공합니다.
+description: Azure의 Windows 가상 머신에 사용할 수 있는 다양한 GPU 최적화 크기를 나열합니다. 이 시리즈의 크기에 대한 스토리지 처리량 및 네트워크 대역폭뿐만 아니라 vCPU, 데이터 디스크 및 NIC의 수에 대한 정보를 제공합니다.
 services: virtual-machines-windows
 documentationcenter: ''
 author: jonbeck7

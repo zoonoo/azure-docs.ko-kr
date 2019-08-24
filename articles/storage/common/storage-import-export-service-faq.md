@@ -100,9 +100,9 @@ FedEx, DHL, UPS 또는 US 우편 서비스와 같이 알려진 모든 운송업�
 - 인도 데이터 센터에는 정부 ID 카드 또는 증명 번호와 같은 드라이버의 개인 세부 정보가 필요 합니다. (예를 들어, PAN, AADHAR, DL), 이름, 연락처 및 자동차 플레이트 번호를 입력 하 여 게이트 진입 패스를 가져옵니다. 배달 지연 시간을 방지 하려면 회사에 이러한 요구 사항을 알려 주십시오.
 
 
-### <a name="when-creating-a-job-the-shipping-address-is-a-location-that-is-different-from-my-storage-account-location-what-should-i-do"></a>작업을 만들 때 배송지 주소가 저장소 계정 위치와는 다른 위치입니다. 어떻게 해야 하나요?
+### <a name="when-creating-a-job-the-shipping-address-is-a-location-that-is-different-from-my-storage-account-location-what-should-i-do"></a>작업을 만들 때 배송지 주소가 스토리지 계정 위치와는 다른 위치입니다. 어떻게 해야 하나요?
 
-일부 저장소 계정 위치는 대체 배송 위치로 매핑됩니다. 이전에 사용 가능했던 배송 위치 또한 일시적으로 대체 위치로 매핑될 수 있습니다. 드라이브를 발송하기 전에 작업을 만들 때 제공한 배송지 주소를 항상 확인합니다.
+일부 스토리지 계정 위치는 대체 배송 위치로 매핑됩니다. 이전에 사용 가능했던 배송 위치 또한 일시적으로 대체 위치로 매핑될 수 있습니다. 드라이브를 발송하기 전에 작업을 만들 때 제공한 배송지 주소를 항상 확인합니다.
 
 ### <a name="when-shipping-my-drive-the-carrier-asks-for-the-data-center-contact-address-and-phone-number-what-should-i-provide"></a>드라이브를 운송할 때 운송업체에서 데이터 센터 연락처 주소 및 전화 번호를 요청합니다. 무엇을 제공해야 하나요?
 
@@ -123,11 +123,11 @@ Azure 데이터 센터에서는 지원 요구 사항에 맞지 않는 드라이�
 
 Azure Portal 또는 [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)를 사용하여 Azure Storage 계정에서 데이터에 액세스합니다.  
 
-### <a name="after-the-import-is-complete-what-does-my-data-look-like-in-the-storage-account-is-my-directory-hierarchy-preserved"></a>가져오기 작업을 완료한 후에 저장소 계정에서 데이터는 어떻게 표시되나요? 디렉터리 계층 구조가 유지되나요?
+### <a name="after-the-import-is-complete-what-does-my-data-look-like-in-the-storage-account-is-my-directory-hierarchy-preserved"></a>가져오기 작업을 완료한 후에 스토리지 계정에서 데이터는 어떻게 표시되나요? 디렉터리 계층 구조가 유지되나요?
 
-가져오기 작업을 위해 하드 드라이브를 준비할 때 대상은 데이터 세트 CSV의 DstBlobPathOrPrefix 필드로 지정됩니다. 이는 하드 드라이브로부터 데이터가 복사되는 저장소 계정의 대상 컨테이너입니다. 이 대상 컨테이너 내에 하드 드라이브의 폴더에 대해 가상 디렉터리가 만들어지며 파일에 대해 Blob이 만들어집니다. 
+가져오기 작업을 위해 하드 드라이브를 준비할 때 대상은 데이터 세트 CSV의 DstBlobPathOrPrefix 필드로 지정됩니다. 이는 하드 드라이브로부터 데이터가 복사되는 스토리지 계정의 대상 컨테이너입니다. 이 대상 컨테이너 내에 하드 드라이브의 폴더에 대해 가상 디렉터리가 만들어지며 파일에 대해 Blob이 만들어집니다. 
 
-### <a name="if-a-drive-has-files-that-already-exist-in-my-storage-account-does-the-service-overwrite-existing-blobs-or-files"></a>저장소 계정에 이미 있는 파일이 드라이브에 있는 경우 서비스가 기존 Blob 또는 파일을 덮어쓰나요?
+### <a name="if-a-drive-has-files-that-already-exist-in-my-storage-account-does-the-service-overwrite-existing-blobs-or-files"></a>스토리지 계정에 이미 있는 파일이 드라이브에 있는 경우 서비스가 기존 Blob 또는 파일을 덮어쓰나요?
 
 경우에 따라 다릅니다. 드라이브를 준비할 때 데이터 세트 CSV 파일에 있는 Disposition:&lt;rename|no-overwrite|overwrite&gt;라는 필드를 사용하여 대상 파일을 덮어쓰거나 무시해야 하는지를 지정할 수 있습니다. 기본적으로 서비스는 기존 Blob 또는 파일을 덮어쓰지 않고 새 파일의 이름을 변경합니다.
 

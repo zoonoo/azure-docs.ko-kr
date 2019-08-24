@@ -25,7 +25,7 @@ ms.locfileid: "68696083"
 
 [!INCLUDE [virtual-machines-common-convert-disks-considerations](../../../includes/virtual-machines-common-convert-disks-considerations.md)]
 
-* 원래 VHD와 변환 전 VM에서 사용된 저장소 계정은 삭제되지 않습니다. 이들 작업은 요금이 계속 청구됩니다. 이러한 아티팩트에 대한 요금이 청구되지 않도록 하려면 변환이 완료되었는지 확인한 후 원래 VHD Blob을 삭제합니다. 이러한 연결 되지 않은 디스크를 삭제 하기 위해 확인 해야 하는 경우 연결 되지 않은 [Azure 관리 및 비관리 디스크 찾기 및 삭제](find-unattached-disks.md)문서를 참조 하세요.
+* 원래 VHD와 변환 전 VM에서 사용된 스토리지 계정은 삭제되지 않습니다. 이들 작업은 요금이 계속 청구됩니다. 이러한 아티팩트에 대한 요금이 청구되지 않도록 하려면 변환이 완료되었는지 확인한 후 원래 VHD Blob을 삭제합니다. 이러한 연결 되지 않은 디스크를 삭제 하기 위해 확인 해야 하는 경우 연결 되지 않은 [Azure 관리 및 비관리 디스크 찾기 및 삭제](find-unattached-disks.md)문서를 참조 하세요.
 
 ## <a name="convert-single-instance-vms"></a>단일 인스턴스 VM 변환
 이 섹션에서는 단일 인스턴스 Azure VM을 비관리 디스크에서 Managed Disks로 변환하는 방법을 설명합니다. VM이 가용성 집합에 있는 경우 다음 섹션을 참조하세요. 이 프로세스를 사용하여 프리미엄(SSD) 비관리 디스크에서 프리미엄 Managed Disks로 또는 표준(HDD) 비관리 디스크에서 표준 Managed Disks로 변환할 수 있습니다.
@@ -104,4 +104,4 @@ VM이 중지되고 마이그레이션이 완료된 후 다시 시작됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-저장소 옵션에 대한 자세한 내용은 [Azure Managed Disks 개요](../windows/managed-disks-overview.md)를 참조하세요.
+스토리지 옵션에 대한 자세한 내용은 [Azure Managed Disks 개요](../windows/managed-disks-overview.md)를 참조하세요.

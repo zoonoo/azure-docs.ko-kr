@@ -108,7 +108,7 @@ ACR(Azure Container Registry)을 컨테이너 이미지 저장소로 사용하�
   - *Microsoft.Network/publicIPAddresses/write*
 - 또는 할당 된 [네트워크 참가자][rbac-network-contributor] 가상 네트워크 내의 서브넷에 기본 제공 역할
 
-### <a name="storage"></a>저장 공간
+### <a name="storage"></a>스토리지
 
 다른 리소스 그룹에 있는 기존 디스크 리소스에 액세스해야 할 수 있습니다. 다음 역할 권한 집합 중 하나를 할당합니다.
 
@@ -119,7 +119,7 @@ ACR(Azure Container Registry)을 컨테이너 이미지 저장소로 사용하�
 
 ### <a name="azure-container-instances"></a>Azure Container Instances
 
-Virtual Kubelet을 사용하여 AKS와 통합하고 AKS 클러스터와 별도로 리소스 그룹에서 ACI(Azure Container Instances)를 실행하도록 선택하는 경우, AKS 서비스 주체에 ACI 리소스 그룹에 대한 ‘Contributor’ 권한을 부여해야 합니다. 
+Virtual Kubelet을 사용하여 AKS와 통합하고 AKS 클러스터와 별도로 리소스 그룹에서 ACI(Azure Container Instances)를 실행하도록 선택하는 경우, AKS 서비스 주체에 ACI 리소스 그룹에 대한 ‘Contributor’ 권한을 부여해야 합니다.
 
 ## <a name="additional-considerations"></a>추가 고려 사항
 

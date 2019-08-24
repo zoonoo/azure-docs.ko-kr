@@ -13,7 +13,7 @@ ms.date: 02/18/2019
 ms.author: juliako
 ms.openlocfilehash: 399f6724b8948c8e507bc50622a4fb65b2262491
 ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/08/2019
 ms.locfileid: "67653949"
@@ -27,8 +27,8 @@ Media Services v3에서는, 비디오를 처리할 작업을 제출할 때 입�
 다음 코드는 입력 자산을 만들어서 작업에 대한 입력으로 사용하는 방법을 보여줍니다. CreateInputAsset 함수는 다음 작업을 수행합니다.
 
 * 자산 만들기
-* [저장소에 있는 자산 컨테이너](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container)에 대해 쓰기가 가능한 [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) 가져오기
-* SAS URL을 사용하여 저장소의 컨테이너에 파일 업로드
+* [스토리지에 있는 자산 컨테이너](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container)에 대해 쓰기가 가능한 [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) 가져오기
+* SAS URL을 사용하여 스토리지의 컨테이너에 파일 업로드
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
 

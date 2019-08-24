@@ -37,7 +37,7 @@ MLlib은 다음 작업에 적합한 유틸리티를 비롯하여 Machine Learnin
 요약하자면, 로지스틱 회귀 프로세스는 입력 벡터가 한 그룹 또는 다른 그룹에 속할 확률을 예측할 수 있는 *로지스틱 함수* 를 만듭니다.  
 
 ## <a name="predictive-analysis-example-on-food-inspection-data"></a>식품 검사 데이터에 대한 예측 분석 예제
-이 예제에서는 [시카고 데이터 포털](https://data.cityofchicago.org/)을 통해 획득한 식품 검사 데이터(**Food_Inspections1.csv**)에 대한 예측 분석을 수행하기 위해 Spark를 사용합니다. 이 데이터 세트에는 각 식품 회사에 대한 정보, 발견된 위반 사항(있는 경우), 검사 결과를 포함하여 시카고에서 수행한 식품 회사 검사에 대한 정보가 포함되어 있습니다. CSV 데이터 파일은 **/HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv**에 있는 클러스터와 연결된 저장소 계정에서 이미 사용할 수 있습니다.
+이 예제에서는 [시카고 데이터 포털](https://data.cityofchicago.org/)을 통해 획득한 식품 검사 데이터(**Food_Inspections1.csv**)에 대한 예측 분석을 수행하기 위해 Spark를 사용합니다. 이 데이터 세트에는 각 식품 회사에 대한 정보, 발견된 위반 사항(있는 경우), 검사 결과를 포함하여 시카고에서 수행한 식품 회사 검사에 대한 정보가 포함되어 있습니다. CSV 데이터 파일은 **/HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv**에 있는 클러스터와 연결된 스토리지 계정에서 이미 사용할 수 있습니다.
 
 아래 단계에서는 음식 검사에 합격 또는 불합격하는 조건을 볼 수 있는 모델을 개발할 것입니다.
 
@@ -255,7 +255,7 @@ model = pipeline.fit(labeledData)
 
 ## <a name="evaluate-the-model-using-another-dataset"></a>다른 데이터 세트를 사용하여 모델 평가
 
-앞에 만든 모델을 사용하여 관찰된 위반을 기반으로 새 검사의 결과를 *예측* 할 수 있습니다. **Food_Inspections1.csv** 데이터 세트에서 이 모델을 학습했습니다. 두 번째 데이터 세트인 **Food_Inspections2.csv**를 사용하여 새 데이터에서 이 모델의 강도를 *평가*할 수 있습니다. 이 두 번째 데이터 집합(**Food_Inspections2.csv**)은 클러스터와 연결된 기본 저장소 컨테이너에 있습니다.
+앞에 만든 모델을 사용하여 관찰된 위반을 기반으로 새 검사의 결과를 *예측* 할 수 있습니다. **Food_Inspections1.csv** 데이터 세트에서 이 모델을 학습했습니다. 두 번째 데이터 세트인 **Food_Inspections2.csv**를 사용하여 새 데이터에서 이 모델의 강도를 *평가*할 수 있습니다. 이 두 번째 데이터 세트(**Food_Inspections2.csv**)은 클러스터와 연결된 기본 스토리지 컨테이너에 있습니다.
 
 1. 다음 코드를 실행하여 모델에서 생성한 예측을 포함하는 새 데이터 프레임 **predictionsDf**를 만듭니다. 이 조각은 데이터 프레임을 기반으로 **Predictions**라는 임시 테이블도 만듭니다.
 

@@ -66,9 +66,9 @@ Azure에서 만든 리소스는 모두 전 세계의 여러 [지리적 지역](h
 | Azure CLI |[az account list-locations](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest) 작업을 사용합니다. |
 
 ### <a name="vm-size"></a>VM 크기
-사용할 VM의 [크기](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)는 실행하려는 워크로드를 기준으로 결정됩니다. 그런 다음 선택하는 크기는 처리 성능, 메모리 및 저장소 용량 등의 요소를 결정합니다. Azure는 다양한 크기를 제공하여 다양한 유형의 사용을 지원합니다.
+사용할 VM의 [크기](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)는 실행하려는 워크로드를 기준으로 결정됩니다. 그런 다음 선택하는 크기는 처리 성능, 메모리 및 스토리지 용량 등의 요소를 결정합니다. Azure는 다양한 크기를 제공하여 다양한 유형의 사용을 지원합니다.
 
-Azure는 VM의 크기와 운영 체제에 기반한 [시간당 가격](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)을 청구합니다. 부분 시간의 경우 Azure는 사용 시간(분)에 대해서만 청구합니다. 저장소는 가격이 책정되며 개별적으로 청구됩니다.
+Azure는 VM의 크기와 운영 체제에 기반한 [시간당 가격](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)을 청구합니다. 부분 시간의 경우 Azure는 사용 시간(분)에 대해서만 청구합니다. 스토리지는 가격이 책정되며 개별적으로 청구됩니다.
 
 ### <a name="vm-limits"></a>VM 제한
 구독에는 프로젝트에 대해 많은 수의 VM을 배포하는 데 영향을 줄 수 있는 기본 [할당량 제한](../../azure-subscription-service-limits.md)이 있습니다. 구독별 기준으로 현재 제한은 지역당 20대의 VM입니다. [증가를 요구하는 지원 티켓을 제출](../../azure-supportability/resource-manager-core-quotas-request.md)하면 한도가 늘어날 수 있습니다.
@@ -104,11 +104,11 @@ VM [확장](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ft
 | 리소스 | 필수 | 설명 |
 | --- | --- | --- |
 | [리소스 그룹](../../azure-resource-manager/resource-group-overview.md) |예 |VM은 리소스 그룹에 포함되어야 합니다. |
-| [저장소 계정](../../storage/common/storage-create-storage-account.md) |예 |가상 하드 디스크를 저장하기 위해 VM에 저장소 계정이 필요합니다. |
+| [저장소 계정](../../storage/common/storage-create-storage-account.md) |예 |가상 하드 디스크를 저장하기 위해 VM에 스토리지 계정이 필요합니다. |
 | [가상 네트워크](../../virtual-network/virtual-networks-overview.md) |예 |VM은 가상 네트워크의 구성원이어야 합니다. |
 | [공용 IP 주소](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |아니요 |원격으로 액세스하기 위해 VM에 할당된 공용 IP 주소가 있을 수 있습니다. |
 | [네트워크 인터페이스](../../virtual-network/virtual-network-network-interface.md) |예 |네트워크에서 통신하기 위해 VM에 네트워크 인터페이스가 필요합니다. |
-| [데이터 디스크](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |아니요 |VM은 저장소 기능을 확장하기 위해 데이터 디스크를 포함할 수 있습니다. |
+| [데이터 디스크](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |아니요 |VM은 스토리지 기능을 확장하기 위해 데이터 디스크를 포함할 수 있습니다. |
 
 ## <a name="how-do-i-create-my-first-vm"></a>첫 번째 VM을 만드는 방법
 VM을 만들기 위한 몇 가지 옵션이 있습니다. 선택 옵션은 속해 있는 환경에 따라 달라집니다. 

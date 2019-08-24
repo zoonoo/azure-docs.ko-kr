@@ -284,9 +284,9 @@ static void Main()
 
 이러한 트리거와 바인딩 형식은 버전 2에 포함 되어 있습니다. `Microsoft.Azure.WebJobs` 패키지의 *x* :
 
-* Blob 스토리지
+* Blob Storage
 * Queue Storage
-* 테이블 스토리지
+* Table Storage
 
 다른 트리거 및 바인딩 형식을 사용하려면 사용하려는 트리거 및 바인딩 형식이 포함된 NuGet 패키지를 설치하고 `JobHostConfiguration` 개체에서 `Use<binding>` 메서드를 호출합니다. 예를 들어 타이머 트리거를 사용 하려면 다음과 같이을 설치 `Microsoft.Azure.WebJobs.Extensions` 하 고 메서드를 호출 `Main` `UseTimers` 합니다.
 

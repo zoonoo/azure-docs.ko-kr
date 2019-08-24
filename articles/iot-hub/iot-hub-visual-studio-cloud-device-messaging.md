@@ -73,7 +73,7 @@ Visual Studio 설치 관리자의 클라우드 탐색기 구성 요소는 디바
 
 3. 모니터링을 중지하려면 IoT Hub 또는 디바이스를 마우스 오른쪽 단추로 클릭하고 **D2C 메시지 모니터링 중지**를 선택합니다.
 
-## <a name="send-cloud-to-device-messages"></a>클라우드-장치 메시지 보내기
+## <a name="send-cloud-to-device-messages"></a>클라우드-디바이스 메시지 보내기
 
 IoT Hub에서 디바이스로 메시지를 보내려면 다음 단계를 수행합니다.
 

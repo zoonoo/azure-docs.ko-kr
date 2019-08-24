@@ -58,12 +58,12 @@ ms.locfileid: "67836549"
 1. Azure **데이터 팩터리**를 만듭니다. 이 단계에서는 ADFTutorialDataFactoryPSH라는 Azure Data Factory를 만듭니다. 
 1. 데이터 팩터리에서 **연결된 서비스**를 만듭니다. 이 단계에서는 두 가지 유형의 연결된 서비스 즉, Azure Storage 및 Azure SQL Database를 만듭니다. 
     
-    AzureStorageLinkedService는 Azure 스토리지 계정을 데이터 팩터리에 연결합니다. [필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)의 일부로 컨테이너를 만들고 이 저장소 계정에 데이터를 업로드했습니다.   
+    AzureStorageLinkedService는 Azure 스토리지 계정을 데이터 팩터리에 연결합니다. [필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)의 일부로 컨테이너를 만들고 이 스토리지 계정에 데이터를 업로드했습니다.   
 
     AzureSqlLinkedService는 Azure SQL 데이터베이스를 데이터 팩터리에 연결합니다. (선택 사항) Azure File Storage를 프로젝트 리더의 DSVM(데이터 과학 Virtual Machine)에 탑재하고 여기에 프로젝트 데이터 자산을 추가합니다. [필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)의 일부로 이 데이터베이스에서 SQL 테이블을 만들었습니다.   
 1. 데이터 팩터리에서 입력 및 출력 **데이터 세트**를 만듭니다.  
     
-    Azure 저장소 연결된 서비스는 런타임에 Data Factory 서비스에서 Azure 저장소 계정에 연결하는 데 사용하는 연결 문자열을 지정합니다. 그리고 입력 Blob 데이터 세트는 데이터가 포함된 컨테이너와 폴더를 지정합니다.  
+    Azure Storage 연결된 서비스는 런타임에 Data Factory 서비스에서 Azure Storage 계정에 연결하는 데 사용하는 연결 문자열을 지정합니다. 그리고 입력 Blob 데이터 세트는 데이터가 포함된 컨테이너와 폴더를 지정합니다.  
 
     마찬가지로 Azure SQL Database 연결된 서비스는 런타임에 Data Factory 서비스에서 Azure SQL 데이터베이스에 연결하는 데 사용하는 연결 문자열을 지정합니다. (선택 사항) 프로젝트의 데이터 자산을 저장하는 데 사용할 Azure File Storage를 만듭니다.
 1. 데이터 팩터리에서 **파이프라인**을 만듭니다. 이 단계에서는 복사 활동을 사용하여 파이프라인을 만듭니다.   
@@ -139,17 +139,17 @@ ms.locfileid: "67836549"
 
 이에 따라 두 개의 연결된 서비스, 즉 AzureStorage와 AzureSqlDatabase 유형의 AzureStorageLinkedService와 AzureSqlLinkedService를 만듭니다.  
 
-AzureStorageLinkedService는 Azure 스토리지 계정을 데이터 팩터리에 연결합니다. 이 저장소 계정은 컨테이너를 만들고 [필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)의 일부로 데이터를 업로드한 계정입니다.   
+AzureStorageLinkedService는 Azure 스토리지 계정을 데이터 팩터리에 연결합니다. 이 스토리지 계정은 컨테이너를 만들고 [필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)의 일부로 데이터를 업로드한 계정입니다.   
 
 AzureSqlLinkedService는 Azure SQL 데이터베이스를 데이터 팩터리에 연결합니다. (선택 사항) Azure File Storage를 프로젝트 리더의 DSVM(데이터 과학 Virtual Machine)에 탑재하고 여기에 프로젝트 데이터 자산을 추가합니다. [필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)의 일부로 이 데이터베이스에서 emp 테이블을 만들었습니다. 
 
-### <a name="create-a-linked-service-for-an-azure-storage-account"></a>Azure 저장소 계정에 대한 연결된 서비스 만들기
-이 단계에서는 Azure 저장소 계정을 데이터 팩터리에 연결합니다.
+### <a name="create-a-linked-service-for-an-azure-storage-account"></a>Azure Storage 계정에 대한 연결된 서비스 만들기
+이 단계에서는 Azure Storage 계정을 데이터 팩터리에 연결합니다.
 
 1. 다음 내용이 포함된 **AzureStorageLinkedService.json**이라는 JSON 파일을 **C:\ADFGetStartedPSH** 폴더에 만듭니다. (아직 없는 경우 ADFGetStartedPSH 폴더를 만듭니다.)
 
     > [!IMPORTANT]
-    > 파일을 저장하기 전에 &lt;accountname&gt;과 &lt;accountkey&gt;를 Azure 저장소 계정의 이름과 키로 바꿉니다. 
+    > 파일을 저장하기 전에 &lt;accountname&gt;과 &lt;accountkey&gt;를 Azure Storage 계정의 이름과 키로 바꿉니다. 
 
     ```json
     {
@@ -231,7 +231,7 @@ AzureSqlLinkedService는 Azure SQL 데이터베이스를 데이터 팩터리에 
 ## <a name="create-datasets"></a>데이터 세트 만들기
 이전 단계에서는 Azure Storage 계정과 Azure SQL 데이터베이스를 데이터 팩터리에 연결하는 연결된 서비스를 만들었습니다. 이 단계에서는 AzureStorageLinkedService 및 AzureSqlLinkedService에서 각각 참조하는 데이터 저장소에 저장된 입력 및 출력 데이터를 나타내는 InputDataset 및 OutputDataset이라는 두 개의 데이터 세트를 정의합니다.
 
-Azure 저장소 연결된 서비스는 런타임에 Data Factory 서비스에서 Azure 저장소 계정에 연결하는 데 사용하는 연결 문자열을 지정합니다. 그리고 입력 Blob 데이터 세트(InputDataset)는 입력 데이터가 포함된 컨테이너와 폴더를 지정합니다.  
+Azure Storage 연결된 서비스는 런타임에 Data Factory 서비스에서 Azure Storage 계정에 연결하는 데 사용하는 연결 문자열을 지정합니다. 그리고 입력 Blob 데이터 세트(InputDataset)는 입력 데이터가 포함된 컨테이너와 폴더를 지정합니다.  
 
 마찬가지로 Azure SQL Database 연결된 서비스는 런타임에 Data Factory 서비스에서 Azure SQL 데이터베이스에 연결하는 데 사용하는 연결 문자열을 지정합니다. Azure File Storage 정보를 수동으로 입력하는 방법: 텍스트 파일에 Azure 파일 스토리지 정보가 없는 경우 다음 화면의 지침에 따라 필요한 구독, 스토리지 계정 및 Azure 파일 스토리지 정보를 입력할 수 있습니다. 
 
@@ -277,7 +277,7 @@ Azure 저장소 연결된 서비스는 런타임에 Data Factory 서비스에서
 
     | 자산 | 설명 |
     |:--- |:--- |
-    | type | Azure Blob 저장소에 데이터가 있기 때문에 type 속성은 **AzureBlob**으로 설정됩니다. |
+    | type | Azure Blob Storage에 데이터가 있기 때문에 type 속성은 **AzureBlob**으로 설정됩니다. |
     | linkedServiceName | 이전에 만든 **AzureStorageLinkedService**를 참조합니다. |
     | folderPath | 입력 Blob이 포함된 Blob **컨테이너**와 **폴더**를 지정합니다. 이 자습서에서 adftutorial은 Blob 컨테이너이며, 폴더는 루트 폴더입니다. | 
     | fileName | 이 속성은 선택 사항입니다. 이 속성을 생략하면 folderPath의 모든 파일이 선택됩니다. 이 자습서에서는 fileName에 대해 **emp.txt**를 지정하므로 해당 파일만 처리를 위해 선택됩니다. |

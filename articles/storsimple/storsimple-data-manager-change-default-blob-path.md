@@ -23,7 +23,7 @@ ms.locfileid: "60723801"
 ---
 # <a name="change-a-blob-path-from-the-default-path"></a>기본 경로에서 Blob 경로 변경
 
-StorSimple 데이터 관리자 서비스가 데이터를 변환하는 경우, 기본적으로 대상 리포지토리를 만드는 동안 지정된 대로, 변환된 Blob를 저장소 컨테이너에 배치합니다. Blob이 이 위치에 도달하면 이러한 Blob을 다른 위치로 이동하려고 할 수 있습니다. 이 문서에서는 기본 Blob 파일 경로의 이름을 바꾸고 Blob을 다른 위치로 이동하도록 Azure 함수를 설정하는 방법을 설명합니다.
+StorSimple 데이터 관리자 서비스가 데이터를 변환하는 경우, 기본적으로 대상 리포지토리를 만드는 동안 지정된 대로, 변환된 Blob를 스토리지 컨테이너에 배치합니다. Blob이 이 위치에 도달하면 이러한 Blob을 다른 위치로 이동하려고 할 수 있습니다. 이 문서에서는 기본 Blob 파일 경로의 이름을 바꾸고 Blob을 다른 위치로 이동하도록 Azure 함수를 설정하는 방법을 설명합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -49,8 +49,8 @@ Azure 함수를 만들려면 다음 단계를 수행합니다.
     2. 드롭다운 목록에서 **구독**을 선택합니다. 이 구독은 데이터 StorSimple 데이터 관리자 서비스와 연결된 구독과 동일해야 합니다.
     3. **새 리소스 그룹 만들기**를 선택합니다.
     4. **호스팅 계획** 드롭다운 목록에서 **소비 계획**을 선택합니다.
-    5. 함수가 실행되는 위치를 지정합니다. StorSimple 데이터 관리자 서비스 및 작업 정의와 연결된 저장소 계정이 있는 동일한 영역이 좋습니다.
-    6. 기존 저장소 계정을 선택하거나 새 저장소 계정을 만듭니다. 저장소 계정은 함수에 대해 내부적으로 사용됩니다.
+    5. 함수가 실행되는 위치를 지정합니다. StorSimple 데이터 관리자 서비스 및 작업 정의와 연결된 스토리지 계정이 있는 동일한 영역이 좋습니다.
+    6. 기존 스토리지 계정을 선택하거나 새 스토리지 계정을 만듭니다. 스토리지 계정은 함수에 대해 내부적으로 사용됩니다.
 
         ![새 함수 앱 구성 데이터 입력](./media/storsimple-data-manager-change-default-blob-path/function-app-parameters.png)
 
@@ -68,7 +68,7 @@ Azure 함수를 만들려면 다음 단계를 수행합니다.
 
     1. 함수의 **이름**을 입력합니다.
     2. **큐 이름** 상자에 데이터 변환 작업 정의 이름을 입력합니다.
-    3. **Storage 계정 연결**에서 **새로 만들기**를 클릭합니다. 저장소 계정 목록에서 작업 정의와 연결된 계정을 선택합니다. 연결 이름을 기록해 둡니다(강조 표시됨). 이 이름은 Azure 함수에서 나중에 필요합니다.
+    3. **Storage 계정 연결**에서 **새로 만들기**를 클릭합니다. 스토리지 계정 목록에서 작업 정의와 연결된 계정을 선택합니다. 연결 이름을 기록해 둡니다(강조 표시됨). 이 이름은 Azure 함수에서 나중에 필요합니다.
 
         ![새 C# 함수 만들기](./media/storsimple-data-manager-change-default-blob-path/new-function-parameters.png)
 
@@ -185,7 +185,7 @@ Azure 함수를 만들려면 다음 단계를 수행합니다.
 
     2. 11번 줄에서 **STORAGE_CONNECTIONNAME**을 사용자의 스토리지 계정 연결로 바꿉니다(7c단계 참조).
 
-        ![저장소 연결 이름 복사](./media/storsimple-data-manager-change-default-blob-path/new-function-storage-connection-name.png)
+        ![스토리지 연결 이름 복사](./media/storsimple-data-manager-change-default-blob-path/new-function-storage-connection-name.png)
 
     3. 함수를 **저장**합니다.
 

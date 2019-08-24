@@ -94,7 +94,7 @@ Service Bus 큐를 모니터링하려면 다음 JSON을 수행합니다.
 "metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.ServiceBus/namespaces/mySB/queues/myqueue"
 ```
 
-저장소 큐의 경우 다음 JSON을 사용합니다.
+스토리지 큐의 경우 다음 JSON을 사용합니다.
 
 ```json
 "metricName": "ApproximateMessageCount",
@@ -654,7 +654,7 @@ Azure Portal의 Log Analytics 작업 영역에서 workspaceId 및 workspaceKey�
 
 ### <a name="how-do-i-turn-on-boot-diagnostics"></a>부팅 진단을 켜려면 어떻게 하나요?
 
-부팅 진단을 켜려면 먼저 저장소 계정을 만듭니다. 그런 후 이 JSON 블록을 가상 머신 확장 집합 **virtualMachineProfile**에 배치하고 해당 가상 머신 확장 집합을 업데이트합니다.
+부팅 진단을 켜려면 먼저 스토리지 계정을 만듭니다. 그런 후 이 JSON 블록을 가상 머신 확장 집합 **virtualMachineProfile**에 배치하고 해당 가상 머신 확장 집합을 업데이트합니다.
 
 ```json
 "diagnosticsProfile": {
@@ -694,7 +694,7 @@ Azure Portal의 Log Analytics 작업 영역에서 workspaceId 및 workspaceKey�
 
 ### <a name="what-is-the-difference-between-deleting-a-vm-in-a-virtual-machine-scale-set-and-deallocating-the-vm-when-should-i-choose-one-over-the-other"></a>가상 머신 확장 집합에서 VM을 삭제하는 것과 VM을 할당 취소하는 것 사이의 차이점은 무엇입니까? 언제 다른 하나를 선택해야 합니까?
 
-가상 머신 확장 집합에서 VM을 삭제하는 것과 VM을 할당 취소하는 것 사이의 주요 차이점은 `deallocate`로는 VHD(가상 하드 디스크)가 삭제되지 않는다는 것입니다. `stop deallocate` 실행과 관련된 저장소 비용이 있습니다. 다음과 같은 이유 중 하나로 두 가지 방법 중 하나를 사용할 수 있습니다.
+가상 머신 확장 집합에서 VM을 삭제하는 것과 VM을 할당 취소하는 것 사이의 주요 차이점은 `deallocate`로는 VHD(가상 하드 디스크)가 삭제되지 않는다는 것입니다. `stop deallocate` 실행과 관련된 스토리지 비용이 있습니다. 다음과 같은 이유 중 하나로 두 가지 방법 중 하나를 사용할 수 있습니다.
 
 - Compute 비용은 더 이상 지불하지 않고, VM의 디스크 상태는 유지하려고 합니다.
 - 가상 머신 확장 집합을 확장하는 것보다 더 빠르게 VM 집합을 시작하려고 합니다.

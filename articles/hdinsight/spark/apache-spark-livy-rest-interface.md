@@ -37,7 +37,7 @@ curl -k --user "<hdinsight user>:<user password>" -v -H "Content-Type: applicati
 
 ### <a name="examples"></a>예
 
-* jar 파일이 클러스터 저장소(WASB)에 있는 경우
+* jar 파일이 클러스터 스토리지(WASB)에 있는 경우
 
     ```cmd  
     curl -k --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST -d '{ "file":"wasb://mycontainer@mystorageaccount.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://mysparkcluster.azurehdinsight.net/livy/batches" -H "X-Requested-By: admin"
@@ -96,7 +96,7 @@ Livy는 클러스터에서 실행 중인 Spark 작업에 대해 고가용성을 
 
 이 섹션에서는 Livy Spark를 사용하여 배치 작업을 제출하고 작업의 진행 상황을 모니터링한 다음 작업을 삭제하기 위한 예제를 살펴봅니다. 이 예제에서 사용하는 애플리케이션은 문서 [독립 실행형 Scala 애플리케이션을 만들고 HDInsight Spark 클러스터에서 실행하기](apache-spark-create-standalone-application.md)에서 개발된 것입니다. 여기에 나오는 단계는 다음 상태로 간주합니다.
 
-* 애플리케이션 jar를 클러스터와 연결된 저장소 계정에 이미 복사했습니다.
+* 애플리케이션 jar를 클러스터와 연결된 스토리지 계정에 이미 복사했습니다.
 * 이 단계를 시도하려는 컴퓨터에 CuRL을 설치했습니다.
 
 다음 단계를 수행합니다.

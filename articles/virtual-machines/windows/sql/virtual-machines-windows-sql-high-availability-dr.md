@@ -31,7 +31,7 @@ Microsoft Azure 가상 머신(VM)에 SQL Server를 설치하여 사용하면 고
 ## <a name="understanding-the-need-for-an-hadr-solution"></a>HADR 솔루션의 필요성 이해
 데이터베이스 시스템에 서비스 수준 계약(SLA)이 필요한 HADR 기능을 도입하는 것은 여러분의 선택입니다. Azure는 클라우드 서비스를 위한 서비스 복구 및 Virtual Machines에 대한 오류 복구 감지와 같은 고가용성 메커니즘을 제공하기는 하지만, 이를 통해 원하는 SLA를 충족할 수 있다는 보장은 없습니다. 이러한 메커니즘은 VM의 고가용성을 보호하기는 하지만 VM에서 실행되는 SQL Server의 고가용성을 보호하지는 않습니다. VM이 온라인 상태이고 정상인 경우에도 SQL Server에 문제가 생길 수 있습니다. 또한 Azure가 제공하는 고가용성 메커니즘을 사용해도 소프트웨어를 사용한 복구나 하드웨어 고장, 운영 체제 업그레이드와 같은 경우에는 VM이 가동 중지될 수 있습니다.
 
-지역 복제라는 기능으로 구현되는 Azure의 GRS(지역 중복 저장)도 데이터베이스의 적절한 재해 복구 솔루션이 되지 못할 수 있습니다. 지역 복제는 데이터를 비동기 방식으로 전송하기 때문에, 재해 발생 시 최근 업데이트 내용이 손실될 수 있습니다. 지역에서 복제의 제한 사항에 대한 자세한 내용은 [지역에서 복제는 별도의 디스크에 저장된 데이터 및 로그 파일에 대해 지원되지 않음](#geo-replication-support) 섹션에 설명되어 있습니다.
+지역 복제라는 기능으로 구현되는 Azure의 GRS(지역 중복 스토리지)도 데이터베이스의 적절한 재해 복구 솔루션이 되지 못할 수 있습니다. 지역 복제는 데이터를 비동기 방식으로 전송하기 때문에, 재해 발생 시 최근 업데이트 내용이 손실될 수 있습니다. 지역에서 복제의 제한 사항에 대한 자세한 내용은 [지역에서 복제는 별도의 디스크에 저장된 데이터 및 로그 파일에 대해 지원되지 않음](#geo-replication-support) 섹션에 설명되어 있습니다.
 
 ## <a name="hadr-deployment-architectures"></a>HADR 배포 아키텍처
 Azure에서 지원하는 SQL Server HADR 기술은 다음과 같습니다.
@@ -51,10 +51,10 @@ Azure에서 지원하는 SQL Server HADR 기술은 다음과 같습니다.
 | 기술 | 아키텍처의 예 |
 | --- | --- |
 | **가용성 그룹** |동일한 지역에 있는 Azure VM에서 실행되는 모든 가용성 복제본은 고가용성을 제공합니다. Windows 장애 조치 클러스터링에 Active Directory 도메인이 필요하기 때문에 도메인 컨트롤러 VM을 구성해야 합니다.<br/> ![가용성 그룹](./media/virtual-machines-windows-sql-high-availability-dr/azure-only-ha-always-on.png)<br/>자세한 내용은 [Azure에서 가용성 그룹 구성(GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)을 참조하세요. |
-| **장애 조치 클러스터 인스턴스** |공유 저장소가 필요한 FCI(장애 조치 클러스터 인스턴스)는 3가지 방법으로 만들 수 있습니다.<br/><br/>1. [Windows Server 2016 저장소 공간 다이렉트 \(S2D\)](virtual-machines-windows-portal-sql-create-failover-cluster.md)를 사용하는 연결된 저장소로 Azure VM에서 실행되는 2노드 장애 조치 클러스터는 소프트웨어 기반 가상 SAN을 제공합니다.<br/><br/>2. 타사 클러스터링 솔루션에서 지원하는 저장소를 사용하여 Azure VM에서 실행되는 2노드 장애 조치 클러스터입니다. SIOS DataKeeper를 사용하는 특정 예제는 [장애 조치 클러스터링 및 타사 소프트웨어 SIOS DataKeeper를 사용하는 파일 공유에 대한 고가용성](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/)을 참조하세요.<br/><br/>3. ExpressRoute를 통한 원격 iSCSI 대상 공유 블록 저장소를 사용하여 Azure VM에서 실행되는 2노드 장애 조치 클러스터입니다. 예를 들어 NPS(NetApp 프라이빗 스토리지)는 Equinix와 함께 ExpressRoute를 사용하여 iSCSI 대상을 Azure VM에 공개합니다.<br/><br/>타사 공유 저장소 및 데이터 복제 솔루션의 경우 장애 조치 시 데이터 액세스와 관련된 문제는 공급 업체에 문의해야 합니다.<br/><br/>이 솔루션은 Premium Storage를 사용하지 않기 때문에 [Azure File Storage](https://azure.microsoft.com/services/storage/files/) 맨 위에서 FCI를 사용하는 것은 아직 지원되지 않습니다. 빠른 시일 내에 지원하기 위해 노력하고 있습니다. |
+| **장애 조치 클러스터 인스턴스** |공유 스토리지가 필요한 FCI(장애 조치 클러스터 인스턴스)는 3가지 방법으로 만들 수 있습니다.<br/><br/>1. [Windows Server 2016 스토리지 공간 다이렉트 \(S2D\)](virtual-machines-windows-portal-sql-create-failover-cluster.md)를 사용하는 연결된 스토리지로 Azure VM에서 실행되는 2노드 장애 조치 클러스터는 소프트웨어 기반 가상 SAN을 제공합니다.<br/><br/>2. 타사 클러스터링 솔루션에서 지원하는 스토리지를 사용하여 Azure VM에서 실행되는 2노드 장애 조치 클러스터입니다. SIOS DataKeeper를 사용하는 특정 예제는 [장애 조치 클러스터링 및 타사 소프트웨어 SIOS DataKeeper를 사용하는 파일 공유에 대한 고가용성](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/)을 참조하세요.<br/><br/>3. ExpressRoute를 통한 원격 iSCSI 대상 공유 블록 스토리지를 사용하여 Azure VM에서 실행되는 2노드 장애 조치 클러스터입니다. 예를 들어 NPS(NetApp 프라이빗 스토리지)는 Equinix와 함께 ExpressRoute를 사용하여 iSCSI 대상을 Azure VM에 공개합니다.<br/><br/>타사 공유 스토리지 및 데이터 복제 솔루션의 경우 장애 조치 시 데이터 액세스와 관련된 문제는 공급 업체에 문의해야 합니다.<br/><br/>이 솔루션은 Premium Storage를 사용하지 않기 때문에 [Azure File Storage](https://azure.microsoft.com/services/storage/files/) 맨 위에서 FCI를 사용하는 것은 아직 지원되지 않습니다. 빠른 시일 내에 지원하기 위해 노력하고 있습니다. |
 
 ## <a name="azure-only-disaster-recovery-solutions"></a>Azure 전용: 재해 복구 솔루션
-가용성 그룹, 데이터베이스 미러링을 사용하여 Azure 내의 SQL Server 데이터베이스에 대한 재해 복구 솔루션을 구축하거나 저장소 blob을 사용하여 백업 및 복원할 수 있습니다.
+가용성 그룹, 데이터베이스 미러링을 사용하여 Azure 내의 SQL Server 데이터베이스에 대한 재해 복구 솔루션을 구축하거나 스토리지 blob을 사용하여 백업 및 복원할 수 있습니다.
 
 | 기술 | 아키텍처의 예 |
 | --- | --- |
@@ -65,7 +65,7 @@ Azure에서 지원하는 SQL Server HADR 기술은 다음과 같습니다.
 
 
 ## <a name="hybrid-it-disaster-recovery-solutions"></a>하이브리드 IT: 재해 복구 솔루션
-가용성 그룹, 데이터베이스 미러링, 로그 전달을 사용하여 하이브리드 IT 환경 내에 SQL Server 데이터베이스에 대한 재해 복구 솔루션을 구축하고 Azure Blob 저장소를 사용하여 백업 및 복원할 수 있습니다.
+가용성 그룹, 데이터베이스 미러링, 로그 전달을 사용하여 하이브리드 IT 환경 내에 SQL Server 데이터베이스에 대한 재해 복구 솔루션을 구축하고 Azure Blob 스토리지를 사용하여 백업 및 복원할 수 있습니다.
 
 | 기술 | 아키텍처의 예 |
 | --- | --- |
@@ -76,7 +76,7 @@ Azure에서 지원하는 SQL Server HADR 기술은 다음과 같습니다.
 | **Azure Site Recovery를 사용하여 SQL Server를 Azure에 복제 및 장애 조치(Failover)** |재해 복구를 위해 온-프레미스 프로덕션 SQL Server가 Azure Storage에 직접 복제되었습니다.<br/>![Azure Site Recovery를 사용하여 복제](./media/virtual-machines-windows-sql-high-availability-dr/hybrid-dr-standalone-sqlserver-asr.png)<br/>자세한 내용은 [SQL Server 재해 복구 및 Azure Site Recovery를 사용하여 SQL Server 보호](../../../site-recovery/site-recovery-sql.md)를 참조하세요. |
 
 ## <a name="important-considerations-for-sql-server-hadr-in-azure"></a>Azure에서 SQL Server HADR에 대한 중요 고려 사항
-Azure VM, 저장소 및 네트워킹은 온-프레미스, 가상화되지 않은 IT 인프라에서는 작동 특성이 달라집니다. Azure에서 SQL Server HADR 솔루션을 성공적으로 구현하기 위해서는 이러한 차이점을 이해하고 그에 맞게 솔루션을 설계해야 합니다.
+Azure VM, 스토리지 및 네트워킹은 온-프레미스, 가상화되지 않은 IT 인프라에서는 작동 특성이 달라집니다. Azure에서 SQL Server HADR 솔루션을 성공적으로 구현하기 위해서는 이러한 차이점을 이해하고 그에 맞게 솔루션을 설계해야 합니다.
 
 ### <a name="high-availability-nodes-in-an-availability-set"></a>가용성 집합의 고가용성 노드
 Azure의 가용성 집합을 사용하면 고가용성 노드를 별도의 오류 도메인(FD)과 업데이트 도메인(UD)에 배치할 수 있습니다. 같은 가용성 집합에 배치할 Azure VM이라면 같은 클라우드 서비스에 배포해야 합니다. 같은 클라우드 서비스에 있는 노드만 같은 가용성 집합에 참여할 수 있습니다. 자세한 내용은 [Virtual Machines의 가용성 관리](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
@@ -128,7 +128,7 @@ ADO.NET 또는 SQL Server Native Client를 사용하여 데이터베이스 미�
 HADR 솔루션을 배포할 때는 온-프레미스 네트워크와 Azure 간에 긴 네트워크 대기 시간이 있을 수 있다는 가정을 해야 합니다. 복제본을 Azure에 배포할 때, 동기화 모드로 동기 커밋 대신 비동기 커밋을 사용해야 합니다. 온-프레미스와 Azure 모두에 데이터베이스 미러링 서버를 배포할 때는 보호 우선 모드 대신 성능 우선 모드를 사용합니다.
 
 ### <a name="geo-replication-support"></a>지역에서 복제 지원
-Azure 디스크의 지역 복제는 동일한 데이터베이스의 로그 파일과 데이터 파일을 별도의 디스크로 저장하는 것을 지원하지 않습니다. GRS는 변경 내용을 독립적이고 비동기적으로 각 디스크에 복제합니다. 이 메커니즘은 지리적으로 복제된 복사본에서 쓰기 순서가 지켜지도록 보장하지만 여러 디스크에 지역 복제된 복사본에서는 보장하지 않습니다. 데이터 파일과 로그 파일을 별도의 디스크에 저장하도록 데이터베이스를 구성하는 경우, 재해 후 복구된 디스크에는 로그 파일보다 더 최신인 데이터 파일의 복사본이 포함되어 있을 수 있어 SQL Server의 미리 기록 규칙과 트랜잭션의 ACID 특성을 어기게 됩니다. 저장소 계정에 지역 복제를 사용하지 않도록 설정할 수 있는 방법이 없을 경우 데이터베이스의 모든 데이터 및 로그 파일을 동일한 디스크에 저장해야 합니다. 데이터베이스의 크기 때문에 하나 이상의 디스크를 사용하는 경우 데이터의 중복성을 보장하려면 위에 나열된 재해 복구 솔루션 중 하나를 배포해야 합니다.
+Azure 디스크의 지역 복제는 동일한 데이터베이스의 로그 파일과 데이터 파일을 별도의 디스크로 저장하는 것을 지원하지 않습니다. GRS는 변경 내용을 독립적이고 비동기적으로 각 디스크에 복제합니다. 이 메커니즘은 지리적으로 복제된 복사본에서 쓰기 순서가 지켜지도록 보장하지만 여러 디스크에 지역 복제된 복사본에서는 보장하지 않습니다. 데이터 파일과 로그 파일을 별도의 디스크에 저장하도록 데이터베이스를 구성하는 경우, 재해 후 복구된 디스크에는 로그 파일보다 더 최신인 데이터 파일의 복사본이 포함되어 있을 수 있어 SQL Server의 미리 기록 규칙과 트랜잭션의 ACID 특성을 어기게 됩니다. 스토리지 계정에 지역 복제를 사용하지 않도록 설정할 수 있는 방법이 없을 경우 데이터베이스의 모든 데이터 및 로그 파일을 동일한 디스크에 저장해야 합니다. 데이터베이스의 크기 때문에 하나 이상의 디스크를 사용하는 경우 데이터의 중복성을 보장하려면 위에 나열된 재해 복구 솔루션 중 하나를 배포해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 SQL Server가 포함된 Azure 가상 머신을 만들어야 한다면 [Azure에 SQL Server Virtual Machine 프로비전](virtual-machines-windows-portal-sql-server-provision.md)을 참조하세요.

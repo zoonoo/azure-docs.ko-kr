@@ -132,7 +132,7 @@ DNS 영역으로 이동하고 **+ 레코드 집합**을 클릭합니다. **레�
 |형식     | CNAME        | 별칭을 사용하는 CNAME 레코드를 사용합니다.        |
 |TTL     | 1        | 1은 1시간 동안 사용됩니다.        |
 |TTL 단위     | 시간        | 시간 측정으로 시간(Hour)이 사용됩니다.         |
-|별칭     | asverify.adatumfunctiona9ed.blob.core.windows.net        | 이 예에서 별칭을 만드는 DNS 이름은 저장소 계정에 기본적으로 제공된 DNS 이름인 asverify.adatumfunctiona9ed.blob.core.windows.net입니다.        |
+|별칭     | asverify.adatumfunctiona9ed.blob.core.windows.net        | 이 예에서 별칭을 만드는 DNS 이름은 스토리지 계정에 기본적으로 제공된 DNS 이름인 asverify.adatumfunctiona9ed.blob.core.windows.net입니다.        |
 
 **Storage** > **스토리지 계정**을 클릭하여 스토리지 계정으로 돌아가 스토리지 계정을 선택하고 **사용자 지정 도메인**을 클릭합니다. 텍스트 상자에 asverify 접두사 없이 생성한 별칭을 입력하고 [간접 CNAME 유효성 검사 사용]을 선택하고 **저장**을 클릭합니다. 이 단계가 완료되면 DNS 영역으로 돌아가 asverify 접두사 없이 CNAME 레코드를 만듭니다.  이후에는 cdnverify 접두사가 있는 CNAME 레코드를 안전하게 삭제할 수 있습니다.
 
@@ -160,7 +160,7 @@ DNS 영역으로 이동하고 **+ 레코드 집합**을 클릭합니다. **레�
 |형식     | CNAME        | 별칭을 사용하는 CNAME 레코드를 사용합니다.        |
 |TTL     | 1        | 1은 1시간 동안 사용됩니다.        |
 |TTL 단위     | 시간        | 시간 측정으로 시간(Hour)이 사용됩니다.         |
-|별칭     | cdnverify.adatumcdnendpoint.azureedge.net        | 이 예에서 별칭을 만드는 DNS 이름은 저장소 계정에 기본적으로 제공된 DNS 이름인 cdnverify.adatumcdnendpoint.azureedge.net입니다.        |
+|별칭     | cdnverify.adatumcdnendpoint.azureedge.net        | 이 예에서 별칭을 만드는 DNS 이름은 스토리지 계정에 기본적으로 제공된 DNS 이름인 cdnverify.adatumcdnendpoint.azureedge.net입니다.        |
 
 **네트워킹** > **CDN 프로필**을 클릭하여 CDN 엔드포인트로 돌아가 CDN 프로필을 선택합니다. **+ 사용자 지정 도메인**을 클릭하고 cdnverify 접두사 없이 CNAME 레코드 별칭을 입력하고 **추가**를 클릭합니다.
 

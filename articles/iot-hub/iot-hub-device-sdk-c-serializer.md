@@ -31,7 +31,7 @@ GitHub 리포지토리에서 [**C용 Azure IoT 디바이스 SDK**](https://githu
 
 ## <a name="the-modeling-language"></a>모델링 언어
 
-이 시리즈의 [C용 Azure IoT 장치 SDK](iot-hub-device-sdk-c-intro.md)에서는 **simplesample\_amqp** 애플리케이션에 제공된 예제를 통해 **C용 Azure IoT 장치 SDK** 모델링 언어를 소개했습니다.
+이 시리즈의 [C용 Azure IoT 디바이스 SDK](iot-hub-device-sdk-c-intro.md)에서는 **simplesample\_amqp** 애플리케이션에 제공된 예제를 통해 **C용 Azure IoT 디바이스 SDK** 모델링 언어를 소개했습니다.
 
 ```C
 BEGIN_NAMESPACE(WeatherStation);
@@ -665,7 +665,7 @@ serializer_deinit();
 
 이 문서는 **C용 Azure IoT 디바이스 SDK**에 포함된 **serializer** 라이브러리의 고유한 측면에 대해 자세히 설명합니다. 제공된 정보로 모델을 사용하여 이벤트를 전송하고 IoT Hub에서 메시지를 수신하는 방법을 잘 이해할 수 있습니다.
 
-또한 **C용 Azure IoT 장치 SDK**로 애플리케이션을 개발하는 방법에 대한 3부로 구성된 시리즈를 완료합니다. API를 시작하는 방법뿐만 아니라 API의 작동 방식을 매우 정확하게 이해할 수 있는 충분한 정보를 제공합니다. 자세한 정보를 위해 여기에서 다루지 않은 몇 가지 샘플이 SDK에 제공됩니다. [Azure IoT SDK 설명서](https://github.com/Azure/azure-iot-sdk-c) 리소스에서도 유용한 추가 정보가 제공됩니다.
+또한 **C용 Azure IoT 디바이스 SDK**로 애플리케이션을 개발하는 방법에 대한 3부로 구성된 시리즈를 완료합니다. API를 시작하는 방법뿐만 아니라 API의 작동 방식을 매우 정확하게 이해할 수 있는 충분한 정보를 제공합니다. 자세한 정보를 위해 여기에서 다루지 않은 몇 가지 샘플이 SDK에 제공됩니다. [Azure IoT SDK 설명서](https://github.com/Azure/azure-iot-sdk-c) 리소스에서도 유용한 추가 정보가 제공됩니다.
 
 IoT Hub를 개발하는 방법에 대한 자세한 내용은 [Azure IoT SDK](iot-hub-devguide-sdks.md)를 참조하세요.
 

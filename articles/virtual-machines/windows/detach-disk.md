@@ -25,7 +25,7 @@ ms.locfileid: "67718735"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Windows 가상 컴퓨터에서 데이터 디스크를 분리하는 방법
 
-가상 머신에 연결된 데이터 디스크가 더 이상 필요하지 않은 경우 쉽게 분리할 수 있습니다. 디스크를 분리하면 가상 머신에서 디스크가 제거되지만, 저장소에서는 제거되지 않습니다.
+가상 머신에 연결된 데이터 디스크가 더 이상 필요하지 않은 경우 쉽게 분리할 수 있습니다. 디스크를 분리하면 가상 컴퓨터에서 디스크가 제거되지만, 스토리지에서는 제거되지 않습니다.
 
 > [!WARNING]
 > 디스크를 분리해도 자동으로 삭제되지 않습니다. Premium Storage를 구독하는 경우 디스크에 대한 스토리지 요금이 계속 부과됩니다. 자세한 내용은 [Premium Storage 사용 시 가격 책정 및 청구](disks-types.md#billing)를 참조하세요.
@@ -46,7 +46,7 @@ Remove-AzVMDataDisk -VM $VirtualMachine -Name "myDisk"
 Update-AzVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine
 ```
 
-디스크가 저장소에 유지되지만 더 이상 가상 머신에 연결되어 있지 않습니다.
+디스크가 스토리지에 유지되지만 더 이상 가상 머신에 연결되어 있지 않습니다.
 
 ## <a name="detach-a-data-disk-using-the-portal"></a>포털을 사용하여 데이터 디스크 분리
 
@@ -58,7 +58,7 @@ Update-AzVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine
 5. 디스크를 제거한 후에 창 상단에서 **저장**을 클릭합니다.
 6. 가상 머신 창에서 **개요**를 클릭한 다음 창 상단에서 **시작** 단추를 클릭하여 VM을 다시 시작합니다.
 
-디스크가 저장소에 유지되지만 더 이상 가상 머신에 연결되어 있지 않습니다.
+디스크가 스토리지에 유지되지만 더 이상 가상 머신에 연결되어 있지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

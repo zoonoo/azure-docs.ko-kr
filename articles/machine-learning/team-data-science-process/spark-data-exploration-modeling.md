@@ -83,13 +83,13 @@ Spark 2.0 클러스터를 사용하여 구현되는 회귀 및 분류 작업은 
 
 <!-- -->
 
-## <a name="setup-storage-locations-libraries-and-the-preset-spark-context"></a>설정: 저장소 위치, 라이브러리 및 사전 설정 Spark 컨텍스트
+## <a name="setup-storage-locations-libraries-and-the-preset-spark-context"></a>설정: 스토리지 위치, 라이브러리 및 사전 설정 Spark 컨텍스트
 Spark는 Azure Storage Blob(WASB라고도 함)를 읽고 쓸 수 있습니다. 따라서 Spark 및 WASB에 다시 저장된 결과를 사용하여 해당 저장소에 저장된 기존 데이터를 처리할 수 있습니다.
 
 모델 또는 파일을 WASB에 저장하려면 경로를 올바르게 지정해야 합니다. "wasb///"로 시작하는 경로를 사용하여 Spark 클러스터에 연결된 기본 컨테이너를 참조할 수 있습니다. 다른 위치를 “wasb://”에서 참조합니다.
 
-### <a name="set-directory-paths-for-storage-locations-in-wasb"></a>WASB의 저장소 위치에 대 한 디렉터리 경로를 설정합니다.
-다음 코드 샘플은 읽을 데이터의 위치 및 모델 출력을 저장할 모델 저장소 디렉터리에 대한 경로를 지정합니다.
+### <a name="set-directory-paths-for-storage-locations-in-wasb"></a>WASB의 스토리지 위치에 대한 디렉터리 경로를 설정합니다.
+다음 코드 샘플은 읽을 데이터의 위치 및 모델 출력을 저장할 모델 스토리지 디렉터리에 대한 경로를 지정합니다.
 
     # SET PATHS TO FILE LOCATIONS: DATA AND MODEL STORAGE
 
@@ -1068,7 +1068,7 @@ R-sqr = 0.753835096681
     oneHotTESTregScaled.unpersist()
 
 
-## <a name="record-storage-locations-of-the-models-for-consumption-and-scoring"></a>소비와 점수 매기기에 대한 모델의 저장소 위치 레코드
+## <a name="record-storage-locations-of-the-models-for-consumption-and-scoring"></a>소비와 점수 매기기에 대한 모델의 스토리지 위치 레코드
 [Spark 빌드된 기계 학습 모델 점수 매기기 및 평가](spark-model-consumption.md) 항목에서 설명한 독립적인 데이터 세트를 사용하고 점수를 매기려면 여기서 Consumption Jupyter Notebook에 만든 저장된 모델을 포함하는 이러한 파일 이름을 복사하고 붙여넣어야 합니다. 필요한 모델 파일에 대한 경로를 출력하는 코드는 다음과 같습니다.
 
     # MODEL FILE LOCATIONS FOR CONSUMPTION

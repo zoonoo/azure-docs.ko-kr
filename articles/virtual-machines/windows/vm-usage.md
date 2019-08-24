@@ -114,7 +114,7 @@ Azure 갤러리의 일부 이미지의 경우 추가 정보 필드에 이미지 
 
 ## <a name="virtual-machine-usage-faq"></a>가상 머신 사용 FAQ
 ### <a name="what-resources-are-charged-when-deploying-a-vm"></a>VM을 배포할 때 어떤 리소스에 요금이 청구되나요?    
-VM은 VM 자체, VM에서 실행되는 프리미엄 소프트웨어, VM에 연결된 저장소 계정\관리되는 디스크, VM으로부터의 네트워킹 대역폭 전송에 대해 비용이 발생합니다.
+VM은 VM 자체, VM에서 실행되는 프리미엄 소프트웨어, VM에 연결된 스토리지 계정\관리되는 디스크, VM으로부터의 네트워킹 대역폭 전송에 대해 비용이 발생합니다.
 ### <a name="how-can-i-tell-if-a-vm-is-using-azure-hybrid-benefit-in-the-usage-csv"></a>VM이 Azure Hybrid Benefit을 사용하는 경우 사용 CSV에서 어떻게 확인하나요?
 [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/)을 사용하여 배포하는 경우 자체 라이선스를 클라우드로 가져오는 것이므로 비 Windows VM 요금이 부과됩니다. 청구서에서 ImageType 열에 “Windows\_Server BYOL” 또는 “Windows\_Client BYOL”이 표시되므로 어떤 Resource Manager VM이 Azure Hybrid Benefit을 실행하는지 구분할 수 있습니다.
 ### <a name="how-are-basic-vs-standard-vm-types-differentiated-in-the-usage-csv"></a>사용 CSV에서 기본과 사용 CSV에서 표준 VM 유형은 어떻게 다른가요?
@@ -140,7 +140,7 @@ Microsoft.ClassicCompute는 Azure Service Manager를 통해 배포된 클래식 
 ### <a name="how-can-the-consumed-quantity-be-more-than-24-hours-one-day"></a>어떻게 사용 크기가 하루 24시간보다 커질 수 있나요?
 클래식 모델에서 리소스 요금 청구는 클라우드 서비스 수준에서 집계됩니다. 동일한 요금 청구 미터를 사용하는 클라우드 서비스에 여러 VM이 있는 경우 사용이 한꺼번에 집계됩니다. Resource Manager를 통해 배포된 VM은 VM 수준에서 청구되므로 이 집계가 적용되지 않습니다.
 ### <a name="why-is-pricing-not-available-for-dsfsgsls-sizes-on-the-pricing-page"></a>가격 책정 페이지에서 DS/FS/GS/LS 크기에 대한 가격 책정을 왜 사용할 수 없나요?
-Premium Storage를 지원하는 VM은 비 Premium Storage 지원 VM과 같은 요금으로 청구됩니다. 저장소 비용만 다릅니다. 자세한 내용은 [저장소 가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/unmanaged-disks/)를 참조하세요.
+Premium Storage를 지원하는 VM은 비 Premium Storage 지원 VM과 같은 요금으로 청구됩니다. 스토리지 비용만 다릅니다. 자세한 내용은 [스토리지 가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/unmanaged-disks/)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 사용 세부 정보에 대한 자세한 내용은 [Microsoft Azure 청구서 이해](../../billing/billing-understand-your-bill.md)를 참조하세요.

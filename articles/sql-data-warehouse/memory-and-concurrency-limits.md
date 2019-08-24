@@ -20,7 +20,7 @@ ms.locfileid: "67595571"
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 대한 메모리 및 동시성 제한
 Azure SQL Data Warehouse에서 다양한 성능 수준과 리소스 클래스에 할당된 메모리 및 동시성 제한을 살펴봅니다. 자세한 내용을 참고하고 워크로드 관리 계획에 이러한 기능을 적용하려면 [워크로드 관리를 위한 리소스 클래스](resource-classes-for-workload-management.md)를 확인하세요. 
 
-현재 SQL Data Warehouse에는 1세대와 2세대의 두 세대가 있습니다. SQL Data Warehouse의 2세대를 활용하여 데이터 웨어하우스 작업에 대해 최상의 성능을 얻는 것이 좋습니다. 2세대에서는 CPU에 가장 자주 액세스하는 데이터를 유지하는 새로운 NVMe SSD 디스크 캐시를 도입했습니다. 이렇게 하면 가장 집약적이고 요구가 많은 작업에 대한 원격 I/O가 제거됩니다. 2세대는 성능 외에도 최대 30,000개까지 데이터 웨어하우스 단위를 확장하고 무제한 열 형식 저장소를 제공하여 가장 높은 크기 조정 수준을 제공합니다. 여전히 SQL Data Warehouse의 이전 세대(1세대)도 지원하고 동일한 기능도 유지하지만, 가능한 빨리 [2세대로 업그레이드](upgrade-to-latest-generation.md)하는 것이 좋습니다. 
+현재 SQL Data Warehouse에는 1세대와 2세대의 두 세대가 있습니다. SQL Data Warehouse의 2세대를 활용하여 데이터 웨어하우스 작업에 대해 최상의 성능을 얻는 것이 좋습니다. 2세대에서는 CPU에 가장 자주 액세스하는 데이터를 유지하는 새로운 NVMe SSD 디스크 캐시를 도입했습니다. 이렇게 하면 가장 집약적이고 요구가 많은 작업에 대한 원격 I/O가 제거됩니다. 2세대는 성능 외에도 최대 30,000개까지 데이터 웨어하우스 단위를 확장하고 무제한 열 형식 스토리지를 제공하여 가장 높은 크기 조정 수준을 제공합니다. 여전히 SQL Data Warehouse의 이전 세대(1세대)도 지원하고 동일한 기능도 유지하지만, 가능한 빨리 [2세대로 업그레이드](upgrade-to-latest-generation.md)하는 것이 좋습니다. 
 
 ## <a name="data-warehouse-capacity-settings"></a>데이터 웨어하우스 용량 제한
 다음 표에서는 다양한 성능 수준의 데이터 웨어하우스에 대한 최대 용량을 보여줍니다. 성능 수준을 변경하려면 [컴퓨팅 조정 - 포털](quickstart-scale-compute-portal.md)을 참조하세요.
