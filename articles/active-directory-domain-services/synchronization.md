@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: iainfou
-ms.openlocfilehash: 9a7baa6385e0130b784b264a4c53c232ae8a1b50
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
-ms.translationtype: HT
+ms.openlocfilehash: 85b1e3eae9d7472fa829665707fca481a28f0623
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69980467"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70011283"
 ---
 # <a name="how-objects-and-credentials-are-synchronized-in-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리 되는 도메인에서 개체 및 자격 증명을 동기화 하는 방법
 
@@ -127,7 +127,7 @@ Azure AD DS을 사용 하도록 설정 하는 경우 NTLM + Kerberos 인증에 �
 
 클라우드 전용 Azure AD 환경의 경우 필요한 암호 해시가 생성 되어 Azure AD에 저장 되려면 [사용자가 암호를 다시 설정/변경 해야](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) 합니다. Azure AD Domain Services를 사용하도록 설정한 후에 Azure AD에서 만든 클라우드 사용자 계정의 경우 암호 해시는 NTLM 및 Kerberos 호환 형식으로 생성되고 저장됩니다. 이러한 새 계정은 암호를 재설정 하거나 변경할 필요가 없습니다. 기존 암호 해시가 생성 됩니다.
 
-Azure AD Connect를 사용 하 여 온-프레미스 AD DS 환경에서 동기화 된 하이브리드 사용자 계정의 경우 [NTLM 및 Kerberos 호환 형식에서 암호 해시를 동기화 하도록 Azure AD Connect를 구성](active-directory-ds-getting-started-password-sync-synced-tenant.md)해야 합니다.
+Azure AD Connect를 사용 하 여 온-프레미스 AD DS 환경에서 동기화 된 하이브리드 사용자 계정의 경우 [NTLM 및 Kerberos 호환 형식에서 암호 해시를 동기화 하도록 Azure AD Connect를 구성](tutorial-configure-password-hash-sync.md)해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

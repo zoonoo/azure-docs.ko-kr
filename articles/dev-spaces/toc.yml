@@ -73,6 +73,8 @@
           href: how-to/manage-secrets.md
         - name: 사용자 지정 NuGet 피드 사용
           href: how-to/use-custom-nuget-feed.md
+        - name: 프라이빗 Helm 리포지토리 사용
+          href: how-to/use-private-helm-repo.md
         - name: Azure Dev Spaces로 kubectl 사용
           href: how-to/use-kubectl-with-azure-dev-spaces.md
         - name: Azure Dev Spaces 도구 업그레이드

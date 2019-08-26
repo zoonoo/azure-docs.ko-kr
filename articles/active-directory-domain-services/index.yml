@@ -13,14 +13,14 @@ metadata:
   ms.author: iainfou
   manager: daveba
   ms.date: 08/01/2019
-  ms.openlocfilehash: 3c97b7bbb652fd26e5c8fdb6d20576a3c9e70421
-  ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+  ms.openlocfilehash: f5fa27e19da6bb64b7e214ec32cbfbf0a417118e
+  ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/19/2019
-  ms.locfileid: "69612860"
+  ms.lasthandoff: 08/23/2019
+  ms.locfileid: "70010573"
 landingContent:
-- title: Azure AD Domain Services에 대해 알아보기
+- title: Azure AD Domain Services 정보
   linkLists:
   - linkListType: overview
     links:
@@ -28,6 +28,8 @@ landingContent:
       url: overview.md
     - text: ID 솔루션 비교
       url: compare-identity-solutions.md
+  - linkListType: concept
+    links:
     - text: 동기화는 어떻게 작동하나요?
       url: synchronization.md
     - text: FAQ
@@ -53,7 +55,7 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: 암호 해시 동기화 사용
-      url: active-directory-ds-getting-started-password-sync-synced-tenant.md
+      url: tutorial-configure-password-hash-sync.md
     - text: OU(조직 구성 단위) 만들기
       url: create-ou.md
     - text: Kerberos 제한된 위임 구성

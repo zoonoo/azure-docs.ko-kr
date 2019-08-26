@@ -263,6 +263,10 @@
               href: integrate-environments-devops-pipeline.md
             - name: Azure Pipelines 빌드 및 릴리스 파이프라인에서 DevTest Labs 사용
               href: use-devtest-labs-build-release-pipelines.md
+        - name: DevTest Labs 연장
+          items:
+            - name: Azure Functions를 사용하여 DevTest Labs 연장
+              href: extend-devtest-labs-azure-functions.md
         - name: 랩 사용량 보고
           href: report-usage-across-multiple-labs-subscriptions.md
         - name: 기업의 DevTest Labs

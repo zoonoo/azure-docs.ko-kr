@@ -2,15 +2,14 @@
 documentType: LandingData
 title: Bing Video Search API 설명서
 metadata:
-  title: 'Bing Video Search API 설명서 - 자습서, 빠른 시작, API 참조 | Microsoft Docs'
+  title: 'Bing Video Search API 설명서 - 자습서, 빠른 시작, API 참조'
+  titleSuffix: Azure Cognitive Services
   description: Bing Video Search API 검색을 사용하고 웹에서 비디오를 찾는 방법을 알아봅니다.
   services: cognitive-services
   author: aahill
   manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-video-search
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 07/25/2019
   ms.author: aahi

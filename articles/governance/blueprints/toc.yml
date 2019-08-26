@@ -27,6 +27,12 @@
     - name: 인덱스
       displayName: 'list, examples'
       href: ./samples/index.md
+    - name: CIS Microsoft Azure Foundations 벤치마크
+      items:
+        - name: 개요
+          href: ./samples/cis-azure-1.1.0/index.md
+        - name: 추천 매핑
+          href: ./samples/cis-azure-1.1.0/control-mapping.md
     - name: IRS 1075
       items:
         - name: 개요

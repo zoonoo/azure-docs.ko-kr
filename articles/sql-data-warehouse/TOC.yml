@@ -253,14 +253,20 @@
           href: sql-data-warehouse-connect-overview.md
         - name: 연결 문자열
           href: sql-data-warehouse-connection-strings.md
-        - name: Visual Studio SSDT 설치
-          href: sql-data-warehouse-install-visual-studio.md
-        - name: Visual Studio SSDT를 사용하여 쿼리
-          href: sql-data-warehouse-query-visual-studio.md
-        - name: SSMS를 사용하여 쿼리
-          href: sql-data-warehouse-query-ssms.md
-        - name: sqlcmd를 사용하여 연결 및 쿼리
-          href: sql-data-warehouse-get-started-connect-sqlcmd.md
+        - name: 변경 관리 및 배포
+          items:
+            - name: Visual Studio SSDT 설치
+              href: sql-data-warehouse-install-visual-studio.md
+            - name: 소스 제어 통합
+              href: sql-data-warehouse-source-control-integration.md
+        - name: 연결 및 쿼리
+          items:
+            - name: Visual Studio SSDT
+              href: sql-data-warehouse-query-visual-studio.md
+            - name: SSMS
+              href: sql-data-warehouse-query-ssms.md
+            - name: sqlcmd
+              href: sql-data-warehouse-get-started-connect-sqlcmd.md
     - name: 워크로드 관리
       items:
         - name: 워크로드 분석

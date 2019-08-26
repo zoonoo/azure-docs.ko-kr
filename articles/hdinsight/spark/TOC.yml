@@ -327,6 +327,8 @@
           href: ./apache-spark-troubleshoot-sparkexception-kryo-serialization-failed.md
         - name: Apache Spark 이벤트 로그 - RequestBodyTooLarge
           href: ./apache-spark-troubleshoot-event-log-requestbodytoolarge.md
+        - name: Apache ZooKeeper 쿼럼 실패
+          href: ./zookeeper-troubleshoot-quorum-fails.md
 - name: 참고 자료
   items:
     - name: 코드 샘플

@@ -149,6 +149,8 @@
       items:
         - name: OPC 쌍 아키텍처
           href: overview-opc-twin-architecture.md
+        - name: OPC 자격 증명 모음 아키텍처
+          href: overview-opc-vault-architecture.md
     - name: 방법 가이드
       items:
         - name: 연결된 팩터리
@@ -169,14 +171,14 @@
               href: howto-opc-twin-deploy-dependencies.md
         - name: OPC 자격 증명 모음
           items:
-            - name: 기존 프로젝트에 OPC 자격 증명 모음 배포
-              items:
-                - name: OPC 클라이언트 및 OPC PLC 통신 보호
-                  href: howto-opc-vault-deploy-existing-client-plc-communication.md
-                - name: OPC UA 클라이언트 및 OPC UA 서버 애플리케이션 보호
-                  href: howto-opc-vault-deploy-existing-client-server-communication.md
-            - name: 처음부터 OPC 자격 증명 모음 배포
-              href: howto-opc-vault-deploy-scratch.md
+            - name: OPC 자격 증명 모음 서비스 배포
+              href: howto-opc-vault-deploy.md
+            - name: OPC 자격 증명 모음 서비스 관리
+              href: howto-opc-vault-manage.md
+            - name: OPC 자격 증명 모음을 사용하여 OPC UA 디바이스 통신 보안
+              href: howto-opc-vault-secure.md
+            - name: OPC 자격 증명 모음 서비스를 안전하게 운영
+              href: howto-opc-vault-secure-ca.md
         - name: OPC 게시자
           items:
             - name: OPC 게시자 구성

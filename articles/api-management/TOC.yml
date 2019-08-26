@@ -193,6 +193,8 @@
           href: api-management-howto-create-groups.md
         - name: 여러 Azure 지역에 배포
           href: api-management-howto-deploy-multi-region.md
+        - name: IP 주소 검색
+          href: api-management-howto-ip-addresses.md
         - name: Azure Event Hubs에 이벤트 기록
           href: api-management-howto-log-event-hubs.md
         - name: Azure Application Insights를 사용하여 로그 요청

@@ -71,12 +71,24 @@
           href: event-hubs-geo-dr.md
     - name: 보안
       items:
-        - name: Azure 리소스용 관리 서비스 ID
-          href: event-hubs-managed-service-identity.md
-        - name: 역할 기반 액세스 제어(미리 보기)
-          href: event-hubs-role-based-access-control.md
-        - name: 인증 및 보안 모델 개요
-          href: event-hubs-authentication-and-security-model-overview.md
+        - name: 권한 부여
+          items:
+            - name: Azure Event Hubs에 대한 액세스 권한 부여
+              href: authorize-access-event-hubs.md
+            - name: Azure Active Directory를 사용하여 액세스 권한 부여
+              href: authorize-access-azure-active-directory.md
+            - name: 공유 액세스 서명을 사용하여 액세스 권한 부여
+              href: authorize-access-shared-access-signature.md
+        - name: 인증
+          items:
+            - name: Azure Active Directory를 사용하여 인증
+              items:
+                - name: 관리 ID로 인증
+                  href: authenticate-managed-identity.md
+                - name: 애플리케이션에서 인증
+                  href: authenticate-application.md
+            - name: 공유 액세스 서명 인증
+              href: authenticate-shared-access-signature.md
         - name: 보안 특성
           href: event-hubs-security-attributes.md
     - name: AMQP 1.0 프로토콜 가이드
@@ -166,6 +178,8 @@
           href: event-hubs-service-endpoints.md
         - name: Event Hubs 네임스페이스에서 Virtual Networks 통합 및 방화벽 사용
           href: event-hubs-tutorial-virtual-networks-firewalls.md
+        - name: 미사용 데이터를 암호화하기 위한 고객 관리형 키 구성
+          href: configure-customer-managed-key.md
     - name: 문제 해결
       items:
         - name: 예외

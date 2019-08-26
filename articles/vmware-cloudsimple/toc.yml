@@ -106,8 +106,6 @@
               href: users.md
             - name: 프라이빗 클라우드에 가상 네트워크 연결 설정
               href: virtual-network-connection.md
-            - name: 사용자 프로필 편집
-              href: 'https://docs.azure.cloudsimple.com/editprofile/'
         - name: 프라이빗 클라우드에 대한 VMware 가상 머신 설정
           items:
             - name: Azure에서 VM 만들기
@@ -147,7 +145,7 @@
             - name: 워크로드 VM을 프라이빗 클라우드로 마이그레이션
               href: migrate-workloads.md
             - name: Azure의 VMware에서 애플리케이션 고가용성 확보
-              href: 'https://docs.azure.cloudsimple.com/ensuring-high-availability/'
+              href: ensuring-high-availability.md
             - name: 부하 분산 해결책 선택
               href: load-balancers.md
         - name: VMware 에코시스템
@@ -156,8 +154,10 @@
               href: backup-workloads-veeam.md
             - name: Zerto를 사용하여 프라이빗 클라우드를 재해 복구 사이트로 구성
               href: disaster-recovery-zerto.md
+            - name: VMware SRM을 사용하여 프라이빗 클라우드를 재해 복구 사이트로 구성
+              href: disaster-recovery-site-recovery-manager.md
             - name: VMware Horizon 솔루션 가이드
-              href: 'https://docs.azure.cloudsimple.com/horizon-guide/'
+              href: horizon-guide.md
             - name: 프라이빗 클라우드에 대한 vSAN 암호화 구성
               href: vsan-encryption.md
             - name: Oracle RAC를 위한 프라이빗 클라우드 최적화

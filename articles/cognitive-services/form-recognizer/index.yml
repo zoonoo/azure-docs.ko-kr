@@ -2,15 +2,14 @@
 documentType: LandingData
 title: Form Recognizer 설명서
 metadata:
-  title: API 설명서 - Form Recognizer - Azure Cognitive Services  | Microsoft Docs
+  title: API 설명서 - Form Recognizer
+  titleSuffix: Azure Cognitive Services
   description: Form Recognizer를 사용하여 지능적으로 양식 문서에서 키-값 데이터를 추출하는 방법을 알아봅니다.
   services: cognitive-services
   author: PatrickFarley
   manager: nitinme
   ms.service: cognitive-services
   ms.subservice: forms-recognizer
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 04/16/2019
   ms.author: pafarley

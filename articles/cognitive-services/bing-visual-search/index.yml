@@ -3,15 +3,14 @@ documentType: LandingData
 title: Bing Visual Search API 설명서
 metadata:
   document_id: 230494A6-34F9-416D-A6C0-57E69E1C2590
-  title: 'Bing Visual Search API 설명서 - 자습서, 빠른 시작, API 참조 | Microsoft Docs'
+  title: 'Bing Visual Search API 설명서 - 자습서, 빠른 시작, API 참조'
+  titleSuffix: Azure Cognitive Services
   description: Bing Visual Search API를 사용하여 이미지에 대한 인사이트를 얻는 방법을 알아봅니다.
   services: cognitive-services
   author: swhite-msft
   manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-visual-search
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 01/16/2019
   ms.author: scottwhi

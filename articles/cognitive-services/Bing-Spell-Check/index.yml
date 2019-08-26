@@ -3,15 +3,14 @@ documentType: LandingData
 title: Bing Spell Check API 설명서
 metadata:
   document_id: ce69fd12-adf8-11e7-abc4-cec278b6b50a
-  title: 'Bing Spell Check API 설명서 - 자습서, API 참조 - Azure Cognitive Services  | Microsoft Docs'
+  title: 'Bing Spell Check API 설명서 - 자습서, API 참조'
+  titleSuffix: Azure Cognitive Services
   description: Bing Spell Check API를 사용하여 텍스트 문서에 대해 제안된 수정을 가져오는 방법을 알아봅니다. 자습서에서는 API를 사용하는 앱을 작성하는 방법을 보여줍니다.
   services: cognitive-services
   author: aahill
   manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-spell-check
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 07/25/2019
   ms.author: aahi

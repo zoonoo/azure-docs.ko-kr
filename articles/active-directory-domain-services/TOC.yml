@@ -17,12 +17,16 @@
       href: tutorial-create-management-vm.md
     - name: 보안 LDAP 구성
       href: tutorial-configure-ldaps.md
+    - name: 암호 해시 동기화 구성
+      href: tutorial-configure-password-hash-sync.md
 - name: 샘플
   items:
     - name: Azure PowerShell을 사용하여 Azure AD DS 인스턴스 만들기
       href: powershell-create-instance.md
 - name: 개념
   items:
+    - name: 일반적인 배포 시나리오
+      href: scenarios.md
     - name: Azure AD DS 동기화 작동 방법
       href: synchronization.md
     - name: 암호 해시 동기화 작동 방식
@@ -37,8 +41,6 @@
   items:
     - name: 일반 설정 구성
       items:
-        - name: 암호 해시 동기화 사용
-          href: active-directory-ds-getting-started-password-sync-synced-tenant.md
         - name: Azure AD에서 범위가 지정된 동기화 구성
           href: scoped-synchronization.md
         - name: OU(조직 구성 단위) 만들기
@@ -47,8 +49,6 @@
           href: create-gmsa.md
     - name: Azure AD DS 계획
       items:
-        - name: 일반적인 시나리오
-          href: scenarios.md
         - name: 가상 네트워크 고려 사항
           href: network-considerations.md
     - name: Azure AD DS 관리

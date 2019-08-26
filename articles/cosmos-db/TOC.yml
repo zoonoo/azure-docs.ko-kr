@@ -751,6 +751,10 @@
           href: cosmosdb-sql-api-migrate-data-striim.md
         - name: Striim을 사용하여 Cassandra API로 마이그레이션
           href: cosmosdb-cassandra-api-migrate-data-striim.md
+        - name: Blitzz를 사용하여 Oracle DB에서 Cassandra API로 마이그레이션
+          href: oracle-migrate-cosmos-db-blitzz.md
+        - name: Blitzz를 사용하여 Apache Cassandra에서 Cassandra API로 마이그레이션
+          href: cassandra-migrate-cosmos-db-blitzz.md
         - name: 수백 테라바이트의 데이터를 Azure Cosmos DB로 마이그레이션
           href: migrate-cosmosdb-data.md
     - name: Bulk Executor 라이브러리
