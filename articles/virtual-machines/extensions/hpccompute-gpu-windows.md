@@ -74,10 +74,10 @@ NVIDIA GPU 드라이버용 Microsoft Azure 확장을 사용하려면 대상 VM�
 
 | 이름 | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | 날짜 |
+| apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.HpcCompute | string |
 | type | NvidiaGpuDriverWindows | string |
-| typeHandlerVersion | 1.2 | ssNoversion |
+| typeHandlerVersion | 1.2 | int |
 
 
 ## <a name="deployment"></a>배포
