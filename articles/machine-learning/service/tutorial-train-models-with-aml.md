@@ -36,13 +36,13 @@ ms.locfileid: "69033000"
 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 지금 사용해 보세요.
 
 >[!NOTE]
-> 이 문서의 코드는 Azure Machine Learning SDK 버전 1.0.41에서 테스트되었습니다.
+> 이 문서의 코드는 Azure Machine Learning SDK 버전 1.0.41에서 테스트 되었습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 [개발 환경 설정](#start)으로 건너뛰어 Notebook 단계를 읽어보거나, 아래 지침에 따라 Notebook을 가져와서 Azure Notebooks 또는 사용자 고유의 Notebook 서버에서 실행합니다.  Notebook을 실행하려면 다음 항목이 필요합니다.
 
-* 다음 요소가 설치된 Python 3.6 Notebook 서버:
+* 다음 요소가 설치된 Python 3.6 Notebook 서버
     * Python용 Azure Machine Learning SDK
     * `matplotlib` 및 `scikit-learn`
 * 자습서 Notebook 및 **utils.py** 파일
