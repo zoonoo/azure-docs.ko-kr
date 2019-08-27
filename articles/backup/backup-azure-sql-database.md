@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 647ab76760d0c5ce5315a60d0a671163b902be0f
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 23c10fbed751e05fea2a95030c720f622e195f40
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954548"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534231"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Azure VM의 SQL Server 백업 정보
 
@@ -22,9 +22,9 @@ SQL Server 데이터베이스는 낮은 RPO(복구 지점 목표)와 장기 보�
 
 이 솔루션은 SQL 네이티브 API를 활용하여 SQL 데이터베이스를 백업합니다.
 
-* 보호하려는 SQL Server VM을 지정하고 그 안에 있는 데이터베이스를 쿼리하면 Azure Backup 서비스가 `AzureBackupWindowsWorkload` 확장이라는 이름으로 VM에 워크로드 백업 확장을 설치합니다.
+* 보호하려는 SQL Server VM을 지정하고 그 안에 있는 데이터베이스를 쿼리하면 Azure Backup 서비스가 `AzureBackupWindowsWorkload` 확장이라는 이름으로 VM에 워크로드 백업 확장을 설치합니다.
 * 이 확장은 코디네이터 및 SQL 플러그 인으로 구성됩니다. 코디네이터는 백업 구성, 백업 및 복원 같은 다양한 워크플로를 트리거하는 역할을 담당하고, 플러그 인은 실제 데이터 흐름을 담당합니다.
-* 이 VM의 데이터베이스를 검색하기 위해 Azure Backup은  `NT SERVICE\AzureWLBackupPluginSvc`라는 계정을 만듭니다. 이 계정은 백업 및 복원에 사용되며 SQL sysadmin 권한이 필요합니다. Azure Backup은 데이터베이스 검색/조회에  `NT AUTHORITY\SYSTEM`  계정을 활용하므로, 이 계정은 SQL에서 공용 로그인이어야 합니다. Azure Marketplace에서 SQL Server VM을 만들지 않은 경우  **UserErrorSQLNoSysadminMembership** 오류가 발생할 수 있습니다. 이 경우  [다음 지침을 따릅니다](backup-azure-sql-database.md).
+* 이 VM에서 데이터베이스를 검색할 수 있도록 Azure Backup은 `NT SERVICE\AzureWLBackupPluginSvc` 계정을 만듭니다. 이 계정은 백업 및 복원에 사용되며 SQL sysadmin 권한이 필요합니다. Azure Backup은 데이터베이스 검색/조회에 `NT AUTHORITY\SYSTEM` 계정을 활용하므로, 이 계정은 SQL에서 공용 로그인이어야 합니다. Azure Marketplace에서 SQL Server VM을 만들지 않은 경우 **UserErrorSQLNoSysadminMembership** 오류가 발생할 수 있습니다. 이 경우 [다음 지침을 따르세요](backup-azure-sql-database.md).
 * 선택한 데이터베이스에서 구성 보호를 트리거하면 백업 서비스가 백업 일정과 기타 정책 세부 정보를 사용하여 코디네이터를 설정하며, 이 경우 확장이 VM에 로컬로 캐시합니다.
 * 예약된 시간에 코디네이터가 플러그 인과 통신하고 VDI를 사용하여 SQL 서버의 백업 데이터를 스트리밍하기 시작합니다.  
 * 플러그 인은 복구 서비스 자격 증명 모음에 직접 데이터를 보내기 때문에 준비 위치가 필요 없습니다. 데이터는 Azure Backup 서비스를 통해 암호화되어 스토리지 계정에 저장됩니다.
@@ -45,7 +45,7 @@ SQL Server 데이터베이스는 낮은 RPO(복구 지점 목표)와 장기 보�
 **지원** | **세부 정보**
 --- | ---
 **지원되는 배포** | SQL Marketplace Azure VM 및 비 Marketplace VM(SQL Server가 수동 설치됨)이 지원됩니다.
-**지원되는 지역** | 오스트레일리아 동남부(ASE), 오스트레일리아 동부(AE) <br> 브라질 남부(BRS)<br> 캐나다 중부(CNC), 캐나다 동부(CE)<br> 동남 아시아(SEA), 동아시아(EA) <br> 미국 동부(EUS), 미국 동부 2(EUS2), 미국 중서부(WCUS), 미국 서부(WUS), 미국 서부 2(WUS 2), 미국 중북부(NCUS), 미국 중부(CUS), 미국 중남부(SCUS) <br> 인도 중부(INC), 인도 남부(INS) <br> 일본 동부(JPE), 일본 서부(JPW) <br> 한국 중부(KRC), 한국 남부(KRS) <br> 북유럽(NE), 서유럽 <br> 영국 남부(UKS), 영국 서부(UKW) <br> US Gov 애리조나, US Gov 버지니아, US Gov 텍사스, US DoD 중부, US DoD 동부
+**지원되는 지역** | 오스트레일리아 동남부(ASE), 오스트레일리아 동부(AE) <br> 브라질 남부(BRS)<br> 캐나다 중부(CNC), 캐나다 동부(CE)<br> 동남 아시아(SEA), 동아시아(EA) <br> 미국 동부(EUS), 미국 동부 2(EUS2), 미국 중서부(WCUS), 미국 서부(WUS), 미국 서부 2(WUS 2), 미국 중북부(NCUS), 미국 중부(CUS), 미국 중남부(SCUS) <br> 인도 중부(INC), 인도 남부(INS) <br> 일본 동부(JPE), 일본 서부(JPW) <br> 한국 중부(KRC), 한국 남부(KRS) <br> 북유럽(NE), 서유럽 <br> 영국 남부(UKS), 영국 서부(UKW) <br> US Gov 애리조나, US Gov 버지니아, US Gov 텍사스, US DoD 중부, US DoD 동부
 **지원되는 운영 체제** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012<br/><br/> Linux는 현재 지원되지 않습니다.
 **지원되는 SQL Server 버전** | [여기](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017)에 설명된 SQL Server 2017, [여기](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack)에 설명된 SQL Server 2016 및 SP, SQL Server 2014, SQL Server 2012.<br/><br/> Enterprise, Standard, Web, Developer, Express
 **지원되는 .NET 버전** | VM에 설치된 .NET Framework 4.5.2 이상
@@ -66,7 +66,7 @@ Azure Backup은 최근에 [EOS SQL Sever](https://docs.microsoft.com/azure/virtu
 - SQL Server 백업은 Azure Portal 또는 **PowerShell**에서 구성할 수 있습니다. CLI는 지원되지 않습니다.
 - 솔루션은 Azure Resource Manager VM과 클래식 VM의 두 종류 [배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model)에서 모두 지원됩니다.
 - SQL Server를 실행하는 VM에서 Azure 공용 IP 주소에 액세스하려면 인터넷 연결이 필요합니다.
-- SQL Server **장애 조치(failover) 클러스터 인스턴스(FCI)** 및 SQL Server AlwaysOn 장애 조치(failover) 클러스터 인스턴스는 지원되지 않습니다.
+- SQL Server **장애 조치(failover) 클러스터 인스턴스(FCI)** 및 SQL Server Always On 장애 조치(failover) 클러스터 인스턴스는 지원되지 않습니다.
 - 미러 데이터베이스와 데이터베이스 스냅샷에 대한 백업 및 복원 작업은 지원되지 않습니다.
 - 백업 솔루션을 2개 이상 사용하여 독립 실행형 SQL Server 인스턴스 또는 SQL Always On 가용성 그룹을 백업하면 오류가 발생할 수 있으므로 그렇게 하지 말아야 합니다.
 - 같은 솔루션 또는 다른 솔루션을 사용하여 한 가용성 그룹의 두 노드를 개별적으로 백업해도 오류가 발생할 수 있습니다.
