@@ -179,6 +179,9 @@
         - name: hyperparameters 조정
           displayName: parameter
           href: how-to-tune-hyperparameters.md
+        - name: 학습 시 Key Vault 사용
+          displayName: secrets keyvault
+          href: how-to-use-secrets-in-runs.md
     - name: 실험 추적 및 모니터링
       items:
         - name: '시작, 모니터링 또는 실행 취소'

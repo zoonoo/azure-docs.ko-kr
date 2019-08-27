@@ -49,6 +49,15 @@
           href: media-services-dotnet-live-encode-with-onpremises-encoders.md
 - name: 방법
   items:
+    - name: 레거시 구성 요소
+      href: legacy-components.md
+      items:
+        - name: Azure Media Encoder에서 마이그레이션
+          href: migrate-azure-media-encoder.md
+          displayName: AME
+        - name: Windows Azure Media Encoder에서 마이그레이션
+          href: migrate-windows-azure-media-encoder.md
+          displayName: WAME
     - name: 관리
       items:
         - name: 계정
