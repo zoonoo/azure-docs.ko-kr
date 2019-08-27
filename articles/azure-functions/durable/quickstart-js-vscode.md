@@ -65,7 +65,7 @@ ms.locfileid: "67612917"
 
     ![HTTP 스타터 템플릿 선택](./media/quickstart-js-vscode/create-function-choose-template.png)
 
-3. 기본 이름을 `DurableFunctionsHttpStart`로 그대로 두고 ****Enter** 키를 누른 다음, **익명** 인증을 선택합니다.
+3. 기본 이름을 `DurableFunctionsHttpStart`로 그대로 두고 ** **Enter** 키를 누른 다음, **익명** 인증을 선택합니다.
 
     ![익명 인증 선택](./media/quickstart-js-vscode/create-function-anonymous-auth.png)
 

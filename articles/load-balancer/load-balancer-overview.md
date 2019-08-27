@@ -131,7 +131,7 @@ _아직 필수적인 것은 아니지만 SKU를 명시적으로 지정하는 것
 
 ![공용 Load Balancer 예](./media/load-balancer-overview/IC727496.png)
 
-그림: 공용 Load Balancer를 사용하여 웹 트래픽 부하 분산*
+그림:  공용 Load Balancer를 사용하여 웹 트래픽 부하 분산
 
 인터넷 클라이언트가 TCP 포트 80에서 웹앱의 공용 IP 주소에 웹 페이지 요청을 보내면 Azure Load Balancer가 부하 분산 집합에 있는 3개의 VM에 요청을 분산합니다. Load Balancer 알고리즘에 대한 자세한 내용은 이 문서의 [Load Balancer 기능](load-balancer-overview.md##fundamental-load-balancer-features) 섹션을 참조하세요.
 
@@ -150,7 +150,7 @@ _아직 필수적인 것은 아니지만 SKU를 명시적으로 지정하는 것
 
 ![내부 Load Balancer 예제](./media/load-balancer-overview/IC744147.png)
 
-그림: 공용 및 내부 Load Balancer를 둘 다 사용하여 다중 계층 애플리케이션 부하 분산*
+그림:  공용 및 내부 Load Balancer를 둘 다 사용하여 다중 계층 애플리케이션 부하 분산
 
 ## <a name="pricing"></a>가격
 
