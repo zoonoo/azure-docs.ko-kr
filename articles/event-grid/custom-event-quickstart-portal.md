@@ -9,12 +9,12 @@ ms.date: 03/27/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 0861c47ef9f9649dfe223d8abeb51310a87ea4a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: afb53ed013af6cd1db2f6ff3d25c350aa2b4f1e8
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66169834"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69638561"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-the-azure-portal-and-event-grid"></a>빠른 시작: Azure Portal 및 Event Grid를 사용하여 사용자 지정 이벤트를 웹 엔드포인트로 라우팅
 
@@ -128,20 +128,22 @@ Event Grid 항목을 구독하여 Event Grid에 추적하려는 이벤트와 이
 ### <a name="azure-powershell"></a>Azure PowerShell
 두 번째 예제에서는 PowerShell을 사용하여 비슷한 단계를 수행합니다.
 
-1. Azure Portal에서 **Cloud Shell**을 선택합니다. Cloud Shell 창의 왼쪽 위 모서리에서 **PowerShell**을 선택합니다. Azure CLI 섹션에서 샘플 **Cloud Shell** 창 이미지를 확인합니다. 
-2. 다음 명령을 실행하여 항목에 대한 **엔드포인트**를 가져옵니다. 명령을 복사하고 붙여넣은 후, 명령을 실행하기 전에 **항목 이름** 및 **리소스 그룹 이름**을 업데이트합니다. 
+1. Azure Portal에서 **Cloud Shell**을 선택하거나 https://shell.azure.com/) 으로 이동합니다. Cloud Shell 창의 왼쪽 위 모서리에서 **PowerShell**을 선택합니다. Azure CLI 섹션에서 샘플 **Cloud Shell** 창 이미지를 확인합니다.
+2. 다음 변수를 설정합니다. 각 명령을 복사하고 붙여넣은 후, 명령을 실행하기 전에 **항목 이름** 및 **리소스 그룹 이름**을 업데이트합니다.
 
     ```powershell
-    $endpoint = (Get-AzEventGridTopic -ResourceGroupName <resource group name> -Name <topic name>).Endpoint
+    $resourceGroupName = <resource group name>
+    $topicName = <topic name>
     ```
-3. 다음 명령을 실행하여 사용자 지정 항목에 대한 **키**를 가져옵니다. 명령을 복사하고 붙여넣은 후, 명령을 실행하기 전에 **항목 이름** 및 **리소스 그룹** 이름을 업데이트합니다.
+3. 다음 명령을 실행하여 항목에 대한 **엔드포인트** 및 **키**를 가져옵니다.
 
     ```powershell
-    $keys = Get-AzEventGridTopicKey -ResourceGroupName gridResourceGroup -Name <topic name>
+    $endpoint = (Get-AzEventGridTopic -ResourceGroupName $resourceGroupName -Name $topicName).Endpoint
+    $keys = Get-AzEventGridTopicKey -ResourceGroupName $resourceGroupName -Name $topicName
     ```
 4. 이벤트를 준비합니다. Cloud Shell 창에서 명령문을 복사하고 실행합니다. 
 
-    ```azurepowershell
+    ```powershell
     $eventID = Get-Random 99999
 
     #Date format should be SortableDateTimePattern (ISO 8601)

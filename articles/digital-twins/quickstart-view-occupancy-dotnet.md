@@ -8,14 +8,14 @@ services: digital-twins
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc seodec18
-ms.date: 06/26/2019
+ms.date: 08/16/2019
 ms.author: alinast
-ms.openlocfilehash: 9f88eccf1e488d52fbbbd064cc5d7f54c2eec32b
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 40a98f915bc11ad17eae27596519cc78539fb2bb
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67459151"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640297"
 ---
 # <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>빠른 시작: Azure Digital Twins로 사용 가능한 회의실 찾기
 
@@ -72,6 +72,7 @@ Azure Digital Twins 서비스를 사용하여 물리적 환경의 디지털 이�
 공간 그래프는 [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml) 파일을 사용하여 프로비전됩니다.
 
 1. `dotnet run ProvisionSample`을 실행합니다.
+
     >[!NOTE]
     >디바이스 로그인 Azure CLI 도구는 사용자를 Azure AD에 인증하는 데 사용됩니다. 사용자는 [Microsoft 로그인](https://microsoft.com/devicelogin) 페이지에서 제공된 코드를 입력하여 인증해야 합니다. 코드를 입력한 후 인증 단계를 따릅니다. 도구가 실행 중일 때 사용자는 인증해야 합니다.
 
@@ -80,11 +81,11 @@ Azure Digital Twins 서비스를 사용하여 물리적 환경의 디지털 이�
 
 1. 프로비전 단계는 몇 분 정도 걸릴 수 있습니다. Digital Twins 인스턴스 내에 IoT Hub도 프로비전합니다. IoT Hub가 Status=`Running`으로 표시될 때까지 반복됩니다.
 
-    ![샘플 프로비전][4]
+    [![샘플 프로비저닝](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample1.png)](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample1.png#lightbox)
 
 1. 실행이 끝나면 디바이스 시뮬레이터 샘플에 사용할 수 있도록 디바이스의 `ConnectionString`을 복사합니다. 이 이미지에 설명된 문자열만 복사하세요.
 
-    ![샘플 프로비전][1]
+    [![연결 문자열 복사](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png)](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png#lightbox)
 
     >[!TIP]
     > [Azure Digital Twins 그래프 뷰어](https://github.com/Azure/azure-digital-twins-graph-viewer)를 사용하여 공간 그래프를 보고 수정할 수 있습니다.
@@ -99,7 +100,7 @@ Azure Digital Twins 서비스를 사용하여 물리적 환경의 디지털 이�
 1. [appsettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/device-connectivity/appsettings.json)을 편집하여 **DeviceConnectionString**을 위의 `ConnectionString`으로 업데이트합니다.
 1. `dotnet run` 명령을 실행하여 센서 데이터 전송을 시작합니다. 다음 이미지처럼 센서 데이터가 Digital Twins로 전송되는 것이 보입니다.
 
-     ![디바이스 연결][2]
+     [![디바이스 연결](media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png)](media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png#lightbox)
 
 1. 다음 단계 작업을 통해 결과를 나란히 놓고 볼 수 있도록 이 시뮬레이터를 실행합니다. 이 창은 Digital Twins로 전성된 시뮬레이션된 센서 데이터를 보여줍니다. 다음 단계에서는 공기가 깨끗한 가용 회의실을 실시간으로 쿼리합니다.
 
@@ -118,7 +119,7 @@ Azure Digital Twins 서비스를 사용하여 물리적 환경의 디지털 이�
    - 공기가 깨끗한 가용 회의실.
    - 다른 사람이 사용 중이거나 공기질이 좋지 않음.
 
-     ![공기가 깨끗한 가용 회의실 가져오기][3]
+     [![공기가 깨끗한 가용 회의실 가져오기](media/quickstart-view-occupancy-dotnet/digital-twins-get-available.png)](media/quickstart-view-occupancy-dotnet/digital-twins-get-available.png#lightbox)
 
 이 빠른 시작에서 어떤 일이 발생했고 어떤 API가 호출되었는지 이해하려면 digital-twins-samples-csharp에서 찾은 코드 작업 영역 프로젝트를 사용하여 [Visual Studio Code](https://code.visualstudio.com/Download)를 엽니다. 다음 명령을 사용합니다.
 
@@ -132,7 +133,7 @@ Azure Digital Twins 서비스를 사용하여 물리적 환경의 디지털 이�
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
-| 이름 | 다음 항목으로 교체 |
+| Name | 다음 항목으로 교체 |
 | --- | --- |
 | YOUR_INSTANCE_NAME | Digital Twins 인스턴스의 이름 |
 | YOUR_LOCATION | 인스턴스를 호스팅하는 서버 지역 |
@@ -160,9 +161,3 @@ https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 
 >[!div class="nextstepaction"]
 >[자습서: Azure Digital Twins 배포 및 공간 그래프 구성](tutorial-facilities-setup.md)
-
-<!-- Images -->
-[1]: media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png
-[2]: media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png
-[3]: media/quickstart-view-occupancy-dotnet/digital-twins-get-available.png
-[4]: media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample1.png

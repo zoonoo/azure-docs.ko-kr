@@ -11,20 +11,20 @@ ms.service: azure-functions
 ms.custom: mvc, fasttrack-edit
 ms.devlang: javascript
 manager: jeconnoc
-ms.openlocfilehash: 84e05b7afa2746587f2ea5008d493730ccbfad7e
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 40a2d3ab4ec358b5b2d0105703cdc25cdb777c29
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950032"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562978"
 ---
-# <a name="create-your-first-function-hosted-on-linux-using-core-tools-and-the-azure-cli-preview"></a>Core Tools 및 Azure CLI(미리 보기)를 사용하여 Linux에 호스트되는 첫 번째 함수 만들기
+# <a name="create-your-first-function-hosted-on-linux-using-core-tools-and-the-azure-cli"></a>Core Tools 및 Azure CLI를 사용하여 Linux에 호스트되는 첫 번째 함수 만들기
 
-Azure Functions를 사용하면 먼저 VM을 만들거나 웹 애플리케이션을 게시하지 않고도 [서버리스](https://azure.com/serverless) Linux 환경에서 코드를 실행할 수 있습니다. Linux 호스팅에는 [Functions 2.0 런타임](functions-versions.md)이 필요합니다. 서버리스 [소비 계획](functions-scale.md#consumption-plan)에서 Linux 기반 함수 앱 실행 지원은 현재 미리 보기 중입니다. 자세히 알아보려면 [이 미리 보기 고려 사항 문서](https://aka.ms/funclinux)를 참조하세요.
+Azure Functions를 사용하면 먼저 VM을 만들거나 웹 애플리케이션을 게시하지 않고도 [서버리스](https://azure.com/serverless) Linux 환경에서 코드를 실행할 수 있습니다. Linux 호스팅에는 [Functions 2.x 런타임](functions-versions.md)이 필요합니다. 서버리스 함수는 [사용 계획](functions-scale.md#consumption-plan)에서 실행됩니다.
 
 이 빠른 시작 문서에서는 Azure CLI를 사용하여 Linux에서 실행되는 첫 번째 함수 앱을 만드는 방법을 안내합니다. [Azure Functions Core Tools](functions-run-local.md)를 사용하여 함수 코드를 로컬로 만든 후 Azure에 배포합니다.
 
-다음 단계는 Mac, Windows 또는 Linux 컴퓨터에서 지원됩니다. 이 문서에서는 JavaScript 또는 C#으로 함수를 만드는 방법을 보여줍니다. Python 함수를 만드는 방법을 알아보려면 [Core 도구 및 Azure CLI를 사용하여 첫 번째 Python 함수 만들기(미리 보기)](functions-create-first-function-python.md)를 참조하세요.
+다음 단계는 Mac, Windows 또는 Linux 컴퓨터에서 지원됩니다. 이 문서에서는 JavaScript 또는 C#으로 함수를 만드는 방법을 보여줍니다. Python 함수를 만드는 방법을 알아보려면 [Core 도구 및 Azure CLI를 사용하여 첫 번째 Python 함수 만들기](functions-create-first-function-python.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 

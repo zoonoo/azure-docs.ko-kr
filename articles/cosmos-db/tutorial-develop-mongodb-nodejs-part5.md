@@ -12,12 +12,12 @@ ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
 Customer intent: As a developer, I want to build a Node.js application, so that I can manage the data stored in Cosmos DB.
-ms.openlocfilehash: c8cab3c723b7e507b0f3b05b933cca9e2c24fb39
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 626015e2aac5eb09dfd271a139dbc5eb49a088fc
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58075478"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616414"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---use-mongoose-to-connect-to-cosmos-db"></a>Azure Cosmos DB의 API for MongoDB를 사용하여 Angular 앱 만들기 - Mongoose를 사용하여 Cosmos DB에 연결
 
@@ -238,7 +238,7 @@ hero 모델을 만든 후에는 데이터를 읽고 나열, 만들기, 삭제 �
 
     ![Azure Portal의 새 Azure Cosmos DB 계정](./media/tutorial-develop-mongodb-nodejs-part5/azure-cosmos-db-heroes-app.png)
 
-아직 앱에 저장된 Heroes가 없습니다. 이 자습서의 다음 파트에서는 배치, 푸시 및 삭제 기능을 추가하겠습니다. 그러면 Mongoose를 Azure Cosmos DB 데이터베이스에 연결하여 UI에서 Heroes를 추가, 업데이트 및 삭제할 수 있습니다. 
+아직 앱에 저장된 Heroes가 없습니다. 이 자습서의 다음 파트에서는 배치, 푸시 및 삭제 기능을 추가하겠습니다. 그런 다음, Mongoose를 Azure Cosmos 데이터베이스에 연결하여 UI에서 Heroes를 추가, 업데이트 및 삭제할 수 있습니다. 
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

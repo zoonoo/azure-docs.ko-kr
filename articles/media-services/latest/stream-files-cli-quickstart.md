@@ -11,16 +11,16 @@ ms.service: media-services
 ms.workload: media
 ms.topic: tutorial
 ms.custom: ''
-ms.date: 02/19/2019
+ms.date: 08/19/2019
 ms.author: juliako
-ms.openlocfilehash: cce424b11cc4cd587c6e7c50bc8bdf988004a43a
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: 58193a94d09dee5df611acf5d98c8661dd18abbb
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65550196"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639976"
 ---
-# <a name="tutorial-stream-video-files---cli"></a>자습서: 비디오 파일 스트리밍 - CLI
+# <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---cli"></a>자습서: URL에 따라 원격 파일 인코딩 및 비디오 스트림 - CLI
 
 이 자습서는 Azure Media Services 및 Azure CLI를 사용하여 다양한 브라우저 및 디바이스에서 비디오를 쉽게 인코딩하고 스트리밍하는 방법을 보여줍니다. Azure Blob 스토리지에서 HTTPS 또는 SAS URL, 파일 경로를 사용하여 입력 콘텐츠를 지정할 수 있습니다.
 
@@ -44,7 +44,7 @@ Media Services 계정 및 연결된 모든 스토리지 계정은 동일한 Azur
 az group create -n amsResourceGroup -l westus2
 ```
 
-### <a name="create-an-azure-storage-account"></a>Azure 저장소 계정 만들기
+### <a name="create-an-azure-storage-account"></a>Azure Storage 계정 만들기
 
 이 예제에서는 범용 v2, 표준 LRS 계정을 만듭니다.
 

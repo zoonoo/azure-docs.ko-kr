@@ -13,12 +13,12 @@ ms.date: 08/05/2019
 ms.author: lizross
 ms.reviewer: richagi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6145ccc67eedfdae8e9e1aa9245ff8d34101d387
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: f10f3b272978ea24b515e39a8a8cc1fd0bea73a4
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68949560"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615994"
 ---
 # <a name="overview-for-two-factor-verification-and-your-work-or-school-account"></a>2단계 인증 및 회사 또는 학교 계정에 대한 개요
 
@@ -29,7 +29,15 @@ IT 팀원 또는 상사로부터 조직에서 계정에 보안 확인 절차를 
 >[!Important]
 >이 콘텐츠는 사용자를 위한 것입니다. 관리자의 경우 [Azure Active Directory 문서](https://docs.microsoft.com/azure/active-directory)에서 Azure AD(Azure Active Directory) 환경을 설정하고 관리하는 방법에 대한 자세한 정보를 찾을 수 있습니다.
 >
->이 콘텐츠는 회사 또는 학교 계정, 조직에서 귀하에게 제공한 계정(예: alain@contoso.com)에만 사용할 수 있습니다. 2단계 인증과 개인 Microsoft 계정, 직접 설정한 계정(예: danielle@outlook.com)에 문제가 있으면 [Microsoft 계정에 대한 2단계 인증 설정 또는 해제](https://support.microsoft.com/en-us/help/4028586/microsoft-account-turning-two-step-verification-on-or-off)를 참조하세요.
+>이 콘텐츠는 회사 또는 학교 계정, 조직에서 귀하에게 제공한 계정(예: alain@contoso.com)에만 사용할 수 있습니다. 2단계 인증과 개인 Microsoft 계정, 직접 설정한 계정(예: danielle@outlook.com)에 문제가 있으면 [Microsoft 계정에 대한 2단계 인증 설정 또는 해제](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off)를 참조하세요.
+
+## <a name="who-decides-if-you-use-this-feature"></a>이 기능의 사용 여부는 누가 결정하나요?
+
+계정 유형에 따라 사용자가 2단계 인증을 사용하도록 조직에서 결정할 수도 있고, 사용자가 직접 결정할 수도 있습니다.
+
+- **회사 또는 학교 계정** 회사 또는 학교 계정(예: alain@contoso.com)을 사용하는 경우 특정 인증 방법과 함께 2단계 인증을 사용해야 하는지 여부는 조직에서 결정합니다. 조직에서 이 기능을 사용해야 한다고 결정했으므로 개별적으로 해제할 수 있는 방법이 없습니다.
+
+- **개인 Microsoft 계정.** 개인 Microsoft 계정에 2단계 인증을 설정하도록 선택할 수 있습니다(예: alain@outlook.com). 2단계 확인 및 개인 Microsoft 계정에 문제가 있는 경우 [Microsoft 계정에 대해 2단계 확인 켜기 또는 끄기](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off)를 참조하세요. 이 기능을 사용할지 여부를 선택하므로 원할 때마다 설정하거나 해제할 수 있습니다.
 
 ## <a name="two-factor-verification-related-articles"></a>2단계 인증 관련 문서
 

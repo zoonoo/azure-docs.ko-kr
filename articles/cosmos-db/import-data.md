@@ -1,21 +1,21 @@
 ---
 title: Azure Cosmos DB용 데이터베이스 마이그레이션 도구
-description: 오픈 소스 Azure Cosmos DB 데이터 마이그레이션 도구를 사용하여 MongoDB, SQL Server, 테이블 저장소, Amazon DynamoDB, CSV 및 JSON 파일을 비롯한 다양한 원본에서 Azure Cosmos DB로 데이터를 가져오는 방법을 알아봅니다. CSV에서 JSON로 변환합니다.
+description: 오픈 소스 Azure Cosmos DB 데이터 마이그레이션 도구를 사용하여 MongoDB, SQL Server, 테이블 스토리지, Amazon DynamoDB, CSV 및 JSON 파일을 비롯한 다양한 원본에서 Azure Cosmos DB로 데이터를 가져오는 방법을 알아봅니다. CSV에서 JSON로 변환합니다.
 author: deborahc
 ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: dech
-ms.openlocfilehash: 792dca41a052930bf2c853846cdd0c09661c5cd3
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 0981a0810ee64f78443512d794d172a69fb54494
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65954507"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617024"
 ---
 # <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>데이터 마이그레이션 도구를 사용하여 Azure Cosmos DB로 데이터 마이그레이션
 
-이 자습서에서는 다양한 원본에서 Azure Cosmos DB 컬렉션 및 테이블로 데이터를 가져올 수 있는 Azure Cosmos DB 데이터 마이그레이션 도구를 사용하는 지침을 제공합니다. JSON 파일, CSV 파일, SQL, MongoDB, Azure Table Storage, Amazon DynamoDB 및 Azure Cosmos DB SQL API 컬렉션에서도 데이터를 가져올 수 있습니다. Azure Cosmos DB에서 사용할 수 있도록 해당 데이터를 컬렉션 및 테이블로 마이그레이션할 수도 있습니다. 또한 데이터 마이그레이션 도구는 단일 파티션 컬렉션에서 SQL API용 다중 파티션 컬렉션으로 마이그레이션하는 경우에도 사용할 수 있습니다.
+이 자습서에서는 다양한 원본에서 Azure Cosmos 컨테이너 및 테이블로 데이터를 가져올 수 있는 Azure Cosmos DB 데이터 마이그레이션 도구를 사용하는 지침을 제공합니다. JSON 파일, CSV 파일, SQL, MongoDB, Azure Table Storage, Amazon DynamoDB 및 Azure Cosmos DB SQL API 컬렉션에서도 데이터를 가져올 수 있습니다. Azure Cosmos DB에서 사용할 수 있도록 해당 데이터를 컬렉션 및 테이블로 마이그레이션할 수도 있습니다. 또한 데이터 마이그레이션 도구는 단일 파티션 컬렉션에서 SQL API용 다중 파티션 컬렉션으로 마이그레이션하는 경우에도 사용할 수 있습니다.
 
 Azure Cosmos DB와 함께 사용할 API는 무엇인가요?
 
@@ -39,7 +39,7 @@ Azure Cosmos DB와 함께 사용할 API는 무엇인가요?
 
 * **처리량 증가:** 데이터 마이그레이션 기간은 개별 컬렉션 또는 컬렉션 세트에 대해 설정한 처리량에 따라 다릅니다. 대량 데이터 마이그레이션의 경우 처리량을 늘려야 합니다. 마이그레이션을 완료한 후에는 비용을 절약하기 위해 처리량을 줄이세요. Azure Portal에서 처리량을 늘리는 방법에 대한 자세한 내용은 Azure Cosmos DB의 [성능 수준](performance-levels.md) 및 [가격 책정 계층](https://azure.microsoft.com/pricing/details/cosmos-db/)을 참조하세요.
 
-* **Azure Cosmos DB 리소스 만들기:** 데이터 마이그레이션을 시작하기 전에 Azure Portal에서 모든 컬렉션을 미리 만듭니다. 데이터베이스 수준 처리량이 있는 Azure Cosmos DB 계정으로 마이그레이션하는 경우에는 Azure Cosmos DB 컬렉션을 만들 때 파티션 키를 제공해야 합니다.
+* **Azure Cosmos DB 리소스 만들기:** 데이터 마이그레이션을 시작하기 전에 Azure Portal에서 모든 컬렉션을 미리 만듭니다. 데이터베이스 수준 처리량이 있는 Azure Cosmos DB 계정으로 마이그레이션하는 경우에는 Azure Cosmos 컨테이너를 만들 때 파티션 키를 제공합니다.
 
 ## <a id="Overviewl"></a>개요
 
@@ -49,10 +49,10 @@ Azure Cosmos DB와 함께 사용할 API는 무엇인가요?
 * MongoDB
 * SQL Server
 * CSV 파일
-* Azure 테이블 저장소
+* Azure Table Storage
 * Amazon DynamoDB
 * HBase
-* Azure Cosmos DB 컬렉션
+* Azure Cosmos 컨테이너
 
 가져오기 도구는 그래픽 사용자 인터페이스(dtui.exe)를 포함하지만 명령줄(dt.exe)에서 구동할 수도 있습니다. 실제로 UI를 통해 가져오기를 설정한 후 관련 명령을 출력하는 옵션이 있습니다. 가져오는 동안 계층 관계(하위 문서)를 만들 수 있도록 테이블 형식 원본 데이터(예: SQL Server 또는 CSV 파일)를 변환할 수 있습니다. 원본 옵션, 각 원본에서 가져오는 샘플 명령, 대상 옵션 및 가져오기 결과 보기에 대해 자세히 알아보려면 계속 진행하세요.
 
@@ -75,7 +75,7 @@ Azure Cosmos DB와 함께 사용할 API는 무엇인가요?
 * [Azure Table Storage](#AzureTableSource)
 * [Amazon DynamoDB](#DynamoDBSource)
 * [Blob](#BlobImport)
-* [Azure Cosmos DB 컬렉션](#SQLSource)
+* [Azure Cosmos 컨테이너](#SQLSource)
 * [HBase](#HBaseSource)
 * [Azure Cosmos DB 대량 가져오기](#SQLBulkTarget)
 * [Azure Cosmos DB 순차 레코드 가져오기](#SQLSeqTarget)
@@ -223,31 +223,31 @@ CSV 가져오기에 대한 명령줄 샘플은 다음과 같습니다.
 dt.exe /s:CsvFile /s.Files:.\Employees.csv /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:Employees /t.IdField:EntityID /t.CollectionThroughput:2500
 ```
 
-## <a id="AzureTableSource"></a>Azure 테이블 저장소에서 가져오기
+## <a id="AzureTableSource"></a>Azure Table Storage에서 가져오기
 
 Azure Table Storage 원본 가져오기 옵션을 사용하면 개별 Azure Table Storage 테이블에서 가져올 수 있습니다. 필요에 따라 가져올 테이블 엔터티를 필터링할 수 있습니다.
 
 Azure Table Storage에서 가져온 데이터를 Table API에서 사용하기 위해 Azure Cosmos DB 테이블 및 엔터티를 출력할 수 있습니다. 가져온 데이터를 SQL API에서 사용하기 위해 컬렉션 및 문서로 출력할 수도 있습니다. 그러나 Table API는 명령줄 유틸리티의 대상으로만 사용할 수 있습니다. 따라서 데이터 마이그레이션 도구 사용자 인터페이스를 사용하여 Table API로 내보낼 수 없습니다. 자세한 정보는 [Azure Cosmos DB Table API와 함께 사용할 데이터 가져오기](table-import.md)를 참조하세요.
 
-![Azure 테이블 저장소 원본 옵션의 스크린샷](./media/import-data/azuretablesource.png)
+![Azure Table Storage 원본 옵션의 스크린샷](./media/import-data/azuretablesource.png)
 
-Azure 테이블 저장소 연결 문자열의 형식은 다음과 같습니다.
+Azure Table Storage 연결 문자열의 형식은 다음과 같습니다.
 
 `DefaultEndpointsProtocol=<protocol>;AccountName=<Account Name>;AccountKey=<Account Key>;`
 
 > [!NOTE]
-> Verify 명령을 사용하여 연결 문자열 필드에 지정된 Azure 테이블 저장소 인스턴스를 액세스할 수 있는지 확인합니다.
+> Verify 명령을 사용하여 연결 문자열 필드에 지정된 Azure Table Storage 인스턴스를 액세스할 수 있는지 확인합니다.
 
 가져올 Azure 테이블의 이름을 입력합니다. 필요에 따라 [필터](../vs-azure-tools-table-designer-construct-filter-strings.md)를 지정할 수 있습니다.
 
-Azure 테이블 저장소 원본 가져오기 옵션에는 다음과 같은 추가 옵션이 있습니다.
+Azure Table Storage 원본 가져오기 옵션에는 다음과 같은 추가 옵션이 있습니다.
 
 1. 내부 필드 포함
    1. 모두 - 모든 내부 필드 포함(PartitionKey, RowKey 및 Timestamp)
    2. 없음 - 모든 내부 필드 제외
    3. RowKey - RowKey 필드만 포함
 2. 열 선택
-   1. Azure 테이블 저장소 필터는 프로젝션을 지원하지 않습니다. 특정 Azure 테이블 엔터티 속성만 가져오려는 경우 열 선택 목록에 추가합니다. 다른 모든 엔터티 속성은 무시됩니다.
+   1. Azure Table Storage 필터는 프로젝션을 지원하지 않습니다. 특정 Azure 테이블 엔터티 속성만 가져오려는 경우 열 선택 목록에 추가합니다. 다른 모든 엔터티 속성은 무시됩니다.
 
 Azure Table Storage에서 가져오는 명령줄 샘플은 다음과 같습니다.
 
@@ -273,12 +273,12 @@ Amazon DynamoDB 연결 문자열의 형식은 다음과 같습니다.
 Amazon DynamoDB에서 가져오는 명령줄 샘플은 다음과 같습니다.
 
 ```console
-dt.exe /s:DynamoDB /s.ConnectionString:ServiceURL=https://dynamodb.us-east-1.amazonaws.com;AccessKey=<accessKey>;SecretKey=<secretKey> /s.Request:"{   """TableName""": """ProductCatalog""" }" /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<Azure Cosmos DB Endpoint>;AccountKey=<Azure Cosmos DB Key>;Database=<Azure Cosmos DB Database>;" /t.Collection:catalogCollection /t.CollectionThroughput:2500
+dt.exe /s:DynamoDB /s.ConnectionString:ServiceURL=https://dynamodb.us-east-1.amazonaws.com;AccessKey=<accessKey>;SecretKey=<secretKey> /s.Request:"{   """TableName""": """ProductCatalog""" }" /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<Azure Cosmos DB Endpoint>;AccountKey=<Azure Cosmos DB Key>;Database=<Azure Cosmos database>;" /t.Collection:catalogCollection /t.CollectionThroughput:2500
 ```
 
 ## <a id="BlobImport"></a>Azure Blob Storage에서 가져오기
 
-JSON 파일, MongoDB 내보내기 파일 및 CSV 파일 원본 가져오기 옵션을 통해 Azure Blob 저장소에서 하나 이상의 파일을 가져올 수 있습니다. Blob 컨테이너 URL 및 계정 키를 지정한 후에 가져올 파일을 선택하는 정규식을 제공합니다.
+JSON 파일, MongoDB 내보내기 파일 및 CSV 파일 원본 가져오기 옵션을 통해 Azure Blob Storage에서 하나 이상의 파일을 가져올 수 있습니다. Blob 컨테이너 URL 및 계정 키를 지정한 후에 가져올 파일을 선택하는 정규식을 제공합니다.
 
 ![Blob 파일 원본 옵션의 스크린샷](./media/import-data/blobsource.png)
 
@@ -290,7 +290,7 @@ dt.exe /s:JsonFile /s.Files:"blobs://<account key>@account.blob.core.windows.net
 
 ## <a id="SQLSource"></a>SQL API 컬렉션에서 가져오기
 
-Azure Cosmos DB 원본 가져오기 옵션을 사용하면 필요에 따라 쿼리를 사용하여 문서를 필터링하고 하나 이상의 Azure Cosmos DB 컬렉션에서 데이터를 가져올 수 있습니다.  
+Azure Cosmos DB 원본 가져오기 옵션을 사용하면 필요에 따라 쿼리를 사용하여 문서를 필터링하고 하나 이상의 Azure Cosmos 컨테이너에서 데이터를 가져올 수 있습니다.  
 
 ![Azure Cosmos DB 원본 옵션의 스크린샷](./media/import-data/documentdbsource.png)
 
@@ -305,7 +305,7 @@ Azure Cosmos DB 연결 문자열의 형식은 다음과 같습니다.
 > [!NOTE]
 > Verify 명령을 사용하여 연결 문자열 필드에 지정된 Azure Cosmos DB 인스턴스를 액세스할 수 있는지 확인합니다.
 
-단일 Azure Cosmos DB 컬렉션에서 가져오려면 데이터를 가져올 컬렉션의 이름을 입력합니다. 둘 이상의 Azure Cosmos DB 컬렉션에서 가져오려면 하나 이상의 컬렉션 이름과 일치하는 정규식을 제공합니다(예: collection01 | collection02 | collection03). 필요에 따라 쿼리를 지정하거나 쿼리에 대한 파일을 제공하여 가져올 데이터를 필터링하고 형식을 지정할 수 있습니다.
+단일 Azure Cosmos 컨테이너에서 가져오려면 데이터를 가져올 컬렉션의 이름을 입력합니다. 둘 이상의 Azure Cosmos 컨테이너에서 가져오려면 하나 이상의 컬렉션 이름과 일치하는 정규식을 제공합니다(예: collection01 | collection02 | collection03). 필요에 따라 쿼리를 지정하거나 쿼리에 대한 파일을 제공하여 가져올 데이터를 필터링하고 형식을 지정할 수 있습니다.
 
 > [!NOTE]
 > 컬렉션 필드 이름이 정규식 문자를 포함하므로 이름에 정규식 문자를 포함한 단일 컬렉션에서 가져오는 경우 해당 문자는 이스케이프되어야 합니다.
@@ -325,13 +325,13 @@ Azure Cosmos DB 원본 가져오기 옵션에는 다음과 같은 고급 옵션�
 Azure Cosmos DB에서 가져오는 몇 가지 명령줄 샘플은 다음과 같습니다.
 
 ```console
-#Migrate data from one Azure Cosmos DB collection to another Azure Cosmos DB collections
+#Migrate data from one Azure Cosmos container to another Azure Cosmos containers
 dt.exe /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /s.Collection:TEColl /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:TESessions /t.CollectionThroughput:2500
 
-#Migrate data from more than one Azure Cosmos DB collection to a single Azure Cosmos DB collection
+#Migrate data from more than one Azure Cosmos container to a single Azure Cosmos container
 dt.exe /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /s.Collection:comp1|comp2|comp3|comp4 /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:singleCollection /t.CollectionThroughput:2500
 
-#Export an Azure Cosmos DB collection to a JSON file
+#Export an Azure Cosmos container to a JSON file
 dt.exe /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /s.Collection:StoresSub /t:JsonFile /t.File:StoresExport.json /t.Overwrite /t.CollectionThroughput:2500
 ```
 
@@ -361,7 +361,7 @@ dt.exe /s:HBase /s.ConnectionString:ServiceURL=<server-address>;Username=<userna
 
 ## <a id="SQLBulkTarget"></a>SQL API로 가져오기(대량 가져오기)
 
-Azure Cosmos DB 대량 가져오기를 사용하면 효율성을 위해 Azure Cosmos DB 저장 프로시저를 통해 사용 가능한 모든 원본 옵션에서 가져올 수 있습니다. 이 도구는 하나의 단일 분할 Azure Cosmos DB 컬렉션으로의 가져오기를 지원합니다. 또한 둘 이상의 단일 분할 Azure Cosmos DB 컬렉션 간에 데이터를 분할하는 분할된 데이터베이스 가져오기도 지원합니다. 데이터를 분할하는 방법에 대한 자세한 내용은 [Azure Cosmos DB에서 분할 및 크기 조정](partition-data.md)을 참조하세요. 이 도구는 대상 컬렉션에서 저장 프로시저를 만들고 실행한 다음 삭제합니다.  
+Azure Cosmos DB 대량 가져오기를 사용하면 효율성을 위해 Azure Cosmos DB 저장 프로시저를 통해 사용 가능한 모든 원본 옵션에서 가져올 수 있습니다. 도구는 하나의 단일 분할 Azure Cosmos 컨테이너로의 가져오기를 지원합니다. 또한 둘 이상의 단일 분할 Azure Cosmos 컨테이너 간에 데이터를 분할하는 분할된 가져오기를 지원합니다. 데이터를 분할하는 방법에 대한 자세한 내용은 [Azure Cosmos DB에서 분할 및 크기 조정](partition-data.md)을 참조하세요. 이 도구는 대상 컬렉션에서 저장 프로시저를 만들고 실행한 다음 삭제합니다.  
 
 ![Azure Cosmos DB 대량 옵션의 스크린샷](./media/import-data/documentdbbulk.png)
 
@@ -420,7 +420,7 @@ Azure Cosmos DB 대량 가져오기에는 다음과 같은 추가 고급 옵션�
 
 ## <a id="SQLSeqTarget"></a>SQL API로 가져오기(순차 레코드 가져오기)
 
-Azure Cosmos DB 순차 레코드 가져오기를 사용하면 레코드 단위로 사용 가능한 모든 원본 옵션에서 가져올 수 있습니다. 저장 프로시저의 할당량에 도달한 기존 컬렉션으로 가져오는 경우 이 옵션을 선택할 수 있습니다. 이 도구는 단일(단일 파티션 및 다중 파티션 모두) Azure Cosmos DB 컬렉션으로의 가져오기를 지원합니다. 또한 둘 이상의 단일 분할 또는 다중 분할 Azure Cosmos DB 컬렉션 간에 데이터를 분할하는 분할된 데이터베이스 가져오기도 지원합니다. 데이터를 분할하는 방법에 대한 자세한 내용은 [Azure Cosmos DB에서 분할 및 크기 조정](partition-data.md)을 참조하세요.
+Azure Cosmos DB 순차 레코드 가져오기를 사용하면 레코드 단위로 사용 가능한 모든 원본 옵션에서 가져올 수 있습니다. 저장 프로시저의 할당량에 도달한 기존 컬렉션으로 가져오는 경우 이 옵션을 선택할 수 있습니다. 도구는 단일(단일 파티션 및 다중 파티션 모두) Azure Cosmos 컨테이너로의 가져오기를 지원합니다. 또한 둘 이상의 단일 파티션 또는 다중 파티션 Azure Cosmos 컨테이너 간에 데이터를 분할하는 분할된 가져오기를 지원합니다. 데이터를 분할하는 방법에 대한 자세한 내용은 [Azure Cosmos DB에서 분할 및 크기 조정](partition-data.md)을 참조하세요.
 
 ![Azure Cosmos DB 순차 레코드 가져오기 옵션의 스크린샷](./media/import-data/documentdbsequential.png)
 
@@ -430,7 +430,7 @@ Azure Cosmos DB 연결 문자열의 형식은 다음과 같습니다.
 
 [Azure Cosmos DB 계정을 관리하는 방법](manage-account.md)에 설명된 대로 Azure Portal의 키 페이지에서 Azure Cosmos DB 계정에 대한 연결 문자열을 검색할 수 있습니다. 그러나 데이터베이스의 이름을 다음 형식으로 연결 문자열에 추가해야 합니다.
 
-`Database=<Azure Cosmos DB Database>;`
+`Database=<Azure Cosmos database>;`
 
 > [!NOTE]
 > Verify 명령을 사용하여 연결 문자열 필드에 지정된 Azure Cosmos DB 인스턴스를 액세스할 수 있는지 확인합니다.
@@ -482,8 +482,8 @@ Azure Cosmos DB - 순차 레코드 가져오기에는 다음과 같은 추가 �
 
 도구가 제공하는 정책 템플릿은 다음과 같습니다.
 
-* 기본값 이 정책은 문자열에 대해 같음 쿼리를 수행할 때 가장 적합합니다. 숫자에 대해 ORDER BY, 범위 및 같음 쿼리를 사용할 때도 적용됩니다. 이 정책에는 범위보다 더 낮은 인덱스 저장소 오버헤드가 있습니다.
-* 범위입니다. 이 정책은 숫자와 문자열 모두에 ORDER BY, 범위 및 같음 쿼리를 사용할 때 가장 좋습니다. 이 정책에는 기본값 또는 해시보다 더 높은 인덱스 저장소 오버헤드가 있습니다.
+* 기본값 이 정책은 문자열에 대해 같음 쿼리를 수행할 때 가장 적합합니다. 숫자에 대해 ORDER BY, 범위 및 같음 쿼리를 사용할 때도 적용됩니다. 이 정책에는 범위보다 더 낮은 인덱스 스토리지 오버헤드가 있습니다.
+* 범위입니다. 이 정책은 숫자와 문자열 모두에 ORDER BY, 범위 및 같음 쿼리를 사용할 때 가장 좋습니다. 이 정책에는 기본값 또는 해시보다 더 높은 인덱스 스토리지 오버헤드가 있습니다.
 
 ![Azure Cosmos DB 인덱싱 정책 고급 옵션의 스크린샷](./media/import-data/indexingpolicy2.png)
 
@@ -492,7 +492,7 @@ Azure Cosmos DB - 순차 레코드 가져오기에는 다음과 같은 추가 �
 
 ## <a name="export-to-json-file"></a>JSON 파일로 내보내기
 
-Azure Cosmos DB JSON 내보내기를 사용하면 사용 가능한 모든 원본 옵션을 JSON 문서 배열이 포함된 JSON 파일로 내보낼 수 있습니다. 이 도구는 자동으로 내보내기를 처리합니다. 또는 사용자가 결과 마이그레이션 명령을 보고 직접 명령을 실행할 수 있습니다. 결과 JSON 파일은 로컬로 또는 Azure Blob 저장소에 저장될 수도 있습니다.
+Azure Cosmos DB JSON 내보내기를 사용하면 사용 가능한 모든 원본 옵션을 JSON 문서 배열이 포함된 JSON 파일로 내보낼 수 있습니다. 이 도구는 자동으로 내보내기를 처리합니다. 또는 사용자가 결과 마이그레이션 명령을 보고 직접 명령을 실행할 수 있습니다. 결과 JSON 파일은 로컬로 또는 Azure Blob Storage에 저장될 수도 있습니다.
 
 ![Azure Cosmos DB JSON 로컬 파일 내보내기 옵션의 스크린샷](./media/import-data/jsontarget.png)
 
@@ -536,7 +536,7 @@ Azure Cosmos DB JSON 내보내기를 사용하면 사용 가능한 모든 원본
     }]
   ```
 
-다음은 JSON 파일을 Azure Blob 저장소로 내보내는 명령줄 샘플입니다.
+다음은 JSON 파일을 Azure Blob Storage로 내보내는 명령줄 샘플입니다.
 
 ```console
 dt.exe /ErrorDetails:All /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB database_name>" /s.Collection:<CosmosDB collection_name>

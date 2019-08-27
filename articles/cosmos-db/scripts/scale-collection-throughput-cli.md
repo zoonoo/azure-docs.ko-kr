@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 스크립트 - Azure Cosmos DB 컨테이너 처리량 확장 | Microsoft Docs
-description: Azure CLI 스크립트 샘플 - Azure Cosmos DB 컨테이너 처리량 확장
+title: Azure CLI 스크립트 - Azure Cosmos 컨테이너 처리량 확장 | Microsoft Docs
+description: Azure CLI 스크립트 샘플 - Azure Cosmos 컨테이너 처리량 확장
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -8,16 +8,16 @@ ms.topic: sample
 ms.date: 10/26/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 593fade731fac86e7fcda69bfe223716127de9e1
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: a7ae4b015ba476ca1ffdb4b4510334490a6f6fee
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038452"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616691"
 ---
-# <a name="scale-azure-cosmos-db-container-throughput-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Cosmos DB 컨테이너 처리량 확장
+# <a name="scale-azure-cosmos-container-throughput-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Cosmos 컨테이너 처리량 확장
 
-이 샘플에서는 모든 종류의 Azure Cosmos DB 컨테이너에 대한 컨테이너 처리량을 확장합니다.  
+이 샘플에서는 모든 종류의 Azure Cosmos 컨테이너에 대한 컨테이너 처리량을 확장합니다.  
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -43,9 +43,9 @@ az group delete --name $resourceGroupName
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Azure Cosmos DB 계정을 만듭니다. |
-| [az cosmosdb database create](/cli/azure/cosmosdb/database#az-cosmosdb-database-create) | Azure Cosmos DB 데이터베이스를 만듭니다. |
-| [az cosmosdb collection create](/cli/azure/cosmosdb/collection#az-cosmosdb-collection-create) | Azure Cosmos DB 컨테이너를 만듭니다. |
-| [az cosmosdb collection update](/cli/azure/cosmosdb/collection#az-cosmosdb-collection-update) | Azure Cosmos DB 컨테이너를 업데이트합니다. |
+| [az cosmosdb database create](/cli/azure/cosmosdb/database#az-cosmosdb-database-create) | Azure Cosmos 데이터베이스를 만듭니다. |
+| [az cosmosdb collection create](/cli/azure/cosmosdb/collection#az-cosmosdb-collection-create) | Azure Cosmos 컨테이너를 만듭니다. |
+| [az cosmosdb collection update](/cli/azure/cosmosdb/collection#az-cosmosdb-collection-update) | Azure Cosmos 컨테이너를 업데이트합니다. |
 | [az group delete](/cli/azure/group#az-group-delete) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 
 ## <a name="next-steps"></a>다음 단계

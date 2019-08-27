@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 062b815315d7bcdd5d55a86c2447a0b21295e8b6
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: cd80ed3c3db2453a333c87ed706dd358ba248b47
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69014085"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69516190"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-preview"></a>자습서: Windows Virtual Desktop 미리 보기에서 테넌트 만들기
 
@@ -34,7 +34,7 @@ Windows Virtual Desktop 테넌트를 설정하는 데 필요한 것은 다음과
    * 관리자 계정은 회사 또는 학교 계정이어야 합니다.
 * Azure 구독.
 
-## <a name="grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-preview-service"></a>Windows Virtual Desktop 미리 보기 서비스에 Azure Active Directory 권한 부여
+## <a name="grant-permissions-to-windows-virtual-desktop"></a>Windows Virtual Desktop에 사용 권한 부여
 
 Windows Virtual Desktop에 이 Azure Active Directory 인스턴스에 대한 권한을 이미 부여한 경우에는 이 섹션을 건너뛰세요.
 
@@ -62,7 +62,7 @@ Windows Virtual Desktop 서비스에 권한을 부여하면 이 서비스에서 
 6. 2단계와 마찬가지로 글로벌 관리자로 Windows Virtual Desktop 동의 페이지에 로그인합니다.
 7. **수락**을 선택합니다.
 
-## <a name="assign-the-tenantcreator-application-role-to-a-user-in-your-azure-active-directory-tenant"></a>Azure Active Directory 테넌트의 사용자에게 TenantCreator 애플리케이션 역할 할당
+## <a name="assign-the-tenantcreator-application-role"></a>TenantCreator 애플리케이션 역할 할당
 
 Azure Active Directory 사용자에게 TenantCreator 애플리케이션 역할을 할당하면 사용자가 Azure Active Directory 인스턴스와 연결된 Windows Virtual Desktop 테넌트를 만들 수 있습니다. TenantCreator 역할을 할당하려면 글로벌 관리자 계정을 사용해야 합니다.
 

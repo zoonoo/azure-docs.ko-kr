@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/27/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: dc12d77e9a57938051300277940b6e5107e45496
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 0a2bf306ccfa3a4a4fc80d0d55493f284185bba9
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234493"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648535"
 ---
 ## <a name="prerequisites"></a>필수 조건
 
@@ -36,23 +36,19 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 - [Azure Data Factory에 대한 역할 및 권한](../articles/data-factory/concepts-roles-permissions.md)
 
 ### <a name="azure-storage-account"></a>Azure Storage 계정
-이 빠른 시작에서는 범용 Azure 스토리지 계정(특히 Blob Storage)을 *원본* 및 *대상* 데이터 스토리지로 사용합니다. 범용 Azure 저장소 계정이 없는 경우 [저장소 계정 만들기](../articles/storage/common/storage-quickstart-create-account.md)를 참조하여 새로 만듭니다. 
+이 빠른 시작에서는 범용 Azure 스토리지 계정(특히 Blob Storage)을 *원본* 및 *대상* 데이터 스토리지로 사용합니다. 범용 Azure Storage 계정이 없는 경우 [스토리지 계정 만들기](../articles/storage/common/storage-quickstart-create-account.md)를 참조하여 새로 만듭니다. 
 
-#### <a name="get-the-storage-account-name-and-account-key"></a>저장소 계정 이름 및 계정 키 가져오기
-이 빠른 시작에서는 Azure 저장소 계정의 이름과 키가 필요합니다. 다음 프로시저에서는 저장소 계정 이름 및 키를 가져오는 단계를 제공합니다. 
+#### <a name="get-the-storage-account-name"></a>스토리지 계정 이름 가져오기
+이 빠른 시작에서는 Azure 스토리지 계정의 이름이 필요합니다. 다음 프로시저에서는 스토리지 계정 이름을 가져오는 단계를 제공합니다. 
 
 1. 웹 브라우저에서 [Azure Portal](https://portal.azure.com)로 이동하고 Azure 사용자 이름 및 암호를 사용하여 로그인합니다.
 2. **모든 서비스** > **스토리지** > **스토리지 계정**을 선택합니다.
 3. **스토리지 계정** 페이지에서 스토리지 계정(필요한 경우)을 필터링한 다음, 사용자의 스토리지 계정을 선택합니다. 
-4. *\<Account name>*  - **스토리지 계정** 페이지의 사이드바에서 **설정** 레이블로 이동한 후 **액세스 키**를 선택합니다. *\<Account name>*  - **액세스 키**가 나타납니다.
-
-   ![저장소 계정 이름 및 키 가져오기](media/data-factory-quickstart-prerequisites/storage-account-name-key.png)
-5. **저장소 계정 이름** 및 **key1** 상자의 값을 클립보드에 복사합니다. 메모장이나 다른 편집기에 붙여넣고 저장합니다. 이 빠른 시작의 뒷부분에서 사용됩니다.   
 
 #### <a name="create-a-blob-container"></a>Blob 컨테이너 만들기
 이 섹션에서는 Azure Blob Storage에 **adftutorial**이라는 Blob 컨테이너를 만듭니다.
 
-1. *\<Account name>*  - **액세스 키** 페이지의 사이드바에서 **개요** > **Blob**을 선택합니다.
+1. 스토리지 계정 페이지에서 **개요** > **Blob**을 선택합니다.
 2. *\<Account name>*  - **Blob** 페이지의 도구 모음에서 **컨테이너**를 선택합니다.
 3. **새 컨테이너** 대화 상자에서 **adftutorial**을 이름으로 입력한 다음 **확인**을 선택합니다. *\<Account name>*  - **Blob** 페이지가 컨테이너 목록에 **adftutorial**을 포함하도록 업데이트됩니다.
 

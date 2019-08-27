@@ -17,12 +17,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ed57f581db593a288e62d25a2f0b8ee42c28114
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 10911e5100add2dca84475857a6909fb20d452c4
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852964"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69891553"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>빠른 시작: ASP.NET 웹앱에 Microsoft에 로그인 추가
 
@@ -55,8 +55,10 @@ ms.locfileid: "68852964"
 > 1. **새 등록**을 선택합니다.
 > 1. **애플리케이션 등록** 페이지가 표시되면 애플리케이션의 등록 정보를 입력합니다.
 >      - **이름** 섹션에서 앱의 사용자에게 표시되는 의미 있는 애플리케이션 이름(예: `ASPNET-Quickstart`)을 입력합니다.
->      - **리디렉션 URI**에 `https://localhost:44368/`을 추가하고 **등록**을 클릭합니다.
-**인증** 메뉴를 선택하고 **암시적 허용** 아래에서 **ID 토큰**을 설정한 후 **저장을 선택합니다**.
+>      - **리디렉션 URI**에 `http://localhost:44368/`을 추가하고 **등록**을 클릭합니다.
+>      - 관리 섹션 아래의 왼쪽 탐색 창에서 **인증**을 선택합니다.
+>          - **암시적 권한 부여** 하위 섹션에서 **ID 토큰**을 선택합니다.
+>          - 그런 다음, **저장**을 선택합니다.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>1단계: Azure Portal에서 애플리케이션 구성
@@ -91,12 +93,13 @@ ms.locfileid: "68852964"
 > 위치:
 > - `Enter_the_Application_Id_here` - 등록한 애플리케이션의 애플리케이션 ID입니다.
 > - `Enter_the_Tenant_Info_Here` - 아래 옵션 중 하나입니다.
->   - 애플리케이션이 **내 조직만** 지원하는 경우 이 값을 **테넌트 ID** 또는 **테넌트 이름**(예: contoso.microsoft.com)으로 바꿉니다.
+>   - 애플리케이션이 **내 조직만** 지원하는 경우 이 값을 **테넌트 Id** 또는 **테넌트 이름**(예: contoso.onmicrosoft.com)으로 바꿉니다.
 >   - 애플리케이션이 **모든 조직 디렉터리의 계정**을 지원하는 경우 이 값을 `organizations`로 바꾸세요.
 >   - 애플리케이션이 **모든 Microsoft 계정 사용자**를 지원하는 경우 이 값을 `common`으로 바꾸세요.
 >
 > > [!TIP]
-> > *애플리케이션 ID*, *디렉터리(테넌트) ID* 및 *지원되는 계정 유형*의 값을 찾아보려면 **개요** 페이지로 이동합니다.
+> > - *애플리케이션 ID*, *디렉터리(테넌트) ID* 및 *지원되는 계정 유형*의 값을 찾아보려면 **개요** 페이지로 이동합니다.
+> > - **Web.config**의 `redirectUri` 값이 Azure AD의 앱 등록에 대해 정의된 **리디렉션 URI**와 일치하는지 확인합니다(그렇지 않은 경우 앱 등록을 위한 **인증** 메뉴로 이동하여 **REDIRECT URI**를 일치하도록 업데이트함).
 
 ## <a name="more-information"></a>자세한 정보
 

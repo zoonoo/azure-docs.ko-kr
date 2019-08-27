@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: mlearned
-ms.custom: mvc, seo-java-july2019
+ms.custom: mvc, seo-java-july2019, seo-java-august2019
 monikerRange: vsts
-ms.openlocfilehash: 87090e205f4aa3e6b2886e6384921ddd46ea717d
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 381af2989a7622501462e574d05b54eea8416518
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489522"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543447"
 ---
-# <a name="create-a-cicd-pipeline-for-java-with-azure-devops-projects"></a>Azure DevOps Projects를 사용하여 Java용 CI/CD 파이프라인 만들기
+# <a name="quickstart-set-up-a-cicd-pipeline-for-a-java-app-with-azure-devops-projects"></a>빠른 시작: Azure DevOps Projects를 사용하여 Java 앱에 대한 CI/CD 파이프라인 설정
 
 Azure DevOps Projects는 Azure Pipelines에서 Java 앱에 대한 CI(지속적인 통합) 및 CD(지속적인 업데이트) 파이프라인을 설정하고 Azure 리소스를 만드는 간소화된 환경을 제공합니다.  
 

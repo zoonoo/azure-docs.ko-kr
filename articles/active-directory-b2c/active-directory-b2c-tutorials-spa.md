@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 6884cb7b10da3996977f2aea7693625bc45c3139
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: 8683169e0f8464cdcf52600968f67f3622e61445
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68369567"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69509576"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-using-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 단일 페이지 애플리케이션에서 인증을 사용하도록 설정
 
@@ -49,8 +49,8 @@ ms.locfileid: "68369567"
 필수 조건의 일부로 완료한 두 번째 자습서에서 Azure AD B2C에 웹 애플리케이션을 등록했습니다. 이 자습서에서 샘플과의 통신을 사용하도록 설정하려면 Azure AD B2C의 애플리케이션에 리디렉트 URI를 추가해야 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 테넌트가 포함된 디렉터리를 선택합니다.
-1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
+1. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 및 구독 필터**를 선택하고 테넌트가 포함된 디렉터리를 선택합니다.
+1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택한 다음, **Azure AD B2C**를 검색하여 선택합니다.
 1. **애플리케이션**을 선택한 후 *webapp1* 애플리케이션을 선택합니다.
 1. **회신 URL** 아래에서 `http://localhost:6420`을 추가합니다.
 1. **저장**을 선택합니다.
@@ -115,17 +115,17 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 
 ### <a name="sign-up-using-an-email-address"></a>전자 메일 주소를 사용하여 등록
 
-1. **로그인**을 클릭하여 이전 단계에서 지정한 *B2C_1_signupsignin1* 사용자 흐름을 시작합니다.
-1. Azure AD B2C에서 등록 링크가 있는 로그인 페이지를 제공합니다. 아직 계정이 없으므로 **지금 가입** 링크를 클릭합니다.
+1. **로그인**을 선택하여 이전 단계에서 지정한 *B2C_1_signupsignin1* 사용자 흐름을 시작합니다.
+1. Azure AD B2C에서 등록 링크가 있는 로그인 페이지를 제공합니다. 아직 계정이 없으므로 **지금 가입** 링크를 선택합니다.
 1. 등록 워크플로에서 이메일 주소를 사용하여 사용자의 ID를 수집하고 확인하는 페이지를 제공합니다. 또한 가입 워크플로에서도 사용자 흐름에 정의된 사용자의 암호와 요청된 특성을 수집합니다.
 
     유효한 이메일 주소를 사용하고 확인 코드를 사용하여 유효성을 검사합니다. 암호를 설정합니다. 요청된 특성에 대한 값을 입력합니다.
 
     ![로그인/등록 사용자 흐름에서 제공되는 등록 페이지](./media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.PNG)
 
-1. **만들기**를 클릭하여 로컬 계정을 Azure AD B2C 디렉터리에 만듭니다.
+1. **만들기**를 선택하여 로컬 계정을 Azure AD B2C 디렉터리에 만듭니다.
 
-**만들기**를 클릭하면 등록 페이지가 닫히고 로그인 페이지가 다시 나타납니다.
+**만들기**를 선택하면 가입 페이지가 닫히고 로그인 페이지가 다시 나타납니다.
 
 이제 자신의 이메일 주소와 암호를 사용하여 애플리케이션에 로그인할 수 있습니다.
 

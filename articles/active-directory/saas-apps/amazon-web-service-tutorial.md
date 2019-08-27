@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f346c995cbc8be6e609020db799959d873ce89b3
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 672a3571202b92232bd45a42254a43019f6a9796
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68944950"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617338"
 ---
 # <a name="tutorial-integrate-amazon-web-services-aws-with-azure-active-directory"></a>자습서: Azure Active Directory와 AWS(Amazon Web Services) 통합
 
@@ -185,13 +185,13 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     a. **Select type of trusted entity**(신뢰할 수 있는 엔터티 유형 선택) 아래에서 **SAML 2.0 federation**(SAML 2.0 페더레이션)을 선택합니다.
 
-    b. **Choose a SAML 2.0 Provider**(SAML 2.0 공급자 선택) 아래에서 이전에 만든 **SAML provider**(SAML 공급자)를 선택합니다(예: *WAAD*).
+    b. **Choose a SAML 2.0 Provider**(SAML 2.0 공급자 선택) 아래에서 이전에 만든 **SAML provider**(SAML 공급자)를 선택합니다(예: *WAAD*)을 입력합니다.
 
     다. **프로그래밍 및 AWS 관리 콘솔 액세스 허용**을 선택합니다.
   
     d. 완료되면 **다음: 사용 권한**을 클릭합니다.
 
-9. **Attach permissions policies**(권한 정책 연결) 대화 상자에서 조직에 따라 적절한 정책을 연결합니다. 그런 다음, **Next: Review**(다음: 검토)를 선택합니다.  
+9. **Attach permissions policies**(권한 정책 연결) 대화 상자에서 조직에 따라 적절한 정책을 연결합니다. 그런 다음, **Next: 검토**를 클릭합니다.  
 
     ![Attach permissions policy 대화 상자의 스크린샷][33]
 
@@ -286,7 +286,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     b. **AzureAD_SSOUserRole_Policy** 필터 섹션에서 새로 만든 정책을 검색합니다.
 
-    다. 정책을 선택한 다음, **Next: Review**(다음: 검토)를 선택합니다.
+    다. 정책을 선택한 다음, **Next: 검토**를 클릭합니다.
 
 19. 연결된 사용자에 대한 정책을 검토합니다.
 
@@ -369,6 +369,12 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
    프로비저닝을 위해 여러 AWS 테넌트(`servicePrincipals`로 표시됨)를 갤러리에서 Azure AD에 추가할 수 있습니다. 그러나 SSO에 사용되는 단일 `servicePrincipal`에 프로비저닝하는 데 사용되는 여러 AWS `servicePrincipals`에서 가져온 역할을 모두 자동으로 작성할 수 없는 알려진 문제가 있습니다. 
    
    해결 방법으로 [Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta)를 사용하여 가져온 모든 `appRoles`를 프로비저닝이 구성된 각 AWS `servicePrincipal`에 추출할 수 있습니다. 그런 다음, 이러한 역할 문자열을 SSO가 구성된 AWS `servicePrincipal`에 추가할 수 있습니다.
+ 
+* AWS에서 Azure AD로 가져올 수 있으려면 역할이 다음 요구 사항을 충족해야 합니다.
+
+  * 역할에는 AWS에 정의된 saml 공급자가 하나만 있어야 합니다.
+
+  * 가져올 역할에 대한 역할 ARN 및 saml 공급자 ARN의 결합된 길이는 119자 이하여야 합니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

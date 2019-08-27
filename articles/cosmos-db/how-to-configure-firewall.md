@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos DB 계정에 대해 IP 방화벽 구성
-description: Azure Cosmos DB 데이터베이스 계정에서 방화벽을 지원하도록 IP 액세스 제어 정책을 구성하는 방법을 알아봅니다.
+description: Azure Cosmos 계정에서 방화벽을 지원하도록 IP 액세스 제어 정책을 구성하는 방법을 알아봅니다.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 07/25/2019
 ms.author: mjbrown
-ms.openlocfilehash: 0b8ad6c5addbff293e9f7e9b8af6ed34d4dd274b
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: ee9a686060fd712e9a1f14058ce7db325aaedffd
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494884"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615374"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Azure Cosmos DB에서 IP 방화벽 구성
 

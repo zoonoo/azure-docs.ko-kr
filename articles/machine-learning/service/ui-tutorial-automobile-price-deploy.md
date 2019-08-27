@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/11/2019
-ms.openlocfilehash: dd28fb51a4fc3fbf3dfc893f2f5f159ccafdb4b3
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 1e30650f932d15d23d7ffe7bd9b9fe07e9872511
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839298"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69891609"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-visual-interface"></a>자습서: 그래픽 인터페이스를 사용하여 기계 학습 모델 배포
 
@@ -83,11 +83,9 @@ ms.locfileid: "67839298"
 
 1. 웹 서비스 이름을 선택하여 추가 세부 정보를 봅니다.
 
-     ![웹 서비스 보기에서 사용할 수 있는 추가 세부 정보를 보여 주는 스크린샷](./media/ui-tutorial-automobile-price-deploy/web-service-details.png)
-
 1. **테스트**를 선택합니다.
 
-    ![웹 서비스 테스트 페이지를 보여 주는 스크린샷](./media/ui-tutorial-automobile-price-deploy/web-service-test.png)
+    [![웹 서비스 테스트 페이지를 보여 주는 스크린샷](./media/ui-tutorial-automobile-price-deploy/web-service-test.png)](./media/ui-tutorial-automobile-price-deploy/web-service-test.png#lightbox)
 
 1. 테스트 데이터를 입력하거나 자동으로 채워진 샘플 데이터를 사용하고, **테스트**를 선택합니다.
 
@@ -105,8 +103,6 @@ REST 호출 샘플은 웹 서비스 세부 정보 페이지의 **사용** 탭에
 
 **API 문서** 탭으로 이동하여 자세한 API 세부 정보를 확인합니다.
 
-  ![사용자가 API 문서 탭에서 찾을 수 있는 추가 API 세부 정보를 보여 주는 스크린샷](./media/ui-tutorial-automobile-price-deploy/web-service-api.png)
-
 ## <a name="manage-models-and-deployments"></a>모델 및 배포 관리
 
 그래픽 인터페이스에서 만든 모델 및 웹 서비스 배포는 Azure Machine Learning Service 작업 영역에서도 관리할 수 있습니다.
@@ -119,11 +115,9 @@ REST 호출 샘플은 웹 서비스 세부 정보 페이지의 **사용** 탭에
 
     다음 페이지에서 모델에 대한 추가 세부 정보가 표시됩니다.
 
-    ![Azure Portal에서 실험 통계 개요를 보여 주는 스크린샷](./media/ui-tutorial-automobile-price-deploy/model-details.png)
-
 1. **배포**를 선택합니다. 그러면 모델을 사용하는 모든 웹 서비스가 나열됩니다. 웹 서비스 이름을 선택합니다. 그러면 웹 서비스 세부 정보 페이지로 이동합니다. 다음 페이지에서 웹 서비스에 대한 자세한 정보를 얻을 수 있습니다.
 
-    ![자세한 실행 보고서의 스크린샷](./media/ui-tutorial-automobile-price-deploy/deployment-details.png)
+    [![자세한 실행 보고서의 스크린샷](./media/ui-tutorial-automobile-price-deploy/deployment-details.png)](./media/ui-tutorial-automobile-price-deploy/deployment-details.png#lightbox)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

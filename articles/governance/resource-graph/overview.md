@@ -7,12 +7,12 @@ ms.date: 05/06/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: d78c640f4269c799d3d371e6dd9db477faf96694
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: faad0a0166c1b11f51f814bb6ce3351d7a017239
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807411"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900018"
 ---
 # <a name="overview-of-the-azure-resource-graph-service"></a>Azure Resource Graph 서비스 개요
 
@@ -62,6 +62,9 @@ Resource Graph를 사용하려면 쿼리하려는 리소스에 대해 적어도 
 
 > [!NOTE]
 > Resource Graph는 로그인하는 동안 보안 주체에 제공되는 구독을 사용합니다. 활성 세션 중에 추가된 새 구독의 리소스를 보려면 보안 주체가 컨텍스트를 새로 고쳐야 합니다. 이 작업은 로그아웃했다가 다시 로그인하면 자동으로 수행됩니다.
+
+Azure CLI 및 Azure PowerShell에서는 사용자가 액세스할 수 있는 구독을 사용합니다. REST API를 직접 사용하는 경우 구독 목록은 사용자가 제공합니다. 사용자가 목록에 있는 구독에 액세스할 수 있는 경우 사용자가 액세스할 수 있는 구독에 대한 쿼리 결과가 반환됩니다. 이 동작은 [리소스 그룹 - 목록](/rest/api/resources/resourcegroups/list)을 호출하는 경우와 동일합니다. \-즉, 결과가 부분적일 수 있음을 표시하지 않고 액세스할 수 있는 리소스 그룹을 나열합니다.
+사용자에게 적절한 권한이 있는 구독 목록에서 구독이 없는 경우 응답은 _403_(사용할 수 없음)입니다.
 
 ## <a name="throttling"></a>제한
 

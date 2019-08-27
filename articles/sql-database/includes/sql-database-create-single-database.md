@@ -3,19 +3,19 @@ author: MashaMSFT
 ms.service: sql-database
 ms.subservice: single-database
 ms.topic: include
-ms.date: 06/19/2019
+ms.date: 07/31/2019
 ms.author: mathoma
-ms.openlocfilehash: ffa48d55703347883edf96a0a27ee52d19189976
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: d19e21edd31be461ba30e8985e80c4651bbbb02d
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935033"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69894113"
 ---
-이 단계에서는 리소스 그룹 및 Azure SQL Database 단일 데이터베이스를 만듭니다.
+이 단계에서는 Azure SQL Database 단일 데이터베이스를 만듭니다. 
 
 > [!IMPORTANT]
-> 이 문서의 단계를 수행할 컴퓨터의 공용 IP 주소를 사용하도록 방화벽 규칙을 설정해야 합니다. 
+> 이 문서를 완료하기 위해 사용 중인 컴퓨터의 공용 IP 주소를 사용하도록 방화벽 규칙을 설정해야 합니다.
 >
 > 자세한 내용은 [데이터베이스 수준 방화벽 규칙 만들기](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database)를 참조하세요. 사용 중인 컴퓨터용 서버 수준 방화벽 규칙에 사용되는 IP 주소를 확인하려면 [서버 수준 방화벽 만들기](../sql-database-server-level-firewall-rule.md)를 참조하세요.  
 
@@ -23,10 +23,11 @@ ms.locfileid: "68935033"
 
 Azure Portal를 사용하여 리소스 그룹 및 단일 데이터베이스를 만듭니다.
 
-1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 선택합니다.
-2. **데이터베이스**를 선택한 다음, **SQL Database**를 선택하여 **SQL Database 만들기** 페이지를 엽니다.
+1. Azure Portal의 왼쪽 메뉴에서 **Azure SQL**을 선택합니다. **Azure SQL**이 목록에 없는 경우 **모든 서비스**를 선택한 다음, 검색 상자에 *Azure SQL*을 입력합니다.
+2. **+추가**를 선택하여 **SQL 배포 옵션 선택** 페이지를 엽니다. **데이터베이스** 타일에서 **세부 정보 표시**를 선택하여 다른 데이터베이스에 대한 추가 정보를 볼 수 있습니다.
+3. **만들기**를 선택합니다.
 
-   ![단일 데이터베이스 만들기](../media/sql-database-get-started-portal/create-database-1.png)
+   ![단일 데이터베이스 만들기](../media/sql-database-get-started-portal/create-single-database.png)
 
 3. **기본 사항** 탭의 **프로젝트 세부 정보** 섹션에서 다음 값을 입력하거나 선택합니다.
 

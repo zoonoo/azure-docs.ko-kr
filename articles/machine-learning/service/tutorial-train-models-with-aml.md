@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6725bbc1978109d2b690a98e2cf98cc8c8c25141
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: df5085011fd2771f094131244c1f466cebcbc89a
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69033000"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534792"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn-using-azure-machine-learning"></a>자습서: Azure Machine Learning에서 MNIST 데이터와 scikit-learn을 사용하여 이미지 분류 모델 학습
 
@@ -40,33 +40,15 @@ Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-[개발 환경 설정](#start)으로 건너뛰어 Notebook 단계를 읽어보거나, 아래 지침에 따라 Notebook을 가져와서 Azure Notebooks 또는 사용자 고유의 Notebook 서버에서 실행합니다.  Notebook을 실행하려면 다음 항목이 필요합니다.
+* 이 자습서를 시작하기 전에 [자습서: 첫 번째 ML 실험 만들기 시작](tutorial-1st-experiment-sdk-setup.md)을 완료하여 다음을 수행합니다.
+    * 작업 영역 만들기
+    * 클라우드 Notebook 서버 만들기
+    * Jupyter Notebook 대시보드 시작
 
-* 다음 요소가 설치된 Python 3.6 Notebook 서버:
-    * Python용 Azure Machine Learning SDK
-    * `matplotlib` 및 `scikit-learn`
-* 자습서 Notebook 및 **utils.py** 파일
-* 기계 학습 작업 영역
-* Notebook과 동일한 디렉터리에 있는 작업 영역에 대한 구성 파일
+* Jupyter Notebook 대시보드를 시작한 후 **tutorials/img-classification-part1-training.ipynb** Notebook을 엽니다.
 
-아래 섹션 중 하나에서 이러한 필수 구성 요소를 모두 가져옵니다.
+자습서 및 함께 제공되는 **utils.py** 파일은 고유의 [로컬 환경](how-to-configure-environment.md#local)에서 사용하려는 경우 [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials)에서도 사용할 수 있습니다.  사용자 환경에 `matplotlib` 및 `scikit-learn`을 설치했는지 확인합니다.
 
-* [작업 영역에서 클라우드 Notebook 서버](#azure) 사용
-* [사용자 고유의 Notebook 서버](#server) 사용
-
-### <a name="azure"></a>작업 영역에서 클라우드 Notebook 서버 사용
-
-사용자 고유의 클라우드 기반 Notebook 서버를 쉽게 시작할 수 있습니다. 이 클라우드 리소스를 만들면 [Python용 Azure Machine Learning SDK](https://aka.ms/aml-sdk)가 이미 설치 및 구성되어 있습니다.
-
-[!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
-
-* Notebook 웹 페이지를 시작한 후 **tutorials/img-classification-part1-training.ipynb** Notebook을 엽니다.
-
-### <a name="server"></a>사용자 고유의 Jupyter Notebook 서버 사용
-
-[!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
-
- 단계를 완료한 후 복제된 디렉터리에서 **tutorials/img-classification-part1-training.ipynb** Notebook을 실행합니다.
 
 ## <a name="start"></a>개발 환경 설정
 

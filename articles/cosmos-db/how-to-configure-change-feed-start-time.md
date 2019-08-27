@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 08/13/2019
 ms.author: maquaran
-ms.openlocfilehash: 7db14f6406223486ea0efb80d3d1cfcd0351f414
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 3ad9aff10b3bae36a173f776f55a434fd8b38b98
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69037230"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69574279"
 ---
 # <a name="how-to-configure-the-change-feed-processor-start-time"></a>변경 피드 프로세서 시작 시간을 구성하는 방법
 
@@ -51,8 +51,7 @@ ms.locfileid: "69037230"
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 다음 문서에서 변경 피드에 대해 자세히 알아볼 수 있습니다.
+이제 다음 문서에서 변경 피드 프로세서에 대해 자세히 알아볼 수 있습니다.
 
-* [변경 피드 개요](change-feed.md)
-* [변경 피드를 읽는 방법](read-change-feed.md)
-* [변경 피드 프로세서 사용](change-feed-processor.md)
+* [변경 피드 프로세서 개요](change-feed-processor.md)
+* [변경 피드 평가기 사용](how-to-use-change-feed-estimator.md)

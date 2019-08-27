@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/17/2019
+ms.date: 08/19/2019
 ms.author: spelluru
-ms.openlocfilehash: 3be1da54b16a24ce3c4431dfe26eb778cea5c83d
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 769cb2c6a3ae0e5b94ffd65425634ac9dd0221d0
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545267"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640053"
 ---
 # <a name="tutorial-access-a-classroom-lab-in-azure-lab-services"></a>자습서: Azure Lab Services의 클래스룸 랩에 액세스
 이 자습서에서는 사용자가 학생이 되어 클래스룸 랩의 VM(가상 머신)에 연결합니다. 
@@ -27,21 +27,37 @@ ms.locfileid: "59545267"
 이 자습서에서는 다음 작업을 수행합니다.
 
 > [!div class="checklist"]
-> * 등록 링크 사용 
-> * 가상 머신에 연결
+> * 랩에 등록
+> * VM 시작
+> * VM에 연결
 
-## <a name="use-the-registration-link"></a>등록 링크 사용
+## <a name="register-to-the-lab"></a>랩에 등록
 
 1. 교수/강사로부터 받은 **등록 URL**로 이동합니다. 등록을 완료한 후에는 등록 URL을 사용할 필요가 없습니다. 대신 [https://labs.azure.com](https://labs.azure.com) URL을 사용합니다. Internet Explorer 11은 아직 지원되지 않습니다. 
 1. 학교 계정을 사용하여 서비스에 로그인하여 등록을 완료합니다. 
 2. 등록 후에는 액세스할 수 있는 랩의 가상 머신이 보이는지 확인합니다. 
-3. 가상 머신이 준비될 때까지 기다렸다가 VM을 **시작**합니다. 이 프로세스는 다소 시간이 걸립니다.  
+3. 가상 머신이 준비될 때까지 기다립니다. VM 타일에서 다음 필드를 확인합니다.
+    1. 타일의 맨 위에 **랩 이름**이 표시됩니다.
+    1. 해당 오른쪽에는 VM의 **OS(운영 체제)** 를 나타내는 아이콘이 표시됩니다. 이 예제에서는 Windows OS입니다. 
+    1. 타일의 진행률 표시줄에는 할당된 [할당량 시간](how-to-configure-student-usage.md#set-quotas-for-users)에 대해 사용된 시간이 표시됩니다. 이 시간은 랩의 예약된 시간 외에 사용자에게 할당된 추가 시간입니다. 
+    1. VM을 시작/중지하고 VM에 연결하기 위한 타일 아래쪽에 아이콘/단추가 표시됩니다. 
+    1. 단추 오른쪽에 VM의 상태가 표시됩니다. VM의 상태가 **중지됨**으로 표시되는지 확인합니다. 
+
+        ![중지된 상태의 VM](../media/tutorial-connect-vm-in-classroom-lab/vm-in-stopped-state.png)
+
+## <a name="start-the-vm"></a>VM 시작
+1. 다음 이미지와 같이 첫 번째 단추를 선택하여 VM을 **시작**합니다. 이 프로세스는 다소 시간이 걸립니다.  
 
     ![VM 시작](../media/tutorial-connect-vm-in-classroom-lab/start-vm.png)
+4. VM의 상태가 **실행 중**으로 설정되어 있는지 확인합니다. 
 
-## <a name="connect-to-the-virtual-machine"></a>가상 머신에 연결
+    ![실행 상태의 VM](../media/tutorial-connect-vm-in-classroom-lab/vm-running.png)
 
-1. 액세스하려는 랩의 가상 머신 타일에서 **연결**을 선택합니다. 
+    첫 번째 단추의 아이콘이 **중지** 작업을 나타내도록 변경되었음을 확인합니다. 이 단추를 선택하여 VM을 중지할 수 있습니다. 
+
+## <a name="connect-to-the-vm"></a>VM에 연결
+
+1. 다음 이미지와 같이 두 번째 단추를 선택하여 랩의 VM에 **연결**합니다. 
 
     ![VM에 연결](../media/tutorial-connect-vm-in-classroom-lab/connect-vm.png)
 2. 다음 단계 중 하나를 수행합니다. 

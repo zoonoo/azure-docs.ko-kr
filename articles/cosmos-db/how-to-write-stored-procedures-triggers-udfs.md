@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/21/2019
 ms.author: mjbrown
-ms.openlocfilehash: 66e0a7e13df9eddcd722492c9c894721517af5f9
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: cf73b6e0477e46f0a2eac43d7fa6bccc6845db92
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65968925"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615247"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Azure Cosmos DB에서 저장 프로시저, 트리거 및 사용자 정의 함수를 작성하는 방법
 
@@ -48,11 +48,11 @@ var helloWorldStoredProc = {
 
 ### <a id="create-an-item"></a>저장 프로시저를 사용하여 항목 만들기
 
-저장 프로시저를 사용하여 항목을 만든 경우 해당 항목이 Azure Cosmos DB 컨테이너에 삽입되고 새로 만든 항목에 대한 ID가 반환됩니다. 항목 만들기는 비동기 작업이고 JavaScript 콜백 함수에 따라 달라집니다. 콜백 함수에는 작업이 실패할 경우의 오류 개체 및 반환 값(이 경우에는 생성된 개체)에 각각 사용되는 두 개의 매개 변수가 있습니다. 콜백 내에서 예외를 처리하거나 오류를 throw할 수 있습니다. 콜백이 제공되지 않았고 오류가 있는 경우, Azure Cosmos DB 런타임에서 오류를 throw합니다. 
+저장 프로시저를 사용하여 항목을 만든 경우 해당 항목이 Azure Cosmos 컨테이너에 삽입되고 새로 만든 항목에 대한 ID가 반환됩니다. 항목 만들기는 비동기 작업이고 JavaScript 콜백 함수에 따라 달라집니다. 콜백 함수에는 작업이 실패할 경우의 오류 개체 및 반환 값(이 경우에는 생성된 개체)에 각각 사용되는 두 개의 매개 변수가 있습니다. 콜백 내에서 예외를 처리하거나 오류를 throw할 수 있습니다. 콜백이 제공되지 않았고 오류가 있는 경우, Azure Cosmos DB 런타임에서 오류를 throw합니다. 
 
 또한 저장 프로시저에는 설명을 설정하는 매개 변수가 포함되며 부울 값입니다. 매개 변수가 true로 설정되고 설명이 누락된 경우 저장 프로시저는 예외를 throw합니다. 그렇지 않으면 저장 프로시저의 나머지가 계속 실행됩니다.
 
-다음 예제 저장 프로시저는 새 Azure Cosmos DB 항목을 입력으로 사용하고, 이를 Azure Cosmos DB 컨테이너에 삽입하고, 새로 만든 항목에 대한 ID를 반환합니다. 이 예제에서는 [.NET SQL API 빠른 시작](create-sql-api-dotnet.md)의 ToDoList 샘플을 활용하겠습니다.
+다음 예제 저장 프로시저는 새 Azure Cosmos 항목을 입력으로 사용하고, 이를 Azure Cosmos 컨테이너에 삽입하고, 새로 만든 항목에 대한 ID를 반환합니다. 이 예제에서는 [.NET SQL API 빠른 시작](create-sql-api-dotnet.md)의 ToDoList 샘플을 활용하겠습니다.
 
 ```javascript
 function createToDoItem(itemToCreate) {
@@ -87,7 +87,7 @@ function sample(arr) {
 
 ### <a id="transactions"></a>저장 프로시저 내의 트랜잭션
 
-저장 프로시저를 사용하여 컨테이너 내의 항목에서 트랜잭션을 구현할 수 있습니다. 다음 예제에서는 판타지 축구 게임 앱 내에서 트랜잭션을 사용하여 단일 작업에서 두 팀 간의 플레이어를 트레이드합니다. 저장 프로시저는 각각 인수로 전달된 플레이어 ID에 해당하는 두 개의 Azure Cosmos DB 항목을 읽으려고 합니다. 두 플레이어가 모두 있으면 저장 프로시저는 해당 팀을 교환하여 항목을 업데이트합니다. 이 과정에서 오류가 발생할 경우 저장 프로시저는 암시적으로 트랜잭션을 중단하는 JavaScript 예외를 throw합니다.
+저장 프로시저를 사용하여 컨테이너 내의 항목에서 트랜잭션을 구현할 수 있습니다. 다음 예제에서는 판타지 축구 게임 앱 내에서 트랜잭션을 사용하여 단일 작업에서 두 팀 간의 플레이어를 트레이드합니다. 저장 프로시저는 각각 인수로 전달된 플레이어 ID에 해당하는 두 개의 Azure Cosmos 항목을 읽으려고 합니다. 두 플레이어가 모두 있으면 저장 프로시저는 해당 팀을 교환하여 항목을 업데이트합니다. 이 과정에서 오류가 발생할 경우 저장 프로시저는 암시적으로 트랜잭션을 중단하는 JavaScript 예외를 throw합니다.
 
 ```javascript
 // JavaScript source code
@@ -214,7 +214,7 @@ Azure Cosmos DB에서는 사전 트리거와 사후 트리거를 지원합니다
 
 ### <a id="pre-triggers"></a>사전 트리거
 
-다음 예제에서는 사전 트리거를 사용하여 만든 Azure Cosmos DB 항목에 있는 속성의 유효성을 검사하는 방법을 보여줍니다. 이 예제에서는 [빠른 시작 .NET SQL API](create-sql-api-dotnet.md)의 할 일 목록 샘플을 활용하여 항목이 없는 경우 새로 추가된 항목에 타임스탬프 속성을 추가합니다.
+다음 예제에서는 사전 트리거를 사용하여 만든 Azure Cosmos 항목에 있는 속성의 유효성을 검사하는 방법을 보여줍니다. 이 예제에서는 [빠른 시작 .NET SQL API](create-sql-api-dotnet.md)의 할 일 목록 샘플을 활용하여 항목이 없는 경우 새로 추가된 항목에 타임스탬프 속성을 추가합니다.
 
 ```javascript
 function validateToDoItemTimestamp() {
@@ -235,7 +235,7 @@ function validateToDoItemTimestamp() {
 }
 ```
 
-사전 트리거는 입력 매개 변수를 사용할 수 없습니다. 트리거에서 요청 개체를 사용하여 작업과 연결된 요청 메시지를 조작합니다. 이전 예제에서 사전 트리거는 Azure Cosmos DB 항목을 만들 때 실행되고 요청 메시지 본문에는 JSON 형식으로 만들 항목이 포함됩니다.
+사전 트리거는 입력 매개 변수를 사용할 수 없습니다. 트리거에서 요청 개체를 사용하여 작업과 연결된 요청 메시지를 조작합니다. 이전 예제에서 사전 트리거는 Azure Cosmos 항목을 만들 때 실행되고 요청 메시지 본문에는 JSON 형식으로 만들 항목이 포함됩니다.
 
 트리거가 등록될 때 트리거 실행에 사용되는 작업을 지정할 수 있습니다. 이 트리거는 `TriggerOperation.Create`의 `TriggerOperation` 값을 사용하여 생성되었습니다. 즉, 다음 코드에 나와 있는 것처럼 바꾸기 작업에서 트리거를 사용하는 것은 허용되지 않습니다.
 

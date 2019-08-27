@@ -10,16 +10,16 @@ ms.subservice: manage
 ms.date: 04/18/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 9c3ed6dd79d6225b38751c910253cfa1f0720d1c
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 46fb1fc6455cd35d8bb1eaf0a1b7ee499f5c1caf
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731973"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69574876"
 ---
 # <a name="quickstart-pause-and-resume-compute-for-an-azure-sql-data-warehouse-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure SQL Data Warehouse에 대한 컴퓨팅 일시 중지 및 다시 시작
 
-비용 절감을 위해 Azure Portal을 사용하여 Azure SQL Data Warehouse에서 컴퓨팅을 일시 중지합니다. 데이터 웨어하우스를 사용할 준비가 되면 [계산을 다시 시작](sql-data-warehouse-manage-compute-overview.md)합니다.
+비용 절감을 위해 Azure Portal을 사용하여 Azure SQL Data Warehouse에서 컴퓨팅을 일시 중지합니다. 데이터 웨어하우스를 사용할 준비가 되면 [컴퓨팅을 다시 시작](sql-data-warehouse-manage-compute-overview.md)합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -33,11 +33,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="pause-compute"></a>컴퓨팅 일시 중지
 
-비용을 절약하기 위해 필요에 따라 컴퓨팅 리소스를 일지 중지 및 다시 시작할 수 있습니다. 예를 들어, 밤 시간과 주말에 데이터베이스를 사용하지 않으려면 해당 시간에 일시 중지했다가 주간에 다시 시작할 수 있습니다. 데이터베이스 일시 중지 중에는 컴퓨팅 리소스 요금이 부과되지 않습니다. 그러나 저장소에 대한 비용은 계속 청구됩니다. 
+비용을 절약하기 위해 필요에 따라 컴퓨팅 리소스를 일지 중지 및 다시 시작할 수 있습니다. 예를 들어, 밤 시간과 주말에 데이터베이스를 사용하지 않으려면 해당 시간에 일시 중지했다가 주간에 다시 시작할 수 있습니다. 데이터베이스 일시 중지 중에는 컴퓨팅 리소스 요금이 부과되지 않습니다. 그러나 스토리지에 대한 비용은 계속 청구됩니다. 
 
 SQL Data Warehouse를 일시 중지하려면 다음 단계를 따르세요.
 
-1. Azure Portal의 왼쪽 페이지에서 **SQL 데이터베이스**를 클릭합니다.
+1. Azure Portal의 왼쪽 페이지에서 **SQL Database**를 클릭합니다.
 2. **SQL Database** 페이지에서 **mySampleDataWarehouse**를 선택합니다. 그러면 데이터 웨어하우스를 엽니다. 
 3. **mySampleDataWarehouse** 페이지에서 **상태**는 **온라인**이 됩니다.
 
@@ -59,7 +59,7 @@ SQL Data Warehouse를 일시 중지하려면 다음 단계를 따르세요.
 
 SQL Data Warehouse를 다시 시작하려면 다음 단계를 따르세요.
 
-1. Azure Portal의 왼쪽 페이지에서 **SQL 데이터베이스**를 클릭합니다.
+1. Azure Portal의 왼쪽 페이지에서 **SQL Database**를 클릭합니다.
 2. **SQL Database** 페이지에서 **mySampleDataWarehouse**를 선택합니다. 그러면 데이터 웨어하우스를 엽니다. 
 3. **mySampleDataWarehouse** 페이지에서 **상태**는 **일시 중지됨**이 됩니다.
 
@@ -78,9 +78,9 @@ SQL Data Warehouse를 다시 시작하려면 다음 단계를 따르세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-데이터 웨어하우스 단위 및 데이터 웨어하우스에 저장된 데이터에 대해 요금이 청구됩니다. 이러한 계산 및 스토리지 리소스에 대한 요금이 별도로 청구됩니다. 
+데이터 웨어하우스 단위 및 데이터 웨어하우스에 저장된 데이터에 대해 요금이 청구됩니다. 이러한 컴퓨팅 및 스토리지 리소스에 대한 요금이 별도로 청구됩니다. 
 
-- 스토리지에 데이터를 유지하려는 경우 계산을 일시 중지합니다.
+- 스토리지에 데이터를 유지하려는 경우 컴퓨팅을 일시 중지합니다.
 - 앞으로 요금이 부과되지 않게 하려면 데이터 웨어하우스를 삭제하면 됩니다. 
 
 필요에 따라 다음 단계에 따라 리소스를 정리합니다.
@@ -91,7 +91,7 @@ SQL Data Warehouse를 다시 시작하려면 다음 단계를 따르세요.
 
 1. 컴퓨팅을 일시 중지하려면 **일시 중지** 단추를 클릭합니다. 데이터 웨어하우스가 일시 중지되면 **시작** 단추가 표시됩니다.  컴퓨팅을 재개하려면 **시작**을 클릭합니다.
 
-2. 계산 또는 스토리지에 대한 요금이 청구되지 않도록 데이터 웨어하우스를 제거하려면 **삭제**를 클릭합니다.
+2. 컴퓨팅 또는 스토리지에 대한 요금이 청구되지 않도록 데이터 웨어하우스를 제거하려면 **삭제**를 클릭합니다.
 
 3. 만든 SQL 서버를 제거하려면 **mynewserver-20171113.database.windows.net**을 클릭하고 **삭제**를 클릭합니다.  서버를 삭제하면 해당 서버에 할당된 모든 데이터베이스가 삭제되므로 주의해서 실행해야 합니다.
 
@@ -103,4 +103,4 @@ SQL Data Warehouse를 다시 시작하려면 다음 단계를 따르세요.
 이제 데이터 웨어하우스에 대한 컴퓨팅을 일시 중지하고 다시 시작했습니다. Azure SQL Data Warehouse에 대해 자세히 알아보려면 데이터 로드에 대한 자습서를 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [SQL 데이터 웨어하우스로 데이터 로드](load-data-from-azure-blob-storage-using-polybase.md)
+> [SQL Data Warehouse로 데이터 로드](load-data-from-azure-blob-storage-using-polybase.md)

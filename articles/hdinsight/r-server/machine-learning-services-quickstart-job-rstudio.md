@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 06/19/2019
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: 484763adfa154dcdf226b03f1f591d248532ee35
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 295430027afabcfcf793a87ae5859dc9c6675966
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67451504"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876303"
 ---
 # <a name="quickstart-execute-an-r-script-on-an-ml-services-cluster-in-azure-hdinsight-using-rstudio-server"></a>빠른 시작: RStudio Server를 사용하여 Azure HDInsight의 ML Services 클러스터에서 R 스크립트 실행
 
@@ -23,17 +23,17 @@ Azure HDInsight에서 ML Services를 사용하면 R 스크립트에서 Apache Sp
 
 ## <a name="prerequisite"></a>필수 요소
 
-HDInsight의 ML Services 클러스터. [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하고 **클러스터 유형**에 대한 **ML Services**를 선택합니다.
+HDInsight의 ML Services 클러스터. [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하고 **클러스터 유형**으로 **ML Services**를 선택합니다.
 
 ## <a name="connect-to-rstudio-server"></a>RStudio Server에 연결
 
-RStudio Server는 클러스터의 에지 노드에서 실행됩니다. 다음 URL로 이동합니다. 여기서 `CLUSTERNAME`은 만든 ML Services 클러스터의 이름입니다.
+RStudio Server는 클러스터의 에지 노드에서 실행됩니다. 다음 URL로 이동합니다. 여기서 `CLUSTERNAME`은 여러분이 만든 ML Services 클러스터의 이름입니다.
 
 ```
 https://CLUSTERNAME.azurehdinsight.net/rstudio/
 ```
 
-처음 로그인할 때는 두 번 인증해야 합니다. 첫 번째 인증 메시지의 경우 클러스터 관리자 로그인 및 암호를 입력합니다. 기본값은 `admin`입니다. 두 번째 인증 메시지의 경우 SSH 로그인 및 암호를 입력합니다. 기본값은 `sshuser`입니다. 후속 로그인에서는 SSH 자격 증명만 필요합니다.
+처음 로그인할 때는 두 번 인증해야 합니다. 첫 번째 인증 프롬프트에서는 클러스터 관리자 로그인 및 암호를 입력합니다. 기본값은 `admin`입니다. 두 번째 인증 프롬프트에서는 SSH 로그인 및 암호를 입력합니다. 기본값은 `sshuser`입니다. 후속 로그인에서는 SSH 자격 증명만 필요합니다.
 
 연결되면 다음 스크린샷과 유사한 화면이 표시됩니다.
 
@@ -172,7 +172,7 @@ https://CLUSTERNAME.azurehdinsight.net/rstudio/
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-빠른 시작을 완료한 후 클러스터를 삭제하는 것이 좋습니다. HDInsight를 사용하면 데이터가 Azure Storage에 저장되기 때문에 클러스터를 사용하지 않을 때 안전하게 삭제할 수 있습니다. HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩니다. 클러스터에 대한 요금이 저장소에 대한 요금보다 몇 배 더 많기 때문에, 클러스터를 사용하지 않을 때는 삭제하는 것이 경제적인 면에서 더 합리적입니다.
+빠른 시작을 완료한 후 클러스터를 삭제하는 것이 좋습니다. HDInsight를 사용하면 데이터가 Azure Storage에 저장되기 때문에 클러스터를 사용하지 않을 때 안전하게 삭제할 수 있습니다. HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩니다. 클러스터에 대한 요금이 스토리지에 대한 요금보다 몇 배 더 많기 때문에, 클러스터를 사용하지 않을 때는 삭제하는 것이 경제적인 면에서 더 합리적입니다.
 
 클러스터를 삭제하려면 [브라우저, PowerShell 또는 Azure CLI를 사용하여 HDInsight 클러스터 삭제](../hdinsight-delete-cluster.md)를 참조하세요.
 
@@ -181,4 +181,7 @@ https://CLUSTERNAME.azurehdinsight.net/rstudio/
 이 빠른 시작에서는 분산 R 컴퓨팅을 위해 Spark를 사용하여 보여 주는 RStudio Server로 R 스크립트를 실행하는 방법을 알아보았습니다.  다음 문서로 이동하여 에지 노드 또는 HDInsight 클러스터의 코어에서 실행 병렬 처리 여부 및 방법을 지정하기 위해 사용할 수 있는 옵션에 대해 알아봅니다.
 
 > [!div class="nextstepaction"]
->[HDInsight의 ML Services에 대한 계산 컨텍스트 옵션](./r-server-compute-contexts.md)
+>[HDInsight의 ML Services에 대한 컴퓨팅 컨텍스트 옵션](./r-server-compute-contexts.md)
+
+> [!NOTE]
+> 이 페이지에서는 RStudio 소프트웨어의 기능을 설명합니다. Microsoft Azure HDInsight는 RStudio, Inc와 관련이 없습니다.

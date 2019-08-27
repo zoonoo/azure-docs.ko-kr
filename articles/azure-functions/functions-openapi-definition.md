@@ -1,24 +1,23 @@
 ---
-title: Azure API Management를 사용하여 함수에 대한 OpenAPI 정의 만들기
+title: Azure API Management를 사용하여 서버리스 API에 대한 OpenAPI 정의 만들기
 description: 다른 앱 및 서비스를 사용하도록 설정하여 Azure에서 함수를 호출할 수 있도록 하는 OpenAPI 정의를 만듭니다.
-services: functions
 keywords: OpenAPI, Swagger, 클라우드 앱, 클라우드 서비스,
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 05/08/2019
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: fc724e241849f4519a0e353cb6789d3f83eaf4b9
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 54a4c6eba094231e8e73cdef87b911dfba20f657
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510464"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533550"
 ---
-# <a name="create-an-openapi-definition-for-a-function-with-azure-api-management"></a>Azure API Management를 사용하여 함수에 대한 OpenAPI 정의 만들기
+# <a name="create-an-openapi-definition-for-a-serverless-api-using-azure-api-management"></a>Azure API Management를 사용하여 서버리스 API에 대한 OpenAPI 정의 만들기
 
 REST API는 종종 OpenAPI 정의를 사용하여 설명됩니다. 이 정의에는 API에서 사용할 수 있는 작업 및 API에 대한 요청 및 응답 데이터가 구성되는 방식에 대한 정보가 포함됩니다.
 
@@ -159,7 +158,7 @@ REST API는 종종 OpenAPI 정의를 사용하여 설명됩니다. 이 정의에
 
     ![Azure Functions를 API Management로 가져오기](media/functions-openapi-definition/import-function-openapi.png)
 
-1. **Function App에서 만들기** 페이지에서 기본값을 수락하고 **만들기**를 선택합니다.
+1. **함수 앱에서 만들기** 페이지에서 기본값을 수락하고 **만들기**를 선택합니다.
 
     ![함수 앱에서 만들기](media/functions-openapi-definition/create-function-openapi.png)
 

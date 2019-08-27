@@ -10,16 +10,16 @@ ms.topic: quickstart
 ms.date: 11/27/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: f7170fbb4a258e9d8290ad9d207028087b22003a
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: a2420f98bb07686b548dc6641df77dd0fdf7028b
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322310"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562800"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>빠른 시작: Python API를 사용하여 첫 번째 Batch 작업 실행
 
-이 빠른 시작에서는 Azure Batch Python API를 기반으로 하여 빌드된 애플리케이션에서 Azure Batch 작업을 실행합니다. 앱은 여러 개의 입력 데이터 파일을 Azure 스토리지에 업로드한 다음, Batch 계산 노드(가상 머신)의 *풀*을 만듭니다. 그런 다음 *태스크*를 실행하는 샘플 *작업*을 만들어 기본 명령을 사용하여 풀에서 각 입력 파일을 처리합니다. 이 빠른 시작을 완료하면, Batch 서비스의 주요 개념을 이해하고 더 큰 규모의 더 실제적인 작업으로 Batch를 시도할 준비가 됩니다.
+이 빠른 시작에서는 Azure Batch Python API를 기반으로 하여 빌드된 애플리케이션에서 Azure Batch 작업을 실행합니다. 앱은 여러 개의 입력 데이터 파일을 Azure 스토리지에 업로드한 다음, Batch 컴퓨팅 노드(가상 머신)의 *풀*을 만듭니다. 그런 다음 *태스크*를 실행하는 샘플 *작업*을 만들어 기본 명령을 사용하여 풀에서 각 입력 파일을 처리합니다. 이 빠른 시작을 완료하면, Batch 서비스의 주요 개념을 이해하고 더 큰 규모의 더 실제적인 작업으로 Batch를 시도할 준비가 됩니다.
  
 ![빠른 시작 앱 워크플로](./media/quick-run-python/sampleapp.png)
 
@@ -55,7 +55,7 @@ Python 개발 환경에서 `pip`를 사용하여 필요한 패키지를 설치�
 pip install -r requirements.txt
 ```
 
-`config.py`파일을 엽니다. Batch 및 저장소 계정 자격 증명 문자열을 계정에 대해 가져온 값으로 업데이트합니다. 예:
+`config.py`파일을 엽니다. Batch 및 스토리지 계정 자격 증명 문자열을 계정에 대해 가져온 값으로 업데이트합니다. 예:
 
 ```Python
 _BATCH_ACCOUNT_NAME = 'mybatchaccount'
@@ -107,7 +107,7 @@ Batch processing began with mainframe computers and punch cards. Today it still 
 
 이 빠른 시작의 Python 앱은 다음을 수행합니다.
 
-* 세 개의 작은 텍스트 파일을 Azure 저장소 계정의 Blob 컨테이너에 업로드합니다. 이러한 파일은 Batch 태스크에서 처리하기 위한 입력입니다.
+* 세 개의 작은 텍스트 파일을 Azure Storage 계정의 Blob 컨테이너에 업로드합니다. 이러한 파일은 Batch 태스크에서 처리하기 위한 입력입니다.
 * Ubuntu 18.04 LTS를 실행하는 두 개의 컴퓨팅 노드로 구성된 풀을 만듭니다.
 * 노드에서 실행할 하나의 작업과 세 개의 태스크를 만듭니다. 각 태스크는 Bash 셸 명령줄을 사용하여 입력 파일 중 하나를 처리합니다.
 * 태스크에서 반환된 파일을 표시합니다.
@@ -124,7 +124,7 @@ blob_client = azureblob.BlockBlobService(
     account_key=config._STORAGE_ACCOUNT_KEY)
 ```
 
-앱은 `blob_client` 참조를 사용하여 저장소 계정에 컨테이너를 만들고, 데이터 파일을 이 컨테이너에 업로드합니다. 스토리지의 파일은 Batch가 나중에 계산 노드에 다운로드할 수 있는 Batch [ResourceFile](/python/api/azure.batch.models.resourcefile) 개체로 정의됩니다.
+앱은 `blob_client` 참조를 사용하여 스토리지 계정에 컨테이너를 만들고, 데이터 파일을 이 컨테이너에 업로드합니다. 스토리지의 파일은 Batch가 나중에 컴퓨팅 노드에 다운로드할 수 있는 Batch [ResourceFile](/python/api/azure.batch.models.resourcefile) 개체로 정의됩니다.
 
 ```python
 input_file_paths = [os.path.join(sys.path[0], 'taskdata0.txt'),
@@ -174,7 +174,7 @@ batch_service_client.pool.add(new_pool)
 
 ### <a name="create-a-batch-job"></a>Batch 작업 만들기
 
-Batch 작업은 하나 이상의 태스크에 대한 논리적 그룹입니다. 작업에는 우선 순위 및 태스크를 실행할 풀과 같은 태스크에 공통적으로 적용되는 설정이 포함됩니다. 앱에서 [JobAddParameter](/python/api/azure.batch.models.jobaddparameter) 클래스를 사용하여 풀에 작업을 만듭니다. [job.add](/python/api/azure.batch.operations.joboperations) 메서드는 풀을 Batch 서비스에 제출합니다. 처음에는 작업에 태스크가 없습니다.
+Batch 작업은 하나 이상의 태스크에 대한 논리적 그룹입니다. 작업에는 우선 순위 및 태스크를 실행할 풀과 같은 태스크에 공통적으로 적용되는 설정이 포함됩니다. 앱에서 [JobAddParameter](/python/api/azure.batch.models.jobaddparameter) 클래스를 사용하여 풀에 작업을 만듭니다. [job.add](/python/api/azure.batch.operations.joboperations) 메서드는 지정된 Batch 계정에 작업을 추가합니다. 처음에는 작업에 태스크가 없습니다.
 
 ```python
 job = batch.models.JobAddParameter(
@@ -187,7 +187,7 @@ batch_service_client.job.add(job)
 
 앱에서 [TaskAddParameter](/python/api/azure.batch.models.taskaddparameter) 클래스를 사용하여 태스크 개체의 목록을 만듭니다. 각 태스크는 `command_line` 매개 변수를 사용하여 `resource_files` 입력 개체를 처리합니다. 이 샘플에서는 명령줄에서 `cat` Bash 셸 명령을 실행하여 텍스트 파일을 표시합니다. 이 명령은 간단한 데모용 예제입니다. Batch를 사용하면 명령줄에서 앱 또는 스크립트를 지정합니다. Batch는 컴퓨팅 노드에 앱과 스크립트를 배포하는 여러 가지 방법을 제공합니다.
 
-그런 다음, 이 앱은 [task.add_collection](/python/api/azure.batch.operations.taskoperations) 메서드를 사용하여 작업에 태스크를 추가하고, 계산 노드 실행 대기열에 추가합니다. 
+그런 다음, 이 앱은 [task.add_collection](/python/api/azure.batch.operations.taskoperations) 메서드를 사용하여 작업에 태스크를 추가하고, 컴퓨팅 노드 실행 대기열에 추가합니다. 
 
 ```python
 tasks = list()
@@ -228,9 +228,9 @@ for task in tasks:
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-앱은 만든 저장소 컨테이너를 자동으로 삭제하고 Batch 풀과 작업을 삭제할 수 있는 옵션을 제공합니다. 작업이 예약되지 않은 경우에도 노드가 실행되는 동안은 풀에 대한 요금이 부과됩니다. 풀이 더 이상 필요하지 않으면 삭제합니다. 풀을 삭제하면 노드의 모든 태스크 출력이 삭제됩니다. 
+앱은 만든 스토리지 컨테이너를 자동으로 삭제하고 Batch 풀과 작업을 삭제할 수 있는 옵션을 제공합니다. 작업이 예약되지 않은 경우에도 노드가 실행되는 동안은 풀에 대한 요금이 부과됩니다. 풀이 더 이상 필요하지 않으면 삭제합니다. 풀을 삭제하면 노드의 모든 태스크 출력이 삭제됩니다. 
 
-더 이상 필요하지 않으면 리소스 그룹, 배치 계정 및 저장소 계정을 삭제합니다. Azure Portal에서 이렇게 하려면 배치 계정에 대한 리소스 그룹을 선택하고 **리소스 그룹 삭제**를 클릭합니다.
+더 이상 필요하지 않으면 리소스 그룹, 배치 계정 및 스토리지 계정을 삭제합니다. Azure Portal에서 이렇게 하려면 배치 계정에 대한 리소스 그룹을 선택하고 **리소스 그룹 삭제**를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -7,12 +7,12 @@ ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 59e47c448f58235114c8fb3147637b77dd5fcf23
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: de043e682fea5cb629a127763515b162c3ad4943
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226063"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515929"
 ---
 # <a name="control-mapping-of-the-iso-27001-asesql-workload-blueprint-sample"></a>ISO 27001 ASE/SQL 워크로드 청사진 샘플에 대한 컨트롤 매핑
 
@@ -118,13 +118,13 @@ Azure 리소스의 암호화 구성이 최적이 아닐 수 있는 경우를 이
 - \[미리 보기\]: 스토리지 계정에 대해 누락된 Blob 암호화 감사
 - \[미리 보기\]: Windows VM이 해독 가능한 암호화를 사용하여 암호를 저장하지 않아야 하는지 감사하는 VM 확장 배포
 - \[미리 보기\]: Windows VM이 해독 가능한 암호화를 사용하여 암호를 저장하지 않아야 하는지 감사
-- \[미리 보기\]: Azure Security Center에서 암호화되지 않은 SQL 데이터베이스 모니터링
 - \[미리 보기\]: Azure Security Center에서 암호화되지 않은 VM 디스크 모니터링
 - 자동화 계정 변수 암호화의 사용 감사
 - Redis Cache에 대한 보안 연결의 사용만 감사
 - 스토리지 계정에 대한 보안 전송 감사
 - Service Fabric에서 EncryptAndSign에 대한 ClusterProtectionLevel 속성의 설정 감사
 - 투명한 데이터 암호화 상태 감사
+- SQL 데이터베이스에 투명한 데이터 암호화를 사용하도록 설정해야 합니다.
 
 ## <a name="a1241-event-logging"></a>A.12.4.1 이벤트 로깅
 
@@ -135,9 +135,9 @@ Azure 리소스의 암호화 구성이 최적이 아닐 수 있는 경우를 이
 - \[미리 보기\]: VMSS의 Dependency Agent 배포 감사 - 목록에 없는 VM 이미지(OS)
 - \[미리 보기\]: Log Analytics 에이전트 배포 감사 - 목록에 없는 VM 이미지(OS)
 - \[미리 보기\]: VMSS의 Log Analytics 에이전트 배포 감사 - 목록에 없는 VM 이미지(OS)
-- \[미리 보기\]: Azure Security Center에서 감사되지 않은 SQL 데이터베이스 모니터링
 - 진단 설정 감사
 - SQL 감사 서버 수준 감사 설정
+- SQL Server의 고급 데이터 보안 설정에서 감사를 활성화해야 합니다.
 
 ## <a name="a1243-administrator-and-operator-logs"></a>A.12.4.3 관리자 및 운영자 로그
 
@@ -147,9 +147,9 @@ Azure 리소스의 암호화 구성이 최적이 아닐 수 있는 경우를 이
 - \[미리 보기\]: VMSS의 Dependency Agent 배포 감사 - 목록에 없는 VM 이미지(OS)
 - \[미리 보기\]: Log Analytics 에이전트 배포 감사 - 목록에 없는 VM 이미지(OS)
 - \[미리 보기\]: VMSS의 Log Analytics 에이전트 배포 감사 - 목록에 없는 VM 이미지(OS)
-- \[미리 보기\]: Azure Security Center에서 감사되지 않은 SQL 데이터베이스 모니터링
 - 진단 설정 감사
 - SQL 감사 서버 수준 감사 설정
+- SQL Server의 고급 데이터 보안 설정에서 감사를 활성화해야 합니다.
 
 ## <a name="a1244-clock-synchronization"></a>A.12.4.4 클럭 동기화
 
@@ -159,9 +159,9 @@ Azure 리소스의 암호화 구성이 최적이 아닐 수 있는 경우를 이
 - \[미리 보기\]: VMSS의 Dependency Agent 배포 감사 - 목록에 없는 VM 이미지(OS)
 - \[미리 보기\]: Log Analytics 에이전트 배포 감사 - 목록에 없는 VM 이미지(OS)
 - \[미리 보기\]: VMSS의 Log Analytics 에이전트 배포 감사 - 목록에 없는 VM 이미지(OS)
-- \[미리 보기\]: Azure Security Center에서 감사되지 않은 SQL 데이터베이스 모니터링
 - 진단 설정 감사
 - SQL 감사 서버 수준 감사 설정
+- SQL Server의 고급 데이터 보안 설정에서 감사를 활성화해야 합니다.
 
 ## <a name="a1251-installation-of-software-on-operational-systems"></a>A.12.5.1 운영 체제에 소프트웨어 설치
 

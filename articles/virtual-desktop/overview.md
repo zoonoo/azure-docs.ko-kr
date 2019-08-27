@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 7c331a4a7395069dc4dc3ab1dcfc89415be0898c
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 8827aa660d348ef9e42c617067c2837b8697ba6e
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854447"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876774"
 ---
 # <a name="what-is-windows-virtual-desktop-preview"></a>Windows Virtual Desktop Preview란? 
 
@@ -81,7 +81,7 @@ Windows Virtual Desktop을 지원하려면 인프라에 다음과 같은 것들�
 Windows Virtual Desktop에 대해 만드는 Azure 가상 머신은 다음과 같아야 합니다.
 
 * [표준 도메인에 조인](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-comparison) 또는 [하이브리드 AD에 조인](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan). 가상 머신이 Azure AD에 조인되면 안 됩니다.
-* 다음 [지원되는 OS 이미지](#supported-virtual-machine-os-image) 중 하나를 실행합니다.
+* 다음 [지원되는 OS 이미지](#supported-virtual-machine-os-images) 중 하나를 실행합니다.
 
 >[!NOTE]
 >Azure 구독이 필요한 분들은 [1개월 평가판에 가입](https://azure.microsoft.com/free/)하시면 됩니다. Azure 평가판 버전을 사용하는 경우 Windows Server Active Directory와 Azure Active Directory가 동기화 상태를 유지하도록 Azure AD Domain Services를 사용해야 합니다.
@@ -101,7 +101,7 @@ Windows Virtual Desktop은 고객이 사용자에게 제공하는 Windows 데스
 * [Windows](https://docs.microsoft.com/azure/virtual-desktop/connect-windows-7-and-10)
 * [HTML5](https://docs.microsoft.com/azure/virtual-desktop/connect-web)
 
-## <a name="supported-virtual-machine-os-image"></a>지원되는 가상 머신 OS 이미지
+## <a name="supported-virtual-machine-os-images"></a>지원되는 가상 머신 OS 이미지
 
 Windows Virtual Desktop은 다음 OS 이미지를 지원합니다.
 

@@ -6,25 +6,20 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: overview
-ms.date: 08/13/2019
+ms.date: 08/21/2019
 ms.author: heidist
-ms.openlocfilehash: eefa0eb5d1e15df34089d7baa3241cbbed4724c2
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 204951f725c2885fe9f8bf33fffe83e55628dd34
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69034845"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899677"
 ---
 # <a name="what-is-azure-search"></a>Azure Search란?
 
-Azure Search는 개발자에게 웹, 모바일 및 엔터프라이즈 애플리케이션의 프라이빗, 이기종 콘텐츠에 대한 풍부한 검색 환경을 추가하기 위한 API 및 도구를 제공하는 SaaS(Search-as-a-Service) 클라우드 솔루션입니다. 사용자 지정 코드는 데이터 수집(인덱싱)을 호출하고, 쿼리 요청을 발급하며, 응답을 처리합니다. 검색 환경은 Azure Search에서 만들고, 소유하고, 저장하는 지속형 인덱스에 대한 쿼리를 실행하도록 Azure Search의 기능을 사용하여 클라이언트 코드에 정의됩니다.
+Azure Search는 개발자에게 웹, 모바일 및 엔터프라이즈 애플리케이션의 프라이빗, 이기종 콘텐츠에 대한 풍부한 검색 환경을 추가하기 위한 API 및 도구를 제공하는 SaaS(Search-as-a-Service) 클라우드 솔루션입니다. 사용자 지정 코드는 데이터 수집(인덱싱)을 호출하여 인덱스를 만들고 로드합니다. 다른 쪽에서는 애플리케이션 코드가 쿼리 요청을 발행하고 응답을 처리합니다. 검색 환경은 Azure Search에서 만들고, 소유하고, 저장하는 지속형 인덱스에 대한 쿼리를 실행하도록 Azure Search의 기능을 사용하여 클라이언트에 정의됩니다.
 
-![Azure Search 아키텍처](media/search-what-is-azure-search/azure-search-diagram.png "Azure Search 아키텍처")
-
-<!-- + Build a search index containing only your data, sourced from multiple content types and platforms. 
-+ Leverage AI enrichments to extract text and features from image files, or entities and key phrases from raw text.
-+ Create intuitive search experiences with facet navigation and filters, synonyms, autocomplete, and text analysis for "did you mean" autocorrected search terms. Get relevance tuning through functions and boosting logic.
-+ Create search apps for specific use-cases. Geo-search supports a "find near me" experience. Multi-lingual search is supported through language analyzers for non-English full text search. -->
+![Azure Search 아키텍처](media/search-what-is-azure-search/azure-search-diagram.svg "Azure Search 아키텍처")
 
 기능은 정보 검색의 내재된 복잡성을 표시하는 간단한 [REST API](/rest/api/searchservice/) 또는 [.NET SDK](search-howto-dotnet-sdk.md)를 통해 표시됩니다. API 외에도 Azure Portal에서 운영 및 콘텐츠 관리 지원과 인덱스 프로토타입 및 쿼리를 위한 도구를 제공합니다. 이 서비스는 클라우드에서 실행되므로 인프라 및 가용성은 Microsoft에서 관리합니다.
 
@@ -36,7 +31,7 @@ Azure Search가 적합한 애플리케이션 시나리오는 다음과 같습니
 
 + 검색 관련 기능을 쉽게 구현합니다. Azure Search API는 쿼리 생성, 패싯 탐색, 필터(지리 공간 검색 포함), 동의어 매핑, 자동 완성 쿼리 및 관련성 튜닝을 간소화합니다. 기본 제공 기능을 사용하면 상용 웹 검색 엔진과 비슷한 검색 환경에 대한 최종 사용자의 기대를 충족시킬 수 있습니다.
 
-+ 비정형 텍스트를 인덱싱하거나 이미지 파일에서 텍스트와 정보를 추출합니다. Azure Search의 인지 검색 기능은 AI 처리를 인덱싱 파이프라인에 추가합니다. 일부 일반적인 사용 사례로 스캔한 문서에 대한 OCR, 엔터티 인식 및 큰 문서에 대한 핵심 구 추출, 언어 감지 및 텍스트 번역, 감정 분석이 있습니다.
++ 비정형 텍스트를 인덱싱하거나 이미지 파일에서 텍스트와 정보를 추출합니다. Azure Search의 [인지 검색](cognitive-search-concept-intro.md) 기능은 AI 처리를 인덱싱 파이프라인에 추가합니다. 일부 일반적인 사용 사례로 스캔한 문서에 대한 OCR, 엔터티 인식 및 큰 문서에 대한 핵심 구 추출, 언어 감지 및 텍스트 번역, 감정 분석이 있습니다.
 
 + 언어 요구 사항이 Azure Search의 사용자 지정 및 언어 분석기를 사용하여 충족됩니다. 영어가 아닌 콘텐츠가 있는 경우 Azure Search는 Lucene 분석기와 Microsoft의 자연어 프로세서를 모두 지원합니다. 또한 분음 부호 필터링과 같은 원시 콘텐츠의 특수 처리를 수행하도록 분석기를 구성할 수도 있습니다.
 
@@ -93,7 +88,9 @@ Azure Search가 적합한 애플리케이션 시나리오는 다음과 같습니
 밀어넣기 모델은 SDK 또는 업데이트된 문서를 인덱스에 보내기 위해 사용되는 REST API를 통해 제공됩니다. JSON 형식을 사용하여 거의 모든 데이터 세트에서 데이터를 밀어넣을 수 있습니다. 데이터 로드에 대한 지침은 [문서 추가, 업데이트 또는 삭제](/rest/api/searchservice/addupdate-or-delete-documents) 또는 [.NET SDK를 사용하는 방법](search-howto-dotnet-sdk.md)을 참조하세요.
 
 ### <a name="step-4-search"></a>4단계: 검색
-인덱스를 채운 후에 REST API 또는 .NET SDK와 함께 간단한 HTTP 요청을 사용하여 서비스 엔드포인트에 [검색 쿼리를 실행](/rest/api/searchservice/Search-Documents) 할 수 있습니다.
+인덱스를 채운 후에 [REST API](/rest/api/searchservice/Search-Documents) 또는 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations)와 함께 간단한 HTTP 요청을 사용하여 서비스 엔드포인트에 [검색 쿼리를 실행](search-query-overview.md)할 수 있습니다.
+
+[첫 번째 검색 앱 만들기](tutorial-csharp-create-first-app.md)를 통해 사용자 입력을 수집하고 결과를 처리하는 웹 페이지를 빌드한 다음, 확장합니다. [대화형 REST용 Postman](search-get-started-postman.md) 호출 또는 Azure Portal에서 기본 제공되는 [Search Explorer](search-explorer.md)를 사용하여 기존 인덱스를 쿼리할 수도 있습니다.
 
 ## <a name="how-it-compares"></a>비교 결과
 

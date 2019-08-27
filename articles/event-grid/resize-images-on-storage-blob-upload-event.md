@@ -12,18 +12,18 @@ ms.topic: tutorial
 ms.date: 01/29/2019
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: 652fe182663d37c389658c8fe3b172826168e51f
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: c09e2cd812dd34976218ff71036734466943e8cd
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617991"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "69623866"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>자습서: Event Grid를 사용하여 업로드된 이미지 크기 자동 조정
 
 [Azure Event Grid](overview.md)는 클라우드용 이벤트 서비스입니다. Event Grid를 사용하면 Azure 서비스나 타 리소스에서 발생하는 이벤트에 대한 구독을 만들 수 있습니다.  
 
-이 자습서는 스토리지 자습서의 2부입니다. [이전 저장소 자습서][previous-tutorial]를 확장하여 Azure Event Grid 및 Azure Functions를 통해 서버 없는 자동 미리 보기 생성을 추가합니다. Event Grid를 사용하면 [Azure Functions](../azure-functions/functions-overview.md)가 [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) 이벤트에 응답하고 업로드된 이미지의 미리 보기를 생성할 수 있습니다. Blob Storage 만들기 이벤트에 대해 이벤트 구독을 만듭니다. BLOB이 특정 Blob Storage 컨테이너에 추가되면 함수 엔드포인트가 호출됩니다. Event Grid에서 함수 바인딩에 전달된 데이터를 사용하여 BLOB에 액세스하고 미리 보기 이미지를 생성합니다.
+이 자습서는 스토리지 자습서의 2부입니다. [이전 스토리지 자습서][previous-tutorial]를 확장하여 Azure Event Grid 및 Azure Functions를 통해 서버리스 자동 미리 보기 생성을 추가합니다. Event Grid를 사용하면 [Azure Functions](../azure-functions/functions-overview.md)가 [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) 이벤트에 응답하고 업로드된 이미지의 미리 보기를 생성할 수 있습니다. Blob Storage 만들기 이벤트에 대해 이벤트 구독을 만듭니다. BLOB이 특정 Blob Storage 컨테이너에 추가되면 함수 엔드포인트가 호출됩니다. Event Grid에서 함수 바인딩에 전달된 데이터를 사용하여 BLOB에 액세스하고 미리 보기 이미지를 생성합니다.
 
 Azure CLI 및 Azure Portal을 사용하여 크기 조정 기능을 기존 이미지 업로드 앱에 추가합니다.
 
@@ -72,7 +72,7 @@ Cloud Shell을 사용하지 않는 경우 먼저 `az login`을 사용하여 로�
 
 ## <a name="create-an-azure-storage-account"></a>Azure Storage 계정 만들기
 
-Azure Functions에는 일반 저장소 계정이 필요합니다. 이전 자습서에서 만든 Blob Storage 계정 외에도 [az storage account create](/cli/azure/storage/account) 명령을 사용하여 리소스 그룹에 별도의 일반 스토리지 계정을 만듭니다. Storage 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 포함할 수 있습니다. 
+Azure Functions에는 일반 스토리지 계정이 필요합니다. 이전 자습서에서 만든 Blob Storage 계정 외에도 [az storage account create](/cli/azure/storage/account) 명령을 사용하여 리소스 그룹에 별도의 일반 스토리지 계정을 만듭니다. Storage 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 포함할 수 있습니다. 
 
 1. 이전 자습서에서 만든 리소스 그룹 이름을 보관하는 변수를 설정합니다. 
 
@@ -221,7 +221,7 @@ Event Grid 알림에서 함수에 전달되는 데이터에는 Blob의 URL이 �
 
 이벤트 구독은 특정 엔드포인트로 보내려는 공급자 생성 이벤트를 나타냅니다. 이 경우 해당 함수에서 엔드포인트가 노출됩니다. Azure Portal에서 함수에 알림을 전송하는 이벤트 구독을 만들려면 다음 단계를 사용합니다. 
 
-1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **모든 서비스**를 선택한 다음, **Function App**을 선택합니다. 
+1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **모든 서비스**를 선택한 다음, **함수 앱**을 선택합니다. 
 
     ![Azure Portal의 함수 앱 찾아보기](./media/resize-images-on-storage-blob-upload-event/portal-find-functions.png)
 
@@ -236,7 +236,7 @@ Event Grid 알림에서 함수에 전달되는 데이터에는 Blob의 URL이 �
     | 설정      | 제안 값  | 설명                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Name** | imageresizersub | 새 이벤트 구독을 식별하는 이름입니다. | 
-    | **항목 유형** |  Storage 계정 | 저장소 계정 이벤트 공급자를 선택합니다. | 
+    | **항목 유형** |  Storage 계정 | 스토리지 계정 이벤트 공급자를 선택합니다. | 
     | **구독** | Azure 구독 | 기본적으로 현재 Azure 구독을 선택합니다.   |
     | **리소스 그룹** | myResourceGroup | **기존 항목 사용**을 선택하고 이 자습서에서 사용한 리소스 그룹을 선택합니다.  |
     | **리소스** |  Blob Storage 계정 |  만든 Blob Storage 계정을 선택합니다. |
@@ -276,6 +276,8 @@ Event Grid 알림에서 함수에 전달되는 데이터에는 Blob의 URL이 �
 
 ![브라우저에 게시된 웹앱](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
 
+---
+
 ## <a name="next-steps"></a>다음 단계
 
 이 자습서에서는 다음 방법에 대해 알아보았습니다.
@@ -285,7 +287,7 @@ Event Grid 알림에서 함수에 전달되는 데이터에는 Blob의 URL이 �
 > * Azure Functions를 사용하여 서버 없는 코드 배포
 > * Event Grid에서 Blob Storage 이벤트 구독 만들기
 
-저장소 자습서 시리즈의 3부를 통해 저장소 계정에 대한 보안 액세스를 학습합니다.
+스토리지 자습서 시리즈의 3부를 통해 스토리지 계정에 대한 보안 액세스를 학습합니다.
 
 > [!div class="nextstepaction"]
 > [클라우드에서 애플리케이션 데이터에 대한 보안 액세스](../storage/blobs/storage-secure-access-application.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

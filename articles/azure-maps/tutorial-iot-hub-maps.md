@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 853d7f7bf9950640a824eee4ae3e044265b518f7
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: 5345bbf2514c8b06ab80d4563227725a398f9407
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69017227"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69898348"
 ---
 # <a name="implement-iot-spatial-analytics-using-azure-maps"></a>Azure Maps를 사용하여 IoT 공간 분석 구현
 
@@ -290,6 +290,10 @@ Azure Function이 시작되어 실행되면 이제 원격 분석 데이터를 Io
 Azure Maps REST API의 전체 목록은 다음을 참조하세요.
 
 * [Azure Maps REST API](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence)
+
+IoT 플러그 앤 플레이에 대한 자세한 내용은 다음을 참조하세요.
+
+* [IoT 플러그 앤 플레이](https://docs.microsoft.com/azure/iot-pnp)
 
 IoT용 Azure Certified인 디바이스 목록을 가져오려면 다음을 방문하세요.
 

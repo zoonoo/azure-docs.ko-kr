@@ -7,12 +7,12 @@ ms.date: 07/20/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 40ee855aa01a9b24e35fb9863221e3607786d407
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 1b6348173f47b570efff25bf09e9a427ff2ba9b5
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68722014"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640987"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-for-net"></a>빠른 시작: .NET용 Azure Blob Storage 클라이언트 라이브러리
 
@@ -129,16 +129,16 @@ namespace blob_quickstart
 
 ### <a name="copy-your-credentials-from-the-azure-portal"></a>Azure Portal에서 자격 증명 복사
 
-애플리케이션 예제는 스토리지 계정에 대한 액세스를 인증해야 합니다. 인증하려면 연결 문자열로 응용 프로그램에 저장소 계정 자격 증명을 추가합니다. 다음 단계를 수행하여 저장소 계정 자격 증명을 봅니다.
+샘플 애플리케이션이 Azure Storage에 대한 요청을 수행하는 경우 권한이 있어야 합니다. 요청에 권한을 부여하려면 스토리지 계정 자격 증명을 연결 문자열로 애플리케이션에 추가합니다. 다음 단계를 수행하여 스토리지 계정 자격 증명을 봅니다.
 
 1. [Azure Portal](https://portal.azure.com)로 이동합니다.
-2. 저장소 계정을 찾습니다.
-3. 저장소 계정 개요의 **설정** 섹션에서 **액세스 키**를 선택합니다. 여기에서 계정 액세스 키 및 각 키의 전체 연결 문자열을 볼 수 있습니다.
+2. 스토리지 계정을 찾습니다.
+3. 스토리지 계정 개요의 **설정** 섹션에서 **액세스 키**를 선택합니다. 여기에서 계정 액세스 키 및 각 키의 전체 연결 문자열을 볼 수 있습니다.
 4. **key1** 아래에서 **연결 문자열** 값을 찾고, **복사** 단추를 선택하여 연결 문자열을 복사합니다. 다음 단계에서 연결 문자열 값을 환경 변수에 추가합니다.
 
     ![Azure Portal에서 연결 문자열을 복사하는 방법을 보여주는 스크린샷](../../../includes/media/storage-copy-connection-string-portal/portal-connection-string.png)
 
-### <a name="configure-your-storage-connection-string"></a>저장소 연결 문자열 구성
+### <a name="configure-your-storage-connection-string"></a>스토리지 연결 문자열 구성
 
 연결 문자열을 복사한 후 애플리케이션을 실행 중인 로컬 컴퓨터의 새 환경 변수에 씁니다. 환경 변수를 설정하려면 콘솔 창을 열고 사용 중인 운영 체제의 지침을 따릅니다. `<yourconnectionstring>`을 실제 연결 문자열로 바꿉니다.
 

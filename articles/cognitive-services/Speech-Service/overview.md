@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 4ea6f04dbfd18a6e561a255988ba0465b9e017be
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: da88c6d0195236a6f93f81d3296e4624228125f2
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967624"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624274"
 ---
 # <a name="what-are-the-speech-services"></a>Speech Services란?
 
@@ -43,6 +43,7 @@ Azure Speech Services의 새로운 기능에 대해 알아봅니다.
 
 * 2019년 8월
   * **새 자습서**: [음성 SDK, C#으로 음성을 지원하도록 봇 설정](tutorial-voice-enable-your-bot-speech-sdk.md)
+  * `en-US-JessaNeural` 음성에 대해 새 말하기 스타일 [`chat`](speech-synthesis-markup.md#adjust-speaking-styles)를 추가했습니다. 
 * 2019년 6월
   * Speech SDK 1.6.0이 릴리스되었습니다. 업데이트, 향상된 기능 및 알려진 문제의 전체 목록은 [릴리스 정보](releasenotes.md)를 참조하세요.
 * 2019년 5월 - 이제 [대화 기록](conversation-transcription-service.md), [호출 센터 전사](call-center-transcription.md) 및 [음성 우선 가상 도우미](voice-first-virtual-assistants.md)에 대한 설명서를 사용할 수 있습니다.

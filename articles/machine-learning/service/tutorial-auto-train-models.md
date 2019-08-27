@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 08/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 060257ef144309e37208db80c7731ed96b995b2c
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 49f46c09cfcfef2ab1e74ae7c08d9a54289293ac
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990472"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534832"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>자습서: 자동화된 기계 학습을 사용하여 모델 빌드
 
@@ -42,36 +42,11 @@ Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-[개발 환경 설정](#start)으로 건너뛰어 Notebook 단계를 읽어보거나, 아래 지침에 따라 Notebook을 가져와서 Azure Notebooks 또는 사용자 고유의 Notebook 서버에서 실행합니다. Notebook을 실행하려면 다음 항목이 필요합니다.
+* [데이터 준비 자습서](tutorial-data-prep.md)의 1부를 완료합니다.
 
-* [데이터 준비 자습서를 실행합니다](tutorial-data-prep.md).
-* 다음 요소가 설치된 Python 3.6 Notebook 서버:
-    * `automl` 및 `notebooks`라는 추가 요소를 지원하는 Python용 Azure Machine Learning SDK
-    * `matplotlib`
-* 자습서 Notebook
-* 기계 학습 작업 영역
-* Notebook과 동일한 디렉터리에 있는 작업 영역에 대한 구성 파일
+* 1부를 완료한 후 동일한 Notebook 서버를 사용하여 **tutorials/regression-part2-automated-ml.ipynb** Notebook을 엽니다.
 
-아래 섹션 중 하나에서 이러한 필수 구성 요소를 모두 가져옵니다.
-
-* [작업 영역에서 클라우드 Notebook 서버](#azure) 사용
-* [사용자 고유의 Notebook 서버](#server) 사용
-
-### <a name="azure"></a>작업 영역에서 클라우드 Notebook 서버 사용
-
-사용자 고유의 클라우드 기반 Notebook 서버를 쉽게 시작할 수 있습니다. 이 클라우드 리소스를 만들면 [Python용 Azure Machine Learning SDK](https://aka.ms/aml-sdk)가 이미 설치 및 구성되어 있습니다.
-
-[!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
-
-* Notebook 웹 페이지를 시작한 후에는 **tutorials/regression-part2-automated-ml.ipynb** Notebook을 실행합니다.
-
-### <a name="server"></a>사용자 고유의 Jupyter Notebook 서버 사용
-
-사용자 컴퓨터에 로컬 Jupyter Notebook 서버를 만들려면 이러한 단계를 사용합니다.  `matplotlib`, `automl` 및 `notebooks` 추가 기능이 설치되었는지 확인합니다.
-
-[!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
-
-이러한 단계를 완료한 후에는 **tutorials/regression-part2-automated-ml.ipynb** Notebook을 실행합니다.
+이 자습서는 고유의 [로컬 환경](how-to-configure-environment.md#local)에서 사용하려는 경우 [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials)에서도 사용할 수 있습니다.  Azure Machine Learning SDK에서 `matplotlib`, `automl` 및 `notebooks`를 추가로 설치했는지 확인합니다.
 
 ## <a name="start"></a>개발 환경 설정
 

@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 993b0249bdcc8e0e54dbe0c222aa2335c3bf8d4a
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 16c0354466d5c2a1207873a1e83e209da9339705
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679136"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69509985"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>평가 후 Azure로 마이그레이션할 VMware VM 준비
 
@@ -121,7 +121,7 @@ URL을 조회하는 동안 수신된 CNAME 레코드를 프록시가 확인해�
 
 ### <a name="verify-appliance-settings-for-assessment"></a>평가를 위한 어플라이언스 설정 확인
 
-다음 자습서에서 Azure Migrate 어플라이언스를 설정하고 평가를 시작하기 전에 어플라이언스 배포를 준비합니다.
+Azure Migrate 어플라이언스를 설정하고 다음 자습서에서 평가를 시작하기 전에 어플라이언스 배포를 준비합니다.
 
 1. VMware에서 Azure Migrate 어플라이언스를 설정하는 데 필요한 요구 사항을 [확인](migrate-support-matrix-vmware.md#assessment-appliance-requirements)합니다.
 2. 어플라이언스에서 액세스해야 하는 Azure URL을 [검토](migrate-support-matrix-vmware.md#assessment-url-access-requirements)합니다.

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 02/22/2019
 ms.author: vijetaj
-ms.openlocfilehash: dfb3e9f6390d4c80b8f3c37b87f2659c671fa823
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 488dc7db01bd865268e143b68cdaccd989010912
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68591830"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534942"
 ---
 # <a name="provision-a-windows-data-science-virtual-machine-on-azure"></a>Azure에서 Windows 데이터 과학 Virtual Machine 프로비전
 
@@ -48,6 +48,7 @@ DSVM에는 다음과 같은 도구가 포함되어 있습니다.
   * [Apache Drill](https://drill.apache.org/) - Apache Hadoop, NoSQL 및 클라우드 스토리지용의 스키마 없는 SQL 쿼리 엔진입니다. Power BI, Microsoft Excel 및 Tableau와 같은 표준 BI 도구에서 NoSQL 및 파일을 쿼리하기 위한 ODBC 및 JDBC 인터페이스를 지원합니다.
 * Azure Machine Learning 및 기타 Azure 서비스에서 사용하기 위한 R 및 Python의 라이브러리
 * Git(Git Bash 포함)에서 GitHub 및 Azure DevOps가 포함된 소스 코드 리포지토리를 사용하여 작업할 수 있습니다. Git은 Git Bash와 명령 프롬프트에서 모두 액세스할 수 있는 몇 가지 인기 있는 Linux 명령줄 유틸리티를 제공합니다. 예를 들어 awk, sed, perl, grep, find, wget 및 curl이 있습니다.
+* 개발 도구 및 편집자(RStudio, PyCharm)
 
 ### <a name="about-data-science"></a>데이터 과학에 대한 정보
 
@@ -94,7 +95,7 @@ DSVM 인스턴스를 만들려면
       * **위치** - 가장 적합한 데이터 센터를 선택합니다. 가장 빠른 네트워크 액세스를 위해 대부분의 데이터가 있거나 물리적 위치에 가장 가까운 데이터 센터입니다.
    1. **크기**: 기능 요구 사항과 비용 제약 조건이 충족되는 서버 유형 중 하나를 선택합니다. VM 크기를 더 많이 선택하려면 **모두 보기**를 선택합니다.
    1. **설정**:  
-      * **Managed Disks 사용**. Azure에서 VM용 디스크를 관리하도록 하려면 **관리**를 선택합니다. 그렇지 않으면 새 또는 기존 저장소 계정을 지정해야 합니다.  
+      * **Managed Disks 사용**. Azure에서 VM용 디스크를 관리하도록 하려면 **관리**를 선택합니다. 그렇지 않으면 새 또는 기존 스토리지 계정을 지정해야 합니다.  
       * **기타 매개 변수**. 기본값을 사용할 수 있습니다. 기본값 이외의 값을 사용하려면 정보 제공 링크를 마우스로 가리켜 특정 필드에 대한 도움말을 확인합니다.
    1. **요약**: 입력한 모든 정보가 올바른지 확인합니다. **만들기**를 선택합니다.
 

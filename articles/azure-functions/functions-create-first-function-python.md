@@ -11,16 +11,14 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: 58f5cfd3718720cafc922bbd7b974a353e0d9d02
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 5b90702f89af260a67b69bf96c2e079a45298723
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68722793"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575450"
 ---
 # <a name="create-an-http-triggered-function-in-azure"></a>Azure에서 HTTP 트리거 함수 만들기
-
-[!INCLUDE [functions-python-preview-note](../../includes/functions-python-preview-note.md)]
 
 이 문서에서는 명령줄 도구를 사용하여 Azure Functions에서 실행되는 Python 프로젝트를 만드는 방법을 보여줍니다. 만드는 함수는 HTTP 요청에 의해 트리거됩니다. 마지막으로, Azure에서 [서버리스 함수](functions-scale.md#consumption-plan)로 실행되도록 프로젝트를 게시합니다.
 
@@ -32,7 +30,7 @@ ms.locfileid: "68722793"
 
 + [Python 3.6](https://www.python.org/downloads/)을 설치합니다.
 
-+ [Azure Functions Core Tools](./functions-run-local.md#v2) 버전 2.6.1071 이상을 설치합니다.
++ [Azure Functions Core Tools](./functions-run-local.md#v2) 버전 2.7.1575 이상을 설치합니다.
 
 + [Azure CLI](/cli/azure/install-azure-cli) 버전 2.x 이상을 설치합니다.
 
@@ -40,9 +38,9 @@ ms.locfileid: "68722793"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-and-activate-a-virtual-environment"></a>가상 환경 만들기 및 활성화
+## <a name="create-and-activate-a-virtual-environment-optional"></a>가상 환경 만들기 및 활성화(선택 사항)
 
-Python 함수를 로컬로 개발하고 테스트하려면 Python 3.6 환경을 사용해야 합니다. 다음 명령을 실행하여 `.venv`라는 가상 환경을 만들고 활성화합니다.
+Python 함수를 로컬로 개발하고 테스트하려면 Python 3.6 환경을 사용하는 것이 좋습니다. 다음 명령을 실행하여 `.venv`라는 가상 환경을 만들고 활성화합니다.
 
 ### <a name="bash"></a>Bash:
 
@@ -81,8 +79,6 @@ _MyFunctionProj_ 라는 폴더가 만들어지며, 이 폴더에는 다음과 �
 ```console
 cd MyFunctionProj
 ```
-
-다음으로, 확장 번들을 사용하도록 host.json 파일을 업데이트합니다.  
 
 ## <a name="create-a-function"></a>함수 만들기
 
@@ -165,15 +161,19 @@ az functionapp create --resource-group myResourceGroup --os-type Linux \
 --consumption-plan-location westeurope  --runtime python \
 --name <APP_NAME> --storage-account  <STORAGE_NAME>
 ```
-
 > [!NOTE]
-> Azure Functions, Linux용 소비 계획은 현재 미리 보기로 제공되며 다음 지역에서만 사용할 수 있습니다. 미국 서부, 미국 동부, 서유럽, 동아시아. 또한, Linux 및 Windows 앱을 동일한 리소스 그룹에 호스트할 수 없습니다. Windows 함수 앱 또는 웹앱이 포함된 `myResourceGroup`이라는 기존 리소스 그룹이 있는 경우 다른 리소스 그룹을 사용해야 합니다.
+> Linux 및 Windows 앱을 동일한 리소스 그룹에 호스트할 수 없습니다. Windows 함수 앱 또는 웹앱이 포함된 `myResourceGroup`이라는 기존 리소스 그룹이 있는 경우 다른 리소스 그룹을 사용해야 합니다.
+
+또한 이 명령은 로그를 모니터링하고 보는 데 사용할 수 있는 동일한 리소스 그룹에 연결된 Azure Application Insights를 프로비저닝합니다.
 
 이제 로컬 함수 프로젝트를 Azure의 함수 앱에 게시할 준비가 되었습니다.
 
 [!INCLUDE [functions-publish-project](../../includes/functions-publish-project.md)]
 
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
+
+> [!NOTE]
+> 게시된 Python 앱의 거의 실시간 로그를 보려면 [Application Insights 라이브 메트릭 스트림](functions-monitoring.md#streaming-logs)을 사용하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

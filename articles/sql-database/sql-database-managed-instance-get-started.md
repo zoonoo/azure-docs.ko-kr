@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 05/07/2019
-ms.openlocfilehash: 646a602d7e6c47454f039a5f4f1981a60b56fa56
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: cacd67e26b13df8ef456ac8f1391e4396f5bdd96
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567528"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69873888"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>빠른 시작: Azure SQL Database 관리형 인스턴스 만들기
 
@@ -35,11 +35,11 @@ Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azu
 
 다음 단계는 관리되는 인스턴스를 만드는 방법을 보여 줍니다.
 
-1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 선택합니다.
-2. **관리형 인스턴스**를 찾은 다음, **Azure SQL Managed Instance**를 선택합니다.
+1. Azure Portal의 왼쪽 메뉴에서 **Azure SQL**을 선택합니다. Azure SQL이 목록에 없는 경우 **모든 서비스**를 선택한 다음, 검색 상자에 *Azure SQL*을 입력합니다.
+2. **+추가**를 선택하여 **SQL 배포 옵션 선택** 페이지를 엽니다. **관리형 인스턴스** 타일에서 **세부 정보 표시**를 선택하여 Azure SQL Database 관리형 인스턴스에 대한 추가 정보를 볼 수 있습니다.
 3. **만들기**를 선택합니다.
 
-   ![관리되는 인스턴스 만들기](./media/sql-database-managed-instance-get-started/managed-instance-create.png)
+   ![관리되는 인스턴스 만들기](./media/sql-database-managed-instance-get-started/create-managed-instance.png)
 
 4. 다음 표의 정보를 사용하여 요청된 정보가 포함된 **SQL 관리형 인스턴스** 양식을 작성합니다.
 
@@ -62,7 +62,7 @@ Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azu
 
 5. 관리되는 인스턴스를 보조 인스턴스 장애 조치(failover) 그룹으로 사용하려면 체크 아웃 확인란을 선택하고 DnsAzurePartner 관리되는 인스턴스를 지정합니다. 이 기능은 미리 보기로 제공되며 다음 스크린샷에는 표시되지 않습니다.
 6. **가격 책정 계층**을 선택하여 컴퓨팅 및 스토리지 리소스의 크기를 조정하고 가격 책정 옵션을 검토합니다. 메모리 32GB와 Vcore 16개를 제공하는 범용 가격 책정 계층이 기본값입니다.
-7. 슬라이더 또는 텍스트 상자를 사용하여 저장소 공간 및 가상 코어 수를 지정합니다.
+7. 슬라이더 또는 텍스트 상자를 사용하여 스토리지 공간 및 가상 코어 수를 지정합니다.
 8. 모두 마쳤으면 **적용**을 눌러 선택한 내용을 저장합니다. 
 9. **만들기**를 선택하여 관리되는 인스턴스를 배포합니다.
 10. **알림** 아이콘을 선택하여 배포 상태를 확인합니다.

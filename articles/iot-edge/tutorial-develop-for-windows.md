@@ -4,17 +4,17 @@ description: 이 자습서에서는 Windows 디바이스용 Windows 컨테이너
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/06/2019
+ms.date: 08/15/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 94a287cd996bd18b757620254540f8dc0df499e8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 66fa7c2f61af250e4b63b67f6941bed768bd94c4
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67051871"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69541914"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>자습서: Windows 디바이스를 위한 IoT Edge 모듈 개발
 
@@ -126,26 +126,25 @@ Azure IoT Edge Tools 확장에서는 Visual Studio에서 지원되는 모든 IoT
 3. 새 프로젝트 구성 창에서 프로젝트 및 솔루션의 이름을 구체적인 이름(예: **CSharpTutorialApp**)으로 바꿉니다. **만들기**를 클릭하여 프로젝트를 만듭니다.
 
    ![새 Azure IoT Edge 프로젝트 구성](./media/tutorial-develop-for-windows/configure-project.png)
- 
 
-4. IoT Edge 애플리케이션 및 모듈 창에서 다음 값을 사용하여 프로젝트를 구성합니다. 
+4. 모듈 추가 창에서 다음 값을 사용하여 프로젝트를 구성합니다. 
 
    | 필드 | 값 |
    | ----- | ----- |
-   | 템플릿 선택 | **C# 모듈**을 선택합니다. | 
-   | 모듈 프로젝트 이름 | 기본값 **IoTEdgeModule1**을 그대로 사용합니다. | 
-   | Docker 이미지 리포지토리 | 이미지 리포지토리는 컨테이너 레지스트리의 이름 및 컨테이너 이미지의 이름을 포함합니다. 컨테이너 이미지는 모듈 프로젝트 이름 값에서 미리 채워져 있습니다. **localhost:5000**을 Azure 컨테이너 레지스트리의 로그인 서버 값으로 바꿉니다. Azure Portal에서 컨테이너 레지스트리의 개요 페이지에서 로그인 서버를 검색할 수 있습니다. <br><br> 마지막 이미지 리포지토리는 \<레지스트리 이름\>.azurecr.io/iotedgemodule1과 같습니다. |
+   | Visual Studio 템플릿 | **C# 모듈**을 선택합니다. | 
+   | 모듈 이름 | 기본값 **IotEdgeModule1**을 그대로 사용합니다. | 
+   | 리포지토리 URL | 이미지 리포지토리는 컨테이너 레지스트리의 이름 및 컨테이너 이미지의 이름을 포함합니다. 컨테이너 이미지는 모듈 프로젝트 이름 값에서 미리 채워져 있습니다. **localhost:5000**을 Azure 컨테이너 레지스트리의 로그인 서버 값으로 바꿉니다. Azure Portal에서 컨테이너 레지스트리의 개요 페이지에서 로그인 서버를 검색할 수 있습니다. <br><br> 마지막 이미지 리포지토리는 \<레지스트리 이름\>.azurecr.io/iotedgemodule1과 같습니다. |
 
-   ![대상 디바이스, 모듈 유형 및 컨테이너 레지스트리에 대해 프로젝트 구성](./media/tutorial-develop-for-windows/add-module-to-solution.png)
+      ![대상 디바이스, 모듈 유형 및 컨테이너 레지스트리에 대해 프로젝트 구성](./media/tutorial-develop-for-windows/add-module-to-solution.png)
 
-5. **예**를 선택하여 변경 내용을 적용합니다. 
+5. **추가**를 선택하여 모듈을 만듭니다. 
 
 Visual Studio 창에 새 프로젝트가 로드되면 생성된 다음 파일을 살펴보고 이해합니다. 
 
 * **CSharpTutorialApp**이라는 IoT Edge 프로젝트입니다.
-    * **Modules** 폴더에는 프로젝트에 포함된 모듈에 대한 포인터가 포함되어 있습니다. 이 경우 IoTEdgeModule1이어야 합니다. 
+    * **Modules** 폴더에는 프로젝트에 포함된 모듈에 대한 포인터가 포함되어 있습니다. 이 경우 IotEdgeModule1이어야 합니다. 
     * **deployment.template.json** 파일은 배포 매니페스트를 만드는 데 도움이 되는 템플릿입니다. *배포 매니페스트*는 디바이스에 배포하려는 모듈, 구성 방법 및 모듈끼리 및 모듈-클라우드 간에 통신하는 방법을 정확히 정의하는 파일입니다. 
-* IoT Edge 모듈 프로젝트: **IoTEdgeModule1**
+* IoT Edge 모듈 프로젝트: **IotEdgeModule1**.
     * **program.cs** 파일은 프로젝트 템플릿과 함께 제공되는 기본 C# 모듈 코드를 포함합니다. 기본 모듈은 소스에서 입력을 가져와 IoT Hub에 전달합니다. 
     * **module.json** 파일은 전체 이미지 리포지토리, 이미지 버전, 지원되는 각 플랫폼에 사용할 Dockerfile을 비롯하여 모듈에 대한 세부 정보를 포함합니다.
 
@@ -201,7 +200,7 @@ IoT Edge 런타임은 IoT Edge 디바이스에 컨테이너 이미지를 끌어�
 
 7. $edgeHub의 원하는 속성 중에서 **routes** 속성을 찾습니다. 
 
-   IoT Edge 허브 모듈의 기능 중 하나는 배포의 모든 모듈 간에 메시지를 라우팅하는 것입니다. routes 속성의 값을 검토합니다. 첫 번째 경로 **IotEdgeModule1ToIoTHub**는 와일드카드 문자( **\*** )를 사용하여 IoTEdgeModule1 모듈의 출력 큐에서 오는 모든 메시지를 포함합니다. 이러한 메시지는 IoT Hub를 지정하는 예약 이름인 *$upstream*으로 이동됩니다. 두 번째 경로 **sensorToIotEdgeModule1**은 tempSensor 모듈에서 오는 메시지를 받아서 IotEdgeModule1 모듈의 *input1* 입력 큐로 라우팅합니다. 
+   IoT Edge 허브 모듈의 기능 중 하나는 배포의 모든 모듈 간에 메시지를 라우팅하는 것입니다. routes 속성의 값을 검토합니다. 첫 번째 경로 **IotEdgeModule1ToIoTHub**는 와일드카드 문자( **\*** )를 사용하여 IotEdgeModule1 모듈의 출력 큐에서 오는 모든 메시지를 포함합니다. 이러한 메시지는 IoT Hub를 지정하는 예약 이름인 *$upstream*으로 이동됩니다. 두 번째 경로 **sensorToIotEdgeModule1**은 tempSensor 모듈에서 오는 메시지를 받아서 IotEdgeModule1 모듈의 *input1* 입력 큐로 라우팅합니다. 
 
    ![deployment.template.json의 경로 검토](./media/tutorial-develop-for-windows/deployment-routes.png)
 

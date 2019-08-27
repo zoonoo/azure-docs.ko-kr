@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 06/24/2019
 ms.author: lbosq
-ms.openlocfilehash: c6ae23efa90874bbefc2aff35f8798aa6c0da791
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: 94df90db4a715d2540dfc5ec0aa521d76d22f757
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67503739"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624224"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Azure Cosmos DB Gremlin API에 대한 그래프 데이터 모델링
 
@@ -94,7 +94,7 @@ ms.locfileid: "67503739"
 
 하지만 `in()` 함수를 사용하여 가장자리의 반대 방향으로 트래버스하면 파티션 간 쿼리가 항상 발생합니다. [그래프 분할](graph-partitioning.md)에 대해 자세히 알아보세요. `in()` 함수를 사용하여 지속적으로 트래버스해야 하는 경우 양방향에 가장자리를 추가하는 것이 좋습니다.
 
-가장자리 방향은 `.addE()` Gremlin 단계에 `.to()` 또는 `.from()` 조건자를 사용하여 결정할 수 있습니다. 또는 [Gremlin API용 BulkExecutor 라이브러리](bulk-executor-graph-dotnet.md)를 사용할 수 있습니다.
+가장자리 방향은 `.addE()` Gremlin 단계에 `.to()` 또는 `.from()` 조건자를 사용하여 결정할 수 있습니다. 또는 [Gremlin API용 대량 실행기 라이브러리](bulk-executor-graph-dotnet.md)를 사용할 수 있습니다.
 
 > [!NOTE]
 > 가장자리 개체에는 기본적으로 방향이 있습니다.

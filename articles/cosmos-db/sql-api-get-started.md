@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 07/23/2019
 ms.author: kirankk
-ms.openlocfilehash: 37b6a9947d3cabe1f566f842e321229efe9d03b6
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: ea3779ce7d4d77e6b0a55b8a00374b701a073b66
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598522"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876431"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>.NET 콘솔 앱을 빌드하여 Azure Cosmos DB SQL API 계정에서 데이터 관리
 
@@ -63,7 +63,7 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 계정이 이미 있는 경
     > [!NOTE]
     > .NET Core 대상의 경우 **새 프로젝트** 대화 상자에서 **Visual C#**  / **콘솔 앱(.NET Core)** 을 선택하고, 프로젝트 이름을 지정한 다음, **확인**을 클릭합니다.
 
-1. **솔루션 탐색기**에서 Visual Studio 솔루션 아래에 있는 새 콘솔 응용 프로그램을 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리...** 를 클릭합니다.
+1. **솔루션 탐색기**에서 Visual Studio 솔루션 아래에 있는 새 콘솔 애플리케이션을 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리...** 를 클릭합니다.
 
     ![프로젝트의 마우스 오른쪽 단추 클릭 메뉴의 스크린샷](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget.png)
 1. **NuGet** 탭에서 **찾아보기**를 클릭하고, 검색 상자에 **Microsoft.Azure.Cosmos**를 입력합니다.
@@ -253,7 +253,7 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 계정이 이미 있는 경
 
 **F5** 키를 선택하여 애플리케이션을 실행합니다.
 
-축하합니다! Azure Cosmos DB 데이터베이스를 성공적으로 만들었습니다.  
+축하합니다! Azure Cosmos 데이터베이스를 성공적으로 만들었습니다.  
 
 ## <a id="CreateColl"></a>5단계: 컨테이너 만들기
 > [!WARNING]
@@ -283,10 +283,10 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 계정이 이미 있는 경
 
    **F5** 키를 선택하여 애플리케이션을 실행합니다.
 
-축하합니다! Azure Cosmos DB 컨테이너를 성공적으로 만들었습니다.  
+축하합니다! Azure Cosmos 컨테이너를 성공적으로 만들었습니다.  
 
 ## <a id="CreateDoc"></a>6단계: 컨테이너에 항목 추가
-항목은 **CosmosContainer** 클래스의 [**CreateItemAsync**](/dotnet/api/microsoft.azure.cosmos.container.createitemasync?view=azure-dotnet#Microsoft_Azure_Cosmos_Container_CreateItemAsync__1___0_System_Nullable_Microsoft_Azure_Cosmos_PartitionKey__Microsoft_Azure_Cosmos_ItemRequestOptions_System_Threading_CancellationToken_) 함수를 사용하여 만들 수 있습니다. SQL API를 사용하는 경우 항목은 문서로 보호되며, 사용자 정의(임의) JSON 콘텐츠입니다. 이제 Azure Cosmos DB 컨테이너에 항목을 삽입할 수 있습니다.
+항목은 **CosmosContainer** 클래스의 [**CreateItemAsync**](/dotnet/api/microsoft.azure.cosmos.container.createitemasync?view=azure-dotnet#Microsoft_Azure_Cosmos_Container_CreateItemAsync__1___0_System_Nullable_Microsoft_Azure_Cosmos_PartitionKey__Microsoft_Azure_Cosmos_ItemRequestOptions_System_Threading_CancellationToken_) 함수를 사용하여 만들 수 있습니다. SQL API를 사용하는 경우 항목은 문서로 보호되며, 사용자 정의(임의) JSON 콘텐츠입니다. 이제 Azure Cosmos 컨테이너에 항목을 삽입할 수 있습니다.
 
 먼저 이 샘플에서는 Azure Cosmos DB 내에 저장된 개체를 나타내는 **가족** 클래스를 만들어 보겠습니다. 또한 **가족** 내에서 사용되는 **부모**, **자식**, **애완 동물**, **주소** 하위 클래스를 만듭니다. 항목에는 JSON에서 **ID**로 직렬화된 **ID** 속성이 있어야 합니다.
 
@@ -320,10 +320,10 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 계정이 이미 있는 경
 
 **F5** 키를 선택하여 애플리케이션을 실행합니다.
 
-축하합니다! 두 개의 Azure Cosmos DB 항목을 성공적으로 만들었습니다.  
+축하합니다! 두 개의 Azure Cosmos 항목을 성공적으로 만들었습니다.  
 
 ## <a id="Query"></a>7단계: Azure Cosmos DB 리소스 쿼리
-Azure Cosmos DB는 각 컬렉션에 저장된 JSON 문서에 대해 [다양한 쿼리](sql-api-sql-query.md)를 지원합니다. 다음 샘플 코드에서는 이전 단계에서 삽입한 항목에 대해 쿼리를 실행하는 방법을 보여줍니다.
+Azure Cosmos DB는 각 컨테이너에 저장된 JSON 문서에 대해 다양한 [쿼리](sql-api-sql-query.md)를 지원합니다. 다음 샘플 코드에서는 이전 단계에서 삽입한 항목에 대해 쿼리를 실행하는 방법을 보여줍니다.
 
 1. **QueryItemsAsync** 메서드를 **AddItemsToContainerAsync** 메서드 아래에 복사하여 붙여넣습니다.
 
@@ -347,7 +347,7 @@ Azure Cosmos DB는 각 컬렉션에 저장된 JSON 문서에 대해 [다양한 �
 
 **F5** 키를 선택하여 애플리케이션을 실행합니다.
 
-축하합니다! Azure Cosmos DB 컨테이너에 대한 쿼리가 성공적으로 수행되었습니다.
+축하합니다! Azure Cosmos 컨테이너에 대한 쿼리가 성공적으로 수행되었습니다.
 
 ## <a id="ReplaceItem"></a>8단계: JSON 항목 바꾸기
 이제 Azure Cosmos DB에서 항목을 업데이트하겠습니다.
@@ -375,7 +375,7 @@ Azure Cosmos DB는 각 컬렉션에 저장된 JSON 문서에 대해 [다양한 �
 
    **F5** 키를 선택하여 애플리케이션을 실행합니다.
 
-축하합니다! Azure Cosmos DB 항목을 성공적으로 대체했습니다.
+축하합니다! Azure Cosmos 항목을 성공적으로 대체했습니다.
 
 ## <a id="DeleteDocument"></a>9단계: 항목 삭제
 이제 Azure Cosmos DB에서 항목을 삭제하겠습니다.
@@ -404,7 +404,7 @@ Azure Cosmos DB는 각 컬렉션에 저장된 JSON 문서에 대해 [다양한 �
 
 **F5** 키를 선택하여 애플리케이션을 실행합니다.
 
-축하합니다! Azure Cosmos DB 항목을 성공적으로 삭제했습니다.
+축하합니다! Azure Cosmos 항목을 성공적으로 삭제했습니다.
 
 ## <a id="DeleteDatabase"></a>10단계: 데이터베이스 삭제
 이제 데이터베이스를 삭제하겠습니다. 만든 데이터베이스를 삭제하면 데이터베이스와 모든 자식 리소스(컨테이너, 항목, 저장 프로시저, 사용자 정의 함수 및 트리거)가 제거됩니다. 또한 **CosmosClient** 인스턴스도 삭제하겠습니다.
@@ -419,7 +419,7 @@ Azure Cosmos DB는 각 컬렉션에 저장된 JSON 문서에 대해 [다양한 �
 
 **F5** 키를 선택하여 애플리케이션을 실행합니다.
 
-축하합니다! Azure Cosmos DB 데이터베이스를 성공적으로 삭제했습니다.
+축하합니다! Azure Cosmos 데이터베이스를 성공적으로 삭제했습니다.
 
 ## <a id="Run"></a>11단계: C# 콘솔 애플리케이션 모두 함께 실행
 디버그 모드에서 애플리케이션을 빌드하고 실행하려면 Visual Studio에서 F5를 선택합니다.
@@ -469,8 +469,8 @@ Visual Studio에서 Azure Cosmos DB .NET SDK에 대한 참조를 복원하려면
 ## <a name="next-steps"></a>다음 단계
 * 보다 복잡한 ASP.NET MVC 자습서가 필요하신가요? [ASP.NET MVC 자습서: Azure Cosmos DB를 사용한 웹 애플리케이션 개발](sql-api-dotnet-application-preview.md)을 참조하세요.
 * Azure Cosmos DB를 사용하여 규모 및 성능 테스트를 수행하고 싶으신가요? [Azure Cosmos DB를 사용한 성능 및 규모 테스트](performance-testing.md)를 참조하세요.
-* [Azure Cosmos DB 요청, 사용 및 저장소 모니터링](monitor-accounts.md) 방법에 대해 알아보세요.
-* [쿼리 실습](https://www.documentdb.com/sql/demo)의 샘플 데이터 집합에 대해 쿼리를 실행합니다.
+* [Azure Cosmos DB 요청, 사용 및 스토리지 모니터링](monitor-accounts.md) 방법에 대해 알아보세요.
+* [쿼리 실습](https://www.documentdb.com/sql/demo)의 샘플 데이터 세트에 대해 쿼리를 실행합니다.
 * Azure Cosmos DB에 대한 자세한 내용은 [Azure Cosmos DB 시작](https://docs.microsoft.com/azure/cosmos-db/introduction)을 참조하세요.
 
 [cosmos-db-create-account]: create-sql-api-java.md#create-a-database-account

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 07/11/2018
+ms.date: 08/16/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6e1095cc2c5937fa5de762f91a9830161b8d2a5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 685c928a20e9bfb47365b5ffa769f1a223d2c563
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59362129"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69561510"
 ---
 # <a name="tutorial-complete-an-azure-ad-self-service-password-reset-pilot-roll-out"></a>자습서: Azure AD 셀프 서비스 암호 재설정 파일럿 배포 완료
 
@@ -43,7 +43,7 @@ ms.locfileid: "59362129"
    * 페이지 맨 아래에 있는 **저장**
 1. **인증 방법** 페이지에서
    * **재설정에 필요한 방법 수**를 **1**로 설정합니다.
-   * 조직에서 허용하려는 **사용자가 사용할 수 있는 방법**을 선택합니다. 이 자습서에서는 **이메일**, **휴대폰**, **사무실 전화**, **모바일 앱 알림(미리 보기)** 및  **모바일 앱 코드(미리 보기)** 를 활성화하는 확인란을 선택합니다.
+   * 조직에서 허용하려는 **사용자가 사용할 수 있는 방법**을 선택합니다. 이 자습서에서는 **이메일**, **휴대폰**, **사무실 전화**, **모바일 앱 알림** 및  **모바일 앱 코드**를 활성화하는 확인란을 선택합니다.
    * 페이지 맨 아래에 있는 **저장**
 1. **등록** 페이지에서
    * **로그인 시 사용자가 등록하도록 요구**에서 **예**를 선택합니다.
@@ -54,13 +54,13 @@ ms.locfileid: "59362129"
    * **다른 관리자가 암호를 재설정하면 모든 관리자에게 알림**을 **예**로 설정합니다.
 1. **사용자 지정** 페이지에서
    * Microsoft는 **기술 지원팀 링크 사용자 지정**을 **예**로 설정하고, **사용자 지정 기술 지원팀 이메일 또는 URL** 필드에서 사용자가 조직으로부터 추가 도움을 얻을 수 있는 이메일 주소 또는 웹 페이지 URL을 제공할 것을 권장하고 있습니다.
-   * 이 자습서에서는 **기술 지원팀 링크 사용자 지정**을 **아니요**로 두겠습니다.
+   * 이 자습서에서는 **기술 지원팀 링크 사용자 지정**을 **아니요**로 설정해 둡니다.
 
 파일럿 그룹의 클라우드 사용자에 대해 셀프 서비스 암호 재설정이 구성되었습니다.
 
 ## <a name="test-sspr-as-a-user"></a>사용자로 SSPR 테스트
 
-파일럿 그룹의 구성원인 비 관리자 테스트 사용자를 사용하여 셀프 서비스 암호 재설정을 테스트합니다. **관리자 역할이 할당된 계정을 사용할 경우 인증 방법 및 수가 Microsoft 관리 관리자 정책으로 선택한 것과 다를 수 있습니다.**
+파일럿 그룹의 구성원인 비 관리자 테스트 사용자를 사용하여 셀프 서비스 암호 재설정을 테스트합니다. **관리자 역할이 할당된 계정을 사용하는 경우 인증 방법 및 번호는 Microsoft가 선택한 관리자 정책 관리 방법과 다를 수 있습니다.**
 
 1. 새 InPrivate 또는 incognito 모드 브라우저 창을 엽니다.
 1. [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)에서 등록 포털을 사용하여 셀프 서비스 암호 재설정 사용자 등록을 테스트합니다.

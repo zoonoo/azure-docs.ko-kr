@@ -9,27 +9,27 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: a3d2b51824f4293dc790979ca2513d011b60fd9c
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 70d0f5b28f769617b16b2ae8c71bc5b3e90d5dfe
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414432"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877263"
 ---
-# <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-device"></a>빠른 시작: Linux 디바이스에 첫 번째 IoT Edge 모듈 배포
+# <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-linux-device"></a>빠른 시작: 가상 Linux 디바이스에 첫 번째 IoT Edge 모듈 배포
 
-Azure IoT Edge는 클라우드의 강력한 기능을 사물 인터넷 디바이스로 옮겨놓습니다. 이 빠른 시작에서는 클라우드 인터페이스를 사용하여 미리 작성된 코드를 IoT Edge 장치에 원격으로 배포하는 방법에 대해 알아봅니다.
+컨테이너화된 코드를 가상 IoT Edge 디바이스에 배포하여 이 빠른 시작에서 Azure IoT Edge를 테스트합니다. IoT Edge를 사용하면 디바이스에서 코드를 원격으로 관리하여 더 많은 워크로드를 에지로 전송할 수 있습니다. 이 빠른 시작에서는 IoT Edge 디바이스에 Azure 가상 머신을 사용하는 것이 좋습니다. 이를 통해 모든 필수 구성 요소가 설치된 테스트 머신을 빠르게 만든 다음, 완료되면 삭제할 수 있습니다. 
 
 이 빠른 시작에서 다음을 수행하는 방법을 알아봅니다.
 
 1. IoT Hub를 만듭니다.
-2. IoT Edge 장치를 IoT Hub에 등록합니다.
-3. 디바이스에 IoT Edge 런타임을 설치하고 시작합니다.
+2. IoT Edge 디바이스를 IoT Hub에 등록합니다.
+3. 가상 디바이스에 IoT Edge 런타임을 설치하고 시작합니다.
 4. 모듈을 IoT Edge 디바이스에 원격으로 배포합니다.
 
 ![다이어그램 - 빠른 시작: 디바이스 및 클라우드의 아키텍처](./media/quickstart-linux/install-edge-full.png)
 
-이 빠른 시작에서는 IoT Edge 디바이스로 구성되는 Azure 가상 머신을 만드는 과정을 안내합니다. 그런 다음, Azure Portal에서 모듈을 디바이스에 배포할 수 있습니다. 이 빠른 시작에서 배포하는 모듈은 온도, 습도 및 압력 데이터를 생성하는 시뮬레이션된 센서입니다. 다른 Azure IoT Edge 자습서에서는 비즈니스 정보를 위해 시뮬레이션된 데이터를 분석하는 모듈을 배포하는 과정을 설명하므로 여기에서 수행하는 작업을 토대로 진행됩니다.
+이 빠른 시작에서는 IoT Edge 디바이스로 구성되는 Linux 가상 머신을 만드는 과정을 안내합니다. 그런 다음, Azure Portal에서 모듈을 디바이스에 배포할 수 있습니다. 이 빠른 시작에서 배포하는 모듈은 온도, 습도 및 압력 데이터를 생성하는 시뮬레이션된 센서입니다. 다른 Azure IoT Edge 자습서에서는 비즈니스 정보를 위해 시뮬레이션된 데이터를 분석하는 모듈을 배포하는 과정을 설명하므로 여기에서 수행하는 작업을 토대로 진행됩니다.
 
 활성 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free)을 만드세요.
 
@@ -53,7 +53,7 @@ Azure IoT 확장을 Cloud Shell 인스턴스에 추가합니다.
    az group create --name IoTEdgeResources --location westus2
    ```
 
-IoT Edge 장치:
+IoT Edge 디바이스:
 
 * IoT Edge 디바이스 역할을 하는 Linux 디바이스 또는 가상 머신입니다. Microsoft에서 제공하는 [Azure IoT Edge on Ubuntu](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu) 가상 머신을 사용해야 합니다. 여기에는 디바이스에서 IoT Edge를 실행하는 데 필요한 모든 구성 요소가 미리 설치되어 있습니다. 사용 약관에 동의하고 다음 명령을 사용하여 이 가상 머신을 만듭니다.
 
@@ -84,7 +84,7 @@ Azure CLI를 사용하여 IoT Hub를 만들어서 빠른 시작을 시작합니�
 
    구독에 이미 한 개의 무료 허브가 있기 때문에 오류가 발생하는 경우 SKU를 **S1**으로 변경합니다. IoT Hub 이름을 사용할 수 없다는 오류가 발생할 경우 다른 사용자에게 해당 이름의 허브가 이미 있는 것입니다. 새 이름을 사용해 보세요.
 
-## <a name="register-an-iot-edge-device"></a>IoT Edge 장치 등록
+## <a name="register-an-iot-edge-device"></a>IoT Edge 디바이스 등록
 
 새로 만든 IoT Hub에 IoT Edge 디바이스를 등록합니다.
 
@@ -118,9 +118,9 @@ IoT Edge 디바이스에서 Azure IoT Edge 런타임을 시작합니다.
 
 ![다이어그램 - 디바이스에서 런타임 시작](./media/quickstart-linux/start-runtime.png)
 
-IoT Edge 런타임은 모든 IoT Edge 디바이스에 배포되며, 세 가지 구성 요소가 있습니다. **IoT Edge 보안 디먼**은 IoT Edge 디바이스가 부팅되고 IoT Edge 에이전트를 시작하여 디바이스를 부트스트랩할 때마다 시작됩니다. **IoT Edge 에이전트**는 IoT Edge 허브를 포함하여 IoT Edge 디바이스에서 모듈을 쉽게 배포하고 모니터링할 수 있습니다. **IoT Edge 허브**는 IoT Edge 장치의 모듈 간 통신과 장치와 IoT Hub 간의 통신을 관리합니다.
+IoT Edge 런타임은 모든 IoT Edge 디바이스에 배포되며, 세 가지 구성 요소가 있습니다. **IoT Edge 보안 디먼**은 IoT Edge 디바이스가 부팅되고 IoT Edge 에이전트를 시작하여 디바이스를 부트스트랩할 때마다 시작됩니다. **IoT Edge 에이전트**는 IoT Edge 허브를 포함하여 IoT Edge 디바이스에서 모듈을 쉽게 배포하고 모니터링할 수 있습니다. **IoT Edge 허브**는 IoT Edge 디바이스의 모듈 간 통신과 디바이스와 IoT Hub 간의 통신을 관리합니다.
 
-런타임을 구성하는 동안 장치 연결 문자열을 입력합니다. Azure CLI에서 검색한 문자열을 사용합니다. 이 문자열은 물리적 장치를 Azure의 IoT Edge 장치 ID에 연결합니다.
+런타임을 구성하는 동안 디바이스 연결 문자열을 입력합니다. Azure CLI에서 검색한 문자열을 사용합니다. 이 문자열은 물리적 디바이스를 Azure의 IoT Edge 디바이스 ID에 연결합니다.
 
 ### <a name="set-the-connection-string-on-the-iot-edge-device"></a>IoT Edge 디바이스에서 연결 문자열 설정
 
@@ -159,15 +159,15 @@ IoT Edge 디바이스에서 런타임이 성공적으로 설치 및 구성되었
    journalctl -u iotedge
    ```
 
-3. 장치에서 실행 중인 모듈을 확인합니다.
+3. 디바이스에서 실행 중인 모듈을 확인합니다.
 
    ```bash
    sudo iotedge list
    ```
 
-   ![장치에서 하나의 모듈 보기](./media/quickstart-linux/iotedge-list-1.png)
+   ![디바이스에서 하나의 모듈 보기](./media/quickstart-linux/iotedge-list-1.png)
 
-IoT Edge 장치가 구성되었습니다. 클라우드 배포 모듈을 실행할 준비가 완료된 것입니다.
+IoT Edge 디바이스가 구성되었습니다. 클라우드 배포 모듈을 실행할 준비가 완료된 것입니다.
 
 ## <a name="deploy-a-module"></a>모듈 배포
 
@@ -182,7 +182,7 @@ IoT Edge 장치가 구성되었습니다. 클라우드 배포 모듈을 실행�
 
 이 예에서 푸시한 모듈은 테스트에 사용할 수 있는 샘플 데이터를 만듭니다. 시뮬레이션된 온도 센서 모듈은 나중에 테스트에 사용할 수 있는 환경 데이터를 생성합니다. 시뮬레이션된 센서는 머신과 머신 주변의 환경을 모니터링합니다. 예를 들어 이 센서가 서버실, 공장 또는 풍력 터빈에 장착될 수 있습니다. 메시지에는 주변 온도 및 습도, 머신 온도 및 압력, 타임스탬프가 포함됩니다. IoT Edge 자습서는 이 모듈에서 만든 데이터를 분석용 테스트 데이터로 사용합니다.
 
-IoT Edge 디바이스에서 명령 프롬프트를 다시 열거나 Azure CLI에서 SSH 연결을 사용합니다. 클라우드에서 배포된 모듈을 IoT Edge 장치에서 실행 중인지 확인합니다.
+IoT Edge 디바이스에서 명령 프롬프트를 다시 열거나 Azure CLI에서 SSH 연결을 사용합니다. 클라우드에서 배포된 모듈을 IoT Edge 디바이스에서 실행 중인지 확인합니다.
 
    ```bash
    sudo iotedge list

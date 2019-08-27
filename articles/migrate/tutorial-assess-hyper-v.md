@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/11/2019
+ms.date: 08/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 60e1db913336cc9f9e355c2e8f8466854de20389
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: b93d9ee65850749e79714b632584f1977ca88c81
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828336"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639996"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Azure Migrate 서버 평가를 사용하여 Hyper-V VM 평가
 
@@ -128,13 +128,17 @@ Azure Migrate 서버 평가는 경량 Hyper-V VM 어플라이언스를 실행합
 
 다운로드한 파일을 가져오고 VM을 만듭니다.
 
-1. 어플라이언스 VM을 호스팅할 Hyper-V 호스트의 폴더에 압축된 VHD 파일을 추출합니다. 세 개의 폴더가 추출됩니다.
+1. 어플라이언스 VM이 배치될 Hyper-V 호스트로 압축된 VHD 파일을 다운로드한 후 압축된 파일을 추출합니다.
+    - 추출된 위치에서 파일은 **AzureMigrateAppliance_VersionNumber**라는 폴더로 압축을 풉니다.
+    - 이 폴더에는 **AzureMigrateAppliance_VersionNumber**라고도 하는 하위 폴더가 있습니다.
+    - 이 하위 폴더에는 세 개의 추가 하위 폴더인 **스냅샷**, **가상 하드 디스크** 및 **Virtual Machines**가 포함되어 있습니다.
+
 2. Hyper-V 관리자를 엽니다. **작업**에서 **Virtual Machine 가져오기**를 클릭합니다.
 
     ![VHD 배포](./media/tutorial-assess-hyper-v/deploy-vhd.png)
 
 2. Virtual Machine 가져오기 마법사 > **시작하기 전에**에서 **다음**을 클릭합니다.
-3. **폴더 찾기**에서 추출된 VHD가 포함된 폴더를 지정합니다. 그런 후 **Next** 를 클릭합니다.
+3. **폴더 찾기**에서**Virtual Machines** 폴더를 선택합니다. 그런 후 **Next** 를 클릭합니다.
 1. **Virtual Machine 선택**에서 **다음**을 클릭합니다.
 2. **가져오기 유형 선택**에서 **가상 머신 복사(새로운 고유 ID 만들기)** 를 클릭합니다. 그런 후 **Next** 를 클릭합니다.
 3. **대상 선택**에서 기본 설정을 그대로 둡니다. **다음**을 클릭합니다.

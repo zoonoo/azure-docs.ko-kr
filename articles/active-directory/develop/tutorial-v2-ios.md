@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 07/15/2019
+ms.date: 08/14/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2968ae229c52cdd2b36111710f0aa6c0dc4fce4c
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 2c9afa63a26b7ac990867517f44825054b4c5436
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852420"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69512401"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-app"></a>iOS 앱에서 사용자를 로그인하고 Microsoft Graph 호출
 
@@ -94,6 +94,12 @@ ms.locfileid: "68852420"
 
 ```
 github "AzureAD/microsoft-authentication-library-for-objc" "master"
+```
+
+업데이트된 `Cartfile`과 동일한 디렉터리에 있는 터미널 창에서 다음 명령을 실행하여 Carthage가 프로젝트의 종속성을 업데이트하도록 합니다.
+
+```bash
+carthage update --platform iOS
 ```
 
 ### <a name="manually"></a>수동

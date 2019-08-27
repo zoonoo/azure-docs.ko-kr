@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 01/24/2019
+ms.date: 08/20/2019
 ms.author: diberry
-ms.openlocfilehash: dfd0a04da9f4f728bd43d8d3fcd4c671e9b95a47
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f81492dcdd095762127baabda14da602c6698ef6
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562907"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647000"
 ---
 # <a name="tutorial-using-c-create-knowledge-base-then-answer-question"></a>자습서: C#을 사용하여 기술 자료를 만든 후 질문에 답변하기
 
@@ -30,7 +30,7 @@ ms.locfileid: "68562907"
 > * Curl을 사용하여 기술 자료 쿼리
 
 
-이 빠른 시작에서 호출하는 QnA Maker API는 다음과 같습니다.
+이 빠른 시작에서 호출하는 QnA Maker REST API는 다음과 같습니다.
 
 * [기술 자료(kb) 만들기](https://go.microsoft.com/fwlink/?linkid=2092179)
 * [작업 세부 정보 가져오기](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails)

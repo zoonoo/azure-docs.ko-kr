@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: c673fd43abe6808256eb74f435aad48ed8d41539
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: a4395105c66756c4743373707309a88e2afa96b7
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359836"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534808"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>자습서: Azure Container Instance에서 이미지 분류 모델 배포
 
@@ -38,10 +38,10 @@ Container Instances는 워크플로를 테스트 및 이해하기 위한 훌륭�
 > 이 문서의 코드는 Azure Machine Learning SDK 버전 1.0.41에서 테스트되었습니다.
 
 ## <a name="prerequisites"></a>필수 조건
-[개발 환경 설정](#start)으로 건너뛰어 Notebook 단계를 읽어봅니다.  
 
-Notebook을 실행하려면 먼저 [자습서(1부): Azure Machine Learning Service를 사용하여 이미지 분류 모델 학습](tutorial-train-models-with-aml.md) 노트북에서 모델 학습을 수행합니다.   그런 다음, 동일한 Notebook 서버를 사용하여 **tutorials/img-classification-part2-deploy.ipynb** Notebook을 실행합니다.
+Notebook을 실행하려면 먼저 [자습서(1부): 이미지 분류 모델 학습시키기](tutorial-train-models-with-aml.md)를 참조하세요.   그런 다음, 동일한 Notebook 서버를 사용하여 **tutorials/img-classification-part2-deploy.ipynb** Notebook을 엽니다.
 
+이 자습서는 고유의 [로컬 환경](how-to-configure-environment.md#local)에서 사용하려는 경우 [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials)에서도 사용할 수 있습니다.  사용자 환경에 `matplotlib` 및 `scikit-learn`을 설치했는지 확인합니다. 
 
 ## <a name="start"></a>환경 설정
 

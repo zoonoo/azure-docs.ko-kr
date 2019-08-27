@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/21/2019
 ms.author: sngun
 ms.custom: seo-java-august2019
-ms.openlocfilehash: 5f8555d23a43a3ca391ec03f827b0d81ac3c4698
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: a7e2089b8dfff1f021c31d2b13591b54dcd9c4ac
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933965"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616979"
 ---
 # <a name="quickstart-build-a-java-application-using-azure-cosmos-db-sql-api-account"></a>빠른 시작: Azure Cosmos DB SQL API 계정을 사용하여 Java 애플리케이션 빌드
 
@@ -26,7 +26,7 @@ ms.locfileid: "68933965"
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 
-이 빠른 시작에서는 Java 애플리케이션을 사용하여 Azure Cosmos DB [SQL API](sql-api-introduction.md) 계정 리소스를 만들고 관리하는 방법을 보여줍니다. 먼저 Azure Portal을 사용하여 Azure Cosmos DB SQL API 계정을 만들고, [SQL Java SDK](sql-api-sdk-async-java.md)를 사용하여 Java 앱을 만들고, Java 애플리케이션을 사용하여 Cosmos DB 계정에 리소스를 추가합니다. 이 빠른 시작의 지침은 Java를 실행할 수 있는 모든 운영 체제에 적용될 수 있습니다. 이 빠른 시작을 완료하면 UI를 사용하여 또는 프로그래밍 방식으로 Cosmos DB 데이터베이스 컨테이너를 만들고 수정하는 방법을 익힐 수 있습니다.
+이 빠른 시작에서는 Java 애플리케이션을 사용하여 Azure Cosmos DB [SQL API](sql-api-introduction.md) 계정 리소스를 만들고 관리하는 방법을 보여줍니다. 먼저 Azure Portal을 사용하여 Azure Cosmos DB SQL API 계정을 만들고, [SQL Java SDK](sql-api-sdk-async-java.md)를 사용하여 Java 앱을 만들고, Java 애플리케이션을 사용하여 Cosmos DB 계정에 리소스를 추가합니다. 이 빠른 시작의 지침은 Java를 실행할 수 있는 모든 운영 체제에 적용될 수 있습니다. 이 빠른 시작을 완료하면 UI를 사용하여 또는 프로그래밍 방식으로 Cosmos 데이터베이스 컨테이너를 만들고 수정하는 방법을 익힐 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

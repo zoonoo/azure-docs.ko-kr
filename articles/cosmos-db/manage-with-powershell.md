@@ -7,12 +7,12 @@ ms.topic: sample
 ms.date: 08/05/2019
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 45f5e21e05cf627d418cb66418cf305833a73891
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: e8f943ebaa5dfc06e0bfb04dc1097d6794ec6d05
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68965101"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616823"
 ---
 # <a name="manage-azure-cosmos-db-sql-api-resources-using-powershell"></a>PowerShell을 사용하여 Azure Cosmos DB SQL API 리소스 관리
 
@@ -46,7 +46,7 @@ Azure Cosmos DB의 플랫폼 간 관리를 위해 [Azure CLI](manage-with-cli.md
 
 ### <a id="create-account"></a> Azure Cosmos 계정 만들기
 
-이 명령은 [다중 지역][distribute-data-globally], 제한된 부실 [일관성 정책](consistency-levels.md)을 사용하여 Azure Cosmos DB 데이터베이스 계정을 만듭니다.
+이 명령은 [다중 지역][distribute-data-globally], 제한된 부실 [일관성 정책](consistency-levels.md)을 사용하여 Azure Cosmos 데이터베이스 계정을 만듭니다.
 
 ```azurepowershell-interactive
 # Create an Azure Cosmos Account for Core (SQL) API
@@ -112,7 +112,7 @@ Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 ### <a id="update-account"></a> Azure Cosmos 계정 업데이트
 
-이 명령을 사용하면 Azure Cosmos DB 데이터베이스 계정 속성을 업데이트할 수 있습니다. 업데이트할 수 있는 속성은 다음과 같습니다.
+이 명령을 사용하면 Azure Cosmos 데이터베이스 계정 속성을 업데이트할 수 있습니다. 업데이트할 수 있는 속성은 다음과 같습니다.
 
 * 지역 추가 또는 제거
 * 기본 일관성 정책 변경
@@ -247,6 +247,7 @@ Select-Object $keys
 
 ```azurepowershell-interactive
 # Change the failover priority for an Azure Cosmos Account
+# Assume existing priority is "West US 2" = 0 and "East US 2" = 1
 
 $resourceGroupName = "myResourceGroup"
 $accountName = "mycosmosaccount"

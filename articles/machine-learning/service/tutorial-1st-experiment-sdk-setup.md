@@ -1,5 +1,5 @@
 ---
-title: '자습서: 환경 및 작업 영역을 설정합니다.'
+title: '자습서: 첫 번째 ML 실험 만들기: 설정'
 titleSuffix: Azure Machine Learning service
 description: 이 자습서 시리즈에서는 Jupyter Notebook에서 실행되는 Azure Machine Learning Python SDK를 시작하기 위한 엔드투엔드 단계를 수행합니다.  1부에서는 클라우드 Notebook 서버 환경을 만들고 실험 및 기계 학습 모델을 관리하는 작업 영역을 만드는 과정을 다룹니다.
 services: machine-learning
@@ -10,14 +10,14 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 07/20/2019
-ms.openlocfilehash: 70fee90fb82618a409d2566a3235ad8ca42e1760
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: cc16f3c8ea287e78d7b7b4d9a56f5a2e82c26f01
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934423"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515332"
 ---
-# <a name="tutorial-set-up-environment-and-workspace"></a>자습서: 환경 및 작업 영역 설정
+# <a name="tutorial-get-started-creating-your-first-ml-experiment"></a>자습서: 첫 번째 ML 실험 만들기 시작
 
 이 자습서에서는 Jupyter Notebook에서 실행되는 Azure Machine Learning Python SDK를 시작하기 위한 엔드투엔드 단계를 수행합니다. 이 자습서는 **2부로 구성된 자습서 시리즈 중 제1부**입니다. Python 환경 설정 및 구성에 대해 설명하고, 실험 및 기계 학습 모델을 관리하기 위한 작업 영역을 만듭니다. [**2부**](tutorial-1st-experiment-sdk-train.md)에서는 이를 기반으로 하여 여러 기계 학습 모델을 학습시키고 Azure Portal과 SDK를 모두 사용하여 모델 관리 프로세스를 소개합니다.
 
