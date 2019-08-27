@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2019
+ms.date: 08/21/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 8321a9dd779406b2d1de44bd4c9313e4d855548d
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 7246a0223e156abd866594c65542069944601b01
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68740906"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018245"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Azure Virtual Network에 앱 통합
 이 문서에서는 Azure App Service 가상 네트워크 통합 기능 및 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)에서 앱을 사용 하 여 설정 하는 방법을 설명 합니다. [Azure 가상 네트워크][VNETOverview] (Vnet)를 사용 하 여 인터넷 라우팅할 수 없는 네트워크에 많은 Azure 리소스를 저장할 수 있습니다.  
@@ -38,7 +38,7 @@ VNet 통합 기능에는 두 가지 형태가 있습니다.
 
 앱은 한 번에 한 가지 형식의 VNet 통합 기능만 사용할 수 있습니다. 그런 다음 사용 해야 하는 기능에 대 한 질문입니다. 여러 항목에 대해 사용할 수 있습니다. 분명히 차이점는 다음과 같습니다.
 
-| 문제점  | 해결 방법 | 
+| 문제점  | 솔루션 | 
 |----------|----------|
 | 동일한 지역에서 RFC 1918 주소 (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16)에 도달 하려고 합니다. | 지역 VNet 통합 |
 | 클래식 VNet 또는 다른 지역의 VNet에서 리소스에 도달 하려고 합니다. | 게이트웨이 필요 VNet 통합 |
@@ -84,8 +84,9 @@ VNet 통합에서 지원하지 않는 다음 몇 가지 항목이 있습니다.
 * 앱과 VNet은 동일한 지역에 있어야 합니다.
 * VNet은 통합된 앱을 사용하여 삭제할 수 없습니다. 먼저 통합을 제거 해야 합니다. 
 * App Service 계획 마다 하나의 지역 VNet 통합만 사용할 수 있습니다. 동일한 App Service 계획의 여러 앱에서 동일한 VNet을 사용할 수 있습니다. 
+* 지역 VNet 통합을 사용 하는 앱이 있는 동안에는 앱 또는 App Service 계획의 구독을 변경할 수 없습니다.
 
-각 App Service 계획 인스턴스마다 하나의 주소가 사용됩니다. 앱을 5 개의 인스턴스로 확장 한 경우 5 개의 주소가 사용 됩니다. 할당 후에는 서브넷 크기를 변경할 수 없으므로 앱이 도달할 수 있는 모든 규모를 수용할 수 있을 정도로 큰 서브넷을 사용 해야 합니다. 20 개 인스턴스로 크기를 조정 하는 프리미엄 App Service 요금제를 수용할 수 있도록/27 32 주소를 사용 하는 것이 좋습니다.
+각 App Service 계획 인스턴스마다 하나의 주소가 사용됩니다. 앱을 5 개의 인스턴스로 크기 조정 하면 5 개의 주소가 사용 됩니다. 할당 후에는 서브넷 크기를 변경할 수 없으므로 앱이 도달할 수 있는 모든 규모를 수용할 수 있을 정도로 큰 서브넷을 사용 해야 합니다. 64 주소를 포함 하는/26은 권장 크기입니다. App Service 계획의 크기를 변경 하지 않은 경우 32 주소가 포함 된 a/27은 프리미엄 App Service 계획 20 인스턴스를 수용 합니다. App Service 계획의 크기를 조정 하거나 축소 하는 경우 짧은 시간 동안 두 번의 주소가 필요 합니다. 
 
 다른 App Service 응용 프로그램이 다른 App Service 계획의 앱에 의해 이미 연결 되어 있는 VNet에 연결 하려는 경우 기존 VNet 통합에서 사용 하는 것과 다른 서브넷을 선택 해야 합니다.  
 
@@ -103,6 +104,8 @@ VNet 통합에서 지원하지 않는 다음 몇 가지 항목이 있습니다.
 
 앱이 VNet과 통합 되 면 VNet이 구성 된 것과 동일한 DNS 서버를 사용 하 게 됩니다. 
 
+지역 VNet 통합을 사용 하려면 통합 서브넷이 Microsoft 웹에 위임 되어야 합니다.  VNet 통합 UI가 자동으로 서브넷을 Microsoft. 웹에 위임 합니다. 계정에이를 설정할 수 있는 충분 한 네트워킹 권한이 없는 경우 통합 서브넷의 특성을 설정 하 여 서브넷을 위임 하는 사람이 필요 합니다. 통합 서브넷을 수동으로 위임 하려면 Azure Virtual Network 서브넷 UI로 이동 하 고 Microsoft 웹에 대 한 위임을 설정 합니다.
+
 VNet과의 앱 연결을 끊으려면 **연결 끊기**를 선택합니다. 그러면 웹앱이 다시 시작됩니다. 
 
 
@@ -110,7 +113,7 @@ VNet과의 앱 연결을 끊으려면 **연결 끊기**를 선택합니다. 그�
 
 기본 제공 이미지를 사용 하 여 Linux에서 App Service를 사용 하는 경우 지역 VNet 통합 기능은 추가 변경 없이 작동 합니다. Web App for Containers 사용 하는 경우 VNet 통합을 사용 하기 위해 docker 이미지를 수정 해야 합니다. Docker 이미지에서 하드 코드 된 포트 번호를 사용 하는 대신 포트 환경 변수를 주 웹 서버의 수신 대기 포트로 사용 합니다. 포트 환경 변수는 컨테이너 시작 시간에 App Service 플랫폼에 의해 자동으로 설정 됩니다.
 
-### <a name="service-endpoints"></a>서비스 엔드포인트
+### <a name="service-endpoints"></a>서비스 끝점
 
 새 VNet 통합 기능을 사용하면 서비스 엔드포인트를 사용할 수 있습니다.  앱에서 서비스 엔드 포인트를 사용하려면 새 VNet 통합을 사용하여 선택한 VNet에 연결한 다음, 통합에 사용한 서브넷에서 서비스 엔드포인트를 구성합니다. 
 
@@ -249,9 +252,9 @@ VNet 및 온-프레미스를 통해 지역 VNet 통합 기능에 도달 하는 �
 
 
 ## <a name="troubleshooting"></a>문제 해결
-기능을 설정하기 쉽다고 해서 환경에 문제가 없는 것은 아닙니다. 원하는 엔드포인트에 액세스하다가 문제가 발생하는 경우, 앱 콘솔에서 연결을 테스트하는 데 사용할 수 있는 유틸리티가 있습니다. 사용할 수 있는 두 개의 콘솔이 있습니다. 하나는 Kudu 콘솔이고, 다른 하나는 Azure Portal의 콘솔입니다. 앱에서 Kudu 콘솔에 도달하려면 도구 -> Kudu로 차례로 이동합니다. 이것은 [sitename].scm.azurewebsites.net으로 이동하는 것과 마찬가지입니다. 해당 콘솔이 열리면 [디버그] 콘솔 탭으로 이동합니다. Azure 포털에 호스트되는 콘솔로 이동하려면 앱에서 도구 -> 콘솔로 이동합니다. 
+기능을 설정하기 쉽다고 해서 환경에 문제가 없는 것은 아닙니다. 원하는 엔드포인트에 액세스하다가 문제가 발생하는 경우, 앱 콘솔에서 연결을 테스트하는 데 사용할 수 있는 유틸리티가 있습니다. 사용할 수 있는 두 개의 콘솔이 있습니다. 하나는 Kudu 콘솔이고, 다른 하나는 Azure Portal의 콘솔입니다. 앱에서 Kudu 콘솔에 도달하려면 도구 -> Kudu로 차례로 이동합니다. [Sitename]. Kudo 콘솔에 연결할 수도 있습니다. 웹 사이트가 로드 되 면 디버그 콘솔 탭으로 이동 합니다. Azure 포털에 호스트되는 콘솔로 이동하려면 앱에서 도구 -> 콘솔로 이동합니다. 
 
-#### <a name="tools"></a>Tools
+#### <a name="tools"></a>도구
 **ping**, **nslookup** 및 **tracert** 도구는 보안 제약 조건으로 인해 콘솔을 통해 작동되지 않습니다. 공백을 채우기 위해 별도의 두 가지 도구가 추가되었습니다. DNS 기능을 테스트하기 위해 nameresolver.exe라는 도구가 추가되었습니다. 구문은 다음과 같습니다.
 
     nameresolver.exe hostname [optional: DNS Server]

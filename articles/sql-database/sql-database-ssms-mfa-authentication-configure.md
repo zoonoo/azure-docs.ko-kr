@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 09/25/2018
-ms.openlocfilehash: 1bccfd8ac363b21053c45ed489e943a1b488f41f
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.date: 08/27/2019
+ms.openlocfilehash: 5ffe9de6ecb740a2d8445e88a478e718585eb5d1
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68566518"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018900"
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>SQL Server Management Studio 및 Azure AD에 대한 Multi-factor Authentication(MFA) 구성
 
@@ -40,8 +40,12 @@ ms.locfileid: "68566518"
    ![1mfa-universal-connect][1]  
 2. Azure Active Directory 자격 증명을 사용하여 **사용자 이름** 상자를 `user_name@domain.com` 형식으로 입력합니다.  
    ![1mfa-universal-connect-user](./media/sql-database-ssms-mfa-auth/1mfa-universal-connect-user.png)   
-3. 게스트 사용자로 연결하는 경우 **옵션**을 클릭하고 **연결 속성** 대화 상자에서 **AD 도메인 이름 또는 테넌트 ID** 상자를 입력합니다. 자세한 내용은 [SQL Database 및 SQL Data Warehouse에 대한 유니버설 인증(MFA에 대한 SSMS 지원)](sql-database-ssms-mfa-authentication.md)을 참조하세요.
-   ![mfa-tenant-ssms](./media/sql-database-ssms-mfa-auth/mfa-tenant-ssms.png)   
+3. 게스트 사용자로 연결 하는 경우 SSMS 4.x 이상에서 자동으로 인식 하기 때문에 게스트 사용자에 대 한 AD 도메인 이름 또는 테 넌 트 ID 필드를 더 이상 완료할 필요가 없습니다. 자세한 내용은 [SQL Database 및 SQL Data Warehouse에 대한 유니버설 인증(MFA에 대한 SSMS 지원)](sql-database-ssms-mfa-authentication.md)을 참조하세요.
+   ![mfa-테 넌 트 없음-ssms](./media/sql-database-ssms-mfa-auth/mfa-no-tenant-ssms.png)
+
+   그러나 SSMS 17.x 이상을 사용 하 여 게스트 사용자로 연결 하는 경우에는 **옵션**을 클릭 하 고 **연결 속성** 대화 상자에서 **AD 도메인 이름 또는 테 넌 트 ID** 상자를 완료 해야 합니다.
+   ![mfa-tenant-ssms](./media/sql-database-ssms-mfa-auth/mfa-tenant-ssms.png)
+
 4. SQL Database 및 SQL Data Warehouse에 대해 평소처럼 **옵션**을 클릭하고 **옵션** 대화 상자에서 데이터베이스를 지정해야 합니다. 연결된 사용자가 게스트 사용자이면(즉 joe@outlook.com) 상자를 선택하고 현재 AD 도메인 이름이나 테넌트 ID를 옵션의 일부로 추가해야 합니다. [SQL Database 및 SQL Data Warehouse에 대한 유니버설 인증(MFA에 대한 SSMS 지원)](sql-database-ssms-mfa-authentication.md)을 참조하세요. 그런 다음 **연결**을 클릭합니다.  
 5. **사용자 계정 로그인** 대화 상자가 나타나면 Azure Active Directory ID의 계정 및 암호를 제공합니다. 사용자가 Azure AD와 페더레이션된 도메인에 속할 경우 암호가 필요하지 않습니다.  
    ![2mfa-sign-in][2]  

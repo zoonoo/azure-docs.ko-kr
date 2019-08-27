@@ -6,7 +6,6 @@ documentationcenter: ''
 author: juliako
 manager: femila
 editor: ''
-ms.assetid: e6bfc068-fa46-4d68-b1ce-9092c8f3a3c9
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,16 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: juliako
-ms.openlocfilehash: 7e8c49815ed5e9294739a840dd0314d1c8c6c174
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 5c55b419b88a66d2e1acf1687478ab35d9f0a059
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "69015823"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70019042"
 ---
 # <a name="overview-of-azure-on-demand-media-encoders"></a>Azure 주문형 미디어 인코더 개요 
-
-## <a name="encoding-overview"></a>Encoding 개요
 
 > [!NOTE]
 > Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 또한 [v2에서 v3로 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md) 을 참조 하세요.
@@ -35,10 +32,7 @@ Media Services로 시작하는 경우 코덱과 파일 형식 간의 차이점�
 
 Media Services는 적응 비트 전송률 MP4 또는 부드러운 스트리밍 인코딩 콘텐츠를 Media Services에서 지원되는 스트리밍 형식(MPEG DASH, HLS, 부드러운 스트리밍)으로 다시 패키지하지 않고도 이런 스트리밍 형식으로 배달할 수 있게 하는 동적 패키징을 제공합니다.
 
-AMS 계정이 만들어질 때 **기본** 스트리밍 엔드포인트는 **중지됨** 상태에서 계정에 추가됩니다. 콘텐츠 스트리밍을 시작하고 동적 패키징 및 동적 암호화를 활용하려면 콘텐츠를 스트리밍하려는 스트리밍 엔드포인트는 **실행** 상태에 있어야 합니다.
-
-> [!Note]
-> 스트리밍 끝점에 대 한 요금은 끝점이 **실행 중** 상태일 때마다 발생 합니다.
+Azure Media Services 계정이 만들어지면 **기본** 스트리밍 엔드포인트가 **중지됨** 상태에 있는 계정에 추가됩니다. 콘텐츠 스트리밍을 시작하고 동적 패키징 및 동적 암호화를 활용하려면 콘텐츠를 스트리밍하려는 스트리밍 엔드포인트는 **실행** 상태에 있어야 합니다. 스트리밍 끝점에 대 한 요금은 끝점이 **실행 중** 상태일 때마다 발생 합니다.
 
 Media Services는 이 문서에서 설명하는 다음 주문형 인코더를 지원합니다.
 
@@ -50,6 +44,7 @@ Media Services는 이 문서에서 설명하는 다음 주문형 인코더를 �
 기본적으로 각 Media Services 계정은 한번에 하나의 인코딩 작업을 활성화할 수 있습니다. 구입한 각 인코딩 예약 단위에 대해 하나씩, 여러 인코딩 작업을 동시에 실행할 수 있는 인코딩 단위를 예약할 수 있습니다. 자세한 내용은 [인코딩 단위 크기 조정](media-services-scale-media-processing-overview.md)을 참조하세요.
 
 ## <a name="media-encoder-standard"></a>미디어 인코더 표준
+
 ### <a name="how-to-use"></a>사용 방법
 [미디어 인코더 표준으로 인코딩하는 방법](media-services-dotnet-encode-with-media-encoder-standard.md)
 

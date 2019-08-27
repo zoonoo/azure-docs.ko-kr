@@ -10,13 +10,13 @@ ms.author: roastala
 author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 07/12/2019
-ms.openlocfilehash: 701c266705c16198f35cddc36cdf1d431331c2d2
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.date: 07/31/2019
+ms.openlocfilehash: 9b58d6e189c891d0dd2917d7d150f133dc35f917
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847949"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70019106"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Python에서 학습 실행 시작, 모니터링 및 취소
 
@@ -220,9 +220,32 @@ with exp.start_logging() as parent_run:
 > [!NOTE]
 > 범위 밖으로 이동 하면 자식 실행이 자동으로 완료로 표시 됩니다.
 
-자식 실행을 하나씩 시작할 수도 있지만 각 만들기로 인해 네트워크 호출이 발생 하므로 일괄 처리를 전송 하는 것 보다 효율성이 떨어집니다.
+많은 자식 실행을 효율적으로 만들려면 [`create_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#create-children-count-none--tag-key-none--tag-values-none-) 메서드를 사용 합니다. 각 생성에서 네트워크 호출이 발생 하기 때문에 실행 일괄 처리를 만드는 작업은 한 번에 하나씩 만드는 것 보다 효율적입니다.
 
-특정 부모의 자식 실행을 쿼리하려면 [`get_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#get-children-recursive-false--tags-none--properties-none--type-none--status-none---rehydrate-runs-true-) 메서드를 사용 합니다.
+### <a name="submit-child-runs"></a>자식 실행 제출
+
+자식 실행은 부모 실행에서 제출할 수도 있습니다. 이를 통해 각각 서로 다른 계산 대상에서 실행 되는 부모 및 자식 실행의 계층 구조를 만들어 공통 부모 실행 ID로 연결할 수 있습니다.
+
+[' Submit_child () '](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#submit-child-count-none--tag-key-none--tag-values-none-) 메서드를 사용 하 여 부모 실행 내에서 자식 실행을 제출 합니다. 부모 실행 스크립트에서이 작업을 수행 하려면 컨텍스트 인스턴스의 ' ' submit_child ' ' ' 메서드를 사용 하 여 실행 컨텍스트를 가져오고 자식 실행을 제출 합니다.
+
+```python
+## In parent run script
+parent_run = Run.get_context()
+child_run_config = ScriptRunConfig(source_directory='.', script='child_script.py')
+parent_run.submit_child(child_run_config)
+```
+
+자식 실행 내에서 부모 실행 ID를 볼 수 있습니다.
+
+```python
+## In child run script
+child_run = Run.get_context()
+child_run.parent.id
+```
+
+### <a name="query-child-runs"></a>자식 쿼리 실행
+
+특정 부모의 자식 실행을 쿼리하려면 [`get_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#get-children-recursive-false--tags-none--properties-none--type-none--status-none---rehydrate-runs-true-) 메서드를 사용 합니다. ' ' ' Recursive = True ' ' ' 인수를 사용 하면 자식 및 손자의 중첩 된 트리를 쿼리할 수 있습니다.
 
 ```python
 print(parent_run.get_children())

@@ -11,16 +11,16 @@ author: vainolo
 ms.author: arib
 ms.reviewer: vanto
 ms.date: 03/22/2019
-ms.openlocfilehash: a606364503172d5cb1ddcf00262eb81b9423b55b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f2b57aa517c1518929b857eff6aed2ef4e0d8ca1
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569042"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018960"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>데이터 검색 & 분류 Azure SQL Database 및 SQL Data Warehouse
 
-데이터 검색 및 분류(현재 미리 보기)는 데이터베이스에 있는 중요한 데이터의 **검색**, **분류**, **레이블 지정** & **보호**를 위해 Azure SQL Database에 내장된 고급 기능을 제공합니다.
+데이터 검색 & 분류는 데이터베이스의 중요 한 데이터를 **검색**, **분류**, **레이블** & 지정 하는 Azure SQL Database에 기본 제공 되는 고급 기능을 제공 합니다.
 가장 중요한 데이터(비즈니스, 재무, 의료, PII(개인 식별 데이터) 등)를 검색하고 분류하는 기능은 조직 정보 보호 평판에 중추적인 역할을 할 수 있습니다. 그것은 다음에 대한 인프라 역할을 할 수 있습니다.
 
 - 데이터 프라이버시 표준 및 규정 준수 요구 사항을 충족하도록 지원.
@@ -76,7 +76,7 @@ Information Protection 정책 관리의 일환으로, 사용자 지정 레이블
 
 1. [Azure 포털](https://portal.azure.com)로 이동합니다.
 
-2. Azure SQL Database 창의 보안 머리글 아래에 있는 **Advanced Data Security**로 이동합니다. Advanced Data Security를 클릭하여 사용하도록 설정한 다음, **데이터 검색 및 분류(미리 보기)** 카드를 클릭합니다.
+2. Azure SQL Database 창의 보안 머리글 아래에 있는 **Advanced Data Security**로 이동합니다. 고급 데이터 보안을 사용 하도록 설정 하려면 클릭 하 고 **데이터 검색 & 분류** 카드를 클릭 합니다.
 
    ![데이터베이스 검색](./media/sql-data-discovery-and-classification/data_classification.png)
 

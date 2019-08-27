@@ -16,7 +16,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 07/29/2019
 ms.locfileid: "68609881"
 ---
-# <a name="create-and-publish-a-managed-application-definition"></a>관리되는 응용 프로그램 정의 만들기 및 게시
+# <a name="create-and-publish-a-managed-application-definition"></a>관리되는 애플리케이션 정의 만들기 및 게시
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -30,7 +30,7 @@ ms.locfileid: "68609881"
 * 사용자의 구독에 속한 리소스 그룹에 액세스해야 하는 사용자, 그룹 또는 애플리케이션을 결정합니다.
 * .zip 패키지를 나타내고 ID에 대한 액세스를 요청하는 관리형 애플리케이션 정의를 만듭니다.
 
-이 문서에서는 관리되는 애플리케이션에는 하나의 저장소 계정만이 포함됩니다. 관리되는 애플리케이션을 게시하는 단계를 설명하기 위한 것입니다. 전체 예제는 [Azure 관리되는 애플리케이션의 샘플 프로젝트](sample-projects.md)를 참조하세요.
+이 문서에서는 관리되는 애플리케이션에는 하나의 스토리지 계정만이 포함됩니다. 관리되는 애플리케이션을 게시하는 단계를 설명하기 위한 것입니다. 전체 예제는 [Azure 관리되는 애플리케이션의 샘플 프로젝트](sample-projects.md)를 참조하세요.
 
 이 아티클의 PowerShell 예제에는 Azure PowerShell 6.2 이상이 필요합니다. 필요에 따라 [버전을 업데이트합니다](/powershell/azure/install-Az-ps).
 
@@ -40,7 +40,7 @@ ms.locfileid: "68609881"
 
 이름이 **mainTemplate.json**인 파일을 만듭니다. 이름은 대/소문자를 구분합니다.
 
-파일에 다음 JSON을 추가합니다. 저장소 계정을 만들기 위한 매개 변수를 정의하고 저장소 계정의 속성을 지정합니다.
+파일에 다음 JSON을 추가합니다. 스토리지 계정을 만들기 위한 매개 변수를 정의하고 스토리지 계정의 속성을 지정합니다.
 
 ```json
 {
@@ -87,7 +87,7 @@ mainTemplate.json 파일을 저장합니다.
 
 ## <a name="defining-your-create-experience-using-createuidefinitionjson"></a>CreateUiDefinition.json을 사용하여 만들기 환경 정의
 
-게시자는 관리형 애플리케이션을 만드는 사용자를 위한 인터페이스를 생성하는 **createUiDefinition.json** 파일을 사용하여 만들기 환경을 정의합니다. 사용자는 드롭다운, 텍스트 상자 및 암호 상자를 포함한 [컨트롤 요소](create-uidefinition-elements.md)를 사용하여 각 매개 변수에 대한 입력을 제공하는 방법을 정의합니다.
+게시자는 관리형 애플리케이션을 만드는 사용자를 위한 인터페이스를 생성하는 **createUiDefinition.json** 파일을 사용하여 만들기 환경을 정의합니다. 사용자는 드롭다운, 텍스트 상자 및 암호 상자를 포함한 [컨트롤 요소]\(create-uidefinition-elements.md)를 사용하여 각 매개 변수에 대한 입력을 제공하는 방법을 정의합니다.
 
 이름이 **createUiDefinition.json**인 파일을 만듭니다(이 이름은 대/소문자를 구분함).
 
@@ -217,5 +217,5 @@ New-AzManagedApplicationDefinition `
 
 ## <a name="next-steps"></a>다음 단계
 
-* 관리되는 응용 프로그램을 Azure Marketplace에 게시하려면 [Marketplace의 Azure 관리되는 응용 프로그램](publish-marketplace-app.md)을 참조하세요.
+* 관리되는 애플리케이션을 Azure Marketplace에 게시하려면 [Marketplace의 Azure 관리되는 애플리케이션](publish-marketplace-app.md)을 참조하세요.
 * 관리되는 애플리케이션 인스턴스를 배포하려면 [Azure Portal을 통해 서비스 카탈로그 앱 배포](deploy-service-catalog-quickstart.md)를 참조하세요.

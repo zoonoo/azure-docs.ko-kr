@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: vinigam
-ms.openlocfilehash: efa8a92ca9861c0280237ba07f4304b5c7dbbb88
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: bd83d915b51ab44d4287987e3da7113722910262
+ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68609998"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70020246"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>트래픽 분석에서 스키마 및 데이터 집계
 
@@ -32,7 +32,7 @@ ms.locfileid: "68609998"
 
 ### <a name="data-aggregation"></a>데이터 집계
 
-1. "FlowIntervalStartTime_t" 및 "FlowIntervalEndTime_t" 사이에 있는 NSG의 모든 흐름 로그는 트래픽 분석에서 처리 하기 전에 blob으로 저장소 계정에서 1 분 간격으로 캡처됩니다. 
+1. "FlowIntervalStartTime_t" 및 "FlowIntervalEndTime_t" 사이에 있는 NSG의 모든 흐름 로그는 트래픽 분석에서 처리 하기 전에 blob으로 저장소 계정에서 1 분 간격으로 캡처됩니다.
 2. 트래픽 분석의 기본 처리 간격은 60 분입니다. 즉, 60 분 마다 집계를 위해 저장소에서 blob을 선택 트래픽 분석. 선택한 처리 간격이 10 분 이면 트래픽 분석 10 분 마다 저장소 계정에서 blob을 선택 합니다.
 3. 원본 IP, 대상 IP, 대상 포트, NSG 이름, NSG 규칙, 흐름 방향 및 전송 계층 프로토콜 (TCP 또는 UDP)이 동일한 흐름 (참고: 원본 포트는 집계에 대해 제외 됨) 트래픽 분석 단일 흐름으로 경로 프로비저닝을 실행할 됩니다.
 4. 이 단일 레코드는 장식 되며 (아래 섹션에 자세히 설명) 트래픽 분석 Log Analytics 수집 .이 프로세스는 최대 1 시간까지 걸릴 수 있습니다.
@@ -85,6 +85,12 @@ https://{saName}@insights-logs-networksecuritygroupflowevent/resoureId=/SUBSCRIP
 ```
 
 ### <a name="fields-used-in-traffic-analytics-schema"></a>트래픽 분석 스키마에 사용 되는 필드
+  > [!IMPORTANT]
+  > 트래픽 분석 스키마가 2019 년 8 월 2 일에 업데이트 되었습니다. 새 스키마는 원본 및 대상 Ip를 별도로 제거 하 여 쿼리를 더 간단 하 게 만드는 FlowDirection 필드를 별도로 제거 해야 합니다. </br>
+  > FASchemaVersion_s가 1에서 2로 업데이트 되었습니다. </br>
+  > 사용 되지 않는 필드: VMIP_s, Subscription_s, Region_s, NSGRules_s, Subnet_s, VM_s, NIC_s, PublicIPs_s, FlowCount_d </br>
+  > 새 필드: SrcPublicIPs_s, DestPublicIPs_s, NSGRule_s </br>
+  > 사용 되지 않는 필드는 2 월 2 일 11 월 2019 일까 집니다.
 
 트래픽 분석은 Log Analytics을 기반으로 하므로 트래픽 분석로 데코레이팅된 데이터에 대해 사용자 지정 쿼리를 실행 하 고 동일한에 대해 경고를 설정할 수 있습니다.
 
@@ -94,7 +100,7 @@ https://{saName}@insights-logs-networksecuritygroupflowevent/resoureId=/SUBSCRIP
 |:---   |:---    |:---  |
 | TableName | AzureNetworkAnalytics_CL | 트래픽 분석 데이터에 대 한 테이블
 | SubType_s | FlowLog | 흐름 로그의 하위 형식입니다. "FlowLog"만 사용 하 고 SubType_s의 다른 값은 제품의 내부 작동에 사용 됩니다. |
-| FASchemaVersion_s |   1   | 스키마 버전입니다. NSG 흐름 로그 버전을 반영 하지 않음 |
+| FASchemaVersion_s |   2   | 스키마 버전입니다. NSG 흐름 로그 버전을 반영 하지 않음 |
 | TimeProcessed_t   | UTC 날짜 및 시간  | 트래픽 분석가 저장소 계정에서 원시 흐름 로그를 처리 한 시간입니다. |
 | FlowIntervalStartTime_t | UTC 날짜 및 시간 |  흐름 로그 처리 간격의 시작 시간입니다. 흐름 간격이 측정 되는 시간입니다. |
 | FlowIntervalEndTime_t | UTC 날짜 및 시간 | 흐름 로그 처리 간격의 종료 시간 |
@@ -111,7 +117,8 @@ https://{saName}@insights-logs-networksecuritygroupflowevent/resoureId=/SUBSCRIP
 | FlowDirection_s | * I = 인바운드<br> * O = 아웃 바운드 | 흐름 로그에 따라 NSG의 흐름 방향입니다. |
 | FlowStatus_s  | * A = NSG 규칙에서 허용 <br> * D = NSG 규칙에 의해 거부 됨  | 흐름 로그를 기준으로 NSG에 의해 차단 된 흐름의 상태입니다. |
 | NSGList_s | \<SUBSCRIPTIONID>\/<RESOURCEGROUP_NAME>\/<NSG_NAME> | 흐름과 연결 된 NSG (네트워크 보안 그룹) |
-| NSGRules_s | \<인덱스 값 0) > < NSG_RULENAME >\<흐름 방향 >\<flow 상태 >\<flowcount processedbyrule > |  이 흐름을 허용 하거나 거부 하는 NSG 규칙 |
+| NSGRules_s | \<인덱스 값 0) >\|\<NSG_RULENAME 흐름\|상태 >\<\<\|flowcountprocessedbyrulerule>흐름상태를>합니다.\|\< |  이 흐름을 허용 하거나 거부 하는 NSG 규칙 |
+| NSGRule_s | NSG_RULENAME |  이 흐름을 허용 하거나 거부 하는 NSG 규칙 |
 | NSGRuleType_s | * 사용자 정의 * 기본값 |   흐름에서 사용 하는 NSG 규칙의 유형입니다. |
 | MACAddress_s | MAC 주소 | 흐름이 캡처된 NIC의 MAC 주소입니다. |
 | Subscription_s | Azure 가상 네트워크/네트워크 인터페이스/가상 머신의 구독이이 필드에 채워집니다. | FlowType = S2S, P2S, AzurePublic, ExternalPublic, MaliciousFlow 및 UnknownPrivate flow 형식에만 적용할 수 있습니다 (한 쪽만 azure 인 흐름 형식). |
@@ -151,6 +158,8 @@ https://{saName}@insights-logs-networksecuritygroupflowevent/resoureId=/SUBSCRIP
 | OutboundBytes_d | NSG 규칙이 적용 된 네트워크 인터페이스에서 캡처된 것으로 보낸 바이트 수 | NSG 흐름 로그 스키마의 버전 2에만 채워집니다. |
 | CompletedFlows_d  |  | 이 값은 NSG 흐름 로그 스키마의 버전 2에 대해서만 0이 아닌 값으로 채워집니다. |
 | PublicIPs_s | <PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | 막대로 구분 된 항목 |
+| SrcPublicIPs_s | < SOURCE_PUBLIC_IP >\|\<FLOW_STARTED_COUNT >\|FLOW_ENDED_COUNT>\|OUTBOUND_PACKETS>\<INBOUND_PACKETS\|\<\< >\|OUTBOUND_BYTES\<>\|INBOUND_BYTES>\< | 막대로 구분 된 항목 |
+| DestPublicIPs_s | < DESTINATION_PUBLIC_IP >\|\<FLOW_STARTED_COUNT >\|FLOW_ENDED_COUNT>\|OUTBOUND_PACKETS>\<INBOUND_\|\<\< PACKETS >\|\<OUTBOUND_BYTES >\|INBOUND_BYTES\<> | 막대로 구분 된 항목 |
 
 ### <a name="notes"></a>참고
 
@@ -165,7 +174,7 @@ https://{saName}@insights-logs-networksecuritygroupflowevent/resoureId=/SUBSCRIP
 1. MaliciousFlow-IP 주소 중 하나는 azure virtual network에 속하며, 다른 IP 주소는 Azure에 있지 않은 공용 IP이 고, 트래픽 분석는 " FlowIntervalStartTime_t "및" FlowIntervalEndTime_t "입니다.
 1. UnknownPrivate-IP 주소 중 하나가 Azure Virtual Network에 속하며 다른 IP 주소는 RFC 1918에 정의 된 개인 IP 범위에 속하고 고객 소유 사이트 또는 Azure Virtual Network에 트래픽 분석에 매핑할 수 없습니다.
 1. 알 수 없음 – 흐름의 IP 주소 중 하나를 Azure의 고객 토폴로지 및 온-프레미스 (사이트)에 매핑할 수 없습니다.
-1. 일부 필드 이름에는 _s 또는 _d가 추가 됩니다. 원본 및 대상을 나타내는 것은 아닙니다.
+1. 일부 필드 이름에 \_는 s 또는 \_d가 추가 됩니다. 이는 원본 및 대상을 나타내지는 않지만 각각 데이터 형식 문자열 및 10 진수를 나타냅니다.
 
 ### <a name="next-steps"></a>다음 단계
 자주 묻는 질문에 대 한 답변을 얻으려면 [트래픽 분석 FAQ](traffic-analytics-faq.md) 를 참조 하세요. 기능에 대 한 자세한 내용은 [트래픽 분석 설명서](traffic-analytics.md) 를 참조 하세요.

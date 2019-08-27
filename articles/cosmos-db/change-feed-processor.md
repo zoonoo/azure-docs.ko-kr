@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: aecad80bb1b1e95b07b9df4105547406ff76b84c
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 2f0f3d70d51ff35e37506eab1082fc07b16e711c
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991530"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018776"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Azure Cosmos DB의 변경 피드 프로세서 
 
@@ -76,7 +76,9 @@ ms.locfileid: "69991530"
 
 이러한 세 조건이 적용 되는 경우 변경 피드 프로세서는 동일한 배포 알고리즘을 사용 하 여 실행 중인 모든 인스턴스에 임대 컨테이너의 모든 임대를 배포 하 고 compute를 병렬화 합니다. 하나의 임대는 지정 된 시간에 하나의 인스턴스만 소유할 수 있으므로 최대 인스턴스 수는 임대 수와 동일 합니다.
 
-인스턴스는 확장 및 축소할 수 있으며, 변경 피드 프로세서는 적절 하 게 재배포 하 여 부하를 동적으로 조정 합니다.
+인스턴스 수는 증가 및 축소 될 수 있으며, 변경 피드 프로세서는 적절히 재배포 하 여 부하를 동적으로 조정 합니다.
+
+또한 변경 피드 프로세서는 처리량 또는 저장소가 늘어남에 따라 컨테이너 크기를 동적으로 조정할 수 있습니다. 컨테이너가 커지면 변경 피드 프로세서는 임대를 동적으로 늘리고 기존 인스턴스 간에 새 임대를 배포 하 여 이러한 시나리오를 투명 하 게 처리 합니다.
 
 ## <a name="change-feed-and-provisioned-throughput"></a>변경 피드 및 프로비전된 처리량
 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/27/2019
+ms.date: 08/22/2019
 ms.author: rkarlin
-ms.openlocfilehash: 0c37d6167012af46204cbca29397f5d226b9649b
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: b609dc70c45941ec1132c7cdf614cf9bec8119ff
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69611893"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70019014"
 ---
 # <a name="on-board-azure-sentinel-preview"></a>온-보드 Azure 센티널 미리 보기
 
@@ -59,7 +59,8 @@ ms.locfileid: "69611893"
 
    >[!NOTE] 
    > - Azure Security Center에서 만든 기본 작업 영역은 목록에 표시 되지 않습니다. Azure에는 Azure 센티널을 설치할 수 없습니다.
-   > - Azure 센티널은 다음 지역 중 하나에 배포 된 작업 영역에서 실행할 수 있습니다.  오스트레일리아 남동쪽, 캐나다 중부, 인도 중부, 미국 동부, 미국 동부 2 EUAP (카나리아), 일본 동부, 동남 아시아, 영국 남부, 유럽 서부, 미국 서 부 2
+   > - Azure 센티널은 다음 지역 중 하나에 배포 된 작업 영역에서 실행할 수 있습니다. 오스트레일리아 동부, 오스트레일리아 남동쪽, 캐나다 중부, 인도 중부, 미국 동부, 미국 동부 2 EUAP (카나리아), 일본 동부, 동남 아시아, 영국 남부, 유럽 서부, 미국 서 부 2, 미국 서 부 중부, 프랑스 중부, 대한민국 중부, 북부 북부, 미국 동부 2, 동아시아, 미국 서 부, 미국 중부, 미국 미국 중 남부.
+
 
 6. **Azure 센티널 추가**를 클릭 합니다.
   

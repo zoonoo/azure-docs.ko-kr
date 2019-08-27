@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: jingwang
 ms.openlocfilehash: a2815961f6afb0032aa6011cce5d59ab37f81303
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68843273"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70020418"
 ---
 | 범주 | 데이터 저장소 | [복사 활동](../articles/data-factory/copy-activity-overview.md) 원본으로 지원 됨 | [복사 작업](../articles/data-factory/copy-activity-overview.md) 싱크로 지원 됨 | [Azure IR](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime)에서 지원 | [자체 호스팅 IR](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime)에서 지원 | [데이터 흐름](../articles/data-factory/concepts-data-flow-overview.md) 에서 지원
 |:--- |:--- |:--- |:--- |:--- |:--- |

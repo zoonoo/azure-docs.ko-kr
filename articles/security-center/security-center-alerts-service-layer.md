@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 8/18/2019
+ms.date: 8/25/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 5458d26172123f0f6cb9914a04ec05b3163a084f
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: bc1b2a07f15ca98da7750c85cd25f2c5766c9bb5
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013284"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018175"
 ---
 # <a name="threat-detection-for-the-azure-service-layer-in-azure-security-center"></a>Azure Security Center에서 Azure 서비스 계층에 대 한 위협 감지
 
@@ -37,7 +37,7 @@ Security Center 네트워크 계층 분석은 Azure core 라우터가 수집 하
 
 > [!div class="mx-tableFixed"]
 
-|알림|설명|
+|알림|Description|
 |---|---|
 |**의심 스러운 나가는 RDP 네트워크 활동**|샘플링 된 네트워크 트래픽 분석은 배포의 리소스에서 시작 된 비정상적인 RDP (보내는 원격 데스크톱 프로토콜) 통신을 검색 했습니다. 이 작업은이 환경에서 비정상으로 간주 됩니다. 리소스가 손상 된 것을 나타낼 수 있으며, 이제는 외부 RDP 끝점의 무차별 암호 대입 공격에 사용 됩니다. 이 유형의 작업을 수행 하면 외부 엔터티에서 악의적인 사용자로 IP에 플래그가 지정 될 수 있습니다.|
 |**여러 대상으로 의심 스러운 나가는 RDP 네트워크 활동**|샘플링 된 네트워크 트래픽 분석은 배포의 리소스에서 여러 대상으로 향하는 비정상적인 나가는 RDP 통신을 검색 했습니다. 이 작업은이 환경에서 비정상으로 간주 됩니다. 리소스가 손상 된 것을 나타낼 수 있으며, 이제는 외부 RDP 끝점의 무차별 대입 공격에 사용 됩니다. 이 유형의 작업을 수행 하면 외부 엔터티에서 악의적인 사용자로 IP에 플래그가 지정 될 수 있습니다.|
@@ -52,7 +52,7 @@ Security Center 네트워크 계층 분석은 Azure core 라우터가 수집 하
 Security Center 네트워크 관련 신호를 사용 하 여 위협 방지를 적용 하는 방법을 이해 하려면 [Azure Security Center에서 추론 DNS](https://azure.microsoft.com/blog/heuristic-dns-detections-in-azure-security-center/)검색을 참조 하세요.
 
 >[!NOTE]
->Azure Security Center에서 Azure 네트워크 계층 위협 검색 경고는 VM을 만든 후 처음 1 시간 동안 생성 되지 않습니다.
+>Azure Security Center Azure 네트워크 계층 위협 감지 경고는 의심 스러운 통신이 발생 한 전체 시간에 대해 동일한 IP 주소를 할당 한 가상 컴퓨터 에서만 생성 됩니다. 이는 관리 되는 서비스 (예: AKS, Databricks)의 일부로 고객의 구독에서 생성 된 가상 컴퓨터 및 가상 컴퓨터에도 적용 됩니다.
 
 ## Azure 관리 계층 (Azure Resource Manager) (미리 보기)<a name ="management-layer"></a>
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 8/14/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 45f383691a52d841f35ed9b67d4658341de18afc
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: f4ea820eb116c4efe550997cbe7c9ed69713c965
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036259"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70019123"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Azure 파일 동기화 에이전트에 대한 릴리스 정보
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Windows Server 설치는 Azure 파일 공유의 빠른 캐시로 변환됩니다. 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다(SMB, NFS 및 FTPS 포함). 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -71,6 +71,12 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 
 - 더 큰 파일 공유 크기 지원
     - 대규모 Azure 파일 공유의 미리 보기를 사용 하 여 파일 동기화에 대 한 지원 제한을 늘립니다. 이 첫 번째 단계에서는 현재 Azure File Sync에서 단일 동기화 네임 스페이스에 최대 25TB 및 50million 개의 파일을 지원 합니다. 대량 파일 공유 미리 보기에 적용 하려면이 양식을 https://aka.ms/azurefilesatscalesurvey 작성 합니다. 
+- 저장소 계정에 대 한 방화벽 및 가상 네트워크 설정 지원
+    - 이제 Azure File Sync에서 저장소 계정에 대 한 방화벽 및 가상 네트워크 설정을 지원 합니다. 방화벽 및 가상 네트워크 설정에서 작동 하도록 배포를 구성 하려면 [방화벽 및 가상 네트워크 설정 구성](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)을 참조 하세요.
+- Azure 파일 공유에서 변경 된 파일을 즉시 동기화 하는 PowerShell cmdlet
+    - Azure 파일 공유에서 변경 된 파일을 즉시 동기화 하기 위해 AzStorageSyncChangeDetection PowerShell cmdlet을 사용 하 여 Azure 파일 공유의 변경 내용 검색을 수동으로 시작할 수 있습니다. 이 cmdlet은 일부 유형의 자동화 된 프로세스에서 Azure 파일 공유를 변경 하거나 관리자가 변경 작업을 수행 하는 시나리오를 위한 것입니다 (예: 파일 및 디렉터리를 공유로 이동). 최종 사용자 변경의 경우 IaaS VM에 Azure File Sync 에이전트를 설치 하 고, 최종 사용자가 IaaS VM을 통해 파일 공유에 액세스할 수 있도록 하는 것이 좋습니다. 이렇게 하면 AzStorageSyncChangeDetection cmdlet을 사용 하지 않고 모든 변경 내용을 신속 하 게 다른 에이전트와 동기화 할 수 있습니다. 자세히 알아보려면 [AzStorageSyncChangeDetection](https://docs.microsoft.com/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) 설명서를 참조 하세요.
+- 동기화 되지 않는 파일이 발견 된 경우 포털 환경 개선
+    - 동기화에 실패 한 파일이 있는 경우 이제는 포털에서 일시적 오류와 영구 오류를 구분 합니다. 일시적 오류는 일반적으로 관리자 작업이 필요 하지 않고 자체적으로 해결 됩니다. 예를 들어 현재 사용 중인 파일은 파일 핸들이 닫힐 때까지 동기화 되지 않습니다. 지속적인 오류의 경우 이제 각 오류의 영향을 받는 파일 수를 표시 합니다. 영구 오류 수는 동기화 그룹에 있는 모든 서버 끝점의 동기화 되지 않은 파일 열에도 표시 됩니다.
 - 향상 된 Azure Backup 파일 수준 복원
     - 이제 Azure Backup를 사용 하 여 복원 된 개별 파일이 검색 되 고 서버 끝점에 더 빠르게 동기화 됩니다.
 - 클라우드 계층화 회수 cmdlet 안정성 향상 

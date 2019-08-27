@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2019
 ms.author: rkarlin
-ms.openlocfilehash: 0013540bf0ca921b2f41260dea185f6aa32567d7
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 39245cb43dacfeec2b647936d5e5790d4a185467
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679257"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70019006"
 ---
 # <a name="connect-data-from-office-365-logs"></a>Office 365 로그의 데이터 연결
 
@@ -33,16 +33,19 @@ ms.locfileid: "68679257"
 > [!IMPORTANT]
 > E3 라이선스가 있는 경우 Office 365 관리 활동 API를 통해 데이터에 액세스 하려면 먼저 Office 365 조직에 대해 통합 된 감사 로깅을 사용 하도록 설정 해야 합니다. 이렇게 하려면 Office 365 감사 로그를 설정 합니다. 지침은 [Office 365 감사 로그 검색 설정 또는 해제](https://docs.microsoft.com/office365/securitycompliance/turn-audit-log-search-on-or-off)를 참조 하세요. 자세한 내용은 [Office 365 관리 활동 API 참조](https://docs.microsoft.com/office/office-365-management-api/office-365-management-activity-api-reference)를 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 테 넌 트의 전역 관리자 또는 보안 관리자 여야 합니다.
 - Azure 센티널에 로그인 하 여 연결을 만드는 컴퓨터에서 포트 4433이 웹 트래픽에 대해 열려 있는지 확인 합니다.
+- 테 넌 트에 Office 365 E3 또는 Office 365 E5 라이선스가 없는 경우 다음 프로세스 중 하나를 사용 하 여 tentant에서 통합 감사를 사용 하도록 설정 해야 합니다.
+    - [Set AdminAuditLogConfig cmdlet을 사용 하](https://docs.microsoft.com/powershell/module/exchange/policy-and-compliance-audit/set-adminauditlogconfig?view=exchange-ps) 고 "UnifiedAuditLogIngestionEnabled" 매개 변수를 사용 하도록 설정 합니다.
+    - [또는 보안 및 준수 센터 UI를 사용](https://docs.microsoft.com/office365/securitycompliance/search-the-audit-log-in-security-and-compliance#before-you-begin)합니다.
 
 ## <a name="connect-to-office-365"></a>Office 365에 연결
 
 1. Azure 센티널에서 **데이터 커넥터** 를 선택한 다음 **Office 365** 타일을 클릭 합니다.
 
-2. 아직 사용 하도록 설정 하지 않은 경우 **연결** 에서 **사용 단추를** 사용 하 여 Office 365 솔루션을 사용 하도록 설정 합니다. 이미 사용 하도록 설정 된 경우 연결 화면에서 이미 사용 하도록 설정 된 것으로 식별 됩니다.
+2. 아직 사용 하도록 설정 하지 않은 경우 **연결** 에서 사용 단추를 사용 하 여 Office 365 솔루션을 사용 하도록 설정 합니다. 이미 사용 하도록 설정 된 경우 연결 화면에서 이미 사용 하도록 설정 된 것으로 식별 됩니다.
 1. Office 365에서는 여러 테 넌 트의 데이터를 Azure 센티널로 스트리밍할 수 있습니다. 연결 하려는 각 테 넌 트에 대해 **Azure 센티널에**테 넌 트 연결 아래에 테 넌 트를 추가 합니다. 
 1. Active Directory 화면이 열립니다. Azure 센티널에 연결 하려는 각 테 넌 트에서 전역 관리자에 게 인증 하 고 해당 로그를 읽을 수 있도록 Azure 센티널에 사용 권한을 제공 하 라는 메시지가 표시 됩니다. 
 5. Stream Office 365 활동 로그에서 **선택** 을 클릭 하 여 Azure 센티널로 스트리밍할 로그 유형을 선택 합니다. 현재 Azure 센티널은 Exchange와 SharePoint를 지원 합니다.

@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 08/18/2018
 ms.author: apimpm
-ms.openlocfilehash: 6bafd5ed5f2d7080b0f2a2db71ac96e4f97a1f76
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 64649c86dbd3c3469247308bfc4dd0ed12e06949
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774934"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018229"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Azure API Management 인스턴스 업그레이드 및 크기 조정  
 
@@ -29,7 +29,7 @@ ms.locfileid: "68774934"
 >[!NOTE]
 >[가격 정보](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 문서에서는 계층별로 대략적인 단위 용량 수를 보여 줍니다. 보다 정확한 수치를 얻기 위해 API에 대해 현실적인 시나리오를 살펴보아야 합니다. [Azure API Management 인스턴스의 용량](api-management-capacity.md) 문서를 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서의 단계를 따르려면 다음이 필요합니다.
 
@@ -53,8 +53,11 @@ ms.locfileid: "68774934"
 
 어떤 계층에서든 업그레이드 및 다운그레이드가 가능합니다. 프리미엄 계층에서 표준 또는 기본으로 다운그레이드할 경우 업그레이드 또는 다운그레이드는 VNET 또는 다중 지역 배포와 같은 일부 기능을 제거할 수 있습니다.
 
->[!NOTE]
->업그레이드 또는 크기 조정 프로세스를 적용하는 데는 15~45분 정도 소요될 수 있습니다. 완료 되 면 알림이 표시 됩니다.
+> [!NOTE]
+> 업그레이드 또는 크기 조정 프로세스를 적용하는 데는 15~45분 정도 소요될 수 있습니다. 완료 되 면 알림이 표시 됩니다.
+
+> [!NOTE]
+> **소비** 계층의 API Management 서비스는 트래픽에 따라 자동으로 확장 됩니다.
 
 ## <a name="use-the-azure-portal-to-upgrade-and-scale"></a>Azure Portal을 사용하여 업그레이드 및 크기 조정
 

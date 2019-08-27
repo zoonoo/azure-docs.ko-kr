@@ -1,6 +1,6 @@
 ---
-title: Azure Data Factory에서 데이터 집합 | Microsoft Docs
-description: 데이터 팩터리의 데이터 집합에 알아봅니다. 데이터 세트는 입/출력 데이터를 나타냅니다.
+title: Azure Data Factory의 데이터 집합 | Microsoft Docs
+description: Data Factory의 데이터 집합에 대해 알아봅니다. 데이터 세트는 입/출력 데이터를 나타냅니다.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: shlo
-ms.openlocfilehash: 6b74f217d296b5de8886f608b1bc92e908b5d8b4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bbf7159abf88ce70cc62d202a8375aad302a0552
+ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64866460"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70019964"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Azure 데이터 팩터리의 데이터 세트
-> [!div class="op_single_selector" title1="사용 하는 Data Factory 서비스 버전을 선택 합니다."]
+> [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](v1/data-factory-create-datasets.md)
 > * [현재 버전](concepts-datasets-linked-services.md)
 
@@ -31,7 +31,7 @@ Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](introduct
 ## <a name="overview"></a>개요
 데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. **파이프라인**은 함께 하나의 작업을 수행하는 **활동**의 논리적 그룹화입니다. 파이프라인의 활동은 데이터에 수행할 작업을 정의합니다. 이제 **데이터 세트**는 입력 및 출력으로 **활동**에서 사용하려는 데이터를 단순히 가리키거나 참조하는 데이터의 명명된 뷰입니다. 데이터 세트는 테이블, 파일, 폴더, 문서를 비롯한 다양한 데이터 저장소 내의 데이터를 식별합니다. 예를 들어 Azure Blob 데이터 세트은 활동에서 데이터를 읽어들여야 하는 Blob Storage의 Blob 컨테이너와 폴더를 지정합니다.
 
-데이터 집합을 만들기 전에 만들어야 합니다는 [ **연결 된 서비스** ](concepts-linked-services.md) 데이터 저장소를 데이터 팩터리에 연결 합니다. 연결된 서비스는 Data Factory에서 외부 리소스에 연결하는 데 필요한 연결 정보를 정의하는 연결 문자열과 같습니다. 데이터 세트는 연결된 데이터 저장소 내의 데이터 구조를 나타내고, 연결된 서비스는 데이터 원본에 연결을 정의한다고 생각하시면 됩니다. 예를 들어 Azure Storage 연결된 서비스는 스토리지 계정을 데이터 팩터리에 연결합니다. Azure Blob 데이터 세트는 Blob 컨테이너 및 처리할 입력 Blob이 포함된 Azure Storage 계정 내의 폴더를 나타냅니다.
+데이터 집합을 만들기 전에 [**연결 된 서비스**](concepts-linked-services.md) 를 만들어 데이터 저장소를 데이터 팩터리에 연결 해야 합니다. 연결된 서비스는 Data Factory에서 외부 리소스에 연결하는 데 필요한 연결 정보를 정의하는 연결 문자열과 같습니다. 데이터 세트는 연결된 데이터 저장소 내의 데이터 구조를 나타내고, 연결된 서비스는 데이터 원본에 연결을 정의한다고 생각하시면 됩니다. 예를 들어 Azure Storage 연결된 서비스는 스토리지 계정을 데이터 팩터리에 연결합니다. Azure Blob 데이터 세트는 Blob 컨테이너 및 처리할 입력 Blob이 포함된 Azure Storage 계정 내의 폴더를 나타냅니다.
 
 샘플 시나리오는 다음과 같습니다. Blob Storage에서 SQL Database로 데이터를 복사하려면 두 개의 연결된 서비스, 즉, Azure Storage 및 Azure SQL Database를 만듭니다. 그런 다음, 두 개의 데이터 세트, 즉 Azure Blob 데이터 세트(Azure Storage 연결된 서비스 참조), Azure SQL 테이블 데이터 세트(Azure SQL Database 연결된 서비스 참조)를 만듭니다. Azure Storage 및 Azure SQL Database 연결된 서비스에는 Data Factory가 런타임에 Azure Storage 및 Azure SQL Database 각각에 연결하는 데 사용하는 연결 문자열이 포함되어 있습니다. Azure Blob 데이터 세트은 Blob Storage에 입력 Blob을 포함하는 Blob 컨테이너와 Blob 폴더를 지정합니다. Azure SQL 테이블 데이터 세트는 데이터를 복사할 Azure SQL Database의 SQL 테이블을 지정합니다.
 
@@ -41,7 +41,7 @@ Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](introduct
 
 
 ## <a name="dataset-json"></a>데이터 세트 JSON
-Data Factory에서 데이터 집합은 다음 JSON 형식으로 정의 됩니다.
+Data Factory의 데이터 집합은 다음과 같은 JSON 형식으로 정의 됩니다.
 
 ```json
 {
@@ -67,24 +67,24 @@ Data Factory에서 데이터 집합은 다음 JSON 형식으로 정의 됩니다
 ```
 다음 표에서는 위의 JSON에서 속성을 설명합니다.
 
-자산 | 설명 | 필수 |
+속성 | 설명 | 필수 |
 -------- | ----------- | -------- |
 name | 데이터 세트의 이름입니다. [Azure Data Factory - 이름 지정 규칙](naming-rules.md)을 참조하세요. |  예 |
-형식 | 데이터 세트의 형식입니다. Data Factory에서 지원하는 형식(예: AzureBlob, AzureSqlTable) 중 하나를 지정합니다. <br/><br/>자세한 내용은 [데이터 세트 형식](#dataset-type)을 참조하세요. | 예 |
-structure | 데이터 세트의 스키마입니다. 자세한 내용은 참조 하세요 [데이터 집합 스키마](#dataset-structure-or-schema)합니다. | 아닙니다. |
+type | 데이터 세트의 형식입니다. Data Factory에서 지원하는 형식(예: AzureBlob, AzureSqlTable) 중 하나를 지정합니다. <br/><br/>자세한 내용은 [데이터 세트 형식](#dataset-type)을 참조하세요. | 예 |
+구조 | 데이터 세트의 스키마입니다. 자세한 내용은 [데이터 집합 스키마](#dataset-structure-or-schema)를 참조 하세요. | 아니요 |
 typeProperties | 형식 속성은 형식마다 다릅니다(예: Azure Blob, Azure SQL 테이블). 지원되는 형식 및 해당 속성에 대한 자세한 내용은 [데이터 세트 형식](#dataset-type)을 참조하세요. | 예 |
 
-### <a name="data-flow-compatible-dataset"></a>데이터 흐름 호환 가능한 데이터 집합
+### <a name="data-flow-compatible-dataset"></a>데이터 흐름 호환 데이터 집합
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-참조 [지원 되는 데이터 집합 형식](#dataset-type) 형식의 데이터 집합 목록을 [데이터 흐름](concepts-data-flow-overview.md) 호환입니다. 데이터 흐름에 대 한 호환 되는 데이터 집합 변환에 대 한 세분화 된 데이터 집합 정의 해야 합니다. 따라서 JSON 정의 약간 다릅니다. 대신 한 _구조_ 속성을 데이터 흐름 호환 되는 데이터 집합에 사용할를 _스키마_ 속성.
+[데이터 흐름이](concepts-data-flow-overview.md) 호환 되는 데이터 집합 형식 목록은 [지원 되는 데이터 집합 형식](#dataset-type) 을 참조 하세요. 데이터 흐름에 대해 호환 되는 데이터 집합에는 변환에 대 한 세분화 된 데이터 집합 정의가 필요 합니다. 따라서 JSON 정의는 약간 다릅니다. _구조_ 속성 대신 데이터 흐름에 호환 되는 데이터 집합에는 _스키마_ 속성이 있습니다.
 
-데이터 흐름에서 데이터 집합은 원본 및 싱크 변환에 사용 됩니다. 데이터 집합에는 기본 데이터 스키마를 정의합니다. 데이터에 스키마가 없는 경우에 원본 및 싱크 스키마 드리프트를 사용할 수 있습니다. 데이터 집합의 스키마는 실제 데이터 형식 및 모양을 나타냅니다.
+데이터 흐름에서 데이터 집합은 원본 및 싱크 변환에 사용 됩니다. 데이터 집합은 기본 데이터 스키마를 정의 합니다. 데이터에 스키마가 없는 경우 원본 및 싱크에 대해 스키마 드리프트를 사용할 수 있습니다. 데이터 집합의 스키마는 실제 데이터 형식과 모양을 나타냅니다.
 
-데이터 집합의 스키마를 정의 하면 얻게 관련 된 데이터 형식, 데이터 형식, 파일 위치 및 연결 정보에서 연결된 된 연결 된 서비스입니다. 데이터 집합에서 메타 데이터를 원본으로 소스 변환에 나타나는 *프로젝션*합니다. 소스 변환에서 프로젝션 정의 된 이름 및 형식을 사용 하 여 데이터 흐름 데이터를 나타냅니다.
+데이터 집합에서 스키마를 정의 하면 관련 된 연결 된 서비스에서 관련 데이터 형식, 데이터 형식, 파일 위치 및 연결 정보를 얻을 수 있습니다. 데이터 집합의 메타 데이터는 원본 변환에서 원본 *프로젝션*으로 나타납니다. 원본 변환의 프로젝션은 정의 된 이름 및 형식을 사용 하 여 데이터 흐름 데이터를 나타냅니다.
 
-데이터 흐름 데이터 집합의 스키마를 가져올 때 선택 된 **스키마 가져오기** 단추 및 로컬 파일 또는 원본에서 가져올 수 있습니다. 대부분의 경우에서 원본에서 직접 스키마를 가져옵니다. 하지만 로컬 스키마 파일 (Parquet 파일 또는 헤더를 사용 하 여 CSV)에 이미 있는 경우 해당 파일에서 스키마를 기반으로 데이터 팩터리를 지정할 수 있습니다.
+데이터 흐름 데이터 집합의 스키마를 가져올 때 **스키마 가져오기** 단추를 선택 하 고 원본 또는 로컬 파일에서 가져오기를 선택 합니다. 대부분의 경우 원본에서 직접 스키마를 가져옵니다. 그러나 로컬 스키마 파일 (Parquet 파일 또는 헤더가 포함 된 CSV)이 이미 있는 경우에는 해당 파일의 스키마를 기반으로 Data Factory를 지시할 수 있습니다.
 
 
 ```json
@@ -112,11 +112,11 @@ typeProperties | 형식 속성은 형식마다 다릅니다(예: Azure Blob, Azu
 
 다음 표에서는 위의 JSON에서 속성을 설명합니다.
 
-자산 | 설명 | 필수 |
+속성 | 설명 | 필수 |
 -------- | ----------- | -------- |
 name | 데이터 세트의 이름입니다. [Azure Data Factory - 이름 지정 규칙](naming-rules.md)을 참조하세요. |  예 |
-형식 | 데이터 세트의 형식입니다. Data Factory에서 지원하는 형식(예: AzureBlob, AzureSqlTable) 중 하나를 지정합니다. <br/><br/>자세한 내용은 [데이터 세트 형식](#dataset-type)을 참조하세요. | 예 |
-schema | 데이터 세트의 스키마입니다. 자세한 내용은 참조 하세요 [호환 가능한 데이터 집합 데이터 흐름](#dataset-type)합니다. | 아닙니다. |
+type | 데이터 세트의 형식입니다. Data Factory에서 지원하는 형식(예: AzureBlob, AzureSqlTable) 중 하나를 지정합니다. <br/><br/>자세한 내용은 [데이터 세트 형식](#dataset-type)을 참조하세요. | 예 |
+스키마 | 데이터 세트의 스키마입니다. 자세한 내용은 [데이터 흐름 호환 데이터 집합](#dataset-type)을 참조 하세요. | 아니요 |
 typeProperties | 형식 속성은 형식마다 다릅니다(예: Azure Blob, Azure SQL 테이블). 지원되는 형식 및 해당 속성에 대한 자세한 내용은 [데이터 세트 형식](#dataset-type)을 참조하세요. | 예 |
 
 
@@ -149,7 +149,7 @@ typeProperties | 형식 속성은 형식마다 다릅니다(예: Azure Blob, Azu
 ## <a name="dataset-type"></a>데이터 세트 형식
 사용하는 데이터 저장소에 따라 다양한 유형의 데이터 세트가 있습니다. Data Factory에서 지원하는 데이터 저장소 목록은 다음 표를 참조하세요. 해당 데이터 저장소에 대해 연결된 서비스 및 데이터 세트를 만드는 방법을 알아보려면 데이터 저장소를 클릭합니다.
 
-[!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-dataflow.md)]
+[!INCLUDE [data-factory-v2-supported-data-stores](../../includes/connector-activity-support-matrix.md)]
 
 이전 섹션의 예제에서 데이터 세트의 형식은 **AzureSqlTable**로 설정되어 있습니다. 마찬가지로 Azure Blob 데이터 세트의 경우 데이터 세트의 형식이 다음 JSON과 같이 **AzureBlob**으로 설정됩니다.
 
@@ -176,18 +176,18 @@ typeProperties | 형식 속성은 형식마다 다릅니다(예: Azure Blob, Azu
 ```
 
 ## <a name="dataset-structure-or-schema"></a>데이터 집합 구조 또는 스키마
-합니다 **구조** 섹션 또는 **스키마** 섹션에서는 데이터 집합 (데이터 흐름 호환)은 선택 사항입니다. 열의 이름 및 데이터 형식 컬렉션을 포함하여 데이터 세트의 스키마를 정의합니다. 형식을 변환하고 열을 원본에서 대상으로 매핑하는 데 사용되는 형식 정보를 structure 섹션에 제공합니다.
+**구조** 섹션 또는 **스키마** (데이터 흐름 호환) 섹션 데이터 집합은 선택 사항입니다. 열의 이름 및 데이터 형식 컬렉션을 포함하여 데이터 세트의 스키마를 정의합니다. 형식을 변환하고 열을 원본에서 대상으로 매핑하는 데 사용되는 형식 정보를 structure 섹션에 제공합니다.
 
 structure의 각 열에는 다음과 같은 속성이 포함됩니다.
 
-자산 | 설명 | 필수
+속성 | 설명 | 필수
 -------- | ----------- | --------
-이름 | 열의 이름입니다. | 예
-type | 열의 데이터 형식입니다. Data Factory는 다음과 같은 중간 데이터 형식을 허용되는 값으로 지원합니다. **Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset 및 Timespan** | 아닙니다.
-culture | type이 `Datetime` 또는 `Datetimeoffset` .NET 형식일 때 사용할 .NET 기반 culture(문화권)입니다. 기본값은 `en-us`입니다. | 아닙니다.
-format | type이 `Datetime` 또는 `Datetimeoffset` .NET 형식일 때 사용할 format(서식) 문자열입니다. 날짜/시간 형식을 지정하는 방법은 [사용자 지정 날짜 및 시간 형식 문자열](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)을 참조하세요. | 아닙니다.
+name | 열의 이름입니다. | 예
+type | 열의 데이터 형식입니다. Data Factory는 다음과 같은 중간 데이터 형식을 허용되는 값으로 지원합니다. **Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset 및 Timespan** | 아니요
+culture | type이 `Datetime` 또는 `Datetimeoffset` .NET 형식일 때 사용할 .NET 기반 culture(문화권)입니다. 기본값은 `en-us`입니다. | 아니요
+format | type이 `Datetime` 또는 `Datetimeoffset` .NET 형식일 때 사용할 format(서식) 문자열입니다. 날짜/시간 형식을 지정하는 방법은 [사용자 지정 날짜 및 시간 형식 문자열](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)을 참조하세요. | 아니요
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 다음 예제에서는 원본 Blob 데이터가 CSV 형식이며 userid, name 및 lastlogindate의 세 열을 포함한다고 가정합니다. 요일에 축약된 프랑스 이름을 사용하여 사용자 지정 날짜/시간 형식을 사용하는 Int64, String 및 Datetime 형식입니다.
 
 다음과 같이 열에 대한 형식 정의와 함께 Blob 데이터 세트 구조를 정의합니다.
@@ -225,4 +225,4 @@ Data Factory 및 Data Factory 버전 1 데이터 세트 사이에 몇 가지 차
 - [빠른 시작: .NET을 사용하여 데이터 팩터리 만들기](quickstart-create-data-factory-dot-net.md)
 - [빠른 시작: PowerShell을 사용하여 데이터 팩터리 만들기](quickstart-create-data-factory-powershell.md)
 - [빠른 시작: REST API를 사용하여 데이터 팩터리 만들기](quickstart-create-data-factory-rest-api.md)
-- [빠른 시작: Azure portal을 사용 하 여 데이터 팩터리 만들기](quickstart-create-data-factory-portal.md)
+- [빠른 시작: Azure Portal을 사용 하 여 데이터 팩터리 만들기](quickstart-create-data-factory-portal.md)
