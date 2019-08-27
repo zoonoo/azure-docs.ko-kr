@@ -11,12 +11,12 @@ ms.assetid: e4773ecf-3ad3-44b4-a1b5-ee5f58baeadd
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: e3570ab1227ca388ac62bffdc74bb68b1ddc41d1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d57ab4a7b655a7d49a7120d358dccc627099e5fd
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62105669"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050651"
 ---
 # <a name="monitor-and-manage-wunderlist-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Wunderlist 모니터링 및 관리
 
@@ -29,9 +29,9 @@ Azure Logic Apps 및 Wunderlist 커넥터를 사용하면 다음과 같이 다�
 
 [Wunderlist](https://www.wunderlist.com/)는 어디서든 디바이스에서 사용자 프로젝트, 할 일 목록 및 작업을 계획, 관리 및 완료하는 데 유용한 서비스입니다. 트리거를 사용하여 Wunderlist 계정에서 응답을 가져오고 다른 작업에서 출력을 사용하도록 할 수 있습니다. Wunderlist 계정을 사용하여 작업을 수행하는 작업을 사용할 수 있습니다. 또한 다른 작업에서 Wunderlist 작업의 출력을 사용하도록 할 수 있습니다. 예를 들어, 새 작업이 만료되면 Slack 커넥터를 사용하여 메시지를 게시할 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-* Azure 구독. Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다. 
+* Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다. 
 
 * Wunderlist 계정 및 사용자 자격 증명
 

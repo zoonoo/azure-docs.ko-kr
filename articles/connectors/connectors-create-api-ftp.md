@@ -1,21 +1,22 @@
 ---
-title: FTP 서버-Azure Logic Apps에 연결
+title: FTP 서버에 연결-Azure Logic Apps
 description: Azure Logic Apps을 사용하여 FTP 서버에 파일 만들기, 모니터링 및 관리
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
+manager: carmonm
 ms.reviewer: divswa, klam, LADocs
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/19/2019
 tags: connectors
-ms.openlocfilehash: 66f1d726dcfa1a077abbff0d9f028036db43cc25
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: a73fad3097be73e01a7a2a6652129cd7c9db9555
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67293084"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050973"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 FTP 파일 만들기, 모니터링 및 관리
 
@@ -30,21 +31,21 @@ Azure Logic Apps 및 FTP 커넥터를 사용하면 다음과 같이 다른 작�
 
 ## <a name="limits"></a>제한
 
-* FTP 커넥터만 명시적 FTP를 통해 SSL (FTPS)을 지원 하 고 암시적 FTPS를 사용 하 여 호환 되지 않습니다.
+* FTP 커넥터는 SSL (FTPS)을 통한 명시적인 FTP만 지원 하 고 암시적 FTPS와 호환 되지 않습니다.
 
-* 기본적으로 FTP 작업 읽거나 쓸 수 있는 파일 *50MB 작거나*합니다. 50MB 보다 큰 파일을 처리 하려면 지 원하는 동작을 FTP [메시지 청크](../logic-apps/logic-apps-handle-large-messages.md)합니다. 합니다 **파일 콘텐츠 가져오기** 작업 청크 암시적으로 사용 합니다.
+* 기본적으로 FTP 동작은 *50 MB 미만의*파일을 읽거나 쓸 수 있습니다. 50 MB 보다 큰 파일을 처리 하기 위해 FTP 동작은 [메시지 청크](../logic-apps/logic-apps-handle-large-messages.md)를 지원 합니다. **파일 콘텐츠 가져오기** 작업은 청크를 암시적으로 사용 합니다.
 
-* FTP 트리거 청크를 지원 하지 않습니다. 트리거 50MB 있는 파일만 선택 파일 콘텐츠를 요청할 경우 하거나 축소 합니다. 50MB보다 큰 파일을 가져오려면 다음 패턴을 따릅니다.
+* FTP 트리거는 청크를 지원 하지 않습니다. 파일 콘텐츠를 요청 하는 경우 트리거는 50 MB 미만의 파일만 선택 합니다. 50MB보다 큰 파일을 가져오려면 다음 패턴을 따릅니다.
 
-  * 와 같은 파일 속성을 반환 하는 FTP 트리거를 사용 하 여 **파일이 추가 되거나 (속성만)를 수정할 때**합니다.
+  * 파일이 추가 되거나 수정 되는 경우와 같이 파일 속성을 반환 하는 FTP 트리거를 사용 합니다 **(속성만)** .
 
-  * FTP 사용 하 여 트리거를 따릅니다 **파일 콘텐츠 가져오기** 전체 파일을 읽고 암시적으로 청크를 사용 하는 작업입니다.
+  * 전체 파일을 읽고 청크를 암시적으로 사용 하는 FTP **파일 콘텐츠 가져오기** 작업을 사용 하 여 트리거를 수행 합니다.
 
-## <a name="how-ftp-triggers-work"></a>FTP 작업을 트리거 하는 방법
+## <a name="how-ftp-triggers-work"></a>FTP 트리거 작동 방법
 
-FTP는 FTP 파일 시스템에서 마지막 폴링 이후 변경 된 모든 파일에 대 한 확인 하 여 작업을 트리거합니다. 일부 도구를 통해 파일을 변경하는 경우 타임스탬프를 유지할 수 있습니다. 이러한 경우 트리거가 작동할 수 있도록 이 기능을 사용하지 않도록 설정해야 합니다. 아래에는 몇 가지 일반적인 설정이 나와 있습니다.
+Ftp 트리거는 FTP 파일 시스템을 폴링하고 마지막 폴링 이후 변경 된 파일을 찾는 방식으로 작동 합니다. 일부 도구를 통해 파일을 변경하는 경우 타임스탬프를 유지할 수 있습니다. 이러한 경우 트리거가 작동할 수 있도록 이 기능을 사용하지 않도록 설정해야 합니다. 아래에는 몇 가지 일반적인 설정이 나와 있습니다.
 
-| SFTP 클라이언트 | 액션(Action) |
+| SFTP 클라이언트 | 작업 |
 |-------------|--------|
 | Winscp | **옵션** > **기본 설정** > **전송** > **편집** > **타임스탬프 보존** > **사용 안 함**으로 이동 |
 | FileZilla | **전송** > **전송된 파일의 타임스탬프 보존** > **사용 안 함**으로 이동 |
@@ -52,7 +53,7 @@ FTP는 FTP 파일 시스템에서 마지막 폴링 이후 변경 된 모든 파�
 
 트리거는 새 파일을 찾으면 해당 파일이 완전한 상태이며 부분적으로 작성된 것이 아닌지 확인합니다. 예를 들어 트리거가 파일 서버를 확인할 때 파일을 변경하는 중일 수 있습니다. 부분적으로 작성된 파일이 반환되지 않도록 하기 위해 트리거는 최근 변경된 내용이 있는 파일의 타임스탬프를 기록하되 해당 파일을 즉시 반환하지는 않으며, 서버를 다시 폴링할 때만 해당 파일을 반환합니다. 이 동작으로 인해 트리거 폴링 간격의 최대 2배까지 지연이 발생하는 경우도 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -76,7 +77,7 @@ FTP는 FTP 파일 시스템에서 마지막 폴링 이후 변경 된 모든 파�
 
    기존 논리 앱의 경우 작업을 추가하려는 마지막 단계에서 **새 단계**를 선택한 다음, **작업 추가**를 선택합니다. 검색 상자에서 필터로 "ftp"를 입력합니다. 작업 목록에서 원하는 작업을 선택합니다.
 
-   단계 사이에서 작업을 추가하려면 단계 사이에 있는 화살표 위로 포인터를 이동합니다. 더하기 기호를 선택 ( **+** )는 표시 되 고 선택 **작업 추가**합니다.
+   단계 사이에서 작업을 추가하려면 단계 사이에 있는 화살표 위로 포인터를 이동합니다. 표시 되는 더하기 기호 **+** ()를 선택 하 고 **작업 추가**를 선택 합니다.
 
 1. 연결에 필요한 세부 정보를 입력한 다음, **만들기**를 선택합니다.
 
@@ -102,7 +103,7 @@ FTP는 FTP 파일 시스템에서 마지막 폴링 이후 변경 된 모든 파�
 
 1. 연결에 필요한 세부 정보를 입력한 다음, **만들기**를 선택합니다.
 
-   기본적으로 이 커넥터는 파일을 텍스트 형식으로 전송합니다. 전송할 이진에서 파일 위치, 예를 들어, 형식 및 인코딩을 사용할 경우 선택 **이진 전송**합니다.
+   기본적으로 이 커넥터는 파일을 텍스트 형식으로 전송합니다. 이진 형식으로 파일을 전송 하려면 (예: encoding이 사용 되는 경우), **이진 전송**을 선택 합니다.
 
    ![FTP 서버 연결 만들기](./media/connectors-create-api-ftp/create-ftp-connection-trigger.png)  
 
@@ -146,7 +147,7 @@ FTP는 FTP 파일 시스템에서 마지막 폴링 이후 변경 된 모든 파�
 
 ## <a name="connector-reference"></a>커넥터 참조
 
-커넥터의 openapi 설명 되어 있는 트리거와 작업을 제한 하는 방법에 대 한 기술 정보 (이전의 Swagger) 설명을 검토 합니다 [커넥터의 참조 페이지](/connectors/ftpconnector/)합니다.
+커넥터의 OpenAPI (이전의 Swagger) 설명에서 설명 하는 트리거, 작업 및 제한에 대 한 자세한 기술 정보는 [커넥터의 참조 페이지를 참조](/connectors/ftpconnector/)하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

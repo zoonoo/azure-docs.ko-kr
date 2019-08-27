@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2019
 ms.author: damendo
-ms.openlocfilehash: 6b6227827e8d1efbb1d20899cd08315c4cbb0150
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 6898bed0645146af9c0131307459e31bad661329
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69875202"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036301"
 ---
 # <a name="delete-network-security-group-flow-log-storage-blobs-in-network-watcher"></a>Network Watcher에서 네트워크 보안 그룹 흐름 로그 저장소 blob를 삭제 합니다.
 
-현재는 Network Watcher에 대 한 [NSG (네트워크 보안 그룹) 흐름 로그가](network-watcher-nsg-flow-logging-overview.md) 보존 정책 설정에 따라 Blob 저장소에서 자동으로 삭제 되지 않는 문제가 있습니다. 이제 PowerShell 스크립트를 실행 하 여이 문서에 설명 된 대로 저장소 계정에서 흐름 로그를 수동으로 삭제 해야 합니다.
+현재는 Network Watcher에 대한 [NSG(네트워크 보안 그룹) 흐름 로그](network-watcher-nsg-flow-logging-overview.md)가 보존 정책 설정에 따라 Blob 스토리지에서 자동으로 삭제되지 않는 문제가 있습니다. 이제 PowerShell 스크립트를 실행 하 여이 문서에 설명 된 대로 저장소 계정에서 흐름 로그를 수동으로 삭제 해야 합니다.
 
 ## <a name="run-powershell-script-to-delete-nsg-flow-logs"></a>PowerShell 스크립트를 실행 하 여 NSG 흐름 로그 삭제
  
@@ -135,5 +135,6 @@ Write-Output ('Retention policy for all NSGs evaluated and completed successfull
    ```
     
 ## <a name="next-steps"></a>다음 단계
+- 고객은 [Azure Scheduler](https://azure.microsoft.com/services/scheduler/) 또는 [Azure Automation](https://azure.microsoft.com/services/automation/) 를 사용 하 여 스크립트 실행을 자동화할 수 있습니다.
 - NSG 로깅에 대해 자세히 알아보려면 Nsg [(네트워크 보안 그룹)에 대 한 Azure Monitor 로그](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)를 참조 하세요.
 

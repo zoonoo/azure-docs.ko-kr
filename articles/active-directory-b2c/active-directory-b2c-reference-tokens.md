@@ -7,21 +7,21 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/23/2019
+ms.date: 08/27/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c347a5740a13d071d4bb06daf43463f974198e5d
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 2b33c35b1e4f83c30e2efdf64aed0b5f2035c79b
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69980808"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70032088"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 토큰 개요
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD) B2C는 각 [인증 흐름](active-directory-b2c-apps.md)을 처리할 때 여러 유형의 보안 토큰을 내보냅니다. 이 문서에서는 각 토큰 유형의 형식, 보안 특성 및 내용을 설명합니다.
+Azure AD B2C(Azure Active Directory B2C)는 각 [인증 흐름](active-directory-b2c-apps.md)을 처리할 때 여러 형식의 보안 토큰을 내보냅니다. 이 문서에서는 각 토큰 유형의 형식, 보안 특성 및 내용을 설명합니다.
 
 ## <a name="token-types"></a>토큰 형식
 
@@ -40,7 +40,7 @@ Azure AD B2C와 통신 하는 데 사용 되는 토큰은 다음과 같습니다
 - `https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/authorize`
 - `https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/token`
 
-응용 프로그램이 Azure AD B2C에서 수신 하는 보안 토큰은 `/authorize` 또는 `/token` 끝점에서 가져올 수 있습니다. `/authorize` 끝점에서 ID 토큰을 가져오는 경우 사용자가 javascript 기반 웹 응용 프로그램에 로그인 하는 사용자에 게 자주 사용 되는 [암시적 흐름](active-directory-b2c-reference-spa.md)을 사용 하 여 수행 됩니다. `/token` 엔드포인트에서 ID 토큰을 획득하는 경우 브라우저에서 숨겨진 토큰을 유지하는 [기밀 코드 흐름](active-directory-b2c-reference-oidc.md)을 사용하도록 합니다.
+응용 프로그램이 Azure AD B2C에서 수신 하는 보안 토큰은 `/authorize` 또는 `/token` 끝점에서 가져올 수 있습니다. `/authorize` 끝점에서 ID 토큰을 획득 하는 경우 JavaScript 기반 웹 응용 프로그램에 로그인 하는 사용자에 게 자주 사용 되는 [암시적 흐름](active-directory-b2c-reference-spa.md)을 사용 하 여 수행 됩니다. `/token` 끝점에서 ID 토큰을 획득 하는 경우 [인증 코드 흐름](active-directory-b2c-reference-oidc.md#get-a-token)을 사용 하 여 수행 되며,이는 브라우저에서 토큰을 숨깁니다.
 
 ## <a name="claims"></a>클레임
 
@@ -50,7 +50,7 @@ ID 토큰의 클레임은 특정 순서로 반환 되지 않습니다. 언제 �
 
 다음 표에서는 Azure AD B2C에서 발급 한 ID 토큰 및 액세스 토큰에서 예측할 수 있는 클레임을 나열 합니다.
 
-| 이름 | 클레임 | 예제 값 | 설명 |
+| 이름 | 클레임 | 예제 값 | Description |
 | ---- | ----- | ------------- | ----------- |
 | 대상 사용자 | `aud` | `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` | 토큰의 의도한 수신자를 식별합니다. Azure AD B2C 대상 사용자는 응용 프로그램 ID입니다. 응용 프로그램은이 값의 유효성을 검사 하 고 일치 하지 않는 경우 토큰을 거부 해야 합니다. 대상은 리소스와 동의어입니다. |
 | 발급자 | `iss` |`https://{tenant}.b2clogin.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` | 토큰을 생성하고 반환하는 STS(보안 토큰 서비스)를 식별합니다. 또한 사용자가 인증 된 디렉터리를 식별 합니다. 응용 프로그램은 발급자 클레임의 유효성을 검사 하 여 토큰이 적절 한 끝점에서 제공 되었는지 확인 해야 합니다. |
@@ -64,7 +64,7 @@ ID 토큰의 클레임은 특정 순서로 반환 되지 않습니다. 언제 �
 | 제목 | `sub` | `884408e1-2918-4cz0-b12d-3aa027d7563b` | 응용 프로그램의 사용자와 같이 토큰이 정보를 어설션하는 보안 주체입니다. 이 값은 변경할 수 없으며 재할당 또는 재사용할 수 없습니다. 예를 들어 리소스 액세스에 토큰을 사용할 때 이 값을 사용하면 안전하게 인증 검사를 수행할 수 있습니다. 기본적으로 주체 클레임은 디렉터리에 있는 사용자의 개체 ID로 채워집니다. |
 | 인증 컨텍스트 클래스 참조 | `acr` | 해당 사항 없음 | 이전 정책 에서만 사용 됩니다. |
 | 보안 프레임워크 정책 | `tfp` | `b2c_1_signupsignin1` | ID 토큰을 획득 하는 데 사용 된 정책의 이름입니다. |
-| 인증 시간 | `auth_time` | `1438535543` | 사용자가 마지막으로 자격 증명을 입력 한 시간으로, epoch 시간으로 표시 됩니다. 이 인증에는 새 로그인, SSO (single sign-on) 세션 또는 다른 로그인 형식이 있습니다. 응용 프로그램 또는 사용자가 Azure AD B2C에 대 한 인증 시도를 마지막으로 시작한 시간 입니다.`auth_time` 인증에 사용 되는 메서드는 차별화 되지 않습니다. |
+| 인증 시간 | `auth_time` | `1438535543` | 사용자가 마지막으로 자격 증명을 입력 한 시간으로, epoch 시간으로 표시 됩니다. 이 인증에는 새 로그인, SSO (Single Sign-On) 세션 또는 다른 로그인 유형이 있습니다. 응용 프로그램 또는 사용자가 Azure AD B2C에 대 한 인증 시도를 마지막으로 시작한 시간 입니다.`auth_time` 인증에 사용 되는 메서드는 차별화 되지 않습니다. |
 | 범위 | `scp` | `Read`| 액세스 토큰에 대 한 리소스에 부여 된 권한입니다. 부여 된 여러 사용 권한은 공백으로 구분 됩니다. |
 | 권한 있는 주체 | `azp` | `975251ed-e4f5-4efd-abcb-5f1a8f566ab7` | 요청을 시작한 클라이언트 애플리케이션의 **애플리케이션 ID**입니다. |
 

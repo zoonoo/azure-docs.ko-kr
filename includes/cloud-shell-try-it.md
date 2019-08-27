@@ -4,12 +4,12 @@ ms.service: azure
 ms.topic: include
 ms.date: 06/13/2019
 ms.author: sttramer
-ms.openlocfilehash: f443b11207f6844bcffc1c7963209bc315f725b4
-ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
+ms.openlocfilehash: 75860e5f53c8a8539632d27dd6202c7fa53ad76a
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "69623881"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70047988"
 ---
 ## <a name="use-azure-cloud-shell"></a>Azure Cloud Shell 사용
 
@@ -25,8 +25,10 @@ Azure Cloud Shell을 시작하려면 다음을 수행합니다.
 
 이 문서의 코드를 Azure Cloud Shell에서 실행하려면 다음을 수행합니다.
 
-1. Cloud Shell을 엽니다.
-1. 코드 블록의 **복사** 단추를 선택하여 코드를 복사합니다. 
-1. Windows 및 Linux에서는 **Ctrl**+**Shift**+**V** 키를 눌러 Cloud Shell 세션에 코드를 붙여넣고, macOS에서는 **Cmd**+**Shift**+**V** 키를 눌러 붙여넣습니다. 
-1. **Enter** 키를 눌러 코드를 실행합니다.
+1. Cloud Shell을 시작합니다.
 
+1. 코드 블록의 **복사** 단추를 선택하여 코드를 복사합니다.
+
+1. Windows 및 Linux에서는 **Ctrl**+**Shift**+**V** 키를 눌러 Cloud Shell 세션에 코드를 붙여넣고, macOS에서는 **Cmd**+**Shift**+**V** 키를 눌러 붙여넣습니다.
+
+1. **Enter** 키를 눌러 코드를 실행합니다.

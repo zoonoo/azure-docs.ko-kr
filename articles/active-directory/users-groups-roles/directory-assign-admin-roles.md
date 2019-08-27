@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 08/04/2019
+ms.date: 08/23/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4d692110a304cbfbbfda69bb2b10e3a065b2450
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: a228c0d349fd45f34923a64ef99dcfba50c4c548
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68851535"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034983"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 사용 권한
 
@@ -29,9 +29,7 @@ Azure Active Directory (Azure AD)를 사용 하 여 제한 된 관리자에 게 
 
 전역 관리자 역할에 할당 된 사용자는 Azure AD 조직의 모든 관리 설정을 읽고 수정할 수 있습니다. 기본적으로 Azure 구독에 등록 하는 사람에 게는 Azure AD 조직에 대 한 전역 관리자 역할이 할당 됩니다. 전역 관리자 및 권한 있는 역할 관리자만 관리자 역할을 위임할 수 있습니다. 비즈니스에 대 한 위험을 줄이려면 조직에서 가능한 최소한의 사용자에 게이 역할을 할당 하는 것이 좋습니다.
 
-## <a name="best-practices"></a>최선의 구현 방법
-
-모범 사례로, 조직에서 5 명 미만의 사용자에 게이 역할을 할당 하는 것이 좋습니다. 조직의 전역 관리자 역할에 할당 된 5 명 이상의 사용자가 있는 경우 사용량을 줄이는 몇 가지 방법은 다음과 같습니다.
+모범 사례로, 조직에서 5 명 미만의 사용자에 게이 역할을 할당 하는 것이 좋습니다. 조직의 전역 관리자 역할에 할당 된 사용자가 5 명 이상 있는 경우 사용을 줄이는 몇 가지 방법은 다음과 같습니다.
 
 ### <a name="find-the-role-you-need"></a>필요한 역할 찾기
 
@@ -94,7 +92,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 
 * **[클라우드 디바이스 관리자](#cloud-device-administrator)** : 이 역할의 사용자는 Azure AD에서 디바이스를 사용하고 사용하지 않도록 설정하며, 삭제하고, Azure Portal에서 Windows 10 BitLocker 키(있는 경우)를 읽을 수 있습니다. 역할은 디바이스에서 다른 속성을 관리하는 사용 권한을 부여하지 않습니다.
 
-* **[규정 준수 관리자](#compliance-administrator)** : 이 역할이 있는 사용자에게는 Microsoft 365 규정 준수 센터, Microsoft 365 관리 센터, Azure, Office 365 보안 및 준수 센터에서 규정 준수 관련 기능을 관리할 권한이 있습니다. 이러한 사용자는 Exchange 관리 센터, 준수 관리자, Teams 및 비즈니스용 Skype 관리 센터 내의 모든 기능을 관리하고 Azure 및 Microsoft 365 관련 지원 티켓을 만들 수도 있습니다. 자세한 내용은 [Office 365 관리자 역할 정보](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)를 참조하세요.
+* **[규정 준수 관리자](#compliance-administrator)** : 이 역할이 있는 사용자에게는 Microsoft 365 규정 준수 센터, Microsoft 365 관리 센터, Azure, Office 365 보안 및 준수 센터에서 규정 준수 관련 기능을 관리할 권한이 있습니다. 또한 책임자는 비즈니스용 Skype 관리 센터를 & Exchange 관리 센터 및 팀 내 모든 기능을 관리 하 고 Azure 및 Microsoft 365에 대 한 지원 티켓을 만들 수 있습니다. 자세한 내용은 [Office 365 관리자 역할 정보](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)를 참조하세요.
 
   입력 | 가능한 작업
   ----- | ----------
@@ -104,7 +102,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
   [Intune](https://docs.microsoft.com/intune/role-based-access-control) | 모든 Intune 감사 데이터 확인
   [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | 읽기 전용 권한 소유/경고를 관리할 수 있음<br>파일 정책을 생성/수정하고 파일 거버넌스 작업을 허용할 수 있음<br> 데이터 관리에서 모든 기본 제공 보고서를 확인할 수 있음
 
-* **[준수 데이터 관리자](#compliance-data-administrator)** : 이 역할을 가진 사용자는 Microsoft 365 준수 센터, Microsoft 365 관리 센터 및 Azure에서 데이터를 보호 하 고 추적할 수 있는 권한이 있습니다. 또한 사용자는 Exchange 관리 센터, 준수 관리자, Teams 및 비즈니스용 Skype 관리 센터 내의 모든 기능을 관리하고 Azure 및 Microsoft 365의 지원 티켓을 만들 수 있습니다.
+* **[준수 데이터 관리자](#compliance-data-administrator)** : 이 역할을 가진 사용자는 Microsoft 365 준수 센터, Microsoft 365 관리 센터 및 Azure에서 데이터를 추적할 수 있는 권한이 있습니다. 또한 사용자는 비즈니스용 Skype 관리 센터 & Exchange 관리 센터, 준수 관리자 및 팀 내에서 준수 데이터를 추적 하 고 Azure 및 Microsoft 365에 대 한 지원 티켓을 만들 수 있습니다.
 
   입력 | 가능한 작업
   ----- | ----------
@@ -135,7 +133,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
   > [!NOTE] 
   > Microsoft Graph API, Azure AD Graph API 및 Azure AD PowerShell에서 이 역할은 “Dynamics 365 서비스 관리자”로 식별됩니다. [Azure Portal](https://portal.azure.com)에서 이 역할은 "Dynamics 365 관리자"입니다.
 
-* **[Exchange 관리자](#exchange-service-administrator)** : 이 역할을 가진 사용자는 해당 서비스가 있는 경우 Microsoft Exchange Online 내에서 전역 권한을 소유합니다. 또한 모든 Office 365 그룹을 만들고 관리하는 기능, 지원 티켓을 관리하는 기능 및 서비스 상태를 모니터링하는 기능도 포함합니다. 자세한 내용은 [Office 365 관리자 역할 정보](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)를 참조하세요.
+* **[Exchange 관리자](#exchange-service-administrator)** : 이 역할을 가진 사용자는 해당 서비스가 있는 경우 Microsoft Exchange Online 내에서 글로벌 사용 권한을 갖습니다. 또한 모든 Office 365 그룹을 만들고 관리하는 기능, 지원 티켓을 관리하는 기능 및 서비스 상태를 모니터링하는 기능도 포함합니다. 자세한 내용은 [Office 365 관리자 역할 정보](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)를 참조하세요.
   > [!NOTE]
   > Microsoft Graph API, Azure AD Graph API 및 Azure AD PowerShell에서 이 역할은 “Exchange 서비스 관리자”로 식별됩니다. [Azure Portal](https://portal.azure.com)에서 이 역할은 "Exchange 관리자"입니다. [Exchange 관리 센터](https://go.microsoft.com/fwlink/p/?LinkID=529144)의 “Exchange Online 관리자”입니다. 
 
@@ -249,7 +247,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
   ID 보호 센터 | 모든 보안 보고서 및 보안 기능에 대한 설정 정보를 읽습니다.<br><ul><li>스팸 방지<li>암호화<li>데이터 손실 방지<li>맬웨어 방지<li>Advanced Threat Protection<li>피싱 방지<li>메일 흐름 규칙
   [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | Azure AD PIM에 표시되는 다음과 같은 모든 정보에 대한 읽기 전용 액세스 권한을 갖습니다. Azure AD 역할 할당에 대한 정책 및 보고서, 보안 검토, Azure AD 역할 할당 외의 시나리오에 대한 정책 데이터 및 보고서에 대한 향후 읽기 액세스 권한<br>Azure AD PIM에 로그인을 하거나 어떠한 변경도 할 수 **없습니다**. PIM 포털 또는 PowerShell을 통해이 역할의 누군가가 사용자에 게 적합 한 경우 추가 역할 (예: 전역 관리자 또는 권한 있는 역할 관리자)을 활성화할 수 있습니다.
   [Office 365 보안 및 준수 센터](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | 보안 정책 보기<br>보안 위협 확인/조사<br>보고서 보기
-  Windows Defender ATP 및 EDR | 경고 확인/조사
+  Windows Defender ATP 및 EDR | 경고를 확인 하 고 조사 합니다. Windows Defender ATP에서 역할 기반 액세스 제어를 설정 하면 Azure AD 보안 읽기 권한자 역할과 같은 읽기 전용 권한이 있는 사용자가 Windows Defender ATP 역할에 할당 될 때까지 액세스 권한을 잃게 됩니다.
   [Intune](https://docs.microsoft.com/intune/role-based-access-control) | 사용자, 디바이스, 등록, 구성 및 애플리케이션 정보 확인. Intune을 변경할 수는 없음
   [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | 읽기 전용 권한 소유/경고를 관리할 수 있음
   [Azure Security Center](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) | 권장 사항 및 경고를 보고, 보안 정책을 보고, 보안 상태를 볼 수 있지만 변경할 수는 없습니다.
@@ -523,7 +521,7 @@ Azure AD 및 Azure AD ID를 사용하는 Microsoft 서비스의 모든 측면을
 | microsoft.aad.directory/users/allProperties/allTasks | Azure Active Directory에서 사용자를 만들고 삭제하고, 모든 속성을 읽고 업데이트합니다. |
 | microsoft.aad.directorySync/allEntities/allTasks | Azure AD Connect에서 모든 작업을 수행합니다. |
 | microsoft.aad.identityProtection/allEntities/allTasks | microsoft.aad.identityProtection에서 모든 리소스를 만들고 삭제하고, 표준 속성을 읽고 업데이트합니다. |
-| microsoft.aad.privilegedIdentityManagement/allEntities/read | microsoft.aad.privilegedIdentityManagement의 모든 리소스를 읽습니다. |
+| microsoft.aad.privilegedIdentityManagement/allEntities/read | microsoft.aad.privilegedIdentityManagement에서 모든 리소스를 읽습니다. |
 | microsoft.azure.advancedThreatProtection/allEntities/read | microsoft.azure.advancedThreatProtection에서 모든 리소스를 읽습니다. |
 | microsoft.azure.informationProtection/allEntities/allTasks | Azure Information Protection의 모든 측면을 관리합니다. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health를 읽고 구성합니다. |
@@ -531,25 +529,25 @@ Azure AD 및 Azure AD ID를 사용하는 Microsoft 서비스의 모든 측면을
 | microsoft.commerce.billing/allEntities/allTasks | Office 365 청구의 모든 측면을 관리합니다. |
 | microsoft.intune/allEntities/allTasks | Intune의 모든 측면을 관리합니다. |
 | microsoft.office365.complianceManager/allEntities/allTasks | Office 365 준수 관리자의 모든 측면을 관리합니다. |
-| microsoft.office365.desktopAnalytics/allEntities/allTasks | Desktop Analytics의 모든 측면을 관리합니다. |
+| microsoft.office365.desktopAnalytics/allEntities/allTasks | 데스크톱 분석의 모든 측면을 관리합니다. |
 | microsoft.office365.exchange/allEntities/allTasks | Exchange Online의 모든 측면을 관리합니다. |
 | microsoft.office365.lockbox/allEntities/allTasks | Office 365 고객 Lockbox의 모든 측면을 관리합니다. |
 | microsoft.office365.messageCenter/messages/read | microsoft.office365.messageCenter에서 메시지를 읽습니다. |
-| microsoft.office365.messageCenter/securityMessages/read | microsoft.office365.messageCenter의 securityMessages를 읽습니다. |
+| microsoft.office365.messageCenter/securityMessages/read | microsoft.office365.messageCenter에서 securityMessages를 읽습니다. |
 | microsoft.office365.protectionCenter/allEntities/allTasks | Office 365 보호 센터의 모든 측면을 관리합니다. |
 | microsoft.office365.securityComplianceCenter/allEntities/allTasks | microsoft.office365.securityComplianceCenter에서 모든 리소스를 만들고 삭제하고, 표준 속성을 읽고 업데이트합니다. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
 | microsoft.office365.sharepoint/allEntities/allTasks | microsoft.office365.sharepoint에서 모든 리소스를 만들고 삭제하고, 표준 속성을 읽고 업데이트합니다. |
 | microsoft.office365.skypeForBusiness/allEntities/allTasks | 비즈니스용 Skype Online의 모든 측면을 관리합니다. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
-| microsoft.office365.usageReports/allEntities/read | Office 365 사용 현황 보고서를 읽습니다. |
-| microsoft.office365.webPortal/allEntities/basic/read | microsoft.office365.webPortal에서 모든 리소스의 기본 속성을 읽습니다. |
+| microsoft.office365.usageReports/allEntities/read | Office 365 사용 보고서를 읽습니다. |
+| microsoft.office365.webPortal/allEntities/basic/read | microsoft.office365.webPortal에서 모든 리소스에 대한 기본 속성을 읽습니다. |
 | microsoft.powerApps.dynamics365/allEntities/allTasks | Dynamics 365의 모든 측면을 관리합니다. |
 | microsoft.powerApps.powerBI/allEntities/allTasks | Power BI의 모든 측면을 관리합니다. |
 | microsoft.windows.defenderAdvancedThreatProtection/allEntities/read | microsoft.windows.defenderAdvancedThreatProtection에서 모든 리소스를 읽습니다. |
 
 ### <a name="compliance-administrator"></a>준수 관리자
-Azure AD 및 Office 365의 준수 구성 및 보고서를 읽고 관리할 수 있습니다.
+Azure AD 및 Office 365에서 준수 구성 및 보고서를 읽고 관리할 수 있습니다.
 
   > [!NOTE]
   > 이 역할에는 Azure Active Directory 외부의 추가 권한이 있습니다. 자세한 내용은 위에 나온 역할 설명을 참조하세요.
@@ -647,7 +645,7 @@ Dynamics 365 제품의 모든 측면을 관리할 수 있습니다.
 | microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health를 읽고 구성합니다. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Azure 지원 티켓을 만들고 관리합니다. |
 | microsoft.office365.webPortal/allEntities/basic/read | microsoft.office365.webPortal에서 모든 리소스에 대한 기본 속성을 읽습니다. |
-| microsoft.office365.desktopAnalytics/allEntities/allTasks | Desktop Analytics의 모든 측면을 관리합니다. |
+| microsoft.office365.desktopAnalytics/allEntities/allTasks | 데스크톱 분석의 모든 측면을 관리합니다. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
 
@@ -669,7 +667,7 @@ Dynamics 365 제품의 모든 측면을 관리할 수 있습니다.
 | microsoft.aad.directory/applications/basic/read | Azure Active Directory에서 애플리케이션의 기본 속성을 읽습니다. |
 | microsoft.aad.directory/applications/owners/read | Azure Active Directory에서 applications.owners 속성을 읽습니다. |
 | microsoft.aad.directory/applications/policies/read | Azure Active Directory에서 applications.policies 속성을 읽습니다. |
-| microsoft.aad.directory/contacts/basic/read | Azure Active Directory에서 연락처의 기본 속성을 읽습니다. |
+| microsoft.aad.directory/contacts/basic/read | Azure Active Directory에서 연락처의 표준 속성을 읽습니다. |
 | microsoft.aad.directory/contacts/memberOf/read | Azure Active Directory에서 contacts.memberOf 속성을 읽습니다. |
 | microsoft.aad.directory/contracts/basic/read | Azure Active Directory에서 계약의 기본 속성을 읽습니다. |
 | microsoft.aad.directory/devices/basic/read | Azure Active Directory에서 디바이스의 기본 속성을 읽습니다. |
@@ -680,7 +678,7 @@ Dynamics 365 제품의 모든 측면을 관리할 수 있습니다.
 | microsoft.aad.directory/directoryRoles/eligibleMembers/read | Azure Active Directory에서 directoryRoles.eligibleMembers 속성을 읽습니다. |
 | microsoft.aad.directory/directoryRoles/members/read | Azure Active Directory에서 directoryRoles.members 속성을 읽습니다. |
 | microsoft.aad.directory/domains/basic/read | Azure Active Directory에서 도메인의 기본 속성을 읽습니다. |
-| microsoft.aad.directory/groups/appRoleAssignments/read | Azure Active Directory에서 groups.appRoleAssignments 속성을 읽습니다. |
+| microsoft.aad.directory/groups/appRoleAssignments/read | Azure Active Directory에서 Groups.AppRoleAssignments 속성을 읽습니다. |
 | microsoft.aad.directory/groups/basic/read | Azure Active Directory에서 그룹의 기본 속성을 읽습니다. |
 | microsoft.aad.directory/groups/memberOf/read | Azure Active Directory에서 groups.memberOf 속성을 읽습니다. |
 | microsoft.aad.directory/groups/members/read | Azure Active Directory에서 groups.members 속성을 읽습니다. |
@@ -799,7 +797,7 @@ Exchange 제품의 모든 측면을 관리할 수 있습니다.
 | microsoft.aad.b2c/identityProviders/allTasks | Azure Active Directory B2C에서 id 공급자를 읽고 구성 합니다. |
 
 ### <a name="guest-inviter"></a>게스트 초대자
-'멤버가 게스트를 초대할 수 있음' 설정에 관계없이 게스트 사용자를 초대할 수 있습니다.
+‘멤버가 게스트를 초대할 수 있음’ 설정에 관계없이 게스트 사용자를 초대할 수 있습니다.
 
 | **actions** | **설명** |
 | --- | --- |
@@ -838,7 +836,7 @@ Intune 제품의 모든 측면을 관리할 수 있습니다.
 
 | **actions** | **설명** |
 | --- | --- |
-| microsoft.aad.directory/contacts/basic/update | Azure Active Directory에서 연락처의 기본 속성을 업데이트합니다. |
+| microsoft.aad.directory/contacts/basic/update | Azure Active Directory에서 연락처의 기본 속성을 읽습니다. |
 | microsoft.aad.directory/contacts/create | Azure Active Directory에서 연락처를 만듭니다. |
 | microsoft.aad.directory/contacts/delete | Azure Active Directory에서 연락처를 삭제합니다. |
 | microsoft.aad.directory/devices/basic/update | Azure Active Directory에서 디바이스의 기본 속성을 업데이트합니다. |
@@ -863,7 +861,7 @@ Intune 제품의 모든 측면을 관리할 수 있습니다.
 | microsoft.azure.supportTickets/allEntities/allTasks | Azure 지원 티켓을 만들고 관리합니다. |
 | microsoft.intune/allEntities/allTasks | Intune의 모든 측면을 관리합니다. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
-| microsoft.office365.webPortal/allEntities/basic/read | microsoft.office365.webPortal에서 모든 리소스의 기본 속성을 읽습니다. |
+| microsoft.office365.webPortal/allEntities/basic/read | microsoft.office365.webPortal에서 모든 리소스에 대한 기본 속성을 읽습니다. |
 
 ### <a name="kaizala-administrator"></a>Kaizala 관리자
 Microsoft Kaizala에 대 한 설정을 관리할 수 있습니다.  
@@ -919,7 +917,7 @@ Microsoft Kaizala에 대 한 설정을 관리할 수 있습니다.
 | --- | --- |
 | microsoft.office365.webPortal/allEntities/basic/read | microsoft.office365.webPortal에서 모든 리소스에 대한 기본 속성을 읽습니다. |
 | microsoft.office365.messageCenter/messages/read | microsoft.office365.messageCenter에서 메시지를 읽습니다. |
-| microsoft.office365.messageCenter/securityMessages/read | microsoft.office365.messageCenter의 securityMessages를 읽습니다. |
+| microsoft.office365.messageCenter/securityMessages/read | microsoft.office365.messageCenter에서 securityMessages를 읽습니다. |
 
 ### <a name="message-center-reader"></a>메시지 센터 읽기 권한자
 Office 365 메시지 센터에서만 조직의 메시지 및 업데이트를 읽을 수 있습니다. 
@@ -932,7 +930,7 @@ Office 365 메시지 센터에서만 조직의 메시지 및 업데이트를 읽
 | **actions** | **설명** |
 | --- | --- |
 | microsoft.office365.webPortal/allEntities/basic/read | microsoft.office365.webPortal에서 모든 리소스에 대한 기본 속성을 읽습니다. |
-| microsoft.office365.messageCenter/messages/read | microsoft.office365.messageCenter의 메시지를 읽습니다. |
+| microsoft.office365.messageCenter/messages/read | microsoft.office365.messageCenter에서 메시지를 읽습니다. |
 
 ### <a name="partner-tier1-support"></a>파트너 계층1 지원
 사용하지 마세요. 일반적인 용도로는 적합하지 않습니다.
@@ -944,7 +942,7 @@ Office 365 메시지 센터에서만 조직의 메시지 및 업데이트를 읽
 
 | **actions** | **설명** |
 | --- | --- |
-| microsoft.aad.directory/contacts/basic/update | Azure Active Directory에서 연락처의 기본 속성을 업데이트합니다. |
+| microsoft.aad.directory/contacts/basic/update | Azure Active Directory에서 연락처의 기본 속성을 읽습니다. |
 | microsoft.aad.directory/contacts/create | Azure Active Directory에서 연락처를 만듭니다. |
 | microsoft.aad.directory/contacts/delete | Azure Active Directory에서 연락처를 삭제합니다. |
 | microsoft.aad.directory/groups/create | Azure Active Directory에서 그룹을 만듭니다. |
@@ -976,7 +974,7 @@ Office 365 메시지 센터에서만 조직의 메시지 및 업데이트를 읽
 
 | **actions** | **설명** |
 | --- | --- |
-| microsoft.aad.directory/contacts/basic/update | Azure Active Directory에서 연락처의 기본 속성을 업데이트합니다. |
+| microsoft.aad.directory/contacts/basic/update | Azure Active Directory에서 연락처의 기본 속성을 읽습니다. |
 | microsoft.aad.directory/contacts/create | Azure Active Directory에서 연락처를 만듭니다. |
 | microsoft.aad.directory/contacts/delete | Azure Active Directory에서 연락처를 삭제합니다. |
 | microsoft.aad.directory/domains/allTasks | Azure Active Directory에서 도메인을 만들고 삭제하고, 표준 속성을 읽고 업데이트합니다. |
@@ -1006,7 +1004,7 @@ Office 365 메시지 센터에서만 조직의 메시지 및 업데이트를 읽
 | **actions** | **설명** |
 | --- | --- |
 | microsoft.aad.directory/users/password/update | Azure Active Directory의 모든 사용자에 대한 암호를 업데이트합니다. 자세한 내용은 온라인 설명서를 참조하세요. |
-| microsoft.office365.webPortal/allEntities/basic/read | microsoft.office365.webPortal에서 모든 리소스의 기본 속성을 읽습니다. |
+| microsoft.office365.webPortal/allEntities/basic/read | microsoft.office365.webPortal에서 모든 리소스에 대한 기본 속성을 읽습니다. |
 
 ### <a name="power-bi-service-administrator"></a>Power BI 서비스 관리자
 Power BI 제품의 모든 측면을 관리할 수 있습니다.
@@ -1026,7 +1024,7 @@ Power BI 제품의 모든 측면을 관리할 수 있습니다.
 | microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
 
 ### <a name="privileged-authentication-administrator"></a>권한 있는 인증 관리자
-사용자(관리자 또는 비관리자)의 인증 메서드 정보를 보고, 설정하고, 다시 설정할 수 있습니다.
+모든 사용자 (관리자 또는 비 관리자)에 대 한 인증 방법 정보를 보고 설정 하 고 다시 설정할 수 있습니다.
 
 | **actions** | **설명** |
 | --- | --- |
@@ -1048,7 +1046,7 @@ Azure AD의 역할 할당 및 Privileged Identity Management의 모든 측면을
 
 | **actions** | **설명** |
 | --- | --- |
-| microsoft.aad.privilegedIdentityManagement/allEntities/allTasks | 모든 리소스를 만들고 삭제한 다음 microsoft.aad.privilegedIdentityManagement에서 표준 속성을 읽고 업데이트합니다. |
+| microsoft.aad.privilegedIdentityManagement/allEntities/allTasks | microsoft.aad.privilegedIdentityManagement에서 모든 리소스를 만들고 삭제하고, 표준 속성을 읽고 업데이트합니다. |
 | microsoft.aad.directory/servicePrincipals/appRoleAssignedTo/allTasks | Azure Active Directory에서 servicePrincipals. appRoleAssignedTo 속성을 읽고 구성 합니다. |
 | microsoft.aad.directory/servicePrincipals/oAuth2PermissionGrants/allTasks | Azure Active Directory에서 oAuth2PermissionGrants 속성을 읽고 구성 합니다. |
 | microsoft.aad.directory/administrativeUnits/allProperties/allTasks | 관리 단위 만들기 및 관리 (구성원 포함) |
@@ -1068,7 +1066,7 @@ Azure AD의 역할 할당 및 Privileged Identity Management의 모든 측면을
 | microsoft.aad.directory/auditLogs/allProperties/read | Azure Active Directory에서 auditLogs에 대한 모든 속성(권한 있는 속성 포함)을 읽습니다. |
 | microsoft.aad.directory/signInReports/allProperties/read | Azure Active Directory에서 signInReports에 대한 모든 속성(권한 있는 속성 포함)을 읽습니다. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health를 읽고 구성합니다. |
-| microsoft.office365.usageReports/allEntities/read | Office 365 사용 현황 보고서를 읽습니다. |
+| microsoft.office365.usageReports/allEntities/read | Office 365 사용 보고서를 읽습니다. |
 
 ### <a name="search-administrator"></a>관리자 검색
 Microsoft 검색 설정의 모든 측면을 만들고 관리할 수 있습니다.
@@ -1080,12 +1078,12 @@ Microsoft 검색 설정의 모든 측면을 만들고 관리할 수 있습니다
 
 | **actions** | **설명** |
 | --- | --- |
-| microsoft.office365.messageCenter/messages/read | microsoft.office365.messageCenter의 메시지를 읽습니다. |
+| microsoft.office365.messageCenter/messages/read | microsoft.office365.messageCenter에서 메시지를 읽습니다. |
 | microsoft.office365.search/allEntities/allProperties/allTasks | 모든 리소스를 만들고 삭제 하 고 office365에서 모든 속성을 읽고 업데이트 합니다. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
-| microsoft.office365.usageReports/allEntities/read | Office 365 사용 현황 보고서를 읽습니다. |
-| microsoft.office365.webPortal/allEntities/basic/read | microsoft.office365.webPortal에서 모든 리소스의 기본 속성을 읽습니다. |
+| microsoft.office365.usageReports/allEntities/read | Office 365 사용 보고서를 읽습니다. |
+| microsoft.office365.webPortal/allEntities/basic/read | microsoft.office365.webPortal에서 모든 리소스에 대한 기본 속성을 읽습니다. |
 
 ### <a name="search-editor"></a>검색 편집기
 책갈피, Q, As, 위치, floorplan 등의 편집 콘텐츠를 만들고 관리할 수 있습니다.
@@ -1097,9 +1095,9 @@ Microsoft 검색 설정의 모든 측면을 만들고 관리할 수 있습니다
 
 | **actions** | **설명** |
 | --- | --- |
-| microsoft.office365.messageCenter/messages/read | microsoft.office365.messageCenter의 메시지를 읽습니다. |
+| microsoft.office365.messageCenter/messages/read | microsoft.office365.messageCenter에서 메시지를 읽습니다. |
 | microsoft.office365.search/content/allProperties/allTasks | Office365에서 콘텐츠를 만들고 삭제 하 고, 모든 속성을 읽고 업데이트 합니다. |
-| microsoft.office365.usageReports/allEntities/read | Office 365 사용 현황 보고서를 읽습니다. |
+| microsoft.office365.usageReports/allEntities/read | Office 365 사용 보고서를 읽습니다. |
 
 ### <a name="security-administrator"></a>보안 관리자
 Azure AD 및 Office 365에서 보안 정보 및 보고서를 읽고 구성을 관리할 수 있습니다.
@@ -1123,11 +1121,11 @@ Azure AD 및 Office 365에서 보안 정보 및 보고서를 읽고 구성을 �
 | microsoft.aad.directory/signInReports/allProperties/read | Azure Active Directory에서 signInReports에 대한 모든 속성(권한 있는 속성 포함)을 읽습니다. |
 | microsoft.aad.identityProtection/allEntities/read | microsoft.aad.identityProtection에서 모든 리소스를 읽습니다. |
 | microsoft.aad.identityProtection/allEntities/update | microsoft.aad.identityProtection에서 모든 리소스를 업데이트합니다. |
-| microsoft.aad.privilegedIdentityManagement/allEntities/read | microsoft.aad.privilegedIdentityManagement의 모든 리소스를 읽습니다. |
+| microsoft.aad.privilegedIdentityManagement/allEntities/read | microsoft.aad.privilegedIdentityManagement에서 모든 리소스를 읽습니다. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health를 읽고 구성합니다. |
 | microsoft.office365.webPortal/allEntities/basic/read | microsoft.office365.webPortal에서 모든 리소스에 대한 기본 속성을 읽습니다. |
 | microsoft.office365.protectionCenter/allEntities/read | Office 365 보호 센터의 모든 측면을 읽습니다. |
-| microsoft.office365.protectionCenter/allEntities/update | microsoft.office365.protectionCenter의 모든 리소스를 업데이트합니다. |
+| microsoft.office365.protectionCenter/allEntities/update | microsoft.office365.protectionCenter에서 모든 리소스를 업데이트합니다. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
 
 ### <a name="security-operator"></a>보안 운영자
@@ -1142,15 +1140,15 @@ Azure AD 및 Office 365에서 보안 정보 및 보고서를 읽고 구성을 �
 | --- | --- |
 | microsoft.aad.cloudAppSecurity/allEntities/allTasks | Microsoft Cloud App Security를 읽고 구성 합니다. |
 | microsoft.aad.identityProtection/allEntities/read | microsoft.aad.identityProtection에서 모든 리소스를 읽습니다. |
-| microsoft.aad.privilegedIdentityManagement/allEntities/read | microsoft.aad.privilegedIdentityManagement의 모든 리소스를 읽습니다. |
+| microsoft.aad.privilegedIdentityManagement/allEntities/read | microsoft.aad.privilegedIdentityManagement에서 모든 리소스를 읽습니다. |
 | microsoft.azure.advancedThreatProtection/allEntities/read | Azure AD Advanced Threat Protection을 읽고 구성 합니다. |
 | microsoft.intune/allEntities/allTasks | Intune의 모든 측면을 관리합니다. |
 | microsoft.office365.securityComplianceCenter/allEntities/allTasks | 보안 및 준수 센터를 읽고 구성 합니다. |
-| microsoft.office365.usageReports/allEntities/read | Office 365 사용 현황 보고서를 읽습니다. |
+| microsoft.office365.usageReports/allEntities/read | Office 365 사용 보고서를 읽습니다. |
 | microsoft.windows.defenderAdvancedThreatProtection/allEntities/read | Windows Defender Advanced Threat Protection을 읽고 구성 합니다. |
 
 ### <a name="security-reader"></a>보안 읽기 권한자
-Azure AD 및 Office 365의 보안 정보 및 보고서를 읽을 수 있습니다.
+Azure AD 및 Office 365에서 보안 정보 및 보고서를 읽을 수 있습니다.
 
   > [!NOTE]
   > 이 역할에는 Azure Active Directory 외부의 추가 권한이 있습니다. 자세한 내용은 위에 나온 역할 설명을 참조하세요.
@@ -1163,14 +1161,14 @@ Azure AD 및 Office 365의 보안 정보 및 보고서를 읽을 수 있습니�
 | microsoft.aad.directory/devices/bitLockerRecoveryKeys/read | Azure Active Directory에서 devices.bitLockerRecoveryKeys 속성을 읽습니다. |
 | microsoft.aad.directory/signInReports/allProperties/read | Azure Active Directory에서 signInReports에 대한 모든 속성(권한 있는 속성 포함)을 읽습니다. |
 | microsoft.aad.identityProtection/allEntities/read | microsoft.aad.identityProtection에서 모든 리소스를 읽습니다. |
-| microsoft.aad.privilegedIdentityManagement/allEntities/read | microsoft.aad.privilegedIdentityManagement의 모든 리소스를 읽습니다. |
+| microsoft.aad.privilegedIdentityManagement/allEntities/read | microsoft.aad.privilegedIdentityManagement에서 모든 리소스를 읽습니다. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health를 읽고 구성합니다. |
 | microsoft.office365.webPortal/allEntities/basic/read | microsoft.office365.webPortal에서 모든 리소스에 대한 기본 속성을 읽습니다. |
 | microsoft.office365.protectionCenter/allEntities/read | Office 365 보호 센터의 모든 측면을 읽습니다. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
 
 ### <a name="service-support-administrator"></a>서비스 지원 관리자
-서비스 상태 정보를 읽고 지원 티켓을 관리할 수 있습니다.
+서비스 상태 정보를 읽고, 지원 티켓을 관리할 수 있습니다.
 
   > [!NOTE]
   > 이 역할에는 Azure Active Directory 외부의 추가 권한이 있습니다. 자세한 내용은 위에 나온 역할 설명을 참조하세요.
@@ -1209,7 +1207,7 @@ SharePoint 서비스의 모든 측면을 관리할 수 있습니다.
 | microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
 
 ### <a name="teams-communications-administrator"></a>Teams 통신 관리자
-Microsoft Teams 서비스 내에서 통화 및 모임 기능을 관리할 수 있습니다.
+Microsoft Teams 서비스 내에서 호출 및 회의 기능을 관리할 수 있습니다.
 
   > [!NOTE]
   > 이 역할에는 Azure Active Directory 외부의 추가 권한이 있습니다. 자세한 내용은 위에 나온 역할 설명을 참조하세요.
@@ -1223,10 +1221,10 @@ Microsoft Teams 서비스 내에서 통화 및 모임 기능을 관리할 수 �
 | microsoft.office365.webPortal/allEntities/basic/read | microsoft.office365.webPortal에서 모든 리소스에 대한 기본 속성을 읽습니다. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
-| microsoft.office365.usageReports/allEntities/read | Office 365 사용 현황 보고서를 읽습니다. |
+| microsoft.office365.usageReports/allEntities/read | Office 365 사용 보고서를 읽습니다. |
 
 ### <a name="teams-communications-support-engineer"></a>Teams 통신 지원 엔지니어
-고급 도구를 사용하여 Teams 내의 통신 문제를 해결할 수 있습니다.
+고급 도구를 사용하여 Teams 내에서 통신 문제를 해결할 수 있습니다.
 
   > [!NOTE]
   > 이 역할에는 Azure Active Directory 외부의 추가 권한이 있습니다. 자세한 내용은 위에 나온 역할 설명을 참조하세요.
@@ -1240,7 +1238,7 @@ Microsoft Teams 서비스 내에서 통화 및 모임 기능을 관리할 수 �
 | microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
 
 ### <a name="teams-communications-support-specialist"></a>Teams 통신 지원 전문가
-기본 도구를 사용하여 Teams 내의 통신 문제를 해결할 수 있습니다.
+기본 도구를 사용하여 Teams 내에서 통신 문제를 해결할 수 있습니다.
 
   > [!NOTE]
   > 이 역할에는 Azure Active Directory 외부의 추가 권한이 있습니다. 자세한 내용은 위에 나온 역할 설명을 참조하세요.
@@ -1275,7 +1273,7 @@ Microsoft Teams 서비스를 관리할 수 있습니다.
 | microsoft.office365.webPortal/allEntities/basic/read | microsoft.office365.webPortal에서 모든 리소스에 대한 기본 속성을 읽습니다. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
-| microsoft.office365.usageReports/allEntities/read | Office 365 사용 현황 보고서를 읽습니다. |
+| microsoft.office365.usageReports/allEntities/read | Office 365 사용 보고서를 읽습니다. |
 
 ### <a name="user-administrator"></a>사용자 관리자
 제한된 관리자의 암호 재설정을 비롯하여 사용자 및 그룹의 모든 측면을 관리할 수 있습니다.
@@ -1285,7 +1283,7 @@ Microsoft Teams 서비스를 관리할 수 있습니다.
 | microsoft.aad.directory/appRoleAssignments/create | Azure Active Directory에서 appRoleAssignments를 만듭니다. |
 | microsoft.aad.directory/appRoleAssignments/delete | Azure Active Directory에서 appRoleAssignments를 삭제합니다. |
 | microsoft.aad.directory/appRoleAssignments/update | Azure Active Directory에서 appRoleAssignments를 업데이트합니다. |
-| microsoft.aad.directory/contacts/basic/update | Azure Active Directory에서 연락처의 기본 속성을 업데이트합니다. |
+| microsoft.aad.directory/contacts/basic/update | Azure Active Directory에서 연락처의 기본 속성을 읽습니다. |
 | microsoft.aad.directory/contacts/create | Azure Active Directory에서 연락처를 만듭니다. |
 | microsoft.aad.directory/contacts/delete | Azure Active Directory에서 연락처를 삭제합니다. |
 | microsoft.aad.directory/groups/appRoleAssignments/update | Azure Active Directory에서 groups.appRoleAssignments 속성을 업데이트합니다. |

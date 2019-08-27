@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca2b7f2b0e20e85e1e62f8efabb81eddd5f901f2
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: eb4486c889dec29f81b57605c3ccee510242f832
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991109"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035136"
 ---
 # <a name="enable-remote-access-to-power-bi-mobile-with-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시를 사용 하 여 Power BI Mobile에 대 한 원격 액세스 사용
 
@@ -37,7 +37,7 @@ ms.locfileid: "69991109"
 
 ## <a name="step-1-configure-kerberos-constrained-delegation-kcd"></a>1단계: KCD(Kerberos 제한된 위임) 구성
 
-Windows 인증을 사용하는 온-프레미스 애플리케이션에 대해 Kerberos 인증 프로토콜 및 KCD(Kerberos 제한 위임)라는 기능을 사용하여 SSO(Single Sign-On)를 획득할 수 있습니다. 구성 된 경우 KCD를 사용 하면 사용자가 Windows에 직접 로그인 하지 않았더라도 응용 프로그램 프록시 커넥터에서 사용자에 대 한 Windows 토큰을 얻을 수 있습니다. KCD에 대 한 자세한 내용은 [응용 프로그램 프록시를 사용 하 여 앱에 대 한 single sign-on에 대 한](application-proxy-configure-single-sign-on-with-kcd.md)Kerberos 제한 [위임 개요](https://technet.microsoft.com/library/jj553400.aspx) 및 kerberos 제한 위임을 참조 하세요.
+Windows 인증을 사용하는 온-프레미스 애플리케이션에 대해 Kerberos 인증 프로토콜 및 KCD(Kerberos 제한 위임)라는 기능을 사용하여 SSO(Single Sign-On)를 획득할 수 있습니다. 구성 된 경우 KCD를 사용 하면 사용자가 Windows에 직접 로그인 하지 않았더라도 응용 프로그램 프록시 커넥터에서 사용자에 대 한 Windows 토큰을 얻을 수 있습니다. KCD에 대 한 자세한 내용은 응용 프로그램 프록시를 사용 하 여 앱에 대 한 [Kerberos 제한 위임 개요](https://technet.microsoft.com/library/jj553400.aspx) 및 [Single Sign-On에 대 한 kerberos 제한 위임](application-proxy-configure-single-sign-on-with-kcd.md)을 참조 하세요.
 
 Reporting Services 쪽에서 구성 하는 것은 많지 않습니다. 적절 한 Kerberos 인증을 수행할 수 있도록 유효한 SPN (서비스 사용자 이름)이 있어야 합니다. 또한 Reporting Services 서버에서 Negotiate 인증을 사용할 수 있는지 확인 합니다.
 
@@ -75,7 +75,7 @@ KCD를 구성 하려면 각 커넥터 컴퓨터에 대해 다음 단계를 반�
 6. Reporting Services 하는 데 사용 하 고 있는 서비스 계정을 입력 합니다. Reporting Services 구성 내에서 SPN을 추가한 계정입니다.
 7.  **확인을**클릭 합니다. 변경 내용을 저장 하려면 **확인** 을 다시 클릭 합니다.
 
-자세한 내용은 [응용 프로그램 프록시를 사용 하 여 앱에 대 한 single sign-on에 대 한 Kerberos 제한 위임](application-proxy-configure-single-sign-on-with-kcd.md)을 참조 하세요.
+자세한 내용은 [응용 프로그램 프록시를 사용 하 여 앱에 Single Sign-On에 대 한 Kerberos 제한 위임](application-proxy-configure-single-sign-on-with-kcd.md)을 참조 하세요.
 
 ## <a name="step-2-publish-report-services-through-azure-ad-application-proxy"></a>2단계: Azure AD 응용 프로그램 프록시을 통해 보고서 서비스 게시
 
@@ -103,28 +103,27 @@ KCD를 구성 하려면 각 커넥터 컴퓨터에 대해 다음 단계를 반�
 
 응용 프로그램 설정을 완료 하려면 [ **사용자 및 그룹** ] 섹션으로 이동 하 여이 응용 프로그램에 액세스할 사용자를 할당 합니다.
 
-## <a name="step-3-grant-power-bi-mobile-access-to-report-services"></a>3단계: Report Services에 대 한 Power BI Mobile 액세스 권한 부여
+## <a name="step-3-modify-the-reply-uris-for-the-application"></a>3단계: 응용 프로그램에 대 한 회신 URI 수정
 
-Power BI 모바일 앱에서 연결 하 여 보고서 서비스에 액세스 하려면 먼저 Azure AD에 등록 해야 합니다.  
+Power BI 모바일 앱에서 연결 하 여 보고서 서비스에 액세스 하려면 2 단계에서 자동으로 만들어진 응용 프로그램 등록을 구성 해야 합니다. 
 
 1. Azure Active Directory **개요** 페이지에서 **앱 등록**를 선택 합니다.
 2. **모든 응용 프로그램** 탭 아래에서 2 단계에서 만든 응용 프로그램을 검색 합니다.
 3. 응용 프로그램을 선택한 다음 **인증**을 선택 합니다.
 4. 사용 중인 플랫폼에 따라 다음 리디렉션 Uri를 추가 합니다.
 
-   **IOS**Power BI Mobile에 대 한 앱을 등록 하는 경우 공용 클라이언트 형식 (모바일 & 데스크톱)의 다음 리디렉션 uri를 추가 합니다.
+   **IOS**Power BI Mobile에 대 한 앱을 구성 하는 경우 공용 클라이언트 형식의 다음 리디렉션 Uri (모바일 & 데스크톱)를 추가 합니다.
    - `msauth://code/mspbi-adal%3a%2f%2fcom.microsoft.powerbimobile`
    - `msauth://code/mspbi-adalms%3a%2f%2fcom.microsoft.powerbimobilems`
    - `mspbi-adal://com.microsoft.powerbimobile`
    - `mspbi-adalms://com.microsoft.powerbimobilems`
    
-   **Android**Power BI Mobile에 대 한 앱을 등록 하는 경우 공용 클라이언트 형식 (모바일 & 데스크톱)의 다음 리디렉션 uri를 추가 합니다.
+   **Android**Power BI Mobile에 대 한 앱을 구성 하는 경우 공용 클라이언트 형식 (모바일 & 데스크톱)의 다음 리디렉션 uri를 추가 합니다.
    - `urn:ietf:wg:oauth:2.0:oob`
+   - `mspbi-adal://com.microsoft.powerbimobile`
 
    > [!IMPORTANT]
-   > 응용 프로그램이 올바르게 작동 하려면 리디렉션 Uri를 추가 해야 합니다. IOS 및 Android 모두에 대해이를 구성 하는 경우 **단일** 응용 프로그램을 등록 하 고 Ios와 android 모두에 대 한 리디렉션 uri를 추가 하기만 하면 됩니다. 각 플랫폼에 대해 별도의 응용 프로그램이 필요한 경우 두 앱 `mspbi-adal://com.microsoft.powerbimobile` 에 대 한 리디렉션 URI를 포함 해야 합니다.
-
-2. 이제 네이티브 응용 프로그램을 등록 했으므로 디렉터리의 다른 응용 프로그램에 대 한 액세스 권한을 제공할 수 있습니다 .이 경우 응용 프로그램 프록시를 통해 게시 된 보고서 서비스에 액세스할 수 있습니다. 3 [단계의 단계를 따릅니다. 프록시 응용 프로그램](application-proxy-configure-native-client-application.md#step-3-grant-access-to-your-proxy-application)에 대 한 액세스 권한을 부여 합니다.
+   > 응용 프로그램이 올바르게 작동 하려면 리디렉션 Uri를 추가 해야 합니다. IOS 및 Android Power BI Mobile 모두에 대해 앱을 구성 하는 경우, iOS `urn:ietf:wg:oauth:2.0:oob`에 대해 구성 된 리디렉션 Uri 목록에 공용 클라이언트 (모바일 & 데스크톱) 형식의 다음 리디렉션 uri를 추가 합니다.
 
 ## <a name="step-4-connect-from-the-power-bi-mobile-app"></a>4단계: Power BI Mobile 앱에서 연결
 

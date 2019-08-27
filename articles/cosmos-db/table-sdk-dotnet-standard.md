@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/18/2019
-ms.openlocfilehash: 22a27ba19670344f351205b6a4865bf85daf0bab
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 8fd3aedd2e371e511730fd98751ae3214545c489
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900264"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034575"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>Azure Cosmos DB 테이블 .NET Standard API: 다운로드 및 릴리스 정보
 > [!div class="op_single_selector"]
@@ -33,7 +33,14 @@ ms.locfileid: "69900264"
 |**현재 지원되는 프레임워크**|[Microsoft .NET Standard 2.0](https://www.nuget.org/packages/NETStandard.Library)|
 |**문제 보고**|[문제 보고](https://github.com/Azure/azure-cosmos-table-dotnet/issues)|
 
-## <a name="release-notes"></a>릴리스 정보
+## <a name="release-notes-for-200-series"></a>2\.0.0 시리즈에 대 한 릴리스 정보
+2.0.0 시리즈는 성능 향상 및 Cosmos DB 끝점에 대 한 네임 스페이스 통합으로 [Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)에 대 한 종속성을 가져옵니다.
+
+### <a name="a-name200-preview200-preview"></a><a name="2.0.0-preview"/>2.0.0-preview
+* Cosmos DB 끝점에 대 한 성능 향상 및 네임 스페이스 통합이 포함 된 [Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)에 대 한 종속성을 사용 하는 2.0.0 Table SDK의 초기 미리 보기입니다. 공용 API는 동일 하 게 유지 됩니다.
+
+## <a name="release-notes-for-100-series"></a>1\.0.0 시리즈에 대 한 릴리스 정보
+1.0.0 시리즈는 [Microsoft. Azure DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)에 대 한 종속성을 사용 합니다.
 
 ### <a name="a-name105-preview105-preview"></a><a name="1.0.5-preview"/>1.0.5-미리 보기
 * 버그 수정
@@ -77,6 +84,12 @@ Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK �
 
 이 플랫폼 간 .NET Standard 라이브러리 [Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) 는 .NET Framework 라이브러리 [CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)를 대체 합니다 .이 테이블은
 
+### <a name="200-series"></a>2.0.0 시리즈
+| 버전 | 릴리스 날짜 | 사용 중지 날짜 |
+| --- | --- | --- |
+| [2.0.0-preview](#2.0.0-preview) |모든 게스트 22, 2019 |--- |
+
+### <a name="100-series"></a>1.0.0 시리즈
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
 | [1.0.5-미리 보기](#1.0.5-preview) |Iguest 20, 2019 |--- |

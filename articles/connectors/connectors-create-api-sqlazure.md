@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 998fcba50636cd92b14bdbe1633c2548e84a6bfc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 804a913d17c3151d07a1ecf229e2db148dc45558
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64696412"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050761"
 ---
 # <a name="connect-to-sql-server-or-azure-sql-database-from-azure-logic-apps"></a>Azure Logic Apps에서 SQL Server 또는 Azure SQL Database에 연결
 
@@ -24,9 +24,9 @@ ms.locfileid: "64696412"
 
 SQL 데이터베이스 또는 다른 시스템(예: Dynamics CRM Online)의 이벤트로 트리거될 때 실행할 수 있는 논리 앱을 만들 수 있습니다. 논리 앱은 기존 SQL 쿼리 및 저장 프로시저를 사용하여 데이터를 가져오고 삽입하고 삭제할 수 있습니다. 예를 들어 Dynamics CRM Online에서 새 레코드를 자동으로 확인하고, 새 레코드에 대한 항목을 SQL 데이터베이스에 추가한 다음, 이메일 경고를 보내는 논리 앱을 만들 수 있습니다.
 
-Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md) 및 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토하세요. 커넥터 관련 기술 정보는 <a href="https://docs.microsoft.com/connectors/sql/" target="blank">SQL Server 커넥터 참조</a>를 참조하세요.
+Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md) 및 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토하세요. 커넥터 관련 기술 정보는 [SQL Server 커넥터 참조](https://docs.microsoft.com/connectors/sql/)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 * SQL 데이터베이스에 액세스해야 하는 논리 앱. SQL 트리거를 통해 논리 앱을 시작하려면 [빈 논리 앱](../logic-apps/quickstart-create-first-logic-app-workflow.md)이 필요합니다. 
 
@@ -56,7 +56,7 @@ Azure Logic Apps에서 모든 논리 앱은 특정 이벤트가 발생하거나 
 
 2. 검색 상자에서 "sql server"를 필터로 입력합니다. 트리거 목록에서 원하는 SQL 트리거를 선택합니다. 
 
-   예를 들어이 트리거를 선택 합니다. **SQL Server-항목이 만들어진 경우**
+   이 예에서는 다음 트리거를 선택 합니다. **SQL Server-항목을 만들 때**
 
    !["SQL Server - 항목이 만들어진 경우" 트리거 선택](./media/connectors-create-api-sqlazure/sql-server-trigger.png)
 
@@ -73,7 +73,7 @@ Azure Logic Apps에서 모든 논리 앱은 특정 이벤트가 발생하거나 
    예를 들어 테이블의 새 항목을 보려면 테이블의 필드가 있는 파일을 만드는 것과 같은 다른 작업을 추가한 다음, 이메일 경고를 보낼 수 있습니다. 
    이 커넥터 또는 다른 커넥터의 다른 작업에 대한 자세한 내용은 [Logic Apps 커넥터](../connectors/apis-list.md)를 참조하세요.
 
-5. 완료되면 디자이너 도구 모음에서 **저장**을 선택합니다. 
+5. 작업이 완료 되 면 디자이너 도구 모음에서 **저장**을 선택 합니다. 
 
    이 단계에서는 Azure에서 사용할 수 있는 논리 앱을 자동으로 활성화하고 게시합니다. 
 
@@ -85,16 +85,16 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
 1. Azure Portal 또는 Visual Studio에서 논리 앱 디자이너에서 논리 앱을 엽니다. 이 예에서는 Azure Portal을 사용합니다.
 
-2. 논리 앱 디자이너의 트리거 또는 작업 아래에서 **새 단계** > **작업 추가**를 차례로 선택합니다.
+2. 논리 앱 디자이너의 트리거 또는 작업에서 **새 단계** > **작업 추가**를 선택 합니다.
 
-   !["새 단계", "작업 추가" 선택](./media/connectors-create-api-sqlazure/add-action.png)
+   !["새 단계", "작업 추가"를 선택 합니다.](./media/connectors-create-api-sqlazure/add-action.png)
    
    기존 단계 간에 작업을 추가하려면 연결 화살표 위로 마우스를 이동합니다. 
-   표시되는 더하기 기호( **+** )를 선택한 다음, **작업 추가**를 선택합니다.
+   표시 되는 더하기 기호 **+** ()를 선택 하 고 **작업 추가**를 선택 합니다.
 
 2. 검색 상자에서 "sql server"를 필터로 입력합니다. 작업 목록에서 원하는 SQL 작업을 선택합니다. 
 
-   예를 들어 단일 레코드를 가져옵니다.이 작업을 선택 합니다. **SQL Server-행 가져오기**
+   이 예에서는 단일 레코드를 가져오는이 작업을 선택 합니다. **SQL Server-행 가져오기**
 
    !["sql server" 입력, "SQL Server - 행 가져오기" 선택](./media/connectors-create-api-sqlazure/select-sql-get-row.png) 
 
@@ -106,28 +106,28 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
    이 예에서는 선택한 테이블에서 한 행만 반환하며, 그 외에는 아무 것도 반환하지 않습니다. 
    이 행의 데이터를 보려면 나중에 검토할 수 있도록 행의 필드가 있는 파일을 만드는 다른 작업을 추가하고 해당 파일을 클라우드 스토리지 계정에 저장합니다. 이 커넥터 또는 다른 커넥터의 다른 작업에 대한 자세한 내용은 [Logic Apps 커넥터](../connectors/apis-list.md)를 참조하세요.
 
-4. 완료되면 디자이너 도구 모음에서 **저장**을 선택합니다. 
+4. 작업이 완료 되 면 디자이너 도구 모음에서 **저장**을 선택 합니다. 
 
 <a name="create-connection"></a>
 
-## <a name="connect-to-your-database"></a>데이터베이스 연결
+## <a name="connect-to-your-database"></a>데이터베이스에 연결
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
 [!INCLUDE [Create a connection to SQL Server or Azure SQL Database](../../includes/connectors-create-api-sqlazure.md)]
 
-## <a name="handle-bulk-data"></a>대량 데이터를 처리 합니다.
+## <a name="handle-bulk-data"></a>대량 데이터 처리
 
-경우에 따라 커넥터는 동시에 모든 결과 반환 하지 않습니다 또는 결과 집합에 대 한 더 나은 제어 구조와 크기를 원하는 너무 큰 결과 집합을 사용 해야 합니다. 이러한 큰 결과 집합을 처리할 수 있도록 몇 가지는 다음과 같습니다.
+경우에 따라, 커넥터가 동시에 모든 결과를 반환 하지 않거나 결과 집합의 크기와 구조를 더 효율적으로 제어 하는 결과 집합을 사용 해야 할 수 있습니다. 이러한 많은 결과 집합을 처리할 수 있는 몇 가지 방법은 다음과 같습니다.
 
-* 를 더 작은 집합으로 결과 관리할 수 있도록 하려면 켜 *페이지 매김*합니다. 자세한 내용은 [대량 데이터 가져오기, 레코드 및 항목 페이지 매김을 사용 하 여](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md).
+* 결과를 더 작은 집합으로 관리할 수 있도록 *페이지 매김을*켭니다. 자세한 내용은 [페이지 매김을 사용 하 여 대량 데이터, 레코드 및 항목 가져오기](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md)를 참조 하세요.
 
-* 원하는 방식으로 결과 구성 하는 저장된 프로시저를 만듭니다.
+* 원하는 방식으로 결과를 구성 하는 저장 프로시저를 만듭니다.
 
-  논리 앱에 가져오거나 여러 행을 삽입할 때 사용 하 여 이러한 행을 반복할 수 있는 [ *until 루프* ](../logic-apps/logic-apps-control-flow-loops.md#until-loop) 이러한 [제한](../logic-apps/logic-apps-limits-and-config.md)합니다. 
-  그러나 경우 논리 앱 작업 하는 레코드 집합 너무 수천 또는 수백만 개의 행, 예를 들어 데이터베이스에 대 한 호출에서 발생 하는 비용을 최소화 하려면.
+  여러 행을 가져오거나 삽입할 때 논리 앱은 이러한 [제한](../logic-apps/logic-apps-limits-and-config.md)내에서 [*until 루프*](../logic-apps/logic-apps-control-flow-loops.md#until-loop) 를 사용 하 여 이러한 행을 반복할 수 있습니다. 
+  그러나 논리 앱에서 레코드 집합을 사용 하 여 대량으로 작업 해야 하는 경우 (예: 수천 또는 수백만 개의 행) 데이터베이스에 대 한 호출로 인해 발생 하는 비용을 최소화 하려고 합니다.
 
-  원하는 방식으로 결과 구성 하기 위해 만들 수 있습니다는 [ *저장 프로시저* ](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) SQL 인스턴스에서 실행 되 고 사용 하는 **SELECT-ORDER BY** 문입니다. 
+  결과를 원하는 방식으로 구성 하기 위해 SQL 인스턴스에서 실행 되는 [*저장 프로시저*](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) 를 만들고 **select ORDER by** 문을 사용할 수 있습니다. 
   이 솔루션을 사용하면 결과의 크기와 구조를 더 많이 제어할 수 있습니다. 
   논리 앱은 SQL Server 커넥터의 **저장 프로시저 실행** 작업을 사용하여 저장 프로시저를 호출합니다.
 

@@ -15,6 +15,8 @@
       href: ./interactive-query-tutorial-analyze-flight-data.md
 - name: 개념
   items:
+    - name: 스토리지 옵션 비교
+      href: ../hdinsight-hadoop-compare-storage-options.md
     - name: HDInsight 앱 설치
       href: ../hdinsight-apps-install-applications.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: 용량 계획

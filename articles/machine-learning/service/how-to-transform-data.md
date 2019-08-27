@@ -12,19 +12,20 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 07/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: add5584ccf3d9d6837e328bbf70d71598e5c0839
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 339a4f93d45b3d3b3e242aa735ce4b737a9292f0
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68694301"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035954"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Azure Machine Learning Data Prep SDK를 사용하여 데이터 변환
 
 이 문서에서는 패키지를 `azureml-dataprep` 사용 하 여 데이터를 변환 하는 다양 한 방법에 대해 알아봅니다. 패키지는 열을 간단 하 게 추가 하 고, 원치 않는 행 또는 열을 필터링 하 고, 누락 된 값을 돌립니다 하는 함수를 제공 합니다. [Azureml-dataprep 패키지](https://aka.ms/data-prep-sdk)에 대 한 전체 참조 설명서를 참조 하세요.
 
 > [!Important]
-> 새 솔루션을 구축 하는 경우 데이터, 스냅숏 데이터 및 저장소 버전 데이터 집합 정의를 변환 하는 [Azure Machine Learning 데이터 집합](how-to-explore-prepare-data.md) (미리 보기)을 시도 합니다. 데이터 집합은 AI 솔루션의 데이터 집합 관리를 위해 확장 된 기능을 제공 하는 다음 버전의 데이터 준비 SDK입니다. 패키지를 사용 하 `azureml-dataprep` 여 데이터 집합을 만드는 대신 `azureml-datasets` 패키지를 사용 하 여 변환을 통해 데이터 흐름을 만드는 경우 나중에 스냅숏 또는 버전이 지정 된 데이터 집합을 사용할 수 없습니다.
+> 새 솔루션을 구축 하는 경우 데이터, 스냅숏 데이터 및 저장소 버전 데이터 집합 정의를 변환 하는 [Azure Machine Learning 데이터 집합](how-to-explore-prepare-data.md) (미리 보기)을 시도 합니다. 데이터 집합은 AI 솔루션의 데이터 집합 관리를 위해 확장 된 기능을 제공 하는 다음 버전의 데이터 준비 SDK입니다.
+> 패키지를 사용 하 `azureml-dataprep` 여 데이터 집합을 만드는 대신 `azureml-datasets` 패키지를 사용 하 여 변환을 통해 데이터 흐름을 만드는 경우 나중에 스냅숏 또는 버전이 지정 된 데이터 집합을 사용할 수 없습니다.
 
 이 방법에 대 한 예제는 다음 작업을 보여 줍니다.
 
@@ -46,7 +47,7 @@ dflow = dprep.read_csv(path=r'data\crime0-10.csv')
 dflow.head(3)
 ```
 
-||ID|Case Number|날짜|블록|IUCR|Primary Type|설명|Location Description|Arrest|Domestic|...|Ward|Community Area|FBI Code|X Coordinate|Y Coordinate|Year|Updated On|위도|경도|위치|
+||ID|Case Number|날짜|블록|IUCR|Primary Type|Description|Location Description|Arrest|Domestic|...|Ward|Community Area|FBI Code|X Coordinate|Y Coordinate|Year|Updated On|위도|경도|위치|
 |-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
 |0|10140490|HY329907|07/05/2015 11:50:00 PM|050XX N NEWLAND AVE|0820|THEFT|$500 AND UNDER|STREET|false|false|...|41|10|06|1129230|1933315|2015|07/12/2015 12:42:46 PM|41.973309466|-87.800174996|(41.973309466, -87.800174996)|
 |1|10139776|HY329265|07/05/2015 11:30:00 PM|011XX W MORSE AVE|0460|BATTERY|SIMPLE|STREET|false|true|...|49|1|08B|1167370|1946271|2015|07/12/2015 12:42:46 PM|42.008124017|-87.65955018|(42.008124017, -87.65955018)|
@@ -63,7 +64,7 @@ case_category = dflow.add_column(new_column_name='Case Category',
 case_category.head(3)
 ```
 
-||ID|Case Number|Case Category|날짜|블록|IUCR|Primary Type|Description|Location Description|Arrest|Domestic|...|Ward|Community Area|FBI Code|X Coordinate|Y Coordinate|Year|Updated On|위도|경도|위치|
+||ID|Case Number|Case Category|날짜|블록|IUCR|Primary Type|설명|Location Description|Arrest|Domestic|...|Ward|Community Area|FBI Code|X Coordinate|Y Coordinate|Year|Updated On|위도|경도|위치|
 |-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|------|
 |0|10140490|HY329907|HY|07/05/2015 11:50:00 PM|050XX N NEWLAND AVE|0820|THEFT|$500 AND UNDER|STREET|false|false|...|41|10|06|1129230|1933315|2015|07/12/2015 12:42:46 PM|41.973309466|-87.800174996|(41.973309466, -87.800174996)|
 |1|10139776|HY329265|HY|07/05/2015 11:30:00 PM|011XX W MORSE AVE|0460|BATTERY|SIMPLE|STREET|false|true|...|49|1|08B|1167370|1946271|2015|07/12/2015 12:42:46 PM|42.008124017|-87.65955018|(42.008124017, -87.65955018)|
@@ -345,7 +346,7 @@ dflow.head(2)
 
 이 예제에서 `dflow.filter(col('Tip_amount') > 0)`는 `Tip_amount`의 값이 0보다 큰 행이 포함된 새 데이터 흐름을 반환합니다.
 
-> [!NOTE] 
+> [!NOTE]
 > `Tip_amount`는 먼저 numeric으로 변환되므로 식을 작성하여 다른 numeric 값과 비교할 수 있습니다.
 
 ```python
@@ -517,4 +518,4 @@ dflow.head(2)
 
 ## <a name="next-steps"></a>다음 단계
 
-* 특정 시나리오를 해결 하는 방법에 대 한 예제는 데이터 준비 SDK [자습서](tutorial-data-prep.md) Azure Machine Learning를 참조 하세요.
+* 자세한 내용은 Azure Machine Learning 데이터 준비 SDK [참조 설명서](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#dataprep) 를 참조 하세요.

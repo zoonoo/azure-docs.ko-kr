@@ -11,12 +11,12 @@ ms.topic: article
 ms.assetid: 40ce621e-4925-4653-93bb-71ab9abcbdf1
 tags: connectors
 ms.date: 08/24/2018
-ms.openlocfilehash: 663363d05c1875d22a0ecc0478abcf7e0ec89c99
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fe571209d28fe098ce9b507cb67b0a9a5abd25a3
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62105633"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050870"
 ---
 # <a name="manage-project-online-projects-tasks-and-resources-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Project Online 프로젝트, 작업 및 리소스 관리
 
@@ -29,9 +29,9 @@ Azure Logic Apps 및 Project Online 커넥터를 사용하면 Office 365를 통�
 
 Project Online을 사용하면 강력한 프로젝트 관리 기능을 제공하여 어디서든지 거의 모든 디바이스에서 프로젝트와 프로젝트 포트폴리오 투자를 계획하고, 우선 순위를 정하며, 관리할 수 있습니다. Project Online 트리거를 사용하여 Project Online에서 응답을 가져오고 출력을 다른 작업에 사용할 수 있게 할 수 있습니다. 논리 앱에서 작업을 사용하여 Project Online에서 다양한 작업을 수행할 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-* Azure 구독. Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다. 
+* Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다. 
 
 * [Office 365 계정](https://www.office.com/)을 통해 사용할 수 있는 Project Online, 
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: apimpm
-ms.openlocfilehash: 338ceef8ce94e97f7569f85b0079f75aed033612
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: 18bbeb2b4936b1c8a03ffdc7eade8dc92d094fde
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69558629"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050602"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>가상 네트워크에서 Azure API Management를 사용하는 방법
 Azure Vnet (가상 네트워크)를 사용 하면 액세스를 제어 하는 인터넷 라우팅할 수 없는 네트워크에 Azure 리소스를 둘 수 있습니다. 이러한 네트워크는 다양한 VPN 기술을 사용하여 온-프레미스 네트워크에 연결될 수 있습니다. Azure Virtual Network에 대해 자세히 알아보려면 [Azure Virtual Network 개요](../virtual-network/virtual-networks-overview.md)부터 참조하세요.
@@ -140,7 +140,7 @@ API Management 서비스가 VNET에 연결된 후에는 공용 서비스에 액�
 
 + **SMTP 릴레이**: 호스트 `smtpi-co1.msn.com` ,,`smtpi-ch1.msn.com`및에서확인 되는SMTP릴레이에대한아웃바운드네트워크연결`smtpi-sin.msn.com` `smtpi-db3.msn.com``ies.global.microsoft.com`
 
-+ **개발자 포털 CAPTCHA**: `client.hip.live.com` 호스트에서 확인되는 개발자 포털 CAPTCHA에 대한 아웃바운드 네트워크 연결입니다.
++ **개발자 포털 CAPTCHA**: 호스트 `client.hip.live.com` 및`partner.hip.live.com`에서 확인 되는 개발자 포털의 CAPTCHA 아웃 바운드 네트워크 연결입니다.
 
 + **Azure Portal 진단**: Virtual Network 내부에서 API Management 확장을 사용할 때 Azure Portal에서 진단 로그의 흐름을 사용하도록 설정하려면 포트 443에서 `dc.services.visualstudio.com`에 대한 아웃바운드 액세스가 필요합니다. 이는 확장을 사용할 때 발생할 수 있는 문제 해결에 도움이 됩니다.
 

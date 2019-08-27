@@ -49,6 +49,8 @@
       href: ../hdinsight-version-release.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
     - name: Ambari 및 Azure Monitor 로그를 사용하여 클러스터 가용성 모니터링
       href: ../hdinsight-cluster-availability.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
+    - name: 스토리지 옵션 비교
+      href: ../hdinsight-hadoop-compare-storage-options.md
 - name: 방법
   items:
     - name: 클러스터 스토리지 사용

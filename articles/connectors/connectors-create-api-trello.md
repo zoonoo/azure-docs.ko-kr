@@ -11,12 +11,12 @@ ms.assetid: fe7a4377-5c24-4f72-ab1a-6d9d23e8d895
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 31357fa313cfa31c0f8a90c0f7722f627e4394d1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae77488df6ce58d8cab61933f50d24edec35b1ab
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62106170"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050734"
 ---
 # <a name="monitor-and-manage-trello-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Trello를 모니터링 및 관리
 
@@ -30,9 +30,9 @@ Azure Logic Apps 및 Trello 커넥터를 사용하면 다음과 같이 Trello �
 
 트리거를 사용하여 Trello 계정에서 응답을 가져오고 다른 작업에서 출력을 사용하도록 할 수 있습니다. Trello 계정을 사용하여 작업을 수행하는 작업을 사용할 수 있습니다. 또한 다른 작업에서 Trello 작업의 출력을 사용하도록 할 수 있습니다. 예를 들어, 새 카드가 보드 또는 목록에 추가될 때 Slack 커넥터를 사용하여 메시지를 보낼 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-* Azure 구독. Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다. 
+* Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다. 
 
 * Trello 계정 및 사용자 자격 증명
 

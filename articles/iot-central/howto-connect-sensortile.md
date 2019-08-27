@@ -3,17 +3,17 @@ title: SensorTile 장치를 Azure IoT Central 응용 프로그램에 연결 | Mi
 description: 장치 개발자는 SensorTile 장치를 Azure IoT Central 응용 프로그램에 연결 하는 방법을 알아봅니다.
 author: sarahhubbard
 ms.author: sahubbar
-ms.date: 04/24/2019
+ms.date: 08/24/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: sandeep.pujar
-ms.openlocfilehash: ce0c5abe6e89094623c07afa2d1c85903e0e7ee7
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 3d804b1e14d1b79266a74340e8682f1bf03d8f30
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877441"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050546"
 ---
 # <a name="connect-sensortilebox-device-to-your-azure-iot-central-application"></a>SensorTile 장치를 Azure IoT Central 응용 프로그램에 연결
 
@@ -34,7 +34,7 @@ ms.locfileid: "69877441"
 
 Azure IoT Central 응용 프로그램에서 **SensorTile** 장치 템플릿의 실제 장치를 추가 하 고 장치 연결 정보를 적어 둡니다. **범위 ID**, **장치 id**및 **기본 키**:
 
-1. Device Explorer에서 장치를 추가 합니다. **+ 새로 만들기** 를 선택 하 여 실제 장치를 추가 > 합니다.
+1. 장치에서 장치를 추가 합니다. **+ 새로 만들기** 를 선택 하 여 실제 장치를 추가 > 합니다.
 
     * 소문자 **장치 id**를 입력 하거나 제안 된 **장치 id**를 사용 합니다.
     * **장치 이름을**입력 하거나 제안 된 이름을 사용 합니다.

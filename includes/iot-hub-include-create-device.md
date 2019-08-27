@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 11/06/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: e93f78cf07cd4815e5b17ffd3953db121adb6535
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: 7b022f71e197c5695876f2049ee376c3616afc6d
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69558857"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70049056"
 ---
 <!-- put the ## header in the file that includes this file -->
 
-이 섹션에서는 IoT 허브의 ID 레지스트리에 디바이스 ID를 만듭니다. Id 레지스트리에 항목이 없는 경우 장치를 허브에 연결할 수 없습니다. 자세한 내용은 [IoT Hub 개발자 가이드](../articles/iot-hub/iot-hub-devguide-identity-registry.md)의 "id 레지스트리" 섹션을 참조 하세요.
+이 섹션에서는 IoT 허브의 ID 레지스트리에 디바이스 ID를 만듭니다. Id 레지스트리에 항목이 없는 경우 장치를 허브에 연결할 수 없습니다. 자세한 내용은 [IoT Hub 개발자 가이드](../articles/iot-hub/iot-hub-devguide-identity-registry.md#identity-registry-operations)를 참조 하세요.
 
 1. Iot hub 탐색 메뉴에서 **Iot 장치**를 열고 **새로 만들기** 를 선택 하 여 iot hub에 장치를 추가 합니다.
 
