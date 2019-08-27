@@ -18,7 +18,7 @@ ms.locfileid: "68880996"
 ---
 > [!TIP]
 > Azure Portal에서 키와 엔드포인트를 찾으려면 다음을 수행합니다.
-> 1. https://portal.azure.com/ 에서 Azure 리소스로 이동합니다.
+> 1. [https://portal.azure.com/](https://portal.azure.com/ ) 에서 Azure 리소스로 이동합니다.
 > 2. **리소스 관리** 아래에 있는 **빠른 시작**을 클릭합니다.
 >
 > 엔드포인트에서 `/text/analytics/<version>` 접미사가 포함되어 있으면 이를 제거합니다. 이 접미사는 클라이언트 라이브러리와 함께 사용할 필요가 없습니다.
