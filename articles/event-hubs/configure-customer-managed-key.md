@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: spelluru
-ms.openlocfilehash: 794f8f136521acbb51139b9e781a30c71a1560e6
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 311f69ffa436eebb261fb8aa5ee72886ad9fe9d0
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992758"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035902"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 미사용 Azure Event Hubs 데이터를 암호화 하기 위한 고객 관리 키 구성
 Azure Event Hubs는 Azure SSE (Azure Storage 서비스 암호화)를 사용 하 여 미사용 데이터의 암호화를 제공 합니다. Event Hubs는 Azure Storage를 사용 하 여 데이터를 저장 하 고, 기본적으로 Azure Storage와 함께 저장 되는 모든 데이터는 Microsoft 관리 키를 사용 하 여 암호화 됩니다. 
@@ -104,7 +104,7 @@ BYOK 사용 네임 스페이스에 대 한 진단 로그를 설정 하면 고객
 ## <a name="log-schema"></a>로그 스키마 
 모든 로그는 JSON(JavaScript Object Notation) 형식으로 저장됩니다. 각 항목에는 다음 표에 설명 된 형식을 사용 하는 문자열 필드가 있습니다. 
 
-| 이름 | 설명 |
+| 이름 | Description |
 | ---- | ----------- | 
 | TaskName | 실패한 작업에 대한 설명입니다. |
 | ActivityId | 추적에 사용 되는 내부 ID입니다. |
@@ -170,7 +170,7 @@ BYOK 암호화를 사용 하는 경우 다음은 일반적인 오류 코드입�
 > BYOK 암호화를 사용 하는 네임 스페이스에서 지역 DR을 사용 하도록 설정 하려면 페어링의 보조 네임 스페이스가 전용 클러스터에 있어야 하 고이 네임 스페이스에 시스템 할당 관리 id가 설정 되어 있어야 합니다. 자세히 알아보려면 [Azure 리소스에 대 한 관리 되는 id](../active-directory/managed-identities-azure-resources/overview.md)를 참조 하세요.
 
 > [!NOTE]
-> BYOK로 암호화 된 Event Hubs 네임 스페이스의 경우 VNet (virtual network) 서비스 끝점은 미리 보기 릴리스에서 지원 되지 않습니다. 
+> Event Hubs 네임 스페이스에 대 한 Azure Key Vault VNet (가상 네트워크) 서비스 끝점이 구성 된 경우 BYOK는 지원 되지 않습니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

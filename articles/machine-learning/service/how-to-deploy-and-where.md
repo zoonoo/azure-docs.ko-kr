@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 08/06/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: a4146e20efae87287b77687e4a1d3b0196cb1c95
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 7f856c0b69788c3d0b711d567777aba6cb4c6918
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997956"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036103"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning Services를 사용하여 모델 배포
 
@@ -78,12 +78,29 @@ VS Code 사용 하는 경우 그래픽 인터페이스를 사용 하 여 작업 
 
 + **SDK 사용**
 
-  ```python
-  model = run.register_model(model_name='sklearn_mnist', model_path='outputs/sklearn_mnist_model.pkl')
-  print(model.name, model.id, model.version, sep='\t')
-  ```
+  SDK를 사용 하 여 모델을 학습 하는 경우 모델을 학습 하는 방법에 따라 [Run](https://review.docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&branch=master) 또는 [AutoMLRun](https://review.docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.run.automlrun?view=azure-ml-py&branch=master) 개체를 받을 수 있습니다. 각 개체를 사용 하 여 실험 실행에서 만든 모델을 등록할 수 있습니다.
 
-  는 `model_path` 모델의 클라우드 위치를 참조 합니다. 이 예제에서는 단일 파일에 대 한 경로가 사용 됩니다. 모델 등록에 여러 파일을 포함 하려면를 파일이 `model_path` 포함 된 디렉터리로 설정 합니다.
+  + `azureml.core.Run` 개체에서 모델을 등록 합니다.
+ 
+    ```python
+    model = run.register_model(model_name='sklearn_mnist', model_path='outputs/sklearn_mnist_model.pkl')
+    print(model.name, model.id, model.version, sep='\t')
+    ```
+
+    는 `model_path` 모델의 클라우드 위치를 참조 합니다. 이 예제에서는 단일 파일에 대 한 경로가 사용 됩니다. 모델 등록에 여러 파일을 포함 하려면를 파일이 `model_path` 포함 된 디렉터리로 설정 합니다. 자세한 내용은 [register_model](https://review.docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&branch=master#register-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none----kwargs-) 참조를 참조 하세요.
+
+  + `azureml.train.automl.run.AutoMLRun` 개체에서 모델을 등록 합니다.
+
+    ```python
+        description = 'My AutoML Model'
+        model = run.register_model(description = description)
+
+        print(run.model_id)
+    ```
+
+    이 예제 `metric` 에서는 및 `iteration` 매개 변수를 지정 하지 않았습니다 .이로 인해 반복이 가장 적합 한 기본 메트릭이 등록 됩니다. Run `model_id` 에서 반환 된 값은 모델 이름 대신 사용 됩니다.
+
+    자세한 내용은 [AutoMLRun. register_model](https://review.docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.run.automlrun?view=azure-ml-py&branch=master#register-model-description-none--tags-none--iteration-none--metric-none-) 참조를 참조 하세요.
 
 + **CLI 사용**
 
@@ -184,6 +201,9 @@ Azure Machine Learning 서비스 외부에서 학습 한 모델을 사용 하는
 모델을 등록할 때 레지스트리에서 모델을 관리 하는 데 사용 되는 모델 이름을 제공 합니다. 이 이름을 Model과 함께 사용 [합니다. get _model_path ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) 를 사용 하 여 로컬 파일 시스템에서 모델 파일의 경로를 검색 합니다. 폴더 또는 파일 컬렉션을 등록 하는 경우이 API는 해당 파일이 포함 된 디렉터리에 대 한 경로를 반환 합니다.
 
 모델을 등록할 때 모델을 로컬 또는 서비스 배포 중에 배치 하는 위치에 해당 하는 이름을 지정 합니다.
+
+> [!IMPORTANT]
+> 자동화 된 machine learning을 `model_id` 사용 하 여 모델을 학습 한 경우 값이 모델 이름으로 사용 됩니다. 자동화 된 ml을 사용 하 여 학습 된 모델을 등록 하 고 배포 [https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/classification-with-deployment](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/classification-with-deployment)하는 예는을 참조 하십시오.
 
 아래 예제에서는 라는 `sklearn_mnist_model.pkl` 단일 파일에 대 한 경로를 반환 합니다 .이 파일은 이름 `sklearn_mnist`으로 등록 됩니다.
 

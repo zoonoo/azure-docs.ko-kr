@@ -4,16 +4,16 @@ description: Microsoft Flow의 IoT Central 커넥터를 사용 하 여 워크플
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 04/25/2019
+ms.date: 08/26/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: hegate
-ms.openlocfilehash: 5f5353d0d85d6af4e74c48c80c790449852b43ef
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: a972ab52f64a37ac6876194202324b4380460817
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876281"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050585"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>Microsoft Flow에서 IoT Central 커넥터를 사용하여 워크플로 구축
 
@@ -30,7 +30,7 @@ Microsoft Flow를 사용하여 비즈니스 사용자가 의존하는 많은 애
 
 IoT Central을 모바일 알림 및 Microsoft Teams와 같은 다른 서비스에 연결하는 [이러한 Microsoft Flow 템플릿](https://aka.ms/iotcentralflowtemplates)을 확인하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 - 종량제 애플리케이션
 - Microsoft Flow 사용할 Microsoft 개인 또는 회사 또는 학교 계정 ([Microsoft Flow 요금제에 대 한 자세한 정보](https://aka.ms/microsoftflowplans))

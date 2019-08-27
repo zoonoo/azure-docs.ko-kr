@@ -1,6 +1,6 @@
 ---
-title: Azure에서 Windows Vm에 대 한 유지 관리 알림 설정 | Microsoft Docs
-description: Azure 가상 컴퓨터에 대 한 예약 된 유지 관리 알림을 설정 하는 방법을 알아봅니다.
+title: Azure에서 Windows Vm에 대 한 예약 된 이벤트 모니터링 | Microsoft Docs
+description: 예약 된 이벤트에 대 한 Azure 가상 머신을 모니터링 하는 방법에 대해 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: ''
 author: mysarn
@@ -10,14 +10,14 @@ ms.tgt_pltfrm: vm-windows
 ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: conceptual
-ms.openlocfilehash: 18b46b848946bb2450604bdf0650a004e21778d9
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 49c82339e5a3774cd286d700d709371d46cf0571
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69657412"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051850"
 ---
-# <a name="set-up-notifications-about-maintenance-affecting-your-vm"></a>VM에 영향을 주는 유지 관리에 대 한 알림 설정
+# <a name="monitoring-scheduled-events"></a>모니터링 Scheduled Events
 
 업데이트는 매일 Azure의 서로 다른 부분에 적용 되어 서비스를 안전 하 게 실행 하 고 최신 상태로 유지 합니다. 계획 된 업데이트 외에도 계획 되지 않은 이벤트가 발생할 수 있습니다. 예를 들어 하드웨어 성능 저하 또는 오류가 감지 되 면 Azure 서비스는 계획 되지 않은 유지 관리를 수행 해야 할 수 있습니다. 실시간 마이그레이션을 사용 하 여 메모리를 유지 하는 업데이트를 유지 하 고 일반적으로 업데이트의 영향에 대해 엄격한 막대를 유지 합니다. 대부분의 경우 이러한 이벤트는 고객에 게 거의 영향을 주지 않으며, 영향을 주지 않거나 최대 몇 초 동안 가상 머신이 중지 될 수 있습니다. 그러나 일부 응용 프로그램의 경우 가상 머신 고정의 몇 초 까지도 영향을 받을 수 있습니다. 이러한 응용 프로그램에 대 한 최상의 환경을 보장 하기 위해 예정 된 Azure 유지 관리를 미리 파악 하는 것이 중요 합니다. [Scheduled Events 서비스](scheduled-events.md) 는 예정 된 유지 관리에 대 한 알림이 제공 되는 프로그래밍 인터페이스를 제공 하 고 유지 관리를 정상적으로 처리할 수 있도록 합니다. 
 

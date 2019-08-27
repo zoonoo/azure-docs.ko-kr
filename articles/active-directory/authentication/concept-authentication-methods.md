@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d18c74e908f6d5c4c3d2eefb0518add380fa1324
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 3b0c91357e5ab15b88c92b04fd0896b989e83953
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69561310"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051434"
 ---
 # <a name="what-are-authentication-methods"></a>인증 방법이란?
 
-관리자는 Azure Multi-factor Authentication에 대 한 인증 방법 및 SSPR (셀프 서비스 암호 재설정)을 선택할 때 사용자가 여러 인증 방법을 등록 하도록 요구 하는 것이 좋습니다. 사용자에 대 한 인증 방법을 사용할 수 없는 경우 다른 방법으로 인증 하도록 선택할 수 있습니다.
+관리자는 Azure Multi-Factor Authentication 및 셀프 서비스 암호 재설정 (SSPR)에 대 한 인증 방법을 선택 하는 것이 좋습니다. 사용자가 여러 인증 방법을 등록 하도록 요구 하는 것이 좋습니다. 사용자에 대 한 인증 방법을 사용할 수 없는 경우 다른 방법으로 인증 하도록 선택할 수 있습니다.
 
-관리자는 SSPR 및 MFA 사용자에게 제공하는 인증 방법을 정책에서 정의할 수 있습니다. 일부 기능에는 일부 인증 방법이 제공되지 않을 수 있습니다. 정책을 구성 하는 방법에 대 한 자세한 내용은 [셀프 서비스 암호 재설정을 성공적으로 출시 하는 방법](howto-sspr-deployment.md) 및 [클라우드 기반 Azure multi-factor Authentication 계획](howto-mfa-getstarted.md) 문서를 참조 하세요.
+관리자는 SSPR 및 MFA 사용자에게 제공하는 인증 방법을 정책에서 정의할 수 있습니다. 일부 기능에는 일부 인증 방법이 제공되지 않을 수 있습니다. 정책을 구성 하는 방법에 대 한 자세한 내용은 [셀프 서비스 암호 재설정을 성공적으로 출시 하는 방법](howto-sspr-deployment.md) 및 [클라우드 기반 Azure Multi-Factor Authentication 계획](howto-mfa-getstarted.md) 문서를 참조 하세요.
 
 관리자는 사용자가 액세스 권한이 없는 경우 필요한 최소 인증 방법 수보다 많이 선택할 수 있게 하는 것이 좋습니다.
 
@@ -60,15 +60,15 @@ Azure AD 암호는 인증 방법으로 간주됩니다. **비활성화할 수 �
 
 ### <a name="predefined-questions"></a>미리 정의된 질문
 
-* 첫 번째 배우자/애인을 만난 도시는 어디였습니까?
+* 배우자/파트너를 처음 만난 도시는 어디인가요?
 * 부모님이 처음 만난 도시는 어디인가요?
 * 가장 가까운 형제 자매가 사는 도시는 어디인가요?
 * 아버지가 출생하신 도시는 어디인가요?
 * 첫 직장이 있는 도시는 어디인가요?
 * 어머니가 출생하신 도시는 어디인가요?
-* 2000년 새해 첫 날 어느 도시에 있었습니까?
-* 고등학교에서 가장 좋아하는 선생님의 성은 무엇입니까?
-* 지원했지만 다니지 않은 대학의 이름은 무엇입니까?
+* 2000년에 새해를 맞은 도시는 어디인가요?
+* 고등학교에서 가장 좋아했던 선생님의 성은 무엇인가요?
+* 지원했지만 다니지 않은 대학의 이름은 무엇인가요?
 * 첫 번째 결혼 피로연을 열었던 장소의 이름은 무엇인가요?
 * 아버지의 중간 이름은 무엇인가요?
 * 가장 좋아하는 음식은 무엇인가요?
@@ -94,7 +94,7 @@ Azure AD 암호는 인증 방법으로 간주됩니다. **비활성화할 수 �
 * 첫 번째 직업은 무엇인가요?
 * 어린 시절 전화 번호의 마지막 4자리는 무엇인가요?
 * 어린 시절 자라서 되고 싶었던 것은 무엇인가요?
-* 지금까지 만난 사람 중에 가장 유명한 사람은 누구입니까?
+* 지금까지 만난 가장 유명한 사람은 누구인가요?
 
 미리 정의된 모든 보안 질문은 모두 사용자의 브라우저 로캘을 기반으로 Office 365 언어의 전체 집합으로 번역 및 지역화됩니다.
 
@@ -194,6 +194,8 @@ CSV 파일의 크기에 따라 처리하는 데 몇 분 정도가 소요될 수 
 > 국가 번호와 전화 번호 사이에 공백이 필요합니다.
 >
 > 암호 재설정은 전화 번호 확장을 지원하지 않습니다. +1 4255551234X12345 형식에서도 전화를 걸지 전에 확장이 제거됩니다.
+
+Microsoft는 동일한 번호를 통한 일관적인 SMS 또는 음성 기반 Multi-Factor Authentication 즉시 이행을 보장하지 않습니다. 사용자를 위해, SMS 이행성을 향상하기 위한 조정 작업을 수시로 진행하고 있는 Microsoft는 언제든지 짧은 코드를 추가하거나 제거할 수 있습니다. Microsoft는 미국 및 캐나다 외에도 국가/지역에 대 한 간단한 코드를 지원 하지 않습니다.
 
 #### <a name="text-message"></a>문자 메시지
 

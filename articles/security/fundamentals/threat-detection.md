@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: c7a31337888dcdc2a8f8b95c5203cc659882b038
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 86b17efdb811e9e4040b8b267c161b950f6de5fd
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68927878"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036185"
 ---
 # <a name="azure-advanced-threat-detection"></a>Azure 지능형 위협 탐지
 
@@ -384,6 +384,6 @@ Azure Marketplace에서 사용할 수 있는 웹 애플리케이션 방화벽의
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Security Center 감지 기능](../../security-center/security-center-detection-capabilities.md): Azure 리소스를 대상으로 하는 활성 위협을 식별하고 신속하게 대응하는 데 필요한 인사이트를 제공합니다.
+- [오늘날의 위협에 대응](../../security-center/security-center-alerts-overview.md#respond-threats): Azure 리소스를 대상으로 하는 활성 위협을 식별하고 신속하게 대응하는 데 필요한 인사이트를 제공합니다.
 
 - [Azure SQL Database 위협 검색](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-your-built-in-security-expert/): 데이터베이스에 잠재적인 위협에 대한 우려 사항을 해결하는 데 도움이 됩니다.

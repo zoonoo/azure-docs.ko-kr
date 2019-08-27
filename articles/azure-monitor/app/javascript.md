@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/15/2019
 ms.author: mbullwin
-ms.openlocfilehash: 77c5285462c4368badd63d7cdbf6589c7ad03c8d
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: f72feeefeb896c9006f767f8724d9ca3b3640c1e
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534522"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035227"
 ---
 # <a name="application-insights-for-web-pages"></a>웹 페이지용 Application Insights
 
@@ -36,7 +36,7 @@ Application Insights는 다른 웹 페이지와 함께 사용할 수 있습니�
 > [!IMPORTANT]
 > Application Insights JavaScript SDK를 응용 프로그램에 추가 하려면 아래 방법 중 하나를 사용 해야 합니다. NPM 기반 설치를 사용 하는 경우 코드 조각 기반 설치를 사용 하지 마세요. 코드 조각을 기반으로 하는 방법을 사용 하는 경우 역방향 시나리오 에서도 마찬가지입니다. NPM 기반 설치를 사용 하지 마세요. 
 
-### <a name="npm-based-setup"></a>NPM 기반 설정 
+### <a name="npm-based-setup"></a>NPM 기반 설정
 
 ```js
 import { ApplicationInsights } from '@microsoft/applicationinsights-web'
@@ -198,7 +198,7 @@ dataset
 2. 이 호출 스택에 해당 하는 소스 맵을 식별 합니다. 소스 맵은 스택 프레임의 소스 파일과 일치 해야 하지만 다음에는 접미사가 붙습니다.`.map`
 3. 소스 맵을 Azure Portal의 호출 스택으로 끌어 놓습니다.![](https://i.imgur.com/Efue9nU.gif)
 
-## <a name="application-insights-web-basic"></a>Application Insights 웹 기본
+### <a name="application-insights-web-basic"></a>Application Insights 웹 기본
 
 간단한 경험을 위해의 기본 버전을 대신 설치할 수 있습니다 Application Insights
 ```

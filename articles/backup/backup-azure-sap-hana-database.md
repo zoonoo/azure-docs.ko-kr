@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: dacurwin
-ms.openlocfilehash: f5a76ef44ebef0689ec0587434996f28ba7b7025
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: a11d454feb965907f3bd4e994c0916eeb7236fa7
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68735535"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034557"
 ---
 # <a name="back-up-an-sap-hana-database-to-azure"></a>Azure에 SAP HANA 데이터베이스 백업
 
@@ -106,9 +106,9 @@ ms.locfileid: "68735535"
 
 1. 2 단계에서 **백업 구성**을 클릭 합니다.
 2. **백업할 항목 선택**에서 보호 하려는 모든 데이터베이스 > **확인**을 선택 합니다.
-3.  **백업 정책** > 에서**백업 정책을 선택**하 고 아래 지침에 따라 데이터베이스에 대 한 새 백업 정책을 만듭니다.
+3. **백업 정책** > 에서**백업 정책을 선택**하 고 아래 지침에 따라 데이터베이스에 대 한 새 백업 정책을 만듭니다.
 4. 정책을 만든 후 **백업** 메뉴에서 **백업 사용**을 클릭 합니다.
-5. 포털의 **알림** 영역에서 백업 구성 진행률을 추적 합니다.
+5. 포털의 **알림** 영역에서 백업 구성 진행률을 추적 합니다.
 
 ### <a name="create-a-backup-policy"></a>백업 정책 만들기
 

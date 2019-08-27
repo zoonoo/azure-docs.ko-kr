@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 2efeb37f8b98f4cf9a29ec8a6976146b81aab26b
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 9bc6cfdcbc67761e99150c730adeb23602232632
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69641083"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70032951"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>SQL Database 관리 되는 인스턴스 FAQ (질문과 대답)
 
@@ -124,9 +124,9 @@ IO를 많이 사용 하는 워크 로드의 경우 계산 집약적 워크 로�
 
 관리 되는 인스턴스 사례 연구:
 
-- [Komatsu](http://customers.microsoft.com/story/komatsu-australia-manufacturing-azure)
-- [powerdetails](http://customers.microsoft.com/story/powerdetails-partner-professional-services-azure-sql-database-managed-instance)
-- [Allscripts](http://customers.microsoft.com/story/allscripts-partner-professional-services-azure)  
+- [Komatsu](https://customers.microsoft.com/story/komatsu-australia-manufacturing-azure)
+- [powerdetails](https://customers.microsoft.com/story/powerdetails-partner-professional-services-azure-sql-database-managed-instance)
+- [Allscripts](https://customers.microsoft.com/story/allscripts-partner-professional-services-azure)  
 Azure SQL Database 관리 되는 인스턴스를 배포 하는 것과 관련 된 이점, 비용 및 위험에 대 한 이해를 높이기 위해 Forrester의 학습도 있습니다. [MI의 총 경제 영향](https://azure.microsoft.com/resources/forrester-tei-sql-database-managed-instance).
 
 

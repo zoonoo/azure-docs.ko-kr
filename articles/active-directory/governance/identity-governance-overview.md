@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/29/2019
+ms.date: 08/25/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f09a8c2f8caae3cbb182cf2dc4621deb95f7e5c
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 014a2c3cff3804657e4e2bf624b97eceef4bf4b2
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499655"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70033316"
 ---
-# <a name="what-is-azure-ad-identity-governance"></a>Azure AD Identity Governance 이란?
+# <a name="what-is-azure-ad-identity-governance"></a>Azure AD Identity Governance란?
 
 Azure AD (Azure Active Directory) Id 거 버 넌 스를 사용 하면 적절 한 프로세스 및 가시성을 통해 보안 및 직원 생산성에 대 한 조직의 필요성을 균형 있게 조정할 수 있습니다. 적절한 사용자가 적절한 리소스에 대한 권한 액세스하는지 확인하는 기능을 제공하고, 직원의 생산성을 보장하면서 중요한 자산에 대한 액세스를 보호하고, 모니터링하고, 감사할 수 있습니다.  
 
@@ -80,6 +80,8 @@ PIM(Azure AD Privileged Identity Management)에서는 Azure AD, Azure 및 기타
 Azure Portal에서 **Id 거 버 넌 스** 의 시작 탭을 확인 하 여 권한 부여 관리, 액세스 검토, Privileged Identity Management 및 사용 약관를 시작할 수도 있습니다.
 
 ![Id 거 버 넌 스 시작](./media/identity-governance-overview/getting-started.png)
+
+Id 거 버 넌 스 기능에 대 한 의견이 있는 경우 피드백을 제출 하려면 Azure Portal에서 **피드백을 받았습니다** .를 클릭 합니다. 팀에서 사용자 의견을 정기적으로 검토 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

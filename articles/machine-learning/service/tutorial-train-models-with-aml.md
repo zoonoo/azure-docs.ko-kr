@@ -1,4 +1,4 @@
-﻿---
+---
 title: '이미지 분류 자습서: 모델 학습'
 titleSuffix: Azure Machine Learning service
 description: Azure Machine Learning Service를 사용하는 Python Jupyter Notebook에서 scikit-Learn을 사용하여 이미지 분류 모델을 학습시키는 방법을 알아봅니다. 이 자습서는 2부로 구성된 시리즈 중 제1부입니다.

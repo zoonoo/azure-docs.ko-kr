@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe2b4ed91969248bc0818f98306a108555eac424
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 77309a73f3c5641aa8a7667015ed02808e376348
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67853045"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70032886"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>조직에서 잘못된 암호 제거
 
@@ -39,7 +39,7 @@ Azure AD의 테 넌 트에 있는 모든 사용자에 대해 새 암호를 변�
 > [!NOTE]
 > 사이버은 또한 공격에 비슷한 전략을 사용 합니다. 따라서 Microsoft는이 목록의 콘텐츠를 공개적으로 게시 하지 않습니다.
 
-## <a name="custom-banned-password-list"></a>사용자 지정 금지 암호 목록
+## <a name="custom-banned-password-list"></a>사용자 지정 금지된 암호 목록
 
 일부 조직에서는 Microsoft가 사용자 지정 금지 된 암호 목록을 호출 하는 사용자 지정을 전역 금지 된 암호 목록 위에 추가 하 여 보안을 더욱 향상 시킬 수 있습니다. 이 목록에 추가 된 용어는 주로 다음과 같은 조직적 특정 조건에 초점을 맞춘 것을 권장 합니다.
 
@@ -121,7 +121,7 @@ Azure AD 암호 보호는 Azure AD에서 볼 수 있는 실제 보안 원격 분
 
 예: "abcdef"라는 암호가 금지된 상태에서 사용자가 암호를 다음 중 하나로 변경하려 한다고 가정해 보겠습니다.
 
-'abcdeg'    *(마지막 문자가 'f'에서 'g'로 변경됨)* 'abcdefg'   *(끝에 'g'가 추가됨)* 'abcde'     *(맨 끝의 'f'가 삭제됨)*
+' abcdeg ' *(마지막 문자가 ' f '에서 ' g '로 변경 됨)* ' abcdefg ' *' (g '는 끝까지 추가* 됨) ' abcde...z ' *(후행 ' f '는 끝에서 삭제 됨)*
 
 위의 각 암호는 금지된 암호인 "abcdef"와 구체적으로 일치하지는 않습니다. 그러나 각 예제는 금지 된 용어 ' abcdef ' 중 1의 편집 거리 내에 있으므로 모두 "abcdef"와 일치 하는 것으로 간주 됩니다.
 

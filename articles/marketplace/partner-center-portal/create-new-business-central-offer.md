@@ -6,13 +6,13 @@ manager: evansma
 ms.author: jenhayes
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 08/14/2019
-ms.openlocfilehash: 0d6721c2ef24665035cc4a99c9bf3804b312fe75
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.date: 08/26/2019
+ms.openlocfilehash: e127d937dfaeb8afaad6b9a95383f0008f5ea898
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900156"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70033274"
 ---
 # <a name="create-a-new-dynamics-365-business-central-offer"></a>새 Dynamics 365 비즈니스 센터 제품 만들기
 
@@ -135,7 +135,7 @@ CRM (고객 관계 관리) 시스템을 연결 하 여 고객 연락처 정보�
 
 Marketplace 검색 결과에서 사용할 수 있는 제품에 대 한 간략 한 설명을 제공 합니다 (최대 100 자).
 
-### <a name="description"></a>Description
+### <a name="description"></a>설명
 
 제품에 대 한 더 긴 설명 (최대 3000 자)을 제공 합니다. 이 설명은 marketplace 목록 개요에서 고객에 게 표시 됩니다. 제품의 가치 제안, 주요 이점, 범주 및/또는 업계 연결, 앱 내 구매 기회 및 필요한 공개를 포함 합니다. 
 
@@ -354,7 +354,7 @@ Microsoft는이 유형의 테스트 드라이브를 사용 하 여 서비스 프
 
 ## <a name="supplemental-content"></a>추가 콘텐츠
 
-이 페이지에서는 제품에 대 한 추가 필수 정보를 제공할 수 있습니다.
+이 페이지에서는 제품의 유효성을 검사 하는 데 도움이 되는 제품에 대 한 추가 정보를 제공할 수 있습니다. 이 정보는 고객에 게 표시 되거나 marketplace에 게시 되지 않습니다.
 
 ### <a name="target-release"></a>대상 릴리스
 
@@ -362,15 +362,15 @@ Microsoft는이 유형의 테스트 드라이브를 사용 하 여 서비스 프
 
 ### <a name="supported-editions"></a>지원되는 버전
 
-솔루션이 Microsoft Dynamics 365 Business Central의 Essentials 및/또는 Premium 버전을 지원 하는지 여부를 나타냅니다. 하나 이상의 값을 선택 해야 합니다.
+제품에 Microsoft Dynamics 365 Business Central의 Premium 버전이 필요한 경우 **premium** 만을 선택 합니다. 그렇지 않으면 **Essentials** 및 **Premium**을 모두 선택 합니다.
 
 ### <a name="key-usage-scenario"></a>주요 사용 시나리오
 
-문서에 `.pdf` 나열 된 제품의 주요 사용 시나리오를 나열 하는 파일 (.pdf 형식)을 업로드 합니다. Marketplace에 대 한 제품을 승인 하기 전에 유효성 검사 팀에서 여기에 나열 된 모든 시나리오를 확인할 수 있습니다.
+제품의 키 사용 `.pdf` 시나리오를 나열 하는 파일을 문서 (.pdf 형식)에 pload 해야 합니다. Marketplace에 대 한 제품을 승인 하기 전에 유효성 검사 팀에서 여기에 나열 된 모든 시나리오를 확인할 수 있습니다.
 
 ### <a name="app-tests-automation"></a>앱 테스트 자동화
 
-**앱 테스트 자동화** 파일 (. app)도 업로드 합니다.
+선택적으로 **앱 테스트 자동화** 파일 (. 앱)을 업로드할 수 있습니다.
 
 ### <a name="test-accounts"></a>테스트 계정
 

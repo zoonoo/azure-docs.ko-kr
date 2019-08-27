@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2018
 ms.author: banders
-ms.openlocfilehash: 98ed28af8df246549fb521a81f1968e1f5c28cc4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 39526defb8f41ddacb0a26d7ad852f820ca6ea77
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60370716"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034537"
 ---
 # <a name="understand-azure-enterprise-agreement-administrative-roles-in-azure"></a>Azure의 Azure 기업계약 관리자 역할 이해
 
@@ -38,10 +38,10 @@ ms.locfileid: "60370716"
 
 |역할| 사용자 제한|
 |---|---|
-|엔터프라이즈 관리자|Unlimited|
-|엔터프라이즈 관리자(읽기 전용)|Unlimited|
-|부서 관리자|Unlimited|
-|부서 관리자(읽기 전용)|Unlimited|
+|엔터프라이즈 관리자|제한 없음|
+|엔터프라이즈 관리자(읽기 전용)|제한 없음|
+|부서 관리자|제한 없음|
+|부서 관리자(읽기 전용)|제한 없음|
 |계정 소유자|계정당 1명<sup>1</sup>|
 
 <sup>1</sup> 각 계정마다 고유한 Microsoft 계정이나 회사 또는 학교 계정이 필요합니다.
@@ -56,7 +56,7 @@ ms.locfileid: "60370716"
 |알림 연락처 추가 또는 제거<sup>2</sup> |✔|✘|✘|✘|✘|
 |부서 만들기 및 관리 |✔|✘|✘|✘|✘|
 |부서 관리자 보기|✔|✔|✔|✔|✘|
-|부서 관리자 추가 또는 제거|✔|✔|✔|✘|✘|
+|부서 관리자 추가 또는 제거|✔|✘|✔|✘|✘|
 |등록에 포함된 계정 보기 |✔|✔|✔<sup>3</sup>|✔<sup>3</sup>|✘|
 |등록에 계정 추가 및 계정 소유자 변경|✔|✘|✔<sup>3</sup>|✘|✘|
 |구독 및 구독 사용 권한 만들기/관리|✘|✘|✘|✘|✔|
@@ -97,7 +97,7 @@ Azure Portal에서 표시되는 가격은 사용자의 관리 역할 및 엔터�
 |계정 소유자 또는 부서 관리자|✘ 사용 안 함|소유자|소매 가격|
 |계정 소유자 또는 부서 관리자|✔ 사용 |없음|가격 없음|
 |계정 소유자 또는 부서 관리자|✘ 사용 안 함 |없음|가격 없음|
-|없음|해당 없음 |소유자|소매 가격|
+|없음|해당 사항 없음 |소유자|소매 가격|
 
 엔터프라이즈 관리자 역할 및 요금 보기 정책은 Enterprise Portal에서 설정합니다. RBAC 역할은 Azure Portal에서 업데이트할 수 있습니다. 자세한 내용은 [RBAC 및 Azure Portal을 사용하여 액세스 관리](../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 

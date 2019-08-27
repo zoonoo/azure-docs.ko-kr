@@ -5,14 +5,14 @@ services: log-analytics
 author: bwren
 ms.service: log-analytics
 ms.topic: conceptual
-ms.date: 06/16/2019
+ms.date: 08/22/2019
 ms.author: bwren
-ms.openlocfilehash: 6f5ae426018c9e7fa2ac586a2886c8e5e609069b
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: b1d22729724c2d1a8e3705e017762dcef588245e
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68813856"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034866"
 ---
 # <a name="structure-of-azure-monitor-logs"></a>Azure Monitor 로그의 구조
 [로그 쿼리](log-query-overview.md) 를 사용 하 여 데이터에 대 한 정보를 신속 하 게 파악 하는 기능은 Azure Monitor의 강력한 기능입니다. 효율적이 고 유용한 쿼리를 만들려면 원하는 데이터의 위치와 구성 방법 등의 몇 가지 기본 개념을 이해 해야 합니다. 이 문서에서는 시작 하는 데 필요한 기본 개념을 제공 합니다.
@@ -46,7 +46,7 @@ union withsource = table *
 만든 테이블에 대 한 자세한 내용은 각 데이터 원본에 대 한 설명서를 참조 하세요. 예를 들면 [에이전트 데이터 원본](../platform/agent-data-sources.md), [진단 로그](../platform/diagnostic-logs-schema.md)및 [모니터링 솔루션](../insights/solutions-inventory.md)에 대 한 아티클이 있습니다.
 
 ### <a name="workspace-permissions"></a>작업 영역 권한
-작업 영역에서 데이터에 대 한 액세스를 제공 하는 방법에 대 한 자세한 내용은 [작업 영역 권한 및 범위](../platform/manage-access.md#manage-accounts-and-users) 를 참조 하세요. 작업 영역에 대 한 액세스 권한을 부여 하는 것 외에도 [테이블 수준 RBAC](../platform/manage-access.md#table-level-rbac)를 사용 하 여 개별 테이블에 대 한 액세스를 제한할 수 있습니다.
+작업 영역에서 데이터에 대 한 액세스를 제공 하기 위한 액세스 제어 전략 및 권장 사항을 이해 하려면 [Azure Monitor 로그 배포 디자인](../platform/design-logs-deployment.md) 을 참조 하세요. 작업 영역에 대 한 액세스 권한을 부여 하는 것 외에도 [테이블 수준 RBAC](../platform/manage-access.md#table-level-rbac)를 사용 하 여 개별 테이블에 대 한 액세스를 제한할 수 있습니다.
 
 ## <a name="application-insights-application"></a>응용 프로그램 Application Insights
 Application Insights에서 응용 프로그램을 만들 때 해당 응용 프로그램이 Azure Monitor 로그에 자동으로 만들어집니다. 데이터를 수집 하는 데 필요한 구성은 없으며, 응용 프로그램은 페이지 보기, 요청 및 예외와 같은 모니터링 데이터를 자동으로 작성 합니다.
@@ -73,7 +73,7 @@ Log Analytics 작업 영역과 달리 Application Insights 응용 프로그램�
 ## <a name="standard-properties"></a>표준 속성
 Azure Monitor 로그의 각 테이블에는 자체 스키마가 있지만 모든 테이블에서 공유 하는 표준 속성은 있습니다. 각 항목에 대 한 자세한 내용은 [Azure Monitor 로그의 표준 속성](../platform/log-standard-properties.md) 을 참조 하세요.
 
-| Log Analytics 작업 영역 | 응용 프로그램 Application Insights | 설명 |
+| Log Analytics 작업 영역 | 응용 프로그램 Application Insights | Description |
 |:---|:---|:---|
 | TimeGenerated | timestamp  | 레코드를 만든 날짜와 시간입니다. |
 | 형식          | itemType   | 레코드가 검색 된 테이블의 이름입니다. |

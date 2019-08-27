@@ -4,12 +4,12 @@ ms.service: container-service
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
-ms.openlocfilehash: f903828285b0d4fdc8fbd932fa7c85056e937481
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 3e1e1266122ebcccc0149ca8e0421577becd6708
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182760"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036744"
 ---
 # <a name="deprecated-container-service-frequently-asked-questions"></a>(사용되지 않음) Container Service 질문과 대답
 
@@ -37,7 +37,7 @@ ms.locfileid: "67182760"
 ### <a name="what-is-the-difference-between-azure-container-service-and-acs-engine"></a>Azure Container Service와 ACS Engine의 차이는 무엇인가요? 
 Azure Container Service는 Azure Portal, Azure 명령줄 도구 및 Azure API의 기능이 포함된 SLA 기반 Azure 서비스입니다. 이 서비스를 사용하면 비교적 적은 수의 구성 옵션을 통해 표준 컨테이너 오케스트레이션 도구를 실행하는 클러스터를 신속하게 구현하고 관리할 수 있습니다. 
 
-[ACS Engine](http://github.com/Azure/acs-engine)은 power user가 모든 수준의 클러스터 구성을 사용자 지정하는 데 사용할 있는 오픈 소스 프로젝트입니다. 인프라 및 소프트웨어 양쪽의 구성을 변경하는 기능이 있기 때문에 ACS Engine용 SLA는 제공되지 않습니다. 지원은 공식적인 Microsoft 채널이 아닌 GitHub의 오픈 소스 프로젝트를 통해 처리됩니다. 
+[ACS Engine](https://github.com/Azure/acs-engine)은 power user가 모든 수준의 클러스터 구성을 사용자 지정하는 데 사용할 있는 오픈 소스 프로젝트입니다. 인프라 및 소프트웨어 양쪽의 구성을 변경하는 기능이 있기 때문에 ACS Engine용 SLA는 제공되지 않습니다. 지원은 공식적인 Microsoft 채널이 아닌 GitHub의 오픈 소스 프로젝트를 통해 처리됩니다. 
 
 자세한 내용은 [컨테이너에 대한 지원 정책](https://support.microsoft.com/en-us/help/4035670/support-policy-for-containers)을 참조하세요.
 
@@ -59,7 +59,7 @@ Azure Container Service에서 Kubernetes 클러스터를 만들려면 Azure Acti
 1, 3 또는 5개의 마스터 노드가 있는 클러스터를 만들 수 있습니다. 최대 100개의 에이전트 노드를 선택할 수 있습니다.
 
 > [!IMPORTANT]
-> 대규모 클러스터 및 노드에 선택한 VM 크기에 따라 구독에서 코어 할당량을 늘려야 합니다. 할당량 증가를 요청하려면 추가 비용 없이 [온라인 고객 지원 요청](../articles/azure-supportability/how-to-create-azure-support-request.md)을 개설합니다. [Azure 무료 계정](https://azure.microsoft.com/free/)을 사용하는 경우, 제한된 수의 Azure 계산 코어만 사용할 수 있습니다.
+> 대규모 클러스터 및 노드에 선택한 VM 크기에 따라 구독에서 코어 할당량을 늘려야 합니다. 할당량 증가를 요청하려면 추가 비용 없이 [온라인 고객 지원 요청](../articles/azure-supportability/how-to-create-azure-support-request.md)을 개설합니다. [Azure 무료 계정](https://azure.microsoft.com/free/)을 사용하는 경우, 제한된 수의 Azure 컴퓨팅 코어만 사용할 수 있습니다.
 > 
 
 ### <a name="how-do-i-increase-the-number-of-masters-after-a-cluster-is-created"></a>클러스터를 만든 후 마스터 수는 어떻게 늘리나요? 
@@ -80,8 +80,8 @@ DNSnamePrefix.AzureRegion.cloudapp.azure.net
 ### <a name="how-do-i-tell-which-orchestrator-version-is-running-in-my-cluster"></a>내 클러스터에 실행 중인 오케스트레이터 버전을 어떻게 확인하나요?
 
 * DC/OS: [Mesosphere 설명서](https://docs.mesosphere.com/1.7/usage/cli/command-reference/) 참조
-* Docker Swarm: `docker version` 실행
-* Kubernetes: `kubectl version` 실행
+* Docker Swarm: `docker version`를 실행합니다.
+* Kubernetes: `kubectl version`를 실행합니다.
 
 ### <a name="how-do-i-upgrade-the-orchestrator-after-deployment"></a>배포 후 오케스트레이터를 업그레이드하려면 어떻게 하나요?
 
@@ -99,7 +99,7 @@ DNSnamePrefix.AzureRegion.cloudapp.azure.net
 
 4. **요약** 페이지의 **출력** 아래에 여러 개의 클러스터 링크가 제공됩니다. **SSHMaster0**은 컨테이너 서비스 클러스터의 첫 번째 마스트에 SSH 연결 문자열을 제공합니다. 
 
-이전에 언급했듯이 Azure 도구를 사용하여 마스터의 FQDN을 찾을 수도 있습니다. 마스터의 FQDN 및 클러스터를 만들 때 지정한 사용자 이름을 사용하여 마스터에 SSH 연결을 만듭니다. 예를 들면 다음과 같습니다.
+이전에 언급했듯이 Azure 도구를 사용하여 마스터의 FQDN을 찾을 수도 있습니다. 마스터의 FQDN 및 클러스터를 만들 때 지정한 사용자 이름을 사용하여 마스터에 SSH 연결을 만듭니다. 예:
 
 ```bash
 ssh userName@masterFQDN –A –p 22 

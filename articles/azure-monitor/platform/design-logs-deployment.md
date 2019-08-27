@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: magoedte
-ms.openlocfilehash: 1c2416d9fb1d45116bb6594b29863c1fe8f524a3
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 5d6e68b4b17c31056ed1f96a779823fc856962fb
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883212"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034734"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Azure Monitor 로그 배포 디자인
 
@@ -71,7 +71,7 @@ RBAC (역할 기반 액세스 제어)를 사용 하면 작업 영역에서 모�
 |:---|:---|
 | [액세스 모드](#access-mode) | 사용자가 작업 영역에 액세스 하는 데 사용 하는 방법입니다.  사용 가능한 데이터의 범위와 적용 되는 액세스 제어 모드를 정의 합니다. |
 | [액세스 제어 모드](#access-control-mode) | 사용 권한이 작업 영역에 적용 되는지 아니면 리소스 수준에서 적용 되는지를 정의 하는 작업 영역에 대 한 설정입니다. |
-| [사용 권한](manage-access.md#manage-accounts-and-users) | 작업 영역 또는 리소스의 개별 사용자 또는 사용자 그룹에 적용 되는 권한입니다. 사용자가 액세스할 수 있는 데이터를 정의 합니다. |
+| [사용 권한](manage-access.md) | 작업 영역 또는 리소스의 개별 사용자 또는 사용자 그룹에 적용 되는 권한입니다. 사용자가 액세스할 수 있는 데이터를 정의 합니다. |
 | [테이블 수준 RBAC](manage-access.md#table-level-rbac) | 액세스 모드 또는 액세스 제어 모드에 관계 없이 모든 사용자에 게 적용 되는 선택적인 세부적인 권한입니다. 사용자가 액세스할 수 있는 데이터 형식을 정의 합니다. |
 
 ## <a name="access-mode"></a>액세스 모드
@@ -105,7 +105,7 @@ Azure Monitor는 로그 검색을 수행 하는 컨텍스트에 따라 올바른
 | | 작업 영역-컨텍스트 | 리소스-컨텍스트 |
 |:---|:---|:---|
 | 각 모델의 용도는 무엇 인가요? | 중앙 관리. 다양 한 리소스에 액세스 해야 하는 데이터 수집 및 사용자를 구성 해야 하는 관리자입니다. 또한 현재 Azure 외부의 리소스에 대 한 로그에 액세스 해야 하는 사용자에 게 필요 합니다. | 응용 프로그램 팀. 모니터링 되는 Azure 리소스의 관리자입니다. |
-| 사용자가 로그를 보려면 어떻게 해야 하나요? | 작업 영역에 대 한 사용 권한. [계정 및 사용자 관리](manage-access.md#manage-accounts-and-users)의 **작업 영역 권한** 을 참조 하세요. | 리소스에 대 한 읽기 액세스입니다. [계정 및 사용자 관리](manage-access.md#manage-accounts-and-users)에서 **리소스 권한** 을 참조 하세요. 사용 권한을 상속 하거나 (예: 포함 하는 리소스 그룹에서) 리소스에 직접 할당할 수 있습니다. 리소스에 대 한 로그에 대 한 사용 권한이 자동으로 할당 됩니다. |
+| 사용자가 로그를 보려면 어떻게 해야 하나요? | 작업 영역에 대 한 사용 권한. [작업 영역 사용 권한을 사용 하 여 액세스 관리](manage-access.md#manage-access-using-workspace-permissions)에서 **작업 영역 권한** 을 참조 하세요. | 리소스에 대 한 읽기 액세스입니다. [Azure 권한을 사용 하 여 액세스 관리](manage-access.md#manage-access-using-azure-permissions)에서 **리소스 권한** 을 참조 하세요. 사용 권한을 상속 하거나 (예: 포함 하는 리소스 그룹에서) 리소스에 직접 할당할 수 있습니다. 리소스에 대 한 로그에 대 한 사용 권한이 자동으로 할당 됩니다. |
 | 권한 범위는 무엇 인가요? | 환경이. 작업 영역에 대 한 액세스 권한이 있는 사용자는 작업 영역에 있는 모든 로그를 권한이 있는 테이블에서 쿼리할 수 있습니다. [테이블 액세스 제어](manage-access.md#table-level-rbac) 를 참조 하세요. | Azure 리소스. 사용자는 모든 작업 영역에서 액세스할 수 있는 특정 리소스, 리소스 그룹 또는 구독에 대 한 로그를 쿼리할 수 있지만 다른 리소스에 대해서는 로그를 쿼리할 수 없습니다. |
 | 사용자가 로그에 액세스 하려면 어떻게 해야 하나요? | <ul><li>**Azure Monitor** 메뉴에서 **로그** 를 시작 합니다.</li></ul> <ul><li>**Log Analytics 작업 영역**에서 **로그** 를 시작 합니다.</li></ul> <ul><li>Azure Monitor [통합 문서](../visualizations.md#workbooks)</li></ul> | <ul><li>Azure 리소스의 메뉴에서 **로그** 시작</li></ul> <ul><li>**Azure Monitor** 메뉴에서 **로그** 를 시작 합니다.</li></ul> <ul><li>**Log Analytics 작업 영역**에서 **로그** 를 시작 합니다.</li></ul> <ul><li>Azure Monitor [통합 문서](../visualizations.md#workbooks)</li></ul> |
 
@@ -128,7 +128,7 @@ Azure Monitor는 로그 검색을 수행 하는 컨텍스트에 따라 올바른
     > [!NOTE]
     > 사용자에 게 작업 영역에 대 한 리소스 권한만 있으면 작업 영역 액세스 모드가 **리소스 또는 작업 영역 권한 사용**으로 설정 된 것으로 가정 하 여 리소스 컨텍스트 모드를 사용 하 여 작업 영역에 액세스할 수 있습니다.
 
-포털에서 또는 PowerShell을 사용 하 여 액세스 제어 모드를 변경 하거나 리소스 관리자 템플릿을 사용 하는 방법에 대 한 자세한 내용은 [액세스 제어 모드 정의](manage-access.md#define-access-control-mode)를 참조 하세요.
+포털에서 또는 PowerShell을 사용 하 여 액세스 제어 모드를 변경 하거나 리소스 관리자 템플릿을 사용 하는 방법에 대 한 자세한 내용은 [액세스 제어 모드 구성](manage-access.md#configure-access-control-mode)을 참조 하세요.
 
 ## <a name="recommendations"></a>권장 사항
 

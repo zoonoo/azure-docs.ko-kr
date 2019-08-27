@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 08/16/2019
-ms.openlocfilehash: 69a3b4fc966b6dd506d91e52b33967a2e001367f
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 6357b5a477390f484a47167a0b9d2e524d37c9ac
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575783"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035765"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>자동 장애 조치(failover) 그룹을 통해 여러 데이터베이스의 투명하고 조정된 장애 조치(failover)를 사용할 수 있습니다.
 
@@ -280,6 +280,9 @@ ms.locfileid: "69575783"
 
 7. 보조 인스턴스는 올바른 DNS 영역 ID로 구성 됩니다. DNS 영역은 관리 되는 인스턴스의 속성 이며 해당 ID는 호스트 이름 주소에 포함 됩니다. 각 VNet에서 첫 번째 관리 되는 인스턴스를 만들 때 영역 ID가 임의의 문자열로 생성 되며 동일한 서브넷의 다른 모든 인스턴스에 동일한 ID가 할당 됩니다. 할당 되 면 DNS 영역을 수정할 수 없습니다. 동일한 장애 조치 (failover) 그룹에 포함 된 관리 되는 인스턴스는 DNS 영역을 공유 해야 합니다. 보조 인스턴스를 만들 때 기본 인스턴스의 영역 ID를 DnsZonePartner 매개 변수 값으로 전달 하 여이를 수행 합니다. 
 
+   > [!NOTE]
+   > 관리 되는 인스턴스로 장애 조치 그룹을 구성 하는 방법에 대 한 자세한 자습서는 [장애 조치 (failover) 그룹에 관리 되는 인스턴스 추가](sql-database-managed-instance-failover-group-tutorial.md)
+
 ## <a name="upgrading-or-downgrading-a-primary-database"></a>주 데이터베이스 업그레이드 또는 다운그레이드
 
 보조 데이터베이스와의 연결을 끊지 않고도 주 데이터베이스를 다른 컴퓨팅 크기(동일한 서비스 계층 내, 범용 및 중요 비즈니스용 사이 아님)로 업그레이드하거나 다운그레이드할 수 있습니다. 업그레이드할 때 모든 보조 데이터베이스를 먼저 업그레이드 한 다음 주 데이터베이스를 업그레이드 하는 것이 좋습니다. 다운 그레이드 하는 경우 순서를 반대로 바꿉니다. 먼저 주 복제본을 다운 그레이드 한 다음 모든 보조 데이터베이스를 다운 그레이드 합니다. 데이터베이스를 다른 서비스 계층으로 업그레이드하거나 다운그레이드할 때 이 권장 사항이 적용됩니다.
@@ -309,7 +312,7 @@ ms.locfileid: "69575783"
 
 ### <a name="powershell-manage-sql-database-failover-with-single-databases-and-elastic-pools"></a>PowerShell: 단일 데이터베이스 및 탄력적 풀을 사용하여 SQL Database 장애 조치(failover) 관리
 
-| Cmdlet | 설명 |
+| Cmdlet | Description |
 | --- | --- |
 | [New-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasefailovergroup) |장애 조치 그룹을 만들고 주 및 보조 서버 모두에 등록합니다|
 | [Remove-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasefailovergroup) | 서버에서 장애 조치 그룹을 제거하고 그룹에 포함된 모든 보조 데이터베이스를 삭제합니다. |
@@ -367,7 +370,7 @@ ms.locfileid: "69575783"
 
 ### <a name="rest-api-manage-failover-groups-with-managed-instances-preview"></a>REST API: Managed Instance를 사용하여 장애 조치(failover) 그룹 관리(미리 보기)
 
-| API | Description |
+| API | 설명 |
 | --- | --- |
 | [장애 조치(failover) 그룹 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/createorupdate) | 장애 조치(failover) 그룹을 만들거나 업데이트합니다. |
 | [장애 조치(failover) 그룹 삭제](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/delete) | 서버에서 장애 조치 그룹을 제거합니다. |

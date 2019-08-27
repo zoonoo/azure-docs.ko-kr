@@ -35,7 +35,7 @@ ms.locfileid: "69516233"
 
 ## <a name="connect-workspace-and-create-experiment"></a>작업 영역 연결 및 실험 만들기
 
-`Workspace` 클래스를 가져오고 `from_config()` 함수를 사용하여 `config.json` 파일에서 구독 정보를 로드합니다. 이 함수는 기본적으로 현재 디렉터리에서 JSON 파일을 찾지만 `from_config(path="your/file/path")`를 사용하여 파일을 가리키는 경로 매개 변수를 지정할 수도 있습니다. 작업 영역의 클라우드 Notebook 서버에서 이 Notebook을 실행하는 경우 파일은 자동으로 루트 디렉터리에 있습니다.
+`Workspace` 클래스를 가져오고, `from_config().` 함수를 사용하여 `config.json` 파일에서 구독 정보를 로드합니다. 이 함수는 기본적으로 현재 디렉터리에서 JSON 파일을 찾지만, `from_config(path="your/file/path")`를 사용하여 파일을 가리키는 경로 매개 변수를 지정할 수도 있습니다. 작업 영역의 클라우드 Notebook 서버에서 이 Notebook을 실행하는 경우 파일은 자동으로 루트 디렉터리에 있습니다.
 
 다음 코드에서 추가 인증을 요청하는 경우 링크를 브라우저에 붙여넣고 인증 토큰을 입력하기만 하면 됩니다.
 
@@ -55,7 +55,7 @@ experiment = Experiment(workspace=ws, name="diabetes-experiment")
 
 ## <a name="load-data-and-prepare-for-training"></a>데이터 로드 및 학습 준비
 
-이 자습서에서는 scikit-learn에 포함되어 미리 정규화된 데이터 세트인 당뇨병 데이터 세트를 사용합니다. 이 데이터 세트는 나이와 성별, BMI 같은 기능을 사용하여 당뇨병의 진행을 예측합니다. `load_diabetes()` 정적 함수에서 데이터를 로드하고 `train_test_split()`을 사용하여 학습 및 테스트 세트로 분할합니다. 이 함수는 모델이 학습 후 테스트에 사용할 보지 않은 데이터를 제공하기 위해 데이터를 분리합니다.		
+이 자습서에서는 scikit-learn에 포함되어 미리 정규화된 데이터 세트인 당뇨병 데이터 세트를 사용합니다. 이 데이터 세트는 입니다. 이 데이터 세트는 나이, 성별, BMI와 같은 기능을 사용하여 당뇨병의 진행을 예측합니다. `load_diabetes()` 정적 함수에서 데이터를 로드하고, `train_test_split()`을 사용하여 학습 및 테스트 세트로 분할합니다. 이 함수는 학습 후 테스트에 사용할 보이지 않는 데이터를 제공하기 위해 데이터를 분리합니다.
 
 
 ```python

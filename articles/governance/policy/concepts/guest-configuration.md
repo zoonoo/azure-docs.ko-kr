@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 6f51d2907738f49ace559f1b127458eda71de287
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 18a85fae7d2d241bd8d582db73c71e1d1472f04d
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624096"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036312"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Azure Policy 게스트 구성 이해
 
@@ -28,11 +28,16 @@ Azure 리소스를 감사 하 고 [수정](../how-to/remediate-resources.md) 하
 
 가상 머신 내에서 설정을 감사할 수 있도록 [가상 머신 확장](../../../virtual-machines/extensions/overview.md)이 사용하도록 설정됩니다. 이 확장은 적용 가능한 정책 할당 및 해당 구성 정의를 다운로드합니다.
 
-### <a name="register-guest-configuration-resource-provider"></a>게스트 구성 리소스 공급자 등록
+### <a name="limits-set-on-the-exension"></a>Exension에 설정 된 제한
+
+컴퓨터 내에서 실행 되는 응용 프로그램에 영향을 주지 않도록 확장을 제한 하기 위해 게스트 구성은 CPU 사용률의 5%를 초과할 수 없습니다.
+Microsoft에서 "기본 제공"으로 제공 하는 구성과 고객이 작성 한 사용자 지정 구성에 대해서는 진정한 boh입니다.
+
+## <a name="register-guest-configuration-resource-provider"></a>게스트 구성 리소스 공급자 등록
 
 게스트 구성을 사용하려면 먼저 리소스 공급자를 등록해야 합니다. 포털 또는 PowerShell을 통해 등록할 수 있습니다. 포털을 통해 게스트 구성 정책의 할당을 완료 하면 리소스 공급자가 자동으로 등록 됩니다.
 
-#### <a name="registration---portal"></a>등록 - 포털
+### <a name="registration---portal"></a>등록 - 포털
 
 Azure Portal을 통해 게스트 구성용 리소스 공급자를 등록하려면 다음 단계를 수행합니다.
 
@@ -44,7 +49,7 @@ Azure Portal을 통해 게스트 구성용 리소스 공급자를 등록하려�
 
 1. **Microsoft.GuestConfiguration**이 표시될 때까지 필터링하거나 스크롤한 다음 같은 행에서 **등록**을 클릭합니다.
 
-#### <a name="registration---powershell"></a>등록 - PowerShell
+### <a name="registration---powershell"></a>등록 - PowerShell
 
 PowerShell을 통해 게스트 구성용 리소스 공급자를 등록하려면 다음 명령을 실행합니다.
 
@@ -53,13 +58,13 @@ PowerShell을 통해 게스트 구성용 리소스 공급자를 등록하려면 
 Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
 ```
 
-### <a name="validation-tools"></a>유효성 검사 도구
+## <a name="validation-tools"></a>유효성 검사 도구
 
 가상 머신 내에서 게스트 구성 클라이언트는 로컬 도구를 사용하여 감사를 실행합니다.
 
 다음 표에는 지원되는 각 운영 체제에서 사용되는 로컬 도구 목록이 나와 있습니다.
 
-|운영 체제|유효성 검사 도구|메모|
+|운영 체제|유효성 검사 도구|참고|
 |-|-|-|
 |Windows|[Microsoft Desired State Configuration](/powershell/dsc) v2| |
 |Linux|[Chef InSpec](https://www.chef.io/inspec/)| 게스트 구성 확장을 통해 Ruby 및 Python이 설치됩니다. |
@@ -68,7 +73,7 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
 
 게스트 구성 클라이언트는 5분마다 새 콘텐츠를 확인합니다. 게스트 할당이 수신되면 15분 간격으로 설정을 확인합니다. 감사가 완료되는 즉시 게스트 구성 리소스 공급자로 결과가 전송됩니다. 정책 [평가 트리거](../how-to/get-compliance-data.md#evaluation-triggers)가 발생하면 컴퓨터 상태가 게스트 구성 리소스 공급자에 기록됩니다. 그러면 Azure Policy에서 Azure Resource Manager 속성을 평가합니다. 주문형 Azure Policy 평가판은 게스트 구성 리소스 공급자에서 최신 값을 검색 합니다. 그러나 해당 가상 머신 내 구성의 새 감사는 트리거되지 않습니다.
 
-### <a name="supported-client-types"></a>지원되는 클라이언트 유형
+## <a name="supported-client-types"></a>지원되는 클라이언트 유형
 
 다음 표에는 Azure 이미지에서 지원되는 운영 체제 목록이 나와 있습니다.
 
@@ -89,7 +94,7 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
 
 Windows Server Nano Server는 어떤 버전 에서도 지원 되지 않습니다.
 
-### <a name="guest-configuration-extension-network-requirements"></a>게스트 구성 확장 네트워크 요구 사항
+## <a name="guest-configuration-extension-network-requirements"></a>게스트 구성 확장 네트워크 요구 사항
 
 Azure에서 게스트 구성 리소스 공급자와 통신 하려면 가상 컴퓨터에서 포트 **443**의 Azure 데이터 센터에 대 한 아웃 바운드 액세스가 필요 합니다. Azure에서 개인 가상 네트워크를 사용 하며 아웃 바운드 트래픽을 허용 하지 않는 경우 [네트워크 보안 그룹](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) 규칙을 사용 하 여 예외를 구성 해야 합니다. 지금은 게스트 구성 Azure Policy에 대 한 서비스 태그가 없습니다.
 
@@ -100,7 +105,7 @@ IP 주소 목록 [Microsoft Azure 데이터 센터 Ip 범위](https://www.micros
 
 ## <a name="guest-configuration-definition-requirements"></a>게스트 구성 정의 요구 사항
 
-게스트 구성에 의해 실행 되는 각 감사에는 **Deployifnotexists** 정의 및 **감사** 정의 라는 두 개의 정책 정의가 필요 합니다. **Deployifnotexists** 정의는 [유효성 검사 도구](#validation-tools)를 지원 하기 위해 게스트 구성 에이전트 및 기타 구성 요소를 사용 하 여 가상 컴퓨터를 준비 하는 데 사용 됩니다.
+게스트 구성에 의해 실행 되는 각 감사에는 **Deployifnotexists** 정의 및 **AuditIfNotExists** 정의의 두 정책 정의가 필요 합니다. **Deployifnotexists** 정의는 [유효성 검사 도구](#validation-tools)를 지원 하기 위해 게스트 구성 에이전트 및 기타 구성 요소를 사용 하 여 가상 컴퓨터를 준비 하는 데 사용 됩니다.
 
 **DeployIfNotExists** 정책 정의는 다음 항목의 유효성을 검사하고 수정합니다.
 
@@ -111,18 +116,18 @@ IP 주소 목록 [Microsoft Azure 데이터 센터 Ip 범위](https://www.micros
 
 **Deployifnotexists** 할당이 비규격 이면 [수정 작업](../how-to/remediate-resources.md#create-a-remediation-task) 을 사용할 수 있습니다.
 
-**Deployifnotexists** 할당이 규격을 준수 하는 경우 **감사** 정책 할당은 로컬 유효성 검사 도구를 사용 하 여 구성 할당이 규격 인지 아니면 비규격 인지를 확인 합니다.
+**Deployifnotexists** 할당이 규격을 준수 하는 경우 **AuditIfNotExists** 정책 할당은 로컬 유효성 검사 도구를 사용 하 여 구성 할당이 규격 인지 아니면 비규격 인지를 확인 합니다.
 유효성 검사 도구는 게스트 구성 클라이언트에 결과를 제공합니다. 클라이언트는 게스트 확장에 결과를 전달하므로 게스트 구성 리소스 공급자를 통해 사용할 수 있습니다.
 
 Azure Policy는 게스트 구성 리소스 공급자 **complianceStatus** 속성을 사용하여 **규정 준수** 노드에서 규정 준수를 보고합니다. 자세한 내용은 [규정 준수 데이터 가져오기](../how-to/getting-compliance-data.md)를 참조하세요.
 
 > [!NOTE]
-> **Deployifnotexists** 정책은 **감사** 정책에서 결과를 반환 하는 데 필요 합니다.
-> **Deployifnotexists**가 없으면 **감사** 정책에 "0/0" 리소스가 상태로 표시 됩니다.
+> **AuditIfNotExists** 정책에서 결과를 반환 하려면 **Deployifnotexists** 정책이 필요 합니다.
+> **Deployifnotexists**가 없으면 **AuditIfNotExists** 정책에 "0/0" 리소스가 상태로 표시 됩니다.
 
-할당에 사용할 정의를 그룹화할 수 있도록, 게스트 구성을 위한 모든 기본 제공 정책은 이니셔티브에 포함됩니다. *[미리 보기]: Linux 및 Windows 가상 머신 내부의 암호 보안 설정 감사*라는 기본 제공 이니셔티브에는 정책 18개가 포함되어 있습니다. 그리고 Window용 **DeployIfNotExists** 및 **Audit** 쌍 6개와 Linux용 쌍 3개가 있습니다. 각 경우에서 정의 내의 논리는 [정책 규칙](definition-structure.md#policy-rule) 정의를 기준으로 하여 대상 운영 체제만 평가되는지 확인합니다.
+할당에 사용할 정의를 그룹화할 수 있도록, 게스트 구성을 위한 모든 기본 제공 정책은 이니셔티브에 포함됩니다. *[미리 보기]: Linux 및 Windows 가상 머신 내부의 암호 보안 설정 감사*라는 기본 제공 이니셔티브에는 정책 18개가 포함되어 있습니다. 그리고 Window용 **DeployIfNotExists** 및 **AuditIfNotExists** 쌍 6개와 Linux용 쌍 3개가 있습니다. 각 경우에서 정의 내의 논리는 [정책 규칙](definition-structure.md#policy-rule) 정의를 기준으로 하여 대상 운영 체제만 평가되는지 확인합니다.
 
-## <a name="multiple-assignments"></a>여러 할당
+### <a name="multiple-assignments"></a>여러 할당
 
 게스트 구성 정책은 현재 정책 할당에서 다른 매개 변수를 사용 하는 경우에도 가상 컴퓨터 마다 한 번 동일한 게스트 할당을 할당 하는 것을 지원 합니다.
 

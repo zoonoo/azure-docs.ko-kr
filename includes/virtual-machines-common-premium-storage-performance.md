@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 8aeb32ecddc0ef368b615a201179f17178ececad
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: abee645f8929c10856f662b1504b163b58d953a5
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68817234"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036020"
 ---
 ## <a name="application-performance-indicators"></a>애플리케이션 성과 지표
 
@@ -92,11 +92,11 @@ Azure Premium Storage에서 실행되는 고성능 애플리케이션을 설계�
 
 PerfMon 카운터는 프로세서, 메모리, 각 논리 디스크 및 서버의 실제 디스크에 대해 사용할 수 있습니다. VM에서 Premium Storage 디스크를 사용하는 경우 실제 디스크 카운터는 각 Premium Storage 디스크에 대한 것이며 논리 디스크 카운터는 Premium Storage 디스크에 생성된 각 볼륨에 대한 것입니다. 애플리케이션 작업을 호스팅하는 디스크에 대한 값을 캡처해야 합니다. 논리 및 실제 디스크 간에 일대일 매핑이 있는 경우 실제 디스크 카운터를 참조할 수 있으며 그렇지 않은 경우 논리 디스크 카운터를 참조합니다. Linux에서 iostat 명령은 CPU 및 디스크 사용률 보고서를 생성합니다. 디스크 사용률 보고서는 물리적 디바이스 또는 파티션당 통계를 제공합니다. 데이터베이스 서버에 데이터와 별도의 디스크에 대 한 로그가 있는 경우 두 디스크 모두에 대해이 데이터를 수집 합니다. 아래 표에서는 디스크, 프로세서 및 메모리에 대 한 카운터를 설명 합니다.
 
-| 카운터 | 설명 | PerfMon | Iostat |
+| 카운터 | Description | PerfMon | Iostat |
 | --- | --- | --- | --- |
 | **초당 IOPS 또는 트랜잭션** |스토리지 디스크에 발급된 초당 I/O 요청 수입니다. |디스크 읽기/초 <br> 디스크 쓰기/초 |tps <br> r/s <br> w/s |
 | **디스크 읽기 및 쓰기** |디스크에서 수행되는 읽기 및 쓰기 작업의 %입니다. |% 디스크 읽기 시간 <br> % 디스크 쓰기 시간 |r/s <br> w/s |
-| **처리량** |초당 디스크에서 읽거나 디스크에 쓴 데이터 양입니다. |디스크 읽기(바이트/초) <br> 디스크 쓰기 바이트/초 |kB_read/s <br> kB_wrtn/s |
+| **처리량** |초당 디스크에서 읽거나 디스크에 쓴 데이터 양입니다. |디스크 읽기 바이트/초 <br> 디스크 쓰기 바이트/초 |kB_read/s <br> kB_wrtn/s |
 | **대기 시간** |디스크 IO 요청을 완료하는 총 시간입니다. |평균 디스크 초/읽기 <br> 평균 디스크 초/쓰기 |await <br> svctm |
 | **IO 크기** |I/O의 요청의 크기는 스토리지 디스크에 발급합니다. |평균 디스크 바이트/읽기 <br> 평균 디스크 바이트/쓰기 |avgrq-sz |
 | **큐 크기** |스토리지 디스크에서 읽거나 스토리지 디스크에 쓰도록 대기 중인 미해결 I/O 요청의 수입니다. |현재 디스크 큐 길이 |avgqu-sz |
@@ -111,7 +111,7 @@ PerfMon 카운터는 프로세서, 메모리, 각 논리 디스크 및 서버의
 
 Premium Storage에서 실행 되는 응용 프로그램의 성능에 영향을 주는 주요 요소는 IO 요청의 특성, VM 크기, 디스크 크기, 디스크 수, 디스크 캐싱, 다중 스레딩 및 큐 깊이입니다. 이러한 요소 중 일부는 시스템에서 제공하는 노브를 사용하여 제어할 수 있습니다. 대부분의 애플리케이션은 IO 크기 및 큐 크기를 직접 변경할 수 있는 옵션을 제공하지 못할 수도 있습니다. 예를 들어 SQL Server를 사용하는 경우 IO 크기 및 큐 길이를 선택할 수 없습니다. SQL Server에서는 최적의 성능을 얻기 위해 최적의 IO 크기 및 큐 크기 값을 선택합니다. 성능 요구 사항에 맞게 적절한 리소스를 프로비전할 수 있도록 두 요소 형식이 애플리케이션 성능에 미치는 영향을 이해하는 것이 중요합니다.
 
-이 섹션 전체에서 애플리케이션 성능을 최적화하기 위해 필요한 정도를 식별하도록 만든 애플리케이션 요구 사항 검사 목록을 참조하세요. 그에 따라 이 섹션에서 조정할 요인을 확인할 수 있습니다. 각 요인이 애플리케이션 성능에 미치는 영향을 감시하려면 애플리케이션 설치에서 벤치마킹 도구를 실행합니다. Windows 및 Linux Vm에서 일반적인 벤치마킹 도구를 실행 하는 단계는이 문서의 끝에 있는 벤치마킹 섹션을 참조 하세요.
+이 섹션 전체에서 애플리케이션 성능을 최적화하기 위해 필요한 정도를 식별하도록 만든 애플리케이션 요구 사항 검사 목록을 참조하세요. 그에 따라 이 섹션에서 조정할 요인을 확인할 수 있습니다. 각 요인이 애플리케이션 성능에 미치는 영향을 감시하려면 애플리케이션 설치에서 벤치마킹 도구를 실행합니다. Windows 및 Linux Vm에서 일반적인 벤치마킹 도구를 실행 하는 단계는 끝에 연결 된 벤치마킹 문서를 참조 하세요.
 
 ### <a name="optimize-iops-throughput-and-latency-at-a-glance"></a>IOPS, 처리량 및 대기 시간을 한눈에 최적화
 
@@ -166,7 +166,7 @@ IO 크기를 변경할 수 있는 애플리케이션을 사용하는 경우 다�
 > [!NOTE]
 > IOPS 또는 처리량을 늘리면 다른 쪽 또한 증가하므로 둘 중 하나를 늘리는 경우 디스크 또는 VM의 처리량 또는 IOPS 제한에 도달하지 않도록 합니다.
 
-애플리케이션 성능에 미치는 IO 크기의 영향을 감시하려면 VM 및 디스크에서 벤치마킹 도구를 실행할 수 있습니다. 여러 테스트 실행을 만들고 각 실행에 대한 다른 IO 크기를 사용하여 어떤 영향이 있는지 확인합니다. 자세한 내용은이 문서의 끝에 있는 벤치마킹 섹션을 참조 하세요.
+애플리케이션 성능에 미치는 IO 크기의 영향을 감시하려면 VM 및 디스크에서 벤치마킹 도구를 실행할 수 있습니다. 여러 테스트 실행을 만들고 각 실행에 대한 다른 IO 크기를 사용하여 어떤 영향이 있는지 확인합니다. 자세한 내용은 끝에 링크 된 벤치마킹 문서를 참조 하세요.
 
 ## <a name="high-scale-vm-sizes"></a>대규모 VM 크기
 
@@ -387,11 +387,3 @@ Azure Premium Storage는 선택한 VM 크기 및 디스크 크기에 따라 지�
 
 ## <a name="next-steps"></a>다음 단계
 
-사용 가능한 디스크 유형에 대해 자세히 알아봅니다.
-
-* [디스크 유형 선택](../articles/virtual-machines/windows/disks-types.md)  
-
-SQL Server 사용자의 경우 SQL Server에 대한 성능 모범 사례의 문서를 읽으세요.
-
-* [Azure Virtual Machines의 SQL Server에 대한 성능 모범 사례](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md)
-* [Azure Premium Storage는 Azure VM의 SQL Server에 대해 가장 높은 성능을 제공합니다](https://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)

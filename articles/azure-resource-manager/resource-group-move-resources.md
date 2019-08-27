@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 08/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: 114e0d8e935aa8e6ac3f70a34a8050b19758fb42
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 69cd6031111c72d54cb87975c2040078a9965821
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624550"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035542"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>새 리소스 그룹 또는 구독으로 리소스 이동
 
@@ -35,8 +35,6 @@ ms.locfileid: "69624550"
    * [네트워킹 이동 지침](./move-limitations/networking-move-limitations.md)
    * [Recovery Services 이동 지침](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
    * [Virtual Machines 이동 지침](./move-limitations/virtual-machines-move-limitations.md)
-
-   대상 리소스 그룹에 가상 네트워크가 포함 된 경우 해당 리소스가 이동에 관여 하지 않더라도 종속 리소스의 상태는 이동을 차단할 수 있습니다. 자세한 내용은 [네트워킹 이동 지침](./move-limitations/virtual-network-move-limitations.md)을 참조 하세요.
 
 1. 원본 및 대상 구독이 활성 상태여야 합니다. 사용하지 않도록 설정된 계정을 사용하도록 설정하는 과정에서 문제가 발생하면 [Azure 지원 요청을 작성](../azure-supportability/how-to-create-azure-support-request.md)하세요. 문제 유형으로 **구독 관리**를 선택합니다.
 

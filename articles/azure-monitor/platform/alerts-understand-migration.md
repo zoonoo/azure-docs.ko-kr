@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: f981c14e26c51c427dab6b418cab8df46b1bb026
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: 5257724add570be480063ab776248a8fd1d944c7
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302255"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034748"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>마이그레이션 도구의 작동 원리 이해
 
@@ -95,7 +95,7 @@ ms.locfileid: "68302255"
 - 서비스 가용성
 - 스토리지 용량
 - 제한 된 요청
-- 총 요청 수
+- 총 요청
 
 초당 평균 요청, 일관성 수준, 분당 사용 된 최대 RUPM, 초당 최대 RUs, 관찰 된 읽기 대기 시간, 관찰 된 쓰기 대기 시간, 관찰 된 쓰기 대기 시간, 현재 [새 시스템](metrics-supported.md#microsoftdocumentdbdatabaseaccounts)에서 저장소 용량을 사용할 수 없습니다.
 
@@ -111,7 +111,7 @@ Http 2xx, Http 3xx, Http 400, Http 401, 내부 서버 오류, 서비스 가용�
 
 이러한 규칙은 이전에 지원 되었지만 결국 사용 되지 않았던 메트릭에 대 한 클래식 경고 규칙입니다. 일부 고객에 게는 이러한 메트릭에 대 한 잘못 된 클래식 경고 규칙이 있을 수 있습니다. 이러한 경고 규칙은 유효 하지 않으므로 마이그레이션되지 않습니다.
 
-| 리소스 종류| 사용 되지 않는 메트릭 |
+| 리소스 형식| 사용 되지 않는 메트릭 |
 |-------------|----------------- |
 | Microsoft.DBforMySQL/servers | compute_consumption_percent, compute_limit |
 | Microsoft.DBforPostgreSQL/servers | compute_consumption_percent, compute_limit |
@@ -260,9 +260,16 @@ Cosmos DB에 대해 다음과 같은 메트릭이 표시 됩니다.
 
 구독의 클래식 경고 규칙에 대 한 최근 변경 내용으로 인해 구독을 마이그레이션할 수 없습니다. 이 문제는 일시적입니다. 마이그레이션 상태가 마이그레이션 **준비** 를 며칠 후에 다시 시작 하면 마이그레이션을 다시 시작할 수 있습니다.
 
-### <a name="policy-or-scope-lock-preventing-us-from-migrating-your-rules"></a>규칙을 마이그레이션하지 못하게 하는 정책 또는 범위 잠금
+### <a name="scope-lock-preventing-us-from-migrating-your-rules"></a>범위 잠금-규칙을 마이그레이션하지 못하게 합니다.
 
-마이그레이션의 일부로 새 메트릭 경고 및 새 작업 그룹이 생성 된 다음 클래식 경고 규칙이 삭제 됩니다. 그러나 리소스를 만들 수 없도록 하는 정책 또는 범위 잠금이 있습니다. 정책 또는 범위 잠금에 따라 일부 또는 모든 규칙을 마이그레이션하지 못했습니다. 범위 잠금 또는 정책을 일시적으로 제거 하 고 마이그레이션을 다시 트리거하여이 문제를 해결할 수 있습니다.
+마이그레이션의 일부로 새 메트릭 경고 및 새 작업 그룹이 생성 된 다음 클래식 경고 규칙이 삭제 됩니다. 그러나 범위 잠금을 통해 리소스를 만들거나 삭제 하지 못할 수 있습니다. 범위 잠금에 따라 일부 또는 모든 규칙을 마이그레이션하지 못했습니다. [마이그레이션 도구](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel)에 나열 된 구독, 리소스 그룹 또는 리소스에 대 한 범위 잠금을 제거 하 고 마이그레이션을 다시 트리거하는 방법으로이 문제를 해결할 수 있습니다. 범위 잠금은 사용 하지 않도록 설정할 수 없으며 마이그레이션 프로세스가 진행 되는 동안에는 제거 해야 합니다. [범위 잠금 관리에 대해 자세히 알아보세요](../../azure-resource-manager/resource-group-lock-resources.md#portal).
+
+### <a name="policy-with-deny-effect-preventing-us-from-migrating-your-rules"></a>' 거부 ' 효과가 적용 된 정책을 사용 하 여 규칙을 마이그레이션하지 못함
+
+마이그레이션의 일부로 새 메트릭 경고 및 새 작업 그룹이 생성 된 다음 클래식 경고 규칙이 삭제 됩니다. 그러나 정책을 통해 리소스를 만들지 못할 수 있습니다. 정책에 따라 일부 또는 모든 규칙을 마이그레이션하지 못했습니다. 프로세스를 차단 하는 정책은 [마이그레이션 도구](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel)에 나열 됩니다. 다음 중 하나를 수행 하 여이 문제를 해결 합니다.
+
+- 구독을 제외 하거나 정책 할당의 마이그레이션 프로세스 기간에 대 한 리소스 그룹을 제외 합니다. [정책 제외 범위 관리에 대해 자세히 알아보세요](../../governance/policy/tutorials/create-and-manage.md#exempt-a-non-compliant-or-denied-resource-using-exclusion).
+- ' 감사 ' 또는 ' 추가 '에 대 한 영향을 제거 하거나 변경 합니다 (예: 누락 된 태그와 관련 된 문제를 해결할 수 있음). [정책 효과 관리에 대해 자세히 알아보세요](../../governance/policy/concepts/definition-structure.md#policy-rule).
 
 ## <a name="next-steps"></a>다음 단계
 

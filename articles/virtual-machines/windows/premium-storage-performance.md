@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/27/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 3979920cac8e3ef856b3211733f08c21afac3e26
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 7fbeb12f5b221685aad5cac5352318db10bd69a7
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68693690"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036260"
 ---
 [!INCLUDE [virtual-machines-common-premium-storage-introduction](../../../includes/virtual-machines-common-premium-storage-introduction.md)]
 
@@ -26,3 +26,12 @@ ms.locfileid: "68693690"
 시작 하기 전에 Premium Storage을 처음 접하는 경우 먼저 [IaaS vm에 대 한 Azure 디스크 유형 선택](disks-types.md) 및 [저장소 계정에 대 한 확장성 및 성능 목표 Azure Storage](../../storage/common/storage-scalability-targets.md)를 참조 하세요.
 
 [!INCLUDE [virtual-machines-common-premium-storage-performance.md](../../../includes/virtual-machines-common-premium-storage-performance.md)]
+
+디스크 벤치 마크를 하려는 경우 [디스크 벤치마킹](disks-benchmarks.md)의 문서를 참조 하세요.
+
+사용 가능한 디스크 유형에 대해 자세히 알아봅니다. [디스크 유형 선택](disks-types.md)  
+
+SQL Server 사용자의 경우 SQL Server에 대한 성능 모범 사례의 문서를 읽으세요.
+
+* [Azure Virtual Machines의 SQL Server에 대한 성능 모범 사례](sql/virtual-machines-windows-sql-performance.md)
+* [Azure Premium Storage는 Azure VM의 SQL Server에 대해 가장 높은 성능을 제공합니다](https://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)

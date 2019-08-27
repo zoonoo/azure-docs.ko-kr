@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: sashan, carlrab
 manager: jroth
 ms.date: 06/27/2019
-ms.openlocfilehash: 059a614dff7fc0eab5419e3e2ffdeaeecb79ad99
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 5169fe5eef416812c399b421f59305f6cb1e7b62
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981378"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035795"
 ---
 # <a name="tutorial-add-a-sql-database-managed-instance-to-a-failover-group"></a>자습서: 장애 조치 (failover) 그룹에 SQL Database 관리 되는 인스턴스 추가
 
@@ -29,9 +29,11 @@ ms.locfileid: "69981378"
 > - 테스트 장애 조치(failover)
 
   > [!NOTE]
-  > 관리 되는 인스턴스를 만드는 데는 상당한 시간이 걸릴 수 있습니다. 따라서이 자습서를 완료 하는 데 몇 시간 정도 걸릴 수 있습니다. 프로 비전 시간에 대 한 자세한 내용은 [관리 되는 인스턴스 관리 작업](sql-database-managed-instance.md#managed-instance-management-operations)을 참조 하세요. 관리 되는 인스턴스에서 장애 조치 그룹을 사용 하는 것은 현재 미리 보기 상태입니다. 
+  > - 이 자습서를 진행 하는 경우 [관리 되는 인스턴스에 대해 장애 조치 그룹을 설정 하기 위한 필수 구성 요소](sql-database-auto-failover-group.md#enabling-geo-replication-between-managed-instances-and-their-vnets)를 사용 하 여 리소스를 구성 하 고 있는지 확인 합니다. 
+  > - 관리 되는 인스턴스를 만드는 데는 상당한 시간이 걸릴 수 있습니다. 따라서이 자습서를 완료 하는 데 몇 시간 정도 걸릴 수 있습니다. 프로 비전 시간에 대 한 자세한 내용은 [관리 되는 인스턴스 관리 작업](sql-database-managed-instance.md#managed-instance-management-operations)을 참조 하세요. 
+  > - 관리 되는 인스턴스에서 장애 조치 그룹을 사용 하는 것은 현재 미리 보기 상태입니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 이 자습서를 완료하려면 다음이 설치되어 있어야 합니다. 
 
@@ -96,7 +98,7 @@ ms.locfileid: "69981378"
 
 보조 관리 되는 인스턴스를 만들려면 다음 단계를 수행 합니다. 
 
-1. [Azure Portal](http://portal.azure.com)에서 **리소스 만들기** 를 선택 하 고 *Azure SQL Managed Instance*를 검색 합니다. 
+1. [Azure Portal](https://portal.azure.com)에서 **리소스 만들기** 를 선택 하 고 *Azure SQL Managed Instance*를 검색 합니다. 
 1. Microsoft에서 게시 한 **AZURE SQL Managed Instance** 옵션을 선택 하 고 다음 페이지에서 **만들기** 를 선택 합니다.
 1. **Azure SQL Database Managed Instance 만들기** 페이지의 **기본 사항** 탭에서 필수 필드를 입력 하 여 보조 관리 되는 인스턴스를 구성 합니다. 
 

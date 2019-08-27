@@ -1,6 +1,6 @@
 ---
 title: 데이터 과학 가상 머신에 대한 액세스 자격 증명을 안전하게 저장 - Azure | Microsoft Docs
-description: Data Science Virtual Machine에 대한 액세스 자격 증명을 안전하게 저장하는 방법을 알아봅니다. 관리형 서비스 ID 및 Azure Key Vault를 사용하여 액세스 자격 증명을 저장하는 방법을 배웁니다.
+description: Data Science Virtual Machine에 대한 액세스 자격 증명을 안전하게 저장하는 방법을 알아봅니다. 관리 서비스 id 및 Azure Key Vault를 사용 하 여 액세스 자격 증명을 저장 하는 방법을 알아봅니다.
 keywords: 딥 러닝, AI, 데이터 과학 도구, 데이터 과학 가상 머신, 지리 공간적 분석, 팀 데이터 과학 프로세스
 services: machine-learning
 documentationcenter: ''
@@ -16,22 +16,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: vijetaj
-ms.openlocfilehash: 7adc968dd88ede70b18766ce2c156c23324d0c4e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1374cbef41f40ea270f3c4d84c68d08e7db095bc
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68557912"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051607"
 ---
-# <a name="store-access-credentials-on-the-data-science-virtual-machine-securely"></a>데이터 과학 가상 머신에 대한 액세스 자격 증명을 안전하게 저장
+# <a name="store-access-credentials-securely-on-a-data-science-virtual-machine"></a>Data Science Virtual Machine에 안전 하 게 액세스 자격 증명 저장
 
-클라우드 애플리케이션을 빌드할 때 일반적으로 발생하는 문제 중 하나는 클라우드 서비스에 인증하기 위해 코드에 포함해야 하는 자격 증명을 관리하는 방법입니다. 즉, 이러한 자격 증명의 보안을 유지하는 것이 중요합니다. 이러한 자격 증명은 개발자 워크스테이션에 표시되거나 소스 컨트롤에 체크 인되지 않는 것이 가장 좋습니다. 
+클라우드 서비스에 대 한 인증을 위한 자격 증명을 포함 하는 클라우드 응용 프로그램의 코드에 일반적입니다. 이러한 자격 증명을 관리 하 고 보호 하는 방법은 클라우드 응용 프로그램을 빌드할 때 잘 알려진 문제입니다. 이상적으로는 자격 증명이 개발자 워크스테이션에 표시 되지 않거나 소스 제어에 체크 인 되지 않아야 합니다.
 
-[Azure 리소스에 대한 관리 ID](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)를 사용하면 Azure AD(Azure Active Directory)에서 자동으로 관리되는 ID를 Azure 서비스에 제공하여 이 문제를 더 간편하게 해결할 수 있습니다. 이 ID를 사용하면 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있으므로 코드에 어떤 자격 증명도 포함할 필요가 없습니다. 
+Azure [리소스의 관리 되는 id](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) 기능을 사용 하면 azure 서비스에서 자동으로 관리 되는 id를 Azure Active Directory (azure AD)에 제공 하 여이 문제를 보다 간단 하 게 해결할 수 이 ID를 사용하면 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있으므로 코드에 어떤 자격 증명도 포함할 필요가 없습니다.
 
-자격 증명을 보호하는 한 가지 방법은 MSI를 관리 Azure 서비스인 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/)와 함께 사용하여 암호 및 암호화 키를 안전하게 저장하는 것입니다. 관리 ID를 사용하여 키 자격 증명 모음에 액세스하고 키 자격 증명 모음에서 권한이 부여된 비밀 및 암호화 키를 검색할 수 있습니다. 
+자격 증명을 보호 하는 한 가지 방법은 관리 되는 Azure 서비스인 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/)와 함께 WINDOWS INSTALLER (MSI)를 사용 하 여 비밀 및 암호화 키를 안전 하 게 저장 하는 것입니다. 관리 되는 id를 사용 하 여 키 자격 증명 모음에 액세스 한 다음 키 자격 증명 모음에서 권한 있는 비밀 및 암호화 키를 검색할 수 있습니다.
 
-Azure 리소스의 관리 ID 및 Key Vault 문서는 이러한 서비스에 대한 심층 정보를 제공하는 포괄적인 리소스입니다. 이 아티클의 나머지 부분은 Azure 리소스에 액세스하기 위해 DSVM(데이터 과학 가상 머신)에서 MSI 및 Key Vault의 기본적인 사용을 설명합니다. 
+Azure 리소스 및 Key Vault에 대 한 관리 되는 id에 대 한 설명서는 이러한 서비스에 대 한 심층 정보에 대 한 포괄적인 리소스를 구성 합니다. 이 아티클의 나머지 부분은 Azure 리소스에 액세스하기 위해 DSVM(데이터 과학 가상 머신)에서 MSI 및 Key Vault의 기본적인 사용을 설명합니다. 
 
 ## <a name="create-a-managed-identity-on-the-dsvm"></a>DSVM에서 관리 ID 만들기 
 
@@ -46,11 +46,11 @@ az resource list -n <Name of the VM> --query [*].identity.principalId --out tsv
 ```
 
 
-## <a name="assign-key-vault-access-permission-to-a-vm-principal"></a>VM 보안 주체에 Key Vault 액세스 권한 할당
+## <a name="assign-key-vault-access-permissions-to-a-vm-principal"></a>VM 보안 주체에 Key Vault 액세스 권한 할당
 ```
-# Prerequisite: You have already created an empty Key Vault resource on Azure by using the Azure portal or Azure CLI. 
+# Prerequisite: You have already created an empty Key Vault resource on Azure by using the Azure portal or Azure CLI.
 
-# Assign only get and set permission but not the capability to list the keys.
+# Assign only get and set permissions but not the capability to list the keys.
 az keyvault set-policy --object-id <Principal ID of the DSVM from previous step> --name <Key Vault Name> -g <Resource Group of Key Vault>  --secret-permissions get set
 ```
 
@@ -61,14 +61,14 @@ az keyvault set-policy --object-id <Principal ID of the DSVM from previous step>
 x=`curl http://localhost:50342/oauth2/token --data "resource=https://vault.azure.net" -H Metadata:true`
 token=`echo $x | python -c "import sys, json; print(json.load(sys.stdin)['access_token'])"`
 
-# Access the key vault by using the access token. 
+# Access the key vault by using the access token.
 curl https://<Vault Name>.vault.azure.net/secrets/SQLPasswd?api-version=2016-10-01 -H "Authorization: Bearer $token"
 ```
 
 ## <a name="access-storage-keys-from-the-dsvm"></a>DSVM에서 스토리지 키에 액세스
 
 ```
-# Prerequisite: You have granted your VM's MSI access to use storage account access keys based on instructions from the article at https://docs.microsoft.com/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-storage. This article describes the process in more detail.
+# Prerequisite: You have granted your VMs MSI access to use storage account access keys based on instructions at https://docs.microsoft.com/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-storage. This article describes the process in more detail.
 
 y=`curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true`
 ytoken=`echo $y | python -c "import sys, json; print(json.load(sys.stdin)['access_token'])"`
@@ -108,8 +108,8 @@ print("My secret value is {}".format(secret.value))
 ## <a name="access-the-key-vault-from-azure-cli"></a>Azure CLI에서 키 자격 증명 모음에 액세스
 
 ```
-# With managed identities for Azure resources set up on the DSVM, users on the DSVM can use Azure CLI to perform the authorized functions. Here are commands to access the key vault from Azure CLI without having to log in to an Azure account. 
-# Prerequisites: MSI is already set up on the DSVM as indicated earlier. Specific permission, like accessing storage account keys, reading specific secrets, and writing new secrets, is provided to the MSI. 
+# With managed identities for Azure resources set up on the DSVM, users on the DSVM can use Azure CLI to perform the authorized functions. The following commands enable access to the key vault from Azure CLI without requiring login to an Azure account.
+# Prerequisites: MSI is already set up on the DSVM as indicated earlier. Specific permissions, like accessing storage account keys, reading specific secrets, and writing new secrets, are provided to the MSI.
 
 # Authenticate to Azure CLI without requiring an Azure account. 
 az login --msi

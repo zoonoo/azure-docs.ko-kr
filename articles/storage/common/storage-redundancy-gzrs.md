@@ -8,12 +8,12 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: c6c070012db0857759c63603072b8321896398b4
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 9019e6f72944823d7c256fa5f6b99b0aca84c845
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69516142"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036328"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>GZRS (지역 중복 저장소) (미리 보기)를 사용 하 여 항상 사용 가능한 Azure Storage 응용 프로그램 빌드
 
@@ -70,7 +70,7 @@ GZRS를 통한 성능 및 확장성에 대 한 추가 지침은 [Microsoft Azure
 오류가 전체 주 지역에 영향을 주는 경우 Microsoft는 먼저 주 지역 복원을 시도 합니다. 복원이 불가능 한 경우 Microsoft는 보조 지역으로 장애 조치 (failover) 하 여 보조 지역이 새 주 지역이 됩니다. 저장소 계정에 RA-GZRS가 설정 된 경우이 시나리오에 맞게 설계 된 응용 프로그램은 장애 조치 (failover)를 기다리는 동안 보조 지역에서 읽을 수 있습니다. 저장소 계정에서 GZRS를 사용 하도록 설정 하지 않은 경우 장애 조치 (failover)가 완료 될 때까지 응용 프로그램이 보조 데이터베이스에서 읽을 수 없게 됩니다.
 
 > [!NOTE]
-> GZRS 및 RA-GZRS는 현재 미국 동부 2 지역 에서만 미리 보기로 제공 됩니다. 고객이 관리 하는 계정 장애 조치 (failover) (미리 보기)는 미국 동부 2에서 아직 사용할 수 없으므로 현재 GZRS 및 RA GZRS 계정을 사용 하 여 계정 장애 조치 (failover) 이벤트를 관리할 수 없습니다. 미리 보기 중에 Microsoft는 GZRS 및 RA GZRS 계정에 영향을 주는 장애 조치 (failover) 이벤트를 관리 합니다.
+> GZRS 및 RA-GZRS는 현재 미국 동부 지역 에서만 미리 보기로 제공 됩니다. 고객이 관리 하는 계정 장애 조치 (failover) (미리 보기)는 미국 동부 2에서 아직 사용할 수 없으므로 현재 GZRS 및 RA GZRS 계정을 사용 하 여 계정 장애 조치 (failover) 이벤트를 관리할 수 없습니다. 미리 보기 중에 Microsoft는 GZRS 및 RA GZRS 계정에 영향을 주는 장애 조치 (failover) 이벤트를 관리 합니다.
 
 데이터는 보조 지역에 비동기적으로 복제 되기 때문에 주 지역에 영향을 주는 오류로 인해 주 지역을 복구할 수 없는 경우 데이터가 손실 될 수 있습니다. 주 지역에 대 한 최신 쓰기와 보조 지역에 대 한 마지막 쓰기 사이의 간격을 RPO (복구 지점 목표) 라고 합니다. RPO는 데이터를 복구할 수 있는 시점을 나타냅니다. 현재는 데이터를 보조 지역으로 복제 하는 데 걸리는 시간에 대 한 SLA는 없지만 일반적으로는 15 분 미만의 RPO가 Azure Storage 됩니다.
 

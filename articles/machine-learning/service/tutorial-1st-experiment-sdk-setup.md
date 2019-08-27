@@ -43,7 +43,7 @@ ms.locfileid: "69515332"
 
 작업 영역에서 Juffyter Notebook을 사용하여 시작할 클라우드 리소스를 만듭니다. 이 리소스는 Azure Machine Learning Service를 실행하는 데 필요한 모든 항목이 미리 구성된 클라우드 기반 Linux 가상 머신입니다.
 
-1. [Azure Portal](https://portal.azure.com/)에서 작업 영역을 엽니다. 포털에서 작업 영역을 찾는 방법을 잘 모르는 경우 [작업 영역을 찾는 방법](how-to-manage-workspace.md#view)을 참조하세요.
+1. [Azure Portal](https://portal.azure.com/)에서 작업 영역을 엽니다.  포털에서 작업 영역을 찾는 방법을 잘 모르는 경우 [작업 영역을 찾는 방법](how-to-manage-workspace.md#view)을 참조하세요.
 
 1. Azure Portal의 작업 영역 페이지에서 왼쪽에 있는 **Notebook VM**을 선택합니다.
 
@@ -66,12 +66,12 @@ VM이 실행되면 **Notebook VM** 섹션을 사용하여 Jupyter 웹 인터페�
 
     ![Jupyter Notebook 서버 시작](./media/tutorial-1st-experiment-sdk-setup/start-server.png)
 
-    이 링크는 Notebook 서버를 시작하고, 새 브라우저 탭에서 Jupyter Notebook 웹 페이지를 엽니다. 이 링크는 VM을 만든 사용자만 사용할 수 있습니다. 작업 영역의 각 사용자는 자신의 고유한 VM을 만들어야 합니다.
+    이 링크는 Notebook 서버를 시작하고, 새 브라우저 탭에서 Jupyter Notebook 웹 페이지를 엽니다.  이 링크는 VM을 만든 사용자만 사용할 수 있습니다. 작업 영역의 각 사용자는 자신의 고유한 VM을 만들어야 합니다.
 
-1. Jupyter Notebook 웹 페이지에서 최상위 폴더 이름은 사용자 이름입니다. 이 폴더를 선택합니다.
+1. Jupyter Notebook 웹 페이지에서 최상위 폴더 이름은 사용자 이름입니다.  이 폴더를 선택합니다.
 
     > [!TIP]
-    > 이 폴더는 Notebook VM 자체가 아닌 작업 영역의 [스토리지 컨테이너](concept-workspace.md#resources)에 있습니다. Notebook VM을 삭제하고 모든 작업을 그대로 유지할 수 있습니다. 나중에 새 Notebook VM를 만들면 이 동일한 폴더가 로드됩니다. 자신의 작업 영역을 다른 사용자와 공유하면 해당 사용자에게 해당 폴더가 표시되고 자신에게도 해당 사용자의 폴더가 표시됩니다.
+    > 이 폴더는 Notebook VM 자체가 아닌 작업 영역의 [스토리지 컨테이너](concept-workspace.md#resources)에 있습니다.  Notebook VM을 삭제하고 모든 작업을 그대로 유지할 수 있습니다.  나중에 새 Notebook VM를 만들면 이 동일한 폴더가 로드됩니다. 자신의 작업 영역을 다른 사용자와 공유하면 해당 사용자에게 해당 폴더가 표시되고 자신에게도 해당 사용자의 폴더가 표시됩니다.
 
 1. `samples-*` 하위 디렉터리를 연 다음, `tutorials/tutorial-1st-experiment-sdk-train.ipynb`를 열어 자습서의 **2부**를 실행합니다.
 

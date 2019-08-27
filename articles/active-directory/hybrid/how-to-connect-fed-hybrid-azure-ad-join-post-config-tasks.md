@@ -16,19 +16,19 @@ ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9af969700f4f2dfbedc4833badd7e7349696302
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 39e76abcac94a877e6bc7ea5c417c77c8c2febff
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60244588"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70032691"
 ---
 # <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>하이브리드 Azure AD 조인 구성 후 작업
 
 Azure AD Connect를 실행하여 하이브리드 Azure AD 조인에 대한 조직을 구성한 후 설정을 완료하기 위해 해야 할 몇 가지 추가 단계가 있습니다.  사용하는 디바이스에 적용되는 단계만 수행하면 됩니다.
 
 ## <a name="1-configure-controlled-rollout-optional"></a>1. 제어된 롤아웃 구성(선택 사항)
-Windows 10 및 Windows Server 2016을 실행하는 모든 도메인 조인 디바이스는 모든 구성 단계가 완료되면 자동으로 Azure AD에 등록됩니다. 이 자동 등록보다 제어된 롤아웃을 선호하는 경우 그룹 정책을 사용하여 자동 롤아웃을 선택적으로 사용하거나 사용하지 않을 수 있습니다.  이 그룹 정책은 다른 구성 단계를 시작하기 전에 설정해야 합니다. Azure AD
+Windows 10 및 Windows Server 2016을 실행하는 모든 도메인 조인 디바이스는 모든 구성 단계가 완료되면 자동으로 Azure AD에 등록됩니다. 이 자동 등록보다 제어된 롤아웃을 선호하는 경우 그룹 정책을 사용하여 자동 롤아웃을 선택적으로 사용하거나 사용하지 않을 수 있습니다.  이 그룹 정책은 다른 구성 단계를 시작 하기 전에 설정 해야 합니다.
 * Active Directory에서 그룹 정책 개체를 만듭니다.
 * 이름을 지정합니다(예: 하이브리드 Azure AD 조인).
 * 편집 후  컴퓨터 구성 > 정책 > 관리 템플릿 > Windows 구성 요소 > 디바이스 등록으로 이동합니다.

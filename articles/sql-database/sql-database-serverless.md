@@ -7,16 +7,16 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: oslake
+author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 07/05/2019
-ms.openlocfilehash: 67e877609eec98e7100b34ab477dbab7c5577772
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.date: 08/26/2019
+ms.openlocfilehash: 418ca6f8d6258b826bb126252d7cf7b1c5fee299
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515288"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035716"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>서버를 사용 하지 않는 Azure SQL Database (미리 보기)
 
@@ -136,7 +136,7 @@ Autopausing는 데이터베이스를 온라인 상태로 만들어야 하는 일
 |데이터베이스 복사|복사본으로 데이터베이스를 만듭니다.<br>BACPAC 파일로 내보냅니다.|
 |SQL 데이터 동기화|구성 가능한 예약에 따라 실행되거나 수동으로 수행되는 허브 및 멤버 데이터베이스 간의 동기화|
 |특정 데이터베이스 메타데이터 수정|새 데이터베이스 태그를 추가 하 고 있습니다.<br>최대 vCores, min vCores 또는 autopause delay를 변경 합니다.|
-|SSMS(SQL Server Management Studio)|SSMS 버전 18을 사용하고 서버의 데이터베이스에 대한 새 쿼리 창을 열면 동일한 서버에서 자동으로 일시 중지된 데이터베이스가 다시 시작됩니다. IntelliSense가 해제된 SSMS 버전 17.9.1을 사용하는 경우 이 동작이 수행되지 않습니다.|
+|SSMS(SQL Server Management Studio)|18.1 이전의 SSMS 버전을 사용 하 고 서버의 모든 데이터베이스에 대 한 새 쿼리 창을 열면 동일한 서버에서 자동으로 일시 중지 된 데이터베이스를 다시 시작 합니다. SSMS 버전 18.1 이상을 사용 하는 경우에는이 동작이 발생 하지 않습니다.|
 
 Autoresuming는 데이터베이스를 온라인 상태로 만들어야 하는 일부 서비스 업데이트를 배포 하는 동안에도 트리거됩니다.
 

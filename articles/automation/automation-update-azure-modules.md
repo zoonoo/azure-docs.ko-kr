@@ -9,18 +9,18 @@ ms.author: robreed
 ms.date: 06/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a42fae4e7ff9ba9edc29c64480983987e41cf9c1
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: a71eb00ce4d4ace6ccc17e050946b39debed929c
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476792"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034894"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Azure Automation에서 Azure PowerShell 모듈을 업데이트하는 방법
 
-사용 해야 합니다. Automation 계정에서 Azure 모듈을 업데이트 하는 [업데이트 Azure 모듈 runbook](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update), 오픈 소스로 사용할 수 있는 합니다. **Update-AutomationAzureModulesForAccount** Runbook을 사용하여 Azure 모듈을 업데이트하려면 GitHub의 [Azure 모듈 Runbook 리포지토리 업데이트](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update)에서 다운로드합니다. 그런 다음, Automation 계정으로 가져오거나 스크립트로 실행할 수 있습니다. Automation 계정에서 runbook을 가져오는 방법에 알아보려면 참조 [runbook을 가져오려면](manage-runbooks.md#import-a-runbook)합니다.
+Automation 계정에서 Azure 모듈을 업데이트 하려면 오픈 소스로 사용할 수 있는 [azure 모듈 업데이트 runbook](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update)을 사용 해야 합니다. **Update-AutomationAzureModulesForAccount** Runbook을 사용하여 Azure 모듈을 업데이트하려면 GitHub의 [Azure 모듈 Runbook 리포지토리 업데이트](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update)에서 다운로드합니다. 그런 다음, Automation 계정으로 가져오거나 스크립트로 실행할 수 있습니다. Automation 계정에서 runbook을 가져오는 방법을 알아보려면 [Runbook 가져오기](manage-runbooks.md#import-a-runbook)를 참조 하세요.
 
-가장 일반적인 AzureRM PowerShell 모듈은 각 Automation 계정에서 기본적으로 제공 됩니다. Azure 팀은 Azure 모듈을 정기적으로 업데이트, 따라서를 최신 상태로 유지 하는 사용 하려는 합니다 [업데이트 AutomationAzureModulesForAccount](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update) runbook을 Automation 계정에서 모듈을 업데이트 합니다.
+가장 일반적인 AzureRM PowerShell 모듈은 각 Automation 계정에 기본적으로 제공 됩니다. Azure 팀이 Azure 모듈을 정기적으로 업데이트 하므로 최신 상태를 유지 하려면 [AutomationAzureModulesForAccount](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update) runbook을 사용 하 여 Automation 계정의 모듈을 업데이트 합니다.
 
 제품 그룹에 의해 정기적으로 모듈이 업데이트되므로 포함된 cmdlet이 변경될 수 있습니다. 이 작업은 매개 변수 이름을 바꾸거나 cmdlet을 완전히 중단하는 등 변경 형식에 따라 Runbook에 부정적인 영향을 줄 수 있습니다.
 
@@ -31,15 +31,18 @@ ms.locfileid: "67476792"
 > [!NOTE]
 > 새 자동화 계정에 최신 모듈이 없을 수도 있습니다.
 
+> [!NOTE]
+> Automation에서 제공 하는 전역 모듈 모듈은 삭제할 수 없습니다.
+
 ## <a name="considerations"></a>고려 사항
 
 다음은 이 프로세스를 사용하여 Azure 모듈을 업데이트할 때 고려해야 하는 몇 가지 사항입니다.
 
-* 이 runbook 업데이트를 지원 합니다 **Azure** 하 고 **AzureRm** 기본적으로 모듈입니다. 이 runbook 업데이트를 지원 합니다 **Az** 모듈입니다. 검토 합니다 [Azure 모듈 runbook 추가 정보](https://github.com/microsoft/AzureAutomation-Account-Modules-Update/blob/master/README.md) 업데이트 하는 방법은 `Az` 이 runbook 사용 하 여 모듈입니다. 사용 하는 경우 고려해 야 할 다른 중요 한 요소를 가지는 `Az` 자세한 내용은 Automation 계정의 모듈 참조 [Automation 계정에서 사용 하 여 Az 모듈](az-modules.md)합니다.
+* 이 runbook은 기본적으로 **Azure** 및 **AzureRm** 모듈의 업데이트를 지원 합니다. 이 runbook은 **Az** modules의 업데이트도 지원 합니다. 이 runbook을 사용 하 여 모듈을 업데이트 하 `Az` 는 방법에 대 한 자세한 내용은 [Azure 모듈 runbook 업데이트 추가](https://github.com/microsoft/AzureAutomation-Account-Modules-Update/blob/master/README.md) 정보를 검토 하세요. Automation 계정에서 `Az` 모듈을 사용 하는 경우 고려해 야 할 중요 한 추가 요소가 있습니다. 자세한 내용은 [automation 계정에서 Az modules 사용](az-modules.md)을 참조 하세요.
 
 * 이 Runbook을 시작하기 전에 Automation 계정에 [Azure 실행 계정 자격 증명](manage-runas-account.md)이 만들어져 있는지 확인합니다.
 
-* Runbook 대신 PowerShell 스크립트를 정기적으로이 코드를 사용할 수 있습니다: 사용 하 여 Azure에 로그인 합니다 [Connect-azurermaccount](/powershell/module/azurerm.profile/connect-azurermaccount) 먼저 명령을 사용한 다음 전달 `-Login $false` 스크립트입니다.
+* 이 코드를 runbook 대신 일반 PowerShell 스크립트로 사용할 수 있습니다. 먼저 [connect-azurermaccount](/powershell/module/azurerm.profile/connect-azurermaccount) 명령을 사용 하 여 Azure에 로그인 한 다음 스크립트에 전달 `-Login $false` 하면 됩니다.
 
 * 소버린 클라우드에서 이 Runbook을 사용하려면 `AzureRmEnvironment` 매개 변수를 사용하여 올바른 환경을 Runbook에 전달합니다.  허용되는 값은 **AzureCloud**, **AzureChinaCloud**, **AzureGermanCloud** 및 **AzureUSGovernment**입니다. `Get-AzureRmEnvironment | select Name`을 사용하여 이러한 값을 가져올 수 있습니다. 이 매개 변수에 값을 전달하지 않으면 Runbook이 기본적으로 **AzureCloud** Azure 퍼블릭 클라우드로 설정됩니다.
 
@@ -48,7 +51,7 @@ ms.locfileid: "67476792"
 
 ## <a name="known-issues"></a>알려진 문제
 
-0부터 시작 하는 숫자 이름의 리소스 그룹에 있는 Automation 계정에는 AzureRM 모듈을 업데이트 하는 알려진된 문제가 있습니다. Automation 계정에서 Azure 모듈 업데이트에 영숫자 이름을 가진 리소스 그룹에 이어야 합니다. 0부터 시작 하는 숫자 이름의 리소스 그룹에 AzureRM 모듈을 업데이트할 수 없는 합니다.
+숫자 이름이 0으로 시작 하는 리소스 그룹에 있는 Automation 계정에서 AzureRM 모듈을 업데이트 하는 것과 관련 된 알려진 문제가 있습니다. Automation 계정에서 Azure 모듈을 업데이트 하려면 영숫자 이름이 있는 리소스 그룹에 있어야 합니다. 숫자 이름이 0부터 시작 하는 리소스 그룹은 현재 AzureRM 모듈을 업데이트할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

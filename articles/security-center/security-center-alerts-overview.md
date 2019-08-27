@@ -12,30 +12,77 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 8/20/2019
+ms.date: 8/25/2019
 ms.author: v-mohabe
-ms.openlocfilehash: d905096432c6e05e5386631480e5cc45b5c890c5
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 1a3ce29750351d6037b376ebb93eb73e141c0727
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013290"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70047576"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Azure Security Center의 보안 경고
 
-Azure Security Center에는 다양 한 리소스 종류에 대 한 다양 한 경고가 있습니다. Security Center는 Azure에 배포 된 리소스에 대 한 경고를 생성 하 고 온-프레미스 및 하이브리드 클라우드 환경에 배포 된 리소스에 대 한 경고를 생성 합니다. 
+Azure Security Center에는 다양 한 리소스 유형에 대 한 다양 한 경고가 있습니다. Security Center는 Azure에 배포 된 리소스에 대 한 경고를 생성 하 고 온-프레미스 및 하이브리드 클라우드 환경에 배포 된 리소스에 대 한 경고를 생성 합니다.
+
+고급 검색은 Azure Security Center의 표준 계층에서 제공됩니다. 평가판을 사용할 수 있습니다. [보안 정책](security-center-pricing.md)의 가격 책정 계층 선택에서 업그레이드할 수 있습니다. 가격 책정에 대한 자세한 내용은 [보안 센터 페이지](https://azure.microsoft.com/pricing/details/security-center/) 를 방문하세요.
+
+## 오늘날의 위협 <a name="respond-threats"></a> 에 대응
+
+지난 20년 동안 위협 환경에 중요한 변경 내용이 있었습니다. 과거에 회사는 일반적으로 "자신의 능력"을 확인하는 데 주로 관심이 있던 개별 공격자에 의한 웹 사이트 파손에 대해서만 걱정했습니다. 오늘날의 공격자는 훨씬 더 정교하며 조직적입니다. 특정 금융 및 전략적 목표가 있는 경우가 많습니다. 또한 국가 또는 조직 범죄로 자금 지원을 받으므로 더 많은 사용 가능한 리소스가 있습니다.
+
+이러한 변경 현실에는 공격자 순위에 대 한 전례 없는 수준의 전문성이 있습니다. 공격자는 더 이상 웹 손상에 관심이 없습니다. 이제 정보, 금융 계정 및 개인 데이터를 도용 하는 데 관심이 있습니다 .이는 모두 오픈 시장에서 현금을 생성 하거나 특정 비즈니스, 정치적 또는 군사 위치를 활용 하는 데 사용할 수 있습니다. 재무 목표를 가진 공격자보다 더욱 걱정되는 것은 인프라 및 사용자에게 해를 입히기 위해 네트워크를 위반하는 공격자입니다.
+
+이에 대한 응답으로 조직은 종종 알려진 공격 서명을 검색하여 엔터프라이즈 경계 또는 엔드포인트 방어에 집중하는 다양한 지점 솔루션을 배포합니다. 이러한 솔루션은 보안 분석가에게 심사 및 조사를 요구하는 대용량의 낮은 신뢰 경고를 생성하는 경향이 있습니다. 대부분의 조직은 이러한 경고에 응답하는 데 필요한 시간 및 전문 지식이 부족하므로 많은 경고가 해결되지 않습니다.  
+
+또한 공격자는 다양 한 서명 기반 방어를 방해할 [클라우드 환경에 맞게 조정](https://azure.microsoft.com/blog/detecting-threats-with-azure-security-center/)하는 방법을 발전 하 고 있습니다. 새로운 위협 요소를 보다 신속하게 식별하고 감지 및 대응을 신속하게 처리하기 위해 새로운 접근 방식이 필요합니다.
 
 ## <a name="what-are-security-alerts"></a>보안 경고란?
 
-경고는 리소스에 대 한 위협을 검색할 때 Security Center에서 생성 하는 알림입니다. 문제를 신속 하 게 조사 하는 데 필요한 정보와 함께 경고를 우선 순위를 정하여 나열 합니다. Security Center는 공격을 해결 하는 방법에 대 한 권장 사항도 제공 합니다.
+경고는 리소스에 대 한 위협을 검색할 때 Security Center에서 생성 하는 알림입니다. Security Center 우선 순위를 정하여 문제를 신속 하 게 조사 하는 데 필요한 정보와 함께 경고를 나열 합니다. Security Center는 공격을 해결 하는 방법에 대 한 권장 사항도 제공 합니다.
 
-## <a name="how-does-security-center-detect-threats"></a>는 어떻게 위협을 Security Center 검색 하나요?
+## 는 어떻게 위협을 Security Center 검색 하나요? <a name="detect-threats"> </a>
+
+Microsoft 보안 연구원은 지속적으로 위협을 지켜보고 있습니다. 클라우드 및 온-프레미스에 Microsoft의 글로벌 거점가 있기 때문에 광범위 한 원격 분석 집합에 액세스할 수 있습니다. 광범위 하 고 다양 한 데이터 집합 컬렉션을 통해 온-프레미스 소비자 및 엔터프라이즈 제품 뿐만 아니라 해당 온라인 서비스 새로운 공격 패턴 및 추세를 검색할 수 있습니다. 결과적으로 보안 센터는 공격자가 새롭고 더욱 정교한 악용을 릴리스하는 동안 신속하게 해당 감지 알고리즘을 업데이트할 수 있습니다. 이 방법을 통해 빠르게 움직이는 위협 환경을 지속적으로 관리할 수 있습니다.
 
 실제 위협을 검색 하 고 가양성을 줄이기 위해 Azure 리소스와 네트워크의 로그 데이터를 수집, 분석 및 통합 Security Center 합니다. 또한 방화벽 및 끝점 보호 솔루션과 같은 연결 된 파트너 솔루션 에서도 작동 합니다. Security Center는이 정보를 분석 하 여 여러 원본의 정보를 상호 연결 하 여 위협을 식별 하는 경우가 많습니다.
 
-Security Center는 모든 환경에서 리소스를 모니터링할 수 있습니다. 위협 검색 및 대응에 대 한 자세한 내용은 [Security Center 검색 하 고 위협에 대응 하는 방법](security-center-detection-capabilities.md#asc-detects)을 참조 하세요.
+![보안 센터 데이터 수집 및 프레젠테이션](./media/security-center-alerts-overview/security-center-detection-capabilities.png)
 
-## <a name="security-alert-types"></a>보안 경고 유형
+보안 센터는 서명 기반 방식을 뛰어 넘는 고급 보안 분석을 사용합니다. 수동 접근 방법을 사용하고 공격의 발전을 예측하여 식별할 수 없는 위협을 감지하도록 전체 클라우드 패브릭에 대한 이벤트를 평가하는 데 빅 데이터 및 [기계 학습](https://azure.microsoft.com/blog/machine-learning-in-azure-security-center/) 기술의 돌파구를 활용합니다. 이러한 보안 분석은 다음과 같습니다.
+
+* **통합된 위협 인텔리전스**: Microsoft 제품 및 서비스, microsoft DCU (Digital Crimes Unit), MSRC (Microsoft 보안 대응 센터) 및 외부 피드의 글로벌 위협 인텔리전스를 활용 하 여 알려진 잘못 된 행위자를 찾습니다.
+* **동작 분석**: 알려진 패턴을 적용하여 악의적인 동작을 검색합니다.
+* **변칙 탐지**: 통계적 프로파일링을 사용하여 기록 초기 계획을 작성합니다. 잠재적 공격 벡터를 준수하는 설정된 기준에서 편차에 대해 경고합니다.
+
+다음 항목에서는 이러한 각 분석에 대해 자세히 설명 합니다.
+
+### <a name="integrated-threat-intelligence"></a>통합 위협 인텔리전스
+
+Microsoft는 방대한 글로벌 위협 인텔리전스가 있습니다. 원격 분석은 Azure, Office 365, Microsoft CRM online, Microsoft Dynamics AX, outlook.com, MSN.com, Microsoft DCU(Digital Crimes Unit) 및 MSRC(Microsoft 보안 대응 센터)와 같은 여러 소스에서 이동합니다. 또한 연구원은 제 3자의 위협 인텔리전스 피드에 대해 주요 클라우드 서비스 공급자와 구독자 사이에서 공유되는 위협 인텔리전스 정보를 받습니다. Azure Security Center는 이 정보를 사용하여 알려진 부정 행위자의 위협을 경고할 수 있습니다.
+
+### <a name="behavioral-analytics"></a>동작 분석
+
+동작 분석은 알려진 패턴의 컬렉션에 대해 데이터를 분석하고 비교하는 기술입니다. 그러나 이러한 패턴은 단순한 서명이 아닙니다. 대량 데이터 세트에 적용되는 복잡한 기계 학습 알고리즘을 통해 결정됩니다. 또한 전문 분석가가 악의적인 행동을 신중하게 분석하여 결정합니다. Azure Security Center는 동작 분석을 사용하여 가상 머신 로그, 가상 네트워크 디바이스 로그, 패브릭 로그, 크래시 덤프 및 기타 소스의 분석에 따라 손상된 리소스를 식별할 수 있습니다.
+
+또한 광범위한 캠페인의 증거 지원을 확인하는 다른 신호와의 상관 관계가 있습니다. 이 상관 관계를 통해 설정된 손상 표시기와 일치하는 이벤트를 식별할 수 있습니다. 
+
+### <a name="anomaly-detection"></a>변칙 검색
+
+Azure Security Center는 이상 감지를 사용하여 위협을 식별합니다. 동작 분석(큰 데이터 집합에서 파생된 알려진 패턴에 따라 결정)과 달리 이상 감지는 더욱 "개인화"되고 배포에만 적용되는 기준에 중점을 둡니다. 배포에 대한 정상적인 작동을 확인하기 위해 기계 학습이 적용되고 보안 이벤트를 표시할 수 있는 이상값 조건을 정의하는 규칙이 생성됩니다.
+
+## <a name="continuous-monitoring-and-assessments"></a>연속 모니터링 및 평가
+
+Microsoft 전체에서 위협 환경의 변화를 지속적으로 모니터링 하는 보안 연구 및 데이터 과학 팀을 포함 하는 것이 Azure Security Center 이점이 있습니다. 다음 이니셔티브가 포함됩니다.
+
+* **위협 인텔리전스 모니터링**: 위협 인텔리전스에는 기존 또는 새로운 위협에 대한 메커니즘, 표시기, 영향 및 조치 가능한 조언이 포함됩니다. 이 정보는 보안 커뮤니티에서 공유되고 Microsoft는 내부 및 외부 소스에서 위협 인텔리전스 피드를 지속적으로 모니터링합니다.
+* **신호 공유**: Microsoft의 클라우드 및 온-프레미스 서비스, 서버 및 클라이언트 엔드포인트 디바이스의 광범위한 포트폴리오에 대한 보안 팀의 인사이트를 공유하고 분석합니다.
+* **Microsoft 보안 전문가**: 법정 분석 및 웹 공격 탐지와 같은 전문 보안 분야에서 Microsoft 팀과 지속적인 관계를 유지하며 활동합니다.
+* **탐지 튜닝**: 알고리즘은 실제 고객 데이터 세트에 대해 실행되며, 보안 연구원은 고객과 협력하여 결과의 유효성을 검사합니다. 기계 학습 알고리즘을 구체화하기 위해 참 및 거짓 긍정이 사용됩니다.
+
+이러한 결합된 노력은 즉시 활용할 수 있는 새롭고 향상된 감지에 누적됩니다. 수행해야 할 작업이 없습니다.
+
+## 보안 경고 유형 <a name="security-alert-types"></a>
 
 다음 항목에서는 리소스 유형에 따라 다양 한 경고를 안내 합니다.
 
@@ -53,25 +100,6 @@ Security Center는 모든 환경에서 리소스를 모니터링할 수 있습�
 보안 인시던트는 각 경고를 개별적으로 나열 하는 대신 관련 된 경고의 컬렉션입니다. Security Center는 [클라우드 스마트 경고 상관 관계](security-center-alerts-cloud-smart.md) 를 사용 하 여 서로 다른 경고와 낮은 충실도 신호의 상관 관계를 보안 인시던트에 연결 합니다.
 
 인시던트를 사용 하 여 공격 캠페인 및 모든 관련 경고에 대 한 단일 보기를 제공 Security Center 합니다. 이 보기에서는 공격자가 수행한 작업과 영향을 받는 리소스를 빠르게 파악할 수 있습니다. 자세한 내용은 [클라우드 스마트 경고 상관 관계](security-center-alerts-cloud-smart.md)를 참조 하세요.
-
-## <a name="get-started-with-alerts"></a>경고 시작
-
-Security Center에서 모니터링 하는 리소스에 대해 자세히 이해 하 고 표시 되는 경고에 응답 하는 방법에 대 한 지침을 제공 하는 문서는 다음과 같습니다.
-
-* [Azure Security Center에서 지원하는 기능 및 플랫폼](security-center-os-coverage.md)  
-* [Azure Security Center에서 보안 인시던트를 처리 하는 방법](security-center-incident.md) 
-* [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md)
-* [Azure Security Center에서 경고 유효성 검사](security-center-alert-validation.md)  
-
-
-## <a name="upgrade-to-standard-for-advanced-detections"></a>고급 검색에 대 한 표준으로 업그레이드
-
-고급 감지를 설정하려면 Azure Security Center 표준으로 업그레이드합니다. 
-
-1. **Security Center** 메뉴에서 **보안 정책**을 선택 합니다.
-2. 표준 계층으로 이동 하려는 구독의 경우 **설정 편집**을 선택 합니다. 
-3. 설정 페이지에서 **가격 책정 계층**을 선택 합니다. 
-   한 달 동안 무료 평가판을 사용할 수 있습니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 

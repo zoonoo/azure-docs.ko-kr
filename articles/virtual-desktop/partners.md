@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: helohr
-ms.openlocfilehash: 6fe2e63138ce9e0f4e8980e4f37330228ac2bdb6
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: bd5ec1e75fa1669b0ca33e4cb4629793b09a9bad
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68369495"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036132"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Windows 가상 데스크톱 파트너 통합
 
@@ -82,7 +82,7 @@ ThinPrint는 Windows 가상 데스크톱에서 간단 하 고 안전한 클라�
 ThinPrint 's ezeep 솔루션은 기존 엔터프라이즈 인쇄 인프라에 대 한 연결을 사용 하도록 설정 하 여 Windows 가상 데스크톱의 가치를 확장 합니다. ezeep를 통해 사용자는 어디에 있든 상관 없이 기업에서 인쇄를 제어할 수 있습니다. Ezeep를 사용 하 여 사용자는 Windows 가상 데스크톱 및 인쇄 하드웨어 간의 차이를 확인할 수 있습니다.
 
 - [공동 솔루션 brief를 참조 하세요.](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oYas)
-- [파트너 웹 사이트로 이동 합니다.](http://www.ezeep.com/wvd-printing)
+- [파트너 웹 사이트로 이동 합니다.](https://www.ezeep.com/wvd-printing)
 
 ## <a name="workspot"></a>Workspot
 

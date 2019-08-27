@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: d34040722ac8793fd4bbb02f2d3fa59247f8267c
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
-ms.translationtype: HT
+ms.openlocfilehash: 9b4e7ce714d0a1f65e0a35b9c493e99200c668c6
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639626"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034858"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Azure 활동 로그를 storage 또는 Azure Event Hubs로 내보내기
 Azure [활동 로그](activity-logs-overview.md) 는 azure 구독에서 발생 한 구독 수준 이벤트에 대 한 통찰력을 제공 합니다. Azure Portal에서 활동 로그를 보거나 Azure Monitor에서 수집 된 다른 데이터를 사용 하 여 분석할 수 있는 Log Analytics 작업 영역으로 복사 하는 것 외에도 활동 로그를 Azure storage 계정에 보관 하는 로그 프로필을 만들거나  이벤트 허브.
@@ -26,7 +26,7 @@ Azure [활동 로그](activity-logs-overview.md) 는 azure 구독에서 발생 �
 * **타사 로깅 및 원격 분석 시스템으로 스트리밍**: 시간이 지나면서 Azure Event Hubs 스트리밍은 활동 로그를 타사 SIEM 및 로그 분석 솔루션으로 파이핑하기 위한 메커니즘이 되고 있습니다.
 * **사용자 지정 원격 분석 및 로깅 플랫폼 빌드**: 사용자 지정 빌드 원격 분석 플랫폼이 이미 있거나 플랫폼 빌드에 대해 생각하고 있는 경우 Event Hubs의 확장성 높은 게시-구독 특성을 통해 활동 로그를 유연하게 수집할 수 있습니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 ### <a name="storage-account"></a>Storage 계정
 활동 로그를 보관 하는 경우 [저장소 계정을 만들어야](../../storage/common/storage-quickstart-create-account.md) 합니다 (아직 없는 경우). 모니터링 데이터에 대 한 액세스를 더 잘 제어할 수 있도록 다른 모니터링 되지 않는 데이터가 저장 되어 있는 기존 저장소 계정을 사용해 서는 안 됩니다. 그러나 진단 로그 및 메트릭을 저장소 계정에 보관 하는 경우에도 동일한 저장소 계정을 사용 하 여 모든 모니터링 데이터를 중앙 위치에 유지 하도록 선택할 수 있습니다.
@@ -55,7 +55,7 @@ Azure [활동 로그](activity-logs-overview.md) 는 azure 구독에서 발생 �
 
 **내보내려는 영역 (위치)입니다.** 활동 로그의 많은 이벤트가 글로벌 이벤트 이므로 모든 위치를 포함 해야 합니다.
 
-**저장소 계정에 활동 로그를 보존 해야 하는 기간입니다.** 보존 기간이 0일이라는 것은 로그가 영원히 보관된다는 의미입니다. 그렇지 않은 경우 값은 1에서 2147483647 사이의 숫자일 수 있습니다.
+**저장소 계정에 활동 로그를 보존 해야 하는 기간입니다.** 보존 기간이 0일이라는 것은 로그가 영원히 보관된다는 의미입니다. 그렇지 않으면 값은 1에서 365 사이의 일 수 있습니다.
 
 보존 정책이 설정 되었지만 저장소 계정에 로그를 저장 하지 않은 경우 보존 정책은 적용 되지 않습니다. 보존 정책은 매일 적용되므로 하루의 마지막에(UTC) 보존 정책이 지난 날의 로그가 삭제됩니다. 예를 들어, 하루의 보존 정책이 있는 경우 오늘 날짜가 시작될 때 하루 전의 로그가 삭제됩니다. 삭제 프로세스는 자정(UTC)에 시작되지만, 스토리지 계정에서 로그가 삭제될 때까지 최대 24시간이 걸릴 수 있습니다.
 
@@ -111,13 +111,13 @@ Azure Portal에서 **이벤트 허브로 내보내기** 옵션을 사용 하 여
     Add-AzLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
     ```
 
-    | 속성 | 필수 | 설명 |
+    | 속성 | 필수 | Description |
     | --- | --- | --- |
     | 이름 |예 |로그 프로필의 이름입니다. |
     | StorageAccountId |아니요 |활동 로그를 저장 해야 하는 저장소 계정의 리소스 ID입니다. |
     | serviceBusRuleId |아니요 |이벤트 허브를 만들 Service Bus 네임스페이스의 Service Bus 규칙 ID입니다. 형식으로 된 문자열입니다 `{service bus resource ID}/authorizationrules/{key name}`. |
     | 위치 |예 |활동 로그 이벤트를 수집할 쉼표로 구분된 지역 목록입니다. |
-    | RetentionInDays |예 |저장소 계정에서 이벤트를 보존 해야 하는 기간 (일)입니다 (1에서 2147483647 사이). 0 값은 로그를 무기한 저장합니다. |
+    | RetentionInDays |예 |저장소 계정에서 이벤트를 보존 해야 하는 기간 (일)입니다 (1에서 365 사이). 0 값은 로그를 무기한 저장합니다. |
     | 범주 |아니요 |수집할 쉼표로 구분된 이벤트 범주 목록입니다. 가능한 값은 _쓰기_, _삭제_및 _동작_입니다. |
 
 ### <a name="example-script"></a>예제 스크립트
@@ -225,7 +225,7 @@ Azure storage 또는 Event Hub로 전송 되는 경우 활동 로그 데이터�
 ```
 이 JSON의 요소는 다음 표에 설명 되어 있습니다.
 
-| 요소 이름 | 설명 |
+| 요소 이름 | Description |
 | --- | --- |
 | time |이벤트에 해당하는 요청을 처리한 Azure 서비스에 의해 이벤트가 생성된 타임스탬프입니다. |
 | resourceId |영향을 받는 리소스의 리소스 ID입니다. |
